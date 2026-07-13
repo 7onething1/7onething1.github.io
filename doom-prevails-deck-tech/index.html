@@ -1,0 +1,92 @@
+<!doctype html>
+<html lang="en"><head><meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Doom Prevails: A Dead-Draw Audit</title>
+<meta name="description" content="Reducing dead draws through synergy, worked all the way through the Doom Prevails Marvel Commander precon and its real upgrade swaps.">
+<meta name="keywords" content="Doom Prevails, Doctor Doom Commander, Loki the Deceiver, dead draws, synergy deckbuilding, Marvel Super Heroes Commander, EDH upgrades, Grixis villains">
+<style>
+  :root{--cream:#f4ecd8;--ink:#1c1a17;--rust:#b5533b;--teal:#3f7c78;--gold:#c98a2b;--olive:#7d7a3a;--line:#d9cdb0;--plum:#7b4b8a;}
+  *{box-sizing:border-box}
+  body{margin:0;background:var(--cream);color:var(--ink);font-family:'Inter',system-ui,-apple-system,Segoe UI,Roboto,sans-serif;line-height:1.62}
+  header{padding:46px 24px 10px;max-width:760px;margin:0 auto;text-align:center}
+  h1{font-family:'Cormorant Garamond',Georgia,serif;font-size:2.7rem;margin:.15em 0;color:var(--ink);line-height:1.1}
+  .sub{color:var(--olive);font-weight:600;max-width:640px;margin:8px auto 0}
+  .nav{margin:14px auto 0;font-size:.9rem}
+  .nav a{color:var(--teal);font-weight:700;text-decoration:none;margin:0 8px}
+  main{max-width:760px;margin:0 auto;padding:12px 22px 90px}
+  article h2{font-family:'Cormorant Garamond',serif;font-size:1.7rem;color:var(--rust);margin:34px 0 8px}
+  article p{margin:0 0 14px;font-size:1.04rem}
+  .lead{font-size:1.12rem;color:#33302a}
+  .cardfig{float:right;width:180px;max-width:38vw;margin:4px 0 14px 20px}
+  .cardfig img{width:100%;border-radius:9px;box-shadow:0 3px 12px rgba(0,0,0,.22)}
+  .cardfig figcaption{font-size:.76rem;color:var(--olive);text-align:center;margin-top:5px;font-weight:600}
+  .swapline{margin:10px 0;padding:9px 13px;background:#fbf5e6;border:1px solid var(--line);border-radius:9px;font-size:.96rem}
+  .swapline b{color:var(--rust)} .swapline .ar{color:var(--teal);font-weight:800}
+  .pull{border-left:4px solid var(--gold);padding:6px 0 6px 15px;margin:16px 0;font-family:'Cormorant Garamond',serif;font-size:1.35rem;color:#3f3b30}
+  .src{max-width:760px;margin:0 auto;padding:0 22px 40px;font-size:.82rem;color:var(--olive)}
+  .src a{color:var(--teal);font-weight:700}
+  .byline{max-width:760px;margin:10px auto 0;padding:0 22px;font-size:.8rem;color:var(--olive);font-style:italic;text-align:center}
+  .kid-only{display:none}
+  .kidbox{background:#e7efe0;border:1px solid var(--line);border-radius:10px;padding:12px 15px;margin:12px 0}
+  #kidfab{position:fixed;right:18px;bottom:18px;z-index:50;background:var(--rust);color:#fff;border:none;border-radius:40px;padding:14px 21px;font-size:1rem;font-weight:800;box-shadow:0 4px 14px rgba(0,0,0,.25);cursor:pointer}
+  body.kid{font-size:1.15rem}
+  body.kid .kid-only{display:block}
+  body.kid .lead{font-size:1.2rem}
+  @media(max-width:560px){.cardfig{float:none;width:150px;margin:0 auto 14px;display:block}}
+</style></head>
+<body>
+<header>
+  <h1>Doom Prevails: A Dead-Draw Audit</h1>
+  <div class="sub">The Grixis villains precon has two engines. Whether a game runs smooth or clunky comes down to how many of its cards actually feed them.</div>
+  <div class="nav"><a href="/salubrioussnail-marvel-edhrec/">EDHREC read</a> &middot; <a href="/loki-deceiver-deck-tech/">Loki deck tech</a> &middot; <a href="/salubrioussnail-doom-deaddraws/">the short version</a> &middot; <a href="/marvel-commander-rankings/">Marvel rankings</a></div>
+</header>
+<p class="byline">This Doom Prevails deck tech is written in Salubrious Snail's voice, applying his dead-draw method to the precon. Card images and text are from Scryfall; cut-and-add swaps from the Marvel rankings. Not authored or endorsed by Salubrious Snail.</p>
+<main>
+<article>
+
+<p class="lead">Every Commander deck draws cards it cannot use. Some of that is mana variance you will never fully fix, drawing a land when you wanted a spell or the reverse. The rest is a build problem, and the Doom Prevails precon is a clean place to watch it happen. The number of dead non-land draws a deck produces is set as you build it, long before you shuffle up, and this deck gives you two clear engines to measure every card against.</p>
+<div class="kidbox kid-only"><b>The short version.</b> A "dead draw" is a card you pull that does nothing for your deck. The Doom deck wants two things: throw away lands so Doctor Doom drains everyone, and copy villains with Loki. A card is good here if it helps one of those two things, and it is a dead draw if it helps neither. This page checks each card that way and shows the swaps that fix the misses.</div>
+
+<h2>The zero-dead-draw extreme</h2>
+<p>Picture a deck of thirty-five Swamps and sixty-four copies of one villain that gets bigger with each copy. It would never draw a dead card, because every nonland does the same job and stacks with the others. It would also do exactly one thing and fold the moment a board wipe resolves. That extreme is the ruler you measure against, and nobody should actually build it. What removes dead draws is cards that share a job and support each other, and the two questions that fall out of it are the whole method: what does a card accomplish on its own, and what else does it work with.</p>
+
+<h2>What Doom and Loki actually reward</h2>
+<figure class="cardfig"><img loading="lazy" src="https://cards.scryfall.io/normal/front/0/9/099ed408-9178-4403-8b2d-479ca3cbda9b.jpg?1782682664" alt="Doctor Doom, King of Latveria"><figcaption>Doctor Doom, King of Latveria</figcaption></figure>
+<p>Doom Prevails runs two synergy axes, and almost every good card in it touches at least one. Doctor Doom, King of Latveria drains each opponent for two whenever you discard a land, so anything that lets you pitch, loot, or rummage away lands feeds him directly. Loki, the Deceiver makes a copy of another Villain when he attacks and draws you a card whenever your Villains deal combat damage, so Villains worth copying and payoffs for connecting feed him.</p>
+<p>A card is live in this deck to the degree it covers one of those two axes. A card that covers neither is a candidate for the cut, no matter how strong it looks in a vacuum. That is the lens for the whole ninety-nine.</p>
+
+<h2>Reading a card by floor and synergy</h2>
+<figure class="cardfig"><img loading="lazy" src="https://cards.scryfall.io/normal/front/2/1/218ef931-46f5-4a4d-9f26-898a1ff8f70f.jpg?1782684816" alt="Green Goblin, Revenant"><figcaption>Green Goblin, Revenant</figcaption></figure>
+<p>Take Green Goblin, Revenant, one of the guide's upgrade adds. A flying deathtouch body is a fine attacker on its own, so it has a high floor and rarely does nothing. On top of that floor it carries draw and discard, which hands Doom a land to pitch, and it is a Villain worth copying with Loki. It covers both axes and stands on its own, which is the exact profile you want from a synergy piece.</p>
+<p>Now compare the card it replaces. Superior Foes of Spider-Man is a low-payoff piece that neither engine uses, so it is dead more often than not. The swap is a fit upgrade. You trade a card outside both engines for one that both engines want.</p>
+
+<div class="pull">The goal is not zero dead draws. That deck is the sixty-four-copy pile. The goal is a deck where most draws do something, most of the time.</div>
+
+<h2>The card that only sometimes works</h2>
+<figure class="cardfig"><img loading="lazy" src="https://cards.scryfall.io/normal/front/f/4/f4f16314-d2eb-4117-8b28-4404c82e7343.jpg?1782682101" alt="Kingpin, Wilson Fisk"><figcaption>Kingpin, Wilson Fisk</figcaption></figure>
+<p>Not every synergy card earns a slot. The trap is a card that only pays off once the commander is going, and does little otherwise. If it lives and dies with Loki, a single removal spell turns it into a blank. Kingpin, Wilson Fisk avoids that trap. He turns the tokens you sacrifice off Loki into Treasure, so he rewards a line the deck runs every turn anyway and still gives you mana on a slow one. He asks a question the deck answers on its own.</p>
+<p>The test is the one from the method. How often will this card be in a spot to help, and how much will it help when it is. A card that needs a specific board state to matter, and matters little without it, is a card you should be honest about before you sleeve it.</p>
+
+<h2>The upgrade swaps, read as one audit</h2>
+<p>Line up the guide's swaps and they are a single exercise: cut what neither engine uses, add what both engines want.</p>
+<div class="swapline"><b>Molecule Man</b> <span class="ar">to</span> <b>Kingpin, Wilson Fisk</b><br>A vanilla five-drop leaves for a Treasure engine off your sacrificed copies.</div>
+<div class="swapline"><b>Damocles Base, Sword of Kang</b> <span class="ar">to</span> <b>Sundial of the Infinite</b><br>An off-theme vehicle leaves for a piece that keeps a Loki copy past end of turn.</div>
+<div class="swapline"><b>Iron Monger, Sadistic Tycoon</b> <span class="ar">to</span> <b>Doctor Octopus, Master Planner</b><br>A card that only Doom wants leaves for card draw plus a Villain lord.</div>
+<div class="swapline"><b>Syphon Mind</b> <span class="ar">to</span> <b>Crimson Cowl, Master of Evil</b><br>Pure draw leaves for a repeatable Villain-token maker that feeds Loki.</div>
+<p>Nothing generically weak comes out. What comes out is whatever the discard and copy engines cannot use. That is the category audit doing its job.</p>
+
+<h2>Playing the specific cards responsibly</h2>
+<figure class="cardfig"><img loading="lazy" src="https://cards.scryfall.io/normal/front/3/6/36d3da9c-cb7a-4cea-b6e6-6722bd16c73c.jpg?1782714851" alt="Sundial of the Infinite"><figcaption>Sundial of the Infinite</figcaption></figure>
+<p>A few narrow cards are fine to run as long as you respect their windows. Sundial of the Infinite ends your turn to keep a Loki copy for good, which is a blowout on the turn the copy matters and a dead artifact on the turns it does not. You run one or two effects like that on purpose, and you play around their windows rather than pretending they are always live.</p>
+<p>Put the whole thing together and Doom Prevails stops feeling clunky once you file every card under the job it does and cut the ones that did no job here. You did not chase power. You aimed the deck at its own engines. The engines were always the point. The upgrade just made more of the deck point at them.</p>
+
+</article>
+</main>
+<div class="src">Deck data and cut/add swaps from the <a href="/marvel-commander-rankings/">Marvel Super Heroes Commander rankings</a>. Card images via Scryfall. Related: the <a href="/salubrioussnail-marvel-edhrec/">EDHREC Marvel read</a>, the <a href="/loki-deceiver-deck-tech/">Loki deck tech</a>, and the <a href="/salubrioussnail-doom-deaddraws/">short Doom read</a>. Written as a full worked example in Salubrious Snail's voice, grounded in his dead-draw method.</div>
+<button id="kidfab" onclick="toggleKid()">Kid Mode</button>
+<script>
+function toggleKid(){document.body.classList.toggle('kid');
+  var b=document.getElementById('kidfab');
+  b.textContent=document.body.classList.contains('kid')?'Normal Mode':'Kid Mode';}
+</script>
+</body></html>
