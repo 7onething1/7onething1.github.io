@@ -16,7 +16,7 @@ Live page: https://drwu-htmls.vercel.app/tchalla-black-panther-deck-tech
 | **Game plan** | Make Vibranium, cast four-plus-mana artifacts to stack counters, suit one Panther up, win with commander damage. |
 | **Ideal keep** | Two or three lands, a mana rock or dork, at least one four-mana artifact, and a cheap protection spell if the hand offers one. |
 | **First real attack** | Turn four or five, once he holds a piece of Equipment and you have a protection spell in hand. |
-| **Damage target** | The opponent with the fewest blockers and the lowest life. Trample plus eleven power closes them in two swings. |
+| **Damage target** | The opponent with the weakest blockers, the least instant-speed interaction, and the poorest recovery. Commander damage needs 21 from the Panther regardless of life, so a low life total only matters as a second, ordinary-damage route. |
 | **Power level** | Casual, an upgraded-precon deck around bracket two to three, well short of cEDH. |
 
 ## The token that fuels itself
@@ -41,7 +41,7 @@ The average EDHREC list (2,112 decks) settles into roughly **37 lands, 26 artifa
 
 Snail never covered this precon, so this applies his framework to the deck rather than reviewing his take on it. His question: a card can be powerful, mesh with the mechanics, and fix a weak spot, and still be the wrong include. A casual deck is casual on purpose. For Wakanda the target to optimize for is the Vibranium and counters identity, and three strong cards fight it.
 
-- **Coveted Jewel → Batterskull.** The headline swap, turning on risk rather than synergy. Coveted Jewel is great by rate and triggers T'Challa (MV6), but whoever hits you unblocked steals it and draws three. Batterskull also triggers the counters (MV5) and does the durable version: living weapon makes its own Germ body, so it stabilizes life and gives a second lifelink attacker with no equip cost. Be honest about its limit: it does **not** shield the Panther from exile, destruction, sacrifice, or bounce (that job belongs to the protection package). What it does is advance the counter plan without turning your combat step into someone else's card draw.
+- **Coveted Jewel → Batterskull.** The headline swap, turning on risk rather than synergy. Coveted Jewel is great by rate and triggers T'Challa (MV6), but whenever a creature attacks you unblocked, that player takes it and draws three (no combat damage required). Batterskull also triggers the counters (MV5) and does the durable version: living weapon makes its own Germ body, so it stabilizes life and gives a second lifelink attacker with no equip cost. Be honest about its limit: it does **not** shield the Panther from exile, destruction, sacrifice, or bounce (that job belongs to the protection package). What it does is advance the counter plan without turning your combat step into someone else's card draw.
 - **Sword of the Animist → Verdurous Gearhulk.** Judge by role rather than raw power. Sword costs two and misses the mana-value-four trigger, but it is still real ramp: each swing fetches a basic tapped, which pays for the expensive artifacts that *do* trigger T'Challa. Verdurous Gearhulk (artifact creature, MV5) triggers the commander for two counters and distributes four more on enter, so the counters stack twice from one card. Swap when your ramp count can spare it; keep the Sword if the curve is top-heavy.
 - **Gilded Lotus → Reprieve.** A tempo call, since Gilded Lotus does trigger the commander (MV5). Five mana that only makes mana is slow; Reprieve is two-mana insurance that returns a removal spell to its owner's hand and replaces itself, guarding your one big investment. Keep the Lotus if your ramp is still thin.
 
@@ -61,7 +61,7 @@ A one-threat deck lives or dies on whether that threat survives, so protection c
 
 - **Heroic Intervention (44%).** Two mana at instant speed, whole board gets indestructible and hexproof until end of turn. Beats targeted removal and the destroy-based wraths that make up most creature board wipes. Its limit: hexproof and indestructible do **not** stop untargeted exile or a forced sacrifice, so it is not a blanket answer. For those you want Teferi's Protection.
 - **Swiftfoot Boots (31%).** Cheap hexproof and haste; also an artifact, so it feeds Shuri and Dispatch.
-- **Teferi's Protection (20%).** The full reset. Phase out, dodge a wrath or combo turn, return with the Panther and counters intact.
+- **Teferi's Protection (20%).** The near-full reset. Phase out to dodge a wrath, a swing-back, and most permanent-based interaction. It does **not** answer every alternate win or a combo through another resource, so treat it as protection against attacks, removal, and sweepers rather than a blanket save.
 - **Reprieve** (the swap add). Two mana that bounces the removal spell targeting your commander and draws you a card.
 
 Set a target and count to it: **run eight to ten protection and interaction pieces** in the ninety-nine, split across instant saves (Heroic Intervention, Teferi's Protection, Reprieve), equipment-style guards (Swiftfoot Boots, Lightning Greaves), and one or two recovery tools for after a wipe. Below that count, a one-threat deck folds to the first removal spell. Most of your protection wants to be instant and cheap, the same shape as your removal. The board-wipe question answers itself: a destroy-based wrath leaves the Vibranium tokens and the indestructible Hammer-equipped Panther standing, so the wraths that scare this deck are exile and sacrifice. **Teferi's Protection** beats those by phasing your whole board out of the effect; **Heroic Intervention** covers the far more common destroy-based wraths and every targeted removal spell. They answer different threats, so run both.
@@ -76,7 +76,7 @@ One question per card: does it feed the Vibranium-and-counters plan, cash it int
 
 ## The exact upgrade package
 
-The category audit above is the theory. Below are the named packages, and the point to notice is the right-hand column: each swap answers one of Snail's own principles rather than the Draftsim guide's raw list. The wrong-choice cuts pull good cards that fight the deck's identity, the EDHREC-Effect read keeps cards that still work when T'Challa is gone, and the dead-draw test drops cards that do only one thing. Draftsim supplied the candidate pool; Snail's framework decided which candidates earn a slot. Prices are current Scryfall market, read 2026-07-13.
+The category audit above is the theory. Below are the named packages, and the point to notice is the right-hand column: each swap answers one of Snail's own principles rather than the Draftsim guide's raw list. The wrong-choice cuts pull good cards that fight the deck's identity, the EDHREC-Effect read keeps cards that still work when T'Challa is gone, and the dead-draw test drops cards that do only one thing. These are built from Draftsim's cut and add pools, then re-paired and reordered through our Voltron audit. Draftsim presents its own version as fixed one-to-one swaps, so the pairings and priority here are ours; read this as Draftsim's card candidates organized by Snail's framework, not Draftsim's exact packages. One straight substitution: **Swiftfoot Boots replaces Draftsim's Michiko's Reign of Truth** in the budget ten. Prices are current Scryfall market, read 2026-07-13.
 
 **Budget build, about $19 (start here):**
 
@@ -90,10 +90,10 @@ The category audit above is the theory. Below are the named packages, and the po
 | Ancestral Communion | Thought Vessel | on-plan: ramp that also raises artifact count |
 | Loyal Guardian | Avacyn's Pilgrim | curve: cheaper ramp toward the four-drops |
 | Heart-Shaped Herb | Harrow | dead-draw: narrow lifegain out, ramp and fixing in |
-| Overwhelming Stampede | Swiftfoot Boots | vibe: protect the threat over a win-more overrun |
+| Overwhelming Stampede | Swiftfoot Boots *(page pick, not Draftsim's)* | vibe: protect the threat over a win-more overrun |
 | Trading Post | Mystic Forge | on-plan: card advantage off your artifacts |
 
-Seven of the ten adds are artifacts, so the artifact count climbs from the precon's ~26 toward the low thirties, turning Shuri on earlier and keeping Dispatch's metalcraft live. Power level: solid upgraded precon, bracket two to three.
+Counted from the actual precon list, the stock deck runs **28 artifact cards on 38 lands**, not the 26 of the EDHREC average. Seven of the ten budget adds are artifacts against a few artifact cuts, so the budget build sits at **29 artifact cards** (holding the precon's density while upgrading quality); the focused twenty pushes it to **34**. Shuri and Dispatch's metalcraft stay live throughout. Power level: solid upgraded precon, bracket two to three.
 
 **Focused Voltron build, add these ten more, about $80 more:**
 
@@ -114,22 +114,22 @@ The second ten adds two Voltron swords, more artifact-creature payoffs, and a fi
 
 **The Snail asterisk on the two premium swords.** Shadowspear and Swordsman's Steel are the strongest cards on the whole list, and by Snail's own wrong-choice principle that is exactly the reason to pause. They are raw power, not identity: neither triggers the counters, and a casual Wakanda table does not need a $56 upgrade to have its fun. Run them to punch through a grindy pod, and leave them in the box with a clear conscience if the deck is for kitchen-table nights. The rest of the package carries the plan without them.
 
-**Resulting deck, focused build:**
+**Resulting deck, focused build**, counted card by card from the EDHREC Wakanda Forever precon decklist (Scryfall card types, read 2026-07-13) with the 20 swaps applied, not the EDHREC average:
 
 | Metric | Count |
 |---|---|
-| Artifacts in the 99 (past Shuri's six-artifact anthem on a normal draw) | ~31 |
-| Artifacts at mana value four (the counter-trigger sweet spot) | ~18 |
-| Protection and interaction pieces (the target) | 8 to 10 |
-| Ramp and acceleration sources | ~10 |
-| Lands | 37 |
+| Total cards (including the commander) | 100 |
+| Artifact cards (26 noncreature incl. 2 artifact lands, + 8 artifact creatures) | **34** |
+| Artifact spells at MV4+ (the counter fuel; 14 exactly four) | **26** |
+| Lands | 38 |
+| Protection and interaction pieces (recommended target) | 8 to 10 |
 | Add cost, full twenty (or ~$45 without the two premium swords) | ~$100 |
 
-Power level: upper casual, bracket three. Layer the protection package on top of either build and hold to the eight-to-ten protection count.
+That is 34 artifact cards on 38 lands, 26 of them heavy enough to fire T'Challa's counters, so Shuri's six-artifact threshold and Dispatch's metalcraft are rarely in doubt. Power level: upper casual, bracket three. Layer the protection package on top of either build and hold to the eight-to-ten protection count.
 
 ## Dead draw audit
 
-Snail's dead-draw test asks a card three things: what it accomplishes, what supports it, and whether that support turns up often enough to matter. A narrow payoff with too few enablers is a dead draw no matter how strong its ceiling. For T'Challa, three support numbers decide it: **~18 qualifying artifacts** (MV4+), **8 to 10 protection pieces**, and **~24 cards that still function on a commander-free turn**. Verdicts: core / supported / situational / cut.
+Snail's dead-draw test asks a card three things: what it accomplishes, what supports it, and whether that support turns up often enough to matter. A narrow payoff with too few enablers is a dead draw no matter how strong its ceiling. For T'Challa, three support numbers decide it, all counted from the finished list: **26 artifact spells at MV4+** that trigger the counters (23 already in the stock precon), **8 to 10 protection pieces**, and **~24 cards that still function on a commander-free turn**. Verdicts: core / supported / situational / cut.
 
 | Card | Primary job | Support behind it | Works without T'Challa? | Verdict |
 |---|---|---|---|---|
@@ -147,6 +147,21 @@ Snail's dead-draw test asks a card three things: what it accomplishes, what supp
 The core cards earn their slot even on a dead turn, since Batterskull and the Gearhulk both bring a body and advance the counters. The supported cards are strong only because the eighteen-artifact base feeds them, so they rise and fall with that count. The situational cards are the protection package: no immediate board impact, justified by the single-threat structure. Coveted Jewel is the textbook cut, a powerful card whose support package is negative, since its design rewards opponents for attacking the deck that most wants to be attacked.
 
 **Beyond the count.** Support quantity is the weakest signal, so read four things past it. **Game state:** the core cards hold across development, parity, and rebuilding; the situational protection earns its slot only when the board is worth saving; the finisher swords matter only once you are ahead. **Independent routes:** Batterskull and the Gearhulk each reach relevance through more than one system (a body, the counters, lifelink), so no single missing package switches them off, which floors them higher than a card needing the commander plus one subtheme. **Finished list, not averages:** these counts come from the proposed ninety-nine after the swaps above, not the EDHREC average, and adding the counter payoffs raises Zuri and Shuri in turn, so rerun the counts against your own cuts. **Flexibility floor:** the artifact density never crowds out the eight-to-ten answers and the ramp, because a deck that only does one thing loses to the first disruption. **Declared exception:** the two premium swords stay only as a stated power choice rather than a core piece, with their off-identity cost visible above.
+
+### Pre-engine and post-engine count
+
+The three-job test filters for identity; this second count filters for timing, since a card that only turns on once you are ahead can clog the opening hand. Count these buckets separately on your finished list, and keep protection distinct from removal (a removal spell works during development, a protection spell needs something already worth saving).
+
+| Bucket | What counts | Healthy target | Timing |
+|---|---|---|---|
+| Cheap acceleration | 1-2 mana rocks/dorks that reach the four-drops early | ~10 | pre-engine |
+| Card selection | Draw, filtering, looting that trade weak cards for live ones | 6+ | pre-engine |
+| Four-drop artifact fuel | MV4 artifacts that stack counters | the curve's peak | engine |
+| Removal | Dispatch, Beast Within, Generous Gift, spot answers | 6 to 8 | any turn |
+| Dedicated protection | Heroic Intervention, Teferi's, boots, Reprieve | 4 to 6 (inside the 8-10 total) | reactive |
+| Late situational | Finishers, win-more that want an established board | single digits | post-engine |
+
+The one hard line is the last row. Snail's warning: situational cards turn into dead draws once they pass into double digits without enough selection to dig past them. If the late-situational bucket climbs toward ten, either raise the card-selection count or trim the finishers. The premium swords, the copy effects, and any splashy top end all live in that bucket, and the deck's low selection base cannot carry many of them.
 
 ## A sample opening
 
@@ -174,11 +189,11 @@ Snail is a self-described optimizer and admits weaker-looking cards fight every 
 
 The idea of leaving a strong card in the box is Snail's own:
 
-- His [When Good Cards Are the Wrong Choice](https://drwu-htmls.vercel.app/salubrioussnail-points/#v-when-good-cards-are-the-wrong-choice) video is the source for the Coveted Jewel call.
+- His [When Good Cards Are the Wrong Choice](https://drwu-htmls.vercel.app/salubrioussnail-points/#v-when-good-cards-are-the-wrong-choice) video supplies the **principle** behind the Coveted Jewel cut; the specific Coveted Jewel and Batterskull cards come from Draftsim's pool. Snail's contribution is the reasoning behind the cut rather than the card selection.
 - His [EDHREC Effect](https://drwu-htmls.vercel.app/salubrioussnail-points/#v-how-edhrec-data-aggregation-warps-commander-deckbuilding) video is why the meta list is a starting point rather than a decklist.
 
 We applied his wrong-choice framework to this precon in full: [the Wakanda wrong-choice page](https://drwu-htmls.vercel.app/salubrioussnail-wakanda-wrongchoice).
 
 ---
 
-*Card text via Scryfall (Marvel Super Heroes Commander), oracle text pulled 2026-07-13: T'Challa (2/2, {1}{G}{W}); Zuri, Warrior of Wakanda (own trigger, +1/+1 counter on each creature you control, not a copy of T'Challa); Helm of the Host (copy is nonlegendary, so a copy of the commander deals ordinary damage that does not count toward commander damage); Batterskull (living weapon, MV5, own Germ, +4/+4 vigilance lifelink); Verdurous Gearhulk (artifact creature, MV5, distributes four +1/+1 counters); Foundry Inspector (artifact spells cost {1} less); Ingenious Smith (digs and grows, does not reduce costs). Commander-damage rule (21 from the same commander) per Wizards' Commander page. Inclusion percentages follow EDHREC's own denominator (each card over its potential-decks pool), so the newer Wakanda cards (Gauntlets, Shuri, Zuri, W'Kabi, The Great Mound) divide by roughly 1,950 rather than the full 2,112 and read a few points higher than a flat-2,112 recompute would give. Theme-tag split, type distribution, and mana curve from the EDHREC T'Challa commander page (2,112 decks, rank #1,045, read 2026-07-13). Swap reasoning applies Salubrious Snail's "When Good Cards Are the Wrong Choice" to the precon, cross-checked against the Draftsim Wakanda Forever upgrade guide. Applies Salubrious Snail's deckbuilding framework; neither Salubrious Snail nor EDHREC authored or endorsed it.*
+*Card text via Scryfall (Marvel Super Heroes Commander), oracle text pulled 2026-07-13: T'Challa (2/2, {1}{G}{W}); Zuri, Warrior of Wakanda (own trigger, +1/+1 counter on each creature you control, not a copy of T'Challa); Helm of the Host (copy is nonlegendary, so a copy of the commander deals ordinary damage that does not count toward commander damage); Batterskull (living weapon, MV5, own Germ, +4/+4 vigilance lifelink); Verdurous Gearhulk (artifact creature, MV5, distributes four +1/+1 counters); Foundry Inspector (artifact spells cost {1} less); Ingenious Smith (digs and grows, does not reduce costs). Commander-damage rule (21 from the same commander) per Wizards' Commander page. Inclusion percentages follow EDHREC's own denominator (each card over its potential-decks pool), so the newer Wakanda cards (Gauntlets, Shuri, Zuri, W'Kabi, The Great Mound) divide by roughly 1,950 rather than the full 2,112 and read a few points higher than a flat-2,112 recompute would give. Theme-tag split, type distribution, and mana curve from the EDHREC T'Challa commander page (2,112 decks, rank #1,045, read 2026-07-13). Finished-build counts (100 cards, 34 artifacts, 26 artifact spells at MV4+, 38 lands) were computed by resolving the EDHREC Wakanda Forever precon decklist through Scryfall card types and applying the 20 swaps, read 2026-07-13, distinct from the EDHREC average. Swap reasoning applies Salubrious Snail's "When Good Cards Are the Wrong Choice" to the precon, with card candidates drawn from the Draftsim Wakanda Forever upgrade guide and re-paired here. Applies Salubrious Snail's deckbuilding framework; neither Salubrious Snail nor EDHREC authored or endorsed it.*
