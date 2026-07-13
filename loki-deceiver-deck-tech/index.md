@@ -29,12 +29,12 @@ Loki's draw counts once per damaged player. Five Villains hitting one opponent d
 - **Static abilities.** Doctor Octopus, Master Planner gives your other Villains +2/+2 and refills your hand to eight, and Iron Monger, Sadistic Tycoon puts a counter on each Villain whenever a creature connives.
 - **Combat-damage abilities.** Klaw, Master of Sound has deathtouch and pays off on a hit, and Stilt-Man, Towering Terror steals a permanent whenever your Villains deal combat damage, sharing Loki's exact wording.
 - **Evasion.** Prowler, Clawed Thief has menace and connives on a Villain enter, Red Ghost, Intangible Genius cannot be blocked and carries ward, and Moonstone, Harsh Mistress flies.
-- **Clones.** Chameleon, Master of Disguise enters as a copy of a creature you control, so you pick your best Villain when you cast it, and Loki copying Chameleon repeats whatever form it currently holds (a second of that creature). Left in its base shape, Chameleon hands Loki's token the choice instead. Spark Double works the same way, so a Spark Double that is currently a Doctor Octopus gives Loki a second Doctor Octopus rather than a new pick. Titan of Littjara is not a clone or a changeling: it chooses a creature type as it enters (name Villain), so it belongs with the enter abilities, drawing a card for each of your other Villains.
+- **Clones.** Chameleon, Master of Disguise enters as a copy of a creature you control, so you pick your best Villain as it enters (the choice is on entry, so recursion gets the pick too), and Loki copying Chameleon repeats whatever form it currently holds (a second of that creature). Left in its base shape, Chameleon hands Loki's token the choice instead. Spark Double works the same way, so a Spark Double that is currently a Doctor Octopus gives Loki a second Doctor Octopus rather than a new pick. Titan of Littjara is not a clone or a changeling: it chooses a creature type as it enters (name Villain), so it belongs with the enter abilities, drawing a card for each of your other Villains.
 - **The attack-trigger trap.** Ultron, Unlimited, Killmonger, Ruthless Usurper, and Helmut Zemo, Mastermind all read "whenever this creature attacks," so a copy gets nothing from them. Keep them as bodies you cast and attack the honest way, and copy the five categories above.
 
 ## Loki's Scepter, the borrowed face
 
-Loki's Scepter (about 74 percent) taps for any color and, on enter, gains control of a creature until end of turn, untaps it, gives it haste, and makes it a Villain. Steal an opponent's best creature, turn it into a Villain, and copy it on the same attack. Point the stolen creature and the copy at two different opponents and Loki draws two cards; send both at one player and it is one.
+Loki's Scepter (about 74 percent) taps for any color and, on enter, gains control of a creature until end of turn, untaps it, gives it haste, and makes it a Villain. Steal an opponent's best creature, turn it into a Villain, and copy it on the same attack. The stolen creature is a Villain for the turn, so it draws you a card when it connects. The copy is subtler: Loki takes the creature's printed types plus Illusion and leaves out the Scepter's temporary Villain type, so the token counts for a second draw only when the stolen creature is a printed Villain. Steal an ordinary creature for one dependable draw and a bonus body; steal a printed Villain and both can draw against separate opponents.
 
 ## Keeping Loki alive to swing
 
@@ -58,7 +58,7 @@ Who says what: the method is Salubrious Snail's dead-draw audit, and every speci
 
 **Protection and recursion**
 - Patchwork Banner → Lightning Greaves. Haste and protection for the one creature you cannot lose.
-- Moonstone, Harsh Mistress → Reanimate. One mana to return your biggest Villain from the discard pile.
+- Moonstone, Harsh Mistress → Reanimate. Moonstone is more than a flyer: it exiles your discards and lets you replay them for a turn, feeding the discard side. This trades that recurring small-scale access for one big graveyard return; keep Moonstone if your build leans hard on discard-recursion.
 - Damocles Base, Sword of Kang → Sundial of the Infinite. Keeps a copy forever: let the end step begin so the sacrifice trigger goes on the stack, then activate Sundial in response to end the turn. Fire it early and the sacrifice only waits for the next end step.
 
 ## Dead Draw Audit
@@ -88,15 +88,15 @@ A few cards fill two roles, so these are working targets rather than a strict pa
 |---|---|---|
 | Lands | 37 | Command Tower, Crumbling Necropolis, the dual cycle, Villainous Hideout |
 | Ramp | 6 | Sol Ring, Arcane Signet, both Talismans, Fellwar Stone, Mind Stone |
-| Card draw | 7 | Night's Whisper, Syphon Mind, Read the Bones, Phyrexian Arena, Skullclamp, Black Market Connections, Loki |
+| Card draw | 6 + Loki | Night's Whisper, Syphon Mind, Read the Bones, Phyrexian Arena, Skullclamp, Black Market Connections, plus Loki's own draw |
 | Interaction | 9 | Bedevil, Terminate, Chaos Warp, Withering Torment, Lethal Scheme, Blasphemous Act, Vandalblast, Toxic Deluge, Kindred Dominance |
 | Protection | 2 | Swiftfoot Boots, Lightning Greaves |
 | Recursion | 3 | Reanimate, Tombstone, Endless Ranks of HYDRA |
-| Creatures (Villains) | 29 | the six copy-target categories, plus Baron Strucker, Kingpin, Doctor Doom |
+| Creatures | 29 | about 26 printed Villains, plus Titan (names Villain on enter), Spark Double (Villain only when it copies one), Containment Construct (lone non-Villain) |
 | Clones | 2 | Chameleon, Spark Double (Titan and Mysterio are enter-trigger cards) |
 | Connive pieces | 6 | Baron Strucker, Prowler, Iron Monger, Ultron, Glorious Purpose, Villainous Hideout |
 
-The curve peaks at three, where the cost reducers and two-drop Villains live, with a small top end of bombs worth copying. Two of the wraths differ in how they treat your board: Kindred Dominance names Villain and spares your team, and Blasphemous Act deals thirteen to every creature, so you play it as the emergency reset and rebuild off the next copy.
+The curve peaks at three, where the cost reducers and most Villains live, over a small top end of bombs worth copying. Six mana rocks is light for a 3.6 average with a five-to-seven top end, so the opening leans on drawing one early; two more rocks in place of narrow cards would meet the plan's timing more reliably. Two of the wraths differ in how they treat your board: Kindred Dominance names Villain and spares your team, and Blasphemous Act deals thirteen to every creature, so you play it as the emergency reset and rebuild off the next copy.
 
 ## The complete upgraded list
 
@@ -213,9 +213,10 @@ The precon's front face is Doctor Doom, King of Latveria, a discard-and-drain co
 
 ## An opening sequence
 
-1. Land and a rock: Sol Ring, Arcane Signet, or a Talisman.
-2. A two-drop Villain or a cost reducer: Tombstone, Klaw, Prowler, or Baron Strucker.
-3. A three-drop Villain and a second rock, or Black Market Connections.
+1. Land. Cast Sol Ring if you drew it, the only rock playable off one land.
+2. A two-mana rock: Arcane Signet, a Talisman, Mind Stone, or Fellwar Stone.
+3. A three-mana Villain (Tombstone, Klaw, Prowler, Baron Strucker), or Black Market Connections.
+   (Loki arrives turn four; without haste his first attack is turn five, sooner only if a turn-one Sol Ring or an extra rock funds an equip.)
 4. Cast Loki, four mana, and equip Swiftfoot Boots or Lightning Greaves.
 5. Attack, copy your best board Villain (Mysterio, Tri-Sentinel, or Doctor Octopus), and draw off every Villain that connects.
 
