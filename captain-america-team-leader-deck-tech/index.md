@@ -1,0 +1,182 @@
+# Captain America, Team Leader: Every Hero Gets a Counter
+
+A fully built-out deck tech for the **Jeskai (white, blue, red)** Avengers commander: a complete grounded 100-card list, the curve, the packages, and how to pilot the enters-and-counters engine.
+
+*Written in Salubrious Snail's voice. Card text is quoted from Scryfall; deck counts, rank, inclusion, synergy, and the card pool for the list below are from Captain America's EDHREC commander page, captured 2026-07-13. Not authored or endorsed by Salubrious Snail or EDHREC.*
+
+Live page: https://drwu-htmls.vercel.app/captain-america-team-leader-deck-tech
+
+---
+
+Captain America, Team Leader reads: whenever another Hero you control **enters**, it gains vigilance and haste until end of turn, and you put a +1/+1 counter on it and one on Captain America. Every Hero that enters is two counters and an attacker that can swing the same turn. The deck plays many Heroes, stacks the counters, and turns that board into damage through payoffs that reward a modified creature.
+
+## At a glance
+
+- **Colors:** Jeskai, white, blue, and red.
+- **Hero target:** about 28 Heroes, most at two to four mana.
+- **Power level:** mid-power casual, a precon pointed toward focus rather than a cEDH list.
+- **Primary win condition:** a wide modified board that gains flying from Iron Man or double strike from War Machine.
+- **Ideal Captain America turn:** commander down by turn three, then two Heroes most turns after, each worth two counters.
+
+## One turn, start to finish
+
+Turn four, Captain America down. Cast a two-mana Hero: it enters, gains vigilance and haste, takes a +1/+1 counter, and Cap takes one too. Director Nick Fury has Hero spells costing one less, so you cast a second Hero the same turn for two more counters. If Kindred Discovery is out and set to Hero, each entry drew a card. Attack with both new Heroes and Cap; Iron Man gives your modified attackers flying. Two cards spent, four counters made. That loop is the core of the deck.
+
+## The full 100, by package
+
+One complete build, drawn from Captain America's EDHREC card pool captured 2026-07-13. It is a coherent list rather than the only correct one, and any slot can flex. It builds on the Avengers Assemble precon, with the swaps shown in the cut-and-add table below. It is a mid-budget build; the fetchlands and Cavern of Souls are the higher-cost slots and swap down to taplands with little loss. Each card is counted once, under its main role, even though several pull double duty (Nick Fury is a Hero and a cost reducer, Iron Man is a Hero and a payoff).
+
+**Commander (1):** Captain America, Team Leader
+
+**The Heroes, your enters engine (28):** Director Nick Fury · Black Widow, Agile Avenger · Ant-Man, Elusive Avenger · Jarvis, Earth's Mightiest Butler · Quicksilver, Speedster · Silver Sable, Mercenary Leader · Hawkeye, Trick Shot · Spider-Woman, Stunning Savior · The Wasp, Winsome Avenger · Falcon and Redwing · Agent Phil Coulson · Shang-Chi and the Ten Rings · Scarlet Witch, Chaotic Avenger · Iron Man, Armored Avenger · Photon, Mighty Marvel · Firebird, Blazing Ranger · Captain America, Living Legend · Captain America, Super-Soldier · Vision, Synthezoid Avenger · Metallic Mimic · Bastion Protector · Roaming Throne · Winter Soldier, Reborn Avenger · War Machine, Avenging Arsenal · Captain Marvel, Apex Avenger · Thor, Asgard's Avenger · She-Hulk, Wallbreaker · Professor Hulk
+
+**Counter & go-wide payoffs (3):** Champions from Beyond · Door of Destinies · The Ozolith
+
+**Ramp & cost reduction (9):** Sol Ring · Arcane Signet · Talisman of Progress · Talisman of Conviction · Talisman of Creativity · Fellwar Stone · Mind Stone · Herald's Horn · Urza's Incubator
+
+**Card advantage (7):** Kindred Discovery · Reconnaissance Mission · Avengers Assemble! · Origin of the Avengers · Tome of Legends · Chronicle of Victory · Folk Hero
+
+**Spot removal (6):** Swords to Plowshares · Path to Exile · Generous Gift · Rip Apart · Destroy Evil · Make Your Move
+
+**Asymmetric sweepers (5):** Raise the Palisade · Damning Verdict · Wave Goodbye · Austere Command · Dismantling Wave
+
+**Protection & counters (5):** Flawless Maneuver · Akroma's Will · Arcane Denial · An Offer You Can't Refuse · Heroic Sacrifice
+
+**Manabase (36):** Avengers Tower · Command Tower · Plaza of Heroes · Path of Ancestry · Cavern of Souls · Secluded Courtyard · Unclaimed Territory · Hallowed Fountain · Sacred Foundry · Steam Vents · Prairie Stream · Irrigated Farmland · Mystic Monastery · Glacial Fortress · Clifftop Retreat · Sulfur Falls · Port Town · Furycalm Snarl · Frostboil Snarl · Raugrin Triome · Flooded Strand · Arid Mesa · Scalding Tarn · Battlefield Forge · Adarkar Wastes · Shivan Reef · Spectator Seating · Reliquary Tower · Rogue's Passage · 3× Plains · 2× Island · 2× Mountain
+
+**1 + 28 + 3 + 9 + 7 + 6 + 5 + 5 + 36 = 100.**
+
+## Dead-draw audit
+
+Snail's harder question comes after the jobs: a card is only as good as how often it can do its job. A payoff whose support pieces show up too rarely turns into a dead draw. Each questioned card gets five fields and a verdict of core, supported, situational, or cut.
+
+| Card | Primary job | Secondary synergy | Support count | Use without Cap | Verdict |
+|---|---|---|---|---|---|
+| Kindred Discovery | Draw on each Hero that enters or attacks | Pays off tokens and recursion | 28 Heroes plus every token and reanimated Hero | Independent of Cap | **Core** |
+| Iron Man, Armored Avenger | Modified attackers fly; each draw adds a counter | Turns card draw into counters | 28 Heroes, and every draw for the counter half | Draw-to-counter works; flying wants a modified board | **Supported** |
+| War Machine, Avenging Arsenal | Modified attackers gain double strike | Closes a wide counter board | Needs modified attackers, fed by Cap and entries | Weak without another counter source | **Supported** |
+| Champions from Beyond | Makes X Hero tokens, scry-and-draw at four attackers | Each token triggers Cap | A wide board, plus Cap for the per-token counter | Still makes tokens and draws; loses the per-token counter | **Supported** |
+| Door of Destinies | Anthem that grows only when you cast a Hero | Snowballs a wide Hero board | Direct Hero casts, so tokens and reanimation skip it | Independent of Cap | **Situational** (casting-only payoff) |
+| The Ozolith | Banks counters off dying creatures | Insurance against a wipe | Any counters on board | Works with any counter source | **Supported** |
+| Shared Animosity (power branch) | On-attack pump per attacking Hero | Go-wide finisher | About 28 attacking Hero bodies | Independent of Cap | **Core** in the aggressive branch |
+| Cathars' Crusade (power branch) | A counter on all creatures per creature entry | Counts tokens and reanimation | Every creature entry, tokens and recursion included | Independent of Cap | **Core** in the aggressive branch |
+| Teferi's Protection (power branch) | Protects you and phases out your board | Saves a developed board from a wipe | Any board worth protecting | Independent of Cap | **Situational**, essential in the moment |
+
+Door of Destinies is the close call: it looks like a counters payoff, so it reads as core at a glance. It grows only on Hero casts, and this build makes many Heroes enter through tokens and recursion, so its real support count is smaller than the raw Hero count suggests. That is the difference between a card that backs the whole engine and one that backs only the casting half.
+
+Reading the audit uses four more of Snail's tests. **Strength over count:** Kindred Discovery reaches its payoff through many dependable routes (every Hero, token, and reanimation). Door of Destinies has one route, direct casting, which is why it drops to situational. **By stage:** Kindred Discovery and Champions from Beyond pull weight from development onward, War Machine and She-Hulk are late finishers, and The Ozolith is recovery insurance, so a card that is quiet early keeps its slot when the deck reliably reaches its stage. **From the finished list:** every support count above is read off this 100 after the swaps rather than off EDHREC averages. **Flexibility floor:** tuning toward Heroes did not strip the answers, since the build still runs six spot removals, five asymmetric sweepers, five protection pieces, and seven card-draw effects, so it can respond to a changing board rather than only chain one big turn.
+
+## The mana curve
+
+Counts are approximate and cover the sixty-four nonland cards, the commander included.
+
+| Mana value | Count |
+|---|---:|
+| 1 | 7 |
+| 2 | 16 |
+| 3 | 18 |
+| 4 | 12 |
+| 5 | 9 |
+| 6+ | 3 |
+
+Two and three carry the deck. That is where Nick Fury, Black Widow, Shang-Chi, and the cheap rocks live, and it is why a good keep can start playing Heroes by turn two.
+
+## The signature engine: inclusion is not synergy
+
+**Inclusion** is the share of Captain America decklists that include a card. **Synergy** is how much more this commander runs it than the average deck that legally could. High inclusion + high synergy is a signature card. High inclusion + low synergy is a format staple. EDHREC captured 2026-07-13:
+
+| Card | Inclusion | Synergy | Job |
+|---|---:|---:|---|
+| Director Nick Fury | 93.2% | 0.888 | Hero spells cost 1 less; attack digs 4 cards for a Hero |
+| Avengers Tower | 92.3% | 0.864 | Hero-fixing land that also digs 3 cards for one |
+| Iron Man, Armored Avenger | 90.3% | 0.851 | Draw puts a counter; modified attackers fly |
+| War Machine, Avenging Arsenal | 88.5% | 0.836 | Modified attackers gain double strike |
+| Black Widow, Agile Avenger | 87.8% | 0.821 | Cheap menace Hero; punishes an opponent's extra draw |
+| She-Hulk, Wallbreaker | 86.0% | 0.814 | Team trample; blocked Heroes gain counters |
+| Winter Soldier, Reborn Avenger | 85.9% | 0.812 | Attack reanimates a Hero (it re-enters, so it triggers Cap) |
+| Kindred Discovery | 85.8% | 0.807 | Choose Hero: draw on every Hero that enters or attacks |
+| Raise the Palisade | 85.7% | 0.821 | Bounce non-Hero creatures; strongly favors your Hero-heavy board |
+| Swords to Plowshares | 90.5% | 0.228 | *Staple*: high inclusion, low synergy |
+| Arcane Denial | 68.7% | 0.521 | *Staple*: clean counter that replaces itself |
+
+Swords at 90.5% inclusion with 0.228 synergy is a clear example of the difference.
+
+## What EDHREC can and cannot tell you
+
+These percentages are a snapshot of what other builders put in their lists. A high number means many decklists include the card, and it carries no claim about card quality, correct play, or copying a card during a game. Use inclusion to find cards worth trying and to spot the staples, then judge fit at your own table, because the number alone will not rank two cards or promise that one belongs in your build. Read the numbers as a starting map, then trust the five-job test over any single percentage.
+
+## More than casting: tokens, blink, and reanimation
+
+The trigger is written on **enters**. Players expect cast, and that swap is the point. Any Hero that arrives fires the counters, so casting is one route of several. A Hero token entering counts. A Hero returning from a blink counts. A Hero coming back from the graveyard counts. Winter Soldier, Reborn Avenger reanimates a Hero on attack; that Hero enters, Cap triggers, and Winter Soldier adds an extra counter. Kindred Discovery draws on the same entry. Direct casting is the backbone; token production and recursion are the secondary engines that make a smaller Hero pool fire the trigger again.
+
+## Cashing the counters: the modified payoffs
+
+A creature with a counter is **modified**, so your countered Heroes meet these rewards at once.
+
+- **Iron Man, Armored Avenger** (90.3% / 0.851). Every draw drops a counter; on attack, your other attacking modified creatures gain flying.
+- **War Machine, Avenging Arsenal** (88.5% / 0.836). On attack, your attacking modified creatures gain double strike.
+- **She-Hulk, Wallbreaker** (86.0% / 0.814). Heroes gain trample; a blocked Hero gains a counter per blocker.
+
+Card draw feeds the loop: Iron Man counters on every draw, Shang-Chi and the Ten Rings grows on every draw and draws five plus gains five life at ten counters, and Professor Hulk draws for each point of combat damage it deals. Kindred Discovery draws and turns those on. One rules trap: Director Nick Fury, Avengers Tower, and Herald's Horn reveal a Hero into your hand, which does not count as drawing, so they do not add a counter through Iron Man or Shang-Chi.
+
+## Interaction, protection, and the board-wipe question
+
+Three layers. Spot removal keeps the path clear (Swords to Plowshares, 90.5%). Cheap countermagic protects the engine and replaces itself (Arcane Denial). And Raise the Palisade is a sweeper you run yourself: it returns every creature that is not your chosen type to hand, so you pick Hero and every non-Hero returns to its owner. It is strongly asymmetric rather than total: an opponent's own Heroes stay, and your handful of non-Hero creatures bounce too. When an opponent resolves a wipe instead, be honest that it kills Captain America, Nick Fury, Winter Soldier, and the countered board. The recovery is not on the battlefield. It waits in your hand and the command zone: recast Captain America and rebuild with the cheap Heroes you held back, and Nick Fury or Winter Soldier help again once you recast or redraw them.
+
+## The real rule: five jobs
+
+Before a nonland card makes the deck, ask which of five jobs it covers: **add Heroes, speed them out, refill your hand, protect the board, or clear a path.** The best cards cover two of the five.
+
+The old shorthand, "if it is not a Hero and does not pump, protect, or find Heroes, it is fighting the plan," fails on contact with a real hundred-card deck: it reads removal and ramp as suspects. Swords clears a path, Sol Ring and Nick Fury speed Heroes out, Kindred Discovery refills. A card that does none of the five is the one fighting the plan, and a card that does two of them is the one you cut last.
+
+## Ten to cut, ten to add
+
+The 100 above is the **Avengers Assemble** precon, tuned. The box comes as a legal deck, so every upgrade is a one-for-one swap. The first three follow the Snail project: the deckbuilding principle is Salubrious Snail's, and the exact card exchanges come from the Gathering Games Avengers Assemble upgrade guide. The other seven are recommendations built for this list. Every cut is a real precon card; every add is legal in Captain America's Jeskai identity (Scryfall, 2026-07-13).
+
+### Three applied Snail changes
+
+Snail principle applied through the Gathering Games upgrades. All three use the deck's counters: two are one-sided sweepers, and one turns a wide board into Hero tokens and card draw.
+
+| Cut (in the precon) | Add | Why the swap |
+|---|---|---|
+| Love on the Battlefield | Champions from Beyond | Love pays off only on exactly two attackers; Champions makes X 1/1 Hero tokens, each triggering Captain America as it enters, and pays you for attacking with four or more. |
+| Avenge | Damning Verdict | Avenge destroys every creature, your own board included; Damning Verdict destroys only creatures with no counters, so your countered Heroes survive. |
+| Gift of Immortality | Wave Goodbye | A slow one-creature aura becomes a bounce that returns every creature without a +1/+1 counter, sparing your Heroes and resetting the rest. |
+
+*Cut-and-add list from the Gathering Games Avengers Assemble upgrade guide, in Salubrious Snail's voice; identities verified on Scryfall, 2026-07-13.*
+
+### Seven more upgrades for this build
+
+These seven are recommendations built for this list, outside the Snail guide.
+
+| Cut (in the precon) | Add | Why the swap |
+|---|---|---|
+| Hulkbuster Armor | Roaming Throne | Hulkbuster pours equip mana into one attacker (Equip Hero costs three); the Throne copies Captain America's trigger for every future Hero. |
+| Hero's Blade | The Ozolith | A single-target Equipment (four-mana equip) trades for a rock that banks counters through a wipe. |
+| Patriot, Shield Wielder | Flawless Maneuver | A tap-to-buff-one Hero trades for free protection across the team. |
+| Speed, Young Avenger | Akroma's Will | Speed needs noncreature spells the deck does not run; Akroma's Will is free protection or a finisher. |
+| Captain Mar-Vell, Space-Born | Urza's Incubator | A five-mana flash-granter becomes a rock that makes every Hero cost two less. |
+| Avengers Quinjet | Path to Exile | A five-mana crewed Vehicle is slow; Path is one-mana exile removal. |
+| Rescue, Pepper Potts | Generous Gift | A low-impact self-bounce trades for removal that answers any permanent. |
+
+**Optional power branch.** For a more aggressive, less legible build, run three stronger cards in place of the Snail versions: Shared Animosity for Champions from Beyond, Cathars' Crusade for Damning Verdict, and Teferi's Protection for Wave Goodbye. That trades two one-sided sweepers and a token engine for a bigger snowball and a blowout protection spell, and it gives up the source-guide simplicity.
+
+## Opening hand and three mistakes
+
+A keepable hand: three or four mana sources with colors covered and at least one Hero castable by turn two or three. A strong keep is four mana sources including a blue or red one, an early rock or Nick Fury, and two cheap Heroes. Ship hands with fewer than two mana sources or no Hero castable by turn three.
+
+Three common mistakes:
+
+1. **Playing it as cast-only.** Forgetting tokens, blink, and reanimation also enter, so you leave the cheapest repeat triggers out of the deck.
+2. **Dumping into an open wipe.** Emptying your hand when a sweeper is likely, instead of holding a Hero or two and leaning on Raise the Palisade and the rebuild.
+3. **Chasing off-plan power.** Running a strong non-Hero that does none of the five jobs, thinning the Hero density that makes Cap snowball.
+
+## What the numbers say
+
+*EDHREC data captured 2026-07-13.*
+
+On the day this was written, EDHREC listed **2,456** Captain America decks at **rank 937**, and its top theme tags were +1/+1 counters (172) and Heroes (134). That build count says the commander is popular and easy to pick up, and it does not say the deck is strong or that the crowd is right. The counts and percentages move as the sample grows, so the figures here are stamped with their capture date, and a later read may differ. The deck reads as beginner-friendly because the decision tree is short: play a Hero, take the counters, attack, repeat. Whether it is the simplest deck in the box to play against is a claim this page does not make.
+
+---
+
+*Card text quoted from Scryfall (Marvel Super Heroes Commander). Deck counts, rank, inclusion, synergy, and the full card pool for the 100-card build from the EDHREC Captain America commander page, captured 2026-07-13. Related: [T'Challa deck tech](https://drwu-htmls.vercel.app/tchalla-black-panther-deck-tech), [Avengers short read](https://drwu-htmls.vercel.app/salubrioussnail-avengers-simpler), [EDHREC Marvel read](https://drwu-htmls.vercel.app/salubrioussnail-marvel-edhrec). Written in Salubrious Snail's voice; neither Salubrious Snail nor EDHREC authored or endorsed it.*
