@@ -13,7 +13,7 @@ Captain America, Team Leader reads: whenever another Hero you control **enters**
 ## At a glance
 
 - **Colors:** Jeskai, white, blue, and red.
-- **Hero target:** about 28 Heroes, most at two to four mana.
+- **Hero target:** about 27 Heroes, most at two to four mana.
 - **Power level:** mid-power casual, a precon pointed toward focus rather than a cEDH list.
 - **Primary win condition:** a wide modified board that gains flying from Iron Man or double strike from War Machine.
 - **Ideal Captain America turn:** commander down by turn three, then two Heroes most turns after, each worth two counters.
@@ -28,7 +28,7 @@ One complete build, drawn from Captain America's EDHREC card pool captured 2026-
 
 **Commander (1):** Captain America, Team Leader
 
-**The Heroes, your enters engine (28):** Director Nick Fury · Black Widow, Agile Avenger · Ant-Man, Elusive Avenger · Jarvis, Earth's Mightiest Butler · Quicksilver, Speedster · Silver Sable, Mercenary Leader · Hawkeye, Trick Shot · Spider-Woman, Stunning Savior · The Wasp, Winsome Avenger · Falcon and Redwing · Agent Phil Coulson · Shang-Chi and the Ten Rings · Scarlet Witch, Chaotic Avenger · Iron Man, Armored Avenger · Photon, Mighty Marvel · Firebird, Blazing Ranger · Captain America, Living Legend · Captain America, Super-Soldier · Vision, Synthezoid Avenger · Metallic Mimic · Bastion Protector · Roaming Throne · Winter Soldier, Reborn Avenger · War Machine, Avenging Arsenal · Captain Marvel, Apex Avenger · Thor, Asgard's Avenger · She-Hulk, Wallbreaker · Professor Hulk
+**The enters engine, 27 Heroes plus a payoff (28):** Director Nick Fury · Black Widow, Agile Avenger · Ant-Man, Elusive Avenger · Jarvis, Earth's Mightiest Butler · Quicksilver, Speedster · Silver Sable, Mercenary Leader · Hawkeye, Trick Shot · Spider-Woman, Stunning Savior · The Wasp, Winsome Avenger · Falcon and Redwing · Agent Phil Coulson · Shang-Chi and the Ten Rings · Scarlet Witch, Chaotic Avenger · Iron Man, Armored Avenger · Photon, Mighty Marvel · Firebird, Blazing Ranger · Captain America, Living Legend · Captain America, Super-Soldier · Vision, Synthezoid Avenger · Metallic Mimic · Bastion Protector · Roaming Throne · Winter Soldier, Reborn Avenger · War Machine, Avenging Arsenal · Captain Marvel, Apex Avenger · Thor, Asgard's Avenger · She-Hulk, Wallbreaker · Professor Hulk
 
 **Counter & go-wide payoffs (3):** Champions from Beyond · Door of Destinies · The Ozolith
 
@@ -38,7 +38,7 @@ One complete build, drawn from Captain America's EDHREC card pool captured 2026-
 
 **Spot removal (6):** Swords to Plowshares · Path to Exile · Generous Gift · Rip Apart · Destroy Evil · Make Your Move
 
-**Asymmetric sweepers (5):** Raise the Palisade · Damning Verdict · Wave Goodbye · Austere Command · Dismantling Wave
+**Board resets & mass removal (5):** Raise the Palisade · Damning Verdict · Wave Goodbye · Austere Command · Dismantling Wave
 
 **Protection & counters (5):** Flawless Maneuver · Akroma's Will · Arcane Denial · An Offer You Can't Refuse · Heroic Sacrifice
 
@@ -52,32 +52,32 @@ Snail's harder question comes after the jobs: a card is only as good as how ofte
 
 | Card | Primary job | Secondary synergy | Support count | Use without Cap | Verdict |
 |---|---|---|---|---|---|
-| Kindred Discovery | Draw on each Hero that enters or attacks | Pays off tokens and recursion | 28 Heroes plus every token and reanimated Hero | Independent of Cap | **Core** |
-| Iron Man, Armored Avenger | Modified attackers fly; each draw adds a counter | Turns card draw into counters | 28 Heroes, and every draw for the counter half | Draw-to-counter works; flying wants a modified board | **Supported** |
+| Kindred Discovery | Draw on each Hero that enters or attacks | Pays off tokens and recursion | 27 Heroes plus every token and reanimated Hero | Independent of Cap | **Core** |
+| Iron Man, Armored Avenger | Modified attackers fly; each draw adds a counter | Turns card draw into counters | 27 Heroes, and every draw for the counter half | Draw-to-counter works; flying wants a modified board | **Supported** |
 | War Machine, Avenging Arsenal | Modified attackers gain double strike | Closes a wide counter board | Needs modified attackers, fed by Cap and entries | Weak without another counter source | **Supported** |
 | Champions from Beyond | Makes X Hero tokens, scry-and-draw at four attackers | Each token triggers Cap | A wide board, plus Cap for the per-token counter | Still makes tokens and draws; loses the per-token counter | **Supported** |
-| Door of Destinies | Anthem that grows only when you cast a Hero | Snowballs a wide Hero board | Direct Hero casts, so tokens and reanimation skip it | Independent of Cap | **Situational** (casting-only payoff) |
+| Door of Destinies | Anthem that grows only when you cast a Hero | Snowballs a wide Hero board | Direct Hero casts; tokens and reanimation do not grow it but still get its bonus | Independent of Cap | **Situational** (casting-only payoff) |
 | The Ozolith | Banks counters off dying creatures | Insurance against a wipe | Any counters on board | Works with any counter source | **Supported** |
-| Shared Animosity (power branch) | On-attack pump per attacking Hero | Go-wide finisher | About 28 attacking Hero bodies | Independent of Cap | **Core** in the aggressive branch |
+| Shared Animosity (power branch) | On-attack pump per attacking Hero | Go-wide finisher | About 27 attacking Hero bodies | Independent of Cap | **Core** in the aggressive branch |
 | Cathars' Crusade (power branch) | A counter on all creatures per creature entry | Counts tokens and reanimation | Every creature entry, tokens and recursion included | Independent of Cap | **Core** in the aggressive branch |
 | Teferi's Protection (power branch) | Protects you and phases out your board | Saves a developed board from a wipe | Any board worth protecting | Independent of Cap | **Situational**, essential in the moment |
 
-Door of Destinies is the close call: it looks like a counters payoff, so it reads as core at a glance. It grows only on Hero casts, and this build makes many Heroes enter through tokens and recursion, so its real support count is smaller than the raw Hero count suggests. That is the difference between a card that backs the whole engine and one that backs only the casting half.
+Door of Destinies is the close call: it looks like a counters payoff, so it reads as core at a glance. It gains a charge counter only on a Hero you cast, so the tokens and reanimated Heroes this build makes do not grow it, and they still get its +1/+1 bonus. Its real charge-counter support is smaller than the raw Hero count suggests, which is the difference between a card that backs the whole engine and one that backs only the casting half.
 
-Reading the audit uses four more of Snail's tests. **Strength over count:** Kindred Discovery reaches its payoff through many dependable routes (every Hero, token, and reanimation). Door of Destinies has one route, direct casting, which is why it drops to situational. **By stage:** Kindred Discovery and Champions from Beyond pull weight from development onward, War Machine and She-Hulk are late finishers, and The Ozolith is recovery insurance, so a card that is quiet early keeps its slot when the deck reliably reaches its stage. **From the finished list:** every support count above is read off this 100 after the swaps rather than off EDHREC averages. **Flexibility floor:** tuning toward Heroes did not strip the answers, since the build still runs six spot removals, five asymmetric sweepers, five protection pieces, and seven card-draw effects, so it can respond to a changing board rather than only chain one big turn.
+Reading the audit uses four more of Snail's tests. **Strength over count:** Kindred Discovery reaches its payoff through many dependable routes (every Hero, token, and reanimation). Door of Destinies has one route, direct casting, which is why it drops to situational. **By stage:** Kindred Discovery and Champions from Beyond pull weight from development onward, War Machine and She-Hulk are late finishers, and The Ozolith is recovery insurance, so a card that is quiet early keeps its slot when the deck reliably reaches its stage. **From the finished list:** every support count above is read off this 100 after the swaps rather than off EDHREC averages. **Flexibility floor:** tuning toward Heroes did not strip the answers, since the build still runs six spot removals, five board resets, five protection pieces, and seven card-draw effects, so it can respond to a changing board rather than only chain one big turn.
 
 ## The mana curve
 
-Counts are approximate and cover the sixty-four nonland cards, the commander included.
+Counts cover the sixty-four nonland cards, the commander included.
 
 | Mana value | Count |
 |---|---:|
-| 1 | 7 |
-| 2 | 16 |
+| 1 | 5 |
+| 2 | 18 |
 | 3 | 18 |
-| 4 | 12 |
-| 5 | 9 |
-| 6+ | 3 |
+| 4 | 11 |
+| 5 | 7 |
+| 6+ | 5 |
 
 Two and three carry the deck. That is where Nick Fury, Black Widow, Shang-Chi, and the cheap rocks live, and it is why a good keep can start playing Heroes by turn two.
 
@@ -151,13 +151,13 @@ These seven are recommendations built for this list, outside the Snail guide.
 
 | Cut (in the precon) | Add | Why the swap |
 |---|---|---|
-| Hulkbuster Armor | Roaming Throne | Hulkbuster pours equip mana into one attacker (Equip Hero costs three); the Throne copies Captain America's trigger for every future Hero. |
-| Hero's Blade | The Ozolith | A single-target Equipment (four-mana equip) trades for a rock that banks counters through a wipe. |
+| Hulkbuster Armor | Roaming Throne | Hulkbuster pours equip mana into one attacker (Equip Hero costs three); the Throne makes Captain America's trigger happen an additional time for every future Hero. |
+| Hero's Blade | The Ozolith | Auto-attaches to a legendary Hero as it enters, but still buffs one body; The Ozolith banks counters through a wipe. |
 | Patriot, Shield Wielder | Flawless Maneuver | A tap-to-buff-one Hero trades for free protection across the team. |
-| Speed, Young Avenger | Akroma's Will | Speed needs noncreature spells the deck does not run; Akroma's Will is free protection or a finisher. |
-| Captain Mar-Vell, Space-Born | Urza's Incubator | A five-mana flash-granter becomes a rock that makes every Hero cost two less. |
-| Avengers Quinjet | Path to Exile | A five-mana crewed Vehicle is slow; Path is one-mana exile removal. |
-| Rescue, Pepper Potts | Generous Gift | A low-impact self-bounce trades for removal that answers any permanent. |
+| Speed, Young Avenger | Akroma's Will | Speed only makes one haste creature unblockable, narrow next to the board-wide payoffs; Akroma's Will is four-mana protection or a finisher. |
+| Captain Mar-Vell, Space-Born | Urza's Incubator | Grants Heroes flash on other turns; Urza's Incubator trades that for cost reduction, often less than two off a cheap Hero. |
+| Avengers Quinjet | Path to Exile | Cheats a Hero in or returns one from the graveyard, real engine value, but slow at five mana and crew three; Path is one-mana exile removal. |
+| Rescue, Pepper Potts | Generous Gift | A flash flyer whose bounce can re-use a Hero's enter trigger, spared here for removal that answers any permanent. |
 
 **Optional power branch.** For a more aggressive, less legible build, run three stronger cards in place of the Snail versions: Shared Animosity for Champions from Beyond, Cathars' Crusade for Damning Verdict, and Teferi's Protection for Wave Goodbye. That trades two one-sided sweepers and a token engine for a bigger snowball and a blowout protection spell, and it gives up the source-guide simplicity.
 
