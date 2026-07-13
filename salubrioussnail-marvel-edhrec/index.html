@@ -1,0 +1,212 @@
+<!doctype html>
+<html lang="en"><head><meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Reading EDHREC's Marvel Numbers: A Snail Transcript</title>
+<meta name="description" content="A first-person Salubrious-Snail-voice transcript reading EDHREC's Marvel Super Heroes Commander data deck by deck: Doom, Fantastic Four, Avengers, and Wakanda, with the crowd's high-synergy and most-played cards, plus a take on every EDHREC Marvel article.">
+<meta name="keywords" content="EDHREC Marvel Commander, Doctor Doom EDHREC, Mister Fantastic EDHREC, Captain America Team Leader EDHREC, T'Challa EDHREC, Loki Villain Typal, Kang suspend enablers, Marvel Super Heroes Commander data, high synergy cards, Salubrious Snail voice">
+<meta property="og:title" content="Reading EDHREC's Marvel Numbers: A Snail Transcript">
+<meta property="og:description" content="Reading EDHREC's Marvel data deck by deck in Salubrious Snail's voice, plus a take on every EDHREC Marvel article.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,500;0,600;0,700;1,600&family=Inter:wght@400;600;700;800&family=Bangers&display=swap" rel="stylesheet">
+<style>
+  :root{--cream:#f4ecd8;--ink:#1c1a17;--rust:#b5533b;--teal:#3f7c78;--gold:#c98a2b;--olive:#7d7a3a;--line:#d9cdb0;--panel:#fbf5e6;--panel2:#efe4c8;}
+  *{box-sizing:border-box}
+  body{margin:0;background:var(--cream);color:var(--ink);font-family:'Inter',system-ui,-apple-system,Segoe UI,Roboto,sans-serif;line-height:1.62}
+  header{padding:48px 24px 8px;max-width:840px;margin:0 auto;text-align:center}
+  .kicker{font-family:'Bangers',cursive;letter-spacing:.04em;color:var(--rust);font-size:1.15rem}
+  h1{font-family:'Cormorant Garamond',Georgia,serif;font-size:2.9rem;line-height:1.05;margin:.14em 0 .1em;color:var(--ink)}
+  .sub{color:var(--olive);font-weight:700;font-size:1.02rem;max-width:660px;margin:6px auto 0}
+  .back{display:block;max-width:840px;margin:16px auto 0;padding:0 24px;font-size:.9rem;line-height:1.9}
+  .back a{color:var(--teal);font-weight:700;text-decoration:none;margin:0 8px}
+  .back .navlabel{color:var(--olive);font-weight:800}
+  .byline{max-width:840px;margin:8px auto 0;padding:0 24px;font-size:.8rem;color:var(--olive);font-style:italic}
+  main{max-width:840px;margin:0 auto;padding:18px 24px 110px}
+  section{margin:30px 0}
+  h2{font-family:'Cormorant Garamond',serif;font-size:2rem;color:var(--rust);margin:0 0 6px;line-height:1.1}
+  h2 small{display:block;font-family:'Inter',sans-serif;font-size:.72rem;letter-spacing:.06em;text-transform:uppercase;color:var(--olive);font-weight:800;margin-bottom:2px}
+  h3{font-family:'Inter',sans-serif;font-size:.82rem;text-transform:uppercase;letter-spacing:.04em;color:var(--teal);margin:12px 0 4px}
+  p{margin:0 0 14px}
+  p b{color:var(--ink)}
+  .lede{font-size:1.14rem;color:#3a352a}
+  .pull{border-left:4px solid var(--gold);background:var(--panel2);padding:12px 16px;border-radius:6px;margin:16px 0;font-family:'Cormorant Garamond',serif;font-size:1.24rem;font-style:italic;color:var(--rust)}
+  .data{background:var(--panel);border:1px solid var(--line);border-radius:12px;padding:14px 16px;margin:12px 0}
+  .data .lbl{font-size:.72rem;font-weight:800;text-transform:uppercase;letter-spacing:.04em;color:var(--olive);margin:0 0 3px}
+  .chips{display:flex;flex-wrap:wrap;gap:6px;margin:0 0 10px}
+  .chip{font-size:.8rem;background:var(--panel2);border:1px solid var(--line);border-radius:999px;padding:3px 10px;color:var(--ink)}
+  .chip b{color:var(--rust)}
+  .stat{display:inline-block;font-weight:800;color:var(--teal)}
+  .art{background:var(--panel);border:1px solid var(--line);border-radius:12px;padding:12px 16px;margin:12px 0}
+  .art .t{font-weight:800;color:var(--rust);margin:0 0 4px}
+  .art a{color:var(--teal);font-weight:700}
+  .kid-only{display:none}
+  .src{max-width:840px;margin:8px auto 0;padding:16px 24px 40px;border-top:2px solid var(--line);color:#5b5638;font-size:.88rem}
+  .src a{color:var(--teal);font-weight:700}
+  #kidfab{position:fixed;right:18px;bottom:18px;z-index:50;background:var(--rust);color:#fff;border:none;border-radius:40px;padding:14px 21px;font-size:1rem;font-weight:800;box-shadow:0 4px 14px rgba(0,0,0,.25);cursor:pointer}
+  body.kid{font-size:1.14rem}
+  body.kid .grown{display:none}
+  body.kid .kid-only{display:block}
+  body.kid .lede{font-size:1.18rem}
+  @media(max-width:640px){h1{font-size:2.2rem}}
+</style>
+</head>
+<body>
+<header>
+  <div class="kicker">Marvel decks, the crowd's data, my read</div>
+  <h1>Reading EDHREC's Marvel Numbers</h1>
+  <p class="sub grown">EDHREC counts what the table actually plays. I read the Marvel numbers deck by deck, then take every EDHREC Marvel article in turn.</p>
+  <p class="sub kid-only">EDHREC is a website that counts what cards people really play. I read the Marvel deck numbers and give my take on each one.</p>
+</header>
+<nav class="back">
+  <span class="navlabel">My four Marvel reads:</span>
+  <a href="/salubrioussnail-doom-deaddraws/">Doom</a>
+  <a href="/salubrioussnail-ff-manabase/">Fantastic Four</a>
+  <a href="/salubrioussnail-avengers-simpler/">Avengers</a>
+  <a href="/salubrioussnail-wakanda-wrongchoice/">Wakanda</a>
+  <a href="/salubrioussnail-marvel-reads/">All on one page</a>
+</nav>
+<p class="byline">Fan adaptation written in Salubrious Snail's voice. Deck data from EDHREC (community aggregate, figures as recorded when fetched); card text from Scryfall. Not authored or endorsed by Salubrious Snail or EDHREC.</p>
+
+<main>
+
+<section>
+  <p class="lede grown">EDHREC is the crowd's honest answer to what a commander wants, because it counts real decklists instead of guessing. I already walked the four Marvel precons through my own upgrade lens. Here I do the other half: I read what EDHREC says the community actually runs, deck by deck, and I flag where the numbers back my swaps and where they push somewhere else. Then I take every EDHREC Marvel article in turn.</p>
+  <p class="lede kid-only">I already wrote about the four Marvel decks and how to upgrade them. Now I look at real numbers from EDHREC to see what most players do, and whether it matches my advice. Then I talk about each Marvel article on the site.</p>
+</section>
+
+<section>
+  <h2><small>Grixis · Villains</small>Doom Prevails</h2>
+  <div class="data">
+    <p class="lbl">EDHREC high-synergy cards</p>
+    <div class="chips"><span class="chip">Chameleon, Master of Disguise</span><span class="chip">Prowler, Clawed Thief</span><span class="chip">Tombstone, Career Criminal</span><span class="chip">Norman Osborn</span><span class="chip">Loki, the Deceiver</span><span class="chip">Kang, Temporal Tyrant</span><span class="chip">Containment Construct</span><span class="chip">Lethal Scheme</span></div>
+    <p class="lbl">EDHREC most-played</p>
+    <div class="chips"><span class="chip">Blasphemous Act</span><span class="chip">Toxic Deluge</span><span class="chip">Black Market Connections</span><span class="chip">Chaos Warp</span><span class="chip">Terminate</span><span class="chip">Monument to Endurance</span></div>
+    <p class="lbl" style="margin-top:4px">Signature card</p>
+    <div class="chips"><span class="chip"><b>Doom's Time Platform</b> · <span class="stat">57%</span> of decks</span></div>
+  </div>
+  <p class="grown">The high-synergy column reads like my dead-draw audit already ran. Chameleon, Prowler, Tombstone, Norman Osborn, and Loki are all Villains worth copying, which is the exact copy engine I lean on for this deck. The most-played list is a pile of clean interaction, Blasphemous Act, Toxic Deluge, Chaos Warp, and Terminate, so the crowd covers the board without adding noise, which is what I want from a Grixis deck. One card makes me smile: Monument to Endurance shows up here in the most-played, the same card I cut from a cycling deck for shortcutting the fun. In Doom it is doing honest work as card advantage, so context is everything.</p>
+  <p class="kid-only">EDHREC shows most Doom players run lots of villains for Loki to copy, plus clean removal spells. That is exactly the plan I described. Read my full Doom page for the swaps.</p>
+  <p class="grown"><a href="/salubrioussnail-doom-deaddraws/" style="color:var(--rust);font-weight:700">My full Doom read &rarr;</a></p>
+</section>
+
+<section>
+  <h2><small>Four-color · Spellslinger</small>The Fantastic Four</h2>
+  <div class="data">
+    <p class="lbl">EDHREC high-synergy cards</p>
+    <div class="chips"><span class="chip">Valeria Richards, Precocious · <span class="stat">79%</span></span><span class="chip">Cosmic Crucible · <span class="stat">79%</span></span><span class="chip">Crystal, Inhuman Princess · <span class="stat">75%</span></span><span class="chip">Invisible Force Field · <span class="stat">74%</span></span><span class="chip">Franklin Richards, Ascendant · <span class="stat">74%</span></span></div>
+    <p class="lbl">EDHREC most-played</p>
+    <div class="chips"><span class="chip">Farseek · <span class="stat">74%</span></span><span class="chip">Path to Exile · <span class="stat">70%</span></span><span class="chip">Three Visits · <span class="stat">68%</span></span><span class="chip">Annie Joins Up · <span class="stat">67%</span></span></div>
+    <p class="lbl" style="margin-top:4px">Recorded decks: <span class="stat">about 1,064</span></p>
+  </div>
+  <p class="grown">Look at the most-played and the tax I described is right there in the data. Farseek at seventy-four percent and Three Visits at sixty-eight are green ramp-fetch spells, and Path to Exile is the cheap interaction every color-hungry deck wants. The crowd is spending its early turns fixing colors and smoothing mana, which is the whole point of my manabase read. My two Talismans do the same job with cheap untapped rocks, and the EDHREC numbers say the community reaches for fetch-ramp to solve the identical problem. Both roads lead to the same place: get the colors online so the spellslinger engine can start.</p>
+  <p class="kid-only">EDHREC shows most Fantastic Four players run green ramp cards like Farseek to fix their colors. That is the same problem I wrote about, they just solve it with lands instead of Talismans.</p>
+  <p class="grown"><a href="/salubrioussnail-ff-manabase/" style="color:var(--rust);font-weight:700">My full Fantastic Four read &rarr;</a></p>
+  <p class="grown"><a href="/mister-fantastic-deck-tech/" style="color:var(--rust);font-weight:700">My Mister Fantastic deck tech &rarr;</a></p>
+</section>
+
+<section>
+  <h2><small>Jeskai · Heroes and counters</small>Avengers Assemble</h2>
+  <div class="data">
+    <p class="lbl">EDHREC high-synergy cards</p>
+    <div class="chips"><span class="chip">Director Nick Fury · <span class="stat">95%</span></span><span class="chip">Avengers Tower · <span class="stat">94%</span></span><span class="chip">Iron Man, Armored Avenger · <span class="stat">92%</span></span><span class="chip">War Machine, Avenging Arsenal · <span class="stat">91%</span></span><span class="chip">She-Hulk, Wallbreaker</span></div>
+    <p class="lbl">EDHREC most-played</p>
+    <div class="chips"><span class="chip">Swords to Plowshares · <span class="stat">90%</span></span><span class="chip">Shang-Chi and the Ten Rings · <span class="stat">80%</span></span><span class="chip">Captain America, Living Legend · <span class="stat">79%</span></span></div>
+    <p class="lbl" style="margin-top:4px">Recorded decks: <span class="stat">about 2,399</span> · themes: +1/+1 counters, Heroes, Legends</p>
+  </div>
+  <p class="grown">Director Nick Fury at ninety-five percent is about as close to unanimous as EDHREC gets, and it confirms the two-headed engine I described: Captain America hands out the counters, Nick Fury keeps the Heroes coming. The theme tags are +1/+1 counters and Heroes, which is the legible go-wide plan a newer pilot can follow. Swords to Plowshares at ninety percent is the clean one-card answer that keeps the board readable, exactly the kind of single-effect removal I argued for over fiddly recurring loops. The crowd built the deck I said it wanted to be.</p>
+  <p class="kid-only">Almost every Avengers deck on EDHREC runs Director Nick Fury with Captain America. That is the two-part engine I described, heroes plus counters. My Avengers page has the swaps.</p>
+  <p class="grown"><a href="/salubrioussnail-avengers-simpler/" style="color:var(--rust);font-weight:700">My full Avengers read &rarr;</a></p>
+  <p class="grown"><a href="/captain-america-team-leader-deck-tech/" style="color:var(--rust);font-weight:700">My Captain America deck tech &rarr;</a></p>
+</section>
+
+<section>
+  <h2><small>Selesnya · Vibranium voltron</small>Wakanda Forever</h2>
+  <div class="data">
+    <p class="lbl">EDHREC high-synergy cards</p>
+    <div class="chips"><span class="chip">Hammer of Nazahn · <span class="stat">82%</span></span><span class="chip">Dispatch · <span class="stat">80%</span></span><span class="chip">Helm of the Host · <span class="stat">77%</span></span><span class="chip">Shuri, the Black Panther</span><span class="chip">Zuri, Warrior of Wakanda</span></div>
+    <p class="lbl">EDHREC most-played</p>
+    <div class="chips"><span class="chip">Birds of Paradise · <span class="stat">80%</span></span><span class="chip">Beast Within · <span class="stat">72%</span></span><span class="chip">Nature's Lore · <span class="stat">71%</span></span><span class="chip">Wakanda Forever! · <span class="stat">60%</span></span></div>
+    <p class="lbl" style="margin-top:4px">Signature card</p>
+    <div class="chips"><span class="chip"><b>Vibranium Strike Gauntlets</b> · <span class="stat">83%</span> of decks</span></div>
+  </div>
+  <p class="grown">The crowd builds T'Challa as artifact voltron, and the numbers make the identity plain. Vibranium Strike Gauntlets in eighty-three percent of decks, Hammer of Nazahn at eighty-two, and Helm of the Host at seventy-seven are all big artifacts that suit up a threat and, at four mana or more, feed T'Challa's counter trigger. That is the Vibranium-and-counters plan I said to protect, and it is why I put Verdurous Gearhulk into this deck: it is a five-mana artifact that triggers the commander and brings its own four counters. The EDHREC data votes for the same axis, artifacts that both arm your board and grow T'Challa.</p>
+  <p class="kid-only">Most T'Challa decks on EDHREC use big artifacts like Hammer of Nazahn and Helm of the Host. Those help the counters plan I wrote about. See my Wakanda page for the swaps.</p>
+  <p class="grown"><a href="/salubrioussnail-wakanda-wrongchoice/" style="color:var(--rust);font-weight:700">My full Wakanda read &rarr;</a></p>
+</section>
+
+<section>
+  <h2><small>Grixis · Clones and Villains</small>Loki, the Deceiver</h2>
+  <div class="data">
+    <p class="lbl">EDHREC high-synergy cards</p>
+    <div class="chips"><span class="chip">Tombstone, Career Criminal · <span class="stat">86%</span></span><span class="chip">Chameleon, Master of Disguise · <span class="stat">82%</span></span><span class="chip">Prowler, Clawed Thief · <span class="stat">69%</span></span><span class="chip">Doctor Octopus, Master Planner · <span class="stat">68%</span></span></div>
+    <p class="lbl">EDHREC most-played</p>
+    <div class="chips"><span class="chip">Chaos Warp · <span class="stat">64%</span></span><span class="chip">Taskmaster, Mercenary Mimic · <span class="stat">59%</span></span><span class="chip">Blasphemous Act · <span class="stat">59%</span></span><span class="chip">Black Market Connections · <span class="stat">58%</span></span></div>
+    <p class="lbl" style="margin-top:4px">Recorded decks: <span class="stat">about 1,263</span> · signature: Baron Strucker 79%, Loki's Scepter 74% · themes: Clones, Villains, Connive</p>
+  </div>
+  <p class="grown">Loki is the Doom box's second commander, and the crowd builds him as his own clones-and-villains deck instead of a Doom splash. The high-synergy column overlaps Doom's almost exactly, Tombstone, Chameleon, and Prowler again, which tells me the pile of Villains worth copying is the real spine of the whole box. Baron Strucker at seventy-nine percent and Loki's Scepter at seventy-four are the copy payoffs, and Chaos Warp plus Blasphemous Act keep the board honest. I wrote the copy engine up in full as its own deck tech.</p>
+  <p class="kid-only">Loki is the second Doom commander, built to copy villains. Most Loki decks run the same villains as Doom, so the copy plan is the heart of the box.</p>
+  <p class="grown"><a href="/loki-deceiver-deck-tech/" style="color:var(--rust);font-weight:700">My Loki deck tech &rarr;</a></p>
+</section>
+
+<section>
+  <h2><small>Dimir · Connive control</small>Kang, Temporal Tyrant</h2>
+  <div class="data">
+    <p class="lbl">EDHREC high-synergy cards</p>
+    <div class="chips"><span class="chip">Leader, Super-Genius · <span class="stat">70%</span></span><span class="chip">Construct a Cosmic Cube · <span class="stat">65%</span></span><span class="chip">Baron Strucker, HYDRA Overlord · <span class="stat">61%</span></span><span class="chip">Gixian Puppeteer · <span class="stat">47%</span></span><span class="chip">Kid Loki · <span class="stat">45%</span></span></div>
+    <p class="lbl">EDHREC most-played</p>
+    <div class="chips"><span class="chip">Counterspell · <span class="stat">52%</span></span><span class="chip">Frantic Search · <span class="stat">47%</span></span><span class="chip">Arcane Denial · <span class="stat">43%</span></span><span class="chip">Ledger Shredder · <span class="stat">42%</span></span><span class="chip">Dark Ritual · <span class="stat">40%</span></span></div>
+    <p class="lbl" style="margin-top:4px">Recorded decks: <span class="stat">about 77</span> · themes: connive, villains, card draw</p>
+  </div>
+  <p class="grown">Kang is the niche pick, only seventy-seven decks on record, and the crowd builds him as a Dimir connive-control deck. The most-played list is a wall of counters and card draw, Counterspell, Arcane Denial, and Frantic Search, which is a very different engine from Doom's discard drain. That is the point I keep making about this box: pick the engine and build it fully. Kang wants to durdle and draw, so give him the interaction and let the aggression sit in the Doom pile.</p>
+  <p class="kid-only">Kang is a rare pick with only 77 decks. Players build him as a slow control deck with counters and card draw, a different plan from Doom.</p>
+  <p class="grown"><a href="/kang-temporal-tyrant-deck-tech/" style="color:var(--rust);font-weight:700">My Kang deck tech &rarr;</a></p>
+</section>
+
+<section>
+  <h2><small>Every EDHREC Marvel article</small>My take, one by one</h2>
+  <p class="grown">These are the Marvel articles on EDHREC as I found them. I am not reprinting anyone's writing; each line is my own read of the topic, grounded in the numbers above.</p>
+
+  <div class="art">
+    <p class="t"><a href="https://edhrec.com/articles/building-villain-typal-with-loki-the-deceiver">Building Villain Typal with Loki, the Deceiver</a></p>
+    <p class="grown" style="margin:0">Loki shows up in Doom's high-synergy column for a reason. The Villain-typal build this article explores is the same copy engine I lean on: the more Villains worth copying you run, the better Loki's attack looks, and the more Doom's discard drain has to work with. My one rule for it, run bodies that are worth copying twice over.</p>
+    <p class="kid-only" style="margin:6px 0 0">This article is about building around Loki by playing lots of villains. That is the copy engine from my Doom page.</p>
+  </div>
+
+  <div class="art">
+    <p class="t"><a href="https://edhrec.com/articles/top-10-suspend-enablers-for-kang-prime">Top 10 Suspend Enablers for Kang Prime</a></p>
+    <p class="grown" style="margin:0">Kang, Temporal Tyrant is one of the box's alternate villains and turns up in Doom's high-synergy list too. A suspend and time-counters subtheme is a genuinely different engine from the discard drain, so my advice is to pick one and build it fully. A half-hearted suspend package inside a discard deck is exactly the kind of split focus that leaves you drawing dead.</p>
+    <p class="kid-only" style="margin:6px 0 0">This one is about Kang and time-counter cards. It is a different plan than Doom's discard, so pick one and go all in.</p>
+  </div>
+
+  <div class="art">
+    <p class="t"><a href="https://edhrec.com/articles/the-over-under-predicting-the-popularity-of-marvel-super-heroes-commanders-part-1">The Over/Under: Predicting the Popularity of Marvel Commanders, Part 1</a>, <a href="https://edhrec.com/articles/the-over-under-predicting-the-popularity-of-marvel-super-heroes-commanders-part-2">Part 2</a>, and <a href="https://edhrec.com/articles/the-over-under-predicting-the-popularity-of-marvel-super-heroes-commanders-part-3">Part 3</a></p>
+    <p class="grown" style="margin:0">These pieces bet on which Marvel commanders the community would actually build. The deck counts settle the wagers, and the numbers I read above are the receipts: Captain America near twenty-four hundred decks, T'Challa around two thousand, Mister Fantastic close to eleven hundred. Popularity and power are different signals, so a commander can be widely built and still be a middling deck, which is worth remembering before you read a big deck count as a strong deck.</p>
+    <p class="kid-only" style="margin:6px 0 0">These articles guessed which Marvel commanders would be popular. The real deck counts answer it. Popular does not always mean powerful.</p>
+    <div class="art">
+    <p class="t"><a href="https://edhrec.com/articles/powerful-paradoxes-with-karolina-dean-runaway">Powerful Paradoxes with Karolina Dean, Runaway</a></p>
+    <p class="grown" style="margin:0">Karolina Dean is off the four-precon path, a build-around from the wider Marvel set. I have not run her numbers the way I ran the precons, so I will not pretend to a hot take here. She is on the list because the article is Marvel, and I would want the EDHREC data in front of me before I said a word about the deck.</p>
+    <p class="kid-only" style="margin:6px 0 0">This article is about a different Marvel card, Karolina Dean. I have not studied her deck yet, so I am only pointing you to it.</p>
+  </div>
+</section>
+
+<section>
+  <h2><small>The through-line</small>The crowd mostly agrees with the swaps</h2>
+  <p class="pull grown">Read the numbers first, then decide. When my upgrade lens and the community's most-played lists point the same way, that is a good sign the plan is real.</p>
+  <p class="grown">Across all four precons, EDHREC's data lines up with the reads I already wrote: Villains and clean removal for Doom, fetch-ramp fixing for the Fantastic Four, the Nick Fury counters engine for the Avengers, and artifact voltron for T'Challa. Where the crowd differs, it is usually solving the same problem with different hardware, green ramp instead of Talismans for the four-color mana, for example. The data gives you a second opinion, and here it mostly backs the plan.</p>
+  <p class="kid-only">For all four decks, the EDHREC numbers match the advice I gave. When the crowd and my swaps agree, that is a good sign the plan works.</p>
+</section>
+
+</main>
+
+<div class="src">
+  <p><b>Sources.</b> Community deck data from <a href="https://edhrec.com">EDHREC</a> commander pages (Doctor Doom, Mister Fantastic, Captain America Team Leader, T'Challa), figures as recorded when fetched. Articles are linked by title above; their text is not reproduced. Card names and text via <a href="https://scryfall.com">Scryfall</a> (Marvel Super Heroes Commander). My upgrade reads: <a href="/salubrioussnail-marvel-reads/">the four on one page</a>. This is my own analysis of public EDHREC data, written in Salubrious Snail's voice. Neither Salubrious Snail nor EDHREC authored or endorsed it.</p>
+</div>
+
+<button id="kidfab" onclick="toggleKid()">Kid Mode</button>
+<script>
+function toggleKid(){document.body.classList.toggle('kid');
+  var b=document.getElementById('kidfab');
+  b.textContent=document.body.classList.contains('kid')?'Normal Mode':'Kid Mode';}
+</script>
+</body>
+</html>
