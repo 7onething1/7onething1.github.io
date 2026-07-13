@@ -1,0 +1,196 @@
+<!doctype html>
+<html lang="en"><head><meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>The Fantastic Four's Manabase, Built the Snail Way</title>
+<meta name="description" content="Salubrious Snail's whole-manabase video, re-run as a full walkthrough of the Marvel Fantastic Four Commander precon. Two goals of a land base, the fixing-versus-land-count diagnosis, and the exact four-color cards to swap for Mister Fantastic.">
+<meta name="keywords" content="Fantastic Four Commander manabase, four color EDH mana fixing, Mister Fantastic deck, Marvel Super Heroes Commander, Talisman of Creativity, Talisman of Conviction, West Coast Expansion, Salubrious Snail manabase, EDH color consistency, mana rocks four color, cast rate average delay">
+<meta property="og:title" content="The Fantastic Four's Manabase, Built the Snail Way">
+<meta property="og:description" content="A full manabase walkthrough for the Marvel Fantastic Four four-color precon: the two goals of a land base, the fixing-versus-land-count test, and the exact cards to swap.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,500;0,600;0,700;1,600&family=Inter:wght@400;600;700;800&family=Bangers&display=swap" rel="stylesheet">
+<style>
+  :root{--cream:#f4ecd8;--ink:#1c1a17;--rust:#b5533b;--teal:#3f7c78;--gold:#c98a2b;--olive:#7d7a3a;--line:#d9cdb0;--panel:#fbf5e6;--panel2:#efe4c8;}
+  *{box-sizing:border-box}
+  body{margin:0;background:var(--cream);color:var(--ink);font-family:'Inter',system-ui,-apple-system,Segoe UI,Roboto,sans-serif;line-height:1.62}
+  header{padding:48px 24px 8px;max-width:820px;margin:0 auto;text-align:center}
+  .kicker{font-family:'Bangers',cursive;letter-spacing:.04em;color:var(--rust);font-size:1.15rem}
+  h1{font-family:'Cormorant Garamond',Georgia,serif;font-size:2.9rem;line-height:1.05;margin:.14em 0 .1em;color:var(--ink)}
+  .sub{color:var(--olive);font-weight:700;font-size:1.02rem;max-width:640px;margin:6px auto 0}
+  .facelist{display:flex;flex-wrap:wrap;gap:6px;justify-content:center;margin:14px 0 0;font-size:.82rem;color:var(--olive);font-weight:700}
+  .pip{display:inline-flex;width:17px;height:17px;border-radius:50%;border:1px solid rgba(0,0,0,.25);font-size:.62rem;font-weight:800;align-items:center;justify-content:center}
+  .pip.W{background:#f7f0dd}.pip.U{background:#bfe0ef}.pip.R{background:#efb9a5}.pip.G{background:#bcd9b4}
+  .back{display:block;max-width:820px;margin:16px auto 0;padding:0 24px;font-size:.9rem;line-height:1.9}
+  .back a{color:var(--teal);font-weight:700;text-decoration:none;margin:0 8px}
+  .back .cur{color:var(--ink);font-weight:800;margin:0 8px}
+  .back .navlabel{color:var(--olive);font-weight:800;margin-right:0}
+  .byline{max-width:820px;margin:8px auto 0;padding:0 24px;font-size:.8rem;color:var(--olive);font-style:italic}
+  main{max-width:820px;margin:0 auto;padding:18px 24px 110px}
+  section{margin:30px 0}
+  h2{font-family:'Cormorant Garamond',serif;font-size:2rem;color:var(--rust);margin:0 0 10px;line-height:1.1}
+  h2 small{display:block;font-family:'Inter',sans-serif;font-size:.72rem;letter-spacing:.06em;text-transform:uppercase;color:var(--olive);font-weight:800;margin-bottom:2px}
+  p{margin:0 0 14px}
+  p b{color:var(--ink)}
+  .lede{font-size:1.14rem;color:#3a352a}
+  .pull{border-left:4px solid var(--gold);background:var(--panel2);padding:12px 16px;border-radius:6px;margin:16px 0;font-family:'Cormorant Garamond',serif;font-size:1.28rem;font-style:italic;color:var(--rust)}
+  .swap{display:flex;gap:16px;align-items:center;margin:16px 0;padding:14px 16px;background:var(--panel);border:1px solid var(--line);border-radius:12px}
+  .swapcards{display:flex;gap:8px;align-items:center;flex:none}
+  .swapimg{width:74px;border-radius:5px;box-shadow:0 2px 7px rgba(0,0,0,.22)}
+  .swapimg.out{filter:grayscale(.55) opacity(.8)}
+  .arrow{color:var(--teal);font-weight:800;font-size:1.2rem}
+  .swaptxt{font-size:.95rem}
+  .swaptxt .h{font-weight:800;color:var(--rust);display:block;margin-bottom:2px}
+  .faces{display:grid;grid-template-columns:repeat(4,1fr);gap:10px;margin:14px 0 4px}
+  .face{background:var(--panel);border:1px solid var(--line);border-radius:10px;padding:8px;text-align:center}
+  .face img{width:100%;border-radius:5px;box-shadow:0 2px 6px rgba(0,0,0,.18)}
+  .face .nm{font-weight:800;font-size:.78rem;margin:6px 0 2px}
+  .face .co{font-size:.72rem;color:var(--olive)}
+  .kid-only{display:none}
+  .kidnote{background:#e7efe0;border:1px solid var(--line);border-radius:8px;padding:10px 14px;font-size:.9rem;margin:14px 0}
+  .src{max-width:820px;margin:8px auto 0;padding:16px 24px 40px;border-top:2px solid var(--line);color:#5b5638;font-size:.88rem}
+  .src a{color:var(--teal);font-weight:700}
+  #kidfab{position:fixed;right:18px;bottom:18px;z-index:50;background:var(--rust);color:#fff;border:none;border-radius:40px;padding:14px 21px;font-size:1rem;font-weight:800;box-shadow:0 4px 14px rgba(0,0,0,.25);cursor:pointer}
+  body.kid{font-size:1.14rem}
+  body.kid .grown{display:none}
+  body.kid .kid-only{display:block}
+  body.kid .lede{font-size:1.18rem}
+  body.kid h2{font-size:2.15rem}
+  @media(max-width:640px){h1{font-size:2.2rem}.faces{grid-template-columns:repeat(2,1fr)}.swap{flex-direction:column;align-items:flex-start}}
+</style>
+</head>
+<body>
+<header>
+  <div class="kicker">Marvel precon, my method</div>
+  <h1>The Fantastic Four's Manabase</h1>
+  <p class="sub">The only four-color deck in the box has one real tax, and it is color. Here is the whole mana base, worked the way I work mine.</p>
+  <div class="facelist">
+    <span><span class="pip U">U</span> Mister Fantastic</span> ·
+    <span><span class="pip W">W</span> Invisible Woman</span> ·
+    <span><span class="pip R">R</span> Human Torch</span> ·
+    <span><span class="pip G">G</span> The Thing</span>
+  </div>
+</header>
+<nav class="back">
+  <span class="navlabel">The four Snail reads:</span>
+  <a href="/salubrioussnail-doom-deaddraws/">Doom · dead draws</a>
+  <span class="cur">Fantastic Four · manabase</span>
+  <a href="/salubrioussnail-avengers-simpler/">Avengers · simpler decks</a>
+  <a href="/salubrioussnail-wakanda-wrongchoice/">Wakanda · wrong choice</a>
+  <span class="navlabel">Hubs:</span>
+  <a href="/salubrioussnail-marvel-reads/">All four on one page</a>
+  <a href="/salubrioussnail-decks/#snaildeck-ff">Snail decks</a>
+  <a href="/marvel-commander-rankings/">Marvel rankings</a>
+</nav>
+<p class="byline">Fan adaptation written in Salubrious Snail's voice from his published Commander principles. Not authored or endorsed by Salubrious Snail. Card text from Scryfall.</p>
+<p class="byline">Cuts and adds below follow the Draftsim Fantastic Four upgrade guide; every card identity here is verified on Scryfall.</p>
+
+<main>
+
+<section>
+  <p class="lede grown">A manabase is one of the most deceptively complicated things you build, mostly because it stays invisible. Nobody describes the Fantastic Four precon by its thirty-seven lands and its tapped-land rate. They describe it by Mister Fantastic copying his own triggers. The lands hold all of that up as the foundation, and a shaky foundation gives you a shaky deck. This precon feels the weight more than any of its three siblings, because it is the one deck in the set that asks for four colors of mana.</p>
+  <p class="lede kid-only">A manabase is the pile of lands that make your mana. It is boring, so nobody thinks about it, but every fun thing your deck does is built on top of it. The Fantastic Four deck needs four colors of mana at once, so its lands are the hardest part to get right. This page fixes them.</p>
+  <div class="faces">
+    <div class="face"><img src="https://cards.scryfall.io/normal/front/1/7/17ef068b-61fc-443d-97b0-1e41f2622425.jpg?1782681858" alt="Mister Fantastic"><div class="nm">Mister Fantastic</div><div class="co">{2}{U}</div></div>
+    <div class="face"><img src="https://cards.scryfall.io/normal/front/d/8/d8e13ecb-98be-4d9b-86a2-24eaa98f7f0d.jpg?1782682669" alt="Invisible Woman"><div class="nm">Invisible Woman</div><div class="co">{2}{W}</div></div>
+    <div class="face"><img src="https://cards.scryfall.io/normal/front/b/f/bf7b63ef-c7b4-4001-b64a-c7443f5268ba.jpg?1782682667" alt="Human Torch"><div class="nm">Human Torch</div><div class="co">{3}{R}</div></div>
+    <div class="face"><img src="https://cards.scryfall.io/normal/front/b/a/ba5167e4-27b1-4f55-8282-7b5bd6de611a.jpg?1782682666" alt="The Thing"><div class="nm">The Thing</div><div class="co">{5}{G}</div></div>
+  </div>
+</section>
+
+<section>
+  <h2><small>Start here</small>Two jobs, one set of lands</h2>
+  <p class="grown">It helps to think of a land base as covering two different goals at once. The first goal is covering your symbols. Lands exist to make the colors of mana you need to cast your spells. The second goal is covering total mana values, which mostly means hitting your land drops turn after turn so the deck keeps climbing its curve. Utility lands live in the gap between those two goals. If a deck wants thirty-seven lands to reliably hit its drops but only needs thirty-three to make an acceptable spread of colors, that leaves a few slots for colorless-producing utility lands.</p>
+  <p class="kid-only">Your lands have two jobs. Job one: make the right colors. Job two: give you a new land to play every turn so your deck keeps growing. When a deck needs more lands for job two than for job one, the extra lands can be fancy special lands. Simple.</p>
+  <p class="grown">For the Fantastic Four, that second goal is the easy one. It runs the standard high land count a four-color midrange deck wants, and hitting drops is rarely the thing that loses the game. The first goal is where the whole deck lives or dies, because four colors is a lot of colors, and this deck wants them early and often.</p>
+</section>
+
+<section>
+  <h2><small>Symbols and timing</small>Which colors, and when</h2>
+  <p class="grown">Covering symbols depends on three things at once: how many of each color you run, how intense each requirement is, and how early the deck needs it. A single colored pip you can pay late in the game asks very little of your mana. Two of one color demanded on turn three asks a great deal. Timing matters just as much as raw count, the same way a reactive spell you hold for later strains a manabase less than a threat you want to slam on curve.</p>
+  <p class="pull grown">Mister Fantastic's copy ability costs {R}{G}{W}{U}. One of every color, on the same turn, for the strongest button in the deck.</p>
+  <p class="grown">Read the four faces in that light and the demand curve is clear. <b>Mister Fantastic</b> at {2}{U} and <b>Invisible Woman</b> at {2}{W} are your early asks, so blue and white need to show up first. <b>Human Torch</b> at {3}{R} comes a turn later. <b>The Thing</b> at {5}{G} is your latest ask, so a stray green source turning up on turn five is fine, the way a six-drop commander can wait. The sharpest requirement belongs to Mister Fantastic's activated ability, {R}{G}{W}{U}, which wants one of every color at once. Build the mana so that button is castable, and the rest of the deck follows.</p>
+  <p class="kid-only">Not all colors are needed at the same time. Blue and white come up first, red next, green last. And Mister Fantastic's big power needs all four colors on one turn, so that is the hardest thing to pay for. If you can pay for that, you can pay for everything else.</p>
+</section>
+
+<section>
+  <h2><small>The diagnosis</small>Is the trouble fixing, or too few lands?</h2>
+  <p class="grown">I built a free manabase tool with my brother Ian that scores a deck two ways: cast rate, meaning how often a card is castable on or before its mana value, and average delay, meaning how many turns you spend waiting on the right lands. The clever part is the test it runs on top of that. It tries adding one basic of each color, and it tries adding a single colorless "waste." If the waste alone drops your delay a lot, the deck is short on lands. If a colored basic helps far more than the waste, the deck is short on that color, and land count is fine.</p>
+  <p class="grown">Count the sources first. Across the thirty-seven lands plus Arcane Signet and Chromatic Lantern, and counting basic-fetchers and any-color pieces toward each color, this precon runs sixteen white sources, sixteen blue, fourteen red, and seventeen green. No single color is starved, so the failure is neither land count nor a missing color. The tax on a four-color deck is hitting two or three colors at once on the early turns, and cheap untapped fixing is what smooths that. That is exactly what the two Talismans add, two two-mana rocks that each cover two colors and never enter tapped. For the precise cast-rate and average-delay figures, run the list through my manabase tool; the counts here are what the swaps move.</p>
+  <p class="kid-only">I made a free tool that grades your lands. For this deck the color counts are close: about sixteen sources each of white and blue, fourteen red, and seventeen green. No color is missing, so the deck does not need more lands. What it needs is cheap fixing that makes two colors at once and comes in ready to use, which is what the two Talismans do.</p>
+</section>
+
+<section>
+  <h2><small>Swap 1</small>A cute legend for a fixing rock</h2>
+  <div class="swap">
+    <div class="swapcards">
+      <img class="swapimg out" src="https://cards.scryfall.io/normal/front/2/0/2021033b-ccad-4cb0-9528-357a3c726008.jpg?1782682583" alt="Willie Lumpkin, Postman">
+      <span class="arrow">→</span>
+      <img class="swapimg" src="https://cards.scryfall.io/normal/front/3/e/3ed13229-bbbb-41a7-933e-8975a6b64226.jpg?1782682488" alt="Talisman of Creativity">
+    </div>
+    <div class="swaptxt">
+      <span class="h">Willie Lumpkin, Postman → Talisman of Creativity</span>
+      <span class="grown">Willie is flavor. He is a body that does nothing for the goal that actually gates this deck, which is making four colors on time. Talisman of Creativity taps for blue or red on turn two, a turn ahead of your three-mana commander, so you have two of your four colors covered when Mister Fantastic comes down on turn three. A fixing rock on curve does far more for a build this greedy than a charming legend ever could.</span>
+      <span class="kid-only">Willie is a fun card that does not help your colors. The Talisman makes blue or red mana on turn two, which is when you want to play your commander. Fun loses to useful here.</span>
+    </div>
+  </div>
+</section>
+
+<section>
+  <h2><small>Swap 2</small>Two Talismans is the deck confessing</h2>
+  <div class="swap">
+    <div class="swapcards">
+      <img class="swapimg out" src="https://cards.scryfall.io/normal/front/e/5/e516bc14-749c-4da6-b5d3-cb5c16316e0c.jpg?1782682495" alt="Mirage Mirror">
+      <span class="arrow">→</span>
+      <img class="swapimg" src="https://cards.scryfall.io/normal/front/a/3/a365885c-f7d9-4ea1-9125-5265055e5570.jpg?1782682488" alt="Talisman of Conviction">
+    </div>
+    <div class="swaptxt">
+      <span class="h">Mirage Mirror → Talisman of Conviction</span>
+      <span class="grown">Mirage Mirror is a slow, fiddly toolbox that gives back very little in a deck with this much else going on. Talisman of Conviction taps for white or red, and the deck wants it. Two Talismans in the ninety-nine is the deck telling you plainly where its trouble really is. Between them, Creativity and Conviction reach three of your four colors and double up on red, which smooths the exact hands where the four-color draw was going to stall.</span>
+      <span class="kid-only">Mirage Mirror is slow and fiddly. The second Talisman makes white or red. Now you have two mana rocks that make color, and together they cover most of the colors you need. When a deck wants two color rocks, that is the deck telling you its real problem is color.</span>
+    </div>
+  </div>
+</section>
+
+<section>
+  <h2><small>Swap 3</small>The third swap upgrades your draw</h2>
+  <div class="swap">
+    <div class="swapcards">
+      <img class="swapimg out" src="https://cards.scryfall.io/normal/front/9/c/9c1763b6-c83b-4a76-af58-64c0a6418326.jpg?1782682531" alt="Into the Time Vortex">
+      <span class="arrow">→</span>
+      <img class="swapimg" src="https://cards.scryfall.io/normal/front/4/1/41533f78-4a4e-424a-9612-a8bdb2a14b4b.jpg?1782682635" alt="West Coast Expansion">
+    </div>
+    <div class="swaptxt">
+      <span class="h">Into the Time Vortex → West Coast Expansion</span>
+      <span class="grown">The two Talismans carry the color fixing. This third swap is about card flow. Into the Time Vortex is a cascade and rebound sorcery whose value depends on what you hit off the top, so it runs feast or famine. West Coast Expansion draws X cards, and when X reaches five it lets you cast a Hero for free, a cleaner refill for a deck that wants a noncreature spell every turn. If you would rather spend this slot on color, a Fellwar Stone or a third Talisman is the fixing pick.</span>
+      <span class="kid-only">Into the Time Vortex is a random value spell. West Coast Expansion draws you X cards, and if X is five or more you get to cast a Hero for free. It refills your hand so you can keep casting spells.</span>
+    </div>
+  </div>
+</section>
+
+<section>
+  <h2><small>The budget trap</small>Tapped lands cost you the turns you care about</h2>
+  <p class="grown">Every budget four-color deck relies on dual lands that enter tapped, and the tool is blunt about the cost. A land that comes in tapped is a turn you did not get to act. That matters more here than in most decks, because the Fantastic Four wants a noncreature spell down every single turn to keep all four faces awake. A hand full of tapped duals on turns two and three is a hand that missed two of its most important windows. The number to watch is how often each land actually enters untapped. Conditional lands vary wildly, from a battle land that needs two basics to a slow land that needs two other lands already down, so check that the cheap duals you add are really coming in untapped often enough to earn the slot.</p>
+  <p class="kid-only">Cheap lands often come into play tapped, which means you skip a turn of doing things. This deck wants to cast a spell every turn, so a tapped land really hurts it. Before you add a cheap land, check how often it comes in ready to use. If it is usually tapped, it is costing you your best turns.</p>
+</section>
+
+<section>
+  <h2><small>Your call</small>How safe do you want to feel</h2>
+  <p class="grown">I am careful not to hand you a single correct land count, because the right number depends on how much risk you enjoy. A lower land count means more action and more games where the mana lets you down. A higher count means fewer explosive draws and far fewer games lost to a missing color. The Fantastic Four belongs on the safe end of that choice for most tables. Its ceiling comes from Mister Fantastic once the four colors are online, and you only get there by making sure they arrive on time. Both goals of the land base, symbols and land drops, point the same direction for this deck: pay the fixing tax in full, and the ceiling takes care of itself.</p>
+  <p class="kid-only">There is no one right number of lands. Fewer lands means a faster deck that fails more often. More lands means a steadier deck. This deck wants to be steady, because its best plays only work when all four colors show up. So run enough lands and enough color, and the exciting stuff happens on its own.</p>
+  <p class="pull grown">The four-color mana is the tax you pay for the highest ceiling of the four by the published rankings. Pay it in color, and the deck stops stumbling on the turns it wants to break open.</p>
+</section>
+
+</main>
+
+<div class="src">
+  <p><b>Sources.</b> From my video "My Brother and I Built a Tool to Yell at You About Your Manabase" (<a href="https://www.youtube.com/watch?v=YcSHb11AqL4">YcSHb11AqL4</a>), full transcript on file. Card text and images via <a href="https://scryfall.com">Scryfall</a> (Marvel Super Heroes Commander). Cut and add list from the Draftsim Fantastic Four upgrade guide. Deck context on the <a href="/marvel-commander-rankings/">Marvel rankings</a> and <a href="/salubrioussnail-decks/#snaildeck-ff">Snail decks</a> pages. This is the manabase argument itself, worked on the actual precon, instead of a link to it.</p>
+</div>
+
+<button id="kidfab" onclick="toggleKid()">Kid Mode</button>
+<script>
+function toggleKid(){document.body.classList.toggle('kid');
+  var b=document.getElementById('kidfab');
+  b.textContent=document.body.classList.contains('kid')?'Normal Mode':'Kid Mode';}
+</script>
+</body>
+</html>
