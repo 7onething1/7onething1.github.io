@@ -1,0 +1,245 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Marvel Super Heroes Commander · Deck Guides &amp; Rankings</title>
+<meta name="description" content="A grounded guide collection for the four Marvel Super Heroes Commander precons (June 2026): precon rankings, six commander deck techs, Salubrious Snail analysis, and a comic life tracker.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,500;0,600;0,700;1,600&family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+<style>
+  :root{
+    color-scheme: light;
+    --cream:#f4ecd6;
+    --card:#fbf6e8;
+    --ink:#1c1a17;
+    --ink-soft:#5c554a;
+    --line:#ddd0b2;
+    /* Wes Anderson palette */
+    --ochre:#c8983a;
+    --teal:#3f7a70;
+    --coral:#d5825f;
+    --navy:#37546e;
+    --plum:#7d5570;
+    --rose:#b0644f;
+  }
+  *{box-sizing:border-box}
+  html,body{margin:0}
+  body{
+    background:var(--cream);
+    color:var(--ink);
+    font-family:"Inter",-apple-system,BlinkMacSystemFont,"Segoe UI",sans-serif;
+    line-height:1.55;
+    -webkit-font-smoothing:antialiased;
+  }
+  .wrap{max-width:1040px;margin:0 auto;padding:2.6rem 1.3rem 4rem}
+
+  /* Hero */
+  header.hero{
+    text-align:center;
+    padding:2.2rem 1rem 2.6rem;
+    border:1px solid var(--line);
+    border-radius:18px;
+    background:
+      radial-gradient(circle at 14% 20%, rgba(200,152,58,.10) 0 1.5px, transparent 2px) 0 0/18px 18px,
+      radial-gradient(circle at 60% 70%, rgba(63,122,112,.10) 0 1.5px, transparent 2px) 0 0/22px 22px,
+      var(--card);
+  }
+  .kicker{
+    font-size:.72rem;letter-spacing:.22em;text-transform:uppercase;
+    color:var(--rose);font-weight:700;margin:0 0 .7rem;
+  }
+  h1{
+    font-family:"Cormorant Garamond",Georgia,serif;
+    font-weight:700;font-size:clamp(2.1rem,5.4vw,3.4rem);
+    line-height:1.05;margin:0 0 .5rem;letter-spacing:.005em;
+  }
+  .lede{
+    max-width:640px;margin:.4rem auto 0;color:var(--ink-soft);
+    font-size:1.02rem;
+  }
+  .meta{
+    margin-top:1.2rem;font-size:.8rem;color:var(--ink-soft);
+    display:flex;gap:.5rem;justify-content:center;flex-wrap:wrap;
+  }
+  .meta span{background:#efe6cd;border:1px solid var(--line);border-radius:999px;padding:.2rem .7rem}
+
+  /* Sections */
+  section{margin-top:2.8rem}
+  .sec-head{display:flex;align-items:baseline;gap:.7rem;margin:0 0 1.05rem}
+  .sec-head h2{
+    font-family:"Cormorant Garamond",Georgia,serif;
+    font-weight:700;font-size:1.7rem;margin:0;letter-spacing:.01em;
+  }
+  .sec-head .rule{flex:1;height:1px;background:var(--line)}
+  .sec-head .count{font-size:.78rem;color:var(--ink-soft)}
+
+  /* Feature (rankings) */
+  a.feature{
+    display:block;text-decoration:none;color:inherit;
+    border:1px solid var(--line);border-left:6px solid var(--ochre);
+    border-radius:14px;background:var(--card);
+    padding:1.15rem 1.25rem;transition:transform .12s ease, box-shadow .12s ease;
+  }
+  a.feature:hover,a.feature:focus-visible{transform:translateY(-2px);box-shadow:0 8px 22px rgba(60,50,20,.12);outline:none}
+  a.feature h3{font-family:"Cormorant Garamond",serif;font-weight:700;font-size:1.4rem;margin:.1rem 0 .35rem}
+  a.feature p{margin:0;color:var(--ink-soft);font-size:.96rem}
+  .go{color:var(--rose);font-weight:600;font-size:.9rem;margin-top:.5rem;display:inline-block}
+
+  /* Card grid */
+  .grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(258px,1fr));gap:.95rem}
+  a.card{
+    display:flex;flex-direction:column;text-decoration:none;color:inherit;
+    border:1px solid var(--line);border-radius:13px;background:var(--card);
+    padding:1rem 1.05rem;transition:transform .12s ease, box-shadow .12s ease;
+  }
+  a.card:hover,a.card:focus-visible{transform:translateY(-2px);box-shadow:0 8px 20px rgba(60,50,20,.12);outline:none}
+  a.card:focus-visible{border-color:var(--navy)}
+  .tag{
+    align-self:flex-start;font-size:.66rem;letter-spacing:.09em;text-transform:uppercase;
+    font-weight:700;color:#fff;border-radius:999px;padding:.16rem .55rem;margin-bottom:.55rem;
+  }
+  .t-wakanda{background:var(--teal)} .t-avengers{background:var(--navy)}
+  .t-doom{background:var(--plum)} .t-ff{background:var(--coral)}
+  .t-snail{background:var(--ochre)} .t-play{background:var(--rose)}
+  a.card h3{font-family:"Cormorant Garamond",serif;font-weight:700;font-size:1.18rem;line-height:1.15;margin:0 0 .35rem}
+  a.card p{margin:0;color:var(--ink-soft);font-size:.88rem;flex:1}
+  a.card .go{margin-top:.7rem}
+
+  footer{
+    margin-top:3.2rem;padding-top:1.3rem;border-top:1px solid var(--line);
+    font-size:.82rem;color:var(--ink-soft);text-align:center;
+  }
+  footer a{color:var(--rose);font-weight:600;text-decoration:none}
+  footer a:hover{text-decoration:underline}
+</style>
+</head>
+<body>
+<div class="wrap">
+
+  <header class="hero">
+    <p class="kicker">Salubrious Snail framework · grounded builds</p>
+    <h1>Marvel Super Heroes Commander</h1>
+    <p class="lede">Deck guides, precon rankings, and card-by-card analysis for the four Marvel Super Heroes Commander precons. Every recommendation is checked against the real decklist and current Scryfall card text.</p>
+    <div class="meta">
+      <span>4 precons</span>
+      <span>6 deck guides</span>
+      <span>June 2026 release</span>
+      <span>EDHREC-grounded</span>
+    </div>
+  </header>
+
+  <section>
+    <div class="sec-head"><h2>Start here</h2><span class="rule"></span></div>
+    <a class="feature" href="/marvel-commander-rankings/">
+      <h3>Precon Rankings</h3>
+      <p>All four precons ranked with a full scoring breakdown, and a pop-out profile for every commander option in each deck.</p>
+      <span class="go">Open the rankings &rarr;</span>
+    </a>
+  </section>
+
+  <section>
+    <div class="sec-head"><h2>Deck guides</h2><span class="rule"></span><span class="count">6 commanders</span></div>
+    <div class="grid">
+
+      <a class="card" href="/tchalla-black-panther-deck-tech/">
+        <span class="tag t-wakanda">Wakanda Forever</span>
+        <h3>T'Challa, the Black Panther</h3>
+        <p>The Wakanda precon rebuilt as a self-fueling artifact voltron.</p>
+        <span class="go">Read &rarr;</span>
+      </a>
+
+      <a class="card" href="/captain-america-team-leader-deck-tech/">
+        <span class="tag t-avengers">The Avengers</span>
+        <h3>Captain America, Team Leader</h3>
+        <p>The Jeskai Avengers commander as a full 100-card build where every hero gets a counter.</p>
+        <span class="go">Read &rarr;</span>
+      </a>
+
+      <a class="card" href="/doom-prevails-deck-tech/">
+        <span class="tag t-doom">Doom Prevails</span>
+        <h3>Doom Prevails</h3>
+        <p>A dead-draw audit of the Doom Prevails precon, worked through card by card.</p>
+        <span class="go">Read &rarr;</span>
+      </a>
+
+      <a class="card" href="/kang-temporal-tyrant-deck-tech/">
+        <span class="tag t-doom">Doom Prevails</span>
+        <h3>Kang, Temporal Tyrant</h3>
+        <p>The Doom Prevails alt built as a Dimir control deck around the second draw.</p>
+        <span class="go">Read &rarr;</span>
+      </a>
+
+      <a class="card" href="/loki-deceiver-deck-tech/">
+        <span class="tag t-doom">Doom Prevails</span>
+        <h3>Loki, the Deceiver</h3>
+        <p>The Villain copy engine from Doom Prevails, read correctly and built out.</p>
+        <span class="go">Read &rarr;</span>
+      </a>
+
+      <a class="card" href="/mister-fantastic-deck-tech/">
+        <span class="tag t-ff">Fantastic Four</span>
+        <h3>Mister Fantastic</h3>
+        <p>The Fantastic Four spellslinger that casts before combat, then multiplies the trigger.</p>
+        <span class="go">Read &rarr;</span>
+      </a>
+
+    </div>
+  </section>
+
+  <section>
+    <div class="sec-head"><h2>Salubrious Snail analysis</h2><span class="rule"></span><span class="count">4 pieces</span></div>
+    <div class="grid">
+
+      <a class="card" href="/salubrioussnail-marvel-edhrec/">
+        <span class="tag t-snail">Snail read</span>
+        <h3>Reading EDHREC's Marvel Numbers</h3>
+        <p>A first-person read of EDHREC's Marvel data, deck by deck.</p>
+        <span class="go">Read &rarr;</span>
+      </a>
+
+      <a class="card" href="/salubrioussnail-wakanda-wrongchoice/">
+        <span class="tag t-snail">Snail read</span>
+        <h3>When a Good Card Is the Wrong Choice</h3>
+        <p>The wrong-choice principle walked through the Wakanda precon.</p>
+        <span class="go">Read &rarr;</span>
+      </a>
+
+      <a class="card" href="/salubrioussnail-ff-manabase/">
+        <span class="tag t-snail">Snail read</span>
+        <h3>The Fantastic Four's Manabase</h3>
+        <p>A whole-manabase walkthrough of the Fantastic Four precon, built the Snail way.</p>
+        <span class="go">Read &rarr;</span>
+      </a>
+
+      <a class="card" href="/salubrioussnail-points/">
+        <span class="tag t-snail">Snail read</span>
+        <h3>Summary &amp; 10 Points per Video</h3>
+        <p>The condensed ten-point takeaway for each Salubrious Snail video.</p>
+        <span class="go">Read &rarr;</span>
+      </a>
+
+    </div>
+  </section>
+
+  <section>
+    <div class="sec-head"><h2>At the table</h2><span class="rule"></span></div>
+    <div class="grid">
+      <a class="card" href="/commander-marvel/">
+        <span class="tag t-play">Play tool</span>
+        <h3>Ben vs Brandon · Life Tracker</h3>
+        <p>A comic-book Commander life tracker with custom commanders and one-tap life changes.</p>
+        <span class="go">Open the tracker &rarr;</span>
+      </a>
+    </div>
+  </section>
+
+  <footer>
+    Twelve pages, all built from the real precon lists and verified against current Scryfall card text.<br>
+    Source on <a href="https://github.com/7onething1/7onething1.github.io">GitHub</a>.
+  </footer>
+
+</div>
+</body>
+</html>
