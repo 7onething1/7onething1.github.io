@@ -24,7 +24,7 @@ Turn four, Captain America down. Cast a two-mana Hero: it enters, gains vigilanc
 
 ## The full 100, by package
 
-One complete build, drawn from Captain America's EDHREC card pool captured 2026-07-13. It is a coherent list rather than the only correct one, and any slot can flex. It builds on the Avengers Assemble precon, with the swaps shown in the cut-and-add table below. It is a mid-budget build; the fetchlands and Cavern of Souls are the higher-cost slots and swap down to taplands with little loss. Each card is counted once, under its main role, even though several pull double duty (Nick Fury is a Hero and a cost reducer, Iron Man is a Hero and a payoff).
+One complete build, drawn from Captain America's EDHREC card pool captured 2026-07-13. It is a coherent list rather than the only correct one, and any slot can flex. It starts from the Avengers Assemble precon, and it rebuilds the mana base and several other slots beyond the headline swaps below, so read it as a finished, optimized list rather than the precon plus exactly ten cards. It is a mid-budget build; the fetchlands and Cavern of Souls are the higher-cost slots and swap down to taplands with little loss. Each card is counted once, under its main role, even though several pull double duty (Nick Fury is a Hero and a cost reducer, Iron Man is a Hero and a payoff).
 
 **Commander (1):** Captain America, Team Leader
 
@@ -83,23 +83,23 @@ Two and three carry the deck. That is where Nick Fury, Black Widow, Shang-Chi, a
 
 ## The signature engine: inclusion is not synergy
 
-**Inclusion** is the share of Captain America decklists that include a card. **Synergy** is how much more this commander runs it than the average deck that legally could. High inclusion + high synergy is a signature card. High inclusion + low synergy is a format staple. EDHREC captured 2026-07-13:
+**Inclusion** is the share of Captain America decklists that include a card. **Synergy** is how much more this commander runs it than the average deck that legally could, shown as a percentage-point gap with a plus sign. High inclusion + high synergy is a signature card. High inclusion + low synergy is a format staple. EDHREC captured 2026-07-13:
 
 | Card | Inclusion | Synergy | Job |
 |---|---:|---:|---|
-| Director Nick Fury | 93.2% | 0.888 | Hero spells cost 1 less; attack digs 4 cards for a Hero |
-| Avengers Tower | 92.3% | 0.864 | Hero-fixing land that also digs 3 cards for one |
-| Iron Man, Armored Avenger | 90.3% | 0.851 | Draw puts a counter; modified attackers fly |
-| War Machine, Avenging Arsenal | 88.5% | 0.836 | Modified attackers gain double strike |
-| Black Widow, Agile Avenger | 87.8% | 0.821 | Cheap menace Hero; punishes an opponent's extra draw |
-| She-Hulk, Wallbreaker | 86.0% | 0.814 | Team trample; blocked Heroes gain counters |
-| Winter Soldier, Reborn Avenger | 85.9% | 0.812 | Attack reanimates a Hero (it re-enters, so it triggers Cap) |
-| Kindred Discovery | 85.8% | 0.807 | Choose Hero: draw on every Hero that enters or attacks |
-| Raise the Palisade | 85.7% | 0.821 | Bounce non-Hero creatures; strongly favors your Hero-heavy board |
-| Swords to Plowshares | 90.5% | 0.228 | *Staple*: high inclusion, low synergy |
-| Arcane Denial | 68.7% | 0.521 | *Staple*: clean counter that replaces itself |
+| Director Nick Fury | 93.2% | +88.8% | Hero spells cost 1 less; attack digs 4 cards for a Hero |
+| Avengers Tower | 92.3% | +86.4% | Hero-fixing land that also digs 3 cards for one |
+| Iron Man, Armored Avenger | 90.3% | +85.1% | Draw puts a counter; modified attackers fly |
+| War Machine, Avenging Arsenal | 88.5% | +83.6% | Modified attackers gain double strike |
+| Black Widow, Agile Avenger | 87.8% | +82.1% | Cheap menace Hero; punishes an opponent's extra draw |
+| She-Hulk, Wallbreaker | 86.0% | +81.4% | Team trample; blocked Heroes gain counters |
+| Winter Soldier, Reborn Avenger | 85.9% | +81.2% | Attack reanimates a Hero (it re-enters, so it triggers Cap) |
+| Kindred Discovery | 85.8% | +80.7% | Choose Hero: draw on every Hero that enters or attacks |
+| Raise the Palisade | 85.7% | +82.1% | Bounce non-Hero creatures; strongly favors your Hero-heavy board |
+| Swords to Plowshares | 90.5% | +22.8% | *Staple*: high inclusion, low synergy |
+| Arcane Denial | 68.7% | +52.1% | *Staple*: clean counter that replaces itself |
 
-Swords at 90.5% inclusion with 0.228 synergy is a clear example of the difference.
+Swords at 90.5% inclusion with +22.8% synergy is a clear example of the difference.
 
 ## What EDHREC can and cannot tell you
 
@@ -113,9 +113,9 @@ The trigger is written on **enters**. Players expect cast, and that swap is the 
 
 A creature with a counter is **modified**, so your countered Heroes meet these rewards at once.
 
-- **Iron Man, Armored Avenger** (90.3% / 0.851). Every draw drops a counter; on attack, your other attacking modified creatures gain flying.
-- **War Machine, Avenging Arsenal** (88.5% / 0.836). On attack, your attacking modified creatures gain double strike.
-- **She-Hulk, Wallbreaker** (86.0% / 0.814). Heroes gain trample; a blocked Hero gains a counter per blocker.
+- **Iron Man, Armored Avenger** (90.3% / +85.1%). Every draw drops a counter; on attack, your other attacking modified creatures gain flying.
+- **War Machine, Avenging Arsenal** (88.5% / +83.6%). On attack, your attacking modified creatures gain double strike.
+- **She-Hulk, Wallbreaker** (86.0% / +81.4%). Heroes gain trample; a blocked Hero gains a counter per blocker.
 
 Card draw feeds the loop: Iron Man counters on every draw, Shang-Chi and the Ten Rings grows on every draw and draws five plus gains five life at ten counters, and Professor Hulk draws for each point of combat damage it deals. Kindred Discovery draws and turns those on. One rules trap: Director Nick Fury, Avengers Tower, and Herald's Horn reveal a Hero into your hand, which does not count as drawing, so they do not add a counter through Iron Man or Shang-Chi.
 
@@ -131,7 +131,7 @@ The old shorthand, "if it is not a Hero and does not pump, protect, or find Hero
 
 ## Ten to cut, ten to add
 
-The 100 above is the **Avengers Assemble** precon, tuned. The box comes as a legal deck, so every upgrade is a one-for-one swap. The first three follow the Snail project: the deckbuilding principle is Salubrious Snail's, and the exact card exchanges come from the Gathering Games Avengers Assemble upgrade guide. The other seven are recommendations built for this list. Every cut is a real precon card; every add is legal in Captain America's Jeskai identity (Scryfall, 2026-07-13).
+The 100 above is an optimized build. It goes past the precon with more than ten changes, including a rebuilt mana base and a few other slots. Below are the headline swaps from the **Avengers Assemble** precon, a strong first upgrade package. The first three follow the Snail project: the deckbuilding principle is Salubrious Snail's, and the exact card exchanges come from the Gathering Games Avengers Assemble upgrade guide. The other seven are recommendations built for this list. Every cut is a real precon card; every add is legal in Captain America's Jeskai identity (Scryfall, 2026-07-13).
 
 ### Three applied Snail changes
 
@@ -175,7 +175,7 @@ Three common mistakes:
 
 *EDHREC data captured 2026-07-13.*
 
-On the day this was written, EDHREC listed **2,456** Captain America decks at **rank 937**, and its top theme tags were +1/+1 counters (172) and Heroes (134). That build count says the commander is popular and easy to pick up, and it does not say the deck is strong or that the crowd is right. The counts and percentages move as the sample grows, so the figures here are stamped with their capture date, and a later read may differ. The deck reads as beginner-friendly because the decision tree is short: play a Hero, take the counters, attack, repeat. Whether it is the simplest deck in the box to play against is a claim this page does not make.
+On the day this was written, EDHREC listed **2,456** Captain America decks at **rank 937**, and its top theme tags were +1/+1 counters (172) and Heroes (134). That build count shows broad adoption. It does not say the deck is strong, that the crowd is right, or that the commander is easy to learn. The counts and percentages move as the sample grows, so the figures here are stamped with their capture date, and a later read may differ. The deck reads as beginner-friendly because the decision tree is short: play a Hero, take the counters, attack, repeat. Whether it is the simplest deck in the box to play against is a claim this page does not make.
 
 ---
 
