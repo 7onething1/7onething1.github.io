@@ -1,0 +1,315 @@
+<!doctype html>
+<html lang="en"><head><meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Kang, Temporal Tyrant: The Second-Draw Machine</title>
+<meta name="description" content="A Snail-style deck tech for Kang, Temporal Tyrant, the Doom Prevails Marvel Commander alt: the Dimir control deck built on one trigger, your second card each turn, with the full turn-cycle engine, priority adds, cuts, interaction, two finishers, and an opening line, read through EDHREC's real data.">
+<meta name="keywords" content="Kang Temporal Tyrant, second card each turn, connive, Dimir control, Marvel Super Heroes Commander, Doom Prevails alt, EDHREC Kang, Construct a Cosmic Cube, Leader Super-Genius, Baron Strucker, deck tech">
+<meta property="og:title" content="Kang, Temporal Tyrant: The Second-Draw Machine">
+<meta property="og:description" content="The Kang Dimir control engine built on one trigger that fires on every player's turn, read through EDHREC's real data, with adds, cuts, interaction, finishers, and an opening line.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,500;0,600;0,700;1,600&family=Inter:wght@400;600;700;800&display=swap" rel="stylesheet">
+<style>
+  :root{--cream:#f4ecd8;--ink:#1c1a17;--rust:#b5533b;--teal:#3f7c78;--gold:#c98a2b;--olive:#7d7a3a;--line:#d9cdb0;--plum:#7b4b8a;}
+  *{box-sizing:border-box}
+  body{margin:0;background:var(--cream);color:var(--ink);font-family:'Inter',system-ui,-apple-system,Segoe UI,Roboto,sans-serif;line-height:1.62}
+  header{padding:46px 24px 10px;max-width:760px;margin:0 auto;text-align:center}
+  h1{font-family:'Cormorant Garamond',Georgia,serif;font-size:2.7rem;margin:.15em 0;color:var(--ink);line-height:1.1}
+  .sub{color:var(--olive);font-weight:600;max-width:640px;margin:8px auto 0}
+  .nav{margin:14px auto 0;font-size:.9rem}
+  .nav a{color:var(--teal);font-weight:700;text-decoration:none;margin:0 8px}
+  .byline{max-width:760px;margin:10px auto 0;padding:0 22px;font-size:.8rem;color:var(--olive);font-style:italic;text-align:center}
+  main{max-width:760px;margin:0 auto;padding:12px 22px 100px}
+  article h2{font-family:'Cormorant Garamond',serif;font-size:1.7rem;color:var(--rust);margin:34px 0 8px}
+  article h3{font-family:'Inter',sans-serif;font-size:1.02rem;color:var(--plum);margin:18px 0 6px;text-transform:uppercase;letter-spacing:.04em}
+  article p{margin:0 0 14px;font-size:1.04rem}
+  .lead{font-size:1.12rem;color:#33302a}
+  .cardfig{float:right;width:180px;max-width:38vw;margin:4px 0 14px 20px}
+  .cardfig img{width:100%;border-radius:9px;box-shadow:0 3px 12px rgba(0,0,0,.22)}
+  .cardfig figcaption{font-size:.76rem;color:var(--olive);text-align:center;margin-top:5px;font-weight:600}
+  .swapline{margin:10px 0;padding:9px 13px;background:#fbf5e6;border:1px solid var(--line);border-radius:9px;font-size:.96rem;overflow:hidden}
+  .swapline img.mini{float:right;width:86px;height:auto;border-radius:5px;margin:1px 0 6px 13px;box-shadow:0 2px 8px rgba(0,0,0,.22)}
+  .swapline b{color:var(--rust)} .swapline .pct{color:var(--teal);font-weight:800}
+  .swapline .fn{color:var(--plum);font-weight:800;font-size:.82rem}
+  .mathbox{background:#efe6cf;border:1px solid var(--line);border-left:4px solid var(--teal);border-radius:10px;padding:14px 16px;margin:14px 0}
+  .mathbox table{border-collapse:collapse;width:100%;font-size:.95rem;margin:6px 0}
+  .mathbox td{padding:4px 8px;border-bottom:1px solid var(--line)}
+  .mathbox td:last-child{text-align:right;font-weight:800;color:var(--rust)}
+  .mathbox .tot td{border-bottom:none;border-top:2px solid var(--teal);font-weight:800}
+  .cols{display:flex;gap:16px;flex-wrap:wrap}
+  .cols>div{flex:1;min-width:230px;background:#fbf5e6;border:1px solid var(--line);border-radius:10px;padding:12px 15px}
+  .cols h3{margin-top:2px}
+  .cols ul{margin:6px 0 0;padding-left:18px;font-size:.95rem}
+  .cols li{margin:5px 0}
+  .turns{background:#fbf5e6;border:1px solid var(--line);border-radius:10px;padding:6px 4px;margin:12px 0}
+  .turns table{border-collapse:collapse;width:100%;font-size:.94rem}
+  .turns td{padding:7px 11px;border-bottom:1px solid var(--line);vertical-align:top}
+  .turns td:first-child{font-weight:800;color:var(--teal);white-space:nowrap;width:1%}
+  .turns tr:last-child td{border-bottom:none}
+  .auditwrap{overflow-x:auto;margin:12px 0}
+  table.audit{border-collapse:collapse;width:100%;min-width:640px;font-size:.9rem;background:#fbf5e6;border:1px solid var(--line);border-radius:10px}
+  table.audit th{background:#efe6cf;color:var(--plum);text-align:left;padding:8px 10px;font-size:.78rem;text-transform:uppercase;letter-spacing:.03em}
+  table.audit td{padding:8px 10px;border-top:1px solid var(--line);vertical-align:top}
+  table.audit td:first-child{font-weight:800;color:var(--rust);white-space:nowrap}
+  .v{display:inline-block;padding:2px 9px;border-radius:20px;font-size:.76rem;font-weight:800;color:#fff}
+  .v-core{background:var(--teal)} .v-supported{background:var(--olive)} .v-situational{background:var(--gold)} .v-cut{background:var(--rust)}
+  .pull{border-left:4px solid var(--gold);padding:6px 0 6px 15px;margin:16px 0;font-family:'Cormorant Garamond',serif;font-size:1.35rem;color:#3f3b30}
+  .src{max-width:760px;margin:0 auto;padding:0 22px 40px;font-size:.82rem;color:var(--olive)}
+  .src a{color:var(--teal);font-weight:700}
+  .kid-only{display:none}
+  #kidfab{position:fixed;right:18px;bottom:18px;z-index:50;background:var(--rust);color:#fff;border:none;border-radius:40px;padding:14px 21px;font-size:1rem;font-weight:800;box-shadow:0 4px 14px rgba(0,0,0,.25);cursor:pointer}
+  body.kid{font-size:1.14rem}
+  body.kid .grown{display:none}
+  body.kid .kid-only{display:block}
+  body.kid .lead{font-size:1.18rem}
+  @media(max-width:560px){.cardfig{float:none;width:150px;margin:0 auto 14px;display:block}}
+</style></head>
+<body>
+<header>
+  <h1>Kang, Temporal Tyrant: The Second-Draw Machine</h1>
+  <div class="sub grown">The Doom box's control villain runs on one trigger, your second card each turn, and that trigger fires on every player's turn in the game, including all three of your opponents'. Every good card in the deck either helps you hit it or pays you off for hitting it.</div>
+  <div class="sub kid-only">Kang is a slow control villain. His whole deck is about drawing a second card every turn, and the clever part is that you can do it on other players' turns too. Each time you do, you drain the table.</div>
+  <div class="nav"><a href="/salubrioussnail-marvel-edhrec/">EDHREC read</a> &middot; <a href="/salubrioussnail-doom-deaddraws/">Doom dead-draws audit</a> &middot; <a href="/loki-deceiver-deck-tech/">Loki deck tech</a> &middot; <a href="/marvel-commander-rankings/">Marvel rankings</a></div>
+</header>
+<p class="byline">This Kang, Temporal Tyrant deck tech is written in Salubrious Snail's voice. Kang's inclusion figures come from his EDHREC commander page; card text is from Scryfall. Not authored or endorsed by Salubrious Snail or EDHREC.</p>
+<main>
+<article>
+
+<p class="lead grown">Kang, Temporal Tyrant reads like two small abilities, and together they define the whole deck. When Kang attacks he connives, which draws a card and then discards one. And whenever you draw your second card in a turn, each opponent loses a life and you gain one. Read the second ability closely. It says <b>each turn</b>, which counts every turn in the game, your opponents' turns included. That one detail is the whole deck. You get to drain the table on your own turn and on all three opponents' turns, as long as you can manufacture a second draw during each of them. This is a Dimir control deck that wins by turning a steady drip of extra draws into damage, tokens, and eventually the game.</p>
+<p class="lead kid-only">Kang has two little powers. He draws and discards when he attacks, and every time you draw your second card in a turn, you drain every opponent for one. The word that matters is "each turn." That means you can drain people on their turns too, as well as on yours, if you find a way to draw a second card on their turn.</p>
+
+<h2>The one trigger that matters</h2>
+<figure class="cardfig"><img src="https://cards.scryfall.io/normal/front/f/b/fb96ee86-5139-472a-9c4b-8a8a4280fc7e.jpg?1782681729" alt="Kang, Temporal Tyrant"><figcaption>Kang, Temporal Tyrant</figcaption></figure>
+<p class="grown">Your first draw each turn is the free one from your draw step, or, on someone else's turn, the first card you happen to draw that turn. The second draw is the one you have to manufacture. Connive is the cleanest way to do it, because a connive draws a card as it resolves, then discards one. A connive is an effect that draws you a card, so any connive you get on a turn where you have already drawn once flips straight into your second draw and fires every payoff at once. So the build question is simple: how many ways can you reliably draw a second card, and on how many of the four turns in a rotation.</p>
+<p class="kid-only">You draw one card on your turn for free. The trick is drawing a second one. Connive is the easy way, since conniving draws a card and then makes you discard one. One connive on top of a card you already drew becomes your second draw and fires all your rewards.</p>
+
+<h2>The turn-cycle math</h2>
+<p class="grown">Here is the ceiling most Kang primers skip. In a four-player game there are four turns in every rotation. If you build one second draw into each of them, Kang drains three opponents four separate times before your next main phase. Instant-speed draw is what reaches the opponents' turns, because a sorcery-speed cantrip can only ever fire on your own. The engine runs on one clean second draw repeated four times a lap. You never need seven trips around your own upkeep.</p>
+<div class="mathbox grown">
+  <table>
+    <tr><td>Your turn: draw step, then a connive or a cantrip</td><td>drain 1</td></tr>
+    <tr><td>Opp A's turn: Frantic Search or Visions of Villainy at instant speed</td><td>drain 1</td></tr>
+    <tr><td>Opp B's turn: a second instant, or Ledger Shredder on the table's second spell</td><td>drain 1</td></tr>
+    <tr><td>Opp C's turn: a held-up instant draw</td><td>drain 1</td></tr>
+    <tr class="tot"><td>One full rotation, before combat or tokens</td><td>4 drains</td></tr>
+  </table>
+</div>
+<p class="grown">Stack Gixian Puppeteer under that and every one of those drains is worth two instead of one. Stack Construct a Cosmic Cube under it and the same four triggers push four plan counters and four menace tokens a lap, so the seven-counter clock closes in under two rotations without you spending a single one of your own draw steps on it. The lesson for deckbuilding: instant-speed draw carries this deck, because it turns one payoff into four, so it belongs near the top of your priority list.</p>
+<p class="kid-only">In a four-player game there are four turns before you get to go again. If you can draw a second card on each of them, you drain the table four times a lap instead of once. Cards that let you draw at instant speed, like Frantic Search, are the key, because they work on other people's turns. Add Gixian Puppeteer and every drain is worth two.</p>
+
+<h2>Reading the payoffs</h2>
+<p class="grown">EDHREC's high-synergy list for Kang is a stack of second-draw payoffs, and each one turns that trigger into a different kind of pressure.</p>
+<div class="swapline grown"><img class="mini" src="https://cards.scryfall.io/normal/front/2/c/2c8aab8d-2dfe-49c8-9aa8-536b0587b467.jpg" alt="Leader, Super-Genius"><b>Leader, Super-Genius</b> <span class="pct">70%</span>. The engine piece. Your connives become a draw and then a connive, so one trigger does the work of two, and it hands you a free combat connive every turn on top.</div>
+<div class="swapline grown"><img class="mini" src="https://cards.scryfall.io/normal/front/4/4/448de757-ac16-4529-b851-1a1331b821a5.jpg" alt="Construct a Cosmic Cube"><b>Construct a Cosmic Cube</b> <span class="pct">65%</span>. Every second draw makes a menacing Villain token and adds a plan counter. At the seventh counter you sacrifice it and control an opponent during their next turn, so the same steady value doubles as a hard clock.</div>
+<div class="swapline grown"><img class="mini" src="https://cards.scryfall.io/normal/front/2/c/2cc86e18-ffbc-4c5f-a694-922332b146cc.jpg" alt="Gixian Puppeteer"><b>Gixian Puppeteer</b> <span class="pct">47%</span>. Doubles the drain, since every second draw costs an opponent two life and gains you two. Kang plus Puppeteer is three life per trigger before you do anything else, and across a full rotation that is twelve.</div>
+<div class="swapline grown"><img class="mini" src="https://cards.scryfall.io/normal/front/d/e/de490be1-4b62-4dc8-ad00-55de74d501dd.jpg" alt="M.O.D.O.K., Evil Intellect"><b>M.O.D.O.K., Evil Intellect</b> <span class="fn">removal payoff</span>. Whenever you draw your second card each turn, a target opponent sacrifices a nontoken creature. Four second draws a lap is four forced sacrifices, which is how a durdle deck strips a board without spending removal spells.</div>
+<div class="swapline grown"><img class="mini" src="https://cards.scryfall.io/normal/front/5/c/5c9ff69e-6489-49f3-b401-64856f0b7c11.jpg" alt="Kid Loki"><b>Kid Loki</b> <span class="pct">45%</span>. Every second draw puts a counter on him, and any creature you have put a counter on <i>this turn</i> has hexproof. Read that carefully: on his own he only protects himself, and only on turns he grows. To shield the rest of the board you need other counter sources feeding the same turn.</div>
+<p class="kid-only">The most popular reward cards each cash the second draw differently: Leader doubles your connives, the Cosmic Cube makes tokens and eventually steals a turn, Gixian Puppeteer drains two, M.O.D.O.K., Evil Intellect makes an opponent sacrifice a creature, and Kid Loki grows and protects himself. Note Kid Loki only protects creatures you have grown that same turn.</p>
+
+<h2>Off-turn enablers, the cards that make the math work</h2>
+<p class="grown">If instant-speed draw is what turns one drain into four, these are the pieces that supply it, and they are the cards a Kang list should prioritize over a fifth sorcery-speed cantrip.</p>
+<div class="swapline grown"><img class="mini" src="https://cards.scryfall.io/normal/front/d/8/d8c5e52d-57ae-464b-8860-7dd39ebfef64.jpg" alt="Frantic Search"><b>Frantic Search</b> <span class="pct">47%</span>. An instant that draws two and untaps three lands, so on an opponent's turn it becomes a free second draw for you. The single best off-turn enabler in the shell.</div>
+<div class="swapline grown"><img class="mini" src="https://cards.scryfall.io/normal/front/f/8/f8f1e4f9-7415-437f-b694-ecbdd76db114.jpg" alt="Visions of Villainy"><b>Visions of Villainy</b> <span class="pct">49%</span>. An instant that draws two and costs one less with a Villain out. Cheap, repeatable-feeling, and legal to fire on anyone's turn.</div>
+<div class="swapline grown"><img class="mini" src="https://cards.scryfall.io/normal/front/7/e/7ea4b5bc-18a4-45db-a56a-ab3f8bd2fb0d.jpg" alt="Ledger Shredder"><b>Ledger Shredder</b> <span class="pct">42%</span>. Connives whenever any player casts their second spell in a turn, which happens on their turns too. If you have already drawn once that turn, its connive is your second draw and a Kang drain.</div>
+<div class="swapline grown"><img class="mini" src="https://cards.scryfall.io/normal/front/e/a/eaf2251a-ffaf-4055-9474-7e3d08d89609.jpg" alt="Baron Strucker, HYDRA Overlord"><b>Baron Strucker, HYDRA Overlord</b> <span class="pct">61%</span>. The most-run card the old primer never mentioned. Villain spells cost one less, and once each turn a Villain entering may connive. That connive is a repeatable second-draw source, and the cost cut helps the whole Villain subtheme.</div>
+<div class="swapline grown"><img class="mini" src="https://cards.scryfall.io/normal/front/f/5/f54197b8-6279-43ee-9340-69bd22cf3775.jpg" alt="Madame Masque"><b>Madame Masque</b> <span class="pct">46%</span>. Connives on enter and then makes a Villain token on every second draw you hit, so she is an enabler and a payoff in one body.</div>
+<p class="kid-only">These cards let you draw that key second card, and the best ones work on other players' turns: Frantic Search, Visions of Villainy, Ledger Shredder, plus Baron Strucker, who makes your villains cheaper and lets one connive each turn, and Madame Masque, who both draws and rewards.</p>
+
+<h2>The other half of connive, the discard</h2>
+<p class="grown">Every connive draws a card and then discards one, so a deck full of connives is quietly a discard deck too, and that is a second engine most Kang primers walk right past. The pile of cards you bin each turn is a resource, and a few EDHREC staples turn it into value or removal.</p>
+<div class="swapline grown"><img class="mini" src="https://cards.scryfall.io/normal/front/1/a/1a1b2bd0-e17d-4b34-a8ee-7c913a6bc945.jpg" alt="Moonstone, Harsh Mistress"><b>Moonstone, Harsh Mistress</b> <span class="pct">43%</span>. Whenever you discard a card you may exile it from your graveyard and play it until the end of your next turn, so the land or spell a connive threw away comes back for free. She makes discarding a filter rather than a loss.</div>
+<div class="swapline grown"><img class="mini" src="https://cards.scryfall.io/normal/front/8/3/83057af6-cb88-4401-92ef-5b5d10463140.jpg" alt="Archfiend of Ifnir"><b>Archfiend of Ifnir</b> <span class="pct">32%</span>. Whenever you discard a card, each creature your opponents control gets a minus-one-minus-one counter. Kang and his support connive over and over, so Archfiend turns the discard half of the engine into a slow board wipe that also cycles for value.</div>
+<div class="swapline grown"><img class="mini" src="https://cards.scryfall.io/normal/front/3/8/38e87542-50f7-4812-9338-84e4b9b7bb44.jpg" alt="M.O.D.O.K."><b>M.O.D.O.K.</b> <span class="pct">40%</span>. The other M.O.D.O.K., a flying lifelinker that pays three life to connive on your turn and gives every opposing creature minus-one-minus-one. He is a discard-and-connive engine on a body, feeding Moonstone and Archfiend as he chips the board down.</div>
+<p class="grown">This is why the deckbuilding test below is wider than a pure draw count. A card like Moonstone can do more work than a fourth generic second-draw payoff, because she recovers what the engine throws away, and Archfiend converts the same discards into removal you were not paying for.</p>
+<p class="kid-only">Connive draws a card and then makes you discard one, so Kang is secretly a discard deck as well. Moonstone lets you play cards you discarded, so nothing is wasted. Archfiend of Ifnir shrinks every enemy creature each time you discard. M.O.D.O.K. connives over and over and weakens the board. The cards you throw away become a resource of their own.</p>
+
+<h2>Priority adds</h2>
+<p class="grown">Kang is a box alt with no upgrade list of his own, so the add list below reads EDHREC as a signal and runs it through the second-draw test, rather than copying the popular pile wholesale. Percentages are the share of recorded Kang decks running the card, read 2026-07-13, and the next section separates that inclusion from synergy so you can tell a signature card from a staple.</p>
+<div class="cols grown">
+  <div>
+    <h3>Engine and payoffs</h3>
+    <ul>
+      <li>Leader, Super-Genius <b>70%</b></li>
+      <li>Construct a Cosmic Cube <b>65%</b></li>
+      <li>Baron Strucker, HYDRA Overlord <b>61%</b></li>
+      <li>Gixian Puppeteer <b>47%</b></li>
+      <li>Madame Masque <b>46%</b></li>
+      <li>Psychosis Crawler <b>45%</b></li>
+      <li>Teferi's Ageless Insight <b>45%</b></li>
+      <li>M.O.D.O.K., Evil Intellect <span class="fn">by function</span></li>
+    </ul>
+  </div>
+  <div>
+    <h3>Enablers and draw</h3>
+    <ul>
+      <li>Visions of Villainy <b>49%</b> <span class="fn">instant</span></li>
+      <li>Frantic Search <b>47%</b> <span class="fn">instant</span></li>
+      <li>Ledger Shredder <b>42%</b> <span class="fn">any turn</span></li>
+      <li>Unstable Experiment <b>40%</b></li>
+    </ul>
+  </div>
+</div>
+<p class="kid-only">The best cards to add are the ones that help the second-draw plan: Leader, the Cosmic Cube, Baron Strucker, Gixian Puppeteer, Madame Masque, Psychosis Crawler, Teferi's Ageless Insight, M.O.D.O.K., Evil Intellect, and the instant-speed draws Visions of Villainy and Frantic Search.</p>
+
+<h2>Inclusion is not synergy</h2>
+<figure class="cardfig"><img src="https://cards.scryfall.io/normal/front/4/f/4f616706-ec97-4923-bb1e-11a69fbaa1f8.jpg" alt="Counterspell"><figcaption>Counterspell, high inclusion, negative synergy</figcaption></figure>
+<p class="grown">EDHREC prints two numbers per card, and they answer different questions. Inclusion is the share of Kang decks running the card. Synergy is how much more Kang runs it than the average blue-black deck that legally could. A high inclusion paired with a high synergy is a signature card, something Kang pulls toward far more than the format at large. A high inclusion with a low synergy is a staple, a card that is good in any deck of these colors. Reading only the inclusion column is how a primer ends up telling you to copy the popular pile. The synergy column is the one that shows you the deck's actual identity.</p>
+<div class="turns grown">
+  <table>
+    <tr><td style="color:var(--plum)">Card</td><td>Inclusion</td><td>Synergy</td><td>Read</td></tr>
+    <tr><td>Leader, Super-Genius</td><td>70%</td><td>+67%</td><td>signature</td></tr>
+    <tr><td>Construct a Cosmic Cube</td><td>65%</td><td>+64%</td><td>signature</td></tr>
+    <tr><td>Baron Strucker, HYDRA Overlord</td><td>61%</td><td>+58%</td><td>signature</td></tr>
+    <tr><td>Visions of Villainy</td><td>49%</td><td>+48%</td><td>signature</td></tr>
+    <tr><td>Gixian Puppeteer</td><td>47%</td><td>+46%</td><td>signature</td></tr>
+    <tr><td>Moonstone, Harsh Mistress</td><td>43%</td><td>+42%</td><td>signature</td></tr>
+    <tr><td>Archfiend of Ifnir</td><td>32%</td><td>+31%</td><td>signature</td></tr>
+    <tr><td>Frantic Search</td><td>47%</td><td>+27%</td><td>staple that fits</td></tr>
+    <tr><td>Arcane Denial</td><td>43%</td><td>+17%</td><td>staple</td></tr>
+    <tr><td>Counterspell</td><td>52%</td><td>-4%</td><td>pure staple</td></tr>
+  </table>
+</div>
+<p class="grown">The lesson lines up with the second-draw test. Leader and the Cube earn their high synergy because they exist to cash Kang's trigger. Counterspell has the highest inclusion of the interaction and a negative synergy, which just means every blue deck plays it, so run it as the format staple it is, for the reason any control deck wants a hard counter, not because the Kang page ranked it high. Favor the signature column when you want the cards that make this deck itself, and treat the staples as the rent you pay to be in blue-black.</p>
+<p class="kid-only">EDHREC shows two numbers. One is how many Kang decks play a card. The other, synergy, is how much MORE Kang wants it than a normal blue-black deck. Leader and the Cosmic Cube score high on the second number, so they are truly Kang cards. Counterspell scores low, so it is just a card every blue deck runs. Follow the synergy number to find the real Kang cards.</p>
+
+<h2>Interaction, the half that keeps you alive</h2>
+<p class="grown">A deck that wins slowly has to survive to get there, so the numbers back a wall of cheap answers. Counterspell shows up in fifty-two percent of decks, with Arcane Denial at forty-three percent and Lethal Scheme at forty-two percent as the removal, and the classic Dimir suite of Swords to Plowshares style spot removal, a board wipe or two, and enough counters to protect the Cosmic Cube as it counts up. The tell is that most of your interaction wants to be instant, which is the same shape as your enablers: hold mana on other turns, and use it to answer a threat or to fire a draw for a Kang drain when nothing needs answering.</p>
+<p class="kid-only">Because the deck wins slowly, you need lots of cheap answers: Counterspell, Arcane Denial, spot removal, and a board wipe. The nice part is they are instants, so on quiet turns you can spend that same held-up mana to draw a card and drain the table instead.</p>
+
+<h2>Ten to add, ten to cut</h2>
+<p class="grown">The ten adds are real cards, all legal in blue-black and all pulling toward the second-draw core. The ten cuts are kinds of card, because the exact slots depend on the list you start from, and listing a card I have not verified in your ninety-nine would be a guess dressed as a fact.</p>
+<div class="cols grown">
+  <div>
+    <h3>Ten adds toward the core</h3>
+    <ul>
+      <li><b>Leader, Super-Genius</b>, the connive doubler and combat connive.</li>
+      <li><b>Construct a Cosmic Cube</b>, the token engine and the clock.</li>
+      <li><b>Baron Strucker</b>, Villain cost cut plus a per-turn connive.</li>
+      <li><b>Gixian Puppeteer</b>, doubles every drain.</li>
+      <li><b>M.O.D.O.K., Evil Intellect</b>, a forced sacrifice each time the trigger fires.</li>
+      <li><b>Madame Masque</b>, connive on enter and a token per trigger.</li>
+      <li><b>Visions of Villainy</b>, instant draw-two that fires on any turn.</li>
+      <li><b>Frantic Search</b>, instant draw-two that untaps its own mana.</li>
+      <li><b>Moonstone, Harsh Mistress</b>, replays what your connives discard.</li>
+      <li><b>Archfiend of Ifnir</b>, turns the discard half into a slow wipe.</li>
+    </ul>
+  </div>
+  <div>
+    <h3>Ten kinds of card to cut</h3>
+    <ul>
+      <li>Every red card from the Grixis precon, illegal under Kang.</li>
+      <li>Pure single-draw value that never reaches the trigger.</li>
+      <li>Vanilla beaters with no Villain or connive tag.</li>
+      <li>High-cost bombs that do not enable or pay off the trigger.</li>
+      <li>Sorcery-speed cantrips once your instant-speed count is high.</li>
+      <li>Symmetric board wipes that erase your own Villain tokens.</li>
+      <li>Auras and Equipment that buff a single creature.</li>
+      <li>Win-more cards that need you already ahead.</li>
+      <li>Narrow hate that does nothing against most tables.</li>
+      <li>Rhystic Study, a popular pickup to skip rather than add, on Snail's argument that it is bad for the table.</li>
+    </ul>
+  </div>
+</div>
+<p class="kid-only">Ten great cards to put in: Leader, the Cosmic Cube, Baron Strucker, Gixian Puppeteer, M.O.D.O.K. Evil Intellect, Madame Masque, Visions of Villainy, Frantic Search, Moonstone, and Archfiend of Ifnir. Ten kinds of card to take out: every red card (Kang cannot use them), slow value, plain attackers, expensive off-plan bombs, sorcery-speed draw, board wipes that kill your own tokens, single-creature buffs, win-more cards, narrow hate, and Rhystic Study.</p>
+
+<h2>Two ways the game actually ends</h2>
+<figure class="cardfig"><img src="https://cards.scryfall.io/normal/front/d/0/d0f42a19-c180-45b1-9f4c-787cf3a4a649.jpg?1783912973" alt="Psychosis Crawler"><figcaption>Psychosis Crawler</figcaption></figure>
+<figure class="cardfig"><img src="https://cards.scryfall.io/normal/front/b/1/b1a32b7c-9f26-4504-9f8d-379164d69346.jpg" alt="Teferi's Ageless Insight"><figcaption>Teferi's Ageless Insight</figcaption></figure>
+<p class="grown"><b>The drain kill.</b> Stack the payoffs that trigger on each card drawn, the ones that fire on your first card as well as your second. Psychosis Crawler pings each opponent for one on every single card you draw, and Teferi's Ageless Insight replaces every draw except the first one in each of your draw steps with two cards. Read that carefully, because it is the sharpest interaction on the page. On your own turn Teferi doubles your cantrips. On an opponent's turn you have no draw step, so even your first draw becomes two cards, which means a single cheap cantrip is your first and second card at once and triggers Kang with no other draw effect. Teferi raises your draw count, which fuels Psychosis Crawler and reaches the second draw faster. The trigger count itself stays capped at one a turn, since Kang, Gixian Puppeteer, and the Cube each fire once on the second card of the turn, no matter how many cards follow it. Add Gixian Puppeteer and the whole table's life total falls in chunks you can count out several turns ahead. This is the line that closes without combat.</p>
+<p class="grown"><b>The Cube clock.</b> Construct a Cosmic Cube is the second-draw deck's hard finish. Every second draw drops a plan counter, and the seven come from table turns rather than your own upkeeps: Kang attacks on your turn for one, then a Visions of Villainy, a Frantic Search, and one more held-up instant each add a counter across the three opponents' turns, so the Cube climbs a counter a turn and reaches seven in about two laps without you spending a main phase on it. You sacrifice the enchantment and control an opponent during their next turn. That means you steer their whole turn for them, and they stay the active player the entire time, so you decide their attacks, their spells, and where their permanents point. Use it to make them swing at a rival, tap out, or hand you a permanent, and the menacing Villain tokens the Cube made along the way keep Kang swinging as the counters climb.</p>
+<p class="kid-only">There are two ways to win. One, the drain: Psychosis Crawler hurts opponents on every draw and Teferi's Ageless Insight makes your draws count double, so the table's life just falls. Two, the Cosmic Cube: it counts up on every second draw, and at seven you control an opponent's whole next turn.</p>
+
+<h2>A sample opening</h2>
+<div class="turns grown">
+  <table>
+    <tr><td>Turn 1</td><td>Land, then a one-drop or a mana rock. Nothing wants to be cast into open counters this early, so develop.</td></tr>
+    <tr><td>Turn 2</td><td>Baron Strucker or Madame Masque. Strucker sets up cheaper Villains and a per-turn connive; Masque banks a token engine. Hold up a counter if you drew one.</td></tr>
+    <tr><td>Turn 3</td><td>Construct a Cosmic Cube on your own turn so it starts counting, or Kang if the board is safe. Do not attack with Kang into a wide board just to connive; the connive is not worth losing him.</td></tr>
+    <tr><td>Turn 4</td><td>Leader, Super-Genius, or hold Frantic Search and a counter. From here on, keep two mana up on opponents' turns: answer a threat, or fire an instant draw for a Kang drain when the coast is clear.</td></tr>
+    <tr><td>Turn 5</td><td>Start closing the loop. One instant-speed second draw per turn is now a drain per turn, the Cube is halfway to seven, and the drain payoffs turn every cantrip into damage.</td></tr>
+  </table>
+</div>
+<p class="grown">Three mistakes to avoid. First, dumping your hand on your own turns and leaving nothing for the opponents' turns, which throws away three quarters of the rotation. Second, attacking Kang into a board that can kill or chump him just to connive, when the connive is worth less than the commander. Third, spending an instant-speed draw on your own turn out of habit when you had already drawn once, since that same card drains the table if you hold it for an opponent's turn.</p>
+<p class="kid-only">A good start: turn 1 build mana, turn 2 play Baron Strucker or Madame Masque, turn 3 drop the Cosmic Cube so it starts counting, turn 4 add Leader and keep two mana up for a counter or to draw a card, turn 5 begin draining every turn. Three mistakes: emptying your hand on your own turn, attacking Kang into a board that kills him, and drawing on your turn when holding it for someone else's turn would drain the table.</p>
+
+<h2>Snail Tip</h2>
+<p class="grown">This build is exactly where three of Snail's own principles earn their keep. His <a href="/salubrioussnail-points/#v-reducing-dead-draws-through-synergy-in-deckbuilding">dead-draw audit</a> asks two questions of every card, what does it accomplish and what does it synergize with, and the instant-speed enablers pass loudly because they do a job on all four turns of the rotation. His <a href="/salubrioussnail-points/#v-how-edhrec-data-aggregation-warps-commander-deckbuilding">EDHREC Effect</a> read tells you why the top-cards column is a signal and not a shopping list: the feedback loop props up staples regardless of fit, so favor the cards that still contribute on a turn Kang is dead. And his <a href="/salubrioussnail-points/#v-why-rhystic-study-should-be-banned-in-commander">Rhystic Study</a> video is the sharpest example, since he argues that card is actively bad for the table. It is not in the stock Doom Prevails list, so treat it as a popular pickup to skip rather than a card to cut.</p>
+<p class="grown">We worked his dead-draw audit onto this whole box in full, in his own words: <a href="/salubrioussnail-doom-deaddraws/">read the Doom dead-draws page</a>, or see how he reads a commander page himself in his <a href="/salubrioussnail-points/#v-how-to-use-edhrec-to-improve-commander-decks">EDHREC method</a> breakdown.</p>
+<p class="kid-only">Salubrious Snail has a trick for picking cards: ask what each card accomplishes and what it works with. Cards that draw at instant speed and drain opponents pass. He also warns that popular websites can make weak cards look good, and he thinks one famous card, Rhystic Study, is bad for the whole table. <a href="/salubrioussnail-points/#v-how-to-use-edhrec-to-improve-commander-decks">See his tips on reading card sites here.</a></p>
+
+<h2>Snail's Kang changes</h2>
+<p class="grown">Here is the audit run on the actual stock deck, since a method is only worth as much as the swaps it produces. Each of these three appears in the published Doom Prevails ninety-nine and fails both of Snail's questions for a Kang build, so each is an easy cut. The cards that replace them are engine pieces the precon does not ship.</p>
+<div class="swapline grown"><img class="mini" src="https://cards.scryfall.io/normal/front/b/b/bb759a0b-df7b-43c8-8e8e-bd52535cdbc0.jpg" alt="Superior Foes of Spider-Man"><b>Cut Superior Foes of Spider-Man.</b> It is a red card, so it is illegal the moment Kang takes the command zone, and it never touches the trigger. The easiest cut in the deck.</div>
+<div class="swapline grown"><img class="mini" src="https://cards.scryfall.io/normal/front/e/e/ee64d0dd-e3d8-4abc-b9d6-b19c505fbfa1.jpg" alt="Molecule Man"><b>Cut Molecule Man.</b> Its miracle payoff keys off the first card you draw in a turn, which is the one card Kang does not care about. Colorless and legal, but off the plan.</div>
+<div class="swapline grown"><img class="mini" src="https://cards.scryfall.io/normal/front/8/9/89936964-7131-4ebf-b956-9692659866c1.jpg" alt="Damocles Base, Sword of Kang"><b>Cut Damocles Base, Sword of Kang.</b> A combat-damage villainous choice on a Vehicle, on-theme in name only. It neither draws the second card nor pays it off.</div>
+<p class="grown">The replacements come straight off the audit: <b>Leader, Super-Genius</b> for the connive doubler, <b>Construct a Cosmic Cube</b> for the token engine and clock, and <b>Visions of Villainy</b> for an instant draw-two that fires on any player's turn. All three score among Kang's highest EDHREC synergy and none ship in the stock list, which is exactly the gap the audit is built to find. From there, keep pulling the rest of the red cards and running the ten-add list above through the same two questions.</p>
+
+<h2>The real rule: five jobs</h2>
+<p class="pull grown">Before a nonland card makes the deck, ask which of five jobs it performs. The best cards do two of them.</p>
+<p class="grown">The five jobs are: draw the second card, cash the second-draw trigger, turn a discard into value, protect Kang and the Cube or answer a threat, and close the game. The old shorthand, count your second draw and cut anything that does not touch it, sounds decisive and misses half the deck on contact. It treats interaction and recovery as suspects, and a Kang deck that cannot answer a threat or replay what it discards pays for that false purity. The five-job test fixes it. Frantic Search draws the second card, so it belongs. Moonstone turns a discard into value, so it belongs. Counterspell answers a threat, so it belongs. A card that does none of the five is the one fighting the plan, and a card that does two, an instant that both draws a card and answers a threat, or a Villain that both connives and drains, is the one you cut last.</p>
+<p class="kid-only">Before you add a card, ask which of five jobs it does: draw the second card, reward that draw, use a discard, protect your stuff or answer a threat, or win the game. A card that does none of the five should be cut. A card that does two is a keeper.</p>
+
+<h2>Turning the Doom precon into a Kang deck</h2>
+<figure class="cardfig"><img src="https://cards.scryfall.io/normal/front/0/9/099ed408-9178-4403-8b2d-479ca3cbda9b.jpg" alt="Doctor Doom, King of Latveria"><figcaption>Doctor Doom, King of Latveria, the Grixis face commander</figcaption></figure>
+<p class="grown">Here is the concrete part the primer owes you, and it starts with color. The Doom Prevails precon is Grixis, because its face commander, Doctor Doom, King of Latveria, is blue-black-red. Kang, Temporal Tyrant sticks to blue-black. The moment you move Kang to the command zone, every red card and every red mana pip in the deck becomes illegal by color identity, so those are your first and easiest cuts, no judgment call required. Pull the red removal, the red beaters, and anything with a red hybrid or activated cost, and you have already opened ten or more slots. Fill them with the blue-black enablers and payoffs from the lists above, weighted toward instant-speed draw so the trigger works on all four turns.</p>
+<p class="grown">What stays is the deck's blue-black spine: the connive sources, the Villain support like Baron Strucker and Madame Masque, the discard payoffs, and the draw. What leaves, beyond the red, is the sorcery-speed filler and the pure single-draw value the second-draw test already flags. Pulling the red opens the slots. The section below is what to put back.</p>
+<p class="kid-only">The Doom deck is three colors, blue, black, and red, because its main leader Doctor Doom uses red. Kang only uses blue and black, so when you make Kang the leader, every red card has to come out. Those are your easy first cuts. Put blue and black draw and connive cards in their place.</p>
+
+<h2>What the 99 cards are doing</h2>
+<p class="grown">A deck tech should describe the shape of the whole list. The commander is the easy part, and the ninety-nine behind it are the real work. The ratios matter more than the exact cards, so here is a working skeleton for that ninety-nine. It runs a low curve, most of the deck costs one to three, which is what lets you develop and still hold up an instant on someone else's turn.</p>
+<div class="turns grown">
+  <table>
+    <tr><td style="color:var(--plum)">Slot</td><td>Count</td><td>What it buys</td></tr>
+    <tr><td>Mana base</td><td>36</td><td>A curve of blue-black lands, a few that also filter or draw</td></tr>
+    <tr><td>Trigger enablers</td><td>15</td><td>Connive sources plus instant-speed draw, several firing on opponents' turns</td></tr>
+    <tr><td>Second-draw payoffs</td><td>10</td><td>Kang, Puppeteer, Cube, Kid Loki, M.O.D.O.K. Evil Intellect, Madame Masque</td></tr>
+    <tr><td>Discard and recovery</td><td>4</td><td>Moonstone, Archfiend of Ifnir, the connive-activator M.O.D.O.K.</td></tr>
+    <tr><td>Interaction</td><td>10</td><td>Mostly instant, counters and spot removal plus a wipe or two</td></tr>
+    <tr><td>Protection</td><td>3</td><td>Keep Kang and the Cube alive through the seven-count</td></tr>
+    <tr><td>Ramp and rocks</td><td>9</td><td>Two-drop rocks so you hold up mana every turn of the rotation</td></tr>
+    <tr><td>Draw and refill</td><td>12</td><td>Overlaps the enablers, keeps the grind from stalling</td></tr>
+  </table>
+</div>
+<p class="grown">The counts overlap on purpose, since a card like Madame Masque is an enabler and a payoff, and Frantic Search is ramp and draw at once. The point is the curve and the balance: enough cheap enablers that a second draw is available on every turn, enough interaction to reach the late game, and a land count on the low side because the spells are cheap.</p>
+<p class="kid-only">A whole deck is 99 cards plus Kang. A good recipe: about 36 lands, 15 cards that help you draw the second card, 10 that reward it, 4 that use your discards, 10 answers, 3 protection cards, 9 mana rocks, and 12 more draw cards. Most cost only one to three mana, so you can play a card and still keep mana up on other turns.</p>
+
+<h2>Dead Draw Audit</h2>
+<p class="grown">Snail's method asks more than a card's headline job. It asks how often the card becomes useful, meaning how many cards in the ninety-nine feed its job, and whether it still earns its slot on a turn Kang is dead. Here is that audit as a fixed table: primary job, secondary synergy, support count in the deck, solo value without the commander, and a verdict. A verdict of <span class="v v-core">core</span> means build around it, <span class="v v-supported">supported</span> means it earns its slot through the enabler package, <span class="v v-situational">situational</span> means keep it lean and specific, and <span class="v v-cut">cut</span> means it fights the plan.</p>
+<div class="auditwrap grown">
+<table class="audit">
+  <tr><th>Card</th><th>Primary job</th><th>Secondary</th><th>Support in the 99</th><th>Value without Kang</th><th>Verdict</th></tr>
+  <tr><td>Construct a Cosmic Cube</td><td>Second-draw payoff, tokens and the seven-counter clock</td><td>Menace bodies for defense and pressure</td><td>High, the ~15 second-draw enablers all feed it</td><td>Good, it triggers off any second draw, not off Kang</td><td><span class="v v-core">core</span></td></tr>
+  <tr><td>Leader, Super-Genius</td><td>Enabler, turns each connive into a draw then a connive</td><td>A free combat connive every turn</td><td>High, every connive source in the deck</td><td>Good, the free connive fires with Kang gone</td><td><span class="v v-core">core</span></td></tr>
+  <tr><td>Psychosis Crawler</td><td>Payoff, drains on every card drawn</td><td>A body that scales with your hand</td><td>Very high, the whole ~27-card draw suite</td><td>Full, it drains in any blue-black draw deck</td><td><span class="v v-core">core</span></td></tr>
+  <tr><td>Baron Strucker, HYDRA Overlord</td><td>Enabler, a Villain-entry connive plus a Villain cost cut</td><td>Greases the Villain subtheme</td><td>Medium-high, the ~12 Villains</td><td>Good, the cost cut and connive stand alone</td><td><span class="v v-core">core</span></td></tr>
+  <tr><td>Gixian Puppeteer</td><td>Payoff, doubles the second-draw drain</td><td>Recurs a small creature on death</td><td>High, the same ~15 enablers feed it</td><td>Medium, it needs a second draw, which the enablers give</td><td><span class="v v-supported">supported</span></td></tr>
+  <tr><td>Teferi's Ageless Insight</td><td>Multiplier, replaces non-first draws with two</td><td>Fuels Psychosis Crawler and off-turn triggers</td><td>High, the whole draw suite</td><td>Good, it doubles draws in any deck, but adds no extra Kang triggers</td><td><span class="v v-supported">supported</span></td></tr>
+  <tr><td>Kid Loki</td><td>Payoff, grows himself on the second draw</td><td>Hexproof, but only for creatures you counter that turn</td><td>Low for the protection job, few other counter sources</td><td>Low, on his own he only shields himself</td><td><span class="v v-situational">situational</span></td></tr>
+  <tr><td>Damocles Base, Sword of Kang</td><td>Combat villainous choice on a Vehicle</td><td>None for the second-draw plan</td><td>Zero, no second-draw piece supports it</td><td>Low, a middling attacker</td><td><span class="v v-cut">cut</span></td></tr>
+</table>
+</div>
+<p class="grown">The table is where a strong card gets an honest verdict. Kid Loki looks like a payoff and a protector, but his protection has almost no support in a deck with few other counter sources, and his solo floor is low, so he stays situational rather than core. Damocles Base carries Kang's name and still reads <span class="v v-cut">cut</span>, because zero cards in the ninety-nine support its job. Run every questioned card through these five fields before it earns a slot.</p>
+<p class="grown">Five columns are the floor, and four deeper reads decide the close calls. Support <b>strength</b> beats support count: the same fifteen enablers feed Kid Loki's counter strongly and his hexproof barely, which is why he does not reach core. <b>Independent routes</b> raise a floor: Psychosis Crawler earns value through two unrelated systems, a drain on every card drawn and a body that scales with your hand, and Kid Loki has only one route, so a weak draw still leaves the Crawler doing work where Loki does none. A <b>game-state</b> read keeps the verdicts honest across a real game: the Crawler and the drain payoffs still tax the table when you are behind or at parity, the Cube is a pressure and finishing card, and the roughly ten interaction slots are the <b>flexibility floor</b>, the tools you do not cut for a sixteenth enabler no matter how much the second-draw count improves. Recount every one of these after your final swaps, since adding a payoff can lift an enabler and cutting draw can sink a retained card.</p>
+<p class="grown">One declared exception is allowed. If you love that Damocles Base reads "Sword of Kang," you may keep it as an <b>intentional flavor exception</b>, as long as the deck says so out loud: a middling attacker with no second-draw support, kept for identity at a small consistency cost, not dressed up as an engine piece.</p>
+<p class="kid-only">This table grades each card five ways: what it does, what else it helps, how many other cards support it, whether it is good when Kang is gone, and a final verdict. Green core cards are the best, then supported, then situational, and red cut cards should come out. A famous card can still be a cut if nothing in the deck helps it work.</p>
+
+<h2>Dedicated Kang, or Kang in the Doom box</h2>
+<p class="grown">EDHREC records about seventy-seven Kang decks, read 2026-07-13, so this is the niche pick of a box that only released in June 2026. A number that small this early cannot prove the community thinks Kang belongs outside Doom, and it is worth being straight about that. Wizards put Kang in the official Doom Prevails list on purpose, and Doom's own discard-and-connive package feeds Kang's trigger, so he has a real home there. The honest read comes down to ratios between the two builds. Lean the list toward instant-speed draw and blue interaction and you get the dedicated second-draw control deck described above, draining the table on every turn of the rotation. Keep Doom at the helm and Kang is still one of the better draw payoffs in the ninety-nine.</p>
+<p class="grown">So pick by the game you want. If you like holding up counters and grinding a slow engine that taxes the table a little every turn, build Kang dedicated and load the instant-speed draw. If you want to attack and discard fast, that is more Doom's lane, and Kang still contributes from inside it.</p>
+<p class="kid-only">Only about 77 people have built Kang so far, and the set is brand new, so it is too soon to say he must leave Doom's deck. Wizards put him in the Doom deck on purpose and he works there too. If you want a slow control deck that drains everyone every turn, build Kang on his own with lots of instant-speed draw. If you want to attack fast, keep Doom in charge and let Kang help.</p>
+
+</article>
+</main>
+
+<div class="src">
+  <p><b>Sources.</b> Card text and color identity via <a href="https://scryfall.com">Scryfall</a> (Marvel Super Heroes Commander), oracle text pulled 2026-07-13: Kang, Temporal Tyrant (color identity blue-black, trigger reads "your second card each turn"), Leader Super-Genius, Construct a Cosmic Cube (control an opponent during their next turn rather than taking an extra turn), Gixian Puppeteer, Kid Loki (hexproof only for creatures you put a +1/+1 counter on that turn), Baron Strucker HYDRA Overlord, M.O.D.O.K. Evil Intellect, the connive-activator M.O.D.O.K., Madame Masque, Visions of Villainy (instant), Frantic Search (instant), Ledger Shredder, Psychosis Crawler, Teferi's Ageless Insight (doubles draws except the first in each draw step, so it raises draw count without adding second-draw triggers), Moonstone Harsh Mistress, Archfiend of Ifnir, Superior Foes of Spider-Man (red), Molecule Man (colorless miracle), Damocles Base Sword of Kang (black Vehicle). Color-identity note: the Doom Prevails precon is Grixis via Doctor Doom, King of Latveria (blue-black-red), and Kang is blue-black, so red cards fall out of a Kang build. Doom Prevails stock-deck membership (Superior Foes, Molecule Man, Damocles Base, and Kang present; Leader, Cosmic Cube, Visions of Villainy absent) per the official Wizards Marvel Super Heroes Commander decklists. Multiplayer turn-cycle behavior of "each turn" draw triggers per Wizards' Marvel Super Heroes mechanics feature. Inclusion figures and the current-meta card list from the <a href="https://edhrec.com/commanders/kang-temporal-tyrant">EDHREC Kang commander page</a> (77 decks, rank #3,354, read 2026-07-13). The two-question audit is from Salubrious Snail's dead-draw video (YouTube zAtfawtYEw4), applied here to the box-alt build choice. Related: my <a href="/salubrioussnail-marvel-edhrec/">EDHREC Marvel read</a>, the <a href="/salubrioussnail-doom-deaddraws/">Doom dead-draws audit</a>, the <a href="/loki-deceiver-deck-tech/">Loki deck tech</a>, and the <a href="/doom-prevails-deck-tech/">Doom deck tech</a>. Written in Salubrious Snail's voice; neither Salubrious Snail nor EDHREC authored or endorsed it.</p>
+</div>
+
+<button id="kidfab" onclick="toggleKid()">Kid Mode</button>
+<script>
+function toggleKid(){document.body.classList.toggle('kid');
+  var b=document.getElementById('kidfab');
+  b.textContent=document.body.classList.contains('kid')?'Normal Mode':'Kid Mode';}
+</script>
+</body>
+</html>
