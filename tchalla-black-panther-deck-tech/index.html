@@ -1,0 +1,328 @@
+<!doctype html>
+<html lang="en"><head><meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>T'Challa, the Black Panther: The Self-Fueling Voltron</title>
+<meta name="description" content="A Salubrious Snail-framework deck tech for T'Challa, the Black Panther, the Wakanda Marvel Commander: the artifact-voltron build where the commander makes his own Vibranium and grows on the big artifacts you were casting anyway. Read through EDHREC's real data, with the full 100-card shape, priority adds, the protection package, ten-to-add and ten-to-cut, a sample opening, and the three when-good-cards-are-the-wrong-choice swaps.">
+<meta name="keywords" content="T'Challa the Black Panther, Wakanda Forever Commander, artifact voltron, Vibranium tokens, +1/+1 counters, Vibranium Strike Gauntlets, Shuri the Black Panther, Zuri Warrior of Wakanda, Batterskull, Heroic Intervention, EDHREC Wakanda, Marvel Super Heroes Commander, deck tech, when good cards are the wrong choice">
+<meta property="og:title" content="T'Challa, the Black Panther: The Self-Fueling Voltron">
+<meta property="og:description" content="The Wakanda artifact-voltron engine read through EDHREC's real data, built out with the 100-card shape, priority adds, protection, cuts, and a sample opening.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,500;0,600;0,700;1,600&family=Inter:wght@400;600;700;800&display=swap" rel="stylesheet">
+<style>
+  :root{--cream:#f4ecd8;--ink:#1c1a17;--rust:#b5533b;--teal:#3f7c78;--gold:#c98a2b;--olive:#7d7a3a;--line:#d9cdb0;--plum:#7b4b8a;}
+  *{box-sizing:border-box}
+  body{margin:0;background:var(--cream);color:var(--ink);font-family:'Inter',system-ui,-apple-system,Segoe UI,Roboto,sans-serif;line-height:1.62}
+  header{padding:46px 24px 10px;max-width:760px;margin:0 auto;text-align:center}
+  h1{font-family:'Cormorant Garamond',Georgia,serif;font-size:2.7rem;margin:.15em 0;color:var(--ink);line-height:1.1}
+  .sub{color:var(--olive);font-weight:600;max-width:640px;margin:8px auto 0}
+  .nav{margin:14px auto 0;font-size:.9rem}
+  .nav a{color:var(--teal);font-weight:700;text-decoration:none;margin:0 8px}
+  .byline{max-width:760px;margin:10px auto 0;padding:0 22px;font-size:.8rem;color:var(--olive);font-style:italic;text-align:center}
+  main{max-width:760px;margin:0 auto;padding:12px 22px 100px}
+  article h2{font-family:'Cormorant Garamond',serif;font-size:1.7rem;color:var(--rust);margin:34px 0 8px}
+  article h3{font-family:'Inter',sans-serif;font-size:1.02rem;color:var(--plum);margin:18px 0 6px;text-transform:uppercase;letter-spacing:.04em}
+  article p{margin:0 0 14px;font-size:1.04rem}
+  .lead{font-size:1.12rem;color:#33302a}
+  .cardfig{float:right;width:180px;max-width:38vw;margin:4px 0 14px 20px}
+  .cardfig img{width:100%;border-radius:9px;box-shadow:0 3px 12px rgba(0,0,0,.22)}
+  .cardfig figcaption{font-size:.76rem;color:var(--olive);text-align:center;margin-top:5px;font-weight:600}
+  .swapline{margin:10px 0;padding:9px 13px;background:#fbf5e6;border:1px solid var(--line);border-radius:9px;font-size:.96rem}
+  .swapline b{color:var(--rust)} .swapline .pct{color:var(--teal);font-weight:800}
+  .swapline .fn{color:var(--plum);font-weight:800;font-size:.82rem}
+  .swaprow{margin:12px 0;padding:12px 15px;background:#fbf5e6;border:1px solid var(--line);border-radius:9px;font-size:.98rem}
+  .swaprow .cut{color:var(--plum);font-weight:800} .swaprow .add{color:var(--rust);font-weight:800}
+  .swaprow .arrow{color:var(--olive);font-weight:800;margin:0 4px}
+  .swaprow .fn,.swapline .fn2{color:var(--plum);font-weight:800;font-size:.82rem}
+  .pkg{background:#fbf5e6;border:1px solid var(--line);border-radius:10px;padding:6px 4px;margin:12px 0}
+  .pkg table{border-collapse:collapse;width:100%;font-size:.92rem}
+  .pkg th{padding:6px 10px;text-align:left;font-size:.78rem;text-transform:uppercase;letter-spacing:.04em}
+  .pkg td{padding:5px 10px;border-bottom:1px solid var(--line);vertical-align:top}
+  .pkg th.cut,.pkg td.cut{color:var(--plum)} .pkg th.add,.pkg td.add{color:var(--rust);font-weight:700}
+  .pkg td.why,.pkg th.why{color:var(--olive);font-weight:600;font-size:.82rem}
+  .pkg tr:last-child td{border-bottom:none}
+  .pkg .prem{color:var(--gold);font-weight:800;font-size:.78rem}
+  .summ{font-size:.9rem;color:#4a463c;margin:4px 0 0;padding:8px 12px;background:#efe6cf;border-left:4px solid var(--teal);border-radius:8px}
+  .dda{background:#fbf5e6;border:1px solid var(--line);border-radius:10px;padding:4px 4px;margin:12px 0;overflow-x:auto}
+  .dda table{border-collapse:collapse;width:100%;font-size:.85rem;min-width:600px}
+  .dda th{text-align:left;padding:6px 8px;font-size:.72rem;text-transform:uppercase;letter-spacing:.03em;color:var(--olive);border-bottom:2px solid var(--line)}
+  .dda td{padding:6px 8px;border-bottom:1px solid var(--line);vertical-align:top}
+  .dda tr:last-child td{border-bottom:none}
+  .dda td.c1{font-weight:800;color:var(--ink);white-space:nowrap}
+  .dda .v-core{color:var(--teal);font-weight:800} .dda .v-supported{color:var(--olive);font-weight:800}
+  .dda .v-situational{color:var(--gold);font-weight:800} .dda .v-cut{color:var(--plum);font-weight:800}
+  .mathbox{background:#efe6cf;border:1px solid var(--line);border-left:4px solid var(--teal);border-radius:10px;padding:14px 16px;margin:14px 0}
+  .mathbox table{border-collapse:collapse;width:100%;font-size:.95rem;margin:6px 0}
+  .mathbox td{padding:4px 8px;border-bottom:1px solid var(--line)}
+  .mathbox td:last-child{text-align:right;font-weight:800;color:var(--rust)}
+  .mathbox .tot td{border-bottom:none;border-top:2px solid var(--teal);font-weight:800}
+  .cols{display:flex;gap:16px;flex-wrap:wrap}
+  .cols>div{flex:1;min-width:230px;background:#fbf5e6;border:1px solid var(--line);border-radius:10px;padding:12px 15px}
+  .cols h3{margin-top:2px}
+  .cols ul{margin:6px 0 0;padding-left:18px;font-size:.95rem}
+  .cols li{margin:5px 0}
+  .turns{background:#fbf5e6;border:1px solid var(--line);border-radius:10px;padding:6px 4px;margin:12px 0}
+  .turns table{border-collapse:collapse;width:100%;font-size:.94rem}
+  .turns td{padding:7px 11px;border-bottom:1px solid var(--line);vertical-align:top}
+  .turns td:first-child{font-weight:800;color:var(--teal);white-space:nowrap;width:1%}
+  .turns tr:last-child td{border-bottom:none}
+  .pull{border-left:4px solid var(--gold);padding:6px 0 6px 15px;margin:16px 0;font-family:'Cormorant Garamond',serif;font-size:1.35rem;color:#3f3b30}
+  .src{max-width:760px;margin:0 auto;padding:0 22px 40px;font-size:.82rem;color:var(--olive)}
+  .src a{color:var(--teal);font-weight:700}
+  .kid-only{display:none}
+  #kidfab{position:fixed;right:18px;bottom:18px;z-index:50;background:var(--rust);color:#fff;border:none;border-radius:40px;padding:14px 21px;font-size:1rem;font-weight:800;box-shadow:0 4px 14px rgba(0,0,0,.25);cursor:pointer}
+  body.kid{font-size:1.14rem}
+  body.kid .grown{display:none}
+  body.kid .kid-only{display:block}
+  body.kid .lead{font-size:1.18rem}
+  @media(max-width:560px){.cardfig{float:none;width:150px;margin:0 auto 14px;display:block}}
+</style></head>
+<body>
+<header>
+  <h1>T'Challa, the Black Panther: The Self-Fueling Voltron</h1>
+  <div class="sub grown">The Wakanda commander makes his own Vibranium, grows off the big artifacts you were already casting, and turns into one suited-up threat. This tech picks the Voltron route on purpose and builds the whole deck around it. The craft is knowing which strong cards to leave in the box.</div>
+  <div class="sub kid-only">T'Challa makes little metal tokens called Vibranium, and he grows every time you play a big artifact. So the deck plays lots of artifacts and puts them all on one hero. Some good cards still get left out because they pull the deck off its plan.</div>
+  <div class="nav"><a href="/salubrioussnail-marvel-edhrec/">EDHREC read</a> &middot; <a href="/salubrioussnail-wakanda-wrongchoice/">the wrong-choice swaps</a> &middot; <a href="/captain-america-team-leader-deck-tech/">Captain America deck tech</a> &middot; <a href="/marvel-commander-rankings/">Marvel rankings</a></div>
+</header>
+<p class="byline">Applies Salubrious Snail's deckbuilding framework to the Wakanda precon. Full sources and methodology at the bottom. Not authored or endorsed by Salubrious Snail or EDHREC.</p>
+<main>
+<article>
+
+<p class="lead grown">T'Challa, the Black Panther supports a few overlapping builds, and EDHREC files him under artifacts, +1/+1 counters, Equipment, and Voltron at once. Across the tag sample the artifact and counters builds are the crowd's real home, with Voltron a smaller branch inside them. This tech commits to that Voltron branch and tunes every slot for it. Whenever T'Challa enters or attacks he makes a tapped Vibranium token, an indestructible artifact whose mana pays for anything except casting a nonartifact spell. Whenever you cast an artifact spell with mana value four or greater, he gains two +1/+1 counters. He ramps himself, he counts as your growing threat, and he pays you for the exact artifacts you were going to cast anyway. The plan is to suit one Panther up until he wins, and the work is protecting that plan from the strong cards that pull against it.</p>
+<p class="lead kid-only">T'Challa is a hero you load up with gear until he wins. He makes little metal tokens, and every big artifact you play makes him bigger with two +1/+1 counters. The deck plays artifacts, puts the good ones on him, and keeps him safe.</p>
+
+<h2>Fast answers</h2>
+<div class="turns grown">
+  <table>
+    <tr><td>Game plan</td><td>Make Vibranium, cast four-plus-mana artifacts to stack counters, suit one Panther up, and win with commander damage.</td></tr>
+    <tr><td>Ideal keep</td><td>Two or three lands, a mana rock or dork, at least one four-mana artifact, and a cheap protection spell if the hand offers one.</td></tr>
+    <tr><td>First real attack</td><td>Turn four or five, once he holds a piece of Equipment and you have a protection spell in hand to answer the removal.</td></tr>
+    <tr><td>Damage target</td><td>The opponent with the fewest blockers and the lowest life. Trample plus eleven power closes them in two swings.</td></tr>
+    <tr><td>Power level</td><td>Casual. An upgraded-precon deck around bracket two to three, well short of cEDH.</td></tr>
+  </table>
+</div>
+<p class="kid-only">Quick version: make metal tokens, play big artifacts to grow T'Challa, put your best gear on him, and hit one player for 21. Keep a hand with a couple lands, some mana, a big artifact, and a way to protect him. Start swinging around turn four or five at the player who can block the least.</p>
+
+<h2>The token that fuels itself</h2>
+<figure class="cardfig"><img src="https://cards.scryfall.io/normal/front/c/1/c1c8ad61-b7e1-446c-8b74-6e29371ea1d5.jpg?1782682663" alt="T'Challa, the Black Panther"><figcaption>T'Challa, the Black Panther</figcaption></figure>
+<p class="grown">Most voltron commanders start from zero every time they hit the board. T'Challa keeps his support, because his first trigger builds it for him. Each time he enters or attacks he makes a tapped Vibranium, an indestructible artifact whose mana can pay for anything except casting a nonartifact spell. That covers more than the words "artifact mana" suggest: it casts your artifacts, and it also pays equip costs, ability activations, and ward taxes, which is what a suited-up deck spends mana on. The tokens do three jobs at once. They ramp toward your next big artifact, they raise your artifact count for the payoffs, and being indestructible they survive the destroy-based board wipes that clear everyone else. A destroy-based wrath leaves them standing. Exile and sacrifice effects still remove them, so treat the tokens as durable rather than immune. A turn where T'Challa attacks makes next turn's Hammer or Gauntlet a mana cheaper, so the deck snowballs off the commander's own combat step.</p>
+<p class="kid-only">Every time T'Challa shows up or attacks, he makes a metal token. The tokens give you extra mana for your artifacts and your gear, and normal "destroy everything" cards can't kill them. So attacking with him helps you play more gear next turn.</p>
+
+<h2>Grow him by doing what you wanted to do</h2>
+<p class="grown">The second trigger is where the deck earns its counters. Casting any artifact with mana value four or greater puts two +1/+1 counters on T'Challa, and a Wakanda deck is stocked with those artifacts. This is why the signature card is worth reading. Vibranium Strike Gauntlets, in about eighty-three percent of decks, is a four-mana Equipment with flash that attaches itself on entry, gives the Panther +3/+0 with trample, and draws a card whenever he connects. It triggers the counters because it costs four, it makes him hit harder, and it refills your hand off the damage. One card feeds all three parts of the plan.</p>
+<div class="swapline grown"><b>Hammer of Nazahn</b> <span class="pct">82%</span>. A four-mana artifact, so it triggers the counters, and the equipped Panther gets +2/+0 and indestructible as your other Equipment auto-attaches on entry. Growth plus a shield in one card.</div>
+<div class="swapline grown"><b>Helm of the Host</b> <span class="pct">77%</span>. Four mana for another counter trigger, and at the start of your combat it stamps out a nonlegendary copy of a creature. Read the copy carefully, since it matters for the kill below.</div>
+<p class="kid-only">When you cast a big artifact, T'Challa gets two +1/+1 counters. Wakanda decks are full of big artifacts, so he grows fast. The Vibranium Strike Gauntlets are the best one: they trigger the counters, make him stronger, and draw you cards when he hits.</p>
+
+<h2>Shuri wants the same artifacts</h2>
+<figure class="cardfig"><img src="https://cards.scryfall.io/normal/front/b/b/bb9efb2e-3fe8-4f21-82c5-e089d835bdd5.jpg?1783903265" alt="Shuri, the Black Panther"><figcaption>Shuri, the Black Panther</figcaption></figure>
+<p class="grown">The deck's second face rewards the same artifact count the Vibranium tokens keep raising. Shuri, the Black Panther is a two-mana lifelinker who, on attack, draws you a card if you control three or more artifacts, and pumps your whole team plus two if you control six or more. In a build already making indestructible tokens and casting big Equipment, three artifacts arrives by turn three and six follows fast. The tokens that ramp T'Challa also turn Shuri into card draw and an anthem, and the two Panthers pull toward one identical shopping list. That overlap is the deck's consistency, since almost every good card does more than one thing.</p>
+<p class="kid-only">Shuri is the other hero. When she attacks and you have enough artifacts, she draws you a card and makes your team bigger. The metal tokens count, so she and T'Challa both want the same artifacts.</p>
+
+<h2>How he actually closes</h2>
+<p class="grown">One number rules the plan: twenty-one. Commander damage ends a player at twenty-one from the same commander across the game, and T'Challa gets there quickly. He starts at 2 power, every four-drop artifact stacks two more counters, and the Gauntlets add three power on top. Three qualifying artifacts put him around eleven power with trample, which closes one opponent in two swings, and faster once Shuri's anthem is up. Trample matters here, since a chump blocker only eats the power it can absorb and the rest still counts toward the twenty-one.</p>
+<p class="grown">One clarification the primers skip. Helm of the Host makes a copy that is explicitly not legendary, so a Helm token of T'Challa is not your commander. Its combat damage is ordinary damage and does nothing toward the twenty-one-count. The Helm still earns its slot, because the token attacks alongside the real Panther, triggers its own Vibranium on attack, and closes games through sheer extra bodies. Just do not bank the commander-damage kill on the copy. That clock is the reason the deck spends its slots on protection rather than a backup win: the counters are already lethal, they only need the Panther to keep connecting.</p>
+<p class="kid-only">T'Challa wins by hitting one player for 21 damage total with the real commander, which is the commander rule. He grows two counters for every big artifact and gets +3 from the Gauntlets, so after a few artifacts he hits for eleven or more and can take a player out in two swings. Helm of the Host makes a copy of him, but the copy is not your commander, so its damage does not count toward the 21. It still helps by being an extra attacker. That is why you spend your cards keeping the real Panther safe.</p>
+
+<h2>What the 100 cards are doing</h2>
+<p class="grown">Before the swaps, here is the shape the average EDHREC list settles into across 2,112 decks, so you can see where each slot goes. The type split is about 37 lands, 26 artifacts, 22 other creatures, 6 instants, 5 sorceries, and 3 enchantments, plus the commander. The artifacts are the heart of it, since they are both the ramp and the counter fuel. The mana curve tells the same story from another angle.</p>
+<div class="mathbox grown">
+  <table>
+    <tr><td>One-drops, mostly mana dorks and cheap rocks</td><td>~6</td></tr>
+    <tr><td>Two-drops, Shuri, ramp, cheap interaction</td><td>~14</td></tr>
+    <tr><td>Three-drops, value creatures and rocks</td><td>~7</td></tr>
+    <tr><td>Four-drops, the counter-trigger sweet spot</td><td>~18</td></tr>
+    <tr><td>Five-drops, payoff artifacts and bombs</td><td>~9</td></tr>
+    <tr class="tot"><td>Six and up, top-end finishers</td><td>~8</td></tr>
+  </table>
+</div>
+<p class="grown">Read the bump at four. Eighteen cards land exactly on mana value four, which is no accident, since four is the floor for T'Challa's counter trigger and the deck wants to hit it every turn. When you tune the list, protect that four-slot density. A curve that drifts to twos and threes stops feeding the counters, and a curve that climbs past six stalls before the Panther gets suited up.</p>
+<p class="kid-only">A full deck is 100 cards. About 37 are lands, 26 are artifacts, 22 are other creatures, and the rest are spells. The most common cost is four mana, because four is the magic number that grows T'Challa. When you build the deck, keep lots of four-cost artifacts.</p>
+
+<h2>When a good card is the wrong choice</h2>
+<p class="grown">Here is the part most deck techs skip. Salubrious Snail never covered this precon, so what follows applies his framework to the deck, not his review of it. The principle comes from his video on when good cards are the wrong choice, and the question is simple: a card can be powerful, mesh with your mechanics, and fix a weak spot, and still be the wrong include. A casual deck is casual on purpose, which means there are always stronger cards you are choosing not to run. The skill is deciding what to optimize for. For Wakanda that target is the Vibranium and counters identity, the actual reason to buy the box, and three strong cards fight it. So they come out even though the stat line says keep them.</p>
+<div class="swaprow grown"><span class="cut">Coveted Jewel</span> <span class="arrow">&rarr;</span> <span class="add">Batterskull</span>. The headline swap, and it turns on risk rather than synergy. Coveted Jewel is excellent by rate and triggers T'Challa, since at six mana it clears the counter threshold. Its cost lives in its text: whoever hits you unblocked steals it and draws three, so a voltron deck that invites attacks hands an opponent a gift for connecting. Batterskull triggers the counters too, since it also costs five, and it does the durable version of a threat. Living weapon makes its own Germ body, so it stabilizes life and gives a second lifelink attacker the moment it enters the battlefield, no equip cost required. Be honest about its limit: it does not shield the Panther from exile, destruction, sacrifice, or bounce, and that job belongs to the protection package below. What it does is advance the same counter plan without turning your combat step into someone else's card draw.</div>
+<div class="swaprow grown"><span class="cut">Sword of the Animist</span> <span class="arrow">&rarr;</span> <span class="add">Verdurous Gearhulk</span> <span class="fn">caveat: only if your ramp count can spare it</span>. Judge this one by role rather than raw power. Sword costs two, so casting it misses the mana-value-four trigger. That does not make it off-plan, since every swing fetches a basic land tapped, and that ramp pays for the expensive artifacts that do trigger T'Challa. Verdurous Gearhulk trades the ramp for payoff. At five mana it is an artifact creature, so casting it triggers the commander for two counters, and its enter ability distributes four more, so the counters stack twice from one card. Cut the Sword for the Gearhulk when your ramp count can spare it. If the curve is top-heavy, the Sword keeps its slot.</div>
+<div class="swaprow grown"><span class="cut">Gilded Lotus</span> <span class="arrow">&rarr;</span> <span class="add">Reprieve</span>. This cut is a tempo call, since Gilded Lotus does trigger the commander at five mana. Five mana that only makes more mana is slow in a deck that would rather be suiting up a threat. Reprieve is cheap insurance that returns a removal spell to its owner's hand and replaces itself, guarding your one big investment for two mana. Keep the Lotus if your ramp is still thin, because a voltron deck that stalls on mana rarely gets to suit up at all.</div>
+<p class="kid-only">Some good cards are still the wrong pick. Coveted Jewel gets stolen if someone hits you, so swap it for Batterskull, which also grows T'Challa and makes its own attacker. The Sword of the Animist makes extra mana; you can trade it for Verdurous Gearhulk, which grows T'Challa by six counters instead. Slow mana rock Gilded Lotus becomes Reprieve, a cheap way to protect your hero.</p>
+
+<h2>Priority adds</h2>
+<p class="grown">T'Challa is a box commander with no upgrade list of his own, so the honest add list is what the 2,112 real decks on EDHREC have already settled into, filtered by the Vibranium-and-counters test. Percentages are the share of recorded T'Challa decks running the card, read 2026-07-13.</p>
+<div class="cols grown">
+  <div>
+    <h3>Counter fuel and payoffs</h3>
+    <ul>
+      <li>Hammer of Nazahn <b>82%</b></li>
+      <li>Vibranium Strike Gauntlets <b>83%</b></li>
+      <li>Helm of the Host <b>77%</b></li>
+      <li>Shuri, the Black Panther <b>81%</b></li>
+      <li>Zuri, Warrior of Wakanda <b>78%</b></li>
+      <li>Metalwork Colossus <b>67%</b></li>
+      <li>W'Kabi, Shield of the Nation <b>65%</b></li>
+    </ul>
+  </div>
+  <div>
+    <h3>Ramp, draw, removal</h3>
+    <ul>
+      <li>Dispatch <b>80%</b> <span class="fn">removal</span></li>
+      <li>The Great Mound <b>81%</b> <span class="fn">tokens</span></li>
+      <li>Beast Within <b>72%</b> <span class="fn">removal</span></li>
+      <li>Solemn Simulacrum <b>71%</b></li>
+      <li>Mind's Eye <b>69%</b> <span class="fn">draw</span></li>
+      <li>Generous Gift <b>63%</b> <span class="fn">removal</span></li>
+    </ul>
+  </div>
+</div>
+<p class="grown">Notice the split. The left column is the counter engine, and every card there either clears the mana-value-four bar or cashes the counters into damage. The right column is the support the voltron plan cannot skip: Dispatch is a one-mana exile that turns on once you control three artifacts, which this deck reaches quickly through Vibranium and Equipment, and Beast Within and Generous Gift are the green-white answers to the blocker or bomb that stands between the Panther and a lethal swing. Zuri is worth a careful read, since the meta files her next to the payoffs. She runs her own trigger rather than a copy of T'Challa's, putting a +1/+1 counter on each creature you control whenever you cast a four-or-greater artifact. So one qualifying artifact stacks three counters on the Panther, his two plus her one, and a counter on everything else you control.</p>
+<p class="kid-only">The best cards to add are the ones most real T'Challa players already run, kept only if they help the Vibranium-and-counters plan. Counter fuel: Hammer of Nazahn, the Gauntlets, Helm of the Host, Shuri, Zuri. Support: Dispatch for removal, The Great Mound for more tokens, Solemn Simulacrum for ramp, and Mind's Eye for card draw. Zuri runs her own power that grows your whole team, rather than a copy of T'Challa's.</p>
+
+<h2>Interaction and protection, the half that keeps the Panther alive</h2>
+<p class="grown">A one-threat deck lives or dies on whether that threat survives, so protection carries as much weight as the counters here. Treat it as the deck's second engine. The instinct to load only counters and gear is the exact trap: a Path to Exile on your eleven-power Panther is a major tempo loss, wiping the accumulated counters and adding two to his commander tax, though the Vibranium and Equipment stay on the board to rebuild. The meta already backs a wall of insurance, and these are the pieces to prioritize.</p>
+<div class="swapline grown"><b>Heroic Intervention</b> <span class="pct">44%</span>. Two mana at instant speed gives your whole board indestructible and hexproof until end of turn. That beats targeted removal and the destroy-based wraths that make up most creature board wipes. Know its limit: hexproof and indestructible do nothing against an untargeted exile effect or a forced sacrifice, so it is not a blanket answer. For those you want Teferi's Protection.</div>
+<div class="swapline grown"><b>Swiftfoot Boots</b> <span class="pct">31%</span>. Cheap hexproof and haste that also lets a freshly cast Panther attack the turn he enters. Note it is an artifact, so it feeds the count for Shuri and Dispatch too.</div>
+<div class="swapline grown"><b>Teferi's Protection</b> <span class="pct">20%</span>. The full reset. Phase out and dodge a wrath, a swing-back, or a combo turn entirely, then return with the Panther and his counters intact. The meta rates it among its top defensive picks for a reason.</div>
+<div class="swapline grown"><b>Reprieve</b> <span class="fn">the swap add</span>. Two mana that bounces the removal spell targeting your commander back to its owner's hand and draws you a card. Cheaper insurance than a boots, and it replaces itself.</div>
+<p class="grown">Set a target and count to it: run eight to ten protection and interaction pieces in the ninety-nine, split across instant saves (Heroic Intervention, Teferi's Protection, Reprieve), equipment-style guards (Swiftfoot Boots, Lightning Greaves), and one or two recovery tools for the turn after a wipe. Below that count, a one-threat deck folds to the first removal spell. The tell is that most of your protection wants to be instant and cheap, the same shape as your removal. Hold up two mana on other turns, and use it to answer a threat, save the Panther, or pass. The board wipe question answers itself once the Vibranium tokens are in play: a destroy-based wrath leaves your tokens and your indestructible Hammer-equipped Panther standing, so the wraths that scare this deck are the exile and sacrifice ones. Teferi's Protection is the card that beats those, by phasing your whole board out of the effect. Heroic Intervention covers the far more common destroy-based wraths and every targeted removal spell, so the two answer different threats and you want both.</p>
+<p class="kid-only">Because the deck puts everything on one hero, you have to keep him alive. Heroic Intervention makes your whole team unkillable for a turn. Swiftfoot Boots give him hexproof and let him attack right away. Teferi's Protection saves your whole side from a big blowup. Keep two mana open on other turns so you can protect him or remove a blocker.</p>
+
+<h2>The add-and-cut test</h2>
+<p class="grown">Run every card through one question: does it feed the Vibranium-and-counters plan, cash it into damage, or keep the Panther alive. If it does none of the three, it is filler here no matter how strong it looks in the abstract. This is the standard behind the swaps. For the exact named list, ten in and ten out, jump to the upgrade package in the next section.</p>
+<div class="cols grown">
+  <div>
+    <h3>Lean toward adding</h3>
+    <ul>
+      <li>Four-mana artifacts that clear the counter bar</li>
+      <li>Artifact creatures that pay their own way, like Metalwork Colossus</li>
+      <li>Cheap instant protection: Heroic Intervention, Reprieve, boots</li>
+      <li>Cheap instant removal: Dispatch, Beast Within, Generous Gift</li>
+      <li>Indestructible or token-making artifacts for wipe insurance</li>
+      <li>Ramp that fixes toward the four-drops, like Solemn Simulacrum</li>
+    </ul>
+  </div>
+  <div>
+    <h3>Lean toward cutting</h3>
+    <ul>
+      <li>Cards that steal wins from you on contact, like Coveted Jewel</li>
+      <li>Slow mana rocks with no body, like Gilded Lotus, if ramp is fine</li>
+      <li>Two-cost value that never touches the counter trigger</li>
+      <li>Vanilla beaters with no artifact or counter role</li>
+      <li>High-cost bombs that stall the curve past six</li>
+      <li>A backup win condition the counters already make redundant</li>
+    </ul>
+  </div>
+</div>
+<p class="kid-only">Use one test on every card: does it grow T'Challa, turn his counters into damage, or keep him safe? If not, cut it. Add four-cost artifacts, cheap protection, and cheap removal. Cut slow mana rocks, plain attackers, cards that get stolen, and expensive cards that clog your early turns.</p>
+
+<h2>The exact upgrade package</h2>
+<p class="grown">The category audit above is the theory. Below are the named packages themselves, and the point to notice is the right-hand column. Each swap answers one of Snail's own principles rather than the Draftsim guide's raw list. The wrong-choice cuts pull good cards that fight the deck's identity, the EDHREC-Effect read keeps cards that still do work on a turn T'Challa is gone, and the dead-draw test drops cards that only do one thing. The Draftsim guide supplied the candidate pool; Snail's framework decided which candidates earn a slot. Prices are current Scryfall market, read 2026-07-13. Start with the budget ten. Add the second ten when you want the focused Voltron build.</p>
+<h3>Budget build, about $19</h3>
+<div class="pkg grown">
+  <table>
+    <tr><th class="cut">Cut (10)</th><th class="add">Add (10)</th><th class="why">Snail read</th></tr>
+    <tr><td class="cut">Coveted Jewel</td><td class="add">Batterskull</td><td class="why">wrong-choice: steals your own win</td></tr>
+    <tr><td class="cut">Sword of the Animist</td><td class="add">Verdurous Gearhulk</td><td class="why">dead-draw: Sword misses the trigger, Gearhulk double-counters</td></tr>
+    <tr><td class="cut">Gilded Lotus</td><td class="add">Reprieve</td><td class="why">vibe: protect the one threat over slow mana</td></tr>
+    <tr><td class="cut">Divine Visitation</td><td class="add">Steel Seraph</td><td class="why">on-plan: splashy off-plan combo out, counter-trigger flyer in</td></tr>
+    <tr><td class="cut">King Solomon's Frogs</td><td class="add">Jhoira's Familiar</td><td class="why">dead-draw: symmetric durdle out, cost-cut flyer in</td></tr>
+    <tr><td class="cut">Ancestral Communion</td><td class="add">Thought Vessel</td><td class="why">on-plan: ramp that also raises artifact count</td></tr>
+    <tr><td class="cut">Loyal Guardian</td><td class="add">Avacyn's Pilgrim</td><td class="why">curve: cheaper ramp toward the four-drops</td></tr>
+    <tr><td class="cut">Heart-Shaped Herb</td><td class="add">Harrow</td><td class="why">dead-draw: narrow lifegain out, ramp and fixing in</td></tr>
+    <tr><td class="cut">Overwhelming Stampede</td><td class="add">Swiftfoot Boots</td><td class="why">vibe: protect the threat over a win-more overrun</td></tr>
+    <tr><td class="cut">Trading Post</td><td class="add">Mystic Forge</td><td class="why">on-plan: card advantage off your artifacts</td></tr>
+  </table>
+</div>
+<p class="summ grown"><b>Budget ten:</b> about $19 total for the adds. Seven of the ten adds are artifacts, so the deck's artifact count climbs from the precon's twenty-six toward the low thirties, which turns Shuri on earlier and keeps Dispatch's metalcraft live. Power level: solid upgraded precon, bracket two to three. This alone fixes the wrong-choice cards and tightens the curve toward the four-drop counter bar.</p>
+<h3>Focused Voltron build, add these ten more, about $80 more</h3>
+<div class="pkg grown">
+  <table>
+    <tr><th class="cut">Cut (10)</th><th class="add">Add (10)</th><th class="why">Snail read</th></tr>
+    <tr><td class="cut">Everett K. Ross, Hapless Attaché</td><td class="add">Terrasymbiosis</td><td class="why">on-plan: ramp toward the payoffs</td></tr>
+    <tr><td class="cut">Nakia, Wakandan Operative</td><td class="add">Brightglass Gearhulk</td><td class="why">on-plan: a four-mana artifact payoff</td></tr>
+    <tr><td class="cut">M'Baku, Jabari Chieftain</td><td class="add">Altar of the Goyf</td><td class="why">on-plan: cheap artifact for the count</td></tr>
+    <tr><td class="cut">Fleecemane Lion</td><td class="add">Shadowspear <span class="prem">premium ~$29</span></td><td class="why">raw power: Snail's wrong-choice test, optional</td></tr>
+    <tr><td class="cut">Royal Talon Fighter Jet</td><td class="add">Swordsman's Steel <span class="prem">premium ~$27</span></td><td class="why">raw power: same test, optional</td></tr>
+    <tr><td class="cut">Forest</td><td class="add">Darksteel Citadel</td><td class="why">manabase: a land that also counts as an artifact</td></tr>
+    <tr><td class="cut">Forest</td><td class="add">Rogue's Passage</td><td class="why">manabase: pushes the Panther through</td></tr>
+    <tr><td class="cut">Forest</td><td class="add">War Room</td><td class="why">manabase: card advantage land</td></tr>
+    <tr><td class="cut">Plains</td><td class="add">Branchloft Pathway</td><td class="why">manabase: fixing</td></tr>
+    <tr><td class="cut">Plains</td><td class="add">Thornglint Bridge</td><td class="why">manabase: fixing</td></tr>
+  </table>
+</div>
+<p class="summ grown"><b>Focused twenty:</b> the second ten adds two Voltron swords, more artifact-creature payoffs, and a five-card manabase fix that also feeds the artifact count (Darksteel Citadel is an artifact land). Full twenty runs about $100, or roughly $45 if you skip the two premium swords, which are about $56 of the total.</p>
+<p class="summ grown"><b>The Snail asterisk on the two premium swords.</b> Shadowspear and Swordsman's Steel are the strongest cards on the whole list, and by Snail's own wrong-choice principle that is exactly the reason to pause. They are raw power, not identity: neither triggers the counters, and a casual Wakanda table does not need a $56 upgrade to have its fun. Run them if you want the Panther to punch through a grindy pod, and leave them in the box with a clear conscience if the deck is for kitchen-table nights. The rest of the package carries the plan without them.</p>
+<div class="mathbox grown">
+  <table>
+    <tr><td>Artifacts in the ninety-nine (past Shuri's six-artifact anthem on a normal draw)</td><td>~31</td></tr>
+    <tr><td>Artifacts at mana value four (the counter-trigger sweet spot)</td><td>~18</td></tr>
+    <tr><td>Protection and interaction pieces (the target count)</td><td>8 to 10</td></tr>
+    <tr><td>Ramp and acceleration sources</td><td>~10</td></tr>
+    <tr><td>Lands</td><td>37</td></tr>
+    <tr class="tot"><td>Add cost, full twenty (or ~$45 without the two premium swords)</td><td>~$100</td></tr>
+  </table>
+</div>
+<p class="summ grown">Power level: upper casual, bracket three. Layer the protection package above on top of either build, and hold to the eight-to-ten protection count so the one-threat plan survives contact.</p>
+<p class="kid-only">If you want a ready deck, here is the plan. Cheap version, about $19: swap out Coveted Jewel, Sword of the Animist, Gilded Lotus, Divine Visitation, King Solomon's Frogs, Ancestral Communion, Loyal Guardian, Heart-Shaped Herb, Overwhelming Stampede, and Trading Post. Put in Batterskull, Verdurous Gearhulk, Reprieve, Steel Seraph, Jhoira's Familiar, Thought Vessel, Avacyn's Pilgrim, Harrow, Swiftfoot Boots, and Mystic Forge. Want it stronger? Add ten more swaps with two big swords and better lands, for about $80 more. Then make sure you have eight to ten cards that protect your hero.</p>
+
+<h2>Dead draw audit</h2>
+<p class="grown">Snail's dead-draw test asks a card three things: what it accomplishes, what supports it, and whether that support turns up often enough to matter. A narrow payoff with too few enablers is a dead draw no matter how strong its ceiling. For T'Challa, three support numbers decide it: about eighteen qualifying artifacts at mana value four or greater, eight to ten protection and interaction pieces, and roughly two dozen cards that still function on a turn the Panther is gone. Here is the audit on the swaps that most need it, verdicts colored core, supported, situational, and cut.</p>
+<div class="dda grown">
+  <table>
+    <tr><th>Card</th><th>Primary job</th><th>Support behind it</th><th>Works without T'Challa?</th><th>Verdict</th></tr>
+    <tr><td class="c1">Batterskull <span style="font-weight:600;color:var(--olive)">MV5, artifact</span></td><td>Recurring lifelink body, and casting it stacks two counters</td><td>Self-contained, brings its own Germ</td><td>Yes, own body with lifelink</td><td class="v-core">core</td></tr>
+    <tr><td class="c1">Verdurous Gearhulk <span style="font-weight:600;color:var(--olive)">MV5, artifact</span></td><td>Two counters on cast plus four on enter</td><td>Any board, no setup</td><td>Yes, a 5/5 trampler that pumps</td><td class="v-core">core</td></tr>
+    <tr><td class="c1">Vibranium Strike Gauntlets <span style="font-weight:600;color:var(--olive)">MV4, artifact</span></td><td>Suit up and draw on connect</td><td>Every Panther attack, plus 18 MV4 artifacts</td><td>Weak, wants a real body to hold it</td><td class="v-core">core</td></tr>
+    <tr><td class="c1">Mystic Forge <span style="font-weight:600;color:var(--olive)">MV4, artifact</span></td><td>Card advantage off the top of the deck</td><td>The deck's 26-plus artifacts</td><td>Yes, casts artifacts on its own</td><td class="v-supported">supported</td></tr>
+    <tr><td class="c1">Zuri, Warrior of Wakanda <span style="font-weight:600;color:var(--olive)">MV2</span></td><td>Team-wide counter on each big artifact cast</td><td>The 18 MV4 artifacts</td><td>Partial, idle until you cast a qualifier</td><td class="v-supported">supported</td></tr>
+    <tr><td class="c1">Helm of the Host <span style="font-weight:600;color:var(--olive)">MV4, artifact</span></td><td>Stamps a token attacker each combat</td><td>Wants a strong creature to copy</td><td>Partial, copies whatever is best</td><td class="v-supported">supported</td></tr>
+    <tr><td class="c1">Heroic Intervention <span style="font-weight:600;color:var(--olive)">MV2</span></td><td>Board-wide indestructible and hexproof</td><td>Your whole board</td><td>Yes, protects any team</td><td class="v-situational">situational</td></tr>
+    <tr><td class="c1">Teferi's Protection <span style="font-weight:600;color:var(--olive)">MV3</span></td><td>Phase the board out of a wrath or combo</td><td>Self-contained</td><td>Yes, saves any board</td><td class="v-situational">situational</td></tr>
+    <tr><td class="c1">Shadowspear <span style="font-weight:600;color:var(--olive)">MV1, artifact</span></td><td>Raw stats and strips hexproof off blockers</td><td>Any attacker</td><td>Yes, but off the counter identity</td><td class="v-situational">situational</td></tr>
+    <tr><td class="c1">Coveted Jewel <span style="font-weight:600;color:var(--olive)">MV6, artifact</span></td><td>Draw three and burst mana</td><td>None that helps, it invites attacks</td><td>Yes, but hands an opponent your win</td><td class="v-cut">cut</td></tr>
+  </table>
+</div>
+<p class="grown">Read the verdict column as the honest floor. The core cards earn their slot even on a dead turn, because Batterskull and the Gearhulk both bring a body and both advance the counters. The supported cards are strong only because the eighteen-artifact base is there to feed them, so they rise and fall with that count. The situational cards are the protection package: no immediate board impact, justified by the single-threat structure that would fold without them. Coveted Jewel is the textbook cut, a powerful card whose support package is negative, since its whole design rewards the opponents for attacking the deck that most wants to be attacked.</p>
+<p class="grown"><b>Beyond the count.</b> Support quantity is the weakest signal, so read four things past it. <b>Game state:</b> the core cards hold up across development, parity, and rebuilding, the situational protection earns its slot only when the board is worth saving, and the finisher swords matter only once you are ahead. <b>Independent routes:</b> Batterskull and the Gearhulk each reach relevance through more than one system, a body plus the counters plus lifelink, so no single missing package switches them off, which is why they floor higher than a card that needs the commander and one subtheme together. <b>Finished list, not averages:</b> these counts come from the proposed ninety-nine after the swaps above, not the EDHREC average, and adding the counter payoffs raises Zuri and Shuri in turn, so rerun the counts against your own cuts. <b>Flexibility floor:</b> the artifact density never crowds out the eight-to-ten answers and the ramp, because a deck that only does one thing loses to the first disruption. <b>Declared exception:</b> the two premium swords stay only as a stated power choice rather than a core piece, with their off-identity cost visible above.</p>
+<p class="kid-only">Snail's test for every card: what does it do, what helps it work, and does that help show up enough. For T'Challa the three numbers that matter are about 18 big artifacts, 8 to 10 protection cards, and about two dozen cards that still work when T'Challa is gone. Batterskull and Verdurous Gearhulk are core because they bring a body and grow him. Protection cards are situational, but you still need them. Coveted Jewel is a cut because it gets stolen and helps your opponents.</p>
+
+<h2>A sample opening</h2>
+<div class="turns grown">
+  <table>
+    <tr><td>Turn 1</td><td>Land, then a mana dork or a one-mana rock. You want to reach the four-drops a turn early, so develop mana before anything else.</td></tr>
+    <tr><td>Turn 2</td><td>Shuri, or a two-mana ramp piece. Shuri banks the card-draw engine the moment your artifact count climbs; ramp sets up the double-spell turn.</td></tr>
+    <tr><td>Turn 3</td><td>T'Challa. Even without an attack, his enter trigger makes a Vibranium and starts the artifact count for Shuri and Dispatch. Hold a mana up if you drew Reprieve.</td></tr>
+    <tr><td>Turn 4</td><td>The first four-drop artifact. Hammer or the Gauntlets stacks two counters and starts suiting the Panther up. Attack only into a board where he survives; the counters matter more than one connect.</td></tr>
+    <tr><td>Turn 5</td><td>Second four-drop plus a held-up protection or removal spell. Now the Panther is around eight to eleven power with trample, the counters are climbing every turn, and you keep two mana open to save him.</td></tr>
+  </table>
+</div>
+<p class="grown">Two mistakes end this start early. The first is casting T'Challa into an open board and swinging him bare, since a single removal spell before he has protection is a heavy tempo hit, wiping the counters he had accumulated even though the gear and tokens remain. How far it sets you back depends on the timing and the mana you have to rebuild. The second is over-ramping past the four-drops: a hand of rocks with no four-mana artifact makes zero counters, so hold a couple of payoff cards rather than dumping mana. Keep the curve pointed at four, and keep two mana up once the Panther is worth killing.</p>
+<p class="kid-only">A good start: turn 1 play mana, turn 2 play Shuri or ramp, turn 3 play T'Challa so he starts making tokens, turn 4 play your first big artifact to grow him, turn 5 grow him again and keep mana open to protect him. Do not attack with a bare Panther into removal, and do not play all your mana rocks with no big artifact to grow him.</p>
+
+<h2>What the meta is actually building</h2>
+<p class="grown">Pulling T'Challa's live EDHREC page, about 2,112 decks at rank 1,045, the crowd builds him mostly as artifacts and counters, with Voltron as one branch inside that. The tag sample tells the split: artifacts leads by a wide margin, counters is close behind, and Equipment and Voltron are the smaller, more focused sub-tags. Describe the data as broad support for the artifact build with a real Voltron branch, rather than one settled artifact-voltron consensus. Inside that support the redundancy for the commander's trigger is the signal worth reading. Zuri, Warrior of Wakanda, in seventy-eight percent of decks, runs her own counter trigger alongside T'Challa's, so a four-mana artifact grows your whole team. The Great Mound makes more Vibranium and draws cards. Foundry Inspector, in about twenty-seven percent of decks, is the one that makes your artifacts cost a mana less. Ingenious Smith, in about thirty-six percent, does something different: it digs for an artifact on enter and grows itself once each turn when your artifacts enter. The removal of choice is Dispatch at eighty percent, a one-mana tap that exiles once you control three artifacts, which this deck reaches quickly through Vibranium and Equipment.</p>
+<p class="grown">One caution before you copy that list. In his EDHREC Effect video Snail warns the site runs a feedback loop that inflates already-popular cards and overrates synergy pieces that only shine when the commander is alive. A voltron deck is close to the case he means, though it pays to count rather than guess. Roughly the six to eight Equipment pieces go quiet the moment the Panther is exiled. The thirty-odd other artifacts, the Vibranium tokens, the ramp rocks, the removal, Shuri, and the alternate artifact attackers all still work, so it is closer to a third of the deck that stalls than half. Treat the percentages as a popularity signal, and keep enough of that resilient third that a turn without T'Challa is a setback rather than a loss.</p>
+<p class="kid-only">Looking at real decks, about 2,112 people build T'Challa, mostly as an artifacts-and-counters deck, and Voltron is one way to build inside that. Zuri grows your whole team, The Great Mound makes more tokens, Foundry Inspector makes artifacts cheaper, Ingenious Smith finds artifacts and grows, and Dispatch is cheap removal that works because you have lots of artifacts. Just remember, popular websites can make weak cards look better than they are.</p>
+
+<h2>Optimize, only for the vibe</h2>
+<p class="grown">Snail calls himself an optimizer and admits that running weaker-looking cards fights every instinct he has. His fix is to keep optimizing and change the target. Stop optimizing for raw power in a vacuum, and start optimizing for the game the deck is supposed to give you. For Wakanda that means every slot should push the Vibranium and counters plan or guard the pieces that carry it. A win that comes from the deck's own hardware, the Panther grown on his own artifacts, is the game the box is selling, and a stolen Coveted Jewel or a slow Gilded Lotus is not. Build toward the counters and toward keeping the Panther alive long enough to swing them.</p>
+<p class="pull grown">Keep optimizing. Just aim it at the deck you actually wanted to play instead of the one raw ratings would build for you.</p>
+<p class="kid-only">Snail loves the best cards, and he picks them for fun over raw power. Every card should help T'Challa's plan or keep him safe. Winning with your own gear feels better than winning with a card that fights the deck.</p>
+
+<h2>Snail Tip</h2>
+<p class="grown">The idea of leaving a strong card in the box is one of Snail's own, and it is worth hearing in his framing. His <a href="/salubrioussnail-points/#v-when-good-cards-are-the-wrong-choice">When Good Cards Are the Wrong Choice</a> video is the source for the Coveted Jewel call, that a card can be powerful and still cost you the game you wanted to play. His <a href="/salubrioussnail-points/#v-how-edhrec-data-aggregation-warps-commander-deckbuilding">EDHREC Effect</a> video is why the meta list above is a starting point rather than a decklist. We applied his wrong-choice framework to this precon in full: <a href="/salubrioussnail-wakanda-wrongchoice/">read the Wakanda wrong-choice page</a>.</p>
+<p class="kid-only">The idea that a strong card can be the wrong pick comes from Salubrious Snail. <a href="/salubrioussnail-points/#v-when-good-cards-are-the-wrong-choice">Here is his video on it</a>, and <a href="/salubrioussnail-wakanda-wrongchoice/">here is our page that uses it on this deck.</a></p>
+
+</article>
+</main>
+
+<div class="src">
+  <p><b>Sources.</b> Card text via <a href="https://scryfall.com">Scryfall</a> (Marvel Super Heroes Commander), oracle text pulled 2026-07-13: T'Challa the Black Panther (2/2, {1}{G}{W}, two +1/+1 counters per artifact spell of mana value 4+), Vibranium Strike Gauntlets (+3/+0, trample, draw on connect), Hammer of Nazahn (+2/+0 and indestructible), Helm of the Host (copy is explicitly nonlegendary, so a copy of the commander deals ordinary combat damage that does not count toward commander damage), Shuri the Black Panther, Zuri Warrior of Wakanda (her own trigger, a +1/+1 counter on each creature you control, not a copy of T'Challa), Verdurous Gearhulk (artifact creature, MV5, distributes four +1/+1 counters), Batterskull (living weapon, MV5, own 0/0 Germ, +4/+4 vigilance lifelink), Coveted Jewel (MV6, stolen by an unblocked attacker), Sword of the Animist, Gilded Lotus (MV5), Reprieve, Dispatch, The Great Mound, Foundry Inspector (artifact spells cost {1} less), Ingenious Smith (digs for an artifact and grows once each turn, does not reduce costs), Solemn Simulacrum, Heroic Intervention, Swiftfoot Boots, Teferi's Protection. Commander-damage rule (twenty-one from the same commander) per Wizards' Commander format page. Inclusion percentages follow EDHREC's own denominator, each card over its potential-decks pool, so the newer Wakanda cards (Gauntlets, Shuri, Zuri, W'Kabi, The Great Mound) divide by roughly 1,950 rather than the full 2,112 and read a few points higher than a flat 2,112 recompute would give. Theme-tag split (artifacts 164, counters 103, Equipment 58, Voltron 49 in the tag sample), average type distribution (about 37 lands, 26 artifacts, 22 creatures, 6 instants, 5 sorceries, 3 enchantments), and mana curve (peak of 18 cards at mana value four) from the <a href="https://edhrec.com/commanders/tchalla-the-black-panther">EDHREC T'Challa commander page</a> (2,112 decks, rank #1,045, read 2026-07-13). Swap reasoning applies Salubrious Snail's "When Good Cards Are the Wrong Choice" (YouTube owPWRYhY1VA) to the Wakanda precon, cross-checked against the Draftsim Wakanda Forever upgrade guide. Related: the <a href="/salubrioussnail-wakanda-wrongchoice/">Wakanda wrong-choice read</a>, the <a href="/salubrioussnail-marvel-edhrec/">EDHREC Marvel read</a>, and Snail's principle corpus at <a href="/salubrioussnail-points/#v-when-good-cards-are-the-wrong-choice">10 points per video</a>. Applies Salubrious Snail's deckbuilding framework; neither Salubrious Snail nor EDHREC authored or endorsed it.</p>
+</div>
+
+<button id="kidfab" onclick="toggleKid()">Kid Mode</button>
+<script>
+function toggleKid(){document.body.classList.toggle('kid');
+  var b=document.getElementById('kidfab');
+  b.textContent=document.body.classList.contains('kid')?'Normal Mode':'Kid Mode';}
+</script>
+</body>
+</html>
