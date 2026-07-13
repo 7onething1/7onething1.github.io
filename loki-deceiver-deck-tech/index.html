@@ -1,0 +1,335 @@
+<!doctype html>
+<html lang="en"><head><meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Loki, the Deceiver: The Copy Engine, Built Out</title>
+<meta name="description" content="A full deck tech for Loki, the Deceiver, the Doom Prevails Marvel Commander alt: the Villain copy engine read correctly through the rules and EDHREC data, with a six-category copy-target framework, an upgrade swap list off the precon, package counts, and an opening sequence.">
+<meta name="keywords" content="Loki the Deceiver, Villain Typal, Marvel Super Heroes Commander, Doom Prevails, EDHREC Loki, connive, clones, Tri-Sentinel, Doctor Octopus, Mysterio, Kingpin, deck tech, upgrade guide">
+<meta property="og:title" content="Loki, the Deceiver: The Copy Engine, Built Out">
+<meta property="og:description" content="The Loki Villain copy engine, built out: six copy-target categories, a precon upgrade list, package counts, and an opening sequence, every card verified.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,500;0,600;0,700;1,600&family=Inter:wght@400;600;700;800&display=swap" rel="stylesheet">
+<style>
+  :root{--cream:#f4ecd8;--ink:#1c1a17;--rust:#b5533b;--teal:#3f7c78;--gold:#c98a2b;--olive:#7d7a3a;--line:#d9cdb0;--plum:#7b4b8a;}
+  *{box-sizing:border-box}
+  body{margin:0;background:var(--cream);color:var(--ink);font-family:'Inter',system-ui,-apple-system,Segoe UI,Roboto,sans-serif;line-height:1.62}
+  header{padding:46px 24px 10px;max-width:780px;margin:0 auto;text-align:center}
+  h1{font-family:'Cormorant Garamond',Georgia,serif;font-size:2.7rem;margin:.15em 0;color:var(--ink);line-height:1.1}
+  .sub{color:var(--olive);font-weight:600;max-width:660px;margin:8px auto 0}
+  .nav{margin:14px auto 0;font-size:.9rem}
+  .nav a{color:var(--teal);font-weight:700;text-decoration:none;margin:0 8px}
+  .byline{max-width:780px;margin:10px auto 0;padding:0 22px;font-size:.8rem;color:var(--olive);font-style:italic;text-align:center}
+  main{max-width:780px;margin:0 auto;padding:12px 22px 100px}
+  article h2{font-family:'Cormorant Garamond',serif;font-size:1.72rem;color:var(--rust);margin:36px 0 8px}
+  article h3{font-family:'Inter',sans-serif;font-size:1.02rem;color:var(--plum);margin:16px 0 4px;text-transform:uppercase;letter-spacing:.03em}
+  article p{margin:0 0 14px;font-size:1.04rem}
+  .lead{font-size:1.12rem;color:#33302a}
+  .cardfig{float:right;width:180px;max-width:38vw;margin:4px 0 14px 20px}
+  .cardfig img{width:100%;border-radius:9px;box-shadow:0 3px 12px rgba(0,0,0,.22)}
+  .cardfig figcaption{font-size:.76rem;color:var(--olive);text-align:center;margin-top:5px;font-weight:600}
+  .swapline{margin:10px 0;padding:9px 13px;background:#fbf5e6;border:1px solid var(--line);border-radius:9px;font-size:.96rem}
+  .swapline b{color:var(--rust)} .swapline .pct{color:var(--teal);font-weight:800}
+  .swaprow{margin:10px 0;padding:11px 14px;background:#fbf5e6;border:1px solid var(--line);border-radius:9px;font-size:.97rem}
+  .swaprow .cut{color:var(--plum);font-weight:800} .swaprow .add{color:var(--rust);font-weight:800}
+  .swaprow .arrow{color:var(--olive);font-weight:800;margin:0 4px}
+  .pull{border-left:4px solid var(--gold);padding:6px 0 6px 15px;margin:16px 0;font-family:'Cormorant Garamond',serif;font-size:1.35rem;color:#3f3b30}
+  .pkg{width:100%;border-collapse:collapse;margin:6px 0 14px;font-size:.95rem}
+  .pkg th,.pkg td{border:1px solid var(--line);padding:7px 10px;text-align:left;vertical-align:top}
+  .pkg th{background:#efe4c8;font-weight:800;color:#4a3f28}
+  .pkg td:first-child{font-weight:700;white-space:nowrap;color:var(--rust)}
+  .curve{display:flex;gap:6px;align-items:flex-end;height:120px;margin:8px 0 6px;padding:8px 10px;background:#fbf5e6;border:1px solid var(--line);border-radius:9px}
+  .curve .bar{flex:1;display:flex;flex-direction:column;justify-content:flex-end;align-items:center;height:100%;gap:4px}
+  .curve .fill{width:100%;background:linear-gradient(180deg,var(--rust),var(--gold));border-radius:4px 4px 0 0}
+  .curve .cn{font-size:.72rem;font-weight:700;color:var(--olive)}
+  .curve .cv{font-size:.72rem;font-weight:800;color:var(--ink)}
+  .seq{margin:6px 0 14px;padding-left:0;list-style:none;counter-reset:t}
+  .seq li{position:relative;padding:8px 10px 8px 44px;margin:7px 0;background:#fbf5e6;border:1px solid var(--line);border-radius:9px;font-size:.97rem}
+  .seq li::before{counter-increment:t;content:"T" counter(t);position:absolute;left:10px;top:8px;font-weight:800;color:#fff;background:var(--teal);border-radius:6px;padding:2px 7px;font-size:.78rem}
+  .statbox{display:flex;flex-wrap:wrap;gap:10px;margin:8px 0 14px}
+  .statbox span{background:#efe4c8;border:1px solid var(--line);border-radius:20px;padding:5px 13px;font-size:.9rem}
+  .statbox b{color:var(--rust)}
+  .export{background:#2a2723;color:#f0e7d2;border-radius:10px;padding:14px 16px;font-family:'JetBrains Mono',ui-monospace,Menlo,Consolas,monospace;font-size:.82rem;line-height:1.5;max-height:340px;overflow:auto;white-space:pre;margin:8px 0 14px}
+  .audit{width:100%;border-collapse:collapse;margin:6px 0 12px;font-size:.92rem}
+  .audit th,.audit td{border:1px solid var(--line);padding:6px 9px;text-align:left;vertical-align:top}
+  .audit th{background:#efe4c8;font-weight:800;color:#4a3f28;font-size:.8rem;text-transform:uppercase;letter-spacing:.03em}
+  .audit td:first-child{font-weight:700;color:var(--ink)}
+  .audit td:last-child{font-weight:800;text-align:center;white-space:nowrap}
+  .v-core{color:var(--teal)} .v-sup{color:var(--gold)} .v-sit{color:var(--plum)} .v-cut{color:var(--rust)}
+  .src{max-width:780px;margin:0 auto;padding:0 22px 40px;font-size:.82rem;color:var(--olive)}
+  .src a{color:var(--teal);font-weight:700}
+  .kid-only{display:none}
+  #kidfab{position:fixed;right:18px;bottom:18px;z-index:50;background:var(--rust);color:#fff;border:none;border-radius:40px;padding:14px 21px;font-size:1rem;font-weight:800;box-shadow:0 4px 14px rgba(0,0,0,.25);cursor:pointer}
+  body.kid{font-size:1.14rem}
+  body.kid .grown{display:none}
+  body.kid .kid-only{display:block}
+  body.kid .lead{font-size:1.18rem}
+  @media(max-width:560px){.cardfig{float:none;width:150px;margin:0 auto 14px;display:block}.curve{height:96px}}
+</style></head>
+<body>
+<header>
+  <h1>Loki, the Deceiver: The Copy Engine, Built Out</h1>
+  <div class="sub grown">The second commander in the Doom Prevails box copies one of your Villains on every attack. This is the whole deck: which Villains are worth copying, how the copy actually behaves under the rules, and a full upgrade path off the precon.</div>
+  <div class="sub kid-only">Loki is the second commander in the Doom box. When he attacks, you get a free copy of one of your villains for the turn. The deck is all about running villains that are great to copy.</div>
+  <div class="nav"><a href="/salubrioussnail-marvel-edhrec/">EDHREC read</a> &middot; <a href="/salubrioussnail-doom-deaddraws/">Doom dead-draws audit</a> &middot; <a href="/doom-prevails-deck-tech/">Doom deck tech</a> &middot; <a href="/marvel-commander-rankings/">Marvel rankings</a></div>
+</header>
+<p class="byline">This Loki, the Deceiver deck tech applies Salubrious Snail's dead-draw audit method to the Doom Prevails precon. Snail never covered this precon; the read and the swaps are ours. Card text is verified from Scryfall; inclusion figures are from Loki's EDHREC commander page as recorded on 2026-07-13. Not authored or endorsed by Salubrious Snail or EDHREC.</p>
+<main>
+<article>
+
+<p class="lead grown">Loki, the Deceiver does one thing on the attack, and the deck is built to make it count. When Loki swings, you create a tapped and attacking copy of another target Villain you control. That copy is an Illusion, it is not legendary, and it is sacrificed at the beginning of the next end step. On top of that, whenever one or more of your Villains deal combat damage to a player, you draw a card. The copy lasts one turn, so the test for every Villain in the deck is simple: what does the rented copy do before it is sacrificed?</p>
+<p class="lead kid-only">When Loki attacks, you make a copy of one of your villains. The copy is only around for the turn, then it goes away. So the big question for every villain is: what does the copy do in that one turn before it disappears?</p>
+
+<h2>What the copy can and cannot do</h2>
+<figure class="cardfig"><img src="https://cards.scryfall.io/normal/front/c/0/c0cd3d41-909b-4f20-a44b-db82807d10ae.jpg?1782682595" alt="Loki, the Deceiver"><figcaption>Loki, the Deceiver</figcaption></figure>
+<p class="grown">The copy enters the battlefield already attacking, and that single fact decides which abilities pay off. An enter ability fires, because the token enters. A static ability applies, because the token is on the battlefield. A combat-damage ability fires, because the token can connect. What does not fire is an ordinary attack trigger. Comprehensive Rule 508.3a says a "whenever this creature attacks" ability triggers only when the creature is declared as an attacker, and it "won't trigger if a creature is put onto the battlefield attacking." The token was never declared, so those abilities stay silent. Wizards gives the same ruling for Kaalia of the Vast, whose entering creature is attacking yet receives no ordinary attack trigger.</p>
+<p class="grown">One narrow exception is worth knowing. An ability that reads "whenever this creature attacks and isn't blocked" follows Rule 509.3g and can still trigger during the declare-blockers step, even for a creature that entered attacking, as long as no blockers are declared for it. A plain "whenever this creature attacks" gets nothing on the copy. So the rule for building is precise: copy for enter abilities, static abilities, combat-damage abilities, and evasion, and run the plain attack-trigger Villains to swing on their own.</p>
+<p class="grown">The draw ability rewards spreading out. Loki draws one card whenever one or more of your Villains deal combat damage to a player, counted once per damaged player. Five Villains hitting one opponent draw a single card. One evasive Villain against each of three opponents draws three. When the board allows it, point your attackers at different seats and the same swing pays more.</p>
+<p class="kid-only">The copy shows up already attacking. So villains that do something when they enter, or that help just by being there, or that draw cards when they hit, all work great. Villains that only do something "when they attack" do not, because the copy was never really declared as an attacker. Also, Loki draws a card each time your villains hit a player, so hitting different players draws more cards.</p>
+
+<h2>The six kinds of copy target</h2>
+<p class="grown">Sorting the deck by what the copy does turns a pile of Villains into a clear shopping list. Six categories cover it, and the Doom Prevails box already stocks most of them.</p>
+
+<h3>Enter abilities</h3>
+<figure class="cardfig"><img src="https://cards.scryfall.io/normal/front/a/4/a4960ab8-fac3-4a11-a3f6-46527cf228ea.jpg?1782682572" alt="Tri-Sentinel, Act of Vengeance"><figcaption>Tri-Sentinel, Act of Vengeance</figcaption></figure>
+<p class="grown">These are the cleanest copies, because the trigger fires the instant the token arrives. <b>Tombstone, Career Criminal</b> returns a Villain from your graveyard on enter, so a copied Tombstone rebuys a body every attack. <b>Tri-Sentinel, Act of Vengeance</b> deals 3 damage to a creature for each opponent when it enters, so copying it clears three blockers at once and comes in as a 7/7 with flying, menace, and trample. <b>Mysterio, Master of Illusion</b> creates a 3/3 Illusion Villain token for each nontoken Villain you control on enter. Those tokens are exiled when the copy leaves at your end step, so a copied Mysterio is an enter-trigger multiplier rather than a lasting army: the flood of Villains entering feeds Prowler, Iron Monger, and your sacrifice outlets that turn, and Sundial can keep the copy to keep the tokens.</p>
+<p class="kid-only">These fire the second the copy shows up. Tombstone brings a villain back, Tri-Sentinel shoots three creatures, and Mysterio makes a token for each villain you have. Copying any of them pays off right away.</p>
+
+<h3>Static abilities</h3>
+<figure class="cardfig"><img src="https://cards.scryfall.io/normal/front/7/6/76e1d361-18a1-4dec-a203-f83bf0014e02.jpg?1783905317" alt="Doctor Octopus, Master Planner"><figcaption>Doctor Octopus, Master Planner</figcaption></figure>
+<p class="grown"><b>Doctor Octopus, Master Planner</b> gives your other Villains +2/+2 and refills your hand to eight at your end step. A second Doc Ock for a turn stacks with the original: because each buffs only your other Villains, every Villain besides the two Doc Ocks gets +4/+4, two from each, and the two Doc Ocks get +2/+2 from one another. <b>Iron Monger, Sadistic Tycoon</b> puts a +1/+1 counter on each Villain whenever a creature connives, so a copy widens every connive you have running. Static effects need no trigger and no combat, they apply for as long as the token is present. One end-step note on the Doc Ock copy: its own draw trigger reaches the stack alongside Loki's sacrifice trigger, so order the draw on top and the copy refills your hand to eight before it is sacrificed.</p>
+<p class="kid-only">These help just by being on the board. A copied Doctor Octopus makes your whole team bigger, and Iron Monger grows your villains whenever they connive. No trigger needed, the copy helps the moment it enters.</p>
+
+<h3>Combat-damage abilities</h3>
+<p class="grown">These read "deal combat damage," not "attacks," so they fire on the copy when it connects. <b>Klaw, Master of Sound</b> has deathtouch and pays you off when it hits. <b>Stilt-Man, Towering Terror</b> steals a noncreature, nonland permanent from a player whenever one or more of your Villains deal them combat damage, and it shares Loki's exact wording. Both connect for Loki's own card at the same time, so a single swing does three jobs.</p>
+<p class="kid-only">These work when the copy hits a player. Klaw has deathtouch and pays you when it connects, and Stilt-Man steals something from anyone your villains damage. The copy hitting also draws you a card from Loki.</p>
+
+<h3>Evasion</h3>
+<p class="grown">Evasion matters because Loki only draws when a Villain actually connects. <b>Prowler, Clawed Thief</b> has menace and connives whenever another Villain enters, so every copy you make filters a card and grows Prowler. <b>Red Ghost, Intangible Genius</b> cannot be blocked at all and carries ward, so it reaches a player nearly every turn. <b>Moonstone, Harsh Mistress</b> flies. Any of these copied into an open lane is reliable card draw off Loki, short of a removal spell or a fog.</p>
+<p class="kid-only">Loki only draws when a villain gets through. Prowler is hard to block, Red Ghost cannot be blocked, and Moonstone flies. Copy one of these into an open lane and you draw a card for sure.</p>
+
+<h3>Clones</h3>
+<figure class="cardfig"><img src="https://cards.scryfall.io/normal/front/f/a/facbd96f-c088-4377-b740-5e0fe99102bb.jpg?1782684894" alt="Mysterio, Master of Illusion"><figcaption>Mysterio, Master of Illusion</figcaption></figure>
+<p class="grown">A clone as your copy target repeats your best body, with one wrinkle worth learning. <b>Chameleon, Master of Disguise</b> enters as a copy of a creature you control, so you point it at your strongest Villain when you cast it. Loki copying Chameleon then makes another copy of whatever form Chameleon currently holds, a second of that creature. The free pick happens when you cast Chameleon; left in its base shape, Chameleon instead hands Loki's token the choice as the token enters. <b>Spark Double</b> works the same way, so a Spark Double that is currently a Doctor Octopus gives Loki a second Doctor Octopus rather than a new pick. <b>Titan of Littjara</b> is not a clone and not a changeling: it chooses a creature type as it enters, so it belongs with the enter abilities. Name Villain and its enter trigger draws a card for each of your other Villains.</p>
+<p class="kid-only">Chameleon and Spark Double copy one of your creatures when you play them. You pick your best creature then, and Loki can copy Chameleon to make another one of it. Titan of Littjara does not copy; it picks a creature type and draws cards for your villains.</p>
+
+<h3>The attack-trigger trap</h3>
+<p class="grown">This is the category the rules quietly rule out. <b>Ultron, Unlimited</b>, <b>Killmonger, Ruthless Usurper</b>, and <b>Helmut Zemo, Mastermind</b> all read "whenever this creature attacks." A copied Ultron does not connive, a copied Killmonger does not pump, and a copied Helmut Zemo does not recast a spell, because none of them were declared as attackers. Keep these in the deck as bodies you cast and attack with the honest way, and aim Loki's copy at the five categories above instead.</p>
+<p class="kid-only">Some villains only work "when they attack." Copies of Ultron, Killmonger, or Helmut Zemo do nothing special, because the copy was never really declared attacking. Play these normally and copy the other kinds.</p>
+
+<h2>Loki's Scepter, the borrowed face</h2>
+<figure class="cardfig"><img src="https://cards.scryfall.io/normal/front/e/a/eaf2251a-ffaf-4055-9474-7e3d08d89609.jpg?1782681838" alt="Baron Strucker, HYDRA Overlord"><figcaption>Baron Strucker, HYDRA Overlord</figcaption></figure>
+<p class="grown"><b>Loki's Scepter</b>, in about 74 percent of decks, taps for any color and does something sneaky on enter: you gain control of a creature until end of turn, untap it, give it haste, and make it a Villain on top of its other types. Read that against Loki's attack and the line appears. Steal an opponent's best creature, turn it into a Villain, and have Loki copy it on the same attack. You get their threat and a rental of it for one turn. Point the stolen creature and the copy at two different opponents and Loki draws two cards, since the card counts players hit. Send both at the same player and it is one.</p>
+<p class="kid-only">Loki's Scepter lets you borrow an enemy creature for the turn and make it a villain. Then Loki can copy it too. Send the two at different players to draw two cards from Loki.</p>
+
+<h2>Keeping Loki alive to swing</h2>
+<p class="grown">The engine needs Loki attacking, so a build that never protects him stalls. The precon ships <b>Swiftfoot Boots</b> for hexproof and haste, and the first upgrade is <b>Lightning Greaves</b> for shroud and a free equip. Haste matters because Loki cannot make his copy the turn he enters without it, though his card draw still pays off whenever your other Villains connect. Two equipment pieces is the honest boundary of this adaptation: Swiftfoot Boots and Lightning Greaves get Loki his first attack, and the deck stays open to instant-speed removal and equipment disruption. A wide Villain board does not shield Loki by itself, and the two jobs are different: a removal spell clears a blocker, but answering a spell aimed at Loki takes a counter or an instant-speed dodge. If you want to push past the precon in a later round, <b>Whispersilk Cloak</b>, <b>Deflecting Swat</b>, or a held counterspell bring protection toward four slots. Hold that piece for the crack-back rather than spending everything on your own turn.</p>
+<p class="kid-only">Loki needs to attack to make copies, but he still draws you cards when your other villains hit. Swiftfoot Boots and Lightning Greaves give him haste and guard him. Add a few more protection cards, because one enemy removal spell can stop him, and keep a counter spell ready for that.</p>
+
+<h2>The upgrade swaps</h2>
+<p class="grown">To be clear about who says what: the method here is Salubrious Snail's dead-draw audit, and every specific swap, count, and rules-timing note below is our own analysis, verified against Scryfall and the Comprehensive Rules, since Snail never covered this precon. The audit is simple: hold every precon card against the deck's two engines, the discard drain on the Doom face and the copy loop on Loki's, and cut whatever neither uses. What leaves is off-plan, and what comes in serves a clear role. These eleven swaps stay inside the Grixis color identity and keep the precon's power level. They come out eleven in and eleven out, so the creature count holds steady.</p>
+
+<h3>Copy targets and payoffs</h3>
+<figure class="cardfig"><img src="https://cards.scryfall.io/normal/front/f/4/f4f16314-d2eb-4117-8b28-4404c82e7343.jpg?1783903061" alt="Kingpin, Wilson Fisk"><figcaption>Kingpin, Wilson Fisk</figcaption></figure>
+<div class="swaprow grown"><span class="cut">Superior Foes of Spider-Man</span> <span class="arrow">&rarr;</span> <span class="add">Green Goblin, Revenant</span>. Superior Foes is a fine impulse-draw Villain off your four-plus-mana casts, and it does nothing as a Loki copy, so it makes room for a bridge card that serves the Doom face. When Green Goblin himself attacks he discards a card and draws one for each card discarded that turn, which feeds Doom's discard plan. As a Loki copy he gives only an evasive flying deathtouch body that connects for a card, since that attack trigger will not fire on a token that entered attacking. Run him for the original's engine, and aim Loki's copy at the enter and static Villains for real value.</div>
+<div class="swaprow grown"><span class="cut">Molecule Man</span> <span class="arrow">&rarr;</span> <span class="add">Kingpin, Wilson Fisk</span>. Molecule Man is a powerful free-cast build-around for a different deck, and at six mana it does nothing for the copy engine, so it yields to a four-mana menace that makes two Treasure the first time you sacrifice a creature each turn. Loki's copy is sacrificed at your end step every combat, and if you copy Kingpin himself both Kingpins see that sacrifice, so unless one already fired this turn the copy leaving pays you four Treasure, two from the original and two from the copy.</div>
+<div class="swaprow grown"><span class="cut">Puppet Master, String Puller</span> <span class="arrow">&rarr;</span> <span class="add">Doctor Octopus, Master Planner</span>. A goad-on-attack body that Loki cannot copy for value becomes the deck's best static copy target: +2/+2 to every other Villain and a hand that refills to eight.</div>
+<div class="swaprow grown"><span class="cut">Living Laser</span> <span class="arrow">&rarr;</span> <span class="add">Mysterio, Master of Illusion</span>. A discard-dependent attack-trigger body becomes an enter-trigger bomb that makes a 3/3 Villain for each Villain you control, doubling your board when copied.</div>
+
+<h3>Card advantage and ramp</h3>
+<div class="swaprow grown"><span class="cut">Currency Converter</span> <span class="arrow">&rarr;</span> <span class="add">Phyrexian Arena</span>. The closest call on the list. Currency Converter has real discard synergy with the Doom face, filtering and storing cards, so you give up genuine value here. Phyrexian Arena wins the slot because it draws a predictable card every upkeep with no other engine online, and a grindy Villain deck pays the life easily. Keep the Converter if your build leans hard on discard.</div>
+<div class="swaprow grown"><span class="cut">Doom's Time Platform</span> <span class="arrow">&rarr;</span> <span class="add">Read the Bones</span>. A narrow suspend engine becomes clean selection: scry two, then draw two.</div>
+<div class="swaprow grown"><span class="cut">Progenitor's Icon</span> <span class="arrow">&rarr;</span> <span class="add">Fellwar Stone</span>. A clunky tribal rock becomes a two-mana rock that usually provides strong multicolor fixing, limited to the colors your opponents' lands can make.</div>
+<div class="swaprow grown"><span class="cut">Batroc the Leaper</span> <span class="arrow">&rarr;</span> <span class="add">Mind Stone</span>. A kicker beater with little copy value becomes early ramp that cashes out for a card once you flood.</div>
+
+<h3>Protection and recursion</h3>
+<div class="swaprow grown"><span class="cut">Patchwork Banner</span> <span class="arrow">&rarr;</span> <span class="add">Lightning Greaves</span>. A redundant anthem becomes haste and protection for the one creature the deck cannot afford to lose.</div>
+<div class="swaprow grown"><span class="cut">Moonstone, Harsh Mistress</span> <span class="arrow">&rarr;</span> <span class="add">Reanimate</span>. A replaceable flyer becomes one mana to return your biggest Villain, and the deck discards them to hand size and to the Doom face all game.</div>
+<div class="swaprow grown"><span class="cut">Damocles Base, Sword of Kang</span> <span class="arrow">&rarr;</span> <span class="add">Sundial of the Infinite</span>. An off-theme vehicle becomes a two-mana artifact that keeps a copy forever. Let your end step begin so Loki's sacrifice trigger goes on the stack, then activate Sundial in response to end the turn, which exiles the trigger before it resolves. Fire it too early and you only skip this end step, and the sacrifice waits for the next one.</div>
+<p class="kid-only">These swaps cut cards that do not help Loki and add cards that do. Doctor Octopus and Mysterio are amazing to copy. Kingpin turns the copy being sacrificed at end of turn into treasure. Sundial can keep a copy forever. Lightning Greaves protects Loki, and Reanimate brings back your best villain from the discard pile.</p>
+
+<h2>Dead Draw Audit</h2>
+<p class="grown">Snail's dead-draw test weighs how reliably a card is useful. Each questioned card carries two ratings: copy value, what Loki's rented token does, and body value, what the card does cast the normal way. Beside them are the card's support in the 99 and a verdict. Core clears both axes, supported needs its package on the board, situational is narrow tech, and a card that fails both axes is a cut.</p>
+<table class="audit">
+<tr><th>Card</th><th>Copy value</th><th>Body value</th><th>Support in the 99</th><th>Verdict</th></tr>
+<tr><td>Mysterio, Master of Illusion</td><td>High, enter tokens</td><td>High</td><td>~26 Villains, 3 to 6 on board at cast</td><td class="v-core">Core</td></tr>
+<tr><td>Tombstone, Career Criminal</td><td>High, enter recursion</td><td>High</td><td>Villains in the graveyard</td><td class="v-core">Core</td></tr>
+<tr><td>Tri-Sentinel, Act of Vengeance</td><td>High, enter ping</td><td>High</td><td>three opponents, always live</td><td class="v-core">Core</td></tr>
+<tr><td>Doctor Octopus, Master Planner</td><td>High, static plus refill</td><td>High</td><td>your ~26 other Villains</td><td class="v-core">Core</td></tr>
+<tr><td>Prowler, Clawed Thief</td><td>High, evasion plus connive</td><td>High</td><td>every Villain that enters</td><td class="v-core">Core</td></tr>
+<tr><td>Titan of Littjara</td><td>High, enter draw</td><td>High</td><td>your ~26 Villains once it picks Villain</td><td class="v-sup">Supported</td></tr>
+<tr><td>Kingpin, Wilson Fisk</td><td>High, four-Treasure combo</td><td>Medium</td><td>the Loki token each turn, plus sac fodder</td><td class="v-sup">Supported</td></tr>
+<tr><td>Chameleon and Spark Double</td><td>Medium, locked form</td><td>High</td><td>your best creature on board</td><td class="v-sup">Supported</td></tr>
+<tr><td>Green Goblin, Revenant</td><td>Low, attack trigger</td><td>High</td><td>the Doom discard side</td><td class="v-sup">Bridge</td></tr>
+<tr><td>Sundial of the Infinite</td><td>Enabler only</td><td>Low</td><td>the Loki copy loop</td><td class="v-sit">Situational</td></tr>
+</table>
+<p class="grown">The audit exposes a pattern. The core copy targets all pay off the instant the token enters, so they clear both axes. The supported cards rely on their package: Kingpin on sacrifice fodder, Green Goblin on the discard side, the clones on a strong board. Sundial is the one narrow slot, earned only by how hard it breaks the copy loop.</p>
+<p class="kid-only">This chart rates each card two ways: how good Loki's copy of it is, and how good the real card is. Green means great at both, gold means it needs its friends on the board, and purple means it is a narrow trick. The best copy targets do their job the moment they show up.</p>
+
+<h2>The deck by the numbers</h2>
+<p class="grown">After the swaps, the deck sorts into these packages. A few cards fill two roles, so the counts are working targets rather than a strict partition of the ninety-nine.</p>
+<table class="pkg">
+<tr><th>Package</th><th>Count</th><th>Key cards</th></tr>
+<tr><td>Lands</td><td>37</td><td>Command Tower, Crumbling Necropolis, the dual cycle, Villainous Hideout, Path of Ancestry</td></tr>
+<tr><td>Ramp</td><td>6</td><td>Sol Ring, Arcane Signet, Talisman of Dominance, Talisman of Indulgence, Fellwar Stone, Mind Stone</td></tr>
+<tr><td>Card draw</td><td>7</td><td>Night's Whisper, Syphon Mind, Read the Bones, Phyrexian Arena, Skullclamp, Black Market Connections, plus Loki's own draw</td></tr>
+<tr><td>Interaction</td><td>9</td><td>Bedevil, Terminate, Chaos Warp, Withering Torment, Lethal Scheme, Blasphemous Act, Vandalblast, Toxic Deluge, Kindred Dominance</td></tr>
+<tr><td>Protection</td><td>2</td><td>Swiftfoot Boots, Lightning Greaves</td></tr>
+<tr><td>Recursion</td><td>3</td><td>Reanimate, Tombstone, Endless Ranks of HYDRA</td></tr>
+<tr><td>Creatures (Villains)</td><td>29</td><td>the six copy-target categories, plus Baron Strucker, Kingpin, Doctor Doom</td></tr>
+<tr><td>Clones</td><td>2</td><td>Chameleon, Spark Double (Titan and Mysterio are enter-trigger cards rather than clones)</td></tr>
+<tr><td>Connive pieces</td><td>6</td><td>Baron Strucker, Prowler, Iron Monger, Ultron, Glorious Purpose, Villainous Hideout</td></tr>
+</table>
+<p class="grown">The curve peaks at three, which is where the cost reducers and the two-drop Villains live, and it carries a small top end of bombs worth copying.</p>
+<p class="grown">Two of the wraths treat your board differently. Kindred Dominance names Villain and destroys everything else, so your team stays. Blasphemous Act deals thirteen damage to every creature and clears yours too, so you play it as the emergency reset and rebuild off the next Loki copy and the connive draws.</p>
+<div class="curve grown" aria-label="Mana curve">
+  <div class="bar"><span class="cv">6</span><div class="fill" style="height:33%"></div><span class="cn">1</span></div>
+  <div class="bar"><span class="cv">14</span><div class="fill" style="height:66%"></div><span class="cn">2</span></div>
+  <div class="bar"><span class="cv">18</span><div class="fill" style="height:100%"></div><span class="cn">3</span></div>
+  <div class="bar"><span class="cv">12</span><div class="fill" style="height:60%"></div><span class="cn">4</span></div>
+  <div class="bar"><span class="cv">7</span><div class="fill" style="height:40%"></div><span class="cn">5</span></div>
+  <div class="bar"><span class="cv">5</span><div class="fill" style="height:28%"></div><span class="cn">6+</span></div>
+</div>
+<p class="kid-only">The deck runs 37 lands, 6 mana rocks, 7 card-draw spells, 9 removal spells, and 29 villains. Most cards cost two or three mana, with a few big villains at the top worth copying.</p>
+
+<h2>The complete upgraded list</h2>
+<p class="grown">The whole ninety-nine after the eleven swaps, with Doctor Doom kept as a Villain and discard engine and Loki commanding. It is Grixis and black-primary, and every name is verified against Scryfall.</p>
+<div class="statbox grown"><span><b>99</b> + Loki</span><span><b>29</b> creatures</span><span>avg MV <b>3.58</b></span><span>pips <b>U19 &middot; B34 &middot; R17</b></span><span>~<b>$164</b></span></div>
+<div class="cols grown">
+  <div><h3>Creatures (29)</h3><p>Baron Strucker HYDRA Overlord, Helmut Zemo Mastermind, Killmonger Ruthless Usurper, Klaw Master of Sound, Prowler Clawed Thief, Stilt-Man Towering Terror, Tombstone Career Criminal, Typhoid Mary Fractured, Containment Construct, Iron Monger Sadistic Tycoon, Ultron Unlimited, Chameleon Master of Disguise, Doctor Doom King of Latveria, Kang Prime, Kang Temporal Tyrant, Kingpin Wilson Fisk, Madame Hydra, Mysterio Master of Illusion, Red Ghost Intangible Genius, Spark Double, The Frightful Four, Titania Proud Pummeler, Green Goblin Revenant, Lady Loki Agent of Chaos, Titan of Littjara, Doctor Octopus Master Planner, The Squadron Sinister, Tri-Sentinel Act of Vengeance, Abomination World Ravager</p></div>
+  <div><h3>Artifacts (11)</h3><p>Sol Ring, Arcane Signet, Fellwar Stone, Mind Stone, Talisman of Dominance, Talisman of Indulgence, Skullclamp, Swiftfoot Boots, Lightning Greaves, Sundial of the Infinite, Loki's Scepter</p><h3>Enchantments (7)</h3><p>Glorious Purpose, Archnemesis, Black Market Connections, Phyrexian Arena, Propaganda, Kang Dynasty, Age of Ultron</p></div>
+  <div><h3>Instants and sorceries (15)</h3><p>Reanimate, Vandalblast, Night's Whisper, Terminate, Bedevil, Chaos Warp, Read the Bones, Toxic Deluge, Withering Torment, Endless Ranks of HYDRA, Lethal Scheme, Syphon Mind, Extract Power, Kindred Dominance, Blasphemous Act</p><h3>Lands (37)</h3><p>Command Tower, Path of Ancestry, Exotic Orchard, Crumbling Necropolis, Terramorphic Expanse, Unclaimed Territory, Secluded Courtyard, Villainous Hideout, Scavenger Grounds, Scorched Geyser, plus the Grixis duals (Canyon Slough, Choked Estuary, Coastal Peak, Dragonskull Summit, Drowned Catacomb, Fetid Pools, Foreboding Ruins, Frostboil Snarl, Luxury Suite, Smoldering Marsh, Sulfur Falls, Sunken Hollow), 4 Island, 6 Swamp, 5 Mountain</p></div>
+</div>
+<p class="grown">Plaintext export, ready to paste into Moxfield or Archidekt:</p>
+<pre class="export grown">1 Loki, the Deceiver
+1 Abomination, World Ravager
+1 Age of Ultron
+1 Arcane Signet
+1 Archnemesis
+1 Baron Strucker, HYDRA Overlord
+1 Bedevil
+1 Black Market Connections
+1 Blasphemous Act
+1 Chameleon, Master of Disguise
+1 Chaos Warp
+1 Containment Construct
+1 Doctor Doom, King of Latveria
+1 Doctor Octopus, Master Planner
+1 Endless Ranks of HYDRA
+1 Extract Power
+1 Fellwar Stone
+1 Glorious Purpose
+1 Green Goblin, Revenant
+1 Helmut Zemo, Mastermind
+1 Iron Monger, Sadistic Tycoon
+1 Kang Dynasty
+1 Kang Prime
+1 Kang, Temporal Tyrant
+1 Killmonger, Ruthless Usurper
+1 Kindred Dominance
+1 Kingpin, Wilson Fisk
+1 Klaw, Master of Sound
+1 Lady Loki, Agent of Chaos
+1 Lethal Scheme
+1 Lightning Greaves
+1 Loki's Scepter
+1 Madame Hydra
+1 Mind Stone
+1 Mysterio, Master of Illusion
+1 Night's Whisper
+1 Phyrexian Arena
+1 Propaganda
+1 Prowler, Clawed Thief
+1 Read the Bones
+1 Reanimate
+1 Red Ghost, Intangible Genius
+1 Skullclamp
+1 Sol Ring
+1 Spark Double
+1 Stilt-Man, Towering Terror
+1 Sundial of the Infinite
+1 Swiftfoot Boots
+1 Syphon Mind
+1 Talisman of Dominance
+1 Talisman of Indulgence
+1 Terminate
+1 The Frightful Four
+1 The Squadron Sinister
+1 Titan of Littjara
+1 Titania, Proud Pummeler
+1 Tombstone, Career Criminal
+1 Toxic Deluge
+1 Tri-Sentinel, Act of Vengeance
+1 Typhoid Mary, Fractured
+1 Ultron, Unlimited
+1 Vandalblast
+1 Withering Torment
+1 Canyon Slough
+1 Choked Estuary
+1 Coastal Peak
+1 Command Tower
+1 Crumbling Necropolis
+1 Dragonskull Summit
+1 Drowned Catacomb
+1 Exotic Orchard
+1 Fetid Pools
+1 Foreboding Ruins
+1 Frostboil Snarl
+1 Luxury Suite
+1 Path of Ancestry
+1 Scavenger Grounds
+1 Scorched Geyser
+1 Secluded Courtyard
+1 Smoldering Marsh
+1 Sulfur Falls
+1 Sunken Hollow
+1 Terramorphic Expanse
+1 Unclaimed Territory
+1 Villainous Hideout
+4 Island
+6 Swamp
+5 Mountain</pre>
+<p class="kid-only">This is the whole deck after the swaps, 99 cards plus Loki. It is mostly black cards, costs about three and a half mana on average, and runs around 164 dollars. You can copy the list at the bottom straight into a deck website.</p>
+
+<h2>The Doom side of the box</h2>
+<p class="grown">The precon is shared, and its front face is Doctor Doom, King of Latveria, a discard-and-drain commander. Loki is the alternate. If you keep Doom in the ninety-nine or run the deck as printed, the discard cards stay strong, so hold cuts like the two remaining rummaging pieces. Building Loki as your sole commander tilts the deck toward copy value, which is why the pure discard-support cards are the first to leave. Either way, connive is the bridge: <b>Baron Strucker</b>, <b>Prowler</b>, and <b>Glorious Purpose</b> reward both faces, since every copy Loki makes is another Villain entering.</p>
+<p class="kid-only">The box has two commanders. Doctor Doom is about discarding and draining life. Loki is about copies. If you keep Doom, the discard cards stay good. If you go all-in on Loki, you cut some of them for copy cards. Connive helps both.</p>
+
+<h2>An opening sequence</h2>
+<p class="grown">A dependable line looks like this, and the whole plan is to have a board worth copying by the time Loki enters.</p>
+<ol class="seq grown">
+<li>Land and a rock: Sol Ring, Arcane Signet, or a Talisman.</li>
+<li>A two-drop Villain or a cost reducer: Tombstone, Klaw, Prowler, or Baron Strucker.</li>
+<li>A three-drop Villain and a second rock, or Black Market Connections for Treasure and cards.</li>
+<li>Cast Loki, four mana, and equip Swiftfoot Boots or Lightning Greaves if you have one.</li>
+<li>Attack, copy your best board Villain, Mysterio or Tri-Sentinel or Doctor Octopus, and draw off every Villain that connects.</li>
+</ol>
+<p class="kid-only">Turn one, play a mana rock. Turns two and three, play villains. Turn four, play Loki and give him haste. Turn five, attack and copy your best villain, then draw cards.</p>
+
+<h2>What EDHREC can and cannot tell you</h2>
+<p class="grown">EDHREC's synergy percentage measures how often a card shows up in submitted Loki decks compared with other decks that could run it. That number is deckbuilding popularity. It is not a record of what players copy during combat, because EDHREC tracks cards included in lists rather than in-game target choices. So the figures point you toward popular includes and no further: <b>Tombstone</b> at 86 percent, <b>Chameleon</b> at 82 percent, <b>Baron Strucker</b> at 79 percent, <b>Loki's Scepter</b> at 74 percent, <b>Villainous Hideout</b> at 71 percent, <b>Prowler</b> at 69 percent, and <b>Doctor Octopus</b> at 68 percent. Loki records about 1,263 decks. Use the list to find strong cards, then choose your copy targets from the six categories, which is where the games are actually won. In his EDHREC Effect video Snail warns the site inflates already-popular cards and overrates pieces that shine only when the commander is out, so treat a high percentage as popularity and keep a few Villains that work on a turn Loki is gone.</p>
+<p class="kid-only">EDHREC shows which cards people put in Loki decks, like Tombstone and Chameleon. That tells you popular cards. It does not show what people copy during the game, because it only tracks decklists. Use it to find good cards, then pick copy targets yourself.</p>
+
+<h2>The one rule</h2>
+<p class="pull grown">Run bodies that pay off the moment they arrive. An enter ability, a static buff, a combat-damage hit, or evasion makes the copy worth it. A plain attack trigger gets nothing.</p>
+<p class="grown">That single test sorts every slot. When you weigh a Villain, ask what the rented copy does before it is sacrificed. If the answer falls in one of the five working categories, keep it. If the answer is an attack trigger that never fires on the token, run the card as a body and copy something else.</p>
+<p class="kid-only">The rule is simple: copy villains that do something the moment they show up, help just by being there, or hit hard and get through. Skip copying the ones that only work "when they attack."</p>
+
+<h2>Snail Tip</h2>
+<p class="grown">The audit behind these swaps is Snail's, and it is worth hearing in his words. His <a href="/salubrioussnail-points/#v-reducing-dead-draws-through-synergy-in-deckbuilding">Reducing Dead Draws</a> video is the source for the two-question test: a card should feed one of the deck's engines or come out. His <a href="/salubrioussnail-points/#v-how-edhrec-data-aggregation-warps-commander-deckbuilding">EDHREC Effect</a> video is why the percentages above are a starting point rather than a decklist. We worked his dead-draw audit onto this whole box in his own words on <a href="/salubrioussnail-doom-deaddraws/">the Doom dead-draws page</a>.</p>
+<p class="kid-only">The idea of cutting cards that do not fit comes from Salubrious Snail. <a href="/salubrioussnail-points/#v-reducing-dead-draws-through-synergy-in-deckbuilding">Here is his video on it</a>, and <a href="/salubrioussnail-doom-deaddraws/">here is our page that uses it on this box.</a></p>
+
+</article>
+</main>
+
+<div class="src">
+  <p><b>Sources.</b> Card text verified from <a href="https://scryfall.com">Scryfall</a> (Marvel Super Heroes Commander and reprints): Loki the Deceiver, Tombstone Career Criminal, Tri-Sentinel Act of Vengeance, Mysterio Master of Illusion, Doctor Octopus Master Planner, Iron Monger Sadistic Tycoon, Klaw Master of Sound, Stilt-Man Towering Terror, Prowler Clawed Thief, Red Ghost Intangible Genius, Chameleon Master of Disguise, Spark Double, Titan of Littjara, Ultron Unlimited, Killmonger Ruthless Usurper, Helmut Zemo Mastermind, Green Goblin Revenant, Kingpin Wilson Fisk, Baron Strucker HYDRA Overlord, Loki's Scepter, Villainous Hideout, Sundial of the Infinite, Phyrexian Arena, Read the Bones, Fellwar Stone, Mind Stone, Lightning Greaves, Reanimate. Rules verified from the Comprehensive Rules 508.3a, 508.4, and 509.3g (attack triggers do not fire on a creature put onto the battlefield attacking; "attacks and isn't blocked" is the 509.3g exception), read via the <a href="https://yawgatog.com/resources/magic-rules/">Yawgatog CR mirror</a>, with the analogous official Kaalia of the Vast Gatherer ruling. Scryfall and Yawgatog are third-party reproductions of WotC's Oracle text and Comprehensive Rules; neither is an official publisher. Decklist baseline is the <a href="https://magic.wizards.com/en/news/announcements/marvel-super-heroes-commander-decklists">official Doom Prevails decklist</a>. Inclusion figures from the <a href="https://edhrec.com/commanders/loki-the-deceiver">EDHREC Loki commander page</a> (about 1,263 decks, read 2026-07-13), which measures deck inclusion rather than in-combat copy choices. Related: <a href="/salubrioussnail-doom-deaddraws/">the Doom dead-draws audit</a> and the <a href="/doom-prevails-deck-tech/">Doom deck tech</a>. Applies Salubrious Snail's method; neither Salubrious Snail nor EDHREC authored or endorsed it.</p>
+</div>
+
+<button id="kidfab" onclick="toggleKid()">Kid Mode</button>
+<script>
+function toggleKid(){document.body.classList.toggle('kid');
+  var b=document.getElementById('kidfab');
+  b.textContent=document.body.classList.contains('kid')?'Normal Mode':'Kid Mode';}
+</script>
+</body>
+</html>
