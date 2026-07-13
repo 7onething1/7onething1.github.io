@@ -2,7 +2,7 @@
 
 The Fantastic Four commander draws you a card at combat when you have cast a noncreature spell that turn. The deck is built to hit that cast every turn, then copy the triggers it sets off.
 
-*This Mister Fantastic deck tech is written in Salubrious Snail's voice. Mister Fantastic's inclusion figures come from his EDHREC commander page; card text is from Scryfall; the decklist is the official Wizards Fantastic Four precon. Neither Salubrious Snail nor EDHREC authored or endorsed it.*
+*This Mister Fantastic deck tech applies deckbuilding principles summarized from Salubrious Snail's published videos and cited below, in our own wording. Inclusion figures come from his EDHREC commander page; card text is from Scryfall; the decklist is the official Wizards Fantastic Four precon. Neither Salubrious Snail nor EDHREC authored or endorsed it.*
 
 Live page: https://drwu-htmls.vercel.app/mister-fantastic-deck-tech
 
@@ -52,7 +52,7 @@ Run Snail's whole-mana-base method on this precon and you get three exact swaps,
 | Mirage Mirror | Talisman of Conviction | **Strong** | A slow toolbox leaves for a second fixing rock, tapping red or white. Together the two Talismans reach three of four colors and double up on red, smoothing the turns the deck wants to break open. |
 | Into the Time Vortex | West Coast Expansion | **Partial** | A five-mana cascade-rebound sorcery that does nothing for color leaves for an X-cost draw-X sorcery with a free Hero at X=5. The draw-and-mana-sink leg of the method, no color source added. |
 
-The core fix is color access, and the two Talismans do that job. Full card-by-card version: the [Fantastic Four manabase page](https://drwu-htmls.vercel.app/salubrioussnail-ff-manabase).
+The core fix is color access, and the two Talismans do that job. One caveat: both Talismans make blue, red, and white but no green, and green powers the early ramp (Farseek, Three Visits, Cultivate), so green still comes from the green lands and Chromatic Lantern. Full card-by-card version, with colored-pip counts: the [Fantastic Four manabase page](https://drwu-htmls.vercel.app/salubrioussnail-ff-manabase).
 
 ## The deck by the numbers
 
@@ -65,13 +65,13 @@ Here is the whole hundred-card list with Snail's three changes above already fol
 | Spellcast payoffs | 8 | Mister Fantastic, Valeria Richards, Crystal, Franklin Richards, Whirlwind of Thought, Monologue Tax, Mind's Dilation, Annie Joins Up |
 | Removal and wraths | 10 | Cleansing Nova, Tragic Arrogance, Ultimate Nullification, Nova Flame, Path to Exile, Hull Breach, Bovine Intervention, Collective Effort, It's Clobberin' Time!, Fantastic Elasticity |
 | Noncreature fuel and tempo | 9 | Galvanic Iteration, Expressive Iteration, Seize the Day, Quantum Misalignment, Flame On!, West Coast Expansion, Promise of Loyalty, Genesis Ultimatum, Taunt from the Rampart |
-| Card draw | 4 | Recurring Insight, First Family, Cut a Deal, and one more sorcery |
+| Card draw | 4 | Recurring Insight, First Family, Cut a Deal, Deep Analysis |
 | Protection | 3 | Invisible Force Field, Clever Concealment, Lightning Greaves |
 | FF family bodies and bombs | 15 | Invisible Woman, Human Torch, The Thing, Galactus, Silver Surfer, Namor, Black Bolt, Medusa, Mister Fantastic Reed Richards, Lockjaw, Alicia Masters, Dragon Man, H.E.R.B.I.E., Power Pack, Council of Reeds |
 | Utility and flex | 4 | The Fantasticar, Unstable Molecule Suit, Negative Zone Portal, Path of Discovery |
 | **Total** | **100** | 1 commander plus 99, four-color WURG |
 
-The composition, counted straight from that upgraded list: 37 lands, 19 creatures (two of them also artifacts), 23 sorceries, 6 instants, 6 enchantments, and 9 noncreature artifacts. That puts **44 noncreature spells** in the deck, so the trigger fires nearly every turn. The three swaps also pull the curve down, since cutting a three-drop and a five-drop for two two-mana Talismans and a two-mana draw spell moves the peak onto two.
+The composition, counted straight from that upgraded list: 37 lands, 19 creatures (two of them also artifacts), 23 sorceries, 6 instants, 6 enchantments, and 9 noncreature artifacts. That puts **44 noncreature spells** in the deck, so the trigger fires nearly every turn. By printed mana value the peak shifts to two, but read that with care: West Coast Expansion counts as two only because its cost is X plus two, and at two mana it draws zero, so it is a late-game mana sink rather than a cheap play. The two Talismans are the real early gain, and the functional early curve barely moves.
 
 Nonland mana curve (three Snail swaps applied):
 
@@ -79,7 +79,7 @@ Nonland mana curve (three Snail swaps applied):
 |---|---|---|---|---|---|---|
 | Cards | 2 | 16 | 15 | 14 | 9 | 7 |
 
-The peak sits on two now, and the two color rocks come down a turn ahead of the commander. If you want to keep pushing, the next cuts are more five-mana sorceries for one and two-mana instants you can fire on any turn.
+The real speed gain is the two color rocks landing a turn ahead of the commander. West Coast Expansion does not lower your operating cost, it turns spare mana into cards later. The genuine next cuts are the five and seven-mana sorceries for one and two-mana instants you can fire on any turn, named in the section below.
 
 ## Dead Draw Audit: does each payoff fire often enough?
 
@@ -106,6 +106,21 @@ Three deeper reads finish the audit, past whether a card has partners:
 - **Selection compensation.** The deck tolerates its eleven five-plus-mana spells only because it draws hard (Whirlwind, Valeria, West Coast Expansion, Recurring Insight, Cut a Deal). It lacks filtering and looting, so a clogged hand of expensive spells has no discard outlet. That is the mechanism that makes each expensive narrow card tolerable, and its limit.
 - **Flexibility floor.** Ten removal and wrath cards plus three protection pieces keep this from a one-note synergy pile. Do not cut that package for more payoffs. The dead-draw fix is trading expensive spells for cheap ones, not trading answers for engine.
 
+## A second upgrade tier
+*(Page recommendation, not Snail)*
+
+The audit found the hole: eleven noncreature spells cost five or more, and only four cheap instants can hold up on an opponent's turn where Valeria and Crystal still pay. These are my picks, each a one or two-mana instant inside WURG, paired with a specific expensive cut. They lift the cheap-instant count from four toward roughly nine and add filtering the deck lacks.
+
+| Cut (5+ mana) | Add (1-2 mana instant) | Why |
+|---|---|---|
+| Genesis Ultimatum | Swan Song | One-mana counter held up any turn; casting it on their turn feeds Valeria and Crystal. |
+| Taunt from the Rampart | Swords to Plowshares | One-mana removal instant, the cleanest opposing-turn fuel that also answers a threat. |
+| Flame On! | Heroic Intervention | Two-mana protection instant that arms a trigger and saves the board from a wipe. |
+| Quantum Misalignment | Consider | One-mana cantrip that adds the filtering the deck has none of. |
+| Promise of Loyalty | Arcane Denial | Two-mana counter that replaces itself, so it never sits dead. |
+
+Keep the two remaining board wipes (Cleansing Nova, Tragic Arrogance); the flexibility floor still needs mass removal. This tier trades own-turn-only top end for cheap plays that keep the every-turn payoffs paying.
+
 ## An opening sequence
 
 A dependable line arms the commander the turn he lands.
@@ -113,10 +128,10 @@ A dependable line arms the commander the turn he lands.
 1. Fixing land, or Sol Ring into a second land.
 2. A Talisman or Arcane Signet, so two or three of your four colors are online by turn two.
 3. Valeria Richards, which discounts every noncreature spell and draws off your first each turn.
-4. Cast Mister Fantastic, then a one-mana instant like Path to Exile before combat, so the first swing already draws.
+4. Cast Mister Fantastic, then any useful noncreature spell before moving to combat, so the trigger draws. The draw happens at the start of combat whether or not he attacks, so save Path to Exile for a creature that needs removing rather than spending it only to arm the trigger.
 5. Hold a cheap instant for an opponent's turn to keep Valeria and Crystal paying, then spend your Crucible copy on the biggest cast.
 
-Read one full round and you can see why cheap interaction matters. On your turn you cast a setup spell in the first main phase to arm Mister Fantastic and Franklin, then swing. On each opponent's turn you hold up a one or two-mana instant, and casting it draws off Valeria if it is your first that turn, pings with Crystal, and can trip Cosmic Crucible again. A sorcery can only ever work your own turn, so a hand of cheap instants is worth more here than the same count of sorceries.
+Read one full round and you can see why cheap interaction matters. On your turn you cast a setup spell in the first main phase to arm Mister Fantastic and Franklin, then swing. On each opponent's turn you hold up a one or two-mana instant, and casting it draws off Valeria if it is your first that turn, pings with Crystal, and can trip Cosmic Crucible again. A sorcery normally works only during your own main phase, so a hand of cheap instants is worth more here than the same count of sorceries.
 
 ## The one rule
 
@@ -136,7 +151,7 @@ The mana read above is Snail's, and this four-color deck is a fair test of it:
 - His [manabase diagnosis](https://drwu-htmls.vercel.app/salubrioussnail-points/#v-diagnosing-edh-manabase-issues-with-a-new-tool) video treats consistency as a whole-mana-base question rather than a land count alone, which is exactly what a four-color deck needs.
 - His [EDHREC Effect](https://drwu-htmls.vercel.app/salubrioussnail-points/#v-how-edhrec-data-aggregation-warps-commander-deckbuilding) video is why the popular list is a starting point rather than a decklist.
 
-We worked his manabase method onto this deck in full, in his own words: [the Fantastic Four manabase page](https://drwu-htmls.vercel.app/salubrioussnail-ff-manabase).
+We applied his manabase method to this deck, summarized from those videos and cited rather than quoted: [the Fantastic Four manabase page](https://drwu-htmls.vercel.app/salubrioussnail-ff-manabase).
 
 ---
 
