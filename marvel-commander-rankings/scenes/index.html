@@ -1,0 +1,159 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<title>The Scene Boxes · Marvel Super Heroes Commander</title>
+<meta name="description" content="The two Marvel Super Heroes Scene Boxes: Heroes United and Villains Unleashed. Twelve borderless legendary creatures that slot together into one panoramic image, with Commander playability notes." />
+<link rel="preconnect" href="https://fonts.googleapis.com" />
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+<link href="https://fonts.googleapis.com/css2?family=Bangers&family=Anton&family=Inter:wght@400;500;600;700;800;900&display=swap" rel="stylesheet" />
+<style>
+:root{
+  --paper:#f4ecd6; --paper2:#efe4c6; --card:#fbf5e3; --ink:#14110c; --ink2:#4a3f2c; --muted:#7a6b4d; --line:#d8c9a2;
+  --crimson:#c1443b; --crimson-d:#8f2d27; --teal:#2f7d78; --teal-d:#1c534f;
+  --mustard:#d99a2b; --mustard-d:#a06d14; --plum:#7b4b8a; --plum-d:#513059; --navy:#2b4a6f;
+}
+*{box-sizing:border-box}
+html,body{margin:0}
+body{background:var(--paper);color:var(--ink);font-family:'Inter',system-ui,sans-serif;line-height:1.55;padding-bottom:80px;-webkit-font-smoothing:antialiased}
+.wrap{max-width:1080px;margin:0 auto;padding:0 20px}
+header.hero{padding:40px 20px 24px;text-align:center;border-bottom:3px solid var(--ink);
+  background:radial-gradient(circle at 15% 20%, rgba(47,125,120,.10), transparent 42%),radial-gradient(circle at 85% 16%, rgba(193,68,59,.10), transparent 42%);}
+.back{display:inline-block;text-decoration:none;font-weight:800;font-size:.86rem;color:var(--teal-d);margin-bottom:8px}
+.kicker{font-family:'Anton',sans-serif;letter-spacing:.14em;text-transform:uppercase;color:var(--teal-d);font-size:.8rem;margin:0 0 6px}
+h1{font-family:'Bangers',cursive;font-size:clamp(2.2rem,6vw,4rem);line-height:1;letter-spacing:.02em;margin:0;text-shadow:2px 2px 0 var(--mustard),4px 4px 0 rgba(0,0,0,.12)}
+.sub{max-width:660px;margin:14px auto 0;color:var(--ink2)}
+.what{max-width:760px;margin:16px auto 0;background:var(--card);border:2px solid var(--line);border-radius:12px;padding:14px 18px;text-align:left;font-size:.95rem}
+.what b{color:var(--crimson-d)}
+
+.boxsec{padding:30px 0}
+.boxhead{display:flex;align-items:center;gap:12px;margin:0 0 4px}
+.boxhead h2{font-family:'Anton',sans-serif;text-transform:uppercase;letter-spacing:.03em;font-size:1.6rem;margin:0}
+.tag{font-size:.7rem;font-weight:800;text-transform:uppercase;letter-spacing:.06em;padding:3px 10px;border-radius:999px;color:#fff}
+.tag.h{background:var(--teal)}.tag.v{background:var(--plum)}
+.boxlead{color:var(--muted);margin:0 0 16px;max-width:760px}
+
+.panorama{display:flex;gap:3px;border:3px solid var(--ink);border-radius:12px;overflow:hidden;margin:0 0 18px;box-shadow:4px 4px 0 rgba(0,0,0,.12)}
+.slot{flex:1 1 0;min-width:0;padding:14px 8px;text-align:center;color:#fff;position:relative}
+.slot .idx{font-family:'Bangers',cursive;font-size:1.1rem;opacity:.85}
+.slot .nm{font-weight:800;font-size:.74rem;line-height:1.15;margin-top:4px}
+.slot small{display:block;font-size:.6rem;opacity:.85;margin-top:3px;font-weight:600}
+.panorama.h .slot{background:linear-gradient(160deg,var(--teal),var(--teal-d))}
+.panorama.v .slot{background:linear-gradient(160deg,var(--plum),var(--plum-d))}
+.caption{font-size:.8rem;color:var(--muted);text-align:center;margin:-8px 0 20px;font-style:italic}
+
+.cards{display:grid;grid-template-columns:repeat(auto-fill,minmax(240px,1fr));gap:12px}
+.c{background:var(--card);border:2px solid var(--ink);border-radius:12px;padding:13px 14px;box-shadow:3px 3px 0 rgba(0,0,0,.08)}
+.c img.cimg{width:100%;border-radius:8px;margin-bottom:10px;display:block;box-shadow:2px 2px 6px rgba(0,0,0,.2)}
+.c .h{display:flex;justify-content:space-between;gap:8px;align-items:baseline}
+.c .nm{font-weight:800;font-size:1rem;line-height:1.1}
+.pip{width:16px;height:16px;border-radius:50%;border:1.5px solid var(--ink2);display:inline-block;font-size:10px;line-height:14px;text-align:center;font-weight:800}
+.pip.W{background:#f7f1dd}.pip.U{background:#a9cbe8}.pip.B{background:#b7abb8;color:#111}.pip.R{background:#e6a08c}.pip.G{background:#a9caa0}
+.c .ty{font-size:.74rem;color:var(--muted);font-weight:700;margin:4px 0 6px}
+.c .tx{font-size:.88rem;color:var(--ink2)}
+.c.star{border-color:var(--mustard-d);box-shadow:3px 3px 0 rgba(217,154,43,.35)}
+.edh{margin-top:8px;font-size:.78rem;font-weight:700;background:#fff6df;border:1.5px dashed var(--mustard-d);border-radius:8px;padding:6px 10px;color:var(--mustard-d)}
+
+footer{border-top:3px solid var(--ink);margin-top:24px;padding:26px 0 40px;text-align:center;color:var(--muted);font-size:.86rem}
+footer a{color:var(--teal-d);font-weight:700}
+.srcs{font-size:.78rem;max-width:760px;margin:10px auto 0}
+
+body.kids{background:#fff7e6;font-size:1.06rem}
+body.kids .grown{display:none}
+.kid-only{display:none}body.kids .kid-only{display:block}
+.mode-btn{position:fixed;right:16px;bottom:16px;z-index:50;font-family:'Inter',sans-serif;font-weight:800;font-size:.92rem;cursor:pointer;padding:11px 16px;border-radius:999px;border:2px solid var(--ink);background:var(--mustard);color:var(--ink);box-shadow:3px 3px 0 rgba(0,0,0,.2)}
+@media(max-width:620px){.panorama{flex-wrap:wrap}.slot{flex-basis:33.33%}}
+</style>
+</head>
+<body>
+<header class="hero">
+  <a class="back" href="/marvel-commander-rankings">← Back to the precon rankings</a>
+  <p class="kicker">Marvel Super Heroes · Special Products</p>
+  <h1>The Scene Boxes</h1>
+  <p class="sub">Two collector boxes, twelve brand-new borderless legends. Line the six cards in a box side by side and their art fuses into one panoramic battle.</p>
+  <div class="what">
+    <b>What a Scene Box is:</b> each box (sold separately) holds <b>6 foil borderless legendary creatures</b> found only here, three Play Boosters, six art cards, an oversized art print, and a display easel. The six cards' full-art frames connect edge to edge into a single cinematic image. <span class="grown">They're built for the shelf first, the battlefield second, a couple still sneak into real Commander decks.</span>
+  </div>
+</header>
+
+<div class="wrap">
+
+  <section class="boxsec">
+    <div class="boxhead"><span class="tag h">Box 1</span><h2>Heroes United</h2></div>
+    <p class="boxlead">Captain America rallies Earth's Mightiest (Hulk, Thor, Iron Man and the rest) into one sweeping charge.</p>
+    <div class="panorama h" id="pano-h"></div>
+    <p class="caption grown">↑ The six panels slot left-to-right into one continuous hero charge.</p>
+    <div class="cards" id="cards-h"></div>
+  </section>
+
+  <section class="boxsec">
+    <div class="boxhead"><span class="tag v">Box 2</span><h2>Villains Unleashed</h2></div>
+    <p class="boxlead">Doctor Doom, Thanos, M.O.D.O.K., Loki and company dominate a full comic-book menace of a panel.</p>
+    <div class="panorama v" id="pano-v"></div>
+    <p class="caption grown">↑ Six villains, one connected tableau.</p>
+    <div class="cards" id="cards-v"></div>
+  </section>
+
+</div>
+
+<footer>
+  <div class="wrap">
+    <p><a href="/marvel-commander-rankings">← All four precon rankings, commander options &amp; cull research</a></p>
+    <p class="srcs grown">Sources: Scryfall set data plus the Card Game Base and Draftsim Scene Box breakdowns. Card text is summarized; exact wording is on the printed cards. Commander-relevance calls are editorial.</p>
+  </div>
+</footer>
+
+<button class="mode-btn" id="mode-btn" onclick="toggleKid()" aria-pressed="false" title="Explain this page simply">🧒 Kid mode</button>
+
+<script>
+const SIMG={"Captain America, Unbowed": "https://cards.scryfall.io/normal/front/1/f/1f482932-a157-4884-934c-20fca1da7a66.jpg?1782682239", "Iron Man, Futurist Paragon": "https://cards.scryfall.io/normal/front/2/6/266a56d7-c310-4a91-9d1f-a6d55aa17f43.jpg?1782682242", "Thor, Guardian of Midgard": "https://cards.scryfall.io/normal/front/3/6/36a1069a-5282-42cf-809f-9cf273a1148c.jpg?1782682241", "Hulk, Always Angry": "https://cards.scryfall.io/normal/front/e/a/eab5ca32-fe4c-41d2-9b80-9992ee482c01.jpg?1782682241", "Black Widow, Intel Expert": "https://cards.scryfall.io/normal/front/4/9/49671454-db5d-4b0f-a609-7f717dd96d24.jpg?1782682239", "Hawkeye, Trick Shot": "https://cards.scryfall.io/normal/front/0/f/0f05832a-395e-44ba-8e1b-1488c3960343.jpg?1782682238", "Doctor Doom": "https://cards.scryfall.io/normal/front/9/b/9b1f213a-e1d4-4a0f-954b-c83915698d98.jpg?1782681832", "Thanos, Death's Consort": "https://cards.scryfall.io/normal/front/4/8/4842d520-8bce-4b95-bcb6-bd9eb9374f90.jpg?1782682237", "M.O.D.O.K., Evil Intellect": "https://cards.scryfall.io/normal/front/d/e/de490be1-4b62-4dc8-ad00-55de74d501dd.jpg?1782682237", "Absorbing Man and Titania": "https://cards.scryfall.io/normal/front/5/f/5f363991-91f2-4675-b0ca-cc7fe230c4ff.jpg?1782682235", "Abomination, Irradiated Brute": "https://cards.scryfall.io/normal/front/0/b/0b82c865-ae3e-43f0-9ac8-fabdd5539b36.jpg?1782682230", "Loki, God of Lies": "https://cards.scryfall.io/normal/front/b/5/b519a04b-64a6-456f-b02a-a54be50342be.jpg?1782682230"};
+const HEROES = [
+  {nm:"Captain America, Unbowed", ci:["W"], ty:"Legendary Creature - Human Soldier Hero", tx:"Flash. When it enters, your Soldiers and Heroes gain indestructible for the turn.", edh:"Playable: Soldier kindred"},
+  {nm:"Iron Man, Futurist Paragon", ci:["U"], ty:"Legendary Artifact Creature - Human Hero", tx:"Flying. Each combat it turns an artifact or creature into a 5/5 flying artifact creature."},
+  {nm:"Thor, Guardian of Midgard", ci:["R"], ty:"Legendary Creature - God Warrior Hero", tx:"Flying. Noncombat damage to an opponent lets you impulse-draw that many cards."},
+  {nm:"Hulk, Always Angry", ci:["R"], ty:"Legendary Creature - Gamma Berserker Hero", tx:"Trample. Destroys all artifacts when it enters, and it attacks every turn.", edh:"★ Best Commander shot in the set", star:true},
+  {nm:"Black Widow, Intel Expert", ci:["W"], ty:"Legendary Creature - Human Spy Hero", tx:"First strike. When it connects, you and that opponent each draw two cards."},
+  {nm:"Hawkeye, Trick Shot", ci:["R"], ty:"Legendary Creature - Human Archer Hero", tx:"First strike, reach. Each Hero that enters pings any target for your Hero count."}
+];
+const VILLAINS = [
+  {nm:"Doctor Doom", ci:["B"], ty:"Legendary Creature - Human Scientist Villain", tx:"Makes two 3/3 Doombots on enter, stays indestructible beside an artifact creature, and draws you a card each end step."},
+  {nm:"Thanos, Death's Consort", ci:["B"], ty:"Legendary Creature - Eternal Villain", tx:"Lifelink, and grows a +1/+1 counter whenever another creature dies."},
+  {nm:"M.O.D.O.K., Evil Intellect", ci:["B"], ty:"Legendary Artifact Creature - Villain", tx:"Flying. Draw your second card each turn and an opponent sacrifices a creature.", edh:"Playable: draw-two payoff"},
+  {nm:"Absorbing Man and Titania", ci:["R","G"], ty:"Legendary Creature - Human Villain", tx:"Doubles all damage your creature sources would deal.", edh:"★ Real Commander upside", star:true},
+  {nm:"Abomination, Irradiated Brute", ci:["G"], ty:"Legendary Creature - Gamma Villain", tx:"Trample. Grows with +1/+1 counters when your Gammas or Villains connect."},
+  {nm:"Loki, God of Lies", ci:["R"], ty:"Legendary Creature - God Sorcerer Villain", tx:"Target a single creature with a spell and you steal it until end of turn."}
+];
+
+function pips(ci){return ci.map(c=>`<span class="pip ${c}">${c}</span>`).join("")}
+function pano(host, arr){
+  document.getElementById(host).innerHTML = arr.map((c,i)=>
+    `<div class="slot"><div class="idx">${i+1}</div><div class="nm">${c.nm.split(",")[0]}</div><small>${c.ci.join("")}</small></div>`
+  ).join("");
+}
+function cards(host, arr){
+  document.getElementById(host).innerHTML = arr.map(c=>
+    `<div class="c ${c.star?"star":""}">
+      ${SIMG[c.nm]?`<img class="cimg" loading="lazy" src="${SIMG[c.nm]}" alt="${c.nm}">`:""}
+      <div class="h"><span class="nm">${c.nm}</span><span>${pips(c.ci)}</span></div>
+      <div class="ty">${c.ty}</div>
+      <div class="tx">${c.tx}</div>
+      ${c.edh?`<div class="edh">${c.edh}</div>`:""}
+    </div>`
+  ).join("");
+}
+pano("pano-h",HEROES); cards("cards-h",HEROES);
+pano("pano-v",VILLAINS); cards("cards-v",VILLAINS);
+
+function toggleKid(){
+  const on = !document.body.classList.contains("kids");
+  document.body.classList.toggle("kids", on);
+  const b = document.getElementById("mode-btn");
+  b.textContent = on ? "🧑‍🏫 Grown-up mode" : "🧒 Kid mode";
+  b.setAttribute("aria-pressed", on?"true":"false");
+  try{ localStorage.setItem("mcr_kid", on?"1":"0"); }catch(e){}
+}
+(function(){ try{ if(localStorage.getItem("mcr_kid")==="1") toggleKid(); }catch(e){} })();
+</script>
+</body>
+</html>

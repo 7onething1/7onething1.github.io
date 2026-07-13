@@ -1,0 +1,1201 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<title>Marvel Super Heroes Commander · Precon Rankings</title>
+<meta name="description" content="Ranking all four Marvel Super Heroes Commander precons (June 2026). Each deck pops out a profile with every commander option, the cards to cut, and the cards to add, grounded in the published upgrade guides. Side page for the Scene Box cards." />
+<link rel="preconnect" href="https://fonts.googleapis.com" />
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+<link href="https://fonts.googleapis.com/css2?family=Bangers&family=Anton&family=Inter:wght@400;500;600;700;800;900&family=JetBrains+Mono:wght@600&display=swap" rel="stylesheet" />
+<style>
+:root{
+  --paper:#f4ecd6; --paper2:#efe4c6; --card:#fbf5e3; --ink:#14110c; --ink2:#4a3f2c; --muted:#7a6b4d;
+  --line:#d8c9a2;
+  --crimson:#c1443b; --crimson-d:#8f2d27;
+  --teal:#2f7d78; --teal-d:#1c534f;
+  --mustard:#d99a2b; --mustard-d:#a06d14;
+  --plum:#7b4b8a; --plum-d:#513059;
+  --navy:#2b4a6f;
+  --rank1:#c1443b; --rank2:#2f7d78; --rank3:#d99a2b; --rank4:#7b4b8a;
+}
+*{box-sizing:border-box}
+html,body{margin:0}
+body{background:var(--paper);color:var(--ink);font-family:'Inter',system-ui,sans-serif;line-height:1.55;-webkit-font-smoothing:antialiased;padding-bottom:80px}
+.wrap{max-width:1080px;margin:0 auto;padding:0 20px}
+header.hero{padding:44px 20px 26px;text-align:center;border-bottom:3px solid var(--ink);
+  background:radial-gradient(circle at 12% 18%, rgba(193,68,59,.10), transparent 42%),radial-gradient(circle at 88% 12%, rgba(47,125,120,.10), transparent 42%);}
+.kicker{font-family:'Anton',sans-serif;letter-spacing:.14em;text-transform:uppercase;color:var(--crimson-d);font-size:.82rem;margin:0 0 6px}
+h1{font-family:'Bangers',cursive;font-size:clamp(2.4rem,6.5vw,4.4rem);line-height:.98;letter-spacing:.02em;margin:0;color:var(--ink);text-shadow:2px 2px 0 var(--mustard),4px 4px 0 rgba(0,0,0,.12)}
+.sub{max-width:660px;margin:14px auto 0;color:var(--ink2);font-size:1.02rem}
+.stamp{display:inline-block;margin-top:14px;padding:5px 14px;border:2px solid var(--ink);border-radius:999px;font-weight:800;font-size:.78rem;letter-spacing:.05em;text-transform:uppercase;background:var(--card)}
+.toplinks{margin-top:16px;display:flex;gap:10px;justify-content:center;flex-wrap:wrap}
+.toplinks a{text-decoration:none;font-weight:800;font-size:.9rem;padding:9px 16px;border-radius:10px;border:2px solid var(--ink);background:var(--ink);color:var(--paper);transition:transform .1s}
+.toplinks a.alt{background:var(--card);color:var(--ink)}
+.toplinks a:hover{transform:translateY(-2px)}
+
+section{padding:30px 0}
+h2{font-family:'Anton',sans-serif;letter-spacing:.03em;font-size:1.5rem;margin:0 0 4px;text-transform:uppercase}
+.lead{color:var(--muted);margin:0 0 18px;max-width:720px}
+
+.sortbar{display:flex;gap:8px;flex-wrap:wrap;align-items:center;margin:0 0 20px;padding:12px 14px;background:var(--card);border:2px solid var(--line);border-radius:12px}
+.sortbar .lbl{font-weight:800;font-size:.82rem;text-transform:uppercase;letter-spacing:.06em;color:var(--muted);margin-right:2px}
+.sortbar button{font-family:'Inter',sans-serif;font-weight:700;font-size:.84rem;cursor:pointer;padding:7px 12px;border-radius:999px;border:2px solid var(--ink);background:var(--paper);color:var(--ink)}
+.sortbar button.on{background:var(--crimson);color:#fff;border-color:var(--crimson-d)}
+
+.deck{background:var(--card);border:2px solid var(--ink);border-radius:16px;margin:0 0 18px;overflow:hidden;box-shadow:4px 4px 0 rgba(0,0,0,.10);cursor:pointer;transition:transform .1s}
+.deck:hover{transform:translateY(-2px)}
+.deck-head{display:flex;gap:16px;align-items:stretch}
+.rankbadge{flex:0 0 74px;display:flex;flex-direction:column;align-items:center;justify-content:center;color:#fff;font-family:'Bangers',cursive}
+.rankbadge .n{font-size:2.6rem;line-height:.9}
+.rankbadge .t{font-size:.62rem;letter-spacing:.12em;font-family:'Anton',sans-serif}
+.deck-main{flex:1 1 auto;padding:16px 18px 16px 4px;min-width:0}
+.deck-title{font-family:'Bangers',cursive;font-size:1.7rem;letter-spacing:.02em;line-height:1;margin:0}
+.ci{display:inline-flex;gap:4px;vertical-align:middle;margin-left:8px}
+.pip{width:17px;height:17px;border-radius:50%;border:1.5px solid var(--ink2);display:inline-block;font-size:11px;line-height:15px;text-align:center;font-weight:800}
+.pip.W{background:#f7f1dd}.pip.U{background:#a9cbe8}.pip.B{background:#b7abb8;color:#111}.pip.R{background:#e6a08c}.pip.G{background:#a9caa0}.pip.C{background:#cdc4ad;color:#2a2a2a}
+.deck-tag{color:var(--muted);font-size:.92rem;margin:5px 0 10px}
+.commander-line{font-size:.94rem;margin:0}
+.commander-line b{color:var(--crimson-d)}
+.scores{display:flex;gap:14px;flex-wrap:wrap;margin-top:12px}
+.score{min-width:66px}
+.score .v{font-family:'Anton',sans-serif;font-size:1.35rem;line-height:1}
+.score .k{font-size:.64rem;text-transform:uppercase;letter-spacing:.05em;color:var(--muted);font-weight:700}
+.bar{height:5px;border-radius:3px;background:var(--line);margin-top:4px;overflow:hidden}
+.bar i{display:block;height:100%;background:var(--teal)}
+.open-hint{font-size:.82rem;color:var(--crimson-d);font-weight:800;padding:2px 18px 14px}
+
+/* ---------- pop-out modal ---------- */
+.overlay{position:fixed;inset:0;background:rgba(20,17,12,.64);display:none;align-items:flex-start;justify-content:center;padding:38px 16px;z-index:60;overflow-y:auto}
+.overlay.show{display:flex}
+.modal{background:var(--card);border:3px solid var(--ink);border-radius:18px;max-width:780px;width:100%;box-shadow:9px 9px 0 rgba(0,0,0,.28);animation:pop .18s ease-out}
+@keyframes pop{from{transform:scale(.93) translateY(10px);opacity:0}to{transform:none;opacity:1}}
+.modal-head{display:flex;gap:14px;align-items:center;padding:14px 16px;border-bottom:3px solid var(--ink);border-radius:15px 15px 0 0}
+.modal-head .mb{flex:0 0 58px;height:58px;border-radius:12px;display:flex;flex-direction:column;align-items:center;justify-content:center;color:#fff;font-family:'Bangers',cursive}
+.modal-head .mb .n{font-size:1.9rem;line-height:.9}
+.modal-head .mb .t{font-size:.55rem;font-family:'Anton',sans-serif;letter-spacing:.1em}
+.modal-head .mt{font-family:'Bangers',cursive;font-size:1.6rem;line-height:1;margin:0}
+.modal-head .ms{color:var(--muted);font-size:.86rem}
+.close{margin-left:auto;flex:0 0 auto;cursor:pointer;font-weight:900;font-size:1.1rem;background:var(--paper);border:2px solid var(--ink);border-radius:10px;width:40px;height:40px;line-height:1}
+.modal-body{padding:8px 20px 24px}
+.modal-body h4{font-family:'Anton',sans-serif;text-transform:uppercase;letter-spacing:.04em;font-size:1rem;margin:18px 0 8px}
+.thesis{background:var(--paper2);border-left:4px solid var(--mustard);padding:10px 14px;border-radius:0 8px 8px 0;margin:10px 0 4px;font-size:.96rem}
+.cmdr{border:1.5px solid var(--line);border-radius:10px;padding:11px 13px;margin:8px 0;background:var(--paper)}
+.cmdr .top{display:flex;justify-content:space-between;gap:10px;align-items:baseline;flex-wrap:wrap}
+.cmdr .nm{font-weight:800;font-size:1rem}
+.cmdr .role{font-size:.68rem;font-weight:800;text-transform:uppercase;letter-spacing:.06em;padding:2px 8px;border-radius:999px;white-space:nowrap}
+.role.face{background:var(--crimson);color:#fff}
+.role.second{background:var(--teal);color:#fff}
+.cost{font-family:'JetBrains Mono',monospace;font-weight:700;color:var(--plum-d);font-size:.85rem}
+.otext{font-size:.9rem;color:var(--ink2);margin:6px 0 0}
+.idnote{font-size:.8rem;color:var(--teal-d);background:#eef6f4;border:1px solid #bcdcd6;border-radius:7px;padding:6px 9px;margin:8px 0 0;line-height:1.35}
+.altgrid{display:flex;flex-wrap:wrap;gap:6px;margin:6px 0 0}
+.altgrid span{font-size:.82rem;background:var(--paper2);border:1px solid var(--line);border-radius:999px;padding:3px 10px}
+.pick{font-size:.9rem;background:#fff6df;border:1.5px dashed var(--mustard-d);border-radius:8px;padding:8px 12px;margin-top:8px}
+.pick b{color:var(--mustard-d)}
+.lists{display:grid;grid-template-columns:1fr 1fr;gap:18px;margin-top:6px}
+@media(max-width:580px){.lists{grid-template-columns:1fr}}
+.listcol h4{margin-top:8px}
+.mlist{list-style:none;padding:0;margin:4px 0 0}
+.mlist li{padding:8px 0;border-bottom:1px dotted var(--line);font-size:.9rem;display:flex;gap:9px}
+.mlist li:last-child{border-bottom:0}
+.mlist .mk{font-weight:900;flex:0 0 auto}
+.cutcol .mk{color:var(--crimson-d)}
+.addcol .mk{color:var(--teal-d)}
+.mlist .cn{font-weight:700}
+.mlist .why{color:var(--muted)}
+.note{font-size:.8rem;color:var(--muted);margin-top:12px;font-style:italic}
+/* swaps */
+.src{font-family:'Inter',sans-serif;font-size:.72rem;font-weight:600;color:var(--muted);text-transform:none;letter-spacing:0;margin-left:6px}
+.src a{color:var(--teal-d)}
+.swap{display:grid;grid-template-columns:1fr auto 1fr;gap:10px;align-items:center;background:var(--paper);border:1.5px solid var(--line);border-radius:12px;padding:12px;margin:10px 0}
+.swap-side{display:flex;flex-direction:column;align-items:center;text-align:center;gap:6px}
+.swap-side img{width:96px;border-radius:7px;box-shadow:1px 1px 5px rgba(0,0,0,.2);display:block}
+.swap-side .ph{width:96px;height:134px;border-radius:7px;background:var(--paper2);border:1px solid var(--line);display:flex;align-items:center;justify-content:center;font-size:.7rem;font-weight:700;padding:6px;text-align:center;color:var(--ink2)}
+.swap-side .sn{font-size:.76rem;font-weight:700;line-height:1.15}
+.swap-side.cut img{filter:grayscale(.4);opacity:.88}
+.tagx{display:block;font-size:.6rem;font-weight:900;color:var(--crimson-d);letter-spacing:.08em}
+.taga{display:block;font-size:.6rem;font-weight:900;color:var(--teal-d);letter-spacing:.08em}
+.swap-arrow{font-size:1.7rem;font-weight:900;color:var(--mustard-d)}
+.swap-why{grid-column:1 / -1;font-size:.84rem;color:var(--muted);border-top:1px dotted var(--line);padding-top:8px;text-align:center}
+.swaps.collapsed .swap.extra{display:none}
+.swap-side .ph.addph{background:repeating-linear-gradient(45deg,var(--paper2),var(--paper2) 6px,var(--paper) 6px,var(--paper) 12px);color:var(--muted);font-style:italic}
+.tagx.muted{color:var(--muted)}
+.snaillink{margin:12px 0 0}
+.snaillink:empty{display:none}
+.snaillink-btn{display:inline-block;font-family:'Inter',sans-serif;font-weight:800;font-size:.86rem;text-decoration:none;padding:9px 16px;border-radius:999px;border:2px solid var(--ink);background:var(--plum-d);color:#fff}
+.snaillink-btn:hover{background:var(--ink)}
+.snailfull{margin:8px 0 4px}
+.snailfull>summary{cursor:pointer;font-weight:800;color:var(--plum-d);list-style:none;display:inline-block;padding:4px 0}
+.snailfull>summary::-webkit-details-marker{display:none}
+.snailfull[open]>summary{color:var(--crimson)}
+.snaillead,.snailclose{margin:6px 0;font-size:.9rem}
+.snailswap{margin:6px 0;padding:7px 10px;background:rgba(0,0,0,.04);border-radius:8px;font-size:.88rem}
+.snailswap b{color:var(--crimson)}
+.snailswap .ar{color:var(--plum-d);font-weight:900}
+
+.gameplan{margin:14px 0 4px;background:var(--paper2);border:1.5px solid var(--line);border-left:4px solid var(--plum-d);border-radius:0 10px 10px 0;padding:12px 15px}
+.gameplan h4{margin:0 0 8px;border:0;padding:0}
+.gameplan .gp-p{font-size:.9rem;line-height:1.6;color:var(--ink2);margin:0 0 9px}
+.gameplan .gp-p:last-child{margin-bottom:0}
+.gameplan .gp-p:first-of-type{border-left:3px solid var(--mustard);padding-left:10px;background:var(--paper);border-radius:0 6px 6px 0;padding-top:6px;padding-bottom:6px}
+.gameplan .gp-none{font-size:.86rem;color:var(--muted);font-style:italic;margin:0}
+.gameplan .gp-p .cn{cursor:help}
+.gameplan .gp-p .cn b{color:var(--teal-d);border-bottom:1px dotted var(--teal-d)}
+#cardpop{position:fixed;z-index:200;display:none;pointer-events:none;filter:drop-shadow(0 8px 22px rgba(0,0,0,.45))}
+#cardpop img{width:240px;max-width:44vw;border-radius:12px;display:block}
+/* view toggle + comic cover */
+.viewbar{display:flex;flex-wrap:wrap;gap:8px;align-items:center;margin:2px 0 14px}
+.viewbar .lbl{font-family:'Inter',sans-serif;font-weight:800;font-size:.8rem;text-transform:uppercase;letter-spacing:.06em;color:var(--ink2)}
+.viewbar button{font-family:'Inter',sans-serif;font-weight:800;font-size:.9rem;cursor:pointer;padding:9px 17px;border-radius:999px;border:2.5px solid var(--ink);background:var(--paper);color:var(--ink);box-shadow:2px 2px 0 rgba(0,0,0,.18)}
+.viewbar button.on{background:var(--ink);color:var(--paper)}
+[hidden]{display:none!important}
+.coverview{display:grid;grid-template-columns:repeat(2,1fr);gap:16px;margin-top:4px}
+@media(max-width:640px){.coverview{grid-template-columns:1fr}}
+.cpanel{position:relative;display:flex;flex-direction:column;text-align:left;cursor:pointer;border:3px solid var(--ink);border-radius:14px;overflow:hidden;background:var(--fac);color:#fff;padding:0;box-shadow:5px 5px 0 rgba(0,0,0,.28);transition:transform .12s ease,box-shadow .12s ease;font-family:inherit}
+.cpanel:hover{transform:translate(-2px,-2px);box-shadow:8px 8px 0 rgba(0,0,0,.32)}
+.cpanel::before{content:"";position:absolute;inset:0;background-image:radial-gradient(rgba(255,255,255,.16) 1.4px,transparent 1.6px);background-size:11px 11px;opacity:.6;pointer-events:none}
+.cpanel-head{display:flex;justify-content:space-between;align-items:center;padding:9px 13px;position:relative;z-index:2}
+.cpanel-rank{font-family:'Bebas Neue','Inter',sans-serif;font-weight:900;font-size:1.5rem;line-height:1;letter-spacing:.02em;text-shadow:2px 2px 0 rgba(0,0,0,.45)}
+.cpanel-emblem{font-family:'Bebas Neue','Inter',sans-serif;font-weight:900;font-size:1.35rem;letter-spacing:.14em;opacity:.9;border:2px solid rgba(255,255,255,.7);border-radius:6px;padding:1px 8px}
+.cpanel-portrait{position:relative;z-index:2;height:180px;display:flex;align-items:center;justify-content:center;overflow:hidden;background:linear-gradient(180deg,rgba(0,0,0,.05),rgba(0,0,0,.35))}
+.cpanel-portrait img{width:128px;border-radius:8px;box-shadow:0 3px 12px rgba(0,0,0,.5);transform:rotate(-3deg);border:2px solid rgba(0,0,0,.35)}
+.cpanel-noimg{font-weight:800;font-size:1.1rem;color:#fff;text-shadow:1px 1px 0 rgba(0,0,0,.4)}
+.cpanel-body{position:relative;z-index:2;background:var(--paper);color:var(--ink);border-top:3px solid var(--ink);padding:12px 14px;flex:1}
+.cpanel-name{font-family:'Bebas Neue','Inter',sans-serif;font-weight:900;font-size:1.6rem;line-height:1;letter-spacing:.01em;margin:0 0 3px;color:var(--fac)}
+.cpanel-motif{font-family:'Inter',sans-serif;font-size:.76rem;font-weight:700;color:var(--muted);margin:0 0 9px;display:flex;align-items:center;gap:5px;flex-wrap:wrap}
+.cpanel-meters{display:flex;flex-direction:column;gap:4px;margin-bottom:9px}
+.pm{display:grid;grid-template-columns:58px 1fr 28px;align-items:center;gap:7px}
+.pm-k{font-family:'Inter',sans-serif;font-size:.66rem;font-weight:800;text-transform:uppercase;letter-spacing:.04em;color:var(--ink2)}
+.pm-bar{height:9px;border-radius:5px;background:var(--paper2);border:1px solid var(--line);overflow:hidden}
+.pm-bar i{display:block;height:100%;background:var(--fac);border-radius:5px}
+.pm-v{font-family:'JetBrains Mono',monospace;font-size:.72rem;font-weight:700;text-align:right;color:var(--ink2)}
+.pm.on .pm-k,.pm.on .pm-v{color:var(--fac)}
+.pm.on .pm-bar{border-color:var(--fac);box-shadow:0 0 0 2px color-mix(in srgb,var(--fac) 30%,transparent)}
+.cpanel-cmdrs{font-family:'Inter',sans-serif;font-size:.82rem;font-weight:800;color:var(--ink);margin:0 0 6px}
+.cpanel-open{font-family:'Inter',sans-serif;font-size:.76rem;font-weight:800;color:var(--fac)}
+/* archive view */
+.archive{margin-top:4px}
+.arch-filters{display:flex;flex-wrap:wrap;gap:7px;align-items:center;margin:0 0 16px}
+.arch-filters .lbl{font-family:'Inter',sans-serif;font-weight:800;font-size:.76rem;text-transform:uppercase;letter-spacing:.06em;color:var(--ink2)}
+.achip{width:32px;height:32px;border-radius:50%;border:2px solid var(--ink);cursor:pointer;font-family:'Inter',sans-serif;font-weight:900;font-size:.82rem;color:var(--ink)}
+.achip.W{background:#f7f2df}.achip.U{background:#c9dcf0}.achip.B{background:#c9c4cf}.achip.R{background:#f2c9c1}.achip.G{background:#c7ddc6}
+.achip.on{outline:3px solid var(--ink);outline-offset:2px}
+.tchip{font-family:'Inter',sans-serif;font-weight:700;font-size:.82rem;cursor:pointer;padding:7px 13px;border-radius:999px;border:2px solid var(--ink);background:var(--card);color:var(--ink)}
+.tchip.on{background:var(--teal);color:#fff}
+.acard.pickhi,.astrip-row.pickhi{outline:3px solid var(--teal);outline-offset:2px;border-radius:12px}
+.aclear{font-family:'Inter',sans-serif;font-weight:700;font-size:.76rem;cursor:pointer;padding:6px 13px;border-radius:999px;border:1.5px solid var(--line);background:var(--paper);color:var(--ink2)}
+.arch-hint{font-family:'Inter',sans-serif;font-size:.75rem;color:var(--muted);margin-left:4px}
+.arch-strip{border:1.5px solid var(--line);border-radius:10px;overflow:hidden;margin-bottom:22px;background:var(--paper)}
+.astrip-row{display:grid;grid-template-columns:1.6fr repeat(6,1fr);align-items:center;padding:7px 12px;border-bottom:1px solid var(--line)}
+.astrip-row:last-child{border-bottom:0}
+.astrip-head{background:var(--paper2);font-family:'Inter',sans-serif;font-size:.66rem;font-weight:800;text-transform:uppercase;letter-spacing:.05em;color:var(--muted)}
+.astrip-head span{text-align:center}.astrip-head span:first-child{text-align:left}
+.astrip-nm{font-family:'Inter',sans-serif;font-size:.84rem;color:var(--ink);border-left:4px solid var(--fac);padding-left:9px}
+.astrip-v{font-family:'JetBrains Mono',monospace;font-size:.82rem;font-weight:700;text-align:center;color:var(--ink2)}
+.astrip-v.ov{color:var(--fac);font-weight:800}
+.astrip-row.dim{opacity:.32}
+.arch-cards{display:flex;flex-direction:column;gap:20px}
+.acard{display:grid;grid-template-columns:220px 1fr;gap:0;cursor:pointer;border:2px solid var(--ink);border-radius:14px;overflow:hidden;background:var(--paper);box-shadow:4px 4px 0 rgba(0,0,0,.16);transition:transform .12s ease,box-shadow .12s ease,opacity .15s ease;text-align:left}
+.acard:hover{transform:translate(-2px,-2px);box-shadow:7px 7px 0 rgba(0,0,0,.2)}
+.acard:focus-visible{outline:3px solid var(--fac);outline-offset:2px}
+.acard.dim{opacity:.28}
+.acard-art{position:relative;background:var(--fac);display:flex;align-items:center;justify-content:center;min-height:230px;overflow:hidden}
+.acard-art::before{content:"";position:absolute;inset:0;background-image:radial-gradient(rgba(255,255,255,.15) 1.3px,transparent 1.5px);background-size:10px 10px;opacity:.55}
+.acard-art img{position:relative;z-index:1;width:150px;border-radius:9px;box-shadow:0 4px 14px rgba(0,0,0,.5);transform:rotate(-3deg);border:2px solid rgba(0,0,0,.3)}
+.acard-rank{position:absolute;left:10px;top:8px;z-index:2;font-family:'Bebas Neue','Inter',sans-serif;font-weight:900;font-size:2.4rem;line-height:1;color:#fff;text-shadow:2px 2px 0 rgba(0,0,0,.45)}
+.acard-info{padding:16px 18px;display:flex;flex-direction:column;justify-content:center}
+.acard-idline{display:flex;align-items:center;gap:9px;margin-bottom:6px}
+.acard-cc{font-family:'Inter',sans-serif;font-size:.72rem;font-weight:800;text-transform:uppercase;letter-spacing:.04em;color:var(--muted)}
+.acard-name{font-family:'Bebas Neue','Inter',sans-serif;font-weight:900;font-size:2rem;line-height:1;letter-spacing:.01em;margin:0 0 4px;color:var(--fac)}
+.acard-identity{font-family:'Inter',sans-serif;font-size:.9rem;color:var(--ink2);margin:0 0 12px}
+.acard-stats{display:flex;flex-wrap:wrap;gap:9px;margin-bottom:11px}
+.astat{background:var(--paper2);border:1px solid var(--line);border-radius:9px;padding:7px 12px;min-width:70px;text-align:center}
+.astat.big{background:var(--fac);border-color:var(--ink)}
+.astat.big .astat-v,.astat.big .astat-k{color:#fff}
+.astat-v{display:block;font-family:'JetBrains Mono',monospace;font-size:1.15rem;font-weight:800;color:var(--ink);line-height:1}
+.astat-k{display:block;font-family:'Inter',sans-serif;font-size:.62rem;font-weight:800;text-transform:uppercase;letter-spacing:.04em;color:var(--muted);margin-top:3px}
+.acard-cmdrs{font-family:'Inter',sans-serif;font-size:.86rem;font-weight:800;color:var(--ink);margin:0;display:flex;justify-content:space-between;align-items:baseline;flex-wrap:wrap;gap:8px}
+.acard-open{font-family:'Inter',sans-serif;font-size:.76rem;font-weight:800;color:var(--fac)}
+@media(max-width:640px){.acard{grid-template-columns:1fr}.acard-art{min-height:180px}.astrip-row{grid-template-columns:1.4fr repeat(6,1fr);font-size:.7rem}.astrip-nm{font-size:.72rem}.astrip-v{font-size:.68rem}}
+/* at-the-table profile */
+.profile{margin:14px 0 4px;background:var(--paper2);border:1.5px solid var(--line);border-left:4px solid var(--teal-d);border-radius:0 10px 10px 0;padding:12px 15px}
+.profile h4{margin:0 0 8px;border:0;padding:0}
+.profile .prow{display:grid;grid-template-columns:120px 1fr;gap:10px;padding:6px 0;border-top:1px dotted var(--line)}
+.profile .prow:first-of-type{border-top:0}
+.profile .pk{font-family:'Inter',sans-serif;font-size:.72rem;font-weight:800;text-transform:uppercase;letter-spacing:.04em;color:var(--teal-d)}
+.profile .pv{font-size:.88rem;line-height:1.5;color:var(--ink2)}
+@media(max-width:560px){.profile .prow{grid-template-columns:1fr;gap:2px}}
+/* rule 0 bracket */
+.rule0{margin:14px 0 4px;background:var(--paper2);border:1.5px solid var(--line);border-left:4px solid var(--plum-d);border-radius:0 10px 10px 0;padding:12px 15px}
+.rule0 h4{margin:0 0 10px;border:0;padding:0}
+.r0-scale{display:grid;grid-template-columns:repeat(5,1fr);gap:5px;margin-bottom:9px}
+.r0-seg{border:1.5px solid var(--line);border-radius:8px;padding:7px 4px;text-align:center;background:var(--paper);opacity:.55}
+.r0-seg .r0-n{display:block;font-family:'Bebas Neue','Inter',sans-serif;font-weight:900;font-size:1.4rem;line-height:1;color:var(--ink2)}
+.r0-seg .r0-nm{display:block;font-family:'Inter',sans-serif;font-size:.6rem;font-weight:800;text-transform:uppercase;letter-spacing:.03em;color:var(--muted);margin-top:2px}
+.r0-seg.oob{opacity:1;background:var(--plum-d);border-color:var(--ink)}
+.r0-seg.oob .r0-n,.r0-seg.oob .r0-nm{color:#fff}
+.r0-seg.upg{opacity:1;background:#efe6f3;border-color:var(--plum-d)}
+.r0-seg.upg .r0-n,.r0-seg.upg .r0-nm{color:var(--plum-d)}
+.r0-key{font-family:'Inter',sans-serif;font-size:.8rem;color:var(--ink2);margin:0 0 10px;display:flex;flex-wrap:wrap;align-items:center;gap:5px}
+.r0-key b{color:var(--ink)}
+.r0-dot{width:11px;height:11px;border-radius:50%;display:inline-block;margin-left:8px}
+.r0-dot.oob{background:var(--plum-d)}.r0-dot.upg{background:#c9a9d8;border:1px solid var(--plum-d)}
+.r0-flat{color:var(--muted);margin-left:8px}
+.r0-list{display:flex;flex-direction:column;gap:0;border:1px solid var(--line);border-radius:8px;overflow:hidden;margin-bottom:9px}
+.r0-row{display:flex;justify-content:space-between;gap:10px;padding:6px 11px;border-bottom:1px solid var(--line);font-family:'Inter',sans-serif;font-size:.82rem}
+.r0-row:last-child{border-bottom:0}
+.r0-row span{color:var(--muted);font-weight:600}
+.r0-row b{color:var(--ink);text-align:right}
+.r0-note{font-size:.85rem;line-height:1.5;color:var(--ink2);margin:0 0 7px;border-left:3px solid var(--mustard);padding-left:10px}
+.r0-src{font-size:.74rem;color:var(--muted);margin:0}
+.r0-src a{color:var(--teal-d);font-weight:700}
+/* per-faction panel treatments (cover portrait + archive art) */
+.cpanel-doom .cpanel-portrait,.acard.deck-doom .acard-art{background-image:repeating-linear-gradient(0deg,rgba(0,0,0,.22) 0 1px,transparent 1px 14px),repeating-linear-gradient(90deg,rgba(0,0,0,.22) 0 1px,transparent 1px 14px),linear-gradient(160deg,#7a2f37,#3a1220)}
+.cpanel-ff .cpanel-portrait,.acard.deck-ff .acard-art{background-image:radial-gradient(rgba(255,255,255,.35) 2px,transparent 2.4px),linear-gradient(160deg,#2f6f78,#123a44)}
+.cpanel-ff .cpanel-portrait,.acard.deck-ff .acard-art{background-size:26px 26px,100% 100%}
+.cpanel-avengers .cpanel-portrait,.acard.deck-avengers .acard-art{background-image:repeating-linear-gradient(90deg,rgba(255,255,255,.14) 0 2px,transparent 2px 26px),linear-gradient(160deg,#c94b3a,#7a2a20)}
+.cpanel-wakanda .cpanel-portrait,.acard.deck-wakanda .acard-art{background-image:repeating-linear-gradient(135deg,rgba(0,0,0,.2) 0 2px,transparent 2px 16px),linear-gradient(160deg,#5f4a86,#2c2140)}
+.acard-art{min-height:230px}
+.showall{display:block;margin:10px auto 2px;font-family:'Inter',sans-serif;font-weight:800;font-size:.86rem;cursor:pointer;padding:9px 18px;border-radius:999px;border:2px solid var(--ink);background:var(--paper);color:var(--ink)}
+.showall:hover{background:var(--mustard)}
+@media(max-width:560px){.swap-side img,.swap-side .ph{width:78px}.swap-side .ph{height:108px}.swap-arrow{font-size:1.3rem}}
+/* copy-paste upgrade list */
+.cklist{margin:8px 0 4px;background:var(--paper2);border:2px solid var(--teal);border-radius:12px;padding:12px 13px}
+.cklist h4{margin:0 0 8px;border:0;padding:0}
+.ckbox{width:100%;box-sizing:border-box;min-height:150px;font-family:'JetBrains Mono','Menlo',monospace;font-size:.82rem;line-height:1.5;color:var(--ink);background:var(--paper);border:1.5px solid var(--line);border-radius:8px;padding:9px 11px;resize:vertical;white-space:pre}
+.ckbtnrow{display:flex;flex-wrap:wrap;gap:8px;margin-top:9px;align-items:center}
+.ckcopy{display:inline-block;font-family:'Inter',sans-serif;font-weight:800;font-size:.86rem;cursor:pointer;padding:9px 18px;border-radius:999px;border:2px solid var(--ink);background:var(--teal);color:#fff}
+.ckcopy:hover{background:var(--teal-d)}
+.ckdeck{display:inline-block;font-family:'Inter',sans-serif;font-weight:800;font-size:.86rem;text-decoration:none;padding:9px 18px;border-radius:999px;border:2px solid var(--ink);background:var(--mustard);color:var(--ink)}
+.ckdeck:hover{background:var(--mustard-d);color:#fff}
+.cknote{font-size:.74rem;color:var(--muted);margin:7px 0 0}
+.cknote a{color:var(--teal-d);font-weight:700}
+.ckseg{display:flex;flex-wrap:wrap;gap:6px;margin-bottom:9px}
+.cksrc{font-family:'Inter',sans-serif;font-weight:700;font-size:.76rem;cursor:pointer;padding:6px 12px;border-radius:999px;border:1.5px solid var(--line);background:var(--paper);color:var(--ink2)}
+.cksrc.on{background:var(--teal);color:#fff;border-color:var(--teal-d)}
+.ckcap{font-family:'Inter',sans-serif;font-size:.72rem;font-weight:600;color:var(--muted);margin:0 0 7px}
+#bonus{margin-top:8px}
+#bonus .cklist{margin-top:12px}
+/* pre/post upgrade lens */
+.lensbar{display:flex;flex-wrap:wrap;gap:8px;align-items:center;margin:6px 0 12px}
+.lensbar .lbl{font-family:'Inter',sans-serif;font-weight:800;font-size:.8rem;text-transform:uppercase;letter-spacing:.06em;color:var(--ink2)}
+.lensbar button{font-family:'Inter',sans-serif;font-weight:800;font-size:.86rem;cursor:pointer;padding:8px 15px;border-radius:999px;border:2px solid var(--ink);background:var(--paper);color:var(--ink)}
+.lensbar button.on{background:var(--ink);color:var(--paper)}
+.lenshint{font-family:'Inter',sans-serif;font-size:.76rem;color:var(--muted);flex:1 1 200px;min-width:180px}
+.prepost{display:inline-flex;align-items:center;gap:8px;margin:4px 0 2px;padding:4px 11px;border-radius:999px;font-family:'Inter',sans-serif;font-size:.76rem;font-weight:700;border:1.5px solid var(--line);background:var(--paper2)}
+.prepost .pp-l{color:var(--ink2)}.prepost .pp-l b{color:var(--ink)}
+.prepost .pp-a{font-size:.9rem;font-weight:900}
+.prepost.up{border-color:var(--teal);background:#e7f1ef}.prepost.up .pp-a{color:var(--teal-d)}
+.prepost.down{border-color:var(--crimson);background:#f6e7e5}.prepost.down .pp-a{color:var(--crimson-d)}
+.prepost.flat .pp-a{color:var(--muted)}
+.factcheck{background:var(--paper2);border:1.5px solid var(--line);border-left:4px solid var(--mustard-d);border-radius:0 9px 9px 0;padding:9px 13px;margin:0 0 12px}
+.factcheck summary{cursor:pointer;font-family:'Inter',sans-serif;font-weight:800;font-size:.84rem;color:var(--ink)}
+.factcheck p{font-size:.84rem;color:var(--muted);margin:8px 0 2px;line-height:1.5}
+.factcheck b{color:var(--ink)}
+.cklabel{font-family:'Inter',sans-serif;font-size:.74rem;font-weight:700;color:var(--ink2);margin:11px 0 5px}
+.cklabel a{color:var(--teal-d)}
+.cklinks{display:flex;flex-wrap:wrap;gap:5px}
+.cklink{font-family:'Inter',sans-serif;font-size:.75rem;font-weight:600;text-decoration:none;color:var(--ink);background:var(--paper);border:1.5px solid var(--line);border-radius:7px;padding:3px 8px;line-height:1.3}
+.cklink:hover{background:var(--mustard);border-color:var(--mustard-d)}
+
+footer{border-top:3px solid var(--ink);margin-top:30px;padding:26px 0 40px;text-align:center;color:var(--muted);font-size:.86rem}
+footer a{color:var(--teal-d);font-weight:700}
+.srcs{font-size:.78rem;max-width:760px;margin:10px auto 0;color:var(--muted)}
+
+/* card images */
+.deck-hero{flex:0 0 auto;display:flex;align-items:center;padding:12px 16px 12px 0}
+.deck-hero img{width:60px;border-radius:6px;box-shadow:2px 2px 0 rgba(0,0,0,.18);border:1px solid rgba(0,0,0,.25);transform:rotate(2deg)}
+.cmdr{display:flex;gap:12px;align-items:flex-start}
+.cmdr-img img{width:112px;border-radius:8px;display:block;box-shadow:2px 2px 6px rgba(0,0,0,.22)}
+.cmdr-txt{min-width:0;flex:1 1 auto}
+.altcards{display:grid;grid-template-columns:repeat(auto-fill,minmax(88px,1fr));gap:9px;margin:8px 0 0}
+.altcard img{width:100%;border-radius:6px;display:block;box-shadow:1px 1px 4px rgba(0,0,0,.2)}
+.altcard .cap{font-size:.66rem;text-align:center;margin-top:3px;line-height:1.1;color:var(--ink2);font-weight:700}
+.altcard .ci{justify-content:center;margin-top:2px;gap:2px}
+.altcard .ci .pip{width:13px;height:13px;font-size:8px;line-height:11px}
+.altcard.offid{outline:2px dashed var(--mustard-d);outline-offset:1px;border-radius:7px}
+.cmdr .top .ci{margin-left:2px}
+.ci-legend{font-size:.78rem;color:var(--muted);margin:8px 0 2px;background:var(--paper2);border-left:3px solid var(--teal);padding:7px 11px;border-radius:0 7px 7px 0}
+.setbadge{display:inline-block;font-size:.6rem;font-weight:800;color:var(--plum-d);background:#efe6f3;border:1px solid #d8c4e2;border-radius:5px;padding:1px 5px;margin-top:3px;line-height:1.3}
+.altcard.setonly{outline:2px dotted var(--plum);outline-offset:1px;border-radius:7px}
+.altcard.noimg{background:var(--paper2);border:1px solid var(--line);border-radius:6px;min-height:96px;display:flex;align-items:center;justify-content:center;text-align:center;padding:6px;font-size:.72rem;font-weight:700;color:var(--ink2)}
+.mlist li{align-items:center}
+.mlist .thumb{width:30px;height:42px;object-fit:cover;object-position:center 18%;border-radius:4px;flex:0 0 auto;border:1px solid rgba(0,0,0,.25);box-shadow:1px 1px 3px rgba(0,0,0,.15)}
+@media(max-width:560px){.deck-hero{display:none}.cmdr-img img{width:88px}}
+body.kids{background:#fff7e6;font-size:1.06rem}
+body.kids .otext,body.kids .lead,body.kids .deck-tag{color:#3a3120}
+body.kids .grown{display:none}
+.kid-only{display:none}body.kids .kid-only{display:block}
+.mode-btn{position:fixed;right:16px;bottom:16px;z-index:70;font-family:'Inter',sans-serif;font-weight:800;font-size:.92rem;cursor:pointer;padding:11px 16px;border-radius:999px;border:2px solid var(--ink);background:var(--mustard);color:var(--ink);box-shadow:3px 3px 0 rgba(0,0,0,.2)}
+@media(max-width:560px){.rankbadge{flex-basis:56px}.rankbadge .n{font-size:2rem}.scores{gap:10px}.score{min-width:56px}}
+.evstrip{margin:14px 0 2px;padding:12px 14px;background:var(--paper2);border:1px solid var(--line);border-radius:11px;display:grid;gap:7px}
+.ev-row{display:flex;gap:10px;align-items:baseline;font-family:'Inter',sans-serif;font-size:.9rem;line-height:1.4}
+.ev-lbl{flex:0 0 74px;font-weight:800;font-size:.66rem;text-transform:uppercase;letter-spacing:.06em;padding-top:2px}
+.ev-lbl.edge{color:var(--teal-d)}.ev-lbl.weak{color:var(--crimson-d)}.ev-lbl.pick{color:var(--mustard-d)}.ev-lbl.swap{color:var(--muted)}
+.ev-txt{color:var(--ink2)}
+.ev-swaps{display:flex;flex-wrap:wrap;gap:6px}
+.ev-swap{display:inline-flex;align-items:center;gap:5px;background:var(--card);border:1px solid var(--line);border-radius:7px;padding:3px 8px;font-size:.8rem}
+.ev-cut{color:var(--crimson-d);text-decoration:line-through;text-decoration-thickness:1px}
+.ev-ar{color:var(--muted)}
+.ev-add{color:var(--teal-d);font-weight:700}
+@media(max-width:560px){.ev-lbl{flex-basis:56px}.ev-row{flex-wrap:wrap}}
+#buyer{max-width:1000px;margin:40px auto 0;padding:0 20px}
+#buyer h2{font-family:'Cormorant Garamond',Georgia,serif;color:var(--teal-d);font-size:1.9rem;margin:0 0 4px}
+.buyer-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(210px,1fr));gap:14px;margin-top:14px}
+.buyer-card{display:flex;flex-direction:column;gap:6px;text-decoration:none;background:var(--card);border:1px solid var(--line);border-left:5px solid var(--teal);border-radius:12px;padding:16px 17px;transition:transform .12s,box-shadow .12s}
+.buyer-card:hover{transform:translateY(-2px);box-shadow:3px 5px 0 rgba(0,0,0,.12)}
+.buyer-q{font-family:'Inter',sans-serif;font-weight:800;font-size:.68rem;text-transform:uppercase;letter-spacing:.06em;color:var(--muted)}
+.buyer-a{font-family:'Cormorant Garamond',Georgia,serif;font-size:1.45rem;font-weight:700;color:var(--crimson-d);line-height:1.1}
+.buyer-why{font-family:'Inter',sans-serif;font-size:.86rem;color:var(--ink2);line-height:1.42}
+.edh-both{list-style:none;margin:10px 0;padding:0;display:grid;gap:7px}
+.edh-both li{font-family:'Inter',sans-serif;font-size:.9rem;color:var(--ink2);line-height:1.4;padding-left:11px;border-left:3px solid var(--line)}
+.edh-both .edh-deck{display:block;font-weight:800;color:var(--teal-d);font-size:.72rem;text-transform:uppercase;letter-spacing:.05em;margin-bottom:1px}
+</style>
+</head>
+<body>
+<header class="hero">
+  <p class="kicker">Marvel Super Heroes · Commander · Released June 26 2026</p>
+  <h1>Marvel Commander<br>Precon Rankings</h1>
+  <p class="sub">All four <b>Marvel Super Heroes Commander</b> decks, ranked. Tap any deck for a pop-out profile: every commander option, the cards to <b>cut</b>, and the cards to <b>add</b>.</p>
+  <span class="stamp">4 decks · 19 on-colour commander options · source-cited swaps</span>
+  <div class="toplinks">
+    <a href="#ranking">Jump to the ranking ▾</a>
+    <a class="alt" href="/marvel-commander-rankings/scenes">The Scene Boxes →</a>
+  </div>
+</header>
+
+<div class="wrap">
+  <section id="ranking">
+    <h2>The Ranking</h2>
+    <div class="viewbar" id="viewbar">
+      <span class="lbl">View</span>
+      <button data-v="rankings">📊 Scorecards</button>
+      <button data-v="cover">🦸 Comic Gallery</button>
+      <button data-v="archive" class="on">🗂 Comparison Table</button>
+    </div>
+    <p class="lead grown">Composite of five reads, each 1 to 10. Scores are a considered opinion grounded in the published upgrade guides and the printed cards, not tournament data, so re-sort by whatever you actually care about. <b>Ceiling</b> is how high it climbs once upgraded; <b>Ease</b> is how forgiving the mana and lines are (higher is easier).</p>
+    <p class="lead kid-only">Four ready-to-play Marvel decks. Tap a deck to pop open its card, which commanders you can pick, and which cards to swap out and swap in. Higher bars are better.</p>
+
+    <div class="lensbar" id="lensbar">
+      <span class="lbl">Upgrade lens</span>
+      <button data-k="overall" class="on">Overall</button>
+      <button data-k="power">🏁 Out of the box</button>
+      <button data-k="ceiling">★ Fully upgraded</button>
+      <span class="lenshint grown">Every card shows its rank <b>out of the box → fully upgraded</b>. Flip the lens to re-sort by either.</span>
+    </div>
+
+    <details class="factcheck grown">
+      <summary>How the Overall score is built (the exact weights)</summary>
+      <p><b>Overall = 0.28 · Out-of-box power + 0.26 · Upgrade ceiling + 0.24 · Fun + 0.12 · Ease + 0.10 · Table politics.</b> Every read is scored 1 to 10, then blended by those weights, so a close placement is a close blend and not an arranged order. Two of the reads need a definition, since they carry real weight: <b>Fun</b> is how much variety, dramatic swing, and live decision-making the deck offers across a game, not its win rate. <b>Table politics</b> is how the pod treats the deck, how quickly it draws targeting, and how much it can threaten, deal, or share, which is why the most powerful list is not always the one you want in a four-player game. Fun carries nearly the weight of power on purpose: these are precons bought for casual, kitchen-table games, where how much a deck is worth playing counts almost as much as how hard it hits.</p>
+    </details>
+
+    <details class="factcheck grown">
+      <summary>Rankings fact-check · EDHREC build popularity (captured 13 July 2026)</summary>
+      <p>Deck counts below were captured from EDHREC on 13 July 2026, not read live on load, so treat them as a dated snapshot that measures adoption rather than strength. Every precon ships with more than one legendary commander, so both are listed here, and the Fantastic Four, which ships with four, lists all four:</p>
+      <ul class="edh-both">
+        <li><span class="edh-deck">Doom Prevails</span> Doctor Doom, King of Latveria <b>4,930</b> · Loki, the Deceiver <b>1,263</b></li>
+        <li><span class="edh-deck">The Fantastic Four</span> Mister Fantastic <b>1,085</b> · The Thing <b>727</b> · Invisible Woman <b>517</b> · Human Torch <b>367</b></li>
+        <li><span class="edh-deck">Avengers Assemble</span> Captain America, Team Leader <b>2,456</b> · Director Nick Fury <b>292</b></li>
+        <li><span class="edh-deck">Wakanda Forever</span> T'Challa, the Black Panther <b>2,112</b> · Shuri, the Black Panther <b>117</b></li>
+      </ul>
+      <p>Doom is the most-built lead of the four, which tells you he is the most adopted, not that our composite score is correct. Two places our editorial order trades against raw popularity: <b>Mister Fantastic is the least-built lead commander</b> (1,085) even though we rank the Fantastic Four #2, which fits its profile as the highest ceiling but hardest four-colour deck to pilot. And <b>T'Challa is more built than any Fantastic Four commander</b>, so Wakanda is well-adopted even though we rate it weakest on out-of-box power. We draw the cut-and-add lists from the Draftsim, Gathering Games, and Command Zone upgrade guides, so those guides are our source for swaps, not for this four-deck ordering, which is our own read. Popularity is a separate signal, shown here for transparency.</p>
+    </details>
+
+    <div class="sortbar" id="sortbar">
+      <span class="lbl">Or sort by</span>
+      <button data-k="overall" class="on">Overall</button>
+      <button data-k="power">Out-of-box power</button>
+      <button data-k="ceiling">Upgrade ceiling</button>
+      <button data-k="fun">Fun</button>
+      <button data-k="ease">Ease to pilot</button>
+      <button data-k="politics">Table politics</button>
+    </div>
+
+    <div id="decks"></div>
+    <div id="cover" class="coverview" hidden></div>
+    <section id="archive" class="archive" hidden>
+      <div class="arch-filters" id="archFilters">
+        <span class="lbl">Buying for</span>
+        <button class="tchip" data-t="ease">Easiest first deck</button>
+        <button class="tchip" data-t="power">Strongest unchanged</button>
+        <button class="tchip" data-t="project">Best upgrade project</button>
+        <button class="tchip" data-t="fun">Most fun</button>
+        <button class="tchip" data-t="politics">Best table politics</button>
+        <button class="aclear" id="archClear">Show all</button>
+        <span class="arch-hint" id="archHint">Pick what you actually care about; the matching deck lights up and the rest dim. The Upgrade Lens above still sorts every card.</span>
+      </div>
+      <div class="arch-strip" id="archStrip"></div>
+      <div class="arch-cards" id="archCards"></div>
+    </section>
+  </section>
+
+  <section id="buyer">
+    <h2>Which one should I buy?</h2>
+    <p class="lead grown">Six questions, six answers, one for every filter above and drawn straight from the scores. Tap a pick to jump to its full card.</p>
+    <p class="lead kid-only">Six easy answers. Tap a deck to see more.</p>
+    <div class="buyer-grid">
+      <a class="buyer-card" href="#deck-doom">
+        <span class="buyer-q">Play it as-is, no upgrades</span>
+        <span class="buyer-a">Doom Prevails</span>
+        <span class="buyer-why grown">Tied with the Fantastic Four for the highest out-of-box power (7.5), and it takes the pick as the #1 overall and the more forgiving of the two, so it is good on night one before you change a card.</span>
+      </a>
+      <a class="buyer-card" href="#deck-ff">
+        <span class="buyer-q">Best long-term project</span>
+        <span class="buyer-a">The Fantastic Four</span>
+        <span class="buyer-why grown">The biggest climb of the four, from 7.5 out of the box to an 8.6 ceiling, with four commanders to rebuild around.</span>
+      </a>
+      <a class="buyer-card" href="#deck-avengers">
+        <span class="buyer-q">Easiest for a new player</span>
+        <span class="buyer-a">Avengers Assemble</span>
+        <span class="buyer-why grown">Highest Ease (8.5), a clean three-colour Jeskai curve that does what it looks like it does.</span>
+      </a>
+      <a class="buyer-card" href="#deck-doom">
+        <span class="buyer-q">Most fun at the table</span>
+        <span class="buyer-a">Doom Prevails</span>
+        <span class="buyer-why grown">Highest Fun (8.7): two engines in one box and the swingy Loki copy line make it the liveliest to pilot.</span>
+      </a>
+      <a class="buyer-card" href="#deck-ff">
+        <span class="buyer-q">Best table politics</span>
+        <span class="buyer-a">The Fantastic Four</span>
+        <span class="buyer-why grown">Highest Table politics (6.5): its threats build quietly, so it draws the least early targeting of the four.</span>
+      </a>
+      <a class="buyer-card" href="#deck-wakanda">
+        <span class="buyer-q">Simplest to build, tightest theme</span>
+        <span class="buyer-a">Wakanda Forever</span>
+        <span class="buyer-why grown">Only two colours, so the friendliest mana, and one focused Vibranium-and-counters plan around Black Panther.</span>
+      </a>
+    </div>
+  </section>
+
+  <section id="bonus">
+    <h2>Bonus · single-commander lists</h2>
+    <p class="lead grown">Not one of the four precons. If your Captain is <b>Captain America, First Avenger</b> (the Jeskai Equipment commander, a different card than <b>Team Leader</b>), here is its EDHREC top-synergy upgrade list, copy-paste ready.</p>
+    <p class="lead kid-only">A bonus deck leader named Captain America, First Avenger. Copy the list to build him.</p>
+    <div id="bonusboxes"></div>
+  </section>
+</div>
+
+<section class="wrap" style="margin:36px auto 0">
+  <div style="background:var(--card);border:1px solid var(--line);border-radius:14px;padding:22px 24px">
+    <h2 style="font-family:'Cormorant Garamond',Georgia,serif;color:var(--teal);margin:0 0 6px;font-size:1.7rem">The Salubrious Snail crossover</h2>
+    <p style="margin:0 0 10px;color:var(--ink)">These four precons have been run through the Commander deckbuilding channel <b>Salubrious Snail</b> and his 2025 principles, using the exact cuts and adds from the rankings above. Each Marvel deck is matched to one idea: reducing dead draws through synergy for Doom, mana consistency for the Fantastic Four, the case for simpler decks for the Avengers, and knowing when a good card is the wrong choice for Wakanda.</p>
+    <p style="margin:0 0 10px">Read the crossover on the <a href="/salubrioussnail-decks/" style="color:var(--crimson);font-weight:700">Snail decks page</a>, or see the full breakdown on <a href="/salubrioussnail-points/" style="color:var(--crimson);font-weight:700">Snail's 10 points per video</a>.</p>
+    <p style="margin:0"><b>Each deck now has a full adapted Snail read</b> (<a href="/salubrioussnail-marvel-reads/" style="color:var(--crimson);font-weight:700">all four on one page</a>): <a href="/salubrioussnail-doom-deaddraws/" style="color:var(--crimson);font-weight:700">Doom · dead draws</a> &middot; <a href="/salubrioussnail-ff-manabase/" style="color:var(--crimson);font-weight:700">Fantastic Four · manabase</a> &middot; <a href="/salubrioussnail-avengers-simpler/" style="color:var(--crimson);font-weight:700">Avengers · simpler decks</a> &middot; <a href="/salubrioussnail-wakanda-wrongchoice/" style="color:var(--crimson);font-weight:700">Wakanda · wrong choice</a>.</p>
+  </div>
+</section>
+
+<footer>
+  <div class="wrap">
+    <p><b>Marvel Super Heroes Commander</b> · Jump to <a href="/marvel-commander-rankings/scenes">the Scene Box side page →</a></p>
+    <p class="grown">Sibling: <a href="/marvel-jumpstart-rankings">Marvel Jumpstart Pair Ranker</a> · <a href="/commander-marvel">Ben vs Brandon life tracker</a></p>
+    <p class="srcs grown">Sources: card text and sets via Scryfall (set MSC) and the Wizards of the Coast <a href="https://magic.wizards.com/en/news/announcements/marvel-super-heroes-commander-decklists">Marvel Super Heroes Commander decklists</a>. Cut and add lists synthesized from the Draftsim, Card Kingdom, MTGGoldfish, Gathering Games, and The Spark precon upgrade guides. Rankings are editorial opinion.</p>
+  </div>
+</footer>
+
+<!-- pop-out profile -->
+<div class="overlay" id="overlay" onclick="if(event.target===this)closeModal()">
+  <div class="modal" id="modal" role="dialog" aria-modal="true"></div>
+</div>
+
+
+<script>
+const IMG={"Doctor Doom, King of Latveria": "https://cards.scryfall.io/normal/front/0/9/099ed408-9178-4403-8b2d-479ca3cbda9b.jpg?1782682664", "Loki, the Deceiver": "https://cards.scryfall.io/normal/front/c/0/c0cd3d41-909b-4f20-a44b-db82807d10ae.jpg?1782682595", "Kang, Temporal Tyrant": "https://cards.scryfall.io/normal/front/f/b/fb96ee86-5139-472a-9c4b-8a8a4280fc7e.jpg?1782681729", "Baron Strucker, HYDRA Overlord": "https://cards.scryfall.io/normal/front/e/a/eaf2251a-ffaf-4055-9474-7e3d08d89609.jpg?1782681838", "Killmonger, Ruthless Usurper": "https://cards.scryfall.io/normal/front/0/e/0ec1ec8b-24d7-40e4-9e9d-4d9ec4f0a4f8.jpg?1782682624", "Helmut Zemo, Mastermind": "https://cards.scryfall.io/normal/front/5/4/545f7f8d-f6a3-4e85-a53c-3eb9b28ebd14.jpg?1782682642", "Lady Loki, Agent of Chaos": "https://cards.scryfall.io/normal/front/4/4/44ac85d4-0429-4813-b7fe-eed1f6575b7d.jpg?1782682623", "Abomination, World Ravager": "https://cards.scryfall.io/normal/front/f/d/fddd2e68-8e1e-4162-a2c7-49da2c86d471.jpg?1782682631", "Iron Monger, Sadistic Tycoon": "https://cards.scryfall.io/normal/front/7/9/799554d1-d1fb-4206-af9a-80d3582bedc0.jpg?1782682632", "Klaw, Master of Sound": "https://cards.scryfall.io/normal/front/5/c/5c589d94-7cea-4d4c-91a8-4d939634a5e5.jpg?1782682632", "Titania, Proud Pummeler": "https://cards.scryfall.io/normal/front/3/1/31255422-9afa-416c-90b2-62baf1d02cca.jpg?1782682616", "Red Ghost, Intangible Genius": "https://cards.scryfall.io/normal/front/3/5/35bae013-51e9-4047-91e3-3b366ad0764e.jpg?1782682591", "Madame Hydra": "https://cards.scryfall.io/normal/front/e/9/e94ccedb-1d27-4098-8823-d8d99b30387c.jpg?1782681727", "Moonstone, Harsh Mistress": "https://cards.scryfall.io/normal/front/1/a/1a1b2bd0-e17d-4b34-a8ee-7c913a6bc945.jpg?1782681822", "Chameleon, Master of Disguise": "https://cards.scryfall.io/normal/front/d/c/dcc50ba7-c4be-4c20-a1fc-466194aab7c2.jpg?1782682543", "Puppet Master, String Puller": "https://cards.scryfall.io/normal/front/a/b/ab888daa-1161-4917-bca0-efd5c430b2d9.jpg?1782682620", "Stilt-Man, Towering Terror": "https://cards.scryfall.io/normal/front/7/f/7ffa820c-ac05-4b3d-a0ec-5cbd3c42ac9c.jpg?1782682617", "Living Laser": "https://cards.scryfall.io/normal/front/5/9/595ee0b4-393f-4bda-bcb4-f0fa43cf7ed2.jpg?1782682623", "Tombstone, Career Criminal": "https://cards.scryfall.io/normal/front/d/3/d3cd086b-8ffe-452f-9bb1-cc235058a3af.jpg?1782682532", "Mister Fantastic": "https://cards.scryfall.io/normal/front/f/1/f1d80509-ece1-4b6d-bfe5-c6d003f581cf.jpg?1782682668", "Invisible Woman": "https://cards.scryfall.io/normal/front/d/8/d8e13ecb-98be-4d9b-86a2-24eaa98f7f0d.jpg?1782682669", "Human Torch": "https://cards.scryfall.io/normal/front/b/f/bf7b63ef-c7b4-4001-b64a-c7443f5268ba.jpg?1782682667", "The Thing": "https://cards.scryfall.io/normal/front/b/a/ba5167e4-27b1-4f55-8282-7b5bd6de611a.jpg?1782682666", "Galactus, Devourer of Worlds": "https://cards.scryfall.io/normal/front/3/a/3a9df9dd-a480-406c-ba28-94895fbfb574.jpg?1782682662", "Silver Surfer, Galactus's Herald": "https://cards.scryfall.io/normal/front/b/4/b463462f-8044-4e57-b96e-408a9f4e0974.jpg?1782682662", "Black Bolt, Inhuman King": "https://cards.scryfall.io/normal/front/0/d/0d484566-6816-4535-a754-dbda8073ae73.jpg?1782682604", "Medusa, Inhuman Queen": "https://cards.scryfall.io/normal/front/3/1/3187ebab-8008-455c-a3c9-794a5b225b88.jpg?1782682612", "Crystal, Inhuman Princess": "https://cards.scryfall.io/normal/front/1/e/1e9aec49-08d7-4fc8-87dd-69ab8910688a.jpg?1782682601", "Namor, Atlantean King": "https://cards.scryfall.io/normal/front/6/b/6b06f1aa-53f1-49e1-b9f7-e4b489ef7d55.jpg?1782682594", "Franklin Richards, Ascendant": "https://cards.scryfall.io/normal/front/0/9/0957b296-c34d-4193-9fe7-a339533ac121.jpg?1782682625", "Valeria Richards, Precocious": "https://cards.scryfall.io/normal/front/5/e/5e0c357b-c5e8-4082-b1ec-85d40d10524c.jpg?1782682638", "Lockjaw, Slobbering Teleporter": "https://cards.scryfall.io/normal/front/e/2/e273f4e6-4691-4cb3-89e2-9b1ab45a2bc0.jpg?1782682640", "Alicia Masters, Skilled Sculptor": "https://cards.scryfall.io/normal/front/3/d/3db94749-340c-4454-a15d-ba6353e0c4a4.jpg?1782682630", "Captain America, Team Leader": "https://cards.scryfall.io/normal/front/6/1/61a51b67-d941-4e07-9c12-ffe583cb65d4.jpg?1782682664", "Director Nick Fury": "https://cards.scryfall.io/normal/front/9/a/9a19d4ec-399a-4371-acc3-0956dd4dcb84.jpg?1782682601", "Thor, Asgard's Avenger": "https://cards.scryfall.io/normal/front/3/5/3513c041-7147-467d-845d-3d1c83fb3328.jpg?1782682021", "Captain America, Living Legend": "https://cards.scryfall.io/normal/front/6/5/6516f292-469d-4092-b099-97c698f373cd.jpg?1782681737", "T'Challa, the Black Panther": "https://cards.scryfall.io/normal/front/c/1/c1c8ad61-b7e1-446c-8b74-6e29371ea1d5.jpg?1782682663", "Shuri, the Black Panther": "https://cards.scryfall.io/normal/front/b/b/bb9efb2e-3fe8-4f21-82c5-e089d835bdd5.jpg?1782682588", "Storm, Queen of Wakanda": "https://cards.scryfall.io/normal/front/0/a/0a61d843-2a7c-459c-9018-1ee4488c90a9.jpg?1782682585", "Bast, Panther Goddess": "https://cards.scryfall.io/normal/front/c/5/c53a05f1-8e95-4a39-b2a3-a21d3d19b5b3.jpg?1782682605", "Okoye, Mighty and Adored": "https://cards.scryfall.io/normal/front/1/8/18ee486e-dc25-4de7-a71f-f11fdf100176.jpg?1782682593", "T'Chaka, Venerable King": "https://cards.scryfall.io/normal/front/2/8/28deeaf6-c32b-41f1-b94f-0ae303377ea0.jpg?1782682584", "M'Baku, Jabari Chieftain": "https://cards.scryfall.io/normal/front/2/e/2e330643-5714-4724-a65c-0873ce9cc5a6.jpg?1782682613", "Nakia, Wakandan Operative": "https://cards.scryfall.io/normal/front/6/c/6cd88c80-a445-4f88-95e3-e370620c90fc.jpg?1782682611", "W'Kabi, Shield of the Nation": "https://cards.scryfall.io/normal/front/9/f/9fb292a4-cf71-4aeb-b92e-eab2e3177653.jpg?1782682610", "Skullclamp": "https://cards.scryfall.io/normal/front/1/d/1d8b007b-3169-4ee3-80c7-781fc096fc7a.jpg?1782682494", "The Frightful Four": "https://cards.scryfall.io/normal/front/3/e/3e792132-de96-47aa-bcd5-58f1e9be5932.jpg?1782682632", "Damocles Base, Sword of Kang": "https://cards.scryfall.io/normal/front/8/9/89936964-7131-4ebf-b956-9692659866c1.jpg?1782682634", "Superior Foes of Spider-Man": "https://cards.scryfall.io/normal/front/b/b/bb759a0b-df7b-43c8-8e8e-bd52535cdbc0.jpg?1782682526", "Molecule Man": "https://cards.scryfall.io/normal/front/e/e/ee64d0dd-e3d8-4abc-b9d6-b19c505fbfa1.jpg?1782682662", "Sundial of the Infinite": "https://cards.scryfall.io/normal/front/3/6/36d3da9c-cb7a-4cea-b6e6-6722bd16c73c.jpg?1782714851", "The Master, Multiplied": "https://cards.scryfall.io/normal/front/7/f/7f734ca0-91bc-4496-9bd7-2d09415e850f.jpg?1782696088", "An Offer You Can't Refuse": "https://cards.scryfall.io/normal/front/a/8/a829747f-cf9b-4d81-ba66-9f0630ed4565.jpg?1782689128", "Kingpin, Wilson Fisk": "https://cards.scryfall.io/normal/front/f/4/f4f16314-d2eb-4117-8b28-4404c82e7343.jpg?1782682101", "Crimson Cowl, Master of Evil": "https://cards.scryfall.io/normal/front/5/8/58f35061-20d7-464a-a58d-8e07ed23fa27.jpg?1782682110", "Doctor Octopus, Master Planner": "https://cards.scryfall.io/normal/front/7/6/76e1d361-18a1-4dec-a203-f83bf0014e02.jpg?1782684817", "Cut a Deal": "https://cards.scryfall.io/normal/front/0/8/088388a6-1cc3-4782-91af-504e70f40a97.jpg?1782682562", "Willie Lumpkin, Postman": "https://cards.scryfall.io/normal/front/2/0/2021033b-ccad-4cb0-9528-357a3c726008.jpg?1782682583", "Negative Zone Portal": "https://cards.scryfall.io/normal/front/1/6/16fa4f17-972b-4a35-8dd6-88ee9b2ea2ce.jpg?1782682574", "Mirage Mirror": "https://cards.scryfall.io/normal/front/e/5/e516bc14-749c-4da6-b5d3-cb5c16316e0c.jpg?1782682495", "Into the Time Vortex": "https://cards.scryfall.io/normal/front/9/c/9c1763b6-c83b-4a76-af58-64c0a6418326.jpg?1782682531", "Fellwar Stone": "https://cards.scryfall.io/normal/front/3/8/385b9f5e-81dd-49f6-a644-59d53245e3dc.jpg?1782683119", "Talisman of Creativity / Progress / Conviction": "https://cards.scryfall.io/normal/front/3/e/3ed13229-bbbb-41a7-933e-8975a6b64226.jpg?1782682488", "Swan Song": "https://cards.scryfall.io/normal/front/8/3/83d0b761-d694-4232-9f40-5bd8c82a05f1.jpg?1782685686", "Taigam, Ojutai Master": "https://cards.scryfall.io/normal/front/b/4/b47e2781-544f-442c-98d0-43b9d91bab03.jpg?1782710663", "World at War": "https://cards.scryfall.io/normal/front/a/4/a47a05ad-fe86-481e-b770-e1760be4f852.jpg?1782715465", "The Fantastic Four": "https://cards.scryfall.io/normal/front/d/7/d78cb67a-ed8a-4e76-8506-04c274318b56.jpg?1782682034", "Hero's Blade": "https://cards.scryfall.io/normal/front/6/f/6f2fa911-5735-4ee2-828f-59dea6927b20.jpg?1782682501", "Metallic Mimic": "https://cards.scryfall.io/normal/front/2/6/2623640e-51bb-4aba-a31f-1b6d170f58f6.jpg?1782682498", "Love on the Battlefield": "https://cards.scryfall.io/normal/front/3/f/3f2e65ff-27ae-4dfc-bf17-66f0c4949699.jpg?1782682595", "Hulkbuster Armor": "https://cards.scryfall.io/normal/front/0/c/0cd857a3-ad93-4d74-80e0-c99d0a04a60a.jpg?1782682577", "Gift of Immortality": "https://cards.scryfall.io/normal/front/4/a/4ae22015-073a-4666-9e3b-15dcf61f50ce.jpg?1782682554", "Abzan Falconer": "https://cards.scryfall.io/normal/front/f/7/f7e2b0e1-c9ea-4f91-b19e-73b1bd6a0884.jpg?1782698016", "Abzan Battle Priest": "https://cards.scryfall.io/normal/front/c/0/c0fb53e6-441f-4faa-bf0e-0847cf83279d.jpg?1782698016", "Ripples of Potential": "https://cards.scryfall.io/normal/front/8/e/8e724c6d-3922-406f-b9e6-e478e1039416.jpg?1782685664", "Raphael, the Muscle": "https://cards.scryfall.io/normal/front/b/c/bccdd54c-e64b-44d2-87b3-e80029672529.jpg?1782723730", "Champions from Beyond": "https://cards.scryfall.io/normal/front/d/1/d1031ce5-063f-4c38-a6a9-abc15d254dfc.jpg?1782686048", "Urdnan, Dromoka Warrior": "https://cards.scryfall.io/normal/front/f/2/f239682a-2b81-4f62-a474-60e8db343200.jpg?1782688603", "Gilded Lotus": "https://cards.scryfall.io/normal/front/2/8/28e619e6-ecc1-49c3-8fa9-ce42becdb9ba.jpg?1782682501", "Coveted Jewel": "https://cards.scryfall.io/normal/front/0/6/06a7ad3b-87d4-47f0-9450-facac00dfe97.jpg?1782682502", "Divine Visitation": "https://cards.scryfall.io/normal/front/d/a/dabd95db-b4ca-446b-bb68-6f52cec9ed2a.jpg?1782682556", "Sword of the Animist": "https://cards.scryfall.io/normal/front/6/4/64401acc-d080-4763-b67a-95164c11c69e.jpg?1782733024", "Overwhelming Stampede": "https://cards.scryfall.io/normal/front/6/9/6996b9c4-e78c-4970-91c7-9025a0a4f670.jpg?1782682517", "Trading Post": "https://cards.scryfall.io/normal/front/0/3/03499a72-e865-46ff-bcb2-75e53e4b600e.jpg?1782682486", "Thought Vessel": "https://cards.scryfall.io/normal/front/6/e/6ec6a910-f6d0-4225-8b55-d329dc788c64.jpg?1782682486", "Shadowspear": "https://cards.scryfall.io/normal/front/9/3/939c6e19-4b27-4023-bb9c-ae440f91e21c.jpg?1782707504", "Verdurous Gearhulk": "https://cards.scryfall.io/normal/front/3/f/3f3eb5d0-7a99-4f66-b0b8-a0d8acc3bc9e.jpg?1782703359", "Brightglass Gearhulk": "https://cards.scryfall.io/normal/front/3/d/3dea5b45-925c-4732-8e9d-fa8232792736.jpg?1782687811", "Jhoira's Familiar": "https://cards.scryfall.io/normal/front/7/b/7b89a074-9aca-4f7f-953a-b401199be1cb.jpg?1782743861", "Rogue's Passage": "https://cards.scryfall.io/normal/front/3/3/335444f0-0848-4c17-b056-56d4fc876a58.jpg?1782683075", "Green Goblin, Revenant": "https://cards.scryfall.io/normal/front/2/1/218ef931-46f5-4a4d-9f26-898a1ff8f70f.jpg?1782684816", "Super-Adaptoid": "https://cards.scryfall.io/normal/front/f/b/fbbd8609-5a00-4188-96fe-77251579b88d.jpg?1782681700", "Living Lies of Loki": "https://cards.scryfall.io/normal/front/0/7/07e81366-e42d-4a94-9ea2-598c4b4b63ca.jpg?1782682130", "Syphon Mind": "https://cards.scryfall.io/normal/front/b/e/be3f418b-25c3-4370-a1de-50e8e88c2ef6.jpg?1782682532", "Batterskull": "https://cards.scryfall.io/normal/front/b/7/b7f16fdf-a3f5-462d-a64a-789d893b6ef5.jpg?1782743884", "Reprieve": "https://cards.scryfall.io/normal/front/1/b/1bd3fa8a-6c50-4f7f-9ae3-0810eec5e3db.jpg?1782697238", "Mystic Forge": "https://cards.scryfall.io/normal/front/b/c/bc0de77a-c503-4000-9eb5-aa28a5e91082.jpg?1782732624", "Loyal Guardian": "https://cards.scryfall.io/normal/front/6/d/6d81eda0-2520-4531-815a-8dea27306776.jpg?1782682521", "Royal Talon Fighter Jet": "https://cards.scryfall.io/normal/front/e/9/e94da91d-6c76-4909-91e3-2f8d97398654.jpg?1782682650", "Hex Magic": "https://cards.scryfall.io/normal/front/2/5/259bed47-1950-43ae-8efd-3009537529a8.jpg?1782681802", "West Coast Expansion": "https://cards.scryfall.io/normal/front/4/1/41533f78-4a4e-424a-9612-a8bdb2a14b4b.jpg?1782682635", "Monica Rambeau // Photon, Living Light": "https://cards.scryfall.io/normal/front/3/f/3f995518-b12a-4623-9ab3-b79a5cef3cba.jpg?1782681896", "Talisman of Conviction": "https://cards.scryfall.io/normal/front/a/3/a365885c-f7d9-4ea1-9125-5265055e5570.jpg?1782682488", "Wave Goodbye": "https://cards.scryfall.io/normal/front/8/f/8fb141d9-addd-47ad-bfc1-b5b376d4c950.jpg?1782723694", "Avenge": "https://cards.scryfall.io/normal/front/8/b/8b385779-bc6b-4f67-8724-d8ae136d1436.jpg?1782682661", "Damning Verdict": "https://cards.scryfall.io/normal/front/5/b/5be40c34-6df0-4471-b99b-850ae2be9923.jpg?1782701948", "Araña, Heart of the Spider": "https://cards.scryfall.io/normal/front/b/0/b02bfa0e-f761-45e1-b35c-f44ff7c5d0e8.jpg?1782684820", "Speed, Young Avenger": "https://cards.scryfall.io/normal/front/d/1/d15d187b-dc5d-482d-a79a-b9b98193ad7a.jpg?1782681786", "SP//dr, Piloted by Peni": "https://cards.scryfall.io/normal/front/c/4/c47c1d83-e76d-4939-9ed6-05a9e709dea1.jpg?1782684802", "Captain Mar-Vell, Space-Born": "https://cards.scryfall.io/normal/front/2/7/27924c2f-756c-42af-9830-18a5a2735137.jpg?1782681904", "Talisman of Creativity": "https://cards.scryfall.io/normal/front/3/e/3ed13229-bbbb-41a7-933e-8975a6b64226.jpg?1782682488", "Choked Estuary": "https://cards.scryfall.io/normal/front/0/c/0c37e84e-e7e0-4dfe-bf17-daeb2e434861.jpg?1782682481", "Visions of Villainy": "https://cards.scryfall.io/normal/front/f/8/f8f1e4f9-7415-437f-b694-ecbdd76db114.jpg?1782681812", "Containment Construct": "https://cards.scryfall.io/normal/front/f/e/feb09084-0fdb-4226-b536-56d856354b5a.jpg?1782683120", "Glorious Purpose": "https://cards.scryfall.io/normal/front/d/7/d78f2105-030f-4951-aa02-0d4db3d34f59.jpg?1782682643", "Foreboding Ruins": "https://cards.scryfall.io/normal/front/7/6/76fdf6be-e13b-49ee-9d50-8625edb49951.jpg?1782682472", "Progenitor's Icon": "https://cards.scryfall.io/normal/front/5/5/55a7f877-dc7c-4c1b-b233-900958c9e8f5.jpg?1782682494", "Propaganda": "https://cards.scryfall.io/normal/front/a/c/ac943e31-26bc-4b54-b73f-460e6e402d86.jpg?1782682542", "Oscorp Industries": "https://cards.scryfall.io/normal/front/1/e/1e609d6e-9e37-45d2-87de-8c76675f7cec.jpg?1782684776", "Doom Reigns Supreme": "https://cards.scryfall.io/normal/front/9/b/9b99894b-c774-45c2-9ee9-4d6a8e7522f5.jpg?1782681831", "Mysterio, Master of Illusion": "https://cards.scryfall.io/normal/front/f/a/facbd96f-c088-4377-b740-5e0fe99102bb.jpg?1782684894", "Carnage, Crimson Chaos": "https://cards.scryfall.io/normal/front/9/3/930befba-6068-493e-baa2-e9371cd99e93.jpg?1782684819", "HYDRA Assault Robot": "https://cards.scryfall.io/normal/front/e/3/e3b23fff-7d3b-4341-b556-82136f8c113b.jpg?1782681798", "The Spot's Portal": "https://cards.scryfall.io/normal/front/7/b/7b14d897-c056-43e6-972c-d4e23c7f484f.jpg?1782681988", "Ancestral Communion": "https://cards.scryfall.io/normal/front/a/d/ad4224f8-ee83-4833-99a1-71e3ecbe9718.jpg?1782682615", "King Solomon's Frogs": "https://cards.scryfall.io/normal/front/6/9/6908808f-e47e-4acb-a405-41b8018a5729.jpg?1782682653", "Fleecemane Lion": "https://cards.scryfall.io/normal/front/e/f/ef4e1c37-d520-4025-bd56-15ec452f6842.jpg?1782704093", "Everett K. Ross, Hapless Attaché": "https://cards.scryfall.io/normal/front/d/d/dd33edfe-578f-4b24-bd27-5a965b6c14ad.jpg?1782682658", "Heart-Shaped Herb": "https://cards.scryfall.io/normal/front/1/7/1725b91a-bac4-4f91-b2b5-bb66086b54a3.jpg?1782682581", "Swordsman's Steel": "https://cards.scryfall.io/normal/front/a/e/ae4ab04b-a3bd-40ea-9a71-df221cde4496.jpg?1782682026", "Terrasymbiosis": "https://cards.scryfall.io/normal/front/2/6/26008c7d-5dbe-4da2-b475-4dd307e7bc68.jpg?1782685439", "Avacyn's Pilgrim": "https://cards.scryfall.io/normal/front/a/3/a390a7df-b8da-41aa-93e5-2c0db938a27e.jpg?1782703366", "Steel Seraph": "https://cards.scryfall.io/normal/front/1/b/1b6ef5f5-4058-4f89-a573-9e2da87a9f2e.jpg?1782699830", "Harrow": "https://cards.scryfall.io/normal/front/3/e/3e76be46-cf81-4fef-bc5b-f87666cb0413.jpg?1782685650", "Michiko's Reign of Truth // Portrait of Michiko": "https://cards.scryfall.io/normal/front/7/4/74f12c23-5c15-4ae6-8f4d-c5e6c1878817.jpg?1782702312", "Altar of the Goyf": "https://cards.scryfall.io/normal/front/e/0/e0b3a98f-2b3c-438b-b78c-eef8d917f68e.jpg?1782704600", "Darksteel Citadel": "https://cards.scryfall.io/normal/front/2/b/2ba7597d-6d76-45b8-b172-342999e401bd.jpg?1782705136", "The Fantasticar": "https://cards.scryfall.io/normal/front/e/d/ed0beb69-8441-4104-9990-81bd82f81f9a.jpg?1782682581", "Nova Flame": "https://cards.scryfall.io/normal/front/1/b/1b5f713f-6ad9-445e-ae4c-56250bb3aecb.jpg?1782682621", "Collective Effort": "https://cards.scryfall.io/normal/front/d/9/d9138f86-34dc-46d2-99f4-18eb3b26c253.jpg?1782682562", "Cleansing Nova": "https://cards.scryfall.io/normal/front/6/7/670e4457-927e-42ed-a36f-28b60c2f7566.jpg?1782682564", "Genesis Ultimatum": "https://cards.scryfall.io/normal/front/5/5/556dfe7a-43e8-4801-ad79-89ab2148eca6.jpg?1782707124", "Terramorph": "https://cards.scryfall.io/normal/front/1/3/1389d46e-956d-4be6-a519-9c8338007715.jpg?1782682514", "Path of Discovery": "https://cards.scryfall.io/normal/front/8/0/8063528c-7347-4757-8254-5aa3e4b61c6f.jpg?1782682515", "Improvisation Capstone": "https://cards.scryfall.io/normal/front/d/0/d01fe6e9-49ee-4708-833e-75cd5a9f167c.jpg?1782682936", "Raise the Palisade": "https://cards.scryfall.io/normal/front/7/9/7966eb7a-0ef7-470f-9769-0d5f45f0395b.jpg?1782696951", "Restoration Seminar": "https://cards.scryfall.io/normal/front/9/e/9ebc4ecf-2fa2-4ab8-afde-3b91cf5eadb6.jpg?1782683012", "Talisman of Progress": "https://cards.scryfall.io/normal/front/b/3/b356ee36-1c62-4097-87d7-fef6a6dad067.jpg?1782682486", "Plains": "https://cards.scryfall.io/normal/front/5/f/5f9b6584-ad27-410d-b6f1-c25c91630aea.jpg?1782681929", "Mountain": "https://cards.scryfall.io/normal/front/4/2/426b0211-3d5d-4e53-bcf6-21823c655ffd.jpg?1782681935", "Norman Osborn // Green Goblin": "https://cards.scryfall.io/normal/front/d/5/d5c53af9-7150-4e78-8771-2de7980aa307.jpg?1782684891", "Mister Fantastic, Reed Richards": "https://cards.scryfall.io/normal/front/1/7/17ef068b-61fc-443d-97b0-1e41f2622425.jpg?1782681858", "Michiko's Reign of Truth": "https://cards.scryfall.io/normal/front/7/4/74f12c23-5c15-4ae6-8f4d-c5e6c1878817.jpg?1782702312", "Power Pack": "https://cards.scryfall.io/normal/front/0/4/04f8aa71-f27b-48b3-9146-b9e785555428.jpg?1782682593", "Ms. Marvel, Elastic Ally": "https://cards.scryfall.io/normal/front/b/f/bf9ce355-f472-4f0f-8d8e-96df363e1b02.jpg?1782682031", "She-Hulk, Attorney-at-Law": "https://cards.scryfall.io/normal/front/9/3/93a44ea5-a571-4abb-b8fa-14b8224ecaeb.jpg?1782682029"};
+/* session-added card images (Scryfall-verified this build) */
+Object.assign(IMG,{"Abomination, World Ravager":"https://cards.scryfall.io/normal/front/f/d/fddd2e68-8e1e-4162-a2c7-49da2c86d471.jpg?1782682631","Adrix and Nev, Twincasters":"https://cards.scryfall.io/normal/front/b/9/b9c11061-bb34-4904-b9f1-ea106b517bbe.jpg?1782694080","Agent Phil Coulson":"https://cards.scryfall.io/normal/front/1/3/1383e587-df58-4b45-9067-b9399e90b9ed.jpg?1782681909","Akroma's Will":"https://cards.scryfall.io/normal/front/6/0/608cdbdb-6f7e-438a-bab0-0e7782435f0f.jpg?1782694778","All That Glitters":"https://cards.scryfall.io/normal/front/5/f/5fc0b82a-f943-4330-b9e7-bb4527354bfd.jpg?1782733308","Amulet of Vigor":"https://cards.scryfall.io/normal/front/9/9/997bc933-ac30-477b-a4e1-5333b796a99d.jpg?1782715540","Ancient Den":"https://cards.scryfall.io/normal/front/d/9/d9a7b0f6-97f9-4937-865c-e25c142c3ed7.jpg?1782685615","Anger":"https://cards.scryfall.io/normal/front/e/8/e886a604-e3ce-4c6a-b63e-2c7f910a177a.jpg?1782683208","Anointed Procession":"https://cards.scryfall.io/normal/front/9/a/9a52c265-6920-4929-ba0a-70da08df01f1.jpg?1782711214","Ara\u00f1a, Heart of the Spider":"https://cards.scryfall.io/normal/front/b/0/b02bfa0e-f761-45e1-b35c-f44ff7c5d0e8.jpg?1782684820","Arcades, the Strategist":"https://cards.scryfall.io/normal/front/1/e/1e90c638-d4b2-4243-bbc4-1cc10516c40f.jpg?1782709493","Archfiend of Ifnir":"https://cards.scryfall.io/normal/front/8/3/83057af6-cb88-4401-92ef-5b5d10463140.jpg?1782684242","Artist's Talent":"https://cards.scryfall.io/normal/front/8/b/8b9e51d9-189b-4dd6-87cb-628ea6373e81.jpg?1782690536","Avenge":"https://cards.scryfall.io/normal/front/8/b/8b385779-bc6b-4f67-8724-d8ae136d1436.jpg?1782682661","Avengers Assemble!":"https://cards.scryfall.io/normal/front/b/f/bf736399-af74-4f52-9159-67ea67d0cf83.jpg?1782681908","Avengers Quinjet":"https://cards.scryfall.io/normal/front/c/0/c090d4b3-b108-4596-9d6d-738eb5e2249c.jpg?1782682582","Axebane Guardian":"https://cards.scryfall.io/normal/front/f/0/f0282af2-9b3f-4335-92ea-9db9267e8cd2.jpg?1782686740","Bear Umbra":"https://cards.scryfall.io/normal/front/5/a/5a195fb1-f2e9-4e05-8a04-c335e1afbef6.jpg?1782702373","Biorganic Carapace":"https://cards.scryfall.io/normal/front/9/6/9658fdab-9702-4e13-bc53-01a25a2ed41a.jpg?1782684820","Black Bolt, Inhuman King":"https://cards.scryfall.io/normal/front/0/d/0d484566-6816-4535-a754-dbda8073ae73.jpg?1782682604","Black Panther, Wakandan King":"https://cards.scryfall.io/normal/front/a/1/a1b11ef2-2285-40eb-b11c-223c159e3d1f.jpg?1782682681","Blackblade Reforged":"https://cards.scryfall.io/normal/front/2/4/240448cd-c308-49ae-9e4b-0c35adc59fba.jpg?1782700595","Blade of Selves":"https://cards.scryfall.io/normal/front/d/0/d0ca6a34-724f-47bb-b12d-c4998ffc3bf7.jpg?1782686684","Body Launderer":"https://cards.scryfall.io/normal/front/2/4/24d7d77a-35b6-451a-af44-ecaf38facccb.jpg?1782701622","Brightglass Gearhulk":"https://cards.scryfall.io/normal/front/3/d/3dea5b45-925c-4732-8e9d-fa8232792736.jpg?1782687811","Bulk Up":"https://cards.scryfall.io/normal/front/9/7/977dcc50-da10-4281-b522-9240c1204f5d.jpg?1782689196","Cadric, Soul Kindler":"https://cards.scryfall.io/normal/front/f/8/f82f8cab-5039-4e3a-a2ba-cbf829db80ed.jpg?1782700697","Captain America's Shield":"https://cards.scryfall.io/normal/front/4/b/4b5433ac-0d36-4472-bf8b-d22f0ffd367b.jpg?1782681705","Captain America, Super-Soldier":"https://cards.scryfall.io/normal/front/3/3/33631d6c-c584-42ff-afe5-2647b5fb321f.jpg?1782681907","Captain America, Team Leader":"https://cards.scryfall.io/normal/front/6/1/61a51b67-d941-4e07-9c12-ffe583cb65d4.jpg?1782682664","Captain Mar-Vell, Space-Born":"https://cards.scryfall.io/normal/front/2/7/27924c2f-756c-42af-9830-18a5a2735137.jpg?1782681904","Caretaker's Talent":"https://cards.scryfall.io/normal/front/a/d/ad5ea98a-e36e-4ab9-b4da-cc572f3777db.jpg?1782690635","Champions from Beyond":"https://cards.scryfall.io/normal/front/d/1/d1031ce5-063f-4c38-a6a9-abc15d254dfc.jpg?1782686048","Codsworth, Handy Helper":"https://cards.scryfall.io/normal/front/b/b/bbdfbd21-61b1-4ebd-8d37-bce2a391a7e9.jpg?1782693385","Collective Effort":"https://cards.scryfall.io/normal/front/d/9/d9138f86-34dc-46d2-99f4-18eb3b26c253.jpg?1782682562","Conclave Mentor":"https://cards.scryfall.io/normal/front/c/6/c6d36786-6e36-4a9b-97ad-ad7d9d2b8d92.jpg?1782697922","Containment Construct":"https://cards.scryfall.io/normal/front/f/e/feb09084-0fdb-4226-b536-56d856354b5a.jpg?1782683120","Cool but Rude":"https://cards.scryfall.io/normal/front/a/5/a566ab2d-6ec8-4833-8ad6-210378b1a20e.jpg?1782683675","Council of Reeds":"https://cards.scryfall.io/normal/front/a/0/a0d824ea-75d2-4de5-923b-813bba44e80b.jpg?1782682645","Court of Garenbrig":"https://cards.scryfall.io/normal/front/d/7/d7a8cc1d-aabb-4eb6-b0f1-6c93ec246f61.jpg?1782696364","Coveted Jewel":"https://cards.scryfall.io/normal/front/0/6/06a7ad3b-87d4-47f0-9450-facac00dfe97.jpg?1782682502","Cryptolith Rite":"https://cards.scryfall.io/normal/front/0/a/0a4e707f-b760-434d-ba97-a0fe651f3f6a.jpg?1782726735","Curiosity":"https://cards.scryfall.io/normal/front/c/5/c5a0be10-c20f-4ac0-89a5-1770ecf48aad.jpg?1782706686","Currency Converter":"https://cards.scryfall.io/normal/front/4/e/4eab054c-93f8-4da4-afb9-8f4c73c19213.jpg?1782682501","Cut a Deal":"https://cards.scryfall.io/normal/front/0/8/088388a6-1cc3-4782-91af-504e70f40a97.jpg?1782682562","Damning Verdict":"https://cards.scryfall.io/normal/front/5/b/5be40c34-6df0-4471-b99b-850ae2be9923.jpg?1782701948","Danny Pink":"https://cards.scryfall.io/normal/front/b/f/bf5e0a50-304c-4b3f-b5f7-1ca1213c0282.jpg?1782696162","Daredevil, Man Without Fear":"https://cards.scryfall.io/normal/front/1/4/14e821bb-55cc-474e-9b63-0ceecc2666c1.jpg?1782681733","Darksteel Citadel":"https://cards.scryfall.io/normal/front/2/b/2ba7597d-6d76-45b8-b172-342999e401bd.jpg?1782705136","Deepglow Skate":"https://cards.scryfall.io/normal/front/6/f/6fb36f7b-6d31-413d-8392-ae4f8ca3c0c4.jpg?1782685670","Dismantling Wave":"https://cards.scryfall.io/normal/front/3/9/39e7bb05-96df-4e76-90a6-3f3625b7965a.jpg?1782682561","Divine Visitation":"https://cards.scryfall.io/normal/front/d/a/dabd95db-b4ca-446b-bb68-6f52cec9ed2a.jpg?1782682556","Doctor Octopus, Master Planner":"https://cards.scryfall.io/normal/front/7/6/76e1d361-18a1-4dec-a203-f83bf0014e02.jpg?1782684817","Doom's Time Platform":"https://cards.scryfall.io/normal/front/6/f/6f7935d1-d588-40ca-804f-bac56d986d74.jpg?1782682582","Door of Destinies":"https://cards.scryfall.io/normal/front/1/d/1d0d80c7-87b5-47cc-b2fd-7defd281e1a2.jpg?1782682501","Doubling Season":"https://cards.scryfall.io/normal/front/f/2/f2c4f80e-84a0-463b-82c3-5c6503809351.jpg?1782689080","Duelist's Heritage":"https://cards.scryfall.io/normal/front/4/5/45834bc6-be8d-4064-930d-efc73cf3c64d.jpg?1782724346","Emiel the Blessed":"https://cards.scryfall.io/normal/front/0/f/0f594562-7e9f-47e6-a033-fb70e3cf1e10.jpg?1782737963","Evolution Sage":"https://cards.scryfall.io/normal/front/1/d/1d58d08d-cd62-416d-8d8e-7d9c56d5c4da.jpg?1782684221","Excalibur, Sword of Eden":"https://cards.scryfall.io/normal/front/2/6/26dbf574-3193-413e-a982-4b9d27dafaf5.jpg?1782690842","Faithful Mending":"https://cards.scryfall.io/normal/front/5/0/50752ca9-ea85-4c4b-9bf5-4f8759a7dcec.jpg?1782703585","Feed the Swarm":"https://cards.scryfall.io/normal/front/2/2/2246c098-1071-4cc3-a60a-802406e2827b.jpg?1782724267","Fellwar Stone":"https://cards.scryfall.io/normal/front/3/8/385b9f5e-81dd-49f6-a644-59d53245e3dc.jpg?1782683119","Fleecemane Lion":"https://cards.scryfall.io/normal/front/e/f/ef4e1c37-d520-4025-bd56-15ec452f6842.jpg?1782704093","Flowering of the White Tree":"https://cards.scryfall.io/normal/front/2/2/2203b2cd-48e5-471a-85fe-dc81012e5d61.jpg?1782697246","Flux Channeler":"https://cards.scryfall.io/normal/front/3/c/3c520263-6bad-4521-ba9e-192ca8223b07.jpg?1782732721","Folk Hero":"https://cards.scryfall.io/normal/front/8/5/85bf7c95-4534-435b-bb25-f39340ecf9be.jpg?1782682554","Forgotten Ancient":"https://cards.scryfall.io/normal/front/f/8/f8c9d744-8294-4747-ae7e-99be2b6e7479.jpg?1782683182","Foundry Inspector":"https://cards.scryfall.io/normal/front/1/6/16debeb1-fb2b-4172-b6da-726416d4fb38.jpg?1782733043","Galactus, Devourer of Worlds":"https://cards.scryfall.io/normal/front/3/a/3a9df9dd-a480-406c-ba28-94895fbfb574.jpg?1782682662","Gift of Immortality":"https://cards.scryfall.io/normal/front/4/a/4ae22015-073a-4666-9e3b-15dcf61f50ce.jpg?1782682554","Gilded Lotus":"https://cards.scryfall.io/normal/front/2/8/28e619e6-ecc1-49c3-8fa9-ce42becdb9ba.jpg?1782682501","Glint-Horn Buccaneer":"https://cards.scryfall.io/normal/front/d/f/df2df9cb-14f5-470f-b438-20f4ae8d0d59.jpg?1782708295","Green Goblin, Nemesis":"https://cards.scryfall.io/normal/front/b/2/b2860277-5b9e-444a-81f9-58e23355a722.jpg?1782724854","Guardian Augmenter":"https://cards.scryfall.io/normal/front/7/8/78ba1a2a-a2dd-4e90-900e-1421b5e3924a.jpg?1782683179","Hammer of Nazahn":"https://cards.scryfall.io/normal/front/e/7/e77a8ac1-f40d-423e-a0b3-0a8e236a6c1e.jpg?1782733040","Hardened Scales":"https://cards.scryfall.io/normal/front/9/9/99cfd1a8-49fd-4cc0-96f2-f9f159ce5d55.jpg?1782683178","Harmonize":"https://cards.scryfall.io/normal/front/b/d/bd7138fb-6aa7-455e-b1f7-ca08d747277d.jpg?1782682521","Hawkeye, Avenging Archer":"https://cards.scryfall.io/normal/front/1/f/1f394a6f-3649-4464-939b-c183b2b01768.jpg?1782682596","Haywire Mite":"https://cards.scryfall.io/normal/front/6/f/6f813bc3-6d81-4555-8e4b-6ecd9a6757b7.jpg?1782683114","Helmut Zemo, Mastermind":"https://cards.scryfall.io/normal/front/5/4/545f7f8d-f6a3-4e85-a53c-3eb9b28ebd14.jpg?1782682642","Hercules, Olympian Hero":"https://cards.scryfall.io/normal/front/7/7/77be0e26-90db-41a5-97c2-43cf6ef87ab0.jpg?1782682656","Hero's Blade":"https://cards.scryfall.io/normal/front/6/f/6f2fa911-5735-4ee2-828f-59dea6927b20.jpg?1782682501","Hex Magic":"https://cards.scryfall.io/normal/front/2/5/259bed47-1950-43ae-8efd-3009537529a8.jpg?1782681802","High Alert":"https://cards.scryfall.io/normal/front/c/e/ce124f6e-ef0c-4d01-a876-e34d3e445108.jpg?1782708836","Homunculus Horde":"https://cards.scryfall.io/normal/front/4/7/470c4d03-340a-4e0e-a59f-f19d05497785.jpg?1782689229","Hulkbuster Armor":"https://cards.scryfall.io/normal/front/0/c/0cd857a3-ad93-4d74-80e0-c99d0a04a60a.jpg?1782682577","Illustrious Wanderglyph":"https://cards.scryfall.io/normal/front/3/0/30e02cc7-8ea9-468b-ba61-a1e00fefea22.jpg?1782694872","Improvisation Capstone":"https://cards.scryfall.io/normal/front/d/0/d01fe6e9-49ee-4708-833e-75cd5a9f167c.jpg?1782682936","Iron Lad, Young Avenger":"https://cards.scryfall.io/normal/front/b/c/bce11b29-c674-4d50-b01d-b80bf7e3a73e.jpg?1782682194","Kediss, Emberclaw Familiar":"https://cards.scryfall.io/normal/front/f/6/f606ebf1-483d-4331-b16a-9fb6f591a39f.jpg?1782705978","Killmonger, Ruthless Usurper":"https://cards.scryfall.io/normal/front/0/e/0ec1ec8b-24d7-40e4-9e9d-4d9ec4f0a4f8.jpg?1782682624","King Solomon's Frogs":"https://cards.scryfall.io/normal/front/6/9/6908808f-e47e-4acb-a405-41b8018a5729.jpg?1782682653","Klaw, Master of Sound":"https://cards.scryfall.io/normal/front/5/c/5c589d94-7cea-4d4c-91a8-4d939634a5e5.jpg?1782682632","Kodama of the West Tree":"https://cards.scryfall.io/normal/front/e/f/ef1e1dff-b559-441d-8df3-b6a418066aca.jpg?1782702201","Kutzil, Malamet Exemplar":"https://cards.scryfall.io/normal/front/c/9/c9f88a40-a6ed-4c1f-a309-011aca1acddd.jpg?1782694425","Lady Loki, Agent of Chaos":"https://cards.scryfall.io/normal/front/4/4/44ac85d4-0429-4813-b7fe-eed1f6575b7d.jpg?1782682623","Leader, Super-Genius":"https://cards.scryfall.io/normal/front/2/c/2c8aab8d-2dfe-49c8-9aa8-536b0587b467.jpg?1782681858","Ledger Shredder":"https://cards.scryfall.io/normal/front/7/e/7ea4b5bc-18a4-45db-a56a-ab3f8bd2fb0d.jpg?1782701637","Lethal Scheme":"https://cards.scryfall.io/normal/front/b/2/b2d9c467-6e56-401c-ade1-95dad7e4e766.jpg?1782682534","Loki, God of Mischief":"https://cards.scryfall.io/normal/front/2/3/236c437f-ee9d-4145-a4db-b665908089cf.jpg?1782681858","Longshot, Rebel Bowman":"https://cards.scryfall.io/normal/front/b/3/b36efbe2-3798-43e5-8640-f003c77440a1.jpg?1782724369","Love on the Battlefield":"https://cards.scryfall.io/normal/front/3/f/3f2e65ff-27ae-4dfc-bf17-66f0c4949699.jpg?1782682595","Loyal Guardian":"https://cards.scryfall.io/normal/front/6/d/6d81eda0-2520-4531-815a-8dea27306776.jpg?1782682521","M'Baku, Jabari Chieftain":"https://cards.scryfall.io/normal/front/2/e/2e330643-5714-4724-a65c-0873ce9cc5a6.jpg?1782682613","Madame Hydra":"https://cards.scryfall.io/normal/front/e/9/e94ccedb-1d27-4098-8823-d8d99b30387c.jpg?1782681727","Make Your Move":"https://cards.scryfall.io/normal/front/0/5/05fa34df-99b0-4121-b2f1-d41afe97b200.jpg?1782682552","March of the Multitudes":"https://cards.scryfall.io/normal/front/6/5/65c7067d-61ec-4558-b0d4-0048d2d86743.jpg?1782701728","Martial Coup":"https://cards.scryfall.io/normal/front/a/0/a0660e74-6973-41d7-a20b-8d71fed1495a.jpg?1782682552","Metalwork Colossus":"https://cards.scryfall.io/normal/front/d/7/d7e2d686-1fbc-449a-9af4-f00a71ff7911.jpg?1782682497","Mind's Dilation":"https://cards.scryfall.io/normal/front/4/f/4f2980ba-2468-4a36-afdb-87e6567797a9.jpg?1782692364","Mirage Mirror":"https://cards.scryfall.io/normal/front/e/5/e516bc14-749c-4da6-b5d3-cb5c16316e0c.jpg?1782682495","Mj\u00f6lnir, Hammer of Thor":"https://cards.scryfall.io/normal/front/e/0/e0c7f566-5351-44e3-a346-b84b0eb10209.jpg?1782681790","Molecule Man":"https://cards.scryfall.io/normal/front/e/e/ee64d0dd-e3d8-4abc-b9d6-b19c505fbfa1.jpg?1782682662","Monologue Tax":"https://cards.scryfall.io/normal/front/e/e/ee68d390-11cb-4617-a9ee-6e8cf7ff0e55.jpg?1782682552","Monument to Endurance":"https://cards.scryfall.io/normal/front/d/2/d21433ba-0a14-42bc-ad0b-a4ef823a3295.jpg?1782687772","Moonstone, Harsh Mistress":"https://cards.scryfall.io/normal/front/1/a/1a1b2bd0-e17d-4b34-a8ee-7c913a6bc945.jpg?1782681822","Mutational Advantage":"https://cards.scryfall.io/normal/front/4/a/4a778448-bcdd-4294-a947-fcadbffaac56.jpg?1782723922","Mysterio, Master of Illusion":"https://cards.scryfall.io/normal/front/f/a/facbd96f-c088-4377-b740-5e0fe99102bb.jpg?1782684894","Mystic Forge":"https://cards.scryfall.io/normal/front/b/c/bc0de77a-c503-4000-9eb5-aa28a5e91082.jpg?1782732624","Norman Osborn":"https://cards.scryfall.io/normal/front/d/5/d5c53af9-7150-4e78-8771-2de7980aa307.jpg?1782684891","Norman Osborn // Green Goblin":"https://cards.scryfall.io/normal/front/d/5/d5c53af9-7150-4e78-8771-2de7980aa307.jpg?1782684891","Nova Flame":"https://cards.scryfall.io/normal/front/1/b/1b5f713f-6ad9-445e-ae4c-56250bb3aecb.jpg?1782682621","Obeka, Brute Chronologist":"https://cards.scryfall.io/normal/front/d/b/dbdb335d-3e45-4dd5-9e3e-c50ca0a4dfb6.jpg?1782705915","Ohran Frostfang":"https://cards.scryfall.io/normal/front/5/5/55fb93e6-d057-4b70-ad12-e98291fd4a2c.jpg?1782683173","Overgrown Battlement":"https://cards.scryfall.io/normal/front/6/8/680f6308-4469-4565-873e-40fb5aaef27d.jpg?1782686726","Palace Jailer":"https://cards.scryfall.io/normal/front/3/a/3a8c2a84-e0f2-4611-af3d-42f4578ad4e3.jpg?1782682552","Parallel Lives":"https://cards.scryfall.io/normal/front/0/1/01033dae-fec1-41f2-b7f2-cc6a43331790.jpg?1782714706","Patchwork Banner":"https://cards.scryfall.io/normal/front/5/3/537ea7e7-e8e8-4736-bdd9-1085f1a7c259.jpg?1782682495","Path of Discovery":"https://cards.scryfall.io/normal/front/8/0/8063528c-7347-4757-8254-5aa3e4b61c6f.jpg?1782682515","Patriot, Shield Wielder":"https://cards.scryfall.io/normal/front/1/4/1467d7c9-00d8-43f1-b4e7-a279d2b10503.jpg?1782681887","Progenitor's Icon":"https://cards.scryfall.io/normal/front/5/5/55a7f877-dc7c-4c1b-b233-900958c9e8f5.jpg?1782682494","Promise of Loyalty":"https://cards.scryfall.io/normal/front/d/c/dcca54de-3b2e-4801-bb66-3809382d6f01.jpg?1782682546","Propaganda":"https://cards.scryfall.io/normal/front/a/c/ac943e31-26bc-4b54-b73f-460e6e402d86.jpg?1782682542","Prowler, Clawed Thief":"https://cards.scryfall.io/normal/front/0/8/08d18fce-e250-4bcb-9acf-08a8a6e4f1e2.jpg?1782682511","Psychic Frog":"https://cards.scryfall.io/normal/front/6/8/68924203-c3d9-41ce-8ca8-c6dd491eb3ca.jpg?1782691216","Puppet Master, String Puller":"https://cards.scryfall.io/normal/front/a/b/ab888daa-1161-4917-bca0-efd5c430b2d9.jpg?1782682620","Puresteel Paladin":"https://cards.scryfall.io/normal/front/d/8/d8f8a324-006d-4cb8-9816-620a603b4229.jpg?1782733278","Rancor":"https://cards.scryfall.io/normal/front/8/6/86d6b411-4a31-4bfc-8dd6-e19f553bb29b.jpg?1782737864","Recurring Insight":"https://cards.scryfall.io/normal/front/a/3/a3b0c460-1a5f-4e22-a594-34905117169c.jpg?1782682537","Retrofitter Foundry":"https://cards.scryfall.io/normal/front/5/d/5da578b8-19e6-4068-9336-e7cd33c585f1.jpg?1782709379","Ripples of Potential":"https://cards.scryfall.io/normal/front/8/e/8e724c6d-3922-406f-b9e6-e478e1039416.jpg?1782685664","Roaming Throne":"https://cards.scryfall.io/normal/front/3/2/32fd8b7c-baf3-4d3d-be6f-044a917b11a0.jpg?1782694404","SP":"https://cards.scryfall.io/normal/front/c/4/c47c1d83-e76d-4939-9ed6-05a9e709dea1.jpg?1782684802","SP//dr, Piloted by Peni":"https://cards.scryfall.io/normal/front/c/4/c47c1d83-e76d-4939-9ed6-05a9e709dea1.jpg?1782684802","Second Harvest":"https://cards.scryfall.io/normal/front/a/a/aaecd005-b849-4e75-a8e0-24231bf2a0c9.jpg?1782726713","Shadowspear":"https://cards.scryfall.io/normal/front/9/3/939c6e19-4b27-4023-bb9c-ae440f91e21c.jpg?1782707504","Sigarda's Aid":"https://cards.scryfall.io/normal/front/5/3/531da950-dc96-4050-94a8-e01b73ddd965.jpg?1782705857","Sigarda, Font of Blessings":"https://cards.scryfall.io/normal/front/c/b/cba71725-d6df-44d7-a93b-934573759711.jpg?1782697376","Silver Sable, Mercenary Leader":"https://cards.scryfall.io/normal/front/c/f/cf0d4116-acee-4d9a-985c-396d10e03838.jpg?1782684913","Silver Surfer, Galactus's Herald":"https://cards.scryfall.io/normal/front/b/4/b463462f-8044-4e57-b96e-408a9f4e0974.jpg?1782682662","Skirge Familiar":"https://cards.scryfall.io/normal/front/2/d/2d92fcf1-2ccd-47d2-9a24-f44b766a0b68.jpg?1782704572","Snakeskin Veil":"https://cards.scryfall.io/normal/front/a/3/a3d2c692-7566-468e-9c86-47a9f768fde2.jpg?1782687186","Sovereign Okinec Ahau":"https://cards.scryfall.io/normal/front/7/0/70c75aa7-e2f9-4a69-8086-c982019ca714.jpg?1782694418","Spectacular Spider-Man":"https://cards.scryfall.io/normal/front/3/f/3f1b7b3e-3449-4c8f-8eb7-aacc62d9eadd.jpg?1782724647","Speed, Young Avenger":"https://cards.scryfall.io/normal/front/d/1/d15d187b-dc5d-482d-a79a-b9b98193ad7a.jpg?1782681786","Spider-Woman, Stunning Savior":"https://cards.scryfall.io/normal/front/b/c/bc9b2a76-3cce-4fd0-a4ef-932747cb11b2.jpg?1782684798","Spymaster's Vault":"https://cards.scryfall.io/normal/front/3/d/3d5fbb30-abfc-4e79-8ce5-bbb04a241c9f.jpg?1782691188","Sram, Senior Edificer":"https://cards.scryfall.io/normal/front/8/f/8fbd18ce-0ac3-4b52-9cd0-0af7e0244207.jpg?1782683252","Steel Seraph":"https://cards.scryfall.io/normal/front/1/b/1b6ef5f5-4058-4f89-a573-9e2da87a9f2e.jpg?1782699830","Stilt-Man, Towering Terror":"https://cards.scryfall.io/normal/front/7/f/7ffa820c-ac05-4b3d-a0ec-5cbd3c42ac9c.jpg?1782682617","Stridehangar Automaton":"https://cards.scryfall.io/normal/front/4/c/4c398d11-a2fc-43e2-96e9-7f3383e1a43c.jpg?1782687481","Super-Soldier Serum":"https://cards.scryfall.io/normal/front/8/4/845b0be1-4f85-4a8c-8205-dc85c8cf9a61.jpg?1782681879","Superior Foes of Spider-Man":"https://cards.scryfall.io/normal/front/b/b/bb759a0b-df7b-43c8-8e8e-bd52535cdbc0.jpg?1782682526","Surly Badgersaur":"https://cards.scryfall.io/normal/front/7/b/7ba507e2-fe5e-4947-aada-20184aa09700.jpg?1782707387","Swordsman's Steel":"https://cards.scryfall.io/normal/front/a/e/ae4ab04b-a3bd-40ea-9a71-df221cde4496.jpg?1782682026","Syphon Mind":"https://cards.scryfall.io/normal/front/b/e/be3f418b-25c3-4370-a1de-50e8e88c2ef6.jpg?1782682532","T'Chaka, Venerable King":"https://cards.scryfall.io/normal/front/2/8/28deeaf6-c32b-41f1-b94f-0ae303377ea0.jpg?1782682584","Tamiyo, Field Researcher":"https://cards.scryfall.io/normal/front/5/7/576ba8db-fad9-4c48-96be-a8a7e5f43039.jpg?1782726683","Terramorph":"https://cards.scryfall.io/normal/front/1/3/1389d46e-956d-4be6-a519-9c8338007715.jpg?1782682514","The Fantasticar":"https://cards.scryfall.io/normal/front/e/d/ed0beb69-8441-4104-9990-81bd82f81f9a.jpg?1782682581","The Master, Multiplied":"https://cards.scryfall.io/normal/front/7/f/7f734ca0-91bc-4496-9bd7-2d09415e850f.jpg?1782696088","The Ozolith":"https://cards.scryfall.io/normal/front/9/3/9341ed06-53db-4604-b60a-3ea9129afbc2.jpg?1782707096","The Reaver Cleaver":"https://cards.scryfall.io/normal/front/5/b/5bcd1591-b5b9-49fc-9f2a-45f31ed1871e.jpg?1782700698","The Squadron Sinister":"https://cards.scryfall.io/normal/front/9/6/96714d95-baef-45e3-a2b0-00a8bdb3a76d.jpg?1782682586","Thornglint Bridge":"https://cards.scryfall.io/normal/front/9/d/9d483643-6a11-47f7-a0aa-190e0179525f.jpg?1782704581","Thought Vessel":"https://cards.scryfall.io/normal/front/6/e/6ec6a910-f6d0-4225-8b55-d329dc788c64.jpg?1782682486","Thousand Moons Smithy":"https://cards.scryfall.io/normal/front/4/a/4a6bec46-1acd-4726-b8d9-3045ac6a2ea2.jpg?1782694580","Thousand Moons Smithy // Barracks of the Thousand":"https://cards.scryfall.io/normal/front/4/a/4a6bec46-1acd-4726-b8d9-3045ac6a2ea2.jpg?1782694580","Titania, Proud Pummeler":"https://cards.scryfall.io/normal/front/3/1/31255422-9afa-416c-90b2-62baf1d02cca.jpg?1782682616","Tome of Legends":"https://cards.scryfall.io/normal/front/8/4/84546bb2-6c82-4e3e-8f64-cb7aa865ee60.jpg?1782682486","Toski, Bearer of Secrets":"https://cards.scryfall.io/normal/front/e/8/e82e61d1-488d-4627-a54c-d8496a967814.jpg?1782694084","Towering Viewpoint":"https://cards.scryfall.io/normal/front/d/1/d19115bf-562c-4bef-967d-52ec1e54c82e.jpg?1782690839","Tree of Tales":"https://cards.scryfall.io/normal/front/3/b/3b3134b3-1bad-4b41-9e56-700125ff31fa.jpg?1782689708","Typhoid Mary, Fractured":"https://cards.scryfall.io/normal/front/6/8/6880df6d-2ec3-459d-aa4f-92f595fab9b8.jpg?1782682584","Unleash Fury":"https://cards.scryfall.io/normal/front/e/8/e854e6a3-8684-43fa-9560-ef4c3b62c935.jpg?1782706911","Vision, Synthezoid Avenger":"https://cards.scryfall.io/normal/front/f/7/f7007b77-84ec-4391-b279-8c188dd569d0.jpg?1782682567","Vivi's Persistence":"https://cards.scryfall.io/normal/front/b/e/be6ba2e4-e657-4a2d-8f5f-255376d861b3.jpg?1782684331","Vorinclex, Monstrous Raider":"https://cards.scryfall.io/normal/front/9/2/92613468-205e-488b-930d-11908477e9f8.jpg?1782705431","Whispersilk Cloak":"https://cards.scryfall.io/normal/front/a/3/a3f31ac4-09ca-4712-a311-50d28824bfad.jpg?1782682486","Willie Lumpkin, Postman":"https://cards.scryfall.io/normal/front/2/0/2021033b-ccad-4cb0-9528-357a3c726008.jpg?1782682583","Withering Torment":"https://cards.scryfall.io/normal/front/0/6/06d44ada-f98e-405f-89d3-ac1002bfb854.jpg?1782682532","Wonder":"https://cards.scryfall.io/normal/front/5/6/567abd78-d4a3-4a33-9b5b-b5ca361059cc.jpg?1782686807"});
+function imgFor(n){ return IMG[n] || null; }
+/* Color identity of every commander option (verified vs Scryfall set MSC). "C" = colorless. */
+const CI={
+"Doctor Doom, King of Latveria":"UBR","Loki, the Deceiver":"UBR","Killmonger, Ruthless Usurper":"R","Helmut Zemo, Mastermind":"U","Lady Loki, Agent of Chaos":"R","Abomination, World Ravager":"R","Iron Monger, Sadistic Tycoon":"B","Klaw, Master of Sound":"B","Titania, Proud Pummeler":"R","Red Ghost, Intangible Genius":"UR","Chameleon, Master of Disguise":"U","Puppet Master, String Puller":"R","Stilt-Man, Towering Terror":"R","Living Laser":"R","Tombstone, Career Criminal":"B",
+"Mister Fantastic":"WURG","Invisible Woman":"WURG","Human Torch":"WURG","The Thing":"WURG","Galactus, Devourer of Worlds":"C","Silver Surfer, Galactus's Herald":"C","Black Bolt, Inhuman King":"WU","Medusa, Inhuman Queen":"G","Crystal, Inhuman Princess":"WURG","Namor, Atlantean King":"WU","Franklin Richards, Ascendant":"R","Valeria Richards, Precocious":"U","Lockjaw, Slobbering Teleporter":"U","Alicia Masters, Skilled Sculptor":"R",
+"Captain America, Team Leader":"WUR","Director Nick Fury":"WUR","Thor, Asgard's Avenger":"R",
+"T'Challa, the Black Panther":"WG","Shuri, the Black Panther":"WG","Storm, Queen of Wakanda":"WG","Bast, Panther Goddess":"WG","Okoye, Mighty and Adored":"WG","T'Chaka, Venerable King":"WG","M'Baku, Jabari Chieftain":"G","Nakia, Wakandan Operative":"G","W'Kabi, Shield of the Nation":"G",
+"Power Pack":"WURG","The Fantastic Four":"WURG","Ms. Marvel, Elastic Ally":"WG","She-Hulk, Attorney-at-Law":"WG"
+};
+const WUBRG="WUBRG";
+function ciPips(name){
+  const s = CI[name]; if(!s) return "";
+  if(s==="C") return `<span class="ci"><span class="pip C" title="Colorless">C</span></span>`;
+  const ordered = [...s].sort((a,b)=>WUBRG.indexOf(a)-WUBRG.indexOf(b));
+  return `<span class="ci">${ordered.map(c=>`<span class="pip ${c}">${c}</span>`).join("")}</span>`;
+}
+/* On-colour legal commanders that are in the Marvel Commander SET but NOT in this precon's 99
+   (verified against the EDHREC decklists + Scryfall collector numbers #741/#744/#745). */
+const SET_ONLY = new Set(["The Fantastic Four","Ms. Marvel, Elastic Ally","She-Hulk, Attorney-at-Law"]);
+/* normalize a colour string to WUBRG order */
+function normCI(s){ return [...(s||"")].filter(c=>WUBRG.includes(c)).sort((a,b)=>WUBRG.indexOf(a)-WUBRG.indexOf(b)).join(""); }
+/* STRICT: a commander is a valid option ONLY if its colour identity EQUALS the deck's identity.
+   A Grixis deck lists only Grixis commanders. Narrower or colourless legends are not options. */
+function onColor(name, deckCiArr){
+  const s = CI[name]; if(!s || s==="C") return false;
+  return normCI(s) === normCI(deckCiArr.join(""));
+}
+/* only the commanders whose identity matches the deck, faces first */
+function deckCommanders(d){ return d.commanders.filter(c=>onColor(c.nm, d.ci)); }
+const SWAPS_FULL={"doom": [["Choked Estuary", "Oscorp Industries", "a tapland out, a tri-colour mayhem land in"], ["Containment Construct", "The Master, Multiplied", "a discard-only card out, a way to keep Loki's tokens in"], ["Damocles Base, Sword of Kang", "Sundial of the Infinite", "the off-theme vehicle out, keep illusion copies for good in"], ["Superior Foes of Spider-Man", "Green Goblin, Revenant", "low payoff out, a flying deathtouch villain in"], ["Glorious Purpose", "Norman Osborn // Green Goblin", "connive filler out, a card-draw villain in"], ["Foreboding Ruins", "Mysterio, Master of Illusion", "a tapland out, a villain-illusion flooder in"], ["Progenitor's Icon", "Carnage, Crimson Chaos", "a flash artifact out, a graveyard-castable villain in"], ["Syphon Mind", "Crimson Cowl, Master of Evil", "pure draw out, a repeatable token maker in"], ["Molecule Man", "Kingpin, Wilson Fisk", "a vanilla 5-drop out, a Treasure engine in"], ["Klaw, Master of Sound", "Living Lies of Loki", "a weak villain out, draw-when-villains-die in"], ["Iron Monger, Sadistic Tycoon", "Doctor Octopus, Master Planner", "a Doom-only card out, draw plus a lord in"], ["The Frightful Four", "Super-Adaptoid", "the near-vanilla body out, a legendary-copier in"], ["Propaganda", "The Spot's Portal", "a defensive enchant out, removal that feeds discard in"]], "ff": [["The Fantasticar", "Fellwar Stone", "a clunky vehicle out, reliable fixing in"], ["Cut a Deal", "Hex Magic", "gifting opponents cards out, an explosive gamble in"], ["Nova Flame", "Improvisation Capstone", "weak burn out, a noncreature-spell payoff in"], ["Collective Effort", "King Solomon's Frogs", "situational removal out, removal plus the monarchy in"], ["Silver Surfer, Galactus's Herald", "Monica Rambeau // Photon, Living Light", "an off-plan herald out, a spell payoff in"], ["Cleansing Nova", "Raise the Palisade", "a symmetric wipe out, a one-sided wipe in"], ["Genesis Ultimatum", "Restoration Seminar", "a clunky top-end out, grind and recursion in"], ["Willie Lumpkin, Postman", "Talisman of Creativity", "flavor filler out, four-colour fixing in"], ["Mirage Mirror", "Talisman of Conviction", "a slow toolbox out, a needed rock in"], ["Terramorph", "Talisman of Progress", "a slow land out, faster fixing in"], ["Path of Discovery", "The Fantastic Four", "a ramp enchant out, the card that rewards your spells in"], ["Into the Time Vortex", "West Coast Expansion", "weak random draw out, Draw X card flow in"], ["Galactus, Devourer of Worlds", "World at War", "the ten-mana top-end out, a repeatable extra combat in"]], "wakanda": [["Divine Visitation", "Swordsman's Steel", "a dead token payoff out, equipment card-draw in"], ["King Solomon's Frogs", "Thought Vessel", "a symmetric draw out, turn-two ramp in"], ["Ancestral Communion", "Terrasymbiosis", "slow draw out, late-game ramp in"], ["Loyal Guardian", "Brightglass Gearhulk", "a vanilla token-maker out, a Sol Ring tutor in"], ["Sword of the Animist", "Verdurous Gearhulk", "slow ramp equipment out, four counters on a body in"], ["Royal Talon Fighter Jet", "Jhoira's Familiar", "a clunky vehicle out, an artifact-cost discount in"], ["Nakia, Wakandan Operative", "Avacyn's Pilgrim", "an off-theme body out, early white ramp in"], ["M'Baku, Jabari Chieftain", "Steel Seraph", "a monarch-corner card out, evasion for your commander in"], ["Fleecemane Lion", "Harrow", "a beater out, ramp and fixing in"], ["Everett K. Ross, Hapless Attaché", "Michiko's Reign of Truth", "filler out, a per-turn power boost in"], ["Gilded Lotus", "Reprieve", "over-costed ramp out, cheap protection in"], ["Trading Post", "Mystic Forge", "fiddly value out, artifact card advantage in"], ["Coveted Jewel", "Batterskull", "a table-magnet out, reusable evasion in"], ["Heart-Shaped Herb", "Altar of the Goyf", "a niche card out, a wide-board payoff in"], ["Overwhelming Stampede", "Shadowspear", "a needs-a-wide-board finisher out, trample and lifelink in"], ["Plains", "Darksteel Citadel", "the guide trims 5 basics for nonbasic fixing: Darksteel Citadel, Rogue's Passage, Thornglint Bridge, Branchloft Pathway, War Room"]], "avengers": [["Gift of Immortality", "Wave Goodbye", "aging protection out, a board bounce in"], ["Plains", "Abzan Battle Priest", "a basic out, lifelink on your counters in"], ["Mountain", "Abzan Falconer", "a basic out, flying on your counters in"], ["Love on the Battlefield", "Champions from Beyond", "a restrictive token trigger out, Hero tokens that trigger Cap in"], ["Avenge", "Damning Verdict", "a lifegain wipe out, one that spares your counters in"], ["Metallic Mimic", "Araña, Heart of the Spider", "a token-deck card out, a counter-spreader in"], ["Thor, Asgard's Avenger", "Raphael, the Muscle", "damage-per-creature out, damage doubling in"], ["Hulkbuster Armor", "Ripples of Potential", "an expensive equipment out, proliferation and protection in"]]};
+/* Curated per-commander upgrade lists. deck:null = standalone (not a precon face). srcName labels each list's real source. Card names Scryfall-verified. */
+const EDHREC_UP = {
+  "first-avenger": { name:"Captain America, First Avenger", deck:null,
+    srcName:"EDHREC top-synergy · First Avenger (rank #123, 14,494 decks)",
+    url:"https://edhrec.com/commanders/captain-america-first-avenger",
+    cards:["Sigarda's Aid","Puresteel Paladin","Excalibur, Sword of Eden","Sram, Senior Edificer","Sword of War and Peace","Steelshaper's Gift","Colossus Hammer","Forge Anew","Basilisk Collar","Kaldra Compleat","Stoneforge Mystic","Hammer of Nazahn","Codsworth, Handy Helper","Sword of Feast and Famine","Dalakos, Crafter of Wonders","Masterwork of Ingenuity","Open the Armory","Argentum Armor","Akiri, Fearless Voyager","Ardenn, Intrepid Archaeologist","Inventory Management"] },
+  "doctor-doom": { name:"Doctor Doom, King of Latveria", deck:"doom",
+    srcName:"Card Kingdom Doom Prevails upgrade guide (discard + connive swaps)",
+    url:"https://blog.cardkingdom.com/marvel-super-heroes-doom-prevails-commander-deck-upgrade-guide/",
+    cards:["Norman Osborn","Green Goblin, Nemesis","Ledger Shredder","Archfiend of Ifnir","Glint-Horn Buccaneer","Body Launderer","Homunculus Horde","Psychic Frog","Cool but Rude","Skirge Familiar","Spymaster's Vault","Monument to Endurance","Surly Badgersaur"] },
+  "team-leader": { name:"Captain America, Team Leader", deck:"avengers",
+    srcName:"Command Zone + Draftsim Avengers Assemble upgrades (Hero + counters)",
+    url:"https://draftsim.com/avengers-assembler-upgrade-guide/",
+    cards:["Spectacular Spider-Man","Ripples of Potential","Captain America, Super-Soldier","Champions from Beyond","Biorganic Carapace","Agent Phil Coulson","Araña, Heart of the Spider","Danny Pink","Damning Verdict","Cadric, Soul Kindler","Flowering of the White Tree","Spider-Woman, Stunning Savior","Avengers Assemble!","Silver Sable, Mercenary Leader","SP//dr, Piloted by Peni"] },
+  "nick-fury": { name:"Director Nick Fury", deck:"avengers",
+    srcName:"Nick Fury Hero-density swaps (10 direct replacements)",
+    url:"https://magic.wizards.com/en/news/announcements/marvel-super-heroes-commander-decklists",
+    cards:["Agent Phil Coulson","Spectacular Spider-Man","Captain America, Super-Soldier","SP//dr, Piloted by Peni","Araña, Heart of the Spider","Daredevil, Man Without Fear","Spider-Woman, Stunning Savior","Iron Lad, Young Avenger","Avengers Assemble!","Silver Sable, Mercenary Leader"] },
+  "loki": { name:"Loki, the Deceiver", deck:"doom",
+    srcName:"Loki Villain-copy swaps (keep Doom in the 99)",
+    url:"https://magic.wizards.com/en/news/feature/marvel-super-heroes-release-notes",
+    cards:["The Master, Multiplied","Mysterio, Master of Illusion","Doctor Octopus, Master Planner","Loki, God of Mischief","Roaming Throne","Obeka, Brute Chronologist","Anger","Wonder","Feed the Swarm","Blade of Selves"] },
+  "tchalla": { name:"T'Challa, the Black Panther", deck:"wakanda",
+    srcName:"T'Challa artifact-payoff swaps (Vibranium mana sinks)",
+    url:"https://magic.wizards.com/en/news/announcements/marvel-super-heroes-commander-decklists",
+    cards:["Swordsman's Steel","Thought Vessel","Shadowspear","Mystic Forge","Steel Seraph","Brightglass Gearhulk","Black Panther, Wakandan King","Amulet of Vigor","Caretaker's Talent","Emiel the Blessed"] },
+  "shuri": { name:"Shuri, the Black Panther", deck:"wakanda",
+    srcName:"Shuri artifact-density swaps (EDHREC Wakanda guide)",
+    url:"https://edhrec.com/guides/wakanda-forever-marvel-super-heroes-precon-guide",
+    cards:["Tree of Tales","Ancient Den","Darksteel Citadel","Thornglint Bridge","Foundry Inspector","Retrofitter Foundry","Illustrious Wanderglyph","Thousand Moons Smithy","Haywire Mite","Stridehangar Automaton"] },
+  "storm": { name:"Storm, Queen of Wakanda", deck:"wakanda",
+    srcName:"EDHREC top-synergy · Storm flyers/counters pivot (rank #3,221, 93 decks, thin data)",
+    url:"https://edhrec.com/commanders/storm-queen-of-wakanda",
+    cards:["Duelist's Heritage","Toski, Bearer of Secrets","Kutzil, Malamet Exemplar","Ohran Frostfang","Towering Viewpoint","Sigarda, Font of Blessings","Snakeskin Veil","Sovereign Okinec Ahau","Forgotten Ancient","Guardian Augmenter","Conclave Mentor","Kodama of the West Tree"] },
+  "mister-fantastic": { name:"Mister Fantastic", deck:"ff",
+    srcName:"Mister Fantastic spellslinger swaps (noncreature payoffs)",
+    url:"https://magic.wizards.com/en/news/feature/marvel-super-heroes-release-notes",
+    cards:["Fellwar Stone","Hex Magic","Improvisation Capstone","Monica Rambeau // Photon, Living Light","Artist's Talent","Longshot, Rebel Bowman","Vivi's Persistence","Court of Garenbrig","Akroma's Will","Faithful Mending"] },
+  "invisible-woman": { name:"Invisible Woman", deck:"ff",
+    srcName:"Invisible Woman Walls + token-doubler swaps",
+    url:"https://magic.wizards.com/en/news/feature/marvel-super-heroes-release-notes",
+    cards:["Adrix and Nev, Twincasters","Arcades, the Strategist","Overgrown Battlement","Axebane Guardian","Anointed Procession","Parallel Lives","High Alert","Cryptolith Rite","Second Harvest","March of the Multitudes"] },
+  "the-thing": { name:"The Thing", deck:"ff",
+    srcName:"The Thing counter-doubling swaps (proliferate payoffs)",
+    url:"https://magic.wizards.com/en/news/feature/marvel-super-heroes-release-notes",
+    cards:["Doubling Season","Ripples of Potential","Flux Channeler","Deepglow Skate","The Ozolith","Mutational Advantage","Hardened Scales","Evolution Sage","Vorinclex, Monstrous Raider","Tamiyo, Field Researcher"] },
+  "human-torch": { name:"Human Torch", deck:"ff",
+    srcName:"Human Torch low-curve combat swaps (pump + damage triggers)",
+    url:"https://magic.wizards.com/en/news/feature/marvel-super-heroes-release-notes",
+    cards:["Kediss, Emberclaw Familiar","Bulk Up","Curiosity","Bear Umbra","Rancor","Sram, Senior Edificer","All That Glitters","Unleash Fury","The Reaver Cleaver","Blackblade Reforged"] }
+};
+/* Per-commander cut→add swap tables (from the cited guides in this build's research). [cut, add, reason]; cut=null means an extra add with no 1-to-1 cut. All names Scryfall-verified. */
+const SWAP_PAIRS = {
+  "doctor-doom":[["Madame Hydra","Norman Osborn","attacks safely, connives, makes discards castable via Mayhem"],["Killmonger, Ruthless Usurper","Green Goblin, Nemesis","rewards every discard, pays off pitched lands"],["Stilt-Man, Towering Terror","Ledger Shredder","cheaper, connives several times a turn"],["Abomination, World Ravager","Archfiend of Ifnir","repeated discards become scalable creature control"],["Klaw, Master of Sound","Glint-Horn Buccaneer","every discarded card becomes damage, another outlet"],["Puppet Master, String Puller","Body Launderer","adds connive, returns a creature after dying"],["Superior Foes of Spider-Man","Homunculus Horde","turns card draw into a growing creature army"],["Titania, Proud Pummeler","Psychic Frog","draws through combat, unrestricted discarding"],["Propaganda","Cool but Rude","advances the discard plan, adds damage"],["Syphon Mind","Skirge Familiar","turns unwanted cards into mana and discard triggers"],["Patchwork Banner","Spymaster's Vault","mana plus another cheap connive"],[null,"Monument to Endurance","later add: discard into cards, damage, and tokens"],[null,"Surly Badgersaur","later add: mana, treasure, removal from discarded types"]],
+  "loki":[["Containment Construct","The Master, Multiplied","stops Loki's delayed trigger from sacrificing copies"],["Currency Converter","Mysterio, Master of Illusion","another Villain and deceptive token pressure"],["Moonstone, Harsh Mistress","Doctor Octopus, Master Planner","an excellent Villain for Loki to copy"],["Doom's Time Platform","Loki, God of Mischief","another high-value Villain threat"],["Syphon Mind","Roaming Throne","can double Loki's Villain triggers"],["Helmut Zemo, Mastermind","Obeka, Brute Chronologist","ends the turn to keep temporary copies"],["Madame Hydra","Anger","haste from the graveyard once discarded"],["Molecule Man","Wonder","flying for Villains from the graveyard"],["Lady Loki, Agent of Chaos","Feed the Swarm","dependable enchantment and creature removal"],["Progenitor's Icon","Blade of Selves","extra attacking Villain copies"]],
+  "team-leader":[["Hawkeye, Avenging Archer","Spectacular Spider-Man","protects every developed Hero from removal"],["Vision, Synthezoid Avenger","Captain America, Super-Soldier","protects you and your other Heroes"],["Love on the Battlefield","Champions from Beyond","every Hero token triggers Team Leader"],["Hero's Blade","Biorganic Carapace","turns modified attackers into card draw"],["Hulkbuster Armor","Cadric, Soul Kindler","copies legendary Heroes for more triggers"],["Gift of Immortality","Ripples of Potential","proliferates counters while protecting permanents"],["Make Your Move","Damning Verdict","usually spares your modified Heroes"],["Hercules, Olympian Hero","SP//dr, Piloted by Peni","rewards attacking with modified creatures"],["Speed, Young Avenger","Agent Phil Coulson","distributes counters across your team"],["Tome of Legends","Araña, Heart of the Spider","card draw through modified-creature combat"],[null,"Danny Pink","later add: draws when counters land on two creatures"],[null,"Flowering of the White Tree","later add: protection and power for legends"],[null,"Spider-Woman, Stunning Savior","later add: opposing artifacts/creatures enter tapped"],[null,"Avengers Assemble!","later add: cards and teamwide counter support"],[null,"Silver Sable, Mercenary Leader","later add: counters, lifelink, cheap Hero"]],
+  "nick-fury":[["Hawkeye, Avenging Archer","Agent Phil Coulson","distributes counters repeatedly, another searchable Hero"],["Hero's Blade","Spectacular Spider-Man","protects every Hero from removal and sweepers"],["Hulkbuster Armor","Captain America, Super-Soldier","grants hexproof while his shield remains"],["Love on the Battlefield","SP//dr, Piloted by Peni","rewards attacks with modified Heroes"],["Vision, Synthezoid Avenger","Araña, Heart of the Spider","modified-creature combat into reliable cards"],["Hercules, Olympian Hero","Daredevil, Man Without Fear","useful pressure and Hero synergy"],["Make Your Move","Spider-Woman, Stunning Savior","interaction without lowering Hero density"],["Gift of Immortality","Iron Lad, Young Avenger","cuts noncreature costs, still a Hero"],["Avenge","Avengers Assemble!","cards and teamwide counter support"],["Dismantling Wave","Silver Sable, Mercenary Leader","counters, lifelink, another cheap Hero"]],
+  "first-avenger":[["Love on the Battlefield","Sigarda's Aid","flash and free Equipment attachments"],["Patriot, Shield Wielder","Puresteel Paladin","draws cards, can zero equip costs"],["Tome of Legends","Sram, Senior Edificer","draws on every Equipment cast"],["Hawkeye, Avenging Archer","Stoneforge Mystic","finds Equipment and cheats it in"],["Vision, Synthezoid Avenger","Steelshaper's Gift","finds the Equipment you need now"],["Avengers Quinjet","Colossus Hammer","ten mana value for the Throw"],["Speed, Young Avenger","Excalibur, Sword of Eden","huge mana value and combat power"],["Door of Destinies","Forge Anew","returns Equipment, another attachment"],["Folk Hero","Basilisk Collar","deathtouch makes a thrown Equipment kill"],["Captain Mar-Vell, Space-Born","Kaldra Compleat","seven damage and a threatening attacker"],[null,"Sword of War and Peace","later add: protection plus reach damage"],[null,"Hammer of Nazahn","later add: free attach, indestructible"],[null,"Codsworth, Handy Helper","later add: repeatable Equipment value"],[null,"Sword of Feast and Famine","later add: untap plus discard"],[null,"Dalakos, Crafter of Wonders","later add: Equipment cost reduction, card selection"],[null,"Masterwork of Ingenuity","later add: one-mana copy of your best Equipment"],[null,"Open the Armory","later add: tutors any Equipment or Aura"],[null,"Argentum Armor","later add: destroys a permanent on attack"],[null,"Akiri, Fearless Voyager","later add: draw and protection for equipped attackers"],[null,"Ardenn, Intrepid Archaeologist","later add: moves several Equipment for free"],[null,"Inventory Management","later add: returns and reattaches Equipment"]],
+  "tchalla":[["Divine Visitation","Swordsman's Steel","Equipment that supports T'Challa and draws in combat"],["King Solomon's Frogs","Thought Vessel","early acceleration toward four-mana artifacts"],["Whispersilk Cloak","Shadowspear","evasion without blocking more attachments"],["Harmonize","Mystic Forge","continuing access to artifact cards"],["Fleecemane Lion","Steel Seraph","triggers T'Challa, strong combat abilities"],["Loyal Guardian","Brightglass Gearhulk","counters plus a stronger artifact body"],["M'Baku, Jabari Chieftain","Black Panther, Wakandan King","counters, cards, life, thematic support"],["T'Chaka, Venerable King","Amulet of Vigor","untaps newly created Vibranium"],["Palace Jailer","Caretaker's Talent","rewards tokens with card advantage"],["Martial Coup","Emiel the Blessed","blinks T'Challa for more Vibranium"]],
+  "shuri":[["Forest","Tree of Tales","a mana source that also counts as an artifact"],["Plains","Ancient Den","white mana and another artifact permanent"],["Forest","Darksteel Citadel","survives removal, counts as an artifact"],["Plains","Thornglint Bridge","fixes both colours, adds artifact density"],["Gilded Lotus","Foundry Inspector","lowers artifact costs earlier"],["Coveted Jewel","Retrofitter Foundry","makes artifact creatures at several sizes"],["Metalwork Colossus","Illustrious Wanderglyph","artifact pressure and a wider team"],["Divine Visitation","Thousand Moons Smithy","a scalable artifact creature now"],["M'Baku, Jabari Chieftain","Haywire Mite","inexpensive artifact interaction"],["T'Chaka, Venerable King","Stridehangar Automaton","artifact tokens, rewards development"]],
+  "mister-fantastic":[["The Fantasticar","Fellwar Stone","two-mana fixing for four colours"],["Cut a Deal","Hex Magic","stronger card advantage without helping opponents"],["Nova Flame","Improvisation Capstone","repeatable noncreature spells and triggers"],["Silver Surfer, Galactus's Herald","Monica Rambeau // Photon, Living Light","rewards noncreature casting, buffs the team"],["Black Bolt, Inhuman King","Artist's Talent","supports repeated casting and selection"],["Willie Lumpkin, Postman","Longshot, Rebel Bowman","casts larger noncreature spells efficiently"],["Terramorph","Vivi's Persistence","reusable damage and repeated triggers"],["Galactus, Devourer of Worlds","Court of Garenbrig","counters and a trigger worth copying"],["Collective Effort","Akroma's Will","protects the team and closes games"],["Mind's Dilation","Faithful Mending","cheap selection, another cast via flashback"]],
+  "invisible-woman":[["Galactus, Devourer of Worlds","Adrix and Nev, Twincasters","doubles every Wall token"],["Silver Surfer, Galactus's Herald","Arcades, the Strategist","lets Walls attack, draws from defenders"],["Black Bolt, Inhuman King","Overgrown Battlement","turns Walls into mana"],["Willie Lumpkin, Postman","Axebane Guardian","fixes every colour through defenders"],["Terramorph","Anointed Procession","doubles Walls and every token"],["Nova Flame","Parallel Lives","another token-doubling effect"],["Mind's Dilation","High Alert","defenders attack using toughness"],["Monologue Tax","Cryptolith Rite","turns Walls into activation mana"],["Cut a Deal","Second Harvest","doubles the whole token board"],["The Fantasticar","March of the Multitudes","attackers by convoking creatures"]],
+  "the-thing":[["Galactus, Devourer of Worlds","Doubling Season","magnifies creature and planeswalker counters"],["Silver Surfer, Galactus's Herald","Ripples of Potential","proliferates while protecting permanents"],["Black Bolt, Inhuman King","Flux Channeler","proliferates on each noncreature spell"],["Willie Lumpkin, Postman","Deepglow Skate","doubles counters on chosen permanents"],["The Fantasticar","The Ozolith","keeps counters after creatures leave"],["Cut a Deal","Mutational Advantage","distributes counters with card advantage"],["Nova Flame","Hardened Scales","improves every counter placement"],["Monologue Tax","Evolution Sage","frequent proliferation as you develop"],["Mirage Mirror","Vorinclex, Monstrous Raider","doubles your counters, halves theirs"],["Mind's Dilation","Tamiyo, Field Researcher","abilities that scale when doubled"]],
+  "human-torch":[["Galactus, Devourer of Worlds","Kediss, Emberclaw Familiar","another way to spread commander damage"],["Silver Surfer, Galactus's Herald","Bulk Up","a large pump spell with flashback"],["Black Bolt, Inhuman King","Curiosity","draw whenever Torch damages an opponent"],["Willie Lumpkin, Postman","Bear Umbra","protects Torch, untaps mana on attack"],["Council of Reeds","Rancor","trample, power, reliable recasting"],["Mind's Dilation","Sram, Senior Edificer","draws from the new Aura and Equipment package"],["Monologue Tax","All That Glitters","efficient power-boost Aura"],["Recurring Insight","Unleash Fury","doubles power before double strike"],["Promise of Loyalty","The Reaver Cleaver","Treasure from combat damage"],["Path of Discovery","Blackblade Reforged","scalable power increase"]]
+};
+const GAME_PLANS={"team-leader": ["Keep an opening hand with three mana sources, early acceleration, and at least two Heroes. Captain America becomes valuable when another Hero follows him during the same turn. That entering Hero receives haste, vigilance, and a plus-one counter, while Captain America receives another counter. Hero tokens also trigger his ability, giving Champions from Beyond exceptional value.", "Develop one early attacker, then cast Captain America with a cheap Hero ready afterward. Attack vulnerable opponents while vigilance leaves your new Heroes available for defense. Agent Phil Coulson, Araña, SP//dr, and Biorganic Carapace should maintain cards while your creatures steadily grow. Spectacular Spider-Man, Ripples of Potential, and Captain America, Super-Soldier should protect the developed battlefield.", "Your strongest turns involve several Heroes entering during one main phase. Cadric can create temporary copies of legendary Heroes, while Champions from Beyond creates several separate triggers. Captain America eventually becomes a commander-damage threat through accumulated counters. The wider Hero team usually finishes through hasty attacks supported by counters and evasion.", "Avoid casting every Hero into an exposed battlefield without protection available. Captain America can rebuild quickly, though repeated commander tax disrupts the deck's best sequencing. Preserve one card-advantage engine after committing several creatures. Your ideal final attack keeps protection ready for removal during combat."], "nick-fury": ["Keep an opening hand with three mana sources, an early attacker, and several Heroes. Director Nick Fury reduces each Hero spell by one generic mana. Every attack then examines four cards and can place one discovered Hero into your hand. Any creature can attack to produce that trigger, so Fury can stay protected.", "Cast a small Hero during the opening turns, then deploy Fury on turn three. Begin attacking immediately with whichever creature faces the safest combat. Fury's discount should let you cast multiple Heroes during later turns. A high Hero count makes every attack trigger more dependable.", "Jarvis and Kindred Discovery provide the strongest continuing card flow beside Fury. Herald's Horn adds another discount while helping the deck find creatures. Captain America, Team Leader stays excellent inside the deck because every later Hero enters with immediate combat value. Spectacular Spider-Man and Super-Soldier protect the growing team from targeted interaction.", "Fury wins through steady card advantage and repeated Hero deployment. He grows the battlefield more consistently than Team Leader, though he supplies fewer counters personally. Use anthem effects and modified-creature payoffs to turn the full team into lethal attackers. Preserve enough cards to rebuild after a mass removal spell."], "first-avenger": ["Keep an opening hand with three mana sources, one equip enabler, and two Equipment cards. Captain America attaches one Equipment without paying its equip cost at the beginning of combat. Three available mana lets him unattach Equipment and divide damage equal to its mana value. High-mana-value Equipment therefore serves as combat enhancement and repeatable removal.", "Cast Sigarda's Aid, Sram, Puresteel Paladin, Forge Anew, or Stoneforge Mystic during your opening turns. Deploy Captain America after at least one useful Equipment reaches the battlefield. Attach the most expensive useful weapon when combat begins. Attack first when its combat bonuses matter, then throw it after combat damage.", "Excalibur, Kaldra Compleat, and Colossus Hammer provide substantial damage through Captain America's ability. Basilisk Collar should stay attached while Captain America throws a different Equipment. This arrangement gives the thrown damage deathtouch and lifelink because Captain America deals that damage. The Collar itself should rarely become the Equipment being unattached.", "First Avenger controls creatures while building toward commander damage. Save three mana whenever an opponent might present an important target. Equipment tutors should find protection, removal support, or a finishing weapon based on the current battlefield. Captain America can reattach the thrown weapon during your next combat once it stays under your control."], "tchalla": ["Keep an opening hand with three mana sources, early acceleration, and one artifact costing at least four mana. T'Challa creates tapped Vibranium whenever he enters or attacks. Each Vibranium produces colorless mana restricted from casting nonartifact spells. Every artifact spell costing at least four mana places two plus-one counters on T'Challa.", "Cast T'Challa on turn three whenever he can attack safely afterward. His entry creates the first Vibranium, while his first attack creates another tapped copy. Use older Vibranium tokens to cast large artifact creatures and utility artifacts. Each qualifying cast grows T'Challa toward meaningful commander damage.", "Steel Seraph, Brightglass Gearhulk, Meteor Golem, and other substantial artifacts advance several parts of the plan. They grow T'Challa, improve the battlefield, and give the Vibranium meaningful uses. Shadowspear supplies trample and lifelink once T'Challa becomes enormous. Protection stays important because his counters disappear whenever he returns from the command zone.", "T'Challa usually wins through one large commander attack supported by artifact creatures. Overwhelming Stampede provides another finishing route when the artifact battlefield becomes broad. Avoid spending every Vibranium token without keeping mana for important activated abilities. T'Challa needs consistent attacks, substantial artifacts, and reliable evasion."], "shuri": ["Keep an opening hand with three mana sources and at least three inexpensive artifacts. Shuri draws when she attacks while you control three artifacts. Six artifacts also give every creature plus-two power and toughness during that attack. Her lifelink helps absorb the damage of early aggression.", "Cast mana rocks, artifact creatures, Equipment, and token producers during the opening turns. Shuri should enter once three artifacts can stay available through her first attack. Attack the opponent offering the safest route, then collect the card from her trigger. Reaching six artifacts should become the immediate objective after card drawing begins.", "Shuri's Fabricator, Trading Post, Panther Robot, and Vibranium producers help maintain the required artifact count. Treasure tokens and artifact-creature tokens count without consuming many card slots. Her teamwide bonus rewards a broad creature battlefield more than T'Challa's concentrated commander-damage plan. Token production therefore carries greater value under Shuri.", "Shuri wins through repeated attacks that draw cards and strengthen the entire team. Keep artifact creatures available because they satisfy both halves of her ability. Protect the six-artifact threshold from removal whenever a finishing attack approaches. Recasting Shuri stays affordable, letting this version recover quickly from interaction."], "mister-fantastic": ["Keep an opening hand with three colors, early fixing, and inexpensive noncreature spells. Mister Fantastic draws at the beginning of combat when you cast a noncreature spell earlier that turn. His activated ability costs four colors and copies one triggered ability twice. Vigilance lets him attack while staying available for that activation.", "Cast Mister Fantastic on turn three when your colors permit. During each following turn, cast a useful noncreature spell during the first main phase. Enter combat, draw from Mister Fantastic, then evaluate every triggered ability appearing afterward. Preserve four colored mana when a powerful trigger may become available.", "The best copied triggers create cards, tokens, removal, counters, or additional combat value. Council of Reeds, Path of Discovery, Whirlwind of Thought, and Genesis Ultimatum can produce excellent opportunities within the original deck. Mister Fantastic creates two additional copies rather than one. That multiplication rewards patience when several possible triggers appear during one turn.", "This version wins through accumulated value and heavily amplified triggered abilities. Use the commander activation on effects that materially change the battlefield. Minor lifegain and small counter triggers rarely justify four colored mana. Maintain useful noncreature spells so Mister Fantastic draws during nearly every combat."], "invisible-woman": ["Keep an opening hand with early fixing, inexpensive noncreature spells, and creature production. Invisible Woman creates a Wall during combat when you cast a noncreature spell earlier that turn. Her attack trigger can spend four colored mana to strengthen one creature for every creature you control. The chosen creature also becomes unblockable during that turn.", "Cast Invisible Woman on turn three, then cast one useful noncreature spell during each following first main phase. The resulting Walls defend against airborne and grounded attackers. Continue developing creatures until her second ability provides substantial power. Four colored mana must stay available during the chosen attack.", "Token doublers make each qualifying spell create additional Walls. Arcades and High Alert let the defensive creatures contribute directly during combat. Cryptolith Rite can turn unused Walls into the colored mana Invisible Woman needs. Second Harvest can increase the creature count right before a decisive attack.", "Invisible Woman wins by making one attacker enormous and unblockable. That attacker can be Invisible Woman, The Thing, Human Torch, or another protected creature. The power increase counts every creature you control when the ability resolves. Keep several creatures protected so a mass removal spell cannot erase the whole finishing setup."], "the-thing": ["Keep an opening hand with reliable acceleration, four-color fixing, and inexpensive noncreature spells. The Thing costs six mana, making early ramp essential for a useful first appearance. Casting a noncreature spell before combat places four plus-one counters on him. His attack trigger can spend four colored mana to double every counter type on chosen permanents.", "Develop mana during the opening turns while placing counter-bearing permanents onto the battlefield. Cast The Thing when protection or haste support can preserve his first attack. During the next turn, cast a cheap noncreature spell before combat. Attack, pay four colored mana, then double counters across every valuable permanent.", "The first successful sequence takes The Thing from five power to thirteen power. Later attacks raise his counters exponentially while also doubling loyalty and utility counters elsewhere. Doubling Season, Ripples of Potential, Flux Channeler, and Deepglow Skate accelerate this process. Trample helps his growing power reach the defending player.", "The Thing usually wins through commander damage during his second successful attack. Protection matters more than added power once he reaches a threatening size. Haste shortens the window opponents get to prepare removal. Keep four colored mana available whenever counter doubling can end the game immediately."], "human-torch": ["Keep an opening hand with strong color fixing, early acceleration, and cheap noncreature spells. Human Torch gains flying, double strike, and haste during combat after a noncreature spell was cast that turn. His attack trigger can spend four colored mana to spread his combat damage across every opponent. Double strike lets that spreading happen during both damage steps.", "Develop the four required colors while keeping the commander in the command zone. Cast Human Torch during a turn when one cheap noncreature spell and four extra colored mana stay available. Trigger his combat abilities, then attack the opponent with the weakest aerial defense. Pump spells should resolve before the relevant damage step.", "Unleash Fury, All That Glitters, Blackblade Reforged, and combat Auras raise the damage distributed across the table. Bear Umbra can untap your mana sources during the attack, helping pay the four-colored activation. Curiosity can draw cards whenever Human Torch damages different opponents. Protective spells should stay available because removal can interrupt the whole attack.", "Human Torch wins through concentrated power applied across every opponent at once. Damage dealt to the defending player stays combat damage from your commander. Damage copied toward the remaining opponents counts as noncombat damage rather than commander damage. One heavily strengthened double-strike attack can still remove several players through ordinary life loss."], "doctor-doom": ["Keep an opening hand with three mana sources, a discard outlet, and an early Villain. Doctor Doom drains each opponent for two life whenever you discard a land, and gives a Villain menace and connive in combat. Cheap card filtering that pitches lands turns routine draws into direct damage.", "Cast a discard outlet early, then Doom on turn three with a Villain ready to connive. Norman Osborn, Green Goblin, Nemesis, and Archfiend of Ifnir reward every discard, while Ledger Shredder and Glint-Horn Buccaneer connive and deal damage repeatedly. Keep the graveyard active so Mayhem and reanimation stay live.", "Doom usually wins through repeated life loss plus a wide Villain board. Protect the engine after committing several discards, and hold a card-advantage source so a wipe cannot empty your hand and your plan at once. This build was written from the Doom Prevails precon and its EDHREC data, not a published turn-by-turn primer, so treat it as a starting line."], "loki": ["Keep an opening hand with three mana sources, an early Villain, and a way to attack. Loki makes a tapped attacking copy of another Villain whenever he attacks, and draws whenever your Villains deal combat damage. Strong entry-ability Villains and extra attack triggers reward the copy engine.", "Cast a Villain early, then Loki, and swing so the copy enters attacking. The Master, Multiplied and Obeka keep the temporary copies past end of turn. Doctor Octopus and Mysterio give Loki better copy targets, while Roaming Throne doubles his relevant triggers.", "Loki wins through a growing swarm of copied Villains and the cards their combat damage draws. Blade of Selves multiplies the attack further. Protect Loki so the copy trigger keeps firing each combat. This plan comes from the precon list and EDHREC data rather than a published primer."], "storm": ["Keep an opening hand with three mana sources, early ramp, and a counters or flyers payoff. Storm rewards a wide board of modified and evasive creatures, so cheap ramp into threats matters most.", "Develop mana, then deploy counter-spreaders and evasive threats. Forgotten Ancient, Conclave Mentor, and Kodama of the West Tree grow the team, while Duelist's Heritage and Ohran Frostfang push combat. Toski and Kutzil keep cards flowing.", "Storm wins through a wide, evasive, counter-boosted attack. Hold protection for the board, since this build leans on many small creatures rather than one threat. This pivot has thin EDHREC data (93 decks), so treat the list and plan as a starting point."]};
+const GUIDE_FACE={"doom": "doctor-doom", "avengers": "team-leader", "ff": "mister-fantastic", "wakanda": "tchalla"};
+/* Deck-level at-the-table read, editorial synthesis from the theses and scores. */
+const PROFILE = {
+  doom:{ player:"Enjoys grinding value, discard payoffs, and a villain swarm. Comfortable piloting the strongest single line in the set, the Loki copy engine.", budget:"Low. Most adds are cheap Marvel villains and commons; no expensive staples are required to make it hum.", table:"Threatening. The land-discard drain and Loki copies pull attention fast, so expect to be focused once the engine is online." },
+  ff:{ player:"Wants the highest ceiling and does not mind four-colour mana and fiddly sequencing. Rewards an experienced pilot.", budget:"Medium. Four-colour fixing and value engines add up, and a few enablers such as Doubling Season for The Thing run pricey.", table:"Slow to build, explosive to finish. Reads as durdly early, then a copied trigger or a counter-double can end the game." },
+  avengers:{ player:"A newer or casual pilot who likes a clean go-wide plan with few hard decisions. Lowest ceiling of the top three.", budget:"Low to medium. Hero adds are mostly set cards; the protection pieces such as Spectacular Spider-Man are the main spend.", table:"Quiet early, snowballs on counters. Rarely the archenemy until the board is already wide." },
+  wakanda:{ player:"Likes a focused artifact plan and flavour over raw power. Forgiving mana, weakest out of the box.", budget:"Low. Artifact fixing and Gearhulks are affordable, and Shuri leans on cheap artifact tokens.", table:"Tidy and low-heat. Builds Vibranium toward one large commander swing, so political pressure stays light until the finish." }
+};
+/* Rule 0 / power-bracket model. Official WotC Commander Brackets 1-5; precons are Bracket 2 out of box.
+   Scored on the four barometers (Game Changers, 2-card combos, extra turns, mass land destruction) plus stax/fast mana disclosure.
+   Sources: Draftsim Bracket Calculator, Commander Power Meter, PreconForge Rule 0 checklist. */
+const RULE0 = {
+  doom:{ oob:2, upg:3, stax:"Light tax (Propaganda-style)", note:"Cleanest villain/discard grind; the Loki copy line is the spiciest thing here, still no infinite combo." },
+  ff:{ oob:2, upg:3, stax:"None", note:"Highest ceiling, but the payoff is copied triggers and doubled counters, not a two-card kill." },
+  avengers:{ oob:2, upg:2, stax:"None", note:"Go-wide Hero counters; nothing on the disclosure list, a textbook Bracket 2." },
+  wakanda:{ oob:2, upg:2, stax:"None", note:"Focused artifacts and one big commander swing; stays a calm Bracket 2 even upgraded." }
+};
+const R0_NAMES = ["Exhibition","Core","Upgraded","Optimized","cEDH"];
+const DECKS = [
+  {
+    id:"doom", name:"Doom Prevails", ci:["U","B","R"], tag:"Grixis villains · discard-matters & token copies",
+    rankColor:"var(--rank1)",
+    scores:{power:7.5, ceiling:8.0, fun:8.7, ease:6.0, politics:5.5},
+    edge:"Two win engines in one box, and the Loki copy-and-swing line is the strongest single play in the set.",
+    weak:"Grixis mana and the discard clock ask for careful sequencing, so it is not the gentlest first deck.",
+    thesis:"The critics' darling. Two very different engines in one box. Doctor Doom punishes the table every time you pitch a land, while Loki turns your best villain into a swarm of attacking copies. The Loki pivot is the strongest single line in the set.",
+    commanders:[
+      {role:"face", nm:"Doctor Doom, King of Latveria", cost:"{1}{U}{B}{R}",
+       text:"Whenever you discard a land, each opponent loses 2 life. At combat, a Villain you control gains menace and connives."},
+      {role:"second", nm:"Loki, the Deceiver", cost:"{1}{U}{B}{R}",
+       text:"On attack, make a tapped, attacking, non-legendary copy of another Villain you control (sacrificed end of turn). Villains dealing combat damage draw you cards."},
+      {role:"alt", nm:"Killmonger, Ruthless Usurper"},{role:"alt", nm:"Helmut Zemo, Mastermind"},{role:"alt", nm:"Lady Loki, Agent of Chaos"},
+      {role:"alt", nm:"Abomination, World Ravager"},{role:"alt", nm:"Iron Monger, Sadistic Tycoon"},{role:"alt", nm:"Klaw, Master of Sound"},
+      {role:"alt", nm:"Titania, Proud Pummeler"},{role:"alt", nm:"Red Ghost, Intangible Genius"},{role:"alt", nm:"Chameleon, Master of Disguise"},
+      {role:"alt", nm:"Puppet Master, String Puller"},{role:"alt", nm:"Stilt-Man, Towering Terror"},{role:"alt", nm:"Living Laser"},{role:"alt", nm:"Tombstone, Career Criminal"}
+    ],
+    pick:"Best build-around: <b>Loki, the Deceiver</b>. Doom is the flavor face, but the guides agree Loki's copy-and-swing engine is where the deck actually goes wide and wins.",
+    source:{name:"Draftsim Doom Prevails Upgrade Guide", url:"https://draftsim.com/doom-prevails-upgrade-guide/"},
+    swaps:[
+      ["Damocles Base, Sword of Kang","Sundial of the Infinite","the off-theme vehicle out, a way to keep Loki's illusion copies for good in"],
+      ["Superior Foes of Spider-Man","Green Goblin, Revenant","a low-payoff card out, a flying deathtouch villain with draw-discard synergy in"],
+      ["Molecule Man","Kingpin, Wilson Fisk","a six-mana off-plan body out, a Treasure engine off your sacrificed tokens in"],
+      ["Iron Monger, Sadistic Tycoon","Doctor Octopus, Master Planner","a Doom-only card out, card draw plus a villain lord in"],
+      ["The Frightful Four","Super-Adaptoid","the near-vanilla body out, a legendary-copier in"],
+      ["Syphon Mind","Crimson Cowl, Master of Evil","pure draw out, a repeatable villain-token maker in"],
+      ["Klaw, Master of Sound","Living Lies of Loki","a weak villain out, card draw when your villains die in"]
+    ]
+  },
+  {
+    id:"ff", name:"The Fantastic Four", ci:["U","R","G","W"], tag:"Four-color spellslinger · noncreature-spell payoffs",
+    rankColor:"var(--rank2)",
+    scores:{power:7.5, ceiling:8.6, fun:8.0, ease:5.0, politics:6.5},
+    edge:"The highest upgrade ceiling of the four, with four legal commanders to build around.",
+    weak:"Four colours make it the least forgiving deck to cast on curve, the lowest Ease in the set.",
+    thesis:"The highest ceiling in the set and the only four-color deck. Pick your favorite of Marvel's First Family as commander. Every face rewards you for casting a noncreature spell each turn, so it upgrades straight into a genuine spellslinger machine. The four-color mana is the tax you pay.",
+    commanders:[
+      {role:"face", nm:"Mister Fantastic", cost:"{2}{U}",
+       text:"Vigilance, reach. If you cast a noncreature spell, draw. Tap + {R}{G}{W}{U}: copy a triggered ability you control twice."},
+      {role:"face", nm:"Invisible Woman", cost:"{2}{W}",
+       text:"Makes 0/3 Wall tokens when you've cast a noncreature spell; can pump and make a creature unblockable."},
+      {role:"face", nm:"Human Torch", cost:"{3}{R}",
+       text:"Gains flying + double strike after a noncreature spell; can flare damage to every opponent."},
+      {role:"face", nm:"The Thing", cost:"{5}{G}",
+       text:"Trample; loads +1/+1 counters after a noncreature spell and can double all your counters on attack."},
+      {role:"alt", nm:"Galactus, Devourer of Worlds"},{role:"alt", nm:"Silver Surfer, Galactus's Herald"},{role:"alt", nm:"Black Bolt, Inhuman King"},
+      {role:"alt", nm:"Medusa, Inhuman Queen"},{role:"alt", nm:"Crystal, Inhuman Princess"},{role:"alt", nm:"Namor, Atlantean King"},
+      {role:"alt", nm:"Franklin Richards, Ascendant"},{role:"alt", nm:"Valeria Richards, Precocious"},{role:"alt", nm:"Lockjaw, Slobbering Teleporter"},
+      {role:"alt", nm:"Alicia Masters, Skilled Sculptor"},
+      {role:"alt", nm:"Power Pack"},{role:"alt", nm:"The Fantastic Four"}
+    ],
+    pick:"Best build-around: <b>Mister Fantastic</b>. Copying your own triggers twice is the most broken button in the box; The Thing is the beginner-friendly counters payoff.",
+    source:{name:"Draftsim Fantastic Four Upgrade Guide", url:"https://draftsim.com/fantastic-four-upgrade-guide/"},
+    swaps:[
+      ["Cut a Deal","Hex Magic","a card that gifts opponents cards out, an explosive gamble draw in"],
+      ["Willie Lumpkin, Postman","Talisman of Creativity","flavor filler out, four-color fixing in"],
+      ["Mirage Mirror","Talisman of Conviction","a slow toolbox out, a mana rock the deck needs in"],
+      ["Into the Time Vortex","West Coast Expansion","weak random draw out, Draw X card flow in"],
+      ["Galactus, Devourer of Worlds","World at War","the ten-mana top-end out, a repeatable extra combat in"],
+      ["Silver Surfer, Galactus's Herald","Monica Rambeau // Photon, Living Light","an off-plan herald out, a noncreature-spell payoff in"]
+    ]
+  },
+  {
+    id:"avengers", name:"Avengers Assemble", ci:["R","W","U"], tag:"Jeskai Heroes · counters & go-wide",
+    rankColor:"var(--rank3)",
+    scores:{power:6.5, ceiling:7.0, fun:7.2, ease:8.5, politics:6.0},
+    edge:"The cleanest curve in the set, a straightforward Jeskai counters-and-go-wide plan that plays well on turn one out of the box.",
+    weak:"The lowest ceiling of the top three, so it climbs the least once you start upgrading.",
+    thesis:"The clean, beginner-friendly starter. Captain America hands out haste and +1/+1 counters to every Hero that lands, and Nick Fury keeps the team coming. Straightforward Jeskai typal, least likely to trip you up, lowest ceiling of the top three.",
+    commanders:[
+      {role:"face", nm:"Captain America, Team Leader", cost:"{R}{W}{U}",
+       text:"Every other Hero that enters gains vigilance and haste and gets a +1/+1 counter, and so does Cap."},
+      {role:"second", nm:"Director Nick Fury", cost:"{U}{R}{W}",
+       text:"Hero spells cost {1} less; digs four deep for a Hero every time you attack."},
+      {role:"alt", nm:"Thor, Asgard's Avenger"}
+    ],
+    pick:"Best build-around: <b>Captain America, Team Leader</b>. The counter-anthem snowballs faster than Fury's card advantage; Fury is the better pick only in a heavier control build.",
+    source:{name:"Gathering Games Avengers Assemble Upgrade Guide", url:"https://gatheringgames.co.uk/community/blog/avengers-assemble-precon-upgrade-guide-mtg-marvel-super-heroes"},
+    swaps:[
+      ["Gift of Immortality","Wave Goodbye","aging protection out, a board bounce in"],
+      ["Love on the Battlefield","Champions from Beyond","a too-restrictive token trigger out, Hero tokens that trigger Cap in"],
+      ["Avenge","Damning Verdict","a lifegain wipe out, one that spares your countered team in"],
+      ["Captain Mar-Vell, Space-Born","Araña, Heart of the Spider","an underperforming Hero out, a counter-spreader in"],
+      ["Metallic Mimic","SP//dr, Piloted by Peni","a token-deck card out, card draw off modified creatures in"],
+      ["Speed, Young Avenger","Urdnan, Dromoka Warrior","conditional evasion out, double strike on a counter-heavy Cap in"],
+      ["Thor, Asgard's Avenger","Raphael, the Muscle","damage-per-creature out, damage doubling in"],
+      ["Hulkbuster Armor","Ripples of Potential","an expensive equipment out, proliferation and protection in"]
+    ]
+  },
+  {
+    id:"wakanda", name:"Wakanda Forever", ci:["G","W"], tag:"Selesnya artifacts · Vibranium & counters",
+    rankColor:"var(--rank4)",
+    scores:{power:6.0, ceiling:6.5, fun:6.6, ease:7.5, politics:6.0},
+    edge:"Only two colours, so the friendliest mana and the easiest box to build first.",
+    weak:"The lowest out-of-box power, and the Vibranium artifact plan needs upgrades before it bites.",
+    thesis:"The most focused and the weakest out of the box. T'Challa spins up indestructible Vibranium artifact tokens and grows on big artifact spells; Shuri turns an artifact count into lifelink beats. Tight and flavorful, but it leans on filler that upgrades want gone, and the monarch sub-theme pulls in two directions.",
+    commanders:[
+      {role:"face", nm:"T'Challa, the Black Panther", cost:"{1}{G}{W}",
+       text:"Makes a tapped indestructible Vibranium artifact token on enter/attack; grows +2 counters when you cast a big artifact."},
+      {role:"second", nm:"Shuri, the Black Panther", cost:"{G}{W}",
+       text:"Lifelink; draws on attack with 3+ artifacts and team-pumps with 6+."},
+      {role:"alt", nm:"Storm, Queen of Wakanda"},{role:"alt", nm:"Bast, Panther Goddess"},{role:"alt", nm:"Okoye, Mighty and Adored"},
+      {role:"alt", nm:"T'Chaka, Venerable King"},{role:"alt", nm:"M'Baku, Jabari Chieftain"},{role:"alt", nm:"Nakia, Wakandan Operative"},
+      {role:"alt", nm:"W'Kabi, Shield of the Nation"},
+      {role:"alt", nm:"Ms. Marvel, Elastic Ally"},{role:"alt", nm:"She-Hulk, Attorney-at-Law"}
+    ],
+    pick:"Best build-around: <b>T'Challa, the Black Panther</b>. The Vibranium engine is the whole reason to buy the box; Storm is the spicy flyers-matter pivot if you upgrade hard.",
+    source:{name:"Draftsim Wakanda Forever Upgrade Guide", url:"https://draftsim.com/wakanda-forever-upgrade-guide/"},
+    swaps:[
+      ["Sword of the Animist","Verdurous Gearhulk","slow ramp equipment out, four counters on an artifact body in"],
+      ["Coveted Jewel","Batterskull","the table-magnet out, reusable evasive equipment in"],
+      ["Gilded Lotus","Reprieve","over-costed ramp out, cheap protection against a wipe in"],
+      ["Overwhelming Stampede","Shadowspear","a needs-a-wide-board finisher out, one-mana trample and lifelink in"],
+      ["Trading Post","Mystic Forge","fiddly value out, artifact card advantage off the top in"],
+      ["Loyal Guardian","Brightglass Gearhulk","a vanilla token-maker out, a Sol Ring tutor on cast in"],
+      ["Royal Talon Fighter Jet","Jhoira's Familiar","a clunky vehicle out, an artifact-cost discount flyer in"]
+    ]
+  }
+];
+
+const METRIC_LABELS = {power:"Power", ceiling:"Ceiling", fun:"Fun", ease:"Ease", politics:"Politics"};
+function overall(s){ return (s.power*0.28 + s.ceiling*0.26 + s.fun*0.24 + s.ease*0.12 + s.politics*0.10); }
+let sortKey = "overall";
+const byId = {}; DECKS.forEach(d=>byId[d.id]=d);
+/* EDHREC build popularity of each deck's lead commander, captured 13 July 2026 (static snapshot, not read live). Fact-check signal for the ranking. */
+const EDHREC_POP = {
+  doom:     [{cmdr:"Doctor Doom, King of Latveria", n:4930}, {cmdr:"Loki, the Deceiver", n:1263}],
+  ff:       [{cmdr:"Mister Fantastic", n:1085}, {cmdr:"The Thing", n:727}, {cmdr:"Invisible Woman", n:517}, {cmdr:"Human Torch", n:367}],
+  avengers: [{cmdr:"Captain America, Team Leader", n:2456}, {cmdr:"Director Nick Fury", n:292}],
+  wakanda:  [{cmdr:"T'Challa, the Black Panther", n:2112}, {cmdr:"Shuri, the Black Panther", n:117}]
+};
+const EDHREC_ASOF = "13 July 2026";
+/* Pre/post upgrade ranking: pre = out-of-box power, post = fully-upgraded ceiling. */
+function rankMapBy(metric){ const ord=[...DECKS].sort((a,b)=>b.scores[metric]-a.scores[metric]); const m={}; ord.forEach((d,i)=>m[d.id]=i+1); return m; }
+
+function pips(ci){ return ci.map(c=>`<span class="pip ${c}">${c}</span>`).join(""); }
+function scoreEl(k,v){ return `<div class="score"><div class="v">${v.toFixed(1)}</div><div class="k">${METRIC_LABELS[k]}</div><div class="bar"><i style="width:${v*10}%"></i></div></div>`; }
+function cmdrEl(c){
+  const rc = c.role==="face"?"face":"second";
+  const rl = c.role==="face"?"Face":"2nd face";
+  const u = imgFor(c.nm);
+  const id = (CI[c.nm]||"");
+  const costCols = new Set((c.cost||"").match(/[WUBRG]/g)||[]);
+  const idCols = [...id].filter(x=>"WUBRG".includes(x));
+  // when the casting cost shows fewer colours than the card's identity, say why
+  const viaAbility = idCols.length > costCols.size;
+  const idnote = viaAbility
+    ? `<div class="idnote">Casts for ${c.cost}, but its colour identity is <b>${normCI(id)}</b> because its rules text pays {R}{G}{W}{U}. That is what makes it a legal ${idCols.length}-colour commander for this deck.</div>`
+    : "";
+  return `<div class="cmdr">${u?`<div class="cmdr-img"><img loading="lazy" src="${u}" alt="${c.nm}"></div>`:""}<div class="cmdr-txt"><div class="top"><span class="nm">${c.nm}</span>${ciPips(c.nm)}<span class="role ${rc}">${rl}</span></div><div class="cost">${c.cost||""}</div><p class="otext">${c.text||""}</p>${idnote}</div></div>`;
+}
+
+function render(){
+  const arr = [...DECKS].sort((a,b)=>{
+    const av = sortKey==="overall"?overall(a.scores):a.scores[sortKey];
+    const bv = sortKey==="overall"?overall(b.scores):b.scores[sortKey];
+    return bv-av;
+  });
+  const preRank = rankMapBy("power"), postRank = rankMapBy("ceiling");
+  document.getElementById("decks").innerHTML = arr.map((d,i)=>{
+    const ov = overall(d.scores);
+    const opts = deckCommanders(d);
+    const faces = opts.filter(c=>c.role!=="alt");
+    const alts = opts.filter(c=>c.role==="alt");
+    const rankTxt = ["1st","2nd","3rd","4th"][i];
+    const heroU = imgFor(faces[0].nm);
+    const pre = preRank[d.id], post = postRank[d.id];
+    const mv = post<pre?"up":(post>pre?"down":"flat");
+    const arrow = post<pre?"▲":(post>pre?"▼":"▬");
+    const ppBadge = `<div class="prepost ${mv}" title="Rank out of the box (by power) versus fully upgraded (by ceiling)"><span class="pp-l">out of box <b>#${pre}</b></span><span class="pp-a">${arrow}</span><span class="pp-l">upgraded <b>#${post}</b></span></div>`;
+    const pickName = ((d.pick||"").match(/<b>(.*?)<\/b>/)||[])[1] || faces[0].nm;
+    const swHtml = (d.swaps||[]).slice(0,3).map(s=>`<span class="ev-swap"><span class="ev-cut">${s[0]}</span><span class="ev-ar">→</span><span class="ev-add">${s[1]}</span></span>`).join("");
+    const evStrip = `<div class="evstrip grown">
+      <div class="ev-row"><span class="ev-lbl edge">Edge</span><span class="ev-txt">${d.edge||""}</span></div>
+      <div class="ev-row"><span class="ev-lbl weak">Watch</span><span class="ev-txt">${d.weak||""}</span></div>
+      <div class="ev-row"><span class="ev-lbl pick">Build</span><span class="ev-txt">Best build-around: <b>${pickName}</b></span></div>
+      <div class="ev-row swaps"><span class="ev-lbl swap">First swaps</span><span class="ev-swaps">${swHtml}</span></div>
+    </div>`;
+    return `<div class="deck" id="deck-${d.id}" onclick="openDeck('${d.id}')">
+      <div class="deck-head">
+        <div class="rankbadge" style="background:${d.rankColor}"><div class="n">${i+1}</div><div class="t">${rankTxt}</div></div>
+        <div class="deck-main">
+          <p class="deck-title">${d.name}<span class="ci">${pips(d.ci)}</span></p>
+          <p class="deck-tag">${d.tag}</p>
+          <p class="commander-line"><b>${faces.map(f=>f.nm.split(",")[0]).join(" · ")}</b> <span class="grown" style="color:var(--muted)">${alts.length?("+ "+alts.length+" more on-colour commander"+(alts.length>1?"s":"")):"the only on-colour commanders in the box"}</span></p>
+          ${ppBadge}
+          <div class="scores">
+            <div class="score"><div class="v" style="color:${d.rankColor}">${ov.toFixed(1)}</div><div class="k">Overall</div><div class="bar"><i style="width:${ov*10}%;background:${d.rankColor}"></i></div></div>
+            ${scoreEl("power",d.scores.power)}${scoreEl("ceiling",d.scores.ceiling)}${scoreEl("fun",d.scores.fun)}${scoreEl("ease",d.scores.ease)}${scoreEl("politics",d.scores.politics)}
+          </div>
+        </div>
+        ${heroU?`<div class="deck-hero grown"><img loading="lazy" src="${heroU}" alt="${faces[0].nm}"></div>`:""}
+      </div>
+      ${evStrip}
+      <div class="open-hint">Full commander notes, the complete swap package, and the game plan are in the pop-out. Tap the card →</div>
+    </div>`;
+  }).join("");
+  // deep-link support: /#deck-<id> scrolls to a precon; /#open-<id> also pops its profile
+  try{
+    var h=(location.hash||"").replace('#','');
+    if(h){
+      var m=h.match(/^(?:deck|open)-(doom|ff|avengers|wakanda)$/);
+      if(m){
+        var el=document.getElementById('deck-'+m[1]);
+        if(el) el.scrollIntoView({behavior:'smooth',block:'start'});
+        if(h.indexOf('open-')===0) setTimeout(function(){ openDeck(m[1]); },300);
+      }
+    }
+  }catch(e){}
+}
+
+function openDeck(id){
+  const d = byId[id]; if(!d) return;
+  const idx = [...DECKS].sort((a,b)=>{const av=sortKey==="overall"?overall(a.scores):a.scores[sortKey];const bv=sortKey==="overall"?overall(b.scores):b.scores[sortKey];return bv-av;}).findIndex(x=>x.id===id);
+  const opts = deckCommanders(d);
+  const faces = opts.filter(c=>c.role!=="alt");
+  const alts = opts.filter(c=>c.role==="alt");
+  const deckId = normCI(d.ci.join(""));
+  document.getElementById("modal").innerHTML = `
+    <div class="modal-head">
+      <div class="mb" style="background:${d.rankColor}"><div class="n">${idx+1}</div><div class="t">${["1ST","2ND","3RD","4TH"][idx]}</div></div>
+      <div><p class="mt">${d.name} <span class="ci">${pips(d.ci)}</span></p><div class="ms">${d.tag}</div></div>
+      <button class="close" onclick="closeModal()" aria-label="Close">✕</button>
+    </div>
+    <div class="modal-body">
+      <div class="thesis">${d.thesis}</div>
+      <h4>Primary commander${faces.length>1?"s":""}</h4>
+      ${faces.map(cmdrEl).join("")}
+      ${alts.length?`<h4>Other on-colour commanders for this deck (${alts.length})</h4>
+      <p class="ci-legend">Every commander shown matches ${d.name}'s full <b>${deckId}</b> identity. Cards marked <span class="setbadge">◆ set card</span> are legal ${deckId} commanders in the Marvel Commander set but are not in this precon's 99 (checked against the real decklist); the rest are in the box. Narrower or colourless legends are not commander options and are left out.</p>
+      <div class="altcards">${alts.map(a=>{const u=imgFor(a.nm);const so=SET_ONLY.has(a.nm);return `<div class="altcard${so?' setonly':''}">${u?`<img loading="lazy" src="${u}" alt="${a.nm}">`:''}<div class="cap">${a.nm.split(",")[0]}</div>${ciPips(a.nm)}${so?`<div class="setbadge">◆ set card, not in the 99</div>`:''}</div>`;}).join("")}</div>`
+      :`<p class="ci-legend">${faces.map(f=>f.nm.split(",")[0]).join(" and ")} are the only commanders in this box that match its full <b>${deckId}</b> identity. Every other legend in the deck is a narrower colour, so it is not a commander option here.</p>`}
+      <div class="pick">${d.pick}</div>
+      ${(SWAPS_FULL[d.id]||[]).length?`<div class="cklist">
+        <h4>Choose a commander build<span class="src">this selector drives the game plan and swaps below</span></h4>
+        <div class="ckseg" id="ckseg-${d.id}">
+          <button class="cksrc on" onclick="setList('${d.id}','guide',this)">Precon guide (${(SWAPS_FULL[d.id]||[]).length})</button>
+          ${edhForDeck(d.id).map(k=>`<button class="cksrc" onclick="setList('${d.id}','${k}',this)">${EDHREC_UP[k].name.split(",")[0]} upgrades (${pairsFor(d.id,k).length})</button>`).join("")}
+        </div>
+        <p class="ckcap" id="ckcap-${d.id}">${(SWAPS_FULL[d.id]||[]).length} adds · 1-to-1 swaps from the cited precon guide</p>
+        <textarea class="ckbox" id="ck-${d.id}" readonly>${upgradeText(d.id)}</textarea>
+        <div class="ckbtnrow">
+          <button class="ckcopy" onclick="ckCopy('${d.id}', this)">Copy list ⧉</button>
+          <a class="ckdeck" id="ckdeck-${d.id}" href="${deckUrl((SWAPS_FULL[d.id]||[]).map(s=>s[1]))}" target="_blank" rel="noopener">Price whole list in KC Finder ⧉</a>
+        </div>
+        <p class="cklabel">Or tap a single card to check local store stock in our <a href="/kc-card-finder" target="_blank" rel="noopener">KC Card Finder</a>:</p>
+        <div class="cklinks" id="cklinks-${d.id}">${finderLinksHTML((SWAPS_FULL[d.id]||[]).map(s=>s[1]))}</div>
+        <p class="cknote">ADD cards only (what goes in). Double-faced cards use the front-face name so the parser finds them.${edhForDeck(d.id).length?' The game plan and swaps below follow this choice.':''}</p>
+      </div>`:''}
+      ${RULE0[d.id]?(()=>{const r=RULE0[d.id];return `<div class="rule0">
+        <h4>Rule 0 bracket<span class="src">official Commander Brackets, 1 to 5</span></h4>
+        <div class="r0-scale">${[1,2,3,4,5].map(n=>`<div class="r0-seg${n===r.oob?' oob':''}${n>r.oob&&n<=r.upg?' upg':''}"><span class="r0-n">${n}</span><span class="r0-nm">${R0_NAMES[n-1]}</span></div>`).join("")}</div>
+        <p class="r0-key"><span class="r0-dot oob"></span>Out of the box: <b>Bracket ${r.oob} (${R0_NAMES[r.oob-1]})</b>${r.upg>r.oob?`<span class="r0-dot upg"></span>Fully upgraded: <b>Bracket ${r.upg} (${R0_NAMES[r.upg-1]})</b>`:`<span class="r0-flat">Stays Bracket ${r.oob} even upgraded</span>`}</p>
+        <div class="r0-list">
+          <div class="r0-row"><span>Game Changers</span><b>None out of box</b></div>
+          <div class="r0-row"><span>Two-card infinite combos</span><b>None</b></div>
+          <div class="r0-row"><span>Extra-turn cards</span><b>None</b></div>
+          <div class="r0-row"><span>Mass land destruction</span><b>None</b></div>
+          <div class="r0-row"><span>Stax / tax</span><b>${r.stax}</b></div>
+          <div class="r0-row"><span>Fast mana</span><b>Sol Ring only (standard precon)</b></div>
+        </div>
+        <p class="r0-note">${r.note}</p>
+        <p class="r0-src grown">Model from the <a href="https://draftsim.com/edh-power-level/" target="_blank" rel="noopener">Draftsim Bracket Calculator</a>, <a href="https://commanderpowermeter.com/" target="_blank" rel="noopener">Commander Power Meter</a>, and the <a href="https://preconforge.com/the-perfect-rule-0-checklist-how-to-define-your-commander-decks-power-level/" target="_blank" rel="noopener">PreconForge Rule 0 checklist</a>, on the official WotC Commander Brackets.</p>
+      </div>`;})():""}
+      <div id="snaillink-${d.id}" class="snaillink"></div>
+      <div id="gameplan-${d.id}" class="gameplan"></div>
+      <div id="swapsec-${d.id}"></div>
+      ${PROFILE[d.id]?`<div class="profile deck-${d.id}">
+        <h4>At the table<span class="src">editorial read from the scores and thesis</span></h4>
+        <div class="prow"><span class="pk">Ideal player</span><span class="pv">${PROFILE[d.id].player}</span></div>
+        <div class="prow"><span class="pk">Budget pressure</span><span class="pv">${PROFILE[d.id].budget}</span></div>
+        <div class="prow"><span class="pk">Table behaviour</span><span class="pv">${PROFILE[d.id].table}</span></div>
+        ${SNAIL_ADVICE[d.id]?`<div class="prow snailprow"><span class="pk">Snail principle</span><span class="pv"><b>${SNAIL_ADVICE[d.id].principle}.</b> ${SNAIL_ADVICE[d.id].note}
+          <details class="snailfull"><summary>See the applied build</summary>
+            <p class="snaillead">${SNAIL_ADVICE[d.id].lead}</p>
+            ${SNAIL_ADVICE[d.id].swaps.map(s=>`<div class="snailswap"><b>${s[0]}</b> <span class="ar">&rarr;</span> <b>${s[1]}</b><br>${s[2]}</div>`).join("")}
+            <p class="snailclose">${SNAIL_ADVICE[d.id].close}</p>
+          </details>
+          <a href="${SNAIL_ARTICLE[d.id]||('/salubrioussnail-decks/#snaildeck-'+d.id)}" target="_blank" rel="noopener" style="color:var(--plum-d);font-weight:800;white-space:nowrap">${SNAIL_ARTICLE[d.id]?'read the full worked deck tech':'open on the full deck page'} &rarr;</a></span></div>`:""}
+      </div>`:""}
+    </div>`;
+  const ov = document.getElementById("overlay");
+  ov.classList.add("show");
+  document.body.style.overflow = "hidden";
+  renderSwapSec(d.id, "guide");
+  renderGamePlan(d.id, "guide");
+  renderSnailLink(d.id, "guide");
+}
+function frontFace(n){ return n.includes(" // ") ? n.split(" // ")[0].trim() : n; }
+function ckLines(names){ return names.map(n=>"1 "+frontFace(n)).join("\n"); }
+function upgradeText(id){ return ckLines((SWAPS_FULL[id]||[]).map(s=>s[1])); }
+function edhForDeck(deckId){ return Object.keys(EDHREC_UP).filter(k=>EDHREC_UP[k].deck===deckId); }
+function pairsFor(deckId, srcKey){
+  if(srcKey==='guide') return (SWAPS_FULL[deckId]||byId[deckId].swaps||[]);
+  if(SWAP_PAIRS[srcKey]) return SWAP_PAIRS[srcKey];
+  return (EDHREC_UP[srcKey].cards||[]).map(c=>[null,c,""]);
+}
+function namesFor(deckId, srcKey){ return pairsFor(deckId, srcKey).map(p=>p[1]); }
+/* Per-commander game plan, follows the selected source (guide maps to the deck's face commander). */
+/* Commanders that have a matching applied-build section on the Snail decks page. */
+const SNAIL_DECK = { "doctor-doom":"snaildeck-doom", "loki":"snaildeck-doom", "mister-fantastic":"snaildeck-ff", "team-leader":"snaildeck-avengers", "tchalla":"snaildeck-wakanda", "nick-fury":"snaildeck-nickfury" };
+const SNAIL_ADVICE = {"doom": {"principle": "Reducing Dead Draws Through Synergy", "note": "Snail's dead-draw test cuts anything that neither engine feeds. Every Doom upgrade swaps a card outside the discard and Loki-copy engines for one that feeds them, so the deck almost never draws a blank.", "lead": "Snail's dead-draw video says a card goes dead when the deck lacks the pieces that make it work, so you audit by category and cut anything the engine does not feed. The Doom precon is a clean test case. Its two engines are land discard from Doctor Doom and non-legendary Villain copies from Loki, and the upgrade path is almost entirely about replacing cards outside both engines.", "swaps": [["Superior Foes of Spider-Man", "Green Goblin, Revenant", "The cut is a low-payoff card with no home in either engine. The add is a flying deathtouch Villain with evasion and built-in card advantage, so it feeds Doom's discard trigger and gives Loki a body worth copying."], ["Molecule Man", "Kingpin, Wilson Fisk", "A six-mana body whose miracle ability wants a different deck does nothing in either category. Kingpin turns your sacrificed Loki tokens into Treasure, which means a card that was dead is now part of the copy loop."], ["Damocles Base, Sword of Kang", "Sundial of the Infinite", "An off-theme vehicle leaves for a piece that keeps Loki's copies past end of turn. That is the difference between a synergy piece and a filler slot."]], "close": "Taken as a group, the swaps are the video's category audit in action. Nothing generically weak comes out. What comes out is whatever the discard and copy engines cannot use. This is the cleanest fit of the four for this audit."}, "ff": {"principle": "Mana Fixing and Color Consistency", "note": "Snail treats consistency as the whole mana base. In four colors the real tax is fixing, so the two Talismans are the highest-value slots, smoothing the exact turns this deck wants to break open.", "lead": "Snail's mana video treats consistency as a whole-mana-base question, curve, fixing, draw access, mana sinks, and testing together. The Fantastic Four deck runs four colors with a high ceiling and awkward sequencing, so the upgrade guide's swaps go straight at its biggest tax, color fixing.", "swaps": [["Willie Lumpkin, Postman", "Talisman of Creativity", "Flavor filler leaves for a mana rock that fixes two of the deck's four colors. In a build this greedy, a fixing rock on curve does more than the cute legend ever could."], ["Mirage Mirror", "Talisman of Conviction", "A slow toolbox becomes a second fixing rock, and this deck needs it. Two Talismans is the deck telling you where its consistency problem really is."], ["Into the Time Vortex", "West Coast Expansion", "Weak, random draw leaves for West Coast Expansion, which draws X and, at X of five or more, casts a Hero for free. This is a card-flow upgrade, so the two Talismans carry the color fixing."]], "close": "The fix here is color access, the first thing a four-color deck feels when its mana stumbles. The two Talismans smooth the exact turns this deck wants to break open, and these are the best slots to spend on."}, "avengers": {"principle": "The Case for Simpler Decks", "note": "Snail's simpler-decks case is about information load. Every Avengers upgrade trades a fiddly recurring effect for a clean one, so a newer pilot keeps a readable board while the deck grows stronger.", "lead": "Snail's simpler-decks video is about information load, how many unfamiliar cards and triggers a table has to track, and how that shuts newer players out of a pickup game. Avengers is the set's clean go-wide counters deck, the one a newer pilot can follow. Read through that lens, the best upgrades keep the board readable while they make it more consistent.", "swaps": [["Love on the Battlefield", "Champions from Beyond", "Hero tokens are a familiar, legible payoff, and they visibly feed Captain America's counter trigger, so the table can see the plan coming. The line stays easy to read."], ["Avenge", "Damning Verdict", "A wipe that spares your counter-loaded team keeps one clear board state instead of resetting into a murky rebuild. That is fewer hidden interactions for opponents to parse."], ["Gift of Immortality", "Wave Goodbye", "Aging protection is a fiddly recurring loop the table has to remember. A plain board bounce is a single readable effect."]], "close": "Every swap here trades a fiddly, easy-to-forget effect for a clean one, so the deck grows stronger and stays legible at the same time. That is the exact profile a newer pilot wants at a pickup table."}, "wakanda": {"principle": "When Good Cards Are the Wrong Choice", "note": "Snail says raw power is not the only test. Coveted Jewel is the headline cut, a strong card whose real cost is the target it paints on you, and the other swaps tighten the Vibranium and counters plan.", "lead": "Snail's video says raw power is not the only test for a card, and his sharpest cases are powerful cards that remove an enjoyable decision or bypass the deck's preferred way of building resources. The Wakanda upgrades run on that same judgment, cutting powerful cards that fight the Vibranium and counters plan or cost the pilot at the table.", "swaps": [["Coveted Jewel", "Batterskull", "Coveted Jewel is the clearest case. It is powerful by raw rate and a genuine table liability, since it hands an opponent your card advantage and a reason to swing your way. The real cost lives outside its stat line."], ["Gilded Lotus", "Reprieve", "Over-costed ramp leaves for cheap protection, a clean efficiency upgrade that guards the plan you actually care about."], ["Sword of the Animist", "Verdurous Gearhulk", "Slow, small artifact equipment leaves for Verdurous Gearhulk, which arrives with four +1/+1 counters and pushes the counters plan hard. Because it is a five-mana artifact, casting it also triggers T'Challa for two more counters."]], "close": "Coveted Jewel is the headline call, a strong card whose real cost is the target it paints on you. The other two tighten the deck around its Vibranium and counters plan, which is where a T'Challa build wants its slots."}};
+const SNAIL_ARTICLE = { "doom":"/doom-prevails-deck-tech/" };
+function renderSnailLink(deckId, srcKey){
+  const host = document.getElementById('snaillink-'+deckId); if(!host) return;
+  const slug = srcKey==='guide' ? GUIDE_FACE[deckId] : srcKey;
+  const anchor = SNAIL_DECK[slug];
+  const nm = (slug && EDHREC_UP[slug]) ? EDHREC_UP[slug].name.split(",")[0] : '';
+  const art = SNAIL_ARTICLE[deckId];
+  if (art){
+    host.innerHTML = `<a class="snaillink-btn" href="${art}" target="_blank" rel="noopener">Read the full ${nm||'deck'} deck tech, worked card by card →</a>`;
+  } else if (anchor){
+    host.innerHTML = `<a class="snaillink-btn" href="/salubrioussnail-decks/#${anchor}" target="_blank" rel="noopener">Applied Snail-principle build for ${nm} on the deck page →</a>`;
+  } else { host.innerHTML = ''; }
+}
+/* Bold + hover-preview card names inside game-plan prose, and break after each sentence. */
+function escRx(s){ return s.replace(/[.*+?^${}()|[\]\\]/g,'\\$&'); }
+let CARDIDX = null;
+function buildCardIdx(){
+  if(CARDIDX) return CARDIDX;
+  CARDIDX = {}; const block = new Set(["Doom","Card","Hero","General"]);
+  for(const k in IMG){
+    const full = k.includes(" // ") ? k.split(" // ")[0].trim() : k;
+    if(!(full in CARDIDX)) CARDIDX[full] = IMG[k];
+    if(full.includes(", ")){
+      const sh = full.split(",")[0].trim();
+      if(sh.length>=4 && !block.has(sh) && !(sh in CARDIDX)) CARDIDX[sh] = IMG[k];
+    }
+  }
+  return CARDIDX;
+}
+function annotateCards(text){
+  const idx = buildCardIdx();
+  const names = Object.keys(idx).sort((a,b)=>b.length-a.length);
+  const ph = [];
+  for(const nm of names){
+    const re = new RegExp('(?<![A-Za-z0-9])'+escRx(nm)+'(?![A-Za-z0-9])','g');
+    text = text.replace(re, m=>{ ph.push('<span class="cn" data-img="'+idx[nm]+'"><b>'+m+'</b></span>'); return ''+(ph.length-1)+''; });
+  }
+  text = text.replace(/([.!?])\s+/g,'$1<br>');
+  text = text.replace(/(\d+)/g,(m,i)=>ph[+i]);
+  return text;
+}
+function renderGamePlan(deckId, srcKey){
+  const host = document.getElementById('gameplan-'+deckId); if(!host) return;
+  const slug = srcKey==='guide' ? GUIDE_FACE[deckId] : srcKey;
+  const nm = (slug && EDHREC_UP[slug]) ? EDHREC_UP[slug].name : ((byId[deckId].commanders.find(c=>c.role!=='alt')||{}).nm||'');
+  const plan = GAME_PLANS[slug];
+  if(!plan){ host.innerHTML = `<h4>Game plan<span class="src">${nm||'this commander'}</span></h4><p class="gp-none">A written game plan for this commander is not in yet. The copy-paste list and swaps still apply.</p>`; return; }
+  host.innerHTML = `<h4>Game plan<span class="src">${nm}</span></h4>${plan.map(p=>`<p class="gp-p">${annotateCards(p)}</p>`).join("")}`;
+}
+function srcMetaFor(deckId, srcKey){
+  return srcKey==='guide' ? {name:byId[deckId].source.name, url:byId[deckId].source.url} : {name:EDHREC_UP[srcKey].srcName, url:EDHREC_UP[srcKey].url};
+}
+/* Cut→Add swap cards, correlated to the selected commander source. */
+function renderSwapSec(deckId, srcKey){
+  const host = document.getElementById('swapsec-'+deckId); if(!host) return;
+  const pairs = pairsFor(deckId, srcKey);
+  const meta = srcMetaFor(deckId, srcKey);
+  const n = pairs.length;
+  const cards = pairs.map((s,i)=>{
+    const au = imgFor(s[1]);
+    const cutSide = s[0]
+      ? `<div class="swap-side cut">${imgFor(s[0])?`<img loading="lazy" src="${imgFor(s[0])}" alt="${s[0]}">`:`<div class="ph">${s[0]}</div>`}<div class="sn"><span class="tagx">✕ CUT</span>${s[0]}</div></div>`
+      : `<div class="swap-side cut"><div class="ph addph">extra add<br>no 1-to-1 cut</div><div class="sn"><span class="tagx muted">＋ EXTRA</span>your call what to trim</div></div>`;
+    return `<div class="swap${i>=6?' extra':''}">
+      ${cutSide}
+      <div class="swap-arrow">→</div>
+      <div class="swap-side add">${au?`<img loading="lazy" src="${au}" alt="${s[1]}">`:`<div class="ph">${s[1]}</div>`}<div class="sn"><span class="taga">＋ ADD</span>${s[1]}</div></div>
+      ${s[2]?`<div class="swap-why">${s[2]}</div>`:''}
+    </div>`;
+  }).join("");
+  host.innerHTML = `<h4>Cut → Add swaps (${n})<span class="src">source: <a href="${meta.url}" target="_blank" rel="noopener">${meta.name}</a></span></h4>
+    <div class="swaps collapsed" id="swaps-${deckId}">${cards}</div>
+    ${n>6?`<button class="showall" onclick="var b=document.getElementById('swaps-${deckId}');var c=b.classList.toggle('collapsed');this.textContent=c?('Show all '+${n}+' swaps ▾'):'Show fewer ▴';">Show all ${n} swaps ▾</button>`:''}
+    <p class="note grown">Swaps follow the commander you pick above. Every cut card was checked against the official precon 99 (all 111 verified in-box via EDHREC decklists); add-card names are Scryfall-verified. Rankings are editorial opinion.</p>`;
+}
+/* Every card links to our KC Card Finder, which auto-runs a local-store stock check on load. */
+function finderLinksHTML(names){
+  return names.map(n=>{ const f=frontFace(n); return `<a class="cklink" href="/kc-card-finder?card=${encodeURIComponent(f)}" target="_blank" rel="noopener">${f}</a>`; }).join("");
+}
+/* Whole-list deep link: KC Card Finder's "Price Entire Deck" reads ?deck= and prices every card at once. */
+function deckUrl(names){ return "/kc-card-finder?deck="+encodeURIComponent(ckLines(names)); }
+function setList(deckId, srcKey, btn){
+  const ta = document.getElementById('ck-'+deckId);
+  const cap = document.getElementById('ckcap-'+deckId);
+  const names = namesFor(deckId, srcKey);
+  let note;
+  if(srcKey==='guide'){
+    note = (SWAPS_FULL[deckId]||[]).length+' adds · 1-to-1 swaps from the cited precon guide';
+  } else {
+    note = EDHREC_UP[srcKey].cards.length+' cards · '+EDHREC_UP[srcKey].srcName+'. Cross-check against cards already in your list.';
+  }
+  ta.value = ckLines(names);
+  if(cap) cap.textContent = note;
+  const lk = document.getElementById('cklinks-'+deckId);
+  if(lk) lk.innerHTML = finderLinksHTML(names);
+  const dk = document.getElementById('ckdeck-'+deckId);
+  if(dk) dk.href = deckUrl(names);
+  const seg = document.getElementById('ckseg-'+deckId);
+  if(seg) [...seg.querySelectorAll('.cksrc')].forEach(b=>b.classList.toggle('on', b===btn));
+  renderSwapSec(deckId, srcKey);
+  renderGamePlan(deckId, srcKey);
+  renderSnailLink(deckId, srcKey);
+}
+function ckCopy(id, btn){
+  const ta = document.getElementById('ck-'+id);
+  ta.focus(); ta.select(); ta.setSelectionRange(0, 99999);
+  const done = ()=>{ const t=btn.textContent; btn.textContent='Copied ✓'; setTimeout(()=>{btn.textContent=t;}, 1500); };
+  if(navigator.clipboard && navigator.clipboard.writeText){
+    navigator.clipboard.writeText(ta.value).then(done).catch(()=>{ try{document.execCommand('copy'); done();}catch(e){} });
+  } else { try{document.execCommand('copy'); done();}catch(e){} }
+}
+function closeModal(){
+  document.getElementById("overlay").classList.remove("show");
+  document.body.style.overflow = "";
+}
+function renderBonus(){
+  const el = document.getElementById("bonusboxes"); if(!el) return;
+  const solo = Object.keys(EDHREC_UP).filter(k=>EDHREC_UP[k].deck===null);
+  el.innerHTML = solo.map(k=>{
+    const e = EDHREC_UP[k];
+    const u = imgFor(e.name);
+    return `<div class="cklist">
+      <h4>${e.name}<span class="src">paste into Card Kingdom / Archidekt / Moxfield</span></h4>
+      <p class="ckcap">${e.cards.length} cards · ${e.srcName}.</p>
+      <textarea class="ckbox" id="ck-${k}" readonly>${ckLines(e.cards)}</textarea>
+      <div class="ckbtnrow">
+        <button class="ckcopy" onclick="ckCopy('${k}', this)">Copy list ⧉</button>
+        <a class="ckdeck" href="${deckUrl(e.cards)}" target="_blank" rel="noopener">Price whole list in KC Finder ⧉</a>
+      </div>
+      <p class="cklabel">Or tap a single card to check local store stock in our <a href="/kc-card-finder" target="_blank" rel="noopener">KC Card Finder</a>:</p>
+      <div class="cklinks">${finderLinksHTML(e.cards)}</div>
+      <p class="cknote">ADD cards only. Source: <a href="${e.url}" target="_blank" rel="noopener">${e.name.split(",")[0]} guide</a>. Cross-check against cards already in your list.</p>
+    </div>`;
+  }).join("");
+}
+document.addEventListener("keydown", e=>{ if(e.key==="Escape") closeModal(); });
+
+function syncBars(){
+  ["sortbar","lensbar"].forEach(id=>{ const bar=document.getElementById(id); if(!bar) return; [...bar.querySelectorAll("button")].forEach(x=>x.classList.toggle("on", x.dataset.k===sortKey)); });
+}
+function onBarClick(e){
+  const b = e.target.closest("button"); if(!b) return;
+  sortKey = b.dataset.k;
+  syncBars();
+  render();
+  if(viewMode==="cover") renderCover();
+  if(viewMode==="archive") renderArchive();
+}
+document.getElementById("sortbar").addEventListener("click", onBarClick);
+document.getElementById("lensbar").addEventListener("click", onBarClick);
+
+/* Comic Cover view: same data, faction-territory presentation. */
+let viewMode = "rankings";
+const FAC = {
+  doom:    {emblem:"DOOM", motif:"Latverian control", ci:"UBR"},
+  ff:      {emblem:"4",    motif:"science unbound",   ci:"URGW"},
+  avengers:{emblem:"A",    motif:"the roster board",  ci:"RWU"},
+  wakanda: {emblem:"W",    motif:"vibranium geometry",ci:"GW"}
+};
+function meterRow(k,v,active){
+  return `<div class="pm${active?' on':''}"><span class="pm-k">${METRIC_LABELS[k]}</span><span class="pm-bar"><i style="width:${Math.max(6,v*10)}%"></i></span><span class="pm-v">${v.toFixed(1)}</span></div>`;
+}
+function renderCover(){
+  const el = document.getElementById("cover"); if(!el) return;
+  const arr = [...DECKS].sort((a,b)=>{const av=sortKey==="overall"?overall(a.scores):a.scores[sortKey];const bv=sortKey==="overall"?overall(b.scores):b.scores[sortKey];return bv-av;});
+  const metrics = ["power","ceiling","fun","ease","politics"];
+  el.innerHTML = arr.map((d,i)=>{
+    const faces = deckCommanders(d).filter(c=>c.role!=="alt");
+    const u = imgFor(faces[0].nm);
+    const f = FAC[d.id]||{emblem:"?",motif:""};
+    return `<button class="cpanel cpanel-${d.id}" style="--fac:${d.rankColor}" onclick="openDeck('${d.id}')" aria-label="Open ${d.name}">
+      <div class="cpanel-head"><span class="cpanel-rank">#${i+1}</span><span class="cpanel-emblem">${f.emblem}</span></div>
+      <div class="cpanel-portrait">${u?`<img loading="lazy" src="${u}" alt="${faces[0].nm}">`:`<div class="cpanel-noimg">${faces[0].nm.split(",")[0]}</div>`}</div>
+      <div class="cpanel-body">
+        <h3 class="cpanel-name">${d.name}</h3>
+        <p class="cpanel-motif">${f.motif} · ${pips(d.ci)}</p>
+        <div class="cpanel-meters">${metrics.map(k=>meterRow(k,d.scores[k],sortKey===k)).join("")}</div>
+        <p class="cpanel-cmdrs">${faces.map(c=>c.nm.split(",")[0]).join(" · ")}</p>
+        <span class="cpanel-open">Open dossier →</span>
+      </div>
+    </button>`;
+  }).join("");
+}
+/* Archive view: Pentagram-style command archive. Large deck cards + a persistent comparison strip + colour filter. */
+/* Buying-intent filters: each trait highlights the single best deck for that priority. */
+const TRAITS = {
+  ease:    {lbl:"Easiest first deck",    metric:d=>d.scores.ease,                   note:d=>`<b>${d.name}</b> is the easiest first deck: highest Ease (${d.scores.ease.toFixed(1)}), the most forgiving mana and lines for a new pilot.`},
+  power:   {lbl:"Strongest unchanged",   metric:d=>d.scores.power,                  note:d=>`<b>${d.name}</b> is strongest straight out of the box: tied with the Fantastic Four for the highest out-of-box power (${d.scores.power.toFixed(1)}), and it edges the tie on the higher overall score and easier pilot.`},
+  project: {lbl:"Best upgrade project",  metric:d=>d.scores.ceiling-d.scores.power, note:d=>`<b>${d.name}</b> is the best long-term project: the biggest climb from out-of-box (${d.scores.power.toFixed(1)}) to fully upgraded (${d.scores.ceiling.toFixed(1)}).`},
+  fun:     {lbl:"Most fun",              metric:d=>d.scores.fun,                    note:d=>`<b>${d.name}</b> is the most fun: highest Fun (${d.scores.fun.toFixed(1)}), the most variety, swing, and live decisions.`},
+  politics:{lbl:"Best table politics",   metric:d=>d.scores.politics,               note:d=>`<b>${d.name}</b> plays the table best: highest Table politics (${d.scores.politics.toFixed(1)}), least likely to get ganged up on.`}
+};
+let archTrait = null;
+function traitPick(t){ if(!t||!TRAITS[t]) return null; return [...DECKS].sort((a,b)=>TRAITS[t].metric(b)-TRAITS[t].metric(a))[0]; }
+function sortedDecks(){
+  return [...DECKS].sort((a,b)=>{const av=sortKey==="overall"?overall(a.scores):a.scores[sortKey];const bv=sortKey==="overall"?overall(b.scores):b.scores[sortKey];return bv-av;});
+}
+function traitPickId(){ const p=traitPick(archTrait); return p?p.id:null; }
+function deckIsPick(d){ return archTrait && d.id===traitPickId(); }
+function deckDimmed(d){ return archTrait && !deckIsPick(d); }
+function renderArchive(){
+  const strip=document.getElementById("archStrip"), cards=document.getElementById("archCards");
+  if(!strip||!cards) return;
+  const arr=sortedDecks();
+  const metrics=["power","ceiling","fun","ease","politics"];
+  // comparison strip: every deck's overall + 5 metrics onscreen at once
+  strip.innerHTML=`<div class="astrip-row astrip-head"><span></span><span>Overall</span>${metrics.map(k=>`<span>${METRIC_LABELS[k]}</span>`).join("")}</div>`+
+    arr.map((d,i)=>`<div class="astrip-row${deckDimmed(d)?' dim':''}${deckIsPick(d)?' pickhi':''}" style="--fac:${d.rankColor}"><span class="astrip-nm"><b>#${i+1}</b> ${d.name}</span><span class="astrip-v ov">${overall(d.scores).toFixed(1)}</span>${metrics.map(k=>`<span class="astrip-v">${d.scores[k].toFixed(1)}</span>`).join("")}</div>`).join("");
+  // large deck cards
+  cards.innerHTML=arr.map((d,i)=>{
+    const faces=deckCommanders(d).filter(c=>c.role!=="alt");
+    const u=imgFor(faces[0].nm);
+    const cc=deckCommanders(d).length;
+    const dim=deckDimmed(d);
+    return `<article class="acard deck-${d.id}${dim?' dim':''}${deckIsPick(d)?' pickhi':''}" style="--fac:${d.rankColor}" onclick="openDeck('${d.id}')" tabindex="0" role="button" aria-label="Open ${d.name}">
+      <div class="acard-art">${u?`<img loading="lazy" src="${u}" alt="${faces[0].nm}">`:""}<span class="acard-rank">${String(i+1).padStart(2,"0")}</span></div>
+      <div class="acard-info">
+        <div class="acard-idline">${pips(d.ci)}<span class="acard-cc">${cc} commander${cc>1?"s":""}</span></div>
+        <h3 class="acard-name">${d.name}</h3>
+        <p class="acard-identity">${d.tag}</p>
+        <div class="acard-stats">
+          <div class="astat big"><span class="astat-v">${overall(d.scores).toFixed(1)}</span><span class="astat-k">Overall</span></div>
+          <div class="astat"><span class="astat-v">${d.scores.power.toFixed(1)}</span><span class="astat-k">Out of box</span></div>
+          <div class="astat"><span class="astat-v">${d.scores.ceiling.toFixed(1)}</span><span class="astat-k">Ceiling</span></div>
+          <div class="astat"><span class="astat-v">${d.scores.ease.toFixed(1)}</span><span class="astat-k">Ease</span></div>
+        </div>
+        <p class="acard-cmdrs">${faces.map(c=>c.nm.split(",")[0]).join(" · ")}<span class="acard-open">Open dossier →</span></p>
+      </div>
+    </article>`;
+  }).join("");
+}
+function setView(mode){
+  viewMode = mode;
+  document.getElementById("decks").hidden = mode!=="rankings";
+  document.getElementById("cover").hidden = mode!=="cover";
+  document.getElementById("archive").hidden = mode!=="archive";
+  const bonus = document.getElementById("bonus"); if(bonus) bonus.hidden = mode!=="rankings";
+  [...document.querySelectorAll("#viewbar button")].forEach(x=>x.classList.toggle("on", x.dataset.v===mode));
+  if(mode==="cover") renderCover();
+  if(mode==="archive") renderArchive();
+}
+document.getElementById("viewbar").addEventListener("click", e=>{ const b=e.target.closest("button"); if(b) setView(b.dataset.v); });
+document.getElementById("archFilters").addEventListener("click", e=>{
+  const b=e.target.closest("button"); if(!b) return;
+  if(b.id==="archClear"){ archTrait=null; }
+  else if(b.dataset.t){ archTrait = archTrait===b.dataset.t ? null : b.dataset.t; }
+  [...document.querySelectorAll("#archFilters .tchip")].forEach(x=>x.classList.toggle("on", x.dataset.t===archTrait));
+  const hint=document.getElementById("archHint");
+  if(hint){ const p=traitPick(archTrait); hint.innerHTML = (archTrait&&p) ? TRAITS[archTrait].note(p) : "Pick what you actually care about; the matching deck lights up and the rest dim. The Upgrade Lens above still sorts every card."; }
+  renderArchive();
+});
+
+render();
+renderBonus();
+setView("archive");
+/* card-name hover preview */
+(function(){
+  const pop = document.createElement('div'); pop.id='cardpop'; pop.innerHTML='<img alt="">'; document.body.appendChild(pop);
+  const img = pop.querySelector('img');
+  function show(t){ img.src=t.getAttribute('data-img'); pop.style.display='block'; }
+  function place(x,y){ pop.style.left=Math.min(x+16, window.innerWidth-260)+'px'; pop.style.top=Math.min(y+16, window.innerHeight-350)+'px'; }
+  document.addEventListener('mouseover', e=>{ const t=e.target.closest('.cn'); if(t){ show(t); place(e.clientX,e.clientY); } });
+  document.addEventListener('mousemove', e=>{ if(pop.style.display==='block') place(e.clientX,e.clientY); });
+  document.addEventListener('mouseout', e=>{ if(e.target.closest('.cn')) pop.style.display='none'; });
+  document.addEventListener('click', e=>{ const t=e.target.closest('.cn'); if(t){ if(pop.style.display==='block'&&img.src===t.getAttribute('data-img')){pop.style.display='none';}else{show(t);place(e.clientX,e.clientY);} } });
+})();
+
+/* ---------- Kid mode ---------- */
+function toggleKid(){
+  const on = !document.body.classList.contains("kids");
+  document.body.classList.toggle("kids", on);
+  const b = document.getElementById("mode-btn");
+  b.textContent = on ? "🧑‍🏫 Grown-up mode" : "🧒 Kid mode";
+  b.setAttribute("aria-pressed", on?"true":"false");
+  try{ localStorage.setItem("mcr_kid", on?"1":"0"); }catch(e){}
+}
+</script>
+</body>
+</html>
