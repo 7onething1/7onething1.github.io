@@ -55,5 +55,5 @@ Doom is the most-adopted lead; the count is not what sets the composite ranking.
 ## Sources
 - Card and set data: [Scryfall, set MSC](https://scryfall.com/sets/msc)
 - Decklists & commanders: [WotC Marvel Super Heroes Commander Decklists](https://magic.wizards.com/en/news/announcements/marvel-super-heroes-commander-decklists)
-- Cut lists synthesized from the Draftsim, Card Kingdom, MTGGoldfish, and The Spark precon upgrade guides.
+- Cut lists synthesized from the Draftsim (Doom, Fantastic Four, Wakanda) and Gathering Games (Avengers) precon upgrade guides.
 - Rankings are editorial opinion.
