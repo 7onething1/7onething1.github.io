@@ -1,0 +1,14 @@
+{
+  "name": "Ben vs Brandon — Marvel Commander Tracker",
+  "short_name": "BvB Commander",
+  "description": "Marvel comic-book Commander life & damage tracker for Ben vs Brandon.",
+  "start_url": ".",
+  "scope": ".",
+  "display": "standalone",
+  "orientation": "portrait",
+  "background_color": "#f3e9cf",
+  "theme_color": "#e23636",
+  "icons": [
+    { "src": "icon.svg", "sizes": "any", "type": "image/svg+xml", "purpose": "any maskable" }
+  ]
+}

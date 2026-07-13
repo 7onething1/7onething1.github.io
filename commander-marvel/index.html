@@ -1,0 +1,1032 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no, viewport-fit=cover" />
+<title>Ben vs Brandon · Marvel Commander Tracker</title>
+<meta name="description" content="A Marvel comic-book Magic: The Gathering Commander life tracker built for Ben vs Brandon. Custom commanders, one-tap partner commander, plus/minus 1 and 5 life and commander-damage counters, poison, and a K.O. burst. Newsprint cream, Ben-Day halftone, comic ink." />
+<meta name="theme-color" content="#e23636" />
+<meta name="apple-mobile-web-app-capable" content="yes" />
+<meta name="apple-mobile-web-app-status-bar-style" content="black-translucent" />
+<link rel="manifest" href="manifest.webmanifest" />
+<link rel="icon" href="icon.svg" type="image/svg+xml" />
+<link rel="preconnect" href="https://fonts.googleapis.com" />
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+<link href="https://fonts.googleapis.com/css2?family=Bangers&family=Anton&family=Inter:wght@400;600;800;900&display=swap" rel="stylesheet" />
+<style>
+:root{
+  --paper:#f4ecd6; --paper2:#ece0c1; --ink:#14110c; --ink2:#3d3324;
+  /* player accents (switched palette) */
+  --p0:#d1495b; --p0-d:#8f2d3b;   /* crimson  */
+  --p1:#157a6e; --p1-d:#0c4f47;   /* teal     */
+  --p2:#7b4fb0; --p2-d:#4a2f75;   /* violet   */
+  --p3:#d97706; --p3-d:#8f4d05;   /* amber    */
+  /* legacy aliases kept so old rules resolve */
+  --red:var(--p0); --red-d:var(--p0-d); --blue:var(--p1); --blue-d:var(--p1-d);
+  --gold:#eab308;
+  /* increment / decrement buttons (consistent everywhere) */
+  --add:#2f9e44; --add-d:#1e7a34; --sub:#d0342c; --sub-d:#992222;
+  --green:var(--add); --amber:#e59a17; --crit:#c1121f;
+  --shadow:5px 5px 0 var(--ink);
+}
+*{box-sizing:border-box;-webkit-tap-highlight-color:transparent}
+button{touch-action:manipulation}
+html,body{margin:0;padding:0}
+body{
+  font-family:'Inter',-apple-system,system-ui,sans-serif;
+  color:var(--ink); background:var(--paper);
+  min-height:100dvh; overflow-x:hidden; position:relative;
+  padding:env(safe-area-inset-top) env(safe-area-inset-right) env(safe-area-inset-bottom) env(safe-area-inset-left);
+}
+/* ---- comic newsprint + Ben-Day halftone background ---- */
+.bg{position:fixed;inset:0;z-index:-3;background:
+  radial-gradient(circle at 30% 20%, #f7efd8, var(--paper) 60%),
+  radial-gradient(circle at 80% 90%, #f0e4c4, var(--paper) 55%);}
+.dots{position:fixed;inset:0;z-index:-2;opacity:.16;pointer-events:none;
+  background-image:radial-gradient(var(--ink) 1.3px, transparent 1.4px);
+  background-size:11px 11px; animation:drift 30s linear infinite;}
+@keyframes drift{to{background-position:110px 66px}}
+.rays{position:fixed;inset:-20%;z-index:-1;opacity:.05;pointer-events:none;
+  background:repeating-conic-gradient(from 0deg at 50% 40%, var(--ink) 0deg 3deg, transparent 3deg 9deg);
+  animation:spin 120s linear infinite;}
+@keyframes spin{to{transform:rotate(360deg)}}
+
+.wrap{max-width:760px;margin:0 auto;padding:14px 12px 120px}
+
+/* ---- header ---- */
+header{text-align:center;margin:2px 0 14px;position:relative}
+.tag{display:inline-block;background:var(--red);color:#fff;font-family:'Anton',sans-serif;
+  letter-spacing:.14em;font-size:12px;padding:4px 12px;border:3px solid var(--ink);
+  box-shadow:3px 3px 0 var(--ink);transform:rotate(-2deg);text-transform:uppercase}
+h1{font-family:'Bangers',cursive;font-weight:400;letter-spacing:.02em;line-height:.92;
+  margin:12px 0 4px;font-size:clamp(38px,12vw,72px);color:var(--ink);
+  text-shadow:3px 3px 0 var(--gold), 6px 6px 0 rgba(0,0,0,.18)}
+h1 .vs{color:var(--red);-webkit-text-stroke:2px var(--ink);text-stroke:2px var(--ink)}
+h1 .vs2{color:var(--ink2)}
+h1 .b0{color:var(--p0)} h1 .b1{color:var(--p1)} h1 .b2{color:var(--p2)} h1 .b3{color:var(--p3-d)}
+h1.multi{font-size:clamp(28px,8.5vw,54px)}
+.subhead{font-size:12.5px;color:var(--ink2);font-weight:600;margin:0 0 6px}
+
+/* ---- top control bar ---- */
+.topbar{display:flex;gap:8px;flex-wrap:wrap;justify-content:center;margin:10px 0 6px}
+.tbtn{font-family:'Anton',sans-serif;letter-spacing:.05em;font-size:13px;text-transform:uppercase;
+  background:var(--paper2);color:var(--ink);border:3px solid var(--ink);border-radius:9px;
+  padding:8px 12px;box-shadow:3px 3px 0 var(--ink);cursor:pointer;transition:transform .06s, box-shadow .06s;}
+.tbtn:active{transform:translate(3px,3px);box-shadow:0 0 0 var(--ink)}
+.tbtn.on{background:var(--gold)}
+select.tbtn{-webkit-appearance:none;appearance:none;padding-right:12px}
+
+/* ---- player panels ---- */
+/* bulk name/commander setup box */
+.setupbox{display:none;background:var(--paper2);border:3px solid var(--ink);border-radius:12px;box-shadow:var(--shadow);padding:12px;margin:0 0 14px}
+.setupbox.show{display:block}
+.setuplab{font-size:12.5px;color:var(--ink2);font-weight:600;margin-bottom:8px}
+.setupbox textarea{width:100%;min-height:120px;font-family:'Inter',monospace;font-size:14px;line-height:1.5;color:var(--ink);background:#fffdf3;border:2px solid var(--ink);border-radius:8px;padding:9px;resize:vertical;outline:none}
+.setupbtns{display:flex;gap:8px;margin-top:8px;flex-wrap:wrap}
+/* in-block partner-damage expander */
+.blockpartner{width:100%;margin-top:2px;font-family:'Anton';font-size:11px;letter-spacing:.03em;text-transform:uppercase;color:var(--ink);background:var(--gold);border:2px solid var(--ink);border-radius:8px;padding:8px 6px;cursor:pointer;box-shadow:2px 2px 0 var(--ink);touch-action:manipulation}
+.blockpartner.rm{background:#fff}
+.blockpartner:active{box-shadow:0 0 0;filter:brightness(.92)}
+.panels{display:grid;grid-template-columns:1fr;gap:16px}
+@media(min-width:760px){ .panels{grid-template-columns:repeat(auto-fit,minmax(340px,1fr));align-items:start} .wrap{max-width:1200px} }
+/* ---- 4-player QUAD on phones: 2x2 grid, compact but every button stays big-tap ---- */
+@media(max-width:759px){
+  .panels.q4{grid-template-columns:1fr 1fr;gap:8px;align-items:start}
+  .panels.q4 .panel{padding:8px 7px 9px;border-width:3px;border-radius:11px}
+  .panels.q4 .cnum{font-size:15px}
+  .panels.q4 .corner{border-top-width:34px;border-left-width:34px}
+  .panels.q4 .namerow{gap:6px;margin-bottom:2px}
+  .panels.q4 .avatar{width:38px;height:38px;border-width:2px;box-shadow:2px 2px 0 var(--ink)}
+  .panels.q4 .pname{font-size:20px}
+  .panels.q4 .cmdrs{gap:4px}
+  .panels.q4 .cmdr{min-width:0;font-size:11px;padding:4px 6px}
+  .panels.q4 .addpartner,.panels.q4 .rmpartner{font-size:10px;padding:5px 6px}
+  .panels.q4 .lifebox{flex-direction:column;gap:6px}
+  .panels.q4 .lifeplate{padding:0 6px 2px}
+  .panels.q4 .life{font-size:46px;-webkit-text-stroke:1.5px var(--ink)}
+  .panels.q4 .lifebtns{flex:none;grid-template-columns:1fr 1fr;gap:6px}
+  .panels.q4 .lb{font-size:22px;min-height:50px;border-width:2px}
+  .panels.q4 .cmdsec{margin-top:7px;padding-top:6px}
+  .panels.q4 .cmdtitle{font-size:10.5px;margin-bottom:5px}
+  .panels.q4 .cmdrow{padding:5px 6px}
+  .panels.q4 .cmdname{font-size:11px}
+  .panels.q4 .cmdval{font-size:20px}
+  .panels.q4 .cmdbtns{grid-template-columns:1fr 1fr;gap:5px}
+  .panels.q4 .cb{min-height:50px;font-size:20px}
+  .panels.q4 .cbclear{grid-column:1 / -1;min-height:40px}
+  .panels.q4 .counters{flex-direction:column;gap:6px}
+  .panels.q4 .pbtn{width:44px;min-height:44px}
+  .panels.q4 .panel{min-width:0}
+  .panels.q4 .cmdname{overflow:hidden;text-overflow:ellipsis;white-space:nowrap}
+  .panels.q4 .blockpartner{font-size:9.5px;padding:6px 4px;letter-spacing:0}
+}
+.panel{position:relative;border:4px solid var(--ink);border-radius:14px;padding:11px 12px 12px;
+  box-shadow:var(--shadow);overflow:hidden;transition:transform .1s}
+.panel.p0{background:linear-gradient(160deg,#ffe0e4,#ffccd3)}
+.panel.p1{background:linear-gradient(160deg,#d7f0eb,#bde5de)}
+.panel.p2{background:linear-gradient(160deg,#ece0f7,#dbc8ef)}
+.panel.p3{background:linear-gradient(160deg,#ffeccb,#ffdca4)}
+.panel.flip{transform:rotate(180deg)}
+.panel .corner{position:absolute;top:-1px;right:-1px;width:0;height:0;pointer-events:none;
+  border-top:46px solid var(--ink);border-left:46px solid transparent}
+.panel.p0 .corner{border-top-color:var(--p0)}
+.panel.p1 .corner{border-top-color:var(--p1)}
+.panel.p2 .corner{border-top-color:var(--p2)}
+.panel.p3 .corner{border-top-color:var(--p3)}
+.panel .cnum{position:absolute;top:4px;right:8px;font-family:'Bangers',cursive;color:#fff;font-size:20px;z-index:2;pointer-events:none}
+.panel.dead{filter:grayscale(.5) contrast(.9)}
+.panel.hit{animation:shake .32s}
+@keyframes shake{0%,100%{transform:translateX(0)}20%{transform:translateX(-7px)}40%{transform:translateX(6px)}60%{transform:translateX(-4px)}80%{transform:translateX(3px)}}
+.panel.flip.hit{animation:shakeF .32s}
+@keyframes shakeF{0%,100%{transform:rotate(180deg) translateX(0)}20%{transform:rotate(180deg) translateX(-7px)}40%{transform:rotate(180deg) translateX(6px)}60%{transform:rotate(180deg) translateX(-4px)}80%{transform:rotate(180deg) translateX(3px)}}
+.flash{position:absolute;inset:0;pointer-events:none;opacity:0;z-index:1}
+.flash.heal{background:radial-gradient(circle,rgba(47,168,79,.5),transparent 70%);animation:fl .5s}
+.flash.dmg{background:radial-gradient(circle,rgba(208,36,28,.5),transparent 70%);animation:fl .5s}
+@keyframes fl{0%{opacity:.9}100%{opacity:0}}
+
+.phead{position:relative;z-index:2;margin-bottom:8px}
+.namerow{display:flex;align-items:center;gap:10px;margin-bottom:4px}
+.avatar{width:70px;height:70px;border-radius:50%;border:3px solid var(--ink);box-shadow:3px 3px 0 var(--ink);
+  overflow:hidden;flex:none;background:#fff}
+.avatar svg{width:100%;height:100%;display:block}
+.pname{font-family:'Bangers',cursive;font-size:30px;letter-spacing:.03em;line-height:1;
+  background:transparent;border:none;color:var(--ink);flex:1;min-width:0;padding:2px 0;outline:none}
+.panel.p0 .pname{color:var(--p0-d)} .panel.p1 .pname{color:var(--p1-d)} .panel.p2 .pname{color:var(--p2-d)} .panel.p3 .pname{color:var(--p3-d)}
+.cmini{display:inline-block;width:22px;height:22px;border-radius:50%;overflow:hidden;
+  border:2px solid var(--ink);vertical-align:middle;margin-right:6px}
+.cmini svg{width:100%;height:100%;display:block}
+.cmdrs{display:flex;flex-wrap:wrap;gap:6px;align-items:center;margin-top:2px}
+.cmdr{font-family:'Inter';font-weight:700;font-size:13px;color:var(--ink);
+  background:rgba(255,255,255,.55);border:2px solid var(--ink);border-radius:7px;
+  padding:5px 8px;outline:none;min-width:120px;flex:1}
+.cmdr::placeholder{color:#8a7c66;font-weight:600}
+.addpartner{font-family:'Anton';font-size:11px;letter-spacing:.04em;text-transform:uppercase;
+  background:var(--gold);border:2px solid var(--ink);border-radius:7px;padding:6px 9px;cursor:pointer;
+  box-shadow:2px 2px 0 var(--ink)}
+.addpartner:active{transform:translate(2px,2px);box-shadow:0 0 0}
+.rmpartner{font-family:'Inter';font-weight:800;font-size:11px;background:#fff;border:2px solid var(--ink);
+  border-radius:7px;padding:5px 8px;cursor:pointer}
+
+/* ---- life ---- */
+.lifebox{position:relative;z-index:2;display:flex;align-items:stretch;gap:10px;margin:6px 0 2px}
+.lifeplate{flex:1 1 auto;min-width:0;display:flex;flex-direction:column;justify-content:center;
+  background:#fffdf3;border:4px solid var(--ink);border-radius:16px;box-shadow:4px 4px 0 var(--ink);
+  padding:2px 8px 4px;text-align:center}
+.life{font-family:'Bangers',cursive;line-height:.9;font-size:clamp(56px,17vw,120px);
+  -webkit-text-stroke:2px var(--ink);text-stroke:2px var(--ink);color:#1f9d3a;pointer-events:none;
+  text-shadow:3px 3px 0 rgba(0,0,0,.14);transition:color .2s;user-select:none}
+.lifeplate,.lifelabel{pointer-events:none}
+.life.warn{color:#e08a00} .life.crit{color:var(--crit);animation:pulse 1s infinite}
+@keyframes pulse{0%,100%{transform:scale(1)}50%{transform:scale(1.05)}}
+.lifelabel{font-family:'Anton';font-size:12px;letter-spacing:.18em;text-transform:uppercase;color:var(--ink2);margin-top:-4px}
+.lifebtns{display:grid;grid-template-columns:1fr 1fr;gap:7px;flex:0 0 138px;position:relative;z-index:2}
+.lb{font-family:'Bangers',cursive;font-size:26px;letter-spacing:.02em;border:3px solid var(--ink);
+  border-radius:11px;padding:0;min-height:58px;display:flex;align-items:center;justify-content:center;
+  cursor:pointer;box-shadow:3px 3px 0 var(--ink);
+  transition:transform .06s,box-shadow .06s;color:#fff}
+.lb:active{transform:translate(3px,3px);box-shadow:0 0 0 var(--ink)}
+.lb.minus{background:var(--sub)} .lb.minus5{background:var(--sub-d)}
+.lb.plus{background:var(--add)} .lb.plus5{background:var(--add-d)}
+
+/* ---- commander damage ---- */
+.cmdsec{position:relative;z-index:2;margin-top:9px;border-top:3px dashed var(--ink);padding-top:8px}
+.cmdtitle{font-family:'Anton';font-size:12.5px;letter-spacing:.06em;text-transform:uppercase;color:var(--ink);margin-bottom:8px}
+.cmdtitle b{color:var(--p0-d)}
+.panel.p1 .cmdtitle b{color:var(--p1-d)}
+.panel.p2 .cmdtitle b{color:var(--p2-d)}
+.panel.p3 .cmdtitle b{color:var(--p3-d)}
+.cmdfrom{margin-bottom:7px}
+.cmdrow{background:rgba(255,255,255,.5);border:2px solid var(--ink);border-radius:10px;padding:6px 8px;margin-bottom:6px}
+.cmdrow.ko{background:rgba(208,36,28,.16);border-color:var(--crit)}
+.cmdhead{display:flex;align-items:center;gap:8px;margin-bottom:6px}
+.cmdname{font-weight:800;font-size:13px;flex:1;min-width:0;overflow:hidden;text-overflow:ellipsis;white-space:nowrap}
+.cmdval{font-family:'Bangers',cursive;font-size:26px;line-height:1;color:var(--crit)}
+.cmdval small{font-size:13px;color:var(--ink2);-webkit-text-stroke:0}
+.cmdval.zero{color:var(--ink2)}
+.cmdrow,.cmdbtns,.lifebtns,.poison,.cmdrs{position:relative;z-index:4}
+.cmdbtns{display:grid;grid-template-columns:repeat(4,1fr) 46px;gap:5px}
+.cb{font-family:'Bangers',cursive;font-size:23px;border:2px solid var(--ink);border-radius:9px;padding:0;min-height:56px;
+  display:flex;align-items:center;justify-content:center;
+  cursor:pointer;box-shadow:2px 2px 0 var(--ink);color:#fff;transition:box-shadow .06s;touch-action:manipulation}
+.cb:active{box-shadow:0 0 0;filter:brightness(.9)}
+.cb.m5{background:var(--sub-d)} .cb.m{background:var(--sub)} .cb.p{background:var(--add)} .cb.p5{background:var(--add-d)}
+.cbclear{font-family:'Inter';font-weight:800;font-size:11px;background:#fff;border:2px solid var(--ink);border-radius:9px;
+  min-height:56px;display:flex;align-items:center;justify-content:center;cursor:pointer}
+.cmdbar{height:8px;background:rgba(0,0,0,.12);border:2px solid var(--ink);border-radius:6px;margin-top:7px;overflow:hidden}
+.cmdbar i{display:block;height:100%;background:repeating-linear-gradient(45deg,var(--crit),var(--crit) 6px,#a11 6px,#a11 12px);transition:width .25s}
+
+/* ---- poison mini counter ---- */
+.poison{position:relative;z-index:2;display:flex;align-items:center;gap:8px;margin-top:4px;
+  background:rgba(255,255,255,.4);border:2px solid var(--ink);border-radius:10px;padding:6px 8px}
+.poison .lab{font-family:'Anton';font-size:11px;letter-spacing:.08em;text-transform:uppercase;color:#3b6b2f;flex:1}
+.poison .pv{font-family:'Bangers',cursive;font-size:22px;color:#3b6b2f;min-width:34px;text-align:center}
+.poison .pv.hot{color:var(--crit)}
+.pbtn{font-family:'Bangers';font-size:22px;width:48px;min-height:48px;border:2px solid var(--ink);border-radius:9px;padding:0;cursor:pointer;color:#fff;background:#3b6b2f;box-shadow:2px 2px 0 var(--ink);touch-action:manipulation;flex:none}
+.pbtn:active{box-shadow:0 0 0;filter:brightness(.9)}
+.pbtn.mn{background:#7a8a72}
+.counters{display:flex;gap:8px;position:relative;z-index:4;margin-top:4px}
+.counters .poison{flex:1;min-width:0;margin-top:0}
+.poison .lab{white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
+.rv{font-family:'Bangers',cursive;font-size:22px;color:#8a6d00;min-width:26px;text-align:center}
+.rv.hot{color:var(--crit)}
+.rad .lab{color:#8a6d00}
+.rad .pbtn{background:#c9971a} .rad .pbtn.mn{background:#b3a878}
+
+/* ---- KO death banner inside panel ---- */
+.koband{position:absolute;left:50%;top:50%;transform:translate(-50%,-50%) rotate(-8deg);z-index:5;pointer-events:none;
+  font-family:'Bangers',cursive;font-size:clamp(40px,15vw,84px);color:#fff;
+  -webkit-text-stroke:3px var(--ink);text-stroke:3px var(--ink);
+  background:var(--crit);border:4px solid var(--ink);padding:4px 22px;box-shadow:var(--shadow);
+  display:none;text-align:center;white-space:nowrap}
+.panel.dead .koband{display:block;animation:pop .3s}
+@keyframes pop{0%{transform:translate(-50%,-50%) rotate(-8deg) scale(.4)}70%{transform:translate(-50%,-50%) rotate(-8deg) scale(1.12)}100%{transform:translate(-50%,-50%) rotate(-8deg) scale(1)}}
+
+/* ---- floating delta ---- */
+.float{position:fixed;font-family:'Bangers',cursive;font-size:44px;z-index:60;pointer-events:none;
+  -webkit-text-stroke:2px var(--ink);animation:floatup 1s ease-out forwards}
+@keyframes floatup{0%{opacity:1;transform:translateY(0) scale(.7)}30%{transform:translateY(-18px) scale(1.15)}100%{opacity:0;transform:translateY(-78px) scale(1)}}
+
+/* ---- KO fullscreen burst ---- */
+.burst{position:fixed;inset:0;z-index:200;display:none;align-items:center;justify-content:center;
+  background:rgba(243,233,207,.6);backdrop-filter:blur(1px)}
+.burst.show{display:flex;animation:fl .3s}
+.burst .star{position:relative;text-align:center;cursor:pointer}
+.burst .word{font-family:'Bangers',cursive;font-size:clamp(70px,26vw,200px);color:var(--gold);
+  -webkit-text-stroke:4px var(--ink);text-stroke:4px var(--ink);
+  filter:drop-shadow(6px 6px 0 rgba(0,0,0,.25));animation:pop .35s}
+.burst .who{font-family:'Anton';font-size:clamp(18px,6vw,34px);text-transform:uppercase;letter-spacing:.06em;
+  color:var(--crit);margin-top:-6px}
+.burst .tap{font-family:'Inter';font-weight:700;font-size:13px;color:var(--ink2);margin-top:16px}
+
+/* ---- dice / coin modal ---- */
+.modal{position:fixed;inset:0;z-index:150;display:none;align-items:center;justify-content:center;background:rgba(23,19,16,.35)}
+.modal.show{display:flex}
+.mcard{background:var(--paper);border:4px solid var(--ink);border-radius:14px;box-shadow:var(--shadow);padding:22px;max-width:320px;text-align:center}
+.mcard .res{font-family:'Bangers',cursive;font-size:64px;color:var(--red);-webkit-text-stroke:2px var(--ink)}
+.mcard .lab{font-family:'Anton';letter-spacing:.1em;text-transform:uppercase;color:var(--ink2);font-size:13px}
+
+/* ---- log ---- */
+.log{margin-top:20px;border:3px solid var(--ink);border-radius:12px;background:var(--paper2);box-shadow:var(--shadow);display:none}
+.log.show{display:block}
+.log h3{font-family:'Anton';font-size:13px;letter-spacing:.1em;text-transform:uppercase;margin:0;padding:10px 12px;border-bottom:2px solid var(--ink)}
+.log ul{list-style:none;margin:0;padding:6px 12px;max-height:200px;overflow:auto;font-size:12.5px;font-family:'Inter'}
+.log li{padding:3px 0;border-bottom:1px dotted rgba(0,0,0,.15);color:var(--ink2)}
+
+.footnote{text-align:center;font-size:11.5px;color:var(--ink2);margin-top:18px;font-weight:600}
+.footnote a{color:var(--red-d)}
+
+/* ---- kid mode FAB + overlay ---- */
+.kid-fab{position:fixed;right:14px;bottom:calc(14px + env(safe-area-inset-bottom));z-index:120;
+  font-family:'Anton';font-size:13px;letter-spacing:.06em;text-transform:uppercase;
+  background:var(--gold);color:var(--ink);border:3px solid var(--ink);border-radius:999px;
+  padding:11px 16px;box-shadow:3px 3px 0 var(--ink);cursor:pointer}
+.kid-fab:active{transform:translate(3px,3px);box-shadow:0 0 0}
+.kid-overlay{position:fixed;inset:0;z-index:300;display:none;background:rgba(23,19,16,.45);
+  align-items:center;justify-content:center;padding:18px}
+.kid-overlay.show{display:flex}
+.kid-card{background:var(--paper);color:var(--ink);border:5px solid var(--ink);border-radius:18px;
+  box-shadow:8px 8px 0 var(--ink);max-width:520px;width:100%;max-height:86dvh;overflow:auto;padding:22px 20px}
+.kid-card h2{font-family:'Bangers',cursive;font-size:38px;margin:0 0 6px;color:var(--red)}
+.kid-card p{font-size:19px;line-height:1.5;margin:10px 0;font-weight:600}
+.kid-card .big{background:var(--gold);border:3px solid var(--ink);border-radius:10px;padding:10px 12px}
+.kid-card b{color:var(--blue-d)}
+.kid-close{font-family:'Anton';font-size:16px;letter-spacing:.06em;text-transform:uppercase;margin-top:14px;
+  background:var(--red);color:#fff;border:3px solid var(--ink);border-radius:10px;padding:12px 18px;
+  box-shadow:4px 4px 0 var(--ink);cursor:pointer;width:100%}
+.kid-close:active{transform:translate(4px,4px);box-shadow:0 0 0}
+</style>
+</head>
+<body>
+<div class="bg"></div><div class="dots"></div><div class="rays"></div>
+
+<datalist id="marvels">
+  <option>Iron Man, Titan of Innovation</option>
+  <option>Captain America, First Avenger</option>
+  <option>Spider-Man, Web-Slinger</option>
+  <option>Thor, Odinson</option>
+  <option>Hulk, Green Goliath</option>
+  <option>Wolverine, Best There Is</option>
+  <option>Storm, Weather Witch</option>
+  <option>Magneto, Master of Magnetism</option>
+  <option>Doctor Doom, King of Latveria</option>
+  <option>Black Panther, Claws of Bast</option>
+  <option>Scarlet Witch, Chaotic Avenger</option>
+  <option>Vision, Synthezoid</option>
+  <option>Loki, God of Mischief</option>
+  <option>Thanos, the Mad Titan</option>
+  <option>Venom, Lethal Protector</option>
+  <option>Doctor Strange, Sorcerer Supreme</option>
+  <option>Gamora, Deadliest Woman</option>
+  <option>Rocket, Master Tactician</option>
+  <option>Star-Lord, Legendary Outlaw</option>
+  <option>Deadpool, Trans-Dimensional Ninja</option>
+  <option>Jean Grey, Phoenix Force</option>
+  <option>Professor X, Recruiter of X-Men</option>
+  <option>Captain Marvel, Shooting Star</option>
+  <option>Ghost Rider, Spirit of Vengeance</option>
+  <option>Nick Fury, Agent of S.H.I.E.L.D.</option>
+  <option>Ant-Man, Scott Lang</option>
+  <option>Black Widow, Natasha Romanoff</option>
+  <option>Hawkeye, Marksman</option>
+  <option>War Machine, Iron Patriot</option>
+  <option>Green Goblin, Gormenghast</option>
+  <option>Kingpin, Wilson Fisk</option>
+  <option>Doctor Octopus, Superior</option>
+  <option>Kang the Conqueror</option>
+  <option>Ultron, the Living Automaton</option>
+  <option>Mystique, Master of Disguise</option>
+  <option>Cable, Soldier of Fortune</option>
+  <option>Beast, Genius Geneticist</option>
+  <option>Nightcrawler, Swashbuckler</option>
+  <option>Rogue, Power Absorber</option>
+  <option>Gambit, Ragin' Cajun</option>
+  <option>Colossus, Steel Sentinel</option>
+  <option>Silver Surfer, Herald of Galactus</option>
+  <option>Galactus, Devourer of Worlds</option>
+  <option>Hela, Goddess of Death</option>
+  <option>Winter Soldier, Bucky Barnes</option>
+  <option>Falcon, Sam Wilson</option>
+  <option>Moon Knight, Fist of Khonshu</option>
+  <option>Groot, Colossal Sentinel</option>
+  <option>Drax the Destroyer</option>
+  <option>Nebula, Cybernetic Assassin</option>
+  <option>Shang-Chi, Master of Kung Fu</option>
+  <option>She-Hulk, Jennifer Walters</option>
+  <option>Daredevil, Fearless Fighter</option>
+  <option>Elektra, Assassin</option>
+  <option>Punisher, Frank Castle</option>
+  <option>Blade, the Daywalker</option>
+  <option>Ms. Marvel, Kamala Khan</option>
+  <option>Kraven the Hunter</option>
+  <option>Sabretooth, Feral Killer</option>
+</datalist>
+
+<div class="wrap">
+  <header>
+    <span class="tag">Marvel · Commander · EDH</span>
+    <h1 id="h1"><span class="b0">BEN</span> <span class="vs">VS</span> <span class="b1">BRANDON</span></h1>
+    <p class="subhead">Life &amp; commander-damage tracker · personal use</p>
+    <p class="subhead" style="font-weight:800;color:var(--p1-d)">BUILD 2026-07-10k · top buttons use in-page confirm (work in installed app) · −cmd hit, +cmd undo</p>
+    <div class="topbar">
+      <button class="tbtn" data-action="count" data-n="2">👥 2P</button>
+      <button class="tbtn" data-action="count" data-n="3">👥 3P</button>
+      <button class="tbtn" data-action="count" data-n="4">👥 4P</button>
+      <button class="tbtn" data-action="setup">✎ Names</button>
+      <button class="tbtn" data-action="newgame">↺ New Game</button>
+      <select class="tbtn" id="startsel" title="Starting life">
+        <option value="40">40 life</option>
+        <option value="30">30 life</option>
+        <option value="20">20 life</option>
+        <option value="25">25 life</option>
+      </select>
+      <button class="tbtn" data-action="coin">🪙 Coin</button>
+      <button class="tbtn" data-action="dice">🎲 d20</button>
+      <button class="tbtn" data-action="flip">🔄 Flip Top</button>
+      <button class="tbtn" data-action="sound">🔊</button>
+      <button class="tbtn" data-action="logtoggle">📜 Log</button>
+    </div>
+  </header>
+
+  <div class="setupbox" id="setupbox">
+    <div class="setuplab">One player per line as <b>Name = Commander</b> (you can also use <b>:</b> <b>|</b> or <b>-</b>). Commanders may contain commas. Then tap Apply and all players update at once.</div>
+    <textarea id="bulk" spellcheck="false" placeholder="Ben = Bruce Banner, the Hulk&#10;Brandon = Venom, Lethal Protector&#10;Lisa = Atraxa, Praetors' Voice&#10;Misha = Krenko, Mob Boss"></textarea>
+    <div class="setupbtns">
+      <button class="tbtn on" data-action="applybulk">✔ Apply to all players</button>
+      <button class="tbtn" data-action="prefillbulk">Load current</button>
+      <button class="tbtn" data-action="setup">Close</button>
+    </div>
+  </div>
+
+  <div class="panels" id="panels"></div>
+
+  <div class="log" id="log"><h3>Game Log</h3><ul id="loglist"></ul></div>
+
+  <p class="footnote">Rules: 21 combat damage from a single commander = K.O. · 10 poison = out · commander damage starts at 0 and counts up to 21 (21 = K.O.) · 2 / 3 / 4 players · <a href="../commander-toolbox">Toolbox</a><br><span style="opacity:.7">build 2026-07-10c · release-confirmed taps · quad · commander-damage: + adds damage &amp; drops life</span></p>
+</div>
+
+<!-- KO fullscreen burst -->
+<div class="burst" id="burst"><div class="star" id="burststar">
+  <div class="word" id="burstword">K.O.!</div>
+  <div class="who" id="burstwho"></div>
+  <div class="tap">tap anywhere to continue</div>
+</div></div>
+
+<!-- dice/coin modal -->
+<div class="modal" id="modal"><div class="mcard">
+  <div class="lab" id="mlab">Result</div>
+  <div class="res" id="mres">?</div>
+  <button class="tbtn" data-action="closemodal" style="margin-top:12px">Close</button>
+</div></div>
+
+<!-- custom confirm (native confirm() is blocked in an installed PWA, so use our own) -->
+<div class="modal" id="confirmModal"><div class="mcard">
+  <div class="lab" id="confirmMsg" style="font-size:15px;line-height:1.35">Are you sure?</div>
+  <div style="display:flex;gap:8px;margin-top:16px">
+    <button class="tbtn" id="confirmNo" style="flex:1">Cancel</button>
+    <button class="tbtn on" id="confirmYes" style="flex:1">Yes</button>
+  </div>
+</div></div>
+
+<!-- kid mode -->
+<button class="kid-fab" onclick="toggleKid()">🧒 Kid Mode</button>
+<div class="kid-overlay" id="kidOverlay">
+  <div class="kid-card">
+    <h2>What is this? 🦸</h2>
+    <p>This is a <b>scoreboard</b> for a card game called Magic. Two players, <b>Ben</b> and <b>Brandon</b>, each start with a big number called <b>life</b>.</p>
+    <p class="big">The <b>huge number</b> in each box is how much life that player has. When it hits <b>zero</b>, they lose.</p>
+    <p>Tap the <b style="color:var(--green)">green +</b> buttons to add life. Tap the <b style="color:var(--red)">red −</b> buttons to take life away. The <b>1</b> buttons change it a little, the <b>5</b> buttons change it a lot.</p>
+    <p>The <b>Commander damage</b> boxes count hits from the other player's hero. If a hero deals <b>21</b>, that player is knocked out and you see a big <b>K.O.!</b></p>
+    <p>Press <b>New Game</b> to start over. That's it. Have fun! 🎉</p>
+    <button class="kid-close" onclick="toggleKid()">Got it!</button>
+  </div>
+</div>
+
+<script>
+"use strict";
+const LS_KEY = "commander-marvel-benbrandon-v2";
+const DEFAULT_NAMES = ["Ben","Brandon","Lisa","Misha"];
+const DEFAULT_CMDR = ["Doctor Doom, King of Latveria","Captain America, Team Leader","Atraxa, Praetors' Voice","Magneto, Master of Magnetism"];
+// Bump CMDR_SEED whenever DEFAULT_CMDR changes. On load, any commander slot that is blank or holds
+// a previous auto-default is upgraded to the current default, so new defaults show up on refresh
+// without wiping life/damage or any name the player typed by hand.
+const CMDR_SEED = 2;
+const AUTO_CMDR = ["","Bruce Banner, the Hulk","Venom, Lethal Protector","Atraxa, Praetors' Voice","Doctor Doom, King of Latveria","Magneto, Master of Magnetism","Captain America, Team Leader","Player 4"];
+const KO_WORDS = ["K.O.!","POW!","BAM!","WHAM!","SMASH!","KABOOM!","THWIP!","SNIKT!"];
+
+let state = load() || fresh(40, 2);
+save();  // persist any one-time commander re-seed applied during load
+
+function fresh(startLife, count){
+  count = count || 2;
+  return {
+    startingLife: startLife,
+    count: count,
+    cmdrSeed: CMDR_SEED,
+    flip: false,
+    sound: true,
+    players: Array.from({length:count}, (_,i) => ({
+      name: DEFAULT_NAMES[i] || ("Player "+(i+1)),
+      commanders: [DEFAULT_CMDR[i] || "", ""],
+      partnerOn: false,
+      life: startLife,
+      poison: 0,
+      rad: 0,
+      // cmdDmg[attackerPlayerIndex][slot] = commander damage this player has TAKEN from that opponent
+      cmdDmg: Array.from({length:count}, ()=>[0,0])
+    })),
+    log: []
+  };
+}
+function save(){ try{ localStorage.setItem(LS_KEY, JSON.stringify(state)); }catch(e){} }
+function load(){
+  try{
+    const s = JSON.parse(localStorage.getItem(LS_KEY));
+    if(s && s.players && s.players.length>=2){
+      if(!s.count) s.count=s.players.length;
+      if(s.cmdrSeed !== CMDR_SEED){
+        s.players.forEach((p,idx)=>{
+          if(!p.commanders) p.commanders=["",""];
+          if(AUTO_CMDR.indexOf(p.commanders[0]||"")>=0) p.commanders[0] = DEFAULT_CMDR[idx] || "";
+        });
+        s.cmdrSeed = CMDR_SEED;
+      }
+      return s;
+    }
+  }catch(e){}
+  return null;
+}
+
+/* ---------- audio (tiny WebAudio blips) ---------- */
+let AC = null;
+function ac(){ if(!AC){ try{ AC = new (window.AudioContext||window.webkitAudioContext)(); }catch(e){} } return AC; }
+function beep(freq, dur, type, vol){
+  if(!state.sound) return; const c = ac(); if(!c) return;
+  try{
+    const o=c.createOscillator(), g=c.createGain();
+    o.type=type||"square"; o.frequency.value=freq;
+    g.gain.value=vol||0.05; o.connect(g); g.connect(c.destination);
+    o.start(); g.gain.exponentialRampToValueAtTime(0.0001, c.currentTime+(dur||0.09));
+    o.stop(c.currentTime+(dur||0.09));
+  }catch(e){}
+}
+const SFX = {
+  up(){ beep(660,0.07,"triangle",0.05); },
+  down(){ beep(220,0.09,"sawtooth",0.05); },
+  cmd(){ beep(160,0.12,"square",0.06); },
+  ko(){ beep(90,0.35,"sawtooth",0.09); setTimeout(()=>beep(70,0.4,"square",0.08),90); },
+  click(){ beep(520,0.04,"sine",0.04); }
+};
+
+/* ---------- helpers ---------- */
+function opponents(i){ const r=[]; for(let j=0;j<state.players.length;j++){ if(j!==i) r.push(j); } return r; }
+function esc(s){ return (s||"").replace(/[&<>"]/g, c=>({"&":"&amp;","<":"&lt;",">":"&gt;",'"':"&quot;"}[c])); }
+function maxCmd(p){ let m=0; p.cmdDmg.forEach(pair=>pair.forEach(v=>{ if(v>m) m=v; })); return m; }
+function deadReason(p){
+  if(p.life<=0) return "K.O.!";
+  if(p.poison>=10) return "POISONED";
+  if(maxCmd(p)>=21) return "CMD K.O.!";
+  return null;
+}
+function logEvent(msg){
+  state.log.unshift(new Date().toLocaleTimeString([], {hour:"2-digit",minute:"2-digit"}) + " · " + msg);
+  if(state.log.length>60) state.log.length=60;
+}
+
+/* ---------- Marvel hero emblems (hand-drawn inline SVG, no external images) ---------- */
+function starPoly(cx,cy,R,r,n,rot,fill,stroke){
+  let s=""; for(let i=0;i<2*n;i++){ const a=Math.PI/n*i-Math.PI/2+(rot||0); const rad=i%2?r:R;
+    s+=(cx+rad*Math.cos(a)).toFixed(1)+","+(cy+rad*Math.sin(a)).toFixed(1)+" "; }
+  return `<polygon points="${s.trim()}" fill="${fill}"${stroke?` stroke="${stroke}" stroke-width="1.5"`:""}/>`;
+}
+function E(bg,inner){ return `<svg viewBox="0 0 64 64">${bg?`<rect width="64" height="64" fill="${bg}"/>`:""}${inner}</svg>`; }
+const EMBLEM = {
+  ironman:()=>E("#7a0f08",`<path d="M18 15 h28 v19 q0 9 -6 15 l-8 7 l-8 -7 q-6 -6 -6 -15z" fill="#e23636" stroke="#3a0704" stroke-width="2"/><path d="M18 15 h28 l-3 9 h-22z" fill="#f5c518"/><path d="M22 27 l8 2 l-1 6 l-8 -1z" fill="#bfe9ff"/><path d="M42 27 l-8 2 l1 6 l8 -1z" fill="#bfe9ff"/><path d="M27 43 h10 l-2 5 h-6z" fill="#c99a2e"/>`),
+  doom:()=>E("#16280f",`<path d="M32 5 q-17 2 -20 21 q-2 13 3 33 h34 q5 -20 3 -33 q-3 -19 -20 -21z" fill="#2c5320" stroke="#0e1c08" stroke-width="2"/><path d="M32 11 q-12 2 -14 16 q-1 10 2 24 h24 q3 -14 2 -24 q-2 -14 -14 -16z" fill="#20361a"/><path d="M22 17 q10 -3 20 0 v16 q0 14 -10 21 q-10 -7 -10 -21z" fill="#9aa0a6" stroke="#3d4247" stroke-width="2"/><path d="M27 19 q5 -2 10 0 v13 q0 10 -5 14 q-5 -4 -5 -14z" fill="#c4c9ce" opacity=".55"/><path d="M22 24 q10 -3 20 0" stroke="#3d4247" stroke-width="1.4" fill="none"/><circle cx="24.5" cy="20.5" r="1" fill="#3d4247"/><circle cx="39.5" cy="20.5" r="1" fill="#3d4247"/><path d="M25 27 l6 1 l-1 4 l-6 -1z" fill="#0c0c0c"/><path d="M39 27 l-6 1 l1 4 l6 -1z" fill="#0c0c0c"/><path d="M28 42 q4 2 8 0" stroke="#3d4247" stroke-width="2" fill="none"/><path d="M29 45 h6 M30 47 h4" stroke="#3d4247" stroke-width="1"/><circle cx="32" cy="13.5" r="2.4" fill="#e6b422" stroke="#8a6d00"/>`),
+  captainamerica:()=>E("#0b2a52",`<path d="M14 57 q0 -13 18 -13 q18 0 18 13z" fill="#1b3a7a"/><path d="M23 51 l9 5 l9 -5 v3 l-9 5 l-9 -5z" fill="#c1121f"/><ellipse cx="32" cy="35" rx="12" ry="13" fill="#e8b98f"/><path d="M32 11 q-15 0 -16 17 q3 -4 8 -4 q0 -6 8 -6 q8 0 8 6 q5 0 8 4 q-1 -17 -16 -17z" fill="#1e4fa3" stroke="#123a7d" stroke-width="1.5"/><path d="M16 29 q-1 8 4 14 q1 -9 4 -12z" fill="#1e4fa3"/><path d="M48 29 q1 8 -4 14 q-1 -9 -4 -12z" fill="#1e4fa3"/><path d="M21 27 q-6 -2 -9 1 q5 2 9 0z" fill="#f4f4f4"/><path d="M43 27 q6 -2 9 1 q-5 2 -9 0z" fill="#f4f4f4"/><path d="M32 15 l-3.4 9 h6.8z" fill="#f4f4f4"/><path d="M30.2 21 h3.6" stroke="#1e4fa3" stroke-width="1"/><circle cx="27" cy="35" r="1.7" fill="#123a7d"/><circle cx="37" cy="35" r="1.7" fill="#123a7d"/>${starPoly(32,50,4.5,2,5,0,"#f4f4f4")}`),
+  shield:()=>E("#0b2a52",`<circle cx="32" cy="32" r="21" fill="#c1121f"/><circle cx="32" cy="32" r="16" fill="#f4f4f4"/><circle cx="32" cy="32" r="11" fill="#c1121f"/><circle cx="32" cy="32" r="7" fill="#0b3d91"/>${starPoly(32,32,7,3,5,0,"#ffffff")}`),
+  thor:()=>E("#1c3a5e",`<path d="M28 6 l-6 12 h6 l-5 9 l13 -13 h-6 l5 -8z" fill="#ffe14d"/><rect x="19" y="20" width="26" height="15" rx="2" fill="#9aa1a8" stroke="#3a3f45" stroke-width="2"/><rect x="29" y="33" width="6" height="22" rx="2" fill="#6b4a2a"/>`),
+  hulk:()=>E("#1e5a2a",`<path d="M18 32 q0 -6 5 -6 q1 -6 6 -4 q1 -6 6 -4 q1 -6 6 -3 q5 1 5 7 v8 q0 13 -14 13 q-15 0 -15 -12z" fill="#57b85a" stroke="#134a1c" stroke-width="2"/><path d="M22 30 h20" stroke="#134a1c" stroke-width="1.5"/>`),
+  spider:()=>E("#7a0f08",`<path d="M32 12 q14 0 14 16 q0 14 -14 24 q-14 -10 -14 -24 q0 -16 14 -16z" fill="#d12a24" stroke="#3a0704" stroke-width="2"/><path d="M32 14 v36 M18 28 h28 M20 20 l24 20 M44 20 l-24 20" stroke="#3a0704" stroke-width="1"/><path d="M23 27 q4 -5 9 -1 q-3 6 -9 3z" fill="#fff" stroke="#111" stroke-width="1"/><path d="M41 27 q-4 -5 -9 -1 q3 6 9 3z" fill="#fff" stroke="#111" stroke-width="1"/>`),
+  magneto:()=>E("#3a1060",`<path d="M17 35 q0 -21 15 -21 q15 0 15 21 v3 h-7 q0 8 -8 8 q-8 0 -8 -8 h-7z" fill="#7e3ff2" stroke="#2a0b4a" stroke-width="2"/><path d="M24 34 q8 -4 16 0 v4 q-8 3 -16 0z" fill="#e9d5ff"/>`),
+  venom:()=>E("#0a0a0a",`<path d="M32 11 q14 0 14 16 q0 15 -14 25 q-14 -10 -14 -25 q0 -16 14 -16z" fill="#161616" stroke="#000" stroke-width="2"/><path d="M20 24 q7 -2 9 5 q-6 3 -10 -1z" fill="#fff"/><path d="M44 24 q-7 -2 -9 5 q6 3 10 -1z" fill="#fff"/><path d="M24 36 l3 5 l3 -5 l3 5 l3 -5 l3 5 l2 -5z" fill="#fff"/><path d="M30 44 q2 6 2 9 q0 -3 2 -9z" fill="#c1121f"/>`),
+  deadpool:()=>E("#7a0f08",`<path d="M32 12 q13 0 13 16 q0 14 -13 24 q-13 -10 -13 -24 q0 -16 13 -16z" fill="#c1121f" stroke="#111" stroke-width="2"/><path d="M22 26 q5 -4 9 0 q-1 8 -9 5z" fill="#151515"/><path d="M42 26 q-5 -4 -9 0 q1 8 9 5z" fill="#151515"/><path d="M25 29 q3 -2 5 0" stroke="#fff" stroke-width="1.5" fill="none"/><path d="M39 29 q-3 -2 -5 0" stroke="#fff" stroke-width="1.5" fill="none"/>`),
+  panther:()=>E("#0e0e0e",`<path d="M22 14 l3 6 q7 -3 14 0 l3 -6 q3 6 3 14 q0 16 -13 24 q-13 -8 -13 -24 q0 -8 3 -14z" fill="#1d1d1d" stroke="#000" stroke-width="2"/><path d="M24 30 q4 -3 7 -1" stroke="#c9ccd1" stroke-width="2" fill="none"/><path d="M40 30 q-4 -3 -7 -1" stroke="#c9ccd1" stroke-width="2" fill="none"/><path d="M28 40 q4 3 8 0" stroke="#6b6f75" stroke-width="1.5" fill="none"/>`),
+  thanos:()=>E("#3a2158",`<rect x="21" y="27" width="22" height="20" rx="5" fill="#d4a017" stroke="#6b4e08" stroke-width="2"/><rect x="22" y="18" width="4" height="10" rx="2" fill="#d4a017" stroke="#6b4e08"/><rect x="28" y="15" width="4" height="13" rx="2" fill="#d4a017" stroke="#6b4e08"/><rect x="34" y="15" width="4" height="13" rx="2" fill="#d4a017" stroke="#6b4e08"/><rect x="40" y="18" width="4" height="10" rx="2" fill="#d4a017" stroke="#6b4e08"/><circle cx="24" cy="22" r="1.6" fill="#7e3ff2"/><circle cx="30" cy="19" r="1.6" fill="#3b6cff"/><circle cx="36" cy="19" r="1.6" fill="#c1121f"/><circle cx="42" cy="22" r="1.6" fill="#e08a00"/><circle cx="32" cy="37" r="4" fill="#ffe14d" stroke="#6b4e08"/><circle cx="32" cy="46" r="2" fill="#2fa84f"/>`),
+  wolverine:()=>E("#123a7d",`<rect x="20" y="40" width="24" height="6" rx="3" fill="#f5c518"/><g stroke="#e6e9ee" stroke-width="4" stroke-linecap="round"><line x1="24" y1="42" x2="24" y2="12"/><line x1="32" y1="42" x2="32" y2="9"/><line x1="40" y1="42" x2="40" y2="12"/></g>`),
+  captainmarvel:()=>E("#0b2a52",`<path d="M0 0 h64 v64 h-64z" fill="#c1121f"/><path d="M0 0 h64 v64z" fill="#0b3d91"/>${starPoly(32,32,20,8,8,0,"#f5c518","#6b4e08")}`),
+  ghostrider:()=>E("#0a0a0a",`<path d="M32 6 q6 8 3 14 q8 -2 8 8 q6 4 3 12 q-3 -4 -6 -3 q2 8 -8 12 q-10 -4 -8 -12 q-3 -1 -6 3 q-3 -8 3 -12 q2 -10 8 -8 q-3 -6 3 -14z" fill="#ff7a18"/><path d="M25 30 q7 -4 14 0 q2 12 -7 18 q-9 -6 -7 -18z" fill="#f4f4f4"/><rect x="27" y="34" width="3.5" height="5" rx="1.5" fill="#111"/><rect x="33.5" y="34" width="3.5" height="5" rx="1.5" fill="#111"/><path d="M28 44 h8 l-1.5 3 h-5z" fill="#111"/>`),
+  loki:()=>E("#0d5c3a",`<path d="M20 20 q0 -12 12 -12 q12 0 12 12 v14 q0 10 -12 16 q-12 -6 -12 -16z" fill="#1c6e46" stroke="#0a3d26" stroke-width="2"/><path d="M20 20 q-6 -14 -2 -16 q4 6 6 10z" fill="#f5c518"/><path d="M44 20 q6 -14 2 -16 q-4 6 -6 10z" fill="#f5c518"/><rect x="26" y="26" width="5" height="6" rx="2" fill="#0a3d26"/><rect x="33" y="26" width="5" height="6" rx="2" fill="#0a3d26"/>`),
+  faerie:()=>E("#2a1a4a",`<g fill="#c39bff" stroke="#5a2ea6" stroke-width="1.5"><path d="M31 32 q-16 -16 -23 -6 q-4 9 9 12 q-11 3 -6 11 q7 7 20 -7z"/><path d="M33 32 q16 -16 23 -6 q4 9 -9 12 q11 3 6 11 q-7 7 -20 -7z"/></g><ellipse cx="32" cy="34" rx="3" ry="11" fill="#3a2a5a" stroke="#1a0f30" stroke-width="1.5"/><circle cx="32" cy="21" r="3.2" fill="#ffe14d" stroke="#8a6d00"/><g fill="#ffe671"><circle cx="15" cy="15" r="1.5"/><circle cx="49" cy="17" r="1.5"/><circle cx="20" cy="49" r="1.3"/><circle cx="45" cy="47" r="1.3"/></g>`),
+  atraxa:()=>E("#14211a",`<g stroke="#08110c" stroke-width="1.4"><path d="M32 30 q-17 -13 -23 -3 q-3 8 8 10 q-9 3 -4 10 q7 6 19 -7z" fill="#3a5a44"/><path d="M32 30 q17 -13 23 -3 q3 8 -8 10 q9 3 4 10 q-7 6 -19 -7z" fill="#3a5a44"/><path d="M32 38 q-12 5 -17 15 q9 2 13 -4 q-2 8 4 10 q4 -10 4 -17z" fill="#5f8064"/><path d="M32 38 q12 5 17 15 q-9 2 -13 -4 q2 8 -4 10 q-4 -10 -4 -17z" fill="#5f8064"/></g><ellipse cx="32" cy="35" rx="4" ry="12" fill="#e6ede6" stroke="#08110c" stroke-width="1.4"/><circle cx="32" cy="21" r="4" fill="#e6ede6" stroke="#08110c"/><circle cx="32" cy="14" r="5.5" fill="none" stroke="#a6f03a" stroke-width="1.6"/><circle cx="32" cy="36" r="2.3" fill="#7fd63a"/>`),
+  starhero:(initial)=>E("#0b2a52",`${starPoly(32,32,22,10,5,0,"#f5c518","#111")}<text x="32" y="38" font-family="Bangers,cursive" font-size="18" fill="#111" text-anchor="middle">${initial||"★"}</text>`),
+  villain:(initial)=>E("#1a1a1a",`<path d="M32 12 q13 0 13 15 q0 14 -13 25 q-13 -11 -13 -25 q0 -15 13 -15z" fill="#2a2a2a" stroke="#000" stroke-width="2"/><path d="M23 27 l8 3 l-1 4 l-8 -2z" fill="#c1121f"/><path d="M41 27 l-8 3 l1 4 l8 -2z" fill="#c1121f"/><text x="32" y="50" font-family="Bangers,cursive" font-size="12" fill="#c1121f" text-anchor="middle">${initial||""}</text>`)
+};
+function emblemFor(name){
+  const s=(name||"").toLowerCase();
+  const map=[
+    [/iron\s*man|tony stark|war machine|iron patriot/,"ironman"],
+    [/doom/,"doom"],
+    [/captain america|steve rogers|team leader|liberator|first avenger|star-spangled/,"captainamerica"],
+    [/thor|odinson|mjolnir/,"thor"],
+    [/hulk/,"hulk"],
+    [/spider|spidey|peter parker|web-slinger/,"spider"],
+    [/magneto/,"magneto"],
+    [/venom|symbiote/,"venom"],
+    [/deadpool|wade wilson/,"deadpool"],
+    [/black panther|panther|t.challa/,"panther"],
+    [/thanos|mad titan|gauntlet/,"thanos"],
+    [/wolverine|sabretooth|logan|x-23/,"wolverine"],
+    [/captain marvel|ms\.?\s*marvel|carol danvers|kamala|shooting star|apex avenger/,"captainmarvel"],
+    [/ghost rider|spirit of vengeance/,"ghostrider"],
+    [/loki|god of mischief/,"loki"],
+    [/atraxa|praetor|phyrexia|elesh|urabrask|sheoldred|jin-gitaxias|vorinclex/,"atraxa"],
+    [/faerie|fae\b|fairy|oona|titania|pixie|sprite|fae folk|feywild/,"faerie"]
+  ];
+  for(const [re,key] of map){ if(re.test(s)) return EMBLEM[key](); }
+  const villains=/kingpin|octopus|kang|ultron|mystique|goblin|kraven|red skull|galactus|hela|nebula|dormammu|green goblin|conqueror/;
+  const initial=(name||"").replace(/[^a-z]/ig,"").charAt(0).toUpperCase()||"";
+  if(villains.test(s)) return EMBLEM.villain(initial);
+  return EMBLEM.starhero(initial);
+}
+
+/* ---------- mutations ---------- */
+function withDeathCheck(i, fn){
+  const p = state.players[i];
+  const wasDead = !!deadReason(p);
+  fn();
+  const nowReason = deadReason(p);
+  if(nowReason && !wasDead) triggerKO(i, nowReason);
+  save(); refreshValues();   // targeted in-place update, NOT a full re-render, so taps never get dropped
+}
+function lifeAdj(i, delta){
+  withDeathCheck(i, ()=>{
+    const p = state.players[i];
+    p.life += delta;
+    logEvent(`${p.name}: life ${delta>0?"+":""}${delta} → ${p.life}`);
+    floatDelta(i, delta);
+    if(delta>0){ flash(i,"heal"); SFX.up(); } else { flash(i,"dmg"); shake(i); SFX.down(); }
+  });
+}
+function cmdAdj(i, from, slot, delta){
+  // i = player TAKING damage; from = attacking player's index; slot = which of their commanders
+  if(from==null || !state.players[i].cmdDmg[from]) return;
+  withDeathCheck(i, ()=>{
+    const p = state.players[i];
+    const before = p.cmdDmg[from][slot] || 0;
+    const after = Math.max(0, before - delta);  // −button ADDS damage (took a hit), +button removes it
+    const applied = after - before;            // real change after clamp
+    p.cmdDmg[from][slot] = after;
+    p.life -= applied;                          // −cmd: counter up, life down · +cmd: counter down, life up
+    const oppName = state.players[from].commanders[slot] || state.players[from].name+"'s commander";
+    logEvent(`${p.name}: cmd dmg from ${oppName} → ${after} (life ${p.life})`);
+    if(applied>0){ flash(i,"dmg"); SFX.cmd(); floatDelta(i,-applied); }
+    else if(applied<0){ flash(i,"heal"); SFX.up(); floatDelta(i,-applied); }
+  });
+}
+function cmdClear(i, from, slot){
+  const p = state.players[i]; if(!p.cmdDmg[from]) return; const had = p.cmdDmg[from][slot]||0;
+  p.life += had; p.cmdDmg[from][slot]=0;         // clearing gives back the life this commander's damage took
+  logEvent(`${p.name}: cleared cmd dmg from ${state.players[from].name}`);
+  SFX.click(); save(); refreshValues();
+}
+function poisonAdj(i, delta){
+  withDeathCheck(i, ()=>{
+    const p = state.players[i];
+    p.poison = Math.max(0, (p.poison||0)+delta);
+    logEvent(`${p.name}: poison → ${p.poison}`);
+    SFX.click();
+  });
+}
+function radAdj(i, delta){
+  const p = state.players[i];
+  p.rad = Math.max(0, (p.rad||0)+delta);
+  logEvent(`${p.name}: rad → ${p.rad}`);
+  (delta>0?SFX.cmd():SFX.click()); save(); refreshValues();
+}
+function togglePartner(i){
+  const p = state.players[i];
+  p.partnerOn = !p.partnerOn;
+  if(!p.partnerOn){
+    // partner removed: give back life to every opponent that took damage from this player's 2nd commander
+    state.players.forEach(pl => { if(pl.cmdDmg[i] && pl.cmdDmg[i][1] > 0){ pl.life += pl.cmdDmg[i][1]; pl.cmdDmg[i][1] = 0; } });
+    p.commanders[1] = "";
+  }
+  logEvent(`${p.name}: ${p.partnerOn?"added a partner commander":"removed partner commander"}`);
+  SFX.click(); save(); render();
+}
+function newGame(startLife, count){
+  const sl = startLife || state.startingLife;
+  const ct = count || state.players.length;
+  // keep the seating (names, commanders, partners); reset life + damage + poison
+  const prev = state.players.map(p=>({name:p.name, commanders:p.commanders.slice(), partnerOn:!!p.partnerOn}));
+  state = fresh(sl, ct);
+  state.players.forEach((p,idx)=>{ const q=prev[idx]; if(q){ p.name=q.name; p.commanders=[q.commanders[0]||"", q.commanders[1]||""]; p.partnerOn=q.partnerOn; } });
+  logEvent(`New game · ${ct} players · ${sl} life`);
+  save(); render();
+}
+function setCount(ct){
+  if(ct===state.players.length){ return; }
+  askConfirm(ct+" players? This starts a fresh game (life + damage reset).", ()=>newGame(state.startingLife, ct));
+}
+// Bulk name/commander entry: one player per line, "Name = Commander" (=, :, | or " - ").
+function applyBulk(){
+  const el = document.getElementById("bulk"); if(!el) return;
+  const lines = (el.value||"").split(/\r?\n/).map(l=>l.trim()).filter(Boolean);
+  let n=0;
+  lines.forEach((line, idx)=>{
+    if(idx>=state.players.length) return;
+    const m = line.match(/^(.*?)\s*(?:=|\||:|\s[-\u2013\u2014]\s)\s*(.*)$/);
+    let name, cmdr;
+    if(m){ name=m[1].trim(); cmdr=m[2].trim(); } else { name=line; cmdr=""; }
+    if(name){ state.players[idx].name = name; }
+    if(cmdr){ state.players[idx].commanders[0] = cmdr; }
+    n++;
+  });
+  logEvent(`Bulk setup applied to ${n} player(s)`);
+  save(); render();
+  const box=document.getElementById("setupbox"); if(box) box.classList.remove("show");
+}
+function prefillBulk(){
+  const el = document.getElementById("bulk"); if(!el) return;
+  el.value = state.players.map(p=> p.name + (p.commanders[0] ? " = " + p.commanders[0] : "")).join("\n");
+}
+
+/* ---------- effects ---------- */
+function panelEl(i){ return document.getElementById("panel"+i); }
+function flash(i, kind){
+  const el = panelEl(i).querySelector(".flash"); if(!el) return;
+  el.className = "flash " + kind; void el.offsetWidth; // restart anim
+}
+function shake(i){
+  // Intentionally does NOT transform the panel. A moving panel shifted the buttons under the
+  // finger and dropped taps (especially rapid commander-damage taps). Feedback is the color flash.
+}
+function floatDelta(i, delta){
+  const lifeEl = document.getElementById("life"+i); if(!lifeEl) return;
+  const r = lifeEl.getBoundingClientRect();
+  const f = document.createElement("div");
+  f.className = "float";
+  f.textContent = (delta>0?"+":"") + delta;
+  f.style.color = delta>0 ? "var(--green)" : "var(--crit)";
+  f.style.left = (r.left + r.width/2 - 20 + (Math.random()*30-15)) + "px";
+  f.style.top = (r.top + r.height*0.3) + "px";
+  if(state.flip && i===0) f.style.transform = "rotate(180deg)";
+  document.body.appendChild(f);
+  setTimeout(()=>f.remove(), 1000);
+}
+function triggerKO(i, reason){
+  SFX.ko();
+  const b = document.getElementById("burst");
+  document.getElementById("burstword").textContent = KO_WORDS[Math.floor(Math.random()*KO_WORDS.length)];
+  document.getElementById("burstwho").textContent = state.players[i].name + " · " + reason;
+  b.classList.add("show");
+}
+
+/* ---------- render ---------- */
+function render(){
+  document.getElementById("startsel").value = String(state.startingLife);
+  const wrap = document.getElementById("panels");
+  wrap.className = "panels q" + state.players.length;
+  wrap.innerHTML = state.players.map((p,i)=>panelHTML(p,i)).join("");
+  // dynamic title from live player names
+  const h1 = document.getElementById("h1");
+  const nms = state.players.map(p=>esc(p.name||"Player"));
+  if(state.players.length<=2){
+    h1.classList.remove("multi");
+    h1.innerHTML = `<span class="b0">${nms[0]}</span> <span class="vs">VS</span> <span class="b1">${nms[1]}</span>`;
+  } else {
+    h1.classList.add("multi");
+    h1.innerHTML = nms.map((n,idx)=>`<span class="b${idx}">${n}</span>`).join(`<span class="vs2"> · </span>`);
+  }
+  // sync input values without stealing focus
+  syncInputs();
+  renderLog();
+  document.querySelector('[data-action="sound"]').textContent = state.sound ? "🔊" : "🔇";
+  document.querySelector('[data-action="flip"]').classList.toggle("on", state.flip);
+  document.querySelectorAll('[data-action="count"]').forEach(b=>{
+    b.classList.toggle("on", parseInt(b.dataset.n,10)===state.players.length);
+  });
+}
+// In-place value update after a counter tap. Does NOT rebuild the DOM, so buttons never
+// get destroyed mid-tap (that was the "commander buttons don't always register" bug).
+function refreshValues(){
+  state.players.forEach((p,i)=>{
+    const panel = panelEl(i); if(!panel) return;
+    const lifeEl = document.getElementById("life"+i);
+    if(lifeEl){
+      lifeEl.textContent = p.life;
+      const frac = state.startingLife>0 ? p.life/state.startingLife : 1;
+      let cls="life";
+      if(p.life<=5||frac<=0.2) cls+=" crit"; else if(p.life<=10||frac<=0.4) cls+=" warn";
+      lifeEl.className = cls;
+    }
+    const reason = deadReason(p);
+    panel.classList.toggle("dead", !!reason);
+    const kb = panel.querySelector(".koband"); if(kb) kb.textContent = reason||"";
+    const pvEl = panel.querySelector(".poison .pv");
+    if(pvEl){ pvEl.classList.toggle("hot", (p.poison||0)>=10); pvEl.textContent = String(p.poison||0); }
+    const rvEl = panel.querySelector(".rad .rv");
+    if(rvEl){ rvEl.classList.toggle("hot", (p.rad||0)>=7); rvEl.textContent = String(p.rad||0); }
+    panel.querySelectorAll(".cmdrow").forEach(row=>{
+      const j=parseInt(row.dataset.from,10), s=parseInt(row.dataset.slot,10);
+      const v=(p.cmdDmg[j]&&p.cmdDmg[j][s])||0;
+      const valEl=row.querySelector(".cmdval");
+      if(valEl){ valEl.classList.toggle("zero", v===0); valEl.innerHTML = `${v}<small>/21</small>`; }
+      row.classList.toggle("ko", v>=21);
+      const bar=row.querySelector(".cmdbar i"); if(bar) bar.style.width = Math.min(100, v/21*100)+"%";
+    });
+  });
+}
+function panelHTML(p, i){
+  const reason = deadReason(p);
+  const frac = state.startingLife>0 ? p.life/state.startingLife : 1;
+  let lifeCls = "life";
+  if(p.life<=5 || frac<=0.2) lifeCls += " crit";
+  else if(p.life<=10 || frac<=0.4) lifeCls += " warn";
+
+  // commander damage: one block per opponent (each opponent can have 1 or 2 commanders)
+  let cmdBlocks = "";
+  opponents(i).forEach(j=>{
+    const o = state.players[j];
+    const slots = o.partnerOn ? 2 : 1;
+    let rows = "";
+    for(let s=0; s<slots; s++){
+      const v = (p.cmdDmg[j] && p.cmdDmg[j][s]) || 0;
+      const nm = o.commanders[s] || (s===0 ? (o.name+"'s Commander") : (o.name+"'s Partner"));
+      const ko = v>=21;
+      rows += `
+        <div class="cmdrow ${ko?'ko':''}" data-from="${j}" data-slot="${s}">
+          <div class="cmdhead">
+            <span class="cmdname"><span class="cmini">${emblemFor(nm)}</span>${esc(nm)}</span>
+            <span class="cmdval ${v===0?'zero':''}">${v}<small>/21</small></span>
+          </div>
+          <div class="cmdbtns">
+            <button class="cb m5" data-action="cmd" data-p="${i}" data-from="${j}" data-slot="${s}" data-d="-5">−5</button>
+            <button class="cb m"  data-action="cmd" data-p="${i}" data-from="${j}" data-slot="${s}" data-d="-1">−1</button>
+            <button class="cb p"  data-action="cmd" data-p="${i}" data-from="${j}" data-slot="${s}" data-d="1">+1</button>
+            <button class="cb p5" data-action="cmd" data-p="${i}" data-from="${j}" data-slot="${s}" data-d="5">+5</button>
+            <button class="cbclear" data-action="cmdclear" data-p="${i}" data-from="${j}" data-slot="${s}">clr</button>
+          </div>
+          <div class="cmdbar"><i style="width:${Math.min(100, v/21*100)}%"></i></div>
+        </div>`;
+    }
+    const pBtn = o.partnerOn
+      ? `<button class="blockpartner rm" data-action="partner" data-p="${j}">✕ remove ${esc(o.name)}'s 2nd commander</button>`
+      : `<button class="blockpartner" data-action="partner" data-p="${j}">＋ ${esc(o.name)} has a partner (open 2nd)</button>`;
+    cmdBlocks += `<div class="cmdfrom">
+      <div class="cmdtitle">Commander damage on <b>${esc(p.name)}</b> <span style="color:var(--ink2)">from</span> <b>${esc(o.name)}</b></div>
+      ${rows}
+      ${pBtn}</div>`;
+  });
+
+  const partnerCtl = p.partnerOn
+    ? `<input class="cmdr" data-field="cmd1" data-p="${i}" list="marvels" placeholder="Partner / Background" />
+       <button class="rmpartner" data-action="partner" data-p="${i}">✕ partner</button>`
+    : `<button class="addpartner" data-action="partner" data-p="${i}">＋ Partner</button>`;
+
+  const pv = p.poison||0;
+  const rv = p.rad||0;
+
+  return `
+  <section class="panel p${i} ${reason?'dead':''} ${state.flip&&i===0?'flip':''}" id="panel${i}">
+    <div class="corner"></div><div class="cnum">P${i+1}</div>
+    <div class="flash"></div>
+    <div class="koband">${reason||''}</div>
+
+    <div class="phead">
+      <div class="namerow">
+        <div class="avatar" id="avatar${i}">${emblemFor(p.commanders[0])}</div>
+        <input class="pname" data-field="name" data-p="${i}" value="${esc(p.name)}" maxlength="16" aria-label="player name" />
+      </div>
+      <div class="cmdrs">
+        <input class="cmdr" data-field="cmd0" data-p="${i}" list="marvels" placeholder="Commander (tap to name)" />
+        ${partnerCtl}
+      </div>
+    </div>
+
+    <div class="lifebox">
+      <div class="lifeplate">
+        <div class="${lifeCls}" id="life${i}">${p.life}</div>
+        <div class="lifelabel">Life</div>
+      </div>
+      <div class="lifebtns">
+        <button class="lb minus5" data-action="life" data-p="${i}" data-d="-5">−5</button>
+        <button class="lb minus"  data-action="life" data-p="${i}" data-d="-1">−1</button>
+        <button class="lb plus"   data-action="life" data-p="${i}" data-d="1">+1</button>
+        <button class="lb plus5"  data-action="life" data-p="${i}" data-d="5">+5</button>
+      </div>
+    </div>
+
+    <div class="cmdsec">
+      ${cmdBlocks}
+    </div>
+
+    <div class="counters">
+      <div class="poison">
+        <button class="pbtn mn" data-action="poison" data-p="${i}" data-d="-1">−</button>
+        <span class="lab">☠️ Poison</span>
+        <span class="pv ${pv>=10?'hot':''}">${pv}</span>
+        <button class="pbtn" data-action="poison" data-p="${i}" data-d="1">＋</button>
+      </div>
+      <div class="poison rad">
+        <button class="pbtn mn" data-action="rad" data-p="${i}" data-d="-1">−</button>
+        <span class="lab">☢️ Rad</span>
+        <span class="rv ${rv>=7?'hot':''}">${rv}</span>
+        <button class="pbtn" data-action="rad" data-p="${i}" data-d="1">＋</button>
+      </div>
+    </div>
+  </section>`;
+}
+function syncInputs(){
+  state.players.forEach((p,i)=>{
+    const panel = panelEl(i); if(!panel) return;
+    setInput(panel.querySelector('[data-field="name"]'), p.name);
+    setInput(panel.querySelector('[data-field="cmd0"]'), p.commanders[0]);
+    setInput(panel.querySelector('[data-field="cmd1"]'), p.commanders[1]);
+  });
+}
+function setInput(el, val){ if(el && document.activeElement!==el) el.value = val || ""; }
+function renderLog(){
+  const ul = document.getElementById("loglist");
+  ul.innerHTML = state.log.slice(0,40).map(l=>`<li>${esc(l)}</li>`).join("") || "<li>No moves yet.</li>";
+}
+
+/* ---------- events ---------- */
+function actFromEl(t){
+  const a = t.dataset.action;
+  const p = t.dataset.p!=null ? parseInt(t.dataset.p,10) : null;
+  const from = t.dataset.from!=null ? parseInt(t.dataset.from,10) : null;
+  const slot = t.dataset.slot!=null ? parseInt(t.dataset.slot,10) : 0;
+  const d = t.dataset.d!=null ? parseInt(t.dataset.d,10) : 0;
+  switch(a){
+    case "life": lifeAdj(p, d); break;
+    case "cmd": cmdAdj(p, from, slot, d); break;
+    case "cmdclear": cmdClear(p, from, slot); break;
+    case "poison": poisonAdj(p, d); break;
+    case "rad": radAdj(p, d); break;
+    case "setup": document.getElementById("setupbox").classList.toggle("show"); break;
+    case "applybulk": applyBulk(); break;
+    case "prefillbulk": prefillBulk(); break;
+    case "partner": togglePartner(p); break;
+    case "count": setCount(parseInt(t.dataset.n,10)); break;
+    case "newgame":
+      askConfirm("Start a new game? Life and damage reset.", ()=>newGame());
+      break;
+    case "flip": state.flip=!state.flip; save(); render(); break;
+    case "sound": state.sound=!state.sound; if(state.sound) SFX.click(); save(); render(); break;
+    case "logtoggle": document.getElementById("log").classList.toggle("show"); break;
+    case "coin": showModal("Coin Flip", Math.random()<0.5?"HEADS":"TAILS"); break;
+    case "dice": showModal("d20", String(1+Math.floor(Math.random()*20))); break;
+    case "closemodal": document.getElementById("modal").classList.remove("show"); break;
+  }
+}
+// Release-confirmed tap handling. Fires when the finger LIFTS on the same control it pressed,
+// with little movement, so a scroll never triggers a button and every rapid tap registers
+// exactly once. The old pointerdown-fires-immediately + 700ms click-guard dropped taps: on
+// mobile the browser sometimes withholds pointerdown during scroll disambiguation but still
+// fires click, and that click got eaten by the global 700ms guard. This never drops taps.
+let _downT=null, _dx=0, _dy=0, _moved=false;
+document.addEventListener("pointerdown", e=>{
+  if(e.button && e.button!==0){ _downT=null; return; }
+  _downT = e.target.closest("[data-action]");
+  _dx=e.clientX; _dy=e.clientY; _moved=false;
+}, {passive:true});
+document.addEventListener("pointermove", e=>{
+  if(_downT && (Math.abs(e.clientX-_dx)>30 || Math.abs(e.clientY-_dy)>30)) _moved=true;
+}, {passive:true});
+document.addEventListener("pointerup", e=>{
+  const up = e.target.closest("[data-action]");
+  if(up && up===_downT && !_moved) actFromEl(up);   // one action per real finger tap
+  _downT=null;
+}, {passive:true});
+document.addEventListener("pointercancel", ()=>{ _downT=null; }, {passive:true});
+// Mouse and touch taps are fully handled by pointerup above; their trailing click has
+// detail>=1 and is ignored here so nothing ever double-fires. Only keyboard / assistive
+// activations (Enter or Space on a focused button) reach here, those carry detail===0.
+document.addEventListener("click", e=>{
+  if(e.detail !== 0) return;
+  const t = e.target.closest("[data-action]"); if(t) actFromEl(t);
+});
+// text field edits
+document.addEventListener("input", e=>{
+  const el = e.target.closest("[data-field]"); if(!el) return;
+  const i = parseInt(el.dataset.p,10); const f = el.dataset.field; const p = state.players[i];
+  if(f==="name") p.name = el.value;
+  else if(f==="cmd0") p.commanders[0] = el.value;
+  else if(f==="cmd1") p.commanders[1] = el.value;
+  // light re-render of dependent labels without disturbing this input
+  save();
+  updateLabels();
+});
+function updateLabels(){
+  // refresh avatars, per-opponent titles and attacker names live, without stealing input focus
+  state.players.forEach((p,i)=>{
+    const panel = panelEl(i); if(!panel) return;
+    const av = panel.querySelector(".avatar"); if(av) av.innerHTML = emblemFor(p.commanders[0]);
+    panel.querySelectorAll(".cmdfrom").forEach(block=>{
+      const anyRow = block.querySelector(".cmdrow"); if(!anyRow) return;
+      const j = parseInt(anyRow.dataset.from,10); const o = state.players[j]; if(!o) return;
+      const title = block.querySelector(".cmdtitle");
+      if(title) title.innerHTML = `Commander damage on <b>${esc(p.name)}</b> <span style="color:var(--ink2)">from</span> <b>${esc(o.name)}</b>`;
+    });
+    panel.querySelectorAll(".cmdrow").forEach(row=>{
+      const j = parseInt(row.dataset.from,10), s = parseInt(row.dataset.slot,10);
+      const o = state.players[j]; if(!o) return;
+      const nm = o.commanders[s] || (s===0 ? (o.name+"'s Commander") : (o.name+"'s Partner"));
+      const nameEl = row.querySelector(".cmdname");
+      if(nameEl) nameEl.innerHTML = `<span class="cmini">${emblemFor(o.commanders[s]||"")}</span>${esc(nm)}`;
+    });
+  });
+}
+
+/* start-life selector */
+document.getElementById("startsel").addEventListener("change", e=>{
+  const v = parseInt(e.target.value,10);
+  askConfirm(`Set starting life to ${v} and start a new game?`, ()=>newGame(v), ()=>{ e.target.value = String(state.startingLife); });
+});
+
+/* KO burst dismiss */
+document.getElementById("burst").addEventListener("click", ()=> document.getElementById("burst").classList.remove("show"));
+
+/* modal */
+function showModal(label, res){
+  document.getElementById("mlab").textContent = label;
+  document.getElementById("mres").textContent = res;
+  document.getElementById("modal").classList.add("show");
+  SFX.click();
+}
+document.getElementById("modal").addEventListener("click", e=>{ if(e.target.id==="modal") e.currentTarget.classList.remove("show"); });
+
+/* in-page confirm, reliable even in an installed PWA where window.confirm() is suppressed */
+let _confirmYes=null, _confirmNo=null;
+function askConfirm(msg, onYes, onNo){
+  _confirmYes=onYes||null; _confirmNo=onNo||null;
+  document.getElementById("confirmMsg").textContent = msg;
+  document.getElementById("confirmModal").classList.add("show");
+  SFX.click();
+}
+function _closeConfirm(run){
+  document.getElementById("confirmModal").classList.remove("show");
+  const y=_confirmYes, n=_confirmNo; _confirmYes=null; _confirmNo=null;
+  if(run==="yes" && y) y(); else if(run==="no" && n) n();
+}
+document.getElementById("confirmYes").addEventListener("click", ()=>_closeConfirm("yes"));
+document.getElementById("confirmNo").addEventListener("click", ()=>_closeConfirm("no"));
+document.getElementById("confirmModal").addEventListener("click", e=>{ if(e.target.id==="confirmModal") _closeConfirm("no"); });
+
+/* kid mode */
+function toggleKid(){ document.getElementById("kidOverlay").classList.toggle("show"); }
+window.toggleKid = toggleKid;
+
+/* boot */
+render();
+
+/* A life tracker must ALWAYS load fresh. Do not install a caching service worker; retire any old
+   cache-first worker (an earlier version) so phones that cached a stale/blank copy self-heal. */
+if("serviceWorker" in navigator){
+  navigator.serviceWorker.getRegistrations().then(rs => rs.forEach(r => r.unregister())).catch(()=>{});
+  if(window.caches){ caches.keys().then(ks => ks.forEach(k => caches.delete(k))).catch(()=>{}); }
+}
+</script>
+</body>
+</html>
