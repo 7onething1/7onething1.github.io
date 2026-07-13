@@ -41,7 +41,7 @@ Most focused, weakest out of the box. **T'Challa, the Black Panther** spins up i
 - **Easiest for a new player:** Avengers Assemble, highest Ease (8.5), a clean three-colour curve.
 - **Most fun at the table:** Doom Prevails, highest Fun (8.7), two engines and the swingy Loki copy line.
 - **Best table politics:** The Fantastic Four, highest Table politics (6.5), threats build quietly and draw the least early targeting.
-- **Simplest to build, tightest theme:** Wakanda Forever, only two colours and one focused Vibranium-and-counters plan.
+- **Simplest mana, clearest upgrade route:** Wakanda Forever, only two colours, the simplest mana base, and the clearest focused T'Challa upgrade route (the unchanged box also runs monarch, Equipment, and tokens).
 
 ## EDHREC build popularity (captured 13 July 2026)
 A dated snapshot of adoption, not of strength, and not read live on load. Both of each precon's headline commanders are shown (the Fantastic Four ships with four):
