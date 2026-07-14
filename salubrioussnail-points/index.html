@@ -77,13 +77,22 @@
   body.kid h3{font-size:1.35rem}
   body.kid .rank{font-size:2.6rem}
   body.kid .points li{margin:8px 0}
+
+  details.about{margin:.35rem 0 .1rem}
+  details.about>summary{cursor:pointer;display:inline-block;list-style:none;font-size:.82rem;font-weight:600;color:#8a5a12;background:#f1e7cf;border:1px solid #d8cfb8;border-radius:999px;padding:.25rem .8rem;user-select:none}
+  details.about>summary::-webkit-details-marker{display:none}
+  details.about>summary::after{content:' \25be'}
+  details.about[open]>summary::after{content:' \25b4'}
+  details.about .sub{margin:.55rem 0 0}
+  details.about .note{margin:.4rem 0 0}
 </style></head>
 <body>
 <header>
   <h1>salubrioussnail - Summary and 10 Points per Video</h1>
+  <details class="about"><summary>About this page</summary>
   <div class="sub">74 indexed Commander videos, each with a full grammar-cleaned transcript. Recent theory first, dated reviews last. Each card: summary, ten grouped points, ten quotes, and the full transcript.</div>
   <div class="note">Each video has a short summary and ten clear takeaways, written from that video&#x27;s own transcript (grammar cleaned, nothing invented), ordered with the recent theory and deckbuilding videos first and the dated, card-specific reviews last. Titles link to the video, and each card shows its upload date. The button above narrows the view to 2025 and 2026 uploads that teach theory and principle, hiding older videos and single-deck evaluations. Use the tag chips below to filter by archetype, theme, or insight, or search by commander.</div>
-  <div class="coverage">Coverage as of <b>2026-07-14</b> (channel pulled 2026-07-13): <b>84</b> videos on the channel &middot; <b>74</b> indexed entries here &middot; <b>74</b> verified grammar-cleaned transcripts (one per entry). <details style="margin-top:6px"><summary>10 channel videos not indexed</summary><ul><li><b>Members-only or bonus, no public captions (9):</b> Jun 2026: Silly Deckbuilding Restrictions; Apr 2026: Bonus, A deep dive into the follies of my past Liesa decks; Mar 2026: Why Not Put Sol Ring on the Gamechangers List?; Jan 2026: My own deckbuilding mistakes, and why I made them; Dec 2025: Bonus, Why designer intent matters (kind of); Sep 2025: The Worst EDH Deck I've Ever Built (in paper); Sep 2025: Endnote, Brackets and Rule 0; Aug 2025: Bonus, Five cards from Edge of Eternities; Jul 2025: Bonus, Interaction Audit</li><li><b>Public backlog, transcript on disk, not yet carded (1):</b> Jul 2024: The Hidden Trap of Tribal Decks</li></ul></details></div>
+  </details>
 </header>
 <div class="filterpanel">
   <div class="filterrow">

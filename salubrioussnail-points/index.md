@@ -1,8 +1,6 @@
 # salubrioussnail - Summary and 10 Points per Video
 
-_Coverage as of 2026-07-14 (channel pulled 2026-07-13): 84 videos on the channel, 74 indexed entries here, 74 verified grammar-cleaned transcripts (one per entry). Recent theory first, dated reviews last. Each card: summary, ten grouped points, ten quotes, and the full grammar-cleaned transcript._
-
-_Not indexed: 10 channel videos, 9 members-only or bonus with no public captions, plus 1 public backlog (The Hidden Trap of Tribal Decks)._
+_74 indexed Commander videos, each with a full grammar-cleaned transcript. Recent theory first, dated reviews last. Each card: summary, ten grouped points, ten quotes, and the full transcript._
 
 ## #1. Why Situational Cards Belong in Your Commander Deck  (Jun 2026, 27K views)
 *Original title: It's okay to put *some* janky trash in your deck*
