@@ -365,6 +365,7 @@ body.kids .grown{display:none}
 .dcsub{font-size:.7rem;color:var(--muted)}
 .dckc{margin-top:7px;display:inline-block;font-family:'Inter',sans-serif;font-weight:800;font-size:.76rem;text-decoration:none;color:#fff;background:var(--fac);border-radius:20px;padding:5px 11px}
 .dckc:hover{filter:brightness(1.08)}
+.cheaphdr{font-family:'Inter',sans-serif;font-size:.85rem;color:var(--muted);margin:0 0 8px}
 .cheaprows{list-style:none;margin:0;padding:0;display:grid;gap:5px}
 .cheaprow{display:flex;align-items:center;gap:10px;background:var(--paper2);border:1px solid var(--line);border-radius:8px;padding:7px 11px;font-family:'Inter',sans-serif;font-size:.9rem}
 .cprice{font-weight:800;color:var(--teal-d);min-width:56px}
@@ -715,12 +716,36 @@ const R0_NAMES = ["Exhibition","Core","Upgraded","Optimized","cEDH"];
 /* Cheapest-printing USD prices for each recommended upgrade add, captured from Scryfall 14 July 2026 (a dated snapshot; singles prices drift). */
 const PRICE_ASOF = "14 July 2026";
 const PRICES = {
-  "Sundial of the Infinite":10.35,"Green Goblin, Revenant":0.30,"Kingpin, Wilson Fisk":2.92,"Doctor Octopus, Master Planner":8.40,"Super-Adaptoid":0.36,"Crimson Cowl, Master of Evil":1.01,"Living Lies of Loki":0.44,
-  "Hex Magic":1.89,"Talisman of Creativity":1.78,"Talisman of Conviction":0.31,"West Coast Expansion":0.30,"World at War":9.43,"Monica Rambeau // Photon, Living Light":1.69,
-  "Wave Goodbye":1.76,"Champions from Beyond":5.32,"Damning Verdict":3.44,"Araña, Heart of the Spider":0.51,"SP//dr, Piloted by Peni":0.29,"Urdnan, Dromoka Warrior":0.34,"Raphael, the Muscle":1.72,"Ripples of Potential":2.48,
-  "Verdurous Gearhulk":0.32,"Batterskull":3.28,"Reprieve":1.36,"Shadowspear":18.15,"Mystic Forge":2.40,"Brightglass Gearhulk":5.37,"Jhoira's Familiar":2.00
+  "Abzan Battle Priest":0.3, "Abzan Falconer":0.26, "Adrix and Nev, Twincasters":6.66, "Agent Phil Coulson":0.32, "Akiri, Fearless Voyager":1.13, "Akroma's Will":13.48,
+  "All That Glitters":0.51, "Altar of the Goyf":0.2, "Amulet of Vigor":53.54, "Ancient Den":0.95, "Anger":0.52, "Anointed Procession":58.94,
+  "Araña, Heart of the Spider":0.51, "Arcades, the Strategist":2.35, "Archfiend of Ifnir":0.36, "Ardenn, Intrepid Archaeologist":5.04, "Argentum Armor":2.11, "Artist's Talent":6.01,
+  "Avacyn's Pilgrim":0.41, "Avengers Assemble!":1.02, "Axebane Guardian":0.17, "Basilisk Collar":4.15, "Batterskull":3.28, "Bear Umbra":9.81,
+  "Biorganic Carapace":0.39, "Black Panther, Wakandan King":4.73, "Blackblade Reforged":2.58, "Blade of Selves":2.81, "Body Launderer":1.08, "Brightglass Gearhulk":5.37,
+  "Bulk Up":0.3, "Cadric, Soul Kindler":8.57, "Captain America, Super-Soldier":4.66, "Caretaker's Talent":6.45, "Carnage, Crimson Chaos":1.08, "Champions from Beyond":5.32,
+  "Codsworth, Handy Helper":26.39, "Colossus Hammer":0.76, "Conclave Mentor":0.38, "Cool but Rude":7.08, "Court of Garenbrig":15.62, "Crimson Cowl, Master of Evil":1.01,
+  "Cryptolith Rite":7.26, "Curiosity":0.63, "Dalakos, Crafter of Wonders":0.38, "Damning Verdict":3.44, "Danny Pink":14.62, "Daredevil, Man Without Fear":0.32,
+  "Darksteel Citadel":1.02, "Deepglow Skate":0.32, "Doctor Octopus, Master Planner":8.4, "Doubling Season":28.51, "Duelist's Heritage":1.91, "Emiel the Blessed":12.71,
+  "Evolution Sage":2.3, "Excalibur, Sword of Eden":15.44, "Faithful Mending":1.86, "Feed the Swarm":0.2, "Fellwar Stone":0.55, "Flowering of the White Tree":10.12,
+  "Flux Channeler":2.29, "Forge Anew":5.08, "Forgotten Ancient":0.34, "Foundry Inspector":0.36, "Glint-Horn Buccaneer":7.34, "Green Goblin, Nemesis":14.95,
+  "Green Goblin, Revenant":0.3, "Guardian Augmenter":0.85, "Hammer of Nazahn":5.34, "Hardened Scales":1.84, "Harrow":0.33, "Haywire Mite":0.41,
+  "Hex Magic":1.89, "High Alert":0.42, "Homunculus Horde":0.72, "Illustrious Wanderglyph":15.72, "Improvisation Capstone":9.78, "Inventory Management":3.25,
+  "Iron Lad, Young Avenger":0.64, "Jhoira's Familiar":2.0, "Kaldra Compleat":8.0, "Kediss, Emberclaw Familiar":5.06, "King Solomon's Frogs":0.68, "Kingpin, Wilson Fisk":2.92,
+  "Kodama of the West Tree":16.81, "Kutzil, Malamet Exemplar":1.47, "Ledger Shredder":7.89, "Living Lies of Loki":0.44, "Loki, God of Mischief":6.1, "Longshot, Rebel Bowman":7.72,
+  "March of the Multitudes":0.6, "Masterwork of Ingenuity":1.06, "Michiko's Reign of Truth":0.24, "Monica Rambeau // Photon, Living Light":1.69, "Monument to Endurance":18.07, "Mutational Advantage":6.82,
+  "Mysterio, Master of Illusion":0.37, "Mystic Forge":2.4, "Norman Osborn":18.41, "Norman Osborn // Green Goblin":18.41, "Obeka, Brute Chronologist":0.39, "Ohran Frostfang":4.81,
+  "Open the Armory":2.41, "Oscorp Industries":1.66, "Overgrown Battlement":0.29, "Parallel Lives":28.15, "Psychic Frog":4.7, "Puresteel Paladin":0.7,
+  "Raise the Palisade":4.84, "Rancor":0.96, "Raphael, the Muscle":1.72, "Reprieve":1.36, "Restoration Seminar":3.41, "Retrofitter Foundry":0.38,
+  "Ripples of Potential":2.48, "Roaming Throne":42.66, "SP//dr, Piloted by Peni":0.29, "Second Harvest":2.37, "Shadowspear":18.15, "Sigarda's Aid":18.25,
+  "Sigarda, Font of Blessings":4.28, "Silver Sable, Mercenary Leader":0.26, "Skirge Familiar":0.31, "Snakeskin Veil":0.17, "Sovereign Okinec Ahau":3.84, "Spectacular Spider-Man":7.13,
+  "Spider-Woman, Stunning Savior":1.52, "Spymaster's Vault":0.89, "Sram, Senior Edificer":0.64, "Steel Seraph":1.31, "Steelshaper's Gift":7.69, "Stoneforge Mystic":29.83,
+  "Stridehangar Automaton":2.14, "Sundial of the Infinite":10.35, "Super-Adaptoid":0.36, "Surly Badgersaur":13.51, "Sword of Feast and Famine":36.03, "Sword of War and Peace":9.91,
+  "Swordsman's Steel":28.72, "Talisman of Conviction":0.31, "Talisman of Creativity":1.78, "Talisman of Progress":0.28, "Tamiyo, Field Researcher":1.44, "Terrasymbiosis":7.65,
+  "The Fantastic Four":24.17, "The Master, Multiplied":6.39, "The Ozolith":63.35, "The Reaver Cleaver":15.34, "The Spot's Portal":0.2, "Thornglint Bridge":0.2,
+  "Thought Vessel":1.95, "Thousand Moons Smithy":3.1, "Toski, Bearer of Secrets":3.98, "Towering Viewpoint":0.22, "Tree of Tales":1.38, "Unleash Fury":0.41,
+  "Verdurous Gearhulk":0.32, "Vivi's Persistence":42.86, "Vorinclex, Monstrous Raider":34.85, "Wave Goodbye":1.76, "West Coast Expansion":0.3, "Wonder":1.79,
+  "World at War":9.43
 };
-const UPGRADE_COST = { doom:23.78, ff:15.40, avengers:15.86, wakanda:32.88 };
+const UPGRADE_COST = { doom:51.89, ff:59.11, avengers:15.79, wakanda:74.71 };
 function money(n){ return "$"+n.toFixed(2); }
 const DECKS = [
   {
@@ -1300,22 +1325,32 @@ document.getElementById("archFilters").addEventListener("click", e=>{
 });
 
 syncBars();
+const SLUGDECK={'doctor-doom':'doom','loki':'doom','mister-fantastic':'ff','invisible-woman':'ff','human-torch':'ff','the-thing':'ff','team-leader':'avengers','nick-fury':'avengers','tchalla':'wakanda','shuri':'wakanda','storm':'wakanda','first-avenger':'avengers'};
+const SHORTDECK={doom:'Doom',ff:'F4',avengers:'Avengers',wakanda:'Wakanda'};
+/* Every card across every upgrade path (full swap lists, per-commander swaps, and add-only lists) mapped to the deck(s) it belongs to. */
+function buildCard2Deck(){
+  const m={};
+  const tag=(card,did)=>{ if(!card||!did||!byId[did]) return; (m[card]=m[card]||new Set()).add(did); };
+  for(const d in SWAPS_FULL){ (SWAPS_FULL[d]||[]).forEach(r=>tag(r[1],d)); }
+  for(const k in SWAP_PAIRS){ (SWAP_PAIRS[k]||[]).forEach(r=>tag(r[1],SLUGDECK[k])); }
+  for(const k in EDHREC_UP){ (EDHREC_UP[k].cards||[]).forEach(c=>tag(c,SLUGDECK[k])); }
+  return m;
+}
 function renderCheapest(){
   const dc=document.getElementById('deckcost'), cl=document.getElementById('cheaplist');
   if(!dc||!cl) return;
-  const add2deck={};
-  DECKS.forEach(d=>(d.swaps||[]).forEach(s=>{ if(PRICES[s[1]]!=null && !(s[1] in add2deck)) add2deck[s[1]]=d; }));
+  const c2d=buildCard2Deck();
   const order=Object.keys(UPGRADE_COST).sort((a,b)=>UPGRADE_COST[a]-UPGRADE_COST[b]);
   dc.innerHTML=`<div class="dcgrid">`+order.map((id,i)=>{
     const d=byId[id];
-    const adds=(d.swaps||[]).map(s=>s[1]);
-    return `<div class="dccard" style="--fac:${d.rankColor}"><span class="dcrank">#${i+1} cheapest to upgrade</span><a class="dcname" href="#deck-${id}">${d.name}</a><span class="dccost">${money(UPGRADE_COST[id])}</span><span class="dcsub grown">recommended add-card cost</span><a class="dckc" href="${deckUrl(adds)}" target="_blank" rel="noopener">Price these in KC →</a></div>`;
+    const adds=(SWAPS_FULL[id]||[]).map(s=>s[1]).filter(Boolean);
+    return `<div class="dccard" style="--fac:${d.rankColor}"><span class="dcrank">#${i+1} cheapest to fully upgrade</span><a class="dcname" href="#deck-${id}">${d.name}</a><span class="dccost">${money(UPGRADE_COST[id])}</span><span class="dcsub grown">full recommended package (${adds.length} cards)</span><a class="dckc" href="${deckUrl(adds)}" target="_blank" rel="noopener">Price these in KC →</a></div>`;
   }).join("")+`</div>`;
-  const rows=Object.keys(PRICES).map(nm=>({nm, usd:PRICES[nm], deck:add2deck[nm]})).sort((a,b)=>a.usd-b.usd);
-  cl.innerHTML=`<ol class="cheaprows">`+rows.map(r=>{
+  const rows=Object.keys(PRICES).map(nm=>({nm, usd:PRICES[nm], decks:[...(c2d[nm]||[])]})).sort((a,b)=>a.usd-b.usd || a.nm.localeCompare(b.nm));
+  cl.innerHTML=`<p class="cheaphdr grown">Every upgrade card across all paths (full swap lists, alternate commanders, and add-only lists), ${rows.length} in total, cheapest first.</p><ol class="cheaprows">`+rows.map(r=>{
     const f=frontFace(r.nm);
-    const fac=r.deck?r.deck.rankColor:'var(--muted)';
-    return `<li class="cheaprow"><span class="cprice">${money(r.usd)}</span><a class="cname2" href="https://drwu-htmls.vercel.app/kc-card-finder?card=${encodeURIComponent(f)}" target="_blank" rel="noopener">${r.nm}</a>${r.deck?`<span class="cdeck" style="--fac:${fac}">${r.deck.name}</span>`:''}</li>`;
+    const badges=r.decks.map(did=>`<span class="cdeck" style="--fac:${byId[did].rankColor}">${SHORTDECK[did]||did}</span>`).join("");
+    return `<li class="cheaprow"><span class="cprice">${money(r.usd)}</span><a class="cname2" href="https://drwu-htmls.vercel.app/kc-card-finder?card=${encodeURIComponent(f)}" target="_blank" rel="noopener">${r.nm}</a>${badges}</li>`;
   }).join("")+`</ol>`;
 }
 render();
