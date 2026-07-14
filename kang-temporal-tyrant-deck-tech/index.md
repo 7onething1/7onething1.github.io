@@ -46,7 +46,7 @@ This is why the deckbuilding test below is wider than a pure draw count. Moonsto
 
 ## Off-turn enablers, the cards that make the math work
 
-- **Frantic Search (47%, instant).** Draws two and untaps three lands, so on an opponent's turn it is a free second draw for you. The single best off-turn enabler.
+- **Frantic Search (47%, instant).** Draws two and untaps up to three lands; it pays three mana first and refunds it, so it is a mana-neutral second draw on an opponent's turn rather than a free one. The single best off-turn enabler.
 - **Visions of Villainy (49%, instant).** Draws two, one less with a Villain out, legal on anyone's turn.
 - **Ledger Shredder (42%).** Connives whenever any player casts their second spell in a turn, their turns included.
 - **Baron Strucker, HYDRA Overlord (61%).** The most-run card the old primer never mentioned. Villain spells cost {1} less, and once each turn a Villain entering may connive.
@@ -102,9 +102,9 @@ The exact first pass from the official Doom Prevails ninety-nine. The cuts are t
 | Killmonger, Ruthless Usurper (R) | Teferi's Ageless Insight |
 | Batroc the Leaper (R) | Alandra, Sky Dreamer |
 
-This table is only ten of the forced cuts. The rest of the red-identity cards in the stock 99 also leave: **Doctor Doom, King of Latveria** (the old UBR commander, out of the deck entirely), **Madame Hydra** (B/R), **Typhoid Mary, Fractured** (B/R), **Superior Foes of Spider-Man** (R), and **Talisman of Indulgence** (B/R rock, swap for the black Talisman of Dominance). Fill with more of the add pool (Visions of Villainy, Frantic Search, Ledger Shredder, Madame Masque). Molecule Man and Damocles Base sit near the cut line as flavor calls.
+This table is only ten of the forced cuts. A card-fact gate that resolves every card in the official list against Scryfall counts **21 red-identity nonland cards** in the 99, so eleven more leave beyond the ten above: **Abomination, World Ravager**; **Lady Loki, Agent of Chaos**; **Puppet Master, String Puller**; **Stilt-Man, Towering Terror**; **Titania, Proud Pummeler**; **Loki, the Deceiver** (Grixis); **The Squadron Sinister**; **Madame Hydra**; **Typhoid Mary, Fractured**; **Superior Foes of Spider-Man**; **Talisman of Indulgence** (swap the rock for the black Talisman of Dominance). **Doctor Doom, King of Latveria** also leaves, vacating the command zone for Kang. Fill from the add pool (Visions of Villainy, Frantic Search, Ledger Shredder, Madame Masque, Psychosis Crawler, Teferi), then the flavor calls like Molecule Man and Damocles Base last.
 
-**The mana base loses 15 red sources.** Ten stock lands carry a red pip and are illegal: the eight duals Sulfur Falls, Dragonskull Summit, Canyon Slough, Smoldering Marsh, Foreboding Ruins, Frostboil Snarl, Luxury Suite, Crumbling Necropolis, plus the two Island Mountains Coastal Peak and Scorched Geyser. Add the 5 Mountains for 15 open slots. Keep the blue-black and colorless lands already in the deck (Command Tower, Drowned Catacomb, Fetid Pools, Sunken Hollow, Choked Estuary, Exotic Orchard, Scavenger Grounds) and refill with Swamps and Islands weighted black, plus any UB duals you own (Watery Grave, Underground River). That leaves ~37 lands, black-heavy.
+**The mana base loses 15 red sources.** Ten stock lands carry a red pip and are illegal: the eight duals Sulfur Falls, Dragonskull Summit, Canyon Slough, Smoldering Marsh, Foreboding Ruins, Frostboil Snarl, Luxury Suite, Crumbling Necropolis, plus the two Island Mountains Coastal Peak and Scorched Geyser. Add the 5 Mountains for 15 open slots. Keep the blue-black and colorless lands already in the deck (Command Tower, Drowned Catacomb, Fetid Pools, Sunken Hollow, Choked Estuary, Exotic Orchard, Scavenger Grounds) and refill with Swamps and Islands weighted black, plus any UB duals you own (Watery Grave, Underground River). That leaves ~37 lands, black-heavy. All told the conversion opens about 36 slots (21 red nonland cards plus 15 red mana sources), so this is a genuine rebuild rather than a light retheme.
 
 ## How Kang actually wins, and where he does not
 
