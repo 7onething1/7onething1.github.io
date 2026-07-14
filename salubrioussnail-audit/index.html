@@ -1,0 +1,140 @@
+<!doctype html>
+<html lang="en"><head><meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Salubrious Snail Index — 2026 Modernization Audit</title>
+<style>
+  :root{--cream:#f4ecd8;--ink:#1c1a17;--rust:#b5533b;--teal:#3f7c78;--gold:#c98a2b;--olive:#7d7a3a;--line:#d9cdb0;--paper:#fbf4e2;}
+  *{box-sizing:border-box}
+  body{margin:0;background:var(--cream);color:var(--ink);font-family:'Inter',system-ui,-apple-system,Segoe UI,Roboto,sans-serif;line-height:1.55}
+  header{padding:44px 24px 8px;max-width:1000px;margin:0 auto;text-align:center}
+  h1{font-family:'Cormorant Garamond',Georgia,serif;font-size:2.7rem;margin:.15em 0;color:var(--ink);line-height:1.05}
+  .sub{color:var(--olive);font-weight:600;font-size:1.02rem}
+  .stamp{display:inline-block;margin-top:10px;padding:5px 12px;background:var(--paper);border:1px solid var(--gold);border-left:4px solid var(--rust);border-radius:8px;font-size:.82rem;color:var(--ink)}
+  main{max-width:1000px;margin:0 auto;padding:8px 20px 60px}
+  h2{font-family:'Cormorant Garamond',Georgia,serif;font-size:1.75rem;color:var(--rust);border-bottom:2px solid var(--line);padding-bottom:5px;margin:34px 0 12px}
+  h2 .n{color:var(--gold);font-size:1.2rem;margin-right:8px;font-weight:700}
+  p{margin:.5em 0}
+  .lead{font-size:1.05rem}
+  .verdict{background:var(--paper);border:1px solid var(--line);border-left:4px solid var(--teal);border-radius:10px;padding:14px 18px;margin:14px 0}
+  .tablewrap{overflow-x:auto;border:1px solid var(--line);border-radius:10px;margin:14px 0;background:#fffdf6}
+  table{border-collapse:collapse;width:100%;min-width:660px;font-size:.9rem}
+  th,td{text-align:left;padding:9px 12px;border-bottom:1px solid var(--line);vertical-align:top}
+  th{background:#efe4c8;font-size:.74rem;text-transform:uppercase;letter-spacing:.03em;color:var(--olive)}
+  tr:last-child td{border-bottom:none}
+  .tag{display:inline-block;font-size:.7rem;font-weight:800;text-transform:uppercase;letter-spacing:.03em;padding:2px 7px;border-radius:20px;white-space:nowrap}
+  .fix{background:#e3efe0;color:#2f5d38;border:1px solid #a9c9a3}
+  .note{background:#f3e6cf;color:#7a5a1e;border:1px solid var(--gold)}
+  .keep{background:#e6ecf2;color:#33506e;border:1px solid #a9bdd4}
+  .truth{font-weight:600}
+  code{background:#efe4c8;padding:1px 6px;border-radius:5px;font-family:'JetBrains Mono',ui-monospace,Menlo,monospace;font-size:.82em}
+  ul{margin:.4em 0;padding-left:20px}li{margin:4px 0}
+  .src{color:var(--olive);font-size:.82rem}
+  .cols{display:grid;grid-template-columns:1fr 1fr;gap:14px;margin:14px 0}
+  .card{background:#fffdf6;border:1px solid var(--line);border-radius:10px;padding:14px 16px}
+  .card h3{margin:.1em 0 .4em;font-size:1.05rem;color:var(--teal)}
+  .foot{max-width:1000px;margin:0 auto;padding:20px;color:var(--olive);font-size:.85rem;border-top:1px solid var(--line);text-align:center}
+  a{color:var(--rust)}
+  @media(max-width:680px){.cols{grid-template-columns:1fr}h1{font-size:2.1rem}}
+</style></head>
+<body>
+<header>
+  <h1>Salubrious Snail Commander Index</h1>
+  <div class="sub">2026 modernization audit — what was outdated, and what changed</div>
+  <div class="stamp">Every fact re-verified 2026-07-14 against Scryfall card records and magic.wizards.com. The transcript archive is untouched; only machine-readable metadata and an editorial status layer were added.</div>
+</header>
+<main>
+
+  <div class="verdict lead">
+    <strong>Verdict:</strong> Yes, the index carried genuinely stale rules and card facts, and it has been modernized. The central deckbuilding theory ages well. The datable material was card legality, the Game Changers list, bracket definitions, the hybrid-mana proposal, and two metadata errors. All of it is now corrected in the generator, so the fix survives the next rebuild.
+  </div>
+
+  <h2><span class="n">1</span>Verified corrections</h2>
+  <p>Each row was checked against a primary source today. <span class="tag fix">FIXED</span> means the metadata was wrong and is now corrected. <span class="tag note">STATUS NOTE</span> means the speaker's words stay and a current-status line now sits above them. <span class="tag keep">NO CHANGE</span> means the page was already right.</p>
+  <div class="tablewrap"><table>
+    <tr><th>Item</th><th>What the page reflected</th><th>Ground truth (verified 2026-07-14)</th><th>Action</th></tr>
+    <tr>
+      <td><strong>Athreos, Shroud-Veiled</strong> color identity</td>
+      <td>Tagged White / Black / <strong>Green</strong>; a Green color-filter chip</td>
+      <td class="truth">White / Black only. The stray Green traced to the mono-black "Sibsig Ceremony" being misheard as green-black. <span class="src">Scryfall</span></td>
+      <td><span class="tag fix">FIXED</span> Green removed from tags + filter</td>
+    </tr>
+    <tr>
+      <td><strong>Commander name garble</strong></td>
+      <td>Commander tagged <code>Hearthhole, the World Seed</code></td>
+      <td class="truth">Real card is <code>Hearthhull, the Worldseed</code> (B/G/R Spacecraft, Edge of Eternities Commander). <span class="src">Scryfall</span></td>
+      <td><span class="tag fix">FIXED</span> chip + search tag corrected</td>
+    </tr>
+    <tr>
+      <td><strong>Sway of the Stars</strong> legality</td>
+      <td>Transcript states it is banned</td>
+      <td class="truth">Legal in Commander again after being unbanned. <span class="src">Scryfall: legal</span></td>
+      <td><span class="tag note">STATUS NOTE</span></td>
+    </tr>
+    <tr>
+      <td><strong>Farewell</strong> status</td>
+      <td>Discussed as a plain six-mana board wipe</td>
+      <td class="truth">Now on the Commander Game Changers list, so it counts toward a deck's bracket. <span class="src">Scryfall: game_changer</span></td>
+      <td><span class="tag note">STATUS NOTE</span></td>
+    </tr>
+    <tr>
+      <td><strong>Hybrid mana</strong> proposal</td>
+      <td>Framed as a live proposed rules change</td>
+      <td class="truth">Never became a rule. A hybrid card still counts every color in its cost toward color identity; any other treatment is a pregame house rule. <span class="src">magic.wizards.com</span></td>
+      <td><span class="tag note">STATUS NOTE</span></td>
+    </tr>
+    <tr>
+      <td><strong>Bracket 2</strong> definition</td>
+      <td>Equated with preconstructed-deck strength and a three-tutor ceiling</td>
+      <td class="truth">Bracket 2 is "Core". Brackets 1 and 2 exclude Game Changers; Bracket 3 allows up to three. No fixed tutor count; no tie to a specific precon. <span class="src">magic.wizards.com/en/formats/commander</span></td>
+      <td><span class="tag note">STATUS NOTE</span></td>
+    </tr>
+    <tr>
+      <td><strong>The Sibsig Ceremony</strong> colors</td>
+      <td>Transcript says "it's green-black"</td>
+      <td class="truth">Mono-black ({B}{B}{B}, Tarkir: Dragonstorm). <span class="src">Scryfall</span></td>
+      <td><span class="tag note">STATUS NOTE</span> (transcript kept)</td>
+    </tr>
+    <tr>
+      <td><strong>Iona, Shield of Emeria</strong></td>
+      <td>Cited as a banned card</td>
+      <td class="truth">Still banned in Commander. The page is correct. <span class="src">Scryfall: banned</span></td>
+      <td><span class="tag keep">NO CHANGE</span></td>
+    </tr>
+  </table></div>
+
+  <h2><span class="n">2</span>What changed in the generator</h2>
+  <p>The page is generator-driven (<code>corpus_points.py</code>), so hand-edits to the HTML get clobbered on the next build. Every fix went into the builder, matching its existing patterns (the same place <code>revoice.py</code> and the caption-repair maps already live).</p>
+  <div class="cols">
+    <div class="card">
+      <h3>Metadata corrector</h3>
+      <p>A <code>CARD_ERRATA</code> map fixes wrong commander names and color identities against Scryfall when the tags load, so chips, search tags, and color filters use the real card record. The spoken transcript is never edited.</p>
+    </div>
+    <div class="card">
+      <h3>Editorial status layer</h3>
+      <p>A <code>STATUS_NOTES</code> overlay renders a small "Current status — verified Jul 2026" panel <em>above</em> a video's transcript when its rules or legality have moved. Each line names its source, so the archive and today's rules sit side by side.</p>
+    </div>
+    <div class="card">
+      <h3>"Rules changed since publish" filter</h3>
+      <p>A new toggle in the filter bar surfaces only the entries carrying a status note, so a reader can jump straight to the material that has aged.</p>
+    </div>
+    <div class="card">
+      <h3>Grounding preserved</h3>
+      <p>Both gates pass on the rebuilt page: the anti-AI voice gate (authored prose only) and <code>points_validate</code> (0 hard, 0 soft). The status prose was written to the house voice.</p>
+    </div>
+  </div>
+
+  <h2><span class="n">3</span>On the external review</h2>
+  <p>The pasted research was mostly accurate and its fixes were adopted. Two calibration notes, both grounded in the checks above:</p>
+  <ul>
+    <li><strong>Confirmed right:</strong> the transcription garbles are real — <code>Meria of Ultron</code>, <code>Glissel</code>, and <code>Hearthhole</code> do appear. Only <code>Hearthhole</code> reached the metadata, so it is the one that was fixed; the other two live only in the spoken transcript (the decks are already tagged correctly as Meria, Scholar of Antiquity and Glissa), so they stay per the preserve-the-transcript rule.</li>
+    <li><strong>Held to current state, not to dates:</strong> the specific change dates in the review (a February 2026 hybrid shelving, an October 2025 bracket revision) were not independently verified, so the status notes anchor to the current published rule and its source rather than repeating an unconfirmed date.</li>
+  </ul>
+
+  <h2><span class="n">4</span>Optional next step</h2>
+  <p>The one item not yet built is a design choice: a "2026 alternatives" box that pairs an older card with a newer role-equivalent (for example Hexing Squelcher next to Spider-Punk). That adds a new opinion layer on top of the archive, so it is offered rather than assumed.</p>
+
+</main>
+<div class="foot">
+  Live index: <a href="https://7onething1.github.io/salubrioussnail-points/">7onething1.github.io/salubrioussnail-points</a> &middot; generator <code>~/.claude/skills/yt_trans/scripts/corpus_points.py</code>
+</div>
+</body></html>
