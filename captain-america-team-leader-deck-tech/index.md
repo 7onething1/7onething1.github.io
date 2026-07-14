@@ -89,19 +89,19 @@ Two and three carry the deck. That is where Nick Fury, Black Widow, Shang-Chi, a
 
 | Card | Inclusion | Synergy | Job |
 |---|---:|---:|---|
-| Director Nick Fury | 93.2% | +88.8% | Hero spells cost 1 less; attack digs 4 cards for a Hero |
-| Avengers Tower | 92.3% | +86.3% | Hero-fixing land; for four mana and a tap, looks at three and keeps a Hero |
-| Iron Man, Armored Avenger | 90.3% | +85.1% | Draw puts a counter; modified attackers fly |
-| War Machine, Avenging Arsenal | 88.6% | +83.6% | Modified attackers gain double strike |
-| Black Widow, Agile Avenger | 87.8% | +82.0% | Cheap menace Hero; punishes an opponent's extra draw |
-| She-Hulk, Wallbreaker | 85.9% | +81.3% | Team trample; blocked Heroes gain counters |
-| Winter Soldier, Reborn Avenger | 86.0% | +81.2% | Attack returns a creature within his power; a Hero re-enters with an extra counter |
+| Director Nick Fury | 95.1% | +88.8% | Hero spells cost 1 less; attack digs 4 cards for a Hero |
+| Avengers Tower | 94.2% | +86.3% | Hero-fixing land; for four mana and a tap, looks at three and keeps a Hero |
+| Iron Man, Armored Avenger | 92.1% | +85.1% | Draw puts a counter; modified attackers fly |
+| War Machine, Avenging Arsenal | 91.1% | +83.6% | Modified attackers gain double strike |
+| Black Widow, Agile Avenger | 90.3% | +82.0% | Cheap menace Hero; punishes an opponent's extra draw |
+| She-Hulk, Wallbreaker | 88.4% | +81.3% | Team trample; blocked Heroes gain counters |
+| Winter Soldier, Reborn Avenger | 88.4% | +81.2% | Attack returns a creature within his power; a Hero re-enters with an extra counter |
 | Kindred Discovery | 86.0% | +80.8% | Choose Hero: draw on every Hero that enters or attacks |
 | Raise the Palisade | 86.0% | +82.4% | Bounce non-Hero creatures; strongly favors your Hero-heavy board |
 | Swords to Plowshares | 90.5% | +22.8% | *Staple*: high inclusion, low synergy |
 | Arcane Denial | 68.5% | +52.0% | Cheap counter that replaces itself; more commander-tied than a plain staple |
 
-Swords to Plowshares is the pure staple, high inclusion with low synergy at +22.8%. Arcane Denial sits between, a cheap counter this deck likes more than average.
+Inclusion is EDHREC's figure, decks running the card over decks that could run it, so the newer Marvel cards read a few points above a flat share of all 2,526 decks. Swords to Plowshares is the pure staple, high inclusion with low synergy at +22.8%. Arcane Denial sits between, a cheap counter this deck likes more than average.
 
 ## What EDHREC can and cannot tell you
 
@@ -115,9 +115,9 @@ The trigger is written on **enters**. Players expect cast, and that swap is the 
 
 A creature with a counter is **modified**, so your countered Heroes meet these rewards at once.
 
-- **Iron Man, Armored Avenger** (90.3% / +85.1%). Every draw drops a counter; on attack, your other attacking modified creatures gain flying.
-- **War Machine, Avenging Arsenal** (88.5% / +83.6%). On attack, your attacking modified creatures gain double strike.
-- **She-Hulk, Wallbreaker** (86.0% / +81.4%). Heroes gain trample; a blocked Hero gains a counter per blocker.
+- **Iron Man, Armored Avenger** (92.1% / +85.1%). Every draw drops a counter; on attack, your other attacking modified creatures gain flying.
+- **War Machine, Avenging Arsenal** (91.1% / +83.6%). On attack, your attacking modified creatures gain double strike.
+- **She-Hulk, Wallbreaker** (88.4% / +81.3%). Heroes gain trample; a blocked Hero gains a counter per blocker.
 
 Card draw feeds the loop: Iron Man counters on every draw, Shang-Chi and the Ten Rings grows on every draw and draws five plus gains five life at ten counters, and Professor Hulk draws for each point of combat damage it deals. Kindred Discovery draws and turns those on. One rules trap: Director Nick Fury, Avengers Tower, and Herald's Horn reveal a Hero into your hand, which does not count as drawing, so they do not add a counter through Iron Man or Shang-Chi.
 
