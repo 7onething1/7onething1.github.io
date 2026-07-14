@@ -30,17 +30,18 @@ Archfiend of Ifnir
 Bone Miser
 Containment Construct
 # --- Draw engines ---
+Skullclamp
 Black Market Connections
 Night's Whisper
 Syphon Mind
 Sign in Blood
 Read the Bones
-Crux of Fate
 Rhystic Study
 Mystic Remora
 Windfall
 Brainstorm
 # --- Interaction ---
+Crux of Fate
 Counterspell
 Arcane Denial
 Swan Song
@@ -70,7 +71,6 @@ Dimir Signet
 Talisman of Dominance
 Mind Stone
 Fellwar Stone
-Skullclamp
 # --- Lands (37) ---
 Command Tower
 Path of Ancestry

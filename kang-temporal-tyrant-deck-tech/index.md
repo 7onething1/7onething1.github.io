@@ -199,12 +199,13 @@ A complete legal Kang list, commander plus 99, every card verified blue-black or
 - **Second-draw enablers: connive + instant-speed draw (14):** Leader, Super-Genius, Baron Strucker, HYDRA Overlord, Madame Masque, Ledger Shredder, Frantic Search, Visions of Villainy, Chart a Course, Chemister's Insight, Thirst for Discovery, Fact or Fiction, Forbidden Alchemy, Careful Study, Thirst for Knowledge, Merfolk Looter
 - **Second-draw payoffs (8):** Construct a Cosmic Cube, Gixian Puppeteer, Kid Loki, Alandra, Sky Dreamer, M.O.D.O.K., Evil Intellect, Psychosis Crawler, Teferi's Ageless Insight, Moonstone, Harsh Mistress
 - **Discard / graveyard value (3):** Archfiend of Ifnir, Bone Miser, Containment Construct
-- **Draw engines (10):** Black Market Connections, Night's Whisper, Syphon Mind, Sign in Blood, Read the Bones, Crux of Fate, Rhystic Study, Mystic Remora, Windfall, Brainstorm
-- **Interaction (13):** Counterspell, Arcane Denial, Swan Song, Reality Shift, Go for the Throat, Withering Torment, Lethal Scheme, Bloodchief's Thirst, Feed the Swarm, Toxic Deluge, Damnation, Cyclonic Rift, Kindred Dominance
+- **Draw engines (10):** Skullclamp, Black Market Connections, Night's Whisper, Syphon Mind, Sign in Blood, Read the Bones, Rhystic Study, Mystic Remora, Windfall, Brainstorm
+- **Interaction (14):** Crux of Fate, Counterspell, Arcane Denial, Swan Song, Reality Shift, Go for the Throat, Withering Torment, Lethal Scheme, Bloodchief's Thirst, Feed the Swarm, Toxic Deluge, Damnation, Cyclonic Rift, Kindred Dominance
 - **Protection (3):** Swiftfoot Boots, Lightning Greaves, Propaganda
 - **Card-advantage creatures / value (4):** Baleful Strix, Sea Gate Oracle, Spark Double, Chameleon, Master of Disguise
-- **Ramp / rocks (7):** Sol Ring, Arcane Signet, Dimir Signet, Talisman of Dominance, Mind Stone, Fellwar Stone, Skullclamp
+- **Ramp / rocks (6):** Sol Ring, Arcane Signet, Dimir Signet, Talisman of Dominance, Mind Stone, Fellwar Stone
 - **Lands (37) (37):** Command Tower, Path of Ancestry, Exotic Orchard, Drowned Catacomb, Choked Estuary, Fetid Pools, Sunken Hollow, Watery Grave, Underground River, Darkslick Shores, Dismal Backwater, Temple of Deceit, Morphic Pool, Dimir Aqueduct, Tainted Isle, River of Tears, Sunken Ruins, Reliquary Tower, Bojuka Bog, Scavenger Grounds, Terramorphic Expanse, Island x8, Swamp x8
+
 
 ## Dedicated Kang, or Kang in the Doom box
 
