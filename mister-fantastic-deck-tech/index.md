@@ -1,6 +1,6 @@
 # Mister Fantastic: Cast Before Combat, Then Multiply the Trigger
 
-The Fantastic Four commander draws you a card at combat when you have cast a noncreature spell that turn. The deck is built to hit that cast every turn, then copy the triggers it sets off.
+The Fantastic Four commander draws you a card at combat when you have cast a noncreature spell that turn. The list reliably arms that cast on your own turn, and the five instant upgrades make it more active across the whole table, then it copies the triggers it sets off.
 
 *This Mister Fantastic deck tech applies deckbuilding principles summarized from Salubrious Snail's published videos and cited below, in our own wording. Inclusion figures come from his EDHREC commander page; card text is from Scryfall; the decklist is the official Wizards Fantastic Four precon. Neither Salubrious Snail nor EDHREC authored or endorsed it.*
 
