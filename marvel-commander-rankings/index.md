@@ -45,13 +45,13 @@ Avengers Assemble has the strongest combined case, landing a threatening board m
 
 ### 1. Avengers Assemble · Jeskai (R/W/U), out-of-box 8.0
 The strongest deck straight out of the box, and the cleanest to pilot. **Captain America, Team Leader** hands haste and +1/+1 counters to every Hero that lands; **Director Nick Fury** keeps the team coming with cheaper Heroes and repeatable card advantage. Its upgrade ceiling (7.0) sits below Doom and the Fantastic Four.
-- **Jeskai (R/W/U) commanders:** Captain America, Team Leader and Director Nick Fury are the only two commanders matching the deck's full R/W/U identity. Thor, Asgard's Avenger is mono-red, so it is not a Jeskai commander and is not listed as an option.
+- **Jeskai (R/W/U) commanders:** Captain America, Team Leader and Director Nick Fury are the only two commanders matching the deck's full R/W/U identity. Thor, Asgard's Avenger is mono-red, so it is not a Jeskai commander and cannot lead the unchanged 99, though it could command a rebuilt deck inside its own colour identity.
 - **Best stock commander:** Director Nick Fury (Team Leader is the strongest straightforward face for a new pilot).
 - **Cut → Add swaps** (source: [Gathering Games Avengers Assemble guide](https://gatheringgames.co.uk/community/blog/avengers-assemble-precon-upgrade-guide-mtg-marvel-super-heroes); cut cards verified in-box against Scryfall): Gift of Immortality → Wave Goodbye; Love on the Battlefield → Champions from Beyond; Avenge → Damning Verdict; Metallic Mimic → Araña, Heart of the Spider; Thor, Asgard's Avenger → Raphael, the Muscle; Hulkbuster Armor → Ripples of Potential.
 
 ### 2. Doom Prevails · Grixis (U/B/R), out-of-box 7.3
 Discard-matters villains with two engines. **Doctor Doom, King of Latveria** drains the table when you discard lands and connives your villains; **Loki, the Deceiver** copies your best villain into a swarm of attackers. Loki's copy-and-swing line is the strongest single play in the set. Its discard, Villain, sacrifice, and token themes compete for deck space.
-- **Grixis (U/B/R) commanders:** Doctor Doom and Loki, the Deceiver are the only two commanders in this box that match the deck's full U/B/R identity. Every other legend in the deck is mono or two-colour, so it is not a Grixis commander and is not listed as an option.
+- **Grixis (U/B/R) commanders:** Doctor Doom and Loki, the Deceiver are the only two commanders in this box that match the deck's full U/B/R identity. Every other legend in the deck is mono or two-colour, so it is not a Grixis commander and cannot lead the unchanged 99, though it could command a rebuilt deck inside its own colour identity.
 - **Best build-around:** Loki, the Deceiver.
 - **Cut → Add swaps** (source: [Draftsim Doom Prevails guide](https://draftsim.com/doom-prevails-upgrade-guide/)): Damocles Base → Sundial of the Infinite; Superior Foes of Spider-Man → Green Goblin, Revenant; Molecule Man → Kingpin, Wilson Fisk; Iron Monger → Doctor Octopus, Master Planner; The Frightful Four → Super-Adaptoid; Syphon Mind → Crimson Cowl, Master of Evil; Klaw → Living Lies of Loki.
 
