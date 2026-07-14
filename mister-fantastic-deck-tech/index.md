@@ -43,9 +43,9 @@ Mister Fantastic's {R}{G}{W}{U} plus tap ability copies a target triggered abili
 
 Read the copy ability precisely, because it matters mid-board. Mister Fantastic copies a target triggered ability you control, twice. He does not copy a spell, an activated ability, or a whole card. Cosmic Crucible is the piece that copies the spell itself, so keep the two apart when a turn gets busy.
 
-Three lines close the game. First, Crystal as a burst clock, since every noncreature spell hits each opponent for its color count, and a chain of spells in one turn stacks those pings toward lethal. Second, a Franklin turn, where a copied discover casts several free spells that each ping with Crystal and draw with Whirlwind of Thought, one turn that buries a table on cards and life at once. Third, the plain route, the Fantastic Four bodies swinging while opponents run low on answers.
+Three lines close the game. First, Crystal as a burst clock, since every noncreature spell hits each opponent for its color count, and a chain of spells in one turn stacks those pings toward lethal. Second, a Franklin turn, where a copied discover casts several free spells, and each noncreature one among them pings with Crystal and draws with Whirlwind of Thought, and any creatures just enter the board, one turn that buries a table on cards and life at once. Third, the plain route, the Fantastic Four bodies swinging while opponents run low on answers.
 
-Be honest about the ceiling. The copy ability taps Mister Fantastic, so without an untapper you copy one trigger per turn, which makes this a strong burst deck rather than a hard combo. A casual table feels it as a big value turn. A stronger table reaches the burst by holding the copy for a Franklin discover with Annie Joins Up online, the four-discover turn, then chaining the free spells into Crystal damage. Add untap effects and the copy repeats, so the ceiling rises with your pod.
+Be honest about the ceiling. The copy ability taps Mister Fantastic, so without an untapper you copy one trigger per turn, which makes this a strong burst deck rather than a hard combo. A casual table feels it as a big value turn. A stronger table reaches the burst by holding the copy for a Franklin discover with Annie Joins Up online, the four-discover turn, then chaining the free noncreature spells into Crystal damage, since only noncreature discoveries ping. Add an untap effect and the copy repeats, though each repeat costs another R, G, W, and U, so the ceiling rises with your pod and your mana.
 
 One copy decision comes up most turns. With Mister Fantastic untapped and both a Franklin discover and a Crystal ping waiting, copy the discover, since the card and board swing dwarfs a few points of damage. Copy the ping only when those points are lethal.
 
@@ -133,11 +133,11 @@ The audit found the hole: eleven noncreature spells cost five or more, and only 
 |---|---|---|
 | Genesis Ultimatum | Swan Song | One-mana counter held up any turn; casting it on their turn feeds Valeria and Crystal. |
 | Taunt from the Rampart | Swords to Plowshares | One-mana removal instant, the cleanest opposing-turn fuel that also answers a threat. |
-| Flame On! | Heroic Intervention | Two-mana protection instant that arms a trigger and saves the board from a wipe. |
+| Flame On! | Heroic Intervention | Two-mana instant that arms a trigger and grants hexproof and indestructible, covering targeting, destruction, and damage, though not exile, bounce, or sacrifice. |
 | Quantum Misalignment | Consider | One-mana cantrip that adds the filtering the deck has none of. |
-| Promise of Loyalty | Arcane Denial | Two-mana counter that replaces itself, so it never sits dead. |
+| Promise of Loyalty | Arcane Denial | Two-mana counter that draws you a card, so it rarely sits dead, though it still needs a spell on the stack to counter. |
 
-Keep the two remaining board wipes (Cleansing Nova, Tragic Arrogance); the flexibility floor still needs mass removal. This tier trades own-turn-only top end for cheap plays that keep the every-turn payoffs paying.
+Keep the mass removal (Cleansing Nova, Tragic Arrogance, Ultimate Nullification, Nova Flame); the flexibility floor still needs it. This tier trades own-turn-only top end for cheap plays that keep the every-turn payoffs paying.
 
 ## Keeping a hand
 
