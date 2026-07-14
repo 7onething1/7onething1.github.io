@@ -123,30 +123,34 @@ We propose that an alternative set structure could better balance immersion and 
 > Seeing that clear change communicated through the design of a set would be great for getting players to engage more with the lore and ask more questions, as opposed to one-off sets that present a snapshot of things and then dash away.
 > One-off sets can be great as a way to do something funky and unusual, to explore some bold new aesthetic territory without committing too hard.
 
-## #4. How to Integrate Subthemes into Your Commander Deck  (May 2026, 48K views)
+## #4. Using Fulcrum Cards to Add Subthemes in EDH  (May 2026, 48K views)
 *Original title: Snail's Guide to Giving Your Deck More Sauce*
 **Category:** Deckbuilding
 **Tags:** Blink, Tokens, Discard, Synergy, Card Evaluation, Deck Consistency, Deckbuilding Principle
 
-We explain how to use fulcrum cards to connect subthemes in Commander decks.
-We emphasize evaluating a card's worst-case performance, or floor, and the deck space it requires.
-By assessing these factors, builders can avoid dead draws and create more cohesive multi-theme decks.
+We explain how to expand a Commander deck's synergy by adding subthemes through fulcrum cards that bridge archetypes.
+We stress evaluating a card's floor and considering the deck space required for support.
+Players learn to combine themes intentionally, balancing novelty with consistency.
 
 **Principle**
-- The floor of a card, how it performs in a suboptimal scenario, is the key metric for including subtheme enablers.
+- Fulcrum cards connect two archetypes by allowing one's setup to pay off the other.
+- A card's floor performance in a subpar state determines whether it earns a slot.
 
 **Evidence**
-- Cards like Professional Facebreaker have high floors by providing generic value, while cards like Astral Slide are dead without cycling.
+- Professional Facebreaker creates treasure with minimal evasion, while Dross Scorpion often just grants a single untap.
+- Ret to the Mystic is worse than a merfolk looter in a deck where 40% of creatures already cycle.
 
 **Deckbuilding Application**
-- To avoid dead draws, assess if a card's floor is acceptable by imagining the 25th percentile game.
-- When adding a subtheme, calculate the deck space required; cards that demand heavy support may not be worth the slots.
+- Assess the support cards a subtheme requires; if it demands many slots, it may dilute your main plan.
+- Count the fulcrum cards linking two themes; abundant bridges make a hybrid deck more cohesive.
 
 **Limitation**
-- Even synergistic-looking cards can fail if their floor is too low for the deck's context, as seen with Ret to my mystic in a cycling-heavy deck.
+- Theme pairs with sparse natural synergy, like cast-from-exile and landfall, risk being inconsistent.
+- Conditional enchantments like Astral Slide become dead draws without cycling enablers.
 
 **Example**
-- Squee, Dubious Monarch exemplifies a fulcrum card by converting graveyard setup into token generation, bridging two themes.
+- In an Arcades defender deck, Doorkeeper's milling subtheme diverts from combat damage and needs extra support.
+- An initiative-focused deck with legendary and background themes has few direct connections but can be built with intentionality.
 
 **More quotes**
 > Subthemes can make your deck better or they can make your deck worse. Either might be a desirable outcome depending on what you look for in a game of Magic: The Gathering.
@@ -200,7 +204,48 @@ Attempts to add the initiative proved distracting, but discovering Bruna, the De
 > I was not just looking for an aggro deck. I was looking for a sort of inevitability aggro experience, where opponents would spend time dealing with the consequences of a painfully low life total.
 > A small part of me wishes she drained opponents for three per spell, but alas, my girl Liesa just does not quite have that kind of sauce.
 
-## #6. How to Avoid Common Commander Deckbuilding Mistakes  (Jan 2026, 259K views)
+## #6. Blight Curse Precon Review: Johnny-Style -1/-1 Counter Deck  (Feb 2026, 72K views)
+*Original title: Blight Curse is a Johnny Playground*
+**Category:** Deckbuilding
+**Tags:** Amzu, Black, Green, Counters, Card Draw, Reanimator, Upgrades, Synergy, Design Intent, Deckbuilding Principle
+
+We review the Blight Curse precon, highlighting its commander's explosive draw potential and the diverse Johnny-style synergies from minus one counters.
+We note that the limited and varied card pool requires careful balancing to avoid dead draws.
+The alternate commander enables a creature theft strategy.
+
+**Principle**
+- The commander's ability has no per-turn limit, allowing it to draw multiple cards from a single spell that places counters on many creatures.
+- The deck appeals to Johnny players by offering varied synergy pieces that combine in creative and powerful ways.
+
+**Evidence**
+- In 20 test games, the deck consistently built towards strong midgame plays rather than early explosive starts.
+- The deck contains four cards that put minus one counters on all creatures, which become one-sided draw engines with the commander.
+
+**Deckbuilding Application**
+- Add more cards that distribute minus one counters to all creatures to maximize card advantage from the commander.
+- Include proliferate effects to multiply existing counters and accelerate your value engine.
+
+**Limitation**
+- The fragmented pool of minus one counter cards means some will be dead draws if they do not fit the current board state.
+- Cards designed to weaken opponents may be inefficient when used on your own creatures for card draw.
+
+**Example**
+- The alternate commander, the Reaper King No More, steals opposing creatures that die with minus one counters, supported by the deck's removal suite.
+- Hapatra and Flourishing Defenses turn minus one counter placement into token generation, rapidly building your board.
+
+**More quotes**
+> Blight Curse is pretty phenomenal as far as pre-constructed Commander decks go.
+> This strikes me as quite a Johnny sort of precon.
+> Liliana Death Wielder is an intro deck planeswalker from Amonkhet and it is truly god awful; it'd be barely playable at four mana and in reality it's seven mana because it's an intro deck planeswalker.
+> I guess this was added to the deck to be an educational first cut for new players, à la Temple of the False God.
+> This deck has a better relationship with its alt commander than most precons do.
+> Anti-U has a lack of limiting phrases in the text box: no 'one or more creatures' and no 'once per turn'.
+> Some cards put minus one counters on all creatures, rewarding wide boards with massive card advantage, whereas others gain minus one counters over time, pushing a slower, grindier play style.
+> She is a powerful draw engine that allows somebody piloting the deck to see more of it, which is super useful for a deck whose cards are highly varied in how they work.
+> There are so many different ways the various synergy elements can be pieced together, whether it be making a value engine, a removal engine, having a single explosive turn, putting together a wide board,.
+> The minus one counter synergies take a variety of different shapes, and the setups and payoffs within this deck piece together in some really cool and sometimes really powerful ways.
+
+## #7. How to Avoid Common Commander Deckbuilding Mistakes  (Jan 2026, 259K views)
 *Original title: The 5 Most Common Deckbuilding Mistakes, and How to Avoid Them*
 **Category:** Deckbuilding
 **Tags:** Deck Consistency, Resilience, Win Conditions, Synergy, Deckbuilding Principle
@@ -241,7 +286,7 @@ These lessons aim to help players refine their Commander decks into more cohesiv
 > I don't like protection spells very much. I've had multiple protection heavy decks that just felt kind of bad to play.
 > With goad in particular, players treat goad as a plan for winning in and of itself when it's really not a mechanic that can be relied upon to do.
 
-## #7. How Much Ramp Your Deck Really Needs  (Jan 2026, 100K views)
+## #8. How Much Ramp Your Deck Really Needs  (Jan 2026, 100K views)
 *Original title: You Might Have Too Much Ramp (but you also might not)*
 **Category:** Deckbuilding
 **Tags:** Ramp, Deck Consistency, Mana Base, Curve, Synergy, Deckbuilding Principle
@@ -281,29 +326,32 @@ Hypergeometric calculators can quantify the right amount, with roughly 18 ramp s
 > [My] Malfagore deck runs very little ramp. The goal is to push all players, myself included, into a low resources state.
 > Consistent land drops are really all that's needed to keep up with [my commander's] command tax.
 
-## #8. What Fueled the Hybrid Mana Controversy in EDH  (Dec 2025, 3,076 words in transcript)
+## #9. Why the Hybrid Mana Proposal Sparked Strong Reactions  (Dec 2025, 3,076 words in transcript)
 *Original title: The Hybrid Mana Debacle, and how WotC caused it*
 **Category:** Meta Commentary
 **Tags:** Format Health, Deckbuilding Restrictions, Design Intent, Meta Trends, Meta Analysis
 
-We analyze why the proposed hybrid mana rule change in Commander sparked an unexpectedly strong backlash despite being low-stakes.
-We argue the reaction is driven by accumulated community frustration with Wizards of the Coast's recent decisions and low trust, rather than by the change's gameplay impact.
-A prior video by us that framed the fix as a moderate alternative received positive feedback, illustrating how framing and the messenger shape perception.
+We argue that the intense community backlash to the proposed hybrid mana color identity change is excessive given its low stakes.
+We suggest the reaction stems from recent player frustration with Wizards of the Coast decisions and the timing of the announcement.
+We note that a similar suggestion was well-received in a past podcast, indicating the current context amplified the response.
 
 **Principle**
-- The strong negative reaction to the hybrid mana proposal is primarily a symptom of broader community frustration and distrust toward Wizards of the Coast, not the change's gameplay implications.
+- The hybrid mana change is a minor clarification that fixes an unintuitive aspect of color identity without altering the format's core restrictions.
+- Community reactions to rules changes are often amplified by pre-existing dissatisfaction with the company rather than the change's merits.
 
 **Evidence**
-- Online Magic communities have spent months hotboxing anger over poorly received products like the Spider-Man set and the overwhelming number of Universes Beyond sets scheduled for next year.
-- Wizards of the Coast's pattern of short-sighted decisions has eroded player trust, making any announcement, even minor, a potential target for backlash.
-- In contrast, when we presented a similar hybrid mana fix as a moderate alternative in a personal podcast, the audience reacted positively, demonstrating that the messenger matters.
-- While some players may object to the change coinciding with an increase in hybrid mana cards, this is likely a minor factor compared to accumulated frustration.
+- our earlier podcast proposing the same hybrid mana fix received agreement from viewers, showing the idea is not inherently controversial.
+- The surge of heated YouTube videos and comments against the proposal indicates the response was disproportionate to the change's actual impact.
+- Wizards of the Coast's diminished community trust from decisions like the Spider-Man set and product overload intensified the negative reaction.
+
+**Deckbuilding Application**
+- Consider whether your decks would benefit from hybrid mana flexibility, and discuss house rules with your playgroup to enhance personal expression.
 
 **Limitation**
-- We do not support abolishing color identity completely, only fixing unintuitive side cases like hybrid mana and indicator-defined identity.
+- We do not advocate for abolishing color identity entirely, only for addressing specific edge cases like hybrid cards and indicator-defined identities.
 
 **Example**
-- our previous video, which made a devil's advocate case for removing color identity, led viewers to embrace softer changes like the hybrid mana fix, illustrating how framing can dramatically shift reception.
+- The community's anger over the Spider-Man set and upcoming Universes Beyond overload created an atmosphere where the hybrid mana suggestion became a target for pent-up frustration.
 
 **More quotes**
 > The hybrid mana change seems like such a low-stakes issue no matter what side you fall on. But the community response to the suggested change has felt like what it would be if Wizards of the Coast were suggesting literally abolishing color identity.
@@ -317,34 +365,32 @@ A prior video by us that framed the fix as a moderate alternative received posit
 > The fact that it was Wizards of the Coast making an announcement suggesting this change rather than a handsome and big-brained YouTuber talking about it in a podcast definitely had an effect, because Wizards of the Coast is in a rough spot right now with community trust.
 > The commander format has been identified as a cash cow, and a whole lot of decisions about what gets printed, when it gets printed, and how it gets printed seem to be motivated by milking that cash cow.
 
-## #9. Eminence Is Fine When Designed Carefully  (Nov 2025, 100K views)
+## #10. Eminence Mechanic Defense and Its Design Problems  (Nov 2025, 100K views)
 *Original title: In Defense of Eminence*
 **Category:** Format Theory
 **Tags:** White, Blue, Black, Red, Green, Tokens, Ramp, Card Draw, Design Intent, Format Health, Power Level, Meta Trends
 
-We argue that the eminence mechanic in Commander is not inherently broken, but its bad reputation stems from poor implementation on specific cards like Edgar Markov and The Ur-Dragon.
-These designs are problematic due to their high power, five color identity, and ability to overshadow other tribal commanders.
-Eminence could be reintroduced successfully with more careful design, such as limiting it to two colors.
+We argue that eminence is largely a fine mechanic, but its bad reputation stems from specific design decisions on Edgar Markov and The Ur-Dragon.
+These commanders are too powerful and crowd out other options in their tribes due to low-cost, high-impact eminence abilities and five-color identities.
+Wizards should limit future eminence commanders to fewer colors to avoid overshadowing niche options.
 
 **Principle**
-- Eminence is a largely fine keyword that should be used again in some form.
-- The mechanic's bad reputation comes from questionable design decisions on the original eminence cards, not the mechanic itself.
+- Eminence itself is a reasonable ability structure. Its negative perception stems from overpowered designs on specific cards.
 
 **Evidence**
-- Edgar Markov and The Ur-Dragon are currently the two most popular commanders, showing the appeal of eminence despite controversy.
-- Cece Weatherlight Captain is one of the most powerful commanders yet not considered problematic, proving raw power alone does not ruin the format.
-- Commanders associated with iconic creature types like dragons and vampires naturally attract casual players, which can lead to mismatched power levels.
+- Edgar Markov and The Ur-Dragon are currently the two most popular commanders, demonstrating the raw power of their eminence abilities.
+- Edgar Markov's eminence creates a vampire token each time you cast a vampire spell, with no restrictions on number or mana cost.
+- The Ur-Dragon's eminence reduces the cost of all other dragon spells by one, and its five-color identity allows it to be slotted into any dragon deck, marginalizing other commanders.
 
 **Deckbuilding Application**
-- When designing eminence commanders, Wizards should restrict them to two colors or less, especially in tribal niches where they might overshadow other options.
-- For players, consider that adding an eminence commander to an existing tribal deck can strictly upgrade it without requiring support for all colors.
+- When selecting a commander for a tribal deck, prefer one with two or fewer colors to preserve the distinct identity of your archetype, rather than defaulting to a five-color eminence option.
 
 **Limitation**
-- The five color identity of some eminence commanders combines all options of a tribe into a single best choice, reducing deckbuilding diversity.
-- Eminence abilities that lack any restriction, such as Edgar's vampire token generation, exacerbate the power gap and overshadow other commanders.
+- This argument primarily addresses the original cycle of eminence commanders. Newer eminence designs like Sidar Jabari of Zhalfir may demonstrate improved balancing.
 
 **Example**
-- Edgar Markov's eminence creates a vampire token on any vampire cast with no limitation, making him the strongest vampire commander even in a two color deck.
+- Edgar Markov dominated vampire decks because his Mardu colors let him lead black-red decks without needing white, providing a strict upgrade with no downside.
+- The Ur-Dragon's cost reduction and five-color identity made it the optimal dragon commander, crowding out alternatives like Bladewing, Atarka, and Scion of the Ur-Dragon.
 
 **More quotes**
 > Mostly, eminence is a largely fine keyword that I would like to see again in some form. Its bad reputation is primarily due to some questionable design decisions on Wizards of the Coast's part when they designed some of the original Eminence cards.
@@ -358,7 +404,7 @@ Eminence could be reintroduced successfully with more careful design, such as li
 > I'll lay my cards on the table here and say that in principle, this feature of Eminence doesn't strictly bother me. There are lots of things that can't be interacted.
 > Setting aside these more specific examples, it's also important to remember that deleting opposing stuff doesn't need to be the end-all be-all of EDH. And I find that this intense focus on spot removal tends to indicate a lack of creativity from players.
 
-## #10. Glass Cannon Commander Design and Its Pitfalls  (Oct 2025, 181K views)
+## #11. Glass Cannon Commander Design and Its Pitfalls  (Oct 2025, 181K views)
 *Original title: The Problem with Glass Cannon Commanders*
 **Category:** Format Theory
 **Tags:** White, Black, Red, Midrange, Design Intent, Resilience, Deckbuilding Restrictions, Deckbuilding Principle
@@ -395,7 +441,7 @@ We advise evaluating deck construction to mitigate this built-in fragility.
 > Your command zone secures you exactly one element of your deck, and though you can try to sculpt your 99 to lead to a well-balanced experience, there will still only be one card in your deck that you're absolutely guaranteed to see.
 > This is why the most explosive decks out there typically feature an explosive commander focused on either damage or raw board size.
 
-## #11. Why Some EDH Players Resist Pre-Game Deck Pitches  (Sep 2025, 66K views)
+## #12. Why Some EDH Players Resist Pre-Game Deck Pitches  (Sep 2025, 66K views)
 *Original title: r/EDH and Communication*
 **Category:** Meta Commentary
 **Tags:** White, Blue, Red, Rule Zero, Power Level, Threat Assessment, Social and Politics
@@ -435,7 +481,7 @@ We acknowledge the appeal of this mystery-driven playstyle but question its oppo
 > The information density of EDH is untouched by any other widely played format.
 > The game of figuring out what my opponent's deck does is just not one I think is beneficial to have at the heart of the EDH format.
 
-## #12. Using EDHREC Effectively in Commander Deck Building  (Aug 2025, 77K views)
+## #13. Using EDHREC Effectively in Commander Deck Building  (Aug 2025, 77K views)
 *Original title: How I use Commander's Most Misunderstood Tool*
 **Category:** Deckbuilding
 **Tags:** EDHREC Data, Card Evaluation, Design Intent, Deckbuilding Principle
@@ -476,7 +522,7 @@ This approach avoids both over-reliance and dismissal of the tool.
 > The presence of more expensive ramp will generally be a good sign that a deck has a big mana game plan.
 > If I filter for decks that include Thalia and exclude Soul Warden, life gain is basically obliterated from the page.
 
-## #13. Building EDH Decks with Counterweight Commanders  (Jul 2025, 355K views)
+## #14. Building EDH Decks with Counterweight Commanders  (Jul 2025, 355K views)
 *Original title: The Strange Method for Building EDH Decks that I Can't Stop Using*
 **Category:** Deckbuilding
 **Tags:** Discard, Combo, Ramp, Deck Consistency, Curve, Synergy, Design Intent, Deckbuilding Principle
@@ -514,31 +560,32 @@ Examples like Rada, Glissa, and Liesa show how this approach mitigates downsides
 > The counterweight commander method is all about rejecting direct synergy with the commander in favor of a game plan that meshes with the commander indirectly.
 > Without that direct synergy relationship, it is easy to end up grabbing best-in-class cards rather than ones that perform a specific dynamic or synergistic game plan.
 
-## #14. What Other Formats Teach Commander Players  (Jul 2025, 316K views)
+## #15. What Commander Players Miss from Other Formats  (Jul 2025, 316K views)
 *Original title: The Lessons that EDH-only Players Don't Learn*
-**Category:** Format Theory
+**Category:** Meta Commentary
 **Tags:** Midrange, Ramp, Deck Consistency, Threat Assessment, Meta Trends, Format Health, Strategy
 
-We argue that Commander-only players often lack skills in life total management, blocking, and low-resource play that are developed in 20-life formats and limited.
-These experiences can enhance Commander gameplay by teaching players to treat life as a resource and to find incremental advantages in tight situations.
-Additionally, exposure to 60-card deck building encourages flexibility beyond rigid templates like fixed ramp counts.
+We argue that the decline of 60-card casual play leaves Commander players unprepared for grindy, low-life-total games.
+It claims that experience in other formats improves life total management, blocking discipline, and handling resource scarcity.
+We also caution against rigid deckbuilding templates, suggesting flexible adoption based on a deck's plan.
+Venturing outside EDH can thus sharpen a player's skills.
 
 **Principle**
-- Playing 20-life 1v1 formats develops skills in life total management and resource evaluation that transfer to Commander.
+- Playing 20-life 1v1 formats teaches players to treat life total as a resource, a skill that Commander's high life totals and explosive win conditions often fail to develop.
 
 **Evidence**
-- Commander players often disregard blocking with useful creatures, while 20-life format players learn to block to stay alive.
-- Low-resource topdeck situations are more common in other formats, making players better at finding incremental advantages.
-- In Commander, life totals frequently feel irrelevant due to large win conditions.
+- Commander players frequently face win conditions that reduce life totals from full to zero in one attack, causing them to undervalue incremental life loss.
+- In grindy games where resources are scarce, primarily Commander players tend to view the situation as a lost cause, whereas players with 60-card experience remain vigilant and seek marginal advantages.
+- The habit of blocking with useful creatures is rarely punished in Commander but becomes critical in low-life formats, leading Commander-only players to instinctively avoid necessary blocks.
 
 **Deckbuilding Application**
-- Deck building templates like 8-10 ramp slots should be flexible, adjusted based on the deck's needs and mulligan strategy.
+- Deckbuilding templates for ramp and draw are often treated as universal in Commander, but 60-card formats demonstrate that ramp should be included only when a deck's plan demands it, encouraging more flexible construction.
 
 **Limitation**
-- Commander's high life totals and combo-centric wins prevent players from naturally learning the value of life as a resource and tight resource management.
+- These skills can still be developed within Commander, but because resource-scarce games occur less frequently, it takes significantly more playtime to internalize them.
 
 **Example**
-- In a resource-dwindled Commander game, an EDH-only player may give up, while a player with 60-card experience remains engaged and looks for outs.
+- A Commander player might keep a valuable creature back instead of blocking an attack that leaves them at 3 life, not realizing that the next unblockable hit will kill them.
 
 **More quotes**
 > EDH has effectively become the casual way to play paper Magic; the days of 60-card kitchen table gaming are in the past, replaced by a diverging path for newer players.
@@ -552,7 +599,7 @@ Additionally, exposure to 60-card deck building encourages flexibility beyond ri
 > One other deck building skill that EDH isn't great at teaching players is figuring out optimal card quantities.
 > Singleton formats outsource a lot of decisionmaking about card quantities to the nature of the format.
 
-## #15. Why Some Good Cards Are Wrong for Casual Decks  (Jul 2025, 239K views)
+## #16. Why Some Good Cards Are Wrong for Casual Decks  (Jul 2025, 239K views)
 *Original title: Stop Shortcutting the Fun Part of your Deck*
 **Category:** Deckbuilding
 **Tags:** Discard, Control, Midrange, Card Evaluation, Design Intent, Deckbuilding Restrictions, Deckbuilding Principle
@@ -589,7 +636,7 @@ Consider whether a card enhances or short-circuits the experiences you enjoy, an
 > If you find the process of building advantage a particularly fun one, you'll want to be careful with the cards you add.
 > I like playing the role of a final boss with this deck, pumping my volume of gameplay up to seismic proportions before lumbering in the direction of victory with my large creatures.
 
-## #16. The Homogenization of Commander Decks  (Jul 2025, 238K views)
+## #17. The Homogenization of Commander Decks  (Jul 2025, 238K views)
 *Original title: The Sluggish Era of Tall Commander*
 **Category:** Format Theory
 **Tags:** Ramp, Card Draw, Midrange, Format Health, Meta Trends, Deckbuilding Restrictions, Meta Analysis
@@ -629,7 +676,7 @@ Social pressures against aggressive or disruptive strategies further entrench th
 > One issue with the gradual upward race of tall Commander is information overload: EDH boards are wildly complex these days.
 > Long turns beget long turns: if the game's turns are a sequence of back to back 5 to 10 minute fiddle fests, other people are going to start chatting or checking their phone or gazing off into space.
 
-## #17. Deckbuilding Creativity vs. Actual Gameplay Experience  (Jul 2025, 232K views)
+## #18. Deckbuilding Creativity vs. Actual Gameplay Experience  (Jul 2025, 232K views)
 *Original title: The Impossible Search for a "Fun" Combo Deck*
 **Category:** Meta Commentary
 **Tags:** Archelos, Lagoon Mystic, Blue, Black, Green, Combo, Ramp, Control, Budget, Deckbuilding Restrictions, Win Conditions, Synergy, Deckbuilding Principle
@@ -671,34 +718,31 @@ The core insight is that deckbuilding and playing are separate activities, and c
 > I had constructed narratives of grandeur as I was reaching out striving for a powerful Mazes End deck, but once it was in my hand it was clearly something far more mundane than I had expected.
 > Despite understanding all of that, I have a pattern of continually coming back to build new creative combo decks; it's an itch that I can't seem to stop scratching.
 
-## #18. Comparing Board Wipes and Mass Land Destruction in EDH  (Jul 2025, 211K views)
+## #19. The Double Standard of Resource Denial in EDH  (Jul 2025, 211K views)
 *Original title: You're Probably Wrong about Stax in EDH*
-**Category:** Format Theory
+**Category:** Meta Commentary
 **Tags:** Stax, Format Health, Meta Trends, Rule Zero, Table Politics, Social and Politics
 
-We argue that the EDH community’s taboo against mass land destruction is socially constructed rather than mechanical, similar to how board wipes are accepted.
-We explore how both are forms of resource denial (stax) that restrict player agency, but players perceive being stax-locked as more objectionable despite comparable odds of losing.
-The piece questions whether snowballing midrange decks similarly violate norms but are tolerated.
+The EDH community accepts board wipes but shuns mass land destruction and stax due to social norms, not card balance.
+Players prepare for common strategies but not for discouraged ones, making those strategies more oppressive.
+We critique the inconsistent definition of player agency, as snowballing decks can deny agency as much as stax locks.
 
 **Principle**
-- The EDH community’s acceptance of board wipes and rejection of mass land destruction is a social construct, not based on inherent game balance.
+- Social norms, not objective power levels, determine which resource-denial strategies are accepted in EDH.
 
 **Evidence**
-- The RC banned Iona and Sway of the Stars for denying player agency, showing that agency is a key concern.
-- Players already mitigate board wipes with recursion and protection but fail to apply similar preparation to land destruction.
-- Lantern control is a constructed format deck that aims to prevent opponents from taking meaningful game actions, illustrating the extreme of stax.
+- Players could mitigate mass land destruction with indestructible lands, artifact ramp, and land recursion, but they rarely do because the strategy is socially discouraged.
+- Classic stax pieces universally target mana and card draw, fundamentally denying the same resources that board wipes deny by removing creatures.
 
 **Deckbuilding Application**
-- Play a mix of indestructible lands and artifact or creature ramp to mitigate land destruction.
-- Include land recursion spells like Second Sunrise to recover from land wipes.
-- Reduce your deck’s mana curve so that you can operate with fewer lands.
+- To reduce vulnerability, include artifact and creature based ramp, land recursion, and a lower mana curve.
 
 **Limitation**
-- Mass land destruction removes all mana sources, making it harder to rebuild than after a board wipe.
-- Snowballing midrange decks that accumulate advantage asymmetrically can erode agency just as much as stax, yet they face no social stigma.
+- While some stax cards are justifiably banned for locking players out, the broader stigma ignores that snowballing midrange decks can equally prevent opponents from making meaningful game actions.
 
 **Example**
-- In a hypothetical meta where board wipes are absent, even a single Wrath of God would feel as violating and taboo as Armageddon does today.
+- In a world where board wipes are absent, a single Wrath of God would feel as taboo as Armageddon does now, illustrating how preparation norms dictate perceptions.
+- A stax soft lock with a 90% win chance feels more objectionable than being behind an aggressive dragon player with the same odds, despite identical comeback potential.
 
 **More quotes**
 > Mass land destruction is acutely painful largely because people don't prepare for it, and people don't prepare for it because it's not commonly accepted as a major part of the format.
@@ -712,7 +756,7 @@ The piece questions whether snowballing midrange decks similarly violate norms b
 > For three mana, [Teferi's Protection] shuts down all board interaction and forms of damaging a player until that player's next turn, with a counterspell being the only possible option for counterplay. It's the sort of effect whose all-encompassing nature would be valid at an inflated mana cost of something like five mana, but instead it's costed at three, the same amount as most board wipe dodges. You get invulnerability as just a little bitty tacked-on side benefit.
 > Looking at the stax primer from ten years ago is fascinating, as a number of cards listed as stax or stax-adjacent sound weird to a modern Commander player's brain. Edicts are one instance of this, and wraths are another.
 
-## #19. Choosing the Optimal Land Count for Your EDH Deck  (Jul 2025, 200K views)
+## #20. Choosing the Optimal Land Count for Your EDH Deck  (Jul 2025, 200K views)
 *Original title: All of the Reasons You Should Put More Lands in your EDH Deck*
 **Category:** Deckbuilding
 **Tags:** Red, Green, Ramp, Midrange, Mana Base, Curve, Deck Consistency, Design Intent, Deckbuilding Principle
@@ -754,7 +798,7 @@ We provide a framework for evaluating your own deck's land needs.
 > A 32 land deck will often need to play a Bojuka Bog on curve in order to not miss a land drop, and this may end up greatly reducing the effectiveness of the card's ETB.
 > Some decks care about what's on top of their deck more than others, an attribute that I like to call the krip coefficient.
 
-## #20. The Ethical Case for Playing Simple EDH Decks  (Jul 2025, 186K views)
+## #21. The Ethical Case for Playing Simple EDH Decks  (Jul 2025, 186K views)
 *Original title: The Strange Ethical Case for Playing Boring Decks*
 **Category:** Meta Commentary
 **Tags:** Format Health, Meta Trends
@@ -795,7 +839,7 @@ Playing simpler or more common decks might be more ethical and lead to greater o
 > Whereas in cEDH, there is a smaller group of viable strategies with off-meta tech being a spicy exception rather than the rule, high-power casual is packed to the rafters with off-meta because there isn't a meaningful meta.
 > I'd also wager that this is where a big dose of frustration comes from in pick-up magic, particularly in games that straddle the line between mid and high power, and where players enter with differing expectations.
 
-## #21. Reducing Dead Draws in Commander Deckbuilding  (Jul 2025, 164K views)
+## #22. Reducing Dead Draws in Commander Deckbuilding  (Jul 2025, 164K views)
 *Original title: Snail's Guide to Drawing Less Junk*
 **Category:** Deckbuilding
 **Tags:** Synergy, Deck Consistency, Card Evaluation, Deckbuilding Principle
@@ -833,7 +877,7 @@ The key is to ensure each card is useful in multiple situations and supported by
 > This concept was originally designed with limited formats in mind, where cards are typically simpler and players tend to be on the lookout for narrow slivers of advantage.
 > [Drakuseth, Maw of Flames] is a good symbol of what this deck is best at. It's just always decent.
 
-## #22. How to Use Card Categories in EDH Deckbuilding  (Jul 2025, 146K views)
+## #23. How to Use Card Categories in EDH Deckbuilding  (Jul 2025, 146K views)
 *Original title: The Most Forgotten Part of EDH Deckbuilding*
 **Category:** Deckbuilding
 **Tags:** Midrange, Interaction, Mana Base, Curve, Deck Consistency, Deckbuilding Principle
@@ -874,7 +918,7 @@ Ramp and interaction categories must be tailored to the deck's specific timing a
 > I'll often include graveyard exile in a removal stacks or general interaction category because most decks won't gain anything by granting this necessary tool its own category.
 > Worn Powerstone isn't a ramp spell if you're playing a Grenzo deck because it's fun to speak in cryptic absolutes. But what I really mean is that if your acceleration category is mainly intended to get you to four mana a turn early, Worn Powerstone doesn't fit that function and thus probably isn't worth playing unless you can find another purpose.
 
-## #23. A Tool to Diagnose Commander Manabase Issues  (Jul 2025, 117K views)
+## #24. A Tool to Diagnose Commander Manabase Issues  (Jul 2025, 117K views)
 *Original title: My Brother and I Built a Tool to Yell at You About Your Manabase*
 **Category:** Deckbuilding
 **Tags:** Mana Base, Deck Consistency, Deckbuilding Principle
@@ -911,33 +955,35 @@ The tool calculates odds of drawing land combinations that can cast all spells, 
 > If a deck wants 37 lands for purposes of hitting its land drops but only needs 33 lands to produce an acceptable number of symbols to cast its spells, that leaves four slots for colorless producing utility lands.
 > There are a ton of unique ways to screw up a mana base: poor color pip distribution, inadequate overall pips, too many tap lands for a deck's intended play pattern, not enough overall lands,.
 
-## #24. How to Think About Interaction in EDH  (Jul 2025, 110K views)
+## #25. Rethinking Interaction in EDH Deckbuilding  (Jul 2025, 110K views)
 *Original title: The Things EDH Players Get Wrong about Interaction*
 **Category:** Deckbuilding
 **Tags:** Removal, Stax, Tokens, Interaction, Threat Assessment, Card Evaluation, Meta Trends, Deckbuilding Principle
 
-We argue that EDH players often misunderstand interaction by treating it as a checklist of card types, when it should be viewed as overlapping solutions to game states.
-We explain that different decks need different interaction packages, including defensive cards and graveyard hate, and that the right amount depends on factors like card draw and life total pressure.
-We advise moving away from fixed templates and tuning over time.
+We argue that EDH players often misunderstand interaction by relying on a checklist of card types.
+Instead, they should treat interaction as a network of overlapping solutions to problematic game states.
+Defensive permanents, graveyard exile, and other situational tools can be more efficient than traditional removal.
+The ideal interaction suite depends on the deck's strategy, draw power, and the specific threats in its meta.
 
 **Principle**
-- Interaction should be defined broadly to include any card that hinders opposing plays or answers threats, not just spells that directly destroy or exile permanents.
-- Effective interaction encompasses not only removing threats but also slowing down or surviving opposing strategies through defensive permanents or life gain.
+- The value of an interaction piece is determined by the specific game states it can solve, not by its ability to target a wide range of card types.
+- Relying on a mental checklist of removal types often leads to wasted deck slots and functional gaps.
 
 **Evidence**
-- For an animated Archon of Cruelty, possible answers include creature removal, enchantment removal, counterspells, and instant-speed graveyard exile, proving that threat answers are not limited to one card type.
-- Against a Crankco goblin swarm, Soul Warden and Ghostly Prison provide alternative mitigation when spot removal fails due to protection like Swiftfoot Boots.
+- Graveyard exile, defensive permanents, and hate pieces are often more mana-efficient than generic spot removal for handling recurring threats.
+- Decks with high life pressure or life gain cause opponents to play cautiously, reducing the need for dedicated removal.
 
 **Deckbuilding Application**
-- Assess your deck's common weaknesses and include interaction that covers those scenarios, even if the cards are unconventional removal.
-- Defensive permanents like Ghostly Prison can reduce the need for board wipes in decks that struggle against combat, effectively acting as removal.
+- When tuning a deck, identify the most common problematic play patterns in your meta and select interaction that answers those patterns through multiple lines.
+- If your deck already includes defensive elements like Ghostly Prison or counter magic, you can reduce the count of traditional removal spells.
 
 **Limitation**
-- Templates and checklists are helpful for initial deck construction but should be abandoned as you gain experience and tailor your deck to your meta.
-- The optimal number of interaction spells cannot be determined by a simple rule; it depends on your deck's draw, life total pressure, and the speed of your meta.
+- There is no optimal universal count for interaction spells because overlap and deck-specific draw power vary widely.
+- An interaction suite effective in one meta may fail in another.
 
 **Example**
-- Cremate can serve as removal by exiling a reanimation target from the graveyard, while a protective card like Baird, Steward of Argive is not removal despite being defensive.
+- Against an opponent reanimating Archon of Cruelty with Animate Dead, viable removal includes destroying the creature, the enchantment, countering the spell, or exiling the graveyard target.
+- Against a go-wide Krenko deck, a defensive card like Ghostly Prison or life gain from Soul Warden can serve as effective interaction, reducing reliance on board wipes.
 
 **More quotes**
 > In EDH, problems are often more complicated than one single problem permanent that needs to be removed, and even more complicated than just being the occasional spooky board that needs wiping.
@@ -951,7 +997,7 @@ We advise moving away from fixed templates and tuning over time.
 > Careful threat assessment and a few swings with a big commander can be worth countless pieces of removal.
 > Different decks will utilize removal for very different purposes: if you're playing a combo deck, you want to focus your interaction on dealing with obstacles to your combo and spending removal on only the most imminent of threats.
 
-## #25. Tutors and Power Level Variance in EDH  (Jul 2025, 106K views)
+## #26. Tutors and Power Level Variance in EDH  (Jul 2025, 106K views)
 *Original title: The Difficult Reality of the Tutor Question*
 **Category:** Format Theory
 **Tags:** Deck Consistency, Power Level, Deckbuilding Restrictions, Design Intent, Deckbuilding Principle
@@ -992,7 +1038,7 @@ Using Sol Ring as an example, it shows that not all powerful cards inject the sa
 > I've been jokingly calling [Sol Ring] my Wizards of the Coast mandated dose of variance.
 > Power level variance will be felt more sharply the further along this pipeline a card is due to the social nature of the EDH format.
 
-## #26. Deckbuilding Challenge Winners: Underused Commander Decks  (Jul 2025, 101K views)
+## #27. Deckbuilding Challenge Winners: Underused Commander Decks  (Jul 2025, 101K views)
 *Original title: I Challenged My Community to Deckbuild with Some of the Least Popular Commanders*
 **Category:** Community Challenge
 **Tags:** Senator Peacock, Blue, Black, Red, Green, Midrange, Counters, Stax, Deckbuilding Restrictions, Synergy, Interaction, Curve, Deckbuilding Principle
@@ -1032,30 +1078,31 @@ Honorable mentions are acknowledged and linked.
 > Extra combats from Éomer mean extra zombies from God-Pharaoh’s Gift, allowing the deck to build advantage as successive combat phases pass.
 > Artifact creatures that transfer their +1/+1 counters to other creatures when they die have both a clear reason to want to hit the graveyard and a clear reason to want to be unblockable.
 
-## #27. Peace Offering Precon: Beatdown, Not Group Hug  (Jul 2025, 95K views)
+## #28. Peace Offering Deck: Not a Generic Group Hug Deck  (Jul 2025, 95K views)
 *Original title: Is the Peace Offering Deck Actually Group Hug?*
 **Category:** Deckbuilding
 **Tags:** Ms. Bumbleflower, White, Blue, Green, Group Hug, Counters, Midrange, Mana Base, Interaction, Design Intent, Synergy, Card Evaluation
 
-We review the Peace Offering Commander precon led by Ms. Bumbleflower.
-We argue the deck is a beatdown strategy with political elements and +1/+1 counter synergies rather than a true group hug deck.
-We praise its card quality, mana base, and consistency but criticize the inclusion of many group hug cards that do not fit the plan.
-They suggest cutting defensive spells for more removal or threats.
+We argue that the Peace Offering precon, commanded by Ms. Bumbleflower, is mislabeled as group hug.
+Her ability rewards casting two spells per turn for card advantage, but the precon includes many generic group hug cards that dilute this focused plan.
+We suggest cutting those cards to better align with the commander's strategy, similar to a past precon's flaw.
 
 **Principle**
-- A commander that gives opponents resources can still lead a proactive beatdown strategy if the deck progresses its own game plan simultaneously.
+- Ms. Bumbleflower's ability gives opponents cards when you cast spells, but only draws you cards if you trigger the ability twice in a turn by casting two spells.
+- This design encourages a focused strategy of casting two spells each turn rather than a generic group hug approach.
 
 **Evidence**
-- The precon contains over twenty group hug and political cards, but its main win condition relies on combat damage with enhanced creatures.
+- The precon contains many group hug and political cards, such as those with the bloom's gift mechanic, that are not directly tied to casting two spells per turn.
+- The deck's beaters and +1/+1 counter synergies point toward a beatdown plan that the group hug elements do not strongly support.
 
 **Deckbuilding Application**
-- Replace fog effects and excessive group hug cards with single-target removal and creatures that grow with +1/+1 counters.
+- A deckbuilder should cut defensive and generic group hug cards to make room for cards that help consistently cast two spells per turn or that benefit from doing so.
 
 **Limitation**
-- The mana base includes nine always-tapped lands and seven conditionally tapped lands, which can slow early development.
+- Giving resources to opponents can be politically useful for deflecting pressure from struggling players, but it raises the deck's required performance threshold to compete with the advantage given away.
 
 **Example**
-- Rishkar, Peema Renegade provides ramp by putting counters on creatures, and Kolonian Hydra grows all creatures with counters each combat.
+- The precon suffers from a similar flaw as the OTJ Gonti precon, which was built as a generic theft deck instead of one tailored to Gonti's specific ability.
 
 **More quotes**
 > Just the line 'whenever you cast a spell, target opponent draws a card' is wild.
@@ -1069,7 +1116,7 @@ They suggest cutting defensive spells for more removal or threats.
 > Bloodroot Apothecary, though it's pre-selling for upwards of $10, seems highly mediocre to me.
 > Hoofprints of the Stag is a decent incremental value piece if played early, but it's a very dead draw later in the game.
 
-## #28. Eternal Might Precon: A Disjointed Zombie Deck Review  (Jul 2025, 88K views)
+## #29. Eternal Might Precon: A Disjointed Zombie Deck Review  (Jul 2025, 88K views)
 *Original title: Eternal Might is the Messiest Zombie Deck I've Ever Seen*
 **Category:** Deckbuilding
 **Tags:** Temmet, Naktamun's Will, White, Blue, Black, Tokens, Discard, Synergy, Upgrades, Design Intent, Deckbuilding Principle
@@ -1108,7 +1155,7 @@ The deck is more a sampler of zombie subthemes than a functional list.
 > The most generous way to view this deck, in my mind, is as a sample of possible game plans and/or a toolbox of possible implements for beginning the journey of building them.
 > This is a rare Gravecrawler L: with no sacrifice, this card just doesn't really do anything.
 
-## #29. How Cheap Powerful Cards Warp Commander Deckbuilding  (Jul 2025, 82K views)
+## #30. How Cheap Powerful Cards Warp Commander Deckbuilding  (Jul 2025, 82K views)
 *Original title: Let's Talk About My Most Controversial Video*
 **Category:** Deckbuilding
 **Tags:** Budget, Card Evaluation, Power Level, Format Health
@@ -1147,7 +1194,7 @@ He argues that adding overly powerful staples can backfire by increasing threat 
 > I just don't like what explosive starts do to the tempo of games.
 > Some have argued that it should be banned but that ship has sailed given the number of reprints it has seen.
 
-## #30. Tutor Decisions Define Four EDH Player Types  (Jul 2025, 79K views)
+## #31. Tutor Decisions Define Four EDH Player Types  (Jul 2025, 79K views)
 *Original title: The Simple Question that Determines What Type of EDH Player You Are*
 **Category:** Format Theory
 **Tags:** Tokens, Card Draw, Power Level, Deckbuilding Restrictions, Card Evaluation, Deckbuilding Principle
@@ -1185,7 +1232,7 @@ We explain our own philosophy of treating gameplay as a separate optimization st
 > The most dominant feature of casual EDH is some degree of suboptimality, and I generally think of that as being in the deck building part of things.
 > This game doesn't have 10 Necropotences you can slip into your deck, and even if it did, that might not even be desirable. Tutors are a nice way to work around that fact.
 
-## #31. Winning Decks from Baldur's Gate Commander Challenge  (Jul 2025, 66K views)
+## #32. Winning Decks from Baldur's Gate Commander Challenge  (Jul 2025, 66K views)
 *Original title: I Challenged My Community to Make Decks with Bad Baldur's Gate Commanders*
 **Category:** Community Challenge
 **Tags:** Red, Black, Blink, Aristocrats, Deckbuilding Restrictions, Budget, Synergy, Design Intent, Deckbuilding Principle
@@ -1223,7 +1270,7 @@ We highlight how unique synergies can turn perceived downsides into powerful eng
 > This deck has an undeniable thematic core, with themes of death and dying riddled throughout.
 > The winning deck was a different sort of twiddle storm deck, focused on effects that untap all of your creatures.
 
-## #32. Commander Deckbuilding Without the Letter E  (Jul 2025, 53K views)
+## #33. Commander Deckbuilding Without the Letter E  (Jul 2025, 53K views)
 *Original title: The No Es Deckbuilding Challenge*
 **Category:** Community Challenge
 **Tags:** White, Blue, Black, Red, Green, Combo, Deckbuilding Restrictions, Mana Base, Synergy, Deckbuilding Principle
@@ -1264,7 +1311,7 @@ The challenge demonstrates how strict restrictions force innovation and reveal u
 > Iron Man is actually a great choice to go with this for a couple reasons. For one, treasures. That's an E.
 > Artifacts for good? What a laugh.
 
-## #33. What Counts as Card Draw in Commander?  (Jul 2025, 3,260 words in transcript)
+## #34. What Counts as Card Draw in Commander?  (Jul 2025, 3,260 words in transcript)
 *Original title: The Odd Truth About Draw in EDH*
 **Category:** Deckbuilding
 **Tags:** White, Black, Red, Midrange, Spellslinger, Card Evaluation, Deck Consistency, Synergy, Deckbuilding Principle
@@ -1302,7 +1349,7 @@ The main lesson is to diagnose a deck's primary bottleneck before deciding what 
 > Ledger Shredder: pure filtering. Tutors generally also pure filtering, though a bit flexible depending on what you plan to get.
 > Nearing the center of the spectrum, you've got things that generate a decent bit of card advantage, but that also do a bit of extra digging. And this includes my personal favorite draw X card in most decks, Pull from Tomorrow.
 
-## #34. Why cheap staples like Sol Ring warp Commander deckbuilding  (Jul 2024, 330K views)
+## #35. Why cheap staples like Sol Ring warp Commander deckbuilding  (Jul 2024, 330K views)
 *Original title: The Problem with "Budget" Cards*
 **Category:** Format Theory
 **Tags:** White, Blue, Green, Ramp, Removal, Counters, Budget, Card Evaluation, Format Health, EDHREC Data
@@ -1343,7 +1390,7 @@ Despite this, Sol Ring is unlikely to be banned due to its reprint history and f
 > You should add cards to a deck considering how they'll impact the games you play, even if you own the cards and they're free to add.
 > [In my budget equipment deck,] when I played Sword of Forge and Frontier, it felt like a totally different deck.
 
-## #35. Transparent Deckbuilding Avoids Small Bean Syndrome  (Jul 2024, 263K views)
+## #36. Transparent Deckbuilding Avoids Small Bean Syndrome  (Jul 2024, 263K views)
 *Original title: The Curse of Smol Bean Syndrome*
 **Category:** Deckbuilding
 **Tags:** Green, Black, Red, Midrange, Voltron, Discard, Table Politics, Deck Consistency, Power Level, Threat Assessment, Social and Politics
@@ -1384,7 +1431,7 @@ Examples like the Glissa and Meria decks show how visible threats foster less co
 > My Glissa deck is a powerful deck against conventionally built mid-power decks. I call it midrange crusher 5000 for a reason, but the transparency means people worry about it less than they probably should.
 > My $25 Rakdos discard deck deletes people's hands and makes them upset, but the rest of the deck is just grindy creatures and a commander to clear the way for a small group of two-twos and three-threes to attack.
 
-## #36. Choosing the Right Ramp Spell for Your Commander Deck  (Jul 2024, 247K views)
+## #37. Choosing the Right Ramp Spell for Your Commander Deck  (Jul 2024, 247K views)
 *Original title: You're Probably Playing the Wrong Ramp (in EDH)*
 **Category:** Deckbuilding
 **Tags:** Green, Ramp, Aggro, Card Evaluation, Curve, EDHREC Data, Deck Consistency, Deckbuilding Principle
@@ -1423,31 +1470,27 @@ Different commanders require different ramp strategies, and a tailored approach 
 > The best ramp solution isn't going to be one size fits all.
 > I think when it comes to the traditionally simpler parts of an EDH deck (the lands, the removal, the ramp), a lot of people have the idea that they can gloss over these things and focus their efforts on the juicy synergies that comprise the spiritual core of the deck, but these parts are what let the core of the deck do its thing smoothly.
 
-## #37. Why cEDH Decks Share So Many Cards  (Jul 2024, 230K views)
+## #38. The Homogeneity of cEDH Decks and Why It Happens  (Jul 2024, 230K views)
 *Original title: The Problem with cEDH*
 **Category:** Format Theory
 **Tags:** cEDH, Meta Trends, Deck Consistency, Win Conditions, Format Health, Meta Analysis
 
-We argue that competitive EDH (cEDH) suffers from high card homogeneity because the format's speed and efficiency demands force decks to run the same fast mana, efficient counters, and compact combos.
-The 100-card singleton nature and largely budgetless manabases push players toward four- and five-color goodstuff piles, further reducing variety.
-However, the format also offers benefits like a clear no-rule-zero social contract and lower salt compared to casual play.
-
-**Principle**
-- In competitive formats, every card must be as fast, flexible, and efficient as possible because you only access a small portion of your deck each game.
+Competitive EDH decks overlap heavily due to the singleton 100-card constraint, the demand for maximum efficiency, and budgetless mana bases that push decks toward four or five colors.
+This homogenization limits the variety of viable strategies, though the format’s social contract reduces pregame friction and salt.
 
 **Evidence**
-- Analysis of the top 10 cEDH decks shows 20 shared cards: 9 lands, 5 mana rocks, 4 counter spells, and 2 card draw enchantments.
-- Win conditions are highly concentrated: seven of ten decks use Thassa's Oracle and Demonic Consultation, and six use Underworld Breach, Brain Freeze, and Lion's Eye Diamond.
+- The top 10 cEDH decks share 20 cards: 9 lands, 5 mana rocks, 4 counter spells, and 2 draw enchantments.
+- Seven of the ten decks run the Thassa's Oracle plus Demonic Consultation combo, and six run Underworld Breach plus Brain Freeze plus Lion's Eye Diamond.
 
 **Deckbuilding Application**
-- Due to the 100-card singleton format, interactive decks must run 12 or more differently named counter spells to maintain consistency.
-- Decks gravitate toward four- and five-color piles to access the best cards across all colors, only running fewer colors when a commander offers a specific powerful advantage.
+- Make your win conditions fast, explosive, consistent, resilient, and compact.
 
 **Limitation**
-- The intense speed and efficiency requirements cause the range of viable deck archetypes to narrow as power level increases, excluding strategies that cannot meet these demands.
+- The findings are drawn from a static snapshot of the top 10 meta decks and may not capture off-meta brews or a shifting meta.
 
 **Example**
-- Kinan wins through infinite mana into playing its entire library, and Sisay wins through a family of flicker-based combos tutored by the commander, while most other top decks rely on Thassa's Oracle or Breach.
+- Kinnan wins via infinite mana into playing the library, and Sisay wins via flicker-based combos tutored by the commander, demonstrating win conditions outside the dominant Thoracle and Breach lines.
+- Players use partner pairings like Vial Smasher and Thrasios mainly to add colors and get an extra card, not for the partners' own power.
 
 **More quotes**
 > It seemed like all of the cards were the same: the ways they gain mana are the same, the way they draw cards are the same, the ways they end the game are the same, and the ways they stop other people from ending the game are also the same.
@@ -1461,7 +1504,7 @@ However, the format also offers benefits like a clear no-rule-zero social contra
 > As you climb to the highest power levels of EDH, the range of possible decks you can build and plays you can make contracts further and further.
 > My list does not run Thassa's Oracle, so I'm able to win through hate like Hushbringer or Torpor Orb that people commonly play against Oracle decks.
 
-## #38. Effective Mulligan Strategies in Commander  (Jul 2024, 191K views)
+## #39. Effective Mulligan Strategies in Commander  (Jul 2024, 191K views)
 *Original title: The Art of the Mulligan*
 **Category:** Strategy
 **Tags:** Ramp, Card Draw, Deck Consistency, Mana Base, Curve, Deckbuilding Principle
@@ -1501,7 +1544,7 @@ For decks seeking a particular early play, running 10, 12 copies and mulliganing
 > A single power card like Dockside Extortionist or Esper Sentinel might redeem an otherwise painful five card hand.
 > It's easy to see your library as a mystical black box to deify it as an entity that will either bless you with wonderful cards or curse you with all the wrong stuff, but it's not.
 
-## #39. How to Make Your Commander Deck More Consistent  (Jul 2024, 185K views)
+## #40. How to Make Your Commander Deck More Consistent  (Jul 2024, 185K views)
 *Original title: Snail's Guide to Tuning Your Jank*
 **Category:** Deckbuilding
 **Tags:** Ramp, Card Draw, Deck Consistency, Card Evaluation, Table Politics, Interaction, Deckbuilding Principle
@@ -1541,7 +1584,7 @@ Proper categorization helps avoid filler cards and ensures each slot contributes
 > In my mind, the optimal state of a deck list is one whose components exist in comfortable tension in your mind.
 > If you're only running the Two Boots, your odds of drawing protection in your first five draws of the game are a hair under 23%. That's not great.
 
-## #40. Running More Removal Without Diluting Your Deck  (Jul 2024, 159K views)
+## #41. Running More Removal Without Diluting Your Deck  (Jul 2024, 159K views)
 *Original title: How to Play More Removal (and be happy about it)*
 **Category:** Deckbuilding
 **Tags:** Control, Removal, Deck Consistency, Interaction, Synergy, Deckbuilding Principle
@@ -1581,7 +1624,7 @@ This approach avoids diluting deck focus and leads to more dynamic gameplay.
 > [Blending in removal] allows it to feel less space gobbling even as the number of removal cards in your deck stays high.
 > Modal cards allow a deck to pack a lot of removal that can be used when needed but not feel like its deck slots are being actively gobbled up.
 
-## #41. Interaction and Consistency Outweigh Power Level in EDH  (Jul 2024, 158K views)
+## #42. Interaction and Consistency Outweigh Power Level in EDH  (Jul 2024, 158K views)
 *Original title: Does Power Level Matter?*
 **Category:** Deckbuilding
 **Tags:** Budget, Deck Consistency, Interaction, Power Level, Deckbuilding Principle
@@ -1618,34 +1661,33 @@ Decks built with consistency and interaction can compete against higher-power op
 > The funny thing is, despite being built on a low budget, these decks still hold up against decks that are much more powerful on paper.
 > A table with relatively consistent interactive decks will feel much more dynamic and balanced regardless of how powerful each of those decks actually.
 
-## #42. The Asymmetric Impact of Board Wipes in EDH  (Jul 2024, 145K views)
+## #43. Why Board Wipes Polarize Commander Games  (Jul 2024, 145K views)
 *Original title: The Problem with Board Wipes (in EDH)*
 **Category:** Deckbuilding
 **Tags:** Child of Alara, White, Blue, Black, Red, Green, Control, Midrange, Combo, Interaction, Deckbuilding Restrictions, Power Level, Format Health, Deckbuilding Principle
 
-Board wipes in EDH disproportionately harm creature-based midrange decks while being ineffective against combo, land-based, or non-creature strategies.
-Over-reliance on them creates asymmetric and uninteresting games.
-Deckbuilders should balance their interaction suite and be aware of its strengths and weaknesses.
+Board wipes disproportionately crush casual midrange creature decks and fail against combo, aggro, and non-creature strategies.
+Overloading on board wipes leads to polarized games where the deck dominates or flails.
+Deckbuilders should assess their interaction's weaknesses and make them intentional.
 
 **Principle**
-- Deck interaction suites should have intentional weaknesses; any gaps must be deliberate choices, not accidental oversights.
+- Board wipes and stax effects are both asymmetric but in opposite directions: board wipes punish creature-based midrange while stax punishes carefully planned burst strategies.
 
 **Evidence**
-- Creature-based midrange decks are devastated by board wipes, while combo, land-ramp, and instant/sorcery decks barely notice them.
-- A deck overloaded with board wipes dominates casual synergy decks but collapses against focused combo or control strategies.
+- The child of Alara deck included only two counter spells, leaving it unable to interact with sudden combo or instant-speed wins.
+- The Glissa deck, with many board wipes and sorcery-speed removal, was effective against midrange but helpless against combo and countermagic.
 
 **Deckbuilding Application**
-- Limit board wipes to three to five in a typical midrange deck and use tutors to access them when needed, rather than flooding the deck with them.
-- Identify your interaction gaps and decide if they match your strategy; if not, add versatile answers.
+- When building a deck, identify what your interaction suite is weak against and ensure any holes are intentional.
+- Run three to five board wipes with tutors instead of eight to avoid over-committing to a polarizing strategy.
 
 **Limitation**
-- Board wipes do not stop combos, prevent aggro pressure, hinder land-based ramp, or disrupt instant and sorcery value engines.
+- Board wipes fail to stop combo wins, aggro life-total pressure, and instant and sorcery value engines.
+- A board-wipe-heavy control deck cannot outrun a combo deck in the long game.
 
 **Example**
-- The Child of Alara deck, built around repeatable board wipes, crushed creature decks but was helpless against sudden combo wins.
-- The Glissa deck originally ran eight board wipes; a refined version would use only three to five with tutors for consistency.
-- An aggro equipment deck intentionally omits large creature removal, using speed and politics to handle threats instead.
-- Fast blue combo decks often skip creature counterspells to focus on protecting their win conditions, accepting creature vulnerability.
+- The child of Alara gate deck ran 55 lands, sacrifice outlets, and only five interaction slots, creating highly polarized games.
+- The Marriott equipment aggro deck intentionally lacks big creature removal, relying on early pressure and politics to compensate.
 
 **More quotes**
 > I am a cruel control player at heart.
@@ -1659,7 +1701,7 @@ Deckbuilders should balance their interaction suite and be aware of its strength
 > If you build a deck that massacres casual mid-range decks but flails around against everything else you're going to be struggling to create interesting and dynamic games.
 > There's a reason why running a bunch of stax effects is a better idea than running a bunch of board wipes: the source decks shut down by an Archon of Emeria are generally stronger and more carefully constructed than the source of decks shut down by a Plague Wind.
 
-## #43. How Combo Pieces Make Your Commander a Removal Target  (Jul 2024, 142K views)
+## #44. How Combo Pieces Make Your Commander a Removal Target  (Jul 2024, 142K views)
 *Original title: Stop Turning your Commander into a Combo Piece*
 **Category:** Deckbuilding
 **Tags:** White, Blue, Black, Green, Combo, Midrange, Threat Assessment, EDHREC Data, Design Intent, Deckbuilding Principle
@@ -1698,7 +1740,7 @@ We advise such combos should only be included if they match the deck's overall p
 > At the end of the day, the main thing that all of this really comes down to is knowing what kind of magic you want to be playing.
 > I know exactly how my opponents are going to be feeling, and I'm prepared to say no if they send their removal spells in the most logical direction.
 
-## #44. Gavi, Nest Warden Erased Cycling's Strategic Depth  (Jul 2024, 119K views)
+## #45. Gavi, Nest Warden Erased Cycling's Strategic Depth  (Jul 2024, 119K views)
 *Original title: How WotC Made Cycling Bland in EDH*
 **Category:** Meta Commentary
 **Tags:** Gavi, Nest Warden, White, Blue, Red, Midrange, Tokens, Card Draw, Design Intent, Format Health
@@ -1738,7 +1780,7 @@ It contrasts her with Astral Slide, which fostered complex decision-making, and 
 > Gaby into decree of annihilation, while certainly unusual, still kind of fails to be interesting.
 > My deck ended up with a foundation that includes the commander but doesn't wholly consist of the commander.
 
-## #45. When to Stop Upgrading Your Commander Deck  (Jul 2024, 116K views)
+## #46. When to Stop Upgrading Your Commander Deck  (Jul 2024, 116K views)
 *Original title: When (not) to Upgrade Your Decks*
 **Category:** Deckbuilding
 **Tags:** Blink, Voltron, Combo, Budget, Power Level, Deck Consistency, Upgrades, Deckbuilding Principle
@@ -1778,7 +1820,7 @@ The goal is to enjoy the deck without forcing it into a role that undermines you
 > Upgrading your deck's card quality is a tool for obtaining the deck's desired power level.
 > There's a culture among a lot of EDH players of higher powered decks being considered cooler or more interesting, which leads to a rat race of chasing generic staples.
 
-## #46. Self-Balancing a $25 Commander Deck Pool Over Two Years  (Jul 2024, 113K views)
+## #47. Self-Balancing a $25 Commander Deck Pool Over Two Years  (Jul 2024, 113K views)
 *Original title: I Spent Two Years Playing EDH With a Pool of $25 Decks*
 **Category:** Deckbuilding
 **Tags:** White, Blue, Black, Red, Green, Aggro, Control, Combo, Budget, Deckbuilding Restrictions, Meta Trends, Power Level, Budget Building
@@ -1817,33 +1859,31 @@ The process showed that aggressive decks require slower decks to include early b
 > [The Lazav deck] had become what it had tried and failed to survive against.
 > If you build a set of decks like this, don't let any of them be overly weak or overly boring, and have the courage to dismantle a deck you like if it ends up being one of these things.
 
-## #47. Making the Most of Your Pet Cards in Commander  (Jul 2024, 1,796 words in transcript)
+## #48. How to Fit Pet Cards Into Commander Decks  (Jul 2024, 1,796 words in transcript)
 *Original title: Your Pet Cards Deserve a Better Home*
 **Category:** Deckbuilding
 **Tags:** Midrange, Control, Tokens, Pet Cards, Budget, Synergy, Power Level, Deckbuilding Principle
 
-We argue that pet cards are a natural part of Commander but should be placed based on their power and specificity.
-Weak or very niche cards are best given a dedicated deck, while moderately specific cards can either anchor their own deck or be combined into a flexible midrange or theme deck.
-Whatever the approach, building a solid core of lands, ramp, draw, and interaction is essential to keep the deck fun and functional.
+We explain that players often want to include favorite 'pet cards' in many decks, but this isn't always optimal.
+It categorizes pet cards into three types and suggests two main strategies: building a dedicated deck around a pet card, or using a flexible deck shell that can house multiple niche cards.
+For moderately powerful but specific pet cards, finding the right home can make them more enjoyable.
 
 **Principle**
-- Pet cards should be placed with discretion, guided by a framework of their power level and specificity.
+- The act of building a deck that a pet card fully belongs in is the greatest act of love for that card.
 
 **Evidence**
-- Building dedicated decks around astral slide, maze's end, and time sieve resulted in highly enjoyable and tunable decks.
-- A midrange rata deck and a skeleton ship proliferate deck successfully integrated many niche pet cards by having simple, flexible game plans and solid cores.
+- Cards like Shigeki feel useful in any green deck because its instant-speed uncounterable recursion is always relevant.
 
 **Deckbuilding Application**
-- For a single niche pet card, build a dedicated deck to maximize its potential and your enjoyment.
-- Before adding any pet cards, ensure the deck has enough lands, ramp, card draw, interaction, and removal.
+- Before adding pet cards, ensure the deck has a solid core of lands, ramp, and draw to function smoothly.
+- For a single niche pet card, build the entire deck around supporting that card's unique ability.
 
 **Limitation**
-- Adding random pet cards to highly focused decks like Voltron causes significant losses in deck quality.
-- Decks without interaction and protection often become unfun gimmicks that are quickly set aside.
+- Highly focused decks, such as Voltron or dedicated combo, cannot include random pet cards without losing consistency.
 
 **Example**
-- Dedicated decks: astral slide (cycling theme), maze's end (gates), time sieve (extra turns).
-- Flexible decks: a rata deck built around impactful six-to-seven-drops and ramp, and a skeleton ship proliferate control deck with niche cards like overwhelming intellect and grimoire of the dead.
+- Astral slide, Maze's End, and Time Sieve each got a dedicated deck where they shine.
+- The Skeleton Ship proliferate control deck runs quirky pet cards like Overwhelming Intellect and storage lands.
 
 **More quotes**
 > The act of building a deck that a pet card fully belongs in is the greatest act of love you can show your favorite piece of cardboard.
@@ -1857,45 +1897,46 @@ Whatever the approach, building a solid core of lands, ramp, draw, and interacti
 > Exercising a bit of discretion in where these cards are played can lead to them being more enjoyable.
 > Building a deck around a single card or building a deck that's general enough to fit a number of these specific cards are two options for fitting them into decks.
 
-## #48. Grand Larceny Precon Review and Upgrade Guide  (Jul 2024, 3,460 words in transcript)
-*Original title: Is Gonti Confused or am I Confused?*
-**Category:** Deckbuilding
-**Tags:** Gonti, Canny Inquisitor, Blue, Black, Red, Aggro, Mana Base, Synergy, Curve, Upgrades, Deckbuilding Principle
+## #49. Analyzing a $20 Zyrus Buff Spells Commander Deck  (Jul 2024, 2,466 words in transcript)
+*Original title: My Playgroup's Best Deck is $20*
+**Category:** Strategy
+**Tags:** Xyris, the Writhing Storm, Blue, Red, Green, Group Hug, Voltron, Tokens, Budget, Table Politics, Threat Assessment, Synergy, Social and Politics
 
-The Grand Larceny Commander precon tries to merge evasive creature combat with theft effects, using Gonti to discount stolen spells.
-While the mana base and removal package are solid, the deck lacks enough cheap evasive creatures to reliably trigger its commander.
-To fix this, cut theft cards that bypass mana costs and add more low-mana evasive threats to create a cohesive game plan.
+A budget Zyrus the Writhing Storm deck uses buff spells to win via commander damage while appearing friendly by giving cards to opponents.
+The transparent game plan and cheap cards cause opponents to underestimate its snowballing resources.
+Snake tokens from Zyrus compound the threat and make combat tactically difficult for others.
 
 **Principle**
-- A theft strategy should tie its payoff to combat damage to require a win condition beyond relying on opponents' threats.
+- A commander that provides mutual card draw can mask an aggressive game plan, allowing a stealth snowball strategy.
 
 **Evidence**
-- The precon contains 18 evasive creatures but only 12 below five mana, making early and consistent commander triggers unreliable.
-- The mana base includes only two colorless utility lands and a strong suite of duals, ensuring good color fixing.
+- In practice, opponents will protect the Zyrus player, even countering removal aimed at Zyrus, to continue drawing extra cards.
+- The deck's consistent card draw leads to hands filled with multiple protection and buff spells, making it hard to disrupt.
 
 **Deckbuilding Application**
-- Reduce the number of theft cards that circumvent mana costs and add more evasive creatures with mana value 4 or less to activate Gonti.
-- If opting for higher-curve evasive threats, increase ramp spells to cast the commander on time and still apply pressure.
+- To consistently draw into interaction, dedicate about 20% of your nonland cards to buff spells and another 10% to protection.
+- Keep the average mana value low to hold up multiple spells during combat and maintain unpredictability.
 
 **Limitation**
-- Theft spells that put cards directly into play without paying mana do not benefit from Gonti's discount, weakening synergy.
+- The deck is vulnerable to board wipes, which bypass most of its single-target protection spells.
+- Forcing the deck to use buff spells defensively instead of offensively delays its critical turn and reduces its threat.
 
 **Example**
-- Gonti's design closely follows Ramirez DePietro Pillager, who also exiles and discounts stolen cards on combat damage, but Gonti adds land theft and flexible mana.
+- A mana-screwed player once countered a removal spell on Zyrus just to keep receiving three cards per turn.
 
 **More quotes**
-> I classify Gonti as a soft payoff: a payoff that is pretty easy to get some value off of, but which scales only modestly with additional inputs.
-> Wizards, please just put things to tap for colored mana in your precons. Just do it, I know you can.
-> Wizards of the Coast seems to have made the choice to give this precon a $30 mana base rather than give one or two powerful cards to justify the precon price, and I honestly fully support this. New players need good lands a lot more than they need a Trouble in Pairs.
-> This deck reminds me a lot of older precons in terms of the cohesiveness of its vision, or lack thereof.
-> The current suite of evasive creatures just doesn't work for me. This deck wants three Gonti triggers a turn and that's just not going to be consistently fulfilled by this selection.
-> Cunning Rhetoric is a mixture of a defense card and a theft card, but it doesn't actually accomplish either task.
-> The average non-land card in an EDH deck is like 3.5 mana, so you're getting less value than the amount of mana you paid [with Stolen Goods].
-> Running either of these cards when the deck doesn't even have enough evasive creatures to consistently get its triggers each turn feels wrong on a pretty fundamental level.
-> High cost counter spells with added bonuses do work, but mostly only in draw-go style control decks.
-> Plasm Capture is also very symbol dense, so I'd cut it for a lower cost counter spell like Negate.
+> I need to make a buff spells deck now.
+> The deck is friendly and unassuming, right up until the point where it starts deciding to stop being those things and start murdering players.
+> Because fun fact: letting you and an opponent each draw 15 cards is great when that opponent simultaneously dies to commander damage.
+> This deck gets underestimated game after game, and by people who have lost to it half a dozen or more times.
+> The deck's lack of spicy plays and absolute transparency in what it's trying to do in a given game play to its strengths.
+> The threat profile of the deck typically lags behind its actual power at any given moment.
+> Do I look like somebody who throws my threats in the garbage?
+> The deck gains piles and piles of potential attackers and blockers that could get larger and gain all manner of potentially problematic keywords at any moment.
+> This deck doesn't seem very good, and that perception is exactly what makes it so good.
+> Discarding to hand size is the final dynamic that causes people to underestimate the deck.
 
-## #49. Channel Updates and Commander Q&A  (Jul 2024, 2,103 words in transcript)
+## #50. Channel Updates and Commander Q&A  (Jul 2024, 2,103 words in transcript)
 *Original title: Some channel updates + Q&A*
 **Category:** Meta Commentary
 **Tags:** Control, Lifegain, Removal, Rule Zero, Power Level, Format Health, Social and Politics
@@ -1932,7 +1973,7 @@ They also argue that the EDH ban list faces tension between competitive balance 
 > The most memorable deck I've played against was a Tymna Jeska tribal Ball Lightning deck, and that deck's vision is splendid to me.
 > I have a friend who has a Tergrid deck, and three nights out of four I don't want to play against.
 
-## #50. Deck Focus: Winning Commander with Cohesive Plans  (Jul 2024, 3,945 words in transcript)
+## #51. Deck Focus: Winning Commander with Cohesive Plans  (Jul 2024, 3,945 words in transcript)
 *Original title: Snail's Guide to Winning an EDH Game*
 **Category:** Deckbuilding
 **Tags:** Midrange, Tokens, Win Conditions, Deck Consistency, Synergy, Card Evaluation, Deckbuilding Principle
@@ -1971,7 +2012,7 @@ The solution is to evaluate each card's function, reliability, and contribution 
 > Conventional EDH wisdom might have you gesturing at various things as a win condition: Craterhoof Behemoth is a win condition, Torment of Hailfire is a win condition, Purphoros, God of the Forge is a win condition, Sanguine Bond is a win condition.
 > It's a generally toothless type of deck that will struggle to win against decks that have more refined win plans, even if those decks generate a smaller quantity of total resources.
 
-## #51. How to Decode EDHRec Synergy Data  (Jul 2024, 2,190 words in transcript)
+## #52. How to Decode EDHRec Synergy Data  (Jul 2024, 2,190 words in transcript)
 *Original title: The Hidden Lore of an EDHRec Page*
 **Category:** Meta Commentary
 **Tags:** Blue, Black, Green, Combo, Midrange, Counters, EDHREC Data, Power Level, Synergy, Budget, Meta Analysis
@@ -2012,33 +2053,34 @@ Three commanders are analyzed to reveal distinct player groups, helping builders
 > One of the biggest pitfalls I've seen EDH Rec users fall into is when they add cards that look good without thinking about what deck those cards belong in or how many of a single card type belong in a deck. This results in decks which have some amount of synergy in theory but which in practice feel disjointed and clunky, containing a Frankenstein-like mishmash of components from various decks.
 > I'd advocate spending an extra moment trying to parse what specific types of deck are actually being built with the different cards.
 
-## #52. Run More Lands in Commander  (Jul 2024, 2,996 words in transcript)
+## #53. Optimal Land Counts for Commander Decks  (Jul 2024, 2,996 words in transcript)
 *Original title: Your Manabase Deserves Better*
 **Category:** Deckbuilding
 **Tags:** Mana Base, Deck Consistency, Curve, Budget, Deckbuilding Principle
 
-Many Commander players run too few lands due to viewing them as obstacles to drawing gas.
-Frank Carsten's simulations suggest optimal land counts of 37 to 42 for curving out properly.
-Commanders with draw abilities can influence the needed land count, but high-cost commanders that draw require more lands.
+Many Commander players treat lands as a necessary evil and run too few.
+Frank Karsten's simulation model suggests 37 to 42 lands for optimal curve consistency.
+High-cost draw commanders and multicolor decks require even higher land counts unless using expensive mana bases.
 
 **Principle**
-- Treating lands as a necessary evil that dilutes gas leads to insufficient land counts and gameplay issues.
-- Valuing non-land cards over lands during deckbuilding often results in unplayable opening hands and mana screw.
+- Many players treat lands as a necessary evil and aim to run the minimum possible, which leads to deck-building mistakes.
 
 **Evidence**
-- Frank Carsten's EDH simulations recommend 37 to 42 lands for optimal curving, based on playing spells on curve each turn.
-- Carsten's regression of successful 60-card decks shows land count correlates with mana curve, cheap draw, and cheap ramp.
+- Frank Karsten's EDH-specific simulation model recommends 37 to 42 lands for a smooth curve.
+- The model assumes the commander is an extra non-land card always available and optimizes for cast mana values across turns.
 
 **Deckbuilding Application**
-- Commanders that provide draw or filtering can support slightly lower land counts, while expensive commanders that draw need more lands.
-- Decks with more colors or pips should run more lands or invest in expensive mana bases to ensure consistent fixing.
+- Commanders that draw cards, especially those costing four or more mana, require higher land counts to ensure they can be cast reliably.
+- Multicolor decks need more lands if not using expensive fetch and shock lands to consistently hit color requirements.
+- Medium-to-large draw spells can support higher land densities because the draw helps find action cards.
 
 **Limitation**
-- The simulation model assumes cards are only differentiated by mana value and ignores synergy, so it serves as a starting point rather than an absolute rule.
+- Karsten's model treats all cards as identical apart from mana value, ignoring unique effects that could influence land needs.
+- Players often struggle to cut non-land cards, leading them to accept suboptimal low land counts.
 
 **Example**
-- A Rona deck with many low-cost legendaries can run fewer lands because she draws cards consistently.
-- A deck with an average mana value of 4.5 running 33 lands will often get stuck on four lands, illustrating the risk of low land counts.
+- A Rona deck with many cheap legendary creatures can run fewer black sources and slightly fewer lands if it can guarantee casting Rona on turn two.
+- We run few fetches and shock due to budget and compensates by running more lands.
 
 **More quotes**
 > If your hand was missing something else you find vital to your game plan, an artifact, a creature, a piece of ramp, you wouldn't say 'Wow, this opening hand would be great if it had an artifact in it' because that's a silly statement to make.
@@ -2052,30 +2094,32 @@ Commanders with draw abilities can influence the needed land count, but high-cos
 > 30 symbols in your mana base will give you great access to all but the most symbol intensive cards. 25 symbols will give you great access to single symbol cards and decent access to double symbol cards. 20 will give you decent access to single symbol cards and mediocre access to more symbols.
 > If you're like me and you can't justify that purchase, you should either play fewer colors or run more lands.
 
-## #53. How Slot Compression Improves Your Commander Deck  (Jul 2024, 1,072 words in transcript)
+## #54. Slot Compression: Fitting More Functions into Fewer Cards  (Jul 2024, 1,072 words in transcript)
 *Original title: The Way to Fit More Cards into your Cards*
 **Category:** Deckbuilding
 **Tags:** Midrange, Combo, Stax, Deck Consistency, Mana Base, Win Conditions, Card Evaluation, Deckbuilding Principle
 
-We advocate for slot compression, a technique where cards are chosen to serve multiple roles, such as creatures that also draw cards or remove threats.
-This frees up space for more support cards and lands, leading to smoother gameplay.
-However, it warns that a deck must still have clear win conditions and not sacrifice power for too much synergy.
+We explain slot compression, the practice of choosing cards that fulfill multiple roles to fit more tools into a deck without sacrificing essential functions.
+It shows how this applies across midrange, combo, and synergistic strategies, and recommends using MDFC lands to boost land counts.
+The key caution is that smoothness should not replace substantive win conditions.
 
 **Principle**
-- Slot compression is the deckbuilding technique of selecting cards that perform multiple functions to effectively expand the number of slots available for each role.
+- Aim for each non-land card to serve at least two distinct purposes, such as draw, removal, or board presence, to maximize slot efficiency.
+
+**Evidence**
+- Decks using slot compression can include more interaction and lands, leading to fewer non-games and increased consistency.
+- Multi-role creatures in midrange and combo decks provide both threat density and utility, reducing the need for dedicated spell slots.
 
 **Deckbuilding Application**
-- In creature-based decks, use creatures that also draw cards, force discards, or serve as removal to compress draw and interaction.
-- In synergy decks, ensure draw and removal cards match the deck's focal card type so conditional tutors can find them.
-- Add modal double-faced cards and utility lands to reach a land count of at least 35 without sacrificing spell slots.
+- Swap basic lands for MDFCs to raise your functional land count without cutting spells, aiming for 35 to 40 total lands depending on curve.
+- In tribal or power-matters decks, ensure your draw and removal sources share the relevant type to free slots for more synergy pieces.
 
 **Limitation**
-- Decks built heavily on slot compression risk lacking clear win conditions, so include dedicated finishers even if they do not multitask.
+- A deck that maximizes slot compression may still fail without enough explicit win conditions; after building, verify you have multiple reliable ways to end the game.
 
 **Example**
-- A Gishath deck compresses removal and draw into large creatures, freeing slots for ramp and more threats.
-- Hatebear decks use disruptive creatures that also pressure life totals, combining stax and combat damage roles.
-- A Goreclaw deck runs creatures with power 4 or greater that provide draw and removal, making space for additional large creatures.
+- In the Rose deck, creatures that draw cards or force discards serve as the draw engine, and Blood Artist effects on finishers deter board wipes.
+- The Gly deck relies on high-cost creatures that are removal spells and draw engines, eliminating the need for separate wincon cards.
 
 **More quotes**
 > The idea of slot compression is basically this: you can fit more stuff into your deck, more things of each category like finishers or draw or removal, if you pick out and play cards that do multiple things.
@@ -2089,7 +2133,7 @@ However, it warns that a deck must still have clear win conditions and not sacri
 > At its core your deck still needs to do a thing that wins.
 > Playing smoothly and having interaction isn't a substitute for having a good way to end the game.
 
-## #54. How Aggro Works in Commander: Life Pressure and Commander Damage  (Jul 2024, 1,466 words in transcript)
+## #55. How Aggro Works in Commander: Life Pressure and Commander Damage  (Jul 2024, 1,466 words in transcript)
 *Original title: Aggro Ideology: A Guide to Spee-DH*
 **Category:** Format Theory
 **Tags:** Aggro, Voltron, Stax, Resilience, Threat Assessment, Deckbuilding Restrictions, Strategy
@@ -2130,7 +2174,7 @@ We categorize aggro decks into Voltron, pseudo-Voltron, and disruptive aggro, an
 > Aggro ideology: this is not the beginning and end of what aggro means in EDH, but simply a phrase I use to gesture at the benefits of having opponents who are scared about their life total.
 > If your deck is commander-based, you're playing a 21-health format instead of the much more challenging 40-health format. Neat.
 
-## #55. Building Combo Decks for Commander  (Jul 2024, 2,653 words in transcript)
+## #56. Building Combo Decks for Commander  (Jul 2024, 2,653 words in transcript)
 *Original title: EDH’s Combo Conundrum*
 **Category:** Deckbuilding
 **Tags:** Combo, Win Conditions, Interaction, Format Health, Synergy, Deckbuilding Principle
@@ -2169,7 +2213,7 @@ We advise building combo decks with alternate win conditions and ensuring combos
 > Pure combo actually works better in conventional formats, and it is indeed very common for combo decks in these formats to have no other win conditions.
 > If you put a two card infinite combo in your low power midrange deck, your deck is going to be a low power midrange deck 90% of the time and an unprotected infinite combo deck 10% of the time. That's going to give your playgroup some serious whiplash.
 
-## #56. Build Midrange Decks Around a Commander Solving a Weakness  (Jul 2024, 917 words in transcript)
+## #57. Build Midrange Decks Around a Commander Solving a Weakness  (Jul 2024, 917 words in transcript)
 *Original title: A Weird Trick to Make Cool Midrange Decks*
 **Category:** Deckbuilding
 **Tags:** White, Black, Green, Midrange, Stax, Design Intent, Budget, Deckbuilding Principle
@@ -2207,7 +2251,7 @@ Examples include a Glissa Sunslayer battlecruiser deck and a Liesa, Shroud of Du
 > This way, you can effectively just solve the problem that you know your deck will have ahead of time, instead of agonizing over how many deck slots to devote.
 > Mid-range is often something that people look down on for being boring or bland, but with some creative usage of the rules of the format, you can build a really fun deck that exists within the mid-range realm.
 
-## #57. EDHRec's Data Feedback Loops Distort Deckbuilding  (Jul 2023, 226K views)
+## #58. EDHRec's Data Feedback Loops Distort Deckbuilding  (Jul 2023, 226K views)
 *Original title: The EDHRec Effect*
 **Category:** Format Theory
 **Tags:** EDHREC Data, Card Evaluation, Synergy, Deckbuilding Principle
@@ -2245,7 +2289,7 @@ This makes the metagame sluggish and especially amplifies questionable 'win-more
 > Casual EDH decks don't run nearly enough of two key things: pressure and removal.
 > Large sections of the casual Commander format become akin to multiplayer solitaire, with each player racing toward their own win plan and just praying that they can outrun their opponent.
 
-## #58. Lorehold Precon Issues and Deckbuilding Fixes  (May 2026, 80K views)
+## #59. Lorehold Precon Issues and Deckbuilding Fixes  (May 2026, 80K views)
 *Original title: The New Lorehold Precon Has a Bit of an Issue*
 **Category:** Deck Tech
 **Tags:** Quintorius, History Chaser, Red, White, Midrange, Tokens, Mana Base, Deck Consistency, Synergy, Design Intent, Deckbuilding Principle
@@ -2286,28 +2330,32 @@ To improve the deck, players should add more lands and early graveyard enablers 
 > This deck broadly seems designed to be grindy and increase in power over the course of a game, but graveyard hate will also increase in frequency as opponents access more of their libraries.
 > This version of Quintorius is much more powerful than the previous creature iterations if you can keep him around on board.
 
-## #59. Why Sol Ring Should Not Be Banned in Commander  (Mar 2026, 71K views)
+## #60. Why Sol Ring Should Not Be Banned in Commander  (Mar 2026, 71K views)
 *Original title: A Lukewarm Defense of Sol Ring*
 **Category:** Card Analysis
 **Tags:** Card Evaluation, Format Health, Power Level, Threat Assessment
 
-We argue that Sol Ring should not be banned in Commander because its play pattern is less problematic than other powerful cards.
-Its impact is greatest early but diminishes quickly, giving opponents time to respond.
-Social tools of the format can contain a Sol Ring player before they win, unlike late game threats like Bolas's Citadel.
+We defend Sol Ring's legality by arguing its play pattern is less problematic than other powerful cards.
+Its impact fades if not drawn early, allowing opponents time to collaborate against the accelerated player.
+While it can cause blowouts, these are not the norm, and the card does not warp the format like banned cards such as Primeval Titan.
 
 **Principle**
-- A card should be banned only when it has both a high power level and a bothersome play pattern. Sol Ring's play pattern is less disruptive than Rhystic Study's.
+- A card should be banned only when it has both a high power level and a bothersome play pattern.
 
 **Evidence**
-- Smothering Tithe provides more scalable and storable mana than Sol Ring, making it a more flexible accelerant.
-- Hands kept primarily for Sol Ring often lead to a threatening early game but a weak midgame once the initial mana is spent.
-- Primeval Titan and Prophet of Kruphix are cards that historically warped the entire format around themselves, a level of dominance Sol Ring does not achieve.
+- Sol Ring is most powerful when played early, but its impact diminishes rapidly if drawn later in the game.
+- Late game bombs like Bolas's Citadel are harder to answer through social means because they can win the game immediately upon resolution.
+- Many players who keep a hand solely for a fast Sol Ring lack a follow-up and fizzle after a few turns.
+
+**Deckbuilding Application**
+- Always pair Sol Ring in your opening hand with a clear plan to convert the early mana into a sustained advantage.
 
 **Limitation**
-- Sol Ring can still cause blowouts when combined with other powerful draws or opponents slow starts, though this is not the typical outcome.
+- Sol Ring can still lead to non-games when combined with the strongest deck at the table or when opponents stumble, though this is not typical.
 
 **Example**
-- Bolas's Citadel is a late game card that often wins immediately if its controller untaps, illustrating how late threats resist social containment better than early ones.
+- Bolas's Citadel exemplifies a card that, once resolved, often makes social tools useless because it threatens victory the same turn or after one untap.
+- Banned cards like Primeval Titan and Prophet of Kruphix warped games around their resolution, a level of dominance Sol Ring does not reach.
 
 **More quotes**
 > I find the play pattern of Sol Ring less bothersome than that of Rhystic Study.
@@ -2321,7 +2369,7 @@ Social tools of the format can contain a Sol Ring player before they win, unlike
 > A deck that drew Sol Ring will usually feel much faster, but it will still feel like a version of itself, rather than transforming into a combo deck or something.
 > The biggest remaining issue with Sol Ring is that sometimes the strongest deck at the table will get it, and that deck will then wipe the floor in a way it might not have otherwise.
 
-## #60. Why Rhystic Study Deserves a Ban in Commander  (Feb 2026, 95K views)
+## #61. Why Rhystic Study Deserves a Ban in Commander  (Feb 2026, 95K views)
 *Original title: Rhystic Study and the Dark Side of EDH*
 **Category:** Card Analysis
 **Tags:** Rhystic Study, Blue, Card Draw, Stax, Card Evaluation, Format Health, Power Level, Table Politics
@@ -2359,46 +2407,6 @@ The widespread play and high salt scores make it a frequent source of bad experi
 > When somebody says Rhystic Study isn't that good, people just need to pay the one, they're making a very similar argument, if a less consequential one.
 > Rhystic Study would be an extremely powerful Magic card if it was a one-sided Sphere of Resistance, but it is not.
 > Just remove it is a strategy you can employ, just as making somebody the archenemy is a strategy you can employ, but neither of these things are arguments to keep a card legal on the scale of a formatwide ban list.
-
-## #61. Reviewing the -1/-1 Counter Commander Precon for Johnny Players  (Feb 2026, 72K views)
-*Original title: Blight Curse is a Johnny Playground*
-**Category:** Deck Tech
-**Tags:** Amzu, Black, Green, Counters, Card Draw, Reanimator, Upgrades, Synergy, Design Intent, Deckbuilding Principle
-
-This precon deck focuses on -1/-1 counter synergies to generate card advantage and control the board.
-The commander Anti-U provides powerful draw, enabling varied combo-like interactions that appeal to Johnny players.
-The deck also includes a viable alternate commander, though some cards may be suboptimal or dead.
-
-**Principle**
-- A commander that combines a payoff effect with card draw can serve as the deck's engine, letting you see more cards and reducing the need for dedicated draw spells.
-- When a synergy piece affects all players symmetrically, pairing it with an asymmetrical payoff turns it into a potent source of advantage.
-
-**Evidence**
-- Across 20 goldfish games, the deck consistently established a board presence and setup by turn five, though early-turn blowouts were rare.
-- The variety of available -1/-1 counter enablers and payoffs led to notably different game patterns, reducing repetitive play.
-
-**Deckbuilding Application**
-- Prioritize including or upgrading towards -1/-1 effects that hit all creatures to fully leverage the commander's scaling ability.
-- You can safely keep the stock manabase without immediate upgrades, as it adequately supports the deck's strategy.
-
-**Limitation**
-- The precon's main weakness is the inclusion of non-synergistic cards that create dead draws and slow down the game plan.
-
-**Example**
-- An effect that puts -1/-1 counters on all creatures can result in drawing multiple cards off your own board while each opponent loses life, acting as a one-sided board wipe in value terms.
-- Two three-mana reanimation spells in the deck allow you to steal opponents' creatures that die with -1/-1 counters, providing early potential for board theft.
-
-**More quotes**
-> Blight Curse is pretty phenomenal as far as pre-constructed Commander decks go.
-> This strikes me as quite a Johnny sort of precon.
-> Liliana Death Wielder is an intro deck planeswalker from Amonkhet and it is truly god awful; it'd be barely playable at four mana and in reality it's seven mana because it's an intro deck planeswalker.
-> I guess this was added to the deck to be an educational first cut for new players, à la Temple of the False God.
-> This deck has a better relationship with its alt commander than most precons do.
-> Anti-U has a lack of limiting phrases in the text box: no 'one or more creatures' and no 'once per turn'.
-> Some cards put minus one counters on all creatures, rewarding wide boards with massive card advantage, whereas others gain minus one counters over time, pushing a slower, grindier play style.
-> She is a powerful draw engine that allows somebody piloting the deck to see more of it, which is super useful for a deck whose cards are highly varied in how they work.
-> There are so many different ways the various synergy elements can be pieced together, whether it be making a value engine, a removal engine, having a single explosive turn, putting together a wide board,.
-> The minus one counter synergies take a variety of different shapes, and the setups and payoffs within this deck piece together in some really cool and sometimes really powerful ways.
 
 ## #62. Why Yuriko's Commander Ninjutsu Frustrates Players  (Nov 2025, 61K views)
 *Original title: A Tale of Two Commander Tax Evaders*
@@ -2631,34 +2639,32 @@ We recommend minor upgrades to increase speed and diversify triggers.
 > You don't want to be giving your opponents resources to fight you with because you will be attracting the eye of the whole table.
 > Enchanter's Bane is theoretically an enchantment hate option but in practice it seems undertuned and gives opponents way too many ways to get around being harmed.
 
-## #68. Commander Deck Tech: Sibsig Ceremony, Aether Vial, Birthing Ritual  (Jul 2025, 2,737 words in transcript)
+## #68. Commander Deck: Sibsig Ceremony, Aether Vial, Birthing Ritual  (Jul 2025, 2,737 words in transcript)
 *Original title: I Was Given Three Perplexing Cards to Build a Deck With*
 **Category:** Deck Tech
 **Tags:** Iname as One, Black, Green, Aristocrats, Reanimator, Midrange, Deckbuilding Restrictions, Synergy, Resilience, Curve, Deckbuilding Principle
 
-We demonstrate building a Golgari spirit tribal commander deck around Sibsig Ceremony, Birthing Ritual, and Aether Vial.
-It uses commander Iname as One to cheat spirits into play, avoiding Sibsig Ceremony's destruction by recurring them from the graveyard.
-Sacrifice outlets and indestructible creatures further mitigate the downside, while Aether Vial and Birthing Ritual provide alternative ways to deploy threats.
+We explain how to build an EDH deck around Sibsig Ceremony, Aether Vial, and Birthing Ritual.
+It uses Iname as One to cheat spirits into play and sacrifice them for value before Sibsig Ceremony destroys them.
+The deck leverages sacrifice outlets, spirit synergies, and a lands package to win.
 
 **Principle**
-- A card's severe drawback can become a resource when paired with sacrifice outlets or recursion effects.
+- Cards that put creatures into play without casting them, like Aether Vial and Birthing Ritual, can circumvent negative triggered abilities from cards like Sibsig Ceremony.
 
 **Evidence**
-- Aether Vial requires a high density of low-mana-value creatures to impact the game early, making it hard to justify in typical EDH curves.
-- Birthing Ritual performs best with a stair-step mana curve that allows chaining from cheap to expensive creatures.
+- Birthing Ritual provides card selection by looking at the top seven cards and replacing a sacrificed creature without casting.
+- The deck uses 10 sacrifice outlets to convert Sibsig Ceremony's destruction into card draw, mana, or discard pressure.
 
 **Deckbuilding Application**
-- Select a commander that either has indestructible or a death trigger to work alongside Sibsig Ceremony; Iname as One uses its death trigger to recur spirits.
-- Ensure a spread of creature mana values when including Birthing Ritual to enable consistent tutoring up the curve.
-- Include instant-speed sacrifice outlets like Greater Good to sacrifice creatures before Sibsig Ceremony destroys them.
+- Run a high creature count and a low average mana cost to maximize Aether Vial's impact.
+- Include indestructible commanders or regeneration effects to play around Sibsig Ceremony's destruction.
 
 **Limitation**
-- Sibsig Ceremony makes recasting a removed commander risky, narrowing the viable commander pool to those that can survive or profit from dying.
-- Aether Vial's once-per-upkeep counter growth is slow in EDH, often delaying its impact until several turns after deployment.
+- Aether Vial does nothing the turn it is played and needs multiple turns to accumulate counters, making it slow in a format where early impact is crucial.
+- Sibsig Ceremony makes it difficult to recast your commander if it dies, so backup plans like graveyard recursion are necessary.
 
 **Example**
-- Casting Iname as One with Sibsig Ceremony out tutors Iname Death Aspect, which fills the graveyard with spirits like Iname Life Aspect, enabling a loop of recurring and sacrificing for value.
-- Using Aether Vial to deploy Kodama of the East Tree sidesteps Sibsig Ceremony's destruction, allowing rapid spirit deployment.
+- With Sibsig Ceremony out, casting Iname as One tutors Iname, Death Aspect, which fills the graveyard, and the commander's death trigger reanimates a spirit like Iname, Life Aspect to repeat the loop.
 
 **More quotes**
 > The most challenging thing here is definitely the Sibsig Ceremony, and that's because it comes with a fat downside.
@@ -2709,34 +2715,34 @@ It focuses on assembling a consistent turn-five combo with Time Sieve by generat
 > I want untapped colored mana as often as possible. Following from this goal every single land in the deck can theoretically play a pirate turn one.
 > The deck can often sacrifice a couple treasures and still combo off on time, and even when it does need to spend enough Treasures to delay its combo by a turn, that's still not too bad for me as it forces my opponents to spend mana and lets me avoid needing to cop up the mana to recast Malcolm.
 
-## #70. Radha Commander: All-In Four-Drop Ramp and Cascade  (Jul 2024, 229K views)
+## #70. Build a Greedy High Curve EDH Deck  (Jul 2024, 229K views)
 *Original title: How to be a Greedy Bastard in EDH (and get away with it)*
 **Category:** Deck Tech
 **Tags:** Radha, Heir to Keld, Red, Green, Ramp, Midrange, Budget, Deck Consistency, Curve, Design Intent, Deckbuilding Principle
 
-Using a low-mana-value mana dork commander allows cutting all low-cost spells from the 99, making cascade triggers consistently hit high-value ramp spells.
-The deck runs 19 four-mana ramp spells to guarantee a six-drop on turn four, relying on six-plus-mana creatures as top-end that remain relevant late.
-This creates a battlecruiser deck that avoids the typical downside of cascade randomness.
+We argue that using a low-cost commander as a consistent early mana dork allows a deck to skip cheap ramp spells, filling the 99 with high-cost ramp and large creatures.
+This structure guarantees powerful cascade hits by avoiding low-mana cards and keeps topdecks relevant.
+By ramping on turn three into six- and seven-drops, the deck plays as a resilient battlecruiser that can withstand board wipes.
+Budget constraints and high-curve synergies lead to unique card choices like Screamer-Killer and Emergent Woodworm.
 
 **Principle**
-- A commander that provides early mana allows the 99 to skip low-cost cards, eliminating poor cascade hits.
-- Cutting all cards with mana value less than four guarantees every cascade trigger hits a spell that costs at least four, which in this build is often ramp.
+- A commander that provides early mana lets you eschew low-cost ramp in the 99, enabling a higher curve and better topdecks.
+- Eliminating spells costing less than four mana guarantees that cascade and discover triggers always find ramp or impactful plays.
 
 **Evidence**
-- With 19 four mana ramp effects, cascading for four or less yields an 85 percent chance to hit a ramp spell.
-- Cascading for five or less yields a two thirds chance to find a ramp spell directly, plus a 14 percent chance to hit a cascade card that then hits ramp at an 85 percent rate.
+- In a test deck with 19 turn-three ramp spells, the probability of drawing one in the opening hand is 79 percent, enough to consistently cast a six-drop on turn four.
+- When cascading for four or less, there is an 85 percent chance to hit a ramp spell due to the high density of four-mana ramp, making cascade outcomes predictable.
 
 **Deckbuilding Application**
-- Run all ten Explosive Vegetation variants plus Blighted Woodland and other land ramp to mitigate losing ramp to board wipes.
-- Fill the top end with six to seven mana creatures like Apex Primal Storm and Emergent Woodworm, which stay relevant as topdecks.
-- Avoid cards that cost less than four mana entirely to maximize cascade and discover consistency.
+- Run at least 19 cards that can ramp on turn three and zero cards that cost less than four mana, excluding the commander, to maximize cascade reliability.
+- Fill the top end with six- and seven-mana creatures that stay relevant as late-game topdecks and pair well with massive land ramp.
+- On a budget, opt for underplayed synergy cards like Screamer-Killer and Emergent Woodworm instead of expensive staples.
 
 **Limitation**
-- The deck leans on topdeck quality since it runs minimal draw; four to five mana creatures are often disappointing to draw late compared to six plus drops.
-- Board wipes still threaten the creature based payoffs, though ramp from lands ensures you can rebuild.
+- This approach is vulnerable to board wipes, so the ramp suite should prioritize land-based ramp over mana dorks to preserve resources after a wipe.
 
 **Example**
-- Screamer Killer from Warhammer 40k functions as a budget Terror of the Peaks in a deck that pumps out large creatures.
+- The commander R ada acts as a guaranteed two-drop mana dork, enabling a turn-three four-mana ramp spell like Explosive Vegetation into a turn-four six-drop like Kogla or Etali, Primal Storm.
 
 **More quotes**
 > I like making decks that make people question their preconceptions about deck building and about the EDH format as a whole.
@@ -2791,46 +2797,46 @@ This allows a midrange gameplan that controls aggressive opponents before comboi
 > Finding its way to a win can feel like threading the needle where there are countless factors to balance and where a single tiny mistake can doom the deck to failure.
 > [Hans,] the resident combo player and the person who built the deck, had a 28% win rate with it, while all other players had a collective 19% win rate.
 
-## #72. The Deceptive Power of a Budget Buff Spells Deck  (Jul 2024, 2,466 words in transcript)
-*Original title: My Playgroup's Best Deck is $20*
+## #72. Grand Larceny Precon Deck Analysis and Upgrades  (Jul 2024, 3,460 words in transcript)
+*Original title: Is Gonti Confused or am I Confused?*
 **Category:** Deck Tech
-**Tags:** Xyris, the Writhing Storm, Blue, Red, Green, Group Hug, Voltron, Tokens, Budget, Table Politics, Threat Assessment, Synergy, Social and Politics
+**Tags:** Gonti, Canny Inquisitor, Blue, Black, Red, Aggro, Mana Base, Synergy, Curve, Upgrades, Deckbuilding Principle
 
-We present a $20 Zyrus, the Writhing Storm Commander deck built around buff spells.
-Its strategy leverages the commander's group card-draw ability to appear friendly, causing opponents to underestimate the growing threat.
-As the deck accumulates buffs and protection, it can swiftly eliminate players with commander damage, though board wipes remain a significant weakness.
+We analyze the Grand Larceny Commander precon, highlighting its combination of theft and evasive creatures.
+We argue the deck lacks sufficient low-cost evasive creatures to reliably trigger Gonti’s ability.
+The mana base and removal are praised, but the overall cohesion is criticized.
+Suggestions include adding cheaper evaders and cutting non-synergistic theft cards.
 
 **Principle**
-- A commander that gives opponents cards can create a false sense of friendship, reducing the deck's perceived threat.
-- Decks that accumulate combat tricks over time can snowball out of control when opponents fail to apply early pressure.
+- Theft decks need a dedicated win condition beyond stealing opponents’ bombs.
+- Linking theft to combat damage forces deckbuilders to include evasive creatures that can win games.
 
 **Evidence**
-- Even after multiple losses, opponents frequently underestimate the deck because its cards are individually unmemorable.
-- A player once protected Zyrus from removal despite being mana-screwed, just to keep drawing cards.
+- The precon has only 12 evasive creatures below five mana, which is too few to reliably trigger Gonti each turn.
+- The mana base is solid, with few colorless utility lands and a variety of dual lands.
 
 **Deckbuilding Application**
-- Maintain a critical mass of buff spells (around 20%) so you always have combat tricks when needed.
-- Include multiple protection spells to safeguard your commander from targeted removal.
+- Add more cheap evasive creatures to start triggering Gonti’s theft ability early.
+- Cut theft spells that don’t reduce casting cost or don’t benefit from Gonti’s discount.
 
 **Limitation**
-- Board wipes are a major weakness, as many protection spells do not prevent them and the deck relies on creature presence.
-- Forcing the deck to expend buff spells outside of lethal strikes slows it down by draining resources.
+- Gonti’s one-mana discount is modest, so failing to trigger him consistently causes you to fall behind.
+- Many evasive creatures in the precon are overcosted, delaying the commander synergy without additional ramp.
 
 **Example**
-- Zyrus creates numerous snake tokens, which serve as sacrificial blockers or potential lethal attackers when buffed.
-- The deck can assign buffs to an unblocked snake after blockers are declared, creating sudden evasion.
+- Ramirez DePietro Pillager is a similar commander that combines theft and cost reduction, illustrating the design pattern.
 
 **More quotes**
-> I need to make a buff spells deck now.
-> The deck is friendly and unassuming, right up until the point where it starts deciding to stop being those things and start murdering players.
-> Because fun fact: letting you and an opponent each draw 15 cards is great when that opponent simultaneously dies to commander damage.
-> This deck gets underestimated game after game, and by people who have lost to it half a dozen or more times.
-> The deck's lack of spicy plays and absolute transparency in what it's trying to do in a given game play to its strengths.
-> The threat profile of the deck typically lags behind its actual power at any given moment.
-> Do I look like somebody who throws my threats in the garbage?
-> The deck gains piles and piles of potential attackers and blockers that could get larger and gain all manner of potentially problematic keywords at any moment.
-> This deck doesn't seem very good, and that perception is exactly what makes it so good.
-> Discarding to hand size is the final dynamic that causes people to underestimate the deck.
+> I classify Gonti as a soft payoff: a payoff that is pretty easy to get some value off of, but which scales only modestly with additional inputs.
+> Wizards, please just put things to tap for colored mana in your precons. Just do it, I know you can.
+> Wizards of the Coast seems to have made the choice to give this precon a $30 mana base rather than give one or two powerful cards to justify the precon price, and I honestly fully support this. New players need good lands a lot more than they need a Trouble in Pairs.
+> This deck reminds me a lot of older precons in terms of the cohesiveness of its vision, or lack thereof.
+> The current suite of evasive creatures just doesn't work for me. This deck wants three Gonti triggers a turn and that's just not going to be consistently fulfilled by this selection.
+> Cunning Rhetoric is a mixture of a defense card and a theft card, but it doesn't actually accomplish either task.
+> The average non-land card in an EDH deck is like 3.5 mana, so you're getting less value than the amount of mana you paid [with Stolen Goods].
+> Running either of these cards when the deck doesn't even have enough evasive creatures to consistently get its triggers each turn feels wrong on a pretty fundamental level.
+> High cost counter spells with added bonuses do work, but mostly only in draw-go style control decks.
+> Plasm Capture is also very symbol dense, so I'd cut it for a lower cost counter spell like Negate.
 
 ## #73. Gruul Control Deck Analysis with Erinis and Street Urchin  (Jul 2024, 2,415 words in transcript)
 *Original title: Can Gruul Control?  |  Patron deck breakdown*
