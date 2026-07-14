@@ -2,7 +2,7 @@
 
 A fully built-out deck tech for the **Jeskai (white, blue, red)** Avengers commander: a complete grounded 100-card list, the curve, the packages, and how to pilot the enters-and-counters engine.
 
-*Written in Salubrious Snail's voice. Card text is quoted from Scryfall; deck counts, rank, inclusion, synergy, and the card pool for the list below are from Captain America's EDHREC commander page, captured 2026-07-13. Not authored or endorsed by Salubrious Snail or EDHREC.*
+*Written in Salubrious Snail's voice. Card wording and interactions are checked against Scryfall; deck counts, rank, inclusion, synergy, and the card pool for the list below are from Captain America's EDHREC commander page, captured 2026-07-13. Not authored or endorsed by Salubrious Snail or EDHREC.*
 
 Live page: https://drwu-htmls.vercel.app/captain-america-team-leader-deck-tech
 
@@ -40,7 +40,7 @@ One complete build, drawn from Captain America's EDHREC card pool captured 2026-
 
 **Board resets & mass removal (5):** Raise the Palisade (5) · Damning Verdict (5) · Wave Goodbye (4) · Austere Command (6) · Dismantling Wave (3)
 
-**Protection & counters (5):** Flawless Maneuver (3) · Akroma's Will (4) · Arcane Denial (2) · An Offer You Can't Refuse (1) · Heroic Sacrifice (2)
+**Protection & countermagic (5):** Flawless Maneuver (3) · Akroma's Will (4) · Arcane Denial (2) · An Offer You Can't Refuse (1) · Heroic Sacrifice (2)
 
 **Manabase (36):** Avengers Tower · Command Tower · Plaza of Heroes · Path of Ancestry · Cavern of Souls · Secluded Courtyard · Unclaimed Territory · Hallowed Fountain · Sacred Foundry · Steam Vents · Prairie Stream · Irrigated Farmland · Mystic Monastery · Glacial Fortress · Clifftop Retreat · Sulfur Falls · Port Town · Furycalm Snarl · Frostboil Snarl · Raugrin Triome · Flooded Strand · Arid Mesa · Scalding Tarn · Battlefield Forge · Adarkar Wastes · Shivan Reef · Spectator Seating · Reliquary Tower · Rogue's Passage · 3× Plains · 2× Island · 2× Mountain
 
@@ -57,14 +57,14 @@ Snail's harder question comes after the jobs: a card is only as good as how ofte
 | War Machine, Avenging Arsenal | Modified attackers gain double strike | Closes a wide counter board | Needs modified attackers, fed by Cap and entries | Weak without another counter source | **Supported** |
 | Champions from Beyond | Makes X Hero tokens, scry-and-draw at four attackers | Each token triggers Cap | A wide board, plus Cap for the per-token counter | Still makes tokens and draws; loses the per-token counter | **Supported** |
 | Door of Destinies | Anthem that grows only when you cast a Hero | Snowballs a wide Hero board | Direct Hero casts; tokens and reanimation do not grow it but still get its bonus | Independent of Cap | **Situational** (casting-only payoff) |
-| The Ozolith | Banks counters off dying creatures | Insurance against a wipe | Any counters on board | Works with any counter source | **Supported** |
+| The Ozolith | Banks counters when a creature leaves the battlefield | Insurance against a wipe | Any counters on board | Works with any counter source | **Supported** |
 | Shared Animosity (power branch) | On-attack pump per attacking Hero | Go-wide finisher | About 27 attacking Hero bodies | Independent of Cap | **Core** in the aggressive branch |
 | Cathars' Crusade (power branch) | A counter on all creatures per creature entry | Counts tokens and reanimation | Every creature entry, tokens and recursion included | Independent of Cap | **Core** in the aggressive branch |
 | Teferi's Protection (power branch) | Protects you and phases out your board | Saves a developed board from a wipe | Any board worth protecting | Independent of Cap | **Situational**, essential in the moment |
 
 Door of Destinies is the close call: it looks like a counters payoff, so it reads as core at a glance. It gains a charge counter only on a Hero you cast, so the tokens and reanimated Heroes this build makes do not grow it, and they still get its +1/+1 bonus. Its real charge-counter support is smaller than the raw Hero count suggests, which is the difference between a card that backs the whole engine and one that backs only the casting half.
 
-Reading the audit uses four more of Snail's tests. **Strength over count:** Kindred Discovery reaches its payoff through many dependable routes (every Hero, token, and reanimation). Door of Destinies has one route, direct casting, which is why it drops to situational. **By stage:** Kindred Discovery and Champions from Beyond pull weight from development onward, War Machine and She-Hulk are late finishers, and The Ozolith is recovery insurance, so a card that is quiet early keeps its slot when the deck reliably reaches its stage. **From the finished list:** every support count above is read off this 100 after the swaps rather than off EDHREC averages. **Flexibility floor:** tuning toward Heroes did not strip the answers, since the build still runs six spot removals, five board resets, five protection pieces, and seven card-draw effects, so it can respond to a changing board rather than only chain one big turn.
+Reading the audit uses four more of Snail's tests. **Strength over count:** Kindred Discovery reaches its payoff through many dependable routes (every Hero, token, and reanimation). Door of Destinies has one route, direct casting, which is why it drops to situational. **By stage:** Kindred Discovery and Champions from Beyond pull weight from development onward, War Machine and She-Hulk are late finishers, and The Ozolith is recovery insurance, so a card that is quiet early keeps its slot when the deck reliably reaches its stage. **From the finished list:** every support count above is read off this 100 after the swaps rather than off EDHREC averages. **Flexibility floor:** tuning toward Heroes did not strip the answers, since the build still runs six spot removals, five mass-removal spells (four creature resets plus Dismantling Wave for artifacts and enchantments), five protection and counter cards, and seven card-draw effects, so it can respond to a changing board rather than only chain one big turn.
 
 **Three ways a card goes dead.** A Hero with no board behind it (She-Hulk drawn into an empty board is a slow body; she wants a wide team down first). Protection you cannot rebuild behind (Flawless Maneuver held with one creature and nothing to follow saves almost nothing). A strong card that ignores the plan (a five-mana bomb that neither adds a Hero, protects the board, nor turns counters into damage fails the five-job test even with a high ceiling).
 
@@ -90,12 +90,12 @@ Two and three carry the deck. That is where Nick Fury, Black Widow, Shang-Chi, a
 | Card | Inclusion | Synergy | Job |
 |---|---:|---:|---|
 | Director Nick Fury | 93.2% | +88.8% | Hero spells cost 1 less; attack digs 4 cards for a Hero |
-| Avengers Tower | 92.3% | +86.4% | Hero-fixing land that also digs 3 cards for one |
+| Avengers Tower | 92.3% | +86.4% | Hero-fixing land; for four mana and a tap, looks at three and keeps a Hero |
 | Iron Man, Armored Avenger | 90.3% | +85.1% | Draw puts a counter; modified attackers fly |
 | War Machine, Avenging Arsenal | 88.5% | +83.6% | Modified attackers gain double strike |
 | Black Widow, Agile Avenger | 87.8% | +82.1% | Cheap menace Hero; punishes an opponent's extra draw |
 | She-Hulk, Wallbreaker | 86.0% | +81.4% | Team trample; blocked Heroes gain counters |
-| Winter Soldier, Reborn Avenger | 85.9% | +81.2% | Attack reanimates a Hero (it re-enters, so it triggers Cap) |
+| Winter Soldier, Reborn Avenger | 85.9% | +81.2% | Attack returns a creature within his power; a Hero re-enters with an extra counter |
 | Kindred Discovery | 85.8% | +80.7% | Choose Hero: draw on every Hero that enters or attacks |
 | Raise the Palisade | 85.7% | +82.1% | Bounce non-Hero creatures; strongly favors your Hero-heavy board |
 | Swords to Plowshares | 90.5% | +22.8% | *Staple*: high inclusion, low synergy |
@@ -109,7 +109,7 @@ These percentages are a snapshot of what other builders put in their lists. A hi
 
 ## More than casting: tokens, blink, and reanimation
 
-The trigger is written on **enters**. Players expect cast, and that swap is the point. Any Hero that arrives fires the counters, so casting is one route of several. A Hero token entering counts. A Hero returning from a blink counts. A Hero coming back from the graveyard counts. Winter Soldier, Reborn Avenger reanimates a Hero on attack; that Hero enters, Cap triggers, and Winter Soldier adds an extra counter. Kindred Discovery draws on the same entry. Direct casting is the backbone; token production and recursion are the secondary engines that make a smaller Hero pool fire the trigger again.
+The trigger is written on **enters**. Players expect cast, and that swap is the point. Any Hero that arrives fires the counters, so casting is one route of several. A Hero token entering counts. A Hero returning from a blink counts. A Hero coming back from the graveyard counts. Winter Soldier, Reborn Avenger returns a creature within its power on attack; when that creature is a Hero it enters, triggers Cap, and Winter Soldier adds an extra counter. Kindred Discovery draws on the same entry. Direct casting is the backbone; token production and recursion are the secondary engines that make a smaller Hero pool fire the trigger again.
 
 ## Cashing the counters: the modified payoffs
 
@@ -123,7 +123,7 @@ Card draw feeds the loop: Iron Man counters on every draw, Shang-Chi and the Ten
 
 ## How the deck closes
 
-A wide board is not the win on its own; one payoff turns it lethal. Attack with a countered team and War Machine gives double strike, Iron Man gives flying, or She-Hulk gives trample through the chump blocks. Any one turns a stalled board into a game-ending swing. Champions from Beyond adds a second gear: at eight or more attackers its Full Party mode pumps the team by four each. Hold up Flawless Maneuver or Akroma's Will on that turn so a blocker or a crackback wipe does not undo the attack. The power branch closes harder, with Shared Animosity paying per attacker and Cathars' Crusade snowballing the counters.
+A wide board is not the win on its own; one payoff turns it lethal. Attack with a countered team and War Machine gives double strike, Iron Man gives flying, or She-Hulk gives trample through the chump blocks. Any one turns a stalled board into a game-ending swing. Champions from Beyond adds a second gear: at eight or more attackers its Full Party mode pumps the team by four each. Hold up Flawless Maneuver or Akroma's Will so a blocker or an instant-speed removal spell does not stop the swing; both wear off at end of turn, so a next-turn sweeper needs countermagic or a card kept in hand. The power branch closes harder, with Shared Animosity paying per attacker and Cathars' Crusade snowballing the counters.
 
 ## Interaction, protection, and the board-wipe question
 
@@ -171,7 +171,7 @@ These seven are recommendations built for this list, outside the Snail guide.
 
 ## Opening hand and three mistakes
 
-A keepable hand: three or four mana sources with colors covered and at least one Hero castable by turn two or three. A strong keep is four mana sources including a blue or red one, an early rock or Nick Fury, and two cheap Heroes, plus a card-draw piece and a protection or removal spell for the one threat that stops the attack. Ship hands with fewer than two mana sources or no Hero castable by turn three.
+A keepable hand: three or four mana sources with colors covered and at least one Hero castable by turn two or three. A strong keep is four mana sources including a blue or red one, an early rock or Nick Fury, and two cheap Heroes, plus a card-draw piece and a protection or removal spell for the one threat that stops the attack. A three-color deck wants all colors reachable by turn three, so a two-source hand needs a cheap rock and dependable fixing to keep. Ship hands with fewer than two sources, hands that cannot reach all colors, or hands with no Hero castable by turn three.
 
 Three common mistakes:
 
