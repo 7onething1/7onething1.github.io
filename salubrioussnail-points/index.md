@@ -1,6 +1,8 @@
 # salubrioussnail - Summary and 10 Points per Video
 
-_74 Commander videos (full catalog with captions). Recent theory first, dated reviews last. Each card: summary, ten grouped points, ten quotes, and the full grammar-cleaned transcript._
+_Coverage as of 2026-07-14 (channel pulled 2026-07-13): 84 videos on the channel, 74 indexed entries here, 74 verified grammar-cleaned transcripts (one per entry). Recent theory first, dated reviews last. Each card: summary, ten grouped points, ten quotes, and the full grammar-cleaned transcript._
+
+_Not indexed: 10 channel videos, 9 members-only or bonus with no public captions, plus 1 public backlog (The Hidden Trap of Tribal Decks)._
 
 ## #1. Why Situational Cards Belong in Your Commander Deck  (Jun 2026, 27K views)
 *Original title: It's okay to put *some* janky trash in your deck*
@@ -2174,7 +2176,7 @@ Her low mana cost and powerful ability combine to create an oppressive experienc
 **Tags:** Glissa, Herald of Predation, Green, Black, Tokens, Counters, Reanimator, Power Level, Deckbuilding Restrictions, Design Intent, Synergy, Deckbuilding Principle
 
 The video explains how to build a bracket 2 Commander deck by intentionally including too many subthemes and then optimizing the card choices for cohesion.
-Glysa, Herald of Predation provides a flexible commander that generates artifact tokens with counters, unifying themes of artifacts, counters, and untapping.
+Glissa, Herald of Predation provides a flexible commander that generates artifact tokens with counters, unifying themes of artifacts, counters, and untapping.
 Additional packages like token copying and graveyard support deepen the synergy while keeping the deck at a precon power level.
 
 **Deckbuilding Motivation**
@@ -2183,7 +2185,7 @@ Additional packages like token copying and graveyard support deepen the synergy 
 - Precons intentionally have multiple themes, inspiring an overloaded subtheme approach.
 
 **Core Strategy and Commander**
-- Glysa, Herald of Predation offers a choice each combat: incubate twice, flip all incubators, or grant first strike and deathtouch to Phyrexians.
+- Glissa, Herald of Predation offers a choice each combat: incubate twice, flip all incubators, or grant first strike and deathtouch to Phyrexians.
 - Incubate creates artifact tokens with +1/+1 counters, fueling both counter and artifact synergies.
 - The deck uses many artifacts for card draw and big mana, with cards like Idol of Oblivion and Monumental Corruption.
 - Clock of Omens can untap mana rocks and other artifacts, enabling explosive turns.
@@ -2210,13 +2212,13 @@ Additional packages like token copying and graveyard support deepen the synergy 
 **Category:** Deck Tech
 **Tags:** Hearthhole, the World Seed, Black, Red, Green, Landfall, Aristocrats, Ramp, Card Evaluation, Mana Base, Upgrades, Win Conditions, Card Evaluation
 
-This video reviews the World Shaper precon, a Jund lands deck led by Hearththe Hole.
+This video reviews the World Shaper precon, a Jund lands deck led by Hearthhull, the Worldseed.
 The strategy revolves around sacrificing lands for value and then recurring them to build explosive mana and trigger payoffs.
 The mana base is highlighted for its high land count, budget fetches, and complete typed dual cycles.
 The deck excels at consistent land sacrifice and recursion, with powerful landfall and sacrifice synergies to close games.
 
 **Commander Overview**
-- Hearththe Hole is a four mana Jund spacecraft that can be leveled up by tapping creatures.
+- Hearthhull, the Worldseed is a four mana Jund spacecraft that can be leveled up by tapping creatures.
 - With two power it can tap to sacrifice a land, draw two cards, and play an extra land.
 - At eight charges it becomes a 6/7 flier that drains opponents when you sacrifice lands.
 
@@ -2739,11 +2741,11 @@ This approach allows casting six or seven mana creatures as early as turn four a
 **Category:** Deck Tech
 **Tags:** Gerrard, Weatherlight Hero, Red, White, Combo, Midrange, Aristocrats, Budget, Deckbuilding Restrictions, Synergy, Interaction, Deckbuilding Principle
 
-The video explains how a $25 budget Boros eggs Commander deck functions without expensive staples, using Gerard Weatherlight Hero and board wipes as value engines.
+The video explains how a $25 budget Boros eggs Commander deck functions without expensive staples, using Gerrard, Weatherlight Hero and board wipes as value engines.
 It shows how the deck adapts to an aggressive meta through midrange tactics and multiple board wipes, and how budget and color constraints create a unique, layered playstyle.
 
 **Deck Operation**
-- Gerard Weatherlight Hero recurs artifacts upon death, enabling egg loops.
+- Gerrard, Weatherlight Hero recurs artifacts upon death, enabling egg loops.
 - Board wipes serve as mass sacrifice outlets for artifacts and creatures.
 - Early isolated loops generate card advantage and buy time before the big storm turn.
 - Reckless Fireweaver burns out opponents as the main win condition.
@@ -2762,9 +2764,9 @@ It shows how the deck adapts to an aggressive meta through midrange tactics and 
 > It's an immensely complex and layered deck that defies a lot of conventional wisdom about deck building.
 > The deck's convoluted nature is an emergent factor from a number of pressures that existed during the deck building process.
 > Board wipes function as a single-use sack outlet for all nonland permanence, allowing a full refresh of the artifacts and creatures that the deck has on board.
-> Without [Krark-Clan Iron Works], the deck needs to develop a lot more permanence that can generate mana before its loops with Gerard can become mana positive.
+> Without [Krark-Clan Iron Works], the deck needs to develop a lot more permanence that can generate mana before its loops with Gerrard can become mana positive.
 > The budget constraint results in a slower deck that inherently needs to play more reactively.
-> A common play pattern for the deck is to perform one or more isolated loops prior to its big turn, wiping the board with Gerard in play in order to slow down opponents and generate a handful of cards off of a developing board of eggs.
+> A common play pattern for the deck is to perform one or more isolated loops prior to its big turn, wiping the board with Gerrard in play in order to slow down opponents and generate a handful of cards off of a developing board of eggs.
 > The deck blend of mid-range control and storm elements means that a player must simultaneously balance a whole host of strategic factors.
 > A pilot of the deck needs to consider the merits of a number of different play paths, but each of those play paths involves dozens of different decisions along with a number of probabilistic factors.
 > Finding its way to a win can feel like threading the needle where there are countless factors to balance and where a single tiny mistake can doom the deck to failure.
