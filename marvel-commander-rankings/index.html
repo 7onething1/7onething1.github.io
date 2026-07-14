@@ -365,6 +365,8 @@ body.kids .grown{display:none}
 .dcsub{font-size:.7rem;color:var(--muted)}
 .dckc{margin-top:7px;display:inline-block;font-family:'Inter',sans-serif;font-weight:800;font-size:.76rem;text-decoration:none;color:#fff;background:var(--fac);border-radius:20px;padding:5px 11px}
 .dckc:hover{filter:brightness(1.08)}
+.allcmdrbar{display:flex;align-items:center;gap:10px;flex-wrap:wrap;margin:8px 0 2px}
+.allcmdr-note{font-family:'Inter',sans-serif;font-size:.78rem;color:var(--muted);max-width:520px}
 .cheaphdr{font-family:'Inter',sans-serif;font-size:.85rem;color:var(--muted);margin:0 0 8px}
 .cheaprows{list-style:none;margin:0;padding:0;display:grid;gap:5px}
 .cheaprow{display:flex;align-items:center;gap:10px;background:var(--paper2);border:1px solid var(--line);border-radius:8px;padding:7px 11px;font-family:'Inter',sans-serif;font-size:.9rem}
@@ -397,6 +399,10 @@ body.kids .grown{display:none}
       <button data-v="cover">🦸 Comic Gallery</button>
       <button data-v="archive" class="on">🗂 Comparison Table</button>
     </div>
+    <div class="allcmdrbar">
+      <button id="allcmdr-btn" class="tchip" type="button" aria-pressed="false" onclick="toggleAllCmdrs()">🦸 All alternate commanders: off</button>
+      <span class="allcmdr-note grown">On folds every full-identity commander into each deck's package, cost, and ranking. Off keeps the face-commander focus.</span>
+    </div>
     <p class="lead grown">This opens on <b>Out of the box</b>, the strict question of which unchanged deck performs best, so the order you see first is Avengers Assemble, Doom Prevails, Wakanda Forever, then the Fantastic Four. Flip to <b>Overall</b> for the five-read composite that also weighs upgrade ceiling, fun, ease, and table politics. Every read is a considered opinion grounded in the published upgrade guides and the printed cards, not tournament data. <b>Ceiling</b> is how high it climbs once upgraded; <b>Ease</b> is how forgiving the mana and lines are (higher is easier).</p>
     <p class="lead kid-only">Four ready-to-play Marvel decks. Tap a deck to pop open its card, which commanders you can pick, and which cards to swap out and swap in. Higher bars are better.</p>
 
@@ -411,6 +417,7 @@ body.kids .grown{display:none}
     <details class="factcheck grown">
       <summary>How the Overall score is built (the exact weights)</summary>
       <p><b>Overall = 0.28 · Out-of-box power + 0.26 · Upgrade ceiling + 0.24 · Fun + 0.12 · Ease + 0.10 · Table politics.</b> Every read is scored 1 to 10, then blended by those weights, so a close placement is a close blend and not an arranged order. Two of the reads need a definition, since they carry real weight: <b>Fun</b> is how much variety, dramatic swing, and live decision-making the deck offers across a game, not its win rate. <b>Table politics</b> is how the pod treats the deck, how quickly it draws targeting, and how much it can threaten, deal, or share, which is why the most powerful list is not always the one you want in a four-player game. Fun carries nearly the weight of power on purpose: these are precons bought for casual, kitchen-table games, where how much a deck is worth playing counts almost as much as how hard it hits.</p>
+      <p>Where the numbers come from: each read is an editorial judgment from the printed cards and the published upgrade guides, not a tally from recorded games. Read the one-decimal scores as a considered ordering, so a gap of a tenth means we rate two decks close, not that we counted wins. <b>Fully upgraded</b> means the deck after the full recommended swap package on this page (the same cards the cost section prices), not a money-no-object build.</p>
     </details>
 
     <details class="factcheck grown">
@@ -746,6 +753,19 @@ const PRICES = {
   "World at War":9.43
 };
 const UPGRADE_COST = { doom:51.89, ff:59.11, avengers:15.79, wakanda:74.71 };
+/* "All alternate commanders" mode: when on, each deck's package/cost is the union of every commander path (face + alts). */
+let allCmdrs=false; try{ allCmdrs=localStorage.getItem('mcr_allcmdrs')==='1'; }catch(e){}
+let openDeckId=null;
+function allDeckAdds(deckId){
+  const S={'doctor-doom':'doom','loki':'doom','mister-fantastic':'ff','invisible-woman':'ff','human-torch':'ff','the-thing':'ff','team-leader':'avengers','nick-fury':'avengers','tchalla':'wakanda','shuri':'wakanda','storm':'wakanda','first-avenger':'avengers'};
+  const set=new Set();
+  (SWAPS_FULL[deckId]||[]).forEach(r=>{ if(r[1]) set.add(r[1]); });
+  for(const k in SWAP_PAIRS){ if(S[k]===deckId) (SWAP_PAIRS[k]||[]).forEach(r=>{ if(r[1]) set.add(r[1]); }); }
+  for(const k in EDHREC_UP){ if(S[k]===deckId) (EDHREC_UP[k].cards||[]).forEach(c=>{ if(c) set.add(c); }); }
+  return [...set];
+}
+function deckPkgAdds(deckId){ return allCmdrs ? allDeckAdds(deckId) : (SWAPS_FULL[deckId]||[]).map(r=>r[1]).filter(Boolean); }
+function deckPkgCost(deckId){ return deckPkgAdds(deckId).reduce((a,c)=>a+(PRICES[c]||0),0); }
 function money(n){ return "$"+n.toFixed(2); }
 const DECKS = [
   {
@@ -902,7 +922,7 @@ function cmdrEl(c){
 
 /* Sort comparator across all views. "cost" sorts cheapest upgrade first (ascending); every other key is score, higher first. */
 function cmpDecks(a,b){
-  if(sortKey==="cost") return (UPGRADE_COST[a.id]!=null?UPGRADE_COST[a.id]:1e9) - (UPGRADE_COST[b.id]!=null?UPGRADE_COST[b.id]:1e9);
+  if(sortKey==="cost") return deckPkgCost(a.id) - deckPkgCost(b.id);
   const av = sortKey==="overall"?overall(a.scores):a.scores[sortKey];
   const bv = sortKey==="overall"?overall(b.scores):b.scores[sortKey];
   return bv-av;
@@ -935,7 +955,7 @@ function render(){
         <div class="deck-main">
           <p class="deck-title">${d.name}<span class="ci">${pips(d.ci)}</span></p>
           <p class="deck-tag">${d.tag}</p>
-          <p class="commander-line"><b>${faces.map(f=>f.nm.split(",")[0]).join(" · ")}</b> <span class="grown" style="color:var(--muted)">${alts.length?("+ "+alts.length+" more on-colour commander"+(alts.length>1?"s":"")):"the only on-colour commanders in the box"}</span></p>
+          <p class="commander-line"><b>${(allCmdrs?opts:faces).map(f=>f.nm.split(",")[0]).join(" · ")}</b> <span class="grown" style="color:var(--muted)">${allCmdrs?("all "+opts.length+" full-identity commanders"):(alts.length?("+ "+alts.length+" more on-colour commander"+(alts.length>1?"s":"")):"the only on-colour commanders in the box")}</span></p>
           ${ppBadge}
           <div class="scores">
             <div class="score"><div class="v" style="color:${d.rankColor}">${ov.toFixed(1)}</div><div class="k">Overall</div><div class="bar"><i style="width:${ov*10}%;background:${d.rankColor}"></i></div></div>
@@ -964,6 +984,7 @@ function render(){
 
 function openDeck(id){
   const d = byId[id]; if(!d) return;
+  openDeckId = id;
   const idx = [...DECKS].sort(cmpDecks).findIndex(x=>x.id===id);
   const opts = deckCommanders(d);
   const faces = opts.filter(c=>c.role!=="alt");
@@ -1111,7 +1132,7 @@ function srcMetaFor(deckId, srcKey){
 /* Cut→Add swap cards, correlated to the selected commander source. */
 function renderSwapSec(deckId, srcKey){
   const host = document.getElementById('swapsec-'+deckId); if(!host) return;
-  const pairs = pairsFor(deckId, srcKey);
+  const pairs = allCmdrs ? deckPkgAdds(deckId).map(c=>[null,c,""]) : pairsFor(deckId, srcKey);
   const meta = srcMetaFor(deckId, srcKey);
   const n = pairs.length;
   const total = pairs.reduce((a,s)=>a+(PRICES[s[1]]||0),0);
@@ -1173,7 +1194,24 @@ function ckCopy(id, btn){
 function closeModal(){
   document.getElementById("overlay").classList.remove("show");
   document.body.style.overflow = "";
+  openDeckId = null;
   if(window._lastFocus && window._lastFocus.focus) window._lastFocus.focus();
+}
+function toggleAllCmdrs(){
+  allCmdrs = !allCmdrs;
+  try{ localStorage.setItem('mcr_allcmdrs', allCmdrs?'1':'0'); }catch(e){}
+  syncAllCmdrsBtn();
+  render();
+  if(viewMode==='cover') renderCover();
+  if(viewMode==='archive') renderArchive();
+  renderCheapest();
+  if(openDeckId) openDeck(openDeckId);
+}
+function syncAllCmdrsBtn(){
+  const b=document.getElementById('allcmdr-btn'); if(!b) return;
+  b.classList.toggle('on', allCmdrs);
+  b.setAttribute('aria-pressed', allCmdrs?'true':'false');
+  b.textContent='🦸 All alternate commanders: '+(allCmdrs?'on':'off');
 }
 /* Escape closes the modal; Tab is trapped inside it while open. */
 document.getElementById("overlay").addEventListener("keydown", function(e){
@@ -1340,11 +1378,11 @@ function renderCheapest(){
   const dc=document.getElementById('deckcost'), cl=document.getElementById('cheaplist');
   if(!dc||!cl) return;
   const c2d=buildCard2Deck();
-  const order=Object.keys(UPGRADE_COST).sort((a,b)=>UPGRADE_COST[a]-UPGRADE_COST[b]);
+  const order=Object.keys(UPGRADE_COST).sort((a,b)=>deckPkgCost(a)-deckPkgCost(b));
   dc.innerHTML=`<div class="dcgrid">`+order.map((id,i)=>{
     const d=byId[id];
-    const adds=(SWAPS_FULL[id]||[]).map(s=>s[1]).filter(Boolean);
-    return `<div class="dccard" style="--fac:${d.rankColor}"><span class="dcrank">#${i+1} cheapest to fully upgrade</span><a class="dcname" href="#deck-${id}">${d.name}</a><span class="dccost">${money(UPGRADE_COST[id])}</span><span class="dcsub grown">full recommended package (${adds.length} cards)</span><a class="dckc" href="${deckUrl(adds)}" target="_blank" rel="noopener">Price these in KC →</a></div>`;
+    const adds=deckPkgAdds(id);
+    return `<div class="dccard" style="--fac:${d.rankColor}"><span class="dcrank">#${i+1} cheapest to fully upgrade</span><a class="dcname" href="#deck-${id}">${d.name}</a><span class="dccost">${money(deckPkgCost(id))}</span><span class="dcsub grown">${allCmdrs?'all-commanders':'face-commander'} package (${adds.length} cards)</span><a class="dckc" href="${deckUrl(adds)}" target="_blank" rel="noopener">Price these in KC →</a></div>`;
   }).join("")+`</div>`;
   const rows=Object.keys(PRICES).map(nm=>({nm, usd:PRICES[nm], decks:[...(c2d[nm]||[])]})).sort((a,b)=>a.usd-b.usd || a.nm.localeCompare(b.nm));
   cl.innerHTML=`<p class="cheaphdr grown">Every upgrade card across all paths (full swap lists, alternate commanders, and add-only lists), ${rows.length} in total, cheapest first.</p><ol class="cheaprows">`+rows.map(r=>{
@@ -1353,6 +1391,7 @@ function renderCheapest(){
     return `<li class="cheaprow"><span class="cprice">${money(r.usd)}</span><a class="cname2" href="https://drwu-htmls.vercel.app/kc-card-finder?card=${encodeURIComponent(f)}" target="_blank" rel="noopener">${r.nm}</a>${badges}</li>`;
   }).join("")+`</ol>`;
 }
+syncAllCmdrsBtn();
 render();
 renderBonus();
 renderCheapest();
