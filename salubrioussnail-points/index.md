@@ -1,6 +1,6 @@
 # Salubrious Snail Commander Index
 
-_Search the lessons, takeaways, quotations, and full transcripts behind Salubrious Snail's Commander theory._
+_Search the lessons, takeaways, quotations, and full transcripts._
 
 ## #1. Using Math to Decide How Many Bad Cards to Run  (Jun 2026, 27K views)
 *Original title: It's okay to put *some* janky trash in your deck*
@@ -45,11 +45,14 @@ By categorizing cards into premium enablers, situational blanks, and general sup
 ## #2. How to Build a Hidden Commander Deck: Two Key Principles  (Jun 2026, 63K views)
 *Original title: The Two Rules for Making a Successful "Hidden Commander" Deck*
 **Category:** Deckbuilding
-**Tags:** Athreos, Shroud-Veiled, White, Black, Green, Aristocrats, Tokens, Reanimator, Budget, Deckbuilding Restrictions, Synergy, Resilience, Deckbuilding Principle
+**Tags:** Athreos, Shroud-Veiled, White, Black, Aristocrats, Tokens, Reanimator, Budget, Deckbuilding Restrictions, Synergy, Resilience, Deckbuilding Principle
 
 To build a successful hidden commander deck, you must find functional analogs for your secret commander and minimize cards that only work with that commander.
 These rules ensure the deck works when the key card is absent or removed.
 We demonstrate by building a budget deck around Sibsig Ceremony with Athreos, Shroud-Veiled as a synergistic commander.
+
+**Current status (verified Jul 2026):**
+- The card tags on this entry follow Scryfall: Athreos, Shroud-Veiled is White and Black, and The Sibsig Ceremony is mono-black. The green-black heard in the transcript is a spoken slip (source: Scryfall card records).
 
 **Principle**
 - Two rules for hidden commander success: find functional analogs and minimize the footprint of synergy cards.
@@ -334,6 +337,9 @@ Hypergeometric calculators can quantify the right amount, with roughly 18 ramp s
 We argue that the intense community backlash to the proposed hybrid mana color identity change is excessive given its low stakes.
 We suggest the reaction stems from recent player frustration with Wizards of the Coast decisions and the timing of the announcement.
 We note that a similar suggestion was well-received in a past podcast, indicating the current context amplified the response.
+
+**Current status (verified Jul 2026):**
+- The proposed hybrid-mana color-identity change never became a rule. Under the current Commander rules a hybrid card counts every color in its cost toward color identity, so any alternate treatment has to be agreed as a pregame house rule (source: magic.wizards.com).
 
 **Principle**
 - The hybrid mana change is a minor clarification that fixes an unintuitive aspect of color identity without altering the format's core restrictions.
@@ -726,6 +732,10 @@ The core insight is that deckbuilding and playing are separate activities, and c
 The EDH community accepts board wipes but shuns mass land destruction and stax due to social norms, not card balance.
 Players prepare for common strategies but not for discouraged ones, making those strategies more oppressive.
 We critique the inconsistent definition of player agency, as snowballing decks can deny agency as much as stax locks.
+
+**Current status (verified Jul 2026):**
+- Sway of the Stars is legal in Commander again after being unbanned. Iona, Shield of Emeria is still banned.
+- Farewell now appears on the Commander Game Changers list, so it counts toward a deck's bracket (source: Scryfall card records).
 
 **Principle**
 - Social norms, not objective power levels, determine which resource-denial strategies are accepted in EDH.
@@ -2454,6 +2464,9 @@ We build a Bracket 2 Commander deck around Glissa, Herald of Predation by intent
 The deck combines incubate tokens, artifact synergies, +1/+1 counters, token copying, and graveyard recursion.
 Despite the overloaded themes, careful card selection creates cohesive interactions and a satisfying, lower-power deck.
 
+**Current status (verified Jul 2026):**
+- Under the official bracket definitions, Bracket 2 is the Core tier. Brackets 1 and 2 exclude Game Changers and Bracket 3 allows up to three. The current Bracket 2 description sets no fixed tutor count and no longer ties the tier to any specific preconstructed deck (source: magic.wizards.com/en/formats/commander).
+
 **Principle**
 - Deliberately including an excessive number of subthemes, like precons but taken further, can cap a deck's power at Bracket 2 even when individual cards are optimized.
 
@@ -2488,7 +2501,7 @@ Despite the overloaded themes, careful card selection creates cohesive interacti
 ## #64. World Shaper Precon Review: Land Sacrifice Engine Breakdown  (Aug 2025, 85K views)
 *Original title: This Land Sacrifice Precon is Great Aside From One Thing*
 **Category:** Deck Tech
-**Tags:** Hearthhole, the World Seed, Black, Red, Green, Landfall, Aristocrats, Ramp, Card Evaluation, Mana Base, Upgrades, Win Conditions
+**Tags:** Hearthhull, the Worldseed, Black, Red, Green, Landfall, Aristocrats, Ramp, Card Evaluation, Mana Base, Upgrades, Win Conditions
 
 We review the World Shaper Commander precon from Edge of Eternity, explaining its land sacrifice and recursion engine.
 We highlight the deck's strong mana base with many fetch lands and duals, consistent land graveyard filling, and powerful payoffs from landfall and sacrifice triggers.
