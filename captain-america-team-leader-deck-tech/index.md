@@ -99,7 +99,7 @@ Two and three carry the deck. That is where Nick Fury, Black Widow, Shang-Chi, a
 | Kindred Discovery | 85.8% | +80.7% | Choose Hero: draw on every Hero that enters or attacks |
 | Raise the Palisade | 85.7% | +82.1% | Bounce non-Hero creatures; strongly favors your Hero-heavy board |
 | Swords to Plowshares | 90.5% | +22.8% | *Staple*: high inclusion, low synergy |
-| Arcane Denial | 68.7% | +52.1% | *Staple*: clean counter that replaces itself |
+| Arcane Denial | 68.7% | +52.1% | Cheap counter that replaces itself; more commander-tied than a plain staple |
 
 Swords at 90.5% inclusion with +22.8% synergy is a clear example of the difference.
 
@@ -123,7 +123,7 @@ Card draw feeds the loop: Iron Man counters on every draw, Shang-Chi and the Ten
 
 ## How the deck closes
 
-A wide board is not the win on its own; one payoff turns it lethal. Attack with a countered team and War Machine gives double strike, Iron Man gives flying, or She-Hulk gives trample through the chump blocks. Any one turns a stalled board into a game-ending swing. Champions from Beyond adds a second gear: at eight or more attackers its Full Party mode pumps the team by four each. Hold up Flawless Maneuver or Akroma's Will so a blocker or an instant-speed removal spell does not stop the swing; both wear off at end of turn, so a next-turn sweeper needs countermagic or a card kept in hand. The power branch closes harder, with Shared Animosity paying per attacker and Cathars' Crusade snowballing the counters.
+A wide board is not the win on its own; one payoff turns it lethal. Attack with a countered team and War Machine gives double strike, Iron Man gives flying, or She-Hulk gives trample through the chump blocks. Any one can turn a wide board into a game-ending swing when you have the power and a clear path, so keep a Hero or two back for the follow-up. Champions from Beyond adds a second gear: at eight or more attackers its Full Party mode pumps the team by four each. Hold up Flawless Maneuver or Akroma's Will so a blocker or an instant-speed removal spell does not stop the swing; both wear off at end of turn, so a next-turn sweeper needs countermagic or a card kept in hand. The power branch closes harder, with Shared Animosity paying per attacker and Cathars' Crusade snowballing the counters.
 
 ## Interaction, protection, and the board-wipe question
 
@@ -171,7 +171,7 @@ These seven are recommendations built for this list, outside the Snail guide.
 
 ## Opening hand and three mistakes
 
-A keepable hand: three or four mana sources with colors covered and at least one Hero castable by turn two or three. A strong keep is four mana sources including a blue or red one, an early rock or Nick Fury, and two cheap Heroes, plus a card-draw piece and a protection or removal spell for the one threat that stops the attack. A three-color deck wants all colors reachable by turn three, so a two-source hand needs a cheap rock and dependable fixing to keep. Ship hands with fewer than two sources, hands that cannot reach all colors, or hands with no Hero castable by turn three.
+A keepable hand: three or four mana sources with colors covered and at least one Hero castable by turn two or three. A realistic seven-card keep is three sources, one accelerator or fixer, two early Heroes, and one draw or protection spell, and multi-role cards let a leaner hand work. A three-color deck wants all colors reachable by turn three, so a two-source hand keeps only when its fixing and acceleration are strong. Ship hands with fewer than two sources, hands that cannot reach all colors, or hands with no Hero castable by turn three.
 
 Three common mistakes:
 
