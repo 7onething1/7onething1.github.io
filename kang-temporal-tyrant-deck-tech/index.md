@@ -140,7 +140,7 @@ A deck tech should describe the shape of the whole list. The commander is the ea
 | Discard and recovery | 4 | Moonstone, Archfiend of Ifnir, the connive-activator M.O.D.O.K. |
 | Interaction | 10 | Mostly instant, counters and spot removal plus a wipe or two |
 | Protection | 3 | Keep Kang and the Cube alive through the seven-count |
-| Ramp and rocks | 9 | Two-drop rocks so you hold up mana every turn |
+| Ramp and rocks | 6 | Two-drop rocks so you hold up mana every turn |
 | Draw and refill | 12 | Overlaps the enablers, keeps the grind from stalling |
 
 The counts overlap on purpose, since Madame Masque is enabler and payoff, and Frantic Search is mana-neutral after resolution (pay three, untap up to three lands), so it reads as draw first and only nets mana when three useful permanents untap. The point is the curve and the balance: enough cheap enablers that a second draw is available every turn, enough interaction to reach the late game, and a land count on the low side because the spells are cheap.
@@ -199,13 +199,12 @@ A complete legal Kang list, commander plus 99, every card verified blue-black or
 - **Second-draw enablers: connive + instant-speed draw (14):** Leader, Super-Genius, Baron Strucker, HYDRA Overlord, Madame Masque, Ledger Shredder, Frantic Search, Visions of Villainy, Chart a Course, Chemister's Insight, Thirst for Discovery, Fact or Fiction, Forbidden Alchemy, Careful Study, Thirst for Knowledge, Merfolk Looter
 - **Second-draw payoffs (8):** Construct a Cosmic Cube, Gixian Puppeteer, Kid Loki, Alandra, Sky Dreamer, M.O.D.O.K., Evil Intellect, Psychosis Crawler, Teferi's Ageless Insight, Moonstone, Harsh Mistress
 - **Discard / graveyard value (3):** Archfiend of Ifnir, Bone Miser, Containment Construct
-- **Draw engines (10):** Skullclamp, Black Market Connections, Night's Whisper, Syphon Mind, Sign in Blood, Read the Bones, Rhystic Study, Mystic Remora, Windfall, Brainstorm
+- **Draw engines (10):** Skullclamp, Black Market Connections, Night's Whisper, Syphon Mind, Sign in Blood, Read the Bones, Phyrexian Arena, Mystic Remora, Windfall, Brainstorm
 - **Interaction (14):** Crux of Fate, Counterspell, Arcane Denial, Swan Song, Reality Shift, Go for the Throat, Withering Torment, Lethal Scheme, Bloodchief's Thirst, Feed the Swarm, Toxic Deluge, Damnation, Cyclonic Rift, Kindred Dominance
 - **Protection (3):** Swiftfoot Boots, Lightning Greaves, Propaganda
 - **Card-advantage creatures / value (4):** Baleful Strix, Sea Gate Oracle, Spark Double, Chameleon, Master of Disguise
 - **Ramp / rocks (6):** Sol Ring, Arcane Signet, Dimir Signet, Talisman of Dominance, Mind Stone, Fellwar Stone
 - **Lands (37) (37):** Command Tower, Path of Ancestry, Exotic Orchard, Drowned Catacomb, Choked Estuary, Fetid Pools, Sunken Hollow, Watery Grave, Underground River, Darkslick Shores, Dismal Backwater, Temple of Deceit, Morphic Pool, Dimir Aqueduct, Tainted Isle, River of Tears, Sunken Ruins, Reliquary Tower, Bojuka Bog, Scavenger Grounds, Terramorphic Expanse, Island x8, Swamp x8
-
 
 ## Dedicated Kang, or Kang in the Doom box
 
