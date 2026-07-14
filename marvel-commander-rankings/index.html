@@ -513,7 +513,7 @@ body.kids .grown{display:none}
 
   <section id="buyer">
     <h2>Which one should I buy?</h2>
-    <p class="lead grown">Six questions, six answers, one for every filter above and drawn straight from the scores. Tap a pick to jump to its full card.</p>
+    <p class="lead grown">Six questions, six answers, one for every filter above and drawn straight from the scores. Tap a pick to jump to its full card. <span id="buyermode"></span></p>
     <p class="lead kid-only">Six easy answers. Tap a deck to see more.</p>
     <div class="buyer-grid">
       <a class="buyer-card" href="#deck-avengers">
@@ -1456,6 +1456,7 @@ function toggleAllCmdrs(){
   renderCheapest();
   renderEdhrec();
   renderConfigs();
+  { const bm=document.getElementById('buyermode'); if(bm) bm.textContent = allCmdrs ? ("With alternate commanders on, these recommendations evaluate the "+COMMANDERS.filter(c=>c.scores).length+" scored commander configurations; unscored commanders are not yet eligible.") : ""; }
   if(openDeckId) openDeck(openDeckId);
 }
 function syncAllCmdrsBtn(){
@@ -1704,6 +1705,7 @@ renderBonus();
 renderCheapest();
 renderEdhrec();
 renderConfigs();
+{ const bm=document.getElementById('buyermode'); if(bm) bm.textContent = allCmdrs ? ("With alternate commanders on, these recommendations evaluate the "+COMMANDERS.filter(c=>c.scores).length+" scored commander configurations; unscored commanders are not yet eligible.") : ""; }
 setView("archive");
 /* card-name hover preview */
 (function(){
