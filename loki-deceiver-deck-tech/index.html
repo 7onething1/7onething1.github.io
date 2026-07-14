@@ -57,6 +57,9 @@
   .v-core{color:var(--teal)} .v-sup{color:var(--gold)} .v-sit{color:var(--plum)} .v-cut{color:var(--rust)}
   .src{max-width:780px;margin:0 auto;padding:0 22px 40px;font-size:.82rem;color:var(--olive)}
   .src a{color:var(--teal);font-weight:700}
+  .toc{max-width:780px;margin:10px auto 0;padding:6px 22px;text-align:center;font-size:.86rem}
+  .toc a{color:var(--teal);font-weight:700;text-decoration:none;margin:0 3px}
+  .toc b{color:var(--olive);margin-right:5px}
   .kid-only{display:none}
   #kidfab{position:fixed;right:18px;bottom:18px;z-index:50;background:var(--rust);color:#fff;border:none;border-radius:40px;padding:14px 21px;font-size:1rem;font-weight:800;box-shadow:0 4px 14px rgba(0,0,0,.25);cursor:pointer}
   body.kid{font-size:1.14rem}
@@ -73,13 +76,14 @@
   <div class="nav"><a href="/salubrioussnail-marvel-edhrec/">EDHREC read</a> &middot; <a href="/salubrioussnail-doom-deaddraws/">Doom dead-draws audit</a> &middot; <a href="/doom-prevails-deck-tech/">Doom deck tech</a> &middot; <a href="/marvel-commander-rankings/">Marvel rankings</a></div>
 </header>
 <p class="byline">This Loki, the Deceiver deck tech applies Salubrious Snail's dead-draw audit method to the Doom Prevails precon. Snail never covered this precon; the read and the swaps are ours. Card text is verified from Scryfall; inclusion figures are from Loki's EDHREC commander page as recorded on 2026-07-13. Not authored or endorsed by Salubrious Snail or EDHREC.</p>
+<nav class="toc" aria-label="On this page"><b>On this page:</b> <a href="#rules">Rules</a> &middot; <a href="#targets">Targets</a> &middot; <a href="#upgrades">Upgrades</a> &middot; <a href="#decklist">Decklist</a> &middot; <a href="#audit">Audit</a> &middot; <a href="#opening">Opening</a></nav>
 <main>
 <article>
 
 <p class="lead grown">Every Villain in this deck answers one question: when Loki rents a copy of it for a single turn, what does that copy do before it is sacrificed? Sort the box by that answer and the whole ninety-nine falls into place. The rest is knowing which abilities fire on a token that entered attacking and which stay silent, and then building the attack that ends games.</p>
 <p class="lead kid-only" hidden>When Loki attacks, you make a copy of one of your villains. The copy is only around for the turn, then it goes away. So the big question for every villain is: what does the copy do in that one turn before it disappears?</p>
 
-<h2>What the copy can and cannot do</h2>
+<h2 id="rules">What the copy can and cannot do</h2>
 <figure class="cardfig"><img src="https://cards.scryfall.io/normal/front/c/0/c0cd3d41-909b-4f20-a44b-db82807d10ae.jpg?1782682595" alt="Loki, the Deceiver"><figcaption>Loki, the Deceiver</figcaption></figure>
 <p class="grown">The copy enters the battlefield already attacking, and that single fact decides which abilities pay off. An enter ability fires, because the token enters. A static ability applies, because the token is on the battlefield. A combat-damage ability fires, because the token can connect. What does not fire is an ordinary attack trigger. Comprehensive Rule 508.3a says a "whenever this creature attacks" ability triggers only when the creature is declared as an attacker, and it "won't trigger if a creature is put onto the battlefield attacking." The token was never declared, so those abilities stay silent. Wizards gives the same ruling for Kaalia of the Vast, whose entering creature is attacking yet receives no ordinary attack trigger.</p>
 <p class="grown">One narrow exception is worth knowing. An ability that reads "whenever this creature attacks and isn't blocked" follows Rule 509.3g and can still trigger during the declare-blockers step, even for a creature that entered attacking, as long as no blockers are declared for it. A plain "whenever this creature attacks" gets nothing on the copy. So the rule for building is precise: copy for enter abilities, battlefield payoffs whether static or triggered, combat-damage abilities, and evasion, and run the plain attack-trigger Villains to swing on their own.</p>
@@ -125,7 +129,7 @@
 <p class="grown">This is the category the rules quietly rule out. <b>Ultron, Unlimited</b>, <b>Killmonger, Ruthless Usurper</b>, and <b>Helmut Zemo, Mastermind</b> all read "whenever this creature attacks." A copied Ultron does not connive, a copied Killmonger does not pump, and a copied Helmut Zemo does not recast a spell, because none of them were declared as attackers. Keep these in the deck as bodies you cast and attack with the honest way, and aim Loki's copy at the five categories above instead.</p>
 <p class="kid-only" hidden>Some villains only work "when they attack." Copies of Ultron, Killmonger, or Helmut Zemo do nothing special, because the copy was never really declared attacking. Play these normally and copy the other kinds.</p>
 
-<h2>Copy targets, ranked</h2>
+<h2 id="targets">Copy targets, ranked</h2>
 <p class="grown">The five productive categories tell you which Villains work. This table tells you which to reach for first when more than one is legal, sorted by how much a single rented turn buys. When you can copy any of several, copy the one nearest the top.</p>
 <table class="pkg">
 <tr><th>Rank</th><th>What you are buying</th><th>Best targets</th><th>Why it is worth the copy</th></tr>
@@ -146,10 +150,10 @@
 <p class="kid-only" hidden>Loki's Scepter lets you borrow an enemy creature for the turn and make it a villain. Then Loki can copy it too. If the creature you stole was a villain to begin with, both can hit different players and draw you two cards. If it was an ordinary creature, only the stolen one draws, because Loki's copy does not keep the villain type the Scepter added.</p>
 
 <h2>Keeping Loki alive to swing</h2>
-<p class="grown">The engine needs Loki attacking, so a build that never protects him stalls. The precon ships <b>Swiftfoot Boots</b> for hexproof and haste, and the first upgrade is <b>Lightning Greaves</b> for shroud and a free equip. Haste matters because Loki cannot make his copy the turn he enters without it, though his card draw still pays off whenever your other Villains connect. Two equipment pieces is the honest boundary of this adaptation: Swiftfoot Boots and Lightning Greaves get Loki his first attack, and the deck stays open to instant-speed removal and equipment disruption. A wide Villain board does not shield Loki by itself, and the two jobs are different: a removal spell clears a blocker, but answering a spell aimed at Loki takes a counter or an instant-speed dodge. This revision raises protection from two pieces to four: it adds <b>Whispersilk Cloak</b> for shroud and an unblockable Loki, and a held <b>Swan Song</b> to answer the removal spell aimed at him. Hold the counter for the crack-back rather than spending everything on your own turn.</p>
-<p class="kid-only" hidden>Loki needs to attack to make copies, but he still draws you cards when your other villains hit. Now the deck runs four protection cards: Swiftfoot Boots and Lightning Greaves for haste, Whispersilk Cloak so he cannot be blocked or targeted, and Swan Song to cancel a removal spell aimed at him.</p>
+<p class="grown">The engine needs Loki attacking, so a build that never protects him stalls. The precon ships <b>Swiftfoot Boots</b> for hexproof and haste, and the first upgrade is <b>Lightning Greaves</b> for shroud and a free equip. Haste matters because Loki cannot make his copy the turn he enters without it, though his card draw still pays off whenever your other Villains connect. Two equipment pieces is the honest boundary of this adaptation: Swiftfoot Boots and Lightning Greaves get Loki his first attack, and the deck stays open to instant-speed removal and equipment disruption. A wide Villain board does not shield Loki by itself, and the two jobs are different: a removal spell clears a blocker, but answering a spell aimed at Loki takes a counter or an instant-speed dodge. This revision raises protection from two pieces to four: it adds <b>Whispersilk Cloak</b> for shroud and an unblockable Loki, and a held <b>Swan Song</b> to answer the removal spell aimed at him. Hold the counter for the crack-back rather than spending everything on your own turn. One sequencing note the shroud creates: Lightning Greaves and Whispersilk Cloak give Loki shroud, which blocks your own targeting as well, so finish any equip or targeted effect on Loki before you attach either one, and slide the Greaves off with its free equip whenever you need to target him again. Swiftfoot Boots grants hexproof instead, so it never blocks your own targeting.</p>
+<p class="kid-only" hidden>Loki needs to attack to make copies, but he still draws you cards when your other villains hit. Now the deck runs four protection cards: Swiftfoot Boots and Lightning Greaves for haste, Whispersilk Cloak so he cannot be blocked or targeted, and Swan Song to cancel a removal spell aimed at him. One trick: Greaves and the Cloak stop you from targeting Loki too, so put them on last, after you have done anything you needed to aim at him.</p>
 
-<h2>The upgrade swaps</h2>
+<h2 id="upgrades">The upgrade swaps</h2>
 <p class="grown">To be clear about who says what: the method here is Salubrious Snail's dead-draw audit, and every specific swap, count, and rules-timing note below is our own analysis, verified against Scryfall and the Comprehensive Rules, since Snail never covered this precon. The audit is simple: hold every precon card against the deck's two engines, the discard drain on the Doom face and the copy loop on Loki's, and cut whatever neither uses. What leaves is off-plan, and what comes in serves a clear role. Every swap stays inside the Grixis color identity and keeps the precon's power level, and the deck stays at a full ninety-nine. A second pass, below, then trades four narrow cards for two more ramp pieces and two more protection pieces, the two shortages the deck's own numbers flag.</p>
 
 <h3>Copy targets and payoffs</h3>
@@ -190,7 +194,7 @@
 <p class="grown">If you bought Doom Prevails for the swingy Loki turn, the left column is your shopping list, and it is where the deck stops feeling like a generic value pile. If you bought it to have a tuned Grixis deck at the table, start with the right column, since those cards win games no matter which face is out. A player upgrading in order buys Doctor Octopus and Mysterio first, then the mana and card advantage, because the copy targets are what make the commander worth building around.</p>
 <p class="kid-only" hidden>Some new cards make the Loki copy trick better, like Doctor Octopus, Mysterio, Kingpin, and Sundial. Others just make any dark-colored deck better, like Phyrexian Arena for cards and Fellwar Stone for mana. If you love the copy idea, buy the first kind first. If you just want a strong deck, buy the second kind first.</p>
 
-<h2>Dead Draw Audit</h2>
+<h2 id="audit">Dead Draw Audit</h2>
 <p class="grown">Snail's dead-draw test weighs how reliably a card is useful. Each questioned card carries two ratings: copy value, what Loki's rented token does, and body value, what the card does cast the normal way. Beside them are the card's support in the 99 and a verdict. Core clears both axes, supported needs its package on the board, situational is narrow tech, and a card that fails both axes is a cut.</p>
 <table class="audit">
 <tr><th>Card</th><th>Copy value</th><th>Body value</th><th>Support in the 99</th><th>Verdict</th></tr>
@@ -235,7 +239,7 @@
 </div>
 <p class="kid-only" hidden>The deck runs 37 lands, 8 ramp pieces (seven mana rocks plus Wayfarer's Bauble), 6 card-draw spells plus Loki, 9 removal spells, 4 protection cards, and 30 creatures. Most cards cost two or three mana, with a stack of big villains at the top worth copying.</p>
 
-<h2>The complete upgraded list</h2>
+<h2 id="decklist">The complete upgraded list</h2>
 <p class="grown">The whole ninety-nine after the swaps, with Doctor Doom kept as a Villain and discard engine and Loki commanding. It is Grixis and black-primary, and every name is verified against Scryfall. The average mana value, colored pips, and price below are computed across all ninety-nine cards from current Scryfall data.</p>
 <div class="statbox grown"><span><b>99</b> + Loki</span><span><b>30</b> creatures</span><span>avg MV <b>3.40</b></span><span>pips <b>U17 &middot; B33 &middot; R16</b></span><span>~<b>$135</b></span></div>
 <div class="cols grown">
@@ -351,7 +355,7 @@
 <p class="grown">The short version: keep a hand with two or three lands, at least one two-or-three-drop or a rock, and some card flow. Loki is a given every game, so judge the hand only on whether it builds a board and reaches four mana.</p>
 <p class="kid-only" hidden>You never need Loki in your opening hand, because he waits in the command zone and you can always cast him on turn four. Keep a hand with two or three lands and at least one early villain or mana rock and some card advantage. Throw back a hand with only one land, or a hand with no villains and no way to find one.</p>
 
-<h2>An opening sequence</h2>
+<h2 id="opening">An opening sequence</h2>
 <p class="grown">A realistic line looks like this, and the plan is to have a board worth copying by the time Loki attacks.</p>
 <ol class="seq grown">
 <li>Land. Cast Sol Ring if you drew it, since it is the only rock you can play off a single land.</li>
@@ -363,7 +367,7 @@
 <p class="kid-only" hidden>Turn one, a land and maybe Sol Ring. A mana rock on turn two, your first villain on turn three, then Loki on turn four. Turn five, he has been out since your last turn, so he does not need haste. Protect him, attack, copy your best villain, and draw cards.</p>
 
 <h2>What EDHREC can and cannot tell you</h2>
-<p class="grown">EDHREC's synergy percentage measures how often a card shows up in submitted Loki decks compared with other decks that could run it. That number is deckbuilding popularity. It is not a record of what players copy during combat, because EDHREC tracks cards included in lists rather than in-game target choices. So the figures point you toward popular includes and no further: <b>Tombstone</b> at 86 percent, <b>Chameleon</b> at 82 percent, <b>Baron Strucker</b> at 79 percent, <b>Loki's Scepter</b> at 74 percent, <b>Villainous Hideout</b> at 71 percent, <b>Prowler</b> at 69 percent, <b>Doctor Octopus</b> at 68 percent, and <b>Taskmaster, Mercenary Mimic</b> at 59 percent. Loki records about 1,263 decks. Use the list to find strong cards, then choose your copy targets from the six categories, which is where the games are actually won. In his EDHREC Effect video Snail warns the site inflates already-popular cards and overrates pieces that shine only when the commander is out, so treat a high percentage as popularity and keep a few Villains that work on a turn Loki is gone.</p>
+<p class="grown">EDHREC's synergy percentage measures how often a card shows up in submitted Loki decks compared with other decks that could run it. That number is deckbuilding popularity. It is not a record of what players copy during combat, because EDHREC tracks cards included in lists rather than in-game target choices. So the figures point you toward popular includes and no further: <b>Tombstone</b> at 86 percent, <b>Chameleon</b> at 82 percent, <b>Baron Strucker</b> at 79 percent, <b>Loki's Scepter</b> at 74 percent, <b>Villainous Hideout</b> at 71 percent, <b>Prowler</b> at 69 percent, <b>Doctor Octopus</b> at 68 percent, and <b>Taskmaster, Mercenary Mimic</b> at 59 percent. Loki records about 1,263 decks as of 2026-07-13, a total climbing fast this soon after the June 2026 release, so read it as a dated snapshot rather than a settled figure. Use the list to find strong cards, then choose your copy targets from the five productive categories, which is where the games are actually won. In his EDHREC Effect video Snail warns the site inflates already-popular cards and overrates pieces that shine only when the commander is out, so treat a high percentage as popularity and keep a few Villains that work on a turn Loki is gone.</p>
 <p class="kid-only" hidden>EDHREC shows which cards people put in Loki decks, like Tombstone and Chameleon. That tells you popular cards. It does not show what people copy during the game, because it only tracks decklists. Use it to find good cards, then pick copy targets yourself.</p>
 
 <h2>Where Loki ranks among the Marvel commanders</h2>

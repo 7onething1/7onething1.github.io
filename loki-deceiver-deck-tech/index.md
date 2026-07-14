@@ -6,6 +6,8 @@ The second commander in the Doom Prevails box copies one of your Villains on eve
 
 Live page: https://drwu-htmls.vercel.app/loki-deceiver-deck-tech
 
+**On this page:** [Rules](#what-the-copy-can-and-cannot-do) · [Targets](#copy-targets-ranked) · [Upgrades](#the-upgrade-swaps) · [Decklist](#the-complete-upgraded-list) · [Audit](#dead-draw-audit) · [Opening](#an-opening-sequence)
+
 ---
 
 ## What the copy can and cannot do
@@ -65,7 +67,7 @@ Loki's Scepter (about 74 percent) taps for any color and, on enter, gains contro
 
 ## Keeping Loki alive to swing
 
-The precon ships Swiftfoot Boots; the first upgrade is Lightning Greaves. Haste matters because Loki cannot make his copy the turn he enters without it, though his card draw still works whenever your other Villains connect. Two equipment pieces is the honest boundary of this adaptation: the Boots and Greaves get Loki his first attack, and the deck stays open to instant-speed removal and equipment disruption. A wide Villain board does not shield Loki by itself, and the jobs differ: a removal spell clears a blocker, but answering a spell aimed at Loki needs a counter or an instant-speed dodge. This revision raises protection from two pieces to four: it adds Whispersilk Cloak for shroud and an unblockable Loki, and a held Swan Song to answer the removal spell aimed at him. Hold the counter for the crack-back.
+The precon ships Swiftfoot Boots; the first upgrade is Lightning Greaves. Haste matters because Loki cannot make his copy the turn he enters without it, though his card draw still works whenever your other Villains connect. Two equipment pieces is the honest boundary of this adaptation: the Boots and Greaves get Loki his first attack, and the deck stays open to instant-speed removal and equipment disruption. A wide Villain board does not shield Loki by itself, and the jobs differ: a removal spell clears a blocker, but answering a spell aimed at Loki needs a counter or an instant-speed dodge. This revision raises protection from two pieces to four: it adds Whispersilk Cloak for shroud and an unblockable Loki, and a held Swan Song to answer the removal spell aimed at him. Hold the counter for the crack-back. One sequencing note the shroud creates: Lightning Greaves and Whispersilk Cloak give Loki shroud, which blocks your own targeting as well, so finish any equip or targeted effect on Loki before you attach either one, and slide the Greaves off with its free equip whenever you need to target him again. Swiftfoot Boots grants hexproof instead, so it never blocks your own targeting.
 
 ## The upgrade swaps
 
@@ -284,7 +286,7 @@ The short version: keep a hand with two or three lands, at least one two-or-thre
 
 ## What EDHREC can and cannot tell you
 
-EDHREC's synergy percentage measures how often a card appears in submitted Loki decks compared with other decks that could run it. That is deckbuilding popularity. It is not a record of what players copy during combat, because EDHREC tracks cards included in lists rather than in-game target choices. So the figures point you toward popular includes and no further: Tombstone 86 percent, Chameleon 82 percent, Baron Strucker 79 percent, Loki's Scepter 74 percent, Villainous Hideout 71 percent, Prowler 69 percent, Doctor Octopus 68 percent, Taskmaster 59 percent. Loki records about 1,263 decks. Use the list to find strong cards, then choose your copy targets from the five productive categories. Snail's EDHREC Effect video warns the site inflates already-popular cards and overrates pieces that shine only when the commander is out, so keep a few Villains that work on a turn Loki is gone.
+EDHREC's synergy percentage measures how often a card appears in submitted Loki decks compared with other decks that could run it. That is deckbuilding popularity. It is not a record of what players copy during combat, because EDHREC tracks cards included in lists rather than in-game target choices. So the figures point you toward popular includes and no further: Tombstone 86 percent, Chameleon 82 percent, Baron Strucker 79 percent, Loki's Scepter 74 percent, Villainous Hideout 71 percent, Prowler 69 percent, Doctor Octopus 68 percent, Taskmaster 59 percent. Loki records about 1,263 decks as of 2026-07-13, a total climbing fast this soon after the June 2026 release, so read it as a dated snapshot rather than a settled figure. Use the list to find strong cards, then choose your copy targets from the five productive categories. Snail's EDHREC Effect video warns the site inflates already-popular cards and overrates pieces that shine only when the commander is out, so keep a few Villains that work on a turn Loki is gone.
 
 ## Where Loki ranks among the Marvel commanders
 
