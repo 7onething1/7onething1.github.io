@@ -16,7 +16,7 @@ Captain America, Team Leader reads: whenever another Hero you control **enters**
 - **Hero target:** about 27 Heroes, most at two to four mana.
 - **Power level:** mid-power casual, a precon pointed toward focus rather than a cEDH list.
 - **Primary win condition:** a wide modified board that gains flying from Iron Man or double strike from War Machine.
-- **Ideal Captain America turn:** commander down by turn three, then two Heroes most turns after, each worth two counters.
+- **Ideal Captain America turn:** commander down by turn three, then aim to cast two Heroes during developed turns, each worth two counters.
 
 ## One turn, start to finish
 
@@ -123,7 +123,7 @@ Card draw feeds the loop: Iron Man counters on every draw, Shang-Chi and the Ten
 
 ## How the deck closes
 
-A wide board is not the win on its own; one payoff turns it lethal. Attack with a countered team and War Machine gives double strike, Iron Man gives flying, or She-Hulk gives trample through the chump blocks. Any one can turn a wide board into a game-ending swing when you have the power and a clear path, so keep a Hero or two back for the follow-up. Champions from Beyond adds a second gear: at eight or more attackers its Full Party mode pumps the team by four each. Hold up Flawless Maneuver or Akroma's Will so a blocker or an instant-speed removal spell does not stop the swing; both wear off at end of turn, so a next-turn sweeper needs countermagic or a card kept in hand. The power branch closes harder, with Shared Animosity paying per attacker and Cathars' Crusade snowballing the counters.
+A wide board is not the win on its own; one payoff turns it lethal. Attack with a countered team and War Machine gives double strike, Iron Man gives flying, or She-Hulk gives trample through the chump blocks. Any one can turn a wide board into a game-ending swing when you have the power and a clear path, so keep a Hero or two back for the follow-up. Champions from Beyond adds a second gear: at eight or more attackers its Full Party mode pumps the team by four each. Flawless Maneuver makes your board indestructible against a wipe or targeted destruction, and Akroma's Will, with Captain America out, adds flying and protection from colored blockers to push damage through; indestructible does not stop a blocker, and exile or bounce still remove a creature. Both wear off at end of turn, so a next-turn sweeper needs countermagic or a card kept in hand. The power branch closes harder, with Shared Animosity paying per attacker and Cathars' Crusade snowballing the counters.
 
 ## Interaction, protection, and the board-wipe question
 
