@@ -111,7 +111,7 @@ Build all three thinly rather than one thickly, because removal will take one an
 - **Turn 4.** Kang (four mana), or Leader, Super-Genius. Keep two mana up on opponents' turns from here.
 - **Turn 5.** Start the off-turn loop. Count triggers honestly: one Frantic Search plus one more off-turn draw is two Cube counters this rotation, so seven is several laps away instead of turn five.
 
-**Mulligan priorities.** Keep two or three lands, at least one cheap enabler or rock, and ideally one instant-speed draw so the trigger is live on other turns. Ship all-land hands, all-payoff hands with nothing to draw the second card, and one-landers even under a perfect curve, since the deck wants mana up every turn. A good keep does not need Kang in it; the enablers and payoffs win, and the commander is support.
+**Mulligan priorities.** Keep two or three lands, at least one cheap enabler or rock, and ideally one instant-speed draw so the trigger stays available on other turns. Mulligan all-land hands, all-payoff hands with nothing to draw the second card, and one-landers even under a perfect curve, since the deck wants mana up every turn. A good keep does not need Kang in it; the enablers and payoffs win, and the commander is support.
 
 Three mistakes to avoid: emptying your hand on your own turns and leaving nothing for the opponents' turns; attacking Kang into a board that can kill or chump him just to connive; spending an instant-speed draw on your own turn out of habit when holding it for an opponent's turn would drain the table.
 
@@ -175,7 +175,7 @@ The audit run on the actual stock deck, since a method is only worth as much as 
 - **Molecule Man, situational.** It gives every nonland card in hand miracle zero, so your first draw each turn can be cast free, which saves the mana that arms your second draw of the turn. That is real support, so a judgment call, held back by the six-mana body and empty post-wipe turns.
 - **Damocles Base, Sword of Kang, situational.** I called this a flat cut earlier and that was wrong. Its combat-damage villainous choice lets the defender hand you two cards, reaching the trigger on the turns they take that option. Flying, deathtouch, crewable by Villain tokens; the catch is the opponent's choice and the need to connect.
 
-The replacements come straight off the same audit: **Leader, Super-Genius** (connive doubler), **Construct a Cosmic Cube** (token engine and clock), and **Visions of Villainy** (instant draw-two on any turn). All three score among Kang's highest EDHREC synergy and none ship in the stock list, which is the gap the audit is built to find.
+The replacements come straight off the same audit: **Leader, Super-Genius** (connive doubler), **Construct a Cosmic Cube** (token engine and clock), and **Visions of Villainy** (instant draw-two on any turn). All three score among Kang's highest EDHREC synergy and none appear in the stock list, which is the gap the audit is built to find.
 
 ## Dedicated Kang, or Kang in the Doom box
 
