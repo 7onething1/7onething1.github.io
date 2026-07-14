@@ -84,14 +84,14 @@ Full recommended upgrade package per deck, add-card cost only, since you already
 
 Ten cheapest individual upgrades across all paths: Axebane Guardian $0.17; Snakeskin Veil $0.17; Altar of the Goyf $0.20; Feed the Swarm $0.20; The Spot's Portal $0.20; Thornglint Bridge $0.20; Towering Viewpoint $0.22; Michiko's Reign of Truth $0.24; Abzan Falconer $0.26; Silver Sable, Mercenary Leader $0.26.
 
-## EDHREC build popularity (captured 13 July 2026)
-A dated snapshot of adoption, not of strength, and not read live on load. Both of each precon's headline commanders are shown (the Fantastic Four ships with four):
-- **Doom Prevails:** Doctor Doom, King of Latveria 4,930; Loki, the Deceiver 1,263.
-- **The Fantastic Four:** Mister Fantastic 1,085; The Thing 727; Invisible Woman 517; Human Torch 367.
-- **Avengers Assemble:** Captain America, Team Leader 2,456; Director Nick Fury 292.
-- **Wakanda Forever:** T'Challa, the Black Panther 2,112; Shuri, the Black Panther 117.
+## EDHREC build popularity (captured 14 July 2026)
+A dated snapshot of adoption, not of strength. Every LEGAL in-box commander per deck (full colour identity, in the precon 99). The "All alternate commanders" button on the page toggles the panel between the advertised faces and this full list.
+- **Doom Prevails:** Doctor Doom, King of Latveria 5,046; Loki, the Deceiver 1,289.
+- **The Fantastic Four:** Crystal, Inhuman Princess 1,921; Mister Fantastic 1,102; The Thing 737; Invisible Woman 526; Human Torch 376; Power Pack 99.
+- **Avengers Assemble:** Captain America, Team Leader 2,526; Director Nick Fury 296.
+- **Wakanda Forever:** T'Challa, the Black Panther 2,156; Bast, Panther Goddess 298; Okoye, Mighty and Adored 146; Shuri, the Black Panther 119; Storm, Queen of Wakanda 98; T'Chaka, Venerable King 3.
 
-Captain America is built far more than Director Nick Fury (2,456 to 292), and Fury is still the configuration that makes the unchanged Avengers list strongest, so the most-played face is not the strongest stock commander. The upgrade guides (Draftsim, Gathering Games, Command Zone) are the source for the swaps, not for this four-deck ordering, which is the page's own read.
+That is 16 legal in-box commanders. **Crystal, Inhuman Princess (1,921) is the most-built Fantastic Four commander**, above every advertised face, on a full four-colour identity earned through the mana symbols in her activated ability, and she sits in the unchanged 99. Three more full-identity legends exist only as set singles outside the precon (The Fantastic Four, Ms. Marvel, She-Hulk), so they need a rebuilt deck. Captain America is built far more than Director Nick Fury (2,526 to 296), and Fury is still the configuration that makes the unchanged Avengers list strongest. The upgrade guides (Draftsim, Gathering Games) are the source for the swaps, not for this ordering, which is the page's own read.
 
 ## Sources
 - Card and set data: [Scryfall, set MSC](https://scryfall.com/sets/msc)
