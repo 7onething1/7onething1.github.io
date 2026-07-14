@@ -351,6 +351,8 @@ body.kids .grown{display:none}
 .edh-both{list-style:none;margin:10px 0;padding:0;display:grid;gap:7px}
 .edh-both li{font-family:'Inter',sans-serif;font-size:.9rem;color:var(--ink2);line-height:1.4;padding-left:11px;border-left:3px solid var(--line)}
 .edh-both .edh-deck{display:block;font-weight:800;color:var(--teal-d);font-size:.72rem;text-transform:uppercase;letter-spacing:.05em;margin-bottom:1px}
+.deck:focus-visible,.acard:focus-visible,.tchip:focus-visible,.buyer-card:focus-visible,#modal .close:focus-visible{outline:3px solid var(--teal);outline-offset:2px;border-radius:6px}
+.r0-est{font-size:.82rem;color:var(--muted);margin:2px 0 8px;line-height:1.4}
 </style>
 </head>
 <body>
@@ -677,8 +679,8 @@ const PROFILE = {
 const RULE0 = {
   doom:{ oob:2, upg:3, stax:"Light tax (Propaganda-style)", note:"Cleanest villain/discard grind; the Loki copy line is the spiciest thing here, still no infinite combo." },
   ff:{ oob:2, upg:3, stax:"None", note:"Highest ceiling, but the payoff is copied triggers and doubled counters, not a two-card kill." },
-  avengers:{ oob:2, upg:2, stax:"None", note:"Go-wide Hero counters; nothing on the disclosure list, a textbook Bracket 2." },
-  wakanda:{ oob:2, upg:2, stax:"None", note:"Focused artifacts and one big commander swing; stays a calm Bracket 2 even upgraded." }
+  avengers:{ oob:2, upg:2, stax:"None", note:"Go-wide Hero counters; nothing on the disclosure list, so by its contents it reads as a clean Bracket 2." },
+  wakanda:{ oob:2, upg:2, stax:"None", note:"Focused artifacts and one big commander swing; by its contents it reads as a calm Bracket 2 even upgraded." }
 };
 const R0_NAMES = ["Exhibition","Core","Upgraded","Optimized","cEDH"];
 const DECKS = [
@@ -860,7 +862,7 @@ function render(){
       <div class="ev-row"><span class="ev-lbl pick">Build</span><span class="ev-txt">Best build-around: <b>${pickName}</b></span></div>
       <div class="ev-row swaps"><span class="ev-lbl swap">First swaps</span><span class="ev-swaps">${swHtml}</span></div>
     </div>`;
-    return `<div class="deck" id="deck-${d.id}" onclick="openDeck('${d.id}')">
+    return `<div class="deck" id="deck-${d.id}" role="button" tabindex="0" aria-label="Open the ${d.name} profile" onclick="openDeck('${d.id}')" onkeydown="if(event.key==='Enter'||event.key===' '){event.preventDefault();openDeck('${d.id}')}">
       <div class="deck-head">
         <div class="rankbadge" style="background:${d.rankColor}"><div class="n">${i+1}</div><div class="t">${rankTxt}</div></div>
         <div class="deck-main">
@@ -932,9 +934,10 @@ function openDeck(id){
         <p class="cknote">ADD cards only (what goes in). Double-faced cards use the front-face name so the parser finds them.${edhForDeck(d.id).length?' The game plan and swaps below follow this choice.':''}</p>
       </div>`:''}
       ${RULE0[d.id]?(()=>{const r=RULE0[d.id];return `<div class="rule0">
-        <h4>Rule 0 bracket<span class="src">official Commander Brackets, 1 to 5</span></h4>
+        <h4>Estimated Commander bracket<span class="src">our estimate on WotC's 1 to 5 beta scale</span></h4>
+        <p class="r0-est grown">These are our editorial estimates read from each deck's contents and expected play pattern, not official labels. Wizards no longer auto-classifies precons: it removed the automatic Bracket 2 link in October 2025, reaffirmed 9 February 2026, and the bracket system is a beta pre-game conversation tool as of July 2026.</p>
         <div class="r0-scale">${[1,2,3,4,5].map(n=>`<div class="r0-seg${n===r.oob?' oob':''}${n>r.oob&&n<=r.upg?' upg':''}"><span class="r0-n">${n}</span><span class="r0-nm">${R0_NAMES[n-1]}</span></div>`).join("")}</div>
-        <p class="r0-key"><span class="r0-dot oob"></span>Out of the box: <b>Bracket ${r.oob} (${R0_NAMES[r.oob-1]})</b>${r.upg>r.oob?`<span class="r0-dot upg"></span>Fully upgraded: <b>Bracket ${r.upg} (${R0_NAMES[r.upg-1]})</b>`:`<span class="r0-flat">Stays Bracket ${r.oob} even upgraded</span>`}</p>
+        <p class="r0-key"><span class="r0-dot oob"></span>Our estimate, out of the box: <b>Bracket ${r.oob} (${R0_NAMES[r.oob-1]})</b>${r.upg>r.oob?`<span class="r0-dot upg"></span>Fully upgraded: <b>Bracket ${r.upg} (${R0_NAMES[r.upg-1]})</b>`:`<span class="r0-flat">Stays Bracket ${r.oob} even upgraded</span>`}</p>
         <div class="r0-list">
           <div class="r0-row"><span>Game Changers</span><b>None out of box</b></div>
           <div class="r0-row"><span>Two-card infinite combos</span><b>None</b></div>
@@ -964,8 +967,10 @@ function openDeck(id){
       </div>`:""}
     </div>`;
   const ov = document.getElementById("overlay");
+  window._lastFocus = document.activeElement;
   ov.classList.add("show");
   document.body.style.overflow = "hidden";
+  const cb = document.querySelector("#modal .close"); if(cb) cb.focus();
   renderSwapSec(d.id, "guide");
   renderGamePlan(d.id, "guide");
   renderSnailLink(d.id, "guide");
@@ -1098,7 +1103,19 @@ function ckCopy(id, btn){
 function closeModal(){
   document.getElementById("overlay").classList.remove("show");
   document.body.style.overflow = "";
+  if(window._lastFocus && window._lastFocus.focus) window._lastFocus.focus();
 }
+/* Escape closes the modal; Tab is trapped inside it while open. */
+document.getElementById("overlay").addEventListener("keydown", function(e){
+  if(e.key === "Escape"){ closeModal(); return; }
+  if(e.key === "Tab"){
+    const f = [...document.querySelectorAll('#modal a[href], #modal button, #modal [tabindex]:not([tabindex="-1"]), #modal input, #modal select')].filter(x=>x.offsetParent!==null);
+    if(!f.length) return;
+    const first = f[0], last = f[f.length-1];
+    if(e.shiftKey && document.activeElement === first){ e.preventDefault(); last.focus(); }
+    else if(!e.shiftKey && document.activeElement === last){ e.preventDefault(); first.focus(); }
+  }
+});
 function renderBonus(){
   const el = document.getElementById("bonusboxes"); if(!el) return;
   const solo = Object.keys(EDHREC_UP).filter(k=>EDHREC_UP[k].deck===null);
