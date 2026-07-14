@@ -24,7 +24,7 @@ The page is generator-driven (`corpus_points.py`); hand-edits to the HTML get cl
 - **`CARD_ERRATA`** — corrects wrong commander names and color identities against Scryfall as the tags load. Transcript never edited.
 - **`STATUS_NOTES`** — renders a "Current status — verified Jul 2026" panel above a video's transcript when its rules or legality moved. Each line names its source.
 - **"Rules changed since publish" filter** — a new toggle surfaces only the entries carrying a status note.
-- **Grounding preserved** — anti-AI voice gate PASS (authored prose), `points_validate` PASS (0 hard, 0 soft).
+- **Grounding preserved** — on the rebuilt page the anti-AI voice gate flags 0 patterns on the authored status prose, and `points_validate` reports 0 hard and 0 soft findings.
 
 ## 3. On the external review
 
