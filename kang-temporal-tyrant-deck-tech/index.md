@@ -30,8 +30,8 @@ Stack Gixian Puppeteer under that and every drain is worth three, Kang's one lif
 
 - **Leader, Super-Genius (70%).** The engine: your connives become a draw and then a connive, so one trigger does the work of two, plus a free combat connive every turn.
 - **Construct a Cosmic Cube (65%).** Every second draw makes a menacing Villain token and adds a plan counter. At the seventh, sacrifice it and control an opponent *during their next turn* (not an extra turn of your own).
-- **Gixian Puppeteer (47%).** Doubles the drain: every second draw is 2 life. Kang plus Puppeteer is 3 per trigger, twelve across a rotation.
-- **M.O.D.O.K., Evil Intellect (by function).** Whenever you draw your second card each turn, a target opponent sacrifices a nontoken creature: four second draws a lap is four forced sacrifices.
+- **Gixian Puppeteer (47%).** Adds 2 to the drain (not double): every second draw costs an extra 2 life, so Kang plus Puppeteer is 3 per trigger, twelve across a rotation.
+- **M.O.D.O.K., Evil Intellect (by function).** Whenever you draw your second card each turn, a target opponent sacrifices a nontoken creature *of their choice*: edict removal, four sacrifices a lap, though the opponent picks which creature dies.
 - **Kid Loki (45%).** Every second draw puts a counter on him, and any creature you put a counter on *this turn* has hexproof. On his own he only protects himself, and only on turns he grows.
 
 ## The other half of connive, the discard
@@ -83,15 +83,28 @@ Leader and the Cube earn high synergy because they exist to cash Kang's trigger.
 
 ## Interaction
 
-A slow win needs cheap answers: Counterspell (52%), Arcane Denial (43%), Lethal Scheme (42%), spot removal, a board wipe or two, and enough counters to protect the Cosmic Cube as it counts up. Most of your interaction wants to be instant, the same shape as your enablers: hold mana on other turns, and spend it to answer a threat or to fire a draw for a Kang drain when nothing needs answering.
+A slow win needs cheap answers: Counterspell (52%), Arcane Denial (43%), the blue-black removal the deck can run (Go for the Throat, Reality Shift, Withering Torment, Lethal Scheme at 42%), a board wipe or two like Toxic Deluge, and enough counters to protect the Cosmic Cube as it counts up. Most of your interaction wants to be instant, the same shape as your enablers: hold mana on other turns, and spend it to answer a threat or to fire a draw for a Kang drain when nothing needs answering.
 
-## Ten to add, ten to cut
+## Ten named swaps from the stock Doom Prevails list
 
-The ten adds are real cards, all legal in blue-black and all pulling toward the second-draw core. The ten cuts are kinds of card, because the exact slots depend on the list you start from.
+The exact first pass from the official Doom Prevails ninety-nine. The cuts are the red-identity cards (verified on Scryfall), illegal the moment Kang takes over; the adds are blue-black pieces not in the stock list.
 
-**Ten adds:** Leader, Super-Genius; Construct a Cosmic Cube; Baron Strucker; Gixian Puppeteer; M.O.D.O.K., Evil Intellect; Madame Masque; Visions of Villainy; Frantic Search; Moonstone, Harsh Mistress; Archfiend of Ifnir.
+| Cut (red-identity) | Add (blue-black) |
+|---|---|
+| Chaos Warp (R) | Reality Shift |
+| Blasphemous Act (R) | Construct a Cosmic Cube |
+| Vandalblast (R) | Ledger Shredder |
+| Loki's Scepter (R) | Leader, Super-Genius |
+| Red Ghost, Intangible Genius (U/R) | Gixian Puppeteer |
+| Terminate (B/R) | Go for the Throat |
+| Bedevil (B/R) | M.O.D.O.K., Evil Intellect |
+| Living Laser (R) | Psychosis Crawler |
+| Killmonger, Ruthless Usurper (R) | Teferi's Ageless Insight |
+| Batroc the Leaper (R) | Alandra, Sky Dreamer |
 
-**Ten kinds to cut:** every red card from the Grixis precon (illegal under Kang); expensive or badly-timed draw (any one-card draw can be your second card, so the target is sorcery-speed or overcosted draw, not single-card draw); vanilla beaters with no Villain or connive tag; high-cost bombs that do not enable or pay off the trigger; sorcery-speed cantrips once your instant count is high; symmetric wraths that erase your own Villain tokens; auras or Equipment that buff one creature; win-more cards that need you already ahead; narrow hate that does nothing against most tables; Rhystic Study, a popular pickup to skip rather than a stock card to cut, on Snail's argument that it is bad for the table.
+Typhoid Mary, Fractured is an eleventh red cut, paired with Visions of Villainy or Frantic Search. Molecule Man and Damocles Base sit near the cut line as flavor calls.
+
+**The mana base loses 13 red sources.** Eight stock duals carry a red pip and are illegal: Sulfur Falls, Dragonskull Summit, Canyon Slough, Smoldering Marsh, Foreboding Ruins, Frostboil Snarl, Luxury Suite, Crumbling Necropolis. Add the 5 Mountains for 13 open slots. Keep the blue-black and colorless lands already in the deck (Command Tower, Drowned Catacomb, Fetid Pools, Sunken Hollow, Choked Estuary, Exotic Orchard, Scavenger Grounds) and refill with Swamps and Islands weighted black, plus any UB duals you own (Watery Grave, Underground River). That leaves ~37 lands, black-heavy.
 
 ## How Kang actually wins, and where he does not
 
@@ -130,7 +143,7 @@ A deck tech should describe the shape of the whole list. The commander is the ea
 | Ramp and rocks | 9 | Two-drop rocks so you hold up mana every turn |
 | Draw and refill | 12 | Overlaps the enablers, keeps the grind from stalling |
 
-The counts overlap on purpose, since Madame Masque is enabler and payoff, and Frantic Search reads as draw and filtering that usually just refunds its own mana, only sometimes net-positive. The point is the curve and the balance: enough cheap enablers that a second draw is available every turn, enough interaction to reach the late game, and a land count on the low side because the spells are cheap.
+The counts overlap on purpose, since Madame Masque is enabler and payoff, and Frantic Search is mana-neutral after resolution (pay three, untap up to three lands), so it reads as draw first and only nets mana when three useful permanents untap. The point is the curve and the balance: enough cheap enablers that a second draw is available every turn, enough interaction to reach the late game, and a land count on the low side because the spells are cheap.
 
 ## Dead Draw Audit
 
@@ -142,7 +155,7 @@ Snail's method asks more than a card's headline job. It asks how often the card 
 | Leader, Super-Genius | Enabler, connive into draw-then-connive | Free combat connive each turn | High, every connive source | Good, the free connive fires without Kang | **core** |
 | Psychosis Crawler | Payoff, drains on every draw | Body that scales with hand | Very high, the ~27-card draw suite | Full, drains in any draw deck | **core** |
 | Baron Strucker | Enabler, Villain-entry connive + cost cut | Greases the Villain subtheme | Medium-high, the ~12 Villains | Good, cost cut and connive stand alone | **core** |
-| Gixian Puppeteer | Payoff, doubles the drain | Recurs a small creature on death | High, the same ~15 enablers | Medium, needs a second draw | **supported** |
+| Gixian Puppeteer | Payoff, adds 2 to the drain (3 with Kang, not double) | Recurs a small creature on death | High, the same ~15 enablers | Medium, needs a second draw | **supported** |
 | Teferi's Ageless Insight | Multiplier, non-first draws become two | Fuels Crawler and off-turn triggers | High, the draw suite | Good, but adds no extra Kang triggers | **supported** |
 | Kid Loki | Payoff, grows himself on the second draw | Hexproof, only for creatures countered that turn | Low for protection, few counter sources | Low, shields only himself | **situational** |
 | Damocles Base, Sword of Kang | Conditional enabler, villainous choice can hand you two cards | Flying deathtouch body, crewed by Villain tokens | Low but real, when it connects and the foe picks the draw | Medium, an evasive blocker | **situational** |
@@ -175,7 +188,7 @@ The audit run on the actual stock deck, since a method is only worth as much as 
 - **Molecule Man, situational.** It gives every nonland card in hand miracle zero, so your first draw each turn can be cast free, which saves the mana that arms your second draw of the turn. That is real support, so a judgment call, held back by the six-mana body and empty post-wipe turns.
 - **Damocles Base, Sword of Kang, situational.** I called this a flat cut earlier and that was wrong. Its combat-damage villainous choice lets the defender hand you two cards, reaching the trigger on the turns they take that option. Flying, deathtouch, crewable by Villain tokens; the catch is the opponent's choice and the need to connect.
 
-The replacements come straight off the same audit: **Leader, Super-Genius** (connive doubler), **Construct a Cosmic Cube** (token engine and clock), and **Visions of Villainy** (instant draw-two on any turn). All three score among Kang's highest EDHREC synergy and none appear in the stock list, which is the gap the audit is built to find.
+The replacements come straight off the same audit: **Leader, Super-Genius** (a card draw before each connive), **Construct a Cosmic Cube** (token engine and clock), and **Visions of Villainy** (instant draw-two on any turn). All three score among Kang's highest EDHREC synergy and none appear in the stock list, which is the gap the audit is built to find.
 
 ## Dedicated Kang, or Kang in the Doom box
 
