@@ -101,7 +101,7 @@ Two and three carry the deck. That is where Nick Fury, Black Widow, Shang-Chi, a
 | Swords to Plowshares | 90.5% | +22.8% | *Staple*: high inclusion, low synergy |
 | Arcane Denial | 68.7% | +52.1% | Cheap counter that replaces itself; more commander-tied than a plain staple |
 
-Swords at 90.5% inclusion with +22.8% synergy is a clear example of the difference.
+Swords to Plowshares is the pure staple, high inclusion with low synergy at +22.8%. Arcane Denial sits between, a cheap counter this deck likes more than average.
 
 ## What EDHREC can and cannot tell you
 
