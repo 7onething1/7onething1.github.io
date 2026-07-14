@@ -964,7 +964,7 @@ function openDeck(id){
           <button class="ckcopy" onclick="ckCopy('${d.id}', this)">Copy list ⧉</button>
           <a class="ckdeck" id="ckdeck-${d.id}" href="${deckUrl((SWAPS_FULL[d.id]||[]).map(s=>s[1]))}" target="_blank" rel="noopener">Price whole list in KC Finder ⧉</a>
         </div>
-        <p class="cklabel">Or tap a single card to check local store stock in our <a href="/kc-card-finder" target="_blank" rel="noopener">KC Card Finder</a>:</p>
+        <p class="cklabel">Or tap a single card to check local store stock in our <a href="https://drwu-htmls.vercel.app/kc-card-finder" target="_blank" rel="noopener">KC Card Finder</a>:</p>
         <div class="cklinks" id="cklinks-${d.id}">${finderLinksHTML((SWAPS_FULL[d.id]||[]).map(s=>s[1]))}</div>
         <p class="cknote">ADD cards only (what goes in). Double-faced cards use the front-face name so the parser finds them.${edhForDeck(d.id).length?' The game plan and swaps below follow this choice.':''}</p>
       </div>`:''}
@@ -1104,10 +1104,10 @@ function renderSwapSec(deckId, srcKey){
 }
 /* Every card links to our KC Card Finder, which auto-runs a local-store stock check on load. */
 function finderLinksHTML(names){
-  return names.map(n=>{ const f=frontFace(n); return `<a class="cklink" href="/kc-card-finder?card=${encodeURIComponent(f)}" target="_blank" rel="noopener">${f}</a>`; }).join("");
+  return names.map(n=>{ const f=frontFace(n); return `<a class="cklink" href="https://drwu-htmls.vercel.app/kc-card-finder?card=${encodeURIComponent(f)}" target="_blank" rel="noopener">${f}</a>`; }).join("");
 }
 /* Whole-list deep link: KC Card Finder's "Price Entire Deck" reads ?deck= and prices every card at once. */
-function deckUrl(names){ return "/kc-card-finder?deck="+encodeURIComponent(ckLines(names)); }
+function deckUrl(names){ return "https://drwu-htmls.vercel.app/kc-card-finder?deck="+encodeURIComponent(ckLines(names)); }
 function setList(deckId, srcKey, btn){
   const ta = document.getElementById('ck-'+deckId);
   const cap = document.getElementById('ckcap-'+deckId);
@@ -1168,7 +1168,7 @@ function renderBonus(){
         <button class="ckcopy" onclick="ckCopy('${k}', this)">Copy list ⧉</button>
         <a class="ckdeck" href="${deckUrl(e.cards)}" target="_blank" rel="noopener">Price whole list in KC Finder ⧉</a>
       </div>
-      <p class="cklabel">Or tap a single card to check local store stock in our <a href="/kc-card-finder" target="_blank" rel="noopener">KC Card Finder</a>:</p>
+      <p class="cklabel">Or tap a single card to check local store stock in our <a href="https://drwu-htmls.vercel.app/kc-card-finder" target="_blank" rel="noopener">KC Card Finder</a>:</p>
       <div class="cklinks">${finderLinksHTML(e.cards)}</div>
       <p class="cknote">ADD cards only. Source: <a href="${e.url}" target="_blank" rel="noopener">${e.name.split(",")[0]} guide</a>. Cross-check against cards already in your list.</p>
     </div>`;
@@ -1307,7 +1307,7 @@ function renderCheapest(){
   cl.innerHTML=`<ol class="cheaprows">`+rows.map(r=>{
     const f=frontFace(r.nm);
     const fac=r.deck?r.deck.rankColor:'var(--muted)';
-    return `<li class="cheaprow"><span class="cprice">${money(r.usd)}</span><a class="cname2" href="/kc-card-finder?card=${encodeURIComponent(f)}" target="_blank" rel="noopener">${r.nm}</a>${r.deck?`<span class="cdeck" style="--fac:${fac}">${r.deck.name}</span>`:''}</li>`;
+    return `<li class="cheaprow"><span class="cprice">${money(r.usd)}</span><a class="cname2" href="https://drwu-htmls.vercel.app/kc-card-finder?card=${encodeURIComponent(f)}" target="_blank" rel="noopener">${r.nm}</a>${r.deck?`<span class="cdeck" style="--fac:${fac}">${r.deck.name}</span>`:''}</li>`;
   }).join("")+`</ol>`;
 }
 render();

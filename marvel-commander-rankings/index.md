@@ -75,6 +75,15 @@ Highest ceiling in the set and the only four-color deck, and the weakest of the 
 - **Best table politics:** The Fantastic Four, highest Table politics (6.5), threats build quietly and draw the least early targeting.
 - **Simplest mana, clearest upgrade route:** Wakanda Forever, only two colours, the simplest mana base, and the clearest focused T'Challa upgrade route (the unchanged box also runs monarch, Equipment, and tokens).
 
+## Upgrade cost, cheapest first (Scryfall cheapest printing, captured 14 July 2026)
+Add-card cost only, since you already own the cut cards. Singles prices drift, so this is a dated snapshot.
+- **The Fantastic Four:** $15.40
+- **Avengers Assemble:** $15.86
+- **Doom Prevails:** $23.78
+- **Wakanda Forever:** $32.88
+
+Ten cheapest individual upgrades: SP//dr, Piloted by Peni $0.29; Green Goblin, Revenant $0.30; West Coast Expansion $0.30; Talisman of Conviction $0.31; Verdurous Gearhulk $0.32; Urdnan, Dromoka Warrior $0.34; Super-Adaptoid $0.36; Living Lies of Loki $0.44; Araña, Heart of the Spider $0.51; Crimson Cowl, Master of Evil $1.01.
+
 ## EDHREC build popularity (captured 13 July 2026)
 A dated snapshot of adoption, not of strength, and not read live on load. Both of each precon's headline commanders are shown (the Fantastic Four ships with four):
 - **Doom Prevails:** Doctor Doom, King of Latveria 4,930; Loki, the Deceiver 1,263.
