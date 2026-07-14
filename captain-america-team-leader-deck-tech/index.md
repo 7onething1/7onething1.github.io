@@ -101,7 +101,7 @@ Two and three carry the deck. That is where Nick Fury, Black Widow, Shang-Chi, a
 | Swords to Plowshares | 90.5% | +22.8% | *Staple*: high inclusion, low synergy |
 | Arcane Denial | 68.5% | +52.0% | Cheap counter that replaces itself; more commander-tied than a plain staple |
 
-Inclusion is EDHREC's figure, decks running the card over decks that could run it, so the newer Marvel cards read a few points above a flat share of all 2,526 decks. Swords to Plowshares is the pure staple, high inclusion with low synergy at +22.8%. Arcane Denial sits between, a cheap counter this deck likes more than average.
+Inclusion is EDHREC's figure, decks running the card over decks that could run it, so the newer Marvel cards read a few points above a flat share of all 2,526 decks. Snapshot 2026-07-14. Numerators over denominators for the top row: Nick Fury 2,355 of 2,477, Avengers Tower 2,331 of 2,474, Iron Man 2,282 of 2,477, War Machine 2,238 of 2,457, Black Widow 2,219 of 2,457; the staples divide by the full 2,526. Swords to Plowshares is the pure staple, high inclusion with low synergy at +22.8%. Arcane Denial sits between, a cheap counter this deck likes more than average.
 
 ## What EDHREC can and cannot tell you
 
@@ -123,7 +123,7 @@ Card draw feeds the loop: Iron Man counters on every draw, Shang-Chi and the Ten
 
 ## How the deck closes
 
-A wide board is not the win on its own; one payoff turns it lethal. Attack with a countered team and War Machine gives double strike, Iron Man gives flying, or She-Hulk gives trample through the chump blocks. Any one can turn a wide board into a game-ending swing when you have the power and a clear path, so keep a Hero or two back for the follow-up. Champions from Beyond adds a second gear: at eight or more attackers its Full Party mode pumps the team by four each. Flawless Maneuver makes your board indestructible against a wipe or targeted destruction, and Akroma's Will, with Captain America out, adds flying and protection from colored blockers to push damage through; indestructible does not stop a blocker, and exile or bounce still remove a creature. Both wear off at end of turn, so a next-turn sweeper needs countermagic or a card kept in hand. The power branch closes harder, with Shared Animosity paying per attacker and Cathars' Crusade snowballing the counters.
+A wide board is not the win on its own; one payoff turns it lethal. Attack with a countered team and War Machine gives double strike, Iron Man gives flying, or She-Hulk gives trample through the chump blocks. Any one can turn a wide board into a game-ending swing when you have the power and a clear path, so keep a Hero or two back for the follow-up. Champions from Beyond adds a second gear: at eight or more attackers its Full Party mode pumps the team by four each. Flawless Maneuver is the free save: it makes your team indestructible, which beats a wipe or targeted destruction, and it does nothing against exile, bounce, or a chump block. Akroma's Will is the finisher: with Captain America out you take both modes, so your team gains flying, vigilance, and double strike alongside indestructible and protection from every color, which pushes damage through and shrugs off colored blockers and removal. A colorless flyer or reacher can still block. Both wear off at end of turn, so a next-turn sweeper needs countermagic or a card kept in hand. The power branch closes harder, with Shared Animosity paying per attacker and Cathars' Crusade snowballing the counters.
 
 ## Interaction, protection, and the board-wipe question
 
