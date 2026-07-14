@@ -359,9 +359,12 @@ body.kids .grown{display:none}
 .dccard{display:flex;flex-direction:column;gap:2px;text-decoration:none;background:var(--card);border:1px solid var(--line);border-top:4px solid var(--fac);border-radius:11px;padding:12px 14px;transition:transform .12s}
 .dccard:hover{transform:translateY(-2px)}
 .dcrank{font-family:'Inter',sans-serif;font-weight:800;font-size:.64rem;text-transform:uppercase;letter-spacing:.05em;color:var(--muted)}
-.dcname{font-family:'Cormorant Garamond',Georgia,serif;font-size:1.15rem;font-weight:700;color:var(--ink)}
+.dcname{font-family:'Cormorant Garamond',Georgia,serif;font-size:1.15rem;font-weight:700;color:var(--ink);text-decoration:none}
+.dcname:hover{text-decoration:underline}
 .dccost{font-family:'Inter',sans-serif;font-weight:800;font-size:1.3rem;color:var(--teal-d)}
 .dcsub{font-size:.7rem;color:var(--muted)}
+.dckc{margin-top:7px;display:inline-block;font-family:'Inter',sans-serif;font-weight:800;font-size:.76rem;text-decoration:none;color:#fff;background:var(--fac);border-radius:20px;padding:5px 11px}
+.dckc:hover{filter:brightness(1.08)}
 .cheaprows{list-style:none;margin:0;padding:0;display:grid;gap:5px}
 .cheaprow{display:flex;align-items:center;gap:10px;background:var(--paper2);border:1px solid var(--line);border-radius:8px;padding:7px 11px;font-family:'Inter',sans-serif;font-size:.9rem}
 .cprice{font-weight:800;color:var(--teal-d);min-width:56px}
@@ -429,6 +432,7 @@ body.kids .grown{display:none}
       <button data-k="fun">Fun</button>
       <button data-k="ease">Ease to pilot</button>
       <button data-k="politics">Table politics</button>
+      <button data-k="cost">💲 Cheapest to upgrade</button>
     </div>
 
     <div id="decks"></div>
@@ -871,12 +875,15 @@ function cmdrEl(c){
   return `<div class="cmdr">${u?`<div class="cmdr-img"><img loading="lazy" src="${u}" alt="${c.nm}"></div>`:""}<div class="cmdr-txt"><div class="top"><span class="nm">${c.nm}</span>${ciPips(c.nm)}<span class="role ${rc}">${rl}</span></div><div class="cost">${c.cost||""}</div><p class="otext">${c.text||""}</p>${idnote}</div></div>`;
 }
 
+/* Sort comparator across all views. "cost" sorts cheapest upgrade first (ascending); every other key is score, higher first. */
+function cmpDecks(a,b){
+  if(sortKey==="cost") return (UPGRADE_COST[a.id]!=null?UPGRADE_COST[a.id]:1e9) - (UPGRADE_COST[b.id]!=null?UPGRADE_COST[b.id]:1e9);
+  const av = sortKey==="overall"?overall(a.scores):a.scores[sortKey];
+  const bv = sortKey==="overall"?overall(b.scores):b.scores[sortKey];
+  return bv-av;
+}
 function render(){
-  const arr = [...DECKS].sort((a,b)=>{
-    const av = sortKey==="overall"?overall(a.scores):a.scores[sortKey];
-    const bv = sortKey==="overall"?overall(b.scores):b.scores[sortKey];
-    return bv-av;
-  });
+  const arr = [...DECKS].sort(cmpDecks);
   const preRank = rankMapBy("power"), postRank = rankMapBy("ceiling");
   document.getElementById("decks").innerHTML = arr.map((d,i)=>{
     const ov = overall(d.scores);
@@ -932,7 +939,7 @@ function render(){
 
 function openDeck(id){
   const d = byId[id]; if(!d) return;
-  const idx = [...DECKS].sort((a,b)=>{const av=sortKey==="overall"?overall(a.scores):a.scores[sortKey];const bv=sortKey==="overall"?overall(b.scores):b.scores[sortKey];return bv-av;}).findIndex(x=>x.id===id);
+  const idx = [...DECKS].sort(cmpDecks).findIndex(x=>x.id===id);
   const opts = deckCommanders(d);
   const faces = opts.filter(c=>c.role!=="alt");
   const alts = opts.filter(c=>c.role==="alt");
@@ -1203,7 +1210,7 @@ function meterRow(k,v,active){
 }
 function renderCover(){
   const el = document.getElementById("cover"); if(!el) return;
-  const arr = [...DECKS].sort((a,b)=>{const av=sortKey==="overall"?overall(a.scores):a.scores[sortKey];const bv=sortKey==="overall"?overall(b.scores):b.scores[sortKey];return bv-av;});
+  const arr = [...DECKS].sort(cmpDecks);
   const metrics = ["power","ceiling","fun","ease","politics"];
   el.innerHTML = arr.map((d,i)=>{
     const faces = deckCommanders(d).filter(c=>c.role!=="alt");
@@ -1235,7 +1242,7 @@ const TRAITS = {
 let archTrait = null;
 function traitPick(t){ if(!t||!TRAITS[t]) return null; return [...DECKS].sort((a,b)=>TRAITS[t].metric(b)-TRAITS[t].metric(a))[0]; }
 function sortedDecks(){
-  return [...DECKS].sort((a,b)=>{const av=sortKey==="overall"?overall(a.scores):a.scores[sortKey];const bv=sortKey==="overall"?overall(b.scores):b.scores[sortKey];return bv-av;});
+  return [...DECKS].sort(cmpDecks);
 }
 function traitPickId(){ const p=traitPick(archTrait); return p?p.id:null; }
 function deckIsPick(d){ return archTrait && d.id===traitPickId(); }
@@ -1301,7 +1308,8 @@ function renderCheapest(){
   const order=Object.keys(UPGRADE_COST).sort((a,b)=>UPGRADE_COST[a]-UPGRADE_COST[b]);
   dc.innerHTML=`<div class="dcgrid">`+order.map((id,i)=>{
     const d=byId[id];
-    return `<a class="dccard" href="#deck-${id}" style="--fac:${d.rankColor}"><span class="dcrank">#${i+1} cheapest to upgrade</span><span class="dcname">${d.name}</span><span class="dccost">${money(UPGRADE_COST[id])}</span><span class="dcsub grown">recommended add-card cost</span></a>`;
+    const adds=(d.swaps||[]).map(s=>s[1]);
+    return `<div class="dccard" style="--fac:${d.rankColor}"><span class="dcrank">#${i+1} cheapest to upgrade</span><a class="dcname" href="#deck-${id}">${d.name}</a><span class="dccost">${money(UPGRADE_COST[id])}</span><span class="dcsub grown">recommended add-card cost</span><a class="dckc" href="${deckUrl(adds)}" target="_blank" rel="noopener">Price these in KC →</a></div>`;
   }).join("")+`</div>`;
   const rows=Object.keys(PRICES).map(nm=>({nm, usd:PRICES[nm], deck:add2deck[nm]})).sort((a,b)=>a.usd-b.usd);
   cl.innerHTML=`<ol class="cheaprows">`+rows.map(r=>{
