@@ -381,6 +381,8 @@ body.kids .grown{display:none}
 .summary td:nth-child(3){color:var(--teal-d);font-size:1.02rem}
 .summary a{color:var(--crimson-d);font-weight:700;text-decoration:none}
 .summary a:hover{text-decoration:underline}
+.acard-pkg{font-family:'Inter',sans-serif;font-size:.78rem;color:var(--muted);margin:4px 0 0}
+.acard-pkg b{color:var(--teal-d)}
 .allcmdrbar{display:flex;align-items:center;gap:10px;flex-wrap:wrap;margin:8px 0 2px}
 .allcmdr-note{font-family:'Inter',sans-serif;font-size:.78rem;color:var(--muted);max-width:520px}
 .cheaphdr{font-family:'Inter',sans-serif;font-size:.85rem;color:var(--muted);margin:0 0 8px}
@@ -1354,6 +1356,7 @@ function renderArchive(){
   // large deck cards
   cards.innerHTML=arr.map((d,i)=>{
     const faces=deckCommanders(d).filter(c=>c.role!=="alt");
+    const shownCmdrs = allCmdrs ? deckCommanders(d) : faces;
     const u=imgFor(faces[0].nm);
     const cc=deckCommanders(d).length;
     const dim=deckDimmed(d);
@@ -1369,7 +1372,8 @@ function renderArchive(){
           <div class="astat"><span class="astat-v">${d.scores.ceiling.toFixed(1)}</span><span class="astat-k">Ceiling</span></div>
           <div class="astat"><span class="astat-v">${d.scores.ease.toFixed(1)}</span><span class="astat-k">Ease</span></div>
         </div>
-        <p class="acard-cmdrs">${faces.map(c=>c.nm.split(",")[0]).join(" · ")}<span class="acard-open">Open dossier →</span></p>
+        <p class="acard-cmdrs">${shownCmdrs.map(c=>c.nm.split(",")[0]).join(" · ")}<span class="acard-open">Open dossier →</span></p>
+        <p class="acard-pkg">${allCmdrs?'All-commanders':'Face'} upgrade package: <b>${money(deckPkgCost(d.id))}</b> · ${deckPkgAdds(d.id).length} cards</p>
       </div>
     </article>`;
   }).join("");
