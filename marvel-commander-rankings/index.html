@@ -353,6 +353,23 @@ body.kids .grown{display:none}
 .edh-both .edh-deck{display:block;font-weight:800;color:var(--teal-d);font-size:.72rem;text-transform:uppercase;letter-spacing:.05em;margin-bottom:1px}
 .deck:focus-visible,.acard:focus-visible,.tchip:focus-visible,.buyer-card:focus-visible,#modal .close:focus-visible{outline:3px solid var(--teal);outline-offset:2px;border-radius:6px}
 .r0-est{font-size:.82rem;color:var(--muted);margin:2px 0 8px;line-height:1.4}
+#cheapest{max-width:1000px;margin:40px auto 0;padding:0 20px}
+#cheapest h2{font-family:'Cormorant Garamond',Georgia,serif;color:var(--teal-d);font-size:1.9rem;margin:0 0 4px}
+.dcgrid{display:grid;grid-template-columns:repeat(auto-fit,minmax(150px,1fr));gap:12px;margin:12px 0 18px}
+.dccard{display:flex;flex-direction:column;gap:2px;text-decoration:none;background:var(--card);border:1px solid var(--line);border-top:4px solid var(--fac);border-radius:11px;padding:12px 14px;transition:transform .12s}
+.dccard:hover{transform:translateY(-2px)}
+.dcrank{font-family:'Inter',sans-serif;font-weight:800;font-size:.64rem;text-transform:uppercase;letter-spacing:.05em;color:var(--muted)}
+.dcname{font-family:'Cormorant Garamond',Georgia,serif;font-size:1.15rem;font-weight:700;color:var(--ink)}
+.dccost{font-family:'Inter',sans-serif;font-weight:800;font-size:1.3rem;color:var(--teal-d)}
+.dcsub{font-size:.7rem;color:var(--muted)}
+.cheaprows{list-style:none;margin:0;padding:0;display:grid;gap:5px}
+.cheaprow{display:flex;align-items:center;gap:10px;background:var(--paper2);border:1px solid var(--line);border-radius:8px;padding:7px 11px;font-family:'Inter',sans-serif;font-size:.9rem}
+.cprice{font-weight:800;color:var(--teal-d);min-width:56px}
+.cname2{color:var(--ink);text-decoration:none;font-weight:600;flex:1}
+.cname2:hover{text-decoration:underline}
+.cdeck{font-size:.68rem;font-weight:700;color:#fff;background:var(--fac);border-radius:20px;padding:2px 8px;white-space:nowrap}
+.pricetag{display:inline-block;font-weight:800;font-size:.78rem;color:var(--teal-d);background:var(--card);border:1px solid var(--line);border-radius:5px;padding:0 5px;margin-left:4px}
+.swapcost{font-family:'Inter',sans-serif;font-size:.9rem;color:var(--ink2);margin:2px 0 8px;padding:6px 10px;background:var(--paper2);border:1px solid var(--line);border-radius:8px}
 </style>
 </head>
 <body>
@@ -469,6 +486,14 @@ body.kids .grown{display:none}
         <span class="buyer-why grown">Only two colours, so the simplest mana base, and the clearest focused T'Challa upgrade route. The unchanged box also carries monarch, Equipment, and tokens, so it starts as more than one plan.</span>
       </a>
     </div>
+  </section>
+
+  <section id="cheapest">
+    <h2>Cheapest upgrades, ranked</h2>
+    <p class="lead grown">Every recommended add card, priced at its cheapest printing on Scryfall and captured 14 July 2026. Singles prices drift, so read these as a dated snapshot. The totals are add-card cost only, since you already own the cut cards.</p>
+    <p class="lead kid-only">The upgrade cards, sorted cheapest first. Prices change over time.</p>
+    <div id="deckcost"></div>
+    <div id="cheaplist"></div>
   </section>
 
   <section id="strict">
@@ -683,6 +708,16 @@ const RULE0 = {
   wakanda:{ oob:2, upg:2, stax:"None", note:"Focused artifacts and one big commander swing; by its contents it reads as a calm Bracket 2 even upgraded." }
 };
 const R0_NAMES = ["Exhibition","Core","Upgraded","Optimized","cEDH"];
+/* Cheapest-printing USD prices for each recommended upgrade add, captured from Scryfall 14 July 2026 (a dated snapshot; singles prices drift). */
+const PRICE_ASOF = "14 July 2026";
+const PRICES = {
+  "Sundial of the Infinite":10.35,"Green Goblin, Revenant":0.30,"Kingpin, Wilson Fisk":2.92,"Doctor Octopus, Master Planner":8.40,"Super-Adaptoid":0.36,"Crimson Cowl, Master of Evil":1.01,"Living Lies of Loki":0.44,
+  "Hex Magic":1.89,"Talisman of Creativity":1.78,"Talisman of Conviction":0.31,"West Coast Expansion":0.30,"World at War":9.43,"Monica Rambeau // Photon, Living Light":1.69,
+  "Wave Goodbye":1.76,"Champions from Beyond":5.32,"Damning Verdict":3.44,"Araña, Heart of the Spider":0.51,"SP//dr, Piloted by Peni":0.29,"Urdnan, Dromoka Warrior":0.34,"Raphael, the Muscle":1.72,"Ripples of Potential":2.48,
+  "Verdurous Gearhulk":0.32,"Batterskull":3.28,"Reprieve":1.36,"Shadowspear":18.15,"Mystic Forge":2.40,"Brightglass Gearhulk":5.37,"Jhoira's Familiar":2.00
+};
+const UPGRADE_COST = { doom:23.78, ff:15.40, avengers:15.86, wakanda:32.88 };
+function money(n){ return "$"+n.toFixed(2); }
 const DECKS = [
   {
     id:"doom", name:"Doom Prevails", ci:["U","B","R"], tag:"Grixis villains · discard-matters & token copies",
@@ -1047,6 +1082,8 @@ function renderSwapSec(deckId, srcKey){
   const pairs = pairsFor(deckId, srcKey);
   const meta = srcMetaFor(deckId, srcKey);
   const n = pairs.length;
+  const total = pairs.reduce((a,s)=>a+(PRICES[s[1]]||0),0);
+  const priced = pairs.filter(s=>PRICES[s[1]]!=null).length;
   const cards = pairs.map((s,i)=>{
     const au = imgFor(s[1]);
     const cutSide = s[0]
@@ -1055,11 +1092,12 @@ function renderSwapSec(deckId, srcKey){
     return `<div class="swap${i>=6?' extra':''}">
       ${cutSide}
       <div class="swap-arrow">→</div>
-      <div class="swap-side add">${au?`<img loading="lazy" src="${au}" alt="${s[1]}">`:`<div class="ph">${s[1]}</div>`}<div class="sn"><span class="taga">＋ ADD</span>${s[1]}</div></div>
+      <div class="swap-side add">${au?`<img loading="lazy" src="${au}" alt="${s[1]}">`:`<div class="ph">${s[1]}</div>`}<div class="sn"><span class="taga">＋ ADD</span>${s[1]}${PRICES[s[1]]!=null?` <span class="pricetag">${money(PRICES[s[1]])}</span>`:''}</div></div>
       ${s[2]?`<div class="swap-why">${s[2]}</div>`:''}
     </div>`;
   }).join("");
   host.innerHTML = `<h4>Cut → Add swaps (${n})<span class="src">source: <a href="${meta.url}" target="_blank" rel="noopener">${meta.name}</a></span></h4>
+    <p class="swapcost">Add-card cost for this set of swaps: <b>${money(total)}</b> <span class="grown">(${priced} of ${n} priced, cheapest printing on Scryfall, ${PRICE_ASOF})</span></p>
     <div class="swaps collapsed" id="swaps-${deckId}">${cards}</div>
     ${n>6?`<button class="showall" onclick="var b=document.getElementById('swaps-${deckId}');var c=b.classList.toggle('collapsed');this.textContent=c?('Show all '+${n}+' swaps ▾'):'Show fewer ▴';">Show all ${n} swaps ▾</button>`:''}
     <p class="note grown">Swaps follow the commander you pick above. Every cut card was checked against the official precon 99 (all 111 verified in-box via EDHREC decklists); add-card names are Scryfall-verified. Rankings are editorial opinion.</p>`;
@@ -1255,8 +1293,26 @@ document.getElementById("archFilters").addEventListener("click", e=>{
 });
 
 syncBars();
+function renderCheapest(){
+  const dc=document.getElementById('deckcost'), cl=document.getElementById('cheaplist');
+  if(!dc||!cl) return;
+  const add2deck={};
+  DECKS.forEach(d=>(d.swaps||[]).forEach(s=>{ if(PRICES[s[1]]!=null && !(s[1] in add2deck)) add2deck[s[1]]=d; }));
+  const order=Object.keys(UPGRADE_COST).sort((a,b)=>UPGRADE_COST[a]-UPGRADE_COST[b]);
+  dc.innerHTML=`<div class="dcgrid">`+order.map((id,i)=>{
+    const d=byId[id];
+    return `<a class="dccard" href="#deck-${id}" style="--fac:${d.rankColor}"><span class="dcrank">#${i+1} cheapest to upgrade</span><span class="dcname">${d.name}</span><span class="dccost">${money(UPGRADE_COST[id])}</span><span class="dcsub grown">recommended add-card cost</span></a>`;
+  }).join("")+`</div>`;
+  const rows=Object.keys(PRICES).map(nm=>({nm, usd:PRICES[nm], deck:add2deck[nm]})).sort((a,b)=>a.usd-b.usd);
+  cl.innerHTML=`<ol class="cheaprows">`+rows.map(r=>{
+    const f=frontFace(r.nm);
+    const fac=r.deck?r.deck.rankColor:'var(--muted)';
+    return `<li class="cheaprow"><span class="cprice">${money(r.usd)}</span><a class="cname2" href="/kc-card-finder?card=${encodeURIComponent(f)}" target="_blank" rel="noopener">${r.nm}</a>${r.deck?`<span class="cdeck" style="--fac:${fac}">${r.deck.name}</span>`:''}</li>`;
+  }).join("")+`</ol>`;
+}
 render();
 renderBonus();
+renderCheapest();
 setView("archive");
 /* card-name hover preview */
 (function(){
