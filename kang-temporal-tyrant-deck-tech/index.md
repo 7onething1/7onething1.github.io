@@ -28,9 +28,9 @@ Stack Gixian Puppeteer under that and every drain is worth three, Kang's one lif
 
 ## Reading the payoffs
 
-- **Leader, Super-Genius (70%).** The engine: its replacement effect adds one card before each connive, so a single connive becomes a draw plus the connive, plus a free combat connive every turn. It boosts each connive, it does not double it.
-- **Construct a Cosmic Cube (65%).** Every second draw makes a menacing Villain token and adds a plan counter. At the seventh, sacrifice it and control an opponent *during their next turn* (not an extra turn of your own).
-- **Gixian Puppeteer (47%).** Adds 2 to the drain (not double): every second draw costs an extra 2 life, so Kang plus Puppeteer is 3 per trigger, twelve across a rotation.
+- **Leader, Super-Genius (72%).** The engine: its replacement effect adds one card before each connive, so a single connive becomes a draw plus the connive, plus a free combat connive every turn. It boosts each connive, it does not double it.
+- **Construct a Cosmic Cube (67%).** Every second draw makes a menacing Villain token and adds a plan counter. At the seventh, sacrifice it and control an opponent *during their next turn* (not an extra turn of your own).
+- **Gixian Puppeteer (48%).** Adds 2 to the drain (not double): every second draw costs an extra 2 life, so Kang plus Puppeteer is 3 per trigger, twelve across a rotation.
 - **M.O.D.O.K., Evil Intellect (by function).** Whenever you draw your second card each turn, a target opponent sacrifices a nontoken creature *of their choice*: edict removal, four sacrifices a lap, though the opponent picks which creature dies.
 - **Kid Loki (45%).** Every second draw puts a counter on him, and any creature you put a counter on *this turn* has hexproof. On his own he only protects himself, and only on turns he grows.
 
@@ -38,7 +38,7 @@ Stack Gixian Puppeteer under that and every drain is worth three, Kang's one lif
 
 Every connive draws a card and then discards one, so a deck full of connives is quietly a discard deck too, a second engine most Kang primers walk past. The pile you bin each turn is a resource:
 
-- **Moonstone, Harsh Mistress (43%).** Whenever you discard a card you may exile it from your graveyard and play it until the end of your next turn, so the land or spell a connive threw away stays playable for a while. You still pay its cost and obey its timing, so this is extended card access rather than free recursion. Discarding becomes a filter.
+- **Moonstone, Harsh Mistress (42%).** Whenever you discard a card you may exile it from your graveyard and play it until the end of your next turn, so the land or spell a connive threw away stays playable for a while. You still pay its cost and obey its timing, so this is extended card access rather than free recursion. Discarding becomes a filter.
 - **Archfiend of Ifnir (32%).** Whenever you discard a card, each creature your opponents control gets a -1/-1 counter. Kang connives over and over, so Archfiend turns the discard half into a slow board wipe that also cycles for value.
 - **M.O.D.O.K. (40%).** The other M.O.D.O.K.: a flying lifelinker that pays 3 life to connive on your turn and gives every opposing creature -1/-1. A discard-and-connive engine on a body that feeds Moonstone and Archfiend.
 
@@ -47,18 +47,18 @@ This is why the deckbuilding test below is wider than a pure draw count. Moonsto
 ## Off-turn enablers, the cards that make the math work
 
 - **Frantic Search (47%, instant).** Draws two and untaps up to three lands; it pays three mana first and refunds it, so it is a mana-neutral second draw on an opponent's turn rather than a free one. The single best off-turn enabler.
-- **Visions of Villainy (49%, instant).** Draws two, one less with a Villain out, legal on anyone's turn.
+- **Visions of Villainy (50%, instant).** Draws two, one less with a Villain out, legal on anyone's turn.
 - **Ledger Shredder (42%).** Connives whenever any player casts their second spell in a turn, their turns included.
-- **Baron Strucker, HYDRA Overlord (61%).** The most-run card the old primer never mentioned. Villain spells cost {1} less, and once each turn a Villain entering may connive.
+- **Baron Strucker, HYDRA Overlord (59%).** The most-run card the old primer never mentioned. Villain spells cost {1} less, and once each turn a Villain entering may connive.
 - **Madame Masque (46%).** Connives on enter, then makes a Villain token every second draw. Enabler and payoff in one.
 
 ## Priority adds
 
-Kang is a box alt with no upgrade list of his own, so the add list reads EDHREC as a signal and runs it through the second-draw test, rather than copying the popular pile wholesale (percentages read 2026-07-13). One caution up front: this is a 77-deck sample on a June 2026 box, so a few copied lists swing the numbers. Read these as an early signal rather than proof:
+Kang is a box alt with no upgrade list of his own, so the add list reads EDHREC as a signal and runs it through the second-draw test, rather than copying the popular pile wholesale (percentages read 2026-07-14). One caution up front: this is a 81-deck sample on a June 2026 box, so a few copied lists swing the numbers. Read these as an early signal rather than proof:
 
-**Engine and payoffs:** Leader, Super-Genius (70%), Construct a Cosmic Cube (65%), Baron Strucker (61%), Gixian Puppeteer (47%), Madame Masque (46%), Psychosis Crawler (45%), Teferi's Ageless Insight (45%), M.O.D.O.K., Evil Intellect (by function).
+**Engine and payoffs:** Leader, Super-Genius (72%), Construct a Cosmic Cube (67%), Baron Strucker (59%), Gixian Puppeteer (48%), Madame Masque (46%), Psychosis Crawler (47%), Teferi's Ageless Insight (47%), M.O.D.O.K., Evil Intellect (by function).
 
-**Enablers and draw:** Visions of Villainy (49%, instant), Frantic Search (47%, instant), Ledger Shredder (42%, any turn), Black Market Connections (Dimir staple), Alandra Sky Dreamer (shares Kang's trigger, makes Drakes).
+**Enablers and draw:** Visions of Villainy (50%, instant), Frantic Search (47%, instant), Ledger Shredder (42%, any turn), Black Market Connections (Dimir staple), Alandra Sky Dreamer (shares Kang's trigger, makes Drakes).
 
 **Two lanes, kept apart.** The adds serve two goals. One makes Kang *feel like Kang* (Villain flavor: Baron Strucker, Madame Masque, the two M.O.D.O.K.s, Villain-token makers). The other simply *raises win percentage* (efficient Dimir: Frantic Search, Visions, Psychosis Crawler, Teferi, Black Market Connections, Counterspell, Arcane Denial, spot removal, protection). Alandra, the Cube, and Gixian Puppeteer sit in both. When you cut, keep the win-percentage lane full and treat pure-flavor cards as the flexible slots.
 
@@ -68,22 +68,22 @@ EDHREC prints two numbers per card. Inclusion is the share of Kang decks running
 
 | Card | Inclusion | Synergy | Read |
 |---|---|---|---|
-| Leader, Super-Genius | 70% | +67% | signature |
-| Construct a Cosmic Cube | 65% | +64% | signature |
-| Baron Strucker, HYDRA Overlord | 61% | +58% | signature |
-| Visions of Villainy | 49% | +48% | signature |
-| Gixian Puppeteer | 47% | +46% | signature |
-| Moonstone, Harsh Mistress | 43% | +42% | signature |
+| Leader, Super-Genius | 72% | +67% | signature |
+| Construct a Cosmic Cube | 67% | +64% | signature |
+| Baron Strucker, HYDRA Overlord | 59% | +58% | signature |
+| Visions of Villainy | 50% | +48% | signature |
+| Gixian Puppeteer | 48% | +46% | signature |
+| Moonstone, Harsh Mistress | 42% | +42% | signature |
 | Archfiend of Ifnir | 32% | +31% | signature |
 | Frantic Search | 47% | +27% | staple that fits |
 | Arcane Denial | 43% | +17% | staple |
-| Counterspell | 52% | -4% | pure staple |
+| Counterspell | 53% | -4% | pure staple |
 
 Leader and the Cube earn high synergy because they exist to cash Kang's trigger. Counterspell has the highest inclusion of the interaction and a negative synergy, which just means every blue deck plays it. Follow the synergy column for the cards that make this deck itself, and treat the staples as the rent for being blue-black.
 
 ## Interaction
 
-A slow win needs cheap answers: Counterspell (52%), Arcane Denial (43%), the blue-black removal the deck can run (Go for the Throat, Reality Shift, Withering Torment, Lethal Scheme at 42%), a board wipe or two like Toxic Deluge, and enough counters to protect the Cosmic Cube as it counts up. Most of your interaction wants to be instant, the same shape as your enablers: hold mana on other turns, and spend it to answer a threat or to fire a draw for a Kang drain when nothing needs answering.
+A slow win needs cheap answers: Counterspell (53%), Arcane Denial (43%), the blue-black removal the deck can run (Go for the Throat, Reality Shift, Withering Torment, Lethal Scheme at 42%), a board wipe or two like Toxic Deluge, and enough counters to protect the Cosmic Cube as it counts up. Most of your interaction wants to be instant, the same shape as your enablers: hold mana on other turns, and spend it to answer a threat or to fire a draw for a Kang drain when nothing needs answering.
 
 ## Ten named swaps from the stock Doom Prevails list
 
@@ -143,7 +143,7 @@ A deck tech should describe the shape of the whole list. The commander is the ea
 | Ramp and rocks | 6 | Two-drop rocks so you hold up mana every turn |
 | Draw and refill | 12 | Overlaps the enablers, keeps the grind from stalling |
 
-The counts overlap on purpose, since Madame Masque is enabler and payoff, and Frantic Search is mana-neutral after resolution (pay three, untap up to three lands), so it reads as draw first and only nets mana when three useful permanents untap. The point is the curve and the balance: enough cheap enablers that a second draw is available every turn, enough interaction to reach the late game, and a land count on the low side because the spells are cheap.
+The counts overlap on purpose, since Madame Masque is enabler and payoff, and Frantic Search is mana-neutral after resolution (pay three, untap up to three lands), so it reads as draw first and only nets mana when three useful lands untap. The point is the curve and the balance: enough cheap enablers that a second draw is available every turn, enough interaction to reach the late game, and a land count on the low side because the spells are cheap.
 
 ## Dead Draw Audit
 
@@ -208,8 +208,8 @@ A complete legal Kang list, commander plus 99, every card verified blue-black or
 
 ## Dedicated Kang, or Kang in the Doom box
 
-EDHREC records about 77 Kang decks (read 2026-07-13), the niche pick of a box that only released in June 2026. A number that small this early cannot prove the community thinks Kang belongs outside Doom. Wizards put Kang in the official Doom Prevails list on purpose, and Doom's own discard-and-connive package feeds Kang's trigger, so he has a real home there. The honest read comes down to ratios between the two builds. Lean the list toward instant-speed draw and blue interaction and you get the dedicated second-draw control deck above. Keep Doom at the helm and Kang is still one of the better draw payoffs in the 99. Pick by the game you want.
+EDHREC records about 81 Kang decks (read 2026-07-14), the niche pick of a box that only released in June 2026. A number that small this early cannot prove the community thinks Kang belongs outside Doom. Wizards put Kang in the official Doom Prevails list on purpose, and Doom's own discard-and-connive package feeds Kang's trigger, so he has a real home there. The honest read comes down to ratios between the two builds. Lean the list toward instant-speed draw and blue interaction and you get the dedicated second-draw control deck above. Keep Doom at the helm and Kang is still one of the better draw payoffs in the 99. Pick by the game you want.
 
 ---
 
-*Card text and color identity via Scryfall (Marvel Super Heroes Commander, pulled 2026-07-13): Kang (color identity blue-black, trigger "your second card each turn"), Construct a Cosmic Cube (control an opponent during their next turn), Kid Loki (hexproof only for creatures you counter that turn), Baron Strucker, M.O.D.O.K. Evil Intellect, the connive-activator M.O.D.O.K. (gives opposing creatures -1/-1), Gixian Puppeteer, Leader Super-Genius, Madame Masque, Visions of Villainy (instant), Frantic Search (instant), Ledger Shredder, Psychosis Crawler, Teferi's Ageless Insight (doubles draws except the first in each draw step, raising draw count without adding second-draw triggers), Moonstone Harsh Mistress, Archfiend of Ifnir, Superior Foes of Spider-Man (red), Molecule Man (colorless miracle), Damocles Base Sword of Kang (black Vehicle, villainous choice can give you two cards), Alandra Sky Dreamer (blue, Drake on your second card each turn), Black Market Connections (black, repeatable draw). Doom Prevails stock-deck membership (Superior Foes, Molecule Man, Damocles Base, Kang all present; Leader, Cosmic Cube, Visions of Villainy absent) per the official Wizards Marvel Super Heroes Commander decklists. Inclusion and synergy figures from the EDHREC Kang commander page (77 decks, rank #3,354, read 2026-07-13). Color-identity note: the Doom Prevails precon is Grixis via Doctor Doom, King of Latveria (blue-black-red), and Kang is blue-black, so red cards fall out of a Kang build. The two-question audit is from Salubrious Snail's dead-draw video (YouTube `zAtfawtYEw4`). Related: [EDHREC Marvel read](https://drwu-htmls.vercel.app/salubrioussnail-marvel-edhrec), [Doom dead-draws audit](https://drwu-htmls.vercel.app/salubrioussnail-doom-deaddraws), [Loki deck tech](https://drwu-htmls.vercel.app/loki-deceiver-deck-tech), [Doom deck tech](https://drwu-htmls.vercel.app/doom-prevails-deck-tech).*
+*Card text and color identity via Scryfall (Marvel Super Heroes Commander, pulled 2026-07-14): Kang (color identity blue-black, trigger "your second card each turn"), Construct a Cosmic Cube (control an opponent during their next turn), Kid Loki (hexproof only for creatures you put a +1/+1 counter on that turn), Baron Strucker, M.O.D.O.K. Evil Intellect, the connive-activator M.O.D.O.K. (gives opposing creatures -1/-1), Gixian Puppeteer, Leader Super-Genius, Madame Masque, Visions of Villainy (instant), Frantic Search (instant), Ledger Shredder, Psychosis Crawler, Teferi's Ageless Insight (doubles draws except the first in each draw step, raising draw count without adding second-draw triggers), Moonstone Harsh Mistress, Archfiend of Ifnir, Superior Foes of Spider-Man (red), Molecule Man (colorless miracle), Damocles Base Sword of Kang (black Vehicle, villainous choice can give you two cards), Alandra Sky Dreamer (blue, Drake on your second card each turn), Black Market Connections (black, repeatable draw). Doom Prevails stock-deck membership (Superior Foes, Molecule Man, Damocles Base, Kang all present; Leader, Cosmic Cube, Visions of Villainy absent) per the official Wizards Marvel Super Heroes Commander decklists. Inclusion and synergy figures from the EDHREC Kang commander page (81-decks, rank #3,327, read 2026-07-14). Color-identity note: the Doom Prevails precon is Grixis via Doctor Doom, King of Latveria (blue-black-red), and Kang is blue-black, so red cards fall out of a Kang build. The two-question audit is from Salubrious Snail's dead-draw video (YouTube `zAtfawtYEw4`). Related: [EDHREC Marvel read](https://drwu-htmls.vercel.app/salubrioussnail-marvel-edhrec), [Doom dead-draws audit](https://drwu-htmls.vercel.app/salubrioussnail-doom-deaddraws), [Loki deck tech](https://drwu-htmls.vercel.app/loki-deceiver-deck-tech), [Doom deck tech](https://drwu-htmls.vercel.app/doom-prevails-deck-tech).*
