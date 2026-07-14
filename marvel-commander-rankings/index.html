@@ -351,6 +351,7 @@ body.kids .grown{display:none}
 .edh-both{list-style:none;margin:10px 0;padding:0;display:grid;gap:7px}
 .edh-both li{font-family:'Inter',sans-serif;font-size:.9rem;color:var(--ink2);line-height:1.4;padding-left:11px;border-left:3px solid var(--line)}
 .edh-both .edh-deck{display:block;font-weight:800;color:var(--teal-d);font-size:.72rem;text-transform:uppercase;letter-spacing:.05em;margin-bottom:1px}
+.edh-alt{font-size:.62rem;font-weight:800;text-transform:uppercase;letter-spacing:.04em;color:#fff;background:var(--mustard-d);border-radius:4px;padding:0 4px;vertical-align:middle}
 .deck:focus-visible,.acard:focus-visible,.tchip:focus-visible,.buyer-card:focus-visible,#modal .close:focus-visible{outline:3px solid var(--teal);outline-offset:2px;border-radius:6px}
 .r0-est{font-size:.82rem;color:var(--muted);margin:2px 0 8px;line-height:1.4}
 #cheapest{max-width:1000px;margin:40px auto 0;padding:0 20px}
@@ -455,15 +456,8 @@ body.kids .grown{display:none}
       <p>Where the numbers come from: each read is an editorial judgment from the printed cards and the published upgrade guides, not a tally from recorded games. Read the one-decimal scores as a considered ordering, so a gap of a tenth means we rate two decks close, not that we counted wins. <b>Fully upgraded</b> means the deck after the full recommended swap package on this page (the same cards the cost section prices), not a money-no-object build.</p>
     </details>
     <details class="factcheck">
-      <summary>EDHREC popularity <span class="foldsub">captured 13 Jul 2026</span></summary>
-      <p>Deck counts below were captured from EDHREC on 13 July 2026, not read live on load, so treat them as a dated snapshot that measures adoption rather than strength. Every precon ships with more than one legendary commander, so both are listed here, and the Fantastic Four, which ships with four, lists all four:</p>
-      <ul class="edh-both">
-        <li><span class="edh-deck">Doom Prevails</span> Doctor Doom, King of Latveria <b>4,930</b> · Loki, the Deceiver <b>1,263</b></li>
-        <li><span class="edh-deck">The Fantastic Four</span> Mister Fantastic <b>1,085</b> · The Thing <b>727</b> · Invisible Woman <b>517</b> · Human Torch <b>367</b></li>
-        <li><span class="edh-deck">Avengers Assemble</span> Captain America, Team Leader <b>2,456</b> · Director Nick Fury <b>292</b></li>
-        <li><span class="edh-deck">Wakanda Forever</span> T'Challa, the Black Panther <b>2,112</b> · Shuri, the Black Panther <b>117</b></li>
-      </ul>
-      <p>Doom is the most-built lead of the four, which tells you he is the most adopted, not that he leads on out-of-box strength. Two places our strict ordering trades against raw popularity: <b>Captain America is built far more than Director Nick Fury</b> (2,456 to 292), yet Fury is the configuration that makes the unchanged Avengers list strongest, so the most-played face is not the strongest stock commander. And <b>the Fantastic Four's leads are the least built of the four decks</b>, which fits its profile as the highest ceiling but the weakest and hardest deck to pilot straight out of the box. We draw the cut-and-add lists from the Draftsim and Gathering Games upgrade guides, so those guides are our source for swaps, not for this four-deck ordering, which is our own read. Popularity is a separate signal, shown here for transparency.</p>
+      <summary>EDHREC popularity <span class="foldsub">captured 14 Jul 2026</span></summary>
+      <div id="edhrecbody"></div>
     </details>
     </div>
 
@@ -836,7 +830,7 @@ const DECKS = [
     id:"ff", name:"The Fantastic Four", ci:["U","R","G","W"], tag:"Four-color spellslinger · noncreature-spell payoffs",
     rankColor:"var(--rank4)",
     scores:{power:6.5, ceiling:8.6, fun:8.0, ease:5.0, politics:6.5},
-    edge:"The highest upgrade ceiling of the four, with four legal commanders to build around.",
+    edge:"The highest upgrade ceiling of the four, with four face commanders to build around (and Crystal and Power Pack also legal in-box).",
     weak:"Four colours make it the least forgiving deck to cast on curve, the lowest Ease in the set.",
     thesis:"The highest ceiling in the set and the only four-color deck, but the weakest of the four before you upgrade, since the unchanged list divides its support among four commanders and several mechanical directions. Pick your favorite of Marvel's First Family as commander. Every face rewards you for casting a noncreature spell each turn, so it upgrades straight into a genuine spellslinger machine. The four-color mana is the tax you pay.",
     commanders:[
@@ -935,6 +929,32 @@ const EDHREC_POP = {
   wakanda:  [{cmdr:"T'Challa, the Black Panther", n:2112}, {cmdr:"Shuri, the Black Panther", n:117}]
 };
 const EDHREC_ASOF = "13 July 2026";
+/* Every LEGAL in-box commander per deck (full colour identity, in the precon 99), EDHREC deck counts captured 14 July 2026. role: face/second = advertised, alt = other legal in-box. Sorted by count. */
+const EDHREC_ASOF2 = "14 July 2026";
+const EDHREC_ALL = {
+  doom:     [["Doctor Doom, King of Latveria",5046,"face"],["Loki, the Deceiver",1289,"second"]],
+  ff:       [["Crystal, Inhuman Princess",1921,"alt"],["Mister Fantastic",1102,"face"],["The Thing",737,"face"],["Invisible Woman",526,"face"],["Human Torch",376,"face"],["Power Pack",99,"alt"]],
+  avengers: [["Captain America, Team Leader",2526,"face"],["Director Nick Fury",296,"second"]],
+  wakanda:  [["T'Challa, the Black Panther",2156,"face"],["Bast, Panther Goddess",298,"alt"],["Okoye, Mighty and Adored",146,"alt"],["Shuri, the Black Panther",119,"second"],["Storm, Queen of Wakanda",98,"alt"],["T'Chaka, Venerable King",3,"alt"]]
+};
+/* Full-identity but set-only (outside the precon 99), so they need a rebuild-adjacent list, not the unchanged deck. */
+const EDHREC_SETONLY = "The Fantastic Four, Ms. Marvel, and She-Hulk";
+function renderEdhrec(){
+  const host=document.getElementById('edhrecbody'); if(!host) return;
+  const order=["doom","ff","avengers","wakanda"];
+  const intro = allCmdrs
+    ? `Every legal in-box commander for each deck, meaning every legend with the deck's full colour identity that sits in the unchanged 99. Counts captured from EDHREC on ${EDHREC_ASOF2}, a dated snapshot of adoption, not strength.`
+    : `Each deck's advertised face and secondary commanders. Counts captured from EDHREC on ${EDHREC_ASOF2}. Turn on <b>All alternate commanders</b> to include every legal in-box commander (Crystal, Power Pack, Storm, Bast, Okoye, T'Chaka).`;
+  const rows = order.map(id=>{
+    const list = EDHREC_ALL[id].filter(r=> allCmdrs ? true : (r[2]==="face"||r[2]==="second"));
+    const cells = list.map(r=>`${r[0]} <b>${r[1].toLocaleString()}</b>${r[2]==="alt"?` <span class="edh-alt">also legal</span>`:""}`).join(" · ");
+    return `<li><span class="edh-deck">${byId[id].name}</span> ${cells}</li>`;
+  }).join("");
+  const tail = allCmdrs
+    ? `<b>Crystal, Inhuman Princess (1,921)</b> is the most-built Fantastic Four commander, above every advertised face, on a full four-colour identity earned through the mana symbols in her activated ability. Three more full-identity legends exist only as set singles outside the precon 99 (${EDHREC_SETONLY}), so they need a rebuilt deck rather than the unchanged list. Popularity is a separate signal from our strict ordering, shown here for transparency.`
+    : `Doom is the most-built lead. Note that the strict ordering trades against raw popularity in two places: Director Nick Fury (296) is far less built than Captain America (2,526), and he still makes the unchanged Avengers list strongest, and Crystal (1,921), a legal Fantastic Four commander shown when the button is on, outbuilds every advertised Fantastic Four face.`;
+  host.innerHTML = `<p>${intro}</p><ul class="edh-both">${rows}</ul><p>${tail}</p>`;
+}
 /* Pre/post upgrade ranking: pre = out-of-box power, post = fully-upgraded ceiling. */
 function rankMapBy(metric){ const ord=[...DECKS].sort((a,b)=>b.scores[metric]-a.scores[metric]); const m={}; ord.forEach((d,i)=>m[d.id]=i+1); return m; }
 
@@ -1240,6 +1260,7 @@ function toggleAllCmdrs(){
   if(viewMode==='cover') renderCover();
   if(viewMode==='archive') renderArchive();
   renderCheapest();
+  renderEdhrec();
   if(openDeckId) openDeck(openDeckId);
 }
 function syncAllCmdrsBtn(){
@@ -1432,6 +1453,7 @@ syncAllCmdrsBtn();
 render();
 renderBonus();
 renderCheapest();
+renderEdhrec();
 setView("archive");
 /* card-name hover preview */
 (function(){
