@@ -18,6 +18,14 @@ The words "noncreature spell" sit on almost every reward, so it looks like one t
 
 Valeria makes both easy, dropping the cost of every noncreature spell and drawing you a card off your first cast each turn. She reduces friction and refills the card she prompts you to spend, and she cannot make a spell from nothing, so an empty hand still stalls the plan.
 
+## Three ways to build him
+
+Mister Fantastic supports three real directions, and this guide follows the first. Decide which you want before you cut a card.
+
+- **Value midrange (this list).** Cheap noncreature spells, the spellcast payoffs, and the Fantastic Four bodies, grinding cards and Crystal damage. The most forgiving path, and the one every section below assumes.
+- **Trigger-copy combo.** Builds around the copy ability with untap effects and high-value triggers, pushing toward a burst or a near-loop. Higher ceiling, more fragile, wants a stronger table.
+- **Token and creature value.** Uses the copy on creature-making and enter triggers, playing wider and flatter. Fun and resilient, lower on the spellslinger reward.
+
 ## The payoffs
 
 These are the noncreature-spell payoffs the precon leans on. One note on the numbers first: these Marvel cards were printed with the commander, so EDHREC scores them against the 790 decks recent enough to run them, out of 1,085 indexed decks in total. A card in 626 lists reads as 79 percent.
@@ -30,6 +38,16 @@ These are the noncreature-spell payoffs the precon leans on. One note on the num
 ## The multiplier subtheme
 
 Mister Fantastic's {R}{G}{W}{U} plus tap ability copies a target triggered ability you control twice. Point it at Franklin's combat discover and one discover becomes three (original plus two copies). Add Annie Joins Up, which fires every triggered ability of your legendary creatures an extra time, and it climbs: Franklin triggers twice, you copy one of those twice, and you resolve **four** discovers off a single noncreature spell. The cost is real, all four colors and an untapped commander, so treat it as a payoff turn you set up. Cosmic Crucible copies the spell itself once a turn, a separate lever, so a strong spell can be Crucible-copied and then have its payoff triggers copied by the commander in the same turn.
+
+## How Mister Fantastic wins
+
+Read the copy ability precisely, because it matters mid-board. Mister Fantastic copies a target triggered ability you control, twice. He does not copy a spell, an activated ability, or a whole card. Cosmic Crucible is the piece that copies the spell itself, so keep the two apart when a turn gets busy.
+
+Three lines close the game. First, Crystal as a burst clock, since every noncreature spell hits each opponent for its color count, and a chain of spells in one turn stacks those pings toward lethal. Second, a Franklin turn, where a copied discover casts several free spells that each ping with Crystal and draw with Whirlwind of Thought, one turn that buries a table on cards and life at once. Third, the plain route, the Fantastic Four bodies swinging while opponents run low on answers.
+
+Be honest about the ceiling. The copy ability taps Mister Fantastic, so without an untapper you copy one trigger per turn, which makes this a strong burst deck rather than a hard combo. A casual table feels it as a big value turn. A stronger table reaches the burst by holding the copy for a Franklin discover with Annie Joins Up online, the four-discover turn, then chaining the free spells into Crystal damage. Add untap effects and the copy repeats, so the ceiling rises with your pod.
+
+One copy decision comes up most turns. With Mister Fantastic untapped and both a Franklin discover and a Crystal ping waiting, copy the discover, since the card and board swing dwarfs a few points of damage. Copy the ping only when those points are lethal.
 
 ## Protecting the engine
 
@@ -120,6 +138,17 @@ The audit found the hole: eleven noncreature spells cost five or more, and only 
 | Promise of Loyalty | Arcane Denial | Two-mana counter that replaces itself, so it never sits dead. |
 
 Keep the two remaining board wipes (Cleansing Nova, Tragic Arrogance); the flexibility floor still needs mass removal. This tier trades own-turn-only top end for cheap plays that keep the every-turn payoffs paying.
+
+## Keeping a hand
+
+Judge an opener by two questions: can it make four colors, and can it cast a noncreature spell most turns. Keep these.
+
+- **Ramp plus a draw piece.** A rock or fetch with a card-draw spell or Valeria. It fixes colors and refills, the strongest keep.
+- **Two or three cheap noncreature spells with lands.** Enough fuel to arm the trigger every turn while you find payoffs.
+- **A payoff plus protection.** Valeria or Crystal with Lightning Greaves or a cheap answer, so the engine survives the first removal.
+- **Ship a hand of only expensive payoffs.** Five and seven-drops with no early plays cannot arm the trigger and sit dead, the classic mulligan.
+
+Rank any further upgrades by purpose. Essential upgrades raise consistency (the Talismans and cheap instants above). Power upgrades raise the ceiling (untap effects and high-value triggers for the combo line). Theme upgrades add Fantastic Four flavor without changing the plan. Fix consistency first, then choose power or theme by the table you play.
 
 ## An opening sequence
 
