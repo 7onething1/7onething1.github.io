@@ -72,9 +72,18 @@ Run Snail's whole-mana-base method on this precon and you get three exact swaps,
 
 The core fix is color access, and the two Talismans do that job. One caveat: both Talismans make blue, red, and white but no green, and green powers the early ramp (Farseek, Three Visits, Cultivate), so green still comes from the green lands and Chromatic Lantern. Full card-by-card version, with colored-pip counts: the [Fantastic Four manabase page](https://drwu-htmls.vercel.app/salubrioussnail-ff-manabase).
 
+| Color sources | Before | After two Talismans |
+|---|---|---|
+| White | 16 | 17 |
+| Blue | 16 | 17 |
+| Red | 14 | 16 |
+| Green | 17 | 17 |
+
+Counts run across the 37 lands plus Arcane Signet and Chromatic Lantern (from the manabase page). Talisman of Creativity adds blue and red, Talisman of Conviction adds white and red. Red, the shortest color at fourteen, gains the most, and green, already the deepest at seventeen, holds steady. The swaps repair the color the deck runs short on rather than the one that already looks deep.
+
 ## The deck by the numbers
 
-Here is the whole hundred-card list with Snail's three changes above already folded in, so it embodies the method rather than describing it. It is the four-color Fantastic Four precon led by Mister Fantastic, Invisible Woman, Human Torch, and The Thing, sorted into packages. Every card belongs to one primary category and is counted once, so the rows total exactly 100. A parenthetical (like Cosmic Crucible's) tells you the card also fills a second role, and it does not add to the count. Names come from the official Wizards decklist and the Archidekt import, with the three swaps applied.
+Here is the whole hundred-card list with Snail's three changes above already folded in, so it embodies the method rather than describing it. It is the four-color Fantastic Four precon, which ships with four face commanders (Mister Fantastic, Invisible Woman, Human Torch, and The Thing), and this build picks Mister Fantastic to lead. The list is sorted into packages. Every card belongs to one primary category and is counted once, so the rows total exactly 100. A parenthetical (like Cosmic Crucible's) tells you the card also fills a second role, and it does not add to the count. Names come from the official Wizards decklist and the Archidekt import, with the three swaps applied.
 
 | Package | Count | Key cards |
 |---|---|---|
@@ -85,11 +94,11 @@ Here is the whole hundred-card list with Snail's three changes above already fol
 | Noncreature fuel and tempo | 9 | Galvanic Iteration, Expressive Iteration, Seize the Day, Quantum Misalignment, Flame On!, West Coast Expansion, Promise of Loyalty (also a creature reset), Genesis Ultimatum, Taunt from the Rampart |
 | Card draw | 4 | Recurring Insight, First Family, Cut a Deal, Deep Analysis |
 | Protection | 3 | Invisible Force Field, Clever Concealment, Lightning Greaves |
-| FF family bodies and bombs | 15 | Invisible Woman, Human Torch, The Thing, Galactus, Silver Surfer, Namor, Black Bolt, Medusa, Mister Fantastic Reed Richards, Lockjaw, Alicia Masters, Dragon Man, H.E.R.B.I.E., Power Pack, Council of Reeds |
+| FF family bodies and bombs | 15 | Invisible Woman, Human Torch, The Thing, Galactus, Silver Surfer, Namor, Black Bolt, Medusa, Mister Fantastic, Reed Richards, Lockjaw, Alicia Masters, Dragon Man, H.E.R.B.I.E., Power Pack, Council of Reeds |
 | Utility and flex | 4 | The Fantasticar, Unstable Molecule Suit, Negative Zone Portal, Path of Discovery |
 | **Total** | **100** | 1 commander plus 99, four-color WURG |
 
-The composition, counted straight from that upgraded list: 37 lands, 19 creatures (two of them also artifacts), 23 sorceries, 6 instants, 6 enchantments, and 9 noncreature artifacts. That puts **44 noncreature spells** in the deck, so the trigger fires nearly every turn. By printed mana value the peak shifts to two, but read that with care: West Coast Expansion counts as two only because its cost is X plus two blue: two mana draws zero, three draws one, four draws two, seven reaches the free Hero. So it is a late-game mana sink rather than a cheap play. The two Talismans are the real early gain, and the functional early curve barely moves.
+The composition, counted straight from that upgraded list: 37 lands, 19 creatures (two of them also artifacts), 23 sorceries, 6 instants, 6 enchantments, and 9 noncreature artifacts. That puts **44 noncreature spells** in the deck, so your own-turn trigger is dependable, and the small instant package keeps opposing-turn casts limited. By printed mana value the peak shifts to two, but read that with care: West Coast Expansion counts as two only because its cost is X plus two blue: two mana draws zero, three draws one, four draws two, seven reaches the free Hero. So it is a late-game mana sink rather than a cheap play. The two Talismans are the real early gain, and the functional early curve barely moves.
 
 Nonland mana curve (three Snail swaps applied):
 

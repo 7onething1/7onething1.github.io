@@ -73,6 +73,9 @@
   .ddlegend{font-size:.82rem;color:#5a4f38;margin:4px 0 10px}
   .ddlegend .vd{margin-right:4px}
   @media(max-width:640px){.dda,.dda tbody,.dda tr,.dda td,.dda th{display:block}.dda th{display:none}.dda td{border:none;border-bottom:1px solid var(--line);padding:4px 0}.dda tr{border:1px solid var(--line);border-radius:8px;padding:8px 10px;margin-bottom:10px;display:block}.dda td:before{content:attr(data-l);display:block;font-size:.64rem;font-weight:800;text-transform:uppercase;letter-spacing:.04em;color:var(--teal)}}
+  .toc{max-width:760px;margin:6px auto 0;padding:8px 22px;text-align:center;font-size:.82rem}
+  .toc a{display:inline-block;color:var(--teal);font-weight:700;text-decoration:none;background:#fbf5e6;border:1px solid var(--line);border-radius:20px;padding:3px 11px;margin:3px}
+  @media(max-width:640px){.pkg{display:block;overflow-x:auto;font-size:.88rem}}
 </style></head>
 <body>
 <header>
@@ -81,6 +84,7 @@
   <div class="sub kid-only">Mister Fantastic gives you a card at combat if you cast a noncreature spell first. The deck makes sure you always have one, then doubles the rewards.</div>
   <div class="nav"><a href="/salubrioussnail-marvel-edhrec/">EDHREC read</a> &middot; <a href="/salubrioussnail-ff-manabase/">the manabase read</a> &middot; <a href="/loki-deceiver-deck-tech/">Loki deck tech</a> &middot; <a href="/marvel-commander-rankings/">Marvel rankings</a></div>
 </header>
+<nav class="toc" aria-label="On this page"><a href="#plan">Game plan</a><a href="#rules">Rules</a><a href="#numbers">Deck numbers</a><a href="#audit">Audit</a><a href="#upgrades">Upgrades</a><a href="#hand">Opening hand</a></nav>
 <p class="byline">This Mister Fantastic deck tech applies deckbuilding principles summarized from Salubrious Snail's published videos and cited below, in our own wording. Mister Fantastic's inclusion figures come from his EDHREC commander page; card text is from Scryfall. Not authored or endorsed by Salubrious Snail or EDHREC.</p>
 <main>
 <article>
@@ -88,7 +92,7 @@
 <p class="lead grown">Mister Fantastic draws you a card at the beginning of combat on your turn, and only if you have cast a noncreature spell that turn. Read the rest of the deck and most of the good cards ask for a noncreature spell too, but they ask on different clocks. So the plan has two halves. Cast a cheap noncreature spell before combat on your own turn to feed the commander, and hold a few for opponents' turns to feed the pieces that reward every cast. The back half of the deck is about making that one spell do more, through extra colors, a copy, and doubled triggers.</p>
 <p class="lead kid-only">Mister Fantastic gives you a card at combat, as long as you cast a noncreature spell first on your turn. Many other cards want a noncreature spell too, some on your turn and some on everyone's. So the deck is simple to steer: keep cheap spells in hand and cast them, and everything rewards you.</p>
 
-<h2>Three clocks, one beat</h2>
+<h2 id="plan">Three clocks, one beat</h2>
 <figure class="cardfig"><img src="https://cards.scryfall.io/normal/front/1/7/17ef068b-61fc-443d-97b0-1e41f2622425.jpg?1782681858" alt="Mister Fantastic"><figcaption>Mister Fantastic</figcaption></figure>
 <p class="grown">The word "noncreature spell" is on almost every reward, so it looks like one trigger. It is really three schedules, and knowing which is which tells you when to hold a spell and when to fire it.</p>
 <div class="swapline grown"><b>Your combat, once.</b> Mister Fantastic and Franklin Richards both check at the beginning of combat on your turn, and only if you have already cast a noncreature spell that turn. These want the spell down in your first main phase, before you move to combat.</div>
@@ -118,7 +122,7 @@
 <p class="grown">Cosmic Crucible copies the spell itself once a turn, a separate lever from the trigger copy, so a strong noncreature spell can be copied by the Crucible and then have its payoff triggers copied by the commander in the same turn. This is the layer that separates a plain spellslinger build from a strong one, casting one noncreature spell and then multiplying the rewards it sets off. One rule to hold: the Crucible copy is put on the stack, not cast, so the copy makes no cast triggers of its own, no Crystal, no Valeria, no Whirlwind. Point Mister Fantastic's copy at one of the original cast's triggers rather than at the Crucible trigger.</p>
 <p class="kid-only">Some cards copy your rewards. Mister Fantastic's power copies a trigger twice, so one Franklin discover becomes three. Add Annie Joins Up and it becomes four. Cosmic Crucible copies the spell itself once a turn. One spell can pay you many times.</p>
 
-<h2>How Mister Fantastic wins</h2>
+<h2 id="rules">How Mister Fantastic wins</h2>
 <p class="grown">Read the copy ability precisely, because it matters mid-board. Mister Fantastic copies a target triggered ability you control, twice. He does not copy a spell, an activated ability, or a whole card. Cosmic Crucible is the piece that copies the spell itself, so keep the two apart when a turn gets busy.</p>
 <p class="grown">Three lines close the game. First, Crystal as a burst clock, since every noncreature spell hits each opponent for its color count, and a chain of spells in one turn stacks those pings toward lethal. Second, a Franklin turn, where a copied discover casts several free spells, and each noncreature one among them pings with Crystal and draws with Whirlwind of Thought, and any creatures just enter the board, one turn that buries a table on cards and life at once. Third, the plain route, the Fantastic Four bodies swinging while opponents run low on answers.</p>
 <p class="grown">Be honest about the ceiling. The copy ability taps Mister Fantastic, so without an untapper you copy one trigger per turn, which makes this a strong burst deck rather than a hard combo. A casual table feels it as a big value turn. A stronger table reaches the burst by holding the copy for a Franklin discover with Annie Joins Up online, the four-discover turn, then chaining the free noncreature spells into Crystal damage, since only noncreature discoveries ping. Add an untap effect and the copy repeats, though each repeat costs another R, G, W, and U, so the ceiling rises with your pod and your mana.</p>
@@ -133,7 +137,7 @@
 <p class="grown">This is the only four-color deck in the box, so color access is the tax, and I wrote the whole manabase read on that already. The short version the numbers confirm: Crystal taps for R, G, W, or U, and Cosmic Crucible adds four mana in any colors at the beginning of your first main phase, so both fix while doing something else on top. Sequence around that Crucible mana, since it empties when the main phase ends, spend it on the noncreature spell that arms your combat rather than saving it for a combat activation it cannot pay for. The most-played column is green ramp-fetch, Farseek and Three Visits, that smooths the early turns.</p>
 <p class="kid-only">The deck uses four colors, so making the right mana is the hard part. Crystal and Cosmic Crucible both help fix colors. Crucible's four mana comes at your main phase and is gone by combat, so spend it on your spell right then. Green ramp cards smooth the rest. My manabase page covers this in full.</p>
 
-<h2><span class="mk mk-snail">Snail principle applied</span>Three applied Snail changes</h2>
+<h2 id="upgrades"><span class="mk mk-snail">Snail principle applied</span>Three applied Snail changes</h2>
 <p class="grown">That mana read is not just commentary. Run Snail's whole-mana-base method on this precon and you get three exact swaps, so the principle changes the deck right here rather than on a page you have to go find. Two are color fixing, marked a strong fit, and the third works the draw-and-mana-sink side, marked a partial fit. His overall principle fit for the set is 6.5 out of 10. The hundred-card build below already has these three folded in, so the list embodies the method rather than describing it.</p>
 <div class="swaprow grown">
   <div class="swaphd"><span class="out">Willie Lumpkin, Postman</span> &rarr; <span class="in">Talisman of Creativity</span> <span class="fit fit-strong">Strong fit</span></div>
@@ -151,10 +155,19 @@
   <div class="ln"><b>Principle.</b> This is the draw-access and mana-sink leg of the method. It turns surplus mana into cards without adding a color source, so it earns a partial fit.</div>
 </div>
 <p class="grown">The core fix is color access, the first thing a four-color deck feels when its mana stumbles, and the two Talismans do that job. One honest caveat: both Talismans make blue, red, and white but no green, and green is what powers the early ramp, Farseek, Three Visits, and Cultivate. So they cover the blue-white-red asks the commander at {2}{U} and Invisible Woman at {2}{W} make, and green still comes from the green lands and Chromatic Lantern. The full card-by-card version, with the colored-pip counts behind these picks, lives on the <a href="/salubrioussnail-ff-manabase/">Fantastic Four manabase page</a>.</p>
+<table class="pkg">
+<tr><th>Color sources</th><th>Before</th><th>After two Talismans</th></tr>
+<tr><td>White</td><td>16</td><td>17</td></tr>
+<tr><td>Blue</td><td>16</td><td>17</td></tr>
+<tr><td>Red</td><td>14</td><td>16</td></tr>
+<tr><td>Green</td><td>17</td><td>17</td></tr>
+</table>
+<p class="grown">Counts run across the 37 lands plus Arcane Signet and Chromatic Lantern, from the manabase page. Talisman of Creativity adds blue and red, Talisman of Conviction adds white and red. That is why red, the deck's shortest color at fourteen, gains the most, and green, already the deepest at seventeen, holds steady. The swaps repair the color the deck runs short on rather than the one that already looks deep.</p>
+<p class="kid-only">The two Talismans add mana sources. Red was the weakest color, so it gains the most (14 to 16). Green was already the strongest, so it stays the same. The swaps fix the color that runs out most.</p>
 <p class="kid-only">Snail's mana method points at three real swaps. Take out Willie Lumpkin and Mirage Mirror, put in two Talismans that make two colors each, so your four colors come up on time. Take out Into the Time Vortex, a random spell, and put in West Coast Expansion, which draws you cards. The list below already has all three made.</p>
 
-<h2>The deck by the numbers</h2>
-<p class="grown">Here is the whole hundred-card list with Snail's three changes above already folded in, so it embodies the method rather than describing it. It is the four-color Fantastic Four precon led by Mister Fantastic, Invisible Woman, Human Torch, and The Thing, sorted into packages. Every card belongs to one primary category and is counted once, so the rows total exactly one hundred. A parenthetical, like Cosmic Crucible's, tells you the card also fills a second role, and it does not add to the count. Names come from the official Wizards decklist and the Archidekt import, with the three swaps applied.</p>
+<h2 id="numbers">The deck by the numbers</h2>
+<p class="grown">Here is the whole hundred-card list with Snail's three changes above already folded in, so it embodies the method rather than describing it. It is the four-color Fantastic Four precon, which ships with four face commanders (Mister Fantastic, Invisible Woman, Human Torch, and The Thing), and this build picks Mister Fantastic to lead. The list is sorted into packages. Every card belongs to one primary category and is counted once, so the rows total exactly one hundred. A parenthetical, like Cosmic Crucible's, tells you the card also fills a second role, and it does not add to the count. Names come from the official Wizards decklist and the Archidekt import, with the three swaps applied.</p>
 <table class="pkg">
 <tr><th>Package</th><th>Count</th><th>Key cards</th></tr>
 <tr><td>Lands</td><td>37</td><td>Command Tower, Exotic Orchard, the dual-land cycle, Path of Ancestry, Fabled Passage, Evolving Wilds, Baxter Building</td></tr>
@@ -164,11 +177,11 @@
 <tr><td>Noncreature fuel and tempo</td><td>9</td><td>Galvanic Iteration, Expressive Iteration, Seize the Day, Quantum Misalignment, Flame On!, West Coast Expansion, Promise of Loyalty (also a creature reset), Genesis Ultimatum, Taunt from the Rampart</td></tr>
 <tr><td>Card draw</td><td>4</td><td>Recurring Insight, First Family, Cut a Deal, Deep Analysis</td></tr>
 <tr><td>Protection</td><td>3</td><td>Invisible Force Field, Clever Concealment, Lightning Greaves</td></tr>
-<tr><td>FF family bodies and bombs</td><td>15</td><td>Invisible Woman, Human Torch, The Thing, Galactus, Silver Surfer, Namor, Black Bolt, Medusa, Mister Fantastic Reed Richards, Lockjaw, Alicia Masters, Dragon Man, H.E.R.B.I.E., Power Pack, Council of Reeds</td></tr>
+<tr><td>FF family bodies and bombs</td><td>15</td><td>Invisible Woman, Human Torch, The Thing, Galactus, Silver Surfer, Namor, Black Bolt, Medusa, Mister Fantastic, Reed Richards, Lockjaw, Alicia Masters, Dragon Man, H.E.R.B.I.E., Power Pack, Council of Reeds</td></tr>
 <tr><td>Utility and flex</td><td>4</td><td>The Fantasticar, Unstable Molecule Suit, Negative Zone Portal, Path of Discovery</td></tr>
 <tr><td>Total</td><td>100</td><td>1 commander plus 99, four-color WURG</td></tr>
 </table>
-<p class="grown">The composition, counted straight from that upgraded list: 37 lands, 19 creatures (two of them also artifacts), 23 sorceries, 6 instants, 6 enchantments, and 9 noncreature artifacts. That puts 44 noncreature spells in the deck, so the trigger fires nearly every turn. By printed mana value the peak shifts to two, but read that with care. West Coast Expansion counts as two only because its cost is X plus two blue: at two mana it draws zero, three mana draws one, four mana draws two, and seven mana reaches the free Hero clause. So it is a late-game mana sink rather than a cheap play. The two Talismans are the real early gain here, and the functional early curve barely moves.</p>
+<p class="grown">The composition, counted straight from that upgraded list: 37 lands, 19 creatures (two of them also artifacts), 23 sorceries, 6 instants, 6 enchantments, and 9 noncreature artifacts. That puts 44 noncreature spells in the deck, so your own-turn trigger is dependable, and the small instant package keeps opposing-turn casts limited. By printed mana value the peak shifts to two, but read that with care. West Coast Expansion counts as two only because its cost is X plus two blue: at two mana it draws zero, three mana draws one, four mana draws two, and seven mana reaches the free Hero clause. So it is a late-game mana sink rather than a cheap play. The two Talismans are the real early gain here, and the functional early curve barely moves.</p>
 <div class="curve grown" aria-label="Mana curve of nonland cards, three Snail swaps applied">
   <div class="bar" role="img" aria-label="1 mana: 2 cards"><span class="cv">2</span><div class="fill" style="height:13%"></div><span class="cn">1</span></div>
   <div class="bar" role="img" aria-label="2 mana: 16 cards"><span class="cv">16</span><div class="fill" style="height:100%"></div><span class="cn">2</span></div>
@@ -179,9 +192,9 @@
 </div>
 <p class="grown" style="font-size:.9rem">Nonland mana curve by value: one mana has 2 cards, two mana has 16, three mana has 15, four mana has 14, five mana has 9, and six or more has 7. Sixty-three nonland cards in all.</p>
 <p class="grown">The real speed gain is the two color rocks landing a turn ahead of the commander. West Coast Expansion does not lower your operating cost, it turns spare mana into cards later. The genuine next cuts are the five and seven-mana sorceries for one and two-mana instants you can fire on any turn, which is the count most spellslinger builders still run short on, and the section below names those trades.</p>
-<p class="kid-only">The list is 100 cards with Snail's three swaps already in: 37 lands, ramp, payoffs, removal, card draw, protection, and the Fantastic Four heroes. It has 44 noncreature spells, so the trigger works nearly every turn, and the two mana rocks make your colors come up sooner.</p>
+<p class="kid-only">The list is 100 cards with Snail's three swaps already in: 37 lands, ramp, payoffs, removal, card draw, protection, and the Fantastic Four heroes. It has 44 noncreature spells, so your own-turn trigger is dependable, and the two mana rocks make your colors come up sooner.</p>
 
-<h2><span class="mk mk-page">Dead Draw Audit</span>Does each payoff fire often enough?</h2>
+<h2 id="audit"><span class="mk mk-page">Dead Draw Audit</span>Does each payoff fire often enough?</h2>
 <p class="grown">Snail's real question goes past what a card does to how often it does it. A five-mana sorcery satisfies the noncreature-spell requirement, and it can still be a dead draw on a turn that needed one cheap spell to arm combat. So each payoff below gets five reads: its <b>job</b>, its <b>secondary</b> use, the <b>support</b> in this list that feeds it, whether it still <b>works with Mister Fantastic gone</b>, and a <b>verdict</b>. Support counts come straight from the 100-card table above, so you can check every one against the table above.</p>
 <p class="ddlegend grown"><b>Verdicts:</b> <span class="vd core">core</span> always pulling weight · <span class="vd supported">supported</span> enough feeders to be reliable · <span class="vd situational">situational</span> real ceiling, thin or table-dependent support · <span class="vd cut">cut</span> support too thin for its cost here.</p>
 <table class="dda grown">
@@ -273,7 +286,7 @@
 <p class="kid-only">The deck has too many big five and seven-mana spells and too few cheap ones. Swap five of the big spells for cheap instants like Swords to Plowshares, Swan Song, and Heroic Intervention. Now you always have something to cast on other players' turns, which keeps Valeria and Crystal working.</p>
 <p class="grown">Rank any further upgrades by purpose. Essential upgrades raise consistency, and the two sections above already cover them, the Talismans and the cheap instants. Power upgrades raise the ceiling, untap effects for the copy ability and a few high-value triggers for the combo line. Theme upgrades add Fantastic Four flavor without changing the plan, more family bodies and their support. Fix consistency first, then choose power or theme by the table you play.</p>
 
-<h2>Keeping a hand</h2>
+<h2 id="hand">Keeping a hand</h2>
 <p class="grown">Judge an opener by two questions: can it make four colors, and can it cast a noncreature spell most turns. Keep these.</p>
 <div class="swapline grown"><b>Ramp plus a draw piece.</b> A rock or fetch with a card-draw spell or Valeria. It fixes colors and refills, the strongest keep.</div>
 <div class="swapline grown"><b>Two or three cheap noncreature spells with lands.</b> Enough fuel to arm the trigger every turn while you find payoffs.</div>
@@ -314,11 +327,16 @@
   <p><b>Sources.</b> Card text via <a href="https://scryfall.com">Scryfall</a> (Marvel Super Heroes Commander): Mister Fantastic, Valeria Richards, Cosmic Crucible, Crystal, Franklin Richards, Invisible Force Field, Clever Concealment, Annie Joins Up, Whirlwind of Thought, Baxter Building, Invisible Woman, The Thing, Human Torch, Farseek, Three Visits. Decklist baseline is the official <a href="https://magic.wizards.com/en/news/announcements/marvel-super-heroes-commander-decklists">Wizards Fantastic Four decklist</a>, with per-card mana values, types, and the mana curve computed from the <a href="https://archidekt.com/decks/23366791/">Archidekt import</a>. The stock precon is 37 lands, 20 creatures with two also artifacts, 23 sorceries, 8 noncreature artifacts, 6 instants, 6 enchantments (43 noncreature spells). The deck-by-the-numbers table applies Snail's three swaps (Willie Lumpkin, Mirage Mirror, and Into the Time Vortex out; Talisman of Creativity, Talisman of Conviction, and West Coast Expansion in), which makes it 19 creatures and 11 artifacts, 44 noncreature spells, with the curve peak moved to two. Inclusion figures from the <a href="https://edhrec.com/commanders/mister-fantastic">EDHREC Mister Fantastic commander page</a> (1,102 indexed decks, re-read 2026-07-14), which measures deck inclusion, not in-game play. New-set cards (Valeria 638, Cosmic Crucible 634, Crystal 609, Franklin 601) are scored against 807 eligible decks; general cards (Clever Concealment 576) against the full 1,102. Related: my <a href="/salubrioussnail-ff-manabase/">Fantastic Four manabase read</a>, the <a href="/salubrioussnail-marvel-edhrec/">EDHREC Marvel read</a>, and Snail's principle corpus at <a href="/salubrioussnail-points/#v-diagnosing-edh-manabase-issues-with-a-new-tool">10 points per video</a>. Applies principles summarized from Salubrious Snail's videos; neither Salubrious Snail nor EDHREC authored or endorsed it.</p>
 </div>
 
-<button id="kidfab" onclick="toggleKid()">Kid Mode</button>
+<button id="kidfab" onclick="toggleKid()" aria-pressed="false" aria-label="Kid Mode: switch to simpler wording of every section">Kid Mode</button>
 <script>
-function toggleKid(){document.body.classList.toggle('kid');
+function applyKid(on){document.body.classList.toggle('kid',on);
   var b=document.getElementById('kidfab');
-  b.textContent=document.body.classList.contains('kid')?'Normal Mode':'Kid Mode';}
+  b.textContent=on?'Normal Mode':'Kid Mode';
+  b.setAttribute('aria-pressed',on?'true':'false');
+  b.setAttribute('aria-label',on?'Kid Mode on: showing simpler wording. Switch back to the full guide.':'Kid Mode: switch to simpler wording of every section');
+  try{localStorage.setItem('mf_kid',on?'1':'0');}catch(e){}}
+function toggleKid(){applyKid(!document.body.classList.contains('kid'));}
+try{if(localStorage.getItem('mf_kid')==='1')applyKid(true);}catch(e){}
 </script>
 </body>
 </html>
