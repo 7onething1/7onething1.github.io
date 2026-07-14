@@ -76,7 +76,7 @@ Highest ceiling in the set and the only four-color deck, and the weakest of the 
 - **Simplest mana, clearest upgrade route:** Wakanda Forever, only two colours, the simplest mana base, and the clearest focused T'Challa upgrade route (the unchanged box also runs monarch, Equipment, and tokens).
 
 ## Upgrade cost, cheapest first (Scryfall cheapest printing, captured 14 July 2026)
-Full recommended upgrade package per deck, add-card cost only, since you already own the cut cards. Singles prices drift, so this is a dated snapshot. The ranked list on the page covers all 163 upgrade cards across every path (full swap lists, alternate commanders, and add-only lists).
+Full recommended upgrade package per deck, add-card cost only, since you already own the cut cards. Singles prices drift, so this is a dated snapshot. The ranked list on the page covers all 198 upgrade cards across every path (full swap lists, alternate commanders, and add-only lists).
 - **Avengers Assemble:** $15.79 (8 cards)
 - **Doom Prevails:** $51.89 (13 cards)
 - **The Fantastic Four:** $59.11 (13 cards)
@@ -92,6 +92,30 @@ A dated snapshot of adoption, not of strength. Every LEGAL in-box commander per 
 - **Wakanda Forever:** T'Challa, the Black Panther 2,156; Bast, Panther Goddess 298; Okoye, Mighty and Adored 146; Shuri, the Black Panther 119; Storm, Queen of Wakanda 98; T'Chaka, Venerable King 3.
 
 That is 16 legal in-box commanders. **Crystal, Inhuman Princess (1,921) is the most-built Fantastic Four commander**, above every advertised face, on a full four-colour identity earned through the mana symbols in her activated ability, and she sits in the unchanged 99. Three more full-identity legends exist only as set singles outside the precon (The Fantastic Four, Ms. Marvel, She-Hulk), so they need a rebuilt deck. Captain America is built far more than Director Nick Fury (2,526 to 296), and Fury is still the configuration that makes the unchanged Avengers list strongest. The upgrade guides (Draftsim, Gathering Games) are the source for the swaps, not for this ordering, which is the page's own read.
+
+## All alternate commanders (grounded configurations)
+
+With **All alternate commanders** on, every legal in-box commander is a selectable, scored configuration. Fifteen of the nineteen now carry a **derived five-read score**, a **priced EDHREC upgrade package**, and a stated **derivation method** shown in each profile. Each score is a derived editorial estimate reasoned from the commander's Scryfall oracle text against its precon baseline, cross-checked against an independent ranking pass, not a measured value. Packages come from each commander's EDHREC high-synergy list (captured 14 July 2026), colour-identity verified and priced from Scryfall cheapest printing.
+
+| Overall | Commander | Deck | Role | Upgrade package |
+|---|---|---|---|---|
+| 7.48 | Doctor Doom, King of Latveria | Doom Prevails | face | $95.31 · 13 cards |
+| 7.42 | Loki, the Deceiver | Doom Prevails | second | $25.68 · 6 cards |
+| 7.41 | Captain America, Team Leader | Avengers Assemble | face | $60.65 · 15 cards |
+| 7.35 | Crystal, Inhuman Princess | The Fantastic Four | alt | $6.78 · 6 cards |
+| 7.29 | Director Nick Fury | Avengers Assemble | second | $14.93 · 6 cards |
+| 7.23 | Mister Fantastic | The Fantastic Four | face | $101.46 · 10 cards |
+| 7.16 | The Thing | The Fantastic Four | face | $76.39 · 6 cards |
+| 7.14 | Human Torch | The Fantastic Four | face | $17.40 · 6 cards |
+| 7.07 | Okoye, Mighty and Adored | Wakanda Forever | alt | $30.51 · 6 cards |
+| 7.05 | Bast, Panther Goddess | Wakanda Forever | alt | $53.22 · 6 cards |
+| 7.01 | Power Pack | The Fantastic Four | alt | $61.92 · 6 cards |
+| 6.98 | Shuri, the Black Panther | Wakanda Forever | second | $21.47 · 6 cards |
+| 6.97 | Invisible Woman | The Fantastic Four | face | $18.26 · 6 cards |
+| 6.71 | T'Challa, the Black Panther | Wakanda Forever | face | $135.33 · 10 cards |
+| 6.59 | Storm, Queen of Wakanda | Wakanda Forever | alt | $14.42 · 6 cards |
+
+Not yet scored: **T'Chaka, Venerable King** (Wakanda Forever, three EDHREC decks, package data too thin to ground) and the three **set-only** legends **The Fantastic Four**, **Ms. Marvel, Elastic Ally**, and **She-Hulk, Attorney-at-Law** (need a rebuilt 99, not the unchanged precon). Each says so on the page rather than showing a guessed number. This replaces the earlier state where these eleven alternates read "Profile research incomplete."
 
 ## Sources
 - Card and set data: [Scryfall, set MSC](https://scryfall.com/sets/msc)

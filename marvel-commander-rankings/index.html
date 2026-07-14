@@ -529,7 +529,7 @@ body.kids .grown{display:none}
 
   <section id="configs" hidden>
     <h2>All 19 commander configurations</h2>
-    <p class="lead grown">With <b>All alternate commanders</b> on, every legal commander plus precon configuration the page recognizes, grouped by box. Supported values are grounded in real data; anything not yet supported reads <b>Profile research incomplete</b> rather than a guessed number. The four advertised faces carry the deck's editorial score; the rest are being brought up to that level one grounded pass at a time.</p>
+    <p class="lead grown">With <b>All alternate commanders</b> on, every legal commander plus precon configuration the page recognizes, grouped by box. Supported values are grounded in real data; anything not yet supported reads <b>Profile research incomplete</b> rather than a guessed number. Fifteen of the nineteen now carry a grounded derived score with a priced EDHREC package and a stated derivation method; only T'Chaka (three EDHREC decks) and the three set-only legends stay honestly labelled rather than scored.</p>
     <div id="configbody"></div>
   </section>
 
@@ -775,7 +775,9 @@ const PRICES = {
   "The Fantastic Four":24.17, "The Master, Multiplied":6.39, "The Ozolith":63.35, "The Reaver Cleaver":15.34, "The Spot's Portal":0.2, "Thornglint Bridge":0.2,
   "Thought Vessel":1.95, "Thousand Moons Smithy":3.1, "Toski, Bearer of Secrets":3.98, "Towering Viewpoint":0.22, "Tree of Tales":1.38, "Unleash Fury":0.41,
   "Verdurous Gearhulk":0.32, "Vivi's Persistence":42.86, "Vorinclex, Monstrous Raider":34.85, "Wave Goodbye":1.76, "West Coast Expansion":0.3, "Wonder":1.79,
-  "World at War":9.43
+  "World at War":9.43,
+  "Curiosity":0.63,"Keen Sense":1.80,"Snake Umbra":0.75,"Tandem Lookout":0.89,"Jeskai Ascendancy":1.33,"Storm-Kiln Artist":1.38,
+  "Adeline, Resplendent Cathar":2.15, "Annie Joins Up":4.26, "Archon of Coronation":0.4, "Baxter Building":0.28, "Call Forth the Tempest":38.11, "Chameleon, Master of Disguise":1.91, "Clever Concealment":5.19, "Council of Reeds":4.09, "Court of Ardenvale":10.08, "Court of Bounty":1.09, "Court of Grace":2.94, "Dispatch":0.26, "Fantastic Elasticity":0.37, "Folk Hero":1.77, "Frantic Search":1.44, "Iron Man, Armored Avenger":4.13, "Jacked Rabbit":3.48, "Mirri, Weatherlight Duelist":5.64, "Nature's Lore":2.08, "Ocelot Pride":40.12, "Prowler, Clawed Thief":0.27, "Quantum Misalignment":4.97, "Regal Behemoth":0.38, "Regal Caracal":0.36, "Scarlet Witch, Chaotic Avenger":2.64, "She-Hulk, Wallbreaker":0.75, "Spark Double":14.28, "Tombstone, Career Criminal":0.45, "Whirlwind of Thought":3.36, "Winter Soldier, Reborn Avenger":0.8,
 };
 const UPGRADE_COST = { doom:51.89, ff:59.11, avengers:15.79, wakanda:74.71 };
 /* "All alternate commanders" mode: when on, each deck's package/cost is the union of every commander path (face + alts). */
@@ -964,15 +966,107 @@ const CMDR_META=[
   ["ms-marvel","Ms. Marvel, Elastic Ally","wakanda","setonly","GW",null],
   ["she-hulk","She-Hulk, Attorney-at-Law","wakanda","setonly","GW",null]
 ];
+/* Fleshed-out grounded profiles for commanders that lacked a package/score. Adds from the commander's EDHREC high-synergy
+   list (captured 14 Jul 2026), cuts from the precon's weakest cards, prices from Scryfall cheapest printing, and a DERIVED
+   editorial score (method stated) built from the precon baseline adjusted for the commander's own card text. */
+const CMDR_PROFILES = {
+  "crystal": {
+    scoreMethod:"derived from the Fantastic Four baseline, adjusted for Crystal's 3-mana all-colour fixing and per-noncreature-spell damage: higher power and ease, lower ceiling and politics than the copy-trigger faces",
+    score:{power:7.0,ceiling:8.1,fun:8.2,ease:6.0,politics:6.0},
+    cuts:["The Fantasticar","Cut a Deal","Nova Flame","Willie Lumpkin, Postman","Mirage Mirror","Into the Time Vortex"],
+    adds:["Curiosity","Snake Umbra","Tandem Lookout","Keen Sense","Jeskai Ascendancy","Storm-Kiln Artist"],
+    plan:[
+      "Crystal costs three mana, taps for R, G, W, or U, and deals damage to each opponent equal to a spell's colour count on every noncreature spell you cast, with no cap per turn. Open with fixing and cheap noncreature spells so she pings the table from turn three.",
+      "Chain cheap noncreature spells once she is down; a four-colour spell hits each opponent for four. The draw-on-damage auras (Curiosity, Snake Umbra, Tandem Lookout, Keen Sense) turn each ping into a card, and Jeskai Ascendancy plus Storm-Kiln Artist reward the spell chain with mana and loot.",
+      "Crystal wins as a burst clock: a chain of noncreature spells in one turn stacks pings toward lethal while the auras refill your hand. She brings stronger early pressure and colour fixing than the copy-trigger faces, and less raw card advantage, which is why her derived ceiling sits just under Mister Fantastic's."
+    ],
+    source:"Adds from Crystal's EDHREC high-synergy list (1,921 decks, 14 Jul 2026); cuts are precon cards the Fantastic Four upgrade guide already flags weak; prices from Scryfall cheapest printing; score is a derived editorial estimate, not a measured value."
+  },
+  "loki": {
+    scoreMethod:"Derived from the Doom Prevails baseline (7.5 overall), adjusted for Loki's attack-triggered Villain copy and draw-on-Villain-combat-damage engine: a higher ceiling from the copy snowball, lower ease and politics because he has to attack with a built Villain board and folds to spot removal.",
+    score:{power:7.0,ceiling:8.6,fun:8.6,ease:5.5,politics:5.0},
+    cuts:["Choked Estuary","Foreboding Ruins","Progenitor's Icon","Syphon Mind","Molecule Man","Propaganda"],
+    adds:["Tombstone, Career Criminal","Chameleon, Master of Disguise","Prowler, Clawed Thief","Doctor Octopus, Master Planner","Mysterio, Master of Illusion","Spark Double"],
+    source:"Adds from this commander's EDHREC high-synergy list (1,289 decks, 14 Jul 2026), colour-identity verified and priced from Scryfall cheapest printing; cuts are Doom Prevails cards the upgrade guide already flags weak; the five-read score is a derived editorial estimate cross-checked against the card's Scryfall oracle text and an independent ranking pass, not a measured value."
+  },
+  "the-thing": {
+    scoreMethod:"Derived from the Fantastic Four baseline (7.2 overall), adjusted for The Thing's six-mana cost and attack-trigger counter doubling: a top-of-box ceiling from exponential growth, lower early power and ease from the mana cost, lower politics as a fast commander-damage clock.",
+    score:{power:6.2,ceiling:9.0,fun:8.3,ease:4.4,politics:5.6},
+    cuts:["The Fantasticar","Cut a Deal","Nova Flame","Mirage Mirror","Terramorph","Into the Time Vortex"],
+    adds:["Doubling Season","Ripples of Potential","Tamiyo, Field Researcher","Flux Channeler","Mutational Advantage","Vorinclex, Monstrous Raider"],
+    source:"Adds from this commander's EDHREC high-synergy list (737 decks, 14 Jul 2026), colour-identity verified and priced from Scryfall cheapest printing; cuts are Fantastic Four cards the upgrade guide already flags weak; the five-read score is a derived editorial estimate cross-checked against the card's Scryfall oracle text and an independent ranking pass, not a measured value."
+  },
+  "invisible-woman": {
+    scoreMethod:"Derived from the Fantastic Four baseline, adjusted for Invisible Woman's Wall generation on noncreature casts and her go-tall unblockable attack: higher politics and survivability from a defensive shell, a lower power and ceiling than the copy-trigger face.",
+    score:{power:6.0,ceiling:7.8,fun:7.6,ease:5.8,politics:7.4},
+    cuts:["Cut a Deal","Nova Flame","Cleansing Nova","Genesis Ultimatum","Terramorph","Into the Time Vortex"],
+    adds:["Clever Concealment","Whirlwind of Thought","Fantastic Elasticity","Baxter Building","Council of Reeds","Quantum Misalignment"],
+    source:"Adds from this commander's EDHREC high-synergy list (526 decks, 14 Jul 2026), colour-identity verified and priced from Scryfall cheapest printing; cuts are Fantastic Four cards the upgrade guide already flags weak; the five-read score is a derived editorial estimate cross-checked against the card's Scryfall oracle text and an independent ranking pass, not a measured value."
+  },
+  "human-torch": {
+    scoreMethod:"Derived from the Fantastic Four baseline, adjusted for Human Torch's noncreature-triggered flying and double strike plus his damage-spread attack: higher power from an evasive double-strike body, the lowest politics in the box because his attack hits every opponent. Corrects the independent pass, which mis-read him as an Equipment deck.",
+    score:{power:7.0,ceiling:8.0,fun:8.4,ease:5.0,politics:4.8},
+    cuts:["The Fantasticar","Cut a Deal","Nova Flame","Mirage Mirror","Path of Discovery","Into the Time Vortex"],
+    adds:["Kediss, Emberclaw Familiar","Bulk Up","Curiosity","Bear Umbra","Rancor","Sram, Senior Edificer"],
+    source:"Adds from this commander's EDHREC high-synergy list (376 decks, 14 Jul 2026), colour-identity verified and priced from Scryfall cheapest printing; cuts are Fantastic Four cards the upgrade guide already flags weak; the five-read score is a derived editorial estimate cross-checked against the card's Scryfall oracle text and an independent ranking pass, not a measured value."
+  },
+  "nick-fury": {
+    scoreMethod:"Derived from the Avengers Assemble baseline (7.4 overall), adjusted for Director Nick Fury's Hero cost reduction and attack-triggered card selection: strong steady power and ease from cheap Hero deployment, a lower ceiling than the counter-payoff face because the plan grinds rather than bursts.",
+    score:{power:7.6,ceiling:7.4,fun:7.0,ease:7.8,politics:6.2},
+    cuts:["Gift of Immortality","Love on the Battlefield","Avenge","Metallic Mimic","Thor, Asgard's Avenger","Hulkbuster Armor"],
+    adds:["Iron Man, Armored Avenger","Scarlet Witch, Chaotic Avenger","She-Hulk, Wallbreaker","Winter Soldier, Reborn Avenger","Raise the Palisade","Folk Hero"],
+    source:"Adds from this commander's EDHREC high-synergy list (296 decks, 14 Jul 2026), colour-identity verified and priced from Scryfall cheapest printing; cuts are Avengers Assemble cards the upgrade guide already flags weak; the five-read score is a derived editorial estimate cross-checked against the card's Scryfall oracle text and an independent ranking pass, not a measured value."
+  },
+  "shuri": {
+    scoreMethod:"Derived from the Wakanda Forever baseline (6.7 overall), adjusted for Shuri's artifact-count attack draw, teamwide plus-two at six artifacts, and lifelink: higher power and card flow from a go-wide artifact plan, lower politics than T'Challa's slower commander-damage build.",
+    score:{power:7.1,ceiling:7.2,fun:7.2,ease:6.9,politics:5.6},
+    cuts:["Divine Visitation","King Solomon's Frogs","Ancestral Communion","Loyal Guardian","Nakia, Wakandan Operative","Overwhelming Stampede"],
+    adds:["Tree of Tales","Ancient Den","Dispatch","Darksteel Citadel","Illustrious Wanderglyph","Stridehangar Automaton"],
+    source:"Adds from this commander's EDHREC high-synergy list (119 decks, 14 Jul 2026), colour-identity verified and priced from Scryfall cheapest printing; cuts are Wakanda Forever cards the upgrade guide already flags weak; the five-read score is a derived editorial estimate cross-checked against the card's Scryfall oracle text and an independent ranking pass, not a measured value."
+  },
+  "storm": {
+    scoreMethod:"Derived from the Wakanda Forever baseline on thin EDHREC data (98 decks), adjusted for Storm's single-target flying-and-pump attack: a fragile go-wide evasion plan scored conservatively and flagged as a low-sample estimate.",
+    score:{power:6.4,ceiling:6.6,fun:6.9,ease:6.9,politics:6.0},
+    cuts:["Divine Visitation","Ancestral Communion","Loyal Guardian","M'Baku, Jabari Chieftain","Heart-Shaped Herb","Coveted Jewel"],
+    adds:["Duelist's Heritage","Toski, Bearer of Secrets","Nature's Lore","Snakeskin Veil","Kutzil, Malamet Exemplar","Ohran Frostfang"],
+    source:"Adds from this commander's EDHREC high-synergy list (98 decks, 14 Jul 2026), colour-identity verified and priced from Scryfall cheapest printing; cuts are Wakanda Forever cards the upgrade guide already flags weak; the five-read score is a derived editorial estimate cross-checked against the card's Scryfall oracle text and an independent ranking pass, not a measured value."
+  },
+  "power-pack": {
+    scoreMethod:"Derived from the Fantastic Four baseline on a thin sample (99 decks), adjusted for Power Pack's four evasive keywords and its connect-to-recur-a-random-instant-or-sorcery trigger: a high ceiling and fun from free spells, lower ease and consistency because the recursion is random.",
+    score:{power:6.2,ceiling:8.0,fun:8.2,ease:5.4,politics:5.8},
+    cuts:["The Fantasticar","Nova Flame","Mirage Mirror","Terramorph","Path of Discovery","Collective Effort"],
+    adds:["Quantum Misalignment","Improvisation Capstone","Whirlwind of Thought","Frantic Search","Call Forth the Tempest","Annie Joins Up"],
+    plan:["Power Pack costs four mana in the Fantastic Four colours and enters with flying, vigilance, trample, and haste, so it can attack the turn it enters. Whenever it deals combat damage to a player, exile a random instant or sorcery from your graveyard, then cast that card for free at your next upkeep. Open with cheap card filtering that stocks the graveyard with spells worth flashing back.","Keep high-impact instants and sorceries in the yard before you connect. Quantum Misalignment, Improvisation Capstone, Call Forth the Tempest, and Whirlwind of Thought reward a full graveyard, and Frantic Search and Annie Joins Up load it quickly. Every hit turns a random spell already in the yard into a free cast, so the more bombs sit there, the better the flip.","Power Pack wins by connecting behind native evasion and snowballing free spells into card and mana advantage. The recursion is random, so treat the free cast as upside rather than a combo you assemble. Protect the body, because removal on a hasty four-drop costs you the whole engine."],
+    source:"Adds from this commander's EDHREC high-synergy list (99 decks, 14 Jul 2026), colour-identity verified and priced from Scryfall cheapest printing; cuts are Fantastic Four cards the upgrade guide already flags weak; the five-read score is a derived editorial estimate cross-checked against the card's Scryfall oracle text and an independent ranking pass, not a measured value."
+  },
+  "bast": {
+    scoreMethod:"Derived from the Wakanda Forever baseline, adjusted for Bast's indestructible reach-and-trample body and her attack buff scaling with your creature count: higher ease and resilience once you are wide, a modest ceiling because she needs three or more creatures to do anything.",
+    score:{power:6.4,ceiling:7.5,fun:7.6,ease:7.2,politics:6.2},
+    cuts:["King Solomon's Frogs","Ancestral Communion","Loyal Guardian","Gilded Lotus","Trading Post","Coveted Jewel"],
+    adds:["Regal Caracal","Kutzil, Malamet Exemplar","Mirri, Weatherlight Duelist","Adeline, Resplendent Cathar","Jacked Rabbit","Ocelot Pride"],
+    plan:["Bast is a two-colour Selesnya body with reach, trample, and indestructible, so she survives combat and most removal, and she cannot attack or block until you control three or more creatures. Open with cheap token makers and creatures to unlock her fast.","Once you are wide, her attack trigger gives a chosen attacker plus-X/plus-X where X is the number of creatures you control, so a full board turns one swing into a huge hit. Regal Caracal, Ocelot Pride, Adeline, Resplendent Cathar, and Jacked Rabbit flood the board with bodies, and Kutzil and Mirri, Weatherlight Duelist keep the team attacking and drawing.","Bast wins by going wide and then pointing the buff at an evasive or trampling creature for a lopsided attack. Her indestructibility lets her crash in every turn without trading down. Hold the board through a wipe, since the whole plan needs three or more creatures on the table."],
+    source:"Adds from this commander's EDHREC high-synergy list (298 decks, 14 Jul 2026), colour-identity verified and priced from Scryfall cheapest printing; cuts are Wakanda Forever cards the upgrade guide already flags weak; the five-read score is a derived editorial estimate cross-checked against the card's Scryfall oracle text and an independent ranking pass, not a measured value."
+  },
+  "okoye": {
+    scoreMethod:"Derived from the Wakanda Forever baseline, adjusted for Okoye's monarch-on-entry card draw and her combat counter that grants double strike and trample against the crown-holder: the highest politics among the alternates from holding the monarchy, a moderate ceiling on a fair midrange plan.",
+    score:{power:6.2,ceiling:7.4,fun:7.6,ease:7.2,politics:7.2},
+    cuts:["Divine Visitation","King Solomon's Frogs","Ancestral Communion","Sword of the Animist","Gilded Lotus","Trading Post"],
+    adds:["Court of Garenbrig","Court of Grace","Archon of Coronation","Court of Ardenvale","Court of Bounty","Regal Behemoth"],
+    plan:["Okoye makes you the monarch the moment she enters, so she draws you an extra card each end step for as long as you hold the crown. At the beginning of combat she puts a plus-one counter on a creature, and if that creature attacks whoever currently holds the crown, it gains double strike and trample for the turn.","Defend the monarchy with a sticky board as the counters accumulate. The Courts reward holding the crown directly: Court of Garenbrig, Court of Grace, Court of Ardenvale, and Court of Bounty all scale for as long as you hold the crown, and Archon of Coronation plus Regal Behemoth turn the crown into evasion and ramp.","Okoye wins by out-carding the table on monarch draws, then closing with a double-strike trampler aimed at the current monarch. When an opponent steals the crown, her own counter trigger hands your creature the double strike and trample to take it back. Keep blockers and instant-speed interaction up so the crown stays yours."],
+    source:"Adds from this commander's EDHREC high-synergy list (146 decks, 14 Jul 2026), colour-identity verified and priced from Scryfall cheapest printing; cuts are Wakanda Forever cards the upgrade guide already flags weak; the five-read score is a derived editorial estimate cross-checked against the card's Scryfall oracle text and an independent ranking pass, not a measured value."
+  }
+};
 function buildCommanders(){
   return CMDR_META.map(m=>{
     const [slug,name,precon,role,ci,edhrec]=m;
-    const pkgAdds=(SWAP_PAIRS[slug]||[]).map(r=>r[1]).filter(Boolean);
+    const prof=CMDR_PROFILES[slug]||null;
+    const pkgAdds= prof ? prof.adds.slice() : (SWAP_PAIRS[slug]||[]).map(r=>r[1]).filter(Boolean);
     const hasPkg=pkgAdds.length>0;
     const cost=hasPkg?Math.round(pkgAdds.reduce((a,c)=>a+(PRICES[c]||0),0)*100)/100:null;
     const priced=hasPkg?pkgAdds.filter(c=>PRICES[c]!=null).length:0;
-    const plan=!!GAME_PLANS[slug];
-    const score=DECK_LEADS.includes(slug)&&byId[precon]?byId[precon].scores:null;
+    const plan= prof ? true : !!GAME_PLANS[slug];
+    const score= prof ? prof.score : (DECK_LEADS.includes(slug)&&byId[precon]?byId[precon].scores:null);
+    const scoreMethod= prof ? prof.scoreMethod : (DECK_LEADS.includes(slug)?"deck editorial score (shared by the deck's advertised face)":null);
     let evidence;
     if(role==="setonly") evidence="setonly";
     else if(hasPkg&&score) evidence="grounded";
@@ -981,8 +1075,8 @@ function buildCommanders(){
     /* required Mister Fantastic reference fields and whether each is currently supported */
     const fields={score:!!score,package:hasPkg,price:cost!=null,gamePlan:plan,identity:!!ci,adoption:edhrec!=null,precon:true};
     const missing=Object.keys(fields).filter(k=>!fields[k]);
-    return {slug,name,precon,precname:PRECON_NAME[precon],role,ci,edhrec,pkg:hasPkg?pkgAdds:null,pkgCost:cost,pkgPriced:priced,plan,score,evidence,fields,missing,
-            id:slug, scores:score, rankColor:(byId[precon]?byId[precon].rankColor:"var(--muted)"), tag:PRECON_NAME[precon]};
+    return {slug,name,precon,precname:PRECON_NAME[precon],role,ci,edhrec,pkg:hasPkg?pkgAdds:null,pkgCost:cost,pkgPriced:priced,plan,score,scoreMethod,evidence,fields,missing,
+            prof, cuts:prof?prof.cuts:null, id:slug, scores:score, rankColor:(byId[precon]?byId[precon].rankColor:"var(--muted)"), tag:PRECON_NAME[precon]};
   });
 }
 const COMMANDERS=buildCommanders();
@@ -1083,7 +1177,8 @@ function openConfig(slug){
   const pkg = c.pkg
     ? `<p><b>Upgrade package:</b> ${money(c.pkgCost)} across ${c.pkg.length} cards (${c.pkgPriced} priced). <a href="${deckUrl(c.pkg)}" target="_blank" rel="noopener">Price in KC →</a></p><div class="cfg-pkglist">${c.pkg.map(x=>`${x}${PRICES[x]!=null?` <span class="pricetag">${money(PRICES[x])}</span>`:""}`).join(" · ")}</div>`
     : `<p><b>Upgrade package:</b> ${na}. ${c.evidence==="insufficient"?(c.edhrec>=100?"EDHREC adoption is high enough to derive one; queued.":"EDHREC data is too thin to derive a grounded package."):(c.evidence==="setonly"?"Set-only legend, needs a rebuilt 99.":"")}</p>`;
-  const plan = GAME_PLANS[slug] ? `<h4>Game plan</h4>${GAME_PLANS[slug].map(p=>`<p class="gp-p">${p}</p>`).join("")}` : `<h4>Game plan</h4><p>${na}.</p>`;
+  const planArr = (c.prof && c.prof.plan) ? c.prof.plan : GAME_PLANS[slug];
+  const plan = planArr ? `<h4>Game plan</h4>${planArr.map(p=>`<p class="gp-p">${p}</p>`).join("")}` : `<h4>Game plan</h4><p>${na}.</p>`;
   document.getElementById("modal").innerHTML = `
     <div class="modal-head">
       <div class="mb" style="background:${c.rankColor}"><div class="n">${c.role}</div></div>
@@ -1093,8 +1188,10 @@ function openConfig(slug){
     <div class="modal-body">
       ${img?`<div class="cmdr-img" style="float:right;width:150px;margin:0 0 10px 14px"><img loading="lazy" src="${img}" alt="${c.name}" style="width:100%;border-radius:8px"></div>`:""}
       <p><b>Commander:</b> ${c.name}. <b>Precon:</b> ${c.precname}. <b>Legal colour identity:</b> ${idtxt}. <b>EDHREC:</b> ${c.edhrec!=null?c.edhrec.toLocaleString()+" decks (captured 14 Jul 2026)":"set-only"}.</p>
-      <p><b>Overall score:</b> ${ov}. <b>Stock-99 fit, sequencing, rules map, dead-draw diagnosis, win conditions:</b> ${na} unless a grounded profile exists below.</p>
+      <p><b>Overall score:</b> ${ov}. <b>Score, priced upgrade package, and game plan</b> are shown below for grounded profiles; deeper stock-99 fit, sequencing, and dead-draw diagnosis are produced per commander through the full deck-tech flesh-out.</p>
       ${scoreRows}
+      ${c.scoreMethod?`<p class="cfg-derive"><b>How this score was derived:</b> ${c.scoreMethod}</p>`:""}
+      ${(c.prof&&c.prof.source)?`<p class="cfg-src"><b>Provenance:</b> ${c.prof.source}</p>`:""}
       ${pkg}
       ${plan}
       <p class="cfg-note">Missing fields for this commander: ${c.missing.length?c.missing.join(", "):"none on the rankings-page schema"}. Full guide-level fields are produced per commander through the 10-gate flesh-out.</p>
@@ -1442,7 +1539,7 @@ function toggleAllCmdrs(){
   renderEdhrec();
   renderConfigs();
   renderBuyer();
-  { const bm=document.getElementById('buyermode'); if(bm) bm.textContent = allCmdrs ? ("With alternate commanders on, these recommendations evaluate the "+COMMANDERS.filter(c=>c.scores).length+" scored commander configurations; unscored commanders are not yet eligible.") : ""; }
+  { const bm=document.getElementById('buyermode'); if(bm) bm.textContent = allCmdrs ? ("With alternate commanders on, these recommendations evaluate the "+COMMANDERS.filter(c=>c.scores).length+" scored commander configurations; the remaining "+COMMANDERS.filter(c=>!c.scores).length+" (T'Chaka plus the set-only legends) are labelled, not scored.") : ""; }
   if(openDeckId) openDeck(openDeckId);
 }
 function syncAllCmdrsBtn(){
@@ -1692,7 +1789,7 @@ renderCheapest();
 renderEdhrec();
 renderConfigs();
 renderBuyer();
-{ const bm=document.getElementById('buyermode'); if(bm) bm.textContent = allCmdrs ? ("With alternate commanders on, these recommendations evaluate the "+COMMANDERS.filter(c=>c.scores).length+" scored commander configurations; unscored commanders are not yet eligible.") : ""; }
+{ const bm=document.getElementById('buyermode'); if(bm) bm.textContent = allCmdrs ? ("With alternate commanders on, these recommendations evaluate the "+COMMANDERS.filter(c=>c.scores).length+" scored commander configurations; the remaining "+COMMANDERS.filter(c=>!c.scores).length+" (T'Chaka plus the set-only legends) are labelled, not scored.") : ""; }
 setView("archive");
 /* card-name hover preview */
 (function(){
