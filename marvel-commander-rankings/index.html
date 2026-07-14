@@ -365,6 +365,14 @@ body.kids .grown{display:none}
 .dcsub{font-size:.7rem;color:var(--muted)}
 .dckc{margin-top:7px;display:inline-block;font-family:'Inter',sans-serif;font-weight:800;font-size:.76rem;text-decoration:none;color:#fff;background:var(--fac);border-radius:20px;padding:5px 11px}
 .dckc:hover{filter:brightness(1.08)}
+.foldrow{display:flex;flex-wrap:wrap;gap:8px;align-items:flex-start;margin:8px 0}
+.foldrow .factcheck{flex:1 1 30%;min-width:0;margin:0;padding:0}
+.foldrow .factcheck summary{padding:8px 12px;font-size:.8rem;font-weight:700;color:var(--ink);white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
+.foldrow .factcheck[open]{flex-basis:100%}
+.foldrow .factcheck[open] summary{white-space:normal}
+.foldrow .factcheck > p,.foldrow .factcheck > ul{margin:6px 13px 8px}
+.foldsub{font-weight:600;color:var(--muted);font-size:.72rem}
+@media(max-width:640px){.foldrow .factcheck{flex-basis:100%}}
 .summarywrap{overflow-x:auto;margin:10px 0 6px}
 .summary{width:100%;border-collapse:collapse;font-family:'Inter',sans-serif;font-size:.9rem}
 .summary caption{text-align:left;font-size:.8rem;color:var(--muted);margin-bottom:6px;caption-side:top}
@@ -424,10 +432,6 @@ body.kids .grown{display:none}
       <button id="allcmdr-btn" class="tchip" type="button" aria-pressed="false" onclick="toggleAllCmdrs()">🦸 All alternate commanders: off</button>
       <span class="allcmdr-note grown">On folds every full-identity commander into each deck's package, cost, and ranking. Off keeps the face-commander focus.</span>
     </div>
-    <details class="factcheck grown">
-      <summary>How this ranking sorts, and what each read means</summary>
-      <p>This opens on <b>Out of the box</b>, the strict question of which unchanged deck performs best, so the order you see first is Avengers Assemble, Doom Prevails, Wakanda Forever, then the Fantastic Four. Flip to <b>Overall</b> for the five-read composite that also weighs upgrade ceiling, fun, ease, and table politics. Every read is a considered opinion grounded in the published upgrade guides and the printed cards, not tournament data. <b>Ceiling</b> is how high it climbs once upgraded; <b>Ease</b> is how forgiving the mana and lines are (higher is easier).</p>
-    </details>
     <p class="lead kid-only">Four ready-to-play Marvel decks. Tap a deck to pop open its card, which commanders you can pick, and which cards to swap out and swap in. Higher bars are better.</p>
 
     <div class="lensbar" id="lensbar">
@@ -438,14 +442,18 @@ body.kids .grown{display:none}
       <span class="lenshint grown">Every card shows its rank <b>out of the box → fully upgraded</b>. Flip the lens to re-sort by either.</span>
     </div>
 
-    <details class="factcheck grown">
-      <summary>How the Overall score is built (the exact weights)</summary>
+    <div class="foldrow grown">
+    <details class="factcheck">
+      <summary>How it sorts</summary>
+      <p>This opens on <b>Out of the box</b>, the strict question of which unchanged deck performs best, so the order you see first is Avengers Assemble, Doom Prevails, Wakanda Forever, then the Fantastic Four. Flip to <b>Overall</b> for the five-read composite that also weighs upgrade ceiling, fun, ease, and table politics. Every read is a considered opinion grounded in the published upgrade guides and the printed cards, not tournament data. <b>Ceiling</b> is how high it climbs once upgraded; <b>Ease</b> is how forgiving the mana and lines are (higher is easier).</p>
+    </details>
+    <details class="factcheck">
+      <summary>Scoring weights</summary>
       <p><b>Overall = 0.28 · Out-of-box power + 0.26 · Upgrade ceiling + 0.24 · Fun + 0.12 · Ease + 0.10 · Table politics.</b> Every read is scored 1 to 10, then blended by those weights, so a close placement is a close blend and not an arranged order. Two of the reads need a definition, since they carry real weight: <b>Fun</b> is how much variety, dramatic swing, and live decision-making the deck offers across a game, not its win rate. <b>Table politics</b> is how the pod treats the deck, how quickly it draws targeting, and how much it can threaten, deal, or share, which is why the most powerful list is not always the one you want in a four-player game. Fun carries nearly the weight of power on purpose: these are precons bought for casual, kitchen-table games, where how much a deck is worth playing counts almost as much as how hard it hits.</p>
       <p>Where the numbers come from: each read is an editorial judgment from the printed cards and the published upgrade guides, not a tally from recorded games. Read the one-decimal scores as a considered ordering, so a gap of a tenth means we rate two decks close, not that we counted wins. <b>Fully upgraded</b> means the deck after the full recommended swap package on this page (the same cards the cost section prices), not a money-no-object build.</p>
     </details>
-
-    <details class="factcheck grown">
-      <summary>Rankings fact-check · EDHREC build popularity (captured 13 July 2026)</summary>
+    <details class="factcheck">
+      <summary>EDHREC popularity <span class="foldsub">captured 13 Jul 2026</span></summary>
       <p>Deck counts below were captured from EDHREC on 13 July 2026, not read live on load, so treat them as a dated snapshot that measures adoption rather than strength. Every precon ships with more than one legendary commander, so both are listed here, and the Fantastic Four, which ships with four, lists all four:</p>
       <ul class="edh-both">
         <li><span class="edh-deck">Doom Prevails</span> Doctor Doom, King of Latveria <b>4,930</b> · Loki, the Deceiver <b>1,263</b></li>
@@ -455,6 +463,7 @@ body.kids .grown{display:none}
       </ul>
       <p>Doom is the most-built lead of the four, which tells you he is the most adopted, not that he leads on out-of-box strength. Two places our strict ordering trades against raw popularity: <b>Captain America is built far more than Director Nick Fury</b> (2,456 to 292), yet Fury is the configuration that makes the unchanged Avengers list strongest, so the most-played face is not the strongest stock commander. And <b>the Fantastic Four's leads are the least built of the four decks</b>, which fits its profile as the highest ceiling but the weakest and hardest deck to pilot straight out of the box. We draw the cut-and-add lists from the Draftsim and Gathering Games upgrade guides, so those guides are our source for swaps, not for this four-deck ordering, which is our own read. Popularity is a separate signal, shown here for transparency.</p>
     </details>
+    </div>
 
     <div class="sortbar" id="sortbar">
       <span class="lbl">Or sort by</span>
