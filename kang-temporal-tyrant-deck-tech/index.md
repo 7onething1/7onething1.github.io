@@ -134,7 +134,7 @@ A deck tech should describe the shape of the whole list. The commander is the ea
 
 | Slot | Count | What it buys |
 |---|---|---|
-| Mana base | 36 | A curve of blue-black lands, a few that also filter or draw |
+| Mana base | 37 | A curve of blue-black lands, a few that also filter or draw |
 | Trigger enablers | 15 | Connive sources plus instant-speed draw, several firing on opponents' turns |
 | Second-draw payoffs | 10 | Puppeteer, Cube, Kid Loki, M.O.D.O.K. Evil Intellect, Madame Masque (Kang is the commander, not one of the 99) |
 | Discard and recovery | 4 | Moonstone, Archfiend of Ifnir, the connive-activator M.O.D.O.K. |
@@ -204,7 +204,7 @@ A complete legal Kang list, commander plus 99, every card verified blue-black or
 - **Protection (3):** Swiftfoot Boots, Lightning Greaves, Propaganda
 - **Card-advantage creatures / value (4):** Baleful Strix, Sea Gate Oracle, Spark Double, Chameleon, Master of Disguise
 - **Ramp / rocks (6):** Sol Ring, Arcane Signet, Dimir Signet, Talisman of Dominance, Mind Stone, Fellwar Stone
-- **Lands (37) (37):** Command Tower, Path of Ancestry, Exotic Orchard, Drowned Catacomb, Choked Estuary, Fetid Pools, Sunken Hollow, Watery Grave, Underground River, Darkslick Shores, Dismal Backwater, Temple of Deceit, Morphic Pool, Dimir Aqueduct, Tainted Isle, River of Tears, Sunken Ruins, Reliquary Tower, Bojuka Bog, Scavenger Grounds, Terramorphic Expanse, Island x8, Swamp x8
+- **Lands (37):** Command Tower, Path of Ancestry, Exotic Orchard, Drowned Catacomb, Choked Estuary, Fetid Pools, Sunken Hollow, Watery Grave, Underground River, Darkslick Shores, Dismal Backwater, Temple of Deceit, Morphic Pool, Dimir Aqueduct, Tainted Isle, River of Tears, Sunken Ruins, Reliquary Tower, Bojuka Bog, Scavenger Grounds, Terramorphic Expanse, Island x8, Swamp x8
 
 ## Dedicated Kang, or Kang in the Doom box
 

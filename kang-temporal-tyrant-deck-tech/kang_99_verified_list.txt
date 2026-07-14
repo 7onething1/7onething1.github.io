@@ -71,7 +71,7 @@ Dimir Signet
 Talisman of Dominance
 Mind Stone
 Fellwar Stone
-# --- Lands (37) ---
+# --- Lands ---
 Command Tower
 Path of Ancestry
 Exotic Orchard
