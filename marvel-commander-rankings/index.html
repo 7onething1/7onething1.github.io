@@ -374,13 +374,13 @@ body.kids .grown{display:none}
       <button data-v="cover">🦸 Comic Gallery</button>
       <button data-v="archive" class="on">🗂 Comparison Table</button>
     </div>
-    <p class="lead grown">Composite of five reads, each 1 to 10. Scores are a considered opinion grounded in the published upgrade guides and the printed cards, not tournament data, so re-sort by whatever you actually care about. <b>Ceiling</b> is how high it climbs once upgraded; <b>Ease</b> is how forgiving the mana and lines are (higher is easier).</p>
+    <p class="lead grown">This opens on <b>Out of the box</b>, the strict question of which unchanged deck performs best, so the order you see first is Avengers Assemble, Doom Prevails, Wakanda Forever, then the Fantastic Four. Flip to <b>Overall</b> for the five-read composite that also weighs upgrade ceiling, fun, ease, and table politics. Every read is a considered opinion grounded in the published upgrade guides and the printed cards, not tournament data. <b>Ceiling</b> is how high it climbs once upgraded; <b>Ease</b> is how forgiving the mana and lines are (higher is easier).</p>
     <p class="lead kid-only">Four ready-to-play Marvel decks. Tap a deck to pop open its card, which commanders you can pick, and which cards to swap out and swap in. Higher bars are better.</p>
 
     <div class="lensbar" id="lensbar">
       <span class="lbl">Upgrade lens</span>
-      <button data-k="overall" class="on">Overall</button>
-      <button data-k="power">🏁 Out of the box</button>
+      <button data-k="overall">Overall</button>
+      <button data-k="power" class="on">🏁 Out of the box</button>
       <button data-k="ceiling">★ Fully upgraded</button>
       <span class="lenshint grown">Every card shows its rank <b>out of the box → fully upgraded</b>. Flip the lens to re-sort by either.</span>
     </div>
@@ -399,7 +399,7 @@ body.kids .grown{display:none}
         <li><span class="edh-deck">Avengers Assemble</span> Captain America, Team Leader <b>2,456</b> · Director Nick Fury <b>292</b></li>
         <li><span class="edh-deck">Wakanda Forever</span> T'Challa, the Black Panther <b>2,112</b> · Shuri, the Black Panther <b>117</b></li>
       </ul>
-      <p>Doom is the most-built lead of the four, which tells you he is the most adopted, not that our composite score is correct. Two places our editorial order trades against raw popularity: <b>Mister Fantastic is the least-built lead commander</b> (1,085) even though we rank the Fantastic Four #2, which fits its profile as the highest ceiling but hardest four-colour deck to pilot. And <b>T'Challa is more built than any Fantastic Four commander</b>, so Wakanda is well-adopted even though we rate it weakest on out-of-box power. We draw the cut-and-add lists from the Draftsim and Gathering Games upgrade guides, so those guides are our source for swaps, not for this four-deck ordering, which is our own read. Popularity is a separate signal, shown here for transparency.</p>
+      <p>Doom is the most-built lead of the four, which tells you he is the most adopted, not that he leads on out-of-box strength. Two places our strict ordering trades against raw popularity: <b>Captain America is built far more than Director Nick Fury</b> (2,456 to 292), yet Fury is the configuration that makes the unchanged Avengers list strongest, so the most-played face is not the strongest stock commander. And <b>the Fantastic Four's leads are the least built of the four decks</b>, which fits its profile as the highest ceiling but the weakest and hardest deck to pilot straight out of the box. We draw the cut-and-add lists from the Draftsim and Gathering Games upgrade guides, so those guides are our source for swaps, not for this four-deck ordering, which is our own read. Popularity is a separate signal, shown here for transparency.</p>
     </details>
 
     <div class="sortbar" id="sortbar">
@@ -435,15 +435,15 @@ body.kids .grown{display:none}
     <p class="lead grown">Six questions, six answers, one for every filter above and drawn straight from the scores. Tap a pick to jump to its full card.</p>
     <p class="lead kid-only">Six easy answers. Tap a deck to see more.</p>
     <div class="buyer-grid">
-      <a class="buyer-card" href="#deck-doom">
+      <a class="buyer-card" href="#deck-avengers">
         <span class="buyer-q">Play it as-is, no upgrades</span>
-        <span class="buyer-a">Doom Prevails</span>
-        <span class="buyer-why grown">Tied with the Fantastic Four for the highest out-of-box power (7.5), and it takes the pick as the #1 overall and the more forgiving of the two, so it is good on night one before you change a card.</span>
+        <span class="buyer-a">Avengers Assemble</span>
+        <span class="buyer-why grown">The strongest unchanged deck, highest out-of-box power (8.0). Testers land a threatening board most reliably here while keeping unusually plentiful removal for a precon, so it is the best pick on night one before you change a card.</span>
       </a>
       <a class="buyer-card" href="#deck-ff">
         <span class="buyer-q">Best long-term project</span>
         <span class="buyer-a">The Fantastic Four</span>
-        <span class="buyer-why grown">The biggest climb of the four, from 7.5 out of the box to an 8.6 ceiling, with four commanders to rebuild around.</span>
+        <span class="buyer-why grown">The biggest climb of the four, from 6.5 out of the box to an 8.6 ceiling, with four commanders to rebuild around.</span>
       </a>
       <a class="buyer-card" href="#deck-avengers">
         <span class="buyer-q">Easiest for a new player</span>
@@ -466,6 +466,69 @@ body.kids .grown{display:none}
         <span class="buyer-why grown">Only two colours, so the simplest mana base, and the clearest focused T'Challa upgrade route. The unchanged box also carries monarch, Equipment, and tokens, so it starts as more than one plan.</span>
       </a>
     </div>
+  </section>
+
+  <section id="strict">
+    <style>
+      #strict{max-width:1000px;margin:44px auto 0;padding:0 20px}
+      #strict h2{font-family:'Cormorant Garamond',Georgia,serif;color:var(--teal-d);font-size:1.9rem;margin:0 0 6px}
+      #strict h3{font-family:'Cormorant Garamond',Georgia,serif;color:var(--crimson-d);font-size:1.35rem;margin:26px 0 4px}
+      .sft-cap{font-family:'Inter',sans-serif;font-weight:800;font-size:.7rem;text-transform:uppercase;letter-spacing:.06em;color:var(--muted);margin:22px 0 6px}
+      .sft-wrap{overflow-x:auto;border:1px solid var(--line);border-radius:12px;background:var(--card)}
+      table.sft{border-collapse:collapse;width:100%;font-family:'Inter',sans-serif;font-size:.92rem;color:var(--ink2);min-width:460px}
+      table.sft th{background:var(--paper2);text-align:left;padding:9px 12px;font-size:.68rem;text-transform:uppercase;letter-spacing:.05em;color:var(--muted);border-bottom:1px solid var(--line)}
+      table.sft td{padding:9px 12px;border-bottom:1px solid var(--line);vertical-align:middle}
+      table.sft tr:last-child td{border-bottom:none}
+      table.sft .sft-rk{font-weight:800;color:var(--ink);width:2.2em;text-align:center}
+      table.sft .sft-nm{font-weight:700;color:var(--teal-d)}
+      table.sft .sft-sc{font-weight:800;color:var(--crimson-d);text-align:right;width:3.4em;font-variant-numeric:tabular-nums}
+      table.sft tr.sft-top td{background:rgba(193,68,59,.07)}
+      #strict .pull{border-left:5px solid var(--rank1);background:var(--paper2);border-radius:0 10px 10px 0;padding:13px 16px;margin:20px 0 4px;font-family:'Cormorant Garamond',Georgia,serif;font-size:1.2rem;color:var(--ink);line-height:1.4}
+      #strict .lead{font-family:'Inter',sans-serif;color:var(--ink2)}
+    </style>
+    <h2>Strict out-of-the-box strength</h2>
+    <p class="lead grown">This is the question the ranking above answers by default: which deck performs best with the exact printed ninety-nine, before a single swap. The composite Overall score rewards upgrade ceiling, variety, and table experience, so it can flatter a deck that is not the best on night one. Measured on deck construction, community playtesting, consistency, interaction, and commander compatibility, the order is clear.</p>
+    <p class="lead kid-only">This answers one question: which deck is best if you never change a card? Avengers Assemble wins, then Doom, then Wakanda, then the Fantastic Four.</p>
+
+    <p class="sft-cap">Aggregate out-of-box deck ranking</p>
+    <div class="sft-wrap">
+      <table class="sft">
+        <thead><tr><th>Rank</th><th>Precon</th><th>Best stock commander</th><th style="text-align:right">Score</th></tr></thead>
+        <tbody>
+          <tr class="sft-top"><td class="sft-rk">1</td><td class="sft-nm">Avengers Assemble</td><td>Director Nick Fury</td><td class="sft-sc">8.0</td></tr>
+          <tr><td class="sft-rk">2</td><td class="sft-nm">Doom Prevails</td><td>Doctor Doom, King of Latveria</td><td class="sft-sc">7.3</td></tr>
+          <tr><td class="sft-rk">3</td><td class="sft-nm">Wakanda Forever</td><td>T'Challa, the Black Panther</td><td class="sft-sc">6.9</td></tr>
+          <tr><td class="sft-rk">4</td><td class="sft-nm">The Fantastic Four</td><td>Mister Fantastic</td><td class="sft-sc">6.5</td></tr>
+        </tbody>
+      </table>
+    </div>
+    <p class="lead grown" style="margin-top:12px">Avengers Assemble has the strongest combined case. Players testing the stock lists repeatedly identify it as the deck that establishes a threatening battlefield most reliably, and it keeps unusually plentiful removal for a precon. Doom Prevails has stronger individual cards and several impressive turns, and its discard, Villain, sacrifice, and token themes compete for deck space. Wakanda Forever has dependable mana and strong artifacts, and its artifact and monarch plans do not fully reinforce each other. The Fantastic Four has the broadest potential after upgrades, and its unchanged list divides support among four commanders and several mechanical directions.</p>
+
+    <p class="sft-cap">Every included commander with the unchanged deck</p>
+    <p class="lead grown" style="margin:0 0 6px">This measures each printed commander with the exact stock ninety-nine available in its box.</p>
+    <div class="sft-wrap">
+      <table class="sft">
+        <thead><tr><th>Rank</th><th>Commander</th><th>Deck</th><th style="text-align:right">Stock fit</th></tr></thead>
+        <tbody>
+          <tr class="sft-top"><td class="sft-rk">1</td><td class="sft-nm">Director Nick Fury</td><td>Avengers Assemble</td><td class="sft-sc">8.3</td></tr>
+          <tr><td class="sft-rk">2</td><td class="sft-nm">Captain America, Team Leader</td><td>Avengers Assemble</td><td class="sft-sc">7.9</td></tr>
+          <tr><td class="sft-rk">3</td><td class="sft-nm">Doctor Doom, King of Latveria</td><td>Doom Prevails</td><td class="sft-sc">7.5</td></tr>
+          <tr><td class="sft-rk">4</td><td class="sft-nm">T'Challa, the Black Panther</td><td>Wakanda Forever</td><td class="sft-sc">7.1</td></tr>
+          <tr><td class="sft-rk">5</td><td class="sft-nm">Loki, the Deceiver</td><td>Doom Prevails</td><td class="sft-sc">6.9</td></tr>
+          <tr><td class="sft-rk">6</td><td class="sft-nm">Mister Fantastic</td><td>The Fantastic Four</td><td class="sft-sc">6.8</td></tr>
+          <tr><td class="sft-rk">7</td><td class="sft-nm">Shuri, the Black Panther</td><td>Wakanda Forever</td><td class="sft-sc">6.5</td></tr>
+          <tr><td class="sft-rk">8</td><td class="sft-nm">Invisible Woman</td><td>The Fantastic Four</td><td class="sft-sc">6.4</td></tr>
+          <tr><td class="sft-rk">9</td><td class="sft-nm">The Thing</td><td>The Fantastic Four</td><td class="sft-sc">6.1</td></tr>
+          <tr><td class="sft-rk">10</td><td class="sft-nm">Human Torch</td><td>The Fantastic Four</td><td class="sft-sc">5.8</td></tr>
+        </tbody>
+      </table>
+    </div>
+    <p class="lead grown" style="margin-top:8px">Wizards lists Captain America and Director Nick Fury in Avengers Assemble, T'Challa and Shuri in Wakanda Forever, Doctor Doom and Loki in Doom Prevails, and all four Fantastic Four members as supported commanders for their deck.</p>
+
+    <h3>Is Team Leader best out of the box?</h3>
+    <p class="lead grown">Captain America, Team Leader is the best face commander for the strongest unchanged deck. He is not the strongest commander available inside that box. Director Nick Fury makes the stock Avengers list stronger. Fury costs three mana, supplies continuing Hero selection, and supports the deck's dense Hero count without needing an established battlefield. Captain America supplies haste and vigilance, which create faster pressure. His value falls sharply after removal clears the board.</p>
+    <p class="lead kid-only">Team Leader is the easiest Avengers commander to play. Nick Fury actually makes the deck stronger, because he makes your heroes cheaper and keeps finding you more.</p>
+    <p class="pull grown">Avengers Assemble ranks first among the unchanged Marvel precons. Captain America, Team Leader provides the strongest straightforward experience. Director Nick Fury produces the deck's strongest overall configuration through cheaper deployment and repeatable card advantage.</p>
   </section>
 
   <section id="bonus">
@@ -604,8 +667,8 @@ const GUIDE_FACE={"doom": "doctor-doom", "avengers": "team-leader", "ff": "miste
 const PROFILE = {
   doom:{ player:"Enjoys grinding value, discard payoffs, and a villain swarm. Comfortable piloting the strongest single line in the set, the Loki copy engine.", budget:"Low. Most adds are cheap Marvel villains and commons; no expensive staples are required to make it hum.", table:"Threatening. The land-discard drain and Loki copies pull attention fast, so expect to be focused once the engine is online." },
   ff:{ player:"Wants the highest ceiling and does not mind four-colour mana and fiddly sequencing. Rewards an experienced pilot.", budget:"Medium. Four-colour fixing and value engines add up, and a few enablers such as Doubling Season for The Thing run pricey.", table:"Slow to build, explosive to finish. Reads as durdly early, then a copied trigger or a counter-double can end the game." },
-  avengers:{ player:"A newer or casual pilot who likes a clean go-wide plan with few hard decisions. Lowest ceiling of the top three.", budget:"Low to medium. Hero adds are mostly set cards; the protection pieces such as Spectacular Spider-Man are the main spend.", table:"Quiet early, snowballs on counters. Rarely the archenemy until the board is already wide." },
-  wakanda:{ player:"Likes a focused artifact plan and flavour over raw power. Forgiving mana, weakest out of the box.", budget:"Low. Artifact fixing and Gearhulks are affordable, and Shuri leans on cheap artifact tokens.", table:"Tidy and low-heat. Builds Vibranium toward one large commander swing, so political pressure stays light until the finish." }
+  avengers:{ player:"A newer or casual pilot who likes a clean go-wide plan with few hard decisions. Strongest out of the box, with a modest upgrade ceiling below Doom and the Fantastic Four.", budget:"Low to medium. Hero adds are mostly set cards; the protection pieces such as Spectacular Spider-Man are the main spend.", table:"Quiet early, snowballs on counters. Rarely the archenemy until the board is already wide." },
+  wakanda:{ player:"Likes a focused artifact plan and flavour over raw power. Forgiving mana, dependable artifacts.", budget:"Low. Artifact fixing and Gearhulks are affordable, and Shuri leans on cheap artifact tokens.", table:"Tidy and low-heat. Builds Vibranium toward one large commander swing, so political pressure stays light until the finish." }
 };
 /* Rule 0 / power-bracket model. Official WotC Commander Brackets 1-5; precons are Bracket 2 out of box.
    Scored on the four barometers (Game Changers, 2-card combos, extra turns, mass land destruction) plus stax/fast mana disclosure.
@@ -620,8 +683,8 @@ const R0_NAMES = ["Exhibition","Core","Upgraded","Optimized","cEDH"];
 const DECKS = [
   {
     id:"doom", name:"Doom Prevails", ci:["U","B","R"], tag:"Grixis villains · discard-matters & token copies",
-    rankColor:"var(--rank1)",
-    scores:{power:7.5, ceiling:8.0, fun:8.7, ease:6.0, politics:5.5},
+    rankColor:"var(--rank2)",
+    scores:{power:7.3, ceiling:8.0, fun:8.7, ease:6.0, politics:5.5},
     edge:"Two win engines in one box, and the Loki copy-and-swing line is the strongest single play in the set.",
     weak:"Grixis mana and the discard clock ask for careful sequencing, so it is not the gentlest first deck.",
     thesis:"The critics' darling. Two very different engines in one box. Doctor Doom punishes the table every time you pitch a land, while Loki turns your best villain into a swarm of attacking copies. The Loki pivot is the strongest single line in the set.",
@@ -649,11 +712,11 @@ const DECKS = [
   },
   {
     id:"ff", name:"The Fantastic Four", ci:["U","R","G","W"], tag:"Four-color spellslinger · noncreature-spell payoffs",
-    rankColor:"var(--rank2)",
-    scores:{power:7.5, ceiling:8.6, fun:8.0, ease:5.0, politics:6.5},
+    rankColor:"var(--rank4)",
+    scores:{power:6.5, ceiling:8.6, fun:8.0, ease:5.0, politics:6.5},
     edge:"The highest upgrade ceiling of the four, with four legal commanders to build around.",
     weak:"Four colours make it the least forgiving deck to cast on curve, the lowest Ease in the set.",
-    thesis:"The highest ceiling in the set and the only four-color deck. Pick your favorite of Marvel's First Family as commander. Every face rewards you for casting a noncreature spell each turn, so it upgrades straight into a genuine spellslinger machine. The four-color mana is the tax you pay.",
+    thesis:"The highest ceiling in the set and the only four-color deck, but the weakest of the four before you upgrade, since the unchanged list divides its support among four commanders and several mechanical directions. Pick your favorite of Marvel's First Family as commander. Every face rewards you for casting a noncreature spell each turn, so it upgrades straight into a genuine spellslinger machine. The four-color mana is the tax you pay.",
     commanders:[
       {role:"face", nm:"Mister Fantastic", cost:"{2}{U}",
        text:"Vigilance, reach. If you cast a noncreature spell, draw. Tap + {R}{G}{W}{U}: copy a triggered ability you control twice."},
@@ -682,11 +745,11 @@ const DECKS = [
   },
   {
     id:"avengers", name:"Avengers Assemble", ci:["R","W","U"], tag:"Jeskai Heroes · counters & go-wide",
-    rankColor:"var(--rank3)",
-    scores:{power:6.5, ceiling:7.0, fun:7.2, ease:8.5, politics:6.0},
+    rankColor:"var(--rank1)",
+    scores:{power:8.0, ceiling:7.0, fun:7.2, ease:8.5, politics:6.0},
     edge:"The cleanest curve in the set, a straightforward Jeskai counters-and-go-wide plan that plays well on turn one out of the box.",
-    weak:"The lowest ceiling of the top three, so it climbs the least once you start upgrading.",
-    thesis:"The clean, beginner-friendly starter. Captain America hands out haste and +1/+1 counters to every Hero that lands, and Nick Fury keeps the team coming. Straightforward Jeskai typal, least likely to trip you up, lowest ceiling of the top three.",
+    weak:"Its upgrade ceiling (7.0) sits below Doom and the Fantastic Four, so it climbs the least once you start upgrading.",
+    thesis:"The strongest deck straight out of the box, and the cleanest to pilot. Captain America hands out haste and +1/+1 counters to every Hero that lands, and Nick Fury keeps the team coming with cheaper Heroes and repeatable card advantage. Straightforward Jeskai typal, least likely to trip you up, though its upgrade ceiling is the most modest of the strong decks.",
     commanders:[
       {role:"face", nm:"Captain America, Team Leader", cost:"{R}{W}{U}",
        text:"Every other Hero that enters gains vigilance and haste and gets a +1/+1 counter, and so does Cap."},
@@ -694,7 +757,7 @@ const DECKS = [
        text:"Hero spells cost {1} less; digs four deep for a Hero every time you attack."},
       {role:"alt", nm:"Thor, Asgard's Avenger"}
     ],
-    pick:"Best build-around: <b>Captain America, Team Leader</b>. The counter-anthem snowballs faster than Fury's card advantage; Fury is the better pick only in a heavier control build.",
+    pick:"Best stock commander: <b>Director Nick Fury</b>. With the unchanged 99, his Hero discount and repeatable card advantage make the deck most consistent without needing an established board. <b>Captain America, Team Leader</b> is the strongest straightforward face for a new pilot, though his value drops sharply once removal clears the board.",
     source:{name:"Gathering Games Avengers Assemble Upgrade Guide", url:"https://gatheringgames.co.uk/community/blog/avengers-assemble-precon-upgrade-guide-mtg-marvel-super-heroes"},
     swaps:[
       ["Gift of Immortality","Wave Goodbye","aging protection out, a board bounce in"],
@@ -709,11 +772,11 @@ const DECKS = [
   },
   {
     id:"wakanda", name:"Wakanda Forever", ci:["G","W"], tag:"Selesnya artifacts · Vibranium & counters",
-    rankColor:"var(--rank4)",
-    scores:{power:6.0, ceiling:6.5, fun:6.6, ease:7.5, politics:6.0},
+    rankColor:"var(--rank3)",
+    scores:{power:6.9, ceiling:6.5, fun:6.6, ease:7.5, politics:6.0},
     edge:"Only two colours, so the friendliest mana and the easiest box to build first.",
-    weak:"The lowest out-of-box power, and the Vibranium artifact plan needs upgrades before it bites.",
-    thesis:"The most focused and the weakest out of the box. T'Challa spins up indestructible Vibranium artifact tokens and grows on big artifact spells; Shuri turns an artifact count into lifelink beats. Tight and flavorful, but it leans on filler that upgrades want gone, and the monarch sub-theme pulls in two directions.",
+    weak:"A modest out-of-box power, and the Vibranium artifact plan needs upgrades before it bites. Its artifact and monarch plans do not fully reinforce each other.",
+    thesis:"The most focused deck in the set, with dependable mana and strong artifacts. T'Challa spins up indestructible Vibranium artifact tokens and grows on big artifact spells; Shuri turns an artifact count into lifelink beats. Tight and flavorful, but it leans on filler that upgrades want gone, and the monarch sub-theme pulls in two directions.",
     commanders:[
       {role:"face", nm:"T'Challa, the Black Panther", cost:"{1}{G}{W}",
        text:"Makes a tapped indestructible Vibranium artifact token on enter/attack; grows +2 counters when you cast a big artifact."},
@@ -740,7 +803,7 @@ const DECKS = [
 
 const METRIC_LABELS = {power:"Power", ceiling:"Ceiling", fun:"Fun", ease:"Ease", politics:"Politics"};
 function overall(s){ return (s.power*0.28 + s.ceiling*0.26 + s.fun*0.24 + s.ease*0.12 + s.politics*0.10); }
-let sortKey = "overall";
+let sortKey = "power";
 const byId = {}; DECKS.forEach(d=>byId[d.id]=d);
 /* EDHREC build popularity of each deck's lead commander, captured 13 July 2026 (static snapshot, not read live). Fact-check signal for the ranking. */
 const EDHREC_POP = {
@@ -1107,7 +1170,7 @@ function renderCover(){
 /* Buying-intent filters: each trait highlights the single best deck for that priority. */
 const TRAITS = {
   ease:    {lbl:"Easiest first deck",    metric:d=>d.scores.ease,                   note:d=>`<b>${d.name}</b> is the easiest first deck: highest Ease (${d.scores.ease.toFixed(1)}), the most forgiving mana and lines for a new pilot.`},
-  power:   {lbl:"Strongest unchanged",   metric:d=>d.scores.power,                  note:d=>`<b>${d.name}</b> is strongest straight out of the box: tied with the Fantastic Four for the highest out-of-box power (${d.scores.power.toFixed(1)}), and it edges the tie on the higher overall score and easier pilot.`},
+  power:   {lbl:"Strongest unchanged",   metric:d=>d.scores.power,                  note:d=>`<b>${d.name}</b> is strongest straight out of the box: the highest out-of-box power of the four (${d.scores.power.toFixed(1)}), landing a threatening board most reliably while keeping plentiful removal, so it is the best deck to play before you change a card.`},
   project: {lbl:"Best upgrade project",  metric:d=>d.scores.ceiling-d.scores.power, note:d=>`<b>${d.name}</b> is the best long-term project: the biggest climb from out-of-box (${d.scores.power.toFixed(1)}) to fully upgraded (${d.scores.ceiling.toFixed(1)}).`},
   fun:     {lbl:"Most fun",              metric:d=>d.scores.fun,                    note:d=>`<b>${d.name}</b> is the most fun: highest Fun (${d.scores.fun.toFixed(1)}), the most variety, swing, and live decisions.`},
   politics:{lbl:"Best table politics",   metric:d=>d.scores.politics,               note:d=>`<b>${d.name}</b> plays the table best: highest Table politics (${d.scores.politics.toFixed(1)}), least likely to get ganged up on.`}
