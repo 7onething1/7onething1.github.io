@@ -28,23 +28,23 @@ One complete build, drawn from Captain America's EDHREC card pool captured 2026-
 
 **Commander (1):** Captain America, Team Leader
 
-**The enters engine, 27 Heroes plus a payoff (28):** Director Nick Fury · Black Widow, Agile Avenger · Ant-Man, Elusive Avenger · Jarvis, Earth's Mightiest Butler · Quicksilver, Speedster · Silver Sable, Mercenary Leader · Hawkeye, Trick Shot · Spider-Woman, Stunning Savior · The Wasp, Winsome Avenger · Falcon and Redwing · Agent Phil Coulson · Shang-Chi and the Ten Rings · Scarlet Witch, Chaotic Avenger · Iron Man, Armored Avenger · Photon, Mighty Marvel · Firebird, Blazing Ranger · Captain America, Living Legend · Captain America, Super-Soldier · Vision, Synthezoid Avenger · Metallic Mimic · Bastion Protector · Roaming Throne · Winter Soldier, Reborn Avenger · War Machine, Avenging Arsenal · Captain Marvel, Apex Avenger · Thor, Asgard's Avenger · She-Hulk, Wallbreaker · Professor Hulk
+**The enters engine, 27 Heroes plus a payoff (28):** Director Nick Fury (3) · Black Widow, Agile Avenger (3) · Ant-Man, Elusive Avenger (3) · Jarvis, Earth's Mightiest Butler (3) · Quicksilver, Speedster (5) · Silver Sable, Mercenary Leader (3) · Hawkeye, Trick Shot (4) · Spider-Woman, Stunning Savior (2) · The Wasp, Winsome Avenger (2) · Falcon and Redwing (3) · Agent Phil Coulson (2) · Shang-Chi and the Ten Rings (3) · Scarlet Witch, Chaotic Avenger (4) · Iron Man, Armored Avenger (4) · Photon, Mighty Marvel (4) · Firebird, Blazing Ranger (3) · Captain America, Living Legend (3) · Captain America, Super-Soldier (3) · Vision, Synthezoid Avenger (4) · Metallic Mimic (2) · Bastion Protector (3) · Roaming Throne (4) · Winter Soldier, Reborn Avenger (5) · War Machine, Avenging Arsenal (5) · Captain Marvel, Apex Avenger (7) · Thor, Asgard's Avenger (4) · She-Hulk, Wallbreaker (6) · Professor Hulk (6)
 
-**Counter & go-wide payoffs (3):** Champions from Beyond · Door of Destinies · The Ozolith
+**Counter & go-wide payoffs (3):** Champions from Beyond (2) · Door of Destinies (4) · The Ozolith (1)
 
-**Ramp & cost reduction (9):** Sol Ring · Arcane Signet · Talisman of Progress · Talisman of Conviction · Talisman of Creativity · Fellwar Stone · Mind Stone · Herald's Horn · Urza's Incubator
+**Ramp & cost reduction (9):** Sol Ring (1) · Arcane Signet (2) · Talisman of Progress (2) · Talisman of Conviction (2) · Talisman of Creativity (2) · Fellwar Stone (2) · Mind Stone (2) · Herald's Horn (3) · Urza's Incubator (3)
 
-**Card advantage (7):** Kindred Discovery · Reconnaissance Mission · Avengers Assemble! · Origin of the Avengers · Tome of Legends · Chronicle of Victory · Folk Hero
+**Card advantage (7):** Kindred Discovery (5) · Reconnaissance Mission (4) · Avengers Assemble! (5) · Origin of the Avengers (2) · Tome of Legends (2) · Chronicle of Victory (6) · Folk Hero (2)
 
-**Spot removal (6):** Swords to Plowshares · Path to Exile · Generous Gift · Rip Apart · Destroy Evil · Make Your Move
+**Spot removal (6):** Swords to Plowshares (1) · Path to Exile (1) · Generous Gift (3) · Rip Apart (2) · Destroy Evil (2) · Make Your Move (3)
 
-**Board resets & mass removal (5):** Raise the Palisade · Damning Verdict · Wave Goodbye · Austere Command · Dismantling Wave
+**Board resets & mass removal (5):** Raise the Palisade (5) · Damning Verdict (5) · Wave Goodbye (4) · Austere Command (6) · Dismantling Wave (3)
 
-**Protection & counters (5):** Flawless Maneuver · Akroma's Will · Arcane Denial · An Offer You Can't Refuse · Heroic Sacrifice
+**Protection & counters (5):** Flawless Maneuver (3) · Akroma's Will (4) · Arcane Denial (2) · An Offer You Can't Refuse (1) · Heroic Sacrifice (2)
 
 **Manabase (36):** Avengers Tower · Command Tower · Plaza of Heroes · Path of Ancestry · Cavern of Souls · Secluded Courtyard · Unclaimed Territory · Hallowed Fountain · Sacred Foundry · Steam Vents · Prairie Stream · Irrigated Farmland · Mystic Monastery · Glacial Fortress · Clifftop Retreat · Sulfur Falls · Port Town · Furycalm Snarl · Frostboil Snarl · Raugrin Triome · Flooded Strand · Arid Mesa · Scalding Tarn · Battlefield Forge · Adarkar Wastes · Shivan Reef · Spectator Seating · Reliquary Tower · Rogue's Passage · 3× Plains · 2× Island · 2× Mountain
 
-**1 + 28 + 3 + 9 + 7 + 6 + 5 + 5 + 36 = 100.**
+**1 + 28 + 3 + 9 + 7 + 6 + 5 + 5 + 36 = 100.** The number after a card is its mana value; lands are not numbered.
 
 ## Dead-draw audit
 
