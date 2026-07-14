@@ -16,7 +16,7 @@ The words "noncreature spell" sit on almost every reward, so it looks like one t
 - **Every turn, first spell.** Valeria Richards draws off your first noncreature spell each turn, which includes opponents' turns. A cheap instant on their end step is a free card the commander cannot give you.
 - **Every cast, no cap.** Crystal deals damage on every noncreature spell you cast, no once-a-turn limit, so a spell chain stacks the pings. Cosmic Crucible copies a noncreature spell you cast, but only once each turn, so the copy is a resource you spend on your biggest spell.
 
-Valeria makes both easy, dropping the cost of every noncreature spell and drawing you a card off your first cast each turn. She reduces friction and refills the card she prompts you to spend, and she cannot make a spell from nothing, so an empty hand still stalls the plan.
+Valeria makes both easy, taking one generic mana off every noncreature spell and drawing you a card off your first cast each turn. She reduces friction and refills the card she prompts you to spend, and she cannot make a spell from nothing, so an empty hand still stalls the plan.
 
 ## Three ways to build him
 
@@ -30,14 +30,14 @@ Mister Fantastic supports three real directions, and this guide follows the firs
 
 These are the noncreature-spell payoffs the precon leans on. One note on the numbers first: these Marvel cards were printed with the commander, so EDHREC scores them against the 790 decks recent enough to run them, out of 1,085 indexed decks in total. A card in 626 lists reads as 79 percent.
 
-- **Valeria Richards, Precocious (626/790).** Noncreature spells cost {1} less; your first each turn draws, on your turn or anyone's. Cost reducer and card advantage, the deck's main enabler.
+- **Valeria Richards, Precocious (626/790).** Noncreature spells cost {1} generic less (colored pips unchanged); your first each turn draws, on your turn or anyone's. Cost reducer and card advantage, the deck's main enabler.
 - **Cosmic Crucible (624/790).** Adds four mana in any colors at the beginning of your first main phase, and copies one noncreature spell you cast per turn. The mana empties when that main phase ends, so it pays for the spell you cast that turn and is gone before any combat activation.
 - **Crystal, Inhuman Princess (595/790).** Each noncreature spell deals damage to each opponent equal to that spell's color count, so a four-color spell hits for four, with no cap on casts per turn. Also taps for R, G, W, or U.
 - **Franklin Richards, Ascendant (588/790).** At the beginning of combat on your turn, if you cast a noncreature spell, discover 6 (a free spell of value 6 or less). The largest payoff for arming combat.
 
 ## The multiplier subtheme
 
-Mister Fantastic's {R}{G}{W}{U} plus tap ability copies a target triggered ability you control twice. Point it at Franklin's combat discover and one discover becomes three (original plus two copies). Add Annie Joins Up, which fires every triggered ability of your legendary creatures an extra time, and it climbs: Franklin triggers twice, you copy one of those twice, and you resolve **four** discovers off a single noncreature spell. The cost is real, all four colors and an untapped commander, so treat it as a payoff turn you set up. Cosmic Crucible copies the spell itself once a turn, a separate lever, so a strong spell can be Crucible-copied and then have its payoff triggers copied by the commander in the same turn.
+Mister Fantastic's {R}{G}{W}{U} plus tap ability copies a target triggered ability you control twice. Point it at Franklin's combat discover and one discover becomes three (original plus two copies). Add Annie Joins Up, which fires every triggered ability of your legendary creatures an extra time, and it climbs: Franklin triggers twice, you copy one of those twice, and you resolve **four** discovers off a single noncreature spell. The cost is real, all four colors and an untapped commander, so treat it as a payoff turn you set up. Cosmic Crucible copies the spell itself once a turn, a separate lever, so a strong spell can be Crucible-copied and then have its payoff triggers copied by the commander in the same turn. One rule to hold: the Crucible copy is put on the stack, not cast, so the copy makes no cast triggers of its own (no Crystal, Valeria, or Whirlwind). Point Mister Fantastic's copy at one of the original cast's triggers, not at the Crucible trigger.
 
 ## How Mister Fantastic wins
 
@@ -82,14 +82,14 @@ Here is the whole hundred-card list with Snail's three changes above already fol
 | Ramp and fixing | 10 | Sol Ring, Arcane Signet, Chromatic Lantern, Talisman of Creativity, Talisman of Conviction, Farseek, Three Visits, Cultivate, Terramorph, Cosmic Crucible (also a payoff) |
 | Spellcast payoffs | 8 | Mister Fantastic, Valeria Richards, Crystal, Franklin Richards, Whirlwind of Thought, Monologue Tax, Mind's Dilation, Annie Joins Up |
 | Removal and wraths | 10 | Cleansing Nova, Tragic Arrogance, Ultimate Nullification, Nova Flame, Path to Exile, Hull Breach, Bovine Intervention, Collective Effort, It's Clobberin' Time!, Fantastic Elasticity |
-| Noncreature fuel and tempo | 9 | Galvanic Iteration, Expressive Iteration, Seize the Day, Quantum Misalignment, Flame On!, West Coast Expansion, Promise of Loyalty, Genesis Ultimatum, Taunt from the Rampart |
+| Noncreature fuel and tempo | 9 | Galvanic Iteration, Expressive Iteration, Seize the Day, Quantum Misalignment, Flame On!, West Coast Expansion, Promise of Loyalty (also a creature reset), Genesis Ultimatum, Taunt from the Rampart |
 | Card draw | 4 | Recurring Insight, First Family, Cut a Deal, Deep Analysis |
 | Protection | 3 | Invisible Force Field, Clever Concealment, Lightning Greaves |
 | FF family bodies and bombs | 15 | Invisible Woman, Human Torch, The Thing, Galactus, Silver Surfer, Namor, Black Bolt, Medusa, Mister Fantastic Reed Richards, Lockjaw, Alicia Masters, Dragon Man, H.E.R.B.I.E., Power Pack, Council of Reeds |
 | Utility and flex | 4 | The Fantasticar, Unstable Molecule Suit, Negative Zone Portal, Path of Discovery |
 | **Total** | **100** | 1 commander plus 99, four-color WURG |
 
-The composition, counted straight from that upgraded list: 37 lands, 19 creatures (two of them also artifacts), 23 sorceries, 6 instants, 6 enchantments, and 9 noncreature artifacts. That puts **44 noncreature spells** in the deck, so the trigger fires nearly every turn. By printed mana value the peak shifts to two, but read that with care: West Coast Expansion counts as two only because its cost is X plus two, and at two mana it draws zero, so it is a late-game mana sink rather than a cheap play. The two Talismans are the real early gain, and the functional early curve barely moves.
+The composition, counted straight from that upgraded list: 37 lands, 19 creatures (two of them also artifacts), 23 sorceries, 6 instants, 6 enchantments, and 9 noncreature artifacts. That puts **44 noncreature spells** in the deck, so the trigger fires nearly every turn. By printed mana value the peak shifts to two, but read that with care: West Coast Expansion counts as two only because its cost is X plus two blue: two mana draws zero, three draws one, four draws two, seven reaches the free Hero. So it is a late-game mana sink rather than a cheap play. The two Talismans are the real early gain, and the functional early curve barely moves.
 
 Nonland mana curve (three Snail swaps applied):
 
@@ -106,7 +106,7 @@ Snail's real question goes past what a card does to how often it does it. Each p
 | Payoff | Job | Support in this list | With commander gone | Verdict |
 |---|---|---|---|---|
 | Whirlwind of Thought (every cast) | Draw on every noncreature spell | All 44 noncreature spells | Fully independent | core |
-| Valeria Richards (first spell) | Discount + draw off your first noncreature spell each turn | One cheap spell a turn, curve peaks at 16 two-drops | Independent | core |
+| Valeria Richards (first spell) | Takes one generic off your noncreature spells (not colored pips), draws off your first each turn | One cheap spell a turn, curve peaks at 16 two-drops | Independent | core |
 | Crystal (every cast) | Damage to each opponent = spell's color count, every noncreature spell, no cap | All 44 spells, multicolor hardest | Independent | core |
 | Franklin Richards (your combat) | Discover 6 at your combat if you cast a noncreature spell that turn | Any one noncreature cast that turn, 44 feed it | Own trigger, works with him gone | supported |
 | Annie Joins Up (doubler) | Doubles one legendary-creature trigger; enters dealing 5 to an opposing creature or planeswalker. Makes no mana | Wants a legendary trigger worth doubling online first | Removal half hits, doubling needs a legendary trigger | supported |
@@ -156,7 +156,7 @@ A dependable line arms the commander the turn he lands.
 
 1. Fixing land, or Sol Ring into a second land.
 2. A Talisman or Arcane Signet, so two or three of your four colors are online by turn two.
-3. Valeria Richards, which discounts every noncreature spell and draws off your first each turn.
+3. Valeria Richards, which takes one generic off every noncreature spell, colored pips unchanged, and draws off your first each turn.
 4. Cast Mister Fantastic, then any useful noncreature spell before moving to combat, so the trigger draws. The draw happens at the start of combat whether or not he attacks, so save Path to Exile for a creature that needs removing rather than spending it only to arm the trigger.
 5. Hold a cheap instant for an opponent's turn to keep Valeria and Crystal paying, then spend your Crucible copy on the biggest cast.
 
