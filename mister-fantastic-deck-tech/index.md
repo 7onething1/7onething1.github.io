@@ -47,7 +47,7 @@ Three lines close the game. First, Crystal as a burst clock, since every noncrea
 
 Be honest about the ceiling. The copy ability taps Mister Fantastic, so without an untapper you copy one trigger per turn, which makes this a strong burst deck rather than a hard combo. A casual table feels it as a big value turn. A stronger table reaches the burst by holding the copy for a Franklin discover with Annie Joins Up online, the four-discover turn, then chaining the free noncreature spells into Crystal damage, since only noncreature discoveries ping. Add an untap effect and the copy repeats, though each repeat costs another R, G, W, and U, so the ceiling rises with your pod and your mana.
 
-One copy decision comes up most turns. With Mister Fantastic untapped and both a Franklin discover and a Crystal ping waiting, copy the discover, since the card and board swing dwarfs a few points of damage. Copy the ping only when those points are lethal.
+On the turns you can afford the activation, four colors plus an untap, one copy decision recurs. With both a Franklin discover and a Crystal ping waiting, copy the discover, since the card and board swing dwarfs a few points of damage. Copy the ping only when those points are lethal.
 
 ## Protecting the engine
 
@@ -136,7 +136,7 @@ Three deeper reads finish the audit, past whether a card has partners:
 ## A second upgrade tier
 *(Page recommendation, not Snail)*
 
-The audit found the hole: eleven noncreature spells cost five or more, and only four cheap instants can hold up on an opponent's turn where Valeria and Crystal still pay. These are my picks, each a one or two-mana instant inside WURG, paired with a specific expensive cut. They lift the cheap-instant count from four toward roughly nine and add filtering the deck lacks.
+The audit found the hole: eleven noncreature spells cost five or more, and only four cheap instants can hold up on an opponent's turn where Valeria and Crystal still pay. These are my picks, each a one or two-mana instant inside WURG, paired with a specific expensive cut. They lift the cheap-instant count from four to nine and add filtering the deck lacks.
 
 | Cut (5+ mana) | Add (1-2 mana instant) | Why |
 |---|---|---|
