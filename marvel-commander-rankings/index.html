@@ -422,6 +422,7 @@ body.kids .grown{display:none}
         <button class="tchip" data-t="project">Best upgrade project</button>
         <button class="tchip" data-t="fun">Most fun</button>
         <button class="tchip" data-t="politics">Best table politics</button>
+        <button class="tchip" data-t="simple">Simplest to build</button>
         <button class="aclear" id="archClear">Show all</button>
         <span class="arch-hint" id="archHint">Pick what you actually care about; the matching deck lights up and the rest dim. The Upgrade Lens above still sorts every card.</span>
       </div>
@@ -1173,7 +1174,8 @@ const TRAITS = {
   power:   {lbl:"Strongest unchanged",   metric:d=>d.scores.power,                  note:d=>`<b>${d.name}</b> is strongest straight out of the box: the highest out-of-box power of the four (${d.scores.power.toFixed(1)}), landing a threatening board most reliably while keeping plentiful removal, so it is the best deck to play before you change a card.`},
   project: {lbl:"Best upgrade project",  metric:d=>d.scores.ceiling-d.scores.power, note:d=>`<b>${d.name}</b> is the best long-term project: the biggest climb from out-of-box (${d.scores.power.toFixed(1)}) to fully upgraded (${d.scores.ceiling.toFixed(1)}).`},
   fun:     {lbl:"Most fun",              metric:d=>d.scores.fun,                    note:d=>`<b>${d.name}</b> is the most fun: highest Fun (${d.scores.fun.toFixed(1)}), the most variety, swing, and live decisions.`},
-  politics:{lbl:"Best table politics",   metric:d=>d.scores.politics,               note:d=>`<b>${d.name}</b> plays the table best: highest Table politics (${d.scores.politics.toFixed(1)}), least likely to get ganged up on.`}
+  politics:{lbl:"Best table politics",   metric:d=>d.scores.politics,               note:d=>`<b>${d.name}</b> plays the table best: highest Table politics (${d.scores.politics.toFixed(1)}), least likely to get ganged up on.`},
+  simple:  {lbl:"Simplest to build",     metric:d=>-d.ci.length,                    note:d=>`<b>${d.name}</b> is the simplest to build: only ${d.ci.length} colours, the fewest of the four, so the friendliest mana base and the clearest T'Challa upgrade route.`}
 };
 let archTrait = null;
 function traitPick(t){ if(!t||!TRAITS[t]) return null; return [...DECKS].sort((a,b)=>TRAITS[t].metric(b)-TRAITS[t].metric(a))[0]; }
