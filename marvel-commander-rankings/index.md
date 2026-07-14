@@ -43,25 +43,25 @@ Avengers Assemble has the strongest combined case, landing a threatening board m
 
 ## The ranking (strict out-of-box order)
 
-### 1. Avengers Assemble · Jeskai (R/W/U) — out-of-box 8.0
+### 1. Avengers Assemble · Jeskai (R/W/U), out-of-box 8.0
 The strongest deck straight out of the box, and the cleanest to pilot. **Captain America, Team Leader** hands haste and +1/+1 counters to every Hero that lands; **Director Nick Fury** keeps the team coming with cheaper Heroes and repeatable card advantage. Its upgrade ceiling (7.0) sits below Doom and the Fantastic Four.
 - **Jeskai (R/W/U) commanders:** Captain America, Team Leader and Director Nick Fury are the only two commanders matching the deck's full R/W/U identity. Thor, Asgard's Avenger is mono-red, so it is not a Jeskai commander and is not listed as an option.
 - **Best stock commander:** Director Nick Fury (Team Leader is the strongest straightforward face for a new pilot).
 - **Cut → Add swaps** (source: [Gathering Games Avengers Assemble guide](https://gatheringgames.co.uk/community/blog/avengers-assemble-precon-upgrade-guide-mtg-marvel-super-heroes); cut cards verified in-box against Scryfall): Gift of Immortality → Wave Goodbye; Love on the Battlefield → Champions from Beyond; Avenge → Damning Verdict; Metallic Mimic → Araña, Heart of the Spider; Thor, Asgard's Avenger → Raphael, the Muscle; Hulkbuster Armor → Ripples of Potential.
 
-### 2. Doom Prevails · Grixis (U/B/R) — out-of-box 7.3
+### 2. Doom Prevails · Grixis (U/B/R), out-of-box 7.3
 Discard-matters villains with two engines. **Doctor Doom, King of Latveria** drains the table when you discard lands and connives your villains; **Loki, the Deceiver** copies your best villain into a swarm of attackers. Loki's copy-and-swing line is the strongest single play in the set. Its discard, Villain, sacrifice, and token themes compete for deck space.
 - **Grixis (U/B/R) commanders:** Doctor Doom and Loki, the Deceiver are the only two commanders in this box that match the deck's full U/B/R identity. Every other legend in the deck is mono or two-colour, so it is not a Grixis commander and is not listed as an option.
 - **Best build-around:** Loki, the Deceiver.
 - **Cut → Add swaps** (source: [Draftsim Doom Prevails guide](https://draftsim.com/doom-prevails-upgrade-guide/)): Damocles Base → Sundial of the Infinite; Superior Foes of Spider-Man → Green Goblin, Revenant; Molecule Man → Kingpin, Wilson Fisk; Iron Monger → Doctor Octopus, Master Planner; The Frightful Four → Super-Adaptoid; Syphon Mind → Crimson Cowl, Master of Evil; Klaw → Living Lies of Loki.
 
-### 3. Wakanda Forever · Selesnya (G/W) — out-of-box 6.9
+### 3. Wakanda Forever · Selesnya (G/W), out-of-box 6.9
 The most focused deck in the set, with dependable mana and strong artifacts. **T'Challa, the Black Panther** spins up indestructible Vibranium artifact tokens and grows on big artifact spells; **Shuri** turns an artifact count into lifelink beats. Leans on filler that upgrades want gone, and the monarch sub-theme pulls in two directions.
 - **Selesnya (G/W) commanders (8):** in the precon's 99: T'Challa, Shuri, Storm Queen of Wakanda, Bast, Okoye, T'Chaka. In the Marvel Commander set but not in this precon's 99 (collector #744/#745, verified against the EDHREC decklist): Ms. Marvel Elastic Ally and She-Hulk Attorney-at-Law (both G/W hybrids). All eight are legal G/W commanders; M'Baku, Nakia and W'Kabi are mono-green, so they are not.
 - **Best build-around:** T'Challa, the Black Panther.
 - **Cut → Add swaps** (source: [Draftsim Wakanda Forever guide](https://draftsim.com/wakanda-forever-upgrade-guide/)): Sword of the Animist → Verdurous Gearhulk; Coveted Jewel → Batterskull; Gilded Lotus → Reprieve; Overwhelming Stampede → Shadowspear; Trading Post → Mystic Forge; Loyal Guardian → Brightglass Gearhulk; Royal Talon Fighter Jet → Jhoira's Familiar.
 
-### 4. The Fantastic Four · Four-color (U/R/G/W) — out-of-box 6.5
+### 4. The Fantastic Four · Four-color (U/R/G/W), out-of-box 6.5
 Highest ceiling in the set and the only four-color deck, and the weakest of the four before you upgrade. Pick your favorite of Marvel's First Family; every face rewards casting a noncreature spell each turn. Upgrades into a real spellslinger machine; four-color mana is the cost, and the unchanged list divides support among four commanders.
 - **Four-colour (U/R/G/W) commanders (7):** in the precon's 99: Mister Fantastic, Invisible Woman, Human Torch, The Thing (the four faces), plus Crystal Inhuman Princess and Power Pack. In the Marvel Commander set but not in this precon's 99 (collector #741, verified against the EDHREC decklist): The Fantastic Four (the card). All seven are legal W/U/R/G commanders; colourless (Galactus, Silver Surfer) and narrower legends are not.
 - **Best build-around:** Mister Fantastic (copy your own triggers twice).
