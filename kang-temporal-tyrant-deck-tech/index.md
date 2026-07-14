@@ -190,6 +190,22 @@ The audit run on the actual stock deck, since a method is only worth as much as 
 
 The replacements come straight off the same audit: **Leader, Super-Genius** (a card draw before each connive), **Construct a Cosmic Cube** (token engine and clock), and **Visions of Villainy** (instant draw-two on any turn). All three score among Kang's highest EDHREC synergy and none appear in the stock list, which is the gap the audit is built to find.
 
+## The full ninety-nine, one legal build
+
+A complete legal Kang list, commander plus 99, every card verified blue-black or colorless on Scryfall by the card-fact gate (99 cards, machine-checked for legality and singleton). One tuned build among many.
+
+**Commander:** Kang, Temporal Tyrant
+
+- **Second-draw enablers: connive + instant-speed draw (14):** Leader, Super-Genius, Baron Strucker, HYDRA Overlord, Madame Masque, Ledger Shredder, Frantic Search, Visions of Villainy, Chart a Course, Chemister's Insight, Thirst for Discovery, Fact or Fiction, Forbidden Alchemy, Careful Study, Thirst for Knowledge, Merfolk Looter
+- **Second-draw payoffs (8):** Construct a Cosmic Cube, Gixian Puppeteer, Kid Loki, Alandra, Sky Dreamer, M.O.D.O.K., Evil Intellect, Psychosis Crawler, Teferi's Ageless Insight, Moonstone, Harsh Mistress
+- **Discard / graveyard value (3):** Archfiend of Ifnir, Bone Miser, Containment Construct
+- **Draw engines (10):** Black Market Connections, Night's Whisper, Syphon Mind, Sign in Blood, Read the Bones, Crux of Fate, Rhystic Study, Mystic Remora, Windfall, Brainstorm
+- **Interaction (13):** Counterspell, Arcane Denial, Swan Song, Reality Shift, Go for the Throat, Withering Torment, Lethal Scheme, Bloodchief's Thirst, Feed the Swarm, Toxic Deluge, Damnation, Cyclonic Rift, Kindred Dominance
+- **Protection (3):** Swiftfoot Boots, Lightning Greaves, Propaganda
+- **Card-advantage creatures / value (4):** Baleful Strix, Sea Gate Oracle, Spark Double, Chameleon, Master of Disguise
+- **Ramp / rocks (7):** Sol Ring, Arcane Signet, Dimir Signet, Talisman of Dominance, Mind Stone, Fellwar Stone, Skullclamp
+- **Lands (37) (37):** Command Tower, Path of Ancestry, Exotic Orchard, Drowned Catacomb, Choked Estuary, Fetid Pools, Sunken Hollow, Watery Grave, Underground River, Darkslick Shores, Dismal Backwater, Temple of Deceit, Morphic Pool, Dimir Aqueduct, Tainted Isle, River of Tears, Sunken Ruins, Reliquary Tower, Bojuka Bog, Scavenger Grounds, Terramorphic Expanse, Island x8, Swamp x8
+
 ## Dedicated Kang, or Kang in the Doom box
 
 EDHREC records about 77 Kang decks (read 2026-07-13), the niche pick of a box that only released in June 2026. A number that small this early cannot prove the community thinks Kang belongs outside Doom. Wizards put Kang in the official Doom Prevails list on purpose, and Doom's own discard-and-connive package feeds Kang's trigger, so he has a real home there. The honest read comes down to ratios between the two builds. Lean the list toward instant-speed draw and blue interaction and you get the dedicated second-draw control deck above. Keep Doom at the helm and Kang is still one of the better draw payoffs in the 99. Pick by the game you want.
