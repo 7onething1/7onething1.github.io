@@ -66,6 +66,8 @@ Door of Destinies is the close call: it looks like a counters payoff, so it read
 
 Reading the audit uses four more of Snail's tests. **Strength over count:** Kindred Discovery reaches its payoff through many dependable routes (every Hero, token, and reanimation). Door of Destinies has one route, direct casting, which is why it drops to situational. **By stage:** Kindred Discovery and Champions from Beyond pull weight from development onward, War Machine and She-Hulk are late finishers, and The Ozolith is recovery insurance, so a card that is quiet early keeps its slot when the deck reliably reaches its stage. **From the finished list:** every support count above is read off this 100 after the swaps rather than off EDHREC averages. **Flexibility floor:** tuning toward Heroes did not strip the answers, since the build still runs six spot removals, five board resets, five protection pieces, and seven card-draw effects, so it can respond to a changing board rather than only chain one big turn.
 
+**Three ways a card goes dead.** A Hero with no board behind it (She-Hulk drawn into an empty board is a slow body; she wants a wide team down first). Protection you cannot rebuild behind (Flawless Maneuver held with one creature and nothing to follow saves almost nothing). A strong card that ignores the plan (a five-mana bomb that neither adds a Hero, protects the board, nor turns counters into damage fails the five-job test even with a high ceiling).
+
 ## The mana curve
 
 Counts cover the sixty-four nonland cards, the commander included.
@@ -176,6 +178,10 @@ Three common mistakes:
 1. **Playing it as cast-only.** Forgetting tokens, blink, and reanimation also enter, so you leave the cheapest repeat triggers out of the deck.
 2. **Dumping into an open wipe.** Emptying your hand when a sweeper is likely, instead of holding a Hero or two and leaning on Raise the Palisade and the rebuild.
 3. **Chasing off-plan power.** Running a strong non-Hero that does none of the five jobs, thinning the Hero density that makes Cap snowball.
+
+## Cap or Nick Fury: the two faces
+
+The Avengers Assemble box ships with two legal commanders, and Captain America is the default for good reason. Both are Jeskai, so the color identity and most of the 99 stay the same. Captain America, Team Leader turns every Hero entry into counters and haste, a go-wide board that closes through the modified payoffs. Director Nick Fury leads a grindier build: his cost reduction and attack-triggered Hero digs make a deck built around card advantage and a steady stream of Heroes rather than one explosive counter turn. Run Captain America for the aggressive plan this page describes; move Nick Fury to the command zone when you would rather grind through card advantage, and the deck shifts from a counters theme toward a Legends and value theme. The other Captain America cards in the set lead different decks; they cannot be the commander here.
 
 ## What the numbers say
 
