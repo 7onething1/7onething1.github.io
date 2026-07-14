@@ -76,13 +76,13 @@ Highest ceiling in the set and the only four-color deck, and the weakest of the 
 - **Simplest mana, clearest upgrade route:** Wakanda Forever, only two colours, the simplest mana base, and the clearest focused T'Challa upgrade route (the unchanged box also runs monarch, Equipment, and tokens).
 
 ## Upgrade cost, cheapest first (Scryfall cheapest printing, captured 14 July 2026)
-Add-card cost only, since you already own the cut cards. Singles prices drift, so this is a dated snapshot.
-- **The Fantastic Four:** $15.40
-- **Avengers Assemble:** $15.86
-- **Doom Prevails:** $23.78
-- **Wakanda Forever:** $32.88
+Full recommended upgrade package per deck, add-card cost only, since you already own the cut cards. Singles prices drift, so this is a dated snapshot. The ranked list on the page covers all 163 upgrade cards across every path (full swap lists, alternate commanders, and add-only lists).
+- **Avengers Assemble:** $15.79 (8 cards)
+- **Doom Prevails:** $51.89 (13 cards)
+- **The Fantastic Four:** $59.11 (13 cards)
+- **Wakanda Forever:** $74.71 (16 cards)
 
-Ten cheapest individual upgrades: SP//dr, Piloted by Peni $0.29; Green Goblin, Revenant $0.30; West Coast Expansion $0.30; Talisman of Conviction $0.31; Verdurous Gearhulk $0.32; Urdnan, Dromoka Warrior $0.34; Super-Adaptoid $0.36; Living Lies of Loki $0.44; Araña, Heart of the Spider $0.51; Crimson Cowl, Master of Evil $1.01.
+Ten cheapest individual upgrades across all paths: Axebane Guardian $0.17; Snakeskin Veil $0.17; Altar of the Goyf $0.20; Feed the Swarm $0.20; The Spot's Portal $0.20; Thornglint Bridge $0.20; Towering Viewpoint $0.22; Michiko's Reign of Truth $0.24; Abzan Falconer $0.26; Silver Sable, Mercenary Leader $0.26.
 
 ## EDHREC build popularity (captured 13 July 2026)
 A dated snapshot of adoption, not of strength, and not read live on load. Both of each precon's headline commanders are shown (the Fantastic Four ships with four):
