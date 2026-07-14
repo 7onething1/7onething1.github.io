@@ -400,6 +400,8 @@ body.kids .grown{display:none}
 .cfg-ev-insufficient{background:var(--crimson);color:#fff}
 .cfg-ev-setonly{background:var(--muted);color:#fff}
 .cfg-note{font-family:'Inter',sans-serif;font-size:.8rem;color:var(--muted);margin:10px 0 0}
+.cfgcard-note{font-family:'Inter',sans-serif;font-size:.78rem;color:var(--crimson-d);font-style:italic;margin:6px 0 0}
+.cfg-pkglist{font-family:'Inter',sans-serif;font-size:.82rem;color:var(--ink2);line-height:1.6;margin:4px 0 8px}
 .acard-pkg{font-family:'Inter',sans-serif;font-size:.78rem;color:var(--muted);margin:4px 0 0}
 .acard-pkg b{color:var(--teal-d)}
 .allcmdrbar{display:flex;align-items:center;gap:10px;flex-wrap:wrap;margin:8px 0 2px}
@@ -1009,10 +1011,30 @@ function buildCommanders(){
     /* required Mister Fantastic reference fields and whether each is currently supported */
     const fields={score:!!score,package:hasPkg,price:cost!=null,gamePlan:plan,identity:!!ci,adoption:edhrec!=null,precon:true};
     const missing=Object.keys(fields).filter(k=>!fields[k]);
-    return {slug,name,precon,precname:PRECON_NAME[precon],role,ci,edhrec,pkg:hasPkg?pkgAdds:null,pkgCost:cost,pkgPriced:priced,plan,score,evidence,fields,missing};
+    return {slug,name,precon,precname:PRECON_NAME[precon],role,ci,edhrec,pkg:hasPkg?pkgAdds:null,pkgCost:cost,pkgPriced:priced,plan,score,evidence,fields,missing,
+            id:slug, scores:score, rankColor:(byId[precon]?byId[precon].rankColor:"var(--muted)"), tag:PRECON_NAME[precon]};
   });
 }
 const COMMANDERS=buildCommanders();
+/* ===== ONE SELECTOR EVERY RENDERER CONSUMES ===== units are decks (OFF) or the 19 commander configs (ON). */
+function activeUnits(){ return allCmdrs ? COMMANDERS.slice() : DECKS.slice(); }
+function unitIsConfig(u){ return "evidence" in u; }
+function unitCost(u){ return unitIsConfig(u) ? u.pkgCost : deckPkgCost(u.id); }
+function unitAdds(u){ return unitIsConfig(u) ? (u.pkg||[]) : deckPkgAdds(u.id); }
+function unitMetric(u,key){
+  if(key==="cost"){ return unitCost(u); }
+  const s=u.scores; if(!s) return null;
+  return key==="overall"?overall(s):(s[key]!=null?s[key]:null);
+}
+/* Documented null policy: an unavailable metric sorts LAST in every mode. Never coerced to 0, never NaN, never above a supported value. */
+function cmpUnits(a,b){
+  const av=unitMetric(a,sortKey), bv=unitMetric(b,sortKey);
+  if(av==null && bv==null) return (a.name||"").localeCompare(b.name||"");
+  if(av==null) return 1;
+  if(bv==null) return -1;
+  return sortKey==="cost" ? (av-bv) : (bv-av);
+}
+function unitLabel(u){ return unitIsConfig(u) ? (u.name+" · "+u.precname) : u.name; }
 function cfgById(slug){ return COMMANDERS.find(c=>c.slug===slug)||null; }
 function getActiveConfigurations(alternateMode){
   return alternateMode ? COMMANDERS.slice() : COMMANDERS.filter(c=>DECK_LEADS.includes(c.slug));
@@ -1049,6 +1071,66 @@ function renderConfigs(){
       }).join("") + `</div></div>`;
   }).join("")
    + `<p class="cfg-note">Every logical commander is listed and selectable. Grounded profiles carry a real score and priced package; partial profiles carry a package or plan but no per-commander score yet; incomplete profiles have only adoption data so far; set-only legends need a rebuilt deck. See the gap report for the exact research each one needs to reach Mister Fantastic's completeness.</p>`;
+}
+/* Scorecards ON: one card per active commander configuration, sorted by the active lens (unavailable metrics sort last). */
+function renderConfigCards(){
+  const arr=activeUnits().sort(cmpUnits);
+  const na=`<span class="cfg-na">Profile research incomplete</span>`;
+  document.getElementById("decks").innerHTML = arr.map((u,i)=>{
+    const ov = u.scores ? overall(u.scores).toFixed(1) : "n/a";
+    const img = imgFor(u.name);
+    const idtxt=(typeof normCI==="function")?normCI(u.ci):u.ci;
+    return `<div class="deck cfgcard" id="deck-${u.slug}" role="button" tabindex="0" aria-label="Open ${u.name} configuration" onclick="openConfig('${u.slug}')" onkeydown="if(event.key==='Enter'||event.key===' '){event.preventDefault();openConfig('${u.slug}')}">
+      <div class="deck-head">
+        <div class="rankbadge" style="background:${u.rankColor}"><div class="n">${i+1}</div><div class="t">${["1st","2nd","3rd"][i]||(i+1)}</div></div>
+        <div class="deck-main">
+          <p class="deck-title">${u.name} <span class="cfg-role">${u.role}</span></p>
+          <p class="deck-tag">${u.precname} · ${idtxt} · <span class="cfg-ev cfg-ev-${u.evidence}">${evLabel(u.evidence)}</span></p>
+          <div class="scores">
+            <div class="score"><div class="v" style="color:${u.rankColor}">${ov}</div><div class="k">Overall</div></div>
+            <div class="score"><div class="v">${u.edhrec!=null?u.edhrec.toLocaleString():"n/a"}</div><div class="k">EDHREC decks</div></div>
+            <div class="score"><div class="v">${u.pkgCost!=null?money(u.pkgCost):"n/a"}</div><div class="k">Package</div></div>
+          </div>
+          ${u.scores?"":`<p class="cfgcard-note">${na} for score. ${u.pkgCost==null?"No supported upgrade package yet.":""}</p>`}
+        </div>
+        ${img?`<div class="deck-hero grown"><img loading="lazy" src="${img}" alt="${u.name}"></div>`:""}
+      </div>
+      <div class="open-hint">${u.name} leading ${u.precname}. Tap for the configuration profile →</div>
+    </div>`;
+  }).join("");
+}
+/* Profile modal for a commander configuration. Grounded fields shown; unsupported fields labeled, never borrowed from the face. */
+function openConfig(slug){
+  const c=cfgById(slug); if(!c) return;
+  openDeckId=slug;
+  const na=`<span class="cfg-na">Profile research incomplete</span>`;
+  const idtxt=(typeof normCI==="function")?normCI(c.ci):c.ci;
+  const img=imgFor(c.name);
+  const ov=c.scores?overall(c.scores).toFixed(1):na;
+  const scoreRows=c.scores
+    ? `<div class="scores">${["power","ceiling","fun","ease","politics"].map(k=>`<div class="score"><div class="v">${c.scores[k].toFixed(1)}</div><div class="k">${METRIC_LABELS[k]}</div></div>`).join("")}</div>`
+    : `<p>${na} for the five-read score. This commander does not borrow the deck face's score.</p>`;
+  const pkg = c.pkg
+    ? `<p><b>Upgrade package:</b> ${money(c.pkgCost)} across ${c.pkg.length} cards (${c.pkgPriced} priced). <a href="${deckUrl(c.pkg)}" target="_blank" rel="noopener">Price in KC →</a></p><div class="cfg-pkglist">${c.pkg.map(x=>`${x}${PRICES[x]!=null?` <span class="pricetag">${money(PRICES[x])}</span>`:""}`).join(" · ")}</div>`
+    : `<p><b>Upgrade package:</b> ${na}. ${c.evidence==="insufficient"?(c.edhrec>=100?"EDHREC adoption is high enough to derive one; queued.":"EDHREC data is too thin to derive a grounded package."):(c.evidence==="setonly"?"Set-only legend, needs a rebuilt 99.":"")}</p>`;
+  const plan = GAME_PLANS[slug] ? `<h4>Game plan</h4>${GAME_PLANS[slug].map(p=>`<p class="gp-p">${p}</p>`).join("")}` : `<h4>Game plan</h4><p>${na}.</p>`;
+  document.getElementById("modal").innerHTML = `
+    <div class="modal-head">
+      <div class="mb" style="background:${c.rankColor}"><div class="n">${c.role}</div></div>
+      <div><p class="mt">${c.name} <span class="ci">${idtxt}</span></p><div class="ms">${c.precname} configuration · <span class="cfg-ev cfg-ev-${c.evidence}">${evLabel(c.evidence)}</span></div></div>
+      <button class="close" onclick="closeModal()" aria-label="Close">✕</button>
+    </div>
+    <div class="modal-body">
+      ${img?`<div class="cmdr-img" style="float:right;width:150px;margin:0 0 10px 14px"><img loading="lazy" src="${img}" alt="${c.name}" style="width:100%;border-radius:8px"></div>`:""}
+      <p><b>Commander:</b> ${c.name}. <b>Precon:</b> ${c.precname}. <b>Legal colour identity:</b> ${idtxt}. <b>EDHREC:</b> ${c.edhrec!=null?c.edhrec.toLocaleString()+" decks (captured 14 Jul 2026)":"set-only"}.</p>
+      <p><b>Overall score:</b> ${ov}. <b>Stock-99 fit, sequencing, rules map, dead-draw diagnosis, win conditions:</b> ${na} unless a grounded profile exists below.</p>
+      ${scoreRows}
+      ${pkg}
+      ${plan}
+      <p class="cfg-note">Missing fields for this commander: ${c.missing.length?c.missing.join(", "):"none on the rankings-page schema"}. Full guide-level fields are produced per commander through the 10-gate flesh-out.</p>
+    </div>`;
+  const ov2=document.getElementById("overlay"); window._lastFocus=document.activeElement; ov2.classList.add("show"); document.body.style.overflow="hidden";
+  const cb=document.querySelector("#modal .close"); if(cb) cb.focus();
 }
 function renderEdhrec(){
   const host=document.getElementById('edhrecbody'); if(!host) return;
@@ -1094,6 +1176,7 @@ function cmpDecks(a,b){
   return bv-av;
 }
 function render(){
+  if(allCmdrs){ renderConfigCards(); return; }
   const arr = [...DECKS].sort(cmpDecks);
   const preRank = rankMapBy("power"), postRank = rankMapBy("ceiling");
   document.getElementById("decks").innerHTML = arr.map((d,i)=>{
@@ -1441,6 +1524,21 @@ function meterRow(k,v,active){
 }
 function renderCover(){
   const el = document.getElementById("cover"); if(!el) return;
+  if(allCmdrs){
+    const arr=activeUnits().sort(cmpUnits);
+    el.innerHTML=arr.map((u,i)=>{ const img=imgFor(u.name); const f=FAC[u.precon]||{emblem:"?",motif:""};
+      return `<button class="cpanel cpanel-${u.precon}" style="--fac:${u.rankColor}" onclick="openConfig('${u.slug}')" aria-label="Open ${u.name} configuration">
+        <div class="cpanel-head"><span class="cpanel-rank">#${i+1}</span><span class="cpanel-emblem">${f.emblem}</span></div>
+        <div class="cpanel-portrait">${img?`<img loading="lazy" src="${img}" alt="${u.name}">`:`<div class="cpanel-noimg">${u.name.split(",")[0]}</div>`}</div>
+        <div class="cpanel-body">
+          <h3 class="cpanel-name">${u.name}</h3>
+          <p class="cpanel-motif">${u.precname} · ${pips(u.ci.split(""))}</p>
+          <p class="cpanel-motif"><span class="cfg-ev cfg-ev-${u.evidence}">${evLabel(u.evidence)}</span> · ${u.scores?("Overall "+overall(u.scores).toFixed(1)):"no score yet"}</p>
+        </div>
+      </button>`;
+    }).join("");
+    return;
+  }
   const arr = [...DECKS].sort(cmpDecks);
   const metrics = ["power","ceiling","fun","ease","politics"];
   el.innerHTML = arr.map((d,i)=>{
@@ -1471,16 +1569,48 @@ const TRAITS = {
   simple:  {lbl:"Simplest to build",     metric:d=>-d.ci.length,                    note:d=>`<b>${d.name}</b> is the simplest to build: only ${d.ci.length} colours, the fewest of the four, so the friendliest mana base and the clearest T'Challa upgrade route.`}
 };
 let archTrait = null;
-function traitPick(t){ if(!t||!TRAITS[t]) return null; return [...DECKS].sort((a,b)=>TRAITS[t].metric(b)-TRAITS[t].metric(a))[0]; }
+function traitPick(t){
+  if(!t||!TRAITS[t]) return null;
+  const cand=activeUnits().filter(u=>{ try{ const v=TRAITS[t].metric(u); return v!=null && !isNaN(v); }catch(e){ return false; } });
+  if(!cand.length) return null;
+  return cand.sort((a,b)=>TRAITS[t].metric(b)-TRAITS[t].metric(a))[0];
+}
 function sortedDecks(){
   return [...DECKS].sort(cmpDecks);
 }
 function traitPickId(){ const p=traitPick(archTrait); return p?p.id:null; }
 function deckIsPick(d){ return archTrait && d.id===traitPickId(); }
 function deckDimmed(d){ return archTrait && !deckIsPick(d); }
+/* Comparison Table ON: all 19 configs, sorted by the active lens, dim/highlight by the active buying filter. */
+function renderArchiveConfigs(strip,cards){
+  const arr=activeUnits().sort(cmpUnits);
+  const metrics=["power","ceiling","fun","ease","politics"];
+  strip.innerHTML=`<div class="astrip-row astrip-head"><span></span><span>Overall</span>${metrics.map(k=>`<span>${METRIC_LABELS[k]}</span>`).join("")}</div>`+
+    arr.map((u,i)=>{ const s=u.scores; const dim=deckDimmed(u), hi=deckIsPick(u);
+      return `<div class="astrip-row${dim?' dim':''}${hi?' pickhi':''}" style="--fac:${u.rankColor}"><span class="astrip-nm"><b>#${i+1}</b> ${u.name} <span class="cfg-role">${u.precname}</span></span><span class="astrip-v ov">${s?overall(s).toFixed(1):'n/a'}</span>${metrics.map(k=>`<span class="astrip-v">${s?s[k].toFixed(1):'n/a'}</span>`).join("")}</div>`;
+    }).join("");
+  cards.innerHTML=arr.map((u,i)=>{ const img=imgFor(u.name); const dim=deckDimmed(u), hi=deckIsPick(u);
+    const idtxt=(typeof normCI==="function")?normCI(u.ci):u.ci;
+    return `<article class="acard${dim?' dim':''}${hi?' pickhi':''}" style="--fac:${u.rankColor}" onclick="openConfig('${u.slug}')" tabindex="0" role="button" aria-label="Open ${u.name} configuration">
+      <div class="acard-art">${img?`<img loading="lazy" src="${img}" alt="${u.name}">`:""}<span class="acard-rank">${String(i+1).padStart(2,"0")}</span></div>
+      <div class="acard-info">
+        <div class="acard-idline">${idtxt}<span class="acard-cc">${u.precname}</span></div>
+        <h3 class="acard-name">${u.name}</h3>
+        <p class="acard-identity"><span class="cfg-role">${u.role}</span> · <span class="cfg-ev cfg-ev-${u.evidence}">${evLabel(u.evidence)}</span></p>
+        <div class="acard-stats">
+          <div class="astat big"><span class="astat-v">${u.scores?overall(u.scores).toFixed(1):'n/a'}</span><span class="astat-k">Overall</span></div>
+          <div class="astat"><span class="astat-v">${u.edhrec!=null?u.edhrec.toLocaleString():'n/a'}</span><span class="astat-k">EDHREC</span></div>
+          <div class="astat"><span class="astat-v">${u.pkgCost!=null?money(u.pkgCost):'n/a'}</span><span class="astat-k">Package</span></div>
+        </div>
+        <p class="acard-cmdrs">${u.name} leading ${u.precname}<span class="acard-open">Open profile →</span></p>
+      </div>
+    </article>`;
+  }).join("");
+}
 function renderArchive(){
   const strip=document.getElementById("archStrip"), cards=document.getElementById("archCards");
   if(!strip||!cards) return;
+  if(allCmdrs){ renderArchiveConfigs(strip,cards); return; }
   const arr=sortedDecks();
   const metrics=["power","ceiling","fun","ease","politics"];
   // comparison strip: every deck's overall + 5 metrics onscreen at once
@@ -1548,12 +1678,19 @@ function renderCheapest(){
   const dc=document.getElementById('deckcost'), cl=document.getElementById('cheaplist');
   if(!dc||!cl) return;
   const c2d=buildCard2Deck();
-  const order=Object.keys(UPGRADE_COST).sort((a,b)=>deckPkgCost(a)-deckPkgCost(b));
-  dc.innerHTML=`<div class="dcgrid">`+order.map((id,i)=>{
-    const d=byId[id];
-    const adds=deckPkgAdds(id);
-    return `<div class="dccard" style="--fac:${d.rankColor}"><span class="dcrank">#${i+1} cheapest to fully upgrade</span><a class="dcname" href="#deck-${id}">${d.name}</a><span class="dccost">${money(deckPkgCost(id))}</span><span class="dcsub grown">${allCmdrs?'all-commanders':'face-commander'} package (${adds.length} cards)</span><a class="dckc" href="${deckUrl(adds)}" target="_blank" rel="noopener">Price these in KC →</a></div>`;
-  }).join("")+`</div>`;
+  if(allCmdrs){
+    const cfgs=COMMANDERS.filter(c=>c.pkgCost!=null).sort((a,b)=>a.pkgCost-b.pkgCost);
+    dc.innerHTML=`<p class="cheaphdr">Cheapest commander configurations to upgrade, ${cfgs.length} of 19 with a supported package. Commanders without a grounded package are not ranked here (their package reads research incomplete).</p><div class="dcgrid">`+cfgs.map((c,i)=>
+      `<div class="dccard" style="--fac:${c.rankColor}"><span class="dcrank">#${i+1} cheapest config</span><a class="dcname" href="#configs" onclick="openConfig('${c.slug}');return false;">${c.name}</a><span class="dccost">${money(c.pkgCost)}</span><span class="dcsub grown">${c.precname} · ${c.pkg.length} cards</span><a class="dckc" href="${deckUrl(c.pkg)}" target="_blank" rel="noopener">Price these in KC →</a></div>`
+    ).join("")+`</div>`;
+  } else {
+    const order=Object.keys(UPGRADE_COST).sort((a,b)=>deckPkgCost(a)-deckPkgCost(b));
+    dc.innerHTML=`<div class="dcgrid">`+order.map((id,i)=>{
+      const d=byId[id];
+      const adds=deckPkgAdds(id);
+      return `<div class="dccard" style="--fac:${d.rankColor}"><span class="dcrank">#${i+1} cheapest to fully upgrade</span><a class="dcname" href="#deck-${id}">${d.name}</a><span class="dccost">${money(deckPkgCost(id))}</span><span class="dcsub grown">face-commander package (${adds.length} cards)</span><a class="dckc" href="${deckUrl(adds)}" target="_blank" rel="noopener">Price these in KC →</a></div>`;
+    }).join("")+`</div>`;
+  }
   const rows=Object.keys(PRICES).map(nm=>({nm, usd:PRICES[nm], decks:[...(c2d[nm]||[])]})).sort((a,b)=>a.usd-b.usd || a.nm.localeCompare(b.nm));
   cl.innerHTML=`<p class="cheaphdr grown">Every upgrade card across all paths (full swap lists, alternate commanders, and add-only lists), ${rows.length} in total, cheapest first.</p><ol class="cheaprows">`+rows.map(r=>{
     const f=frontFace(r.nm);
