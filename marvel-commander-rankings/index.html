@@ -348,6 +348,7 @@ body.kids .grown{display:none}
 .buyer-q{font-family:'Inter',sans-serif;font-weight:800;font-size:.68rem;text-transform:uppercase;letter-spacing:.06em;color:var(--muted)}
 .buyer-a{font-family:'Cormorant Garamond',Georgia,serif;font-size:1.45rem;font-weight:700;color:var(--crimson-d);line-height:1.1}
 .buyer-why{font-family:'Inter',sans-serif;font-size:.86rem;color:var(--ink2);line-height:1.42}
+.buyer-sub{font-family:'Inter',sans-serif;font-size:.72rem;font-weight:700;text-transform:uppercase;letter-spacing:.04em;color:var(--teal-d)}
 .edh-both{list-style:none;margin:10px 0;padding:0;display:grid;gap:7px}
 .edh-both li{font-family:'Inter',sans-serif;font-size:.9rem;color:var(--ink2);line-height:1.4;padding-left:11px;border-left:3px solid var(--line)}
 .edh-both .edh-deck{display:block;font-weight:800;color:var(--teal-d);font-size:.72rem;text-transform:uppercase;letter-spacing:.05em;margin-bottom:1px}
@@ -453,7 +454,7 @@ body.kids .grown{display:none}
     </div>
     <div class="allcmdrbar">
       <button id="allcmdr-btn" class="tchip" type="button" aria-pressed="false" onclick="toggleAllCmdrs()">🦸 All alternate commanders: off</button>
-      <span class="allcmdr-note grown">On folds every full-identity commander into each deck's package, cost, and ranking. Off keeps the face-commander focus.</span>
+      <span class="allcmdr-note grown">On shows every full-identity commander configuration. Rankings, packages, and costs appear where supported research exists. Off keeps the face-commander focus.</span>
     </div>
     <p class="lead kid-only">Four ready-to-play Marvel decks. Tap a deck to pop open its card, which commanders you can pick, and which cards to swap out and swap in. Higher bars are better.</p>
 
@@ -515,38 +516,7 @@ body.kids .grown{display:none}
     <h2>Which one should I buy?</h2>
     <p class="lead grown">Six questions, six answers, one for every filter above and drawn straight from the scores. Tap a pick to jump to its full card. <span id="buyermode"></span></p>
     <p class="lead kid-only">Six easy answers. Tap a deck to see more.</p>
-    <div class="buyer-grid">
-      <a class="buyer-card" href="#deck-avengers">
-        <span class="buyer-q">Play it as-is, no upgrades</span>
-        <span class="buyer-a">Avengers Assemble</span>
-        <span class="buyer-why grown">The strongest unchanged deck, highest out-of-box power (8.0). Testers land a threatening board most reliably here while keeping unusually plentiful removal for a precon, so it is the best pick on night one before you change a card.</span>
-      </a>
-      <a class="buyer-card" href="#deck-ff">
-        <span class="buyer-q">Best long-term project</span>
-        <span class="buyer-a">The Fantastic Four</span>
-        <span class="buyer-why grown">The biggest climb of the four, from 6.5 out of the box to an 8.6 ceiling, with four commanders to rebuild around.</span>
-      </a>
-      <a class="buyer-card" href="#deck-avengers">
-        <span class="buyer-q">Easiest for a new player</span>
-        <span class="buyer-a">Avengers Assemble</span>
-        <span class="buyer-why grown">Highest Ease (8.5), a clean three-colour Jeskai curve that does what it looks like it does.</span>
-      </a>
-      <a class="buyer-card" href="#deck-doom">
-        <span class="buyer-q">Most fun at the table</span>
-        <span class="buyer-a">Doom Prevails</span>
-        <span class="buyer-why grown">Highest Fun (8.7): two engines in one box and the swingy Loki copy line make it the liveliest to pilot.</span>
-      </a>
-      <a class="buyer-card" href="#deck-ff">
-        <span class="buyer-q">Best table politics</span>
-        <span class="buyer-a">The Fantastic Four</span>
-        <span class="buyer-why grown">Highest Table politics (6.5): its threats build quietly, so it draws the least early targeting of the four.</span>
-      </a>
-      <a class="buyer-card" href="#deck-wakanda">
-        <span class="buyer-q">Simplest mana, clearest upgrade route</span>
-        <span class="buyer-a">Wakanda Forever</span>
-        <span class="buyer-why grown">Only two colours, so the simplest mana base, and the clearest focused T'Challa upgrade route. The unchanged box also carries monarch, Equipment, and tokens, so it starts as more than one plan.</span>
-      </a>
-    </div>
+    <div class="buyer-grid" id="buyergrid"></div>
   </section>
 
   <section id="cheapest">
@@ -1132,6 +1102,21 @@ function openConfig(slug){
   const ov2=document.getElementById("overlay"); window._lastFocus=document.activeElement; ov2.classList.add("show"); document.body.style.overflow="hidden";
   const cb=document.querySelector("#modal .close"); if(cb) cb.focus();
 }
+/* Buyer recommendations computed from the active collection via traitPick. Names commander and precon in ON mode. */
+const BUYER_Q=[["power","Play it as-is, no upgrades"],["project","Best long-term project"],["ease","Easiest for a new player"],["fun","Most fun at the table"],["politics","Best table politics"],["simple","Simplest to build"]];
+function renderBuyer(){
+  const host=document.getElementById("buyergrid"); if(!host) return;
+  host.innerHTML=BUYER_Q.map(([t,label])=>{
+    const pick=traitPick(t);
+    if(!pick) return `<div class="buyer-card"><span class="buyer-q">${label}</span><span class="buyer-a"><span class="cfg-na">No supported answer yet</span></span></div>`;
+    const isCfg=unitIsConfig(pick);
+    const sub=isCfg?pick.precname:"";
+    const why=TRAITS[t].note?TRAITS[t].note(pick):"";
+    const href=isCfg?"#configs":("#deck-"+pick.id);
+    const onc=isCfg?`onclick="openConfig('${pick.slug}');return false;"`:"";
+    return `<a class="buyer-card" href="${href}" ${onc}><span class="buyer-q">${label}</span><span class="buyer-a">${pick.name}</span>${sub?`<span class="buyer-sub grown">${sub}</span>`:""}<span class="buyer-why grown">${why}</span></a>`;
+  }).join("");
+}
 function renderEdhrec(){
   const host=document.getElementById('edhrecbody'); if(!host) return;
   const order=["doom","ff","avengers","wakanda"];
@@ -1456,6 +1441,7 @@ function toggleAllCmdrs(){
   renderCheapest();
   renderEdhrec();
   renderConfigs();
+  renderBuyer();
   { const bm=document.getElementById('buyermode'); if(bm) bm.textContent = allCmdrs ? ("With alternate commanders on, these recommendations evaluate the "+COMMANDERS.filter(c=>c.scores).length+" scored commander configurations; unscored commanders are not yet eligible.") : ""; }
   if(openDeckId) openDeck(openDeckId);
 }
@@ -1705,6 +1691,7 @@ renderBonus();
 renderCheapest();
 renderEdhrec();
 renderConfigs();
+renderBuyer();
 { const bm=document.getElementById('buyermode'); if(bm) bm.textContent = allCmdrs ? ("With alternate commanders on, these recommendations evaluate the "+COMMANDERS.filter(c=>c.scores).length+" scored commander configurations; unscored commanders are not yet eligible.") : ""; }
 setView("archive");
 /* card-name hover preview */
