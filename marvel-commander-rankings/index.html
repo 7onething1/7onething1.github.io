@@ -365,6 +365,14 @@ body.kids .grown{display:none}
 .dcsub{font-size:.7rem;color:var(--muted)}
 .dckc{margin-top:7px;display:inline-block;font-family:'Inter',sans-serif;font-weight:800;font-size:.76rem;text-decoration:none;color:#fff;background:var(--fac);border-radius:20px;padding:5px 11px}
 .dckc:hover{filter:brightness(1.08)}
+.summarywrap{overflow-x:auto;margin:10px 0 6px}
+.summary{width:100%;border-collapse:collapse;font-family:'Inter',sans-serif;font-size:.9rem}
+.summary caption{text-align:left;font-size:.8rem;color:var(--muted);margin-bottom:6px;caption-side:top}
+.summary th,.summary td{border:1px solid var(--line);padding:7px 10px;text-align:left;vertical-align:top}
+.summary th{background:var(--paper2);font-weight:800;font-size:.72rem;text-transform:uppercase;letter-spacing:.04em;color:var(--ink2)}
+.summary td:nth-child(3){color:var(--teal-d);font-size:1.02rem}
+.summary a{color:var(--crimson-d);font-weight:700;text-decoration:none}
+.summary a:hover{text-decoration:underline}
 .allcmdrbar{display:flex;align-items:center;gap:10px;flex-wrap:wrap;margin:8px 0 2px}
 .allcmdr-note{font-family:'Inter',sans-serif;font-size:.78rem;color:var(--muted);max-width:520px}
 .cheaphdr{font-family:'Inter',sans-serif;font-size:.85rem;color:var(--muted);margin:0 0 8px}
@@ -393,6 +401,19 @@ body.kids .grown{display:none}
 <div class="wrap">
   <section id="ranking">
     <h2>The Ranking</h2>
+    <!-- Static summary snapshot; scores mirror the DECKS data. Update both together if scores change. -->
+    <div class="summarywrap grown">
+    <table class="summary" aria-label="Marvel Commander precon ranking summary">
+      <caption>At a glance. Ordered by the Overall composite; the interactive view below opens on Out-of-box, where Avengers Assemble leads.</caption>
+      <thead><tr><th>#</th><th>Deck</th><th>Overall</th><th>Out&#8209;of&#8209;box</th><th>Ceiling</th><th>In one line</th></tr></thead>
+      <tbody>
+        <tr><td>1</td><td><a href="#deck-doom">Doom Prevails</a></td><td><b>7.5</b></td><td>7.3</td><td>8.0</td><td>Two win engines in one box, home to the strongest single line in the set.</td></tr>
+        <tr><td>2</td><td><a href="#deck-avengers">Avengers Assemble</a></td><td><b>7.4</b></td><td>8.0</td><td>7.0</td><td>Strongest unchanged, the cleanest curve, the easiest to pilot.</td></tr>
+        <tr><td>3</td><td><a href="#deck-ff">The Fantastic Four</a></td><td><b>7.2</b></td><td>6.5</td><td>8.6</td><td>Highest ceiling and four commanders, and the hardest four-colour mana.</td></tr>
+        <tr><td>4</td><td><a href="#deck-wakanda">Wakanda Forever</a></td><td><b>6.7</b></td><td>6.9</td><td>6.5</td><td>Simplest two-colour build, the clearest T'Challa upgrade route.</td></tr>
+      </tbody>
+    </table>
+    </div>
     <div class="viewbar" id="viewbar">
       <span class="lbl">View</span>
       <button data-v="rankings">📊 Scorecards</button>
@@ -1152,7 +1173,7 @@ function renderSwapSec(deckId, srcKey){
       ${s[2]?`<div class="swap-why">${s[2]}</div>`:''}
     </div>`;
   }).join("");
-  host.innerHTML = `<h4>Cut → Add swaps (${n})<span class="src">source: <a href="${meta.url}" target="_blank" rel="noopener">${meta.name}</a></span></h4>
+  host.innerHTML = `<h4>Cut → Add swaps (${n})<span class="src">editorial recommendations, drawn from <a href="${meta.url}" target="_blank" rel="noopener">${meta.name}</a></span></h4>
     <p class="swapcost">Add-card cost for this set of swaps: <b>${money(total)}</b> <span class="grown">(${priced} of ${n} priced, cheapest printing on Scryfall, ${PRICE_ASOF})</span></p>
     <div class="swaps collapsed" id="swaps-${deckId}">${cards}</div>
     ${n>6?`<button class="showall" onclick="var b=document.getElementById('swaps-${deckId}');var c=b.classList.toggle('collapsed');this.textContent=c?('Show all '+${n}+' swaps ▾'):'Show fewer ▴';">Show all ${n} swaps ▾</button>`:''}
