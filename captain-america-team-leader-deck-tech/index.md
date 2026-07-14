@@ -119,6 +119,10 @@ A creature with a counter is **modified**, so your countered Heroes meet these r
 
 Card draw feeds the loop: Iron Man counters on every draw, Shang-Chi and the Ten Rings grows on every draw and draws five plus gains five life at ten counters, and Professor Hulk draws for each point of combat damage it deals. Kindred Discovery draws and turns those on. One rules trap: Director Nick Fury, Avengers Tower, and Herald's Horn reveal a Hero into your hand, which does not count as drawing, so they do not add a counter through Iron Man or Shang-Chi.
 
+## How the deck closes
+
+A wide board is not the win on its own; one payoff turns it lethal. Attack with a countered team and War Machine gives double strike, Iron Man gives flying, or She-Hulk gives trample through the chump blocks. Any one turns a stalled board into a game-ending swing. Champions from Beyond adds a second gear: at eight or more attackers its Full Party mode pumps the team by four each. Hold up Flawless Maneuver or Akroma's Will on that turn so a blocker or a crackback wipe does not undo the attack. The power branch closes harder, with Shared Animosity paying per attacker and Cathars' Crusade snowballing the counters.
+
 ## Interaction, protection, and the board-wipe question
 
 Three layers. Spot removal keeps the path clear (Swords to Plowshares, 90.5%). Cheap countermagic protects the engine and replaces itself (Arcane Denial). And Raise the Palisade is a sweeper you run yourself: it returns every creature that is not your chosen type to hand, so you pick Hero and every non-Hero returns to its owner. It is strongly asymmetric rather than total: an opponent's own Heroes stay, and your handful of non-Hero creatures bounce too. When an opponent resolves a wipe instead, be honest that it kills Captain America, Nick Fury, Winter Soldier, and the countered board. The recovery is not on the battlefield. It waits in your hand and the command zone: recast Captain America and rebuild with the cheap Heroes you held back, and Nick Fury or Winter Soldier help again once you recast or redraw them.
@@ -132,6 +136,8 @@ The old shorthand, "if it is not a Hero and does not pump, protect, or find Hero
 ## Ten to cut, ten to add
 
 The 100 above is an optimized build. It goes past the precon with more than ten changes, including a rebuilt mana base and a few other slots. Below are the headline swaps from the **Avengers Assemble** precon, a strong first upgrade package. The first three follow the Snail project: the deckbuilding principle is Salubrious Snail's, and the exact card exchanges come from the Gathering Games Avengers Assemble upgrade guide. The other seven are recommendations built for this list. Every cut is a real precon card; every add is legal in Captain America's Jeskai identity (Scryfall, 2026-07-13).
+
+Three goals sort these upgrades. **Keep the theme:** Champions from Beyond, Roaming Throne, and The Ozolith deepen the Hero-and-counters plan. **Add consistency:** Urza's Incubator, the mana rocks, and the fetch-and-shock mana base find and cast Heroes on time, and Path to Exile plus Generous Gift keep interaction reliable. **Add power:** Damning Verdict and Wave Goodbye are one-sided resets, Flawless Maneuver and Akroma's Will add protection, and the power branch below raises the ceiling against stronger tables.
 
 ### Three applied Snail changes
 
@@ -163,7 +169,7 @@ These seven are recommendations built for this list, outside the Snail guide.
 
 ## Opening hand and three mistakes
 
-A keepable hand: three or four mana sources with colors covered and at least one Hero castable by turn two or three. A strong keep is four mana sources including a blue or red one, an early rock or Nick Fury, and two cheap Heroes. Ship hands with fewer than two mana sources or no Hero castable by turn three.
+A keepable hand: three or four mana sources with colors covered and at least one Hero castable by turn two or three. A strong keep is four mana sources including a blue or red one, an early rock or Nick Fury, and two cheap Heroes, plus a card-draw piece and a protection or removal spell for the one threat that stops the attack. Ship hands with fewer than two mana sources or no Hero castable by turn three.
 
 Three common mistakes:
 
