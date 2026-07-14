@@ -382,6 +382,24 @@ body.kids .grown{display:none}
 .summary td:nth-child(3){color:var(--teal-d);font-size:1.02rem}
 .summary a{color:var(--crimson-d);font-weight:700;text-decoration:none}
 .summary a:hover{text-decoration:underline}
+#configs{max-width:1000px;margin:40px auto 0;padding:0 20px}
+#configs h2{font-family:'Cormorant Garamond',Georgia,serif;color:var(--teal-d);font-size:1.9rem;margin:0 0 4px}
+#configbody{overflow-x:auto}
+.cfg-group{margin:14px 0}
+.cfg-gh{font-family:'Inter',sans-serif;font-size:.95rem;font-weight:800;color:var(--ink);border-left:4px solid var(--line);padding-left:9px;margin:0 0 6px}
+.cfg-gn{color:var(--muted);font-weight:600;font-size:.8rem}
+.cfg-table{display:grid;gap:3px;min-width:620px}
+.cfg-row{display:grid;grid-template-columns:2.2fr .9fr .8fr .7fr 1.4fr 1.3fr;gap:8px;align-items:center;font-family:'Inter',sans-serif;font-size:.84rem;padding:6px 9px;background:var(--card);border:1px solid var(--line);border-radius:7px}
+.cfg-head{background:var(--paper2);font-weight:800;font-size:.66rem;text-transform:uppercase;letter-spacing:.04em;color:var(--muted)}
+.cfg-nm{font-weight:700;color:var(--ink)}
+.cfg-role{font-size:.62rem;font-weight:800;text-transform:uppercase;color:var(--muted);margin-left:4px}
+.cfg-na{color:var(--crimson-d);font-size:.76rem;font-style:italic}
+.cfg-ev{font-size:.64rem;font-weight:800;text-transform:uppercase;letter-spacing:.03em;padding:2px 7px;border-radius:20px;text-align:center}
+.cfg-ev-grounded{background:var(--teal);color:#fff}
+.cfg-ev-partial{background:var(--mustard-d);color:#fff}
+.cfg-ev-insufficient{background:var(--crimson);color:#fff}
+.cfg-ev-setonly{background:var(--muted);color:#fff}
+.cfg-note{font-family:'Inter',sans-serif;font-size:.8rem;color:var(--muted);margin:10px 0 0}
 .acard-pkg{font-family:'Inter',sans-serif;font-size:.78rem;color:var(--muted);margin:4px 0 0}
 .acard-pkg b{color:var(--teal-d)}
 .allcmdrbar{display:flex;align-items:center;gap:10px;flex-wrap:wrap;margin:8px 0 2px}
@@ -535,6 +553,12 @@ body.kids .grown{display:none}
     <p class="lead kid-only">The upgrade cards, sorted cheapest first. Prices change over time.</p>
     <div id="deckcost"></div>
     <div id="cheaplist"></div>
+  </section>
+
+  <section id="configs" hidden>
+    <h2>All 19 commander configurations</h2>
+    <p class="lead grown">With <b>All alternate commanders</b> on, every legal commander plus precon configuration the page recognizes, grouped by box. Supported values are grounded in real data; anything not yet supported reads <b>Profile research incomplete</b> rather than a guessed number. The four advertised faces carry the deck's editorial score; the rest are being brought up to that level one grounded pass at a time.</p>
+    <div id="configbody"></div>
   </section>
 
   <section id="strict">
@@ -939,6 +963,93 @@ const EDHREC_ALL = {
 };
 /* Full-identity but set-only (outside the precon 99), so they need a rebuild-adjacent list, not the unchanged deck. */
 const EDHREC_SETONLY = "The Fantastic Four, Ms. Marvel, and She-Hulk";
+
+/* ===== CANONICAL 19-COMMANDER CONFIGURATION DATASET =====
+   One source of truth. Grounded fields are derived from existing verified data (deck scores, SWAP_PAIRS packages,
+   GAME_PLANS, PRICES, EDHREC counts, Scryfall colour identity). Unsupported fields are left null and surfaced as
+   "Profile research incomplete". No score, package, price, or recommendation is invented. */
+const PRECON_NAME={doom:"Doom Prevails",ff:"The Fantastic Four",avengers:"Avengers Assemble",wakanda:"Wakanda Forever"};
+const DECK_LEADS=["doctor-doom","mister-fantastic","team-leader","tchalla"]; /* the 4 advertised faces that carry the deck's editorial score */
+/* [slug, name, precon, role, colourIdentity, edhrecDecks|null] — EDHREC captured 14 July 2026, identity from Scryfall. */
+const CMDR_META=[
+  ["doctor-doom","Doctor Doom, King of Latveria","doom","face","UBR",5046],
+  ["loki","Loki, the Deceiver","doom","second","UBR",1289],
+  ["mister-fantastic","Mister Fantastic","ff","face","GRUW",1102],
+  ["the-thing","The Thing","ff","face","GRUW",737],
+  ["invisible-woman","Invisible Woman","ff","face","GRUW",526],
+  ["human-torch","Human Torch","ff","face","GRUW",376],
+  ["crystal","Crystal, Inhuman Princess","ff","alt","GRUW",1921],
+  ["power-pack","Power Pack","ff","alt","GRUW",99],
+  ["ff-card","The Fantastic Four","ff","setonly","GRUW",null],
+  ["team-leader","Captain America, Team Leader","avengers","face","RWU",2526],
+  ["nick-fury","Director Nick Fury","avengers","second","RWU",296],
+  ["tchalla","T'Challa, the Black Panther","wakanda","face","GW",2156],
+  ["bast","Bast, Panther Goddess","wakanda","alt","GW",298],
+  ["okoye","Okoye, Mighty and Adored","wakanda","alt","GW",146],
+  ["shuri","Shuri, the Black Panther","wakanda","second","GW",119],
+  ["storm","Storm, Queen of Wakanda","wakanda","alt","GW",98],
+  ["tchaka","T'Chaka, Venerable King","wakanda","alt","GW",3],
+  ["ms-marvel","Ms. Marvel, Elastic Ally","wakanda","setonly","GW",null],
+  ["she-hulk","She-Hulk, Attorney-at-Law","wakanda","setonly","GW",null]
+];
+function buildCommanders(){
+  return CMDR_META.map(m=>{
+    const [slug,name,precon,role,ci,edhrec]=m;
+    const pkgAdds=(SWAP_PAIRS[slug]||[]).map(r=>r[1]).filter(Boolean);
+    const hasPkg=pkgAdds.length>0;
+    const cost=hasPkg?Math.round(pkgAdds.reduce((a,c)=>a+(PRICES[c]||0),0)*100)/100:null;
+    const priced=hasPkg?pkgAdds.filter(c=>PRICES[c]!=null).length:0;
+    const plan=!!GAME_PLANS[slug];
+    const score=DECK_LEADS.includes(slug)&&byId[precon]?byId[precon].scores:null;
+    let evidence;
+    if(role==="setonly") evidence="setonly";
+    else if(hasPkg&&score) evidence="grounded";
+    else if(hasPkg||plan) evidence="partial";
+    else evidence="insufficient";
+    /* required Mister Fantastic reference fields and whether each is currently supported */
+    const fields={score:!!score,package:hasPkg,price:cost!=null,gamePlan:plan,identity:!!ci,adoption:edhrec!=null,precon:true};
+    const missing=Object.keys(fields).filter(k=>!fields[k]);
+    return {slug,name,precon,precname:PRECON_NAME[precon],role,ci,edhrec,pkg:hasPkg?pkgAdds:null,pkgCost:cost,pkgPriced:priced,plan,score,evidence,fields,missing};
+  });
+}
+const COMMANDERS=buildCommanders();
+function cfgById(slug){ return COMMANDERS.find(c=>c.slug===slug)||null; }
+function getActiveConfigurations(alternateMode){
+  return alternateMode ? COMMANDERS.slice() : COMMANDERS.filter(c=>DECK_LEADS.includes(c.slug));
+}
+/* Development assertion: fails loudly if the canonical set drifts from 19, loses a required field, or duplicates an id. */
+(function assertCanonical(){
+  const errs=[];
+  if(COMMANDERS.length!==19) errs.push("expected 19 configs, got "+COMMANDERS.length);
+  const ids=new Set(); COMMANDERS.forEach(c=>{ if(ids.has(c.slug)) errs.push("duplicate id "+c.slug); ids.add(c.slug);
+    ["slug","name","precon","role","ci"].forEach(f=>{ if(c[f]==null) errs.push(c.slug+" missing "+f); }); });
+  const byPrecon={}; COMMANDERS.forEach(c=>byPrecon[c.precon]=(byPrecon[c.precon]||0)+1);
+  if(errs.length){ console.error("[canonical-commanders] ASSERTION FAILED:",errs); }
+  else { console.log("[canonical-commanders] OK 19 configs",byPrecon,{grounded:COMMANDERS.filter(c=>c.evidence==="grounded").length,partial:COMMANDERS.filter(c=>c.evidence==="partial").length,insufficient:COMMANDERS.filter(c=>c.evidence==="insufficient").length,setonly:COMMANDERS.filter(c=>c.evidence==="setonly").length}); }
+  window.__canonicalErrors=errs;
+})();
+function evLabel(e){ return {grounded:"Grounded profile",partial:"Partial profile",insufficient:"Profile research incomplete",setonly:"Set-only, needs a rebuild"}[e]||e; }
+function renderConfigs(){
+  const host=document.getElementById('configbody'); const sec=document.getElementById('configs');
+  if(sec) sec.hidden=!allCmdrs;
+  if(!host) return;
+  if(!allCmdrs){ host.innerHTML=""; return; }
+  const na=`<span class="cfg-na">Profile research incomplete</span>`;
+  const order=["doom","ff","avengers","wakanda"];
+  host.innerHTML = order.map(pid=>{
+    const rows=COMMANDERS.filter(c=>c.precon===pid);
+    return `<div class="cfg-group"><h3 class="cfg-gh" style="border-color:${byId[pid].rankColor}">${PRECON_NAME[pid]} <span class="cfg-gn">${rows.length} configurations</span></h3>`
+     + `<div class="cfg-table"><div class="cfg-row cfg-head"><span>Commander</span><span>Identity</span><span>EDHREC</span><span>Overall</span><span>Upgrade package</span><span>Evidence</span></div>`
+     + rows.map(c=>{
+        const ov=c.score?overall(c.score).toFixed(1):na;
+        const pkg=c.pkgCost!=null?`${money(c.pkgCost)} · ${c.pkg.length} cards`:na;
+        const edh=c.edhrec!=null?c.edhrec.toLocaleString():`<span class="cfg-na">set-only</span>`;
+        const idtxt=(typeof normCI==="function")?normCI(c.ci):c.ci;
+        return `<div class="cfg-row ev-${c.evidence}"><span class="cfg-nm">${c.name} <span class="cfg-role">${c.role}</span></span><span>${idtxt}</span><span>${edh}</span><span>${ov}</span><span>${pkg}</span><span class="cfg-ev cfg-ev-${c.evidence}">${evLabel(c.evidence)}</span></div>`;
+      }).join("") + `</div></div>`;
+  }).join("")
+   + `<p class="cfg-note">Every logical commander is listed and selectable. Grounded profiles carry a real score and priced package; partial profiles carry a package or plan but no per-commander score yet; incomplete profiles have only adoption data so far; set-only legends need a rebuilt deck. See the gap report for the exact research each one needs to reach Mister Fantastic's completeness.</p>`;
+}
 function renderEdhrec(){
   const host=document.getElementById('edhrecbody'); if(!host) return;
   const order=["doom","ff","avengers","wakanda"];
@@ -1261,6 +1372,7 @@ function toggleAllCmdrs(){
   if(viewMode==='archive') renderArchive();
   renderCheapest();
   renderEdhrec();
+  renderConfigs();
   if(openDeckId) openDeck(openDeckId);
 }
 function syncAllCmdrsBtn(){
@@ -1454,6 +1566,7 @@ render();
 renderBonus();
 renderCheapest();
 renderEdhrec();
+renderConfigs();
 setView("archive");
 /* card-name hover preview */
 (function(){
