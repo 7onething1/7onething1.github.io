@@ -748,6 +748,7 @@ const R0_NAMES = ["Exhibition","Core","Upgraded","Optimized","cEDH"];
 /* Cheapest-printing USD prices for each recommended upgrade add, captured from Scryfall 14 July 2026 (a dated snapshot; singles prices drift). */
 const PRICE_ASOF = "14 July 2026";
 const PRICES = {
+  "Panharmonicon":5.5, "Conjurer's Closet":3.81, "Sword of Hearth and Home":17.52, "Ephemerate":4.17, "Eternal Witness":0.7, "Sevinne's Reclamation":0.31,
   "Abzan Battle Priest":0.3, "Abzan Falconer":0.26, "Adrix and Nev, Twincasters":6.66, "Agent Phil Coulson":0.32, "Akiri, Fearless Voyager":1.13, "Akroma's Will":13.48,
   "All That Glitters":0.51, "Altar of the Goyf":0.2, "Amulet of Vigor":53.54, "Ancient Den":0.95, "Anger":0.52, "Anointed Procession":58.94,
   "Araña, Heart of the Spider":0.51, "Arcades, the Strategist":2.35, "Archfiend of Ifnir":0.36, "Ardenn, Intrepid Archaeologist":5.04, "Argentum Armor":2.11, "Artist's Talent":6.01,
@@ -970,6 +971,18 @@ const CMDR_META=[
    list (captured 14 Jul 2026), cuts from the precon's weakest cards, prices from Scryfall cheapest printing, and a DERIVED
    editorial score (method stated) built from the precon baseline adjusted for the commander's own card text. */
 const CMDR_PROFILES = {
+  "tchaka": {
+    scoreMethod:"manual stock audit of the unchanged Wakanda Forever ninety-nine, since EDHREC records only three T'Chaka decks: scored from his entering value trigger and the dead monarch line, giving low power and a modest ceiling with high ease for a two-colour value commander",
+    score:{power:5.5,ceiling:6.8,fun:6.8,ease:7.0,politics:6.6},
+    cuts:["Coveted Jewel","Gilded Lotus","Mind's Eye","Harmonize","Overwhelming Stampede","Fleecemane Lion"],
+    adds:["Panharmonicon","Conjurer's Closet","Sword of Hearth and Home","Ephemerate","Eternal Witness","Sevinne's Reclamation"],
+    plan:[
+      "T'Chaka costs green and white, and when he enters he mills three cards and returns an artifact or land among them to your hand, so he smooths your draws and stocks the graveyard for later value. His second ability, exile him from the graveyard for three mana to become the monarch, works only if you control your commander, so it stays dead whenever T'Chaka is the commander himself. Lead him for the entering value and treat the monarch line as unreachable from the command zone.",
+      "The build turns that entering trigger into an engine. Panharmonicon doubles it, Conjurer's Closet and Sword of Hearth and Home blink him each turn, and Ephemerate gives a cheap second flicker, so the deck sees several artifact-or-land selections per rotation. Eternal Witness and Sevinne's Reclamation buy back the strongest cards from the graveyard. The three artifact adds replace the three artifacts cut, so the printed artifact count holds and the entering trigger keeps its hit rate.",
+      "T'Chaka stays a fair-value commander. The printed list carries little blink support, and his monarch text cannot fire when he is the commander, which caps his ceiling below the Wakanda faces. Run him for steady card selection and a low, easy curve, and let ordinary green-white creatures carry the damage."
+    ],
+    source:"Package is a manual stock audit of the printed Wakanda Forever deck rather than an EDHREC high-synergy list, since EDHREC records only three T'Chaka decks (15 Jul 2026). Adds and cuts keep the printed artifact count so the entering trigger's hit rate holds; prices from Scryfall cheapest printing (15 Jul 2026); the score is a low-confidence derived editorial estimate, with no games played to measure it."
+  },
   "crystal": {
     scoreMethod:"derived from the Fantastic Four baseline, adjusted for Crystal's 3-mana all-colour fixing and per-noncreature-spell damage: higher power and ease, lower ceiling and politics than the copy-trigger faces",
     score:{power:7.0,ceiling:8.1,fun:8.2,ease:6.0,politics:6.0},

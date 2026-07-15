@@ -95,7 +95,7 @@ That is 16 legal in-box commanders. **Crystal, Inhuman Princess (1,921) is the m
 
 ## All alternate commanders (grounded configurations)
 
-With **All alternate commanders** on, every legal in-box commander is a selectable, scored configuration. Fifteen of the nineteen now carry a **derived five-read score**, a **priced EDHREC upgrade package**, and a stated **derivation method** shown in each profile. Each score is a derived editorial estimate reasoned from the commander's Scryfall oracle text against its precon baseline, cross-checked against an independent ranking pass, not a measured value. Packages come from each commander's EDHREC high-synergy list (captured 14 July 2026), colour-identity verified and priced from Scryfall cheapest printing.
+With **All alternate commanders** on, every legal in-box commander is a selectable, scored configuration. Sixteen of the nineteen now carry a **derived five-read score**, a **priced upgrade package**, and a stated **derivation method** shown in each profile. Each score is a derived editorial estimate reasoned from the commander's Scryfall oracle text against its precon baseline, cross-checked against an independent ranking pass, not a measured value. Packages come from each commander's EDHREC high-synergy list (captured 14 July 2026), except T'Chaka's manual stock audit of the printed deck since EDHREC records only three of his decks, colour-identity verified and priced from Scryfall cheapest printing.
 
 | Overall | Commander | Deck | Role | Upgrade package |
 |---|---|---|---|---|
@@ -114,6 +114,7 @@ With **All alternate commanders** on, every legal in-box commander is a selectab
 | 6.97 | Invisible Woman | The Fantastic Four | face | $18.26 · 6 cards |
 | 6.71 | T'Challa, the Black Panther | Wakanda Forever | face | $135.33 · 10 cards |
 | 6.59 | Storm, Queen of Wakanda | Wakanda Forever | alt | $14.42 · 6 cards |
+| 6.44 | T'Chaka, Venerable King | Wakanda Forever | alt | $32.01 · 6 cards |
 
 Not yet scored: **T'Chaka, Venerable King** (Wakanda Forever, three EDHREC decks, package data too thin to ground) and the three **set-only** legends **The Fantastic Four**, **Ms. Marvel, Elastic Ally**, and **She-Hulk, Attorney-at-Law** (need a rebuilt 99, not the unchanged precon). Each says so on the page rather than showing a guessed number. This replaces the earlier state where these eleven alternates read "Profile research incomplete."
 
