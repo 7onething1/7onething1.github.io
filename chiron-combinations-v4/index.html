@@ -5,48 +5,83 @@
 <style>
 :root{--cream:#f4ecd8;--ink:#1c1a17;--rust:#b0553a;--mustard:#c98a2b;--teal:#3d7068;--plum:#7d5a7c;--line:#ddd0b2;--card:#fbf6e9}
 *{box-sizing:border-box}
-body{margin:0;background:var(--cream);color:var(--ink);font-family:"Inter",-apple-system,system-ui,sans-serif;line-height:1.55}
+body{margin:0;background:var(--cream);color:var(--ink);font-family:"Inter",-apple-system,system-ui,sans-serif;line-height:1.6}
 header{max-width:1040px;margin:0 auto;padding:28px 22px 10px;border-bottom:3px solid var(--rust)}
 h1{font-family:"Cormorant Garamond",Georgia,serif;font-size:2.3rem;margin:0 0 4px;font-weight:600}
 .sub{color:var(--teal);font-weight:600}
 .wrap{max-width:1040px;margin:0 auto;padding:8px 22px 90px}
 .lead{background:var(--card);border:1px solid var(--line);border-left:5px solid var(--mustard);border-radius:12px;padding:14px 18px;margin:14px 0;font-size:.95rem}
 .lead b{color:#7a3b26}
+.tabs{display:flex;gap:8px;margin:16px 0 6px}
+.tab{padding:8px 16px;border:2px solid var(--teal);background:transparent;color:var(--teal);border-radius:20px;font-weight:700;cursor:pointer;font-size:.9rem}
+.tab.on{background:var(--teal);color:var(--cream)}
 .legend{display:flex;flex-wrap:wrap;gap:8px;margin:10px 0 2px;font-size:.78rem}
 .tg{display:inline-block;font-size:.62rem;font-weight:800;text-transform:uppercase;letter-spacing:.04em;padding:2px 7px;border-radius:10px;margin-right:6px;vertical-align:middle}
 .tg.direct{background:#dce9e5;color:#2c5750} .tg.clarifier{background:#ece2ec;color:#63496b}
 .tg.sequence{background:#f5e6cc;color:#8a5a17} .tg.nearby{background:#e7e2d5;color:#7a7264}
-.pickrow{position:sticky;top:0;background:var(--cream);z-index:5;padding:10px 0;border-bottom:1px solid var(--line)}
-.plabel{font-weight:700;color:var(--rust);font-size:.72rem;text-transform:uppercase;letter-spacing:.05em;margin:0 0 6px}
-.controls{display:flex;flex-wrap:wrap;gap:8px;align-items:center;margin-top:9px}
-select{padding:8px 11px;border:2px solid var(--line);border-radius:9px;font-size:.9rem;background:var(--card);color:var(--ink)}
+/* reading builder */
+.builder{background:var(--card);border:1px solid var(--line);border-radius:12px;padding:14px 16px;margin:8px 0}
+.blabel{font-weight:700;color:var(--rust);font-size:.72rem;text-transform:uppercase;letter-spacing:.05em;margin:0 0 6px}
+.brow{display:flex;gap:8px;flex-wrap:wrap;align-items:center}
+#pastebox{flex:1;min-width:240px;padding:10px 12px;border:2px solid var(--teal);border-radius:9px;font-size:.95rem;background:#fffdf6;color:var(--ink);font-family:inherit;resize:vertical}
+.pbtn{padding:9px 15px;border:none;border-radius:9px;background:var(--rust);color:#fff;font-weight:700;cursor:pointer;font-size:.9rem}
+.pbtn.ghost{background:transparent;color:var(--rust);border:2px solid var(--line)}
+.picker{margin:10px 0 2px}
+.pgrp{margin:6px 0}
+.pgrp .gl{font-size:.66rem;font-weight:800;text-transform:uppercase;letter-spacing:.05em;color:#9a917f;margin:2px 0}
+.cbtn{padding:4px 9px;border:1.5px solid var(--teal);background:transparent;color:var(--teal);border-radius:14px;font-weight:600;cursor:pointer;font-size:.74rem;margin:2px 3px 2px 0}
+.cbtn.maj{border-color:var(--plum);color:var(--plum)}
+.cbtn:hover{background:var(--teal);color:var(--cream)} .cbtn.maj:hover{background:var(--plum)}
+.seqbar{display:flex;flex-wrap:wrap;gap:6px;align-items:center;margin:12px 0 2px;min-height:20px}
+.chip{display:inline-flex;align-items:center;gap:6px;background:var(--teal);color:var(--cream);border-radius:16px;padding:5px 10px;font-weight:700;font-size:.82rem}
+.chip .pos{background:rgba(255,255,255,.28);border-radius:9px;padding:0 6px;font-size:.7rem}
+.chip .x{cursor:pointer;font-weight:800;opacity:.85}
+.chip .x:hover{opacity:1}
+.warn{color:#9a5a3a;font-size:.82rem;font-weight:600;margin:4px 0}
+/* reading output */
+.reading{margin-top:8px}
+.rsummary{background:#f0ece2;border:1px solid var(--line);border-left:5px solid var(--plum);border-radius:12px;padding:14px 18px;margin:10px 0;font-size:1rem}
+.rsummary h3{font-family:"Cormorant Garamond",Georgia,serif;color:var(--plum);margin:0 0 6px;font-size:1.4rem}
+.rsummary p{margin:6px 0}
+.rblock{background:var(--card);border:1px solid var(--line);border-radius:12px;padding:13px 17px;margin:10px 0}
+.rblock h3{font-family:"Cormorant Garamond",Georgia,serif;color:var(--rust);margin:0 0 2px;font-size:1.35rem}
+.rblock .oneline{color:var(--teal);font-weight:600;font-size:.92rem;margin:2px 0 8px}
+.rblock p{margin:7px 0}
+.trans{border-left:5px solid var(--mustard)}
+.trans h3{color:#8a5a17}
+.struct{background:#f3ecdd;border-radius:9px;padding:8px 12px;margin:6px 0;font-size:.92rem}
+.struct .sk{font-weight:800;color:var(--plum);font-family:"Cormorant Garamond",Georgia,serif;font-size:1.1rem}
+.struct .scite{display:block;margin-top:4px;font-size:.7rem;color:#9a917f;font-weight:600}
+.quote{background:#f3ead2;border-radius:8px;border-left:4px solid var(--teal);padding:8px 12px;margin:7px 0;font-size:.95rem}
+.quote .q{font-style:italic}
+.srclink{font-size:.72rem;color:var(--teal);font-weight:700;text-decoration:none;white-space:nowrap;margin-left:4px}
+.srclink:hover{text-decoration:underline}
+.tags{display:flex;flex-wrap:wrap;gap:6px;align-items:center;margin:6px 0}
+.tglab{font-size:.66rem;font-weight:700;text-transform:uppercase;letter-spacing:.05em;color:#9a917f}
+.mtag{background:#e7ddc4;border:1px solid var(--line);border-radius:13px;padding:3px 11px;font-size:.84rem;color:#7a3b26;font-weight:700}
+details.more>summary{cursor:pointer;color:var(--teal);font-weight:700;font-size:.82rem;margin:4px 0}
+.hint{color:#7a7264;font-size:.9rem;margin:6px 0 12px}
+/* explorer (mode 2) */
+.pickrow{padding:8px 0}
 .bigsel{font-size:1rem;padding:9px 12px;border:2px solid var(--teal);border-radius:9px;background:var(--card);color:var(--ink);font-weight:700;min-width:180px;max-width:46%}
 .plus{font-weight:800;color:var(--rust);font-size:1.25rem}
-.swap{border-color:var(--teal);color:var(--teal)}
 .fbtn{padding:4px 11px;border:1.5px solid var(--line);background:var(--card);border-radius:14px;font-weight:700;cursor:pointer;font-size:.72rem;color:#7a7264;text-transform:uppercase;letter-spacing:.03em}
 .fbtn.on{background:var(--ink);color:var(--cream);border-color:var(--ink)}
+.controls{display:flex;flex-wrap:wrap;gap:8px;align-items:center;margin-top:9px}
 h2.chosen{font-family:"Cormorant Garamond",Georgia,serif;color:var(--rust);font-size:1.7rem;margin:16px 0 2px}
 .lab{font-weight:700;color:var(--rust);font-size:.74rem;text-transform:uppercase;letter-spacing:.05em;margin:12px 0 6px}
-.tags{display:flex;flex-wrap:wrap;gap:6px;align-items:center;margin:4px 0 10px}
-.tglab{font-size:.66rem;font-weight:700;text-transform:uppercase;letter-spacing:.05em;color:#9a917f}
-.mtag{background:#e7ddc4;border:1px solid var(--line);border-radius:13px;padding:3px 11px;font-size:.86rem;color:#7a3b26;font-weight:700}
-.smtags{font-size:.72rem;color:#9a917f;font-weight:600;font-family:"Inter",sans-serif}
+.read{margin:0 0 10px;padding:9px 13px;background:#f3ead2;border-radius:8px;border-left:4px solid var(--teal);font-size:.95rem}
+.smtags{font-size:.72rem;color:#9a917f;font-weight:600}
 .flg{font-size:.62rem;font-weight:800;text-transform:uppercase;letter-spacing:.04em;color:#9a5a3a;background:#f2e2d4;border-radius:8px;padding:1px 6px;margin-left:4px}
 .read.dim{opacity:.72}
-.hint{color:#7a7264;font-size:.9rem;margin:6px 0 12px}
-.feat{font-size:.66rem;font-weight:800;text-transform:uppercase;letter-spacing:.06em;color:#8a5a17;background:#f5e6cc;border-radius:9px;padding:2px 9px;display:inline-block;margin:2px 0 0}
 .partner{background:var(--card);border:1px solid var(--line);border-left:5px solid var(--mustard);border-radius:11px;margin:10px 0;overflow:hidden}
 .partner>summary{cursor:pointer;list-style:none;padding:11px 16px;font-weight:700;color:var(--plum);font-family:"Cormorant Garamond",Georgia,serif;font-size:1.2rem;display:flex;justify-content:space-between;align-items:center;gap:10px}
 .partner>summary::-webkit-details-marker{display:none}
 .partner>summary:before{content:"+ ";color:var(--mustard);font-weight:800}
 .partner[open]>summary:before{content:"\2013 ";color:var(--mustard)}
 .pcnt{color:#9a917f;font-size:.66rem;font-weight:700;white-space:nowrap}
-.read{margin:0 16px 10px;padding:9px 13px;background:#f3ead2;border-radius:8px;border-left:4px solid var(--teal);font-size:.95rem}
-.srclink{font-size:.72rem;color:var(--teal);font-weight:700;text-decoration:none;white-space:nowrap;margin-left:4px}
-.srclink:hover{text-decoration:underline}
-.struct{background:#f0ece2;border:1px solid var(--line);border-left:5px solid var(--plum);border-radius:11px;padding:11px 15px;margin:10px 0 4px;font-size:.93rem}
-.struct .sk{font-weight:800;color:var(--plum);font-family:"Cormorant Garamond",Georgia,serif;font-size:1.18rem}
-.struct .scite{display:block;margin-top:5px;font-size:.72rem;color:#9a917f;font-weight:600}
+.partner .inner{padding:0 16px 10px}
+/* methodology */
 details.method{background:var(--card);border:1px solid var(--line);border-radius:12px;margin:14px 0;padding:2px 4px}
 details.method>summary{cursor:pointer;list-style:none;padding:12px 16px;font-weight:700;color:var(--rust);font-family:"Cormorant Garamond",Georgia,serif;font-size:1.25rem}
 details.method>summary::-webkit-details-marker{display:none}
@@ -58,89 +93,134 @@ details.method[open]>summary:before{content:"\2013 ";color:var(--mustard)}
 footer{max-width:1040px;margin:0 auto;padding:18px 22px 60px;color:#7a7264;font-size:.82rem;border-top:1px solid var(--line)}
 footer a{color:var(--rust)}
 #kidfab{position:fixed;right:18px;bottom:18px;z-index:20;background:var(--rust);color:#fff;border:none;border-radius:26px;padding:13px 20px;font-size:1rem;font-weight:700;cursor:pointer;box-shadow:0 3px 10px rgba(0,0,0,.25)}
-body.kid{font-size:1.15rem} body.kid .read{font-size:1.08rem} body.kid .lead{font-size:1.05rem}
+body.kid{font-size:1.15rem} body.kid .quote,body.kid .read{font-size:1.08rem} body.kid .lead{font-size:1.05rem}
 </style></head>
 <body>
 <header>
   <h1>How Chiron Reads Card Combinations</h1>
-  <div class="sub">Pick two cards. See how she reads them together, and what kind of pair they make.</div>
+  <div class="sub">Lay your cards in order. Get one reading that runs through all of them.</div>
 </header>
 <div class="wrap">
   <div class="lead">
-    Every line below is a <b>verbatim passage</b> from Chiron Intuition's videos, with the source video linked. Each pairing also carries a <b>structural lens</b> from Joan Bunning's <i>Learning the Tarot</i> (Lesson 15, Card Pairs): whether two cards form a permanent opposite, a court-and-rank contrast, a reinforcing pair, or an occasional one. The corpus stats, ranking rules, and limits live in the methodology panel just below.
-    <div class="legend">
-      <span class="tg direct">direct</span> both cards make one claim
-      <span class="tg clarifier">clarifier</span> one card colors the other
-      <span class="tg sequence">sequence</span> movement from one to the next
-      <span class="tg nearby">nearby</span> mentioned together, light read
-    </div>
+    Type or paste your cards in order, or click them below. This builds a <b>single reading</b> that moves through the whole spread: a summary, a paragraph on each card, and a paragraph on how each card turns into the next. Every interpretation is a <b>verbatim passage</b> from Chiron Intuition's videos, source-linked. The connective read of each pair follows Joan Bunning's <i>Learning the Tarot</i> (Lesson 15, Card Pairs). Details in the methodology panel below.
   </div>
 
   <details class="method">
     <summary>Methodology, sources, and what this does not cover</summary>
     <div class="mbody">
       <h4>Source</h4>
-      Corpus collected from 446 Chiron Intuition transcripts through July 7, 2026. Every passage is verbatim and links to the exact video. A grounding pass confirmed each read traces to its cited source.
+      Corpus collected from 446 Chiron Intuition transcripts through July 7, 2026. Every quoted line is verbatim and links to the exact video. A grounding pass confirmed each read traces to its cited source.
+      <h4>How a reading is assembled</h4>
+      Nothing here is written fresh. Each card's summary line is built from the words Chiron herself repeats when she pairs that card with others. Each card paragraph quotes her verbatim meanings. Each transition quotes her strongest verbatim passage for that exact pair, ordered by relational specificity (direct, then clarifier, sequence, nearby). The only non-quoted sentences are neutral scaffolding and the Bunning concept labels, which are attributed.
       <h4>Coverage</h4>
-      This build indexes <b>2822 of the 3003 possible unordered pairs (94%)</b> across the 78 cards, drawn from <b>26,169 combination passages</b>, about 9.3 per pair. Pairs she was never recorded reading show <b>&ldquo;No recorded passage yet&rdquo;</b> rather than an invented reading. The only material excluded is a bare co-mention with no interpretation.
-      <h4>How passages are ranked</h4>
-      Software detects the card names, groups the passages by pair, and orders them by relational specificity: <b>direct</b> reads first, then <b>clarifier</b>, then <b>sequence</b>, then <b>nearby</b>. Every sentence stays verbatim; the ordering is automated, not human-edited. Contradictory reads are kept, because Chiron reads the same pair differently across subjects and questions.
+      This build indexes <b>2822 of the 3003 possible unordered pairs (94%)</b> across the 78 cards, from <b>26,169 combination passages</b>, about 9.3 per pair. A pair she was never recorded reading shows <b>&ldquo;No recorded passage yet&rdquo;</b> rather than an invented reading; the structural lens still applies.
       <h4>The structural lens (Bunning)</h4>
-      Separate from the transcript evidence, each pairing is classified by Joan Bunning's <i>Learning the Tarot</i>, Lesson 15:
+      Each transition is classified by Joan Bunning's <i>Learning the Tarot</i>, Lesson 15, from card identity alone:
       <ul>
         <li><b>Permanent pair</b> &mdash; fixed opposites Bunning names, such as the Magician and the High Priestess.</li>
-        <li><b>Court-card / Ace pair</b> &mdash; two courts or two Aces, read as a contrast of suit and rank.</li>
-        <li><b>Reinforcing pair</b> &mdash; two cards pushing the same energy rather than opposing it (here, same suit).</li>
-        <li><b>Occasional pair</b> &mdash; any two cards read together for one instance, with no fixed opposition.</li>
+        <li><b>Court-card / Ace pair</b> &mdash; two courts or two Aces, a contrast of suit and rank.</li>
+        <li><b>Reinforcing pair</b> &mdash; two cards pushing the same energy (here, same suit).</li>
+        <li><b>Occasional pair</b> &mdash; any two cards read together for one instance, no fixed opposition.</li>
       </ul>
-      This lens is derived from card identity, not from the transcripts, so it is labeled as an interpretive frame, not as something Chiron said.
     </div>
   </details>
 
-  <div class="pickrow">
-    <div class="plabel">Build a combination, pick two cards</div>
-    <div class="controls">
-      <select id="card1" class="bigsel"></select>
-      <span class="plus">+</span>
-      <select id="card2" class="bigsel"></select>
-      <button class="fbtn swap" id="swap" title="swap the two cards">swap</button>
-    </div>
-    <div class="controls"><span class="plabel" style="margin:0 4px 0 0">show</span><span id="efilters"></span></div>
+  <div class="tabs">
+    <button class="tab on" id="tabRead">Reading (order matters)</button>
+    <button class="tab" id="tabExplore">Explore one card</button>
   </div>
-  <div id="out"><p class="hint" id="loading">Loading the corpus (about 11 MB), one moment.</p></div>
+
+  <!-- MODE 1: READING BUILDER -->
+  <section id="modeRead">
+    <div class="builder">
+      <div class="blabel">Type or paste your cards, in order</div>
+      <div class="brow">
+        <textarea id="pastebox" rows="1" placeholder="e.g.  The Tower, Three of Swords, The Star"></textarea>
+        <button class="pbtn" id="addPaste">Add to reading</button>
+        <button class="pbtn ghost" id="clearSeq">Clear</button>
+      </div>
+      <div id="parseWarn" class="warn"></div>
+      <div class="blabel" style="margin-top:12px">or click cards to add them in order</div>
+      <div class="picker" id="picker"></div>
+      <div class="blabel" style="margin-top:10px">Your spread</div>
+      <div class="seqbar" id="seqbar"><span class="hint" id="seqempty">No cards yet. Add at least one to see a reading.</span></div>
+    </div>
+    <div class="reading" id="reading"></div>
+  </section>
+
+  <!-- MODE 2: CARD EXPLORER -->
+  <section id="modeExplore" style="display:none">
+    <div class="pickrow">
+      <div class="blabel">Build a combination, pick two cards</div>
+      <div class="controls">
+        <select id="card1" class="bigsel"></select>
+        <span class="plus">+</span>
+        <select id="card2" class="bigsel"></select>
+        <button class="fbtn swap" id="swap" title="swap the two cards">swap</button>
+      </div>
+      <div class="controls"><span class="blabel" style="margin:0 4px 0 0">show</span><span id="efilters"></span></div>
+    </div>
+    <div id="out"><p class="hint">Pick a card above.</p></div>
+  </section>
 </div>
 <footer>
-  Companion to the single-card <a href="/chiron-cheatsheet">cheatsheet</a>. The structural lens follows Joan Bunning, <i>Learning the Tarot</i> (Weiser, 1998), Lesson 15. Open a pairing and click <b>&#9655; video</b> to hear it. This is version 4; the earlier build stays at <a href="/chiron-combinations">/chiron-combinations</a>.
+  Companion to the single-card <a href="/chiron-cheatsheet">cheatsheet</a>. The structural lens follows Joan Bunning, <i>Learning the Tarot</i> (Weiser, 1998), Lesson 15. Click <b>&#9655; video</b> on any quote to hear it. This is version 4; the earlier build stays at <a href="/chiron-combinations">/chiron-combinations</a>.
 </footer>
 <button id="kidfab" onclick="toggleKid()">Kid mode</button>
 <script>
-let CORPUS=null, MEANINGS=null;
-let efil="all";
+let CORPUS=null, MEANINGS=null, efil="all";
 const esc=s=>s.replace(/[&<>]/g,c=>({'&':'&amp;','<':'&lt;','>':'&gt;'}[c]));
+const yt=v=>`https://www.youtube.com/watch?v=${esc(v)}`;
+const src=v=>`<a class="srclink" href="${yt(v)}" target="_blank" rel="noopener">&#9655; video</a>`;
 
 const MAJORS=["The Fool","The Magician","The High Priestess","The Empress","The Emperor","The Hierophant","The Lovers","The Chariot","Strength","The Hermit","Wheel of Fortune","Justice","The Hanged Man","Death","Temperance","The Devil","The Tower","The Star","The Moon","The Sun","Judgement","The World"];
 const RANKS=["Ace","Two","Three","Four","Five","Six","Seven","Eight","Nine","Ten","Page","Knight","Queen","King"];
 const SUITS=["Cups","Wands","Swords","Pentacles"];
-function buildOptions(includeEvery){
-  let h=includeEvery?'<option value="">every card</option>':'';
-  h+='<optgroup label="Major Arcana">'+MAJORS.map(c=>`<option>${c}</option>`).join('')+'</optgroup>';
-  SUITS.forEach(s=>{h+=`<optgroup label="${s}">`+RANKS.map(r=>`<option>${r} of ${s}</option>`).join('')+'</optgroup>';});
-  return h;
+const ALLCARDS=[...MAJORS]; SUITS.forEach(s=>RANKS.forEach(r=>ALLCARDS.push(`${r} of ${s}`)));
+
+/* ---------- card name parsing (paste tolerant) ---------- */
+const RANKSYN={'1':'Ace','one':'Ace','ace':'Ace','2':'Two','two':'Two','3':'Three','three':'Three','4':'Four','four':'Four','5':'Five','five':'Five','6':'Six','six':'Six','7':'Seven','seven':'Seven','8':'Eight','eight':'Eight','9':'Nine','nine':'Nine','10':'Ten','ten':'Ten','page':'Page','jack':'Page','knight':'Knight','queen':'Queen','king':'King'};
+const SUITSYN={'cups':'Cups','cup':'Cups','wands':'Wands','wand':'Wands','swords':'Swords','sword':'Swords','pentacles':'Pentacles','pentacle':'Pentacles','coins':'Pentacles','coin':'Pentacles','disks':'Pentacles','disk':'Pentacles'};
+const MAJKEY={};
+MAJORS.forEach(m=>{MAJKEY[m.toLowerCase().replace(/^the /,'')]=m;});
+MAJKEY['judgment']='Judgement'; MAJKEY['high priestess']='The High Priestess'; MAJKEY['priestess']='The High Priestess';
+MAJKEY['wheel']='Wheel of Fortune'; MAJKEY['fortune']='Wheel of Fortune'; MAJKEY['hanged man']='The Hanged Man';
+function parseCard(raw){
+  if(!raw) return null;
+  let s=raw.toLowerCase().replace(/[^a-z0-9 ]/g,' ').replace(/\s+/g,' ').trim();
+  if(!s) return null;
+  const noThe=s.replace(/^the /,'');
+  if(MAJKEY[noThe]) return MAJKEY[noThe];
+  if(MAJKEY[s]) return MAJKEY[s];
+  const m=s.match(/^(\w+)\s+of\s+(\w+)$/) || s.match(/^(\w+)\s+(\w+)$/);
+  if(m){
+    const r=RANKSYN[m[1]], su=SUITSYN[m[2]];
+    if(r&&su) return `${r} of ${su}`;
+    const r2=RANKSYN[m[2]], su2=SUITSYN[m[1]];
+    if(r2&&su2) return `${r2} of ${su2}`;
+  }
+  // last resort: partial major match
+  const hit=MAJORS.find(mm=>mm.toLowerCase().replace(/^the /,'')===noThe);
+  return hit||null;
 }
-const sel1=document.getElementById('card1'), sel2=document.getElementById('card2');
-sel1.innerHTML=buildOptions(false); sel2.innerHTML=buildOptions(true);
-const cur=()=>sel1.value, curB=()=>sel2.value;
-sel1.onchange=render; sel2.onchange=render;
-document.getElementById('swap').onclick=()=>{if(!sel2.value)return;const a=sel1.value;sel1.value=sel2.value;sel2.value=a;render();};
-const EF=['all','direct','clarifier','sequence','nearby'];
-const ef=document.getElementById('efilters');
-EF.forEach(f=>{const b=document.createElement('button');b.className='fbtn'+(f==='all'?' on':'');b.textContent=f;b.dataset.f=f;b.onclick=()=>{efil=f;document.querySelectorAll('#efilters .fbtn').forEach(x=>x.classList.toggle('on',x.dataset.f===f));render();};ef.appendChild(b);});
 
-function pd(a,b){return (CORPUS[a]&&CORPUS[a][b])||null;}
-function reads_(a,b){return (pd(a,b)&&pd(a,b).reads)||[];}
-function tags_(a,b){return (pd(a,b)&&pd(a,b).tags)||[];}
+/* ---------- data helpers ---------- */
+function pd(a,b){return (CORPUS[a]&&CORPUS[a][b])||(CORPUS[b]&&CORPUS[b][a])||null;}
+function reads_(a,b){const p=pd(a,b);return (p&&p.reads)||[];}
+function tags_(a,b){const p=pd(a,b);return (p&&p.tags)||[];}
+const _themeCache={};
+function themes(card,k){
+  if(_themeCache[card]) return _themeCache[card].slice(0,k||6);
+  const c={};
+  const node=CORPUS[card]||{};
+  Object.keys(node).forEach(p=>(node[p].tags||[]).forEach(t=>{c[t]=(c[t]||0)+1;}));
+  const arr=Object.keys(c).sort((x,y)=>c[y]-c[x]);
+  _themeCache[card]=arr;
+  return arr.slice(0,k||6);
+}
+function meanings(card){return (MEANINGS&&MEANINGS[card])||[];}
 
-// --- Structural lens: Bunning, Learning the Tarot, Lesson 15 (Card Pairs) ---
+/* ---------- Bunning structural lens (Lesson 15) ---------- */
 const COURTS=["Page","Knight","Queen","King"];
 function parts(name){const m=name.match(/^(Ace|Two|Three|Four|Five|Six|Seven|Eight|Nine|Ten|Page|Knight|Queen|King) of (Cups|Wands|Swords|Pentacles)$/);return m?{rank:m[1],suit:m[2],major:false}:{major:true,name};}
 const PERM=[["The Magician","The High Priestess"],["Eight of Swords","Four of Wands"]];
@@ -156,66 +236,160 @@ function structural(a,b){
   }
   return {k:"Occasional pair",g:"No fixed opposition. Bunning: any two cards can be read together for this one instance."};
 }
-function structHTML(a,b){const s=structural(a,b);return `<div class="struct"><span class="sk">${s.k}</span> &mdash; ${esc(s.g)}<span class="scite">Structural lens: Joan Bunning, Learning the Tarot, Lesson 15 (derived from the cards, not from the transcripts).</span></div>`;}
+function structHTML(a,b){const s=structural(a,b);return `<div class="struct"><span class="sk">${s.k}</span> &mdash; ${esc(s.g)}<span class="scite">Structural lens: Joan Bunning, Learning the Tarot, Lesson 15 (derived from the cards, not the transcripts).</span></div>`;}
 
 const FLBL={neg:'negative mention',frag:'fragment','3rd':'third card leads',dup:'near-duplicate'};
-function readHTML(r){const fl=r.f?` <span class="flg">${FLBL[r.f]}</span>`:'';return `<div class="read${r.f?' dim':''}"><span class="tg ${r.r}">${r.r}</span>${esc(r.t)}${fl} <a class="srclink" href="https://www.youtube.com/watch?v=${esc(r.v)}" target="_blank" rel="noopener">&#9655; video</a></div>`;}
-function filt(rs){return efil==='all'?rs:rs.filter(r=>r.r===efil);}
-function tagchips(tags){return tags.length?`<div class="tags"><span class="tglab">she repeats</span>${tags.map(t=>`<span class="mtag">${esc(t)}</span>`).join('')}</div>`:'';}
-function pairBody(a,b,topN){
-  const rs=filt(reads_(a,b));
-  const clean=rs.filter(r=>!r.f), flagged=rs.filter(r=>r.f);
-  let h=tagchips(tags_(a,b));
-  const show=clean.slice(0,topN), rest=clean.slice(topN).concat(flagged);
-  h+=show.length?show.map(readHTML).join(''):'<div class="hint">No clean passage for this filter.</div>';
-  if(rest.length) h+=`<details class="src-ex"><summary>view all ${rs.length} passages (includes ${flagged.length} fragment/negative/third-card)</summary>${rest.map(readHTML).join('')}</details>`;
+function joinList(a){return a.length<2?a.join(''):a.length===2?a.join(' and '):a.slice(0,-1).join(', ')+', and '+a[a.length-1];}
+
+/* ================= MODE 1: READING ================= */
+let seq=[];
+function renderPicker(){
+  const el=document.getElementById('picker');
+  let h='<div class="pgrp"><div class="gl">Major Arcana</div>'+MAJORS.map(c=>`<button class="cbtn maj" data-c="${esc(c)}">${esc(c)}</button>`).join('')+'</div>';
+  SUITS.forEach(s=>{h+=`<div class="pgrp"><div class="gl">${s}</div>`+RANKS.map(r=>`<button class="cbtn" data-c="${esc(r+' of '+s)}">${esc(r+' of '+s)}</button>`).join('')+'</div>';});
+  el.innerHTML=h;
+  el.querySelectorAll('.cbtn').forEach(b=>b.onclick=()=>{seq.push(b.dataset.c);syncSeq();});
+}
+function syncSeq(){
+  const bar=document.getElementById('seqbar');
+  if(!seq.length){bar.innerHTML='<span class="hint" id="seqempty">No cards yet. Add at least one to see a reading.</span>';document.getElementById('reading').innerHTML='';return;}
+  bar.innerHTML=seq.map((c,i)=>`<span class="chip"><span class="pos">${i+1}</span>${esc(c)}<span class="x" data-i="${i}">&times;</span></span>`).join('');
+  bar.querySelectorAll('.x').forEach(x=>x.onclick=()=>{seq.splice(+x.dataset.i,1);syncSeq();});
+  renderReading();
+}
+function addPasted(){
+  const box=document.getElementById('pastebox');
+  const chunks=box.value.split(/[,;\n]+/).map(s=>s.trim()).filter(Boolean);
+  const good=[],bad=[];
+  chunks.forEach(ch=>{const c=parseCard(ch); if(c)good.push(c); else bad.push(ch);});
+  seq=seq.concat(good);
+  document.getElementById('parseWarn').textContent = bad.length?`Could not match: ${bad.join(', ')}. Try the full name, e.g. "Three of Swords".`:'';
+  box.value=''; syncSeq();
+}
+function cardParagraph(card,i){
+  const th=themes(card,3);
+  const one = th.length?`Chiron keeps pairing this card with ${joinList(th)}.`:`One of her cards.`;
+  const mn=meanings(card).slice(0,2);
+  let body = mn.length
+    ? `<p>In her own words: ${mn.map(m=>`<span class="quote"><span class="q">&ldquo;${esc(m.t)}&rdquo;</span> ${src(m.v)}</span>`).join(' ')}</p>`
+    : `<p class="hint">No standalone verbatim meaning recorded for this card in the corpus.</p>`;
+  return `<div class="rblock"><h3>${i+1}. ${esc(card)}</h3><div class="oneline">${esc(one)}</div>${body}</div>`;
+}
+function transitionParagraph(a,b){
+  const s=structural(a,b);
+  let h=`<div class="rblock trans"><h3>${esc(a)} &rarr; ${esc(b)}</h3>`;
+  h+=structHTML(a,b);
+  const tg=tags_(a,b), rs=reads_(a,b).filter(r=>!r.f), all=reads_(a,b);
+  if(all.length){
+    if(tg.length) h+=`<div class="tags"><span class="tglab">she repeats</span>${tg.slice(0,6).map(t=>`<span class="mtag">${esc(t)}</span>`).join('')}</div>`;
+    const lead=(rs[0]||all[0]);
+    h+=`<p>Her strongest read of this exact pair: <span class="quote"><span class="tg ${lead.r}">${lead.r}</span><span class="q">&ldquo;${esc(lead.t)}&rdquo;</span> ${src(lead.v)}</span></p>`;
+    const more=(rs.length?rs:all).slice(1,5);
+    if(more.length) h+=`<details class="more"><summary>+${more.length} more passage${more.length>1?'s':''} for this pair</summary>${more.map(r=>`<div class="read"><span class="tg ${r.r}">${r.r}</span>${esc(r.t)}${r.f?` <span class="flg">${FLBL[r.f]}</span>`:''} ${src(r.v)}</div>`).join('')}</details>`;
+  } else {
+    h+=`<p class="hint">No recorded passage yet for this pair. The structural lens above still frames how the two relate.</p>`;
+  }
+  return h+'</div>';
+}
+function renderReading(){
+  const el=document.getElementById('reading');
+  if(!seq.length){el.innerHTML='';return;}
+  // aggregate themes across the spread
+  const agg={};
+  seq.forEach(c=>themes(c,4).forEach((t,idx)=>{agg[t]=(agg[t]||0)+(4-idx);}));
+  const shared=Object.keys(agg).sort((x,y)=>agg[y]-agg[x]).slice(0,5);
+  // structural shape
+  const shape={};
+  for(let i=0;i<seq.length-1;i++){const k=structural(seq[i],seq[i+1]).k;shape[k]=(shape[k]||0)+1;}
+  const shapeTxt=Object.keys(shape).map(k=>`${shape[k]} ${k.toLowerCase()}${shape[k]>1?'s':''}`);
+  let h='<div class="rsummary"><h3>Your reading</h3>';
+  h+=`<p>This is a ${seq.length}-card reading: <b>${seq.map(esc).join(' &rarr; ')}</b>.</p>`;
+  if(shared.length) h+=`<p>Across these cards, the words Chiron returns to most are ${joinList(shared.map(t=>`<b>${esc(t)}</b>`))}.</p>`;
+  if(seq.length>1) h+=`<p>Between the cards there ${seq.length-1===1?'is':'are'} ${seq.length-1} step${seq.length-1>1?'s':''}: ${joinList(shapeTxt)}. Bunning reads a spread as a map of balancing tendencies, so each step below shows how one card is offset or reinforced by the next.</p>`;
+  h+='</div>';
+  // card paragraphs interleaved with transitions
+  for(let i=0;i<seq.length;i++){
+    h+=cardParagraph(seq[i],i);
+    if(i<seq.length-1) h+=transitionParagraph(seq[i],seq[i+1]);
+  }
+  // closing synthesis
+  if(seq.length>1){
+    const first=seq[0],last=seq[seq.length-1];
+    const ft=themes(first,1)[0], lt=themes(last,1)[0];
+    const dominant=Object.keys(shape).sort((x,y)=>shape[y]-shape[x])[0]||'';
+    let close=`The reading moves from <b>${esc(first)}</b>${ft?` (${esc(ft)})`:''} to <b>${esc(last)}</b>${lt?` (${esc(lt)})`:''}.`;
+    if(shared[0]) close+=` The thread that holds it together is <b>${esc(shared[0])}</b>.`;
+    if(/Reinforcing/.test(dominant)) close+=` Most steps reinforce one another, so the cards compound a single pull rather than pulling apart.`;
+    else if(/Occasional/.test(dominant)) close+=` The cards are read fresh against each other, without a fixed opposition, so their meaning here is specific to this order.`;
+    else if(/Permanent/.test(dominant)) close+=` At least one step sets two fixed opposites against each other, the poles of a single balance.`;
+    else if(/Court/.test(dominant)) close+=` The court and rank contrasts put different styles of person or approach side by side.`;
+    h+=`<div class="rsummary"><h3>Reading in one thread</h3><p>${close}</p></div>`;
+  }
+  el.innerHTML=h;
+}
+
+/* ================= MODE 2: EXPLORER ================= */
+function buildOptions(includeEvery){
+  let h=includeEvery?'<option value="">(single card)</option>':'';
+  h+='<optgroup label="Major Arcana">'+MAJORS.map(c=>`<option>${c}</option>`).join('')+'</optgroup>';
+  SUITS.forEach(s=>{h+=`<optgroup label="${s}">`+RANKS.map(r=>`<option>${r} of ${s}</option>`).join('')+'</optgroup>';});
   return h;
 }
-function render(featured){
-  const out=document.getElementById('out');
-  if(!CORPUS){return;}
-  const a=cur(), b=curB();
-  if(a && b){                                    // a specific pair
-    let h=`<h2 class="chosen">${esc(a)} + ${esc(b)}</h2>`;
-    if(featured) h+=`<span class="feat">Featured pairing &middot; her most-documented partner for ${esc(a)}</span>`;
-    h+=structHTML(a,b);
-    if(!pd(a,b)) h+=`<div class="hint">No recorded passage yet. She was not recorded reading these two together in this corpus. Try one card alone to see who she does pair it with.</div>`;
-    else h+=`<div class="hint">Her recurring words for this pair, then the passages, strongest first.</div>`+pairBody(a,b,6);
+let sel1,sel2;
+function setupExplorer(){
+  sel1=document.getElementById('card1'); sel2=document.getElementById('card2');
+  sel1.innerHTML=buildOptions(false); sel2.innerHTML=buildOptions(true);
+  sel1.onchange=renderExplore; sel2.onchange=renderExplore;
+  document.getElementById('swap').onclick=()=>{if(!sel2.value)return;const a=sel1.value;sel1.value=sel2.value;sel2.value=a;renderExplore();};
+  const EF=['all','direct','clarifier','sequence','nearby'], ef=document.getElementById('efilters');
+  EF.forEach(f=>{const b=document.createElement('button');b.className='fbtn'+(f==='all'?' on':'');b.textContent=f;b.dataset.f=f;b.onclick=()=>{efil=f;document.querySelectorAll('#efilters .fbtn').forEach(x=>x.classList.toggle('on',x.dataset.f===f));renderExplore();};ef.appendChild(b);});
+  sel1.value="Two of Cups";
+}
+function filt(rs){return efil==='all'?rs:rs.filter(r=>r.r===efil);}
+function readHTML(r){const fl=r.f?` <span class="flg">${FLBL[r.f]}</span>`:'';return `<div class="read${r.f?' dim':''}"><span class="tg ${r.r}">${r.r}</span>${esc(r.t)}${fl} ${src(r.v)}</div>`;}
+function pairBody(a,b,topN){
+  const rs=filt(reads_(a,b)), clean=rs.filter(r=>!r.f), flagged=rs.filter(r=>r.f);
+  let h=tags_(a,b).length?`<div class="tags"><span class="tglab">she repeats</span>${tags_(a,b).map(t=>`<span class="mtag">${esc(t)}</span>`).join('')}</div>`:'';
+  const show=clean.slice(0,topN), rest=clean.slice(topN).concat(flagged);
+  h+=show.length?show.map(readHTML).join(''):'<div class="hint">No clean passage for this filter.</div>';
+  if(rest.length) h+=`<details class="more"><summary>view all ${rs.length} passages</summary>${rest.map(readHTML).join('')}</details>`;
+  return h;
+}
+function renderExplore(){
+  const out=document.getElementById('out'); if(!CORPUS) return;
+  const a=sel1.value, b=sel2.value;
+  if(a&&b){
+    let h=`<h2 class="chosen">${esc(a)} + ${esc(b)}</h2>`+structHTML(a,b);
+    h+= pd(a,b)?`<div class="hint">Her recurring words, then the passages, strongest first.</div>`+pairBody(a,b,6)
+              :`<div class="hint">No recorded passage yet for this pair.</div>`;
     out.innerHTML=h; return;
   }
-  const partners=Object.keys(CORPUS[a]||{}).sort((x,y)=>reads_(a,y).length-reads_(a,x).length)
-    .filter(p=>filt(reads_(a,p)).length);
+  const partners=Object.keys(CORPUS[a]||{}).sort((x,y)=>reads_(a,y).length-reads_(a,x).length).filter(p=>filt(reads_(a,p)).length);
   let h=`<h2 class="chosen">${esc(a)}</h2>`;
-  const mn=(MEANINGS&&MEANINGS[a])||[];             // standalone meanings first
-  if(mn.length){
-    const top=mn.slice(0,10), rest=mn.slice(10);
-    h+=`<div class="lab">Meaning <span class="pcnt">(${mn.length} verbatim, strongest first)</span></div>`;
-    h+=top.map(m=>`<div class="read"><span class="tg direct">meaning</span>${esc(m.t)} <a class="srclink" href="https://www.youtube.com/watch?v=${esc(m.v)}" target="_blank" rel="noopener">&#9655; video</a></div>`).join('');
-    if(rest.length) h+=`<details class="src-ex"><summary>view all ${mn.length} meanings</summary>${rest.map(m=>`<div class="read"><span class="tg direct">meaning</span>${esc(m.t)} <a class="srclink" href="https://www.youtube.com/watch?v=${esc(m.v)}" target="_blank" rel="noopener">&#9655; video</a></div>`).join('')}</details>`;
+  const mn=meanings(a);
+  if(mn.length){const top=mn.slice(0,10),rest=mn.slice(10);
+    h+=`<div class="lab">Meaning <span class="pcnt">(${mn.length} verbatim)</span></div>`+top.map(m=>`<div class="read"><span class="tg direct">meaning</span>${esc(m.t)} ${src(m.v)}</div>`).join('');
+    if(rest.length) h+=`<details class="more"><summary>view all ${mn.length} meanings</summary>${rest.map(m=>`<div class="read"><span class="tg direct">meaning</span>${esc(m.t)} ${src(m.v)}</div>`).join('')}</details>`;
   }
-  h+=`<div class="lab" style="margin-top:16px">Combinations</div><div class="hint">She reads it with ${partners.length} other cards${efil!=='all'?' ('+efil+')':''}. Pick a second card above for one pairing, or open any below.</div>`;
-  partners.forEach((p,i)=>{
-    const tg=tags_(a,p).slice(0,4);
-    h+=`<details class="partner"${i<3?' open':''}><summary><span>${esc(a)} + ${esc(p)}${tg.length?' <span class="smtags">'+tg.map(esc).join(' · ')+'</span>':''}</span><span class="pcnt">${reads_(a,p).length}</span></summary>`;
-    h+=structHTML(a,p);
-    h+=pairBody(a,p,3);
-    h+=`</details>`;
-  });
+  h+=`<div class="lab" style="margin-top:16px">Combinations</div><div class="hint">She reads it with ${partners.length} other cards. Pick a second card, or open any below.</div>`;
+  partners.forEach((p,i)=>{h+=`<details class="partner"${i<3?' open':''}><summary><span>${esc(a)} + ${esc(p)}</span><span class="pcnt">${reads_(a,p).length}</span></summary><div class="inner">${structHTML(a,p)}${pairBody(a,p,3)}</div></details>`;});
   out.innerHTML=h;
 }
+
+/* ---------- tabs + boot ---------- */
+document.getElementById('tabRead').onclick=()=>{document.getElementById('modeRead').style.display='';document.getElementById('modeExplore').style.display='none';document.getElementById('tabRead').classList.add('on');document.getElementById('tabExplore').classList.remove('on');};
+document.getElementById('tabExplore').onclick=()=>{document.getElementById('modeExplore').style.display='';document.getElementById('modeRead').style.display='none';document.getElementById('tabExplore').classList.add('on');document.getElementById('tabRead').classList.remove('on');if(sel1)renderExplore();};
+document.getElementById('addPaste').onclick=addPasted;
+document.getElementById('pastebox').addEventListener('keydown',e=>{if(e.key==='Enter'&&!e.shiftKey){e.preventDefault();addPasted();}});
+document.getElementById('clearSeq').onclick=()=>{seq=[];document.getElementById('parseWarn').textContent='';syncSeq();};
 function toggleKid(){document.body.classList.toggle('kid');document.getElementById('kidfab').textContent=document.body.classList.contains('kid')?'Normal mode':'Kid mode';}
-Promise.all([
-  fetch('./corpus.json').then(r=>r.json()),
-  fetch('./meanings.json').then(r=>r.json())
-]).then(([c,m])=>{
-  CORPUS=c;MEANINGS=m;
-  // Featured pairing on load: Two of Cups with its most-documented partner.
-  const seed="Two of Cups";
-  sel1.value=seed;
-  const parts=Object.keys(CORPUS[seed]||{}).sort((x,y)=>reads_(seed,y).length-reads_(seed,x).length);
-  if(parts.length){sel2.value=parts[0];render(true);}
-  else render(false);
-})
-  .catch(e=>{document.getElementById('loading').textContent='Could not load the corpus: '+e;});
+
+renderPicker();
+Promise.all([fetch('./corpus.json').then(r=>r.json()),fetch('./meanings.json').then(r=>r.json())])
+  .then(([c,m])=>{CORPUS=c;MEANINGS=m;setupExplorer();
+    // seed a sample reading so the first screen is alive
+    seq=["The Tower","Three of Swords","The Star"]; syncSeq();
+  })
+  .catch(e=>{document.getElementById('reading').innerHTML='<p class="hint">Could not load the corpus: '+e+'</p>';});
 </script>
 </body></html>
