@@ -1,0 +1,171 @@
+<!doctype html>
+<html lang="en"><head><meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Crystal, Inhuman Princess: The Four-Color Ping</title>
+<meta name="description" content="A Snail-style deck tech for Crystal, Inhuman Princess, the most-built Fantastic Four Marvel Commander alt: the four-color spellslinger that pings each opponent for the color count of every noncreature spell, with the color-count math, a colorless-is-zero rule, a dead-draw audit, a construction audit, and the shell.">
+<meta name="keywords" content="Crystal Inhuman Princess, Fantastic Four, Marvel Super Heroes Commander, four-color spellslinger, noncreature spell, color count, EDHREC Crystal, deck tech, construction audit">
+<meta property="og:title" content="Crystal, Inhuman Princess: The Four-Color Ping">
+<meta property="og:description" content="The four-color spellslinger that pings each opponent for the color count of every noncreature spell, with the color-count math and a colorless-is-zero build rule.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,500;0,600;0,700;1,600&family=Inter:wght@400;600;700;800&display=swap" rel="stylesheet">
+<style>
+  :root{--cream:#f4ecd8;--ink:#1c1a17;--rust:#b5533b;--teal:#3f7c78;--gold:#c98a2b;--olive:#7d7a3a;--line:#d9cdb0;--plum:#7b4b8a;}
+  *{box-sizing:border-box}
+  body{margin:0;background:var(--cream);color:var(--ink);font-family:'Inter',system-ui,-apple-system,Segoe UI,Roboto,sans-serif;line-height:1.62}
+  header{padding:46px 24px 10px;max-width:760px;margin:0 auto;text-align:center}
+  h1{font-family:'Cormorant Garamond',Georgia,serif;font-size:clamp(2rem,8vw,2.7rem);margin:.15em 0;color:var(--ink);line-height:1.1}
+  .sub{color:var(--olive);font-weight:600;max-width:640px;margin:8px auto 0}
+  .nav{margin:14px auto 0;font-size:.9rem}
+  .nav a{color:var(--teal);font-weight:700;text-decoration:none;margin:0 8px}
+  .byline{max-width:760px;margin:10px auto 0;padding:0 22px;font-size:.8rem;color:var(--olive);font-style:italic;text-align:center}
+  main{max-width:760px;margin:0 auto;padding:12px 22px 100px}
+  article h2{font-family:'Cormorant Garamond',serif;font-size:1.7rem;color:var(--rust);margin:34px 0 8px}
+  article h3{font-family:'Inter',sans-serif;font-size:1.02rem;color:var(--plum);margin:18px 0 6px;text-transform:uppercase;letter-spacing:.04em}
+  article p{margin:0 0 14px;font-size:1.04rem}
+  .lead{font-size:1.12rem;color:#33302a}
+  .swapline{margin:10px 0;padding:9px 13px;background:#fbf5e6;border:1px solid var(--line);border-radius:9px;font-size:.96rem;overflow:hidden}
+  .swapline b{color:var(--rust)} .swapline .pct{color:var(--teal);font-weight:800}
+  .mathbox{background:#efe6cf;border:1px solid var(--line);border-left:4px solid var(--teal);border-radius:10px;padding:14px 16px;margin:14px 0}
+  .mathbox table{border-collapse:collapse;width:100%;font-size:.95rem;margin:6px 0}
+  .mathbox td{padding:4px 8px;border-bottom:1px solid var(--line)}
+  .mathbox td:last-child{text-align:right;font-weight:800;color:var(--rust)}
+  .mathbox .tot td{border-bottom:none;border-top:2px solid var(--teal);font-weight:800}
+  .turns{background:#fbf5e6;border:1px solid var(--line);border-radius:10px;padding:6px 4px;margin:12px 0}
+  .turns table{border-collapse:collapse;width:100%;font-size:.94rem}
+  .turns td{padding:7px 11px;border-bottom:1px solid var(--line);vertical-align:top}
+  .turns td:first-child{font-weight:800;color:var(--teal);white-space:nowrap;width:1%}
+  .turns tr:last-child td{border-bottom:none}
+  .auditwrap{overflow-x:auto;margin:12px 0}
+  table.audit{border-collapse:collapse;width:100%;min-width:640px;font-size:.9rem;background:#fbf5e6;border:1px solid var(--line);border-radius:10px}
+  table.audit th{background:#efe6cf;color:var(--plum);text-align:left;padding:8px 10px;font-size:.78rem;text-transform:uppercase;letter-spacing:.03em}
+  table.audit td{padding:8px 10px;border-top:1px solid var(--line);vertical-align:top}
+  table.audit td:first-child{font-weight:800;color:var(--rust);white-space:nowrap}
+  .v{display:inline-block;padding:2px 9px;border-radius:20px;font-size:.76rem;font-weight:800;color:#fff}
+  .v-core{background:var(--teal)} .v-supported{background:var(--olive)} .v-situational{background:var(--gold)} .v-cut{background:var(--rust)}
+  .pull{border-left:4px solid var(--gold);padding:6px 0 6px 15px;margin:16px 0;font-family:'Cormorant Garamond',serif;font-size:1.35rem;color:#3f3b30}
+  .src{max-width:760px;margin:0 auto;padding:0 22px 96px;font-size:.82rem;color:var(--olive)}
+  .src a{color:var(--teal);font-weight:700}
+  .kid-only{display:none}
+  #kidfab{position:fixed;right:18px;bottom:18px;z-index:50;background:var(--rust);color:#fff;border:none;border-radius:40px;padding:14px 21px;font-size:1rem;font-weight:800;box-shadow:0 4px 14px rgba(0,0,0,.25);cursor:pointer}
+  body.kid{font-size:1.14rem}
+  body.kid .grown{display:none}
+  body.kid .kid-only{display:block}
+  body.kid .lead{font-size:1.18rem}
+  .toc{background:#efe6cf;border:1px solid var(--line);border-radius:10px;padding:9px 14px;margin:6px 0 18px;font-size:.86rem;line-height:1.9}
+  .toc summary{color:var(--plum);font-weight:800;cursor:pointer;list-style:none}
+  .toc summary::-webkit-details-marker{display:none}
+  .toc summary::before{content:"\25B8 ";color:var(--teal)}
+  .toc[open] summary::before{content:"\25BE "}
+  .toc .toclinks{margin-top:7px}
+  .toc a{color:var(--teal);font-weight:700;text-decoration:none;margin:0 12px 0 0;display:inline-block}
+  @media(max-width:560px){.toc a{white-space:normal;display:block;margin:3px 0}}
+  body.kid .toc{display:none}
+</style></head>
+<body>
+<header>
+  <h1>Crystal, Inhuman Princess: <span style="white-space:nowrap">The Four&#8209;Color Ping</span></h1>
+  <div class="sub grown">The most-built Fantastic Four commander is none of the four faces. Crystal pings each opponent every time you cast a noncreature spell, for the number of colors that spell is. Cast colored spells, make them multicolor, and the whole table bleeds.</div>
+  <div class="sub kid-only">Crystal is the most popular Fantastic Four commander. Every time you cast a noncreature spell, she hurts each opponent by how many colors that spell has. So you want lots of colored spells, and the more colors each one has, the more it hurts.</div>
+  <div class="nav"><a href="/marvel-commander-guides/">Guides hub</a> &middot; <a href="/mister-fantastic-deck-tech/">Mister Fantastic deck tech</a> &middot; <a href="/salubrioussnail-ff-manabase/">FF manabase</a> &middot; <a href="/marvel-commander-rankings/">Marvel rankings</a></div>
+</header>
+<p class="byline">This Crystal, Inhuman Princess deck tech is inspired by Salubrious Snail's published deckbuilding framework. Crystal's oracle text and color identity are from Scryfall (Marvel Super Heroes Commander, read 2026-07-14); the Fantastic Four shell and inclusion figures come from the EDHREC Fantastic Four pages. Not authored or endorsed by Salubrious Snail or EDHREC.</p>
+<main>
+<article>
+<details class="toc" aria-label="Contents"><summary>On this page (7 destinations)</summary><div class="toclinks"><a href="#the-engine">The engine</a><a href="#color-count">Color-count math</a><a href="#colorless-zero">Colorless is zero</a><a href="#spell-density">Spell density</a><a href="#dead-draw-audit">Dead Draw Audit</a><a href="#construction-audit">Construction audit</a><a href="#the-shell">The shell</a></div></details>
+
+<p class="lead grown">Crystal, Inhuman Princess costs {1}{R}{G}, and her color identity is all four of white, blue, red, and green, earned through her mana ability rather than her casting cost. She flies, she taps for {R}, {G}, {W}, or {U}, and her engine reads: whenever you cast a noncreature spell, she deals X damage to each opponent, where X is the number of colors that spell is. She is the Fantastic Four spellslinger, and EDHREC records her as the most-built commander in the box, above every advertised face. The whole deck is two dials, how many noncreature spells you cast, and how many colors each one carries.</p>
+<p class="lead kid-only">Crystal costs three mana and can tap for four different colors. She flies. Her main power: each noncreature spell you cast hits every opponent for the number of colors in that spell. A two-color spell hits for two, a five-color spell hits for five. She is the most popular Fantastic Four commander.</p>
+
+<h2 id="the-engine">The engine, two dials</h2>
+<p class="grown">Crystal turns your spellcasting into direct damage on a formula anyone can read. Cast a noncreature spell of X colors, deal X to each opponent. In a four-player pod that is X to three opponents at once, so a single two-color instant is six damage spread across the table. The deck wins by casting many colored spells and by pushing the average color count of those spells upward. Her flying keeps a two-power clock in the air on top of the pings, and her mana ability fixes the four-color base she wants.</p>
+<p class="grown">This makes Crystal a spellslinger with a scaling reward that most spellslingers lack. A Storm-style commander cares only about spell count. Crystal cares about spell count and color count together, which changes the deckbuilding question from how many noncreature spells can I cast to how many colored pips can I cast per spell. The two dials multiply.</p>
+<p class="kid-only">Her damage is simple: colors of the spell, to each opponent. With three opponents, a two-color spell deals six total. So you want to cast lots of noncreature spells, and you want each spell to have as many colors as possible.</p>
+
+<h2 id="color-count">The color-count lever</h2>
+<p class="grown">X scales straight with the color count of the spell, so a Crystal deck lives or fails on how colorful its noncreature spells are. A mono-color spell pings one per opponent. A gold two-color spell doubles that. A three-color spell triples it. The lever is the average color count across the noncreature package, and it is the number the build should track most closely.</p>
+<div class="mathbox grown">
+  <table>
+    <tr><td>Colorless noncreature spell (most rocks, plain artifacts)</td><td>0 each</td></tr>
+    <tr><td>Mono-color spell</td><td>1 each</td></tr>
+    <tr><td>Two-color spell</td><td>2 each</td></tr>
+    <tr><td>Three-color spell</td><td>3 each</td></tr>
+    <tr class="tot"><td>Five-color spell</td><td>5 each</td></tr>
+  </table>
+</div>
+<p class="grown">Read the table down the right column, then multiply by three for the pod. A three-color spell is nine damage across the table off one cast. The takeaway for construction is direct: every point of average color count you add to the noncreature suite is worth three damage per spell in a four-player game. Multicolor removal, multicolor card draw, and multicolor value spells are all better here than their mono-color equivalents, even at a slightly higher mana cost.</p>
+<p class="kid-only">One color equals one damage each, two colors equals two, and so on. Then times three for the whole table. So a three-color spell is nine damage to the table from one cast. Every extra color on your spells is worth a lot.</p>
+
+<h2 id="colorless-zero">Colorless is zero, the build's first rule</h2>
+<p class="grown">The formula counts colors, and a colorless spell is zero colors, so it pings for nothing. That single fact reshapes the ninety-nine. Most mana rocks, most plain artifacts, and any colorless utility spell deal zero Crystal damage, so the usual precon reflex of loading up on artifact ramp works against her. Fix the mana with lands and with colored ramp where the color pips still count, and treat every colorless noncreature spell as a card that has to justify its slot on its own, since it adds nothing to the drain.</p>
+<p class="grown">This is Crystal's version of the reveal-is-not-draw trap. A build can look busy, cast a noncreature spell most turns, and still drain almost nothing if half those spells are colorless rocks. Count the colored noncreature spells separately from the colorless ones, and keep the colorless group small and purposeful.</p>
+<p class="kid-only">Colorless spells count as zero colors, so they deal zero damage with Crystal. That means most mana rocks and plain artifacts do nothing for her. Use lands and colored ramp instead, and keep colorless spells to a minimum.</p>
+
+<h2 id="spell-density">Noncreature spell density, the second dial</h2>
+<p class="grown">The other dial is how many noncreature spells you cast across a game, because each one is a separate trigger. Crystal is grindy math rather than a burst kill. To drain one opponent from forty on Crystal pings alone takes a stack of casts, and the average color count sets how tall that stack is. At an average of two colors it takes twenty noncreature spells to finish one opponent, and at three colors it takes about thirteen. Both numbers come down fast once flying damage, other Fantastic Four payoffs, and combat join the pings.</p>
+<div class="mathbox grown">
+  <table>
+    <tr><td>Noncreature spells to drain a 40-life opponent, avg 1 color</td><td>40</td></tr>
+    <tr><td>avg 1.5 colors</td><td>27</td></tr>
+    <tr><td>avg 2 colors</td><td>20</td></tr>
+    <tr class="tot"><td>avg 3 colors</td><td>13</td></tr>
+  </table>
+</div>
+<p class="grown">The build therefore wants a high count of cheap colored noncreature spells and every way to cast more of them per turn: cost reducers, flashback and rebound, cantrips that replace themselves, and copy effects that double the color-count trigger. A copy of a three-color spell is another nine to the table. This is where the spellslinger toolkit and Crystal's formula reinforce each other.</p>
+<p class="kid-only">Each noncreature spell is one trigger, so you want to cast a lot of them. Crystal drains slowly, so add cost reducers, cheap spells that replace themselves, and copy effects. Copying a spell copies the damage too.</p>
+
+<h2 id="dead-draw-audit">Dead Draw Audit</h2>
+<p class="grown">Snail's method scores a card by how often it does its job and whether it earns its slot with the commander gone. Here are five cards through that lens, with the colorless-is-zero rule deciding the close calls.</p>
+<div class="auditwrap grown">
+<table class="audit">
+  <caption style="text-align:left;font-size:.82rem;color:var(--olive);padding:6px 10px;font-style:italic">Dead Draw Audit: five cards scored on job, support, solo value, and verdict.</caption>
+  <tr><th scope="col">Card</th><th scope="col">Primary job</th><th>Support in the 99</th><th>Value without Crystal</th><th>Verdict</th></tr>
+  <tr><td>A multicolor removal spell (gold or three-color)</td><td>Answer plus a color-count ping</td><td>High, every Crystal trigger</td><td>Full, removal is always useful</td><td><span class="v v-core">core</span></td></tr>
+  <tr><td>Cheap colored cantrip</td><td>Replaces itself and pings for its colors</td><td>High, keeps the spell count up</td><td>Good, card flow in any deck</td><td><span class="v v-core">core</span></td></tr>
+  <tr><td>A spell-copy effect</td><td>Doubles the color-count trigger</td><td>Scales with the colored spell suite</td><td>Medium, wants targets</td><td><span class="v v-supported">supported</span></td></tr>
+  <tr><td>Generic colorless mana rock</td><td>Ramp only, zero Crystal damage</td><td>None for the drain</td><td>Fixes mana, adds no pings</td><td><span class="v v-situational">situational</span></td></tr>
+  <tr><td>Big colorless artifact payoff</td><td>Standalone value, zero colors</td><td>None for the drain</td><td>Depends on its own text</td><td><span class="v v-situational">situational</span></td></tr>
+</table>
+</div>
+<p class="grown">The two colorless cards drop to situational for the same reason. They can help the deck function, and they add nothing to Crystal's formula, so each has to earn its slot on standalone value rather than on synergy. A gold removal spell does two jobs at once, an answer and a ping, which is why the colored, multicolor version of an effect beats its colorless or mono-color cousin here. Run every questioned card through job, support, solo value, and the color count before it stays.</p>
+<p class="kid-only">This grades each card by what it does and whether it helps Crystal. Colorless rocks and artifacts drop down because they deal zero damage. Multicolor removal is the best kind of card here, because it answers a threat and pings the table at the same time.</p>
+
+<h2 id="construction-audit">Beyond the Dead Draw Audit: the construction audit</h2>
+<p class="grown">The Dead Draw Audit scores single cards. This construction audit scores the whole ninety-nine on Crystal's two dials, noncreature spell count and average color count. The first rule is a floor on colored noncreature spells, the second is a target average color count, and the third is a cap on colorless spells that do nothing for the drain.</p>
+<div class="turns grown">
+  <table>
+    <tr><td style="color:var(--plum)">Target</td><td>Count</td><td>Why</td></tr>
+    <tr><td>Colored noncreature spells</td><td>34-40</td><td>Each is a Crystal trigger, so this is the drain engine</td></tr>
+    <tr><td>Of those, multicolor</td><td>half or more</td><td>Raises the average color count, the damage multiplier</td></tr>
+    <tr><td>Extra-cast enablers</td><td>6-8</td><td>Cost reducers, copy effects, flashback, cantrips</td></tr>
+    <tr><td>Colorless noncreature spells</td><td>keep low</td><td>They ping for zero, so each must earn its slot alone</td></tr>
+    <tr><td>Creatures and utility</td><td>the remainder</td><td>Flyers and Fantastic Four payoffs that close beside the pings</td></tr>
+    <tr><td>Lands</td><td>36-37</td><td>The four-color base Crystal's mana ability supports</td></tr>
+  </table>
+</div>
+<p class="grown">Card advantage needs its own read. Crystal turns spells into damage, and a drain deck still needs to keep casting, so the colored cantrips and multicolor draw spells do double duty as fuel and as pings. Report two numbers when you tune the list, the colored noncreature count and the average color count across that group. A build that reports a high spell count while half those spells are colorless is overstating its clock. The honest measure is total expected color-count damage per turn, spells times average colors times three opponents.</p>
+<p class="grown">Every revision should hold the colored-spell floor first. A new colorless card should replace another colorless card so the drain does not thin. A new mono-color spell should give way to a multicolor spell of the same effect when one exists, since the extra pip is three damage a cast. Extra-cast enablers and multicolor payoffs are the two packages that keep the formula compounding, and neither should be cut to add another plain rock.</p>
+<p class="pull grown">Crystal is two dials multiplied: how many colored spells you cast, and how many colors each one carries.</p>
+<p class="kid-only">To build Crystal: pack in colored noncreature spells, aim for 34 to 40, and make at least half of them multicolor. Keep colorless spells low because they deal zero. Add cost reducers and copy effects so you cast more each turn. Track two numbers: how many colored spells, and how many colors on average.</p>
+
+<h2 id="the-shell">The shell, the Fantastic Four spellslinger base</h2>
+<p class="grown">Crystal is part of the unchanged Fantastic Four ninety-nine and shares the four-color spellslinger base laid out on the <a href="/mister-fantastic-deck-tech/">Mister Fantastic deck tech</a> and the <a href="/salubrioussnail-ff-manabase/">Fantastic Four manabase</a> page, so the full list and the mana work live there. Under Crystal the shell tilts three ways. The noncreature spells shift toward gold and three-color cards wherever a multicolor version of an effect exists, the colorless rock package shrinks in favor of colored ramp and a slightly higher land count, and the payoff slots favor copy effects and cost reducers that let you cast more colored spells per turn.</p>
+<p class="grown">The interaction, the card draw, and the win conditions carry over, since a spellslinger wants the same colored instants and sorceries whether the face is Mister Fantastic or Crystal. Mister Fantastic doubles a noncreature trigger for a turn, and Crystal makes every noncreature spell a table-wide ping, so the two commanders reward the same core and split only on the payoff shell. Build toward the construction audit above, a high colored-spell count, a multicolor majority, and a short colorless list.</p>
+<p class="kid-only">Crystal uses the same Fantastic Four spellslinger deck as the Mister Fantastic page, so the full list is over there. The changes: pick multicolor versions of your spells, cut colorless rocks for colored ramp and more lands, and add copy effects and cost reducers.</p>
+
+</article>
+</main>
+
+<div class="src">
+  <p><b>Sources.</b> Crystal, Inhuman Princess oracle text and color identity via <a href="https://scryfall.com">Scryfall</a> (Marvel Super Heroes Commander, read 2026-07-14): {1}{R}{G}, Legendary Creature Inhuman Noble Hero, 2/3, color identity white-blue-red-green; "Flying", "Whenever you cast a noncreature spell, Crystal deals X damage to each opponent, where X is the number of colors that spell is", and "{T}: Add {R}, {G}, {W}, or {U}". Color-count damage is the printed X per opponent; the pod figures multiply by three opponents; the spells-to-lethal figures divide 40 life by the average color count. EDHREC records Crystal as the most-built Fantastic Four commander (1,921 decks, read 2026-07-14), above every advertised face, per the <a href="/salubrioussnail-marvel-edhrec/">EDHREC Marvel read</a> and the <a href="/marvel-commander-rankings/">Marvel rankings</a>. The Fantastic Four shell and manabase are on the <a href="/mister-fantastic-deck-tech/">Mister Fantastic deck tech</a> and the <a href="/salubrioussnail-ff-manabase/">Fantastic Four manabase</a> page. Inspired by Salubrious Snail's published framework; neither Salubrious Snail nor EDHREC authored or endorsed it.</p>
+</div>
+
+<button id="kidfab" onclick="toggleKid()" aria-pressed="false" aria-label="Toggle plain-language kid mode">Kid Mode</button>
+<script>
+function toggleKid(){var on=document.body.classList.toggle('kid');
+  var b=document.getElementById('kidfab');
+  b.textContent=on?'Normal Mode':'Kid Mode';
+  b.setAttribute('aria-pressed',on?'true':'false');}
+</script>
+</body>
+</html>
