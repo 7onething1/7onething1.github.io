@@ -1,0 +1,162 @@
+<!doctype html>
+<html lang="en"><head><meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Okoye, Mighty and Adored: The Crown Dance</title>
+<meta name="description" content="A Snail-style deck tech for Okoye, Mighty and Adored, the Selesnya Wakanda Forever alt: the monarch and counters commander whose double strike and trample only fire against the crown-holder, with the doubled-damage math, the crown-dance read, a dead-draw audit, a construction audit, and the shell.">
+<meta name="keywords" content="Okoye Mighty and Adored, monarch, +1/+1 counters, double strike, Selesnya, Wakanda Forever, Marvel Super Heroes Commander, deck tech, construction audit">
+<meta property="og:title" content="Okoye, Mighty and Adored: The Crown Dance">
+<meta property="og:description" content="The Selesnya monarch and counters commander whose double strike and trample only fire against the crown-holder, with the doubled-damage math and the crown-dance read.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,500;0,600;0,700;1,600&family=Inter:wght@400;600;700;800&display=swap" rel="stylesheet">
+<style>
+  :root{--cream:#f4ecd8;--ink:#1c1a17;--rust:#b5533b;--teal:#3f7c78;--gold:#c98a2b;--olive:#7d7a3a;--line:#d9cdb0;--plum:#7b4b8a;}
+  *{box-sizing:border-box}
+  body{margin:0;background:var(--cream);color:var(--ink);font-family:'Inter',system-ui,-apple-system,Segoe UI,Roboto,sans-serif;line-height:1.62}
+  header{padding:46px 24px 10px;max-width:760px;margin:0 auto;text-align:center}
+  h1{font-family:'Cormorant Garamond',Georgia,serif;font-size:clamp(2rem,8vw,2.7rem);margin:.15em 0;color:var(--ink);line-height:1.1}
+  .sub{color:var(--olive);font-weight:600;max-width:640px;margin:8px auto 0}
+  .nav{margin:14px auto 0;font-size:.9rem}
+  .nav a{color:var(--teal);font-weight:700;text-decoration:none;margin:0 8px}
+  .byline{max-width:760px;margin:10px auto 0;padding:0 22px;font-size:.8rem;color:var(--olive);font-style:italic;text-align:center}
+  main{max-width:760px;margin:0 auto;padding:12px 22px 100px}
+  article h2{font-family:'Cormorant Garamond',serif;font-size:1.7rem;color:var(--rust);margin:34px 0 8px}
+  article h3{font-family:'Inter',sans-serif;font-size:1.02rem;color:var(--plum);margin:18px 0 6px;text-transform:uppercase;letter-spacing:.04em}
+  article p{margin:0 0 14px;font-size:1.04rem}
+  .lead{font-size:1.12rem;color:#33302a}
+  .swapline{margin:10px 0;padding:9px 13px;background:#fbf5e6;border:1px solid var(--line);border-radius:9px;font-size:.96rem;overflow:hidden}
+  .swapline b{color:var(--rust)} .swapline .pct{color:var(--teal);font-weight:800}
+  .mathbox{background:#efe6cf;border:1px solid var(--line);border-left:4px solid var(--teal);border-radius:10px;padding:14px 16px;margin:14px 0}
+  .mathbox table{border-collapse:collapse;width:100%;font-size:.95rem;margin:6px 0}
+  .mathbox td{padding:4px 8px;border-bottom:1px solid var(--line)}
+  .mathbox td:last-child{text-align:right;font-weight:800;color:var(--rust)}
+  .mathbox .tot td{border-bottom:none;border-top:2px solid var(--teal);font-weight:800}
+  .turns{background:#fbf5e6;border:1px solid var(--line);border-radius:10px;padding:6px 4px;margin:12px 0}
+  .turns table{border-collapse:collapse;width:100%;font-size:.94rem}
+  .turns td{padding:7px 11px;border-bottom:1px solid var(--line);vertical-align:top}
+  .turns td:first-child{font-weight:800;color:var(--teal);white-space:nowrap;width:1%}
+  .turns tr:last-child td{border-bottom:none}
+  .auditwrap{overflow-x:auto;margin:12px 0}
+  table.audit{border-collapse:collapse;width:100%;min-width:640px;font-size:.9rem;background:#fbf5e6;border:1px solid var(--line);border-radius:10px}
+  table.audit th{background:#efe6cf;color:var(--plum);text-align:left;padding:8px 10px;font-size:.78rem;text-transform:uppercase;letter-spacing:.03em}
+  table.audit td{padding:8px 10px;border-top:1px solid var(--line);vertical-align:top}
+  table.audit td:first-child{font-weight:800;color:var(--rust);white-space:nowrap}
+  .v{display:inline-block;padding:2px 9px;border-radius:20px;font-size:.76rem;font-weight:800;color:#fff}
+  .v-core{background:var(--teal)} .v-supported{background:var(--olive)} .v-situational{background:var(--gold)} .v-cut{background:var(--rust)}
+  .pull{border-left:4px solid var(--gold);padding:6px 0 6px 15px;margin:16px 0;font-family:'Cormorant Garamond',serif;font-size:1.35rem;color:#3f3b30}
+  .src{max-width:760px;margin:0 auto;padding:0 22px 96px;font-size:.82rem;color:var(--olive)}
+  .src a{color:var(--teal);font-weight:700}
+  .kid-only{display:none}
+  #kidfab{position:fixed;right:18px;bottom:18px;z-index:50;background:var(--rust);color:#fff;border:none;border-radius:40px;padding:14px 21px;font-size:1rem;font-weight:800;box-shadow:0 4px 14px rgba(0,0,0,.25);cursor:pointer}
+  body.kid{font-size:1.14rem}
+  body.kid .grown{display:none}
+  body.kid .kid-only{display:block}
+  body.kid .lead{font-size:1.18rem}
+  .toc{background:#efe6cf;border:1px solid var(--line);border-radius:10px;padding:9px 14px;margin:6px 0 18px;font-size:.86rem;line-height:1.9}
+  .toc summary{color:var(--plum);font-weight:800;cursor:pointer;list-style:none}
+  .toc summary::-webkit-details-marker{display:none}
+  .toc summary::before{content:"\25B8 ";color:var(--teal)}
+  .toc[open] summary::before{content:"\25BE "}
+  .toc .toclinks{margin-top:7px}
+  .toc a{color:var(--teal);font-weight:700;text-decoration:none;margin:0 12px 0 0;display:inline-block}
+  @media(max-width:560px){.toc a{white-space:normal;display:block;margin:3px 0}}
+  body.kid .toc{display:none}
+</style></head>
+<body>
+<header>
+  <h1>Okoye, Mighty and Adored: <span style="white-space:nowrap">The Crown Dance</span></h1>
+  <div class="sub grown">The Wakanda general crowns you on arrival and pumps a creature every combat. The twist is in the fine print: her double strike and trample fire only when that creature attacks the monarch. The deck is a dance around the crown, cards when you hold it, doubled damage when you take it back.</div>
+  <div class="sub kid-only">Okoye makes you the monarch, which draws you a card each turn. Every combat she puts a +1/+1 counter on a creature. That creature gets double strike and trample, but only when it attacks whoever holds the crown. So the deck plays a game of passing and grabbing the crown.</div>
+  <div class="nav"><a href="/marvel-commander-guides/">Guides hub</a> &middot; <a href="/bast-panther-goddess-deck-tech/">Bast deck tech</a> &middot; <a href="/storm-queen-wakanda-deck-tech/">Storm deck tech</a> &middot; <a href="/marvel-commander-rankings/">Marvel rankings</a></div>
+</header>
+<p class="byline">This Okoye, Mighty and Adored deck tech is inspired by Salubrious Snail's published deckbuilding framework. Okoye's oracle text and color identity are from Scryfall (Marvel Super Heroes Commander, read 2026-07-14); the Wakanda shell and inclusion figures come from the EDHREC Wakanda pages. Not authored or endorsed by Salubrious Snail or EDHREC.</p>
+<main>
+<article>
+<details class="toc" aria-label="Contents"><summary>On this page (7 destinations)</summary><div class="toclinks"><a href="#the-engine">The engine</a><a href="#crown-dance">The crown dance</a><a href="#damage-math">Damage math</a><a href="#retention">Holding the crown</a><a href="#dead-draw-audit">Dead Draw Audit</a><a href="#construction-audit">Construction audit</a><a href="#the-shell">The shell</a></div></details>
+
+<p class="lead grown">Okoye, Mighty and Adored costs {2}{G}{W}, a 3/3 Selesnya Warrior with two abilities that reward two different games. When she enters, you become the monarch, which draws you an extra card at the end of each of your turns until someone takes the crown. And at the beginning of combat on your turn, she puts a +1/+1 counter on a target creature, and that creature gains double strike and trample whenever it attacks the monarch this turn. She is a Wakanda Forever alt, and read on her own she is a green-white monarch and counters deck that grinds cards when it holds the crown and closes with a doubled trampler when it reclaims it.</p>
+<p class="lead kid-only">Okoye costs four mana. She makes you the monarch, so you draw an extra card each turn until someone takes the crown by hitting you. Every combat she adds a +1/+1 counter to a creature, and that creature gets double strike and trample when it attacks the crown-holder. So you both want the crown for cards and want to attack it for damage.</p>
+
+<h2 id="the-engine">The engine, cards and a doubled swing</h2>
+<p class="grown">Okoye pays out on two clocks. The monarch draws you a card every end step, a steady stream of card advantage the whole table has to answer by dealing you combat damage. The combat trigger adds a counter each turn and hands double strike and trample to a creature that attacks the crown. Those two rewards create tension, since holding the crown gives you the cards and prevents your own creatures from triggering the bonus, because you cannot attack yourself. The deck earns the most from reading that tension each turn.</p>
+<p class="grown">This makes Okoye a tempo commander rather than a pure aggro or pure control one. She wants the crown for its extra cards, and she wants an opponent to hold it so her counter-pumped creature can attack the monarch with double strike and trample. A good pilot lets the crown move when the doubled swing is the better play and defends it when the cards matter more.</p>
+<p class="kid-only">Okoye has two payoffs that pull against each other. Being the monarch draws you cards, but you cannot attack yourself, so your creature only gets the double strike when an opponent holds the crown. So sometimes you keep the crown for cards, and sometimes you let it go so you can attack it back for big damage.</p>
+
+<h2 id="crown-dance">The crown dance, the read that runs the deck</h2>
+<p class="grown">Here is the line most Okoye primers skip. The double strike and trample key off attacking the monarch, so the bonus is live exactly when someone else wears the crown. The strongest sequence is a loop: you become the monarch and draw a card, an opponent attacks you and takes the crown, then on your turn Okoye counters a creature and you attack the new monarch with double strike and trample, reclaiming the crown and drawing again next end step. Each pass through that loop banks cards and connects a doubled hit.</p>
+<p class="grown">That loop also protects your life total, since trample plus double strike blows through a chump block and takes the crown back cleanly. Construction supports the dance with evasion, so your pumped creature connects with whichever opponent holds the crown, and with a few ways to defend the monarch when the cards matter more than the swing. The deck should treat the crown as a resource to move on purpose rather than a prize to hoard.</p>
+<p class="kid-only">The trick: the double strike only works when you attack the crown-holder. So the best pattern is to become monarch, let an opponent take the crown, then attack them with your buffed creature to get double strike and trample and take the crown back. You draw cards and deal big damage on the same loop.</p>
+
+<h2 id="damage-math">The doubled-damage math</h2>
+<p class="grown">When the counter-pumped creature attacks the monarch, double strike turns its power into twice the combat damage and trample carries it past a blocker. A modest attacker becomes a real clock. The table below reads the attacker's power against the doubled damage it deals to the crown-holder and how fast it reaches a commander-damage kill if the same creature carries Okoye's own combat past the crown.</p>
+<div class="mathbox grown">
+  <table>
+    <tr><td style="color:var(--plum)">Attacker power</td><td>Normal</td><td>Vs monarch, doubled</td><td>Swings to 21</td></tr>
+    <tr><td>3</td><td>3</td><td>6</td><td>4</td></tr>
+    <tr><td>5</td><td>5</td><td>10</td><td>3</td></tr>
+    <tr><td>7</td><td>7</td><td>14</td><td>2</td></tr>
+    <tr class="tot"><td>11</td><td>11</td><td>22</td><td>1</td></tr>
+  </table>
+</div>
+<p class="grown">Read the doubled column as the reason to grow one creature rather than the whole board. Okoye already adds a counter each turn, so counter payoffs and a couple of larger bodies push the attacker into the range where a single doubled swing takes back the crown and threatens lethal commander damage. The construction takeaway is to pair her counter with real power, since double strike squares the value of every point above the base.</p>
+<p class="kid-only">Double strike doubles the damage. A 5-power creature hits the crown-holder for 10, a 7 for 14, an 11 for 21 at once. So grow one creature with counters and it takes back the crown while dealing huge damage. Double strike makes every extra point of power count twice.</p>
+
+<h2 id="retention">Holding the crown, the card engine</h2>
+<p class="grown">The monarch is a draw engine the deck wants to keep when the doubled swing is not needed, so a package that defends the crown pays for itself in cards. Deathtouch blockers, reach, and cheap flyers keep opponents from connecting to take it, and pillow effects buy the extra end step. The deck does not need to hoard the crown, since Okoye can reclaim it, so the retention package should be light, enough to bank a few extra cards across the game rather than a fortress that turns off the combat bonus.</p>
+<p class="kid-only">Being the monarch draws you cards, so keep some blockers with deathtouch, reach, or flying to stop opponents from taking the crown. You do not need too many, since Okoye can grab the crown back in combat. A few defenders are enough to draw extra cards.</p>
+
+<h2 id="dead-draw-audit">Dead Draw Audit</h2>
+<p class="grown">Snail's method scores a card by how often it does its job and whether it earns its slot with the commander gone. Here are five cards through that lens, with the crown-dance read deciding the close calls.</p>
+<div class="auditwrap grown">
+<table class="audit">
+  <caption style="text-align:left;font-size:.82rem;color:var(--olive);padding:6px 10px;font-style:italic">Dead Draw Audit: five cards scored on job, support, solo value, and verdict.</caption>
+  <tr><th scope="col">Card</th><th scope="col">Primary job</th><th>Support in the 99</th><th>Value without Okoye</th><th>Verdict</th></tr>
+  <tr><td>An evasive attacker (flying or menace)</td><td>Connects to the crown for the doubled swing</td><td>High, every crown-dance turn</td><td>Good, a threat on its own</td><td><span class="v v-core">core</span></td></tr>
+  <tr><td>A +1/+1 counter payoff</td><td>Turns Okoye's per-turn counter into value</td><td>High, a counter every combat</td><td>Good in any counters deck</td><td><span class="v v-core">core</span></td></tr>
+  <tr><td>A monarch-retention blocker (deathtouch or reach)</td><td>Keeps the crown for card draw</td><td>Medium, the card engine half</td><td>Good, a defensive body</td><td><span class="v v-supported">supported</span></td></tr>
+  <tr><td>Extra monarch synergy card</td><td>Rewards being the monarch</td><td>Medium, one theme</td><td>Depends on the crown</td><td><span class="v v-supported">supported</span></td></tr>
+  <tr><td>A vanilla ground body, no evasion</td><td>A counter target that a blocker stops</td><td>Low, cannot reliably reach the crown</td><td>Depends on its stats</td><td><span class="v v-situational">situational</span></td></tr>
+</table>
+</div>
+<p class="grown">The vanilla body drops to situational because the doubled swing needs to connect, and a ground creature with no evasion gives the doubled damage back to a blocker outside of trample. Evasive attackers climb, since they carry the pump to the crown reliably. Run every questioned card through job, support, solo value, and the crown-dance read before it stays.</p>
+<p class="kid-only">This grades each card by its job and whether it helps Okoye. Flying or menace creatures are best, since they can reach the crown-holder for the doubled hit. A plain ground creature is weak, because a blocker stops the big swing.</p>
+
+<h2 id="construction-audit">Beyond the Dead Draw Audit: the construction audit</h2>
+<p class="grown">The Dead Draw Audit scores single cards. This construction audit scores the whole ninety-nine on Okoye's two clocks, the monarch card engine and the counter-plus-double-strike swing. The first rule is a package of evasive attackers that reliably reach the crown, the second is a set of counter payoffs that turn the per-turn counter into value, and the third is a light monarch-retention package for the card draw.</p>
+<div class="turns grown">
+  <table>
+    <tr><td style="color:var(--plum)">Target</td><td>Count</td><td>Why</td></tr>
+    <tr><td>Evasive attackers</td><td>10-14</td><td>Flying or menace to reach the crown for the doubled swing</td></tr>
+    <tr><td>Counter payoffs</td><td>8-10</td><td>Turns Okoye's per-turn counter into value</td></tr>
+    <tr><td>Monarch retention</td><td>4-6</td><td>Deathtouch, reach, cheap flyers to bank cards</td></tr>
+    <tr><td>Interaction</td><td>9-11</td><td>Green-white removal and a reset to reach the grind</td></tr>
+    <tr><td>Ramp</td><td>8-10</td><td>Reach four mana and the payoff suite early</td></tr>
+    <tr><td>Lands</td><td>36-37</td><td>A clean Selesnya base</td></tr>
+  </table>
+</div>
+<p class="grown">Read the evasion count and the counter-payoff count as one system. Evasion decides whether the doubled swing connects, and the counter payoffs decide how much each swing is worth, so a deck heavy on one and light on the other underperforms. Report two numbers when you tune the list, the count of reliably evasive attackers and the count of counter payoffs. A build with a stack of counters and no evasion cannot reach the crown, and a pile of flyers with no counter support leaves the swings small. The honest measure is whether a growing, evasive threat is available on the turns you want to reclaim the crown.</p>
+<p class="grown">Every revision should hold the evasion floor and the counter-payoff count first. A new attacker earns its slot through flying, menace, or trample so it reaches the crown, and a new counter payoff should also draw a card or protect the board where it can. The monarch-retention package stays light, since a fortress that never yields the crown turns off the double strike the deck is built to land. Okoye rewards moving the crown, so build to reclaim it rather than to hoard it.</p>
+<p class="pull grown">Okoye pays you to hold the crown and pays you to take it back. The deck is the dance between the two.</p>
+<p class="kid-only">To build Okoye: run 10 to 14 flying or menace attackers to reach the crown, 8 to 10 counter payoffs to make the swing bigger, and 4 to 6 defenders to keep the crown for cards. Do not stack counters with no evasion, and do not hoard the crown so hard that you never get the double strike.</p>
+
+<h2 id="the-shell">The shell, a Selesnya monarch plan</h2>
+<p class="grown">Okoye is a legal Wakanda Forever commander in green and white, and the box already runs a monarch sub-theme, so the stock ninety-nine points partway at her. She wants a different build from the other Wakanda faces: the <a href="/tchalla-black-panther-deck-tech/">T'Challa</a> and <a href="/shuri-black-panther-deck-tech/">Shuri</a> plans count artifacts, <a href="/storm-queen-wakanda-deck-tech/">Storm</a> stacks power on one commander, and <a href="/bast-panther-goddess-deck-tech/">Bast</a> goes wide. Okoye wants evasive threats, counter payoffs, and a light monarch package, a green-white midrange deck that grinds cards and lands one doubled swing a turn.</p>
+<p class="grown">The interaction and the ramp carry over from any Selesnya midrange list, so the build only changes the payoff. Keep a bench of evasive attackers, back them with counter support, and defend the crown just enough to bank cards. Build toward the construction audit above, a reliable evasion count for the crown dance, a counter-payoff package that makes each swing hurt, and a light retention shell that keeps the card engine running without shutting off the double strike.</p>
+<p class="kid-only">The Wakanda box already has some monarch cards, so it fits Okoye partway. She wants a different deck from the other Wakanda commanders: flying and menace creatures, counter payoffs, and a few defenders. Grind cards from the crown and land one big doubled swing each turn.</p>
+
+</article>
+</main>
+
+<div class="src">
+  <p><b>Sources.</b> Okoye, Mighty and Adored oracle text and color identity via <a href="https://scryfall.com">Scryfall</a> (Marvel Super Heroes Commander, read 2026-07-14): {2}{G}{W}, Legendary Creature Human Warrior Hero, 3/3, color identity Selesnya (green-white); "When Okoye enters, you become the monarch" and "At the beginning of combat on your turn, put a +1/+1 counter on target creature. Whenever that creature attacks the monarch this turn, it gains double strike and trample until end of turn". The double strike and trample fire only when the pumped creature attacks the current monarch, so the bonus is live when an opponent holds the crown; monarch draws a card at your end step. The doubled-damage table is direct arithmetic, twice the attacker's power against the crown-holder, with the swings-to-21 column dividing 21 commander damage by that doubled number and rounding up. The Wakanda shell and the other Wakanda plans are on the <a href="/tchalla-black-panther-deck-tech/">T'Challa</a>, <a href="/shuri-black-panther-deck-tech/">Shuri</a>, <a href="/storm-queen-wakanda-deck-tech/">Storm</a>, and <a href="/bast-panther-goddess-deck-tech/">Bast</a> deck techs; inclusion context is on the <a href="/salubrioussnail-marvel-edhrec/">EDHREC Marvel read</a> and the <a href="/marvel-commander-rankings/">Marvel rankings</a>. Inspired by Salubrious Snail's published framework; neither Salubrious Snail nor EDHREC authored or endorsed it.</p>
+</div>
+
+<button id="kidfab" onclick="toggleKid()" aria-pressed="false" aria-label="Toggle plain-language kid mode">Kid Mode</button>
+<script>
+function toggleKid(){var on=document.body.classList.toggle('kid');
+  var b=document.getElementById('kidfab');
+  b.textContent=on?'Normal Mode':'Kid Mode';
+  b.setAttribute('aria-pressed',on?'true':'false');}
+</script>
+</body>
+</html>
