@@ -154,10 +154,13 @@
 
 <button id="kidfab" onclick="toggleKid()" aria-pressed="false" aria-label="Toggle plain-language kid mode">Kid Mode</button>
 <script>
-function toggleKid(){var on=document.body.classList.toggle('kid');
+function setKid(on){document.body.classList.toggle('kid',on);
   var b=document.getElementById('kidfab');
   b.textContent=on?'Normal Mode':'Kid Mode';
-  b.setAttribute('aria-pressed',on?'true':'false');}
+  b.setAttribute('aria-pressed',on?'true':'false');
+  try{localStorage.setItem('invisible-kid',on?'1':'0');}catch(e){}}
+function toggleKid(){setKid(!document.body.classList.contains('kid'));}
+try{if(localStorage.getItem('invisible-kid')==='1')setKid(true);}catch(e){}
 </script>
 </body>
 </html>

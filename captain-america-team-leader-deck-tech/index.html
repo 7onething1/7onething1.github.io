@@ -376,12 +376,14 @@ function setAria(kid){
   document.querySelectorAll('.grown').forEach(function(e){e.setAttribute('aria-hidden',kid?'true':'false');});
 }
 setAria(false);
-function toggleKid(){document.body.classList.toggle('kid');
-  var on=document.body.classList.contains('kid');
+function setKid(on){document.body.classList.toggle('kid',on);
   var b=document.getElementById('kidfab');
   b.textContent=on?'Normal Mode':'Kid Mode';
   b.setAttribute('aria-pressed',on?'true':'false');
-  setAria(on);}
+  setAria(on);
+  try{localStorage.setItem('cap-kid',on?'1':'0');}catch(e){}}
+function toggleKid(){setKid(!document.body.classList.contains('kid'));}
+try{if(localStorage.getItem('cap-kid')==='1')setKid(true);}catch(e){}
 </script>
 </body>
 </html>

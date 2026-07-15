@@ -408,13 +408,16 @@
     document.querySelectorAll('.kid-only').forEach(function(e){e.hidden=!kid;e.setAttribute('aria-hidden',kid?'false':'true');});
     document.querySelectorAll('.grown').forEach(function(e){e.hidden=kid;e.setAttribute('aria-hidden',kid?'true':'false');});
   }
-  window.toggleKid=function(){
-    document.body.classList.toggle('kid');
+  window.setKid=function(on){
+    document.body.classList.toggle('kid',on);
     var b=document.getElementById('kidfab');
-    b.textContent=document.body.classList.contains('kid')?'Normal Mode':'Kid Mode';
+    b.textContent=on?'Normal Mode':'Kid Mode';
     setAria();
+    try{localStorage.setItem('loki-kid',on?'1':'0');}catch(e){}
   };
-  setAria(); // kid-only paragraphs start aria-hidden so screen readers skip them until Kid Mode is on
+  window.toggleKid=function(){ window.setKid(!document.body.classList.contains('kid')); };
+  var _lk='0'; try{_lk=localStorage.getItem('loki-kid');}catch(e){}
+  if(_lk==='1'){ window.setKid(true); } else { setAria(); } // kid-only paragraphs start aria-hidden until Kid Mode is on
 })();
 </script>
 </body>
