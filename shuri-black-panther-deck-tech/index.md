@@ -13,7 +13,7 @@ The Dead Draw Audit scores individual cards against their support. This construc
 
 ## Artifact threshold accounting
 
-The stock Wakanda Forever list carries twenty-four cards in its dedicated artifact category, plus four artifact creatures (Metalwork Colossus, Meteor Golem, Panther Robot, Solemn Simulacrum); The Great Mound may sort differently by its printed type line. Generate one exact artifact total from the real manifest rather than a round number, then separate the artifacts by cost and job: two mana or less, artifact creatures, token producers, mana artifacts, Equipment, Vehicles, and expensive value pieces. A deck of thirty artifacts can still stall when most cost five or more.
+The stock Wakanda Forever list carries twenty-four cards in its dedicated artifact category, plus four artifact creatures (Metalwork Colossus, Meteor Golem, Panther Robot, Solemn Simulacrum); The Great Mound is printed as a Land rather than an artifact, so it adds artifact production through its tapped Vibranium tokens but does not itself count as an artifact card in the library. Generate one exact artifact total from the real manifest rather than a round number, then separate the artifacts by cost and job: two mana or less, artifact creatures, token producers, mana artifacts, Equipment, Vehicles, and expensive value pieces. A deck of thirty artifacts can still stall when most cost five or more.
 
 **Suggested Shuri adds:** Tree of Tales, Ancient Den, Darksteel Citadel, Thornglint Bridge, Foundry Inspector, Retrofitter Foundry, Illustrious Wanderglyph, Thousand Moons Smithy, Haywire Mite, Stridehangar Automaton. Each is an artifact card or artifact mana source. Publish the new artifact total after every completed exchange.
 
@@ -32,7 +32,7 @@ Six-plus artifacts in an early sample is far rarer, about **2.8 percent** at twe
 
 Shuri's six-artifact bonus pumps creatures, so **artifact creatures** satisfy the threshold and collect the plus two, making them the strongest card type for her plan. Field **twelve to sixteen** of them (Metalwork Colossus, Meteor Golem, Panther Robot, Solemn Simulacrum, Foundry Inspector, Haywire Mite, Illustrious Wanderglyph, Stridehangar Automaton). Protect the fulcrum cards during cuts, since each links several jobs: Illustrious Wanderglyph, Thousand Moons Smithy, Retrofitter Foundry, Shuri's Fabricator, Panther Robot, Royal Talon Fighter Jet, Foundry Inspector.
 
-**Creature width.** The attack bonus grows with the creature count: one big creature gains two power, six creatures gain twelve. Publish the number of cards that make two or more creatures or tokens (Martial Coup, Royal Talon Fighter Jet, Retrofitter Foundry, Thousand Moons Smithy, Illustrious Wanderglyph, Stridehangar Automaton). Divine Visitation earns its slot only after enough token makers exist; its value follows the verified token count.
+**Creature width.** The attack bonus grows with the creature count: one big creature gains two power, six creatures gain twelve. Publish the number of cards that make two or more creatures or tokens (Martial Coup, Royal Talon Fighter Jet, Retrofitter Foundry, Thousand Moons Smithy, Illustrious Wanderglyph, Stridehangar Automaton). Stridehangar Automaton is the standout: every artifact-token event also makes a bonus 1/1 flying Thopter, so it widens the board and raises the artifact count at once. Divine Visitation earns its slot only after enough token makers exist; its value follows the verified token count.
 
 ## Cost, curve, and the draw suite
 

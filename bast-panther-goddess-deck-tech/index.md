@@ -31,7 +31,7 @@ Bast cannot attack or block below three creatures, a real construction requireme
 
 ## The buff targets, Bast first
 
-The trigger targets any attacking creature, and Bast is usually the best home: indestructible, so removal does not answer the boosted threat, and trample, so blockers cannot eat the surplus. A trampling or double-striking attacker is the backup when Bast is held to block, and a combat-damage trigger turns the +X/+X into extra value. Avoid a fragile body with no evasion, since a chump block wastes a plus ten swing.
+The trigger targets any attacking creature, and Bast is usually the best home: indestructible, so damage and destruction removal does not answer the boosted threat, though exile, bounce, and sacrifice still can, and trample, so blockers cannot eat the surplus. A trampling or double-striking attacker is the backup when Bast is held to block, and a combat-damage trigger turns the +X/+X into extra value. Avoid a fragile body with no evasion, since a chump block wastes a plus ten swing.
 
 ## Dead Draw Audit
 
@@ -53,16 +53,19 @@ Scores the whole ninety-nine on the width lever and its gate.
 |---|---|---|
 | Creatures and token makers | 32-38 | Width is the payoff and the on-switch |
 | Cards that leave two or more bodies | 10-14 | Clears the gate and rebuilds after a wipe |
-| One and two-drop creatures | 12-16 | Three bodies down before Bast lands |
+| Early development cards | 12-16 | Three bodies before Bast: cheap creatures, mana dorks, token spells, artifact creatures, and body-making enchantments |
 | Anthems and go-wide payoffs | 4-6 | Raises the base of every attacker |
 | Interaction | 8-10 | Green-white removal and a reset of your own |
-| Lands and ramp | 42-45 | A clean Selesnya base with a little acceleration |
+| Card advantage | 6-8 | Refills the hand so the board keeps rebuilding after a wipe |
+| Protection for Bast and the board | 3-5 | Answers the exile, bounce, and sacrifice that indestructible does not stop |
+| Lands (mana sources) | 36-38 | A clean Selesnya base |
+| Ramp | 6-8 | Early acceleration to reach the gate and the payoff sooner |
 
-Read the creature count and the multi-body count as one system: the creature count sets the buff size, the multi-body count controls how fast you clear the gate and recover from a wipe. Report two numbers when you tune the list: the total creature count and the count of cards that leave two or more bodies. The honest measure is the board width you can reach and rebuild, beyond the raw creature slots on paper. Every revision holds the width floor and the multi-body count first: a token maker that leaves several bodies beats a single large body of the same cost. Bast is indestructible, so the deck spends fewer slots protecting the commander and more filling the board she needs.
+Read the creature count and the multi-body count as one system: the creature count sets the buff size, the multi-body count controls how fast you clear the gate and recover from a wipe. Report two numbers when you tune the list: the total creature count and the count of cards that leave two or more bodies. The honest measure is the board width you can reach and rebuild, beyond the raw creature slots on paper. Every revision holds the width floor and the multi-body count first: a token maker that leaves several bodies beats a single large body of the same cost. Bast shrugs off damage and destruction removal, so the deck spends fewer slots shielding the commander than a fragile one would, though it still wants a few answers to the exile, bounce, and sacrifice that get past indestructible.
 
 ## The shell, a Selesnya go-wide plan
 
-Bast wants a different ninety-nine from the other Wakanda faces. The [T'Challa](/tchalla-black-panther-deck-tech/) and [Shuri](/shuri-black-panther-deck-tech/) plans count artifacts, and [Storm](/storm-queen-wakanda-deck-tech/) stacks power on one commander. Bast counts creatures, so the shell is a green-white tokens and go-wide deck: token makers, cheap creatures, a few anthems, and the mana and removal the two colors give. The box's own token and monarch pieces fit her, since both reward a developed board. The interaction and ramp carry over from any Selesnya go-wide list; only the payoff changes. Fill the board, clear the three-creature gate early, and point the buff at the indestructible goddess who cannot be answered by removal.
+Bast wants a different ninety-nine from the other Wakanda faces. The [T'Challa](/tchalla-black-panther-deck-tech/) and [Shuri](/shuri-black-panther-deck-tech/) plans count artifacts, and [Storm](/storm-queen-wakanda-deck-tech/) stacks power on one commander. Bast counts creatures, so the shell is a green-white tokens and go-wide deck: token makers, cheap creatures, a few anthems, and the mana and removal the two colors give. The box's own token and monarch pieces fit her, since both reward a developed board. The interaction and ramp carry over from any Selesnya go-wide list; only the payoff changes. Fill the board, clear the three-creature gate early, and point the buff at the indestructible goddess, who shrugs off damage and destruction removal even when exile, bounce, or sacrifice can still answer her.
 
 ## Sources
 

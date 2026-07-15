@@ -5,11 +5,11 @@ A deck tech for **Storm, Queen of Wakanda**, the Selesnya Wakanda Forever alt, r
 Live page: [/storm-queen-wakanda-deck-tech](https://drwu-htmls.vercel.app/storm-queen-wakanda-deck-tech)
 Related: [T'Challa deck tech](https://drwu-htmls.vercel.app/tchalla-black-panther-deck-tech) · [Shuri deck tech](https://drwu-htmls.vercel.app/shuri-black-panther-deck-tech) · [Marvel rankings](https://drwu-htmls.vercel.app/marvel-commander-rankings)
 
-**Storm, Queen of Wakanda** costs {3}{G}{W}, a 4/5 Legendary Creature (Mutant Noble Hero), Selesnya. Three abilities that all read off her power: **Flying**; **whenever Storm attacks, another target attacking creature gains flying and gets +X/+0, where X is Storm's power**; and **whenever a creature with flying attacks you, Storm deals damage equal to her power to it**. She is a Wakanda Forever alt, a green-white flyers deck that pours every buff into one commander and lets that single number run the offense, the evasion handoff, and the air defense at once.
+**Storm, Queen of Wakanda** costs {3}{G}{W}, a 4/5 Legendary Creature (Mutant Noble Hero), Selesnya. She has **Flying** plus two triggered abilities that read off her power: **whenever Storm attacks, another target attacking creature gains flying and gets +X/+0, where X is Storm's power**; and **whenever a creature with flying attacks you, Storm deals damage equal to her power to it**. She is a Wakanda Forever alt, a green-white flyers deck that pours every buff into one commander and lets that single number run the offense, the evasion handoff, and the air defense at once.
 
 ## The engine, one number three ways
 
-Storm turns her power into three effects. On offense, the attack trigger adds her power to a second creature and grants flying, so one pump becomes two air threats. On defense, she deals her power to any flyer that attacks you, a repeatable answer to decks that come from above. And her own body flies, so her power is a commander-damage clock. Every point added to Storm improves all three. Most creature decks spread buffs across a wide board; Storm asks the opposite, concentrate the buffs on the commander because her power is the multiplier on all three abilities.
+Storm turns her power into three effects. On offense, the attack trigger adds her power to a second creature and grants flying, so one pump becomes two air threats. On defense, she deals her power to any flyer that attacks you, a repeatable answer to decks that come from above. And her own body flies, so her power is a commander-damage clock. Every point added to Storm improves all three. Most creature decks spread buffs across a wide board; Storm asks the opposite, concentrate the buffs on the commander because her power is the multiplier on the handoff, the punish, and the clock.
 
 ## The power lever
 
@@ -30,13 +30,13 @@ The attack trigger wants a second attacker that converts a big power boost into 
 
 ## The flyer punish, a free removal spell
 
-Storm's third ability deals her power to any flying creature that attacks you, a repeatable removal effect for free. Against a fliers deck it is a wall that kills on contact, and it grows with the same power boosts that fuel the offense. A Storm at power 8 clears most attacking flyers outright; a printed Storm at power 4 trades with the smaller ones. Every power boost points at both halves of the game.
+Storm's third ability deals her power to any flying creature that attacks you, a repeatable removal effect for free. Against a fliers deck it answers attackers as they are declared, dealing her power to each incoming flyer before combat damage, so she takes nothing back, and it grows with the same power boosts that fuel the offense. A Storm at power 8 clears most attacking flyers outright; a printed Storm at power 4 kills the smaller ones without trading. The trigger fires when a flyer is declared attacking you and resolves in the declare-attackers step, so a creature that gains flying after being declared, or one put onto the battlefield already attacking, does not set it off. Every power boost points at both halves of the game.
 
 ## Dead Draw Audit
 
 | Card | Primary job | Support in the 99 | Value without Storm | Verdict |
 |---|---|---|---|---|
-| Repeatable +1/+1 counter source on Storm | Raises the power that fuels all three abilities | Very high, every Storm ability | Some, grows any creature | **core** |
+| Repeatable +1/+1 counter source on Storm | Raises the power that fuels her handoff, punish, and clock | Very high, every Storm ability | Some, grows any creature | **core** |
 | Cheap trample or double-strike attacker | Turns the +X handoff into real damage | High, the attack trigger each turn | Good, an evasive beater alone | **core** |
 | Protective Equipment (hexproof/indestructible) | Keeps Storm alive and adds power | High, protects the whole plan | Good on any commander | **supported** |
 | Team-wide anthem | One power to Storm and the board | Medium, one point to the lever | Good, buffs the team | **supported** |

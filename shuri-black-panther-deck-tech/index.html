@@ -82,7 +82,7 @@
 <p class="kid-only">The first audit grades one card. This audit grades the whole 99-card deck. It checks that the deck can reliably get to three artifacts, sometimes get to six, and have enough creatures to attack with. Because Shuri is the commander and not T'Challa, cards that need T'Challa first are worth less here.</p>
 
 <h2 id="threshold-accounting">Artifact threshold accounting</h2>
-<p class="grown">The stock Wakanda Forever list carries twenty-four cards inside its dedicated artifact category. Metalwork Colossus, Meteor Golem, Panther Robot, and Solemn Simulacrum add four artifact creatures from the creature slots, and The Great Mound may sort differently once you read its full printed type line. Generate one exact artifact total straight from the real manifest rather than trusting a round number, because the count drives every probability below.</p>
+<p class="grown">The stock Wakanda Forever list carries twenty-four cards inside its dedicated artifact category. Metalwork Colossus, Meteor Golem, Panther Robot, and Solemn Simulacrum add four artifact creatures from the creature slots, and The Great Mound is printed as a Land rather than an artifact, so it adds artifact production through its tapped Vibranium tokens but does not itself count as an artifact card in the library. Generate one exact artifact total straight from the real manifest rather than trusting a round number, because the count drives every probability below.</p>
 <p class="grown">A raw artifact total is only the start. Separate the artifacts by cost and job: two mana or less, artifact creatures, token producers, mana artifacts, Equipment, Vehicles, and expensive value pieces. These reach Shuri's thresholds by very different paths. A deck with thirty artifacts can still stall when most of them cost five or more.</p>
 <div class="swapline grown"><b>Suggested Shuri artifact adds.</b> Tree of Tales, Ancient Den, Darksteel Citadel, Thornglint Bridge, Foundry Inspector, Retrofitter Foundry, Illustrious Wanderglyph, Thousand Moons Smithy, Haywire Mite, and Stridehangar Automaton. Every one contributes an artifact card or an artifact mana source. The final artifact total depends on the exact cards cut for them, so publish the new total after every completed exchange.</div>
 <p class="kid-only">Count the real artifacts in the deck instead of guessing. The stock deck has about twenty-four, plus four artifact creatures. Then sort them by cost, because cheap artifacts help you far more than expensive ones for reaching Shuri's numbers.</p>
@@ -106,7 +106,7 @@
 
 <h2 id="fulcrum-cards">Fulcrum cards and artifact creatures</h2>
 <p class="grown">Shuri's six-artifact bonus pumps creatures, so artifact creatures satisfy the threshold and collect the plus two. That overlap makes the artifact creature the strongest card type for her plan, since each one is both input and output. Metalwork Colossus, Meteor Golem, Panther Robot, Solemn Simulacrum, Foundry Inspector, Haywire Mite, Illustrious Wanderglyph, and Stridehangar Automaton give different floors, from interaction and mana to large bodies and token generation. Field twelve to sixteen artifact creatures, enough bodies without forcing every creature slot into the package.</p>
-<p class="grown">The fulcrum cards connect artifact count, creature width, card advantage, and finishing pressure at once, so they earn protection during cuts. Illustrious Wanderglyph is an artifact creature that rewards a developed artifact board. Thousand Moons Smithy starts as an artifact and makes recurring creature material. Retrofitter Foundry turns mana and existing tokens into a growing artifact creature chain. Shuri's Fabricator links artifact density, Vibranium, recursion, and activated mana. Panther Robot pairs artifact count with a major combat body. Royal Talon Fighter Jet converts stored mana into several creature tokens. Foundry Inspector connects artifact density with faster deployment through cost reduction. Haywire Mite carries cheap artifact development plus permanent interaction. Solemn Simulacrum and Meteor Golem fold ramp and broad removal into qualifying artifact bodies.</p>
+<p class="grown">The fulcrum cards connect artifact count, creature width, card advantage, and finishing pressure at once, so they earn protection during cuts. Illustrious Wanderglyph is an artifact creature that rewards a developed artifact board. Thousand Moons Smithy starts as an artifact and makes recurring creature material. Retrofitter Foundry turns mana and existing tokens into a growing artifact creature chain. Shuri's Fabricator links artifact density, Vibranium, recursion, and activated mana. Panther Robot pairs artifact count with a major combat body. Royal Talon Fighter Jet converts stored mana into several creature tokens. Stridehangar Automaton is worth flagging: every time the deck makes one or more artifact tokens, it adds an extra 1/1 flying Thopter artifact creature, so each Vibranium event also widens the board and lifts the artifact count. Foundry Inspector connects artifact density with faster deployment through cost reduction. Haywire Mite carries cheap artifact development plus permanent interaction. Solemn Simulacrum and Meteor Golem fold ramp and broad removal into qualifying artifact bodies.</p>
 <p class="kid-only">The best cards for Shuri are artifact creatures, because they count toward six artifacts and also get the plus two bonus. Run twelve to sixteen of them. Cards like Illustrious Wanderglyph, Thousand Moons Smithy, and Retrofitter Foundry do several jobs at once, so keep them when you cut.</p>
 
 <h3>Creature width</h3>
@@ -143,10 +143,13 @@
 
 <button id="kidfab" onclick="toggleKid()" aria-pressed="false" aria-label="Toggle plain-language kid mode">Kid Mode</button>
 <script>
-function toggleKid(){var on=document.body.classList.toggle('kid');
+function setKid(on){document.body.classList.toggle('kid',on);
   var b=document.getElementById('kidfab');
   b.textContent=on?'Normal Mode':'Kid Mode';
-  b.setAttribute('aria-pressed',on?'true':'false');}
+  b.setAttribute('aria-pressed',on?'true':'false');
+  try{localStorage.setItem('shuri-kid',on?'1':'0');}catch(e){}}
+function toggleKid(){setKid(!document.body.classList.contains('kid'));}
+try{if(localStorage.getItem('shuri-kid')==='1')setKid(true);}catch(e){}
 </script>
 </body>
 </html>
