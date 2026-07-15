@@ -13,7 +13,7 @@ Okoye pays out on two clocks. The monarch draws a card every end step, a steady 
 
 ## The crown dance, the read that runs the deck
 
-The double strike and trample key off attacking the monarch, so the bonus is live exactly when someone else wears the crown. The strongest sequence is a loop: you become the monarch and draw, an opponent attacks you and takes the crown, then on your turn Okoye counters a creature and you attack the new monarch with double strike and trample, reclaiming the crown and drawing again next end step. Each pass banks cards and connects a doubled hit. Trample plus double strike blows through a chump block and takes the crown back cleanly. Support the dance with evasion so your pumped creature connects with whoever holds the crown, and a few ways to defend the monarch when cards matter more than the swing. Treat the crown as a resource to move on purpose.
+The double strike and trample key off attacking the monarch, so the bonus works exactly when someone else wears the crown. The strongest sequence is a loop: you become the monarch and draw, an opponent attacks you and takes the crown, then on your turn Okoye counters a creature and you attack the new monarch with double strike and trample, reclaiming the crown and drawing again next end step. Each pass banks cards and connects a doubled hit. Trample plus double strike blows through a chump block and takes the crown back cleanly. Support the dance with evasion so your pumped creature connects with whoever holds the crown, and a few ways to defend the monarch when cards matter more than the swing. Treat the crown as a resource to move on purpose.
 
 ## The doubled-damage math
 
