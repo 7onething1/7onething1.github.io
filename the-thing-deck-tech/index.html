@@ -1,0 +1,162 @@
+<!doctype html>
+<html lang="en"><head><meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>The Thing: The Doubling Clock</title>
+<meta name="description" content="A Snail-style deck tech for The Thing, the four-color Fantastic Four Marvel Commander alt: the trampling voltron that gains four counters per noncreature spell and doubles them on attack, with the snowball math, the four-color tax, protection, a dead-draw audit, a construction audit, and the shell.">
+<meta name="keywords" content="The Thing, Fantastic Four, Marvel Super Heroes Commander, four-color, +1/+1 counters, doubling, voltron, trample, noncreature spell, deck tech, construction audit">
+<meta property="og:title" content="The Thing: The Doubling Clock">
+<meta property="og:description" content="The four-color Fantastic Four trampler that gains four counters per noncreature spell and doubles them on attack, snowballing to a one-hit kill.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,500;0,600;0,700;1,600&family=Inter:wght@400;600;700;800&display=swap" rel="stylesheet">
+<style>
+  :root{--cream:#f4ecd8;--ink:#1c1a17;--rust:#b5533b;--teal:#3f7c78;--gold:#c98a2b;--olive:#7d7a3a;--line:#d9cdb0;--plum:#7b4b8a;}
+  *{box-sizing:border-box}
+  body{margin:0;background:var(--cream);color:var(--ink);font-family:'Inter',system-ui,-apple-system,Segoe UI,Roboto,sans-serif;line-height:1.62}
+  header{padding:46px 24px 10px;max-width:760px;margin:0 auto;text-align:center}
+  h1{font-family:'Cormorant Garamond',Georgia,serif;font-size:clamp(2rem,8vw,2.7rem);margin:.15em 0;color:var(--ink);line-height:1.1}
+  .sub{color:var(--olive);font-weight:600;max-width:640px;margin:8px auto 0}
+  .nav{margin:14px auto 0;font-size:.9rem}
+  .nav a{color:var(--teal);font-weight:700;text-decoration:none;margin:0 8px}
+  .byline{max-width:760px;margin:10px auto 0;padding:0 22px;font-size:.8rem;color:var(--olive);font-style:italic;text-align:center}
+  main{max-width:760px;margin:0 auto;padding:12px 22px 100px}
+  article h2{font-family:'Cormorant Garamond',serif;font-size:1.7rem;color:var(--rust);margin:34px 0 8px}
+  article h3{font-family:'Inter',sans-serif;font-size:1.02rem;color:var(--plum);margin:18px 0 6px;text-transform:uppercase;letter-spacing:.04em}
+  article p{margin:0 0 14px;font-size:1.04rem}
+  .lead{font-size:1.12rem;color:#33302a}
+  .swapline{margin:10px 0;padding:9px 13px;background:#fbf5e6;border:1px solid var(--line);border-radius:9px;font-size:.96rem;overflow:hidden}
+  .swapline b{color:var(--rust)} .swapline .pct{color:var(--teal);font-weight:800}
+  .mathbox{background:#efe6cf;border:1px solid var(--line);border-left:4px solid var(--teal);border-radius:10px;padding:14px 16px;margin:14px 0}
+  .mathbox table{border-collapse:collapse;width:100%;font-size:.95rem;margin:6px 0}
+  .mathbox td{padding:4px 8px;border-bottom:1px solid var(--line)}
+  .mathbox td:last-child{text-align:right;font-weight:800;color:var(--rust)}
+  .mathbox .tot td{border-bottom:none;border-top:2px solid var(--teal);font-weight:800}
+  .turns{background:#fbf5e6;border:1px solid var(--line);border-radius:10px;padding:6px 4px;margin:12px 0}
+  .turns table{border-collapse:collapse;width:100%;font-size:.94rem}
+  .turns td{padding:7px 11px;border-bottom:1px solid var(--line);vertical-align:top}
+  .turns td:first-child{font-weight:800;color:var(--teal);white-space:nowrap;width:1%}
+  .turns tr:last-child td{border-bottom:none}
+  .auditwrap{overflow-x:auto;margin:12px 0}
+  table.audit{border-collapse:collapse;width:100%;min-width:640px;font-size:.9rem;background:#fbf5e6;border:1px solid var(--line);border-radius:10px}
+  table.audit th{background:#efe6cf;color:var(--plum);text-align:left;padding:8px 10px;font-size:.78rem;text-transform:uppercase;letter-spacing:.03em}
+  table.audit td{padding:8px 10px;border-top:1px solid var(--line);vertical-align:top}
+  table.audit td:first-child{font-weight:800;color:var(--rust);white-space:nowrap}
+  .v{display:inline-block;padding:2px 9px;border-radius:20px;font-size:.76rem;font-weight:800;color:#fff}
+  .v-core{background:var(--teal)} .v-supported{background:var(--olive)} .v-situational{background:var(--gold)} .v-cut{background:var(--rust)}
+  .pull{border-left:4px solid var(--gold);padding:6px 0 6px 15px;margin:16px 0;font-family:'Cormorant Garamond',serif;font-size:1.35rem;color:#3f3b30}
+  .src{max-width:760px;margin:0 auto;padding:0 22px 96px;font-size:.82rem;color:var(--olive)}
+  .src a{color:var(--teal);font-weight:700}
+  .kid-only{display:none}
+  #kidfab{position:fixed;right:18px;bottom:18px;z-index:50;background:var(--rust);color:#fff;border:none;border-radius:40px;padding:14px 21px;font-size:1rem;font-weight:800;box-shadow:0 4px 14px rgba(0,0,0,.25);cursor:pointer}
+  body.kid{font-size:1.14rem}
+  body.kid .grown{display:none}
+  body.kid .kid-only{display:block}
+  body.kid .lead{font-size:1.18rem}
+  .toc{background:#efe6cf;border:1px solid var(--line);border-radius:10px;padding:9px 14px;margin:6px 0 18px;font-size:.86rem;line-height:1.9}
+  .toc summary{color:var(--plum);font-weight:800;cursor:pointer;list-style:none}
+  .toc summary::-webkit-details-marker{display:none}
+  .toc summary::before{content:"\25B8 ";color:var(--teal)}
+  .toc[open] summary::before{content:"\25BE "}
+  .toc .toclinks{margin-top:7px}
+  .toc a{color:var(--teal);font-weight:700;text-decoration:none;margin:0 12px 0 0;display:inline-block}
+  @media(max-width:560px){.toc a{white-space:normal;display:block;margin:3px 0}}
+  body.kid .toc{display:none}
+</style></head>
+<body>
+<header>
+  <h1>The Thing: <span style="white-space:nowrap">The Doubling Clock</span></h1>
+  <div class="sub grown">The Fantastic Four bruiser grows on a curve nobody wants to be under. Cast a noncreature spell and he takes four counters at combat. Pay four colors on the swing and every counter doubles. Two turns of that math clock the table out.</div>
+  <div class="sub kid-only">The Thing is a big trampling creature that grows fast. Cast a noncreature spell and he gets four +1/+1 counters. When he attacks and you pay four colors, all his counters double. He gets huge in just a couple of turns.</div>
+  <div class="nav"><a href="/marvel-commander-guides/">Guides hub</a> &middot; <a href="/mister-fantastic-deck-tech/">Mister Fantastic deck tech</a> &middot; <a href="/invisible-woman-deck-tech/">Invisible Woman deck tech</a> &middot; <a href="/marvel-commander-rankings/">Marvel rankings</a></div>
+</header>
+<p class="byline">This The Thing deck tech is inspired by Salubrious Snail's published deckbuilding framework. The Thing's oracle text and color identity are from Scryfall (Marvel Super Heroes Commander, read 2026-07-14); the Fantastic Four shell and inclusion figures come from the EDHREC Fantastic Four pages. Not authored or endorsed by Salubrious Snail or EDHREC.</p>
+<main>
+<article>
+<details class="toc" aria-label="Contents"><summary>On this page (7 destinations)</summary><div class="toclinks"><a href="#the-engine">The engine</a><a href="#snowball">The snowball</a><a href="#the-tax">The four-color tax</a><a href="#protection">Protecting the clock</a><a href="#dead-draw-audit">Dead Draw Audit</a><a href="#construction-audit">Construction audit</a><a href="#the-shell">The shell</a></div></details>
+
+<p class="lead grown">The Thing costs {5}{G}, a 5/5 trampler whose color identity is all four of white, blue, red, and green, earned through his attack ability. He has two abilities that chain. At the beginning of combat, if you have cast a noncreature spell this turn, he takes four +1/+1 counters. And whenever he attacks, you may pay one red, one green, one white, and one blue to double the number of each kind of counter on any number of your permanents. He is a Fantastic Four alt, and read on his own he is a four-color voltron that turns a noncreature spell each turn into an exponential trampling clock.</p>
+<p class="lead kid-only">The Thing costs six mana and is a 5/5 that tramples. Cast a noncreature spell and he gains four counters at combat. Attack and pay four colors and all his counters double. He grows so fast that he can end the game in two or three turns.</p>
+
+<h2 id="the-engine">The engine, add then double</h2>
+<p class="grown">The Thing chains two effects into a curve most creatures cannot match. The first ability adds four counters each turn you cast a noncreature spell, a flat climb. The second doubles every counter on the swing, which turns that flat climb into an exponential one. Add four, then double, and the number after each turn is more than twice what it was, since the doubling compounds the counters he kept from earlier turns. Trample makes the whole total connect, so no chump block saves the player he points at.</p>
+<p class="grown">This makes the build a spell-fueled voltron. The deck casts a cheap noncreature spell each turn to trigger the four counters, holds the four colors for the doubling, and attacks with one trampling threat that grows past the range where blocking or racing helps. The two abilities depend on the same two resources every turn, a noncreature spell and four colors of mana, so the build is a plan to guarantee both.</p>
+<p class="kid-only">The Thing adds four counters, then doubles all his counters. Adding and then doubling makes him grow faster and faster each turn. Trample means all that damage gets through blockers. So the deck casts a spell each turn and pays four colors to keep the doubling going.</p>
+
+<h2 id="snowball">The snowball</h2>
+<p class="grown">The math is the reason to build him. Starting from a 5/5, one noncreature spell and one doubling turn him into a 13/13. The next turn, the four new counters sit on top of the doubled pile and double again, and he reaches a 29/29. A third turn puts him past sixty. Because trample carries the full number through, the commander-damage clock closes during the second attack, and the raw damage ends a player around the same time.</p>
+<div class="mathbox grown">
+  <table>
+    <tr><td style="color:var(--plum)">Turn</td><td>Counters after add and double</td><td>Power</td><td>Cumulative trample damage</td></tr>
+    <tr><td>1</td><td>8</td><td>13</td><td>13</td></tr>
+    <tr><td>2</td><td>24</td><td>29</td><td>42</td></tr>
+    <tr class="tot"><td>3</td><td>56</td><td>61</td><td>103</td></tr>
+  </table>
+</div>
+<p class="grown">Read the power column as the clock and the doubling as the reason it steepens. A flat +4 each turn would take many turns to matter, and the doubling folds every past counter into the next swing, so twenty-one commander damage arrives by the second attack. The construction takeaway is to protect the sequence and keep it uninterrupted, since one missed noncreature spell or one turn without four colors flattens the curve for a full rotation.</p>
+<p class="kid-only">From a 5/5 he becomes 13, then 29, then 61 over three turns. That is because he doubles what he already has and adds four more. Trample gets it all through, so he can deal 21 commander damage by his second attack. Keep the chain going every turn.</p>
+
+<h2 id="the-tax">The four-color tax</h2>
+<p class="grown">The doubling costs one mana of every color except black, one red, one green, one white, and one blue, on every attack you want to double. That sets a construction rule the mono-green cost hides: the mana base has to make all four colors on demand, every turn, on top of casting a noncreature spell. Fixing lands, four-color rocks, and mana creatures are the backbone of the deck, since a turn without four colors is a turn the snowball flattens.</p>
+<p class="grown">The upside is that the four counters still land without the payment, so a turn short on colors is a slow turn rather than a wasted one. The build wants enough fixing that the doubling is available most turns and enough ramp that paying it leaves mana for the noncreature spell that feeds the counters. Treat fixing and the noncreature package as the two halves that keep the curve steep.</p>
+<p class="kid-only">The doubling needs one red, one green, one white, and one blue mana every attack. So the deck needs really good four-color mana. Without four colors he still gets four counters, but he will not double, so the deck runs lots of fixing lands and rocks.</p>
+
+<h2 id="protection">Protecting the clock</h2>
+<p class="grown">The Thing is the whole plan on one body, so a single removal spell resets the snowball to zero counters and a fresh 5/5, minus the commander tax. That makes protection a core package rather than a luxury. Hexproof and shroud keep him off targeted removal, indestructible answers destruction and combat, and a way to give him protection or a saved counter total keeps a wipe from erasing the turns you invested. The counters live on the creature, so anything that saves the creature saves the clock.</p>
+<p class="grown">The build should carry a real suite of protection and a plan for the counters if he leaves the battlefield. Effects that move counters, that return him with haste, or that bank the growth on another permanent through the doubling ability soften a reset. A voltron deck that stacks everything on one threat and runs three protection spells folds to the first well-timed answer.</p>
+<p class="kid-only">The Thing is your whole plan, so if he gets removed you lose all his counters. Run protection like hexproof and indestructible to keep him safe. You can also use the doubling on other permanents so not all your growth sits on one creature.</p>
+
+<h2 id="dead-draw-audit">Dead Draw Audit</h2>
+<p class="grown">Snail's method scores a card by how often it does its job and whether it earns its slot with the commander gone. Here are five cards through that lens, with the snowball and its tax deciding the close calls.</p>
+<div class="auditwrap grown">
+<table class="audit">
+  <caption style="text-align:left;font-size:.82rem;color:var(--olive);padding:6px 10px;font-style:italic">Dead Draw Audit: five cards scored on job, support, solo value, and verdict.</caption>
+  <tr><th scope="col">Card</th><th scope="col">Primary job</th><th>Support in the 99</th><th>Value without The Thing</th><th>Verdict</th></tr>
+  <tr><td>A cheap noncreature cantrip</td><td>Triggers the four counters and replaces itself</td><td>Very high, the add engine</td><td>Good, card flow anywhere</td><td><span class="v v-core">core</span></td></tr>
+  <tr><td>A four-color fixing land or rock</td><td>Pays the {R}{G}{W}{U} doubling tax</td><td>High, every doubling turn</td><td>Fixes mana in any four-color deck</td><td><span class="v v-core">core</span></td></tr>
+  <tr><td>Hexproof or indestructible protection</td><td>Keeps the snowball from resetting</td><td>High, the whole clock</td><td>Good on any single threat</td><td><span class="v v-core">core</span></td></tr>
+  <tr><td>A proliferate or counter-mover</td><td>Adds to or saves the counter pile</td><td>Medium, the doubling scales it</td><td>Fine in any counters deck</td><td><span class="v v-supported">supported</span></td></tr>
+  <tr><td>A colorless-only ramp rock</td><td>Ramp, but adds no color for the tax</td><td>Low, does not pay the doubling</td><td>Ramps in any deck</td><td><span class="v v-situational">situational</span></td></tr>
+</table>
+</div>
+<p class="grown">Protection climbs to core here, higher than on most commanders, because the whole investment sits on one creature and a reset costs several turns of growth. The colorless-only rock drops to situational for the same reason it does under Invisible Woman, since it skips the four-color payment the deck is built to reach. Run every questioned card through job, support, solo value, and the four-color tax before it stays.</p>
+<p class="kid-only">This grades each card by what it does and whether it helps The Thing. Cheap spells, four-color fixing, and protection are all core, because the deck needs a spell each turn, four colors to double, and safety so he is not removed. Colorless-only ramp is weak, since it does not help pay the doubling.</p>
+
+<h2 id="construction-audit">Beyond the Dead Draw Audit: the construction audit</h2>
+<p class="grown">The Dead Draw Audit scores single cards. This construction audit scores the whole ninety-nine on the snowball's two inputs and its fragility. The first rule is a floor on noncreature spells that trigger the four counters, the second is a four-color base that pays the doubling most turns, and the third is a protection package heavy enough that one removal spell does not undo the game.</p>
+<div class="turns grown">
+  <table>
+    <tr><td style="color:var(--plum)">Target</td><td>Count</td><td>Why</td></tr>
+    <tr><td>Noncreature spells</td><td>30-36</td><td>One a turn triggers the four counters</td></tr>
+    <tr><td>Four-color fixing</td><td>heavy</td><td>Lands, rocks, and dorks that pay {R}{G}{W}{U}</td></tr>
+    <tr><td>Protection for The Thing</td><td>8-10</td><td>Hexproof, indestructible, recast, counter recovery</td></tr>
+    <tr><td>Counter support</td><td>4-6</td><td>Proliferate and counter-movers the doubling scales</td></tr>
+    <tr><td>Interaction</td><td>8-10</td><td>Four-color removal and a reset</td></tr>
+    <tr><td>Lands</td><td>37-38</td><td>A four-color base slanted to fixing</td></tr>
+  </table>
+</div>
+<p class="grown">Read the noncreature count, the fixing, and the protection as three pillars that each break the deck when they fail. Without a spell the counters stop, without four colors the doubling stops, and without protection the whole board of counters vanishes to one answer. Report three numbers when you tune the list, the noncreature spell count, the four-color source count, and the protection count. The honest measure is whether you can cast a spell, pay {R}{G}{W}{U}, and keep The Thing safe on the same turn, since the deck needs all three at once.</p>
+<p class="grown">Every revision should hold the noncreature floor, the fixing, and the protection first. A new noncreature spell should also draw or interact, a new mana source should add a color the doubling needs, and a new protection piece should answer either targeted removal or a wipe. Counter support is a multiplier the doubling loves, since doubling a larger pile is a larger swing, and it should not crowd out the three pillars. The deck lives or dies on keeping one growing threat alive and fed.</p>
+<p class="pull grown">Add four, then double. The Thing is the rare clock that runs faster the longer it survives.</p>
+<p class="kid-only">To build The Thing: run about 30 to 36 noncreature spells, heavy four-color fixing, and 8 to 10 protection cards. Those are the three things that break the deck if they fail: no spell, no doubling, or no protection. Keep him alive and fed and he wins fast.</p>
+
+<h2 id="the-shell">The shell, a four-color Fantastic Four plan</h2>
+<p class="grown">The Thing shares the four-color Fantastic Four base laid out on the <a href="/mister-fantastic-deck-tech/">Mister Fantastic deck tech</a>, since both reward casting a noncreature spell each turn, so the fixing and the spell package carry over. Where <a href="/crystal-inhuman-princess-deck-tech/">Crystal</a> turns those spells into damage and <a href="/invisible-woman-deck-tech/">Invisible Woman</a> turns them into Walls, The Thing turns them into counters and a doubling clock. Under him the shell adds a heavy protection suite and a few counter multipliers on top of the shared spell and fixing base.</p>
+<p class="grown">The interaction and the card draw carry over from any four-color spellslinger list, so the build changes the payoff and adds the protection a voltron plan needs. Cast a spell each turn, hold the four colors for the doubling, and guard the one threat that carries the game. Build toward the construction audit above, a deep noncreature package, a heavy four-color base, and enough protection that the snowball keeps rolling through the table's removal.</p>
+<p class="kid-only">The Thing uses the same four-color Fantastic Four deck as the Mister Fantastic page, so the fixing and spells are over there. He is the voltron version: same spells, plus lots of protection so he is not removed. Cast a spell each turn, pay four colors to double, and keep him safe.</p>
+
+</article>
+</main>
+
+<div class="src">
+  <p><b>Sources.</b> The Thing oracle text and color identity via <a href="https://scryfall.com">Scryfall</a> (Marvel Super Heroes Commander, read 2026-07-14): {5}{G}, Legendary Creature Human Hero, 5/5, color identity white-blue-red-green; "Trample", "At the beginning of combat on your turn, if you've cast a noncreature spell this turn, put four +1/+1 counters on The Thing", and "Whenever The Thing attacks, you may pay {R}{G}{W}{U}. When you do, double the number of each kind of counter on any number of target permanents you control". The snowball table is direct arithmetic on a 5/5: each turn adds four counters at combat, then the attack doubles the total, so counters run 8, 24, 56 and power runs 13, 29, 61 across three turns, with trample carrying the full number, so twenty-one commander damage arrives by the second attack. The four-color Fantastic Four shell is on the <a href="/mister-fantastic-deck-tech/">Mister Fantastic deck tech</a>, the <a href="/crystal-inhuman-princess-deck-tech/">Crystal deck tech</a>, and the <a href="/invisible-woman-deck-tech/">Invisible Woman deck tech</a>; inclusion context is on the <a href="/salubrioussnail-marvel-edhrec/">EDHREC Marvel read</a> and the <a href="/marvel-commander-rankings/">Marvel rankings</a>. Inspired by Salubrious Snail's published framework; neither Salubrious Snail nor EDHREC authored or endorsed it.</p>
+</div>
+
+<button id="kidfab" onclick="toggleKid()" aria-pressed="false" aria-label="Toggle plain-language kid mode">Kid Mode</button>
+<script>
+function toggleKid(){var on=document.body.classList.toggle('kid');
+  var b=document.getElementById('kidfab');
+  b.textContent=on?'Normal Mode':'Kid Mode';
+  b.setAttribute('aria-pressed',on?'true':'false');}
+</script>
+</body>
+</html>
