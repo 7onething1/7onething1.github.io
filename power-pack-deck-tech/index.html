@@ -1,0 +1,162 @@
+<!doctype html>
+<html lang="en"><head><meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Power Pack: The Random Recast</title>
+<meta name="description" content="A Snail-style deck tech for Power Pack, the four-color Fantastic Four Marvel Commander alt: the evasive attacker that casts a random instant or sorcery from your graveyard free on combat damage, with the quality-density lever, the graveyard-fill package, a dead-draw audit, a construction audit, and the shell.">
+<meta name="keywords" content="Power Pack, Fantastic Four, Marvel Super Heroes Commander, four-color, graveyard, instant sorcery, free cast, self-mill, deck tech, construction audit">
+<meta property="og:title" content="Power Pack: The Random Recast">
+<meta property="og:description" content="The four-color Fantastic Four attacker that casts a random instant or sorcery from your graveyard free on combat damage, so the graveyard must stay uniformly strong.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,500;0,600;0,700;1,600&family=Inter:wght@400;600;700;800&display=swap" rel="stylesheet">
+<style>
+  :root{--cream:#f4ecd8;--ink:#1c1a17;--rust:#b5533b;--teal:#3f7c78;--gold:#c98a2b;--olive:#7d7a3a;--line:#d9cdb0;--plum:#7b4b8a;}
+  *{box-sizing:border-box}
+  body{margin:0;background:var(--cream);color:var(--ink);font-family:'Inter',system-ui,-apple-system,Segoe UI,Roboto,sans-serif;line-height:1.62}
+  header{padding:46px 24px 10px;max-width:760px;margin:0 auto;text-align:center}
+  h1{font-family:'Cormorant Garamond',Georgia,serif;font-size:clamp(2rem,8vw,2.7rem);margin:.15em 0;color:var(--ink);line-height:1.1}
+  .sub{color:var(--olive);font-weight:600;max-width:640px;margin:8px auto 0}
+  .nav{margin:14px auto 0;font-size:.9rem}
+  .nav a{color:var(--teal);font-weight:700;text-decoration:none;margin:0 8px}
+  .byline{max-width:760px;margin:10px auto 0;padding:0 22px;font-size:.8rem;color:var(--olive);font-style:italic;text-align:center}
+  main{max-width:760px;margin:0 auto;padding:12px 22px 100px}
+  article h2{font-family:'Cormorant Garamond',serif;font-size:1.7rem;color:var(--rust);margin:34px 0 8px}
+  article h3{font-family:'Inter',sans-serif;font-size:1.02rem;color:var(--plum);margin:18px 0 6px;text-transform:uppercase;letter-spacing:.04em}
+  article p{margin:0 0 14px;font-size:1.04rem}
+  .lead{font-size:1.12rem;color:#33302a}
+  .swapline{margin:10px 0;padding:9px 13px;background:#fbf5e6;border:1px solid var(--line);border-radius:9px;font-size:.96rem;overflow:hidden}
+  .swapline b{color:var(--rust)} .swapline .pct{color:var(--teal);font-weight:800}
+  .mathbox{background:#efe6cf;border:1px solid var(--line);border-left:4px solid var(--teal);border-radius:10px;padding:14px 16px;margin:14px 0}
+  .mathbox table{border-collapse:collapse;width:100%;font-size:.95rem;margin:6px 0}
+  .mathbox td{padding:4px 8px;border-bottom:1px solid var(--line)}
+  .mathbox td:last-child{text-align:right;font-weight:800;color:var(--rust)}
+  .mathbox .tot td{border-bottom:none;border-top:2px solid var(--teal);font-weight:800}
+  .turns{background:#fbf5e6;border:1px solid var(--line);border-radius:10px;padding:6px 4px;margin:12px 0}
+  .turns table{border-collapse:collapse;width:100%;font-size:.94rem}
+  .turns td{padding:7px 11px;border-bottom:1px solid var(--line);vertical-align:top}
+  .turns td:first-child{font-weight:800;color:var(--teal);white-space:nowrap;width:1%}
+  .turns tr:last-child td{border-bottom:none}
+  .auditwrap{overflow-x:auto;margin:12px 0}
+  table.audit{border-collapse:collapse;width:100%;min-width:640px;font-size:.9rem;background:#fbf5e6;border:1px solid var(--line);border-radius:10px}
+  table.audit th{background:#efe6cf;color:var(--plum);text-align:left;padding:8px 10px;font-size:.78rem;text-transform:uppercase;letter-spacing:.03em}
+  table.audit td{padding:8px 10px;border-top:1px solid var(--line);vertical-align:top}
+  table.audit td:first-child{font-weight:800;color:var(--rust);white-space:nowrap}
+  .v{display:inline-block;padding:2px 9px;border-radius:20px;font-size:.76rem;font-weight:800;color:#fff}
+  .v-core{background:var(--teal)} .v-supported{background:var(--olive)} .v-situational{background:var(--gold)} .v-cut{background:var(--rust)}
+  .pull{border-left:4px solid var(--gold);padding:6px 0 6px 15px;margin:16px 0;font-family:'Cormorant Garamond',serif;font-size:1.35rem;color:#3f3b30}
+  .src{max-width:760px;margin:0 auto;padding:0 22px 96px;font-size:.82rem;color:var(--olive)}
+  .src a{color:var(--teal);font-weight:700}
+  .kid-only{display:none}
+  #kidfab{position:fixed;right:18px;bottom:18px;z-index:50;background:var(--rust);color:#fff;border:none;border-radius:40px;padding:14px 21px;font-size:1rem;font-weight:800;box-shadow:0 4px 14px rgba(0,0,0,.25);cursor:pointer}
+  body.kid{font-size:1.14rem}
+  body.kid .grown{display:none}
+  body.kid .kid-only{display:block}
+  body.kid .lead{font-size:1.18rem}
+  .toc{background:#efe6cf;border:1px solid var(--line);border-radius:10px;padding:9px 14px;margin:6px 0 18px;font-size:.86rem;line-height:1.9}
+  .toc summary{color:var(--plum);font-weight:800;cursor:pointer;list-style:none}
+  .toc summary::-webkit-details-marker{display:none}
+  .toc summary::before{content:"\25B8 ";color:var(--teal)}
+  .toc[open] summary::before{content:"\25BE "}
+  .toc .toclinks{margin-top:7px}
+  .toc a{color:var(--teal);font-weight:700;text-decoration:none;margin:0 12px 0 0;display:inline-block}
+  @media(max-width:560px){.toc a{white-space:normal;display:block;margin:3px 0}}
+  body.kid .toc{display:none}
+</style></head>
+<body>
+<header>
+  <h1>Power Pack: <span style="white-space:nowrap">The Random Recast</span></h1>
+  <div class="sub grown">The Fantastic Four kids come with every keyword that connects, then rummage your graveyard for a free spell. When Power Pack hits a player, a random instant or sorcery from your yard casts itself next turn. The graveyard is the deck, so keep it stocked and keep it strong.</div>
+  <div class="sub kid-only">Power Pack is a 4/4 that flies, has vigilance, tramples, and can attack right away. When it hits a player, you cast a random instant or sorcery from your graveyard for free next turn. So the deck is about filling your graveyard with strong spells.</div>
+  <div class="nav"><a href="/marvel-commander-guides/">Guides hub</a> &middot; <a href="/mister-fantastic-deck-tech/">Mister Fantastic deck tech</a> &middot; <a href="/human-torch-deck-tech/">Human Torch deck tech</a> &middot; <a href="/marvel-commander-rankings/">Marvel rankings</a></div>
+</header>
+<p class="byline">This Power Pack deck tech is inspired by Salubrious Snail's published deckbuilding framework. Power Pack's oracle text and color identity are from Scryfall (Marvel Super Heroes Commander, read 2026-07-14); the Fantastic Four shell and inclusion figures come from the EDHREC Fantastic Four pages. Not authored or endorsed by Salubrious Snail or EDHREC.</p>
+<main>
+<article>
+<details class="toc" aria-label="Contents"><summary>On this page (7 destinations)</summary><div class="toclinks"><a href="#the-engine">The engine</a><a href="#quality">The quality lever</a><a href="#filling">Filling the yard</a><a href="#the-tax">The four-color cost</a><a href="#dead-draw-audit">Dead Draw Audit</a><a href="#construction-audit">Construction audit</a><a href="#the-shell">The shell</a></div></details>
+
+<p class="lead grown">Power Pack costs {1}{R}{G}{W}{U}, a 4/4 with flying, vigilance, trample, and haste, and a color identity of all four of white, blue, red, and green. Its ability reads: whenever it deals combat damage to a player, exile a random instant or sorcery from your graveyard, and at your next upkeep you may cast that card for free, exiling it afterward. He is a Fantastic Four alt, and read on his own he is a four-color graveyard-value deck. The four keywords guarantee the trigger connects, and the graveyard supplies the fuel, so the deck plays instants and sorceries, fills the yard, and turns every combat step into a free spell.</p>
+<p class="lead kid-only">Power Pack already has flying, vigilance, trample, and haste, so it hits players easily. Each time it connects, you get to cast a random instant or sorcery from your graveyard for free next turn. So the whole plan is to fill your graveyard with good spells and keep swinging.</p>
+
+<h2 id="the-engine">The engine, connect and recast</h2>
+<p class="grown">Power Pack solves the hardest part of a combat engine on its own. Flying, vigilance, trample, and haste mean it comes down and hits the same turn, gets through most boards, and still stays back to block, so the combat-damage trigger fires almost every turn without help. The payoff is a free instant or sorcery cast from the graveyard at your next upkeep. The catch is that the card is chosen at random, so the deck cannot aim the recast, only stack the deck in its own favor by keeping the graveyard full of spells that are all worth casting.</p>
+<p class="grown">This makes the build a graveyard-value deck with a reliable trigger. The commander does the connecting, and the ninety-nine does the stocking, casting instants and sorceries that go to the yard and filling it further with self-mill and looting. Each combat then returns one of those spells for free, so the deck grinds a card of advantage every turn it attacks.</p>
+<p class="kid-only">Power Pack connects on its own because of its four keywords, so you almost always get the free spell. The only problem is that the spell is random, so you cannot pick the best one. The fix is to make sure every instant and sorcery in your graveyard is worth casting.</p>
+
+<h2 id="quality">The quality lever, random rewards the average</h2>
+<p class="grown">Because the recast is chosen at random, the number that matters is the quality of the average spell, more than the raw count in the graveyard. A yard stuffed with weak filler cantrips gives a coin-flip on a meaningful cast, while a leaner yard of uniformly strong spells makes almost every random hit count. The construction lever is the fraction of your graveyard instants and sorceries that you would happily cast for free at any time.</p>
+<div class="mathbox grown">
+  <table>
+    <tr><td>5 strong of 12 instants and sorceries in the yard</td><td>42%</td></tr>
+    <tr><td>6 strong of 8 in the yard</td><td>75%</td></tr>
+    <tr><td>8 strong of 12 in the yard</td><td>67%</td></tr>
+    <tr class="tot"><td>10 strong of 12 in the yard</td><td>83%</td></tr>
+  </table>
+</div>
+<p class="grown">Read the right column as the chance the free cast matters. The takeaway is to cut weak filler even when it would add to the raw spell count, since each low-impact instant or sorcery in the yard is a slot on the random wheel that returns nothing. Prefer a smaller set of spells that are all removal, card draw, ramp, or a finisher, so a random pick is never a dead cast. The strength of the average spell is the whole engine.</p>
+<p class="kid-only">Since the spell is random, what matters is how good your average graveyard spell is, not how many there are. Ten strong spells out of twelve gives an 83 percent chance the free cast is good. So do not fill your deck with weak cheap spells, since each one is a chance to waste the free cast.</p>
+
+<h2 id="filling">Filling the yard</h2>
+<p class="grown">The engine needs instants and sorceries in the graveyard before Power Pack connects, so the build carries a fill package on top of the spells themselves. Self-mill, looting and rummaging, and cheap cantrips that go to the yard after they resolve all stock the pool, and casting your own removal and draw fills it as a matter of course. The build should reach a healthy yard by the midgame so the first few hits already return strong spells.</p>
+<p class="grown">One nuance shapes the fill choices. The recast exiles the card afterward, so the pool shrinks by one each turn and needs replenishing, and a spell that refills the graveyard is worth more than one that empties it. Recursion that returns instants and sorceries from exile or graveyard, and mill that keeps feeding the pile, both keep the wheel spinning across a long game.</p>
+<p class="kid-only">You need spells in your graveyard before Power Pack can use them, so run self-mill and looting to fill it up, plus your normal removal and draw spells that end up there. Each free cast removes that card from the game, so keep filling the graveyard back up so you never run dry.</p>
+
+<h2 id="the-tax">The four-color cost</h2>
+<p class="grown">Power Pack costs one generic and one of every color except black, so the commander itself demands a four-color base before it even enters. Unlike the other Fantastic Four faces, the four-color payment is in the cast cost rather than an attack tax, so you pay it once to deploy and then the free recast asks nothing more. The mana base still has to make all four colors to cast the commander on curve and to cast the spells that fill the yard.</p>
+<p class="grown">The upside is that the recast is genuinely free, with no repeated four-color payment, so once Power Pack is down the engine runs on combat alone. The build wants enough fixing to deploy the commander near turn five and to cast a spell most turns, which the graveyard then returns for nothing. Fixing and the instant and sorcery base are the two halves that keep the recast flowing.</p>
+<p class="kid-only">Power Pack costs one of each color except black, so you need good four-color mana just to cast him. But after that his free spells cost nothing, so the hard part is the mana to get him out and to cast spells that fill the graveyard.</p>
+
+<h2 id="dead-draw-audit">Dead Draw Audit</h2>
+<p class="grown">Snail's method scores a card by how often it does its job and whether it earns its slot with the commander gone. Here are five cards through that lens, with the random-quality lever deciding the close calls.</p>
+<div class="auditwrap grown">
+<table class="audit">
+  <caption style="text-align:left;font-size:.82rem;color:var(--olive);padding:6px 10px;font-style:italic">Dead Draw Audit: five cards scored on job, support, solo value, and verdict.</caption>
+  <tr><th scope="col">Card</th><th scope="col">Primary job</th><th>Support in the 99</th><th>Value without Power Pack</th><th>Verdict</th></tr>
+  <tr><td>A high-impact instant or sorcery</td><td>A strong random recast target</td><td>Very high, the recast pool</td><td>Good, a strong spell anywhere</td><td><span class="v v-core">core</span></td></tr>
+  <tr><td>A self-mill or looting effect</td><td>Fills the graveyard with spells</td><td>High, feeds the pool</td><td>Fine, selection and fuel</td><td><span class="v v-core">core</span></td></tr>
+  <tr><td>A four-color fixing source</td><td>Casts the commander and the spells</td><td>High, deploys the engine</td><td>Fixes mana in any four-color deck</td><td><span class="v v-core">core</span></td></tr>
+  <tr><td>Graveyard recursion for spells</td><td>Refills the shrinking recast pool</td><td>Medium, extends the engine</td><td>Fine value in a spells deck</td><td><span class="v v-supported">supported</span></td></tr>
+  <tr><td>A weak filler cantrip</td><td>A spell, but a dead random hit</td><td>Low, dilutes the pool</td><td>Marginal on its own</td><td><span class="v v-situational">situational</span></td></tr>
+</table>
+</div>
+<p class="grown">The weak cantrip drops to situational, which is the read most spell decks get backwards. It adds to the graveyard count, and it lowers the average quality of the random recast, so a deck of thirty mediocre spells returns worse hits than a deck of twenty strong ones. Self-mill and fixing climb to core, since the engine needs a stocked yard and a deployed commander before it does anything. Run every questioned card through job, support, solo value, and the quality lever before it stays.</p>
+<p class="kid-only">This grades each card by what it does and whether it helps Power Pack. Strong spells, graveyard-filling, and four-color mana are all core. Weak cheap spells are a trap: they fill the graveyard but make the random free cast worse, so a few strong spells beat many weak ones.</p>
+
+<h2 id="construction-audit">Beyond the Dead Draw Audit: the construction audit</h2>
+<p class="grown">The Dead Draw Audit scores single cards. This construction audit scores the whole ninety-nine on the recast engine. The first rule is a base of instants and sorceries that are all worth a free cast, the second is a fill package that stocks the yard, and the third is a four-color base that deploys the commander and casts the spells.</p>
+<div class="turns grown">
+  <table>
+    <tr><td style="color:var(--plum)">Target</td><td>Count</td><td>Why</td></tr>
+    <tr><td>High-impact instants and sorceries</td><td>26-32</td><td>The random recast pool, all worth casting</td></tr>
+    <tr><td>Graveyard fill</td><td>8-10</td><td>Self-mill, looting, recursion to feed the pool</td></tr>
+    <tr><td>Four-color fixing</td><td>heavy</td><td>Deploys the commander and casts the spells</td></tr>
+    <tr><td>Weak filler spells</td><td>near zero</td><td>Each dilutes the random cast</td></tr>
+    <tr><td>Protection and interaction</td><td>8-10</td><td>Guard the engine, mostly through the spell base</td></tr>
+    <tr><td>Lands</td><td>37-38</td><td>A four-color base slanted to fixing</td></tr>
+  </table>
+</div>
+<p class="grown">Read the instant and sorcery quality and the fill as one system. The quality decides how good each random recast is, and the fill decides whether there is a target at all, so a deck of strong spells with no way to bin them stalls, and a deck that mills hard into weak spells returns junk. Report two numbers when you tune the list, the count of instants and sorceries you would cast for free at any time and the count of fill effects. The honest measure is the average quality of the graveyard pool on the turn Power Pack connects.</p>
+<p class="grown">Every revision should hold the quality bar and the fill first. A new instant or sorcery should be one you are glad to hit at random, a new fill effect should also do a second job like drawing or removing, and a weak spell added only for graveyard count is the first cut. Because the recast exiles the card, keep enough recursion that the pool does not empty in a long game. The commander connects on its own, so the ninety-nine spends its slots on a strong spell base, the fuel to bin it, and the mana to deploy it.</p>
+<p class="pull grown">The graveyard is the deck. Every weak spell you add is a worse coin on the random wheel.</p>
+<p class="kid-only">To build Power Pack: run about 26 to 32 strong instants and sorceries, 8 to 10 ways to fill your graveyard, and heavy four-color mana. Avoid weak filler spells, since they make the random free cast worse. Keep some recursion so your graveyard does not run out.</p>
+
+<h2 id="the-shell">The shell, a four-color spells-matter plan</h2>
+<p class="grown">Power Pack shares the four-color Fantastic Four base laid out on the <a href="/mister-fantastic-deck-tech/">Mister Fantastic deck tech</a>, so the fixing and much of the instant and sorcery package carry over. Where the other faces reward casting spells in the moment, Power Pack rewards casting them a second time from the graveyard, so the build leans into a higher instant and sorcery quality and a real fill package. Under him the shell trades a few of the cheapest filler spells for stronger ones and adds self-mill and recursion on top of the shared base.</p>
+<p class="grown">The interaction and the card draw carry over from any four-color spellslinger list and double as recast fuel, so the build changes the payoff toward the graveyard. Cast strong spells, bin them, and let Power Pack replay them for free every combat. Build toward the construction audit above, a lean and strong instant and sorcery base, a fill package that keeps the yard stocked, and a four-color base that deploys the commander and casts the spells that feed him.</p>
+<p class="kid-only">Power Pack uses the same four-color Fantastic Four deck as the Mister Fantastic page, so the fixing and spells are over there. He is the graveyard version: swap the weakest cheap spells for stronger ones and add self-mill so the random free cast is always good. Cast strong spells, fill the graveyard, and replay them for free.</p>
+
+</article>
+</main>
+
+<div class="src">
+  <p><b>Sources.</b> Power Pack oracle text and color identity via <a href="https://scryfall.com">Scryfall</a> (Marvel Super Heroes Commander, read 2026-07-14): {1}{R}{G}{W}{U}, Legendary Creature Human Hero, 4/4, color identity white-blue-red-green; "Flying, vigilance, trample, haste", and "Whenever Power Pack deals combat damage to a player, exile target instant or sorcery card from your graveyard chosen at random. At the beginning of your next upkeep, you may cast that card without paying its mana cost. If that spell would be put into your graveyard, exile it instead". The quality figures are the direct fraction of high-impact spells in the graveyard, since the recast is chosen at random, so ten strong of twelve returns a strong cast about eighty-three percent of the time and a diluted pool returns less. The four-color Fantastic Four shell is on the <a href="/mister-fantastic-deck-tech/">Mister Fantastic deck tech</a>, the <a href="/crystal-inhuman-princess-deck-tech/">Crystal deck tech</a>, the <a href="/invisible-woman-deck-tech/">Invisible Woman deck tech</a>, the <a href="/the-thing-deck-tech/">The Thing deck tech</a>, and the <a href="/human-torch-deck-tech/">Human Torch deck tech</a>; inclusion context is on the <a href="/salubrioussnail-marvel-edhrec/">EDHREC Marvel read</a> and the <a href="/marvel-commander-rankings/">Marvel rankings</a>. Inspired by Salubrious Snail's published framework; neither Salubrious Snail nor EDHREC authored or endorsed it.</p>
+</div>
+
+<button id="kidfab" onclick="toggleKid()" aria-pressed="false" aria-label="Toggle plain-language kid mode">Kid Mode</button>
+<script>
+function toggleKid(){var on=document.body.classList.toggle('kid');
+  var b=document.getElementById('kidfab');
+  b.textContent=on?'Normal Mode':'Kid Mode';
+  b.setAttribute('aria-pressed',on?'true':'false');}
+</script>
+</body>
+</html>
