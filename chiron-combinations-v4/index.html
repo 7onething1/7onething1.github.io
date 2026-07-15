@@ -51,6 +51,13 @@ h1{font-family:"Cormorant Garamond",Georgia,serif;font-size:2.3rem;margin:0 0 4p
 .clarwrap{background:#eef3f0;border:1px solid #cfe0d8;border-radius:9px;padding:8px 12px;margin:8px 0}
 .clarlab{font-size:.66rem;font-weight:800;text-transform:uppercase;letter-spacing:.05em;color:var(--teal);margin-bottom:3px}
 .clar{margin:5px 0;font-size:.94rem}
+.autolab{font-size:.6rem;font-weight:800;text-transform:uppercase;letter-spacing:.06em;color:#fff;background:var(--plum);border-radius:8px;padding:2px 8px;display:inline-block;margin-bottom:6px}
+.autorule{font-size:.72rem;color:#9a917f;font-style:italic;margin:2px 0 0}
+.ord{font-size:.64rem;font-weight:700;color:#9a917f;text-transform:none;letter-spacing:0}
+.elab{font-size:.72rem;font-weight:700;color:#7a7264;margin:8px 0 3px}
+.ecnt{color:#9a917f;font-weight:700}
+details.bunning>summary{cursor:pointer;color:var(--plum);font-weight:700;font-size:.82rem;margin:6px 0}
+.disabled-mask{opacity:.5;pointer-events:none}
 .rblock p{margin:7px 0}
 .trans{border-left:5px solid var(--mustard)}
 .trans h3{color:#8a5a17}
@@ -103,22 +110,30 @@ body.kid{font-size:1.15rem} body.kid .quote,body.kid .read{font-size:1.08rem} bo
 <body>
 <header>
   <h1>How Chiron Reads Card Combinations</h1>
-  <div class="sub">Lay your cards in order. Get one reading that runs through all of them.</div>
+  <div class="sub">Enter your cards. Get Chiron's recorded evidence for every card and every pair, in one place.</div>
 </header>
 <div class="wrap">
   <div class="lead">
-    Type or paste your cards in order, or click them below. This builds a <b>single reading</b> that moves through the whole spread: a summary, a paragraph on each card, and a paragraph on how each card turns into the next. Each card's meaning is Chiron's own, drawn from her <b>curated cheatsheet</b>; each pairing gets a structural read from Joan Bunning's <i>Learning the Tarot</i> (Lesson 15), plus her cheatsheet clarifier note when one exists. Raw transcript excerpts sit behind a toggle, since they are unedited and can reference other cards. Details in the methodology panel below.
+    Type or paste your cards, or click them in order. This gathers, in one place: an <b>automated navigation summary</b>, Chiron's own <b>meaning</b> for each card, and her <b>recorded evidence</b> for each pair, grouped by evidence type and quoted verbatim with the source video. One caveat the data forces: the corpus records <b>which cards appear together, not which came first</b>, so a pair reads the same in either direction. This is co-occurrence, not ordered syntax. An outside structural note from Joan Bunning sits <b>below each pair's evidence</b> as optional comparison, never ahead of it. Details in the methodology panel below.
   </div>
 
   <details class="method">
     <summary>Methodology, sources, and what this does not cover</summary>
     <div class="mbody">
       <h4>Source</h4>
-      Corpus collected from 446 Chiron Intuition transcripts through July 7, 2026. Every quoted line is verbatim and links to the exact video. A grounding pass confirmed each read traces to its cited source.
-      <h4>How a reading is assembled</h4>
-      Nothing here is written fresh. Each card's keywords and meaning come from Chiron's curated <a href="/chiron-cheatsheet">cheatsheet</a>, her own coherent single-card read rather than a raw transcript grab. Each transition carries the Bunning structural label plus, when it exists, the cheatsheet clarifier note that names the other card. Under a toggle sit the raw verbatim excerpts from individual readings for that pair, ordered by relational specificity (direct, then clarifier, sequence, nearby); these are unedited and can reference a third card or a specific querent, so they are kept as evidence, not as the headline read. The only non-quoted sentences are neutral scaffolding and the attributed Bunning labels.
+      Corpus collected from 446 Chiron Intuition transcripts through July 7, 2026. Every quoted line is verbatim and links to its source video. Links are <b>video-level, not timestamped</b>: the corpus stores the video id but not the moment, question, surrounding cards, or original card order, so those are not shown. A grounding pass confirmed each read traces to its cited video.
+      <h4>What this page mixes (three sources, labeled)</h4>
+      The page is not a single voice. It carries three kinds of text, kept distinct:
+      <ul>
+        <li><b>Verbatim Chiron quotations</b> &mdash; the pair passages and the raw card mentions, each source-linked.</li>
+        <li><b>Chiron's curated meaning</b> &mdash; the keyword line and one or two sentences per card, from her own <a href="/chiron-cheatsheet">cheatsheet</a>, plus a clarifier note when one names the other card.</li>
+        <li><b>Automated summaries</b> &mdash; the blocks marked "Automated corpus summary" are generated from keyword tags, not quoted from Chiron. Each states the rule that produced it.</li>
+      </ul>
+      A fourth, outside layer is the Bunning structural label. It is not Chiron's, so it sits behind an "outside comparison" toggle under each pair's evidence, never ahead of it.
+      <h4>Ordered evidence, not yet supported</h4>
+      The current corpus is <b>unordered co-occurrence</b>. Forward and reverse of a pair return the same passages, so the page does not claim a first-position card reads differently from a second-position one. Genuine ordered syntax would require rebuilding the corpus from the transcripts with each card's position and timestamp retained. That rebuild is queued.
       <h4>Coverage</h4>
-      This build indexes <b>2822 of the 3003 possible unordered pairs (94%)</b> across the 78 cards, from <b>26,169 combination passages</b>, about 9.3 per pair. A pair she was never recorded reading shows <b>&ldquo;No recorded passage yet&rdquo;</b> rather than an invented reading; the structural lens still applies.
+      This build indexes <b>2822 of the 3003 possible unordered pairs (94%)</b> across the 78 cards, from <b>26,169 combination passages</b>, about 9.3 per pair. A pair she was never recorded reading shows <b>&ldquo;No recorded Chiron pairing found&rdquo;</b> rather than an invented reading.
       <h4>The structural lens (Bunning)</h4>
       Each transition is classified by Joan Bunning's <i>Learning the Tarot</i>, Lesson 15, from card identity alone:
       <ul>
@@ -131,7 +146,7 @@ body.kid{font-size:1.15rem} body.kid .quote,body.kid .read{font-size:1.08rem} bo
   </details>
 
   <div class="tabs">
-    <button class="tab on" id="tabRead">Reading (order matters)</button>
+    <button class="tab on" id="tabRead">Reading (whole spread)</button>
     <button class="tab" id="tabExplore">Explore one card</button>
   </div>
 
@@ -210,11 +225,13 @@ function parseCard(raw){
 }
 
 /* ---------- data helpers ---------- */
-function pd(a,b){return (CORPUS[a]&&CORPUS[a][b])||(CORPUS[b]&&CORPUS[b][a])||null;}
+function pd(a,b){if(!CORPUS)return null;return (CORPUS[a]&&CORPUS[a][b])||(CORPUS[b]&&CORPUS[b][a])||null;}
+const RLABEL={direct:"Direct combination read",clarifier:"One card clarified the other in this reading",sequence:"Read in sequence, one card into the next",nearby:"Mentioned near each other, light read"};
 function reads_(a,b){const p=pd(a,b);return (p&&p.reads)||[];}
 function tags_(a,b){const p=pd(a,b);return (p&&p.tags)||[];}
 const _themeCache={};
 function themes(card,k){
+  if(!CORPUS) return [];
   if(_themeCache[card]) return _themeCache[card].slice(0,k||6);
   const c={};
   const node=CORPUS[card]||{};
@@ -280,22 +297,36 @@ function cardParagraph(card,i){
   let body = ch.meanings.length
     ? ch.meanings.map(m=>`<p>${mdBold(m)}</p>`).join('')+`<p class="cattr">Chiron's own meaning, from the <a href="/chiron-cheatsheet" target="_blank" rel="noopener">cheatsheet</a>.</p>`
     : `<p class="hint">No cheatsheet meaning for this card yet.</p>`;
-  return `<div class="rblock"><h3>${i+1}. ${esc(card)}</h3>${kw}${body}</div>`;
+  const raw=meanings(card);
+  const rawtog = raw.length?`<details class="more"><summary>all ${raw.length} raw transcript mentions of this card (unedited, video-level source)</summary>${raw.map(m=>`<div class="read dim">${esc(m.t)} ${src(m.v)}</div>`).join('')}</details>`:'';
+  return `<div class="rblock"><h3>${i+1}. ${esc(card)}</h3>${kw}${body}${rawtog}</div>`;
 }
+function passageHTML(r){return `<div class="read${r.f?' dim':''}"><span class="tg ${r.r}">${r.r}</span>${esc(r.t)}${r.f?` <span class="flg">${FLBL[r.f]}</span>`:''} ${src(r.v)}</div>`;}
 function transitionParagraph(a,b){
-  let h=`<div class="rblock trans"><h3>${esc(a)} &rarr; ${esc(b)}</h3>`+structHTML(a,b);
+  let h=`<div class="rblock trans"><h3>${esc(a)} &rarr; ${esc(b)} <span class="ord">(unordered co-occurrence)</span></h3>`;
+  // Chiron's evidence FIRST
+  const all=reads_(a,b), tg=tags_(a,b), clean=all.filter(r=>!r.f);
+  if(all.length){
+    if(tg.length) h+=`<div class="tags"><span class="tglab">she repeats</span>${tg.slice(0,8).map(t=>`<span class="mtag">${esc(t)}</span>`).join('')}</div>`;
+    const lead=(clean[0]||all[0]);
+    h+=`<div class="read"><span class="tg ${lead.r}">${lead.r}</span><b>${RLABEL[lead.r]}.</b> ${esc(lead.t)}${lead.f?` <span class="flg">${FLBL[lead.f]}</span>`:''} ${src(lead.v)}</div>`;
+    // ALL passages grouped by class, inside the spread
+    const order=['direct','clarifier','sequence','nearby'], groups={};
+    all.forEach(r=>{const key=r.f?'flagged':r.r;(groups[key]=groups[key]||[]).push(r);});
+    let inner='';
+    order.forEach(cls=>{if(groups[cls]&&groups[cls].length){inner+=`<div class="elab"><span class="tg ${cls}">${cls}</span> ${RLABEL[cls]} <span class="ecnt">(${groups[cls].length})</span></div>`+groups[cls].map(passageHTML).join('');}});
+    if(groups.flagged&&groups.flagged.length) inner+=`<div class="elab">Flagged <span class="ecnt">(${groups.flagged.length}: fragment, negative, third-card, or near-duplicate)</span></div>`+groups.flagged.map(passageHTML).join('');
+    h+=`<details class="more"><summary>view all ${all.length} passages for this pair, grouped by evidence type</summary>${inner}</details>`;
+  } else {
+    h+=`<p class="hint">No recorded Chiron pairing found for these two cards in the corpus.</p>`;
+  }
+  // Chiron's own cheatsheet clarifier note, when one names the other card
   const notes=[];
   if(clarMentions(a,b)) notes.push(`<p class="clar"><b>${esc(a)} as a clarifier:</b> ${mdBold(cheat(a).clarifier)}</p>`);
   if(clarMentions(b,a)) notes.push(`<p class="clar"><b>${esc(b)} as a clarifier:</b> ${mdBold(cheat(b).clarifier)}</p>`);
   if(notes.length) h+=`<div class="clarwrap"><div class="clarlab">Cheatsheet: how these two sit together</div>${notes.join('')}</div>`;
-  const all=reads_(a,b), tg=tags_(a,b), clean=all.filter(r=>!r.f), use=(clean.length?clean:all);
-  if(all.length){
-    const inner=(tg.length?`<div class="tags"><span class="tglab">she repeats</span>${tg.slice(0,6).map(t=>`<span class="mtag">${esc(t)}</span>`).join('')}</div>`:'')
-      + use.slice(0,5).map(r=>`<div class="read"><span class="tg ${r.r}">${r.r}</span>${esc(r.t)}${r.f?` <span class="flg">${FLBL[r.f]}</span>`:''} ${src(r.v)}</div>`).join('');
-    h+=`<details class="more"><summary>raw excerpts from individual readings (${all.length}, unedited, may reference other cards)</summary>${inner}</details>`;
-  } else if(!notes.length){
-    h+=`<p class="hint">No recorded passage yet for this pair. The structural lens above still frames how the two relate.</p>`;
-  }
+  // Outside framework, optional, AFTER Chiron's evidence
+  h+=`<details class="bunning"><summary>Outside comparison: Bunning structural lens (not from Chiron)</summary>${structHTML(a,b)}</details>`;
   return h+'</div>';
 }
 function renderReading(){
@@ -305,14 +336,10 @@ function renderReading(){
   const agg={};
   seq.forEach(c=>cheat(c).kw.forEach((t,idx)=>{agg[t]=(agg[t]||0)+Math.max(1,4-idx);}));
   const shared=Object.keys(agg).sort((x,y)=>agg[y]-agg[x]).slice(0,5);
-  // structural shape
-  const shape={};
-  for(let i=0;i<seq.length-1;i++){const k=structural(seq[i],seq[i+1]).k;shape[k]=(shape[k]||0)+1;}
-  const shapeTxt=Object.keys(shape).map(k=>`${shape[k]} ${k.toLowerCase()}${shape[k]>1?'s':''}`);
-  let h='<div class="rsummary"><h3>Your reading</h3>';
-  h+=`<p>This is a ${seq.length}-card reading: <b>${seq.map(esc).join(' &rarr; ')}</b>.</p>`;
-  if(shared.length) h+=`<p>Across these cards, the words Chiron returns to most are ${joinList(shared.map(t=>`<b>${esc(t)}</b>`))}.</p>`;
-  if(seq.length>1) h+=`<p>Between the cards there ${seq.length-1===1?'is':'are'} ${seq.length-1} step${seq.length-1>1?'s':''}: ${joinList(shapeTxt)}. Bunning reads a spread as a map of balancing tendencies, so each step below shows how one card is offset or reinforced by the next.</p>`;
+  let h='<div class="rsummary"><span class="autolab">Automated corpus summary</span><h3>Your spread</h3>';
+  h+=`<p>This is a ${seq.length}-card spread: <b>${seq.map(esc).join(' &rarr; ')}</b>.</p>`;
+  if(shared.length) h+=`<p>The cheatsheet keyword tags that recur most across these cards are ${joinList(shared.map(t=>`<b>${esc(t)}</b>`))}.</p>`;
+  h+=`<p class="autorule">Rule: cards joined by the arrows you entered, keywords tallied from each card's cheatsheet tags. Chiron's evidence for each pair is below; the corpus records co-occurrence only, so it does not distinguish which card came first.</p>`;
   h+='</div>';
   // card paragraphs interleaved with transitions
   for(let i=0;i<seq.length;i++){
@@ -323,14 +350,9 @@ function renderReading(){
   if(seq.length>1){
     const first=seq[0],last=seq[seq.length-1];
     const ft=cheat(first).kw[0], lt=cheat(last).kw[0];
-    const dominant=Object.keys(shape).sort((x,y)=>shape[y]-shape[x])[0]||'';
-    let close=`The reading moves from <b>${esc(first)}</b>${ft?` (${esc(ft)})`:''} to <b>${esc(last)}</b>${lt?` (${esc(lt)})`:''}.`;
-    if(shared[0]) close+=` The thread that holds it together is <b>${esc(shared[0])}</b>.`;
-    if(/Reinforcing/.test(dominant)) close+=` Most steps reinforce one another, so the cards compound a single pull rather than pulling apart.`;
-    else if(/Occasional/.test(dominant)) close+=` The cards are read fresh against each other, without a fixed opposition, so their meaning here is specific to this order.`;
-    else if(/Permanent/.test(dominant)) close+=` At least one step sets two fixed opposites against each other, the poles of a single balance.`;
-    else if(/Court/.test(dominant)) close+=` The court and rank contrasts put different styles of person or approach side by side.`;
-    h+=`<div class="rsummary"><h3>Reading in one thread</h3><p>${close}</p></div>`;
+    let close=`This spread runs from <b>${esc(first)}</b>${ft?` (${esc(ft)})`:''} to <b>${esc(last)}</b>${lt?` (${esc(lt)})`:''}.`;
+    if(shared[0]) close+=` The keyword tag shared across the most cards is <b>${esc(shared[0])}</b>.`;
+    h+=`<div class="rsummary"><span class="autolab">Automated corpus summary</span><h3>Spread at a glance</h3><p>${close}</p><p class="autorule">Rule: first and last card of the sequence you entered, with their top cheatsheet keyword, and the most common shared keyword tag. This is a navigation summary, not one of Chiron's readings.</p></div>`;
   }
   el.innerHTML=h;
 }
@@ -366,9 +388,10 @@ function renderExplore(){
   const out=document.getElementById('out'); if(!CORPUS) return;
   const a=sel1.value, b=sel2.value;
   if(a&&b){
-    let h=`<h2 class="chosen">${esc(a)} + ${esc(b)}</h2>`+structHTML(a,b);
+    let h=`<h2 class="chosen">${esc(a)} + ${esc(b)} <span class="ord">(unordered co-occurrence)</span></h2>`;
     h+= pd(a,b)?`<div class="hint">Her recurring words, then the passages, strongest first.</div>`+pairBody(a,b,6)
-              :`<div class="hint">No recorded passage yet for this pair.</div>`;
+              :`<div class="hint">No recorded Chiron pairing found for these two cards.</div>`;
+    h+=`<details class="bunning"><summary>Outside comparison: Bunning structural lens (not from Chiron)</summary>${structHTML(a,b)}</details>`;
     out.innerHTML=h; return;
   }
   const partners=Object.keys(CORPUS[a]||{}).sort((x,y)=>reads_(a,y).length-reads_(a,x).length).filter(p=>filt(reads_(a,p)).length);
@@ -382,7 +405,7 @@ function renderExplore(){
     h+=`<div class="cattr" style="margin:2px 0 0">From the <a href="/chiron-cheatsheet" target="_blank" rel="noopener">cheatsheet</a>.</div>`;
   }
   h+=`<div class="lab" style="margin-top:16px">Combinations</div><div class="hint">She reads it with ${partners.length} other cards. Pick a second card, or open any below.</div>`;
-  partners.forEach((p,i)=>{h+=`<details class="partner"${i<3?' open':''}><summary><span>${esc(a)} + ${esc(p)}</span><span class="pcnt">${reads_(a,p).length}</span></summary><div class="inner">${structHTML(a,p)}${pairBody(a,p,3)}</div></details>`;});
+  partners.forEach((p,i)=>{h+=`<details class="partner"${i<3?' open':''}><summary><span>${esc(a)} + ${esc(p)}</span><span class="pcnt">${reads_(a,p).length}</span></summary><div class="inner">${pairBody(a,p,3)}<details class="bunning"><summary>Outside comparison: Bunning structural lens</summary>${structHTML(a,p)}</details></div></details>`;});
   out.innerHTML=h;
 }
 
@@ -395,8 +418,16 @@ document.getElementById('clearSeq').onclick=()=>{seq=[];document.getElementById(
 function toggleKid(){document.body.classList.toggle('kid');document.getElementById('kidfab').textContent=document.body.classList.contains('kid')?'Normal mode':'Kid mode';}
 
 renderPicker();
-Promise.all([fetch('./corpus.json').then(r=>r.json()),fetch('./cheatsheet.json').then(r=>r.json())])
-  .then(([c,ch])=>{CORPUS=c;CHEAT=ch;setupExplorer();
+const builderEl=document.querySelector('#modeRead .builder');
+builderEl.classList.add('disabled-mask');
+document.getElementById('seqempty').textContent='Loading the corpus (about 11 MB), one moment.';
+Promise.all([
+  fetch('./corpus.json').then(r=>r.json()),
+  fetch('./cheatsheet.json').then(r=>r.json()),
+  fetch('./meanings.json').then(r=>r.json())
+])
+  .then(([c,ch,m])=>{CORPUS=c;CHEAT=ch;MEANINGS=m;setupExplorer();
+    builderEl.classList.remove('disabled-mask');
     // seed a sample reading so the first screen is alive
     seq=["Two of Cups","Three of Swords","The Star"]; syncSeq();
   })
