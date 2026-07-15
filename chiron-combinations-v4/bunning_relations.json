@@ -1,0 +1,796 @@
+{
+"reinforcing": [
+[
+"Death",
+"Eight of Cups"
+],
+[
+"Death",
+"Eight of Wands"
+],
+[
+"Death",
+"Five of Cups"
+],
+[
+"Eight of Cups",
+"Eight of Wands"
+],
+[
+"Eight of Cups",
+"Six of Swords"
+],
+[
+"Eight of Cups",
+"The Hermit"
+],
+[
+"Eight of Cups",
+"Three of Wands"
+],
+[
+"Eight of Pentacles",
+"Nine of Wands"
+],
+[
+"Eight of Pentacles",
+"The Hierophant"
+],
+[
+"Eight of Pentacles",
+"The Magician"
+],
+[
+"Eight of Swords",
+"Ten of Swords"
+],
+[
+"Eight of Swords",
+"The Devil"
+],
+[
+"Eight of Swords",
+"The Moon"
+],
+[
+"Eight of Wands",
+"The Magician"
+],
+[
+"Eight of Wands",
+"Wheel of Fortune"
+],
+[
+"Five of Cups",
+"Five of Pentacles"
+],
+[
+"Five of Cups",
+"Six of Swords"
+],
+[
+"Five of Cups",
+"Three of Swords"
+],
+[
+"Five of Pentacles",
+"Six of Pentacles"
+],
+[
+"Five of Pentacles",
+"Ten of Wands"
+],
+[
+"Five of Pentacles",
+"The Tower"
+],
+[
+"Five of Pentacles",
+"Three of Swords"
+],
+[
+"Five of Swords",
+"Five of Wands"
+],
+[
+"Five of Swords",
+"Seven of Swords"
+],
+[
+"Five of Swords",
+"Seven of Wands"
+],
+[
+"Five of Wands",
+"Seven of Wands"
+],
+[
+"Five of Wands",
+"Ten of Wands"
+],
+[
+"Four of Cups",
+"Four of Swords"
+],
+[
+"Four of Cups",
+"Six of Swords"
+],
+[
+"Four of Cups",
+"The Hermit"
+],
+[
+"Four of Pentacles",
+"Ten of Pentacles"
+],
+[
+"Four of Pentacles",
+"The Chariot"
+],
+[
+"Four of Pentacles",
+"The Emperor"
+],
+[
+"Four of Pentacles",
+"Two of Swords"
+],
+[
+"Four of Swords",
+"Seven of Pentacles"
+],
+[
+"Four of Swords",
+"Six of Swords"
+],
+[
+"Four of Swords",
+"The Hanged Man"
+],
+[
+"Four of Swords",
+"The Hermit"
+],
+[
+"Four of Swords",
+"The High Priestess"
+],
+[
+"Four of Wands",
+"Three of Cups"
+],
+[
+"Four of Wands",
+"Two of Pentacles"
+],
+[
+"Judgement",
+"Seven of Pentacles"
+],
+[
+"Justice",
+"Seven of Pentacles"
+],
+[
+"Justice",
+"Ten of Wands"
+],
+[
+"Nine of Cups",
+"Seven of Cups"
+],
+[
+"Nine of Cups",
+"Six of Wands"
+],
+[
+"Nine of Cups",
+"The Empress"
+],
+[
+"Nine of Cups",
+"The Lovers"
+],
+[
+"Nine of Cups",
+"The World"
+],
+[
+"Nine of Pentacles",
+"Seven of Swords"
+],
+[
+"Nine of Pentacles",
+"The Chariot"
+],
+[
+"Nine of Swords",
+"Six of Swords"
+],
+[
+"Nine of Swords",
+"Ten of Wands"
+],
+[
+"Nine of Swords",
+"The Devil"
+],
+[
+"Nine of Swords",
+"Three of Swords"
+],
+[
+"Nine of Wands",
+"Seven of Wands"
+],
+[
+"Nine of Wands",
+"Strength"
+],
+[
+"Nine of Wands",
+"Two of Swords"
+],
+[
+"Seven of Cups",
+"The Devil"
+],
+[
+"Seven of Cups",
+"The Moon"
+],
+[
+"Seven of Pentacles",
+"Six of Pentacles"
+],
+[
+"Seven of Pentacles",
+"The Empress"
+],
+[
+"Seven of Swords",
+"The Hermit"
+],
+[
+"Seven of Swords",
+"Two of Swords"
+],
+[
+"Six of Cups",
+"Ten of Cups"
+],
+[
+"Six of Cups",
+"The Star"
+],
+[
+"Six of Pentacles",
+"Ten of Pentacles"
+],
+[
+"Six of Pentacles",
+"Ten of Wands"
+],
+[
+"Six of Pentacles",
+"The Empress"
+],
+[
+"Six of Pentacles",
+"The World"
+],
+[
+"Six of Swords",
+"Ten of Wands"
+],
+[
+"Six of Wands",
+"The Chariot"
+],
+[
+"Six of Wands",
+"The Sun"
+],
+[
+"Temperance",
+"Three of Cups"
+],
+[
+"Temperance",
+"Three of Pentacles"
+],
+[
+"Temperance",
+"Two of Cups"
+],
+[
+"Temperance",
+"Two of Pentacles"
+],
+[
+"Ten of Cups",
+"The Lovers"
+],
+[
+"Ten of Cups",
+"The Star"
+],
+[
+"Ten of Cups",
+"The World"
+],
+[
+"Ten of Cups",
+"Two of Cups"
+],
+[
+"Ten of Pentacles",
+"The Empress"
+],
+[
+"Ten of Pentacles",
+"The Hierophant"
+],
+[
+"Ten of Pentacles",
+"The Lovers"
+],
+[
+"Ten of Pentacles",
+"The World"
+],
+[
+"Ten of Swords",
+"The Hanged Man"
+],
+[
+"The Chariot",
+"Two of Wands"
+],
+[
+"The Emperor",
+"Three of Wands"
+],
+[
+"The Emperor",
+"Two of Wands"
+],
+[
+"The Fool",
+"Three of Wands"
+],
+[
+"The Hierophant",
+"Three of Cups"
+],
+[
+"The Hierophant",
+"Three of Pentacles"
+],
+[
+"The Lovers",
+"Two of Cups"
+],
+[
+"The Magician",
+"Two of Wands"
+],
+[
+"The Moon",
+"Two of Swords"
+],
+[
+"The Sun",
+"Two of Wands"
+],
+[
+"Three of Cups",
+"Three of Pentacles"
+],
+[
+"Three of Pentacles",
+"Three of Wands"
+]
+],
+"opposing": [
+[
+"Eight of Cups",
+"Nine of Wands"
+],
+[
+"Eight of Cups",
+"Strength"
+],
+[
+"Eight of Cups",
+"The Sun"
+],
+[
+"Eight of Pentacles",
+"Four of Cups"
+],
+[
+"Eight of Pentacles",
+"Seven of Cups"
+],
+[
+"Eight of Swords",
+"Four of Wands"
+],
+[
+"Eight of Swords",
+"The Chariot"
+],
+[
+"Eight of Swords",
+"The Magician"
+],
+[
+"Eight of Swords",
+"Three of Pentacles"
+],
+[
+"Eight of Swords",
+"Two of Wands"
+],
+[
+"Eight of Wands",
+"Four of Swords"
+],
+[
+"Eight of Wands",
+"Seven of Pentacles"
+],
+[
+"Eight of Wands",
+"The High Priestess"
+],
+[
+"Five of Cups",
+"Judgement"
+],
+[
+"Five of Cups",
+"Nine of Cups"
+],
+[
+"Five of Cups",
+"Six of Wands"
+],
+[
+"Five of Cups",
+"The Lovers"
+],
+[
+"Five of Cups",
+"Two of Cups"
+],
+[
+"Five of Pentacles",
+"Seven of Pentacles"
+],
+[
+"Five of Pentacles",
+"Six of Wands"
+],
+[
+"Five of Pentacles",
+"Strength"
+],
+[
+"Five of Pentacles",
+"Temperance"
+],
+[
+"Five of Pentacles",
+"Ten of Pentacles"
+],
+[
+"Five of Pentacles",
+"The Sun"
+],
+[
+"Five of Swords",
+"Justice"
+],
+[
+"Five of Swords",
+"Six of Cups"
+],
+[
+"Five of Swords",
+"Temperance"
+],
+[
+"Five of Swords",
+"The Emperor"
+],
+[
+"Five of Wands",
+"Temperance"
+],
+[
+"Five of Wands",
+"Three of Pentacles"
+],
+[
+"Five of Wands",
+"Two of Cups"
+],
+[
+"Five of Wands",
+"Two of Pentacles"
+],
+[
+"Four of Cups",
+"Four of Wands"
+],
+[
+"Four of Cups",
+"The World"
+],
+[
+"Four of Cups",
+"Two of Cups"
+],
+[
+"Four of Pentacles",
+"Seven of Cups"
+],
+[
+"Four of Pentacles",
+"The Empress"
+],
+[
+"Four of Pentacles",
+"The Hanged Man"
+],
+[
+"Four of Pentacles",
+"Wheel of Fortune"
+],
+[
+"Four of Swords",
+"Ten of Wands"
+],
+[
+"Four of Swords",
+"The Magician"
+],
+[
+"Four of Swords",
+"Two of Pentacles"
+],
+[
+"Four of Swords",
+"Wheel of Fortune"
+],
+[
+"Four of Wands",
+"Six of Swords"
+],
+[
+"Four of Wands",
+"Ten of Wands"
+],
+[
+"Four of Wands",
+"The Devil"
+],
+[
+"Judgement",
+"Nine of Swords"
+],
+[
+"Justice",
+"Seven of Swords"
+],
+[
+"Justice",
+"Two of Swords"
+],
+[
+"Nine of Cups",
+"Ten of Swords"
+],
+[
+"Nine of Cups",
+"The Hermit"
+],
+[
+"Nine of Pentacles",
+"Seven of Cups"
+],
+[
+"Nine of Pentacles",
+"The Empress"
+],
+[
+"Nine of Pentacles",
+"Three of Pentacles"
+],
+[
+"Nine of Swords",
+"Six of Cups"
+],
+[
+"Nine of Swords",
+"Ten of Cups"
+],
+[
+"Nine of Swords",
+"The Star"
+],
+[
+"Nine of Swords",
+"Three of Cups"
+],
+[
+"Nine of Wands",
+"Six of Cups"
+],
+[
+"Nine of Wands",
+"Three of Cups"
+],
+[
+"Seven of Cups",
+"Temperance"
+],
+[
+"Seven of Cups",
+"The Emperor"
+],
+[
+"Seven of Cups",
+"The Magician"
+],
+[
+"Seven of Pentacles",
+"Wheel of Fortune"
+],
+[
+"Seven of Swords",
+"Six of Cups"
+],
+[
+"Seven of Swords",
+"Ten of Wands"
+],
+[
+"Seven of Swords",
+"The Hierophant"
+],
+[
+"Seven of Wands",
+"The Hanged Man"
+],
+[
+"Seven of Wands",
+"The High Priestess"
+],
+[
+"Seven of Wands",
+"Three of Pentacles"
+],
+[
+"Six of Cups",
+"The Devil"
+],
+[
+"Six of Swords",
+"Strength"
+],
+[
+"Six of Swords",
+"The Sun"
+],
+[
+"Six of Swords",
+"Three of Cups"
+],
+[
+"Six of Swords",
+"Two of Pentacles"
+],
+[
+"Six of Wands",
+"Ten of Swords"
+],
+[
+"Six of Wands",
+"The Tower"
+],
+[
+"Ten of Cups",
+"Ten of Swords"
+],
+[
+"Ten of Cups",
+"The Devil"
+],
+[
+"Ten of Cups",
+"The Tower"
+],
+[
+"Ten of Cups",
+"Three of Swords"
+],
+[
+"Ten of Pentacles",
+"Three of Wands"
+],
+[
+"Ten of Pentacles",
+"Two of Wands"
+],
+[
+"Ten of Swords",
+"The Chariot"
+],
+[
+"Ten of Swords",
+"Two of Wands"
+],
+[
+"Ten of Wands",
+"The Fool"
+],
+[
+"Ten of Wands",
+"The Hanged Man"
+],
+[
+"The Fool",
+"Two of Swords"
+],
+[
+"The Hermit",
+"Three of Cups"
+],
+[
+"The Hermit",
+"Two of Cups"
+],
+[
+"The Hierophant",
+"Two of Pentacles"
+],
+[
+"The Hierophant",
+"Two of Wands"
+],
+[
+"The High Priestess",
+"The Magician"
+],
+[
+"The High Priestess",
+"Two of Wands"
+],
+[
+"The Lovers",
+"Three of Swords"
+],
+[
+"The Star",
+"Two of Swords"
+],
+[
+"Three of Cups",
+"Three of Swords"
+],
+[
+"Three of Wands",
+"Two of Swords"
+],
+[
+"Two of Swords",
+"Wheel of Fortune"
+]
+],
+"_source": "Joan Bunning, Learning the Tarot (1998), per-card Reinforcing/Opposing Cards pages (Minor Arcana) + Lesson 15 named pairs. Absence of a pair means unclassified, not that no relationship exists.",
+"_coverage": "Minor Arcana card pages + Lesson 15 named Major pairs; full Major Arcana extraction pending."
+}

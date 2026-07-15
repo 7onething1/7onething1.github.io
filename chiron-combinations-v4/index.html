@@ -137,14 +137,15 @@ body.kid{font-size:1.15rem} body.kid .quote,body.kid .read{font-size:1.08rem} bo
       <h4>Preservation audit</h4>
       An acceptance test (<code>audit.py</code>, shipped beside this page) checks that every corpus record reaches a rendered result. Result: <b>26,169 combination passages</b> (direct 1,892; sequence 7,334; clarifier 5,966; nearby 10,977), of which <b>16,991 are clean</b> and <b>9,178 are flagged</b> (fragment, negative, third-card, or near-duplicate). Plus <b>3,523 standalone card mentions</b>. Every passage is reachable through the pair's grouped "view all" list, every mention through each card's raw toggle, and <b>181 pairs are confirmed gaps</b> with no passage. <b>Unreachable records: 0.</b>
       <h4>The structural lens (Bunning)</h4>
-      Each transition is classified by Joan Bunning's <i>Learning the Tarot</i>, Lesson 15, from card identity alone:
+      Each pair is classified against Joan Bunning's <i>Learning the Tarot</i>. Two labels come from a <b>verified relationship table</b> (<code>bunning_relations.json</code>) extracted from her per-card Reinforcing and Opposing Cards pages plus her Lesson 15 named pairs; two are computed from card identity, which Bunning treats as reliable; the rest default to Occasional:
       <ul>
-        <li><b>Permanent pair</b> &mdash; fixed opposites Bunning names, such as the Magician and the High Priestess.</li>
-        <li><b>Court-card / Ace pair</b> &mdash; two courts or two Aces, a contrast of suit and rank.</li>
-        <li><b>Reinforcing pair</b> &mdash; only the pairs Bunning explicitly names as reinforcing (for example the Empress and Nine of Cups). Same suit alone does not qualify.</li>
-        <li><b>Same-suit comparison</b> &mdash; a neutral label for two cards of one suit that Bunning does not fix as reinforcing or opposing; their ranks decide whether they agree or pull apart.</li>
-        <li><b>Occasional pair</b> &mdash; any two cards read together for one instance, no fixed opposition.</li>
+        <li><b>Opposing pair</b> &mdash; verified: both cards appear on each other's Opposing Cards list in Bunning's book (for example the Magician and the High Priestess).</li>
+        <li><b>Reinforcing pair</b> &mdash; verified: both cards appear on each other's Reinforcing Cards list (for example the Empress and Nine of Cups). Same suit alone never qualifies.</li>
+        <li><b>Ace pair</b> &mdash; computed: both cards are Aces.</li>
+        <li><b>Court pair</b> &mdash; computed: both cards are court cards.</li>
+        <li><b>Occasional pair</b> &mdash; default: no verified relationship and not a court or Ace pair. Any two cards can still be read together for one reading.</li>
       </ul>
+      Coverage note: the verified table currently covers the Minor Arcana card pages plus Lesson 15's named Major pairs. A pair with no verified entry falls to Occasional rather than being guessed. Completing the Major Arcana extraction is queued.
     </div>
   </details>
 
@@ -251,22 +252,20 @@ function clarMentions(a,b){const t=cheat(a).clarifier.toLowerCase();const vs=[b.
 /* ---------- Bunning structural lens (Lesson 15) ---------- */
 const COURTS=["Page","Knight","Queen","King"];
 function parts(name){const m=name.match(/^(Ace|Two|Three|Four|Five|Six|Seven|Eight|Nine|Ten|Page|Knight|Queen|King) of (Cups|Wands|Swords|Pentacles)$/);return m?{rank:m[1],suit:m[2],major:false}:{major:true,name};}
-const PERM=[["The Magician","The High Priestess"],["Eight of Swords","Four of Wands"]];
-const REINF=[["The Empress","Nine of Cups"]];
-const hasPair=(list,a,b)=>list.some(p=>(p[0]===a&&p[1]===b)||(p[1]===a&&p[0]===b));
+let BREL={rein:new Set(),opp:new Set()};
+const pkey=(a,b)=>[a,b].sort().join(' || ');
 function structural(a,b){
-  if(hasPair(PERM,a,b)) return {k:"Permanent pair",g:"Bunning names these two as fixed opposites. Read them as the poles of one balance."};
-  if(hasPair(REINF,a,b)) return {k:"Reinforcing pair",g:"Bunning names these two as reinforcing, both pushing the same energy."};
+  const key=pkey(a,b);
+  if(BREL.opp.has(key)) return {k:"Opposing pair",g:"Bunning's card pages list these two among each other's opposing cards, a contrast of meaning or energy."};
+  if(BREL.rein.has(key)) return {k:"Reinforcing pair",g:"Bunning's card pages list these two among each other's reinforcing cards, a similar meaning or energy."};
   const pa=parts(a),pb=parts(b),ct=r=>COURTS.includes(r);
   if(!pa.major&&!pb.major){
-    if((pa.rank==="Ace"&&pb.rank==="Ace")||(ct(pa.rank)&&ct(pb.rank)))
-      return {k:"Court-card / Ace pair",g:"Bunning reads two courts or two Aces as a contrast of suit and rank, one style set against another."};
-    if(pa.suit===pb.suit)
-      return {k:"Same-suit comparison",g:"Both cards share the "+pa.suit+" suit, so they work the same element. Whether they reinforce or pull against each other depends on their ranks; Bunning does not fix this pair either way."};
+    if(pa.rank==="Ace"&&pb.rank==="Ace") return {k:"Ace pair",g:"Two Aces. Bunning treats an Ace pair as a natural contrast of suit, one beginning set against another."};
+    if(ct(pa.rank)&&ct(pb.rank)) return {k:"Court pair",g:"Two court cards. Bunning treats a court pair as a contrast of rank and suit, one style of person or approach against another."};
   }
-  return {k:"Occasional pair",g:"No fixed opposition. Bunning: any two cards can be read together for this one instance."};
+  return {k:"Occasional pair",g:"No relationship recorded in Bunning's verified table. Bunning: any two cards can still be read together for one particular reading."};
 }
-function structHTML(a,b){const s=structural(a,b);return `<div class="struct"><span class="sk">${s.k}</span> &mdash; ${esc(s.g)}<span class="scite">Structural lens: Joan Bunning, Learning the Tarot, Lesson 15 (derived from the cards, not the transcripts).</span></div>`;}
+function structHTML(a,b){const s=structural(a,b);return `<div class="struct"><span class="sk">${s.k}</span> &mdash; ${esc(s.g)}<span class="scite">Structural lens: Joan Bunning, Learning the Tarot. Reinforcing and opposing labels come from a verified table extracted from her card pages; court and Ace pairs are computed from card identity. Not from Chiron's transcripts.</span></div>`;}
 
 const FLBL={neg:'negative mention',frag:'fragment','3rd':'third card leads',dup:'near-duplicate'};
 function joinList(a){return a.length<2?a.join(''):a.length===2?a.join(' and '):a.slice(0,-1).join(', ')+', and '+a[a.length-1];}
@@ -429,9 +428,13 @@ document.getElementById('seqempty').textContent='Loading the corpus (about 11 MB
 Promise.all([
   fetch('./corpus.json').then(r=>r.json()),
   fetch('./cheatsheet.json').then(r=>r.json()),
-  fetch('./meanings.json').then(r=>r.json())
+  fetch('./meanings.json').then(r=>r.json()),
+  fetch('./bunning_relations.json').then(r=>r.json())
 ])
-  .then(([c,ch,m])=>{CORPUS=c;CHEAT=ch;MEANINGS=m;setupExplorer();
+  .then(([c,ch,m,brel])=>{CORPUS=c;CHEAT=ch;MEANINGS=m;
+    BREL.rein=new Set((brel.reinforcing||[]).map(p=>pkey(p[0],p[1])));
+    BREL.opp=new Set((brel.opposing||[]).map(p=>pkey(p[0],p[1])));
+    setupExplorer();
     builderEl.classList.remove('disabled-mask');
     // seed a sample reading so the first screen is alive
     seq=["Two of Cups","Three of Swords","The Star"]; syncSeq();
