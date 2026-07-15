@@ -13,7 +13,7 @@ Captain America, Team Leader reads: whenever another Hero you control **enters**
 ## At a glance
 
 - **Colors:** Jeskai, white, blue, and red.
-- **Hero target:** about 27 Heroes, most at two to four mana.
+- **Hero target:** 27 Heroes in the 99, 28 counting Captain America, most at two to four mana.
 - **Power level:** mid-power casual, a precon pointed toward focus rather than a cEDH list.
 - **Primary win condition:** a wide modified board that gains flying from Iron Man or double strike from War Machine.
 - **Ideal Captain America turn:** commander down by turn three, then aim to cast two Heroes during developed turns, each worth two counters.
