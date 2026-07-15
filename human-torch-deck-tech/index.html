@@ -1,0 +1,162 @@
+<!doctype html>
+<html lang="en"><head><meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Human Torch: The Table-Wide Burn</title>
+<meta name="description" content="A Snail-style deck tech for Human Torch, the four-color Fantastic Four Marvel Commander alt: the evasive double-strike attacker whose combat damage copies to every opponent, with the spread math, the four-color tax, protection, a dead-draw audit, a construction audit, and the shell.">
+<meta name="keywords" content="Human Torch, Fantastic Four, Marvel Super Heroes Commander, four-color, double strike, flying, each opponent, burn, noncreature spell, deck tech, construction audit">
+<meta property="og:title" content="Human Torch: The Table-Wide Burn">
+<meta property="og:description" content="The four-color Fantastic Four attacker whose double-strike combat damage copies to every opponent, burning the whole table from a small body.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,500;0,600;0,700;1,600&family=Inter:wght@400;600;700;800&display=swap" rel="stylesheet">
+<style>
+  :root{--cream:#f4ecd8;--ink:#1c1a17;--rust:#b5533b;--teal:#3f7c78;--gold:#c98a2b;--olive:#7d7a3a;--line:#d9cdb0;--plum:#7b4b8a;}
+  *{box-sizing:border-box}
+  body{margin:0;background:var(--cream);color:var(--ink);font-family:'Inter',system-ui,-apple-system,Segoe UI,Roboto,sans-serif;line-height:1.62}
+  header{padding:46px 24px 10px;max-width:760px;margin:0 auto;text-align:center}
+  h1{font-family:'Cormorant Garamond',Georgia,serif;font-size:clamp(2rem,8vw,2.7rem);margin:.15em 0;color:var(--ink);line-height:1.1}
+  .sub{color:var(--olive);font-weight:600;max-width:640px;margin:8px auto 0}
+  .nav{margin:14px auto 0;font-size:.9rem}
+  .nav a{color:var(--teal);font-weight:700;text-decoration:none;margin:0 8px}
+  .byline{max-width:760px;margin:10px auto 0;padding:0 22px;font-size:.8rem;color:var(--olive);font-style:italic;text-align:center}
+  main{max-width:760px;margin:0 auto;padding:12px 22px 100px}
+  article h2{font-family:'Cormorant Garamond',serif;font-size:1.7rem;color:var(--rust);margin:34px 0 8px}
+  article h3{font-family:'Inter',sans-serif;font-size:1.02rem;color:var(--plum);margin:18px 0 6px;text-transform:uppercase;letter-spacing:.04em}
+  article p{margin:0 0 14px;font-size:1.04rem}
+  .lead{font-size:1.12rem;color:#33302a}
+  .swapline{margin:10px 0;padding:9px 13px;background:#fbf5e6;border:1px solid var(--line);border-radius:9px;font-size:.96rem;overflow:hidden}
+  .swapline b{color:var(--rust)} .swapline .pct{color:var(--teal);font-weight:800}
+  .mathbox{background:#efe6cf;border:1px solid var(--line);border-left:4px solid var(--teal);border-radius:10px;padding:14px 16px;margin:14px 0}
+  .mathbox table{border-collapse:collapse;width:100%;font-size:.95rem;margin:6px 0}
+  .mathbox td{padding:4px 8px;border-bottom:1px solid var(--line)}
+  .mathbox td:last-child{text-align:right;font-weight:800;color:var(--rust)}
+  .mathbox .tot td{border-bottom:none;border-top:2px solid var(--teal);font-weight:800}
+  .turns{background:#fbf5e6;border:1px solid var(--line);border-radius:10px;padding:6px 4px;margin:12px 0}
+  .turns table{border-collapse:collapse;width:100%;font-size:.94rem}
+  .turns td{padding:7px 11px;border-bottom:1px solid var(--line);vertical-align:top}
+  .turns td:first-child{font-weight:800;color:var(--teal);white-space:nowrap;width:1%}
+  .turns tr:last-child td{border-bottom:none}
+  .auditwrap{overflow-x:auto;margin:12px 0}
+  table.audit{border-collapse:collapse;width:100%;min-width:640px;font-size:.9rem;background:#fbf5e6;border:1px solid var(--line);border-radius:10px}
+  table.audit th{background:#efe6cf;color:var(--plum);text-align:left;padding:8px 10px;font-size:.78rem;text-transform:uppercase;letter-spacing:.03em}
+  table.audit td{padding:8px 10px;border-top:1px solid var(--line);vertical-align:top}
+  table.audit td:first-child{font-weight:800;color:var(--rust);white-space:nowrap}
+  .v{display:inline-block;padding:2px 9px;border-radius:20px;font-size:.76rem;font-weight:800;color:#fff}
+  .v-core{background:var(--teal)} .v-supported{background:var(--olive)} .v-situational{background:var(--gold)} .v-cut{background:var(--rust)}
+  .pull{border-left:4px solid var(--gold);padding:6px 0 6px 15px;margin:16px 0;font-family:'Cormorant Garamond',serif;font-size:1.35rem;color:#3f3b30}
+  .src{max-width:760px;margin:0 auto;padding:0 22px 96px;font-size:.82rem;color:var(--olive)}
+  .src a{color:var(--teal);font-weight:700}
+  .kid-only{display:none}
+  #kidfab{position:fixed;right:18px;bottom:18px;z-index:50;background:var(--rust);color:#fff;border:none;border-radius:40px;padding:14px 21px;font-size:1rem;font-weight:800;box-shadow:0 4px 14px rgba(0,0,0,.25);cursor:pointer}
+  body.kid{font-size:1.14rem}
+  body.kid .grown{display:none}
+  body.kid .kid-only{display:block}
+  body.kid .lead{font-size:1.18rem}
+  .toc{background:#efe6cf;border:1px solid var(--line);border-radius:10px;padding:9px 14px;margin:6px 0 18px;font-size:.86rem;line-height:1.9}
+  .toc summary{color:var(--plum);font-weight:800;cursor:pointer;list-style:none}
+  .toc summary::-webkit-details-marker{display:none}
+  .toc summary::before{content:"\25B8 ";color:var(--teal)}
+  .toc[open] summary::before{content:"\25BE "}
+  .toc .toclinks{margin-top:7px}
+  .toc a{color:var(--teal);font-weight:700;text-decoration:none;margin:0 12px 0 0;display:inline-block}
+  @media(max-width:560px){.toc a{white-space:normal;display:block;margin:3px 0}}
+  body.kid .toc{display:none}
+</style></head>
+<body>
+<header>
+  <h1>Human Torch: <span style="white-space:nowrap">The Table-Wide Burn</span></h1>
+  <div class="sub grown">The Fantastic Four hothead does not pick one target, he hits everyone. Cast a noncreature spell and he flies with double strike and haste. Pay four colors on the swing and his combat damage copies to every other opponent. A small body burns the whole table.</div>
+  <div class="sub kid-only">Human Torch is a fast attacker. Cast a noncreature spell and he gains flying, double strike, and haste. When he attacks and you pay four colors, the damage he deals to one opponent also hits every other opponent. So he burns the whole table at once.</div>
+  <div class="nav"><a href="/marvel-commander-guides/">Guides hub</a> &middot; <a href="/mister-fantastic-deck-tech/">Mister Fantastic deck tech</a> &middot; <a href="/the-thing-deck-tech/">The Thing deck tech</a> &middot; <a href="/marvel-commander-rankings/">Marvel rankings</a></div>
+</header>
+<p class="byline">This Human Torch deck tech is inspired by Salubrious Snail's published deckbuilding framework. Human Torch's oracle text and color identity are from Scryfall (Marvel Super Heroes Commander, read 2026-07-14); the Fantastic Four shell and inclusion figures come from the EDHREC Fantastic Four pages. Not authored or endorsed by Salubrious Snail or EDHREC.</p>
+<main>
+<article>
+<details class="toc" aria-label="Contents"><summary>On this page (7 destinations)</summary><div class="toclinks"><a href="#the-engine">The engine</a><a href="#burn-math">Burn math</a><a href="#the-tax">The four-color tax</a><a href="#power">Power and protection</a><a href="#dead-draw-audit">Dead Draw Audit</a><a href="#construction-audit">Construction audit</a><a href="#the-shell">The shell</a></div></details>
+
+<p class="lead grown">Human Torch costs {3}{R}, a 3/2 whose color identity is all four of white, blue, red, and green, earned through his attack ability. He has two abilities that turn one attacker into a table-wide threat. At the beginning of combat, if you have cast a noncreature spell this turn, he gains flying, double strike, and haste. And whenever he attacks, you may pay one red, one green, one white, and one blue, and for the rest of the turn, each time he deals combat damage to an opponent he deals that much to each other opponent. He is a Fantastic Four alt, and read on his own he is a four-color spellslinger that ends a multiplayer game from a small evasive body by copying its damage across the whole table.</p>
+<p class="lead kid-only">Human Torch is a 3/2 that costs four mana. Cast a noncreature spell and he flies, hits twice with double strike, and can attack right away. When he attacks and you pay four colors, the damage he does to one opponent is also dealt to every other opponent. So a small creature burns everyone.</p>
+
+<h2 id="the-engine">The engine, one attacker hits everyone</h2>
+<p class="grown">Human Torch stacks two effects that most decks pay a premium for. The first hands him flying, double strike, and haste on any turn you cast a noncreature spell, so he comes down and connects the same turn, hits twice, and dodges most blockers. The second copies his combat damage to each other opponent, which turns a single evasive swing into damage on the entire table. Double strike matters twice over here, since each of its two combat-damage steps triggers the copy, so a small body sprays the pod.</p>
+<p class="grown">This makes the build a symmetric burn plan rather than a single-target beatdown. The Torch does not need to be large, since the copy and the double strike multiply whatever power he has across every opponent at once. The deck casts a cheap noncreature spell to turn on the keywords, holds four colors for the copy, and points a modest attacker at the closest life total to drain them all.</p>
+<p class="kid-only">Two things make the Torch scary: he flies and hits twice, and his damage copies to every opponent. Because double strike hits twice, the copy happens twice too, so even a small attacker hurts the whole table. Cast a spell to turn on his keywords, pay four colors, and burn everyone.</p>
+
+<h2 id="burn-math">The burn math, each point hits everyone</h2>
+<p class="grown">With double strike, a power of X deals X twice to the opponent he attacks, and the copy sends each of those hits to every other opponent, so each opponent takes two times X per attack. In a four-player game that is two times X to all three at once. The table reads the per-opponent damage and how many swings drop one player from forty, which is also roughly the clock on the whole pod, since everyone takes the same hit.</p>
+<div class="mathbox grown">
+  <table>
+    <tr><td style="color:var(--plum)">Power</td><td>Per opponent</td><td>Across a 3-opponent table</td><td>Swings to drop a 40</td></tr>
+    <tr><td>3 (printed)</td><td>6</td><td>18</td><td>7</td></tr>
+    <tr><td>6</td><td>12</td><td>36</td><td>4</td></tr>
+    <tr><td>10</td><td>20</td><td>60</td><td>2</td></tr>
+    <tr class="tot"><td>20</td><td>40</td><td>120</td><td>1</td></tr>
+  </table>
+</div>
+<p class="grown">Read every point of power as six damage across the table, since double strike doubles it and the copy spreads it to three opponents. That is the most efficient pump in the box: a single plus three aura on the Torch adds eighteen table damage per swing. The construction takeaway is to grow the Torch a little and swing often, since power is worth triple here and the copy makes chip damage lethal to everyone at once.</p>
+<p class="kid-only">Every point of power is worth 6 damage across a three-opponent table, because double strike doubles it and the copy spreads it. So even a small pump on the Torch is huge. Grow him a little and attack a lot.</p>
+
+<h2 id="the-tax">The four-color tax</h2>
+<p class="grown">The copy costs one mana of every color except black, one red, one green, one white, and one blue, on every attack you want it. That is the price of turning one swing into table-wide damage, and it sets the same construction rule the other Fantastic Four commanders share: the mana base has to make all four colors on demand, every turn, on top of casting a noncreature spell. Fixing lands, four-color rocks, and mana creatures are the spine of the deck, since a turn without four colors is a swing that hits only one player.</p>
+<p class="grown">The upside is that the keywords still land without the payment, so a short turn still gives you an evasive double striker that pressures one opponent. The build wants enough fixing that the copy is available on the turns the board is set, and enough ramp that paying it leaves mana for the noncreature spell that turns on the keywords. Fixing and the noncreature package are the two halves that keep the burn table-wide.</p>
+<p class="kid-only">The copy needs one red, one green, one white, and one blue every attack. So the deck needs really good four-color mana. Without four colors he still flies and hits twice, but only one opponent takes the damage, so run lots of fixing.</p>
+
+<h2 id="power">Power and protection</h2>
+<p class="grown">Because each point of power is worth so much, cheap pumps do more here than on a normal beater. Auras and Equipment that add a few power turn the Torch into a table-wide clock, and anything granting extra combat steps or extra damage compounds with the copy. The other side is that he is a 3/2 who only gains his keywords on your combat, so he is fragile on other turns. A little protection keeps the plan alive: hexproof or a saved recast means a removal spell does not cost you the whole engine.</p>
+<p class="kid-only">Small power boosts on the Torch are worth a lot, so auras and equipment are great. But he is only a 3/2, so keep a little protection like hexproof so he does not get removed before he swings.</p>
+
+<h2 id="dead-draw-audit">Dead Draw Audit</h2>
+<p class="grown">Snail's method scores a card by how often it does its job and whether it earns its slot with the commander gone. Here are five cards through that lens, with the copy and its tax deciding the close calls.</p>
+<div class="auditwrap grown">
+<table class="audit">
+  <caption style="text-align:left;font-size:.82rem;color:var(--olive);padding:6px 10px;font-style:italic">Dead Draw Audit: five cards scored on job, support, solo value, and verdict.</caption>
+  <tr><th scope="col">Card</th><th scope="col">Primary job</th><th>Support in the 99</th><th>Value without Human Torch</th><th>Verdict</th></tr>
+  <tr><td>A cheap noncreature cantrip</td><td>Turns on the keywords and replaces itself</td><td>Very high, the keyword engine</td><td>Good, card flow anywhere</td><td><span class="v v-core">core</span></td></tr>
+  <tr><td>A four-color fixing land or rock</td><td>Pays the {R}{G}{W}{U} copy tax</td><td>High, every table-wide turn</td><td>Fixes mana in any four-color deck</td><td><span class="v v-core">core</span></td></tr>
+  <tr><td>A cheap power aura or Equipment</td><td>Each point is six table damage a swing</td><td>High, the copy multiplies it</td><td>Good on any attacker</td><td><span class="v v-core">core</span></td></tr>
+  <tr><td>Extra combat or extra damage effect</td><td>More swings or more copied damage</td><td>Medium, compounds the copy</td><td>Situational alone</td><td><span class="v v-supported">supported</span></td></tr>
+  <tr><td>A colorless-only ramp rock</td><td>Ramp, but adds no color for the tax</td><td>Low, does not pay the copy</td><td>Ramps in any deck</td><td><span class="v v-situational">situational</span></td></tr>
+</table>
+</div>
+<p class="grown">The power aura climbs to core, higher than on most decks, because the copy turns every point of power into damage on the whole pod. The colorless-only rock drops to situational for the same reason it does under the other four-color faces, since it skips the payment the deck is built to reach. Run every questioned card through job, support, solo value, and the four-color tax before it stays.</p>
+<p class="kid-only">This grades each card by what it does and whether it helps the Torch. Cheap spells, four-color fixing, and small power boosts are all core, since power is worth triple with the copy. Colorless-only ramp is weak, because it does not help pay the copy.</p>
+
+<h2 id="construction-audit">Beyond the Dead Draw Audit: the construction audit</h2>
+<p class="grown">The Dead Draw Audit scores single cards. This construction audit scores the whole ninety-nine on the burn's inputs. The first rule is a floor on noncreature spells that turn on the keywords, the second is a four-color base that pays the copy most turns, and the third is a package of cheap power and a little protection, since power is worth triple and the Torch is fragile off-combat.</p>
+<div class="turns grown">
+  <table>
+    <tr><td style="color:var(--plum)">Target</td><td>Count</td><td>Why</td></tr>
+    <tr><td>Noncreature spells</td><td>30-36</td><td>One a turn turns on flying, double strike, and haste</td></tr>
+    <tr><td>Four-color fixing</td><td>heavy</td><td>Lands, rocks, and dorks that pay {R}{G}{W}{U}</td></tr>
+    <tr><td>Cheap power boosts</td><td>8-10</td><td>Each point is six table damage with the copy</td></tr>
+    <tr><td>Protection for the Torch</td><td>5-7</td><td>Hexproof, recast, a saved swing</td></tr>
+    <tr><td>Interaction</td><td>8-10</td><td>Four-color removal and a reset</td></tr>
+    <tr><td>Lands</td><td>37-38</td><td>A four-color base slanted to fixing</td></tr>
+  </table>
+</div>
+<p class="grown">Read the noncreature count and the fixing as the two things that gate the plan, and the power and protection as the two that scale and shield it. Without a spell the keywords stop, without four colors the copy stops, without power the burn is slow, and without protection the Torch dies before it swings. Report three numbers when you tune the list, the noncreature spell count, the four-color source count, and the count of cheap power boosts. The honest measure is whether you can cast a spell, pay {R}{G}{W}{U}, and connect a boosted swing on the same turn.</p>
+<p class="grown">Every revision should hold the noncreature floor and the fixing first, then the power package. A new noncreature spell should also draw or interact, a new mana source should add a color the copy needs, and a new pump should be cheap enough to leave mana for the copy. Protection stays light but real, since a fragile finisher that never connects wins nothing. The deck spends its slots on spells, fixing, and cheap power, with a small guard on the one body that carries the burn.</p>
+<p class="pull grown">The Torch does not choose a target. Every point of his power is six damage across the table.</p>
+<p class="kid-only">To build the Torch: run 30 to 36 noncreature spells, heavy four-color fixing, 8 to 10 cheap power boosts, and 5 to 7 protection cards. Cast a spell, pay four colors, and swing with a boosted Torch to burn the whole table. Keep him alive so he can connect.</p>
+
+<h2 id="the-shell">The shell, a four-color Fantastic Four plan</h2>
+<p class="grown">Human Torch shares the four-color Fantastic Four base laid out on the <a href="/mister-fantastic-deck-tech/">Mister Fantastic deck tech</a>, since both reward casting a noncreature spell each turn, so the fixing and the spell package carry over. Where <a href="/crystal-inhuman-princess-deck-tech/">Crystal</a> pings for color count, <a href="/invisible-woman-deck-tech/">Invisible Woman</a> builds Walls, and <a href="/the-thing-deck-tech/">The Thing</a> doubles counters, Human Torch copies his combat damage to the whole table. Under him the shell adds cheap power auras and Equipment and a little protection on top of the shared spell and fixing base.</p>
+<p class="grown">The interaction and the card draw carry over from any four-color spellslinger list, so the build changes the payoff toward evasion and power. Cast a spell each turn to turn on the keywords, hold the four colors for the copy, and grow the Torch a little to make the table-wide burn lethal. Build toward the construction audit above, a deep noncreature package, a heavy four-color base, a cheap power suite, and enough protection that the one attacker survives to swing.</p>
+<p class="kid-only">The Torch uses the same four-color Fantastic Four deck as the Mister Fantastic page, so the fixing and spells are over there. He is the burn version: same spells, plus cheap power boosts and a little protection. Cast a spell, pay four colors, and burn the whole table with a boosted attacker.</p>
+
+</article>
+</main>
+
+<div class="src">
+  <p><b>Sources.</b> Human Torch oracle text and color identity via <a href="https://scryfall.com">Scryfall</a> (Marvel Super Heroes Commander, read 2026-07-14): {3}{R}, Legendary Creature Human Hero, 3/2, color identity white-blue-red-green; "At the beginning of combat on your turn, if you've cast a noncreature spell this turn, Human Torch gains flying, double strike, and haste until end of turn", and "Whenever Human Torch attacks, you may pay {R}{G}{W}{U}. If you do, until end of turn, whenever he deals combat damage to an opponent, he deals that much damage to each other opponent". The burn table is direct arithmetic: double strike deals a power of X twice, and each combat-damage instance copies to every other opponent, so each opponent takes two times X per attack, eighteen across three opponents at the printed power of three; each added point of power is six more across the table. The four-color Fantastic Four shell is on the <a href="/mister-fantastic-deck-tech/">Mister Fantastic deck tech</a>, the <a href="/crystal-inhuman-princess-deck-tech/">Crystal deck tech</a>, the <a href="/invisible-woman-deck-tech/">Invisible Woman deck tech</a>, and the <a href="/the-thing-deck-tech/">The Thing deck tech</a>; inclusion context is on the <a href="/salubrioussnail-marvel-edhrec/">EDHREC Marvel read</a> and the <a href="/marvel-commander-rankings/">Marvel rankings</a>. Inspired by Salubrious Snail's published framework; neither Salubrious Snail nor EDHREC authored or endorsed it.</p>
+</div>
+
+<button id="kidfab" onclick="toggleKid()" aria-pressed="false" aria-label="Toggle plain-language kid mode">Kid Mode</button>
+<script>
+function toggleKid(){var on=document.body.classList.toggle('kid');
+  var b=document.getElementById('kidfab');
+  b.textContent=on?'Normal Mode':'Kid Mode';
+  b.setAttribute('aria-pressed',on?'true':'false');}
+</script>
+</body>
+</html>
