@@ -110,7 +110,7 @@ body.kid{font-size:1.15rem} body.kid .quote,body.kid .read{font-size:1.08rem} bo
 <body>
 <header>
   <h1>How Chiron Reads Card Combinations</h1>
-  <div class="sub">Enter your cards. Get Chiron's recorded evidence for every card and every pair, in one place.</div>
+  <div class="sub">Enter your cards. For every card and every pair you get Chiron's recorded evidence, or a confirmed gap where the corpus has none.</div>
 </header>
 <div class="wrap">
   <div class="lead">
@@ -134,12 +134,15 @@ body.kid{font-size:1.15rem} body.kid .quote,body.kid .read{font-size:1.08rem} bo
       The current corpus is <b>unordered co-occurrence</b>. Forward and reverse of a pair return the same passages, so the page does not claim a first-position card reads differently from a second-position one. Genuine ordered syntax would require rebuilding the corpus from the transcripts with each card's position and timestamp retained. That rebuild is queued.
       <h4>Coverage</h4>
       This build indexes <b>2822 of the 3003 possible unordered pairs (94%)</b> across the 78 cards, from <b>26,169 combination passages</b>, about 9.3 per pair. A pair she was never recorded reading shows <b>&ldquo;No recorded Chiron pairing found&rdquo;</b> rather than an invented reading.
+      <h4>Preservation audit</h4>
+      An acceptance test (<code>audit.py</code>, shipped beside this page) checks that every corpus record reaches a rendered result. Result: <b>26,169 combination passages</b> (direct 1,892; sequence 7,334; clarifier 5,966; nearby 10,977), of which <b>16,991 are clean</b> and <b>9,178 are flagged</b> (fragment, negative, third-card, or near-duplicate). Plus <b>3,523 standalone card mentions</b>. Every passage is reachable through the pair's grouped "view all" list, every mention through each card's raw toggle, and <b>181 pairs are confirmed gaps</b> with no passage. <b>Unreachable records: 0.</b>
       <h4>The structural lens (Bunning)</h4>
       Each transition is classified by Joan Bunning's <i>Learning the Tarot</i>, Lesson 15, from card identity alone:
       <ul>
         <li><b>Permanent pair</b> &mdash; fixed opposites Bunning names, such as the Magician and the High Priestess.</li>
         <li><b>Court-card / Ace pair</b> &mdash; two courts or two Aces, a contrast of suit and rank.</li>
-        <li><b>Reinforcing pair</b> &mdash; two cards pushing the same energy (here, same suit).</li>
+        <li><b>Reinforcing pair</b> &mdash; only the pairs Bunning explicitly names as reinforcing (for example the Empress and Nine of Cups). Same suit alone does not qualify.</li>
+        <li><b>Same-suit comparison</b> &mdash; a neutral label for two cards of one suit that Bunning does not fix as reinforcing or opposing; their ranks decide whether they agree or pull apart.</li>
         <li><b>Occasional pair</b> &mdash; any two cards read together for one instance, no fixed opposition.</li>
       </ul>
     </div>
@@ -249,15 +252,17 @@ function clarMentions(a,b){const t=cheat(a).clarifier.toLowerCase();const vs=[b.
 const COURTS=["Page","Knight","Queen","King"];
 function parts(name){const m=name.match(/^(Ace|Two|Three|Four|Five|Six|Seven|Eight|Nine|Ten|Page|Knight|Queen|King) of (Cups|Wands|Swords|Pentacles)$/);return m?{rank:m[1],suit:m[2],major:false}:{major:true,name};}
 const PERM=[["The Magician","The High Priestess"],["Eight of Swords","Four of Wands"]];
-function isPerm(a,b){return PERM.some(p=>(p[0]===a&&p[1]===b)||(p[1]===a&&p[0]===b));}
+const REINF=[["The Empress","Nine of Cups"]];
+const hasPair=(list,a,b)=>list.some(p=>(p[0]===a&&p[1]===b)||(p[1]===a&&p[0]===b));
 function structural(a,b){
-  if(isPerm(a,b)) return {k:"Permanent pair",g:"Bunning names these two as fixed opposites. Read them as the poles of one balance."};
+  if(hasPair(PERM,a,b)) return {k:"Permanent pair",g:"Bunning names these two as fixed opposites. Read them as the poles of one balance."};
+  if(hasPair(REINF,a,b)) return {k:"Reinforcing pair",g:"Bunning names these two as reinforcing, both pushing the same energy."};
   const pa=parts(a),pb=parts(b),ct=r=>COURTS.includes(r);
   if(!pa.major&&!pb.major){
     if((pa.rank==="Ace"&&pb.rank==="Ace")||(ct(pa.rank)&&ct(pb.rank)))
       return {k:"Court-card / Ace pair",g:"Bunning reads two courts or two Aces as a contrast of suit and rank, one style set against another."};
     if(pa.suit===pb.suit)
-      return {k:"Reinforcing pair",g:"Same suit, so Bunning would have the two energies compound rather than oppose each other."};
+      return {k:"Same-suit comparison",g:"Both cards share the "+pa.suit+" suit, so they work the same element. Whether they reinforce or pull against each other depends on their ranks; Bunning does not fix this pair either way."};
   }
   return {k:"Occasional pair",g:"No fixed opposition. Bunning: any two cards can be read together for this one instance."};
 }
