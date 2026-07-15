@@ -6,10 +6,11 @@ A grounded guide collection for the four Marvel Super Heroes Commander precons (
 
 - **[Precon Rankings](/marvel-commander-rankings/)**: all four precons ranked with a full scoring breakdown, and a pop-out profile for every commander option in each deck.
 
-## Deck guides (10 commanders)
+## Deck guides (11 commanders)
 
 - **[T'Challa, the Black Panther](/tchalla-black-panther-deck-tech/)** (Wakanda Forever): the Wakanda precon rebuilt as a self-fueling artifact voltron.
 - **[Shuri, the Black Panther](/shuri-black-panther-deck-tech/)** (Wakanda Forever): a construction audit built on two artifact thresholds, three to draw and six to pump the team.
+- **[Storm, Queen of Wakanda](/storm-queen-wakanda-deck-tech/)** (Wakanda Forever): a Selesnya flyer whose attack buff, flyer-punish, and clock all scale with one number, her own power.
 - **[Captain America, Team Leader](/captain-america-team-leader-deck-tech/)** (The Avengers): the Jeskai Avengers commander as a full 100-card build where every hero gets a counter.
 - **[Director Nick Fury](/director-nick-fury-deck-tech/)** (The Avengers): the same Avengers shell re-pointed as a grindy Hero-value engine, cost reduction plus an attack-triggered dig.
 - **[Doom Prevails](/doom-prevails-deck-tech/)** (Doom Prevails): a dead-draw audit of the precon, worked through card by card.
@@ -32,4 +33,4 @@ A grounded guide collection for the four Marvel Super Heroes Commander precons (
 
 ---
 
-Sixteen pages, all built from the real precon lists and verified against current Scryfall card text. Source on [GitHub](https://github.com/7onething1/7onething1.github.io).
+Seventeen pages, all built from the real precon lists and verified against current Scryfall card text. Source on [GitHub](https://github.com/7onething1/7onething1.github.io).

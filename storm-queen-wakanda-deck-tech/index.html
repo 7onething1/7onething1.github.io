@@ -1,0 +1,162 @@
+<!doctype html>
+<html lang="en"><head><meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Storm, Queen of Wakanda: The Power Lever</title>
+<meta name="description" content="A Snail-style deck tech for Storm, Queen of Wakanda, the Selesnya Wakanda Forever alt: the flying power-matters commander whose attack buff and flyer-punish both scale with her own power, with the power math, a target-attacker package, a dead-draw audit, a construction audit, and the shell.">
+<meta name="keywords" content="Storm Queen of Wakanda, power matters, flying, Selesnya, Wakanda Forever, Marvel Super Heroes Commander, +1/+1 counters, commander damage, deck tech, construction audit">
+<meta property="og:title" content="Storm, Queen of Wakanda: The Power Lever">
+<meta property="og:description" content="The Selesnya flyer whose attack buff and flyer-punish both scale with her own power, with the power math and a target-attacker package.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,500;0,600;0,700;1,600&family=Inter:wght@400;600;700;800&display=swap" rel="stylesheet">
+<style>
+  :root{--cream:#f4ecd8;--ink:#1c1a17;--rust:#b5533b;--teal:#3f7c78;--gold:#c98a2b;--olive:#7d7a3a;--line:#d9cdb0;--plum:#7b4b8a;}
+  *{box-sizing:border-box}
+  body{margin:0;background:var(--cream);color:var(--ink);font-family:'Inter',system-ui,-apple-system,Segoe UI,Roboto,sans-serif;line-height:1.62}
+  header{padding:46px 24px 10px;max-width:760px;margin:0 auto;text-align:center}
+  h1{font-family:'Cormorant Garamond',Georgia,serif;font-size:clamp(2rem,8vw,2.7rem);margin:.15em 0;color:var(--ink);line-height:1.1}
+  .sub{color:var(--olive);font-weight:600;max-width:640px;margin:8px auto 0}
+  .nav{margin:14px auto 0;font-size:.9rem}
+  .nav a{color:var(--teal);font-weight:700;text-decoration:none;margin:0 8px}
+  .byline{max-width:760px;margin:10px auto 0;padding:0 22px;font-size:.8rem;color:var(--olive);font-style:italic;text-align:center}
+  main{max-width:760px;margin:0 auto;padding:12px 22px 100px}
+  article h2{font-family:'Cormorant Garamond',serif;font-size:1.7rem;color:var(--rust);margin:34px 0 8px}
+  article h3{font-family:'Inter',sans-serif;font-size:1.02rem;color:var(--plum);margin:18px 0 6px;text-transform:uppercase;letter-spacing:.04em}
+  article p{margin:0 0 14px;font-size:1.04rem}
+  .lead{font-size:1.12rem;color:#33302a}
+  .swapline{margin:10px 0;padding:9px 13px;background:#fbf5e6;border:1px solid var(--line);border-radius:9px;font-size:.96rem;overflow:hidden}
+  .swapline b{color:var(--rust)} .swapline .pct{color:var(--teal);font-weight:800}
+  .mathbox{background:#efe6cf;border:1px solid var(--line);border-left:4px solid var(--teal);border-radius:10px;padding:14px 16px;margin:14px 0}
+  .mathbox table{border-collapse:collapse;width:100%;font-size:.95rem;margin:6px 0}
+  .mathbox td{padding:4px 8px;border-bottom:1px solid var(--line)}
+  .mathbox td:last-child{text-align:right;font-weight:800;color:var(--rust)}
+  .mathbox .tot td{border-bottom:none;border-top:2px solid var(--teal);font-weight:800}
+  .turns{background:#fbf5e6;border:1px solid var(--line);border-radius:10px;padding:6px 4px;margin:12px 0}
+  .turns table{border-collapse:collapse;width:100%;font-size:.94rem}
+  .turns td{padding:7px 11px;border-bottom:1px solid var(--line);vertical-align:top}
+  .turns td:first-child{font-weight:800;color:var(--teal);white-space:nowrap;width:1%}
+  .turns tr:last-child td{border-bottom:none}
+  .auditwrap{overflow-x:auto;margin:12px 0}
+  table.audit{border-collapse:collapse;width:100%;min-width:640px;font-size:.9rem;background:#fbf5e6;border:1px solid var(--line);border-radius:10px}
+  table.audit th{background:#efe6cf;color:var(--plum);text-align:left;padding:8px 10px;font-size:.78rem;text-transform:uppercase;letter-spacing:.03em}
+  table.audit td{padding:8px 10px;border-top:1px solid var(--line);vertical-align:top}
+  table.audit td:first-child{font-weight:800;color:var(--rust);white-space:nowrap}
+  .v{display:inline-block;padding:2px 9px;border-radius:20px;font-size:.76rem;font-weight:800;color:#fff}
+  .v-core{background:var(--teal)} .v-supported{background:var(--olive)} .v-situational{background:var(--gold)} .v-cut{background:var(--rust)}
+  .pull{border-left:4px solid var(--gold);padding:6px 0 6px 15px;margin:16px 0;font-family:'Cormorant Garamond',serif;font-size:1.35rem;color:#3f3b30}
+  .src{max-width:760px;margin:0 auto;padding:0 22px 96px;font-size:.82rem;color:var(--olive)}
+  .src a{color:var(--teal);font-weight:700}
+  .kid-only{display:none}
+  #kidfab{position:fixed;right:18px;bottom:18px;z-index:50;background:var(--rust);color:#fff;border:none;border-radius:40px;padding:14px 21px;font-size:1rem;font-weight:800;box-shadow:0 4px 14px rgba(0,0,0,.25);cursor:pointer}
+  body.kid{font-size:1.14rem}
+  body.kid .grown{display:none}
+  body.kid .kid-only{display:block}
+  body.kid .lead{font-size:1.18rem}
+  .toc{background:#efe6cf;border:1px solid var(--line);border-radius:10px;padding:9px 14px;margin:6px 0 18px;font-size:.86rem;line-height:1.9}
+  .toc summary{color:var(--plum);font-weight:800;cursor:pointer;list-style:none}
+  .toc summary::-webkit-details-marker{display:none}
+  .toc summary::before{content:"\25B8 ";color:var(--teal)}
+  .toc[open] summary::before{content:"\25BE "}
+  .toc .toclinks{margin-top:7px}
+  .toc a{color:var(--teal);font-weight:700;text-decoration:none;margin:0 12px 0 0;display:inline-block}
+  @media(max-width:560px){.toc a{white-space:normal;display:block;margin:3px 0}}
+  body.kid .toc{display:none}
+</style></head>
+<body>
+<header>
+  <h1>Storm, Queen of Wakanda: <span style="white-space:nowrap">The Power Lever</span></h1>
+  <div class="sub grown">The Wakanda flyer scales off one number, her own power. On attack she hands another attacker flying and a boost equal to her power, and she strikes down any flyer that comes at you. Raise Storm's power and every part of her grows at once.</div>
+  <div class="sub kid-only">Storm is a flying Wakanda hero. When she attacks, she gives another one of your attackers flying and makes it bigger by her power. She also zaps enemy flyers that attack you. The bigger Storm's power, the stronger all of this becomes.</div>
+  <div class="nav"><a href="/marvel-commander-guides/">Guides hub</a> &middot; <a href="/tchalla-black-panther-deck-tech/">T'Challa deck tech</a> &middot; <a href="/shuri-black-panther-deck-tech/">Shuri deck tech</a> &middot; <a href="/marvel-commander-rankings/">Marvel rankings</a></div>
+</header>
+<p class="byline">This Storm, Queen of Wakanda deck tech is inspired by Salubrious Snail's published deckbuilding framework. Storm's oracle text and color identity are from Scryfall (Marvel Super Heroes Commander, read 2026-07-14); the Wakanda shell and inclusion figures come from the EDHREC Wakanda pages. Not authored or endorsed by Salubrious Snail or EDHREC.</p>
+<main>
+<article>
+<details class="toc" aria-label="Contents"><summary>On this page (7 destinations)</summary><div class="toclinks"><a href="#the-engine">The engine</a><a href="#power-math">Power math</a><a href="#targets">Buff targets</a><a href="#defense">Flyer punish</a><a href="#dead-draw-audit">Dead Draw Audit</a><a href="#construction-audit">Construction audit</a><a href="#the-shell">The shell</a></div></details>
+
+<p class="lead grown">Storm, Queen of Wakanda costs {3}{G}{W}, a 4/5 Selesnya flyer with three abilities that all read off her power. She flies. When she attacks, another target attacking creature gains flying and gets plus X and zero, where X is Storm's power. And whenever a creature with flying attacks you, Storm deals damage equal to her power to it. She is a Wakanda Forever alt, and read on her own she is a green-white flyers deck that pours every buff into one commander and lets that single number do the offense, the evasion handoff, and the air defense at the same time.</p>
+<p class="lead kid-only">Storm costs five mana and is a 4/5 flyer. On attack she gives another attacker flying and adds her power to it. She also deals her power to enemy flyers that attack you. All three powers use her power number, so the deck is about making Storm as big as possible.</p>
+
+<h2 id="the-engine">The engine, one number three ways</h2>
+<p class="grown">Storm turns her own power into three effects. On offense, her attack trigger takes a second creature and adds her power to it and grants flying, so one pump on Storm becomes two evasive threats in the air. On defense, her third ability deals her power to any flyer that attacks you, which turns her into a repeatable answer to the decks that come from above. And her own body is a flyer, so her power is also a clock in the air toward commander damage. Every point you add to Storm improves all three at once.</p>
+<p class="grown">That is the whole build insight. Most creature decks spread their buffs across a wide board and hope enough of it connects. Storm asks the opposite: concentrate the buffs on the commander, because her power is the multiplier on offense, defense, and the handoff. A wide anthem still helps the team, and a counter or aura on Storm helps three abilities on one card.</p>
+<p class="kid-only">Storm uses her power three ways: to make another attacker bigger, to zap enemy flyers, and as her own attack damage in the air. So instead of spreading pumps across your whole team, stack them on Storm and all three powers get stronger together.</p>
+
+<h2 id="power-math">The power lever</h2>
+<p class="grown">X is Storm's power, so raising it raises the buff she hands out, the damage she deals to attacking flyers, and her own air clock together. At her printed 4 she turns a small attacker into a real threat and closes commander damage in six swings. Pump her to 8 and the handoff is plus eight, the flyer punish is a removal spell, and her own clock drops to three connects. The table below is the single most useful read for the build.</p>
+<div class="mathbox grown">
+  <table>
+    <tr><td style="color:var(--plum)">Storm power</td><td>Buff to another attacker</td><td>Flyer punish</td><td>Swings to 21</td></tr>
+    <tr><td>4 (printed)</td><td>plus 4</td><td>4</td><td>6</td></tr>
+    <tr><td>6</td><td>plus 6</td><td>6</td><td>4</td></tr>
+    <tr><td>8</td><td>plus 8</td><td>8</td><td>3</td></tr>
+    <tr class="tot"><td>10</td><td>plus 10</td><td>10</td><td>3</td></tr>
+  </table>
+</div>
+<p class="grown">Read the buff column as a second threat and the punish column as removal, both priced in one stat. At power 4 the handoff turns a 3/3 into a 7/3 flyer. At power 8 it turns the same 3/3 into an 11/3 flyer. The construction takeaway is direct: counters, anthems that touch Storm, auras, and Equipment are the engine, because each point of power is worth a point of handoff, a point of air defense, and a faster commander-damage clock.</p>
+<p class="kid-only">The bigger Storm's power, the bigger the buff she hands out, the harder she zaps enemy flyers, and the fewer swings to win with commander damage. At power 4 she needs six hits; at power 8, three. So pile counters, auras, and equipment onto Storm.</p>
+
+<h2 id="targets">The buff targets, who gets the handoff</h2>
+<p class="grown">Storm's attack trigger needs a second attacker worth the plus X and zero, so the build wants creatures that convert a big power boost into more than one hit of damage. Trample carries the extra power past a chump block. Double strike doubles the whole boosted number. A combat-damage trigger turns the handoff into card draw or removal. The ideal target is a cheap creature with one of those keywords that costs little and profits hugely from an eight-point swing.</p>
+<p class="grown">The trigger grants flying on its own, so the target does not need evasion already, which widens the pool to ground creatures that otherwise would not connect. What it should not be is a creature that wastes the extra power, a lone vanilla body with no trample gives back most of the boost to a blocker. Keep a handful of trample and double-strike bodies so Storm always has a worthy second attacker on her swing.</p>
+<p class="kid-only">Storm's attack buff should go to a creature that uses the extra power well: trample gets the damage past blockers, double strike doubles it, and a hit-trigger turns it into cards or removal. Since she also grants flying, even a ground creature works as the target.</p>
+
+<h2 id="defense">The flyer punish, a free removal spell</h2>
+<p class="grown">Storm's third ability deals her power to any creature with flying that attacks you, which is a repeatable removal effect the deck gets for free. Against a fliers deck it is a wall that kills on contact, and its size grows with the same power boosts that fuel the offense. It rewards the same construction, since a Storm at power 8 clears most attacking flyers outright, and a printed Storm at power 4 trades with the smaller ones. The ability points every power boost at both halves of the game, the beatdown and the defense.</p>
+<p class="kid-only">Storm also punishes enemy flyers: when one attacks you, she deals her power to it. That is free removal that gets bigger as Storm grows, so the same pumps protect you and win the game.</p>
+
+<h2 id="dead-draw-audit">Dead Draw Audit</h2>
+<p class="grown">Snail's method scores a card by how often it does its job and whether it earns its slot with the commander gone. Here are five cards through that lens, with the power-lever read deciding the close calls.</p>
+<div class="auditwrap grown">
+<table class="audit">
+  <caption style="text-align:left;font-size:.82rem;color:var(--olive);padding:6px 10px;font-style:italic">Dead Draw Audit: five cards scored on job, support, solo value, and verdict.</caption>
+  <tr><th scope="col">Card</th><th scope="col">Primary job</th><th>Support in the 99</th><th>Value without Storm</th><th>Verdict</th></tr>
+  <tr><td>A repeatable +1/+1 counter source on Storm</td><td>Raises the power that fuels all three abilities</td><td>Very high, every Storm ability</td><td>Some, it grows any creature</td><td><span class="v v-core">core</span></td></tr>
+  <tr><td>A cheap trample or double-strike attacker</td><td>Turns the plus X handoff into real damage</td><td>High, the attack trigger each turn</td><td>Good, an evasive beater on its own</td><td><span class="v v-core">core</span></td></tr>
+  <tr><td>Protective Equipment (hexproof or indestructible)</td><td>Keeps Storm alive and adds power</td><td>High, protects the whole plan</td><td>Good on any commander</td><td><span class="v v-supported">supported</span></td></tr>
+  <tr><td>A team-wide anthem</td><td>Adds one power to Storm and the board</td><td>Medium, one point to the lever</td><td>Good, buffs the team</td><td><span class="v v-supported">supported</span></td></tr>
+  <tr><td>A vanilla ground beater with no evasion</td><td>A body only</td><td>Low, wastes the handoff to a blocker</td><td>Depends on its stats</td><td><span class="v v-situational">situational</span></td></tr>
+</table>
+</div>
+<p class="grown">The vanilla beater drops to situational because it gives most of an eight-point handoff back to a blocker, where a trampler or a double striker banks it. Protective Equipment climbs, since a commander that carries every buff is the first target for removal, and losing Storm resets the whole plan. Run every questioned card through job, support, solo value, and the power lever before it stays.</p>
+<p class="kid-only">This grades each card by its job and whether it helps Storm. Counters and protective equipment on Storm are best because they feed all three of her powers and keep her alive. A plain creature with no trample or flying is weak, because it wastes the big buff on a blocker.</p>
+
+<h2 id="construction-audit">Beyond the Dead Draw Audit: the construction audit</h2>
+<p class="grown">The Dead Draw Audit scores single cards. This construction audit scores the whole ninety-nine on the power lever and its support. The first rule is a floor on effects that raise Storm's power, the second is a package of worthy buff targets, and the third is protection, since the deck folds its resources into one commander and a removal spell on Storm undoes the turn.</p>
+<div class="turns grown">
+  <table>
+    <tr><td style="color:var(--plum)">Target</td><td>Count</td><td>Why</td></tr>
+    <tr><td>Power boosts that touch Storm</td><td>12-15</td><td>Counters, auras, Equipment, anthems, the whole lever</td></tr>
+    <tr><td>Worthy buff targets</td><td>10-12</td><td>Trample, double strike, or combat-damage triggers</td></tr>
+    <tr><td>Protection for Storm</td><td>5-7</td><td>Hexproof, indestructible, protection, recast value</td></tr>
+    <tr><td>Interaction</td><td>8-10</td><td>Green-white removal and a reset to reach the swing</td></tr>
+    <tr><td>Ramp</td><td>7-9</td><td>Reach five mana and the pump suite early</td></tr>
+    <tr><td>Lands</td><td>36-37</td><td>A clean two-color Selesnya base</td></tr>
+  </table>
+</div>
+<p class="grown">Read the power boosts and the buff targets as one system with two halves. The boosts make the lever tall, and the targets turn the handoff into damage, so a deck heavy on one and light on the other stalls. Report two numbers when you tune the list, the count of power boosts that reach Storm and the count of trample or double-strike targets. A build that piles counters on Storm with no worthy second attacker wastes her best trigger, and a wide creature deck with no way to grow Storm leaves her abilities small. The honest measure is Storm's realistic mid-game power and whether a good target is on the board when she swings.</p>
+<p class="grown">Every revision should hold the two floors and the protection count first. A new power boost should replace a weaker boost or a spare slot, ideally one that also protects Storm or draws a card. A new creature should earn its slot as a buff target through trample, double strike, or a hit trigger, or as its own evasive threat. Protection is the tax the deck pays for stacking value on one body, and it should not be cut for a fifteenth anthem.</p>
+<p class="pull grown">Storm is one number pointed three ways. Raise her power and the offense, the defense, and the clock all grow together.</p>
+<p class="kid-only">To build Storm: run 12 to 15 ways to raise her power, 10 to 12 creatures worth buffing (trample or double strike), and 5 to 7 protection cards so she survives removal. Do not stack all counters with no target to buff, and do not go wide with no way to grow Storm.</p>
+
+<h2 id="the-shell">The shell, a Selesnya flyers plan</h2>
+<p class="grown">Storm is a legal Wakanda Forever commander in green and white, and she wants a different ninety-nine from the artifact plans on the <a href="/tchalla-black-panther-deck-tech/">T'Challa</a> and <a href="/shuri-black-panther-deck-tech/">Shuri</a> pages. Where those lean on artifact count, Storm leans on creature power and evasion. The shell is a green-white midrange creature deck built around counters, protective Equipment, and a spine of trample and double-strike attackers, with the mana fixing and removal that green and white provide. The monarch and Equipment sub-themes the Wakanda box already runs fit Storm well, since both keep her attacking and keep cards flowing.</p>
+<p class="grown">The interaction and the ramp carry over from any Selesnya midrange list, so the build only changes the payoff. Point the buffs at Storm, keep a bench of worthy targets, and protect the commander that holds the plan. Build toward the construction audit above, a tall power lever, a package of trample and double-strike bodies, and enough protection that a single removal spell does not reset the game.</p>
+<p class="kid-only">Storm wants a different deck from T'Challa and Shuri, who care about artifacts. She wants creatures, counters, and protective equipment in green and white. Use the Wakanda box's monarch and equipment pieces, point the pumps at Storm, and keep some big trampling creatures to buff.</p>
+
+</article>
+</main>
+
+<div class="src">
+  <p><b>Sources.</b> Storm, Queen of Wakanda oracle text and color identity via <a href="https://scryfall.com">Scryfall</a> (Marvel Super Heroes Commander, read 2026-07-14): {3}{G}{W}, Legendary Creature Mutant Noble Hero, 4/5, color identity Selesnya (green-white); "Flying", "Whenever Storm attacks, until end of turn, another target attacking creature gains flying and gets +X/+0, where X is Storm's power", and "Whenever a creature with flying attacks you, Storm deals damage equal to her power to that creature". The power table is direct arithmetic: the buff and the flyer punish equal Storm's power, and the swings-to-21 column divides 21 commander damage by her power and rounds up. The Wakanda shell and the artifact plans are on the <a href="/tchalla-black-panther-deck-tech/">T'Challa</a> and <a href="/shuri-black-panther-deck-tech/">Shuri</a> deck techs; inclusion context is on the <a href="/salubrioussnail-marvel-edhrec/">EDHREC Marvel read</a> and the <a href="/marvel-commander-rankings/">Marvel rankings</a>. Inspired by Salubrious Snail's published framework; neither Salubrious Snail nor EDHREC authored or endorsed it.</p>
+</div>
+
+<button id="kidfab" onclick="toggleKid()" aria-pressed="false" aria-label="Toggle plain-language kid mode">Kid Mode</button>
+<script>
+function toggleKid(){var on=document.body.classList.toggle('kid');
+  var b=document.getElementById('kidfab');
+  b.textContent=on?'Normal Mode':'Kid Mode';
+  b.setAttribute('aria-pressed',on?'true':'false');}
+</script>
+</body>
+</html>
