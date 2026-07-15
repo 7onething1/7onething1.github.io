@@ -89,37 +89,41 @@ select.tbtn{-webkit-appearance:none;appearance:none;padding-right:12px}
 .blockpartner:active{box-shadow:0 0 0;filter:brightness(.92)}
 .panels{display:grid;grid-template-columns:1fr;gap:16px}
 @media(min-width:760px){ .panels{grid-template-columns:repeat(auto-fit,minmax(340px,1fr));align-items:start} .wrap{max-width:1200px} }
-/* ---- 4-player QUAD on phones: 2x2 grid, compact but every button stays big-tap ---- */
-@media(max-width:759px){
-  .panels.q4{grid-template-columns:1fr 1fr;gap:8px;align-items:start}
-  .panels.q4 .panel{padding:8px 7px 9px;border-width:3px;border-radius:11px}
-  .panels.q4 .cnum{font-size:15px}
-  .panels.q4 .corner{border-top-width:34px;border-left-width:34px}
-  .panels.q4 .namerow{gap:6px;margin-bottom:2px}
-  .panels.q4 .avatar{width:38px;height:38px;border-width:2px;box-shadow:2px 2px 0 var(--ink)}
-  .panels.q4 .pname{font-size:20px}
-  .panels.q4 .cmdrs{gap:4px}
-  .panels.q4 .cmdr{min-width:0;font-size:11px;padding:4px 6px}
-  .panels.q4 .addpartner,.panels.q4 .rmpartner{font-size:10px;padding:5px 6px}
-  .panels.q4 .lifebox{flex-direction:column;gap:6px}
-  .panels.q4 .lifeplate{padding:0 6px 2px}
-  .panels.q4 .life{font-size:46px;-webkit-text-stroke:1.5px var(--ink)}
-  .panels.q4 .lifebtns{flex:none;grid-template-columns:1fr 1fr;gap:6px}
-  .panels.q4 .lb{font-size:22px;min-height:50px;border-width:2px}
-  .panels.q4 .cmdsec{margin-top:7px;padding-top:6px}
-  .panels.q4 .cmdtitle{font-size:10.5px;margin-bottom:5px}
-  .panels.q4 .cmdrow{padding:5px 6px}
-  .panels.q4 .cmdname{font-size:11px}
-  .panels.q4 .cmdval{font-size:20px}
-  .panels.q4 .cmdbtns{grid-template-columns:1fr 1fr;gap:5px}
-  .panels.q4 .cb{min-height:50px;font-size:20px}
-  .panels.q4 .cbclear{grid-column:1 / -1;min-height:40px}
-  .panels.q4 .counters{flex-direction:column;gap:6px}
-  .panels.q4 .pbtn{width:44px;min-height:44px}
-  .panels.q4 .panel{min-width:0}
-  .panels.q4 .cmdname{overflow:hidden;text-overflow:ellipsis;white-space:nowrap}
-  .panels.q4 .blockpartner{font-size:9.5px;padding:6px 4px;letter-spacing:0}
-}
+/* ---- 4-player QUAD: all four panels sit on ONE row at EVERY width and device, so Ben,
+   Brandon, Lisa and Misha are always side by side. Sizes use clamp() so the panels stay
+   compact and tappable on a phone and grow on a wider screen. Not gated behind any class. ---- */
+.panels.q4{grid-template-columns:repeat(4,1fr)!important;gap:6px;align-items:start}
+.panels.q4 .panel{padding:7px 5px 8px;border-width:3px;border-radius:10px;min-width:0}
+.panels.q4 .cnum{font-size:13px;top:2px;right:5px}
+.panels.q4 .corner{border-top-width:26px;border-left-width:26px}
+.panels.q4 .namerow{gap:4px;margin-bottom:2px;flex-direction:column;align-items:flex-start}
+.panels.q4 .avatar{width:clamp(30px,3.6vw,52px);height:clamp(30px,3.6vw,52px);border-width:2px;box-shadow:2px 2px 0 var(--ink)}
+.panels.q4 .pname{font-size:clamp(16px,2.1vw,26px)}
+.panels.q4 .cmdrs{gap:3px}
+.panels.q4 .cmdr{min-width:0;font-size:clamp(10px,1.05vw,13px);padding:4px 6px}
+.panels.q4 .addpartner,.panels.q4 .rmpartner{font-size:clamp(9px,1vw,11px);padding:5px 6px}
+.panels.q4 .lifebox{flex-direction:column;gap:5px}
+.panels.q4 .lifeplate{padding:0 4px 2px}
+.panels.q4 .life{font-size:clamp(34px,6vw,88px);-webkit-text-stroke:1.5px var(--ink)}
+.panels.q4 .lifebtns{flex:none;grid-template-columns:1fr 1fr;gap:5px}
+.panels.q4 .lb{font-size:clamp(17px,1.8vw,26px);min-height:44px;border-width:2px}
+.panels.q4 .cmdsec{margin-top:6px;padding-top:5px}
+.panels.q4 .cmdtitle{font-size:clamp(9px,1vw,12px);margin-bottom:4px;letter-spacing:0}
+.panels.q4 .cmdrow{padding:4px 5px}
+.panels.q4 .cmdname{font-size:clamp(9.5px,1vw,13px);overflow:hidden;text-overflow:ellipsis;white-space:nowrap}
+.panels.q4 .cmini{width:16px;height:16px}
+.panels.q4 .cmdval{font-size:clamp(16px,1.7vw,24px)}
+.panels.q4 .cmdval small{font-size:9px}
+.panels.q4 .cmdbtns{grid-template-columns:1fr 1fr;gap:4px}
+.panels.q4 .cb{min-height:44px;font-size:clamp(16px,1.7vw,22px)}
+.panels.q4 .cbclear{grid-column:1 / -1;min-height:34px}
+.panels.q4 .counters{flex-direction:column;gap:5px}
+.panels.q4 .pbtn{width:clamp(36px,4vw,48px);min-height:40px;font-size:18px}
+.panels.q4 .blockpartner{font-size:clamp(8.5px,0.9vw,11px);padding:5px 4px;letter-spacing:0}
+/* The 📱 Mobile button squeezes gutters and tightens the row a touch more for small phones. */
+body.forcemob .wrap{max-width:100%;padding-left:4px;padding-right:4px}
+body.forcemob .panels.q4{gap:4px}
+body.forcemob .panels.q4 .panel{padding:6px 4px 7px}
 .panel{position:relative;border:4px solid var(--ink);border-radius:14px;padding:11px 12px 12px;
   box-shadow:var(--shadow);overflow:hidden;transition:transform .1s}
 .panel.p0{background:linear-gradient(160deg,#ffe0e4,#ffccd3)}
@@ -383,7 +387,9 @@ select.tbtn{-webkit-appearance:none;appearance:none;padding-right:12px}
       <button class="tbtn" data-action="dice">🎲 d20</button>
       <button class="tbtn" data-action="flip">🔄 Flip Top</button>
       <button class="tbtn" data-action="sound">🔊</button>
+      <button class="tbtn" data-action="mobile" id="mobileBtn">📱 Mobile</button>
       <button class="tbtn" data-action="logtoggle">📜 Log</button>
+      <a class="tbtn" href="/commander-jukebox" style="display:inline-flex;align-items:center;text-decoration:none;background:var(--p1);color:#fff">🎵 Jukebox</a>
     </div>
   </header>
 
@@ -401,7 +407,7 @@ select.tbtn{-webkit-appearance:none;appearance:none;padding-right:12px}
 
   <div class="log" id="log"><h3>Game Log</h3><ul id="loglist"></ul></div>
 
-  <p class="footnote">Rules: 21 combat damage from a single commander = K.O. · 10 poison = out · commander damage starts at 0 and counts up to 21 (21 = K.O.) · 2 / 3 / 4 players · <a href="../commander-toolbox">Toolbox</a><br><span style="opacity:.7">build 2026-07-10c · release-confirmed taps · quad · commander-damage: + adds damage &amp; drops life</span></p>
+  <p class="footnote">Rules: 21 combat damage from a single commander = K.O. · 10 poison = out · commander damage starts at 0 and counts up to 21 (21 = K.O.) · 2 / 3 / 4 players · <a href="../commander-toolbox">Toolbox</a> · <a href="/commander-jukebox">🎵 Jukebox</a><br><span style="opacity:.7">build 2026-07-10c · release-confirmed taps · quad · commander-damage: + adds damage &amp; drops life</span></p>
 </div>
 
 <!-- KO fullscreen burst -->
@@ -727,6 +733,7 @@ function render(){
   document.getElementById("startsel").value = String(state.startingLife);
   const wrap = document.getElementById("panels");
   wrap.className = "panels q" + state.players.length;
+  document.body.classList.toggle("forcemob", !!state.compact);
   wrap.innerHTML = state.players.map((p,i)=>panelHTML(p,i)).join("");
   // dynamic title from live player names
   const h1 = document.getElementById("h1");
@@ -743,6 +750,7 @@ function render(){
   renderLog();
   document.querySelector('[data-action="sound"]').textContent = state.sound ? "🔊" : "🔇";
   document.querySelector('[data-action="flip"]').classList.toggle("on", state.flip);
+  const mb=document.getElementById("mobileBtn"); if(mb) mb.classList.toggle("on", !!state.compact);
   document.querySelectorAll('[data-action="count"]').forEach(b=>{
     b.classList.toggle("on", parseInt(b.dataset.n,10)===state.players.length);
   });
@@ -913,6 +921,7 @@ function actFromEl(t){
       askConfirm("Start a new game? Life and damage reset.", ()=>newGame());
       break;
     case "flip": state.flip=!state.flip; save(); render(); break;
+    case "mobile": state.compact=!state.compact; save(); render(); break;
     case "sound": state.sound=!state.sound; if(state.sound) SFX.click(); save(); render(); break;
     case "logtoggle": document.getElementById("log").classList.toggle("show"); break;
     case "coin": showModal("Coin Flip", Math.random()<0.5?"HEADS":"TAILS"); break;
@@ -1020,6 +1029,9 @@ window.toggleKid = toggleKid;
 
 /* boot */
 render();
+/* re-render when the phone-width breakpoint is crossed so 4-up flips to a single row on its own */
+try{ window.matchMedia("(max-width:759px)").addEventListener("change", render); }
+catch(e){ try{ window.matchMedia("(max-width:759px)").addListener(render); }catch(_){} }
 
 /* A life tracker must ALWAYS load fresh. Do not install a caching service worker; retire any old
    cache-first worker (an earlier version) so phones that cached a stale/blank copy self-heal. */
