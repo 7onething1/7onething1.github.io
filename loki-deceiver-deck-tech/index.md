@@ -150,9 +150,9 @@ The curve peaks at three, where the cost reducers and most Villains live, over a
 
 ## The complete upgraded list
 
-The whole ninety-nine after the swaps, with Doctor Doom kept as a Villain and discard engine and Loki commanding. Grixis, black-primary, every name verified against Scryfall. Average mana value, pips, and price are computed across all ninety-nine from current Scryfall data.
+The whole ninety-nine after the swaps, with Doctor Doom kept as a Villain and discard engine and Loki commanding. Grixis, black-primary, every name verified against Scryfall. Average mana value, pips, and price are computed across all ninety-nine from Scryfall on 2026-07-14; the price is a dated capture that market moves can shift.
 
-**99 + Loki · 30 creatures · avg MV 3.40 · pips U17 / B33 / R16 · about $135**
+**99 + Loki · 30 creatures · avg MV 3.40 · pips U17 / B33 / R16 · about $135 (as of 2026-07-14)**
 
 **Creatures (30):** Baron Strucker HYDRA Overlord, Helmut Zemo Mastermind, Killmonger Ruthless Usurper, Klaw Master of Sound, Prowler Clawed Thief, Stilt-Man Towering Terror, Tombstone Career Criminal, Typhoid Mary Fractured, Containment Construct, Iron Monger Sadistic Tycoon, Ultron Unlimited, Chameleon Master of Disguise, Doctor Doom King of Latveria, Kang Prime, Kang Temporal Tyrant, Kingpin Wilson Fisk, Madame Hydra, Mysterio Master of Illusion, Red Ghost Intangible Genius, Spark Double, The Frightful Four, Titania Proud Pummeler, Taskmaster Mercenary Mimic, Moonstone Harsh Mistress, Lady Loki Agent of Chaos, Titan of Littjara, Doctor Octopus Master Planner, The Squadron Sinister, Tri-Sentinel Act of Vengeance, Abomination World Ravager
 
