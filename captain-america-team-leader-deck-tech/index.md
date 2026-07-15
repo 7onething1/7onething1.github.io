@@ -125,6 +125,8 @@ Card draw feeds the loop: Iron Man counters on every draw, Shang-Chi and the Ten
 
 A wide board is not the win on its own; one payoff turns it lethal. Attack with a countered team and War Machine gives double strike, Iron Man gives flying, or She-Hulk gives trample through the chump blocks. Any one can turn a wide board into a game-ending swing when you have the power and a clear path, so keep a Hero or two back for the follow-up. Champions from Beyond adds a second gear: at eight or more attackers its Full Party mode pumps the team by four each. Flawless Maneuver is the free save: it makes your team indestructible, which beats a wipe or targeted destruction, and it does nothing against exile, bounce, or a chump block. Akroma's Will is the finisher: with Captain America out you take both modes, so your team gains flying, vigilance, and double strike alongside indestructible and protection from every color, which pushes damage through and shrugs off colored blockers and removal. A colorless flyer or reacher can still block. Both wear off at end of turn, so a next-turn sweeper needs countermagic or a card kept in hand. The power branch closes harder, with Shared Animosity paying per attacker and Cathars' Crusade snowballing the counters.
 
+**Three winning turns.** (1) Wide board plus a multiplier: six or more countered Heroes down, then War Machine or Iron Man attacks for double strike or flying, and the swing is lethal. (2) Protected alpha after a rebuild: rebuild off Nick Fury digs, hold Flawless Maneuver or Akroma's Will, then attack into an open board. (3) Grind them out: Kindred Discovery and Champions from Beyond draw on every Hero, so even a slow game buries the table in cards and counters.
+
 ## Interaction, protection, and the board-wipe question
 
 Three layers. Spot removal keeps the path clear (Swords to Plowshares, 90.5%). Cheap countermagic protects the engine and replaces itself (Arcane Denial). And Raise the Palisade is a sweeper you run yourself: it returns every creature that is not your chosen type to hand, so you pick Hero and every non-Hero returns to its owner. It is strongly asymmetric rather than total: an opponent's own Heroes stay, and your handful of non-Hero creatures bounce too. When an opponent resolves a wipe instead, be honest that it kills Captain America, Nick Fury, Winter Soldier, and the countered board. The recovery is not on the battlefield. It waits in your hand and the command zone: recast Captain America and rebuild with the cheap Heroes you held back, and Nick Fury or Winter Soldier help again once you recast or redraw them.
@@ -173,6 +175,8 @@ These seven are recommendations built for this list, outside the Snail guide.
 
 A keepable hand: three or four mana sources with colors covered and at least one Hero castable by turn two or three. A realistic seven-card keep is three sources, one accelerator or fixer, two early Heroes, and one draw or protection spell, and multi-role cards let a leaner hand work. A three-color deck wants all colors reachable by turn three, so a two-source hand keeps only when its fixing and acceleration are strong. Ship hands with fewer than two sources, hands that cannot reach all colors, or hands with no Hero castable by turn three.
 
+**Keep or mulligan.** Strong keep: three mana sources with colors reachable, an early Hero, a card-draw piece, and a protection or recovery spell. Risky keep: only expensive Heroes, several Equipment or Auras with no creatures, strong finishers with no early development, or two sources with weak fixing.
+
 Three common mistakes:
 
 1. **Playing it as cast-only.** Forgetting tokens, blink, and reanimation also enter, so you leave the cheapest repeat triggers out of the deck.
@@ -182,6 +186,13 @@ Three common mistakes:
 ## Cap or Nick Fury: the two faces
 
 The Avengers Assemble box ships with two full-identity commanders for the unchanged deck, Captain America and Director Nick Fury, and Captain America is the default for good reason. Both are Jeskai, so the color identity and most of the 99 stay the same. Captain America, Team Leader turns every Hero entry into counters and haste, a go-wide board that closes through the modified payoffs. Director Nick Fury leads a grindier build: his cost reduction and attack-triggered Hero digs make a deck built around card advantage and a steady stream of Heroes rather than one explosive counter turn. Run Captain America for the aggressive plan this page describes; move Nick Fury to the command zone when you would rather grind through card advantage, and the deck shifts from a counters theme toward a Legends and value theme. Other legendary creatures in the set can command rebuilt decks in their own color identities; Captain America, First Avenger, also Jeskai, is one such option, but it is not the commander of this unchanged shell.
+
+| Commander | Playstyle | Strength | Weakness |
+|---|---|---|---|
+| Captain America, Team Leader (default) | Go-wide Heroes and counters | Explosive counter turns, clear beatdown | Vulnerable to a well-timed board wipe |
+| Director Nick Fury | Grindy Hero value, card advantage | Cheaper Heroes, steady card flow | Slower to close, fewer blowout turns |
+
+Both are Jeskai and lead the same 99. Other Marvel legends command different decks in their own identities.
 
 ## What the numbers say
 
