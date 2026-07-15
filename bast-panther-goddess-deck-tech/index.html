@@ -1,0 +1,162 @@
+<!doctype html>
+<html lang="en"><head><meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Bast, Panther Goddess: The Width Payoff</title>
+<meta name="description" content="A Snail-style deck tech for Bast, Panther Goddess, the Selesnya Wakanda Forever alt: the go-wide payoff whose attack buff scales with your creature count, gated behind three creatures, with the width math, the token package, a dead-draw audit, a construction audit, and the shell.">
+<meta name="keywords" content="Bast Panther Goddess, go wide, tokens, Selesnya, Wakanda Forever, Marvel Super Heroes Commander, indestructible, trample, commander damage, deck tech, construction audit">
+<meta property="og:title" content="Bast, Panther Goddess: The Width Payoff">
+<meta property="og:description" content="The Selesnya go-wide payoff whose attack buff scales with your creature count, gated behind three creatures, with the width math and token package.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,500;0,600;0,700;1,600&family=Inter:wght@400;600;700;800&display=swap" rel="stylesheet">
+<style>
+  :root{--cream:#f4ecd8;--ink:#1c1a17;--rust:#b5533b;--teal:#3f7c78;--gold:#c98a2b;--olive:#7d7a3a;--line:#d9cdb0;--plum:#7b4b8a;}
+  *{box-sizing:border-box}
+  body{margin:0;background:var(--cream);color:var(--ink);font-family:'Inter',system-ui,-apple-system,Segoe UI,Roboto,sans-serif;line-height:1.62}
+  header{padding:46px 24px 10px;max-width:760px;margin:0 auto;text-align:center}
+  h1{font-family:'Cormorant Garamond',Georgia,serif;font-size:clamp(2rem,8vw,2.7rem);margin:.15em 0;color:var(--ink);line-height:1.1}
+  .sub{color:var(--olive);font-weight:600;max-width:640px;margin:8px auto 0}
+  .nav{margin:14px auto 0;font-size:.9rem}
+  .nav a{color:var(--teal);font-weight:700;text-decoration:none;margin:0 8px}
+  .byline{max-width:760px;margin:10px auto 0;padding:0 22px;font-size:.8rem;color:var(--olive);font-style:italic;text-align:center}
+  main{max-width:760px;margin:0 auto;padding:12px 22px 100px}
+  article h2{font-family:'Cormorant Garamond',serif;font-size:1.7rem;color:var(--rust);margin:34px 0 8px}
+  article h3{font-family:'Inter',sans-serif;font-size:1.02rem;color:var(--plum);margin:18px 0 6px;text-transform:uppercase;letter-spacing:.04em}
+  article p{margin:0 0 14px;font-size:1.04rem}
+  .lead{font-size:1.12rem;color:#33302a}
+  .swapline{margin:10px 0;padding:9px 13px;background:#fbf5e6;border:1px solid var(--line);border-radius:9px;font-size:.96rem;overflow:hidden}
+  .swapline b{color:var(--rust)} .swapline .pct{color:var(--teal);font-weight:800}
+  .mathbox{background:#efe6cf;border:1px solid var(--line);border-left:4px solid var(--teal);border-radius:10px;padding:14px 16px;margin:14px 0}
+  .mathbox table{border-collapse:collapse;width:100%;font-size:.95rem;margin:6px 0}
+  .mathbox td{padding:4px 8px;border-bottom:1px solid var(--line)}
+  .mathbox td:last-child{text-align:right;font-weight:800;color:var(--rust)}
+  .mathbox .tot td{border-bottom:none;border-top:2px solid var(--teal);font-weight:800}
+  .turns{background:#fbf5e6;border:1px solid var(--line);border-radius:10px;padding:6px 4px;margin:12px 0}
+  .turns table{border-collapse:collapse;width:100%;font-size:.94rem}
+  .turns td{padding:7px 11px;border-bottom:1px solid var(--line);vertical-align:top}
+  .turns td:first-child{font-weight:800;color:var(--teal);white-space:nowrap;width:1%}
+  .turns tr:last-child td{border-bottom:none}
+  .auditwrap{overflow-x:auto;margin:12px 0}
+  table.audit{border-collapse:collapse;width:100%;min-width:640px;font-size:.9rem;background:#fbf5e6;border:1px solid var(--line);border-radius:10px}
+  table.audit th{background:#efe6cf;color:var(--plum);text-align:left;padding:8px 10px;font-size:.78rem;text-transform:uppercase;letter-spacing:.03em}
+  table.audit td{padding:8px 10px;border-top:1px solid var(--line);vertical-align:top}
+  table.audit td:first-child{font-weight:800;color:var(--rust);white-space:nowrap}
+  .v{display:inline-block;padding:2px 9px;border-radius:20px;font-size:.76rem;font-weight:800;color:#fff}
+  .v-core{background:var(--teal)} .v-supported{background:var(--olive)} .v-situational{background:var(--gold)} .v-cut{background:var(--rust)}
+  .pull{border-left:4px solid var(--gold);padding:6px 0 6px 15px;margin:16px 0;font-family:'Cormorant Garamond',serif;font-size:1.35rem;color:#3f3b30}
+  .src{max-width:760px;margin:0 auto;padding:0 22px 96px;font-size:.82rem;color:var(--olive)}
+  .src a{color:var(--teal);font-weight:700}
+  .kid-only{display:none}
+  #kidfab{position:fixed;right:18px;bottom:18px;z-index:50;background:var(--rust);color:#fff;border:none;border-radius:40px;padding:14px 21px;font-size:1rem;font-weight:800;box-shadow:0 4px 14px rgba(0,0,0,.25);cursor:pointer}
+  body.kid{font-size:1.14rem}
+  body.kid .grown{display:none}
+  body.kid .kid-only{display:block}
+  body.kid .lead{font-size:1.18rem}
+  .toc{background:#efe6cf;border:1px solid var(--line);border-radius:10px;padding:9px 14px;margin:6px 0 18px;font-size:.86rem;line-height:1.9}
+  .toc summary{color:var(--plum);font-weight:800;cursor:pointer;list-style:none}
+  .toc summary::-webkit-details-marker{display:none}
+  .toc summary::before{content:"\25B8 ";color:var(--teal)}
+  .toc[open] summary::before{content:"\25BE "}
+  .toc .toclinks{margin-top:7px}
+  .toc a{color:var(--teal);font-weight:700;text-decoration:none;margin:0 12px 0 0;display:inline-block}
+  @media(max-width:560px){.toc a{white-space:normal;display:block;margin:3px 0}}
+  body.kid .toc{display:none}
+</style></head>
+<body>
+<header>
+  <h1>Bast, Panther Goddess: <span style="white-space:nowrap">The Width Payoff</span></h1>
+  <div class="sub grown">The Wakanda goddess pays you for going wide. She needs three creatures before she can swing, and on attack she hands one attacker a boost equal to your whole creature count. Fill the board and one swing ends a player.</div>
+  <div class="sub kid-only">Bast rewards having lots of creatures. She can only attack if you have three or more, and when you attack she makes one creature bigger by how many creatures you have. The wider your board, the bigger the boost.</div>
+  <div class="nav"><a href="/marvel-commander-guides/">Guides hub</a> &middot; <a href="/storm-queen-wakanda-deck-tech/">Storm deck tech</a> &middot; <a href="/tchalla-black-panther-deck-tech/">T'Challa deck tech</a> &middot; <a href="/marvel-commander-rankings/">Marvel rankings</a></div>
+</header>
+<p class="byline">This Bast, Panther Goddess deck tech is inspired by Salubrious Snail's published deckbuilding framework. Bast's oracle text and color identity are from Scryfall (Marvel Super Heroes Commander, read 2026-07-14); the Wakanda shell and inclusion figures come from the EDHREC Wakanda pages. Not authored or endorsed by Salubrious Snail or EDHREC.</p>
+<main>
+<article>
+<details class="toc" aria-label="Contents"><summary>On this page (7 destinations)</summary><div class="toclinks"><a href="#the-engine">The engine</a><a href="#width-math">Width math</a><a href="#the-gate">The three-creature gate</a><a href="#targets">Buff targets</a><a href="#dead-draw-audit">Dead Draw Audit</a><a href="#construction-audit">Construction audit</a><a href="#the-shell">The shell</a></div></details>
+
+<p class="lead grown">Bast, Panther Goddess costs {2}{G}{W}, a 4/4 Selesnya Cat God with reach, trample, and indestructible. She cannot attack or block unless you control three or more creatures, and whenever you attack, a target attacking creature gets plus X and X, where X is the number of creatures you control. She is a Wakanda Forever alt, and read on her own she is a green-white go-wide deck that turns a full board into a single lethal swing. Her indestructible body makes her the safest target for her own buff, so a wide board plus Bast is a resilient, hard-to-block finisher.</p>
+<p class="lead kid-only">Bast costs four mana and is a 4/4 that cannot be destroyed, has reach, and tramples. She can only fight if you have three or more creatures. On attack she makes one creature bigger by your creature count. She is a great target for her own boost because she cannot be destroyed.</p>
+
+<h2 id="the-engine">The engine, wide equals damage</h2>
+<p class="grown">Bast reads your creature count and turns it into combat damage. The buff is plus X and X where X is the number of creatures you control, so every extra body raises the size of the swing. Point that buff at Bast herself and she gains her whole board as power on an indestructible trampler that cannot be chump-blocked away, since trample carries the surplus through. The three-creature clause is the price: Bast does nothing on an empty board, so the deck has to develop before it can threaten.</p>
+<p class="grown">That makes Bast a payoff rather than an enabler. She cashes the board rather than filling it, so the ninety-nine carries the go-wide half and Bast supplies the finish. A token deck that floods the table hands her a plus ten swing by the midgame, and her reach, trample, and indestructible keep her attacking and blocking through the removal that answers most commanders.</p>
+<p class="kid-only">Bast turns your number of creatures into damage. More creatures means a bigger boost. Aim the boost at Bast, since she cannot be destroyed and tramples over blockers. The catch: she needs three creatures before she can attack at all, so build a board first.</p>
+
+<h2 id="width-math">The width lever</h2>
+<p class="grown">X is your creature count, so the whole build points at one number, how wide the board is when Bast swings. At three creatures, the floor to attack, the buff is plus three. At ten it is plus ten, and Bast becomes a 14/14 trampler that ends a player in two hits. At seventeen the buff alone makes her a 21/21, a single-swing commander-damage kill. The table shows the buff aimed at Bast, the most durable target.</p>
+<div class="mathbox grown">
+  <table>
+    <tr><td style="color:var(--plum)">Creatures (X)</td><td>Buff</td><td>Bast buffed</td><td>Swings to 21</td></tr>
+    <tr><td>3 (the gate)</td><td>plus 3</td><td>7/7</td><td>3</td></tr>
+    <tr><td>5</td><td>plus 5</td><td>9/9</td><td>3</td></tr>
+    <tr><td>7</td><td>plus 7</td><td>11/11</td><td>2</td></tr>
+    <tr class="tot"><td>10</td><td>plus 10</td><td>14/14</td><td>2</td></tr>
+  </table>
+</div>
+<p class="grown">Read the creature count as the damage dial. Each body is a point of buff, and because Bast tramples and cannot be destroyed, that buff turns into face damage rather than a trade. The construction takeaway is direct: token makers, cheap creatures, and anything that leaves two or more bodies behind are the engine, since the deck wins by the width of the board on the turn Bast connects. Anthem effects add to the same swing by raising the base of every attacker.</p>
+<p class="kid-only">The more creatures you have, the bigger Bast's boost. At 7 creatures she becomes an 11/11 and wins in two hits; at 17 a single hit is 21 commander damage. So the whole deck is about filling the board with creatures and tokens.</p>
+
+<h2 id="the-gate">The three-creature gate</h2>
+<p class="grown">Bast cannot attack or block below three creatures, which sets a real construction requirement. The deck needs enough cheap early creatures and token makers that three bodies are on the table by the time Bast lands, or she sits inert as a 4/4 that cannot even block. That argues for a low creature curve, a healthy count of one and two-drop creatures, and token makers that produce two or more at once so a single card clears the gate.</p>
+<p class="grown">The gate also shapes the recovery plan. A board wipe drops you under three creatures and switches Bast off, even though she survives it herself. So the deck wants token producers that rebuild width quickly and a few resilient bodies, rather than one big threat that a wipe leaves stranded next to an inert goddess. Width is the payoff and the on-switch at once.</p>
+<p class="kid-only">Bast needs three creatures to do anything, so run lots of cheap creatures and token makers, especially ones that make two at once. After a board wipe she turns off until you rebuild three creatures, so keep cards that refill the board fast.</p>
+
+<h2 id="targets">The buff targets, Bast first</h2>
+<p class="grown">The attack trigger targets any attacking creature, and Bast herself is usually the best home for the buff. She is indestructible, so removal does not answer the boosted threat, and she tramples, so blockers cannot eat the surplus. A trampling or double-striking attacker is the backup target when Bast is held back to block, and a creature with a combat-damage trigger turns the plus X and X into extra value. The one target to avoid is a fragile body with no evasion, since a chump block wastes a plus ten swing.</p>
+<p class="kid-only">Usually put the boost on Bast, because she cannot be destroyed and tramples through blockers. A trampling or double-strike creature is a good backup. Do not boost a small creature with no evasion, since a blocker eats the whole thing.</p>
+
+<h2 id="dead-draw-audit">Dead Draw Audit</h2>
+<p class="grown">Snail's method scores a card by how often it does its job and whether it earns its slot with the commander gone. Here are five cards through that lens, with the width lever deciding the close calls.</p>
+<div class="auditwrap grown">
+<table class="audit">
+  <caption style="text-align:left;font-size:.82rem;color:var(--olive);padding:6px 10px;font-style:italic">Dead Draw Audit: five cards scored on job, support, solo value, and verdict.</caption>
+  <tr><th scope="col">Card</th><th scope="col">Primary job</th><th>Support in the 99</th><th>Value without Bast</th><th>Verdict</th></tr>
+  <tr><td>A token maker that leaves two or more bodies</td><td>Clears the gate and raises X</td><td>Very high, every Bast swing</td><td>Good, a wide board on its own</td><td><span class="v v-core">core</span></td></tr>
+  <tr><td>A repeatable token engine</td><td>Rebuilds width after a wipe</td><td>High, the recovery plan</td><td>Good, ongoing value</td><td><span class="v v-core">core</span></td></tr>
+  <tr><td>A team-wide anthem</td><td>Adds base power to every attacker</td><td>High, scales with width</td><td>Good, buffs the team</td><td><span class="v v-supported">supported</span></td></tr>
+  <tr><td>A cheap one-drop creature</td><td>Helps clear the three-creature gate early</td><td>Medium, matters most before turn four</td><td>Low, a small body alone</td><td><span class="v v-supported">supported</span></td></tr>
+  <tr><td>A single big threat with no board</td><td>One body, no width</td><td>Low, does not raise X or clear the gate</td><td>Depends on its stats</td><td><span class="v v-situational">situational</span></td></tr>
+</table>
+</div>
+<p class="grown">The lone big threat drops to situational because it adds one to X and nothing to resilience, where a token maker adds several and helps clear the gate. The repeatable token engine climbs, since the deck's weakness is a wipe that switches Bast off, and a card that rebuilds three bodies turns her back on. Run every questioned card through job, support, solo value, and the width lever before it stays.</p>
+<p class="kid-only">This grades each card by what it does and whether it helps Bast. Cards that make several creatures at once are best, because they clear her gate and boost her damage. One big creature with no board is weak, since it barely raises her boost and does not help after a wipe.</p>
+
+<h2 id="construction-audit">Beyond the Dead Draw Audit: the construction audit</h2>
+<p class="grown">The Dead Draw Audit scores single cards. This construction audit scores the whole ninety-nine on the width lever and its gate. The first rule is a floor on creatures and token makers, the second is a low enough curve that three bodies arrive before Bast, and the third is wipe recovery, since a board reset switches her off even though it cannot destroy her.</p>
+<div class="turns grown">
+  <table>
+    <tr><td style="color:var(--plum)">Target</td><td>Count</td><td>Why</td></tr>
+    <tr><td>Creatures and token makers</td><td>32-38</td><td>Width is the payoff and the on-switch</td></tr>
+    <tr><td>Cards that leave two or more bodies</td><td>10-14</td><td>Clears the gate and rebuilds after a wipe</td></tr>
+    <tr><td>One and two-drop creatures</td><td>12-16</td><td>Three bodies down before Bast lands</td></tr>
+    <tr><td>Anthems and go-wide payoffs</td><td>4-6</td><td>Raises the base of every attacker</td></tr>
+    <tr><td>Interaction</td><td>8-10</td><td>Green-white removal and a reset of your own</td></tr>
+    <tr><td>Lands and ramp</td><td>42-45</td><td>A clean Selesnya base with a little acceleration</td></tr>
+  </table>
+</div>
+<p class="grown">Read the creature count and the multi-body count as one system. The creature count sets how big the buff is, and the multi-body count controls how fast you clear the three-creature gate and how well you recover from a wipe. A deck heavy on single bodies can still stall under the gate after a reset, so report two numbers when you tune the list, the total creature count and the count of cards that leave two or more bodies. The honest measure is the board width you can reach and rebuild, beyond the raw creature slots on paper.</p>
+<p class="grown">Every revision should hold the width floor and the multi-body count first. A new creature should replace a weaker creature, and a token maker that leaves several bodies is worth more than a single large body of the same cost. Anthems help the same swing, so they support the plan, and a fragile single threat that does not clear the gate is the first cut. Bast is indestructible, so the deck spends fewer slots protecting the commander and more filling the board she needs.</p>
+<p class="pull grown">Bast cashes the board rather than building it. Every creature is both her fuel and her on-switch.</p>
+<p class="kid-only">To build Bast: run 32 to 38 creatures and token makers, with 10 to 14 cards that make two or more bodies at once, and a low curve so three creatures are down early. Anthems help too. Skip lone big threats that do not widen the board. Bast cannot be destroyed, so spend slots on creatures rather than on protecting her.</p>
+
+<h2 id="the-shell">The shell, a Selesnya go-wide plan</h2>
+<p class="grown">Bast is a legal Wakanda Forever commander in green and white, and she wants a different ninety-nine from the other Wakanda faces. The <a href="/tchalla-black-panther-deck-tech/">T'Challa</a> and <a href="/shuri-black-panther-deck-tech/">Shuri</a> plans count artifacts, and <a href="/storm-queen-wakanda-deck-tech/">Storm</a> stacks power on one commander. Bast counts creatures, so the shell is a green-white tokens and go-wide deck: token makers, cheap creatures, a few anthems, and the mana and removal the two colors give. The box's own token and monarch pieces fit her, since both reward a developed board.</p>
+<p class="grown">The interaction and ramp carry over from any Selesnya go-wide list, so only the payoff changes. Fill the board, clear the three-creature gate early, and point the buff at the indestructible goddess who cannot be answered by removal. Build toward the construction audit above, a deep creature count, a strong multi-body package for the gate and the wipe recovery, and enough anthems that the whole team hits harder on the turn Bast swings.</p>
+<p class="kid-only">Bast wants a different deck from the other Wakanda commanders. T'Challa and Shuri want artifacts and Storm wants counters on herself. Bast wants lots of creatures and tokens. Use the box's token pieces, keep a low creature curve, and aim her boost at herself.</p>
+
+</article>
+</main>
+
+<div class="src">
+  <p><b>Sources.</b> Bast, Panther Goddess oracle text and color identity via <a href="https://scryfall.com">Scryfall</a> (Marvel Super Heroes Commander, read 2026-07-14): {2}{G}{W}, Legendary Creature Cat God, 4/4, color identity Selesnya (green-white); "Reach, trample, indestructible", "Bast can't attack or block unless you control three or more creatures", and "Whenever you attack, target attacking creature gets +X/+X until end of turn, where X is the number of creatures you control". The width table is direct arithmetic: the buff equals your creature count, buffing Bast gives her (4 plus X) power, and the swings-to-21 column divides 21 commander damage by that power and rounds up. The Wakanda shell and the other Wakanda plans are on the <a href="/tchalla-black-panther-deck-tech/">T'Challa</a>, <a href="/shuri-black-panther-deck-tech/">Shuri</a>, and <a href="/storm-queen-wakanda-deck-tech/">Storm</a> deck techs; inclusion context is on the <a href="/salubrioussnail-marvel-edhrec/">EDHREC Marvel read</a> and the <a href="/marvel-commander-rankings/">Marvel rankings</a>. Inspired by Salubrious Snail's published framework; neither Salubrious Snail nor EDHREC authored or endorsed it.</p>
+</div>
+
+<button id="kidfab" onclick="toggleKid()" aria-pressed="false" aria-label="Toggle plain-language kid mode">Kid Mode</button>
+<script>
+function toggleKid(){var on=document.body.classList.toggle('kid');
+  var b=document.getElementById('kidfab');
+  b.textContent=on?'Normal Mode':'Kid Mode';
+  b.setAttribute('aria-pressed',on?'true':'false');}
+</script>
+</body>
+</html>
