@@ -1,0 +1,169 @@
+<!doctype html>
+<html lang="en"><head><meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Director Nick Fury: The Hero-Value Engine</title>
+<meta name="description" content="A Snail-style deck tech for Director Nick Fury, the Avengers Assemble Marvel Commander alt: the Jeskai Hero-value engine built on cost reduction and an attack-triggered dig, with Hero-density math, a dead-draw audit, a construction audit, the Cap-versus-Fury split, and the grounded shell.">
+<meta name="keywords" content="Director Nick Fury, Hero tribal, Avengers Assemble, Marvel Super Heroes Commander, Jeskai, cost reduction, attack dig, Kindred Discovery, Captain America Team Leader, deck tech">
+<meta property="og:title" content="Director Nick Fury: The Hero-Value Engine">
+<meta property="og:description" content="The Jeskai Hero-value engine built on cost reduction and an attack-triggered Hero dig, with density math, a dead-draw audit, and the Cap-versus-Fury split.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,500;0,600;0,700;1,600&family=Inter:wght@400;600;700;800&display=swap" rel="stylesheet">
+<style>
+  :root{--cream:#f4ecd8;--ink:#1c1a17;--rust:#b5533b;--teal:#3f7c78;--gold:#c98a2b;--olive:#7d7a3a;--line:#d9cdb0;--plum:#7b4b8a;}
+  *{box-sizing:border-box}
+  body{margin:0;background:var(--cream);color:var(--ink);font-family:'Inter',system-ui,-apple-system,Segoe UI,Roboto,sans-serif;line-height:1.62}
+  header{padding:46px 24px 10px;max-width:760px;margin:0 auto;text-align:center}
+  h1{font-family:'Cormorant Garamond',Georgia,serif;font-size:clamp(2rem,8vw,2.7rem);margin:.15em 0;color:var(--ink);line-height:1.1}
+  .sub{color:var(--olive);font-weight:600;max-width:640px;margin:8px auto 0}
+  .nav{margin:14px auto 0;font-size:.9rem}
+  .nav a{color:var(--teal);font-weight:700;text-decoration:none;margin:0 8px}
+  .byline{max-width:760px;margin:10px auto 0;padding:0 22px;font-size:.8rem;color:var(--olive);font-style:italic;text-align:center}
+  main{max-width:760px;margin:0 auto;padding:12px 22px 100px}
+  article h2{font-family:'Cormorant Garamond',serif;font-size:1.7rem;color:var(--rust);margin:34px 0 8px}
+  article h3{font-family:'Inter',sans-serif;font-size:1.02rem;color:var(--plum);margin:18px 0 6px;text-transform:uppercase;letter-spacing:.04em}
+  article p{margin:0 0 14px;font-size:1.04rem}
+  .lead{font-size:1.12rem;color:#33302a}
+  .swapline{margin:10px 0;padding:9px 13px;background:#fbf5e6;border:1px solid var(--line);border-radius:9px;font-size:.96rem;overflow:hidden}
+  .swapline b{color:var(--rust)} .swapline .pct{color:var(--teal);font-weight:800}
+  .swapline .fn{color:var(--plum);font-weight:800;font-size:.82rem}
+  .mathbox{background:#efe6cf;border:1px solid var(--line);border-left:4px solid var(--teal);border-radius:10px;padding:14px 16px;margin:14px 0}
+  .mathbox table{border-collapse:collapse;width:100%;font-size:.95rem;margin:6px 0}
+  .mathbox td{padding:4px 8px;border-bottom:1px solid var(--line)}
+  .mathbox td:last-child{text-align:right;font-weight:800;color:var(--rust)}
+  .mathbox .tot td{border-bottom:none;border-top:2px solid var(--teal);font-weight:800}
+  .turns{background:#fbf5e6;border:1px solid var(--line);border-radius:10px;padding:6px 4px;margin:12px 0}
+  .turns table{border-collapse:collapse;width:100%;font-size:.94rem}
+  .turns td{padding:7px 11px;border-bottom:1px solid var(--line);vertical-align:top}
+  .turns td:first-child{font-weight:800;color:var(--teal);white-space:nowrap;width:1%}
+  .turns tr:last-child td{border-bottom:none}
+  .auditwrap{overflow-x:auto;margin:12px 0}
+  table.audit{border-collapse:collapse;width:100%;min-width:640px;font-size:.9rem;background:#fbf5e6;border:1px solid var(--line);border-radius:10px}
+  table.audit th{background:#efe6cf;color:var(--plum);text-align:left;padding:8px 10px;font-size:.78rem;text-transform:uppercase;letter-spacing:.03em}
+  table.audit td{padding:8px 10px;border-top:1px solid var(--line);vertical-align:top}
+  table.audit td:first-child{font-weight:800;color:var(--rust);white-space:nowrap}
+  .v{display:inline-block;padding:2px 9px;border-radius:20px;font-size:.76rem;font-weight:800;color:#fff}
+  .v-core{background:var(--teal)} .v-supported{background:var(--olive)} .v-situational{background:var(--gold)} .v-cut{background:var(--rust)}
+  .pull{border-left:4px solid var(--gold);padding:6px 0 6px 15px;margin:16px 0;font-family:'Cormorant Garamond',serif;font-size:1.35rem;color:#3f3b30}
+  .src{max-width:760px;margin:0 auto;padding:0 22px 96px;font-size:.82rem;color:var(--olive)}
+  .src a{color:var(--teal);font-weight:700}
+  .kid-only{display:none}
+  #kidfab{position:fixed;right:18px;bottom:18px;z-index:50;background:var(--rust);color:#fff;border:none;border-radius:40px;padding:14px 21px;font-size:1rem;font-weight:800;box-shadow:0 4px 14px rgba(0,0,0,.25);cursor:pointer}
+  body.kid{font-size:1.14rem}
+  body.kid .grown{display:none}
+  body.kid .kid-only{display:block}
+  body.kid .lead{font-size:1.18rem}
+  .toc{background:#efe6cf;border:1px solid var(--line);border-radius:10px;padding:9px 14px;margin:6px 0 18px;font-size:.86rem;line-height:1.9}
+  .toc summary{color:var(--plum);font-weight:800;cursor:pointer;list-style:none}
+  .toc summary::-webkit-details-marker{display:none}
+  .toc summary::before{content:"\25B8 ";color:var(--teal)}
+  .toc[open] summary::before{content:"\25BE "}
+  .toc .toclinks{margin-top:7px}
+  .toc a{color:var(--teal);font-weight:700;text-decoration:none;margin:0 12px 0 0;display:inline-block}
+  @media(max-width:560px){.toc a{white-space:normal;display:block;margin:3px 0}}
+  body.kid .toc{display:none}
+</style></head>
+<body>
+<header>
+  <h1>Director Nick Fury: <span style="white-space:nowrap">The Hero&#8209;Value Engine</span></h1>
+  <div class="sub grown">The Avengers box's second commander is the grinder rather than the closer. Nick Fury drops the cost of every Hero you cast and turns each attack into a dig for another Hero. Build the Hero count high and both abilities pay you every turn.</div>
+  <div class="sub kid-only">Nick Fury is the patient Avengers commander. He makes your Hero cards cheaper, and every time you attack he digs for another Hero. The more Heroes in your deck, the better both powers work.</div>
+  <div class="nav"><a href="/marvel-commander-guides/">Guides hub</a> &middot; <a href="/captain-america-team-leader-deck-tech/">Captain America deck tech</a> &middot; <a href="/salubrioussnail-marvel-edhrec/">EDHREC read</a> &middot; <a href="/marvel-commander-rankings/">Marvel rankings</a></div>
+</header>
+<p class="byline">This Director Nick Fury deck tech is inspired by Salubrious Snail's published deckbuilding framework. Nick Fury's oracle text and color identity are from Scryfall (Marvel Super Heroes Commander, read 2026-07-14); the Avengers shell and inclusion figures come from the EDHREC Avengers pages. Not authored or endorsed by Salubrious Snail or EDHREC.</p>
+<main>
+<article>
+<details class="toc" aria-label="Contents"><summary>On this page (7 destinations)</summary><div class="toclinks"><a href="#the-engine">The engine</a><a href="#hero-density">Hero-density math</a><a href="#cost-reduction">Cost reduction</a><a href="#dead-draw-audit">Dead Draw Audit</a><a href="#construction-audit">Construction audit</a><a href="#two-faces">Cap or Fury</a><a href="#the-shell">The shell</a></div></details>
+
+<p class="lead grown">Director Nick Fury costs {U}{R}{W} and runs on two abilities that both scale with one number, the count of Heroes in your deck. Hero spells you cast cost one less. And whenever you attack, you look at the top four cards of your library, reveal a Hero from among them, and put it into your hand. He is Jeskai, he is a 2/4 Human Spy Hero, and he leads the same Avengers Assemble shell Captain America leads. The difference is the plan. Captain America builds a wide counter board for one explosive turn. Nick Fury grinds, cheaper Heroes every turn and a fresh Hero in hand on every swing, until the value buries the table.</p>
+<p class="lead kid-only">Nick Fury has two powers. Your Hero cards cost one less mana, and every time you attack you look at the top four cards and take a Hero. Both powers get stronger when your deck is packed with Heroes. He wins slowly by out-carding everyone instead of taking one big turn.</p>
+
+<h2 id="the-engine">The engine, two abilities on one axis</h2>
+<p class="grown">The whole deck turns on Hero density. The first ability, Hero spells cost one less, is ramp measured in Heroes: every Hero you cast refunds a generic mana, so two Heroes a turn is two mana of acceleration that no removal can strip off a rock. The second ability, the attack dig, is card advantage measured in Heroes: four cards deep, take the Hero. A deck thin on Heroes gets a cost cut that rarely fires and a dig that often whiffs. A deck thick with Heroes gets a discount most turns and a near-automatic card off every attack.</p>
+<p class="grown">Read the dig carefully. It reveals a Hero into your hand, and revealing is not drawing. Cards that reward you for drawing, and payoffs that count on a draw trigger, do not fire off Nick Fury's dig, off Avengers Tower, or off Herald's Horn. That single line separates a Nick Fury build from a generic Jeskai draw deck, and it steers the payoff choices later on this page.</p>
+<p class="kid-only">Both of Nick Fury's powers work better with more Heroes: the discount fires more often and the attack dig almost always finds one. One catch: his dig reveals a Hero, and revealing is not the same as drawing, so cards that say draw do not get triggered by it.</p>
+
+<h2 id="hero-density">Hero-density math: the dig hit-rate</h2>
+<p class="grown">Nick Fury looks four cards deep and takes a Hero. Whether that attack draws a card depends entirely on how many Heroes sit in the ninety-nine. At the Avengers shell's 27 Heroes, an attack reveals at least one Hero about 72.7 percent of the time. Push the count up and the dig approaches automatic. This is the single most useful number for building the deck, and it argues for a higher Hero count than a Captain America list needs.</p>
+<div class="mathbox grown">
+  <table>
+    <tr><td>22 Heroes in the 99, one attack finds a Hero</td><td>64.1%</td></tr>
+    <tr><td>27 Heroes (the Avengers shell), one attack finds a Hero</td><td>72.7%</td></tr>
+    <tr><td>32 Heroes, one attack finds a Hero</td><td>79.6%</td></tr>
+    <tr class="tot"><td>37 Heroes, one attack finds a Hero</td><td>85.2%</td></tr>
+  </table>
+</div>
+<p class="grown">Two attackers a turn double the card flow, so a developed board with two swings and 32 Heroes expects better than one and a half Hero cards a turn from Nick Fury alone. That is the grind. It also means the deck wants attackers with reach or evasion, since a Hero that cannot connect provides a body but no dig. Nick Fury himself is a 2/4, a fine early attacker into an open board and a poor one once blockers arrive, so his own trigger benefits from a way through.</p>
+<p class="kid-only">With 27 Heroes, Nick Fury finds a Hero on about 73 out of 100 attacks. With 37 Heroes it is 85. So the more Heroes you run, the more his attack draws you a card. And you want creatures that can actually get through to attack, or the dig never happens.</p>
+
+<h2 id="cost-reduction">Cost reduction as Hero-shaped ramp</h2>
+<p class="grown">Hero spells cost one less. On a curve where most Heroes cost two to four, one generic off each is a large discount, and it compounds when Nick Fury's dig keeps handing you more Heroes to cast. Two Heroes in a turn is two mana back, which is the difference between one play and two. The discount does not touch your removal, your rocks, or your card draw, so the build should keep the Hero count high enough that the reduction is doing work on most turns rather than sitting idle.</p>
+<p class="grown">The cost cut also changes how the mana base and the rock package should be sized. A Captain America list ramps hard to reach an explosive turn. A Nick Fury list can run a slightly leaner rock package, because the commander itself is a repeatable discount that behaves like ramp once the Hero count is high. Spend the freed slots on more Heroes and more ways to connect in combat.</p>
+<p class="kid-only">Every Hero costs one less mana with Nick Fury out. Cast two Heroes and you save two mana, which is often a whole extra play. Because he is like built-in ramp, you can run a few fewer mana rocks and more Heroes instead.</p>
+
+<h2 id="dead-draw-audit">Dead Draw Audit</h2>
+<p class="grown">Snail's method scores a card by how often it can do its job and whether it earns its slot with the commander gone. Here are five Nick Fury cards through that lens. The reveal-is-not-draw rule decides two of the verdicts on its own.</p>
+<div class="auditwrap grown">
+<table class="audit">
+  <caption style="text-align:left;font-size:.82rem;color:var(--olive);padding:6px 10px;font-style:italic">Dead Draw Audit: five cards scored on job, support, solo value, and verdict.</caption>
+  <tr><th scope="col">Card</th><th scope="col">Primary job</th><th>Support in the 99</th><th>Value without Fury</th><th>Verdict</th></tr>
+  <tr><td>Kindred Discovery</td><td>Draw on each Hero that enters or attacks</td><td>Very high, all 27+ Heroes plus tokens</td><td>Full, it draws in any Hero deck</td><td><span class="v v-core">core</span></td></tr>
+  <tr><td>Herald's Horn</td><td>Hero cost cut plus a top-of-deck Hero reveal each turn</td><td>High, the whole Hero count</td><td>Good, cost cut and reveal stand alone</td><td><span class="v v-core">core</span></td></tr>
+  <tr><td>Iron Man, Armored Avenger</td><td>Modified attackers fly; a counter on each card drawn</td><td>High for flying, lower for the draw half</td><td>Flying helps; the draw-to-counter half misses Fury's reveal</td><td><span class="v v-supported">supported</span></td></tr>
+  <tr><td>Rogue's Passage</td><td>Pushes a Hero through for the dig and the damage</td><td>Medium, any single attacker</td><td>Good, unblockable is generically useful</td><td><span class="v v-supported">supported</span></td></tr>
+  <tr><td>Door of Destinies</td><td>Anthem that grows on a Hero you cast; tokens and reveals do not count</td><td>Casting only, not tokens or reveals</td><td>Independent, but the charge half is narrow</td><td><span class="v v-situational">situational</span></td></tr>
+</table>
+</div>
+<p class="grown">Iron Man drops to supported for a Nick Fury-specific reason. His counter half rewards drawing a card, and Nick Fury's dig reveals rather than draws, so the flying is the reliable half and the counters need a real draw source elsewhere. Rogue's Passage earns its slot here more than in a go-wide Cap list, because a single unblockable attacker guarantees the dig even through a clogged board. Run every questioned card through job, support, solo value, and the reveal-is-not-draw check before it stays.</p>
+<p class="kid-only">This grades each card three ways: its job, how many cards help it, and whether it is good without Nick Fury. Iron Man is only partly on-plan because his bonus needs a real draw source, and Fury's dig only reveals. Rogue's Passage is great here because it makes one Hero unblockable, so the attack dig always happens.</p>
+
+<h2 id="construction-audit">Beyond the Dead Draw Audit: the construction audit</h2>
+<p class="grown">The Dead Draw Audit scores single cards. This construction audit scores the whole ninety-nine, and for Nick Fury the governing number is Hero density. Both of his abilities pay out in proportion to the Hero count, so the first construction rule is a Hero floor. A Captain America list is happy at 27 Heroes because his counters come from entries. A Nick Fury list should climb toward the low thirties, because every added Hero raises the dig hit-rate and widens the discount at the same time.</p>
+<div class="turns grown">
+  <table>
+    <tr><td style="color:var(--plum)">Target</td><td>Count</td><td>Why</td></tr>
+    <tr><td>Heroes</td><td>30-34</td><td>Raises the dig above 79 percent and keeps the discount live most turns</td></tr>
+    <tr><td>Real draw sources</td><td>7-9</td><td>The reveal is not a draw, so draw-payoffs need a genuine draw engine</td></tr>
+    <tr><td>Combat access</td><td>4-6</td><td>Evasion and unblockable so the dig actually fires each turn</td></tr>
+    <tr><td>Interaction</td><td>10-12</td><td>Spot removal plus a few resets to survive to the grind</td></tr>
+    <tr><td>Ramp and rocks</td><td>6-8</td><td>Leaner than a Cap list, since the commander is a repeatable discount</td></tr>
+    <tr><td>Lands</td><td>36</td><td>A Jeskai base tuned to a two-to-four curve</td></tr>
+  </table>
+</div>
+<p class="grown">Card advantage needs a second read under this commander. Nick Fury supplies selection rather than raw cards, since his dig hands you one Hero and buries the other three. That keeps the hand stocked with threats and does nothing for a payoff that wants a draw trigger. So the ninety-nine should carry a small package of genuine draw spells, Kindred Discovery and a few others, kept separate in the count from Nick Fury's selection. A build that reports its Nick Fury digs as if they were draws is overstating its card advantage. List selection and draw as two numbers.</p>
+<p class="grown">Every revision should hold the Hero floor first. A new noncreature card should replace another noncreature card so the Hero count does not slip. A new Hero should replace a weaker Hero or a spell the deck can spare. Combat access and real draw are the two support packages that keep the engine honest, and neither should be cut to add a fourth anthem. The finished list should attack most turns, find a Hero most attacks, and cast that Hero at a discount.</p>
+<p class="pull grown">Both of Nick Fury's abilities pay out in Heroes, so the deck is built one number at a time: raise the Hero count.</p>
+<p class="kid-only">The big rule for building Nick Fury is: pack in Heroes, aim for about 30 to 34. His dig gives you selection instead of extra draws, so also run a few real draw cards like Kindred Discovery, and count them separately. Keep some ways to get through in combat so the attack dig always happens.</p>
+
+<h2 id="two-faces">Cap or Fury: the two faces of the shell</h2>
+<p class="grown">Avengers Assemble ships two full-identity commanders for the unchanged deck, and both are Jeskai, so the color identity and most of the ninety-nine stay the same. Captain America, Team Leader turns every Hero entry into counters and haste, a go-wide board that closes in one modified turn. Director Nick Fury leads the grindier build, cheaper Heroes and a steady dig that favors card advantage and a Legends-and-value plan over one explosive counter turn. Move Nick Fury to the command zone when you would rather out-grind the table than race it.</p>
+<div class="turns grown">
+  <table>
+    <tr><td style="color:var(--plum)">Commander</td><td>Plan</td><td>Strength</td><td>Weakness</td></tr>
+    <tr><td>Captain America, Team Leader</td><td>Go-wide Heroes and counters</td><td>Explosive counter turns, clear beatdown</td><td>Exposed to a well-timed wipe</td></tr>
+    <tr><td>Director Nick Fury</td><td>Grindy Hero value and selection</td><td>Cheaper Heroes, steady card flow</td><td>Slower to close, fewer blowout turns</td></tr>
+  </table>
+</div>
+<p class="kid-only">The Avengers box has two commanders for this deck. Captain America is fast and explosive with counters. Nick Fury is slow and steady with cheaper Heroes and card selection. Pick Fury when you want the long grind instead of one big turn.</p>
+
+<h2 id="the-shell">The shell, and how it shifts under Fury</h2>
+<p class="grown">Nick Fury leads the same grounded Jeskai shell laid out card by card on the <a href="/captain-america-team-leader-deck-tech/">Captain America deck tech</a>, so the full hundred lives there rather than repeated here. The Hero package is the spine: Black Widow, Ant-Man, Silver Sable, Hawkeye, Spider-Woman, The Wasp, Falcon and Redwing, Shang-Chi, Scarlet Witch, Iron Man, Photon, Vision, Winter Soldier, War Machine, and the rest, most costing two to four. Under Nick Fury the list makes three shifts. Captain America moves from the command zone into the ninety-nine as one more Hero, Nick Fury takes his place, and the counters-only payoffs give way to more Heroes, more real draw, and a couple of unblockable enablers so the dig fires every turn.</p>
+<p class="grown">The manabase, the rocks, and the interaction carry over intact, since a grind deck wants the same answers a go-wide deck does. The build target is the construction audit above: thirty or more Heroes, a small true-draw package kept separate in the count, and enough combat access that Nick Fury connects. That is the whole difference between the two faces, one number raised and the payoffs re-pointed from counters to cards.</p>
+<p class="kid-only">Nick Fury uses the same deck as the Captain America page, so the full list is over there. The changes: put Captain America into the deck as a Hero, make Nick Fury the commander, and swap some counter cards for more Heroes, real draw, and ways to get through in combat.</p>
+
+</article>
+</main>
+
+<div class="src">
+  <p><b>Sources.</b> Director Nick Fury oracle text and color identity via <a href="https://scryfall.com">Scryfall</a> (Marvel Super Heroes Commander, read 2026-07-14): {U}{R}{W}, Legendary Creature Human Spy Hero, 2/4, color identity Jeskai (red, blue, white); "Hero spells you cast cost {1} less to cast" and "Whenever you attack, look at the top four cards of your library. You may reveal a Hero card from among them and put that card into your hand. and sends the other three to the bottom of the library in a random order." Dig hit-rates are hypergeometric over a 99-card library, top four cards: at least one Hero is 64.1 percent at 22 Heroes, 72.7 percent at 27, 79.6 percent at 32, and 85.2 percent at 37. The Avengers shell, the 27-Hero count, and inclusion figures come from the <a href="/captain-america-team-leader-deck-tech/">Captain America deck tech</a> and the EDHREC Avengers pages. Reveal-is-not-draw interaction confirmed against the Nick Fury, Avengers Tower, and Herald's Horn wording. Related: the <a href="/salubrioussnail-marvel-edhrec/">EDHREC Marvel read</a> and the <a href="/marvel-commander-rankings/">Marvel rankings</a>. Inspired by Salubrious Snail's published framework; neither Salubrious Snail nor EDHREC authored or endorsed it.</p>
+</div>
+
+<button id="kidfab" onclick="toggleKid()" aria-pressed="false" aria-label="Toggle plain-language kid mode">Kid Mode</button>
+<script>
+function toggleKid(){var on=document.body.classList.toggle('kid');
+  var b=document.getElementById('kidfab');
+  b.textContent=on?'Normal Mode':'Kid Mode';
+  b.setAttribute('aria-pressed',on?'true':'false');}
+</script>
+</body>
+</html>
