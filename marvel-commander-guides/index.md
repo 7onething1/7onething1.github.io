@@ -6,7 +6,7 @@ A grounded guide collection for the four Marvel Super Heroes Commander precons (
 
 - **[Precon Rankings](/marvel-commander-rankings/)**: all four precons ranked with a full scoring breakdown, and a pop-out profile for every commander option in each deck.
 
-## Deck guides (13 commanders)
+## Deck guides (14 commanders)
 
 - **[T'Challa, the Black Panther](/tchalla-black-panther-deck-tech/)** (Wakanda Forever): the Wakanda precon rebuilt as a self-fueling artifact voltron.
 - **[Shuri, the Black Panther](/shuri-black-panther-deck-tech/)** (Wakanda Forever): a construction audit built on two artifact thresholds, three to draw and six to pump the team.
@@ -21,6 +21,7 @@ A grounded guide collection for the four Marvel Super Heroes Commander precons (
 - **[Loki, the Deceiver](/loki-deceiver-deck-tech/)** (Doom Prevails): the Villain copy engine, read correctly and built out.
 - **[Mister Fantastic](/mister-fantastic-deck-tech/)** (Fantastic Four): the spellslinger that casts before combat, then multiplies the trigger.
 - **[Crystal, Inhuman Princess](/crystal-inhuman-princess-deck-tech/)** (Fantastic Four): the most-built FF commander, a four-color ping that scales with the color count of every noncreature spell.
+- **[Invisible Woman](/invisible-woman-deck-tech/)** (Fantastic Four): a four-color defender who builds Walls off noncreature spells, then turns the whole board into one unblockable swing.
 
 ## Salubrious Snail analysis (4 pieces)
 
@@ -35,4 +36,4 @@ A grounded guide collection for the four Marvel Super Heroes Commander precons (
 
 ---
 
-Nineteen pages, all built from the real precon lists and verified against current Scryfall card text. Source on [GitHub](https://github.com/7onething1/7onething1.github.io).
+Twenty pages, all built from the real precon lists and verified against current Scryfall card text. Source on [GitHub](https://github.com/7onething1/7onething1.github.io).
