@@ -1,0 +1,221 @@
+<!DOCTYPE html>
+<html lang="en"><head>
+<meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1">
+<title>How Chiron Reads Card Combinations — v4</title>
+<style>
+:root{--cream:#f4ecd8;--ink:#1c1a17;--rust:#b0553a;--mustard:#c98a2b;--teal:#3d7068;--plum:#7d5a7c;--line:#ddd0b2;--card:#fbf6e9}
+*{box-sizing:border-box}
+body{margin:0;background:var(--cream);color:var(--ink);font-family:"Inter",-apple-system,system-ui,sans-serif;line-height:1.55}
+header{max-width:1040px;margin:0 auto;padding:28px 22px 10px;border-bottom:3px solid var(--rust)}
+h1{font-family:"Cormorant Garamond",Georgia,serif;font-size:2.3rem;margin:0 0 4px;font-weight:600}
+.sub{color:var(--teal);font-weight:600}
+.wrap{max-width:1040px;margin:0 auto;padding:8px 22px 90px}
+.lead{background:var(--card);border:1px solid var(--line);border-left:5px solid var(--mustard);border-radius:12px;padding:14px 18px;margin:14px 0;font-size:.95rem}
+.lead b{color:#7a3b26}
+.legend{display:flex;flex-wrap:wrap;gap:8px;margin:10px 0 2px;font-size:.78rem}
+.tg{display:inline-block;font-size:.62rem;font-weight:800;text-transform:uppercase;letter-spacing:.04em;padding:2px 7px;border-radius:10px;margin-right:6px;vertical-align:middle}
+.tg.direct{background:#dce9e5;color:#2c5750} .tg.clarifier{background:#ece2ec;color:#63496b}
+.tg.sequence{background:#f5e6cc;color:#8a5a17} .tg.nearby{background:#e7e2d5;color:#7a7264}
+.pickrow{position:sticky;top:0;background:var(--cream);z-index:5;padding:10px 0;border-bottom:1px solid var(--line)}
+.plabel{font-weight:700;color:var(--rust);font-size:.72rem;text-transform:uppercase;letter-spacing:.05em;margin:0 0 6px}
+.controls{display:flex;flex-wrap:wrap;gap:8px;align-items:center;margin-top:9px}
+select{padding:8px 11px;border:2px solid var(--line);border-radius:9px;font-size:.9rem;background:var(--card);color:var(--ink)}
+.bigsel{font-size:1rem;padding:9px 12px;border:2px solid var(--teal);border-radius:9px;background:var(--card);color:var(--ink);font-weight:700;min-width:180px;max-width:46%}
+.plus{font-weight:800;color:var(--rust);font-size:1.25rem}
+.swap{border-color:var(--teal);color:var(--teal)}
+.fbtn{padding:4px 11px;border:1.5px solid var(--line);background:var(--card);border-radius:14px;font-weight:700;cursor:pointer;font-size:.72rem;color:#7a7264;text-transform:uppercase;letter-spacing:.03em}
+.fbtn.on{background:var(--ink);color:var(--cream);border-color:var(--ink)}
+h2.chosen{font-family:"Cormorant Garamond",Georgia,serif;color:var(--rust);font-size:1.7rem;margin:16px 0 2px}
+.lab{font-weight:700;color:var(--rust);font-size:.74rem;text-transform:uppercase;letter-spacing:.05em;margin:12px 0 6px}
+.tags{display:flex;flex-wrap:wrap;gap:6px;align-items:center;margin:4px 0 10px}
+.tglab{font-size:.66rem;font-weight:700;text-transform:uppercase;letter-spacing:.05em;color:#9a917f}
+.mtag{background:#e7ddc4;border:1px solid var(--line);border-radius:13px;padding:3px 11px;font-size:.86rem;color:#7a3b26;font-weight:700}
+.smtags{font-size:.72rem;color:#9a917f;font-weight:600;font-family:"Inter",sans-serif}
+.flg{font-size:.62rem;font-weight:800;text-transform:uppercase;letter-spacing:.04em;color:#9a5a3a;background:#f2e2d4;border-radius:8px;padding:1px 6px;margin-left:4px}
+.read.dim{opacity:.72}
+.hint{color:#7a7264;font-size:.9rem;margin:6px 0 12px}
+.feat{font-size:.66rem;font-weight:800;text-transform:uppercase;letter-spacing:.06em;color:#8a5a17;background:#f5e6cc;border-radius:9px;padding:2px 9px;display:inline-block;margin:2px 0 0}
+.partner{background:var(--card);border:1px solid var(--line);border-left:5px solid var(--mustard);border-radius:11px;margin:10px 0;overflow:hidden}
+.partner>summary{cursor:pointer;list-style:none;padding:11px 16px;font-weight:700;color:var(--plum);font-family:"Cormorant Garamond",Georgia,serif;font-size:1.2rem;display:flex;justify-content:space-between;align-items:center;gap:10px}
+.partner>summary::-webkit-details-marker{display:none}
+.partner>summary:before{content:"+ ";color:var(--mustard);font-weight:800}
+.partner[open]>summary:before{content:"\2013 ";color:var(--mustard)}
+.pcnt{color:#9a917f;font-size:.66rem;font-weight:700;white-space:nowrap}
+.read{margin:0 16px 10px;padding:9px 13px;background:#f3ead2;border-radius:8px;border-left:4px solid var(--teal);font-size:.95rem}
+.srclink{font-size:.72rem;color:var(--teal);font-weight:700;text-decoration:none;white-space:nowrap;margin-left:4px}
+.srclink:hover{text-decoration:underline}
+.struct{background:#f0ece2;border:1px solid var(--line);border-left:5px solid var(--plum);border-radius:11px;padding:11px 15px;margin:10px 0 4px;font-size:.93rem}
+.struct .sk{font-weight:800;color:var(--plum);font-family:"Cormorant Garamond",Georgia,serif;font-size:1.18rem}
+.struct .scite{display:block;margin-top:5px;font-size:.72rem;color:#9a917f;font-weight:600}
+details.method{background:var(--card);border:1px solid var(--line);border-radius:12px;margin:14px 0;padding:2px 4px}
+details.method>summary{cursor:pointer;list-style:none;padding:12px 16px;font-weight:700;color:var(--rust);font-family:"Cormorant Garamond",Georgia,serif;font-size:1.25rem}
+details.method>summary::-webkit-details-marker{display:none}
+details.method>summary:before{content:"+ ";color:var(--mustard);font-weight:800}
+details.method[open]>summary:before{content:"\2013 ";color:var(--mustard)}
+.method .mbody{padding:0 18px 14px;font-size:.9rem}
+.method h4{margin:14px 0 4px;color:var(--teal);font-size:.82rem;text-transform:uppercase;letter-spacing:.05em}
+.method ul{margin:4px 0 4px 2px;padding-left:18px} .method li{margin:3px 0}
+footer{max-width:1040px;margin:0 auto;padding:18px 22px 60px;color:#7a7264;font-size:.82rem;border-top:1px solid var(--line)}
+footer a{color:var(--rust)}
+#kidfab{position:fixed;right:18px;bottom:18px;z-index:20;background:var(--rust);color:#fff;border:none;border-radius:26px;padding:13px 20px;font-size:1rem;font-weight:700;cursor:pointer;box-shadow:0 3px 10px rgba(0,0,0,.25)}
+body.kid{font-size:1.15rem} body.kid .read{font-size:1.08rem} body.kid .lead{font-size:1.05rem}
+</style></head>
+<body>
+<header>
+  <h1>How Chiron Reads Card Combinations</h1>
+  <div class="sub">Pick two cards. See how she reads them together, and what kind of pair they make.</div>
+</header>
+<div class="wrap">
+  <div class="lead">
+    Every line below is a <b>verbatim passage</b> from Chiron Intuition's videos, with the source video linked. Each pairing also carries a <b>structural lens</b> from Joan Bunning's <i>Learning the Tarot</i> (Lesson 15, Card Pairs): whether two cards form a permanent opposite, a court-and-rank contrast, a reinforcing pair, or an occasional one. The corpus stats, ranking rules, and limits live in the methodology panel just below.
+    <div class="legend">
+      <span class="tg direct">direct</span> both cards make one claim
+      <span class="tg clarifier">clarifier</span> one card colors the other
+      <span class="tg sequence">sequence</span> movement from one to the next
+      <span class="tg nearby">nearby</span> mentioned together, light read
+    </div>
+  </div>
+
+  <details class="method">
+    <summary>Methodology, sources, and what this does not cover</summary>
+    <div class="mbody">
+      <h4>Source</h4>
+      Corpus collected from 446 Chiron Intuition transcripts through July 7, 2026. Every passage is verbatim and links to the exact video. A grounding pass confirmed each read traces to its cited source.
+      <h4>Coverage</h4>
+      This build indexes <b>2822 of the 3003 possible unordered pairs (94%)</b> across the 78 cards, drawn from <b>26,169 combination passages</b>, about 9.3 per pair. Pairs she was never recorded reading show <b>&ldquo;No recorded passage yet&rdquo;</b> rather than an invented reading. The only material excluded is a bare co-mention with no interpretation.
+      <h4>How passages are ranked</h4>
+      Software detects the card names, groups the passages by pair, and orders them by relational specificity: <b>direct</b> reads first, then <b>clarifier</b>, then <b>sequence</b>, then <b>nearby</b>. Every sentence stays verbatim; the ordering is automated, not human-edited. Contradictory reads are kept, because Chiron reads the same pair differently across subjects and questions.
+      <h4>The structural lens (Bunning)</h4>
+      Separate from the transcript evidence, each pairing is classified by Joan Bunning's <i>Learning the Tarot</i>, Lesson 15:
+      <ul>
+        <li><b>Permanent pair</b> &mdash; fixed opposites Bunning names, such as the Magician and the High Priestess.</li>
+        <li><b>Court-card / Ace pair</b> &mdash; two courts or two Aces, read as a contrast of suit and rank.</li>
+        <li><b>Reinforcing pair</b> &mdash; two cards pushing the same energy rather than opposing it (here, same suit).</li>
+        <li><b>Occasional pair</b> &mdash; any two cards read together for one instance, with no fixed opposition.</li>
+      </ul>
+      This lens is derived from card identity, not from the transcripts, so it is labeled as an interpretive frame, not as something Chiron said.
+    </div>
+  </details>
+
+  <div class="pickrow">
+    <div class="plabel">Build a combination, pick two cards</div>
+    <div class="controls">
+      <select id="card1" class="bigsel"></select>
+      <span class="plus">+</span>
+      <select id="card2" class="bigsel"></select>
+      <button class="fbtn swap" id="swap" title="swap the two cards">swap</button>
+    </div>
+    <div class="controls"><span class="plabel" style="margin:0 4px 0 0">show</span><span id="efilters"></span></div>
+  </div>
+  <div id="out"><p class="hint" id="loading">Loading the corpus (about 11 MB), one moment.</p></div>
+</div>
+<footer>
+  Companion to the single-card <a href="/chiron-cheatsheet">cheatsheet</a>. The structural lens follows Joan Bunning, <i>Learning the Tarot</i> (Weiser, 1998), Lesson 15. Open a pairing and click <b>&#9655; video</b> to hear it. This is version 4; the earlier build stays at <a href="/chiron-combinations">/chiron-combinations</a>.
+</footer>
+<button id="kidfab" onclick="toggleKid()">Kid mode</button>
+<script>
+let CORPUS=null, MEANINGS=null;
+let efil="all";
+const esc=s=>s.replace(/[&<>]/g,c=>({'&':'&amp;','<':'&lt;','>':'&gt;'}[c]));
+
+const MAJORS=["The Fool","The Magician","The High Priestess","The Empress","The Emperor","The Hierophant","The Lovers","The Chariot","Strength","The Hermit","Wheel of Fortune","Justice","The Hanged Man","Death","Temperance","The Devil","The Tower","The Star","The Moon","The Sun","Judgement","The World"];
+const RANKS=["Ace","Two","Three","Four","Five","Six","Seven","Eight","Nine","Ten","Page","Knight","Queen","King"];
+const SUITS=["Cups","Wands","Swords","Pentacles"];
+function buildOptions(includeEvery){
+  let h=includeEvery?'<option value="">every card</option>':'';
+  h+='<optgroup label="Major Arcana">'+MAJORS.map(c=>`<option>${c}</option>`).join('')+'</optgroup>';
+  SUITS.forEach(s=>{h+=`<optgroup label="${s}">`+RANKS.map(r=>`<option>${r} of ${s}</option>`).join('')+'</optgroup>';});
+  return h;
+}
+const sel1=document.getElementById('card1'), sel2=document.getElementById('card2');
+sel1.innerHTML=buildOptions(false); sel2.innerHTML=buildOptions(true);
+const cur=()=>sel1.value, curB=()=>sel2.value;
+sel1.onchange=render; sel2.onchange=render;
+document.getElementById('swap').onclick=()=>{if(!sel2.value)return;const a=sel1.value;sel1.value=sel2.value;sel2.value=a;render();};
+const EF=['all','direct','clarifier','sequence','nearby'];
+const ef=document.getElementById('efilters');
+EF.forEach(f=>{const b=document.createElement('button');b.className='fbtn'+(f==='all'?' on':'');b.textContent=f;b.dataset.f=f;b.onclick=()=>{efil=f;document.querySelectorAll('#efilters .fbtn').forEach(x=>x.classList.toggle('on',x.dataset.f===f));render();};ef.appendChild(b);});
+
+function pd(a,b){return (CORPUS[a]&&CORPUS[a][b])||null;}
+function reads_(a,b){return (pd(a,b)&&pd(a,b).reads)||[];}
+function tags_(a,b){return (pd(a,b)&&pd(a,b).tags)||[];}
+
+// --- Structural lens: Bunning, Learning the Tarot, Lesson 15 (Card Pairs) ---
+const COURTS=["Page","Knight","Queen","King"];
+function parts(name){const m=name.match(/^(Ace|Two|Three|Four|Five|Six|Seven|Eight|Nine|Ten|Page|Knight|Queen|King) of (Cups|Wands|Swords|Pentacles)$/);return m?{rank:m[1],suit:m[2],major:false}:{major:true,name};}
+const PERM=[["The Magician","The High Priestess"],["Eight of Swords","Four of Wands"]];
+function isPerm(a,b){return PERM.some(p=>(p[0]===a&&p[1]===b)||(p[1]===a&&p[0]===b));}
+function structural(a,b){
+  if(isPerm(a,b)) return {k:"Permanent pair",g:"Bunning names these two as fixed opposites. Read them as the poles of one balance."};
+  const pa=parts(a),pb=parts(b),ct=r=>COURTS.includes(r);
+  if(!pa.major&&!pb.major){
+    if((pa.rank==="Ace"&&pb.rank==="Ace")||(ct(pa.rank)&&ct(pb.rank)))
+      return {k:"Court-card / Ace pair",g:"Bunning reads two courts or two Aces as a contrast of suit and rank, one style set against another."};
+    if(pa.suit===pb.suit)
+      return {k:"Reinforcing pair",g:"Same suit, so Bunning would have the two energies compound rather than oppose each other."};
+  }
+  return {k:"Occasional pair",g:"No fixed opposition. Bunning: any two cards can be read together for this one instance."};
+}
+function structHTML(a,b){const s=structural(a,b);return `<div class="struct"><span class="sk">${s.k}</span> &mdash; ${esc(s.g)}<span class="scite">Structural lens: Joan Bunning, Learning the Tarot, Lesson 15 (derived from the cards, not from the transcripts).</span></div>`;}
+
+const FLBL={neg:'negative mention',frag:'fragment','3rd':'third card leads',dup:'near-duplicate'};
+function readHTML(r){const fl=r.f?` <span class="flg">${FLBL[r.f]}</span>`:'';return `<div class="read${r.f?' dim':''}"><span class="tg ${r.r}">${r.r}</span>${esc(r.t)}${fl} <a class="srclink" href="https://www.youtube.com/watch?v=${esc(r.v)}" target="_blank" rel="noopener">&#9655; video</a></div>`;}
+function filt(rs){return efil==='all'?rs:rs.filter(r=>r.r===efil);}
+function tagchips(tags){return tags.length?`<div class="tags"><span class="tglab">she repeats</span>${tags.map(t=>`<span class="mtag">${esc(t)}</span>`).join('')}</div>`:'';}
+function pairBody(a,b,topN){
+  const rs=filt(reads_(a,b));
+  const clean=rs.filter(r=>!r.f), flagged=rs.filter(r=>r.f);
+  let h=tagchips(tags_(a,b));
+  const show=clean.slice(0,topN), rest=clean.slice(topN).concat(flagged);
+  h+=show.length?show.map(readHTML).join(''):'<div class="hint">No clean passage for this filter.</div>';
+  if(rest.length) h+=`<details class="src-ex"><summary>view all ${rs.length} passages (includes ${flagged.length} fragment/negative/third-card)</summary>${rest.map(readHTML).join('')}</details>`;
+  return h;
+}
+function render(featured){
+  const out=document.getElementById('out');
+  if(!CORPUS){return;}
+  const a=cur(), b=curB();
+  if(a && b){                                    // a specific pair
+    let h=`<h2 class="chosen">${esc(a)} + ${esc(b)}</h2>`;
+    if(featured) h+=`<span class="feat">Featured pairing &middot; her most-documented partner for ${esc(a)}</span>`;
+    h+=structHTML(a,b);
+    if(!pd(a,b)) h+=`<div class="hint">No recorded passage yet. She was not recorded reading these two together in this corpus. Try one card alone to see who she does pair it with.</div>`;
+    else h+=`<div class="hint">Her recurring words for this pair, then the passages, strongest first.</div>`+pairBody(a,b,6);
+    out.innerHTML=h; return;
+  }
+  const partners=Object.keys(CORPUS[a]||{}).sort((x,y)=>reads_(a,y).length-reads_(a,x).length)
+    .filter(p=>filt(reads_(a,p)).length);
+  let h=`<h2 class="chosen">${esc(a)}</h2>`;
+  const mn=(MEANINGS&&MEANINGS[a])||[];             // standalone meanings first
+  if(mn.length){
+    const top=mn.slice(0,10), rest=mn.slice(10);
+    h+=`<div class="lab">Meaning <span class="pcnt">(${mn.length} verbatim, strongest first)</span></div>`;
+    h+=top.map(m=>`<div class="read"><span class="tg direct">meaning</span>${esc(m.t)} <a class="srclink" href="https://www.youtube.com/watch?v=${esc(m.v)}" target="_blank" rel="noopener">&#9655; video</a></div>`).join('');
+    if(rest.length) h+=`<details class="src-ex"><summary>view all ${mn.length} meanings</summary>${rest.map(m=>`<div class="read"><span class="tg direct">meaning</span>${esc(m.t)} <a class="srclink" href="https://www.youtube.com/watch?v=${esc(m.v)}" target="_blank" rel="noopener">&#9655; video</a></div>`).join('')}</details>`;
+  }
+  h+=`<div class="lab" style="margin-top:16px">Combinations</div><div class="hint">She reads it with ${partners.length} other cards${efil!=='all'?' ('+efil+')':''}. Pick a second card above for one pairing, or open any below.</div>`;
+  partners.forEach((p,i)=>{
+    const tg=tags_(a,p).slice(0,4);
+    h+=`<details class="partner"${i<3?' open':''}><summary><span>${esc(a)} + ${esc(p)}${tg.length?' <span class="smtags">'+tg.map(esc).join(' · ')+'</span>':''}</span><span class="pcnt">${reads_(a,p).length}</span></summary>`;
+    h+=structHTML(a,p);
+    h+=pairBody(a,p,3);
+    h+=`</details>`;
+  });
+  out.innerHTML=h;
+}
+function toggleKid(){document.body.classList.toggle('kid');document.getElementById('kidfab').textContent=document.body.classList.contains('kid')?'Normal mode':'Kid mode';}
+Promise.all([
+  fetch('./corpus.json').then(r=>r.json()),
+  fetch('./meanings.json').then(r=>r.json())
+]).then(([c,m])=>{
+  CORPUS=c;MEANINGS=m;
+  // Featured pairing on load: Two of Cups with its most-documented partner.
+  const seed="Two of Cups";
+  sel1.value=seed;
+  const parts=Object.keys(CORPUS[seed]||{}).sort((x,y)=>reads_(seed,y).length-reads_(seed,x).length);
+  if(parts.length){sel2.value=parts[0];render(true);}
+  else render(false);
+})
+  .catch(e=>{document.getElementById('loading').textContent='Could not load the corpus: '+e;});
+</script>
+</body></html>
