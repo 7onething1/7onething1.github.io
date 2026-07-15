@@ -1,0 +1,96 @@
+<!doctype html>
+<html lang="en"><head><meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Marvel Commander: Import &amp; Correction Status</title>
+<meta name="description" content="Live status tracker for the ChatGPT chat import and the per-page correction work across the Marvel Super Heroes Commander guide collection.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@600;700&family=Inter:wght@400;600;700;800&display=swap" rel="stylesheet">
+<style>
+  :root{--cream:#f4ecd8;--ink:#1c1a17;--rust:#b5533b;--teal:#3f7c78;--gold:#c98a2b;--olive:#7d7a3a;--line:#d9cdb0;--plum:#7b4b8a;}
+  *{box-sizing:border-box}
+  body{margin:0;background:var(--cream);color:var(--ink);font-family:'Inter',system-ui,sans-serif;line-height:1.55}
+  header{max-width:900px;margin:0 auto;padding:40px 22px 6px;text-align:center}
+  h1{font-family:'Cormorant Garamond',Georgia,serif;font-weight:700;font-size:clamp(1.9rem,6vw,2.7rem);margin:.1em 0}
+  .sub{color:var(--olive);font-weight:600;max-width:640px;margin:6px auto 0}
+  .stamp{font-size:.8rem;color:var(--olive);font-style:italic;margin-top:8px}
+  main{max-width:900px;margin:0 auto;padding:10px 22px 90px}
+  h2{font-family:'Cormorant Garamond',serif;font-size:1.5rem;color:var(--rust);margin:30px 0 8px;border-bottom:1px solid var(--line);padding-bottom:4px}
+  .legend{display:flex;gap:8px;flex-wrap:wrap;justify-content:center;margin:14px 0}
+  .pill{display:inline-block;padding:3px 11px;border-radius:20px;font-size:.76rem;font-weight:800;color:#fff;white-space:nowrap}
+  .done{background:var(--teal)} .live{background:#2e6b4e} .pending{background:var(--rust)} .na{background:var(--olive)} .todo{background:var(--plum)} .check{background:var(--gold)}
+  .wrap{overflow-x:auto;margin:8px 0}
+  table{border-collapse:collapse;width:100%;min-width:640px;background:#fbf5e6;border:1px solid var(--line);border-radius:10px;font-size:.92rem}
+  th{background:#efe6cf;color:var(--plum);text-align:left;padding:8px 11px;font-size:.74rem;text-transform:uppercase;letter-spacing:.03em}
+  td{padding:9px 11px;border-top:1px solid var(--line);vertical-align:top}
+  td:first-child{font-weight:700;color:var(--ink);white-space:nowrap}
+  .note{color:var(--olive);font-size:.86rem}
+  a{color:var(--teal);font-weight:700;text-decoration:none} a:hover{text-decoration:underline}
+  .files{background:#efe6cf;border:1px solid var(--line);border-radius:10px;padding:10px 14px;font-size:.86rem;margin:10px 0}
+  .files code{background:#e7dcc0;padding:1px 5px;border-radius:4px}
+  footer{max-width:900px;margin:0 auto;padding:0 22px 60px;font-size:.8rem;color:var(--olive);text-align:center}
+</style></head>
+<body>
+<header>
+  <h1>Marvel Commander: Import &amp; Correction Status</h1>
+  <div class="sub">Where the ChatGPT chat import stands, and which per-page corrections are applied, live, still pending, or already correct.</div>
+  <div class="stamp">Verified against local files and live Vercel routes, 2026-07-15.</div>
+</header>
+<main>
+  <div class="legend">
+    <span class="pill live">DONE + LIVE</span>
+    <span class="pill done">DONE (local)</span>
+    <span class="pill pending">PENDING</span>
+    <span class="pill na">ALREADY CORRECT</span>
+    <span class="pill todo">NOT STARTED</span>
+    <span class="pill check">VERIFY</span>
+  </div>
+
+  <h2>1. ChatGPT chat capture</h2>
+  <div class="wrap"><table>
+    <tr><th>Chat</th><th>Status</th><th>Notes</th></tr>
+    <tr><td>Commander Rankings Review</td><td><span class="pill live">CAPTURED</span></td><td class="note">Scrolled to top. Rankings-page review (8.4), Kang/Cap/Loki corrections, and audits for Doctor Doom, She-Hulk, Ms. Marvel, Invisible Woman, Human Torch, The Thing, Kang, T'Challa, Shuri, plus a shared best-practices section.</td></tr>
+    <tr><td>Precon Rankings Review</td><td><span class="pill live">CAPTURED</span></td><td class="note">Per-page rules audits for Shuri (7.4), Storm (6.9), Bast (7.1), plus T'Challa (8.3) and the Precon Rankings page.</td></tr>
+    <tr><td>Commander rankings continuation</td><td><span class="pill live">CAPTURED</span></td><td class="note">One-line stub only. No reviews produced.</td></tr>
+  </table></div>
+  <div class="files">Saved to <code>~/Projects/_outputs/marvel-chatgpt-import/</code>: INDEX.md + 4 capture files. The remaining audit prose (Doctor Doom, She-Hulk, Ms. Marvel, Invisible Woman, Human Torch, The Thing, shared best-practices) is inventoried in INDEX.md but not yet saved word for word.</div>
+
+  <h2>2. Per-page corrections</h2>
+  <div class="wrap"><table>
+    <tr><th>Page</th><th>Correction</th><th>Status</th><th>Notes</th></tr>
+    <tr><td>T'Challa</td><td>Swordsman's Steel triggers (MV4), 18&#8594;26 count, contents bar, kid state, table overflow</td><td><span class="pill live">DONE + LIVE</span></td><td class="note">Applied and shipped both hosts.</td></tr>
+    <tr><td>Storm</td><td>Grants flying so ground blockers cannot block; "two triggered abilities"; flyer-punish declare-step wording</td><td><span class="pill live">DONE + LIVE</span></td><td class="note">Verified live on Vercel.</td></tr>
+    <tr><td>Bast</td><td>Indestructible does not stop exile / bounce / sacrifice</td><td><span class="pill live">DONE + LIVE</span></td><td class="note">Overclaim removed; exile/bounce/sac acknowledged, live.</td></tr>
+    <tr><td>Shuri</td><td>The Great Mound is a Land, not an artifact card</td><td><span class="pill live">DONE + LIVE</span></td><td class="note">Fix live; Stridehangar Thopter note added.</td></tr>
+    <tr><td>Shuri</td><td>Foundry Inspector DOES discount mana rocks (Sol Ring to 0)</td><td><span class="pill pending">PENDING</span></td><td class="note">Page still says "mana artifacts get no casting benefit." Needs the corrected wording.</td></tr>
+    <tr><td>Kang</td><td>Crux of Fate and Skullclamp labels; rocks count</td><td><span class="pill na">ALREADY CORRECT</span></td><td class="note">My page lists Skullclamp under draw, Crux under interaction, rocks = 6. The review looked at an older version.</td></tr>
+    <tr><td>Captain America</td><td>"Two Heroes most turns" claim; Flawless Maneuver wording</td><td><span class="pill na">ALREADY CORRECT</span></td><td class="note">Page already reads "aim to cast two Heroes" and already separates indestructible from evasion.</td></tr>
+    <tr><td>Captain America</td><td>Stale EDHREC percentages; contents bar</td><td><span class="pill check">VERIFY</span></td><td class="note">No stale percentage table found in a quick scan; contents-bar depth to confirm.</td></tr>
+    <tr><td>Loki</td><td>Contents bar; trim repeated kid paragraphs</td><td><span class="pill check">VERIFY</span></td><td class="note">Not yet inspected in detail.</td></tr>
+  </table></div>
+
+  <h2>3. Rankings page (marvel-commander-rankings)</h2>
+  <div class="wrap"><table>
+    <tr><th>Correction</th><th>Status</th><th>Notes</th></tr>
+    <tr><td>Bracket rule outdated (precon is no longer auto-Bracket-2)</td><td><span class="pill pending">PENDING</span></td><td class="note">"Bracket 2" auto-claim still present. Rename to "Estimated Commander Bracket," note beta as of 2026.</td></tr>
+    <tr><td>Keyboard accessibility: deck cards are divs, modal has no Escape / focus trap</td><td><span class="pill pending">PENDING</span></td><td class="note">Cards use class="deck" divs; modal has role="dialog" but no keydown handler.</td></tr>
+    <tr><td>Source labels overstate support; commander-eligibility wording; Wakanda land row</td><td><span class="pill pending">PENDING</span></td><td class="note">Label upgrade lists "Editorial recommendations"; soften eligibility wording; expand the Plains&#8594;Citadel row.</td></tr>
+    <tr><td>Methodology drawer; "fully upgraded" definition</td><td><span class="pill pending">PENDING</span></td><td class="note">Editorial, lower priority.</td></tr>
+  </table></div>
+
+  <h2>4. New pages the chats audited but the site lacks</h2>
+  <div class="wrap"><table>
+    <tr><th>Commander</th><th>Status</th><th>Notes</th></tr>
+    <tr><td>Ms. Marvel, Elastic Ally</td><td><span class="pill todo">NOT STARTED</span></td><td class="note">Set-only (needs a rebuilt 99). ChatGPT audit captured in the chat.</td></tr>
+    <tr><td>She-Hulk, Attorney-at-Law</td><td><span class="pill todo">NOT STARTED</span></td><td class="note">Set-only. Power-up capacity audit captured in the chat.</td></tr>
+  </table></div>
+
+  <h2>5. Other page reviewed</h2>
+  <div class="wrap"><table>
+    <tr><th>Page</th><th>Correction</th><th>Status</th></tr>
+    <tr><td>salubrioussnail-points</td><td>Opening count contradiction (74 vs 58 vs 14); proper-name errors</td><td><span class="pill pending">PENDING</span></td></tr>
+  </table></div>
+</main>
+<footer>This tracker is a work-product status page, not a deck guide. Card claims are verified against Scryfall before any correction is applied.</footer>
+</body>
+</html>
