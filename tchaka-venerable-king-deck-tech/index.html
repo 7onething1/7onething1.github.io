@@ -1,0 +1,162 @@
+<!doctype html>
+<html lang="en"><head><meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>T'Chaka, Venerable King: The Quiet Toolbox</title>
+<meta name="description" content="A Snail-style deck tech for T'Chaka, Venerable King, the Selesnya Wakanda Forever alt: the blink-value commander whose enter trigger digs for an artifact or land, with an honest read on the near-dead monarch ability, the dig math, the blink package, a dead-draw audit, a construction audit, and the shell.">
+<meta name="keywords" content="T'Chaka Venerable King, Selesnya, Wakanda Forever, Marvel Super Heroes Commander, blink, mill, ramp, monarch, deck tech, construction audit">
+<meta property="og:title" content="T'Chaka, Venerable King: The Quiet Toolbox">
+<meta property="og:description" content="The Selesnya blink-value commander whose enter trigger digs for an artifact or land, with an honest read on the near-dead monarch ability.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,500;0,600;0,700;1,600&family=Inter:wght@400;600;700;800&display=swap" rel="stylesheet">
+<style>
+  :root{--cream:#f4ecd8;--ink:#1c1a17;--rust:#b5533b;--teal:#3f7c78;--gold:#c98a2b;--olive:#7d7a3a;--line:#d9cdb0;--plum:#7b4b8a;}
+  *{box-sizing:border-box}
+  body{margin:0;background:var(--cream);color:var(--ink);font-family:'Inter',system-ui,-apple-system,Segoe UI,Roboto,sans-serif;line-height:1.62}
+  header{padding:46px 24px 10px;max-width:760px;margin:0 auto;text-align:center}
+  h1{font-family:'Cormorant Garamond',Georgia,serif;font-size:clamp(2rem,8vw,2.7rem);margin:.15em 0;color:var(--ink);line-height:1.1}
+  .sub{color:var(--olive);font-weight:600;max-width:640px;margin:8px auto 0}
+  .nav{margin:14px auto 0;font-size:.9rem}
+  .nav a{color:var(--teal);font-weight:700;text-decoration:none;margin:0 8px}
+  .byline{max-width:760px;margin:10px auto 0;padding:0 22px;font-size:.8rem;color:var(--olive);font-style:italic;text-align:center}
+  main{max-width:760px;margin:0 auto;padding:12px 22px 100px}
+  article h2{font-family:'Cormorant Garamond',serif;font-size:1.7rem;color:var(--rust);margin:34px 0 8px}
+  article h3{font-family:'Inter',sans-serif;font-size:1.02rem;color:var(--plum);margin:18px 0 6px;text-transform:uppercase;letter-spacing:.04em}
+  article p{margin:0 0 14px;font-size:1.04rem}
+  .lead{font-size:1.12rem;color:#33302a}
+  .swapline{margin:10px 0;padding:9px 13px;background:#fbf5e6;border:1px solid var(--line);border-radius:9px;font-size:.96rem;overflow:hidden}
+  .swapline b{color:var(--rust)} .swapline .pct{color:var(--teal);font-weight:800}
+  .mathbox{background:#efe6cf;border:1px solid var(--line);border-left:4px solid var(--teal);border-radius:10px;padding:14px 16px;margin:14px 0}
+  .mathbox table{border-collapse:collapse;width:100%;font-size:.95rem;margin:6px 0}
+  .mathbox td{padding:4px 8px;border-bottom:1px solid var(--line)}
+  .mathbox td:last-child{text-align:right;font-weight:800;color:var(--rust)}
+  .mathbox .tot td{border-bottom:none;border-top:2px solid var(--teal);font-weight:800}
+  .turns{background:#fbf5e6;border:1px solid var(--line);border-radius:10px;padding:6px 4px;margin:12px 0}
+  .turns table{border-collapse:collapse;width:100%;font-size:.94rem}
+  .turns td{padding:7px 11px;border-bottom:1px solid var(--line);vertical-align:top}
+  .turns td:first-child{font-weight:800;color:var(--teal);white-space:nowrap;width:1%}
+  .turns tr:last-child td{border-bottom:none}
+  .auditwrap{overflow-x:auto;margin:12px 0}
+  table.audit{border-collapse:collapse;width:100%;min-width:640px;font-size:.9rem;background:#fbf5e6;border:1px solid var(--line);border-radius:10px}
+  table.audit th{background:#efe6cf;color:var(--plum);text-align:left;padding:8px 10px;font-size:.78rem;text-transform:uppercase;letter-spacing:.03em}
+  table.audit td{padding:8px 10px;border-top:1px solid var(--line);vertical-align:top}
+  table.audit td:first-child{font-weight:800;color:var(--rust);white-space:nowrap}
+  .v{display:inline-block;padding:2px 9px;border-radius:20px;font-size:.76rem;font-weight:800;color:#fff}
+  .v-core{background:var(--teal)} .v-supported{background:var(--olive)} .v-situational{background:var(--gold)} .v-cut{background:var(--rust)}
+  .pull{border-left:4px solid var(--gold);padding:6px 0 6px 15px;margin:16px 0;font-family:'Cormorant Garamond',serif;font-size:1.35rem;color:#3f3b30}
+  .src{max-width:760px;margin:0 auto;padding:0 22px 96px;font-size:.82rem;color:var(--olive)}
+  .src a{color:var(--teal);font-weight:700}
+  .kid-only{display:none}
+  #kidfab{position:fixed;right:18px;bottom:18px;z-index:50;background:var(--rust);color:#fff;border:none;border-radius:40px;padding:14px 21px;font-size:1rem;font-weight:800;box-shadow:0 4px 14px rgba(0,0,0,.25);cursor:pointer}
+  body.kid{font-size:1.14rem}
+  body.kid .grown{display:none}
+  body.kid .kid-only{display:block}
+  body.kid .lead{font-size:1.18rem}
+  .toc{background:#efe6cf;border:1px solid var(--line);border-radius:10px;padding:9px 14px;margin:6px 0 18px;font-size:.86rem;line-height:1.9}
+  .toc summary{color:var(--plum);font-weight:800;cursor:pointer;list-style:none}
+  .toc summary::-webkit-details-marker{display:none}
+  .toc summary::before{content:"\25B8 ";color:var(--teal)}
+  .toc[open] summary::before{content:"\25BE "}
+  .toc .toclinks{margin-top:7px}
+  .toc a{color:var(--teal);font-weight:700;text-decoration:none;margin:0 12px 0 0;display:inline-block}
+  @media(max-width:560px){.toc a{white-space:normal;display:block;margin:3px 0}}
+  body.kid .toc{display:none}
+</style></head>
+<body>
+<header>
+  <h1>T'Chaka, Venerable King: <span style="white-space:nowrap">The Quiet Toolbox</span></h1>
+  <div class="sub grown">The elder Wakanda king is the humble one, and this page says so plainly. His enter trigger digs three deep for an artifact or land, and repeating that dig is the whole engine. His graveyard monarch ability barely functions when he leads, so the honest build relies on the blink value instead.</div>
+  <div class="sub kid-only">T'Chaka is a small 2/2. When he enters, he mills three cards and lets you take an artifact or land from them. The deck is about blinking him to do that again and again. His other ability rarely works when he is your commander, so we build around the first one.</div>
+  <div class="nav"><a href="/marvel-commander-guides/">Guides hub</a> &middot; <a href="/okoye-mighty-adored-deck-tech/">Okoye deck tech</a> &middot; <a href="/bast-panther-goddess-deck-tech/">Bast deck tech</a> &middot; <a href="/marvel-commander-rankings/">Marvel rankings</a></div>
+</header>
+<p class="byline">This T'Chaka, Venerable King deck tech is inspired by Salubrious Snail's published deckbuilding framework. T'Chaka's oracle text and color identity are from Scryfall (Marvel Super Heroes Commander, read 2026-07-14); the Wakanda shell and adoption figures come from the EDHREC Wakanda pages, where T'Chaka is thinly built. Not authored or endorsed by Salubrious Snail or EDHREC.</p>
+<main>
+<article>
+<details class="toc" aria-label="Contents"><summary>On this page (7 destinations)</summary><div class="toclinks"><a href="#the-engine">The engine</a><a href="#honest">The honest read</a><a href="#dig-math">Dig math</a><a href="#blink">The blink package</a><a href="#dead-draw-audit">Dead Draw Audit</a><a href="#construction-audit">Construction audit</a><a href="#the-shell">The shell</a></div></details>
+
+<p class="lead grown">T'Chaka, Venerable King costs {G}{W}, a 2/2 Selesnya Hero with two abilities. When he enters, mill three cards, then you may take an artifact or land card from among them into your hand. And for three mana, exiling him from your graveyard, you become the monarch, but only if you control your commander. He is a Wakanda Forever alt, and EDHREC shows him thinly built, which the card explains on its own. The enter trigger is a small, repeatable dig for ramp and fixing, and the whole deck is a plan to trigger it again and again through blink and recursion.</p>
+<p class="lead kid-only">T'Chaka is a 2/2 that costs two mana. When he enters, he mills three cards and you can take an artifact or land. His second power makes you the monarch, but it needs you to control a commander, which rarely happens when he is your commander. So the deck is built around blinking him to reuse the first power.</p>
+
+<h2 id="the-engine">The engine, a repeatable dig</h2>
+<p class="grown">The enter trigger is the reason to build T'Chaka. It mills three and hands you an artifact or land from the three, which is ramp, fixing, and a little graveyard filling in one cheap package. On its own it is minor, one card that is usually a land. Repeated, it becomes a real engine, since a two-mana commander that digs every time he enters rewards any way to flicker or recast him. The deck turns a small trigger into a steady stream of lands, mana rocks, and graveyard fuel.</p>
+<p class="grown">The build is a Selesnya value deck built on that loop. Blink effects return T'Chaka to the battlefield for another dig, sacrifice-and-recur lines reuse him, and his low cost keeps the command-zone tax cheap when he dies. None of this is explosive, and all of it stays consistent, which is the honest pitch for a commander the community has mostly passed over.</p>
+<p class="kid-only">The first power is small but repeatable. Each time T'Chaka enters, you dig for a land or artifact. Blink him or bring him back to do it over and over, and those little digs add up to steady ramp and card selection. He is consistent rather than flashy.</p>
+
+<h2 id="honest">The honest read on the monarch ability</h2>
+<p class="grown">The second ability deserves a straight answer rather than a sales pitch. It reads: pay three, exile T'Chaka from your graveyard, and you become the monarch, only if you control your commander. When T'Chaka is your sole commander, he goes to the command zone rather than your graveyard, and he is not on the battlefield for you to control, so the ability has almost no window to work. It was written for a deck where T'Chaka sits in the ninety-nine beside a different commander, or one that deliberately routes him to the graveyard.</p>
+<p class="grown">So the page grades that ability near zero for a T'Chaka-led deck and builds around the enter trigger instead. A pilot who wants the monarch line should run T'Chaka in the ninety-nine under another Selesnya commander, where controlling that commander turns the ability on. Saying this plainly is the point, since dressing a dead ability up as an engine is how a primer misleads a new pilot.</p>
+<p class="kid-only">The monarch power needs you to control a commander. If T'Chaka is your commander, he is in the command zone or graveyard instead of on the battlefield, so you do not control him and the power does nothing. It only works if T'Chaka is a normal card in a deck led by someone else. We are honest about that and build around his first power.</p>
+
+<h2 id="dig-math">The dig math</h2>
+<p class="grown">The enter trigger mills three and takes an artifact or land, so its reliability depends on how many lands and artifacts the deck runs. At a normal Selesnya land count the grab almost always finds a target, and adding a few artifacts pushes it higher. The table reads the chance that at least one of the three milled cards is an artifact or land.</p>
+<div class="mathbox grown">
+  <table>
+    <tr><td>37 lands and artifacts in the 99</td><td>75.9%</td></tr>
+    <tr><td>40 lands and artifacts</td><td>79.3%</td></tr>
+    <tr><td>45 lands and artifacts</td><td>84.2%</td></tr>
+    <tr class="tot"><td>50 lands and artifacts</td><td>88.3%</td></tr>
+  </table>
+</div>
+<p class="grown">Read the right column as how often a dig gives you a card. The takeaway is to keep the land count healthy and add a modest artifact package, since both raise the hit rate and both are valid grabs. A deck that tilts its nonland slots toward artifacts turns the dig into repeatable ramp, and one that stays land-heavy turns it into fixing and land drops. Either way the trigger rarely whiffs, which is what makes the blink loop worth building.</p>
+<p class="kid-only">The dig looks at three cards and takes a land or artifact, so it works better with more lands and artifacts. At a normal land count it finds a card about three times in four, and adding artifacts pushes it higher. So run plenty of lands and some artifacts.</p>
+
+<h2 id="blink">The blink package</h2>
+<p class="grown">Since the enter trigger is the engine, the build wants a real package of ways to reuse it. Blink and flicker effects return T'Chaka for another dig at instant speed, sacrifice outlets paired with recursion recycle him for value, and cheap reanimation brings him back after a wipe. Green and white both offer this, from flicker spells and blink creatures to populate-adjacent recursion, so the package fits the colors.</p>
+<p class="grown">The milled cards are a second, quiet resource. Every dig bins two cards you did not take, so a light graveyard payoff turns the mill into extra value: recursion that returns creatures or spells, a card that rewards a stocked graveyard, or landfall that pays off the lands you grab. None of this needs to be heavy, since the deck is a value grind, and a couple of payoffs keep the milled cards from being wasted.</p>
+<p class="kid-only">Run blink and flicker cards to make T'Chaka enter again and again, plus a way to bring him back if he dies. Also add a few cards that use your graveyard, since every dig mills two cards you do not keep. A little graveyard payoff turns that into extra value.</p>
+
+<h2 id="dead-draw-audit">Dead Draw Audit</h2>
+<p class="grown">Snail's method scores a card by how often it does its job and whether it earns its slot with the commander gone. Here are five cards through that lens, with the honest engine read deciding the close calls.</p>
+<div class="auditwrap grown">
+<table class="audit">
+  <caption style="text-align:left;font-size:.82rem;color:var(--olive);padding:6px 10px;font-style:italic">Dead Draw Audit: five cards scored on job, support, solo value, and verdict.</caption>
+  <tr><th scope="col">Card</th><th scope="col">Primary job</th><th>Support in the 99</th><th>Value without T'Chaka</th><th>Verdict</th></tr>
+  <tr><td>A cheap blink or flicker effect</td><td>Repeats the enter dig</td><td>Very high, the whole engine</td><td>Fine, blink helps many creatures</td><td><span class="v v-core">core</span></td></tr>
+  <tr><td>A healthy land and mana-rock base</td><td>Feeds the dig and gets grabbed</td><td>High, raises the hit rate</td><td>Good, ramp anywhere</td><td><span class="v v-core">core</span></td></tr>
+  <tr><td>A light graveyard payoff</td><td>Uses the two milled cards</td><td>Medium, the mill half</td><td>Fine in a value deck</td><td><span class="v v-supported">supported</span></td></tr>
+  <tr><td>Reanimation for T'Chaka</td><td>Rebuilds the engine after a wipe</td><td>Medium, resilience</td><td>Situational alone</td><td><span class="v v-supported">supported</span></td></tr>
+  <tr><td>A card built around the monarch line</td><td>Wants the near-dead ability</td><td>Low, the ability rarely fires</td><td>Depends on the card</td><td><span class="v v-situational">situational</span></td></tr>
+</table>
+</div>
+<p class="grown">The monarch-oriented card drops to situational for a T'Chaka-led deck, since the ability that supports it almost never fires from the command zone. Blink and the mana base climb to core, since they are the engine and its fuel. Run every questioned card through job, support, solo value, and the honest engine read before it stays.</p>
+<p class="kid-only">This grades each card by what it does and whether it helps T'Chaka. Blink effects and a good mana base are the best, since they power and feed the dig. Cards that need the monarch power are weak here, since that power rarely works when T'Chaka leads.</p>
+
+<h2 id="construction-audit">Beyond the Dead Draw Audit: the construction audit</h2>
+<p class="grown">The Dead Draw Audit scores single cards. This construction audit scores the whole ninety-nine on the one working engine. The first rule is a package of blink and recursion that reuses the enter dig, the second is a land and artifact base high enough that the dig rarely whiffs, and the third is a light graveyard payoff for the milled cards. The build is a value grind, so it measures consistency rather than an explosive turn.</p>
+<div class="turns grown">
+  <table>
+    <tr><td style="color:var(--plum)">Target</td><td>Count</td><td>Why</td></tr>
+    <tr><td>Blink, flicker, and recursion</td><td>10-12</td><td>Reuses the enter dig, the whole engine</td></tr>
+    <tr><td>Lands and mana rocks</td><td>40-44</td><td>Feeds the dig and gets grabbed by it</td></tr>
+    <tr><td>Graveyard and landfall payoffs</td><td>4-6</td><td>Uses the two milled cards and the grabbed lands</td></tr>
+    <tr><td>Interaction</td><td>9-11</td><td>Green-white removal and a reset</td></tr>
+    <tr><td>Value creatures and finishers</td><td>the remainder</td><td>A real board, since T'Chaka does not close</td></tr>
+    <tr><td>Lands within the above</td><td>37-38</td><td>A clean Selesnya base</td></tr>
+  </table>
+</div>
+<p class="grown">Read the blink count and the land-and-artifact count as one system. The blink count sets how often you repeat the dig, and the land-and-artifact count sets how often the dig gives you a card, so a deck with blink and a thin mana base whiffs its loop and a land-heavy deck with no blink digs only once. Report two numbers when you tune the list, the count of ways to reuse T'Chaka and the count of lands plus artifacts. The honest measure is how many free digs you get across a game and how many find a card, since that is the entire engine, and the deck needs a separate plan to actually win.</p>
+<p class="grown">Every revision should hold the blink count and the mana base first, then a payoff for the milled cards, then a real finishing plan, since T'Chaka is a two-power body that does not end games. A new blink effect that also protects or draws is worth more than a narrow one. A card that only supports the monarch line is the first cut for a T'Chaka-led build. This is a budget-friendly grind commander, and the page grades it honestly rather than inflating it.</p>
+<p class="pull grown">One small dig, repeated all game. T'Chaka is a value engine that never pretends to be a finisher.</p>
+<p class="kid-only">To build T'Chaka: run 10 to 12 blink and recursion cards to reuse his dig, a high land and artifact count so the dig finds cards, a few graveyard payoffs, and a real way to win, since he is only a 2/2. Do not build around his monarch power, since it rarely works when he leads.</p>
+
+<h2 id="the-shell">The shell, a Selesnya value plan</h2>
+<p class="grown">T'Chaka is a legal Wakanda Forever commander in green and white, and he wants the most modest build of the Wakanda faces. The <a href="/tchalla-black-panther-deck-tech/">T'Challa</a> and <a href="/shuri-black-panther-deck-tech/">Shuri</a> plans count artifacts, <a href="/storm-queen-wakanda-deck-tech/">Storm</a> stacks power, <a href="/bast-panther-goddess-deck-tech/">Bast</a> goes wide, and <a href="/okoye-mighty-adored-deck-tech/">Okoye</a> dances the crown. T'Chaka just grinds value from a repeated dig. The shell is a green-white blink and midrange deck with a healthy mana base, a light graveyard payoff, and a real creature plan to close, since the commander supplies consistency rather than a finish.</p>
+<p class="grown">The interaction and the ramp carry over from any Selesnya midrange list, and the ramp doubles as dig fuel. Reuse the enter trigger, keep the mana base high so it hits, and win with the creatures and payoffs the two colors provide. Build toward the construction audit above, a real blink package, a deep mana base, a couple of graveyard payoffs, and an honest finishing plan, with no weight spent on the monarch ability that does not work under him.</p>
+<p class="kid-only">T'Chaka wants the simplest of the Wakanda decks: green-white blink and good creatures. The other faces have flashy plans; he just grinds steady value. Reuse his dig, keep lots of lands, and win with normal creatures, since he does not finish games himself.</p>
+
+</article>
+</main>
+
+<div class="src">
+  <p><b>Sources.</b> T'Chaka, Venerable King oracle text and color identity via <a href="https://scryfall.com">Scryfall</a> (Marvel Super Heroes Commander, read 2026-07-14): {G}{W}, Legendary Creature Human Noble Hero, 2/2, color identity Selesnya (green-white); "When T'Chaka enters, mill three cards, then you may put an artifact or land card from among the milled cards into your hand", and "{3}, Exile this card from your graveyard: You become the monarch. Activate only if you control your commander". The monarch ability requires controlling a commander, which a T'Chaka-led deck almost never satisfies, since he goes to the command zone rather than the battlefield, so this page grades it near zero for him and builds on the enter trigger. The dig figures are hypergeometric over a 99-card library, top three milled cards: at least one artifact or land is 75.9 percent at 37 such cards, rising to 88.3 percent at 50. EDHREC shows T'Chaka thinly built (a few decks, read 2026-07-14), consistent with the honest read here. The Wakanda shell and the other Wakanda plans are on the <a href="/tchalla-black-panther-deck-tech/">T'Challa</a>, <a href="/shuri-black-panther-deck-tech/">Shuri</a>, <a href="/storm-queen-wakanda-deck-tech/">Storm</a>, <a href="/bast-panther-goddess-deck-tech/">Bast</a>, and <a href="/okoye-mighty-adored-deck-tech/">Okoye</a> deck techs; inclusion context is on the <a href="/salubrioussnail-marvel-edhrec/">EDHREC Marvel read</a> and the <a href="/marvel-commander-rankings/">Marvel rankings</a>. Inspired by Salubrious Snail's published framework; neither Salubrious Snail nor EDHREC authored or endorsed it.</p>
+</div>
+
+<button id="kidfab" onclick="toggleKid()" aria-pressed="false" aria-label="Toggle plain-language kid mode">Kid Mode</button>
+<script>
+function toggleKid(){var on=document.body.classList.toggle('kid');
+  var b=document.getElementById('kidfab');
+  b.textContent=on?'Normal Mode':'Kid Mode';
+  b.setAttribute('aria-pressed',on?'true':'false');}
+</script>
+</body>
+</html>
