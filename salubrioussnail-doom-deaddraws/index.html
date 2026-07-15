@@ -1,0 +1,180 @@
+<!doctype html>
+<html lang="en"><head><meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Doom: Reducing Dead Draws Through Synergy</title>
+<meta name="description" content="Salubrious Snail's reducing-dead-draws video, re-run as a full walkthrough of the Marvel Doom Prevails Commander precon. Audit every card by what it accomplishes and what it synergizes with, and the exact swaps that feed Doctor Doom's discard drain and Loki's copy engine.">
+<meta name="keywords" content="Doom Prevails Commander, Doctor Doom King of Latveria deck, Loki the Deceiver copies, Grixis villains EDH, dead draws synergy, Salubrious Snail drawing less junk, Green Goblin Revenant, Kingpin Wilson Fisk, Sundial of the Infinite, Marvel Super Heroes Commander">
+<meta property="og:title" content="Doom: Reducing Dead Draws Through Synergy">
+<meta property="og:description" content="A full walkthrough of the Marvel Doom precon through Snail's dead-draws video: audit by task and synergy, and the swaps that feed both engines.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,500;0,600;0,700;1,600&family=Inter:wght@400;600;700;800&family=Bangers&display=swap" rel="stylesheet">
+<style>
+  :root{--cream:#f4ecd8;--ink:#1c1a17;--rust:#b5533b;--teal:#3f7c78;--gold:#c98a2b;--olive:#7d7a3a;--line:#d9cdb0;--panel:#fbf5e6;--panel2:#efe4c8;}
+  *{box-sizing:border-box}
+  body{margin:0;background:var(--cream);color:var(--ink);font-family:'Inter',system-ui,-apple-system,Segoe UI,Roboto,sans-serif;line-height:1.62}
+  header{padding:48px 24px 8px;max-width:820px;margin:0 auto;text-align:center}
+  .kicker{font-family:'Bangers',cursive;letter-spacing:.04em;color:var(--rust);font-size:1.15rem}
+  h1{font-family:'Cormorant Garamond',Georgia,serif;font-size:2.9rem;line-height:1.05;margin:.14em 0 .1em;color:var(--ink)}
+  .sub{color:var(--olive);font-weight:700;font-size:1.02rem;max-width:640px;margin:6px auto 0}
+  .facelist{display:flex;flex-wrap:wrap;gap:6px;justify-content:center;margin:14px 0 0;font-size:.82rem;color:var(--olive);font-weight:700}
+  .pip{display:inline-flex;width:17px;height:17px;border-radius:50%;border:1px solid rgba(0,0,0,.25);font-size:.62rem;font-weight:800;align-items:center;justify-content:center}
+  .pip.W{background:#f7f0dd}.pip.U{background:#bfe0ef}.pip.R{background:#efb9a5}.pip.G{background:#bcd9b4}.pip.B{background:#c9bcd0}
+  .back{display:block;max-width:820px;margin:16px auto 0;padding:0 24px;font-size:.9rem;line-height:1.9}
+  .back a{color:var(--teal);font-weight:700;text-decoration:none;margin:0 8px}
+  .back .cur{color:var(--ink);font-weight:800;margin:0 8px}
+  .back .navlabel{color:var(--olive);font-weight:800;margin-right:0}
+  .byline{max-width:820px;margin:8px auto 0;padding:0 24px;font-size:.8rem;color:var(--olive);font-style:italic}
+  main{max-width:820px;margin:0 auto;padding:18px 24px 110px}
+  section{margin:30px 0}
+  h2{font-family:'Cormorant Garamond',serif;font-size:2rem;color:var(--rust);margin:0 0 10px;line-height:1.1}
+  h2 small{display:block;font-family:'Inter',sans-serif;font-size:.72rem;letter-spacing:.06em;text-transform:uppercase;color:var(--olive);font-weight:800;margin-bottom:2px}
+  p{margin:0 0 14px}
+  p b{color:var(--ink)}
+  .lede{font-size:1.14rem;color:#3a352a}
+  .pull{border-left:4px solid var(--gold);background:var(--panel2);padding:12px 16px;border-radius:6px;margin:16px 0;font-family:'Cormorant Garamond',serif;font-size:1.28rem;font-style:italic;color:var(--rust)}
+  .swap{display:flex;gap:16px;align-items:center;margin:16px 0;padding:14px 16px;background:var(--panel);border:1px solid var(--line);border-radius:12px}
+  .swapcards{display:flex;gap:8px;align-items:center;flex:none}
+  .swapimg{width:74px;border-radius:5px;box-shadow:0 2px 7px rgba(0,0,0,.22)}
+  .swapimg.out{filter:grayscale(.55) opacity(.8)}
+  .arrow{color:var(--teal);font-weight:800;font-size:1.2rem}
+  .swaptxt{font-size:.95rem}
+  .swaptxt .h{font-weight:800;color:var(--rust);display:block;margin-bottom:2px}
+  .faces{display:grid;grid-template-columns:repeat(3,1fr);gap:10px;margin:14px 0 4px}
+  .face{background:var(--panel);border:1px solid var(--line);border-radius:10px;padding:8px;text-align:center}
+  .face img{width:100%;border-radius:5px;box-shadow:0 2px 6px rgba(0,0,0,.18)}
+  .face .nm{font-weight:800;font-size:.78rem;margin:6px 0 2px}
+  .face .co{font-size:.72rem;color:var(--olive)}
+  .kid-only{display:none}
+  .engines{display:grid;grid-template-columns:1fr 1fr;gap:12px;margin:14px 0}
+  .eng{background:var(--panel2);border:1px solid var(--line);border-radius:10px;padding:12px 14px}
+  .eng h3{margin:0 0 4px;font-family:'Inter',sans-serif;font-size:.95rem;color:var(--rust)}
+  .eng p{margin:0;font-size:.9rem}
+  .src{max-width:820px;margin:8px auto 0;padding:16px 24px 40px;border-top:2px solid var(--line);color:#5b5638;font-size:.88rem}
+  .src a{color:var(--teal);font-weight:700}
+  #kidfab{position:fixed;right:18px;bottom:18px;z-index:50;background:var(--rust);color:#fff;border:none;border-radius:40px;padding:14px 21px;font-size:1rem;font-weight:800;box-shadow:0 4px 14px rgba(0,0,0,.25);cursor:pointer}
+  body.kid{font-size:1.14rem}
+  body.kid .grown{display:none}
+  body.kid .kid-only{display:block}
+  body.kid .lede{font-size:1.18rem}
+  body.kid h2{font-size:2.15rem}
+  @media(max-width:640px){h1{font-size:2.2rem}.faces{grid-template-columns:repeat(3,1fr)}.engines{grid-template-columns:1fr}.swap{flex-direction:column;align-items:flex-start}}
+</style>
+</head>
+<body>
+<header>
+  <div class="kicker">Marvel precon, my method</div>
+  <h1>Doom, With No Dead Draws</h1>
+  <p class="sub">With just two commander engines, this is the cleanest of the four to audit for dead draws. Feed both and you almost never draw a blank, worked the way I work mine.</p>
+  <div class="facelist">
+    <span><span class="pip U">U</span><span class="pip B">B</span><span class="pip R">R</span> Doctor Doom, King of Latveria</span> ·
+    <span>discard drain &amp; Loki copies</span>
+  </div>
+</header>
+<nav class="back">
+  <span class="navlabel">The four Snail reads:</span>
+  <span class="cur">Doom · dead draws</span>
+  <a href="/salubrioussnail-ff-manabase/">Fantastic Four · manabase</a>
+  <a href="/salubrioussnail-avengers-simpler/">Avengers · simpler decks</a>
+  <a href="/salubrioussnail-wakanda-wrongchoice/">Wakanda · wrong choice</a>
+  <span class="navlabel">Hubs:</span>
+  <a href="/salubrioussnail-marvel-reads/">All four on one page</a>
+  <a href="/salubrioussnail-decks/#snaildeck-doom">Snail decks</a>
+  <a href="/marvel-commander-rankings/">Marvel rankings</a>
+</nav>
+<p class="byline">Fan adaptation written in Salubrious Snail's voice from his published Commander principles. Not authored or endorsed by Salubrious Snail. Card text from Scryfall.</p>
+<p class="byline">Cuts and adds below follow the published Doom Prevails upgrade guide; every card identity here is verified on Scryfall.</p>
+
+<main>
+
+<section>
+  <p class="lede grown">A card goes dead when you draw it and the deck lacks the pieces that make it work. My fix is an audit: I look at each card and ask two questions, what does this card accomplish, and what else does it synergize with. Run that pass and the sluggish, swingy feeling of a deck that keeps drawing blanks starts to clear up. The Doom precon is the cleanest test case in the whole box, because its two commanders give it two primary engines, and almost every good upgrade is about replacing a card that feeds neither of them.</p>
+  <p class="lede kid-only">A card is a "dead draw" when you pull it and it does nothing, because the rest of your deck cannot make it work. My fix is to check each card two ways: what does it do, and what does it combo with? The Doom deck is easy to check, because it only has two things it wants to do. This page swaps out the cards that help with neither.</p>
+  <div class="faces">
+    <div class="face"><img src="https://cards.scryfall.io/normal/front/0/9/099ed408-9178-4403-8b2d-479ca3cbda9b.jpg?1782682664" alt="Doctor Doom, King of Latveria"><div class="nm">Doctor Doom, King of Latveria</div><div class="co">{1}{U}{B}{R}</div></div>
+    <div class="face"><img src="https://cards.scryfall.io/normal/front/c/0/c0cd3d41-909b-4f20-a44b-db82807d10ae.jpg?1782682595" alt="Loki, the Deceiver"><div class="nm">Loki, the Deceiver</div><div class="co">{1}{U}{B}{R}</div></div>
+    <div class="face"><img src="https://cards.scryfall.io/normal/front/0/e/0ec1ec8b-24d7-40e4-9e9d-4d9ec4f0a4f8.jpg?1782682624" alt="Killmonger, Ruthless Usurper"><div class="nm">Killmonger, Ruthless Usurper</div><div class="co">alt</div></div>
+  </div>
+</section>
+
+<section>
+  <h2><small>The core idea</small>Two questions, two engines</h2>
+  <p class="grown">My audit turns on task and synergy. A card that does one useful thing and links up with a package of others earns its slot, and a card that does a random thing with nothing to support it draws dead. The Doom deck makes both questions easy to answer, because it wants two things above all, and you can hold every card up against them.</p>
+  <div class="engines">
+    <div class="eng"><h3>Engine 1: the discard drain</h3><p>Doctor Doom drains the table for two every time you pitch a land, so cards that let you throw away lands for value feed him directly.</p></div>
+    <div class="eng"><h3>Engine 2: the Loki copies</h3><p>Loki makes a tapped attacking copy of another Villain each combat, and that copy comes in nonlegendary, so even your legends are fair game. Villains that connect draw you cards, so any body worth copying feeds him.</p></div>
+  </div>
+  <p class="pull grown">Hold each card up to both engines. If it feeds neither the discard drain nor the copy loop, that is your dead draw, and that is the slot an upgrade should take.</p>
+  <p class="grown">This is the same move I make when I sort a deck into categories and check whether each part has enough support. Here the categories are already drawn for you by the two commanders, which is why this precon is the cleanest fit of the four for this audit. The three swaps below are that category audit carried out card by card.</p>
+  <p class="kid-only">The Doom deck wants two things. One, throw away lands so Doctor Doom drains everyone. Two, make copies of your villains with Loki and swing for cards. Every card in the deck should help with one of those two jobs. If a card helps with neither, it is a dead draw, and we replace it.</p>
+</section>
+
+<section>
+  <h2><small>Swap 1</small>A low-payoff card for a body worth copying</h2>
+  <div class="swap">
+    <div class="swapcards">
+      <img class="swapimg out" src="https://cards.scryfall.io/normal/front/b/b/bb759a0b-df7b-43c8-8e8e-bd52535cdbc0.jpg?1782682526" alt="Superior Foes of Spider-Man">
+      <span class="arrow">→</span>
+      <img class="swapimg" src="https://cards.scryfall.io/normal/front/2/1/218ef931-46f5-4a4d-9f26-898a1ff8f70f.jpg?1782684816" alt="Green Goblin, Revenant">
+    </div>
+    <div class="swaptxt">
+      <span class="h">Superior Foes of Spider-Man → Green Goblin, Revenant</span>
+      <span class="grown">Superior Foes of Spider-Man is a low-payoff card with no home in either engine, so it draws dead in most hands. Green Goblin, Revenant is a flying deathtouch Villain with evasion and built-in card advantage. It gives Loki a body worth copying and it connects to draw, so it belongs squarely inside the copy engine instead of drawing a blank.</span>
+      <span class="kid-only">Superior Foes of Spider-Man does not help either of the deck's two jobs, so it is a dead card. Green Goblin, Revenant is a flying villain that is hard to block and draws you cards. Loki loves copying it, so it fits right into the plan.</span>
+    </div>
+  </div>
+</section>
+
+<section>
+  <h2><small>Swap 2</small>An off-plan body for a copy-loop payoff</h2>
+  <div class="swap">
+    <div class="swapcards">
+      <img class="swapimg out" src="https://cards.scryfall.io/normal/front/e/e/ee64d0dd-e3d8-4abc-b9d6-b19c505fbfa1.jpg?1782682662" alt="Molecule Man">
+      <span class="arrow">→</span>
+      <img class="swapimg" src="https://cards.scryfall.io/normal/front/f/4/f4f16314-d2eb-4117-8b28-4404c82e7343.jpg?1782682101" alt="Kingpin, Wilson Fisk">
+    </div>
+    <div class="swaptxt">
+      <span class="h">Molecule Man → Kingpin, Wilson Fisk</span>
+      <span class="grown">Molecule Man is a six-mana 5/5 whose miracle-granting ability wants a very different deck, so it does nothing for the discard or copy engines here. Kingpin, Wilson Fisk turns your sacrificed Loki tokens into Treasure, so the copies you were making and losing at end of turn now leave value behind. A card that used to be dead becomes an active part of the copy loop.</span>
+      <span class="kid-only">Molecule Man is a big six-mana creature whose special trick fits a different deck, so here it does nothing for the plan. Kingpin turns the villain copies Loki makes into Treasure when they are sacrificed. Now the copy plan pays you back, and Kingpin is part of the fun instead of a blank.</span>
+    </div>
+  </div>
+</section>
+
+<section>
+  <h2><small>Swap 3</small>An off-theme vehicle for a copy-keeper</h2>
+  <div class="swap">
+    <div class="swapcards">
+      <img class="swapimg out" src="https://cards.scryfall.io/normal/front/8/9/89936964-7131-4ebf-b956-9692659866c1.jpg?1782682634" alt="Damocles Base, Sword of Kang">
+      <span class="arrow">→</span>
+      <img class="swapimg" src="https://cards.scryfall.io/normal/front/3/6/36d3da9c-cb7a-4cea-b6e6-6722bd16c73c.jpg?1782714851" alt="Sundial of the Infinite">
+    </div>
+    <div class="swaptxt">
+      <span class="h">Damocles Base, Sword of Kang → Sundial of the Infinite</span>
+      <span class="grown">Damocles Base is an off-theme vehicle with no place in either engine. Sundial of the Infinite ends your turn before the delayed sacrifice resolves, so Loki's copies stick around as permanent Villains instead of vanishing at end of turn. That is the difference between a filler slot and a piece that deepens the exact engine the deck is built on.</span>
+      <span class="kid-only">Damocles Base is a vehicle that does not fit either job. Sundial of the Infinite lets you end your turn early so Loki's copies do not get sacrificed. Your copied villains stay forever, which makes the whole plan much stronger.</span>
+    </div>
+  </div>
+</section>
+
+<section>
+  <h2><small>The through-line</small>Nothing generically weak comes out</h2>
+  <p class="grown">Taken as a group, the swaps are my audit in action. Nothing generically weak leaves the deck. What leaves is whatever the discard drain and the copy loop cannot use, and what comes in feeds one engine or the other. Superior Foes becomes a body Loki wants to copy, Molecule Man becomes a payoff for the tokens Loki sacrifices, and an off-theme vehicle becomes a way to keep those copies for good. That is why Doom is the cleanest fit of the four for this audit. Its two commanders draw the category lines for you, so the dead-draw audit almost runs itself, and the deck stops drawing blanks.</p>
+  <p class="pull grown">Feed both engines and the deck almost never draws a card that does nothing. That is the whole promise of the audit, delivered on the cleanest deck in the box.</p>
+  <p class="kid-only">All three swaps do the same thing: they take out cards that help with neither job and put in cards that help with one. Now almost every card you draw does something, because the whole deck points at the same two plans. That is why the Doom deck is the easiest of the four to tune.</p>
+</section>
+
+</main>
+
+<div class="src">
+  <p><b>Sources.</b> From my video "Snail's Guide to Drawing Less Junk," on reducing dead draws through synergy (<a href="https://www.youtube.com/watch?v=zAtfawtYEw4">zAtfawtYEw4</a>), full transcript on file. Card text and images via <a href="https://scryfall.com">Scryfall</a> (Marvel Super Heroes Commander). Cut and add list from the Doom Prevails upgrade guide. Deck context on the <a href="/marvel-commander-rankings/">Marvel rankings</a> and <a href="/salubrioussnail-decks/#snaildeck-doom">Snail decks</a> pages. This is the dead-draws argument itself, worked on the actual precon, instead of a link to it.</p>
+</div>
+
+<button id="kidfab" onclick="toggleKid()">Kid Mode</button>
+<script>
+function toggleKid(){document.body.classList.toggle('kid');
+  var b=document.getElementById('kidfab');
+  b.textContent=document.body.classList.contains('kid')?'Normal Mode':'Kid Mode';}
+</script>
+</body>
+</html>

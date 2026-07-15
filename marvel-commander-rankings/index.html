@@ -781,7 +781,7 @@ const PRICES = {
 };
 const UPGRADE_COST = { doom:51.89, ff:59.11, avengers:15.79, wakanda:74.71 };
 /* "All alternate commanders" mode: when on, each deck's package/cost is the union of every commander path (face + alts). */
-let allCmdrs=false; try{ allCmdrs=localStorage.getItem('mcr_allcmdrs')==='1'; }catch(e){}
+let allCmdrs=true; try{ const v=localStorage.getItem('mcr_allcmdrs'); if(v!==null) allCmdrs=(v==='1'); }catch(e){}
 let openDeckId=null;
 function allDeckAdds(deckId){
   const S={'doctor-doom':'doom','loki':'doom','mister-fantastic':'ff','invisible-woman':'ff','human-torch':'ff','the-thing':'ff','team-leader':'avengers','nick-fury':'avengers','tchalla':'wakanda','shuri':'wakanda','storm':'wakanda','first-avenger':'avengers'};
@@ -1115,6 +1115,8 @@ function getActiveConfigurations(alternateMode){
   window.__canonicalErrors=errs;
 })();
 function evLabel(e){ return {grounded:"Grounded profile",partial:"Partial profile",insufficient:"Profile research incomplete",setonly:"Set-only, needs a rebuild"}[e]||e; }
+/* Card-level score-provenance hint: face/second scores are inherited from the deck's own editorial testing; alt scores are a derived Oracle-text estimate. Full detail already lives in the openConfig modal's "How this score was derived" line; this is the quick-glance version for the compact card. */
+function scoreOriginLabel(u){ if(!u.scores) return ""; return (u.role==="face"||u.role==="second") ? "Deck-evaluated score" : "Derived estimate"; }
 function renderConfigs(){
   const host=document.getElementById('configbody'); const sec=document.getElementById('configs');
   if(sec) sec.hidden=!allCmdrs;
@@ -1148,7 +1150,7 @@ function renderConfigCards(){
       <div class="deck-head">
         <div class="rankbadge" style="background:${u.rankColor}"><div class="n">${i+1}</div><div class="t">${["1st","2nd","3rd"][i]||(i+1)}</div></div>
         <div class="deck-main">
-          <p class="deck-title">${u.name} <span class="cfg-role">${u.role}</span></p>
+          <p class="deck-title">${u.name} <span class="cfg-role">${u.role}</span>${u.scores?` <span class="cfg-role">${scoreOriginLabel(u)}</span>`:""}</p>
           <p class="deck-tag">${u.precname} · ${idtxt} · <span class="cfg-ev cfg-ev-${u.evidence}">${evLabel(u.evidence)}</span></p>
           <div class="scores">
             <div class="score"><div class="v" style="color:${u.rankColor}">${ov}</div><div class="k">Overall</div></div>

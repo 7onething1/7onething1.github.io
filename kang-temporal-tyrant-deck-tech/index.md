@@ -164,6 +164,33 @@ A strong card still gets an honest verdict. Kid Loki looks like a payoff and pro
 
 Five columns are the floor; four deeper reads settle close calls. **Support strength** beats count: the same 15 enablers feed Kid Loki's counter strongly and his hexproof barely, so he stays situational. **Independent routes** raise a floor: Psychosis Crawler earns value through two unrelated systems (drain on every draw + a body that scales with your hand), so it survives a bad draw; Kid Loki has only one and does not. A **game-state** read keeps verdicts honest (the Crawler still taxes the table when you are behind; the Cube is a pressure/finish card), and the ~10 interaction slots are the **flexibility floor** you never cut for a sixteenth enabler. Recount every field from the final 99 after your swaps, since adding a payoff can lift an enabler and cutting draw can sink a retained card. One **declared flavor exception** is allowed: keep Damocles Base for its "Sword of Kang" identity if you say so out loud, a middling attacker kept at a small consistency cost, never dressed up as an engine piece.
 
+## Beyond the Dead Draw Audit: the construction audit
+
+The Dead Draw Audit scores individual cards against their support. This construction audit steps up one level and scores the whole 99. It asks whether the complete list holds the correct balance of enablers, payoffs, interaction, discard value, and finishing pressure. Kang needs enough second-draw effects to activate several rewards without burying the deck in redundant setup. Every revision should improve that balance rather than pad one package and leave the others fixed. A card can pass the per-card audit and still fail this one, when the deck carries five cards doing its job and needs an answer instead.
+
+**Published build accounting (mutually exclusive primary categories, the numerical authority):**
+
+| Primary category | Count |
+|---|---|
+| Connive and draw enablers | 14 |
+| Second-draw payoffs | 6 |
+| Discard and recovery | 4 |
+| Draw engines | 11 |
+| Interaction | 14 |
+| Protection | 3 |
+| Card-advantage creatures | 4 |
+| Mana rocks | 6 |
+| Lands | 37 |
+| **Total** | **99** |
+
+A functional reading raises two of those numbers. Counting secondary jobs, payoff coverage rises to eight, because **Madame Masque** sits primarily among the enablers and her second-draw token ability also pays off, and **Teferi's Ageless Insight** sits primarily among the draw engines and its draw doubling supports the payoff plan. Add those two cross-category cards to the six dedicated payoffs and you reach eight payoff-capable cards. The same move reads the draw suite as ten and the discard payoffs as three, assigning **Containment Construct** to recovery. All decklist totals use the primary categories; the functional counts describe jobs.
+
+**Enabler and payoff balance.** Fourteen enablers give about a 79.9 percent chance of at least one in the first ten library cards, and about 42.9 percent for two. Eight payoff-capable cards give about 58.7 percent for one. Both groups appear together about 45.7 percent of the time, before Kang's command-zone reward. Kang himself supplies one payoff, so the deck needs reliable activation more than another copy of his reward. Keep the ratio near fourteen enablers and eight payoff-capable cards, six of them dedicated. A seventh dedicated payoff should replace another payoff unless it also draws, protects, or closes the game. A fifteenth enabler should replace a weaker enabler unless it does a second job.
+
+**Enabler quality classes.** The fourteen enablers split three ways: opponent-turn (Frantic Search, Visions of Villainy, the instant-speed draw spells, Ledger Shredder), repeatable (Ledger Shredder, Merfolk Looter), and one-shot (Chart a Course, Careful Study). The strongest cover two classes: Ledger Shredder is repeatable and reaches opposing turns; Visions of Villainy is instant-speed and draws two; Baron Strucker cuts Villain costs and connives on entries. A new enabler should raise the weakest class rather than the raw total.
+
+**The wider draw suite.** Eleven draw engines back the fourteen dedicated enablers: Teferi's Ageless Insight, Skullclamp, Black Market Connections, Night's Whisper, Syphon Mind, Sign in Blood, Read the Bones, Phyrexian Arena, Mystic Remora, Windfall, Brainstorm. They differ by route: immediate volume (Night's Whisper, Sign in Blood, Read the Bones), cheap selection (Brainstorm), continuing cards (Arena, Black Market Connections), opposing-spell taxes (Mystic Remora), and draw doubling (Teferi's, which also speeds the second-card trigger). Count them as a suite rather than one lump.
+
 ## Turning the Doom precon into a Kang deck
 
 The concrete part, and it starts with color. The Doom Prevails precon is **Grixis**, because its face commander, Doctor Doom, King of Latveria, is blue-black-red. Kang is **blue-black**. The moment you move Kang to the command zone, every red card and every red pip becomes illegal by color identity, so those are your first and easiest cuts, no judgment call required. Pull the red removal, the red beaters, and anything with a red hybrid or activated cost, and you have opened ten or more slots. Fill them from the skeleton above, weighted toward instant-speed draw. What stays is the blue-black spine: the connive sources, the Villain support the stock deck already runs (Baron Strucker, Moonstone), the discard payoffs, and the draw. Madame Masque is not in the stock list, so she comes in as an addition rather than a retained card.

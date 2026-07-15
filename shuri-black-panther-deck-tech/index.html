@@ -1,0 +1,152 @@
+<!doctype html>
+<html lang="en"><head><meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Shuri, the Black Panther: The Artifact-Threshold Machine</title>
+<meta name="description" content="A Snail-style construction audit for Shuri, the Black Panther, the Wakanda Forever Marvel Commander alt: the Selesnya artifact deck built on two thresholds, three artifacts to draw and six to pump the team, with threshold math, fulcrum cards, creature width, cost reduction, recovery, and upgrade guardrails.">
+<meta name="keywords" content="Shuri Black Panther, artifact threshold, metalcraft, Wakanda Forever, Marvel Super Heroes Commander, Selesnya artifacts, Vibranium, deck tech, construction audit, Dispatch, Retrofitter Foundry">
+<meta property="og:title" content="Shuri, the Black Panther: The Artifact-Threshold Machine">
+<meta property="og:description" content="The Shuri artifact deck built on two thresholds, three artifacts to draw and six to pump the whole team, with threshold math, fulcrum cards, creature width, and upgrade guardrails.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,500;0,600;0,700;1,600&family=Inter:wght@400;600;700;800&display=swap" rel="stylesheet">
+<style>
+  :root{--cream:#f4ecd8;--ink:#1c1a17;--rust:#b5533b;--teal:#3f7c78;--gold:#c98a2b;--olive:#7d7a3a;--line:#d9cdb0;--plum:#7b4b8a;}
+  *{box-sizing:border-box}
+  body{margin:0;background:var(--cream);color:var(--ink);font-family:'Inter',system-ui,-apple-system,Segoe UI,Roboto,sans-serif;line-height:1.62}
+  header{padding:46px 24px 10px;max-width:760px;margin:0 auto;text-align:center}
+  h1{font-family:'Cormorant Garamond',Georgia,serif;font-size:clamp(2rem,8vw,2.7rem);margin:.15em 0;color:var(--ink);line-height:1.1}
+  .sub{color:var(--olive);font-weight:600;max-width:640px;margin:8px auto 0}
+  .nav{margin:14px auto 0;font-size:.9rem}
+  .nav a{color:var(--teal);font-weight:700;text-decoration:none;margin:0 8px}
+  .byline{max-width:760px;margin:10px auto 0;padding:0 22px;font-size:.8rem;color:var(--olive);font-style:italic;text-align:center}
+  main{max-width:760px;margin:0 auto;padding:12px 22px 100px}
+  article h2{font-family:'Cormorant Garamond',serif;font-size:1.7rem;color:var(--rust);margin:34px 0 8px}
+  article h3{font-family:'Inter',sans-serif;font-size:1.02rem;color:var(--plum);margin:18px 0 6px;text-transform:uppercase;letter-spacing:.04em}
+  article p{margin:0 0 14px;font-size:1.04rem}
+  .lead{font-size:1.12rem;color:#33302a}
+  .swapline{margin:10px 0;padding:9px 13px;background:#fbf5e6;border:1px solid var(--line);border-radius:9px;font-size:.96rem;overflow:hidden}
+  .swapline b{color:var(--rust)} .swapline .pct{color:var(--teal);font-weight:800}
+  .swapline .fn{color:var(--plum);font-weight:800;font-size:.82rem}
+  .mathbox{background:#efe6cf;border:1px solid var(--line);border-left:4px solid var(--teal);border-radius:10px;padding:14px 16px;margin:14px 0}
+  .mathbox table{border-collapse:collapse;width:100%;font-size:.95rem;margin:6px 0}
+  .mathbox td{padding:4px 8px;border-bottom:1px solid var(--line)}
+  .mathbox td:last-child{text-align:right;font-weight:800;color:var(--rust)}
+  .mathbox .tot td{border-bottom:none;border-top:2px solid var(--teal);font-weight:800}
+  .cols{display:flex;gap:16px;flex-wrap:wrap}
+  .cols>div{flex:1;min-width:230px;background:#fbf5e6;border:1px solid var(--line);border-radius:10px;padding:12px 15px}
+  .cols h3{margin-top:2px}
+  .cols ul{margin:6px 0 0;padding-left:18px;font-size:.95rem}
+  .cols li{margin:5px 0}
+  .turns{background:#fbf5e6;border:1px solid var(--line);border-radius:10px;padding:6px 4px;margin:12px 0}
+  .turns table{border-collapse:collapse;width:100%;font-size:.94rem}
+  .turns td{padding:7px 11px;border-bottom:1px solid var(--line);vertical-align:top}
+  .turns td:first-child{font-weight:800;color:var(--teal);white-space:nowrap;width:1%}
+  .turns tr:last-child td{border-bottom:none}
+  .pull{border-left:4px solid var(--gold);padding:6px 0 6px 15px;margin:16px 0;font-family:'Cormorant Garamond',serif;font-size:1.35rem;color:#3f3b30}
+  .src{max-width:760px;margin:0 auto;padding:0 22px 96px;font-size:.82rem;color:var(--olive)}
+  .src a{color:var(--teal);font-weight:700}
+  .kid-only{display:none}
+  #kidfab{position:fixed;right:18px;bottom:18px;z-index:50;background:var(--rust);color:#fff;border:none;border-radius:40px;padding:14px 21px;font-size:1rem;font-weight:800;box-shadow:0 4px 14px rgba(0,0,0,.25);cursor:pointer}
+  body.kid{font-size:1.14rem}
+  body.kid .grown{display:none}
+  body.kid .kid-only{display:block}
+  body.kid .lead{font-size:1.18rem}
+  .toc{background:#efe6cf;border:1px solid var(--line);border-radius:10px;padding:9px 14px;margin:6px 0 18px;font-size:.86rem;line-height:1.9}
+  .toc summary{color:var(--plum);font-weight:800;cursor:pointer;list-style:none}
+  .toc summary::-webkit-details-marker{display:none}
+  .toc summary::before{content:"\25B8 ";color:var(--teal)}
+  .toc[open] summary::before{content:"\25BE "}
+  .toc .toclinks{margin-top:7px}
+  .toc a{color:var(--teal);font-weight:700;text-decoration:none;margin:0 12px 0 0;display:inline-block}
+  @media(max-width:560px){.toc a{white-space:normal;display:block;margin:3px 0}}
+  body.kid .toc{display:none}
+</style></head>
+<body>
+<header>
+  <h1>Shuri, the Black Panther: <span style="white-space:nowrap">The Artifact&#8209;Threshold Machine</span></h1>
+  <div class="sub grown">The Wakanda box's second Black Panther runs on two thresholds. Whenever Shuri attacks, three artifacts draw you a card, and six artifacts hand your whole team plus two power and toughness. Every good card in the deck either builds toward those numbers or turns them into damage.</div>
+  <div class="sub kid-only">Shuri is an artifact hero. When she attacks, having three artifacts draws you a card, and having six artifacts makes your whole team bigger. The deck is about reaching those two numbers and swinging.</div>
+  <div class="nav"><a href="/marvel-commander-guides/">Guides hub</a> &middot; <a href="/tchalla-black-panther-deck-tech/">T'Challa deck tech</a> &middot; <a href="/salubrioussnail-wakanda-wrongchoice/">Wakanda wrong-choice</a> &middot; <a href="/marvel-commander-rankings/">Marvel rankings</a></div>
+</header>
+<p class="byline">This Shuri, the Black Panther construction audit is inspired by Salubrious Snail's published deckbuilding framework. It reads the Wakanda Forever precon with Shuri in the command zone; card text is from Scryfall. Not authored or endorsed by Salubrious Snail or EDHREC.</p>
+<main>
+<article>
+<details class="toc" aria-label="Contents"><summary>On this page (8 destinations)</summary><div class="toclinks"><a href="#construction-audit">Construction audit</a><a href="#threshold-accounting">Threshold accounting</a><a href="#three-artifacts">Three artifacts</a><a href="#six-artifacts">Six artifacts</a><a href="#fulcrum-cards">Fulcrum cards</a><a href="#curve-and-draw">Curve and draw</a><a href="#interaction-recovery">Interaction and recovery</a><a href="#guardrails">Upgrade guardrails</a></div></details>
+
+<p class="lead grown">Shuri, the Black Panther is one attack trigger with two gates. She checks your artifact count when she swings. Control three artifacts and you draw a card. Control six and every creature you have gets plus two power and toughness for the turn. This is a Selesnya artifact deck that turns a rising artifact count into cards early and a team-wide beatdown late. The whole build question is how reliably you reach three, how often you reach six, and how many creatures are standing to use the bonus when you do.</p>
+<p class="lead kid-only">Shuri cares about how many artifacts you have when she attacks. Three artifacts draws you a card. Six artifacts makes your whole team stronger. So the deck wants lots of artifacts and lots of creatures to attack with.</p>
+
+<h2 id="construction-audit">Beyond the Dead Draw Audit: the construction audit</h2>
+<p class="grown">The Dead Draw Audit scores individual cards against their support. This construction audit steps up one level and scores the whole ninety-nine. It asks whether the complete list reaches Shuri's thresholds and still fields enough creatures to use her attack bonus. Three artifacts give continuing card access. Six artifacts convert every attack into real team pressure. Every revision should protect both thresholds rather than fill the deck with artifacts that do little on the battlefield.</p>
+<p class="grown">Shuri occupies the command zone in this version, so the ninety-nine must reach both numbers on its own. That single fact reshapes the card pool. Effects that require T'Challa producing Vibranium before they work receive a lower grade here, and independent artifact producers like Shuri's Fabricator rise in value. This section extends Snail's dead-draw, fulcrum-card, support-strength, and independent-route methods to the level of the full list.</p>
+<p class="kid-only">The first audit grades one card. This audit grades the whole 99-card deck. It checks that the deck can reliably get to three artifacts, sometimes get to six, and have enough creatures to attack with. Because Shuri is the commander and not T'Challa, cards that need T'Challa first are worth less here.</p>
+
+<h2 id="threshold-accounting">Artifact threshold accounting</h2>
+<p class="grown">The stock Wakanda Forever list carries twenty-four cards inside its dedicated artifact category. Metalwork Colossus, Meteor Golem, Panther Robot, and Solemn Simulacrum add four artifact creatures from the creature slots, and The Great Mound may sort differently once you read its full printed type line. Generate one exact artifact total straight from the real manifest rather than trusting a round number, because the count drives every probability below.</p>
+<p class="grown">A raw artifact total is only the start. Separate the artifacts by cost and job: two mana or less, artifact creatures, token producers, mana artifacts, Equipment, Vehicles, and expensive value pieces. These reach Shuri's thresholds by very different paths. A deck with thirty artifacts can still stall when most of them cost five or more.</p>
+<div class="swapline grown"><b>Suggested Shuri artifact adds.</b> Tree of Tales, Ancient Den, Darksteel Citadel, Thornglint Bridge, Foundry Inspector, Retrofitter Foundry, Illustrious Wanderglyph, Thousand Moons Smithy, Haywire Mite, and Stridehangar Automaton. Every one contributes an artifact card or an artifact mana source. The final artifact total depends on the exact cards cut for them, so publish the new total after every completed exchange.</div>
+<p class="kid-only">Count the real artifacts in the deck instead of guessing. The stock deck has about twenty-four, plus four artifact creatures. Then sort them by cost, because cheap artifacts help you far more than expensive ones for reaching Shuri's numbers.</p>
+
+<h2 id="three-artifacts">Three artifacts: the draw gate</h2>
+<p class="grown">Shuri needs three artifacts in play when her attack trigger resolves. About twenty-eight artifact cards give roughly a 57.8 percent chance of seeing three or more among the first ten library cards. That measures card access rather than live board state. Expensive artifacts and removed artifacts can leave the live count below the number you have seen.</p>
+<div class="mathbox grown">
+  <table>
+    <tr><td>28 artifacts, at least 3 in the first 10 cards</td><td>57.8%</td></tr>
+    <tr><td>30 artifacts, at least 3 in the first 10 cards</td><td>63.6%</td></tr>
+    <tr class="tot"><td>28 artifacts, at least 6 in the first 10 cards</td><td>2.8%</td></tr>
+  </table>
+</div>
+<p class="grown">Target at least twelve artifacts costing zero, one, or two mana. Mana artifacts, cheap Equipment, Haywire Mite, Retrofitter Foundry, and similar cards set the first threshold without spending a whole later turn, and several should also provide mana, interaction, selection, or tokens. The gate becomes dependable when cheap artifacts pair with artifact token production: Treasure, Clue, Food, Thopter, Construct, and Vibranium tokens all satisfy Shuri and do a second job, and a card that makes several artifacts repairs a wiped board faster than another standalone artifact.</p>
+<p class="kid-only">Shuri needs three artifacts on the board when she swings. Keep at least twelve cheap artifacts that cost zero to two mana so you get there fast, and use cards that make artifact tokens so one card can count as several artifacts.</p>
+
+<h2 id="six-artifacts">Six artifacts: the team pump</h2>
+<p class="grown">The six-artifact gate supplies Shuri's main finish. Seeing six artifact cards in an early sample is far rarer than seeing three, about 2.8 percent at twenty-eight artifacts, so the deck needs cards that make several artifacts from one slot. Retrofitter Foundry, Thousand Moons Smithy, Shuri's Fabricator, Royal Talon Fighter Jet, and token-making creatures earn priority for exactly this reason.</p>
+<p class="grown">Distinguish permanent artifact cards from artifact production capacity. A deck of twenty-eight artifacts plus eight repeatable token sources reaches six permanents differently from a deck of thirty-six standalone artifacts. The first rebuilds after a wipe and fields several bodies from fewer cards. The second fills more slots and makes less combat pressure. Because Shuri leads, six artifacts must be reachable without T'Challa making Vibranium, which is why independent producers like Shuri's Fabricator matter more under this commander.</p>
+<p class="kid-only">Six artifacts is hard to draw into naturally, so you need cards that make lots of artifacts at once, like token makers. And since Shuri is the boss instead of T'Challa, pick artifact makers that work on their own.</p>
+
+<h2 id="fulcrum-cards">Fulcrum cards and artifact creatures</h2>
+<p class="grown">Shuri's six-artifact bonus pumps creatures, so artifact creatures satisfy the threshold and collect the plus two. That overlap makes the artifact creature the strongest card type for her plan, since each one is both input and output. Metalwork Colossus, Meteor Golem, Panther Robot, Solemn Simulacrum, Foundry Inspector, Haywire Mite, Illustrious Wanderglyph, and Stridehangar Automaton give different floors, from interaction and mana to large bodies and token generation. Field twelve to sixteen artifact creatures, enough bodies without forcing every creature slot into the package.</p>
+<p class="grown">The fulcrum cards connect artifact count, creature width, card advantage, and finishing pressure at once, so they earn protection during cuts. Illustrious Wanderglyph is an artifact creature that rewards a developed artifact board. Thousand Moons Smithy starts as an artifact and makes recurring creature material. Retrofitter Foundry turns mana and existing tokens into a growing artifact creature chain. Shuri's Fabricator links artifact density, Vibranium, recursion, and activated mana. Panther Robot pairs artifact count with a major combat body. Royal Talon Fighter Jet converts stored mana into several creature tokens. Foundry Inspector connects artifact density with faster deployment through cost reduction. Haywire Mite carries cheap artifact development plus permanent interaction. Solemn Simulacrum and Meteor Golem fold ramp and broad removal into qualifying artifact bodies.</p>
+<p class="kid-only">The best cards for Shuri are artifact creatures, because they count toward six artifacts and also get the plus two bonus. Run twelve to sixteen of them. Cards like Illustrious Wanderglyph, Thousand Moons Smithy, and Retrofitter Foundry do several jobs at once, so keep them when you cut.</p>
+
+<h3>Creature width</h3>
+<p class="grown">The attack bonus grows with the creature count. One big creature gains two power. Six creatures gain twelve across the board. Publish the number of cards that make two or more creatures or tokens, since that count is what makes the bonus matter. Martial Coup, Royal Talon Fighter Jet, Retrofitter Foundry, Thousand Moons Smithy, Illustrious Wanderglyph, and Stridehangar Automaton belong in that measurement. Divine Visitation earns its slot only after enough token makers are already there, so its value follows the verified token count rather than its ceiling. Prefer wide makers that also count as artifacts or produce repeatably over generic six-mana token spells.</p>
+<p class="kid-only">Shuri's bonus is bigger when you have more creatures. Count how many cards make two or more creatures at once, and favor the ones that are also artifacts.</p>
+
+<h2 id="curve-and-draw">Cost, curve, and the draw suite</h2>
+<p class="grown">Foundry Inspector reduces the generic cost of artifact spells, which helps place several artifacts before Shuri attacks and can push a board from three toward six in one turn. Calculate how many artifacts actually gain from it: mana artifacts get no casting benefit, colored-cost artifacts get little, and expensive generic artifacts gain the most. Cost reduction complements ramp rather than replacing it. Shuri costs only two mana, so early acceleration should build artifacts and width. Sol Ring, Arcane Signet, and Thran Dynamo satisfy the threshold and add resources, so each mana artifact earns credit for both roles.</p>
+<p class="grown">Count every nonland card costing five or more. Expensive artifacts get more tolerance because they advance the thresholds, and expensive artifact creatures get further credit because they also take the bonus, but expensive nonartifact spells need exceptional draw, removal, recovery, or finishing value. Each new card costing five or more should replace another card from that same cost band, so the package cannot grow heavier as its count rises. A high artifact total cannot fix a curve that starts too slowly.</p>
+<p class="grown">Shuri draws one card per qualifying attack, which depends on three artifacts and a safe swing. The ninety-nine still needs independent card advantage for games where combat is hard. Separate the draw by job: immediate draw (Harmonize), continuing draw (Mind's Eye), artifact selection (Ingenious Smith, which finds an artifact and grows on later entries), and post-removal recovery. New draw should improve one of the weaker stages, since a draw effect that itself needs six artifacts only repeats the commander's own condition.</p>
+<p class="kid-only">Shuri is only two mana, so spend early turns making artifacts and a board rather than pure ramp. Watch out for too many expensive cards. And keep a few draw cards that work even when combat is hard, so you are not relying on Shuri's attack for every card.</p>
+
+<h2 id="interaction-recovery">Interaction, protection, and recovery</h2>
+<p class="grown">Some answers ride inside the artifact engine. Haywire Mite raises the artifact count and answers artifacts and enchantments. Meteor Golem is broad permanent removal on an artifact body. Scourglass and King Solomon's Frogs handle several permanents from artifact slots. Dispatch is the sharpest overlap: three artifacts turn on metalcraft and let it exile rather than tap, the same condition that fires Shuri's first reward, which makes it one of the most efficient fulcrum answers in the deck. Their costs and timing still need direct reading, and cheap colored interaction stays necessary beside these synergistic answers. Keep creature, artifact, enchantment, graveyard, and wide-board coverage rather than trading Beast Within or Generous Gift for an artifact-only answer.</p>
+<p class="grown">Shuri must attack for either reward, so creature protection, haste, and evasion support the card engine, and artifact protection preserves the thresholds behind it. Hammer of Nazahn protects an equipped creature and adds to the artifact count. Whispersilk Cloak grants attack access and shroud, and that shroud also blocks your own later targeting. Measure protection, recursion, and token-based rebuilding as three separate counts, because a large protection total can still leave the list weak after exile or sacrifice, and a large recursion total can still leave the commander exposed before the first attack. Trading Post, Shuri's Fabricator, Conduit of Worlds, Thousand Moons Smithy, and Retrofitter Foundry give different rebuilding speeds.</p>
+<p class="kid-only">Some artifacts also remove things, like Meteor Golem and Haywire Mite, and Dispatch gets better with three artifacts, the same number Shuri wants. Keep normal removal too. And keep some cards that protect your creatures and some that rebuild your artifacts after a board wipe.</p>
+
+<h3>Commander independence and the mana base</h3>
+<p class="grown">The deck should keep its artifact-creature plan when Shuri is unavailable. The artifact count still powers Dispatch, Ingenious Smith, Metalwork Colossus, and the value engines, token makers still go wide, and artifact creatures still attack. Cards that rely only on the plus two bonus have a weaker floor, so give every proposed addition an independence score: full independence works through ordinary artifact or creature development, partial independence needs a few other cards, and commander-dependent cards need a low cost or a decisive finish. On the mana base, Tree of Tales, Ancient Den, Darksteel Citadel, and Thornglint Bridge raise artifact density without spending nonland slots, so record artifact type, colored access, and tapped status for each. Protect enough untapped green and white for Shuri and early interaction, and let artifact lands replace comparable lands rather than pushing colorless utility past what the two colors can support.</p>
+<p class="kid-only">The deck should still work if Shuri gets removed a lot. Most artifacts and creatures do their own thing without her. Also, artifact lands like Darksteel Citadel add to your artifact count for free, but make sure you still have enough green and white mana.</p>
+
+<h2 id="guardrails">Finish density and upgrade guardrails</h2>
+<p class="grown">Shuri turns six artifacts and a wide board into a repeated team bonus, so the deck needs fewer dedicated finishers than a normal token build. Creatures with trample, flying, or menace gain the most because Shuri supplies the power, and team-wide evasion can beat another team-wide pump. Stridehangar Automaton, Illustrious Wanderglyph, Thousand Moons Smithy, Panther Robot, and Royal Talon Fighter Jet make or support combat pressure and feed the same threshold that strengthens them. A new finisher should add bodies, evasion, or immediate combat access through an artifact-related card rather than duplicating Shuri's own boost.</p>
+<p class="grown">Every revision should hold a verified artifact total generated from the full manifest, at least twelve cheap artifacts, a substantial group of artifact creatures, several repeatable token makers that move the board from three toward six, and enough creatures to convert the bonus into damage. A new standalone artifact should replace another standalone artifact, a new expensive card should replace another expensive card, a new artifact land should replace a comparable mana source of similar colored access, and a new token maker should replace a weaker one. Record each addition's effect on artifact cards, artifact creatures, token capacity, creature count, curve, and colored access, and give it one primary job: development, interaction, draw, protection, recovery, or finishing. Artifact type supports a card without proving it belongs. The finished hundred should reach three artifacts easily, six repeatedly, and field enough creatures to make the attack bonus matter.</p>
+<p class="pull grown">Reach three artifacts easily, six repeatedly, and keep enough creatures standing to make the plus two matter.</p>
+<p class="kid-only">When you upgrade, swap like for like: an artifact for an artifact, an expensive card for an expensive card. Always keep at least twelve cheap artifacts, plenty of artifact creatures, some token makers, and enough creatures to attack with. The goal is easy three artifacts, sometimes six, and a full board.</p>
+
+</article>
+</main>
+
+<div class="src">
+  <p><b>Sources.</b> Card text and color identity via <a href="https://scryfall.com">Scryfall</a> (Marvel Super Heroes Commander), with Shuri, the Black Panther read as a Selesnya (green-white) commander whose attack trigger checks artifact count for a card at three and a team-wide plus two at six. Wakanda Forever stock artifact package and suggested adds per the <a href="https://draftsim.com/wakanda-forever-upgrade-guide/">Draftsim Wakanda Forever upgrade guide</a>, verified against the official <a href="https://magic.wizards.com/en/news/announcements/marvel-super-heroes-commander-decklists">Wizards decklists</a>. Threshold probabilities are hypergeometric over a 99-card library, first ten cards: three-plus artifacts at 28 in deck is 57.8 percent, six-plus is 2.8 percent. Exact artifact totals should be generated from the real card manifest, since The Great Mound and a few dual-role cards sort differently by printed type line. The construction-audit method extends Salubrious Snail's dead-draw and support-strength framework; see my <a href="/tchalla-black-panther-deck-tech/">T'Challa deck tech</a>, the <a href="/salubrioussnail-wakanda-wrongchoice/">Wakanda wrong-choice read</a>, and the <a href="/marvel-commander-rankings/">Marvel rankings</a>. Inspired by Salubrious Snail's published deckbuilding framework; neither Salubrious Snail nor EDHREC authored or endorsed it.</p>
+</div>
+
+<button id="kidfab" onclick="toggleKid()" aria-pressed="false" aria-label="Toggle plain-language kid mode">Kid Mode</button>
+<script>
+function toggleKid(){var on=document.body.classList.toggle('kid');
+  var b=document.getElementById('kidfab');
+  b.textContent=on?'Normal Mode':'Kid Mode';
+  b.setAttribute('aria-pressed',on?'true':'false');}
+</script>
+</body>
+</html>

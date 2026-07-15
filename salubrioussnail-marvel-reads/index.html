@@ -1,0 +1,168 @@
+<!doctype html>
+<html lang="en"><head><meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>The Snail x Marvel Reads: All Four on One Page</title>
+<meta name="description" content="All four Marvel Super Heroes Commander precons, each one I ran through a deckbuilding video and wrote up in full. Doom on dead draws, Fantastic Four on manabase, Avengers on simpler decks, Wakanda on when a good card is the wrong choice. Plus links to the related Snail pages.">
+<meta name="keywords" content="Salubrious Snail Marvel Commander, Marvel Super Heroes Commander reads, Doom Prevails, Fantastic Four EDH, Avengers Assemble precon, Wakanda Forever deck, EDH deckbuilding principles, precon upgrade guide, Commander deck reads">
+<meta property="og:title" content="The Snail x Marvel Reads: All Four on One Page">
+<meta property="og:description" content="Four Marvel precons, four Salubrious Snail deckbuilding videos, worked in full. One page for the whole set, plus the related Snail pages.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,500;0,600;0,700;1,600&family=Inter:wght@400;600;700;800&family=Bangers&display=swap" rel="stylesheet">
+<style>
+  :root{--cream:#f4ecd8;--ink:#1c1a17;--rust:#b5533b;--teal:#3f7c78;--gold:#c98a2b;--olive:#7d7a3a;--line:#d9cdb0;--panel:#fbf5e6;--panel2:#efe4c8;}
+  *{box-sizing:border-box}
+  body{margin:0;background:var(--cream);color:var(--ink);font-family:'Inter',system-ui,-apple-system,Segoe UI,Roboto,sans-serif;line-height:1.6}
+  header{padding:48px 24px 8px;max-width:960px;margin:0 auto;text-align:center}
+  .kicker{font-family:'Bangers',cursive;letter-spacing:.04em;color:var(--rust);font-size:1.15rem}
+  h1{font-family:'Cormorant Garamond',Georgia,serif;font-size:3rem;line-height:1.04;margin:.14em 0 .1em;color:var(--ink)}
+  .sub{color:var(--olive);font-weight:700;font-size:1.05rem;max-width:660px;margin:6px auto 0}
+  main{max-width:960px;margin:0 auto;padding:22px 24px 110px}
+  .grid{display:grid;grid-template-columns:1fr 1fr;gap:18px;margin:8px 0 0}
+  .card{display:flex;flex-direction:column;background:var(--panel);border:1px solid var(--line);border-radius:16px;overflow:hidden;box-shadow:4px 4px 0 rgba(0,0,0,.08)}
+  .card a.hit{display:flex;gap:14px;padding:16px 16px 12px;text-decoration:none;color:inherit}
+  .card a.hit:hover{background:var(--panel2)}
+  .cimg{width:92px;flex:none;border-radius:7px;box-shadow:0 3px 9px rgba(0,0,0,.22);align-self:flex-start}
+  .cbody{min-width:0}
+  .pips{display:flex;gap:4px;margin:0 0 4px}
+  .pip{display:inline-flex;width:16px;height:16px;border-radius:50%;border:1px solid rgba(0,0,0,.25);font-size:.6rem;font-weight:800;align-items:center;justify-content:center}
+  .pip.W{background:#f7f0dd}.pip.U{background:#bfe0ef}.pip.R{background:#efb9a5}.pip.G{background:#bcd9b4}.pip.B{background:#c9bcd0}
+  .cname{font-family:'Cormorant Garamond',serif;font-size:1.5rem;line-height:1.05;margin:0;color:var(--rust)}
+  .cidea{font-size:.82rem;font-weight:800;color:var(--olive);text-transform:uppercase;letter-spacing:.03em;margin:2px 0 6px}
+  .cblurb{font-size:.94rem;margin:0}
+  .swaps{padding:0 16px 14px;margin:0}
+  .swaprow{font-size:.82rem;padding:5px 0;border-top:1px dashed var(--line);color:#4a4433}
+  .swaprow b{color:var(--rust)}
+  .swaprow .a{color:var(--teal);font-weight:800}
+  .go{padding:0 16px 16px}
+  .go a{display:inline-block;font-weight:800;font-size:.86rem;text-decoration:none;padding:8px 15px;border-radius:999px;border:2px solid var(--ink);background:var(--rust);color:#fff}
+  .go a:hover{background:var(--ink)}
+  .kid-only{display:none}
+  h2{font-family:'Cormorant Garamond',serif;font-size:1.9rem;color:var(--teal);margin:34px 0 4px}
+  .simnote{color:var(--olive);font-size:.92rem;margin:0 0 12px}
+  .sim{display:grid;grid-template-columns:1fr 1fr;gap:12px}
+  .sim a{display:block;text-decoration:none;color:inherit;background:var(--panel);border:1px solid var(--line);border-radius:12px;padding:12px 14px}
+  .sim a:hover{background:var(--panel2)}
+  .sim .t{font-weight:800;color:var(--rust)}
+  .sim .d{font-size:.86rem;color:#4a4433;margin-top:2px}
+  #kidfab{position:fixed;right:18px;bottom:18px;z-index:50;background:var(--rust);color:#fff;border:none;border-radius:40px;padding:14px 21px;font-size:1rem;font-weight:800;box-shadow:0 4px 14px rgba(0,0,0,.25);cursor:pointer}
+  body.kid{font-size:1.1rem}
+  body.kid .grown{display:none}
+  body.kid .kid-only{display:block}
+  @media(max-width:720px){.grid{grid-template-columns:1fr}.sim{grid-template-columns:1fr}h1{font-size:2.3rem}}
+</style>
+</head>
+<body>
+<header>
+  <div class="kicker">One page, the whole set</div>
+  <h1>The Snail x Marvel Reads</h1>
+  <p class="sub grown">All four Marvel Super Heroes Commander precons, each one I ran through a deckbuilding video and wrote out in depth. Tap any deck for the whole read.</p>
+  <p class="sub kid-only">Four Marvel decks. Each one gets a full lesson from me. Tap any deck to read the whole thing.</p>
+</header>
+<p style="max-width:960px;margin:8px auto 0;padding:0 24px;text-align:center;font-size:.82rem;color:var(--olive);font-style:italic">Fan adaptations written in Salubrious Snail's voice from his published Commander principles. Not authored or endorsed by Salubrious Snail. Card text from Scryfall.</p>
+
+<main>
+
+<div class="grid">
+
+  <div class="card">
+    <a class="hit" href="/salubrioussnail-doom-deaddraws/">
+      <img class="cimg" src="https://cards.scryfall.io/normal/front/0/9/099ed408-9178-4403-8b2d-479ca3cbda9b.jpg?1782682664" alt="Doctor Doom, King of Latveria">
+      <div class="cbody">
+        <div class="pips"><span class="pip U">U</span><span class="pip B">B</span><span class="pip R">R</span></div>
+        <p class="cname">Doom Prevails</p>
+        <p class="cidea">Reducing dead draws through synergy</p>
+        <p class="cblurb grown">Two engines, one clean audit. A card is a dead draw when it feeds neither Doctor Doom's land-discard drain nor Loki's copy loop. The cleanest of the four to audit.</p>
+        <p class="cblurb kid-only">The deck wants two things: throw away lands to drain the table, and copy villains with Loki. Any card that helps with neither gets swapped out.</p>
+      </div>
+    </a>
+    <div class="swaps">
+      <div class="swaprow"><b>Superior Foes of Spider-Man</b> <span class="a">&rarr;</span> <b>Green Goblin, Revenant</b></div>
+      <div class="swaprow"><b>Molecule Man</b> <span class="a">&rarr;</span> <b>Kingpin, Wilson Fisk</b></div>
+      <div class="swaprow"><b>Damocles Base, Sword of Kang</b> <span class="a">&rarr;</span> <b>Sundial of the Infinite</b></div>
+    </div>
+    <div class="go"><a href="/salubrioussnail-doom-deaddraws/">Read the Doom page &rarr;</a></div>
+  </div>
+
+  <div class="card">
+    <a class="hit" href="/salubrioussnail-ff-manabase/">
+      <img class="cimg" src="https://cards.scryfall.io/normal/front/1/7/17ef068b-61fc-443d-97b0-1e41f2622425.jpg?1782681858" alt="Mister Fantastic">
+      <div class="cbody">
+        <div class="pips"><span class="pip U">U</span><span class="pip R">R</span><span class="pip G">G</span><span class="pip W">W</span></div>
+        <p class="cname">The Fantastic Four</p>
+        <p class="cidea">Mana fixing and color consistency</p>
+        <p class="cblurb grown">One tax, and it is color. The only four-color deck wants its fixing early, so two cheap untapped Talismans carry the color load.</p>
+        <p class="cblurb kid-only">This deck needs four colors of mana at once. So we add cards that make color and mana, which is the deck's one hard part.</p>
+      </div>
+    </a>
+    <div class="swaps">
+      <div class="swaprow"><b>Willie Lumpkin, Postman</b> <span class="a">&rarr;</span> <b>Talisman of Creativity</b></div>
+      <div class="swaprow"><b>Mirage Mirror</b> <span class="a">&rarr;</span> <b>Talisman of Conviction</b></div>
+      <div class="swaprow"><b>Into the Time Vortex</b> <span class="a">&rarr;</span> <b>West Coast Expansion</b></div>
+    </div>
+    <div class="go"><a href="/salubrioussnail-ff-manabase/">Read the Fantastic Four page &rarr;</a></div>
+  </div>
+
+  <div class="card">
+    <a class="hit" href="/salubrioussnail-avengers-simpler/">
+      <img class="cimg" src="https://cards.scryfall.io/normal/front/6/1/61a51b67-d941-4e07-9c12-ffe583cb65d4.jpg?1782682664" alt="Captain America, Team Leader">
+      <div class="cbody">
+        <div class="pips"><span class="pip R">R</span><span class="pip W">W</span><span class="pip U">U</span></div>
+        <p class="cname">Avengers Assemble</p>
+        <p class="cidea">The case for simpler decks</p>
+        <p class="cblurb grown">The friendliest deck wins by being easy to read. Keep the go-wide counters plan legible while you make it more consistent.</p>
+        <p class="cblurb kid-only">This is the easy deck to understand: heroes get counters and swing. The upgrades keep it easy to follow while making it stronger.</p>
+      </div>
+    </a>
+    <div class="swaps">
+      <div class="swaprow"><b>Love on the Battlefield</b> <span class="a">&rarr;</span> <b>Champions from Beyond</b></div>
+      <div class="swaprow"><b>Avenge</b> <span class="a">&rarr;</span> <b>Damning Verdict</b></div>
+      <div class="swaprow"><b>Gift of Immortality</b> <span class="a">&rarr;</span> <b>Wave Goodbye</b></div>
+    </div>
+    <div class="go"><a href="/salubrioussnail-avengers-simpler/">Read the Avengers page &rarr;</a></div>
+  </div>
+
+  <div class="card">
+    <a class="hit" href="/salubrioussnail-wakanda-wrongchoice/">
+      <img class="cimg" src="https://cards.scryfall.io/normal/front/c/1/c1c8ad61-b7e1-446c-8b74-6e29371ea1d5.jpg?1782682663" alt="T'Challa, the Black Panther">
+      <div class="cbody">
+        <div class="pips"><span class="pip G">G</span><span class="pip W">W</span></div>
+        <p class="cname">Wakanda Forever</p>
+        <p class="cidea">When a good card is the wrong choice</p>
+        <p class="cblurb grown">Raw power is one test among several. Cut the strong card whose real cost is the target it paints, and serve the Vibranium and counters plan.</p>
+        <p class="cblurb kid-only">A card can be strong and still be wrong for the deck. We cut the flashy cards that fight the plan and keep the ones that fit it.</p>
+      </div>
+    </a>
+    <div class="swaps">
+      <div class="swaprow"><b>Coveted Jewel</b> <span class="a">&rarr;</span> <b>Batterskull</b></div>
+      <div class="swaprow"><b>Gilded Lotus</b> <span class="a">&rarr;</span> <b>Reprieve</b></div>
+      <div class="swaprow"><b>Sword of the Animist</b> <span class="a">&rarr;</span> <b>Verdurous Gearhulk</b></div>
+    </div>
+    <div class="go"><a href="/salubrioussnail-wakanda-wrongchoice/">Read the Wakanda page &rarr;</a></div>
+  </div>
+
+</div>
+
+<h2>Explore similar</h2>
+<p class="simnote grown">The hubs these reads grew out of, and the wider corpus of my videos on this site.</p>
+<p class="simnote kid-only">More Snail pages to explore.</p>
+<div class="sim">
+  <a href="/salubrioussnail-marvel-edhrec/"><span class="t">Reading EDHREC's Marvel numbers</span><span class="d">a Snail-voice transcript of the community data, deck by deck, plus every EDHREC Marvel article.</span></a>
+  <a href="/salubrioussnail-decks/"><span class="t">Snail decks: the crossover</span><span class="d">The four precons plus build sketches drawn from Snail's principles.</span></a>
+  <a href="/marvel-commander-rankings/"><span class="t">Marvel rankings</span><span class="d">All four precons ranked, with every commander option and the cut and add lists.</span></a>
+  <a href="/salubrioussnail-points/"><span class="t">Snail's 10 points per video</span><span class="d">Fifty-eight Commander videos, each distilled to ten grounded points, filterable.</span></a>
+  <a href="/salubrioussnail-2026-principles/"><span class="t">2026 principles</span><span class="d">The newer batch of Snail deckbuilding principles.</span></a>
+  <a href="/salubrioussnail-2026-decks/"><span class="t">2026 decks</span><span class="d">Deck sketches built from the 2026 principles.</span></a>
+  <a href="/command-power-points/"><span class="t">Command Power catalog</span><span class="d">The full 526-video Command Power catalog, points per video.</span></a>
+</div>
+
+</main>
+
+<button id="kidfab" onclick="toggleKid()">Kid Mode</button>
+<script>
+function toggleKid(){document.body.classList.toggle('kid');
+  var b=document.getElementById('kidfab');
+  b.textContent=document.body.classList.contains('kid')?'Normal Mode':'Kid Mode';}
+</script>
+</body>
+</html>
