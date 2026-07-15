@@ -1,0 +1,162 @@
+<!doctype html>
+<html lang="en"><head><meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Doctor Doom, King of Latveria: The Discard-Drain Throne</title>
+<meta name="description" content="A Snail-style deck tech for Doctor Doom, King of Latveria, the Grixis face of Doom Prevails: the discard-drain and Villain connive engine, with the per-event drain math, the land-versus-nonland connive choice, a dead-draw audit, a construction audit, and the shell.">
+<meta name="keywords" content="Doctor Doom King of Latveria, discard matters, connive, Villain, Grixis, Marvel Super Heroes Commander, Doom Prevails, deck tech, construction audit, land discard">
+<meta property="og:title" content="Doctor Doom, King of Latveria: The Discard-Drain Throne">
+<meta property="og:description" content="The Grixis discard-drain and Villain connive engine, with the per-event drain math and the land-versus-nonland connive choice.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,500;0,600;0,700;1,600&family=Inter:wght@400;600;700;800&display=swap" rel="stylesheet">
+<style>
+  :root{--cream:#f4ecd8;--ink:#1c1a17;--rust:#b5533b;--teal:#3f7c78;--gold:#c98a2b;--olive:#7d7a3a;--line:#d9cdb0;--plum:#7b4b8a;}
+  *{box-sizing:border-box}
+  body{margin:0;background:var(--cream);color:var(--ink);font-family:'Inter',system-ui,-apple-system,Segoe UI,Roboto,sans-serif;line-height:1.62}
+  header{padding:46px 24px 10px;max-width:760px;margin:0 auto;text-align:center}
+  h1{font-family:'Cormorant Garamond',Georgia,serif;font-size:clamp(2rem,8vw,2.7rem);margin:.15em 0;color:var(--ink);line-height:1.1}
+  .sub{color:var(--olive);font-weight:600;max-width:640px;margin:8px auto 0}
+  .nav{margin:14px auto 0;font-size:.9rem}
+  .nav a{color:var(--teal);font-weight:700;text-decoration:none;margin:0 8px}
+  .byline{max-width:760px;margin:10px auto 0;padding:0 22px;font-size:.8rem;color:var(--olive);font-style:italic;text-align:center}
+  main{max-width:760px;margin:0 auto;padding:12px 22px 100px}
+  article h2{font-family:'Cormorant Garamond',serif;font-size:1.7rem;color:var(--rust);margin:34px 0 8px}
+  article h3{font-family:'Inter',sans-serif;font-size:1.02rem;color:var(--plum);margin:18px 0 6px;text-transform:uppercase;letter-spacing:.04em}
+  article p{margin:0 0 14px;font-size:1.04rem}
+  .lead{font-size:1.12rem;color:#33302a}
+  .swapline{margin:10px 0;padding:9px 13px;background:#fbf5e6;border:1px solid var(--line);border-radius:9px;font-size:.96rem;overflow:hidden}
+  .swapline b{color:var(--rust)} .swapline .pct{color:var(--teal);font-weight:800}
+  .mathbox{background:#efe6cf;border:1px solid var(--line);border-left:4px solid var(--teal);border-radius:10px;padding:14px 16px;margin:14px 0}
+  .mathbox table{border-collapse:collapse;width:100%;font-size:.95rem;margin:6px 0}
+  .mathbox td{padding:4px 8px;border-bottom:1px solid var(--line)}
+  .mathbox td:last-child{text-align:right;font-weight:800;color:var(--rust)}
+  .mathbox .tot td{border-bottom:none;border-top:2px solid var(--teal);font-weight:800}
+  .turns{background:#fbf5e6;border:1px solid var(--line);border-radius:10px;padding:6px 4px;margin:12px 0}
+  .turns table{border-collapse:collapse;width:100%;font-size:.94rem}
+  .turns td{padding:7px 11px;border-bottom:1px solid var(--line);vertical-align:top}
+  .turns td:first-child{font-weight:800;color:var(--teal);white-space:nowrap;width:1%}
+  .turns tr:last-child td{border-bottom:none}
+  .auditwrap{overflow-x:auto;margin:12px 0}
+  table.audit{border-collapse:collapse;width:100%;min-width:640px;font-size:.9rem;background:#fbf5e6;border:1px solid var(--line);border-radius:10px}
+  table.audit th{background:#efe6cf;color:var(--plum);text-align:left;padding:8px 10px;font-size:.78rem;text-transform:uppercase;letter-spacing:.03em}
+  table.audit td{padding:8px 10px;border-top:1px solid var(--line);vertical-align:top}
+  table.audit td:first-child{font-weight:800;color:var(--rust);white-space:nowrap}
+  .v{display:inline-block;padding:2px 9px;border-radius:20px;font-size:.76rem;font-weight:800;color:#fff}
+  .v-core{background:var(--teal)} .v-supported{background:var(--olive)} .v-situational{background:var(--gold)} .v-cut{background:var(--rust)}
+  .pull{border-left:4px solid var(--gold);padding:6px 0 6px 15px;margin:16px 0;font-family:'Cormorant Garamond',serif;font-size:1.35rem;color:#3f3b30}
+  .src{max-width:760px;margin:0 auto;padding:0 22px 96px;font-size:.82rem;color:var(--olive)}
+  .src a{color:var(--teal);font-weight:700}
+  .kid-only{display:none}
+  #kidfab{position:fixed;right:18px;bottom:18px;z-index:50;background:var(--rust);color:#fff;border:none;border-radius:40px;padding:14px 21px;font-size:1rem;font-weight:800;box-shadow:0 4px 14px rgba(0,0,0,.25);cursor:pointer}
+  body.kid{font-size:1.14rem}
+  body.kid .grown{display:none}
+  body.kid .kid-only{display:block}
+  body.kid .lead{font-size:1.18rem}
+  .toc{background:#efe6cf;border:1px solid var(--line);border-radius:10px;padding:9px 14px;margin:6px 0 18px;font-size:.86rem;line-height:1.9}
+  .toc summary{color:var(--plum);font-weight:800;cursor:pointer;list-style:none}
+  .toc summary::-webkit-details-marker{display:none}
+  .toc summary::before{content:"\25B8 ";color:var(--teal)}
+  .toc[open] summary::before{content:"\25BE "}
+  .toc .toclinks{margin-top:7px}
+  .toc a{color:var(--teal);font-weight:700;text-decoration:none;margin:0 12px 0 0;display:inline-block}
+  @media(max-width:560px){.toc a{white-space:normal;display:block;margin:3px 0}}
+  body.kid .toc{display:none}
+</style></head>
+<body>
+<header>
+  <h1>Doctor Doom, King of Latveria: <span style="white-space:nowrap">The Discard&#8209;Drain Throne</span></h1>
+  <div class="sub grown">The Doom Prevails face is two engines in Grixis. Discard a land and each opponent loses two life. Send a Villain to connive at combat, and choose each time whether to feed the drain or grow the board. The deck wins by discarding lands again and again.</div>
+  <div class="sub kid-only">Doctor Doom has two powers. When you discard a land, every opponent loses two life. And before combat one of your Villains connives, drawing then discarding a card. The deck wins by discarding lands over and over to drain the table.</div>
+  <div class="nav"><a href="/marvel-commander-guides/">Guides hub</a> &middot; <a href="/doom-prevails-deck-tech/">Doom Prevails precon audit</a> &middot; <a href="/loki-deceiver-deck-tech/">Loki deck tech</a> &middot; <a href="/marvel-commander-rankings/">Marvel rankings</a></div>
+</header>
+<p class="byline">This Doctor Doom, King of Latveria deck tech is inspired by Salubrious Snail's published deckbuilding framework. Doom's oracle text and color identity are from Scryfall (Marvel Super Heroes Commander, read 2026-07-14); the Doom Prevails shell and inclusion figures come from the EDHREC Doom pages. Not authored or endorsed by Salubrious Snail or EDHREC.</p>
+<main>
+<article>
+<details class="toc" aria-label="Contents"><summary>On this page (7 destinations)</summary><div class="toclinks"><a href="#the-engines">Two engines</a><a href="#drain-math">Drain math</a><a href="#the-choice">Land or nonland</a><a href="#villain-count">Villain count</a><a href="#dead-draw-audit">Dead Draw Audit</a><a href="#construction-audit">Construction audit</a><a href="#the-shell">The shell</a></div></details>
+
+<p class="lead grown">Doctor Doom, King of Latveria costs {1}{U}{B}{R}, a 3/3 Grixis Villain with two abilities that share one resource, your discards. Whenever you discard one or more land cards, each opponent loses two life. And at the beginning of combat on your turn, a target Villain you control gains menace and connives, drawing a card and then discarding one, with a +1/+1 counter if that discard was a nonland. He is the face of Doom Prevails, and read on his own he is a Grixis discard-matters deck that turns a steady rhythm of land discards into a drain on the whole table. The Doom Prevails precon and the Loki split are covered elsewhere; this page reads Doom as the commander and builds around the drain.</p>
+<p class="lead kid-only">Doctor Doom is a three-mana Grixis villain. Discard a land and each opponent loses two life. Before combat, one of your Villains connives, which draws then discards. If you discard a land you drain the table, and if you discard a nonland your creature grows. The deck wins by discarding lands again and again.</p>
+
+<h2 id="the-engines">Two engines, one resource</h2>
+<p class="grown">Both abilities run on discards, and they pull in slightly different directions. The land-discard drain wants you to pitch lands, two life off each opponent every time you do. The combat connive wants a Villain and offers a choice on its discard, a land for the drain or a nonland for a +1/+1 counter and a bigger attacker. The connive is your most reliable discard outlet, so Doom is partly self-contained: each combat he can discard a card, and steering that discard toward a land turns the connive into a drain as well as a filter.</p>
+<p class="grown">The deck therefore has two build questions. How many separate ways can you discard a land within a turn, since each is a drain, and how many Villains can you field so the combat connive always has a target. A Doom list that answers both keeps the table bleeding while it develops a menacing Villain board underneath.</p>
+<p class="kid-only">Doom's two powers both use discarding. Discarding a land drains the table. The combat connive lets a Villain draw and discard, and you pick a land to drain or a nonland to grow. The connive is your steady discard outlet, so Doom mostly feeds himself.</p>
+
+<h2 id="drain-math">The drain math, per event not per card</h2>
+<p class="grown">Read the drain ability closely, because the wording sets the whole plan. It triggers whenever you discard one or more land cards, and each trigger is two life. That counts once per discard event that includes at least one land. A single event that pitches several lands still drains only two. A Windfall that dumps three lands at once is a single event and a single two-life drain. Three separate small discards that each pitch one land are three events and six life. So the deck wants many small, repeatable discard outlets rather than one big mass discard, and every one of them should be able to reach a land.</p>
+<div class="mathbox grown">
+  <table>
+    <tr><td>One land-discard event, damage to each opponent</td><td>2</td></tr>
+    <tr><td>One land-discard event, across a 3-opponent table</td><td>6</td></tr>
+    <tr><td>Doom's combat connive steered to a land, per turn</td><td>6 table</td></tr>
+    <tr class="tot"><td>Separate land-discard events to drain one 40-life opponent</td><td>20</td></tr>
+  </table>
+</div>
+<p class="grown">Doom's own combat connive is one guaranteed land-discard event a turn once you have a land to pitch, which is six table damage a turn before anything else. Add a rummaging outlet or a cycling land and each extra event is another six. The finished list is built to raise the number of separate land-discard events per turn, since that count is the drain clock. Combat damage from the menacing Villains and the rest of the Grixis suite closes from there.</p>
+<p class="kid-only">The drain is two for each discard event that includes a land. So discarding one land three separate times is better than discarding three lands at once. Build lots of small ways to discard a land each turn.</p>
+
+<h2 id="the-choice">Land or nonland, the connive choice</h2>
+<p class="grown">The combat connive forces a small decision every turn. Discard a land and you drain the table for two off each opponent. Discard a nonland and the Villain gets a +1/+1 counter and a larger menacing body. Early, when the board is contested, the counter and the evasion push real combat damage. Later, when the drain is the faster clock, the land discard closes the game. A good Doom pilot reads the board each combat rather than defaulting to one line.</p>
+<p class="grown">Construction supports that choice by keeping spare lands to pitch. A deck that floods out has fuel for the drain, so a slightly higher land count and a few effects that draw extra lands turn what looks like a flood into ammunition. Cheap card draw refills the nonland side for the counter turns. The build wants both a land to pitch when the drain is the plan and a nonland to spare when the counter is.</p>
+<p class="kid-only">Each combat you choose: discard a land to drain, or a nonland to make your creature bigger. Grow the creature when the board is tight, drain when you are racing. Keep some spare lands so you always have one to pitch.</p>
+
+<h2 id="villain-count">Villain count, the combat trigger's fuel</h2>
+<p class="grown">The combat connive targets a Villain you control, so a turn with no Villain on the board wastes the ability. That makes Villain density a real construction number rather than a flavor note. The deck wants enough Villains that Doom almost always has a target at combat, and it wants a couple of them to make more Villains or to survive removal, so a single sweep does not switch the engine off. Doom himself is a Villain, which covers the floor, and building above that floor keeps the connive firing when he is answered.</p>
+<p class="grown">Villains also carry the discard-matters payoffs the precon leans on, so the type does double duty. A high Villain count feeds the combat connive, supports the box's Villain-cost reducers, and gives the menace trigger a body worth pushing through. Count the Villains the way a Hero deck counts Heroes, and hold that count as a floor through every swap.</p>
+<p class="kid-only">Doom's combat connive needs a Villain to target, so run plenty of Villains. Doom is one himself, but you want more so the power still works if he gets removed. Villains also help the deck's other cost-cutters, so they do several jobs.</p>
+
+<h2 id="dead-draw-audit">Dead Draw Audit</h2>
+<p class="grown">Snail's method scores a card by how often it does its job and whether it earns its slot with the commander gone. Here are five cards through that lens, with the per-event drain rule deciding the close calls.</p>
+<div class="auditwrap grown">
+<table class="audit">
+  <caption style="text-align:left;font-size:.82rem;color:var(--olive);padding:6px 10px;font-style:italic">Dead Draw Audit: five cards scored on job, support, solo value, and verdict.</caption>
+  <tr><th scope="col">Card</th><th scope="col">Primary job</th><th>Support in the 99</th><th>Value without Doom</th><th>Verdict</th></tr>
+  <tr><td>A repeatable single-card rummage or loot</td><td>A land-discard event most turns</td><td>High, feeds the drain and filters</td><td>Good, card selection anywhere</td><td><span class="v v-core">core</span></td></tr>
+  <tr><td>Cycling lands and channel lands</td><td>A land pitched from hand for a drain event</td><td>High, they are lands and discard outlets</td><td>Good, they are still lands</td><td><span class="v v-core">core</span></td></tr>
+  <tr><td>Extra Villains that make Villains</td><td>Keep a connive target through removal</td><td>Scales the combat trigger</td><td>Bodies in any Grixis deck</td><td><span class="v v-supported">supported</span></td></tr>
+  <tr><td>Windfall and mass discard</td><td>Refill, and a single drain event</td><td>One event even when it pitches many lands</td><td>Card advantage on its own</td><td><span class="v v-situational">situational</span></td></tr>
+  <tr><td>A big colorless payoff that ignores discards</td><td>Standalone value</td><td>None for either engine</td><td>Depends on its own text</td><td><span class="v v-situational">situational</span></td></tr>
+</table>
+</div>
+<p class="grown">Windfall drops to situational for the per-event reason. It reads like a discard payoff, and it fires the drain only once no matter how many lands it pitches, so it earns its slot as a refill rather than as a drain engine. The repeatable single-card outlets are the opposite: each is a fresh event every turn. Run every questioned card through job, support, solo value, and the per-event rule before it stays.</p>
+<p class="kid-only">This grades each card by what it does and whether it helps Doom's engines. Small repeatable discard cards are best because each is a fresh drain. Big discard spells like Windfall only drain once no matter how many lands they pitch, so they are more about refilling your hand.</p>
+
+<h2 id="construction-audit">Beyond the Dead Draw Audit: the construction audit</h2>
+<p class="grown">The Dead Draw Audit scores single cards. This construction audit scores the whole ninety-nine on Doom's two engines, the number of separate land-discard events you can create per turn and the Villain count that keeps the combat connive live. The first rule is a floor on repeatable discard outlets, the second is a Villain floor, and the third is a supply of spare lands to feed the drain.</p>
+<div class="turns grown">
+  <table>
+    <tr><td style="color:var(--plum)">Target</td><td>Count</td><td>Why</td></tr>
+    <tr><td>Repeatable land-discard outlets</td><td>10-12</td><td>Each is a fresh drain event, the core clock</td></tr>
+    <tr><td>Villains</td><td>18-22</td><td>Keeps a combat connive target through removal</td></tr>
+    <tr><td>Land supply and card draw</td><td>7-9</td><td>Spare lands to pitch, spare nonlands for counters</td></tr>
+    <tr><td>Interaction</td><td>10-12</td><td>Grixis removal and a wipe to reach the grind</td></tr>
+    <tr><td>Mass-discard refills</td><td>keep low</td><td>One drain event each, so count them as card draw</td></tr>
+    <tr><td>Lands</td><td>37-38</td><td>Slightly high, since lands are drain ammunition here</td></tr>
+  </table>
+</div>
+<p class="grown">Card advantage needs its own read. The connive and the rummaging outlets replace themselves while they drain, so much of the draw is folded into the discard package. Report two numbers when you tune the list, the repeatable land-discard outlet count and the Villain count, since those are the two engines. A build that reports a big discard total while most of it is one-shot mass discard is overstating its clock, because the per-event rule caps those at one drain apiece. The honest measure is separate land-discard events per turn times six table damage.</p>
+<p class="grown">Every revision should hold both floors first. A new discard outlet should replace a weaker outlet or a spare slot, and it should be repeatable and able to reach a land. A new Villain should replace a nonVillain the deck can spare when the count runs thin. The slightly high land count is deliberate here, since a spare land is drain fuel waiting for an outlet.</p>
+<p class="pull grown">For Doom, a spare land is drain fuel waiting for an outlet.</p>
+<p class="kid-only">To build Doom: run 10 to 12 repeatable ways to discard a land, keep 18 to 22 Villains so the connive always has a target, and run a slightly high land count because lands are ammo. Big discard spells only drain once, so treat them as card draw rather than your main clock.</p>
+
+<h2 id="the-shell">The shell, Doom or the full precon</h2>
+<p class="grown">Doctor Doom is the printed face of the Doom Prevails precon, so the stock ninety-nine already points at his engines, and the card-by-card precon audit lives on the <a href="/doom-prevails-deck-tech/">Doom Prevails page</a>. This page reads Doom as a dedicated commander rather than as one half of the box. The shift from the stock list is toward more repeatable single-card discard outlets, a higher Villain count, cycling and channel lands that double as drain fuel, and a land count a card or two above normal. The Loki copy plan, which the box also supports, pulls the other way and has its own <a href="/loki-deceiver-deck-tech/">Loki deck tech</a>.</p>
+<p class="grown">The interaction and the removal carry over, since a grind deck wants the same Grixis answers the precon runs. Doom and Loki share the same discard-and-Villain core and split on the payoff, Doom into a table-wide drain and Loki into a copied swarm. Build Doom toward the construction audit above, a deep bench of repeatable land-discard outlets, a Villain floor that survives a wipe, and lands read as ammunition.</p>
+<p class="kid-only">Doom is the main commander of the Doom Prevails deck, so the box already fits him. The full precon walkthrough is on the Doom Prevails page. For a Doom-focused build, add more small discard outlets, more Villains, cycling lands, and a few extra lands. Loki wants a different plan and has his own page.</p>
+
+</article>
+</main>
+
+<div class="src">
+  <p><b>Sources.</b> Doctor Doom, King of Latveria oracle text and color identity via <a href="https://scryfall.com">Scryfall</a> (Marvel Super Heroes Commander, read 2026-07-14): {1}{U}{B}{R}, Legendary Creature Human Noble Villain, 3/3, color identity Grixis (blue-black-red); "Whenever you discard one or more land cards, each opponent loses 2 life" and "At the beginning of combat on your turn, target Villain you control gains menace until end of turn. It connives. (Draw a card, then discard a card. If you discarded a nonland card, put a +1/+1 counter on that creature.)" The drain triggers once per discard event containing at least one land, so the per-event figures are two per event to each opponent and six across a three-opponent table; twenty separate events drain one 40-life opponent. The Doom Prevails shell and the Doom and Loki split are on the <a href="/doom-prevails-deck-tech/">Doom Prevails page</a> and the <a href="/loki-deceiver-deck-tech/">Loki deck tech</a>; inclusion context is on the <a href="/salubrioussnail-marvel-edhrec/">EDHREC Marvel read</a> and the <a href="/marvel-commander-rankings/">Marvel rankings</a>. Inspired by Salubrious Snail's published framework; neither Salubrious Snail nor EDHREC authored or endorsed it.</p>
+</div>
+
+<button id="kidfab" onclick="toggleKid()" aria-pressed="false" aria-label="Toggle plain-language kid mode">Kid Mode</button>
+<script>
+function toggleKid(){var on=document.body.classList.toggle('kid');
+  var b=document.getElementById('kidfab');
+  b.textContent=on?'Normal Mode':'Kid Mode';
+  b.setAttribute('aria-pressed',on?'true':'false');}
+</script>
+</body>
+</html>
