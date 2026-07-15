@@ -2,7 +2,7 @@
 <html lang="en"><head><meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <title>Kang, Temporal Tyrant: The Second-Draw Machine</title>
-<meta name="description" content="A Snail-style deck tech for Kang, Temporal Tyrant, the Doom Prevails Marvel Commander alt: the Dimir control deck built on one trigger, your second card each turn, with the full turn-cycle engine, priority adds, cuts, interaction, two finishers, and an opening line, read through EDHREC's real data.">
+<meta name="description" content="A Snail-style deck tech for Kang, Temporal Tyrant, the Doom Prevails Marvel Commander alt: the Dimir control deck built on one trigger, your second card each turn, with the full turn-cycle engine, priority adds, cuts, interaction, three finishing routes, and an opening line, read through EDHREC's real data.">
 <meta name="keywords" content="Kang Temporal Tyrant, second card each turn, connive, Dimir control, Marvel Super Heroes Commander, Doom Prevails alt, EDHREC Kang, Construct a Cosmic Cube, Leader Super-Genius, Baron Strucker, deck tech">
 <meta property="og:title" content="Kang, Temporal Tyrant: The Second-Draw Machine">
 <meta property="og:description" content="The Kang Dimir control engine built on one trigger that fires on every player's turn, read through EDHREC's real data, with adds, cuts, interaction, finishers, and an opening line.">
@@ -14,7 +14,7 @@
   *{box-sizing:border-box}
   body{margin:0;background:var(--cream);color:var(--ink);font-family:'Inter',system-ui,-apple-system,Segoe UI,Roboto,sans-serif;line-height:1.62}
   header{padding:46px 24px 10px;max-width:760px;margin:0 auto;text-align:center}
-  h1{font-family:'Cormorant Garamond',Georgia,serif;font-size:2.7rem;margin:.15em 0;color:var(--ink);line-height:1.1}
+  h1{font-family:'Cormorant Garamond',Georgia,serif;font-size:clamp(2rem,8vw,2.7rem);margin:.15em 0;color:var(--ink);line-height:1.1}
   .sub{color:var(--olive);font-weight:600;max-width:640px;margin:8px auto 0}
   .nav{margin:14px auto 0;font-size:.9rem}
   .nav a{color:var(--teal);font-weight:700;text-decoration:none;margin:0 8px}
@@ -54,7 +54,7 @@
   .v{display:inline-block;padding:2px 9px;border-radius:20px;font-size:.76rem;font-weight:800;color:#fff}
   .v-core{background:var(--teal)} .v-supported{background:var(--olive)} .v-situational{background:var(--gold)} .v-cut{background:var(--rust)}
   .pull{border-left:4px solid var(--gold);padding:6px 0 6px 15px;margin:16px 0;font-family:'Cormorant Garamond',serif;font-size:1.35rem;color:#3f3b30}
-  .src{max-width:760px;margin:0 auto;padding:0 22px 40px;font-size:.82rem;color:var(--olive)}
+  .src{max-width:760px;margin:0 auto;padding:0 22px 96px;font-size:.82rem;color:var(--olive)}
   .src a{color:var(--teal);font-weight:700}
   .kid-only{display:none}
   #kidfab{position:fixed;right:18px;bottom:18px;z-index:50;background:var(--rust);color:#fff;border:none;border-radius:40px;padding:14px 21px;font-size:1rem;font-weight:800;box-shadow:0 4px 14px rgba(0,0,0,.25);cursor:pointer}
@@ -62,7 +62,7 @@
   body.kid .grown{display:none}
   body.kid .kid-only{display:block}
   body.kid .lead{font-size:1.18rem}
-  @media(max-width:560px){.cardfig{float:none;width:150px;margin:0 auto 14px;display:block}}
+  @media(max-width:560px){.cardfig{float:none;width:150px;margin:0 auto 14px;display:block} h1 span{white-space:normal}}
   .toc{background:#efe6cf;border:1px solid var(--line);border-radius:10px;padding:9px 14px;margin:6px 0 18px;font-size:.86rem;line-height:1.9}
   .toc summary{color:var(--plum);font-weight:800;cursor:pointer;list-style:none}
   .toc summary::-webkit-details-marker{display:none}
@@ -122,7 +122,7 @@
 <div class="swapline grown"><img class="mini" src="https://cards.scryfall.io/normal/front/f/8/f8f1e4f9-7415-437f-b694-ecbdd76db114.jpg" alt="Visions of Villainy"><b>Visions of Villainy</b> <span class="pct">50%</span>. An instant that draws two and costs one less with a Villain out. Cheap, repeatable-feeling, and legal to fire on anyone's turn.</div>
 <div class="swapline grown"><img class="mini" src="https://cards.scryfall.io/normal/front/7/e/7ea4b5bc-18a4-45db-a56a-ab3f8bd2fb0d.jpg" alt="Ledger Shredder"><b>Ledger Shredder</b> <span class="pct">42%</span>. Connives whenever any player casts their second spell in a turn, which happens on their turns too. If you have already drawn once that turn, its connive is your second draw and a Kang drain.</div>
 <div class="swapline grown"><img class="mini" src="https://cards.scryfall.io/normal/front/e/a/eaf2251a-ffaf-4055-9474-7e3d08d89609.jpg" alt="Baron Strucker, HYDRA Overlord"><b>Baron Strucker, HYDRA Overlord</b> <span class="pct">59%</span>. The most-run card the old primer never mentioned. Villain spells cost one less, and once each turn a Villain entering may connive. That connive is a repeatable second-draw source, and the cost cut helps the whole Villain subtheme.</div>
-<div class="swapline grown"><img class="mini" src="https://cards.scryfall.io/normal/front/f/5/f54197b8-6279-43ee-9340-69bd22cf3775.jpg" alt="Madame Masque"><b>Madame Masque</b> <span class="pct">46%</span>. Connives on enter and then makes a Villain token on every second draw you hit, so she is an enabler and a payoff in one body.</div>
+<div class="swapline grown"><img class="mini" src="https://cards.scryfall.io/normal/front/f/5/f54197b8-6279-43ee-9340-69bd22cf3775.jpg" alt="Madame Masque"><b>Madame Masque</b> <span class="pct">47%</span>. Connives on enter and then makes a Villain token on every second draw you hit, so she is an enabler and a payoff in one body.</div>
 <p class="kid-only">These cards let you draw that key second card, and the best ones work on other players' turns: Frantic Search, Visions of Villainy, Ledger Shredder, plus Baron Strucker, who makes your villains cheaper and lets one connive each turn, and Madame Masque, who both draws and rewards.</p>
 
 <h2 id="the-other-half-of-connive-the-discard">The other half of connive, the discard</h2>
@@ -134,7 +134,7 @@
 <p class="kid-only">Connive draws a card and then makes you discard one, so Kang is secretly a discard deck as well. Moonstone lets you play cards you discarded for a little while, though you still pay their cost, so less is wasted. Archfiend of Ifnir shrinks every enemy creature each time you discard. M.O.D.O.K. connives over and over and weakens the board. The cards you throw away become a resource of their own.</p>
 
 <h2 id="priority-adds">Priority adds</h2>
-<p class="grown">Kang is a box alt with no upgrade list of his own, so the add list below reads EDHREC as a signal and runs it through the second-draw test, rather than copying the popular pile wholesale. Percentages are the share of recorded Kang decks running the card, read 2026-07-14, and the next section separates that inclusion from synergy so you can tell a signature card from a staple. One caution up front: this is a eighty-one-deck sample on a box that released in June 2026, so a few copied lists move the numbers a lot. Read the percentages as an early signal rather than proof.</p>
+<p class="grown">Kang is a box alt with no upgrade list of his own, so the add list below reads EDHREC as a signal and runs it through the second-draw test, rather than copying the popular pile wholesale. Percentages are the share of recorded Kang decks running the card, read 2026-07-14, and the next section separates that inclusion from synergy so you can tell a signature card from a staple. One caution up front: this is an eighty-one-deck sample on a box that released in June 2026, so a few copied lists move the numbers a lot. Read the percentages as an early signal rather than proof.</p>
 <div class="cols grown">
   <div>
     <h3>Engine and payoffs</h3>
@@ -143,7 +143,7 @@
       <li>Construct a Cosmic Cube <b>67%</b></li>
       <li>Baron Strucker, HYDRA Overlord <b>59%</b></li>
       <li>Gixian Puppeteer <b>48%</b></li>
-      <li>Madame Masque <b>46%</b></li>
+      <li>Madame Masque <b>47%</b></li>
       <li>Psychosis Crawler <b>47%</b></li>
       <li>Teferi's Ageless Insight <b>47%</b></li>
       <li>Alandra, Sky Dreamer <span class="fn">shares Kang's trigger</span></li>
@@ -191,23 +191,23 @@
 <div class="turns grown">
   <table>
     <tr><td style="color:var(--plum)">Card</td><td>Inclusion</td><td>Synergy</td><td>Read</td></tr>
-    <tr><td>Leader, Super-Genius</td><td>72%</td><td>+67%</td><td>signature</td></tr>
-    <tr><td>Construct a Cosmic Cube</td><td>67%</td><td>+64%</td><td>signature</td></tr>
-    <tr><td>Baron Strucker, HYDRA Overlord</td><td>59%</td><td>+58%</td><td>signature</td></tr>
-    <tr><td>Visions of Villainy</td><td>50%</td><td>+48%</td><td>signature</td></tr>
-    <tr><td>Gixian Puppeteer</td><td>48%</td><td>+46%</td><td>signature</td></tr>
-    <tr><td>Moonstone, Harsh Mistress</td><td>42%</td><td>+42%</td><td>signature</td></tr>
+    <tr><td>Leader, Super-Genius</td><td>72%</td><td>+69%</td><td>signature</td></tr>
+    <tr><td>Construct a Cosmic Cube</td><td>67%</td><td>+65%</td><td>signature</td></tr>
+    <tr><td>Baron Strucker, HYDRA Overlord</td><td>59%</td><td>+57%</td><td>signature</td></tr>
+    <tr><td>Visions of Villainy</td><td>50%</td><td>+49%</td><td>signature</td></tr>
+    <tr><td>Gixian Puppeteer</td><td>48%</td><td>+48%</td><td>signature</td></tr>
+    <tr><td>Moonstone, Harsh Mistress</td><td>42%</td><td>+41%</td><td>signature</td></tr>
     <tr><td>Archfiend of Ifnir</td><td>32%</td><td>+31%</td><td>signature</td></tr>
-    <tr><td>Frantic Search</td><td>47%</td><td>+27%</td><td>staple that fits</td></tr>
+    <tr><td>Frantic Search</td><td>47%</td><td>+28%</td><td>staple that fits</td></tr>
     <tr><td>Arcane Denial</td><td>43%</td><td>+17%</td><td>staple</td></tr>
-    <tr><td>Counterspell</td><td>53%</td><td>-4%</td><td>pure staple</td></tr>
+    <tr><td>Counterspell</td><td>53%</td><td>-3%</td><td>pure staple</td></tr>
   </table>
 </div>
 <p class="grown">The lesson lines up with the second-draw test. Leader and the Cube earn their high synergy because they exist to cash Kang's trigger. Counterspell has the highest inclusion of the interaction and a negative synergy, which just means every blue deck plays it, so run it as the format staple it is, for the reason any control deck wants a hard counter, not because the Kang page ranked it high. Favor the signature column when you want the cards that make this deck itself, and treat the staples as the rent you pay to be in blue-black.</p>
 <p class="kid-only">EDHREC shows two numbers. One is how many Kang decks play a card. The other, synergy, is how much MORE Kang wants it than a normal blue-black deck. Leader and the Cosmic Cube score high on the second number, so they are truly Kang cards. Counterspell scores low, so it is just a card every blue deck runs. Follow the synergy number to find the real Kang cards.</p>
 
 <h2 id="interaction-the-half-that-keeps-you-aliv">Interaction, the half that keeps you alive</h2>
-<p class="grown">A deck that wins slowly has to survive to get there, so the numbers back a wall of cheap answers. Counterspell shows up in fifty-two percent of decks, with Arcane Denial at forty-three percent and Lethal Scheme at forty-two percent as the removal, and the blue-black removal the deck can actually run, Go for the Throat, Reality Shift, Withering Torment, and Lethal Scheme, a board wipe or two like Toxic Deluge, and enough counters to protect the Cosmic Cube as it counts up. The tell is that most of your interaction wants to be instant, which is the same shape as your enablers: hold mana on other turns, and use it to answer a threat or to fire a draw for a Kang drain when nothing needs answering.</p>
+<p class="grown">A deck that wins slowly has to survive to get there, so the numbers back a wall of cheap answers. Counterspell shows up in fifty-three percent of decks, with Arcane Denial at forty-three percent and Lethal Scheme at forty-two percent as the removal, and the blue-black removal the deck can actually run, Go for the Throat, Reality Shift, Withering Torment, and Lethal Scheme, a board wipe or two like Toxic Deluge, and enough counters to protect the Cosmic Cube as it counts up. The tell is that most of your interaction wants to be instant, which is the same shape as your enablers: hold mana on other turns, and use it to answer a threat or to fire a draw for a Kang drain when nothing needs answering.</p>
 <p class="kid-only">Because the deck wins slowly, you need lots of cheap answers: Counterspell, Arcane Denial, spot removal, and a board wipe. The nice part is they are instants, so on quiet turns you can spend that same held-up mana to draw a card and drain the table instead.</p>
 
 <h2 id="ten-sample-swaps-from-the-stock-doom-pre">Ten sample swaps from the stock Doom Prevails list</h2>
@@ -321,11 +321,11 @@
 
 <h2 id="the-full-99">The full ninety-nine, one legal build</h2>
 <p class="grown">A complete, legal Kang list, commander plus ninety-nine, every card verified blue-black or colorless on Scryfall by the card-fact gate (99 cards, machine-checked for legality and singleton). Treat it as one tuned build among many workable ones.</p>
-<details class="toc decklist"><summary>Show the 99-card decklist</summary><div class="toclinks"><p style="margin:0 0 6px"><b style="color:var(--rust)">Commander:</b> Kang, Temporal Tyrant</p><p style="line-height:1.7;font-size:.92rem"><b>Second-draw enablers: connive + instant-speed draw (14):</b> Leader, Super-Genius, Baron Strucker, HYDRA Overlord, Madame Masque, Ledger Shredder, Frantic Search, Visions of Villainy, Chart a Course, Chemister&#x27;s Insight, Thirst for Discovery, Fact or Fiction, Forbidden Alchemy, Careful Study, Thirst for Knowledge, Merfolk Looter &nbsp;·&nbsp; <b>Second-draw payoffs (8):</b> Construct a Cosmic Cube, Gixian Puppeteer, Kid Loki, Alandra, Sky Dreamer, M.O.D.O.K., Evil Intellect, Psychosis Crawler, Teferi&#x27;s Ageless Insight, Moonstone, Harsh Mistress &nbsp;·&nbsp; <b>Discard / graveyard value (3):</b> Archfiend of Ifnir, Bone Miser, Containment Construct &nbsp;·&nbsp; <b>Draw engines (10):</b> Skullclamp, Black Market Connections, Night&#x27;s Whisper, Syphon Mind, Sign in Blood, Read the Bones, Phyrexian Arena, Mystic Remora, Windfall, Brainstorm &nbsp;·&nbsp; <b>Interaction (14):</b> Crux of Fate, Counterspell, Arcane Denial, Swan Song, Reality Shift, Go for the Throat, Withering Torment, Lethal Scheme, Bloodchief&#x27;s Thirst, Feed the Swarm, Toxic Deluge, Damnation, Cyclonic Rift, Kindred Dominance &nbsp;·&nbsp; <b>Protection (3):</b> Swiftfoot Boots, Lightning Greaves, Propaganda &nbsp;·&nbsp; <b>Card-advantage creatures / value (4):</b> Baleful Strix, Sea Gate Oracle, Spark Double, Chameleon, Master of Disguise &nbsp;·&nbsp; <b>Ramp / rocks (6):</b> Sol Ring, Arcane Signet, Dimir Signet, Talisman of Dominance, Mind Stone, Fellwar Stone &nbsp;·&nbsp; <b>Lands (37):</b> Command Tower, Path of Ancestry, Exotic Orchard, Drowned Catacomb, Choked Estuary, Fetid Pools, Sunken Hollow, Watery Grave, Underground River, Darkslick Shores, Dismal Backwater, Temple of Deceit, Morphic Pool, Dimir Aqueduct, Tainted Isle, River of Tears, Sunken Ruins, Reliquary Tower, Bojuka Bog, Scavenger Grounds, Terramorphic Expanse, Island x8, Swamp x8</p></div></details>
+<details class="toc decklist"><summary>Show the 99-card decklist</summary><div class="toclinks"><p style="margin:0 0 6px"><b style="color:var(--rust)">Commander:</b> Kang, Temporal Tyrant</p><p style="line-height:1.7;font-size:.92rem"><b>Connive, looting, and draw enablers (14):</b> Leader, Super-Genius, Baron Strucker, HYDRA Overlord, Madame Masque, Ledger Shredder, Frantic Search, Visions of Villainy, Chart a Course, Chemister&#x27;s Insight, Thirst for Discovery, Fact or Fiction, Forbidden Alchemy, Careful Study, Thirst for Knowledge, Merfolk Looter &nbsp;·&nbsp; <b>Second-draw payoffs (6):</b> Construct a Cosmic Cube, Gixian Puppeteer, Kid Loki, Alandra, Sky Dreamer, M.O.D.O.K., Evil Intellect, Psychosis Crawler &nbsp;·&nbsp; <b>Discard / graveyard value (4):</b> Moonstone, Harsh Mistress, Archfiend of Ifnir, Bone Miser, Containment Construct &nbsp;·&nbsp; <b>Draw engines (11):</b> Teferi&#x27;s Ageless Insight, Skullclamp, Black Market Connections, Night&#x27;s Whisper, Syphon Mind, Sign in Blood, Read the Bones, Phyrexian Arena, Mystic Remora, Windfall, Brainstorm &nbsp;·&nbsp; <b>Interaction (14):</b> Crux of Fate, Counterspell, Arcane Denial, Swan Song, Reality Shift, Go for the Throat, Withering Torment, Lethal Scheme, Bloodchief&#x27;s Thirst, Feed the Swarm, Toxic Deluge, Damnation, Cyclonic Rift, Kindred Dominance &nbsp;·&nbsp; <b>Protection (3):</b> Swiftfoot Boots, Lightning Greaves, Propaganda &nbsp;·&nbsp; <b>Card-advantage creatures / value (4):</b> Baleful Strix, Sea Gate Oracle, Spark Double, Chameleon, Master of Disguise &nbsp;·&nbsp; <b>Ramp / rocks (6):</b> Sol Ring, Arcane Signet, Dimir Signet, Talisman of Dominance, Mind Stone, Fellwar Stone &nbsp;·&nbsp; <b>Lands (37):</b> Command Tower, Path of Ancestry, Exotic Orchard, Drowned Catacomb, Choked Estuary, Fetid Pools, Sunken Hollow, Watery Grave, Underground River, Darkslick Shores, Dismal Backwater, Temple of Deceit, Morphic Pool, Dimir Aqueduct, Tainted Isle, River of Tears, Sunken Ruins, Reliquary Tower, Bojuka Bog, Scavenger Grounds, Terramorphic Expanse, Island x8, Swamp x8</p></div></details>
 <h2 id="dedicated-kang-or-kang-in-the-doom-box">Dedicated Kang, or Kang in the Doom box</h2>
 <p class="grown">EDHREC records about eighty-one Kang decks, read 2026-07-14, so this is the niche pick of a box that only released in June 2026. A number that small this early cannot prove the community thinks Kang belongs outside Doom, and it is worth being straight about that. Wizards put Kang in the official Doom Prevails list on purpose, and Doom's own discard-and-connive package feeds Kang's trigger, so he has a real home there. The honest read comes down to ratios between the two builds. Lean the list toward instant-speed draw and blue interaction and you get the dedicated second-draw control deck described above, draining the table on every turn of the rotation. Keep Doom at the helm and Kang is still one of the better draw payoffs in the ninety-nine.</p>
 <p class="grown">So pick by the game you want. If you like holding up counters and grinding a slow engine that taxes the table a little every turn, build Kang dedicated and load the instant-speed draw. If you want to attack and discard fast, that is more Doom's lane, and Kang still contributes from inside it.</p>
-<p class="kid-only">Only about 77 people have built Kang so far, and the set is brand new, so it is too soon to say he must leave Doom's deck. Wizards put him in the Doom deck on purpose and he works there too. If you want a slow control deck that drains everyone every turn, build Kang on his own with lots of instant-speed draw. If you want to attack fast, keep Doom in charge and let Kang help.</p>
+<p class="kid-only">Only about 81 people have built Kang so far, and the set is brand new, so it is too soon to say he must leave Doom's deck. Wizards put him in the Doom deck on purpose and he works there too. If you want a slow control deck that drains everyone every turn, build Kang on his own with lots of instant-speed draw. If you want to attack fast, keep Doom in charge and let Kang help.</p>
 
 </article>
 </main>

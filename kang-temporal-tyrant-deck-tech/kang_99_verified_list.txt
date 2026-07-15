@@ -1,7 +1,7 @@
 # Kang, Temporal Tyrant — one legal 99 (commander excluded). Every card UB/colorless.
 # --- Commander (not counted in 99) ---
 # Kang, Temporal Tyrant
-# --- Second-draw enablers: connive + instant-speed draw ---
+# --- Connive, looting, and draw enablers ---
 Leader, Super-Genius
 Baron Strucker, HYDRA Overlord
 Madame Masque
@@ -23,13 +23,13 @@ Kid Loki
 Alandra, Sky Dreamer
 M.O.D.O.K., Evil Intellect
 Psychosis Crawler
-Teferi's Ageless Insight
-Moonstone, Harsh Mistress
 # --- Discard / graveyard value ---
+Moonstone, Harsh Mistress
 Archfiend of Ifnir
 Bone Miser
 Containment Construct
 # --- Draw engines ---
+Teferi's Ageless Insight
 Skullclamp
 Black Market Connections
 Night's Whisper

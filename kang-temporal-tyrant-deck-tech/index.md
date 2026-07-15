@@ -50,13 +50,13 @@ This is why the deckbuilding test below is wider than a pure draw count. Moonsto
 - **Visions of Villainy (50%, instant).** Draws two, one less with a Villain out, legal on anyone's turn.
 - **Ledger Shredder (42%).** Connives whenever any player casts their second spell in a turn, their turns included.
 - **Baron Strucker, HYDRA Overlord (59%).** The most-run card the old primer never mentioned. Villain spells cost {1} less, and once each turn a Villain entering may connive.
-- **Madame Masque (46%).** Connives on enter, then makes a Villain token every second draw. Enabler and payoff in one.
+- **Madame Masque (47%).** Connives on enter, then makes a Villain token every second draw. Enabler and payoff in one.
 
 ## Priority adds
 
-Kang is a box alt with no upgrade list of his own, so the add list reads EDHREC as a signal and runs it through the second-draw test, rather than copying the popular pile wholesale (percentages read 2026-07-14). One caution up front: this is a 81-deck sample on a June 2026 box, so a few copied lists swing the numbers. Read these as an early signal rather than proof:
+Kang is a box alt with no upgrade list of his own, so the add list reads EDHREC as a signal and runs it through the second-draw test, rather than copying the popular pile wholesale (percentages read 2026-07-14). One caution up front: this is an 81-deck sample on a June 2026 box, so a few copied lists swing the numbers. Read these as an early signal rather than proof:
 
-**Engine and payoffs:** Leader, Super-Genius (72%), Construct a Cosmic Cube (67%), Baron Strucker (59%), Gixian Puppeteer (48%), Madame Masque (46%), Psychosis Crawler (47%), Teferi's Ageless Insight (47%), M.O.D.O.K., Evil Intellect (by function).
+**Engine and payoffs:** Leader, Super-Genius (72%), Construct a Cosmic Cube (67%), Baron Strucker (59%), Gixian Puppeteer (48%), Madame Masque (47%), Psychosis Crawler (47%), Teferi's Ageless Insight (47%), M.O.D.O.K., Evil Intellect (by function).
 
 **Enablers and draw:** Visions of Villainy (50%, instant), Frantic Search (47%, instant), Ledger Shredder (42%, any turn), Black Market Connections (Dimir staple), Alandra Sky Dreamer (shares Kang's trigger, makes Drakes).
 
@@ -68,16 +68,16 @@ EDHREC prints two numbers per card. Inclusion is the share of Kang decks running
 
 | Card | Inclusion | Synergy | Read |
 |---|---|---|---|
-| Leader, Super-Genius | 72% | +67% | signature |
-| Construct a Cosmic Cube | 67% | +64% | signature |
-| Baron Strucker, HYDRA Overlord | 59% | +58% | signature |
-| Visions of Villainy | 50% | +48% | signature |
-| Gixian Puppeteer | 48% | +46% | signature |
-| Moonstone, Harsh Mistress | 42% | +42% | signature |
+| Leader, Super-Genius | 72% | +69% | signature |
+| Construct a Cosmic Cube | 67% | +65% | signature |
+| Baron Strucker, HYDRA Overlord | 59% | +57% | signature |
+| Visions of Villainy | 50% | +49% | signature |
+| Gixian Puppeteer | 48% | +48% | signature |
+| Moonstone, Harsh Mistress | 42% | +41% | signature |
 | Archfiend of Ifnir | 32% | +31% | signature |
-| Frantic Search | 47% | +27% | staple that fits |
+| Frantic Search | 47% | +28% | staple that fits |
 | Arcane Denial | 43% | +17% | staple |
-| Counterspell | 53% | -4% | pure staple |
+| Counterspell | 53% | -3% | pure staple |
 
 Leader and the Cube earn high synergy because they exist to cash Kang's trigger. Counterspell has the highest inclusion of the interaction and a negative synergy, which just means every blue deck plays it. Follow the synergy column for the cards that make this deck itself, and treat the staples as the rent for being blue-black.
 
@@ -196,10 +196,10 @@ A complete legal Kang list, commander plus 99, every card verified blue-black or
 
 **Commander:** Kang, Temporal Tyrant
 
-- **Second-draw enablers: connive + instant-speed draw (14):** Leader, Super-Genius, Baron Strucker, HYDRA Overlord, Madame Masque, Ledger Shredder, Frantic Search, Visions of Villainy, Chart a Course, Chemister's Insight, Thirst for Discovery, Fact or Fiction, Forbidden Alchemy, Careful Study, Thirst for Knowledge, Merfolk Looter
-- **Second-draw payoffs (8):** Construct a Cosmic Cube, Gixian Puppeteer, Kid Loki, Alandra, Sky Dreamer, M.O.D.O.K., Evil Intellect, Psychosis Crawler, Teferi's Ageless Insight, Moonstone, Harsh Mistress
-- **Discard / graveyard value (3):** Archfiend of Ifnir, Bone Miser, Containment Construct
-- **Draw engines (10):** Skullclamp, Black Market Connections, Night's Whisper, Syphon Mind, Sign in Blood, Read the Bones, Phyrexian Arena, Mystic Remora, Windfall, Brainstorm
+- **Connive, looting, and draw enablers (14):** Leader, Super-Genius, Baron Strucker, HYDRA Overlord, Madame Masque, Ledger Shredder, Frantic Search, Visions of Villainy, Chart a Course, Chemister's Insight, Thirst for Discovery, Fact or Fiction, Forbidden Alchemy, Careful Study, Thirst for Knowledge, Merfolk Looter
+- **Second-draw payoffs (6):** Construct a Cosmic Cube, Gixian Puppeteer, Kid Loki, Alandra, Sky Dreamer, M.O.D.O.K., Evil Intellect, Psychosis Crawler
+- **Discard / graveyard value (4):** Moonstone, Harsh Mistress, Archfiend of Ifnir, Bone Miser, Containment Construct
+- **Draw engines (11):** Teferi's Ageless Insight, Skullclamp, Black Market Connections, Night's Whisper, Syphon Mind, Sign in Blood, Read the Bones, Phyrexian Arena, Mystic Remora, Windfall, Brainstorm
 - **Interaction (14):** Crux of Fate, Counterspell, Arcane Denial, Swan Song, Reality Shift, Go for the Throat, Withering Torment, Lethal Scheme, Bloodchief's Thirst, Feed the Swarm, Toxic Deluge, Damnation, Cyclonic Rift, Kindred Dominance
 - **Protection (3):** Swiftfoot Boots, Lightning Greaves, Propaganda
 - **Card-advantage creatures / value (4):** Baleful Strix, Sea Gate Oracle, Spark Double, Chameleon, Master of Disguise
