@@ -34,6 +34,9 @@ h1{font-family:"Cormorant Garamond",Georgia,serif;font-size:2.3rem;margin:0 0 4p
 .tchip{padding:4px 10px;border:1.5px solid var(--plum);background:transparent;color:var(--plum);border-radius:14px;font-weight:600;cursor:pointer;font-size:.74rem;margin:2px 3px 2px 0}
 .tchip:hover,.tchip.on{background:var(--plum);color:var(--cream)}
 .tcard{font-weight:700;color:var(--rust);margin:10px 0 2px}
+.ordsum{background:#eef3f0;border:1px solid #cfe0d8;border-radius:9px;padding:8px 12px;margin:6px 0;font-size:.9rem}
+.ochip{display:inline-block;font-size:.6rem;font-weight:800;text-transform:uppercase;letter-spacing:.03em;background:#dce9e5;color:#2c5750;border-radius:8px;padding:1px 6px;margin-right:5px;vertical-align:middle}
+.ochip.rev{background:#f5e6cc;color:#8a5a17}
 .pbtn{padding:9px 15px;border:none;border-radius:9px;background:var(--rust);color:#fff;font-weight:700;cursor:pointer;font-size:.9rem}
 .pbtn.ghost{background:transparent;color:var(--rust);border:2px solid var(--line)}
 .picker{margin:10px 0 2px}
@@ -124,7 +127,7 @@ body.kid{font-size:1.15rem} body.kid .quote,body.kid .read{font-size:1.08rem} bo
 </header>
 <div class="wrap">
   <div class="lead">
-    Type or paste your cards, or click them in order. This gathers, in one place: an <b>automated navigation summary</b>, Chiron's own <b>meaning</b> for each card, and her <b>recorded evidence</b> for each pair, grouped by evidence type and quoted verbatim with the source video. One caveat the data forces: the corpus records <b>which cards appear together, not which came first</b>, so a pair reads the same in either direction. This is co-occurrence, not ordered syntax. An outside structural note from Joan Bunning sits <b>below each pair's evidence</b> as optional comparison, never ahead of it. Details in the methodology panel below.
+    Type or paste your cards, or click them in order. This gathers, in one place: an <b>automated navigation summary</b>, Chiron's own <b>meaning</b> for each card, and her <b>recorded evidence</b> for each pair, grouped by evidence type and quoted verbatim with the source video. Order is considered: for a pair in your order, the page leads with passages where Chiron <b>names the first card before the second</b>, and swapping the two changes which passage leads. This order signal is inferred from her wording inside each passage, not from a stored spread position, so treat it as an approximation. An outside structural note from Joan Bunning sits <b>below each pair's evidence</b> as optional comparison, never ahead of it. Details in the methodology panel below.
   </div>
 
   <details class="method">
@@ -140,8 +143,8 @@ body.kid{font-size:1.15rem} body.kid .quote,body.kid .read{font-size:1.08rem} bo
         <li><b>Automated summaries</b> &mdash; the blocks marked "Automated corpus summary" are generated from keyword tags, not quoted from Chiron. Each states the rule that produced it.</li>
       </ul>
       A fourth, outside layer is the Bunning structural label. It is not Chiron's, so it sits behind an "outside comparison" toggle under each pair's evidence, never ahead of it.
-      <h4>Ordered evidence, not yet supported</h4>
-      The current corpus is <b>unordered co-occurrence</b>. Forward and reverse of a pair return the same passages, so the page does not claim a first-position card reads differently from a second-position one. Genuine ordered syntax would require rebuilding the corpus from the transcripts with each card's position and timestamp retained. That rebuild is queued.
+      <h4>How order is considered</h4>
+      The stored corpus is <b>unordered co-occurrence</b>: it records that two cards appear together, not which was drawn first. To honor order anyway, the page reads each passage and checks <b>which card Chiron names first in her own words</b>. For a pair in your order, passages where she says the first card before the second lead the result, and swapping the two flips it. This is an <b>inferred approximation</b>, not a stored spread position, and it only works when both card names appear in the passage. True ordered syntax (with each card's stored position, timestamp, and question context) still needs the transcript rebuild, which stays queued.
       <h4>Coverage</h4>
       This build <b>finds at least one corpus passage for 2822 of the 3003 possible unordered pairs (94%)</b> across the 78 cards, from <b>26,169 combination passages</b>. Most of that is loose co-occurrence, not explicit combination reads: only <b>1,892 passages (7%) are direct</b>, while nearby mentions are about 42% and flagged material about 35%. So "recorded evidence" here means recorded co-occurrence at some strength, not a confirmed combined interpretation for every pair. A pair she was never recorded reading shows <b>&ldquo;No recorded Chiron pairing found&rdquo;</b> rather than an invented reading.
       <h4>Preservation audit</h4>
@@ -162,6 +165,7 @@ body.kid{font-size:1.15rem} body.kid .quote,body.kid .read{font-size:1.08rem} bo
 
   <div class="tabs">
     <button class="tab on" id="tabRead">Spread evidence map</button>
+    <button class="tab" id="tabCombo">Two-card combo</button>
     <button class="tab" id="tabExplore">Explore one card</button>
   </div>
 
@@ -191,6 +195,21 @@ body.kid{font-size:1.15rem} body.kid .quote,body.kid .read{font-size:1.08rem} bo
     <div class="reading" id="reading"></div>
     <div id="topicFocus"></div>
     <div id="combinedRead"></div>
+  </section>
+
+  <!-- MODE 1b: TWO-CARD COMBO (order matters) -->
+  <section id="modeCombo" style="display:none">
+    <div class="builder">
+      <div class="blabel">Two-card combo &mdash; first card, then second (order matters)</div>
+      <div class="controls">
+        <select id="combo1" class="bigsel"></select>
+        <span class="plus">&rarr;</span>
+        <select id="combo2" class="bigsel"></select>
+        <button class="fbtn swap" id="comboSwap" title="swap first and second">swap</button>
+      </div>
+      <div class="hint" style="margin:6px 0 0">Order is inferred from which card Chiron names first inside each passage, not from a stored spread position. Swapping changes which passage leads.</div>
+    </div>
+    <div id="comboOut"></div>
   </section>
 
   <!-- MODE 2: CARD EXPLORER -->
@@ -327,34 +346,44 @@ function cardParagraph(card,i){
   const rawtog = raw.length?`<details class="more"><summary>all ${raw.length} raw transcript mentions of this card (unedited, video-level source)</summary>${raw.map(m=>`<div class="read dim">${esc(m.t)} ${src(m.v)}</div>`).join('')}</details>`:'';
   return `<div class="rblock"><h3>${i+1}. ${esc(card)}</h3>${kw}${body}${rawtog}</div>`;
 }
-function passageHTML(r){return `<div class="read${r.f?' dim':''}"><span class="tg ${r.r}">${r.r}</span>${esc(r.t)}${r.f?` <span class="flg">${FLBL[r.f]}</span>`:''} ${src(r.v)}</div>`;}
-function transitionParagraph(a,b){
-  let h=`<div class="rblock trans"><h3>${esc(a)} &rarr; ${esc(b)} <span class="ord">(unordered co-occurrence)</span></h3>`;
-  // Chiron's evidence FIRST
-  const all=reads_(a,b), tg=tags_(a,b), clean=all.filter(r=>!r.f);
-  if(all.length){
-    if(tg.length) h+=`<div class="tags"><span class="tglab">she repeats</span>${tg.slice(0,8).map(t=>`<span class="mtag">${esc(t)}</span>`).join('')}</div>`;
-    const lead=(clean[0]||all[0]);
-    h+=`<div class="read"><span class="tg ${lead.r}">${lead.r}</span><b>${RLABEL[lead.r]}.</b> ${esc(lead.t)}${lead.f?` <span class="flg">${FLBL[lead.f]}</span>`:''} ${src(lead.v)}</div>`;
-    // ALL passages grouped by class. Strongest first; nearby and flagged each behind their own collapse.
-    const groups={};
-    all.forEach(r=>{const key=r.f?'flagged':r.r;(groups[key]=groups[key]||[]).push(r);});
-    const grp=cls=>groups[cls]&&groups[cls].length?`<div class="elab"><span class="tg ${cls}">${cls}</span> ${RLABEL[cls]} <span class="ecnt">(${groups[cls].length})</span></div>`+groups[cls].map(passageHTML).join(''):'';
-    let inner=grp('direct')+grp('clarifier')+grp('sequence');
-    if(groups.nearby&&groups.nearby.length) inner+=`<details class="more"><summary>nearby mentions (${groups.nearby.length}) &mdash; appeared near each other, no confirmed combined interpretation</summary>${groups.nearby.map(passageHTML).join('')}</details>`;
-    if(groups.flagged&&groups.flagged.length) inner+=`<details class="more"><summary>flagged (${groups.flagged.length}) &mdash; fragment, negative, third-card, or near-duplicate; reason shown on each</summary>${groups.flagged.map(passageHTML).join('')}</details>`;
-    h+=`<details class="more"><summary>view all ${all.length} passages for this pair, grouped by evidence strength</summary>${inner}</details>`;
-  } else {
-    h+=`<p class="hint">No recorded Chiron pairing found for these two cards in the corpus.</p>`;
-  }
-  // Chiron's own cheatsheet clarifier note, when one names the other card
+/* order inferred from which card Chiron names FIRST inside the passage text */
+function cardVariants(card){const p=parts(card);
+  if(p.major){const bs=card.toLowerCase();const v=[bs,bs.replace(/^the /,'')];if(card==='Judgement')v.push('judgment');return[...new Set(v)];}
+  const suit=p.suit.toLowerCase(),rank=p.rank.toLowerCase(),sing={cups:'cup',wands:'wand',swords:'sword',pentacles:'pentacle'}[suit];
+  return [`${rank} of ${suit}`,`${rank} of ${sing}`];}
+function mentionIndex(txt,card){const s=txt.toLowerCase();let idx=Infinity;for(const v of cardVariants(card)){const i=s.indexOf(v);if(i>=0&&i<idx)idx=i;}return idx;}
+function orderOf(txt,a,b){const ia=mentionIndex(txt,a),ib=mentionIndex(txt,b);if(ia===Infinity||ib===Infinity)return'undet';return ia<ib?'fwd':(ib<ia?'rev':'undet');}
+function orderChip(r,a,b){const o=orderOf(r.t,a,b);return o==='fwd'?`<span class="ochip">${esc(a)} first</span>`:o==='rev'?`<span class="ochip rev">${esc(b)} first</span>`:'';}
+function passageHTML(r,a,b){const oc=(a&&b)?orderChip(r,a,b):'';return `<div class="read${r.f?' dim':''}"><span class="tg ${r.r}">${r.r}</span>${oc}${esc(r.t)}${r.f?` <span class="flg">${FLBL[r.f]}</span>`:''} ${src(r.v)}</div>`;}
+// order-aware evidence block for a pair in the entered order a -> b
+function pairEvidenceHTML(a,b){
+  const all=reads_(a,b), tg=tags_(a,b);
+  if(!all.length) return `<p class="hint">No recorded Chiron pairing found for these two cards in the corpus.</p>`;
+  const fwd=[],rev=[],und=[]; all.forEach(r=>{const o=orderOf(r.t,a,b);(o==='fwd'?fwd:o==='rev'?rev:und).push(r);});
+  const cleanFwd=fwd.filter(r=>!r.f), clean=all.filter(r=>!r.f);
+  const lead=cleanFwd[0]||clean[0]||all[0];
+  let h='';
+  if(tg.length) h+=`<div class="tags"><span class="tglab">she repeats</span>${tg.slice(0,8).map(t=>`<span class="mtag">${esc(t)}</span>`).join('')}</div>`;
+  h+=`<div class="ordsum">Order, inferred from which card she names first in each passage: <b>${esc(a)} first</b> in ${fwd.length}, <b>${esc(b)} first</b> in ${rev.length}${und.length?`, unclear in ${und.length}`:''}. The lead below is from your order; swap the cards to lead with the other direction.</div>`;
+  h+=`<div class="read"><span class="tg ${lead.r}">${lead.r}</span><b>${RLABEL[lead.r]}.</b> ${orderChip(lead,a,b)}${esc(lead.t)}${lead.f?` <span class="flg">${FLBL[lead.f]}</span>`:''} ${src(lead.v)}</div>`;
+  const groups={}; all.forEach(r=>{const k=r.f?'flagged':r.r;(groups[k]=groups[k]||[]).push(r);});
+  const grp=cls=>groups[cls]&&groups[cls].length?`<div class="elab"><span class="tg ${cls}">${cls}</span> ${RLABEL[cls]} <span class="ecnt">(${groups[cls].length})</span></div>`+groups[cls].map(r=>passageHTML(r,a,b)).join(''):'';
+  let inner=grp('direct')+grp('clarifier')+grp('sequence');
+  if(groups.nearby&&groups.nearby.length) inner+=`<details class="more"><summary>nearby mentions (${groups.nearby.length}) &mdash; appeared near each other, no confirmed combined interpretation</summary>${groups.nearby.map(r=>passageHTML(r,a,b)).join('')}</details>`;
+  if(groups.flagged&&groups.flagged.length) inner+=`<details class="more"><summary>flagged (${groups.flagged.length}) &mdash; fragment, negative, third-card, or near-duplicate; reason shown on each</summary>${groups.flagged.map(r=>passageHTML(r,a,b)).join('')}</details>`;
+  h+=`<details class="more"><summary>view all ${all.length} passages, grouped by evidence strength (order shown per line)</summary>${inner}</details>`;
+  return h;
+}
+function clarifierHTML(a,b){
   const notes=[];
   if(clarMentions(a,b)) notes.push(`<p class="clar"><b>${esc(a)} as a clarifier:</b> ${mdBold(cheat(a).clarifier)}</p>`);
   if(clarMentions(b,a)) notes.push(`<p class="clar"><b>${esc(b)} as a clarifier:</b> ${mdBold(cheat(b).clarifier)}</p>`);
-  if(notes.length) h+=`<div class="clarwrap"><div class="clarlab">Cheatsheet: how these two sit together</div>${notes.join('')}</div>`;
-  // Outside framework, optional, AFTER Chiron's evidence
-  h+=`<details class="bunning"><summary>Outside comparison: Bunning structural lens (not from Chiron)</summary>${structHTML(a,b)}</details>`;
-  return h+'</div>';
+  return notes.length?`<div class="clarwrap"><div class="clarlab">Cheatsheet: how these two sit together</div>${notes.join('')}</div>`:'';
+}
+function transitionParagraph(a,b){
+  return `<div class="rblock trans"><h3>${esc(a)} &rarr; ${esc(b)} <span class="ord">(order inferred from her wording)</span></h3>`
+    + pairEvidenceHTML(a,b) + clarifierHTML(a,b)
+    + `<details class="bunning"><summary>Outside comparison: Bunning structural lens (not from Chiron)</summary>${structHTML(a,b)}</details></div>`;
 }
 function renderReading(){
   const el=document.getElementById('reading');
@@ -438,6 +467,7 @@ function renderCombined(){
     if(i<seq.length-1){
       const a=c,b=seq[i+1]; let reads=reads_(a,b).filter(r=>!r.f);
       if(terms){const t2=reads.filter(r=>matchText(r.t,terms)); if(t2.length)reads=t2;}
+      const fwd=reads.filter(r=>orderOf(r.t,a,b)==='fwd'); if(fwd.length)reads=fwd;
       const lead=reads[0]||(reads_(a,b)[0]);
       if(lead) flow+=`<p><span class="tg ${lead.r}">${lead.r}</span><i>${esc(a)} into ${esc(b)}:</i> &ldquo;${esc(lead.t)}&rdquo; ${src(lead.v)}</p>`;
     }
@@ -451,6 +481,28 @@ function renderTopicChips(){
   const el=document.getElementById('topicchips'); if(!el)return;
   el.innerHTML=TOPIC_EXAMPLES.map(t=>`<button class="tchip${t===topic?' on':''}" data-t="${esc(t)}">${esc(t)}</button>`).join('');
   el.querySelectorAll('.tchip').forEach(b=>b.onclick=()=>{topic=b.dataset.t;document.getElementById('topicbox').value=topic;renderTopicChips();renderTopic();renderCombined();});
+}
+
+/* ================= MODE 1b: TWO-CARD COMBO ================= */
+let combo1,combo2;
+function setupCombo(){
+  combo1=document.getElementById('combo1'); combo2=document.getElementById('combo2');
+  combo1.innerHTML=buildOptions(false); combo2.innerHTML=buildOptions(false);
+  combo1.onchange=renderCombo; combo2.onchange=renderCombo;
+  document.getElementById('comboSwap').onclick=()=>{const a=combo1.value;combo1.value=combo2.value;combo2.value=a;renderCombo();};
+  combo1.value="The Tower"; combo2.value="Three of Swords";
+}
+function renderCombo(){
+  const out=document.getElementById('comboOut'); if(!CORPUS)return;
+  const a=combo1.value,b=combo2.value;
+  if(a===b){out.innerHTML='<p class="hint">Pick two different cards.</p>';return;}
+  let h=`<div class="rblock trans"><h3>${esc(a)} &rarr; ${esc(b)} <span class="ord">(order inferred from her wording)</span></h3>`;
+  h+=pairEvidenceHTML(a,b)+clarifierHTML(a,b);
+  h+=`<details class="bunning"><summary>Outside comparison: Bunning structural lens (not from Chiron)</summary>${structHTML(a,b)}</details></div>`;
+  const ch1=cheat(a),ch2=cheat(b);
+  h+=`<div class="bigbox combined"><span class="autolab">Automated corpus summary</span><h3>This combo in one line</h3>`
+    +`<p><b>${esc(a)}.</b> ${ch1.meanings[0]?mdBold(ch1.meanings[0]):''}</p><p><b>${esc(b)}.</b> ${ch2.meanings[0]?mdBold(ch2.meanings[0]):''}</p></div>`;
+  out.innerHTML=h;
 }
 
 /* ================= MODE 2: EXPLORER ================= */
@@ -484,9 +536,8 @@ function renderExplore(){
   const out=document.getElementById('out'); if(!CORPUS) return;
   const a=sel1.value, b=sel2.value;
   if(a&&b){
-    let h=`<h2 class="chosen">${esc(a)} + ${esc(b)} <span class="ord">(unordered co-occurrence)</span></h2>`;
-    h+= pd(a,b)?`<div class="hint">Her recurring words, then the passages, strongest first.</div>`+pairBody(a,b,6)
-              :`<div class="hint">No recorded Chiron pairing found for these two cards.</div>`;
+    let h=`<h2 class="chosen">${esc(a)} + ${esc(b)} <span class="ord">(order inferred from her wording)</span></h2>`;
+    h+= pairEvidenceHTML(a,b) + clarifierHTML(a,b);
     h+=`<details class="bunning"><summary>Outside comparison: Bunning structural lens (not from Chiron)</summary>${structHTML(a,b)}</details>`;
     out.innerHTML=h; return;
   }
@@ -506,8 +557,15 @@ function renderExplore(){
 }
 
 /* ---------- tabs + boot ---------- */
-document.getElementById('tabRead').onclick=()=>{document.getElementById('modeRead').style.display='';document.getElementById('modeExplore').style.display='none';document.getElementById('tabRead').classList.add('on');document.getElementById('tabExplore').classList.remove('on');};
-document.getElementById('tabExplore').onclick=()=>{document.getElementById('modeExplore').style.display='';document.getElementById('modeRead').style.display='none';document.getElementById('tabExplore').classList.add('on');document.getElementById('tabRead').classList.remove('on');if(sel1)renderExplore();};
+function showMode(m){
+  const modes={read:'modeRead',combo:'modeCombo',explore:'modeExplore'}, tabs={read:'tabRead',combo:'tabCombo',explore:'tabExplore'};
+  Object.keys(modes).forEach(k=>{document.getElementById(modes[k]).style.display=(k===m?'':'none');document.getElementById(tabs[k]).classList.toggle('on',k===m);});
+  if(m==='explore'&&sel1)renderExplore();
+  if(m==='combo'&&combo1)renderCombo();
+}
+document.getElementById('tabRead').onclick=()=>showMode('read');
+document.getElementById('tabCombo').onclick=()=>showMode('combo');
+document.getElementById('tabExplore').onclick=()=>showMode('explore');
 document.getElementById('addPaste').onclick=addPasted;
 document.getElementById('pastebox').addEventListener('keydown',e=>{if(e.key==='Enter'&&!e.shiftKey){e.preventDefault();addPasted();}});
 document.getElementById('clearSeq').onclick=()=>{seq=[];document.getElementById('parseWarn').textContent='';syncSeq();};
@@ -529,7 +587,7 @@ Promise.all([
   .then(([c,ch,m,brel])=>{CORPUS=c;CHEAT=ch;MEANINGS=m;
     BREL.rein=new Set((brel.reinforcing||[]).map(p=>pkey(p[0],p[1])));
     BREL.opp=new Set((brel.opposing||[]).map(p=>pkey(p[0],p[1])));
-    setupExplorer();
+    setupExplorer(); setupCombo();
     builderEl.classList.remove('disabled-mask');
     // seed a sample reading so the first screen is alive
     seq=["Two of Cups","Three of Swords","The Star"]; syncSeq();
