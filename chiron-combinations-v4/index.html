@@ -23,7 +23,17 @@ h1{font-family:"Cormorant Garamond",Georgia,serif;font-size:2.3rem;margin:0 0 4p
 .builder{background:var(--card);border:1px solid var(--line);border-radius:12px;padding:14px 16px;margin:8px 0}
 .blabel{font-weight:700;color:var(--rust);font-size:.72rem;text-transform:uppercase;letter-spacing:.05em;margin:0 0 6px}
 .brow{display:flex;gap:8px;flex-wrap:wrap;align-items:center}
-#pastebox{flex:1;min-width:240px;padding:10px 12px;border:2px solid var(--teal);border-radius:9px;font-size:.95rem;background:#fffdf6;color:var(--ink);font-family:inherit;resize:vertical}
+#pastebox,#topicbox{flex:1;min-width:240px;padding:10px 12px;border:2px solid var(--teal);border-radius:9px;font-size:.95rem;background:#fffdf6;color:var(--ink);font-family:inherit;resize:vertical}
+#combinedRead .rblock,#topicFocus .rblock{border-left:5px solid var(--teal)}
+.bigbox{background:var(--card);border:1px solid var(--line);border-radius:12px;padding:15px 18px;margin:14px 0}
+.bigbox h3{font-family:"Cormorant Garamond",Georgia,serif;color:var(--rust);font-size:1.5rem;margin:2px 0 8px}
+.bigbox.topic{border-left:6px solid var(--plum)}
+.bigbox.combined{border-left:6px solid var(--teal)}
+.combined-flow p{margin:8px 0}
+.topichit{background:#f3ead2;border-radius:8px;border-left:4px solid var(--plum);padding:8px 12px;margin:7px 0;font-size:.95rem}
+.tchip{padding:4px 10px;border:1.5px solid var(--plum);background:transparent;color:var(--plum);border-radius:14px;font-weight:600;cursor:pointer;font-size:.74rem;margin:2px 3px 2px 0}
+.tchip:hover,.tchip.on{background:var(--plum);color:var(--cream)}
+.tcard{font-weight:700;color:var(--rust);margin:10px 0 2px}
 .pbtn{padding:9px 15px;border:none;border-radius:9px;background:var(--rust);color:#fff;font-weight:700;cursor:pointer;font-size:.9rem}
 .pbtn.ghost{background:transparent;color:var(--rust);border:2px solid var(--line)}
 .picker{margin:10px 0 2px}
@@ -168,8 +178,17 @@ body.kid{font-size:1.15rem} body.kid .quote,body.kid .read{font-size:1.08rem} bo
       <div class="picker" id="picker"></div>
       <div class="blabel" style="margin-top:10px">Your spread</div>
       <div class="seqbar" id="seqbar"><span class="hint" id="seqempty">No cards yet. Add at least one to see a reading.</span></div>
+      <div class="blabel" style="margin-top:12px">Focus on a topic (optional)</div>
+      <div class="brow">
+        <input id="topicbox" type="text" placeholder="e.g. love, career, no contact, soul mate, timeline">
+        <button class="pbtn" id="setTopic">Focus</button>
+        <button class="pbtn ghost" id="clearTopic">Clear topic</button>
+      </div>
+      <div class="picker" id="topicchips"></div>
     </div>
     <div class="reading" id="reading"></div>
+    <div id="topicFocus"></div>
+    <div id="combinedRead"></div>
   </section>
 
   <!-- MODE 2: CARD EXPLORER -->
@@ -271,7 +290,7 @@ const FLBL={neg:'negative mention',frag:'fragment','3rd':'third card leads',dup:
 function joinList(a){return a.length<2?a.join(''):a.length===2?a.join(' and '):a.slice(0,-1).join(', ')+', and '+a[a.length-1];}
 
 /* ================= MODE 1: READING ================= */
-let seq=[];
+let seq=[], topic='';
 function renderPicker(){
   const el=document.getElementById('picker');
   let h='<div class="pgrp"><div class="gl">Major Arcana</div>'+MAJORS.map(c=>`<button class="cbtn maj" data-c="${esc(c)}">${esc(c)}</button>`).join('')+'</div>';
@@ -281,10 +300,10 @@ function renderPicker(){
 }
 function syncSeq(){
   const bar=document.getElementById('seqbar');
-  if(!seq.length){bar.innerHTML='<span class="hint" id="seqempty">No cards yet. Add at least one to see a reading.</span>';document.getElementById('reading').innerHTML='';return;}
+  if(!seq.length){bar.innerHTML='<span class="hint" id="seqempty">No cards yet. Add at least one to see a reading.</span>';document.getElementById('reading').innerHTML='';document.getElementById('combinedRead').innerHTML='';document.getElementById('topicFocus').innerHTML='';return;}
   bar.innerHTML=seq.map((c,i)=>`<span class="chip"><span class="pos">${i+1}</span>${esc(c)}<span class="x" data-i="${i}">&times;</span></span>`).join('');
   bar.querySelectorAll('.x').forEach(x=>x.onclick=()=>{seq.splice(+x.dataset.i,1);syncSeq();});
-  renderReading();
+  renderReading(); renderTopic(); renderCombined();
 }
 function addPasted(){
   const box=document.getElementById('pastebox');
@@ -361,6 +380,75 @@ function renderReading(){
   el.innerHTML=h;
 }
 
+/* ---------- topic focus + combined single read ---------- */
+const TOPIC_EXAMPLES=["love","career","no contact","soul mate","estranged family","ex-lover","are they watching me","life path","timeline","next 6 months","marriage","cheating"];
+const STOP=new Set(['are','they','them','me','my','the','a','an','of','is','to','and','for','with','on','in','about','do','does','will','can','you','it','this','that','next','over','have','has']);
+const TOPIC_SYN={
+  "love":["love","relationship","romance","romantic","partner","feelings","heart","together","commitment","connection"],
+  "career":["career","job","work","money","business","boss","coworker","promotion","finances","financial","opportunity"],
+  "no contact":["contact","reach out","reach","text","call","block","blocked","silence","silent","ignore","distance","apart","ghost","space"],
+  "soul mate":["soulmate","soul mate","twin flame","twin","destined","destiny","meant","divine","union","the one","fated"],
+  "estranged family":["family","mother","father","parent","parents","sibling","estranged","home","brother","sister","son","daughter"],
+  "ex-lover":["ex","back","return","reunite","reconcile","past","former","old flame"],
+  "ex":["ex","back","return","reunite","reconcile","past","former"],
+  "watching":["watching","thinking about","checking","looking","social media","stalk","stalking","miss","on their mind","observing"],
+  "timeline":["time","soon","month","months","week","weeks","when","timing","wait","delay","date","season"],
+  "next 6 months":["month","months","soon","future","coming","wait","timing","season","half"],
+  "life path":["path","purpose","direction","journey","calling","destiny","mission","growth","lesson"],
+  "cheating":["cheat","cheating","loyal","faithful","betray","betrayal","another","someone else","trust","affair"],
+  "marriage":["marriage","married","proposal","engaged","engagement","wedding","commit","commitment"],
+  "money":["money","finances","financial","wealth","abundance","income","debt","job","work"],
+  "friendship":["friend","friends","friendship","trust","loyalty"]
+};
+function topicTerms(t0){
+  const t=t0.toLowerCase().trim(); let terms=[];
+  Object.keys(TOPIC_SYN).forEach(k=>{if(new RegExp('\\b'+k.replace(/[.*+?^${}()|[\]\\]/g,'\\$&')+'\\b').test(t)) terms=terms.concat(TOPIC_SYN[k]);});
+  t.split(/[^a-z]+/).filter(w=>w.length>2&&!STOP.has(w)).forEach(w=>terms.push(w));
+  return [...new Set(terms)];
+}
+function matchText(txt,terms){const s=txt.toLowerCase();return terms.some(t=>s.includes(t));}
+function topicForCard(card,terms,limit){
+  const node=CORPUS[card]||{}, cls={direct:0,clarifier:1,sequence:2,nearby:3,meaning:4}, cand=[], seen=new Set();
+  Object.keys(node).forEach(p=>{(node[p].reads||[]).forEach(r=>{if(!r.f&&matchText(r.t,terms))cand.push({t:r.t,v:r.v,r:r.r,with:p});});});
+  (meanings(card)||[]).forEach(m=>{if(matchText(m.t,terms))cand.push({t:m.t,v:m.v,r:'meaning',with:null});});
+  cand.sort((a,b)=>(cls[a.r]??9)-(cls[b.r]??9));
+  const out=[];
+  for(const c of cand){const key=c.t.slice(0,80);if(seen.has(key))continue;seen.add(key);out.push(c);if(out.length>=(limit||4))break;}
+  return out;
+}
+function renderTopic(){
+  const el=document.getElementById('topicFocus'); if(!el)return;
+  if(!topic||!seq.length){el.innerHTML='';return;}
+  const terms=topicTerms(topic); let any=0, body='';
+  seq.forEach(c=>{const hits=topicForCard(c,terms,4);if(hits.length){any+=hits.length;body+=`<div class="tcard">${esc(c)}</div>`+hits.map(h=>`<div class="topichit">${h.r!=='meaning'?`<span class="tg ${h.r}">${h.r}</span>`:''}${esc(h.t)}${h.with?` <span class="smtags">with ${esc(h.with)}</span>`:''} ${src(h.v)}</div>`).join('');}});
+  el.innerHTML=`<div class="bigbox topic"><span class="autolab">Topic filter</span><h3>On &ldquo;${esc(topic)}&rdquo;</h3>`
+    +(any?`<p>Her recorded words that touch this topic, pulled from readings that involve your cards. This filters verbatim passages; it does not write topic advice.</p>${body}`
+         :`<p class="hint">No passage involving your cards mentions this topic in the corpus. Try a simpler word (for example &ldquo;love&rdquo;, &ldquo;work&rdquo;, or &ldquo;time&rdquo;).</p>`)+`</div>`;
+}
+function renderCombined(){
+  const el=document.getElementById('combinedRead'); if(!el)return;
+  if(!seq.length){el.innerHTML='';return;}
+  const terms=topic?topicTerms(topic):null; let flow='';
+  seq.forEach((c,i)=>{
+    const ch=cheat(c); flow+=`<p><b>${esc(c)}.</b> ${ch.meanings[0]?mdBold(ch.meanings[0]):''}</p>`;
+    if(i<seq.length-1){
+      const a=c,b=seq[i+1]; let reads=reads_(a,b).filter(r=>!r.f);
+      if(terms){const t2=reads.filter(r=>matchText(r.t,terms)); if(t2.length)reads=t2;}
+      const lead=reads[0]||(reads_(a,b)[0]);
+      if(lead) flow+=`<p><span class="tg ${lead.r}">${lead.r}</span><i>${esc(a)} into ${esc(b)}:</i> &ldquo;${esc(lead.t)}&rdquo; ${src(lead.v)}</p>`;
+    }
+  });
+  const tl=topic?` Focused on <b>${esc(topic)}</b>, so each pair prefers a passage that mentions it where one exists.`:'';
+  el.innerHTML=`<div class="bigbox combined"><span class="autolab">Automated corpus summary</span><h3>Everything in one read</h3>`
+    +`<p class="autorule">Rule: each card's first cheatsheet meaning, then the strongest verbatim passage for each pair, in the order you entered.${tl}</p>`
+    +`<div class="combined-flow">${flow}</div></div>`;
+}
+function renderTopicChips(){
+  const el=document.getElementById('topicchips'); if(!el)return;
+  el.innerHTML=TOPIC_EXAMPLES.map(t=>`<button class="tchip${t===topic?' on':''}" data-t="${esc(t)}">${esc(t)}</button>`).join('');
+  el.querySelectorAll('.tchip').forEach(b=>b.onclick=()=>{topic=b.dataset.t;document.getElementById('topicbox').value=topic;renderTopicChips();renderTopic();renderCombined();});
+}
+
 /* ================= MODE 2: EXPLORER ================= */
 function buildOptions(includeEvery){
   let h=includeEvery?'<option value="">(single card)</option>':'';
@@ -419,9 +507,12 @@ document.getElementById('tabExplore').onclick=()=>{document.getElementById('mode
 document.getElementById('addPaste').onclick=addPasted;
 document.getElementById('pastebox').addEventListener('keydown',e=>{if(e.key==='Enter'&&!e.shiftKey){e.preventDefault();addPasted();}});
 document.getElementById('clearSeq').onclick=()=>{seq=[];document.getElementById('parseWarn').textContent='';syncSeq();};
+document.getElementById('setTopic').onclick=()=>{topic=document.getElementById('topicbox').value.trim();renderTopicChips();renderTopic();renderCombined();};
+document.getElementById('topicbox').addEventListener('keydown',e=>{if(e.key==='Enter'){e.preventDefault();topic=e.target.value.trim();renderTopicChips();renderTopic();renderCombined();}});
+document.getElementById('clearTopic').onclick=()=>{topic='';document.getElementById('topicbox').value='';renderTopicChips();renderTopic();renderCombined();};
 function toggleKid(){document.body.classList.toggle('kid');document.getElementById('kidfab').textContent=document.body.classList.contains('kid')?'Normal mode':'Kid mode';}
 
-renderPicker();
+renderPicker(); renderTopicChips();
 const builderEl=document.querySelector('#modeRead .builder');
 builderEl.classList.add('disabled-mask');
 document.getElementById('seqempty').textContent='Loading the corpus (about 11 MB), one moment.';
