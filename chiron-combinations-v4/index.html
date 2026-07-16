@@ -30,6 +30,12 @@ h1{font-family:"Cormorant Garamond",Georgia,serif;font-size:2.3rem;margin:0 0 4p
 .bigbox.topic{border-left:6px solid var(--plum)}
 .bigbox.combined{border-left:6px solid var(--teal)}
 .combined-flow p{margin:8px 0}
+.combined-flow p.bridge{color:var(--plum);font-style:italic;margin:4px 0 10px;padding-left:12px;border-left:3px solid var(--mustard)}
+.layertabs{display:flex;gap:6px;margin:2px 0 10px;flex-wrap:wrap}
+.lbtn{padding:5px 12px;border:2px solid var(--teal);background:transparent;color:var(--teal);border-radius:14px;font-weight:700;cursor:pointer;font-size:.78rem}
+.lbtn.on{background:var(--teal);color:var(--cream)}
+.bridge2{background:#f0ece2;border-left:4px solid var(--plum);border-radius:8px;padding:7px 11px;margin:8px 0 4px;font-size:.9rem}
+.tconcept{font-size:.6rem;font-weight:800;text-transform:uppercase;letter-spacing:.03em;background:#ece2ec;color:#63496b;border-radius:8px;padding:1px 6px;margin-right:5px}
 .topichit{background:#f3ead2;border-radius:8px;border-left:4px solid var(--plum);padding:8px 12px;margin:7px 0;font-size:.95rem}
 .tchip{padding:4px 10px;border:1.5px solid var(--plum);background:transparent;color:var(--plum);border-radius:14px;font-weight:600;cursor:pointer;font-size:.74rem;margin:2px 3px 2px 0}
 .tchip:hover,.tchip.on{background:var(--plum);color:var(--cream)}
@@ -143,6 +149,10 @@ body.kid{font-size:1.15rem} body.kid .quote,body.kid .read{font-size:1.08rem} bo
         <li><b>Automated summaries</b> &mdash; the blocks marked "Automated corpus summary" are generated from keyword tags, not quoted from Chiron. Each states the rule that produced it.</li>
       </ul>
       A fourth, outside layer is the Bunning structural label. It is not Chiron's, so it sits behind an "outside comparison" toggle under each pair's evidence, never ahead of it.
+      <h4>The constructed corpus reading</h4>
+      The "Everything in one read" box builds a plain reading from fixed templates over verified fields, not generative prose. Each card gets a <b>position role</b> (where it begins, what develops, where it heads) and its cheatsheet meaning. Each connection gets one <b>bridge sentence</b>: the cheatsheet clarifier line when one card names the next, otherwise a fixed template filled from the Bunning relationship and the two cards' keywords. Three layers are switchable: <b>Plain reading</b> (templates only), <b>Evidence view</b> (the meanings, bridge source, relationship, and evidence counts behind each line), and <b>Raw corpus</b> (every quotation, source link, and alternative). The box is labeled "constructed corpus reading" so it is never mistaken for Chiron's continuous words. A fully hand-authored bridge sentence for every one of the 3003 pairs is a curation task, queued; today's bridges are template-derived from verified fields.
+      <h4>Topic concepts</h4>
+      A recognized topic activates a set of <b>concepts</b> rather than raw keywords. "Estranged family" activates separation, exclusion, reconciliation, communication, inherited roles, trust, and boundaries. A passage qualifies only when its text supports one of those concepts, so a line that merely names your card without addressing the topic is dropped. Unrecognized topics fall back to keyword matching.
       <h4>How order is considered</h4>
       The stored corpus is <b>unordered co-occurrence</b>: it records that two cards appear together, not which was drawn first. To honor order anyway, the page reads each passage and checks <b>which card Chiron names first in her own words</b>. For a pair in your order, passages where she says the first card before the second lead the result, and swapping the two flips it. This is an <b>inferred approximation</b>, not a stored spread position, and it only works when both card names appear in the passage. True ordered syntax (with each card's stored position, timestamp, and question context) still needs the transcript rebuild, which stays queued.
       <h4>Coverage</h4>
@@ -184,7 +194,7 @@ body.kid{font-size:1.15rem} body.kid .quote,body.kid .read{font-size:1.08rem} bo
       <div class="blabel" style="margin-top:10px">Your spread</div>
       <div class="seqbar" id="seqbar"><span class="hint" id="seqempty">No cards yet. Add at least one to see a reading.</span></div>
       <div class="blabel" style="margin-top:12px">Focus on a topic (optional)</div>
-      <div class="hint" style="margin:0 0 6px">A topic filters which of her verbatim passages appear and moves matching ones to the front of each pair. It highlights her recorded words on the topic; it does not write a topic summary.</div>
+      <div class="hint" style="margin:0 0 6px">A recognized topic activates a set of concepts (for example "estranged family" activates separation, reconciliation, boundaries), and a passage qualifies only when it supports one of them, not merely because it names your card. It highlights her recorded words; it does not write a topic summary.</div>
       <div class="brow">
         <input id="topicbox" type="text" placeholder="e.g. love, career, no contact, soul mate, timeline">
         <button class="pbtn" id="setTopic">Focus</button>
@@ -433,6 +443,20 @@ const TOPIC_SYN={
   "money":["money","finances","financial","wealth","abundance","income","debt","job","work"],
   "friendship":["friend","friends","friendship","trust","loyalty"]
 };
+// Controlled topic concepts: a passage qualifies only when it matches one of the topic's concepts,
+// not merely because it contains an entered card. Tighter than keyword-alone.
+const TOPIC_CONCEPTS={
+  "estranged family":{"separation":["estrang","distance","apart","cut off","cut them off","no contact","walked away","split up"],"exclusion":["left out","exclud","reject","abandon","disown","shut out","pushed out"],"reconciliation":["reconcil","make up","repair","forgiv","reunite","mend","come back","back in"],"communication":["talk to","speak to","reach out","conversation","say something","contact them"],"inherited roles":["family","mother","father","parent","sibling","brother","sister","son","daughter","relative","blood"],"trust":["trust","betray","loyal"],"boundaries":["boundar","give them space","protect myself"]},
+  "no contact":{"silence":["no contact","block","blocked","silence","silent","ignore","ghost","stopped talking"],"distance":["distance","apart","space","away","gone quiet"],"reaching out":["reach out","reach back","text","call","message","contact them"]},
+  "soul mate":{"destiny":["soulmate","soul mate","twin flame","destined","fated","meant to be","meant for","the one"],"union":["union","divine","reunite","reunion"]},
+  "ex-lover":{"return":["come back","back to","reunite","reconcile","rekindle","get back"],"the past":["ex ","old flame","former","the past","used to be"]},
+  "cheating":{"betrayal":["cheat","affair","betray","unfaithful","another person","someone else","behind your back"],"trust":["trust","loyal","faithful","honest"]},
+  "marriage":{"commitment":["marriage","married","proposal","propose","engaged","engagement","wedding","commit","forever"]},
+  "career":{"work":["job","work","career","boss","coworker","promotion","hired"],"money":["money","finances","financial","income","pay","salary"]}
+};
+function topicConcepts(topic){const t=topic.toLowerCase().trim();for(const k of Object.keys(TOPIC_CONCEPTS)){if(new RegExp('\\b'+k.replace(/[.*+?^${}()|[\]\\]/g,'\\$&')+'\\b').test(t))return TOPIC_CONCEPTS[k];}return null;}
+function conceptMatch(txt,concepts){const s=txt.toLowerCase();for(const cn of Object.keys(concepts)){if(concepts[cn].some(x=>s.includes(x)))return cn;}return null;}
+function topicMatcher(topic){const concepts=topicConcepts(topic);if(concepts)return{concepts,test:txt=>conceptMatch(txt,concepts)};const terms=topicTerms(topic);return{concepts:null,test:txt=>matchText(txt,terms)};}
 function topicTerms(t0){
   const t=t0.toLowerCase().trim(); let terms=[];
   Object.keys(TOPIC_SYN).forEach(k=>{if(new RegExp('\\b'+k.replace(/[.*+?^${}()|[\]\\]/g,'\\$&')+'\\b').test(t)) terms=terms.concat(TOPIC_SYN[k]);});
@@ -440,10 +464,11 @@ function topicTerms(t0){
   return [...new Set(terms)];
 }
 function matchText(txt,terms){const s=txt.toLowerCase();return terms.some(t=>s.includes(t));}
-function topicForCard(card,terms,limit){
+function topicForCard(card,matcher,limit){
   const node=CORPUS[card]||{}, cls={direct:0,clarifier:1,sequence:2,nearby:3,meaning:4}, cand=[], seen=new Set();
-  Object.keys(node).forEach(p=>{(node[p].reads||[]).forEach(r=>{if(!r.f&&matchText(r.t,terms))cand.push({t:r.t,v:r.v,r:r.r,with:p});});});
-  (meanings(card)||[]).forEach(m=>{if(matchText(m.t,terms))cand.push({t:m.t,v:m.v,r:'meaning',with:null});});
+  const take=(t,v,r,wth)=>{if(!matcher.test(t))return;const cn=matcher.concepts?conceptMatch(t,matcher.concepts):null;cand.push({t,v,r,with:wth,concept:cn});};
+  Object.keys(node).forEach(p=>{(node[p].reads||[]).forEach(r=>{if(!r.f)take(r.t,r.v,r.r,p);});});
+  (meanings(card)||[]).forEach(m=>take(m.t,m.v,'meaning',null));
   cand.sort((a,b)=>(cls[a.r]??9)-(cls[b.r]??9));
   const out=[];
   for(const c of cand){const key=c.t.slice(0,80);if(seen.has(key))continue;seen.add(key);out.push(c);if(out.length>=(limit||4))break;}
@@ -452,30 +477,64 @@ function topicForCard(card,terms,limit){
 function renderTopic(){
   const el=document.getElementById('topicFocus'); if(!el)return;
   if(!topic||!seq.length){el.innerHTML='';return;}
-  const terms=topicTerms(topic); let any=0, body='';
-  seq.forEach(c=>{const hits=topicForCard(c,terms,4);if(hits.length){any+=hits.length;body+=`<div class="tcard">${esc(c)}</div>`+hits.map(h=>`<div class="topichit">${h.r!=='meaning'?`<span class="tg ${h.r}">${h.r}</span>`:''}${esc(h.t)}${h.with?` <span class="smtags">with ${esc(h.with)}</span>`:''} ${src(h.v)}</div>`).join('');}});
+  const matcher=topicMatcher(topic); let any=0, body='';
+  seq.forEach(c=>{const hits=topicForCard(c,matcher,4);if(hits.length){any+=hits.length;body+=`<div class="tcard">${esc(c)}</div>`+hits.map(h=>`<div class="topichit">${h.concept?`<span class="tconcept">${esc(h.concept)}</span>`:''}${h.r!=='meaning'?`<span class="tg ${h.r}">${h.r}</span>`:''}${esc(h.t)}${h.with?` <span class="smtags">with ${esc(h.with)}</span>`:''} ${src(h.v)}</div>`).join('');}});
+  const cx=matcher.concepts?`Matched against the topic's concepts (${Object.keys(matcher.concepts).map(esc).join(', ')}): a passage qualifies only when it supports one of these, not merely because it names your card.`:`Matched on the words in your topic.`;
   el.innerHTML=`<div class="bigbox topic"><span class="autolab">Topic filter</span><h3>On &ldquo;${esc(topic)}&rdquo;</h3>`
-    +(any?`<p>Her recorded words that touch this topic, filtered from corpus.json (readings that involve your cards). Each line links to its source video below. This filters verbatim passages; it does not write topic advice.</p>${body}`
-         :`<p class="hint">No passage involving your cards mentions this topic in the corpus. Try a simpler word (for example &ldquo;love&rdquo;, &ldquo;work&rdquo;, or &ldquo;time&rdquo;).</p>`)+`</div>`;
+    +(any?`<p>${cx} Filtered from corpus.json; each line links to its source video. This filters verbatim passages; it does not write topic advice.</p>${body}`
+         :`<p class="hint">No passage involving your cards supports this topic in the corpus.${matcher.concepts?' Concepts checked: '+Object.keys(matcher.concepts).map(esc).join(', ')+'.':''}</p>`)+`</div>`;
 }
+let readLayer='plain';
+function posRole(i,n){return n===1?'The card':(i===0?'Where it begins':(i===n-1?'Where it heads':'What develops'));}
+function bridge(a,b){
+  if(clarMentions(a,b)) return {html:mdBold(cheat(a).clarifier),kind:`${a} cheatsheet clarifier`};
+  if(clarMentions(b,a)) return {html:mdBold(cheat(b).clarifier),kind:`${b} cheatsheet clarifier`};
+  const s=structural(a,b), ka=cheat(a).kw[0]||'', kb=cheat(b).kw[0]||'';
+  if(/Opposing/.test(s.k)) return {html:esc(`${a} (${ka}) pulls against ${b} (${kb}); the reading holds them as opposite poles.`),kind:'Bunning opposing'};
+  if(/Reinforcing/.test(s.k)) return {html:esc(`${a} (${ka}) and ${b} (${kb}) push the same way and reinforce one another.`),kind:'Bunning reinforcing'};
+  if(/Court/.test(s.k)) return {html:esc(`${a} and ${b} put two people or approaches side by side.`),kind:'Bunning court'};
+  if(/Ace/.test(s.k)) return {html:esc(`${a} and ${b} are two beginnings, one energy meeting another.`),kind:'Bunning ace'};
+  return {html:esc(`${a} (${ka}) leads into ${b} (${kb}).`),kind:'keywords'};
+}
+function plainReading(){
+  let h=''; const n=seq.length;
+  seq.forEach((c,i)=>{
+    const ch=cheat(c); const kw=ch.kw.slice(0,3).map(esc).join(', ');
+    const m=ch.meanings[0]?mdBold(ch.meanings[0].split(/(?<=\.)\s/)[0]):'';
+    h+=`<p><b>${posRole(i,n)} &mdash; ${esc(c)}.</b> ${kw?`Themes: ${kw}. `:''}${m}</p>`;
+    if(i<n-1){const br=bridge(c,seq[i+1]); h+=`<p class="bridge">&rarr; ${br.html}</p>`;}
+  });
+  return h;
+}
+function evidenceView(){
+  let h=''; const n=seq.length; const matcher=topic?topicMatcher(topic):null;
+  seq.forEach((c,i)=>{
+    const ch=cheat(c);
+    h+=`<div class="tcard">${esc(c)} &mdash; ${posRole(i,n)}</div>`;
+    if(ch.kw.length) h+=`<div class="topichit">${ch.kw.map(esc).join(' · ')}</div>`;
+    if(ch.meanings[0]) h+=`<div class="topichit">${mdBold(ch.meanings[0])}</div>`;
+    if(i<n-1){const a=c,b=seq[i+1],all=reads_(a,b),g={};all.forEach(r=>{const k=r.f?'flagged':r.r;g[k]=(g[k]||0)+1;});
+      const s=structural(a,b), br=bridge(a,b);
+      h+=`<div class="bridge2"><b>${esc(a)} &rarr; ${esc(b)}</b> &mdash; bridge from ${esc(br.kind)}. Bunning: ${esc(s.k)}. Evidence: ${['direct','clarifier','sequence','nearby','flagged'].filter(k=>g[k]).map(k=>`${g[k]} ${k}`).join(', ')||'none'}.</div>`;
+      let clean=all.filter(r=>!r.f); if(matcher){const tm=clean.filter(r=>matcher.test(r.t));if(tm.length)clean=tm;}
+      const lead=(clean.filter(r=>orderOf(r.t,a,b)==='fwd')[0]||clean[0]||all[0]);
+      if(lead) h+=`<div class="topichit"><span class="tg ${lead.r}">${lead.r}</span>${esc(lead.t)} ${src(lead.v)}</div>`;
+    }
+  });
+  return h;
+}
+function rawView(){let h='';for(let i=0;i<seq.length;i++){h+=cardParagraph(seq[i],i);if(i<seq.length-1)h+=transitionParagraph(seq[i],seq[i+1]);}return h;}
 function renderCombined(){
   const el=document.getElementById('combinedRead'); if(!el)return;
   if(!seq.length){el.innerHTML='';return;}
-  const terms=topic?topicTerms(topic):null; let flow='';
-  seq.forEach((c,i)=>{
-    const ch=cheat(c); flow+=`<p><b>${esc(c)}.</b> ${ch.meanings[0]?mdBold(ch.meanings[0]):''}</p>`;
-    if(i<seq.length-1){
-      const a=c,b=seq[i+1]; let reads=reads_(a,b).filter(r=>!r.f);
-      if(terms){const t2=reads.filter(r=>matchText(r.t,terms)); if(t2.length)reads=t2;}
-      const fwd=reads.filter(r=>orderOf(r.t,a,b)==='fwd'); if(fwd.length)reads=fwd;
-      const lead=reads[0]||(reads_(a,b)[0]);
-      if(lead) flow+=`<p><span class="tg ${lead.r}">${lead.r}</span><i>${esc(a)} into ${esc(b)}:</i> &ldquo;${esc(lead.t)}&rdquo; ${src(lead.v)}</p>`;
-    }
-  });
-  const tl=topic?` Focused on <b>${esc(topic)}</b>, so each pair prefers a passage that mentions it where one exists.`:'';
-  el.innerHTML=`<div class="bigbox combined"><span class="autolab">Automated corpus summary</span><h3>Everything in one read</h3>`
-    +`<p class="autorule">Rule: each card's first cheatsheet meaning, then the strongest verbatim passage for each pair, in the order you entered.${tl}</p>`
-    +`<div class="combined-flow">${flow}</div></div>`;
+  const layers={plain:'Plain reading',evidence:'Evidence view',raw:'Raw corpus'};
+  const toggle=Object.keys(layers).map(k=>`<button class="lbtn${k===readLayer?' on':''}" data-l="${k}">${layers[k]}</button>`).join('');
+  let inner, note;
+  if(readLayer==='plain'){note="Assembled by the page from verified fields: each card's position role and cheatsheet meaning, joined by a bridge sentence taken from the cheatsheet clarifier where one names the next card, otherwise from the Bunning relationship and keywords. Fixed templates, not Chiron's continuous words.";inner=`<div class="combined-flow">${plainReading()}</div>`;}
+  else if(readLayer==='evidence'){note="Why the plain reading reads as it does: the card meanings, the bridge source, the Bunning relationship, and the evidence counts behind each line.";inner=evidenceView();}
+  else {note="Every quotation, source link, and alternative passage for this spread.";inner=rawView();}
+  el.innerHTML=`<div class="bigbox combined"><span class="autolab">Constructed corpus reading</span><h3>Everything in one read</h3><div class="layertabs">${toggle}</div><p class="autorule">${note}</p>${inner}</div>`;
+  el.querySelectorAll('.lbtn').forEach(b=>b.onclick=()=>{readLayer=b.dataset.l;renderCombined();});
 }
 function renderTopicChips(){
   const el=document.getElementById('topicchips'); if(!el)return;
