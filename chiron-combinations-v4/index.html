@@ -35,6 +35,7 @@ h1{font-family:"Cormorant Garamond",Georgia,serif;font-size:2.3rem;margin:0 0 4p
 .lbtn{padding:5px 12px;border:2px solid var(--teal);background:transparent;color:var(--teal);border-radius:14px;font-weight:700;cursor:pointer;font-size:.78rem}
 .lbtn.on{background:var(--teal);color:var(--cream)}
 .bridge2{background:#f0ece2;border-left:4px solid var(--plum);border-radius:8px;padding:7px 11px;margin:8px 0 4px;font-size:.9rem}
+.samplelab{width:100%;background:#f6efdc;border:1px dashed var(--mustard);border-radius:8px;padding:6px 10px;margin-bottom:8px;font-size:.85rem;color:#6b5a2e}
 .tconcept{font-size:.6rem;font-weight:800;text-transform:uppercase;letter-spacing:.03em;background:#ece2ec;color:#63496b;border-radius:8px;padding:1px 6px;margin-right:5px}
 .topichit{background:#f3ead2;border-radius:8px;border-left:4px solid var(--plum);padding:8px 12px;margin:7px 0;font-size:.95rem}
 .tchip{padding:4px 10px;border:1.5px solid var(--plum);background:transparent;color:var(--plum);border-radius:14px;font-weight:600;cursor:pointer;font-size:.74rem;margin:2px 3px 2px 0}
@@ -151,7 +152,7 @@ body.kid{font-size:1.15rem} body.kid .quote,body.kid .read{font-size:1.08rem} bo
       </ul>
       A fourth, outside layer is the Bunning structural label. It is not Chiron's, so it sits behind an "outside comparison" toggle under each pair's evidence, never ahead of it.
       <h4>The constructed corpus reading</h4>
-      The "Everything in one read" box builds a plain reading from fixed templates over verified fields, not generative prose. Each card gets a <b>position role</b> (where it begins, what develops, where it heads) and its cheatsheet meaning. Each connection gets one <b>bridge sentence</b>: the cheatsheet clarifier line when one card names the next, otherwise a fixed template filled from the Bunning relationship and the two cards' keywords. Three layers are switchable: <b>Plain reading</b> (templates only), <b>Evidence view</b> (the meanings, bridge source, relationship, and evidence counts behind each line), and <b>Raw corpus</b> (every quotation, source link, and alternative). The box is labeled "constructed corpus reading" so it is never mistaken for Chiron's continuous words. A fully hand-authored bridge sentence for every one of the 3003 pairs is a curation task, queued; today's bridges are template-derived from verified fields.
+      The "Everything in one read" box builds a plain reading from fixed templates over verified fields, not generative prose. Each card gets a <b>position role</b> (where it begins, what develops, where it heads) and its cheatsheet meaning. Each connection gets one <b>bridge sentence</b>, and every bridge is sourced from Chiron's own material: the cheatsheet clarifier line when one card names the next, otherwise a statement of the recorded corpus evidence for that pair (direct, clarifier, or sequence passages). Where Chiron records no connection, the bridge names the entered sequence and the evidence strength, and claims no interpretive transition. <b>Bunning never supplies a bridge</b>: an outside framework does not narrate a reading built from her corpus, so the structural label stays under each pair's "outside comparison" toggle and in the evidence view. Three layers are switchable: <b>Plain reading</b> (templates only), <b>Evidence view</b> (the meanings, bridge source, relationship, and evidence counts behind each line), and <b>Raw corpus</b> (every quotation, source link, and alternative). The box is labeled "constructed corpus reading" so it is never mistaken for Chiron's continuous words. A fully hand-authored bridge sentence for every one of the 3003 pairs is a curation task, queued; today's bridges are template-derived from verified fields.
       <h4>Topic focus (removed)</h4>
       A "focus on a topic" box was tried and pulled on 2026-07-15. It was substring keyword search: the word "work" matched the verb, not a job, and it surfaced passages from card pairings that were not even in your spread. The corpus carries no per-passage topic tags, so a topic filter cannot honestly show "her words on your topic for your cards." It would need topic tags added during curation.
       <h4>How order is considered</h4>
@@ -301,7 +302,13 @@ function themes(card,k){
 function meanings(card){return (MEANINGS&&MEANINGS[card])||[];}
 function mdBold(s){return esc(s).replace(/\*\*(.+?)\*\*/g,'<strong>$1</strong>');}
 function cheat(card){return (CHEAT&&CHEAT[card])||{kw:[],meanings:[],clarifier:''};}
-function clarMentions(a,b){const t=cheat(a).clarifier.toLowerCase();const vs=[b.toLowerCase(),b.toLowerCase().replace(/^the /,'')];return vs.some(v=>v&&t.includes(v));}
+/* Card names must match as whole words. Plain substring search fired on
+   "started" for Star, "Sunday" for Sun, and "worldly" for World. */
+function reEsc(s){return s.replace(/[.*+?^${}()|[\]\\]/g,'\\$&');}
+const _wbCache={};
+function wordRe(v){return _wbCache[v]||(_wbCache[v]=new RegExp('(?:^|[^a-z0-9])'+reEsc(v)+'(?![a-z0-9])','i'));}
+function saysCard(txt,card){return cardVariants(card).some(v=>wordRe(v).test(txt));}
+function clarMentions(a,b){const t=cheat(a).clarifier;if(!t)return false;return cardVariants(b).some(v=>wordRe(v).test(t));}
 
 /* ---------- Bunning structural lens (Lesson 15) ---------- */
 const COURTS=["Page","Knight","Queen","King"];
@@ -327,18 +334,24 @@ function joinList(a){return a.length<2?a.join(''):a.length===2?a.join(' and '):a
 
 /* ================= MODE 1: READING ================= */
 let seq=[], crossCombos=[];
+/* The opening screen seeds a demonstration spread. It must be labelled as such:
+   an unlabelled sample reads as the visitor's own input or a saved state.
+   The first card the visitor adds clears it, so demo and real input never mix. */
+let isSample=false;
+function dropSample(){if(isSample){seq=[];crossCombos=[];isSample=false;}}
 function renderPicker(){
   const el=document.getElementById('picker');
   let h='<div class="pgrp"><div class="gl">Major Arcana</div>'+MAJORS.map(c=>`<button class="cbtn maj" data-c="${esc(c)}">${esc(c)}</button>`).join('')+'</div>';
   SUITS.forEach(s=>{h+=`<div class="pgrp"><div class="gl">${s}</div>`+RANKS.map(r=>`<button class="cbtn" data-c="${esc(r+' of '+s)}">${esc(r+' of '+s)}</button>`).join('')+'</div>';});
   el.innerHTML=h;
-  el.querySelectorAll('.cbtn').forEach(b=>b.onclick=()=>{seq.push(b.dataset.c);syncSeq();});
+  el.querySelectorAll('.cbtn').forEach(b=>b.onclick=()=>{dropSample();seq.push(b.dataset.c);syncSeq();});
 }
 function syncSeq(){
   const bar=document.getElementById('seqbar');
   if(!seq.length){bar.innerHTML='<span class="hint" id="seqempty">No cards yet. Add at least one to see a reading.</span>';document.getElementById('reading').innerHTML='';document.getElementById('combinedRead').innerHTML='';crossCombos=[];document.getElementById('spreadCombos').innerHTML='';document.getElementById('crossBuilder').style.display='none';return;}
-  bar.innerHTML=seq.map((c,i)=>`<span class="chip"><span class="pos">${i+1}</span>${esc(c)}<span class="x" data-i="${i}">&times;</span></span>`).join('');
-  bar.querySelectorAll('.x').forEach(x=>x.onclick=()=>{seq.splice(+x.dataset.i,1);crossCombos=[];syncSeq();});
+  bar.innerHTML=(isSample?'<div class="samplelab">Sample spread &mdash; demonstration cards loaded by the page, not your input. Add a card or press Clear to start your own.</div>':'')
+    +seq.map((c,i)=>`<span class="chip"><span class="pos">${i+1}</span>${esc(c)}<span class="x" data-i="${i}">&times;</span></span>`).join('');
+  bar.querySelectorAll('.x').forEach(x=>x.onclick=()=>{seq.splice(+x.dataset.i,1);crossCombos=[];isSample=false;syncSeq();});
   document.getElementById('crossBuilder').style.display = seq.length>=2 ? '' : 'none';
   fillCrossSelects();
   renderReading(); renderCombined(); renderCrossCombos();
@@ -348,6 +361,7 @@ function addPasted(){
   const chunks=box.value.split(/[,;\n]+/).map(s=>s.trim()).filter(Boolean);
   const good=[],bad=[];
   chunks.forEach(ch=>{const c=parseCard(ch); if(c)good.push(c); else bad.push(ch);});
+  if(good.length)dropSample();
   seq=seq.concat(good);
   document.getElementById('parseWarn').textContent = bad.length?`Could not match: ${bad.join(', ')}. Try the full name, e.g. "Three of Swords".`:'';
   box.value=''; syncSeq();
@@ -367,8 +381,17 @@ function cardVariants(card){const p=parts(card);
   if(p.major){const bs=card.toLowerCase();const v=[bs,bs.replace(/^the /,'')];if(card==='Judgement')v.push('judgment');return[...new Set(v)];}
   const suit=p.suit.toLowerCase(),rank=p.rank.toLowerCase(),sing={cups:'cup',wands:'wand',swords:'sword',pentacles:'pentacle'}[suit];
   return [`${rank} of ${suit}`,`${rank} of ${sing}`];}
-function mentionIndex(txt,card){const s=txt.toLowerCase();let idx=Infinity;for(const v of cardVariants(card)){const i=s.indexOf(v);if(i>=0&&i<idx)idx=i;}return idx;}
+/* whole-word match only: "started" must not count as the Star naming itself */
+function mentionIndex(txt,card){let idx=Infinity;for(const v of cardVariants(card)){const m=wordRe(v).exec(txt);if(m){const i=m.index+(m[0].length-v.length);if(i<idx)idx=i;}}return idx;}
 function orderOf(txt,a,b){const ia=mentionIndex(txt,a),ib=mentionIndex(txt,b);if(ia===Infinity||ib===Infinity)return'undet';return ia<ib?'fwd':(ib<ia?'rev':'undet');}
+/* Lead passage: strongest evidence wins first; entered direction only breaks ties.
+   Ranks: unflagged direct > clarifier > sequence > nearby, then flagged material. */
+const RRANK={direct:0,clarifier:1,sequence:2,nearby:3};
+function pickLead(all,a,b){
+  if(!all.length)return null;
+  const score=r=>[r.f?1:0,(RRANK[r.r]!==undefined?RRANK[r.r]:9),orderOf(r.t,a,b)==='fwd'?0:1];
+  return all.slice().sort((x,y)=>{const sx=score(x),sy=score(y);for(let i=0;i<sx.length;i++){if(sx[i]!==sy[i])return sx[i]-sy[i];}return 0;})[0];
+}
 function orderChip(r,a,b){const o=orderOf(r.t,a,b);return o==='fwd'?`<span class="ochip">${esc(a)} first</span>`:o==='rev'?`<span class="ochip rev">${esc(b)} first</span>`:'';}
 function passageHTML(r,a,b){const oc=(a&&b)?orderChip(r,a,b):'';return `<div class="read${r.f?' dim':''}"><span class="tg ${r.r}">${r.r}</span>${oc}${esc(r.t)}${r.f?` <span class="flg">${FLBL[r.f]}</span>`:''} ${src(r.v)}</div>`;}
 // order-aware evidence block for a pair in the entered order a -> b
@@ -376,8 +399,10 @@ function pairEvidenceHTML(a,b){
   const all=reads_(a,b), tg=tags_(a,b);
   if(!all.length) return `<p class="hint">No recorded Chiron pairing found for these two cards in the corpus.</p>`;
   const fwd=[],rev=[],und=[]; all.forEach(r=>{const o=orderOf(r.t,a,b);(o==='fwd'?fwd:o==='rev'?rev:und).push(r);});
-  const cleanFwd=fwd.filter(r=>!r.f), clean=all.filter(r=>!r.f);
-  const lead=cleanFwd[0]||clean[0]||all[0];
+  const clean=all.filter(r=>!r.f);
+  /* Evidence strength ranks first, inferred order second. A nearby passage in your
+     entered direction must not outrank a direct passage in the other direction. */
+  const lead=pickLead(all,a,b);
   let h='';
   if(tg.length) h+=`<div class="tags"><span class="tglab">she repeats</span>${tg.slice(0,8).map(t=>`<span class="mtag">${esc(t)}</span>`).join('')}</div>`;
   h+=`<div class="ordsum">Order, inferred from which card she names first in each passage: <b>${esc(a)} first</b> in ${fwd.length}, <b>${esc(b)} first</b> in ${rev.length}${und.length?`, unclear in ${und.length}`:''}. The lead below is from your order; swap the cards to lead with the other direction.</div>`;
@@ -435,15 +460,27 @@ function renderReading(){
    so no honest version exists with this data. See handoff note. */
 let readLayer='plain';
 function posRole(i,n){return n===1?'The card':(i===0?'Where it begins':(i===n-1?'Where it heads':'What develops'));}
+/* Bridge source order is a truth rule, not a style choice. Chiron's own material
+   supplies every connective sentence. Bunning is an outside framework, so it no
+   longer generates narrative movement in the default reading; it stays available
+   under each pair's "outside comparison" toggle and in the evidence view.
+   When Chiron records no connection, the bridge states the entered sequence and
+   the evidence strength, and claims no interpretive transition. */
+function bridgeEvidence(a,b){
+  const all=reads_(a,b), clean=all.filter(r=>!r.f);
+  const n=k=>clean.filter(r=>r.r===k).length;
+  return {direct:n('direct'),clarifier:n('clarifier'),sequence:n('sequence'),nearby:n('nearby'),flagged:all.length-clean.length,total:all.length};
+}
 function bridge(a,b){
-  if(clarMentions(a,b)) return {html:mdBold(cheat(a).clarifier),kind:`${a} cheatsheet clarifier`};
-  if(clarMentions(b,a)) return {html:mdBold(cheat(b).clarifier),kind:`${b} cheatsheet clarifier`};
-  const s=structural(a,b), ka=cheat(a).kw[0]||'', kb=cheat(b).kw[0]||'';
-  if(/Opposing/.test(s.k)) return {html:esc(`${a} (${ka}) pulls against ${b} (${kb}); the reading holds them as opposite poles.`),kind:'Bunning opposing'};
-  if(/Reinforcing/.test(s.k)) return {html:esc(`${a} (${ka}) and ${b} (${kb}) push the same way and reinforce one another.`),kind:'Bunning reinforcing'};
-  if(/Court/.test(s.k)) return {html:esc(`${a} and ${b} put two people or approaches side by side.`),kind:'Bunning court'};
-  if(/Ace/.test(s.k)) return {html:esc(`${a} and ${b} are two beginnings, one energy meeting another.`),kind:'Bunning ace'};
-  return {html:esc(`${a} (${ka}) leads into ${b} (${kb}).`),kind:'keywords'};
+  if(clarMentions(a,b)) return {html:mdBold(cheat(a).clarifier),kind:`${a} cheatsheet clarifier (Chiron)`};
+  if(clarMentions(b,a)) return {html:mdBold(cheat(b).clarifier),kind:`${b} cheatsheet clarifier (Chiron)`};
+  const e=bridgeEvidence(a,b);
+  const strong=e.direct?{n:e.direct,k:'direct'}:e.clarifier?{n:e.clarifier,k:'clarifier'}:e.sequence?{n:e.sequence,k:'sequence'}:null;
+  if(strong) return {html:esc(`Chiron is recorded connecting these two: ${strong.n} ${strong.k} passage${strong.n===1?'':'s'} in the corpus, quoted below.`),kind:`Chiron corpus (${strong.k})`};
+  const ev=e.nearby?`${e.nearby} nearby mention${e.nearby===1?'':'s'} only, with no confirmed combined interpretation`
+    :e.flagged?`${e.flagged} flagged passage${e.flagged===1?'':'s'} only`
+    :'no recorded pairing in the corpus';
+  return {html:esc(`The next card in your entered sequence is ${b}. Evidence for this pair: ${ev}.`),kind:'neutral sequence (no Chiron connection recorded)'};
 }
 function plainReading(){
   let h=''; const n=seq.length;
@@ -465,8 +502,7 @@ function evidenceView(){
     if(i<n-1){const a=c,b=seq[i+1],all=reads_(a,b),g={};all.forEach(r=>{const k=r.f?'flagged':r.r;g[k]=(g[k]||0)+1;});
       const s=structural(a,b), br=bridge(a,b);
       h+=`<div class="bridge2"><b>${esc(a)} &rarr; ${esc(b)}</b> &mdash; bridge from ${esc(br.kind)}. Bunning: ${esc(s.k)}. Evidence: ${['direct','clarifier','sequence','nearby','flagged'].filter(k=>g[k]).map(k=>`${g[k]} ${k}`).join(', ')||'none'}.</div>`;
-      const clean=all.filter(r=>!r.f);
-      const lead=(clean.filter(r=>orderOf(r.t,a,b)==='fwd')[0]||clean[0]||all[0]);
+      const lead=pickLead(all,a,b);
       if(lead) h+=`<div class="topichit"><span class="tg ${lead.r}">${lead.r}</span>${esc(lead.t)} ${src(lead.v)}</div>`;
     }
   });
@@ -479,7 +515,7 @@ function renderCombined(){
   const layers={plain:'Plain reading',evidence:'Evidence view',raw:'Raw corpus'};
   const toggle=Object.keys(layers).map(k=>`<button class="lbtn${k===readLayer?' on':''}" data-l="${k}">${layers[k]}</button>`).join('');
   let inner, note;
-  if(readLayer==='plain'){note="Assembled by the page from verified fields: each card's position role and cheatsheet meaning, joined by a bridge sentence taken from the cheatsheet clarifier where one names the next card, otherwise from the Bunning relationship and keywords. Fixed templates, not Chiron's continuous words.";inner=`<div class="combined-flow">${plainReading()}</div>`;}
+  if(readLayer==='plain'){note="Assembled by the page from verified fields: each card's position role and cheatsheet meaning, joined by a bridge sentence sourced from Chiron's own material, either her cheatsheet clarifier where one card names the next or the recorded corpus evidence for that pair. Where she records no connection, the bridge states the entered sequence and the evidence strength instead of implying a transition. Bunning supplies no bridge here. Fixed templates, not Chiron's continuous words.";inner=`<div class="combined-flow">${plainReading()}</div>`;}
   else if(readLayer==='evidence'){note="Why the plain reading reads as it does: the card meanings, the bridge source, the Bunning relationship, and the evidence counts behind each line.";inner=evidenceView();}
   else {note="Every quotation, source link, and alternative passage for this spread.";inner=rawView();}
   el.innerHTML=`<div class="bigbox combined"><span class="autolab">Constructed corpus reading</span><h3>Everything in one read</h3><div class="layertabs">${toggle}</div><p class="autorule">${note}</p>${inner}</div>`;
@@ -525,8 +561,11 @@ function renderCombo(){
   h+=pairEvidenceHTML(a,b)+clarifierHTML(a,b);
   h+=`<details class="bunning"><summary>Outside comparison: Bunning structural lens (not from Chiron)</summary>${structHTML(a,b)}</details></div>`;
   const ch1=cheat(a),ch2=cheat(b);
-  h+=`<div class="bigbox combined"><span class="autolab">Automated corpus summary</span><h3>This combo in one line</h3>`
-    +`<p><b>${esc(a)}.</b> ${ch1.meanings[0]?mdBold(ch1.meanings[0]):''}</p><p><b>${esc(b)}.</b> ${ch2.meanings[0]?mdBold(ch2.meanings[0]):''}</p></div>`;
+  const cbr=bridge(a,b);
+  h+=`<div class="bigbox combined"><span class="autolab">Automated corpus summary</span><h3>Both card meanings</h3>`
+    +`<p><b>${esc(a)}.</b> ${ch1.meanings[0]?mdBold(ch1.meanings[0]):''}</p><p><b>${esc(b)}.</b> ${ch2.meanings[0]?mdBold(ch2.meanings[0]):''}</p>`
+    +`<p class="bridge">&rarr; ${cbr.html}</p>`
+    +`<p class="cattr">Each meaning is Chiron's own, from the cheatsheet. The connecting line is a fixed template, sourced from ${esc(cbr.kind)}. This box does not summarize the pair in Chiron's words.</p></div>`;
   out.innerHTML=h;
 }
 
@@ -613,8 +652,8 @@ Promise.all([
     BREL.opp=new Set((brel.opposing||[]).map(p=>pkey(p[0],p[1])));
     setupExplorer(); setupCombo();
     builderEl.classList.remove('disabled-mask');
-    // seed a sample reading so the first screen is alive
-    seq=["Two of Cups","Three of Swords","The Star"]; syncSeq();
+    // seed a labelled sample reading so the first screen is alive
+    seq=["Two of Cups","Three of Swords","The Star"]; isSample=true; syncSeq();
   })
   .catch(e=>{document.getElementById('reading').innerHTML='<p class="hint">Could not load the corpus: '+e+'</p>';});
 </script>
