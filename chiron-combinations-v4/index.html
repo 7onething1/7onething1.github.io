@@ -43,6 +43,7 @@ h1{font-family:"Cormorant Garamond",Georgia,serif;font-size:2.3rem;margin:0 0 4p
 .ordsum{background:#eef3f0;border:1px solid #cfe0d8;border-radius:9px;padding:8px 12px;margin:6px 0;font-size:.9rem}
 .ochip{display:inline-block;font-size:.6rem;font-weight:800;text-transform:uppercase;letter-spacing:.03em;background:#dce9e5;color:#2c5750;border-radius:8px;padding:1px 6px;margin-right:5px;vertical-align:middle}
 .ochip.rev{background:#f5e6cc;color:#8a5a17}
+.rmcombo{cursor:pointer;color:#b0553a;font-weight:800;margin-left:8px;font-size:1.1rem}
 .pbtn{padding:9px 15px;border:none;border-radius:9px;background:var(--rust);color:#fff;font-weight:700;cursor:pointer;font-size:.9rem}
 .pbtn.ghost{background:transparent;color:var(--rust);border:2px solid var(--line)}
 .picker{margin:10px 0 2px}
@@ -195,6 +196,18 @@ body.kid{font-size:1.15rem} body.kid .quote,body.kid .read{font-size:1.08rem} bo
       <div class="seqbar" id="seqbar"><span class="hint" id="seqempty">No cards yet. Add at least one to see a reading.</span></div>
     </div>
     <div class="reading" id="reading"></div>
+    <div class="builder" id="crossBuilder" style="display:none">
+      <div class="blabel">Compare any two cards in your spread (add as many combos as you want)</div>
+      <div class="controls">
+        <select id="cross1" class="bigsel"></select>
+        <span class="plus">&rarr;</span>
+        <select id="cross2" class="bigsel"></select>
+        <button class="pbtn" id="addCross">Add combo</button>
+        <button class="pbtn ghost" id="clearCross">Clear combos</button>
+      </div>
+      <div class="hint" style="margin:6px 0 0">The spread map above only shows neighbours. Here you can pick position 1 against position 7, or any pair, and stack several. Order follows which card she names first, same as everywhere else.</div>
+    </div>
+    <div id="spreadCombos"></div>
     <div id="combinedRead"></div>
   </section>
 
@@ -313,7 +326,7 @@ const FLBL={neg:'negative mention',frag:'fragment','3rd':'third card leads',dup:
 function joinList(a){return a.length<2?a.join(''):a.length===2?a.join(' and '):a.slice(0,-1).join(', ')+', and '+a[a.length-1];}
 
 /* ================= MODE 1: READING ================= */
-let seq=[];
+let seq=[], crossCombos=[];
 function renderPicker(){
   const el=document.getElementById('picker');
   let h='<div class="pgrp"><div class="gl">Major Arcana</div>'+MAJORS.map(c=>`<button class="cbtn maj" data-c="${esc(c)}">${esc(c)}</button>`).join('')+'</div>';
@@ -323,10 +336,12 @@ function renderPicker(){
 }
 function syncSeq(){
   const bar=document.getElementById('seqbar');
-  if(!seq.length){bar.innerHTML='<span class="hint" id="seqempty">No cards yet. Add at least one to see a reading.</span>';document.getElementById('reading').innerHTML='';document.getElementById('combinedRead').innerHTML='';return;}
+  if(!seq.length){bar.innerHTML='<span class="hint" id="seqempty">No cards yet. Add at least one to see a reading.</span>';document.getElementById('reading').innerHTML='';document.getElementById('combinedRead').innerHTML='';crossCombos=[];document.getElementById('spreadCombos').innerHTML='';document.getElementById('crossBuilder').style.display='none';return;}
   bar.innerHTML=seq.map((c,i)=>`<span class="chip"><span class="pos">${i+1}</span>${esc(c)}<span class="x" data-i="${i}">&times;</span></span>`).join('');
-  bar.querySelectorAll('.x').forEach(x=>x.onclick=()=>{seq.splice(+x.dataset.i,1);syncSeq();});
-  renderReading(); renderCombined();
+  bar.querySelectorAll('.x').forEach(x=>x.onclick=()=>{seq.splice(+x.dataset.i,1);crossCombos=[];syncSeq();});
+  document.getElementById('crossBuilder').style.display = seq.length>=2 ? '' : 'none';
+  fillCrossSelects();
+  renderReading(); renderCombined(); renderCrossCombos();
 }
 function addPasted(){
   const box=document.getElementById('pastebox');
@@ -471,6 +486,28 @@ function renderCombined(){
   el.querySelectorAll('.lbtn').forEach(b=>b.onclick=()=>{readLayer=b.dataset.l;renderCombined();});
 }
 
+/* ---------- multiple two-card combos within a spread ---------- */
+function fillCrossSelects(){
+  const s1=document.getElementById('cross1'), s2=document.getElementById('cross2'); if(!s1||!s2)return;
+  const opts=seq.map((c,i)=>`<option value="${i}">${i+1}. ${esc(c)}</option>`).join('');
+  const keep1=s1.value, keep2=s2.value;
+  s1.innerHTML=opts; s2.innerHTML=opts;
+  if(seq.length>=2){ s1.value = (keep1&&+keep1<seq.length)?keep1:'0'; s2.value=(keep2&&+keep2<seq.length)?keep2:'1'; }
+}
+function renderCrossCombos(){
+  const el=document.getElementById('spreadCombos'); if(!el)return;
+  crossCombos=crossCombos.filter(p=>p.i<seq.length&&p.j<seq.length);
+  if(!crossCombos.length){el.innerHTML='';return;}
+  let h=`<div class="bigbox"><span class="autolab">Selected combos</span><h3>Your two-card combos (${crossCombos.length})</h3>`;
+  crossCombos.forEach((p,k)=>{const a=seq[p.i],b=seq[p.j];
+    h+=`<div class="rblock trans"><h3>Position ${p.i+1} &rarr; ${p.j+1}: ${esc(a)} &rarr; ${esc(b)} <span class="rmcombo" data-k="${k}" title="remove">&times;</span></h3>`
+      +pairEvidenceHTML(a,b)+clarifierHTML(a,b)
+      +`<details class="bunning"><summary>Outside comparison: Bunning structural lens (not from Chiron)</summary>${structHTML(a,b)}</details></div>`;
+  });
+  el.innerHTML=h+`</div>`;
+  el.querySelectorAll('.rmcombo').forEach(x=>x.onclick=()=>{crossCombos.splice(+x.dataset.k,1);renderCrossCombos();});
+}
+
 /* ================= MODE 1b: TWO-CARD COMBO ================= */
 let combo1,combo2;
 function setupCombo(){
@@ -557,6 +594,8 @@ document.getElementById('tabExplore').onclick=()=>showMode('explore');
 document.getElementById('addPaste').onclick=addPasted;
 document.getElementById('pastebox').addEventListener('keydown',e=>{if(e.key==='Enter'&&!e.shiftKey){e.preventDefault();addPasted();}});
 document.getElementById('clearSeq').onclick=()=>{seq=[];document.getElementById('parseWarn').textContent='';syncSeq();};
+document.getElementById('addCross').onclick=()=>{const i=+document.getElementById('cross1').value,j=+document.getElementById('cross2').value;if(i===j||isNaN(i)||isNaN(j))return;if(!crossCombos.some(p=>p.i===i&&p.j===j)){crossCombos.push({i,j});renderCrossCombos();}};
+document.getElementById('clearCross').onclick=()=>{crossCombos=[];renderCrossCombos();};
 function toggleKid(){document.body.classList.toggle('kid');document.getElementById('kidfab').textContent=document.body.classList.contains('kid')?'Normal mode':'Kid mode';}
 
 renderPicker();
