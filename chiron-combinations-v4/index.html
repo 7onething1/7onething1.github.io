@@ -151,8 +151,8 @@ body.kid{font-size:1.15rem} body.kid .quote,body.kid .read{font-size:1.08rem} bo
       A fourth, outside layer is the Bunning structural label. It is not Chiron's, so it sits behind an "outside comparison" toggle under each pair's evidence, never ahead of it.
       <h4>The constructed corpus reading</h4>
       The "Everything in one read" box builds a plain reading from fixed templates over verified fields, not generative prose. Each card gets a <b>position role</b> (where it begins, what develops, where it heads) and its cheatsheet meaning. Each connection gets one <b>bridge sentence</b>: the cheatsheet clarifier line when one card names the next, otherwise a fixed template filled from the Bunning relationship and the two cards' keywords. Three layers are switchable: <b>Plain reading</b> (templates only), <b>Evidence view</b> (the meanings, bridge source, relationship, and evidence counts behind each line), and <b>Raw corpus</b> (every quotation, source link, and alternative). The box is labeled "constructed corpus reading" so it is never mistaken for Chiron's continuous words. A fully hand-authored bridge sentence for every one of the 3003 pairs is a curation task, queued; today's bridges are template-derived from verified fields.
-      <h4>Topic concepts</h4>
-      A recognized topic activates a set of <b>concepts</b> rather than raw keywords. "Estranged family" activates separation, exclusion, reconciliation, communication, inherited roles, trust, and boundaries. A passage qualifies only when its text supports one of those concepts, so a line that merely names your card without addressing the topic is dropped. Unrecognized topics fall back to keyword matching.
+      <h4>Topic focus (removed)</h4>
+      A "focus on a topic" box was tried and pulled on 2026-07-15. It was substring keyword search: the word "work" matched the verb, not a job, and it surfaced passages from card pairings that were not even in your spread. The corpus carries no per-passage topic tags, so a topic filter cannot honestly show "her words on your topic for your cards." It would need topic tags added during curation.
       <h4>How order is considered</h4>
       The stored corpus is <b>unordered co-occurrence</b>: it records that two cards appear together, not which was drawn first. To honor order anyway, the page reads each passage and checks <b>which card Chiron names first in her own words</b>. For a pair in your order, passages where she says the first card before the second lead the result, and swapping the two flips it. This is an <b>inferred approximation</b>, not a stored spread position, and it only works when both card names appear in the passage. True ordered syntax (with each card's stored position, timestamp, and question context) still needs the transcript rebuild, which stays queued.
       <h4>Coverage</h4>
@@ -193,17 +193,8 @@ body.kid{font-size:1.15rem} body.kid .quote,body.kid .read{font-size:1.08rem} bo
       <div class="picker" id="picker"></div>
       <div class="blabel" style="margin-top:10px">Your spread</div>
       <div class="seqbar" id="seqbar"><span class="hint" id="seqempty">No cards yet. Add at least one to see a reading.</span></div>
-      <div class="blabel" style="margin-top:12px">Focus on a topic (optional)</div>
-      <div class="hint" style="margin:0 0 6px">A recognized topic activates a set of concepts (for example "estranged family" activates separation, reconciliation, boundaries), and a passage qualifies only when it supports one of them, not merely because it names your card. It highlights her recorded words; it does not write a topic summary.</div>
-      <div class="brow">
-        <input id="topicbox" type="text" placeholder="e.g. love, career, no contact, soul mate, timeline">
-        <button class="pbtn" id="setTopic">Focus</button>
-        <button class="pbtn ghost" id="clearTopic">Clear topic</button>
-      </div>
-      <div class="picker" id="topicchips"></div>
     </div>
     <div class="reading" id="reading"></div>
-    <div id="topicFocus"></div>
     <div id="combinedRead"></div>
   </section>
 
@@ -322,7 +313,7 @@ const FLBL={neg:'negative mention',frag:'fragment','3rd':'third card leads',dup:
 function joinList(a){return a.length<2?a.join(''):a.length===2?a.join(' and '):a.slice(0,-1).join(', ')+', and '+a[a.length-1];}
 
 /* ================= MODE 1: READING ================= */
-let seq=[], topic='';
+let seq=[];
 function renderPicker(){
   const el=document.getElementById('picker');
   let h='<div class="pgrp"><div class="gl">Major Arcana</div>'+MAJORS.map(c=>`<button class="cbtn maj" data-c="${esc(c)}">${esc(c)}</button>`).join('')+'</div>';
@@ -332,10 +323,10 @@ function renderPicker(){
 }
 function syncSeq(){
   const bar=document.getElementById('seqbar');
-  if(!seq.length){bar.innerHTML='<span class="hint" id="seqempty">No cards yet. Add at least one to see a reading.</span>';document.getElementById('reading').innerHTML='';document.getElementById('combinedRead').innerHTML='';document.getElementById('topicFocus').innerHTML='';return;}
+  if(!seq.length){bar.innerHTML='<span class="hint" id="seqempty">No cards yet. Add at least one to see a reading.</span>';document.getElementById('reading').innerHTML='';document.getElementById('combinedRead').innerHTML='';return;}
   bar.innerHTML=seq.map((c,i)=>`<span class="chip"><span class="pos">${i+1}</span>${esc(c)}<span class="x" data-i="${i}">&times;</span></span>`).join('');
   bar.querySelectorAll('.x').forEach(x=>x.onclick=()=>{seq.splice(+x.dataset.i,1);syncSeq();});
-  renderReading(); renderTopic(); renderCombined();
+  renderReading(); renderCombined();
 }
 function addPasted(){
   const box=document.getElementById('pastebox');
@@ -423,67 +414,10 @@ function renderReading(){
   el.innerHTML=h;
 }
 
-/* ---------- topic focus + combined single read ---------- */
-const TOPIC_EXAMPLES=["love","career","no contact","soul mate","estranged family","ex-lover","are they watching me","life path","timeline","next 6 months","marriage","cheating"];
-const STOP=new Set(['are','they','them','me','my','the','a','an','of','is','to','and','for','with','on','in','about','do','does','will','can','you','it','this','that','next','over','have','has']);
-const TOPIC_SYN={
-  "love":["love","relationship","romance","romantic","partner","feelings","heart","together","commitment","connection"],
-  "career":["career","job","work","money","business","boss","coworker","promotion","finances","financial","opportunity"],
-  "no contact":["contact","reach out","reach","text","call","block","blocked","silence","silent","ignore","distance","apart","ghost","space"],
-  "soul mate":["soulmate","soul mate","twin flame","twin","destined","destiny","meant","divine","union","the one","fated"],
-  "estranged family":["family","mother","father","parent","parents","sibling","estranged","home","brother","sister","son","daughter"],
-  "ex-lover":["ex","back","return","reunite","reconcile","past","former","old flame"],
-  "ex":["ex","back","return","reunite","reconcile","past","former"],
-  "watching":["watching","thinking about","checking","looking","social media","stalk","stalking","miss","on their mind","observing"],
-  "timeline":["time","soon","month","months","week","weeks","when","timing","wait","delay","date","season"],
-  "next 6 months":["month","months","soon","future","coming","wait","timing","season","half"],
-  "life path":["path","purpose","direction","journey","calling","destiny","mission","growth","lesson"],
-  "cheating":["cheat","cheating","loyal","faithful","betray","betrayal","another","someone else","trust","affair"],
-  "marriage":["marriage","married","proposal","engaged","engagement","wedding","commit","commitment"],
-  "money":["money","finances","financial","wealth","abundance","income","debt","job","work"],
-  "friendship":["friend","friends","friendship","trust","loyalty"]
-};
-// Controlled topic concepts: a passage qualifies only when it matches one of the topic's concepts,
-// not merely because it contains an entered card. Tighter than keyword-alone.
-const TOPIC_CONCEPTS={
-  "estranged family":{"separation":["estrang","distance","apart","cut off","cut them off","no contact","walked away","split up"],"exclusion":["left out","exclud","reject","abandon","disown","shut out","pushed out"],"reconciliation":["reconcil","make up","repair","forgiv","reunite","mend","come back","back in"],"communication":["talk to","speak to","reach out","conversation","say something","contact them"],"inherited roles":["family","mother","father","parent","sibling","brother","sister","son","daughter","relative","blood"],"trust":["trust","betray","loyal"],"boundaries":["boundar","give them space","protect myself"]},
-  "no contact":{"silence":["no contact","block","blocked","silence","silent","ignore","ghost","stopped talking"],"distance":["distance","apart","space","away","gone quiet"],"reaching out":["reach out","reach back","text","call","message","contact them"]},
-  "soul mate":{"destiny":["soulmate","soul mate","twin flame","destined","fated","meant to be","meant for","the one"],"union":["union","divine","reunite","reunion"]},
-  "ex-lover":{"return":["come back","back to","reunite","reconcile","rekindle","get back"],"the past":["ex ","old flame","former","the past","used to be"]},
-  "cheating":{"betrayal":["cheat","affair","betray","unfaithful","another person","someone else","behind your back"],"trust":["trust","loyal","faithful","honest"]},
-  "marriage":{"commitment":["marriage","married","proposal","propose","engaged","engagement","wedding","commit","forever"]},
-  "career":{"work":["job","work","career","boss","coworker","promotion","hired"],"money":["money","finances","financial","income","pay","salary"]}
-};
-function topicConcepts(topic){const t=topic.toLowerCase().trim();for(const k of Object.keys(TOPIC_CONCEPTS)){if(new RegExp('\\b'+k.replace(/[.*+?^${}()|[\]\\]/g,'\\$&')+'\\b').test(t))return TOPIC_CONCEPTS[k];}return null;}
-function conceptMatch(txt,concepts){const s=txt.toLowerCase();for(const cn of Object.keys(concepts)){if(concepts[cn].some(x=>s.includes(x)))return cn;}return null;}
-function topicMatcher(topic){const concepts=topicConcepts(topic);if(concepts)return{concepts,test:txt=>conceptMatch(txt,concepts)};const terms=topicTerms(topic);return{concepts:null,test:txt=>matchText(txt,terms)};}
-function topicTerms(t0){
-  const t=t0.toLowerCase().trim(); let terms=[];
-  Object.keys(TOPIC_SYN).forEach(k=>{if(new RegExp('\\b'+k.replace(/[.*+?^${}()|[\]\\]/g,'\\$&')+'\\b').test(t)) terms=terms.concat(TOPIC_SYN[k]);});
-  t.split(/[^a-z]+/).filter(w=>w.length>2&&!STOP.has(w)).forEach(w=>terms.push(w));
-  return [...new Set(terms)];
-}
-function matchText(txt,terms){const s=txt.toLowerCase();return terms.some(t=>s.includes(t));}
-function topicForCard(card,matcher,limit){
-  const node=CORPUS[card]||{}, cls={direct:0,clarifier:1,sequence:2,nearby:3,meaning:4}, cand=[], seen=new Set();
-  const take=(t,v,r,wth)=>{if(!matcher.test(t))return;const cn=matcher.concepts?conceptMatch(t,matcher.concepts):null;cand.push({t,v,r,with:wth,concept:cn});};
-  Object.keys(node).forEach(p=>{(node[p].reads||[]).forEach(r=>{if(!r.f)take(r.t,r.v,r.r,p);});});
-  (meanings(card)||[]).forEach(m=>take(m.t,m.v,'meaning',null));
-  cand.sort((a,b)=>(cls[a.r]??9)-(cls[b.r]??9));
-  const out=[];
-  for(const c of cand){const key=c.t.slice(0,80);if(seen.has(key))continue;seen.add(key);out.push(c);if(out.length>=(limit||4))break;}
-  return out;
-}
-function renderTopic(){
-  const el=document.getElementById('topicFocus'); if(!el)return;
-  if(!topic||!seq.length){el.innerHTML='';return;}
-  const matcher=topicMatcher(topic); let any=0, body='';
-  seq.forEach(c=>{const hits=topicForCard(c,matcher,4);if(hits.length){any+=hits.length;body+=`<div class="tcard">${esc(c)}</div>`+hits.map(h=>`<div class="topichit">${h.concept?`<span class="tconcept">${esc(h.concept)}</span>`:''}${h.r!=='meaning'?`<span class="tg ${h.r}">${h.r}</span>`:''}${esc(h.t)}${h.with?` <span class="smtags">with ${esc(h.with)}</span>`:''} ${src(h.v)}</div>`).join('');}});
-  const cx=matcher.concepts?`Matched against the topic's concepts (${Object.keys(matcher.concepts).map(esc).join(', ')}): a passage qualifies only when it supports one of these, not merely because it names your card.`:`Matched on the words in your topic.`;
-  el.innerHTML=`<div class="bigbox topic"><span class="autolab">Topic filter</span><h3>On &ldquo;${esc(topic)}&rdquo;</h3>`
-    +(any?`<p>${cx} Filtered from corpus.json; each line links to its source video. This filters verbatim passages; it does not write topic advice.</p>${body}`
-         :`<p class="hint">No passage involving your cards supports this topic in the corpus.${matcher.concepts?' Concepts checked: '+Object.keys(matcher.concepts).map(esc).join(', ')+'.':''}</p>`)+`</div>`;
-}
+/* The topic-focus feature was removed 2026-07-15: it was substring keyword search
+   (e.g. "work" matched the verb, not a job) over passages from OTHER pairings not in
+   the spread, presented as topic-relevant. The corpus has no per-passage topic tags,
+   so no honest version exists with this data. See handoff note. */
 let readLayer='plain';
 function posRole(i,n){return n===1?'The card':(i===0?'Where it begins':(i===n-1?'Where it heads':'What develops'));}
 function bridge(a,b){
@@ -507,7 +441,7 @@ function plainReading(){
   return h;
 }
 function evidenceView(){
-  let h=''; const n=seq.length; const matcher=topic?topicMatcher(topic):null;
+  let h=''; const n=seq.length;
   seq.forEach((c,i)=>{
     const ch=cheat(c);
     h+=`<div class="tcard">${esc(c)} &mdash; ${posRole(i,n)}</div>`;
@@ -516,7 +450,7 @@ function evidenceView(){
     if(i<n-1){const a=c,b=seq[i+1],all=reads_(a,b),g={};all.forEach(r=>{const k=r.f?'flagged':r.r;g[k]=(g[k]||0)+1;});
       const s=structural(a,b), br=bridge(a,b);
       h+=`<div class="bridge2"><b>${esc(a)} &rarr; ${esc(b)}</b> &mdash; bridge from ${esc(br.kind)}. Bunning: ${esc(s.k)}. Evidence: ${['direct','clarifier','sequence','nearby','flagged'].filter(k=>g[k]).map(k=>`${g[k]} ${k}`).join(', ')||'none'}.</div>`;
-      let clean=all.filter(r=>!r.f); if(matcher){const tm=clean.filter(r=>matcher.test(r.t));if(tm.length)clean=tm;}
+      const clean=all.filter(r=>!r.f);
       const lead=(clean.filter(r=>orderOf(r.t,a,b)==='fwd')[0]||clean[0]||all[0]);
       if(lead) h+=`<div class="topichit"><span class="tg ${lead.r}">${lead.r}</span>${esc(lead.t)} ${src(lead.v)}</div>`;
     }
@@ -535,11 +469,6 @@ function renderCombined(){
   else {note="Every quotation, source link, and alternative passage for this spread.";inner=rawView();}
   el.innerHTML=`<div class="bigbox combined"><span class="autolab">Constructed corpus reading</span><h3>Everything in one read</h3><div class="layertabs">${toggle}</div><p class="autorule">${note}</p>${inner}</div>`;
   el.querySelectorAll('.lbtn').forEach(b=>b.onclick=()=>{readLayer=b.dataset.l;renderCombined();});
-}
-function renderTopicChips(){
-  const el=document.getElementById('topicchips'); if(!el)return;
-  el.innerHTML=TOPIC_EXAMPLES.map(t=>`<button class="tchip${t===topic?' on':''}" data-t="${esc(t)}">${esc(t)}</button>`).join('');
-  el.querySelectorAll('.tchip').forEach(b=>b.onclick=()=>{topic=b.dataset.t;document.getElementById('topicbox').value=topic;renderTopicChips();renderTopic();renderCombined();});
 }
 
 /* ================= MODE 1b: TWO-CARD COMBO ================= */
@@ -628,12 +557,9 @@ document.getElementById('tabExplore').onclick=()=>showMode('explore');
 document.getElementById('addPaste').onclick=addPasted;
 document.getElementById('pastebox').addEventListener('keydown',e=>{if(e.key==='Enter'&&!e.shiftKey){e.preventDefault();addPasted();}});
 document.getElementById('clearSeq').onclick=()=>{seq=[];document.getElementById('parseWarn').textContent='';syncSeq();};
-document.getElementById('setTopic').onclick=()=>{topic=document.getElementById('topicbox').value.trim();renderTopicChips();renderTopic();renderCombined();};
-document.getElementById('topicbox').addEventListener('keydown',e=>{if(e.key==='Enter'){e.preventDefault();topic=e.target.value.trim();renderTopicChips();renderTopic();renderCombined();}});
-document.getElementById('clearTopic').onclick=()=>{topic='';document.getElementById('topicbox').value='';renderTopicChips();renderTopic();renderCombined();};
 function toggleKid(){document.body.classList.toggle('kid');document.getElementById('kidfab').textContent=document.body.classList.contains('kid')?'Normal mode':'Kid mode';}
 
-renderPicker(); renderTopicChips();
+renderPicker();
 const builderEl=document.querySelector('#modeRead .builder');
 builderEl.classList.add('disabled-mask');
 document.getElementById('seqempty').textContent='Loading the corpus (about 11 MB), one moment.';
