@@ -284,7 +284,7 @@ function structural(a,b){
   }
   return {k:"Occasional pair",g:"No relationship recorded in Bunning's verified table. Bunning: any two cards can still be read together for one particular reading."};
 }
-function structHTML(a,b){const s=structural(a,b);return `<div class="struct"><span class="sk">${s.k}</span> &mdash; ${esc(s.g)}<span class="scite">Structural lens: Joan Bunning, Learning the Tarot. Reinforcing and opposing labels come from a verified table extracted from her card pages; court and Ace pairs are computed from card identity. Not from Chiron's transcripts.</span></div>`;}
+function structHTML(a,b){const s=structural(a,b);return `<div class="struct"><span class="sk">${s.k}</span> &mdash; ${esc(s.g)}<span class="scite">Structural lens: Joan Bunning, Learning the Tarot. Reinforcing and opposing labels come from a verified table (bunning_relations.json) extracted from her Learning the Tarot card pages; court and Ace pairs are computed from card identity. Not from Chiron's transcripts.</span></div>`;}
 
 const FLBL={neg:'negative mention',frag:'fragment','3rd':'third card leads',dup:'near-duplicate'};
 function joinList(a){return a.length<2?a.join(''):a.length===2?a.join(' and '):a.slice(0,-1).join(', ')+', and '+a[a.length-1];}
@@ -422,7 +422,7 @@ function renderTopic(){
   const terms=topicTerms(topic); let any=0, body='';
   seq.forEach(c=>{const hits=topicForCard(c,terms,4);if(hits.length){any+=hits.length;body+=`<div class="tcard">${esc(c)}</div>`+hits.map(h=>`<div class="topichit">${h.r!=='meaning'?`<span class="tg ${h.r}">${h.r}</span>`:''}${esc(h.t)}${h.with?` <span class="smtags">with ${esc(h.with)}</span>`:''} ${src(h.v)}</div>`).join('');}});
   el.innerHTML=`<div class="bigbox topic"><span class="autolab">Topic filter</span><h3>On &ldquo;${esc(topic)}&rdquo;</h3>`
-    +(any?`<p>Her recorded words that touch this topic, pulled from readings that involve your cards. This filters verbatim passages; it does not write topic advice.</p>${body}`
+    +(any?`<p>Her recorded words that touch this topic, filtered from corpus.json (readings that involve your cards). Each line links to its source video below. This filters verbatim passages; it does not write topic advice.</p>${body}`
          :`<p class="hint">No passage involving your cards mentions this topic in the corpus. Try a simpler word (for example &ldquo;love&rdquo;, &ldquo;work&rdquo;, or &ldquo;time&rdquo;).</p>`)+`</div>`;
 }
 function renderCombined(){
