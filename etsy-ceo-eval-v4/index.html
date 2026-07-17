@@ -1,0 +1,354 @@
+<!doctype html><html lang="en"><head>
+<meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Etsy CEO Eval v4 · OnethingNeededShop · drwu</title>
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,500;0,600;0,700;1,500&family=Inter:wght@400;500;600;700;800&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
+<style>
+:root{--g:#74A089;--gold:#9A8822;--orange:#DC863B;--pink:#F8AFA8;--peach:#F5CDB4;
+--cream:#FDDDA0;--slate:#899DA4;--ink:#1a1814;--paper:#FBF7EF;--card:#fff;--red:#b4543f;}
+*{box-sizing:border-box}
+body{margin:0;background:var(--paper);color:var(--ink);
+font:15px/1.55 "Inter",-apple-system,BlinkMacSystemFont,"Segoe UI",sans-serif;padding:24px 18px 90px;}
+.wrap{max-width:1180px;margin:0 auto}
+header.top{border:3px solid var(--ink);border-radius:14px;background:var(--cream);
+padding:22px 26px;box-shadow:6px 6px 0 var(--gold);margin-bottom:18px}
+header.top h1{font-family:"Cormorant Garamond",Georgia,serif;font-weight:700;font-size:38px;margin:0 0 4px}
+header.top .sub{font-size:14px;color:#5b5043;max-width:820px}
+.prov{font-family:"JetBrains Mono",monospace;font-size:11px;color:#6a5c44;margin-top:10px}
+.verdict{background:#fff;border:3px solid var(--ink);border-radius:14px;padding:18px 22px;
+box-shadow:5px 5px 0 rgba(220,134,59,.35);margin-bottom:18px}
+.verdict .tag{display:inline-block;font-size:11px;font-weight:800;letter-spacing:.08em;text-transform:uppercase;
+background:var(--ink);color:var(--cream);padding:3px 10px;border-radius:20px;margin-bottom:9px}
+.verdict p{margin:0;font-size:16.5px;line-height:1.5}
+.verdict strong{color:#8a3a1a}
+.kpis{display:grid;grid-template-columns:repeat(4,1fr);gap:11px;margin:0 0 18px}
+.kpi{background:var(--card);border:2px solid var(--ink);border-radius:12px;padding:12px 13px;
+box-shadow:3px 3px 0 rgba(43,39,35,.08)}
+.kpi__n{font-size:27px;font-weight:700;font-family:"Cormorant Garamond",serif;line-height:1}
+.kpi__l{font-size:12px;font-weight:600;margin-top:3px}
+.kpi__s{font-size:11px;color:#8a7f70;margin-top:2px}
+.kpi.alert{background:#fbe9e4;border-color:var(--red)}
+.kpi.good{background:#eaf6e0;border-color:var(--g)}
+h2.sec{font-family:"Cormorant Garamond",serif;font-size:27px;margin:28px 0 12px;
+border-bottom:2px solid var(--ink);padding-bottom:5px}
+.grid2{display:grid;grid-template-columns:1.15fr 1fr;gap:16px;align-items:start}
+.panel{background:var(--card);border:2px solid var(--ink);border-radius:12px;padding:16px 18px;
+box-shadow:3px 3px 0 rgba(43,39,35,.08)}
+.panel h3{margin:0 0 10px;font-size:16px;font-family:"Cormorant Garamond",serif}
+.panel.risk{background:#fbe9e4;border-color:var(--red)}
+.bars{margin:6px 0 0}
+.barrow{display:flex;align-items:center;gap:10px;margin:7px 0;font-size:13px}
+.barrow .m{width:58px;font-weight:600}
+.barrow .track{flex:1;height:20px;background:#efe7d8;border-radius:6px;overflow:hidden;position:relative}
+.barrow .fill{height:100%;border-radius:6px;background:var(--orange)}
+.barrow .v{width:120px;font-size:12px;color:#5b5043;text-align:right}
+.callout{background:#fff3d6;border:2px dashed var(--orange);border-radius:11px;
+padding:11px 14px;font-size:13px;color:#5a3f08;margin:12px 0 0}
+.callout.big{font-size:14.5px}
+table{width:100%;border-collapse:collapse;background:var(--card);border:2px solid var(--ink);border-radius:12px;overflow:hidden}
+th{background:var(--ink);color:var(--paper);font-size:11px;letter-spacing:.05em;text-transform:uppercase;
+padding:9px 8px;text-align:left;cursor:pointer;user-select:none}
+th:hover{background:#43392f}
+td{padding:8px;border-bottom:1px solid #ece3d3;font-size:12.5px}
+tr:hover td{background:#faf6ee}
+td.num,th.num{text-align:right;font-variant-numeric:tabular-nums}
+.pill{display:inline-block;font-size:10px;font-weight:800;padding:2px 7px;border-radius:9px}
+.pill.win{background:var(--g);color:#0f2018}.pill.mid{background:var(--cream);color:#3a2c08}.pill.dead{background:#efe1dc;color:#7a3020}
+.plays{display:grid;grid-template-columns:repeat(1,1fr);gap:12px}
+.play{background:var(--card);border:2px solid var(--ink);border-radius:12px;padding:15px 17px;
+display:flex;gap:15px;box-shadow:3px 3px 0 rgba(43,39,35,.1)}
+.play__n{font-family:"Cormorant Garamond",serif;font-size:40px;font-weight:700;color:var(--orange);line-height:.95;min-width:38px}
+.play h4{margin:0 0 5px;font-size:16px}
+.play p{margin:0 0 6px;font-size:13.5px;color:#4a4034}
+.meta{display:flex;gap:8px;flex-wrap:wrap;margin-top:4px}
+.est{display:inline-block;font-size:10.5px;font-weight:700;background:var(--g);color:#0f2018;padding:2px 9px;border-radius:10px}
+.est.eff{background:var(--cream);color:#3a2c08}.est.now{background:var(--red);color:#fff}
+.foot{margin-top:26px;font-size:12px;color:#8a7f70;text-align:center;line-height:1.6}
+.two{display:grid;grid-template-columns:1fr 1fr;gap:16px}
+ul.tight{margin:6px 0 0;padding-left:17px;font-size:13.5px}ul.tight li{margin:5px 0}
+.src{font-family:"JetBrains Mono",monospace;font-size:10.5px;color:#9a8a6a}
+.agents{display:grid;grid-template-columns:repeat(2,1fr);gap:13px}
+.agent{background:var(--card);border:2px solid var(--ink);border-radius:12px;padding:15px 16px;box-shadow:3px 3px 0 rgba(43,39,35,.08);position:relative}
+.agent h4{margin:0 0 4px;font-size:15.5px;font-family:"Cormorant Garamond",serif;padding-right:64px}
+.agent .role{font-size:12.5px;color:#4a4034;margin:0 0 9px}
+.agent dl{margin:0;font-size:12px;display:grid;grid-template-columns:auto 1fr;gap:3px 8px}
+.agent dt{font-weight:700;color:#8a7f70;text-transform:uppercase;letter-spacing:.04em;font-size:10px;padding-top:2px}
+.agent dd{margin:0;color:#3a3128}
+.agent .stat{position:absolute;top:12px;right:13px;font-size:9.5px;font-weight:800;letter-spacing:.04em;padding:2px 8px;border-radius:20px}
+.stat.build{background:var(--g);color:#0f2018}.stat.spec{background:var(--cream);color:#3a2c08}
+.agent code{background:#efe7d3;padding:.05em .3em;border-radius:4px;font-size:10.5px;font-family:"JetBrains Mono",monospace}
+.agent .fix{margin:9px 0 0;font-size:11.5px;background:#eef5ea;border-radius:8px;padding:7px 9px}
+@media(max-width:820px){.kpis{grid-template-columns:repeat(2,1fr)}.grid2,.two,.agents{grid-template-columns:1fr}header.top h1{font-size:30px}}
+</style></head>
+<body><div class="wrap">
+
+<header class="top">
+  <h1>Etsy CEO Evaluation — v4</h1>
+  <div class="sub"><b>OnethingNeededShop</b> (shop 50156638) · a fresh, live-API read of where the shop actually stands, superseding <span class="src">etsy-ceo-eval</span> and <span class="src">-v3</span>. Every number below is pulled from the Etsy Open API v3, not remembered.</div>
+  <div class="prov">SOURCE: Etsy Open API v3 (OAuth) · pulled 2026-07-17 · getShop + listings(all states) + receipts + sections · cross-read against 14 prior Etsy chat sessions</div>
+</header>
+
+<div class="verdict">
+  <span class="tag">The one-line story</span>
+  <p>The shop has a <strong>real, accelerating funnel</strong> — 63 orders in ~9 weeks, growing 7 → 25 → 31 a month on 1,123 views — but it has been running as a <strong>$1 free-sample machine</strong>: 69 of 71 items ever sold went for $1, so lifetime gross is <strong>$95</strong>. Prices were just raised to $13–$38, so the shop is at its pivot moment — with <strong>zero full-price validation</strong>, a <strong>fulfillment backlog that threatens account health</strong>, and <strong>121 dark listings</strong> behind a storefront that advertises products it no longer sells. The next 30 days decide whether the demand survives real prices.</p>
+</div>
+
+<div class="kpis">
+  <div class="kpi good"><div class="kpi__n">71</div><div class="kpi__l">Lifetime sales</div><div class="kpi__s">volume 7→25→31/mo, rising</div></div>
+  <div class="kpi alert"><div class="kpi__n">$95.02</div><div class="kpi__l">Gross, ~9-wk window</div><div class="kpi__s">AOV $1.51 · 97% sold at $1</div></div>
+  <div class="kpi alert"><div class="kpi__n">7</div><div class="kpi__l">Orders not fulfilled</div><div class="kpi__s">oldest ~28 days · local report says 13</div></div>
+  <div class="kpi alert"><div class="kpi__n">3</div><div class="kpi__l">Reviews (avg 5.0)</div><div class="kpi__s">4% of buyers left one</div></div>
+  <div class="kpi"><div class="kpi__n">23</div><div class="kpi__l">Active listings</div><div class="kpi__s">all tarot/voice, one section</div></div>
+  <div class="kpi alert"><div class="kpi__n">121</div><div class="kpi__l">Dark listings</div><div class="kpi__s">85 inactive · 34 draft · 2 other</div></div>
+  <div class="kpi"><div class="kpi__n">1,123</div><div class="kpi__l">Views on active</div><div class="kpi__s">~6.3% crude view→sale</div></div>
+  <div class="kpi"><div class="kpi__n">$13–38</div><div class="kpi__l">Current price band</div><div class="kpi__s">raised from $1 — untested</div></div>
+</div>
+
+<h2 class="sec">1 · The revenue reality</h2>
+<div class="grid2">
+  <div class="panel">
+    <h3>Orders are climbing — dollars are not</h3>
+    <div class="bars">
+      <div class="barrow"><span class="m">May '26</span><span class="track"><span class="fill" style="width:23%"></span></span><span class="v">7 orders · $9.93</span></div>
+      <div class="barrow"><span class="m">Jun '26</span><span class="track"><span class="fill" style="width:81%"></span></span><span class="v">25 orders · $27.95</span></div>
+      <div class="barrow"><span class="m">Jul '26</span><span class="track"><span class="fill" style="width:100%"></span></span><span class="v">31 orders · $57.14</span></div>
+    </div>
+    <div class="callout big"><b>Read it carefully:</b> the bars are order <i>counts</i>, and they are healthy and rising. The dollars beside them are near-zero because the price was $1. This is a demand-proven shop that has never actually been monetized.</div>
+  </div>
+  <div class="panel">
+    <h3>Where the money came from</h3>
+    <table><tbody>
+      <tr><td>Items sold at <b>$1</b></td><td class="num">69 / 71</td></tr>
+      <tr><td>Items sold at $10 / $13</td><td class="num">2</td></tr>
+      <tr><td>Total discounts given</td><td class="num">$1.50</td></tr>
+      <tr><td>Gross from the two full-price orders</td><td class="num">$23.00</td></tr>
+      <tr><td>Gross from the 59 promo orders</td><td class="num">$72.02</td></tr>
+      <tr><td>Refunds issued</td><td class="num">1</td></tr>
+    </tbody></table>
+    <div class="callout">It was not a coupon — the <i>list price itself</i> was $1. After Etsy's $0.20 listing fee + 6.5% + payment processing, a $1 order nets roughly break-even at best. The shop essentially gave the catalog away to buy velocity.</div>
+  </div>
+</div>
+
+<h2 class="sec">2 · The fulfillment liability <span class="src" style="font-size:13px">— fix this before anything else</span></h2>
+<div class="panel risk">
+  <h3>7 paid orders are not marked fulfilled in the API</h3>
+  <table id="ff">
+    <thead><tr><th>Order date</th><th class="num">Age</th><th>Buyer</th><th>Item</th><th class="num">Paid</th></tr></thead>
+    <tbody>
+      <tr><td>2026-06-17</td><td class="num">~28d</td><td>Karen M.</td><td>Voice Tarot 12-Min Monthly Check-In</td><td class="num">$1.15</td></tr>
+      <tr><td>2026-06-26</td><td class="num">~19d</td><td>Lamyaa B.</td><td>15-Minute Voice Tarot Reading</td><td class="num">$1.00</td></tr>
+      <tr><td>2026-07-01</td><td class="num">~15d</td><td>TT Chan</td><td>Voice Tarot 12-Min Monthly Check-In</td><td class="num">$1.00</td></tr>
+      <tr><td>2026-07-02</td><td class="num">~13d</td><td>JoAnne N.</td><td>Voice Tarot 45-Min Multi-Spread</td><td class="num">$10.00</td></tr>
+      <tr><td>2026-07-07</td><td class="num">~8d</td><td>Leah O.</td><td>Voice Tarot 12-Min Monthly Check-In</td><td class="num">$0.75</td></tr>
+      <tr><td>2026-07-13</td><td class="num">~3d</td><td>Gabbryanna S.</td><td>15-Minute Voice Tarot Reading</td><td class="num">$1.13</td></tr>
+      <tr><td>2026-07-13</td><td class="num">~2d</td><td>PM</td><td>Voice Tarot 12-Min Monthly Check-In</td><td class="num">$1.18</td></tr>
+    </tbody>
+  </table>
+  <div class="callout" style="background:#fff;border-color:var(--red)">
+    <b>Why a CEO cares even at $1:</b> these are made-to-order readings a real person paid for and has not received. On Etsy that path runs order → buyer message → <b>case</b> → account-health hit → <b>search suppression</b>. You cannot run a price-raise experiment on a store whose search ranking is being dragged down by open cases. <b>Deliver all seven this week; cancel only any you genuinely cannot fulfill.</b>
+    <br><br><b>Provenance note:</b> the API flags these as <span class="src">is_paid=true, is_shipped=false</span>. Today's local fulfillment report flagged <b>13</b>. For message-delivered readings the "shipped" flag can lag actual delivery, so treat 7–13 as the range and reconcile each against your sent-files log before cancelling.
+  </div>
+</div>
+
+<h2 class="sec">3 · Demand signal — what actually sells</h2>
+<div class="panel">
+  <p style="margin:0 0 10px;font-size:13.5px">The relationship / psychic-hook listings outsell generic "tarot reading" by a wide margin. Click a column to sort. Sales = units seen in the receipt pull.</p>
+  <table id="lst">
+    <thead><tr>
+      <th onclick="sortT(0,true)">Listing</th>
+      <th class="num" onclick="sortT(1)">List $</th>
+      <th class="num" onclick="sortT(2)">Sales</th>
+      <th class="num" onclick="sortT(3)">Views</th>
+      <th class="num" onclick="sortT(4)">Favs</th>
+      <th onclick="sortT(5,true)">Signal</th>
+    </tr></thead>
+    <tbody>
+      <tr><td>Are They Watching You · Psychic Connection</td><td class="num">13</td><td class="num">11</td><td class="num">154</td><td class="num">5</td><td><span class="pill win">top seller</span></td></tr>
+      <tr><td>Psychic Reading No Cards · Real Intuition</td><td class="num">13</td><td class="num">9</td><td class="num">96</td><td class="num">2</td><td><span class="pill win">top seller</span></td></tr>
+      <tr><td>Quick Tarot · One Question, Voice Reply</td><td class="num">20</td><td class="num">7</td><td class="num">203</td><td class="num">9</td><td><span class="pill win">most viewed</span></td></tr>
+      <tr><td>Your Timeline Reading · Extremely Accurate</td><td class="num">13</td><td class="num">7</td><td class="num">91</td><td class="num">2</td><td><span class="pill win">strong</span></td></tr>
+      <tr><td>What Happens Next · Future Insight</td><td class="num">13</td><td class="num">5</td><td class="num">52</td><td class="num">4</td><td><span class="pill win">strong</span></td></tr>
+      <tr><td>Their Hidden Thoughts · Love Telepathy</td><td class="num">13</td><td class="num">4</td><td class="num">46</td><td class="num">4</td><td><span class="pill mid">solid</span></td></tr>
+      <tr><td>The Message They Cannot Say</td><td class="num">13</td><td class="num">4</td><td class="num">67</td><td class="num">2</td><td><span class="pill mid">solid</span></td></tr>
+      <tr><td>Soulmate Energy Check · Love Reading</td><td class="num">13</td><td class="num">4</td><td class="num">38</td><td class="num">2</td><td><span class="pill mid">solid</span></td></tr>
+      <tr><td>Voice Tarot 12-Min · Monthly Check-In</td><td class="num">16</td><td class="num">4</td><td class="num">68</td><td class="num">3</td><td><span class="pill mid">solid</span></td></tr>
+      <tr><td>15-Minute Voice Tarot Reading</td><td class="num">20</td><td class="num">2</td><td class="num">108</td><td class="num">1</td><td><span class="pill mid">viewed, low conv.</span></td></tr>
+      <tr><td>Why They Went Quiet · Psychic Insight</td><td class="num">13</td><td class="num">2</td><td class="num">27</td><td class="num">0</td><td><span class="pill mid">emerging</span></td></tr>
+      <tr><td>One Question Full Answer</td><td class="num">13</td><td class="num">2</td><td class="num">35</td><td class="num">1</td><td><span class="pill mid">emerging</span></td></tr>
+      <tr><td>In-Depth 30-Minute Reading</td><td class="num">38</td><td class="num">0</td><td class="num">25</td><td class="num">2</td><td><span class="pill dead">no sales yet</span></td></tr>
+      <tr><td>No Contact · Read The Silence</td><td class="num">20</td><td class="num">0</td><td class="num">6</td><td class="num">2</td><td><span class="pill dead">no sales yet</span></td></tr>
+      <tr><td>Apology You Deserved · Healing</td><td class="num">28</td><td class="num">0</td><td class="num">0</td><td class="num">0</td><td><span class="pill dead">no traffic</span></td></tr>
+      <tr><td>Income Leak Named · Career/Money</td><td class="num">20</td><td class="num">0</td><td class="num">1</td><td class="num">0</td><td><span class="pill dead">no traffic</span></td></tr>
+    </tbody>
+  </table>
+  <div class="callout"><b>Product-market signal:</b> "Are They Watching You," "Psychic Reading No Cards," "Their Hidden Thoughts" — the <b>love / telepathy / no-contact / psychic</b> angle wins. The generic "tarot reading" framing and the high-ticket $28–38 items have little or no traction. Build the catalog and any ad spend around the psychic-relationship hook, not around the word "tarot."</div>
+</div>
+
+<h2 class="sec">4 · The storefront is telling two stories</h2>
+<div class="two">
+  <div class="panel">
+    <h3>The announcement vs the catalog</h3>
+    <p style="font-size:13px;margin:0 0 8px">Live shop announcement still advertises:</p>
+    <ul class="tight">
+      <li>"multitrack MIDI song packs for producers" — <b>0 active</b></li>
+      <li>"printable music theory guides" — <b>0 active</b></li>
+      <li>"faith devotionals" — <b>0 active</b></li>
+      <li>"Notion productivity templates" — <b>0 active</b></li>
+    </ul>
+    <div class="callout">Four of the four non-tarot lines named in your own storefront copy are dark. A shopper who lands on the announcement and searches the shop finds only tarot. Either relight those lines or rewrite the copy — a storefront that promises what it can't show erodes trust.</div>
+  </div>
+  <div class="panel">
+    <h3>121 built listings sitting idle</h3>
+    <table><tbody>
+      <tr><td>Active</td><td class="num">23</td></tr>
+      <tr><td>Inactive</td><td class="num">85</td></tr>
+      <tr><td>Draft</td><td class="num">34</td></tr>
+      <tr><td>Expired / sold-out</td><td class="num">2</td></tr>
+      <tr><td>Sections with 0 active</td><td class="num">3 of 4</td></tr>
+    </tbody></table>
+    <div class="callout">Faith &amp; Devotionals, Music/MIDI/Books, and Templates &amp; Misc are all empty of active listings. This is either a <b>second revenue leg already built and switched off</b> (a decision to make deliberately) or dead inventory to purge. Right now it is neither — it is drift.</div>
+  </div>
+</div>
+
+<h2 class="sec">5 · The five CEO moves</h2>
+<div class="plays">
+  <div class="play"><div class="play__n">1</div><div>
+    <h4>Clear the fulfillment debt — this week, before anything else</h4>
+    <p>Deliver the 7 (up to 13) open orders, cancelling only any you truly can't fulfill, and reconcile each against your sent-files log. Open cases suppress search; you cannot test higher prices on a suppressed shop.</p>
+    <div class="meta"><span class="est now">Do first</span><span class="est eff">Effort: hours</span><span class="est">Protects: account health</span></div>
+  </div></div>
+  <div class="play"><div class="play__n">2</div><div>
+    <h4>Validate the $13–$38 prices — you have zero evidence they convert</h4>
+    <p>Watch the next ~20 orders at real prices. If conversion holds, you just 13×'d revenue per order. If velocity craters, introduce a <b>$3–$5 entry tier</b> (a single-question reading) as the new front door instead of jumping buyers straight from $1 to $13.</p>
+    <div class="meta"><span class="est">Highest upside</span><span class="est eff">Effort: monitor + 1 listing</span></div>
+  </div></div>
+  <div class="play"><div class="play__n">3</div><div>
+    <h4>Farm reviews — 3 reviews from 71 sales is your #1 conversion leak</h4>
+    <p>For a "real human, no AI" reader, reviews <i>are</i> the funnel. Add an automated post-delivery review ask to every order. You wasted 68 chances on the $1 buyers; don't waste the full-price ones. Target: 20+ reviews in 60 days.</p>
+    <div class="meta"><span class="est">Compounds</span><span class="est eff">Effort: template + habit</span></div>
+  </div></div>
+  <div class="play"><div class="play__n">4</div><div>
+    <h4>Resolve the storefront contradiction — decide, don't drift</h4>
+    <p>Either relight the MIDI / music-theory / faith / template lines (121 listings already built) as a real second leg, or rewrite the announcement to the tarot-only truth. Pick one this month.</p>
+    <div class="meta"><span class="est">Trust + focus</span><span class="est eff">Effort: 1 decision</span></div>
+  </div></div>
+  <div class="play"><div class="play__n">5</div><div>
+    <h4>Concentrate on the psychic-relationship hook that already wins</h4>
+    <p>"Are They Watching You," "Psychic Reading No Cards," "Their Hidden Thoughts," "Your Timeline." Make these the hero listings, mirror their SEO across new listings, and retire or reprice the $28–38 items with no traction.</p>
+    <div class="meta"><span class="est">Data-backed</span><span class="est eff">Effort: SEO + catalog trim</span></div>
+  </div></div>
+</div>
+
+<h2 class="sec">6 · Risk register</h2>
+<div class="two">
+  <div class="panel risk">
+    <h3>What can hurt you</h3>
+    <ul class="tight">
+      <li><b>Account health:</b> open/undelivered orders → Etsy cases → search suppression.</li>
+      <li><b>Price cliff:</b> the $1→$13 jump is untested; velocity could collapse.</li>
+      <li><b>Single point of failure:</b> one human records every reading. July's 31 orders + manual fulfillment is exactly how the backlog was born — and volume is still climbing.</li>
+      <li><b>Trust erosion:</b> storefront advertising 4 dead product lines.</li>
+    </ul>
+  </div>
+  <div class="panel">
+    <h3>What's working (protect it)</h3>
+    <ul class="tight">
+      <li><b>Proven demand:</b> 63 orders in 9 weeks, accelerating, no ad spend cited.</li>
+      <li><b>A clear winning niche:</b> psychic / love / no-contact readings.</li>
+      <li><b>Perfect rating:</b> 5.0 across the 3 reviews you do have.</li>
+      <li><b>Built inventory:</b> 121 listings ready to deploy the moment you choose a second leg.</li>
+      <li><b>Clean API pipeline:</b> full read/write toolchain already in place for pricing, SEO, and fulfillment automation.</li>
+    </ul>
+  </div>
+</div>
+
+<h2 class="sec">7 · The agent stack <span class="src" style="font-size:13px">— turn the moves into running help</span></h2>
+<div class="callout" style="margin:0 0 13px">Six operational agents that run the shop off the API pipeline already in place. Each maps to a finding above. <b>These are blueprints, not running.</b> Per standing policy nothing here runs autonomously until you authorize a specific agent. "Buildable now" means the read/write endpoints it needs are already working; "spec" means it needs a human-approved send.</div>
+<div class="agents">
+
+  <div class="agent"><span class="stat build">Buildable now</span>
+    <h4>Fulfillment Watchdog</h4>
+    <p class="role">Guards the "same day" promise you just published, before it turns into cases.</p>
+    <dl>
+      <dt>Cadence</dt><dd>every 30 min</dd>
+      <dt>Reads</dt><dd><code>GET /shops/{id}/receipts</code> — is_paid, is_shipped, create_timestamp</dd>
+      <dt>Does</dt><dd>flags any paid order past ~18h unfulfilled, with buyer, item, and age</dd>
+    </dl>
+    <p class="fix">Addresses Fire #1 (7 open orders) and keeps the new same-day copy honest.</p>
+  </div>
+
+  <div class="agent"><span class="stat build">Buildable now</span>
+    <h4>Price Sentinel</h4>
+    <p class="role">Watches whether $13 to $38 actually converts now that the $1 era is over.</p>
+    <dl>
+      <dt>Cadence</dt><dd>daily</dd>
+      <dt>Reads</dt><dd>receipts (grandtotal) + listing views</dd>
+      <dt>Does</dt><dd>tracks AOV and view-to-sale on the next 20 full-price orders; alerts if velocity drops; proposes a $3 to $5 entry tier</dd>
+    </dl>
+    <p class="fix">Addresses Move #2 (the untested price jump).</p>
+  </div>
+
+  <div class="agent"><span class="stat spec">Spec — needs approval to send</span>
+    <h4>Review Harvester</h4>
+    <p class="role">Turns delivered orders into the reviews the storefront is starving for.</p>
+    <dl>
+      <dt>Cadence</dt><dd>on delivery, then day 3</dd>
+      <dt>Reads</dt><dd>receipts marked shipped</dd>
+      <dt>Does</dt><dd>drafts the post-delivery review ask; you approve each send</dd>
+    </dl>
+    <p class="fix">Addresses Move #3 (3 reviews from 71 sales).</p>
+  </div>
+
+  <div class="agent"><span class="stat build">Buildable now</span>
+    <h4>SEO Mirror</h4>
+    <p class="role">Spreads what already sells to the listings that do not.</p>
+    <dl>
+      <dt>Cadence</dt><dd>on demand</dd>
+      <dt>Reads</dt><dd>top-seller tags and titles vs weak listings</dd>
+      <dt>Does</dt><dd>proposes tag and title edits (≤13 tags, ≤20 chars) mirroring the psychic and love winners; PATCH on approval</dd>
+    </dl>
+    <p class="fix">Addresses Move #5 (concentrate on the winning hook).</p>
+  </div>
+
+  <div class="agent"><span class="stat build">Buildable now</span>
+    <h4>Catalog Reconciler</h4>
+    <p class="role">Keeps the storefront from promising what it cannot show.</p>
+    <dl>
+      <dt>Cadence</dt><dd>weekly</dd>
+      <dt>Reads</dt><dd>shop announcement vs active listings and sections</dd>
+      <dt>Does</dt><dd>flags copy advertising dead lines; lists the 121 dark listings by state for relight or purge</dd>
+    </dl>
+    <p class="fix">Addresses Move #4 (the storefront contradiction).</p>
+  </div>
+
+  <div class="agent"><span class="stat build">Buildable now</span>
+    <h4>Token &amp; API Sentinel</h4>
+    <p class="role">Keeps the pipeline alive so every agent above can run.</p>
+    <dl>
+      <dt>Cadence</dt><dd>hourly</dd>
+      <dt>Reads</dt><dd>OAuth expiry in <code>.env</code></dd>
+      <dt>Does</dt><dd>refreshes the access token before it expires (<code>refresh_token.py</code>)</dd>
+    </dl>
+    <p class="fix">Infrastructure for the whole stack; the token expired 18h before this pull and had to be refreshed by hand.</p>
+  </div>
+
+</div>
+
+<div class="foot">
+  Etsy CEO Evaluation v4 · OnethingNeededShop (50156638) · built 2026-07-17 from a live Etsy Open API v3 pull (getShop, listings all-states, receipts, sections) cross-read against 14 prior Etsy chat sessions.<br>
+  Supersedes <span class="src">/etsy-ceo-eval</span> and <span class="src">/etsy-ceo-eval-v3</span>. Figures reflect the receipt window pulled (≈2026-05-14 → 2026-07-13); "lifetime sales 71" is the shop's transaction counter.
+</div>
+
+</div>
+<script>
+function sortT(col,txt){
+  var t=document.getElementById('lst'),tb=t.tBodies[0],rows=[].slice.call(tb.rows);
+  t._d=!t._d;var d=t._d?1:-1;
+  rows.sort(function(a,b){
+    var x=a.cells[col].innerText,y=b.cells[col].innerText;
+    if(!txt){x=parseFloat(x)||0;y=parseFloat(y)||0;return (x-y)*d;}
+    return x.localeCompare(y)*d;
+  });
+  rows.forEach(function(r){tb.appendChild(r);});
+}
+</script>
+</body></html>
