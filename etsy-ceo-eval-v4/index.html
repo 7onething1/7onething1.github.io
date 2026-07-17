@@ -84,7 +84,7 @@ ul.tight{margin:6px 0 0;padding-left:17px;font-size:13.5px}ul.tight li{margin:5p
 <header class="top">
   <h1>Etsy CEO Evaluation — v4</h1>
   <div class="sub"><b>OnethingNeededShop</b> (shop 50156638) · a fresh, live-API read of where the shop actually stands, superseding <span class="src">etsy-ceo-eval</span> and <span class="src">-v3</span>. Every number below is pulled from the Etsy Open API v3, not remembered.</div>
-  <div class="prov">SOURCE: Etsy Open API v3 (OAuth) · pulled 2026-07-17 · getShop + listings(all states) + receipts + sections · cross-read against 14 prior Etsy chat sessions</div>
+  <div class="prov">SOURCE: Etsy Open API v3 · https://api.etsy.com/v3/application/shops/50156638 (getShop, /listings, /receipts, /sections; OAuth) · pulled 2026-07-17 · local snapshot scratchpad/etsy_live_full.json · cross-read against 14 prior Etsy chat sessions</div>
 </header>
 
 <div class="verdict">
@@ -292,7 +292,7 @@ ul.tight{margin:6px 0 0;padding-left:17px;font-size:13.5px}ul.tight li{margin:5p
     <p class="role">Turns delivered orders into the reviews the storefront is starving for.</p>
     <dl>
       <dt>Cadence</dt><dd>on delivery, then day 3</dd>
-      <dt>Reads</dt><dd>receipts marked shipped</dd>
+      <dt>Reads</dt><dd>receipts marked delivered</dd>
       <dt>Does</dt><dd>drafts the post-delivery review ask; you approve each send</dd>
     </dl>
     <p class="fix">Addresses Move #3 (3 reviews from 71 sales).</p>
@@ -334,7 +334,7 @@ ul.tight{margin:6px 0 0;padding-left:17px;font-size:13.5px}ul.tight li{margin:5p
 </div>
 
 <div class="foot">
-  Etsy CEO Evaluation v4 · OnethingNeededShop (50156638) · built 2026-07-17 from a live Etsy Open API v3 pull (getShop, listings all-states, receipts, sections) cross-read against 14 prior Etsy chat sessions.<br>
+  Etsy CEO Evaluation v4 · OnethingNeededShop (50156638) · built 2026-07-17 from a live Etsy Open API v3 pull of https://api.etsy.com/v3/application/shops/50156638 (getShop, listings all-states, receipts, sections) cross-read against 14 prior Etsy chat sessions.<br>
   Supersedes <span class="src">/etsy-ceo-eval</span> and <span class="src">/etsy-ceo-eval-v3</span>. Figures reflect the receipt window pulled (≈2026-05-14 → 2026-07-13); "lifetime sales 71" is the shop's transaction counter.
 </div>
 
