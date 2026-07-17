@@ -120,6 +120,37 @@ select.tbtn{-webkit-appearance:none;appearance:none;padding-right:12px}
 .panels.q4 .counters{flex-direction:column;gap:5px}
 .panels.q4 .pbtn{width:clamp(36px,4vw,48px);min-height:40px;font-size:18px}
 .panels.q4 .blockpartner{font-size:clamp(8.5px,0.9vw,11px);padding:5px 4px;letter-spacing:0}
+/* ---- 3-player TRIO: same one-row treatment as the quad, all three panels (e.g. Ben, Brandon,
+   Lisa) side by side at EVERY width and device. Three panels have more room than four, so the
+   clamps run a notch larger than q4 but the structure is identical. Not gated behind any class. ---- */
+.panels.q3{grid-template-columns:repeat(3,1fr)!important;gap:8px;align-items:start}
+.panels.q3 .panel{padding:9px 7px 10px;border-width:3px;border-radius:11px;min-width:0}
+.panels.q3 .cnum{font-size:15px;top:3px;right:6px}
+.panels.q3 .corner{border-top-width:32px;border-left-width:32px}
+.panels.q3 .namerow{gap:6px;margin-bottom:3px;flex-direction:column;align-items:flex-start}
+.panels.q3 .avatar{width:clamp(38px,5vw,60px);height:clamp(38px,5vw,60px);border-width:2px;box-shadow:2px 2px 0 var(--ink)}
+.panels.q3 .pname{font-size:clamp(19px,3vw,30px)}
+.panels.q3 .cmdrs{gap:4px}
+.panels.q3 .cmdr{min-width:0;font-size:clamp(11px,1.5vw,14px);padding:5px 7px}
+.panels.q3 .addpartner,.panels.q3 .rmpartner{font-size:clamp(10px,1.4vw,12px);padding:6px 7px}
+.panels.q3 .lifebox{flex-direction:column;gap:6px}
+.panels.q3 .lifeplate{padding:0 6px 3px}
+.panels.q3 .life{font-size:clamp(44px,8vw,104px);-webkit-text-stroke:1.5px var(--ink)}
+.panels.q3 .lifebtns{flex:none;grid-template-columns:1fr 1fr;gap:6px}
+.panels.q3 .lb{font-size:clamp(20px,2.4vw,28px);min-height:48px;border-width:2px}
+.panels.q3 .cmdsec{margin-top:8px;padding-top:6px}
+.panels.q3 .cmdtitle{font-size:clamp(10px,1.4vw,12.5px);margin-bottom:5px;letter-spacing:0}
+.panels.q3 .cmdrow{padding:5px 7px}
+.panels.q3 .cmdname{font-size:clamp(10.5px,1.4vw,13px);overflow:hidden;text-overflow:ellipsis;white-space:nowrap}
+.panels.q3 .cmini{width:18px;height:18px}
+.panels.q3 .cmdval{font-size:clamp(18px,2.2vw,25px)}
+.panels.q3 .cmdval small{font-size:10px}
+.panels.q3 .cb{min-height:48px;font-size:clamp(18px,2.1vw,23px)}
+.panels.q3 .counters{flex-direction:column;gap:6px}
+.panels.q3 .pbtn{width:clamp(42px,5vw,52px);min-height:44px;font-size:20px}
+.panels.q3 .blockpartner{font-size:clamp(9.5px,1.2vw,11px);padding:6px 5px;letter-spacing:0}
+body.forcemob .panels.q3{gap:5px}
+body.forcemob .panels.q3 .panel{padding:7px 5px 8px}
 /* The 📱 Mobile button squeezes gutters and tightens the row a touch more for small phones. */
 body.forcemob .wrap{max-width:100%;padding-left:4px;padding-right:4px}
 body.forcemob .panels.q4{gap:4px}
