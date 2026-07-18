@@ -1,0 +1,43 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1200" height="630" viewBox="0 0 1200 630" role="img" aria-label="Emotional Alchemy — Turning pain into power and freedom">
+  <defs>
+    <linearGradient id="bg" x1="0" y1="0" x2="0" y2="1">
+      <stop offset="0" stop-color="#f7f1e6"/>
+      <stop offset="1" stop-color="#efe6d6"/>
+    </linearGradient>
+    <filter id="grain"><feTurbulence type="fractalNoise" baseFrequency="0.9" numOctaves="2"/><feColorMatrix type="saturate" values="0"/></filter>
+  </defs>
+
+  <rect width="1200" height="630" fill="url(#bg)"/>
+  <rect width="1200" height="630" fill="#000" opacity="0.03" filter="url(#grain)"/>
+  <rect x="20" y="20" width="1160" height="590" rx="18" fill="none" stroke="#b79a62" stroke-opacity="0.5" stroke-width="1.5"/>
+
+  <!-- wordmark -->
+  <g transform="translate(90,86)">
+    <circle cx="22" cy="22" r="19" fill="none" stroke="#183b2b" stroke-width="3.4"/>
+    <path d="M22 11 L34 34 L10 34 Z" fill="none" stroke="#183b2b" stroke-width="3.4" stroke-linejoin="round"/>
+    <text x="58" y="30" font-family="Georgia, 'Times New Roman', serif" font-size="30" fill="#183b2b" letter-spacing="0.5">Emotional <tspan fill="#8f7742">Alchemy</tspan></text>
+  </g>
+
+  <!-- headline -->
+  <text x="90" y="290" font-family="Georgia, 'Times New Roman', serif" font-size="82" fill="#183b2b" letter-spacing="-1">Turning pain into</text>
+  <text x="90" y="380" font-family="Georgia, 'Times New Roman', serif" font-size="82" font-style="italic" fill="#5b344f" letter-spacing="-1">power and freedom.</text>
+
+  <text x="92" y="452" font-family="Georgia, serif" font-size="27" fill="#4a463f">A five-stage path through what hurts — and back to yourself.</text>
+
+  <!-- five symbols -->
+  <g fill="none" stroke-width="3.4" stroke-linecap="round" stroke-linejoin="round" transform="translate(92,520)">
+    <g stroke="#5b344f"><path d="M26 6 L46 44 L6 44 Z"/></g>
+    <g stroke="#6f8a6a" transform="translate(78,0)"><path d="M6 8 L46 8 L26 46 Z"/></g>
+    <g stroke="#8f7742" transform="translate(156,0)"><path d="M26 6 L46 44 L6 44 Z"/><path d="M15 33 L37 33"/></g>
+    <g stroke="#183b2b" transform="translate(234,0)"><path d="M6 8 L46 8 L26 46 Z"/><path d="M15 25 L37 25"/></g>
+    <g stroke="#b79a62" transform="translate(312,0)"><circle cx="26" cy="26" r="20"/><circle cx="26" cy="26" r="1.6"/></g>
+  </g>
+
+  <!-- large rubedo motif on the right -->
+  <g transform="translate(930,315)" fill="none" stroke="#b79a62" stroke-opacity="0.85">
+    <circle cx="0" cy="0" r="185" stroke-width="1.6" stroke-opacity="0.4"/>
+    <circle cx="0" cy="0" r="140" stroke-width="2.4"/>
+    <path d="M0 -78 L68 44 L-68 44 Z" stroke="#183b2b" stroke-opacity="0.9" stroke-width="2.6" stroke-linejoin="round"/>
+    <path d="M-46 6 L46 6" stroke="#5b344f" stroke-opacity="0.85" stroke-width="2.6" stroke-linecap="round"/>
+  </g>
+</svg>
