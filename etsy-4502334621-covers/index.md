@@ -2,6 +2,10 @@
 
 Listing `4502334621`, the $33 premium tier in Etsy shop OnethingNeededShop (shop id 50156638).
 
+Source of the live data on this page:
+`GET https://api.etsy.com/v3/application/shops/50156638/listings?state=active&includes=Images`,
+saved to `scratchpad/listings.json`. Current images are the `url_570xN` files from that response.
+
 Live page: https://7onething1.github.io/etsy-4502334621-covers/
 
 ## The problem
@@ -39,9 +43,9 @@ ChatGPT critique and revised prompts saved alongside as
 ## Known flaws, recorded before anything ships
 
 - Rank 3 misspells two card names, "TEN of SWANDS" for SWORDS and "ACE of PENTALES" for PENTACLES.
-- 1254px, not the 2000px requested. Above Etsy's 1000px minimum, below ideal.
-- The "5 STAR RATED SERVICE" badge in rank 1 carries over from the shop's existing images. It is
-  not invented here, and it should be true before it ships.
+- 1254px against a 2000px request. Above Etsy's 1000px minimum, below ideal.
+- The "5 STAR RATED SERVICE" badge in rank 1 carries over from the shop's existing images. It
+  should be true before it ships.
 - Card faces are model approximations, correct at thumbnail scale and loose at full scale.
 
 ## State of the live shop
@@ -53,4 +57,4 @@ empty. Order of operations when approved: upload the four replacements via
 
 ## Next
 
-Approve the set, or name which of the four to regenerate.
+Approve the set, or say which of the four to regenerate.

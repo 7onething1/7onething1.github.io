@@ -106,11 +106,10 @@ code{background:#E4DECC;padding:1px 5px;border-radius:4px;font-family:'JetBrains
     <li><b>Two misspelled card names in rank 3.</b> "TEN of SWANDS" should be SWORDS, and
       "ACE of PENTALES" should be PENTACLES. Legible only at full zoom, but a tarot buyer would
       catch it.</li>
-    <li><b>1254 by 1254 pixels, not the 2000 requested.</b> Above Etsy's 1000px minimum and below
+    <li><b>1254 by 1254 pixels against a 2000px request.</b> Above Etsy's 1000px minimum and below
       the ideal, so these will look soft if a buyer zooms hard.</li>
     <li><b>The "5 STAR RATED SERVICE" badge in rank 1 is a claim.</b> It carries over from the
-      shop's existing images rather than being invented here, and it should be true before it
-      ships.</li>
+      shop's existing images. It should be true before it ships.</li>
     <li><b>Card faces are model approximations.</b> They read correctly at thumbnail scale and
       loosely at full scale.</li>
   </ul>
@@ -125,9 +124,12 @@ code{background:#E4DECC;padding:1px 5px;border-radius:4px;font-family:'JetBrains
 </div>
 
 <footer>
-  Built 19 July 2026. Live listing data pulled from the Etsy Open API v3, shop 50156638. Images
-  generated in ChatGPT through a critique pass, downloaded from the session, and inspected before
-  publication here. Source files in
-  <code>~/Projects/_outputs/etsy-cover-image-generator/4502334621/</code>.
+  Built 19 July 2026. Live listing data pulled from
+  <code>GET https://api.etsy.com/v3/application/shops/50156638/listings?state=active&amp;includes=Images</code>
+  and saved to <code>scratchpad/listings.json</code>. The four current images shown above are the
+  <code>url_570xN</code> files from that same response. Generated images and the ChatGPT critique
+  transcript are in <code>~/Projects/_outputs/etsy-cover-image-generator/4502334621/</code>
+  (<code>chatgpt_revised_prompts_4502334621.txt</code>). Every image on this page was opened and
+  inspected before it was published here.
 </footer>
 </div></body></html>
