@@ -135,7 +135,7 @@ body.kid{font-size:1.15rem} body.kid .quote,body.kid .read{font-size:1.08rem} bo
 </header>
 <div class="wrap">
   <div class="lead">
-    Type or paste your cards, or click them in order. This gathers, in one place: an <b>automated navigation summary</b>, Chiron's own <b>meaning</b> for each card, and her <b>recorded evidence</b> for each pair, grouped by evidence type and quoted verbatim with the source video. Order is considered: for a pair in your order, the page leads with passages where Chiron <b>names the first card before the second</b>, and swapping the two changes which passage leads. This order signal is inferred from her wording inside each passage, not from a stored spread position, so treat it as an approximation. An outside structural note from Joan Bunning sits <b>below each pair's evidence</b> as optional comparison, never ahead of it. Details in the methodology panel below.
+    Type or paste your cards, or click them in order. This gathers, in one place: an <b>automated navigation summary</b>, Chiron's own <b>meaning</b> for each card, and her <b>recorded evidence</b> for each pair, grouped by evidence type and quoted verbatim with the source video. Order is considered: for a pair in your order, the page leads with passages where Chiron <b>names the first card before the second</b>, and, when two passages tie on evidence strength, swapping the two changes which one leads (a direct or clarifier passage always outranks order). This order signal is inferred from her wording inside each passage, not from a stored spread position, so treat it as an approximation. An outside structural note from Joan Bunning sits <b>below each pair's evidence</b> as optional comparison, never ahead of it. Details in the methodology panel below.
   </div>
 
   <details class="method">
@@ -156,7 +156,7 @@ body.kid{font-size:1.15rem} body.kid .quote,body.kid .read{font-size:1.08rem} bo
       <h4>Topic focus (removed)</h4>
       A "focus on a topic" box was tried and pulled on 2026-07-15. It was substring keyword search: the word "work" matched the verb, not a job, and it surfaced passages from card pairings that were not even in your spread. The corpus carries no per-passage topic tags, so a topic filter cannot honestly show "her words on your topic for your cards." It would need topic tags added during curation.
       <h4>How order is considered</h4>
-      The stored corpus is <b>unordered co-occurrence</b>: it records that two cards appear together, not which was drawn first. To honor order anyway, the page reads each passage and checks <b>which card Chiron names first in her own words</b>. For a pair in your order, passages where she says the first card before the second lead the result, and swapping the two flips it. This is an <b>inferred approximation</b>, not a stored spread position, and it only works when both card names appear in the passage. True ordered syntax (with each card's stored position, timestamp, and question context) still needs the transcript rebuild, which stays queued.
+      The stored corpus is <b>unordered co-occurrence</b>: it records that two cards appear together, not which was drawn first. To honor order anyway, the page reads each passage and checks <b>which card Chiron names first in her own words</b>. For a pair in your order, passages where she says the first card before the second lead the result. Swapping the two flips the lead only when the top passages are tied on evidence strength, since a direct or clarifier passage always outranks order. This is an <b>inferred approximation</b>, not a stored spread position, and it only works when both card names appear in the passage. True ordered syntax (with each card's stored position, timestamp, and question context) still needs the transcript rebuild, which stays queued.
       <h4>Coverage</h4>
       This build <b>finds at least one corpus passage for 2822 of the 3003 possible unordered pairs (94%)</b> across the 78 cards, from <b>26,169 combination passages</b>. Most of that is loose co-occurrence, not explicit combination reads: only <b>1,892 passages (7%) are direct</b>, while nearby mentions are about 42% and flagged material about 35%. So "recorded evidence" here means recorded co-occurrence at some strength, not a confirmed combined interpretation for every pair. A pair she was never recorded reading shows <b>&ldquo;No recorded Chiron pairing found&rdquo;</b> rather than an invented reading.
       <h4>Preservation audit</h4>
@@ -285,20 +285,11 @@ function parseCard(raw){
 
 /* ---------- data helpers ---------- */
 function pd(a,b){if(!CORPUS)return null;return (CORPUS[a]&&CORPUS[a][b])||(CORPUS[b]&&CORPUS[b][a])||null;}
+/* every card this one is recorded with, regardless of stored direction. */
+function partnersOf(a){const set=new Set(Object.keys(CORPUS[a]||{}));for(const b in CORPUS){if(b!==a&&CORPUS[b]&&CORPUS[b][a])set.add(b);}return [...set];}
 const RLABEL={direct:"Chiron explicitly connected these cards",clarifier:"One card directly explained the other",sequence:"One card read as leading into the next",nearby:"Appeared near each other, no confirmed combined interpretation"};
 function reads_(a,b){const p=pd(a,b);return (p&&p.reads)||[];}
 function tags_(a,b){const p=pd(a,b);return (p&&p.tags)||[];}
-const _themeCache={};
-function themes(card,k){
-  if(!CORPUS) return [];
-  if(_themeCache[card]) return _themeCache[card].slice(0,k||6);
-  const c={};
-  const node=CORPUS[card]||{};
-  Object.keys(node).forEach(p=>(node[p].tags||[]).forEach(t=>{c[t]=(c[t]||0)+1;}));
-  const arr=Object.keys(c).sort((x,y)=>c[y]-c[x]);
-  _themeCache[card]=arr;
-  return arr.slice(0,k||6);
-}
 function meanings(card){return (MEANINGS&&MEANINGS[card])||[];}
 function mdBold(s){return esc(s).replace(/\*\*(.+?)\*\*/g,'<strong>$1</strong>');}
 function cheat(card){return (CHEAT&&CHEAT[card])||{kw:[],meanings:[],clarifier:''};}
@@ -403,9 +394,11 @@ function pairEvidenceHTML(a,b){
   /* Evidence strength ranks first, inferred order second. A nearby passage in your
      entered direction must not outrank a direct passage in the other direction. */
   const lead=pickLead(all,a,b);
+  const leadRev=pickLead(all,b,a);
+  const swapMatters=!!leadRev&&lead!==leadRev&&!(lead.t===leadRev.t&&lead.v===leadRev.v);
   let h='';
   if(tg.length) h+=`<div class="tags"><span class="tglab">she repeats</span>${tg.slice(0,8).map(t=>`<span class="mtag">${esc(t)}</span>`).join('')}</div>`;
-  h+=`<div class="ordsum">Order, inferred from which card she names first in each passage: <b>${esc(a)} first</b> in ${fwd.length}, <b>${esc(b)} first</b> in ${rev.length}${und.length?`, unclear in ${und.length}`:''}. The lead below is from your order; swap the cards to lead with the other direction.</div>`;
+  h+=`<div class="ordsum">Order, inferred from which card she names first in each passage: <b>${esc(a)} first</b> in ${fwd.length}, <b>${esc(b)} first</b> in ${rev.length}${und.length?`, unclear in ${und.length}`:''}. ${swapMatters?`The lead below reflects your order; swapping the two would surface a different passage.`:`Evidence strength outranks card order for this pair, so swapping would not change the lead.`}</div>`;
   h+=`<div class="read"><span class="tg ${lead.r}">${lead.r}</span><b>${RLABEL[lead.r]}.</b> ${orderChip(lead,a,b)}${esc(lead.t)}${lead.f?` <span class="flg">${FLBL[lead.f]}</span>`:''} ${src(lead.v)}</div>`;
   const groups={}; all.forEach(r=>{const k=r.f?'flagged':r.r;(groups[k]=groups[k]||[]).push(r);});
   const grp=cls=>groups[cls]&&groups[cls].length?`<div class="elab"><span class="tg ${cls}">${cls}</span> ${RLABEL[cls]} <span class="ecnt">(${groups[cls].length})</span></div>`+groups[cls].map(r=>passageHTML(r,a,b)).join(''):'';
@@ -605,7 +598,7 @@ function renderExplore(){
     h+=`<details class="bunning"><summary>Outside comparison: Bunning structural lens (not from Chiron)</summary>${structHTML(a,b)}</details>`;
     out.innerHTML=h; return;
   }
-  const partners=Object.keys(CORPUS[a]||{}).sort((x,y)=>reads_(a,y).length-reads_(a,x).length).filter(p=>filt(reads_(a,p)).length);
+  const partners=partnersOf(a).sort((x,y)=>reads_(a,y).length-reads_(a,x).length).filter(p=>filt(reads_(a,p)).length);
   let h=`<h2 class="chosen">${esc(a)}</h2>`;
   const ch=cheat(a);
   if(ch.kw.length||ch.meanings.length){
@@ -640,7 +633,7 @@ function toggleKid(){document.body.classList.toggle('kid');document.getElementBy
 renderPicker();
 const builderEl=document.querySelector('#modeRead .builder');
 builderEl.classList.add('disabled-mask');
-document.getElementById('seqempty').textContent='Loading the corpus (about 11 MB), one moment.';
+document.getElementById('seqempty').textContent='Loading the corpus (about 5.6 MB), one moment.';
 Promise.all([
   fetch('./corpus.json').then(r=>r.json()),
   fetch('./cheatsheet.json').then(r=>r.json()),
