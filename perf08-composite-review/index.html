@@ -31,9 +31,10 @@
   <h1>perf08 &mdash; composite review</h1>
   <p class="sub">Band-practice 7.18.26, passage 17:40&ndash;23:12 (5:32). One transform per mic, reference 8.07.</p>
 
-  <p class="note"><b>Analytical build, your ears decide.</b> Timing, per-mic selection, and bleed were measured.
-  Timbre and separation artifacts still need this listen, so the verdict stays <b>REVIEW_REQUIRED</b> until you sign off.
+  <p class="note"><b>FINAL_PASS.</b> Brandon's listen: the composite (7 lanes) sounds better than the isolated stems, approved.
   Audio here is 192 kbps mp3 for the web; the master package is 44.1 kHz / 24-bit.</p>
+  <p class="note"><b>On the material:</b> this is a guitar-dominant passage. Guitar sits about 20 dB over the kick and
+  62 dB over the toms, so the drums barely register and the kick A/B was low-stakes. The composite is the deliverable.</p>
 
   <h2>Composite vs the 8.07 room mic</h2>
   <div class="row"><span class="lab">composite (7 lanes)</span><audio controls preload="none" src="composite.mp3"></audio></div>
@@ -57,9 +58,9 @@
   <h2>Provenance</h2>
   <table>
     <tr><th>lane</th><th>mic</th><th>offset</th><th>verdict</th></tr>
-    <tr><td>bass</td><td>7.31</td><td>+2.24 ms</td><td class="review">REVIEW_REQUIRED</td></tr>
-    <tr><td>guitar</td><td>7.31</td><td>+2.24 ms</td><td class="review">REVIEW_REQUIRED</td></tr>
-    <tr><td>cymbals</td><td>7.31</td><td>+2.24 ms</td><td class="review">REVIEW_REQUIRED</td></tr>
+    <tr><td>bass</td><td>7.31</td><td>+2.24 ms</td><td class="pass">accepted (ear)</td></tr>
+    <tr><td>guitar</td><td>7.31</td><td>+2.24 ms</td><td class="pass">accepted (ear)</td></tr>
+    <tr><td>cymbals</td><td>7.31</td><td>+2.24 ms</td><td class="pass">accepted (ear)</td></tr>
     <tr><td>kick</td><td>8.07</td><td>0 ms</td><td class="pass">PASS</td></tr>
     <tr><td>snare</td><td>8.07</td><td>0 ms</td><td class="pass">PASS</td></tr>
     <tr><td>toms</td><td>8.07</td><td>0 ms</td><td class="pass">PASS</td></tr>
@@ -67,7 +68,6 @@
   </table>
   <p class="sub">All 7 lanes frame-locked at 14,641,200 frames / 44.1 kHz, polarity keep. Kick+bass 40&ndash;160 Hz masking ratio ~1.0.</p>
 
-  <p class="verdict">Overall: <span class="review">REVIEW_REQUIRED</span></p>
-  <p class="note">If it sounds good, tell me and I finalize perf08 to <b>FINAL_PASS</b> with checksums, exactly as perf36.</p>
+  <p class="verdict">Overall: <span class="pass">FINAL_PASS</span> (human review: Brandon, PASS)</p>
 </body>
 </html>
