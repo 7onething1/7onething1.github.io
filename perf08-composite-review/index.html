@@ -1,0 +1,72 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>perf08 composite review</title>
+<style>
+  :root{--bg:#f4ecd8;--ink:#141414;--card:#fff8ea;--line:#d8c9a8;--amber:#b26a00;--red:#b23b3b;--green:#2e7d32;--blue:#3a6ea5}
+  *{box-sizing:border-box}
+  body{background:var(--bg);color:var(--ink);font-family:-apple-system,BlinkMacSystemFont,"Helvetica Neue",Arial,sans-serif;
+       max-width:860px;margin:0 auto;padding:1.5rem 1.1rem 4rem;line-height:1.5}
+  h1{font-weight:800;font-size:1.7rem;margin:.2rem 0 .1rem}
+  h2{font-weight:800;font-size:1.15rem;margin:1.8rem 0 .5rem;border-bottom:2px solid var(--line);padding-bottom:.25rem}
+  .sub{color:#5b5138;margin:.1rem 0 1rem}
+  .note{background:#fbeecb;border-left:4px solid var(--amber);padding:.7rem 1rem;border-radius:6px;margin:1rem 0}
+  .flag{background:#fdeaea;border-left:4px solid var(--red);padding:.6rem 1rem;border-radius:6px;margin:.8rem 0;font-size:.94rem}
+  .ok{background:#eaf5 ea;border-left:4px solid var(--green);padding:.6rem 1rem;border-radius:6px;margin:.8rem 0;font-size:.94rem}
+  .row{display:flex;align-items:center;gap:.7rem;margin:.45rem 0;flex-wrap:wrap}
+  .row .lab{width:230px;font-weight:600}
+  audio{height:34px;max-width:100%}
+  table{border-collapse:collapse;width:100%;margin:.6rem 0;font-size:.92rem}
+  th,td{border:1px solid var(--line);padding:.4rem .55rem;text-align:left}
+  th{background:#e7d8b5}
+  .pass{color:var(--green);font-weight:700}.review{color:var(--amber);font-weight:700}
+  .verdict{font-size:1.25rem;font-weight:800;margin-top:.6rem}
+  code{background:#eee3c7;padding:.05rem .3rem;border-radius:4px}
+  @media(max-width:560px){.row .lab{width:100%}}
+</style>
+</head>
+<body>
+  <h1>perf08 &mdash; composite review</h1>
+  <p class="sub">Band-practice 7.18.26, passage 17:40&ndash;23:12 (5:32). One transform per mic, reference 8.07.</p>
+
+  <p class="note"><b>Analytical build, your ears decide.</b> Timing, per-mic selection, and bleed were measured.
+  Timbre and separation artifacts still need this listen, so the verdict stays <b>REVIEW_REQUIRED</b> until you sign off.
+  Audio here is 192 kbps mp3 for the web; the master package is 44.1 kHz / 24-bit.</p>
+
+  <h2>Composite vs the 8.07 room mic</h2>
+  <div class="row"><span class="lab">composite (7 lanes)</span><audio controls preload="none" src="composite.mp3"></audio></div>
+  <div class="row"><span class="lab">8.07 original room</span><audio controls preload="none" src="original_807.mp3"></audio></div>
+
+  <h2>Bass timing A/B &mdash; prior +2.24 ms, no stable residual</h2>
+  <p class="sub">Selected bass is mic 7.31 at +2.24 ms. Eight isolated attacks scattered with no repeatable residual,
+  so the physical offset stands. The two aliases are one bass period (13.7 ms) off, for an ear check that +2.24 is right.</p>
+  <div class="row"><span class="lab">bass @ +2.2 ms (chosen)</span><audio controls preload="none" src="bass_prior.mp3"></audio></div>
+  <div class="row"><span class="lab">bass @ &minus;11.4 ms (alias)</span><audio controls preload="none" src="bass_alias_early.mp3"></audio></div>
+  <div class="row"><span class="lab">bass @ +15.9 ms (alias)</span><audio controls preload="none" src="bass_alias_late.mp3"></audio></div>
+  <p class="flag">pYIN note on the 7.31 bass: voiced 50 percent, no octave jumps, F0 moves 66&ndash;203 Hz, but pitch-tracking
+  confidence is moderate. A confirm-by-ear note that the bass follows the line, not a defect.</p>
+
+  <h2>Kick alternative A/B &mdash; 8.07 kept</h2>
+  <p class="sub">All five drum lanes stayed on 8.07; no alternative improved the composite. Kick shown for a sanity listen.</p>
+  <div class="row"><span class="lab">kick 8.07 (current)</span><audio controls preload="none" src="kick_807.mp3"></audio></div>
+  <div class="row"><span class="lab">kick 8.00 (alternative)</span><audio controls preload="none" src="kick_alt800.mp3"></audio></div>
+
+  <h2>Provenance</h2>
+  <table>
+    <tr><th>lane</th><th>mic</th><th>offset</th><th>verdict</th></tr>
+    <tr><td>bass</td><td>7.31</td><td>+2.24 ms</td><td class="review">REVIEW_REQUIRED</td></tr>
+    <tr><td>guitar</td><td>7.31</td><td>+2.24 ms</td><td class="review">REVIEW_REQUIRED</td></tr>
+    <tr><td>cymbals</td><td>7.31</td><td>+2.24 ms</td><td class="review">REVIEW_REQUIRED</td></tr>
+    <tr><td>kick</td><td>8.07</td><td>0 ms</td><td class="pass">PASS</td></tr>
+    <tr><td>snare</td><td>8.07</td><td>0 ms</td><td class="pass">PASS</td></tr>
+    <tr><td>toms</td><td>8.07</td><td>0 ms</td><td class="pass">PASS</td></tr>
+    <tr><td>hihat</td><td>8.07</td><td>0 ms</td><td class="pass">PASS</td></tr>
+  </table>
+  <p class="sub">All 7 lanes frame-locked at 14,641,200 frames / 44.1 kHz, polarity keep. Kick+bass 40&ndash;160 Hz masking ratio ~1.0.</p>
+
+  <p class="verdict">Overall: <span class="review">REVIEW_REQUIRED</span></p>
+  <p class="note">If it sounds good, tell me and I finalize perf08 to <b>FINAL_PASS</b> with checksums, exactly as perf36.</p>
+</body>
+</html>

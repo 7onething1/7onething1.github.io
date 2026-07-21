@@ -157,7 +157,7 @@ body.kid .aireading{font-size:1.08rem}
       The page is not a single voice. It carries three kinds of text, kept distinct:
       <ul>
         <li><b>Verbatim Chiron quotations</b> &mdash; the pair passages and the raw card mentions, each source-linked.</li>
-        <li><b>Chiron's curated meaning</b> &mdash; the keyword line and one or two sentences per card, from her own <a href="/chiron-cheatsheet">cheatsheet</a>, plus a clarifier note when one names the other card.</li>
+        <li><b>Chiron's curated meaning</b> &mdash; the keyword line and one or two sentences per card, from her own <a href="https://drwu-htmls.vercel.app/chiron-cheatsheet">cheatsheet</a>, plus a clarifier note when one names the other card.</li>
         <li><b>Automated summaries</b> &mdash; the blocks marked "Automated corpus summary" are generated from keyword tags, not quoted from Chiron. Each states the rule that produced it.</li>
       </ul>
       A fourth, outside layer is the Bunning structural label. It is not Chiron's, so it sits behind an "outside comparison" toggle under each pair's evidence, never ahead of it.
@@ -198,7 +198,7 @@ body.kid .aireading{font-size:1.08rem}
     <div class="builder">
       <div class="blabel">Type or paste your cards, in order</div>
       <div class="brow">
-        <textarea id="pastebox" rows="1" placeholder="e.g.  The Tower, Three of Swords, The Star"></textarea>
+        <textarea id="pastebox" rows="1" aria-label="Type or paste your cards, in order" placeholder="e.g.  The Tower, Three of Swords, The Star"></textarea>
         <button class="pbtn" id="addPaste">Add to reading</button>
         <button class="pbtn ghost" id="clearSeq">Clear</button>
       </div>
@@ -212,9 +212,9 @@ body.kid .aireading{font-size:1.08rem}
     <div class="builder" id="crossBuilder" style="display:none">
       <div class="blabel">Compare any two cards in your spread (add as many combos as you want)</div>
       <div class="controls">
-        <select id="cross1" class="bigsel"></select>
+        <select id="cross1" class="bigsel" aria-label="First card to compare"></select>
         <span class="plus">&rarr;</span>
-        <select id="cross2" class="bigsel"></select>
+        <select id="cross2" class="bigsel" aria-label="Second card to compare"></select>
         <button class="pbtn" id="addCross">Add combo</button>
         <button class="pbtn ghost" id="clearCross">Clear combos</button>
       </div>
@@ -229,9 +229,9 @@ body.kid .aireading{font-size:1.08rem}
     <div class="builder">
       <div class="blabel">Two-card combo &mdash; first card, then second (order matters)</div>
       <div class="controls">
-        <select id="combo1" class="bigsel"></select>
+        <select id="combo1" class="bigsel" aria-label="First card of the combo"></select>
         <span class="plus">&rarr;</span>
-        <select id="combo2" class="bigsel"></select>
+        <select id="combo2" class="bigsel" aria-label="Second card of the combo"></select>
         <button class="fbtn swap" id="comboSwap" title="swap first and second">swap</button>
       </div>
       <div class="hint" style="margin:6px 0 0">Order is inferred from which card Chiron names first inside each passage, not from a stored spread position. Swapping changes which passage leads.</div>
@@ -244,9 +244,9 @@ body.kid .aireading{font-size:1.08rem}
     <div class="pickrow">
       <div class="blabel">Build a combination, pick two cards</div>
       <div class="controls">
-        <select id="card1" class="bigsel"></select>
+        <select id="card1" class="bigsel" aria-label="First card"></select>
         <span class="plus">+</span>
-        <select id="card2" class="bigsel"></select>
+        <select id="card2" class="bigsel" aria-label="Second card"></select>
         <button class="fbtn swap" id="swap" title="swap the two cards">swap</button>
       </div>
       <div class="controls"><span class="blabel" style="margin:0 4px 0 0">show</span><span id="efilters"></span></div>
@@ -255,7 +255,7 @@ body.kid .aireading{font-size:1.08rem}
   </section>
 </div>
 <footer>
-  Companion to the single-card <a href="/chiron-cheatsheet">cheatsheet</a>. The structural lens follows Joan Bunning, <i>Learning the Tarot</i> (Weiser, 1998), Lesson 15. Click <b>&#9655; video</b> on any quote to hear it. This is version 4; the earlier build stays at <a href="/chiron-combinations">/chiron-combinations</a>.
+  Companion to the single-card <a href="https://drwu-htmls.vercel.app/chiron-cheatsheet">cheatsheet</a>. The structural lens follows Joan Bunning, <i>Learning the Tarot</i> (Weiser, 1998), Lesson 15. Click <b>&#9655; video</b> on any quote to hear it. This is version 4; the earlier build stays at <a href="https://drwu-htmls.vercel.app/chiron-combinations">/chiron-combinations</a>.
 </footer>
 <button id="kidfab" onclick="toggleKid()">Kid mode</button>
 <script>
@@ -329,7 +329,7 @@ function constructedHTML(a,b){
     +`<h4>A reading for a pair Chiron never recorded</h4>`
     +`<p class="aiwarn">Chiron has no recorded pairing for these two, so this is not her words. It is built by AI (${esc(e.model||'claude-opus-4-8')}) in her voice, from her own meaning for each card. Read it as a suggestion, not a recorded Chiron pairing.</p>`
     +`<p class="aireading">${esc(e.reading)}</p>`
-    +`<details class="more"><summary>the two card meanings this was built from (Chiron's own)</summary>${am}${bm}<p class="cattr">Each meaning is verbatim from the <a href="/chiron-cheatsheet" target="_blank" rel="noopener">cheatsheet</a>. The combined reading above is constructed, not from a transcript.</p></details>`
+    +`<details class="more"><summary>the two card meanings this was built from (Chiron's own)</summary>${am}${bm}<p class="cattr">Each meaning is verbatim from the <a href="https://drwu-htmls.vercel.app/chiron-cheatsheet" target="_blank" rel="noopener">cheatsheet</a>. The combined reading above is constructed, not from a transcript.</p></details>`
     +`<div class="aimeta">${esc(e.label||'constructed reading')} &middot; ${esc(e.model||'')} &middot; ${esc(e.generated||'')} &middot; built from Chiron's card meanings, not a transcript pairing &middot; ${e.gap_type==='weak_only'?'undercovered pair':'unattested pair'}</div>`
     +`</div>`;
 }
@@ -394,7 +394,7 @@ function cardParagraph(card,i){
   const ch=cheat(card);
   const kw=ch.kw.length?`<div class="oneline kw">${ch.kw.map(esc).join(' &middot; ')}</div>`:'';
   let body = ch.meanings.length
-    ? ch.meanings.map(m=>`<p>${mdBold(m)}</p>`).join('')+`<p class="cattr">Chiron's own meaning, from the <a href="/chiron-cheatsheet" target="_blank" rel="noopener">cheatsheet</a>.</p>`
+    ? ch.meanings.map(m=>`<p>${mdBold(m)}</p>`).join('')+`<p class="cattr">Chiron's own meaning, from the <a href="https://drwu-htmls.vercel.app/chiron-cheatsheet" target="_blank" rel="noopener">cheatsheet</a>.</p>`
     : `<p class="hint">No cheatsheet meaning for this card yet.</p>`;
   const raw=meanings(card);
   const rawtog = raw.length?`<details class="more"><summary>all ${raw.length} raw transcript mentions of this card (unedited, video-level source)</summary>${raw.map(m=>`<div class="read dim">${esc(m.t)} ${src(m.v)}</div>`).join('')}</details>`:'';
@@ -625,6 +625,7 @@ function pairBody(a,b,topN){
 function renderExplore(){
   const out=document.getElementById('out'); if(!CORPUS) return;
   const a=sel1.value, b=sel2.value;
+  const efRow=document.getElementById('efilters').parentElement; if(efRow) efRow.style.display=(a&&b)?'none':'';
   if(a&&b){
     let h=`<h2 class="chosen">${esc(a)} + ${esc(b)} <span class="ord">(order inferred from her wording)</span></h2>`;
     h+= pairEvidenceHTML(a,b) + clarifierHTML(a,b) + constructedHTML(a,b);
@@ -639,7 +640,7 @@ function renderExplore(){
     if(ch.kw.length) h+=`<div class="hint" style="font-style:italic;color:#8a5a17">${ch.kw.map(esc).join(' · ')}</div>`;
     h+=ch.meanings.map(m=>`<div class="read">${mdBold(m)}</div>`).join('');
     if(ch.clarifier) h+=`<div class="read"><span class="tg clarifier">clarifier</span>${mdBold(ch.clarifier)}</div>`;
-    h+=`<div class="cattr" style="margin:2px 0 0">From the <a href="/chiron-cheatsheet" target="_blank" rel="noopener">cheatsheet</a>.</div>`;
+    h+=`<div class="cattr" style="margin:2px 0 0">From the <a href="https://drwu-htmls.vercel.app/chiron-cheatsheet" target="_blank" rel="noopener">cheatsheet</a>.</div>`;
   }
   h+=`<div class="lab" style="margin-top:16px">Combinations</div><div class="hint">She reads it with ${partners.length} other cards. Pick a second card, or open any below.</div>`;
   partners.forEach((p,i)=>{h+=`<details class="partner"${i<3?' open':''}><summary><span>${esc(a)} + ${esc(p)}</span><span class="pcnt">${reads_(a,p).length}</span></summary><div class="inner">${pairBody(a,p,3)}<details class="bunning"><summary>Outside comparison: Bunning structural lens</summary>${structHTML(a,p)}</details></div></details>`;});
@@ -682,6 +683,6 @@ Promise.all([
     // seed a labelled sample reading so the first screen is alive
     seq=["Two of Cups","Three of Swords","The Star"]; isSample=true; syncSeq();
   })
-  .catch(e=>{document.getElementById('reading').innerHTML='<p class="hint">Could not load the corpus: '+e+'</p>';});
+  .catch(e=>{builderEl.classList.remove('disabled-mask');document.getElementById('seqempty').textContent='The corpus failed to load. Reload the page to try again.';document.getElementById('reading').innerHTML='<p class="hint">Could not load the corpus: '+e+'</p>';});
 </script>
 </body></html>
