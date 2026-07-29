@@ -1,0 +1,361 @@
+<!doctype html><html lang=en><head>
+<meta charset=utf-8><meta name=viewport content="width=device-width,initial-scale=1">
+<title>Shiner BELIEVEYOUME — Asleep in the Trunk: drum-kit stem player</title>
+<style>
+*{box-sizing:border-box}html,body{margin:0;padding:0}
+body{font-family:'Inter',-apple-system,system-ui,sans-serif;background:#0a0e14;color:#cdd6e0;font-size:15px;line-height:1.5}
+.wrap{max-width:980px;margin:0 auto;padding:32px 20px 80px}
+h1{font-family:'Cormorant Garamond',Georgia,serif;font-size:40px;color:#e8eaed;margin:0 0 4px;font-weight:600;letter-spacing:-.01em}
+.sub{color:#7a8694;margin:0 0 20px;font-size:14px}
+.lead{color:#a8b3c2;font-size:14px;margin:0 0 18px;max-width:70ch}
+.lead b{color:#e8eaed}
+.songbar{display:flex;gap:10px;align-items:center;margin:0 0 18px;padding:12px 14px;background:#0f141c;border:1px solid #1e2632;border-radius:10px;flex-wrap:wrap}
+.songbar label{font-family:'JetBrains Mono',monospace;font-size:11px;letter-spacing:.12em;text-transform:uppercase;color:#7a8694}
+.songbar select{background:#070a0e;color:#cdd6e0;border:1px solid #1e2632;padding:6px 10px;border-radius:6px;font-family:'JetBrains Mono',monospace;font-size:13px;min-width:260px}
+.transport{display:flex;gap:10px;align-items:center;margin:0 0 18px;padding:14px 16px;background:#0f141c;border:1px solid #1e2632;border-radius:10px;flex-wrap:wrap}
+.tbtn{background:#11202b;border:1px solid #1e2632;color:#7dd3fc;font-family:'JetBrains Mono',monospace;font-size:12px;font-weight:600;padding:8px 16px;border-radius:6px;cursor:pointer;letter-spacing:.06em}
+.tbtn:hover{border-color:#7dd3fc}
+.time{font-family:'JetBrains Mono',monospace;font-size:13px;color:#a8b3c2;margin-left:auto}
+.scrub{flex:1 1 100%;-webkit-appearance:none;height:6px;background:#1e2632;border-radius:3px;outline:none;margin-top:6px}
+.scrub::-webkit-slider-thumb{-webkit-appearance:none;width:14px;height:14px;background:#7dd3fc;border-radius:50%;cursor:pointer}
+.mixer{background:#0f141c;border:1px solid #1e2632;border-radius:12px;padding:16px;display:grid;gap:10px}
+.lane{display:grid;grid-template-columns:120px 80px 80px 1fr 50px;gap:12px;align-items:center;padding:10px 12px;background:#070a0e;border:1px solid #1e2632;border-radius:8px}
+.lane .name{font-family:'JetBrains Mono',monospace;font-size:12px;font-weight:600;color:#cdd6e0;text-transform:uppercase;letter-spacing:.08em}
+.lane.ref{border-color:#3a3320;background:#0d0b06}
+.lane.ref .name{color:#fbbf24}
+.lbtn{background:transparent;border:1px solid #1e2632;color:#7a8694;font-family:'JetBrains Mono',monospace;font-size:11px;font-weight:600;padding:6px 10px;border-radius:5px;cursor:pointer;letter-spacing:.06em}
+.lbtn:hover{color:#cdd6e0;border-color:#475569}
+.lbtn.active.solo{background:#fbbf24;color:#0a0e14;border-color:#fbbf24}
+.lbtn.active.mute{background:#ef4444;color:#fff;border-color:#ef4444}
+.lbtn:disabled{opacity:.25;cursor:not-allowed}
+.lane.is-muted{opacity:.55}.lane.is-missing{opacity:.35}
+.tbtn.warn{color:#ef4444;border-color:#3a1f23}.tbtn.warn:hover{border-color:#ef4444}
+.vol{-webkit-appearance:none;height:4px;background:#1e2632;border-radius:2px;outline:none;width:100%}
+.vol::-webkit-slider-thumb{-webkit-appearance:none;width:12px;height:12px;background:#7dd3fc;border-radius:50%;cursor:pointer}
+.meter{font-family:'JetBrains Mono',monospace;font-size:11px;color:#7a8694;text-align:right}
+.status{margin-top:14px;font-size:12px;color:#475569;font-family:'JetBrains Mono',monospace}
+h2{font-family:'Cormorant Garamond',Georgia,serif;font-size:26px;color:#e8eaed;margin:36px 0 6px;font-weight:600}
+.proof{width:100%;border-collapse:collapse;margin-top:12px;font-size:13px}
+.proof th,.proof td{border:1px solid #1e2632;padding:8px 10px;text-align:left}
+.proof th{font-family:'JetBrains Mono',monospace;font-size:11px;letter-spacing:.06em;text-transform:uppercase;color:#7a8694;background:#0f141c}
+.proof td{color:#cdd6e0;font-family:'JetBrains Mono',monospace;font-size:12px}
+.proof .lane-c{color:#e8eaed;font-weight:600;text-transform:uppercase}
+.pass{color:#4ade80;font-weight:600}.note{color:#fbbf24;font-weight:600}
+.cap{color:#475569;font-size:12px;margin-top:8px}
+footer{margin-top:32px;padding-top:20px;border-top:1px solid #1e2632;color:#475569;font-size:12px}
+footer a{color:#7dd3fc;text-decoration:none;margin-right:14px}
+@media(max-width:780px){.lane{grid-template-columns:88px 60px 60px 1fr 40px;gap:8px}.songbar select{min-width:160px}.proof{font-size:11px}.proof td{font-size:11px}}
+</style></head><body><div class=wrap>
+<h1>Shiner BELIEVEYOUME &mdash; drum-kit stem player</h1>
+<p class=sub>&ldquo;Asleep in the Trunk&rdquo; &middot; the drum stem split into 5 individual kit pieces &middot; solo, mute, volume per piece.</p>
+<p class=lead>The Moises drum stem was separated into <b>kick, snare, toms, hi-hat, cymbals</b> by the per-lane DrumSep pass (MDX23C). Every piece below was <b>measured for real drum signal</b> before it went live &mdash; band profile and loudness, not file count. <b>Solo</b> a piece to isolate it; the five pieces together reconstruct the kit. The gold <b>Full Kit</b> lane is the original stem, muted by default &mdash; un-mute or solo it to A/B against the split.</p>
+<div class=songbar><label for=song>Song</label><select id=song><option value="asleep-in-the-trunk">01 — Asleep in the Trunk</option></select></div>
+<div class=transport>
+  <button class=tbtn id=play>&#9654; PLAY</button>
+  <button class=tbtn id=stop>&#9209; STOP</button>
+  <button class="tbtn warn" id=reset title="Clear all solo + mute, restore volumes">&#8634; RESET MIX</button>
+  <span class=time id=time>0:00 / 0:00</span>
+  <input class=scrub id=scrub type=range min=0 max=1000 value=0 step=1>
+</div>
+<div class=mixer id=mixer></div>
+<div class=status id=status>loading&hellip;</div>
+
+<h2>Per-lane verification</h2>
+<p class=lead>Each separated piece measured over the full 4:39 with a windowed-FFT band profile (no resampling). The gate is real drum signal in the expected band, <b>not</b> a silent or garbage stem. All five carry genuine signal &mdash; none hit the &minus;90&nbsp;dB &ldquo;empty toms&rdquo; failure the separator can produce.</p>
+<table class=proof>
+<thead><tr><th>Lane</th><th>RMS</th><th>Peak</th><th>Active</th><th>Dominant band (energy)</th><th>Verdict</th></tr></thead>
+<tbody>
+<tr><td class=lane-c>Kick</td><td>&minus;18.4 dB</td><td>&minus;1.5 dB</td><td>82%</td><td>sub 20&ndash;60 Hz (62%) + low 60&ndash;120 (29%)</td><td class=pass>PASS</td></tr>
+<tr><td class=lane-c>Snare</td><td>&minus;24.5 dB</td><td>&minus;0.4 dB</td><td>76%</td><td>low-mid 120&ndash;400 Hz (86%)</td><td class=note>REAL — body-dominant*</td></tr>
+<tr><td class=lane-c>Toms</td><td>&minus;23.8 dB</td><td>&minus;2.1 dB</td><td>35%</td><td>low 60&ndash;120 Hz (57%) + low-mid (16%)</td><td class=pass>PASS</td></tr>
+<tr><td class=lane-c>Hi-Hat</td><td>&minus;42.1 dB</td><td>&minus;15.1 dB</td><td>53%</td><td>high 5&ndash;20 kHz (81%)</td><td class=pass>PASS</td></tr>
+<tr><td class=lane-c>Cymbals</td><td>&minus;36.4 dB</td><td>&minus;8.9 dB</td><td>63%</td><td>high 5&ndash;20 kHz (55%) + high-mid (44%)</td><td class=pass>PASS</td></tr>
+<tr><td class=lane-c>Full Kit (ref)</td><td>&minus;16.3 dB</td><td>&minus;0.25 dB</td><td>99%</td><td>sub 20&ndash;60 (43%) + low (29%) + low-mid (23%)</td><td>parent stem</td></tr>
+</tbody>
+</table>
+<p class=cap>*Snare captured the shell body (150&ndash;250&nbsp;Hz) but is thin on the wire crack above 2&nbsp;kHz &mdash; real drum signal, worth a tighter re-pass if the snap matters. All lanes: 44.1&nbsp;kHz, 4:39, identical length to the parent (duration test passes).</p>
+
+<footer><a href="/stems-board">&larr; all stem players</a><a href="/believeyoume-stems">believeyoume band stems</a><a href="/">drwu-htmls</a></footer>
+</div>
+<script>
+const SONGS = [
+  {stub:"asleep-in-the-trunk", label:"01 — Asleep in the Trunk"}
+];
+const MEDIA = "https://7onething1.github.io/believeyoume-drumkit-stems/stems";
+const EXT = "mp3";
+const LANES = [
+  {key:"kick", label:"Kick"},
+  {key:"snare", label:"Snare"},
+  {key:"toms", label:"Toms"},
+  {key:"hihat", label:"Hi-Hat"},
+  {key:"cymbals", label:"Cymbals"},
+  {key:"fullkit", label:"Full Kit (ref)", mute0:true, ref:true}
+];
+const songSel=document.getElementById('song'),mixer=document.getElementById('mixer'),playBtn=document.getElementById('play'),stopBtn=document.getElementById('stop'),timeEl=document.getElementById('time'),scrub=document.getElementById('scrub'),statusEl=document.getElementById('status');
+</script>
+<!-- ===================================================================
+     KID-MODE COMPONENT  (Brandon's hard gate: every HTML carries this)
+     Markers kept verbatim for ~/.claude/hooks/kid_mode_gate.py:
+       class="mode-btn"  id="mode-btn"  onclick="toggleKid()"
+     =================================================================== -->
+<button class="mode-btn" id="mode-btn" onclick="toggleKid()" aria-pressed="false" title="Explain this page like I'm a kid">🧒 Kid mode</button>
+<a class="kid-shop kid-only" id="kid-shop" href="https://pagesofbrandon.gumroad.com" target="_blank" rel="noopener" onclick="event.preventDefault();var w=window.open(this.href,&quot;_blank&quot;,&quot;noopener&quot;);if(!w){location.href=this.href;}" title="Get this as a printable you can buy">🛍️ Get the printable</a>
+<style id="kid-mode-style">
+  .mode-btn{position:fixed;right:18px;bottom:18px;z-index:99999;
+    font:600 14px/1 "Inter",system-ui,sans-serif;letter-spacing:.02em;
+    padding:11px 16px;border-radius:999px;cursor:pointer;border:2px solid #2b2723;
+    background:#FDDDA0;color:#2b2723;box-shadow:3px 3px 0 rgba(43,39,35,.35);
+    transition:transform .08s ease, background .15s ease;}
+  .mode-btn:hover{transform:translate(1px,1px);background:#F5CDB4;}
+  .mode-btn:active{transform:translate(3px,3px);box-shadow:0 0 0 rgba(0,0,0,0);}
+  body.kids .mode-btn{background:#74A089;color:#0f2018;}
+  body.kids{font-family:"Fredoka","Comic Sans MS","Chalkboard SE",system-ui,sans-serif;
+    font-size:1.06em;line-height:1.65;}
+  body.kids h1,body.kids h2,body.kids h3{font-family:inherit;letter-spacing:0;}
+  body.kids{background-image:
+    radial-gradient(circle at 12% 6%,rgba(245,205,180,.30),transparent 42%),
+    radial-gradient(circle at 90% 12%,rgba(116,160,137,.22),transparent 46%);}
+  .kid-only{display:none;}
+  body.kids .kid-only{display:block;}
+  body.kids .grown{display:none !important;}
+  .kid-shop{position:fixed;right:18px;bottom:62px;z-index:99999;
+    font:700 13px/1 "Inter",system-ui,sans-serif;letter-spacing:.02em;
+    padding:10px 15px;border-radius:999px;text-decoration:none;border:2px solid #2b2723;
+    background:#F5CDB4;color:#2b2723;box-shadow:3px 3px 0 rgba(43,39,35,.35);
+    transition:transform .08s ease, background .15s ease;}
+  .kid-shop:hover{transform:translate(1px,1px);background:#FDDDA0;}
+  @media print{.mode-btn,.kid-shop{display:none !important;}}
+</style>
+<script>
+(function(){
+  var KID = {
+    midi:"computer music notes", stems:"split-apart song tracks", stem:"song track",
+    demucs:"song splitter", drumsep:"drum splitter", kick:"the big boom drum",
+    snare:"the crack drum", toms:"the roundy drums", cymbals:"the crash plates",
+    hihat:"the tss-tss cymbals", vercel:"the website host", deploy:"put online",
+    band:"low sound range", bands:"sound ranges", rms:"loudness", verdict:"the call",
+    skill:"tool", skills:"tools", html:"web page", repo:"code folder", mixer:"sound board"
+  };
+  function kidifyText(s){
+    if(!s) return s;
+    return s.replace(/[A-Za-z][A-Za-z0-9'\-]*/g, function(w){
+      var h = KID[w.toLowerCase()];
+      if(!h) return w;
+      return (w[0] === w[0].toUpperCase()) ? h.charAt(0).toUpperCase()+h.slice(1) : h;
+    });
+  }
+  var SKIP = {SCRIPT:1,STYLE:1,CODE:1,PRE:1,TEXTAREA:1,KBD:1,SAMP:1,NOSCRIPT:1};
+  var nodes = [], els = [];
+  function collect(){
+    nodes = []; els = [];
+    var btn = document.getElementById('mode-btn');
+    var walk = document.createTreeWalker(document.body, NodeFilter.SHOW_TEXT, {
+      acceptNode:function(n){
+        if(!n.nodeValue || !n.nodeValue.trim()) return NodeFilter.FILTER_REJECT;
+        var p = n.parentNode;
+        while(p && p !== document.body){
+          if(p === btn) return NodeFilter.FILTER_REJECT;
+          if(SKIP[p.nodeName]) return NodeFilter.FILTER_REJECT;
+          if(p.classList && (p.classList.contains('nokid') || p.hasAttribute('data-no-kid')))
+            return NodeFilter.FILTER_REJECT;
+          p = p.parentNode;
+        }
+        return NodeFilter.FILTER_ACCEPT;
+      }
+    });
+    var n; while((n = walk.nextNode())) nodes.push({node:n, original:n.nodeValue});
+    var list = document.querySelectorAll('[data-kid]');
+    for(var i=0;i<list.length;i++){
+      els.push({el:list[i], originalText:list[i].textContent, kidText:list[i].getAttribute('data-kid')});
+    }
+  }
+  window.kidRecollect = collect;
+  function apply(on){
+    if(!nodes.length && !els.length) collect();
+    for(var i=0;i<nodes.length;i++){
+      nodes[i].node.nodeValue = on ? kidifyText(nodes[i].original) : nodes[i].original;
+    }
+    for(var j=0;j<els.length;j++){
+      els[j].el.textContent = on ? els[j].kidText : els[j].originalText;
+    }
+  }
+  window.toggleKid = function(){
+    var on = !document.body.classList.contains('kids');
+    document.body.classList.toggle('kids', on);
+    var b = document.getElementById('mode-btn');
+    if(b){ b.textContent = on ? '🧑‍🏫 Grown-up mode' : '🧒 Kid mode';
+           b.setAttribute('aria-pressed', on ? 'true' : 'false'); }
+    apply(on);
+    try{ localStorage.setItem('kidmode', on ? '1' : '0'); }catch(e){}
+  };
+  function boot(){
+    collect();
+    var saved = '0';
+    try{ saved = localStorage.getItem('kidmode') || '0'; }catch(e){}
+    if(saved === '1' || /[?&]kid=1\b/.test(location.search) || location.hash === '#kid'){
+      document.body.classList.add('kids');
+      var b = document.getElementById('mode-btn');
+      if(b){ b.textContent = '🧑‍🏫 Grown-up mode'; b.setAttribute('aria-pressed','true'); }
+      apply(true);
+    }
+  }
+  if(document.readyState === 'loading') document.addEventListener('DOMContentLoaded', boot);
+  else boot();
+})();
+</script>
+<!-- ===================== END KID-MODE COMPONENT ===================== -->
+
+<!-- stem-buffer-engine v1 — every stem decoded to one AudioContext clock; sample-locked, drift impossible -->
+<script id="stem-buffer-engine">
+(function(){
+  if(window.__stemBufferEngine) return; window.__stemBufferEngine=true;
+  var BASE="https://7onething1.github.io/believeyoume-drumkit-stems/stems", EXT="mp3";
+  var SONGLIST=(typeof SONGS!=='undefined'&&SONGS)?SONGS:[];
+  var LANELIST=(typeof LANES!=='undefined'&&LANES)?LANES:[];
+  var $=function(id){return document.getElementById(id);};
+  var songSel=$('song'), mixer=$('mixer'), playBtn=$('play'), stopBtn=$('stop'),
+      resetBtn=$('reset'), timeEl=$('time'), scrub=$('scrub'), statusEl=$('status');
+  if(!mixer||!playBtn||!songSel){ return; }
+
+  function deListen(el){ if(!el) return el; var c=el.cloneNode(true); el.parentNode.replaceChild(c,el); return c; }
+  songSel=deListen(songSel); playBtn=deListen(playBtn); stopBtn=deListen(stopBtn);
+  resetBtn=deListen(resetBtn); scrub=deListen(scrub);
+
+  var AC=window.AudioContext||window.webkitAudioContext;
+  var ctx=new AC();
+  var master=ctx.createGain(); master.gain.value=1; master.connect(ctx.destination);
+
+  var lanes=[], soloed={}, muted={}, buffers={}, sources={};
+  var duration=0, playing=false, startCtxTime=0, startOffset=0, pausedAt=0, loadToken=0, wantPlay=false;
+  function enc(s){ return s.split('/').map(encodeURIComponent).join('/'); }
+
+  function decode(arr){ return new Promise(function(res,rej){ var p=ctx.decodeAudioData(arr,res,rej); if(p&&p.then)p.then(res,rej); }); }
+  function monoDownmix(buf){
+    if(buf.numberOfChannels<=1) return buf;
+    var out=ctx.createBuffer(1,buf.length,buf.sampleRate);
+    var o=out.getChannelData(0), a=buf.getChannelData(0), b=buf.getChannelData(1);
+    for(var i=0;i<buf.length;i++) o[i]=(a[i]+b[i])*0.5;
+    return out;
+  }
+  function fmt(t){ if(!isFinite(t)||t<0)t=0; var m=Math.floor(t/60),s=Math.floor(t%60); return m+':'+(s<10?'0':'')+s; }
+  function curPos(){ return playing ? (ctx.currentTime-startCtxTime+startOffset) : pausedAt; }
+
+  function clearGraph(){
+    Object.keys(sources).forEach(function(k){ try{sources[k].stop();sources[k].disconnect();}catch(e){} });
+    sources={};
+    lanes.forEach(function(l){ try{l.gain.disconnect();}catch(e){} });
+  }
+
+  function buildMixer(){
+    clearGraph(); mixer.innerHTML=''; lanes=[];
+    LANELIST.forEach(function(L){
+      var row=document.createElement('div'); row.className='lane'+(L.ref?' ref':''); row.dataset.lane=L.key;
+      row.innerHTML='<div class="name">'+L.label+'</div>'+
+        '<button type=button class="lbtn solo" data-k="'+L.key+'">SOLO</button>'+
+        '<button type=button class="lbtn mute" data-k="'+L.key+'">MUTE</button>'+
+        '<input class="vol" data-k="'+L.key+'" type=range min=0 max=1 step=0.01 value="0.85">'+
+        '<div class="meter">85</div>';
+      mixer.appendChild(row);
+      var g=ctx.createGain(); g.gain.value=0.85; g.connect(master);
+      if(L.mute0){ muted[L.key]=true; }   // Full Kit reference starts muted for clean A/B
+      var o={key:L.key,label:L.label,gain:g,row:row,
+        vol:row.querySelector('.vol'),soloBtn:row.querySelector('.solo'),
+        muteBtn:row.querySelector('.mute'),meter:row.querySelector('.meter'),missing:false};
+      o.soloBtn.addEventListener('click',function(e){e.preventDefault();if(o.missing)return;soloed[o.key]=!soloed[o.key];applyMix();});
+      o.muteBtn.addEventListener('click',function(e){e.preventDefault();if(o.missing)return;muted[o.key]=!muted[o.key];applyMix();});
+      o.vol.addEventListener('input',function(){o.meter.textContent=Math.round(o.vol.value*100);applyMix();});
+      lanes.push(o);
+    });
+  }
+
+  function applyMix(){
+    var anySolo=lanes.some(function(l){return soloed[l.key];});
+    lanes.forEach(function(l){
+      var v=parseFloat(l.vol.value)||0;
+      var silenced=l.missing||muted[l.key]||(anySolo&&!soloed[l.key]);
+      l.gain.gain.setTargetAtTime(silenced?0:v, ctx.currentTime, 0.012);
+      if(l.soloBtn) l.soloBtn.classList.toggle('active',!!soloed[l.key]);
+      if(l.muteBtn) l.muteBtn.classList.toggle('active',!!muted[l.key]);
+      l.row.classList.toggle('is-muted',silenced&&!l.missing);
+    });
+  }
+
+  function startSources(offset){
+    Object.keys(sources).forEach(function(k){ try{sources[k].stop();sources[k].disconnect();}catch(e){} });
+    sources={};
+    offset=Math.max(0,Math.min(offset,duration||0));
+    var t0=ctx.currentTime+0.06;
+    lanes.forEach(function(l){
+      var buf=buffers[l.key]; if(!buf) return;
+      var s=ctx.createBufferSource(); s.buffer=buf; s.connect(l.gain); s.start(t0,offset);
+      sources[l.key]=s;
+    });
+    startCtxTime=t0; startOffset=offset; playing=true;
+    playBtn.innerHTML='&#9208; PAUSE';
+    requestAnimationFrame(tick);
+  }
+  function pause(){ if(!playing)return; pausedAt=curPos(); Object.keys(sources).forEach(function(k){try{sources[k].stop();}catch(e){}}); sources={}; playing=false; playBtn.innerHTML='&#9654; PLAY'; }
+  function stopZero(){ Object.keys(sources).forEach(function(k){try{sources[k].stop();}catch(e){}}); sources={}; playing=false; pausedAt=0; playBtn.innerHTML='&#9654; PLAY'; timeEl.textContent=fmt(0)+' / '+fmt(duration); scrub.value=0; }
+
+  function tick(){
+    var p=curPos();
+    if(playing && duration>0 && p>=duration){ stopZero(); return; }
+    timeEl.textContent=fmt(p)+' / '+fmt(duration);
+    if(duration>0) scrub.value=Math.round(Math.min(1,p/duration)*1000);
+    if(playing) requestAnimationFrame(tick);
+  }
+
+  function loadSong(stub){
+    var my=++loadToken;
+    pause(); pausedAt=0; duration=0; buffers={}; soloed={}; muted={};
+    buildMixer();
+    var total=lanes.length, done=0, loaded=0;
+    if(statusEl) statusEl.textContent='loading stems 0/'+total+'…';
+    lanes.forEach(function(l){
+      fetch(BASE+'/'+enc(stub)+'/'+l.key+'.'+EXT,{mode:'cors'})
+        .then(function(r){ if(!r.ok) throw 0; return r.arrayBuffer(); })
+        .then(function(arr){ if(my!==loadToken) throw 1; return decode(arr); })
+        .then(function(buf){ if(my!==loadToken) throw 1; var m=monoDownmix(buf); buffers[l.key]=m; if(m.duration>duration)duration=m.duration; loaded++; })
+        .catch(function(err){ if(err===1) return; l.missing=true; l.meter.textContent='-'; l.soloBtn.disabled=true; l.muteBtn.disabled=true; l.vol.disabled=true; l.row.classList.add('is-missing'); })
+        .then(function(){
+          if(my!==loadToken) return;
+          done++;
+          if(statusEl && done<total) statusEl.textContent='loading stems '+done+'/'+total+'…';
+          if(done>=total){
+            applyMix(); timeEl.textContent=fmt(0)+' / '+fmt(duration);
+            if(statusEl) statusEl.textContent = loaded? ('ready — '+loaded+' pieces locked to one clock. press play. (Full Kit muted — solo it to A/B)') : 'no stems found.';
+            if(wantPlay && loaded){ wantPlay=false; if(ctx.state==='suspended'){ctx.resume();} startSources(0); }
+          }
+        });
+    });
+  }
+
+  playBtn.addEventListener('click',function(){
+    if(ctx.state==='suspended'){ ctx.resume().then(function(){}); }
+    if(playing){ pause(); return; }
+    if(duration<=0){ wantPlay=true; if(statusEl) statusEl.textContent='loading stems… will start when ready'; return; }
+    startSources(pausedAt>=duration?0:pausedAt);
+  });
+  if(stopBtn) stopBtn.addEventListener('click',function(){ stopZero(); });
+  if(resetBtn) resetBtn.addEventListener('click',function(){ soloed={};muted={}; lanes.forEach(function(l){l.vol.value=0.85;l.meter.textContent=85;}); applyMix(); });
+  scrub.addEventListener('input',function(){
+    if(duration<=0) return;
+    var t=(scrub.value/1000)*duration;
+    if(playing){ startSources(t); } else { pausedAt=t; timeEl.textContent=fmt(t)+' / '+fmt(duration); }
+  });
+  songSel.addEventListener('change',function(){
+    loadSong(songSel.value);
+    try{ var u=new URL(location.href); u.searchParams.set('song',songSel.value); history.replaceState(null,'',u.toString()); }catch(e){}
+  });
+
+  var initStub=(new URLSearchParams(location.search)).get('song');
+  var startStub=(initStub && SONGLIST.some(function(s){return s.stub===initStub;})) ? initStub : (SONGLIST[0]&&SONGLIST[0].stub);
+  if(startStub){ songSel.value=startStub; loadSong(startStub); }
+
+  window.__stemDbg=function(){ return {engine:true, ctx:ctx.state, duration:duration, playing:playing,
+    pos:curPos(), lanes:lanes.length, loaded:Object.keys(buffers).length, sources:Object.keys(sources).length,
+    missing:lanes.filter(function(l){return l.missing;}).map(function(l){return l.key;})}; };
+})();
+</script>
+
+</body></html>
