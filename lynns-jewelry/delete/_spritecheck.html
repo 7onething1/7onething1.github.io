@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Sprite check</title>
+<link rel="stylesheet" href="assets/site.css?v=2">
+<style>
+  #sheet { display: grid; grid-template-columns: repeat(4, 1fr); gap: 8px; padding: 12px; }
+  #sheet figure { margin: 0; background: var(--cream-2); border: 1px solid var(--rule); aspect-ratio: 1; display: grid; place-items: center; position: relative; }
+  #sheet svg { width: 82%; }
+  #sheet figcaption { position: absolute; bottom: 2px; left: 4px; font-family: var(--mono); font-size: 9px; }
+  #site-header, #site-footer { display: none; }
+</style>
+</head>
+<body data-page="spritecheck">
+<div id="site-header"></div>
+<div id="sheet"></div>
+<div id="site-footer"></div>
+<script src="assets/site.js?v=2"></script>
+<script>
+window.addEventListener("load", function () {
+  var sheet = document.getElementById("sheet");
+  sheet.innerHTML = window.LynnsShop.PRODUCTS.map(function (p) {
+    return '<figure><svg viewBox="0 0 400 400"><use href="#p-' + p.sprite + '"/></svg>'
+      + '<figcaption>' + p.name + '</figcaption></figure>';
+  }).join("");
+});
+</script>
+</body>
+</html>
