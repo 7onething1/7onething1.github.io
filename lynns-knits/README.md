@@ -79,6 +79,8 @@ rather than taking payment.
 - Zero jewelry-era terms remain in any shipped file.
 - Mobile at 375px: no horizontal overflow, burger toggles the nav, hero and grids collapse to one column.
 - Voice gate (`_shared/anti_ai_voice_gate.py`) PASS on all five source files, zero severity-3 hits.
+- Deslop shape gate (`/deslop`) PASS on all five source files after a copy pass. Brandon flagged the original hero, "Every stitch put there by a hand", as reading AI. It was a craft-virtue slogan with no checkable fact in it, so the hero now states the claim the rest of the site substantiates: "Knitted bags that hold their shape." The same pass removed 11 severity-3 hits (the house-banned word "before", a contrastive "while", "reads as", "sits at", a personified blurb, and a rhythmic triple) and replaced the ticker boast with the studio's real output ceiling.
+- The flagged shape is now encoded as `artisan_virtue_slogan` in `_shared/anti_ai_tells.json`, so every skill that calls the shared gate inherits it. Regression-tested against 1,049 shipped routes: `labour of love` was dropped because it is verbatim Hebrews 6:10 NKJV, and bare `lovingly` was narrowed to the making context because it hit a literal episode recap. Catalogued in `~/.claude/skills/deslop/slop_catalog.md`.
 
 Palette: Fantastic Mr. Fox (Wes Anderson).
 

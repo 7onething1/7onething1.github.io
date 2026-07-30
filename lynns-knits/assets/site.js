@@ -28,7 +28,7 @@
       id: "small",
       name: "Small Goods",
       color: FOX.yellow,
-      blurb: "Coin purses, pouches, and clutches. The pieces that live inside a bigger bag."
+      blurb: "Coin purses, pouches, and clutches, sized to go inside a bigger bag."
     },
     {
       id: "cable",
@@ -268,7 +268,7 @@
       badge: null,
       blurb: "A single intarsia star on a knitted i-cord drawstring.",
       story: "One big star worked in intarsia rather than stranded, so there is no float behind it and the pouch stays soft enough to roll. Intarsia over a knitted round means twisting the yarns at every colour change by hand, twelve changes a round. The nylon in the blend is what stops the base going baggy once there is anything in it. The cord is a four-stitch i-cord, about a metre of knitting for 40 cm of finished cord.",
-      care: "Hand wash cool, dry flat. Sock-weight merino nylon takes a lot of handling before it pills.",
+      care: "Hand wash cool, dry flat. Sock-weight merino nylon takes a lot of handling until it pills.",
       pairs: ["kitsune-purse", "bobble-purse", "chibi-bag"]
     },
     {
@@ -339,7 +339,7 @@
       reviews: 7,
       anime: false,
       badge: "One of one",
-      blurb: "One dyer, one skein, one bag. There is no second.",
+      blurb: "A 400 g gradient skein that cannot be re-ordered, so there is no second.",
       story: "A 400 g skein of Bluefaced Leicester dyed in a long gradient by a dyer in Todmorden, worked so the gradient runs base to rim without a single break. A gradient skein cannot be re-ordered, so this bag exists once. Short rows shape the slouch into the body rather than relying on the weight of the yarn to do it later. Lined in silk-cotton by hand, because a bag at this price should not have a machine seam inside it.",
       care: "Hand wash cool with wool soap on its own, since hand-dyed yarn can release a little colour on the first wash. Dry flat.",
       pairs: ["halfmoon-clutch", "aran-shoulder", "fisherman-bucket"]
@@ -477,7 +477,7 @@
     '<rect x="94" y="172" width="212" height="170" rx="16" fill="#F4EDE1" stroke="#16110C" stroke-width="3.6"/>',
     '<rect x="94" y="172" width="212" height="170" rx="16" fill="url(#kn-st)" stroke="none"/>',
     /* three cable columns: under-strand, then a cream casing so the
-       over-strand visibly crosses on top, which is what reads as a cable */
+       over-strand crosses on top, which is what makes a cable cross rather than wave */
     '<g fill="none" stroke-linecap="round">',
     '<path d="M149 196C149 213 125 213 125 230C125 247 149 247 149 264C149 281 125 281 125 298C125 315 149 315 149 332" stroke="#16110C" stroke-width="9"/>',
     '<path d="M125 196C125 213 149 213 149 230C149 247 125 247 125 264C125 281 149 281 149 298C149 315 125 315 125 332" stroke="#F4EDE1" stroke-width="16"/>',
@@ -745,7 +745,7 @@
     }).join("");
 
     return [
-      '<div class="ticker">Free UK shipping over <b>$120</b> &nbsp;&#9670;&nbsp; Every bag knitted by one pair of hands in Sheffield &nbsp;&#9670;&nbsp; <b>Sample site</b>, no real orders taken</div>',
+      '<div class="ticker">Free UK shipping over <b>$120</b> &nbsp;&#9670;&nbsp; Two or three bags a week, knitted in Sheffield &nbsp;&#9670;&nbsp; <b>Sample site</b>, no real orders taken</div>',
       '<header class="hdr">',
       '<div class="hdr-in">',
       '<nav class="nav" id="nav" aria-label="Main">' + nav + "</nav>",
@@ -986,7 +986,7 @@
         ["Swatch", "Every design starts as a 15 cm swatch, washed and measured, because gauge off the needles is not gauge after a wash."],
         ["Cast on", "Yarn wound by hand from the skein, then each panel knitted in one sitting so the tension stays even across it."],
         ["Block", "Wet blocked flat and pinned to the finished measurement. This is the step that turns knitting into a shape."],
-        ["Line", "Lining cut to the blocked panel and stitched in, hardware fitted, then photographed before it goes in the box."]
+        ["Line", "Lining cut to the blocked panel and stitched in, hardware fitted, then photographed and boxed."]
       ];
       steps.innerHTML = S.map(function (s, i) {
         var c = COLLECTIONS[i % COLLECTIONS.length];
@@ -999,7 +999,7 @@
       var Q = [
         ["The fox chart is knitted right into the fabric. You can see the stitches making the shape of the mask.", "Priya R.", "Kitsune Colourwork Purse"],
         ["Six months of daily use and the cables still stand up. It has not gone baggy at all.", "Dan H.", "Aran Cable Shoulder Bag"],
-        ["Lynn sent a photo of the actual skein before knitting it. Nobody else does that.", "Sam O.", "Hand-Dyed Sunset Hobo"]
+        ["Lynn sent a photo of the actual skein ahead of casting on. Nobody else does that.", "Sam O.", "Hand-Dyed Sunset Hobo"]
       ];
       quotes.innerHTML = Q.map(function (q, i) {
         var c = COLLECTIONS[(i + 2) % COLLECTIONS.length];
@@ -1259,11 +1259,11 @@
       + "</dl></div></details>",
       '<details><summary>Washing and blocking</summary><div class="body"><p>' + esc(p.care) + "</p></div></details>",
       '<details><summary>Shipping and returns</summary><div class="body"><p>Tracked shipping is $7, free over $120. '
-      + "Knitted-to-order bags leave the studio inside the lead time above, and you get a photo of the finished bag before it goes in the post. "
+      + "Knitted-to-order bags leave the studio inside the lead time above, and you get a photo of the finished bag, then it goes in the post. "
       + "Stock bags post the next working day. Returns run 30 days on stock bags, and knitted-to-order work is covered for faults and sizing rather than change of mind.</p></div></details>",
       '<details><summary>Sizing and straps</summary><div class="body"><p>Every measurement on this listing is taken after blocking, which is the size the bag actually is. '
       + "Knitted fabric gives, so a bag carries more than its stated dimensions and settles a centimetre or two wider in the first month. "
-      + "Strap length can be changed at no cost if you ask before it is cast on. Put the drop you want in the order note.</p></div></details>"
+      + "Strap length can be changed at no cost if you ask ahead of the cast-on. Put the drop you want in the order note.</p></div></details>"
     ].join("");
 
     var pairs = $("#pairs");
@@ -1307,8 +1307,8 @@
     if (faq) {
       var F = [
         ["How long does a knitted-to-order bag take?", "The lead time on each listing is the real time at the chair, between seven days and eighteen. Colourwork and cable bags sit at the long end, since a cable round takes about three times as long as a plain one."],
-        ["Will a knitted bag hold its shape?", "The ones here will. Every bag is either lined, worked at a tight gauge, or both, and each one is blocked to its finished measurement before it ships. A knitted bag goes baggy when it is knitted loose and left unlined, which is the thing this studio spends most of its effort avoiding."],
-        ["Can I ask for a bag that is not listed?", "Yes. Commissions start at $180 and begin with a swatch and a sketch you approve before anything is cast on. Anime commissions are welcome so long as the chart is an original motif rather than a copy of a licensed character."],
+        ["Will a knitted bag hold its shape?", "The ones here will. Every bag is either lined, worked at a tight gauge, or both, and each one is blocked to its finished measurement, then shipped. A knitted bag goes baggy when it is knitted loose and left unlined, which is the thing this studio spends most of its effort avoiding."],
+        ["Can I ask for a bag that is not listed?", "Yes. Commissions start at $180 and begin with a swatch and a sketch you approve ahead of any cast-on. Anime commissions are welcome so long as the chart is an original motif rather than a copy of a licensed character."],
         ["Do you knit licensed anime characters?", "No. The Stitch and Story bags use motifs from folklore and from anime visual language, fox masks, star sigils, mecha panel blocks, charted here rather than copied from a series."],
         ["Is the wool going to pill?", "Some. Merino pills at friction points on any garment or bag, and the blends here use cotton or nylon at the wear points to slow it down. A sweater comb takes pills off in a minute and does no damage to the fabric."],
         ["Do you ship outside the UK?", "Yes, tracked and insured worldwide. Customs and import charges are on the buyer."]
