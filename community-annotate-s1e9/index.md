@@ -4,8 +4,18 @@ Full script with speaker names, every line a note box.
 
 - 248 speaker lines, 14 scenes, 6 act markers
 - Live: https://7onething1.github.io/community-annotate-s1e9/
+- Companion: https://7onething1.github.io/community-s1e9-future-seeds/
 - Sibling pages: /community-annotate-s1e3, /community-annotate-s1e4, /community-annotate-s1e5 (on drwu-htmls.vercel.app)
-- Feeds: /community-future-seeds
+
+## Line numbering does not match the future-seeds page
+
+The L-numbers on this sheet count speaker lines in the **production draft**. The
+S1E9 future-seeds page cites the **aired 373-line springfield script**
+(`tv-scripts/text/Community-S01E09.txt`). The two numbering schemes are
+independent, so `L8` here is not `L8` there. Both pages say so on their face.
+Reconciling them would mean aligning draft dialogue to aired dialogue line by
+line, and the rewrites between the two make some of that mapping a guess, so it
+is deliberately not attempted here.
 
 ## Source and provenance
 
