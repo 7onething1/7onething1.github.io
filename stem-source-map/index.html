@@ -1,0 +1,63 @@
+<!doctype html><html lang=en><head><meta charset=utf-8>
+<meta name=viewport content="width=device-width,initial-scale=1">
+<title>Stem source map, which drive to mount</title>
+<style>
+:root{--paper:#FBF7EF;--card:#fff;--line:#e7ddc8;--ink:#1a1814;--dim:#8a7f6b;--amber:#c77d3a;--teal:#4e937a;--rust:#c75d4f}
+*{box-sizing:border-box}
+body{margin:0;background:var(--paper);color:var(--ink);font:15px/1.55 Inter,-apple-system,BlinkMacSystemFont,Segoe UI,Roboto,sans-serif}
+header{border-bottom:2px solid var(--ink);padding:20px}
+h1{margin:0;font-size:22px}h1 b{color:var(--amber)}
+.sub{color:var(--dim);font-size:13px;margin-top:5px;max-width:70ch}
+main{padding:18px 20px 70px;max-width:1200px}
+.box{background:#fff;border:2px solid var(--ink);border-left:5px solid var(--teal);border-radius:12px;padding:15px 17px;margin:0 0 18px;box-shadow:3px 3px 0 rgba(43,39,35,.08)}
+.box h2{margin:0 0 8px;font-size:16px;color:var(--teal)}
+.box p{margin:.35em 0;font-size:13.5px}
+table{width:100%;border-collapse:collapse;background:#fff;border:2px solid var(--ink);border-radius:12px;overflow:hidden}
+th,td{text-align:left;padding:10px 12px;border-bottom:1px solid var(--line);vertical-align:top;font-size:13px}
+th{background:var(--paper);font-size:11.5px;text-transform:uppercase;letter-spacing:.05em;border-bottom:2px solid var(--ink)}
+tr:last-child td{border-bottom:none}
+a{color:var(--amber);font-weight:600;text-decoration:none}a:hover{text-decoration:underline}
+.alb{color:var(--dim);font-size:11.5px;margin-top:3px}
+.src{font:12px/1.45 ui-monospace,SFMono-Regular,Menlo,monospace;word-break:break-word}
+.note{color:var(--dim);font-size:11px;margin-top:4px;font-family:Inter,sans-serif;line-height:1.4}
+.drive{display:inline-block;font-weight:700;font-size:11.5px;border:1.5px solid var(--ink);border-radius:9px;padding:2px 8px;background:#fbf1dc;white-space:nowrap}
+.num{white-space:nowrap;font-weight:600}
+.pill{display:inline-block;font-size:10.5px;font-weight:700;border-radius:9px;padding:1px 8px;border:1.5px solid}
+.pill.ok{color:#2f6b55;border-color:#8fbfa9;background:#e6f2ec}
+.pill.bad{color:#8c3a30;border-color:#d9a49c;background:#fbeae7}
+code{font:12px ui-monospace,Menlo,monospace;background:#f1e9d6;padding:.1em .35em;border-radius:4px}
+.wrap{overflow-x:auto}
+h2.sec{font-size:16px;margin:26px 0 10px}
+footer{color:var(--dim);font-size:11.5px;margin-top:34px;border-top:1px solid var(--line);padding-top:12px}
+</style></head><body>
+<header>
+<h1><b>Stem source map</b> &middot; which drive to mount</h1>
+<div class="sub">The nine players whose media host died are all serving again from GitHub Pages, using the web mp3s that were already on this Mac. This map is for the other job, re-deriving them from the ORIGINAL source stems. Checked 2026-07-29.</div>
+</header>
+<main>
+
+<div class="box">
+<h2>Short answer</h2>
+<p><b>T7 Shield is the drive.</b> Every source path in the index either sits on T7 already or pointed at a Desktop folder that no longer exists, and nothing was mounted when this was built.</p>
+<p><b>You do not need it to use the players.</b> All nine are live and audio-verified right now. The drive is only for re-deriving higher-quality stems.</p>
+<p><b>Watch space.</b> The internal disk is 96 percent full with roughly 38 GB free, so point any new Demucs output at the drive rather than at home.</p>
+</div>
+
+<h2 class="sec">Per player</h2>
+<div class="wrap"><table>
+<tr><th>Player</th><th>Source stems</th><th>Drive</th><th>Web mp3s local</th><th>Live now</th></tr>
+<tr><td><a href="https://drwu-htmls.vercel.app/phish-stems">phish-stems</a><div class="alb">Phish, West Coast Spring 2025, 17 jams</div></td><td class="src">/Volumes/T7 Shield/phsih jams/ , Phish jams/ , lp*-jam/<div class="note">The index lists 111 stem files across these folders. Only two old jams (1994 Reba, 1994 Bowie) are still local under ~/New Desktop/Anatomy-Jams/.</div></td><td><span class="drive">T7 Shield</span></td><td class="num">1013 MB<div class="note">79 files</div></td><td><span class="pill ok">OK</span><div class="note">7onething1.github.io</div></td></tr><tr><td><a href="https://drwu-htmls.vercel.app/hfe-stems">hfe-stems</a><div class="alb">Hooray For Earth, Racy + True Loves</div></td><td class="src">not in the stem index at all<div class="note">~/New Desktop/HFE-Stems/ is 280 KB of build scripts with no audio. This is the one album with no recorded source location.</div></td><td><span class="drive">T7 Shield, or re-run Demucs</span></td><td class="num">516 MB<div class="note">132 files</div></td><td><span class="pill ok">OK</span><div class="note">7onething1.github.io</div></td></tr><tr><td><a href="https://drwu-htmls.vercel.app/dream-theater-stems">dream-theater-stems</a><div class="alb">Dream Theater, Six Degrees of Inner Turbulence, 12 songs</div></td><td class="src">was the catch-all pool under the Desktop anchor, now gone<div class="note">72 stem files indexed. The anchor folder IF YOU CAN&#x27;T FIND SOMETHING ITS HERE no longer exists on Desktop or New Desktop.</div></td><td><span class="drive">T7 Shield</span></td><td class="num">600 MB<div class="note">72 files</div></td><td><span class="pill ok">OK</span><div class="note">7onething1.github.io</div></td></tr><tr><td><a href="https://drwu-htmls.vercel.app/mars-volta-stems">mars-volta-stems</a><div class="alb">The Mars Volta, De-Loused in the Comatorium, 10 songs</div></td><td class="src">same catch-all pool, now gone<div class="note">60 stem files indexed.</div></td><td><span class="drive">T7 Shield</span></td><td class="num">425 MB<div class="note">60 files</div></td><td><span class="pill ok">OK</span><div class="note">7onething1.github.io</div></td></tr><tr><td><a href="https://drwu-htmls.vercel.app/rush-stems">rush-stems</a><div class="alb">Rush, A Farewell To Kings, 6 songs</div></td><td class="src">same catch-all pool, now gone<div class="note">36 stem files indexed.</div></td><td><span class="drive">T7 Shield</span></td><td class="num">201 MB<div class="note">36 files</div></td><td><span class="pill ok">OK</span><div class="note">7onething1.github.io</div></td></tr><tr><td><a href="https://drwu-htmls.vercel.app/in-rainbows-stems">in-rainbows-stems</a><div class="alb">Radiohead, In Rainbows, 9 songs</div></td><td class="src">was the 67-song Demucs pool under the Desktop anchor, now gone<div class="note">54 stem files indexed. T7 also holds Radiohead MoonShapedPool under /Volumes/T7 Shield/Moises_Stems/, a different album.</div></td><td><span class="drive">T7 Shield</span></td><td class="num">319 MB<div class="note">54 files</div></td><td><span class="pill ok">OK</span><div class="note">7onething1.github.io</div></td></tr><tr><td><a href="https://drwu-htmls.vercel.app/beachhouse-otm-stems">beachhouse-otm-stems</a><div class="alb">Beach House, Once Twice Melody, 9 songs</div></td><td class="src">/Volumes/T7 Shield/Stems/01 Once Twice Melody , plus Moises_Stems/<div class="note">54 stem files were in the deleted Desktop pool, and T7 carries a partial copy.</div></td><td><span class="drive">T7 Shield</span></td><td class="num">359 MB<div class="note">54 files</div></td><td><span class="pill ok">OK</span><div class="note">7onething1.github.io</div></td></tr><tr><td><a href="https://drwu-htmls.vercel.app/beachhouse-stems">beachhouse-stems</a><div class="alb">Beach House, Once Twice Melody, same audio</div></td><td class="src">shares beachhouse-otm&#x27;s folder<div class="note">This player has no media folder of its own, it reads the otm one.</div></td><td><span class="drive">T7 Shield</span></td><td class="num">none<div class="note">0 files</div></td><td><span class="pill ok">OK</span><div class="note">7onething1.github.io</div></td></tr><tr><td><a href="https://drwu-htmls.vercel.app/fugazi-the-argument">fugazi-the-argument</a><div class="alb">Fugazi, The Argument, 11 songs</div></td><td class="src">was ~/Downloads/complete/complete/The Argument/stems/htdemucs_6s/, now gone<div class="note">Source mp3s were alongside it in the same Downloads folder. Book project at ~/Projects/fugazi-the-argument-book/.</div></td><td><span class="drive">T7 Shield, or re-run Demucs</span></td><td class="num">370 MB<div class="note">88 files</div></td><td><span class="pill ok">OK</span><div class="note">7onething1.github.io</div></td></tr>
+</table></div>
+
+<h2 class="sec">If T7 does not have the title</h2>
+<div class="wrap"><table>
+<tr><th>Path</th><th>What is there</th></tr>
+<tr><td class="src">/Volumes/Black/_Music-Video-Library/Bands/</td><td>Full albums in FLAC and MP3, not stems. Use as Demucs input when T7 lacks a title. Black is roughly 98 percent full with about 7 GB free, so write output elsewhere.</td></tr><tr><td class="src">/Volumes/T7 Shield/Big music/ and /Volumes/T7 Shield/Music/</td><td>Un-stemmed source albums, includes more Rush.</td></tr><tr><td class="src">/Volumes/T7 Shield/Music to Stem/</td><td>The pre-Moises queue, Life and Times Tragic Boogie and BELIEVEYOUME.</td></tr>
+</table></div>
+
+<footer>
+Sources: <code>~/Projects/stem-map/stem-map.json</code> (27 artists, 45 albums, 278 songs, 1349 stem files, generated 2026-06-20),
+<code>~/.claude/CLAUDE_LIBRARY_LOCATIONS.md</code>, and <code>_meta/stem_players_audit.json</code>.
+Rows marked gone were stat'd and confirmed absent. Regenerate the stem index with <code>~/Projects/stem-map/build_stem_map.py</code> once the drive is mounted.
+</footer>
+</main></body></html>
