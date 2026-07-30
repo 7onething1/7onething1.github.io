@@ -12,9 +12,9 @@
   },
   "13": {
    "note": "this is called back to in the britta hangover bit later episodes",
-   "verdict": "part",
-   "label": "phrase does not recur",
-   "check": "\"pointy face\" appears exactly twice in all 110 scripts and both are inside this episode (S01E09 aired L16, L34), so the phrase is an in-episode runner. On the hangover: one hangover beat exists in the whole corpus, S03E19 L11, \"I need to eat natural, organic foods, or I'm never gonna get rid of this hangover\", which reads as Britta, searching hangover, hung over and hungover. Tell me which bit you mean and I will pin the payoff."
+   "verdict": "hit",
+   "label": "confirmed, pays off at L28",
+   "check": "Resolved by Brandon on 2026-07-30: the callback is the other pointy face. Britta threatens Jeff here and collects fifteen lines later at L28 in baby talk, \"Ohhh. Did I hurt your feelings pointy face?\" The production script marks that second one (baby talk), which is how the taunt plays. A wide search for pointy across all 110 scripts returns four hits: these two, plus S06E12 L94 \"pointy ninja rocks\" and S05E02 L329 \"my bills are a little pointy\", both unrelated. Setup here, payoff at L28, both Britta at Jeff."
   },
   "14": {
    "note": "first of many interventions / reverse interventions",
@@ -36,9 +36,9 @@
   },
   "28": {
    "note": "first of many pointy face jokes",
-   "verdict": "miss",
-   "label": "confined to this episode",
-   "check": "Same finding as L13. \"pointy face\" occurs twice in 110 scripts, S01E09 aired L16 and L34, both here. Britta's insult never returns, so this is a runner inside the episode and it ends with it."
+   "verdict": "part",
+   "label": "the payoff of L13, and the last one",
+   "check": "This is the second pointy face joke and the last one in the series. It answers L13, where Britta threatens to smack the smug look off Jeff's pointy face, and here she collects in baby talk. Counting is the only correction: pointy appears four times across all 110 scripts and only these two are the insult, so the bit is a two-beat pair inside S01E09 rather than the first of many."
   },
   "29": {
    "note": "Established abed's connection to the a/v club",

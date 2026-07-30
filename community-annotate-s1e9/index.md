@@ -54,11 +54,11 @@ the page, each with a verdict from grepping 110 Community episode scripts, ~/Pro
 | line | note | verdict |
 |---|---|---|
 | L3 | This is the arsistocrats joke | **reading**, outside reference |
-| L13 | this is called back to in the britta hangover bit later episodes | **partly confirmed**, phrase does not recur |
+| L13 | this is called back to in the britta hangover bit later episodes | **confirmed**, confirmed, pays off at L28 |
 | L14 | first of many interventions / reverse interventions | **confirmed**, confirmed runner |
 | L17 | later in the digit episode where pierce uses britta to take down subway with dirty sex acts, he will say he programmed her mind. also he will tell jeff and his lawyer friend he used to lead seminars in mind manipulator. | **confirmed**, confirmed, both halves, corrected 2026-07-29 |
 | L21 | reoccuring joke 'he's right here' | **partly confirmed**, weak as a marked runner |
-| L28 | first of many pointy face jokes | **not findable**, confined to this episode |
+| L28 | first of many pointy face jokes | **partly confirmed**, the payoff of L13, and the last one |
 | L29 | Established abed's connection to the a/v club | **partly confirmed**, right material, earlier seed |
 | L44 | first talk of reserving rooms comes back with 2nd german invation | **confirmed**, confirmed, and your ordinal is right |
 | L62 | huge underdetected later in a few places including puppet episode confession he's so narcissitic he is more into lusting for himself than the women he sleeps with. | **partly confirmed**, arc confirmed, puppet line unfindable |
@@ -77,8 +77,13 @@ the speaker. Lesson recorded on the card itself: a narrow grep produced a false
 absence, so the two remaining not-found verdicts (L13, L62) now list the exact
 terms searched.
 
-Corrected: L28 and L13. "pointy face" occurs twice in all 110 scripts and both
-are inside this episode, so it never becomes a series runner.
+L13 and L28 resolved 2026-07-30. Brandon: the L13 callback is "the other pointy
+face", so the pair is a setup at L13 and a payoff at L28, both Britta at Jeff,
+the second delivered in baby talk per the draft's parenthetical. A wide search
+for `pointy` across all 110 scripts returns four hits: these two, plus S06E12
+L94 "pointy ninja rocks" and S05E02 L329 "my bills are a little pointy", both
+unrelated. The only correction left is the count on L28, which is the second and
+last rather than the first of many.
 
 **Standing caveat on every "not findable" verdict.** The corpus is
 caption-derived: no speaker names, paraphrased lines, dropped lines. A miss means
