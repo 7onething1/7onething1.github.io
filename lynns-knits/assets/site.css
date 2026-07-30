@@ -293,6 +293,7 @@ p:last-child { margin-bottom: 0; }
   .burger { display: inline-flex; }
   .brand { justify-self: center; grid-column: 2; }
   .brand .bn { font-size: 1.3rem; }
+  .brand .bs { letter-spacing: .18em; font-size: .52rem; white-space: nowrap; }
   .hdr-r .lbl { display: none; }
 }
 
