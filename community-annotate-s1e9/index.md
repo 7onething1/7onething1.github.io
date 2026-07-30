@@ -46,6 +46,37 @@ Local source copy: `~/Projects/tv-scripts/text_speakers/Community-S01E09_prodscr
 (named `_prodscript`, not `_speakers`, to keep it distinct from the fandom-sourced
 files and from the `_inferred` guesses).
 
+## Brandon's annotation pass, checked
+
+Half done, stopped at L62 of 248. All 9 notes are baked into
+the page, each with a verdict from grepping 110 Community episode scripts, ~/Projects/tv-scripts/text/.
+
+| line | note | verdict |
+|---|---|---|
+| L3 | This is the arsistocrats joke | **reading**, outside reference |
+| L13 | this is called back to in the britta hangover bit later episodes | **partly confirmed**, phrase does not recur |
+| L14 | first of many interventions / reverse interventions | **confirmed**, confirmed runner |
+| L17 | later in the digit episode where pierce uses britta to take down subway with dirty sex acts, he will say he programmed her mind. also he will tell jeff and his lawyer friend he used to lead seminars in mind manipulator. | **partly confirmed**, seminars confirmed, one half unfindable |
+| L21 | reoccuring joke 'he's right here' | **partly confirmed**, weak as a marked runner |
+| L28 | first of many pointy face jokes | **not findable**, confined to this episode |
+| L29 | Established abed's connection to the a/v club | **partly confirmed**, right material, earlier seed |
+| L44 | first talk of reserving rooms comes back with 2nd german invation | **confirmed**, confirmed, and your ordinal is right |
+| L62 | huge underdetected later in a few places including puppet episode confession he's so narcissitic he is more into lusting for himself than the women he sleeps with. | **partly confirmed**, arc confirmed, puppet line unfindable |
+
+Confirmed outright: L14 (intervention runner, S02E15 + S03E12) and L44 (room
+possession pays off in S04E04, and it is the second German appearance as he said,
+per S04E04 L25 pointing back at the S03E09 foosball scholarship).
+
+Corrected: L28 and L13. "pointy face" occurs twice in all 110 scripts and both
+are inside this episode, so it never becomes a series runner.
+
+**Standing caveat on every "not findable" verdict.** The corpus is
+caption-derived: no speaker names, paraphrased lines, dropped lines. A miss means
+not findable in that transcript, never that it does not happen in the show.
+Confirmations are strong, absences are weak.
+
+Raw export preserved at `notes-brandon.json` in this folder.
+
 ## Speakers on the sheet
 
 Abed, Annie, Annie / Crowd / Judges, Annie / Pierce / Shirley, Britta, Campus cop, Chang, Dean Pelton, Everyone, Jean, Jeff, Other Pierce, Other Troy, Pierce, Richard, Shirley, Shirley & Abed, Simmons, Troy, Whitman

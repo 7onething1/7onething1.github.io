@@ -1,0 +1,62 @@
+{
+ "_source": "Brandon's export block, pasted 2026-07-29",
+ "_status": "half done, stopped at L62 of 248",
+ "_numbering": "L-numbers index speaker lines of the production draft, matching this page",
+ "_checked_against": "110 Community episode scripts, ~/Projects/tv-scripts/text/",
+ "notes": {
+  "3": {
+   "note": "This is the arsistocrats joke",
+   "verdict": "read",
+   "label": "outside reference",
+   "check": "Not a script callback, so nothing to grep. The read holds up on shape: Pierce tells a filthy shaggy-dog joke he keeps restarting and never finishes, which is the Aristocrats structure. Logged as an outside shout-out rather than an internal seed."
+  },
+  "13": {
+   "note": "this is called back to in the britta hangover bit later episodes",
+   "verdict": "part",
+   "label": "phrase does not recur",
+   "check": "\"pointy face\" appears exactly twice in all 110 scripts and both are inside this episode (S01E09 aired L16, L34), so the phrase is an in-episode runner. On the hangover: one hangover beat exists in the whole corpus, S03E19 L11, \"I need to eat natural, organic foods, or I'm never gonna get rid of this hangover\", which reads as Britta. Tell me which bit you mean and I will pin the payoff."
+  },
+  "14": {
+   "note": "first of many interventions / reverse interventions",
+   "verdict": "hit",
+   "label": "confirmed runner",
+   "check": "The intervention bit does recur as a bit. S02E15 L48, \"Intervention? Intervention? Count me out.\" S03E12 L43-45 runs the word three times as a gag, \"Intervention. Intervention. Intervention.\" This episode's version is the reverse shape, the group intervening to make Britta resume a vice."
+  },
+  "17": {
+   "note": "later in the digit episode where pierce uses britta to take down subway with dirty sex acts, he will say he programmed her mind. also he will tell jeff and his lawyer friend he used to lead seminars in mind manipulator.",
+   "verdict": "part",
+   "label": "seminars confirmed, one half unfindable",
+   "check": "The seminars half is confirmed, in the Alan Connor episode you meant: S02E02 L89, Pierce says \"I gave seminars on manipulation.\" The Subway half has the right episode, S03E13, the digit one, where Subway is corpohumanized, and the takedown is Pierce's plan: L24 \"how Shirley and I are going to take down Subway\", L85 \"You could get close to Subway and find out some dirt on him.\" No line where Pierce claims he programmed her mind survives in that transcript. Separately, hypnosis does come back: S02E11 L52, \"I'd like to do extensive sessions with you, including hypnosis.\""
+  },
+  "21": {
+   "note": "reoccuring joke 'he's right here'",
+   "verdict": "part",
+   "label": "weak as a marked runner",
+   "check": "\"right here\" hits 22 times across 20 episodes, and nearly all are literal usage. Only S06E08 L402 clearly repeats this joke's shape, where someone present is discussed in the third person: \"Well, he's right here, so Hey, Steven.\" So it recurs as a conversational beat rather than a catchphrase the show marks."
+  },
+  "28": {
+   "note": "first of many pointy face jokes",
+   "verdict": "miss",
+   "label": "confined to this episode",
+   "check": "Same finding as L13. \"pointy face\" occurs twice in 110 scripts, S01E09 aired L16 and L34, both here. Britta's insult never returns, so this is a runner inside the episode and it ends with it."
+  },
+  "29": {
+   "note": "Established abed's connection to the a/v club",
+   "verdict": "part",
+   "label": "right material, earlier seed",
+   "check": "The film material is real, and it starts one episode earlier than this: S01E03 is Introduction to Film and carries six references to Abed's film class (L59, L123, L133, L256, L269). What S01E09 adds is the film department's website and the fact that his films are about the group (aired L36). The payoff runs to S04E12 L310, \"Then you're not going to film school.\" The show never says A/V club; the only audio-visual mentions in the corpus are the Dean's presentation in S02E17 L288 and L304."
+  },
+  "44": {
+   "note": "first talk of reserving rooms comes back with 2nd german invation",
+   "verdict": "hit",
+   "label": "confirmed, and your ordinal is right",
+   "check": "Strongest one in the set. S04E04, Alternative History of the German Invasion, is a room-possession fight end to end: L83 \"Uh, guys, this is our study room\", L134-135 \"That table is ours. This room is ours.\", L142 \"These Dussel-dorks won't leave our study room\", L149 \"Looks like the room is theirs.\" And L25 confirms it is the second German appearance: \"Those annoying Germans are back? I thought they transferred after they lost their foosball scholarship\", pointing back at S03E09 foosball. This episode also has the gym version of the same beat at aired L191, \"We reserved the gym for practice so Yup, they reserved it.\""
+  },
+  "62": {
+   "note": "huge underdetected later in a few places including puppet episode confession he's so narcissitic he is more into lusting for himself than the women he sleeps with.",
+   "verdict": "part",
+   "label": "arc confirmed, puppet line unfindable",
+   "check": "The narcissism arc is confirmed, and its strongest instance is S03E12, Contemporary Impressionists: L30 \"You are a textbook narcissist\", L31 \"I'm an exceptional narcissist, Britta\", L71 \"you are vulnerable to a syndrome called hyper-narcissosis.\" It is seeded before this episode too, S01E02 L88, \"narcissistic to the point of near-delusion.\" The puppet episode is S04E09 and it is built entirely on confessing terrible secrets (L218, L236, L255, L265), so your framing fits it, but no self-lust confession survives in that transcript."
+  }
+ }
+}
