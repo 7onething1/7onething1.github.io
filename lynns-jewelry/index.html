@@ -8,7 +8,7 @@
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,500;0,600;1,400;1,500&family=Inter:wght@400;500;600&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
-<link rel="stylesheet" href="assets/site.css?v=2">
+<link rel="stylesheet" href="assets/site.css?v=3">
 </head>
 <body data-page="home">
 <a class="skip" href="#main">Skip to content</a>
@@ -22,13 +22,13 @@
       <div>
         <p class="eyebrow">Sheffield studio · Est. 2014</p>
         <h1>Metal that keeps<br>the <em>marks</em> of<br>being made.</h1>
-        <p class="lede">Forged silver, bezel-set stone, and kiln-fired enamel, cut and finished at one bench. Twelve pieces in the shop today, five of them anime-inspired.</p>
+        <p class="lede">Forged silver, bezel-set stone, and kiln-fired enamel, cut and finished at one bench. <span id="lede-tally"></span></p>
         <div class="hero-cta">
           <a class="btn" href="shop.html">Shop the collection</a>
           <a class="link-u" href="shop.html?tag=anime">See the anime pieces &#8594;</a>
         </div>
         <dl class="hero-meta">
-          <div><dt>Pieces in shop</dt><dd>12</dd></div>
+          <div><dt>Pieces in shop</dt><dd id="meta-count">12</dd></div>
           <div><dt>Lead time</dt><dd>3&#8211;16 days</dd></div>
           <div><dt>Free shipping</dt><dd>$150+</dd></div>
           <div><dt>Repairs</dt><dd>2 yrs</dd></div>
@@ -133,7 +133,7 @@
           <p class="eyebrow">Buyers</p>
           <h2>What comes back in the post</h2>
         </div>
-        <span class="mono" style="color:var(--ink-3)">1,291 reviews · 4.87 average</span>
+        <span class="mono" id="review-tally" style="color:var(--ink-3)"></span>
       </div>
       <div class="quotes" id="quotes"></div>
       <p class="demo-note"><b>Sample site.</b> This is a design demonstration. The brand, the products, the prices, and the reviews on this page are invented, and no orders can be placed.</p>
@@ -157,6 +157,6 @@
 </main>
 
 <div id="site-footer"></div>
-<script src="assets/site.js?v=2"></script>
+<script src="assets/site.js?v=3"></script>
 </body>
 </html>

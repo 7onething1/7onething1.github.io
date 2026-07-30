@@ -916,9 +916,34 @@
      9. Page controllers
      ------------------------------------------------------------------ */
 
+  var WORDS = ["zero", "one", "two", "three", "four", "five", "six", "seven", "eight",
+    "nine", "ten", "eleven", "twelve", "thirteen", "fourteen", "fifteen", "sixteen"];
+
+  function word(n) { return WORDS[n] || String(n); }
+
+  function cap(s) { return s.charAt(0).toUpperCase() + s.slice(1); }
+
   function initHome() {
     var hero = $("#hero-art");
     if (hero) hero.insertAdjacentHTML("afterbegin", piece("ember"));
+
+    // Counts are derived from the catalog so the copy cannot drift from the data.
+    var animeCount = PRODUCTS.filter(function (p) { return p.anime; }).length;
+    var reviewTotal = PRODUCTS.reduce(function (n, p) { return n + p.reviews; }, 0);
+    var avgRating = PRODUCTS.reduce(function (n, p) { return n + p.rating; }, 0) / PRODUCTS.length;
+
+    var lede = $("#lede-tally");
+    if (lede) {
+      lede.textContent = cap(word(PRODUCTS.length)) + " pieces in the shop today, "
+        + word(animeCount) + " of them anime-inspired.";
+    }
+    var mc = $("#meta-count");
+    if (mc) mc.textContent = String(PRODUCTS.length);
+    var rt = $("#review-tally");
+    if (rt) {
+      rt.textContent = reviewTotal.toLocaleString("en-US") + " reviews · "
+        + avgRating.toFixed(2) + " average";
+    }
 
     var tiles = $("#tiles");
     if (tiles) {
