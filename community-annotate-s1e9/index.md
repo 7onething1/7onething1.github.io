@@ -54,7 +54,7 @@ the page, each with a verdict from grepping 110 Community episode scripts, ~/Pro
 | line | note | verdict |
 |---|---|---|
 | L3 | This is the arsistocrats joke | **reading**, outside reference |
-| L13 | this is called back to in the britta hangover bit later episodes | **confirmed**, confirmed, pays off at L28 |
+| L13 | this is called back to in the britta hangover bit later episodes | **confirmed**, confirmed twice, L28 and the S01E16 drunk dial |
 | L14 | first of many interventions / reverse interventions | **confirmed**, confirmed runner |
 | L17 | later in the digit episode where pierce uses britta to take down subway with dirty sex acts, he will say he programmed her mind. also he will tell jeff and his lawyer friend he used to lead seminars in mind manipulator. | **confirmed**, confirmed, both halves, corrected 2026-07-29 |
 | L21 | reoccuring joke 'he's right here' | **partly confirmed**, weak as a marked runner |
@@ -77,13 +77,21 @@ the speaker. Lesson recorded on the card itself: a narrow grep produced a false
 absence, so the two remaining not-found verdicts (L13, L62) now list the exact
 terms searched.
 
-L13 and L28 resolved 2026-07-30. Brandon: the L13 callback is "the other pointy
-face", so the pair is a setup at L13 and a payoff at L28, both Britta at Jeff,
-the second delivered in baby talk per the draft's parenthetical. A wide search
-for `pointy` across all 110 scripts returns four hits: these two, plus S06E12
-L94 "pointy ninja rocks" and S05E02 L329 "my bills are a little pointy", both
-unrelated. The only correction left is the count on L28, which is the second and
-last rather than the first of many.
+L13 and L28 resolved 2026-07-30, in two parts, both from Brandon.
+
+In-episode, the L13 callback is "the other pointy face", so the pair is a setup
+at L13 and a payoff at L28, both Britta at Jeff, the second in baby talk per the
+draft's parenthetical. A wide search for `pointy` across all 110 scripts returns
+four hits: these two, plus S06E12 L94 "pointy ninja rocks" and S05E02 L329 "my
+bills are a little pointy", both unrelated. So the count on L28 is the one
+correction left, second and last rather than first of many.
+
+Across episodes, the bit is the **drunk dial**, S01E16 *Communication Studies*,
+which runs L13's mechanic again: Jeff broadcasts Britta's private business to the
+group and she has to claw her standing back (S01E16 L71-73, L288). My first pass
+searched hangover, hung over and hungover, and the show calls it a drunk dial.
+That is the same narrow-vocabulary error that produced the false absence on L17,
+now twice in one sheet.
 
 **Standing caveat on every "not findable" verdict.** The corpus is
 caption-derived: no speaker names, paraphrased lines, dropped lines. A miss means
