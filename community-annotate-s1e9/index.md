@@ -56,16 +56,26 @@ the page, each with a verdict from grepping 110 Community episode scripts, ~/Pro
 | L3 | This is the arsistocrats joke | **reading**, outside reference |
 | L13 | this is called back to in the britta hangover bit later episodes | **partly confirmed**, phrase does not recur |
 | L14 | first of many interventions / reverse interventions | **confirmed**, confirmed runner |
-| L17 | later in the digit episode where pierce uses britta to take down subway with dirty sex acts, he will say he programmed her mind. also he will tell jeff and his lawyer friend he used to lead seminars in mind manipulator. | **partly confirmed**, seminars confirmed, one half unfindable |
+| L17 | later in the digit episode where pierce uses britta to take down subway with dirty sex acts, he will say he programmed her mind. also he will tell jeff and his lawyer friend he used to lead seminars in mind manipulator. | **confirmed**, confirmed, both halves, corrected 2026-07-29 |
 | L21 | reoccuring joke 'he's right here' | **partly confirmed**, weak as a marked runner |
 | L28 | first of many pointy face jokes | **not findable**, confined to this episode |
 | L29 | Established abed's connection to the a/v club | **partly confirmed**, right material, earlier seed |
 | L44 | first talk of reserving rooms comes back with 2nd german invation | **confirmed**, confirmed, and your ordinal is right |
 | L62 | huge underdetected later in a few places including puppet episode confession he's so narcissitic he is more into lusting for himself than the women he sleeps with. | **partly confirmed**, arc confirmed, puppet line unfindable |
 
-Confirmed outright: L14 (intervention runner, S02E15 + S03E12) and L44 (room
+Confirmed outright: L14 (intervention runner, S02E15 + S03E12), L44 (room
 possession pays off in S04E04, and it is the second German appearance as he said,
-per S04E04 L25 pointing back at the S03E09 foosball scholarship).
+per S04E04 L25 pointing back at the S03E09 foosball scholarship), and L17.
+
+**L17 was corrected on 2026-07-29 after Brandon supplied the quote.** The first
+pass searched S03E13 for program, mind, hypno and conditioned, and reported the
+Pierce brainwashing claim as absent. The line uses the verb *implanted*, so the
+query missed it. The scene is S03E13 L222-L224: "You never lived anywhere." /
+"You're a weapon designed for sex." / "You only think you lived in New York
+'cause I implanted your memories." Britta's "Oh, Pierce, stop it!" at L225 fixes
+the speaker. Lesson recorded on the card itself: a narrow grep produced a false
+absence, so the two remaining not-found verdicts (L13, L62) now list the exact
+terms searched.
 
 Corrected: L28 and L13. "pointy face" occurs twice in all 110 scripts and both
 are inside this episode, so it never becomes a series runner.

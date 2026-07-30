@@ -14,7 +14,7 @@
    "note": "this is called back to in the britta hangover bit later episodes",
    "verdict": "part",
    "label": "phrase does not recur",
-   "check": "\"pointy face\" appears exactly twice in all 110 scripts and both are inside this episode (S01E09 aired L16, L34), so the phrase is an in-episode runner. On the hangover: one hangover beat exists in the whole corpus, S03E19 L11, \"I need to eat natural, organic foods, or I'm never gonna get rid of this hangover\", which reads as Britta. Tell me which bit you mean and I will pin the payoff."
+   "check": "\"pointy face\" appears exactly twice in all 110 scripts and both are inside this episode (S01E09 aired L16, L34), so the phrase is an in-episode runner. On the hangover: one hangover beat exists in the whole corpus, S03E19 L11, \"I need to eat natural, organic foods, or I'm never gonna get rid of this hangover\", which reads as Britta, searching hangover, hung over and hungover. Tell me which bit you mean and I will pin the payoff."
   },
   "14": {
    "note": "first of many interventions / reverse interventions",
@@ -24,9 +24,9 @@
   },
   "17": {
    "note": "later in the digit episode where pierce uses britta to take down subway with dirty sex acts, he will say he programmed her mind. also he will tell jeff and his lawyer friend he used to lead seminars in mind manipulator.",
-   "verdict": "part",
-   "label": "seminars confirmed, one half unfindable",
-   "check": "The seminars half is confirmed, in the Alan Connor episode you meant: S02E02 L89, Pierce says \"I gave seminars on manipulation.\" The Subway half has the right episode, S03E13, the digit one, where Subway is corpohumanized, and the takedown is Pierce's plan: L24 \"how Shirley and I are going to take down Subway\", L85 \"You could get close to Subway and find out some dirt on him.\" No line where Pierce claims he programmed her mind survives in that transcript. Separately, hypnosis does come back: S02E11 L52, \"I'd like to do extensive sessions with you, including hypnosis.\""
+   "verdict": "hit",
+   "label": "confirmed, both halves, corrected 2026-07-29",
+   "check": "Both halves check out. The Subway half is S03E13, the digit one, where Pierce runs Britta as an asset against Subway and says it outright: L222 \"You never lived anywhere.\" L223 \"You're a weapon designed for sex.\" L224 \"You only think you lived in New York 'cause I implanted your memories.\" Britta's \"Oh, Pierce, stop it!\" at L225 fixes the speaker, and the operation is his plan at L24 and L85. The seminars half is S02E02 L89, Pierce: \"I gave seminars on manipulation.\" Hypnosis also returns at S02E11 L52. Correction: an earlier pass on this card searched for program, mind, hypno and conditioned, which all miss a line whose verb is implanted, and wrongly reported the quote as absent. Brandon supplied the quote and the script confirms it."
   },
   "21": {
    "note": "reoccuring joke 'he's right here'",
@@ -56,7 +56,7 @@
    "note": "huge underdetected later in a few places including puppet episode confession he's so narcissitic he is more into lusting for himself than the women he sleeps with.",
    "verdict": "part",
    "label": "arc confirmed, puppet line unfindable",
-   "check": "The narcissism arc is confirmed, and its strongest instance is S03E12, Contemporary Impressionists: L30 \"You are a textbook narcissist\", L31 \"I'm an exceptional narcissist, Britta\", L71 \"you are vulnerable to a syndrome called hyper-narcissosis.\" It is seeded before this episode too, S01E02 L88, \"narcissistic to the point of near-delusion.\" The puppet episode is S04E09 and it is built entirely on confessing terrible secrets (L218, L236, L255, L265), so your framing fits it, but no self-lust confession survives in that transcript."
+   "check": "The narcissism arc is confirmed, and its strongest instance is S03E12, Contemporary Impressionists: L30 \"You are a textbook narcissist\", L31 \"I'm an exceptional narcissist, Britta\", L71 \"you are vulnerable to a syndrome called hyper-narcissosis.\" It is seeded before this episode too, S01E02 L88, \"narcissistic to the point of near-delusion.\" The puppet episode is S04E09 and it is built entirely on confessing terrible secrets (L218, L236, L255, L265), so your framing fits it. Three passes over S04E09 (myself, narciss, vain, women, slept with, more into, than the women) did not surface a self-lust confession. That is the limit of those queries. Tell me the episode and I will cite it."
   }
  }
 }
