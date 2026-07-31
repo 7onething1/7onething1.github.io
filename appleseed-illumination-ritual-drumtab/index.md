@@ -1,8 +1,8 @@
 # Illumination Ritual: drum tabs for Songsterr, whole album
 
-The Appleseed Cast, 31 July 2026. Nine of the album's ten tracks built from DrumSep
-5-piece splits through `/stems-to-guitar-pro-drums`. Every file passed the same 19-point
-render gate. **18,452 notes across 1,392 bars.**
+The Appleseed Cast, 31 July 2026. All ten tracks built from DrumSep 5-piece splits through
+`/stems-to-guitar-pro-drums`. Every file passed the same 19-point render gate.
+**20,890 notes across 1,570 bars.**
 
 ## The album
 
@@ -11,7 +11,7 @@ render gate. **18,452 notes across 1,392 bars.**
 | 01 | Adriatic to Black Sea | 177 | 241 | 2,372 | 58 | 0 | 175 | 165 | MEDIUM |
 | 02 | Great Lake Derelict | 137 | 149 | 2,864 | 163 | 0 | 157 | 365 | MEDIUM |
 | 03 | Simple Forms | 144 | 61 | 898 | 0 | 0 | 43 | 65 | MEDIUM |
-| 04 | Cathedral Rings | | | | | | | | no drum stem exists |
+| 04 | Cathedral Rings | 155 | 178 | 2,438 | 0 | 0 | 241 | 118 | HIGH |
 | 05 | 30 Degrees 3 Am | 161 | 161 | 1,980 | 0 | 0 | 107 | 140 | MEDIUM |
 | 06 | Branches on the Arrow Peak Revelation | 138 | 102 | 1,401 | 0 | 0 | 107 | 92 | LOW |
 | 07 | Barrier Islands (Do We Remain) | 148 | 153 | 2,349 | 0 | 0 | 166 | 203 | HIGH |
@@ -19,9 +19,12 @@ render gate. **18,452 notes across 1,392 bars.**
 | 09 | Clearing Life | 154 | 171 | 2,203 | 10 | 0 | 138 | 177 | HIGH |
 | 10 | Illumination Ritual | 168 | 137 | 1,732 | 25 | 0 | 75 | 88 | MEDIUM |
 
-Track 04 has a stem pack carrying bass, guitars, keys, metronome, other and vocals, and
-no drums file at all. It needs a fresh Demucs pass on the source audio before it can have
-a drum tab.
+Track 04 nearly did not happen. The album's separation script skipped it on the note
+"already has a published 6-stem set", and that stem pack carries bass, guitars, keys,
+metronome, other and vocals with **no drums file at all**. A drums stem for it does exist,
+filed under `~/Music/Loops/_EXCLUDED_lower_quality/`, 277.1 s at -18.2 dBFS. DrumSep split
+it into five pieces (hi-hat 71.5% air band, cymbals 21.9%, no silent lane), and its tempo
+came back **155 at HIGH confidence**, matching the stem-service prior exactly.
 
 ## Two corrections to what was published yesterday
 
@@ -43,7 +46,7 @@ matching that song's independent prior exactly, which is what makes it trustwort
 - **A grid-capacity filter** rejected every candidate including the known-good one, because its second condition was measuring flam spacing rather than grid spacing.
 - **Snare-backbeat concentration works.** The right grid puts the strong snares on two slots eight sixteenths apart; a wrong grid smears them. Score concentration only, since the slot index is arbitrary until the downbeat is known.
 
-Three songs came back HIGH, five MEDIUM, one LOW. Treat MEDIUM and LOW bar numbers as
+Four songs came back HIGH, five MEDIUM, one LOW. Treat MEDIUM and LOW bar numbers as
 provisional against the audio.
 
 ## An ornament is a minority of its lane
@@ -66,9 +69,9 @@ collapsed ghost count is the symptom to watch for.
 Adriatic to Black Sea kept its 58 bells and 175 ghosts through the fix, which is the
 control proving the ceiling does not just delete everything.
 
-## Rim clicks: zero on all nine, and that is a measurement
+## Rim clicks: zero on all ten, and that is a measurement
 
-Every song refused the side-stick class. On Illumination Ritual the reason was the ghost
+Every one of the ten refused the side-stick class. On Illumination Ritual the reason was the ghost
 confound: body energy correlated with loudness at +0.679 and 13 of 13 low-body hits sat
 inside the ghost class. On Barrier Islands and Great Lake Derelict the reason was the
 ornament ceiling. Either the album has no rim-click parts, or this detector cannot find
@@ -76,7 +79,7 @@ them on this material. It has not been shown that a rim part exists and was miss
 
 ## What the gate does and does not prove
 
-All nine files passed 19 checks: ladder velocities, one fixed staff slot per drum family,
+All ten files passed 19 checks: ladder velocities, one fixed staff slot per drum family,
 kick and side stick apart, ride as GM 51, zero ghost parentheses, every ghost carrying its
 dot, every flam surviving as a legal grace, per-drum counts matching the ledger, and zero
 physical conflicts. That proves each file is well formed and matches its event ledger.
@@ -87,7 +90,7 @@ happen in the editor.
 
 ## Files
 
-`~/Projects/_outputs/stems-to-guitar-pro-drums/appleseed-illumination-ritual/`, nine
+`~/Projects/_outputs/stems-to-guitar-pro-drums/appleseed-illumination-ritual/`, ten
 `.gp5` files plus per-song `results.jsonl` carrying the tempo fit and every articulation
 control decision. The pre-fix run is preserved in `pre_ornament_ceiling_2026-07-31/`.
 

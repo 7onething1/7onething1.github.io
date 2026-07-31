@@ -58,15 +58,15 @@
 <header>
   <div class="kicker">The Appleseed Cast &middot; 31 July 2026</div>
   <h1>Illumination Ritual: drum tabs for Songsterr, whole album</h1>
-  <p class="sub">Nine of the album's ten tracks built from DrumSep 5-piece splits through
+  <p class="sub">All ten tracks built from DrumSep 5-piece splits through
   <code>/stems-to-guitar-pro-drums</code>. Every file passed the same 19-point render gate.</p>
 </header>
 
 <div class="grid">
-  <div class="stat"><div class="big">9 / 10</div><div class="lbl">tracks with a drum tab</div></div>
-  <div class="stat"><div class="big">18,452</div><div class="lbl">notes written</div></div>
-  <div class="stat"><div class="big">1,392</div><div class="lbl">bars</div></div>
-  <div class="stat"><div class="big">9 / 9</div><div class="lbl">passed all 19 gates</div></div>
+  <div class="stat"><div class="big">10 / 10</div><div class="lbl">tracks with a drum tab</div></div>
+  <div class="stat"><div class="big">20,890</div><div class="lbl">notes written</div></div>
+  <div class="stat"><div class="big">1,570</div><div class="lbl">bars</div></div>
+  <div class="stat"><div class="big">10 / 10</div><div class="lbl">passed all 19 gates</div></div>
 </div>
 
 <h2><span class="n">1.</span> The album</h2>
@@ -76,7 +76,7 @@
 <tr><td>01</td><td>Adriatic to Black Sea</td><td class="num">177</td><td class="num">241</td><td class="num">2,372</td><td class="num">58</td><td class="num">0</td><td class="num">175</td><td class="num">165</td><td class="med">MEDIUM</td></tr>
 <tr><td>02</td><td>Great Lake Derelict</td><td class="num">137</td><td class="num">149</td><td class="num">2,864</td><td class="num">163</td><td class="num">0</td><td class="num">157</td><td class="num">365</td><td class="med">MEDIUM</td></tr>
 <tr><td>03</td><td>Simple Forms</td><td class="num">144</td><td class="num">61</td><td class="num">898</td><td class="num">0</td><td class="num">0</td><td class="num">43</td><td class="num">65</td><td class="med">MEDIUM</td></tr>
-<tr class="gap"><td>04</td><td colspan="9">Cathedral Rings, no drum stem exists. Its pack carries bass, guitars, keys, metronome, other and vocals, and no drums file. It needs a fresh Demucs pass on the source audio.</td></tr>
+<tr><td>04</td><td>Cathedral Rings</td><td class="num">155</td><td class="num">178</td><td class="num">2,438</td><td class="num">0</td><td class="num">0</td><td class="num">241</td><td class="num">118</td><td class="hi">HIGH</td></tr>
 <tr><td>05</td><td>30 Degrees 3 Am</td><td class="num">161</td><td class="num">161</td><td class="num">1,980</td><td class="num">0</td><td class="num">0</td><td class="num">107</td><td class="num">140</td><td class="med">MEDIUM</td></tr>
 <tr><td>06</td><td>Branches on the Arrow Peak Revelation</td><td class="num">138</td><td class="num">102</td><td class="num">1,401</td><td class="num">0</td><td class="num">0</td><td class="num">107</td><td class="num">92</td><td class="lo">LOW</td></tr>
 <tr><td>07</td><td>Barrier Islands (Do We Remain)</td><td class="num">148</td><td class="num">153</td><td class="num">2,349</td><td class="num">0</td><td class="num">0</td><td class="num">166</td><td class="num">203</td><td class="hi">HIGH</td></tr>
@@ -84,6 +84,12 @@
 <tr><td>09</td><td>Clearing Life</td><td class="num">154</td><td class="num">171</td><td class="num">2,203</td><td class="num">10</td><td class="num">0</td><td class="num">138</td><td class="num">177</td><td class="hi">HIGH</td></tr>
 <tr><td>10</td><td>Illumination Ritual</td><td class="num">168</td><td class="num">137</td><td class="num">1,732</td><td class="num">25</td><td class="num">0</td><td class="num">75</td><td class="num">88</td><td class="med">MEDIUM</td></tr>
 </table></div>
+<p><b>Track 04 nearly did not happen.</b> The album's separation script skipped it on the
+note "already has a published 6-stem set", and that pack carries bass, guitars, keys,
+metronome, other and vocals with <b>no drums file at all</b>. A drums stem does exist,
+filed under <code>_EXCLUDED_lower_quality</code>, 277.1 s at -18.2 dBFS. DrumSep split it
+into five real pieces (hi-hat 71.5% air band, cymbals 21.9%, no silent lane) and its tempo
+came back <b>155 at HIGH confidence</b>, matching the stem-service prior exactly.</p>
 
 <h2><span class="n">2.</span> Two corrections to what was published yesterday</h2>
 <div class="lead">
@@ -106,7 +112,7 @@
   <li><span class="dot d-r"></span><b>A grid-capacity filter</b> rejected every candidate including the known-good one, because its second condition was measuring flam spacing rather than grid spacing.</li>
   <li><span class="dot d-g"></span><b>Snare-backbeat concentration works.</b> The right grid puts the strong snares on two slots eight sixteenths apart and a wrong grid smears them. Score concentration only, since the slot index is arbitrary until the downbeat is known.</li>
 </ul>
-<p>Three songs came back HIGH, five MEDIUM, one LOW. Treat MEDIUM and LOW bar numbers as
+<p>Four songs came back HIGH, five MEDIUM, one LOW. Treat MEDIUM and LOW bar numbers as
 provisional against the audio.</p>
 
 <h2><span class="n">4.</span> An ornament is a minority of its lane</h2>
@@ -125,17 +131,17 @@ its lane is a bad cut. <code>MAXFRAC_ORNAMENT = 0.45</code> in <code>sd_lanes.py
 runaway rim class also <b>starves ghost detection</b>, since ghosts rank within the hits
 still called snare, so a collapsed ghost count is the symptom to watch for.</p>
 
-<h2><span class="n">5.</span> Rim clicks: zero on all nine, and that is a measurement</h2>
-<p>Every song refused the side-stick class. On Illumination Ritual the reason was the ghost
+<h2><span class="n">5.</span> Rim clicks: zero on all ten, and that is a measurement</h2>
+<p>Every one of the ten refused the side-stick class. On Illumination Ritual the reason was the ghost
 confound: body energy correlated with loudness at <b>+0.679</b> and <b>13 of 13</b>
-low-body hits sat inside the ghost class. On Barrier Islands and Great Lake Derelict the
+low-body hits sat inside the ghost class. On Barrier Islands, Great Lake Derelict and Cathedral Rings the
 reason was the ornament ceiling. Either the album has no rim-click parts, or this detector
 cannot find them on this material. It has not been shown that a rim part exists and was
 missed.</p>
 
 <h2><span class="n">6.</span> What the gate proves, and what it does not</h2>
 <pre>
-9 songs, 9 gate-green, 18,452 notes
+10 songs, 10 gate-green, 20,890 notes
 
   PASS  every velocity on the 16-step ladder
   PASS  one fixed string slot per drum family
@@ -155,7 +161,7 @@ Whether Guitar Pro and Songsterr draw these correctly is the check that has to h
 the editor.</p>
 
 <footer>
-  <p>Nine <code>.gp5</code> files plus per-song <code>results.jsonl</code> carrying the
+  <p>Ten <code>.gp5</code> files plus per-song <code>results.jsonl</code> carrying the
   tempo fit and every articulation control decision, in
   <code>~/Projects/_outputs/stems-to-guitar-pro-drums/appleseed-illumination-ritual/</code>.
   The pre-fix run is preserved in <code>pre_ornament_ceiling_2026-07-31/</code>.</p>
