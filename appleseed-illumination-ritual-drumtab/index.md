@@ -1,93 +1,96 @@
-# Illumination Ritual: a drum tab for Songsterr
+# Illumination Ritual: drum tabs for Songsterr, whole album
 
-The Appleseed Cast, 30 July 2026. Built from the DrumSep 5-piece split through the
-rebuilt `/stems-to-guitar-pro-drums`. Bells are in. Rim clicks are not, and this page
-says why.
+The Appleseed Cast, 31 July 2026. Nine of the album's ten tracks built from DrumSep
+5-piece splits through `/stems-to-guitar-pro-drums`. Every file passed the same 19-point
+render gate. **18,452 notes across 1,392 bars.**
 
-## What exists as drumkit stems
+## The album
 
-Two Appleseed Cast songs have a full 5-piece DrumSep split (kick, snare, toms, hi-hat,
-cymbals): **10 Illumination Ritual** and **09 Clearing Life**. Everything else in the
-library is a Demucs `drums.wav` or a 2-bar loop. This pass does Illumination Ritual.
-Clearing Life is queued rather than bulk-built.
+| # | Song | BPM | Bars | Notes | Bells | Rim | Ghosts | Flams | Tempo conf |
+|---|---|---|---|---|---|---|---|---|---|
+| 01 | Adriatic to Black Sea | 177 | 241 | 2,372 | 58 | 0 | 175 | 165 | MEDIUM |
+| 02 | Great Lake Derelict | 137 | 149 | 2,864 | 163 | 0 | 157 | 365 | MEDIUM |
+| 03 | Simple Forms | 144 | 61 | 898 | 0 | 0 | 43 | 65 | MEDIUM |
+| 04 | Cathedral Rings | | | | | | | | no drum stem exists |
+| 05 | 30 Degrees 3 Am | 161 | 161 | 1,980 | 0 | 0 | 107 | 140 | MEDIUM |
+| 06 | Branches on the Arrow Peak Revelation | 138 | 102 | 1,401 | 0 | 0 | 107 | 92 | LOW |
+| 07 | Barrier Islands (Do We Remain) | 148 | 153 | 2,349 | 0 | 0 | 166 | 203 | HIGH |
+| 08 | North Star Ordination | 155.25 | 217 | 2,653 | 0 | 0 | 197 | 321 | HIGH |
+| 09 | Clearing Life | 154 | 171 | 2,203 | 10 | 0 | 138 | 177 | HIGH |
+| 10 | Illumination Ritual | 168 | 137 | 1,732 | 25 | 0 | 75 | 88 | MEDIUM |
 
-- 118 bars at 145 BPM
-- 1,674 notes written
-- 25 ride bell hits
-- 0 rim clicks, and that is the honest answer
+Track 04 has a stem pack carrying bass, guitars, keys, metronome, other and vocals, and
+no drums file at all. It needs a fresh Demucs pass on the source audio before it can have
+a drum tab.
 
-## The articulation controls
+## Two corrections to what was published yesterday
 
-A DrumSep lane is one kit piece, never one articulation. The cymbal lane holds crashes,
-bow rides and bell hits together. Splitting them is where bells come from, and each split
-had to survive the control that would expose it as an invention.
+**The inventory was wrong.** Yesterday's page said two Appleseed Cast songs had 5-piece
+splits. Nine did. Seven were sitting in
+`~/Projects/_outputs/illumination-ritual-demucs/drumsep/` behind an `_DRUMSEP_ALL_DONE`
+marker and a validated manifest, in a directory that was never opened.
 
-| Articulation | Verdict | The control, and what it measured |
-|---|---|---|
-| **Ride bell** (GM 53) | NOTATED, 25 | A bell must not be the crashes and must not be hi-hat bleed. Bright hits overlap the long hits **1 of 26**, and coincide with a hat-lane onset **0 of 26**. They cluster in musical runs (bars 2, 5-9, 12-18, 23-26, 30-35, 38-44, 49-52, 70). |
-| **Open hi-hat** (GM 46) | NOTATED, 26 | Sustain separates at 1.256 with a score of 7.94. Placement is complementary to the bells, in the back half of the song. |
-| **Rim click / side stick** (GM 37) | REFUSED, 0 | A side stick has little shell body, and so does a quiet hit. Body energy correlates with loudness at **+0.679**, and **13 of 13** low-body hits sit inside the ghost class. These are ghost notes. Notating them as side stick would be invention. |
-| **Ghost notes** | NOTATED, 75 | Softest snare hits, written with the staccato dot and velocity 31, never the parentheses. |
-| **Flams** | NOTATED, 88 | Same-lane pairs 10-35 ms apart, written as `GraceEffect(duration=64)`, a true 32nd. |
-| **Hat / cymbal reality** | PRESENT | Air-band gate: hat 59.5% of energy in 8-16 kHz at -46.4 dB, cymbals 23.2% at -37.4 dB. Both far above the 0.5% floor, so neither lane is DrumSep hallucinating. |
+**Illumination Ritual was at the wrong tempo.** It shipped at 145 BPM, taken from a
+stem-service filename. Building a real estimator for the other eight produced a test that
+could be run backwards on the finished one, and snare-backbeat concentration puts it at
+**168**. The same test returns 154 on Clearing Life at 0.780 against a 0.180 runner-up,
+matching that song's independent prior exactly, which is what makes it trustworthy here.
 
-## The tempo, and two wrong turns caught on the way
+## Tempo: three estimators are wrong before one works
 
-145 BPM was a filename prior, not an established fact, so it got tested. Two of my own
-methods were broken before one worked.
+- **Milliseconds off the grid** improves monotonically as the grid gets finer, so the scan runs to the top of its range. It reported 184.5 BPM.
+- **Scale-free phase error anchored at the first onset** is still wrong, because the first onset is rarely the downbeat. It scored the correct answer worse than random.
+- **A grid-capacity filter** rejected every candidate including the known-good one, because its second condition was measuring flam spacing rather than grid spacing.
+- **Snare-backbeat concentration works.** The right grid puts the strong snares on two slots eight sixteenths apart; a wrong grid smears them. Score concentration only, since the slot index is arbitrary until the downbeat is known.
 
-- **Mean quantization error in milliseconds is a broken objective.** A finer grid always scores better, so the scan ran to the top of its range and reported **184.5 BPM**. Any metric that improves monotonically with tempo is measuring the grid, not the music.
-- **Scale-free phase error with a fixed grid origin was still wrong.** Anchoring the grid at the first onset scored 145 BPM at 0.314, which is *worse* than the 0.25 a random set of times gives. The first onset is not the downbeat, so every tempo was being scored against the wrong phase.
-- **Fitting tempo and phase jointly settled it.** 145.00 BPM wins on three onset sets that fail differently: all lanes 0.183, snare alone 0.186, the strongest 40% 0.187. Kick alone puts 168 marginally first at 0.175 with 145 second at 0.197. The prior was right.
-- **The drums stop at 194.9 s of a 243.8 s file.** 118 bars is the real length of the drum part, not a truncation. The song has a drumless outro.
+Three songs came back HIGH, five MEDIUM, one LOW. Treat MEDIUM and LOW bar numbers as
+provisional against the audio.
 
-## What the file contains
+## An ornament is a minority of its lane
 
-| Lane | Notes | Lane | Notes |
+The first album run produced garbage that still passed every render gate:
+
+| Song | First run | Class share of its lane | After the fix |
 |---|---|---|---|
-| Kick (36) | 401 | Ride (51) | 386 |
-| Snare (38) | 247 | Ride bell (53) | 25 |
-| Closed hat (42) | 458 | Crash (49) | 26 |
-| Open hat (46) | 26 | Toms (47) | 163 |
+| 07 Barrier Islands | 506 rim, 10 ghosts | 95% | 0 rim, 166 ghosts |
+| 07 Barrier Islands | 282 bells, 14 rides | 95% | 0 bells |
+| 07 Barrier Islands | 513 open hats, 135 closed | 79% | closed hat part restored |
+| 02 Great Lake Derelict | 458 rim, 9 ghosts | 95% | 0 rim, 157 ghosts |
+| 05 30 Degrees 3 Am | 196 bells, 27 rides | over ceiling | 0 bells |
 
-Articulation: 75 ghosts, 88 flams, 141 accents. **58 removals**, every one by a named
-rule: 53 same-drum-same-slot merges, 2 crash-and-ride resolved, 2 hat pairs resolved,
-1 three-hand moment resolved.
+Bells, rim clicks and open hats are accents inside a part, so a class covering most of its
+lane is a bad cut. `MAXFRAC_ORNAMENT = 0.45` in `sd_lanes.py`. A runaway rim class also
+**starves ghost detection**, since ghosts rank within the hits still called snare, so a
+collapsed ghost count is the symptom to watch for.
 
-## Gate proof
+Adriatic to Black Sea kept its 58 bells and 175 ghosts through the fix, which is the
+control proving the ceiling does not just delete everything.
 
-```
-ledger 1732 hits, 58 removed by rule (merged_same_drum_same_slot=53,
-resolved_crash_ride=2, resolved_hat_pair=2, resolved_three_hand=1),
-expecting 1674 notes
+## Rim clicks: zero on all nine, and that is a measurement
 
-  PASS  every velocity on the 16-step ladder      offenders=[]
-  PASS  one fixed string slot per drum family     offenders={}
-  PASS  kick and side stick never share a slot
-  PASS  ride is GM 51, never GM 59                ride59=0
-  PASS  zero ghostNote parentheses                parentheses=0
-  PASS  every requested ghost carries the dot     asked=75 dots=75
-  PASS  every requested flam survived as a grace  asked=88 got=88
-  PASS  per-drum counts match the event ledger    asked,got={}
-  PASS  total note count matches the ledger       1674 -> 1674
-  PASS  zero hat_pair / snare_rim / crash_ride / three_hand
+Every song refused the side-stick class. On Illumination Ritual the reason was the ghost
+confound: body energy correlated with loudness at +0.679 and 13 of 13 low-body hits sat
+inside the ghost class. On Barrier Islands and Great Lake Derelict the reason was the
+ornament ceiling. Either the album has no rim-click parts, or this detector cannot find
+them on this material. It has not been shown that a rim part exists and was missed.
 
-19 passed, 0 failed   EXIT=0
+## What the gate does and does not prove
 
-negative control, the pre-fix writer on the same ledger:  8 failed, EXIT=1
-```
+All nine files passed 19 checks: ladder velocities, one fixed staff slot per drum family,
+kick and side stick apart, ride as GM 51, zero ghost parentheses, every ghost carrying its
+dot, every flam surviving as a legal grace, per-drum counts matching the ledger, and zero
+physical conflicts. That proves each file is well formed and matches its event ledger.
 
-## The one check nobody here can run
+It says nothing about whether the detection heard the right thing. The 506-rim file passed
+all 19. Whether Guitar Pro and Songsterr draw these correctly is the check that has to
+happen in the editor.
 
-Whether Guitar Pro and Songsterr actually **draw** this is not checkable from this side.
-Load the `.gp5` in the Songsterr editor with Upload, audition it against the original
-audio, and look at the ride line and the bell hits before Submit. Submitting is a public
-edit to your account, so that stays your call.
+## Files
 
----
+`~/Projects/_outputs/stems-to-guitar-pro-drums/appleseed-illumination-ritual/`, nine
+`.gp5` files plus per-song `results.jsonl` carrying the tempo fit and every articulation
+control decision. The pre-fix run is preserved in `pre_ornament_ceiling_2026-07-31/`.
 
-File: `~/Projects/_outputs/stems-to-guitar-pro-drums/Appleseed-Cast-Illumination-Ritual-drums-v2.gp5`
-
-Source: `~/Projects/_outputs/drumsep-cast/10 - Illumination Ritual/drums/` (DrumSep
-MDX23C 5-piece, 44.1 kHz, 243.8 s, 97.2% captured). Built with
-`/stems-to-guitar-pro-drums`.
+Sources: [Discogs release](https://www.discogs.com/release/25022929-The-Appleseed-Cast-Illumination-Ritual),
+[Spotify](https://open.spotify.com/album/3wr2LFFZVHa3FXdftVlBGm),
+[Wikipedia](https://en.wikipedia.org/wiki/Illumination_Ritual).
