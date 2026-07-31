@@ -1,0 +1,126 @@
+<!DOCTYPE html>
+<html lang="en"><head><meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Rim clicks across 20 Appleseed Cast songs</title>
+<style>
+  :root{--cream:#F7F1DF;--card:#FBF7EC;--ink:#000;--rust:#A6321E;--orange:#C1502E;
+        --mustard:#D9A404;--olive:#6E7F45;--brown:#4A2C1A;--rule:#DCD2B6}
+  *{box-sizing:border-box}
+  body{margin:0;background:var(--cream);color:var(--ink);
+       font-family:"Futura","Avenir Next",Helvetica,Arial,sans-serif;
+       font-size:17px;line-height:1.62;padding:0 20px 90px}
+  .wrap{max-width:1000px;margin:0 auto}
+  h1{font-size:clamp(26px,4.2vw,42px);line-height:1.12;margin:54px 0 10px;letter-spacing:-.5px;
+     padding-bottom:22px;border-bottom:5px double var(--rust)}
+  h2{font-size:23px;margin:50px 0 6px;padding-bottom:8px;border-bottom:2px solid var(--rule)}
+  p{max-width:78ch}
+  code{font-family:"SF Mono",Menlo,Consolas,monospace;font-size:.9em;
+       background:rgba(166,50,30,.09);padding:1px 5px;border-radius:3px}
+  .tw{overflow-x:auto;margin:20px 0;border:2px solid var(--rule);border-radius:7px;background:var(--card)}
+  table{border-collapse:collapse;width:100%;min-width:560px;font-size:15px}
+  th{background:var(--brown);color:var(--cream);text-align:left;padding:10px 13px;
+     font-size:12.5px;letter-spacing:.11em;text-transform:uppercase;font-weight:700}
+  td{padding:9px 13px;border-top:1px solid var(--rule);vertical-align:top}
+  tr:nth-child(even) td{background:rgba(220,210,182,.24)}
+  strong{color:var(--rust)}
+  ul{max-width:78ch} li{margin-bottom:7px}
+</style></head><body><div class="wrap">
+<h1>Rim clicks across 20 Appleseed Cast songs: what the detector actually measured</h1>
+<p>31 July 2026. Every one of the 20 drum tabs came back with <strong>zero rim clicks</strong>. Rather</p>
+<p>than leave that as a bare refusal, this is the measurement behind it, per song, with</p>
+<p>1-based bar numbers so any disagreement lands on a specific bar.</p>
+<h2>The discriminator</h2>
+<p>A side stick and a quiet snare share a signature: little shell body in 150-450 Hz. The</p>
+<p>thing that separates them is whether thin body travels with *quietness*. If body energy</p>
+<p>correlates with loudness, the thin hits are simply the soft ones, which makes them ghost</p>
+<p>notes. If the two decouple, thin-bodied hits are landing at normal volume, and that is</p>
+<p>what a side-stick part looks like.</p>
+<p>So the number that matters per song is <strong>corr(body, loudness)</strong>. Low means rim-like.</p>
+<h2>Three songs are candidates. Seventeen are not.</h2>
+<div class="tw"><table>
+<tr><th>corr</th><th>Song</th><th>Album</th><th>Reading</th></tr>
+<tr><td><strong>+0.167</strong></td><td>02 Great Lake Derelict</td><td>Illumination Ritual</td><td><strong>candidate</strong></td></tr>
+<tr><td><strong>+0.180</strong></td><td>08 Poseidon</td><td>Mare Vitalis</td><td><strong>candidate</strong></td></tr>
+<tr><td><strong>+0.248</strong></td><td>07 Barrier Islands (Do We Remain)</td><td>Illumination Ritual</td><td><strong>candidate</strong></td></tr>
+<tr><td>+0.371</td><td>06 Secret</td><td>Mare Vitalis</td><td>ghosts</td></tr>
+<tr><td>+0.459</td><td>01 Adriatic to Black Sea</td><td>Illumination Ritual</td><td>ghosts</td></tr>
+<tr><td>+0.476</td><td>03 Simple Forms</td><td>Illumination Ritual</td><td>ghosts</td></tr>
+<tr><td>+0.527</td><td>05 30 Degrees 3 Am</td><td>Illumination Ritual</td><td>ghosts</td></tr>
+<tr><td>+0.624</td><td>04 Mare Mortis</td><td>Mare Vitalis</td><td>ghosts</td></tr>
+<tr><td>+0.673</td><td>03 Forever Longing the Golden Sunsets</td><td>Mare Vitalis</td><td>ghosts</td></tr>
+<tr><td>+0.679</td><td>10 Illumination Ritual</td><td>Illumination Ritual</td><td>ghosts</td></tr>
+<tr><td>+0.685</td><td>07 ...And Nothing Less</td><td>Mare Vitalis</td><td>ghosts</td></tr>
+<tr><td>+0.688</td><td>09 Clearing Life</td><td>Illumination Ritual</td><td>ghosts</td></tr>
+<tr><td>+0.728</td><td>06 Branches on the Arrow Peak Revelation</td><td>Illumination Ritual</td><td>ghosts</td></tr>
+<tr><td>+0.736</td><td>08 North Star Ordination</td><td>Illumination Ritual</td><td>ghosts</td></tr>
+<tr><td>+0.774</td><td>10 Storms</td><td>Mare Vitalis</td><td>ghosts</td></tr>
+<tr><td>+0.784</td><td>01 The Immortal Soul of Mundo Cani</td><td>Mare Vitalis</td><td>ghosts</td></tr>
+<tr><td>+0.804</td><td>09 Kilgore Trout</td><td>Mare Vitalis</td><td>ghosts</td></tr>
+<tr><td>+0.811</td><td>05 Santa Maria</td><td>Mare Vitalis</td><td>ghosts</td></tr>
+<tr><td>+0.848</td><td>02 Fishing the Sky</td><td>Mare Vitalis</td><td>ghosts</td></tr>
+</table></div>
+<p>The gap between 0.248 and 0.371 is the cleanest break in the list, and the three below it</p>
+<p>sit far from the rest of the distribution.</p>
+<p><strong>None of the three was refused for the ghost reason.</strong> Great Lake Derelict and Barrier</p>
+<p>Islands were refused by the ornament size ceiling; Poseidon by constraint saturation. So</p>
+<p>on those three the ghost confound was never the objection, which is exactly why they are</p>
+<p>worth an ear.</p>
+<h2>02 Great Lake Derelict, 137 BPM, corr +0.167</h2>
+<p>Refused because the low-body class covered 95% of the snare lane. Median body 0.292.</p>
+<div class="tw"><table>
+<tr><th>Bar</th><th>Time</th><th>Body</th><th>Level</th><th>Centroid</th><th>Sustain</th></tr>
+<tr><td>30</td><td>61.59s</td><td>0.080</td><td>-35.7 dB</td><td>4930 Hz</td><td>0.03</td></tr>
+<tr><td>33</td><td>66.01s</td><td>0.110</td><td><strong>-18.4 dB</strong></td><td>4884 Hz</td><td>0.39</td></tr>
+<tr><td>32</td><td>64.69s</td><td>0.102</td><td><strong>-18.8 dB</strong></td><td>4545 Hz</td><td>0.40</td></tr>
+<tr><td>67</td><td>126.34s</td><td>0.140</td><td>-21.9 dB</td><td>4606 Hz</td><td>0.41</td></tr>
+<tr><td>18</td><td>40.47s</td><td>0.113</td><td>-21.4 dB</td><td>4192 Hz</td><td>0.35</td></tr>
+<tr><td>37</td><td>73.03s</td><td>0.145</td><td>-23.0 dB</td><td>4373 Hz</td><td>0.42</td></tr>
+<tr><td>9</td><td>24.30s</td><td>0.152</td><td>-21.1 dB</td><td>4230 Hz</td><td>0.39</td></tr>
+<tr><td>50</td><td>96.11s</td><td>0.157</td><td>-26.4 dB</td><td>4179 Hz</td><td>0.35</td></tr>
+</table></div>
+<p>Bars 32 and 33 are the strongest case on the whole record: body at roughly a third of the</p>
+<p>song&#x27;s median, at a level within 1 dB of an ordinary hit.</p>
+<h2>08 Poseidon, 137.25 BPM, corr +0.180</h2>
+<p>Refused because the split saturated the size cap. Median body 0.383.</p>
+<div class="tw"><table>
+<tr><th>Bar</th><th>Time</th><th>Body</th><th>Level</th><th>Centroid</th><th>Sustain</th></tr>
+<tr><td>79</td><td>169.51s</td><td>0.062</td><td>-37.6 dB</td><td>4288 Hz</td><td>0.15</td></tr>
+<tr><td>47</td><td>113.64s</td><td>0.238</td><td><strong>-19.7 dB</strong></td><td>4618 Hz</td><td>0.16</td></tr>
+<tr><td>49</td><td>117.79s</td><td>0.265</td><td><strong>-17.9 dB</strong></td><td>4588 Hz</td><td>0.21</td></tr>
+<tr><td>79</td><td>170.26s</td><td>0.260</td><td><strong>-17.5 dB</strong></td><td>4518 Hz</td><td>0.20</td></tr>
+<tr><td>44</td><td>109.02s</td><td>0.250</td><td>-18.3 dB</td><td>4551 Hz</td><td>0.25</td></tr>
+<tr><td>46</td><td>112.56s</td><td>0.228</td><td>-19.5 dB</td><td>4277 Hz</td><td>0.21</td></tr>
+<tr><td>63</td><td>142.28s</td><td>0.270</td><td>-18.4 dB</td><td>4354 Hz</td><td>0.17</td></tr>
+<tr><td>48</td><td>116.04s</td><td>0.281</td><td>-19.4 dB</td><td>4445 Hz</td><td>0.18</td></tr>
+</table></div>
+<p>Bars 44 through 49 form a contiguous run at full level with short sustain, which is the</p>
+<p>shape of a section played on the stick rather than scattered soft hits.</p>
+<h2>07 Barrier Islands (Do We Remain), 148 BPM, corr +0.248</h2>
+<p>Refused because the low-body class covered 95% of the snare lane. Median body 0.237.</p>
+<div class="tw"><table>
+<tr><th>Bar</th><th>Time</th><th>Body</th><th>Level</th><th>Centroid</th><th>Sustain</th></tr>
+<tr><td>96</td><td>155.42s</td><td>0.096</td><td>-23.5 dB</td><td>5364 Hz</td><td>0.24</td></tr>
+<tr><td>149</td><td>241.36s</td><td>0.124</td><td>-28.7 dB</td><td>5778 Hz</td><td>0.29</td></tr>
+<tr><td>145</td><td>234.92s</td><td>0.139</td><td>-29.7 dB</td><td>5654 Hz</td><td>0.24</td></tr>
+<tr><td>152</td><td>246.25s</td><td>0.127</td><td>-28.9 dB</td><td>5662 Hz</td><td>0.29</td></tr>
+<tr><td>142</td><td>230.56s</td><td>0.138</td><td>-28.9 dB</td><td>5407 Hz</td><td>0.29</td></tr>
+<tr><td>56</td><td>90.69s</td><td>0.103</td><td>-24.2 dB</td><td>4995 Hz</td><td>0.32</td></tr>
+<tr><td>148</td><td>239.30s</td><td>0.170</td><td>-25.9 dB</td><td>5224 Hz</td><td>0.22</td></tr>
+<tr><td>11</td><td>17.98s</td><td>0.124</td><td>-25.4 dB</td><td>4941 Hz</td><td>0.32</td></tr>
+</table></div>
+<p>Bars 142 to 152 cluster in the outro, which is where a drummer most often drops to the</p>
+<p>rim. Levels here are lower than the other two candidates, so this is the weakest of the</p>
+<p>three.</p>
+<h2>What this changes</h2>
+<p>The blanket claim was &quot;zero rim clicks on all 20, and that is a measurement&quot;. The</p>
+<p>measurement is better read as two groups. Seventeen songs show thin body travelling with</p>
+<p>quietness, so those hits are ghost notes and the tabs are right to mark them that way.</p>
+<p>Three songs show the decoupling a real side-stick part produces, and were refused by size</p>
+<p>rules rather than by the ghost test.</p>
+<p>Converting any of them stays gated on hearing it, since a detector that fires on its own</p>
+<p>negative control has said nothing. The bars above are where to listen: **Great Lake</p>
+<p>Derelict 32-33<strong>, </strong>Poseidon 44-49<strong>, </strong>Barrier Islands 142-152**.</p>
+<p>Source data: <code>rim_evidence.json</code>, generated from the same DrumSep snare lanes the tabs</p>
+<p>were built from. Method and refusal rules in</p>
+<p><code>~/.claude/skills/stems-to-guitar-pro-drums/sd_lanes.py</code>.</p>
+</div></body></html>
