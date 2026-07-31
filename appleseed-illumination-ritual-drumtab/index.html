@@ -1,0 +1,157 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Illumination Ritual: drum tab for Songsterr</title>
+<style>
+  :root{
+    --cream:#F7F1DF; --card:#FBF7EC; --ink:#000000;
+    --rust:#A6321E; --orange:#C1502E; --mustard:#D9A404;
+    --olive:#6E7F45; --blue:#5F7F92; --brown:#4A2C1A; --rule:#DCD2B6;
+  }
+  *{box-sizing:border-box}
+  body{margin:0;background:var(--cream);color:var(--ink);
+       font-family:"Futura","Avenir Next",Helvetica,Arial,sans-serif;
+       font-size:17px;line-height:1.62;padding:0 20px 90px}
+  .wrap{max-width:1000px;margin:0 auto}
+  header{padding:54px 0 26px;border-bottom:5px double var(--rust)}
+  h1{font-size:clamp(27px,4.4vw,44px);line-height:1.1;margin:0 0 10px;letter-spacing:-.5px}
+  .kicker{font-size:13px;letter-spacing:.22em;text-transform:uppercase;
+          color:var(--rust);font-weight:700;margin-bottom:14px}
+  .sub{font-size:18px;max-width:72ch;margin:0}
+  h2{font-size:24px;margin:52px 0 6px;padding-bottom:8px;border-bottom:2px solid var(--rule)}
+  h2 .n{display:inline-block;min-width:1.9em;color:var(--orange);font-weight:800}
+  p{max-width:78ch}
+  .lead{background:var(--card);border-left:7px solid var(--rust);padding:18px 22px;
+        margin:26px 0;border-radius:0 6px 6px 0}
+  .grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(200px,1fr));gap:14px;margin:22px 0}
+  .stat{background:var(--card);border:2px solid var(--rule);border-radius:7px;padding:15px 17px}
+  .stat .big{font-size:29px;font-weight:800;line-height:1.1;color:var(--rust)}
+  .stat .lbl{font-size:13px;margin-top:5px}
+  .tw{overflow-x:auto;margin:20px 0;border:2px solid var(--rule);border-radius:7px;background:var(--card)}
+  table{border-collapse:collapse;width:100%;min-width:600px;font-size:15px}
+  th{background:var(--brown);color:var(--cream);text-align:left;padding:11px 13px;
+     font-size:12.5px;letter-spacing:.11em;text-transform:uppercase;font-weight:700}
+  td{padding:11px 13px;border-top:1px solid var(--rule);vertical-align:top}
+  tr:nth-child(even) td{background:rgba(220,210,182,.24)}
+  code{font-family:"SF Mono",Menlo,Consolas,monospace;font-size:.9em;
+       background:rgba(166,50,30,.09);padding:1px 5px;border-radius:3px}
+  .ok{color:var(--olive);font-weight:800}
+  .no{color:var(--rust);font-weight:800}
+  pre{background:var(--brown);color:#F2E9D2;padding:17px 19px;border-radius:7px;
+      overflow-x:auto;font-family:"SF Mono",Menlo,Consolas,monospace;font-size:13.5px;line-height:1.55}
+  pre b{color:var(--mustard)}
+  .dot{display:inline-block;width:11px;height:11px;border-radius:50%;margin-right:8px;vertical-align:middle}
+  .d-r{background:var(--rust)} .d-g{background:var(--olive)}
+  .d-b{background:var(--blue)} .d-y{background:var(--mustard)}
+  ul{max-width:78ch} li{margin-bottom:7px}
+  footer{margin-top:64px;padding-top:20px;border-top:5px double var(--rust);font-size:14px}
+  @media(max-width:620px){body{font-size:16px;padding:0 14px 60px}}
+</style>
+</head>
+<body>
+<div class="wrap">
+
+<header>
+  <div class="kicker">The Appleseed Cast &middot; 30 July 2026</div>
+  <h1>Illumination Ritual: a drum tab for Songsterr</h1>
+  <p class="sub">Built from the DrumSep 5-piece split through the rebuilt
+  <code>/stems-to-guitar-pro-drums</code>. Bells are in. Rim clicks are not, and this
+  page says why.</p>
+</header>
+
+<div class="lead">
+  <p><b>What exists as drumkit stems.</b> Two Appleseed Cast songs have a full 5-piece
+  DrumSep split (kick, snare, toms, hi-hat, cymbals): <b>10 Illumination Ritual</b> and
+  <b>09 Clearing Life</b>. Everything else in the library is a Demucs <code>drums.wav</code>
+  or a 2-bar loop. This pass does Illumination Ritual. Clearing Life is queued rather
+  than bulk-built.</p>
+</div>
+
+<div class="grid">
+  <div class="stat"><div class="big">118</div><div class="lbl">bars at 145 BPM</div></div>
+  <div class="stat"><div class="big">1,674</div><div class="lbl">notes written</div></div>
+  <div class="stat"><div class="big">25</div><div class="lbl">ride bell hits</div></div>
+  <div class="stat"><div class="big">0</div><div class="lbl">rim clicks, and that is the honest answer</div></div>
+</div>
+
+<h2><span class="n">1.</span> The articulation controls</h2>
+<p>A DrumSep lane is one kit piece, never one articulation. The cymbal lane holds
+crashes, bow rides and bell hits together. Splitting them is where bells come from, and
+each split had to survive the control that would expose it as an invention.</p>
+
+<div class="tw"><table>
+<tr><th>Articulation</th><th>Verdict</th><th>The control, and what it measured</th></tr>
+<tr><td><b>Ride bell</b> (GM 53)</td><td class="ok">NOTATED, 25</td>
+    <td>A bell must not be the crashes and must not be hi-hat bleed. Bright hits overlap the long hits <b>1 of 26</b>, and coincide with a hat-lane onset <b>0 of 26</b>. They cluster in musical runs (bars 2, 5-9, 12-18, 23-26, 30-35, 38-44, 49-52, 70).</td></tr>
+<tr><td><b>Open hi-hat</b> (GM 46)</td><td class="ok">NOTATED, 26</td>
+    <td>Sustain separates at 1.256 with a score of 7.94. Placement is complementary to the bells, in the back half of the song.</td></tr>
+<tr><td><b>Rim click / side stick</b> (GM 37)</td><td class="no">REFUSED, 0</td>
+    <td>A side stick has little shell body, and so does a quiet hit. Body energy correlates with loudness at <b>+0.679</b>, and <b>13 of 13</b> low-body hits sit inside the ghost class. These are ghost notes. Notating them as side stick would be invention.</td></tr>
+<tr><td><b>Ghost notes</b></td><td class="ok">NOTATED, 75</td>
+    <td>Softest snare hits, written with the staccato dot and velocity 31, never the parentheses.</td></tr>
+<tr><td><b>Flams</b></td><td class="ok">NOTATED, 88</td>
+    <td>Same-lane pairs 10-35 ms apart, written as <code>GraceEffect(duration=64)</code>, a true 32nd.</td></tr>
+<tr><td><b>Hat / cymbal reality</b></td><td class="ok">PRESENT</td>
+    <td>Air-band gate: hat 59.5% of energy in 8-16 kHz at -46.4 dB, cymbals 23.2% at -37.4 dB. Both far above the 0.5% floor, so neither lane is DrumSep hallucinating.</td></tr>
+</table></div>
+
+<h2><span class="n">2.</span> The tempo, and two wrong turns caught on the way</h2>
+<p>145 BPM was a filename prior, not an established fact, so it got tested. Two of my own
+methods were broken before one worked.</p>
+<ul>
+  <li><span class="dot d-r"></span><b>Mean quantization error in milliseconds is a broken objective.</b> A finer grid always scores better, so the scan ran to the top of its range and reported <b>184.5 BPM</b>. Any metric that improves monotonically with tempo is measuring the grid, not the music.</li>
+  <li><span class="dot d-r"></span><b>Scale-free phase error with a fixed grid origin was still wrong.</b> Anchoring the grid at the first onset scored 145 BPM at 0.314, which is <i>worse</i> than the 0.25 a random set of times gives. The first onset is not the downbeat, so every tempo was being scored against the wrong phase.</li>
+  <li><span class="dot d-g"></span><b>Fitting tempo and phase jointly settled it.</b> 145.00 BPM wins on three onset sets that fail differently: all lanes 0.183, snare alone 0.186, the strongest 40% 0.187. Kick alone puts 168 marginally first at 0.175 with 145 second at 0.197. The prior was right.</li>
+  <li><span class="dot d-b"></span><b>The drums stop at 194.9 s of a 243.8 s file.</b> 118 bars is the real length of the drum part, not a truncation. The song has a drumless outro.</li>
+</ul>
+
+<h2><span class="n">3.</span> What the file contains</h2>
+<div class="tw"><table>
+<tr><th>Lane</th><th>Notes</th><th>Lane</th><th>Notes</th></tr>
+<tr><td>Kick (36)</td><td>401</td><td>Ride (51)</td><td>386</td></tr>
+<tr><td>Snare (38)</td><td>247</td><td>Ride bell (53)</td><td>25</td></tr>
+<tr><td>Closed hat (42)</td><td>458</td><td>Crash (49)</td><td>26</td></tr>
+<tr><td>Open hat (46)</td><td>26</td><td>Toms (47)</td><td>163</td></tr>
+<tr><td colspan="4"><b>Articulation:</b> 75 ghosts, 88 flams, 141 accents. <b>58 removals</b>, every one by a named rule: 53 same-drum-same-slot merges, 2 crash-and-ride resolved, 2 hat pairs resolved, 1 three-hand moment resolved.</td></tr>
+</table></div>
+
+<h2><span class="n">4.</span> Gate proof</h2>
+<pre>
+ledger 1732 hits, 58 removed by rule (merged_same_drum_same_slot=53,
+resolved_crash_ride=2, resolved_hat_pair=2, resolved_three_hand=1),
+expecting 1674 notes
+
+  PASS  every velocity on the 16-step ladder      offenders=[]
+  PASS  one fixed string slot per drum family     offenders={}
+  PASS  kick and side stick never share a slot
+  PASS  ride is GM 51, never GM 59                ride59=0
+  PASS  zero ghostNote parentheses                parentheses=0
+  PASS  every requested ghost carries the dot     asked=75 dots=75
+  PASS  every requested flam survived as a grace  asked=88 got=88
+  PASS  per-drum counts match the event ledger    asked,got={}
+  PASS  total note count matches the ledger       1674 -> 1674
+  PASS  zero hat_pair / snare_rim / crash_ride / three_hand
+
+<b>19 passed, 0 failed   EXIT=0</b>
+
+negative control, the pre-fix writer on the same ledger:  8 failed, EXIT=1
+</pre>
+
+<h2><span class="n">5.</span> The one check nobody here can run</h2>
+<p>Whether Guitar Pro and Songsterr actually <b>draw</b> this is not checkable from this
+side. Load the <code>.gp5</code> in the Songsterr editor with Upload, audition it against
+the original audio, and look at the ride line and the bell hits before Submit. Submitting
+is a public edit to your account, so that stays your call.</p>
+
+<footer>
+  <p>File: <code>~/Projects/_outputs/stems-to-guitar-pro-drums/Appleseed-Cast-Illumination-Ritual-drums-v2.gp5</code></p>
+  <p>Source: <code>~/Projects/_outputs/drumsep-cast/10 - Illumination Ritual/drums/</code>
+  (DrumSep MDX23C 5-piece, 44.1 kHz, 243.8 s, 97.2% captured).
+  Built with <code>/stems-to-guitar-pro-drums</code>.</p>
+</footer>
+
+</div>
+</body>
+</html>
