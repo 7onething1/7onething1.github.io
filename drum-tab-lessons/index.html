@@ -1,0 +1,211 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Drum tabs: what we learned, and where it lives now</title>
+<style>
+  :root{
+    --cream:#F7F1DF; --card:#FBF7EC; --ink:#000000;
+    --rust:#A6321E; --orange:#C1502E; --mustard:#D9A404;
+    --olive:#7A8450; --blue:#5F7F92; --brown:#4A2C1A; --rule:#DCD2B6;
+  }
+  *{box-sizing:border-box}
+  body{margin:0;background:var(--cream);color:var(--ink);
+       font-family:"Futura","Avenir Next",Helvetica,Arial,sans-serif;
+       font-size:17px;line-height:1.62;padding:0 20px 90px}
+  .wrap{max-width:1000px;margin:0 auto}
+  header{padding:54px 0 26px;border-bottom:5px double var(--rust)}
+  h1{font-size:clamp(28px,4.6vw,46px);line-height:1.1;margin:0 0 10px;
+     letter-spacing:-.5px;color:var(--ink)}
+  .kicker{font-size:13px;letter-spacing:.22em;text-transform:uppercase;
+          color:var(--rust);font-weight:700;margin-bottom:14px}
+  .sub{font-size:18px;max-width:70ch;margin:0}
+  h2{font-size:24px;margin:52px 0 6px;padding-bottom:8px;
+     border-bottom:2px solid var(--rule);color:var(--ink)}
+  h2 .n{display:inline-block;min-width:1.9em;color:var(--orange);font-weight:800}
+  h3{font-size:18px;margin:30px 0 8px;color:var(--brown)}
+  p{max-width:78ch}
+  .lead{background:var(--card);border-left:7px solid var(--rust);
+        padding:18px 22px;margin:26px 0;border-radius:0 6px 6px 0}
+  .lead b{color:var(--rust)}
+  .grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(215px,1fr));
+        gap:14px;margin:22px 0}
+  .stat{background:var(--card);border:2px solid var(--rule);border-radius:7px;
+        padding:15px 17px}
+  .stat .big{font-size:30px;font-weight:800;line-height:1.1;color:var(--rust)}
+  .stat .lbl{font-size:13px;letter-spacing:.05em;margin-top:5px}
+  .tw{overflow-x:auto;margin:20px 0;border:2px solid var(--rule);border-radius:7px;
+      background:var(--card)}
+  table{border-collapse:collapse;width:100%;min-width:640px;font-size:15px}
+  th{background:var(--brown);color:var(--cream);text-align:left;padding:11px 13px;
+     font-size:12.5px;letter-spacing:.11em;text-transform:uppercase;font-weight:700}
+  td{padding:11px 13px;border-top:1px solid var(--rule);vertical-align:top}
+  tr:nth-child(even) td{background:rgba(220,210,182,.24)}
+  code,.mono{font-family:"SF Mono",Menlo,Consolas,monospace;font-size:.9em;
+             background:rgba(166,50,30,.09);padding:1px 5px;border-radius:3px}
+  .no{color:var(--rust);font-weight:800}
+  .yes{color:var(--olive);font-weight:800}
+  blockquote{margin:14px 0;padding:11px 18px;border-left:5px solid var(--mustard);
+             background:var(--card);font-style:italic}
+  pre{background:var(--brown);color:#F2E9D2;padding:17px 19px;border-radius:7px;
+      overflow-x:auto;font-family:"SF Mono",Menlo,Consolas,monospace;
+      font-size:13.5px;line-height:1.55}
+  pre b{color:var(--mustard)}
+  .dot{display:inline-block;width:11px;height:11px;border-radius:50%;
+       margin-right:8px;vertical-align:middle}
+  .d-r{background:var(--rust)} .d-g{background:var(--olive)}
+  .d-b{background:var(--blue)} .d-y{background:var(--mustard)}
+  ul{max-width:78ch} li{margin-bottom:7px}
+  footer{margin-top:64px;padding-top:20px;border-top:5px double var(--rust);
+         font-size:14px}
+  @media(max-width:620px){body{font-size:16px;padding:0 14px 60px}}
+</style>
+</head>
+<body>
+<div class="wrap">
+
+<header>
+  <div class="kicker">Knowledge sweep &middot; 30 July 2026</div>
+  <h1>Drum tabs: what we learned, and where it lives now</h1>
+  <p class="sub">Every lesson from the Sean song drum-tab work, gathered from four
+  knowledge layers and folded back into the skill that builds the file. This page is
+  the coverage map.</p>
+</header>
+
+<div class="lead">
+  <p><b>The finding.</b> The knowledge was split across two skills, and the wrong
+  half was in the builder. <code>/drum-dynamics-from-audio</code> was built
+  2026-07-27 and holds most of it. <code>/stems-to-guitar-pro-drums</code> was built
+  <b>one day earlier</b> and never received the 07-27 discoveries, so it still
+  contained the exact bugs the later session paid to find. Running it today would
+  have produced a Guitar Pro file that opens as rests, with rides drawn as high-F
+  notes and rim clicks on the kick line.</p>
+</div>
+
+<div class="grid">
+  <div class="stat"><div class="big">8</div><div class="lbl">historical bugs the builder still carried</div></div>
+  <div class="stat"><div class="big">19</div><div class="lbl">properties the new render gate asserts</div></div>
+  <div class="stat"><div class="big">17</div><div class="lbl">memory files swept</div></div>
+  <div class="stat"><div class="big">5</div><div class="lbl">sessions read end to end</div></div>
+</div>
+
+<h2><span class="n">1.</span> Where the knowledge lives now</h2>
+<div class="tw"><table>
+<tr><th>Location</th><th>Holds</th></tr>
+<tr><td><code>_shared/drum_gp_spec.py</code></td><td><b>New.</b> The encoding spec both drum skills read: ladder, staff slots, feet, grace, ghost. Run it directly and it asserts the two copies still agree.</td></tr>
+<tr><td><code>stems-to-guitar-pro-drums/</code></td><td>Builds a new gp5 from stems. <code>sd_detect.py</code>, <code>sd_writegp.py</code>, <code>sd_verify.py</code>.</td></tr>
+<tr><td><code>drum-dynamics-from-audio/</code></td><td>Corrects the touch of a score whose notes are already right. Never moves a note.</td></tr>
+<tr><td><code>songsterr-tab-guide/</code></td><td>Builds the per-band guide page. <code>st_drumtab.py</code> renders a drum-tab analysis page.</td></tr>
+<tr><td>memory dir</td><td><code>reference_songsterr_gp5_drum_map</code> plus 16 related feedback files.</td></tr>
+</table></div>
+
+<h2><span class="n">2.</span> Coverage: every lesson against the builder</h2>
+<p>The middle column is what the skill said before this pass.</p>
+<div class="tw"><table>
+<tr><th>Lesson</th><th>In the skill?</th><th>Now enforced by</th></tr>
+<tr><td>Velocity snaps to the 16-step ladder (15/31/47/63/79/95/111/127)</td><td class="no">No, it said 20-127</td><td>writer snaps, gate fails off-ladder</td></tr>
+<tr><td>Ride is GM 51. GM 59 draws as a round high-F note</td><td class="no">No</td><td>writer remaps 59, gate fails on any 59</td></tr>
+<tr><td>Ghosts get the staccato dot, never the parentheses</td><td class="no">No, it wrote parentheses</td><td>writer + gate</td></tr>
+<tr><td>Flams are <code>GraceEffect(duration=64)</code></td><td class="no">No, it passed 1</td><td>writer + gate on legal durations</td></tr>
+<tr><td>One fixed staff slot per drum family, 7 strings</td><td class="no">No, slots wandered</td><td><code>SLOT</code> map + gate</td></tr>
+<tr><td>Kick and side stick never share a slot</td><td class="no">No</td><td>gate</td></tr>
+<tr><td>Two arms. Feet are kick and hat pedal only</td><td class="no">No</td><td><code>limb_conflicts()</code></td></tr>
+<tr><td>Quantize last, or the grid deletes the ornament</td><td class="no">No</td><td>SKILL.md build order</td></tr>
+<tr><td>Run the controls before claiming a flam or a hat</td><td class="no">No</td><td>SKILL.md, with the measured false-positive rates</td></tr>
+<tr><td>Detect replacement events, not only added transients</td><td class="no">No</td><td>SKILL.md</td></tr>
+<tr><td>One writer, regression bars, counts carry definitions</td><td class="no">No</td><td>SKILL.md</td></tr>
+<tr><td>Songsterr strips articulation and re-quantizes on import</td><td class="no">No</td><td>SKILL.md</td></tr>
+<tr><td>A round-trip is not render validation</td><td class="no">No, it cited one as proof</td><td><code>sd_verify.py</code></td></tr>
+<tr><td>DrumSep 5-piece beats a single full-kit stem</td><td class="yes">Yes</td><td>already present</td></tr>
+<tr><td>Never resample long stems, librosa is broken here</td><td class="yes">Yes</td><td>already present</td></tr>
+</table></div>
+
+<h2><span class="n">3.</span> What each rule cost when it was broken</h2>
+<div class="tw"><table>
+<tr><th>Rule</th><th>The failure it caused</th></tr>
+<tr><td>Ladder velocity</td><td>A velocity of <b>431</b> passed a full PyGuitarPro round-trip and opened in Songsterr as <b>nothing but rests</b>. A whole delivery cycle and a done-claim went out on it.</td></tr>
+<tr><td>Ride GM 51</td><td><b>Ninety minutes</b> guessing, while Songsterr's own Drum Key tab held the answer. The fix was then graded as a regression.</td></tr>
+<tr><td>Ghost dot</td><td>One file carried both notations at once, <b>72 parentheses and 22 dots</b>, so an audit scored it as holding zero ghost notes when it held 94.</td></tr>
+<tr><td>Grace duration 64</td><td>The bar-5 flam was added and lost across <b>four versions</b>. It is 59.1 ms, exactly a 32nd at 127 BPM, and the container held only 16ths.</td></tr>
+<tr><td>Kick and rim apart</td><td>Rim clicks drew on the kick line, and Brandon had to say it three separate times.</td></tr>
+<tr><td>Two arms</td><td>Three-hand bars shipped, graded green by an inherited rule that counted hi-hats as feet.</td></tr>
+</table></div>
+
+<h2><span class="n">4.</span> Brandon's own words, and the rule each one set</h2>
+<p>He corrected a handful of bars by hand and said plainly they were examples, so each
+is a rule to apply across the file. Quotes are verbatim, typos included.</p>
+
+<blockquote>i didn't fix everything, just a few examples to teach you to listen better
+building the skill and applying it the rest of the way</blockquote>
+
+<div class="tw"><table>
+<tr><th>What he said</th><th>The rule it sets</th></tr>
+<tr><td>you put it as 3 + hits but I only have two arms</td><td>Two hands, two feet. Feet are kick and hat pedal only, so a closed hat is a hand.</td></tr>
+<tr><td>drums at 76 and other places those are rim clicks &middot; do you have them as kicks or what &middot; youre still doing it on the kick instead of the rim</td><td>Side stick is GM 37 on its own slot. Rim clicks run through to bar 84.</td></tr>
+<tr><td>some of those are the note f, the higher f, but it should be the 'x' for a ride edge or thin crash</td><td>GM 59 draws at the hi-mid-tom slot as a round note. Ride is GM 51.</td></tr>
+<tr><td>when you do the note with parentheses is hard to not hit it, just add the correct dot to it &middot; parenntheses used to be let ring not ghost</td><td>Ghosts get the staccato dot plus velocity 31.</td></tr>
+<tr><td>lots of bells like bar 8 missed</td><td>A bell often replaces a cymbal at the same position. Search for class changes.</td></tr>
+<tr><td>make the most correct version lose nothing</td><td>Diff each version against the last, not only against the audio.</td></tr>
+<tr><td>me doing it for you defeats the purpose &middot; go to the audio figure it out</td><td>Do not hand the work back. The data was on disk both times.</td></tr>
+</table></div>
+
+<h2><span class="n">5.</span> The five measurement traps</h2>
+<ul>
+  <li><span class="dot d-r"></span><b>The offset is not what an STFT tells you.</b> A 2048-sample window is 46 ms wide, so band energy rises when the transient enters it. That reads about half a window early: 60 ms reported where the truth was 76.</li>
+  <li><span class="dot d-r"></span><b>Attack strength is a rise, never peak-minus-floor.</b> In dense playing the window before a hit sits inside the previous hit's decay. Peak-minus-floor put 22% of ride hits at zero. The rise metric put 0% there.</li>
+  <li><span class="dot d-y"></span><b>Fix bleed by choosing the band.</b> A correction factor removes real accents along with the bleed.</li>
+  <li><span class="dot d-b"></span><b>Ghost decisions are local, velocity is global.</b> Velocity ranks across the whole lane. Ghost and accent rank within four bars, because the ear hears an inner tap against its neighbours.</li>
+  <li><span class="dot d-g"></span><b>A bell stands out when the surrounding rides come down.</b> Raising instead pinned 7 of 12 bells to the 127 ceiling, which is the same flatness in a new place.</li>
+</ul>
+
+<h2><span class="n">6.</span> Proof</h2>
+<p>The negative control is the part that matters. I ran the pre-fix writer through the
+new gate, and all eight historical bugs reproduced and were caught, so the gate is
+doing work rather than passing everything.</p>
+<pre>
+$ python3 _shared/drum_gp_spec.py
+<b>PASS</b>  drum-dynamics-from-audio/dyn_core.py matches the shared spec
+
+$ sd_writegp.py ev.json final.gp5 && sd_verify.py --events ev.json --gp5 final.gp5
+  ride59_remapped_to_51: 1     ghosts_as_staccato_dot: 16     flams_as_32nd_grace: 1
+  <b>19 passed, 0 failed</b>            EXIT=0
+
+$ sd_verify.py --events ev.json --gp5 old.gp5        # the pre-fix writer
+  FAIL  every velocity on the 16-step ladder   offenders=[431]
+  FAIL  ride is GM 51, never GM 59             ride59=1
+  FAIL  zero ghostNote parentheses             parentheses=16
+  FAIL  grace durations are legal              offenders=[1]
+  FAIL  one fixed string slot per drum family  offenders={36:[1], 42:[1,2,3], 37:[3]}
+  FAIL  staff has a slot per drum family       strings=6
+  FAIL  every requested ghost carries the dot  asked=16 dots=0
+  FAIL  per-drum counts match the ledger       ride (1, 0)
+  <b>11 passed, 8 failed</b>            EXIT=1
+
+anti_ai_voice_gate   PASS on all three new files
+session_fraud_check  RESULT: PASS
+</pre>
+
+<h2><span class="n">7.</span> The one check nobody here can run</h2>
+<p>Whether Guitar Pro and Songsterr actually <b>draw</b> the file is not checkable from
+this side. Re-parsing your own output with the same library proves the bytes parse and
+nothing more, because the library reads sequentially and skips exactly the validation
+the real app performs. Load the gp5 in the Songsterr editor and look before Submit.</p>
+
+<h2><span class="n">8.</span> One flag left unfixed on purpose</h2>
+<p>The anti-AI voice gate flags Brandon's own quote <code>at bar 9 we ride the crash</code>
+as a soft-metaphor verb. It stays. The gate governs my prose, and rewriting what he said
+would destroy the evidence the lessons file exists to hold. Every other line passes.</p>
+
+<footer>
+  <p>Sources: sessions <code>b3fb51a9</code> (43 hours), <code>add5d5c7</code>,
+  <code>ef064d87</code>, <code>0bb800b0</code>, and the 7.3.26 jam rebuild. Song under
+  test: Children of Adams Basement, "Sean song", Songsterr s6219701, 85 bars, 127 BPM,
+  3/4 at bar 53.</p>
+  <p>Full corpus with citations:
+  <code>~/.claude/skills/stems-to-guitar-pro-drums/reference/drum-tab-lessons.md</code></p>
+</footer>
+
+</div>
+</body>
+</html>
