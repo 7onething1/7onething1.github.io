@@ -13,9 +13,8 @@ catalogue yields far less than the newest review.
 
 ## Verbatim check
 
-1 claim(s) dropped because the supporting sentence is not a
+0 claim(s) dropped because the supporting sentence is not a
 contiguous run of that video's captions.
-- Jeskai Lessons, rank (j9JOcowyUkM): "Jeskai lessons is number two by popularity. This one is the same list that we ta"
 
 ## Coverage
 
@@ -24,8 +23,8 @@ contiguous run of that video's captions.
 | Week 1 (2026-06-30) | 28151 | 0 | 0 | 0 | 1 | 9 | 0 |
 | Week 2 (2026-07-06) | 37977 | 0 | 0 | 1 | 0 | 5 | 2 |
 | Week 3 (2026-07-14) | 24392 | 0 | 0 | 2 | 2 | 7 | 1 |
-| Week 4 (2026-07-20) | 22197 | 0 | 0 | 0 | 3 | 5 | 1 |
-| Week 5 (2026-07-27) | 16066 | 2 | 5 | 3 | 6 | 7 | 7 |
+| Week 4 (2026-07-20) | 22195 | 0 | 0 | 0 | 3 | 5 | 1 |
+| Week 5 (2026-07-27) | 16060 | 2 | 5 | 3 | 6 | 7 | 7 |
 | Early Access (undated) | 23774 | 0 | 0 | 0 | 0 | 0 | 0 |
 
 ## Limits
