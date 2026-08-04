@@ -1,14 +1,21 @@
-# Arstall meta reviews, read back out of the transcripts
+# Arstall's meta reviews, priced against your collection
 
 Live: https://7onething1.github.io/arstall-meta-review/
 
 Built 2026-08-04. 11 deck records across 4 of 6 videos.
+Collection snapshot 2026-08-02: 4 rare and 3 mythic wildcards, 11,308 cards held.
 
 ## The finding
 
 Arstall's rubric vocabulary is a late-format habit. "top three performing cards"
 and "safe craft" appear only in Week 5. Weeks 1 and 2 use neither, so the back
 catalogue yields far less than the newest review.
+
+## Verbatim check
+
+1 claim(s) dropped because the supporting sentence is not a
+contiguous run of that video's captions.
+- Jeskai Lessons, rank (j9JOcowyUkM): "Jeskai lessons is number two by popularity. This one is the same list that we ta"
 
 ## Coverage
 
@@ -25,5 +32,7 @@ catalogue yields far less than the newest review.
 
 - A record carrying only "best of one/three" is excluded as ambient noise.
 - Week 1 uses deck nicknames with garbled colour labels, so nothing extracts.
-- Every card title is checked against Scryfall; anything that does not resolve is listed as unresolved.
-- Every field carries its source quote and a timestamped link.
+- Quotes are edited by deletion only, disfluencies and immediate repeats; the
+  raw caption ships beside each one.
+- Copies owned are keyed on Arena grpId and summed across every printing.
+- Build costs are matched on colour identity, never on his list.
