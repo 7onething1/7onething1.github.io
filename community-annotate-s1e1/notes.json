@@ -1,0 +1,56 @@
+{
+ "_episode": "S01E01",
+ "_title": "Pilot",
+ "_checked_against": "110 Community episode scripts, ~/Projects/tv-scripts/text/",
+ "notes": {
+  "8": {
+   "who": "Claude, Brandon's method",
+   "note": "abed reels off britta's age, birthday and history after one conversation. established here, and it is the thing he calls being a student of human character in debate 109",
+   "verdict": "hit",
+   "label": "confirmed, described later",
+   "check": "This is the first demonstration of the ability, before the show has a word for it. S01E09 L116 supplies the phrase when the group accuses him of witchcraft and he answers \"I'm a student of human character\", then L117 \"I know you guys all so well I can predict your behavior.\" Brandon marked that S01E09 beat as Abed becoming the narrator. The Pilot is where the ability is shown and left unexplained."
+  },
+  "21": {
+   "who": "Claude, Brandon's method",
+   "note": "the fake columbia degree. this is the engine, it runs all six seasons and every time jeff nearly escapes greendale it drags him back",
+   "verdict": "hit",
+   "label": "confirmed, the series engine",
+   "check": "The single biggest seed in the episode and it is a throwaway in a favour conversation. It returns as plot, not as reference: S01E21 L381 \"You got caught with a fake degree\", S01E24 L25 \"I'm on a tight, four-year schedule to replace my bachelor's\", S03E15 L259 \"I got my fake bachelor's degree, and then I cheated on the LSAT\", S03E22 L26 \"I am here to replace my fake bachelor's so I can get back to my life as a lawyer\", S04E05 L230 \"I'm a lawyer who faked a bachelor's degree and practiced law for seven years before I got caught\", and S05E01 L23 is still pointing at it, \"the bachelor's degree on the wall.\" Six seasons off one line."
+  },
+  "52": {
+   "who": "Claude, Brandon's method",
+   "note": "first of many things jeff makes up that turn real. the study group is a lie he tells to get britta and it outlives him",
+   "verdict": "hit",
+   "label": "confirmed, pays off inside the episode",
+   "check": "The lie is stated here and confessed at L270 on this sheet, \"I don't have a study group Pierce. I made it up\", then immediately generalised at L271, \"Made it up. That's what I do. I make things up. And I got paid a lot of money to do it.\" The group survives the confession, which is the whole premise: the fake thing becomes the real thing. Same shape as the fake degree at L21, told twenty-nine lines earlier."
+  },
+  "154": {
+   "who": "Claude, Brandon's method",
+   "note": "hawthorne wipes. pierce's moist towelette empire, first mention. comes back as the will, the factory, and his dad",
+   "verdict": "hit",
+   "label": "confirmed, in 9 episodes",
+   "check": "Introduced as a boast and it becomes Pierce's entire backstory. S03E01 L208 the spokesman and rap artist Sugar Cube, S03E11 L136 \"Shirley, Hawthorne wipes fired me\", S03E14 L16 \"The dried-up heir to a moist towelette empire\", S03E20 L78 his father, \"in 1980, you said that video games, not moist towelettes, were the business of the future\", S03E22 L22, S04E08 L262 where it sponsors the Sadie Hawkins dance, and S05E04 L329 where the will leaves Troy shares \"currently valued at $14.\""
+  },
+  "192": {
+   "who": "Claude, Brandon's method",
+   "note": "troy the quarterback and prom king. first of many times the show takes this away from him, it is his whole arc",
+   "verdict": "hit",
+   "label": "confirmed runner",
+   "check": "Stated here and punctured fourteen lines later on this sheet, \"You're not prom king anymore, Troy.\" Then it keeps returning as loss rather than status: S01E06 L188 \"You ever miss being a quarterback, Troy? I miss being the best at something\", S01E10 L271 \"take it from a former prom king\", S01E14 L195 \"I'd be going from starting quarterback to a guy that twirls around in tights\", S01E19 L273 \"I have skinny arms for a quarterback.\""
+  },
+  "196": {
+   "who": "Claude, Brandon's method",
+   "note": "little annie adderall. planted here as a taunt from troy, weaponised by the city college debater later, and by season 5 she is the one handing the pills out",
+   "verdict": "hit",
+   "label": "confirmed, and it inverts",
+   "check": "The nickname originates here. S01E09 L216 has an outsider turn it into a taunt song aimed at her from the stage, which is the beat Brandon marked on that sheet. S03E02 L66 throws her younger self back at her, \"took so much Adderall she tried to straighten the lines on our high school football field during a game.\" S03E15 L75 \"You were a pillhead.\" The inversion is S05E01 L233, where Annie says \"I'm helping to hook a whole new batch of little Annies on Adderall\", so the insult ends up in her own mouth about someone else."
+  },
+  "292": {
+   "who": "Claude, Brandon's method",
+   "note": "seven divorces, said as a joke. first of many times pierce's loneliness is the punchline and then stops being one",
+   "verdict": "hit",
+   "label": "confirmed runner",
+   "check": "The ex-wives keep coming back and the tone shifts each time. S02E20 L147 as a gag, \"Pierce married three of his wives after knowing them a month.\" S03E18 L9 as bile in the will, \"To my ex-wife Magda, I leave herpes.\" S05E03 L250 as the eulogy, \"He's survived by many ex-wives and all of us here at Greendale that called him friend\", which is the same fact played for grief."
+  }
+ }
+}
