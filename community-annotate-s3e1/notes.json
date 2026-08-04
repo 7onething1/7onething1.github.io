@@ -1,0 +1,98 @@
+{
+ "_episode": "S03E01",
+ "_title": "Biology 101",
+ "_checked_against": "110 Community episode scripts, ~/Projects/tv-scripts/text/",
+ "notes": {
+  "8": {
+   "who": "Claude, Brandon's method",
+   "note": "troy and abed move in together, announced in the first ninety seconds. the apartment becomes a location the show runs on for three more seasons",
+   "verdict": "hit",
+   "label": "confirmed, a standing set",
+   "check": "L8 \"Troy and I are living together\", with the linens 'n things gag at L10. The apartment then hosts plot: S03E14 L224 \"whoever wins this war can stay in the apartment\", S03E17 L383, S03E22 L8 \"He hasn't left the apartment since Troy moved out\", S05E07 L92, S06E02 L32 \"Britta's fallen on hard times and our apartment is the cheapest game in town\", S06E05 L20 and L134."
+  },
+  "17": {
+   "who": "Claude, Brandon's method",
+   "note": "annie's boobs the monkey. points BACK to season one where troy christens it and lets it loose, and forward to the episode that puts it in a title",
+   "verdict": "hit",
+   "label": "both directions",
+   "check": "Backward: S01E21 L202 \"Isn't that right, Annie's Boobs? Please rename that thing\", L348 \"He released Annie's Boobs\", L351 \"The monkey's name is Annie's Boobs.\" Forward: S03E14 L305 makes it an episode title, \"The Annie's Boobs Story or That's Enter-Chang-Ment.\" The monkey went into the vents in season one and this line is the show confirming it stayed there."
+  },
+  "54": {
+   "who": "Claude, Brandon's method",
+   "note": "six seasons and a movie. NOT born here, abed says it first in the paradigms clip show. this is the second time, and the series finale is the third",
+   "verdict": "hit",
+   "label": "backward and forward, origin corrected",
+   "check": "I assumed this was the origin and the corpus says otherwise. S02E21 L140 is first: \"Show's gonna last three weeks! Six seasons and a movie!\" Here at L54-55 Troy and Abed say it to each other about Cougar Town. It closes the series at S06E13 L294, \"That's six seasons and a movie\", with L175 \"I mean we've got through six seasons.\" Three uses in 110 episodes, and the show ends on the third."
+  },
+  "60": {
+   "who": "Claude, Brandon's method",
+   "note": "professor kane's prison backstory, told in his first minute. he only lasts one season and the thing that removes him is also planted in this episode",
+   "verdict": "hit",
+   "label": "confirmed, a one-season character",
+   "check": "L60 \"It took me 6,205 hours to get my degree, and I know, because I was only allowed in the library one hour per day at the San Vicente correctional facility while serving a sentence of 25 to life.\" He recurs across season three, S03E03 L50, S03E16 L18, S03E17 L30, L149 and L333, then leaves at S03E18 L114 because of Star-Burns' meth lab, which is pitched to him at L252 of this episode."
+  },
+  "96": {
+   "who": "Claude, Brandon's method",
+   "note": "vice dean laybourne and the air conditioning repair annex, first appearance. this becomes the biggest plot of season three and it kills him",
+   "verdict": "hit",
+   "label": "confirmed, the season 3 arc",
+   "check": "Introduced here as a budget squabble over an espresso machine. S03E06 is the recruitment, L165 \"air conditioning repair is an elite worldwide family dating back to the very beginnings of civilizations\" and L187 \"You will be an air conditioning repairman and nothing else Until the day you die.\" S03E13 L397 \"an unencumbered Troy will turn to his destiny The air conditioning repair school.\" S03E21 L51. Then S03E22 L96, \"Vice Dean Laybourne was repairing a flow duct rupture, and he inhaled a lethal dose of freon\", and L137 has Troy taking the job."
+  },
+  "111": {
+   "who": "Claude, Brandon's method",
+   "note": "cougarton abbey runs six episodes then the whole cast drinks hemlock. that is sitting fifty lines from 'six seasons and a movie' on purpose",
+   "verdict": "read",
+   "label": "in-episode pairing, no later payoff",
+   "check": "Both beats are in this episode and they argue with each other. L145-147 \"Why did everyone on Cougarton Abbey just die? They only ran six episodes. That's the great thing about British tv. They give you closure.\" Fifty-seven lines earlier, L54, Troy and Abed comfort each other with \"six seasons and a movie.\" No later episode calls back to Cougarton Abbey, so this is a reading of the placement rather than a tracked seed."
+  },
+  "157": {
+   "who": "Claude, Brandon's method",
+   "note": "chang says he lives in the air vents. backward to the vent gag in paradigms, forward to the episode where the dean has to admit it out loud",
+   "verdict": "hit",
+   "label": "both directions",
+   "check": "Backward: S02E21 L14 \"I know these vents like the back of my Chang\" and L206 \"How many vents are you gonna crawl out of this year?\" Here it stops being a gag and becomes his housing, L157-158 \"Where are you living now? The air vents\", and L226 \"I'm the one living in your vents.\" Forward: S03E18 L236, \"He was living in the school's air vent system with a monkey!\" That monkey is the one at L17, so the two vent runners merge."
+  },
+  "201": {
+   "who": "Claude, Brandon's method",
+   "note": "inspector spacetime and the blorgons, born right here as a joke to fix abed. gets its own convention episode in season four",
+   "verdict": "hit",
+   "label": "confirmed, first appearance",
+   "check": "This is the first occurrence anywhere in the corpus, and it arrives fully formed. L201-202 \"Blimey, inspector! Where have we wound up this time? The question isn't where, constable, but when\", then \"Blorgons! Eradicate!\" Forward it carries a whole episode: S04E03 has fourteen mentions including L10 \"the Inspector Spacetime convention\", L85 \"Inspector Spacetime's super villain Thoraxis\", L295 \"Inspector Spacetime is both his own grandfather and grandmother.\" Also S04E08 L6, S04E03 L4 \"Take that, Blorgon.\" Invented in this episode to replace a cancelled show, and it outlived the replacement."
+  },
+  "208": {
+   "who": "Claude, Brandon's method",
+   "note": "hawthorne wipes' spokesman sugar cube. straight back to the pilot, where pierce introduces himself by the moist towelette company",
+   "verdict": "hit",
+   "label": "backward to the Pilot",
+   "check": "This connects the two sheets. On the Pilot annotation sheet L154 Pierce introduces himself, \"that is Hawthorne as in Hawthorne Wipes the award-winning moist towelette.\" Here that company has a rap-artist spokesman in prison, which is also the joke that traps Jeff. The empire keeps returning: S03E11 L136 \"Shirley, Hawthorne wipes fired me\", S03E20 L78 his father, S04E08 L262, S05E04 L329 the will."
+  },
+  "235": {
+   "who": "Claude, Brandon's method",
+   "note": "pierce bribes a professor to get jeff out so he can get back in. same shape as jeff faking the study group in the pilot, someone buys their way into the table",
+   "verdict": "hit",
+   "label": "mechanic repeat of the Pilot",
+   "check": "L235 \"The biology class was full, so I told Professor Kane I'd pay him a few thousand dollars to kick Jeff out.\" The Pilot runs the same move with a lie instead of money, sheet L52 \"Shouldn't be too hard to fake a study group\" and the confession at L270. Both times the group forms around a fraud committed to get a seat at the table, and both times it survives the reveal."
+  },
+  "238": {
+   "who": "Claude, Brandon's method",
+   "note": "the table is magic, said seriously right after jeff took a fire axe to it. the table is a character from here on",
+   "verdict": "hit",
+   "label": "confirmed runner",
+   "check": "L29 sets it up, \"this table has a sort of magic in it\", L213 \"The table is powerful, and being cut off from it\", L236 \"Jeff attacked a table with a fire axe\", L253 \"now the table is good as new.\" It keeps mattering: S03E09 L173 \"Get away from our table\", S03E10 L123 \"Where's our table?\", S04E04 L132 \"What are you doing at our table?\", S05E01 L316 \"I'd like to take the study room table in back and burn it\", S05E02 L40 \"the new table turned out great, Abed.\""
+  },
+  "252": {
+   "who": "Claude, Brandon's method",
+   "note": "star-burns pitches a breaking bad thing to the biology teacher. seventeen episodes later he dies in a meth lab explosion. this is the whole death, planted as a throwaway",
+   "verdict": "hit",
+   "label": "confirmed, the best plant in the episode",
+   "check": "L252 \"I'm a drug dealer, right? And you're a scientist, so couldn't we get, like, a Breaking Bad type of thing going?\" and Kane throws him out of the class for it. S03E18 L20 collects: \"Star-Burns died how he lived in a meth lab explosion.\" The same episode retires the other half of this scene, S03E18 L114, \"due to the whole Star-Burns meth lab explosion, Professor Kane has resigned, and your biology class has been cancelled.\" Both characters in this one exchange leave the show in one line."
+  },
+  "258": {
+   "who": "Claude, Brandon's method",
+   "note": "britta declares psychology and says she is going to be a therapist. first of many times the show uses that against her, right up to the finale",
+   "verdict": "hit",
+   "label": "confirmed, runs to S06E13",
+   "check": "L258-261 \"Helping Abed has inspired me to finally declare a major. I'm gonna study Psychology. Like in a research capacity? No, in a hands-on capacity. I'm gonna be a therapist.\" The joke is that she is bad at it: S04E02 L249 \"The worst therapist? No, because you're not a therapist.\" It stays her identity, S03E17 L101 \"As a psych major\", S03E19 L62 and L171, S05E08 L230 \"I'm a Psych major\", S05E01 L173 a bartender is \"basically like a modern-day therapist\", and the last word on it is the finale, S06E13 L422."
+  }
+ }
+}
