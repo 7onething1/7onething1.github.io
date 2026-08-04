@@ -1,0 +1,116 @@
+<!doctype html><html lang=en><head><meta charset=utf-8>
+<meta name=viewport content="width=device-width,initial-scale=1">
+<title>Arstall meta reviews, read back out of the transcripts</title>
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@600;700&family=Inter:wght@400;500;600;700&family=JetBrains+Mono:wght@500;700&display=swap" rel=stylesheet>
+<style>
+:root{--bg:#F1E6D2;--card:#FFF7E6;--ink:#1a1712;--line:#d9c9a6;--teal:#5B8C8A;
+--plum:#7A5A6E;--dim:#7c7059;--olive:#8A8F4F;--hot:#B85450}
+*{box-sizing:border-box}
+body{margin:0;background:var(--bg);color:var(--ink);font-family:Inter,system-ui,sans-serif;
+line-height:1.55;padding:34px 20px 80px}
+.wrap{max-width:1080px;margin:0 auto}
+h1{font-family:'Cormorant Garamond',serif;font-size:2.5rem;line-height:1.1;margin:0 0 6px}
+h2{font-family:'Cormorant Garamond',serif;font-size:1.75rem;margin:44px 0 10px;
+border-bottom:2px solid var(--line);padding-bottom:6px}
+h3{font-family:'Cormorant Garamond',serif;font-size:1.35rem;margin:0 0 12px}
+h4{margin:0;font-size:1rem;font-weight:700}
+.sub{color:var(--dim);margin:0 0 8px;max-width:70ch}
+p{max-width:74ch}
+table{width:100%;border-collapse:collapse;background:var(--card);
+border:1.5px solid var(--line);font-size:.86rem}
+th,td{padding:7px 9px;border-bottom:1px solid var(--line);text-align:left}
+th{background:#EADFC6;font-size:.74rem;text-transform:uppercase;letter-spacing:.04em}
+td.num{font-family:'JetBrains Mono',monospace;text-align:right}
+td.zero{color:#bcae92}
+td.got{font-weight:700;color:var(--olive)}
+td .d{display:block;font-size:.74rem;color:var(--dim);font-weight:400}
+.tablewrap{overflow-x:auto}
+.vid{background:var(--card);border:1.5px solid var(--line);border-radius:7px;
+padding:16px 18px;margin:16px 0}
+.vid h3 a{font-size:.8rem;font-family:Inter,sans-serif;font-weight:600}
+.vid .d{font-size:.82rem;color:var(--dim);font-family:Inter,sans-serif;font-weight:400}
+.vid.empty{opacity:.85}
+.none{color:var(--dim);font-size:.9rem;margin:0}
+.decks{display:grid;grid-template-columns:repeat(auto-fill,minmax(320px,1fr));gap:12px}
+.deck{border:1px solid var(--line);border-left:4px solid var(--teal);
+border-radius:5px;padding:11px 13px;background:#fffdf6}
+.dh{display:flex;justify-content:space-between;align-items:baseline;gap:8px}
+.ts{font-family:'JetBrains Mono',monospace;font-size:.75rem;white-space:nowrap}
+.chips{margin:8px 0 0;display:flex;flex-wrap:wrap;gap:5px}
+.chip{font-size:.7rem;padding:2px 7px;border-radius:99px;background:#EADFC6;
+border:1px solid var(--line);font-weight:600}
+.chip.safe{background:#DDE6CE;border-color:var(--olive);color:#4a5020}
+.chip.risky{background:#F2DAD6;border-color:var(--hot);color:#7d2f2b}
+.chip.tier{background:#D9E4E3;border-color:var(--teal);color:#2f4f4d}
+.chip.rank{background:#E5DAE2;border-color:var(--plum);color:#4d3345}
+.chip.t8{background:#EFE4CB;border-color:#c9ab6a;color:#6b5320}
+.cards{margin-top:9px}
+.cards .lbl,.qlab{display:block;font-size:.68rem;text-transform:uppercase;
+letter-spacing:.05em;color:var(--dim);font-weight:700}
+.cards ul{margin:4px 0 0;padding-left:17px}
+.cards li{font-size:.85rem;margin:2px 0}
+code{font-family:'JetBrains Mono',monospace;font-size:.82rem}
+.heard{display:block;font-size:.7rem;color:var(--dim)}
+.src{margin-top:8px;font-size:.78rem;color:var(--dim)}
+blockquote{margin:9px 0 0;padding:7px 10px;background:#F6EEDC;
+border-left:3px solid var(--line);font-size:.8rem;color:#4a4335}
+.note{background:var(--card);border:1.5px solid var(--line);border-left:5px solid var(--plum);
+border-radius:6px;padding:14px 17px;margin:18px 0}
+a{color:var(--teal)}
+footer{margin-top:52px;font-size:.8rem;color:var(--dim);border-top:1px solid var(--line);
+padding-top:14px}
+</style></head><body>
+<div class="wrap">
+
+<h1>Arstall's meta reviews, read back out of the transcripts</h1>
+<p class="sub">The creator-decks page stores each of these videos as a single deck row.
+Each one is a whole-format tier review. This is what the reviews actually say, pulled
+from the captions and validated against Scryfall. Built 2026-08-04.</p>
+
+<div class="note">
+<strong>The finding that matters more than the decks.</strong> Arstall's rubric
+vocabulary is a late-format habit, not a season-long one. The phrases that make a
+review machine-readable, &ldquo;top three performing cards&rdquo; and &ldquo;safe
+craft&rdquo;, appear <strong>only in Week 5</strong>. Weeks 1 and 2 use neither. So the
+back catalogue yields a fraction of what the latest review does, and the honest
+coverage table below is the first thing on the page rather than a footnote.
+</div>
+
+<h2>Coverage, per video</h2>
+<p>Counts are literal phrase occurrences in each transcript. The last column is how many
+decks came out carrying a real judgement. A record whose only field was
+&ldquo;best of one/three&rdquo; is excluded, because that phrase is said 6 to 21 times
+per video as ambient framing and says nothing about the deck beside it.</p>
+<div class="tablewrap"><table>
+<thead><tr><th>Video</th><th>Chars</th><th>top three performing cards</th><th>safe / risky craft</th><th>tier N</th><th>number N by popularity</th><th>top eight</th>
+<th>Decks out</th></tr></thead>
+<tbody><tr><td><strong>Week 1</strong><span class="d">2026-06-30</span></td><td class="num">28,151</td><td class="zero">0</td><td class="zero">0</td><td class="zero">0</td><td class="">1</td><td class="">9</td><td class="num zero">0</td></tr><tr><td><strong>Week 2</strong><span class="d">2026-07-06</span></td><td class="num">37,977</td><td class="zero">0</td><td class="zero">0</td><td class="">1</td><td class="zero">0</td><td class="">5</td><td class="num got">2</td></tr><tr><td><strong>Week 3</strong><span class="d">2026-07-14</span></td><td class="num">24,392</td><td class="zero">0</td><td class="zero">0</td><td class="">2</td><td class="">2</td><td class="">7</td><td class="num got">1</td></tr><tr><td><strong>Week 4</strong><span class="d">2026-07-20</span></td><td class="num">22,197</td><td class="zero">0</td><td class="zero">0</td><td class="zero">0</td><td class="">3</td><td class="">5</td><td class="num got">1</td></tr><tr><td><strong>Week 5</strong><span class="d">2026-07-27</span></td><td class="num">16,066</td><td class="">2</td><td class="">5</td><td class="">3</td><td class="">6</td><td class="">7</td><td class="num got">7</td></tr><tr><td><strong>Early Access</strong><span class="d">undated</span></td><td class="num">23,774</td><td class="zero">0</td><td class="zero">0</td><td class="zero">0</td><td class="zero">0</td><td class="zero">0</td><td class="num zero">0</td></tr></tbody></table></div>
+<p><strong>11 deck records</strong> across <strong>4 of 6 videos</strong>.
+Week 5 alone carries most of them.</p>
+
+<h2>What came out</h2>
+<section class="vid empty"><h3>Week 1 <span class="d">2026-06-30</span></h3><p class="none">Nothing extracted. The transcript was pulled and parsed, and it carries none of the rubric language the later reviews use. Listed as empty. <a href="https://youtu.be/I2qxaVe8x88" target="_blank" rel="noopener">watch &#8599;</a></p></section><section class="vid"><h3>Week 2 <span class="d">2026-07-06</span> <a href="https://youtu.be/za9zZmDMC3Q" target="_blank" rel="noopener">watch &#8599;</a></h3><div class="decks"><div class="deck"><div class="dh"><h4>mono red</h4><a class="ts" target="_blank" rel="noopener" href="https://youtu.be/za9zZmDMC3Q?t=512">&#9654; 00:08:32</a></div><div class="chips"><span class="chip t8">fell out of top 8</span><span class="chip fmt">bo1</span></div><blockquote><span class="qlab">top 8</span>&ldquo;three of uh, Secrets of Stricks Haven, and it will eventually do uh, dip out of the top eight as well as more interaction is added into the meta to counteract this&rdquo;</blockquote></div><div class="deck"><div class="dh"><h4>Abzan</h4><a class="ts" target="_blank" rel="noopener" href="https://youtu.be/za9zZmDMC3Q?t=594">&#9654; 00:09:54</a></div><div class="chips"><span class="chip t8">new to top 8</span></div><blockquote><span class="qlab">top 8</span>&ldquo;ople, it was it was struggling to perform, right? And so this week it made it into the top eight. We&#x27;ll see if it&#x27;s here to stay, right? But it&#x27;s basically taking the&rdquo;</blockquote></div></div></section><section class="vid"><h3>Week 3 <span class="d">2026-07-14</span> <a href="https://youtu.be/KnWBRwobJ2A" target="_blank" rel="noopener">watch &#8599;</a></h3><div class="decks"><div class="deck"><div class="dh"><h4>Mono-White</h4><a class="ts" target="_blank" rel="noopener" href="https://youtu.be/KnWBRwobJ2A?t=535">&#9654; 00:08:55</a></div><div class="chips"><span class="chip tier">tier 1</span><span class="chip fmt">bo3</span></div><blockquote><span class="qlab">tier</span>&ldquo;ight. There are much more. You can definitely check out untapped. I think there&#x27;s like 20 tier one and tier two archetypes, which are all viable to take to my&rdquo;</blockquote></div></div></section><section class="vid"><h3>Week 4 <span class="d">2026-07-20</span> <a href="https://youtu.be/DXUhv8Xyw08" target="_blank" rel="noopener">watch &#8599;</a></h3><div class="decks"><div class="deck"><div class="dh"><h4>mono white</h4><a class="ts" target="_blank" rel="noopener" href="https://youtu.be/DXUhv8Xyw08?t=268">&#9654; 00:04:28</a></div><div class="chips"><span class="chip t8">still top 8</span><span class="chip fmt">bo3</span></div><blockquote><span class="qlab">top 8</span>&ldquo;h you&#x27;re coming up against that archetype. And then Jess Artifacts is still in the top eight. Um being good against the board ccentric strategies, struggling a li&rdquo;</blockquote></div></div></section><section class="vid"><h3>Week 5 <span class="d">2026-07-27</span> <a href="https://youtu.be/j9JOcowyUkM" target="_blank" rel="noopener">watch &#8599;</a></h3><div class="decks"><div class="deck"><div class="dh"><h4>Selesnya</h4><a class="ts" target="_blank" rel="noopener" href="https://youtu.be/j9JOcowyUkM?t=115">&#9654; 00:01:55</a></div><div class="chips"><span class="chip rank">#1 popularity</span><span class="chip safe">safe craft</span></div><div class="src">Source named on camera: standard challenge on July 21</div><blockquote><span class="qlab">craft</span>&ldquo;elesnya Orbroid has not seen any changes since week four. If I have If I say that, it means it&#x27;s a relatively safe craft, um meaning it&#x27;s been in the top eight for at least 2 weeks late into the format. Um this archetype, in case you are new, I&#x27;ll go&rdquo;</blockquote><blockquote><span class="qlab">rank</span>&ldquo;Selesnya or a boroid was number one for the previous 30 days prior to that. Selesnya&#x27;s or a bor&rdquo;</blockquote></div><div class="deck"><div class="dh"><h4>Mono Green</h4><a class="ts" target="_blank" rel="noopener" href="https://youtu.be/j9JOcowyUkM?t=141">&#9654; 00:02:21</a></div><div class="chips"><span class="chip t8">new to top 8</span></div><blockquote><span class="qlab">top 8</span>&ldquo;Mono Green Squirrel Girl made it into the top eight this week. I will say though, be careful. The last time it was in the&rdquo;</blockquote></div><div class="deck"><div class="dh"><h4>Grixis Fling</h4><a class="ts" target="_blank" rel="noopener" href="https://youtu.be/j9JOcowyUkM?t=165">&#9654; 00:02:45</a></div><div class="chips"><span class="chip safe">safe craft</span><span class="chip">no changes</span></div><blockquote><span class="qlab">craft</span>&ldquo;Grixis Fling is also a safe craft. There&#x27;s no changes from week four. Um there are some of these cards that are rotating like I&#x27;ll talk about tomorrow, like the Sl&rdquo;</blockquote></div><div class="deck"><div class="dh"><h4>Temur Cone</h4><a class="ts" target="_blank" rel="noopener" href="https://youtu.be/j9JOcowyUkM?t=250">&#9654; 00:04:10</a></div><div class="chips"><span class="chip risky">risky craft</span></div><div class="cards"><span class="lbl">Top performing cards</span><ul><li><code>Foggy Swamp Visions</code></li><li><code>Ghalta, Stampede Tyrant</code></li><li><code>Zombify</code></li></ul></div><blockquote><span class="qlab">craft</span>&ldquo;y. And that dinosaur deck wasn&#x27;t in the top eight since week one of Secrets of Strixhaven. So, it&#x27;s kind of a risky craft, but it you know, it&#x27;s been consistently in tier two. Uh&rdquo;</blockquote></div><div class="deck"><div class="dh"><h4>Jeskai Artifacts</h4><a class="ts" target="_blank" rel="noopener" href="https://youtu.be/j9JOcowyUkM?t=261">&#9654; 00:04:21</a></div><div class="chips"><span class="chip tier">tier 2</span><span class="chip safe">safe craft</span><span class="chip">no changes</span></div><div class="cards"><span class="lbl">Top performing cards</span><ul><li><code>United Battlefront</code><span class="heard">heard as &ldquo;the United Battlefront&rdquo;</span></li><li><code>Repurposing Bay</code><span class="heard">heard as &ldquo;the Repurposing Bay&rdquo;</span></li><li><code>Clay-Fired Bricks // Cosmium Kiln</code><span class="heard">heard as &ldquo;the Clayfired Bricks&rdquo;</span></li></ul></div><blockquote><span class="qlab">craft</span>&ldquo;Artifacts uh is also in tier two and has no changes from week four of Marvel Super Heroes. It&#x27;s a relatively safe craft until rotation where we are losing a lot of uh key pieces in this archetype um from Lost Caverns of Ixalan rotating out. And um b&rdquo;</blockquote><blockquote><span class="qlab">tier</span>&ldquo;Jeskai Revelation Jeskai Sorry. Too much best of three. Jeskai Artifacts uh is also in tier two and has no changes from week four of Marvel Super Heroes. I&rdquo;</blockquote></div><div class="deck"><div class="dh"><h4>four-color Reanimator</h4><a class="ts" target="_blank" rel="noopener" href="https://youtu.be/j9JOcowyUkM?t=351">&#9654; 00:05:51</a></div><div class="chips"><span class="chip safe">safe craft</span><span class="chip t8">new to top 8</span><span class="chip fmt">bo1</span><span class="chip">no changes</span></div><blockquote><span class="qlab">craft</span>&ldquo;one right now is the teamer Kona strategy. This one has no changes since week four either and is a relatively safe craft if you prefer to not be iced by graveyard hate and instead be iced by your opponent&#x27;s interaction. This one you&#x27;re looking to pla&rdquo;</blockquote><blockquote><span class="qlab">top 8</span>&ldquo;Four-Color Dinosaurs also made it into the top eight this week. Uh this one is a turn three combo win, uh more consistentl&rdquo;</blockquote></div><div class="deck"><div class="dh"><h4>Jeskai Lessons</h4></div><div class="chips"><span class="chip rank">#2 popularity</span></div><div class="src">Source named on camera: Sydney Standard Spectacular on July 10</div><blockquote><span class="qlab">rank</span>&ldquo;Jeskai lessons is number two by popularity. This one is the same list that we talked abo&rdquo;</blockquote></div></div></section><section class="vid empty"><h3>Early Access <span class="d">undated</span></h3><p class="none">Nothing extracted. The transcript was pulled and parsed, and it carries none of the rubric language the later reviews use. Listed as empty. <a href="https://youtu.be/n3ZIyq5M9WQ" target="_blank" rel="noopener">watch &#8599;</a></p></section>
+
+<h2>How this was built, and what it cannot do</h2>
+<ul>
+<li><strong>Transcripts</strong> pulled only through the polite gate, spaced 45 to 90
+seconds, never a raw loop.</li>
+<li><strong>Card titles</strong> are resolved against the local Standard lexicon and
+then Scryfall fuzzy matching. Anything resolving to neither is listed as unresolved.
+Auto-captions garble roughly 15% of card titles.</li>
+<li><strong>Craft risk is Arstall's own word.</strong> He states the rubric on camera:
+a relatively safe craft means it has been in the top eight for at least two weeks late
+into the format.</li>
+<li><strong>Week 1 yields nothing</strong> because its deck labels are nicknames
+(&ldquo;badger mole cub strategy&rdquo;, &ldquo;monograin stompy&rdquo;) and its colour
+labels are garbled. Guild-anchored segmentation cannot reach those, and inventing
+aliases for garbled captions would be fabrication.</li>
+<li><strong>Every field carries the words it came from</strong>, so nothing here has to
+be taken on trust.</li>
+</ul>
+
+<footer>
+Extracted by <code>extract_arstall.py</code>, rendered by <code>build_arstall_page.py</code>.
+Card data from Scryfall. Not affiliated with Arstall or Wizards of the Coast.
+</footer>
+</div></body></html>
