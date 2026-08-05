@@ -97,7 +97,7 @@ and the two parts are gone before the analysis starts.</p>
 <div class="honesty"><b>What this page is.</b> The written analysis is treated as the answer key
 and the audio as the input. Every claim below became a measurement with an honest verdict, including
 the two that the full mix cannot settle. Nothing here is asserted from listening or from memory.
-Where a measurement cannot isolate a claim it is marked <b>untested</b>, not quietly upgraded.</p>
+Where a measurement cannot isolate a claim it is marked <b>untested</b>, not quietly upgraded. The engraved notation was recovered in a second pass and is reported below.</p>
 
 <div class="score"><span>confirmed <b>8</b></span>
 <span>consistent <b>1</b></span>
@@ -128,6 +128,55 @@ sections are visible without reading a single number.</p>
 
 <h2>Every written claim, tested against the mix</h2>
 <div class="cl v-ok"><div class="clh"><span class="vb">confirmed</span><span class="cid">C1</span></div><p class="cq">Tempo marking is 98</p><ul class="ev"><li>median inter-beat-interval -&gt; 198.77 BPM (librosa tracks the 8th-note pulse)</li><li>half of that = 99.38 BPM</li><li>tempogram candidate median = 99.38 BPM</li><li>closest metrical fold to the written 98 = 99.38 BPM  (delta +1.38)</li></ul></div><div class="cl v-ok"><div class="clh"><span class="vb">confirmed</span><span class="cid">C2</span></div><p class="cq">Two distinct guitar parts: Gtr 1 in the right ear, Gtr 2 in the left ear</p><ul class="ev"><li>global L/R correlation = 0.655   (a centred/mono-summed mix sits above ~0.95)</li><li>windowed correlation: median 0.650, 10th pct 0.447, min -0.045</li><li>side/mid energy = -6.82 dB  (a wide image; a mono mix approaches -inf)</li><li>25 of 402 half-second windows fall below 0.35 correlation</li></ul></div><div class="cl v-ok"><div class="clh"><span class="vb">confirmed</span><span class="cid">C3</span></div><p class="cq">The underlying harmony is A to F</p><ul class="ev"><li>stable low-register roots (runs held &gt;=0.6 s, n=75): A:48  F:15  B:7  D:3  E:1  G:1</li><li>top two roots by hold time = A and F</li><li>the next root down is B at 7 runs, well behind F at 15</li></ul></div><div class="cl v-ok"><div class="clh"><span class="vb">confirmed</span><span class="cid">C4</span></div><p class="cq">A and F are two major chords a major 3rd apart</p><ul class="ev"><li>measured roots F -&gt; A = 4 semitones (a major 3rd)</li><li>F up to A is 4 semitones, a major 3rd, exactly as written</li></ul></div><div class="cl v-ok"><div class="clh"><span class="vb">confirmed</span><span class="cid">C5</span></div><p class="cq">Over A it sounds A mixolydian b6; over F it sounds F lydian (the two modes differ by exactly one note: C# vs C natural)</p><ul class="ev"><li>A-chord windows (8):  C#=0.394  C natural=0.266  (C# lead +0.128)</li><li>F-chord windows (9):  C#=0.323  C natural=0.448  (C# lead -0.125)</li><li>differential shift toward C# on the A chord = +0.253</li><li>A mixolydian b6 = A B C# D E F G  |  F lydian = F G A B C D E</li></ul></div><div class="cl v-ok"><div class="clh"><span class="vb">confirmed</span><span class="cid">C6</span></div><p class="cq">When Gtr 1 lands on F, the parts spell out an F chord (F, A, C)</p><ul class="ev"><li>F-window chroma ranking: F:1.00 C:0.45 A:0.41 D:0.41 F#:0.40 E:0.37</li><li>F=1.000, A=0.410, C=0.448. All three sit in the top 5</li></ul></div><div class="cl v-ok"><div class="clh"><span class="vb">confirmed</span><span class="cid">C7</span></div><p class="cq">The B section gives root, 2nd and flat 3rd (B, C#, D): a minor mode with B as the new tonic; not phrygian, because phrygian needs a flat 2nd and this has a major 2nd</p><ul class="ev"><li>B-section chroma: B=1.000  C#(major 2nd)=0.331  D(minor 3rd)=0.372  C natural(flat 2nd)=0.287</li><li>major 2nd C# outweighs flat 2nd C natural by +0.044 -&gt; phrygian is ruled out, as written</li><li>full ranking: B:1.00 D:0.37 C#:0.33 C:0.29 A#:0.22 D#:0.18</li></ul></div><div class="cl v-mid"><div class="clh"><span class="vb">consistent</span><span class="cid">C8</span></div><p class="cq">Across the last three sections the centre drops B minor -&gt; A minor -&gt; G minor, a whole step each time</p><ul class="ev"><li>S1 main riff (A/F)     root=A    (A:17.3s  F:2.3s)</li><li>S2 B-centred           root=B    (B:13.8s)</li><li>S3 A/F                 root=A    (A:13.3s  F:6.9s  E:0.7s)</li><li>S4 B-centred 2         root=B    (B:11.7s  D:0.7s)</li><li>S5 A-centred           root=A    (A:10.5s  F:2.5s  D:1.3s  B:0.7s)</li><li>S6 contains G          root=A    (A:6.1s  F:1.1s  G:1.0s)</li><li>S7 outro A/F           root=A    (A:5.8s  F:2.0s)</li><li>the two B-centred sections are unambiguous: B holds 13.8 s and 11.7 s respectively, and B is a stable root NOWHERE else in the track</li><li>the A-centred stretch that follows is equally clear.</li><li>G is the honest gap: the written descent reads the GUITAR parts, and in that section the two</li><li>guitars play G aeolian against G lydian, and the bass does not settle on G. A full-mix</li><li>low-register test can corroborate B and A; isolating G needs a guitar-only stem.</li></ul></div><div class="cl v-ok"><div class="clh"><span class="vb">confirmed</span><span class="cid">C9</span></div><p class="cq">The two guitar parts are largely double-tracked, with occasional differences</p><ul class="ev"><li>correlation stays mid-range (median 0.65) rather than near 1.0 (identical) or near 0 (unrelated)</li><li>that band is the fingerprint of two takes of the SAME part: correlated in pitch content, decorrelated in micro-timing</li><li>25 windows drop below 0.35, the moments where the parts genuinely diverge</li></ul></div><div class="cl v-un"><div class="clh"><span class="vb">untested</span><span class="cid">C10</span></div><p class="cq">Guitar is in drop-D tuning</p><ul class="ev"><li>strongest partial in the 60-180 Hz band = 110.4 Hz (A2)</li><li>open low D would be 73.4 Hz (D2); standard low E is 82.4 Hz</li><li>the peak is the A root, not a tuning indicator. The full mix carries bass guitar in this</li><li>same register, so this band cannot separate guitar tuning from bass notes. This is NOT a</li><li>test of tuning; it is reported as untested rather than dressed up as support.</li></ul></div>
+
+<h2>What the engraved notation adds</h2>
+
+<p class="lede">The staves in these PDFs are vector drawings and the fret numbers are outlined
+paths, so a text extraction returns the annotation prose and none of the music. Rendering the
+pages and reading the tab against the exact staff-line coordinates recovers the notes, and they
+line up with the audio measurement <b>note for note</b>.</p>
+
+<div class="box"><h3>The form of the document</h3>
+<p><b>Tablature only, no standard staff.</b> Two systems stacked, Gtr 1 (right ear) above
+Gtr 2 (left ear), rhythm slashes under each, bar numbers in the left margin, tempo and tuning
+declared once at the head. A handwriting face throughout. The stereo assignment is printed as
+part of the instrument label, which is what makes it structural rather than incidental.</p></div>
+
+<table class="mv"><thead><tr><th>Bar</th><th>What the tab says</th><th>Sounds</th></tr></thead>
+<tbody>
+<tr><td class="mn">1<span class="mq">the A chord</span></td>
+<td class="mh"><b>Gtr 1:</b> open 5th string, and 7th fret on the 4th string.<br>
+<b>Gtr 2:</b> 7th fret on the 4th string, and 6th fret on the 3rd.</td>
+<td><span class="kk k-ok">A major</span><span class="mnote">A2 and A3 in octaves, against
+A3 and C&#9839;4. Root and major 3rd, no 5th.</span></td></tr>
+<tr><td class="mn">2<span class="mq">the F chord</span></td>
+<td class="mh"><b>Gtr 1:</b> 6th, 5th then 3rd fret on the low string, a chromatic walk down.<br>
+<b>Gtr 2:</b> 7th fret on the 4th string, and <b>5th</b> fret on the 3rd.</td>
+<td><span class="kk k-ok">F major</span><span class="mnote">G&#9839;2 to G2 to F2, landing under
+A3 and C4. F, A and C, exactly as the annotation says.</span></td></tr>
+</tbody></table>
+
+<div class="box" style="border-left-color:var(--teal);margin-top:12px">
+<h3>The whole modal move is one finger</h3>
+<p>Gtr 2 holds the 4th string and shifts the 3rd string from fret <b>6 to fret 5</b>, which is
+<b>C&#9839; down to C natural</b>. That single semitone is the entire difference between
+A mixolydian &#9837;6 and F lydian, and it is the exact quantity the audio test measured at
+<b>+0.253</b> without any access to the tab. The written analysis, the transcription and the
+measurement all land on the same note.</p></div>
+
+<div class="box" style="border-left-color:var(--ochre)">
+<h3>Why the persistence filter was the right estimator</h3>
+<p>The analyst marks G&#9839; and G as <b>chromatic passing tones</b> that resolve to F. The root
+tracker keeps only pitches held 0.6 s or longer, so those two were filtered out of the histogram
+and the structural roots came through clean at <b>A 48, F 15</b>. A human judgement about which
+notes carry the harmony and a duration threshold agreed, on the same bars, for the same reason.</p></div>
+
+<div class="gap"><b>A hazard for anyone mining these PDFs as text.</b>
+The text layer <b>silently drops accidentals</b>. &ldquo;C&#9839;&rdquo; extracts as
+&ldquo;C&rdquo; and &ldquo;G&#9839;&rdquo; as &ldquo;G&rdquo;, which turns the sentence
+&ldquo;A mixolydian &#9837;6 has a C&#9839;&rdquo; into a claim about C natural and inverts its
+meaning. Any pipeline reading these documents as prose has to render and read the pages, or it
+will build on wrong pitch data.</div>
 
 <h2>The method, move by move</h2>
 <table class="mv"><thead><tr><th>What the analysis does</th><th>How to get it from audio</th>

@@ -59,6 +59,43 @@ model weights, no separation time.
 - **The G section.** The written B minor to A minor to G minor descent reads the guitar
   parts. B and A are unambiguous in the low register, and the bass never settles on G.
 
+## What the engraved notation added (second pass)
+
+The staves are vector drawings and the fret numbers are outlined paths, so a text
+extraction returns the annotation prose and none of the music. Rendering the pages with
+PyMuPDF and reading the tab against the exact staff-line coordinates recovers the notes.
+
+**The document form:** tablature only, no standard staff. Two systems stacked, Gtr 1
+(right ear) above Gtr 2 (left ear), rhythm slashes under each, bar numbers in the left
+margin, tempo and tuning declared once at the head, handwriting face throughout.
+
+**Bar 1, the A chord**
+- Gtr 1: open 5th string and 7th fret 4th string, so A2 and A3 in octaves
+- Gtr 2: 7th fret 4th string and 6th fret 3rd string, so A3 and C#4
+- Together: A major, root and major 3rd, no 5th
+
+**Bar 2, the F chord**
+- Gtr 1: frets 6, 5, 3 on the low string, a chromatic walk G#2 to G2 to F2
+- Gtr 2: 7th fret 4th string and **5th** fret 3rd string, so A3 and C4
+- Together: F, A and C, exactly as the annotation says
+
+**The whole modal move is one finger.** Gtr 2 shifts the 3rd string from fret 6 to fret 5,
+which is C# down to C natural. That single semitone is the entire difference between
+A mixolydian b6 and F lydian, and it is the quantity the audio test measured at **+0.253**
+with no access to the tab.
+
+**Why the persistence filter was right.** The analyst marks G# and G as chromatic passing
+tones resolving to F. The root tracker keeps only pitches held 0.6 s or longer, so both
+were filtered out and the structural roots came through clean at A 48, F 15. A human
+judgement about which notes carry the harmony and a duration threshold agreed on the same
+bars for the same reason.
+
+## Hazard: the text layer drops accidentals
+
+"C#" extracts as "C" and "G#" as "G". That turns "A mixolydian b6 has a C#" into a claim
+about C natural and inverts its meaning. Any pipeline reading these PDFs as prose must
+render and read the pages, or it builds on wrong pitch data.
+
 ## Files
 
 - `stereo_field.py` in `~/Projects/_outputs/stereo-field-analysis/`
