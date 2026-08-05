@@ -1,0 +1,574 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Melodic Intervals, Players</title>
+<style>
+  :root{
+    --cream:#F2EADB;
+    --paper:#FBF6EC;
+    --ink:#17150F;
+    --soft:#5C5344;
+    --rule:#D9CDB6;
+    --teal:#2E6E6B;
+    --rose:#C0797B;
+    --mustard:#BE9A1F;
+    --rust:#B4553A;
+    --navy:#2B4162;
+    --olive:#6E7A4F;
+  }
+  *{box-sizing:border-box}
+  body{
+    margin:0;
+    background:var(--cream);
+    color:var(--ink);
+    font-family:"Iowan Old Style","Palatino Linotype",Palatino,Georgia,serif;
+    line-height:1.5;
+    -webkit-font-smoothing:antialiased;
+  }
+  .wrap{max-width:1120px;margin:0 auto;padding:36px 22px 90px}
+
+  header h1{
+    font-size:clamp(28px,4.6vw,46px);
+    margin:0 0 6px;
+    letter-spacing:-.015em;
+    font-weight:600;
+  }
+  .sub{color:var(--soft);font-size:16px;margin:0 0 4px}
+  .src{
+    font-family:ui-monospace,"SF Mono",Menlo,monospace;
+    font-size:12px;color:var(--soft);
+    border-left:3px solid var(--rule);
+    padding:6px 0 6px 10px;margin:16px 0 0;
+  }
+
+  /* ---- control bar ---- */
+  .bar{
+    position:sticky;top:0;z-index:20;
+    background:rgba(242,234,219,.95);
+    backdrop-filter:blur(8px);
+    border-bottom:1px solid var(--rule);
+    margin:26px -22px 0;padding:12px 22px;
+    display:flex;flex-wrap:wrap;gap:16px;align-items:center;
+  }
+  .ctl{display:flex;align-items:center;gap:7px;font-size:13px;color:var(--soft)}
+  .ctl label{white-space:nowrap;letter-spacing:.04em;text-transform:uppercase;font-size:11px}
+  select,input[type=range]{
+    font-family:inherit;font-size:14px;color:var(--ink);
+    background:var(--paper);border:1px solid var(--rule);
+    border-radius:6px;padding:4px 7px;
+  }
+  input[type=range]{padding:0;width:96px;accent-color:var(--teal)}
+  .switch{
+    display:inline-flex;align-items:center;gap:6px;cursor:pointer;
+    border:1px solid var(--rule);background:var(--paper);
+    border-radius:999px;padding:4px 11px;font-size:13px;color:var(--ink);
+    user-select:none;
+  }
+  .switch input{accent-color:var(--teal);margin:0}
+
+  /* ---- family legend ---- */
+  .legend{display:flex;flex-wrap:wrap;gap:8px;margin:22px 0 0}
+  .fam{
+    font-size:11px;letter-spacing:.07em;text-transform:uppercase;
+    border-radius:999px;padding:3px 10px;color:#fff;font-family:ui-monospace,Menlo,monospace;
+  }
+  .f-stable{background:var(--teal)}
+  .f-sweet{background:var(--rose)}
+  .f-tense{background:var(--mustard)}
+  .f-pulled{background:var(--rust)}
+  .f-char{background:var(--navy)}
+  .f-anchor{background:var(--olive)}
+
+  /* ---- cards ---- */
+  .grid{
+    display:grid;gap:14px;margin-top:24px;
+    grid-template-columns:repeat(auto-fill,minmax(320px,1fr));
+  }
+  .card{
+    background:var(--paper);
+    border:1px solid var(--rule);
+    border-radius:10px;
+    padding:15px 16px 14px;
+    display:flex;flex-direction:column;
+    position:relative;overflow:hidden;
+  }
+  .card::before{content:"";position:absolute;left:0;top:0;bottom:0;width:4px}
+  .card[data-fam=stable]::before{background:var(--teal)}
+  .card[data-fam=sweet]::before{background:var(--rose)}
+  .card[data-fam=tense]::before{background:var(--mustard)}
+  .card[data-fam=pulled]::before{background:var(--rust)}
+  .card[data-fam=char]::before{background:var(--navy)}
+  .card[data-fam=anchor]::before{background:var(--olive)}
+  .card.ringing{box-shadow:0 0 0 2px var(--ink) inset}
+
+  .chead{display:flex;align-items:baseline;justify-content:space-between;gap:10px}
+  .cname{font-size:20px;font-weight:600;letter-spacing:-.01em}
+  .cmeta{
+    font-family:ui-monospace,Menlo,monospace;font-size:12px;color:var(--soft);
+    white-space:nowrap;
+  }
+  .notes{
+    font-family:ui-monospace,Menlo,monospace;font-size:13px;color:var(--teal);
+    margin-top:3px;letter-spacing:.02em;
+  }
+  .mnem{margin:9px 0 0;font-size:15px}
+  .mnem .song{font-weight:600}
+  .mnem .instant{
+    display:inline-block;background:#EDE3CE;border:1px solid var(--rule);
+    border-radius:4px;padding:0 6px;font-size:12px;
+    font-family:ui-monospace,Menlo,monospace;color:var(--rust);
+    letter-spacing:.03em;margin-right:6px;vertical-align:1px;
+  }
+  .yournote{
+    margin:7px 0 0;font-size:13px;font-style:italic;color:var(--soft);
+    border-left:2px solid var(--rule);padding-left:8px;
+  }
+  .flagged{
+    margin:7px 0 0;font-size:12.5px;color:var(--rust);
+    font-family:ui-monospace,Menlo,monospace;line-height:1.4;
+  }
+  .btns{display:flex;gap:6px;margin-top:auto;padding-top:13px}
+  button{
+    font-family:inherit;cursor:pointer;
+    border:1px solid var(--rule);background:var(--cream);
+    color:var(--ink);border-radius:7px;
+    padding:7px 10px;font-size:13.5px;
+    transition:background .12s,border-color .12s,transform .06s;
+  }
+  button:hover{background:#E8DFC9;border-color:#BFB093}
+  button:active{transform:translateY(1px)}
+  .b-main{flex:1;font-weight:600;background:var(--ink);color:var(--cream);border-color:var(--ink)}
+  .b-main:hover{background:#2F2A1E;border-color:#2F2A1E}
+
+  /* ---- quiz ---- */
+  .quiz{
+    margin-top:38px;border:1px solid var(--rule);border-radius:12px;
+    background:var(--paper);padding:20px 20px 22px;
+  }
+  .quiz h2{margin:0 0 4px;font-size:24px;font-weight:600}
+  .quiz .sub{margin-bottom:14px}
+  .qrow{display:flex;flex-wrap:wrap;gap:10px;align-items:center;margin-bottom:14px}
+  .qbig{
+    background:var(--ink);color:var(--cream);border-color:var(--ink);
+    font-size:15px;font-weight:600;padding:9px 18px;
+  }
+  .qbig:hover{background:#2F2A1E}
+  .score{
+    font-family:ui-monospace,Menlo,monospace;font-size:13px;color:var(--soft);
+    margin-left:auto;text-align:right;line-height:1.35;
+  }
+  .score b{color:var(--ink);font-size:15px}
+  .answers{display:grid;gap:7px;grid-template-columns:repeat(auto-fill,minmax(132px,1fr))}
+  .answers button{font-size:13.5px;padding:8px 6px}
+  .answers button.right{background:var(--teal);color:#fff;border-color:var(--teal)}
+  .answers button.wrong{background:var(--rust);color:#fff;border-color:var(--rust)}
+  .answers button:disabled{cursor:default;opacity:.92}
+  .verdict{margin-top:12px;font-size:15px;min-height:24px}
+  .verdict b{font-weight:600}
+
+  footer{margin-top:44px;border-top:1px solid var(--rule);padding-top:16px;
+    font-size:13px;color:var(--soft)}
+  footer a{color:var(--teal)}
+  @media (max-width:640px){
+    .bar{position:static;margin:20px 0 0;padding:12px 0;border-top:1px solid var(--rule)}
+    .score{margin-left:0;text-align:left;width:100%}
+  }
+</style>
+</head>
+<body>
+<div class="wrap">
+
+<header>
+  <h1>Melodic Intervals (Ascending)</h1>
+  <p class="sub">One player per interval. Every sound is generated in the browser, so nothing loads and nothing streams.</p>
+  <p class="src">SOURCE, the mnemonics below are transcribed from your own reference sheet, "Melodic Intervals (Ascending)". Nothing was substituted for what you wrote.</p>
+</header>
+
+<div class="bar">
+  <div class="ctl">
+    <label for="root">Root</label>
+    <select id="root">
+      <option value="57">A3</option>
+      <option value="58">A#3</option>
+      <option value="59">B3</option>
+      <option value="60" selected>C4</option>
+      <option value="61">C#4</option>
+      <option value="62">D4</option>
+      <option value="63">D#4</option>
+      <option value="64">E4</option>
+      <option value="65">F4</option>
+      <option value="66">F#4</option>
+      <option value="67">G4</option>
+      <option value="68">G#4</option>
+      <option value="69">A4</option>
+    </select>
+  </div>
+  <div class="ctl">
+    <label for="tone">Tone</label>
+    <select id="tone">
+      <option value="rhodes" selected>Electric piano</option>
+      <option value="organ">Organ</option>
+      <option value="pluck">Nylon pluck</option>
+      <option value="sine">Pure sine</option>
+    </select>
+  </div>
+  <div class="ctl">
+    <label for="speed">Pace</label>
+    <select id="speed">
+      <option value="1.35">Slow</option>
+      <option value="1" selected>Normal</option>
+      <option value="0.7">Quick</option>
+    </select>
+  </div>
+  <div class="ctl">
+    <label for="vol">Volume</label>
+    <input type="range" id="vol" min="0" max="1" step="0.01" value="0.55">
+  </div>
+  <label class="switch"><input type="checkbox" id="tonicFirst"> Sound the tonic first</label>
+</div>
+
+<div class="legend">
+  <span class="fam f-anchor">anchor</span>
+  <span class="fam f-pulled">pulled</span>
+  <span class="fam f-tense">tense</span>
+  <span class="fam f-sweet">sweet</span>
+  <span class="fam f-stable">stable</span>
+  <span class="fam f-char">characteristic</span>
+</div>
+<p class="sub" style="margin-top:8px;font-size:13.5px">
+  Families come from Burge's grouping in <code>ear-training-reference</code>: stable (P4, P5, P8), sweet (m3, M3, M6), tense (M2, m7), pulled (m2, M7), characteristic (TT).
+</p>
+
+<div class="grid" id="grid"></div>
+
+<section class="quiz">
+  <h2>Quiz yourself</h2>
+  <p class="sub">A random interval plays, you name it. Wrong answers replay so the miss gets corrected while the sound is still in your ear.</p>
+  <div class="qrow">
+    <button class="qbig" id="qnew">New interval</button>
+    <button id="qrepeat">Repeat</button>
+    <button id="qreveal">Give up</button>
+    <label class="switch"><input type="checkbox" id="qsheet" checked> Sheet intervals only</label>
+    <div class="score" id="score">0 / 0<br><span id="streak">streak 0</span></div>
+  </div>
+  <div class="answers" id="answers"></div>
+  <div class="verdict" id="verdict"></div>
+</section>
+
+<footer>
+  <p><b>How the sound is made.</b> Equal temperament, A4 = 440 Hz. Each voice is a small additive stack (fundamental plus 3 partials) through an ADSR envelope and a lowpass, built with the Web Audio API. No samples, no network calls, works offline.</p>
+  <p><b>On the Perfect 5th.</b> Your sheet jumps from Perfect 4th straight to Tritone, so the Perfect 5th has no line and no song on it. Its card is here because the ear-training set is incomplete without it, and it carries no mnemonic, since inventing one and attributing it to your sheet would be putting words in your mouth. Add the song you actually hear for it and the card can be filled in.</p>
+</footer>
+
+</div>
+
+<script>
+"use strict";
+
+/* ---------------------------------------------------------------
+   INTERVAL DATA
+   `sheet` fields are verbatim from Brandon's reference sheet.
+   `onSheet:false` marks a card added to complete the set.
+----------------------------------------------------------------*/
+const INTERVALS = [
+  { semi:0,  name:"Unison",      short:"P1", fam:"anchor", onSheet:true,
+    instant:false, songs:[], note:null },
+
+  { semi:1,  name:"Minor 2nd",   short:"m2", fam:"pulled", onSheet:true,
+    instant:true,  songs:["Jaws Theme"], note:null },
+
+  { semi:2,  name:"Major 2nd",   short:"M2", fam:"tense",  onSheet:true,
+    instant:false, songs:["Vasoline","Happy Birthday"], note:null },
+
+  { semi:3,  name:"Minor 3rd",   short:"m3", fam:"sweet",  onSheet:true,
+    instant:false, songs:["Georgia On My Mind"],
+    note:"Forgot the song you played with that minor 3rd riff" },
+
+  { semi:4,  name:"Major 3rd",   short:"M3", fam:"sweet",  onSheet:true,
+    instant:false, songs:["Ob-la-di, Ob-la-da","Kum-ba-yah"], note:null },
+
+  { semi:5,  name:"Perfect 4th", short:"P4", fam:"stable", onSheet:true,
+    instant:false, songs:["Here Comes the Bride"], note:null },
+
+  { semi:6,  name:"Tritone",     short:"TT", fam:"char",   onSheet:true,
+    instant:true,  songs:["Simpsons Theme"], note:null },
+
+  { semi:7,  name:"Perfect 5th", short:"P5", fam:"stable", onSheet:false,
+    instant:false, songs:[], note:null },
+
+  { semi:8,  name:"Minor 6th",   short:"m6", fam:"sweet",  onSheet:true,
+    instant:false, songs:["Dream Brother"], songSuffix:"intro", note:null },
+
+  { semi:9,  name:"Major 6th",   short:"M6", fam:"sweet",  onSheet:true,
+    instant:false, songs:["My Bonnie","NBC"], note:null },
+
+  { semi:10, name:"Minor 7th",   short:"m7", fam:"tense",  onSheet:true,
+    instant:false,
+    songs:["Applebite","Star Trek Original Theme","Shine On You Crazy Diamond"],
+    note:null },
+
+  { semi:11, name:"Major 7th",   short:"M7", fam:"pulled", onSheet:true,
+    instant:false, songs:["Everlong"],
+    songPrefix:"First chord of", songSuffix:"(also has major 3rd)", note:null },
+
+  { semi:12, name:"Octave",      short:"P8", fam:"stable", onSheet:true,
+    instant:true,  songs:["Somewhere Over the Rainbow"], note:null }
+];
+
+const NOTE_NAMES = ["C","C#","D","D#","E","F","F#","G","G#","A","A#","B"];
+const midiToName = m => NOTE_NAMES[((m % 12) + 12) % 12] + (Math.floor(m / 12) - 1);
+const midiToHz   = m => 440 * Math.pow(2, (m - 69) / 12);
+
+/* ---------------------------------------------------------------
+   AUDIO ENGINE
+----------------------------------------------------------------*/
+let ctx = null, master = null;
+const TONES = {
+  rhodes:{ partials:[[1,1],[2,.36],[3,.12],[4,.06]], atk:.006, dec:.28, sus:.42, rel:.45, cut:2600, len:.90 },
+  organ: { partials:[[1,1],[2,.55],[3,.30],[4,.22]], atk:.020, dec:.06, sus:.90, rel:.16, cut:3400, len:.85 },
+  pluck: { partials:[[1,1],[2,.30],[3,.16],[5,.05]], atk:.004, dec:.40, sus:.10, rel:.30, cut:2200, len:.80 },
+  sine:  { partials:[[1,1]],                          atk:.014, dec:.10, sus:.80, rel:.28, cut:8000, len:.85 }
+};
+
+function audio(){
+  if(!ctx){
+    ctx = new (window.AudioContext || window.webkitAudioContext)();
+    master = ctx.createGain();
+    master.gain.value = parseFloat(document.getElementById("vol").value);
+    master.connect(ctx.destination);
+  }
+  if(ctx.state === "suspended") ctx.resume();
+  return ctx;
+}
+
+function voice(midi, at, dur, gain){
+  const c = audio();
+  const t = TONES[document.getElementById("tone").value] || TONES.rhodes;
+  const f = midiToHz(midi);
+
+  const bus = c.createGain();
+  const lp  = c.createBiquadFilter();
+  lp.type = "lowpass";
+  lp.frequency.setValueAtTime(Math.min(t.cut, c.sampleRate / 2 - 100), at);
+  lp.Q.value = 0.5;
+
+  const g = bus.gain;
+  const peak = (gain === undefined ? 0.30 : gain);
+  g.setValueAtTime(0.0001, at);
+  g.exponentialRampToValueAtTime(peak, at + t.atk);
+  g.exponentialRampToValueAtTime(Math.max(peak * t.sus, 0.0002), at + t.atk + t.dec);
+  g.setValueAtTime(Math.max(peak * t.sus, 0.0002), at + dur);
+  g.exponentialRampToValueAtTime(0.0001, at + dur + t.rel);
+
+  t.partials.forEach(([mult, amp], i) => {
+    const o = c.createOscillator();
+    o.type = "sine";
+    o.frequency.setValueAtTime(f * mult, at);
+    if(i > 0) o.detune.setValueAtTime((i % 2 ? 3 : -3), at);
+    const pg = c.createGain();
+    pg.gain.value = amp;
+    o.connect(pg).connect(lp);
+    o.start(at);
+    o.stop(at + dur + t.rel + 0.05);
+  });
+
+  lp.connect(bus).connect(master);
+}
+
+/* mode: "asc" | "desc" | "harm"  */
+function playInterval(semi, mode, opts){
+  const c = audio();
+  const o = opts || {};
+  const t = TONES[document.getElementById("tone").value] || TONES.rhodes;
+  const pace = parseFloat(document.getElementById("speed").value) || 1;
+  const root = parseInt(document.getElementById("root").value, 10);
+  const len  = t.len * pace;
+  const gap  = 0.13 * pace;
+
+  let at = c.currentTime + 0.05;
+
+  if(o.tonic || (o.allowTonic !== false && document.getElementById("tonicFirst").checked)){
+    voice(root - 12, at, len * 0.9, 0.20);
+    voice(root,      at, len * 0.9, 0.22);
+    at += len * 0.9 + gap * 2.0;
+  }
+
+  const lo = root, hi = root + semi;
+  if(mode === "harm"){
+    voice(lo, at, len * 1.5, 0.24);
+    voice(hi, at, len * 1.5, 0.24);
+    return (len * 1.5 + t.rel) * 1000 + (at - c.currentTime) * 1000;
+  }
+  const a = (mode === "desc") ? hi : lo;
+  const b = (mode === "desc") ? lo : hi;
+  voice(a, at, len, 0.30);
+  if(semi !== 0) voice(b, at + len + gap, len, 0.30);
+  const total = (semi === 0) ? len : (len * 2 + gap);
+  return (total + t.rel) * 1000 + (at - c.currentTime) * 1000;
+}
+
+/* ---------------------------------------------------------------
+   CARDS
+----------------------------------------------------------------*/
+const grid = document.getElementById("grid");
+
+function mnemonicHTML(iv){
+  if(!iv.songs.length){
+    if(!iv.onSheet){
+      return '<p class="flagged">NOT ON YOUR SHEET, added to complete the set. No mnemonic, because your sheet gives none.</p>';
+    }
+    return '<p class="mnem" style="color:var(--soft)">The reference point. Two identical pitches.</p>';
+  }
+  const quoted = iv.songs.map(s => '<span class="song">&ldquo;' + s + '&rdquo;</span>').join(", ");
+  let line = "";
+  if(iv.instant) line += '<span class="instant">instant recognition</span>';
+  if(iv.songPrefix) line += iv.songPrefix + " ";
+  line += quoted;
+  if(iv.songSuffix) line += " " + iv.songSuffix;
+  return '<p class="mnem">' + line + "</p>";
+}
+
+function render(){
+  const root = parseInt(document.getElementById("root").value, 10);
+  grid.innerHTML = "";
+  INTERVALS.forEach(iv => {
+    const el = document.createElement("div");
+    el.className = "card";
+    el.dataset.fam = iv.fam;
+    el.innerHTML =
+      '<div class="chead"><span class="cname">' + iv.name + '</span>' +
+      '<span class="cmeta">' + iv.short + " &middot; " + iv.semi +
+        (iv.semi === 1 ? " semitone" : " semitones") + '</span></div>' +
+      '<div class="notes">' + midiToName(root) + " &rarr; " + midiToName(root + iv.semi) + "</div>" +
+      mnemonicHTML(iv) +
+      (iv.note ? '<p class="yournote">Your note: ' + iv.note + "</p>" : "") +
+      '<div class="btns">' +
+        '<button class="b-main" data-m="asc">&#9654; Ascending</button>' +
+        '<button data-m="harm" title="Both notes together">&#8681;&#8679;</button>' +
+        '<button data-m="desc" title="High note first">&#9660;</button>' +
+      "</div>";
+
+    el.querySelectorAll("button").forEach(b => {
+      b.addEventListener("click", () => {
+        const ms = playInterval(iv.semi, b.dataset.m);
+        el.classList.add("ringing");
+        setTimeout(() => el.classList.remove("ringing"), Math.min(ms, 4000));
+      });
+    });
+    grid.appendChild(el);
+  });
+}
+
+/* ---------------------------------------------------------------
+   QUIZ
+----------------------------------------------------------------*/
+let current = null, answered = false, missed = false, right = 0, asked = 0, streak = 0, best = 0;
+const answersEl = document.getElementById("answers");
+const verdictEl = document.getElementById("verdict");
+
+function pool(){
+  return document.getElementById("qsheet").checked
+    ? INTERVALS.filter(i => i.onSheet)
+    : INTERVALS.slice();
+}
+
+function buildAnswers(){
+  answersEl.innerHTML = "";
+  pool().forEach(iv => {
+    const b = document.createElement("button");
+    b.textContent = iv.name;
+    b.dataset.semi = iv.semi;
+    b.addEventListener("click", () => guess(iv, b));
+    answersEl.appendChild(b);
+  });
+}
+
+function updateScore(){
+  document.getElementById("score").innerHTML =
+    "<b>" + right + " / " + asked + "</b><br>" +
+    '<span id="streak">streak ' + streak + " &middot; best " + best + "</span>";
+}
+
+function newQuestion(){
+  const p = pool();
+  let next = p[Math.floor(Math.random() * p.length)];
+  if(current && p.length > 1 && next.semi === current.semi){
+    next = p[(p.indexOf(next) + 1) % p.length];
+  }
+  current = next;
+  answered = false;
+  missed = false;
+  verdictEl.textContent = "";
+  answersEl.querySelectorAll("button").forEach(b => {
+    b.disabled = false;
+    b.classList.remove("right","wrong");
+  });
+  playInterval(current.semi, "asc");
+}
+
+function guess(iv, btn){
+  if(!current || answered) return;
+  if(iv.semi === current.semi){
+    answered = true; asked++;
+    // A question you already missed does not score as correct, and it breaks the streak.
+    if(missed){ streak = 0; } else { right++; streak++; if(streak > best) best = streak; }
+    btn.classList.add("right");
+    answersEl.querySelectorAll("button").forEach(b => b.disabled = true);
+    const songs = current.songs.length
+      ? " &middot; " + current.songs.map(s => "&ldquo;" + s + "&rdquo;").join(", ")
+      : "";
+    verdictEl.innerHTML = (missed ? "Right on a retry: " : "") +
+      "<b>" + current.name + "</b> (" + current.short + ")" + songs;
+    updateScore();
+  } else {
+    missed = true; streak = 0;
+    btn.classList.add("wrong");
+    btn.disabled = true;
+    verdictEl.innerHTML = "Not " + iv.name + ". Listen again.";
+    updateScore();
+    setTimeout(() => playInterval(current.semi, "asc"), 260);
+  }
+}
+
+document.getElementById("qnew").addEventListener("click", newQuestion);
+document.getElementById("qrepeat").addEventListener("click", () => {
+  if(current) playInterval(current.semi, "asc");
+});
+document.getElementById("qreveal").addEventListener("click", () => {
+  if(!current || answered) return;
+  answered = true; asked++; streak = 0;
+  answersEl.querySelectorAll("button").forEach(b => {
+    if(parseInt(b.dataset.semi,10) === current.semi) b.classList.add("right");
+    b.disabled = true;
+  });
+  const songs = current.songs.length
+    ? " &middot; " + current.songs.map(s => "&ldquo;" + s + "&rdquo;").join(", ")
+    : "";
+  verdictEl.innerHTML = "It was <b>" + current.name + "</b> (" + current.short + ")" + songs;
+  updateScore();
+});
+document.getElementById("qsheet").addEventListener("change", () => {
+  buildAnswers(); current = null; verdictEl.textContent = "";
+});
+
+/* ---------------------------------------------------------------
+   WIRING
+----------------------------------------------------------------*/
+document.getElementById("root").addEventListener("change", render);
+document.getElementById("vol").addEventListener("input", e => {
+  if(master) master.gain.value = parseFloat(e.target.value);
+});
+document.addEventListener("keydown", e => {
+  if(e.target.tagName === "SELECT" || e.target.tagName === "INPUT") return;
+  if(e.code === "Space"){ e.preventDefault(); if(current) playInterval(current.semi,"asc"); }
+  if(e.key === "n" || e.key === "N") newQuestion();
+});
+
+render();
+buildAnswers();
+updateScore();
+</script>
+</body>
+</html>
