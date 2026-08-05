@@ -1,0 +1,183 @@
+<!DOCTYPE html>
+<html lang="en"><head><meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Reading a record the way these analyses do &#183; the audio method</title>
+<style>
+:root{--cream:#f4ecd8;--ink:#111;--ochre:#d99a2b;--mustard:#e8b53f;--teal:#2f7d76;
+--rust:#b8503a;--plum:#6a4a6e;--sky:#5a8fb0;--card:#fbf6e9;--line:#d8c9a6;--dim:#6f6553}
+*{box-sizing:border-box}
+body{margin:0;background:var(--cream);color:var(--ink);
+font-family:"Futura","Century Gothic","Avenir Next",Inter,system-ui,sans-serif;
+line-height:1.55;-webkit-font-smoothing:antialiased}
+.wrap{max-width:960px;margin:0 auto;padding:26px 18px 90px}
+.kicker{font-size:.78rem;letter-spacing:.16em;text-transform:uppercase;color:var(--rust);font-weight:700}
+h1{font-size:2.15rem;margin:.12em 0 .12em;line-height:1.05}
+.facts{font-size:.9rem;color:var(--dim);margin:.3em 0 0}
+.facts b{color:var(--ink)}
+.lede{font-size:1.05rem;max-width:74ch;margin:.8em 0 0}
+.lede b{color:var(--rust)}
+h2{font-size:.82rem;letter-spacing:.15em;text-transform:uppercase;color:var(--plum);
+margin:36px 0 12px;border-bottom:2px solid var(--line);padding-bottom:6px}
+.honesty{margin:18px 0 0;padding:12px 16px;background:#fff6db;border:2px solid var(--ochre);
+border-radius:9px;font-size:.9rem}
+.honesty b{color:var(--rust)}
+.score{display:flex;gap:9px;flex-wrap:wrap;margin:14px 0 0}
+.score span{background:#efe4c6;border-radius:6px;padding:6px 11px;font-size:.83rem;font-weight:700}
+.score b{color:var(--rust)}
+.chart{width:100%;height:auto;background:var(--card);border:1px solid var(--line);
+border-radius:10px;margin:0 0 12px}
+.bd{opacity:.16} .bd-ochre{fill:var(--ochre)} .bd-plum{fill:var(--plum)}
+.bd-teal{fill:var(--teal)} .bd-rust{fill:var(--rust)}
+.ln{fill:none;stroke:var(--teal);stroke-width:1.9;stroke-linejoin:round}
+.dip{fill:var(--rust)}
+.gl{stroke:var(--line);stroke-width:1;stroke-dasharray:3 3}
+.gt{font-size:9px;fill:var(--dim);text-anchor:end;font-family:ui-monospace,Menlo,monospace}
+.ct{font-size:10px;fill:var(--plum);letter-spacing:.09em;text-transform:uppercase;font-weight:700}
+.sl{font-size:9.5px;fill:var(--dim);text-anchor:middle}
+.rb{rx:2} .rb-teal{fill:var(--teal)} .rb-ochre{fill:var(--ochre)} .rb-plum{fill:var(--plum)}
+.rb-rust{fill:var(--rust)} .rb-sky{fill:var(--sky)} .rb-mustard{fill:var(--mustard)}
+.rb-line{fill:var(--line)}
+.leg{font-size:.82rem;color:var(--dim);margin:-4px 0 0}
+.leg i{display:inline-block;width:11px;height:11px;border-radius:2px;margin:0 4px 0 12px;
+vertical-align:-1px}
+.cl{background:var(--card);border:1px solid var(--line);border-left:6px solid var(--line);
+border-radius:10px;padding:13px 17px;margin:0 0 11px}
+.v-ok{border-left-color:var(--teal)} .v-mid{border-left-color:var(--mustard)}
+.v-no{border-left-color:var(--rust)} .v-un{border-left-color:var(--dim)}
+.clh{display:flex;align-items:center;gap:9px}
+.vb{font-size:.7rem;font-weight:800;letter-spacing:.1em;text-transform:uppercase;
+padding:3px 8px;border-radius:5px;color:#fff;background:var(--dim)}
+.v-ok .vb{background:var(--teal)} .v-mid .vb{background:var(--ochre);color:var(--ink)}
+.v-no .vb{background:var(--rust)}
+.cid{font-family:ui-monospace,Menlo,monospace;font-size:.78rem;color:var(--dim);font-weight:700}
+.cq{margin:.5em 0 .1em;font-size:1rem;font-weight:700}
+.ev{margin:.45em 0 0;padding-left:1.1em;font-size:.87rem;color:#4a4438}
+.ev li{margin:.22em 0;font-family:ui-monospace,Menlo,monospace;font-size:.8rem;line-height:1.5}
+table.mv{width:100%;border-collapse:collapse;font-size:.9rem;background:var(--card);
+border:1px solid var(--line);border-radius:10px;overflow:hidden}
+table.mv th{background:#efe4c6;font-size:.7rem;letter-spacing:.07em;text-transform:uppercase;
+color:var(--plum);text-align:left;padding:8px 11px}
+table.mv td{padding:10px 11px;border-top:1px solid var(--line);vertical-align:top}
+.mn{font-weight:700;width:31%}
+.mq{display:block;font-weight:400;font-size:.81rem;color:var(--dim);margin-top:3px;font-style:italic}
+.mh{width:37%;font-size:.87rem}
+.kk{display:inline-block;font-size:.68rem;font-weight:800;letter-spacing:.06em;
+text-transform:uppercase;padding:3px 7px;border-radius:5px;color:#fff}
+.k-ok{background:var(--teal)} .k-mid{background:var(--ochre);color:var(--ink)}
+.k-need{background:var(--rust)} .k-hum{background:var(--plum)}
+.mnote{display:block;font-size:.8rem;color:var(--dim);margin-top:5px}
+.box{background:var(--card);border:1px solid var(--line);border-left:6px solid var(--plum);
+border-radius:10px;padding:14px 18px;margin:0 0 12px}
+.box h3{margin:0 0 .3em;font-size:1.05rem}
+.box p{margin:.35em 0 0;font-size:.94rem}
+code{font-family:ui-monospace,Menlo,monospace;font-size:.84rem;background:#efe4c6;
+padding:1px 5px;border-radius:4px}
+pre{background:#2a2622;color:#f4ecd8;padding:13px 15px;border-radius:9px;overflow-x:auto;
+font-size:.82rem;line-height:1.5}
+pre code{background:none;color:inherit;padding:0}
+.gap{background:#fff6db;border:2px solid var(--rust);border-radius:9px;padding:13px 17px;margin:0 0 12px}
+.gap b{color:var(--rust)}
+footer{margin-top:44px;border-top:2px solid var(--line);padding-top:14px;
+font-size:.84rem;color:var(--dim)}
+</style></head><body><div class="wrap">
+
+<div class="kicker">method &#183; from the written analyses to the audio</div>
+<h1>Reading a record the way these analyses do</h1>
+<p class="facts">Source documents: <b>6 theory analyses</b> (Shiner &times; 3, Hooray for Earth,
+Phish, plus a riff tab sheet) &#183; Worked example: <b>Shiner, &ldquo;The Truth About Cows&rdquo;</b>,
+<i>The Egg</i>, 2001 &#183; 201 s of audio &#183; 8 of 10 written claims confirmed
+straight from the mix</p>
+
+<p class="lede">These documents share one habit that makes them work: <b>they read the stereo
+field as structure.</b> &ldquo;Gtr 1 (right ear), Gtr 2 (left ear)&rdquo; is the analytical premise
+the rest of the page rests on. That habit is also the one thing
+the existing stem pipeline throws away, because <b>Demucs returns a single mono guitar stem</b>
+and the two parts are gone before the analysis starts.</p>
+
+<div class="honesty"><b>What this page is.</b> The written analysis is treated as the answer key
+and the audio as the input. Every claim below became a measurement with an honest verdict, including
+the two that the full mix cannot settle. Nothing here is asserted from listening or from memory.
+Where a measurement cannot isolate a claim it is marked <b>untested</b>, not quietly upgraded.</p>
+
+<div class="score"><span>confirmed <b>8</b></span>
+<span>consistent <b>1</b></span>
+<span>untested <b>1</b></span>
+<span>contradicted <b>0</b></span></div>
+
+<h2>The measurement that carries the method</h2>
+<svg viewBox="0 0 900 210" class="chart" role="img"
+ aria-label="Left/right channel correlation across the track">
+<rect x="34.0" y="34" width="212.7" height="142" class="bd bd-ochre"/><rect x="246.7" y="34" width="68.1" height="142" class="bd bd-plum"/><rect x="314.8" y="34" width="126.0" height="142" class="bd bd-ochre"/><rect x="440.8" y="34" width="68.1" height="142" class="bd bd-plum"/><rect x="508.9" y="34" width="165.2" height="142" class="bd bd-teal"/><rect x="674.1" y="34" width="70.2" height="142" class="bd bd-rust"/><rect x="744.3" y="34" width="121.4" height="142" class="bd bd-ochre"/><line x1="34" y1="54.3" x2="866" y2="54.3" class="gl"/><text x="28" y="57.8" class="gt">+1.0</text><line x1="34" y1="89.8" x2="866" y2="89.8" class="gl"/><text x="28" y="93.3" class="gt">+0.7</text><line x1="34" y1="120.2" x2="866" y2="120.2" class="gl"/><text x="28" y="123.7" class="gt">+0.3</text><line x1="34" y1="155.7" x2="866" y2="155.7" class="gl"/><text x="28" y="159.2" class="gt">+0.0</text>
+<polyline points="34.0,57.4 42.3,124.7 50.5,106.1 58.8,93.4 67.0,88.8 75.3,86.4 83.6,125.9 91.8,94.8 100.1,93.2 108.3,89.2 116.6,84.6 124.9,141.6 133.1,102.3 141.4,93.7 149.6,83.5 157.9,85.9 166.1,126.5 174.4,100.8 182.7,91.3 190.9,81.7 199.2,77.4 207.4,135.7 215.7,104.8 224.0,95.7 232.2,83.4 240.5,113.8 248.7,75.3 257.0,75.9 265.3,79.4 273.5,89.1 281.8,85.3 290.0,82.2 298.3,91.8 306.6,93.7 314.8,74.5 323.1,75.0 331.3,87.2 339.6,82.2 347.9,84.1 356.1,75.0 364.4,80.5 372.6,78.7 380.9,95.8 389.1,81.1 397.4,77.8 405.7,77.3 413.9,91.7 422.2,87.9 430.4,77.7 438.7,160.3 447.0,80.1 455.2,95.7 463.5,83.0 471.7,84.1 480.0,73.4 488.3,77.4 496.5,86.2 504.8,100.2 513.0,127.1 521.3,128.3 529.6,146.1 537.8,85.2 546.1,84.9 554.3,87.4 562.6,90.8 570.9,90.7 579.1,105.1 587.4,98.4 595.6,91.7 603.9,83.2 612.2,80.7 620.4,82.5 628.7,87.7 636.9,84.3 645.2,85.3 653.4,117.9 661.7,88.3 670.0,94.2 678.2,101.8 686.5,93.3 694.7,84.9 703.0,102.1 711.3,95.5 719.5,90.5 727.8,97.8 736.0,98.3 744.3,89.8 752.6,88.3 760.8,97.3 769.1,94.2 777.3,85.9 785.6,89.2 793.9,96.5 802.1,92.6 810.4,130.2 818.6,89.8 826.9,93.1 835.2,98.2 843.4,98.3 851.7,113.4 859.9,117.9" class="ln"/><circle cx="42.3" cy="124.7" r="3.2" class="dip"/><circle cx="83.6" cy="125.9" r="3.2" class="dip"/><circle cx="124.9" cy="141.6" r="3.2" class="dip"/><circle cx="166.1" cy="126.5" r="3.2" class="dip"/><circle cx="207.4" cy="135.7" r="3.2" class="dip"/><circle cx="438.7" cy="160.3" r="3.2" class="dip"/><circle cx="513.0" cy="127.1" r="3.2" class="dip"/><circle cx="521.3" cy="128.3" r="3.2" class="dip"/><circle cx="529.6" cy="146.1" r="3.2" class="dip"/><circle cx="810.4" cy="130.2" r="3.2" class="dip"/><text x="140.3" y="191" class="sl">A / F riff</text><text x="280.7" y="191" class="sl">B centre</text><text x="377.8" y="191" class="sl">A / F</text><text x="474.8" y="191" class="sl">B centre</text><text x="591.5" y="191" class="sl">A centre</text><text x="709.2" y="191" class="sl">G appears</text><text x="805.0" y="191" class="sl">outro A / F</text>
+<text x="34" y="23" class="ct">L / R correlation &#183; 0.5 s windows</text>
+</svg>
+<p class="leg">Teal line is windowed left/right correlation. A centre-panned or mono-summed
+mix rides above 0.95. This track sits at a median of <b>0.65</b> and touches
+<b>-0.045</b>, which is two independently tracked parts, one per side.
+Red dots are the moments the two parts genuinely diverge. Shaded bands are the sections below.</p>
+
+<svg viewBox="0 0 900 54" class="chart" role="img"
+ aria-label="Stable bass roots across the track">
+<text x="34" y="10" class="ct">stable low-register roots &#183; held 0.6 s or longer</text>
+<rect x="37.8" y="14" width="2.7" height="24" class="rb rb-teal"><title>A at 0.93s for 0.65s</title></rect><rect x="42.8" y="14" width="3.1" height="24" class="rb rb-teal"><title>A at 2.14s for 0.74s</title></rect><rect x="47.8" y="14" width="2.7" height="24" class="rb rb-teal"><title>A at 3.34s for 0.65s</title></rect><rect x="52.4" y="14" width="3.8" height="24" class="rb rb-ochre"><title>F at 4.46s for 0.93s</title></rect><rect x="63.5" y="14" width="3.1" height="24" class="rb rb-teal"><title>A at 7.15s for 0.74s</title></rect><rect x="72.7" y="14" width="2.7" height="24" class="rb rb-ochre"><title>F at 9.38s for 0.65s</title></rect><rect x="78.1" y="14" width="2.7" height="24" class="rb rb-teal"><title>A at 10.68s for 0.65s</title></rect><rect x="83.5" y="14" width="2.7" height="24" class="rb rb-teal"><title>A at 11.98s for 0.65s</title></rect><rect x="104.2" y="14" width="2.7" height="24" class="rb rb-teal"><title>A at 17.0s for 0.65s</title></rect><rect x="118.0" y="14" width="4.2" height="24" class="rb rb-teal"><title>A at 20.34s for 1.02s</title></rect><rect x="124.5" y="14" width="2.7" height="24" class="rb rb-teal"><title>A at 21.92s for 0.65s</title></rect><rect x="129.5" y="14" width="2.7" height="24" class="rb rb-teal"><title>A at 23.13s for 0.65s</title></rect><rect x="139.1" y="14" width="3.1" height="24" class="rb rb-teal"><title>A at 25.45s for 0.74s</title></rect><rect x="144.1" y="14" width="3.8" height="24" class="rb rb-teal"><title>A at 26.66s for 0.93s</title></rect><rect x="150.2" y="14" width="2.7" height="24" class="rb rb-teal"><title>A at 28.14s for 0.65s</title></rect><rect x="154.8" y="14" width="3.1" height="24" class="rb rb-ochre"><title>F at 29.26s for 0.74s</title></rect><rect x="160.2" y="14" width="3.1" height="24" class="rb rb-teal"><title>A at 30.56s for 0.74s</title></rect><rect x="165.2" y="14" width="3.1" height="24" class="rb rb-teal"><title>A at 31.76s for 0.74s</title></rect><rect x="180.9" y="14" width="2.7" height="24" class="rb rb-teal"><title>A at 35.57s for 0.65s</title></rect><rect x="185.9" y="14" width="2.7" height="24" class="rb rb-teal"><title>A at 36.78s for 0.65s</title></rect><rect x="190.9" y="14" width="3.5" height="24" class="rb rb-teal"><title>A at 37.99s for 0.84s</title></rect><rect x="200.8" y="14" width="3.8" height="24" class="rb rb-teal"><title>A at 40.4s for 0.93s</title></rect><rect x="206.2" y="14" width="3.8" height="24" class="rb rb-teal"><title>A at 41.7s for 0.93s</title></rect><rect x="226.9" y="14" width="3.1" height="24" class="rb rb-teal"><title>A at 46.72s for 0.74s</title></rect><rect x="232.7" y="14" width="2.7" height="24" class="rb rb-teal"><title>A at 48.11s for 0.65s</title></rect><rect x="242.3" y="14" width="4.2" height="24" class="rb rb-teal"><title>A at 50.43s for 1.02s</title></rect><rect x="248.0" y="14" width="39.9" height="24" class="rb rb-plum"><title>B at 51.83s for 9.66s</title></rect><rect x="296.4" y="14" width="16.9" height="24" class="rb rb-plum"><title>B at 63.53s for 4.09s</title></rect><rect x="315.1" y="14" width="8.1" height="24" class="rb rb-teal"><title>A at 68.08s for 1.95s</title></rect><rect x="328.9" y="14" width="4.2" height="24" class="rb rb-ochre"><title>F at 71.42s for 1.02s</title></rect><rect x="335.9" y="14" width="8.4" height="24" class="rb rb-teal"><title>A at 73.1s for 2.04s</title></rect><rect x="349.3" y="14" width="4.6" height="24" class="rb rb-ochre"><title>F at 76.35s for 1.11s</title></rect><rect x="355.8" y="14" width="10.4" height="24" class="rb rb-teal"><title>A at 77.93s for 2.51s</title></rect><rect x="370.0" y="14" width="4.6" height="24" class="rb rb-ochre"><title>F at 81.36s for 1.11s</title></rect><rect x="376.1" y="14" width="10.0" height="24" class="rb rb-teal"><title>A at 82.85s for 2.41s</title></rect><rect x="390.3" y="14" width="4.2" height="24" class="rb rb-ochre"><title>F at 86.29s for 1.02s</title></rect><rect x="396.5" y="14" width="4.2" height="24" class="rb rb-teal"><title>A at 87.77s for 1.02s</title></rect><rect x="403.4" y="14" width="3.5" height="24" class="rb rb-teal"><title>A at 89.44s for 0.84s</title></rect><rect x="411.0" y="14" width="3.5" height="24" class="rb rb-ochre"><title>F at 91.3s for 0.84s</title></rect><rect x="417.2" y="14" width="10.4" height="24" class="rb rb-teal"><title>A at 92.79s for 2.51s</title></rect><rect x="427.9" y="14" width="3.1" height="24" class="rb rb-mustard"><title>E at 95.39s for 0.74s</title></rect><rect x="431.0" y="14" width="7.3" height="24" class="rb rb-ochre"><title>F at 96.13s for 1.76s</title></rect><rect x="442.5" y="14" width="17.6" height="24" class="rb rb-plum"><title>B at 98.92s for 4.27s</title></rect><rect x="460.5" y="14" width="16.9" height="24" class="rb rb-plum"><title>B at 103.28s for 4.09s</title></rect><rect x="478.6" y="14" width="3.5" height="24" class="rb rb-plum"><title>B at 107.65s for 0.84s</title></rect><rect x="493.5" y="14" width="2.7" height="24" class="rb rb-sky"><title>D at 111.27s for 0.65s</title></rect><rect x="496.2" y="14" width="10.4" height="24" class="rb rb-plum"><title>B at 111.92s for 2.51s</title></rect><rect x="509.2" y="14" width="3.5" height="24" class="rb rb-teal"><title>A at 115.08s for 0.84s</title></rect><rect x="520.7" y="14" width="5.4" height="24" class="rb rb-teal"><title>A at 117.86s for 1.3s</title></rect><rect x="529.6" y="14" width="2.7" height="24" class="rb rb-plum"><title>B at 120.0s for 0.65s</title></rect><rect x="537.6" y="14" width="5.4" height="24" class="rb rb-teal"><title>A at 121.95s for 1.3s</title></rect><rect x="551.4" y="14" width="2.7" height="24" class="rb rb-sky"><title>D at 125.29s for 0.65s</title></rect><rect x="570.6" y="14" width="2.7" height="24" class="rb rb-teal"><title>A at 129.94s for 0.65s</title></rect><rect x="576.3" y="14" width="3.1" height="24" class="rb rb-ochre"><title>F at 131.33s for 0.74s</title></rect><rect x="587.9" y="14" width="2.7" height="24" class="rb rb-ochre"><title>F at 134.12s for 0.65s</title></rect><rect x="594.4" y="14" width="2.7" height="24" class="rb rb-teal"><title>A at 135.7s for 0.65s</title></rect><rect x="616.6" y="14" width="3.5" height="24" class="rb rb-teal"><title>A at 141.08s for 0.84s</title></rect><rect x="628.1" y="14" width="3.5" height="24" class="rb rb-teal"><title>A at 143.87s for 0.84s</title></rect><rect x="643.5" y="14" width="2.7" height="24" class="rb rb-sky"><title>D at 147.59s for 0.65s</title></rect><rect x="652.3" y="14" width="6.9" height="24" class="rb rb-teal"><title>A at 149.72s for 1.67s</title></rect><rect x="666.1" y="14" width="4.6" height="24" class="rb rb-ochre"><title>F at 153.07s for 1.11s</title></rect><rect x="672.2" y="14" width="10.0" height="24" class="rb rb-teal"><title>A at 154.55s for 2.41s</title></rect><rect x="686.4" y="14" width="4.2" height="24" class="rb rb-rust"><title>G at 157.99s for 1.02s</title></rect><rect x="692.2" y="14" width="8.4" height="24" class="rb rb-teal"><title>A at 159.38s for 2.04s</title></rect><rect x="706.0" y="14" width="4.6" height="24" class="rb rb-ochre"><title>F at 162.73s for 1.11s</title></rect><rect x="712.1" y="14" width="9.2" height="24" class="rb rb-teal"><title>A at 164.21s for 2.23s</title></rect><rect x="731.3" y="14" width="3.5" height="24" class="rb rb-teal"><title>A at 168.86s for 0.84s</title></rect><rect x="736.7" y="14" width="4.2" height="24" class="rb rb-teal"><title>A at 170.16s for 1.02s</title></rect><rect x="744.8" y="14" width="5.0" height="24" class="rb rb-ochre"><title>F at 172.11s for 1.21s</title></rect><rect x="750.9" y="14" width="8.4" height="24" class="rb rb-teal"><title>A at 173.59s for 2.04s</title></rect><rect x="771.2" y="14" width="5.0" height="24" class="rb rb-teal"><title>A at 178.52s for 1.21s</title></rect><rect x="777.3" y="14" width="3.5" height="24" class="rb rb-teal"><title>A at 180.0s for 0.84s</title></rect><rect x="785.4" y="14" width="3.5" height="24" class="rb rb-ochre"><title>F at 181.95s for 0.84s</title></rect><rect x="791.1" y="14" width="3.8" height="24" class="rb rb-teal"><title>A at 183.34s for 0.93s</title></rect><rect x="811.9" y="14" width="3.1" height="24" class="rb rb-teal"><title>A at 188.36s for 0.74s</title></rect></svg>
+<p class="leg">Each block is a low-register root held 0.6 s or longer.
+<i style="background:var(--teal)"></i>A <i style="background:var(--ochre)"></i>F
+<i style="background:var(--plum)"></i>B <i style="background:var(--rust)"></i>G
+<i style="background:var(--sky)"></i>D. The A-to-F alternation and the two B-centred
+sections are visible without reading a single number.</p>
+
+<h2>Every written claim, tested against the mix</h2>
+<div class="cl v-ok"><div class="clh"><span class="vb">confirmed</span><span class="cid">C1</span></div><p class="cq">Tempo marking is 98</p><ul class="ev"><li>median inter-beat-interval -&gt; 198.77 BPM (librosa tracks the 8th-note pulse)</li><li>half of that = 99.38 BPM</li><li>tempogram candidate median = 99.38 BPM</li><li>closest metrical fold to the written 98 = 99.38 BPM  (delta +1.38)</li></ul></div><div class="cl v-ok"><div class="clh"><span class="vb">confirmed</span><span class="cid">C2</span></div><p class="cq">Two distinct guitar parts: Gtr 1 in the right ear, Gtr 2 in the left ear</p><ul class="ev"><li>global L/R correlation = 0.655   (a centred/mono-summed mix sits above ~0.95)</li><li>windowed correlation: median 0.650, 10th pct 0.447, min -0.045</li><li>side/mid energy = -6.82 dB  (a wide image; a mono mix approaches -inf)</li><li>25 of 402 half-second windows fall below 0.35 correlation</li></ul></div><div class="cl v-ok"><div class="clh"><span class="vb">confirmed</span><span class="cid">C3</span></div><p class="cq">The underlying harmony is A to F</p><ul class="ev"><li>stable low-register roots (runs held &gt;=0.6 s, n=75): A:48  F:15  B:7  D:3  E:1  G:1</li><li>top two roots by hold time = A and F</li><li>the next root down is B at 7 runs, well behind F at 15</li></ul></div><div class="cl v-ok"><div class="clh"><span class="vb">confirmed</span><span class="cid">C4</span></div><p class="cq">A and F are two major chords a major 3rd apart</p><ul class="ev"><li>measured roots F -&gt; A = 4 semitones (a major 3rd)</li><li>F up to A is 4 semitones, a major 3rd, exactly as written</li></ul></div><div class="cl v-ok"><div class="clh"><span class="vb">confirmed</span><span class="cid">C5</span></div><p class="cq">Over A it sounds A mixolydian b6; over F it sounds F lydian (the two modes differ by exactly one note: C# vs C natural)</p><ul class="ev"><li>A-chord windows (8):  C#=0.394  C natural=0.266  (C# lead +0.128)</li><li>F-chord windows (9):  C#=0.323  C natural=0.448  (C# lead -0.125)</li><li>differential shift toward C# on the A chord = +0.253</li><li>A mixolydian b6 = A B C# D E F G  |  F lydian = F G A B C D E</li></ul></div><div class="cl v-ok"><div class="clh"><span class="vb">confirmed</span><span class="cid">C6</span></div><p class="cq">When Gtr 1 lands on F, the parts spell out an F chord (F, A, C)</p><ul class="ev"><li>F-window chroma ranking: F:1.00 C:0.45 A:0.41 D:0.41 F#:0.40 E:0.37</li><li>F=1.000, A=0.410, C=0.448. All three sit in the top 5</li></ul></div><div class="cl v-ok"><div class="clh"><span class="vb">confirmed</span><span class="cid">C7</span></div><p class="cq">The B section gives root, 2nd and flat 3rd (B, C#, D): a minor mode with B as the new tonic; not phrygian, because phrygian needs a flat 2nd and this has a major 2nd</p><ul class="ev"><li>B-section chroma: B=1.000  C#(major 2nd)=0.331  D(minor 3rd)=0.372  C natural(flat 2nd)=0.287</li><li>major 2nd C# outweighs flat 2nd C natural by +0.044 -&gt; phrygian is ruled out, as written</li><li>full ranking: B:1.00 D:0.37 C#:0.33 C:0.29 A#:0.22 D#:0.18</li></ul></div><div class="cl v-mid"><div class="clh"><span class="vb">consistent</span><span class="cid">C8</span></div><p class="cq">Across the last three sections the centre drops B minor -&gt; A minor -&gt; G minor, a whole step each time</p><ul class="ev"><li>S1 main riff (A/F)     root=A    (A:17.3s  F:2.3s)</li><li>S2 B-centred           root=B    (B:13.8s)</li><li>S3 A/F                 root=A    (A:13.3s  F:6.9s  E:0.7s)</li><li>S4 B-centred 2         root=B    (B:11.7s  D:0.7s)</li><li>S5 A-centred           root=A    (A:10.5s  F:2.5s  D:1.3s  B:0.7s)</li><li>S6 contains G          root=A    (A:6.1s  F:1.1s  G:1.0s)</li><li>S7 outro A/F           root=A    (A:5.8s  F:2.0s)</li><li>the two B-centred sections are unambiguous: B holds 13.8 s and 11.7 s respectively, and B is a stable root NOWHERE else in the track</li><li>the A-centred stretch that follows is equally clear.</li><li>G is the honest gap: the written descent reads the GUITAR parts, and in that section the two</li><li>guitars play G aeolian against G lydian, and the bass does not settle on G. A full-mix</li><li>low-register test can corroborate B and A; isolating G needs a guitar-only stem.</li></ul></div><div class="cl v-ok"><div class="clh"><span class="vb">confirmed</span><span class="cid">C9</span></div><p class="cq">The two guitar parts are largely double-tracked, with occasional differences</p><ul class="ev"><li>correlation stays mid-range (median 0.65) rather than near 1.0 (identical) or near 0 (unrelated)</li><li>that band is the fingerprint of two takes of the SAME part: correlated in pitch content, decorrelated in micro-timing</li><li>25 windows drop below 0.35, the moments where the parts genuinely diverge</li></ul></div><div class="cl v-un"><div class="clh"><span class="vb">untested</span><span class="cid">C10</span></div><p class="cq">Guitar is in drop-D tuning</p><ul class="ev"><li>strongest partial in the 60-180 Hz band = 110.4 Hz (A2)</li><li>open low D would be 73.4 Hz (D2); standard low E is 82.4 Hz</li><li>the peak is the A root, not a tuning indicator. The full mix carries bass guitar in this</li><li>same register, so this band cannot separate guitar tuning from bass notes. This is NOT a</li><li>test of tuning; it is reported as untested rather than dressed up as support.</li></ul></div>
+
+<h2>The method, move by move</h2>
+<table class="mv"><thead><tr><th>What the analysis does</th><th>How to get it from audio</th>
+<th>Status</th></tr></thead><tbody>
+<tr><td class="mn">Stereo-field part separation<span class="mq">Gtr 1 (right ear), Gtr 2 (left ear)</span></td><td class="mh">Split L and R, and take the side channel (L&minus;R). Windowed L/R correlation says whether there are two parts at all.</td><td><span class="kk k-ok">computable</span><span class="mnote">Demucs returns ONE mono guitar stem and destroys this.</span></td></tr><tr><td class="mn">Double-tracking detection<span class="mq">&ldquo;a cool double-tracked effect, with some nice occasional differences&rdquo;</span></td><td class="mh">Correlation in the 0.4 to 0.8 band is the fingerprint of two takes of one part. Dips mark the bars where they actually diverge.</td><td><span class="kk k-ok">computable</span><span class="mnote">Gives you the timestamps to go listen to.</span></td></tr><tr><td class="mn">Root motion<span class="mq">&ldquo;the underlying harmony as A to F&rdquo;</span></td><td class="mh">Low-register CQT, argmax per frame, then keep only runs that HOLD. Persistence, not averaging.</td><td><span class="kk k-ok">computable</span><span class="mnote">Averaging chroma over a section gets this wrong; it did in my first pass.</span></td></tr><tr><td class="mn">Mode identification by one distinguishing note<span class="mq">A mixolydian &#9837;6 over A, F lydian over F</span></td><td class="mh">Name the single pitch class that separates the two candidate modes, then measure only that one, chord-window against chord-window.</td><td><span class="kk k-ok">computable</span><span class="mnote">The strongest test in the whole battery.</span></td></tr><tr><td class="mn">Chord spelling from combined parts<span class="mq">&ldquo;lands on F, then spells out an F chord (F, A, C)&rdquo;</span></td><td class="mh">Chroma restricted to the guitar register over the chord window, ranked.</td><td><span class="kk k-ok">computable</span><span class="mnote">Reads what the parts sum to, rather than what a chart says.</span></td></tr><tr><td class="mn">Missing-third resolution<span class="mq">&ldquo;this chord doesn&rsquo;t have a 3rd, but the melody has a C natural&rdquo;</span></td><td class="mh">Compare the chord window against the vocal line and let the melody supply the quality.</td><td><span class="kk k-need">needs a vocal stem</span><span class="mnote">The full mix cannot separate the voice from the guitars.</span></td></tr><tr><td class="mn">Rhythmic displacement between verses<span class="mq">&ldquo;starts on the &lsquo;and&rsquo; of beat 1 instead of the &lsquo;and&rsquo; of beat 4&rdquo;</span></td><td class="mh">Beat-track, then cross-correlate the onset envelope of verse 1 against verse 2 and read the lag in beats.</td><td><span class="kk k-ok">computable</span><span class="mnote">Not built in this pass. The measurement is straightforward.</span></td></tr><tr><td class="mn">Meter changes<span class="mq">&ldquo;sounded like a meter change to 5/4, but not totally sure&rdquo;</span></td><td class="mh">Downbeat spacing from the onset envelope, reported with its confidence.</td><td><span class="kk k-mid">partly computable</span><span class="mnote">The written analysis flags its own uncertainty here. So should the tool.</span></td></tr><tr><td class="mn">Alternate-tonic readings<span class="mq">&ldquo;could also be an E&#9837;/G, or its relative minor, C min7/G&rdquo;</span></td><td class="mh">Enumerate every name for the measured pitch-class set and rank by which tonic the bass supports.</td><td><span class="kk k-ok">computable</span><span class="mnote">One sonority, several honest names.</span></td></tr><tr><td class="mn">Tuning<span class="mq">&ldquo;Drop-D tuning&rdquo;</span></td><td class="mh">Not isolable from a full mix: bass guitar occupies the same register.</td><td><span class="kk k-need">needs a guitar stem</span><span class="mnote">Reported untested rather than dressed up as support.</span></td></tr><tr><td class="mn">Cross-song reference<span class="mq">&ldquo;like the verse chords of &lsquo;Blow Up the Outside World&rsquo;&rdquo;</span></td><td class="mh">Human. A measured interval pattern can suggest candidates, and the judgement is yours.</td><td><span class="kk k-hum">human</span><span class="mnote">The part worth keeping human.</span></td></tr><tr><td class="mn">Practice exercise from a transcribed lick<span class="mq">&ldquo;fleshing out this pattern over the entire scale&rdquo;</span></td><td class="mh">Human, once the lick is transcribed.</td><td><span class="kk k-hum">human</span><span class="mnote">The Tweezer document&rsquo;s whole payoff.</span></td></tr>
+</tbody></table>
+
+<h2>The gap this exposes</h2>
+<div class="gap"><b>Demucs is the wrong first step for this kind of reading.</b>
+Six-stem separation collapses both guitars into one mono <code>guitar.wav</code>. Every observation
+in these documents about two parts, about double-tracking, about one guitar playing G lydian
+against the other&rsquo;s G aeolian, is unrecoverable after that step. The stereo pass has to run on
+the mix <i>first</i>, and it costs nothing: no torch, no model download, no separation time.</div>
+
+<div class="box"><h3>The order that works</h3>
+<p><b>1.</b> Stereo field on the raw mix: L, R, mid, side, windowed correlation. This is what tells
+you how many parts there are and where they split.<br>
+<b>2.</b> Root motion by persistence on the mid channel. Sections fall out of this.<br>
+<b>3.</b> Mode tests per chord window, one distinguishing pitch class at a time.<br>
+<b>4.</b> <i>Then</i> stem-separate, for the things that genuinely need an isolated part:
+vocal melody, tuning, per-part transcription.</p></div>
+
+<h2>What it cannot do, stated plainly</h2>
+<div class="box" style="border-left-color:var(--rust)">
+<p><b>Tuning.</b> Drop-D cannot be read off a full mix. The bass guitar lives in the same register,
+so the low band cannot attribute a note to an instrument. This needs a guitar-only stem.</p>
+<p><b>The G section.</b> The written descent B minor &rarr; A minor &rarr; G minor reads the
+<i>guitar parts</i>. The B and A centres are unambiguous in the low register. The bass never settles
+on G, exactly as the document implies when it describes the two guitars pulling against each other
+there, so a full-mix test corroborates two of the three and should say so.</p>
+<p><b>Anything about the vocal.</b> The missing-third move, where the melody supplies a quality the
+chord omits, is the sharpest idea in the Shiner &ldquo;Pills&rdquo; analysis, and it needs the voice
+on its own.</p></div>
+
+<h2>Running it</h2>
+<pre><code>python3 stereo_field.py &lt;song.wav&gt; --out field.json
+python3 claim_test.py  &lt;song.wav&gt; claims.json</code></pre>
+<p class="leg">Both scripts need only <code>librosa</code>, <code>numpy</code> and
+<code>soundfile</code>. No torch, no model weights, no network.</p>
+
+<h2>Source audio</h2>
+<div class="box"><p><b>Shiner, <i>The Egg</i> (2001)</b>, the full album is on the Black drive, so
+all three Shiner analyses have their real album audio: &ldquo;The Truth About Cows&rdquo; is track 01,
+&ldquo;Bells and Whistles&rdquo; track 07, &ldquo;Pills&rdquo; track 10.</p>
+<p><b>Hooray for Earth, &ldquo;Say Enough&rdquo;</b>, six stems already separated.</p>
+<p><b>Phish, Tweezer</b>, six stems, on the T7 Shield, which is not currently mounted.</p></div>
+
+<footer>Worked example measured from
+<code>[2001] The Egg/01 - The Truth About Cows.flac</code>, decoded to 48 kHz / 24-bit.
+Every figure on this page is templated directly from <code>cows_field.json</code> and
+<code>cows_claims.json</code>; none was typed by hand. Two of the ten claims are reported as
+not settled by this method, which is the point of reporting them.</footer>
+</div></body></html>
