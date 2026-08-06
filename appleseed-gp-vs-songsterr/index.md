@@ -1,6 +1,6 @@
 # Our Appleseed Cast drum tabs against Songsterr's
 
-Five songs have both a Songsterr tab and one of our stem-built .gp5 drum parts. Ours are the corrected builds: 223 hits the audio does not support and 383 unplayable flams have been removed since the first pass.
+Five songs have both a Songsterr tab and one of our stem-built .gp5 drum parts. Ours are the corrected builds: across these five, **141 notated hits the audio does not support and 383 unplayable flams** have come out since the first pass, counted by reading both generations of each file rather than from a build log. Across all twenty Appleseed songs the phantom pass has now removed 291.
 
 ## Fishing the Sky (Mare Vitalis)
 

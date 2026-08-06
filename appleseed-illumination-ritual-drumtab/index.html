@@ -56,7 +56,7 @@
 <div class="wrap">
 
 <header>
-  <div class="kicker">The Appleseed Cast &middot; 31 July 2026</div>
+  <div class="kicker">The Appleseed Cast &middot; built 31 July 2026, corrected 6 August 2026</div>
   <h1>Illumination Ritual: drum tabs for Songsterr, whole album</h1>
   <p class="sub">All ten tracks built from DrumSep 5-piece splits through
   <code>/stems-to-guitar-pro-drums</code>. Every file passed the same 19-point render gate.</p>
@@ -64,26 +64,61 @@
 
 <div class="grid">
   <div class="stat"><div class="big">10 / 10</div><div class="lbl">tracks with a drum tab</div></div>
-  <div class="stat"><div class="big">20,890</div><div class="lbl">notes written</div></div>
+  <div class="stat"><div class="big">19,609</div><div class="lbl">notes written</div></div>
   <div class="stat"><div class="big">1,570</div><div class="lbl">bars</div></div>
   <div class="stat"><div class="big">10 / 10</div><div class="lbl">passed all 19 gates</div></div>
 </div>
+
+
+<h2><span class="n">0.</span> What changed on 6 August 2026</h2>
+<div class="lead">
+  <p>Every number on this page was measured on 31 July, before the flam fix of 4 August
+  and before any phantom hit was removed. Nothing regenerated the page, so it kept
+  publishing counts for a file that no longer existed in that form. Three generations of
+  the same twenty songs were live at once: the 31 July build behind these tables, the
+  4 August flam fix in the output folders, and a phantom strip that had reached only four
+  Mare Vitalis songs. The remaining sixteen were run through the phantom pass today, all
+  twenty are now filed in one folder, and <b>every count below is read straight out of the
+  shipped <code>.gp5</code></b>.</p>
+</div>
+<p><b>109 notated hits came out of this album</b>, and the flam count fell hardest,
+because the first pass wrote grace notes onto rolls a drummer cannot play.</p>
+<div class="tw"><table>
+<tr><th>Song</th><th class="num">Notes before</th><th class="num">Notes now</th>
+    <th class="num">Cut</th><th class="num">Flagged</th><th>Lane coverage</th></tr>
+<tr><td>01 Adriatic to Black Sea</td><td class="num">2,309</td><td class="num">2,308</td><td class="num">1</td><td class="num">1</td><td><span class='hi'>both lanes checked</span></td></tr>
+<tr><td>02 Great Lake Derelict</td><td class="num">2,524</td><td class="num">2,500</td><td class="num">24</td><td class="num">24</td><td><span class='hi'>both lanes checked</span></td></tr>
+<tr><td>03 Simple Forms</td><td class="num">836</td><td class="num">835</td><td class="num">1</td><td class="num">1</td><td><span class='hi'>both lanes checked</span></td></tr>
+<tr><td>04 Cathedral Rings</td><td class="num">2,384</td><td class="num">2,382</td><td class="num">2</td><td class="num">2</td><td><span class='hi'>both lanes checked</span></td></tr>
+<tr><td>05 30 Degrees 3 Am</td><td class="num">1,887</td><td class="num">1,887</td><td class="num">0</td><td class="num">0</td><td><span class='hi'>both lanes checked</span></td></tr>
+<tr><td>06 Branches on the Arrow Peak Revelation</td><td class="num">1,332</td><td class="num">1,313</td><td class="num">19</td><td class="num">19</td><td><span class='hi'>both lanes checked</span></td></tr>
+<tr><td>07 Barrier Islands (Do We Remain)</td><td class="num">2,191</td><td class="num">2,169</td><td class="num">22</td><td class="num">22</td><td><span class='hi'>both lanes checked</span></td></tr>
+<tr><td>08 North Star Ordination</td><td class="num">2,479</td><td class="num">2,453</td><td class="num">26</td><td class="num">26</td><td><span class='hi'>both lanes checked</span></td></tr>
+<tr><td>09 Clearing Life</td><td class="num">2,084</td><td class="num">2,083</td><td class="num">1</td><td class="num">1</td><td><span class='hi'>both lanes checked</span></td></tr>
+<tr><td>10 Illumination Ritual</td><td class="num">1,692</td><td class="num">1,679</td><td class="num">13</td><td class="num">20</td><td><span class='lo'>kick lane not alignable</span></td></tr>
+</table></div>
+<p><span class="dot d-r"></span><b>7 flagged hits were left in place on purpose.</b>
+The stripper refuses to delete from a lane whose best alignment offset does not lock,
+because deleting on a bad alignment removes real hits. Where the lane coverage column
+says the kick lane is not alignable, the flagged count records a suspicion the tool could not settle, and those bars want an
+ear before submission.</p>
 
 <h2><span class="n">1.</span> The album</h2>
 <div class="tw"><table>
 <tr><th>#</th><th>Song</th><th class="num">BPM</th><th class="num">Bars</th><th class="num">Notes</th>
     <th class="num">Bells</th><th class="num">Rim</th><th class="num">Ghosts</th><th class="num">Flams</th><th>Tempo</th></tr>
-<tr><td>01</td><td>Adriatic to Black Sea</td><td class="num">177</td><td class="num">241</td><td class="num">2,372</td><td class="num">58</td><td class="num">0</td><td class="num">175</td><td class="num">165</td><td class="med">MEDIUM</td></tr>
-<tr><td>02</td><td>Great Lake Derelict</td><td class="num">137</td><td class="num">149</td><td class="num">2,864</td><td class="num">163</td><td class="num">0</td><td class="num">157</td><td class="num">365</td><td class="med">MEDIUM</td></tr>
-<tr><td>03</td><td>Simple Forms</td><td class="num">144</td><td class="num">61</td><td class="num">898</td><td class="num">0</td><td class="num">0</td><td class="num">43</td><td class="num">65</td><td class="med">MEDIUM</td></tr>
-<tr><td>04</td><td>Cathedral Rings</td><td class="num">155</td><td class="num">178</td><td class="num">2,438</td><td class="num">0</td><td class="num">0</td><td class="num">241</td><td class="num">118</td><td class="hi">HIGH</td></tr>
-<tr><td>05</td><td>30 Degrees 3 Am</td><td class="num">161</td><td class="num">161</td><td class="num">1,980</td><td class="num">0</td><td class="num">0</td><td class="num">107</td><td class="num">140</td><td class="med">MEDIUM</td></tr>
-<tr><td>06</td><td>Branches on the Arrow Peak Revelation</td><td class="num">138</td><td class="num">102</td><td class="num">1,401</td><td class="num">0</td><td class="num">0</td><td class="num">107</td><td class="num">92</td><td class="lo">LOW</td></tr>
-<tr><td>07</td><td>Barrier Islands (Do We Remain)</td><td class="num">148</td><td class="num">153</td><td class="num">2,349</td><td class="num">0</td><td class="num">0</td><td class="num">166</td><td class="num">203</td><td class="hi">HIGH</td></tr>
-<tr><td>08</td><td>North Star Ordination</td><td class="num">155.25</td><td class="num">217</td><td class="num">2,653</td><td class="num">0</td><td class="num">0</td><td class="num">197</td><td class="num">321</td><td class="hi">HIGH</td></tr>
-<tr><td>09</td><td>Clearing Life</td><td class="num">154</td><td class="num">171</td><td class="num">2,203</td><td class="num">10</td><td class="num">0</td><td class="num">138</td><td class="num">177</td><td class="hi">HIGH</td></tr>
-<tr><td>10</td><td>Illumination Ritual</td><td class="num">168</td><td class="num">137</td><td class="num">1,732</td><td class="num">25</td><td class="num">0</td><td class="num">75</td><td class="num">88</td><td class="med">MEDIUM</td></tr>
+<tr><td>01</td><td>Adriatic to Black Sea</td><td class="num">177</td><td class="num">241</td><td class="num">2,308</td><td class="num">58</td><td class="num">0</td><td class="num">175</td><td class="num">49</td><td class="med">MEDIUM</td></tr>
+<tr><td>02</td><td>Great Lake Derelict</td><td class="num">137</td><td class="num">149</td><td class="num">2,500</td><td class="num">161</td><td class="num">0</td><td class="num">148</td><td class="num">81</td><td class="med">MEDIUM</td></tr>
+<tr><td>03</td><td>Simple Forms</td><td class="num">144</td><td class="num">61</td><td class="num">835</td><td class="num">0</td><td class="num">0</td><td class="num">42</td><td class="num">8</td><td class="med">MEDIUM</td></tr>
+<tr><td>04</td><td>Cathedral Rings</td><td class="num">155</td><td class="num">178</td><td class="num">2,382</td><td class="num">0</td><td class="num">0</td><td class="num">241</td><td class="num">68</td><td class="hi">HIGH</td></tr>
+<tr><td>05</td><td>30 Degrees 3 Am</td><td class="num">161</td><td class="num">161</td><td class="num">1,887</td><td class="num">0</td><td class="num">0</td><td class="num">107</td><td class="num">40</td><td class="med">MEDIUM</td></tr>
+<tr><td>06</td><td>Branches on the Arrow Peak Revelation</td><td class="num">138</td><td class="num">102</td><td class="num">1,313</td><td class="num">0</td><td class="num">0</td><td class="num">106</td><td class="num">51</td><td class="lo">LOW</td></tr>
+<tr><td>07</td><td>Barrier Islands (Do We Remain)</td><td class="num">148</td><td class="num">153</td><td class="num">2,169</td><td class="num">0</td><td class="num">0</td><td class="num">163</td><td class="num">144</td><td class="hi">HIGH</td></tr>
+<tr><td>08</td><td>North Star Ordination</td><td class="num">155.25</td><td class="num">217</td><td class="num">2,453</td><td class="num">0</td><td class="num">0</td><td class="num">196</td><td class="num">179</td><td class="hi">HIGH</td></tr>
+<tr><td>09</td><td>Clearing Life</td><td class="num">154</td><td class="num">171</td><td class="num">2,083</td><td class="num">9</td><td class="num">0</td><td class="num">136</td><td class="num">47</td><td class="hi">HIGH</td></tr>
+<tr><td>10</td><td>Illumination Ritual</td><td class="num">168</td><td class="num">137</td><td class="num">1,679</td><td class="num">25</td><td class="num">0</td><td class="num">75</td><td class="num">30</td><td class="med">MEDIUM</td></tr>
 </table></div>
+<p>Album totals: 253 bells, 230 open hats, <b>0 rim clicks</b>, 1,389 ghosts, 697 flams, 226 crashes, 2,403 rides.</p>
 <p><b>Track 04 nearly did not happen.</b> The album's separation script skipped it on the
 note "already has a published 6-stem set", and that pack carries bass, guitars, keys,
 metronome, other and vocals with <b>no drums file at all</b>. A drums stem does exist,
@@ -118,11 +153,11 @@ provisional against the audio.</p>
 <h2><span class="n">4.</span> An ornament is a minority of its lane</h2>
 <p>The first album run produced garbage that still passed every render gate.</p>
 <div class="tw"><table>
-<tr><th>Song</th><th>First run</th><th>Class share of lane</th><th>After the fix</th></tr>
-<tr><td>07 Barrier Islands</td><td>506 rim, 10 ghosts</td><td class="lo">95%</td><td class="hi">0 rim, 166 ghosts</td></tr>
+<tr><th>Song</th><th>First run</th><th>Class share of lane</th><th>In the shipped file</th></tr>
+<tr><td>07 Barrier Islands</td><td>506 rim, 10 ghosts</td><td class="lo">95%</td><td class="hi">0 rim, 163 ghosts</td></tr>
 <tr><td>07 Barrier Islands</td><td>282 bells, 14 rides</td><td class="lo">95%</td><td class="hi">0 bells</td></tr>
 <tr><td>07 Barrier Islands</td><td>513 open hats, 135 closed</td><td class="lo">79%</td><td class="hi">closed hat part restored</td></tr>
-<tr><td>02 Great Lake Derelict</td><td>458 rim, 9 ghosts</td><td class="lo">95%</td><td class="hi">0 rim, 157 ghosts</td></tr>
+<tr><td>02 Great Lake Derelict</td><td>458 rim, 9 ghosts</td><td class="lo">95%</td><td class="hi">0 rim, 148 ghosts</td></tr>
 <tr><td>05 30 Degrees 3 Am</td><td>196 bells, 27 rides</td><td class="lo">over ceiling</td><td class="hi">0 bells</td></tr>
 <tr><td>01 Adriatic to Black Sea</td><td>58 bells, 175 ghosts</td><td>under ceiling</td><td class="hi">unchanged, the control</td></tr>
 </table></div>
@@ -141,7 +176,7 @@ missed.</p>
 
 <h2><span class="n">6.</span> What the gate proves, and what it does not</h2>
 <pre>
-10 songs, 10 gate-green, 20,890 notes
+10 songs, 10 gate-green, 19,609 notes, 1,570 bars
 
   PASS  every velocity on the 16-step ladder
   PASS  one fixed string slot per drum family

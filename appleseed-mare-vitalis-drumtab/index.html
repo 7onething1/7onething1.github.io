@@ -57,38 +57,71 @@
 <div class="wrap">
 
 <header>
-  <div class="kicker">The Appleseed Cast &middot; 31 July 2026</div>
+  <div class="kicker">The Appleseed Cast &middot; built 31 July 2026, corrected 6 August 2026</div>
   <h1>Mare Vitalis: drum tabs for Songsterr, whole album</h1>
   <p class="sub">All ten tracks built from DrumSep 5-piece splits through
   <code>/stems-to-guitar-pro-drums</code>. Sister page to
   <a href="https://7onething1.github.io/appleseed-illumination-ritual-drumtab/">Illumination
-  Ritual</a>, which is closed at 10 of 10 and 20,890 notes.</p>
+  Ritual</a>, which is closed at 10 of 10 and 19,609 notes.</p>
 </header>
 
 <div class="grid">
   <div class="stat"><div class="big">10 / 10</div><div class="lbl">tracks with a drum tab</div></div>
-  <div class="stat"><div class="big">15,300</div><div class="lbl">notes written</div></div>
+  <div class="stat"><div class="big">14,277</div><div class="lbl">notes written</div></div>
   <div class="stat"><div class="big">1,215</div><div class="lbl">bars</div></div>
   <div class="stat"><div class="big">10 / 10</div><div class="lbl">passed all 19 gates</div></div>
 </div>
+
+
+<h2><span class="n">0.</span> What changed on 6 August 2026</h2>
+<div class="lead">
+  <p>Every number on this page was measured on 31 July, before the flam fix of 4 August
+  and before any phantom hit was removed. Nothing regenerated the page, so it kept
+  publishing counts for a file that no longer existed in that form. Three generations of
+  the same twenty songs were live at once: the 31 July build behind these tables, the
+  4 August flam fix in the output folders, and a phantom strip that had reached only four
+  Mare Vitalis songs. The remaining sixteen were run through the phantom pass today, all
+  twenty are now filed in one folder, and <b>every count below is read straight out of the
+  shipped <code>.gp5</code></b>.</p>
+</div>
+<p><b>182 notated hits came out of this album</b>, and the flam count fell hardest,
+because the first pass wrote grace notes onto rolls a drummer cannot play.</p>
+<div class="tw"><table>
+<tr><th>Song</th><th class="num">Notes before</th><th class="num">Notes now</th>
+    <th class="num">Cut</th><th class="num">Flagged</th><th>Lane coverage</th></tr>
+<tr><td>01 The Immortal Soul of Mundo Cani</td><td class="num">463</td><td class="num">463</td><td class="num">0</td><td class="num">8</td><td><span class='lo'>kick lane not alignable</span></td></tr>
+<tr><td>02 Fishing the Sky</td><td class="num">1,707</td><td class="num">1,700</td><td class="num">7</td><td class="num"></td><td>stripped 5 Aug</td></tr>
+<tr><td>03 Forever Longing the Golden Sunsets</td><td class="num">2,001</td><td class="num">1,945</td><td class="num">56</td><td class="num"></td><td>stripped 5 Aug</td></tr>
+<tr><td>04 Mare Mortis</td><td class="num">1,800</td><td class="num">1,759</td><td class="num">41</td><td class="num"></td><td>stripped 5 Aug</td></tr>
+<tr><td>05 Santa Maria</td><td class="num">1,526</td><td class="num">1,489</td><td class="num">37</td><td class="num"></td><td>stripped 5 Aug</td></tr>
+<tr><td>06 Secret</td><td class="num">1,424</td><td class="num">1,423</td><td class="num">1</td><td class="num"></td><td>stripped 5 Aug</td></tr>
+<tr><td>07 ...And Nothing Less</td><td class="num">1,290</td><td class="num">1,290</td><td class="num">0</td><td class="num">145</td><td><span class='lo'>kick lane not alignable</span></td></tr>
+<tr><td>08 Poseidon</td><td class="num">1,102</td><td class="num">1,066</td><td class="num">36</td><td class="num">36</td><td><span class='hi'>both lanes checked</span></td></tr>
+<tr><td>09 Kilgore Trout</td><td class="num">1,206</td><td class="num">1,202</td><td class="num">4</td><td class="num">4</td><td><span class='hi'>both lanes checked</span></td></tr>
+<tr><td>10 Storms</td><td class="num">1,940</td><td class="num">1,940</td><td class="num">0</td><td class="num">200</td><td><span class='lo'>kick lane not alignable</span></td></tr>
+</table></div>
+<p><span class="dot d-r"></span><b>353 flagged hits were left in place on purpose.</b>
+The stripper refuses to delete from a lane whose best alignment offset does not lock,
+because deleting on a bad alignment removes real hits. Where the lane coverage column
+says the kick lane is not alignable, the flagged count records a suspicion the tool could not settle, and those bars want an
+ear before submission.</p>
 
 <h2><span class="n">1.</span> The album</h2>
 <div class="tw"><table>
 <tr><th>#</th><th>Song</th><th class="num">BPM</th><th class="num">Bars</th><th class="num">Notes</th>
     <th class="num">Bells</th><th class="num">Open hat</th><th class="num">Ghosts</th><th class="num">Flams</th><th>Tempo</th></tr>
-<tr><td>01</td><td>The Immortal Soul of Mundo Cani</td><td class="num">172</td><td class="num">78</td><td class="num">498</td><td class="num">0</td><td class="num">10</td><td class="num">7</td><td class="num">19</td><td class="med">MEDIUM</td></tr>
-<tr><td>02</td><td>Fishing the Sky</td><td class="num">187</td><td class="num">174</td><td class="num">1,738</td><td class="num">12</td><td class="num">26</td><td class="num">116</td><td class="num">68</td><td class="lo">LOW</td></tr>
-<tr><td>03</td><td>Forever Longing the Golden Sunsets</td><td class="num">152.75</td><td class="num">174</td><td class="num">2,160</td><td class="num">0</td><td class="num">0</td><td class="num">145</td><td class="num">116</td><td class="med">MEDIUM</td></tr>
-<tr><td>04</td><td>Mare Mortis</td><td class="num">136</td><td class="num">114</td><td class="num">1,897</td><td class="num">0</td><td class="num">23</td><td class="num">192</td><td class="num">68</td><td class="lo">LOW</td></tr>
-<tr><td>05</td><td>Santa Maria</td><td class="num">138.25</td><td class="num">116</td><td class="num">1,605</td><td class="num">8</td><td class="num">27</td><td class="num">143</td><td class="num">101</td><td class="lo">LOW</td></tr>
-<tr><td>06</td><td>Secret</td><td class="num">87</td><td class="num">96</td><td class="num">1,494</td><td class="num">0</td><td class="num">20</td><td class="num">66</td><td class="num">70</td><td class="med">MEDIUM</td></tr>
-<tr><td>07</td><td>...And Nothing Less</td><td class="num">88.25</td><td class="num">100</td><td class="num">1,359</td><td class="num">0</td><td class="num">17</td><td class="num">102</td><td class="num">42</td><td class="med">MEDIUM</td></tr>
-<tr><td>08</td><td>Poseidon</td><td class="num">137.25</td><td class="num">118</td><td class="num">1,146</td><td class="num">0</td><td class="num">14</td><td class="num">66</td><td class="num">75</td><td class="hi">HIGH</td></tr>
-<tr><td>09</td><td>Kilgore Trout</td><td class="num">181.75</td><td class="num">106</td><td class="num">1,243</td><td class="num">0</td><td class="num">31</td><td class="num">48</td><td class="num">65</td><td class="med">MEDIUM</td></tr>
-<tr><td>10</td><td>Storms</td><td class="num">95</td><td class="num">139</td><td class="num">2,119</td><td class="num">0</td><td class="num">28</td><td class="num">145</td><td class="num">26</td><td class="med">MEDIUM</td></tr>
+<tr><td>01</td><td>The Immortal Soul of Mundo Cani</td><td class="num">172</td><td class="num">78</td><td class="num">463</td><td class="num">0</td><td class="num">6</td><td class="num">7</td><td class="num">6</td><td class="med">MEDIUM</td></tr>
+<tr><td>02</td><td>Fishing the Sky</td><td class="num">187</td><td class="num">174</td><td class="num">1,700</td><td class="num">12</td><td class="num">24</td><td class="num">115</td><td class="num">4</td><td class="lo">LOW</td></tr>
+<tr><td>03</td><td>Forever Longing the Golden Sunsets</td><td class="num">152.75</td><td class="num">174</td><td class="num">1,945</td><td class="num">0</td><td class="num">0</td><td class="num">143</td><td class="num">38</td><td class="med">MEDIUM</td></tr>
+<tr><td>04</td><td>Mare Mortis</td><td class="num">136</td><td class="num">114</td><td class="num">1,759</td><td class="num">0</td><td class="num">20</td><td class="num">191</td><td class="num">19</td><td class="lo">LOW</td></tr>
+<tr><td>05</td><td>Santa Maria</td><td class="num">138.25</td><td class="num">116</td><td class="num">1,489</td><td class="num">8</td><td class="num">20</td><td class="num">142</td><td class="num">7</td><td class="lo">LOW</td></tr>
+<tr><td>06</td><td>Secret</td><td class="num">87</td><td class="num">96</td><td class="num">1,423</td><td class="num">0</td><td class="num">17</td><td class="num">63</td><td class="num">9</td><td class="med">MEDIUM</td></tr>
+<tr><td>07</td><td>...And Nothing Less</td><td class="num">88.25</td><td class="num">100</td><td class="num">1,290</td><td class="num">0</td><td class="num">10</td><td class="num">100</td><td class="num">3</td><td class="med">MEDIUM</td></tr>
+<tr><td>08</td><td>Poseidon</td><td class="num">137.25</td><td class="num">118</td><td class="num">1,066</td><td class="num">0</td><td class="num">12</td><td class="num">65</td><td class="num">10</td><td class="hi">HIGH</td></tr>
+<tr><td>09</td><td>Kilgore Trout</td><td class="num">181.75</td><td class="num">106</td><td class="num">1,202</td><td class="num">0</td><td class="num">26</td><td class="num">43</td><td class="num">0</td><td class="med">MEDIUM</td></tr>
+<tr><td>10</td><td>Storms</td><td class="num">95</td><td class="num">139</td><td class="num">1,940</td><td class="num">0</td><td class="num">24</td><td class="num">142</td><td class="num">1</td><td class="med">MEDIUM</td></tr>
 </table></div>
-<p>Album totals: 20 bells, 196 open hats, <b>0 rim clicks</b>, 1,030 ghosts, 650 flams,
-106 crashes, 1,688 rides.</p>
+<p>Album totals: 20 bells, 159 open hats, <b>0 rim clicks</b>, 1,011 ghosts, 97 flams, 103 crashes, 1,667 rides.</p>
 
 <h2><span class="n">2.</span> It did not need the external drive</h2>
 <div class="lead">
@@ -102,9 +135,9 @@
 
 <h2><span class="n">3.</span> Two detector bugs this album exposed</h2>
 <ul>
-  <li><span class="dot d-r"></span><b>The cut did not know which side the ornament was on.</b> The splitter maximized separation without caring which class ended up small, so on six of ten songs it isolated the 5% <i>dimmest</i> cymbals and labelled the remaining <b>95% "bright"</b>. The ornament ceiling rejected that as nonsense, which was the right outcome by the wrong mechanism, and it discarded real bells along with it. Making the cut side-aware recovered <b>12 bells on Fishing the Sky</b>, <b>8 on Santa Maria</b>, and open hats on Mare Mortis (0 to 23) and And Nothing Less (0 to 17).</li>
-  <li><span class="dot d-r"></span><b>A capped search made the cap look like a measurement.</b> With the size ceiling in place, any lane preferring a larger class settles exactly on it. Poseidon reported a rim class at precisely <b>0.450</b>, the ceiling to three decimals, and it passed every other control (body-vs-loudness correlation 0.18, ghost overlap 40%). The splitter now reports saturation and refuses a split whose optimum sat on the boundary. Poseidon went from <b>108 rim clicks to 0</b>, and its ghosts recovered from <b>36 to 66</b>, because a runaway rim class eats the snares that ghost detection ranks within.</li>
-  <li><span class="dot d-g"></span><b>The control that makes those fixes trustworthy.</b> Illumination Ritual came through all three changes byte-identical: 25 bells, 26 open hats, 26 crashes, 386 rides, 75 ghosts, 88 flams. Gates of this shape are easy to write in a form that silently deletes everything, and only a known-good song catches that.</li>
+  <li><span class="dot d-r"></span><b>The cut did not know which side the ornament was on.</b> The splitter maximized separation without caring which class ended up small, so on six of ten songs it isolated the 5% <i>dimmest</i> cymbals and labelled the remaining <b>95% "bright"</b>. The ornament ceiling rejected that as nonsense, which was the right outcome by the wrong mechanism, and it discarded real bells along with it. Making the cut side-aware recovered <b>12 bells on Fishing the Sky</b>, <b>8 on Santa Maria</b>, and open hats on Mare Mortis and And Nothing Less, both of which had been sitting at zero. Those two lanes stand at <b>20</b> and <b>10</b> in the shipped file, below the 23 and 17 first reported, because the 4 August flam fix removed grace notes that were being counted in the lane.</li>
+  <li><span class="dot d-r"></span><b>A capped search made the cap look like a measurement.</b> With the size ceiling in place, any lane preferring a larger class settles exactly on it. Poseidon reported a rim class at precisely <b>0.450</b>, the ceiling to three decimals, and it passed every other control (body-vs-loudness correlation 0.18, ghost overlap 40%). The splitter now reports saturation and refuses a split whose optimum sat on the boundary. Poseidon went from <b>108 rim clicks to 0</b>, and its ghosts recovered from <b>36 to 65</b>, because a runaway rim class eats the snares that ghost detection ranks within.</li>
+  <li><span class="dot d-g"></span><b>The control that makes those fixes trustworthy.</b> Illumination Ritual came through all three changes byte-identical, and it still carries its 25 bells, 26 open hats and 75 ghosts today. Its crashes read 25 and its rides 353 in the shipped file, against the 26 and 386 reported on 31 July, and its flams fell from 88 to 30 in the flam fix. Gates of this shape are easy to write in a form that silently deletes everything, and only a known-good song catches that.</li>
 </ul>
 
 <h2><span class="n">4.</span> The grids here are genuinely weak, and are labelled so</h2>
@@ -125,7 +158,7 @@ them on this material. It has not been shown that a rim part exists and was miss
 
 <h2><span class="n">6.</span> What the gate proves, and what it does not</h2>
 <pre>
-10 songs, 10 gate-green, 15,300 notes, 1,215 bars
+10 songs, 10 gate-green, 14,277 notes, 1,215 bars
 
   PASS  every velocity on the 16-step ladder
   PASS  one fixed string slot per drum family
