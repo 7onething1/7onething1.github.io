@@ -49,10 +49,22 @@ its own, so removing 550 of them changed no note count. The phantom strip is wha
 note total, by **182**.
 
 The stripper refuses to delete from a lane whose best alignment offset does not lock,
-because deleting on a bad alignment removes real hits. Three songs hit that refusal on the
-kick lane and lost nothing: **Storms (200 flagged), ...And Nothing Less (145) and The
-Immortal Soul of Mundo Cani (8)**. On those three the flagged count records a suspicion the tool could not settle, and
+because deleting on a bad alignment removes real hits. Three songs hit that refusal and
+lost nothing, and it was a different lane on one of them:
+
+| Song | Lane that failed | Hits lining up | Flagged |
+|---|---|---|---|
+| Storms | kick | 69% | 200 |
+| ...And Nothing Less | kick | 66% | 145 |
+| The Immortal Soul of Mundo Cani | toms | 28% | 8 |
+
+On those three the flagged count records a suspicion the tool could not settle, and
 those bars want an ear before submission.
+
+**Mundo Cani's toms are the one to open first.** The tab writes **179 tom hits against
+62 detected onsets** in that lane, and 51 line up. A lane carrying under a third of the
+notes written into it points at over-notation rather than a timing error, so the 28%
+is a symptom of the tom count.
 
 ## Rim clicks: zero across both albums
 

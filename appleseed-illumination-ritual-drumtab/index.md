@@ -22,8 +22,9 @@ figure was never a read of a file at any generation.
 **109 hits came out of this album** in the phantom pass, and flams fell from **1,716 to
 697** in the flam fix. A flam is an effect on a note rather than a note of its own, so
 removing 1,019 of them changed no note count. Only Illumination Ritual itself tripped the
-alignment guard, on one lane, leaving **7 flagged hits** in place rather than deleting
-them on a bad alignment.
+alignment guard, and on its **toms** lane rather than the kick: 163 notated tom hits
+against 225 lane onsets with 82 lining up, 50%. Its kick lane locked cleanly at 388 of
+393. That left **7 flagged hits** in place rather than deleting them on a bad alignment.
 
 ## The album
 
