@@ -26,6 +26,22 @@ alignment guard, and on its **toms** lane rather than the kick: 163 notated tom 
 against 225 lane onsets with 82 lining up, 50%. Its kick lane locked cleanly at 388 of
 393. That left **7 flagged hits** in place rather than deleting them on a bad alignment.
 
+### The pass covered two of the five lanes
+
+`sd_phantom.py` defaults to kick and toms, and the run took that default. The snare,
+hi-hat and cymbal lanes were never tested against the audio, which is **13,160 of this
+album's 19,609 notes, 67%**, still unexamined.
+
+| Lane | Notes | Tested |
+|---|---|---|
+| kick + toms | 6,449 | yes |
+| snare | 4,356 | no |
+| closed hat + open hat | 5,922 | no |
+| ride + crash + bell | 2,882 | no |
+
+Every count on this page is measured from the shipped file. The 109 hits removed is a
+floor rather than a total, and the three untested lanes may hold more.
+
 ## The album
 
 | # | Song | BPM | Bars | Notes | Bells | Rim | Ghosts | Flams | Tempo conf |

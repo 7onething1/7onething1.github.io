@@ -66,6 +66,22 @@ those bars want an ear before submission.
 notes written into it points at over-notation rather than a timing error, so the 28%
 is a symptom of the tom count.
 
+## The pass covered two of the five lanes
+
+`sd_phantom.py` defaults to kick and toms, and the run took that default. The snare,
+hi-hat and cymbal lanes were never tested against the audio, which is **8,358 of this
+album's 14,277 notes, 59%**, still unexamined.
+
+| Lane | Notes | Tested |
+|---|---|---|
+| kick + toms | 5,919 | yes |
+| snare | 3,396 | no |
+| closed hat + open hat | 3,172 | no |
+| ride + crash + bell | 1,790 | no |
+
+Every count in the table above is measured from the shipped file. The 182 hits removed
+is a floor rather than a total, and the three untested lanes may hold more.
+
 ## Rim clicks: zero across both albums
 
 Twenty songs, and every one refused the side-stick class, each for a stated reason. It has
