@@ -1,0 +1,333 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>KVC Niles Year Four Irrigation Grant Package</title>
+<style>
+  :root{
+    --cream:#FAF5EA; --paper:#FFFDF7; --sand:#EFE4CE; --ink:#1C1A17;
+    --muted:#5C5648; --olive:#6E7B4B; --ochre:#C08A2E; --rust:#A6492E;
+    --slate:#4A5A66; --line:#DDD1B8;
+  }
+  *{box-sizing:border-box}
+  body{margin:0;background:var(--cream);color:var(--ink);
+    font:16px/1.62 "Iowan Old Style","Palatino Linotype",Palatino,Georgia,serif;
+    -webkit-font-smoothing:antialiased}
+  .wrap{max-width:1080px;margin:0 auto;padding:0 24px 80px}
+  a{color:var(--slate)}
+
+  header{border-bottom:3px double var(--line);padding:56px 0 28px;margin-bottom:36px}
+  .eyebrow{font:600 11px/1 ui-sans-serif,system-ui,sans-serif;letter-spacing:.18em;
+    text-transform:uppercase;color:var(--olive);margin-bottom:14px}
+  h1{font-size:clamp(30px,5vw,46px);line-height:1.1;margin:0 0 14px;font-weight:600;letter-spacing:-.01em}
+  .lede{font-size:19px;color:var(--muted);max-width:66ch;margin:0}
+
+  .facts{display:grid;grid-template-columns:repeat(auto-fit,minmax(150px,1fr));
+    gap:1px;background:var(--line);border:1px solid var(--line);margin:32px 0 0}
+  .fact{background:var(--paper);padding:16px 18px}
+  .fact dt{font:600 10px/1 ui-sans-serif,system-ui,sans-serif;letter-spacing:.14em;
+    text-transform:uppercase;color:var(--muted);margin-bottom:8px}
+  .fact dd{margin:0;font-size:21px;font-weight:600;letter-spacing:-.01em}
+  .fact dd small{display:block;font-size:12px;font-weight:400;color:var(--muted);
+    letter-spacing:0;margin-top:4px;font-family:ui-sans-serif,system-ui,sans-serif}
+
+  h2{font-size:13px;font-family:ui-sans-serif,system-ui,sans-serif;font-weight:700;
+    letter-spacing:.16em;text-transform:uppercase;color:var(--olive);
+    margin:56px 0 6px;padding-bottom:8px;border-bottom:1px solid var(--line)}
+  h2 .n{color:var(--line);margin-right:10px}
+  .sub{color:var(--muted);font-size:15px;margin:0 0 24px;max-width:70ch}
+
+  .sheets{display:grid;grid-template-columns:repeat(auto-fill,minmax(232px,1fr));gap:12px}
+  .sheet{background:var(--paper);border:1px solid var(--line);padding:14px 16px}
+  .sheet b{display:block;font-size:15px;margin-bottom:5px}
+  .sheet span{font-size:13px;color:var(--muted);line-height:1.5;
+    font-family:ui-sans-serif,system-ui,sans-serif}
+  .sheet.key{border-left:3px solid var(--olive)}
+
+  .chg{border-top:1px solid var(--line);padding:20px 0;display:grid;
+    grid-template-columns:34px 1fr;gap:18px;align-items:start}
+  .chg .num{font:600 13px/1.4 ui-sans-serif,system-ui,sans-serif;color:var(--ochre);
+    padding-top:3px}
+  .chg h3{margin:0 0 10px;font-size:19px;font-weight:600}
+  .ba{display:grid;grid-template-columns:1fr 1fr;gap:1px;background:var(--line);
+    border:1px solid var(--line);margin:0 0 12px}
+  .ba div{background:var(--paper);padding:11px 13px;font-size:14px;line-height:1.55;
+    font-family:ui-sans-serif,system-ui,sans-serif}
+  .ba div b{display:block;font:600 9.5px/1 ui-sans-serif,system-ui,sans-serif;
+    letter-spacing:.14em;text-transform:uppercase;margin-bottom:7px}
+  .ba .was b{color:var(--rust)} .ba .now b{color:var(--olive)}
+  .why{font-size:14.5px;color:var(--muted);margin:0;max-width:80ch}
+  .why b{color:var(--ink);font-weight:600}
+
+  table{width:100%;border-collapse:collapse;font-size:14px;background:var(--paper);
+    font-family:ui-sans-serif,system-ui,sans-serif}
+  .scroll{overflow-x:auto;border:1px solid var(--line)}
+  th{background:var(--sand);text-align:left;padding:10px 13px;font-size:10.5px;
+    letter-spacing:.13em;text-transform:uppercase;font-weight:700;
+    border-bottom:1px solid var(--line);white-space:nowrap}
+  td{padding:11px 13px;border-bottom:1px solid var(--line);vertical-align:top;line-height:1.5}
+  tr:last-child td{border-bottom:0}
+  td.c{text-align:center;color:var(--muted);width:34px}
+  .pill{display:inline-block;font-size:10.5px;font-weight:700;letter-spacing:.09em;
+    text-transform:uppercase;padding:3px 8px;border:1px solid;border-radius:2px;white-space:nowrap}
+  .p-ok{color:var(--olive);border-color:var(--olive);background:#EFF2E7}
+  .p-open{color:var(--ochre);border-color:var(--ochre);background:#FBF2DE}
+  .p-stop{color:var(--rust);border-color:var(--rust);background:#F7E7E1}
+
+  .note{background:var(--paper);border:1px solid var(--line);border-left:3px solid var(--ochre);
+    padding:18px 22px;margin:28px 0}
+  .note b{display:block;margin-bottom:7px;font-size:16px}
+  .note p{margin:0;font-size:15px;color:var(--muted);max-width:80ch}
+
+  footer{margin-top:64px;padding-top:22px;border-top:3px double var(--line);
+    font-size:13px;color:var(--muted);font-family:ui-sans-serif,system-ui,sans-serif}
+  @media (max-width:660px){.ba{grid-template-columns:1fr}.chg{grid-template-columns:1fr;gap:6px}}
+  @media print{body{background:#fff}.sheets{grid-template-columns:repeat(3,1fr)}}
+</style>
+</head>
+<body>
+<div class="wrap">
+
+<header>
+  <div class="eyebrow">Kansas City PLANT Grant &nbsp;·&nbsp; Working package review</div>
+  <h1>KVC Niles Year Four<br>Irrigation Grant Package</h1>
+  <p class="lede">Irrigation for the youth food garden and greenhouse at the KVC Niles campus.
+  This page summarizes what the workbook contains, what was corrected in it, and what still
+  needs an answer from KVC before the application is filed.</p>
+
+  <dl class="facts">
+    <div class="fact"><dt>Request</dt><dd>$10,000<small>Existing site, three years or older</small></dd></div>
+    <div class="fact"><dt>Deadline</dt><dd>Sept 21<small>46 days from Aug 6, 2026</small></dd></div>
+    <div class="fact"><dt>Site</dt><dd>KC, MO<small>1911 E. 23rd St., 64127</small></dd></div>
+    <div class="fact"><dt>KVC cash needed</dt><dd>$0<small>Two batches, deposit first</small></dd></div>
+    <div class="fact"><dt>Open items</dt><dd>14<small>Facts still needed from KVC</small></dd></div>
+  </dl>
+</header>
+
+<h2><span class="n">01</span>What is in the workbook</h2>
+<p class="sub">Fourteen sheets. Each one either feeds the application itself or feeds an internal
+approval that has to happen before the application can be filed.</p>
+<div class="sheets">
+  <div class="sheet key"><b>Start Here</b><span>The request, the constraint, six leadership decisions, and the submission checklist.</span></div>
+  <div class="sheet key"><b>PLANT Budget</b><span>The City's own template, filled. This is the file uploaded with the application.</span></div>
+  <div class="sheet key"><b>Budget Detail</b><span>Component specification behind every budget line, driven by five site measurements.</span></div>
+  <div class="sheet key"><b>Application Draft</b><span>Full prose answers written to be pasted into the City form.</span></div>
+  <div class="sheet"><b>Action Plan</b><span>Fourteen actions worked back from September 21, ordered by what blocks what.</span></div>
+  <div class="sheet"><b>Nine Month Timeline</b><span>Implementation, cash gates, and every City reporting obligation.</span></div>
+  <div class="sheet"><b>Outcomes and Metrics</b><span>Twelve measures, each with a baseline, a target, and its evidence.</span></div>
+  <div class="sheet"><b>Baseline Log</b><span>Fourteen dated rows to record the watering baseline the narrative rests on.</span></div>
+  <div class="sheet"><b>Quotes and Procurement</b><span>Quote tracker with the Batch 1 cash gap calculated live.</span></div>
+  <div class="sheet"><b>Funding Roadmap</b><span>Sources ranked by how they pay, including the ones ruled out and why.</span></div>
+  <div class="sheet"><b>No Front Cash Plan</b><span>Purchasing controls and eight questions for the PLANT coordinator.</span></div>
+  <div class="sheet"><b>Sources and Rules</b><span>Every citation with its HTTP status recorded on August 6.</span></div>
+  <div class="sheet key"><b>Open Items</b><span>All fourteen blanks in one place, with owner and due date.</span></div>
+  <div class="sheet"><b>What Changed</b><span>Each correction to the earlier drafts, and the source that settled it.</span></div>
+</div>
+
+<h2><span class="n">02</span>The four corrections that matter most</h2>
+<p class="sub">Twelve corrections are recorded in the workbook. These four changed either what the
+project is or whether a funding source applies at all.</p>
+
+<div class="chg">
+  <div class="num">01</div>
+  <div>
+    <h3>The greenhouse was missing from the whole package</h3>
+    <div class="ba">
+      <div class="was"><b>Was</b>The August 6 workbook described an outdoor bed garden. The word
+      greenhouse did not appear on any sheet, even though the earlier proposal was built entirely
+      around upgrading an existing greenhouse.</div>
+      <div class="now"><b>Now</b>The greenhouse is named across the budget, the narrative, the metrics,
+      and the procurement specification, and it has its own irrigation zone on the controller.</div>
+    </div>
+    <p class="why">The July 22 session recorded that the greenhouse already stands and needs exactly
+    these upgrades. <b>An enclosed structure dries faster than open beds</b>, so leaving it off the
+    irrigation plan left out the growing space with the highest watering demand.</p>
+  </div>
+</div>
+
+<div class="chg">
+  <div class="num">02</div>
+  <div>
+    <h3>The site address was contradicted between the two drafts</h3>
+    <div class="ba">
+      <div class="was"><b>Was</b>The July 22 proposal placed KVC Niles in Raytown, in Eastern Jackson
+      County. The August 6 workbook used 1911 E. 23rd St., Kansas City.</div>
+      <div class="now"><b>Now</b>Kansas City, Missouri 64127, confirmed against the KVC Missouri
+      location page and the federal SAM entity record for The Niles Home for Children.</div>
+    </div>
+    <p class="why">This matters twice. It puts the site <b>inside Kansas City city limits</b>, which the
+    PLANT program requires for eligibility. It also puts the site outside the service area of the
+    grant the earlier proposal was built around.</p>
+  </div>
+</div>
+
+<div class="chg">
+  <div class="num">03</div>
+  <div>
+    <h3>The $30,000 anchor grant does not apply to this site</h3>
+    <div class="ba">
+      <div class="was"><b>Was</b>The Eastland Giving Circle was carried as a $30,000 upfront anchor
+      that could fund nearly the entire greenhouse project on its own.</div>
+      <div class="now"><b>Now</b>Recorded as not eligible on geography, kept on the Funding Roadmap
+      with the reason attached rather than deleted.</div>
+    </div>
+    <p class="why">Eastland covers Eastern Jackson County east of I-435, suburban Jackson County
+    outside Kansas City, and Cass County. The site sits inside Kansas City and west of I-435.
+    <b>It was carried only because of the Raytown error.</b> It stays on the sheet as a closed
+    question so nobody rebuilds the plan around it in six months.</p>
+  </div>
+</div>
+
+<div class="chg">
+  <div class="num">04</div>
+  <div>
+    <h3>A required assessment was treated as an optional phone call</h3>
+    <div class="ba">
+      <div class="was"><b>Was</b>Kansas City Community Gardens appeared as a funding partner to call
+      about grant programs.</div>
+      <div class="now"><b>Now</b>Raised to a leadership decision due August 11, and flagged as the
+      longest lead time in the package.</div>
+    </div>
+    <p class="why">The City requires that sites working with KCCG <b>complete a KCCG site assessment
+    before applying and attach it to the application</b>. With 46 days to the deadline, that decision
+    cannot sit in a queue.</p>
+  </div>
+</div>
+
+<div class="note">
+  <b>Also corrected</b>
+  <p>A cited source URL that returns 404 was marked dead and replaced. Four City requirements that
+  were missing were added to the timeline: the August 25 applicant webinar, a second required
+  grower-support workshop during the grant period, three progress check-ins, and an in-person site
+  visit at the halfway point. The budget was rebuilt from eight round numbers into a component
+  specification. The full list of twelve sits on the What Changed sheet.</p>
+</div>
+
+<h2><span class="n">03</span>Six decisions only KVC can make</h2>
+<p class="sub">Nothing in this package was filled with a guessed value. These six shape the
+application, so they sit ahead of the work that depends on them.</p>
+<div class="scroll">
+<table>
+  <thead><tr><th></th><th>Decision</th><th>Why it matters</th><th>Owner</th><th>By</th></tr></thead>
+  <tbody>
+    <tr><td class="c">1</td><td><b>Has this site received a PLANT Grant before?</b></td>
+      <td>Sets the request at $10,000 or $5,000. Every other number moves with it.</td>
+      <td>Finance</td><td>Aug 10</td></tr>
+    <tr><td class="c">2</td><td><b>Will KVC work with KCCG on this site?</b></td>
+      <td>If yes, a completed KCCG assessment must be attached to the application. Longest lead time
+      in the package.</td><td>Garden lead</td><td>Aug 11</td></tr>
+    <tr><td class="c">3</td><td><b>Where does the produce go, and who receives it?</b></td>
+      <td>PLANT scores production for public sales or distribution. A named outside recipient is the
+      difference between meeting one program goal and meeting two.</td>
+      <td>Program lead</td><td>Aug 17</td></tr>
+    <tr><td class="c">4</td><td><b>Is the greenhouse in this request?</b></td>
+      <td>The package assumes one integrated system across greenhouse and outdoor beds. Changing that
+      reallocates the budget.</td><td>Exec sponsor</td><td>Aug 14</td></tr>
+    <tr><td class="c">5</td><td><b>Who maintains the system, and who backs them up?</b></td>
+      <td>The application asks who keeps it running. Two names, with weekend and school-break
+      coverage.</td><td>Operations</td><td>Aug 28</td></tr>
+    <tr><td class="c">6</td><td><b>Who is the authorized signer?</b></td>
+      <td>Required to submit and to execute the City grant agreement.</td>
+      <td>Exec sponsor</td><td>Sep 14</td></tr>
+  </tbody>
+</table>
+</div>
+
+<h2><span class="n">04</span>The cash gate, and where it binds</h2>
+<p class="sub">KVC cannot pay project costs and wait to be repaid. PLANT pays half on award, so
+purchasing runs in two batches and no batch is ordered before its cash arrives.</p>
+<div class="scroll">
+<table>
+  <thead><tr><th>Stage</th><th>Amount</th><th>Covers</th><th>Gate</th></tr></thead>
+  <tbody>
+    <tr><td><b>First deposit</b></td><td>$5,000</td>
+      <td>50 percent, paid on award after the agreement is executed</td>
+      <td><span class="pill p-ok">Confirmed rule</span></td></tr>
+    <tr><td><b>Batch 1, planned</b></td><td>$6,300</td>
+      <td>Water source connection, greenhouse zone, outdoor zones, controller and filtration</td>
+      <td><span class="pill p-stop">Exceeds deposit by $1,300</span></td></tr>
+    <tr><td><b>Second payment</b></td><td>$5,000</td>
+      <td>Released per the grant agreement, terms still to be obtained in writing</td>
+      <td><span class="pill p-open">Terms needed</span></td></tr>
+    <tr><td><b>Batch 2</b></td><td>$3,700</td>
+      <td>Installation and testing, repairs, soil and season extension, tools and harvest supplies</td>
+      <td><span class="pill p-ok">Follows payment two</span></td></tr>
+  </tbody>
+</table>
+</div>
+<div class="note">
+  <b>The $1,300 gap is real, and it is shown rather than hidden</b>
+  <p>The irrigation backbone genuinely costs more than half the grant. Three ways close it, none of
+  them KVC cash: move the greenhouse zone into Batch 2, have KCCG cover the water connection through
+  the KC Grow program, or have a donor pay a vendor directly for one named item. The earlier draft
+  assigned Batch 1 exactly $5,000 with no check that the items matched the deposit, which is how a
+  project stalls in month two.</p>
+</div>
+
+<h2><span class="n">05</span>Sources, checked August 6</h2>
+<p class="sub">Every URL in the package was requested and its status recorded. A citation that does
+not resolve is marked rather than assumed good.</p>
+<div class="scroll">
+<table>
+  <thead><tr><th>Source</th><th>What it establishes</th><th>Status</th></tr></thead>
+  <tbody>
+    <tr><td><b>KCMO PLANT program page</b></td>
+      <td>The three funding tiers, the 50 percent upfront structure, the nine-month spend window, the
+      city-limits requirement, the KCCG assessment rule, the award obligations, and the scoring panel</td>
+      <td><span class="pill p-ok">Read in browser</span></td></tr>
+    <tr><td><b>KCMO 2026 announcement</b></td>
+      <td>September 21 close. $200,000 to 26 projects in the prior cycle</td>
+      <td><span class="pill p-ok">Live</span></td></tr>
+    <tr><td><b>KCCG partner gardens brochure</b></td>
+      <td>KC Grow Water Access, Sprout Micro Grants, free site assessment and construction assistance,
+      and Youth Garden as a named partner category</td>
+      <td><span class="pill p-ok">200</span></td></tr>
+    <tr><td><b>KC Water grants coverage</b></td>
+      <td>KC Grow funds water connections, rainwater capture, pumping, and drip irrigation for KCMO
+      gardens</td><td><span class="pill p-ok">Live</span></td></tr>
+    <tr><td><b>Walmart Spark Good guidelines</b></td>
+      <td>$250 to $5,000, paid electronically, cycle 3 runs to November 30</td>
+      <td><span class="pill p-ok">200</span></td></tr>
+    <tr><td><b>SAM entity record</b></td>
+      <td>Registered address confirms the site is inside Kansas City city limits</td>
+      <td><span class="pill p-ok">Live</span></td></tr>
+    <tr><td><b>KCCG KC Grow handout</b></td>
+      <td>Cited as a checked source in the earlier draft</td>
+      <td><span class="pill p-stop">404, replaced</span></td></tr>
+    <tr><td><b>Eastland Giving Circle</b></td>
+      <td>Service area boundary, from search result. Site itself did not respond</td>
+      <td><span class="pill p-open">Confirm by email</span></td></tr>
+  </tbody>
+</table>
+</div>
+
+<h2><span class="n">06</span>What happens next</h2>
+<div class="scroll">
+<table>
+  <thead><tr><th>By</th><th>Action</th><th>Owner</th></tr></thead>
+  <tbody>
+    <tr><td><b>Aug 10</b></td><td>Confirm PLANT award history for this site</td><td>Finance</td></tr>
+    <tr><td><b>Aug 11</b></td><td>Decide on KCCG, and request the site assessment if yes</td><td>Garden lead</td></tr>
+    <tr><td><b>Aug 12</b></td><td>Get second-payment terms in writing from the PLANT coordinator, and
+      register for the August 25 webinar</td><td>Grant lead</td></tr>
+    <tr><td><b>Aug 14</b></td><td>Inventory and photograph the garden, greenhouse, water source, and every defect</td><td>Site lead</td></tr>
+    <tr><td><b>Aug 17</b></td><td>Facilities water survey, name the produce recipient, and start the
+      two-week watering baseline</td><td>Facilities, program, operations</td></tr>
+    <tr><td><b>Aug 24</b></td><td>Two complete irrigation quotes in hand</td><td>Procurement</td></tr>
+    <tr><td><b>Sep 4</b></td><td>Narrative finalized against measured figures</td><td>Program and grant leads</td></tr>
+    <tr><td><b>Sep 14</b></td><td>Leadership, finance, and legal review complete</td><td>Exec sponsor</td></tr>
+    <tr><td><b>Sep 18</b></td><td>Submit, leaving a three-day correction window</td><td>Authorized signer</td></tr>
+  </tbody>
+</table>
+</div>
+
+<footer>
+  KVC Niles Year Four Irrigation Grant Package &nbsp;·&nbsp; Workbook and this summary prepared
+  August 6, 2026 &nbsp;·&nbsp; Program rules read from the City of Kansas City PLANT page the same day.
+  Re-verify every deadline before submitting.
+</footer>
+
+</div>
+</body>
+</html>
