@@ -1,0 +1,298 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>IHOP Prophetic History — Local Corpus vs Online Breakdowns</title>
+<style>
+:root{
+  --cream:#F4EFE2; --ink:#16130E; --rule:#D8CDB4;
+  --mustard:#E3A81E; --rust:#C1572B; --teal:#3E7C77;
+  --plum:#7A4A62; --olive:#7C7A3C; --sky:#8FB3C4;
+  --paper:#FBF7EC;
+}
+*{box-sizing:border-box}
+body{margin:0;background:var(--cream);color:var(--ink);
+  font:16px/1.62 "Iowan Old Style","Palatino Linotype",Georgia,serif;}
+.wrap{max-width:1080px;margin:0 auto;padding:38px 22px 90px}
+h1{font-size:2.05rem;line-height:1.16;margin:0 0 6px;letter-spacing:-.01em}
+.sub{color:#5C5445;font-size:1.02rem;margin:0 0 4px}
+.stamp{font:12px/1.5 ui-monospace,Menlo,monospace;color:#7A7161;margin:10px 0 30px}
+h2{font-size:1.32rem;margin:44px 0 12px;padding-bottom:7px;border-bottom:2px solid var(--rule)}
+h3{font-size:1.06rem;margin:26px 0 8px}
+a{color:#0F5C63}
+.toc{background:var(--paper);border:1px solid var(--rule);border-left:6px solid var(--mustard);
+  border-radius:6px;padding:16px 20px;margin:0 0 30px}
+.toc ol{margin:8px 0 0;padding-left:20px;columns:2;column-gap:30px}
+.toc li{margin:4px 0;break-inside:avoid}
+.cards{display:grid;grid-template-columns:repeat(auto-fit,minmax(168px,1fr));gap:12px;margin:20px 0 6px}
+.card{background:var(--paper);border:1px solid var(--rule);border-radius:6px;padding:13px 14px}
+.card .n{font-size:1.72rem;font-weight:700;line-height:1.05;display:block}
+.card .l{font-size:.79rem;text-transform:uppercase;letter-spacing:.07em;color:#6B6354;margin-top:3px}
+.c-mustard{border-top:5px solid var(--mustard)} .c-rust{border-top:5px solid var(--rust)}
+.c-teal{border-top:5px solid var(--teal)} .c-plum{border-top:5px solid var(--plum)}
+.c-olive{border-top:5px solid var(--olive)} .c-sky{border-top:5px solid var(--sky)}
+.scroll{overflow-x:auto;border:1px solid var(--rule);border-radius:6px;background:var(--paper);margin:14px 0}
+table{border-collapse:collapse;width:100%;min-width:720px;font-size:.9rem}
+th{background:#EDE4CE;text-align:left;padding:9px 11px;border-bottom:2px solid var(--rule);
+  font-size:.76rem;text-transform:uppercase;letter-spacing:.06em}
+td{padding:8px 11px;border-bottom:1px solid #E7DEC8;vertical-align:top}
+tr:last-child td{border-bottom:none}
+.yes{color:#2F6B45;font-weight:700} .no{color:#B03A26;font-weight:700}
+.part{color:#96701A;font-weight:700}
+code,.mono{font:12.5px/1.5 ui-monospace,Menlo,monospace;background:#EDE4CE;
+  padding:1.5px 5px;border-radius:3px;word-break:break-all}
+.box{border:1px solid var(--rule);border-left:6px solid var(--teal);background:var(--paper);
+  border-radius:6px;padding:15px 18px;margin:16px 0}
+.box.warn{border-left-color:var(--rust)} .box.gap{border-left-color:var(--mustard)}
+.box.win{border-left-color:var(--olive)}
+.box h4{margin:0 0 7px;font-size:1rem}
+blockquote{margin:11px 0;padding:9px 15px;border-left:3px solid var(--sky);
+  background:#F1EADA;font-style:italic;font-size:.93rem}
+.tag{display:inline-block;font-size:.7rem;text-transform:uppercase;letter-spacing:.07em;
+  padding:2px 8px;border-radius:11px;background:#EDE4CE;color:#5C5445;margin-right:5px}
+ul{padding-left:20px} li{margin:5px 0}
+.foot{margin-top:52px;padding-top:16px;border-top:2px solid var(--rule);font-size:.86rem;color:#6B6354}
+@media(max-width:640px){.toc ol{columns:1}}
+</style>
+</head>
+<body>
+<div class="wrap">
+
+<h1>IHOP Prophetic History</h1>
+<p class="sub">Every transcript and note on this Mac, cross-referenced against the published online breakdowns.</p>
+<p class="stamp">Built 2026-08-07 · Local sweep: Spotlight + directory walk · Online: mikebickle.org, ihopnetwork.com, archive.org, banner.org.uk, TGC, Christianity Today</p>
+
+<div class="toc">
+  <strong>Contents</strong>
+  <ol>
+    <li><a href="#count">What is on the Mac</a></li>
+    <li><a href="#three">Three tellings of one history</a></li>
+    <li><a href="#matrix">2019 series: session-by-session</a></li>
+    <li><a href="#gap">The real gap: audio without transcripts</a></li>
+    <li><a href="#conflict">Where local and online disagree</a></li>
+    <li><a href="#online">Online breakdowns, mapped</a></li>
+    <li><a href="#critical">The critical and personal notes</a></li>
+    <li><a href="#next">What to do next</a></li>
+  </ol>
+</div>
+
+<h2 id="count">1. What is on the Mac</h2>
+<p>The material is <strong>not scattered</strong>. It sits in one large scraped library plus three secondary caches.</p>
+
+<div class="cards">
+  <div class="card c-mustard"><span class="n">420</span><span class="l">Transcripts (.txt)</span></div>
+  <div class="card c-rust"><span class="n">181</span><span class="l">Audio (.mp3)</span></div>
+  <div class="card c-teal"><span class="n">120</span><span class="l">PDFs</span></div>
+  <div class="card c-plum"><span class="n">8</span><span class="l">2009 IPH session PDFs</span></div>
+  <div class="card c-olive"><span class="n">4</span><span class="l">1988 Bob Jones tapes</span></div>
+  <div class="card c-sky"><span class="n">~30</span><span class="l">Personal / critical notes</span></div>
+</div>
+
+<h3>The four locations</h3>
+<div class="scroll">
+<table>
+<tr><th>What</th><th>Path</th><th>Contents</th></tr>
+<tr>
+  <td><strong>Main library</strong><br><span class="tag">primary</span></td>
+  <td><code>~/New Desktop/_Archive/IHOP/mikebickle-full-library/org-pull/</code></td>
+  <td>Full mikebickle.org pull. 420 transcripts, 181 audio, 120 PDFs. Also carries <code>by-series/11_Prophetic-History/</code> and build reports.</td>
+</tr>
+<tr>
+  <td><strong>2009 IPH set</strong><br><span class="tag">older telling</span></td>
+  <td><code>~/Older Downloads HUGE/…/House of prayer/My Library/Transcripts/</code></td>
+  <td>8 session PDFs coded IPH01 through IPH08, the 2009 teaching of the same history.</td>
+</tr>
+<tr>
+  <td><strong>1988 tapes</strong><br><span class="tag">earliest</span></td>
+  <td><code>…/My Library/Other Items/VisionsAndRevelations-MikeBickleWithBobJones1988/</code></td>
+  <td>4 mp3 files. Bickle and Bob Jones in conversation, before the 24/7 model existed.</td>
+</tr>
+<tr>
+  <td><strong>Search indexes</strong><br><span class="tag">built</span></td>
+  <td><code>~/New Desktop/bickle-ihop-index/</code> · <code>ihop-only-index/</code> · <code>ihopu-teachers-index/</code></td>
+  <td>33 MB, 41 MB, 15 MB of pre-built <code>docs.json</code>. Already searchable without re-scraping.</td>
+</tr>
+</table>
+</div>
+
+<h2 id="three">2. Three tellings of one history</h2>
+<p>Bickle taught this history at least three separate times. The tellings <strong>are not interchangeable</strong>, and knowing which one a file belongs to is what makes the corpus usable.</p>
+
+<div class="scroll">
+<table>
+<tr><th>Telling</th><th>Year</th><th>Sessions</th><th>On this Mac</th><th>Note</th></tr>
+<tr>
+  <td><strong>Visions and Revelations</strong></td><td>1988</td><td>4</td>
+  <td><span class="part">Audio only, all 4</span></td>
+  <td>Ministry was called Friends of the Bridegroom. Online host has transcripts, this Mac does not.</td>
+</tr>
+<tr>
+  <td><strong>IPH series</strong></td><td>2009 (IPH02 re-recorded 2011)</td><td>8</td>
+  <td><span class="yes">All 8 as PDF</span></td>
+  <td>The most complete written telling held locally.</td>
+</tr>
+<tr>
+  <td><strong>IHOPKC Prophetic History</strong></td><td>2019</td><td>11</td>
+  <td><span class="no">1 transcript of 11</span></td>
+  <td>The current canonical series. Audio and PDF largely present, text largely absent.</td>
+</tr>
+</table>
+</div>
+
+<div class="box win">
+<h4>The 2019 and 2009 series map onto each other</h4>
+<p>Eight of the eleven 2019 sessions retell a 2009 IPH session under a new title. <strong>The content is recoverable even where the 2019 transcript is missing.</strong> Session 3 of 2019 is IPH01, session 4 is IPH02, session 5 is IPH03, session 6 is IPH05, session 7 is IPH06, session 8 is IPH08, session 9 is IPH04, session 10 is IPH07.</p>
+</div>
+
+<h2 id="matrix">3. 2019 series: session-by-session</h2>
+<p>Canonical list taken from the mikebickle.org series page. Local presence verified by distinctive-token match against filenames in the three <code>org-pull</code> folders.</p>
+
+<div class="scroll">
+<table>
+<tr><th>#</th><th>Session title (online)</th><th>Date</th><th>Transcript</th><th>Audio</th><th>PDF</th><th>2009 twin</th></tr>
+<tr><td>01</td><td>Intro to Bob Jones, Paul Cain and End Time Revival</td><td>Aug 23 2019</td><td class="no">no</td><td class="yes">yes</td><td class="no">no</td><td>none</td></tr>
+<tr><td>02</td><td>Great Change and Revival Are Coming to the Church</td><td>Aug 24 2019</td><td class="no">no</td><td class="yes">yes</td><td class="yes">yes</td><td>none</td></tr>
+<tr><td>03</td><td>The Early Days and the Solemn Assembly in May 1983</td><td>Aug 30 2019</td><td class="no">no</td><td class="no">no</td><td class="no">no</td><td class="yes">IPH01</td></tr>
+<tr><td>04</td><td>A Procession to the Stadium, Chariots and the Sands of Time</td><td>Aug 31 2019</td><td class="no">no</td><td class="yes">yes</td><td class="yes">yes</td><td class="yes">IPH02</td></tr>
+<tr><td>05</td><td>Healing Anointing, Jehovah Rapha and Other Visions</td><td>Sep 6 2019</td><td class="no">no</td><td class="yes">yes</td><td class="yes">yes</td><td class="yes">IPH03</td></tr>
+<tr><td>06</td><td>Powerful Preaching, the Spirit of Prayer and the Harvest</td><td>Sep 7 2019</td><td class="no">no</td><td class="yes">yes</td><td class="yes">yes</td><td class="yes">IPH05</td></tr>
+<tr><td>07</td><td>Hephzibah, God's Beauty and Jesus in Red</td><td>Sep 13 2019</td><td class="no">no</td><td class="yes">yes</td><td class="yes">yes</td><td class="yes">IPH06</td></tr>
+<tr><td>08</td><td>The Blueprint Prophecy and the Black Horse</td><td>Sep 14 2019</td><td class="no">no</td><td class="yes">yes</td><td class="yes">yes</td><td class="yes">IPH08</td></tr>
+<tr><td>09</td><td>Joseph's Dungeon, Zechariah 4 and the Royal</td><td>Sep 15 2019</td><td class="no">no</td><td class="yes">yes</td><td class="yes">yes</td><td class="yes">IPH04</td></tr>
+<tr><td>10</td><td>Financial Miracles and Promises of Economic Blessing</td><td>Sep 15 2019</td><td class="no">no</td><td class="yes">yes</td><td class="yes">yes</td><td class="yes">IPH07</td></tr>
+<tr><td>11</td><td>Sam Storms Interview on IHOPKC Prophetic History</td><td>Nov 8 2019</td><td class="yes">yes ×2</td><td class="no">no</td><td class="no">no</td><td>none</td></tr>
+</table>
+</div>
+<p><strong>Totals out of 11:</strong> transcripts <span class="no">1</span>, audio <span class="yes">9</span>, PDF <span class="part">8</span>, 2009 twin <span class="part">8</span>.</p>
+
+<div class="box warn">
+<h4>A correction worth recording</h4>
+<p>A first pass at this table used loose filename matching and reported <strong>6 of 11 sessions present</strong>. That number was wrong. The matcher was scoring on the leading digits and on common words, so <code>04 Three Prophetic Time Frames in the End Times</code> was accepted as session 4, <em>A Procession to the Stadium</em>. Rerunning on distinctive tokens (stadium, hephzibah, blueprint, dungeon, rapha) gave the real figure of <strong>1 transcript</strong>. The table above is the corrected pass.</p>
+</div>
+
+<h2 id="gap">4. The real gap: audio without transcripts</h2>
+<p>The corpus is <strong>not missing the 2019 series</strong>. It is missing the text of it. Nine of eleven sessions are here as audio, eight as PDF, and only one as a searchable transcript.</p>
+
+<div class="box gap">
+<h4>Closeable with tools already installed</h4>
+<ul>
+<li><strong>Ten 2019 transcripts</strong> can be produced from the local mp3 files with <code>/file-getter</code>, which runs faster-whisper locally at no API cost.</li>
+<li><strong>Four 1988 transcripts</strong> already exist online at ihopnetwork.com in three formats, image PDF, OCR PDF, and plain text. Downloading beats re-transcribing.</li>
+<li><strong>Session 3</strong> of 2019 is the only one absent in every local format. The 2009 twin IPH01 covers the same ground.</li>
+</ul>
+</div>
+
+<h3>Master narrative files already in text</h3>
+<p>Separate from the numbered series, the library holds standalone tellings that are already searchable:</p>
+<ul>
+<li><code>IHOPKC_s Prophetic History__7wk5hw5.txt</code> — 60,292 characters, a single-sitting version of the whole account</li>
+<li><code>Why 1983-1984 and 1997-1998 Are Significant to Our Prophetic Destiny</code> — 2 copies</li>
+<li><code>Who are the Kansas City prophets___mrr7gmj.txt</code></li>
+<li><code>IHOPKC 19 Year Anniversary: Call to Sacred Trust with Prophetic History</code> — 3 copies</li>
+<li><code>Prophetic Stories and 19th Anniversary</code> — 4 copies, plus <code>Prophetic Stories__qfrx27f.txt</code></li>
+<li><code>February 2019 All Staff Meeting Message Paul Cain</code> — 2 copies</li>
+<li><code>Why I Believe May 2023 is Historic (4 Saturdays in May 1983)</code> — 4 copies</li>
+<li><code>Why I Believe Human History Shifted in May 2023</code> — 4 copies</li>
+</ul>
+
+<h2 id="conflict">5. Where local and online disagree</h2>
+<p>This is the payoff of the cross-reference. The <strong>1983 drought sign</strong> is the load-bearing miracle of the whole prophetic history, and the local telling and the published critiques do not describe the same weather.</p>
+
+<h3>What the local transcript says</h3>
+<p>From <code>IHOPKC_s Prophetic History__7wk5hw5.txt</code>, Bickle recounting Bob Jones speaking on May 28, 1983:</p>
+<blockquote>"there's a drought coming to this city. It'll be three months. And the drought is, is July 1st to October 1st."</blockquote>
+<p>He describes it as <strong>"the second worst drought on record"</strong> and reports the promised sign of rain arriving on August 23.</p>
+
+<h3>The revision sits inside the local file itself</h3>
+<p>The same passage carries an explicit adjustment of the start date:</p>
+<blockquote>"I think that day the drought started in June 1st, but when we looked at all the records, it was July 1st, October 1st."</blockquote>
+
+<div class="box warn">
+<h4>Why that adjustment matters</h4>
+<p>The published critique attacks precisely the earlier window. Meteorological records cited in the Gruen material and in the Gospel Coalition assessment show <strong>above-average rainfall for June 1983 and average rainfall for July 1983</strong>, which contradicts a drought beginning June 1.</p>
+<p>The local 2019-era telling places the drought at <strong>July 1 to October 1</strong>, moving the window past the month the records contradict. Both the original claim and the revision are preserved in the same local file, so the shift is documentable from Brandon's own corpus rather than only from critics.</p>
+</div>
+
+<h3>What the local Sam Storms interview concedes</h3>
+<p>The one 2019 transcript held locally is the outside-voice session. It names the Arrowhead Stadium prophecy as the thing critics press hardest on, and it grants that Bickle <strong>"made mistakes like all of us do."</strong> It frames its own purpose as answering critics, which makes it the natural hinge between the internal telling and the external record.</p>
+
+<h2 id="online">6. Online breakdowns, mapped</h2>
+
+<h3>Primary sources, the movement's own</h3>
+<ul>
+<li><a href="https://mikebickle.org/media/series/bythjgw/ihopkc-prophetic-history-2019">IHOPKC Prophetic History (2019)</a> — the canonical 11-session list used for the table above</li>
+<li><a href="https://mikebickle.org/media/7wk5hw5/ihopkc-s-prophetic-history">IHOPKC's Prophetic History</a> — the single-session version, matching the local <code>7wk5hw5</code> file</li>
+<li><a href="https://ihopnetwork.com/ihop-kc-prophetic-history-1988-version/">IHOP-KC Prophetic History, 1988 version</a> — 4 sessions with transcripts, the direct fill for the local audio-only gap</li>
+<li><a href="https://store.ihopkc.org/products/ihopkcsprophetichistory">IHOPKC store listing</a></li>
+</ul>
+
+<h3>Contemporary critical documentation</h3>
+<ul>
+<li><a href="https://archive.org/details/DoWeKeepSmilingAndSayNothing-GruenRpt-AbberantPracticesKcp">Ernie Gruen, "Do We Keep Smiling and Say Nothing" (1990)</a> — the sermon of January 21 1990 plus the compiled documentation, reported as a 130-page transcription set and a 233-page circulated document</li>
+<li><a href="https://banner.org.uk/kcp/kcp-revisited.html">Personal Freedom Outreach report (1991)</a></li>
+<li><a href="https://banner.org.uk/kcp/kcp-roots.html">Tricia Tillin, "Kansas City Prophets: The Roots of the Revival"</a></li>
+<li><a href="https://notunlikelee.wordpress.com/2011/10/03/did-ernie-gruen-recant-his-aberrant-practices-document-regarding-kansas-city-fellowshipgrace-ministries/">CrossWise, on whether Gruen recanted</a> — matters because the recantation claim is used to retire the whole document</li>
+</ul>
+
+<h3>Scholarly and journalistic assessment</h3>
+<ul>
+<li><a href="https://www.thegospelcoalition.org/themelios/article/the-kansas-city-prophets-an-assessment/">The Gospel Coalition, Themelios, "The Kansas City prophets: an assessment"</a> — carries the rainfall-record challenge</li>
+<li><a href="https://william-branham.org/research/bob_jones">"Bob Jones and the Kansas City Prophets: The Blueprint Behind IHOPKC"</a> — traces the March 1983 Jones-Bickle meeting and the 21-day Solemn Assembly beginning May 7 1983</li>
+<li><a href="https://www.thepitchkc.com/return-of-the-prophets/">The Pitch KC, "Return of the Prophets"</a></li>
+</ul>
+
+<h3>The 2023 and 2024 reckoning</h3>
+<ul>
+<li><a href="https://www.christianitytoday.com/2023/10/mike-bickle-ihopkc-intl-house-of-prayer-abuse-allegations/">Christianity Today on the independent investigation</a> — reports 17 people abused and a finding that prophetic words were used to justify the conduct</li>
+<li><a href="https://www.christianitytoday.com/2023/12/mike-bickle-ihopkc-cuts-ties-inappropriate-behavior-greaves/">Christianity Today, IHOPKC cuts ties</a></li>
+<li><a href="https://ihopkc.org/press-releases/press-center/press-releases/mike-bickle-independent-investigation-report-released">IHOPKC press release on the investigation report</a></li>
+<li><a href="https://www.premierchristianity.com/news-analysis/explained-who-is-mike-bickle-and-what-are-the-allegations-against-him/17035.article">Premier Christianity explainer</a></li>
+<li><a href="https://baptistnews.com/article/what-is-ihopkc-who-is-mike-bickle-and-what-do-i-need-to-know/">Baptist News Global primer</a></li>
+</ul>
+
+<div class="box">
+<h4>The through-line between 1990 and 2023</h4>
+<p>The Gruen material and the 2023 investigation land on the <strong>same mechanism</strong>, which is prophetic authority used to place a claim beyond examination. That is the axis to organize any writing against, since it connects the founding history to the collapse without needing either one to explain the other.</p>
+</div>
+
+<h2 id="critical">7. The critical and personal notes</h2>
+<p>Separate from the scraped library, roughly <strong>30 personal files</strong> sit in iCloud TextEdit and Documents, dated 2023 and 2024. These are the notes, not the sermons.</p>
+
+<div class="scroll">
+<table>
+<tr><th>File</th><th>Size</th><th>Date</th></tr>
+<tr><td><code>Cult BOok 1.rtf</code></td><td>178 KB</td><td>Mar 2024</td></tr>
+<tr><td><code>Cult book 2.rtf</code></td><td>128 KB</td><td>Mar 2024</td></tr>
+<tr><td><code>I had friends who completed IHOP internships, w.rtf</code></td><td>72 KB</td><td>Feb 2024</td></tr>
+<tr><td><code>dayne ihop.rtf</code></td><td>63 KB</td><td>Jun 2024</td></tr>
+<tr><td><code>IHOPKC1thng / IHOPKC2 / IHOPKC4 / IHOPKC5 / IHOPKCe1 .rtf</code></td><td>9 to 19 KB each</td><td>Jun 2024</td></tr>
+<tr><td><code>This prophetic manipulation method,.rtf</code></td><td>17 KB</td><td>Jun 2024</td></tr>
+<tr><td><code>Mike Bickle and Bob Jones were prophesying.rtf</code></td><td>9 KB</td><td>Jun 2024</td></tr>
+<tr><td><code>Was Mike Bickle a Cult leader? .rtf</code></td><td>6.5 KB</td><td>Jun 2024</td></tr>
+<tr><td><code>Against the backdrop of former IHOP staff…rtf</code></td><td>9 KB</td><td>Jan 2024</td></tr>
+<tr><td><code>Bickle Taken Out by Hood and Roberts.pages</code></td><td>362 KB</td><td>Jan 2024</td></tr>
+<tr><td><code>Updates and a message to Dwayne Roberts.rtf</code></td><td>888 B</td><td>Jul 2024</td></tr>
+</table>
+</div>
+<p class="mono">Folder: ~/Library/Mobile Documents/com~apple~TextEdit/Documents/ and ~/Documents/</p>
+
+<p>A book project already draws on this seam. <code>~/New Desktop/older-than-therapy/</code> carries <code>_bickle_ihop_ch1_support.csv</code> and <code>_merge/ihop_theme_hits.txt</code>, which means <strong>chapter-one support material is already extracted</strong> and does not need rebuilding.</p>
+
+<h2 id="next">8. What to do next</h2>
+<ol>
+<li><strong>Transcribe the ten 2019 mp3 files</strong> with <code>/file-getter</code>. This is the single largest gain, and it costs nothing but local compute.</li>
+<li><strong>Download the four 1988 transcripts</strong> from ihopnetwork.com rather than transcribing the local audio, since a text version already exists.</li>
+<li><strong>Extract text from the eight 2009 IPH PDFs.</strong> <code>pdftotext</code> is absent on this machine, so the extraction needs a Python PDF reader or an install first.</li>
+<li><strong>Build one timeline file</strong> keyed on the contested dates, March 1983, May 7 1983, May 28 1983, August 23 1983, with the local telling and the published record set side by side per date.</li>
+<li><strong>Fix the semantic index.</strong> The ollama embed server timed out during this session and returned zero results, so <code>/ask</code> could not reach the corpus. Everything above came from Spotlight and directory walks.</li>
+</ol>
+
+<div class="foot">
+<p><strong>Method.</strong> Local inventory from <code>mdfind</code> plus directory listing, counted directly from the filesystem. Session presence tested by requiring distinctive tokens in filenames, after a looser first pass produced false matches. Online session list read from the mikebickle.org series page. Quoted lines come from Brandon's local transcript files and are reproduced as short excerpts for comparison.</p>
+<p><strong>Not verified.</strong> Page counts for the Gruen documents are as reported in the secondary sources listed, not from the archive.org scan itself. Audio and PDF presence was tested by filename, not by opening each file.</p>
+</div>
+
+</div>
+</body>
+</html>
