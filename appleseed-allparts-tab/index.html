@@ -1,0 +1,168 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Appleseed Cast, Mare Mortis, all four parts in one tab</title>
+<style>
+  :root{
+    --cream:#F4EDE4; --ink:#141210; --rule:#D8CBB9;
+    --mustard:#E3B23C; --rust:#C25E3A; --teal:#4A7C7E; --pink:#D98E8E; --navy:#2E4057;
+  }
+  *{box-sizing:border-box}
+  body{margin:0;background:var(--cream);color:var(--ink);
+       font:16px/1.6 "Iowan Old Style","Palatino Linotype",Palatino,Georgia,serif;}
+  .wrap{max-width:960px;margin:0 auto;padding:36px 22px 80px}
+  header{border-bottom:3px double var(--ink);padding-bottom:18px;margin-bottom:30px}
+  h1{font-size:clamp(26px,4.4vw,42px);line-height:1.12;margin:0 0 8px;letter-spacing:-.4px}
+  .kicker{font:600 12px/1.4 ui-sans-serif,system-ui,sans-serif;letter-spacing:.18em;
+          text-transform:uppercase;color:var(--rust)}
+  .sub{margin:10px 0 0;font-size:17px}
+  h2{font-size:22px;margin:38px 0 12px;padding-left:12px;border-left:6px solid var(--teal)}
+  h2.a{border-left-color:var(--rust)} h2.b{border-left-color:var(--mustard)}
+  h2.c{border-left-color:var(--navy)} h2.d{border-left-color:var(--pink)}
+  b,strong{background:linear-gradient(transparent 62%,rgba(227,178,60,.55) 62%)}
+  .card{background:#FBF7F1;border:1px solid var(--rule);border-radius:6px;padding:16px 18px;margin:14px 0}
+  .bad{border-left:6px solid var(--rust)} .good{border-left:6px solid var(--teal)}
+  .tablewrap{overflow-x:auto;margin:14px 0}
+  table{border-collapse:collapse;width:100%;font-size:15px;background:#FBF7F1}
+  th,td{border:1px solid var(--rule);padding:8px 10px;text-align:left}
+  th{background:#EFE6D8;font:600 13px/1.3 ui-sans-serif,system-ui,sans-serif;
+     letter-spacing:.04em;text-transform:uppercase}
+  td.num{text-align:right;font-variant-numeric:tabular-nums}
+  .ok{color:#1F6F52;font-weight:700} .no{color:var(--rust);font-weight:700}
+  code{background:#EFE6D8;padding:1px 5px;border-radius:3px;
+       font:13px/1.5 ui-monospace,SFMono-Regular,Menlo,monospace}
+  .dl{display:inline-block;margin:8px 10px 8px 0;padding:12px 20px;background:var(--navy);
+      color:var(--cream);text-decoration:none;border-radius:4px;
+      font:600 15px/1 ui-sans-serif,system-ui,sans-serif}
+  .dl.alt{background:var(--teal)}
+  ul{padding-left:22px} li{margin:6px 0}
+  footer{margin-top:56px;padding-top:16px;border-top:1px solid var(--rule);font-size:13px;color:#6A6055}
+  @media(max-width:600px){.wrap{padding:22px 14px 60px}}
+</style>
+</head>
+<body>
+<div class="wrap">
+
+<header>
+  <div class="kicker">The Appleseed Cast &middot; Mare Vitalis &middot; track 4</div>
+  <h1>Mare Mortis, all four parts in one tab</h1>
+  <p class="sub">Lead Guitar, Rhythm Guitar, Bass and Drums in a single <code>.gp5</code>,
+  built 2026-08-07. Every previous Appleseed Cast file shipped with <b>one track</b>.</p>
+</header>
+
+<h2 class="a">What was actually wrong</h2>
+
+<div class="card bad">
+<p>Twenty Appleseed Cast <code>.gp5</code> files were built from the DrumSep 5-piece splits and
+they are good drum transcriptions. <b>Every one of them contains exactly one track, Drums.</b>
+Read straight out of the files with PyGuitarPro:</p>
+<div class="tablewrap">
+<table>
+<thead><tr><th>File</th><th>Tracks</th><th>Track names</th></tr></thead>
+<tbody>
+<tr><td>04-Mare-Mortis-NOPHANTOM.gp5</td><td class="num">1</td><td>Drums</td></tr>
+<tr><td>02-Fishing-the-Sky.gp5</td><td class="num">1</td><td>Drums</td></tr>
+<tr><td>03-Forever-Longing-the-Golden-Sunsets.gp5</td><td class="num">1</td><td>Drums</td></tr>
+<tr><td>05-Santa-Maria.gp5</td><td class="num">1</td><td>Drums</td></tr>
+<tr><td>04.-Cathedral-Rings-NOPHANTOM.gp5</td><td class="num">1</td><td>Drums</td></tr>
+<tr><td>05.-30-Degrees-3-Am.gp5</td><td class="num">1</td><td>Drums</td></tr>
+</tbody>
+</table>
+</div>
+<p>Uploading a one-track file as a revision to an existing Songsterr tab is what removed the
+guitars and bass from the page. The four saved part files under
+<code>_outputs/songsterr-lost-tracks/</code> are those displaced parts:
+<b>Lead Guitar, Rhythm Guitar, Bass, Drums</b>.</p>
+</div>
+
+<h2 class="b">The tempo that did not survive checking</h2>
+
+<p>The drum build and the human tab disagreed on tempo, so the audio settled it.
+The drum stem <code>04 Mare Mortis-drums.wav</code> is <b>208.6 seconds</b> long.</p>
+
+<div class="tablewrap">
+<table>
+<thead><tr><th>Source</th><th>Tempo</th><th>Bars</th><th>Implied length</th><th>Error vs 208.6 s</th></tr></thead>
+<tbody>
+<tr><td>Songsterr human tab</td><td class="num">125</td><td class="num">111</td><td class="num">213.1 s</td><td class="num ok">+2.2%</td></tr>
+<tr><td>Our stem build</td><td class="num">136</td><td class="num">114</td><td class="num">201.2 s</td><td class="num no">&minus;3.5%</td></tr>
+</tbody>
+</table>
+</div>
+
+<div class="card bad">
+<p>The build's own confidence record says the same thing. <code>04-Mare-Mortis.tempo.json</code>
+reports <code>subsets_agreeing: 0</code> out of 2, <code>phase_error: 0.237</code> and
+<code>backbeat: 0.229</code> against a <code>random_baseline</code> of <code>0.25</code>.
+<b>The backbeat score sat below chance, so 136 BPM was never a confident reading.</b></p>
+</div>
+
+<p>The drums were re-detected from the same DrumSep 5-piece split on the
+<b>125 BPM grid</b>, which puts both halves of the file on one clock.</p>
+
+<h2 class="c">What the merged file contains</h2>
+
+<p>Songsterr's pitched parts were converted from its own notation JSON into Guitar Pro tracks
+and joined to the re-detected drums. Note counts were compared against both sources
+after writing and re-reading the file.</p>
+
+<div class="tablewrap">
+<table>
+<thead><tr><th>Track</th><th>Instrument</th><th>Strings</th><th>Bars</th><th>Source notes</th><th>Written</th><th>Result</th></tr></thead>
+<tbody>
+<tr><td>1 Lead Guitar</td><td>Electric Guitar (clean)</td><td class="num">6</td><td class="num">111</td><td class="num">500</td><td class="num">500</td><td class="ok">match</td></tr>
+<tr><td>2 Rhythm Guitar</td><td>Electric Guitar (clean)</td><td class="num">6</td><td class="num">111</td><td class="num">1737</td><td class="num">1737</td><td class="ok">match</td></tr>
+<tr><td>3 Bass</td><td>Electric Bass (pick)</td><td class="num">4</td><td class="num">111</td><td class="num">768</td><td class="num">768</td><td class="ok">match</td></tr>
+<tr><td>4 Drums (stem-built)</td><td>Percussion</td><td class="num">7</td><td class="num">111</td><td class="num">1963 raw</td><td class="num">1777</td><td class="ok">gated</td></tr>
+</tbody>
+</table>
+</div>
+
+<p>Guitar tuning is <b>Drop D</b>, <code>[64, 59, 55, 50, 45, 38]</code>. Bass is
+<code>[43, 38, 33, 26]</code>. Both were carried over from the Songsterr parts rather than assumed.
+The drum figure of 1777 is the ledger of 1963 minus 186 removals the writer accounts for by name,
+so the shortfall is explained rather than lost.</p>
+
+<div class="card good">
+<p><b>The drum render gate passed 20 of 20.</b> One fixed staff slot per drum family, kick never
+sharing with the side stick, ride written as GM 51, 189 of 189 ghosts carrying the staccato dot,
+169 of 169 accents surviving, 19 of 19 flams surviving as legal grace durations, and the total
+note count matching the ledger at 1777.</p>
+</div>
+
+<h2 class="d">Download</h2>
+<p>
+<a class="dl" href="Appleseed-Cast-Mare-Mortis-ALLPARTS.gp5" download>Mare Mortis, all 4 parts (.gp5)</a>
+<a class="dl alt" href="https://www.songsterr.com/a/wsa/appleseed-cast-mare-mortis-tab-s1661" target="_blank" rel="noopener">The Songsterr tab</a>
+</p>
+
+<h2>The one thing this page cannot prove</h2>
+<div class="card bad">
+<p>Note counts and the render gate are read out of the file. <b>Whether the drums line up by ear
+against the recording is a listening check, not a file check.</b> Both halves now share the
+125 BPM grid and bar 1 is the start of the audio for both, so they should track. The confirmation
+is loading it in the Songsterr editor with the audio attached and watching the playhead.</p>
+</div>
+
+<h2>Still to build</h2>
+<ul>
+<li><b>Simple Forms</b> has its four Songsterr parts already saved under
+<code>_outputs/songsterr-merge/simple-forms/</code>, so it is the next one and needs no new fetch.</li>
+<li>The other eighteen Appleseed Cast songs have drums built but <b>no pitched parts saved locally</b>.
+Each needs its Songsterr notation JSON pulled before it can be merged.</li>
+<li>Songs whose Songsterr tempo differs from the drum build need the drums re-detected on the
+tab's grid first, the same correction Mare Mortis needed.</li>
+</ul>
+
+<footer>
+Built 2026-08-07 from <code>~/Projects/_outputs/appleseed-allparts/</code>.
+Merge tool: <code>merge_allparts.py</code>. Drum detection:
+<code>stems-to-guitar-pro-drums</code> at 125 BPM. Pitched parts: Songsterr notation JSON,
+human transcription. Every number on this page was read from a file, not from a build log.
+</footer>
+
+</div>
+</body>
+</html>
