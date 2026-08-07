@@ -72,7 +72,7 @@ footer { margin-top:44px; border-top:1px solid var(--rule); padding-top:14px;
 </div>
 
 <h2>Jump to a song</h2>
-<ul class="toc"><li><a href='#s01'>01 Seedy Shade</a><span class='tocbadge mute'>NO UPGRADE SOURCE</span></li><li><a href='#s02'>02 Flake of the Year</a><span class='tocbadge warn'>UPGRADE READY</span></li><li><a href='#s03'>03 Gene</a><span class='tocbadge ok'>SHIPPED</span></li><li><a href='#s04'>04 Six Feet Under</a><span class='tocbadge warn'>UPGRADE READY</span></li><li><a href='#s05'>05 Sleep Vs Death</a><span class='tocbadge warn'>UPGRADE READY</span></li><li><a href='#s07'>07 MOP</a><span class='tocbadge warn'>UPGRADE READY</span></li><li><a href='#s08'>08 JGBFTL</a><span class='tocbadge ok'>LIVE IS BEST</span></li><li><a href='#s09'>09 MHL</a><span class='tocbadge warn'>UPGRADE READY</span></li><li><a href='#s10'>10 Trapped in Wonderland</a><span class='tocbadge ok'>LIVE IS BEST</span></li><li><a href='#s11'>11 Ambulance</a><span class='tocbadge mute'>NO UPGRADE SOURCE</span></li></ul>
+<ul class="toc"><li><a href='#s01'>01 Seedy Shade</a><span class='tocbadge mute'>NO UPGRADE SOURCE</span></li><li><a href='#s02'>02 Flake of the Year</a><span class='tocbadge warn'>BUILT, READY TO IMPORT</span></li><li><a href='#s03'>03 Gene</a><span class='tocbadge ok'>SHIPPED</span></li><li><a href='#s04'>04 Six Feet Under</a><span class='tocbadge warn'>BUILT, READY TO IMPORT</span></li><li><a href='#s05'>05 Sleep Vs Death</a><span class='tocbadge warn'>BUILT, READY TO IMPORT</span></li><li><a href='#s07'>07 MOP</a><span class='tocbadge warn'>BUILT, READY TO IMPORT</span></li><li><a href='#s08'>08 JGBFTL</a><span class='tocbadge ok'>LIVE IS BEST</span></li><li><a href='#s09'>09 MHL</a><span class='tocbadge warn'>BUILT, READY TO IMPORT</span></li><li><a href='#s10'>10 Trapped in Wonderland</a><span class='tocbadge ok'>LIVE IS BEST</span></li><li><a href='#s11'>11 Ambulance</a><span class='tocbadge mute'>NO UPGRADE SOURCE</span></li></ul>
 
 <h2>What changed tonight</h2>
 <div class="callout good">
@@ -85,6 +85,14 @@ footer { margin-top:44px; border-top:1px solid var(--rule); padding-top:14px;
   <b>All 10 tabs are backed up.</b> Every track of every song is saved as Songsterr part
   JSON at <code>_songsterr_live_backup_2026-08-07/</code>. An import can now be undone,
   which was not true before tonight.
+</div>
+<div class="callout">
+  <b>Five more upgrades are built and verified, waiting on one click.</b> 04, 05, 02, 07 and 09
+  each have their guitar track rebuilt from the isolated-stem transcription. Every one passed
+  two gates: a per-track hash diff proving only the guitar changed, and a bar-fill check proving
+  every bar sums exactly to its time signature. The browser import step was blocked by a
+  permission prompt, so the files sit ready in
+  <code>_AUDITION_2026-08-07/UPGRADED_GUITAR_ready_to_import/</code> and open in Guitar Pro now.
 </div>
 <div class="callout warn">
   <b>Two songs were deliberately left alone.</b> 08 JGBFTL and 10 Trapped in Wonderland
@@ -115,7 +123,7 @@ footer { margin-top:44px; border-top:1px solid var(--rule); padding-top:14px;
 <section class="card" id="s02">
   <div class="chead">
     <h3><span class="tracknum">02</span> Flake of the Year</h3>
-    <span class="badge warn">UPGRADE READY</span>
+    <span class="badge warn">BUILT, READY TO IMPORT</span>
   </div>
   <div class="meta">
     <span><b>69</b> bars</span>
@@ -127,7 +135,7 @@ footer { margin-top:44px; border-top:1px solid var(--rule); padding-top:14px;
     <thead><tr><th>track</th><th>instrument</th><th>notes</th><th>frets</th><th>range</th></tr></thead>
     <tbody><tr><td class='tn'>Lead Guitar</td><td class='ti'>Distortion Guitar</td><td class='num'>225</td><td class='num'>1-14</td><td class='num'>C#3-E5</td></tr><tr><td class='tn'>Rhythm Guitar</td><td class='ti'>Overdriven Guitar</td><td class='num'>2948</td><td class='num'>0-16</td><td class='num'>G#2-G#5</td></tr><tr><td class='tn'>-</td><td class='ti'>Electric Bass (finger)</td><td class='num'>338</td><td class='num'>0-10</td><td class='num'>G#1-C3</td></tr><tr><td class='tn'>-</td><td class='ti'>Drums</td><td class='num'>769</td><td class='num'>36-51</td><td class='num'>-</td></tr><tr><td class='tn'>Vocals</td><td class='ti'>Tenor Sax</td><td class='num'>310</td><td class='num'>0-11</td><td class='num'>G#2-B4</td></tr></tbody>
   </table>
-  <p class="note">Isolated-stem Rhythm has 4570 notes against the live 2948.</p>
+  <p class="note">Rhythm rebuilt from the isolated stem, 2948 notes to 4570. File built and verified, waiting on the import step.</p>
   <p><a class='sslink' href='https://www.songsterr.com/a/wsa/shhh-02-flake-of-the-year-tab-s5823892' target='_blank' rel='noopener'>open on Songsterr</a></p>
 </section>
 <section class="card" id="s03">
@@ -145,13 +153,13 @@ footer { margin-top:44px; border-top:1px solid var(--rule); padding-top:14px;
     <thead><tr><th>track</th><th>instrument</th><th>notes</th><th>frets</th><th>range</th></tr></thead>
     <tbody><tr><td class='tn'>Lead Guitar</td><td class='ti'>Overdriven Guitar</td><td class='num'>563</td><td class='num'>4-12</td><td class='num'>A2-E5</td></tr><tr><td class='tn'>Rhythm Guitar</td><td class='ti'>Overdriven Guitar</td><td class='num'>1114</td><td class='num'>0-12</td><td class='num'>E2-E5</td></tr><tr><td class='tn'>-</td><td class='ti'>Electric Bass (finger)</td><td class='num'>716</td><td class='num'>0-12</td><td class='num'>E1-F#3</td></tr><tr><td class='tn'>-</td><td class='ti'>Drums</td><td class='num'>1341</td><td class='num'>36-53</td><td class='num'>-</td></tr><tr><td class='tn'>Vocals</td><td class='ti'>Tenor Sax</td><td class='num'>247</td><td class='num'>0-7</td><td class='num'>E3-B4</td></tr></tbody>
   </table>
-  <p class="note">Lead swapped for the isolated-stem transcription. Live now reaches B5 at fret 19 instead of stopping at E5/fret 12. Revision 8334402.</p>
+  <p class="note">Lead swapped for the isolated-stem transcription and imported. Live now reaches B5 at fret 19 instead of stopping at E5/fret 12. Revision 8334402, verified after the fact from CloudFront.</p>
   <p><a class='sslink' href='https://www.songsterr.com/a/wsa/shhh-03-gene-tab-s5824013' target='_blank' rel='noopener'>open on Songsterr</a></p>
 </section>
 <section class="card" id="s04">
   <div class="chead">
     <h3><span class="tracknum">04</span> Six Feet Under</h3>
-    <span class="badge warn">UPGRADE READY</span>
+    <span class="badge warn">BUILT, READY TO IMPORT</span>
   </div>
   <div class="meta">
     <span><b>140</b> bars</span>
@@ -163,13 +171,13 @@ footer { margin-top:44px; border-top:1px solid var(--rule); padding-top:14px;
     <thead><tr><th>track</th><th>instrument</th><th>notes</th><th>frets</th><th>range</th></tr></thead>
     <tbody><tr><td class='tn'>Lead Guitar</td><td class='ti'>Electric Guitar (clean)</td><td class='num'>247</td><td class='num'>0-5</td><td class='num'>E2-G4</td></tr><tr><td class='tn'>Rhythm Guitar</td><td class='ti'>Distortion Guitar</td><td class='num'>928</td><td class='num'>0-17</td><td class='num'>E2-D5</td></tr><tr><td class='tn'>-</td><td class='ti'>Electric Bass (finger)</td><td class='num'>398</td><td class='num'>0-10</td><td class='num'>E1-C3</td></tr><tr><td class='tn'>-</td><td class='ti'>Drums</td><td class='num'>1767</td><td class='num'>36-52</td><td class='num'>-</td></tr><tr><td class='tn'>Vocals</td><td class='ti'>Tenor Sax</td><td class='num'>207</td><td class='num'>0-12</td><td class='num'>D3-B4</td></tr></tbody>
   </table>
-  <p class="note">Live Lead is 247 notes stuck at frets 0-5 across 140 bars. The isolated-stem version has 1315 notes. Biggest gap on the record.</p>
+  <p class="note">Live Lead was 247 notes stuck at frets 0-5 across 140 bars. Rebuilt from the isolated stem: 1315 notes, frets 0-9. Biggest gain on the record. File built and both gates green, waiting on the import step.</p>
   <p><a class='sslink' href='https://www.songsterr.com/a/wsa/shhh-04-six-feet-under-tab-s5824781' target='_blank' rel='noopener'>open on Songsterr</a></p>
 </section>
 <section class="card" id="s05">
   <div class="chead">
     <h3><span class="tracknum">05</span> Sleep Vs Death</h3>
-    <span class="badge warn">UPGRADE READY</span>
+    <span class="badge warn">BUILT, READY TO IMPORT</span>
   </div>
   <div class="meta">
     <span><b>103</b> bars</span>
@@ -181,13 +189,13 @@ footer { margin-top:44px; border-top:1px solid var(--rule); padding-top:14px;
     <thead><tr><th>track</th><th>instrument</th><th>notes</th><th>frets</th><th>range</th></tr></thead>
     <tbody><tr><td class='tn'>Lead Guitar</td><td class='ti'>Distortion Guitar</td><td class='num'>147</td><td class='num'>8-12</td><td class='num'>A#3-A4</td></tr><tr><td class='tn'>Rhythm Guitar</td><td class='ti'>Distortion Guitar</td><td class='num'>644</td><td class='num'>0-12</td><td class='num'>E2-A#4</td></tr><tr><td class='tn'>-</td><td class='ti'>Electric Bass (finger)</td><td class='num'>270</td><td class='num'>0-8</td><td class='num'>E1-A#2</td></tr><tr><td class='tn'>-</td><td class='ti'>Drums</td><td class='num'>997</td><td class='num'>36-52</td><td class='num'>-</td></tr><tr><td class='tn'>Vocals</td><td class='ti'>Tenor Sax</td><td class='num'>145</td><td class='num'>0-8</td><td class='num'>A3-C5</td></tr></tbody>
   </table>
-  <p class="note">Isolated-stem Rhythm has 1321 notes against the live 644.</p>
+  <p class="note">Rhythm rebuilt from the isolated stem, 644 notes to 1321. File built and verified, waiting on the import step.</p>
   <p><a class='sslink' href='https://www.songsterr.com/a/wsa/shhh-05-sleep-vs-death-tab-s5824801' target='_blank' rel='noopener'>open on Songsterr</a></p>
 </section>
 <section class="card" id="s07">
   <div class="chead">
     <h3><span class="tracknum">07</span> MOP</h3>
-    <span class="badge warn">UPGRADE READY</span>
+    <span class="badge warn">BUILT, READY TO IMPORT</span>
   </div>
   <div class="meta">
     <span><b>91</b> bars</span>
@@ -199,7 +207,7 @@ footer { margin-top:44px; border-top:1px solid var(--rule); padding-top:14px;
     <thead><tr><th>track</th><th>instrument</th><th>notes</th><th>frets</th><th>range</th></tr></thead>
     <tbody><tr><td class='tn'>Rhythm Guitar</td><td class='ti'>Electric Guitar (clean)</td><td class='num'>1491</td><td class='num'>0-9</td><td class='num'>E2-B4</td></tr><tr><td class='tn'>-</td><td class='ti'>Electric Bass (finger)</td><td class='num'>496</td><td class='num'>0-16</td><td class='num'>E1-B3</td></tr><tr><td class='tn'>-</td><td class='ti'>Drums</td><td class='num'>1031</td><td class='num'>36-56</td><td class='num'>-</td></tr><tr><td class='tn'>Vocals</td><td class='ti'>Tenor Sax</td><td class='num'>322</td><td class='num'>0-8</td><td class='num'>E3-B4</td></tr></tbody>
   </table>
-  <p class="note">Isolated-stem Rhythm has 1800 notes against the live 1491.</p>
+  <p class="note">Rhythm rebuilt from the isolated stem, 1491 notes to 1791. Nine chords would not lie under one hand and were left out, counted rather than hidden. File built and verified, waiting on the import step.</p>
   <p><a class='sslink' href='https://www.songsterr.com/a/wsa/shhh-07-mix-02-06-26-tab-s5824812' target='_blank' rel='noopener'>open on Songsterr</a></p>
 </section>
 <section class="card" id="s08">
@@ -223,7 +231,7 @@ footer { margin-top:44px; border-top:1px solid var(--rule); padding-top:14px;
 <section class="card" id="s09">
   <div class="chead">
     <h3><span class="tracknum">09</span> MHL</h3>
-    <span class="badge warn">UPGRADE READY</span>
+    <span class="badge warn">BUILT, READY TO IMPORT</span>
   </div>
   <div class="meta">
     <span><b>101</b> bars</span>
@@ -235,7 +243,7 @@ footer { margin-top:44px; border-top:1px solid var(--rule); padding-top:14px;
     <thead><tr><th>track</th><th>instrument</th><th>notes</th><th>frets</th><th>range</th></tr></thead>
     <tbody><tr><td class='tn'>Lead Guitar</td><td class='ti'>Distortion Guitar</td><td class='num'>370</td><td class='num'>0-19</td><td class='num'>E2-B5</td></tr><tr><td class='tn'>Rhythm Guitar</td><td class='ti'>Distortion Guitar</td><td class='num'>749</td><td class='num'>0-9</td><td class='num'>E2-G#4</td></tr><tr><td class='tn'>-</td><td class='ti'>Electric Bass (pick)</td><td class='num'>96</td><td class='num'>0-14</td><td class='num'>E1-G#3</td></tr><tr><td class='tn'>-</td><td class='ti'>Drums</td><td class='num'>1269</td><td class='num'>36-49</td><td class='num'>-</td></tr><tr><td class='tn'>Vocals</td><td class='ti'>Tenor Sax</td><td class='num'>168</td><td class='num'>0-9</td><td class='num'>A2-B4</td></tr></tbody>
   </table>
-  <p class="note">Isolated-stem Lead has 454 notes against the live 370. Modest.</p>
+  <p class="note">Lead rebuilt from the isolated stem, 370 notes to 454. File built and verified, waiting on the import step.</p>
   <p><a class='sslink' href='https://www.songsterr.com/a/wsa/shhh-09-demo-5-wpiano-tab-s5998523' target='_blank' rel='noopener'>open on Songsterr</a></p>
 </section>
 <section class="card" id="s10">

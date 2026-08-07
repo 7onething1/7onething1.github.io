@@ -5,13 +5,13 @@ All figures read from the live Songsterr tabs and backed up to disk first.
 | # | song | bars | bpm | tracks | guitar status |
 |---|---|---|---|---|---|
 | 01 | Seedy Shade | 147 | 145 | 4 | NO UPGRADE SOURCE |
-| 02 | Flake of the Year | 69 | 84-85 | 5 | UPGRADE READY |
+| 02 | Flake of the Year | 69 | 84-85 | 5 | BUILT, READY TO IMPORT |
 | 03 | Gene | 102 | 89-91 | 5 | SHIPPED |
-| 04 | Six Feet Under | 140 | 150 | 5 | UPGRADE READY |
-| 05 | Sleep Vs Death | 103 | 90-110 | 5 | UPGRADE READY |
-| 07 | MOP | 91 | 126 | 4 | UPGRADE READY |
+| 04 | Six Feet Under | 140 | 150 | 5 | BUILT, READY TO IMPORT |
+| 05 | Sleep Vs Death | 103 | 90-110 | 5 | BUILT, READY TO IMPORT |
+| 07 | MOP | 91 | 126 | 4 | BUILT, READY TO IMPORT |
 | 08 | JGBFTL | 54 | 88 | 4 | LIVE IS BEST |
-| 09 | MHL | 101 | 110-150 | 5 | UPGRADE READY |
+| 09 | MHL | 101 | 110-150 | 5 | BUILT, READY TO IMPORT |
 | 10 | Trapped in Wonderland | 86 | 120 | 4 | LIVE IS BEST |
 | 11 | Ambulance | 164 | 156 | 5 | NO UPGRADE SOURCE |
 
@@ -36,7 +36,7 @@ No isolated-stem guitar transcription was ever made for this one.
 | - | Drums | 769 | 36-51 | - |
 | Vocals | Tenor Sax | 310 | 0-11 | G#2-B4 |
 
-Isolated-stem Rhythm has 4570 notes against the live 2948.
+Rhythm rebuilt from the isolated stem, 2948 notes to 4570. File built and verified, waiting on the import step.
 
 ## 03 Gene
 
@@ -48,7 +48,7 @@ Isolated-stem Rhythm has 4570 notes against the live 2948.
 | - | Drums | 1341 | 36-53 | - |
 | Vocals | Tenor Sax | 247 | 0-7 | E3-B4 |
 
-Lead swapped for the isolated-stem transcription. Live now reaches B5 at fret 19 instead of stopping at E5/fret 12. Revision 8334402.
+Lead swapped for the isolated-stem transcription and imported. Live now reaches B5 at fret 19 instead of stopping at E5/fret 12. Revision 8334402, verified after the fact from CloudFront.
 
 ## 04 Six Feet Under
 
@@ -60,7 +60,7 @@ Lead swapped for the isolated-stem transcription. Live now reaches B5 at fret 19
 | - | Drums | 1767 | 36-52 | - |
 | Vocals | Tenor Sax | 207 | 0-12 | D3-B4 |
 
-Live Lead is 247 notes stuck at frets 0-5 across 140 bars. The isolated-stem version has 1315 notes. Biggest gap on the record.
+Live Lead was 247 notes stuck at frets 0-5 across 140 bars. Rebuilt from the isolated stem: 1315 notes, frets 0-9. Biggest gain on the record. File built and both gates green, waiting on the import step.
 
 ## 05 Sleep Vs Death
 
@@ -72,7 +72,7 @@ Live Lead is 247 notes stuck at frets 0-5 across 140 bars. The isolated-stem ver
 | - | Drums | 997 | 36-52 | - |
 | Vocals | Tenor Sax | 145 | 0-8 | A3-C5 |
 
-Isolated-stem Rhythm has 1321 notes against the live 644.
+Rhythm rebuilt from the isolated stem, 644 notes to 1321. File built and verified, waiting on the import step.
 
 ## 07 MOP
 
@@ -83,7 +83,7 @@ Isolated-stem Rhythm has 1321 notes against the live 644.
 | - | Drums | 1031 | 36-56 | - |
 | Vocals | Tenor Sax | 322 | 0-8 | E3-B4 |
 
-Isolated-stem Rhythm has 1800 notes against the live 1491.
+Rhythm rebuilt from the isolated stem, 1491 notes to 1791. Nine chords would not lie under one hand and were left out, counted rather than hidden. File built and verified, waiting on the import step.
 
 ## 08 JGBFTL
 
@@ -106,7 +106,7 @@ The live tab is denser than the isolated-stem one (Lead 148 vs 56, Rhythm 1812 v
 | - | Drums | 1269 | 36-49 | - |
 | Vocals | Tenor Sax | 168 | 0-9 | A2-B4 |
 
-Isolated-stem Lead has 454 notes against the live 370. Modest.
+Lead rebuilt from the isolated stem, 370 notes to 454. File built and verified, waiting on the import step.
 
 ## 10 Trapped in Wonderland
 
