@@ -27,9 +27,25 @@ Eight of the eleven 2019 sessions retell a 2009 IPH session under a new title: 2
 
 ## 2019 series coverage
 
-Out of 11 sessions: transcripts **8** (was 1), audio **9**, PDF **8**, 2009 twin **8**.
+Out of 11 sessions: transcripts **11** (was 1), audio **9**, PDF **8**, 2009 twin **8**.
 
-Still absent as canonical transcripts: sessions **3, 6 and 9**. Session 3 is absent in every local format.
+Every session of the 2019 series is now held as searchable text: seven from local audio, three from YouTube captions, and the Sam Storms interview from the original library.
+
+## Sources missed on the first pass, since corrected
+
+The first sweep surfaced YouTube transcript paths in its own results and did not follow them, and it cited archive.org from a search summary without fetching the item. Both are now done.
+
+**YouTube.** The official playlist `PL1FsQJ2QhKZLJmoMNgcVIDHyMuhV3IbOK` carries nine sessions including all three the local library lacked. Pulled via the polite gate: session 3 (`lICAlChTG8M`, 73,356 chars), session 6 (`anPXJiXKWPg`, 61,577 chars), session 9 (`oqnvd51kVuQ`, 64,967 chars). Total 199,900 chars. Saved to `youtube-transcripts/`.
+
+**Local YouTube corpora.** Seventeen transcript files across five already-downloaded channel corpora discuss the prophetic history. Densest is `yt-paul-keith-davis-FULL` with 23 files mentioning Bob Jones and 5 mentioning Paul Cain, a secondary account from a Bob Jones associate. Also `yt-david-sliker-FULL` (8 hits), `_Archive/yt-david-sliker` (3), `_Archive/yt-ihopkc-prayers` (3), `yt-corey-russell-FULL` (2), `yt-kirk-bennett-FULL` (1, a 63,519-char first-person review naming 1983 and 1984).
+
+**archive.org.** The Gruen item holds seven formats. The plain text at 342,674 chars is saved to `online-sources/gruen-report-1990.txt`.
+
+## Using the Gruen report
+
+Gruen made partial concessions in a July 1, 1990 letter to John Wimber. He affirmed the document's essential accuracy and did not regret releasing it. He conceded some testimonies were disputable, retracted an undocumented account of a baby dying after a prophecy, and completely exonerated Paul Cain of any negative charges, which contradicts parts of his own document.
+
+Practical rule: the weather-station figures and the transcribed direct quotes stand, since none of those were retracted. His characterizations and conclusions do not, and nothing negative about Paul Cain from this document should be carried forward.
 
 A first pass using loose filename matching reported 6 of 11 present. That was wrong: the matcher scored on leading digits and common words, accepting `04 Three Prophetic Time Frames in the End Times` as session 4. Rerunning on distinctive tokens gave the corrected figure of 1, which the transcription run then raised to 8.
 
@@ -62,11 +78,17 @@ Output: `~/Projects/_outputs/ihop-prophetic-history-2019/`, one `.txt` plus one 
 
 ## The main finding
 
-The 1983 drought sign is where the local telling and the published critiques diverge.
+The 1983 drought sign is where the tellings and the documentation meet. Both sides are now held as primary text, so the whole exchange is checkable.
 
-Local file `IHOPKC_s Prophetic History__7wk5hw5.txt` has Bickle placing the drought at **July 1 to October 1**, calling it the second worst on record, with rain promised for August 23. The same passage carries an explicit revision of the start date, noting the drought was thought to have started June 1 before the records were checked.
+**The 1990 documentation.** Gruen's Section I cites National Weather Bureau readings from Richards-Gebaur Air Force Base, minutes from the church, showing over seven inches of rain in June 1983, well above normal. It records the August 23 rainfall as under one third of an inch, and notes six of the twelve rainy days in June exceeded it, one reaching 2.35 inches. It transcribes Bickle's telling at the time, in which the drought runs from June and August 23 brings three to four inches.
 
-The published critique (Gruen material, Gospel Coalition assessment) cites meteorological records showing above-average rainfall for June 1983 and average rainfall for July 1983. The local telling's window sits past the month the records contradict. Both the original claim and the revision are preserved in Brandon's own corpus.
+**The 2019 telling, session 3.** The word is given May 28 promising rain August 23, and the account adds that the drought did not begin until July 1, with the remark that this was not understood at the time.
+
+**Bickle records his own correction.** The 2019 account explains the larger figure. Right after the August 23 meeting he asked people how much it had rained, nobody had measured, a rough estimate of a couple of inches circulated, and he told the story afterward as three or four inches. The group had assumed rain continued through the whole meeting when it had stopped. Fact-checking some years later showed it did not rain that much, and he says he corrected it publicly, adding that a wrong statement needs correcting.
+
+**What this establishes.** The 1990 documentation caught a real discrepancy and its figures were never retracted. The later telling concedes the point in Bickle's own mouth. The drought start moved from June to July 1 across the two tellings. The August 23 rain is described modestly in 2019, as a torrential burst either side of a seven o'clock meeting.
+
+Anyone writing from this should carry all four points together. The figures without the recorded correction misstates the record, and the correction without the figures hides what prompted it.
 
 ## Online sources mapped
 
