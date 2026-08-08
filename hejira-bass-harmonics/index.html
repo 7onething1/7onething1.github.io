@@ -3,7 +3,7 @@
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
-<title>Hejira, the bass harmonics Jaco played and nobody wrote down</title>
+<title>Finding Jaco’s natural harmonics on Hejira</title>
 <style>
   :root{
     --cream:#F4EBDC; --paper:#FBF6EC; --ink:#1A1A1A; --rule:#D8C9AE;
@@ -71,11 +71,11 @@
 <header>
   <div class="inner">
     <p class="kicker">Joni Mitchell &middot; Hejira &middot; 1976 &middot; bass by Jaco Pastorius</p>
-    <h1>Two harmonics Jaco played, one the guitar played, and how the audio told them apart</h1>
-    <p class="standfirst">Brandon named three natural harmonics by ear: G string 5th fret,
-    D string 7th fret, D string 9th fret. A first pass said the recording confirmed all three.
-    It did not. One of them is the nylon guitar, and the tab itself proves it. This is the
-    record of that correction and of the tab that survived it.</p>
+    <h1>Finding Jaco's natural harmonics, and three wrong answers on the way</h1>
+    <p class="standfirst">Brandon named three nodes by ear: 7th fret D string, 5th and 9th fret
+    G string. Getting them into the tab took four rebuilds, because each pass was wrong in a
+    different way: the edit corrupted 112 measures, the detector could not tell bass from guitar,
+    and one of the three nodes had been written down as the wrong string entirely.</p>
   </div>
 </header>
 
@@ -84,315 +84,198 @@
 <div class="toc">
   <b>On this page</b>
   <ol>
-    <li><a href="#claim">The three nodes</a></li>
-    <li><a href="#sources">What four sources say</a></li>
-    <li><a href="#audio">The recording, first reading</a></li>
-    <li><a href="#guitar">The G string node is the guitar</a></li>
-    <li><a href="#dedup">How 17 harmonics became 383</a></li>
-    <li><a href="#world">The import that was never blocked</a></li>
-    <li><a href="#result">What is in the editor now</a></li>
-    <li><a href="#open">The one open decision</a></li>
+    <li><a href="#nodes">The three nodes</a></li>
+    <li><a href="#wrong">Wrong answer 1: a shared-note edit</a></li>
+    <li><a href="#guitar">Wrong answer 2: the nylon guitar</a></li>
+    <li><a href="#string">Wrong answer 3: the wrong string</a></li>
+    <li><a href="#purity">The test that works</a></li>
+    <li><a href="#result">What went into the tab</a></li>
+    <li><a href="#open">The open decision</a></li>
   </ol>
 </div>
 
-<h2 id="claim">1. The three nodes</h2>
+<h2 id="nodes">1. The three nodes</h2>
 
-<blockquote>All others get that wrong, though the live one gets close.</blockquote>
+<blockquote>It does do the 7th fret D and 5th and 9th G.</blockquote>
 
-<p>The passage is played fretless, on natural harmonics. Stated as touched frets, which is
-how a bass player thinks about it, the three nodes and their sounding pitches are fixed by
-the string tuning alone.</p>
+<p>Brandon, correcting me: the letter is the <b>string</b>. Every earlier pass in this project
+read that third one as a D string node, which is section 4.</p>
+
+<p>Played fretless, on natural harmonics. The letter is the <b>string</b>. Sounding pitch
+follows from the tuning alone, so each node is a fixed frequency to look for.</p>
 
 <div class="scroll">
 <table>
-  <thead><tr><th>Touched node</th><th>Partial</th><th>Sounds</th><th>MIDI</th><th>Hz</th></tr></thead>
+  <thead><tr><th>Node</th><th>Partial</th><th>Sounds</th><th>MIDI</th><th>Hz</th><th>In B major</th></tr></thead>
   <tbody>
-    <tr><td>G string, 5th fret</td><td>4th, +24</td><td><b>G4</b></td><td class="num">67</td><td class="num">392.0</td></tr>
-    <tr><td>D string, 7th fret</td><td>3rd, +19</td><td><b>A3</b></td><td class="num">57</td><td class="num">220.0</td></tr>
-    <tr><td>D string, 9th fret</td><td>5th, +28</td><td><b>F#4</b></td><td class="num">66</td><td class="num">370.0</td></tr>
+    <tr><td>D string, 7th fret</td><td>3rd, +19</td><td><b>A3</b></td><td class="num">57</td><td class="num">220.0</td><td>no</td></tr>
+    <tr><td>G string, 5th fret</td><td>4th, +24</td><td><b>G4</b></td><td class="num">67</td><td class="num">392.0</td><td>no</td></tr>
+    <tr class="hit"><td>G string, 9th fret</td><td>5th, +28</td><td><b>B4</b></td><td class="num">71</td><td class="num">493.9</td><td><b>tonic</b></td></tr>
   </tbody>
 </table>
 </div>
 
-<div class="card mustard">
-  <h4>Why the coordinate system matters</h4>
-  <p style="margin:0">A natural harmonic decouples the fret from the pitch. The finger touches
-  fret 5 and the string sounds two octaves up. <b>Every format that matters stores the touched
-  fret</b>, so a spec given as "G string 5th fret" maps one to one into both Songsterr's
-  <code>harmonicFret</code> and Guitar Pro's <code>HarmonicFret</code>, with no inference.</p>
-</div>
-
-<h2 id="sources">2. What four sources say</h2>
-
-<p>Two engraved charts from jonimitchell.com and two Songsterr tabs were checked against the
-three nodes. The Sardi chart was decoded from its TAB staves, the Blackburn chart from its
-noteheads, the Songsterr tabs from their note JSON.</p>
-
-<div class="scroll">
-<table>
-  <thead><tr><th>Source</th><th>Kind</th><th>Range ceiling</th><th>Harmonic notation</th>
-    <th>G str 5th</th><th>D str 7th</th><th>D str 9th</th></tr></thead>
-  <tbody>
-    <tr><td>Igor Sardi <b>561</b>, 28 pp</td><td>Guitar Pro, Bass I/II/III + TAB</td><td>none</td>
-      <td><span class="tag mid">positions only</span></td>
-      <td class="num"><b>0</b></td><td class="num">35</td><td class="num">20</td></tr>
-    <tr><td>Dave Blackburn <b>498</b>, 4 pp</td><td>Sibelius Opus, notation</td><td>E5</td>
-      <td><span class="tag mid">10 circles</span></td>
-      <td class="num"><b>0</b></td><td class="num">0</td><td class="num">3</td></tr>
-    <tr><td>Songsterr <b>6072564</b> Hejira</td><td>AI transcription, 5 tracks</td><td>C#4</td>
-      <td><span class="tag bad">none</span></td>
-      <td class="num">0</td><td class="num">0</td><td class="num">0</td></tr>
-    <tr><td>Songsterr <b>4448708</b> Coyote live</td><td>human, Editor</td><td>C4</td>
-      <td><span class="tag bad">none</span></td>
-      <td class="num">0</td><td class="num">29</td><td class="num">0</td></tr>
-  </tbody>
-</table>
-</div>
-
-<p>Blackburn's ten harmonic circles engrave <b>F#4, G#4 and B4</b>. Only F#4 is one of the
-three. G#4 and B4 do not fall out of standard tuning as clean natural harmonics at all.
-Sardi's 28 pages carry the D string 7th and 9th fret positions in quantity and carry the
-G string 5th fret position <b>zero times</b> across the whole song.</p>
-
-<div class="card teal">
-  <h4>"The live one gets close" is measurably true</h4>
-  <p style="margin:0">Coyote live <code>4448708</code> is the only human-edited tab of the three,
-  and it writes A3, the D string 7th fret pitch, <b>29 times</b> against the Hejira AI tab's zero.
-  It writes them as ordinary fretted notes with no harmonic marking, and its C4 ceiling puts G4
-  and F#4 out of reach. <b>Close, by the exact margin Brandon described.</b></p>
-</div>
-
-<h2 id="audio">3. The recording settles it</h2>
-
-<p>The question of whether the G string node belongs to Hejira or to Coyote was answerable from
-the audio, so it was answered there rather than asked. The isolated bass stem was separated with
-htdemucs_6s from the 401.23 s album track. An STFT at <code>n_fft 8192</code>, 2.69 Hz bins, looks
-for each node's sounding pitch as a near pure tone, requiring the band to sit in the top 1 percent
-of prominence <b>and</b> to beat the open string's own fundamental by 2.5 times. That ratio is what
-separates a natural harmonic from a fretted note, which arrives with a strong fundamental and a
-full overtone stack.</p>
-
-<div class="scroll">
-<table>
-  <thead><tr><th>Node</th><th>Sounds</th><th>Sustained events</th><th>Longest</th><th>At</th></tr></thead>
-  <tbody>
-    <tr><td>G string 5th fret</td><td>G4</td><td class="num">8</td>
-      <td class="num">2.60 s</td><td class="num">359.26 s</td></tr>
-    <tr><td>D string 7th fret</td><td>A3</td><td class="num">2</td>
-      <td class="num">1.72 s</td><td class="num">34.13 s</td></tr>
-    <tr class="hit"><td>D string 9th fret</td><td>F#4</td><td class="num"><b>12</b></td>
-      <td class="num">1.07 s</td><td class="num">42.72 s</td></tr>
-  </tbody>
-</table>
-</div>
-
-<p>On that evidence alone the first pass reported all three nodes confirmed, and made the 2.60 s
-G4 the headline. <b>That reading was wrong, and section 4 is how it fell over.</b> The detector only
-ever looked at the bass stem, and its test compared the harmonic band against the open string's own
-fundamental <i>inside that one stem</i>. That separates a harmonic from a fretted note. It says
-nothing about which instrument produced the tone.</p>
-
-<h2 id="guitar">3b. The G string node is the nylon guitar</h2>
-
-<p>Brandon heard it before any of this was measured: the fingerpicked nylon guitar was being read as
-bass. Three independent checks agree with him.</p>
-
-<div class="scroll">
-<table>
-  <thead><tr><th>Check</th><th>G string 5th, G4</th><th>D string 7th, A3</th><th>D string 9th, F#4</th></tr></thead>
-  <tbody>
-    <tr><td>Events where the <b>bass stem</b> dominates</td>
-      <td><span class="tag bad">5 of 8</span></td><td>2 of 2</td><td><span class="tag ok">12 of 12</span></td></tr>
-    <tr><td>Bass share of the band, range</td>
-      <td><span class="tag bad">20 to 47%</span></td><td>48 to 66%</td><td><span class="tag ok">46 to 78%</span></td></tr>
-    <tr><td>Times this pitch occurs anywhere in the song</td>
-      <td><span class="tag bad">0</span></td><td>132</td><td>very common</td></tr>
-    <tr><td>Diatonic to B major</td>
-      <td><span class="tag bad">no</span></td><td><span class="tag mid">no</span></td><td><span class="tag ok">yes</span></td></tr>
-  </tbody>
-</table>
-</div>
-
-<div class="card red">
-  <h4>G natural does not occur in this song. Not once.</h4>
-  <p>Across all five tracks of the transcription, <b>2,981 pitched notes, zero G naturals.</b> The
-  song is in B major, which has no G natural in it. A G4 harmonic would be the only one in the piece.</p>
-  <p style="margin-bottom:0"><b>The lead guitar's single most common note is G#, 192 of its 445 notes.</b>
-  G#4 sits 100 cents above the G4 detection band, so a fingerpicked nylon G# with any pitch movement
-  reads as 392 Hz. Two of the eight G4 events are dominated by the <b>vocal</b> stem, which reaches
-  A4 and plays G# 93 times.</p>
-</div>
-
-<p>The A3 node is contested for the same reason. At 34.13 s, the strongest of its two events, the
-guitar track in the tab plays <b>A3 at that exact instant</b>, and the rhythm guitar plays A natural
-109 times across the song. That placement came out too.</p>
-
-<div class="card olive">
-  <h4>What actually settled it</h4>
-  <p style="margin:0"><b>The guitar is already in the tab, so its whereabouts are known.</b> Checking
-  the detected onsets against the transcription's own Lead and Rhythm Guitar tracks, and against the
-  song's pitch-class content, needed no stem separation at all. The first pass never asked either
-  question.</p>
-</div>
-
-<h2 id="dedup">4. How 17 harmonics became 383</h2>
-
-<p>An earlier build wrote the harmonics into the Songsterr export by modifying notes in place,
-on the stated rule that this is structurally neutral, cannot misfill a bar, and leaves the note
-count unchanged. All of that is true. The file was still wrong, in a way no structural check
-could see.</p>
+<h2 id="wrong">2. Wrong answer 1: editing a note that is really a shared definition</h2>
 
 <div class="card red">
   <h4>A &lt;Note&gt; in a .gp file is not a note</h4>
   <p style="margin:0">GPIF deduplicates. <code>&lt;Note&gt;</code> and <code>&lt;Beat&gt;</code>
   elements are <b>shared definitions referenced by id from many places</b>. In this file
-  <b>181 of 295 Note elements and 293 of 1299 Beat elements are referenced more than once</b>.
-  Note 147 alone is referenced from <b>32 positions</b>. The 16 notes edited in place are
-  referenced 177 times between them.</p>
+  <b>181 of 295 Note elements and 293 of 1299 Beat elements are referenced more than once</b>,
+  and note 147 alone is referenced from <b>32 positions</b>.</p>
 </div>
 
-<p>Run through Songsterr's own <code>/data/convert</code> endpoint, which is the converter the
-site itself uses on import, the damage is exact and measurable.</p>
+<p>A first build added the harmonics by modifying notes in place, on the rule that this is
+structurally neutral and leaves the note count unchanged. Both true. Measured through Songsterr's
+own <code>/data/convert</code>, the converter the site uses on import:</p>
 
 <div class="scroll">
 <table>
-  <thead><tr><th>Converted part</th><th>Untouched export</th><th>In-place build</th>
-    <th>Copy-on-write build</th></tr></thead>
+  <thead><tr><th>Converted part</th><th>Untouched</th><th>In-place edit</th><th>Copy-on-write</th></tr></thead>
   <tbody>
-    <tr><td>Lead Guitar</td><td class="num">562</td><td class="num">562</td><td class="num">562</td></tr>
-    <tr><td>Rhythm Guitar</td><td class="num">1542</td><td class="num">1542</td><td class="num">1542</td></tr>
     <tr class="hit"><td><b>Bass notes</b></td><td class="num">493</td>
       <td class="num"><b>762</b> <span class="tag bad">+269</span></td>
-      <td class="num"><b>495</b> <span class="tag ok">+2</span></td></tr>
-    <tr><td>Drums</td><td class="num">1472</td><td class="num">1472</td><td class="num">1472</td></tr>
-    <tr><td>Vocals</td><td class="num">668</td><td class="num">668</td><td class="num">668</td></tr>
+      <td class="num"><b>497</b></td></tr>
     <tr class="hit"><td><b>Harmonics</b></td><td class="num">0</td>
       <td class="num"><b>383</b> <span class="tag bad">112 measures</span></td>
-      <td class="num"><b>18</b> <span class="tag ok">17 measures</span></td></tr>
-    <tr><td colspan="4" style="font-size:.88rem">That copy-on-write build was correct as an EDIT.
-      Section 3b then removed 7 of its 18 as guitar, leaving <b>11</b>.</td></tr>
+      <td class="num"><b>8</b> <span class="tag ok">8 measures</span></td></tr>
+    <tr><td>Lead / Rhythm / Drums / Vocals</td><td class="num">562 / 1542 / 1472 / 668</td>
+      <td class="num">unchanged</td><td class="num">unchanged</td></tr>
   </tbody>
 </table>
 </div>
 
-<p>Bars and voices are not shared in this file, 705 of each with a reference count of one, so the
-repair is copy-on-write down two levels of the ownership chain.</p>
-
-<pre>bar   -> voice     unshared, edit its &lt;Beats&gt; list directly
+<pre>bar   -> voice     unshared here, edit its &lt;Beats&gt; list directly
 voice -> beat      <b>clone if refcount &gt; 1</b>, then it is private
 beat  -> note      <b>always clone</b>, then it is private</pre>
 
 <div class="card olive">
   <h4>The gate that was missing</h4>
-  <p style="margin:0">Every earlier check asked whether the file was structurally sound, and every one of them
-  passed, because bar durations genuinely never changed. <b>Reference count is
-  the only thing that separates a surgical edit from a broadcast edit.</b> The new gate asserts
-  that each edited note is reachable from exactly one position, and that the total position count
-  moved by exactly the intended amount.</p>
+  <p style="margin:0">Every structural check passed with this true, because bar durations never
+  changed. <b>Reference count is the only thing that separates a surgical edit from a broadcast
+  edit.</b> The gate now asserts each edited note is reachable from exactly one position.</p>
 </div>
 
-<h3>Two traps that follow from the same fact</h3>
-<p><b>A dedup key on a note id is wrong.</b> Skipping an event because that note is already used
-rejects genuinely distinct positions that happen to share a definition. Keying on bar plus ordinal
-recovered two dropped placements. <b>An export shows fewer note elements than positions.</b>
-Songsterr's own export of 18 harmonic positions carries 3 harmonic Note elements, one per distinct
-shape, so counting elements there shows a loss that did not happen.</p>
+<h2 id="guitar">3. Wrong answer 2: the detector could not tell bass from guitar</h2>
 
-<h2 id="world">5. The import that was never blocked</h2>
-
-<p>Getting a corrected file back into Songsterr had been recorded as closed after five methods
-failed with no upload request and no success message. All five were run through a browser bridge
-whose JavaScript executes in an <b>isolated world</b>. It shares the DOM and nothing else.</p>
-
-<div class="scroll">
-<table>
-  <thead><tr><th>Read from the same page, same instant</th><th>Isolated world</th><th>Main world</th></tr></thead>
-  <tbody>
-    <tr><td><code>window.trackNotsyEvent</code></td><td><span class="tag bad">undefined</span></td><td><span class="tag ok">function</span></td></tr>
-    <tr><td><code>window.__debug__</code></td><td><span class="tag bad">undefined</span></td><td><span class="tag ok">function</span></td></tr>
-    <tr class="hit"><td><code>importRevisionInput.onchange</code></td><td><span class="tag bad">null</span></td><td><span class="tag ok">function</span></td></tr>
-    <tr><td>pointer sequence opens a control</td><td><span class="tag bad">no</span></td><td><span class="tag ok">yes</span></td></tr>
-  </tbody>
-</table>
-</div>
-
-<p>The handler had been attached the whole time. <b>The verdict "the click never reached the app,
-onchange is still null" was measuring the world boundary rather than the click.</b> Injecting a
-script element reaches the main world, where the app's own import handler is an ordinary function
-that can be called directly, so no trusted event is needed at any point.</p>
-
-<pre>var r = await fetch('http://127.0.0.1:8791/hejira_bass_HARMONICS_v5.gp');
-var f = new File([await r.blob()], 'hejira_bass_HARMONICS_v5.gp');
-await importRevisionInput.onchange({target: {files: [f]}});
-<b>// -> Successfully uploaded hejira_bass_HARMONICS_v5.gp   51,006 bytes   1.27 s</b></pre>
-
-<p>The handler posts the file to <code>/data/convert</code> as form field <code>source</code> and
-dispatches the returned parts into the editor. That endpoint is a pure function reachable with a
-plain credentialed fetch, <b>which is how the 383 harmonic corruption was caught before anything
-was imported</b>, by converting each candidate build and comparing per part note counts against
-the untouched export.</p>
-
-<h2 id="result">6. What is in the editor now</h2>
-
-<p>Proof by round trip. The file was imported, then Songsterr's own export control was used to pull
-the editor's current state back out, and that export was counted by position.</p>
-
-<div class="grid">
-  <div class="stat"><span class="lab">Harmonic positions</span><span class="big">11</span>
-    F#4 &times;10, A3 &times;1, G4 &times;0</div>
-  <div class="stat"><span class="lab">Tracks preserved</span><span class="big">5</span>
-    lead, rhythm, bass, drums, vocals</div>
-  <div class="stat"><span class="lab">Non-bass notes changed</span><span class="big">0</span>
-    445 / 1542 / 1428 / 523 unchanged</div>
-  <div class="stat"><span class="lab">Bars misfilled</span><span class="big">0</span>
-    every bass bar sums to 4.0</div>
-</div>
-
-<div class="scroll">
-<table>
-  <thead><tr><th>Track in the editor export</th><th>Before</th><th>After</th><th>Harmonics</th></tr></thead>
-  <tbody>
-    <tr><td>Lead Guitar</td><td class="num">445</td><td class="num">445</td><td class="num">0</td></tr>
-    <tr><td>Rhythm Guitar</td><td class="num">1542</td><td class="num">1542</td><td class="num">0</td></tr>
-    <tr class="hit"><td><b>Electric Bass (finger)</b></td><td class="num">493</td>
-      <td class="num"><b>494</b></td><td class="num"><b>11</b></td></tr>
-    <tr><td>Drums</td><td class="num">1428</td><td class="num">1428</td><td class="num">0</td></tr>
-    <tr><td>Vocals</td><td class="num">523</td><td class="num">523</td><td class="num">0</td></tr>
-  </tbody>
-</table>
-</div>
-
-<p>Three bass bars changed note count, and all three are accounted for. <b>Bar 128 goes from 0 to 1</b>,
-the whole bar rest replaced by an F#4 harmonic. The stem carries three F#4 events inside that bar,
-against a whole bar of 2.824 s at 85 bpm, where the AI transcription printed silence. Bar sums stay
-exact at 4.0 throughout, and every harmonic note is reachable from exactly one position.</p>
-
-<p>The eleven that survived sit at bars <span class="mono">16, 23, 46, 53, 67, 80, 87, 109, 128,
-135</span>, counting from 1 as the tab does, with bar 46 carrying two. Placement is reliable early
-and drifts late: the tab runs 141 bars at a flat 85 bpm for 398.12 s against 401.23 s of audio, a
-0.78 percent gap that accumulates to <b>1.10 bars by the end of the song</b>.</p>
-
-<h2 id="open">7. The one open decision</h2>
+<p>The first detector ran on <code>bass.wav</code> alone, and its test compared the harmonic band
+against the open string's own fundamental <i>inside that one stem</i>. That separates a harmonic
+from a fretted note and says nothing about which instrument made the sound. Demucs bleeds, so a
+fingerpicked nylon note arrives in the bass stem as a convincing near-pure tone.</p>
 
 <div class="card red">
-  <h4>Publishing has not happened and will not happen unasked</h4>
+  <h4>G natural does not occur in this song. Not once.</h4>
+  <p style="margin:0">Across all five tracks of the transcription, <b>2,981 pitched notes, zero G
+  naturals.</b> The song is B major. Meanwhile the <b>lead guitar's single most common note is G#,
+  192 of its 445</b>, which is 100 cents above the G4 detection band, so a fingerpicked nylon G#
+  reads as 392 Hz.</p>
+</div>
+
+<h2 id="string">4. Wrong answer 3: the third node was the wrong string</h2>
+
+<p>Every earlier pass had recorded the third node as <b>D string 9th fret</b>. Brandon said
+<b>G string 9th fret</b>. Those are not close.</p>
+
+<div class="scroll">
+<table>
+  <thead><tr><th>Written down as</th><th>Sounds</th><th>Role in B major</th><th>Detections it produced</th></tr></thead>
+  <tbody>
+    <tr><td>D string 9th fret</td><td>F#4, 370.0 Hz</td><td>dominant</td>
+      <td class="num">12 confident events, for a node never named</td></tr>
+    <tr class="hit"><td><b>G string 9th fret</b></td><td><b>B4, 493.9 Hz</b></td><td><b>tonic</b></td>
+      <td class="num">2</td></tr>
+  </tbody>
+</table>
+</div>
+
+<p>B4 is also one of the three pitches Blackburn's chart 498 engraves in its harmonic passage
+(F#4, G#4, B4), which is corroboration the wrong node never had.</p>
+
+<h2 id="purity">5. The test that works, measuring purity</h2>
+
+<p>A stopped E3 puts its third partial at 494 Hz, which is B4, so any threshold on "how much energy
+is measured at B4" reads a fretted note as a harmonic. <b>A natural harmonic is close to a pure tone, so
+its own 2nd and 3rd partials are tiny.</b> That is measurable, and it calibrates against notes the
+transcription already writes.</p>
+
+<pre>purity = E(f0) / max( E(2*f0), E(3*f0) )
+
+  ordinary fretted bass note   <b>0.8 to 1.3</b>     (measured on 5 notes from the tab)
+  natural harmonic             <b>9 to 98</b></pre>
+
+<p>With the target also required to beat every note whose overtone series reaches it
+(T-12, T-19, T-24, T-28 and the open string), the whole song gives:</p>
+
+<div class="scroll">
+<table>
+  <thead><tr><th>Node</th><th>Sounds</th><th>Events</th><th>Bars</th></tr></thead>
+  <tbody>
+    <tr class="hit"><td>D string 7th fret</td><td>A3</td><td class="num"><b>14</b></td>
+      <td>5, 6, 8, 9, 13, 15, 20, 21, 22, 44, 79, 129</td></tr>
+    <tr><td>G string 9th fret</td><td>B4</td><td class="num">2</td><td>1, 11</td></tr>
+    <tr><td>G string 5th fret</td><td>G4</td><td class="num"><b>0</b></td>
+      <td><span class="tag bad">nothing anywhere in the song</span></td></tr>
+  </tbody>
+</table>
+</div>
+
+<p><b>Ten of the fourteen A3 events fall in bars 5 to 22</b>, the opening minute. That is the
+"few times, a certain section" Brandon described. The G string 5th fret node produces nothing,
+which agrees with the song containing no G naturals at all.</p>
+
+<div class="card teal">
+  <h4>Is it in the transcription already?</h4>
+  <p>Yes, as ordinary stopped notes. The bass part has <b>11 notes at G string fret 9</b> (written
+  E3) and one at D string fret 7, and bar 13 writes A3 at G string fret 14. The tab already uses
+  the node positions.</p>
+  <p style="margin-bottom:0">Tested at all 12 of those spots, the fundamental is present and purity
+  runs <b>0.5 to 1.2</b>. Those are stopped notes played as written.</p>
+</div>
+
+<h2 id="result">6. What went into the tab</h2>
+
+<div class="grid">
+  <div class="stat"><span class="lab">Harmonics written</span><span class="big">8</span>
+    A3 &times;7, B4 &times;1</div>
+  <div class="stat"><span class="lab">Bass positions</span><span class="big">471</span>
+    unchanged, nothing added or dropped</div>
+  <div class="stat"><span class="lab">Other tracks changed</span><span class="big">0</span>
+    lead, rhythm, drums, vocals identical</div>
+  <div class="stat"><span class="lab">Gate</span><span class="big">19</span>
+    checks, 0 failed</div>
+</div>
+
+<p>Bars 11, 13, 15, 21 (two), 22, 45 and 80, counting from 1 as the tab does. Confirmed by feeding
+the file to Songsterr's converter: <b>8 harmonics, <code>str1/fret7</code> &times;7 and
+<code>str0/fret9</code> &times;1</b>, every other part unchanged.</p>
+
+<div class="card mustard">
+  <h4>Seven detections were left out on purpose</h4>
+  <p style="margin:0">They fall in bars where the bass tab is <b>silent</b>, and the build was
+  turning each into a whole-note harmonic. A whole note is 2.82 s against detections of 0.09 to
+  0.51 s. Bars 1, 5, 6, 8, 9 and 130 are <b>reported here instead</b>, since the stem gives an onset
+  and gives no duration a whole note could honestly represent.</p>
+</div>
+
+<h2 id="open">7. The open decision</h2>
+
+<div class="card red">
+  <h4>Nothing is published</h4>
   <p>Tab <code>6072564</code> was authored by <code>076runner</code>. Import changes editor state
-  only. Verified after the import: <b>revisionId 7930670, revision count 1, 5 tracks, createdVia AI</b>,
-  the published tab untouched.</p>
-  <p style="margin-bottom:0">Submitting a revision is outward facing and overwrites a public tab, so
-  it stays Brandon's act. <b>The Submit control was enabled the entire time and was deliberately not
-  pressed.</b></p>
+  only. Verified after every import: <b>revisionId 7930670, revision count 1, 5 tracks</b>.</p>
+  <p style="margin-bottom:0">Submitting a revision overwrites a public tab, so it stays Brandon's
+  act. <b>The Submit control was enabled throughout and was never pressed.</b></p>
 </div>
 
 <div class="foot">
-  <p>Built 2026-08-08. Bar numbers are 1-based. Source files in
-  <span class="mono">~/Projects/_outputs/hejira-bass-fix/</span>: the corrected tab
-  <span class="mono">hejira_bass_HARMONICS_v5.gp</span>, its builder
-  <span class="mono">build_v4.py</span>, its 19 check gate <span class="mono">verify_v4.py</span>,
-  the spectral detector <span class="mono">harmonic_hunt.py</span>, the per-stem attribution
-  <span class="mono">stem_attribution.py</span>, the guitar cross-check
-  <span class="mono">guitar_alibi.py</span> and the full event list
-  <span class="mono">harmonic_events_all.json</span>.</p>
+  <p>Built 2026-08-08. Bar numbers are 1-based. Files in
+  <span class="mono">~/Projects/_outputs/hejira-bass-fix/</span>: the tab
+  <span class="mono">hejira_bass_HARMONICS_v6.gp</span>, builder
+  <span class="mono">build_v4.py</span>, gate <span class="mono">verify_v4.py</span>, per-stem
+  attribution <span class="mono">stem_attribution.py</span>, guitar cross-check
+  <span class="mono">guitar_alibi.py</span>, node detection
+  <span class="mono">nodes_v2.py</span> and the event list
+  <span class="mono">harmonic_events_v3.json</span>.</p>
   <p>Jaco played bass on 4 of the 9 tracks on Hejira: Coyote, Hejira, Black Crow, Refuge of the
   Roads. Black Crow is tuned a half step down, Eb Ab Db Gb, which any tab built for it has to carry.</p>
 </div>
