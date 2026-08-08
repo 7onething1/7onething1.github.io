@@ -1,4 +1,4 @@
-# Hejira, the bass harmonics Jaco played and nobody wrote down
+# Hejira: two harmonics Jaco played, one the guitar played
 
 Built 2026-08-08. Bar numbers are 1-based, as they read in the tab.
 Live: https://7onething1.github.io/hejira-bass-harmonics/
@@ -49,14 +49,38 @@ fretted note, which arrives with a strong fundamental and a full overtone stack.
 | D string 7th fret | A3 | 2 | 1.72 s | 34.13 s |
 | D string 9th fret | F#4 | 12 | 1.07 s | 42.72 s |
 
-The G string 5th fret harmonic is in the recording eight times, including one that rings
-for 2.6 seconds, and Sardi's chart writes it zero times. At that longest event the
-Songsterr AI tab prints a whole bar rest: bar 128 is 2.824 s at 85 bpm, so a 2.60 s
-harmonic was transcribed as silence.
+On that evidence alone the first pass reported all three nodes confirmed. **That reading
+was wrong.** The detector only ever looked at the bass stem, and its test compared the
+harmonic band against the open string's own fundamental inside that one stem. That
+separates a harmonic from a fretted note and says nothing about which instrument made the
+tone.
 
-Stated honestly, this is spectral detection with a threshold heuristic, so it is strong
-evidence rather than proof. The event count and the 2.6 second duration are hard to
-explain as an artefact, and the onsets give concrete places to listen.
+## The G string node is the nylon guitar
+
+Brandon heard it before any of this was measured. Three checks agree with him.
+
+| Check | G str 5th, G4 | D str 7th, A3 | D str 9th, F#4 |
+|---|---|---|---|
+| Events where the bass stem dominates | **5 of 8** | 2 of 2 | **12 of 12** |
+| Bass share of the band | **20 to 47%** | 48 to 66% | **46 to 78%** |
+| Times this pitch occurs anywhere in the song | **0** | 132 | very common |
+| Diatonic to B major | no | no | yes |
+
+**G natural does not occur in this song.** Across all five tracks, 2,981 pitched notes,
+zero G naturals. The song is in B major, which has no G natural in it.
+
+**The lead guitar's single most common note is G#, 192 of its 445 notes.** G#4 sits 100
+cents above the G4 detection band, so a fingerpicked nylon G# with any pitch movement
+reads as 392 Hz. Two of the eight G4 events are dominated by the vocal stem, which reaches
+A4 and plays G# 93 times.
+
+The A3 node is contested for the same reason. At 34.13 s, the stronger of its two events,
+the guitar track in the tab plays A3 at that exact instant, and the rhythm guitar plays A
+natural 109 times across the song. That placement came out too.
+
+What settled it needed no stem separation: **the guitar is already in the tab, so its
+whereabouts are known.** The first pass never checked the detected onsets against the
+transcription's own guitar tracks, or against the song's pitch-class content.
 
 ## How 17 harmonics became 383
 
@@ -117,10 +141,10 @@ app, onchange is still null" was measuring the world boundary. Injecting a scrip
 reaches the main world, where the import handler is an ordinary function:
 
 ```js
-var r = await fetch('http://127.0.0.1:8791/hejira_bass_HARMONICS_v4.gp');
-var f = new File([await r.blob()], 'hejira_bass_HARMONICS_v4.gp');
+var r = await fetch('http://127.0.0.1:8791/hejira_bass_HARMONICS_v5.gp');
+var f = new File([await r.blob()], 'hejira_bass_HARMONICS_v5.gp');
 await importRevisionInput.onchange({target: {files: [f]}});
-// -> Successfully uploaded hejira_bass_HARMONICS_v4.gp   51,201 bytes   1.03 s
+// -> Successfully uploaded hejira_bass_HARMONICS_v5.gp   51,006 bytes   1.03 s
 ```
 
 The handler posts the file to `/data/convert` as form field `source` and dispatches the
@@ -133,24 +157,23 @@ was imported.
 Proof by round trip: import, then use Songsterr's own export control to pull the editor's
 current state back out, then count by position.
 
-| Track in the editor export | Before | After | Harmonics |
-|---|---|---|---|
-| Lead Guitar | 445 | 445 | 0 |
-| Rhythm Guitar | 1542 | 1542 | 0 |
-| **Electric Bass (finger)** | 471 | **474** | **18** |
-| Drums | 1428 | 1428 | 0 |
-| Vocals | 523 | 523 | 0 |
+Measured through Songsterr's own `/data/convert`, the converter the editor itself uses:
 
-18 harmonic positions: G4 x7, A3 x2, F#4 x9. Three bass bars changed note count, all
-accounted for. Bar 128 goes from 0 to 1, the whole bar rest replaced by the 2.60 s G4.
-Bars 109 and 116 each gain one note, because the note replaced there was a tie origin and
-the harmonic drops that tie, a natural harmonic being its own attack. Bar sums stay exact
-at 4.0 throughout.
+| Converted part | Before | After |
+|---|---|---|
+| Lead Guitar | 562 | 562 |
+| Rhythm Guitar | 1542 | 1542 |
+| **Electric Bass (finger)** | 493 | **494** |
+| Drums | 1472 | 1472 |
+| Vocals | 668 | 668 |
 
-Harmonics sit at bars 12, 13, 16, 23, 46, 53, 63, 67, 80, 82, 87, 90, 108, 109, 116,
-128, 135. Placement is reliable early and drifts late: 141 bars at a flat 85 bpm is
-398.12 s against 401.23 s of audio, a 0.78 percent gap accumulating to 1.10 bars by the
-end of the song.
+**11 harmonic positions: F#4 x10, A3 x1, G4 x0.** Bar 128 goes from 0 to 1, its whole bar
+rest replaced by an F#4 where the AI transcription printed silence. Bar sums stay exact at
+4.0 throughout, and every harmonic note is reachable from exactly one position.
+
+They sit at bars 16, 23, 46, 53, 67, 80, 87, 109, 128, 135, with bar 46 carrying two.
+Placement is reliable early and drifts late: 141 bars at a flat 85 bpm is 398.12 s against
+401.23 s of audio, a 0.78 percent gap accumulating to 1.10 bars by the end of the song.
 
 ## The one open decision
 
@@ -164,9 +187,11 @@ not pressed.
 
 In `~/Projects/_outputs/hejira-bass-fix/`:
 
-- `hejira_bass_HARMONICS_v4.gp`, the corrected tab, 51,201 bytes
+- `hejira_bass_HARMONICS_v5.gp`, the corrected tab, 51,006 bytes
 - `build_v4.py`, copy-on-write builder
-- `verify_v4.py`, the 18 check gate, including reference count
+- `verify_v4.py`, the 19 check gate, including reference count
+- `stem_attribution.py`, which stem actually sounds each detection
+- `guitar_alibi.py`, what the tab guitar plays at each onset
 - `harmonic_hunt.py`, spectral detector
 - `harmonic_events_all.json`, full event list with timestamps
 - `v4_report.json`, every placement, with what it replaced and how
