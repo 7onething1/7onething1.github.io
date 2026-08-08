@@ -1,0 +1,257 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>MixWave EHX Big Muff + Deluxe Memory Man: why they don't load</title>
+<style>
+:root{
+  color-scheme: light;
+  --cream:#F6F0E2; --card:#FBF7EC; --ink:#1A1A1A; --muted:#6B6355;
+  --line:#DCD2B9; --mustard:#E8B84B; --oxblood:#8C3A2B; --teal:#4E7E7A;
+  --navy:#2E4057; --pink:#D98E8E;
+}
+*{box-sizing:border-box}
+body{background:var(--cream);color:var(--ink);margin:0;padding:0;
+  font-family:-apple-system,BlinkMacSystemFont,"Inter","Segoe UI",sans-serif;
+  line-height:1.62;font-size:16.5px}
+main{max-width:860px;margin:0 auto;padding:2.6rem 1.3rem 4rem}
+h1{font-size:1.85rem;line-height:1.22;margin:0 0 .5rem;letter-spacing:-.015px}
+h2{font-size:1.22rem;margin:2.6rem 0 .8rem;padding-bottom:.35rem;
+  border-bottom:2px solid var(--line)}
+h3{font-size:1rem;margin:1.5rem 0 .5rem;color:var(--navy)}
+p{margin:.7rem 0}
+.sub{color:var(--muted);font-size:1rem;margin:.2rem 0 1.6rem}
+code{background:#EFE7D3;padding:.09em .38em;border-radius:4px;
+  font-family:ui-monospace,SFMono-Regular,Menlo,monospace;font-size:.855em}
+pre{background:#2E2A24;color:#F0E9D8;padding:.95rem 1.05rem;border-radius:9px;
+  overflow-x:auto;font-size:.8rem;line-height:1.5;margin:.9rem 0;
+  font-family:ui-monospace,SFMono-Regular,Menlo,monospace}
+pre b{color:var(--mustard);font-weight:700}
+pre i{color:var(--pink);font-style:normal}
+
+.verdict{background:#FDF6E3;border:2px solid var(--mustard);border-left:9px solid var(--mustard);
+  border-radius:11px;padding:1.15rem 1.3rem;margin:1.4rem 0 2rem}
+.verdict h2{margin:0 0 .5rem;border:0;padding:0;font-size:1.1rem;color:var(--oxblood)}
+
+nav.toc{background:var(--card);border:1px solid var(--line);border-radius:11px;
+  padding:1rem 1.25rem;margin:1.6rem 0 2.2rem}
+nav.toc strong{display:block;font-size:.78rem;letter-spacing:.09em;
+  text-transform:uppercase;color:var(--muted);margin-bottom:.55rem}
+nav.toc ol{margin:0;padding-left:1.25rem}
+nav.toc li{margin:.26rem 0}
+nav.toc a{color:var(--oxblood);text-decoration:none;font-weight:600}
+nav.toc a:hover{text-decoration:underline}
+
+.card{background:var(--card);border:1px solid var(--line);border-radius:11px;
+  padding:1rem 1.2rem;margin:1rem 0}
+.good{border-left:7px solid var(--teal)}
+.bad{border-left:7px solid var(--oxblood)}
+.warn{border-left:7px solid var(--mustard)}
+
+table{width:100%;border-collapse:collapse;margin:1rem 0;font-size:.905rem;
+  display:block;overflow-x:auto;white-space:nowrap}
+th,td{text-align:left;padding:.5rem .7rem;border-bottom:1px solid var(--line);
+  vertical-align:top}
+th{font-size:.74rem;letter-spacing:.07em;text-transform:uppercase;
+  color:var(--muted);font-weight:700}
+tbody tr:nth-child(even){background:#F2EBDA}
+.ok{color:var(--teal);font-weight:700}
+.no{color:var(--oxblood);font-weight:700}
+
+ol.steps{counter-reset:s;list-style:none;padding:0;margin:1.1rem 0}
+ol.steps>li{counter-increment:s;position:relative;padding:.9rem 1rem .9rem 3.1rem;
+  background:var(--card);border:1px solid var(--line);border-radius:10px;margin:.6rem 0}
+ol.steps>li::before{content:counter(s);position:absolute;left:.85rem;top:.85rem;
+  width:1.65rem;height:1.65rem;border-radius:50%;background:var(--navy);color:#FBF7EC;
+  display:grid;place-items:center;font-weight:700;font-size:.86rem}
+
+.time{border-left:3px solid var(--line);margin:1.1rem 0 1.1rem .45rem;padding-left:1.1rem}
+.time .row{position:relative;padding:.42rem 0}
+.time .row::before{content:"";position:absolute;left:-1.42rem;top:.95rem;
+  width:9px;height:9px;border-radius:50%;background:var(--teal);border:2px solid var(--cream)}
+.time .row.f::before{background:var(--oxblood)}
+.time .t{font-family:ui-monospace,Menlo,monospace;font-size:.78rem;color:var(--muted)}
+
+footer{margin-top:3rem;padding-top:1.1rem;border-top:1px solid var(--line);
+  font-size:.82rem;color:var(--muted)}
+a{color:var(--oxblood)}
+@media (max-width:600px){body{font-size:16px}h1{font-size:1.5rem}main{padding:1.8rem 1rem 3rem}}
+</style>
+</head>
+<body>
+<main>
+
+<h1>MixWave EHX Big Muff and Deluxe Memory Man</h1>
+<p class="sub">Why they never showed up, and what actually fixes it. Diagnosed 8 August 2026 on Jacks-iMac.</p>
+
+<div class="verdict">
+  <h2>Verdict: the installer worked. The plugins are not activated.</h2>
+  <p>Both plugins are <b>fully installed, code-signed by MixWave LLC, notarized by Apple, and they pass Apple's own AudioUnit validation</b>. Nothing about the install failed.</p>
+  <p>What fails is licensing. There is <b>no MixWave license activated on this machine</b>. When an unlicensed MixWave plugin is loaded, PACE's copy-protection wrapper blocks on a socket read that never returns, so the plugin hangs forever instead of reporting a licensing error. That hang is what killed Ableton's plugin scan.</p>
+</div>
+
+<nav class="toc">
+  <strong>Contents</strong>
+  <ol>
+    <li><a href="#installed">What you paid for is on the disk</a></li>
+    <li><a href="#hang">The actual failure: a frozen socket read</a></li>
+    <li><a href="#license">The license check</a></li>
+    <li><a href="#timeline">What happened on 6 August</a></li>
+    <li><a href="#cache">Why Ableton still hides them</a></li>
+    <li><a href="#fix">The fix, in order</a></li>
+    <li><a href="#appendix">Commands used</a></li>
+  </ol>
+</nav>
+
+<h2 id="installed">1. What you paid for is on the disk</h2>
+<p>Every install target was written and every receipt was recorded. This is the part that was never broken.</p>
+
+<table>
+<thead><tr><th>Check</th><th>Big Muff</th><th>Deluxe Memory Man</th></tr></thead>
+<tbody>
+<tr><td>AudioUnit component</td><td class="ok">present</td><td class="ok">present</td></tr>
+<tr><td>VST3</td><td class="ok">present</td><td class="ok">present</td></tr>
+<tr><td>AAX</td><td class="ok">present</td><td class="ok">present</td></tr>
+<tr><td>Presets</td><td class="ok">present</td><td class="ok">present</td></tr>
+<tr><td>Installer receipt</td><td class="ok">written</td><td class="ok">written</td></tr>
+<tr><td>Architecture</td><td class="ok">x86_64 + arm64</td><td class="ok">x86_64 + arm64</td></tr>
+<tr><td>Code signature</td><td class="ok">valid</td><td class="ok">valid</td></tr>
+<tr><td>Notarization</td><td class="ok">accepted</td><td class="ok">accepted</td></tr>
+<tr><td>Quarantine flag</td><td class="ok">none</td><td class="ok">none</td></tr>
+<tr><td>AU registers with macOS</td><td class="ok">yes</td><td class="ok">yes</td></tr>
+<tr><td>auval static tests</td><td class="ok">PASS</td><td class="ok">PASS</td></tr>
+<tr><td><b>Plugin instantiates</b></td><td class="no">HANGS</td><td class="no">HANGS</td></tr>
+<tr><td><b>iLok license active</b></td><td class="no">NO</td><td class="no">NO</td></tr>
+</tbody>
+</table>
+
+<p>Gatekeeper agrees the files are legitimate:</p>
+<pre>/Library/Audio/Plug-Ins/VST3/MixWave EHX Big Muff.vst3: <b>accepted</b>
+source=<b>Notarized Developer ID</b>
+origin=Developer ID Application: <b>MixWave LLC (V2J4XC4KHG)</b></pre>
+
+<h2 id="hang">2. The actual failure: a frozen socket read</h2>
+<p>Running Apple's validator on each plugin shows the shape of the problem. Both clear every static test, then <b>freeze the moment the plugin is actually opened</b>.</p>
+
+<pre>VALIDATING AUDIO UNIT: 'aufx' - 'MEBM' - 'MxWv'
+AudioUnit Name: MixWave EHX Big Muff
+Component Version: 1.0.1 (0x10001)
+
+* * <b>PASS</b>
+--------------------------------------------------
+TESTING OPEN TIMES:
+COLD:<i>   ← never returns</i></pre>
+
+<p>Sampling the frozen process shows exactly what is blocking. <b>Every single sample, on both plugins, is inside PACE's protection wrapper, waiting on a socket receive.</b></p>
+
+<pre>2589 Thread_1628277   DispatchQueue_1: com.apple.main-thread
+  2589 handleWrapEvent  (in <b>PaceProtectionWrapper</b>) + 715
+    2589 handleWrapEvent  (in <b>PaceProtectionWrapper</b>) + 118899
+      2589 handleWrapEvent  (in <b>PaceProtectionWrapper</b>) + 5176343
+        2589 <b>__recvfrom</b>  (in libsystem_kernel.dylib) + 10   <i>← blocked here</i></pre>
+
+<div class="card bad">
+<p>2589 of 2589 samples on Big Muff. 2607 of 2607 on Memory Man. This is not intermittent, and it is not a timing coincidence.</p>
+</div>
+
+<p>Each frozen instantiation also spawned a <b>PACE "Software Activation" helper</b>, the prompt that asks you to authorize the product. It runs as a background UI element, so a plugin-scanner process can never answer it. The plugin waits on that answer indefinitely.</p>
+
+<pre>executable path="/Library/Frameworks/PACEEdenExperience.framework/Versions/Current/<b>Software Activation</b>"
+pid = 25696 type="<b>UIElement</b>" Version="6.0.0.6838"
+checkin time = 195 seconds ago    <i>← spawned by the plugin load</i></pre>
+
+<h2 id="license">3. The license check</h2>
+<p>Your iLok cloud session is open under <code>7onething1@gmail.com</code>, and <b>25 authorizations are active on this machine. None of them is a MixWave product.</b></p>
+
+<div class="card good">
+<h3>Active licenses found</h3>
+<p>Universal Audio: 175B &amp; 176 Tube Compressors, Warm 4, Dream 65 Reverb Amp, PolyMAX, SSL G Bus Compressor, SSL E Channel Strip, Teletronix LA-2A, Teletronix LA-3A, Waterfall B3 Organ, Lexicon 224, Pultec Passive EQ, Fairchild Tube Limiter. Antares: AutoTune and the Vocal series.</p>
+</div>
+
+<div class="card bad">
+<h3>MixWave, EHX, Big Muff, Memory Man</h3>
+<p><b>Zero matches.</b> The plugins have nothing to authorize against.</p>
+</div>
+
+<p>MixWave licenses go through PACE iLok. The license is <b>deposited</b> into your iLok account at purchase, and it then has to be <b>activated</b> to a location: this machine, iLok Cloud, or a USB iLok. A deposited license that was never activated does not appear in the active list, which matches exactly what this machine shows.</p>
+
+<h2 id="timeline">4. What happened on 6 August</h2>
+<p>The order of operations caused this. <b>The plugins were installed before iLok License Support existed on the machine.</b></p>
+
+<div class="time">
+  <div class="row"><span class="t">18:09:55</span> &nbsp;Deluxe Memory Man installer opened</div>
+  <div class="row"><span class="t">18:12:15</span> &nbsp;Memory Man receipts written, install succeeded</div>
+  <div class="row"><span class="t">18:12:56</span> &nbsp;Big Muff receipts written, install succeeded</div>
+  <div class="row f"><span class="t">18:52:11</span> &nbsp;Ableton's scanner starts checking Big Muff</div>
+  <div class="row"><span class="t">18:59:51</span> &nbsp;iLok License Support 6.0.0 begins installing</div>
+  <div class="row"><span class="t">19:00:14</span> &nbsp;iLok License Support finishes</div>
+  <div class="row f"><span class="t">19:00:17</span> &nbsp;<b>Scanner gives up after 8 minutes 6 seconds</b></div>
+  <div class="row f"><span class="t">19:00:17</span> &nbsp;Scanner starts Memory Man, then the log ends</div>
+  <div class="row f"><span class="t">Aug 8 18:27</span> &nbsp;Live rescans, reads the cached failure, skips both</div>
+</div>
+
+<p>Ableton's own scanner log records the giving-up moment:</p>
+<pre>18:52:11 info:  VST3: check plugin at path: "/Library/Audio/Plug-Ins/VST3/MixWave EHX Big Muff.vst3"
+19:00:17 <b>error: Failed to load plugin: calling 'bundleEntry' failed</b>
+19:00:17 info:  <b>VST3: not a plugin</b>
+19:00:17 info:  VST3: check plugin at path: "/Library/Audio/Plug-Ins/VST3/MixWave EHX Deluxe Memory Man.vst3"
+<i>         (scanner log ends here, the process died mid-check)</i></pre>
+
+<h2 id="cache">5. Why Ableton still hides them</h2>
+<p>Live wrote that failure into its plugin database and has trusted it ever since. <b>Its 6 August verdict is still cached, so later scans skip both plugins without retrying.</b></p>
+
+<table>
+<thead><tr><th>Module</th><th>scanstate</th><th>Rows in plugins table</th><th>Meaning</th></tr></thead>
+<tbody>
+<tr><td>107 healthy modules</td><td>1</td><td>1,740</td><td class="ok">scanned, usable</td></tr>
+<tr><td>MixWave EHX Big Muff</td><td>3</td><td>0</td><td class="no">failed, cached</td></tr>
+<tr><td>MixWave EHX Deluxe Memory Man</td><td>2</td><td>0</td><td class="no">failed, cached</td></tr>
+</tbody>
+</table>
+
+<p>Clearing those two rows makes Live rediscover the plugins from scratch on the next scan.</p>
+
+<div class="card warn">
+<p><b>Do not rescan before the licenses are activated.</b> Every scan of an unlicensed MixWave plugin re-triggers the 8-minute freeze and re-caches the same failure. That is also why Live has been slow to start.</p>
+</div>
+
+<h2 id="fix">6. The fix, in order</h2>
+
+<ol class="steps">
+<li><b>Activate the licenses.</b> Open <code>iLok License Manager</code>, sign in, and click <b>Available</b> at the top right. Right-click each MixWave license, choose <b>Activate</b>, and pick this computer or iLok Cloud. Each MixWave license includes two activations.</li>
+<li><b>If the Available tab is empty</b>, the license was never deposited into your account. Contact MixWave support with your order number and your iLok User ID. This happens when an iLok User ID was not supplied at checkout, or when a reseller code has not been redeemed.</li>
+<li><b>Quit Ableton Live completely</b>, then run the repair script below. It backs the database up first, refuses to run if Live is open, and warns if the licenses still are not active.
+<pre>~/Projects/_outputs/mixwave-ehx-fix/repair_live_plugin_cache.sh</pre></li>
+<li><b>Open Live, go to Preferences &gt; Plug-Ins, hold Option and click Rescan.</b> Both plugins appear under Plug-Ins &gt; MixWave.</li>
+</ol>
+
+<p>Verify the activation took, at any point, with:</p>
+<pre>iloktool auths | grep -i -e mixwave -e muff -e memory</pre>
+<p>An empty result means the licenses still are not active on this machine.</p>
+
+<h2 id="appendix">7. Commands used</h2>
+<p>Every claim on this page came from one of these.</p>
+<pre>pkgutil --pkgs | grep -i mixwave              <i># install receipts</i>
+grep -i mixwave /var/log/install.log          <i># installer history</i>
+lipo -archs &lt;binary&gt;                          <i># architectures</i>
+codesign -dv / spctl -a -vvv -t install       <i># signature, notarization</i>
+xattr -l &lt;bundle&gt;                             <i># quarantine flag</i>
+auval -v aufx MEBM MxWv                       <i># Big Muff validation</i>
+auval -v aufx MEMM MxWv                       <i># Memory Man validation</i>
+sample &lt;pid&gt; 3 -mayDie                        <i># the frozen stack</i>
+iloktool auths / cloud --status -v            <i># license state</i>
+lsappinfo list                                <i># the activation helper</i>
+sqlite3 Live-files-53.db                      <i># Live's plugin cache</i>
+~/Library/Preferences/Ableton/Live 11.3.43/PluginScanner.txt</pre>
+
+<footer>
+Jacks-iMac, iMac18,3, Intel Core i5-7500, macOS 13.7.8 (22H730).
+Ableton Live 11.3.43 Suite running x86-64.
+MixWave EHX Big Muff 1.0.1 and MixWave EHX Deluxe Memory Man 1.0.1, both built April 2026.
+Diagnosed 8 August 2026.
+</footer>
+
+</main>
+</body>
+</html>

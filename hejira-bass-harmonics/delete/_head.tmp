@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Hejira, the bass harmonics Jaco played and nobody wrote down</title>
+<style>
+  :root{
+    --cream:#F4EBDC; --paper:#FBF6EC; --ink:#1A1A1A; --rule:#D8C9AE;
+    --red:#A63D40; --mustard:#E9B44C; --teal:#147D8D; --olive:#6B7A4B;
+    --pink:#E6B8B7; --dust:#8C7851;
+  }
+  *{box-sizing:border-box}
+  body{margin:0;background:var(--cream);color:var(--ink);
+    font:16px/1.62 "Iowan Old Style","Palatino Linotype",Palatino,Georgia,serif;}
+  .wrap{max-width:980px;margin:0 auto;padding:0 22px 90px}
+  header{background:var(--red);color:var(--paper);padding:44px 22px 38px;margin-bottom:0}
+  header .inner{max-width:980px;margin:0 auto}
+  h1{font-size:2.15rem;line-height:1.16;margin:0 0 10px;letter-spacing:.2px}
+  .kicker{font-size:.78rem;letter-spacing:.18em;text-transform:uppercase;
+    color:var(--mustard);margin:0 0 14px;font-weight:700}
+  .standfirst{font-size:1.06rem;margin:0;max-width:70ch;color:#F6E7DA}
+  h2{font-size:1.42rem;margin:44px 0 6px;padding-bottom:7px;border-bottom:3px solid var(--rule)}
+  h3{font-size:1.06rem;margin:26px 0 6px;color:var(--dust);
+    letter-spacing:.05em;text-transform:uppercase;font-size:.82rem;font-weight:700}
+  p{margin:12px 0;max-width:74ch}
+  b,strong{color:#000}
+  a{color:var(--teal)}
+  .toc{background:var(--paper);border:1px solid var(--rule);border-left:7px solid var(--mustard);
+    padding:18px 22px;margin:30px 0 6px;border-radius:3px}
+  .toc ol{margin:8px 0 0;padding-left:20px;columns:2;column-gap:34px}
+  .toc li{margin:5px 0;break-inside:avoid}
+  .toc a{text-decoration:none}
+  .toc a:hover{text-decoration:underline}
+  .card{background:var(--paper);border:1px solid var(--rule);border-radius:3px;
+    padding:16px 20px;margin:20px 0}
+  .card.red{border-left:7px solid var(--red)}
+  .card.teal{border-left:7px solid var(--teal)}
+  .card.olive{border-left:7px solid var(--olive)}
+  .card.mustard{border-left:7px solid var(--mustard)}
+  .card h4{margin:0 0 6px;font-size:1rem;letter-spacing:.02em}
+  .scroll{overflow-x:auto;-webkit-overflow-scrolling:touch;margin:18px 0}
+  table{border-collapse:collapse;width:100%;min-width:520px;font-size:.93rem;
+    background:var(--paper)}
+  th,td{border:1px solid var(--rule);padding:8px 11px;text-align:left;vertical-align:top}
+  th{background:#EFE3CE;font-size:.76rem;letter-spacing:.09em;text-transform:uppercase}
+  td.num{text-align:right;font-variant-numeric:tabular-nums}
+  tr.hit td{background:#F6EEDC}
+  .tag{display:inline-block;font-size:.7rem;letter-spacing:.09em;text-transform:uppercase;
+    padding:2px 8px;border-radius:2px;font-weight:700;white-space:nowrap}
+  .ok{background:var(--olive);color:#fff}
+  .bad{background:var(--red);color:#fff}
+  .mid{background:var(--mustard);color:#3A2A00}
+  code,.mono{font-family:"SF Mono",Menlo,Consolas,monospace;font-size:.87em;
+    background:#EFE6D4;padding:1px 5px;border-radius:2px}
+  pre{background:#2B2622;color:#F2E8D5;padding:14px 16px;border-radius:3px;
+    overflow-x:auto;font-family:"SF Mono",Menlo,Consolas,monospace;font-size:.83rem;line-height:1.5}
+  pre b{color:var(--mustard)}
+  blockquote{margin:18px 0;padding:12px 20px;border-left:5px solid var(--pink);
+    background:var(--paper);font-size:1.04rem}
+  .foot{margin-top:56px;padding-top:16px;border-top:3px solid var(--rule);
+    font-size:.85rem;color:var(--dust)}
+  .big{font-size:2.6rem;font-weight:700;line-height:1;display:block}
+  .grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(180px,1fr));gap:14px;margin:20px 0}
+  .stat{background:var(--paper);border:1px solid var(--rule);border-top:5px solid var(--teal);
+    padding:14px 16px;border-radius:3px}
+  .stat .lab{font-size:.74rem;letter-spacing:.09em;text-transform:uppercase;color:var(--dust)}
+</style>
+</head>
+<body>
