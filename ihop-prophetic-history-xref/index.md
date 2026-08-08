@@ -27,11 +27,38 @@ Eight of the eleven 2019 sessions retell a 2009 IPH session under a new title: 2
 
 ## 2019 series coverage
 
-Out of 11 sessions: transcripts **1**, audio **9**, PDF **8**, 2009 twin **8**.
+Out of 11 sessions: transcripts **8** (was 1), audio **9**, PDF **8**, 2009 twin **8**.
 
-Session 3 (The Early Days and the Solemn Assembly in May 1983) is the only one absent in every local format. Session 11 (Sam Storms interview) is the only one held as text, in 2 copies.
+Still absent as canonical transcripts: sessions **3, 6 and 9**. Session 3 is absent in every local format.
 
-A first pass using loose filename matching reported 6 of 11 present. That was wrong: the matcher scored on leading digits and common words, accepting `04 Three Prophetic Time Frames in the End Times` as session 4. Rerunning on distinctive tokens gave the corrected figure of 1.
+A first pass using loose filename matching reported 6 of 11 present. That was wrong: the matcher scored on leading digits and common words, accepting `04 Three Prophetic Time Frames in the End Times` as session 4. Rerunning on distinctive tokens gave the corrected figure of 1, which the transcription run then raised to 8.
+
+Bickle states in Session 7 that the run is a **ten-part series**. The online listing shows eleven because the Sam Storms interview of November 8 was appended after the Friday-night run ended. Session 7 also describes Session 6 as covering power released on proclaiming the message tied to the Spirit of Prayer, which matches the online title and confirms the canonical ordering from inside the audio.
+
+## Transcription run, 2026-08-07
+
+Ten local mp3 sessions transcribed with faster-whisper 1.2.1, `base` model, int8 on CPU, beam size 5, three parallel workers on four cores.
+
+**606,326 characters from 670 minutes of audio in 163 minutes wall clock, mean 4.1x realtime, $0 API cost.**
+
+| Session file | Chars | Segments | Audio min | Wall min |
+|---|---|---|---|---|
+| 01 Intro to Bob Jones Paul Cain and End Time Revival | 44,506 | 477 | 53.9 | 14.3 |
+| 02 Great Change and Revival Are Coming to the Church | 56,438 | 1,430 | 65.5 | 20.1 |
+| 03 Healing Anointing, Jehovah Rapha, Dominus and Other Visions | 65,660 | 711 | 77.0 | 19.7 |
+| 04 A Procession to the Stadium, Chariots and the Sands of Time | 60,840 | 972 | 69.3 | 16.5 |
+| 04 Joseph's Dungeon, The Power of the Spirit and Humility | 36,310 | 377 | 42.6 | 8.9 |
+| 05 Healing Anointing, Jehovah Rapha and Other Visions | 76,858 | 1,316 | 78.8 | 18.6 |
+| 06 Called to Proclaim Song 8:6, Hephzibah and Jesus in Red | 75,021 | 772 | 87.0 | 19.6 |
+| 07 Hephzibah, God's Beauty and Jesus in Red | 68,820 | 701 | 71.1 | 19.1 |
+| 08 The Blueprint Prophecy and the Black Horse | 58,400 | 1,402 | 60.2 | 18.3 |
+| 10 Financial Miracles and Promises of Economic Blessing | 63,473 | 682 | 64.5 | 8.1 |
+
+Output: `~/Projects/_outputs/ihop-prophetic-history-2019/`, one `.txt` plus one `.meta.json` per session. Reruns skip anything already written above 2 KB.
+
+**Content gate.** Each transcript was tested for its own subject rather than accepted on file size. Three initially read as empty. The cause was the model spelling Hebrew proper nouns phonetically: Hephzibah renders as `hefsabah`, Jehovah Rapha renders as `Rophe`. Rerun on those variants, all ten carry their own subject. Session numbers declared inside the audio match the filenames at sessions 4, 5, 7, 8 and 10.
+
+**Caveat.** Three of the ten belong to adjacent tellings rather than the 2019 run. The files numbered 03, 04 Joseph's Dungeon, and 06 Called to Proclaim retell IPH03, IPH04 and IPH06. They cover the subject matter of canonical sessions 5, 9 and 7 in an earlier voice.
 
 ## The main finding
 
@@ -53,7 +80,7 @@ Assessment: Gospel Coalition Themelios, william-branham.org research page, The P
 
 ## Next steps
 
-1. Transcribe the ten 2019 mp3 files with `/file-getter` (local faster-whisper, no API cost).
+1. Done. The ten 2019 mp3 files are transcribed. Counts above.
 2. Download the four 1988 transcripts from ihopnetwork.com instead of transcribing.
 3. Extract text from the eight 2009 IPH PDFs. `pdftotext` is not installed on this machine.
 4. Build one timeline file keyed on March 1983, May 7 1983, May 28 1983, August 23 1983.
