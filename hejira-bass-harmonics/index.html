@@ -3,7 +3,7 @@
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
-<title>Finding Jaco’s natural harmonics on Hejira</title>
+<title>Finding Jaco’s natural harmonics on Hejira and Refuge of the Roads</title>
 <style>
   :root{
     --cream:#F4EBDC; --paper:#FBF6EC; --ink:#1A1A1A; --rule:#D8C9AE;
@@ -71,7 +71,7 @@
 <header>
   <div class="inner">
     <p class="kicker">Joni Mitchell &middot; Hejira &middot; 1976 &middot; bass by Jaco Pastorius</p>
-    <h1>Finding Jaco's natural harmonics, and three wrong answers on the way</h1>
+    <h1>Finding Jaco&#8217;s natural harmonics across two songs, and three wrong answers on the way</h1>
     <p class="standfirst">Brandon named three nodes by ear: 7th fret D string, 5th and 9th fret
     G string. Getting them into the tab took four rebuilds, because each pass was wrong in a
     different way: the edit corrupted 112 measures, the detector could not tell bass from guitar,
@@ -235,19 +235,58 @@ which agrees with the song containing no G naturals at all.</p>
 <h2 id="result">6. What went into the tab</h2>
 
 <div class="grid">
-  <div class="stat"><span class="lab">Harmonics written</span><span class="big">8</span>
-    A3 &times;7, B4 &times;1</div>
-  <div class="stat"><span class="lab">Bass positions</span><span class="big">471</span>
-    unchanged, nothing added or dropped</div>
+  <div class="stat"><span class="lab">Hejira harmonics</span><span class="big">9</span>
+    A3 &times;8, B4 &times;1</div>
+  <div class="stat"><span class="lab">Refuge harmonics</span><span class="big">15</span>
+    G4 &times;13, A3 &times;2</div>
   <div class="stat"><span class="lab">Other tracks changed</span><span class="big">0</span>
     lead, rhythm, drums, vocals identical</div>
-  <div class="stat"><span class="lab">Gate</span><span class="big">19</span>
-    checks, 0 failed</div>
+  <div class="stat"><span class="lab">Gate, both songs</span><span class="big">17</span>
+    checks each, 0 failed</div>
 </div>
 
-<p>Bars 11, 13, 15, 21 (two), 22, 45 and 80, counting from 1 as the tab does. Confirmed by feeding
-the file to Songsterr's converter: <b>8 harmonics, <code>str1/fret7</code> &times;7 and
-<code>str0/fret9</code> &times;1</b>, every other part unchanged.</p>
+<p>Confirmed by feeding each file to Songsterr's own converter, the one the site uses on import.</p>
+
+<div class="scroll">
+<table>
+  <thead><tr><th>Song</th><th>Tab</th><th>Harmonics</th><th>Breakdown</th><th>Bass positions</th></tr></thead>
+  <tbody>
+    <tr><td>Hejira</td><td><code>6072564</code></td><td class="num"><b>9</b></td>
+      <td>D str 7th &times;8, G str 9th &times;1</td><td class="num">471 to 471</td></tr>
+    <tr class="hit"><td>Refuge of the Roads</td><td><code>6072578</code></td><td class="num"><b>15</b></td>
+      <td>G str 5th &times;13, D str 7th &times;2</td><td class="num">656 to 656</td></tr>
+  </tbody>
+</table>
+</div>
+
+<h3>The key of each song accounts for which node appears</h3>
+
+<p>The G string 5th fret node produces <b>nothing at all in Hejira and 13 events in Refuge</b>,
+which is the strongest evidence that it is a real detection rather than a systematic artefact.</p>
+
+<div class="scroll">
+<table>
+  <thead><tr><th></th><th>Hejira</th><th>Refuge of the Roads</th></tr></thead>
+  <tbody>
+    <tr><td>pitched notes in the transcription</td><td class="num">2,981</td><td class="num">6,170</td></tr>
+    <tr class="hit"><td><b>G naturals</b></td><td class="num"><b>0</b></td><td class="num"><b>880</b>, 14.3%</td></tr>
+    <tr><td>best major-scale fit</td><td>E major, 96.8%</td><td>F major, 87.5%</td></tr>
+    <tr><td>G string 5th fret harmonics found</td><td class="num"><b>0</b></td><td class="num"><b>13</b></td></tr>
+  </tbody>
+</table>
+</div>
+
+<div class="card teal">
+  <h4>Two more fixes the second song forced</h4>
+  <p><b>The guitar check had to become a flag rather than a veto.</b> Vetoing every onset where a
+  guitar track sounds the same pitch cut Hejira from 14 A3 events to 10, including one at purity
+  27.0. The guitar tracks are AI output, and Hejira's rhythm guitar plays A natural 109 times, so
+  coincidences are common. A coincidence now decides the case only inside the ambiguous band,
+  purity below 9.</p>
+  <p style="margin-bottom:0"><b>The bar has to come from the detector.</b> Hejira drifts 0.78
+  percent between tab and audio; <b>Refuge drifts 5.3 percent</b> (418.9 s of tab against 398.0 s
+  of audio), so a builder deriving the bar from tempo alone lands about 10 bars out by the end.</p>
+</div>
 
 <div class="card mustard">
   <h4>Seven detections were left out on purpose</h4>
