@@ -1,0 +1,361 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Hejira, the bass harmonics Jaco played and nobody wrote down</title>
+<style>
+  :root{
+    --cream:#F4EBDC; --paper:#FBF6EC; --ink:#1A1A1A; --rule:#D8C9AE;
+    --red:#A63D40; --mustard:#E9B44C; --teal:#147D8D; --olive:#6B7A4B;
+    --pink:#E6B8B7; --dust:#8C7851;
+  }
+  *{box-sizing:border-box}
+  body{margin:0;background:var(--cream);color:var(--ink);
+    font:16px/1.62 "Iowan Old Style","Palatino Linotype",Palatino,Georgia,serif;}
+  .wrap{max-width:980px;margin:0 auto;padding:0 22px 90px}
+  header{background:var(--red);color:var(--paper);padding:44px 22px 38px;margin-bottom:0}
+  header .inner{max-width:980px;margin:0 auto}
+  h1{font-size:2.15rem;line-height:1.16;margin:0 0 10px;letter-spacing:.2px}
+  .kicker{font-size:.78rem;letter-spacing:.18em;text-transform:uppercase;
+    color:var(--mustard);margin:0 0 14px;font-weight:700}
+  .standfirst{font-size:1.06rem;margin:0;max-width:70ch;color:#F6E7DA}
+  h2{font-size:1.42rem;margin:44px 0 6px;padding-bottom:7px;border-bottom:3px solid var(--rule)}
+  h3{font-size:1.06rem;margin:26px 0 6px;color:var(--dust);
+    letter-spacing:.05em;text-transform:uppercase;font-size:.82rem;font-weight:700}
+  p{margin:12px 0;max-width:74ch}
+  b,strong{color:#000}
+  a{color:var(--teal)}
+  .toc{background:var(--paper);border:1px solid var(--rule);border-left:7px solid var(--mustard);
+    padding:18px 22px;margin:30px 0 6px;border-radius:3px}
+  .toc ol{margin:8px 0 0;padding-left:20px;columns:2;column-gap:34px}
+  .toc li{margin:5px 0;break-inside:avoid}
+  .toc a{text-decoration:none}
+  .toc a:hover{text-decoration:underline}
+  .card{background:var(--paper);border:1px solid var(--rule);border-radius:3px;
+    padding:16px 20px;margin:20px 0}
+  .card.red{border-left:7px solid var(--red)}
+  .card.teal{border-left:7px solid var(--teal)}
+  .card.olive{border-left:7px solid var(--olive)}
+  .card.mustard{border-left:7px solid var(--mustard)}
+  .card h4{margin:0 0 6px;font-size:1rem;letter-spacing:.02em}
+  .scroll{overflow-x:auto;-webkit-overflow-scrolling:touch;margin:18px 0}
+  table{border-collapse:collapse;width:100%;min-width:520px;font-size:.93rem;
+    background:var(--paper)}
+  th,td{border:1px solid var(--rule);padding:8px 11px;text-align:left;vertical-align:top}
+  th{background:#EFE3CE;font-size:.76rem;letter-spacing:.09em;text-transform:uppercase}
+  td.num{text-align:right;font-variant-numeric:tabular-nums}
+  tr.hit td{background:#F6EEDC}
+  .tag{display:inline-block;font-size:.7rem;letter-spacing:.09em;text-transform:uppercase;
+    padding:2px 8px;border-radius:2px;font-weight:700;white-space:nowrap}
+  .ok{background:var(--olive);color:#fff}
+  .bad{background:var(--red);color:#fff}
+  .mid{background:var(--mustard);color:#3A2A00}
+  code,.mono{font-family:"SF Mono",Menlo,Consolas,monospace;font-size:.87em;
+    background:#EFE6D4;padding:1px 5px;border-radius:2px}
+  pre{background:#2B2622;color:#F2E8D5;padding:14px 16px;border-radius:3px;
+    overflow-x:auto;font-family:"SF Mono",Menlo,Consolas,monospace;font-size:.83rem;line-height:1.5}
+  pre b{color:var(--mustard)}
+  blockquote{margin:18px 0;padding:12px 20px;border-left:5px solid var(--pink);
+    background:var(--paper);font-size:1.04rem}
+  .foot{margin-top:56px;padding-top:16px;border-top:3px solid var(--rule);
+    font-size:.85rem;color:var(--dust)}
+  .big{font-size:2.6rem;font-weight:700;line-height:1;display:block}
+  .grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(180px,1fr));gap:14px;margin:20px 0}
+  .stat{background:var(--paper);border:1px solid var(--rule);border-top:5px solid var(--teal);
+    padding:14px 16px;border-radius:3px}
+  .stat .lab{font-size:.74rem;letter-spacing:.09em;text-transform:uppercase;color:var(--dust)}
+</style>
+</head>
+<body>
+<header>
+  <div class="inner">
+    <p class="kicker">Joni Mitchell &middot; Hejira &middot; 1976 &middot; bass by Jaco Pastorius</p>
+    <h1>The harmonics Jaco played, and the four transcriptions that miss them</h1>
+    <p class="standfirst">Brandon named three natural harmonics by ear: G string 5th fret,
+    D string 7th fret, D string 9th fret. Not one published source has all three. The isolated
+    bass stem has all three. This is the record of settling that from the audio, and of the
+    corrected tab that came out of it.</p>
+  </div>
+</header>
+
+<div class="wrap">
+
+<div class="toc">
+  <b>On this page</b>
+  <ol>
+    <li><a href="#claim">The three nodes</a></li>
+    <li><a href="#sources">What four sources say</a></li>
+    <li><a href="#audio">The recording settles it</a></li>
+    <li><a href="#dedup">How 17 harmonics became 383</a></li>
+    <li><a href="#world">The import that was never blocked</a></li>
+    <li><a href="#result">What is in the editor now</a></li>
+    <li><a href="#open">The one open decision</a></li>
+  </ol>
+</div>
+
+<h2 id="claim">1. The three nodes</h2>
+
+<blockquote>All others get that wrong, though the live one gets close.</blockquote>
+
+<p>The passage is played fretless, on natural harmonics. Stated as touched frets, which is
+how a bass player thinks about it, the three nodes and their sounding pitches are fixed by
+the string tuning alone.</p>
+
+<div class="scroll">
+<table>
+  <thead><tr><th>Touched node</th><th>Partial</th><th>Sounds</th><th>MIDI</th><th>Hz</th></tr></thead>
+  <tbody>
+    <tr><td>G string, 5th fret</td><td>4th, +24</td><td><b>G4</b></td><td class="num">67</td><td class="num">392.0</td></tr>
+    <tr><td>D string, 7th fret</td><td>3rd, +19</td><td><b>A3</b></td><td class="num">57</td><td class="num">220.0</td></tr>
+    <tr><td>D string, 9th fret</td><td>5th, +28</td><td><b>F#4</b></td><td class="num">66</td><td class="num">370.0</td></tr>
+  </tbody>
+</table>
+</div>
+
+<div class="card mustard">
+  <h4>Why the coordinate system matters</h4>
+  <p style="margin:0">A natural harmonic decouples the fret from the pitch. The finger touches
+  fret 5 and the string sounds two octaves up. <b>Every format that matters stores the touched
+  fret</b>, so a spec given as "G string 5th fret" maps one to one into both Songsterr's
+  <code>harmonicFret</code> and Guitar Pro's <code>HarmonicFret</code>, with no inference.</p>
+</div>
+
+<h2 id="sources">2. What four sources say</h2>
+
+<p>Two engraved charts from jonimitchell.com and two Songsterr tabs were checked against the
+three nodes. The Sardi chart was decoded from its TAB staves, the Blackburn chart from its
+noteheads, the Songsterr tabs from their note JSON.</p>
+
+<div class="scroll">
+<table>
+  <thead><tr><th>Source</th><th>Kind</th><th>Range ceiling</th><th>Harmonic notation</th>
+    <th>G str 5th</th><th>D str 7th</th><th>D str 9th</th></tr></thead>
+  <tbody>
+    <tr><td>Igor Sardi <b>561</b>, 28 pp</td><td>Guitar Pro, Bass I/II/III + TAB</td><td>none</td>
+      <td><span class="tag mid">positions only</span></td>
+      <td class="num"><b>0</b></td><td class="num">35</td><td class="num">20</td></tr>
+    <tr><td>Dave Blackburn <b>498</b>, 4 pp</td><td>Sibelius Opus, notation</td><td>E5</td>
+      <td><span class="tag mid">10 circles</span></td>
+      <td class="num"><b>0</b></td><td class="num">0</td><td class="num">3</td></tr>
+    <tr><td>Songsterr <b>6072564</b> Hejira</td><td>AI transcription, 5 tracks</td><td>C#4</td>
+      <td><span class="tag bad">none</span></td>
+      <td class="num">0</td><td class="num">0</td><td class="num">0</td></tr>
+    <tr><td>Songsterr <b>4448708</b> Coyote live</td><td>human, Editor</td><td>C4</td>
+      <td><span class="tag bad">none</span></td>
+      <td class="num">0</td><td class="num">29</td><td class="num">0</td></tr>
+  </tbody>
+</table>
+</div>
+
+<p>Blackburn's ten harmonic circles engrave <b>F#4, G#4 and B4</b>. Only F#4 is one of the
+three. G#4 and B4 do not fall out of standard tuning as clean natural harmonics at all.
+Sardi's 28 pages carry the D string 7th and 9th fret positions in quantity and carry the
+G string 5th fret position <b>zero times</b> across the whole song.</p>
+
+<div class="card teal">
+  <h4>"The live one gets close" is measurably true</h4>
+  <p style="margin:0">Coyote live <code>4448708</code> is the only human-edited tab of the three,
+  and it writes A3, the D string 7th fret pitch, <b>29 times</b> against the Hejira AI tab's zero.
+  It writes them as ordinary fretted notes with no harmonic marking, and its C4 ceiling puts G4
+  and F#4 out of reach. <b>Close, by the exact margin Brandon described.</b></p>
+</div>
+
+<h2 id="audio">3. The recording settles it</h2>
+
+<p>The question of whether the G string node belongs to Hejira or to Coyote was answerable from
+the audio, so it was answered there rather than asked. The isolated bass stem was separated with
+htdemucs_6s from the 401.23 s album track. An STFT at <code>n_fft 8192</code>, 2.69 Hz bins, looks
+for each node's sounding pitch as a near pure tone, requiring the band to sit in the top 1 percent
+of prominence <b>and</b> to beat the open string's own fundamental by 2.5 times. That ratio is what
+separates a natural harmonic from a fretted note, which arrives with a strong fundamental and a
+full overtone stack.</p>
+
+<div class="scroll">
+<table>
+  <thead><tr><th>Node</th><th>Sounds</th><th>Sustained events</th><th>Longest</th><th>At</th></tr></thead>
+  <tbody>
+    <tr class="hit"><td>G string 5th fret</td><td>G4</td><td class="num"><b>8</b></td>
+      <td class="num">2.60 s</td><td class="num">359.26 s</td></tr>
+    <tr><td>D string 7th fret</td><td>A3</td><td class="num">2</td>
+      <td class="num">1.72 s</td><td class="num">34.13 s</td></tr>
+    <tr><td>D string 9th fret</td><td>F#4</td><td class="num">12</td>
+      <td class="num">1.07 s</td><td class="num">42.72 s</td></tr>
+  </tbody>
+</table>
+</div>
+
+<p><b>The G string 5th fret harmonic is in the recording eight times, including one that rings for
+2.6 seconds, and Sardi's 28 page chart writes it zero times.</b> At that longest event the
+Songsterr AI tab prints a whole bar rest. Bar 128 is 2.824 s at 85 bpm, so a 2.60 s harmonic was
+transcribed as silence.</p>
+
+<div class="card red">
+  <h4>Stated honestly</h4>
+  <p style="margin:0">This is spectral detection with a threshold heuristic, so it is strong
+  evidence rather than proof. <b>The event count and the 2.6 second duration are hard to explain as
+  an artefact</b>, and the onsets give concrete places to listen.</p>
+</div>
+
+<h2 id="dedup">4. How 17 harmonics became 383</h2>
+
+<p>An earlier build wrote the harmonics into the Songsterr export by modifying notes in place,
+on the stated rule that this is structurally neutral, cannot misfill a bar, and leaves the note
+count unchanged. All of that is true. The file was still wrong, in a way no structural check
+could see.</p>
+
+<div class="card red">
+  <h4>A &lt;Note&gt; in a .gp file is not a note</h4>
+  <p style="margin:0">GPIF deduplicates. <code>&lt;Note&gt;</code> and <code>&lt;Beat&gt;</code>
+  elements are <b>shared definitions referenced by id from many places</b>. In this file
+  <b>181 of 295 Note elements and 293 of 1299 Beat elements are referenced more than once</b>.
+  Note 147 alone is referenced from <b>32 positions</b>. The 16 notes edited in place are
+  referenced 177 times between them.</p>
+</div>
+
+<p>Run through Songsterr's own <code>/data/convert</code> endpoint, which is the converter the
+site itself uses on import, the damage is exact and measurable.</p>
+
+<div class="scroll">
+<table>
+  <thead><tr><th>Converted part</th><th>Untouched export</th><th>In-place build</th>
+    <th>Copy-on-write build</th></tr></thead>
+  <tbody>
+    <tr><td>Lead Guitar</td><td class="num">562</td><td class="num">562</td><td class="num">562</td></tr>
+    <tr><td>Rhythm Guitar</td><td class="num">1542</td><td class="num">1542</td><td class="num">1542</td></tr>
+    <tr class="hit"><td><b>Bass notes</b></td><td class="num">493</td>
+      <td class="num"><b>762</b> <span class="tag bad">+269</span></td>
+      <td class="num"><b>495</b> <span class="tag ok">+2</span></td></tr>
+    <tr><td>Drums</td><td class="num">1472</td><td class="num">1472</td><td class="num">1472</td></tr>
+    <tr><td>Vocals</td><td class="num">668</td><td class="num">668</td><td class="num">668</td></tr>
+    <tr class="hit"><td><b>Harmonics</b></td><td class="num">0</td>
+      <td class="num"><b>383</b> <span class="tag bad">112 measures</span></td>
+      <td class="num"><b>18</b> <span class="tag ok">17 measures</span></td></tr>
+  </tbody>
+</table>
+</div>
+
+<p>Bars and voices are not shared in this file, 705 of each with a reference count of one, so the
+repair is copy-on-write down two levels of the ownership chain.</p>
+
+<pre>bar   -> voice     unshared, edit its &lt;Beats&gt; list directly
+voice -> beat      <b>clone if refcount &gt; 1</b>, then it is private
+beat  -> note      <b>always clone</b>, then it is private</pre>
+
+<div class="card olive">
+  <h4>The gate that was missing</h4>
+  <p style="margin:0">Every earlier check asked whether the file was structurally sound, and every one of them
+  passed, because bar durations genuinely never changed. <b>Reference count is
+  the only thing that separates a surgical edit from a broadcast edit.</b> The new gate asserts
+  that each edited note is reachable from exactly one position, and that the total position count
+  moved by exactly the intended amount.</p>
+</div>
+
+<h3>Two traps that follow from the same fact</h3>
+<p><b>A dedup key on a note id is wrong.</b> Skipping an event because that note is already used
+rejects genuinely distinct positions that happen to share a definition. Keying on bar plus ordinal
+recovered two dropped placements. <b>An export shows fewer note elements than positions.</b>
+Songsterr's own export of 18 harmonic positions carries 3 harmonic Note elements, one per distinct
+shape, so counting elements there shows a loss that did not happen.</p>
+
+<h2 id="world">5. The import that was never blocked</h2>
+
+<p>Getting a corrected file back into Songsterr had been recorded as closed after five methods
+failed with no upload request and no success message. All five were run through a browser bridge
+whose JavaScript executes in an <b>isolated world</b>. It shares the DOM and nothing else.</p>
+
+<div class="scroll">
+<table>
+  <thead><tr><th>Read from the same page, same instant</th><th>Isolated world</th><th>Main world</th></tr></thead>
+  <tbody>
+    <tr><td><code>window.trackNotsyEvent</code></td><td><span class="tag bad">undefined</span></td><td><span class="tag ok">function</span></td></tr>
+    <tr><td><code>window.__debug__</code></td><td><span class="tag bad">undefined</span></td><td><span class="tag ok">function</span></td></tr>
+    <tr class="hit"><td><code>importRevisionInput.onchange</code></td><td><span class="tag bad">null</span></td><td><span class="tag ok">function</span></td></tr>
+    <tr><td>pointer sequence opens a control</td><td><span class="tag bad">no</span></td><td><span class="tag ok">yes</span></td></tr>
+  </tbody>
+</table>
+</div>
+
+<p>The handler had been attached the whole time. <b>The verdict "the click never reached the app,
+onchange is still null" was measuring the world boundary rather than the click.</b> Injecting a
+script element reaches the main world, where the app's own import handler is an ordinary function
+that can be called directly, so no trusted event is needed at any point.</p>
+
+<pre>var r = await fetch('http://127.0.0.1:8791/hejira_bass_HARMONICS_v4.gp');
+var f = new File([await r.blob()], 'hejira_bass_HARMONICS_v4.gp');
+await importRevisionInput.onchange({target: {files: [f]}});
+<b>// -> Successfully uploaded hejira_bass_HARMONICS_v4.gp   51,201 bytes   1.03 s</b></pre>
+
+<p>The handler posts the file to <code>/data/convert</code> as form field <code>source</code> and
+dispatches the returned parts into the editor. That endpoint is a pure function reachable with a
+plain credentialed fetch, <b>which is how the 383 harmonic corruption was caught before anything
+was imported</b>, by converting each candidate build and comparing per part note counts against
+the untouched export.</p>
+
+<h2 id="result">6. What is in the editor now</h2>
+
+<p>Proof by round trip. The file was imported, then Songsterr's own export control was used to pull
+the editor's current state back out, and that export was counted by position.</p>
+
+<div class="grid">
+  <div class="stat"><span class="lab">Harmonic positions</span><span class="big">18</span>
+    G4 &times;7, A3 &times;2, F#4 &times;9</div>
+  <div class="stat"><span class="lab">Tracks preserved</span><span class="big">5</span>
+    lead, rhythm, bass, drums, vocals</div>
+  <div class="stat"><span class="lab">Non-bass notes changed</span><span class="big">0</span>
+    445 / 1542 / 1428 / 523 unchanged</div>
+  <div class="stat"><span class="lab">Bars misfilled</span><span class="big">0</span>
+    every bass bar sums to 4.0</div>
+</div>
+
+<div class="scroll">
+<table>
+  <thead><tr><th>Track in the editor export</th><th>Before</th><th>After</th><th>Harmonics</th></tr></thead>
+  <tbody>
+    <tr><td>Lead Guitar</td><td class="num">445</td><td class="num">445</td><td class="num">0</td></tr>
+    <tr><td>Rhythm Guitar</td><td class="num">1542</td><td class="num">1542</td><td class="num">0</td></tr>
+    <tr class="hit"><td><b>Electric Bass (finger)</b></td><td class="num">471</td>
+      <td class="num"><b>474</b></td><td class="num"><b>18</b></td></tr>
+    <tr><td>Drums</td><td class="num">1428</td><td class="num">1428</td><td class="num">0</td></tr>
+    <tr><td>Vocals</td><td class="num">523</td><td class="num">523</td><td class="num">0</td></tr>
+  </tbody>
+</table>
+</div>
+
+<p>Three bass bars changed note count, and all three are accounted for. <b>Bar 128 goes from 0 to 1</b>,
+the whole bar rest replaced by the 2.60 s G4 harmonic the stem carries. <b>Bars 109 and 116 each gain
+one note</b>, because the note replaced there was a tie origin and the harmonic drops that tie. A
+natural harmonic is its own attack, so the following note is no longer absorbed into it. Bar sums
+stay exact at 4.0 throughout.</p>
+
+<p>The harmonics sit at bars <span class="mono">12, 13, 16, 23, 46, 53, 63, 67, 80, 82, 87, 90, 108,
+109, 116, 128, 135</span>, counting from 1 as the tab does. Placement is reliable early and drifts
+late: the tab runs 141 bars at a flat 85 bpm for 398.12 s against 401.23 s of audio, a 0.78 percent
+gap that accumulates to <b>1.10 bars by the end of the song</b>.</p>
+
+<h2 id="open">7. The one open decision</h2>
+
+<div class="card red">
+  <h4>Publishing has not happened and will not happen unasked</h4>
+  <p>Tab <code>6072564</code> was authored by <code>076runner</code>. Import changes editor state
+  only. Verified after the import: <b>revisionId 7930670, revision count 1, 5 tracks, createdVia AI</b>,
+  the published tab untouched.</p>
+  <p style="margin-bottom:0">Submitting a revision is outward facing and overwrites a public tab, so
+  it stays Brandon's act. <b>The Submit control was enabled the entire time and was deliberately not
+  pressed.</b></p>
+</div>
+
+<div class="foot">
+  <p>Built 2026-08-08. Bar numbers are 1-based. Source files in
+  <span class="mono">~/Projects/_outputs/hejira-bass-fix/</span>: the corrected tab
+  <span class="mono">hejira_bass_HARMONICS_v4.gp</span>, its builder
+  <span class="mono">build_v4.py</span>, its 18 check gate <span class="mono">verify_v4.py</span>,
+  the spectral detector <span class="mono">harmonic_hunt.py</span> and the full event list
+  <span class="mono">harmonic_events_all.json</span>.</p>
+  <p>Jaco played bass on 4 of the 9 tracks on Hejira: Coyote, Hejira, Black Crow, Refuge of the
+  Roads. Black Crow is tuned a half step down, Eb Ab Db Gb, which any tab built for it has to carry.</p>
+</div>
+
+</div>
+</body>
+</html>
