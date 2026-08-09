@@ -21,28 +21,33 @@ PRODUCTS INSTALLED (so these are what I was buying):
   MixWave EHX Big Muff v1.0.1
   MixWave EHX Deluxe Memory Man v1.0.1
 
-MY EMAIL: 7onething1@gmail.com
+EMAIL LIKELY USED AT CHECKOUT: brandonxchavez@gmail.com
+EMAIL I ACTUALLY USE: 7onething1@gmail.com   <-- please move the order here
 MY ILOK USER ID: (fill in from iLok License Manager, top-left of the window)
 
 WHAT I HAVE ALREADY CHECKED:
-  - Searched my entire Gmail, including Spam and Trash, for "mixwave", "ilok",
-    and "paceap". The only MixWave emails I have are marketing: the newsletter
-    signup with discount code RVXGZWWH, the "your code is expiring" reminder,
-    and the D.W. Fearn promo. There is no order confirmation and no license
-    email in any folder.
+  - Searched 7onething1@gmail.com in full, including Spam and Trash, for
+    "mixwave", "ilok", and "paceap". The only MixWave emails there are
+    marketing: the newsletter signup with discount code RVXGZWWH, the "your code
+    is expiring" reminder, and the D.W. Fearn promo. No order confirmation and
+    no license email.
   - iLok License Manager shows 25 active authorizations on this machine and
-    zero MixWave products. Nothing is sitting in Available either.
+    zero MixWave products.
   - Both plugins are installed correctly, code-signed, and notarized. They pass
     Apple's auval validation and then hang on instantiation inside the PACE
     protection wrapper, which is the expected behavior with no license present.
 
-I suspect either the order did not complete after the charge went through, or a
-different email address was captured at checkout. Your support documentation
-says a wrong checkout email can be corrected against the name on the order, so
-please search on "Brandon Chavez" and the two payment timestamps above.
+I think a different email address was captured at checkout. Your support
+documentation says a wrong checkout email can be corrected against the name on
+the order, so please search on "Brandon Chavez" and the two payment timestamps
+above, then update the order to 7onething1@gmail.com and resend the
+confirmation and license emails.
 
 Please either deposit the two licenses into my iLok account or refund the
 $78.00. I am happy to forward both Venmo receipt emails as proof of payment.
+
+If the licenses were already deposited to a different iLok account, please tell
+me which one, so I can sign in there instead.
 
 Thank you,
 Brandon Chavez
@@ -53,6 +58,15 @@ BACKUP ROUTE IF MIXWAVE DOES NOT RESPOND
   Venmo purchase protection covers a merchant charge with no goods delivered.
   help.venmo.com, or (855) 812-4430.
   Evidence: the two "Receipt from SP MIXWAVE - $39.00" emails, 4 Aug 2026.
+
+BEFORE YOU SEND, DO THE THIRTY-SECOND CHECK FIRST
+  Open iLok License Manager and look at the "Available" tab. If the two MixWave
+  licenses are already there, you do not need this ticket at all. Right
+  click each one, choose Activate, pick this computer or iLok Cloud, done. The
+  app is already signed in, so it will not ask you for a password.
+
+  Also check brandonxchavez@gmail.com for the MixWave order confirmation and the
+  separate download/license email. The license email carries the deposit link.
 
 BEFORE YOU SEND: fill in your iLok User ID. Open iLok License Manager; the User
 ID is shown at the top left. It is not your email address.
