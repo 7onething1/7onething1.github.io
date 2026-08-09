@@ -1,0 +1,3041 @@
+<!doctype html><html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><title>Jaco on Hejira: the four bass parts</title><style>
+:root{--cream:#f4ecd8;--ink:#1a1613;--rust:#a8432a;--olive:#6b7d44;--mustard:#d9a441;
+--teal:#2f6b6b;--dust:#c9b79c;--paper:#fbf6ea;}
+*{box-sizing:border-box}
+body{margin:0;background:var(--cream);color:var(--ink);
+ font:16px/1.55 "Iowan Old Style",Palatino,Georgia,serif;-webkit-text-size-adjust:100%}
+.wrap{max-width:1100px;margin:0 auto;padding:22px 16px 90px}
+h1{font-size:26px;margin:0 0 4px;letter-spacing:-.01em}
+h2{font-size:20px;margin:34px 0 10px;padding-bottom:6px;border-bottom:2px solid var(--dust)}
+h3{font-size:16px;margin:18px 0 8px}
+.sub{color:#6b5f52;margin:0 0 18px;font-size:15px}
+.card{background:var(--paper);border:1px solid var(--dust);border-left:5px solid var(--teal);
+ border-radius:4px;padding:12px 14px;margin:14px 0}
+.card.warn{border-left-color:var(--rust)}
+.card.good{border-left-color:#4a7c4e}
+.card.flag{border-left-color:var(--mustard)}
+.card b{font-weight:700}
+table{border-collapse:collapse;width:100%;margin:10px 0;font-size:15px}
+th,td{border:1px solid var(--dust);padding:6px 9px;text-align:left}
+th{background:#efe4cd;font-weight:700}
+.scroll{overflow-x:auto}
+.songnav{display:flex;flex-wrap:wrap;gap:8px;margin:16px 0 6px}
+.songnav a{display:inline-block;padding:7px 12px;background:var(--paper);
+ border:1px solid var(--dust);border-radius:3px;text-decoration:none;color:var(--ink);font-size:15px}
+.songnav a:hover{background:var(--mustard)}
+.meta{font-size:14px;color:#6b5f52;margin:2px 0 10px}
+.bars{display:flex;flex-wrap:wrap;gap:10px 12px;margin:12px 0}
+.bar{background:var(--paper);border:1px solid var(--dust);border-radius:3px;padding:5px 7px 6px;
+ cursor:pointer;position:relative}
+.bar:hover{border-color:var(--rust)}
+.bar.marked{background:#fdf3d6;border-color:var(--mustard);border-width:2px;padding:4px 6px 5px}
+.bn{font:11px/1.3 ui-monospace,Menlo,Consolas,monospace;color:#8a7a68;margin-bottom:2px}
+.bn .t{float:right;color:#a89880}
+pre.tab{margin:0;font:13px/1.35 ui-monospace,Menlo,"DejaVu Sans Mono",Consolas,monospace;
+ white-space:pre;color:var(--ink)}
+.h{color:var(--rust);font-weight:700}
+.c{color:var(--teal);font-weight:700}
+td.bl{font:12px/1.4 ui-monospace,Menlo,monospace;color:#6b5f52}
+.legend{font-size:14px;color:#6b5f52}
+.legend code{background:#efe4cd;padding:1px 5px;border-radius:3px;font-size:13px}
+#tray{position:fixed;left:0;right:0;bottom:0;background:var(--ink);color:var(--cream);
+ padding:9px 14px;font:14px/1.4 ui-monospace,Menlo,monospace;display:flex;gap:12px;
+ align-items:center;flex-wrap:wrap;z-index:9}
+#tray button{font:13px ui-monospace,Menlo,monospace;background:var(--mustard);color:#1a1613;
+ border:0;border-radius:3px;padding:6px 11px;cursor:pointer}
+#tray button.ghost{background:transparent;color:var(--cream);border:1px solid #5c5348}
+#picked{flex:1;min-width:180px;overflow-x:auto;white-space:nowrap}
+.nodepick{display:flex;gap:6px;flex-wrap:wrap}
+.nodepick label{background:#2b2521;padding:5px 9px;border-radius:3px;cursor:pointer}
+.nodepick input{margin-right:5px}
+@media (max-width:640px){body{font-size:15px}h1{font-size:22px}pre.tab{font-size:12px}}
+</style></head><body><div class="wrap"><h1>Jaco on Hejira: the four bass parts</h1>
+<p class="sub">Jaco overdubbed bass on four of the nine tracks. These are those four. Built 2026-08-09. Bar numbers are 1-based, times are from the top of each recording.</p>
+<div class="card warn"><b>Black Crow is tuned down a half step.</b> Bass reads D#1 G#1 C#2 F#2. Every fret number in that section assumes you dropped a semitone. The other three are standard E1 A1 D2 G2.</div>
+<h2 id="nodes">The three harmonic nodes</h2>
+<p class="legend">Your ear, your words: "the 7th fret D and 5th and 9th G." The letter names the <b>string</b>, not the note.</p>
+<div class="scroll"><table><tr><th>Node</th><th>Partial</th><th>Sounds</th><th>MIDI</th><th>Frequency</th></tr><tr><td><b>D string, 7th fret</b></td><td>3rd partial, +19</td><td><b>A3</b></td><td>57</td><td>220.0 Hz</td></tr>
+<tr><td><b>G string, 5th fret</b></td><td>4th partial, +24</td><td><b>G4</b></td><td>67</td><td>392.0 Hz</td></tr>
+<tr><td><b>G string, 9th fret</b></td><td>5th partial, +28</td><td><b>B4</b></td><td>71</td><td>493.9 Hz</td></tr></table></div>
+<div class="card"><b>Why only Coyote carries harmonics on the staff.</b> A spectral detector was built to find these. Run against the isolated bass stem it produced 59 events on Hejira. Run against the <b>drum stem</b> of the same song it produced <b>80</b>. Guitar stem gave 18. Best bass-to-drums ratio across every threshold was 2.0, so roughly half of anything it reported was a cymbal. Nothing from it was written to a staff. Coyote's eleven come from bar numbers you gave by ear.</div>
+<h2>How to read these</h2>
+<p class="legend"><code>5</code> fret 5 &nbsp; <code class="h">&lt;5&gt;</code> natural harmonic at fret 5 &nbsp; <code>(5)</code> tied, let it ring &nbsp; <code>5~</code> vibrato &nbsp; <code>5/</code> slide &nbsp; <code>x</code> dead note &nbsp; <code class="c">*14</code> the tab writes a NODE PITCH here as an ordinary stopped note, so this is a place a harmonic can go without changing which pitch sounds. Top line is the thinnest string. The small number top-left of each box is the bar, the grey number top-right is where it lands in the recording.</p>
+<div class="card good"><b>Tap any bar to mark a harmonic.</b> Pick the node in the black bar at the bottom, tap the bars where you hear it, then hit copy. That list is what gets written to the staff, since your ear is the only thing that has been right about this so far.</div>
+<div class="songnav"><a href="#coyote">Coyote</a><a href="#hejira">Hejira</a><a href="#blackcrow">Black Crow</a><a href="#refuge">Refuge of the Roads</a></div>
+<h2 id="coyote">Coyote</h2>
+<p class="meta">Shadows and Light, live &nbsp;&middot;&nbsp; 203 bars &nbsp;&middot;&nbsp; 1158 notes &nbsp;&middot;&nbsp; 160 bpm &nbsp;&middot;&nbsp; tuning E1 A1 D2 G2 &nbsp;&middot;&nbsp; 11 harmonics written</p>
+<div class="card good">Eleven natural harmonics at G string 5th fret, written from your bar numbers: 14, 21, 27, 35, 39, 43, 44, 45, 46, 47, 48. Bar 23 left as the chord you said was correct. You said bar 52 onward stops matching the recording.</div>
+<h3>Where this tab already writes the node pitches</h3>
+<div class="scroll"><table><tr><th>Node</th><th>Sounds</th><th>Times written</th><th>Written at</th><th>Bars</th></tr><tr><td><b>D string 7</b></td><td>A3</td><td>29</td><td>str 4 fret 14</td><td class="bl">50, 51, 52, 64, 64, 64, 64, 65, 65, 65, 134, 135, 135, 135, 136, 149, 150, 150, 150, 180, 180, 187, 187, 188, 188, 190, 190, 191, 191</td></tr><tr><td><b>G string 5</b></td><td>G4</td><td>0</td><td>-</td><td class="bl">none</td></tr><tr><td><b>G string 9</b></td><td>B4</td><td>0</td><td>-</td><td class="bl">none</td></tr></table></div>
+<div class="bars">
+<div class="bar rest" data-song="coyote" data-bar="1"><div class="bn">1<span class="t">0:00</span></div><pre class="tab">G|-----------------|
+D|-----------------|
+A|-----------------|
+E|-----------------|</pre></div>
+<div class="bar rest" data-song="coyote" data-bar="2"><div class="bn">2<span class="t">0:01</span></div><pre class="tab">G|-----------------|
+D|-----------------|
+A|-----------------|
+E|-----------------|</pre></div>
+<div class="bar rest" data-song="coyote" data-bar="3"><div class="bn">3<span class="t">0:03</span></div><pre class="tab">G|-----------------|
+D|-----------------|
+A|-----------------|
+E|-----------------|</pre></div>
+<div class="bar rest" data-song="coyote" data-bar="4"><div class="bn">4<span class="t">0:04</span></div><pre class="tab">G|-----------------|
+D|-----------------|
+A|-----------------|
+E|-----------------|</pre></div>
+<div class="bar rest" data-song="coyote" data-bar="5"><div class="bn">5<span class="t">0:06</span></div><pre class="tab">G|-----------------|
+D|-----------------|
+A|-----------------|
+E|-----------------|</pre></div>
+<div class="bar rest" data-song="coyote" data-bar="6"><div class="bn">6<span class="t">0:07</span></div><pre class="tab">G|-----------------|
+D|-----------------|
+A|-----------------|
+E|-----------------|</pre></div>
+<div class="bar rest" data-song="coyote" data-bar="7"><div class="bn">7<span class="t">0:09</span></div><pre class="tab">G|-----------------|
+D|-----------------|
+A|-----------------|
+E|-----------------|</pre></div>
+<div class="bar rest" data-song="coyote" data-bar="8"><div class="bn">8<span class="t">0:10</span></div><pre class="tab">G|-----------------|
+D|-----------------|
+A|-----------------|
+E|-----------------|</pre></div>
+<div class="bar rest" data-song="coyote" data-bar="9"><div class="bn">9<span class="t">0:12</span></div><pre class="tab">G|-----------------|
+D|-----------------|
+A|-----------------|
+E|-----------------|</pre></div>
+<div class="bar rest" data-song="coyote" data-bar="10"><div class="bn">10<span class="t">0:13</span></div><pre class="tab">G|-----------------|
+D|-----------------|
+A|-----------------|
+E|-----------------|</pre></div>
+<div class="bar rest" data-song="coyote" data-bar="11"><div class="bn">11<span class="t">0:15</span></div><pre class="tab">G|-----------------|
+D|-----------------|
+A|-----------------|
+E|-----------------|</pre></div>
+<div class="bar rest" data-song="coyote" data-bar="12"><div class="bn">12<span class="t">0:16</span></div><pre class="tab">G|-----------------|
+D|-----------------|
+A|-----------------|
+E|-----------------|</pre></div>
+<div class="bar" data-song="coyote" data-bar="13"><div class="bn">13<span class="t">0:18</span></div><pre class="tab">G|-------5/-7------7--------|
+D|--------------------------|
+A|3-------------------------|
+E|--------------------------|</pre></div>
+<div class="bar" data-song="coyote" data-bar="14"><div class="bn">14<span class="t">0:19</span></div><pre class="tab">G|<span class="h">&lt;5&gt;</span>--------------|
+D|-----------------|
+A|-----------------|
+E|-----------------|</pre></div>
+<div class="bar" data-song="coyote" data-bar="15"><div class="bn">15<span class="t">0:21</span></div><pre class="tab">G|----------------------|
+D|-------5--5-----5--5--|
+A|----------------------|
+E|3------------3--------|</pre></div>
+<div class="bar" data-song="coyote" data-bar="16"><div class="bn">16<span class="t">0:22</span></div><pre class="tab">G|------------------------|
+D|5--------5--5-----------|
+A|------------------3-----|
+E|---3--3--------5-----0--|</pre></div>
+<div class="bar" data-song="coyote" data-bar="17"><div class="bn">17<span class="t">0:24</span></div><pre class="tab">G|----------------------|
+D|----------------3--3--|
+A|-------3--3-----------|
+E|1------------1--------|</pre></div>
+<div class="bar" data-song="coyote" data-bar="18"><div class="bn">18<span class="t">0:25</span></div><pre class="tab">G|------------------------|
+D|3-----------------------|
+A|---5--------------3--3--|
+E|------0--1--1--1--------|</pre></div>
+<div class="bar" data-song="coyote" data-bar="19"><div class="bn">19<span class="t">0:27</span></div><pre class="tab">G|-----------------|
+D|-----------------|
+A|-----------------|
+E|1----------------|</pre></div>
+<div class="bar" data-song="coyote" data-bar="20"><div class="bn">20<span class="t">0:28</span></div><pre class="tab">G|-----------------------|
+D|-----------3--3--------|
+A|-----3--3--------0--0--|
+E|1----------------------|</pre></div>
+<div class="bar" data-song="coyote" data-bar="21"><div class="bn">21<span class="t">0:30</span></div><pre class="tab">G|-------7------<span class="h">&lt;5&gt;</span>--|
+D|-------7------7----|
+A|3------5------5----|
+E|-------------------|</pre></div>
+<div class="bar" data-song="coyote" data-bar="22"><div class="bn">22<span class="t">0:31</span></div><pre class="tab">G|7------7------7----|
+D|7------7------7----|
+A|5------5------5----|
+E|-------------------|</pre></div>
+<div class="bar" data-song="coyote" data-bar="23"><div class="bn">23<span class="t">0:33</span></div><pre class="tab">G|8------8------8----|
+D|8------8------8----|
+A|6------6------6----|
+E|-------------------|</pre></div>
+<div class="bar" data-song="coyote" data-bar="24"><div class="bn">24<span class="t">0:34</span></div><pre class="tab">G|8--8------8--------|
+D|8--8------8--------|
+A|6--6------6--------|
+E|-------------------|</pre></div>
+<div class="bar" data-song="coyote" data-bar="25"><div class="bn">25<span class="t">0:36</span></div><pre class="tab">G|-----------------------|
+D|--------5-----5--5-----|
+A|-----------------------|
+E|3----3-----3--------3--|</pre></div>
+<div class="bar" data-song="coyote" data-bar="26"><div class="bn">26<span class="t">0:37</span></div><pre class="tab">G|-----------------------|
+D|--------5-----5--5-----|
+A|-----------------------|
+E|3----3-----3--------3--|</pre></div>
+<div class="bar" data-song="coyote" data-bar="27"><div class="bn">27<span class="t">0:39</span></div><pre class="tab">G|------<span class="h">&lt;5&gt;</span>-----5--5----|
+D|----------------------|
+A|-----------3----------|
+E|3--5------------------|</pre></div>
+<div class="bar" data-song="coyote" data-bar="28"><div class="bn">28<span class="t">0:40</span></div><pre class="tab">G|5------------5-----|
+D|-------------------|
+A|-------------------|
+E|----------------0--|</pre></div>
+<div class="bar" data-song="coyote" data-bar="29"><div class="bn">29<span class="t">0:42</span></div><pre class="tab">G|----------------------|
+D|-------5--5-----5--5--|
+A|----------------------|
+E|3------------3--------|</pre></div>
+<div class="bar" data-song="coyote" data-bar="30"><div class="bn">30<span class="t">0:43</span></div><pre class="tab">G|------------------------|
+D|5-----------------5-----|
+A|---------------------3--|
+E|---3--3--3--3--3--------|</pre></div>
+<div class="bar" data-song="coyote" data-bar="31"><div class="bn">31<span class="t">0:45</span></div><pre class="tab">G|-----------------------|
+D|5-----3----x-----------|
+A|---3----------0--------|
+E|-----------------1--1--|</pre></div>
+<div class="bar" data-song="coyote" data-bar="32"><div class="bn">32<span class="t">0:46</span></div><pre class="tab">G|-----------------------|
+D|-----------3--3--------|
+A|--------x--------3-----|
+E|1-------------------0--|</pre></div>
+<div class="bar" data-song="coyote" data-bar="33"><div class="bn">33<span class="t">0:48</span></div><pre class="tab">G|-----------------------|
+D|-----------3--3--------|
+A|--------x--------x-----|
+E|1----1--------------0--|</pre></div>
+<div class="bar" data-song="coyote" data-bar="34"><div class="bn">34<span class="t">0:49</span></div><pre class="tab">G|------------------------|
+D|------------------3-----|
+A|------3-----------------|
+E|1--1-----x--1--1-----3--|</pre></div>
+<div class="bar" data-song="coyote" data-bar="35"><div class="bn">35<span class="t">0:51</span></div><pre class="tab">G|--------7--<span class="h">&lt;5&gt;</span>-----7--|
+D|--------7----------7--|
+A|3-------5--5-------5--|
+E|----------------------|</pre></div>
+<div class="bar" data-song="coyote" data-bar="36"><div class="bn">36<span class="t">0:52</span></div><pre class="tab">G|7-------7--7-------7--|
+D|7-------7--7-------7--|
+A|5-------5--5-------5--|
+E|----------------------|</pre></div>
+<div class="bar" data-song="coyote" data-bar="37"><div class="bn">37<span class="t">0:54</span></div><pre class="tab">G|----------10--------|
+D|8------8--8---------|
+A|-----------------0--|
+E|--------------------|</pre></div>
+<div class="bar" data-song="coyote" data-bar="38"><div class="bn">38<span class="t">0:55</span></div><pre class="tab">G|----------10---------|
+D|8------8--8----------|
+A|---------------0-----|
+E|------------------3--|</pre></div>
+<div class="bar" data-song="coyote" data-bar="39"><div class="bn">39<span class="t">0:57</span></div><pre class="tab">G|-------<span class="h">&lt;5&gt;</span>-----------|
+D|-----------5---------|
+A|---------------------|
+E|3-----------------3--|</pre></div>
+<div class="bar" data-song="coyote" data-bar="40"><div class="bn">40<span class="t">0:58</span></div><pre class="tab">G|----------------------|
+D|-------5-----5--5-----|
+A|----------------------|
+E|3---------3--------3--|</pre></div>
+<div class="bar" data-song="coyote" data-bar="41"><div class="bn">41<span class="t">1:00</span></div><pre class="tab">G|--------------------|
+D|-------5--5---------|
+A|--------------------|
+E|3----------------3--|</pre></div>
+<div class="bar" data-song="coyote" data-bar="42"><div class="bn">42<span class="t">1:01</span></div><pre class="tab">G|----------------------|
+D|-------5-----5--5-----|
+A|----------------------|
+E|3---------3--------3--|</pre></div>
+<div class="bar" data-song="coyote" data-bar="43"><div class="bn">43<span class="t">1:03</span></div><pre class="tab">G|------<span class="h">&lt;5&gt;</span>----------------|
+D|-------------------------|
+A|-------------------------|
+E|5--5------5--5--5--5--5--|</pre></div>
+<div class="bar" data-song="coyote" data-bar="44"><div class="bn">44<span class="t">1:04</span></div><pre class="tab">G|------<span class="h">&lt;5&gt;</span>----------------|
+D|-------------------------|
+A|-------------------------|
+E|5--5------5--5--5--5--5--|</pre></div>
+<div class="bar" data-song="coyote" data-bar="45"><div class="bn">45<span class="t">1:06</span></div><pre class="tab">G|------<span class="h">&lt;5&gt;</span>----------------|
+D|-------------------------|
+A|-------------------------|
+E|5--5------5--5--5--5--5--|</pre></div>
+<div class="bar" data-song="coyote" data-bar="46"><div class="bn">46<span class="t">1:07</span></div><pre class="tab">G|------<span class="h">&lt;5&gt;</span>----------------|
+D|-------------------------|
+A|-------------------------|
+E|5--5------5--5--5--5--5--|</pre></div>
+<div class="bar" data-song="coyote" data-bar="47"><div class="bn">47<span class="t">1:09</span></div><pre class="tab">G|------<span class="h">&lt;5&gt;</span>----------------|
+D|-------------------------|
+A|-------------------------|
+E|5--5------5--5--5--5--5--|</pre></div>
+<div class="bar" data-song="coyote" data-bar="48"><div class="bn">48<span class="t">1:10</span></div><pre class="tab">G|------<span class="h">&lt;5&gt;</span>----------------|
+D|-------------------------|
+A|-------------------------|
+E|5--5------5--5--5--5--5--|</pre></div>
+<div class="bar" data-song="coyote" data-bar="49"><div class="bn">49<span class="t">1:12</span></div><pre class="tab">G|12-----12-----12---|
+D|14-----14-----14---|
+A|-------------------|
+E|-------------------|</pre></div>
+<div class="bar" data-song="coyote" data-bar="50"><div class="bn">50<span class="t">1:13</span></div><pre class="tab">G|<span class="c">*14</span>----12-----12---|
+D|14-----14-----14---|
+A|-------------------|
+E|-------------------|</pre></div>
+<div class="bar" data-song="coyote" data-bar="51"><div class="bn">51<span class="t">1:15</span></div><pre class="tab">G|<span class="c">*14</span>----12-----12---|
+D|14-----14-----14---|
+A|-------------------|
+E|-------------------|</pre></div>
+<div class="bar" data-song="coyote" data-bar="52"><div class="bn">52<span class="t">1:16</span></div><pre class="tab">G|15-----<span class="c">*14</span>----12---|
+D|15-----15-----14---|
+A|-------------------|
+E|-------------------|</pre></div>
+<div class="bar" data-song="coyote" data-bar="53"><div class="bn">53<span class="t">1:18</span></div><pre class="tab">G|-----------------------|
+D|--------5-----5--5-----|
+A|-----------------------|
+E|3----3-----3--------3--|</pre></div>
+<div class="bar" data-song="coyote" data-bar="54"><div class="bn">54<span class="t">1:19</span></div><pre class="tab">G|-----------------------|
+D|--------5-----5--5-----|
+A|-----------------------|
+E|3----3-----3--------3--|</pre></div>
+<div class="bar" data-song="coyote" data-bar="55"><div class="bn">55<span class="t">1:21</span></div><pre class="tab">G|-------2--2--------|
+D|-------------------|
+A|3------------------|
+E|-------------------|</pre></div>
+<div class="bar" data-song="coyote" data-bar="56"><div class="bn">56<span class="t">1:22</span></div><pre class="tab">G|2------------2-----|
+D|-------------------|
+A|-------------------|
+E|----------------0--|</pre></div>
+<div class="bar" data-song="coyote" data-bar="57"><div class="bn">57<span class="t">1:24</span></div><pre class="tab">G|----------------------|
+D|----------5--5--5--5--|
+A|-------5--------------|
+E|3---------------------|</pre></div>
+<div class="bar" data-song="coyote" data-bar="58"><div class="bn">58<span class="t">1:25</span></div><pre class="tab">G|------------------------|
+D|5--5--------------5-----|
+A|------5-----------------|
+E|---------3--3--3-----0--|</pre></div>
+<div class="bar" data-song="coyote" data-bar="59"><div class="bn">59<span class="t">1:27</span></div><pre class="tab">G|---------------------|
+D|----------------3----|
+A|-------3--3--3-------|
+E|1--------------------|</pre></div>
+<div class="bar" data-song="coyote" data-bar="60"><div class="bn">60<span class="t">1:28</span></div><pre class="tab">G|------------------------|
+D|3-----------------------|
+A|---3-----3--3--3--------|
+E|------1-----------1--1--|</pre></div>
+<div class="bar" data-song="coyote" data-bar="61"><div class="bn">61<span class="t">1:30</span></div><pre class="tab">G|--------------------|
+D|--------------------|
+A|------------3--3----|
+E|1--------1----------|</pre></div>
+<div class="bar" data-song="coyote" data-bar="62"><div class="bn">62<span class="t">1:31</span></div><pre class="tab">G|-----------------------|
+D|3----x-----------------|
+A|-----------------------|
+E|--------x--x--1--1--3--|</pre></div>
+<div class="bar" data-song="coyote" data-bar="63"><div class="bn">63<span class="t">1:33</span></div><pre class="tab">G|-----------|
+D|-----------|
+A|------3----|
+E|3--0-------|</pre></div>
+<div class="bar" data-song="coyote" data-bar="64"><div class="bn">64<span class="t">1:33</span></div><pre class="tab">G|---<span class="c">*14</span>-<span class="c">*14</span>--<span class="c">*14</span>----<span class="c">*14</span>-|
+D|---17--17---17-----17--|
+A|-----------------------|
+E|-----------------------|</pre></div>
+<div class="bar" data-song="coyote" data-bar="65"><div class="bn">65<span class="t">1:35</span></div><pre class="tab">G|<span class="c">*14</span>----<span class="c">*14</span>-<span class="c">*14</span>----15-|
+D|17-----17--17-----15-|
+A|---------------------|
+E|---------------------|</pre></div>
+<div class="bar" data-song="coyote" data-bar="66"><div class="bn">66<span class="t">1:36</span></div><pre class="tab">G|15-----15-15--------|
+D|15-----14-14--------|
+A|--------------------|
+E|-----------------6--|</pre></div>
+<div class="bar" data-song="coyote" data-bar="67"><div class="bn">67<span class="t">1:38</span></div><pre class="tab">G|----------|
+D|-------8--|
+A|6---------|
+E|----------|</pre></div>
+<div class="bar" data-song="coyote" data-bar="68"><div class="bn">68<span class="t">1:39</span></div><pre class="tab">G|-----------------------|
+D|--------5-----5--5-----|
+A|-----------------------|
+E|3----3-----3--------3--|</pre></div>
+<div class="bar" data-song="coyote" data-bar="69"><div class="bn">69<span class="t">1:40</span></div><pre class="tab">G|----------------------|
+D|--------5----------5--|
+A|----------------------|
+E|3----3-----3----3-----|</pre></div>
+<div class="bar" data-song="coyote" data-bar="70"><div class="bn">70<span class="t">1:42</span></div><pre class="tab">G|--------------------|
+D|--------------------|
+A|---3--3----5--------|
+E|3-------------------|</pre></div>
+<div class="bar" data-song="coyote" data-bar="71"><div class="bn">71<span class="t">1:43</span></div><pre class="tab">G|-----------------|
+D|-----------------|
+A|5----------------|
+E|-----------------|</pre></div>
+<div class="bar" data-song="coyote" data-bar="72"><div class="bn">72<span class="t">1:45</span></div><pre class="tab">G|-----------------------|
+D|--------5-----5--5-----|
+A|-----------------------|
+E|3----3-----3--------3--|</pre></div>
+<div class="bar" data-song="coyote" data-bar="73"><div class="bn">73<span class="t">1:46</span></div><pre class="tab">G|----------------------|
+D|--------5-----5--5----|
+A|----------------------|
+E|3----3-----3----------|</pre></div>
+<div class="bar" data-song="coyote" data-bar="74"><div class="bn">74<span class="t">1:48</span></div><pre class="tab">G|---------------------|
+D|---3-----------------|
+A|------0-----0--3-----|
+E|------------------1--|</pre></div>
+<div class="bar" data-song="coyote" data-bar="75"><div class="bn">75<span class="t">1:48</span></div><pre class="tab">G|-------------------------------|
+D|3--0---------------------------|
+A|------3-----0--1--2--3---------|
+E|---------1--------------1------|</pre></div>
+<div class="bar" data-song="coyote" data-bar="76"><div class="bn">76<span class="t">1:50</span></div><pre class="tab">G|-----------------------|
+D|------0--0-------------|
+A|---3--------3----------|
+E|1--------------0--1----|</pre></div>
+<div class="bar" data-song="coyote" data-bar="77"><div class="bn">77<span class="t">1:51</span></div><pre class="tab">G|----------------------|
+D|------3--3------------|
+A|---3--------3---------|
+E|1--------------1------|</pre></div>
+<div class="bar" data-song="coyote" data-bar="78"><div class="bn">78<span class="t">1:53</span></div><pre class="tab">G|-----------------------|
+D|---3--3--3-------------|
+A|3--------------0--3----|
+E|------------3----------|</pre></div>
+<div class="bar" data-song="coyote" data-bar="79"><div class="bn">79<span class="t">1:54</span></div><pre class="tab">G|---7/-7----7/-7----7/-|
+D|----------------------|
+A|3---------------------|
+E|----------------------|</pre></div>
+<div class="bar" data-song="coyote" data-bar="80"><div class="bn">80<span class="t">1:56</span></div><pre class="tab">G|7----7/-7----7/-|
+D|----------------|
+A|----------------|
+E|----------------|</pre></div>
+<div class="bar" data-song="coyote" data-bar="81"><div class="bn">81<span class="t">1:57</span></div><pre class="tab">G|7----7/-7----7/-7----|
+D|---------------------|
+A|---------------------|
+E|---------------------|</pre></div>
+<div class="bar" data-song="coyote" data-bar="82"><div class="bn">82<span class="t">1:58</span></div><pre class="tab">G|8------8------8----|
+D|8------8------8----|
+A|6------6------6----|
+E|-------------------|</pre></div>
+<div class="bar" data-song="coyote" data-bar="83"><div class="bn">83<span class="t">2:00</span></div><pre class="tab">G|------------------------|
+D|---------5-----------5--|
+A|------------------------|
+E|3--3--3-----3--3--3-----|</pre></div>
+<div class="bar" data-song="coyote" data-bar="84"><div class="bn">84<span class="t">2:01</span></div><pre class="tab">G|------------------------|
+D|---------5-----------5--|
+A|------------------------|
+E|3--3--3-----3--3--3-----|</pre></div>
+<div class="bar" data-song="coyote" data-bar="85"><div class="bn">85<span class="t">2:03</span></div><pre class="tab">G|------------------------|
+D|---------5-----------5--|
+A|------------------------|
+E|3--3--3-----3--3--3-----|</pre></div>
+<div class="bar" data-song="coyote" data-bar="86"><div class="bn">86<span class="t">2:04</span></div><pre class="tab">G|------------------------|
+D|---------5--------------|
+A|------------------------|
+E|3--3--3-----3--3--3--3--|</pre></div>
+<div class="bar" data-song="coyote" data-bar="87"><div class="bn">87<span class="t">2:06</span></div><pre class="tab">G|-------7------7----|
+D|-------5------5----|
+A|3------3------3----|
+E|-------------------|</pre></div>
+<div class="bar" data-song="coyote" data-bar="88"><div class="bn">88<span class="t">2:07</span></div><pre class="tab">G|7--------7-----------|
+D|5--------5-----------|
+A|---------------------|
+E|------------0--3--5--|</pre></div>
+<div class="bar" data-song="coyote" data-bar="89"><div class="bn">89<span class="t">2:09</span></div><pre class="tab">G|-------7--7--------|
+D|-------5--5--------|
+A|3------3--3--------|
+E|-------------------|</pre></div>
+<div class="bar" data-song="coyote" data-bar="90"><div class="bn">90<span class="t">2:10</span></div><pre class="tab">G|7----------------|
+D|5----------------|
+A|3----------------|
+E|-----------------|</pre></div>
+<div class="bar" data-song="coyote" data-bar="91"><div class="bn">91<span class="t">2:12</span></div><pre class="tab">G|----------7--------|
+D|5/-7------7--------|
+A|3/-7------7--------|
+E|-------------------|</pre></div>
+<div class="bar" data-song="coyote" data-bar="92"><div class="bn">92<span class="t">2:13</span></div><pre class="tab">G|7--------7--7--7--7--|
+D|7--------7--7--7--7--|
+A|7--------7--7--7--7--|
+E|---------------------|</pre></div>
+<div class="bar" data-song="coyote" data-bar="93"><div class="bn">93<span class="t">2:15</span></div><pre class="tab">G|7------7--7--------|
+D|5------5--5--------|
+A|3------3--3--------|
+E|-------------------|</pre></div>
+<div class="bar" data-song="coyote" data-bar="94"><div class="bn">94<span class="t">2:16</span></div><pre class="tab">G|7------7--7------7--|
+D|5------7--7------7--|
+A|3------5--5------5--|
+E|--------------------|</pre></div>
+<div class="bar" data-song="coyote" data-bar="95"><div class="bn">95<span class="t">2:18</span></div><pre class="tab">G|8-------8--8------8--|
+D|8-------8--8------8--|
+A|6-------6--6------6--|
+E|---------------------|</pre></div>
+<div class="bar" data-song="coyote" data-bar="96"><div class="bn">96<span class="t">2:19</span></div><pre class="tab">G|8-------8--8---------|
+D|8-------8--8---------|
+A|6-------6--6---------|
+E|------------------3--|</pre></div>
+<div class="bar" data-song="coyote" data-bar="97"><div class="bn">97<span class="t">2:21</span></div><pre class="tab">G|------------------------|
+D|------5-----5--5--------|
+A|------------------------|
+E|3--3-----3--------3--3--|</pre></div>
+<div class="bar" data-song="coyote" data-bar="98"><div class="bn">98<span class="t">2:22</span></div><pre class="tab">G|------------------------|
+D|------5-----5--5--------|
+A|------------------------|
+E|3--3-----3--------3--5--|</pre></div>
+<div class="bar" data-song="coyote" data-bar="99"><div class="bn">99<span class="t">2:24</span></div><pre class="tab">G|-------7--7------7--|
+D|-------7--7------7--|
+A|3------5--5------5--|
+E|--------------------|</pre></div>
+<div class="bar" data-song="coyote" data-bar="100"><div class="bn">100<span class="t">2:25</span></div><pre class="tab">G|7--------------------|
+D|---------------------|
+A|---------------3-----|
+E|---------3--5-----3--|</pre></div>
+<div class="bar" data-song="coyote" data-bar="101"><div class="bn">101<span class="t">2:27</span></div><pre class="tab">G|------------------------|
+D|------5-----5--5--------|
+A|------------------------|
+E|3--3-----3--------3--3--|</pre></div>
+<div class="bar" data-song="coyote" data-bar="102"><div class="bn">102<span class="t">2:28</span></div><pre class="tab">G|------------------------|
+D|------5-----5--5--------|
+A|------------------------|
+E|3--3-----3--------3--3--|</pre></div>
+<div class="bar" data-song="coyote" data-bar="103"><div class="bn">103<span class="t">2:30</span></div><pre class="tab">G|------------------------|
+D|------------------------|
+A|------------------------|
+E|1--1--1--1--1--1--1--1--|</pre></div>
+<div class="bar" data-song="coyote" data-bar="104"><div class="bn">104<span class="t">2:31</span></div><pre class="tab">G|------------------------|
+D|------------------------|
+A|------------------------|
+E|1--1--1--1--1--1--1--1--|</pre></div>
+<div class="bar" data-song="coyote" data-bar="105"><div class="bn">105<span class="t">2:33</span></div><pre class="tab">G|------------------------|
+D|------------------------|
+A|------------------------|
+E|1--1--1--1--1--1--1--1--|</pre></div>
+<div class="bar" data-song="coyote" data-bar="106"><div class="bn">106<span class="t">2:34</span></div><pre class="tab">G|------------------------|
+D|3--3--------------------|
+A|------------------------|
+E|------x--x--1--1--3--0--|</pre></div>
+<div class="bar" data-song="coyote" data-bar="107"><div class="bn">107<span class="t">2:36</span></div><pre class="tab">G|-------0--0------0--|
+D|--------------------|
+A|3-------------------|
+E|--------------------|</pre></div>
+<div class="bar" data-song="coyote" data-bar="108"><div class="bn">108<span class="t">2:37</span></div><pre class="tab">G|0------0--0---------|
+D|--------------------|
+A|--------------------|
+E|-----------------0--|</pre></div>
+<div class="bar" data-song="coyote" data-bar="109"><div class="bn">109<span class="t">2:39</span></div><pre class="tab">G|3------3--3---------|
+D|--------------------|
+A|--------------------|
+E|-----------------0--|</pre></div>
+<div class="bar" data-song="coyote" data-bar="110"><div class="bn">110<span class="t">2:40</span></div><pre class="tab">G|3------3--3---------|
+D|--------------------|
+A|--------------------|
+E|-----------------3--|</pre></div>
+<div class="bar" data-song="coyote" data-bar="111"><div class="bn">111<span class="t">2:42</span></div><pre class="tab">G|------------------------|
+D|------5-----5--5--------|
+A|------------------------|
+E|3--3-----3--------3--3--|</pre></div>
+<div class="bar" data-song="coyote" data-bar="112"><div class="bn">112<span class="t">2:43</span></div><pre class="tab">G|------------------------|
+D|------5-----------------|
+A|---------------------0--|
+E|3--3-----3--3--3--3-----|</pre></div>
+<div class="bar" data-song="coyote" data-bar="113"><div class="bn">113<span class="t">2:45</span></div><pre class="tab">G|----------------------|
+D|-------5/-7--7--------|
+A|3---------------------|
+E|----------------------|</pre></div>
+<div class="bar" data-song="coyote" data-bar="114"><div class="bn">114<span class="t">2:46</span></div><pre class="tab">G|-----------------|
+D|7----------------|
+A|-----------------|
+E|-----------------|</pre></div>
+<div class="bar" data-song="coyote" data-bar="115"><div class="bn">115<span class="t">2:48</span></div><pre class="tab">G|------------------------|
+D|------5--5--5-----------|
+A|------------------------|
+E|3--3-----------3--3--3--|</pre></div>
+<div class="bar" data-song="coyote" data-bar="116"><div class="bn">116<span class="t">2:49</span></div><pre class="tab">G|------------------------|
+D|------5-----------------|
+A|------------------5--3--|
+E|3--3-----3--3--3--------|</pre></div>
+<div class="bar" data-song="coyote" data-bar="117"><div class="bn">117<span class="t">2:51</span></div><pre class="tab">G|----------------------|
+D|-------3--3--3--------|
+A|----------------0--5--|
+E|1---------------------|</pre></div>
+<div class="bar" data-song="coyote" data-bar="118"><div class="bn">118<span class="t">2:52</span></div><pre class="tab">G|------------------------|
+D|---------------------5--|
+A|------------------3-----|
+E|x--x--1--1--1--x--------|</pre></div>
+<div class="bar" data-song="coyote" data-bar="119"><div class="bn">119<span class="t">2:54</span></div><pre class="tab">G|------------------------|
+D|5-----------------------|
+A|---3--------------3-----|
+E|------1--1--1--x-----x--|</pre></div>
+<div class="bar" data-song="coyote" data-bar="120"><div class="bn">120<span class="t">2:55</span></div><pre class="tab">G|------------------------|
+D|3-----------------------|
+A|------------------------|
+E|---x--x--x--1--0--3--0--|</pre></div>
+<div class="bar" data-song="coyote" data-bar="121"><div class="bn">121<span class="t">2:57</span></div><pre class="tab">G|-----------------7--|
+D|-------5--5---------|
+A|3-------------------|
+E|--------------------|</pre></div>
+<div class="bar" data-song="coyote" data-bar="122"><div class="bn">122<span class="t">2:58</span></div><pre class="tab">G|7------7--7--------|
+D|-------------------|
+A|-------------------|
+E|-------------------|</pre></div>
+<div class="bar" data-song="coyote" data-bar="123"><div class="bn">123<span class="t">3:00</span></div><pre class="tab">G|--------------------|
+D|-------8------------|
+A|6---------6------6--|
+E|--------------------|</pre></div>
+<div class="bar" data-song="coyote" data-bar="124"><div class="bn">124<span class="t">3:01</span></div><pre class="tab">G|3------3--3---------|
+D|1------1--1---------|
+A|--------------------|
+E|-----------------3--|</pre></div>
+<div class="bar" data-song="coyote" data-bar="125"><div class="bn">125<span class="t">3:03</span></div><pre class="tab">G|------------------------|
+D|------5-----5--5--------|
+A|------------------------|
+E|3--3-----3--------3--3--|</pre></div>
+<div class="bar" data-song="coyote" data-bar="126"><div class="bn">126<span class="t">3:04</span></div><pre class="tab">G|-----------------------|
+D|------5-----------5----|
+A|-----------------------|
+E|3--3-----3--3--3-------|</pre></div>
+<div class="bar" data-song="coyote" data-bar="127"><div class="bn">127<span class="t">3:06</span></div><pre class="tab">G|----------------------|
+D|5---------------5--5--|
+A|----------------------|
+E|-----3----3--3--------|</pre></div>
+<div class="bar" data-song="coyote" data-bar="128"><div class="bn">128<span class="t">3:07</span></div><pre class="tab">G|------------------------|
+D|5-----------------------|
+A|---------------------3--|
+E|---3--3--3--3--3--5-----|</pre></div>
+<div class="bar" data-song="coyote" data-bar="129"><div class="bn">129<span class="t">3:09</span></div><pre class="tab">G|------------------|
+D|------------------|
+A|3----5------------|
+E|------------------|</pre></div>
+<div class="bar" data-song="coyote" data-bar="130"><div class="bn">130<span class="t">3:10</span></div><pre class="tab">G|12-----------------|
+D|12-----------------|
+A|-------------------|
+E|-------------3--5--|</pre></div>
+<div class="bar" data-song="coyote" data-bar="131"><div class="bn">131<span class="t">3:12</span></div><pre class="tab">G|-------7--7--------|
+D|-------5--5--------|
+A|3------------------|
+E|-------------------|</pre></div>
+<div class="bar" data-song="coyote" data-bar="132"><div class="bn">132<span class="t">3:13</span></div><pre class="tab">G|7------------------|
+D|5------------------|
+A|-------------------|
+E|-------------3--5--|</pre></div>
+<div class="bar" data-song="coyote" data-bar="133"><div class="bn">133<span class="t">3:15</span></div><pre class="tab">G|-------7--7--------|
+D|-------5--5--------|
+A|3------------------|
+E|-------------------|</pre></div>
+<div class="bar" data-song="coyote" data-bar="134"><div class="bn">134<span class="t">3:16</span></div><pre class="tab">G|7--------7---<span class="c">*14</span>-12--|
+D|5--------5-----------|
+A|---------------------|
+E|---------------------|</pre></div>
+<div class="bar" data-song="coyote" data-bar="135"><div class="bn">135<span class="t">3:18</span></div><pre class="tab">G|12/--<span class="c">*14</span>--<span class="c">*14</span>-12-12-<span class="c">*14</span>-|
+D|------------------------|
+A|------------------------|
+E|------------------------|</pre></div>
+<div class="bar" data-song="coyote" data-bar="136"><div class="bn">136<span class="t">3:19</span></div><pre class="tab">G|<span class="c">*14</span>----------5--5--5--|
+D|7------------5--5--5--|
+A|5---------3--3--3--3--|
+E|-------0--0-----------|</pre></div>
+<div class="bar" data-song="coyote" data-bar="137"><div class="bn">137<span class="t">3:21</span></div><pre class="tab">G|8----------------|
+D|8----------------|
+A|6----------------|
+E|-----------------|</pre></div>
+<div class="bar" data-song="coyote" data-bar="138"><div class="bn">138<span class="t">3:22</span></div><pre class="tab">G|8------8------8-----|
+D|8------8------8-----|
+A|6------6------6-----|
+E|-----------------3--|</pre></div>
+<div class="bar" data-song="coyote" data-bar="139"><div class="bn">139<span class="t">3:24</span></div><pre class="tab">G|------------------------|
+D|------5-----5--5--------|
+A|------------------------|
+E|3--3-----3--------3--3--|</pre></div>
+<div class="bar" data-song="coyote" data-bar="140"><div class="bn">140<span class="t">3:25</span></div><pre class="tab">G|------------------------|
+D|------5-----5--5--------|
+A|------------------------|
+E|3--3-----3--------3--5--|</pre></div>
+<div class="bar" data-song="coyote" data-bar="141"><div class="bn">141<span class="t">3:27</span></div><pre class="tab">G|-------7------7----|
+D|-------7------7----|
+A|3------5------5----|
+E|-------------------|</pre></div>
+<div class="bar" data-song="coyote" data-bar="142"><div class="bn">142<span class="t">3:28</span></div><pre class="tab">G|7----------------|
+D|-----------------|
+A|-----------------|
+E|-----------------|</pre></div>
+<div class="bar" data-song="coyote" data-bar="143"><div class="bn">143<span class="t">3:30</span></div><pre class="tab">G|---------------------|
+D|-------5-------5--5--|
+A|---------------------|
+E|3-----------3--------|</pre></div>
+<div class="bar" data-song="coyote" data-bar="144"><div class="bn">144<span class="t">3:31</span></div><pre class="tab">G|------------------------|
+D|5----------------5------|
+A|---------------------0--|
+E|---3--3--3--3-----------|</pre></div>
+<div class="bar" data-song="coyote" data-bar="145"><div class="bn">145<span class="t">3:33</span></div><pre class="tab">G|-----------------------------------------|
+D|------3----------------------------------|
+A|5--0-----0--5--0--3--0--2--2--3--3-------|
+E|------------------------------------1----|</pre></div>
+<div class="bar" data-song="coyote" data-bar="146"><div class="bn">146<span class="t">3:34</span></div><pre class="tab">G|-------------------------|
+D|---3---------------------|
+A|------0--0---------------|
+E|1------------------1--1--|</pre></div>
+<div class="bar" data-song="coyote" data-bar="147"><div class="bn">147<span class="t">3:36</span></div><pre class="tab">G|----------------------|
+D|-------------3--3--3--|
+A|-------3--3-----------|
+E|1---------------------|</pre></div>
+<div class="bar" data-song="coyote" data-bar="148"><div class="bn">148<span class="t">3:37</span></div><pre class="tab">G|------------------------|
+D|3-----------------------|
+A|---5--------------------|
+E|------1--1--3--3--3--3--|</pre></div>
+<div class="bar" data-song="coyote" data-bar="149"><div class="bn">149<span class="t">3:39</span></div><pre class="tab">G|-------12-12-----<span class="c">*14</span>-|
+D|-------14-14-----15--|
+A|3--------------------|
+E|---------------------|</pre></div>
+<div class="bar" data-song="coyote" data-bar="150"><div class="bn">150<span class="t">3:40</span></div><pre class="tab">G|<span class="c">*14</span>----<span class="c">*14</span>-<span class="c">*14</span>------|
+D|15-----14--14-------|
+A|--------------------|
+E|--------------------|</pre></div>
+<div class="bar" data-song="coyote" data-bar="151"><div class="bn">151<span class="t">3:42</span></div><pre class="tab">G|--------------------|
+D|8------8--8---------|
+A|-----------------0--|
+E|--------------------|</pre></div>
+<div class="bar" data-song="coyote" data-bar="152"><div class="bn">152<span class="t">3:43</span></div><pre class="tab">G|--------------------|
+D|8------8--8---------|
+A|--------------------|
+E|-----------------3--|</pre></div>
+<div class="bar" data-song="coyote" data-bar="153"><div class="bn">153<span class="t">3:45</span></div><pre class="tab">G|------------------------|
+D|------5-----5--5--------|
+A|------------------------|
+E|3--3-----3--------3--3--|</pre></div>
+<div class="bar" data-song="coyote" data-bar="154"><div class="bn">154<span class="t">3:46</span></div><pre class="tab">G|------------------------|
+D|------5-----5--5--------|
+A|------------------------|
+E|3--3-----3--------3--5--|</pre></div>
+<div class="bar" data-song="coyote" data-bar="155"><div class="bn">155<span class="t">3:48</span></div><pre class="tab">G|-------5--5--------|
+D|-------------------|
+A|3------------------|
+E|-------------------|</pre></div>
+<div class="bar" data-song="coyote" data-bar="156"><div class="bn">156<span class="t">3:49</span></div><pre class="tab">G|5----------------|
+D|-----------------|
+A|-----------------|
+E|-----------------|</pre></div>
+<div class="bar" data-song="coyote" data-bar="157"><div class="bn">157<span class="t">3:51</span></div><pre class="tab">G|------------------------|
+D|------5--5--5-----------|
+A|------------------------|
+E|3--3-----------3--3--3--|</pre></div>
+<div class="bar" data-song="coyote" data-bar="158"><div class="bn">158<span class="t">3:52</span></div><pre class="tab">G|------------------------|
+D|------5-----5--5--------|
+A|------------------------|
+E|3--3-----3--------3--0--|</pre></div>
+<div class="bar" data-song="coyote" data-bar="159"><div class="bn">159<span class="t">3:54</span></div><pre class="tab">G|---------------------|
+D|------------------5--|
+A|----------3----3-----|
+E|1------1-------------|</pre></div>
+<div class="bar" data-song="coyote" data-bar="160"><div class="bn">160<span class="t">3:55</span></div><pre class="tab">G|-----------------------|
+D|5--5-------------3-----|
+A|---------3----3--------|
+E|--------------------1--|</pre></div>
+<div class="bar" data-song="coyote" data-bar="161"><div class="bn">161<span class="t">3:57</span></div><pre class="tab">G|--------------------|
+D|-----------------5--|
+A|---------3----3-----|
+E|1-------------------|</pre></div>
+<div class="bar" data-song="coyote" data-bar="162"><div class="bn">162<span class="t">3:58</span></div><pre class="tab">G|-----------------------|
+D|5--5----------5--------|
+A|-----------------------|
+E|---------3-------5--5--|</pre></div>
+<div class="bar" data-song="coyote" data-bar="163"><div class="bn">163<span class="t">4:00</span></div><pre class="tab">G|--------7--------7--|
+D|--------7--------7--|
+A|3-------5--------5--|
+E|--------------------|</pre></div>
+<div class="bar" data-song="coyote" data-bar="164"><div class="bn">164<span class="t">4:01</span></div><pre class="tab">G|7------9--------9--|
+D|7------9--------9--|
+A|5------7--------7--|
+E|-------------------|</pre></div>
+<div class="bar" data-song="coyote" data-bar="165"><div class="bn">165<span class="t">4:03</span></div><pre class="tab">G|8-------8--------8--|
+D|8-------8--------8--|
+A|6-------6--------6--|
+E|--------------------|</pre></div>
+<div class="bar" data-song="coyote" data-bar="166"><div class="bn">166<span class="t">4:04</span></div><pre class="tab">G|--------------------|
+D|8---------8---------|
+A|-------6------------|
+E|-----------------3--|</pre></div>
+<div class="bar" data-song="coyote" data-bar="167"><div class="bn">167<span class="t">4:06</span></div><pre class="tab">G|------------------------|
+D|------5-----5--5--------|
+A|------------------------|
+E|3--3-----3--------3--3--|</pre></div>
+<div class="bar" data-song="coyote" data-bar="168"><div class="bn">168<span class="t">4:07</span></div><pre class="tab">G|------------------------|
+D|------5-----5--5-----5--|
+A|------------------------|
+E|3--3-----3--------3-----|</pre></div>
+<div class="bar" data-song="coyote" data-bar="169"><div class="bn">169<span class="t">4:09</span></div><pre class="tab">G|------------------------|
+D|5--5--------5-----------|
+A|------------------------|
+E|------3--3-----3--3--3--|</pre></div>
+<div class="bar" data-song="coyote" data-bar="170"><div class="bn">170<span class="t">4:10</span></div><pre class="tab">G|------------------------|
+D|5-----------5--5--------|
+A|------------------------|
+E|---3--3--3--------3--3--|</pre></div>
+<div class="bar" data-song="coyote" data-bar="171"><div class="bn">171<span class="t">4:12</span></div><pre class="tab">G|------------------------|
+D|5-----------5-----------|
+A|------------------------|
+E|---3--3--3-----3--3--3--|</pre></div>
+<div class="bar" data-song="coyote" data-bar="172"><div class="bn">172<span class="t">4:13</span></div><pre class="tab">G|-----------------------|
+D|5--5-------------5--5--|
+A|-----------------------|
+E|------3--3----3--------|</pre></div>
+<div class="bar" data-song="coyote" data-bar="173"><div class="bn">173<span class="t">4:15</span></div><pre class="tab">G|-----------------------|
+D|5----------------5-----|
+A|-----------------------|
+E|---3--3--3----3-----3--|</pre></div>
+<div class="bar" data-song="coyote" data-bar="174"><div class="bn">174<span class="t">4:16</span></div><pre class="tab">G|------------------------|
+D|------5--5--------------|
+A|---------------------5--|
+E|3--3--------3--3--3-----|</pre></div>
+<div class="bar" data-song="coyote" data-bar="175"><div class="bn">175<span class="t">4:18</span></div><pre class="tab">G|-----------------------|
+D|---------5-------------|
+A|5--5--5----------------|
+E|--------------3--3--3--|</pre></div>
+<div class="bar" data-song="coyote" data-bar="176"><div class="bn">176<span class="t">4:19</span></div><pre class="tab">G|-----------------------|
+D|5----------------------|
+A|-----------------------|
+E|---3--3--3----3--3--5--|</pre></div>
+<div class="bar" data-song="coyote" data-bar="177"><div class="bn">177<span class="t">4:21</span></div><pre class="tab">G|-------------------|
+D|-------------------|
+A|3------5--------5--|
+E|-------------------|</pre></div>
+<div class="bar" data-song="coyote" data-bar="178"><div class="bn">178<span class="t">4:22</span></div><pre class="tab">G|0---------------------|
+D|0---------------------|
+A|----------------------|
+E|-------0/-5--8--8--8--|</pre></div>
+<div class="bar" data-song="coyote" data-bar="179"><div class="bn">179<span class="t">4:24</span></div><pre class="tab">G|-------12-------12-|
+D|-------12-------12-|
+A|-------------------|
+E|8------------------|</pre></div>
+<div class="bar" data-song="coyote" data-bar="180"><div class="bn">180<span class="t">4:25</span></div><pre class="tab">G|12-----<span class="c">*14</span>------<span class="c">*14</span>-|
+D|12-----12-------12--|
+A|--------------------|
+E|--------------------|</pre></div>
+<div class="bar" data-song="coyote" data-bar="181"><div class="bn">181<span class="t">4:27</span></div><pre class="tab">G|15-----15-------15-|
+D|13-----13-------13-|
+A|-------------------|
+E|-------------------|</pre></div>
+<div class="bar" data-song="coyote" data-bar="182"><div class="bn">182<span class="t">4:28</span></div><pre class="tab">G|15-----15-------15-|
+D|13-----13-------13-|
+A|-------------------|
+E|-------------------|</pre></div>
+<div class="bar" data-song="coyote" data-bar="183"><div class="bn">183<span class="t">4:30</span></div><pre class="tab">G|-----------------------|
+D|---------5-------5-----|
+A|-----------------------|
+E|3--3--3-------3-----3--|</pre></div>
+<div class="bar" data-song="coyote" data-bar="184"><div class="bn">184<span class="t">4:31</span></div><pre class="tab">G|------------------------|
+D|5-----5-----5--5--------|
+A|------------------------|
+E|---3-----3--------3--3--|</pre></div>
+<div class="bar" data-song="coyote" data-bar="185"><div class="bn">185<span class="t">4:33</span></div><pre class="tab">G|------------------------|
+D|---------5--5--------5--|
+A|------------------------|
+E|3--3--3--------3--3-----|</pre></div>
+<div class="bar" data-song="coyote" data-bar="186"><div class="bn">186<span class="t">4:34</span></div><pre class="tab">G|------------|
+D|5-----5-----|
+A|------------|
+E|---3-----3--|</pre></div>
+<div class="bar" data-song="coyote" data-bar="187"><div class="bn">187<span class="t">4:35</span></div><pre class="tab">G|-------<span class="c">*14</span>-<span class="c">*14</span>------|
+D|--------------------|
+A|--------------------|
+E|8-------------------|</pre></div>
+<div class="bar" data-song="coyote" data-bar="188"><div class="bn">188<span class="t">4:37</span></div><pre class="tab">G|<span class="c">*14</span>------<span class="c">*14</span>-9-----9---|
+D|-----------------------|
+A|-----------------------|
+E|-----------------------|</pre></div>
+<div class="bar" data-song="coyote" data-bar="189"><div class="bn">189<span class="t">4:38</span></div><pre class="tab">G|-------------------|
+D|12-----------12----|
+A|-------------------|
+E|-------------------|</pre></div>
+<div class="bar" data-song="coyote" data-bar="190"><div class="bn">190<span class="t">4:40</span></div><pre class="tab">G|-------<span class="c">*14</span>-<span class="c">*14</span>----17-16-|
+D|------------------------|
+A|------------------------|
+E|------------------------|</pre></div>
+<div class="bar" data-song="coyote" data-bar="191"><div class="bn">191<span class="t">4:41</span></div><pre class="tab">G|<span class="c">*14</span>-12-<span class="c">*14</span>----------|
+D|--------------------|
+A|--------------------|
+E|--------------------|</pre></div>
+<div class="bar rest" data-song="coyote" data-bar="192"><div class="bn">192<span class="t">4:43</span></div><pre class="tab">G|-----------------|
+D|-----------------|
+A|-----------------|
+E|-----------------|</pre></div>
+<div class="bar rest" data-song="coyote" data-bar="193"><div class="bn">193<span class="t">4:44</span></div><pre class="tab">G|-----------------|
+D|-----------------|
+A|-----------------|
+E|-----------------|</pre></div>
+<div class="bar rest" data-song="coyote" data-bar="194"><div class="bn">194<span class="t">4:46</span></div><pre class="tab">G|-----------------|
+D|-----------------|
+A|-----------------|
+E|-----------------|</pre></div>
+<div class="bar rest" data-song="coyote" data-bar="195"><div class="bn">195<span class="t">4:47</span></div><pre class="tab">G|-----------------|
+D|-----------------|
+A|-----------------|
+E|-----------------|</pre></div>
+<div class="bar rest" data-song="coyote" data-bar="196"><div class="bn">196<span class="t">4:49</span></div><pre class="tab">G|-----------------|
+D|-----------------|
+A|-----------------|
+E|-----------------|</pre></div>
+<div class="bar rest" data-song="coyote" data-bar="197"><div class="bn">197<span class="t">4:50</span></div><pre class="tab">G|-----------------|
+D|-----------------|
+A|-----------------|
+E|-----------------|</pre></div>
+<div class="bar rest" data-song="coyote" data-bar="198"><div class="bn">198<span class="t">4:52</span></div><pre class="tab">G|-----------------|
+D|-----------------|
+A|-----------------|
+E|-----------------|</pre></div>
+<div class="bar rest" data-song="coyote" data-bar="199"><div class="bn">199<span class="t">4:53</span></div><pre class="tab">G|-----------------|
+D|-----------------|
+A|-----------------|
+E|-----------------|</pre></div>
+<div class="bar rest" data-song="coyote" data-bar="200"><div class="bn">200<span class="t">4:55</span></div><pre class="tab">G|-----------------|
+D|-----------------|
+A|-----------------|
+E|-----------------|</pre></div>
+<div class="bar rest" data-song="coyote" data-bar="201"><div class="bn">201<span class="t">4:56</span></div><pre class="tab">G|-----------------|
+D|-----------------|
+A|-----------------|
+E|-----------------|</pre></div>
+<div class="bar rest" data-song="coyote" data-bar="202"><div class="bn">202<span class="t">4:58</span></div><pre class="tab">G|-----------------|
+D|-----------------|
+A|-----------------|
+E|-----------------|</pre></div>
+<div class="bar rest" data-song="coyote" data-bar="203"><div class="bn">203<span class="t">4:59</span></div><pre class="tab">G|-----------------|
+D|-----------------|
+A|-----------------|
+E|-----------------|</pre></div>
+</div>
+<h2 id="hejira">Hejira</h2>
+<p class="meta">Hejira, 1976 &nbsp;&middot;&nbsp; 141 bars &nbsp;&middot;&nbsp; 471 notes &nbsp;&middot;&nbsp; 85 bpm &nbsp;&middot;&nbsp; tuning E1 A1 D2 G2 &nbsp;&middot;&nbsp; 0 harmonics written</p>
+<div class="card flag">No harmonics written. The spectral detector fired on the drum stem as hard as on the bass at every threshold, so nothing it produced was trustworthy enough to put on the staff. Mark them yourself below and the list copies out.</div>
+<h3>Where this tab already writes the node pitches</h3>
+<div class="scroll"><table><tr><th>Node</th><th>Sounds</th><th>Times written</th><th>Written at</th><th>Bars</th></tr><tr><td><b>D string 7</b></td><td>A3</td><td>5</td><td>str 4 fret 14</td><td class="bl">13, 44, 44, 81, 81</td></tr><tr><td><b>G string 5</b></td><td>G4</td><td>0</td><td>-</td><td class="bl">none</td></tr><tr><td><b>G string 9</b></td><td>B4</td><td>0</td><td>-</td><td class="bl">none</td></tr></table></div>
+<div class="bars">
+<div class="bar rest" data-song="hejira" data-bar="1"><div class="bn">1<span class="t">0:00</span></div><pre class="tab">G|-----------------|
+D|-----------------|
+A|-----------------|
+E|-----------------|</pre></div>
+<div class="bar rest" data-song="hejira" data-bar="2"><div class="bn">2<span class="t">0:02</span></div><pre class="tab">G|-----------------|
+D|-----------------|
+A|-----------------|
+E|-----------------|</pre></div>
+<div class="bar rest" data-song="hejira" data-bar="3"><div class="bn">3<span class="t">0:05</span></div><pre class="tab">G|-----------------|
+D|-----------------|
+A|-----------------|
+E|-----------------|</pre></div>
+<div class="bar rest" data-song="hejira" data-bar="4"><div class="bn">4<span class="t">0:08</span></div><pre class="tab">G|-----------------|
+D|-----------------|
+A|-----------------|
+E|-----------------|</pre></div>
+<div class="bar rest" data-song="hejira" data-bar="5"><div class="bn">5<span class="t">0:11</span></div><pre class="tab">G|-----------------|
+D|-----------------|
+A|-----------------|
+E|-----------------|</pre></div>
+<div class="bar rest" data-song="hejira" data-bar="6"><div class="bn">6<span class="t">0:14</span></div><pre class="tab">G|-----------------|
+D|-----------------|
+A|-----------------|
+E|-----------------|</pre></div>
+<div class="bar rest" data-song="hejira" data-bar="7"><div class="bn">7<span class="t">0:16</span></div><pre class="tab">G|-----------------|
+D|-----------------|
+A|-----------------|
+E|-----------------|</pre></div>
+<div class="bar rest" data-song="hejira" data-bar="8"><div class="bn">8<span class="t">0:19</span></div><pre class="tab">G|-----------------|
+D|-----------------|
+A|-----------------|
+E|-----------------|</pre></div>
+<div class="bar rest" data-song="hejira" data-bar="9"><div class="bn">9<span class="t">0:22</span></div><pre class="tab">G|-----------------|
+D|-----------------|
+A|-----------------|
+E|-----------------|</pre></div>
+<div class="bar" data-song="hejira" data-bar="10"><div class="bn">10<span class="t">0:25</span></div><pre class="tab">G|---------8/-9------9--|
+D|----------------------|
+A|----------------------|
+E|7---------------------|</pre></div>
+<div class="bar" data-song="hejira" data-bar="11"><div class="bn">11<span class="t">0:28</span></div><pre class="tab">G|-----------------|
+D|-----------------|
+A|7----------------|
+E|-----------------|</pre></div>
+<div class="bar" data-song="hejira" data-bar="12"><div class="bn">12<span class="t">0:31</span></div><pre class="tab">G|--------------------------|
+D|--------------------------|
+A|7--------6/-7--7--7--7----|
+E|--------------------------|</pre></div>
+<div class="bar" data-song="hejira" data-bar="13"><div class="bn">13<span class="t">0:33</span></div><pre class="tab">G|<span class="c">*14</span>--------------|
+D|-----------------|
+A|-----------------|
+E|-----------------|</pre></div>
+<div class="bar" data-song="hejira" data-bar="14"><div class="bn">14<span class="t">0:36</span></div><pre class="tab">G|13----------------|
+D|------------------|
+A|------------------|
+E|-------------2----|</pre></div>
+<div class="bar" data-song="hejira" data-bar="15"><div class="bn">15<span class="t">0:39</span></div><pre class="tab">G|---------15-15-15-13-13-13-|
+D|---------------------------|
+A|2--------------------------|
+E|---------------------------|</pre></div>
+<div class="bar" data-song="hejira" data-bar="16"><div class="bn">16<span class="t">0:42</span></div><pre class="tab">G|13-------13------------|
+D|-------------13/-13-9--|
+A|-----------------------|
+E|-------------11/-11-7--|</pre></div>
+<div class="bar" data-song="hejira" data-bar="17"><div class="bn">17<span class="t">0:45</span></div><pre class="tab">G|--------------------|
+D|9------------9---9--|
+A|--------------------|
+E|7------------7---7--|</pre></div>
+<div class="bar" data-song="hejira" data-bar="18"><div class="bn">18<span class="t">0:48</span></div><pre class="tab">G|-------------8--11-13-|
+D|9---------------------|
+A|----------------------|
+E|7---------------------|</pre></div>
+<div class="bar" data-song="hejira" data-bar="19"><div class="bn">19<span class="t">0:50</span></div><pre class="tab">G|-----------------|
+D|-----------------|
+A|-----------------|
+E|0----------------|</pre></div>
+<div class="bar" data-song="hejira" data-bar="20"><div class="bn">20<span class="t">0:53</span></div><pre class="tab">G|13----------------|
+D|------------------|
+A|------------------|
+E|-------------0----|</pre></div>
+<div class="bar" data-song="hejira" data-bar="21"><div class="bn">21<span class="t">0:56</span></div><pre class="tab">G|-------------16/--|
+D|------------------|
+A|------------------|
+E|0-----------------|</pre></div>
+<div class="bar" data-song="hejira" data-bar="22"><div class="bn">22<span class="t">0:59</span></div><pre class="tab">G|16-------16-----11-13-|
+D|----------------------|
+A|---------7------------|
+E|----------------------|</pre></div>
+<div class="bar" data-song="hejira" data-bar="23"><div class="bn">23<span class="t">1:02</span></div><pre class="tab">G|11---------------|
+D|-----------------|
+A|-----------------|
+E|-----------------|</pre></div>
+<div class="bar" data-song="hejira" data-bar="24"><div class="bn">24<span class="t">1:04</span></div><pre class="tab">G|----------8--9--8-------------|
+D|9------9-----------9--11------|
+A|------------------------------|
+E|-------------------------7----|</pre></div>
+<div class="bar" data-song="hejira" data-bar="25"><div class="bn">25<span class="t">1:07</span></div><pre class="tab">G|-----------------|
+D|-----------------|
+A|7----------------|
+E|-----------------|</pre></div>
+<div class="bar" data-song="hejira" data-bar="26"><div class="bn">26<span class="t">1:10</span></div><pre class="tab">G|------------------|
+D|------------------|
+A|------------------|
+E|0------------0----|</pre></div>
+<div class="bar" data-song="hejira" data-bar="27"><div class="bn">27<span class="t">1:13</span></div><pre class="tab">G|--------------------|
+D|--------------------|
+A|2------------2---2--|
+E|--------------------|</pre></div>
+<div class="bar" data-song="hejira" data-bar="28"><div class="bn">28<span class="t">1:16</span></div><pre class="tab">G|----------------11---------|
+D|---------11/-13----11-11---|
+A|---------------------------|
+E|7--------------------------|</pre></div>
+<div class="bar" data-song="hejira" data-bar="29"><div class="bn">29<span class="t">1:19</span></div><pre class="tab">G|------------------|
+D|------------------|
+A|-------------7----|
+E|0-----------------|</pre></div>
+<div class="bar" data-song="hejira" data-bar="30"><div class="bn">30<span class="t">1:21</span></div><pre class="tab">G|------------------|
+D|------------------|
+A|9-----------------|
+E|---------2--------|</pre></div>
+<div class="bar" data-song="hejira" data-bar="31"><div class="bn">31<span class="t">1:24</span></div><pre class="tab">G|-------------------|
+D|4------------4-----|
+A|-------------------|
+E|----------------2--|</pre></div>
+<div class="bar" data-song="hejira" data-bar="32"><div class="bn">32<span class="t">1:27</span></div><pre class="tab">G|-------------------|
+D|---------4---------|
+A|-------------------|
+E|2-------------2----|</pre></div>
+<div class="bar" data-song="hejira" data-bar="33"><div class="bn">33<span class="t">1:30</span></div><pre class="tab">G|----------------------|
+D|2------------2--------|
+A|----------------------|
+E|----------------0--0--|</pre></div>
+<div class="bar" data-song="hejira" data-bar="34"><div class="bn">34<span class="t">1:33</span></div><pre class="tab">G|--------------------|
+D|--------------------|
+A|--------------------|
+E|0------------0---2--|</pre></div>
+<div class="bar" data-song="hejira" data-bar="35"><div class="bn">35<span class="t">1:36</span></div><pre class="tab">G|-----------------|
+D|-----------------|
+A|2----------------|
+E|-----------------|</pre></div>
+<div class="bar" data-song="hejira" data-bar="36"><div class="bn">36<span class="t">1:38</span></div><pre class="tab">G|-----8--8--8--8-----------|
+D|4--------------------4----|
+A|------------------2-------|
+E|--------------------------|</pre></div>
+<div class="bar" data-song="hejira" data-bar="37"><div class="bn">37<span class="t">1:41</span></div><pre class="tab">G|--------------------|
+D|--------------------|
+A|--------------------|
+E|2------------2---2--|</pre></div>
+<div class="bar" data-song="hejira" data-bar="38"><div class="bn">38<span class="t">1:44</span></div><pre class="tab">G|----------------------|
+D|----------------------|
+A|----------------------|
+E|2------2--2--2--------|</pre></div>
+<div class="bar" data-song="hejira" data-bar="39"><div class="bn">39<span class="t">1:47</span></div><pre class="tab">G|--------------------|
+D|--------------------|
+A|--------------------|
+E|0------------0---0--|</pre></div>
+<div class="bar" data-song="hejira" data-bar="40"><div class="bn">40<span class="t">1:50</span></div><pre class="tab">G|----------------------|
+D|----------------------|
+A|----------------------|
+E|0------------0--0--0--|</pre></div>
+<div class="bar" data-song="hejira" data-bar="41"><div class="bn">41<span class="t">1:52</span></div><pre class="tab">G|-----------------|
+D|-----------------|
+A|4----------------|
+E|-----------------|</pre></div>
+<div class="bar" data-song="hejira" data-bar="42"><div class="bn">42<span class="t">1:55</span></div><pre class="tab">G|-----------------|
+D|-----------------|
+A|4----------------|
+E|-----------------|</pre></div>
+<div class="bar" data-song="hejira" data-bar="43"><div class="bn">43<span class="t">1:58</span></div><pre class="tab">G|13---------------|
+D|-----------------|
+A|-----------------|
+E|-----------------|</pre></div>
+<div class="bar" data-song="hejira" data-bar="44"><div class="bn">44<span class="t">2:01</span></div><pre class="tab">G|<span class="c">*14</span>-13-<span class="c">*14</span>-16-16-------------|
+D|---------------------0--12/--|
+A|-----------------------------|
+E|-----------------------------|</pre></div>
+<div class="bar" data-song="hejira" data-bar="45"><div class="bn">45<span class="t">2:04</span></div><pre class="tab">G|---16-15-15---13-11------------|
+D|9-------------------13-11-11---|
+A|-------------------------------|
+E|-------------------------------|</pre></div>
+<div class="bar" data-song="hejira" data-bar="46"><div class="bn">46<span class="t">2:07</span></div><pre class="tab">G|--------------------------|
+D|-------------9------9--9--|
+A|--------------------------|
+E|----------7---------------|</pre></div>
+<div class="bar" data-song="hejira" data-bar="47"><div class="bn">47<span class="t">2:09</span></div><pre class="tab">G|-----------------|
+D|-----------------|
+A|7----------------|
+E|-----------------|</pre></div>
+<div class="bar" data-song="hejira" data-bar="48"><div class="bn">48<span class="t">2:12</span></div><pre class="tab">G|-----------------|
+D|-----------------|
+A|7----------------|
+E|-----------------|</pre></div>
+<div class="bar" data-song="hejira" data-bar="49"><div class="bn">49<span class="t">2:15</span></div><pre class="tab">G|-----------------|
+D|-----------------|
+A|7----------------|
+E|-----------------|</pre></div>
+<div class="bar" data-song="hejira" data-bar="50"><div class="bn">50<span class="t">2:18</span></div><pre class="tab">G|-------------------|
+D|-------------------|
+A|7------------7-----|
+E|----------------2--|</pre></div>
+<div class="bar" data-song="hejira" data-bar="51"><div class="bn">51<span class="t">2:21</span></div><pre class="tab">G|-------------4--4------|
+D|-----------------------|
+A|2--------2----------2--|
+E|-----------------------|</pre></div>
+<div class="bar" data-song="hejira" data-bar="52"><div class="bn">52<span class="t">2:24</span></div><pre class="tab">G|---------------------------|
+D|------------------9--9-----|
+A|---------------------------|
+E|7--------7--7--7--------7--|</pre></div>
+<div class="bar" data-song="hejira" data-bar="53"><div class="bn">53<span class="t">2:26</span></div><pre class="tab">G|--------11-11---11-13-13-|
+D|-----9-------------------|
+A|-------------------------|
+E|7------------------------|</pre></div>
+<div class="bar" data-song="hejira" data-bar="54"><div class="bn">54<span class="t">2:29</span></div><pre class="tab">G|13---13-------13-13-13-11-------------|
+D|--------------------------11-11-9--7--|
+A|--------------------------------------|
+E|--------7--7--------------------------|</pre></div>
+<div class="bar" data-song="hejira" data-bar="55"><div class="bn">55<span class="t">2:32</span></div><pre class="tab">G|-----------------|
+D|-----------------|
+A|-----------------|
+E|0----------------|</pre></div>
+<div class="bar" data-song="hejira" data-bar="56"><div class="bn">56<span class="t">2:35</span></div><pre class="tab">G|---------------------------|
+D|6--------6-----------------|
+A|---------------------------|
+E|------------0--4--4--7--7--|</pre></div>
+<div class="bar" data-song="hejira" data-bar="57"><div class="bn">57<span class="t">2:38</span></div><pre class="tab">G|-----------------|
+D|-----------------|
+A|-----------------|
+E|0----------------|</pre></div>
+<div class="bar" data-song="hejira" data-bar="58"><div class="bn">58<span class="t">2:40</span></div><pre class="tab">G|---------------------|
+D|6--------6-----------|
+A|----------------7----|
+E|-------------0-------|</pre></div>
+<div class="bar" data-song="hejira" data-bar="59"><div class="bn">59<span class="t">2:43</span></div><pre class="tab">G|--------------------|
+D|--------------------|
+A|7------------7------|
+E|-----------------2--|</pre></div>
+<div class="bar" data-song="hejira" data-bar="60"><div class="bn">60<span class="t">2:46</span></div><pre class="tab">G|----------13----13----13----|
+D|---13/-14----16----16----16-|
+A|----------------------------|
+E|----------------------------|</pre></div>
+<div class="bar" data-song="hejira" data-bar="61"><div class="bn">61<span class="t">2:49</span></div><pre class="tab">G|----------------11-13-11-------|
+D|16-----16-9/-13----------11-9--|
+A|-------------------------------|
+E|-------------------------------|</pre></div>
+<div class="bar" data-song="hejira" data-bar="62"><div class="bn">62<span class="t">2:52</span></div><pre class="tab">G|------------------|
+D|------------------|
+A|7-----------------|
+E|-------------0----|</pre></div>
+<div class="bar" data-song="hejira" data-bar="63"><div class="bn">63<span class="t">2:55</span></div><pre class="tab">G|----------------------|
+D|----------------------|
+A|-------------7--------|
+E|0------0--0-----------|</pre></div>
+<div class="bar" data-song="hejira" data-bar="64"><div class="bn">64<span class="t">2:57</span></div><pre class="tab">G|-----------------|
+D|-----------------|
+A|2----------------|
+E|-----------------|</pre></div>
+<div class="bar" data-song="hejira" data-bar="65"><div class="bn">65<span class="t">3:00</span></div><pre class="tab">G|------------------|
+D|------------------|
+A|2----2------------|
+E|------------------|</pre></div>
+<div class="bar" data-song="hejira" data-bar="66"><div class="bn">66<span class="t">3:03</span></div><pre class="tab">G|--------------------------|
+D|-------------2------2--2--|
+A|--------------------------|
+E|0------0--0---------------|</pre></div>
+<div class="bar" data-song="hejira" data-bar="67"><div class="bn">67<span class="t">3:06</span></div><pre class="tab">G|-----------------------|
+D|4------------4---4--4--|
+A|-----------------------|
+E|-----------------------|</pre></div>
+<div class="bar" data-song="hejira" data-bar="68"><div class="bn">68<span class="t">3:09</span></div><pre class="tab">G|------------------|
+D|4------------4/---|
+A|------------------|
+E|------------------|</pre></div>
+<div class="bar" data-song="hejira" data-bar="69"><div class="bn">69<span class="t">3:12</span></div><pre class="tab">G|----------------------|
+D|---------4------4--4--|
+A|----------------------|
+E|2---------------------|</pre></div>
+<div class="bar" data-song="hejira" data-bar="70"><div class="bn">70<span class="t">3:14</span></div><pre class="tab">G|------------------|
+D|2-----------------|
+A|------------------|
+E|---------0--------|</pre></div>
+<div class="bar" data-song="hejira" data-bar="71"><div class="bn">71<span class="t">3:17</span></div><pre class="tab">G|-----------------|
+D|-----------------|
+A|-----------------|
+E|0----------------|</pre></div>
+<div class="bar" data-song="hejira" data-bar="72"><div class="bn">72<span class="t">3:20</span></div><pre class="tab">G|-----------------|
+D|-----------------|
+A|2----------------|
+E|-----------------|</pre></div>
+<div class="bar" data-song="hejira" data-bar="73"><div class="bn">73<span class="t">3:23</span></div><pre class="tab">G|-----------------|
+D|-----------------|
+A|2----------------|
+E|-----------------|</pre></div>
+<div class="bar" data-song="hejira" data-bar="74"><div class="bn">74<span class="t">3:26</span></div><pre class="tab">G|------------------|
+D|---------4--------|
+A|------------------|
+E|2-----------------|</pre></div>
+<div class="bar" data-song="hejira" data-bar="75"><div class="bn">75<span class="t">3:28</span></div><pre class="tab">G|-----------------------|
+D|4----------------------|
+A|-----------------------|
+E|-----2----2------2--2--|</pre></div>
+<div class="bar" data-song="hejira" data-bar="76"><div class="bn">76<span class="t">3:31</span></div><pre class="tab">G|-----------------|
+D|-----------------|
+A|-----------------|
+E|0----------------|</pre></div>
+<div class="bar" data-song="hejira" data-bar="77"><div class="bn">77<span class="t">3:34</span></div><pre class="tab">G|-----------------|
+D|-----------------|
+A|-----------------|
+E|0----------------|</pre></div>
+<div class="bar" data-song="hejira" data-bar="78"><div class="bn">78<span class="t">3:37</span></div><pre class="tab">G|-----------------|
+D|-----------------|
+A|4----------------|
+E|-----------------|</pre></div>
+<div class="bar" data-song="hejira" data-bar="79"><div class="bn">79<span class="t">3:40</span></div><pre class="tab">G|6--------6--------9--------9--------|
+D|---6--------6--------9--------9-----|
+A|------4--------4--------7--------7--|
+E|------------------------------------|</pre></div>
+<div class="bar" data-song="hejira" data-bar="80"><div class="bn">80<span class="t">3:43</span></div><pre class="tab">G|-----------------|
+D|-----------------|
+A|5----------------|
+E|-----------------|</pre></div>
+<div class="bar" data-song="hejira" data-bar="81"><div class="bn">81<span class="t">3:45</span></div><pre class="tab">G|18/--<span class="c">*14</span>-<span class="c">*14</span>-11-11-11/------|
+D|----------------------------|
+A|----------------------------|
+E|----------------------------|</pre></div>
+<div class="bar" data-song="hejira" data-bar="82"><div class="bn">82<span class="t">3:48</span></div><pre class="tab">G|---8---------------|
+D|-------------------|
+A|------9------------|
+E|7------------------|</pre></div>
+<div class="bar" data-song="hejira" data-bar="83"><div class="bn">83<span class="t">3:51</span></div><pre class="tab">G|-------------------------|
+D|----------------------4--|
+A|----------------4--6-----|
+E|7--7---7-----------------|</pre></div>
+<div class="bar" data-song="hejira" data-bar="84"><div class="bn">84<span class="t">3:54</span></div><pre class="tab">G|--------------------|
+D|--------------------|
+A|--------------------|
+E|0------------0---0--|</pre></div>
+<div class="bar" data-song="hejira" data-bar="85"><div class="bn">85<span class="t">3:57</span></div><pre class="tab">G|-----------------|
+D|-----------------|
+A|7----------------|
+E|-----------------|</pre></div>
+<div class="bar" data-song="hejira" data-bar="86"><div class="bn">86<span class="t">4:00</span></div><pre class="tab">G|----------------------|
+D|----------------------|
+A|7------------7--------|
+E|-------0--0-----------|</pre></div>
+<div class="bar" data-song="hejira" data-bar="87"><div class="bn">87<span class="t">4:02</span></div><pre class="tab">G|-------------------|
+D|-------------------|
+A|7------------7-----|
+E|----------------2--|</pre></div>
+<div class="bar" data-song="hejira" data-bar="88"><div class="bn">88<span class="t">4:05</span></div><pre class="tab">G|-------------------------|
+D|----------9--9-----------|
+A|-------------------------|
+E|7------7---------7--7----|</pre></div>
+<div class="bar" data-song="hejira" data-bar="89"><div class="bn">89<span class="t">4:08</span></div><pre class="tab">G|--------------------|
+D|--------------------|
+A|--------------------|
+E|7---7--7------------|</pre></div>
+<div class="bar" data-song="hejira" data-bar="90"><div class="bn">90<span class="t">4:11</span></div><pre class="tab">G|----------------------------------|
+D|----------------------------------|
+A|----------------------------------|
+E|7---7--7--7--7--7--7--7--7--7--7--|</pre></div>
+<div class="bar" data-song="hejira" data-bar="91"><div class="bn">91<span class="t">4:14</span></div><pre class="tab">G|------------------13-13-13-13-13-13-11-11----|
+D|---------------------------------------------|
+A|---------11-9--------------------------------|
+E|7--7--9--------7--------------------------0--|</pre></div>
+<div class="bar" data-song="hejira" data-bar="92"><div class="bn">92<span class="t">4:16</span></div><pre class="tab">G|--------------------|
+D|--------------------|
+A|--------------------|
+E|0------------0---0--|</pre></div>
+<div class="bar" data-song="hejira" data-bar="93"><div class="bn">93<span class="t">4:19</span></div><pre class="tab">G|-----------------|
+D|-----------------|
+A|-----------------|
+E|0----------------|</pre></div>
+<div class="bar" data-song="hejira" data-bar="94"><div class="bn">94<span class="t">4:22</span></div><pre class="tab">G|-------------------|
+D|-------------------|
+A|-------------------|
+E|0------------0--0--|</pre></div>
+<div class="bar" data-song="hejira" data-bar="95"><div class="bn">95<span class="t">4:25</span></div><pre class="tab">G|-----------------|
+D|-----------------|
+A|7----------------|
+E|-----------------|</pre></div>
+<div class="bar" data-song="hejira" data-bar="96"><div class="bn">96<span class="t">4:28</span></div><pre class="tab">G|8--11-----------------------|
+D|------11-11-9--9------------|
+A|----------------------------|
+E|----------------------7--7--|</pre></div>
+<div class="bar" data-song="hejira" data-bar="97"><div class="bn">97<span class="t">4:31</span></div><pre class="tab">G|-----8/---6-----------------|
+D|-------------9--6--6--------|
+A|----------------------9-----|
+E|7------------------------7--|</pre></div>
+<div class="bar" data-song="hejira" data-bar="98"><div class="bn">98<span class="t">4:33</span></div><pre class="tab">G|-------------------9-----|
+D|----------------9-----9--|
+A|7------------7-----------|
+E|-------------------------|</pre></div>
+<div class="bar" data-song="hejira" data-bar="99"><div class="bn">99<span class="t">4:36</span></div><pre class="tab">G|--------------------9------|
+D|9------9---------9---------|
+A|----------7--7-------------|
+E|------------------------7--|</pre></div>
+<div class="bar" data-song="hejira" data-bar="100"><div class="bn">100<span class="t">4:39</span></div><pre class="tab">G|-------------------------|
+D|----------9--9-----------|
+A|-------------------------|
+E|7------7---------7--7----|</pre></div>
+<div class="bar" data-song="hejira" data-bar="101"><div class="bn">101<span class="t">4:42</span></div><pre class="tab">G|-------8/-9------------|
+D|-------------9---------|
+A|-----------------------|
+E|7-------------------7--|</pre></div>
+<div class="bar" data-song="hejira" data-bar="102"><div class="bn">102<span class="t">4:45</span></div><pre class="tab">G|----------9/-11--9--9--------|
+D|-----------------------9-----|
+A|7------7------------------7--|
+E|-----------------------------|</pre></div>
+<div class="bar" data-song="hejira" data-bar="103"><div class="bn">103<span class="t">4:48</span></div><pre class="tab">G|------------------|
+D|------------------|
+A|------------------|
+E|2----2------------|</pre></div>
+<div class="bar" data-song="hejira" data-bar="104"><div class="bn">104<span class="t">4:50</span></div><pre class="tab">G|-----8--6--------------|
+D|-----------4---4--4----|
+A|-----------------------|
+E|2----------------------|</pre></div>
+<div class="bar" data-song="hejira" data-bar="105"><div class="bn">105<span class="t">4:53</span></div><pre class="tab">G|------------------|
+D|------------------|
+A|------------------|
+E|2----2------------|</pre></div>
+<div class="bar" data-song="hejira" data-bar="106"><div class="bn">106<span class="t">4:56</span></div><pre class="tab">G|----------------------|
+D|----------------------|
+A|-------------7--------|
+E|0------0--0--0--------|</pre></div>
+<div class="bar" data-song="hejira" data-bar="107"><div class="bn">107<span class="t">4:59</span></div><pre class="tab">G|--------------------------|
+D|--------------------------|
+A|7------------7------------|
+E|0------0--0--0------0--0--|</pre></div>
+<div class="bar" data-song="hejira" data-bar="108"><div class="bn">108<span class="t">5:02</span></div><pre class="tab">G|--------------------|
+D|--------------------|
+A|--------------------|
+E|7------------7---7--|</pre></div>
+<div class="bar" data-song="hejira" data-bar="109"><div class="bn">109<span class="t">5:04</span></div><pre class="tab">G|------------------------|
+D|------------------1--4--|
+A|2--2--2----2---2--------|
+E|------------------------|</pre></div>
+<div class="bar" data-song="hejira" data-bar="110"><div class="bn">110<span class="t">5:07</span></div><pre class="tab">G|--------------------------|
+D|----------4--4------------|
+A|--------------------------|
+E|2------2------------2--2--|</pre></div>
+<div class="bar" data-song="hejira" data-bar="111"><div class="bn">111<span class="t">5:10</span></div><pre class="tab">G|----------------------------------|
+D|----------------------------------|
+A|----------------------------------|
+E|2--2--2--2--2--2--2--2------2--2--|</pre></div>
+<div class="bar" data-song="hejira" data-bar="112"><div class="bn">112<span class="t">5:13</span></div><pre class="tab">G|------------------|
+D|------------------|
+A|---------7--------|
+E|0--------0--------|</pre></div>
+<div class="bar" data-song="hejira" data-bar="113"><div class="bn">113<span class="t">5:16</span></div><pre class="tab">G|-------------------|
+D|-------------------|
+A|7--------7---------|
+E|0--------0------0--|</pre></div>
+<div class="bar" data-song="hejira" data-bar="114"><div class="bn">114<span class="t">5:19</span></div><pre class="tab">G|-----------------|
+D|-----------------|
+A|4----------------|
+E|-----------------|</pre></div>
+<div class="bar" data-song="hejira" data-bar="115"><div class="bn">115<span class="t">5:21</span></div><pre class="tab">G|---------11-13-11----------|
+D|11-13-14----------11-11-11-|
+A|---------------------------|
+E|---------------------------|</pre></div>
+<div class="bar" data-song="hejira" data-bar="116"><div class="bn">116<span class="t">5:24</span></div><pre class="tab">G|-----------------|
+D|0----------------|
+A|-----------------|
+E|-----------------|</pre></div>
+<div class="bar" data-song="hejira" data-bar="117"><div class="bn">117<span class="t">5:27</span></div><pre class="tab">G|-----------------|
+D|0----------------|
+A|-----------------|
+E|-----------------|</pre></div>
+<div class="bar" data-song="hejira" data-bar="118"><div class="bn">118<span class="t">5:30</span></div><pre class="tab">G|11-11-13-11----------------|
+D|------------13-13-13-------|
+A|---------------------------|
+E|---------------------------|</pre></div>
+<div class="bar" data-song="hejira" data-bar="119"><div class="bn">119<span class="t">5:33</span></div><pre class="tab">G|-----------------|
+D|-----------------|
+A|-----------------|
+E|7----------------|</pre></div>
+<div class="bar" data-song="hejira" data-bar="120"><div class="bn">120<span class="t">5:36</span></div><pre class="tab">G|-----------------|
+D|-----------------|
+A|-----------------|
+E|0----------------|</pre></div>
+<div class="bar" data-song="hejira" data-bar="121"><div class="bn">121<span class="t">5:38</span></div><pre class="tab">G|----------------------|
+D|----------------------|
+A|7------------7--------|
+E|----------------0--0--|</pre></div>
+<div class="bar" data-song="hejira" data-bar="122"><div class="bn">122<span class="t">5:41</span></div><pre class="tab">G|-----------------------|
+D|-----------------------|
+A|-------7------7--------|
+E|0----------------0--0--|</pre></div>
+<div class="bar" data-song="hejira" data-bar="123"><div class="bn">123<span class="t">5:44</span></div><pre class="tab">G|----------------------|
+D|----------------------|
+A|----------------------|
+E|0------0--0--0--------|</pre></div>
+<div class="bar" data-song="hejira" data-bar="124"><div class="bn">124<span class="t">5:47</span></div><pre class="tab">G|-----------------|
+D|-----------------|
+A|2----------------|
+E|-----------------|</pre></div>
+<div class="bar" data-song="hejira" data-bar="125"><div class="bn">125<span class="t">5:50</span></div><pre class="tab">G|-----------------|
+D|-----------------|
+A|2----------------|
+E|-----------------|</pre></div>
+<div class="bar" data-song="hejira" data-bar="126"><div class="bn">126<span class="t">5:52</span></div><pre class="tab">G|-----------------|
+D|-----------------|
+A|4----------------|
+E|-----------------|</pre></div>
+<div class="bar rest" data-song="hejira" data-bar="127"><div class="bn">127<span class="t">5:55</span></div><pre class="tab">G|-----------------|
+D|-----------------|
+A|-----------------|
+E|-----------------|</pre></div>
+<div class="bar rest" data-song="hejira" data-bar="128"><div class="bn">128<span class="t">5:58</span></div><pre class="tab">G|-----------------|
+D|-----------------|
+A|-----------------|
+E|-----------------|</pre></div>
+<div class="bar rest" data-song="hejira" data-bar="129"><div class="bn">129<span class="t">6:01</span></div><pre class="tab">G|-----------------|
+D|-----------------|
+A|-----------------|
+E|-----------------|</pre></div>
+<div class="bar rest" data-song="hejira" data-bar="130"><div class="bn">130<span class="t">6:04</span></div><pre class="tab">G|-----------------|
+D|-----------------|
+A|-----------------|
+E|-----------------|</pre></div>
+<div class="bar rest" data-song="hejira" data-bar="131"><div class="bn">131<span class="t">6:07</span></div><pre class="tab">G|-----------------|
+D|-----------------|
+A|-----------------|
+E|-----------------|</pre></div>
+<div class="bar rest" data-song="hejira" data-bar="132"><div class="bn">132<span class="t">6:09</span></div><pre class="tab">G|-----------------|
+D|-----------------|
+A|-----------------|
+E|-----------------|</pre></div>
+<div class="bar rest" data-song="hejira" data-bar="133"><div class="bn">133<span class="t">6:12</span></div><pre class="tab">G|-----------------|
+D|-----------------|
+A|-----------------|
+E|-----------------|</pre></div>
+<div class="bar" data-song="hejira" data-bar="134"><div class="bn">134<span class="t">6:15</span></div><pre class="tab">G|-----------------|
+D|-----------------|
+A|4----------------|
+E|-----------------|</pre></div>
+<div class="bar" data-song="hejira" data-bar="135"><div class="bn">135<span class="t">6:18</span></div><pre class="tab">G|-----------------|
+D|-----------------|
+A|4----------------|
+E|-----------------|</pre></div>
+<div class="bar" data-song="hejira" data-bar="136"><div class="bn">136<span class="t">6:21</span></div><pre class="tab">G|-----------------|
+D|-----------------|
+A|4----------------|
+E|-----------------|</pre></div>
+<div class="bar" data-song="hejira" data-bar="137"><div class="bn">137<span class="t">6:24</span></div><pre class="tab">G|-----------------|
+D|-----------------|
+A|4----------------|
+E|-----------------|</pre></div>
+<div class="bar" data-song="hejira" data-bar="138"><div class="bn">138<span class="t">6:26</span></div><pre class="tab">G|-----------------|
+D|-----------------|
+A|4----------------|
+E|-----------------|</pre></div>
+<div class="bar rest" data-song="hejira" data-bar="139"><div class="bn">139<span class="t">6:29</span></div><pre class="tab">G|-----------------|
+D|-----------------|
+A|-----------------|
+E|-----------------|</pre></div>
+<div class="bar rest" data-song="hejira" data-bar="140"><div class="bn">140<span class="t">6:32</span></div><pre class="tab">G|-----------------|
+D|-----------------|
+A|-----------------|
+E|-----------------|</pre></div>
+<div class="bar rest" data-song="hejira" data-bar="141"><div class="bn">141<span class="t">6:35</span></div><pre class="tab">G|-----------------|
+D|-----------------|
+A|-----------------|
+E|-----------------|</pre></div>
+</div>
+<h2 id="blackcrow">Black Crow</h2>
+<p class="meta">Hejira, 1976 &nbsp;&middot;&nbsp; 184 bars &nbsp;&middot;&nbsp; 968 notes &nbsp;&middot;&nbsp; 170 bpm &nbsp;&middot;&nbsp; tuning D#1 G#1 C#2 F#2 &nbsp;&middot;&nbsp; 0 harmonics written</p>
+<div class="card warn">Tuned DOWN A HALF STEP. Verified against the recording, not taken on trust: the bass stem correlates +0.867 with the tab as written and -0.026 at standard tuning, and 0 semitones wins across all twelve transpositions.</div>
+<h3>Where this tab already writes the node pitches</h3>
+<div class="scroll"><table><tr><th>Node</th><th>Sounds</th><th>Times written</th><th>Written at</th><th>Bars</th></tr><tr><td><b>D string 7</b></td><td>G#3</td><td>0</td><td>-</td><td class="bl">none</td></tr><tr><td><b>G string 5</b></td><td>F#4</td><td>0</td><td>-</td><td class="bl">none</td></tr><tr><td><b>G string 9</b></td><td>A#4</td><td>0</td><td>-</td><td class="bl">none</td></tr></table></div>
+<div class="bars">
+<div class="bar rest" data-song="blackcrow" data-bar="1"><div class="bn">1<span class="t">0:00</span></div><pre class="tab">G|-----------------|
+D|-----------------|
+A|-----------------|
+E|-----------------|</pre></div>
+<div class="bar rest" data-song="blackcrow" data-bar="2"><div class="bn">2<span class="t">0:01</span></div><pre class="tab">G|-----------------|
+D|-----------------|
+A|-----------------|
+E|-----------------|</pre></div>
+<div class="bar" data-song="blackcrow" data-bar="3"><div class="bn">3<span class="t">0:02</span></div><pre class="tab">G|-----------------|
+D|-----------------|
+A|-----------------|
+E|0----------------|</pre></div>
+<div class="bar" data-song="blackcrow" data-bar="4"><div class="bn">4<span class="t">0:04</span></div><pre class="tab">G|-----------------|
+D|-----------------|
+A|-----------------|
+E|0----------------|</pre></div>
+<div class="bar" data-song="blackcrow" data-bar="5"><div class="bn">5<span class="t">0:05</span></div><pre class="tab">G|-----------------|
+D|-----------------|
+A|-----------------|
+E|0----------------|</pre></div>
+<div class="bar" data-song="blackcrow" data-bar="6"><div class="bn">6<span class="t">0:07</span></div><pre class="tab">G|-----------------|
+D|-----------------|
+A|-----------------|
+E|0----------------|</pre></div>
+<div class="bar" data-song="blackcrow" data-bar="7"><div class="bn">7<span class="t">0:08</span></div><pre class="tab">G|-----------------|
+D|-----------------|
+A|-----------------|
+E|0----------------|</pre></div>
+<div class="bar" data-song="blackcrow" data-bar="8"><div class="bn">8<span class="t">0:09</span></div><pre class="tab">G|-----------------|
+D|-----------------|
+A|-----------------|
+E|0----------------|</pre></div>
+<div class="bar" data-song="blackcrow" data-bar="9"><div class="bn">9<span class="t">0:11</span></div><pre class="tab">G|------------------------|
+D|------------------------|
+A|7--7--------------------|
+E|------0--0-----0--0-----|</pre></div>
+<div class="bar" data-song="blackcrow" data-bar="10"><div class="bn">10<span class="t">0:12</span></div><pre class="tab">G|------------------|
+D|------------------|
+A|------------------|
+E|---------------7--|</pre></div>
+<div class="bar" data-song="blackcrow" data-bar="11"><div class="bn">11<span class="t">0:14</span></div><pre class="tab">G|---------------------|
+D|---------------------|
+A|7-----7--7-----------|
+E|---7--------------0--|</pre></div>
+<div class="bar" data-song="blackcrow" data-bar="12"><div class="bn">12<span class="t">0:15</span></div><pre class="tab">G|------------------------|
+D|------------------------|
+A|------------5--5--7-----|
+E|3--0--5--7-----------7--|</pre></div>
+<div class="bar" data-song="blackcrow" data-bar="13"><div class="bn">13<span class="t">0:16</span></div><pre class="tab">G|------------------------|
+D|------------------------|
+A|7--7--------------------|
+E|------0--0-----0--0-----|</pre></div>
+<div class="bar" data-song="blackcrow" data-bar="14"><div class="bn">14<span class="t">0:18</span></div><pre class="tab">G|------------------|
+D|------------------|
+A|------------------|
+E|---------------7--|</pre></div>
+<div class="bar" data-song="blackcrow" data-bar="15"><div class="bn">15<span class="t">0:19</span></div><pre class="tab">G|------------------4--|
+D|---------------------|
+A|2----2------2--2-----|
+E|---------------------|</pre></div>
+<div class="bar" data-song="blackcrow" data-bar="16"><div class="bn">16<span class="t">0:21</span></div><pre class="tab">G|4---------------------|
+D|----------------------|
+A|---2--2--2--2---------|
+E|-------------------0--|</pre></div>
+<div class="bar" data-song="blackcrow" data-bar="17"><div class="bn">17<span class="t">0:22</span></div><pre class="tab">G|--------------------|
+D|--------------------|
+A|--------------------|
+E|3----3--------3--5--|</pre></div>
+<div class="bar" data-song="blackcrow" data-bar="18"><div class="bn">18<span class="t">0:24</span></div><pre class="tab">G|----------------------|
+D|-----------5----3-----|
+A|1----3--5-------------|
+E|-------------------5--|</pre></div>
+<div class="bar" data-song="blackcrow" data-bar="19"><div class="bn">19<span class="t">0:25</span></div><pre class="tab">G|---------------------|
+D|---------------------|
+A|3-----3----3---------|
+E|---5--------------3--|</pre></div>
+<div class="bar" data-song="blackcrow" data-bar="20"><div class="bn">20<span class="t">0:26</span></div><pre class="tab">G|----------------------|
+D|----------------------|
+A|3-----3----3----1-----|
+E|---3---------------3--|</pre></div>
+<div class="bar" data-song="blackcrow" data-bar="21"><div class="bn">21<span class="t">0:28</span></div><pre class="tab">G|------------------|
+D|------------------|
+A|5----5------------|
+E|------------------|</pre></div>
+<div class="bar" data-song="blackcrow" data-bar="22"><div class="bn">22<span class="t">0:29</span></div><pre class="tab">G|----------------------|
+D|----------------------|
+A|5------------------3--|
+E|-------1--1--3--5-----|</pre></div>
+<div class="bar" data-song="blackcrow" data-bar="23"><div class="bn">23<span class="t">0:31</span></div><pre class="tab">G|------------------|
+D|------------------|
+A|5----5------------|
+E|------------------|</pre></div>
+<div class="bar" data-song="blackcrow" data-bar="24"><div class="bn">24<span class="t">0:32</span></div><pre class="tab">G|---------------------|
+D|---------------5--5--|
+A|5--------5--5--------|
+E|---------------------|</pre></div>
+<div class="bar" data-song="blackcrow" data-bar="25"><div class="bn">25<span class="t">0:33</span></div><pre class="tab">G|--------------------|
+D|--------------------|
+A|3----3--------3-----|
+E|-----------------3--|</pre></div>
+<div class="bar" data-song="blackcrow" data-bar="26"><div class="bn">26<span class="t">0:35</span></div><pre class="tab">G|---------------------|
+D|---------------------|
+A|3-----3--------3-----|
+E|---3--------------3--|</pre></div>
+<div class="bar" data-song="blackcrow" data-bar="27"><div class="bn">27<span class="t">0:36</span></div><pre class="tab">G|--------------------|
+D|--------------------|
+A|5----5--------5-----|
+E|-----------------5--|</pre></div>
+<div class="bar" data-song="blackcrow" data-bar="28"><div class="bn">28<span class="t">0:38</span></div><pre class="tab">G|--------------------|
+D|--------------------|
+A|5----5--------5--5--|
+E|--------------------|</pre></div>
+<div class="bar" data-song="blackcrow" data-bar="29"><div class="bn">29<span class="t">0:39</span></div><pre class="tab">G|---------------------|
+D|---------------------|
+A|7--7-----------------|
+E|------0--0--0--------|</pre></div>
+<div class="bar" data-song="blackcrow" data-bar="30"><div class="bn">30<span class="t">0:40</span></div><pre class="tab">G|---------------------|
+D|---------------------|
+A|----------------5----|
+E|0----0--7--7---------|</pre></div>
+<div class="bar" data-song="blackcrow" data-bar="31"><div class="bn">31<span class="t">0:42</span></div><pre class="tab">G|---------------------|
+D|---------------------|
+A|7--7-----------------|
+E|------0--0--0--------|</pre></div>
+<div class="bar" data-song="blackcrow" data-bar="32"><div class="bn">32<span class="t">0:43</span></div><pre class="tab">G|---------------------|
+D|---------------------|
+A|----------------5----|
+E|0----0--7--7---------|</pre></div>
+<div class="bar" data-song="blackcrow" data-bar="33"><div class="bn">33<span class="t">0:45</span></div><pre class="tab">G|---------------------|
+D|---------------------|
+A|7--7-----------------|
+E|------0--0--0--------|</pre></div>
+<div class="bar" data-song="blackcrow" data-bar="34"><div class="bn">34<span class="t">0:46</span></div><pre class="tab">G|---------------------|
+D|---------------------|
+A|----------------5----|
+E|0----0--7--7---------|</pre></div>
+<div class="bar" data-song="blackcrow" data-bar="35"><div class="bn">35<span class="t">0:48</span></div><pre class="tab">G|---------------------|
+D|---------------------|
+A|7--7-----------------|
+E|------0--0--0--------|</pre></div>
+<div class="bar" data-song="blackcrow" data-bar="36"><div class="bn">36<span class="t">0:49</span></div><pre class="tab">G|--------------------|
+D|--------------------|
+A|-----------------5--|
+E|0------0--7---------|</pre></div>
+<div class="bar" data-song="blackcrow" data-bar="37"><div class="bn">37<span class="t">0:50</span></div><pre class="tab">G|-----------------------|
+D|-----------------------|
+A|---7--7----------------|
+E|0--------0--0----0--0--|</pre></div>
+<div class="bar" data-song="blackcrow" data-bar="38"><div class="bn">38<span class="t">0:52</span></div><pre class="tab">G|------------------|
+D|------------------|
+A|------------------|
+E|---------------7--|</pre></div>
+<div class="bar" data-song="blackcrow" data-bar="39"><div class="bn">39<span class="t">0:53</span></div><pre class="tab">G|-----------------------|
+D|-----------------------|
+A|7-----7-----7--5-------|
+E|---0-----0----------0--|</pre></div>
+<div class="bar" data-song="blackcrow" data-bar="40"><div class="bn">40<span class="t">0:55</span></div><pre class="tab">G|-----------------------|
+D|-----------------------|
+A|-----------------------|
+E|5--0--3--5--0----3--5--|</pre></div>
+<div class="bar" data-song="blackcrow" data-bar="41"><div class="bn">41<span class="t">0:56</span></div><pre class="tab">G|------------------------|
+D|------------------------|
+A|7--7--------------------|
+E|------0--0-----0--0-----|</pre></div>
+<div class="bar" data-song="blackcrow" data-bar="42"><div class="bn">42<span class="t">0:57</span></div><pre class="tab">G|------------------|
+D|------------------|
+A|------------------|
+E|---------------7--|</pre></div>
+<div class="bar" data-song="blackcrow" data-bar="43"><div class="bn">43<span class="t">0:59</span></div><pre class="tab">G|--------------------4--|
+D|-----------------------|
+A|2----2--2--2--2--------|
+E|-----------------------|</pre></div>
+<div class="bar" data-song="blackcrow" data-bar="44"><div class="bn">44<span class="t">1:00</span></div><pre class="tab">G|4----------------------|
+D|-----------------------|
+A|---2--2--2--2----------|
+E|--------------------0--|</pre></div>
+<div class="bar" data-song="blackcrow" data-bar="45"><div class="bn">45<span class="t">1:02</span></div><pre class="tab">G|---------------------|
+D|---------------------|
+A|---------------------|
+E|3------3--5--6--6----|</pre></div>
+<div class="bar" data-song="blackcrow" data-bar="46"><div class="bn">46<span class="t">1:03</span></div><pre class="tab">G|------------------------|
+D|------------7-----------|
+A|---5-----5-----8--------|
+E|------------------5--7--|</pre></div>
+<div class="bar" data-song="blackcrow" data-bar="47"><div class="bn">47<span class="t">1:04</span></div><pre class="tab">G|---------------------|
+D|---------------------|
+A|3----3--3--3---------|
+E|------------------3--|</pre></div>
+<div class="bar" data-song="blackcrow" data-bar="48"><div class="bn">48<span class="t">1:06</span></div><pre class="tab">G|----------------------|
+D|----------------------|
+A|3-----3--3--3---------|
+E|---3---------------3--|</pre></div>
+<div class="bar" data-song="blackcrow" data-bar="49"><div class="bn">49<span class="t">1:07</span></div><pre class="tab">G|------------------|
+D|------------------|
+A|5----5------------|
+E|------------------|</pre></div>
+<div class="bar" data-song="blackcrow" data-bar="50"><div class="bn">50<span class="t">1:09</span></div><pre class="tab">G|---------------------|
+D|---------------------|
+A|5-----------------3--|
+E|-------0--3----0-----|</pre></div>
+<div class="bar" data-song="blackcrow" data-bar="51"><div class="bn">51<span class="t">1:10</span></div><pre class="tab">G|--------------------|
+D|--------------------|
+A|---5----5--5--------|
+E|--------------------|</pre></div>
+<div class="bar" data-song="blackcrow" data-bar="52"><div class="bn">52<span class="t">1:12</span></div><pre class="tab">G|----------------------|
+D|---------------5------|
+A|5--5--5--5--5---------|
+E|----------------------|</pre></div>
+<div class="bar" data-song="blackcrow" data-bar="53"><div class="bn">53<span class="t">1:13</span></div><pre class="tab">G|---------------------|
+D|---------------------|
+A|---3----3--3---------|
+E|------------------3--|</pre></div>
+<div class="bar" data-song="blackcrow" data-bar="54"><div class="bn">54<span class="t">1:14</span></div><pre class="tab">G|----------------------|
+D|----------------------|
+A|3-----3--3------3-----|
+E|---3------------------|</pre></div>
+<div class="bar" data-song="blackcrow" data-bar="55"><div class="bn">55<span class="t">1:16</span></div><pre class="tab">G|---------------------|
+D|---------------------|
+A|---5----5--5---------|
+E|---------------------|</pre></div>
+<div class="bar" data-song="blackcrow" data-bar="56"><div class="bn">56<span class="t">1:17</span></div><pre class="tab">G|-----------------------|
+D|---3--3-----5----7-----|
+A|---------5----------5--|
+E|-----------------------|</pre></div>
+<div class="bar" data-song="blackcrow" data-bar="57"><div class="bn">57<span class="t">1:19</span></div><pre class="tab">G|---------------------|
+D|---------------------|
+A|7--7-----------------|
+E|------0--0--0--------|</pre></div>
+<div class="bar" data-song="blackcrow" data-bar="58"><div class="bn">58<span class="t">1:20</span></div><pre class="tab">G|----------------------|
+D|----------------------|
+A|-----------------5----|
+E|0--0--0--7--7---------|</pre></div>
+<div class="bar" data-song="blackcrow" data-bar="59"><div class="bn">59<span class="t">1:21</span></div><pre class="tab">G|---------------------|
+D|---------------------|
+A|7--7-----------------|
+E|------0--0--0--------|</pre></div>
+<div class="bar" data-song="blackcrow" data-bar="60"><div class="bn">60<span class="t">1:23</span></div><pre class="tab">G|-----------------------|
+D|-----------------------|
+A|------------------5----|
+E|0--0--0--7--7--7-------|</pre></div>
+<div class="bar" data-song="blackcrow" data-bar="61"><div class="bn">61<span class="t">1:24</span></div><pre class="tab">G|---------------------|
+D|---------------------|
+A|7--7-----------------|
+E|------0--0--0--------|</pre></div>
+<div class="bar" data-song="blackcrow" data-bar="62"><div class="bn">62<span class="t">1:26</span></div><pre class="tab">G|----------------------|
+D|----------------------|
+A|-----------------5----|
+E|0--0--0--7--7---------|</pre></div>
+<div class="bar" data-song="blackcrow" data-bar="63"><div class="bn">63<span class="t">1:27</span></div><pre class="tab">G|---------------------|
+D|---------------------|
+A|7--7-----------------|
+E|------0--0--0--------|</pre></div>
+<div class="bar" data-song="blackcrow" data-bar="64"><div class="bn">64<span class="t">1:28</span></div><pre class="tab">G|-----------------------|
+D|-----------------0--2--|
+A|---------2--2----------|
+E|0--0--0----------------|</pre></div>
+<div class="bar" data-song="blackcrow" data-bar="65"><div class="bn">65<span class="t">1:30</span></div><pre class="tab">G|------------------------|
+D|2--2--------------------|
+A|------------------------|
+E|------0--0--0--0--0-----|</pre></div>
+<div class="bar" data-song="blackcrow" data-bar="66"><div class="bn">66<span class="t">1:31</span></div><pre class="tab">G|------------------|
+D|------------------|
+A|------------------|
+E|---------------0--|</pre></div>
+<div class="bar" data-song="blackcrow" data-bar="67"><div class="bn">67<span class="t">1:33</span></div><pre class="tab">G|----------------------|
+D|----------------------|
+A|7-----7----7--5-------|
+E|---0---------------0--|</pre></div>
+<div class="bar" data-song="blackcrow" data-bar="68"><div class="bn">68<span class="t">1:34</span></div><pre class="tab">G|-----------------------|
+D|-----------------------|
+A|------------5----7-----|
+E|3--0--5--7----------0--|</pre></div>
+<div class="bar" data-song="blackcrow" data-bar="69"><div class="bn">69<span class="t">1:36</span></div><pre class="tab">G|------------------------|
+D|5--5--------------------|
+A|------7-----------------|
+E|---------0--0--0--0-----|</pre></div>
+<div class="bar" data-song="blackcrow" data-bar="70"><div class="bn">70<span class="t">1:37</span></div><pre class="tab">G|------------------|
+D|------------------|
+A|------------------|
+E|---------------0--|</pre></div>
+<div class="bar" data-song="blackcrow" data-bar="71"><div class="bn">71<span class="t">1:38</span></div><pre class="tab">G|-------------------4--|
+D|----------------------|
+A|2----2----2--2--2-----|
+E|----------------------|</pre></div>
+<div class="bar" data-song="blackcrow" data-bar="72"><div class="bn">72<span class="t">1:40</span></div><pre class="tab">G|4-------------------|
+D|--------------------|
+A|-------2--2---------|
+E|-----------------0--|</pre></div>
+<div class="bar" data-song="blackcrow" data-bar="73"><div class="bn">73<span class="t">1:41</span></div><pre class="tab">G|--------------------|
+D|--------------------|
+A|--------------------|
+E|3----3--------3--5--|</pre></div>
+<div class="bar" data-song="blackcrow" data-bar="74"><div class="bn">74<span class="t">1:43</span></div><pre class="tab">G|-----------------------|
+D|-----------------5-----|
+A|---------5--5-------5--|
+E|6--6--6----------------|</pre></div>
+<div class="bar" data-song="blackcrow" data-bar="75"><div class="bn">75<span class="t">1:44</span></div><pre class="tab">G|--------------------|
+D|--------------------|
+A|3----3--------3--5--|
+E|--------------------|</pre></div>
+<div class="bar" data-song="blackcrow" data-bar="76"><div class="bn">76<span class="t">1:45</span></div><pre class="tab">G|------------------------|
+D|------3--5--5--5--------|
+A|6--5--------------3-----|
+E|---------------------0--|</pre></div>
+<div class="bar" data-song="blackcrow" data-bar="77"><div class="bn">77<span class="t">1:47</span></div><pre class="tab">G|------------------|
+D|------------------|
+A|5----5------------|
+E|------------------|</pre></div>
+<div class="bar" data-song="blackcrow" data-bar="78"><div class="bn">78<span class="t">1:48</span></div><pre class="tab">G|----------------------|
+D|--------3----5--------|
+A|5----5----------3--0--|
+E|----------------------|</pre></div>
+<div class="bar" data-song="blackcrow" data-bar="79"><div class="bn">79<span class="t">1:50</span></div><pre class="tab">G|--------------------|
+D|--------------------|
+A|5----5--------5-----|
+E|-----------------1--|</pre></div>
+<div class="bar" data-song="blackcrow" data-bar="80"><div class="bn">80<span class="t">1:51</span></div><pre class="tab">G|---------------------|
+D|----------------5----|
+A|-----------5---------|
+E|1----3--5------------|</pre></div>
+<div class="bar" data-song="blackcrow" data-bar="81"><div class="bn">81<span class="t">1:52</span></div><pre class="tab">G|--------------------|
+D|--------------------|
+A|3----3--------3-----|
+E|-----------------3--|</pre></div>
+<div class="bar" data-song="blackcrow" data-bar="82"><div class="bn">82<span class="t">1:54</span></div><pre class="tab">G|---------------------|
+D|---------------------|
+A|3-----3--------3-----|
+E|---3--------------3--|</pre></div>
+<div class="bar" data-song="blackcrow" data-bar="83"><div class="bn">83<span class="t">1:55</span></div><pre class="tab">G|--------------------|
+D|--------------------|
+A|5----5--------5-----|
+E|-----------------5--|</pre></div>
+<div class="bar" data-song="blackcrow" data-bar="84"><div class="bn">84<span class="t">1:57</span></div><pre class="tab">G|-----------------------|
+D|-----------------------|
+A|5-----5--5-------5-----|
+E|---5----------5-----5--|</pre></div>
+<div class="bar" data-song="blackcrow" data-bar="85"><div class="bn">85<span class="t">1:58</span></div><pre class="tab">G|--------------------|
+D|--------------------|
+A|7----7--------7--7--|
+E|--------------------|</pre></div>
+<div class="bar" data-song="blackcrow" data-bar="86"><div class="bn">86<span class="t">2:00</span></div><pre class="tab">G|-----------------------|
+D|-----------------------|
+A|7----------------5-----|
+E|---0--0--7--7-------7--|</pre></div>
+<div class="bar" data-song="blackcrow" data-bar="87"><div class="bn">87<span class="t">2:01</span></div><pre class="tab">G|------------------------|
+D|------------------------|
+A|7--7-----------------7--|
+E|------0--0--0--0--0-----|</pre></div>
+<div class="bar" data-song="blackcrow" data-bar="88"><div class="bn">88<span class="t">2:02</span></div><pre class="tab">G|-----------------------|
+D|-----------------------|
+A|7----------------5-----|
+E|---0--0--7--7-------7--|</pre></div>
+<div class="bar" data-song="blackcrow" data-bar="89"><div class="bn">89<span class="t">2:04</span></div><pre class="tab">G|------------------------|
+D|------------------------|
+A|7--7-----------------7--|
+E|------0--0--0--0--0-----|</pre></div>
+<div class="bar" data-song="blackcrow" data-bar="90"><div class="bn">90<span class="t">2:05</span></div><pre class="tab">G|-----------------------|
+D|-----------------------|
+A|7----------------5-----|
+E|---0--0--7--7-------7--|</pre></div>
+<div class="bar" data-song="blackcrow" data-bar="91"><div class="bn">91<span class="t">2:07</span></div><pre class="tab">G|------------------------|
+D|------------------------|
+A|7--7-----7--7--------7--|
+E|------0--------0--0-----|</pre></div>
+<div class="bar" data-song="blackcrow" data-bar="92"><div class="bn">92<span class="t">2:08</span></div><pre class="tab">G|-----------------------|
+D|2----------------0--2--|
+A|---------2--2----------|
+E|---0--0----------------|</pre></div>
+<div class="bar" data-song="blackcrow" data-bar="93"><div class="bn">93<span class="t">2:09</span></div><pre class="tab">G|------------------6/---|
+D|2--2-------------------|
+A|-----------------------|
+E|------0--0--0--0-------|</pre></div>
+<div class="bar" data-song="blackcrow" data-bar="94"><div class="bn">94<span class="t">2:11</span></div><pre class="tab">G|6------------6-----|
+D|-------------------|
+A|-------------------|
+E|----------------7--|</pre></div>
+<div class="bar" data-song="blackcrow" data-bar="95"><div class="bn">95<span class="t">2:12</span></div><pre class="tab">G|-----------------------|
+D|-----------x--4-----5--|
+A|7----7--x--------------|
+E|-----------------------|</pre></div>
+<div class="bar" data-song="blackcrow" data-bar="96"><div class="bn">96<span class="t">2:14</span></div><pre class="tab">G|------------------------|
+D|5-----------------0--2--|
+A|---x--0--0--2--2--------|
+E|------------------------|</pre></div>
+<div class="bar" data-song="blackcrow" data-bar="97"><div class="bn">97<span class="t">2:15</span></div><pre class="tab">G|------------------6/---|
+D|2--2-------------------|
+A|-----------------------|
+E|------0--0--0--0-------|</pre></div>
+<div class="bar" data-song="blackcrow" data-bar="98"><div class="bn">98<span class="t">2:16</span></div><pre class="tab">G|6------------6-----|
+D|-------------------|
+A|-------------------|
+E|----------------0--|</pre></div>
+<div class="bar" data-song="blackcrow" data-bar="99"><div class="bn">99<span class="t">2:18</span></div><pre class="tab">G|-----------------4--|
+D|--------------------|
+A|2----2--------2-----|
+E|--------------------|</pre></div>
+<div class="bar" data-song="blackcrow" data-bar="100"><div class="bn">100<span class="t">2:19</span></div><pre class="tab">G|4--4-------------4-----|
+D|------0----------------|
+A|---------2----2--------|
+E|--------------------0--|</pre></div>
+<div class="bar" data-song="blackcrow" data-bar="101"><div class="bn">101<span class="t">2:21</span></div><pre class="tab">G|--------------------|
+D|-----------------0--|
+A|--------------------|
+E|3----3--------3-----|</pre></div>
+<div class="bar" data-song="blackcrow" data-bar="102"><div class="bn">102<span class="t">2:22</span></div><pre class="tab">G|0-----0------0--------|
+D|---0------------0-----|
+A|----------------------|
+E|-------------------3--|</pre></div>
+<div class="bar" data-song="blackcrow" data-bar="103"><div class="bn">103<span class="t">2:24</span></div><pre class="tab">G|--------------------|
+D|--------------------|
+A|3----3--------3--0--|
+E|--------------------|</pre></div>
+<div class="bar" data-song="blackcrow" data-bar="104"><div class="bn">104<span class="t">2:25</span></div><pre class="tab">G|-----------------------|
+D|-----------------------|
+A|3--3--3--1----1--3--0--|
+E|-----------------------|</pre></div>
+<div class="bar" data-song="blackcrow" data-bar="105"><div class="bn">105<span class="t">2:26</span></div><pre class="tab">G|------------------|
+D|0----0------------|
+A|------------------|
+E|------------------|</pre></div>
+<div class="bar" data-song="blackcrow" data-bar="106"><div class="bn">106<span class="t">2:28</span></div><pre class="tab">G|--------------------|
+D|--------------------|
+A|5--------3----------|
+E|--------------1--3--|</pre></div>
+<div class="bar" data-song="blackcrow" data-bar="107"><div class="bn">107<span class="t">2:29</span></div><pre class="tab">G|------------------|
+D|------------------|
+A|5----5------------|
+E|------------------|</pre></div>
+<div class="bar" data-song="blackcrow" data-bar="108"><div class="bn">108<span class="t">2:31</span></div><pre class="tab">G|---------------------|
+D|------------5--------|
+A|5--5--5--5-----------|
+E|---------------------|</pre></div>
+<div class="bar" data-song="blackcrow" data-bar="109"><div class="bn">109<span class="t">2:32</span></div><pre class="tab">G|--------------------|
+D|--------------------|
+A|3----3--------3-----|
+E|-----------------3--|</pre></div>
+<div class="bar" data-song="blackcrow" data-bar="110"><div class="bn">110<span class="t">2:33</span></div><pre class="tab">G|---------------------|
+D|---------------------|
+A|3-----3--------3-----|
+E|---3--------------3--|</pre></div>
+<div class="bar" data-song="blackcrow" data-bar="111"><div class="bn">111<span class="t">2:35</span></div><pre class="tab">G|----------------------|
+D|--------3--3-------7--|
+A|5----5----------5-----|
+E|----------------------|</pre></div>
+<div class="bar" data-song="blackcrow" data-bar="112"><div class="bn">112<span class="t">2:36</span></div><pre class="tab">G|---------------------|
+D|7--------------------|
+A|---------------5-----|
+E|-------5--7-------7--|</pre></div>
+<div class="bar" data-song="blackcrow" data-bar="113"><div class="bn">113<span class="t">2:38</span></div><pre class="tab">G|-----------------------|
+D|-----------------------|
+A|7--7----------------7--|
+E|------0--0----0--0-----|</pre></div>
+<div class="bar" data-song="blackcrow" data-bar="114"><div class="bn">114<span class="t">2:39</span></div><pre class="tab">G|-----------------------|
+D|-----------------------|
+A|7--------2----2--5-----|
+E|---0--0-------------0--|</pre></div>
+<div class="bar" data-song="blackcrow" data-bar="115"><div class="bn">115<span class="t">2:40</span></div><pre class="tab">G|-----------------------|
+D|-----------------------|
+A|7--7----------------7--|
+E|------0--0----0--0-----|</pre></div>
+<div class="bar" data-song="blackcrow" data-bar="116"><div class="bn">116<span class="t">2:42</span></div><pre class="tab">G|-----------------------|
+D|-----------------------|
+A|7--------2----2--5-----|
+E|---0--0-------------0--|</pre></div>
+<div class="bar" data-song="blackcrow" data-bar="117"><div class="bn">117<span class="t">2:43</span></div><pre class="tab">G|-----------------------|
+D|-----------------------|
+A|7--7----------------7--|
+E|------0--0----0--0-----|</pre></div>
+<div class="bar" data-song="blackcrow" data-bar="118"><div class="bn">118<span class="t">2:45</span></div><pre class="tab">G|-----------------------|
+D|-----------------------|
+A|7--------2----2--5-----|
+E|---0--0-------------0--|</pre></div>
+<div class="bar" data-song="blackcrow" data-bar="119"><div class="bn">119<span class="t">2:46</span></div><pre class="tab">G|----------------------|
+D|----------------------|
+A|7-------------5-------|
+E|-----0--0--0-------0--|</pre></div>
+<div class="bar" data-song="blackcrow" data-bar="120"><div class="bn">120<span class="t">2:48</span></div><pre class="tab">G|-----------------------|
+D|-----------------------|
+A|-----------------------|
+E|x--3----x--x--x--5--x--|</pre></div>
+<div class="bar" data-song="blackcrow" data-bar="121"><div class="bn">121<span class="t">2:49</span></div><pre class="tab">G|------------------------|
+D|------------------------|
+A|7--7--------------------|
+E|------0--0--0--0--2-----|</pre></div>
+<div class="bar" data-song="blackcrow" data-bar="122"><div class="bn">122<span class="t">2:50</span></div><pre class="tab">G|------------------|
+D|------------------|
+A|------------------|
+E|---------------x--|</pre></div>
+<div class="bar" data-song="blackcrow" data-bar="123"><div class="bn">123<span class="t">2:52</span></div><pre class="tab">G|------------------------|
+D|---------9--9--9--------|
+A|------------------------|
+E|7--7--7-----------7--7--|</pre></div>
+<div class="bar" data-song="blackcrow" data-bar="124"><div class="bn">124<span class="t">2:53</span></div><pre class="tab">G|-----------------------|
+D|---9-------------------|
+A|-----------------------|
+E|7-------7--7--7--0--2--|</pre></div>
+<div class="bar" data-song="blackcrow" data-bar="125"><div class="bn">125<span class="t">2:55</span></div><pre class="tab">G|--------------------|
+D|--------------------|
+A|-----------------5--|
+E|3----3--------------|</pre></div>
+<div class="bar" data-song="blackcrow" data-bar="126"><div class="bn">126<span class="t">2:56</span></div><pre class="tab">G|-----------------------|
+D|5----------------------|
+A|-----------------5-----|
+E|---x--x--3--3-------x--|</pre></div>
+<div class="bar" data-song="blackcrow" data-bar="127"><div class="bn">127<span class="t">2:57</span></div><pre class="tab">G|-------------------|
+D|-------------------|
+A|3------------3--5--|
+E|-------------------|</pre></div>
+<div class="bar" data-song="blackcrow" data-bar="128"><div class="bn">128<span class="t">2:59</span></div><pre class="tab">G|----------------------|
+D|1----3--5--1----------|
+A|----------------3--1--|
+E|----------------------|</pre></div>
+<div class="bar" data-song="blackcrow" data-bar="129"><div class="bn">129<span class="t">3:00</span></div><pre class="tab">G|------------------|
+D|------------------|
+A|5----5------------|
+E|------------------|</pre></div>
+<div class="bar" data-song="blackcrow" data-bar="130"><div class="bn">130<span class="t">3:02</span></div><pre class="tab">G|-----------------------|
+D|--------5/-7-----------|
+A|5----5--------5--3-----|
+E|--------------------5--|</pre></div>
+<div class="bar" data-song="blackcrow" data-bar="131"><div class="bn">131<span class="t">3:03</span></div><pre class="tab">G|--------------------|
+D|-----------------5/-|
+A|5----5--------5-----|
+E|--------------------|</pre></div>
+<div class="bar" data-song="blackcrow" data-bar="132"><div class="bn">132<span class="t">3:04</span></div><pre class="tab">G|-----------------------|
+D|7-----5/-7--7--5-------|
+A|---5--------------0----|
+E|-----------------------|</pre></div>
+<div class="bar" data-song="blackcrow" data-bar="133"><div class="bn">133<span class="t">3:06</span></div><pre class="tab">G|--------------------|
+D|--------------------|
+A|3----3--------3-----|
+E|-----------------3--|</pre></div>
+<div class="bar" data-song="blackcrow" data-bar="134"><div class="bn">134<span class="t">3:07</span></div><pre class="tab">G|------------------------|
+D|------------------------|
+A|3-----3--3--3--3--3-----|
+E|---3-----------------3--|</pre></div>
+<div class="bar" data-song="blackcrow" data-bar="135"><div class="bn">135<span class="t">3:09</span></div><pre class="tab">G|------------------------|
+D|------------------------|
+A|5--5--5--5--5--5--5-----|
+E|---------------------5--|</pre></div>
+<div class="bar" data-song="blackcrow" data-bar="136"><div class="bn">136<span class="t">3:10</span></div><pre class="tab">G|------------------------|
+D|------------------------|
+A|5--5--5--5--------------|
+E|------------5--5--5--5--|</pre></div>
+<div class="bar" data-song="blackcrow" data-bar="137"><div class="bn">137<span class="t">3:12</span></div><pre class="tab">G|------------------------|
+D|------------------------|
+A|7--7--7--7--7--7--7--7--|
+E|------------------------|</pre></div>
+<div class="bar" data-song="blackcrow" data-bar="138"><div class="bn">138<span class="t">3:13</span></div><pre class="tab">G|------------------------|
+D|------------------------|
+A|7--7--7-----------5--5--|
+E|---------7--7--7--------|</pre></div>
+<div class="bar" data-song="blackcrow" data-bar="139"><div class="bn">139<span class="t">3:14</span></div><pre class="tab">G|------------------------|
+D|------------------------|
+A|7--7--7--7--7--7--7--7--|
+E|------------------------|</pre></div>
+<div class="bar" data-song="blackcrow" data-bar="140"><div class="bn">140<span class="t">3:16</span></div><pre class="tab">G|------------------------|
+D|------------------------|
+A|7--7--7-----------5--5--|
+E|---------7--7--7--------|</pre></div>
+<div class="bar" data-song="blackcrow" data-bar="141"><div class="bn">141<span class="t">3:17</span></div><pre class="tab">G|------------------------|
+D|------------------------|
+A|7--7-----------------7--|
+E|------0--0--0--0--0-----|</pre></div>
+<div class="bar" data-song="blackcrow" data-bar="142"><div class="bn">142<span class="t">3:19</span></div><pre class="tab">G|----------------------|
+D|----------------------|
+A|7----------------5----|
+E|---0--0--7--7---------|</pre></div>
+<div class="bar" data-song="blackcrow" data-bar="143"><div class="bn">143<span class="t">3:20</span></div><pre class="tab">G|------------------------|
+D|------------------------|
+A|7--------7--7--------7--|
+E|---0--0--------0--0-----|</pre></div>
+<div class="bar" data-song="blackcrow" data-bar="144"><div class="bn">144<span class="t">3:21</span></div><pre class="tab">G|----------------------|
+D|----------------------|
+A|7----------------5----|
+E|---0--0--7--7---------|</pre></div>
+<div class="bar" data-song="blackcrow" data-bar="145"><div class="bn">145<span class="t">3:23</span></div><pre class="tab">G|------------------------|
+D|------------------------|
+A|7--7-----------------7--|
+E|------0--0--0--0--0-----|</pre></div>
+<div class="bar" data-song="blackcrow" data-bar="146"><div class="bn">146<span class="t">3:24</span></div><pre class="tab">G|--------------------|
+D|--------------------|
+A|7--------------5----|
+E|-------7--7---------|</pre></div>
+<div class="bar" data-song="blackcrow" data-bar="147"><div class="bn">147<span class="t">3:26</span></div><pre class="tab">G|------------------------|
+D|------------------------|
+A|7--7-----------------7--|
+E|------0--0--0--0--0-----|</pre></div>
+<div class="bar" data-song="blackcrow" data-bar="148"><div class="bn">148<span class="t">3:27</span></div><pre class="tab">G|-----------------------|
+D|-----------------------|
+A|-----------------5-----|
+E|---0--0--7----7-----7--|</pre></div>
+<div class="bar" data-song="blackcrow" data-bar="149"><div class="bn">149<span class="t">3:28</span></div><pre class="tab">G|----------------------|
+D|----------------------|
+A|7--7------------------|
+E|------0--0----0-------|</pre></div>
+<div class="bar" data-song="blackcrow" data-bar="150"><div class="bn">150<span class="t">3:30</span></div><pre class="tab">G|-----------------------|
+D|-----------------------|
+A|-----------------5-----|
+E|---0--0--7----7-----7--|</pre></div>
+<div class="bar" data-song="blackcrow" data-bar="151"><div class="bn">151<span class="t">3:31</span></div><pre class="tab">G|----------------------|
+D|----------------------|
+A|7--7------------------|
+E|------0--0----0-------|</pre></div>
+<div class="bar" data-song="blackcrow" data-bar="152"><div class="bn">152<span class="t">3:33</span></div><pre class="tab">G|-----------------------|
+D|-----------------------|
+A|-----------------5-----|
+E|---0--0--7----7-----7--|</pre></div>
+<div class="bar" data-song="blackcrow" data-bar="153"><div class="bn">153<span class="t">3:34</span></div><pre class="tab">G|----------------------|
+D|----------------------|
+A|7--7------------------|
+E|------0--0----0-------|</pre></div>
+<div class="bar" data-song="blackcrow" data-bar="154"><div class="bn">154<span class="t">3:36</span></div><pre class="tab">G|-----------------------|
+D|-----------------------|
+A|-----------------5-----|
+E|---0--0--7----7-----7--|</pre></div>
+<div class="bar" data-song="blackcrow" data-bar="155"><div class="bn">155<span class="t">3:37</span></div><pre class="tab">G|------------------------|
+D|2--2--------------------|
+A|------------------------|
+E|------0--0-----0--2-----|</pre></div>
+<div class="bar" data-song="blackcrow" data-bar="156"><div class="bn">156<span class="t">3:38</span></div><pre class="tab">G|-----------------------|
+D|-----------------0--2--|
+A|---------2----2--------|
+E|---0--0----------------|</pre></div>
+<div class="bar" data-song="blackcrow" data-bar="157"><div class="bn">157<span class="t">3:40</span></div><pre class="tab">G|------------------------|
+D|2--2--------------------|
+A|------------------------|
+E|------0--0-----0--2-----|</pre></div>
+<div class="bar" data-song="blackcrow" data-bar="158"><div class="bn">158<span class="t">3:41</span></div><pre class="tab">G|-----------------------|
+D|-----------------0--2--|
+A|---------2----2--------|
+E|---0--0----------------|</pre></div>
+<div class="bar" data-song="blackcrow" data-bar="159"><div class="bn">159<span class="t">3:43</span></div><pre class="tab">G|------------------------|
+D|2--2--------------------|
+A|------------------------|
+E|------0--0-----0--2-----|</pre></div>
+<div class="bar" data-song="blackcrow" data-bar="160"><div class="bn">160<span class="t">3:44</span></div><pre class="tab">G|-----------------------|
+D|-----------------0--2--|
+A|---------2----2--------|
+E|---0--0----------------|</pre></div>
+<div class="bar" data-song="blackcrow" data-bar="161"><div class="bn">161<span class="t">3:45</span></div><pre class="tab">G|------------------------|
+D|2--2--------------------|
+A|------------------------|
+E|------0--0-----0--2-----|</pre></div>
+<div class="bar" data-song="blackcrow" data-bar="162"><div class="bn">162<span class="t">3:47</span></div><pre class="tab">G|----------------------|
+D|----------------------|
+A|--------2-------5-----|
+E|-----0-------0-----0--|</pre></div>
+<div class="bar" data-song="blackcrow" data-bar="163"><div class="bn">163<span class="t">3:48</span></div><pre class="tab">G|------------------------|
+D|2--2--------------------|
+A|------------------------|
+E|------0--0-----0--3-----|</pre></div>
+<div class="bar" data-song="blackcrow" data-bar="164"><div class="bn">164<span class="t">3:50</span></div><pre class="tab">G|----------------------|
+D|----------------------|
+A|--------2-------5-----|
+E|-----0-------0-----0--|</pre></div>
+<div class="bar" data-song="blackcrow" data-bar="165"><div class="bn">165<span class="t">3:51</span></div><pre class="tab">G|------------------------|
+D|2--2--------------------|
+A|------------------------|
+E|------0--0-----0--3-----|</pre></div>
+<div class="bar" data-song="blackcrow" data-bar="166"><div class="bn">166<span class="t">3:52</span></div><pre class="tab">G|----------------------|
+D|----------------------|
+A|--------2-------5-----|
+E|-----0-------0-----0--|</pre></div>
+<div class="bar" data-song="blackcrow" data-bar="167"><div class="bn">167<span class="t">3:54</span></div><pre class="tab">G|------------------------|
+D|2--2--------------------|
+A|------------------------|
+E|------0--0-----0--3-----|</pre></div>
+<div class="bar" data-song="blackcrow" data-bar="168"><div class="bn">168<span class="t">3:55</span></div><pre class="tab">G|----------------------|
+D|----------------------|
+A|--------2-------5-----|
+E|-----0-------0-----0--|</pre></div>
+<div class="bar" data-song="blackcrow" data-bar="169"><div class="bn">169<span class="t">3:57</span></div><pre class="tab">G|------------------------|
+D|2--2--------------------|
+A|------------------------|
+E|------0--0-----0--2-----|</pre></div>
+<div class="bar" data-song="blackcrow" data-bar="170"><div class="bn">170<span class="t">3:58</span></div><pre class="tab">G|-----------------------|
+D|-----------------0--2--|
+A|---------2----2--------|
+E|---0--0----------------|</pre></div>
+<div class="bar" data-song="blackcrow" data-bar="171"><div class="bn">171<span class="t">4:00</span></div><pre class="tab">G|------------------------|
+D|2--2--------------------|
+A|------------------------|
+E|------0--0-----0--2-----|</pre></div>
+<div class="bar" data-song="blackcrow" data-bar="172"><div class="bn">172<span class="t">4:01</span></div><pre class="tab">G|-----------------------|
+D|-----------------0--2--|
+A|---------2----2--------|
+E|---0--0----------------|</pre></div>
+<div class="bar" data-song="blackcrow" data-bar="173"><div class="bn">173<span class="t">4:02</span></div><pre class="tab">G|------------------------|
+D|2--2--------------------|
+A|------------------------|
+E|------0--0-----0--2-----|</pre></div>
+<div class="bar" data-song="blackcrow" data-bar="174"><div class="bn">174<span class="t">4:04</span></div><pre class="tab">G|-----------------------|
+D|-----------------0--2--|
+A|---------2----2--------|
+E|---0--0----------------|</pre></div>
+<div class="bar" data-song="blackcrow" data-bar="175"><div class="bn">175<span class="t">4:05</span></div><pre class="tab">G|------------------------|
+D|2--2--------------------|
+A|------------------------|
+E|------0--0-----0--2-----|</pre></div>
+<div class="bar" data-song="blackcrow" data-bar="176"><div class="bn">176<span class="t">4:07</span></div><pre class="tab">G|----------------------|
+D|----------------------|
+A|-------2--2--2--5-----|
+E|-------------------0--|</pre></div>
+<div class="bar" data-song="blackcrow" data-bar="177"><div class="bn">177<span class="t">4:08</span></div><pre class="tab">G|------------------11/--|
+D|2--2--------------10/--|
+A|-----------------------|
+E|------0--0-----0-------|</pre></div>
+<div class="bar" data-song="blackcrow" data-bar="178"><div class="bn">178<span class="t">4:09</span></div><pre class="tab">G|----------------------|
+D|----------------------|
+A|-------2--2--2--5-----|
+E|-------------------0--|</pre></div>
+<div class="bar" data-song="blackcrow" data-bar="179"><div class="bn">179<span class="t">4:11</span></div><pre class="tab">G|------------------11/--|
+D|2--2--------------10/--|
+A|-----------------------|
+E|------0--0-----0-------|</pre></div>
+<div class="bar" data-song="blackcrow" data-bar="180"><div class="bn">180<span class="t">4:12</span></div><pre class="tab">G|----------------------|
+D|----------------------|
+A|-------2--2--2--5-----|
+E|-------------------0--|</pre></div>
+<div class="bar" data-song="blackcrow" data-bar="181"><div class="bn">181<span class="t">4:14</span></div><pre class="tab">G|------------------11/--|
+D|2--2--------------10/--|
+A|-----------------------|
+E|------0--0-----0-------|</pre></div>
+<div class="bar" data-song="blackcrow" data-bar="182"><div class="bn">182<span class="t">4:15</span></div><pre class="tab">G|----------------------|
+D|----------------------|
+A|-------2--2--2--5-----|
+E|-------------------0--|</pre></div>
+<div class="bar" data-song="blackcrow" data-bar="183"><div class="bn">183<span class="t">4:16</span></div><pre class="tab">G|------------------------|
+D|------------------------|
+A|------------------------|
+E|0--0--0--0--0--0--0--0--|</pre></div>
+<div class="bar rest" data-song="blackcrow" data-bar="184"><div class="bn">184<span class="t">4:18</span></div><pre class="tab">G|-----------------|
+D|-----------------|
+A|-----------------|
+E|-----------------|</pre></div>
+</div>
+<h2 id="refuge">Refuge of the Roads</h2>
+<p class="meta">Hejira, 1976 &nbsp;&middot;&nbsp; 199 bars &nbsp;&middot;&nbsp; 656 notes &nbsp;&middot;&nbsp; 114 bpm &nbsp;&middot;&nbsp; tuning E1 A1 D2 G2 &nbsp;&middot;&nbsp; 0 harmonics written</p>
+<div class="card flag">No harmonics written, same reason as Hejira. This is the one where you hear the G string 5th fret most.</div>
+<h3>Where this tab already writes the node pitches</h3>
+<div class="scroll"><table><tr><th>Node</th><th>Sounds</th><th>Times written</th><th>Written at</th><th>Bars</th></tr><tr><td><b>D string 7</b></td><td>A3</td><td>24</td><td>str 3 fret 19 / str 4 fret 14</td><td class="bl">14, 14, 39, 42, 42, 42, 44, 44, 67, 67, 69, 70, 72, 73, 73, 73, 100, 101, 101, 115, 141, 141, 142, 142</td></tr><tr><td><b>G string 5</b></td><td>G4</td><td>0</td><td>-</td><td class="bl">none</td></tr><tr><td><b>G string 9</b></td><td>B4</td><td>0</td><td>-</td><td class="bl">none</td></tr></table></div>
+<div class="bars">
+<div class="bar rest" data-song="refuge" data-bar="1"><div class="bn">1<span class="t">0:00</span></div><pre class="tab">G|-----------------|
+D|-----------------|
+A|-----------------|
+E|-----------------|</pre></div>
+<div class="bar rest" data-song="refuge" data-bar="2"><div class="bn">2<span class="t">0:02</span></div><pre class="tab">G|-----------------|
+D|-----------------|
+A|-----------------|
+E|-----------------|</pre></div>
+<div class="bar rest" data-song="refuge" data-bar="3"><div class="bn">3<span class="t">0:04</span></div><pre class="tab">G|-----------------|
+D|-----------------|
+A|-----------------|
+E|-----------------|</pre></div>
+<div class="bar rest" data-song="refuge" data-bar="4"><div class="bn">4<span class="t">0:06</span></div><pre class="tab">G|-----------------|
+D|-----------------|
+A|-----------------|
+E|-----------------|</pre></div>
+<div class="bar rest" data-song="refuge" data-bar="5"><div class="bn">5<span class="t">0:08</span></div><pre class="tab">G|-----------------|
+D|-----------------|
+A|-----------------|
+E|-----------------|</pre></div>
+<div class="bar rest" data-song="refuge" data-bar="6"><div class="bn">6<span class="t">0:10</span></div><pre class="tab">G|-----------------|
+D|-----------------|
+A|-----------------|
+E|-----------------|</pre></div>
+<div class="bar rest" data-song="refuge" data-bar="7"><div class="bn">7<span class="t">0:12</span></div><pre class="tab">G|-----------------|
+D|-----------------|
+A|-----------------|
+E|-----------------|</pre></div>
+<div class="bar rest" data-song="refuge" data-bar="8"><div class="bn">8<span class="t">0:14</span></div><pre class="tab">G|-----------------|
+D|-----------------|
+A|-----------------|
+E|-----------------|</pre></div>
+<div class="bar rest" data-song="refuge" data-bar="9"><div class="bn">9<span class="t">0:16</span></div><pre class="tab">G|-----------------|
+D|-----------------|
+A|-----------------|
+E|-----------------|</pre></div>
+<div class="bar" data-song="refuge" data-bar="10"><div class="bn">10<span class="t">0:18</span></div><pre class="tab">G|------------------|
+D|------------------|
+A|------------------|
+E|---------------1--|</pre></div>
+<div class="bar" data-song="refuge" data-bar="11"><div class="bn">11<span class="t">0:21</span></div><pre class="tab">G|------------------5---|
+D|----------------------|
+A|------------0--0------|
+E|1--------1------------|</pre></div>
+<div class="bar" data-song="refuge" data-bar="12"><div class="bn">12<span class="t">0:23</span></div><pre class="tab">G|12-----12-19-----19-19-19-|
+D|--------------------------|
+A|--------------------------|
+E|--------------------------|</pre></div>
+<div class="bar rest" data-song="refuge" data-bar="13"><div class="bn">13<span class="t">0:25</span></div><pre class="tab">G|-----------------|
+D|-----------------|
+A|-----------------|
+E|-----------------|</pre></div>
+<div class="bar" data-song="refuge" data-bar="14"><div class="bn">14<span class="t">0:27</span></div><pre class="tab">G|-------<span class="c">*14</span>-12--<span class="c">*14</span>-------|
+D|----------------------10-|
+A|-------------------------|
+E|-------------------------|</pre></div>
+<div class="bar" data-song="refuge" data-bar="15"><div class="bn">15<span class="t">0:29</span></div><pre class="tab">G|-----------------|
+D|10---------------|
+A|-----------------|
+E|-----------------|</pre></div>
+<div class="bar rest" data-song="refuge" data-bar="16"><div class="bn">16<span class="t">0:31</span></div><pre class="tab">G|-----------------|
+D|-----------------|
+A|-----------------|
+E|-----------------|</pre></div>
+<div class="bar" data-song="refuge" data-bar="17"><div class="bn">17<span class="t">0:33</span></div><pre class="tab">G|-------------------|
+D|-------8--8--------|
+A|-------------------|
+E|-------------------|</pre></div>
+<div class="bar" data-song="refuge" data-bar="18"><div class="bn">18<span class="t">0:35</span></div><pre class="tab">G|-------------------|
+D|8---------------5/-|
+A|-------------------|
+E|-------------------|</pre></div>
+<div class="bar" data-song="refuge" data-bar="19"><div class="bn">19<span class="t">0:37</span></div><pre class="tab">G|---5--------------------|
+D|7-----5/-7--7-----------|
+A|---------------------5--|
+E|------------------------|</pre></div>
+<div class="bar" data-song="refuge" data-bar="20"><div class="bn">20<span class="t">0:40</span></div><pre class="tab">G|---------------------|
+D|5--------------------|
+A|---------------------|
+E|-----7--0--0------0--|</pre></div>
+<div class="bar" data-song="refuge" data-bar="21"><div class="bn">21<span class="t">0:42</span></div><pre class="tab">G|-------------------|
+D|-------------------|
+A|1------------1-----|
+E|----------------3--|</pre></div>
+<div class="bar" data-song="refuge" data-bar="22"><div class="bn">22<span class="t">0:44</span></div><pre class="tab">G|-------------------|
+D|-------------------|
+A|3------------3-----|
+E|-------------------|</pre></div>
+<div class="bar" data-song="refuge" data-bar="23"><div class="bn">23<span class="t">0:46</span></div><pre class="tab">G|-------------------|
+D|8------------8-----|
+A|-------------------|
+E|-------------------|</pre></div>
+<div class="bar" data-song="refuge" data-bar="24"><div class="bn">24<span class="t">0:48</span></div><pre class="tab">G|-------------------|
+D|10-----------10----|
+A|-------------------|
+E|-------------------|</pre></div>
+<div class="bar" data-song="refuge" data-bar="25"><div class="bn">25<span class="t">0:50</span></div><pre class="tab">G|--------15-15-------|
+D|12/-----------------|
+A|--------------------|
+E|--------------------|</pre></div>
+<div class="bar" data-song="refuge" data-bar="26"><div class="bn">26<span class="t">0:52</span></div><pre class="tab">G|15-----17-15---------|
+D|------------------10-|
+A|---------------------|
+E|---------------------|</pre></div>
+<div class="bar" data-song="refuge" data-bar="27"><div class="bn">27<span class="t">0:54</span></div><pre class="tab">G|--------12-12-------|
+D|12/-----------------|
+A|--------------------|
+E|--------------------|</pre></div>
+<div class="bar" data-song="refuge" data-bar="28"><div class="bn">28<span class="t">0:56</span></div><pre class="tab">G|12---------------|
+D|-----------------|
+A|-----------------|
+E|-----------------|</pre></div>
+<div class="bar" data-song="refuge" data-bar="29"><div class="bn">29<span class="t">0:58</span></div><pre class="tab">G|------------------------|
+D|------------------------|
+A|------3--3--------------|
+E|---3--------0--0--3--3--|</pre></div>
+<div class="bar" data-song="refuge" data-bar="30"><div class="bn">30<span class="t">1:01</span></div><pre class="tab">G|---------------------|
+D|----------2--2--5----|
+A|---------------------|
+E|-------0-------------|</pre></div>
+<div class="bar" data-song="refuge" data-bar="31"><div class="bn">31<span class="t">1:03</span></div><pre class="tab">G|-----------------------|
+D|-----------------------|
+A|--------------0--------|
+E|---1--1----------3--1--|</pre></div>
+<div class="bar" data-song="refuge" data-bar="32"><div class="bn">32<span class="t">1:05</span></div><pre class="tab">G|--------------------|
+D|---------------5/---|
+A|----------3---------|
+E|-------x------------|</pre></div>
+<div class="bar" data-song="refuge" data-bar="33"><div class="bn">33<span class="t">1:07</span></div><pre class="tab">G|-------------------|
+D|2------2--2--------|
+A|-------------------|
+E|-------------------|</pre></div>
+<div class="bar" data-song="refuge" data-bar="34"><div class="bn">34<span class="t">1:09</span></div><pre class="tab">G|-------------------|
+D|-------------------|
+A|1------1--1--------|
+E|-------------------|</pre></div>
+<div class="bar" data-song="refuge" data-bar="35"><div class="bn">35<span class="t">1:11</span></div><pre class="tab">G|-------------------|
+D|8--------8---------|
+A|------------8------|
+E|-------------------|</pre></div>
+<div class="bar" data-song="refuge" data-bar="36"><div class="bn">36<span class="t">1:13</span></div><pre class="tab">G|9/---9--9--9--------|
+D|--------------------|
+A|--------------------|
+E|--------------------|</pre></div>
+<div class="bar" data-song="refuge" data-bar="37"><div class="bn">37<span class="t">1:15</span></div><pre class="tab">G|9------------9--------|
+D|----------------9/-10-|
+A|----------------------|
+E|----------------------|</pre></div>
+<div class="bar" data-song="refuge" data-bar="38"><div class="bn">38<span class="t">1:17</span></div><pre class="tab">G|-------12--12-12-------|
+D|10-9-------------------|
+A|-----------------------|
+E|-----------------------|</pre></div>
+<div class="bar" data-song="refuge" data-bar="39"><div class="bn">39<span class="t">1:20</span></div><pre class="tab">G|12---12-<span class="c">*14</span>-16-16-17-------|
+D|-----------------------17--|
+A|---------------------------|
+E|---------------------------|</pre></div>
+<div class="bar" data-song="refuge" data-bar="40"><div class="bn">40<span class="t">1:22</span></div><pre class="tab">G|-----19-19-19-------|
+D|15------------------|
+A|--------------------|
+E|--------------------|</pre></div>
+<div class="bar" data-song="refuge" data-bar="41"><div class="bn">41<span class="t">1:24</span></div><pre class="tab">G|19-----------------|
+D|-------------------|
+A|-------------------|
+E|------------8------|</pre></div>
+<div class="bar" data-song="refuge" data-bar="42"><div class="bn">42<span class="t">1:26</span></div><pre class="tab">G|-----<span class="c">*14</span>-<span class="c">*14</span>-<span class="c">*14</span>------|
+D|----------------------|
+A|8---------------------|
+E|----------------------|</pre></div>
+<div class="bar" data-song="refuge" data-bar="43"><div class="bn">43<span class="t">1:28</span></div><pre class="tab">G|-----12-12-12--------|
+D|---------------------|
+A|10--------------12---|
+E|---------------------|</pre></div>
+<div class="bar" data-song="refuge" data-bar="44"><div class="bn">44<span class="t">1:30</span></div><pre class="tab">G|-----15-15-15-<span class="c">*14</span>-<span class="c">*14</span>--|
+D|-----------------------|
+A|13---------------------|
+E|-----------------------|</pre></div>
+<div class="bar" data-song="refuge" data-bar="45"><div class="bn">45<span class="t">1:32</span></div><pre class="tab">G|-------------------|
+D|5--------5---------|
+A|------------3------|
+E|-------------------|</pre></div>
+<div class="bar" data-song="refuge" data-bar="46"><div class="bn">46<span class="t">1:34</span></div><pre class="tab">G|------------------|
+D|------------------|
+A|1------------0----|
+E|------------------|</pre></div>
+<div class="bar" data-song="refuge" data-bar="47"><div class="bn">47<span class="t">1:36</span></div><pre class="tab">G|------------------|
+D|------------------|
+A|-------------3----|
+E|3-----------------|</pre></div>
+<div class="bar" data-song="refuge" data-bar="48"><div class="bn">48<span class="t">1:38</span></div><pre class="tab">G|------------------|
+D|3-----------------|
+A|------------------|
+E|------------------|</pre></div>
+<div class="bar" data-song="refuge" data-bar="49"><div class="bn">49<span class="t">1:41</span></div><pre class="tab">G|------------------|
+D|3-----------------|
+A|-------------3----|
+E|------------------|</pre></div>
+<div class="bar" data-song="refuge" data-bar="50"><div class="bn">50<span class="t">1:43</span></div><pre class="tab">G|-------------2----|
+D|3-----------------|
+A|------------------|
+E|------------------|</pre></div>
+<div class="bar" data-song="refuge" data-bar="51"><div class="bn">51<span class="t">1:45</span></div><pre class="tab">G|------------------|
+D|5-----------------|
+A|-------------3----|
+E|------------------|</pre></div>
+<div class="bar" data-song="refuge" data-bar="52"><div class="bn">52<span class="t">1:47</span></div><pre class="tab">G|------------------|
+D|------------------|
+A|1------------3----|
+E|------------------|</pre></div>
+<div class="bar" data-song="refuge" data-bar="53"><div class="bn">53<span class="t">1:49</span></div><pre class="tab">G|------------------|
+D|5-----------------|
+A|-------------3----|
+E|------------------|</pre></div>
+<div class="bar" data-song="refuge" data-bar="54"><div class="bn">54<span class="t">1:51</span></div><pre class="tab">G|------------------|
+D|------------------|
+A|1------------3----|
+E|------------------|</pre></div>
+<div class="bar rest" data-song="refuge" data-bar="55"><div class="bn">55<span class="t">1:53</span></div><pre class="tab">G|-----------------|
+D|-----------------|
+A|-----------------|
+E|-----------------|</pre></div>
+<div class="bar rest" data-song="refuge" data-bar="56"><div class="bn">56<span class="t">1:55</span></div><pre class="tab">G|-----------------|
+D|-----------------|
+A|-----------------|
+E|-----------------|</pre></div>
+<div class="bar rest" data-song="refuge" data-bar="57"><div class="bn">57<span class="t">1:57</span></div><pre class="tab">G|-----------------|
+D|-----------------|
+A|-----------------|
+E|-----------------|</pre></div>
+<div class="bar rest" data-song="refuge" data-bar="58"><div class="bn">58<span class="t">2:00</span></div><pre class="tab">G|-----------------|
+D|-----------------|
+A|-----------------|
+E|-----------------|</pre></div>
+<div class="bar" data-song="refuge" data-bar="59"><div class="bn">59<span class="t">2:02</span></div><pre class="tab">G|-------------------|
+D|-------------------|
+A|-------------------|
+E|-------------3--3--|</pre></div>
+<div class="bar" data-song="refuge" data-bar="60"><div class="bn">60<span class="t">2:04</span></div><pre class="tab">G|-----------------------|
+D|-----------------------|
+A|3--3--3----------------|
+E|--------------0--3-----|</pre></div>
+<div class="bar" data-song="refuge" data-bar="61"><div class="bn">61<span class="t">2:06</span></div><pre class="tab">G|------------------------|
+D|------------------------|
+A|---x--x--3--------------|
+E|------------0--5--3--1--|</pre></div>
+<div class="bar" data-song="refuge" data-bar="62"><div class="bn">62<span class="t">2:08</span></div><pre class="tab">G|--------------------|
+D|--------------------|
+A|--------------------|
+E|1--1--1-------------|</pre></div>
+<div class="bar" data-song="refuge" data-bar="63"><div class="bn">63<span class="t">2:10</span></div><pre class="tab">G|---------------------|
+D|---------------------|
+A|------------5--------|
+E|------------------3--|</pre></div>
+<div class="bar" data-song="refuge" data-bar="64"><div class="bn">64<span class="t">2:12</span></div><pre class="tab">G|-------------------|
+D|2------------2--2--|
+A|-------------------|
+E|-------------------|</pre></div>
+<div class="bar" data-song="refuge" data-bar="65"><div class="bn">65<span class="t">2:14</span></div><pre class="tab">G|-------------------|
+D|----------8/-------|
+A|-------------------|
+E|6------6-----------|</pre></div>
+<div class="bar" data-song="refuge" data-bar="66"><div class="bn">66<span class="t">2:16</span></div><pre class="tab">G|------------10-----|
+D|8--------8---------|
+A|-------------------|
+E|-------------------|</pre></div>
+<div class="bar" data-song="refuge" data-bar="67"><div class="bn">67<span class="t">2:18</span></div><pre class="tab">G|-------<span class="c">*14</span>-12---<span class="c">*14</span>-----|
+D|10------------------14/-|
+A|------------------------|
+E|------------------------|</pre></div>
+<div class="bar" data-song="refuge" data-bar="68"><div class="bn">68<span class="t">2:21</span></div><pre class="tab">G|----------------------|
+D|14-----------14-12----|
+A|-------------------15-|
+E|----------------------|</pre></div>
+<div class="bar" data-song="refuge" data-bar="69"><div class="bn">69<span class="t">2:23</span></div><pre class="tab">G|<span class="c">*14</span>--16-------------|
+D|--------17-17-------|
+A|--------------------|
+E|--------------------|</pre></div>
+<div class="bar" data-song="refuge" data-bar="70"><div class="bn">70<span class="t">2:25</span></div><pre class="tab">G|-------<span class="c">*14</span>-12-------------------|
+D|--------------14-12-------------|
+A|--------------------14-12-------|
+E|--------------------------14-12-|</pre></div>
+<div class="bar" data-song="refuge" data-bar="71"><div class="bn">71<span class="t">2:27</span></div><pre class="tab">G|--------------------|
+D|-----12-12-12-------|
+A|--------------------|
+E|13------------------|</pre></div>
+<div class="bar" data-song="refuge" data-bar="72"><div class="bn">72<span class="t">2:29</span></div><pre class="tab">G|-------------------<span class="c">*14</span>-|
+D|12-12--14--15--17------|
+A|-----------------------|
+E|-----------------------|</pre></div>
+<div class="bar" data-song="refuge" data-bar="73"><div class="bn">73<span class="t">2:31</span></div><pre class="tab">G|<span class="c">*14</span>----------<span class="c">*14</span>-<span class="c">*14</span>-|
+D|---------------------|
+A|---------------------|
+E|---------------------|</pre></div>
+<div class="bar" data-song="refuge" data-bar="74"><div class="bn">74<span class="t">2:33</span></div><pre class="tab">G|16---------------|
+D|-----------------|
+A|-----------------|
+E|-----------------|</pre></div>
+<div class="bar" data-song="refuge" data-bar="75"><div class="bn">75<span class="t">2:35</span></div><pre class="tab">G|3------3--3--2--2----|
+D|---------------------|
+A|---------------------|
+E|---------------------|</pre></div>
+<div class="bar" data-song="refuge" data-bar="76"><div class="bn">76<span class="t">2:37</span></div><pre class="tab">G|---------------------|
+D|5------5--5----------|
+A|-------------3--3----|
+E|---------------------|</pre></div>
+<div class="bar" data-song="refuge" data-bar="77"><div class="bn">77<span class="t">2:40</span></div><pre class="tab">G|3------3--3--2--2----|
+D|---------------------|
+A|---------------------|
+E|---------------------|</pre></div>
+<div class="bar" data-song="refuge" data-bar="78"><div class="bn">78<span class="t">2:42</span></div><pre class="tab">G|---------------------|
+D|5------5--5----------|
+A|-------------3--3----|
+E|---------------------|</pre></div>
+<div class="bar" data-song="refuge" data-bar="79"><div class="bn">79<span class="t">2:44</span></div><pre class="tab">G|----------------------|
+D|3------3--3--3--3--3--|
+A|----------------------|
+E|----------------------|</pre></div>
+<div class="bar" data-song="refuge" data-bar="80"><div class="bn">80<span class="t">2:46</span></div><pre class="tab">G|7------------------|
+D|--------------7----|
+A|-------8-----------|
+E|-------------------|</pre></div>
+<div class="bar" data-song="refuge" data-bar="81"><div class="bn">81<span class="t">2:48</span></div><pre class="tab">G|-------------------|
+D|--------------7----|
+A|8------8-----------|
+E|-------------------|</pre></div>
+<div class="bar" data-song="refuge" data-bar="82"><div class="bn">82<span class="t">2:50</span></div><pre class="tab">G|-------------------|
+D|5------5------7----|
+A|-------------------|
+E|-------------------|</pre></div>
+<div class="bar" data-song="refuge" data-bar="83"><div class="bn">83<span class="t">2:52</span></div><pre class="tab">G|-------------------|
+D|8------8------10---|
+A|-------------------|
+E|-------------------|</pre></div>
+<div class="bar" data-song="refuge" data-bar="84"><div class="bn">84<span class="t">2:54</span></div><pre class="tab">G|-------------------|
+D|5------5------7----|
+A|-------------------|
+E|-------------------|</pre></div>
+<div class="bar rest" data-song="refuge" data-bar="85"><div class="bn">85<span class="t">2:56</span></div><pre class="tab">G|-----------------|
+D|-----------------|
+A|-----------------|
+E|-----------------|</pre></div>
+<div class="bar" data-song="refuge" data-bar="86"><div class="bn">86<span class="t">2:58</span></div><pre class="tab">G|------------------|
+D|------------------|
+A|------------------|
+E|-------------1----|</pre></div>
+<div class="bar" data-song="refuge" data-bar="87"><div class="bn">87<span class="t">3:01</span></div><pre class="tab">G|-------------------|
+D|---------3---------|
+A|-------------------|
+E|1---------------1--|</pre></div>
+<div class="bar" data-song="refuge" data-bar="88"><div class="bn">88<span class="t">3:03</span></div><pre class="tab">G|-------------------|
+D|----------------3--|
+A|-------------------|
+E|1------------1-----|</pre></div>
+<div class="bar" data-song="refuge" data-bar="89"><div class="bn">89<span class="t">3:05</span></div><pre class="tab">G|-------------------|
+D|3------------------|
+A|-------------------|
+E|---1--1------------|</pre></div>
+<div class="bar" data-song="refuge" data-bar="90"><div class="bn">90<span class="t">3:07</span></div><pre class="tab">G|-----------------|
+D|-----------------|
+A|-----------------|
+E|1----------------|</pre></div>
+<div class="bar" data-song="refuge" data-bar="91"><div class="bn">91<span class="t">3:09</span></div><pre class="tab">G|----------------------|
+D|-------------------2--|
+A|3----3----3--3--3-----|
+E|----------------------|</pre></div>
+<div class="bar" data-song="refuge" data-bar="92"><div class="bn">92<span class="t">3:11</span></div><pre class="tab">G|---------5----5-------|
+D|2--2------------------|
+A|----------------------|
+E|----------------------|</pre></div>
+<div class="bar" data-song="refuge" data-bar="93"><div class="bn">93<span class="t">3:13</span></div><pre class="tab">G|----------------------|
+D|----------------------|
+A|----------------------|
+E|---x--x--1--1---------|</pre></div>
+<div class="bar" data-song="refuge" data-bar="94"><div class="bn">94<span class="t">3:15</span></div><pre class="tab">G|------------------------|
+D|------------------------|
+A|------------3-----5--6--|
+E|---x--3--5--------------|</pre></div>
+<div class="bar" data-song="refuge" data-bar="95"><div class="bn">95<span class="t">3:17</span></div><pre class="tab">G|-------------------|
+D|-------------------|
+A|7------------7-----|
+E|----------------0--|</pre></div>
+<div class="bar" data-song="refuge" data-bar="96"><div class="bn">96<span class="t">3:20</span></div><pre class="tab">G|-----------------|
+D|8----------------|
+A|-----------------|
+E|-----------------|</pre></div>
+<div class="bar" data-song="refuge" data-bar="97"><div class="bn">97<span class="t">3:22</span></div><pre class="tab">G|-------------------|
+D|8--------8---------|
+A|-------------------|
+E|------------1------|</pre></div>
+<div class="bar" data-song="refuge" data-bar="98"><div class="bn">98<span class="t">3:24</span></div><pre class="tab">G|---------------------7--|
+D|---------------5--------|
+A|3--3--3--7/-7-----------|
+E|------------------------|</pre></div>
+<div class="bar" data-song="refuge" data-bar="99"><div class="bn">99<span class="t">3:26</span></div><pre class="tab">G|7--9--5----5--9/-7--5--4--|
+D|--------------------------|
+A|--------------------------|
+E|--------------------------|</pre></div>
+<div class="bar" data-song="refuge" data-bar="100"><div class="bn">100<span class="t">3:28</span></div><pre class="tab">G|-----12-12-12-----12-<span class="c">*14</span>-|
+D|9------------------------|
+A|-------------------------|
+E|-------------------------|</pre></div>
+<div class="bar" data-song="refuge" data-bar="101"><div class="bn">101<span class="t">3:30</span></div><pre class="tab">G|<span class="c">*14</span>-16-17--19/----19--------|
+D|---------------------<span class="c">*19</span>-14-|
+A|----------------------------|
+E|----------------------------|</pre></div>
+<div class="bar" data-song="refuge" data-bar="102"><div class="bn">102<span class="t">3:32</span></div><pre class="tab">G|--------------------|
+D|12/--3--3--3--------|
+A|--------------------|
+E|--------------------|</pre></div>
+<div class="bar" data-song="refuge" data-bar="103"><div class="bn">103<span class="t">3:34</span></div><pre class="tab">G|----------------0-----|
+D|3--3---2---0----------|
+A|-------------------3--|
+E|----------------------|</pre></div>
+<div class="bar" data-song="refuge" data-bar="104"><div class="bn">104<span class="t">3:36</span></div><pre class="tab">G|-----------------|
+D|-----------------|
+A|3----------------|
+E|-----------------|</pre></div>
+<div class="bar" data-song="refuge" data-bar="105"><div class="bn">105<span class="t">3:38</span></div><pre class="tab">G|-------------------|
+D|-------------------|
+A|3------------------|
+E|-------------3--1--|</pre></div>
+<div class="bar" data-song="refuge" data-bar="106"><div class="bn">106<span class="t">3:41</span></div><pre class="tab">G|-----------------|
+D|-----------------|
+A|1----------------|
+E|-----------------|</pre></div>
+<div class="bar" data-song="refuge" data-bar="107"><div class="bn">107<span class="t">3:43</span></div><pre class="tab">G|-------------------|
+D|-------------------|
+A|1------------------|
+E|-------------1--1--|</pre></div>
+<div class="bar" data-song="refuge" data-bar="108"><div class="bn">108<span class="t">3:45</span></div><pre class="tab">G|---------------------|
+D|---------------------|
+A|---------------------|
+E|2------2--2--2----2--|</pre></div>
+<div class="bar" data-song="refuge" data-bar="109"><div class="bn">109<span class="t">3:47</span></div><pre class="tab">G|---------------------|
+D|---------------------|
+A|---------------------|
+E|2--------2--2--2--2--|</pre></div>
+<div class="bar" data-song="refuge" data-bar="110"><div class="bn">110<span class="t">3:49</span></div><pre class="tab">G|---------------------|
+D|--------5----5----5--|
+A|---------------------|
+E|3----3--3----3----3--|</pre></div>
+<div class="bar" data-song="refuge" data-bar="111"><div class="bn">111<span class="t">3:51</span></div><pre class="tab">G|------------------|
+D|5-----------------|
+A|------------------|
+E|3------------4----|</pre></div>
+<div class="bar" data-song="refuge" data-bar="112"><div class="bn">112<span class="t">3:53</span></div><pre class="tab">G|7--7----7----7--15---|
+D|---6----6----6/-15---|
+A|---------------------|
+E|---------------------|</pre></div>
+<div class="bar" data-song="refuge" data-bar="113"><div class="bn">113<span class="t">3:55</span></div><pre class="tab">G|15-15---15---15-15-15-|
+D|15-13---13---13-13-13-|
+A|----------------------|
+E|----------------------|</pre></div>
+<div class="bar" data-song="refuge" data-bar="114"><div class="bn">114<span class="t">3:57</span></div><pre class="tab">G|---------------------17-|
+D|13-13-13-13-13-15-17----|
+A|------------------------|
+E|------------------------|</pre></div>
+<div class="bar" data-song="refuge" data-bar="115"><div class="bn">115<span class="t">4:00</span></div><pre class="tab">G|<span class="c">*14</span>--------------|
+D|-----------------|
+A|-----------------|
+E|-----------------|</pre></div>
+<div class="bar" data-song="refuge" data-bar="116"><div class="bn">116<span class="t">4:02</span></div><pre class="tab">G|12---------------|
+D|-----------------|
+A|-----------------|
+E|-----------------|</pre></div>
+<div class="bar" data-song="refuge" data-bar="117"><div class="bn">117<span class="t">4:04</span></div><pre class="tab">G|15---------------|
+D|-----------------|
+A|-----------------|
+E|-----------------|</pre></div>
+<div class="bar" data-song="refuge" data-bar="118"><div class="bn">118<span class="t">4:06</span></div><pre class="tab">G|12---------------|
+D|-----------------|
+A|-----------------|
+E|-----------------|</pre></div>
+<div class="bar" data-song="refuge" data-bar="119"><div class="bn">119<span class="t">4:08</span></div><pre class="tab">G|15---------------|
+D|-----------------|
+A|-----------------|
+E|-----------------|</pre></div>
+<div class="bar" data-song="refuge" data-bar="120"><div class="bn">120<span class="t">4:10</span></div><pre class="tab">G|-----------7--7--------|
+D|5-------5--------5--8--|
+A|-----------------------|
+E|-----------------------|</pre></div>
+<div class="bar" data-song="refuge" data-bar="121"><div class="bn">121<span class="t">4:12</span></div><pre class="tab">G|-----------------------|
+D|-----------------8--8--|
+A|8-------8--8-----------|
+E|-----------------------|</pre></div>
+<div class="bar" data-song="refuge" data-bar="122"><div class="bn">122<span class="t">4:14</span></div><pre class="tab">G|-----------------------|
+D|8----8--8--8--8--7--5--|
+A|-----------------------|
+E|-----------------------|</pre></div>
+<div class="bar" data-song="refuge" data-bar="123"><div class="bn">123<span class="t">4:16</span></div><pre class="tab">G|-----------------------|
+D|-----------------7--7--|
+A|8-------8--8-----------|
+E|-----------------------|</pre></div>
+<div class="bar" data-song="refuge" data-bar="124"><div class="bn">124<span class="t">4:18</span></div><pre class="tab">G|----------------------|
+D|5-------5--5-----7----|
+A|----------------------|
+E|----------------------|</pre></div>
+<div class="bar" data-song="refuge" data-bar="125"><div class="bn">125<span class="t">4:21</span></div><pre class="tab">G|------------10------|
+D|8--------8-----7----|
+A|--------------------|
+E|--------------------|</pre></div>
+<div class="bar" data-song="refuge" data-bar="126"><div class="bn">126<span class="t">4:23</span></div><pre class="tab">G|------------12------|
+D|---------------7----|
+A|10-------10---------|
+E|--------------------|</pre></div>
+<div class="bar" data-song="refuge" data-bar="127"><div class="bn">127<span class="t">4:25</span></div><pre class="tab">G|------------10------|
+D|8--------8-----7----|
+A|--------------------|
+E|--------------------|</pre></div>
+<div class="bar" data-song="refuge" data-bar="128"><div class="bn">128<span class="t">4:27</span></div><pre class="tab">G|------------12------|
+D|---------------7----|
+A|10-------10---------|
+E|--------------------|</pre></div>
+<div class="bar" data-song="refuge" data-bar="129"><div class="bn">129<span class="t">4:29</span></div><pre class="tab">G|------------10------|
+D|---------------7----|
+A|8--------8----------|
+E|--------------------|</pre></div>
+<div class="bar rest" data-song="refuge" data-bar="130"><div class="bn">130<span class="t">4:31</span></div><pre class="tab">G|-----------------|
+D|-----------------|
+A|-----------------|
+E|-----------------|</pre></div>
+<div class="bar rest" data-song="refuge" data-bar="131"><div class="bn">131<span class="t">4:33</span></div><pre class="tab">G|-----------------|
+D|-----------------|
+A|-----------------|
+E|-----------------|</pre></div>
+<div class="bar" data-song="refuge" data-bar="132"><div class="bn">132<span class="t">4:35</span></div><pre class="tab">G|-------------------|
+D|-------------------|
+A|----------------0--|
+E|-------------3-----|</pre></div>
+<div class="bar" data-song="refuge" data-bar="133"><div class="bn">133<span class="t">4:37</span></div><pre class="tab">G|-------------------|
+D|-------------------|
+A|3------------3-----|
+E|----------------3--|</pre></div>
+<div class="bar" data-song="refuge" data-bar="134"><div class="bn">134<span class="t">4:40</span></div><pre class="tab">G|----------------------|
+D|---------2----5--3----|
+A|3--0--0---------------|
+E|----------------------|</pre></div>
+<div class="bar" data-song="refuge" data-bar="135"><div class="bn">135<span class="t">4:42</span></div><pre class="tab">G|-------------------|
+D|3---------------5--|
+A|-------------------|
+E|-------------------|</pre></div>
+<div class="bar" data-song="refuge" data-bar="136"><div class="bn">136<span class="t">4:44</span></div><pre class="tab">G|5--5-------------------|
+D|------5--2-------------|
+A|-----------------------|
+E|------------0--3--0----|</pre></div>
+<div class="bar" data-song="refuge" data-bar="137"><div class="bn">137<span class="t">4:46</span></div><pre class="tab">G|-------------------|
+D|---------2---------|
+A|-------------------|
+E|0---------------0--|</pre></div>
+<div class="bar" data-song="refuge" data-bar="138"><div class="bn">138<span class="t">4:48</span></div><pre class="tab">G|-----------------|
+D|-----------------|
+A|1----------------|
+E|-----------------|</pre></div>
+<div class="bar" data-song="refuge" data-bar="139"><div class="bn">139<span class="t">4:50</span></div><pre class="tab">G|-----------------------|
+D|------------3----------|
+A|1----------------0-----|
+E|--------------------1--|</pre></div>
+<div class="bar" data-song="refuge" data-bar="140"><div class="bn">140<span class="t">4:52</span></div><pre class="tab">G|-----12-------------|
+D|14------14-14-------|
+A|--------------------|
+E|--------------------|</pre></div>
+<div class="bar" data-song="refuge" data-bar="141"><div class="bn">141<span class="t">4:54</span></div><pre class="tab">G|-------------------12-12-12-<span class="c">*14</span>-<span class="c">*14</span>-|
+D|---------------14-------------------|
+A|---14-15-15-17----------------------|
+E|------------------------------------|</pre></div>
+<div class="bar" data-song="refuge" data-bar="142"><div class="bn">142<span class="t">4:56</span></div><pre class="tab">G|15---<span class="c">*14</span>-15-15-<span class="c">*14</span>--15-|
+D|-----------------------|
+A|-----------------------|
+E|-----------------------|</pre></div>
+<div class="bar" data-song="refuge" data-bar="143"><div class="bn">143<span class="t">4:58</span></div><pre class="tab">G|15-----------12-13-|
+D|-------------------|
+A|-------------------|
+E|-------------------|</pre></div>
+<div class="bar" data-song="refuge" data-bar="144"><div class="bn">144<span class="t">5:01</span></div><pre class="tab">G|13-12------------------|
+D|--------13-13-13-13-15-|
+A|-----------------------|
+E|-----------------------|</pre></div>
+<div class="bar rest" data-song="refuge" data-bar="145"><div class="bn">145<span class="t">5:03</span></div><pre class="tab">G|-----------------|
+D|-----------------|
+A|-----------------|
+E|-----------------|</pre></div>
+<div class="bar rest" data-song="refuge" data-bar="146"><div class="bn">146<span class="t">5:05</span></div><pre class="tab">G|-----------------|
+D|-----------------|
+A|-----------------|
+E|-----------------|</pre></div>
+<div class="bar rest" data-song="refuge" data-bar="147"><div class="bn">147<span class="t">5:07</span></div><pre class="tab">G|-----------------|
+D|-----------------|
+A|-----------------|
+E|-----------------|</pre></div>
+<div class="bar rest" data-song="refuge" data-bar="148"><div class="bn">148<span class="t">5:09</span></div><pre class="tab">G|-----------------|
+D|-----------------|
+A|-----------------|
+E|-----------------|</pre></div>
+<div class="bar rest" data-song="refuge" data-bar="149"><div class="bn">149<span class="t">5:11</span></div><pre class="tab">G|-----------------|
+D|-----------------|
+A|-----------------|
+E|-----------------|</pre></div>
+<div class="bar rest" data-song="refuge" data-bar="150"><div class="bn">150<span class="t">5:13</span></div><pre class="tab">G|-----------------|
+D|-----------------|
+A|-----------------|
+E|-----------------|</pre></div>
+<div class="bar rest" data-song="refuge" data-bar="151"><div class="bn">151<span class="t">5:15</span></div><pre class="tab">G|-----------------|
+D|-----------------|
+A|-----------------|
+E|-----------------|</pre></div>
+<div class="bar rest" data-song="refuge" data-bar="152"><div class="bn">152<span class="t">5:17</span></div><pre class="tab">G|-----------------|
+D|-----------------|
+A|-----------------|
+E|-----------------|</pre></div>
+<div class="bar rest" data-song="refuge" data-bar="153"><div class="bn">153<span class="t">5:20</span></div><pre class="tab">G|-----------------|
+D|-----------------|
+A|-----------------|
+E|-----------------|</pre></div>
+<div class="bar rest" data-song="refuge" data-bar="154"><div class="bn">154<span class="t">5:22</span></div><pre class="tab">G|-----------------|
+D|-----------------|
+A|-----------------|
+E|-----------------|</pre></div>
+<div class="bar rest" data-song="refuge" data-bar="155"><div class="bn">155<span class="t">5:24</span></div><pre class="tab">G|-----------------|
+D|-----------------|
+A|-----------------|
+E|-----------------|</pre></div>
+<div class="bar rest" data-song="refuge" data-bar="156"><div class="bn">156<span class="t">5:26</span></div><pre class="tab">G|-----------------|
+D|-----------------|
+A|-----------------|
+E|-----------------|</pre></div>
+<div class="bar rest" data-song="refuge" data-bar="157"><div class="bn">157<span class="t">5:28</span></div><pre class="tab">G|-----------------|
+D|-----------------|
+A|-----------------|
+E|-----------------|</pre></div>
+<div class="bar rest" data-song="refuge" data-bar="158"><div class="bn">158<span class="t">5:30</span></div><pre class="tab">G|-----------------|
+D|-----------------|
+A|-----------------|
+E|-----------------|</pre></div>
+<div class="bar rest" data-song="refuge" data-bar="159"><div class="bn">159<span class="t">5:32</span></div><pre class="tab">G|-----------------|
+D|-----------------|
+A|-----------------|
+E|-----------------|</pre></div>
+<div class="bar rest" data-song="refuge" data-bar="160"><div class="bn">160<span class="t">5:34</span></div><pre class="tab">G|-----------------|
+D|-----------------|
+A|-----------------|
+E|-----------------|</pre></div>
+<div class="bar rest" data-song="refuge" data-bar="161"><div class="bn">161<span class="t">5:36</span></div><pre class="tab">G|-----------------|
+D|-----------------|
+A|-----------------|
+E|-----------------|</pre></div>
+<div class="bar" data-song="refuge" data-bar="162"><div class="bn">162<span class="t">5:38</span></div><pre class="tab">G|-------------------|
+D|-------------------|
+A|-------------------|
+E|-------------3--3--|</pre></div>
+<div class="bar" data-song="refuge" data-bar="163"><div class="bn">163<span class="t">5:41</span></div><pre class="tab">G|------------------------|
+D|------------2--2--5--5--|
+A|3--3--3--3--------------|
+E|------------------------|</pre></div>
+<div class="bar" data-song="refuge" data-bar="164"><div class="bn">164<span class="t">5:43</span></div><pre class="tab">G|---------5-----------|
+D|------------5--2-----|
+A|------------------3--|
+E|---------------------|</pre></div>
+<div class="bar" data-song="refuge" data-bar="165"><div class="bn">165<span class="t">5:45</span></div><pre class="tab">G|---------2-----------|
+D|------------3--------|
+A|3--------------3--0--|
+E|---------------------|</pre></div>
+<div class="bar" data-song="refuge" data-bar="166"><div class="bn">166<span class="t">5:47</span></div><pre class="tab">G|---------------------|
+D|---------------------|
+A|3--------------0--2--|
+E|---------0--3--------|</pre></div>
+<div class="bar" data-song="refuge" data-bar="167"><div class="bn">167<span class="t">5:49</span></div><pre class="tab">G|-------------------|
+D|2--------2---------|
+A|-------------------|
+E|----------------0--|</pre></div>
+<div class="bar" data-song="refuge" data-bar="168"><div class="bn">168<span class="t">5:51</span></div><pre class="tab">G|------------------|
+D|------------------|
+A|1--------1--------|
+E|------------------|</pre></div>
+<div class="bar" data-song="refuge" data-bar="169"><div class="bn">169<span class="t">5:53</span></div><pre class="tab">G|----------3----3--3--|
+D|---------------------|
+A|1------1-------------|
+E|---------------------|</pre></div>
+<div class="bar" data-song="refuge" data-bar="170"><div class="bn">170<span class="t">5:55</span></div><pre class="tab">G|---------------------|
+D|---------------------|
+A|---------------------|
+E|---5--5--6--6--------|</pre></div>
+<div class="bar" data-song="refuge" data-bar="171"><div class="bn">171<span class="t">5:57</span></div><pre class="tab">G|-------------------|
+D|-------------------|
+A|-------------------|
+E|6-----------1------|</pre></div>
+<div class="bar" data-song="refuge" data-bar="172"><div class="bn">172<span class="t">6:00</span></div><pre class="tab">G|-------------------|
+D|-------------------|
+A|3------------3--3--|
+E|-------------------|</pre></div>
+<div class="bar" data-song="refuge" data-bar="173"><div class="bn">173<span class="t">6:02</span></div><pre class="tab">G|------------9/-9--7-----|
+D|---------------------10-|
+A|3--------3--------------|
+E|------------------------|</pre></div>
+<div class="bar" data-song="refuge" data-bar="174"><div class="bn">174<span class="t">6:04</span></div><pre class="tab">G|-------------------|
+D|-------------------|
+A|7------------7-----|
+E|----------------0--|</pre></div>
+<div class="bar" data-song="refuge" data-bar="175"><div class="bn">175<span class="t">6:06</span></div><pre class="tab">G|----------------------|
+D|------------14/-12----|
+A|-------------------14-|
+E|----------------------|</pre></div>
+<div class="bar" data-song="refuge" data-bar="176"><div class="bn">176<span class="t">6:08</span></div><pre class="tab">G|-----12-12-12-----12-|
+D|---------------------|
+A|13---13-13-13-----13-|
+E|---------------------|</pre></div>
+<div class="bar" data-song="refuge" data-bar="177"><div class="bn">177<span class="t">6:10</span></div><pre class="tab">G|12-----12-12---------|
+D|-----------------14/-|
+A|13-----13-13---------|
+E|---------------------|</pre></div>
+<div class="bar" data-song="refuge" data-bar="178"><div class="bn">178<span class="t">6:12</span></div><pre class="tab">G|-------------------|
+D|14-----------14-14-|
+A|15-----------15-15-|
+E|-------------------|</pre></div>
+<div class="bar" data-song="refuge" data-bar="179"><div class="bn">179<span class="t">6:14</span></div><pre class="tab">G|-------------------|
+D|14-----------14----|
+A|15-----------15----|
+E|----------------1--|</pre></div>
+<div class="bar" data-song="refuge" data-bar="180"><div class="bn">180<span class="t">6:16</span></div><pre class="tab">G|-----------------|
+D|-----------------|
+A|1----------------|
+E|-----------------|</pre></div>
+<div class="bar" data-song="refuge" data-bar="181"><div class="bn">181<span class="t">6:18</span></div><pre class="tab">G|------------------------|
+D|------------------------|
+A|1--1--1--1--1--1--------|
+E|---------------------1--|</pre></div>
+<div class="bar" data-song="refuge" data-bar="182"><div class="bn">182<span class="t">6:21</span></div><pre class="tab">G|---------------------|
+D|-------4--4----------|
+A|---------------------|
+E|2--------------2--2--|</pre></div>
+<div class="bar" data-song="refuge" data-bar="183"><div class="bn">183<span class="t">6:23</span></div><pre class="tab">G|------------------------|
+D|---4-----4--4-----------|
+A|------------------------|
+E|2-----2--------2--2--0--|</pre></div>
+<div class="bar" data-song="refuge" data-bar="184"><div class="bn">184<span class="t">6:25</span></div><pre class="tab">G|-----------------------|
+D|--------5--5-----------|
+A|-----------------------|
+E|3----3--------3--3--3--|</pre></div>
+<div class="bar" data-song="refuge" data-bar="185"><div class="bn">185<span class="t">6:27</span></div><pre class="tab">G|----------------------|
+D|------5----5----------|
+A|----------------------|
+E|3--3--3----3-----4----|</pre></div>
+<div class="bar" data-song="refuge" data-bar="186"><div class="bn">186<span class="t">6:29</span></div><pre class="tab">G|19-19/-18/-17/-16---15---|
+D|-------------------------|
+A|-------------------------|
+E|-------------------------|</pre></div>
+<div class="bar" data-song="refuge" data-bar="187"><div class="bn">187<span class="t">6:31</span></div><pre class="tab">G|15-13-13-12-12-13-12---|
+D|-----------------------|
+A|-----------------------|
+E|-----------------------|</pre></div>
+<div class="bar" data-song="refuge" data-bar="188"><div class="bn">188<span class="t">6:33</span></div><pre class="tab">G|-----------------|
+D|13---------------|
+A|-----------------|
+E|-----------------|</pre></div>
+<div class="bar" data-song="refuge" data-bar="189"><div class="bn">189<span class="t">6:35</span></div><pre class="tab">G|15-17-17-15-15-13-12---|
+D|-----------------------|
+A|-----------------------|
+E|-----------------------|</pre></div>
+<div class="bar" data-song="refuge" data-bar="190"><div class="bn">190<span class="t">6:37</span></div><pre class="tab">G|-------8--10---8----|
+D|--------------------|
+A|--------------------|
+E|--------------------|</pre></div>
+<div class="bar" data-song="refuge" data-bar="191"><div class="bn">191<span class="t">6:40</span></div><pre class="tab">G|-----------------|
+D|9----------------|
+A|-----------------|
+E|-----------------|</pre></div>
+<div class="bar" data-song="refuge" data-bar="192"><div class="bn">192<span class="t">6:42</span></div><pre class="tab">G|-----------------|
+D|9----------------|
+A|-----------------|
+E|-----------------|</pre></div>
+<div class="bar" data-song="refuge" data-bar="193"><div class="bn">193<span class="t">6:44</span></div><pre class="tab">G|-----------------|
+D|-----------------|
+A|-----------------|
+E|4----------------|</pre></div>
+<div class="bar" data-song="refuge" data-bar="194"><div class="bn">194<span class="t">6:46</span></div><pre class="tab">G|-------------------|
+D|-------6--6--------|
+A|-------------------|
+E|4------------------|</pre></div>
+<div class="bar" data-song="refuge" data-bar="195"><div class="bn">195<span class="t">6:48</span></div><pre class="tab">G|---5--5--5--3--1--1--1--|
+D|6-----------------------|
+A|------------------------|
+E|------------------------|</pre></div>
+<div class="bar" data-song="refuge" data-bar="196"><div class="bn">196<span class="t">6:50</span></div><pre class="tab">G|3----------------|
+D|-----------------|
+A|-----------------|
+E|-----------------|</pre></div>
+<div class="bar" data-song="refuge" data-bar="197"><div class="bn">197<span class="t">6:52</span></div><pre class="tab">G|3--5--5--5--8---------|
+D|-----------------8----|
+A|----------------------|
+E|----------------------|</pre></div>
+<div class="bar" data-song="refuge" data-bar="198"><div class="bn">198<span class="t">6:54</span></div><pre class="tab">G|--------------------|
+D|8-------------------|
+A|-----6----3---------|
+E|---------------1----|</pre></div>
+<div class="bar" data-song="refuge" data-bar="199"><div class="bn">199<span class="t">6:56</span></div><pre class="tab">G|-----------------|
+D|-----------------|
+A|-----------------|
+E|1----------------|</pre></div>
+</div></div><div id="tray"><span class="nodepick"><label><input type="radio" name="node" value="G5" checked>G string 5</label><label><input type="radio" name="node" value="G9">G string 9</label><label><input type="radio" name="node" value="D7">D string 7</label></span><span id="picked"></span><button id="cpy" onclick="copyMarks()">copy list</button><button class="ghost" onclick="clearMarks()">clear</button></div><script>var TITLES={"coyote": "Coyote", "hejira": "Hejira", "blackcrow": "Black Crow", "refuge": "Refuge of the Roads"};
+
+var MARKS = {};
+function key(s,b){return s+':'+b;}
+function refresh(){
+  var out=[], songs={};
+  Object.keys(MARKS).forEach(function(k){
+    var p=k.split(':'); (songs[p[0]]=songs[p[0]]||[]).push(parseInt(p[1],10));
+  });
+  Object.keys(songs).sort().forEach(function(s){
+    songs[s].sort(function(a,b){return a-b;});
+    out.push(TITLES[s]+' '+NODE+': bars '+songs[s].join(', '));
+  });
+  var t=document.getElementById('picked');
+  t.textContent = out.length ? out.join('   |   ') : 'tap any bar where you hear a harmonic';
+  window.__marktext = out.join('\n');
+}
+document.addEventListener('click', function(e){
+  var el=e.target.closest('.bar'); if(!el) return;
+  var k=key(el.dataset.song, el.dataset.bar);
+  if(MARKS[k]){delete MARKS[k]; el.classList.remove('marked');}
+  else {MARKS[k]=1; el.classList.add('marked');}
+  refresh();
+});
+var NODE='G5';
+document.addEventListener('change', function(e){
+  if(e.target.name==='node'){NODE=e.target.value; refresh();}
+});
+function copyMarks(){
+  var t=window.__marktext||'';
+  if(!t){alert('No bars marked yet. Tap the bars where you hear a harmonic.');return;}
+  navigator.clipboard.writeText(t).then(function(){
+    var b=document.getElementById('cpy'); var o=b.textContent;
+    b.textContent='copied'; setTimeout(function(){b.textContent=o;},1200);
+  }, function(){ prompt('Copy this:', t); });
+}
+function clearMarks(){
+  MARKS={}; document.querySelectorAll('.bar.marked').forEach(function(el){el.classList.remove('marked');});
+  refresh();
+}
+refresh();
+</script></body></html>
