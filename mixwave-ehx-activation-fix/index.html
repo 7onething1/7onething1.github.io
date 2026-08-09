@@ -83,19 +83,20 @@ a{color:var(--oxblood)}
 <main>
 
 <h1>MixWave EHX Big Muff and Deluxe Memory Man</h1>
-<p class="sub">Why they never showed up, and what actually fixes it. Diagnosed 8 August 2026 on Jacks-iMac. The install was never the problem.</p>
+<p class="sub">Why they never showed up, and what actually fixes it. Diagnosed 8 August 2026 on Jacks-iMac. Bought, paid, delivered, never activated.</p>
 
 <div class="verdict">
-  <h2>Verdict: the installer worked. The licenses were bought under a different email.</h2>
+  <h2>Verdict: everything was bought and delivered. The licenses just need activating.</h2>
   <p>Both plugins are <b>fully installed, code-signed by MixWave LLC, notarized by Apple, and they pass Apple's own AudioUnit validation</b>. Nothing about the install failed.</p>
-  <p>Two Venmo payments of <b>$39.00 each went to SP MIXWAVE on 4 August 2026</b>, $78.00 total. The MixWave checkout used <b>brandonxchavez@gmail.com</b>, so the order confirmation and license emails went there. The mailbox searched below is <code>7onething1@gmail.com</code>, which is why it holds only marketing.</p>
-  <p>The plugins hang because <b>no MixWave license is activated on this machine</b>. Whether one is waiting to be activated is answered in one place: the <b>Available</b> tab of iLok License Manager. That app is already signed in, so opening it costs no login.</p>
+  <p>Both orders completed. <b>#MW58681 EHX Deluxe Memory Man</b> and <b>#MW58682 EHX Big Muff</b>, $39.00 each, 4 August 2026, Mastercard ending 2819 through Venmo. MixWave's order status page for each one reads <b>"The licenses have been delivered to 7onething1"</b> with fulfillment status <b>Complete</b>.</p>
+  <p>So the licenses are in the iLok account under username <b>7onething1</b>, deposited and <b>not activated</b>. A deposited license does nothing until it is activated to a location, and an unactivated plugin hangs rather than reporting a license error, which is what froze Ableton's scan.</p>
+  <p><b>The whole remaining fix is: iLok License Manager, Available tab, right-click each license, Activate.</b> The app is already signed in, so it costs no login. No support ticket, no refund claim, nothing owed.</p>
 </div>
 
 <nav class="toc">
   <strong>Contents</strong>
   <ol>
-    <li><a href="#paid">The purchase, and where the emails went</a></li>
+    <li><a href="#paid">The purchase, and where it actually stalled</a></li>
     <li><a href="#installed">What you paid for is on the disk</a></li>
     <li><a href="#hang">The actual failure: a frozen socket read</a></li>
     <li><a href="#license">The license check</a></li>
@@ -106,27 +107,35 @@ a{color:var(--oxblood)}
   </ol>
 </nav>
 
-<h2 id="paid">1. The purchase, and where the emails went</h2>
+<h2 id="paid">1. The purchase, and where it actually stalled</h2>
 <p>MixWave's own support documentation states that after checkout a customer receives <b>an order confirmation email, a separate product download and license email, and a deposit of the licenses into their iLok account</b>.</p>
-<p>The checkout used <b>brandonxchavez@gmail.com</b>. That mailbox is not signed in to this Chrome profile, so the two order emails have not been read and their contents are unknown. Everything below about email is scoped to <code>7onething1@gmail.com</code> only.</p>
+<p>The checkout used <b>brandonxchavez@gmail.com</b>, which is Gmail account <code>u/2</code> in the same Chrome profile. Both order emails are there, and both order status pages confirm delivery.</p>
 
 <table>
 <thead><tr><th>Item</th><th>Status</th><th>Evidence</th></tr></thead>
 <tbody>
 <tr><td>Payment 1</td><td class="ok">CHARGED $39.00</td><td>Venmo receipt, SP MIXWAVE, 4 Aug 2026, 2:23 PM PDT</td></tr>
 <tr><td>Payment 2</td><td class="ok">CHARGED $39.00</td><td>Venmo receipt, SP MIXWAVE, 4 Aug 2026, 2:55 PM PDT</td></tr>
-<tr><td>Order emails, 7onething1 inbox</td><td class="no">ABSENT</td><td>0 results, Gmail <code>in:anywhere</code></td></tr>
-<tr><td>Order emails, brandonxchavez inbox</td><td>UNCHECKED</td><td>account not signed in, no login attempted</td></tr>
+<tr><td>Order #MW58681, Deluxe Memory Man</td><td class="ok">COMPLETE</td><td>status page: delivered to 7onething1</td></tr>
+<tr><td>Order #MW58682, Big Muff</td><td class="ok">COMPLETE</td><td>status page: delivered to 7onething1</td></tr>
+<tr><td>iLok license <b>deposited</b></td><td class="ok">YES</td><td>both status pages, iLok username 7onething1</td></tr>
 <tr><td>iLok license <b>activated</b></td><td class="no">NO</td><td><code>iloktool auths</code>, 0 MixWave of 25</td></tr>
-<tr><td>iLok license <b>deposited</b> (Available)</td><td>UNCHECKED</td><td>no CLI can read it, GUI only</td></tr>
 </tbody>
 </table>
+
+<p>MixWave does not deposit a license until the buyer supplies an iLok username on the order status page. The order email spells it out:</p>
+
+<pre><b>Redeem &amp; Activate</b>
+Your license(s) will be deposited into your iLok account automatically
+when you provide your iLok username on the order status page.</pre>
+
+<p>That step was done, so the licenses reached the account. <b>Deposit is not activation.</b> They have been waiting in the Available bin ever since.</p>
 
 <div class="card warn">
 <p><b><code>iloktool auths</code> lists only ACTIVATED licenses.</b> A license that was deposited and never activated does not appear there. So a zero result rules out activation, and it does not rule out a license waiting in the Available bin for one right-click.</p>
 </div>
 
-<p>A search of the entire Gmail account for <code>mixwave</code>, <code>ilok</code>, and <code>paceap</code>, including Spam and Trash, returns <b>14 messages across all history</b>. Every MixWave message is marketing:</p>
+<p>The two mailboxes hold different halves of the story, which is what made this look like a delivery failure. Searching <code>7onething1@gmail.com</code> with <code>in:anywhere</code> returns 14 messages in all history and every MixWave one is marketing:</p>
 
 <pre>MixWave  | The D.W. Fearn Collection, Back at Intro Price | 8 Aug   <i>promo</i>
 MixWave  | Your code is expiring!                         | 6 Aug   <i>15% code RVXGZWWH</i>
@@ -134,8 +143,15 @@ MixWave  | Thanks for subscribing! And, as promised       | 4 Aug   <i>15% code 
 Venmo    | Receipt from SP MIXWAVE - $39.00               | 4 Aug   <i>x2 in thread</i>
 iLok     | iLok.com Account Activation                    | 30 May  <i>account signup</i></pre>
 
+<p>The same search in <code>brandonxchavez@gmail.com</code> holds the orders:</p>
+
+<pre>MixWave  | <b>#MW58682 | Your order is complete</b>       | 4 Aug 4:56 PM   <i>Big Muff</i>
+MixWave  | <b>#MW58681 | Your order is complete</b>       | 4 Aug 4:23 PM   <i>Deluxe Memory Man</i>
+MixWave  | Another order?! Thanks so much!            | 5 Aug
+MixWave  | 194608 is your code                        | 6 Aug</pre>
+
 <div class="card good">
-<p><b>A different email address at checkout explains all of it.</b> MixWave's support documentation covers this case directly and will resend against the name on the order. The two order emails are most likely unread in brandonxchavez@gmail.com.</p>
+<p><b>Payment, order, download, and license deposit all succeeded.</b> The only step never taken is the last one, activating the deposited licenses in iLok License Manager.</p>
 </div>
 
 <h2 id="installed">2. What you paid for is on the disk</h2>
@@ -205,10 +221,10 @@ checkin time = 195 seconds ago    <i>← spawned by the plugin load</i></pre>
 
 <div class="card bad">
 <h3>MixWave, EHX, Big Muff, Memory Man</h3>
-<p><b>Zero matches.</b> The plugins have nothing to authorize against.</p>
+<p><b>Zero matches, and that is the trap.</b> It reads like the licenses were never bought. Section 1 proves both were bought, paid, and deposited.</p>
 </div>
 
-<p>MixWave licenses go through PACE iLok. The license is <b>deposited</b> into your iLok account at purchase, and it then has to be <b>activated</b> to a location: this machine, iLok Cloud, or a USB iLok. Whether the deposit happened cannot be read from the command line, since <code>iloktool</code> reports activated licenses only. The Available tab in the GUI is the one place that answers it.</p>
+<p>MixWave licenses go through PACE iLok. The license is <b>deposited</b> into your iLok account at purchase, and it then has to be <b>activated</b> to a location: this machine, iLok Cloud, or a USB iLok. <code>iloktool auths</code> reports <b>activated</b> licenses only, so it cannot see a deposited one, and its zero result carries no information about ownership. The Available tab in the GUI is the one place that shows a deposit.</p>
 
 <div class="card warn">
 <p>Your iLok cloud session is open and your password is stored in the keychain, which <code>iloktool</code> confirms. <b>iLok License Manager will not ask you to sign in again.</b> The obstacle was never a login.</p>
@@ -251,25 +267,27 @@ checkin time = 195 seconds ago    <i>← spawned by the plugin load</i></pre>
 <p>Clearing those two rows makes Live rediscover the plugins from scratch on the next scan.</p>
 
 <div class="card warn">
-<p><b>Do not rescan until the licenses actually arrive.</b> Every scan of an unlicensed MixWave plugin re-triggers the 8-minute freeze and re-caches the same failure. That is also why Live has been slow to start.</p>
+<p><b>Activate first, then rescan.</b> Every scan of a still-unactivated MixWave plugin re-triggers the 8-minute freeze and re-caches the same failure. That is also why Live has been slow to start.</p>
 </div>
 
 <h2 id="fix">7. The fix, in order</h2>
 
-<p>Start with the thirty-second check, because it may end the whole thing.</p>
+<p>Three steps, and the first one is the only part that needs a human.</p>
 
 <ol class="steps">
-<li><b>Open iLok License Manager and look at the Available tab.</b> The app is already signed in: the password is in the macOS keychain and the cloud session is open, so it does not prompt for anything. If the two MixWave licenses are there, right-click each one, choose <b>Activate</b>, pick this computer or iLok Cloud, and skip to step 4. This costs one glance and two clicks.</li>
-<li><b>If Available is empty, check brandonxchavez@gmail.com</b> for the MixWave order confirmation and the separate download/license email. That address was used at checkout. The license email carries the link that deposits the licenses into an iLok account.</li>
-<li><b>If neither exists, open a MixWave support ticket.</b> Go to <a href="https://support.mixwave.com/help/contact-support">support.mixwave.com</a> and use the chat button at the bottom right. There is no published support email address and no phone support. A ready-to-paste ticket is here: <a href="mixwave_support_ticket.txt"><b>mixwave_support_ticket.txt</b></a>, also saved at <code>~/Projects/_outputs/mixwave-ehx-fix/mixwave_support_ticket.txt</code>. Lead with the payer name Brandon Chavez and the two payment times, since MixWave's documentation says a wrong checkout email is fixable against the name on the order. Venmo purchase protection at <a href="https://help.venmo.com">help.venmo.com</a> or (855) 812-4430 is the backstop.</li>
-<li><b>Quit Ableton Live completely</b>, then run the repair script. It backs the database up first, refuses to run if Live is open, and warns if the licenses still are not active.
+<li><b>iLok License Manager, Available tab, activate both.</b> The app is already signed in, so it prompts for nothing. Right-click <b>MixWave EHX Big Muff</b>, choose <b>Activate</b>, pick this computer or iLok Cloud. Repeat for <b>MixWave EHX Deluxe Memory Man</b>. Each license carries two activations, so a second machine stays possible.</li>
+<li><b>Quit Ableton Live completely</b>, then run the repair script. Live cached a failed scan on 6 August and skips both plugins until that cache is cleared. The script backs the database up first, refuses to run if Live is open, and refuses to run if the licenses still are not active.
 <pre>~/Projects/_outputs/mixwave-ehx-fix/repair_live_plugin_cache.sh</pre></li>
 <li><b>Open Live, go to Preferences &gt; Plug-Ins, hold Option and click Rescan.</b> Both plugins appear under Plug-Ins &gt; MixWave.</li>
 </ol>
 
-<p>Check at any point whether the licenses have arrived:</p>
+<p>Confirm the activation took:</p>
 <pre>iloktool auths | grep -i -e mixwave -e muff -e memory</pre>
-<p>An empty result means MixWave still has not delivered.</p>
+<p>Two lines means it worked. An empty result means the Activate step has not gone through, since <code>iloktool</code> reports activated licenses only.</p>
+
+<div class="card good">
+<p><b>No support ticket is needed.</b> Both orders read Complete and both licenses are deposited. Nothing is owed and nothing needs disputing.</p>
+</div>
 
 <h2 id="appendix">8. Commands used</h2>
 <p>Every claim on this page came from one of these.</p>
