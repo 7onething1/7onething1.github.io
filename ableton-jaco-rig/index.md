@@ -85,6 +85,26 @@ The WaveShells live in `/Library/Audio/Plug-Ins`, owned by `root:wheel`, so trim
 password. With the custom folder fixed the whole scan now runs in 3.5 seconds, so the remaining cost
 of the duplication is browser clutter rather than time.
 
+### Fault 4. The two MixWave EHX pedals were blacklisted. FIXED.
+
+On 2026-08-06 at 18:52 Live checked `MixWave EHX Big Muff.vst3`, hung for eight minutes, then
+logged `Failed to load plugin: calling 'bundleEntry' failed` followed by `VST3: not a plugin`. That
+is the PACE hang from the window when the licenses were still undeposited. Live cached the "not a
+plugin" verdict against those file paths and stopped retrying, which is why the clean 2026-08-10
+scan never mentioned them once.
+
+The bundles are `root:wheel`, so I could not change their timestamps to force a recheck. Instead I
+copied both `.vst3` bundles into `~/Library/Audio/Plug-Ins/VST3`, a path I own and one Live scans as
+`(user)`. A fresh path carries no cached verdict. The originals stay where they are.
+
+```
+2026-08-10T14:26:45: VST3: found: MixWave EHX Big Muff            vendor: MixWave
+2026-08-10T14:26:48: VST3: found: MixWave EHX Deluxe Memory Man   vendor: MixWave
+```
+
+First load took 5.2 s and 3.2 s while PACE handshook, and the recheck seconds later took under a
+second each. Both now appear in the browser under VST3.
+
 ## 3. Four corrections, two of them mine from this page
 
 | Note | What it claimed | Measured |
