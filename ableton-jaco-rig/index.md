@@ -168,6 +168,47 @@ Your status bar also identified the mystery device: `UADxU3AX` is the UA Fairchi
 Live loaded all three devices with no errors: `CLA Bass Stereo`, `UADx Fairchild 660 Compressor`,
 `StudioVerse Audio Effects Stereo`.
 
+### Fault 7. The Rush Manual Series pack had rotted the same way. FIXED.
+
+The Rush Era Rigs validator reported 10 missing Max for Live devices and 16 broken `file://`
+links, against 4 and 0 when it was last run on 2026-05-15.
+
+Six of the ten were never missing. `generate_related_devices.find_m4l()` resolved device names
+with a flat `M4L_BASE.iterdir()`, so it never descended into vendor subfolders. The sfg library
+holds 527 `.amxd` at the top level and 555 in total. Convolution Reverb Pro sits in
+`m4l_devices/`; ChoirBox, DirtyEcho and Psychedelay sit in `#NedFXBundle/`.
+
+I added a recursive exact-name match ahead of the fuzzy pass, keeping exact authoritative so a
+substring cannot produce a false hit (`TERRA` matches `Mini-Terrain` under naive containment).
+
+| Measure | Before | After |
+|---|---:|---:|
+| Missing M4L devices | 10 | 6 |
+| Broken `file://` links | 16 | 0 |
+| Albums / rigs audited | 9 / 37 | 9 / 37 |
+
+The 6 remaining are genuinely absent: TERRA, GranuRise-1.2.2, LFO-Cluster_6.3, Stochastic Delay.
+The stored note claiming the three Ned Rush devices live only on the other Mac was wrong, and is
+corrected.
+
+The nine album `.als` sessions audit clean, because the May-14 design documents device links
+rather than injecting VST blobs. Their real device references live in the 37 `INSTALL.md` files.
+
+### All of this is now a skill: /ableton-rig-doctor
+
+`~/.claude/skills/ableton-rig-doctor/` packages every measurement from this session.
+
+```
+python3 ~/.claude/skills/ableton-rig-doctor/audit_ableton_devices.py <file.adg|.als>
+python3 ~/.claude/skills/ableton-rig-doctor/audit_ableton_devices.py --dir <pack folder>
+```
+
+Proven on a control pair: the repaired `Fretless.adg` reports 0 unresolvable, and the
+pre-repair `Fretless_BASEFORD` copy still reports `SSLChannel (id SCHM)` twice.
+
+It also carries the Waves class-id formula, the StudioRack envelope layout, the
+`Preferences.cfg` patch, the blacklist recovery, and the grey-slot triage table.
+
 ## 3. Four corrections, two of them mine from this page
 
 | Note | What it claimed | Measured |

@@ -202,6 +202,31 @@
   <p>Live loaded all three devices with no errors: <code>CLA Bass Stereo</code>, <code>UADx Fairchild 660 Compressor</code>, <code>StudioVerse Audio Effects Stereo</code>. Those two fully-owned chains are your fretless starting points, and both sit in StudioRack's own browser under Bass.</p>
 </div>
 
+<div class="card teal">
+  <h4>Fault 7. The Rush Manual Series pack had rotted the same way <span class="tag ok">fixed</span></h4>
+  <p>Same failure class, different pack. The Rush Era Rigs validator reported <b>10 missing Max for Live devices and 16 broken <code>file://</code> links</b>, against 4 and 0 when it was last run on 2026-05-15.</p>
+  <p><b>Six of the ten were never missing.</b> <code>generate_related_devices.find_m4l()</code> resolved device names with a flat <code>M4L_BASE.iterdir()</code>, so it never descended into the vendor subfolders. Your sfg library holds <b>527 <code>.amxd</code> at the top level and 555 in total</b>. Convolution Reverb Pro sits in <code>m4l_devices/</code>, and ChoirBox, DirtyEcho and Psychedelay all sit in <code>#NedFXBundle/</code>.</p>
+  <p>I added a recursive exact-name match ahead of the fuzzy pass, keeping exact authoritative so a substring cannot produce a false hit. <code>TERRA</code> matches <code>Mini-Terrain</code> under naive containment, which is the trap.</p>
+  <div class="scroll"><table>
+  <thead><tr><th>Measure</th><th class="num">Before</th><th class="num">After</th></tr></thead><tbody>
+  <tr><td>Missing M4L devices</td><td class="num">10</td><td class="num"><b>6</b></td></tr>
+  <tr class="hit"><td>Broken <code>file://</code> links</td><td class="num">16</td><td class="num"><b>0</b></td></tr>
+  <tr><td>Albums / rigs audited</td><td class="num">9 / 37</td><td class="num">9 / 37</td></tr>
+  </tbody></table></div>
+  <p>The 6 that remain are genuinely absent: <b>TERRA, GranuRise-1.2.2, LFO-Cluster_6.3, Stochastic Delay</b>. The stored note claiming the three Ned Rush devices live only on the other Mac was <b>wrong</b>, and is corrected.</p>
+  <p>The nine album <code>.als</code> sessions audit clean, because the May-14 design deliberately documents device links rather than injecting VST blobs. Their real device references live in the 37 <code>INSTALL.md</code> files, which is the layer I repaired.</p>
+</div>
+
+<div class="card teal">
+  <h4>All of this is now a skill <span class="tag ok">/ableton-rig-doctor</span></h4>
+  <p><code>~/.claude/skills/ableton-rig-doctor/</code> packages every measurement from this session so none of it has to be rediscovered.</p>
+  <p>The gate is one command, and it opens StudioRack chains to check the slots inside them, which is where missing plugins hide:</p>
+  <pre>python3 ~/.claude/skills/ableton-rig-doctor/audit_ableton_devices.py &lt;file.adg|.als&gt;
+python3 ~/.claude/skills/ableton-rig-doctor/audit_ableton_devices.py --dir &lt;pack folder&gt;</pre>
+  <p><b>Proven on a control pair</b> the day it was built. The repaired <code>Fretless.adg</code> reports 0 unresolvable. The pre-repair <code>Fretless_BASEFORD</code> copy still reports <code>SSLChannel (id SCHM)</code> twice, so the check rejects a real fault rather than passing everything.</p>
+  <p>It also carries the Waves class-id formula, the StudioRack envelope layout, the <code>Preferences.cfg</code> patch, the blacklist recovery, and the grey-slot triage table that separates a missing plugin from a switched-off slot from a rack sitting at <code>-inf</code>.</p>
+</div>
+
 <h2 id="wrong">3. Four corrections, two of them mine from this page</h2>
 
 <p>Two stored notes were steering you away from gear you own. Two claims I published on the first version of this page were wrong, and both are corrected below.</p>
