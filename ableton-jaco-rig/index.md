@@ -131,6 +131,43 @@ CLA-76, Kramer Tape and RBass per the table in section 5. I stopped short of wri
 states by hand because I have no parameter data for them, and guessing it is what produced three
 failed rack rebuilds in May.
 
+### Fault 6. Greyed slots and every macro at zero. FIXED.
+
+Two separate problems in the chain I first loaded, both mine.
+
+The greyed slots: Chris Baseford's Bass chain calls SSLChannel, the Waves SSL 4000 Collection, which
+you do not own. Measured `V12=0, V16=0`. A missing plugin draws in italic grey. The other grey
+items, GTR Amp, LoAir and CLA-76, are installed and simply switched off in that preset. I picked
+that chain on plugin names without checking ownership first, which was the error.
+
+The zeroed macros: Baseford's eight macros are level controls (DI Level, Amp Level, DIST Level, SUB
+Level). Factory chain presets store macro names and carry no macro values (`QuickKeysValuesList`,
+`MacroValue`: zero occurrences in the file). So every knob initialised at 0, which is why three of
+the four parallel columns read `-inf` and the chain passed no signal.
+
+The fix: I swept every factory bass chain against your installed bundles and swapped in
+Lamps / Bass / Bass 1 (API-550, API-2500, Kramer Tape, VU Meter). Zero missing plugins, all four
+slots `plugin_bypass=false` and `plugin_disabled=false`, so nothing draws grey. Its three macros are
+Distortion, Mudness, Brightness, which are character controls rather than levels, so zero is a
+neutral starting point and audio passes. Kramer Tape is stage 5 of the spec and API-550 covers the
+midrange push.
+
+Your status bar also identified the mystery device: `UADxU3AX` is the UA Fairchild 660 Compressor.
+
+| Factory bass chain | Plugins you are missing |
+|---|---|
+| Lamps / Bass / Bass 1 (loaded) | none |
+| Bass / Wide Analog Bass | none |
+| Chris Baseford / Bass | SSLChannel |
+| Count / Bass | MDMX Screamer |
+| Lamps / Bass 3 | Stomp Buzz |
+| Lamps / Bass 4 | Stomp Buzz, StompOctaver |
+| Bass / Sub Station | OneKnobOKDriver, T1 |
+| Lamps / Bass 2 | GuitarAirMixer, StompCompressor, StompEQ, StompTone |
+
+Live loaded all three devices with no errors: `CLA Bass Stereo`, `UADx Fairchild 660 Compressor`,
+`StudioVerse Audio Effects Stereo`.
+
 ## 3. Four corrections, two of them mine from this page
 
 | Note | What it claimed | Measured |

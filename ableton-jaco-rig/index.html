@@ -181,6 +181,27 @@
   <p><b>The last step is yours and it takes a couple of minutes.</b> StudioRack currently carries the "Brandon Grunge'" chain it came from. Open it, clear the slots, and drop in Bass Rider, Scheps 73, CLA-76, Kramer Tape and RBass per the table in section 5. I stopped short of writing those five states by hand because I have no parameter data for them, and guessing it is what produced three failed rack rebuilds in May.</p>
 </div>
 
+<div class="card olive">
+  <h4>Fault 6. Greyed slots and every macro at zero <span class="tag ok">fixed</span></h4>
+  <p>Two separate problems in the chain I first loaded, both mine.</p>
+  <p><b>The greyed slots.</b> Chris Baseford's Bass chain calls <b>SSLChannel</b>, the Waves SSL 4000 Collection, which you do not own. Measured: <code>V12=0, V16=0</code>. A missing plugin draws in italic grey. The other grey items, GTR Amp, LoAir and CLA-76, are installed and simply switched off in that preset. I picked that chain on plugin names without checking ownership first, which was the error.</p>
+  <p><b>The zeroed macros.</b> Baseford's eight macros are <b>level</b> controls: DI Level, Amp Level, DIST Level, SUB Level. Factory chain presets store macro <em>names</em> and carry no macro <em>values</em> (<code>QuickKeysValuesList</code>, <code>MacroValue</code>: zero occurrences in the file). So every knob initialised at 0, which is why three of the four parallel columns read <code>-inf</code> and the chain passed no signal.</p>
+  <p><b>The fix.</b> I swept every factory bass chain against your installed bundles and swapped in <b>Lamps / Bass / Bass 1</b>: API-550, API-2500, Kramer Tape, VU Meter. Zero missing plugins, all four slots <code>plugin_bypass=false</code> and <code>plugin_disabled=false</code>, so nothing draws grey. Its three macros are <b>Distortion, Mudness, Brightness</b>, which are character controls rather than levels, so zero is a neutral starting point and audio passes. Kramer Tape is stage 5 of the spec and API-550 covers the midrange push.</p>
+  <p>Your status bar also identified the mystery device: <code>UADxU3AX</code> is the <b>UA Fairchild 660 Compressor</b>.</p>
+  <div class="scroll"><table>
+  <thead><tr><th>Factory bass chain</th><th>Plugins you are missing</th></tr></thead><tbody>
+  <tr class="hit"><td><b>Lamps / Bass / Bass 1</b> (loaded)</td><td><span class="tag ok">none</span></td></tr>
+  <tr class="hit"><td>Bass / Wide Analog Bass</td><td><span class="tag ok">none</span></td></tr>
+  <tr><td>Chris Baseford / Bass</td><td>SSLChannel</td></tr>
+  <tr><td>Count / Bass</td><td>MDMX Screamer</td></tr>
+  <tr><td>Lamps / Bass 3</td><td>Stomp Buzz</td></tr>
+  <tr><td>Lamps / Bass 4</td><td>Stomp Buzz, StompOctaver</td></tr>
+  <tr><td>Bass / Sub Station</td><td>OneKnobOKDriver, T1</td></tr>
+  <tr><td>Lamps / Bass 2</td><td>GuitarAirMixer, StompCompressor, StompEQ, StompTone</td></tr>
+  </tbody></table></div>
+  <p>Live loaded all three devices with no errors: <code>CLA Bass Stereo</code>, <code>UADx Fairchild 660 Compressor</code>, <code>StudioVerse Audio Effects Stereo</code>. Those two fully-owned chains are your fretless starting points, and both sit in StudioRack's own browser under Bass.</p>
+</div>
+
 <h2 id="wrong">3. Four corrections, two of them mine from this page</h2>
 
 <p>Two stored notes were steering you away from gear you own. Two claims I published on the first version of this page were wrong, and both are corrected below.</p>
