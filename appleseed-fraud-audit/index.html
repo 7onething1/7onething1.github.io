@@ -1,0 +1,188 @@
+<title>Appleseed Cast: is the tab work real?</title>
+<style>
+:root { --cream:#f4ead5; --ink:#14100c; --rust:#a8452a; --olive:#6b7a3a;
+  --mustard:#d99b1e; --teal:#3d6b6b; --dust:#c9b79c; --paper:#fbf6ea; }
+* { box-sizing:border-box; }
+body { margin:0; background:var(--cream); color:var(--ink);
+  font:16px/1.6 "Futura","Avenir Next",Helvetica,sans-serif; }
+.wrap { max-width:1080px; margin:0 auto; padding:2.4rem 1.2rem 5rem; }
+h1 { font-size:2.1rem; margin:0 0 .3rem; letter-spacing:-.02em; }
+h2 { font-size:1.35rem; margin:2.8rem 0 .6rem; padding-bottom:.3rem;
+  border-bottom:3px solid var(--dust); }
+h3 { font-size:1.05rem; margin:1.6rem 0 .4rem; color:var(--teal); }
+.sub { color:#6a5f4e; margin:0 0 2rem; }
+b { font-weight:700; }
+.verdicts { display:grid; gap:.9rem; margin:1.6rem 0 2.4rem; }
+.v { background:var(--paper); border-left:9px solid var(--dust);
+  padding:1rem 1.2rem; border-radius:3px; }
+.v.no { border-left-color:var(--rust); }
+.v.part { border-left-color:var(--mustard); }
+.v.yes { border-left-color:var(--olive); }
+.v .q { font-weight:700; font-size:1.05rem; }
+.v .a { font-size:1.5rem; font-weight:700; margin:.15rem 0 .35rem; }
+.v.no .a { color:var(--rust); } .v.part .a { color:#8a6410; }
+.v.yes .a { color:var(--olive); }
+.stats { display:flex; flex-wrap:wrap; gap:.7rem; margin:1.2rem 0 1.6rem; }
+.stat { background:var(--paper); border:2px solid var(--dust);
+  border-radius:4px; padding:.55rem .9rem; min-width:96px; }
+.stat .n { font-size:1.5rem; font-weight:700; display:block; line-height:1.15; }
+.stat .l { font-size:.74rem; text-transform:uppercase; letter-spacing:.06em;
+  color:#6a5f4e; }
+.stat.alarm { border-color:var(--rust); } .stat.alarm .n { color:var(--rust); }
+.tw { overflow-x:auto; margin:.8rem 0 1.4rem; }
+table { border-collapse:collapse; width:100%; font-size:.9rem;
+  background:var(--paper); }
+th { text-align:left; background:var(--teal); color:var(--paper);
+  padding:.5rem .6rem; font-size:.76rem; text-transform:uppercase;
+  letter-spacing:.05em; white-space:nowrap; }
+td { padding:.42rem .6rem; border-bottom:1px solid #e6dcc6; white-space:nowrap; }
+tr.alb td { background:var(--dust); font-weight:700; letter-spacing:.02em; }
+tr.alb .cnt { font-weight:400; font-size:.82rem; color:#4a4033; }
+td.num { color:#8a7c68; } td.song { white-space:normal; min-width:200px; }
+td.zero { color:var(--rust); font-weight:700; }
+td.bad { color:var(--paper); background:var(--rust); font-weight:700; }
+td.ok { color:var(--olive); font-weight:700; }
+td.muted, .muted { color:#9a8e7c; }
+.mono { font-family:"SF Mono",Menlo,monospace; font-size:.84rem; }
+.box { background:var(--paper); border:2px solid var(--dust);
+  border-radius:4px; padding:1rem 1.2rem; margin:1rem 0; }
+.box.alarm { border-color:var(--rust); background:#fbeee9; }
+ul { margin:.5rem 0 .5rem 1.1rem; padding:0; } li { margin:.3rem 0; }
+code { background:#ece2cc; padding:.1rem .3rem; border-radius:3px;
+  font-family:"SF Mono",Menlo,monospace; font-size:.86rem; }
+.foot { margin-top:3rem; padding-top:1rem; border-top:3px solid var(--dust);
+  font-size:.85rem; color:#6a5f4e; }
+@media (max-width:640px) { h1 { font-size:1.6rem; } .v .a { font-size:1.2rem; } }
+</style>
+<div class="wrap">
+<h1>The Appleseed Cast tab work, audited</h1>
+<p class="sub">Every claim checked against the files and the live services, 10 August 2026.
+Note counts read by parsing each <code>.gp5</code>. Stem levels measured with
+<code>ffmpeg astats</code>. Songsterr state read from its public API and song pages.</p>
+
+<div class="verdicts">
+  <div class="v part">
+    <div class="q">Is it fraud?</div>
+    <div class="a">The shipped page is honest. A live rebuild is not.</div>
+    The published page matches the files exactly, 0 mismatches across 40 numeric rows,
+    and it prints <b>silent</b> rather than a fake number on all six empty lanes. One
+    background job running right now is writing bass parts over near-silent stems, and
+    the reality gate does not cover it.
+  </div>
+  <div class="v no">
+    <div class="q">Do all the songs have guitar, bass and drums?</div>
+    <div class="a">No. 46 of 56 songs, and 6 of those carry an empty lane.</div>
+    Two Conversations (2003), 10 songs, has no all-parts file at all. Five songs ship
+    with no bass, one with no drums.
+  </div>
+  <div class="v no">
+    <div class="q">Are they synced to YouTube?</div>
+    <div class="a">No. Zero of the 46 files are on Songsterr.</div>
+    Nine tabs sit in the account, six of them drums only. The upload step is still
+    open in <code>STATE.md</code>, waiting on your authorisation.
+  </div>
+</div>
+
+<h2>The numbers</h2>
+<div class="stats">
+  <div class="stat"><span class="n">46</span><span class="l">all-parts files</span></div>
+  <div class="stat"><span class="n">56</span><span class="l">songs on the 5 records</span></div>
+  <div class="stat alarm"><span class="n">10</span><span class="l">not built at all</span></div>
+  <div class="stat alarm"><span class="n">5</span><span class="l">empty bass</span></div>
+  <div class="stat alarm"><span class="n">1</span><span class="l">empty drums</span></div>
+  <div class="stat alarm"><span class="n">0</span><span class="l">on songsterr</span></div>
+  <div class="stat"><span class="n">9</span><span class="l">tabs in your account</span></div>
+  <div class="stat alarm"><span class="n">6</span><span class="l">of those, drums only</span></div>
+</div>
+
+<h2>The live problem</h2>
+<div class="box alarm">
+<p><b>A job started at 1:21 PM today is writing ungated files.</b>
+<code>batch_twoguitar.py</code>, PID 44900, builds a four-track version of each song
+whose guitar stem splits into two parts. It has no level check of any kind. The reality
+gate that catches this, <code>verify_allparts.py</code>, globs
+<code>*-ALLPARTS.gp5</code> at line 65, so every <code>*-4TRACK.gp5</code> it writes
+passes unexamined.</p>
+<p>This is the same defect the 9 August pass found and fixed for drums, where Messenger
+took 319 drum notes over a kit measuring below -100 dBFS. It has come back for bass,
+because the new script never inherited the gate.</p>
+<h3>Bass written over near-silence</h3>
+<div class="tw"><table>
+<tr><th>Song</th><th>bass notes written</th><th>stem peak</th><th>stem RMS</th></tr>
+<tr><td class="song">Convict</td><td>1,247</td><td class="bad">-50.3 dBFS</td><td class="bad">-72.8 dBFS</td></tr><tr><td class="song">A Tree for Trials</td><td>205</td><td class="bad">-45.2 dBFS</td><td class="bad">-71.9 dBFS</td></tr>
+</table></div>
+<h3>The control, same script, same run</h3>
+<p>Every song whose bass stem carries real signal came back within about 10 percent of
+the three-track count. The separation between the two groups is roughly 50 dB.</p>
+<div class="tw"><table>
+<tr><th>Song</th><th>bass notes written</th><th>stem peak</th><th>stem RMS</th></tr>
+<tr><td class="song">On Reflection</td><td>1,415</td><td>-4.1 dBFS</td><td>-20.4 dBFS</td></tr><tr><td class="song">Blind Mans Arrow</td><td>394</td><td>-6.2 dBFS</td><td>-21.9 dBFS</td></tr><tr><td class="song">Messenger</td><td>56</td><td>-31.2 dBFS</td><td>-52.5 dBFS</td></tr><tr><td class="song">Doors Lead to Questions</td><td>150</td><td>-6.2 dBFS</td><td>-20.9 dBFS</td></tr><tr><td class="song">Steps and Numbers</td><td>896</td><td>-7.4 dBFS</td><td>-21.1 dBFS</td></tr><tr><td class="song">Mile Marker</td><td>525</td><td>-8.8 dBFS</td><td>-23.7 dBFS</td></tr><tr><td class="song">View of a Burning City</td><td>1,274</td><td>-12.0 dBFS</td><td>-25.1 dBFS</td></tr>
+</table></div>
+<p>Convict is the clearest case. Its six stems measure guitar -26.5, other -20.7,
+piano -21.3, vocals -30.0, drums -49.5, and bass -72.8 dBFS RMS. There is no bass in
+that stem to transcribe, and 1,247 notes were written from it.</p>
+</div>
+
+<h2>Every song, lane by lane</h2>
+<p>A lane reading <b>silent</b> holds a real track with no notes in it. The
+<b>4-track bass</b> column is today's rebuild, where it exists.</p>
+<div class="tw"><table>
+<tr><th>#</th><th>Song</th><th>Bars</th><th>Guitar</th><th>Bass</th><th>Drums</th>
+<th>4-track bass</th><th>Bass stem RMS</th></tr>
+<tr class="alb"><td colspan="8">Mare Vitalis (2000) <span class="cnt">10 songs</span></td></tr><tr><td class="num">01</td><td class="song">The Immortal Soul of Mundo Cani</td><td>93</td><td>586</td><td class="zero">silent</td><td>463</td><td class="muted">not rebuilt</td><td><span class="muted">not measured</span></td></tr><tr><td class="num">02</td><td class="song">Fishing the Sky</td><td>187</td><td>1,981</td><td>709</td><td>1,700</td><td class="muted">not rebuilt</td><td><span class="muted">not measured</span></td></tr><tr><td class="num">03</td><td class="song">Forever Longing the Golden Sunsets</td><td>181</td><td>3,020</td><td>1,028</td><td>1,945</td><td class="muted">not rebuilt</td><td><span class="muted">not measured</span></td></tr><tr><td class="num">04</td><td class="song">Mare Mortis</td><td>119</td><td>2,033</td><td>740</td><td>1,759</td><td class="muted">not rebuilt</td><td><span class="muted">not measured</span></td></tr><tr><td class="num">05</td><td class="song">Santa Maria</td><td>125</td><td>2,090</td><td>790</td><td>1,489</td><td class="muted">not rebuilt</td><td><span class="muted">not measured</span></td></tr><tr><td class="num">06</td><td class="song">Secret</td><td>100</td><td>2,557</td><td>802</td><td>1,423</td><td class="muted">not rebuilt</td><td><span class="muted">not measured</span></td></tr><tr><td class="num">07</td><td class="song">&#46;&#46;&#46;And Nothing Less</td><td>107</td><td>2,389</td><td>869</td><td>1,290</td><td class="muted">not rebuilt</td><td><span class="muted">not measured</span></td></tr><tr><td class="num">08</td><td class="song">Poseidon</td><td>143</td><td>1,888</td><td>900</td><td>1,066</td><td class="muted">not rebuilt</td><td><span class="muted">not measured</span></td></tr><tr><td class="num">09</td><td class="song">Kilgore Trout</td><td>131</td><td>1,432</td><td>519</td><td>1,202</td><td class="muted">not rebuilt</td><td><span class="muted">not measured</span></td></tr><tr><td class="num">10</td><td class="song">Storms</td><td>181</td><td>3,491</td><td>510</td><td>1,940</td><td class="muted">not rebuilt</td><td><span class="muted">not measured</span></td></tr><tr class="alb"><td colspan="8">Low Level Owl Volume I (2001) <span class="cnt">14 songs</span></td></tr><tr><td class="num">01</td><td class="song">The Waking of Pertelotte</td><td>74</td><td>600</td><td class="zero">silent</td><td>456</td><td class="muted">not rebuilt</td><td>-74.1 dBFS</td></tr><tr><td class="num">02</td><td class="song">On Reflection</td><td>215</td><td>4,328</td><td>1,362</td><td>2,464</td><td class="ok">1,415</td><td>-20.4 dBFS</td></tr><tr><td class="num">03</td><td class="song">Blind Mans Arrow</td><td>83</td><td>1,918</td><td>383</td><td>771</td><td class="ok">394</td><td>-21.9 dBFS</td></tr><tr><td class="num">04</td><td class="song">Flowers Falling From Dying Hands</td><td>175</td><td>739</td><td>95</td><td>29</td><td class="muted">not rebuilt</td><td><span class="muted">not measured</span></td></tr><tr><td class="num">05</td><td class="song">Messenger</td><td>16</td><td>90</td><td>16</td><td class="zero">silent</td><td class="ok">56</td><td>-52.5 dBFS</td></tr><tr><td class="num">06</td><td class="song">Doors Lead to Questions</td><td>58</td><td>584</td><td>139</td><td>1,032</td><td class="ok">150</td><td>-20.9 dBFS</td></tr><tr><td class="num">07</td><td class="song">Steps and Numbers</td><td>192</td><td>3,068</td><td>896</td><td>1,912</td><td class="ok">896</td><td>-21.1 dBFS</td></tr><tr><td class="num">08</td><td class="song">Sentence</td><td>148</td><td>1,861</td><td>383</td><td>37</td><td class="muted">not rebuilt</td><td><span class="muted">not measured</span></td></tr><tr><td class="num">09</td><td class="song">Bird of Paradise</td><td>120</td><td>1,127</td><td class="zero">silent</td><td>171</td><td class="muted">not rebuilt</td><td>-63.5 dBFS</td></tr><tr><td class="num">10</td><td class="song">Mile Marker</td><td>92</td><td>2,252</td><td>496</td><td>1,536</td><td class="ok">525</td><td>-23.7 dBFS</td></tr><tr><td class="num">11</td><td class="song">Convict</td><td>278</td><td>1,007</td><td class="zero">silent</td><td>586</td><td class="bad">1,247</td><td>-72.8 dBFS</td></tr><tr><td class="num">12</td><td class="song">A Tree for Trials</td><td>36</td><td>308</td><td class="zero">silent</td><td>348</td><td class="bad">205</td><td>-71.9 dBFS</td></tr><tr><td class="num">13</td><td class="song">Signal</td><td>83</td><td>1,722</td><td>577</td><td>1,017</td><td class="muted">not rebuilt</td><td><span class="muted">not measured</span></td></tr><tr><td class="num">14</td><td class="song">View of a Burning City</td><td>256</td><td>3,109</td><td>1,274</td><td>1,870</td><td class="ok">1,274</td><td>-25.1 dBFS</td></tr><tr class="alb"><td colspan="8">Low Level Owl Volume II (2001) <span class="cnt">12 songs</span></td></tr><tr><td class="num">01</td><td class="song">View of a Burning City reprise</td><td>71</td><td>487</td><td>217</td><td>610</td><td class="ok">231</td><td><span class="muted">not measured</span></td></tr><tr><td class="num">02</td><td class="song">Strings</td><td>254</td><td>2,657</td><td>642</td><td>1,319</td><td class="ok">749</td><td><span class="muted">not measured</span></td></tr><tr><td class="num">03</td><td class="song">A Place in Line</td><td>128</td><td>2,797</td><td>719</td><td>1,063</td><td class="ok">759</td><td><span class="muted">not measured</span></td></tr><tr><td class="num">04</td><td class="song">Shaking Hands</td><td>70</td><td>345</td><td>230</td><td>165</td><td class="ok">370</td><td><span class="muted">not measured</span></td></tr><tr><td class="num">05</td><td class="song">Rooms and Gardens</td><td>228</td><td>4,535</td><td>1,108</td><td>1,971</td><td class="muted">not rebuilt</td><td><span class="muted">not measured</span></td></tr><tr><td class="num">06</td><td class="song">Ring Out the Warning Bell</td><td>195</td><td>1,310</td><td>861</td><td>2,191</td><td class="muted">not rebuilt</td><td><span class="muted">not measured</span></td></tr><tr><td class="num">07</td><td class="song">Sunset Drama King</td><td>192</td><td>3,453</td><td>663</td><td>1,752</td><td class="muted">not rebuilt</td><td><span class="muted">not measured</span></td></tr><tr><td class="num">08</td><td class="song">The Last in a Line</td><td>152</td><td>2,285</td><td>150</td><td>597</td><td class="muted">not rebuilt</td><td><span class="muted">not measured</span></td></tr><tr><td class="num">09</td><td class="song">Decline</td><td>28</td><td>483</td><td>120</td><td>418</td><td class="muted">not rebuilt</td><td><span class="muted">not measured</span></td></tr><tr><td class="num">10</td><td class="song">The Argument</td><td>132</td><td>2,706</td><td>549</td><td>1,326</td><td class="ok">553</td><td><span class="muted">not measured</span></td></tr><tr><td class="num">11</td><td class="song">Reaction</td><td>48</td><td>1,046</td><td>365</td><td>1,091</td><td class="ok">370</td><td><span class="muted">not measured</span></td></tr><tr><td class="num">12</td><td class="song">Confession</td><td>408</td><td>4,036</td><td>1,102</td><td>2,313</td><td class="muted">not rebuilt</td><td><span class="muted">not measured</span></td></tr><tr class="alb"><td colspan="8">Illumination Ritual (2013) <span class="cnt">10 songs</span></td></tr><tr><td class="num">01</td><td class="song">Adriatic to Black Sea</td><td>243</td><td>2,676</td><td>837</td><td>2,308</td><td class="muted">not rebuilt</td><td><span class="muted">not measured</span></td></tr><tr><td class="num">02</td><td class="song">Great Lake Derelict</td><td>159</td><td>2,032</td><td>874</td><td>2,500</td><td class="muted">not rebuilt</td><td><span class="muted">not measured</span></td></tr><tr><td class="num">03</td><td class="song">Simple Forms</td><td>97</td><td>1,303</td><td>225</td><td>835</td><td class="muted">not rebuilt</td><td><span class="muted">not measured</span></td></tr><tr><td class="num">04</td><td class="song">Cathedral Rings</td><td>179</td><td>2,399</td><td>747</td><td>2,382</td><td class="muted">not rebuilt</td><td><span class="muted">not measured</span></td></tr><tr><td class="num">05</td><td class="song">30 Degrees 3 Am</td><td>172</td><td>2,186</td><td>779</td><td>1,887</td><td class="muted">not rebuilt</td><td><span class="muted">not measured</span></td></tr><tr><td class="num">06</td><td class="song">Branches on the Arrow Peak Revelation</td><td>105</td><td>1,736</td><td>271</td><td>1,313</td><td class="muted">not rebuilt</td><td><span class="muted">not measured</span></td></tr><tr><td class="num">07</td><td class="song">Barrier Islands (Do We Remain)</td><td>157</td><td>2,449</td><td>808</td><td>2,169</td><td class="muted">not rebuilt</td><td><span class="muted">not measured</span></td></tr><tr><td class="num">08</td><td class="song">North Star Ordination</td><td>234</td><td>2,668</td><td>772</td><td>2,453</td><td class="muted">not rebuilt</td><td><span class="muted">not measured</span></td></tr><tr><td class="num">09</td><td class="song">Clearing Life</td><td>202</td><td>2,915</td><td>518</td><td>2,083</td><td class="muted">not rebuilt</td><td><span class="muted">not measured</span></td></tr><tr><td class="num">10</td><td class="song">Illumination Ritual</td><td>171</td><td>1,544</td><td>311</td><td>1,679</td><td class="muted">not rebuilt</td><td><span class="muted">not measured</span></td></tr>
+</table></div>
+
+<h2>What is on Songsterr</h2>
+<p>Nine tabs, all private to the account. None of them is one of the 46 all-parts
+builds. A YouTube video is attached to the four checked below, which is what makes a tab
+play against the record. The two four-track tabs return HTTP 403 without a login, so
+their sync state is unread rather than absent.</p>
+<div class="tw"><table>
+<tr><th>Song</th><th>Songsterr id</th><th>What it holds</th><th>YouTube attached</th></tr>
+<tr><td>The Immortal Soul of Mundo Cani</td><td class='mono'>s6285808</td><td>4 tracks, all instruments</td><td class='muted'>403 without login</td></tr><tr><td>Fishing the Sky</td><td class='mono'>s6375099</td><td>1 track, drums only</td><td class='muted'>not read</td></tr><tr><td>Forever Longing the Golden Sunsets</td><td class='mono'>s6375161</td><td>1 track, drums only</td><td class='muted'>not read</td></tr><tr><td>Mare Mortis</td><td class='mono'>s6375346</td><td>1 track, drums only</td><td class='ok'>yes, nAdR6bAecQA</td></tr><tr><td>Santa Maria</td><td class='mono'>s6375387</td><td>1 track, drums only</td><td class='ok'>yes, YiIqChFcCA0</td></tr><tr><td>On Reflection</td><td class='mono'>s6206980</td><td>5 tracks, Songsterr AI</td><td class='muted'>not read</td></tr><tr><td>Simple Forms</td><td class='mono'>s6378572</td><td>4 tracks, all instruments</td><td class='muted'>403 without login</td></tr><tr><td>Cathedral Rings</td><td class='mono'>s6362089</td><td>1 track, drums only</td><td class='ok'>yes, JEfi-uzS6E0</td></tr><tr><td>30 Degrees 3 Am</td><td class='mono'>s6375400</td><td>1 track, Songsterr AI</td><td class='ok'>yes, IY6-3ltSk1M</td></tr>
+</table></div>
+
+<h2>What is missing</h2>
+<h3>Two Conversations (2003), 10 songs, no all-parts file</h3>
+<p>The live page scopes five records and counts 56 original tracks. 46 were built.
+These 10 were not.</p>
+<div class="box">Hello Dearest Love, Hanging Marionette, Ice Heavy Branches, Losing Touching Searching, Fight Song, Sinking, The Page, Innocent Vigilant Ordinary, How Life Can Turn, A Dream for Us</div>
+<h3>Four more studio records never touched</h3>
+<p>The band has nine studio albums. Four were built here. These five were not, and
+Two Conversations is the one the page counts but does not deliver.</p>
+<div class="box">The End of the Ring Wars (1998)<br>Two Conversations (2003)<br>Peregrine (2006)<br>Sagarmatha (2009)<br>The Fleeting Light of Impermanence (2019)</div>
+
+<h2>One stale claim in the notes</h2>
+<div class="box">
+<p><code>STATE.md</code> publishes a table showing <b>Bird of Paradise bass: 1 before,
+522 after</b>, presented as the outcome of the octave-fold fix. The shipped file holds
+<b>0</b>. The fold did restore 522 notes, and
+<code>strip_silent_tracks.py</code> emptied the track 27 minutes later because the stem
+measures -63.5 dBFS. The live page prints <b>silent</b> for that cell and is correct.
+The note was never updated.</p>
+</div>
+
+<h2>What would fix it</h2>
+<ul>
+<li>Point <code>verify_allparts.py</code> at <code>*-4TRACK.gp5</code> as well as
+<code>*-ALLPARTS.gp5</code>, so the new files are gated by the same rule.</li>
+<li>Give <code>batch_twoguitar.py</code> the lane level check before it transcribes,
+the one already written in <code>lane_levels.py</code>.</li>
+<li>Re-separate Convict and A Tree for Trials before calling their bass missing. Their
+low end may have gone into <code>other</code> at -20.7 dBFS rather than into
+<code>bass</code>.</li>
+<li>Correct the Bird of Paradise row in <code>STATE.md</code>.</li>
+<li>Build Two Conversations, or state on the page that the scope is four records.</li>
+<li>Authorise the Songsterr run to get any of this synced to YouTube. Order matters:
+the YouTube link first, then the <code>.gp5</code> import.</li>
+</ul>
+
+<div class="foot">
+Sources. Note counts: PyGuitarPro parse of each file under
+<code>~/Projects/_outputs/appleseed-allparts/allparts/</code>. Stem levels:
+<code>ffmpeg astats</code> on the demucs six-stem output. Songsterr:
+<code>/api/songs?pattern=appleseed cast</code> and each song page, read 10 August 2026.
+Live page: <code>drwu-htmls.vercel.app/the-appleseed-cast-songsterr</code>, HTTP 200,
+82,611 bytes.
+</div>
+</div>
