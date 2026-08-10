@@ -1,0 +1,246 @@
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Your Ableton rig: the setup, the three faults, and the Jaco chain</title>
+<style>
+  :root{
+    --cream:#F4EBDC; --paper:#FBF6EC; --ink:#1A1A1A; --rule:#D8C9AE;
+    --red:#A63D40; --mustard:#E9B44C; --teal:#147D8D; --olive:#6B7A4B;
+    --pink:#E6B8B7; --dust:#8C7851;
+  }
+  *{box-sizing:border-box}
+  body{margin:0;background:var(--cream);color:var(--ink);
+    font:16px/1.62 "Iowan Old Style","Palatino Linotype",Palatino,Georgia,serif;}
+  .wrap{max-width:980px;margin:0 auto;padding:0 22px 90px}
+  header{background:var(--red);color:var(--paper);padding:44px 22px 38px}
+  header .inner{max-width:980px;margin:0 auto}
+  h1{font-size:2.15rem;line-height:1.16;margin:0 0 10px;letter-spacing:.2px}
+  .kicker{font-size:.78rem;letter-spacing:.18em;text-transform:uppercase;
+    color:var(--mustard);margin:0 0 14px;font-weight:700}
+  .standfirst{font-size:1.06rem;margin:0;max-width:70ch;color:#F6E7DA}
+  h2{font-size:1.42rem;margin:44px 0 6px;padding-bottom:7px;border-bottom:3px solid var(--rule)}
+  h3{margin:26px 0 6px;color:var(--dust);
+    letter-spacing:.05em;text-transform:uppercase;font-size:.82rem;font-weight:700}
+  p{margin:12px 0;max-width:74ch}
+  b,strong{color:#000}
+  a{color:var(--teal)}
+  .toc{background:var(--paper);border:1px solid var(--rule);border-left:7px solid var(--mustard);
+    padding:18px 22px;margin:30px 0 6px;border-radius:3px}
+  .toc ol{margin:8px 0 0;padding-left:20px;columns:2;column-gap:34px}
+  .toc li{margin:5px 0;break-inside:avoid}
+  .toc a{text-decoration:none}
+  .toc a:hover{text-decoration:underline}
+  .card{background:var(--paper);border:1px solid var(--rule);border-radius:3px;
+    padding:16px 20px;margin:20px 0}
+  .card.red{border-left:7px solid var(--red)}
+  .card.teal{border-left:7px solid var(--teal)}
+  .card.olive{border-left:7px solid var(--olive)}
+  .card.mustard{border-left:7px solid var(--mustard)}
+  .card h4{margin:0 0 6px;font-size:1rem;letter-spacing:.02em}
+  .scroll{overflow-x:auto;-webkit-overflow-scrolling:touch;margin:18px 0}
+  table{border-collapse:collapse;width:100%;min-width:560px;font-size:.93rem;background:var(--paper)}
+  th,td{border:1px solid var(--rule);padding:8px 11px;text-align:left;vertical-align:top}
+  th{background:#EFE3CE;font-size:.76rem;letter-spacing:.09em;text-transform:uppercase}
+  td.num{text-align:right;font-variant-numeric:tabular-nums}
+  tr.hit td{background:#F6EEDC}
+  .tag{display:inline-block;font-size:.7rem;letter-spacing:.09em;text-transform:uppercase;
+    padding:2px 8px;border-radius:2px;font-weight:700;white-space:nowrap}
+  .ok{background:var(--olive);color:#fff}
+  .bad{background:var(--red);color:#fff}
+  .mid{background:var(--mustard);color:#3A2A00}
+  code,.mono{font-family:"SF Mono",Menlo,Consolas,monospace;font-size:.87em;
+    background:#EFE6D4;padding:1px 5px;border-radius:2px}
+  pre{background:#2B2622;color:#F2E8D5;padding:14px 16px;border-radius:3px;
+    overflow-x:auto;font-family:"SF Mono",Menlo,Consolas,monospace;font-size:.83rem;line-height:1.5}
+  pre b{color:var(--mustard)}
+  blockquote{margin:18px 0;padding:12px 20px;border-left:5px solid var(--pink);
+    background:var(--paper);font-size:1.04rem}
+  .foot{margin-top:56px;padding-top:16px;border-top:3px solid var(--rule);
+    font-size:.85rem;color:var(--dust)}
+  .big{font-size:2.6rem;font-weight:700;line-height:1;display:block}
+  .grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(180px,1fr));gap:14px;margin:20px 0}
+  .stat{background:var(--paper);border:1px solid var(--rule);border-top:5px solid var(--teal);
+    padding:14px 16px;border-radius:3px}
+  .stat .lab{font-size:.72rem;letter-spacing:.11em;text-transform:uppercase;color:var(--dust);font-weight:700}
+  ol.steps{max-width:74ch}
+  ol.steps li{margin:10px 0}
+</style>
+
+<header><div class="inner">
+  <p class="kicker">Rig audit &middot; measured 2026-08-10</p>
+  <h1>Your Ableton rig: the setup, the three faults, and the Jaco chain</h1>
+  <p class="standfirst">Everything you own is installed and licensed. One preference is pointed at the wrong folder, one folder was missing, and Waves is installed twice. Here is what is on the disk, what to change, and the fretless bass chain built from the plugins you actually have.</p>
+</div></header>
+
+<div class="wrap">
+
+<div class="toc">
+  <b>On this page</b>
+  <ol>
+    <li><a href="#have">What you actually have</a></li>
+    <li><a href="#faults">The three faults</a></li>
+    <li><a href="#wrong">Two of my notes were wrong</a></li>
+    <li><a href="#fix">The fix, in order</a></li>
+    <li><a href="#jaco">The Jaco fretless chain</a></li>
+    <li><a href="#cannot">What the chain cannot do</a></li>
+    <li><a href="#files">Files</a></li>
+  </ol>
+</div>
+
+<h2 id="have">1. What you actually have</h2>
+
+<div class="grid">
+  <div class="stat"><span class="lab">Live</span><span class="big">11.3.43</span>Suite, 2025-10-06 build</div>
+  <div class="stat"><span class="lab">Waves plugins</span><span class="big">408</span>195 in V12, 213 in V16</div>
+  <div class="stat"><span class="lab">UA plugins</span><span class="big">15</span>all load in Live</div>
+  <div class="stat"><span class="lab">iLok chains</span><span class="big">21</span>every one Authorized</div>
+</div>
+
+<p>Read from the disk and from Live's own scanner log.</p>
+
+<div class="scroll"><table>
+<thead><tr><th>What</th><th>Where</th><th>State</th></tr></thead>
+<tbody>
+<tr><td><b>Ableton Live 11 Suite</b> 11.3.43</td><td><code>/Applications/Ableton Live 11 Suite.app</code></td><td><span class="tag ok">installed</span></td></tr>
+<tr><td>Ableton Live 9 Suite 9.7.5</td><td><code>/Applications/Ableton Live 9 Suite.app</code></td><td><span class="tag mid">legacy</span></td></tr>
+<tr><td><b>Waves V16</b>, 213 plugins</td><td><code>/Applications/Waves/Plug-Ins V16</code></td><td><span class="tag ok">primary</span></td></tr>
+<tr><td><b>Waves V12</b>, 195 plugins</td><td><code>/Applications/Waves/Plug-Ins V12</code></td><td><span class="tag mid">keep, see below</span></td></tr>
+<tr><td>Waves V14 stub, Waves Harmony only</td><td><code>/Applications/Waves/Plug-Ins V14</code></td><td><span class="tag mid">4 items</span></td></tr>
+<tr><td>Waves V15 stub, GTRSolo only</td><td><code>/Applications/Waves/Plug-Ins V15</code></td><td><span class="tag mid">5 items</span></td></tr>
+<tr><td>WaveShells 12.7, 14.19, 15.5, 16.0, 16.7, 16.8</td><td><code>/Library/Audio/Plug-Ins/{Components,VST3}</code></td><td><span class="tag mid">six shells</span></td></tr>
+<tr><td><b>UA SSL E Channel Strip</b></td><td><code>.component</code> + <code>.vst3</code> + <code>.lunacomponent</code></td><td><span class="tag ok">authorized</span></td></tr>
+<tr><td><b>UA SSL G Bus Compressor</b></td><td><code>.component</code> + <code>.vst3</code> + <code>.lunacomponent</code></td><td><span class="tag ok">authorized</span></td></tr>
+<tr><td>UA 175B, 176, Fairchild 660, Fairchild 670</td><td>same three formats</td><td><span class="tag ok">authorized</span></td></tr>
+<tr><td>UA LA-2A, LA-3A, Pultec EQP-1A, MEQ-5, HLF-3C</td><td>same three formats</td><td><span class="tag ok">authorized</span></td></tr>
+<tr><td>UA Lexicon 224, Dream Amp, PolyMAX, Waterfall B3</td><td>same three formats</td><td><span class="tag ok">authorized</span></td></tr>
+<tr><td>MixWave EHX Big Muff, Deluxe Memory Man</td><td><code>.component</code> + <code>.vst3</code></td><td><span class="tag ok">authorized</span></td></tr>
+</tbody>
+</table></div>
+
+<p>The Mercury bass tools are all present in <b>both</b> Waves versions: Bass Rider, RBass, MaxxBass, CLA Bass, JJP-Bass, CLA-76, CLA-2A, Scheps 73, Scheps Omni Channel, Kramer Tape, API-2500, PuigTec, PuigChild, Q10, NLS, Smack Attack, H-Delay, H-Reverb, MV2. V16 adds Voltage Amps Bass, Magma Channel Strip, Torque, Silk Vocal, and 26 others.</p>
+
+<h2 id="faults">2. The three faults</h2>
+
+<div class="card red">
+  <h4>Fault 1. Your VST3 custom folder is pointed at the Audio Units folder <span class="tag bad">fix this</span></h4>
+  <p>Live's scanner log for the last scan reads:</p>
+  <pre>2026-08-08T18:27:07: VST3: scanning plugins in "/Library/Audio/Plug-Ins/VST3" (local)
+2026-08-08T18:27:07: VST3: scanning plugins in <b>"/Library/Audio/Plug-Ins/Components" (custom)</b>
+2026-08-08T18:28:22: VST3: finished scanning plugins</pre>
+  <p>The <code>(custom)</code> line is your <b>VST3 Plug-In Custom Folder</b> preference, and it is set to the Audio Units directory. Live then walks 66 Audio Unit bundles with its VST3 loader, hunting for a VST3 entry point each one lacks. That accounts for most of the <b>75 seconds</b> your VST3 scan takes, against 9 seconds for VST2.</p>
+</div>
+
+<div class="card mustard">
+  <h4>Fault 2. Your user VST3 folder did not exist <span class="tag ok">already fixed</span></h4>
+  <p>Every scan since at least 2026-07-12 threw <code>error: Reading directory failed: No such file or directory</code> on <code>~/Library/Audio/Plug-Ins/VST3</code>. That is <b>84 logged errors</b> across the log. I created the folder, so the next scan comes back clean.</p>
+</div>
+
+<div class="card mustard">
+  <h4>Fault 3. Waves is installed twice, 183 plugins deep <span class="tag mid">manage, do not delete</span></h4>
+  <p>V12 holds 195 plugin bundles and V16 holds 213. <b>183 of them are the same plugin in both versions</b>, with a WaveShell installed for each. Only 12 plugins are V12-only, and those 12 are the ones worth keeping V12 for:</p>
+  <p><b>Abbey Road Chambers, Abbey Road Saturator, Abbey Road Vinyl, J37, TG12345, REDD17, REDD37-51, RS56, Reel ADT, ARPlates, KingsMic, OVox.</b></p>
+  <p>Keep both versions installed. Treat <b>V16 as the version you reach for</b>, and go to V12 only for that list of 12. The V14 and V15 folders are orphan stubs holding one plugin each, and their shells still get scanned.</p>
+</div>
+
+<h2 id="wrong">3. Two of my notes were wrong</h2>
+
+<p>Both were steering you away from gear you own and can use today. Correcting them here.</p>
+
+<div class="scroll"><table>
+<thead><tr><th>Note on file</th><th>What it claimed</th><th>Measured today</th></tr></thead>
+<tbody>
+<tr class="hit"><td><code>reference_uad_luna_only</code></td><td>All Universal Audio plugins are <code>.lunacomponent</code> and load only in Luna, never Ableton. "Plan tone work accordingly."</td><td><b>False.</b> All 15 UA plugins are installed three ways: <code>.component</code>, <code>.vst3</code>, and <code>.lunacomponent</code>. The AU and VST3 copies load in Live 11 like any other plugin.</td></tr>
+<tr class="hit"><td><code>project_mixwave_78_dollars_undelivered</code></td><td>The $78 MixWave EHX purchase was delivered but not activated.</td><td><b>Now activated.</b> <code>iloktool auths</code> reports EHX Big Muff and EHX Deluxe Memory Man as Authorized, along with all 21 chains.</td></tr>
+</tbody>
+</table></div>
+
+<p>One consequence matters for the bass work: the <b>UA SSL E Channel Strip and SSL G Bus Compressor are available to you inside Ableton right now</b>, and they are the best channel strip and the best bus compressor on your disk.</p>
+
+<h2 id="fix">4. The fix, in order</h2>
+
+<ol class="steps">
+  <li><b>Clear the VST3 custom folder.</b> Live &rarr; Settings &rarr; Plug-Ins &rarr; <b>VST3 Plug-In Custom Folder</b>. It currently resolves to <code>/Library/Audio/Plug-Ins/Components</code>. Clear it, or point it at <code>/Library/Audio/Plug-Ins/VST3</code>. Leave <b>Use Audio Units</b> on, since that is what actually loads your UA and Waves AU copies.</li>
+  <li><b>Rescan.</b> Same panel, click <b>Rescan</b> with the option key held to force a full rebuild. Expect the VST3 pass to drop well under the current 75 seconds.</li>
+  <li><b>Pick one Waves version per plugin.</b> In Live's browser the Waves entries carry their version. Use <b>V16</b> for everything except the 12 Abbey Road and vintage-console plugins listed above.</li>
+  <li><b>Fill the empty rack.</b> <code>Fretless.adg</code> in your User Library is 4,150 bytes and contains a rack shell with no devices in it, saved 2025-11-26. That is the container for the chain below.</li>
+  <li><b>Save the result</b> back over <code>Fretless.adg</code> once the chain is dialed, so it is one drag from any bass track.</li>
+</ol>
+
+<h2 id="jaco">5. The Jaco fretless chain</h2>
+
+<p>Built only from plugins confirmed present and licensed on your disk. The reference is the recorded rig: a 1962 Fender Jazz fretless with the fingerboard epoxied, Rotosound roundwounds, the bridge pickup carrying most of the signal, into an Acoustic 360 preamp and 361 cabinet.</p>
+
+<div class="scroll"><table>
+<thead><tr><th>#</th><th>Stage</th><th>Plugin</th><th>Settings</th><th>Why</th></tr></thead>
+<tbody>
+<tr>
+  <td class="num">1</td><td>Level ride</td><td><b>Bass Rider</b> (V16)</td>
+  <td>Default, target around -12 dB</td>
+  <td>The note-to-note spread runs from harmonic whispers to hard 16ths. Ride it first so the compressor shapes tone rather than level.</td>
+</tr>
+<tr>
+  <td class="num">2</td><td>Console preamp</td><td><b>Scheps 73</b> (V16)</td>
+  <td>Low shelf 110 Hz, cut 2 dB. Mid bell <b>700 Hz, push 3 to 4 dB</b>. High shelf 10 kHz, push 2 dB.</td>
+  <td>The 700 Hz push is the bark. The 10 kHz shelf is the roundwound zing and the bloom on harmonics.</td>
+</tr>
+<tr class="hit">
+  <td class="num">3</td><td>Compression</td><td><b>CLA-76</b> (V16)</td>
+  <td>Ratio 4:1, attack dial 3 to 4, <b>release 6 to 7</b>, 4 to 6 dB gain reduction</td>
+  <td>The 1176 is the compressor on this sound. A slowish attack lets the finger transient through, and the fast release is what sustains the mwah instead of clamping it.</td>
+</tr>
+<tr class="hit">
+  <td class="num">4</td><td>Channel strip</td><td><b>UA SSL E Channel Strip</b></td>
+  <td>High pass 40 Hz. Dip <b>250 to 300 Hz</b> by 2 to 3 dB, narrow. Mid bell 800 Hz, small push.</td>
+  <td>The E-series carve. The 250 Hz dip removes the boxiness that the 700 Hz push exposes, and keeps the growl clear of the low end.</td>
+</tr>
+<tr>
+  <td class="num">5</td><td>Saturation</td><td><b>Kramer Tape</b> (V16)</td>
+  <td>Drive up to just before the 100 to 400 Hz band thickens</td>
+  <td>Quarter inch tape, standing in for the Acoustic 360 preamp and the tape master.</td>
+</tr>
+<tr>
+  <td class="num">6</td><td>Sub, optional</td><td><b>RBass</b> (V16)</td>
+  <td>Low band only, leave out above the 5th fret</td>
+  <td>Generates fundamental harmonics so the low E reads on small speakers.</td>
+</tr>
+<tr>
+  <td class="num">7</td><td>Bus</td><td><b>UA SSL G Bus Compressor</b></td>
+  <td>Ratio 4:1, attack 30 ms, auto release, <b>2 dB gain reduction</b></td>
+  <td>Glue on the bass bus or the mix bus. Two dB is the whole job.</td>
+</tr>
+</tbody>
+</table></div>
+
+<h3>Space</h3>
+<p>Keep it close to dry. On a send, use <b>Abbey Road Chambers</b> from V12 for a real chamber, or the <b>UA Lexicon 224</b> for a longer digital tail. The 224 is a 1978 unit, so it is later than the 1976 sessions if period accuracy matters to you.</p>
+
+<h3>Dirt</h3>
+<p>The Acoustic 360 had a fuzz circuit built into the preamp. Your closest match is the <b>MixWave EHX Big Muff</b>, now licensed. Run it on a parallel chain at low blend rather than in series.</p>
+
+<h2 id="cannot">6. What the chain cannot do</h2>
+
+<blockquote>No plugin makes a fretted bass sound fretless.</blockquote>
+
+<p>The mwah is a physical event. It comes from the string sliding on an epoxy-coated fingerboard with no fret to stop it, plus left-hand pressure and slide speed. The chain above shapes a tone that is already fretless. Applied to a fretted DI it gives you the midrange bark and the tape warmth, and the glide is still missing.</p>
+
+<p>Three things carry more of this sound than any of the seven stages: <b>play the bridge pickup</b>, <b>use roundwounds</b>, and <b>let notes ring into each other</b> so the harmonics stack.</p>
+
+<h2 id="files">7. Files</h2>
+
+<div class="scroll"><table>
+<thead><tr><th>File</th><th>What it is</th></tr></thead>
+<tbody>
+<tr><td><code>~/Projects/_outputs/waves-mercury-mixer/jaco-rig/Jaco_Fretless_Bass.mix_plan.md</code></td><td>The chain spec with plugin IDs and per-slot dial notes.</td></tr>
+<tr><td><code>~/Projects/_outputs/waves-mercury-mixer/jaco-rig/Jaco_Fretless_Bass.xps</code></td><td>A StudioRack chain that loads in Live, carrying the builder's <b>template slots</b> rather than the Jaco slots. Use it as the container and drag the seven plugins in. The generator's slot-splicing is still manual at v1.</td></tr>
+<tr><td><code>~/Music/Ableton/User Library/Presets/Audio Effects/Audio Effect Rack/Fretless.adg</code></td><td>Your empty rack shell, 4,150 bytes, saved 2025-11-26. Fill and re-save.</td></tr>
+</tbody>
+</table></div>
+
+<p class="foot">
+Measured 2026-08-10 from <code>/Applications</code>, <code>/Library/Audio/Plug-Ins</code>, <code>iloktool auths</code>, and
+<code>~/Library/Preferences/Ableton/Live 11.3.43/PluginScanner.txt</code>.
+Related: <a href="../jaco-hejira-bass/">Jaco on Hejira, the four bass parts</a> &middot;
+<a href="../hejira-bass-harmonics/">Hejira bass harmonics</a> &middot;
+<a href="../mixwave-ehx-activation-fix/">MixWave EHX activation</a>
+</p>
+
+</div>
