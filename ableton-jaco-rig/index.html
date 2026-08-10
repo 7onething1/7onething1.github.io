@@ -78,8 +78,8 @@
   <ol>
     <li><a href="#have">What you actually have</a></li>
     <li><a href="#faults">The three faults</a></li>
-    <li><a href="#wrong">Two of my notes were wrong</a></li>
-    <li><a href="#fix">The fix, in order</a></li>
+    <li><a href="#wrong">Four corrections</a></li>
+    <li><a href="#fix">What I changed, what is open</a></li>
     <li><a href="#jaco">The Jaco fretless chain</a></li>
     <li><a href="#cannot">What the chain cannot do</a></li>
     <li><a href="#files">Files</a></li>
@@ -174,19 +174,32 @@
 
 <p>One consequence matters for the bass work: the <b>UA SSL E Channel Strip and SSL G Bus Compressor are available to you inside Ableton right now</b>, and they are the best channel strip and the best bus compressor on your disk.</p>
 
-<h2 id="fix">4. The fix, in order</h2>
+<h2 id="fix">4. What I changed, and what is still open</h2>
 
-<ol class="steps">
-  <li><b>Clear the VST3 custom folder.</b> Live &rarr; Settings &rarr; Plug-Ins &rarr; <b>VST3 Plug-In Custom Folder</b>. It currently resolves to <code>/Library/Audio/Plug-Ins/Components</code>. Clear it, or point it at <code>/Library/Audio/Plug-Ins/VST3</code>. Leave <b>Use Audio Units</b> on, since that is what actually loads your UA and Waves AU copies.</li>
-  <li><b>Rescan.</b> Same panel, click <b>Rescan</b> with the option key held to force a full rebuild. Expect the VST3 pass to drop well under the current 75 seconds.</li>
-  <li><b>Pick one Waves version per plugin.</b> In Live's browser the Waves entries carry their version. Use <b>V16</b> for everything except the 12 Abbey Road and vintage-console plugins listed above.</li>
-  <li><b>Fill the empty rack.</b> <code>Fretless.adg</code> in your User Library is 4,150 bytes and contains a rack shell with no devices in it, saved 2025-11-26. That is the container for the chain below.</li>
-  <li><b>Save the result</b> back over <code>Fretless.adg</code> once the chain is dialed, so it is one drag from any bass track.</li>
-</ol>
+<div class="scroll"><table>
+<thead><tr><th>Item</th><th>State</th><th>Evidence</th></tr></thead>
+<tbody>
+<tr><td>VST3 custom folder repointed</td><td><span class="tag ok">done</span></td><td>Path patched in <code>Preferences.cfg</code>, survived a full Live launch and quit. Old path absent, new path present.</td></tr>
+<tr><td>User VST3 and VST folders created</td><td><span class="tag ok">done</span></td><td><code>~/Library/Audio/Plug-Ins/VST3</code> and <code>/VST</code> now exist. Zero directory errors in the new scan.</td></tr>
+<tr><td>Clean rescan run and measured</td><td><span class="tag ok">done</span></td><td>Live launched, scanned, quit cleanly. 83.65 s to 3.50 s.</td></tr>
+<tr><td>Preferences backed up first</td><td><span class="tag ok">done</span></td><td><code>~/Library/Preferences/Ableton/_backup_11.3.43_2026-08-10/</code></td></tr>
+<tr><td>Trim the orphan V14 and V15 shells</td><td><span class="tag mid">needs your password</span></td><td><code>/Library/Audio/Plug-Ins</code> is <code>root:wheel</code>. Low value now that the scan runs in 3.5 s.</td></tr>
+<tr><td>Build the 7-stage chain into <code>Fretless.adg</code></td><td><span class="tag bad">not done</span></td><td>See below.</td></tr>
+</tbody>
+</table></div>
+
+<div class="card red">
+  <h4>The one thing I did not do, and why</h4>
+  <p>Writing the seven plugins into <code>Fretless.adg</code> programmatically means synthesizing a <code>&lt;Vst3Preset&gt;</code> block per plugin: a 4-field <code>Uid</code> plus a <code>ProcessorState</code> hex blob carrying that plugin's full parameter set. I have exactly one working example to pattern from, the CLA Bass block already in your file.</p>
+  <p>This is the failure mode that burned roughly <b>$200 of tokens across three rack-cloner rebuilds</b> in May, and the rack-builder skill carries a standing rule against hand-rolling it. Building it blind would most likely hand you a rack that fails to load, which is worse than the rack you have.</p>
+  <p><b>What your file already is:</b> a rack with <b>Waves CLA Bass on the "Scoop" factory preset</b> and 26 parameters wired to macros. That is stage 1 of a fretless chain already in place. Adding stages 2 through 7 is a drag-and-drop job in Live against the table below, and it takes a few minutes.</p>
+</div>
 
 <h2 id="jaco">5. The Jaco fretless chain</h2>
 
 <p>Built only from plugins confirmed present and licensed on your disk. The reference is the recorded rig: a 1962 Fender Jazz fretless with the fingerboard epoxied, Rotosound roundwounds, the bridge pickup carrying most of the signal, into an Acoustic 360 preamp and 361 cabinet.</p>
+
+<p><b>You are already one stage in.</b> <code>Fretless.adg</code> holds <b>Waves CLA Bass on "Scoop"</b>, which is a scooped-mid voicing. That fights stage 2 below, since the whole Jaco character sits in the mids that a scoop removes. Either move CLA Bass to the end of the chain as a flavour stage, or switch it off while you dial stages 2 through 4 and judge whether it earns its place afterwards.</p>
 
 <div class="scroll"><table>
 <thead><tr><th>#</th><th>Stage</th><th>Plugin</th><th>Settings</th><th>Why</th></tr></thead>
@@ -250,7 +263,8 @@
 <tbody>
 <tr><td><code>~/Projects/_outputs/waves-mercury-mixer/jaco-rig/Jaco_Fretless_Bass.mix_plan.md</code></td><td>The chain spec with plugin IDs and per-slot dial notes.</td></tr>
 <tr><td><code>~/Projects/_outputs/waves-mercury-mixer/jaco-rig/Jaco_Fretless_Bass.xps</code></td><td>A StudioRack chain that loads in Live, carrying the builder's <b>template slots</b> rather than the Jaco slots. Use it as the container and drag the seven plugins in. The generator's slot-splicing is still manual at v1.</td></tr>
-<tr><td><code>~/Music/Ableton/User Library/Presets/Audio Effects/Audio Effect Rack/Fretless.adg</code></td><td>Your empty rack shell, 4,150 bytes, saved 2025-11-26. Fill and re-save.</td></tr>
+<tr><td><code>~/Music/Ableton/User Library/Presets/Audio Effects/Audio Effect Rack/Fretless.adg</code></td><td>Your existing rack, holding <b>Waves CLA Bass on the "Scoop" preset</b> with 26 parameters on macros. Add stages 2 through 7 to it.</td></tr>
+<tr><td><code>~/Library/Preferences/Ableton/_backup_11.3.43_2026-08-10/</code></td><td>Backup of <code>Preferences.cfg</code> and <code>PluginScanner.txt</code> taken before the patch. Restore from here if anything in Live looks wrong.</td></tr>
 </tbody>
 </table></div>
 

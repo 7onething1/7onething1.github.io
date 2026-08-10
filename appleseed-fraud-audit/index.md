@@ -34,8 +34,8 @@ tracks to 1.
 
 1. `/new`, tick the instrument, paste the YouTube link, click **Transcribe tab with AI**.
    Songsterr's AI writes every instrument from that audio, the vocal line included, as a
-   Tenor Sax track. About 8 minutes per song.
-2. Download the AI `.gp5`. It carries the vocal, which nothing local can produce.
+   Tenor Sax track, and it takes about 8 minutes per song.
+2. Download the AI `.gp5`, which carries the vocal that nothing local can produce.
 3. Swap in the stem-built 2 guitars, bass and corrected drums, keeping every other track
    byte for byte.
 4. Import the merged file. `importRevisionInput` replaces the whole tab, so it must carry
