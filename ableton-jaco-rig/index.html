@@ -139,7 +139,7 @@
 2026-08-08T18:27:07: VST3: scanning plugins in <b>"/Library/Audio/Plug-Ins/Components" (custom)</b>
 2026-08-08T18:28:22: VST3: finished scanning plugins   <b>74.68 s</b></pre>
   <p>What that custom pass found: <b>9 Arturia plugins</b> whose installer nests a VST3 binary inside the Audio Unit bundle at <code>Contents/Resources/plugin.vst3</code>. ARP 2600 V3, DX7 V, Jun-6 V, Jup-8 V4, Mellotron V, Modular V3, OB-Xa V, Prophet V3, Wurli V2.</p>
-  <p><b>All nine already exist as standalone <code>.vst3</code> files</b> in <code>/Library/Audio/Plug-Ins/VST3</code>, which Live scans anyway on the line above. The custom pass contributed <b>zero unique plugins</b> and scanned all nine a second time.</p>
+  <p><b>All nine also exist as standalone <code>.vst3</code> files</b> in <code>/Library/Audio/Plug-Ins/VST3</code>, which Live scans anyway on the line above. The custom pass contributed <b>zero unique plugins</b> and scanned all nine a second time.</p>
   <p><b>What I did.</b> Live keeps that path in <code>Preferences.cfg</code> as a UTF-16LE string behind a 4-byte length prefix, which is why it never showed up in a plain text search. I backed the file up, then repointed it to <code>/Users/drwu/Library/Audio/Plug-Ins</code>. That is exactly the same 34 characters, so the patch went in byte for byte with no structural change and no size change. The folder holds four empty subfolders and nothing to scan.</p>
   <pre>2026-08-10T14:13:53: VST3: scanning plugins in <b>"/Users/drwu/Library/Audio/Plug-Ins" (custom)</b>
 2026-08-10T14:13:55: VST3: finished scanning plugins   <b>2.23 s</b></pre>
@@ -190,16 +190,16 @@
 
 <div class="card red">
   <h4>The one thing I did not do, and why</h4>
-  <p>Writing the seven plugins into <code>Fretless.adg</code> programmatically means synthesizing a <code>&lt;Vst3Preset&gt;</code> block per plugin: a 4-field <code>Uid</code> plus a <code>ProcessorState</code> hex blob carrying that plugin's full parameter set. I have exactly one working example to pattern from, the CLA Bass block already in your file.</p>
+  <p>Writing the seven plugins into <code>Fretless.adg</code> programmatically means synthesizing a <code>&lt;Vst3Preset&gt;</code> block per plugin: a 4-field <code>Uid</code> plus a <code>ProcessorState</code> hex blob carrying that plugin's full parameter set. I have exactly one working example to pattern from, the CLA Bass block that your file contains.</p>
   <p>This is the failure mode that burned roughly <b>$200 of tokens across three rack-cloner rebuilds</b> in May, and the rack-builder skill carries a standing rule against hand-rolling it. Building it blind would most likely hand you a rack that fails to load, which is worse than the rack you have.</p>
-  <p><b>What your file already is:</b> a rack with <b>Waves CLA Bass on the "Scoop" factory preset</b> and 26 parameters wired to macros. That is stage 1 of a fretless chain already in place. Adding stages 2 through 7 is a drag-and-drop job in Live against the table below, and it takes a few minutes.</p>
+  <p><b>What your file contains:</b> a rack with <b>Waves CLA Bass on the "Scoop" factory preset</b> and 26 parameters wired to macros. That is stage 1 of a fretless chain in place. Adding stages 2 through 7 is a drag-and-drop job in Live against the table below, and it takes a few minutes.</p>
 </div>
 
 <h2 id="jaco">5. The Jaco fretless chain</h2>
 
 <p>Built only from plugins confirmed present and licensed on your disk. The reference is the recorded rig: a 1962 Fender Jazz fretless with the fingerboard epoxied, Rotosound roundwounds, the bridge pickup carrying most of the signal, into an Acoustic 360 preamp and 361 cabinet.</p>
 
-<p><b>You are already one stage in.</b> <code>Fretless.adg</code> holds <b>Waves CLA Bass on "Scoop"</b>, which is a scooped-mid voicing. That fights stage 2 below, since the whole Jaco character sits in the mids that a scoop removes. Either move CLA Bass to the end of the chain as a flavour stage, or switch it off while you dial stages 2 through 4 and judge whether it earns its place afterwards.</p>
+<p><b>You are one stage in.</b> <code>Fretless.adg</code> holds <b>Waves CLA Bass on "Scoop"</b>, which is a scooped-mid voicing. That fights stage 2 below, since the whole Jaco character comes from the mids that a scoop removes. Either move CLA Bass to the end of the chain as a flavour stage, or switch it off while you dial stages 2 through 4 and judge whether it earns its place afterwards.</p>
 
 <div class="scroll"><table>
 <thead><tr><th>#</th><th>Stage</th><th>Plugin</th><th>Settings</th><th>Why</th></tr></thead>
@@ -252,7 +252,7 @@
 
 <blockquote>No plugin makes a fretted bass sound fretless.</blockquote>
 
-<p>The mwah is a physical event. It comes from the string sliding on an epoxy-coated fingerboard with no fret to stop it, plus left-hand pressure and slide speed. The chain above shapes a tone that is already fretless. Applied to a fretted DI it gives you the midrange bark and the tape warmth, and the glide is still missing.</p>
+<p>The mwah is a physical event. It comes from the string sliding on an epoxy-coated fingerboard with no fret to stop it, plus left-hand pressure and slide speed. The chain above shapes a tone that is fretless to begin with. Applied to a fretted DI it gives you the midrange bark and the tape warmth, and the glide is still missing.</p>
 
 <p>Three things carry more of this sound than any of the seven stages: <b>play the bridge pickup</b>, <b>use roundwounds</b>, and <b>let notes ring into each other</b> so the harmonics stack.</p>
 

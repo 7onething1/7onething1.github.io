@@ -54,7 +54,7 @@ What that custom pass found: 9 Arturia plugins whose installer nests a VST3 bina
 Unit bundle at `Contents/Resources/plugin.vst3`. ARP 2600 V3, DX7 V, Jun-6 V, Jup-8 V4, Mellotron V,
 Modular V3, OB-Xa V, Prophet V3, Wurli V2.
 
-All nine already exist as standalone `.vst3` files in `/Library/Audio/Plug-Ins/VST3`, which Live
+All nine also exist as standalone `.vst3` files in `/Library/Audio/Plug-Ins/VST3`, which Live
 scans anyway on the line above. The custom pass contributed zero unique plugins and scanned all
 nine a second time.
 
@@ -112,15 +112,15 @@ inside Ableton right now.
 
 Writing the seven plugins into `Fretless.adg` programmatically means synthesizing a `<Vst3Preset>`
 block per plugin: a 4-field `Uid` plus a `ProcessorState` hex blob carrying that plugin's full
-parameter set. I have exactly one working example to pattern from, the CLA Bass block already in
-your file.
+parameter set. I have exactly one working example to pattern from, the CLA Bass block that your
+file contains.
 
 This is the failure mode that burned roughly $200 of tokens across three rack-cloner rebuilds in
 May, and the rack-builder skill carries a standing rule against hand-rolling it. Building it blind
 would most likely hand you a rack that fails to load, which is worse than the rack you have.
 
-What your file already is: a rack with Waves CLA Bass on the "Scoop" factory preset and 26
-parameters wired to macros. That is stage 1 of a fretless chain already in place. Adding stages 2
+What your file contains: a rack with Waves CLA Bass on the "Scoop" factory preset and 26
+parameters wired to macros. That is stage 1 of a fretless chain in place. Adding stages 2
 through 7 is a drag-and-drop job in Live against the table below.
 
 ## 5. The Jaco fretless chain
@@ -128,8 +128,8 @@ through 7 is a drag-and-drop job in Live against the table below.
 Reference rig: 1962 Fender Jazz fretless, fingerboard epoxied, Rotosound roundwounds, bridge
 pickup carrying most of the signal, into an Acoustic 360 preamp and 361 cabinet.
 
-You are already one stage in. `Fretless.adg` holds Waves CLA Bass on "Scoop", which is a
-scooped-mid voicing. That fights stage 2 below, since the whole Jaco character sits in the mids
+You are one stage in. `Fretless.adg` holds Waves CLA Bass on "Scoop", which is a
+scooped-mid voicing. That fights stage 2 below, since the whole Jaco character comes from the mids
 that a scoop removes. Either move CLA Bass to the end of the chain as a flavour stage, or switch it
 off while you dial stages 2 through 4 and judge whether it earns its place afterwards.
 
@@ -153,7 +153,7 @@ now licensed. Run it parallel at low blend rather than in series.
 
 No plugin makes a fretted bass sound fretless. The mwah is physical, a string sliding on an
 epoxy-coated fingerboard with no fret to stop it, plus left-hand pressure and slide speed. The
-chain shapes a tone that is already fretless. On a fretted DI it gives midrange bark and tape
+chain shapes a tone that is fretless to begin with. On a fretted DI it gives midrange bark and tape
 warmth, and the glide is still missing.
 
 Three things carry more of this sound than any of the seven stages: play the bridge pickup, use
