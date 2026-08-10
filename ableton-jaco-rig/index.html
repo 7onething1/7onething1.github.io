@@ -66,9 +66,9 @@
 </style>
 
 <header><div class="inner">
-  <p class="kicker">Rig audit &middot; measured 2026-08-10</p>
+  <p class="kicker">Rig audit &middot; measured and repaired 2026-08-10</p>
   <h1>Your Ableton rig: the setup, the three faults, and the Jaco chain</h1>
-  <p class="standfirst">Everything you own is installed and licensed. One preference is pointed at the wrong folder, one folder was missing, and Waves is installed twice. Here is what is on the disk, what to change, and the fretless bass chain built from the plugins you actually have.</p>
+  <p class="standfirst">Everything you own is installed and licensed. Two of the three faults are now fixed and measured: your plugin scan dropped from <b>83.65 seconds to 3.50 seconds</b>. Here is what is on the disk, what I changed, what I got wrong on the first pass, and the fretless bass chain built from the plugins you actually have.</p>
 </div></header>
 
 <div class="wrap">
@@ -93,6 +93,18 @@
   <div class="stat"><span class="lab">Waves plugins</span><span class="big">408</span>195 in V12, 213 in V16</div>
   <div class="stat"><span class="lab">UA plugins</span><span class="big">15</span>all load in Live</div>
   <div class="stat"><span class="lab">iLok chains</span><span class="big">21</span>every one Authorized</div>
+</div>
+
+<div class="card olive">
+  <h4>Scan time, before and after the repair <span class="tag ok">measured</span></h4>
+  <div class="scroll"><table>
+  <thead><tr><th>Pass</th><th class="num">Before</th><th class="num">After</th><th class="num">Change</th></tr></thead>
+  <tbody>
+  <tr><td>VST3</td><td class="num">74.68 s</td><td class="num">2.23 s</td><td class="num"><b>97% faster</b></td></tr>
+  <tr><td>VST2</td><td class="num">8.97 s</td><td class="num">1.28 s</td><td class="num">86% faster</td></tr>
+  <tr class="hit"><td><b>Total</b></td><td class="num"><b>83.65 s</b></td><td class="num"><b>3.50 s</b></td><td class="num"><b>96% faster</b></td></tr>
+  </tbody></table></div>
+  <p>Both figures come from Live's own <code>PluginScanner.txt</code>, the 2026-08-08 scan against the 2026-08-10 scan after the fix.</p>
 </div>
 
 <p>Read from the disk and from Live's own scanner log.</p>
@@ -120,36 +132,43 @@
 
 <h2 id="faults">2. The three faults</h2>
 
-<div class="card red">
-  <h4>Fault 1. Your VST3 custom folder is pointed at the Audio Units folder <span class="tag bad">fix this</span></h4>
-  <p>Live's scanner log for the last scan reads:</p>
+<div class="card olive">
+  <h4>Fault 1. The VST3 custom folder pointed at the Audio Units folder <span class="tag ok">fixed</span></h4>
+  <p>Live's scanner log on 2026-08-08 read:</p>
   <pre>2026-08-08T18:27:07: VST3: scanning plugins in "/Library/Audio/Plug-Ins/VST3" (local)
 2026-08-08T18:27:07: VST3: scanning plugins in <b>"/Library/Audio/Plug-Ins/Components" (custom)</b>
-2026-08-08T18:28:22: VST3: finished scanning plugins</pre>
-  <p>The <code>(custom)</code> line is your <b>VST3 Plug-In Custom Folder</b> preference, and it is set to the Audio Units directory. Live then walks 66 Audio Unit bundles with its VST3 loader, hunting for a VST3 entry point each one lacks. That accounts for most of the <b>75 seconds</b> your VST3 scan takes, against 9 seconds for VST2.</p>
+2026-08-08T18:28:22: VST3: finished scanning plugins   <b>74.68 s</b></pre>
+  <p>What that custom pass found: <b>9 Arturia plugins</b> whose installer nests a VST3 binary inside the Audio Unit bundle at <code>Contents/Resources/plugin.vst3</code>. ARP 2600 V3, DX7 V, Jun-6 V, Jup-8 V4, Mellotron V, Modular V3, OB-Xa V, Prophet V3, Wurli V2.</p>
+  <p><b>All nine already exist as standalone <code>.vst3</code> files</b> in <code>/Library/Audio/Plug-Ins/VST3</code>, which Live scans anyway on the line above. The custom pass contributed <b>zero unique plugins</b> and scanned all nine a second time.</p>
+  <p><b>What I did.</b> Live keeps that path in <code>Preferences.cfg</code> as a UTF-16LE string behind a 4-byte length prefix, which is why it never showed up in a plain text search. I backed the file up, then repointed it to <code>/Users/drwu/Library/Audio/Plug-Ins</code>. That is exactly the same 34 characters, so the patch went in byte for byte with no structural change and no size change. The folder holds four empty subfolders and nothing to scan.</p>
+  <pre>2026-08-10T14:13:53: VST3: scanning plugins in <b>"/Users/drwu/Library/Audio/Plug-Ins" (custom)</b>
+2026-08-10T14:13:55: VST3: finished scanning plugins   <b>2.23 s</b></pre>
+</div>
+
+<div class="card olive">
+  <h4>Fault 2. The user VST3 folder did not exist <span class="tag ok">fixed</span></h4>
+  <p>Every scan since at least 2026-07-12 threw <code>error: Reading directory failed: No such file or directory</code> on <code>~/Library/Audio/Plug-Ins/VST3</code>, <b>84 logged errors</b> in total. I created the folder. The 2026-08-10 scan logged <b>zero errors</b>.</p>
 </div>
 
 <div class="card mustard">
-  <h4>Fault 2. Your user VST3 folder did not exist <span class="tag ok">already fixed</span></h4>
-  <p>Every scan since at least 2026-07-12 threw <code>error: Reading directory failed: No such file or directory</code> on <code>~/Library/Audio/Plug-Ins/VST3</code>. That is <b>84 logged errors</b> across the log. I created the folder, so the next scan comes back clean.</p>
-</div>
-
-<div class="card mustard">
-  <h4>Fault 3. Waves is installed twice, 183 plugins deep <span class="tag mid">manage, do not delete</span></h4>
+  <h4>Fault 3. Waves is installed twice, 183 plugins deep <span class="tag mid">left alone on purpose</span></h4>
   <p>V12 holds 195 plugin bundles and V16 holds 213. <b>183 of them are the same plugin in both versions</b>, with a WaveShell installed for each. Only 12 plugins are V12-only, and those 12 are the ones worth keeping V12 for:</p>
   <p><b>Abbey Road Chambers, Abbey Road Saturator, Abbey Road Vinyl, J37, TG12345, REDD17, REDD37-51, RS56, Reel ADT, ARPlates, KingsMic, OVox.</b></p>
-  <p>Keep both versions installed. Treat <b>V16 as the version you reach for</b>, and go to V12 only for that list of 12. The V14 and V15 folders are orphan stubs holding one plugin each, and their shells still get scanned.</p>
+  <p>Keep both versions installed. Treat <b>V16 as the version you reach for</b>, and go to V12 only for that list of 12. The V14 and V15 folders are orphan stubs holding one plugin each, Waves Harmony and GTRSolo, and their shells still get scanned.</p>
+  <p><b>Why I left this one.</b> The WaveShells live in <code>/Library/Audio/Plug-Ins</code>, owned by <code>root:wheel</code>, so trimming them needs your password. With the custom folder fixed the whole scan now runs in 3.5 seconds, so the remaining cost of the duplication is browser clutter rather than time.</p>
 </div>
 
-<h2 id="wrong">3. Two of my notes were wrong</h2>
+<h2 id="wrong">3. Four corrections, two of them mine from this page</h2>
 
-<p>Both were steering you away from gear you own and can use today. Correcting them here.</p>
+<p>Two stored notes were steering you away from gear you own. Two claims I published on the first version of this page were wrong, and both are corrected below.</p>
 
 <div class="scroll"><table>
 <thead><tr><th>Note on file</th><th>What it claimed</th><th>Measured today</th></tr></thead>
 <tbody>
 <tr class="hit"><td><code>reference_uad_luna_only</code></td><td>All Universal Audio plugins are <code>.lunacomponent</code> and load only in Luna, never Ableton. "Plan tone work accordingly."</td><td><b>False.</b> All 15 UA plugins are installed three ways: <code>.component</code>, <code>.vst3</code>, and <code>.lunacomponent</code>. The AU and VST3 copies load in Live 11 like any other plugin.</td></tr>
 <tr class="hit"><td><code>project_mixwave_78_dollars_undelivered</code></td><td>The $78 MixWave EHX purchase was delivered but not activated.</td><td><b>Now activated.</b> <code>iloktool auths</code> reports EHX Big Muff and EHX Deluxe Memory Man as Authorized, along with all 21 chains.</td></tr>
+<tr class="hit"><td><b>This page, v1</b></td><td>"Live walks 66 Audio Unit bundles hunting for a VST3 entry point each one lacks."</td><td><b>Wrong reasoning.</b> The custom pass did find 9 real VST3 binaries nested inside Arturia <code>.component</code> bundles. The waste was duplication, since all 9 are also standalone in the VST3 folder. The fix was right for the wrong reason.</td></tr>
+<tr class="hit"><td><b>This page, v1</b></td><td>"<code>Fretless.adg</code> is a rack shell with no devices in it."</td><td><b>False.</b> It holds <b>Waves CLA Bass on the factory "Scoop" preset</b>, loaded through the V12 shell (12.7.0), with 26 parameters exposed to the rack macros. My scan looked for <code>&lt;AuPluginDevice&gt;</code> and Live 11 stores it as <code>&lt;Vst3Preset&gt;</code>, so a bad regex read a full rack as empty.</td></tr>
 </tbody>
 </table></div>
 

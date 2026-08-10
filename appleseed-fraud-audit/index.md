@@ -22,20 +22,31 @@ Checked 10 August 2026 against the files and the live services.
 - **Synced to YouTube?** No. Zero of the 46 files are on Songsterr. Nine tabs sit
   in the account, six of them drums only.
 
-## Correction to the published story
+## Correction to my own claim
 
-The main page says a drums-only import deleted the AI guitar and bass on six songs.
-`/api/meta/{songId}/revisions` returns a single "Initial revision, 1 track, createdVia GP"
-for all six ids, so nothing was overwritten there. Songsterr does keep history: Cathedral
-Rings has two revisions. The older tabs still exist under other ids (Fishing The Sky s1580,
-Forever Longing s2038).
+An earlier version of this file said the "six songs lost their AI parts" story was
+unsupported. **Withdrawn, it was my error.** All six of those tabs carry a YouTube
+videoId, and a GP import does not attach audio, so those ids were created by the YouTube
+plus AI flow and then overwritten by the drums-only import. Cathedral Rings went from 5
+tracks to 1.
 
 ## The right rebuild order
 
-Give Songsterr the YouTube link so its AI writes a 5-part tab, download that `.gp`, keep
-its vocal track, and swap in the stem-built 2 guitars, bass and corrected drums. Only 3 of
-46 songs have a vocal-bearing tab today: Fishing the Sky s1580, Forever Longing s2038,
-On Reflection s6206980.
+1. `/new`, tick the instrument, paste the YouTube link, click **Transcribe tab with AI**.
+   Songsterr's AI writes every instrument from that audio, the vocal line included, as a
+   Tenor Sax track. About 8 minutes per song.
+2. Download the AI `.gp5`. It carries the vocal, which nothing local can produce.
+3. Swap in the stem-built 2 guitars, bass and corrected drums, keeping every other track
+   byte for byte.
+4. Import the merged file. `importRevisionInput` replaces the whole tab, so it must carry
+   all parts.
+5. Verify after a full reload: `Synced video: Full mix`, and `tracksCount` equal to what
+   the AI produced, never 1.
+
+Three songs need no new transcription because a vocal-bearing tab is up: Fishing the Sky
+s1580, Forever Longing s2038, On Reflection s6206980. The other 43 each cost one AI
+transcription credit. The balance read 46 of 50 on 6 August 2026 and the endpoint answers
+401 without a login.
 
 ## The fabrication, found and repaired
 

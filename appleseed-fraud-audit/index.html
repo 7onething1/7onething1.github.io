@@ -171,33 +171,62 @@ the split, so these five need re-separating before any verdict about what the ba
 Drums</code> or <code>Guitar 1, Guitar 2, Bass, Drums</code>. No vocal track has ever
 been written. Meanwhile the six-stem split produced a <code>vocals.wav</code> for every
 song, and <b>40 of 46</b> carry real signal.</p>
-<h3>Where a vocal could come from today</h3>
-<p>Songsterr's AI writes the vocal melody as a Tenor Sax track. Across the band's whole
-Songsterr catalogue, 29 entries under both artist ids, only <b>three</b> of the 46 built
-songs have a tab that carries one.</p>
+<p>Songsterr's AI writes the vocal melody as a Tenor Sax track, generated from the
+YouTube link. The section below sets out where that comes from and the order that keeps
+it.</p>
+
+<h2>A correction, to my own claim</h2>
+<div class="box alarm">
+<p><b>An earlier version of this page said the "six songs lost their AI parts on 6 August"
+story was unsupported. That was my error, and it is withdrawn.</b> I read
+<code>/api/meta/{songId}/revisions</code> returning a single <b>Initial revision, 1
+track, createdVia GP</b> as proof that nothing had been overwritten. It is the opposite.
+<code>songsterr-upload/SKILL.md</code> records that Songsterr keeps one revision per tab
+and that <code>importRevisionInput</code> replaces the whole tab in place, which is
+exactly why the old parts cannot be fetched back.</p>
+<p><b>The evidence that settles it: all six of those tabs carry a YouTube videoId.</b>
+s6375099, s6375161, s6375346, s6375387, s6362089 and s6375400 each have one. The skill
+states that the import does not attach audio and that a <code>.gp5</code> dropped into a
+blank tab has no recording behind it. A tab created by a GP import cannot have that
+video. Those ids were made by the YouTube plus AI transcription flow and then overwritten
+by the drums-only import. Cathedral Rings went from 5 tracks to 1 that way.</p>
+</div>
+
+<h2>Where the vocal actually comes from</h2>
+<div class="box">
+<p>Songsterr's AI writes every instrument, the vocal line included, <b>from the YouTube
+link</b>. That is the whole source. The sequence in the skill is
+<code>/new</code>, tick the instrument, paste the YouTube link, click <b>Transcribe tab
+with AI</b>, wait about 8 minutes, and the result is a synced multi-track tab whose fifth
+part is the vocal melody.</p>
+<p>So the vocal is not gated by what happens to be in the catalogue today. <b>Every one of
+the 46 songs can have one</b>, and the page carries a checked YouTube link for each
+one. Three of them need no new transcription, since a vocal-bearing tab is up:</p>
 <div class="tw"><table>
 <tr><th>Song</th><th>Album position</th><th>Songsterr id</th><th>What it holds</th></tr>
 <tr><td class='song'>Fishing the Sky</td><td>Mare Vitalis 02</td><td class='mono'>s1580</td><td>5 tracks, human</td></tr><tr><td class='song'>Forever Longing the Golden Sunsets</td><td>Mare Vitalis 03</td><td class='mono'>s2038</td><td>6 tracks, human</td></tr><tr><td class='song'>On Reflection</td><td>Low Level Owl I 02</td><td class='mono'>s6206980</td><td>5 tracks, Songsterr AI</td></tr>
 </table></div>
-<p>The other 43 have no vocal-bearing tab, so the vocal has to be generated first by
-giving Songsterr the YouTube link, then the file downloaded and its guitars, bass and
-drums replaced with the stem-built ones. That order keeps the vocal, which nothing in
-the local pipeline can produce.</p>
-
-<h2>A correction to the published story</h2>
-<div class="box">
-<p>The main page states that importing a drums-only <code>.gp5</code> over an AI
-transcription deleted the guitar and bass it wrote, and that this happened to six songs
-on 6 August 2026. <b>The revision history does not support that.</b>
-<code>/api/meta/{songId}/revisions</code> returns, for all six of those ids, a single
-entry reading <b>Initial revision, 1 track, createdVia GP</b>. There is no earlier AI
-revision at any of them, so nothing was overwritten there.</p>
-<p>The same endpoint also shows that <b>Songsterr does keep history</b>. Cathedral Rings
-carries two revisions, the initial 1-track import from 6 August and a 3-track one added
-at 1:31 PM today. The claim that only one revision is kept, and that the older parts are
-unrecoverable, is wrong on both halves.</p>
-<p>The older tabs for those songs are also still on the site under different ids, for
-example Fishing The Sky at s1580 with five tracks and Forever Longing at s2038 with six.</p>
+<p>The other 43 each need one AI transcription run, so <b>the credit balance is the
+real constraint here</b>.
+<code>/api/contributions/available-transcriptions-count</code> read 46 of 50 remaining on
+6 August 2026 and answers <b>HTTP 401</b> without a login, so the current balance needs a
+signed-in read.</p>
+<h3>The order that keeps every part</h3>
+<div class="tw"><table>
+<tr><th>#</th><th>Step</th><th>Why it is in this position</th></tr>
+<tr><td>1</td><td>YouTube link, then AI transcribe</td>
+<td>The import attaches no audio. A gp5 into a blank tab is a silent tab.</td></tr>
+<tr><td>2</td><td>Download the AI <code>.gp5</code></td>
+<td>It carries the vocal, which nothing local can produce.</td></tr>
+<tr><td>3</td><td>Swap in the stem-built guitars, bass and drums</td>
+<td>Keep every other track byte for byte.</td></tr>
+<tr><td>4</td><td>Import the merged file</td>
+<td><code>importRevisionInput</code> replaces the whole tab, so it must carry all parts.</td></tr>
+<tr><td>5</td><td>Verify after a full reload</td>
+<td>Must read <code>Synced video: Full mix</code>, and
+<code>tracksCount</code> must equal what the AI produced, never 1.</td></tr>
+</table></div>
+<p>Publishing stays a separate act. Every tab this makes is private and unpublished.</p>
 </div>
 
 <h2>Every song, lane by lane</h2>
