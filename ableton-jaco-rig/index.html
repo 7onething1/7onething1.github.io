@@ -167,6 +167,20 @@
   <p>First load took 5.2 s and 3.2 s while PACE handshook, and the recheck seconds later took under a second each. Both now appear in the browser under VST3.</p>
 </div>
 
+<div class="card olive">
+  <h4>Fault 5. <code>Fretless.adg</code> had no chain container <span class="tag ok">built</span></h4>
+  <p>Two discoveries made this cheap. First, the Waves VST3 class ID is a plain ASCII string, <code>"VST"</code> plus the 4-character plugin code plus 9 characters of the lowercase name. Your CLA Bass reads <code>VSTCBAScla&nbsp;bass&nbsp;</code>, and Live's own log confirms the pattern on Waves Harmony as <code>VSTHRMSwaves&nbsp;har</code>. Second, your existing racks are a library of known-good plugin states, so nothing had to be invented.</p>
+  <p>The rack also turned out to hold <b>two</b> devices, not one: CLA Bass plus a UAD plugin (<code>UADxU3AX</code>, saved on a preset named "Synthy Bass Hold Sustain"). I cloned the <b>StudioRack</b> device node out of <code>Brandon Vox 2.adg</code> and inserted it, since StudioRack carries an entire Waves chain as a single device.</p>
+  <div class="scroll"><table>
+  <thead><tr><th>Check</th><th>Result</th></tr></thead><tbody>
+  <tr><td>Devices in the rack</td><td><b>3</b>: <code>VSTCBAScla bass </code>, <code>UADxU3AX</code>, <code>VSTWRHSstudiorac</code></td></tr>
+  <tr><td>XML validity</td><td>parses under <code>ElementTree</code></td></tr>
+  <tr><td>Opened in Live 11.3.43</td><td>loaded with <b>zero errors</b> in <code>Log.txt</code>, no crash report, Live quit clean</td></tr>
+  <tr><td>Original preserved</td><td><code>Fretless_BEFORE_2026-08-10.adg</code></td></tr>
+  </tbody></table></div>
+  <p><b>The last step is yours and it takes a couple of minutes.</b> StudioRack currently carries the "Brandon Grunge'" chain it came from. Open it, clear the slots, and drop in Bass Rider, Scheps 73, CLA-76, Kramer Tape and RBass per the table in section 5. I stopped short of writing those five states by hand because I have no parameter data for them, and guessing it is what produced three failed rack rebuilds in May.</p>
+</div>
+
 <h2 id="wrong">3. Four corrections, two of them mine from this page</h2>
 
 <p>Two stored notes were steering you away from gear you own. Two claims I published on the first version of this page were wrong, and both are corrected below.</p>

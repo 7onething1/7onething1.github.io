@@ -105,6 +105,32 @@ copied both `.vst3` bundles into `~/Library/Audio/Plug-Ins/VST3`, a path I own a
 First load took 5.2 s and 3.2 s while PACE handshook, and the recheck seconds later took under a
 second each. Both now appear in the browser under VST3.
 
+### Fault 5. `Fretless.adg` had no chain container. BUILT.
+
+Two discoveries made this cheap. First, the Waves VST3 class ID is a plain ASCII string, `"VST"`
+plus the 4-character plugin code plus 9 characters of the lowercase name. Your CLA Bass reads
+`VSTCBAScla bass `, and Live's own log confirms the pattern on Waves Harmony as `VSTHRMSwaves har`.
+Second, your existing racks are a library of known-good plugin states, so nothing had to be
+invented.
+
+The rack also turned out to hold two devices, not one: CLA Bass plus a UAD plugin (`UADxU3AX`,
+saved on a preset named "Synthy Bass Hold Sustain"). I cloned the StudioRack device node out of
+`Brandon Vox 2.adg` and inserted it, since StudioRack carries an entire Waves chain as a single
+device.
+
+| Check | Result |
+|---|---|
+| Devices in the rack | 3: `VSTCBAScla bass `, `UADxU3AX`, `VSTWRHSstudiorac` |
+| XML validity | parses under `ElementTree` |
+| Opened in Live 11.3.43 | loaded with zero errors in `Log.txt`, no crash report, Live quit clean |
+| Original preserved | `Fretless_BEFORE_2026-08-10.adg` |
+
+The last step is yours and it takes a couple of minutes. StudioRack currently carries the
+"Brandon Grunge'" chain it came from. Open it, clear the slots, and drop in Bass Rider, Scheps 73,
+CLA-76, Kramer Tape and RBass per the table in section 5. I stopped short of writing those five
+states by hand because I have no parameter data for them, and guessing it is what produced three
+failed rack rebuilds in May.
+
 ## 3. Four corrections, two of them mine from this page
 
 | Note | What it claimed | Measured |
