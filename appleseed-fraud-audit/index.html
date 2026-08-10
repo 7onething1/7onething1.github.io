@@ -76,6 +76,16 @@ Note counts read by parsing each <code>.gp5</code>. Stem levels measured with
     with no bass, one with no drums.
   </div>
   <div class="v no">
+    <div class="q">Are some missing vocal?</div>
+    <div class="a">All of them. 72 files, 0 vocal tracks, ever.</div>
+    <b>40 of 46 songs have a real vocals stem</b> on disk,
+    median -27.7 dBFS and 33 percent alive. The word <code>vocals</code> appears once in
+    <code>build_allparts.py</code>, inside the <code>LANES</code> tuple on line 100, and
+    is never read again. A Songsterr AI tab for this band ships <b>five</b> parts, two
+    guitars, bass, drums and the vocal line as a Tenor Sax track. The rebuild ships
+    three or four, and the vocal is the one it drops.
+  </div>
+  <div class="v no">
     <div class="q">Are they synced to YouTube?</div>
     <div class="a">No. Zero of the 46 files are on Songsterr.</div>
     Nine tabs sit in the account, six of them drums only. The upload step is still
@@ -95,6 +105,8 @@ Note counts read by parsing each <code>.gp5</code>. Stem levels measured with
   <div class="stat alarm"><span class="n">6</span><span class="l">of those, drums only</span></div>
   <div class="stat"><span class="n">26</span><span class="l">4-track rebuilds</span></div>
   <div class="stat"><span class="n">0</span><span class="l">files failing the gate</span></div>
+  <div class="stat alarm"><span class="n">0</span><span class="l">vocal tracks written</span></div>
+  <div class="stat alarm"><span class="n">40</span><span class="l">songs with a live vocal stem</span></div>
 </div>
 
 <h2>The fabrication, found and repaired the same afternoon</h2>
@@ -137,6 +149,56 @@ Backup: <code>batch_twoguitar.py.bak-before-lane-reality-gate-2026-08-10</code>.
 keeps a <code>.bak-before-strip-silent</code> copy.</li>
 </ul>
 <p><b>Gate now: 71 files checked, 0 failing.</b></p>
+</div>
+
+<h2>The bass is misrouted, not absent</h2>
+<p>All five empty-bass songs measure <b>0.0 percent alive</b> on their bass stem, so the
+strip was right about the stem. The record is a different question. Filtering each stem
+to 40 to 160 Hz and measuring again separates the two readings, and the control settles
+which one applies.</p>
+<div class="tw"><table>
+<tr><th>Song</th><th>bass</th><th>other</th><th>piano</th><th>guitar</th><th>reading</th></tr>
+<tr><td class="song">On Reflection</td><td class="ok">-22.4</td><td>-43.9</td><td>-48.7</td><td>-32.4</td><td class="ok">separation worked</td></tr><tr><td class="song">Convict</td><td class="bad">-82.4</td><td>-34.9</td><td>-33.1</td><td>-38.7</td><td class="bad">bass misrouted</td></tr><tr><td class="song">Bird of Paradise</td><td class="bad">-100.0</td><td>-45.3</td><td>-49.5</td><td>-40.4</td><td class="bad">bass misrouted</td></tr>
+</table></div>
+<p>On a song whose separation worked, the bass stem owns the low end by <b>21 dB</b> over
+<code>other</code>. On Convict the ordering inverts: the 40 to 160 Hz band is
+<b>49 dB louder in <code>piano</code> than in <code>bass</code></b>. The low end is on the
+record. Demucs put it in the wrong stem. Calling that bass missing describes the split,
+not the song, so these five need re-separating before any verdict about what the band
+played.</p>
+
+<h2>The vocal was never in scope</h2>
+<p>Every output file, all 72 of them, carries the same shapes: <code>Guitar, Bass,
+Drums</code> or <code>Guitar 1, Guitar 2, Bass, Drums</code>. No vocal track has ever
+been written. Meanwhile the six-stem split produced a <code>vocals.wav</code> for every
+song, and <b>40 of 46</b> carry real signal.</p>
+<h3>Where a vocal could come from today</h3>
+<p>Songsterr's AI writes the vocal melody as a Tenor Sax track. Across the band's whole
+Songsterr catalogue, 29 entries under both artist ids, only <b>three</b> of the 46 built
+songs have a tab that carries one.</p>
+<div class="tw"><table>
+<tr><th>Song</th><th>Album position</th><th>Songsterr id</th><th>What it holds</th></tr>
+<tr><td class='song'>Fishing the Sky</td><td>Mare Vitalis 02</td><td class='mono'>s1580</td><td>5 tracks, human</td></tr><tr><td class='song'>Forever Longing the Golden Sunsets</td><td>Mare Vitalis 03</td><td class='mono'>s2038</td><td>6 tracks, human</td></tr><tr><td class='song'>On Reflection</td><td>Low Level Owl I 02</td><td class='mono'>s6206980</td><td>5 tracks, Songsterr AI</td></tr>
+</table></div>
+<p>The other 43 have no vocal-bearing tab, so the vocal has to be generated first by
+giving Songsterr the YouTube link, then the file downloaded and its guitars, bass and
+drums replaced with the stem-built ones. That order keeps the vocal, which nothing in
+the local pipeline can produce.</p>
+
+<h2>A correction to the published story</h2>
+<div class="box">
+<p>The main page states that importing a drums-only <code>.gp5</code> over an AI
+transcription deleted the guitar and bass it wrote, and that this happened to six songs
+on 6 August 2026. <b>The revision history does not support that.</b>
+<code>/api/meta/{songId}/revisions</code> returns, for all six of those ids, a single
+entry reading <b>Initial revision, 1 track, createdVia GP</b>. There is no earlier AI
+revision at any of them, so nothing was overwritten there.</p>
+<p>The same endpoint also shows that <b>Songsterr does keep history</b>. Cathedral Rings
+carries two revisions, the initial 1-track import from 6 August and a 3-track one added
+at 1:31 PM today. The claim that only one revision is kept, and that the older parts are
+unrecoverable, is wrong on both halves.</p>
+<p>The older tabs for those songs are also still on the site under different ids, for
+example Fishing The Sky at s1580 with five tracks and Forever Longing at s2038 with six.</p>
 </div>
 
 <h2>Every song, lane by lane</h2>
