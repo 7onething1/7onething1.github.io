@@ -14,7 +14,7 @@ Checked 10 August 2026 against the files and the live services.
   measure 0.0% alive on the bass stem, but the 40 to 160 Hz band shows the low end went
   into `other` and `piano` instead. On Convict that band is 49 dB louder in `piano` than
   in `bass`, against a control where a working split puts the bass stem 21 dB ahead.
-  Misrouted by demucs, not absent from the record.
+  Demucs put the bass in the wrong stem, so the record still has it.
 - **Missing vocal?** All of them. 72 output files, 0 vocal tracks. 40 of
   46 songs have a real vocals stem on disk. `vocals` appears once in
   `build_allparts.py`, in the `LANES` tuple on line 100, and is never read. A Songsterr
