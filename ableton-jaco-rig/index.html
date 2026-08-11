@@ -227,6 +227,23 @@ python3 ~/.claude/skills/ableton-rig-doctor/audit_ableton_devices.py --dir &lt;p
   <p>It also carries the Waves class-id formula, the StudioRack envelope layout, the <code>Preferences.cfg</code> patch, the blacklist recovery, and the grey-slot triage table that separates a missing plugin from a switched-off slot from a rack sitting at <code>-inf</code>.</p>
 </div>
 
+<div class="card olive">
+  <h4>Fault 8. My load test was invalid, and my crash diagnosis was wrong <span class="tag ok">both corrected</span></h4>
+  <p><b>The test method was broken.</b> Every earlier "loaded with zero errors" reading came from running <code>open Fretless.adg</code> against a closed Live. The log shows what Live actually did with that:</p>
+  <pre>22:38:44  Default App: Performing pre-document setup
+              [User Library]/Fretless.adg
+22:38:45  Default App: <b>TryToLoadTemplate: Default document exists</b>
+22:38:45  Loading document "[Live.app]/Builtin/Templates/Default"</pre>
+  <p>A <code>.adg</code> is a device preset file, and Live places one only into a Set that is open. Against a cold Live it launches the app and loads the <b>built-in template</b>. The rack is never placed. So those runs reported no errors because <b>nothing was ever loaded</b>. Zero errors got recorded even though zero devices had been placed, which is a gate passing because it asked for nothing.</p>
+  <p><b>The correct method is two phases:</b> launch Live, wait for <code>Live App: End Init</code> and <code>EndAuthorizationSession</code>, then open the rack into the running set.</p>
+  <pre>successfully loaded: Waves 'CLA Bass Stereo' v16.7.33.189
+successfully loaded: Universal Audio (UADx) 'UADx Fairchild 660 Compressor' v1.0.14
+successfully loaded: Waves 'StudioVerse Audio Effects Stereo' v16.7.33.200</pre>
+  <p><b>All three restored inside 10 seconds, zero <code>error:</code> lines, no crash report.</b></p>
+  <p><b>The crash diagnosis was also wrong.</b> I blamed writing a value into Parameters index 31, which the factory preset left as <code>*</code>. The rack now carries <b>700, 500, 450, 400</b> at indices 16, 31, 46 and 61, index 31 included, and it loads clean. Writing those indices is fine. The real cause of the 19:10 crash was the state I had put Live into: an orphaned <code>Ableton Index</code> process holding <code>Live-files-53.db</code>, which I then killed, and that forced a full file-system re-index during the load.</p>
+  <p>Lesson for the skill: <b>an orphan <code>Ableton Index</code> process is not harmless.</b> Check for it before any load test, and never diagnose a crash while the host is in a state you disturbed.</p>
+</div>
+
 <h2 id="wrong">3. Four corrections, two of them mine from this page</h2>
 
 <p>Two stored notes were steering you away from gear you own. Two claims I published on the first version of this page were wrong, and both are corrected below.</p>

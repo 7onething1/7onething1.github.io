@@ -209,6 +209,42 @@ pre-repair `Fretless_BASEFORD` copy still reports `SSLChannel (id SCHM)` twice.
 It also carries the Waves class-id formula, the StudioRack envelope layout, the
 `Preferences.cfg` patch, the blacklist recovery, and the grey-slot triage table.
 
+### Fault 8. My load test was invalid, and my crash diagnosis was wrong. BOTH CORRECTED.
+
+The test method was broken. Every earlier "loaded with zero errors" reading came from running
+`open Fretless.adg` against a closed Live. The log shows what Live actually did:
+
+```
+22:38:44  Default App: Performing pre-document setup
+              [User Library]/Fretless.adg
+22:38:45  Default App: TryToLoadTemplate: Default document exists
+22:38:45  Loading document "[Live.app]/Builtin/Templates/Default"
+```
+
+A `.adg` is a device preset file, and Live places one only into a Set that is open. Against a cold Live it launches the app and loads the built-in
+template. The rack is never placed. Those runs reported no errors because nothing was ever loaded. Zero errors got recorded even
+though zero devices had been placed.
+
+The correct method is two phases: launch Live, wait for `Live App: End Init` and
+`EndAuthorizationSession`, then open the rack into the running set.
+
+```
+successfully loaded: Waves 'CLA Bass Stereo' v16.7.33.189
+successfully loaded: Universal Audio (UADx) 'UADx Fairchild 660 Compressor' v1.0.14
+successfully loaded: Waves 'StudioVerse Audio Effects Stereo' v16.7.33.200
+```
+
+All three restored inside 10 seconds, zero `error:` lines, no crash report.
+
+The crash diagnosis was also wrong. I blamed writing a value into Parameters index 31, which the
+factory preset left as `*`. The rack now carries 700, 500, 450, 400 at indices 16, 31, 46 and 61,
+index 31 included, and it loads clean. Writing those indices is fine. The real cause of the 19:10
+crash was the state I had put Live into: an orphaned `Ableton Index` process holding
+`Live-files-53.db`, which I then killed, and that forced a full file-system re-index during the load.
+
+Lesson for the skill: an orphan `Ableton Index` process is not harmless. Check for it before any
+load test, and never diagnose a crash while the host is in a state you disturbed.
+
 ## 3. Four corrections, two of them mine from this page
 
 | Note | What it claimed | Measured |
