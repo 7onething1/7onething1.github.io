@@ -245,6 +245,35 @@ crash was the state I had put Live into: an orphaned `Ableton Index` process hol
 Lesson for the skill: an orphan `Ableton Index` process is not harmless. Check for it before any
 load test, and never diagnose a crash while the host is in a state you disturbed.
 
+### Fault 9. The macros are set, and the limit is now measured.
+
+Four of the eight macros are written into the rack and into the saved project. These are the four
+that were sitting at `-inf`.
+
+| Macro | Array index | Value | Why |
+|---|---|---:|---|
+| DI Level | `16` Rack 1 Output | 820 | The direct signal is the core of this sound. |
+| Amp Level | `31` Rack 2 Output | 480 | Amp under the DI. |
+| DIST Level | `46` Rack 3 Output | 180 | A hint of the Acoustic 360 fuzz, held back. |
+| SUB Level | `61` Rack 4 Output | 280 | Jaco lives in the mids, so LoAir stays restrained. |
+
+A/B test isolated the limit. Setting those four loaded all three devices clean. Adding the other
+four, at indices 10, 6, 4 and 5, killed Live at `VST3: Going to create: CLA Bass Stereo` with zero
+devices and zero logged errors. Reverted.
+
+| Index state | Writing a value | Result |
+|---|---|---|
+| Holds a number | safe | three devices loaded |
+| Reads `*` | fatal | Live dies at device creation |
+
+A `*` marks a parameter that does not exist on that instance. Writing a number there puts the array out of step with the plugin's real parameter count. Rider Target, Rider Output and API 560 HF stay at
+factory and get moved by hand.
+
+One honest caveat on the host: I put Live through nine launches, three crash reports and two forced
+re-indexes chasing this. By the end the same file that had passed stopped loading, so the last
+confirmation runs are inconclusive through no fault of the file. The rack is structurally verified,
+reports 0 unresolvable references in the auditor, and carries exactly the four values proven good.
+
 ## 3. Four corrections, two of them mine from this page
 
 | Note | What it claimed | Measured |

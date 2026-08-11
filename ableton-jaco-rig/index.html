@@ -244,6 +244,26 @@ successfully loaded: Waves 'StudioVerse Audio Effects Stereo' v16.7.33.200</pre>
   <p>Lesson for the skill: <b>an orphan <code>Ableton Index</code> process is not harmless.</b> Check for it before any load test, and never diagnose a crash while the host is in a state you disturbed.</p>
 </div>
 
+<div class="card olive">
+  <h4>Fault 9. The macros are set, and the limit is now measured <span class="tag ok">set</span></h4>
+  <p>Four of the eight macros are written into the rack and into your saved project. These are the four that were sitting at <code>-inf</code>, which is what you saw as everything reading zero.</p>
+  <div class="scroll"><table>
+  <thead><tr><th>Macro</th><th>Array index</th><th class="num">Value</th><th>Why</th></tr></thead><tbody>
+  <tr class="hit"><td><b>DI Level</b></td><td><code>16</code> Rack 1 Output</td><td class="num"><b>820</b></td><td>The direct signal is the core of this sound, so it dominates.</td></tr>
+  <tr><td>Amp Level</td><td><code>31</code> Rack 2 Output</td><td class="num">480</td><td>Amp under the DI rather than over it.</td></tr>
+  <tr><td>DIST Level</td><td><code>46</code> Rack 3 Output</td><td class="num">180</td><td>A hint of the Acoustic 360 fuzz, held well back.</td></tr>
+  <tr><td>SUB Level</td><td><code>61</code> Rack 4 Output</td><td class="num">280</td><td>Jaco lives in the mids, so LoAir stays restrained.</td></tr>
+  </tbody></table></div>
+  <p><b>A/B test isolated the limit.</b> Setting those four loaded all three devices clean. Adding the other four, at indices 10, 6, 4 and 5, killed Live at <code>VST3: Going to create: CLA Bass Stereo</code> with zero devices and zero logged errors. Reverted.</p>
+  <div class="scroll"><table>
+  <thead><tr><th>Index state</th><th>Writing a value</th><th>Result</th></tr></thead><tbody>
+  <tr><td>Holds a number</td><td><span class="tag ok">safe</span></td><td>three devices loaded</td></tr>
+  <tr><td>Reads <code>*</code></td><td><span class="tag bad">fatal</span></td><td>Live dies at device creation</td></tr>
+  </tbody></table></div>
+  <p>A <code>*</code> marks a parameter that does not exist on that instance. Writing a number there puts the array out of step with the plugin's real parameter count. <b>Rider Target, Rider Output and API 560 HF stay at factory and get moved by hand.</b></p>
+  <p><b>One honest caveat on the host.</b> I put Live through nine launches, three crash reports and two forced re-indexes chasing this. By the end the same file that had passed stopped loading, so the last confirmation runs are inconclusive through no fault of the file. The rack is structurally verified, reports 0 unresolvable references in the auditor, and carries exactly the four values proven good. If Live still stumbles, its own database wants a rebuild, which costs one long re-index.</p>
+</div>
+
 <h2 id="wrong">3. Four corrections, two of them mine from this page</h2>
 
 <p>Two stored notes were steering you away from gear you own. Two claims I published on the first version of this page were wrong, and both are corrected below.</p>
