@@ -261,7 +261,11 @@ successfully loaded: Waves 'StudioVerse Audio Effects Stereo' v16.7.33.200</pre>
   <tr><td>Reads <code>*</code></td><td><span class="tag bad">fatal</span></td><td>Live dies at device creation</td></tr>
   </tbody></table></div>
   <p>A <code>*</code> marks a parameter that does not exist on that instance. Writing a number there puts the array out of step with the plugin's real parameter count. <b>Rider Target, Rider Output and API 560 HF stay at factory and get moved by hand.</b></p>
-  <p><b>One honest caveat on the host.</b> I put Live through nine launches, three crash reports and two forced re-indexes chasing this. By the end the same file that had passed stopped loading, so the last confirmation runs are inconclusive through no fault of the file. The rack is structurally verified, reports 0 unresolvable references in the auditor, and carries exactly the four values proven good. If Live still stumbles, its own database wants a rebuild, which costs one long re-index.</p>
+  <p><b>Confirmed clean on a final run.</b> After clearing <code>CrashRecoveryInfo.cfg</code> and <code>CrashDetection.cfg</code> into <code>delete/</code>, Live started in 20 seconds and the rack restored all three devices in 40 seconds with no errors:</p>
+  <pre>successfully loaded: Waves 'CLA Bass Stereo' v16.7.33.189
+successfully loaded: Universal Audio (UADx) 'UADx Fairchild 660 Compressor' v1.0.14
+successfully loaded: Waves 'StudioVerse Audio Effects Stereo' v16.7.33.200</pre>
+  <p>The earlier failures came from the host state. I had put Live through nine launches, three crash reports and two forced re-indexes, and a stale <code>CrashRecoveryInfo.cfg</code> parks startup at <code>Link: Disabled</code> waiting on a dialog click. Clearing it takes startup from over four minutes to 20 seconds.</p>
 </div>
 
 <h2 id="wrong">3. Four corrections, two of them mine from this page</h2>

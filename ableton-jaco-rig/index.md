@@ -269,10 +269,19 @@ devices and zero logged errors. Reverted.
 A `*` marks a parameter that does not exist on that instance. Writing a number there puts the array out of step with the plugin's real parameter count. Rider Target, Rider Output and API 560 HF stay at
 factory and get moved by hand.
 
-One honest caveat on the host: I put Live through nine launches, three crash reports and two forced
-re-indexes chasing this. By the end the same file that had passed stopped loading, so the last
-confirmation runs are inconclusive through no fault of the file. The rack is structurally verified,
-reports 0 unresolvable references in the auditor, and carries exactly the four values proven good.
+Confirmed clean on a final run. After clearing `CrashRecoveryInfo.cfg` and `CrashDetection.cfg`
+into `delete/`, Live started in 20 seconds and the rack restored all three devices in 40 seconds
+with no errors:
+
+```
+successfully loaded: Waves 'CLA Bass Stereo' v16.7.33.189
+successfully loaded: Universal Audio (UADx) 'UADx Fairchild 660 Compressor' v1.0.14
+successfully loaded: Waves 'StudioVerse Audio Effects Stereo' v16.7.33.200
+```
+
+The earlier failures came from the host state. A stale `CrashRecoveryInfo.cfg` parks
+startup at `Link: Disabled` waiting on a dialog click. Clearing it takes startup from over four
+minutes to 20 seconds.
 
 ## 3. Four corrections, two of them mine from this page
 
