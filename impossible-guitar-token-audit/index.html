@@ -1,0 +1,165 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Impossible-Guitar Chats: Token Waste Audit</title>
+<style>
+:root{
+  --cream:#F4EBD9; --ink:#14110F; --rust:#B4553C; --mustard:#D9A441;
+  --sage:#7C8C6B; --dusty:#8C7B8B; --teal:#3E6B6B; --line:#D6C6AC;
+}
+*{box-sizing:border-box}
+body{margin:0;background:var(--cream);color:var(--ink);
+  font-family:"Futura","Avenir Next",Helvetica,Arial,sans-serif;line-height:1.55}
+.wrap{max-width:1040px;margin:0 auto;padding:44px 22px 80px}
+header{border-bottom:3px solid var(--ink);padding-bottom:18px;margin-bottom:26px}
+h1{font-size:2.1rem;margin:0 0 6px;letter-spacing:.02em;text-transform:uppercase}
+.sub{color:var(--teal);font-size:.95rem;letter-spacing:.06em;text-transform:uppercase}
+h2{font-size:1.15rem;text-transform:uppercase;letter-spacing:.08em;margin:38px 0 12px;
+  border-left:8px solid var(--rust);padding-left:12px}
+.kpis{display:grid;grid-template-columns:repeat(auto-fit,minmax(168px,1fr));gap:12px;margin:24px 0}
+.kpi{background:#fff8ec;border:2px solid var(--ink);padding:14px}
+.kpi .n{font-size:1.75rem;font-weight:700;line-height:1.1}
+.kpi .l{font-size:.72rem;text-transform:uppercase;letter-spacing:.07em;color:var(--teal);margin-top:6px}
+.kpi.bad .n{color:var(--rust)}
+.kpi.warn .n{color:var(--mustard)}
+table{width:100%;border-collapse:collapse;margin:14px 0;font-size:.88rem;
+  font-variant-numeric:tabular-nums;display:block;overflow-x:auto}
+th,td{border:1px solid var(--line);padding:7px 9px;text-align:right;white-space:nowrap}
+th{background:var(--ink);color:var(--cream);text-transform:uppercase;
+  font-size:.68rem;letter-spacing:.06em}
+td:first-child,th:first-child{text-align:left}
+tr.total td{background:#EBDCC2;font-weight:700;border-top:3px solid var(--ink)}
+.bar{height:12px;background:#e6d8bd;border:1px solid var(--line);position:relative}
+.bar i{display:block;height:100%;background:var(--rust)}
+.card{background:#fff8ec;border:2px solid var(--ink);padding:16px 18px;margin:14px 0}
+.card h3{margin:0 0 8px;font-size:1rem;text-transform:uppercase;letter-spacing:.05em}
+.tag{display:inline-block;background:var(--rust);color:var(--cream);font-size:.66rem;
+  padding:3px 8px;letter-spacing:.08em;text-transform:uppercase;margin-right:8px}
+.tag.ok{background:var(--sage)} .tag.mid{background:var(--mustard);color:var(--ink)}
+ol.fix{padding-left:20px} ol.fix li{margin:9px 0}
+.quote{border-left:5px solid var(--dusty);padding:8px 14px;background:#EFE3CC;
+  font-style:italic;margin:12px 0}
+footer{margin-top:46px;border-top:2px solid var(--ink);padding-top:14px;
+  font-size:.78rem;color:var(--teal)}
+code{background:#EBDCC2;padding:1px 5px;font-size:.85em}
+</style>
+</head>
+<body>
+<div class="wrap">
+<header>
+  <h1>Impossible-Guitar Chats</h1>
+  <div class="sub">Token waste audit &middot; 6 sessions &middot; 2026-08-10 to 2026-08-12</div>
+</header>
+
+<div class="kpis">
+  <div class="kpi bad"><div class="n">4.66M</div><div class="l">Output tokens</div></div>
+  <div class="kpi bad"><div class="n">1.65B</div><div class="l">Context tokens read</div></div>
+  <div class="kpi bad"><div class="n">494M</div><div class="l">Context-bloat tax</div></div>
+  <div class="kpi warn"><div class="n">83.7M</div><div class="l">Spent sleeping</div></div>
+  <div class="kpi bad"><div class="n">0%</div><div class="l">Batched turns (target 40%)</div></div>
+  <div class="kpi warn"><div class="n">80 hrs</div><div class="l">Wall clock</div></div>
+  <div class="kpi bad"><div class="n">22.0</div><div class="l">Turns per user prompt</div></div>
+  <div class="kpi bad"><div class="n">Open</div><div class="l">Defect status</div></div>
+</div>
+
+<h2>The six sessions</h2>
+<table>
+<thead><tr><th>Session</th><th>Output tok</th><th>Context read</th><th>Turns</th><th>Batch</th>
+<th>Errors</th><th>Dup reads</th><th>Repeat bash</th><th>Hours</th></tr></thead>
+<tbody>
+<tr><td>0cf2ca1c</td><td>443,387</td><td>93,357,009</td><td>190</td><td>0%</td><td>12</td><td>2</td><td>39</td><td>4.9</td></tr>
+<tr><td>665cdd96</td><td>889,441</td><td>324,880,161</td><td>452</td><td>0%</td><td>6</td><td>20</td><td>28</td><td>38.1</td></tr>
+<tr><td>d4624b2a</td><td>748,154</td><td>262,978,409</td><td>346</td><td>0%</td><td>5</td><td>4</td><td>27</td><td>4.5</td></tr>
+<tr><td>242ef1ad</td><td>175,127</td><td>15,847,907</td><td>56</td><td>0%</td><td>2</td><td>4</td><td>10</td><td>0.5</td></tr>
+<tr><td>758ba450</td><td>525,968</td><td>140,389,478</td><td>272</td><td>0%</td><td>10</td><td>0</td><td>53</td><td>2.3</td></tr>
+<tr><td>81d2b7bf</td><td>1,879,609</td><td>808,770,476</td><td>1,044</td><td>0%</td><td>7</td><td>0</td><td>270</td><td>29.9</td></tr>
+<tr class="total"><td>TOTAL</td><td>4,661,686</td><td>1,646,223,440</td><td>2,360</td><td>0%</td><td>42</td><td>30</td><td>427</td><td>80</td></tr>
+</tbody></table>
+
+<h2>Waste line items</h2>
+
+<div class="card">
+  <h3><span class="tag">1</span>Context-bloat tax &middot; 493,513,569 tokens</h3>
+  <p>Each turn re-reads the whole accumulated context. Capped at a 300K working context, the same
+  2,360 turns read 1.15B instead of 1.65B. That difference is 29% of all context spend.</p>
+  <table>
+  <thead><tr><th>Session</th><th>Actual</th><th>At 300K cap</th><th>Tax</th><th>Tax %</th><th>Share</th></tr></thead>
+  <tbody>
+  <tr><td>0cf2ca1c</td><td>93,357,009</td><td>85,803,249</td><td>7,553,760</td><td>8%</td><td><div class="bar"><i style="width:8%"></i></div></td></tr>
+  <tr><td>665cdd96</td><td>324,880,161</td><td>246,346,860</td><td>78,533,301</td><td>24%</td><td><div class="bar"><i style="width:24%"></i></div></td></tr>
+  <tr><td>d4624b2a</td><td>262,978,409</td><td>201,205,953</td><td>61,772,456</td><td>23%</td><td><div class="bar"><i style="width:23%"></i></div></td></tr>
+  <tr><td>242ef1ad</td><td>15,847,907</td><td>15,847,907</td><td>0</td><td>0%</td><td><div class="bar"><i style="width:0"></i></div></td></tr>
+  <tr><td>758ba450</td><td>140,389,478</td><td>117,479,954</td><td>22,909,524</td><td>16%</td><td><div class="bar"><i style="width:16%"></i></div></td></tr>
+  <tr><td>81d2b7bf</td><td>808,770,476</td><td>486,025,948</td><td>322,744,528</td><td>39%</td><td><div class="bar"><i style="width:39%"></i></div></td></tr>
+  <tr class="total"><td>TOTAL</td><td>1,646,223,440</td><td>1,152,709,871</td><td>493,513,569</td><td>29%</td><td><div class="bar"><i style="width:29%"></i></div></td></tr>
+  </tbody></table>
+  <p><code>81d2b7bf</code> peaked at a <strong>997,204-token context</strong> across 29.9 hours.
+  <code>665cdd96</code> ran 38.1 hours. Both breach the standing <em>end long sessions</em> gate.</p>
+</div>
+
+<div class="card">
+  <h3><span class="tag mid">2</span>Idle keepalive &middot; 166 turns, 83,757,498 tokens</h3>
+  <p>Turns whose only action was <code>sleep N; echo waited</code>. A sleep turn pays the full
+  context price and returns an empty result.</p>
+  <table>
+  <thead><tr><th>Session</th><th>Idle turns</th><th>Context burned</th><th>Share of session</th></tr></thead>
+  <tbody>
+  <tr><td>81d2b7bf</td><td>155</td><td>80,494,480</td><td>9%</td></tr>
+  <tr><td>665cdd96</td><td>9</td><td>2,859,740</td><td>&lt;1%</td></tr>
+  <tr><td>0cf2ca1c</td><td>1</td><td>207,824</td><td>&lt;1%</td></tr>
+  <tr><td>d4624b2a</td><td>1</td><td>195,454</td><td>&lt;1%</td></tr>
+  <tr class="total"><td>TOTAL</td><td>166</td><td>83,757,498</td><td></td></tr>
+  </tbody></table>
+  <p>Plus 42 <code>ScheduleWakeup</code> calls. The <code>/loop</code> was authorized by Brandon,
+  so this is not a policy breach. It is still 83.7M tokens of sleeping.</p>
+</div>
+
+<div class="card">
+  <h3><span class="tag">3</span>Rework &middot; the skill was written last</h3>
+  <p><code>~/.claude/skills/impossible-guitar-parts/SKILL.md</code> was created
+  <strong>2026-08-12 18:03</strong>. Measured against that timestamp,
+  <strong>100% of the cluster's 4.66M output tokens were spent before the skill existed</strong>.
+  The same defect was re-diagnosed cold in four separate sessions:</p>
+  <div class="quote">08-10 &ldquo;is it fraud, do all the appleseed cast songs have guitars ba&hellip;&rdquo;<br>
+  08-10 &ldquo;Finish the appleseed cast chats here&rdquo;<br>
+  08-10 &ldquo;resume Apple Seed Cast chat review and fix the skill&rdquo;<br>
+  08-11 &ldquo;<strong>still</strong> seeing impossible guitar parts and two guitars arragned for one&rdquo;</div>
+</div>
+
+<div class="card">
+  <h3><span class="tag">4</span>Serialization &middot; 0% of 2,360 tool calls batched</h3>
+  <p>The standing gate targets above 40%. Every independent call was a solo round trip in all six
+  sessions. The 30-session <code>/session-audit</code> returns the same 0%, so this is systemic.</p>
+</div>
+
+<div class="card">
+  <h3><span class="tag mid">5</span>Churn &middot; 427 repeated bash commands, 30 duplicate reads, 42 errors</h3>
+  <p>The same Kilgore Trout <code>gp_swap</code> rebuild fired 20 times, a second variant 14 times.
+  <code>665cdd96</code> alone re-read the same file 20 times.</p>
+</div>
+
+<h2>Outcome</h2>
+<div class="quote">The cluster's last user messages are &ldquo;still seeing impossible guitar parts&rdquo;
+(08-11) and &ldquo;why did yo stop&rdquo; (08-12 23:08). 4.66M output tokens and 80 hours did not
+close the defect.</div>
+
+<h2>Fixes, ranked by tokens recovered</h2>
+<ol class="fix">
+<li><strong>Clear at 300K context.</strong> Recovers about 29% of context spend, 494M tokens on this cluster. Write a handoff, <code>/clear</code>, reopen.</li>
+<li><strong>Stop paying for sleep.</strong> 83.7M tokens went to <code>sleep; echo waited</code>. Use a real wait condition or end the turn.</li>
+<li><strong>Run the skill.</strong> <code>/impossible-guitar-parts</code> exists now, so grade the next tab with it instead of re-deriving hand-span rules.</li>
+<li><strong>Batch independent calls.</strong> 0% against a 40% target across 2,360 calls.</li>
+<li><strong>One session per defect.</strong> Four cold restarts on one bug is the largest structural cost here.</li>
+</ol>
+
+<footer>
+Source: <code>usage</code> records in <code>~/.claude/projects/-Users-drwu/*.jsonl</code>, read directly,
+plus <code>/session-audit</code> over the 30 most recent sessions.
+Session <code>81d2b7bf</code> was still live and writing during this audit, so its counts are a floor.
+Generated 2026-08-12.
+</footer>
+</div>
+</body>
+</html>
