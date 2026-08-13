@@ -1,0 +1,236 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Community Canon Engine · citation-gated accumulation</title>
+<style>
+  :root{
+    --paper:#f2ece0; --ink:#171310; --rule:#d8cdb8;
+    --mustard:#c9a227; --rust:#a8412a; --teal:#2f6b6a;
+    --dust:#c48f8f; --olive:#6f7647; --faint:#6b6055;
+  }
+  *{box-sizing:border-box}
+  body{margin:0;background:var(--paper);color:var(--ink);
+    font:16px/1.62 "Iowan Old Style","Palatino Linotype",Palatino,Georgia,serif;}
+  .wrap{max-width:900px;margin:0 auto;padding:44px 22px 90px}
+  header{border-bottom:3px double var(--ink);padding-bottom:20px;margin-bottom:34px}
+  .kicker{font:600 11px/1 ui-sans-serif,system-ui,sans-serif;letter-spacing:.19em;
+    text-transform:uppercase;color:var(--rust)}
+  h1{margin:.28em 0 .12em;font-size:2.35rem;line-height:1.1;letter-spacing:-.012em}
+  .sub{color:var(--faint);font-size:1.02rem;margin:0}
+  h2{margin:2.5em 0 .55em;font-size:1.32rem;letter-spacing:-.008em;
+    border-left:5px solid var(--mustard);padding-left:11px}
+  h3{margin:1.7em 0 .35em;font-size:1.04rem;color:var(--teal)}
+  p{margin:.72em 0}
+  code,kbd{font-family:"SF Mono",ui-monospace,Menlo,monospace;font-size:.87em;
+    background:#e8e0cf;padding:.1em .36em;border-radius:3px}
+  pre{background:#e8e0cf;border-left:4px solid var(--teal);padding:13px 15px;
+    overflow-x:auto;border-radius:0 4px 4px 0;font-size:.83rem;line-height:1.5}
+  pre code{background:none;padding:0}
+  .grid{display:grid;gap:13px;grid-template-columns:repeat(auto-fit,minmax(190px,1fr));margin:1.1em 0}
+  .stat{background:#ece4d4;border:1px solid var(--rule);border-radius:5px;padding:13px 15px}
+  .stat .n{font-size:1.62rem;font-weight:700;line-height:1.1;display:block}
+  .stat .l{font:600 10.5px/1.35 ui-sans-serif,system-ui,sans-serif;letter-spacing:.11em;
+    text-transform:uppercase;color:var(--faint);display:block;margin-top:4px}
+  .pass .n{color:var(--olive)} .warn .n{color:var(--rust)}
+  table{border-collapse:collapse;width:100%;margin:1.05em 0;font-size:.92rem}
+  th,td{text-align:left;padding:8px 11px;border-bottom:1px solid var(--rule);vertical-align:top}
+  th{font:600 10.5px/1.4 ui-sans-serif,system-ui,sans-serif;letter-spacing:.1em;
+    text-transform:uppercase;color:var(--faint);border-bottom:2px solid var(--ink)}
+  .tw{overflow-x:auto}
+  blockquote{margin:1.1em 0;padding:11px 17px;border-left:5px solid var(--dust);
+    background:#ece4d4;color:var(--ink)}
+  blockquote p:first-child{margin-top:0} blockquote p:last-child{margin-bottom:0}
+  .flag{border:1px solid var(--rust);border-left:6px solid var(--rust);
+    background:#f0e2dc;padding:13px 16px;border-radius:0 4px 4px 0;margin:1.2em 0}
+  .flag strong{color:var(--rust)}
+  ul,ol{padding-left:1.25em} li{margin:.34em 0}
+  footer{margin-top:3.4em;padding-top:16px;border-top:3px double var(--ink);
+    color:var(--faint);font-size:.86rem}
+  .mono-s{font-family:"SF Mono",ui-monospace,Menlo,monospace;font-size:.8rem;color:var(--faint)}
+</style>
+</head>
+<body>
+<div class="wrap">
+
+<header>
+  <div class="kicker">Community Agentic OS · 13 August 2026</div>
+  <h1>The Canon Engine</h1>
+  <p class="sub">Turning a per-episode citation gate into a corpus that accumulates,
+  so a reach that was already found or already refuted is never re-reported as new.</p>
+</header>
+
+<p>The OS could already prove that every sentence about an episode pointed at a
+real transcript line. It could not do two other things, and both were costing
+real work. It could not cite anything outside its own episodes, so a Harmon
+interview or a <em>Saved by the Bell</em> parallel had to be asserted rather than
+shown. And every artifact was scoped to one episode, so a connection found while
+reading S03E04 was invisible when S05E01 came up next.</p>
+
+<h2>Where it stands</h2>
+
+<div class="grid">
+  <div class="stat pass"><span class="n">26/26</span><span class="l">source gate proof</span></div>
+  <div class="stat pass"><span class="n">59/59</span><span class="l">canon proof</span></div>
+  <div class="stat pass"><span class="n">731</span><span class="l">citation tokens, PASS</span></div>
+  <div class="stat pass"><span class="n">0</span><span class="l">exit code, all four gates</span></div>
+</div>
+
+<div class="flag">
+  <p><strong>Read this before treating the green as content.</strong> The corpus
+  holds <strong>1 episode, 0 outside sources, 0 canon records</strong>. That one
+  episode is the shipped 32-line worked sample titled <em>The Study Room
+  Variable</em>. Real Community S01E04 is <em>Social Psychology</em>, and real
+  episodes run past 400 lines. Every one of the 731 passing citation tokens is
+  interpretation of a fixture.</p>
+  <p>A green gate means the plumbing holds. It is not evidence that the
+  investigation has material in it. The two numbers get reported separately, on
+  purpose.</p>
+</div>
+
+<h2>The three layers</h2>
+
+<pre><code>evidence/            immutable, line-indexed, never overwritten
+  &lt;EP&gt;/                Community episode transcripts
+  _sources/&lt;ID&gt;/       interviews, commentary, articles, other shows
+interpretation/&lt;EP&gt;/ per-episode artifacts, every line cited
+claims/              accumulated cross-episode findings, every line cited
+hypotheses/          proposed but unconfirmed, must name its own test
+rejected/            failed connections, with the reason, never re-proposed
+log.md               append-only ledger of every add, promotion, rejection</code></pre>
+
+<h3>Phase 1 · the outside corpus became citable</h3>
+
+<p>Sources ingest into their own namespace and cite exactly like an episode.</p>
+
+<pre><code>[HARMON-AVCLUB-2011-09-22:L88]   [COMMENTARY-S02E19:L14-L21]
+[SBTB-S03E12:S3]                 [TVTROPES-COMMUNITY-SHOUTOUTS:L7]</code></pre>
+
+<p>The two namespaces are disjoint by construction. An episode code is
+<code>S&lt;dd&gt;E&lt;dd&gt;</code> with no hyphen, a source id is uppercase with at
+least one hyphen, so nothing can be read as both. Tested exhaustively rather
+than by sampling: zero ids parse as either.</p>
+
+<p>Dialogue sources reuse the existing episode parser, so speakers, scenes and
+timestamps work unchanged. Prose is addressed by paragraph instead of by
+physical line, because a hard-wrapped article addressed per line has every id
+invalidated the moment somebody re-wraps it.</p>
+
+<h3>Phase 2 · findings outlive their episode</h3>
+
+<div class="tw"><table>
+  <thead><tr><th>Command</th><th>What it does</th></tr></thead>
+  <tbody>
+    <tr><td><code>canon check</code></td><td>Scores a proposal: NEW, ALREADY-KNOWN, PREVIOUSLY-REJECTED, or SIMILAR, with the match and its score</td></tr>
+    <tr><td><code>canon add</code></td><td>Records a source-backed claim. Refuses a duplicate by default</td></tr>
+    <tr><td><code>canon hypothesis</code></td><td>Records a proposal. Refused unless it names its own test</td></tr>
+    <tr><td><code>canon reject</code></td><td>Moves a record to rejected. Refused unless it carries a reason</td></tr>
+    <tr><td><code>canon promote</code></td><td>Hypothesis becomes a claim once its test is met</td></tr>
+    <tr><td><code>lint_canon.py</code></td><td>The cross-episode audit the per-episode gate structurally cannot run</td></tr>
+  </tbody>
+</table></div>
+
+<h2>The two rules that carry the design</h2>
+
+<h3>A claim cites evidence, never another claim</h3>
+
+<p>This is enforced by grammar rather than by policy. A canon id is lowercase and
+hyphenated. A citation token requires an episode code or an UPPERCASE source id.
+So a canon id cannot parse as a citation token at all, and one mistaken synthesis
+physically cannot travel through twenty linked pages. The lint additionally fails
+any line that leans on a <code>[[see-also]]</code> link without carrying its own
+evidence citation.</p>
+
+<h3>Dedup runs against everything seen, not against what was kept</h3>
+
+<p>Scoring a proposal only against accepted claims makes every rejected idea
+return as NEW on the next pass, and the loop never converges. Scoring runs
+against claims, hypotheses <em>and</em> rejections, with rejections winning ties,
+so a refuted reach can never come back as a discovery.</p>
+
+<pre><code>$ os.py canon check --text "Pierce's streets ahead line comes from Saved by the Bell"
+
+  VERDICT: PREVIOUSLY-REJECTED   (score 0.95)
+  rejected because: No Saved by the Bell episode contains it.
+                    The phrase is original to Community.
+
+  This is NOT a new discovery. Do not report it as one.</code></pre>
+
+<p>Scoring is deterministic and offline. Text similarity is the primary signal
+and shared citations boost it, because two findings pointing at the same evidence
+lines are usually the same finding. No model call, so a verdict is reproducible
+and testable.</p>
+
+<h2>What the build got wrong</h2>
+
+<p>Both defects are now regression-tested, and both are written into the skill so
+they cost nothing next time.</p>
+
+<h3>The apostrophe that survived 52 green tests</h3>
+
+<p>The citation normalizer keeps apostrophes on purpose, because a quote match
+needs <code>annie's</code> to stay one word. That pushed <code>episode's</code>
+straight into a generated record id, producing
+<code>claim-abed-names-the-episode's-form</code>, which the id pattern then
+refused. Every claim whose text contained an apostrophe was unrecordable.</p>
+
+<p>It passed every unit test and failed on the first live command. The fix strips
+in the slug builder alone, since the normalizer and the id pattern are both load
+bearing elsewhere, and the id builder now validates its own output so the whole
+class fails loudly instead of on one unlucky input. The standing lesson: unit
+tests passing is not the command line working.</p>
+
+<h3>A shell pipe hiding the exit code under test</h3>
+
+<p><code>python3 x.py | tail -3; echo $?</code> reports the exit status of
+<code>tail</code>, which is always zero. That looked like a script returning
+success on failure and sent me chasing a defect that did not exist. Exit codes
+now get measured with no pipe.</p>
+
+<h2>The gates</h2>
+
+<pre><code>test_source_gate.py   26/26   exit 0   widening the corpus did not widen the gate
+test_canon.py         59/59   exit 0   refuted reaches stay refuted
+validate_citations.py PASS    exit 0   731 citation tokens, both namespaces
+lint_canon.py         CLEAN   exit 0   0 records</code></pre>
+
+<p>Both proof suites are weighted toward the refusals rather than the happy path,
+because the failure mode that matters is a gate quietly starting to accept what it
+used to reject. An invented line number, a range past the end, an un-ingested
+source id, an invented scene and a fabricated quote are all asserted to still
+fail.</p>
+
+<h2>What this is for</h2>
+
+<blockquote>
+  <p>The method earns credibility when it can reject one of its own proposed
+  connections.</p>
+</blockquote>
+
+<p>That is the whole point of the rejected layer. A canon that only records what
+it accepted has no way to show its own discipline, and no way to stop the same
+attractive-but-wrong reach from being rediscovered every few months. The
+hypothesis layer does the matching job for claims that are interesting and not
+yet supported: it forces the proposal to name what would settle it, and it flags
+itself as stale after ninety days so a permanent maybe never quietly hardens into
+a settled reading.</p>
+
+<h2>Next</h2>
+
+<p>Phase 3 is the ingest backlog, and it needs real transcripts rather than the
+sample. In order: the remaining episodes, then the Harmon interviews and
+commentary tracks, then the outside-show comparison episodes. One source per
+pass, with all four gates green each time.</p>
+
+<footer>
+  <p>Built 13 August 2026. Source at
+  <span class="mono-s">~/New Desktop/community-agentic-os</span>,
+  operator skill <span class="mono-s">/community-os</span>.</p>
+  <p class="mono-s">Corpus at time of writing: 1 episode (worked sample),
+  0 outside sources, 0 canon records.</p>
+</footer>
+
+</div>
+</body>
+</html>
