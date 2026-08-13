@@ -93,7 +93,7 @@
     <li><a href="#repair">The repair: 11 Ambulance</a></li>
     <li><a href="#method">How the count was decided</a></li>
     <li><a href="#refuted">Four metrics that failed their own controls</a></li>
-    <li><a href="#align">Alignment, and three tabs that do not match their recordings</a></li>
+    <li><a href="#align">Alignment, and the model bug that invented two defects</a></li>
     <li><a href="#open">What is still open</a></li>
   </ol>
 </div>
@@ -118,28 +118,28 @@ instant and pitch.</p>
   <td><span class="pill neut">inconclusive</span></td><td class="num">&mdash;</td><td class="num">&mdash;</td>
   <td><span class="pill ok">PASS</span></td><td>Consistent. Low risk.</td></tr>
 <tr><td>02</td><td>Flake of the Year</td><td>2 staves</td><td class="num">0.586</td>
-  <td><span class="pill ok">TWO</span></td><td class="num">n/a</td><td class="num">21.3%</td>
-  <td><span class="pill ok">PASS</span></td><td><b>Tab does not align to the recording.</b></td></tr>
+  <td><span class="pill ok">TWO</span></td><td class="num"><b>0.765</b></td><td class="num">21.3%</td>
+  <td><span class="pill ok">PASS</span></td><td>Confirmed two, most separated in the album.</td></tr>
 <tr><td>03</td><td>Gene</td><td>2 staves</td><td class="num">0.624</td>
-  <td><span class="pill ok">TWO</span></td><td class="num"><b>0.316</b></td><td class="num">43.9%</td>
+  <td><span class="pill ok">TWO</span></td><td class="num">0.328</td><td class="num">43.9%</td>
   <td><span class="pill ok">PASS</span></td><td>Confirmed. Real two-guitar doubling.</td></tr>
 <tr><td>04</td><td>Six Feet Under</td><td>2 staves</td><td class="num">0.553</td>
-  <td><span class="pill ok">TWO</span></td><td class="num">0.125</td><td class="num">39.4%</td>
+  <td><span class="pill ok">TWO</span></td><td class="num">0.145</td><td class="num">39.4%</td>
   <td><span class="pill ok">PASS</span></td><td>Confirmed two. Doubling kept.</td></tr>
 <tr><td>05</td><td>Sleep Vs Death</td><td>2 staves</td><td class="num">0.447</td>
-  <td><span class="pill neut">inconclusive</span></td><td class="num">0.188</td><td class="num">0.0%</td>
-  <td><span class="pill warn">REVIEW</span></td><td><b>Tempo written 110, plays at 101.</b></td></tr>
+  <td><span class="pill neut">inconclusive</span></td><td class="num">0.154</td><td class="num">0.0%</td>
+  <td><span class="pill warn">REVIEW</span></td><td>Independent staves, no duplication. Tempo exact.</td></tr>
 <tr><td>07</td><td>MOP</td><td>1 staff</td><td class="num">0.551</td>
   <td><span class="pill warn">two, weak</span></td><td class="num">&mdash;</td><td class="num">&mdash;</td>
-  <td><span class="pill ok">PASS</span></td><td>Unresolved. Per-note test did not corroborate.</td></tr>
+  <td><span class="pill ok">PASS</span></td><td>Unresolved. Timing exact, ownership open.</td></tr>
 <tr><td>08</td><td>JGBFTL</td><td>2 staves</td><td class="num">0.330</td>
   <td><span class="pill bad">ONE</span></td><td class="num">n/a</td><td class="num">0.7%</td>
-  <td><span class="pill ok">PASS</span></td><td><b>Tab does not align to the recording.</b></td></tr>
+  <td><span class="pill ok">PASS</span></td><td><b>Timing does not match the recording.</b></td></tr>
 <tr><td>09</td><td>MHL</td><td>2 staves</td><td class="num">0.665</td>
-  <td><span class="pill ok">TWO</span></td><td class="num">0.052</td><td class="num">18.0%</td>
+  <td><span class="pill ok">TWO</span></td><td class="num">0.053</td><td class="num">18.0%</td>
   <td><span class="pill ok">PASS</span></td><td>Confirmed two.</td></tr>
 <tr><td>10</td><td>Trapped in Wonderland</td><td>2 staves</td><td class="num">0.627</td>
-  <td><span class="pill ok">TWO</span></td><td class="num">0.032</td><td class="num">2.6%</td>
+  <td><span class="pill ok">TWO</span></td><td class="num">0.067</td><td class="num">2.6%</td>
   <td><span class="pill warn">REVIEW</span></td><td>Confirmed two.</td></tr>
 <tr><td>11</td><td>Ambulance</td><td>2 staves</td><td class="num">0.337</td>
   <td><span class="pill bad">ONE</span></td><td class="num"><b>0.009</b></td><td class="num"><b>60.0%</b></td>
@@ -149,12 +149,12 @@ instant and pitch.</p>
 </div>
 
 <p class="fnote">Staff separation is the gap between the two staves' mean measured
-pan over their pooled spread. <b>03 Gene at 0.316 is the album's highest and 11
-Ambulance at 0.009 its lowest, 35x apart.</b> Gene's staves sit at &minus;0.307 and
-+0.029, genuinely different places; Ambulance's sit at &minus;0.166 and &minus;0.158,
-on top of each other. <b>n/a</b> means the tab could not be aligned to its
-recording, so no per-note audio measurement on it would mean anything. There is
-no track 06: the project's own song list skips 05 to 07.</p>
+pan over their pooled spread. <b>02 Flake at 0.765 is the album's highest, its staves
+hard left at &minus;0.61 and centre at +0.04. 11 Ambulance at 0.009 is the lowest, 85x
+below it</b>, its staves at &minus;0.166 and &minus;0.158, on top of each other.
+<b>n/a</b> means the tab could not be aligned to its recording, so no per-note audio
+measurement on it would mean anything. There is no track 06: the project's own song
+list skips 05 to 07.</p>
 
 <h2 id="repair">2 &nbsp;The repair: 11 Ambulance</h2>
 
@@ -273,63 +273,73 @@ to reveal a second guitarist merged into a single staff, was refuted by its cont
 <b>03 Gene's two staves scored 0.59 and 0.64</b>, and each of those is certainly one
 player. That test is the reason song 07 is marked unresolved rather than confirmed.</p>
 
-<h2 id="align">5 &nbsp;Alignment, and three tabs that do not match their recordings</h2>
+<h2 id="align">5 &nbsp;Alignment, and the model bug that invented two defects</h2>
 
 <p>Per-note audio measurement needs the tab's beat 0 on the stem's sample 0. The
 first depan attempt on 11 Ambulance <b>refused to report</b>, because its written
 attacks carried <i>less</i> energy at their own pitches than nonsense onsets did,
-0.55x. Offset and tempo scale are therefore solved per song against the stem's onset
-envelope, and scored against the same tab with its rhythm shuffled, since a dense
+0.55x. Offset and tempo are therefore solved per song against the stem's onset
+envelope, scored against the same tab with its rhythm shuffled, since a dense
 impulse train scores well against any envelope simply by covering it.</p>
+
+<div class="card gap">
+  <h3>The first version of this reported two defects that did not exist</h3>
+  <p>It read <b>one</b> tempo per song, from the first Tempo automation. <b>Four Ship
+  songs carry tempo maps</b>, and 05 Sleep Vs Death goes <b>110 bpm to 90 at bar
+  35</b>, a 22% change a constant-tempo model cannot express. So the search returned
+  a compromise scale and the song was reported as having a tempo error, first 8.8%
+  and then 3.0%. <b>Both were wrong, and both are retracted.</b> 02 Flake, carrying
+  nine tempo entries, was reported as not aligning at all.</p>
+  <p>With the full tempo map, both align cleanly and their written tempos are exact.
+  The alignment control on 05 Sleep went from <b>2.38x to 24.25x</b>, the strongest
+  in the album. The defect was in the model, not in the tabs.</p>
+</div>
 
 <div class="tablewrap">
 <table>
-<thead><tr><th>Song</th><th class="num">Offset</th><th class="num">Scale</th>
-  <th class="num">z vs shuffled</th><th class="num">Written bpm</th>
-  <th class="num">Effective</th><th>Result</th></tr></thead>
+<thead><tr><th>Song</th><th class="num">Tempo map</th><th class="num">Offset</th>
+  <th class="num">Scale</th><th class="num">z vs shuffled</th>
+  <th class="num">Tone ctrl</th><th>Result</th></tr></thead>
 <tbody>
-<tr><td>10 Trapped in Wonderland</td><td class="num">+0.12s</td><td class="num">1.016</td><td class="num">+10.8</td><td class="num">&mdash;</td><td class="num">&mdash;</td><td><span class="pill ok">aligned</span></td></tr>
-<tr><td>07 MOP</td><td class="num">+0.16s</td><td class="num">1.000</td><td class="num">+10.6</td><td class="num">126.0</td><td class="num">126.00</td><td><span class="pill ok">aligned, exact</span></td></tr>
-<tr><td>03 Gene</td><td class="num">+0.32s</td><td class="num">0.988</td><td class="num">+9.0</td><td class="num">&mdash;</td><td class="num">&mdash;</td><td><span class="pill ok">aligned</span></td></tr>
-<tr><td>11 Ambulance</td><td class="num">+4.20s</td><td class="num">1.000</td><td class="num">+7.7</td><td class="num">156.0</td><td class="num">156.00</td><td><span class="pill ok">aligned, offset only</span></td></tr>
-<tr><td>04 Six Feet Under</td><td class="num">+0.54s</td><td class="num">1.000</td><td class="num">+6.5</td><td class="num">&mdash;</td><td class="num">&mdash;</td><td><span class="pill ok">aligned</span></td></tr>
-<tr><td>09 MHL</td><td class="num">+1.64s</td><td class="num">1.000</td><td class="num">+5.2</td><td class="num">&mdash;</td><td class="num">&mdash;</td><td><span class="pill ok">aligned</span></td></tr>
-<tr><td>05 Sleep Vs Death</td><td class="num">+4.32s</td><td class="num">1.088</td><td class="num">+4.7</td><td class="num">110.0</td><td class="num">101.10</td><td><span class="pill warn">tempo off 8.8%</span></td></tr>
-<tr><td>08 JGBFTL</td><td class="num">+6.62s</td><td class="num">0.938</td><td class="num">+3.3</td><td class="num">&mdash;</td><td class="num">&mdash;</td><td><span class="pill bad">not aligned</span></td></tr>
-<tr><td>02 Flake of the Year</td><td class="num">+0.70s</td><td class="num">1.002</td><td class="num">+1.3</td><td class="num">84.0</td><td class="num">83.83</td><td><span class="pill bad">not aligned</span></td></tr>
+<tr><td>03 Gene</td><td class="num">10 entries</td><td class="num">+0.18s</td><td class="num">0.989</td><td class="num">+17.7</td><td class="num">4.64x</td><td><span class="pill ok">aligned</span></td></tr>
+<tr><td>05 Sleep Vs Death</td><td class="num">2 entries</td><td class="num">+7.64s</td><td class="num">1.000</td><td class="num">+16.7</td><td class="num"><b>24.25x</b></td><td><span class="pill ok">aligned, tempo exact</span></td></tr>
+<tr><td>09 MHL</td><td class="num">3 entries</td><td class="num">+1.64s</td><td class="num">1.000</td><td class="num">+12.9</td><td class="num">4.94x</td><td><span class="pill ok">aligned, tempo exact</span></td></tr>
+<tr><td>10 Trapped in Wonderland</td><td class="num">1</td><td class="num">+0.03s</td><td class="num">1.017</td><td class="num">+11.1</td><td class="num">12.93x</td><td><span class="pill ok">aligned</span></td></tr>
+<tr><td>07 MOP</td><td class="num">1</td><td class="num">+0.16s</td><td class="num">1.000</td><td class="num">+10.6</td><td class="num">2.28x</td><td><span class="pill ok">aligned, tempo exact</span></td></tr>
+<tr><td>02 Flake of the Year</td><td class="num">9 entries</td><td class="num">+2.60s</td><td class="num">1.000</td><td class="num">+8.7</td><td class="num">2.11x</td><td><span class="pill ok">aligned, tempo exact</span></td></tr>
+<tr><td>11 Ambulance</td><td class="num">1</td><td class="num">+4.20s</td><td class="num">1.000</td><td class="num">+7.7</td><td class="num">3.53x</td><td><span class="pill ok">aligned, offset only</span></td></tr>
+<tr><td>04 Six Feet Under</td><td class="num">1</td><td class="num">+0.52s</td><td class="num">1.000</td><td class="num">+5.6</td><td class="num">3.55x</td><td><span class="pill ok">aligned, tempo exact</span></td></tr>
+<tr><td>08 JGBFTL</td><td class="num">1</td><td class="num">+4.61s</td><td class="num">0.731</td><td class="num">+4.0</td><td class="num">&mdash;</td><td><span class="pill bad">not aligned</span></td></tr>
 </tbody>
 </table>
 </div>
 
-<p><b>11 Ambulance's tempo was never wrong.</b> It needed a 4.200 s offset and its
-scale came back 1.0000, with librosa independently estimating 156.6 against the
-written 156.0. The tempo suspicion from the original sessions applies to a
-different song: <b>05 Sleep Vs Death is written at 110 bpm and plays at about
-101</b>, an 8.8% error that accumulates to roughly 18 seconds of drift across the
-song.</p>
+<p><b>Nine of ten songs align and their tempos are right.</b> 11 Ambulance's tempo
+was never wrong: it needed a 4.200 s offset and its scale came back 1.0000, with
+librosa independently estimating 156.6 against the written 156.0.</p>
 
-<p><b>02 Flake is the interesting failure.</b> Its tempo is right, 84.0 written
-against 83.83 effective, and librosa's 166.7 is that same tempo counted in
-half-time. So the tempo is fine and the <i>rhythm</i> does not match: the tab
-cannot beat its own shuffled self, at z = +1.3. That is a note-placement problem,
-not a clock problem.</p>
+<p><b>08 JGBFTL is the one genuinely mis-timed tab.</b> It carries a single tempo of
+88 bpm, the search's best fit wants 0.731 which implies about 120 bpm, and librosa
+estimates 103.4. Three numbers that do not converge, and the written rhythm cannot
+beat its own shuffled version at z = +4.0. Its note timing does not match this
+recording at any tempo, so no per-note measurement on it can mean anything.</p>
 
 <h2 id="open">6 &nbsp;What is still open</h2>
 <ol>
-  <li><b>02 Flake and 08 JGBFTL</b> need re-transcription, since their written
-    rhythms do not match their recordings. The pipeline's hard gate is that the tab
-    source is Songsterr and never hand-rolled pitch detection, so this needs a
-    Songsterr upload and Brandon's account.</li>
-  <li><b>05 Sleep Vs Death</b> needs the clock-fix pass for its 8.8% tempo error.
-    A worked result exists to copy from.</li>
-  <li><b>07 MOP</b> is unresolved. Song-level audio says two guitars weakly, at
-    0.551 against a 0.512 floor, and the per-note test failed its control and
-    cannot corroborate. It needs stronger evidence before anything is added.</li>
-  <li><b>03 Gene and 04 Six Feet Under</b> are settled. Both are genuinely two
-    guitarists, so their 43.9% and 39.4% cross-staff doubling is real doubling and
-    must survive. No deletion is licensed.</li>
-  <li><b>The ledger needs a depan licence</b> so a pass that legitimately reduces
-    the instance count can be promoted on its Tier 1 verdict.</li>
+  <li><b>08 JGBFTL</b> needs re-transcription. Its written rhythm does not match its
+    recording at any tempo. The pipeline's hard gate is that the tab source is
+    Songsterr and never hand-rolled pitch detection, so this is the one item that
+    needs an upload from Brandon's account rather than a local pass.</li>
+  <li><b>07 MOP</b> is unresolved on ownership. Its timing is exact and it aligns at
+    z = +10.6, and the song-level audio says two guitars only weakly, 0.551 against
+    a 0.512 floor. It carries a single staff, so there is no second staff to measure
+    a separation against. It needs stronger evidence before anything is added.</li>
+  <li><b>The ledger needs a depan licence</b> so a pass that legitimately reduces the
+    instance count can be promoted on its Tier 1 verdict.</li>
+  <li><b>Settled and needing nothing:</b> 01 Seedy Shade, 02 Flake, 03 Gene, 04 Six
+    Feet Under, 05 Sleep Vs Death, 09 MHL, 10 Trapped in Wonderland. All align, all
+    pass the gate, and every two-staff one among them is a confirmed real pair whose
+    cross-staff doubling must survive.</li>
 </ol>
 
 <footer>

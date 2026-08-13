@@ -104,3 +104,32 @@ each certainly a single player. That is why 07 MOP is unresolved rather than
 confirmed.
 
 **Track 06 does not exist**: the project's own song list skips 05 to 07.
+
+## Correction, same day: a model bug invented two defects
+
+My aligner read ONE tempo per song, from the first Tempo automation. Four Ship
+songs carry tempo maps, and 05 Sleep Vs Death goes 110 bpm -> 90 at bar 35, a 22%
+change a constant-tempo model cannot express.
+
+RETRACTED: "05 Sleep tempo error 8.8%" and then "3.0%". Both were compromise fits.
+RETRACTED: "02 Flake does not align".
+
+With the full tempo map both align cleanly at their written tempos. 05 Sleep's
+alignment control went from 2.38x to 24.25x, the strongest in the album.
+
+Corrected staff pan separation (each written note measured against the stereo stem):
+
+| song | staff sep |
+|---|---|
+| 02 Flake | **0.765** (staves hard left -0.61 and centre +0.04) |
+| 03 Gene | 0.328 |
+| 05 Sleep | 0.154 |
+| 04 Six Feet | 0.145 |
+| 10 Trapped | 0.067 |
+| 09 MHL | 0.053 |
+| 11 Ambulance | **0.009** (staves -0.166 and -0.158, 85x below Flake) |
+
+Nine of ten songs align with correct tempos. **08 JGBFTL is the one genuinely
+mis-timed tab**: single tempo 88 bpm written, best fit implies ~120, librosa says
+103.4, and z = +4.0 against its own shuffled rhythm. It needs re-transcription
+from Songsterr.
