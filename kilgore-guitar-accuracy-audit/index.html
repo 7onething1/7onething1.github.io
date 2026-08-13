@@ -85,6 +85,7 @@
     <li><a href="#rhythm">The Rhythm staff</a></li>
     <li><a href="#best">The BEST filename</a></li>
     <li><a href="#classify">Classifying the differences</a></li>
+    <li><a href="#repair">The repair the audio licensed</a></li>
     <li><a href="#open">Still open</a></li>
     <li><a href="#method">Method</a></li>
     <li><a href="#prov">Provenance</a></li>
@@ -255,7 +256,49 @@ transcriptions has never been tested for accuracy.</p>
 </table>
 </div>
 
-<h2 id="open">7. Still open</h2>
+<h2 id="repair">7. The repair the audio licensed</h2>
+
+<p>The physical gate held one IMPOSSIBLE_SPAN, at bar 62.938 on the Rhythm staff:
+<code>s0f11 s1f4</code>, sounding 47 and 49, a 7-fret span against a 4-fret hand at 128 bpm. The gate's
+own alternative search reported that <b>no complete voicing of those two pitches is narrower</b>, so
+no refret could fix it. The gate said the shape or the transcription is wrong, and the audit is what
+told the two apart.</p>
+
+<div class="scroll">
+<table>
+<thead><tr><th>Pitch, at t = 106.580 s</th><th class="n">Salience L</th><th class="n">Salience R</th>
+  <th class="n">vs +1</th><th class="n">vs tritone</th><th class="n">vs wrong time</th></tr></thead>
+<tbody>
+<tr><td><b>47</b>, in the Rhythm's own stem (R)</td><td class="n">29.75</td><td class="n">35.88</td>
+  <td class="n win">+6.1</td><td class="n win">+12.0</td><td class="n win">+5.8</td></tr>
+<tr><td><b>49</b>, in the Rhythm's own stem (R)</td><td class="n">37.47</td><td class="n">31.87</td>
+  <td class="n">+4.6</td><td class="n">+6.6</td><td class="n lose">&minus;18.0</td></tr>
+<tr><td><b>49</b>, in the Lead's stem (L)</td><td class="n">37.47</td><td class="n">31.87</td>
+  <td class="n">+7.3</td><td class="n">+18.5</td><td class="n lose">&minus;17.5</td></tr>
+</tbody>
+</table>
+</div>
+
+<p><b>Pitch 47 passes all three controls in the Rhythm's stem. Pitch 49 fails the wrong-time control by
+18 dB in both stems</b>, meaning a randomly chosen instant carries more energy at that pitch than the
+written moment does, and it is louder in the Lead's stem. The Lead staff writes pitch 49 at 246.750
+and again at 248.250, one beat either side. This is the documented failure of the pipeline: two
+guitars written onto one staff.</p>
+
+<div class="card verdict">
+<p><b>One note removed, Note id 2407, Rhythm staff, beat 247.750.</b> Span 7 becomes span 0. Collateral
+drift across all five tracks: zero beats changed. Pitch 49 remains written at 240 other positions, so
+no pitch left the music and Tier 1 preservation passes.</p>
+<p>Gate verdict moves <b>FAIL to REVIEW</b> and the hard profile is <b>clean</b>: same-string 0,
+tie-inconsistent 0, impossible spans 0, octave artifacts 0. Re-measured against the stems, the removal
+also nudged accuracy up: Rhythm pitch support 64.9% to <b>65.8%</b>, wrong-time separation 75.5% to
+<b>76.4%</b>.</p>
+</div>
+
+<p>Reassignment to the Lead staff was rejected. Pitch 49 fails its wrong-time control in the Lead's
+stem too, so moving the attack across would keep an unsupported attack rather than resolve one.</p>
+
+<h2 id="open">8. Still open</h2>
 
 <div class="card open">
 <p><b>Attack density is not established for any of the three.</b> The onset detector finds 387 onsets in
@@ -269,11 +312,14 @@ exactly one analysis hop, which is a resolution artifact rather than a real offs
 <code>c-tied.gp</code> sit below 130 Hz, and the Demucs guitar stem keeps roughly 1.32% of the mix
 energy at 60 to 90 Hz. Those notes are reported as unmeasurable rather than absent. Settling them
 needs the source mix, which was not on this machine.</p>
-<p><b>The physical gate still fails.</b> The promoted build carries one IMPOSSIBLE_SPAN and a 62.7%
-hand-skip rate, verdict FAIL, status best_validated_so_far.</p>
+<p><b>Hand skip sits at 65% and 61%.</b> Every hard gate is clean on the promoted build, and the gate
+labels hand skip a diagnostic to be read after the gates. It is the last tier and it is the one still
+in the uncorrected band, so the artifact holds status <code>best_validated_so_far</code> rather than
+BEST. Moving it means supplying positive audio evidence for the interior-string gaps, which is now
+possible with the audit in place and was not attempted here.</p>
 </div>
 
-<h2 id="method">8. Method</h2>
+<h2 id="method">9. Method</h2>
 
 <p>One question per note, never a bar average. For each written attack a single high-resolution
 spectrum is taken from a 150 ms window at the note's mapped time, zero-padded to 0.67 Hz per bin.
@@ -292,16 +338,20 @@ from the same spectrum.</p>
 <p>Staff-to-stem assignment is measured rather than assumed, by comparing median salience across both
 stems for every note on a staff.</p>
 
-<h2 id="prov">9. Provenance</h2>
+<h2 id="prov">10. Provenance</h2>
 
 <div class="prov">
 <dl>
-  <dt>Artifact</dt><dd>s6389251-chain49.gp</dd>
-  <dt>Artifact sha256</dt><dd>78366507417966a90b012fa35bfeffb1d74dc08c5ebc13a3547798c1d7b7f262</dd>
+  <dt>Artifact</dt><dd>s6389251-chain50.gp, promoted</dd>
+  <dt>Artifact sha256</dt><dd>f1bc5110346195d3bb5e9169dd9fe48a1904767ccc5607032d461a6b8fcb8f07</dd>
   <dt>Gate sha256</dt><dd>ece41376b1cd8f7f</dd>
-  <dt>Receipt run_id</dt><dd>6f5b0815969eca47</dd>
-  <dt>Gate verdict</dt><dd>FAIL &middot; preservation PASS &middot; position PASS</dd>
+  <dt>Receipt run_id</dt><dd>61f91733eca5ebc9</dd>
+  <dt>Gate verdict</dt><dd>REVIEW &middot; preservation PASS &middot; position PASS &middot; hard profile clean</dd>
   <dt>Ledger status</dt><dd>best_validated_so_far, so the word BEST is not licensed</dd>
+  <dt>Replaced</dt><dd>s6389251-chain49.gp &middot; 78366507417966a9 &middot; earlier receipt 6f5b0815969eca47</dd>
+  <dt>Transform</dt><dd>impossible-span-removal-247750</dd>
+  <dt>Edit scope</dt><dd>Rhythm Guitar beat 247.750 only</dd>
+  <dt>Changed note ids</dt><dd>2407 &middot; 1 id, sha 957b4de48fd8</dd>
   <dt>Stem source</dt><dd>c-tied.gp &middot; e14adddf6520eea8</dd>
   <dt>Songsterr reference</dt><dd>9bad6f45f3d943d1</dd>
   <dt>Beat map</dt><dd>beats_to_seconds.json &middot; 8e216f1ef78f6041</dd>
@@ -319,9 +369,15 @@ python3 synth_control_render.py --gp c-tied.gp \
   --beat-map beats_to_seconds.json --seconds 172.5 \
   --out-left synth_L.wav --out-right synth_R.wav
 
-python3 impossible_gate.py s6389251-chain49.gp --source c-tied.gp \
+python3 repair_span_247750.py s6389251-chain49.gp s6389251-chain50.gp
+
+python3 impossible_gate.py s6389251-chain50.gp --item kilgore-trout \
+  --source c-tied.gp --checkpoint s6389251-chain49.gp --promote \
   --stem-source c-tied.gp --audio gtr_L.wav --audio gtr_R.wav \
-  --beat-map beats_to_seconds.json --receipt</pre>
+  --beat-map beats_to_seconds.json --changed-notes 2407 \
+  --transform impossible-span-removal-247750 \
+  --edit-scope "Rhythm Guitar beat 247.750 only" \
+  --license-note-removal "&lt;the audio evidence above&gt;"</pre>
 
 <footer>
   Measured 2026-08-13. Every percentage on this page is computed from saved per-note measurements,
