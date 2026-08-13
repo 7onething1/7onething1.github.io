@@ -73,20 +73,20 @@ reading S03E04 was invisible when S05E01 came up next.</p>
 <div class="grid">
   <div class="stat pass"><span class="n">37/37</span><span class="l">source gate proof</span></div>
   <div class="stat pass"><span class="n">59/59</span><span class="l">canon proof</span></div>
-  <div class="stat pass"><span class="n">1,089</span><span class="l">citation tokens, PASS</span></div>
-  <div class="stat pass"><span class="n">0</span><span class="l">exit code, all four gates</span></div>
+  <div class="stat pass"><span class="n">3,088</span><span class="l">citation tokens, PASS</span></div>
+  <div class="stat pass"><span class="n">1,313</span><span class="l">real transcript lines</span></div>
 </div>
 
 <div class="flag">
   <p><strong>Report the corpus and the gate as two separate numbers.</strong>
-  The corpus holds <strong>2 episodes, 0 outside sources, 1 claim, 1
-  hypothesis</strong>. One of those episodes is real: S02E09,
-  <em>Conspiracy Theories and Interior Design</em>, 255 lines, ingested from the
-  fandom wiki API. The other is the shipped 32-line worked sample titled
-  <em>The Study Room Variable</em>, so the 731 tokens certified against it are
-  interpretation of a fixture and are tagged as such.</p>
-  <p>A green gate means the plumbing holds. It is not evidence that the
-  investigation has material in it.</p>
+  The corpus holds <strong>4 real episodes, 1,313 transcript lines, 0 outside
+  sources, 1 claim, 1 hypothesis</strong>: Social Psychology, Conspiracy Theories
+  and Interior Design, Critical Film Studies, and Remedial Chaos Theory, all
+  ingested from the fandom wiki API.</p>
+  <p>The shipped worked sample used to sit at <code>S01E04</code>, so a citation
+  like <code>[S01E04:L10]</code> named a real episode while pointing at fiction.
+  Real S01E04 is Social Psychology and now occupies that code. The fixture is
+  parked, not deleted.</p>
 </div>
 
 <h2>The three layers</h2>
@@ -212,11 +212,36 @@ fictional character named CATEGORY. Housekeeping links now get dropped first, an
 the episode was re-ingested clean. The old copy is parked rather than
 overwritten, which is the standing rule for evidence.</p>
 
+<h3>A 539-line transcript with zero speakers that passed the gate</h3>
+
+<p>The fandom pages are not uniform, and assuming they were broke the ingest.
+The colon sits inside or outside the bold depending on the page
+(<code>'''Pierce:'''</code> against <code>'''Pelton''':</code>), and handling only
+one shape produced a full-length transcript in which every line had lost its
+attribution. It passed the citation gate, because the gate verifies that cited
+lines exist and has no way to know the speakers went missing.</p>
+
+<p>This is the difference between a tool running and a tool working. The importer
+now refuses at zero speakers and below 80 percent of content lines accounted for,
+and the metric counts dialogue plus stage direction plus continuation, since a
+speech broken around a stage direction resumes with no prefix and the ingester
+inherits the speaker. Getting that last part wrong read a sound transcript as
+29 percent broken.</p>
+
+<h3>A merged file outliving the parts it was merged from</h3>
+
+<p><code>dossier.md</code> is a merge of the eleven artifacts and no tool
+produces it, so re-analyzing regenerates every artifact and leaves the dossier
+describing the previous evidence. When S01E04 was re-ingested from the worked
+sample to the real transcript, the stale dossier failed on 110 citations into
+lines that no longer existed. Analyze now parks a stale dossier rather than let
+it sit there reading as current.</p>
+
 <h2>The gates</h2>
 
 <pre><code>test_source_gate.py   37/37   exit 0   widening the corpus did not widen the gate
 test_canon.py         59/59   exit 0   refuted reaches stay refuted
-validate_citations.py PASS    exit 0   S01E04 731 + S02E09 358 tokens
+validate_citations.py PASS    exit 0   4 episodes, 3,088 tokens
 lint_canon.py         CLEAN   exit 0   2 records, 5 tokens</code></pre>
 
 <p>Both proof suites are weighted toward the refusals rather than the happy path,
@@ -252,7 +277,7 @@ pass, with all four gates green each time.</p>
   <span class="mono-s">~/New Desktop/community-agentic-os</span>,
   operator skill <span class="mono-s">/community-os</span>.</p>
   <p class="mono-s">Corpus at time of writing: 1 episode (worked sample),
-  0 outside sources, 1 claim, 1 hypothesis.</p>
+  4 real episodes, 0 outside sources, 1 claim, 1 hypothesis.</p>
 </footer>
 
 </div>

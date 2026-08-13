@@ -8,7 +8,7 @@ operator skill `/community-os`.
 A citation-gated corpus for the Community investigation. Phase 1 made the outside
 corpus citable (Harmon interviews, DVD commentary, articles, other shows'
 episodes). Phase 2 made findings accumulate across episodes instead of being
-scoped to one. Phase 3 is the ingest backlog, now underway.
+scoped to one. Phase 3 is the ingest, now four real episodes deep.
 
 ## Layers
 
@@ -37,56 +37,65 @@ log.md               append-only ledger
 ```
 test_source_gate.py   37/37   exit 0
 test_canon.py         59/59   exit 0
-validate_citations.py PASS    exit 0   S01E04 731 + S02E09 358 tokens
+validate_citations.py PASS    exit 0   4 episodes, 3,088 tokens
 lint_canon.py         CLEAN   exit 0   2 records, 5 tokens
 ```
 
 ## Corpus state
 
-2 episodes, 0 outside sources, 1 claim, 1 hypothesis. One episode is real:
-S02E09 "Conspiracy Theories and Interior Design", 255 lines, ingested from the
-fandom wiki API. The other is the shipped 32-line worked sample "The Study Room
-Variable", and everything derived from it is tagged as fixture-derived. A green
-gate is evidence about plumbing, not about content.
+4 real episodes, 1,313 transcript lines, 0 outside sources, 1 claim, 1
+hypothesis.
+
+| Code | Episode | Lines | Scenes |
+|---|---|---|---|
+| S01E04 | Social Psychology | 367 | 8 |
+| S02E09 | Conspiracy Theories and Interior Design | 255 | 1 |
+| S02E19 | Critical Film Studies | 169 | 1 |
+| S03E04 | Remedial Chaos Theory | 522 | 11 |
+
+The shipped worked sample used to occupy S01E04, so `[S01E04:L10]` named a real
+episode while pointing at fiction. Real S01E04 is Social Psychology and now holds
+that code. The fixture evidence is parked, not deleted.
 
 ## Defects found and fixed
 
 - **Apostrophe in generated ids.** The citation normalizer keeps apostrophes so
   quote matching works, which pushed `episode's` into a record id its own pattern
-  refused. Survived 52 green unit tests, failed on the first live command. Fixed
-  in the slug builder alone; the id builder now validates its own output.
+  refused. Survived 52 green unit tests, failed on the first live command.
 - **Shell pipe hiding exit codes.** `python3 x.py | tail -3; echo $?` reports
   tail's status. Exit codes now measured with no pipe.
 - **Five real quotes reported as fabrications.** `cite_quote` rewrites an inner
   double quote as an apostrophe, and `normalize` stripped double quotes while
-  keeping apostrophes, so producer and checker disagreed. A word-boundary
-  apostrophe is now treated as a quotation mark and dropped; an intra-word one is
-  a contraction and stays. Shipped with four rejection tests, because the change
-  loosens matching.
+  keeping apostrophes, so producer and checker disagreed. Shipped with four
+  rejection tests, because the change loosens matching.
 - **A wiki category tag became a character.** The converter delinked
   `[[Category:...]]` before dropping housekeeping links, so the ingester read
   `Category:` as a speaker and wrote a fake speaker CATEGORY into evidence.
-  Housekeeping links are dropped first now; episode re-ingested, old copy parked.
+- **A 539-line transcript with zero speakers passed the gate.** Two speaker
+  shapes exist on the wiki and only one was handled, so every line lost its
+  attribution while still citing real line numbers. The importer now refuses at
+  zero speakers and below 80% accounted.
+- **A healthy transcript read as 29% broken.** A speech broken around a stage
+  direction resumes with no prefix and the ingester inherits the speaker, so
+  those continuation lines are attributed. The metric now counts dialogue plus
+  stage direction plus continuation.
+- **A stale dossier surviving a re-ingest.** `dossier.md` is a merge no tool
+  produces, so re-analyzing left it describing the old evidence: 110 citations
+  into lines that no longer existed. Analyze now parks it.
 
-## Transcript ingest recipe
+## Ingesting
 
-The fandom wiki API returns raw wikitext with no scraping:
-
+```bash
+python3 import_fandom.py --list
+python3 import_fandom.py --title "Remedial Chaos Theory" --ep S03E04
 ```
-https://community-sitcom.fandom.com/api.php?action=parse&page=<Title>/Transcript&prop=wikitext&format=json&formatversion=2
-```
 
-Order matters. Drop template blocks, then drop `[[Category:]]`, `[[File:]]` and
-`[[Image:]]` **before** delinking, then delink and strip the line-break and bold
-markup. Delinking first turns a category tag into a fake speaker line.
-
-Two limits of the source: fandom transcripts carry no scene markers, so an
-episode ingests as a single scene; and one character can be named several ways,
-so S02E09 holds both `PELTON` (34 lines) and `DEAN PELTON` (1). Do not merge
-those by guessing.
+Coverage is partial. 27 transcripts exist across seasons 1, 2, 3, 4 and 6.
+**Season 5 has none**, which is what keeps the quarantined `imports/`
+adjudication blocked, since it needs S05E01 to S05E03.
 
 ## Next
 
-More real episodes, then Harmon interviews and commentary via `ingest-source`,
-then the outside-show comparison episodes. One source per pass, four gates green
-each time.
+Remaining wiki transcripts, then Harmon interviews and commentary via
+`ingest-source`, then outside-show comparison episodes. Season 5 needs a
+different source.
