@@ -1,0 +1,136 @@
+<title>Sean song, guitar against the record</title>
+<style>
+:root{color-scheme:light}
+body{background:#f4ecd8;color:#1c1a17;margin:0;padding:0;font-family:"Iowan Old Style",Palatino,Georgia,serif;line-height:1.6;font-size:17px}
+.wrap{max-width:960px;margin:0 auto;padding:2.2rem 1.2rem 5rem}
+h1{font-size:2.05rem;line-height:1.18;margin:0 0 .4rem;letter-spacing:-.01em}
+h2{font-size:1.28rem;margin:2.6rem 0 .7rem;padding-bottom:.3rem;border-bottom:2px solid #d8cbb0}
+h3{font-size:1.03rem;margin:1.5rem 0 .4rem;color:#3f7168}
+.sub{color:#6b6355;font-size:1rem;margin:0 0 1.6rem}
+.card{background:#fbf6ea;border:1px solid #d8cbb0;border-left:5px solid #c8922e;padding:1rem 1.15rem;margin:1.1rem 0;border-radius:3px}
+.card.pass{border-left-color:#3f7168}
+.card.warn{border-left-color:#a8452f}
+.card.note{border-left-color:#6f9bb0}
+.card h4{margin:0 0 .45rem;font-size:1rem;letter-spacing:.02em;text-transform:uppercase;color:#6b6355}
+table{border-collapse:collapse;width:100%;margin:.9rem 0;font-size:.93rem;font-family:ui-monospace,SFMono-Regular,Menlo,monospace}
+th{text-align:left;border-bottom:2px solid #d8cbb0;padding:.42rem .5rem;font-weight:600;color:#6b6355}
+td{border-bottom:1px solid #d8cbb0;padding:.42rem .5rem;vertical-align:top}
+tr:hover td{background:#fbf6ea}
+.scroll{overflow-x:auto;-webkit-overflow-scrolling:touch}
+code{background:#fbf6ea;padding:.1rem .32rem;border-radius:3px;font-family:ui-monospace,SFMono-Regular,Menlo,monospace;font-size:.9em}
+.big{font-size:2.5rem;font-weight:700;line-height:1;letter-spacing:-.02em}
+.grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(155px,1fr));gap:.85rem;margin:1.2rem 0}
+.stat{background:#fbf6ea;border:1px solid #d8cbb0;border-radius:3px;padding:.85rem}
+.stat .lab{font-size:.76rem;text-transform:uppercase;letter-spacing:.05em;color:#6b6355;margin-top:.3rem}
+.toc{background:#fbf6ea;border:1px solid #d8cbb0;border-radius:3px;padding:1rem 1.2rem;margin:1.6rem 0}
+.toc ol{margin:.3rem 0 0;padding-left:1.3rem}.toc li{margin:.22rem 0}
+a{color:#3f7168}
+.tag{display:inline-block;font-size:.72rem;text-transform:uppercase;letter-spacing:.05em;padding:.13rem .45rem;border-radius:2px;background:#3f7168;color:#fff;margin-right:.4rem}
+.tag.r{background:#a8452f}.tag.m{background:#c8922e}
+@media(prefers-color-scheme:dark){}
+</style>
+<div class="wrap">
+<h1>Sean song, the guitar measured against the record</h1>
+<p class="sub">Songsterr <code>s6219701</code>, live revision <strong>8212897</strong> of 2026-07-31. Tab under test <code>Sean_song_v20_NOPHANTOM.gp5</code>. Built 2026-08-13.</p>
+<div class="card pass"><h4>Verdict</h4>
+<p>The reader passed a <strong>two-sided control at 96%</strong>, so its disagreements are evidence about the tab. Against the real recording the guitar is <strong>78% supported</strong> where the control ceiling on a known-good tab is 96%. The disagreement is not spread evenly, it concentrates in <strong>a handful of contiguous sections</strong>, which is what "wildly wrong at places" looks like when it is measured.</p>
+</div>
+<div class="grid">
+<div class="stat"><div class="big">1327</div><div class="lab">guitar notes</div></div>
+<div class="stat"><div class="big">794</div><div class="lab">supported by the record</div></div>
+<div class="stat"><div class="big">219</div><div class="lab">contradicted</div></div>
+<div class="stat"><div class="big">314</div><div class="lab">physically undecidable</div></div>
+<div class="stat"><div class="big">85%</div><div class="lab">median bar support</div></div>
+<div class="stat"><div class="big">27</div><div class="lab">repeated substitutions</div></div>
+</div>
+<div class="toc"><strong>On this page</strong><ol>
+<li><a href="#gate">The gate that licensed any of this</a></li>
+<li><a href="#why">Why every earlier attempt failed, including one nobody had caught</a></li>
+<li><a href="#find">Where the record disagrees with the tab</a></li>
+<li><a href="#phys">What no stem and no method can answer</a></li>
+<li><a href="#sr">The Songsterr side</a></li>
+<li><a href="#files">Method, files, and what is still open</a></li>
+</ol></div>
+<h2 id="gate">1. The gate that licensed any of this</h2>
+<p>The previous pass rendered the tab's guitar <em>alone</em> and scored 87%%. That measures whether a guitar can be read in silence, which was never the difficulty. This control renders the tab's guitar, its bass and its drums into one signal at the real record's own band balance, then asks two questions with one shared threshold.</p>
+<div class="card"><h4>Two sides, because one side proves nothing</h4><p><span class="tag">Sensitivity</span> render the true tab, ask about the true tab. It should say present.<br><span class="tag r">Specificity</span> render the true tab, ask about a tab whose guitar has been moved. It should say absent. A reader that says yes to everything scores 100%% on the first side and 0%% on the second.</p></div>
+<div class="scroll"><table><tr><th>window</th><th>n_fft</th><th>cut</th><th>sensitivity</th><th>spec +1</th><th>spec -2</th><th>worst side</th></tr>
+<tr><td>93 ms</td><td>2048</td><td>0.80</td><td>90%</td><td>97%</td><td>96%</td><td><strong>90%</strong></td></tr>
+<tr><td>186 ms</td><td>4096</td><td>0.80</td><td>93%</td><td>99%</td><td>99%</td><td><strong>93%</strong></td></tr>
+<tr><td>372 ms <span class="tag m">winner</span></td><td>8192</td><td>0.80</td><td>96%</td><td>99%</td><td>96%</td><td><strong>96%</strong></td></tr>
+<tr><td>743 ms</td><td>16384</td><td>0.86</td><td>96%</td><td>100%</td><td>97%</td><td><strong>96%</strong></td></tr>
+</table></div>
+<p>Every window length clears the 85%% bar, so the result does not hinge on which one was chosen. <strong>Two falsifications were used, not one</strong> (+1 and -2 semitones), and the threshold was swept across the whole range rather than picked, so it could not be tuned to whatever the true tab happened to score.</p>
+<div class="card note"><h4>One thing the control counts in the open</h4><p>Move a note down a whole tone inside a diatonic riff and it often lands on a pitch the guitar really is playing in the same window. The recording then does contain that pitch, and calling it present is correct about the audio. <strong>17%% of the -2 falsifications are that case</strong>. They are excluded from the specificity score and counted on screen rather than quietly dropped.</p></div>
+<h2 id="why">2. Why every earlier attempt failed</h2>
+<p>Two separate faults, and the second one had not been found before.</p>
+<div class="card warn"><h4>Fault one, the stem is blind where the guitar is lowest</h4><p>Of the mix's energy at 60 to 90 Hz, <strong>1.32%% survives into <code>guitar.wav</code></strong>, and 9.82%% at 90 to 130 Hz. D2, E2, F#2 and G2 all sit in those two bands, so a transcription off that stem reads every chord minus its bottom note. The bass stem carries the opposite fault, holding the guitar's low E at high confidence over 45 to 185 frames. Both stems are contaminated, in opposite directions.</p></div>
+<div class="card warn"><h4>Fault two, the question itself was malformed</h4><p>Every earlier pass asked <em>what is bar N's root</em> and compared it to the tab's lowest note in that bar. Measured on this tab, <strong>bar 9 holds eight distinct pitches and bar 13 holds six</strong>. Averaging a bar into one spectrum column turns a riff into a chord, so its "root" is whichever note rang loudest. The candidate dump proves it: in the two and three note bars the tab's root wins outright, and in the busy bars the winner is still a <strong>real tab note</strong>, just not the lowest one. A wrong-bar table built that way flags disagreement wherever the guitar is busy. That flaw sits underneath the earlier 60-bar table as well as the blind stem, and it is why this pass asks one question per note instead.</p></div>
+<div class="card note"><h4>Three fixes that were tried and measured, two of which were wrong</h4><p>A shorter analysis window was expected to help and <strong>made it worse</strong> (worst side 58%% at 93 ms against 78%% at 372 ms). A cents-based tolerance was expected to help and <strong>made it worse</strong> (80%% down to 73%%), because 25 cents rounds to zero bins below 190 Hz and then misses the peak it aims at. What actually carried it from 80%% to 96%% was scoring <strong>peak salience instead of raw magnitude</strong>: each partial is measured against the median of the third of an octave around it, so the question is whether a peak stands there rather than whether that region is loud.</p></div>
+<h2 id="find">3. Where the record disagrees with the tab</h2>
+<p>Of 219 contradicted notes, <strong>only 7 were the bass leaking through</strong> and 212 survive that check. A single contradiction is a measurement. The same substitution repeating across consecutive bars is a pattern, and only patterns are worth changing a tab over.</p>
+<h3>Sections, ranked by how many consecutive bars they cover</h3>
+<div class="scroll"><table><tr><th>bars</th><th>starts</th><th>tab writes</th><th>record prefers</th><th>move</th><th>notes</th><th>all bars affected</th></tr>
+<tr><td><strong>46&ndash;53</strong></td><td>1:25</td><td>A2</td><td>G2</td><td>-2</td><td>21</td><td>46 47 48 49 50 51 52 53</td></tr>
+<tr><td><strong>76&ndash;81</strong></td><td>2:21</td><td>F#4</td><td>A#4</td><td>+4</td><td>15</td><td>76 77 78 79 80 81</td></tr>
+<tr><td><strong>49&ndash;53</strong></td><td>1:30</td><td>E2</td><td>G2</td><td>+3</td><td>13</td><td>47 49 50 51 52 53</td></tr>
+<tr><td><strong>41&ndash;43</strong></td><td>1:15</td><td>F#4</td><td>G#4</td><td>+2</td><td>15</td><td>9 27 41 42 43 45</td></tr>
+<tr><td><strong>64&ndash;66</strong></td><td>1:58</td><td>E2</td><td>F#2</td><td>+2</td><td>14</td><td>41 43 45 47 52 64 65 66 69 70</td></tr>
+<tr><td><strong>76&ndash;78</strong></td><td>2:21</td><td>F#4</td><td>C#5</td><td>+7</td><td>13</td><td>29 40 43 45 76 77 78 80 81</td></tr>
+<tr><td><strong>1&ndash;3</strong></td><td>0:00</td><td>E3</td><td>C#3</td><td>-3</td><td>8</td><td>1 2 3 29 30</td></tr>
+<tr><td><strong>27&ndash;28</strong></td><td>0:49</td><td>F#4</td><td>B4</td><td>+5</td><td>14</td><td>2 27 28 36 38 39 61 83</td></tr>
+<tr><td><strong>24&ndash;25</strong></td><td>0:43</td><td>E4</td><td>G4</td><td>+3</td><td>10</td><td>6 8 24 25 34 35 51 64 69</td></tr>
+<tr><td><strong>11&ndash;12</strong></td><td>0:18</td><td>B3</td><td>E3</td><td>-7</td><td>8</td><td>9 11 12</td></tr>
+<tr><td><strong>9&ndash;10</strong></td><td>0:15</td><td>B3</td><td>E4</td><td>+5</td><td>4</td><td>9 10 38 75</td></tr>
+<tr><td><strong>1&ndash;2</strong></td><td>0:00</td><td>E3</td><td>G3</td><td>+3</td><td>4</td><td>1 2 37</td></tr>
+<tr><td><strong>67&ndash;68</strong></td><td>2:04</td><td>E2</td><td>B2</td><td>+7</td><td>4</td><td>51 59 67 68</td></tr>
+<tr><td><strong>9&ndash;9</strong></td><td>0:15</td><td>F#4</td><td>E4</td><td>-2</td><td>4</td><td>9 43</td></tr>
+<tr><td><strong>65&ndash;65</strong></td><td>2:00</td><td>E4</td><td>F#4</td><td>+2</td><td>4</td><td>65 68 70 75</td></tr>
+<tr><td><strong>45&ndash;45</strong></td><td>1:23</td><td>F#3</td><td>B3</td><td>+5</td><td>4</td><td>45 61 83</td></tr>
+<tr><td><strong>45&ndash;45</strong></td><td>1:23</td><td>E2</td><td>D2</td><td>-2</td><td>4</td><td>45 48 50 52</td></tr>
+</table></div>
+<h3>The two clearest, and what they mean</h3>
+<div class="card warn"><h4>Bars 46 to 53, eight consecutive bars</h4><p>21 notes written <code>A2</code> and 13 written <code>E2</code> both point at <strong><code>G2</code></strong>. Two different written pitches agreeing on one heard pitch across eight bars is a section sitting in the wrong position, not a scatter of single-note slips. Starts at 1:25.</p></div>
+<div class="card warn"><h4>Bars 76 to 81, six consecutive bars</h4><p>15 notes written <code>F#4</code> point at <strong><code>A#4</code></strong> and 13 point at <strong><code>C#5</code></strong>. F#, A# and C# is an F# major triad, so the record is holding a chord there and the tab writes a single note. Starts at 2:21.</p></div>
+<h3>Bars ranked, six or more decidable notes only</h3>
+<p>Bars holding fewer than six decidable notes are held back, because one note moves them 20 to 33 points and they would otherwise sit at the top of the list as noise. Median support across rankable bars is <strong>85%</strong>.</p>
+<div class="scroll"><table><tr><th>bar</th><th>at</th><th>support</th><th>notes</th><th>what the record prefers instead</th></tr>
+<tr><td><strong>9</strong></td><td>0:15</td><td>42%</td><td>12</td><td>B3-&gt;E3 <span style="color:#6b6355">x4</span>  F#4-&gt;E4 <span style="color:#6b6355">x1</span>  F#4-&gt;G#4 <span style="color:#6b6355">x1</span>  B3-&gt;E4 <span style="color:#6b6355">x1</span></td></tr>
+<tr><td><strong>45</strong></td><td>1:23</td><td>48%</td><td>23</td><td>F#4-&gt;G#4 <span style="color:#6b6355">x3</span>  F#4-&gt;C#5 <span style="color:#6b6355">x3</span>  F4-&gt;G#4 <span style="color:#6b6355">x1</span>  C4-&gt;E4 <span style="color:#6b6355">x1</span>  E2-&gt;F#2 <span style="color:#6b6355">x1</span>  E2-&gt;A#2 <span style="color:#6b6355">x1</span></td></tr>
+<tr><td><strong>43</strong></td><td>1:19</td><td>52%</td><td>21</td><td>F#4-&gt;G#4 <span style="color:#6b6355">x3</span>  F#4-&gt;E4 <span style="color:#6b6355">x3</span>  E2-&gt;F#2 <span style="color:#6b6355">x2</span>  F#4-&gt;C#5 <span style="color:#6b6355">x1</span>  C#4-&gt;G#4 <span style="color:#6b6355">x1</span></td></tr>
+<tr><td><strong>49</strong></td><td>1:30</td><td>52%</td><td>21</td><td>A2-&gt;G2 <span style="color:#6b6355">x5</span>  E2-&gt;G2 <span style="color:#6b6355">x3</span>  G3-&gt;B3 <span style="color:#6b6355">x1</span>  A2-&gt;E3 <span style="color:#6b6355">x1</span></td></tr>
+<tr><td><strong>53</strong></td><td>1:38</td><td>53%</td><td>17</td><td>A2-&gt;G2 <span style="color:#6b6355">x4</span>  E2-&gt;G2 <span style="color:#6b6355">x2</span>  A2-&gt;E3 <span style="color:#6b6355">x1</span>  E4-&gt;B4 <span style="color:#6b6355">x1</span></td></tr>
+<tr><td><strong>51</strong></td><td>1:34</td><td>54%</td><td>28</td><td>A2-&gt;G2 <span style="color:#6b6355">x6</span>  E2-&gt;G2 <span style="color:#6b6355">x4</span>  E4-&gt;G4 <span style="color:#6b6355">x1</span>  C#4-&gt;F#4 <span style="color:#6b6355">x1</span>  E2-&gt;B2 <span style="color:#6b6355">x1</span></td></tr>
+<tr><td><strong>77</strong></td><td>2:23</td><td>57%</td><td>14</td><td>F#4-&gt;A#4 <span style="color:#6b6355">x3</span>  G4-&gt;A#4 <span style="color:#6b6355">x1</span>  G4-&gt;F#4 <span style="color:#6b6355">x1</span>  F#4-&gt;C#5 <span style="color:#6b6355">x1</span></td></tr>
+<tr><td><strong>78</strong></td><td>2:25</td><td>58%</td><td>12</td><td>F#4-&gt;C#5 <span style="color:#6b6355">x3</span>  F#4-&gt;A#4 <span style="color:#6b6355">x2</span></td></tr>
+<tr><td><strong>46</strong></td><td>1:25</td><td>61%</td><td>18</td><td>D4-&gt;D#4 <span style="color:#6b6355">x3</span>  D4-&gt;F4 <span style="color:#6b6355">x1</span>  G#4-&gt;B4 <span style="color:#6b6355">x1</span>  D4-&gt;B3 <span style="color:#6b6355">x1</span>  A2-&gt;G2 <span style="color:#6b6355">x1</span></td></tr>
+<tr><td><strong>41</strong></td><td>1:15</td><td>64%</td><td>22</td><td>F#4-&gt;G#4 <span style="color:#6b6355">x6</span>  E2-&gt;F#2 <span style="color:#6b6355">x2</span></td></tr>
+<tr><td><strong>79</strong></td><td>2:26</td><td>64%</td><td>14</td><td>F#4-&gt;A#4 <span style="color:#6b6355">x5</span></td></tr>
+<tr><td><strong>83</strong></td><td>2:34</td><td>64%</td><td>14</td><td>F#4-&gt;B4 <span style="color:#6b6355">x3</span>  F#3-&gt;B3 <span style="color:#6b6355">x2</span></td></tr>
+<tr><td><strong>2</strong></td><td>0:01</td><td>67%</td><td>24</td><td>E3-&gt;C#3 <span style="color:#6b6355">x4</span>  E3-&gt;G3 <span style="color:#6b6355">x2</span>  B3-&gt;G3 <span style="color:#6b6355">x1</span>  F#4-&gt;B4 <span style="color:#6b6355">x1</span></td></tr>
+<tr><td><strong>19</strong></td><td>0:34</td><td>67%</td><td>6</td><td>G#3-&gt;C4 <span style="color:#6b6355">x1</span>  G#3-&gt;C#4 <span style="color:#6b6355">x1</span></td></tr>
+<tr><td><strong>27</strong></td><td>0:49</td><td>67%</td><td>18</td><td>F#4-&gt;B4 <span style="color:#6b6355">x3</span>  F#4-&gt;G#4 <span style="color:#6b6355">x1</span>  E3-&gt;G#3 <span style="color:#6b6355">x1</span></td></tr>
+<tr><td><strong>76</strong></td><td>2:21</td><td>67%</td><td>12</td><td>F#4-&gt;A#4 <span style="color:#6b6355">x2</span>  F#4-&gt;C#5 <span style="color:#6b6355">x1</span>  G4-&gt;A#4 <span style="color:#6b6355">x1</span></td></tr>
+<tr><td><strong>47</strong></td><td>1:26</td><td>68%</td><td>22</td><td>A2-&gt;G2 <span style="color:#6b6355">x2</span>  E2-&gt;G2 <span style="color:#6b6355">x2</span>  A2-&gt;E3 <span style="color:#6b6355">x1</span>  G3-&gt;E3 <span style="color:#6b6355">x1</span>  E2-&gt;F#2 <span style="color:#6b6355">x1</span></td></tr>
+<tr><td><strong>52</strong></td><td>1:36</td><td>68%</td><td>22</td><td>E2-&gt;F#2 <span style="color:#6b6355">x3</span>  C#4-&gt;F#4 <span style="color:#6b6355">x1</span>  E2-&gt;D2 <span style="color:#6b6355">x1</span>  A2-&gt;G2 <span style="color:#6b6355">x1</span>  E2-&gt;G2 <span style="color:#6b6355">x1</span></td></tr>
+<tr><td><strong>75</strong></td><td>2:19</td><td>70%</td><td>10</td><td>B3-&gt;E4 <span style="color:#6b6355">x1</span>  E4-&gt;F#4 <span style="color:#6b6355">x1</span>  E3-&gt;F#3 <span style="color:#6b6355">x1</span></td></tr>
+<tr><td><strong>12</strong></td><td>0:20</td><td>71%</td><td>14</td><td>B3-&gt;E3 <span style="color:#6b6355">x2</span>  B3-&gt;D#4 <span style="color:#6b6355">x2</span></td></tr>
+</table></div>
+<h2 id="phys">4. What no stem and no method can answer</h2>
+<div class="card"><h4>314 of 1327 notes are undecidable, and that is physics</h4><p>A guitar E2 over a bass E1 has every one of its partials landing on an even partial of the bass. Nothing in a magnitude spectrum separates them, at any stem quality, with any tool. On this tab the guitar's lowest note sits exactly on a bass harmonic in <strong>46 of 83 bars</strong>. Those notes are returned undecidable rather than given a confident answer. Reporting them as agreement would inflate the tab's score, and reporting them as disagreement would invent errors.</p></div>
+<div class="card note"><h4>Two checks that came back clean</h4><p><strong>The recording is instrumental.</strong> The vocals stem carries 0.0%% of stem energy, so nothing but guitar, bass and drums occupies the band being read.<br><strong>Alignment is not the problem.</strong> Support varies by 0.019 across a half second of offset, and the analysis window is 372 ms, so the scan rules out gross misalignment and cannot resolve 76 ms either way. The tab's own 76 ms was used rather than the offset that flatters it most.</p></div>
+<h2 id="sr">5. The Songsterr side</h2>
+<div class="card warn"><h4>The bass track is voiced as a distorted guitar</h4><p>Live revision 8212897 lists three tracks, and the one named <strong>Bass</strong> carries instrument <strong>Distortion Guitar</strong>, GM program 30, the same program as Rhythm Guitar. The local <code>.gp5</code> matches. So the tab plays back as two distorted guitars whatever the notes say, which is worth fixing on its own and is separate from every pitch finding above.</p></div>
+<div class="card note"><h4>Which file was measured</h4><p>The local <code>.gp5</code> is dated 2026-07-31 16:28 and the live revision was created the same day at 21:39 with the description <em>Fixed drum parts</em>. The guitar is very likely identical, and confirming that byte for byte needs the live notation data, which sits behind an authenticated CDN path. The public metadata endpoints answer without a login, the notation itself returns 403.</p></div>
+<h2 id="files">6. Method, files, and what is still open</h2>
+<div class="scroll"><table><tr><th>file</th><th>what it does</th></tr>
+<tr><td><code>note_presence.py</code></td><td>the reader and its two-sided control, one file so they cannot drift apart</td></tr>
+<tr><td><code>read_real.py</code></td><td>runs the passed reader against the record, scans alignment first</td></tr>
+<tr><td><code>verify_flagged.py</code></td><td>rejects bass leaks, holds back thin bars, keeps only repeated substitutions</td></tr>
+<tr><td><code>synth_control_mix.py</code></td><td>renders guitar, bass and drums at the record's band balance</td></tr>
+<tr><td><code>mix_low_reader.py</code></td><td>the bar-level reader that failed its control, kept as the record of why</td></tr>
+<tr><td><code>build_page.py</code></td><td>builds this page from the measurement files, no hand-typed numbers</td></tr>
+</table></div>
+<p>All under <code>~/Projects/_outputs/songsterr-sean-bass/guitarfix2/</code>.</p>
+<div class="card"><h4>Still open</h4><p><strong>Playability on the live bytes.</strong> The local file passed the physical check already. Re-running it on what is actually live needs the authenticated Songsterr session, so it stays queued as <code>q-2026-08-13-957e00</code>.<br><strong>Applying the corrections.</strong> Nothing in the tab has been edited. This page says where the record disagrees and how strongly, and the edit is a separate decision.</p></div>
+</div>
