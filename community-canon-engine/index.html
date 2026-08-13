@@ -71,22 +71,22 @@ reading S03E04 was invisible when S05E01 came up next.</p>
 <h2>Where it stands</h2>
 
 <div class="grid">
-  <div class="stat pass"><span class="n">26/26</span><span class="l">source gate proof</span></div>
+  <div class="stat pass"><span class="n">37/37</span><span class="l">source gate proof</span></div>
   <div class="stat pass"><span class="n">59/59</span><span class="l">canon proof</span></div>
-  <div class="stat pass"><span class="n">731</span><span class="l">citation tokens, PASS</span></div>
+  <div class="stat pass"><span class="n">1,089</span><span class="l">citation tokens, PASS</span></div>
   <div class="stat pass"><span class="n">0</span><span class="l">exit code, all four gates</span></div>
 </div>
 
 <div class="flag">
-  <p><strong>Read this before treating the green as content.</strong> The corpus
-  holds <strong>1 episode, 0 outside sources, 0 canon records</strong>. That one
-  episode is the shipped 32-line worked sample titled <em>The Study Room
-  Variable</em>. Real Community S01E04 is <em>Social Psychology</em>, and real
-  episodes run past 400 lines. Every one of the 731 passing citation tokens is
-  interpretation of a fixture.</p>
+  <p><strong>Report the corpus and the gate as two separate numbers.</strong>
+  The corpus holds <strong>2 episodes, 0 outside sources, 1 claim, 1
+  hypothesis</strong>. One of those episodes is real: S02E09,
+  <em>Conspiracy Theories and Interior Design</em>, 255 lines, ingested from the
+  fandom wiki API. The other is the shipped 32-line worked sample titled
+  <em>The Study Room Variable</em>, so the 731 tokens certified against it are
+  interpretation of a fixture and are tagged as such.</p>
   <p>A green gate means the plumbing holds. It is not evidence that the
-  investigation has material in it. The two numbers get reported separately, on
-  purpose.</p>
+  investigation has material in it.</p>
 </div>
 
 <h2>The three layers</h2>
@@ -188,12 +188,36 @@ tests passing is not the command line working.</p>
 success on failure and sent me chasing a defect that did not exist. Exit codes
 now get measured with no pipe.</p>
 
+<h3>The gate calling five real quotes fabrications</h3>
+
+<p>The first real episode ingested failed the citation gate on five quotes that
+were genuinely in the transcript. The quote builder rewrites an inner
+<code>"</code> as <code>'</code> so the token stays parseable, and the normalizer
+stripped <code>"</code> while keeping <code>'</code>. Producer and checker
+disagreed, so every real line containing a quoted phrase became uncitable.</p>
+
+<p>An apostrophe between two word characters is a contraction and stays
+(<code>it's</code>, <code>annie's</code>). An apostrophe at a word boundary is a
+quotation mark and goes. Both sides of every comparison run through the one
+normalizer, so they cannot drift apart again. That change loosens matching, so it
+shipped with four rejection tests: swapping one real word, dropping a word
+mid-quote, an empty quote, and a punctuation-only quote all still fail.</p>
+
+<h3>A wiki category tag becoming a character</h3>
+
+<p>The transcript converter delinked <code>[[Category:Season 2 Transcripts]]</code>
+into plain text before dropping housekeeping links, and the ingester read
+<code>Category:</code> as a speaker prefix. One line of invented evidence, one
+fictional character named CATEGORY. Housekeeping links now get dropped first, and
+the episode was re-ingested clean. The old copy is parked rather than
+overwritten, which is the standing rule for evidence.</p>
+
 <h2>The gates</h2>
 
-<pre><code>test_source_gate.py   26/26   exit 0   widening the corpus did not widen the gate
+<pre><code>test_source_gate.py   37/37   exit 0   widening the corpus did not widen the gate
 test_canon.py         59/59   exit 0   refuted reaches stay refuted
-validate_citations.py PASS    exit 0   731 citation tokens, both namespaces
-lint_canon.py         CLEAN   exit 0   0 records</code></pre>
+validate_citations.py PASS    exit 0   S01E04 731 + S02E09 358 tokens
+lint_canon.py         CLEAN   exit 0   2 records, 5 tokens</code></pre>
 
 <p>Both proof suites are weighted toward the refusals rather than the happy path,
 because the failure mode that matters is a gate quietly starting to accept what it
@@ -228,7 +252,7 @@ pass, with all four gates green each time.</p>
   <span class="mono-s">~/New Desktop/community-agentic-os</span>,
   operator skill <span class="mono-s">/community-os</span>.</p>
   <p class="mono-s">Corpus at time of writing: 1 episode (worked sample),
-  0 outside sources, 0 canon records.</p>
+  0 outside sources, 1 claim, 1 hypothesis.</p>
 </footer>
 
 </div>
