@@ -1,0 +1,334 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Kilgore Trout, audio accuracy audit</title>
+<style>
+  :root{
+    --cream:#F6F0E2; --card:#FBF7EC; --ink:#2E2A24; --soft:#6B6152;
+    --rule:#DCD2BC; --teal:#4E8C88; --rose:#C97C74; --mustard:#D9A441;
+    --plum:#7A6A8A; --good:#4E8C88; --bad:#C05E52; --warn:#D9A441;
+  }
+  *{box-sizing:border-box}
+  body{margin:0;background:var(--cream);color:var(--ink);
+    font:16px/1.62 "Iowan Old Style","Palatino Linotype",Palatino,Georgia,serif;
+    -webkit-font-smoothing:antialiased}
+  .wrap{max-width:980px;margin:0 auto;padding:44px 22px 90px}
+  header{border-bottom:3px double var(--rule);padding-bottom:22px;margin-bottom:30px}
+  .kicker{font:600 11px/1 ui-monospace,SFMono-Regular,Menlo,monospace;
+    letter-spacing:.18em;text-transform:uppercase;color:var(--rose)}
+  h1{font-size:37px;line-height:1.12;margin:12px 0 8px;letter-spacing:-.015em}
+  .sub{color:var(--soft);font-size:17px;margin:0}
+  h2{font-size:24px;margin:46px 0 12px;padding-top:16px;border-top:1px solid var(--rule)}
+  h3{font-size:17px;margin:26px 0 8px;color:var(--soft);
+    font:600 13px/1.3 ui-monospace,Menlo,monospace;letter-spacing:.1em;text-transform:uppercase}
+  p{margin:0 0 14px}
+  b{font-weight:700}
+  a{color:var(--teal)}
+  nav{background:var(--card);border:1px solid var(--rule);border-radius:8px;padding:16px 20px}
+  nav ol{margin:6px 0 0;padding-left:20px;columns:2;column-gap:32px}
+  nav li{margin:3px 0}
+  .card{background:var(--card);border:1px solid var(--rule);border-radius:8px;
+    padding:18px 20px;margin:16px 0}
+  .verdict{border-left:5px solid var(--teal)}
+  .alert{border-left:5px solid var(--bad)}
+  .open{border-left:5px solid var(--warn)}
+  table{width:100%;border-collapse:collapse;margin:14px 0;font-size:14.5px}
+  .scroll{overflow-x:auto}
+  th,td{text-align:left;padding:8px 10px;border-bottom:1px solid var(--rule)}
+  th{font:600 11px/1.3 ui-monospace,Menlo,monospace;letter-spacing:.08em;
+    text-transform:uppercase;color:var(--soft);vertical-align:bottom}
+  td.n{text-align:right;font-variant-numeric:tabular-nums;
+    font-family:ui-monospace,Menlo,monospace;font-size:13.5px}
+  tr.ceil td{background:#EFEADA;font-style:italic}
+  .win{color:var(--good);font-weight:700}
+  .lose{color:var(--bad);font-weight:700}
+  code,.mono{font-family:ui-monospace,SFMono-Regular,Menlo,monospace;font-size:13px}
+  pre{background:#EFEADA;border:1px solid var(--rule);border-radius:6px;
+    padding:13px 15px;overflow-x:auto;font-size:12.5px;line-height:1.55}
+  .bars{margin:18px 0}
+  .bar{display:grid;grid-template-columns:130px 1fr 62px;gap:10px;align-items:center;
+    margin:7px 0;font-size:14px}
+  .track{height:17px;background:#E7E0CC;border-radius:3px;overflow:hidden}
+  .fill{height:100%;border-radius:3px}
+  .lab{font-family:ui-monospace,Menlo,monospace;font-size:12.5px;color:var(--soft)}
+  .val{text-align:right;font-variant-numeric:tabular-nums;
+    font-family:ui-monospace,Menlo,monospace;font-size:13px}
+  .prov{background:#EFEADA;border:1px solid var(--rule);border-radius:8px;padding:16px 20px}
+  .prov dl{display:grid;grid-template-columns:190px 1fr;gap:5px 14px;margin:0;font-size:13px}
+  .prov dt{font:600 11px/1.5 ui-monospace,Menlo,monospace;letter-spacing:.06em;
+    text-transform:uppercase;color:var(--soft)}
+  .prov dd{margin:0;font-family:ui-monospace,Menlo,monospace;font-size:12.5px;word-break:break-all}
+  footer{margin-top:56px;padding-top:18px;border-top:3px double var(--rule);
+    color:var(--soft);font-size:13px}
+  @media(max-width:640px){nav ol{columns:1}.bar{grid-template-columns:96px 1fr 54px}
+    .prov dl{grid-template-columns:1fr}h1{font-size:29px}}
+</style>
+</head>
+<body>
+<div class="wrap">
+
+<header>
+  <div class="kicker">The Appleseed Cast &middot; Mare Vitalis 09 &middot; 2026-08-13</div>
+  <h1>Kilgore Trout: which transcription actually explains the recording</h1>
+  <p class="sub">Three guitar transcriptions measured against the isolated stems, one question per note,
+  with a synthetic control establishing what the detector can do before any of them is graded.</p>
+</header>
+
+<nav>
+  <b>On this page</b>
+  <ol>
+    <li><a href="#finding">The finding</a></li>
+    <li><a href="#control">The control comes first</a></li>
+    <li><a href="#three">Three-way comparison</a></li>
+    <li><a href="#rhythm">The Rhythm staff</a></li>
+    <li><a href="#best">The BEST filename</a></li>
+    <li><a href="#classify">Classifying the differences</a></li>
+    <li><a href="#open">Still open</a></li>
+    <li><a href="#method">Method</a></li>
+    <li><a href="#prov">Provenance</a></li>
+  </ol>
+</nav>
+
+<h2 id="finding">1. The finding</h2>
+
+<div class="card verdict">
+<p><b>The promoted build explains the recording better than the stem-derived source it came from.</b>
+On the Rhythm staff, audio support for the written pitches rises from <b>24.7%</b> in
+<code>c-tied.gp</code> to <b>64.9%</b> in <code>s6389251-chain49.gp</code>, against a measured
+ceiling of 77.5%. The stem-derived source also places its Rhythm staff in the <b>wrong stem</b>,
+and the promoted build places it correctly.</p>
+</div>
+
+<p>This inverts a working assumption of the project. <code>c-tied.gp</code> was treated as the better
+reference because it was derived from the stems rather than from the Songsterr AI tab. Measured
+against those same stems, its Rhythm staff is the weakest result in the set, below the Songsterr
+tab it was meant to improve on.</p>
+
+<p>Being stem-derived is a statement about how a file was produced. It is not evidence about whether
+the notes are right, and the two came apart here.</p>
+
+<h2 id="control">2. The control comes first</h2>
+
+<p>A detector that answers yes everywhere proves nothing. The first run on the real stems separated a
+true pitch from a tritone only 70.5% of the time, which is ambiguous by itself: it can mean the tab
+is wrong, and it can equally mean the detector cannot tell pitches apart. Those call for opposite
+work, so the ambiguity was resolved before anything was graded.</p>
+
+<p>The tab was rendered to audio, Lead into the left stem and Rhythm into the right, at the same
+beat-to-seconds map. <b>Every note in that render is correct by construction</b>, and the identical
+detector was run over it.</p>
+
+<div class="bars">
+  <h3>Tritone control, separation and margin</h3>
+  <div class="bar"><span class="lab">synthetic</span>
+    <span class="track"><span class="fill" style="width:99.1%;background:var(--teal)"></span></span>
+    <span class="val">99.1%</span></div>
+  <div class="bar"><span class="lab">chain49</span>
+    <span class="track"><span class="fill" style="width:87.9%;background:var(--mustard)"></span></span>
+    <span class="val">87.9%</span></div>
+  <div class="bar"><span class="lab">songsterr</span>
+    <span class="track"><span class="fill" style="width:74.0%;background:var(--rose)"></span></span>
+    <span class="val">74.0%</span></div>
+  <div class="bar"><span class="lab">c-tied</span>
+    <span class="track"><span class="fill" style="width:70.5%;background:var(--rose)"></span></span>
+    <span class="val">70.5%</span></div>
+</div>
+
+<p>At 99.1% separation with a 25.5 dB median margin, and with Lead and Rhythm recovered into their
+correct stems at 21.8 and 19.3 dB, <b>the detector works</b>. The weak numbers on the real stems are
+therefore evidence about the transcriptions.</p>
+
+<div class="card alert">
+<p><b>The control also refuted one of my own metrics.</b> The first composite pitch score reached only
+41% on a signal where every note is correct. A note whose control could not be measured was being
+dropped from the numerator and kept in the denominator. Fixed, the ceiling reads 84.0% and 77.5%,
+and every number on this page is computed after that fix.</p>
+</div>
+
+<h2 id="three">3. Three-way comparison</h2>
+
+<p>Read every column against the synthetic row. That row is what this detector scores on a signal
+known to be correct, so it is the ceiling rather than 100%.</p>
+
+<div class="scroll">
+<table>
+<thead><tr>
+  <th>Transcription</th><th class="n">Lead notes</th><th class="n">Rhythm notes</th>
+  <th class="n">Tritone sep.</th><th class="n">Lead pitch<br>supported</th>
+  <th class="n">Rhythm pitch<br>supported</th><th class="n">Rhythm<br>owner agrees</th>
+  <th>Rhythm<br>maps to</th>
+</tr></thead>
+<tbody>
+<tr class="ceil"><td>synthetic ceiling</td><td class="n">674</td><td class="n">713</td>
+  <td class="n">99.1%</td><td class="n">84.0%</td><td class="n">77.5%</td>
+  <td class="n">83.7%</td><td>R, 19.3 dB</td></tr>
+<tr><td><b>s6389251-chain49.gp</b><br><span class="lab">promoted build</span></td>
+  <td class="n">842</td><td class="n">891</td>
+  <td class="n win">87.9%</td><td class="n win">65.5%</td><td class="n win">64.9%</td>
+  <td class="n">71.8%</td><td>R, 2.93 dB</td></tr>
+<tr><td>Songsterr AI tab<br><span class="lab">reference only</span></td>
+  <td class="n">217</td><td class="n">1087</td>
+  <td class="n">74.0%</td><td class="n">54.9%</td><td class="n">41.1%</td>
+  <td class="n win">73.7%</td><td>R, 3.52 dB</td></tr>
+<tr><td><b>c-tied.gp</b><br><span class="lab">stem-derived source</span></td>
+  <td class="n">844</td><td class="n">891</td>
+  <td class="n">70.5%</td><td class="n">64.2%</td><td class="n lose">24.7%</td>
+  <td class="n lose">45.6%</td><td class="lose">L, 0.87 dB</td></tr>
+</tbody>
+</table>
+</div>
+
+<div class="bars">
+  <h3>Rhythm staff, pitch supported by the audio</h3>
+  <div class="bar"><span class="lab">ceiling</span>
+    <span class="track"><span class="fill" style="width:77.5%;background:var(--teal)"></span></span>
+    <span class="val">77.5%</span></div>
+  <div class="bar"><span class="lab">chain49</span>
+    <span class="track"><span class="fill" style="width:64.9%;background:var(--mustard)"></span></span>
+    <span class="val">64.9%</span></div>
+  <div class="bar"><span class="lab">songsterr</span>
+    <span class="track"><span class="fill" style="width:41.1%;background:var(--rose)"></span></span>
+    <span class="val">41.1%</span></div>
+  <div class="bar"><span class="lab">c-tied</span>
+    <span class="track"><span class="fill" style="width:24.7%;background:var(--bad)"></span></span>
+    <span class="val">24.7%</span></div>
+</div>
+
+<h2 id="rhythm">4. The Rhythm staff is where the difference lives</h2>
+
+<p>The Lead staff is close across all three files, from 54.9% to 65.5%. Rhythm spreads from 24.7% to
+64.9%, and that single staff carries the whole result.</p>
+
+<p>One structural difference sits exactly there. <b><code>c-tied.gp</code> writes the Rhythm staff with
+capo 2, and <code>s6389251-chain49.gp</code> writes it with capo 0.</b> The tunings differ to match.
+A capo change moves every sounding pitch on the staff, so it is the mechanism most likely to produce
+a 40-point swing in pitch agreement, and the swing runs in the direction that favours capo 0.</p>
+
+<div class="card open">
+<p><b>Stated as a hypothesis, not a verdict.</b> This audit measured that the capo-0 Rhythm staff agrees
+with the audio far better. It did not isolate the capo as the cause by holding everything else fixed.
+The clean test is to re-render <code>c-tied.gp</code>'s Rhythm staff at capo 0 with no other change and
+re-measure.</p>
+</div>
+
+<h2 id="best">5. The BEST filename carried authority it never earned</h2>
+
+<p>Hashing the two files settles the argument that started this work.</p>
+
+<pre>s6389251-BEST.gp     sha256  0e7cf090f141ccba...
+s6389251-iter48.gp   sha256  0e7cf090f141ccba...   identical bytes</pre>
+
+<p><b>BEST is a byte-for-byte copy of iter48, the blanket refret.</b> An open-string regression was
+called against that file because of its name. Its 310 and 405 open notes are the outlier in the set,
+and the stem-derived source sits near 29 and 25.</p>
+
+<p>The validator now records a <code>comparison_basis</code> on every promotion, rejection and receipt:
+stem source, parent, checkpoint, Songsterr reference, beat map, every audio file, the transformation,
+the authorized edit scope and the exact changed note IDs, all hashed. <b>Promotion refuses without a
+declared stem source and at least one audio file</b>, because a build compared only to other
+transcriptions has never been tested for accuracy.</p>
+
+<h2 id="classify">6. Classifying the differences</h2>
+
+<div class="scroll">
+<table>
+<thead><tr><th>Difference, source to promoted build</th><th>Class</th><th>Evidence</th></tr></thead>
+<tbody>
+<tr><td>Rhythm staff capo 2 becomes capo 0</td>
+  <td><b class="win">Supported correction</b></td>
+  <td class="n">pitch support 24.7% &rarr; 64.9%</td></tr>
+<tr><td>Rhythm staff moves to the correct stem</td>
+  <td><b class="win">Supported correction</b></td>
+  <td class="n">owner agreement 45.6% &rarr; 71.8%</td></tr>
+<tr><td>Lead staff loses 2 notes, 844 to 842</td>
+  <td><b>Unresolved ambiguity</b></td>
+  <td class="n">below this audit's resolution</td></tr>
+<tr><td>Struck attacks rise, 1387 to 1447</td>
+  <td><b>Unresolved ambiguity</b></td>
+  <td class="n">attack density unmeasured, see below</td></tr>
+<tr><td>iter48's blanket refret, 310 and 405 open notes</td>
+  <td><b class="lose">Unsupported change</b></td>
+  <td class="n">no audio evidence offered</td></tr>
+</tbody>
+</table>
+</div>
+
+<h2 id="open">7. Still open</h2>
+
+<div class="card open">
+<p><b>Attack density is not established for any of the three.</b> The onset detector finds 387 onsets in
+the left stem and 321 in the right. All three tabs write between 700 and 1076 attacks per staff. Even
+on the synthetic control, where the answer is known, only 86.5% and 89.9% of written attacks matched a
+detected onset and roughly 75% of detected onsets were explained. The detector under-detects in dense
+material, so this number cannot yet separate an over-written tab from a limitation of the detector.</p>
+<p><b>Timing cannot be resolved finer than 23 ms.</b> On the synthetic control the median timing error is
+exactly one analysis hop, which is a resolution artifact rather than a real offset.</p>
+<p><b>The low register is unmeasurable from these stems.</b> 102 Lead notes and 36 Rhythm notes in
+<code>c-tied.gp</code> sit below 130 Hz, and the Demucs guitar stem keeps roughly 1.32% of the mix
+energy at 60 to 90 Hz. Those notes are reported as unmeasurable rather than absent. Settling them
+needs the source mix, which was not on this machine.</p>
+<p><b>The physical gate still fails.</b> The promoted build carries one IMPOSSIBLE_SPAN and a 62.7%
+hand-skip rate, verdict FAIL, status best_validated_so_far.</p>
+</div>
+
+<h2 id="method">8. Method</h2>
+
+<p>One question per note, never a bar average. For each written attack a single high-resolution
+spectrum is taken from a 150 ms window at the note's mapped time, zero-padded to 0.67 Hz per bin.
+Salience sums the <b>peak</b> magnitude within 40 cents of the first six partials and divides by that
+window's own median magnitude, so loud and quiet passages compare. Every hypothesis for a note is read
+from the same spectrum.</p>
+
+<p>Three controls run on those same spectra, and they are reported before any result:</p>
+<ul>
+<li><b>Wrong pitch, tritone.</b> The easy control. Failing it voids everything below it.</li>
+<li><b>Wrong pitch, one semitone.</b> The hard control, inside the same spectral neighbourhood.</li>
+<li><b>Wrong time.</b> The written pitch at a time the tab writes nothing, which separates
+    "this pitch is sounding" from "a guitar is playing".</li>
+</ul>
+
+<p>Staff-to-stem assignment is measured rather than assumed, by comparing median salience across both
+stems for every note on a staff.</p>
+
+<h2 id="prov">9. Provenance</h2>
+
+<div class="prov">
+<dl>
+  <dt>Artifact</dt><dd>s6389251-chain49.gp</dd>
+  <dt>Artifact sha256</dt><dd>78366507417966a90b012fa35bfeffb1d74dc08c5ebc13a3547798c1d7b7f262</dd>
+  <dt>Gate sha256</dt><dd>ece41376b1cd8f7f</dd>
+  <dt>Receipt run_id</dt><dd>6f5b0815969eca47</dd>
+  <dt>Gate verdict</dt><dd>FAIL &middot; preservation PASS &middot; position PASS</dd>
+  <dt>Ledger status</dt><dd>best_validated_so_far, so the word BEST is not licensed</dd>
+  <dt>Stem source</dt><dd>c-tied.gp &middot; e14adddf6520eea8</dd>
+  <dt>Songsterr reference</dt><dd>9bad6f45f3d943d1</dd>
+  <dt>Beat map</dt><dd>beats_to_seconds.json &middot; 8e216f1ef78f6041</dd>
+  <dt>Audio</dt><dd>gtr_L.wav 85c516ca1d4abc3e &middot; gtr_R.wav 474ef56b8debfbbe</dd>
+  <dt>Basis declared</dt><dd>true</dd>
+</dl>
+</div>
+
+<h3>Reproduce</h3>
+<pre>python3 audit_accuracy.py --gp c-tied.gp \
+  --left gtr_L.wav --right gtr_R.wav \
+  --beat-map beats_to_seconds.json --out audit_c-tied.json
+
+python3 synth_control_render.py --gp c-tied.gp \
+  --beat-map beats_to_seconds.json --seconds 172.5 \
+  --out-left synth_L.wav --out-right synth_R.wav
+
+python3 impossible_gate.py s6389251-chain49.gp --source c-tied.gp \
+  --stem-source c-tied.gp --audio gtr_L.wav --audio gtr_R.wav \
+  --beat-map beats_to_seconds.json --receipt</pre>
+
+<footer>
+  Measured 2026-08-13. Every percentage on this page is computed from saved per-note measurements,
+  and the synthetic ceiling is on the same axis as each result. The validator determines artifact
+  status; this page describes what was measured.
+</footer>
+
+</div>
+</body>
+</html>
