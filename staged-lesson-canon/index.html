@@ -116,13 +116,13 @@ code{background:rgba(216,200,164,.35);padding:1px 5px;border-radius:4px;font-siz
 <h2 id="provenance"><span class="num">1</span>Provenance and confidence tiers</h2>
 <p>Every claim on this page carries a tier. Nothing is asserted flat.</p>
 <div class="explain">
-<p><b>VERIFIED</b> means I pulled the line verbatim out of a local transcript this pass. Source: <code>~/Projects/tv-scripts/text/</code>, which holds all of <i>Community</i> and all of <i>It's Always Sunny in Philadelphia</i>. Those two shows are the only ones on this page I could check word for word.</p>
+<p><b>VERIFIED</b> means I pulled the line verbatim out of a local transcript this pass. Source: <code>~/Projects/tv-scripts/text/</code>, which holds all of <i>Community</i>, all of <i>It's Always Sunny in Philadelphia</i>, and, as of this pass, all 53 episodes of <i>Arrested Development</i> seasons 1 through 3. The Arrested Development corpus was fetched during this build specifically so the ur-text would stop being the one entry that carried the argument and could not be quoted.</p>
 <p><b>CANON</b> means the episode and the mechanism are recalled with high confidence, and I did not have a transcript to check against this pass. Treat these as strong leads, not as quotations.</p>
 <p><b>REACH</b> means the structural parallel is my inference. The pattern is real, the specific episode attribution may be loose or absent on purpose.</p>
 <p><b>NONFICTION</b> means a real-world practice or experiment that the fictional gag inherits from.</p>
 </div>
 <div class="explain warn">
-<p><b>What I did not do.</b> No <i>Arrested Development</i>, <i>Office</i>, <i>Good Place</i>, <i>Better Call Saul</i> or <i>Brooklyn Nine-Nine</i> transcripts are local, so nothing from those shows is quoted. Where I name an episode from those shows, the tier is CANON and the wording is paraphrase. The local <i>Buffy</i> set turned out to be season one only, so <i>Helpless</i> stays at CANON as well.</p>
+<p><b>What I did not do.</b> No <i>Office</i>, <i>Good Place</i>, <i>Better Call Saul</i>, <i>Brooklyn Nine-Nine</i>, <i>Saved by the Bell</i> or <i>Boy Meets World</i> transcripts are local, so nothing from those shows is quoted. Where I name an episode from them, the tier is CANON and the wording is paraphrase. The local <i>Buffy</i> set turned out to be season one only, so <i>Helpless</i> stays at CANON as well.</p>
 </div>
 
 <h2 id="method"><span class="num">2</span>The method, made executable</h2>
@@ -208,10 +208,12 @@ code{background:rgba(216,200,164,.35);padding:1px 5px;border-radius:4px;font-siz
 <p class="score">Purity <b>7</b> · beats A, B, C, and an unintended E</p>
 </div>
 
-<div class="card" data-c="canon">
+<div class="card" data-c="verified">
 <div class="top"><h4>Arrested Development S1E10 <span class="where">Pier Pressure, layer one</span></h4>
-<div class="tags"><span class="tag canon">Canon</span><span class="tag depth">Depth 1</span></div></div>
-<p class="mech">Michael arranges a fake drug bust to frighten George Michael away from marijuana. Taken alone this is a clean Form 2, and it is exactly the episode a lesser show would have made. What follows is the reason the episode matters.</p>
+<div class="tags"><span class="tag verified">Verified</span><span class="tag depth">Depth 1</span></div></div>
+<p class="mech">Michael arranges a fake drug bust to frighten George Michael away from marijuana, and hires the Hot Cops to sell it. Taken alone this is a clean Form 2, and it is exactly the episode a lesser show would have made.</p>
+<blockquote>"You wanna teach George Michael a lesson?" / "Yes, I do, and it's gotta stick."<br><br>"I want the guy with the one arm and the fake blood."<br><br>"Dad wouldn't help me teach George Michael the lesson, so I need your help and your Hot Cop friends."<cite>ArrestedDevelopment-S01E10.txt, lines 250, 262, 314</cite></blockquote>
+<p class="mech">Line 262 is the tell. Michael asks for Weatherman by function before he asks for him by name, which means <b>the son has already inherited the apparatus he is complaining about.</b> The recursion is set up thirty seconds before it fires.</p>
 <p class="score">Purity <b>8</b> · beats A, B, C</p>
 </div>
 
@@ -242,11 +244,16 @@ code{background:rgba(216,200,164,.35);padding:1px 5px;border-radius:4px;font-siz
 <h3 class="formhead">Form 3 · The Weatherman Recursion <span class="n">depth 2</span></h3>
 <p class="formblurb">The stager is revealed to have been staged. The teacher becomes the student. This is the form the whole page is named for, and it is the smallest depth at which the gag becomes an argument.</p>
 
-<div class="card" data-c="canon">
+<div class="card" data-c="verified">
 <div class="top"><h4>Arrested Development S1E10 <span class="where">Pier Pressure, complete</span></h4>
-<div class="tags"><span class="tag canon">Canon</span><span class="tag depth">Depth 2</span></div></div>
-<p class="mech">Michael's fake bust becomes apparently real and dangerous, and the wounded man is revealed as J. Walter Weatherman, the one-armed lesson-deliverer George Sr. used on his children. George Sr. staged a lesson around Michael's lesson, and the content of that meta-lesson is that Michael should not be teaching lessons. The ur-text, and the only entry here that scores a clean ten.</p>
-<p class="mech">The catchphrase is the mechanism. "And that's why you always leave a note" is a formula with an open slot, and the open slot is what allows the recursion. The show can substitute any moral into the same sentence, which quietly argues that the moral was never the point.</p>
+<div class="tags"><span class="tag verified">Verified</span><span class="tag depth">Depth 2</span></div></div>
+<p class="mech">The ur-text. Michael's fake bust turns apparently real, the wounded man is revealed as J. Walter Weatherman, and George Sr. is revealed to have staged a lesson around Michael's lesson. The narrator states the family's whole doctrine in one sentence, which is as close to a mission statement as this entire canon has.</p>
+<blockquote>"had used his considerable means to stage intricate scenarios to teach his children what he considered valuable life lessons"<cite>ArrestedDevelopment-S01E10.txt, line 28</cite></blockquote>
+<p class="mech">Beat E is not implied here. It is spoken, twice, and the second time it eats itself.</p>
+<blockquote>"And that's why you don't teach lessons to your son."<br><br>"Don't make the same mistake I did, you know, teaching lessons." / "So you taught me a lesson not to teach lessons?" / "It was my last lesson."<cite>ArrestedDevelopment-S01E10.txt, lines 418, 421 and 422</cite></blockquote>
+<p class="mech"><b>The catchphrase is the mechanism.</b> "And that's why you always leave a note" is a formula with an open slot, and the open slot is what permits the recursion. Across the corpus the same sentence carries "you don't yell", "you don't fire her", "you don't take your foot out of its wrapper", "you don't teach your father a lesson", and "you don't use a one-armed person to scare someone". Any moral fits, which quietly argues that the moral was never the point. Community reaches the same conclusion in S2E9 by piling up three curricula at once. Arrested Development gets there by reusing one sentence.</p>
+<p class="mech">The cruelty is load-bearing and stated flatly at the top of the episode.</p>
+<blockquote>"Walter Weatherman, a one-time employee who lost his arm in a Bluth Company construction accident."<br><br>"Those lessons worked, didn't they? We still leave notes to this day."<cite>ArrestedDevelopment-S01E10.txt, lines 32 and 38</cite></blockquote>
 <p class="score">Purity <b>10</b> · all five beats, the reference standard</p>
 </div>
 
@@ -293,10 +300,17 @@ code{background:rgba(216,200,164,.35);padding:1px 5px;border-radius:4px;font-siz
 <p class="score">Purity <b>10</b> · all five beats, run to exhaustion</p>
 </div>
 
-<div class="card" data-c="canon">
-<div class="top"><h4>Arrested Development S3 <span class="where">Making a Stand</span></h4>
-<div class="tags"><span class="tag canon">Canon</span><span class="tag depth">Depth 4</span></div></div>
-<p class="mech">The missing middle term between Pier Pressure and Community, and the reason the resemblance is hard to miss. George Sr. appears to fire a real weapon, Weatherman appears to lose an arm, Michael appears to fall, Buster appears to lose a hand. One character after another reveals the preceding catastrophe as their own staged lesson. Everything Community does at depth six, this does first at depth four, with bodies instead of props.</p>
+<div class="card" data-c="verified">
+<div class="top"><h4>Arrested Development S3E8 <span class="where">Making a Stand</span></h4>
+<div class="tags"><span class="tag verified">Verified</span><span class="tag depth">Depth 4</span></div></div>
+<p class="mech">The missing middle term between Pier Pressure and Community, and the reason the resemblance is hard to miss. Everything Community does at depth six, this does first at depth four, with bodies where Community will put props. The counter-plot is announced in advance, which makes beat D a plan rather than a surprise.</p>
+<blockquote>"He wants to teach you a lesson." / "What kind of lesson?" / "J. Walter Weatherman lesson."<br><br>"All right, we'll go along with his lesson, but we're going to teach him one of our own."<cite>ArrestedDevelopment-S03E08.txt, lines 272 through 279</cite></blockquote>
+<p class="mech">Then the chain fires. Four reveals, each closing with the same formula and a different moral:</p>
+<blockquote>1. <b>George Sr. shoots Weatherman's arm off.</b> "And that's why you don't teach your father a lesson."<br>
+2. <b>Gob is revealed as the double agent.</b> "'Gob?' You told him? I thought we were a team." / "And that's why you don't pit Gob and me against each other."<br>
+3. <b>Weatherman is revealed as complicit from the start.</b> "J. Walter Weatherman was in on it, too?" / "Right from the very start."<br>
+4. <b>Real police arrive, Buster's prosthetic hand comes off.</b> "We're just trying to teach this guy a lesson." / "And that's why you don't use a one-armed person to scare someone."<cite>ArrestedDevelopment-S03E08.txt, lines 341 through 360</cite></blockquote>
+<p class="mech">Compare the shape to Community S2E9 directly. Both run a fixed repeating token (the catchphrase, the prop gun), both end when an uninvolved authority walks in on the tableau and delivers a final unwanted lesson, and both give that authority the last word. <b>Cackowski is Community's fourth "and that's why you don't".</b></p>
 <p class="score">Purity <b>10</b> · the structural bridge</p>
 </div>
 
@@ -414,10 +428,13 @@ code{background:rgba(216,200,164,.35);padding:1px 5px;border-radius:4px;font-siz
 <p class="score">Purity <b>9</b></p>
 </div>
 
-<div class="card" data-c="canon">
-<div class="top"><h4>Arrested Development <span class="where">Weatherman's arm</span></h4>
-<div class="tags"><span class="tag canon">Canon</span><span class="tag depth">Depth 2</span></div></div>
-<p class="mech">The collapse is baked into the ur-text and easy to miss. Inside the fiction, Weatherman's missing arm is real, and George Sr. built a pedagogical career on a maimed man. Every appearance of the catchphrase is a Form 7 event being replayed as a Form 3 joke. That is why the gag is funny and unpleasant at the same time, and why Community had to reach for props.</p>
+<div class="card" data-c="verified">
+<div class="top"><h4>Arrested Development <span class="where">Weatherman's arm, and his exit</span></h4>
+<div class="tags"><span class="tag verified">Verified</span><span class="tag depth">Depth 2</span></div></div>
+<p class="mech">The collapse is baked into the ur-text and easy to miss. Inside the fiction the arm is genuinely gone, lost in a Bluth Company accident, and George Sr. built a pedagogical career on a maimed employee. Every appearance of the catchphrase replays a Form 7 event as a Form 3 joke, which is why the gag is funny and unpleasant in the same beat, and why Community had to reach for the props cupboard.</p>
+<p class="mech">Season three gives Weatherman the only moment in the canon where a prop refuses the job.</p>
+<blockquote>"You're the man who used to scare us as children, and one time as an adult." / "George Sr. had always used him to teach his children lasting lessons. They usually involved his prosthetic arm being ripped off."<br><br>"I guess you'll be scaring children yourself now." / "As a matter of fact, I won't. If anything, it strengthened my resolve to be more than just a one-armed man. Even if it means me never taking a job again."<cite>ArrestedDevelopment-S03E08.txt, lines 198 through 207</cite></blockquote>
+<p class="mech">He takes the job anyway, eight scenes later, on George Sr.'s side. <b>The visual aid gets a refusal and a relapse inside one episode</b>, which is the sharpest thing this canon ever says about who the staged lesson actually serves.</p>
 <p class="score">Purity <b>10</b></p>
 </div>
 
@@ -471,12 +488,13 @@ code{background:rgba(216,200,164,.35);padding:1px 5px;border-radius:4px;font-siz
 <p><b>1. NewsRadio, transcript-checkable now.</b> A corpus exists at <code>~/Projects/newsradio-transcripts/</code>. Grep it for Jimmy James staging tests, and for the Joe and Catherine obliviousness beats, which would upgrade two rows of the redistribution table from Reach to Verified.</p>
 <p><b>2. Always Sunny, full sweep.</b> Seasons 1 through 17 are local. A grep for faked deaths and manufactured situations across the whole run would likely produce five to ten more Form 7 entries, all verbatim.</p>
 <p><b>3. Community, remaining hits.</b> Two unexamined <code>lesson learned</code> lines sit in S4E4 and S6E5. Worth reading in context to see whether either is a fourth staged instance.</p>
-<p><b>4. Arrested Development transcripts are absent.</b> The ur-text is the only entry on this page that carries the argument and cannot be quoted. Acquiring that corpus is the single highest-value next step.</p>
+<p><b>4. Arrested Development, done this pass.</b> All 53 episodes of seasons 1 through 3 fetched with zero misses via <code>~/Projects/tv-scripts/fetch_arrested_development.py</code>, adapted from the existing Community fetcher in the same repo. Four cards upgraded from Canon to Verified. Seasons 4 and 5 are still unfetched and would extend the catchphrase census.</p>
+<p><b>6. The catchphrase census.</b> Seven distinct "and that's why you don't" morals are already grepped out of S1 to S3. A full census across all five seasons would let the open-slot argument be stated as a count rather than as a sample.</p>
 <p><b>5. Saved by the Bell and Boy Meets World.</b> No local corpus. Until one exists, the redistribution table's Jessie-to-Annie row rests on Peter Engel's account plus structural similarity, which is strong and is not verbatim.</p>
 </div>
 
 <footer>
-<p>Built 2026-08-13. Verbatim quotations pulled this pass from <code>~/Projects/tv-scripts/text/</code> (Community, complete; It's Always Sunny, seasons 1 to 17). Entries tiered Canon, Reach and Nonfiction are recall or inference and are labeled as such throughout. No claim on this page is asserted without a tier.</p>
+<p>Built 2026-08-13. Verbatim quotations pulled this pass from <code>~/Projects/tv-scripts/text/</code>: Community complete, It's Always Sunny seasons 1 to 17, Arrested Development seasons 1 to 3 fetched during this build. Entries tiered Canon, Reach and Nonfiction are recall or inference and are labeled as such throughout. No claim on this page is asserted without a tier.</p>
 </footer>
 
 </div>

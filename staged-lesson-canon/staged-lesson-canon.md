@@ -11,12 +11,12 @@ A field guide to the "I staged your catastrophe to teach you a lesson" gag: its 
 
 | Tier | Meaning | Coverage |
 |---|---|---|
-| VERIFIED | Verbatim from local transcript this pass | `~/Projects/tv-scripts/text/` — all of Community, Always Sunny S1–S17 |
-| CANON | Episode + mechanism recalled, high confidence, no transcript available | Arrested Development, The Office, Good Place, Better Call Saul, B99 |
+| VERIFIED | Verbatim from local transcript this pass | `~/Projects/tv-scripts/text/` — all of Community, Always Sunny S1–S17, Arrested Development S1–S3 |
+| CANON | Episode + mechanism recalled, high confidence, no transcript available | The Office, Good Place, Better Call Saul, B99, Saved by the Bell, Boy Meets World |
 | REACH | Structural parallel, my inference | pattern-level entries |
 | NONFICTION | Real-world practice the fiction inherits from | Scared Straight!, Milgram, Stanford Prison |
 
-No Arrested Development transcripts are local. The ur-text is the only entry carrying the argument that cannot be quoted. Acquiring that corpus is the highest-value next step.
+Arrested Development S1–S3 (53 episodes, zero misses) was fetched during this build via `~/Projects/tv-scripts/fetch_arrested_development.py`, adapted from the existing `reimport_community.py` in the same repo. Four cards moved from Canon to Verified.
 
 ## The five beats
 
@@ -65,6 +65,26 @@ As layer count climbs, physical stakes fall. At depth 2, Arrested Development sp
 **Always Sunny S9E1 *The Gang Broke Dee*** — the nihilist terminus. Every part of the form except a lesson.
 - "We got you, Dee! We tricked you, we tricked you, we tricked you! We set the whole thing up! None of that was real." (line 381)
 
+**Arrested Development S1E10 *Pier Pressure*** — the ur-text, now quotable.
+- "had used his considerable means to stage intricate scenarios to teach his children what he considered valuable life lessons" (line 28) — the doctrine of the whole canon in one narrator sentence
+- "Walter Weatherman, a one-time employee who lost his arm in a Bluth Company construction accident." (line 32) — the prop is a real body
+- "Those lessons worked, didn't they? We still leave notes to this day." (line 38)
+- "You wanna teach George Michael a lesson?" / "Yes, I do, and it's gotta stick." (line 250)
+- "I want the guy with the one arm and the fake blood." (line 262) — Michael asks for Weatherman by function before he asks by name, so the son has already inherited the apparatus he complains about
+- "And that's why you don't teach lessons to your son." (line 418)
+- "So you taught me a lesson not to teach lessons?" / "It was my last lesson." (line 422) — beat E spoken, then eaten
+
+**Arrested Development S3E8 *Making a Stand*** — the structural bridge to Community. Beat D announced in advance, then four reveals.
+- "He wants to teach you a lesson." / "J. Walter Weatherman lesson." (line 274)
+- "All right, we'll go along with his lesson, but we're going to teach him one of our own." (line 279)
+- "And that's why you don't teach your father a lesson." (line 341)
+- "'Gob?' You told him? I thought we were a team." / "And that's why you don't pit Gob and me against each other." (lines 343, 348)
+- "J. Walter Weatherman was in on it, too?" / "Right from the very start." (line 352)
+- "We're just trying to teach this guy a lesson." / "And that's why you don't use a one-armed person to scare someone." (lines 358, 360)
+- Weatherman's refusal and relapse in one episode: "it strengthened my resolve to be more than just a one-armed man. Even if it means me never taking a job again." (line 205), then he takes the job for George Sr. eight scenes later
+
+**The open-slot argument, as a grep result.** Seven distinct morals ride the same sentence across S1–S3: leave a note, don't yell, don't fire her, don't take your foot out of its wrapper, don't teach lessons to your son, don't teach your father a lesson, don't pit Gob and me against each other, don't use a one-armed person to scare someone. Any moral fits the same machine. Community reaches the identical conclusion in S2E9 by stacking three curricula at once; Arrested Development gets there by reusing one sentence.
+
 ## The intent question
 
 Harmon stated at the time he had not seen the Arrested Development lesson episode. The contemporary fan thread preserving those November 2010 tweets is the only surviving trace; original links dead. That is historical evidence of what he said, not a primary source. Verdict stays **parallel construction**, with *Making a Stand* as the reason the parallel is tight enough that people reached for homage first.
@@ -74,8 +94,9 @@ Harmon stated at the time he had not seen the Arrested Development lesson episod
 1. **NewsRadio** — corpus exists at `~/Projects/newsradio-transcripts/`. Grep for Jimmy James staged tests and Joe/Catherine obliviousness. Would upgrade two redistribution rows to Verified.
 2. **Always Sunny full sweep** — S1–S17 local. Faked deaths and manufactured situations would likely yield 5–10 more verbatim Form 7 entries.
 3. **Community remaining hits** — unexamined `lesson learned` lines in S4E4 and S6E5.
-4. **Arrested Development corpus** — absent, highest value.
+4. **Arrested Development S4–S5** — S1–S3 done this pass. The later seasons would complete the catchphrase census.
 5. **Saved by the Bell / Boy Meets World** — no local corpus. The Jessie-to-Annie row rests on Peter Engel's account plus structure.
+6. **Catchphrase census as a count** — seven morals grepped from S1–S3. A full-run count would state the open-slot argument as data rather than as a sample.
 
 ## Related local work
 
