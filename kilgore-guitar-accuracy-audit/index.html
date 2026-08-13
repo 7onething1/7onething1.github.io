@@ -94,23 +94,37 @@
   </ol>
 </nav>
 
+<div class="card alert">
+<p><b>CORRECTION, added after a controlled experiment.</b> An earlier version of this page reported
+that the stem-derived source <code>c-tied.gp</code> was the weakest transcription in the set, with
+Rhythm pitch support at 24.7%. <b>That was a metadata defect, not a bad transcription.</b></p>
+<p>Its Rhythm track carries <code>CapoFret 2</code> while every Note's stored Midi was written for
+capo 0, so the capo-computed pitch exceeds the stored Midi by exactly 2 on <b>all 891 notes</b>. The
+file means two things at once, and this audit read that staff two semitones sharp. Changing only the
+capo, with every note, onset, duration, string and fret preserved and verified identical, moves
+Rhythm pitch support from <b>24.7% to 63.4%</b>, ownership from 45.6% to 71.9%, and puts the staff in
+the correct stem. <b>The corrected source sits within 1.5 points of the promoted build.</b></p>
+<p>The gate now hard-fails this defect as <code>CAPO_MIDI_MISMATCH</code>. It fires 891 times on
+<code>c-tied.gp</code> and is clean on the corrected twin and on the promoted build.</p>
+</div>
+
 <h2 id="finding">1. The finding</h2>
 
 <div class="card verdict">
-<p><b>The promoted build explains the recording better than the stem-derived source it came from.</b>
-On the Rhythm staff, audio support for the written pitches rises from <b>24.7%</b> in
-<code>c-tied.gp</code> to <b>64.9%</b> in <code>s6389251-chain49.gp</code>, against a measured
-ceiling of 77.5%. The stem-derived source also places its Rhythm staff in the <b>wrong stem</b>,
-and the promoted build places it correctly.</p>
+<p><b>Every transcription derived from the stems beats the Songsterr AI tab, and they beat it by a
+lot on the Rhythm staff.</b> Read with its own note data, <code>c-tied.gp</code> scores 63.4% Rhythm
+pitch support against Songsterr's 41.1%, and the promoted build reaches 65.0%. Against a measured
+ceiling of 77.5%.</p>
 </div>
 
-<p>This inverts a working assumption of the project. <code>c-tied.gp</code> was treated as the better
-reference because it was derived from the stems rather than from the Songsterr AI tab. Measured
-against those same stems, its Rhythm staff is the weakest result in the set, below the Songsterr
-tab it was meant to improve on.</p>
+<p>The working assumption of the project holds after all: the stem-derived source is a much better
+reference than the Songsterr AI tab. It took a controlled experiment to see it, because a capo set on
+one track without rewriting its frets or its Midi had been reading as forty points of transcription
+error.</p>
 
-<p>Being stem-derived is a statement about how a file was produced. It is not evidence about whether
-the notes are right, and the two came apart here.</p>
+<p>Being stem-derived is still a statement about how a file was produced rather than proof its notes
+are right. The lesson that survives is narrower and sharper: <b>check a file's internal consistency
+before measuring it against anything.</b></p>
 
 <h2 id="control">2. The control comes first</h2>
 
@@ -175,9 +189,13 @@ known to be correct, so it is the ceiling rather than 100%.</p>
   <td class="n">217</td><td class="n">1087</td>
   <td class="n">74.0%</td><td class="n">54.9%</td><td class="n">41.1%</td>
   <td class="n win">73.7%</td><td>R, 3.52 dB</td></tr>
-<tr><td><b>c-tied.gp</b><br><span class="lab">stem-derived source</span></td>
+<tr><td><b>c-tied.gp</b>, capo corrected<br><span class="lab">stem-derived source</span></td>
   <td class="n">844</td><td class="n">891</td>
-  <td class="n">70.5%</td><td class="n">64.2%</td><td class="n lose">24.7%</td>
+  <td class="n win">87.9%</td><td class="n">64.2%</td><td class="n win">63.4%</td>
+  <td class="n">71.9%</td><td>R, 2.87 dB</td></tr>
+<tr><td>c-tied.gp <b class="lose">as written</b><br><span class="lab">CAPO_MIDI_MISMATCH x891</span></td>
+  <td class="n">844</td><td class="n">891</td>
+  <td class="n lose">70.5%</td><td class="n">64.2%</td><td class="n lose">24.7%</td>
   <td class="n lose">45.6%</td><td class="lose">L, 0.87 dB</td></tr>
 </tbody>
 </table>
@@ -199,22 +217,37 @@ known to be correct, so it is the ceiling rather than 100%.</p>
     <span class="val">24.7%</span></div>
 </div>
 
-<h2 id="rhythm">4. The Rhythm staff is where the difference lives</h2>
+<h2 id="rhythm">4. The Rhythm staff, and the experiment that explained it</h2>
 
-<p>The Lead staff is close across all three files, from 54.9% to 65.5%. Rhythm spreads from 24.7% to
-64.9%, and that single staff carries the whole result.</p>
+<p>The Lead staff is close across every file, 54.9% to 67.0%. Rhythm appeared to spread from 24.7% to
+64.9%, and that one staff carried the whole apparent result. The structural difference sat in the same
+place: <code>c-tied.gp</code> writes Rhythm with capo 2 and the promoted chain writes it with capo 0.</p>
 
-<p>One structural difference sits exactly there. <b><code>c-tied.gp</code> writes the Rhythm staff with
-capo 2, and <code>s6389251-chain49.gp</code> writes it with capo 0.</b> The tunings differ to match.
-A capo change moves every sounding pitch on the staff, so it is the mechanism most likely to produce
-a 40-point swing in pitch agreement, and the swing runs in the direction that favours capo 0.</p>
+<p>Rather than re-voice a hundred chords on the strength of a correlation, the variable was tested on
+its own. <b>Only the CapoFret value changed. Every note, onset, duration, string and fret was walked
+before and after and required to be identical on all five tracks.</b></p>
 
-<div class="card open">
-<p><b>Stated as a hypothesis, not a verdict.</b> This audit measured that the capo-0 Rhythm staff agrees
-with the audio far better. It did not isolate the capo as the cause by holding everything else fixed.
-The clean test is to re-render <code>c-tied.gp</code>'s Rhythm staff at capo 0 with no other change and
-re-measure.</p>
+<div class="scroll">
+<table>
+<thead><tr><th>Metric on the Rhythm staff</th><th class="n">c-tied as written</th>
+  <th class="n">c-tied, capo 0 only</th><th>Change</th></tr></thead>
+<tbody>
+<tr><td>Pitch supported by audio</td><td class="n lose">24.7%</td><td class="n win">63.4%</td>
+  <td>the whole gap</td></tr>
+<tr><td>Owner agreement</td><td class="n">45.6%</td><td class="n">71.9%</td><td>resolved</td></tr>
+<tr><td>Maps to stem</td><td class="lose">L, wrong</td><td>R, correct</td><td>resolved</td></tr>
+<tr><td>Tritone control separation</td><td class="n">70.5%</td><td class="n">87.9%</td><td>resolved</td></tr>
+<tr class="ceil"><td>Hand skip</td><td class="n">61%</td><td class="n">61%</td><td>unchanged</td></tr>
+<tr class="ceil"><td>IMPOSSIBLE_SPAN</td><td class="n">17</td><td class="n">17</td><td>unchanged</td></tr>
+<tr class="ceil"><td>TIE_INCONSISTENT</td><td class="n">40</td><td class="n">40</td><td>unchanged</td></tr>
+</tbody>
+</table>
 </div>
+
+<p><b>The capo explains the entire accuracy gap and none of the playability numbers.</b> That is the
+expected signature and it is worth stating, because it separates the two cleanly: hand skip and spans
+are read from written frets, which the capo does not touch, while every sounding pitch shifts by two
+semitones. Any account that blamed the transcription for the accuracy gap was wrong.</p>
 
 <h2 id="best">5. The BEST filename carried authority it never earned</h2>
 
