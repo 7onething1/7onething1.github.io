@@ -87,6 +87,7 @@
     <li><a href="#classify">Classifying the differences</a></li>
     <li><a href="#repair">The repair the audio licensed</a></li>
     <li><a href="#converge">Working it to convergence</a></li>
+    <li><a href="#pass">Why PASS is out of reach</a></li>
     <li><a href="#open">Still open</a></li>
     <li><a href="#method">Method</a></li>
     <li><a href="#prov">Provenance</a></li>
@@ -397,7 +398,63 @@ promotions, each licensed by its own measurement and each leaving its pitch else
 real.</b></p>
 </div>
 
-<h2 id="open">9. Still open</h2>
+<h2 id="pass">9. Why PASS is out of reach for this artifact</h2>
+
+<p>The gate holds at REVIEW rather than PASS, and the reason is a single diagnostic tier. Reading the
+gate's own thresholds, PASS needs hand skip at or under 40%. Both staves sit above it.</p>
+
+<div class="scroll">
+<table>
+<thead><tr><th>Staff</th><th class="n">Skipping chords</th><th class="n">Hand skip</th>
+  <th class="n">Same pitches, contiguous voicing exists</th>
+  <th class="n">No contiguous voicing at any fingering</th></tr></thead>
+<tbody>
+<tr><td>Lead Guitar</td><td class="n">80 of 121</td><td class="n">64.5%</td>
+  <td class="n">42</td><td class="n">38</td></tr>
+<tr><td>Rhythm Guitar</td><td class="n">89 of 143</td><td class="n">60.1%</td>
+  <td class="n">59</td><td class="n">30</td></tr>
+</tbody>
+</table>
+</div>
+
+<p>So the tier is mechanically reachable. Re-voicing those 101 chords onto contiguous strings, without
+altering a single pitch, would put Lead at 31.4% and Rhythm at 21.0%, both under the threshold.</p>
+
+<div class="card alert">
+<p><b>Every recorded attempt at that re-voicing broke a tier the gate ranks higher.</b> This is not a
+prediction. It is what the checkpoint ledger already holds, from earlier runs:</p>
+<ul>
+<li><code>s6389251-iter5.gp</code> reached hand skip <b>25.6%</b>, comfortably under the threshold, and
+was rejected for <b>SAME_STRING 0 to 10, TIE_COLLISION 0 to 3, TIE_INCONSISTENT 0 to 60</b>, and
+<b>Tier 1 preservation FAILED, so a pitch left the music or a pitch was invented</b>.</li>
+<li><code>s6389251-iter55.gp</code> reached 46.4% and was rejected because <b>Tier 1b POSITION FAILED,
+and Tier 1b outranks the Tier 2 hard profile, so a better hand count does not license a relocated
+performance</b>.</li>
+<li><code>s6389251-iter48.gp</code>, the blanket refret, produced <b>310 and 405 open notes</b> against
+roughly 29 and 25 in the stem-derived source.</li>
+</ul>
+</div>
+
+<p>The gate is behaving consistently. It ranks pitch preservation and fret position above hand comfort,
+and a mass re-voicing trades the first two for the third.</p>
+
+<div class="card open">
+<p><b>The audio cannot license the relocation, and this is the hard limit.</b> Every check on this page
+answers a question about <em>pitch</em>: is this pitch sounding, at this instant, in this stem. A
+re-voicing changes none of that. The same pitch fretted at s1f9 or at s0f14 produces nearly the same
+sound, and the timbral difference between two fingerings of one pitch sits far below what a Demucs
+guitar stem preserves. <b>The recording does not contain the information the position gate needs.</b></p>
+<p>So the blocked operation is exact: re-voice 101 chords onto contiguous strings, and satisfy Tier 1b
+position for each. The missing evidence is per-note fingering evidence, which no measurement of this
+audio can supply. Methods attempted: per-note peak salience across six partials in both stems, three
+controls, a synthetic ceiling, and per-chord adjudication. All of them answer pitch, and none answers
+fingering.</p>
+</div>
+
+<p>Closing that gap is a decision rather than a measurement. It means accepting a blanket refret whose
+last outing measurably degraded the transcription, and the ledger holds the receipt for that.</p>
+
+<h2 id="open">10. Still open</h2>
 
 <div class="card open">
 <p><b>Attack density is not established for any of the three.</b> The onset detector finds 387 onsets in
@@ -421,7 +478,7 @@ signature that every removal here was licensed by. They are named with bars and 
 <code>interior_evidence_c62.json</code>, and they need a chord-level decision rather than a deletion.</p>
 </div>
 
-<h2 id="method">10. Method</h2>
+<h2 id="method">11. Method</h2>
 
 <p>One question per note, never a bar average. For each written attack a single high-resolution
 spectrum is taken from a 150 ms window at the note's mapped time, zero-padded to 0.67 Hz per bin.
@@ -440,7 +497,7 @@ from the same spectrum.</p>
 <p>Staff-to-stem assignment is measured rather than assumed, by comparing median salience across both
 stems for every note on a staff.</p>
 
-<h2 id="prov">11. Provenance</h2>
+<h2 id="prov">12. Provenance</h2>
 
 <div class="prov">
 <dl>
