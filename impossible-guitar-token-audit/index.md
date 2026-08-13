@@ -15,7 +15,9 @@ Claude Code writes **one JSONL record per content block**, so a single assistant
 1. `analyze.py:60` summed `usage` once per record, so every token figure was inflated roughly 2.4x.
 2. `analyze.py:65` tested `len(tools) > 1` per record. A split record can never hold two tool calls, so the parallel-batching rate was pinned at 0% by construction.
 
-Both are now fixed at `~/.claude/skills/session-audit/analyze.py`. Re-run over the 30 most recent sessions, the batching rate reads **12%**. The standing memory gate `feedback_batch_independent_tool_calls_hard_gate` cites "0.0% across 359 turns", which came out of the broken metric and needs re-baselining.
+Both are now fixed at `~/.claude/skills/session-audit/analyze.py`. Re-run over the 30 most recent sessions, the batching rate reads **12%**.
+
+The standing memory gate `feedback_batch_independent_tool_calls_hard_gate` cites "0.0% across 359 turns" from 2026-07-19. Remeasured with the corrected method, those sessions hold up: `ed2c6a7c` 1.6%, `b3fb51a9` 0.0%, `add5d5c7` 2.4%. Their records barely split, at 1.00 to 1.02 records per tool turn, so the old script was accurate on them. The split ratio rises to **1.93** in this cluster precisely because a message carrying three parallel calls gets written as three records. The bug grew in step with the batching it was measuring, and it reported 0% for a cluster that had improved to 13.3%. Keep the gate, and credit the improvement.
 
 ### Corrections to revision 1
 
@@ -141,7 +143,7 @@ The cluster's last two user messages are "still seeing impossible guitar parts" 
 2. **Cap the working context near 300K and reset with that artifact.** Worth about 30.6% of input spend on this cluster, and the fix for the 997K session.
 3. **Freeze a regression fixture before the next fix.** 77 fretting-subsystem runs and 51 validator runs is the loop to break. One failing fixture, one hypothesis, one run.
 4. **End the turn instead of sleeping.** 166 empty turns and 42 wakeups, at 7.9% of input spend.
-5. **Trust the repaired meter.** `analyze.py` now dedupes usage and merges tool blocks per message. Re-baseline the batching gate against 12%, since the 0.0% in memory came from the bug rather than from behavior.
+5. **Trust the repaired meter.** `analyze.py` now dedupes usage and merges tool blocks per message. The batching gate's July figures survive remeasurement, so keep the gate. Credit the improvement to 13.3% that the broken meter was hiding, and read the batching rate off the fixed script from here on.
 
 ## Provenance
 

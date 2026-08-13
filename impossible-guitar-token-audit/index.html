@@ -89,8 +89,14 @@ followed from that, and both shipped into the published page:</p>
 calls, so the batching rate was pinned at 0% by construction.</li>
 </ul>
 <p>Both are fixed. Re-run over the 30 most recent sessions the batching rate reads
-<strong>12%</strong>. The standing memory gate quoting "0.0% across 359 turns" came out of the broken
-metric and needs re-baselining.</p>
+<strong>12%</strong>.</p>
+<p><span class="tag mid">checked</span> The standing memory gate cites "0.0% across 359 turns" from
+2026-07-19. Remeasured with the corrected method, those sessions hold up:
+<code>ed2c6a7c</code> 1.6%, <code>b3fb51a9</code> 0.0%, <code>add5d5c7</code> 2.4%. Their records
+barely split at all, at 1.00 to 1.02 records per tool turn, so the old script was accurate on them.
+The split ratio rises to <strong>1.93</strong> in this cluster precisely because a message carrying
+three parallel calls is written as three records. The bug therefore grew in step with the batching
+it was measuring, and it reported 0% for a cluster that had improved to 13.3%.</p>
 </div>
 
 <div class="tblwrap">
@@ -284,8 +290,9 @@ information loss at the same time.</li>
 <li><strong>End the turn instead of sleeping.</strong> 166 empty turns and 42 wakeups, at 7.9% of
 input spend.</li>
 <li><strong>Trust the repaired meter.</strong> <code>analyze.py</code> now dedupes usage and merges
-tool blocks per message. Re-baseline the batching gate against 12%, since the 0.0% in memory is not
-a measurement.</li>
+tool blocks per message. The batching gate's July figures survive remeasurement, so keep the gate.
+Credit the improvement to 13.3% that the broken meter was hiding, and read the batching rate off the
+fixed script from here on.</li>
 </ol>
 
 <h2>Provenance</h2>
