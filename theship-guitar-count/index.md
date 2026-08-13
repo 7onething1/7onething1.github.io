@@ -19,11 +19,11 @@ not match the recording.
 | 03 | Gene | 2 staves | 0.624 | TWO firm | 43.9% | agrees, depan check advised |
 | 04 | Six Feet Under | 2 staves | 0.553 | TWO weak | 39.4% | agrees |
 | 05 | Sleep Vs Death | 2 staves | 0.447 | inconclusive | 0.0% | independent staves, low risk |
-| 07 | MOP | 1 staff | 0.551 | TWO weak | — | **GAP: second guitar missing** |
+| 07 | MOP | 1 staff | 0.551 | TWO weak | — | unresolved: per-note test failed its control |
 | 08 | JGBFTL | 2 staves | 0.330 | ONE firm | 0.7% | overdub, tab is right |
 | 09 | MHL | 2 staves | 0.665 | TWO firm | 18.0% | agrees |
 | 10 | Trapped in Wonderland | 2 staves | 0.627 | TWO firm | 2.6% | agrees |
-| 11 | Ambulance | 2 staves | 0.337 | ONE firm | **60.0%** | **DEFECT: one performance in two staves** |
+| 11 | Ambulance | 2 staves | 0.337 | ONE firm | **60.0%** | **REPAIRED**: 665 duplicate attacks removed, Lead hand-skip 20% -> 0% |
 
 Track 06 is absent from the whole tree: no stems, no tab.
 
@@ -69,3 +69,38 @@ matching the 2026-08-07 Songsterr live backup.
 2. 07 MOP — recover the second guitar before further fingering work.
 3. 05 Sleep Vs Death — lowest priority.
 4. Track 06 — locate or confirm it does not exist.
+
+## Update, same day: repair and alignment
+
+**11 Ambulance repaired.** 665 duplicated Lead attacks removed, each one a pitch
+already struck on Rhythm at the same onset, so no pitch left the music. Tier 1
+PASS (25->25 pitches, none gone, none invented), Tier 1b POSITION PASS (0 notes
+moved), gate PASS. Lead hand-skip 20% -> 0%. 221 beats cloned before editing to
+avoid the shared-definition broadcast edit.
+Artifact: `_depan_2026-08-13/11-ambulance-DEPAN.gp`.
+Receipt run_id 903ace3cae476d29, promotion REFUSED because the ledger has no
+licence for a depan's intended instance-count reduction.
+
+**Staff pan separation**, each written note measured against the stereo stem:
+
+| song | staff sep | reading |
+|---|---|---|
+| 03 Gene | 0.316 | staves at -0.307 and +0.029, genuinely two positions |
+| 05 Sleep | 0.188 | |
+| 04 Six Feet | 0.125 | |
+| 09 MHL | 0.052 | |
+| 10 Trapped | 0.032 | |
+| 11 Ambulance | **0.009** | staves at -0.166 and -0.158, on top of each other |
+
+**Alignment.** 11 Ambulance's tempo was never wrong: offset +4.200s, scale
+1.0000, librosa 156.6 vs written 156.0. Three tabs do not match their
+recordings: 05 Sleep written 110 bpm plays at 101 (8.8% error), 08 JGBFTL not
+aligned (z=3.3), 02 Flake not aligned (z=1.3) with a CORRECT tempo, so its
+rhythm is wrong rather than its clock.
+
+**A fourth metric was refuted.** Per-staff bimodality, meant to reveal a second
+guitarist merged into one staff, scored 0.59 and 0.64 on 03 Gene's two staves,
+each certainly a single player. That is why 07 MOP is unresolved rather than
+confirmed.
+
+**Track 06 does not exist**: the project's own song list skips 05 to 07.

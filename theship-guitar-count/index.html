@@ -8,13 +8,13 @@
   :root{
     --cream:#F4EFE1; --paper:#FBF7EC; --ink:#1A1714; --soft:#5C534A;
     --rule:#DED2B8; --mustard:#D6A419; --rust:#B5543A; --teal:#4E7C7C;
-    --sage:#8A9A6B; --pink:#C97B7B; --dust:#EDE2C9;
+    --sage:#8A9A6B; --dust:#EDE2C9;
   }
   *{box-sizing:border-box}
   body{margin:0;background:var(--cream);color:var(--ink);
     font:16px/1.62 "Iowan Old Style","Palatino Linotype",Palatino,Georgia,serif;
     -webkit-font-smoothing:antialiased}
-  .wrap{max-width:980px;margin:0 auto;padding:38px 22px 90px}
+  .wrap{max-width:1000px;margin:0 auto;padding:38px 22px 90px}
   header{border-bottom:3px double var(--rule);padding-bottom:22px;margin-bottom:28px}
   .kicker{font:600 11px/1 ui-sans-serif,system-ui,sans-serif;letter-spacing:.18em;
     text-transform:uppercase;color:var(--rust)}
@@ -36,7 +36,7 @@
   .lede{background:var(--paper);border:1px solid var(--rule);padding:20px 24px;margin:24px 0}
   .lede p:first-child{margin-top:0} .lede p:last-child{margin-bottom:0}
   .tablewrap{overflow-x:auto;margin:1.1em 0;border:1px solid var(--rule);background:var(--paper)}
-  table{border-collapse:collapse;width:100%;min-width:640px;
+  table{border-collapse:collapse;width:100%;min-width:660px;
     font:14px/1.45 ui-sans-serif,system-ui,sans-serif}
   th,td{padding:8px 11px;text-align:left;border-bottom:1px solid var(--rule);
     vertical-align:top}
@@ -56,9 +56,10 @@
   .card.gap{border-left-color:var(--mustard)}
   .card.clear{border-left-color:var(--sage)}
   .card h3{margin-top:0}
-  .strike{color:var(--soft)}
   .strike b{color:var(--rust)}
   ul.tight{margin:.5em 0;padding-left:1.2em} ul.tight li{margin:.28em 0}
+  pre{background:var(--paper);border:1px solid var(--rule);padding:12px 14px;
+    overflow-x:auto;font:12.5px/1.5 ui-monospace,Menlo,monospace;margin:1em 0}
   footer{margin-top:60px;padding-top:20px;border-top:3px double var(--rule);
     color:var(--soft);font-size:13px}
   .fnote{font-size:13px;color:var(--soft)}
@@ -68,116 +69,173 @@
 <div class="wrap">
 
 <header>
-  <div class="kicker">The Ship &middot; guitar transcription audit</div>
+  <div class="kicker">The Ship &middot; guitar transcription audit &amp; repair</div>
   <h1>How many guitarists were actually in the room?</h1>
-  <p class="sub">Ten tabs pass every playability check. Three of them describe a
-  band that does not match the recording.</p>
-  <div class="meta">2026-08-13 &middot; 10 songs &middot; audio evidence + notation evidence + physical gate</div>
+  <p class="sub">Ten tabs passed every playability check. One of them described a
+  guitarist who was never there, and that one is now repaired.</p>
+  <div class="meta">2026-08-13 &middot; 10 songs &middot; audio evidence, notation evidence, alignment, physical gate</div>
 </header>
 
 <div class="lede">
   <p><b>The question comes first, before any fingering work.</b> A refret pass run
   on mis-owned notes produces a playable-looking tab of a performance nobody gave.
   So the count of guitarists is settled from the recording, and only then is the
-  notation graded.</p>
-  <p>The staff count already sitting in a tab is an <b>assertion</b>, never
-  evidence. Eight of these ten carry a Lead staff and a Rhythm staff, and nothing
-  in any of those files says a second guitarist ever played.</p>
+  notation graded and repaired.</p>
+  <p>The staff count sitting in a tab is an <b>assertion</b>, never evidence. Eight
+  of these ten carry a Lead staff and a Rhythm staff, and nothing in any of those
+  files says a second guitarist ever played.</p>
 </div>
 
 <div class="toc">
   <b>Contents</b>
   <ol>
     <li><a href="#answer">The answer, per song</a></li>
+    <li><a href="#repair">The repair: 11 Ambulance</a></li>
     <li><a href="#method">How the count was decided</a></li>
-    <li><a href="#refuted">Three metrics that failed their own controls</a></li>
-    <li><a href="#controls">The controls</a></li>
-    <li><a href="#findings">What is actually wrong</a></li>
-    <li><a href="#next">Next</a></li>
+    <li><a href="#refuted">Four metrics that failed their own controls</a></li>
+    <li><a href="#align">Alignment, and three tabs that do not match their recordings</a></li>
+    <li><a href="#open">What is still open</a></li>
   </ol>
 </div>
 
 <h2 id="answer">1 &nbsp;The answer, per song</h2>
 
-<p>Two independent lines of evidence, plus the physical gate. <b>Audio</b> asks how
-many pan positions are playing. <b>Notation</b> asks how much of the Lead staff is
-the Rhythm staff at the same instant and pitch. They are measured separately and
-compared afterwards.</p>
+<p>Three independent lines. <b>Audio BC</b> asks how many pan positions are playing
+across the whole stem. <b>Staff separation</b> measures each written note against
+the stereo stem and asks whether the two staves occupy different positions.
+<b>Staff dup</b> asks how much of the smaller staff is the larger staff at the same
+instant and pitch.</p>
 
 <div class="tablewrap">
 <table>
 <thead><tr>
   <th>#</th><th>Song</th><th>Tab says</th><th class="num">BC</th>
-  <th>Audio says</th><th class="num">Staff dup</th><th>Gate</th><th>Joint call</th>
+  <th>Audio</th><th class="num">Staff sep</th><th class="num">Dup</th>
+  <th>Gate</th><th>Call</th>
 </tr></thead>
 <tbody>
 <tr><td>01</td><td>Seedy Shade</td><td>1 staff</td><td class="num">0.507</td>
-  <td><span class="pill neut">inconclusive</span></td><td class="num">&mdash;</td>
+  <td><span class="pill neut">inconclusive</span></td><td class="num">&mdash;</td><td class="num">&mdash;</td>
   <td><span class="pill ok">PASS</span></td><td>Consistent. Low risk.</td></tr>
 <tr><td>02</td><td>Flake of the Year</td><td>2 staves</td><td class="num">0.586</td>
-  <td><span class="pill ok">TWO</span> <span class="fnote">weak</span></td><td class="num">21.3%</td>
-  <td><span class="pill ok">PASS</span></td><td>Agrees. Genuine doubling.</td></tr>
+  <td><span class="pill ok">TWO</span></td><td class="num">n/a</td><td class="num">21.3%</td>
+  <td><span class="pill ok">PASS</span></td><td><b>Tab does not align to the recording.</b></td></tr>
 <tr><td>03</td><td>Gene</td><td>2 staves</td><td class="num">0.624</td>
-  <td><span class="pill ok">TWO</span> <span class="fnote">firm</span></td><td class="num">43.9%</td>
-  <td><span class="pill ok">PASS</span></td><td>Agrees. Doubling is high, worth a depan check.</td></tr>
+  <td><span class="pill ok">TWO</span></td><td class="num"><b>0.316</b></td><td class="num">43.9%</td>
+  <td><span class="pill ok">PASS</span></td><td>Confirmed. Real two-guitar doubling.</td></tr>
 <tr><td>04</td><td>Six Feet Under</td><td>2 staves</td><td class="num">0.553</td>
-  <td><span class="pill ok">TWO</span> <span class="fnote">weak</span></td><td class="num">39.4%</td>
-  <td><span class="pill ok">PASS</span></td><td>Agrees.</td></tr>
+  <td><span class="pill ok">TWO</span></td><td class="num">0.125</td><td class="num">39.4%</td>
+  <td><span class="pill ok">PASS</span></td><td>Confirmed two. Doubling kept.</td></tr>
 <tr><td>05</td><td>Sleep Vs Death</td><td>2 staves</td><td class="num">0.447</td>
-  <td><span class="pill neut">inconclusive</span></td><td class="num">0.0%</td>
-  <td><span class="pill warn">REVIEW</span></td><td>Staves fully independent. Low risk.</td></tr>
+  <td><span class="pill neut">inconclusive</span></td><td class="num">0.188</td><td class="num">0.0%</td>
+  <td><span class="pill warn">REVIEW</span></td><td><b>Tempo written 110, plays at 101.</b></td></tr>
 <tr><td>07</td><td>MOP</td><td>1 staff</td><td class="num">0.551</td>
-  <td><span class="pill ok">TWO</span> <span class="fnote">weak</span></td><td class="num">&mdash;</td>
-  <td><span class="pill ok">PASS</span></td><td><b>Gap.</b> A second guitar is likely missing.</td></tr>
+  <td><span class="pill warn">two, weak</span></td><td class="num">&mdash;</td><td class="num">&mdash;</td>
+  <td><span class="pill ok">PASS</span></td><td>Unresolved. Per-note test did not corroborate.</td></tr>
 <tr><td>08</td><td>JGBFTL</td><td>2 staves</td><td class="num">0.330</td>
-  <td><span class="pill bad">ONE</span> <span class="fnote">firm</span></td><td class="num">0.7%</td>
-  <td><span class="pill ok">PASS</span></td><td>Overdub. One player, two real parts. Tab is right.</td></tr>
+  <td><span class="pill bad">ONE</span></td><td class="num">n/a</td><td class="num">0.7%</td>
+  <td><span class="pill ok">PASS</span></td><td><b>Tab does not align to the recording.</b></td></tr>
 <tr><td>09</td><td>MHL</td><td>2 staves</td><td class="num">0.665</td>
-  <td><span class="pill ok">TWO</span> <span class="fnote">firm</span></td><td class="num">18.0%</td>
-  <td><span class="pill ok">PASS</span></td><td>Agrees.</td></tr>
+  <td><span class="pill ok">TWO</span></td><td class="num">0.052</td><td class="num">18.0%</td>
+  <td><span class="pill ok">PASS</span></td><td>Confirmed two.</td></tr>
 <tr><td>10</td><td>Trapped in Wonderland</td><td>2 staves</td><td class="num">0.627</td>
-  <td><span class="pill ok">TWO</span> <span class="fnote">firm</span></td><td class="num">2.6%</td>
-  <td><span class="pill warn">REVIEW</span></td><td>Agrees.</td></tr>
+  <td><span class="pill ok">TWO</span></td><td class="num">0.032</td><td class="num">2.6%</td>
+  <td><span class="pill warn">REVIEW</span></td><td>Confirmed two.</td></tr>
 <tr><td>11</td><td>Ambulance</td><td>2 staves</td><td class="num">0.337</td>
-  <td><span class="pill bad">ONE</span> <span class="fnote">firm</span></td><td class="num">60.0%</td>
-  <td><span class="pill ok">PASS</span></td><td><b>Defect.</b> One performance written into both staves.</td></tr>
+  <td><span class="pill bad">ONE</span></td><td class="num"><b>0.009</b></td><td class="num"><b>60.0%</b></td>
+  <td><span class="pill ok">PASS</span></td><td><span class="pill ok">REPAIRED</span></td></tr>
 </tbody>
 </table>
 </div>
 
-<p class="fnote"><b>BC</b> is the bimodality coefficient of per-attack stereo
-position. <b>Staff dup</b> is the share of the smaller staff's attacks matched by
-a same-pitch attack on the other staff, quoted at exact onset; the &plusmn;1/4-beat
-tolerance moves no figure by more than 3.3 points. <b>Gate</b> is
-<code>impossible_gate.py</code>: REVIEW on 05 and 10 is SHIFT only, nothing hard.
-Track 06 has no stems and no tab anywhere in the tree.</p>
+<p class="fnote">Staff separation is the gap between the two staves' mean measured
+pan over their pooled spread. <b>03 Gene at 0.316 is the album's highest and 11
+Ambulance at 0.009 its lowest, 35x apart.</b> Gene's staves sit at &minus;0.307 and
++0.029, genuinely different places; Ambulance's sit at &minus;0.166 and &minus;0.158,
+on top of each other. <b>n/a</b> means the tab could not be aligned to its
+recording, so no per-note audio measurement on it would mean anything. There is
+no track 06: the project's own song list skips 05 to 07.</p>
 
-<h2 id="method">2 &nbsp;How the count was decided</h2>
+<h2 id="repair">2 &nbsp;The repair: 11 Ambulance</h2>
+
+<div class="card defect">
+  <h3>One performance had been written onto both staves</h3>
+  <p>Four measurements agreed before anything was changed:</p>
+  <ul class="tight">
+    <li>Audio BC <b>0.337</b>, inside the synthetic one-guitar band.</li>
+    <li>Staff pan separation <b>0.009</b>, the album's lowest by 35x.</li>
+    <li><b>60.0%</b> of Lead's 1,138 attacks were the same pitch at the same instant
+      as a Rhythm attack.</li>
+    <li>Lead hand-skip <b>20%</b>, the worst in the album, which is the documented
+      consequence of one detected note being written into both staves.</li>
+  </ul>
+  <p>665 duplicated Lead attacks were removed. A note came out only where a struck
+  Rhythm note of the <b>same sounding pitch at the same onset</b> remained, so the
+  pitch keeps sounding from the other staff and none can leave the music. Ringing
+  notes and tie-chain notes were never touched, which is why 665 rather than the
+  full 683.</p>
+  <p><b>221 beats were cloned before editing.</b> A GPIF Beat is a shared definition
+  referenced from many places, and editing one in place is a broadcast edit that
+  once turned 17 harmonics into 383 while every bar-sum check passed.</p>
+</div>
+
+<pre>TIER 1  PITCH PRESERVATION
+BOTH GUITARS   3358 -> 2693   lost 665   added 0   25->25 pitches   gone none / invented none
+Lead Guitar    1158 ->  493   lost 665   added 0   24->20 pitches   gone [51,61,63,67] / new none
+Rhythm Guitar  2200 -> 2200   lost   0   added 0   22->22 pitches   gone none / invented none
+PITCH GATE: PASS
+
+TIER 1b POSITION   did the repair move the performance?
+Lead Guitar     493 healthy   0 MOVED   0%   fret delta none
+Rhythm Guitar  2200 healthy   0 MOVED   0%   fret delta none
+POSITION GATE: PASS
+
+GATE            notes  hand%  same  tie!  wide  octc  verdict
+Lead Guitar       493     0%     0     0     0     0  PASS      (was 20%)
+Rhythm Guitar    2200     8%     0     0     0     0  PASS</pre>
+
+<p>The four pitches leaving the <i>Lead staff</i> beside a clean <b>BOTH GUITARS</b>
+row is the signature of a restaffing rather than a loss: they are still in the
+music, on the other staff. <b>Lead hand-skip went from 20% to 0%</b> and no note
+changed string or fret.</p>
+
+<div class="card gap">
+  <h3>The ledger will not promote it, and that is a gap in the tooling</h3>
+  <p>The checkpoint comparison refused promotion on one line: <code>notes fall 3358
+  -&gt; 2693</code>. The skill's own Tier 1 states that a depan is <i>supposed</i> to
+  reduce the count, and it printed exactly that: <i>instance loss is reported above
+  and is intended for a depan or dedupe pass</i>.</p>
+  <p>No flag bridges this. <code>--allow-setup-change</code>,
+  <code>--accept-tier-tradeoff</code> and <code>--license-skip-regression</code> each
+  state they never excuse a note loss. So the ledger structurally cannot promote a
+  depan repair. The file is left honestly named and unpromoted rather than forced
+  through or renamed to imply a status it does not hold.</p>
+  <p class="fnote">Receipt <code>run_id 903ace3cae476d29</code>, artifact
+  <code>94040a68c77f6d6f</code>: verdict PASS, preservation PASS, position PASS,
+  promotion REFUSED.</p>
+</div>
+
+<h2 id="method">3 &nbsp;How the count was decided</h2>
 
 <p>Every measurement runs on the untouched stereo <code>-guitar.mp3</code> stem.</p>
 
-<p>The <code>-guitar_lead</code> and <code>-guitar_rhythm</code> stems cannot
-answer this question and were not used. They came from
-<code>split_guitar_score_wiener.py</code>, a <b>score-informed</b> splitter: it was
-handed the existing transcription and asked to divide the audio to match it. Feed
-it a one-guitar song with a two-staff score and it returns two stems. The answer
-would be the assumption.</p>
+<p>The <code>-guitar_lead</code> and <code>-guitar_rhythm</code> stems cannot answer
+this and were not used. They came from <code>split_guitar_score_wiener.py</code>, a
+<b>score-informed</b> splitter: it was handed the existing transcription and asked
+to divide the audio to match it. Feed it a one-guitar song with a two-staff score
+and it returns two stems. The answer would be the assumption.</p>
 
-<p>The surviving test is <b>where each attack sits in the stereo field</b>. For every
-transient, the left/right energy balance over the following 80&nbsp;ms. One guitarist
-puts every attack at one position, however wide the reverb around it. Two
-guitarists at different positions split the attacks into two clusters, and the
-bimodality coefficient of that distribution separates the cases.</p>
+<p>The surviving song-level test is <b>where each attack sits in the stereo
+field</b>, scored by bimodality coefficient. One guitarist puts every attack at one
+position however wide the reverb around it. Two guitarists at different positions
+split the attacks into two clusters.</p>
 
 <p><b>The limit, stated plainly:</b> this counts <i>pan positions</i>, not people.
-One guitarist who overdubs a second part to the same position reads as ONE. That
-is not a flaw to hide, it is what resolves song 08 below.</p>
+One guitarist overdubbing a second part to the same position reads as ONE. That is
+not a flaw to hide, it is what makes song 08's two staves defensible at 0.7%
+duplication.</p>
 
-<h2 id="refuted">3 &nbsp;Three metrics that failed their own controls</h2>
-
-<p>The obvious measurements were tried first, and synthetic controls killed them.
-They are still reported in the data for context, and none of them carries a
-verdict.</p>
+<h2 id="refuted">4 &nbsp;Four metrics that failed their own controls</h2>
 
 <div class="tablewrap">
 <table>
@@ -186,118 +244,92 @@ verdict.</p>
 <tbody>
 <tr><td>Two guitars, &plusmn;40% pan</td><td><span class="pill ok">TWO</span></td>
   <td class="num">0.880</td><td class="num">&minus;9.78 dB</td><td class="num">18.9%</td><td class="num"><b>0.794</b></td></tr>
-<tr><td>Two guitars, &plusmn;15% pan</td><td><span class="pill ok">TWO</span></td>
-  <td class="num strike"><b>0.985</b></td><td class="num strike"><b>&minus;18.56 dB</b></td><td class="num strike"><b>6.5%</b></td><td class="num"><b>0.794</b></td></tr>
+<tr class="strike"><td>Two guitars, &plusmn;15% pan</td><td><span class="pill ok">TWO</span></td>
+  <td class="num"><b>0.985</b></td><td class="num"><b>&minus;18.56 dB</b></td><td class="num"><b>6.5%</b></td><td class="num"><b>0.794</b></td></tr>
 <tr><td>One guitar, mono, panned</td><td><span class="pill bad">ONE</span></td>
   <td class="num">1.000</td><td class="num">&minus;16.01 dB</td><td class="num">0.1%</td><td class="num">0.260</td></tr>
-<tr><td>One guitar, Haas + reverb</td><td><span class="pill bad">ONE</span></td>
-  <td class="num strike"><b>0.049</b></td><td class="num strike"><b>&minus;0.43 dB</b></td><td class="num">8.8%</td><td class="num">0.265</td></tr>
-<tr><td>One guitar, ping-pong delay</td><td><span class="pill bad">ONE</span></td>
-  <td class="num">0.363</td><td class="num">&minus;3.22 dB</td><td class="num strike"><b>59.1%</b></td><td class="num">0.390</td></tr>
+<tr class="strike"><td>One guitar, Haas + reverb</td><td><span class="pill bad">ONE</span></td>
+  <td class="num"><b>0.049</b></td><td class="num"><b>&minus;0.43 dB</b></td><td class="num">8.8%</td><td class="num">0.265</td></tr>
+<tr class="strike"><td>One guitar, ping-pong delay</td><td><span class="pill bad">ONE</span></td>
+  <td class="num">0.363</td><td class="num">&minus;3.22 dB</td><td class="num"><b>59.1%</b></td><td class="num">0.390</td></tr>
 </tbody>
 </table>
 </div>
 
-<p>Read the bold cells. A single guitar through a Haas delay and reverb produced
-the <b>lowest correlation and the most side energy of anything measured</b>, real
-tracks included. A single guitar through a ping-pong delay produced <b>59% onset
-independence</b>, the highest figure in the set. And two genuinely different
-guitarists at a realistic &plusmn;15% produced the most one-guitar-looking numbers
-on all three.</p>
+<p>Read the bold cells. A single guitar through a Haas delay and reverb produced the
+<b>lowest correlation and the most side energy of anything measured</b>, real tracks
+included. A single guitar through a ping-pong delay produced <b>59% onset
+independence</b>, the highest figure in the set. Two genuinely different guitarists
+at a realistic &plusmn;15% produced the most one-guitar-looking numbers on all three.</p>
 
-<p>Correlation, side energy and onset independence do not measure how many people
-played. They measure how wide the mix is. Only the bimodality coefficient held:
-positives at 0.794 regardless of pan width, negatives from 0.260 to 0.390.</p>
+<p>Correlation, side energy and onset independence measure how wide the mix is, not
+how many people played. Only the bimodality coefficient held, at 0.794 for
+positives regardless of pan width against 0.260 to 0.390 for negatives.</p>
 
-<p class="fnote">A fourth metric was discarded earlier for the same reason. An
-optimal two-means split of the pan distribution scores <i>any</i> distribution,
-so the known one-source bass stem read 2.31, higher than every guitar in the
-album. A statistic its own control cannot distinguish is not evidence.</p>
+<p><b>Two more were discarded the same way.</b> An optimal two-means split of the pan
+distribution scores <i>any</i> distribution, so the known one-source bass stem read
+2.31, higher than every guitar on the album. And a per-staff bimodality test, meant
+to reveal a second guitarist merged into a single staff, was refuted by its control:
+<b>03 Gene's two staves scored 0.59 and 0.64</b>, and each of those is certainly one
+player. That test is the reason song 07 is marked unresolved rather than confirmed.</p>
 
-<h2 id="controls">4 &nbsp;The controls</h2>
+<h2 id="align">5 &nbsp;Alignment, and three tabs that do not match their recordings</h2>
 
-<p>Real stems of known source count, run through the same separation chain and
-the same mp3 encode, set the floor.</p>
+<p>Per-note audio measurement needs the tab's beat 0 on the stem's sample 0. The
+first depan attempt on 11 Ambulance <b>refused to report</b>, because its written
+attacks carried <i>less</i> energy at their own pitches than nonsense onsets did,
+0.55x. Offset and tempo scale are therefore solved per song against the stem's onset
+envelope, and scored against the same tab with its rhythm shuffled, since a dense
+impulse train scores well against any envelope simply by covering it.</p>
 
 <div class="tablewrap">
 <table>
-<thead><tr><th>Control stem</th><th>Sources</th><th class="num">BC</th><th>Role</th></tr></thead>
+<thead><tr><th>Song</th><th class="num">Offset</th><th class="num">Scale</th>
+  <th class="num">z vs shuffled</th><th class="num">Written bpm</th>
+  <th class="num">Effective</th><th>Result</th></tr></thead>
 <tbody>
-<tr><td>03 Gene &mdash; vocals</td><td>one</td><td class="num">0.221</td><td>floor</td></tr>
-<tr><td>01 Seedy Shade &mdash; vocals</td><td>one</td><td class="num">0.223</td><td>floor</td></tr>
-<tr><td>01 Seedy Shade &mdash; bass</td><td>one</td><td class="num">0.369</td><td>floor</td></tr>
-<tr><td>03 Gene &mdash; bass</td><td>one</td><td class="num"><b>0.512</b></td><td>highest single source &rarr; the threshold</td></tr>
-<tr><td>01 / 03 &mdash; drums</td><td>many</td><td class="num">0.315 / 0.385</td><td class="fnote">rejected as a positive control, see below</td></tr>
+<tr><td>10 Trapped in Wonderland</td><td class="num">+0.12s</td><td class="num">1.016</td><td class="num">+10.8</td><td class="num">&mdash;</td><td class="num">&mdash;</td><td><span class="pill ok">aligned</span></td></tr>
+<tr><td>07 MOP</td><td class="num">+0.16s</td><td class="num">1.000</td><td class="num">+10.6</td><td class="num">126.0</td><td class="num">126.00</td><td><span class="pill ok">aligned, exact</span></td></tr>
+<tr><td>03 Gene</td><td class="num">+0.32s</td><td class="num">0.988</td><td class="num">+9.0</td><td class="num">&mdash;</td><td class="num">&mdash;</td><td><span class="pill ok">aligned</span></td></tr>
+<tr><td>11 Ambulance</td><td class="num">+4.20s</td><td class="num">1.000</td><td class="num">+7.7</td><td class="num">156.0</td><td class="num">156.00</td><td><span class="pill ok">aligned, offset only</span></td></tr>
+<tr><td>04 Six Feet Under</td><td class="num">+0.54s</td><td class="num">1.000</td><td class="num">+6.5</td><td class="num">&mdash;</td><td class="num">&mdash;</td><td><span class="pill ok">aligned</span></td></tr>
+<tr><td>09 MHL</td><td class="num">+1.64s</td><td class="num">1.000</td><td class="num">+5.2</td><td class="num">&mdash;</td><td class="num">&mdash;</td><td><span class="pill ok">aligned</span></td></tr>
+<tr><td>05 Sleep Vs Death</td><td class="num">+4.32s</td><td class="num">1.088</td><td class="num">+4.7</td><td class="num">110.0</td><td class="num">101.10</td><td><span class="pill warn">tempo off 8.8%</span></td></tr>
+<tr><td>08 JGBFTL</td><td class="num">+6.62s</td><td class="num">0.938</td><td class="num">+3.3</td><td class="num">&mdash;</td><td class="num">&mdash;</td><td><span class="pill bad">not aligned</span></td></tr>
+<tr><td>02 Flake of the Year</td><td class="num">+0.70s</td><td class="num">1.002</td><td class="num">+1.3</td><td class="num">84.0</td><td class="num">83.83</td><td><span class="pill bad">not aligned</span></td></tr>
 </tbody>
 </table>
 </div>
 
-<p>The drums stem was meant to calibrate the ceiling and it does not. Drums are
-many sources yet score below the single-source floor, because rapid hat-and-kick
-interleaving has no phrase-length stereo structure. A known positive that fails
-the positive test validates nothing, so the positives were built synthetically
-instead.</p>
+<p><b>11 Ambulance's tempo was never wrong.</b> It needed a 4.200 s offset and its
+scale came back 1.0000, with librosa independently estimating 156.6 against the
+written 156.0. The tempo suspicion from the original sessions applies to a
+different song: <b>05 Sleep Vs Death is written at 110 bpm and plays at about
+101</b>, an 8.8% error that accumulates to roughly 18 seconds of drift across the
+song.</p>
 
-<p><b>Decision bands, measured rather than assumed:</b> below 0.39 is inside the
-synthetic one-guitar band and returns ONE; above 0.512 clears the highest real
-single source and returns TWO; 0.60 and up is firm. Between 0.39 and 0.512 is
-inconclusive and goes to the notation test rather than being guessed.</p>
+<p><b>02 Flake is the interesting failure.</b> Its tempo is right, 84.0 written
+against 83.83 effective, and librosa's 166.7 is that same tempo counted in
+half-time. So the tempo is fine and the <i>rhythm</i> does not match: the tab
+cannot beat its own shuffled self, at z = +1.3. That is a note-placement problem,
+not a clock problem.</p>
 
-<h2 id="findings">5 &nbsp;What is actually wrong</h2>
-
-<div class="card defect">
-  <h3>11 Ambulance &mdash; one performance, two staves</h3>
-  <p>Three signals agree, and this is the clearest defect in the album.</p>
-  <ul class="tight">
-    <li>Audio: <b>BC 0.337</b>, inside the synthetic one-guitar band.</li>
-    <li>Notation: <b>60.0% of the Lead staff's 1,138 attacks</b> are the same pitch
-      at the same instant as a Rhythm attack.</li>
-    <li>Gate: <b>Lead hand-skip 20%</b>, the worst figure in the set, which is the
-      documented consequence of writing one detected note into both staves.</li>
-  </ul>
-  <p>The physical gate passes it, because every check it runs asks about the file
-  on its own. None of them asks whether a second guitarist existed.</p>
-</div>
-
-<div class="card gap">
-  <h3>07 MOP &mdash; a guitar part that is not in the tab</h3>
-  <p>The audio reads <b>TWO</b> (BC 0.551) and the tab carries a single Rhythm
-  staff. Corroborating detail from the existing work: MOP's leftover wide spans
-  reduce to one recurring shape, <code>s0f7 s1f2</code>, a B2 unison double-stop
-  with no narrower voicing anywhere on the neck. Two guitars playing one note is
-  exactly what that shape looks like once both are collapsed onto one staff.</p>
-</div>
-
-<div class="card clear">
-  <h3>08 JGBFTL &mdash; resolved, and the tab is right</h3>
-  <p>Audio says ONE (BC 0.330) while the tab carries two staves, which looks like
-  a contradiction until the notation is measured: the staves share <b>0.7%</b> of
-  their attacks. They are two genuinely independent parts. One guitarist
-  overdubbed to the same stereo position, which the audio test reads as one
-  source by construction. Two real parts, one player, correct notation.</p>
-</div>
-
-<div class="card">
-  <h3>03 Gene and 04 Six Feet Under &mdash; worth a look, not broken</h3>
-  <p>Both confirmed as two guitarists, and both carry heavy cross-staff doubling
-  (43.9% and 39.4%). Per the standing rule a unison <i>across</i> two staves is two
-  guitarists doubling and must survive. The figures are high enough to be worth a
-  per-note depan pass to confirm the doubling is real rather than transcribed
-  twice, and nothing here licenses deleting a note.</p>
-</div>
-
-<h2 id="next">6 &nbsp;Next</h2>
+<h2 id="open">6 &nbsp;What is still open</h2>
 <ol>
-  <li><b>11 Ambulance</b> &mdash; per-note depan against the stereo stem, then
-    restaff as a whole-part operation. Not note by note: the two staves do not
-    share a rhythm grid.</li>
-  <li><b>07 MOP</b> &mdash; recover the second guitar before any further fingering
-    work on that tab.</li>
-  <li><b>05 Sleep Vs Death</b> &mdash; inconclusive on audio, 0% staff duplication.
-    Lowest priority.</li>
-  <li><b>Track 06</b> &mdash; absent from the whole tree. No stems, no tab.</li>
-  <li>Re-run the gate after ownership changes, never before. Ownership first,
-    fingering second.</li>
+  <li><b>02 Flake and 08 JGBFTL</b> need re-transcription, since their written
+    rhythms do not match their recordings. The pipeline's hard gate is that the tab
+    source is Songsterr and never hand-rolled pitch detection, so this needs a
+    Songsterr upload and Brandon's account.</li>
+  <li><b>05 Sleep Vs Death</b> needs the clock-fix pass for its 8.8% tempo error.
+    A worked result exists to copy from.</li>
+  <li><b>07 MOP</b> is unresolved. Song-level audio says two guitars weakly, at
+    0.551 against a 0.512 floor, and the per-note test failed its control and
+    cannot corroborate. It needs stronger evidence before anything is added.</li>
+  <li><b>03 Gene and 04 Six Feet Under</b> are settled. Both are genuinely two
+    guitarists, so their 43.9% and 39.4% cross-staff doubling is real doubling and
+    must survive. No deletion is licensed.</li>
+  <li><b>The ledger needs a depan licence</b> so a pass that legitimately reduces
+    the instance count can be promoted on its Tier 1 verdict.</li>
 </ol>
 
 <footer>
@@ -305,10 +337,13 @@ inconclusive and goes to the notation test rather than being guessed.</p>
   <code>python3 ~/Projects/_outputs/theship-tabs/guitar_count.py</code><br>
   <code>python3 ~/Projects/_outputs/theship-tabs/guitar_count_control.py</code><br>
   <code>python3 ~/Projects/_outputs/theship-tabs/cross_staff_dup.py</code><br>
-  <code>python3 ~/.claude/skills/impossible-guitar-parts/impossible_gate.py &lt;file&gt;.gp</code></p>
-  <p>Tabs graded: <code>~/Projects/_outputs/theship-tabs/_AUDITION_2026-08-07/</code>,
-  the set matching the 2026-08-07 Songsterr live backup.
-  Method: <code>/impossible-guitar-parts</code>.</p>
+  <code>python3 ~/Projects/_outputs/theship-tabs/align_tab.py --gp F.gp --stem S.mp3</code><br>
+  <code>python3 ~/Projects/_outputs/theship-tabs/depan_all.py</code><br>
+  <code>python3 ~/Projects/_outputs/theship-tabs/depan_cross_staff.py --gp IN.gp --out OUT.gp</code></p>
+  <p>Repaired artifact:
+  <code>~/Projects/_outputs/theship-tabs/_depan_2026-08-13/11-ambulance-DEPAN.gp</code>.
+  Tabs graded: <code>_AUDITION_2026-08-07/</code>, the set matching the 2026-08-07
+  Songsterr live backup. Method: <code>/impossible-guitar-parts</code>.</p>
 </footer>
 
 </div>
