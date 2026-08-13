@@ -346,22 +346,55 @@ the previous build</b>, and a refusal would have stopped the run.</p>
   <td class="n">1727</td><td class="n">62.8%</td><td class="mono">df35c927b25bbf6a</td></tr>
 <tr><td>chain56</td><td>24.312</td><td>Lead p52</td><td class="n">&minus;2.6 dB</td>
   <td class="n">1726</td><td class="n">62.7%</td><td class="mono">654badcfb1f4d084</td></tr>
-<tr><td><b>chain57</b></td><td>21.938</td><td>Rhythm p50</td><td class="n">&minus;2.4 dB</td>
+<tr><td>chain57</td><td>21.938</td><td>Rhythm p50</td><td class="n">&minus;2.4 dB</td>
   <td class="n">1725</td><td class="n">62.5%</td><td class="mono">abbb1efe148cec82</td></tr>
+<tr class="ceil"><td colspan="7">the panning cue is dropped here, and the remaining rounds decide by pitch alone</td></tr>
+<tr><td>chain58</td><td>79.5</td><td>Rhythm p49</td><td class="n">&minus;5.8 dB</td>
+  <td class="n">1724</td><td class="n">62.4%</td><td class="mono">737d873bd0624759</td></tr>
+<tr><td>chain59</td><td>86.875</td><td>Lead p56</td><td class="n">&minus;1.0 dB</td>
+  <td class="n">1723</td><td class="n">62.4%</td><td class="mono">4a2356d824e70f1e</td></tr>
+<tr><td>chain60</td><td>28.812</td><td>Rhythm p64</td><td class="n">&minus;12.3 dB</td>
+  <td class="n">1722</td><td class="n">62.3%</td><td class="mono">c4c2040f0b9b82be</td></tr>
+<tr><td>chain61</td><td>14.188</td><td>Rhythm p68</td><td class="n">&minus;3.4 dB</td>
+  <td class="n">1721</td><td class="n">62.1%</td><td class="mono">b4d2b790772bbb71</td></tr>
+<tr><td><b>chain62</b></td><td>17.188</td><td>Rhythm p57</td><td class="n">&minus;3.8 dB</td>
+  <td class="n">1720</td><td class="n">62.1%</td><td class="mono">14d1a88227276c57</td></tr>
 </tbody>
 </table>
 </div>
 
-<p>The evidence was re-derived from the audio after each round rather than reused, so the list
-shrank as the tab improved: 43 flagged findings became 37, then 36, and the unsupported interior gaps
-halved from 10 to 5. <b>The run stopped because the rule found zero remaining candidates</b>, not
-because a budget ran out.</p>
+<h3>Dropping the panning cue changed the answer</h3>
+
+<p>The adjudication above originally decided whether a chord was two guitars by comparing how loud each
+note was in each stem. <b>That is the cue this recording does not carry.</b> Re-run deciding a note
+only on whether some stem explains its pitch, the SPLIT class disappears entirely:</p>
+
+<div class="scroll">
+<table>
+<thead><tr><th>Rule</th><th class="n">Every note real</th><th class="n">Split across guitars</th>
+  <th class="n">Unsupported</th></tr></thead>
+<tbody>
+<tr><td>with panning, as first run</td><td class="n">15 of 36</td><td class="n">8</td><td class="n">13</td></tr>
+<tr><td><b>pitch only, no panning</b></td><td class="n win">26 of 36</td><td class="n">0</td><td class="n">10</td></tr>
+</tbody>
+</table>
+</div>
+
+<p><b>Eight chords had been called two guitars on 2 to 3 dB of noise.</b> Under the pitch-only rule
+every note in them is explained by the audio, and the finding evaporates. That correction is the
+reason the last five promotions were reachable at all.</p>
+
+<p>The evidence was re-derived from the audio after every round rather than reused, so the list shrank
+as the tab improved: 43 flagged findings became 37, then 36, 35, and finally 33. <b>The run stopped
+because the rule found zero remaining candidates</b>, not because a budget ran out. Thirteen
+promotions, each one a real gate decision against the build before it.</p>
 
 <div class="card verdict">
-<p><b>Accuracy rose while notes came out.</b> Rhythm pitch support 64.9% to <b>66.6%</b>, Lead 65.5% to
-<b>66.6%</b>, against ceilings of 77.5% and 84.0%. Both staves now agree with the recording at the
-same rate. Eight notes left the tab across eight promotions, each one licensed by its own measurement
-and each one leaving its pitch elsewhere in the music.</p>
+<p><b>Accuracy rose while notes came out.</b> Lead pitch support 65.5% to <b>67.0%</b> and Rhythm 64.9%
+to <b>65.0%</b>, against ceilings of 84.0% and 77.5%. Thirteen notes left the tab across thirteen
+promotions, each licensed by its own measurement and each leaving its pitch elsewhere in the music.
+<b>25 of the 33 chords the gate asked about now carry positive evidence that every note in them is
+real.</b></p>
 </div>
 
 <h2 id="open">9. Still open</h2>
@@ -378,13 +411,14 @@ exactly one analysis hop, which is a resolution artifact rather than a real offs
 <code>c-tied.gp</code> sit below 130 Hz, and the Demucs guitar stem keeps roughly 1.32% of the mix
 energy at 60 to 90 Hz. Those notes are reported as unmeasurable rather than absent. Settling them
 needs the source mix, which was not on this machine.</p>
-<p><b>Hand skip sits at 62.5%.</b> Every hard gate is clean and the gate labels hand skip a diagnostic
+<p><b>Hand skip sits at 62.1%.</b> Every hard gate is clean and the gate labels hand skip a diagnostic
 to be read after the gates. It is the last tier still in the uncorrected band, which is why the
 artifact holds status <code>best_validated_so_far</code> rather than BEST.</p>
-<p><b>21 flagged chords remain without positive evidence.</b> 8 are SPLIT, where the chord is two
-guitars and the fix is cross-guitar reassignment rather than removal. 13 are UNSUPPORTED with more
-than one failing note, so no single removal resolves them and the chord needs a decision rather than
-a deletion. Both classes are named with their bars and margins in the evidence JSON.</p>
+<p><b>8 chords remain unexplained, and each has a stated reason removal is not evidenced.</b> Five hold
+no supported note at all, so a removal would empty the chord rather than repair it. Three have a
+POSITIVE wrong-time margin, meaning they fail a pitch control rather than showing the absent-note
+signature that every removal here was licensed by. They are named with bars and margins in
+<code>interior_evidence_c62.json</code>, and they need a chord-level decision rather than a deletion.</p>
 </div>
 
 <h2 id="method">10. Method</h2>
@@ -410,16 +444,16 @@ stems for every note on a staff.</p>
 
 <div class="prov">
 <dl>
-  <dt>Artifact</dt><dd>s6389251-chain57.gp, promoted</dd>
-  <dt>Artifact sha256</dt><dd>8a7dcbc31201907c21a60d4350f99eef5f2a1f3c6c96d083824603dac1a6798c</dd>
+  <dt>Artifact</dt><dd>s6389251-chain62.gp, promoted</dd>
+  <dt>Artifact sha256</dt><dd>b73b663435d54803ea98616d8f8a5b826b2ae899826e14ff0d17c8a2d9730521</dd>
   <dt>Gate sha256</dt><dd>ece41376b1cd8f7f</dd>
-  <dt>Receipt run_id</dt><dd>abbb1efe148cec82</dd>
-  <dt>Gate verdict</dt><dd>REVIEW &middot; preservation PASS &middot; position PASS &middot; hard profile clean &middot; 1725 notes &middot; hand skip 62.5%</dd>
+  <dt>Receipt run_id</dt><dd>14d1a88227276c57</dd>
+  <dt>Gate verdict</dt><dd>REVIEW &middot; preservation PASS &middot; position PASS &middot; hard profile clean &middot; 1720 notes &middot; hand skip 62.1%</dd>
   <dt>Ledger status</dt><dd>best_validated_so_far, so the word BEST is not licensed</dd>
-  <dt>Replaced</dt><dd>s6389251-chain56.gp, eighth in a chain from chain49 &middot; 78366507417966a9</dd>
-  <dt>Transform</dt><dd>unsupported-note-removal-83750</dd>
-  <dt>Edit scope</dt><dd>Rhythm Guitar beat 83.750 only</dd>
-  <dt>Changed note ids</dt><dd>1 id per promotion, 8 notes across the chain</dd>
+  <dt>Replaced</dt><dd>s6389251-chain61.gp, thirteenth in a chain from chain49 &middot; 78366507417966a9</dd>
+  <dt>Transform</dt><dd>unsupported-note-removal-64750</dd>
+  <dt>Edit scope</dt><dd>Rhythm Guitar beat 64.750 only</dd>
+  <dt>Changed note ids</dt><dd>1 id per promotion, 13 notes across the chain</dd>
   <dt>Stem source</dt><dd>c-tied.gp &middot; e14adddf6520eea8</dd>
   <dt>Songsterr reference</dt><dd>9bad6f45f3d943d1</dd>
   <dt>Beat map</dt><dd>beats_to_seconds.json &middot; 8e216f1ef78f6041</dd>
