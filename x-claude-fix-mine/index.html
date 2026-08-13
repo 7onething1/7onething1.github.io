@@ -54,18 +54,21 @@
   <h3>How this was gathered</h3>
   <ul>
     <li><strong>Source:</strong> x.com/home, signed in as @thejoeywatts, scraped through the Chrome bridge with a MutationObserver so recycled posts were not skipped.</li>
-    <li><strong>Volume:</strong> <strong>100 posts captured</strong>, 56 of them AI or Claude related, 41 carrying an actual technique.</li>
+    <li><strong>Volume:</strong> <strong>100 posts captured, 68 AI or Claude related, 41 carrying an actual technique.</strong> All three figures share one denominator of 100 and all three are recomputable from the ledger below.</li>
+    <li><strong>Frozen ledger:</strong> <a href="x-mine-ledger.jsonl">x-mine-ledger.jsonl</a> holds one row per captured post: id, author, source timestamp, SHA-256 of the normalized text, both classifier flags, a 160-character excerpt, and the finding each row backs. Re-fetch any post and re-hash it to check a row. Run <code>python3 ledger_verify.py x-mine-ledger.jsonl</code> to recompute every number on this page.</li>
     <li><strong>Baseline for scoring:</strong> the 8 harness fixes you issued 12 and 13 August, read from your memory files and today's session transcripts.</li>
     <li><strong>Verification:</strong> repo names and star counts came from <code>api.github.com</code> directly. Where a post's claim could not be checked, it is labelled <span class="tag t-unver">unverified</span> and the claim stays attributed to the poster.</li>
     <li><strong>One correction made mid-run:</strong> the first pass read @sparklingsumma, whose feed carries no AI content at all. Zero of its 34 posts matched. The account switch changed the result completely.</li>
   </ul>
+  <h3>Correction, 2026-08-13</h3>
+  <p>The first version of this page printed <strong>56</strong> as the AI-related count. That figure came from the looser keyword filter applied to the first 73 posts captured, and it was published beside 41, which came from the stricter filter applied to all 100. <strong>Two filters, two denominators, one line.</strong> Building the ledger and running both classifiers across all 100 rows gives the corrected 68. The verifier now refuses the old number: passing <code>--expect strict=56</code> returns <code>LEDGER: FAIL, published 56, ledger 41</code>.</p>
 </div>
 
 <div class="box toc">
   <h3>Contents</h3>
   <ol>
     <li><a href="#today">The fixes you gave today</a></li>
-    <li><a href="#board">Scoreboard, all 16 findings</a></li>
+    <li><a href="#board">Scoreboard, all 17 findings</a></li>
     <li><a href="#new">The three worth acting on</a></li>
     <li><a href="#have">Seven your gates already cover</a></li>
     <li><a href="#conflict">Two that fight your policy</a></li>
@@ -96,8 +99,9 @@
 <div class="scroll">
 <table>
 <tr><th>#</th><th>Finding</th><th>From</th><th>Maps to your fix</th><th>Verdict</th><th>Score</th></tr>
-<tr><td>1</td><td>Invisible Unicode and C2PA marks survive a word-level voice gate</td><td>@josesilesdata</td><td>anti-AI voice gate</td><td><span class="tag t-new">new</span></td><td class="score s-hi">92</td></tr>
-<tr><td>2</td><td>A single CLAUDE.md that changes Claude Code behaviour, 202k stars</td><td>@charliejhills</td><td>your CLAUDE.md</td><td><span class="tag t-new">new</span></td><td class="score s-hi">78</td></tr>
+<tr><td>1</td><td>Invisible Unicode characters survive a word-level voice gate</td><td>@josesilesdata, @JespernissenSEO</td><td>anti-AI voice gate, text</td><td><span class="tag t-new">new</span></td><td class="score s-hi">92</td></tr>
+<tr><td>1b</td><td>C2PA provenance metadata inside generated image and PDF files</td><td>@josesilesdata</td><td>no gate covers this, file level</td><td><span class="tag t-new">new</span></td><td class="score s-mid">58</td></tr>
+<tr><td>2</td><td>A 202k-star repository of Claude Code guidance, CLAUDE.md plus a skills directory</td><td>@charliejhills</td><td>your CLAUDE.md</td><td><span class="tag t-new">new</span></td><td class="score s-hi">78</td></tr>
 <tr><td>3</td><td>Skills framework, 271k stars</td><td>@charliejhills</td><td>your 73 skills</td><td><span class="tag t-new">new</span></td><td class="score s-hi">74</td></tr>
 <tr><td>4</td><td>Map the codebase into a dependency graph before the agent reads</td><td>@ai_explorer25</td><td><code>~/MAP.md</code>, <code>/ask</code></td><td><span class="tag t-new">new</span></td><td class="score s-mid">66</td></tr>
 <tr><td>5</td><td>The agent pays full price to re-read its own transcript</td><td>@Roxx_0x</td><td>token truth</td><td><span class="tag t-have">have</span></td><td class="score s-mid">64</td></tr>
@@ -120,20 +124,35 @@
 <div class="item">
 <h3><span class="dot">🔴</span>Invisible characters walk straight through your voice gate <span class="score s-hi">92</span></h3>
 <p class="meta">@josesilesdata, 13 Aug &middot; <a href="https://x.com/josesilesdata/status/2087933509545422878">post</a> &middot; artifact <span class="tag t-ver">verified</span> <code>guillaumemeyer/watermarks-remover</code>, <strong>5,177 stars</strong></p>
-<p class="quote">Claims model output carries invisible characters, C2PA metadata in files, and bias in token selection. The linked tool strips Unicode marks and file metadata.</p>
-<p><strong>Why this one scores highest:</strong> I read your gate rather than trusting the post. <code>~/.claude/skills/_shared/anti_ai_voice_gate.py</code> runs <strong>362 lines and 23 pattern groups, with no check for zero-width or invisible Unicode at all</strong>. Your 132-tell corpus catches words. A zero-width space, a narrow no-break space, or a soft hyphen contains no word, so none of those 23 groups catch it, and it stays in the file through a book chapter or an HTML page.</p>
+<p class="quote">Claims model output carries invisible characters, C2PA metadata in files, and bias in token selection. A second post the same week, @JespernissenSEO on 12 Aug, points at the same tool independently.</p>
+<p><strong>Scope of this finding: text only.</strong> A Python text gate can inspect every codepoint in a string, so this one is inside its reach. The C2PA half of the same post is a separate problem and is filed as finding 1b below.</p>
+<p><strong>Why it scores highest:</strong> I read the gate rather than trusting the post. Before 13 August, <code>~/.claude/skills/_shared/anti_ai_voice_gate.py</code> ran <strong>362 lines and 23 pattern groups with no check for zero-width or invisible Unicode</strong>. The 132-tell corpus matches words. A zero-width space, a narrow no-break space, or a soft hyphen contains no word, so none of those groups catch it, and it stays in the file through a book chapter or an HTML page.</p>
 <ul>
-  <li><strong>The fix is small:</strong> one function that flags <code>U+200B</code>, <code>U+200C</code>, <code>U+200D</code>, <code>U+2060</code>, <code>U+FEFF</code>, <code>U+00A0</code>, <code>U+202F</code>, and <code>U+00AD</code>, wired into the same gate that already blocks em-dashes.</li>
-  <li><strong>Where this shows up:</strong> book chapters run through <code>bestseller_format.py</code>, and every HTML you push to GitHub Pages.</li>
-  <li><strong>The C2PA half is separate:</strong> it applies to generated image and PDF files only.</li>
+  <li><strong>Fixed the same day.</strong> <code>scan_invisible()</code> now runs inside the gate at three tiers: severity 3 for zero-width characters, bidi controls, fillers, variation selectors, tag characters, and a stray BOM; severity 3 conditionally for <code>U+200D</code> and <code>U+FE0F</code>, judged by their neighbours so emoji sequences pass; severity 2 for the non-breaking space family, reported without failing.</li>
+  <li><strong>Measured on the corpus.</strong> 1,041 pages under <code>drwu-htmls/public/</code> scanned, <strong>1 real hit and 0 false positives</strong>. The hit is a live <code>U+200B</code> at line 257 of <code>tame-impala-charts</code>.</li>
+  <li><strong>Where it shows up:</strong> book chapters run through <code>bestseller_format.py</code>, and every HTML pushed to GitHub Pages.</li>
 </ul>
 </div>
 
 <div class="item">
-<h3><span class="dot">🔴</span>A 202k-star CLAUDE.md to measure yours against <span class="score s-hi">78</span></h3>
-<p class="meta">@charliejhills, 13 Aug &middot; <a href="https://x.com/charliejhills/status/2087928498530759161">post</a> &middot; <span class="tag t-ver">verified</span> <code>multica-ai/andrej-karpathy-skills</code>, <strong>202,157 stars</strong>, described as a single CLAUDE.md file to improve Claude Code behaviour</p>
-<p><strong>Your CLAUDE.md is the largest lever in your setup</strong>, and it grew by accretion from incidents. This one was written as a designed artifact and has been read by a very large number of people. Reading it is a cheap way to find the slots yours is missing.</p>
-<ul><li><strong>Concrete use:</strong> diff its section list against yours and keep only what your gates do not already state.</li></ul>
+<h3><span class="dot">🔴</span>C2PA metadata in generated files, outside any gate you run <span class="score s-mid">58</span></h3>
+<p class="meta">@josesilesdata, 13 Aug &middot; <a href="https://x.com/josesilesdata/status/2087933509545422878">post</a> &middot; same post as finding 1, different problem</p>
+<p><strong>Filed separately because the tool that would catch it is a different tool.</strong> C2PA is provenance metadata written into image and PDF containers. A text gate reads a decoded string and never sees a container, so no amount of work on <code>anti_ai_voice_gate.py</code> reaches it. Catching this needs file-level inspection of the bytes, closer to <code>exiftool</code> or a C2PA reader than to a regex pass.</p>
+<ul>
+  <li><strong>Scored lower on purpose:</strong> it touches generated images and PDFs, and your shipped work is mostly prose and HTML.</li>
+  <li><strong>Not yet checked:</strong> no scan has been run for C2PA on your outputs, so this row states a described risk and no measurement.</li>
+</ul>
+</div>
+
+<div class="item">
+<h3><span class="dot">🔴</span>A highly starred repository of Claude Code guidance <span class="score s-hi">78</span></h3>
+<p class="meta">@charliejhills, 13 Aug &middot; <a href="https://x.com/charliejhills/status/2087928498530759161">post</a> &middot; <span class="tag t-ver">verified</span> <code>multica-ai/andrej-karpathy-skills</code>, <strong>202,161 stars</strong> when re-read on 13 Aug, up from 202,157 earlier the same day</p>
+<p><strong>Described at the repository level, from its actual tree.</strong> GitHub's own repo description calls it a single CLAUDE.md derived from Karpathy's observations on LLM coding pitfalls, and the repository holds more than that file. Its top level carries <strong>8 entries</strong>: <code>CLAUDE.md</code> at 2,357 bytes, <code>CURSOR.md</code> at 1,955, <code>EXAMPLES.md</code> at 14,838, <code>README.md</code>, <code>README.zh.md</code>, a <code>skills/</code> directory, a <code>.claude-plugin/</code> directory, and <code>.cursor/</code>. Whole repository size is 20KB.</p>
+<ul>
+  <li><strong>What the star count does establish:</strong> that a great many accounts starred the repository. It does not establish that the file was read, so no readership claim is made here.</li>
+  <li><strong>Concrete use:</strong> its CLAUDE.md is 2,357 bytes against your far longer one, so the comparison worth running is structural. Diff its section list against yours and keep only the slots your gates do not state, which on the earlier reading of this feed are escalation and what to log.</li>
+  <li><strong>Not yet done:</strong> the contents have been listed, and the file-by-file diff against your CLAUDE.md has not been run.</li>
+</ul>
 </div>
 
 <div class="item">
@@ -211,7 +230,7 @@
 <table>
 <tr><th>Repo</th><th>Stars</th><th>What it is</th><th>Named by</th></tr>
 <tr><td><code>obra/superpowers</code></td><td class="score">271,717</td><td>agentic skills framework and development methodology</td><td>@charliejhills</td></tr>
-<tr><td><code>multica-ai/andrej-karpathy-skills</code></td><td class="score">202,157</td><td>a single CLAUDE.md file to improve Claude Code behaviour</td><td>@charliejhills</td></tr>
+<tr><td><code>multica-ai/andrej-karpathy-skills</code></td><td class="score">202,161</td><td>Claude Code guidance repository, 8 top-level entries: CLAUDE.md, CURSOR.md, EXAMPLES.md, two READMEs, and skills, .claude-plugin, .cursor directories</td><td>@charliejhills</td></tr>
 <tr><td><code>paperclipai/paperclip</code></td><td class="score">78,034</td><td>manage agents at work</td><td>@gippp69</td></tr>
 <tr><td><code>shareAI-lab/learn-claude-code</code></td><td class="score">74,135</td><td>a nano Claude Code style agent harness, built from zero</td><td>@charliejhills</td></tr>
 <tr><td><code>mem0ai/mem0</code></td><td class="score">63,209</td><td>universal memory layer for agents</td><td>@N01ennn</td></tr>
@@ -236,13 +255,14 @@
 
 <h2 id="next">8. Next</h2>
 <ol>
-  <li><strong>Add the invisible-character check</strong> to <code>anti_ai_voice_gate.py</code>. This is the only finding that turned up a real hole in a gate you rely on.</li>
-  <li><strong>Read <code>multica-ai/andrej-karpathy-skills</code></strong> and diff it against your CLAUDE.md, keeping only the escalation and logging slots if nothing else survives.</li>
+  <li><strong>The invisible-character check, done 13 August.</strong> <code>scan_invisible()</code> and <code>strip_invisible()</code> are in <code>anti_ai_voice_gate.py</code>, measured at 1 real hit and 0 false positives across 1,041 pages. Remaining work is the one live page it caught, <code>tame-impala-charts</code>.</li>
+  <li><strong>Diff the Karpathy repository against your CLAUDE.md.</strong> Its top-level tree is listed above and the file-by-file comparison has not been run. Judge it on structure, since its CLAUDE.md is 2,357 bytes.</li>
   <li><strong>Leave paperclip and subagent graphs alone</strong> for as long as the one-session policy stands.</li>
+  <li><strong>No aggregate ships without a ledger.</strong> Every future X mine, or any capture that publishes a count, freezes a JSONL ledger first: post id, author, source timestamp, SHA-256 of the normalized text, every classifier flag, and the finding each row backs. <code>python3 ~/.claude/skills/_shared/ledger_verify.py &lt;ledger&gt;</code> then recomputes each published figure and exits non-zero on any disagreement, duplicate id, malformed hash, or missing field. <strong>This rule exists because the first version of this page published 56 with nothing on disk that could reproduce it.</strong></li>
 </ol>
 
 <footer>
-Mined 13 August 2026 from the @thejoeywatts home timeline. 100 posts captured, 56 AI related, 16 findings scored, 10 repos verified against the GitHub API. Star counts and post text are as they stood on that date.
+Mined 13 August 2026 from the @thejoeywatts home timeline. 100 posts captured, 68 AI related, 41 carrying a technique, 17 findings scored, 24 ledger rows linked to a finding, 10 repositories verified against the GitHub API. Every count on this page is recomputed from <a href="x-mine-ledger.jsonl">x-mine-ledger.jsonl</a> by <code>ledger_verify.py</code>, which exits non-zero when a published figure and the rows disagree. Star counts and post text are as they stood on that date, and star counts move, as the Karpathy row records.
 </footer>
 
 </div>
