@@ -86,6 +86,7 @@
     <li><a href="#best">The BEST filename</a></li>
     <li><a href="#classify">Classifying the differences</a></li>
     <li><a href="#repair">The repair the audio licensed</a></li>
+    <li><a href="#converge">Working it to convergence</a></li>
     <li><a href="#open">Still open</a></li>
     <li><a href="#method">Method</a></li>
     <li><a href="#prov">Provenance</a></li>
@@ -298,7 +299,72 @@ also nudged accuracy up: Rhythm pitch support 64.9% to <b>65.8%</b>, wrong-time 
 <p>Reassignment to the Lead staff was rejected. Pitch 49 fails its wrong-time control in the Lead's
 stem too, so moving the attack across would keep an unsupported attack rather than resolve one.</p>
 
-<h2 id="open">8. Still open</h2>
+<h2 id="converge">8. Working it to convergence</h2>
+
+<p>The gate does not fail an interior-string gap or a suspect ownership. It says the shape
+<b>"needs positive audio evidence of fingerpicking or hybrid picking"</b>. That is a request for
+evidence, and nothing in the pipeline could answer it before, because every check compared one
+transcription to another. The audit can answer it.</p>
+
+<p>Each flagged chord was adjudicated note by note in the stem its staff actually lives in.</p>
+
+<div class="scroll">
+<table>
+<thead><tr><th>Verdict on a flagged chord</th><th class="n">Interior gaps</th>
+  <th class="n">Suspect ownership</th><th>What it means</th></tr></thead>
+<tbody>
+<tr><td><b class="win">ONE_HAND</b></td><td class="n">5 of 15</td><td class="n">10 of 21</td>
+  <td>every note supported and owned by this staff, so the skipped string is real fingerpicking</td></tr>
+<tr><td><b>SPLIT</b></td><td class="n">5 of 15</td><td class="n">3 of 21</td>
+  <td>some notes belong to the other guitar, so the gap is the seam between two players</td></tr>
+<tr><td><b class="lose">UNSUPPORTED</b></td><td class="n">5 of 15</td><td class="n">8 of 21</td>
+  <td>a note fails its controls in both stems, so nothing in the audio explains it</td></tr>
+</tbody>
+</table>
+</div>
+
+<p>Where exactly one note failed while the chord kept a supported partner, that note was removed and
+the gate judged the result. Nothing advanced on assertion: <b>every step is a real promotion against
+the previous build</b>, and a refusal would have stopped the run.</p>
+
+<div class="scroll">
+<table>
+<thead><tr><th>Build</th><th>Bar</th><th>Removed</th><th class="n">Wrong-time margin</th>
+  <th class="n">Notes</th><th class="n">Hand skip</th><th>Receipt</th></tr></thead>
+<tbody>
+<tr><td>chain50</td><td>62.938</td><td>Rhythm p49</td><td class="n">&minus;18.0 dB</td>
+  <td class="n">1732</td><td class="n">63.0%</td><td class="mono">61f91733eca5ebc9</td></tr>
+<tr><td>chain51</td><td>52.688</td><td>Lead p73</td><td class="n">&minus;22.0 dB</td>
+  <td class="n">1731</td><td class="n">62.8%</td><td class="mono">8455430a02cb146e</td></tr>
+<tr><td>chain52</td><td>29.188</td><td>Lead p57</td><td class="n">&minus;12.0 dB</td>
+  <td class="n">1730</td><td class="n">62.8%</td><td class="mono">37298b31c33f6ca6</td></tr>
+<tr><td>chain53</td><td>15.438</td><td>Rhythm p61</td><td class="n">&minus;8.6 dB</td>
+  <td class="n">1729</td><td class="n">62.8%</td><td class="mono">3b0c4a45dacabd71</td></tr>
+<tr><td>chain54</td><td>18.312</td><td>Lead p73</td><td class="n">&minus;7.5 dB</td>
+  <td class="n">1728</td><td class="n">62.8%</td><td class="mono">2fe2d76ca7badcd7</td></tr>
+<tr><td>chain55</td><td>22.812</td><td>Lead p52</td><td class="n">&minus;6.1 dB</td>
+  <td class="n">1727</td><td class="n">62.8%</td><td class="mono">df35c927b25bbf6a</td></tr>
+<tr><td>chain56</td><td>24.312</td><td>Lead p52</td><td class="n">&minus;2.6 dB</td>
+  <td class="n">1726</td><td class="n">62.7%</td><td class="mono">654badcfb1f4d084</td></tr>
+<tr><td><b>chain57</b></td><td>21.938</td><td>Rhythm p50</td><td class="n">&minus;2.4 dB</td>
+  <td class="n">1725</td><td class="n">62.5%</td><td class="mono">abbb1efe148cec82</td></tr>
+</tbody>
+</table>
+</div>
+
+<p>The evidence was re-derived from the audio after each round rather than reused, so the list
+shrank as the tab improved: 43 flagged findings became 37, then 36, and the unsupported interior gaps
+halved from 10 to 5. <b>The run stopped because the rule found zero remaining candidates</b>, not
+because a budget ran out.</p>
+
+<div class="card verdict">
+<p><b>Accuracy rose while notes came out.</b> Rhythm pitch support 64.9% to <b>66.6%</b>, Lead 65.5% to
+<b>66.6%</b>, against ceilings of 77.5% and 84.0%. Both staves now agree with the recording at the
+same rate. Eight notes left the tab across eight promotions, each one licensed by its own measurement
+and each one leaving its pitch elsewhere in the music.</p>
+</div>
+
+<h2 id="open">9. Still open</h2>
 
 <div class="card open">
 <p><b>Attack density is not established for any of the three.</b> The onset detector finds 387 onsets in
@@ -312,14 +378,16 @@ exactly one analysis hop, which is a resolution artifact rather than a real offs
 <code>c-tied.gp</code> sit below 130 Hz, and the Demucs guitar stem keeps roughly 1.32% of the mix
 energy at 60 to 90 Hz. Those notes are reported as unmeasurable rather than absent. Settling them
 needs the source mix, which was not on this machine.</p>
-<p><b>Hand skip sits at 65% and 61%.</b> Every hard gate is clean on the promoted build, and the gate
-labels hand skip a diagnostic to be read after the gates. It is the last tier and it is the one still
-in the uncorrected band, so the artifact holds status <code>best_validated_so_far</code> rather than
-BEST. Moving it means supplying positive audio evidence for the interior-string gaps, which is now
-possible with the audit in place and was not attempted here.</p>
+<p><b>Hand skip sits at 62.5%.</b> Every hard gate is clean and the gate labels hand skip a diagnostic
+to be read after the gates. It is the last tier still in the uncorrected band, which is why the
+artifact holds status <code>best_validated_so_far</code> rather than BEST.</p>
+<p><b>21 flagged chords remain without positive evidence.</b> 8 are SPLIT, where the chord is two
+guitars and the fix is cross-guitar reassignment rather than removal. 13 are UNSUPPORTED with more
+than one failing note, so no single removal resolves them and the chord needs a decision rather than
+a deletion. Both classes are named with their bars and margins in the evidence JSON.</p>
 </div>
 
-<h2 id="method">9. Method</h2>
+<h2 id="method">10. Method</h2>
 
 <p>One question per note, never a bar average. For each written attack a single high-resolution
 spectrum is taken from a 150 ms window at the note's mapped time, zero-padded to 0.67 Hz per bin.
@@ -338,20 +406,20 @@ from the same spectrum.</p>
 <p>Staff-to-stem assignment is measured rather than assumed, by comparing median salience across both
 stems for every note on a staff.</p>
 
-<h2 id="prov">10. Provenance</h2>
+<h2 id="prov">11. Provenance</h2>
 
 <div class="prov">
 <dl>
-  <dt>Artifact</dt><dd>s6389251-chain50.gp, promoted</dd>
-  <dt>Artifact sha256</dt><dd>f1bc5110346195d3bb5e9169dd9fe48a1904767ccc5607032d461a6b8fcb8f07</dd>
+  <dt>Artifact</dt><dd>s6389251-chain57.gp, promoted</dd>
+  <dt>Artifact sha256</dt><dd>8a7dcbc31201907c21a60d4350f99eef5f2a1f3c6c96d083824603dac1a6798c</dd>
   <dt>Gate sha256</dt><dd>ece41376b1cd8f7f</dd>
-  <dt>Receipt run_id</dt><dd>61f91733eca5ebc9</dd>
-  <dt>Gate verdict</dt><dd>REVIEW &middot; preservation PASS &middot; position PASS &middot; hard profile clean</dd>
+  <dt>Receipt run_id</dt><dd>abbb1efe148cec82</dd>
+  <dt>Gate verdict</dt><dd>REVIEW &middot; preservation PASS &middot; position PASS &middot; hard profile clean &middot; 1725 notes &middot; hand skip 62.5%</dd>
   <dt>Ledger status</dt><dd>best_validated_so_far, so the word BEST is not licensed</dd>
-  <dt>Replaced</dt><dd>s6389251-chain49.gp &middot; 78366507417966a9 &middot; earlier receipt 6f5b0815969eca47</dd>
-  <dt>Transform</dt><dd>impossible-span-removal-247750</dd>
-  <dt>Edit scope</dt><dd>Rhythm Guitar beat 247.750 only</dd>
-  <dt>Changed note ids</dt><dd>2407 &middot; 1 id, sha 957b4de48fd8</dd>
+  <dt>Replaced</dt><dd>s6389251-chain56.gp, eighth in a chain from chain49 &middot; 78366507417966a9</dd>
+  <dt>Transform</dt><dd>unsupported-note-removal-83750</dd>
+  <dt>Edit scope</dt><dd>Rhythm Guitar beat 83.750 only</dd>
+  <dt>Changed note ids</dt><dd>1 id per promotion, 8 notes across the chain</dd>
   <dt>Stem source</dt><dd>c-tied.gp &middot; e14adddf6520eea8</dd>
   <dt>Songsterr reference</dt><dd>9bad6f45f3d943d1</dd>
   <dt>Beat map</dt><dd>beats_to_seconds.json &middot; 8e216f1ef78f6041</dd>
