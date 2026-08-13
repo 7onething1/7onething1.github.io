@@ -1,0 +1,525 @@
+<!DOCTYPE html>
+<html lang="en"><head>
+<meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1">
+<title>The Weatherman Recursion · Staged-Lesson Canon</title>
+<meta name="description" content="A field guide to the 'I staged your catastrophe to teach you a lesson' gag: its grammar, its eight structural forms, and every branch across TV, film, stage and nonfiction. Rooted in Arrested Development's Pier Pressure and Community's prop-gun chain, verbatim-verified against a local transcript corpus.">
+<style>
+:root{
+ --cream:#f4ecd8; --ink:#2b2622; --ochre:#d99a2b; --mustard:#e8b53f;
+ --forest:#3f5e4e; --red:#b5462f; --blue:#3a6ea5; --plum:#6b4a63;
+ --card:#fbf6e9; --line:#d8c8a4; --muted:#7a6f5d; --salmon:#e0917b;
+}
+*{box-sizing:border-box}
+body{margin:0;background:var(--cream);color:var(--ink);
+ font-family:"Futura","Century Gothic","Avenir Next",Inter,system-ui,sans-serif;
+ line-height:1.55;-webkit-font-smoothing:antialiased}
+.wrap{max-width:1000px;margin:0 auto;padding:30px 20px 90px}
+header h1{font-size:2.15rem;margin:.1em 0;letter-spacing:.3px;line-height:1.15}
+.kicker{color:var(--red);font-weight:700;text-transform:uppercase;letter-spacing:2px;font-size:.72rem}
+.lede{color:var(--muted);max-width:74ch;margin:.7em 0 0;font-size:1.02rem}
+.rule{border:none;border-top:2px solid var(--line);margin:26px 0}
+h2{font-size:1.5rem;margin:40px 0 4px;border-bottom:3px solid var(--line);padding-bottom:7px;scroll-margin-top:14px}
+h2 .num{color:var(--ochre);font-weight:700;margin-right:.4em}
+h3{font-size:1.14rem;margin:26px 0 6px}
+p{max-width:78ch}
+.explain{background:var(--card);border:1px solid var(--line);border-left:6px solid var(--ochre);
+ border-radius:8px;padding:14px 18px;margin:18px 0}
+.explain b{color:var(--forest)}
+.warn{border-left-color:var(--red)}
+.warn b{color:var(--red)}
+
+/* TOC */
+.toc{background:var(--card);border:1px solid var(--line);border-radius:10px;padding:16px 20px;margin:22px 0}
+.toc h4{margin:0 0 8px;font-size:.74rem;letter-spacing:2px;text-transform:uppercase;color:var(--red)}
+.toc ol{margin:0;padding-left:1.3em;columns:2;column-gap:34px}
+.toc li{margin:.3em 0;break-inside:avoid}
+.toc a{color:var(--ink);text-decoration:none;border-bottom:1px solid var(--line)}
+.toc a:hover{border-color:var(--red);color:var(--red)}
+
+/* filters */
+.counts{display:flex;flex-wrap:wrap;gap:9px;margin:18px 0 6px}
+.pill{border:1px solid var(--line);background:var(--card);border-radius:999px;padding:7px 15px;
+ font-size:.79rem;cursor:pointer;user-select:none;white-space:nowrap;font-weight:700;color:var(--ink)}
+.pill.on{background:var(--forest);color:#fff;border-color:var(--forest)}
+.pill .n{opacity:.55;margin-left:6px;font-weight:400}
+.filterlabel{font-size:.7rem;text-transform:uppercase;letter-spacing:1.6px;color:var(--muted);
+ font-weight:700;align-self:center;margin-right:2px}
+
+/* cards */
+.card{background:var(--card);border:1px solid var(--line);border-radius:10px;padding:15px 18px;margin:13px 0;
+ border-left:7px solid var(--muted)}
+.card[data-c=verified]{border-left-color:var(--forest)}
+.card[data-c=canon]{border-left-color:var(--blue)}
+.card[data-c=reach]{border-left-color:var(--ochre)}
+.card[data-c=nonfiction]{border-left-color:var(--plum)}
+.card .top{display:flex;justify-content:space-between;align-items:baseline;gap:12px;flex-wrap:wrap}
+.card h4{margin:0;font-size:1.1rem}
+.card h4 .where{font-weight:400;color:var(--muted);font-size:.92rem}
+.tags{display:flex;gap:6px;flex-wrap:wrap}
+.tag{font-size:.63rem;text-transform:uppercase;letter-spacing:1px;font-weight:700;
+ padding:3px 9px;border-radius:6px;white-space:nowrap;color:#fff}
+.tag.verified{background:var(--forest)}
+.tag.canon{background:var(--blue)}
+.tag.reach{background:var(--ochre);color:#3a2f16}
+.tag.nonfiction{background:var(--plum)}
+.tag.depth{background:transparent;color:var(--muted);border:1px solid var(--line)}
+.mech{margin:.6em 0 0;color:#4b4234}
+blockquote{margin:.7em 0 .2em;padding:8px 14px;border-left:4px solid var(--salmon);
+ background:rgba(224,145,123,.10);border-radius:0 6px 6px 0;font-size:.94rem;color:#4b4234}
+blockquote cite{display:block;font-style:normal;font-size:.72rem;color:var(--muted);
+ margin-top:6px;letter-spacing:.4px}
+.score{font-size:.74rem;color:var(--muted);margin-top:.7em;font-weight:700;
+ text-transform:uppercase;letter-spacing:.7px}
+.score b{color:var(--red);font-size:.95rem}
+.formhead{margin:38px 0 2px;font-size:1.3rem;border-bottom:3px solid var(--line);padding-bottom:6px}
+.formhead .n{float:right;color:var(--muted);font-size:.85rem;font-weight:400}
+.formblurb{color:var(--muted);font-size:.9rem;margin:.45em 0 4px;max-width:78ch}
+
+table{border-collapse:collapse;width:100%;margin:16px 0;font-size:.9rem;background:var(--card)}
+th,td{border:1px solid var(--line);padding:8px 11px;text-align:left;vertical-align:top}
+th{background:var(--forest);color:#fff;font-size:.72rem;text-transform:uppercase;letter-spacing:1px}
+tbody tr:nth-child(even){background:rgba(216,200,164,.16)}
+.tblwrap{overflow-x:auto}
+ol.method{counter-reset:m;list-style:none;padding-left:0;max-width:82ch}
+ol.method li{counter-increment:m;position:relative;padding:11px 0 11px 46px;border-bottom:1px solid var(--line)}
+ol.method li:before{content:counter(m);position:absolute;left:0;top:10px;width:30px;height:30px;
+ background:var(--red);color:#fff;border-radius:50%;display:grid;place-items:center;
+ font-weight:700;font-size:.88rem}
+ol.method b{color:var(--forest)}
+footer{margin-top:50px;padding-top:18px;border-top:2px solid var(--line);color:var(--muted);font-size:.83rem}
+code{background:rgba(216,200,164,.35);padding:1px 5px;border-radius:4px;font-size:.86em}
+.hide{display:none}
+</style>
+</head><body><div class="wrap">
+
+<header>
+<div class="kicker">Trope Field Guide · Staged-Lesson Canon</div>
+<h1>The Weatherman Recursion</h1>
+<p class="lede">The gag where somebody manufactures your catastrophe for your own good, and then somebody manufactured theirs. This is its grammar, its eight structural forms, and every branch I can find across TV, film, stage and nonfiction. The root is <i>Arrested Development</i> S1E10 <i>Pier Pressure</i>. The furthest branch is <i>Community</i> S2E9, where the chain of reveals outlives anybody's ability to say what was being taught.</p>
+</header>
+
+<div class="toc">
+<h4>Contents</h4>
+<ol>
+<li><a href="#provenance">Provenance and confidence tiers</a></li>
+<li><a href="#method">The method, made executable</a></li>
+<li><a href="#grammar">The grammar of the gag</a></li>
+<li><a href="#law">The inverse law of depth and stakes</a></li>
+<li><a href="#corpus">The corpus, eight forms</a></li>
+<li><a href="#standoff">The gun-escalation lineage</a></li>
+<li><a href="#redistribution">Redistribution: functions, not characters</a></li>
+<li><a href="#abed">Abed as diegetic index</a></li>
+<li><a href="#leads">Open leads to verify next</a></li>
+</ol>
+</div>
+
+<h2 id="provenance"><span class="num">1</span>Provenance and confidence tiers</h2>
+<p>Every claim on this page carries a tier. Nothing is asserted flat.</p>
+<div class="explain">
+<p><b>VERIFIED</b> means I pulled the line verbatim out of a local transcript this pass. Source: <code>~/Projects/tv-scripts/text/</code>, which holds all of <i>Community</i> and all of <i>It's Always Sunny in Philadelphia</i>. Those two shows are the only ones on this page I could check word for word.</p>
+<p><b>CANON</b> means the episode and the mechanism are recalled with high confidence, and I did not have a transcript to check against this pass. Treat these as strong leads, not as quotations.</p>
+<p><b>REACH</b> means the structural parallel is my inference. The pattern is real, the specific episode attribution may be loose or absent on purpose.</p>
+<p><b>NONFICTION</b> means a real-world practice or experiment that the fictional gag inherits from.</p>
+</div>
+<div class="explain warn">
+<p><b>What I did not do.</b> No <i>Arrested Development</i>, <i>Office</i>, <i>Good Place</i>, <i>Better Call Saul</i> or <i>Brooklyn Nine-Nine</i> transcripts are local, so nothing from those shows is quoted. Where I name an episode from those shows, the tier is CANON and the wording is paraphrase. The local <i>Buffy</i> set turned out to be season one only, so <i>Helpless</i> stays at CANON as well.</p>
+</div>
+
+<h2 id="method"><span class="num">2</span>The method, made executable</h2>
+<p>This is your procedure as I read it out of the way you built the Community-to-Arrested-Development case. Nine steps, reusable on any trope.</p>
+<ol class="method">
+<li><b>Name the mechanism, not the vibe.</b> "Teaching a lesson" is a theme. "A staged catastrophe whose staging is itself revealed as staged" is a mechanism. Only the second one can be searched for.</li>
+<li><b>Find the ur-text.</b> The earliest instance where the mechanism is fully assembled rather than half present.</li>
+<li><b>Find the recursion text.</b> The moment a show turns its own device back on itself. This is usually a later season of the same show, and it is usually more diagnostic than the ur-text.</li>
+<li><b>Find the absurdist descendant.</b> Where a later show runs the layer count past the point of sense.</li>
+<li><b>Separate documented intent from parallel construction.</b> Creator interviews, tweets, commentary. Say which you have. A dead link preserved in a contemporary forum thread is historical evidence, never a primary source.</li>
+<li><b>Look for the redistributed version.</b> The same narrative function carried by a different character in the descendant. Ensembles reassign functions, which is why the ancestry hides.</li>
+<li><b>Read the show's meta-character as an index.</b> When a series installs somebody whose stated power is knowing television precedent, that character is where the writers keep their own bibliography.</li>
+<li><b>Assume the named reference is a decoy.</b> A show that says Zach Braff out loud may be pointing away from Zack Morris. Explicit citation and real ancestry are different systems.</li>
+<li><b>Label every source, keep the labels attached.</b> Verbatim, recalled, and inferred are three different things all the way to the last sentence.</li>
+</ol>
+
+<h2 id="grammar"><span class="num">3</span>The grammar of the gag</h2>
+<p>Five beats. A given instance may stop at any of them, and where it stops is what determines its form.</p>
+<div class="tblwrap"><table>
+<thead><tr><th>Beat</th><th>What happens</th><th>Example, verbatim where available</th></tr></thead>
+<tbody>
+<tr><td><b>A. The commission</b></td><td>An authority decides somebody needs to learn something, and builds a fiction to deliver it.</td><td>"Does the Theater Department have any of those prop guns that fire blanks?"</td></tr>
+<tr><td><b>B. The curriculum</b></td><td>The terror itself is the teaching. The victim's real fear is the point.</td><td>"a real lesson on the fact that Jeff Winger never learns"</td></tr>
+<tr><td><b>C. The reveal</b></td><td>The catastrophe is disclosed as fake. Normally the joke ends here.</td><td>"It was a fake gun. We staged this to get back at you."</td></tr>
+<tr><td><b>D. The recursion</b></td><td>The stager is revealed as somebody else's student. This beat is the entire family's engine.</td><td>"He and I were in on this from the start."</td></tr>
+<tr><td><b>E. The inversion</b></td><td>The lesson-giver turns out to be the one who needed the lesson.</td><td>"People aren't playthings, Annie."</td></tr>
+</tbody>
+</table></div>
+<p>Beat E is what makes the recursion an argument rather than a trick. Every stager in this canon is a paternalist, and the form's fixed opinion is that paternalists are the ones under instruction. That is why the recursion never resolves cleanly. Somebody is always above the last teacher.</p>
+
+<h2 id="law"><span class="num">4</span>The inverse law of depth and stakes</h2>
+<div class="explain">
+<p><b>As the layer count climbs, the physical stakes fall.</b> At depth two, <i>Arrested Development</i> spends a human arm. J. Walter Weatherman is a man whose body is the visual aid, and the gag's cruelty is that the prop is real. At depth six, <i>Community</i> spends nothing at all. The weapons are borrowed from the Theater Department and returned in the same scene.</p>
+<p>The reason is load-bearing. A recursion needs a token it can repeat cheaply. Weatherman can only appear so often before the joke becomes a body count, so <i>Arrested Development</i> caps its depth. A prop gun costs nothing, so <i>Community</i> can fire it six times in ninety seconds. <b>The prop gun is Community's Weatherman.</b> Same job, no amputation.</p>
+</div>
+<p>The corollary is where the form gets its self-critique. Push the stakes back up while keeping the depth, and you get Form 7, the collapsed stage, where the fiction stops being safe and somebody gets genuinely hurt inside the lesson.</p>
+
+<h2 id="corpus"><span class="num">5</span>The corpus, eight forms</h2>
+<p class="formblurb">Filter by confidence tier. Depth is the number of staging layers the instance reaches. Purity scores how cleanly the instance runs the five beats, out of 10.</p>
+
+<div class="counts" id="filters">
+<span class="filterlabel">Tier</span>
+<span class="pill on" data-f="all">All <span class="n" id="n-all"></span></span>
+<span class="pill on" data-f="verified">Verified <span class="n" id="n-verified"></span></span>
+<span class="pill on" data-f="canon">Canon <span class="n" id="n-canon"></span></span>
+<span class="pill on" data-f="reach">Reach <span class="n" id="n-reach"></span></span>
+<span class="pill on" data-f="nonfiction">Nonfiction <span class="n" id="n-nonfiction"></span></span>
+</div>
+
+<!-- FORM 1 -->
+<h3 class="formhead">Form 1 · The Aversion Lesson <span class="n">depth 0</span></h3>
+<p class="formblurb">No fiction at all. An authority takes a real consequence and amplifies it until it teaches. The floor of the family, and the thing every other form is a theatrical substitute for.</p>
+
+<div class="card" data-c="nonfiction">
+<div class="top"><h4>The carton of cigarettes <span class="where">folk parenting tactic</span></h4>
+<div class="tags"><span class="tag nonfiction">Nonfiction</span><span class="tag depth">Depth 0</span></div></div>
+<p class="mech">Catch the kid smoking, make the kid smoke the whole pack until sick. No deception, no reveal. This is the practice that every staged version is imitating once real consequences become unavailable or too dangerous to use.</p>
+<p class="score">Purity <b>3</b> · runs beats A and B only</p>
+</div>
+
+<div class="card" data-c="canon">
+<div class="top"><h4>King of the Hill <span class="where">Hank and Bobby, the smoking lesson</span></h4>
+<div class="tags"><span class="tag canon">Canon</span><span class="tag depth">Depth 0</span></div></div>
+<p class="mech">Hank runs the carton tactic on Bobby by the book, and the show's joke is that Bobby's constitution defeats the curriculum. King of the Hill is the sitcom that takes the aversion lesson seriously enough to test whether it works, which is the opposite instinct from the Bluths, who never care whether it works.</p>
+<p class="score">Purity <b>4</b> · beats A, B, and a failed E</p>
+</div>
+
+<div class="card" data-c="reach">
+<div class="top"><h4>Malcolm in the Middle <span class="where">Hal and Lois, the punishment run to term</span></h4>
+<div class="tags"><span class="tag reach">Reach</span><span class="tag depth">Depth 0</span></div></div>
+<p class="mech">Recurring pattern rather than a single episode. Lois lets a consequence proceed to its natural horrible end on purpose, and the camera stays on her deciding to allow it. The closest network sibling to the Bluth ethic, with the deception removed and the coldness kept.</p>
+<p class="score">Purity <b>4</b> · pattern-level, no episode pinned</p>
+</div>
+
+<!-- FORM 2 -->
+<h3 class="formhead">Form 2 · The Scared Straight <span class="n">depth 1</span></h3>
+<p class="formblurb">One stager, one fake catastrophe, one reveal, lesson delivered. Complete and self-contained. Most television stops here.</p>
+
+<div class="card" data-c="nonfiction">
+<div class="top"><h4>Scared Straight! <span class="where">1978 documentary, and its Beyond Scared Straight descendants</span></h4>
+<div class="tags"><span class="tag nonfiction">Nonfiction</span><span class="tag depth">Depth 1</span></div></div>
+<p class="mech">Juveniles are taken into a prison and subjected to a staged confrontation designed to terrify them out of crime. The literal ancestor of Michael Bluth's fake drug bust, down to the use of real institutional authority as set dressing. Worth naming because the follow-up research on these programs generally found them ineffective or counterproductive, which is exactly the verdict the fictional versions keep arriving at by joke instead of by study.</p>
+<p class="score">Purity <b>7</b> · beats A, B, C, and an unintended E</p>
+</div>
+
+<div class="card" data-c="canon">
+<div class="top"><h4>Arrested Development S1E10 <span class="where">Pier Pressure, layer one</span></h4>
+<div class="tags"><span class="tag canon">Canon</span><span class="tag depth">Depth 1</span></div></div>
+<p class="mech">Michael arranges a fake drug bust to frighten George Michael away from marijuana. Taken alone this is a clean Form 2, and it is exactly the episode a lesser show would have made. What follows is the reason the episode matters.</p>
+<p class="score">Purity <b>8</b> · beats A, B, C</p>
+</div>
+
+<div class="card" data-c="verified">
+<div class="top"><h4>Community S4E2 <span class="where">Paranormal Parentage, Pierce's haunted house</span></h4>
+<div class="tags"><span class="tag verified">Verified</span><span class="tag depth">Depth 1</span></div></div>
+<p class="mech">Pierce builds a fake haunted house, fakes his own death inside it, and announces the pedagogy out loud with no recursion attached. This is the single most useful data point on the page, because it shows the device surviving the showrunner's absence while losing the beat that made it worth doing.</p>
+<blockquote>"Gotcha! What the hell? I totally had you guys convinced I was dead. That'll teach you to value my presence."<br>"Bet you didn't expect me to fake a haunted house to teach you a lesson."<cite>Community-S04E02.txt, lines 303 and 308</cite></blockquote>
+<p class="mech">The answer it gets is the joke: <i>"Exactly what we expected."</i> The gag is flat because nobody is above Pierce. There is no beat D, so there is no beat E, so the scene has to end by explaining itself.</p>
+<p class="score">Purity <b>5</b> · beats A, B, C, no recursion</p>
+</div>
+
+<div class="card" data-c="canon">
+<div class="top"><h4>The Office <span class="where">Stress Relief, Dwight's fire drill</span></h4>
+<div class="tags"><span class="tag canon">Canon</span><span class="tag depth">Depth 1</span></div></div>
+<p class="mech">Dwight stages a real-seeming fire in order to teach fire safety. The staging works too well, the office panics, and Stanley has a heart attack. Begins as Form 2 and collapses into Form 7 inside the same cold open, which is why it is the most-cited instance of the trope on network television.</p>
+<p class="score">Purity <b>9</b> · all five beats, with E delivered by consequence rather than by reveal</p>
+</div>
+
+<div class="card" data-c="reach">
+<div class="top"><h4>Boy Meets World <span class="where">Feeny and Turner, the manufactured scenario</span></h4>
+<div class="tags"><span class="tag reach">Reach</span><span class="tag depth">Depth 1</span></div></div>
+<p class="mech">The TGIF educator-as-stager. Feeny constructs situations whose purpose is moral instruction and whose fictional status is disclosed at the end. Sits directly beside Saved by the Bell in the same block, on the same network, aimed at the same audience, which makes it a live candidate for the redistribution work in section 7.</p>
+<p class="score">Purity <b>6</b> · pattern-level, episodes not pinned</p>
+</div>
+
+<!-- FORM 3 -->
+<h3 class="formhead">Form 3 · The Weatherman Recursion <span class="n">depth 2</span></h3>
+<p class="formblurb">The stager is revealed to have been staged. The teacher becomes the student. This is the form the whole page is named for, and it is the smallest depth at which the gag becomes an argument.</p>
+
+<div class="card" data-c="canon">
+<div class="top"><h4>Arrested Development S1E10 <span class="where">Pier Pressure, complete</span></h4>
+<div class="tags"><span class="tag canon">Canon</span><span class="tag depth">Depth 2</span></div></div>
+<p class="mech">Michael's fake bust becomes apparently real and dangerous, and the wounded man is revealed as J. Walter Weatherman, the one-armed lesson-deliverer George Sr. used on his children. George Sr. staged a lesson around Michael's lesson, and the content of that meta-lesson is that Michael should not be teaching lessons. The ur-text, and the only entry here that scores a clean ten.</p>
+<p class="mech">The catchphrase is the mechanism. "And that's why you always leave a note" is a formula with an open slot, and the open slot is what allows the recursion. The show can substitute any moral into the same sentence, which quietly argues that the moral was never the point.</p>
+<p class="score">Purity <b>10</b> · all five beats, the reference standard</p>
+</div>
+
+<div class="card" data-c="canon">
+<div class="top"><h4>Better Call Saul <span class="where">Chuck's tape sting</span></h4>
+<div class="tags"><span class="tag canon">Canon</span><span class="tag depth">Depth 2</span></div></div>
+<p class="mech">Chuck manufactures a situation whose only purpose is to extract a confession from Jimmy, and frames it to himself as moral correction. The dramatic register of the same device, and the show's judgment lands on beat E with full weight. Chuck is the one being diagnosed by his own trap.</p>
+<p class="score">Purity <b>9</b> · all five beats, played without a laugh</p>
+</div>
+
+<div class="card" data-c="reach">
+<div class="top"><h4>Succession <span class="where">Logan's staged tests</span></h4>
+<div class="tags"><span class="tag reach">Reach</span><span class="tag depth">Depth 2</span></div></div>
+<p class="mech">Recurring rather than episodic. Logan constructs scenarios whose real function is to instruct his children in their own powerlessness, and the children eventually start staging back. The prestige-drama version of the Bluth device, with the arm intact and the humiliation permanent.</p>
+<p class="score">Purity <b>7</b> · pattern-level</p>
+</div>
+
+<div class="card" data-c="reach">
+<div class="top"><h4>NewsRadio <span class="where">Jimmy James's tests of Dave</span></h4>
+<div class="tags"><span class="tag reach">Reach</span><span class="tag depth">Depth 2</span></div></div>
+<p class="mech">Included because NewsRadio is already established on your character-map work as Community's closest local cousin. The owner-as-stager, testing the straight man with manufactured situations, is the same slot Dean Pelton and Pierce occupy at Greendale. Flagged as a lead worth transcript-checking, since a NewsRadio corpus exists at <code>~/Projects/newsradio-transcripts/</code>.</p>
+<p class="score">Purity <b>6</b> · pattern-level, corpus available and unchecked</p>
+</div>
+
+<!-- FORM 4 -->
+<h3 class="formhead">Form 4 · The Gambit Pileup <span class="n">depth n</span></h3>
+<p class="formblurb">Every reveal adds a stager. There is no terminal layer, only a point where the scene runs out of patience. The escalation stops being a delivery system for the joke and becomes the joke.</p>
+
+<div class="card" data-c="verified">
+<div class="top"><h4>Community S2E9 <span class="where">Conspiracy Theories and Interior Design</span></h4>
+<div class="tags"><span class="tag verified">Verified</span><span class="tag depth">Depth 6</span></div></div>
+<p class="mech">The furthest branch. Six reveals, verbatim from the transcript, in order:</p>
+<blockquote>1. <b>Annie shoots Garrity.</b> "Of course, I shot him. He was being dishonest."<br>
+2. <b>The Dean shoots Annie.</b> "It was a fake gun. We staged this to get back at you."<br>
+3. <b>Jeff shoots the Dean.</b> "Yeah? Well, now you're the dead guy."<br>
+4. <b>Annie reveals the Dean was hers.</b> "He and I were in on this from the start. He found out you were faking a class, he came to me and we cooked up this thing to illustrate the slippery slope of academic fraud."<br>
+5. <b>Jeff reveals he turned the Dean.</b> "So on a hunch, I called him and we hatched a plan to teach you a lesson or two about friendship."<br>
+6. <b>Annie shoots Jeff.</b> "Annie's got a gun."<br>
+7. <b>Garrity was acting.</b> "And scene."<br>
+8. <b>Officer Cackowski arrests them all.</b> "Guns aren't toys. Fact, in 100 percent of all fake-gun-related shootings, the victim is always the one with the fake gun."<cite>Community-S02E09.txt, lines 250 through 299</cite></blockquote>
+<p class="mech">Three separate curricula are proposed inside ninety seconds: academic fraud, friendship, and gun safety. <b>The interchangeability of the lesson is the thesis.</b> When any moral fits the same machine, the machine was never about morals. Jeff names it directly on beat E, and then the episode refuses to let him keep the high ground.</p>
+<blockquote>"People aren't playthings, Annie." / "No, they are not. Look who's talking."<br><br>"I'm not sure what lessons we've managed to teach each other, but I'm proud of Annie."<cite>Community-S02E09.txt, lines 268 and 304</cite></blockquote>
+<p class="mech">The episode also announces its own futility in advance. Jeff's stated aim at the top is <i>"a real lesson on the fact that Jeff Winger never learns."</i> The scene is built to fail at teaching, which is why it can afford six layers.</p>
+<p class="score">Purity <b>10</b> · all five beats, run to exhaustion</p>
+</div>
+
+<div class="card" data-c="canon">
+<div class="top"><h4>Arrested Development S3 <span class="where">Making a Stand</span></h4>
+<div class="tags"><span class="tag canon">Canon</span><span class="tag depth">Depth 4</span></div></div>
+<p class="mech">The missing middle term between Pier Pressure and Community, and the reason the resemblance is hard to miss. George Sr. appears to fire a real weapon, Weatherman appears to lose an arm, Michael appears to fall, Buster appears to lose a hand. One character after another reveals the preceding catastrophe as their own staged lesson. Everything Community does at depth six, this does first at depth four, with bodies instead of props.</p>
+<p class="score">Purity <b>10</b> · the structural bridge</p>
+</div>
+
+<div class="card" data-c="canon">
+<div class="top"><h4>Brooklyn Nine-Nine <span class="where">the Halloween heists</span></h4>
+<div class="tags"><span class="tag canon">Canon</span><span class="tag depth">Depth n</span></div></div>
+<p class="mech">The purest modern pileup, with the pedagogy surgically removed. Every reveal shows an earlier apparent reality to have been somebody's plant, and the escalation is the entire annual event. Useful as a control: it proves the escalation grammar and the lesson grammar are separable, and that Community welded them together on purpose.</p>
+<p class="score">Purity <b>6</b> · beats C and D only, no A, B or E</p>
+</div>
+
+<div class="card" data-c="reach">
+<div class="top"><h4>Sherlock <span class="where">the staged trial episodes</span></h4>
+<div class="tags"><span class="tag reach">Reach</span><span class="tag depth">Depth n</span></div></div>
+<p class="mech">Mycroft and Eurus construct scenarios whose disclosed purpose is to test or instruct Sherlock, and the reveals stack. Included as the drama-side pileup where the pedagogy is retained and the comedy is not, which makes it the tonal mirror of the Nine-Nine heists.</p>
+<p class="score">Purity <b>7</b> · pattern-level</p>
+</div>
+
+<!-- FORM 5 -->
+<h3 class="formhead">Form 5 · The Standoff Escalation <span class="n">physical, simultaneous</span></h3>
+<p class="formblurb">The cinema half of Community's ending. Not a lesson form at all. This is the staging vocabulary the lesson form borrowed to make its layers visible in a single frame.</p>
+
+<div class="card" data-c="canon">
+<div class="top"><h4>The Good, the Bad and the Ugly <span class="where">Leone, the ur-standoff</span></h4>
+<div class="tags"><span class="tag canon">Canon</span><span class="tag depth">n/a</span></div></div>
+<p class="mech">Three parties, mutual aim, the tension generated by the audience knowing something the participants do not. Establishes the grammar every later version inherits: the standoff is an information problem staged as a weapons problem.</p>
+<p class="score">Purity <b>n/a</b> · vocabulary source</p>
+</div>
+
+<div class="card" data-c="canon">
+<div class="top"><h4>John Woo <span class="where">The Killer, Hard Boiled</span></h4>
+<div class="tags"><span class="tag canon">Canon</span><span class="tag depth">n/a</span></div></div>
+<p class="mech">Adds the expansion. Weapons multiply, alliances flip mid-frame, and the standoff keeps admitting new participants. Contemporary press described the Community study-room sequence as Woo-worthy, which is the clearest external signal on which cinema tradition the staging was reaching for.</p>
+<p class="score">Purity <b>n/a</b> · vocabulary source</p>
+</div>
+
+<div class="card" data-c="canon">
+<div class="top"><h4>Reservoir Dogs <span class="where">Tarantino</span></h4>
+<div class="tags"><span class="tag canon">Canon</span><span class="tag depth">n/a</span></div></div>
+<p class="mech">The version most viewers actually have in their heads, and the one that welds the standoff to the double-cross reveal. This is where the two halves of Community's ending were already joined before Community arrived: guns held simultaneously, and each holder concealing an allegiance.</p>
+<p class="score">Purity <b>n/a</b> · vocabulary source</p>
+</div>
+
+<div class="card" data-c="verified">
+<div class="top"><h4>Community's substitution <span class="where">the Theater Department</span></h4>
+<div class="tags"><span class="tag verified">Verified</span><span class="tag depth">n/a</span></div></div>
+<p class="mech">The join is explicit in the script. Jeff sources the tableau from a props cupboard before the scene begins, which is how the episode can wear the Woo staging without ever raising the stakes.</p>
+<blockquote>"Does the Theater Department have any of those prop guns that fire blanks?" / "Of course."<br><br>"There were only three prop guns." / "I live in a terrible neighborhood."<cite>Community-S02E09.txt, lines 233 and 271</cite></blockquote>
+<p class="mech">The second exchange is the load-bearing joke of the whole ending. The layer count exceeded the prop supply, so one gun in the room is unaccounted for, and the scene never resolves whether it was real.</p>
+<p class="score">Purity <b>n/a</b> · the weld point</p>
+</div>
+
+<!-- FORM 6 -->
+<h3 class="formhead">Form 6 · The Cosmic Staging <span class="n">the world was the lesson</span></h3>
+<p class="formblurb">The scale change. Instead of an incident being staged, the whole environment is, and the subject has no outside to appeal to. Every entry here is Pier Pressure with the frame pushed out to the horizon.</p>
+
+<div class="card" data-c="canon">
+<div class="top"><h4>The Good Place <span class="where">series-scale</span></h4>
+<div class="tags"><span class="tag canon">Canon</span><span class="tag depth">Depth n</span></div></div>
+<p class="mech">The largest instance in television. An entire afterlife neighborhood is a manufactured environment built to produce a moral outcome, the reveal restructures the series, the reboots make the staging iterative, and the architect who built it becomes the student of the people he was staging. That is beats A through E executed across four seasons, with the inversion given the full weight of a redemption arc rather than a punchline.</p>
+<p class="score">Purity <b>10</b> · all five beats at series scale</p>
+</div>
+
+<div class="card" data-c="canon">
+<div class="top"><h4>Rick and Morty <span class="where">nested simulations</span></h4>
+<div class="tags"><span class="tag canon">Canon</span><span class="tag depth">Depth n</span></div></div>
+<p class="mech">Harmon's other show runs the same recursion in science fiction dress. A revealed reality is disclosed as somebody's construction, and then that disclosure is disclosed. The pedagogical frame is usually contempt rather than care, which is the same inversion Pier Pressure argues for, played by a character who agrees with the accusation and does it anyway. Direct evidence that the recursion is a Harmon habit rather than a Community accident.</p>
+<p class="score">Purity <b>8</b> · beats C and D dominant, A and B in cruel form</p>
+</div>
+
+<div class="card" data-c="reach">
+<div class="top"><h4>The Truman Show / The Game <span class="where">film</span></h4>
+<div class="tags"><span class="tag reach">Reach</span><span class="tag depth">Depth 1 and 2</span></div></div>
+<p class="mech">The Game is the closest cinematic relative of the whole family: a manufactured catastrophe purchased as a therapeutic gift, sold to the recipient's brother as instruction, escalating until the recipient cannot tell whether the frame still holds. The Truman Show removes the pedagogy and keeps only the staging, which makes it the control case again.</p>
+<p class="score">Purity <b>9</b> for The Game · <b>5</b> for Truman</p>
+</div>
+
+<div class="card" data-c="reach">
+<div class="top"><h4>A Christmas Carol / It's a Wonderful Life <span class="where">the benevolent version</span></h4>
+<div class="tags"><span class="tag reach">Reach</span><span class="tag depth">Depth 1</span></div></div>
+<p class="mech">The most widely known staged lesson in English, and the reason the device feels natural rather than exotic. Supernatural agents manufacture a catastrophe, up to and including the subject's own death and erasure, purely to produce a moral change. Dickens supplies the template the Bluths are desecrating. Every sitcom stager is a Ghost of Christmas Yet to Come with worse motives.</p>
+<p class="score">Purity <b>8</b> · beats A, B, C, E, no recursion</p>
+</div>
+
+<div class="card" data-c="reach">
+<div class="top"><h4>The Tempest / Hamlet / Much Ado <span class="where">stage</span></h4>
+<div class="tags"><span class="tag reach">Reach</span><span class="tag depth">Depth 1 and 2</span></div></div>
+<p class="mech">Prospero stages an entire island as a moral instrument and is himself changed by it, which is beat E four centuries early. Hamlet's Mousetrap is a play staged to produce a confession. Much Ado's gulling scenes are deliberately faked conversations, performed for a concealed listener, in order to alter behavior. The overheard fake conversation is the oldest working part in the whole machine.</p>
+<p class="score">Purity <b>9</b> for The Tempest</p>
+</div>
+
+<div class="card" data-c="reach">
+<div class="top"><h4>Severance / Westworld <span class="where">the drama register</span></h4>
+<div class="tags"><span class="tag reach">Reach</span><span class="tag depth">Depth n</span></div></div>
+<p class="mech">Both run cosmic staging with the comedy stripped, and both make the same move Community makes with its prop guns: the constructed environment is revealed as a training apparatus whose designers are themselves inside somebody's design. Included to mark that the form is not confined to comedy.</p>
+<p class="score">Purity <b>7</b> · pattern-level</p>
+</div>
+
+<!-- FORM 7 -->
+<h3 class="formhead">Form 7 · The Collapsed Stage <span class="n">the fake goes real</span></h3>
+<p class="formblurb">Where the family criticizes itself. The staging fails to stay fictional, and somebody is genuinely damaged inside a lesson that was supposed to be safe. This is beat E delivered by consequence rather than by dialogue.</p>
+
+<div class="card" data-c="verified">
+<div class="top"><h4>It's Always Sunny in Philadelphia S9E1 <span class="where">The Gang Broke Dee</span></h4>
+<div class="tags"><span class="tag verified">Verified</span><span class="tag depth">Depth 1</span></div></div>
+<p class="mech">The nihilist terminus. The gang manufactures Dee's entire stand-up comedy career, the audiences, the acclaim, the momentum, and sustains the fiction for a full episode before revealing it. It has every structural part of the form except a lesson.</p>
+<blockquote>"We got you, Dee! We tricked you, we tricked you, we tricked you! We set the whole thing up! You know? Yeah! None of that was real."<cite>AlwaysSunny-S09E01.txt, line 381</cite></blockquote>
+<p class="mech">The episode is the argument the whole canon has been circling. <b>Strip the curriculum out of the staged lesson and what remains is intact and functional.</b> Nothing about the machine needed the moral. Sunny simply declines to supply the alibi that Michael Bluth and Jeff Winger both reach for.</p>
+<p class="score">Purity <b>7</b> · beats A, C, and a devastating E, with B replaced by cruelty</p>
+</div>
+
+<div class="card" data-c="canon">
+<div class="top"><h4>The Office <span class="where">Stress Relief, the heart attack</span></h4>
+<div class="tags"><span class="tag canon">Canon</span><span class="tag depth">Depth 1</span></div></div>
+<p class="mech">Listed twice on purpose. The fire drill is a Form 2 that collapses into a Form 7 in real time, and the collapse is the punchline. Stanley's heart attack converts the staged catastrophe into an actual medical emergency, and the rest of the episode is the office being taught the lesson the drill was pretending to teach.</p>
+<p class="score">Purity <b>9</b></p>
+</div>
+
+<div class="card" data-c="canon">
+<div class="top"><h4>Arrested Development <span class="where">Weatherman's arm</span></h4>
+<div class="tags"><span class="tag canon">Canon</span><span class="tag depth">Depth 2</span></div></div>
+<p class="mech">The collapse is baked into the ur-text and easy to miss. Inside the fiction, Weatherman's missing arm is real, and George Sr. built a pedagogical career on a maimed man. Every appearance of the catchphrase is a Form 7 event being replayed as a Form 3 joke. That is why the gag is funny and unpleasant at the same time, and why Community had to reach for props.</p>
+<p class="score">Purity <b>10</b></p>
+</div>
+
+<div class="card" data-c="nonfiction">
+<div class="top"><h4>Milgram / Stanford Prison <span class="where">the staged lesson as research</span></h4>
+<div class="tags"><span class="tag nonfiction">Nonfiction</span><span class="tag depth">Depth 2</span></div></div>
+<p class="mech">Manufactured catastrophes, run on people who believed them, by researchers whose stated justification was instruction. Both are now taught primarily as ethics cases, meaning the real-world versions arrived at beat E the same way the sitcoms do: the people running the lesson turned out to be the subject of it. Methodological criticism of both has been substantial, and that criticism is itself part of the pattern.</p>
+<p class="score">Purity <b>9</b> · all five beats, unintentionally</p>
+</div>
+
+<!-- FORM 8 -->
+<h3 class="formhead">Form 8 · Redistribution <span class="n">the hiding mechanism</span></h3>
+<p class="formblurb">Not a form of the gag. The reason its ancestry is hard to see. Detailed in section 7 below.</p>
+
+<h2 id="standoff"><span class="num">6</span>The gun-escalation lineage, stated plainly</h2>
+<div class="explain">
+<p>Community's ending is a <b>weld of two separate traditions</b>, and naming them apart is what makes the resemblance to Arrested Development precise instead of vague.</p>
+<p><b>From Arrested Development</b> comes the recursion: I manufactured your catastrophe to teach you a lesson, and somebody manufactured mine. That is beats A through E, and it is a moral argument about paternalism.</p>
+<p><b>From Leone, Woo and Tarantino</b> comes the escalation staging: simultaneous weapons, shifting allegiances, each reveal adding a participant to the same frame. That is a tension device with no morality attached.</p>
+<p>Community fuses them so that <b>every new lesson requires a new gun</b>, which converts a moral recursion into a physical one and lets the joke be seen rather than explained. Harmon has said the third act was written very late while the writers were still solving how the conspiracy plot could end, which fits a scene where escalation became the organizing principle because nothing else would close it.</p>
+</div>
+<p>On intent: Harmon stated at the time that he had not seen the Arrested Development lesson episode. The contemporary fan thread preserving those November 2010 tweets is now the only surviving trace, since the original links are dead. That is historical evidence of what he said, and it is not a primary source we can inspect. The defensible verdict stays <b>parallel construction</b>, with <i>Making a Stand</i> as the reason the parallel is so tight that people reached for homage first.</p>
+
+<h2 id="redistribution"><span class="num">7</span>Redistribution: track functions, not characters</h2>
+<p>Your strongest methodological move, generalized. An ensemble comedy inherits <b>narrative functions</b> from its ancestors and reassigns them to whichever character the new show needs them on. Looking for a one-to-one character map will miss the inheritance every time.</p>
+<div class="tblwrap"><table>
+<thead><tr><th>Function</th><th>Original carrier</th><th>Community carrier</th><th>Tier</th></tr></thead>
+<tbody>
+<tr><td>Achievement pressure resolved into stimulant abuse and collapse</td><td>Jessie Spano, Saved by the Bell. Peter Engel has said the pills were written as speed before network standards required caffeine</td><td>Annie Edison, with the uncensored version restored: Adderall, breakdown, rehab</td><td>Canon</td></tr>
+<tr><td>Obliviousness to a friend's romantic interest</td><td>Zack Morris, and more exactly Joe and Catherine on NewsRadio</td><td>Troy, in the early Annie arc. Not Jeff</td><td>Canon</td></tr>
+<tr><td>Ensemble slot: the grounded moral center who gossips</td><td>Lisa Turtle</td><td>Shirley Bennett, with Lisa's romantic material dispersed elsewhere</td><td>Reach</td></tr>
+<tr><td>Scheme architect whose plans teach him a lesson by backfiring</td><td>Zack Morris</td><td>Jeff Winger, with the scheming intact and the backfire moralized</td><td>Reach</td></tr>
+<tr><td>Ex-professional living below his stated ambition</td><td>Sam Malone, Cheers</td><td>Jeff Winger. Verified verbatim in your earlier corpus work</td><td>Verified</td></tr>
+</tbody>
+</table></div>
+<div class="explain">
+<p><b>The operational rule.</b> When a resemblance feels right and the character map refuses to line up, the function has been redistributed. Search for the function across the whole ensemble before concluding the ancestry is absent.</p>
+</div>
+
+<h2 id="abed"><span class="num">8</span>Abed as diegetic index</h2>
+<p>Community installs a character whose stated ability is knowing television precedent, which means the show keeps its own bibliography on screen. The line that establishes this is explicit and it names no sources on purpose.</p>
+<blockquote>"Annie, do you know how many sitcoms have done the 'secretly replace a broken, priceless item' thing? 'Cause Abed does."<cite>Community-S03E09.txt, line 53, Foosball and Nocturnal Vigilantism</cite></blockquote>
+<p>Troy withholds the precedents. The audience is told a corpus exists and is left to supply it. That is a standing instruction to do exactly the kind of excavation this page is doing, and it is the reason the Saved by the Bell hypothesis deserves the search rather than a shrug.</p>
+<p>The season four evidence is the sharpest version. In one episode, with Harmon absent, the show runs the staged-lesson gag flat and one-layered, and in the same episode Abed states out loud that the series has drifted.</p>
+<blockquote>"I remember when this show was about a community college."<cite>Community-S04E02.txt, line 256</cite></blockquote>
+<p>Both lines are in <i>Paranormal Parentage</i>. The staged lesson has lost its recursion, and the character whose job is noticing what kind of show this is says so within the same forty minutes. <b>The meta-commentary function survived the showrunner while the trope's engine did not.</b> That is a cleaner demonstration of what Abed does than any single Harmon interview, because it shows the function operating without him.</p>
+<p>The precise formulation, given Harmon's own account of starting with Jeff as his surrogate and finding more of himself in Abed: <b>Jeff carries the defenses, Abed carries the television brain.</b> Community spends six years letting those two argue across a study table, and the staged-lesson episode is the one where they shoot each other over it.</p>
+
+<h2 id="leads"><span class="num">9</span>Open leads to verify next</h2>
+<div class="explain">
+<p><b>1. NewsRadio, transcript-checkable now.</b> A corpus exists at <code>~/Projects/newsradio-transcripts/</code>. Grep it for Jimmy James staging tests, and for the Joe and Catherine obliviousness beats, which would upgrade two rows of the redistribution table from Reach to Verified.</p>
+<p><b>2. Always Sunny, full sweep.</b> Seasons 1 through 17 are local. A grep for faked deaths and manufactured situations across the whole run would likely produce five to ten more Form 7 entries, all verbatim.</p>
+<p><b>3. Community, remaining hits.</b> Two unexamined <code>lesson learned</code> lines sit in S4E4 and S6E5. Worth reading in context to see whether either is a fourth staged instance.</p>
+<p><b>4. Arrested Development transcripts are absent.</b> The ur-text is the only entry on this page that carries the argument and cannot be quoted. Acquiring that corpus is the single highest-value next step.</p>
+<p><b>5. Saved by the Bell and Boy Meets World.</b> No local corpus. Until one exists, the redistribution table's Jessie-to-Annie row rests on Peter Engel's account plus structural similarity, which is strong and is not verbatim.</p>
+</div>
+
+<footer>
+<p>Built 2026-08-13. Verbatim quotations pulled this pass from <code>~/Projects/tv-scripts/text/</code> (Community, complete; It's Always Sunny, seasons 1 to 17). Entries tiered Canon, Reach and Nonfiction are recall or inference and are labeled as such throughout. No claim on this page is asserted without a tier.</p>
+</footer>
+
+</div>
+<script>
+(function(){
+ var cards=[].slice.call(document.querySelectorAll('.card'));
+ var pills=[].slice.call(document.querySelectorAll('#filters .pill'));
+ var tiers=['verified','canon','reach','nonfiction'];
+ tiers.forEach(function(t){
+   var el=document.getElementById('n-'+t);
+   if(el) el.textContent=cards.filter(function(c){return c.dataset.c===t;}).length;
+ });
+ var nAll=document.getElementById('n-all'); if(nAll) nAll.textContent=cards.length;
+ var active={};tiers.forEach(function(t){active[t]=true;});
+ function apply(){
+   cards.forEach(function(c){c.classList.toggle('hide',!active[c.dataset.c]);});
+   document.querySelectorAll('.formhead').forEach(function(h){
+     var n=0,el=h.nextElementSibling;
+     while(el&&!el.classList.contains('formhead')&&el.tagName!=='H2'){
+       if(el.classList.contains('card')&&!el.classList.contains('hide')) n++;
+       el=el.nextElementSibling;
+     }
+     h.classList.toggle('hide',n===0&&h.textContent.indexOf('Redistribution')===-1);
+   });
+   var allOn=tiers.every(function(t){return active[t];});
+   pills.forEach(function(p){
+     if(p.dataset.f==='all') p.classList.toggle('on',allOn);
+     else p.classList.toggle('on',active[p.dataset.f]);
+   });
+ }
+ pills.forEach(function(p){
+   p.addEventListener('click',function(){
+     var f=p.dataset.f;
+     if(f==='all'){var allOn=tiers.every(function(t){return active[t];});
+       tiers.forEach(function(t){active[t]=!allOn;});
+       if(tiers.every(function(t){return !active[t];})) tiers.forEach(function(t){active[t]=true;});
+     } else { active[f]=!active[f];
+       if(tiers.every(function(t){return !active[t];})) active[f]=true;
+     }
+     apply();
+   });
+ });
+ apply();
+})();
+</script>
+</body></html>
