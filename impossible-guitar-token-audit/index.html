@@ -3,7 +3,7 @@
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width,initial-scale=1">
-<title>Impossible-Guitar Chats: Token Waste Audit</title>
+<title>Impossible-Guitar Chats: Token Audit (rev 2)</title>
 <style>
 :root{
   --cream:#F4EBD9; --ink:#14110F; --rust:#B4553C; --mustard:#D9A441;
@@ -12,153 +12,297 @@
 *{box-sizing:border-box}
 body{margin:0;background:var(--cream);color:var(--ink);
   font-family:"Futura","Avenir Next",Helvetica,Arial,sans-serif;line-height:1.55}
-.wrap{max-width:1040px;margin:0 auto;padding:44px 22px 80px}
+.wrap{max-width:1060px;margin:0 auto;padding:44px 22px 80px}
 header{border-bottom:3px solid var(--ink);padding-bottom:18px;margin-bottom:26px}
 h1{font-size:2.1rem;margin:0 0 6px;letter-spacing:.02em;text-transform:uppercase}
 .sub{color:var(--teal);font-size:.95rem;letter-spacing:.06em;text-transform:uppercase}
+.rev{display:inline-block;background:var(--ink);color:var(--cream);font-size:.68rem;
+  padding:4px 9px;letter-spacing:.09em;text-transform:uppercase;margin-top:10px}
 h2{font-size:1.15rem;text-transform:uppercase;letter-spacing:.08em;margin:38px 0 12px;
   border-left:8px solid var(--rust);padding-left:12px}
-.kpis{display:grid;grid-template-columns:repeat(auto-fit,minmax(168px,1fr));gap:12px;margin:24px 0}
+h3{margin:22px 0 8px;font-size:1rem;text-transform:uppercase;letter-spacing:.05em}
+.kpis{display:grid;grid-template-columns:repeat(auto-fit,minmax(160px,1fr));gap:12px;margin:24px 0}
 .kpi{background:#fff8ec;border:2px solid var(--ink);padding:14px}
-.kpi .n{font-size:1.75rem;font-weight:700;line-height:1.1}
-.kpi .l{font-size:.72rem;text-transform:uppercase;letter-spacing:.07em;color:var(--teal);margin-top:6px}
+.kpi .n{font-size:1.7rem;font-weight:700;line-height:1.1}
+.kpi .l{font-size:.71rem;text-transform:uppercase;letter-spacing:.07em;color:var(--teal);margin-top:6px}
 .kpi.bad .n{color:var(--rust)}
 .kpi.warn .n{color:var(--mustard)}
-table{width:100%;border-collapse:collapse;margin:14px 0;font-size:.88rem;
-  font-variant-numeric:tabular-nums;display:block;overflow-x:auto}
+.tblwrap{width:100%;overflow-x:auto;margin:14px 0}
+table{width:100%;border-collapse:collapse;font-size:.86rem;font-variant-numeric:tabular-nums}
 th,td{border:1px solid var(--line);padding:7px 9px;text-align:right;white-space:nowrap}
 th{background:var(--ink);color:var(--cream);text-transform:uppercase;
-  font-size:.68rem;letter-spacing:.06em}
+  font-size:.67rem;letter-spacing:.06em}
 td:first-child,th:first-child{text-align:left}
+td.txt{text-align:left;white-space:normal;min-width:190px}
 tr.total td{background:#EBDCC2;font-weight:700;border-top:3px solid var(--ink)}
-.bar{height:12px;background:#e6d8bd;border:1px solid var(--line);position:relative}
-.bar i{display:block;height:100%;background:var(--rust)}
+.strike{color:#8a7f72;text-decoration:line-through}
+.fix{color:var(--rust);font-weight:700}
 .card{background:#fff8ec;border:2px solid var(--ink);padding:16px 18px;margin:14px 0}
-.card h3{margin:0 0 8px;font-size:1rem;text-transform:uppercase;letter-spacing:.05em}
-.tag{display:inline-block;background:var(--rust);color:var(--cream);font-size:.66rem;
+.card.warn{border-color:var(--rust);background:#FAEDE4}
+.tag{display:inline-block;background:var(--rust);color:var(--cream);font-size:.65rem;
   padding:3px 8px;letter-spacing:.08em;text-transform:uppercase;margin-right:8px}
 .tag.ok{background:var(--sage)} .tag.mid{background:var(--mustard);color:var(--ink)}
-ol.fix{padding-left:20px} ol.fix li{margin:9px 0}
-.quote{border-left:5px solid var(--dusty);padding:8px 14px;background:#EFE3CC;
-  font-style:italic;margin:12px 0}
+.tag.dead{background:#8a7f72}
+ol.fixlist{padding-left:20px} ol.fixlist li{margin:11px 0}
+.stack{display:flex;height:26px;border:2px solid var(--ink);margin:12px 0;font-size:.6rem;
+  text-transform:uppercase;letter-spacing:.05em;overflow:hidden}
+.stack div{display:flex;align-items:center;justify-content:center;color:#fff;white-space:nowrap}
 footer{margin-top:46px;border-top:2px solid var(--ink);padding-top:14px;
   font-size:.78rem;color:var(--teal)}
 code{background:#EBDCC2;padding:1px 5px;font-size:.85em}
+ul.tight li{margin:5px 0}
+@media (prefers-color-scheme:dark){
+  :root{--cream:#F4EBD9;--ink:#14110F}
+}
 </style>
 </head>
 <body>
 <div class="wrap">
 <header>
   <h1>Impossible-Guitar Chats</h1>
-  <div class="sub">Token waste audit &middot; 6 sessions &middot; 2026-08-10 to 2026-08-12</div>
+  <div class="sub">Token audit &middot; 6 sessions &middot; 2026-08-10 to 2026-08-12</div>
+  <div class="rev">Revision 2 &middot; revision 1 overstated most headline numbers</div>
 </header>
 
 <div class="kpis">
-  <div class="kpi bad"><div class="n">4.66M</div><div class="l">Output tokens</div></div>
-  <div class="kpi bad"><div class="n">1.65B</div><div class="l">Context tokens read</div></div>
-  <div class="kpi bad"><div class="n">494M</div><div class="l">Context-bloat tax</div></div>
-  <div class="kpi warn"><div class="n">83.7M</div><div class="l">Spent sleeping</div></div>
-  <div class="kpi bad"><div class="n">0%</div><div class="l">Batched turns (target 40%)</div></div>
-  <div class="kpi warn"><div class="n">80 hrs</div><div class="l">Wall clock</div></div>
-  <div class="kpi bad"><div class="n">22.0</div><div class="l">Turns per user prompt</div></div>
+  <div class="kpi bad"><div class="n">1.95M</div><div class="l">Output tokens</div></div>
+  <div class="kpi bad"><div class="n">108.5M</div><div class="l">Input, base-equivalent</div></div>
+  <div class="kpi bad"><div class="n">997,206</div><div class="l">Peak context</div></div>
+  <div class="kpi warn"><div class="n">166</div><div class="l">Idle turns, zero work</div></div>
+  <div class="kpi bad"><div class="n">13.9</div><div class="l">Requests per prompt</div></div>
+  <div class="kpi warn"><div class="n">42</div><div class="l">Tool errors</div></div>
+  <div class="kpi warn"><div class="n">273</div><div class="l">gp_swap rebuild calls</div></div>
   <div class="kpi bad"><div class="n">Open</div><div class="l">Defect status</div></div>
 </div>
 
-<h2>The six sessions</h2>
+<h2>What revision 1 got wrong</h2>
+
+<div class="card warn">
+<p><strong>Claude Code writes one JSONL record per content block.</strong> A single assistant message
+reappears several times, each copy carrying the same <code>usage</code> block and one
+<code>tool_use</code>. This cluster holds <strong>4,578 assistant records for 2,372 real model
+requests</strong>, a ratio of 1.93. Two bugs in <code>~/.claude/skills/session-audit/analyze.py</code>
+followed from that, and both shipped into the published page:</p>
+<ul class="tight">
+<li><code>analyze.py:60</code> summed <code>usage</code> once per record, inflating every token figure by about 2.4x.</li>
+<li><code>analyze.py:65</code> tested <code>len(tools) &gt; 1</code> per record. A split record cannot hold two
+calls, so the batching rate was pinned at 0% by construction.</li>
+</ul>
+<p>Both are fixed. Re-run over the 30 most recent sessions the batching rate reads
+<strong>12%</strong>. The standing memory gate quoting "0.0% across 359 turns" came out of the broken
+metric and needs re-baselining.</p>
+</div>
+
+<div class="tblwrap">
 <table>
-<thead><tr><th>Session</th><th>Output tok</th><th>Context read</th><th>Turns</th><th>Batch</th>
-<th>Errors</th><th>Dup reads</th><th>Repeat bash</th><th>Hours</th></tr></thead>
+<thead><tr><th>Published in revision 1</th><th>Measured</th><th class="txt">Cause of the error</th></tr></thead>
 <tbody>
-<tr><td>0cf2ca1c</td><td>443,387</td><td>93,357,009</td><td>190</td><td>0%</td><td>12</td><td>2</td><td>39</td><td>4.9</td></tr>
-<tr><td>665cdd96</td><td>889,441</td><td>324,880,161</td><td>452</td><td>0%</td><td>6</td><td>20</td><td>28</td><td>38.1</td></tr>
-<tr><td>d4624b2a</td><td>748,154</td><td>262,978,409</td><td>346</td><td>0%</td><td>5</td><td>4</td><td>27</td><td>4.5</td></tr>
-<tr><td>242ef1ad</td><td>175,127</td><td>15,847,907</td><td>56</td><td>0%</td><td>2</td><td>4</td><td>10</td><td>0.5</td></tr>
-<tr><td>758ba450</td><td>525,968</td><td>140,389,478</td><td>272</td><td>0%</td><td>10</td><td>0</td><td>53</td><td>2.3</td></tr>
-<tr><td>81d2b7bf</td><td>1,879,609</td><td>808,770,476</td><td>1,044</td><td>0%</td><td>7</td><td>0</td><td>270</td><td>29.9</td></tr>
-<tr class="total"><td>TOTAL</td><td>4,661,686</td><td>1,646,223,440</td><td>2,360</td><td>0%</td><td>42</td><td>30</td><td>427</td><td>80</td></tr>
-</tbody></table>
-
-<h2>Waste line items</h2>
-
-<div class="card">
-  <h3><span class="tag">1</span>Context-bloat tax &middot; 493,513,569 tokens</h3>
-  <p>Each turn re-reads the whole accumulated context. Capped at a 300K working context, the same
-  2,360 turns read 1.15B instead of 1.65B. That difference is 29% of all context spend.</p>
-  <table>
-  <thead><tr><th>Session</th><th>Actual</th><th>At 300K cap</th><th>Tax</th><th>Tax %</th><th>Share</th></tr></thead>
-  <tbody>
-  <tr><td>0cf2ca1c</td><td>93,357,009</td><td>85,803,249</td><td>7,553,760</td><td>8%</td><td><div class="bar"><i style="width:8%"></i></div></td></tr>
-  <tr><td>665cdd96</td><td>324,880,161</td><td>246,346,860</td><td>78,533,301</td><td>24%</td><td><div class="bar"><i style="width:24%"></i></div></td></tr>
-  <tr><td>d4624b2a</td><td>262,978,409</td><td>201,205,953</td><td>61,772,456</td><td>23%</td><td><div class="bar"><i style="width:23%"></i></div></td></tr>
-  <tr><td>242ef1ad</td><td>15,847,907</td><td>15,847,907</td><td>0</td><td>0%</td><td><div class="bar"><i style="width:0"></i></div></td></tr>
-  <tr><td>758ba450</td><td>140,389,478</td><td>117,479,954</td><td>22,909,524</td><td>16%</td><td><div class="bar"><i style="width:16%"></i></div></td></tr>
-  <tr><td>81d2b7bf</td><td>808,770,476</td><td>486,025,948</td><td>322,744,528</td><td>39%</td><td><div class="bar"><i style="width:39%"></i></div></td></tr>
-  <tr class="total"><td>TOTAL</td><td>1,646,223,440</td><td>1,152,709,871</td><td>493,513,569</td><td>29%</td><td><div class="bar"><i style="width:29%"></i></div></td></tr>
-  </tbody></table>
-  <p><code>81d2b7bf</code> peaked at a <strong>997,204-token context</strong> across 29.9 hours.
-  <code>665cdd96</code> ran 38.1 hours. Both breach the standing <em>end long sessions</em> gate.</p>
+<tr><td class="strike">4,661,686 output tokens</td><td class="fix">1,947,086</td><td class="txt">usage summed once per split record</td></tr>
+<tr><td class="strike">1,646,223,440 context tokens</td><td class="fix">921,340,039 processed</td><td class="txt">same double count</td></tr>
+<tr><td class="strike">context framed as paid spend</td><td class="fix">108,508,947 base-equiv</td><td class="txt">99.1% of input is cache read, priced at 0.1x</td></tr>
+<tr><td class="strike">493,513,569 context-bloat tax</td><td class="fix">33,160,810 base-equiv</td><td class="txt">now threshold-relative and cache-priced</td></tr>
+<tr><td class="strike">83,757,498 spent sleeping</td><td class="fix">8,564,895 base-equiv</td><td class="txt">cache composition of the idle turns</td></tr>
+<tr><td class="strike">0% batching on 2,360 calls</td><td class="fix">318 of 2,394 batched</td><td class="txt">the per-record bug above</td></tr>
+<tr><td class="strike">427 repeated bash commands</td><td class="fix">148, of which 146 are sleeps</td><td class="txt">exact-string count, not normalized</td></tr>
+<tr><td class="strike">gp_swap rebuild fired 20 times</td><td class="fix">273 gp_swap calls</td><td class="txt">undercounted, and wrong in kind</td></tr>
+<tr><td class="strike">22.0 turns per prompt</td><td class="fix">13.9 requests per prompt</td><td class="txt">record count over a wrong prompt count</td></tr>
+<tr><td class="strike">80 hours</td><td class="fix">81.6 wall, 13.9 active</td><td class="txt">wall clock is not work</td></tr>
+<tr><td class="strike">the skill was written last</td><td class="fix">withdrawn</td><td class="txt">a timestamp cannot prove counterfactual prevention</td></tr>
+<tr><td class="strike">the spend bought no closure</td><td class="fix">withdrawn</td><td class="txt">the cluster produced substantive discovery</td></tr>
+</tbody>
+</table>
 </div>
 
-<div class="card">
-  <h3><span class="tag mid">2</span>Idle keepalive &middot; 166 turns, 83,757,498 tokens</h3>
-  <p>Turns whose only action was <code>sleep N; echo waited</code>. A sleep turn pays the full
-  context price and returns an empty result.</p>
-  <table>
-  <thead><tr><th>Session</th><th>Idle turns</th><th>Context burned</th><th>Share of session</th></tr></thead>
-  <tbody>
-  <tr><td>81d2b7bf</td><td>155</td><td>80,494,480</td><td>9%</td></tr>
-  <tr><td>665cdd96</td><td>9</td><td>2,859,740</td><td>&lt;1%</td></tr>
-  <tr><td>0cf2ca1c</td><td>1</td><td>207,824</td><td>&lt;1%</td></tr>
-  <tr><td>d4624b2a</td><td>1</td><td>195,454</td><td>&lt;1%</td></tr>
-  <tr class="total"><td>TOTAL</td><td>166</td><td>83,757,498</td><td></td></tr>
-  </tbody></table>
-  <p>Plus 42 <code>ScheduleWakeup</code> calls. The <code>/loop</code> was authorized by Brandon,
-  so this is not a policy breach. It is still 83.7M tokens of sleeping.</p>
+<p><span class="tag ok">confirmed unchanged</span> 6 sessions, 166 idle turns, 42 tool errors,
+30 duplicate reads, peak context 997,206.</p>
+
+<h2>Input processed is not input paid</h2>
+
+<div class="stack">
+  <div style="width:99.1%;background:var(--sage)">cache read 99.1% at 0.1x</div>
+  <div style="width:0.9%;background:var(--rust)"></div>
 </div>
 
-<div class="card">
-  <h3><span class="tag">3</span>Rework &middot; the skill was written last</h3>
-  <p><code>~/.claude/skills/impossible-guitar-parts/SKILL.md</code> was created
-  <strong>2026-08-12 18:03</strong>. Measured against that timestamp,
-  <strong>100% of the cluster's 4.66M output tokens were spent before the skill existed</strong>.
-  The same defect was re-diagnosed cold in four separate sessions:</p>
-  <div class="quote">08-10 &ldquo;is it fraud, do all the appleseed cast songs have guitars ba&hellip;&rdquo;<br>
-  08-10 &ldquo;Finish the appleseed cast chats here&rdquo;<br>
-  08-10 &ldquo;resume Apple Seed Cast chat review and fix the skill&rdquo;<br>
-  08-11 &ldquo;<strong>still</strong> seeing impossible guitar parts and two guitars arragned for one&rdquo;</div>
+<div class="tblwrap">
+<table>
+<thead><tr><th>Kind</th><th>Tokens</th><th>Share</th><th class="txt">Price vs base input</th></tr></thead>
+<tbody>
+<tr><td>Uncached fresh input</td><td>5,951</td><td>0.0%</td><td class="txt">1.0x</td></tr>
+<tr><td>Cache creation</td><td>8,615,572</td><td>0.9%</td><td class="txt">1.25x at 5 min, 2.0x at 1 hour</td></tr>
+<tr><td>Cache read</td><td>912,718,516</td><td>99.1%</td><td class="txt">0.1x</td></tr>
+<tr class="total"><td>Base-input-equivalent</td><td>108,508,947</td><td>11.8%</td><td class="txt">of raw processed</td></tr>
+</tbody>
+</table>
 </div>
 
-<div class="card">
-  <h3><span class="tag">4</span>Serialization &middot; 0% of 2,360 tool calls batched</h3>
-  <p>The standing gate targets above 40%. Every independent call was a solo round trip in all six
-  sessions. The 30-session <code>/session-audit</code> returns the same 0%, so this is systemic.</p>
+<p>Processed and paid differ by a factor of 8.5 here. Any figure quoted as raw processed tokens
+overstates cost by roughly that much, which is what revision 1 did.</p>
+
+<h2>The six sessions</h2>
+
+<div class="tblwrap">
+<table>
+<thead><tr><th>Session</th><th class="txt">First prompt</th><th>Output</th><th>Processed</th>
+<th>Base-equiv</th><th>Peak ctx</th><th>Requests</th><th>Calls</th><th>Batched</th>
+<th>Idle</th><th>Errs</th><th>Wall / active h</th></tr></thead>
+<tbody>
+<tr><td>0cf2ca1c</td><td class="txt">is it fraud, do all the appleseed cast songs</td><td>189,840</td><td>48,890,079</td><td>7,185,182</td><td>406,360</td><td>190</td><td>190</td><td>36</td><td>1</td><td>12</td><td>4.9 / 1.2</td></tr>
+<tr><td>665cdd96</td><td class="txt">Finish the appleseed cast chats here</td><td>329,414</td><td>153,972,095</td><td>18,719,813</td><td>599,734</td><td>439</td><td>452</td><td>83</td><td>9</td><td>6</td><td>38.1 / 2.6</td></tr>
+<tr><td>d4624b2a</td><td class="txt">resume Apple Seed Cast chat review and fix the skill</td><td>299,210</td><td>133,738,651</td><td>17,050,340</td><td>572,046</td><td>368</td><td>346</td><td>20</td><td>1</td><td>5</td><td>4.5 / 1.9</td></tr>
+<tr><td>242ef1ad</td><td class="txt">kilgore trout, pop out finder window</td><td>63,485</td><td>6,612,440</td><td>948,159</td><td>181,381</td><td>50</td><td>56</td><td>23</td><td>0</td><td>2</td><td>0.5 / 0.3</td></tr>
+<tr><td>758ba450</td><td class="txt">make a skill from Impossible guitar parts</td><td>244,752</td><td>90,215,977</td><td>10,780,749</td><td>535,736</td><td>275</td><td>303</td><td>80</td><td>0</td><td>10</td><td>3.6 / 1.2</td></tr>
+<tr><td>81d2b7bf</td><td class="txt">still seeing impossible guitar parts</td><td>820,385</td><td>487,910,797</td><td>53,824,704</td><td><strong>997,206</strong></td><td>1,050</td><td>1,047</td><td>76</td><td>155</td><td>7</td><td>30.0 / 6.7</td></tr>
+<tr class="total"><td>TOTAL</td><td class="txt"></td><td>1,947,086</td><td>921,340,039</td><td>108,508,947</td><td></td><td>2,372</td><td>2,394</td><td>318</td><td>166</td><td>42</td><td>81.6 / 13.9</td></tr>
+</tbody>
+</table>
 </div>
 
-<div class="card">
-  <h3><span class="tag mid">5</span>Churn &middot; 427 repeated bash commands, 30 duplicate reads, 42 errors</h3>
-  <p>The same Kilgore Trout <code>gp_swap</code> rebuild fired 20 times, a second variant 14 times.
-  <code>665cdd96</code> alone re-read the same file 20 times.</p>
+<p>Active hours count only gaps of 5 minutes or less between records, so 13.9 is a floor and
+81.6 is an unrelated ceiling.</p>
+
+<h2>Finding 1: 13.9 model requests per user prompt</h2>
+
+<p>171 user prompts produced 2,372 model requests. Session <code>81d2b7bf</code> ran 1,050 requests
+on its own. This is the clearest signature in the data, and it describes the failure better than
+any token figure: the agent stayed inside local correction loops rather than stopping to
+consolidate state, freeze a regression fixture, and move to the next falsifiable hypothesis.</p>
+
+<div class="tblwrap">
+<table>
+<thead><tr><th>Script</th><th>Invocations</th><th class="txt">What it is</th></tr></thead>
+<tbody>
+<tr><td>queue.py</td><td>61</td><td class="txt">honesty-gate bookkeeping</td></tr>
+<tr><td>anti_ai_voice_gate.py</td><td>52</td><td class="txt">voice gate</td></tr>
+<tr><td>impossible_gate.py</td><td>51</td><td class="txt">the validator under development</td></tr>
+<tr><td>session_fraud_check.py</td><td>39</td><td class="txt">fraud gate</td></tr>
+<tr><td>refret_capo.py</td><td>30</td><td class="txt">fretting fix</td></tr>
+<tr><td>retime_for_gp.py</td><td>25</td><td class="txt">timing fix</td></tr>
+<tr><td>verify_allparts.py</td><td>21</td><td class="txt">part verifier</td></tr>
+<tr><td>test_refret.py</td><td>18</td><td class="txt">fretting test</td></tr>
+<tr><td>verify_refret.py</td><td>16</td><td class="txt">fretting verifier</td></tr>
+</tbody>
+</table>
 </div>
+
+<p>152 of those runs are compliance tooling rather than defect work. The fretting cluster
+(<code>refret_capo</code> 30, <code>test_refret</code> 18, <code>verify_refret</code> 16,
+<code>refret_gpif</code> 13) is 77 runs of tweak-and-recheck on one subsystem.
+<code>gp_swap</code> appears in <strong>273</strong> bash calls, 217 of them in
+<code>81d2b7bf</code>. Only 11 non-sleep commands in the entire cluster are exact duplicates,
+so this is the same tool re-run with shifting arguments, which is the expensive shape.</p>
+
+<h2>Finding 2: 166 idle turns, 8,564,895 base-equivalent tokens</h2>
+
+<div class="tblwrap">
+<table>
+<thead><tr><th>Session</th><th>Idle turns</th><th>Processed</th><th>Cache read</th><th>Base-equiv</th></tr></thead>
+<tbody>
+<tr><td>81d2b7bf</td><td>155</td><td>80,494,480</td><td>~80.4M</td><td>~8.2M</td></tr>
+<tr><td>665cdd96</td><td>9</td><td>2,859,740</td><td></td><td></td></tr>
+<tr><td>0cf2ca1c</td><td>1</td><td>207,824</td><td></td><td></td></tr>
+<tr><td>d4624b2a</td><td>1</td><td>195,454</td><td></td><td></td></tr>
+<tr class="total"><td>TOTAL</td><td>166</td><td>83,757,804</td><td>83,658,109</td><td>8,564,895</td></tr>
+</tbody>
+</table>
+</div>
+
+<p>Every one was a turn whose only action was <code>sleep N; echo waited</code>. That is
+<strong>7.9%</strong> of the cluster's input spend for no analytical work. The <code>/loop</code>
+was authorized, so no policy was broken. The orchestration failure stands on its own: 42
+<code>ScheduleWakeup</code> calls and 166 empty round trips is an agent waiting in a loop
+instead of ending a turn.</p>
+
+<h2>Finding 3: peak context 997,206, and 30.6% of input spend above a 300K working set</h2>
+
+<div class="tblwrap">
+<table>
+<thead><tr><th>Session</th><th>Excess above 300K (processed)</th><th>Base-equiv</th><th>Share of that session</th></tr></thead>
+<tbody>
+<tr><td>0cf2ca1c</td><td>3,953,353</td><td>637,830</td><td>9%</td></tr>
+<tr><td>665cdd96</td><td>38,450,658</td><td>4,569,380</td><td>24%</td></tr>
+<tr><td>d4624b2a</td><td>33,475,865</td><td>4,019,227</td><td>24%</td></tr>
+<tr><td>242ef1ad</td><td>0</td><td>0</td><td>0%</td></tr>
+<tr><td>758ba450</td><td>19,801,048</td><td>2,380,261</td><td>22%</td></tr>
+<tr><td>81d2b7bf</td><td>199,933,590</td><td><strong>21,554,112</strong></td><td><strong>40%</strong></td></tr>
+<tr class="total"><td>TOTAL</td><td>295,614,514</td><td>33,160,810</td><td>30.6%</td></tr>
+</tbody>
+</table>
+</div>
+
+<p>At a 200K threshold the excess is 469,237,421 processed, 50.9% of everything read.
+300K is a <strong>threshold I chose</strong>. Nothing in the data measures the minimum context each
+decision actually required. Accumulated context held real state: the checkpoint, prior findings,
+regression history. This figure counts excess processing above an assumed bounded working set, and
+it makes no claim that the money was provably wasted.
+<code>81d2b7bf</code> at 997,206 tokens across 30 hours is past arguing about, since 40% of its
+input spend sat above the threshold.</p>
+
+<h2>Finding 4: batching, 318 of 2,394 calls</h2>
+
+<p>318 calls went out in messages carrying two or more tool calls. A conservative eligibility test
+examined adjacent single-call turns where both calls were read-only and the second call's input
+shared no 8-character token with the first call's result, so no dependency could be proven. Only
+<strong>23</strong> calls failed that test. Measured over calls provably eligible, batching runs
+<strong>93.3%</strong>. The remaining 2,053 single-call turns are mostly <code>python3</code> and
+heredoc bash the test declines to classify, so they are neither proven batchable nor proven serial.
+The honest statement is that batching is 13.3% of all calls, the provable misses are few, and the
+0% accusation was an artifact of the meter.</p>
 
 <h2>Outcome</h2>
-<div class="quote">The cluster's last user messages are &ldquo;still seeing impossible guitar parts&rdquo;
-(08-11) and &ldquo;why did yo stop&rdquo; (08-12 23:08). 4.66M output tokens and 80 hours did not
-close the defect.</div>
 
-<h2>Fixes, ranked by tokens recovered</h2>
-<ol class="fix">
-<li><strong>Clear at 300K context.</strong> Recovers about 29% of context spend, 494M tokens on this cluster. Write a handoff, <code>/clear</code>, reopen.</li>
-<li><strong>Stop paying for sleep.</strong> 83.7M tokens went to <code>sleep; echo waited</code>. Use a real wait condition or end the turn.</li>
-<li><strong>Run the skill.</strong> <code>/impossible-guitar-parts</code> exists now, so grade the next tab with it instead of re-deriving hand-span rules.</li>
-<li><strong>Batch independent calls.</strong> 0% against a 40% target across 2,360 calls.</li>
-<li><strong>One session per defect.</strong> Four cold restarts on one bug is the largest structural cost here.</li>
+<div class="card">
+<h3>The cluster failed to convert substantial technical discovery into a stable finished transcription</h3>
+<p>The discovery was real. All of it is now encoded in
+<code>~/.claude/skills/impossible-guitar-parts/</code>, which is where the grep counts land:
+depanning errors, falsely shared note definitions, capo failures, octave corruption, tie semantics,
+open-string hand teleporting, same-string collisions, tuning-order data loss, and the need for
+explicit hand state. <code>SKILL.md</code> mentions ties 57 times, capo 14 times, tuning 14 times,
+panning 18 times.</p>
+<p>The skill also is not a finished answer. Session <code>758ba450</code> was still live during
+this audit and had rewritten <code>impossible_gate.py</code> <strong>26 times</strong> and
+<code>SKILL.md</code> <strong>20 times</strong>, with
+<code>.bak-before-kilgore-rules-2026-08-12</code> copies of both on disk. The validator developed
+its own failures while being expanded. Its creation timestamp of 2026-08-12 18:03 proves only that
+the earlier sessions had no consolidated validator to run. It does not prove that writing it sooner
+would have prevented the later rework.</p>
+<p>The cluster's last two user messages are "still seeing impossible guitar parts" and
+"why did yo stop". The defect is open.</p>
+</div>
+
+<h2>Fixes, ranked</h2>
+
+<ol class="fixlist">
+<li><strong>Carry a compact state artifact across the context boundary.</strong> A fresh session on
+its own pays less per turn and rediscovers the same facts. The unit is fresh execution context plus
+a deliberately compressed project state: checkpoint hash, known failure list, regression fixtures,
+current pipeline order, and the hard gates. Without that package, clearing is a cost saving and an
+information loss at the same time.</li>
+<li><strong>Cap the working context near 300K and reset with that artifact.</strong> Worth about
+30.6% of input spend on this cluster, and the fix for the 997K session.</li>
+<li><strong>Freeze a regression fixture before the next fix.</strong> 77 fretting-subsystem runs and
+51 validator runs is the loop to break. One failing fixture, one hypothesis, one run.</li>
+<li><strong>End the turn instead of sleeping.</strong> 166 empty turns and 42 wakeups, at 7.9% of
+input spend.</li>
+<li><strong>Trust the repaired meter.</strong> <code>analyze.py</code> now dedupes usage and merges
+tool blocks per message. Re-baseline the batching gate against 12%, since the 0.0% in memory is not
+a measurement.</li>
 </ol>
 
+<h2>Provenance</h2>
+<ul class="tight">
+<li>Source: <code>usage</code> records in <code>~/.claude/projects/-Users-drwu/*.jsonl</code>, read directly</li>
+<li>Cache multipliers applied: cache read 0.1x, cache creation 1.25x at 5 minutes and 2.0x at 1 hour, uncached input 1.0x</li>
+<li>Idle-turn base-equivalent applies the 1-hour creation multiplier to 99,389 cache-creation tokens, a rounding difference under 1% of that line</li>
+<li><strong>Idle-turn cost and above-threshold excess overlap and must not be added.</strong> Most
+idle turns in <code>81d2b7bf</code> ran at high context, so their cost sits largely inside that
+session's 21,554,112 excess figure</li>
+<li><code>81d2b7bf</code> and <code>758ba450</code> were both live during the audit, so their counts are floors</li>
+</ul>
+
 <footer>
-Source: <code>usage</code> records in <code>~/.claude/projects/-Users-drwu/*.jsonl</code>, read directly,
-plus <code>/session-audit</code> over the 30 most recent sessions.
-Session <code>81d2b7bf</code> was still live and writing during this audit, so its counts are a floor.
-Generated 2026-08-12.
+Revision 2, 2026-08-12. Revision 1 published earlier the same day and overstated output tokens by
+2.4x, input spend by 15x, and reported a 0% batching rate that was an artifact of its own
+measurement tool. Every number above is recomputed from deduplicated <code>usage</code> records.
 </footer>
 </div>
 </body>
