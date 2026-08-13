@@ -8,7 +8,7 @@ operator skill `/community-os`.
 A citation-gated corpus for the Community investigation. Phase 1 made the outside
 corpus citable (Harmon interviews, DVD commentary, articles, other shows'
 episodes). Phase 2 made findings accumulate across episodes instead of being
-scoped to one. Phase 3 is the ingest, now four real episodes deep.
+scoped to one. Phase 3 ingested every transcript the fandom wiki has.
 
 ## Layers
 
@@ -35,27 +35,23 @@ log.md               append-only ledger
 ## Gate state
 
 ```
-test_source_gate.py   37/37   exit 0
+test_source_gate.py   41/41   exit 0
 test_canon.py         59/59   exit 0
-validate_citations.py PASS    exit 0   4 episodes, 3,088 tokens
+validate_citations.py PASS    exit 0   27 of 27 episodes, 19,800 tokens
 lint_canon.py         CLEAN   exit 0   2 records, 5 tokens
 ```
 
 ## Corpus state
 
-4 real episodes, 1,313 transcript lines, 0 outside sources, 1 claim, 1
-hypothesis.
+27 real episodes, 7,212 transcript lines, 19,800 certified citation tokens,
+0 outside sources, 1 claim, 1 hypothesis. That is every transcript the fandom
+wiki carries, across seasons 1, 2, 3, 4 and 6.
 
-| Code | Episode | Lines | Scenes |
-|---|---|---|---|
-| S01E04 | Social Psychology | 367 | 8 |
-| S02E09 | Conspiracy Theories and Interior Design | 255 | 1 |
-| S02E19 | Critical Film Studies | 169 | 1 |
-| S03E04 | Remedial Chaos Theory | 522 | 11 |
-
-The shipped worked sample used to occupy S01E04, so `[S01E04:L10]` named a real
-episode while pointing at fiction. Real S01E04 is Social Psychology and now holds
-that code. The fixture evidence is parked, not deleted.
+Two are truncated at source and flagged PARTIAL by `os.py list`: S01E05 at 34
+lines and S02E04 at 52, against a median of 264. Those support a claim about what
+is present and never about what is absent. **Season 5 has no transcripts at
+all**, so that stretch of the show is not in evidence and the quarantined
+`imports/` adjudication stays blocked.
 
 ## Defects found and fixed
 
@@ -64,24 +60,30 @@ that code. The fixture evidence is parked, not deleted.
   refused. Survived 52 green unit tests, failed on the first live command.
 - **Shell pipe hiding exit codes.** `python3 x.py | tail -3; echo $?` reports
   tail's status. Exit codes now measured with no pipe.
-- **Five real quotes reported as fabrications.** `cite_quote` rewrites an inner
-  double quote as an apostrophe, and `normalize` stripped double quotes while
-  keeping apostrophes, so producer and checker disagreed. Shipped with four
-  rejection tests, because the change loosens matching.
+- **Five real quotes reported as fabrications.** The quote builder rewrote an
+  inner double quote as an apostrophe while the normalizer stripped double quotes
+  and kept apostrophes, so producer and checker disagreed.
 - **A wiki category tag became a character.** The converter delinked
   `[[Category:...]]` before dropping housekeeping links, so the ingester read
   `Category:` as a speaker and wrote a fake speaker CATEGORY into evidence.
 - **A 539-line transcript with zero speakers passed the gate.** Two speaker
   shapes exist on the wiki and only one was handled, so every line lost its
-  attribution while still citing real line numbers. The importer now refuses at
-  zero speakers and below 80% accounted.
+  attribution while still citing real line numbers.
 - **A healthy transcript read as 29% broken.** A speech broken around a stage
   direction resumes with no prefix and the ingester inherits the speaker, so
-  those continuation lines are attributed. The metric now counts dialogue plus
-  stage direction plus continuation.
+  those continuation lines are attributed.
 - **A stale dossier surviving a re-ingest.** `dossier.md` is a merge no tool
   produces, so re-analyzing left it describing the old evidence: 110 citations
-  into lines that no longer existed. Analyze now parks it.
+  into lines that no longer existed.
+- **The house voice ruleset fabricating quotations.** The essay tool scrubs
+  contrastive `while` from its prose and ran over the citation token too, so
+  "peed on my car while I was parking it" was published as "peed on my car, I was
+  parking it". Three episodes failed on quotes that were genuine until the style
+  filter touched them. The scrubber now cleans only between tokens.
+- **An apostrophe standing in for a double quote.** In `she got "B"s` the
+  substitution yields `'B's`, whose second apostrophe reads as a contraction and
+  survives normalization while the evidence side became `b s`. It substitutes a
+  space now, matching the normalizer.
 
 ## Ingesting
 
@@ -90,12 +92,12 @@ python3 import_fandom.py --list
 python3 import_fandom.py --title "Remedial Chaos Theory" --ep S03E04
 ```
 
-Coverage is partial. 27 transcripts exist across seasons 1, 2, 3, 4 and 6.
-**Season 5 has none**, which is what keeps the quarantined `imports/`
-adjudication blocked, since it needs S05E01 to S05E03.
+The pages are not uniform. Two speaker shapes, `<poem>` wrappers, galleries,
+Cast sections, both bracket styles for stage directions, curly quotes, and
+`== Act 2, Scene 3 ==` headings that become real scene boundaries. The importer
+refuses at zero speakers and below 80% of content accounted for.
 
 ## Next
 
-Remaining wiki transcripts, then Harmon interviews and commentary via
-`ingest-source`, then outside-show comparison episodes. Season 5 needs a
-different source.
+Harmon interviews and DVD commentary via `os.py ingest-source`, then the
+outside-show comparison episodes. Season 5 needs a source that is not this wiki.

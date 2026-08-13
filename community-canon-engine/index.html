@@ -71,22 +71,21 @@ reading S03E04 was invisible when S05E01 came up next.</p>
 <h2>Where it stands</h2>
 
 <div class="grid">
-  <div class="stat pass"><span class="n">37/37</span><span class="l">source gate proof</span></div>
+  <div class="stat pass"><span class="n">41/41</span><span class="l">source gate proof</span></div>
   <div class="stat pass"><span class="n">59/59</span><span class="l">canon proof</span></div>
-  <div class="stat pass"><span class="n">3,088</span><span class="l">citation tokens, PASS</span></div>
-  <div class="stat pass"><span class="n">1,313</span><span class="l">real transcript lines</span></div>
+  <div class="stat pass"><span class="n">19,800</span><span class="l">citation tokens, PASS</span></div>
+  <div class="stat pass"><span class="n">27</span><span class="l">episodes, 0 gate failures</span></div>
 </div>
 
 <div class="flag">
   <p><strong>Report the corpus and the gate as two separate numbers.</strong>
-  The corpus holds <strong>4 real episodes, 1,313 transcript lines, 0 outside
-  sources, 1 claim, 1 hypothesis</strong>: Social Psychology, Conspiracy Theories
-  and Interior Design, Critical Film Studies, and Remedial Chaos Theory, all
-  ingested from the fandom wiki API.</p>
-  <p>The shipped worked sample used to sit at <code>S01E04</code>, so a citation
-  like <code>[S01E04:L10]</code> named a real episode while pointing at fiction.
-  Real S01E04 is Social Psychology and now occupies that code. The fixture is
-  parked, not deleted.</p>
+  The corpus holds <strong>27 real episodes, 7,212 transcript lines, 0 outside
+  sources, 1 claim, 1 hypothesis</strong>. That is every transcript the fandom
+  wiki carries, across seasons 1, 2, 3, 4 and 6.</p>
+  <p>Two of them are truncated at source and flagged PARTIAL: S01E05 at 34 lines
+  and S02E04 at 52, against a median of 264. Those support a claim about what is
+  present and never about what is absent. <strong>Season 5 has no transcripts at
+  all</strong>, so that stretch of the show is simply not in evidence.</p>
 </div>
 
 <h2>The three layers</h2>
@@ -237,11 +236,33 @@ sample to the real transcript, the stale dossier failed on 110 citations into
 lines that no longer existed. Analyze now parks a stale dossier rather than let
 it sit there reading as current.</p>
 
+<h3>A voice ruleset fabricating quotations</h3>
+
+<p>The essay tool scrubs banned constructions out of its own prose, and its list
+includes contrastive <code>while</code>. It ran over the whole composed sentence,
+including the inside of the citation token, so a real line reading "peed on my
+car <em>while</em> I was parking it" was published as "peed on my car, I was
+parking it". Three episodes failed the gate on quotations that were genuine until
+the style filter touched them.</p>
+
+<p>A citation token carries evidence, not prose, and is never subject to a voice
+rule. The scrubber now cleans only the gaps between tokens.</p>
+
+<h3>An apostrophe standing in for a double quote</h3>
+
+<p>The quote builder has to remove inner double quotes or the token stops
+parsing, and it used to substitute an apostrophe. In a line like
+<code>she got "B"s</code> that yields <code>'B's</code>, whose second apostrophe
+now sits between two word characters, reads as a contraction, and survives
+normalization, while the evidence side became <code>b s</code>. One more genuine
+line reported as a fabrication. It substitutes a space now, matching what the
+normalizer does to a double quote on the other side.</p>
+
 <h2>The gates</h2>
 
-<pre><code>test_source_gate.py   37/37   exit 0   widening the corpus did not widen the gate
+<pre><code>test_source_gate.py   41/41   exit 0   widening the corpus did not widen the gate
 test_canon.py         59/59   exit 0   refuted reaches stay refuted
-validate_citations.py PASS    exit 0   4 episodes, 3,088 tokens
+validate_citations.py PASS    exit 0   27 of 27 episodes, 19,800 tokens
 lint_canon.py         CLEAN   exit 0   2 records, 5 tokens</code></pre>
 
 <p>Both proof suites are weighted toward the refusals rather than the happy path,
