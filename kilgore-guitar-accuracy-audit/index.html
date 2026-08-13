@@ -106,6 +106,15 @@ Rhythm pitch support from <b>24.7% to 63.4%</b>, ownership from 45.6% to 71.9%, 
 the correct stem. <b>The corrected source sits within 1.5 points of the promoted build.</b></p>
 <p>The gate now hard-fails this defect as <code>CAPO_MIDI_MISMATCH</code>. It fires 891 times on
 <code>c-tied.gp</code> and is clean on the corrected twin and on the promoted build.</p>
+<p><b>The thirteen promotions were checked against the corrected source and are unaffected.</b> Run the
+gate on chain62 with <code>c-tied.gp</code> and again with <code>c-tied-CAPO0.gp</code> and both
+return preservation PASS and position PASS, identically. The reason is mechanical: the gate's pitch
+census prefers each Note's stored Midi, and position compares written string and fret. Both are capo
+independent. Receipt <code>11f6b0f89211bb9f</code> binds chain62 to the corrected baseline.</p>
+<p><b>That divergence is exactly how the defect hid.</b> The gate resolved pitch from stored Midi and
+this audit resolved it from tuning plus capo plus fret, so the gate saw nothing while the audit read
+two semitones sharp. The audit now counts and prints the disagreement too, and the gate fails on it,
+so neither tool can pass it over again.</p>
 </div>
 
 <h2 id="finding">1. The finding</h2>
