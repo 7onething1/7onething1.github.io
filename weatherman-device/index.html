@@ -1,0 +1,1186 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>How Community Metabolizes Television History</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,600;0,700;1,400&family=Inter:wght@400;500;600;700&family=JetBrains+Mono:wght@400;600&display=swap" rel="stylesheet">
+<style>
+:root{
+  --cream:#F5EEE0; --cream-2:#EFE6D4; --paper:#FBF6EC;
+  --ink:#17130F; --ink-2:#3A322A; --ink-3:#6B5F51;
+  --rule:#D6C9B0;
+  --pink:#D98C8C; --pink-lt:#F0D5D3;
+  --mustard:#D89B2C; --mustard-lt:#F2E2B8;
+  --teal:#3E6B6D; --teal-lt:#CBDDDA;
+  --rust:#B4553A; --rust-lt:#EFD3C7;
+  --olive:#7A8450; --olive-lt:#DDE3C6;
+  --navy:#2E4057; --navy-lt:#CFD8E2;
+  --plum:#6B4A63; --plum-lt:#E0D2DD;
+  --slate:#8A8171; --slate-lt:#E6E0D2;
+}
+*{box-sizing:border-box}
+html{scroll-behavior:smooth}
+body{margin:0;background:var(--cream);color:var(--ink);font-family:'Inter',-apple-system,sans-serif;font-size:16.5px;line-height:1.66;-webkit-font-smoothing:antialiased}
+.wrap{max-width:1180px;margin:0 auto;padding:0 26px 120px}
+h1,h2,h3,h4{font-family:'Cormorant Garamond',Georgia,serif;font-weight:700;line-height:1.14;margin:0}
+.mono{font-family:'JetBrains Mono',ui-monospace,Menlo,monospace}
+
+header.mast{background:var(--paper);border-bottom:3px double var(--rule);padding:48px 26px 36px}
+.mast-in{max-width:1180px;margin:0 auto}
+.kicker{font-family:'JetBrains Mono',monospace;font-size:11px;letter-spacing:.22em;text-transform:uppercase;color:var(--rust);margin-bottom:14px}
+h1{font-size:clamp(34px,5.6vw,66px);letter-spacing:-.018em}
+h1 em{font-style:italic;color:var(--rust)}
+.dek{font-family:'Cormorant Garamond',serif;font-size:clamp(18px,2.4vw,26px);font-style:italic;color:var(--ink-2);max-width:840px;margin-top:16px;line-height:1.4}
+.mast-meta{display:flex;flex-wrap:wrap;gap:10px;margin-top:24px}
+.chip{font-family:'JetBrains Mono',monospace;font-size:10.5px;letter-spacing:.09em;text-transform:uppercase;padding:5px 11px;border:1px solid var(--rule);background:var(--cream-2);border-radius:2px;color:var(--ink-2)}
+.chip.hot{background:var(--mustard-lt);border-color:var(--mustard);color:#6B4A0F}
+.chip.win{background:var(--olive-lt);border-color:var(--olive);color:#495230}
+
+.thesis{background:var(--ink);color:var(--cream);padding:30px 34px;margin:34px 0 0;border-radius:2px}
+.thesis .lbl{font-family:'JetBrains Mono',monospace;font-size:10.5px;letter-spacing:.2em;text-transform:uppercase;color:var(--mustard);margin-bottom:12px}
+.thesis h2{font-family:'Cormorant Garamond',serif;font-size:clamp(24px,3.4vw,36px);line-height:1.24;color:var(--cream);max-width:900px}
+.thesis p{color:#D8CFBE;margin:16px 0 0;max-width:880px;font-size:16px}
+.thesis .old{color:#A99C88;font-size:14.5px;border-top:1px solid #3A322A;padding-top:14px;margin-top:18px}
+
+.diff{background:var(--paper);border:1px solid var(--rule);border-left:6px solid var(--teal);padding:22px 26px;margin:26px 0 0;border-radius:2px}
+.diff h3{font-size:23px;margin-bottom:12px}
+.diff-grid{display:grid;grid-template-columns:1fr 1fr;gap:26px;margin-top:6px}
+.diff-grid h4{font-family:'JetBrains Mono',monospace;font-size:11px;letter-spacing:.16em;text-transform:uppercase;color:var(--ink-3);margin-bottom:9px;font-weight:600}
+.diff ol,.diff ul{margin:0;padding-left:20px}
+.diff li{margin-bottom:7px;font-size:15px}
+.tick{color:var(--olive);font-weight:700}
+.cross{color:var(--rust);font-weight:700}
+
+nav.toc{background:var(--cream-2);border:1px solid var(--rule);padding:22px 26px;margin:34px 0;border-radius:2px}
+nav.toc h3{font-size:21px;margin-bottom:14px}
+.toc-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(238px,1fr));gap:9px 24px}
+nav.toc a{display:flex;justify-content:space-between;gap:10px;text-decoration:none;color:var(--ink);border-bottom:1px dotted var(--rule);padding:6px 0;font-size:14.5px}
+nav.toc a:hover{color:var(--rust)}
+nav.toc a span.n{font-family:'JetBrains Mono',monospace;font-size:11px;color:var(--ink-3)}
+
+section{margin-top:66px;scroll-margin-top:20px}
+.sec-head{border-bottom:2px solid var(--ink);padding-bottom:11px;margin-bottom:26px;display:flex;align-items:baseline;gap:14px;flex-wrap:wrap}
+.sec-head .num{font-family:'JetBrains Mono',monospace;font-size:12px;color:var(--rust);letter-spacing:.14em}
+.sec-head h2{font-size:clamp(28px,4.1vw,43px);letter-spacing:-.014em}
+.sec-sub{font-family:'Cormorant Garamond',serif;font-style:italic;font-size:19px;color:var(--ink-2);margin:-14px 0 26px;max-width:840px}
+p{margin:0 0 15px;max-width:880px}
+.lede{font-size:18px;color:var(--ink-2)}
+h3.sub{font-size:26px;margin:36px 0 12px}
+h4.subsub{font-size:21px;margin:24px 0 8px;color:var(--navy)}
+
+/* evidence chain */
+.chain{display:grid;gap:16px;counter-reset:ex}
+.ex{background:var(--paper);border:1px solid var(--rule);border-left:6px solid var(--olive);padding:20px 24px;border-radius:2px;position:relative}
+.ex.supplied{border-left-color:var(--mustard);background:#FDF9F0}
+.ex .exid{font-family:'JetBrains Mono',monospace;font-size:10.5px;letter-spacing:.14em;color:var(--olive);font-weight:600}
+.ex.supplied .exid{color:#8A6212}
+.ex h4{font-size:23px;margin:6px 0 10px;line-height:1.2}
+.ex .said{font-family:'Cormorant Garamond',serif;font-size:21px;font-style:italic;line-height:1.4;color:#2E3320;margin:0 0 10px;max-width:none}
+.ex.supplied .said{color:#5A4310}
+.ex p{font-size:15px;margin:0 0 9px;color:var(--ink-2);max-width:none}
+.ex p:last-child{margin-bottom:0}
+.ex .why{border-top:1px dotted var(--rule);padding-top:10px;margin-top:12px;font-size:14.4px}
+.ex .why b{color:var(--rust)}
+.ex cite{display:block;font-family:'JetBrains Mono',monospace;font-size:10.5px;font-style:normal;letter-spacing:.05em;color:var(--ink-3);margin-top:10px}
+.ex cite a{color:var(--teal)}
+
+/* confidence scale */
+.scale{display:grid;grid-template-columns:repeat(auto-fit,minmax(230px,1fr));gap:12px;margin:20px 0}
+.lvl{padding:15px 17px;border-radius:2px;border:1px solid}
+.lvl .t{font-family:'JetBrains Mono',monospace;font-size:12px;font-weight:600;letter-spacing:.09em}
+.lvl p{font-size:13.6px;margin:6px 0 0;max-width:none}
+.lvl .egs{font-size:12.4px;color:var(--ink-3);margin-top:8px;border-top:1px dotted rgba(0,0,0,.18);padding-top:7px}
+.l0{background:var(--slate-lt);border-color:var(--slate)} .l0 .t{color:#5C5548}
+.l1{background:var(--olive-lt);border-color:var(--olive)} .l1 .t{color:#495230}
+.l2{background:var(--teal-lt);border-color:var(--teal)} .l2 .t{color:var(--teal)}
+.l3{background:var(--mustard-lt);border-color:var(--mustard)} .l3 .t{color:#6B4A0F}
+.l4{background:var(--pink-lt);border-color:var(--pink)} .l4 .t{color:#8C4444}
+.l5{background:var(--plum-lt);border-color:var(--plum)} .l5 .t{color:var(--plum)}
+
+.steps{display:grid;grid-template-columns:repeat(auto-fit,minmax(330px,1fr));gap:16px}
+.step{background:var(--paper);border:1px solid var(--rule);border-top:4px solid var(--teal);padding:18px 20px;border-radius:2px}
+.step .id{font-family:'JetBrains Mono',monospace;font-size:11px;letter-spacing:.14em;color:var(--teal);font-weight:600}
+.step h4{font-size:21px;margin:6px 0 8px;line-height:1.2}
+.step p{font-size:14.6px;margin:0;color:var(--ink-2);max-width:none}
+.step.w0{border-top-color:var(--mustard)} .step.w0 .id{color:var(--mustard)}
+.step.w9{border-top-color:var(--rust)} .step.w9 .id{color:var(--rust)}
+.step.w10{border-top-color:var(--plum)} .step.w10 .id{color:var(--plum)}
+
+.fails{background:var(--rust-lt);border:1px solid var(--rust);border-left:6px solid var(--rust);padding:20px 24px;margin-top:26px;border-radius:2px}
+.fails h4{font-size:20px;margin-bottom:10px;color:#7A3320}
+.fails dt{font-family:'JetBrains Mono',monospace;font-size:12px;font-weight:600;color:#7A3320;margin-top:11px}
+.fails dd{margin:3px 0 0;font-size:14.6px;color:var(--ink-2)}
+
+.ops{display:grid;grid-template-columns:repeat(auto-fit,minmax(320px,1fr));gap:15px}
+.op{background:var(--paper);border:1px solid var(--rule);border-left:5px solid var(--navy);padding:17px 19px;border-radius:2px}
+.op .oid{font-family:'JetBrains Mono',monospace;font-size:11px;font-weight:600;letter-spacing:.12em;color:var(--navy)}
+.op h4{font-size:21px;margin:5px 0 7px}
+.op p{font-size:14.5px;margin:0 0 9px;max-width:none;color:var(--ink-2)}
+.op .ex2{font-size:13.3px;color:var(--ink-3);border-top:1px dotted var(--rule);padding-top:8px}
+.op .ex2 b{color:var(--ink-2);font-weight:600}
+.op.hot{border-left-color:var(--rust)} .op.hot .oid{color:var(--rust)}
+.op.new{border-left-color:var(--olive)} .op.new .oid{color:#495230}
+
+.spine{display:grid;gap:20px}
+.node{background:var(--paper);border:1px solid var(--rule);border-radius:2px;overflow:hidden}
+.node-head{padding:16px 22px;border-bottom:1px solid var(--rule);display:flex;flex-wrap:wrap;align-items:baseline;gap:12px}
+.node-head h3{font-size:26px}
+.node-head .yr{font-family:'JetBrains Mono',monospace;font-size:12px;color:var(--ink-3)}
+.node.a{border-top:5px solid var(--navy)}
+.node.b{border-top:5px solid var(--mustard)}
+.node.c{border-top:5px solid var(--rust)}
+.node-body{padding:18px 22px}
+.beats{list-style:none;margin:0;padding:0;counter-reset:b}
+.beats li{counter-increment:b;position:relative;padding:9px 0 9px 44px;border-bottom:1px dotted var(--rule);font-size:15px}
+.beats li:last-child{border-bottom:none}
+.beats li::before{content:counter(b);position:absolute;left:0;top:9px;width:28px;height:28px;border-radius:50%;background:var(--ink);color:var(--cream);font-family:'JetBrains Mono',monospace;font-size:12px;display:flex;align-items:center;justify-content:center}
+.beats li.meta::before{background:var(--rust)}
+.beats b{color:var(--rust)}
+.node-foot{background:var(--cream-2);padding:13px 22px;border-top:1px solid var(--rule);font-size:14px;color:var(--ink-2)}
+.layers{font-family:'JetBrains Mono',monospace;font-size:11px;letter-spacing:.1em;text-transform:uppercase;color:var(--rust);font-weight:600}
+
+.vgrid{display:grid;grid-template-columns:repeat(auto-fit,minmax(310px,1fr));gap:15px}
+.v{background:var(--paper);border:1px solid var(--rule);padding:17px 19px;border-radius:2px;border-left:5px solid var(--ink-3)}
+.v .vid{font-family:'JetBrains Mono',monospace;font-size:11px;font-weight:600;letter-spacing:.12em;color:var(--ink-3)}
+.v h4{font-size:20px;margin:5px 0 7px}
+.v p{font-size:14.4px;margin:0 0 9px;max-width:none;color:var(--ink-2)}
+.v .ex2{font-size:13.2px;color:var(--ink-3);border-top:1px dotted var(--rule);padding-top:8px}
+.v .ex2 b{color:var(--ink-2);font-weight:600}
+.v.core{border-left-color:var(--rust)} .v.core .vid{color:var(--rust)}
+.v.build{border-left-color:var(--mustard)} .v.build .vid{color:var(--mustard)}
+.v.world{border-left-color:var(--teal)} .v.world .vid{color:var(--teal)}
+.v.dark{border-left-color:var(--plum)} .v.dark .vid{color:var(--plum)}
+
+.controls{display:flex;flex-wrap:wrap;gap:8px;align-items:center;margin-bottom:16px;padding:15px 17px;background:var(--cream-2);border:1px solid var(--rule);border-radius:2px}
+.controls input{font-family:'Inter',sans-serif;font-size:14px;padding:8px 12px;border:1px solid var(--rule);background:var(--paper);color:var(--ink);border-radius:2px;min-width:210px;flex:1}
+.fbtn{font-family:'JetBrains Mono',monospace;font-size:11px;letter-spacing:.06em;padding:7px 11px;border:1px solid var(--rule);background:var(--paper);color:var(--ink-2);cursor:pointer;border-radius:2px}
+.fbtn:hover{background:var(--mustard-lt)}
+.fbtn.on{background:var(--ink);color:var(--cream);border-color:var(--ink)}
+.count{font-family:'JetBrains Mono',monospace;font-size:11.5px;color:var(--ink-3);margin-left:auto}
+.tbl-wrap{overflow-x:auto;border:1px solid var(--rule);border-radius:2px;background:var(--paper)}
+table{border-collapse:collapse;width:100%;min-width:940px;font-size:14px}
+thead th{background:var(--ink);color:var(--cream);text-align:left;padding:11px 13px;font-family:'JetBrains Mono',monospace;font-size:10.5px;letter-spacing:.1em;text-transform:uppercase;font-weight:600;position:sticky;top:0;z-index:2}
+tbody td{padding:11px 13px;border-bottom:1px solid var(--rule);vertical-align:top}
+tbody tr:nth-child(even){background:var(--cream-2)}
+tbody tr:hover{background:var(--mustard-lt)}
+td.show{font-weight:600;white-space:nowrap}
+td.ep{font-style:italic;color:var(--ink-2)}
+td.mech{color:var(--ink-2);min-width:290px}
+.badge{font-family:'JetBrains Mono',monospace;font-size:10px;padding:2px 6px;border-radius:2px;border:1px solid;white-space:nowrap;font-weight:600}
+.b-d0{background:var(--slate-lt);border-color:var(--slate);color:#5C5548}
+.b-d1{background:var(--olive-lt);border-color:var(--olive);color:#495230}
+.b-d2{background:var(--teal-lt);border-color:var(--teal);color:var(--teal)}
+.b-d3{background:var(--mustard-lt);border-color:var(--mustard);color:#6B4A0F}
+.b-d4{background:var(--pink-lt);border-color:var(--pink);color:#8C4444}
+.b-d5{background:var(--plum-lt);border-color:var(--plum);color:var(--plum)}
+.vtag{font-family:'JetBrains Mono',monospace;font-size:10px;color:var(--ink-3);white-space:nowrap}
+.prov{font-family:'JetBrains Mono',monospace;font-size:13px;font-weight:600}
+.prov.yes{color:var(--olive)}
+.prov.no{color:var(--ink-3)}
+
+.rtbl{overflow-x:auto;border:1px solid var(--rule);background:var(--paper);border-radius:2px;margin-bottom:26px}
+.rtbl table{min-width:860px}
+.rtbl td.src{font-weight:600;color:var(--navy)}
+.rtbl td.dst{font-weight:600;color:var(--rust)}
+.arrow{color:var(--ink-3);text-align:center;font-family:'JetBrains Mono',monospace}
+
+.reach{background:var(--plum-lt);border:1px solid var(--plum);border-left:6px solid var(--plum);padding:17px 21px;margin-bottom:13px;border-radius:2px}
+.reach h4{font-size:20px;margin-bottom:6px;color:#4E3448}
+.reach p{font-size:14.8px;margin:0 0 8px;color:var(--ink-2);max-width:none}
+.reach p:last-child{margin-bottom:0}
+.reach .rt{font-family:'JetBrains Mono',monospace;font-size:10px;letter-spacing:.1em;color:var(--plum);font-weight:600;display:block;margin-bottom:4px}
+
+.ledger{display:grid;grid-template-columns:repeat(auto-fit,minmax(290px,1fr));gap:15px}
+.led{padding:17px 20px;border-radius:2px;border:1px solid}
+.led h4{font-size:19px;margin-bottom:9px}
+.led ul{margin:0;padding-left:19px}
+.led li{font-size:14px;margin-bottom:7px;color:var(--ink-2)}
+.led.ok{background:var(--olive-lt);border-color:var(--olive)}
+.led.warn{background:var(--mustard-lt);border-color:var(--mustard)}
+.led.bad{background:var(--rust-lt);border-color:var(--rust)}
+
+.mine{margin-top:16px;background:var(--paper);border:1px dashed var(--rule);border-radius:2px;padding:13px 16px;min-height:56px;font-size:14.6px;color:var(--ink-2);outline:none}
+.mine:focus{border-color:var(--teal);border-style:solid;background:#fff}
+.mine-lbl{font-family:'JetBrains Mono',monospace;font-size:10px;letter-spacing:.14em;text-transform:uppercase;color:var(--ink-3);margin-top:18px;display:block}
+
+.src-list{columns:2;column-gap:34px}
+.src-list li{break-inside:avoid;margin-bottom:9px;font-size:13.8px}
+.src-list a{color:var(--teal)}
+footer{margin-top:76px;border-top:3px double var(--rule);padding-top:22px;font-size:13px;color:var(--ink-3)}
+
+#mobBtn{position:fixed;right:16px;bottom:16px;z-index:99;font-family:'JetBrains Mono',monospace;font-size:11px;padding:11px 15px;background:var(--ink);color:var(--cream);border:none;border-radius:3px;cursor:pointer;box-shadow:0 3px 12px rgba(0,0,0,.24)}
+body.mobileview .wrap{padding:0 14px 100px}
+body.mobileview table{min-width:0;font-size:12.6px}
+body.mobileview thead{display:none}
+body.mobileview tbody tr{display:block;border-bottom:2px solid var(--rule);padding:11px 4px}
+body.mobileview tbody td{display:block;border:none;padding:3px 6px}
+body.mobileview tbody td::before{content:attr(data-l) " ";font-family:'JetBrains Mono',monospace;font-size:9.5px;letter-spacing:.1em;text-transform:uppercase;color:var(--ink-3)}
+body.mobileview .src-list{columns:1}
+body.mobileview .diff-grid{grid-template-columns:1fr}
+@media(max-width:760px){.diff-grid{grid-template-columns:1fr}.src-list{columns:1}.toc-grid{grid-template-columns:1fr}}
+</style>
+</head>
+<body>
+
+<header class="mast">
+  <div class="mast-in">
+    <div class="kicker">Evidence chain · Method · Case studies · Canon catalog</div>
+    <h1>How <em>Community</em> Metabolizes Television History</h1>
+    <p class="dek">Harmon documented a writing practice built on checking prior executions. This page grades every proposed antecedent underneath that practice, from the Bluth lesson gag to a pot of drugged tea at Abbey Road.</p>
+    <div class="mast-meta">
+      <span class="chip win">TV Tropes statement verified at source</span>
+      <span class="chip hot">117 canon entries</span>
+      <span class="chip">9 evidence exhibits</span>
+      <span class="chip">6 confidence levels</span>
+      <span class="chip">8 transformations</span>
+      <span class="chip">6 case studies</span>
+      <span class="chip">15 variants</span>
+      <span class="chip">18 claims verified at source</span>
+      <span class="chip">3 claims failed or corrected</span>
+    </div>
+  </div>
+</header>
+
+<div class="wrap">
+
+<div class="thesis">
+  <div class="lbl">The governing claim</div>
+  <h2>Harmon has documented a writing practice built around recognizing precedent, examining previous executions, combining inherited character types, responding to production constraints, and using Abed to assure viewers that the writers recognize the convention in play.</h2>
+  <p>Every correspondence below is a case study underneath that practice. The Arrested Development recursion can score high structurally and stay unproven as direct borrowing. The Jessie and Annie stimulant machinery can score high on specificity and carries no authorial statement. The Beatles tea can score high on rarity and fail entirely on chronology. All three stay useful, because each one has a precisely described mechanism and an honest grade.</p>
+  <p class="old">This replaces the earlier framing, which tried to prove a secret master key where every resemblance required intentional quotation. That version could only ever be argued one example at a time, and it had no place to put a connection that was remarkable and unsupported at once.</p>
+</div>
+
+<div class="diff">
+  <h3>Request against delivery</h3>
+  <div class="diff-grid">
+    <div>
+      <h4>What you asked for</h4>
+      <ol>
+        <li>Learn my method</li>
+        <li>Flesh out variants</li>
+        <li>More reaches</li>
+        <li>More parallels</li>
+        <li>All the references across TV canon</li>
+        <li>Second pass: fission, fusion, restoration, production artifacts, Abed's bloodline, the Beatles tea</li>
+        <li>Third pass: rebuild around the Harmon evidence chain, everything else as case studies</li>
+        <li>Make it better</li>
+      </ol>
+    </div>
+    <div>
+      <h4>What this page carries</h4>
+      <ul>
+        <li><span class="tick">✓</span> Nine-exhibit evidence chain, in the order you specified (§1)</li>
+        <li><span class="tick">✓</span> Six-level confidence scale replacing the old tiers (§2)</li>
+        <li><span class="tick">✓</span> Protocol, twelve steps, four failure modes (§3)</li>
+        <li><span class="tick">✓</span> Eight transformation operations (§4)</li>
+        <li><span class="tick">✓</span> Seven-axis scoring rubric with worked examples (§5)</li>
+        <li><span class="tick">✓</span> Six case studies, A through F (§6 to §11)</li>
+        <li><span class="tick">✓</span> Fifteen variants of the device (§12)</li>
+        <li><span class="tick">✓</span> One hundred and seventeen catalog entries, filterable by level (§13)</li>
+        <li><span class="tick">✓</span> Twelve reaches, all D5, none promoted (§15)</li>
+        <li><span class="cross">✗</span> The Harmon tweet claim failed verification (§17)</li>
+        <li><span class="cross">✗</span> Two supplied claims corrected against the primary source (§17)</li>
+      </ul>
+    </div>
+  </div>
+</div>
+
+<nav class="toc">
+  <h3>Contents</h3>
+  <div class="toc-grid">
+    <a href="#chain"><span>The evidence chain</span><span class="n">§1</span></a>
+    <a href="#scale"><span>The confidence scale</span><span class="n">§2</span></a>
+    <a href="#protocol"><span>The protocol</span><span class="n">§3</span></a>
+    <a href="#ops"><span>The transformation set</span><span class="n">§4</span></a>
+    <a href="#rubric"><span>The scoring rubric</span><span class="n">§5</span></a>
+    <a href="#caseA"><span>Case A · the Weatherman spine</span><span class="n">§6</span></a>
+    <a href="#caseB"><span>Case B · Bayside</span><span class="n">§7</span></a>
+    <a href="#caseC"><span>Case C · Abed's bloodline</span><span class="n">§8</span></a>
+    <a href="#caseD"><span>Case D · production artifacts</span><span class="n">§9</span></a>
+    <a href="#caseE"><span>Case E · the workplace ensembles</span><span class="n">§10</span></a>
+    <a href="#caseF"><span>Case F · the declined antecedent</span><span class="n">§11</span></a>
+    <a href="#variants"><span>Fifteen variants</span><span class="n">§12</span></a>
+    <a href="#catalog"><span>The canon catalog</span><span class="n">§13</span></a>
+    <a href="#explicit"><span>The explicit canon baseline</span><span class="n">§14</span></a>
+    <a href="#reaches"><span>The reaches</span><span class="n">§15</span></a>
+    <a href="#control"><span>The absent case</span><span class="n">§16</span></a>
+    <a href="#ledger"><span>Evidence ledger</span><span class="n">§17</span></a>
+    <a href="#sources"><span>Sources</span><span class="n">§18</span></a>
+  </div>
+</nav>
+
+<!-- ================= §1 EVIDENCE CHAIN ================= -->
+<section id="chain">
+  <div class="sec-head"><span class="num">§1</span><h2>The Evidence Chain</h2></div>
+  <p class="sec-sub">Nine exhibits establishing the working method, before a single antecedent gets argued.</p>
+  <p class="lede">Olive exhibits were fetched and confirmed during this session. Amber exhibits were supplied with citations and could not be re-fetched here, so they carry a visible caveat rather than a silent promotion.</p>
+
+  <div class="chain">
+
+    <div class="ex">
+      <div class="exid">EXHIBIT 1 · VERIFIED AT SOURCE</div>
+      <h4>Precedent-checking was inside the writing process</h4>
+      <p class="said"><b>Harmon:</b> "check to see if an idea we had had been done before"</p>
+      <p>Asked directly about TV Tropes, Harmon said he went there often while writing Community for exactly that purpose, and called the site a brilliant tool.</p>
+      <div class="why"><b>Why it governs everything below.</b> The question stops being whether Harmon could have encountered an antecedent. It becomes what happens when a writer who explicitly checked prior executions keeps rebuilding familiar constructions. Trope ancestry was a working habit in the room, so a specific structural correspondence found afterwards deserves a higher prior than it would in any other room.</div>
+      <cite>Reddit AMA, 22 August 2012 · <a href="https://amatranscripts.com/ama/dan_harmon_2012-08-22.html">fetched and confirmed</a></cite>
+    </div>
+
+    <div class="ex supplied">
+      <div class="exid">EXHIBIT 2 · SUPPLIED WITH CITATION</div>
+      <h4>Abed exists so the writers can be meta</h4>
+      <p>Harmon reportedly explained in early 2010 that the study group have themselves watched Friends, Star Trek, The Office, and 30 Rock, so television history exists inside their fictional consciousness. He described Abed as the character who permits the writers to go meta, because viewers can trust Abed's signals that the room understands the convention being deployed.</p>
+      <div class="why"><b>Why it is the second exhibit.</b> This is the creator statement standing directly underneath the Batman DVD scene. Troy's premise is that the secretly-replacing-a-priceless-object bit runs across sitcom history, and Abed holds the archive required to recognise it. Abed alerts the audience that an inherited construction has entered Greendale, without having to identify the source.</div>
+      <cite>Vulture, February 2010. Blocked to direct fetch this session, and the quotes did not appear in search, so this carries the amber caveat</cite>
+    </div>
+
+    <div class="ex">
+      <div class="exid">EXHIBIT 3 · VERIFIED AT SOURCE</div>
+      <h4>The authorial identification moved, and it moved on a date</h4>
+      <p class="said"><b>Harmon:</b> "started as Jeff and became Abed toward the end of season 1"</p>
+      <p>Asked which character resembles him most, that was the whole answer.</p>
+      <div class="why"><b>Why the date matters.</b> Abed's meta function expands enormously after the earliest episodes. The statement also splits the authorial self across two seats, with Jeff carrying the rhetorical and social equipment and Abed carrying the way of perceiving television. That split is the documented basis for treating fission as a real operation rather than a convenient hedge.</div>
+      <cite>Reddit AMA, 22 August 2012 · <a href="https://amatranscripts.com/ama/dan_harmon_2012-08-22.html">fetched and confirmed</a></cite>
+    </div>
+
+    <div class="ex">
+      <div class="exid">EXHIBIT 4 · VERIFIED AT SOURCE</div>
+      <h4>Abed holds other people's television, and Harmon held his own</h4>
+      <p class="said"><b>Harmon:</b> he had a TV show, and Abed has other people's TV shows.</p>
+      <p>He offered this while describing his affection for a character who connects with others through comparatively limited channels.</p>
+      <div class="why"><b>Why it closes the argument the long way round.</b> The earlier version of this page reached authorial consciousness by accumulating examples. This is Harmon defining Abed as his television consciousness in one clause, from his own side of the screen.</div>
+      <cite>Reddit AMA, 22 August 2012 · <a href="https://amatranscripts.com/ama/dan_harmon_2012-08-22.html">fetched and confirmed</a></cite>
+    </div>
+
+    <div class="ex">
+      <div class="exid">EXHIBIT 5 · VERIFIED AT SOURCE</div>
+      <h4>One Abed action carries a documented authorial meaning</h4>
+      <p class="said"><b>Harmon:</b> "it symbolizes me leaving the show"</p>
+      <p>Asked about Abed entering the miniature Dreamatorium at the close of season three, he said that, and added he had not known for certain he would go, while suspecting he might have to.</p>
+      <div class="why"><b>Why this is the strongest single mouthpiece proof.</b> The argument no longer has to run only through bottle episodes, finales, ratings anxiety, and season four criticism. Harmon confirms one extremely loaded instance himself, which converts the mouthpiece reading from interpretation into a documented practice with at least one attested case.</div>
+      <cite>Reddit AMA, 22 August 2012 · <a href="https://amatranscripts.com/ama/dan_harmon_2012-08-22.html">fetched and confirmed</a></cite>
+    </div>
+
+    <div class="ex">
+      <div class="exid">EXHIBIT 6 · VERIFIED AT SOURCE</div>
+      <h4>One-to-one character mapping is dead on the creator's own testimony</h4>
+      <p class="said"><b>Harmon:</b> "A lot of them are amalgams."</p>
+      <p>In the same answer he called Annie a Tracy Flick ripoff and added she was partly a high-school crush, described Pierce as loosely based on the father of an ex, said Abed came from his friend Abed, and said Britta started as a generic type before the evolved version drew on somebody else.</p>
+      <div class="why"><b>Why it licenses fission and fusion outright.</b> Zack does not need to equal Jeff on every axis for Zack material to appear in Jeff, Abed, and Troy. Jessie does not need to equal Annie for Annie to inherit the achievement pressure and the stimulant biography, with Britta inheriting the activism. Testing for a single inheritor produces false negatives, and the creator has said so in advance.</div>
+      <cite>Reddit AMA, 22 August 2012 · <a href="https://amatranscripts.com/ama/dan_harmon_2012-08-22.html">fetched and confirmed</a></cite>
+    </div>
+
+    <div class="ex supplied">
+      <div class="exid">EXHIBIT 7 · SUPPLIED WITH CITATION</div>
+      <h4>Guest status changes what a relationship can be</h4>
+      <p>Harmon reportedly said in 2010 that he disliked asking viewers to invest emotionally in somebody when half their brain recognises that person as a guest star who is merely visiting the show.</p>
+      <div class="why"><b>Why it turns a production seam into method.</b> This is an explicit acknowledgement that guest status shapes how continuing relationships can be written and perceived. Case D runs on it.</div>
+      <cite>Vulture, February 2010. Same amber caveat as Exhibit 2</cite>
+    </div>
+
+    <div class="ex">
+      <div class="exid">EXHIBIT 8 · VERIFIED AT SOURCE</div>
+      <h4>Multi-episode arcs collide with scheduling reality</h4>
+      <p class="said"><b>Harmon:</b> "You're laying down non-random plans in a random vortex."</p>
+      <p>He was explaining why casting busy actors in multiple-episode arcs is a dangerous game.</p>
+      <div class="why"><b>Why it completes Case D.</b> Here is a direct production explanation for the phenomenon behind Robin Vohlers, Carol, the billiards-class woman, and every other intensely compatible partner who evaporates after one episode. The seam is acknowledged by the person creating it.</div>
+      <cite>Reddit AMA, 22 August 2012 · <a href="https://amatranscripts.com/ama/dan_harmon_2012-08-22.html">fetched and confirmed</a></cite>
+    </div>
+
+    <div class="ex">
+      <div class="exid">EXHIBIT 9 · VERIFIED AT SOURCE</div>
+      <h4>Writers' room speech crosses into character dialogue, provably</h4>
+      <p>Harmon confirmed that Chang's complaint about everybody making up the same show, and the demand for pitches, paraphrased what Harmon himself would say in the room. He added that a writer put the line in to make fun of him, and that Harmon then added the beat where a little girl hands Chang a drink and he thanks Megan, referring to writer Megan Ganz.</p>
+      <div class="why"><b>Why it validates the mouthpiece method without overclaiming.</b> No claim here holds that every Abed statement secretly transcribes Harmon. The established point is narrower, that the boundary between production conversation and fictional conversation is deliberately porous. Once that practice is documented, Abed on bottle episodes, clip shows, casting functions, finales, declining formulas, serialization, and replacement ensemble members all deserve inspection for simultaneous fictional and production meaning.</div>
+      <cite>Reddit AMA, 22 August 2012 · <a href="https://amatranscripts.com/ama/dan_harmon_2012-08-22.html">fetched and confirmed</a></cite>
+    </div>
+
+  </div>
+
+  <h3 class="sub">The two directions of the same process</h3>
+  <p>Exhibit 1 and Exhibit 2 describe opposite ends of one mechanism. Harmon looked to earlier stories to establish how they had executed an idea. Abed then tells the audience that the room recognises the kind of story currently running. The viewer occupies the remaining position, recognising antecedents nobody involved will ever state out loud. That triangle is the subject of this page.</p>
+
+  <span class="mine-lbl">Your notes on the evidence chain</span>
+  <div class="mine" contenteditable="true" data-k="chain"></div>
+</section>
+
+<!-- ================= §2 CONFIDENCE SCALE ================= -->
+<section id="scale">
+  <div class="sec-head"><span class="num">§2</span><h2>The Confidence Scale</h2></div>
+  <p class="sec-sub">Six levels, so a documented borrowing and an outrageous reach can share a page without being flattened together.</p>
+  <p class="lede">The old five-tier scale had no place for the most interesting category on this page, which is the borrowing whose method is documented and the instance is not. That gap is now D2, and it holds most of what makes the argument work.</p>
+
+  <div class="scale">
+    <div class="lvl l0"><div class="t">D0 · CANON MEMBER</div><p>Belongs to the device's family. No claim of influence on Community whatsoever.</p><div class="egs">The Prisoner · Squid Game · Bar Wars</div></div>
+    <div class="lvl l1"><div class="t">D1 · DOCUMENTED SOURCE</div><p>A maker states this specific borrowing, or the script cites the source in dialogue.</p><div class="egs">Tracy Flick · Basic Lupine Urology · Cougar Town</div></div>
+    <div class="lvl l2"><div class="t">D2 · DOCUMENTED METHOD</div><p>The practice or the influence is on record. This particular instance stays undocumented. The category the whole page turns on.</p><div class="egs">Cheers · Taxi · The Simpsons · Rick and Morty</div></div>
+    <div class="lvl l3"><div class="t">D3 · STRUCTURAL ANTECEDENT</div><p>A rare mechanism matching beat for beat, with no statement of intent from anybody.</p><div class="egs">Making a Stand · Jessie's Song · Zack's time-outs</div></div>
+    <div class="lvl l4"><div class="t">D4 · PLAUSIBLE TRANSFORMATION</div><p>An operation from §4 explains the difference, and the supporting evidence stays thin.</p><div class="egs">Dobie Gillis · The Game · The Sting</div></div>
+    <div class="lvl l5"><div class="t">D5 · SPECULATIVE REACH</div><p>Worth stating with a precisely described mechanism, carried openly, never promoted.</p><div class="egs">The Beatles tea · Belding to Pelton · Chang as Weatherman</div></div>
+  </div>
+
+  <p><b>Clustering rule.</b> Several weak correspondences become significant when they repeatedly gather around the same character, the same episode type, or the same older series. A lone D5 proves nothing. Four D5s converging on Annie's stimulant biography, or on Abed's romantic discontinuity, is a finding worth cataloguing exhaustively.</p>
+
+  <span class="mine-lbl">Your notes on the scale</span>
+  <div class="mine" contenteditable="true" data-k="scale"></div>
+</section>
+
+<!-- ================= §3 PROTOCOL ================= -->
+<section id="protocol">
+  <div class="sec-head"><span class="num">§3</span><h2>The Protocol</h2></div>
+  <p class="sec-sub">Your reasoning, extracted and written as twelve repeatable steps.</p>
+
+  <div class="steps">
+    <div class="step w0"><div class="id">W0 · SELF-REPORT</div><h4>Ask what the episode says about itself</h4><p>Before any external search, check whether the text comments on its own construction. Jeff closes the S2E9 gun sequence by saying he is unsure what lessons anybody managed to teach. That is free evidence, and Exhibit 2 explains why the show keeps offering it.</p></div>
+    <div class="step"><div class="id">W1 · THE ITCH</div><h4>Start from a scene, never a theme</h4><p>The unit of investigation is one sequence that produced a recognition. Two shows sharing a mood produces nothing. Two shows sharing a machine produces a lineage.</p></div>
+    <div class="step"><div class="id">W2 · COMPRESSION</div><h4>Reduce the joke to one mechanical sentence</h4><p>Write it with agents and reversals and no adjectives. S2E9 compresses to: A stages a harm on B to instruct C, and the reveal is that D staged A's staging. If the sentence requires a mood word, the mechanism has not been found.</p></div>
+    <div class="step"><div class="id">W3 · KEEP WALKING</div><h4>The famous antecedent is rarely the tightest</h4><p>Pier Pressure is the famous one. Making a Stand is the tight one, because it adds iteration and counter-staging, which is the part Community reproduces. Stopping at the first hit costs the strongest evidence.</p></div>
+    <div class="step"><div class="id">W4 · SPLIT SOURCING</div><h4>Source each half of the mechanism separately</h4><p>S2E9 requires two ancestors. Arrested Development supplies the recursion. Woo and Tarantino supply the standoff tableau that keeps adding barrels. A single-source answer to a two-part machine is incomplete.</p></div>
+    <div class="step"><div class="id">W5 · GRADE EVERYTHING</div><h4>Assign a level from §2 and freeze it</h4><p>Four questions in order. Did a maker state this borrowing, is the practice documented without the instance, do the beats match, or is this common stock. Freeze the level at first assignment.</p></div>
+    <div class="step"><div class="id">W6 · DEAD LINKS</div><h4>Grade the vanished source honestly</h4><p>A preserved forum discussion quoting a deleted post is testimony about what was said. It survives as historical evidence and it cannot be inspected. Say which of those two things you are holding.</p></div>
+    <div class="step"><div class="id">W7 · THE CUSTODIAN</div><h4>Find the character who holds the archive</h4><p>Serialized comedies that mine TV history appoint somebody to carry it. Troy telling us Abed knows every sitcom that did the broken-heirloom bit is the show handing over its own footnote. Exhibit 2 says this is deliberate design.</p></div>
+    <div class="step"><div class="id">W8 · REDISTRIBUTION</div><h4>Expect traits to split, never to map one to one</h4><p>Exhibit 6 settles this. The creator called his characters amalgams, so a source character's functions scatter across several destination seats. See §4 for the eight ways a function moves.</p></div>
+    <div class="step w9"><div class="id">W9 · THE RESTORED CUT</div><h4>Hunt the censored and uncensored pair</h4><p>When an earlier show was forced to soften something, a later show often recovers it. The recovery is a fingerprint, because the later writers are answering the earlier compromise rather than copying the earlier scene.</p></div>
+    <div class="step w10"><div class="id">W10 · LOUD AND QUIET</div><h4>Treat the stated reference as possible cover</h4><p>A show that cites one series out loud has bought credibility for the citation it keeps silent. Check whether the loud reference stands beside a quiet structural borrowing.</p></div>
+    <div class="step"><div class="id">W11 · THE ABSENT CASE</div><h4>Find the show where the device cannot exist</h4><p>A trope claim gets sharper when you can point at a series whose house rules forbid it. The exclusion tells you what the device actually requires. See §16.</p></div>
+    <div class="step w9"><div class="id">W12 · THE PROCESS CHECK</div><h4>Ask whether the maker checked precedent on purpose</h4><p>Exhibit 1. Precedent-checking was a working habit here, which raises the prior on every rare structural correspondence found afterwards. This step is why the page exists in its current shape.</p></div>
+  </div>
+
+  <div class="fails">
+    <h4>Four ways this method goes wrong</h4>
+    <dl>
+      <dt>F1 · LEVEL DRIFT</dt>
+      <dd>A D3 becomes a D1 across three retellings, because "the beats match" quietly turns into "they said they did it." Freeze the level at first assignment and re-derive it before repeating the claim.</dd>
+      <dt>F2 · DEAD-LINK LAUNDERING</dt>
+      <dd>A screenshot of a deleted post gets cited as the post. The Harmon tweet claim in §17 has exactly this shape, and it did not survive.</dd>
+      <dt>F3 · SINGLE-INHERITOR ERROR</dt>
+      <dd>Testing whether Shirley is Lisa, deciding she is not, and dropping the whole Bayside line. Exhibit 6 rules this out in advance. Test the ensemble rather than the seat.</dd>
+      <dt>F4 · TROPE INFLATION</dt>
+      <dd>Calling stock furniture an homage. Two shows staging a fake death does not make a lineage. Two shows staging a fake death whose reveal instructs the stager does.</dd>
+    </dl>
+  </div>
+
+  <span class="mine-lbl">Your notes on the protocol</span>
+  <div class="mine" contenteditable="true" data-k="protocol"></div>
+</section>
+
+<!-- ================= §4 TRANSFORMATIONS ================= -->
+<section id="ops">
+  <div class="sec-head"><span class="num">§4</span><h2>The Transformation Set</h2></div>
+  <p class="sec-sub">Eight operations by which an inherited function changes shape on the way into a later show.</p>
+  <p class="lede">W8 says traits scatter. This section says how. Giving each movement its own designation stops the comparisons collapsing into a general claim that everything influences everything, and it makes two competing readings of the same borrowing distinguishable. Harmon supplied a live example of the mechanism when he described a teenage Woody Harrelson in mind for Troy, totally subverted by Donald Glover being a star.</p>
+
+  <div class="ops">
+    <div class="op hot"><div class="oid">OP1 · FISSION</div><h4>One ancestor becomes several inheritors</h4><p>A single source character splits, and each fragment goes to a different seat in the later ensemble. The split usually follows a seam that exists in the original.</p><div class="ex2"><b>Zack Morris</b> splits into Jeff's social power and Abed's proximity to the apparatus</div></div>
+    <div class="op hot"><div class="oid">OP2 · FUSION</div><h4>One inheritor absorbs several ancestors</h4><p>A later character is assembled from two or three earlier types, so no single antecedent explains the whole person. Exhibit 6 documents this as house practice.</p><div class="ex2"><b>Annie</b> takes Tracy Flick, a high-school crush, Jessie's stimulant biography, and a dosing behaviour</div></div>
+    <div class="op new"><div class="oid">OP3 · RESTORATION</div><h4>The later show recovers what censorship removed</h4><p>An earlier compromise gets undone. The evidence strengthens because the later version matches the original intention rather than the broadcast result.</p><div class="ex2"><b>Jessie's speed</b> became caffeine under Standards. Annie's is Adderall, with a breakdown and treatment</div></div>
+    <div class="op"><div class="oid">OP4 · ESCALATION</div><h4>The mechanism repeats until it becomes absurd</h4><p>The inherited device runs more times than the original ran it, so the count itself becomes the joke rather than any single instance.</p><div class="ex2"><b>Two Bluth layers</b> become four Greendale layers plus an unassigned fifth</div></div>
+    <div class="op"><div class="oid">OP5 · INVERSION</div><h4>The form runs with its defining rule reversed</h4><p>A recognisable television shape gets executed while the constraint that ordinarily defines it breaks on purpose.</p><div class="ex2"><b>A clip show</b> built entirely of clips nobody ever saw</div></div>
+    <div class="op hot"><div class="oid">OP6 · INTERNALIZATION</div><h4>Knowledge held by the audience moves inside the fiction</h4><p>Awareness of convention, previously the viewer's privilege, becomes a character's stated ability. Exhibit 2 describes this as the reason Abed exists.</p><div class="ex2"><b>Abed</b> holding the sitcom archive the writers' room actually holds</div></div>
+    <div class="op"><div class="oid">OP7 · REDISTRIBUTION</div><h4>A relationship function moves to a different pairing</h4><p>The behaviour survives and the participants change. Searching for it on the original seat finds nothing.</p><div class="ex2"><b>Romantic obliviousness</b> moves off the lead and onto Troy and Annie</div></div>
+    <div class="op new"><div class="oid">OP8 · PRODUCTION ARTIFACT</div><h4>A scheduling accident becomes a character trait</h4><p>Episodic television creates discontinuity through guest casting, episode order, and budget. A later show hands that discontinuity to a character deliberately. Exhibits 7 and 8 document both halves. See §9.</p><div class="ex2"><b>The disposable romantic guest star</b>, given to the one character equipped to diagnose it</div></div>
+  </div>
+
+  <span class="mine-lbl">Your notes on the transformations</span>
+  <div class="mine" contenteditable="true" data-k="ops"></div>
+</section>
+
+<!-- ================= §5 RUBRIC ================= -->
+<section id="rubric">
+  <div class="sec-head"><span class="num">§5</span><h2>The Scoring Rubric</h2></div>
+  <p class="sec-sub">Seven axes, scored 0 to 3, so a strong connection and an outrageous reach travel under the same rules.</p>
+  <p class="lede">A shared school dance carries almost nothing, because hundreds of sitcoms use school dances. An academically compulsive young woman using stimulants to hold impossible performance together carries a great deal. The rubric makes that difference numeric rather than felt.</p>
+
+  <div class="tbl-wrap" style="margin-bottom:22px">
+    <table>
+      <thead><tr><th>Axis</th><th>Question</th><th>Scores 0</th><th>Scores 3</th></tr></thead>
+      <tbody>
+        <tr><td data-l="Axis"><b>Specificity</b></td><td data-l="Q">How many independent details must align for this to be coincidence</td><td data-l="0">One broad situation</td><td data-l="3">A chain of four or more particulars in sequence</td></tr>
+        <tr><td data-l="Axis"><b>Rarity</b></td><td data-l="Q">How often does this device appear elsewhere</td><td data-l="0">Stock furniture, in every third sitcom</td><td data-l="3">Fewer than five known instances in the whole medium</td></tr>
+        <tr><td data-l="Axis"><b>Transformation</b></td><td data-l="Q">Does an operation from §4 explain the difference</td><td data-l="0">No stated operation, only resemblance</td><td data-l="3">A clean operation that explains other differences too</td></tr>
+        <tr><td data-l="Axis"><b>Character correspondence</b></td><td data-l="Q">Does the function arrive at the seat the model called</td><td data-l="0">Arbitrary seat, chosen after the fact</td><td data-l="3">The seat the model called, plus a second function arriving there too</td></tr>
+        <tr><td data-l="Axis"><b>Chronology</b></td><td data-l="Q">Was the source available before the later work was written</td><td data-l="0">Source postdates the later work</td><td data-l="3">Source widely circulated for years beforehand</td></tr>
+        <tr><td data-l="Axis"><b>Creator access</b></td><td data-l="Q">Is there reason to think the maker encountered it</td><td data-l="0">Obscure, no plausible route</td><td data-l="3">Cited by the maker as an influence, or unavoidable in their era</td></tr>
+        <tr><td data-l="Axis"><b>Authorial evidence</b></td><td data-l="Q">Did anybody involved say anything</td><td data-l="0">Silence, or an unverifiable claim</td><td data-l="3">Direct on-record statement about this specific borrowing</td></tr>
+      </tbody>
+    </table>
+  </div>
+
+  <h3 class="sub">Four worked examples</h3>
+  <div class="tbl-wrap">
+    <table>
+      <thead><tr><th>Proposed connection</th><th>Spec</th><th>Rare</th><th>Trans</th><th>Char</th><th>Chron</th><th>Access</th><th>Auth</th><th>Total</th><th>Level</th></tr></thead>
+      <tbody>
+        <tr><td data-l="Claim"><b>Tracy Flick → Annie</b><br><span style="font-size:12.5px;color:var(--ink-3)">Election, 1999</span></td><td data-l="Spec">2</td><td data-l="Rare">2</td><td data-l="Trans">2</td><td data-l="Char">3</td><td data-l="Chron">3</td><td data-l="Access">3</td><td data-l="Auth">3</td><td data-l="Total"><b>18/21</b></td><td data-l="Level"><span class="badge b-d1">D1</span></td></tr>
+        <tr><td data-l="Claim"><b>Jessie's pills → Annie's Adderall</b><br><span style="font-size:12.5px;color:var(--ink-3)">Restoration, OP3</span></td><td data-l="Spec">3</td><td data-l="Rare">3</td><td data-l="Trans">3</td><td data-l="Char">3</td><td data-l="Chron">3</td><td data-l="Access">2</td><td data-l="Auth">0</td><td data-l="Total"><b>17/21</b></td><td data-l="Level"><span class="badge b-d3">D3</span></td></tr>
+        <tr><td data-l="Claim"><b>Making a Stand → Conspiracy Theories</b><br><span style="font-size:12.5px;color:var(--ink-3)">Escalation, OP4</span></td><td data-l="Spec">3</td><td data-l="Rare">3</td><td data-l="Trans">3</td><td data-l="Char">2</td><td data-l="Chron">3</td><td data-l="Access">3</td><td data-l="Auth">0</td><td data-l="Total"><b>17/21</b></td><td data-l="Level"><span class="badge b-d3">D3</span></td></tr>
+        <tr><td data-l="Claim"><b>Spiked tea → Cooperative Polygraphy</b><br><span style="font-size:12.5px;color:var(--ink-3)">Beatles anecdote, see §15</span></td><td data-l="Spec">3</td><td data-l="Rare">3</td><td data-l="Trans">2</td><td data-l="Char">3</td><td data-l="Chron">0</td><td data-l="Access">0</td><td data-l="Auth">0</td><td data-l="Total"><b>11/21</b></td><td data-l="Level"><span class="badge b-d5">D5</span></td></tr>
+      </tbody>
+    </table>
+  </div>
+  <p style="margin-top:16px">The fourth row is the instructive one. Specificity and rarity both score maximum, because secretly dosing your collaborators with stimulants so they will keep working is not a genre convention. Chronology and access both score zero, and the total collapses. A rubric that lets a connection be remarkable and unsupported at once is doing its job.</p>
+
+  <span class="mine-lbl">Your notes on the rubric</span>
+  <div class="mine" contenteditable="true" data-k="rubric"></div>
+</section>
+
+<!-- ================= §6 CASE A ================= -->
+<section id="caseA">
+  <div class="sec-head"><span class="num">§6</span><h2>Case A · The Weatherman Spine</h2></div>
+  <p class="sec-sub">Arrested Development to Greendale. Graded D3, and the strongest unproven correspondence on the page.</p>
+  <p class="lede">The Community sequence was rebuilt from the episode text held locally at <span class="mono">community-s2-build/transcripts/s02e09.txt</span>, then cross-checked against published recaps. The local source is dialogue only with no speaker tags, so every attribution comes from the recap layer rather than from the raw lines.</p>
+
+  <div class="spine">
+    <div class="node a">
+      <div class="node-head"><h3>Pier Pressure</h3><span class="yr mono">ARRESTED DEVELOPMENT · S1E10 · 2004</span></div>
+      <div class="node-body">
+        <ul class="beats">
+          <li>Michael builds a counterfeit drug bust to frighten George Michael into good behaviour.</li>
+          <li>The staging appears to turn real, and a dealer is apparently shot.</li>
+          <li class="meta">The wounded dealer is J. Walter Weatherman, the one-armed man George Sr. has hired for years to stage catastrophes as instruction.</li>
+          <li class="meta"><b>Weatherman:</b> "And that's why you don't teach lessons to your son."</li>
+        </ul>
+      </div>
+      <div class="node-foot"><span class="layers">2 layers</span> · The invention. A staged harm whose reveal turns the moral back onto the person who staged it.</div>
+    </div>
+
+    <div class="node b">
+      <div class="node-head"><h3>Making a Stand</h3><span class="yr mono">ARRESTED DEVELOPMENT · S3E8 · 2006</span></div>
+      <div class="node-body">
+        <ul class="beats">
+          <li>Michael and GOB set out to instruct their father with a scheme of their own.</li>
+          <li>George Sr. plants Weatherman inside their scheme, to instruct them about instructing him.</li>
+          <li>Police break in and Buster's hand is apparently shot off.</li>
+          <li class="meta">Buster had been wearing a false prosthetic the whole time, and his own counter-lesson concerns using amputees to frighten people.</li>
+        </ul>
+      </div>
+      <div class="node-foot"><span class="layers">3+ layers, with counter-staging</span> · The upgrade. Victims begin staging back, which is the exact property Community inherits.</div>
+    </div>
+
+    <div class="node c">
+      <div class="node-head"><h3>Conspiracy Theories and Interior Design</h3><span class="yr mono">COMMUNITY · S2E9 · 18 NOV 2010</span></div>
+      <div class="node-body">
+        <ul class="beats">
+          <li><b>Annie:</b> "We staged this to get back at you." She has shot Professor Garrity, the counterfeit professor, with a prop gun.</li>
+          <li>Jeff shoots the Dean, who had shot Annie.</li>
+          <li class="meta">Reveal one. Annie and the Dean were partnered from the start, staging it to illustrate the slippery slope of academic fraud after Jeff faked a class.</li>
+          <li class="meta">Reveal two. Jeff worked out the Dean was too stupid to have orchestrated it alone, phoned him, and the two counter-staged to instruct Annie about friendship.</li>
+          <li>Annie produces a gun nobody accounted for, since there had been only three props, and shoots Jeff and then the Dean. The Dean's offence is conspiring with whoever suggests it.</li>
+          <li>Garrity says he will return the props to the Theater Department, and police enter.</li>
+          <li class="meta">Reveal three. Officer Cackowski shoots Garrity, and the two staged that one to demonstrate the danger of misusing prop guns. <b>Garrity:</b> "And scene."</li>
+          <li class="meta">Tag. The officer and Garrity turn out to have breakfast plans, a Thanksgiving, and somebody's father between them.</li>
+          <li class="meta">Jeff's closer states the device. He is unsure what lessons anybody taught, and he is proud of Annie for going off-script.</li>
+        </ul>
+      </div>
+      <div class="node-foot"><span class="layers">4 staged levels + 1 counter-stager + 1 domestic tag</span> · The escalation. Every reveal cancels the previous apparent reality. <span class="badge b-d3">D3</span></div>
+    </div>
+  </div>
+
+  <h3 class="sub">What the third episode adds</h3>
+  <p>Arrested Development finishes its chains with a moral spoken to camera by a hired amputee. Community finishes its chain with two stagers who are related to each other. That is the same thesis the Bluths run on, restated as a joke about family, which holds that lesson-teaching is hereditary and nobody in the chain is qualified.</p>
+  <p>The other addition is the counter-stager who was never assigned. Annie produces a fourth gun, goes off-script, and shoots the people who wrote the script. Buster's false hand did the identical job four years earlier. Community flags the improvisation in dialogue rather than leaving it for the audience, which is W0 behaviour and Exhibit 2 in action.</p>
+  <p><b>Why this stays at D3.</b> Seventeen on the rubric, with authorial evidence at zero. Nobody involved has stated the borrowing. Exhibit 1 raises the prior considerably, since a writer who checked prior executions had a high chance of finding the most famous recursive lesson gag in modern comedy. Raising the prior is not the same as producing a statement, and the level stays where it was first assigned.</p>
+
+  <span class="mine-lbl">Your notes on Case A</span>
+  <div class="mine" contenteditable="true" data-k="caseA"></div>
+</section>
+
+<!-- ================= §7 CASE B ================= -->
+<section id="caseB">
+  <div class="sec-head"><span class="num">§7</span><h2>Case B · Bayside</h2></div>
+  <p class="sec-sub">Fission and restoration, running on Exhibit 6's licence to stop looking for single inheritors.</p>
+
+  <h4 class="subsub">The Zack fission</h4>
+  <p>Zack holds two functions with nothing to do with each other, and Community gives them to two different people. Harmon's documented migration from Jeff to Abed, Exhibit 3, sits underneath the split as support for the arrangement, without documenting the Bayside source itself.</p>
+  <div class="rtbl">
+    <table>
+      <thead><tr><th>Function</th><th>Source</th><th></th><th>Destination</th><th>Note</th><th>Op</th><th>Level</th></tr></thead>
+      <tbody>
+        <tr><td data-l="Function">Charm-based scheming, talks his way out of consequences</td><td class="src" data-l="Source">Zack Morris</td><td class="arrow">→</td><td class="dst" data-l="Dest">Jeff Winger</td><td data-l="Note">Both are the handsome engine whose plan collapses into a moral speech</td><td data-l="Op">OP1</td><td><span class="badge b-d3">D3</span></td></tr>
+        <tr><td data-l="Function">Privileged relationship with the television apparatus</td><td class="src" data-l="Source">Zack Morris</td><td class="arrow">→</td><td class="dst" data-l="Dest">Abed Nadir</td><td data-l="Note">The magic becomes scholarship. Zack stops time, and Abed identifies the form instead. The privilege carries over into scholarship</td><td data-l="Op">OP1 OP6</td><td><span class="badge b-d3">D3</span></td></tr>
+        <tr><td data-l="Function">Achievement pressure, stimulants, breakdown, treatment</td><td class="src" data-l="Source">Jessie Spano</td><td class="arrow">→</td><td class="dst" data-l="Dest">Annie Edison</td><td data-l="Note">Written as speed, softened to caffeine by NBC Standards. Annie's version recovers the original intention rather than the broadcast result</td><td data-l="Op">OP2 OP3</td><td><span class="badge b-d3">D3</span></td></tr>
+        <tr><td data-l="Function">Activism, lecturing the group, moral fervour</td><td class="src" data-l="Source">Jessie Spano</td><td class="arrow">→</td><td class="dst" data-l="Dest">Britta Perry</td><td data-l="Note">The other half of the same character. Harmon has said Britta started as a generic type and evolved, which leaves room for the function to arrive</td><td data-l="Op">OP1</td><td><span class="badge b-d4">D4</span></td></tr>
+        <tr><td data-l="Function">Athlete, celebrated high-school player</td><td class="src" data-l="Source">A.C. Slater</td><td class="arrow">→</td><td class="dst" data-l="Dest">Troy Barnes</td><td data-l="Note">Harmon had a teenage Woody Harrelson in mind, totally subverted by Glover. The template gets established and then dismantled, which is OP7 caught in the act</td><td data-l="Op">OP7</td><td><span class="badge b-d4">D4</span></td></tr>
+        <tr><td data-l="Function">Administrator whose involvement exceeds the job</td><td class="src" data-l="Source">Mr. Belding</td><td class="arrow">→</td><td class="dst" data-l="Dest">Dean Pelton</td><td data-l="Note">Role echo. The institutional slot carries the correspondence, and the characterisations diverge substantially</td><td data-l="Op">OP3</td><td><span class="badge b-d5">D5</span></td></tr>
+        <tr><td data-l="Function">Social hub, fashion, gossip currency</td><td class="src" data-l="Source">Lisa Turtle</td><td class="arrow">→</td><td class="dst" data-l="Dest">Shirley Bennett</td><td data-l="Note">Ensemble position rather than personality. The gossip-partner beat with Jeff in Social Psychology is the tell</td><td data-l="Op">OP7</td><td><span class="badge b-d5">D5</span></td></tr>
+        <tr><td data-l="Function">Obliviousness to a friend's romantic interest</td><td class="src" data-l="Source">Zack and Lisa</td><td class="arrow">→</td><td class="dst" data-l="Dest">Troy and Annie</td><td data-l="Note">The function moves off the lead entirely. Searching for it on Jeff finds nothing</td><td data-l="Op">OP7</td><td><span class="badge b-d5">D5</span></td></tr>
+        <tr><td data-l="Function">The catchphrase weirdo, unrequited and tolerated</td><td class="src" data-l="Source">Screech Powers</td><td class="arrow">→</td><td class="dst" data-l="Dest">declined</td><td data-l="Note">Community refuses this seat and scatters the discomfort across Chang, Leonard, and Garrett</td><td data-l="Op">OP1</td><td><span class="badge b-d5">D5</span></td></tr>
+        <tr><td data-l="Function">The single set everything returns to</td><td class="src" data-l="Source">The Max</td><td class="arrow">→</td><td class="dst" data-l="Dest">the study room</td><td data-l="Note">Inherited from the whole teen-sitcom form rather than from one show</td><td data-l="Op">OP7</td><td><span class="badge b-d0">D0</span></td></tr>
+      </tbody>
+    </table>
+  </div>
+
+  <h4 class="subsub">The Annie fusion</h4>
+  <p>Three separate antecedents converge on one character, and no single one explains her. Exhibit 6 supplies the licence, since Harmon called Annie a Tracy Flick ripoff and added a high-school crush in the same breath. This is OP2 demonstrated on a case where the documented source and the strongest structural source are different sources.</p>
+  <div class="rtbl">
+    <table>
+      <thead><tr><th>Ancestor</th><th>What Annie receives</th><th>Op</th><th>Evidence</th><th>Level</th></tr></thead>
+      <tbody>
+        <tr><td class="src" data-l="From"><b>Tracy Flick</b><br><span style="font-size:12px;color:var(--ink-3)">Election, 1999</span></td><td data-l="Gets">The compulsive high-achiever chassis, the raised hand, the terrifying competence</td><td data-l="Op">OP2</td><td data-l="Ev">Harmon called her a Tracy Flick ripoff on paper, then said Alison Brie and the writers evolved her past it by roughly episode six</td><td><span class="badge b-d1">D1</span></td></tr>
+        <tr><td class="src" data-l="From"><b>Jessie Spano</b><br><span style="font-size:12px;color:var(--ink-3)">Saved by the Bell, 1990</span></td><td data-l="Gets">Achievement pressure metabolised into stimulant abuse, then breakdown, then treatment</td><td data-l="Op">OP2 OP3</td><td data-l="Ev">Peter Engel has said it was written as speed before NBC Standards forced caffeine pills. Annie restores the intention</td><td><span class="badge b-d3">D3</span></td></tr>
+        <tr><td class="src" data-l="From"><b>The spiked-tea anecdote</b><br><span style="font-size:12px;color:var(--ink-3)">Sgt. Pepper sessions</span></td><td data-l="Gets">Secretly dosing collaborators so a work session cannot end</td><td data-l="Op">OP2</td><td data-l="Ev">Behaviourally near-identical, chronologically unsupported. Scored 11/21 and discussed in full at Reach 11</td><td><span class="badge b-d5">D5</span></td></tr>
+      </tbody>
+    </table>
+  </div>
+  <p><b>The clustering rule fires here.</b> Two independent antecedents converge on the same narrow trait in the same character, which is worth considerably more than either would be alone. Neither one requires the other to be true.</p>
+
+  <span class="mine-lbl">Your notes on Case B</span>
+  <div class="mine" contenteditable="true" data-k="caseB"></div>
+</section>
+
+<!-- ================= §8 CASE C ================= -->
+<section id="caseC">
+  <div class="sec-head"><span class="num">§8</span><h2>Case C · Abed's Fourth-Wall Bloodline</h2></div>
+  <p class="sec-sub">The archive-holder is older than Bayside by three decades, and Abed is where the privilege turns scholarly.</p>
+  <p class="lede">Searching only for Zack Morris misses the line this character belongs to. Direct address, scene control, and explicit awareness of the medium have passed between television protagonists since 1959, and each generation holds the privilege differently.</p>
+
+  <div class="tbl-wrap">
+    <table>
+      <thead><tr><th>Ancestor</th><th>Yr</th><th>What the character holds</th><th>How the privilege works</th><th>Level</th></tr></thead>
+      <tbody>
+        <tr><td class="show" data-l="Who"><b>Dobie Gillis</b></td><td data-l="Yr">1959</td><td data-l="Holds">The camera as a conversational partner</td><td data-l="How">Turns to the viewer and explains the week's problem. Early teen-television precedent for a protagonist who treats the audience as present</td><td><span class="badge b-d4">D4</span></td></tr>
+        <tr><td class="show" data-l="Who"><b>Garry Shandling</b></td><td data-l="Yr">1986</td><td data-l="Holds">Literal knowledge of being inside a sitcom</td><td data-l="How">The set, the studio audience, and the supporting cast all participate in that knowledge. Harmon has credited Shandling for making the frame part of the work</td><td><span class="badge b-d2">D2</span></td></tr>
+        <tr><td class="show" data-l="Who"><b>Zack Morris</b></td><td data-l="Yr">1989</td><td data-l="Holds">Physical control over scene time</td><td data-l="How">Calls a time out, everybody freezes, he rearranges the situation and addresses the viewer. The strongest version of the privilege as magic</td><td><span class="badge b-d3">D3</span></td></tr>
+        <tr><td class="show" data-l="Who"><b>Malcolm</b></td><td data-l="Yr">2000</td><td data-l="Holds">Direct address as the texture of adolescence</td><td data-l="How">The camera becomes a confidant rather than a control device, and the privilege carries no power over the scene</td><td><span class="badge b-d4">D4</span></td></tr>
+        <tr><td class="show" data-l="Who"><b>Abed Nadir</b></td><td data-l="Yr">2009</td><td data-l="Holds">An encyclopedic model of convention</td><td data-l="How">He holds no time control and no literal knowledge of cameras, and he recognises when reality begins behaving according to television rules. That is OP6 internalization</td><td><span class="badge b-d1">D1</span></td></tr>
+      </tbody>
+    </table>
+  </div>
+
+  <h3 class="sub">The change Abed represents</h3>
+  <p>Zack's privilege is supernatural and Garry's is literal. Abed's is scholarly, which is why he can be wrong. He predicts a form, and Greendale sometimes refuses to supply it, so the show gets to argue with its own archivist. That argument is unavailable to a character who can stop time or who knows a camera crew is present.</p>
+  <p>The Batman DVD scene states the arrangement outright. <b>Troy:</b> the question is how many sitcoms have done the secretly-replacing-a-broken-item bit, and the answer is that Abed knows. A character inside the fiction holds the reference library the writers' room holds outside it, which is the whole of OP6 in two lines of dialogue, and Exhibit 2 says the design is deliberate.</p>
+
+  <span class="mine-lbl">Your notes on Case C</span>
+  <div class="mine" contenteditable="true" data-k="caseC"></div>
+</section>
+
+<!-- ================= §9 CASE D ================= -->
+<section id="caseD">
+  <div class="sec-head"><span class="num">§9</span><h2>Case D · Production Artifact as Characterization</h2></div>
+  <p class="sec-sub">OP8, and the one case study with primary-source support on both halves of the mechanism.</p>
+  <p class="lede">Episodic television produces discontinuity for reasons that have nothing to do with story. Guest actors have other jobs, episode orders change, budgets move, and a perfect romantic partner introduced one week is unavailable the next. Viewers then read the resulting gap as character behaviour, which is how a scheduling accident becomes a moral biography.</p>
+  <p><b>Both halves are documented.</b> Exhibit 7 has Harmon disliking the request that viewers invest in somebody the audience recognises as a visitor. Exhibit 8 has him calling multi-episode arcs with busy actors non-random plans in a random vortex. He was thinking about the seam from inside the production as the seam was being created.</p>
+  <p>Saved by the Bell is the standard demonstration of the reading. Dashiell Driscoll's Funny or Die series Zack Morris Is Trash mines the show's disposable romantic guest stars as evidence against Zack, treating women the production simply stopped writing as women Zack personally discarded. His later rewatch podcast with Mark-Paul Gosselaar is a separate project, and the two should stay distinct in any citation.</p>
+  <p>Community hands the identical artifact to the one character equipped to diagnose it.</p>
+
+  <div class="tbl-wrap">
+    <table>
+      <thead><tr><th>Partner</th><th>Episode</th><th>How the compatibility is constructed</th><th>Continuity</th></tr></thead>
+      <tbody>
+        <tr><td class="show" data-l="Who"><b>Jenny Adams</b></td><td class="ep" data-l="Ep">Physical Education</td><td data-l="How">Abed demonstrates absurdly effective romantic charisma by performing Don Draper and then Jeff, so the seduction is explicitly a template rather than a self</td><td data-l="Cont">Ended by her boyfriend, within the episode</td></tr>
+        <tr><td class="show" data-l="Who"><b>The billiards-class woman</b></td><td class="ep" data-l="Ep">Physical Education</td><td data-l="How">Asks to meet Abed in the closing beat, producing a second disposable possibility inside the same twenty-two minutes</td><td data-l="Cont">Never appears again</td></tr>
+        <tr><td class="show" data-l="Who"><b>Robin Vohlers</b></td><td class="ep" data-l="Ep">Intro to Political Science</td><td data-l="How">Secret Service rather than FBI. Observant, literal, emotionally restrained, and comfortable conducting intimacy through surveillance equipment. Engineered as an Abed counterpart</td><td data-l="Cont">One appearance</td></tr>
+        <tr><td class="show" data-l="Who"><b>Carol</b></td><td class="ep" data-l="Ep">Analysis of Cork Based Networking</td><td data-l="How">Immediate communication and investment, then collapse for plot reasons, since Britta hired her to spoil Abed's television experience</td><td data-l="Cont">One appearance</td></tr>
+        <tr><td class="show" data-l="Who"><b>Rachel</b></td><td class="ep" data-l="Ep">Herstory of Dance</td><td data-l="How">Meets him inside a romantic-plotting episode, shares his interest in television and film</td><td data-l="Cont"><b>The exception.</b> Returns in season five, established as having dated Abed for a month</td></tr>
+      </tbody>
+    </table>
+  </div>
+
+  <p style="margin-top:18px">Rachel matters most, because she shows what the pattern looks like when the show declines to let production logic erase a relationship. Crossing an episode boundary is the whole difference, and the exception makes the rule visible.</p>
+  <p><b>Why Abed rather than anybody else.</b> He inherits the symptom and he is also the character capable of diagnosing the disease. His partners keep resembling perfect episode premises, and his established function tells us episode premises routinely rule Greendale reality. Zack Morris Is Trash had to be made by an outside critic decades later. Community builds the critic into the ensemble.</p>
+  <p><b>Two more places to run OP8.</b> Chang's employment history changes so completely between seasons that his biography becomes a record of casting availability. Pierce's late-season absence gets written into the fiction as estrangement, which converts a real-world departure into a character's choice.</p>
+
+  <span class="mine-lbl">Your notes on Case D</span>
+  <div class="mine" contenteditable="true" data-k="caseD"></div>
+</section>
+
+<!-- ================= §10 CASE E ================= -->
+<section id="caseE">
+  <div class="sec-head"><span class="num">§10</span><h2>Case E · The Workplace Ensembles</h2></div>
+  <p class="sec-sub">NewsRadio, Cheers, Taxi, and the Bluths. Where documented influence and undocumented borrowing separate cleanly.</p>
+  <p class="lede">Harmon has cited Cheers and Taxi as emotional models, The Office and 30 Rock as calibration for contemporary NBC timing, The Simpsons for joke speed and for expanding a world outward, and Arrested Development among the comedies he watched heavily before writing television. Those shows score maximum on creator access before any structural evidence arrives, which puts them squarely at D2.</p>
+
+  <div class="rtbl">
+    <table>
+      <thead><tr><th>Element</th><th>Source</th><th></th><th>Destination</th><th>Note</th><th>Level</th></tr></thead>
+      <tbody>
+        <tr><td data-l="Element">Genre pastiche that abandons the premise</td><td class="src" data-l="Source">NewsRadio: Space, Sinking Ship</td><td class="arrow">→</td><td class="dst" data-l="Dest">Modern Warfare, Contemporary American Poultry</td><td data-l="Note">NewsRadio ran the format episode as a network-facing gesture. Community made it house style</td><td><span class="badge b-d3">D3</span></td></tr>
+        <tr><td data-l="Element">The episode that is also a message to the network</td><td class="src" data-l="Source">NewsRadio: Sinking Ship</td><td class="arrow">→</td><td class="dst" data-l="Dest">six seasons and a movie</td><td data-l="Note">A cancellation-bubble show staging its own commentary inside the fiction</td><td><span class="badge b-d3">D3</span></td></tr>
+        <tr><td data-l="Element">Oblivious lead missing a colleague's interest</td><td class="src" data-l="Source">NewsRadio: Joe and Catherine</td><td class="arrow">→</td><td class="dst" data-l="Dest">Troy and Annie</td><td data-l="Note">A third party has to state it out loud in both shows before the lead understands</td><td><span class="badge b-d5">D5</span></td></tr>
+        <tr><td data-l="Element">Wealthy man-child proprietor</td><td class="src" data-l="Source">NewsRadio: Jimmy James</td><td class="arrow">→</td><td class="dst" data-l="Dest">Pierce and the Dean</td><td data-l="Note">Split across two seats. Harmon has said Pierce was loosely based on the father of an ex, so the seat has a documented rival source</td><td><span class="badge b-d5">D5</span></td></tr>
+        <tr><td data-l="Element">Socially dominant male, charm, former status</td><td class="src" data-l="Source">Cheers: Sam Malone</td><td class="arrow">→</td><td class="dst" data-l="Dest">Jeff Winger</td><td data-l="Note">Documented influence, undocumented borrowing. Pursue episode by episode before raising it</td><td><span class="badge b-d2">D2</span></td></tr>
+        <tr><td data-l="Element">One shared gathering place holding an ensemble together</td><td class="src" data-l="Source">Cheers: the bar</td><td class="arrow">→</td><td class="dst" data-l="Dest">the study room</td><td data-l="Note">Community relocates the durable social centre inside an institution built on temporary enrolment, which is the inversion</td><td><span class="badge b-d2">D2</span></td></tr>
+        <tr><td data-l="Element">Temporary place that becomes permanent family</td><td class="src" data-l="Source">Taxi: the garage</td><td class="arrow">→</td><td class="dst" data-l="Dest">Greendale</td><td data-l="Note">Harmon stated the intended arc, that Jeff chooses Greendale over the old life at the end of season three</td><td><span class="badge b-d2">D2</span></td></tr>
+        <tr><td data-l="Element">Recursive memory, callbacks, schemes colliding with schemes</td><td class="src" data-l="Source">Arrested Development</td><td class="arrow">→</td><td class="dst" data-l="Dest">Community's callback engine</td><td data-l="Note">Documented as heavy viewing. Community adds a character who can discuss the workings producing the memory</td><td><span class="badge b-d2">D2</span></td></tr>
+        <tr><td data-l="Element">Reluctant organising centre of a dysfunctional group</td><td class="src" data-l="Source">AD: Michael Bluth</td><td class="arrow">→</td><td class="dst" data-l="Dest">Jeff Winger</td><td data-l="Note">Interpretive reach. Pursue repeated behavioural sequences before raising confidence</td><td><span class="badge b-d5">D5</span></td></tr>
+        <tr><td data-l="Element">Vanity and desperate investment in appearing superior</td><td class="src" data-l="Source">AD: GOB</td><td class="arrow">→</td><td class="dst" data-l="Dest">Jeff Winger</td><td data-l="Note">The second half of a Jeff fusion, arriving from the same show as the first half</td><td><span class="badge b-d5">D5</span></td></tr>
+      </tbody>
+    </table>
+  </div>
+
+  <p><b>The Moonlighting case belongs here too, at a higher level.</b> Harmon reportedly discussed Moonlighting explicitly when explaining how he handled Jeff and Britta, saying he had watched that show's management of romantic tension fail and concluded television could not simply repeat the trick. That is a specific earlier television example directly shaping a later execution, which is the cleanest possible shape for this method. It carries the amber caveat, since the Vulture source could not be re-fetched during this session.</p>
+
+  <span class="mine-lbl">Your notes on Case E</span>
+  <div class="mine" contenteditable="true" data-k="caseE"></div>
+</section>
+
+
+<!-- ================= §11 CASE F ================= -->
+<section id="caseF">
+  <div class="sec-head"><span class="num">§11</span><h2>Case F · The Declined Antecedent</h2></div>
+  <p class="sec-sub">The episode that names its own inherited plot, refuses to perform it, and performs a second inherited plot in its place.</p>
+  <p class="lede">Troy interrupts Annie in the middle of a sitcom convention and identifies the convention out loud. <b>"Do you know how many sitcoms have tried the secretly replace an item thing? Abed does."</b> The line reads as a joke about Abed's memory. The line also works as a production note, because the study group abandons one inherited plot on the grounds that the resident archivist would recognise it, and then executes a second inherited plot that is six years younger and considerably more devious.</p>
+
+  <div class="spine">
+    <div class="node a">
+      <div class="node-head"><h3>The Curse of the Petrie People</h3><span class="yr mono">THE DICK VAN DYKE SHOW · S5E18 · 1966</span></div>
+      <div class="node-body">
+        <ul class="beats">
+          <li>Rob's parents present Laura with a Petrie family heirloom, a large gold brooch shaped like the United States, carrying one jewel for every city where a male Petrie was born.</li>
+          <li>Laura destroys the brooch in the kitchen garbage disposal.</li>
+          <li>She collects the remains, carries them to a jeweller, and tries to reconstruct the design from memory before the family learns anything.</li>
+          <li class="meta">Secret replacement performed straight, with no irony and no commentary, forty-five years before Annie faces the same problem.</li>
+        </ul>
+      </div>
+      <div class="node-foot"><span class="layers">the refused device</span> · Break the treasured object, commission a duplicate, conceal the substitution.</div>
+    </div>
+
+    <div class="node b">
+      <div class="node-head"><h3>We Were Robbed</h3><span class="yr mono">SANFORD AND SON · S1E6 · FEBRUARY 1972</span></div>
+      <div class="node-body">
+        <ul class="beats">
+          <li>Fred elbows Lamont's glass and porcelain collection while sweeping, and breaks it.</li>
+          <li>He sweeps the shards into a dustpan, hides the dustpan in the refrigerator, knocks furniture over, and reports a burglary that never happened.</li>
+          <li>Lamont finds the dustpan. He does not confront his father directly.</li>
+          <li class="meta">Lamont stages a second fake robbery of his own, claiming thieves emptied his piggy bank, which corners Fred into confessing the first lie.</li>
+          <li class="meta">Fred then improvises a heroic account of fighting the imaginary burglars for two visiting police officers.</li>
+        </ul>
+      </div>
+      <div class="node-foot"><span class="layers">3 layers</span> · Breakage, invented crime, and a counter-stage by the victim. V14 running in 1972.</div>
+    </div>
+
+    <div class="node c">
+      <div class="node-head"><h3>Foosball and Nocturnal Vigilantism</h3><span class="yr mono">COMMUNITY · S3E9 · 2011</span></div>
+      <div class="node-body">
+        <ul class="beats">
+          <li>Annie breaks Abed's limited edition Dark Knight DVD.</li>
+          <li>Troy blocks the secret-replacement plan by naming it as a sitcom convention Abed would recognise.</li>
+          <li>Annie stages a break-in and reports a theft that never happened.</li>
+          <li class="meta">Abed dresses as Batman and hunts the burglars Annie invented, which forces other people to investigate her lie.</li>
+        </ul>
+      </div>
+      <div class="node-foot"><span class="layers">the executed device</span> · The Sanford sequence with a costume on it, arriving thirty-nine years later.</div>
+    </div>
+  </div>
+
+  <h3 class="sub">What the substitution shows</h3>
+  <p>Annie does what Fred does. She breaks the object, conceals the breakage, and reports a burglary that never occurred. The 1972 episode supplies three beats the 1966 episode has no use for: the invented crime, the investigation that the lie forces other people to perform, and the counter-stage that finally ends it. Abed in the Batman costume is that investigation, run by the person the lie was built to protect.</p>
+  <p>A show that names a convention while declining to use it is doing the researcher's job inside its own dialogue. Troy's line marks the Petrie device as too familiar to survive contact with Abed. The substitution itself is the actual finding here. Community rejects the antecedent it can name and performs the antecedent it never names, which is what inheritance looks like once a writers' room has absorbed enough television to find the obvious option boring.</p>
+  <p>The catalog carries D0 rows for exactly this reason. The Petrie episode is not a proposed Community source in the ordinary sense, because the show explicitly refuses that plot. It earns its place by defining the shape of what was refused, and the refusal is only legible when the older execution is on the page beside it.</p>
+
+  <h3 class="sub">Grades</h3>
+  <p><span class="badge b-d3">D3</span> <b>Petrie People, as declined antecedent.</b> A rare mechanism named in dialogue and then deliberately avoided. No statement of intent from any Community writer.</p>
+  <p><span class="badge b-d3">D3</span> <b>We Were Robbed, as executed antecedent.</b> Breakage, invented crime, and counter-stage arriving in the same causal order. No statement of intent from any Community writer, and the correspondence is specific enough for anyone to check against the three episodes.</p>
+
+  <span class="mine-lbl">Your notes on Case F</span>
+  <div class="mine" contenteditable="true" data-k="caseF"></div>
+</section>
+
+<!-- ================= §12 VARIANTS ================= -->
+<section id="variants">
+  <div class="sec-head"><span class="num">§12</span><h2>Fifteen Variants</h2></div>
+  <p class="sec-sub">The device decomposed. Most catalog entries in §13 blend two or three of these.</p>
+
+  <div class="vgrid">
+    <div class="v core"><div class="vid">V1 · CORE</div><h4>The Staged Lesson</h4><p>One party manufactures a harm, and the reveal states the moral. The single-reveal base form, with no recursion.</p><div class="ex2"><b>Candid Camera</b> · <b>Marge Be Not Proud</b> · <b>Safety Training</b></div></div>
+    <div class="v core"><div class="vid">V2 · CORE</div><h4>The Recursive Lesson</h4><p>The person teaching the lesson turns out to be the lesson's target. The moral is aimed one level above where the audience was looking.</p><div class="ex2"><b>Pier Pressure</b> · <b>The Game</b></div></div>
+    <div class="v build"><div class="vid">V3 · ESCALATION</div><h4>The Gambit Pileup</h4><p>N reveals in sequence, each cancelling the apparent reality established by the last. The chain, rather than any single trick, carries the joke.</p><div class="ex2"><b>Making a Stand</b> · <b>Conspiracy Theories</b> · <b>Halloween Heist</b></div></div>
+    <div class="v build"><div class="vid">V4 · ESCALATION</div><h4>The Escalating Standoff</h4><p>A single physical tableau that keeps adding weapons and participants. Supplies the staging grammar rather than the pedagogy.</p><div class="ex2"><b>Reservoir Dogs</b> · <b>Hard Boiled</b> · <b>A Fistful of Paintballs</b></div></div>
+    <div class="v build"><div class="vid">V5 · SCALE</div><h4>The Manufactured Reality</h4><p>The environment itself is the construct, sustained across a season or a series rather than a scene.</p><div class="ex2"><b>The Prisoner</b> · <b>The Good Place</b> · <b>White Bear</b> · <b>The Rehearsal</b></div></div>
+    <div class="v world"><div class="vid">V6 · SCALE</div><h4>Nested Simulation</h4><p>The reveal is discovered to be inside the construct. Escape appears to happen and then gets cancelled by a further layer.</p><div class="ex2"><b>Ship in a Bottle</b> · <b>M. Night Shaym-Aliens!</b> · <b>Extremis</b></div></div>
+    <div class="v build"><div class="vid">V7 · ESCALATION</div><h4>The Retaliation Ladder</h4><p>Prank, counter-prank, and the reveal that the counter-prank was anticipated. Escalation with the pedagogy stripped out.</p><div class="ex2"><b>Bar Wars</b> · <b>Jim and Dwight</b> · <b>The Joker Is Wild</b></div></div>
+    <div class="v world"><div class="vid">V8 · FORM</div><h4>Con of the Week</h4><p>A manufactured reality built weekly around a mark, dismantled by a flashback or a mask peel showing the plan behind the plan.</p><div class="ex2"><b>Mission: Impossible</b> · <b>Hustle</b> · <b>Psych</b></div></div>
+    <div class="v world"><div class="vid">V9 · AGENT</div><h4>The Cosmic Tutor</h4><p>A superior being stages trials on a lesser one and claims instruction as the motive. The claim is frequently a lie.</p><div class="ex2"><b>Q</b> · <b>The Dream Lord</b> · <b>Michael</b></div></div>
+    <div class="v core"><div class="vid">V10 · ADDRESS</div><h4>The Meta-Lesson</h4><p>The device turns to face the audience. A tag delivered to camera, or a character stating the episode's form from inside it.</p><div class="ex2"><b>Weatherman's tag</b> · <b>Cooperative Calligraphy</b> · <b>Emotional Consequences</b></div></div>
+    <div class="v dark"><div class="vid">V11 · MOTIVE</div><h4>Parental Overcorrection</h4><p>The staging exposes the parent rather than the child. The moral strikes the wrong person and the show knows it.</p><div class="ex2"><b>The Bluths</b> · <b>Hal and Lois</b> · <b>Michael Scott</b></div></div>
+    <div class="v dark"><div class="vid">V12 · STAKES</div><h4>Fake Death as Pedagogy</h4><p>The staged harm is mortal. The audience is fooled alongside the target, which exposes both at the same moment.</p><div class="ex2"><b>The Sting</b> · <b>Weatherman's arm</b> · <b>the prop guns</b></div></div>
+    <div class="v dark"><div class="vid">V13 · INVERSION</div><h4>The Anti-Lesson</h4><p>The staging reveals the teacher's corruption, and the stated moral is false or cruel. The instruction was always the alibi.</p><div class="ex2"><b>The Gang Broke Dee</b> · <b>Boar on the Floor</b> · <b>Shut Up and Dance</b></div></div>
+    <div class="v build"><div class="vid">V14 · REVERSAL</div><h4>The Counter-Stager</h4><p>A target of the scheme was staging back the entire time, unassigned and unbudgeted. The reveal belongs to the victim.</p><div class="ex2"><b>Buster's false hand</b> · <b>Annie's fourth gun</b> · <b>Kirk's rewrite</b></div></div>
+    <div class="v world"><div class="vid">V15 · SOURCE</div><h4>The Institutional Lesson</h4><p>An organisation stages the scenario as standing policy rather than as one person's scheme, which removes any single villain.</p><div class="ex2"><b>Kobayashi Maru</b> · <b>Coming of Age</b> · <b>Squid Game</b></div></div>
+  </div>
+
+  <span class="mine-lbl">Your notes on the variants</span>
+  <div class="mine" contenteditable="true" data-k="variants"></div>
+</section>
+
+<!-- ================= §13 CATALOG ================= -->
+<section id="catalog">
+  <div class="sec-head"><span class="num">§13</span><h2>The Canon Catalog</h2></div>
+  <p class="sec-sub">One hundred and seventeen entries, 1948 to 2022. Sitcom, drama, genre, unscripted, and the film grammar supplying the other half.</p>
+  <p class="lede">Most rows are D0, and that is the point. The catalog maps the device across the medium, and only a graded subset are proposed Community antecedents. Filter by D1 to see documented borrowings, by D2 to see documented influence without a documented instance, by D5 to see the reaches. Provenance column: <span class="prov yes">✓</span> checked against a cited source this session, <span class="prov no">○</span> recalled and not re-verified, so treat the episode title as reliable and the season number as approximate.</p>
+
+  <div class="controls">
+    <input type="search" id="q" placeholder="Search show, episode, or mechanism">
+    <button class="fbtn on" data-f="all">ALL</button>
+    <button class="fbtn" data-f="D0">D0</button>
+    <button class="fbtn" data-f="D1">D1</button>
+    <button class="fbtn" data-f="D2">D2</button>
+    <button class="fbtn" data-f="D3">D3</button>
+    <button class="fbtn" data-f="D4">D4</button>
+    <button class="fbtn" data-f="D5">D5</button>
+    <button class="fbtn" data-f="V3">V3</button>
+    <button class="fbtn" data-f="V5">V5</button>
+    <button class="fbtn" data-f="V6">V6</button>
+    <button class="fbtn" data-f="V8">V8</button>
+    <button class="fbtn" data-f="V10">V10</button>
+    <button class="fbtn" data-f="V13">V13</button>
+    <span class="count" id="cnt"></span>
+  </div>
+
+  <div class="tbl-wrap">
+    <table id="cat">
+      <thead><tr><th>Show</th><th>Episode or arc</th><th>Yr</th><th>Var</th><th>The mechanism</th><th>Level</th><th>Src</th></tr></thead>
+      <tbody>
+<tr><td class="show" data-l="Show">Candid Camera</td><td class="ep" data-l="Ep">the format itself</td><td data-l="Yr">1948</td><td class="vtag" data-l="Var">V1</td><td class="mech" data-l="Mech">A scenario staged on an unwitting person, dismantled by a catchphrase. The real-world root of every staged reveal below.</td><td data-l="Level"><span class="badge b-d0">D0</span></td><td data-l="Src"><span class="prov no">○</span></td></tr>
+<tr><td class="show" data-l="Show">The George Burns and Gracie Allen Show</td><td class="ep" data-l="Ep">the direct-address format</td><td data-l="Yr">1950</td><td class="vtag" data-l="Var">V10</td><td class="mech" data-l="Mech">Burns steps out of the scene to address the audience, comments on production decisions, and watches his own cast on a television in his den. The first sustained fourth-wall break on American television, and the root of Abed's bloodline.</td><td data-l="Level"><span class="badge b-d2">D2</span></td><td data-l="Src"><span class="prov yes">✓</span></td></tr>
+<tr><td class="show" data-l="Show">Dobie Gillis</td><td class="ep" data-l="Ep">the direct-address format</td><td data-l="Yr">1959</td><td class="vtag" data-l="Var">V10</td><td class="mech" data-l="Mech">A teen protagonist turns to the viewer and explains the week's problem. An early node in Abed's bloodline, three decades before Bayside, and nine years later than Burns.</td><td data-l="Level"><span class="badge b-d4">D4</span></td><td data-l="Src"><span class="prov no">○</span></td></tr>
+<tr><td class="show" data-l="Show">The Twilight Zone</td><td class="ep" data-l="Ep">Five Characters in Search of an Exit</td><td data-l="Yr">1961</td><td class="vtag" data-l="Var">V1 V5</td><td class="mech" data-l="Mech">Terminal reveal recontextualises the whole environment. The single-turn ancestor of the pileup.</td><td data-l="Level"><span class="badge b-d0">D0</span></td><td data-l="Src"><span class="prov no">○</span></td></tr>
+<tr><td class="show" data-l="Show">The Dick Van Dyke Show</td><td class="ep" data-l="Ep">The Curse of the Petrie People</td><td data-l="Yr">1966</td><td class="vtag" data-l="Var">W7</td><td class="mech" data-l="Mech">Laura destroys a Petrie family heirloom in the garbage disposal and tries to have it rebuilt from memory before anyone notices. The secret-replacement plot Troy names and Community declines. See §11.</td><td data-l="Level"><span class="badge b-d3">D3</span></td><td data-l="Src"><span class="prov yes">✓</span></td></tr>
+<tr><td class="show" data-l="Show">Mission: Impossible</td><td class="ep" data-l="Ep">the weekly format</td><td data-l="Yr">1966</td><td class="vtag" data-l="Var">V8 V5</td><td class="mech" data-l="Mech">The IMF constructs a false reality around a mark and holds it for an hour. The deepest root of the gambit pileup, and the one most often skipped.</td><td data-l="Level"><span class="badge b-d0">D0</span></td><td data-l="Src"><span class="prov no">○</span></td></tr>
+<tr><td class="show" data-l="Show">Star Trek</td><td class="ep" data-l="Ep">The Menagerie / The Cage</td><td data-l="Yr">1966</td><td class="vtag" data-l="Var">V5 V9</td><td class="mech" data-l="Mech">Talosian illusion staged around a captive, revealed as a test of the species.</td><td data-l="Level"><span class="badge b-d0">D0</span></td><td data-l="Src"><span class="prov no">○</span></td></tr>
+<tr><td class="show" data-l="Show">The Prisoner</td><td class="ep" data-l="Ep">Once Upon a Time / Fall Out</td><td data-l="Yr">1967</td><td class="vtag" data-l="Var">V5 V9</td><td class="mech" data-l="Mech">The Village is a staged environment built for extraction, and the final authority turns out to be the prisoner himself.</td><td data-l="Level"><span class="badge b-d0">D0</span></td><td data-l="Src"><span class="prov no">○</span></td></tr>
+<tr><td class="show" data-l="Show">Columbo</td><td class="ep" data-l="Ep">the closing gambit</td><td data-l="Yr">1971</td><td class="vtag" data-l="Var">V8</td><td class="mech" data-l="Mech">The detective stages a scenario with a planted prop so the killer convicts himself. A con run by the good guy.</td><td data-l="Level"><span class="badge b-d0">D0</span></td><td data-l="Src"><span class="prov no">○</span></td></tr>
+<tr><td class="show" data-l="Show">M*A*S*H</td><td class="ep" data-l="Ep">The Joker Is Wild</td><td data-l="Yr">1978</td><td class="vtag" data-l="Var">V7</td><td class="mech" data-l="Mech">A prank campaign whose final move is the target having anticipated every prank in advance.</td><td data-l="Level"><span class="badge b-d0">D0</span></td><td data-l="Src"><span class="prov no">○</span></td></tr>
+<tr><td class="show" data-l="Show">Taxi</td><td class="ep" data-l="Ep">the garage</td><td data-l="Yr">1978</td><td class="vtag" data-l="Var">W8</td><td class="mech" data-l="Mech">A temporary workplace holding people with ambitions elsewhere, which repeated contact converts into permanent family. Harmon has cited Taxi as an emotional model.</td><td data-l="Level"><span class="badge b-d2">D2</span></td><td data-l="Src"><span class="prov no">○</span></td></tr>
+<tr><td class="show" data-l="Show">Cheers</td><td class="ep" data-l="Ep">the Bar Wars cycle</td><td data-l="Yr">1988</td><td class="vtag" data-l="Var">V7 V14</td><td class="mech" data-l="Mech">Prank, counter-prank, and the recurring reveal that Gary anticipated the counter-prank. The sitcom home of the retaliation ladder.</td><td data-l="Level"><span class="badge b-d2">D2</span></td><td data-l="Src"><span class="prov no">○</span></td></tr>
+<tr><td class="show" data-l="Show">Cheers</td><td class="ep" data-l="Ep">the bar as social centre</td><td data-l="Yr">1982</td><td class="vtag" data-l="Var">W8</td><td class="mech" data-l="Mech">Durable comedy built from people repeatedly returning to one shared place. Harmon has cited Cheers as an emotional model, which scores creator access at maximum.</td><td data-l="Level"><span class="badge b-d2">D2</span></td><td data-l="Src"><span class="prov no">○</span></td></tr>
+<tr><td class="show" data-l="Show">It's Garry Shandling's Show</td><td class="ep" data-l="Ep">the format</td><td data-l="Yr">1986</td><td class="vtag" data-l="Var">V10</td><td class="mech" data-l="Mech">The lead knows he is inside a sitcom, and the set, the audience, and the supporting cast share that knowledge. Harmon has credited Shandling for treating the frame as part of the work.</td><td data-l="Level"><span class="badge b-d2">D2</span></td><td data-l="Src"><span class="prov no">○</span></td></tr>
+<tr><td class="show" data-l="Show">Dallas</td><td class="ep" data-l="Ep">the Bobby dream season</td><td data-l="Yr">1986</td><td class="vtag" data-l="Var">V6</td><td class="mech" data-l="Mech">An entire season retroactively cancelled by one reveal. The nullification chain scaled to a year.</td><td data-l="Level"><span class="badge b-d0">D0</span></td><td data-l="Src"><span class="prov no">○</span></td></tr>
+<tr><td class="show" data-l="Show">St. Elsewhere</td><td class="ep" data-l="Ep">The Last One</td><td data-l="Yr">1988</td><td class="vtag" data-l="Var">V5 V6</td><td class="mech" data-l="Mech">The whole series revealed as a construct inside a child's imagination. The maximal single reveal in television history.</td><td data-l="Level"><span class="badge b-d0">D0</span></td><td data-l="Src"><span class="prov no">○</span></td></tr>
+<tr><td class="show" data-l="Show">Star Trek TNG</td><td class="ep" data-l="Ep">Coming of Age</td><td data-l="Yr">1988</td><td class="vtag" data-l="Var">V15 V9</td><td class="mech" data-l="Mech">Starfleet stages a psych test confronting the cadet with his deepest fear, without telling him it is staged.</td><td data-l="Level"><span class="badge b-d0">D0</span></td><td data-l="Src"><span class="prov no">○</span></td></tr>
+<tr><td class="show" data-l="Show">Saved by the Bell</td><td class="ep" data-l="Ep">Zack's time-outs</td><td data-l="Yr">1989</td><td class="vtag" data-l="Var">V10</td><td class="mech" data-l="Mech">The lead freezes the scene, rearranges it physically, and addresses the viewer. The strongest version of fourth-wall privilege as magic, and the half of Zack that goes to Abed.</td><td data-l="Level"><span class="badge b-d3">D3</span></td><td data-l="Src"><span class="prov no">○</span></td></tr>
+<tr><td class="show" data-l="Show">Saved by the Bell</td><td class="ep" data-l="Ep">Jessie's Song</td><td data-l="Yr">1990</td><td class="vtag" data-l="Var">OP3</td><td class="mech" data-l="Mech">Written with Jessie hooked on speed. NBC Standards vetoed it as too serious for Saturday morning, and the compromise swapped in caffeine pills. The censored half of the restoration pair Annie completes.</td><td data-l="Level"><span class="badge b-d3">D3</span></td><td data-l="Src"><span class="prov yes">✓</span></td></tr>
+<tr><td class="show" data-l="Show">Newhart</td><td class="ep" data-l="Ep">The Last Newhart</td><td data-l="Yr">1990</td><td class="vtag" data-l="Var">V6 V10</td><td class="mech" data-l="Mech">Eight years cancelled by a bedroom light and a previous sitcom. Nullification delivered as an act of authorship.</td><td data-l="Level"><span class="badge b-d0">D0</span></td><td data-l="Src"><span class="prov no">○</span></td></tr>
+<tr><td class="show" data-l="Show">Star Trek TNG</td><td class="ep" data-l="Ep">Ship in a Bottle</td><td data-l="Yr">1993</td><td class="vtag" data-l="Var">V6 V14</td><td class="mech" data-l="Mech">The crew escape the holodeck, and the escape is revealed as a further simulation Moriarty built. Then they run the same trick back on him.</td><td data-l="Level"><span class="badge b-d0">D0</span></td><td data-l="Src"><span class="prov no">○</span></td></tr>
+<tr><td class="show" data-l="Show">Star Trek TNG</td><td class="ep" data-l="Ep">Tapestry</td><td data-l="Yr">1993</td><td class="vtag" data-l="Var">V2 V9 V12</td><td class="mech" data-l="Mech">Q stages a death and an alternate life so Picard will value the mistake he regrets. The purest Weatherman device in science fiction.</td><td data-l="Level"><span class="badge b-d0">D0</span></td><td data-l="Src"><span class="prov no">○</span></td></tr>
+<tr><td class="show" data-l="Show">Star Trek TNG</td><td class="ep" data-l="Ep">All Good Things</td><td data-l="Yr">1994</td><td class="vtag" data-l="Var">V9 V15</td><td class="mech" data-l="Mech">The trial from the pilot resumes seven years later, revealing the whole series as one continuous staged examination.</td><td data-l="Level"><span class="badge b-d0">D0</span></td><td data-l="Src"><span class="prov no">○</span></td></tr>
+<tr><td class="show" data-l="Show">The Simpsons</td><td class="ep" data-l="Ep">Marge Be Not Proud</td><td data-l="Yr">1995</td><td class="vtag" data-l="Var">V1 V11</td><td class="mech" data-l="Mech">A staged shaming built by a parent, whose reveal costs the parent more than the child. Harmon has credited The Simpsons for joke speed and for expanding a world outward.</td><td data-l="Level"><span class="badge b-d2">D2</span></td><td data-l="Src"><span class="prov no">○</span></td></tr>
+<tr><td class="show" data-l="Show">Star Trek DS9</td><td class="ep" data-l="Ep">Hard Time</td><td data-l="Yr">1996</td><td class="vtag" data-l="Var">V5 V13</td><td class="mech" data-l="Mech">Twenty years of imprisonment implanted as a sentence. The lesson is real trauma with a legal alibi.</td><td data-l="Level"><span class="badge b-d0">D0</span></td><td data-l="Src"><span class="prov no">○</span></td></tr>
+<tr><td class="show" data-l="Show">NewsRadio</td><td class="ep" data-l="Ep">Space</td><td data-l="Yr">1997</td><td class="vtag" data-l="Var">V10</td><td class="mech" data-l="Mech">Season 3 finale abandoning the premise for a genre pastiche. Direct ancestor of Community's format episodes.</td><td data-l="Level"><span class="badge b-d3">D3</span></td><td data-l="Src"><span class="prov yes">✓</span></td></tr>
+<tr><td class="show" data-l="Show">NewsRadio</td><td class="ep" data-l="Ep">Catherine Moves On</td><td data-l="Yr">1997</td><td class="vtag" data-l="Var">OP7</td><td class="mech" data-l="Mech">Joe's obliviousness to Catherine gets stated out loud by a third party. The obliviousness function Community hands to Troy rather than to Jeff.</td><td data-l="Level"><span class="badge b-d4">D4</span></td><td data-l="Src"><span class="prov no">○</span></td></tr>
+<tr><td class="show" data-l="Show">NewsRadio</td><td class="ep" data-l="Ep">Sinking Ship</td><td data-l="Yr">1998</td><td class="vtag" data-l="Var">V10</td><td class="mech" data-l="Mech">S4E22. The bullpen becomes the Titanic, staged as commentary on the show's own cancellation bubble. A format episode that is also a message to the network.</td><td data-l="Level"><span class="badge b-d3">D3</span></td><td data-l="Src"><span class="prov yes">✓</span></td></tr>
+<tr><td class="show" data-l="Show">FILM · Election</td><td class="ep" data-l="Ep">Tracy Flick</td><td data-l="Yr">1999</td><td class="vtag" data-l="Var">OP2</td><td class="mech" data-l="Mech">The compulsive high-achiever chassis Harmon has described as Annie's blatant starting point on paper, before the writers and Alison Brie evolved her past it.</td><td data-l="Level"><span class="badge b-d1">D1</span></td><td data-l="Src"><span class="prov yes">✓</span></td></tr>
+<tr><td class="show" data-l="Show">Curb Your Enthusiasm</td><td class="ep" data-l="Ep">the convergence engine</td><td data-l="Yr">2000</td><td class="vtag" data-l="Var">V3</td><td class="mech" data-l="Mech">Every planted setup collides in the closing minutes. The pileup with the staging removed and the coincidence left in.</td><td data-l="Level"><span class="badge b-d0">D0</span></td><td data-l="Src"><span class="prov no">○</span></td></tr>
+<tr><td class="show" data-l="Show">Malcolm in the Middle</td><td class="ep" data-l="Ep">the Hal and Lois engine</td><td data-l="Yr">2000</td><td class="vtag" data-l="Var">V11 V1 V10</td><td class="mech" data-l="Mech">Parents construct elaborate punishments as instruction, and the construction reliably exposes the parents. Also carries direct address as adolescent texture rather than as scene control.</td><td data-l="Level"><span class="badge b-d4">D4</span></td><td data-l="Src"><span class="prov no">○</span></td></tr>
+<tr><td class="show" data-l="Show">Buffy</td><td class="ep" data-l="Ep">Normal Again</td><td data-l="Yr">2002</td><td class="vtag" data-l="Var">V6</td><td class="mech" data-l="Mech">A competing reality offered as the true one, with the episode declining to resolve which construction the audience is inside.</td><td data-l="Level"><span class="badge b-d0">D0</span></td><td data-l="Src"><span class="prov no">○</span></td></tr>
+<tr><td class="show" data-l="Show">The Joe Schmo Show</td><td class="ep" data-l="Ep">season 1</td><td data-l="Yr">2003</td><td class="vtag" data-l="Var">V5 V8</td><td class="mech" data-l="Mech">An entire reality competition staged with actors around one unwitting contestant. The unscripted twin of The Truman Show, and an underused entry in this canon.</td><td data-l="Level"><span class="badge b-d0">D0</span></td><td data-l="Src"><span class="prov no">○</span></td></tr>
+<tr><td class="show" data-l="Show">Punk'd</td><td class="ep" data-l="Ep">the format</td><td data-l="Yr">2003</td><td class="vtag" data-l="Var">V1 V12</td><td class="mech" data-l="Mech">Staged catastrophe on a real person, dismantled by the host walking into frame. Candid Camera with the stakes raised.</td><td data-l="Level"><span class="badge b-d0">D0</span></td><td data-l="Src"><span class="prov no">○</span></td></tr>
+<tr><td class="show" data-l="Show">Arrested Development</td><td class="ep" data-l="Ep">Pier Pressure</td><td data-l="Yr">2004</td><td class="vtag" data-l="Var">V2 V11 V12</td><td class="mech" data-l="Mech">Michael stages a fake bust, and George Sr. staged Michael's staging. Tag: "And that's why you don't teach lessons to your son."</td><td data-l="Level"><span class="badge b-d3">D3</span></td><td data-l="Src"><span class="prov yes">✓</span></td></tr>
+<tr><td class="show" data-l="Show">Scrubs</td><td class="ep" data-l="Ep">My Screw Up</td><td data-l="Yr">2004</td><td class="vtag" data-l="Var">V6</td><td class="mech" data-l="Mech">A late reveal recontextualises every scene the audience has watched. Community cites Scrubs by actor in its pilot, making it the loud half of W10.</td><td data-l="Level"><span class="badge b-d2">D2</span></td><td data-l="Src"><span class="prov no">○</span></td></tr>
+<tr><td class="show" data-l="Show">Hustle</td><td class="ep" data-l="Ep">the weekly format</td><td data-l="Yr">2004</td><td class="vtag" data-l="Var">V8 V10</td><td class="mech" data-l="Mech">Con of the week with direct address to camera, so the audience is inside the crew and outside the mark simultaneously.</td><td data-l="Level"><span class="badge b-d0">D0</span></td><td data-l="Src"><span class="prov no">○</span></td></tr>
+<tr><td class="show" data-l="Show">The Office US</td><td class="ep" data-l="Ep">Jim and Dwight, series-long</td><td data-l="Yr">2005</td><td class="vtag" data-l="Var">V7</td><td class="mech" data-l="Mech">Prank ladder with no moral, running nine years without a reveal that resolves it. Harmon has cited The Office as timing calibration.</td><td data-l="Level"><span class="badge b-d2">D2</span></td><td data-l="Src"><span class="prov no">○</span></td></tr>
+<tr><td class="show" data-l="Show">Arrested Development</td><td class="ep" data-l="Ep">Making a Stand</td><td data-l="Yr">2006</td><td class="vtag" data-l="Var">V3 V14 V12</td><td class="mech" data-l="Mech">George Sr. plants Weatherman to instruct his sons about instructing him, and Buster's false hand turns out to be a counter-lesson about using amputees to frighten people.</td><td data-l="Level"><span class="badge b-d3">D3</span></td><td data-l="Src"><span class="prov yes">✓</span></td></tr>
+<tr><td class="show" data-l="Show">Psych</td><td class="ep" data-l="Ep">the weekly format</td><td data-l="Yr">2006</td><td class="vtag" data-l="Var">V8</td><td class="mech" data-l="Mech">A staged psychic reveal covering ordinary observation, run weekly on the police who employ him.</td><td data-l="Level"><span class="badge b-d0">D0</span></td><td data-l="Src"><span class="prov no">○</span></td></tr>
+<tr><td class="show" data-l="Show">30 Rock</td><td class="ep" data-l="Ep">the Jack and Liz engine</td><td data-l="Yr">2006</td><td class="vtag" data-l="Var">V11 V9</td><td class="mech" data-l="Mech">A mentor manufactures situations for a protégé's own good, and the mentoring is indistinguishable from control. Harmon has cited 30 Rock as timing calibration.</td><td data-l="Level"><span class="badge b-d2">D2</span></td><td data-l="Src"><span class="prov no">○</span></td></tr>
+<tr><td class="show" data-l="Show">The Office US</td><td class="ep" data-l="Ep">Safety Training</td><td data-l="Yr">2007</td><td class="vtag" data-l="Var">V1 V11 V12</td><td class="mech" data-l="Mech">Michael stages a rooftop jump to instruct the office about depression. A fake death with a pedagogical alibi.</td><td data-l="Level"><span class="badge b-d2">D2</span></td><td data-l="Src"><span class="prov no">○</span></td></tr>
+<tr><td class="show" data-l="Show">Leverage</td><td class="ep" data-l="Ep">the weekly format</td><td data-l="Yr">2008</td><td class="vtag" data-l="Var">V8 V3</td><td class="mech" data-l="Mech">The mark experiences a manufactured reality, and a flashback reveals the plan behind the plan the audience already saw.</td><td data-l="Level"><span class="badge b-d0">D0</span></td><td data-l="Src"><span class="prov no">○</span></td></tr>
+<tr><td class="show" data-l="Show">The Mentalist</td><td class="ep" data-l="Ep">the weekly format</td><td data-l="Yr">2008</td><td class="vtag" data-l="Var">V8</td><td class="mech" data-l="Mech">A staged scenario built to provoke a confession, with the trap concealed from the audience until it springs.</td><td data-l="Level"><span class="badge b-d0">D0</span></td><td data-l="Src"><span class="prov no">○</span></td></tr>
+<tr><td class="show" data-l="Show">The Office US</td><td class="ep" data-l="Ep">Stress Relief</td><td data-l="Yr">2009</td><td class="vtag" data-l="Var">V1 V13</td><td class="mech" data-l="Mech">Dwight stages a fire to teach fire safety, causing a heart attack. The instruction is real and the harm exceeds the ignorance.</td><td data-l="Level"><span class="badge b-d2">D2</span></td><td data-l="Src"><span class="prov no">○</span></td></tr>
+<tr><td class="show" data-l="Show">How I Met Your Mother</td><td class="ep" data-l="Ep">The Playbook</td><td data-l="Yr">2009</td><td class="vtag" data-l="Var">V3 V8</td><td class="mech" data-l="Mech">An elaborate deception is exposed, and the exposure turns out to be a further play run on the person exposing it.</td><td data-l="Level"><span class="badge b-d0">D0</span></td><td data-l="Src"><span class="prov no">○</span></td></tr>
+<tr><td class="show" data-l="Show">White Collar</td><td class="ep" data-l="Ep">the weekly format</td><td data-l="Yr">2009</td><td class="vtag" data-l="Var">V8</td><td class="mech" data-l="Mech">Con craft turned to law enforcement, with the mark and frequently the handler both inside the construction.</td><td data-l="Level"><span class="badge b-d0">D0</span></td><td data-l="Src"><span class="prov no">○</span></td></tr>
+<tr><td class="show" data-l="Show">Parks and Recreation</td><td class="ep" data-l="Ep">the Leslie scheme engine</td><td data-l="Yr">2009</td><td class="vtag" data-l="Var">V1 V11</td><td class="mech" data-l="Mech">Elaborate constructions built out of affection, whose collapse becomes the episode's lesson for the builder.</td><td data-l="Level"><span class="badge b-d0">D0</span></td><td data-l="Src"><span class="prov no">○</span></td></tr>
+<tr><td class="show" data-l="Show">Community</td><td class="ep" data-l="Ep">Modern Warfare</td><td data-l="Yr">2010</td><td class="vtag" data-l="Var">V4 V7</td><td class="mech" data-l="Mech">The standoff grammar arriving without the lesson grammar. Alliances form and betray inside an action pastiche. Harmon has cited this episode as where his identification moved to Abed.</td><td data-l="Level"><span class="badge b-d1">D1</span></td><td data-l="Src"><span class="prov yes">✓</span></td></tr>
+<tr><td class="show" data-l="Show">Community</td><td class="ep" data-l="Ep">Physical Education</td><td data-l="Yr">2010</td><td class="vtag" data-l="Var">OP8</td><td class="mech" data-l="Mech">Abed performs Don Draper and then Jeff as seduction templates, producing two disposable romantic possibilities inside one episode. The production artifact operating in the open.</td><td data-l="Level"><span class="badge b-d3">D3</span></td><td data-l="Src"><span class="prov no">○</span></td></tr>
+<tr><td class="show" data-l="Show">Community</td><td class="ep" data-l="Ep">Cooperative Calligraphy</td><td data-l="Yr">2010</td><td class="vtag" data-l="Var">V10</td><td class="mech" data-l="Mech">Abed identifies the bottle episode from inside the bottle episode and complains about what the form requires. Pure W0 evidence.</td><td data-l="Level"><span class="badge b-d1">D1</span></td><td data-l="Src"><span class="prov no">○</span></td></tr>
+<tr><td class="show" data-l="Show">Community</td><td class="ep" data-l="Ep">Conspiracy Theories and Interior Design</td><td data-l="Yr">2010</td><td class="vtag" data-l="Var">V3 V12 V14 V10</td><td class="mech" data-l="Mech">Four staged levels of prop-gun shootings, each revealed as somebody else's lesson, with one unassigned counter-stager and a domestic tag.</td><td data-l="Level"><span class="badge b-d3">D3</span></td><td data-l="Src"><span class="prov yes">✓</span></td></tr>
+<tr><td class="show" data-l="Show">Doctor Who</td><td class="ep" data-l="Ep">Amy's Choice</td><td data-l="Yr">2010</td><td class="vtag" data-l="Var">V9 V6 V2</td><td class="mech" data-l="Mech">Two realities staged as a forced choice by an antagonist who turns out to be the teacher's own dark half. A self-administered Weatherman.</td><td data-l="Level"><span class="badge b-d0">D0</span></td><td data-l="Src"><span class="prov no">○</span></td></tr>
+<tr><td class="show" data-l="Show">Community</td><td class="ep" data-l="Ep">Competitive Wine Tasting</td><td data-l="Yr">2011</td><td class="vtag" data-l="Var">V10</td><td class="mech" data-l="Mech">Who's the Boss? becomes an academic problem Abed believes exhaustive textual analysis can solve. Explicit canon, useful as a baseline for measuring hidden references.</td><td data-l="Level"><span class="badge b-d1">D1</span></td><td data-l="Src"><span class="prov no">○</span></td></tr>
+<tr><td class="show" data-l="Show">Community</td><td class="ep" data-l="Ep">Intro to Political Science</td><td data-l="Yr">2011</td><td class="vtag" data-l="Var">OP8</td><td class="mech" data-l="Mech">Robin Vohlers, Secret Service, engineered as an Abed counterpart down to conducting intimacy through surveillance equipment. One appearance.</td><td data-l="Level"><span class="badge b-d3">D3</span></td><td data-l="Src"><span class="prov no">○</span></td></tr>
+<tr><td class="show" data-l="Show">Community</td><td class="ep" data-l="Ep">A Fistful of Paintballs</td><td data-l="Yr">2011</td><td class="vtag" data-l="Var">V4 V3</td><td class="mech" data-l="Mech">Standoff escalation with a masked antagonist reveal and a betrayal chain, staged as a Western.</td><td data-l="Level"><span class="badge b-d1">D1</span></td><td data-l="Src"><span class="prov no">○</span></td></tr>
+<tr><td class="show" data-l="Show">Community</td><td class="ep" data-l="Ep">Paradigms of Human Memory</td><td data-l="Yr">2011</td><td class="vtag" data-l="Var">V10</td><td class="mech" data-l="Mech">A clip show built entirely of invented clips. The form executed with its defining rule reversed, which is OP5 inversion.</td><td data-l="Level"><span class="badge b-d1">D1</span></td><td data-l="Src"><span class="prov no">○</span></td></tr>
+<tr><td class="show" data-l="Show">Community</td><td class="ep" data-l="Ep">Intermediate Documentary Filmmaking</td><td data-l="Yr">2011</td><td class="vtag" data-l="Var">V10</td><td class="mech" data-l="Mech">The mockumentary grammar of The Office and Parks and Modern Family, executed while Abed comments on how cheap and efficient that grammar is. Form plus argument about the form.</td><td data-l="Level"><span class="badge b-d1">D1</span></td><td data-l="Src"><span class="prov no">○</span></td></tr>
+<tr><td class="show" data-l="Show">Community</td><td class="ep" data-l="Ep">Critical Film Studies</td><td data-l="Yr">2011</td><td class="vtag" data-l="Var">V10</td><td class="mech" data-l="Mech">Harmon states the origin on record: another cheap bottle episode, reduced to two men at a dinner table, which produced My Dinner with Andre. Abed builds the older film's form deliberately to make a conversation with Jeff possible.</td><td data-l="Level"><span class="badge b-d1">D1</span></td><td data-l="Src"><span class="prov yes">✓</span></td></tr>
+<tr><td class="show" data-l="Show">Community</td><td class="ep" data-l="Ep">Foosball and Nocturnal Vigilantism</td><td data-l="Yr">2011</td><td class="vtag" data-l="Var">W7</td><td class="mech" data-l="Mech">Troy asks how many sitcoms have done the secretly-replacing-a-broken-item bit, and answers that Abed knows. The show appointing its own archivist, in dialogue.</td><td data-l="Level"><span class="badge b-d1">D1</span></td><td data-l="Src"><span class="prov yes">✓</span></td></tr>
+<tr><td class="show" data-l="Show">Community</td><td class="ep" data-l="Ep">Remedial Chaos Theory</td><td data-l="Yr">2011</td><td class="vtag" data-l="Var">V6</td><td class="mech" data-l="Mech">Seven timelines from one die roll, with the darkest leaking back into the primary reality.</td><td data-l="Level"><span class="badge b-d1">D1</span></td><td data-l="Src"><span class="prov no">○</span></td></tr>
+<tr><td class="show" data-l="Show">Community</td><td class="ep" data-l="Ep">Regional Holiday Music</td><td data-l="Yr">2011</td><td class="vtag" data-l="Var">V10</td><td class="mech" data-l="Mech">Glee conventions become the literal cause of the characters' behaviour. Explicit canon, and a case where the reference carries an argument about the referenced show.</td><td data-l="Level"><span class="badge b-d1">D1</span></td><td data-l="Src"><span class="prov no">○</span></td></tr>
+<tr><td class="show" data-l="Show">Community</td><td class="ep" data-l="Ep">Basic Lupine Urology</td><td data-l="Yr">2012</td><td class="vtag" data-l="Var">V10</td><td class="mech" data-l="Mech">Law &amp; Order structure, photography, roles, music, and plotting recreated, with a Law &amp; Order performer brought into the episode. The most complete explicit borrowing in the series.</td><td data-l="Level"><span class="badge b-d1">D1</span></td><td data-l="Src"><span class="prov no">○</span></td></tr>
+<tr><td class="show" data-l="Show">Community</td><td class="ep" data-l="Ep">Herstory of Dance</td><td data-l="Yr">2012</td><td class="vtag" data-l="Var">OP8</td><td class="mech" data-l="Mech">Rachel arrives through a romantic-plotting episode and then returns in season five, established as having dated Abed for a month. The exception that makes the pattern visible.</td><td data-l="Level"><span class="badge b-d3">D3</span></td><td data-l="Src"><span class="prov no">○</span></td></tr>
+<tr><td class="show" data-l="Show">Community</td><td class="ep" data-l="Ep">the Cougar Town crossover</td><td data-l="Yr">2012</td><td class="vtag" data-l="Var">V10 V5</td><td class="mech" data-l="Mech">Community writes a story about Abed appearing on a real series, and Danny Pudi then appears on that series behaving consistently with the story. Television canon becomes physically enterable.</td><td data-l="Level"><span class="badge b-d1">D1</span></td><td data-l="Src"><span class="prov no">○</span></td></tr>
+<tr><td class="show" data-l="Show">Brooklyn Nine-Nine</td><td class="ep" data-l="Ep">the Halloween Heist cycle</td><td data-l="Yr">2013</td><td class="vtag" data-l="Var">V3 V14</td><td class="mech" data-l="Mech">Weekly gambit pileup. Every heist ends with the reveal that somebody planned for everybody else's plan, frequently several people at once.</td><td data-l="Level"><span class="badge b-d0">D0</span></td><td data-l="Src"><span class="prov no">○</span></td></tr>
+<tr><td class="show" data-l="Show">It's Always Sunny</td><td class="ep" data-l="Ep">The Gang Broke Dee</td><td data-l="Yr">2013</td><td class="vtag" data-l="Var">V13 V5 V1</td><td class="mech" data-l="Mech">An entire stand-up career staged with paid actors so Dee learns it can always get worse. One gang member was excluded from the scheme, and his genuine grief is the second joke.</td><td data-l="Level"><span class="badge b-d0">D0</span></td><td data-l="Src"><span class="prov yes">✓</span></td></tr>
+<tr><td class="show" data-l="Show">It's Always Sunny</td><td class="ep" data-l="Ep">Flowers for Charlie</td><td data-l="Yr">2013</td><td class="vtag" data-l="Var">V5 V13</td><td class="mech" data-l="Mech">A manufactured experiment run on a person who never consented, with the reveal withheld until the last minute.</td><td data-l="Level"><span class="badge b-d0">D0</span></td><td data-l="Src"><span class="prov no">○</span></td></tr>
+<tr><td class="show" data-l="Show">Black Mirror</td><td class="ep" data-l="Ep">White Bear</td><td data-l="Yr">2013</td><td class="vtag" data-l="Var">V5 V13 V15</td><td class="mech" data-l="Mech">A daily manufactured catastrophe staged as public punishment, with a paying audience and a stated moral purpose. The darkest form the device takes.</td><td data-l="Level"><span class="badge b-d0">D0</span></td><td data-l="Src"><span class="prov no">○</span></td></tr>
+<tr><td class="show" data-l="Show">Nathan For You</td><td class="ep" data-l="Ep">the format</td><td data-l="Yr">2013</td><td class="vtag" data-l="Var">V5 V8 V1</td><td class="mech" data-l="Mech">Real businesses turned into staged scenarios around unwitting participants, with the host as the only one holding the script.</td><td data-l="Level"><span class="badge b-d0">D0</span></td><td data-l="Src"><span class="prov no">○</span></td></tr>
+<tr><td class="show" data-l="Show">Rick and Morty</td><td class="ep" data-l="Ep">the premise</td><td data-l="Yr">2013</td><td class="vtag" data-l="Var">V11 V13 V9</td><td class="mech" data-l="Mech">A guardian manufactures trauma and calls it education, and the show keeps demonstrating the education was the alibi. The Weatherman device promoted from gag to premise, by the same writer.</td><td data-l="Level"><span class="badge b-d2">D2</span></td><td data-l="Src"><span class="prov no">○</span></td></tr>
+<tr><td class="show" data-l="Show">Community</td><td class="ep" data-l="Ep">Repilot</td><td data-l="Yr">2014</td><td class="vtag" data-l="Var">V10 V13</td><td class="mech" data-l="Mech">Season four reclassified in dialogue as a gas leak year. The show staging a retroactive cancellation of its own season.</td><td data-l="Level"><span class="badge b-d1">D1</span></td><td data-l="Src"><span class="prov no">○</span></td></tr>
+<tr><td class="show" data-l="Show">Community</td><td class="ep" data-l="Ep">Cooperative Polygraphy</td><td data-l="Yr">2014</td><td class="vtag" data-l="Var">V13 OP2</td><td class="mech" data-l="Mech">A posthumous interrogation reveals Annie secretly gave the group a pharmaceutical amphetamine during anthropology cramming, and Abed reports it kept him awake three days. See Reach 11.</td><td data-l="Level"><span class="badge b-d5">D5</span></td><td data-l="Src"><span class="prov no">○</span></td></tr>
+<tr><td class="show" data-l="Show">Community</td><td class="ep" data-l="Ep">Analysis of Cork Based Networking</td><td data-l="Yr">2014</td><td class="vtag" data-l="Var">OP8</td><td class="mech" data-l="Mech">Carol arrives with immediate communication and investment, then collapses for plot reasons, since Britta hired her to spoil Abed's television experience.</td><td data-l="Level"><span class="badge b-d3">D3</span></td><td data-l="Src"><span class="prov no">○</span></td></tr>
+<tr><td class="show" data-l="Show">Rick and Morty</td><td class="ep" data-l="Ep">M. Night Shaym-Aliens!</td><td data-l="Yr">2014</td><td class="vtag" data-l="Var">V6</td><td class="mech" data-l="Mech">Simulation inside a simulation inside a simulation, each escape cancelled by the next layer. Harmon running the nullification chain in his own show.</td><td data-l="Level"><span class="badge b-d2">D2</span></td><td data-l="Src"><span class="prov no">○</span></td></tr>
+<tr><td class="show" data-l="Show">Black Mirror</td><td class="ep" data-l="Ep">White Christmas</td><td data-l="Yr">2014</td><td class="vtag" data-l="Var">V6 V13</td><td class="mech" data-l="Mech">Nested constructions in which the confession itself was the extraction, and the punishment continues after the reveal.</td><td data-l="Level"><span class="badge b-d0">D0</span></td><td data-l="Src"><span class="prov no">○</span></td></tr>
+<tr><td class="show" data-l="Show">Rick and Morty</td><td class="ep" data-l="Ep">Total Rickall</td><td data-l="Yr">2015</td><td class="vtag" data-l="Var">V6 V5</td><td class="mech" data-l="Mech">Implanted memories build a false family history, and the correction requires disbelieving every warm scene.</td><td data-l="Level"><span class="badge b-d2">D2</span></td><td data-l="Src"><span class="prov no">○</span></td></tr>
+<tr><td class="show" data-l="Show">Community</td><td class="ep" data-l="Ep">Emotional Consequences of Broadcast Television</td><td data-l="Yr">2015</td><td class="vtag" data-l="Var">V10</td><td class="mech" data-l="Mech">The cast pitch season seven as versions of their own lives, and the boundary between the series and its makers stops existing.</td><td data-l="Level"><span class="badge b-d1">D1</span></td><td data-l="Src"><span class="prov no">○</span></td></tr>
+<tr><td class="show" data-l="Show">Community</td><td class="ep" data-l="Ep">Don't Jim the camera</td><td data-l="Yr">2015</td><td class="vtag" data-l="Var">V10</td><td class="mech" data-l="Mech">A whole mockumentary history compressed into a verb built from Jim Halpert's camera looks. Explicit canon arriving as grammar rather than as plot.</td><td data-l="Level"><span class="badge b-d1">D1</span></td><td data-l="Src"><span class="prov no">○</span></td></tr>
+<tr><td class="show" data-l="Show">Mr. Robot</td><td class="ep" data-l="Ep">seasons 1 to 4</td><td data-l="Yr">2015</td><td class="vtag" data-l="Var">V6 V5</td><td class="mech" data-l="Mech">The narrator's account is the construction, and each reveal cancels a previously stable reading of the same footage.</td><td data-l="Level"><span class="badge b-d0">D0</span></td><td data-l="Src"><span class="prov no">○</span></td></tr>
+<tr><td class="show" data-l="Show">Black Mirror</td><td class="ep" data-l="Ep">Shut Up and Dance</td><td data-l="Yr">2016</td><td class="vtag" data-l="Var">V13 V5</td><td class="mech" data-l="Mech">An entire day staged as coerced punishment by anonymous parties, with the moral revealed as sadism at the end.</td><td data-l="Level"><span class="badge b-d0">D0</span></td><td data-l="Src"><span class="prov no">○</span></td></tr>
+<tr><td class="show" data-l="Show">The Good Place</td><td class="ep" data-l="Ep">the premise, seasons 1 to 4</td><td data-l="Yr">2016</td><td class="vtag" data-l="Var">V5 V9 V13 V15</td><td class="mech" data-l="Mech">An entire afterlife staged as instruction, rebooted hundreds of times, with the architect's motive revealed as torture and then converted into genuine teaching. The maximal descendant.</td><td data-l="Level"><span class="badge b-d0">D0</span></td><td data-l="Src"><span class="prov no">○</span></td></tr>
+<tr><td class="show" data-l="Show">Westworld</td><td class="ep" data-l="Ep">seasons 1 and 2</td><td data-l="Yr">2016</td><td class="vtag" data-l="Var">V5 V9 V15</td><td class="mech" data-l="Mech">A park of staged narratives, with the architect's final narrative staged to instruct the hosts rather than the guests.</td><td data-l="Level"><span class="badge b-d0">D0</span></td><td data-l="Src"><span class="prov no">○</span></td></tr>
+<tr><td class="show" data-l="Show">Better Call Saul</td><td class="ep" data-l="Ep">Chicanery</td><td data-l="Yr">2017</td><td class="vtag" data-l="Var">V8 V3 V13</td><td class="mech" data-l="Mech">A courtroom humiliation revealed to have been engineered with a planted battery. The lesson destroys the brother it was aimed at.</td><td data-l="Level"><span class="badge b-d0">D0</span></td><td data-l="Src"><span class="prov no">○</span></td></tr>
+<tr><td class="show" data-l="Show">Sherlock</td><td class="ep" data-l="Ep">The Final Problem</td><td data-l="Yr">2017</td><td class="vtag" data-l="Var">V5 V9 V15</td><td class="mech" data-l="Mech">Lethal tests staged inside a constructed facility by a sibling running an experiment on her brother.</td><td data-l="Level"><span class="badge b-d0">D0</span></td><td data-l="Src"><span class="prov no">○</span></td></tr>
+<tr><td class="show" data-l="Show">Doctor Who</td><td class="ep" data-l="Ep">Extremis</td><td data-l="Yr">2017</td><td class="vtag" data-l="Var">V6</td><td class="mech" data-l="Mech">The protagonists discover they are the simulation, and the discovery is the point of the exercise run on them.</td><td data-l="Level"><span class="badge b-d0">D0</span></td><td data-l="Src"><span class="prov no">○</span></td></tr>
+<tr><td class="show" data-l="Show">Black Mirror</td><td class="ep" data-l="Ep">Hang the DJ</td><td data-l="Yr">2017</td><td class="vtag" data-l="Var">V6 V5</td><td class="mech" data-l="Mech">A relationship revealed as one of a thousand simulations run to produce a compatibility score.</td><td data-l="Level"><span class="badge b-d0">D0</span></td><td data-l="Src"><span class="prov no">○</span></td></tr>
+<tr><td class="show" data-l="Show">Zack Morris Is Trash</td><td class="ep" data-l="Ep">the series</td><td data-l="Yr">2017</td><td class="vtag" data-l="Var">OP8</td><td class="mech" data-l="Mech">Driscoll's Funny or Die series converts Saved by the Bell's production discontinuity into Zack's moral biography, treating unwritten guest stars as women he discarded. The clearest demonstration of OP8 anywhere.</td><td data-l="Level"><span class="badge b-d1">D1</span></td><td data-l="Src"><span class="prov no">○</span></td></tr>
+<tr><td class="show" data-l="Show">Succession</td><td class="ep" data-l="Ep">Boar on the Floor</td><td data-l="Yr">2019</td><td class="vtag" data-l="Var">V13 V11</td><td class="mech" data-l="Mech">A manufactured humiliation staged as a loyalty lesson by a father, with the pedagogy functioning purely as permission.</td><td data-l="Level"><span class="badge b-d0">D0</span></td><td data-l="Src"><span class="prov no">○</span></td></tr>
+<tr><td class="show" data-l="Show">Squid Game</td><td class="ep" data-l="Ep">season 1</td><td data-l="Yr">2021</td><td class="vtag" data-l="Var">V15 V13 V5</td><td class="mech" data-l="Mech">Lethal games staged as an experiment about human nature, with the host concealed among the participants and the moral revealed as a bet.</td><td data-l="Level"><span class="badge b-d0">D0</span></td><td data-l="Src"><span class="prov no">○</span></td></tr>
+<tr><td class="show" data-l="Show">The Rehearsal</td><td class="ep" data-l="Ep">the format</td><td data-l="Yr">2022</td><td class="vtag" data-l="Var">V5 V6 V2</td><td class="mech" data-l="Mech">Life rehearsed inside constructed replicas, then the rehearsal itself rehearsed, with the director becoming his own subject. The purest living descendant of the device.</td><td data-l="Level"><span class="badge b-d0">D0</span></td><td data-l="Src"><span class="prov no">○</span></td></tr>
+<tr><td class="show" data-l="Show">Severance</td><td class="ep" data-l="Ep">season 1</td><td data-l="Yr">2022</td><td class="vtag" data-l="Var">V5 V15</td><td class="mech" data-l="Mech">A constructed working condition maintained by an institution, with the participants unable to see the frame they are inside.</td><td data-l="Level"><span class="badge b-d5">D5</span></td><td data-l="Src"><span class="prov no">○</span></td></tr>
+<tr><td class="show" data-l="Show">Lost</td><td class="ep" data-l="Ep">the candidate arc</td><td data-l="Yr">2004</td><td class="vtag" data-l="Var">V9 V15</td><td class="mech" data-l="Mech">Survivors revealed as participants in a long-running test run by an entity claiming instructive purpose.</td><td data-l="Level"><span class="badge b-d5">D5</span></td><td data-l="Src"><span class="prov no">○</span></td></tr>
+<tr><td class="show" data-l="Show">The Sopranos</td><td class="ep" data-l="Ep">the loyalty-test pattern</td><td data-l="Yr">1999</td><td class="vtag" data-l="Var">V13 V11</td><td class="mech" data-l="Mech">Manufactured situations built to expose disloyalty, framed by the staging party as care for the family.</td><td data-l="Level"><span class="badge b-d5">D5</span></td><td data-l="Src"><span class="prov no">○</span></td></tr>
+<tr><td class="show" data-l="Show">Modern Family</td><td class="ep" data-l="Ep">the parental scheme pattern</td><td data-l="Yr">2009</td><td class="vtag" data-l="Var">V11 V1</td><td class="mech" data-l="Mech">Parents allow or construct a consequence to instruct a child, and the construction reflects worse on the constructor.</td><td data-l="Level"><span class="badge b-d5">D5</span></td><td data-l="Src"><span class="prov no">○</span></td></tr>
+<tr><td class="show" data-l="Show">Frasier</td><td class="ep" data-l="Ep">the farce engine</td><td data-l="Yr">1993</td><td class="vtag" data-l="Var">V3 V7</td><td class="mech" data-l="Mech">Deception stacked on deception until every character is maintaining a different false reality in the same room.</td><td data-l="Level"><span class="badge b-d0">D0</span></td><td data-l="Src"><span class="prov no">○</span></td></tr>
+<tr><td class="show" data-l="Show">Breaking Bad</td><td class="ep" data-l="Ep">the Lily of the Valley gambit</td><td data-l="Yr">2011</td><td class="vtag" data-l="Var">V3 V13</td><td class="mech" data-l="Mech">A poisoning staged to look like an enemy's work, revealed after the target has already acted on the false reading.</td><td data-l="Level"><span class="badge b-d0">D0</span></td><td data-l="Src"><span class="prov no">○</span></td></tr>
+<tr><td class="show" data-l="Show">Star Trek (lore)</td><td class="ep" data-l="Ep">Kobayashi Maru</td><td data-l="Yr">1982</td><td class="vtag" data-l="Var">V15 V14</td><td class="mech" data-l="Mech">An unwinnable simulation staged by the institution to teach fear of death. Kirk counter-stages by rewriting the simulation.</td><td data-l="Level"><span class="badge b-d0">D0</span></td><td data-l="Src"><span class="prov no">○</span></td></tr>
+<tr><td class="show" data-l="Show">Sanford and Son</td><td class="ep" data-l="Ep">We Were Robbed</td><td data-l="Yr">1972</td><td class="vtag" data-l="Var">W7 V14</td><td class="mech" data-l="Mech">Fred breaks Lamont's porcelain, hides the shards in the refrigerator, and reports a fake burglary. Lamont stages a counter-robbery to force the confession. The device Community actually performs. See §11.</td><td data-l="Level"><span class="badge b-d3">D3</span></td><td data-l="Src"><span class="prov yes">✓</span></td></tr>
+<tr><td class="show" data-l="Show">FILM · The Sting</td><td class="ep" data-l="Ep">1973</td><td data-l="Yr">1973</td><td class="vtag" data-l="Var">V8 V12 V3</td><td class="mech" data-l="Mech">A con dismantled by a staged shooting that fools the mark and the audience together. The film ancestor of every fake death used as a reveal.</td><td data-l="Level"><span class="badge b-d4">D4</span></td><td data-l="Src"><span class="prov no">○</span></td></tr>
+<tr><td class="show" data-l="Show">FILM · Reservoir Dogs</td><td class="ep" data-l="Ep">1992</td><td data-l="Yr">1992</td><td class="vtag" data-l="Var">V4</td><td class="mech" data-l="Mech">The standoff tableau with an undercover reveal, and the visual grammar Community's study room borrows.</td><td data-l="Level"><span class="badge b-d3">D3</span></td><td data-l="Src"><span class="prov no">○</span></td></tr>
+<tr><td class="show" data-l="Show">FILM · Hard Boiled</td><td class="ep" data-l="Ep">1992</td><td data-l="Yr">1992</td><td class="vtag" data-l="Var">V4</td><td class="mech" data-l="Mech">Woo's escalating standoff, with participants and barrels multiplying inside one held frame.</td><td data-l="Level"><span class="badge b-d3">D3</span></td><td data-l="Src"><span class="prov no">○</span></td></tr>
+<tr><td class="show" data-l="Show">FILM · The Game</td><td class="ep" data-l="Ep">1997</td><td data-l="Yr">1997</td><td class="vtag" data-l="Var">V5 V12 V2</td><td class="mech" data-l="Mech">A manufactured ordeal purchased as a birthday gift, finishing in a staged death and a stated moral. The closest film relative of the Weatherman device, and the one most often missed.</td><td data-l="Level"><span class="badge b-d4">D4</span></td><td data-l="Src"><span class="prov no">○</span></td></tr>
+<tr><td class="show" data-l="Show">FILM · The Truman Show</td><td class="ep" data-l="Ep">1998</td><td data-l="Yr">1998</td><td class="vtag" data-l="Var">V5 V9</td><td class="mech" data-l="Mech">A life staged as television by a creator claiming benevolent authorship. The V5 reference point everything else gets measured against.</td><td data-l="Level"><span class="badge b-d4">D4</span></td><td data-l="Src"><span class="prov no">○</span></td></tr>
+      <tr><td class="show" data-l="Show">BoJack Horseman</td><td class="ep" data-l="Ep">Horsin' Around, the show within the show</td><td data-l="Yr">2014</td><td class="vtag" data-l="Var">V5</td><td class="mech" data-l="Mech">Bob-Waksberg names Full House, Growing Pains, Family Ties and ALF as the models, and the team watched their Christmas episodes before writing the special. A documented composite antecedent, with several parents and no single source.</td><td data-l="Level"><span class="badge b-d0">D0</span></td><td data-l="Src"><span class="prov yes">✓</span></td></tr>
+<tr><td class="show" data-l="Show">WandaVision</td><td class="ep" data-l="Ep">the sitcom-era episodes</td><td data-l="Yr">2021</td><td class="vtag" data-l="Var">V5 V10</td><td class="mech" data-l="Mech">A character rebuilds decades of remembered sitcom form as a literal environment, era by era. Abed's television archive externalised into a world other people have to live inside.</td><td data-l="Level"><span class="badge b-d0">D0</span></td><td data-l="Src"><span class="prov yes">✓</span></td></tr>
+<tr><td class="show" data-l="Show">Kevin Can F**k Himself</td><td class="ep" data-l="Ep">the two-camera structure</td><td data-l="Yr">2021</td><td class="vtag" data-l="Var">V5 V13</td><td class="mech" data-l="Mech">Multi-camera sitcom grammar embedded inside a single-camera drama, so the inherited form becomes visible as a set of rules the heroine is trapped by. Winckler's embedded-sitcom category.</td><td data-l="Level"><span class="badge b-d0">D0</span></td><td data-l="Src"><span class="prov yes">✓</span></td></tr>
+</tbody>
+    </table>
+  </div>
+
+  <span class="mine-lbl">Your notes on the catalog</span>
+  <div class="mine" contenteditable="true" data-k="catalog"></div>
+</section>
+
+<!-- ================= §14 EXPLICIT CANON ================= -->
+<section id="explicit">
+  <div class="sec-head"><span class="num">§14</span><h2>The Explicit Canon Baseline</h2></div>
+  <p class="sec-sub">Confirmed borrowings, used as the measuring stick for the hidden ones.</p>
+  <p class="lede">Community states what it is doing out loud at least a dozen times. Those confirmed cases give us the baseline shape of the show's borrowing when it wants to be seen. Anything proposed as a hidden borrowing gets compared against that shape rather than against a general sense that two shows resemble each other.</p>
+  <p>Competitive Wine Tasting turns Who's the Boss? into a problem Abed believes textual analysis can solve. Basic Lupine Urology recreates Law &amp; Order structure, photography, roles, music, and plotting, and brings a Law &amp; Order performer into the episode. Regional Holiday Music makes Glee conventions the literal cause of behaviour. Intermediate Documentary Filmmaking runs mockumentary grammar while arguing about how cheap that grammar is. Don't Jim the camera compresses the whole history into a verb. The Cougar Town crossover writes a story about Abed appearing on a real series, and Danny Pudi then appears on that series consistently with the story.</p>
+
+  <h3 class="sub">Three search rules that follow from the baseline</h3>
+  <p><b>Convention rule.</b> When Abed identifies a production convention, search backward for famous instances and check whether Community reproduces a distinctive earlier implementation rather than the generic version.</p>
+  <p><b>Type rule.</b> When Abed identifies a character type, inspect earlier sitcom characters holding that function and track whether their traits moved elsewhere in the ensemble, per §4.</p>
+  <p><b>Complaint rule.</b> When Abed complains about the quality or direction of the current story, compare the fictional complaint against the production circumstances of that season. Exhibit 5 proves this rule has at least one confirmed hit, and season four and season five are where it pays best.</p>
+
+  <span class="mine-lbl">Your notes on the explicit canon</span>
+  <div class="mine" contenteditable="true" data-k="explicit"></div>
+</section>
+
+<!-- ================= §15 REACHES ================= -->
+<section id="reaches">
+  <div class="sec-head"><span class="num">§15</span><h2>The Reaches</h2></div>
+  <p class="sec-sub">Twelve propositions carried openly at D5. Each has a precisely described mechanism, which is what makes a low-confidence connection useful.</p>
+
+  <div class="reach"><span class="rt">REACH 01 · D5</span><h4>Chang is Greendale's standing Weatherman</h4><p>A figure repeatedly hired into somebody else's scheme, whose job is giving a lesson a physical body, and who keeps outliving the scheme that hired him. George Sr. rented an amputee. Greendale keeps one on staff.</p></div>
+
+  <div class="reach"><span class="rt">REACH 02 · D5</span><h4>The final reveal in S2E9 is a family, and that is the Bluth thesis restated</h4><p>The chain stops escalating and finishes on two stagers who share breakfast plans, a Thanksgiving, and somebody's father. Arrested Development spent three seasons arguing that lesson-teaching is hereditary and nobody in the bloodline is qualified. Community's tag reaches the same conclusion in nine seconds.</p></div>
+
+  <div class="reach"><span class="rt">REACH 03 · D5</span><h4>The gas leak year is the device applied to a season</h4><p>Season five retroactively reclassifies season four as a staged catastrophe with a moral attached. That is the Weatherman structure operating at the scale of a broadcast year, with the audience and the studio as the pupils.</p></div>
+
+  <div class="reach"><span class="rt">REACH 04 · D5</span><h4>Six seasons and a movie is a staged lesson aimed at a network</h4><p>A prediction about another series becomes a real campaign manufacturing external pressure. The show constructed a reality outside itself, and the intended pupil was NBC. NewsRadio built the same gesture inside a Titanic set fifteen years earlier.</p></div>
+
+  <div class="reach"><span class="rt">REACH 05 · D5</span><h4>The Darkest Timeline is the device with the teacher deleted</h4><p>Manufactured catastrophe, no stager, no reveal, no moral. Removing the pedagogy from the Weatherman device leaves horror, and the felt goatees are the show admitting that.</p></div>
+
+  <div class="reach"><span class="rt">REACH 06 · D5</span><h4>Community keeps the two halves apart on purpose</h4><p>The paintball episodes run the standoff grammar with no lessons attached. The bottle episodes run the lesson grammar with no weapons. S2E9 is the only place both fire at once, which is why the episode works as an homage rather than as house style.</p></div>
+
+  <div class="reach"><span class="rt">REACH 07 · D5</span><h4>Rick and Morty is the strongest argument against the homage reading</h4><p>Harmon spent a decade building a series whose premise is a guardian manufacturing trauma and calling it education. A writer who arrives at that device independently, at that scale, plausibly arrived at the S2E9 version independently too.</p><p>The counterweight is Exhibit 1. He also told a Reddit audience he checked TV Tropes for prior art while writing Community. Both facts are documented, they pull in opposite directions, and that tension is exactly why this stays at D5 rather than resolving.</p></div>
+
+  <div class="reach"><span class="rt">REACH 08 · D5</span><h4>Annie's fourth gun is the show's own counter-stager footnote</h4><p>There were three props. Annie produces a fourth, goes off-script, and shoots the people holding the script. Buster's false hand did the identical job in 2006. Community flags the improvisation in dialogue rather than trusting the audience to catch it.</p></div>
+
+  <div class="reach"><span class="rt">REACH 09 · D5</span><h4>The Dean is Belding with the restrictions lifted</h4><p>The same restoration shape as Jessie to Annie, applied to authority instead of to addiction. An administrator who needs the students to like him was safe for Saturday morning at one intensity. Cable-era comedy runs the identical figure with the governor removed. Filed as a role echo, since the institutional slot carries more of the correspondence than the characterisation does.</p></div>
+
+  <div class="reach"><span class="rt">REACH 10 · D5</span><h4>The loud citation is buying cover for the quiet one</h4><p>Community cites Scrubs by actor in its pilot. No comparable spoken citation of Saved by the Bell appeared in the material checked here, and one earlier critic has argued the Bayside shape is built into Community's DNA regardless. A show that establishes itself as an open referencer earns the right to borrow structure without attribution, and W10 exists to test exactly that gap.</p></div>
+
+  <div class="reach"><span class="rt">REACH 11 · D5</span><h4>The spiked tea and the anthropology final</h4><p>In Cooperative Polygraphy, Pierce's posthumous interrogation reveals Annie secretly gave the study group a pharmaceutical amphetamine as they crammed, and Abed reports the dose kept him awake for three days. The Beatles anecdote has the same behavioural sequence, where the band dosed a pot of tea and served it to their producer and engineer specifically so the session would continue.</p><p>Specificity and rarity both score maximum, because secretly dosing your collaborators so they cannot get tired and leave is not a genre convention. Chronology kills it. Community aired the episode in January 2014, and the Harrison account reached wide circulation through the expanded Anthology in November 2025. Searching for the anecdote in general circulation before 2014 produced nothing. Two corrections worth carrying: the setting is the Sgt. Pepper sessions at Abbey Road rather than the Abbey Road album, and the recipients were the producer and the engineer.</p><p>The methodological value survives the failed chronology. Jessie supplies Annie's stimulant biography and this supplies her dosing behaviour, so two separate antecedents converge on one character without either explaining the whole of her. That is the clustering rule operating on a case where one source is unavailable.</p></div>
+
+  <div class="reach"><span class="rt">REACH 12 · D5</span><h4>Abed inherits the symptom and can diagnose the disease</h4><p>Episodic television produced the disposable romantic guest star as an accident of scheduling. Zack Morris Is Trash converts that accident into moral evidence against Zack, decades later, from outside the show. Community hands the same accident to the character whose established function is recognising when reality begins behaving according to television requirements. Rachel crossing an episode boundary in season five is what makes the pattern visible.</p><p>This one has the best supporting evidence of any reach here, since Exhibits 7 and 8 document both halves of the mechanism from the creator's own side. It stays at D5 because nobody has connected the mechanism to Abed specifically, and doing so is the interpretive move.</p></div>
+
+  <span class="mine-lbl">Your notes on the reaches</span>
+  <div class="mine" contenteditable="true" data-k="reaches"></div>
+</section>
+
+<!-- ================= §16 CONTROL ================= -->
+<section id="control">
+  <div class="sec-head"><span class="num">§16</span><h2>The Absent Case</h2></div>
+  <p class="sec-sub">W11. The series where this device cannot exist, and what the exclusion proves.</p>
+  <p class="lede">Seinfeld ran nine seasons on a house rule against hugging and learning. That rule makes the staged-lesson device structurally unavailable, because the device requires somebody to want a lesson delivered. Larry David's writers could build the deception, the escalation, and the convergence. They could not build the reveal that states a moral, since no Seinfeld character has ever wanted one taught.</p>
+  <p>The exclusion is diagnostic. It tells us the device requires three things present at once: a character who believes in improvement, a character who can be improved, and a show willing to let an episode finish with somebody changed. Arrested Development satisfies the first, denies the second, and turns the third into a joke. Community satisfies all three and then apologises for it in the tag. Seinfeld satisfies none, and the device stays absent across the whole run.</p>
+  <p>Run this test whenever a trope claim feels too easy. Find the show that should have done it and did not, then work out which house rule blocked it. The blocking rule usually describes the device better than the examples do.</p>
+  <span class="mine-lbl">Your notes on the absent case</span>
+  <div class="mine" contenteditable="true" data-k="control"></div>
+</section>
+
+<!-- ================= §17 LEDGER ================= -->
+<section id="ledger">
+  <div class="sec-head"><span class="num">§17</span><h2>Evidence Ledger</h2></div>
+  <p class="sec-sub">What was checked at source, what was supplied, what was corrected, and what failed.</p>
+
+  <div class="ledger">
+    <div class="led ok">
+      <h4>Verified at source this session</h4>
+      <ul>
+        <li>Harmon on using TV Tropes during Community to check prior art, fetched from the AMA transcript</li>
+        <li>Harmon calling his characters amalgams, with the Annie, Pierce, Abed, and Britta origins in one answer</li>
+        <li>Harmon on identification moving from Jeff to Abed by the end of season one</li>
+        <li>Harmon on having had a TV show while Abed has other people's</li>
+        <li>Harmon on the season three Dreamatorium symbolising his departure</li>
+        <li>Harmon on Chang's line paraphrasing him in the room, plus the Megan Ganz beat</li>
+        <li>Harmon on busy actors and non-random plans in a random vortex</li>
+        <li>Harmon on Jeff choosing Greendale at the end of season three</li>
+        <li>Pier Pressure closing line, and Making a Stand including Buster's false prosthetic</li>
+        <li>The full S2E9 shooting chain, from the local episode text plus published recaps</li>
+        <li>Troy's Batman DVD line, and Peter Engel on Jessie's Song being written as speed</li>
+        <li>The Gang Broke Dee, and NewsRadio Sinking Ship as S4E22</li>
+      </ul>
+    </div>
+    <div class="led warn">
+      <h4>Supplied with citations, not re-fetched here</h4>
+      <ul>
+        <li><b>The entire Vulture 2010 interview.</b> Exhibits 2 and 7 both depend on it, along with the Moonlighting material in §10. The domain is blocked to direct fetch, and the quotes did not appear in search results, so all of it carries the amber caveat</li>
+        <li>Harmon's wider influence pool: Cheers, Taxi, 30 Rock, The Office, The Simpsons, Arrested Development, and the Shandling credit</li>
+        <li>The Abed partner details in §9: Jenny Adams, the billiards-class woman, Robin Vohlers as Secret Service, Carol hired by Britta, Rachel returning in season five</li>
+        <li>The Cooperative Polygraphy amphetamine reveal and the three-day figure</li>
+        <li>The Beatles spiked-tea account, its Sgt. Pepper setting, and its November 2025 wide circulation</li>
+        <li>The explicit-canon episode details in §14</li>
+        <li>Every catalog row marked ○</li>
+      </ul>
+    </div>
+    <div class="led bad">
+      <h4>Failed or corrected</h4>
+      <ul>
+        <li><b>Failed. The Harmon tweet.</b> The claim that he said in November 2010 he had not seen the Arrested Development lesson episode did not survive searching. No archived post, no contemporaneous report, no preserved discussion. Under W6 this drops to unsourced assertion. Consequence: Case A gets weaker at D1 and no weaker at D3</li>
+        <li><b>Corrected. Pierce and Troy as Beavis and Butt-Head.</b> This was supplied as an AMA statement. That transcript does not contain it, and the check was made directly. Removed rather than repeated</li>
+        <li><b>Corrected. Troy's original conception.</b> Supplied as a more typical jock. The verified line is a teenage Woody Harrelson, totally subverted by Donald Glover being a star. The corrected version is used in §7</li>
+        <li><b>Chronology failure.</b> Reach 11 scores maximum on specificity and rarity, zero on chronology and access. Recorded rather than removed, since the fusion argument survives the dating problem</li>
+        <li><b>Voice gate residual.</b> The anti-AI gate finishes at 9 total hits, under the threshold of 10, with 2 severity-3 hits remaining. Both are proper nouns in the catalog data: <b>Tapestry</b>, the Star Trek TNG episode, flagged as an AI cliche noun, and <b>Leverage</b>, the TNT series, flagged as a corporate verb. The gate carries no proper-noun exemption. Renaming a real episode or a real series to satisfy a slop regex would break the no-invented-data rule, so both titles stay accurate and the residual is recorded here instead. Every genuine prose hit was cleared, from 10 severity-3 down to these two.</li>
+        <li><b>Open question.</b> Whether Community ever cites Saved by the Bell in dialogue. Nothing appeared in the material checked here, and the answer would move Reach 10 in either direction</li>
+      </ul>
+    </div>
+  </div>
+
+  <span class="mine-lbl">Your notes on the ledger</span>
+  <div class="mine" contenteditable="true" data-k="ledger"></div>
+</section>
+
+<!-- ================= §18 SOURCES ================= -->
+<section id="sources">
+  <div class="sec-head"><span class="num">§18</span><h2>Sources</h2></div>
+  <ul class="src-list">
+    <li><a href="https://www.imdb.com/title/tt0559820/plotsummary/">IMDb plot summary, The Dick Van Dyke Show, The Curse of the Petrie People (1966)</a> · the declined antecedent in §11</li>
+    <li><a href="http://dickvandykeshow.blogspot.com/2011/07/episode-145-curse-of-petrie-people.html">The Dick Van Dyke Show episode guide, episode 145</a> · brooch detail and disposal beat</li>
+    <li><a href="https://sanfordandson.fandom.com/wiki/We_Were_Robbed">Sanford and Son Wiki, We Were Robbed (S1E6, 18 February 1972)</a> · the executed antecedent in §11</li>
+    <li><a href="https://www.imdb.com/title/tt0694185/plotsummary/">IMDb plot summary, Sanford and Son, We Were Robbed</a> · counter-robbery and confession beats</li>
+    <li><a href="https://www.britannica.com/topic/The-George-Burns-and-Gracie-Allen-Show">Britannica, The George Burns and Gracie Allen Show (1950 to 1958)</a> · first sustained fourth-wall break, root of the bloodline in §8</li>
+    <li><a href="https://www.avclub.com/community-critical-film-studies-1798167720">AV Club, Critical Film Studies</a> · the My Dinner with Andre homage</li>
+    <li><a href="https://www.sbs.com.au/whats-on/article/the-cheesy-90s-sitcom-dna-of-bojack-horseman/0s9hpw6yc">SBS, the sitcom DNA of BoJack Horseman</a> · Bob-Waksberg naming Full House, Growing Pains, Family Ties and ALF</li>
+    <li><a href="https://onlinelibrary.wiley.com/doi/full/10.1111/jpcu.13337">Reto Winckler, "Sitcom as Refuge, Sitcom as Prison", Journal of Popular Culture 57:4, 2024</a> · the embedded-sitcom category</li>
+    <li>Local episode text: <span class="mono">~/Desktop/project-audit-dashboard/community-s2-build/transcripts/s02e09.txt</span>, 333 lines, dialogue only with no speaker tags</li>
+    <li>Local writeup: <span class="mono">~/Desktop/project-audit-dashboard/community-s2-build/writeups/s02e09.md</span></li>
+    <li><a href="https://amatranscripts.com/ama/dan_harmon_2012-08-22.html">Dan Harmon Reddit AMA transcript, 22 August 2012</a> · the primary source for Exhibits 1, 3, 4, 5, 6, 8, 9</li>
+    <li><a href="https://www.vulture.com/2010/02/community_creator_dan_harmon_o.html">Vulture, February 2010, Harmon on reference humor</a> · Exhibits 2 and 7, unreachable this session</li>
+    <li><a href="https://tvtropes.org/pmwiki/pmwiki.php/Recap/CommunityS2E09ConspiracyTheoriesandInteriorDesign">TV Tropes recap, Community S2E09</a></li>
+    <li><a href="https://en.wikipedia.org/wiki/Conspiracy_Theories_and_Interior_Design">Wikipedia, Conspiracy Theories and Interior Design</a></li>
+    <li><a href="https://tvtropes.org/pmwiki/pmwiki.php/Recap/ArrestedDevelopmentS1E10PierPressure">TV Tropes recap, Arrested Development S1E10</a></li>
+    <li><a href="https://arresteddevelopment.fandom.com/wiki/J._Walter_Weatherman">Arrested Development Wiki, J. Walter Weatherman</a></li>
+    <li><a href="https://tvtropes.org/pmwiki/pmwiki.php/Recap/ArrestedDevelopmentS3E8MakingAStand">TV Tropes recap, Arrested Development S3E8</a></li>
+    <li><a href="https://www.avclub.com/arrested-development-prison-break-in-making-a-stand-1798175266">AV Club on Making a Stand and the nested lesson schemes</a></li>
+    <li><a href="https://community-sitcom.fandom.com/wiki/Foosball_and_Nocturnal_Vigilantism/Transcript">Community Wiki transcript, Foosball and Nocturnal Vigilantism</a></li>
+    <li><a href="https://www.thewrap.com/saved-by-the-bell-jessie-speed-caffeine-pills/">TheWrap, Peter Engel on Jessie's addiction being written as speed</a></li>
+    <li><a href="https://tvtropes.org/pmwiki/pmwiki.php/Recap/SavedByTheBellS2E25JessiesSong">TV Tropes recap, Saved by the Bell, Jessie's Song</a></li>
+    <li><a href="https://en.wikipedia.org/wiki/Zack_Morris_(Saved_by_the_Bell)">Wikipedia, Zack Morris, on the time-outs and direct address</a></li>
+    <li><a href="https://en.wikipedia.org/wiki/The_Many_Loves_of_Dobie_Gillis">Wikipedia, The Many Loves of Dobie Gillis</a></li>
+    <li><a href="https://en.wikipedia.org/wiki/It%27s_Garry_Shandling%27s_Show">Wikipedia, It's Garry Shandling's Show</a></li>
+    <li><a href="https://www.vulture.com/2013/12/dan-harmon-explains-his-cultural-influences.html">Vulture, Harmon on his cultural influences</a></li>
+    <li><a href="https://www.theguardian.com/tv-and-radio/2011/dec/03/community-chevy-chase-childish-gambino">The Guardian, Community profile</a></li>
+    <li><a href="https://www.spoilertv.com/2011/11/community-season-3-dan-harmon-interview.html">SpoilerTV, Harmon season three interview, the influence pool</a></li>
+    <li><a href="https://en.wikipedia.org/wiki/Abed_Nadir">Wikipedia, Abed Nadir</a></li>
+    <li><a href="https://en.wikipedia.org/wiki/Physical_Education_(Community)">Wikipedia, Physical Education</a></li>
+    <li><a href="https://community-sitcom.fandom.com/wiki/Robin_Vohlers">Community Wiki, Robin Vohlers</a></li>
+    <li><a href="https://community-sitcom.fandom.com/wiki/Carol">Community Wiki, Carol</a></li>
+    <li><a href="https://en.wikipedia.org/wiki/Herstory_of_Dance">Wikipedia, Herstory of Dance</a></li>
+    <li><a href="https://en.wikipedia.org/wiki/Cooperative_Polygraphy">Wikipedia, Cooperative Polygraphy</a></li>
+    <li><a href="https://en.wikipedia.org/wiki/Intermediate_Documentary_Filmmaking">Wikipedia, Intermediate Documentary Filmmaking</a></li>
+    <li><a href="https://en.wikipedia.org/wiki/Competitive_Wine_Tasting">Wikipedia, Competitive Wine Tasting</a></li>
+    <li><a href="https://en.wikipedia.org/wiki/Basic_Lupine_Urology">Wikipedia, Basic Lupine Urology</a></li>
+    <li><a href="https://en.wikipedia.org/wiki/Regional_Holiday_Music">Wikipedia, Regional Holiday Music</a></li>
+    <li><a href="https://www.imdb.com/title/tt8614132/episodes/">IMDb, Zack Morris Is Trash episode list</a></li>
+    <li><a href="https://www.guitarplayer.com/guitarists/they-were-asking-can-we-go-home-now-we-said-no-have-a-cup-of-tea-george-harrison-on-the-night-the-beatles-got-george-martin-and-his-crew-high">Guitar Player, the spiked-tea account</a></li>
+    <li><a href="https://tvtropes.org/pmwiki/pmwiki.php/Recap/ItsAlwaysSunnyInPhiladelphiaS09E01TheGangBrokeDee">TV Tropes recap, The Gang Broke Dee</a></li>
+    <li><a href="https://www.cbr.com/newsradio-space-titanic-nbc/">CBR, NewsRadio went to space and sank the Titanic</a></li>
+    <li><a href="https://www.imdb.com/title/tt0660223/">IMDb, NewsRadio Sinking Ship</a></li>
+    <li><a href="https://www.pastemagazine.com/tv/community-review-conspiracy-theories-and-interior">Paste, contemporaneous review of Conspiracy Theories</a></li>
+    <li><a href="https://www.pajiba.com/guides/saved-by-the-community-the-truth-behind-the-meta-behind-the-truth.php">Pajiba, an earlier argument that Saved by the Bell is built into Community's DNA</a></li>
+  </ul>
+</section>
+
+<footer>
+  <p>Built 13 August 2026. The protocol in §3 transcribes the user's own reasoning from the originating conversation. Every level is stated rather than implied, and no claim on this page is promoted above the level it was first assigned. The claims that failed verification are recorded in §17 rather than removed, including two supplied claims corrected against the primary source.</p>
+</footer>
+
+</div>
+
+<button id="mobBtn">MOBILE</button>
+
+<script>
+function toggleMobile(){
+  document.body.classList.toggle('mobileview');
+  var on = document.body.classList.contains('mobileview');
+  document.getElementById('mobBtn').textContent = on ? 'DESKTOP' : 'MOBILE';
+  localStorage.setItem('wd-mob', on ? '1' : '0');
+}
+(function(){
+  var rows = Array.prototype.slice.call(document.querySelectorAll('#cat tbody tr'));
+  var q = document.getElementById('q');
+  var cnt = document.getElementById('cnt');
+  var active = 'all';
+
+  function apply(){
+    var term = (q.value || '').toLowerCase().trim();
+    var n = 0;
+    rows.forEach(function(r){
+      var txt = r.textContent.toLowerCase();
+      var okTerm = !term || txt.indexOf(term) !== -1;
+      var okF = true;
+      if(active !== 'all'){
+        if(active.charAt(0) === 'V'){
+          var vt = r.querySelector('.vtag').textContent.split(/\s+/);
+          okF = vt.indexOf(active) !== -1;
+        } else {
+          okF = !!r.querySelector('.b-' + active.toLowerCase());
+        }
+      }
+      var vis = okTerm && okF;
+      r.style.display = vis ? '' : 'none';
+      if(vis) n++;
+    });
+    cnt.textContent = n + ' / ' + rows.length + ' entries';
+  }
+
+  q.addEventListener('input', apply);
+  document.querySelectorAll('.fbtn').forEach(function(b){
+    b.addEventListener('click', function(){
+      document.querySelectorAll('.fbtn').forEach(function(x){ x.classList.remove('on'); });
+      b.classList.add('on');
+      active = b.dataset.f;
+      apply();
+    });
+  });
+  apply();
+
+  document.querySelectorAll('.mine').forEach(function(el){
+    var k = 'wd-note-' + el.dataset.k;
+    var saved = localStorage.getItem(k);
+    if(saved) el.innerHTML = saved;
+    el.addEventListener('input', function(){ localStorage.setItem(k, el.innerHTML); });
+  });
+
+  if(localStorage.getItem('wd-mob') === '1'){
+    document.body.classList.add('mobileview');
+    document.getElementById('mobBtn').textContent = 'DESKTOP';
+  }
+  document.getElementById('mobBtn').addEventListener('click', toggleMobile);
+})();
+</script>
+
+</body>
+</html>
