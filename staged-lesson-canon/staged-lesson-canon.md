@@ -1,157 +1,223 @@
-# The Weatherman Recursion — Staged-Lesson Canon (Rev 2)
+# The Staged Lesson Engine — Sitcom Ancestry Tool
 
 **Live:** https://7onething1.github.io/staged-lesson-canon/
-**Rev 1:** 2026-08-13 · **Rev 2:** 2026-08-13, post external audit
 
-## What this is
+A working breakdown of one machine: somebody manufactures your catastrophe for your own good, and then somebody manufactured theirs. Three shows run it at three depths, and the differences are measurable.
 
-A field guide to the "I staged your catastrophe to teach you a lesson" gag: its five-beat grammar, eight structural forms, and its branches across TV, film, stage and nonfiction. Reference text for the recursive form is *Arrested Development* S1E10 *Pier Pressure*. Furthest branch is *Community* S2E9.
+## How to use this
 
-## Rev 2 claim types
+- **Compare two shows** → engine cards, sections 3 and 6. One fixed schema, so stager / token / depth / terminal move line up directly.
+- **Score a scene you're watching** → the depth rule, section 4. About a minute, produces a comparable number.
+- **Trace where a character came from** → the function-transfer matrix, section 5. Tracks functions, not characters.
+- **Search further** → grouped TVTropes index, section 9, every link checked.
+- **Extend it yourself** → corpus paths and grep recipes, section 10.
 
-Rev 1 used one confidence ladder, which let episode facts and structural readings sit at equal weight. Rev 2 separates claims **by kind**, not by confidence.
+Quotation marks: **Script** = verbatim from transcript with file and line. **Cited** = external source. **Reading** = interpretation.
 
-| Type | Proves | Coverage |
+## The engine, in five beats
+
+| Beat | What happens | Test |
 |---|---|---|
-| TRANSCRIPT | The episode did the thing | `~/Projects/tv-scripts/text/` — Community complete, Always Sunny S1–S17, Arrested Development S1–S3 |
-| CITED | Documented intent, production history, or research finding | 14 external sources, URLs on the page |
-| STRUCTURAL | My reading. Not evidence of descent | pattern-level entries, unpinned episodes, all cross-show comparisons |
-| NONFICTION | A real-world precursor or analogue. **Never a documented ancestor** | Scared Straight!, Milgram, Stanford Prison |
+| **A. Commission** | An authority builds a fiction to deliver instruction | Is there a stager with a stated pedagogical motive? |
+| **B. Curriculum** | The fear itself is the teaching | Would the lesson fail if the victim weren't frightened? |
+| **C. Reveal** | The catastrophe is disclosed as fabricated | Is a disclosure staged on screen? Without this it's an aversion lesson, not a staged one |
+| **D. Recursion** | The stager turns out to be somebody else's student | Does a second concealed plan surface that contains the first? |
+| **E. Inversion** | The lesson-giver is revealed as the one who needed the lesson | Does the episode end by indicting the teacher? |
 
-**The one thing this page does not claim:** that Community was influenced by Arrested Development. The surviving contemporary record points the other way, and the argument does not need influence.
+C is the membership test. D is the engine. E is the argument, and it's always the same argument: **every stager in this canon is a paternalist, and the form's fixed opinion is that paternalists are the ones under instruction.**
 
-## Rev 2 audit log — 14 corrections applied
+## The three core shows
 
-| # | Rev 1 claim | Correction |
-|---|---|---|
-| 1 | "AD spends a human arm", "bodies instead of props" | **Wrong.** Injuries in *Making a Stand* are theatrical; Buster's shot-off hand is his prosthetic. Rewritten throughout |
-| 2 | "Inverse law of depth and stakes" | Demoted to **working hypothesis**, restated as token cost, not injury reality |
-| 3 | "Every Weatherman appearance is a Form 7 event" | Withdrawn. Real element is his *prior* disability used as equipment |
-| 4 | Scared Straight! in Form 2, "literal ancestor" | Moved to Form 1 (**no beat C**). "Literal ancestor" → nonfiction precursor |
-| 5 | Milgram + Stanford scored all five beats | Rewritten into new **Form 7b, Uncontrolled Simulation**. Milgram's deception served an obedience research question; Stanford participants knowingly enrolled, so beat C cannot occur |
-| 6 | Good Place "built to produce a moral outcome" | **Backwards.** Michael built it as experimental torture. Reframed as a series-scale **inversion**, beat E by unintended reversal. New label: the **backfired apparatus** |
-| 7 | Rick and Morty as "direct evidence" of the lesson recursion | Narrowed. Aliens want the dark matter formula; no pedagogical motive. Evidences **recursive false realities** in Harmon's vocabulary, 2 of 5 beats |
-| 8 | Chuck's scheme "only purpose is to extract a confession", purity 9 | Retitled **the punitive gambit**, demoted to Structural, purity 9→5. Aim is evidence and consequences |
-| 9 | "Mycroft and Eurus construct scenarios" | **Eurus** runs the games; Mycroft is a subject. Narrowed to one episode |
-| 10 | Leone as "the ur-standoff" | Withdrawn. Device predates 1966; phrase in print by 1876 |
-| 11 | "Contemporary press called it Woo-worthy" | **Removed.** Written from recall, could not source. Nothing substituted |
-| 12 | "The only surviving trace" of Harmon's 2010 statement | → "a surviving contemporary trace", thread linked |
-| 13 | "Third act written very late" | → the sourceable version: written one day at a time during production (PaleyFest) |
-| 14 | "Six reveals" then eight numbered events | Fixed by defining a layer. See below |
-
-Also demoted: "ur-text" → reference text, plus the superlatives "largest instance in television", "purest modern pileup", "most cited instance", "most widely known staged lesson in English".
-
-## How depth is counted (fixes #14)
-
-**A layer is one distinct concealed plan, authored by a distinct party, disclosed on screen.** Gunshots, faked deaths and prop reveals are the *token* marking a layer, not layers. An arrest counts only if the authority was placed there by somebody in the chain.
-
-**Community S2E9 = 6 layers, 4 gunshots:**
-1. Dean + Garrity against Jeff
-2. Annie + Dean from the start (academic fraud)
-3. Jeff turning the Dean (friendship)
-4. The Dean's second turn, double-crossing Jeff with Annie
-5. Garrity performing throughout ("And scene")
-6. Garrity tipping Cackowski
-
-**Making a Stand = 4 layers:** Michael's lesson, George Sr.'s counter-lesson, Gob's defection, Weatherman's complicity. Police uncounted — nobody placed them. That difference is exactly why Community reaches six.
-
-## The five beats
-
-- **A. Commission** — an authority builds a fiction to deliver instruction
-- **B. Curriculum** — the terror itself is the teaching
-- **C. Reveal** — the catastrophe is disclosed as fabricated ← **the membership test**
-- **D. Recursion** — the stager is revealed as somebody else's student
-- **E. Inversion** — the lesson-giver needed the lesson
-
-## The eight forms (plus 7b)
-
-1. **Aversion Lesson** (depth 0, no beat C) — carton of cigarettes, King of the Hill, **Scared Straight!** (moved here in Rev 2)
-2. **Staged Scare** (depth 1) — *Pier Pressure* layer one, Community S4E2, The Office fire drill
-3. **Weatherman Recursion** (depth 2) — *Pier Pressure* complete. Purity 10
-4. **Gambit Pileup** (depth 4+) — Community S2E9 (6), *Making a Stand* (4), B99 heists, Sherlock S4E3
-5. **Standoff Escalation** — Leone, Woo, Tarantino. Vocabulary, not a lesson form
-6. **Cosmic Staging** — The Good Place (inverted), Rick and Morty, The Game, A Christmas Carol, The Tempest
-7. **Collapsed Stage** — Always Sunny *The Gang Broke Dee*, The Office heart attack, Weatherman's refusal and relapse
-7b. **Uncontrolled Simulation** (new) — Milgram, Stanford Prison. Adjacent, not members
-8. **Redistribution** — the hiding mechanism
-
-## Working hypothesis, corrected (was "the inverse law")
-
-**A recursion needs a token it can repeat cheaply, and the cost of the token caps the depth.** Weatherman is expensive: booking, setup, gag effect, escalating grotesquerie. AD reaches 4 layers. A starter pistol costs nothing and fires 4 times in 90 seconds, so Community reaches 6.
-
-What separates the shows is **register, not reality**. AD simulates mutilation using a performer whose disability is genuine within the fiction. Community simulates death with theater-department blanks. Both are fake; one is designed to make you wince.
-
-Two data points. Falsifiable by any five-plus-layer instance built on expensive per-layer effects.
-
-## Key verbatim finds
-
-**Community S2E9** — three interchangeable curricula in ninety seconds.
-- "Does the Theater Department have any of those prop guns that fire blanks?" (233)
-- "a real lesson on the fact that Jeff Winger never learns" (238)
-- "we cooked up this thing to illustrate the slippery slope of academic fraud" (262)
-- "we hatched a plan to teach you a lesson or two about friendship" (265)
-- "People aren't playthings, Annie." / "No, they are not. Look who's talking." (268)
-- "There were only three prop guns." / "I live in a terrible neighborhood." (271) — the layer count exceeded the prop supply
-- "in 100 percent of all fake-gun-related shootings, the victim is always the one with the fake gun" (299)
-- "I'm not sure what lessons we've managed to teach each other" (304)
-
-**Community S4E2 *Paranormal Parentage*** — the gag survives Harmon's absence and loses its recursion, in the same episode where Abed says the show has drifted.
-- "Bet you didn't expect me to fake a haunted house to teach you a lesson." (308) → answered "Exactly what we expected."
-- "I remember when this show was about a community college." (256)
-
-**Community S3E9** — the diegetic bibliography, sources withheld.
-- "do you know how many sitcoms have done the 'secretly replace a broken, priceless item' thing? 'Cause Abed does." (53)
-
-**Community S1E8 *Home Economics*** — Troy's obliviousness, opening line of the episode.
-- "Annie, say there are two friends and they're in the same class, and one of them wants to ask the other one out on a date." (15–16)
-
-**Community, Annie's stimulant history** — named in the pilot.
-- "You're little Annie Adderall." (S01E01, 269)
-- "took so much Adderall she tried to straighten the lines on our high school football field during a game" (S03E02, 66)
-
-**AD S1E10 *Pier Pressure*** — the reference text.
-- "had used his considerable means to stage intricate scenarios to teach his children what he considered valuable life lessons" (28) — the doctrine in one sentence
-- "Walter Weatherman, a one-time employee who lost his arm in a Bluth Company construction accident." (32)
-- "I want the guy with the one arm and the fake blood." (262) — Michael asks by function before he asks by name
-- "And that's why you don't teach lessons to your son." (418)
-- "So you taught me a lesson not to teach lessons?" / "It was my last lesson." (422)
-
-**AD S3E8 *Making a Stand*** — beat D announced in advance, then four disclosures.
-- "All right, we'll go along with his lesson, but we're going to teach him one of our own." (279)
-- "And that's why you don't teach your father a lesson." (341)
-- "J. Walter Weatherman was in on it, too?" / "Right from the very start." (352)
-- "And that's why you don't use a one-armed person to scare someone." (360)
-- Weatherman's refusal and relapse in one episode: "it strengthened my resolve to be more than just a one-armed man" (205), then he takes George Sr.'s job. Note the narrator's own word: **prosthetic** (200)
-
-**The open-slot argument, as a grep result.** Eight distinct morals ride the same sentence across S1–S3: leave a note, don't yell, don't fire her, don't take your foot out of its wrapper, don't teach lessons to your son, don't teach your father a lesson, don't pit Gob and me against each other, don't use a one-armed person to scare someone. Community reaches the identical conclusion by stacking three curricula at once.
-
-## Redistribution table
-
-| Function | Original carrier | Community carrier | Type |
+| | Saved by the Bell | Arrested Development | Community |
 |---|---|---|---|
-| Achievement pressure → stimulant abuse → collapse | Jessie Spano. Engel: originally **speed**, NBC Standards forced caffeine | Annie, uncensored. "little Annie Adderall" in the pilot | Cited + Transcript |
-| Obliviousness to a friend's interest | Zack Morris; Joe/Catherine on NewsRadio | **Troy, not Jeff.** *Home Economics* opens on it | Transcript |
-| Activist register, moral lecturing | Jessie Spano | **Britta** — which is why Jessie maps onto no single character | Structural |
-| Grounded moral centre who gossips | Lisa Turtle | Shirley, with Lisa's romance material dispersed | Structural |
-| Scheme architect whose plans backfire into a lesson | Zack Morris | Jeff, scheming intact, backfire moralised | Structural |
-| Ex-pro below his stated ambition | Sam Malone | Jeff. Verified in `~/Projects/_outputs/community-verify/` | Transcript |
+| **Depth** | 1 | 4 | 6 |
+| **Stager position** | Inside the peer group | Above the family, and inherited | Rotating among six people |
+| **Token** | The scheme, plus the time-out | J. Walter Weatherman + a catchphrase with an open slot | A prop gun, cost zero |
+| **Curriculum** | One moral, spoken aloud | Eight morals on one sentence | Three at once, mutually exclusive |
+| **Beats** | A B C · E | A B C D E | A B C D E |
+| **Terminal move** | Scheme backfires, group forgives | Uninvolved police, formula fires once more | An officer *planted by a participant* |
+| **Meta device** | Zack's fourth-wall time-out | Omniscient narrator | Abed |
 
-**Operational rule:** when a resemblance feels right and the character map refuses to line up, the function has been redistributed. A single ancestor supplies several descendants at once — Jessie gives her biography to Annie and her register to Britta; Zack gives his scheming to Jeff and his romantic blindness to Troy. Situations, functions and relationship machinery travel independently of the characters that carried them.
+**The one-line comparison:** depth tracks how many people in the room are allowed to be the teacher.
 
-## Open leads
+### Saved by the Bell — the base case
 
-1. **NewsRadio** — corpus at `~/Projects/newsradio-transcripts/`. Would move two Structural rows to Transcript
-2. **Always Sunny full sweep** — S1–S17 local, likely 5–10 more verbatim Form 7 entries
-3. **Community remaining hits** — `lesson learned` in S4E4 and S6E5
-4. **AD S4–S5** — S1–S3 done. Would complete the catchphrase census (currently 8 morals on one sentence)
-5. **Saved by the Bell / Boy Meets World** — no corpus. Jessie row rests on Engel plus the verbatim Community side
-6. **Falsify the token-cost hypothesis** — find a 5+ layer instance built on expensive per-layer effects
+Beat D is absent because **nobody is above Zack**. No parent, principal or writer inside the fiction can out-scheme him, so the episode closes by having him learn instead.
+
+The device that matters downstream is the time-out: Zack halts the story to explain the story, putting self-awareness in a character rather than in the writing. That's Abed's job twenty years later, moved from direct address into the fiction.
+
+*Jessie's Song* is where the show's own machine breaks. Peter Engel has written that Jessie was originally addicted to **speed**, with NBC Standards requiring caffeine pills instead. The result is an episode whose emotional register was built for a drug it wasn't allowed to name. That mismatch is what Community inherits and repairs.
+
+### Arrested Development — the reference implementation
+
+The narrator gives the operating principle outright:
+> "had used his considerable means to stage intricate scenarios to teach his children what he considered valuable life lessons" (S01E10, l.28)
+
+**The catchphrase is the mechanism.** Eight morals ride the same sentence across S1–S3: leave a note, don't yell, don't fire her, don't take your foot out of its wrapper, don't teach lessons to your son, don't teach your father a lesson, don't pit Gob and me against each other, don't use a one-armed person to scare someone. Any moral fits, which is the show arguing that the moral was never the point.
+
+Beat E is spoken twice, and the second time it eats itself:
+> "So you taught me a lesson not to teach lessons?" / "It was my last lesson." (S01E10, l.422)
+
+**The inheritance is set up before it fires.** Michael asks for Weatherman by function thirty seconds before learning his father is using him:
+> "I want the guy with the one arm and the fake blood." (S01E10, l.262)
+
+Depth 4 arrives in *Making a Stand*, counter-plot announced in advance:
+> "All right, we'll go along with his lesson, but we're going to teach him one of our own." (S03E08, l.279)
+> "J. Walter Weatherman was in on it, too?" / "Right from the very start." (S03E08, l.352)
+
+Every on-screen injury in that chain is theatrical, including the prosthetic the narrator names directly. **The token has a cost, and the cost caps the depth.**
+
+### Community — the furthest run
+
+Announces its own futility before it starts:
+> "a real lesson on the fact that Jeff Winger never learns" (S02E09, l.238)
+
+Three curricula, none surviving contact with each other: academic fraud (l.262), friendship (l.265), gun safety (l.299). **When any moral fits the same machine, the machine was never about morals.**
+
+Beat E lands and is immediately taken away:
+> "People aren't playthings, Annie." / "No, they are not. Look who's talking." (l.268)
+> "I'm not sure what lessons we've managed to teach each other" (l.304)
+
+**Best joke in the ending is an accounting error.** The layer count outgrew the prop supply:
+> "Does the Theater Department have any of those prop guns that fire blanks?" (l.233)
+> "There were only three prop guns." / "I live in a terrible neighborhood." (l.271)
+
+**Season 4 is the control experiment.** With the showrunner absent the same gag runs at depth 1 and states its pedagogy flatly, in the same episode where Abed notes the drift:
+> "Bet you didn't expect me to fake a haunted house to teach you a lesson." / "Exactly what we expected." (S04E02, l.308)
+> "I remember when this show was about a community college." (S04E02, l.256)
+
+## Scoring depth
+
+**A layer is one distinct concealed plan, authored by a distinct party, disclosed on screen.** Gunshots, faked deaths and prop reveals are the *token* marking a layer, not layers. An arriving authority counts only if somebody in the chain placed them there.
+
+| Community S2E9 — 6 layers, 4 gunshots | Arrested Development S3E8 — 4 layers |
+|---|---|
+| 1. Dean + Garrity against Jeff | 1. Michael's lesson for his father |
+| 2. Annie + Dean from the start (academic fraud) | 2. George Sr.'s counter-lesson |
+| 3. Jeff turning the Dean (friendship) | 3. Gob's defection |
+| 4. Dean's second turn, double-crossing Jeff | 4. Weatherman complicit from the start |
+| 5. Garrity performing throughout ("And scene") | Police arrival **uncounted** — nobody placed them |
+| 6. Garrity tipping the arresting officer | |
+
+**That difference is the whole gap.** Both end with law enforcement walking in. In AD the police are a genuine intrusion. In Community the officer was planted, which converts an interruption into a sixth layer.
+
+## Function-transfer matrix
+
+Read the rows, not the columns.
+
+| Function | Saved by the Bell | Community | Evidence |
+|---|---|---|---|
+| Achievement pressure → stimulant abuse → collapse | **Jessie Spano.** Written as speed, aired as caffeine | **Annie Edison.** Uncensored: Adderall, breakdown, treatment | Engel (Cited) + "You're little Annie Adderall" (S01E01 l.269), "took so much Adderall she tried to straighten the lines on our high school football field during a game" (S03E02 l.66) |
+| Activist register, moral lecturing | **Jessie Spano** | **Britta Perry** | Reading. This is why Jessie maps onto no single character |
+| Obliviousness to a friend's romantic interest | **Zack Morris** | **Troy Barnes**, not Jeff | *Home Economics* opens on it (S01E08 l.15) |
+| Scheme architect whose plans rebound into a lesson | **Zack Morris** | **Jeff Winger** | Reading |
+| Grounded moral centre who gossips | **Lisa Turtle** | **Shirley Bennett** | Reading |
+| Self-awareness held by a character | **Zack's time-out** | **Abed**, moved inside the fiction | "how many sitcoms have done the 'secretly replace a broken, priceless item' thing? 'Cause Abed does" (S03E09 l.53) |
+| Ex-pro below his stated ambition | Absent — comes from **Sam Malone** | **Jeff Winger** | Verified against local Cheers scripts |
+| Authority who tests the straight man | Belding, weakly — stronger in **Jimmy James** | **Dean Pelton**, **Pierce** | Reading, NewsRadio corpus unswept |
+
+**Operational rule:** when a resemblance feels right and the character map refuses to line up, the function has been redistributed.
+
+**Why it hides:** a single ancestor supplies several descendants at once. Jessie gives her biography to Annie and her register to Britta. Zack gives his scheming to Jeff and his romantic blindness to Troy. Neither is visible while you insist Zack equals Jeff and Lisa equals Shirley.
+
+## Extended set
+
+| Show | Depth | Part isolated |
+|---|---|---|
+| **It's Always Sunny** | 1 | **The curriculum removed.** *The Gang Broke Dee* has every part except a moral and works fine without one. Strongest evidence the lesson was the alibi |
+| **The Office** | 1 | **The stage collapsing.** The drill works too well, real harm lands inside the lesson |
+| **The Good Place** | series | **The engine backwards.** Built as torture, architect educated by his own apparatus failing. The backfired apparatus |
+| **Brooklyn Nine-Nine** | n | **The pedagogy removed.** Full escalation grammar, no lesson. Proves pileup and lesson are separable parts |
+| **NewsRadio** | 2 | The owner-as-tester, plus the NBC precedent for the obliviousness gag |
+| **Cheers** | 1 | Supplies Community's lead architecture rather than its lesson gag |
+| **Rick and Morty** | n | Recursive false realities as Harmon's standing vocabulary, with no pedagogical motive |
+
+## Other shows, quick reference
+
+| Show | Part carried | Depth |
+|---|---|---|
+| King of the Hill | Aversion lesson. The only show that asks whether the method works | 0 |
+| Malcolm in the Middle | Aversion lesson, punishment run to term on purpose | 0 |
+| Boy Meets World | Staged scare, TGIF educator as stager. Same block and audience as SBTB | 1 |
+| Better Call Saul | Punitive gambit. Aim is evidence; the trap characterises Chuck | 1 |
+| Succession | Recursion in the drama register | 2 |
+| Sherlock | Gambit pileup. Eurus runs the games, Mycroft is among her subjects | n |
+| Severance / Westworld | Cosmic staging, designers inside somebody else's design | n |
+
+## Trope timeline
+
+Two parts arrive separately. The **staged moral catastrophe** comes down through the stage and the novel. The **armed standoff with concealed allegiances** comes through cinema. Community welds them so each new concealed plan needs a new gun.
+
+- **c.1598** *Much Ado* — the gulling scenes. Faked conversations for a concealed listener. Oldest working part
+- **c.1600** *Hamlet* — the Mousetrap, a play staged to produce a confession
+- **c.1611** *The Tempest* — Prospero stages an island and is changed by it. Beat E, four centuries early
+- **1843** *A Christmas Carol* — the template every sitcom stager is desecrating
+- **1876** "Mexican standoff" in print. The device long predates its cinema formulations
+- **1946** *It's a Wonderful Life* — the benevolent staging
+- **1966** *The Good, the Bad and the Ugly* — an information problem staged as a weapons problem
+- **1978** *Scared Straight!* — nonfiction precursor. Systematic review later found these programmes associated with *increased* offending. Note: no beat C
+- **1989/1992** Woo, *The Killer* and *Hard Boiled* — the standoff keeps admitting participants
+- **1990** *Jessie's Song* — a Very Special Episode running on a drug it couldn't name
+- **1992** *Reservoir Dogs* — standoff and double-cross fused into one object
+- **1997** *The Game* — a catastrophe purchased as a gift, framed as instruction
+- **1998** *The Truman Show* — constructed world, pedagogy removed
+- **2003** *Pier Pressure* — depth 2, doctrine stated, beat E spoken twice
+- **2006** *Making a Stand* — depth 4, counter-plot announced in advance
+- **2010** *Conspiracy Theories and Interior Design* — depth 6, three curricula, one weapon unaccounted for
+- **2013** *The Gang Broke Dee* + the Halloween heists — two shows independently prove the parts are separable
+- **2016** *The Good Place* — the engine at series scale, running backwards
+
+**On influence:** Harmon said in November 2010 he had not seen the Arrested Development lesson episode; a surviving contemporary thread preserves it. His PaleyFest account describes the conspiracy episode as written one day at a time during production. So this is **parallel construction, not homage**, and it doesn't need to be homage. Two writers' rooms fourteen years apart built the same machine and reached the same conclusion about it.
+
+## TVTropes index
+
+**The mechanism:** Secret Test of Character · Scare 'Em Straight · Batman Gambit · Xanatos Gambit · Gambit Pileup · Engineered Public Confession · Bavarian Fire Drill · Engineered Heroics · Deadly Prank · Faking the Dead · Prank Date · The Prankster · Reverse Psychology · Springtime for Hitler
+
+**The moral layer:** An Aesop · Broken Aesop · Hard Truth Aesop · Very Special Episode · Drugs Are Bad · G-Rated Drug · Hoist by His Own Petard · Break the Haughty · Be Careful What You Wish For
+
+**The staging:** Mexican Standoff · Not-So-Fake Prop Weapon · Chekhov's Gun · The Reveal · Wham Line · Tomato Surprise
+
+**The ancestry:** Expy · Composite Character · Suspiciously Similar Substitute · Spiritual Successor · Recycled IN SPACE! · Stock Characters · Five-Man Band · Characterization Marches On
+
+**The meta layer:** Meta Guy · Author Avatar · Genre Savvy · Lampshade Hanging · Bottle Episode · Writer on Board
+
+**The people:** The Chessmaster · Zany Scheme · The Gadfly · Oblivious to Love · Love Epiphany · Break the Cutie · Obfuscating Stupidity · It's All About Me · Abusive Parents · Generational Trauma
+
+Live links on the page, all checked.
+
+## Run it on a new show
+
+Local corpus: `~/Projects/tv-scripts/text/` — Community complete, Always Sunny S1–S17, Arrested Development S1–S3.
+
+1. Name the mechanism, not the theme
+2. Find the reference implementation
+3. Find the recursion text, usually a later season
+4. Find the absurdist descendant
+5. Separate documented intent from parallel construction, and say which you have
+6. Look for the redistributed function, not the matching character
+7. Read the show's meta character as its bibliography
+8. Assume the named reference is a decoy
+9. Label claims by kind: episode fact, documented influence, structural reading
+
+```bash
+# find every staged-lesson candidate
+grep -rn -i "teach you a lesson\|teach him a lesson\|teach her a lesson\|lesson learned" *.txt
+
+# the catchphrase census that proved the open-slot argument
+grep -rn -i "that's why you always\|that's why you don't" ArrestedDevelopment-*.txt
+
+# the token: what object marks each layer
+grep -n -i "prop gun\|blank\|fake gun\|prosthetic" Community-S02E09.txt
+
+# function transfer: search the trait, not the character
+grep -rn -i "adderall\|pillhead\|hooked on pills" Community-*.txt
+```
 
 ## Sources
 
 1. Pier Pressure (Arrested Development), Wikipedia
-2. Making a Stand, Wikipedia — basis for correction #1
-3. Scared Straight and other juvenile awareness programs, Campbell Collaboration
+2. Making a Stand, Wikipedia
+3. Scared Straight and other juvenile awareness programmes, Campbell Collaboration
 4. Obeying and Resisting Malevolent Orders, APA
 5. Philip Zimbardo obituary, Stanford Report
 6. Dystopia in "The Good Place", The New Yorker
@@ -161,13 +227,10 @@ Two data points. Falsifiable by any five-plus-layer instance built on expensive 
 10. Mexican standoff, Wikipedia
 11. r/community 2010 thread on Harmon's statement
 12. SlashFilm, Harmon on the conspiracy episode
-13. Vulture, Peter Engel book excerpt on Jessie and speed
+13. Vulture, Peter Engel excerpt on Jessie and speed
 14. Vulture, Harmon on identifying with Abed
+15. TVTropes
 
-Sources 2–14 supplied by the external audit of Rev 1. Wikipedia used for episode plot facts only.
+Wikipedia used for episode plot facts only. Quotations marked Script are verbatim with file and line. Items marked Reading are interpretation.
 
-## Related local work
-
-- `~/Projects/_outputs/community-verify/` — character-function verification against Cheers, NewsRadio, Parks
-- `~/Projects/drwu-overflow/community-s1e9-future-seeds/` — plant-and-payoff sweep across 110 scripts
-- `~/Projects/tv-scripts/fetch_arrested_development.py` — the S1–S3 fetcher, adapted from `reimport_community.py`
+**Fastest available upgrade:** NewsRadio corpus at `~/Projects/newsradio-transcripts/` is local and unswept.
