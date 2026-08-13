@@ -1,0 +1,487 @@
+<title>Kilgore Trout — Phase 2 verification, MacBookPro pass</title>
+<style>
+:root{
+  --ground:#F6F7F9; --panel:#FFFFFF; --ink:#12161C; --ink-2:#4C5666; --ink-3:#79839A;
+  --rule:#DDE1E8; --rule-2:#EAEDF2;
+  --accent:#1F6F78; --accent-soft:#E4F0F1;
+  --pass:#2E6F52; --pass-bg:#E6F1EB;
+  --fail:#A32C22; --fail-bg:#F8E8E6;
+  --review:#8A5D00; --review-bg:#FAF0DC;
+  --shadow:0 1px 2px rgba(18,22,28,.06), 0 8px 24px rgba(18,22,28,.05);
+}
+@media (prefers-color-scheme:dark){
+  :root{
+    --ground:#0D1117; --panel:#151A21; --ink:#E3E8EF; --ink-2:#A3AEC0; --ink-3:#727E92;
+    --rule:#252C36; --rule-2:#1D232B;
+    --accent:#5FB8BE; --accent-soft:#14282B;
+    --pass:#6FCB9B; --pass-bg:#12251C;
+    --fail:#F08B7F; --fail-bg:#2A1614;
+    --review:#DDB05A; --review-bg:#291F0E;
+    --shadow:0 1px 2px rgba(0,0,0,.4), 0 8px 24px rgba(0,0,0,.3);
+  }
+}
+:root[data-theme="dark"]{
+  --ground:#0D1117; --panel:#151A21; --ink:#E3E8EF; --ink-2:#A3AEC0; --ink-3:#727E92;
+  --rule:#252C36; --rule-2:#1D232B;
+  --accent:#5FB8BE; --accent-soft:#14282B;
+  --pass:#6FCB9B; --pass-bg:#12251C;
+  --fail:#F08B7F; --fail-bg:#2A1614;
+  --review:#DDB05A; --review-bg:#291F0E;
+  --shadow:0 1px 2px rgba(0,0,0,.4), 0 8px 24px rgba(0,0,0,.3);
+}
+:root[data-theme="light"]{
+  --ground:#F6F7F9; --panel:#FFFFFF; --ink:#12161C; --ink-2:#4C5666; --ink-3:#79839A;
+  --rule:#DDE1E8; --rule-2:#EAEDF2;
+  --accent:#1F6F78; --accent-soft:#E4F0F1;
+  --pass:#2E6F52; --pass-bg:#E6F1EB;
+  --fail:#A32C22; --fail-bg:#F8E8E6;
+  --review:#8A5D00; --review-bg:#FAF0DC;
+  --shadow:0 1px 2px rgba(18,22,28,.06), 0 8px 24px rgba(18,22,28,.05);
+}
+
+*{box-sizing:border-box}
+body{
+  margin:0; background:var(--ground); color:var(--ink);
+  font-family:Charter,"Iowan Old Style","Palatino Linotype",Palatino,Georgia,serif;
+  font-size:17px; line-height:1.62;
+  -webkit-font-smoothing:antialiased;
+}
+.mono{font-family:ui-monospace,"SF Mono",SFMono-Regular,Menlo,Consolas,monospace}
+
+.wrap{max-width:960px; margin:0 auto; padding:clamp(28px,5vw,64px) clamp(18px,4vw,32px) 96px;
+  display:flex; flex-direction:column; gap:46px}
+
+/* ---- masthead ---- */
+.mast{display:flex; flex-direction:column; gap:14px; padding-bottom:26px; border-bottom:2px solid var(--ink)}
+.eyebrow{font-family:ui-monospace,"SF Mono",Menlo,monospace; font-size:11.5px; letter-spacing:.16em;
+  text-transform:uppercase; color:var(--accent); font-weight:600}
+h1{font-family:ui-monospace,"SF Mono",SFMono-Regular,Menlo,monospace;
+  font-size:clamp(25px,4.4vw,38px); line-height:1.16; letter-spacing:-.018em; font-weight:600;
+  margin:0; text-wrap:balance}
+.dek{margin:0; max-width:63ch; color:var(--ink-2); font-size:17.5px}
+.meta{display:flex; flex-wrap:wrap; gap:8px 22px; font-family:ui-monospace,Menlo,monospace;
+  font-size:11.5px; color:var(--ink-3); letter-spacing:.03em; padding-top:4px}
+.meta b{color:var(--ink-2); font-weight:600}
+
+/* ---- status banner ---- */
+.banner{border:1px solid var(--rule); border-left:4px solid var(--fail); background:var(--panel);
+  border-radius:3px; padding:22px 26px; display:flex; flex-direction:column; gap:12px; box-shadow:var(--shadow)}
+.banner h2{margin:0; font-family:ui-monospace,Menlo,monospace; font-size:15px; letter-spacing:.06em;
+  text-transform:uppercase; color:var(--fail); font-weight:600}
+.banner p{margin:0; max-width:66ch; color:var(--ink-2); font-size:16px}
+.blockers{margin:2px 0 0; padding:0; list-style:none; display:flex; flex-direction:column; gap:9px}
+.blockers li{display:flex; gap:12px; align-items:baseline; font-size:15.5px; color:var(--ink-2)}
+.blockers .n{font-family:ui-monospace,Menlo,monospace; font-size:11px; color:var(--fail);
+  border:1px solid currentColor; border-radius:2px; padding:1px 5px; flex:none; font-weight:600}
+
+/* ---- sections ---- */
+section{display:flex; flex-direction:column; gap:18px}
+h2.sec{margin:0; font-family:ui-monospace,Menlo,monospace; font-size:12px; letter-spacing:.16em;
+  text-transform:uppercase; color:var(--ink-3); font-weight:600;
+  padding-bottom:9px; border-bottom:1px solid var(--rule); display:flex; gap:12px; align-items:baseline}
+h2.sec .tier{color:var(--accent)}
+h3{margin:0; font-family:ui-monospace,Menlo,monospace; font-size:16px; font-weight:600; letter-spacing:-.01em}
+p{margin:0; max-width:68ch}
+p+p{margin-top:-4px}
+.lede{font-size:17.5px}
+.note{color:var(--ink-2); font-size:15.5px}
+
+/* ---- tables ---- */
+.scroll{overflow-x:auto; border:1px solid var(--rule); border-radius:3px; background:var(--panel);
+  box-shadow:var(--shadow)}
+table{border-collapse:collapse; width:100%; min-width:640px;
+  font-family:ui-monospace,"SF Mono",Menlo,monospace; font-size:13px; font-variant-numeric:tabular-nums}
+th{text-align:left; font-weight:600; font-size:10.5px; letter-spacing:.1em; text-transform:uppercase;
+  color:var(--ink-3); padding:13px 15px; border-bottom:1px solid var(--rule); white-space:nowrap;
+  background:var(--rule-2)}
+td{padding:12px 15px; border-bottom:1px solid var(--rule-2); vertical-align:baseline; white-space:nowrap}
+tbody tr:last-child td{border-bottom:none}
+td.name{font-weight:600; white-space:normal}
+tr.hl td{background:var(--accent-soft)}
+.num{text-align:right}
+.dim{color:var(--ink-3)}
+
+/* ---- pills ---- */
+.pill{display:inline-block; font-size:10.5px; font-weight:600; letter-spacing:.09em; text-transform:uppercase;
+  padding:3px 8px; border-radius:2px; border:1px solid transparent; white-space:nowrap}
+.p-pass{color:var(--pass); background:var(--pass-bg); border-color:var(--pass)}
+.p-fail{color:var(--fail); background:var(--fail-bg); border-color:var(--fail)}
+.p-rev{color:var(--review); background:var(--review-bg); border-color:var(--review)}
+.p-na{color:var(--ink-3); border-color:var(--rule)}
+
+/* ---- comparison cards ---- */
+.pair{display:grid; grid-template-columns:repeat(auto-fit,minmax(280px,1fr)); gap:16px}
+.card{border:1px solid var(--rule); border-radius:3px; background:var(--panel); padding:20px 22px;
+  display:flex; flex-direction:column; gap:12px; box-shadow:var(--shadow)}
+.card.bad{border-top:3px solid var(--fail)}
+.card.good{border-top:3px solid var(--pass)}
+.card h3{font-size:14.5px}
+.kv{display:flex; flex-direction:column; gap:7px; font-family:ui-monospace,Menlo,monospace; font-size:12.5px}
+.kv div{display:flex; justify-content:space-between; gap:16px; padding-bottom:6px; border-bottom:1px solid var(--rule-2)}
+.kv div:last-child{border-bottom:none; padding-bottom:0}
+.kv span:first-child{color:var(--ink-3)}
+.kv span:last-child{font-weight:600; text-align:right}
+.verdict-line{font-family:ui-monospace,Menlo,monospace; font-size:12.5px; color:var(--ink-2);
+  padding-top:2px; white-space:normal; line-height:1.5}
+
+/* ---- evidence block ---- */
+.evidence{border:1px solid var(--rule); border-left:3px solid var(--accent); background:var(--panel);
+  border-radius:3px; padding:18px 22px; font-family:ui-monospace,Menlo,monospace; font-size:12.5px;
+  line-height:1.7; color:var(--ink-2); overflow-x:auto}
+.evidence b{color:var(--ink); font-weight:600}
+
+/* ---- receipts ---- */
+.receipts{display:flex; flex-direction:column; gap:0; font-family:ui-monospace,Menlo,monospace; font-size:12px}
+.receipts div{display:flex; gap:16px; align-items:baseline; padding:9px 0; border-bottom:1px solid var(--rule-2);
+  flex-wrap:wrap}
+.receipts div:last-child{border-bottom:none}
+.receipts .id{color:var(--accent); font-weight:600; flex:none}
+.receipts .what{color:var(--ink-2)}
+
+footer{border-top:1px solid var(--rule); padding-top:22px; color:var(--ink-3); font-size:13px;
+  font-family:ui-monospace,Menlo,monospace; line-height:1.75}
+footer b{color:var(--ink-2)}
+a{color:var(--accent)}
+:focus-visible{outline:2px solid var(--accent); outline-offset:2px}
+@media (prefers-reduced-motion:reduce){*{animation:none!important; transition:none!important}}
+</style>
+
+<div class="wrap">
+
+  <header class="mast">
+    <div class="eyebrow">Provisional measurement · Phase 2 not accepted</div>
+    <h1>Kilgore Trout guitar transcription</h1>
+    <p class="dek">Independent verification pass run on the MacBook against the iMac's 2026-08-13 bundle. Every number below is reproduced locally from the shipped artifacts. The accuracy result is provisional because a hard gate still fails.</p>
+    <div class="meta">
+      <span><b>Machine</b> MacBookPro · /Users/brandonchavez</span>
+      <span><b>Bundle</b> 27 of 27 hashes verified</span>
+      <span><b>Date</b> 2026-08-13</span>
+    </div>
+  </header>
+
+  <div class="banner">
+    <h2>The bundle I was sent is thirteen promotions stale</h2>
+    <p>The iMac's live audit had already advanced from <span class="mono">chain49</span> to <span class="mono">chain62</span> before this bundle arrived, and it cleared the impossible span in its Phase 3. Everything measured here reproduces its published Phase 2 numbers exactly, so the reproduction is sound and most of the conclusions are its work, not new.</p>
+    <p><b>One thing here is new, and it is the test the live audit says it did not run.</b> That audit states the capo finding as a hypothesis and names the clean test. This page runs it.</p>
+  </div>
+
+  <section>
+    <h2 class="sec"><span class="tier">New</span><span>The clean capo test, isolated</span></h2>
+    <p class="lede">The live audit: <i>"This audit measured that the capo-0 Rhythm staff agrees with the audio far better. It did not isolate the capo as the cause by holding everything else fixed. The clean test is to re-render c-tied.gp's Rhythm staff at capo 0 with no other change and re-measure."</i></p>
+    <p><span class="mono">c-tied-RHYTHM-CAPO0.gp</span> is c-tied with exactly one XML property changed, <span class="mono">CapoFret</span> on track index 1 from 2 to 0. Every other byte of the archive was copied through unaltered.</p>
+    <div class="scroll">
+      <table>
+        <thead><tr><th>Build</th><th class="num">Rhythm capo</th><th class="num">Rhythm pitch supported</th><th class="num">Rhythm owner agrees</th><th class="num">Lead, the control</th></tr></thead>
+        <tbody>
+          <tr><td class="name">c-tied as shipped</td><td class="num">2</td><td class="num">167/677 · <b>24.7%</b></td><td class="num">45.6%</td><td class="num">64.2% / 54.2%</td></tr>
+          <tr class="hl"><td class="name">c-tied, capo 0 only</td><td class="num">0</td><td class="num">397/626 · <b>63.4%</b></td><td class="num"><b>71.9%</b></td><td class="num">64.2% / 54.2%</td></tr>
+          <tr><td class="name">s6389251-chain49</td><td class="num">0</td><td class="num">426/656 · 64.9%</td><td class="num">71.8%</td><td class="num">65.5% / 53.9%</td></tr>
+        </tbody>
+      </table>
+    </div>
+    <p><b>The hypothesis is now a verdict. The capo is the cause.</b></p>
+    <ul class="blockers">
+      <li><span class="n">1</span><span>The swing to explain is 24.7% to 64.9%, which is 40.2 points. <b>The capo alone delivers 38.7 of them, 96% of the total.</b> Every other edit chain49 made is worth the remaining 1.5 points.</span></li>
+      <li><span class="n">2</span><span>Owner agreement runs 45.6% to 71.8%, which is 26.2 points. The capo alone delivers 26.3. <b>The Rhythm staff moving to the correct stem is the same correction, not a separate one.</b> The live audit lists those as two findings, and one cause sits under both.</span></li>
+      <li><span class="n">3</span><span>The Lead staff reads 64.2% and 54.2% in both runs. <b>The edit touched only Rhythm and only Rhythm moved</b>, which is the control this test needed.</span></li>
+    </ul>
+    <div class="evidence">
+      <b>Method note, stated because it matters.</b><br>
+      librosa will not install on this Mac: llvmlite fails to build on both python 3.11 and 3.14. It is used in two places only, a 44100 to 22050 resample and a separate onset report.<br>
+      The resample was substituted with <span class="mono">scipy.signal.resample_poly</span> at an exact 1:2 ratio, and <b>the substitute was validated against the iMac's published chain49 numbers before any new measurement was trusted</b>: controls 87.9% / 10.47 dB, 85.7% / 9.21 dB, 75.5% / 9.07 dB, margins 2.29 and 2.93, pitch 65.5% and 64.9%, owner 53.9% and 71.8%. Every figure reproduced exactly.<br>
+      Onset detection returns an explicit not-computed marker rather than a fabricated number. It feeds none of the pitch results.
+    </div>
+  </section>
+
+  <section>
+    <h2 class="sec"><span class="tier">Tier 1 / 1b</span><span>Source fidelity, measured against c-tied</span></h2>
+    <p class="lede">The position gate is the one that separates a repair from a rewrite. It asks whether a note kept the string and fret the source gave it, unless that note was the thing being repaired.</p>
+    <div class="scroll">
+      <table>
+        <thead><tr>
+          <th>Build</th><th>Hard profile</th><th>Pitch</th><th>Position</th><th class="num">Notes moved</th><th>Gate verdict</th>
+        </tr></thead>
+        <tbody>
+          <tr class="hl">
+            <td class="name">s6389251-chain49.gp</td>
+            <td><span class="mono">IMPOSSIBLE_SPAN ×1</span></td>
+            <td><span class="pill p-pass">Pass</span></td>
+            <td><span class="pill p-pass">Pass</span></td>
+            <td class="num">5 L · 14 R <span class="dim">(1–2%)</span></td>
+            <td><span class="pill p-fail">Fail</span></td>
+          </tr>
+          <tr>
+            <td class="name">ALLPARTS-PLAYABLE.gp</td>
+            <td class="dim">clean</td>
+            <td><span class="pill p-pass">Pass</span></td>
+            <td><span class="pill p-fail">Fail</span></td>
+            <td class="num">528 L · 837 R <span class="dim">(64% · 100%)</span></td>
+            <td><span class="pill p-rev">Review</span></td>
+          </tr>
+          <tr>
+            <td class="name">s6389251-BEST.gp <span class="dim">= iter48</span></td>
+            <td><span class="mono">IMPOSSIBLE_SPAN ×1</span></td>
+            <td><span class="pill p-pass">Pass</span></td>
+            <td><span class="pill p-fail">Fail</span></td>
+            <td class="num dim">blanket refret</td>
+            <td><span class="pill p-fail">Fail</span></td>
+          </tr>
+          <tr>
+            <td class="name">ALLPARTS-SOURCE-FAITHFUL.gp</td>
+            <td><span class="mono">IMPOSSIBLE_SPAN ×2</span></td>
+            <td><span class="pill p-pass">Pass</span></td>
+            <td><span class="pill p-pass">Pass</span></td>
+            <td class="num dim">—</td>
+            <td><span class="pill p-fail">Fail</span></td>
+          </tr>
+          <tr>
+            <td class="name">c-tied.gp <span class="dim">stem source</span></td>
+            <td><span class="mono">SPAN ×19 · TIE ×70</span></td>
+            <td class="dim">baseline</td>
+            <td class="dim">baseline</td>
+            <td class="num dim">—</td>
+            <td><span class="pill p-fail">Fail</span></td>
+          </tr>
+          <tr>
+            <td class="name">songsterr-ai-reference.gp</td>
+            <td class="dim">clean</td>
+            <td><span class="pill p-na">n/a</span></td>
+            <td><span class="pill p-na">n/a</span></td>
+            <td class="num dim">—</td>
+            <td><span class="pill p-pass">Pass</span></td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+    <h3>Corrected: PLAYABLE's movement, measured against the minimal repair</h3>
+    <p>A first pass here reported that PLAYABLE moved 100% of its healthy Rhythm notes. <b>That number is raw position change and it overstates the fault.</b> c-tied's Rhythm frets were written for capo 0 while the file declares capo 2, so any build keeping capo 2 must lower every fret by 2 just to be correct.</p>
+    <div class="scroll">
+      <table>
+        <thead><tr><th>Build vs c-tied, Rhythm</th><th class="num">At the minimal repair</th><th class="num">Beyond it</th></tr></thead>
+        <tbody>
+          <tr><td class="name">ALLPARTS-PLAYABLE <span class="dim">keeps capo 2</span></td><td class="num">466 of 891 · 52.3%</td><td class="num"><b>425 of 891 · 47.7%</b></td></tr>
+          <tr class="hl"><td class="name">s6389251-chain49 <span class="dim">drops capo to 0</span></td><td class="num">842 unmoved · 94.5%</td><td class="num">48 of 891 · 5.4%</td></tr>
+        </tbody>
+      </table>
+    </div>
+    <p class="note"><b>PLAYABLE relocates 47.7% of the Rhythm staff beyond what the repair required.</b> The over-relocations run to a higher string at a much lower fret: (+1 string, -7 fret) ×128, (+1, -11) ×31, (+2, -12) ×26. That is the cost function that likes low frets walking the part toward the nut, and it is the same shape as iter48 wearing a different filename. The corrected figure is smaller than the first one, and it still separates the two builds by an order of magnitude.</p>
+  </section>
+
+  <section>
+    <h2 class="sec"><span class="tier">Finding</span><span>The Rhythm capo mutation, classified</span></h2>
+    <p class="lede">c-tied carries capo 2 on the Rhythm staff and chain49 carries capo 0. The tuning is byte-identical in both. That change had to move either the frets or the sounding pitches, so it needed a verdict before anything downstream could be trusted.</p>
+    <div class="pair">
+      <div class="card bad">
+        <h3>c-tied.gp · Rhythm</h3>
+        <div class="kv">
+          <div><span>capo</span><span>2</span></div>
+          <div><span>tuning</span><span>36 45 50 55 59 64</span></div>
+          <div><span>notes</span><span>891</span></div>
+          <div><span>MIDI matches fingering</span><span>0</span></div>
+          <div><span>MIDI differs</span><span>891 · delta −2</span></div>
+        </div>
+        <p class="verdict-line">Every note contradicts itself. The frets were written for an uncapoed neck while the capo field claims 2, so the fingering sounds a whole step above the pitch the file declares.</p>
+      </div>
+      <div class="card good">
+        <h3>s6389251-chain49.gp · Rhythm</h3>
+        <div class="kv">
+          <div><span>capo</span><span>0</span></div>
+          <div><span>tuning</span><span>36 45 50 55 59 64</span></div>
+          <div><span>notes</span><span>891</span></div>
+          <div><span>MIDI matches fingering</span><span>891</span></div>
+          <div><span>MIDI differs</span><span>0</span></div>
+        </div>
+        <p class="verdict-line">The notation and the fingering agree on all 891 notes. Removing the spurious capo flag reconciled the file with itself and left the frets alone.</p>
+      </div>
+    </div>
+    <p><b>Classification: supported correction.</b> The Lead staff carries capo 0 in both files and agrees with its own fingering throughout, so the defect was confined to Rhythm. A player reading c-tied's Rhythm tab with a capo at the second fret would have played the whole part a whole step sharp against the record.</p>
+    <div class="evidence">
+      <b>Why the pitch gate passed c-tied anyway.</b><br>
+      <span class="mono">pitch_census()</span> resolves each note as <span class="mono">p = m if m is not None else sounding_pitch(tun, capo, s, f)</span>.<br>
+      The stored MIDI value wins whenever it exists, and c-tied stores a correct MIDI value on every note. The gate therefore compared two identical pitch multisets and reported <span class="mono">gone none / new none</span>, while the fingering a guitarist actually reads was wrong on all 891 notes. The audio audit reads the other field, and that is what exposed it.
+    </div>
+  </section>
+
+  <section>
+    <h2 class="sec"><span class="tier">Phase 2</span><span>Audio accuracy, same denominators across all four</span></h2>
+    <p class="lede">Each staff is scored against its own stem lane. A note is supported when its measured salience beats all three controls: wrong pitch by one semitone, wrong pitch by six, and wrong time. Notes below 130 Hz are dropped from the numerator and the denominator together, so the unjudgeable low register cannot inflate anyone's score.</p>
+    <div class="scroll">
+      <table>
+        <thead><tr>
+          <th>Transcription</th>
+          <th class="num">Lead supported</th>
+          <th class="num">Rhythm supported</th>
+          <th class="num">Combined</th>
+          <th class="num">Rhythm owner</th>
+          <th>Staff → stem</th>
+          <th class="num">Control sep.</th>
+        </tr></thead>
+        <tbody>
+          <tr class="hl">
+            <td class="name">chain49</td>
+            <td class="num">391 / 597 · 65.5%</td>
+            <td class="num">426 / 656 · 64.9%</td>
+            <td class="num"><b>817 / 1253 · 65.2%</b></td>
+            <td class="num">71.8%</td>
+            <td>L 2.29 dB · R 2.93 dB</td>
+            <td class="num">87.9% @ 10.5 dB</td>
+          </tr>
+          <tr>
+            <td class="name">songsterr</td>
+            <td class="num">118 / 215 · 54.9%</td>
+            <td class="num">418 / 1018 · 41.1%</td>
+            <td class="num">536 / 1233 · 43.5%</td>
+            <td class="num">73.7%</td>
+            <td>L 2.88 dB · R 3.52 dB</td>
+            <td class="num">74.0% @ 5.2 dB</td>
+          </tr>
+          <tr>
+            <td class="name">c-tied <span class="dim">stem source</span></td>
+            <td class="num">367 / 572 · 64.2%</td>
+            <td class="num">167 / 677 · <b>24.7%</b></td>
+            <td class="num">534 / 1249 · 42.8%</td>
+            <td class="num">45.6%</td>
+            <td class="dim">both → L · 0.87 dB</td>
+            <td class="num">70.5% @ 4.8 dB</td>
+          </tr>
+          <tr>
+            <td class="name">SYNTH control <span class="dim">ceiling</span></td>
+            <td class="num">236 / 281 · 84.0%</td>
+            <td class="num">269 / 347 · 77.5%</td>
+            <td class="num">505 / 628 · 80.4%</td>
+            <td class="num">83.7%</td>
+            <td>L 21.8 dB · R 19.3 dB</td>
+            <td class="num">99.1% @ 25.5 dB</td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+    <p><b>The capo finding and the audio audit corroborate each other from independent directions.</b> The audit scores <span class="mono">sounding_pitch(tun, capo, s, f)</span>, which is what a player physically produces. c-tied's Rhythm staff scores 24.7% while chain49's scores 64.9% on the same recording, and the whole-step error is a complete mechanical explanation for that gap. Neither measurement was built to test the other.</p>
+    <p class="note"><b>On stem ownership.</b> The critique's figures of 70.5% separation and 4.8 dB margin belong to the c-tied audit, where both staves map to the left stem and Rhythm holds a 0.87 dB margin. Ownership there is genuinely unresolved. chain49 separates its staves onto distinct lanes at 2.29 dB and 2.93 dB, and the synthetic control reaches 99.1% at 25.5 dB, which establishes that the detector behaves on cleanly separated material. Stem attribution still stays out of any accuracy claim.</p>
+  </section>
+
+  <section>
+    <h2 class="sec"><span class="tier">Blocker</span><span>The single remaining hard failure, located</span></h2>
+    <div class="evidence">
+      <b>IMPOSSIBLE_SPAN — bar 62.938, Rhythm Guitar</b><br>
+      written &nbsp; <b>s0f11 s1f4</b> &nbsp; span 7 &nbsp; ties none<br>
+      sounding &nbsp; [47, 49] &nbsp; attacked &nbsp; [47, 49]<br>
+      held span 7 frets against a 4-fret hand at 128 bpm<br>
+      simplest legal alternative → span 7: s0f11 s1f4
+    </div>
+    <p>On this tuning the pitch 47 sits at s0f11 or s1f2, and 49 sits at s1f4 or s0f13. Every complete voicing of both notes together spans at least 7 frets, so no refingering closes this. The gate is correct to refuse it, and refingering is the wrong instrument for the job.</p>
+
+    <div class="banner" style="margin:6px 0 14px">
+      <h2>Superseded, and my read was wrong twice</h2>
+      <p><b>This section is stale and is kept as a record of two errors.</b> The iMac cleared this span in its Phase 3 before the bundle reached me, by removing Note id 2407 on the Rhythm staff at beat 247.750, taking span 7 to span 0 and moving FAIL to REVIEW.</p>
+      <ul class="blockers">
+        <li><span class="n">1</span><span><b>I called pitch 47 unmeasurable and unresolved.</b> The iMac measured it at 35.88 dB in the Rhythm's own stem, passing all three controls: +6.1 against the semitone, +12.0 against the tritone, +5.8 against wrong time. The 130 Hz floor in the audit build I was handed excluded it. A later run did not.</span></li>
+        <li><span class="n">2</span><span><b>I withdrew the pitch 49 failure as ambient, and that withdrawal was the error.</b> Pitch 49 fails wrong-time by 18 dB where the window's median failure is 2.53 dB. Eighteen is seven times ambient, so the signal was real and I talked myself out of it. The iMac read it correctly: pitch 49 is louder in the Lead's stem, the Lead writes it one beat either side at 246.750 and 248.250, and the chord was two guitars on one staff.</span></li>
+      </ul>
+      <p>A weak-margin region lowers confidence in marginal calls. It does not license discarding a call that clears ambient by seven times.</p>
+    </div>
+
+    <h3>Original reading, retained for the record</h3>
+    <p>Both notes were looked up in <span class="mono">audit_chain49.json</span> at beat 247.75, where the gate's bar 62.938 lands at 128 bpm under <span class="mono">bar = 1 + beat/4</span>.</p>
+    <div class="scroll">
+      <table>
+        <thead><tr><th>Note</th><th class="num">f0</th><th>Measurable</th><th>Salience vs wrong-time control</th><th>Read</th></tr></thead>
+        <tbody>
+          <tr>
+            <td class="name">pitch 47 · s0f11</td><td class="num">123.47 Hz</td>
+            <td><span class="pill p-fail">No</span> <span class="dim">under 130 Hz floor</span></td>
+            <td class="dim">not scored</td>
+            <td><span class="pill p-rev">Unresolved</span></td>
+          </tr>
+          <tr>
+            <td class="name">pitch 49 · s1f4</td><td class="num">138.59 Hz</td>
+            <td><span class="pill p-pass">Yes</span></td>
+            <td>sal <b>31.87</b> against ctrlT <b>49.90</b></td>
+            <td><span class="pill p-rev">Unresolved</span></td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+    <p><b>Verdict: unresolved on both notes.</b> Pitch 47 sits below the <span class="mono">low_hz: 130.0</span> measurability floor, so it is excluded from both numerator and denominator and stays unresolved until the source mix arrives.</p>
+    <div class="evidence">
+      <b>Pitch 49 was first read here as NOT SUPPORTED. That read was wrong and is withdrawn.</b><br>
+      It loses to its wrong-time control, and so does the median note in that whole window. Across beats 224 to 256 the median <span class="mono">sal - ctrlT</span> margin is <b>-2.53 dB</b>, against +9 to +14 dB everywhere before beat 160.<br>
+      A note failing where the median note also fails carries no information about that note. The measurement has no discriminating power there.
+    </div>
+    <p>The actionable consequence: <b>do not refinger this beat, and do not promote past it.</b> The evidence at bar 62.938 is too weak to convict or acquit the chord, and the lower note needs the source mix regardless.</p>
+
+    <h3>The regional dip, now explained</h3>
+    <p><b>First hypothesis, refuted.</b> Low register does not explain it. Spearman rho between the share of sub-130 Hz notes and the support rate is -0.236 across 13 windows, which is weak, and the windows at beats 288 to 352 carry 17 to 20 percent sub-130 Hz notes while scoring 68 to 74 percent support.</p>
+    <p><b>What it actually is: the guitar signal drops and the controls hold still.</b></p>
+    <div class="scroll">
+      <table>
+        <thead><tr><th>Beats</th><th class="num">Median sal</th><th class="num">Median ctrlT</th><th class="num">Margin</th><th class="num">Support</th></tr></thead>
+        <tbody>
+          <tr><td class="name">0–160</td><td class="num">40.2 – 45.1</td><td class="num">28.5 – 31.7</td><td class="num">+9.5 – +14.3</td><td class="num">67 – 89%</td></tr>
+          <tr class="hl"><td class="name">160–256 <span class="dim">the dip</span></td><td class="num">31.0 – 32.1</td><td class="num">29.3 – 34.6</td><td class="num"><b>+1.7 to −2.5</b></td><td class="num">41 – 46%</td></tr>
+          <tr><td class="name">288–384</td><td class="num">52.4 – 53.7</td><td class="num">27.8 – 31.7</td><td class="num">+20.7 – +25.4</td><td class="num">68 – 76%</td></tr>
+        </tbody>
+      </table>
+    </div>
+    <p>The control median stays flat between 25.8 and 34.6 dB across the entire song. The signal median falls by roughly 10 dB across beats 160 to 256 and then rises by roughly 21 dB after beat 288. The margin, and with it the discriminating power, collapses in the middle.</p>
+    <p><b>It is a property of the recording rather than of any transcription.</b> The dip appears in all three at the same beats.</p>
+    <div class="scroll">
+      <table>
+        <thead><tr><th>Beats</th><th class="num">chain49</th><th class="num">c-tied</th><th class="num">songsterr</th></tr></thead>
+        <tbody>
+          <tr><td class="name">128–160</td><td class="num">73.2%</td><td class="num">33.8%</td><td class="num">50.0%</td></tr>
+          <tr class="hl"><td class="name">160–192</td><td class="num">45.9%</td><td class="num">4.9%</td><td class="num">51.2%</td></tr>
+          <tr class="hl"><td class="name">192–224</td><td class="num">40.7%</td><td class="num">12.7%</td><td class="num">36.5%</td></tr>
+          <tr class="hl"><td class="name">224–256</td><td class="num">41.0%</td><td class="num">25.0%</td><td class="num">29.4%</td></tr>
+        </tbody>
+      </table>
+    </div>
+    <p class="note">No transcription is being penalised for a defect here. Beats 160 to 256 are a low-signal passage in the right guitar stem, and every candidate loses margin there together. Any verdict drawn from that window should be treated as low-confidence for all three.</p>
+  </section>
+
+  <section>
+    <h2 class="sec"><span class="tier">Fixed</span><span>The gate now checks both pitch fields</span></h2>
+    <p class="lede"><span class="mono">NOTATION_CONFLICT</span> was added to <span class="mono">tools/impossible_gate.py</span> as a hard code. It compares every note's stored MIDI against <span class="mono">sounding_pitch(tun, capo, s, f)</span> and hard-fails on disagreement. The original is backed up alongside it.</p>
+    <div class="scroll">
+      <table>
+        <thead><tr><th>Build, Rhythm staff</th><th class="num">capo</th><th class="num">Conflicts</th></tr></thead>
+        <tbody>
+          <tr><td class="name">c-tied.gp</td><td class="num">2</td><td class="num"><b>891 of 891</b></td></tr>
+          <tr><td class="name">s6389251-chain49.gp</td><td class="num">0</td><td class="num">0</td></tr>
+          <tr><td class="name">ALLPARTS-PLAYABLE.gp</td><td class="num">2</td><td class="num">0</td></tr>
+          <tr class="hl"><td class="name">s6389251-iter48.gp and BEST</td><td class="num">2</td><td class="num"><b>5</b></td></tr>
+        </tbody>
+      </table>
+    </div>
+    <p>Two builds repair the same c-tied defect by opposite routes. chain49 changes the capo to match the frets. PLAYABLE changes every fret to match the capo. Both reach zero conflicts. <b>iter48 and BEST attempted the PLAYABLE route and left 5 notes unrepaired</b>, which nothing had reported before this gate existed.</p>
+    <div class="evidence">
+      <b>Regression, run with PYTHONPATH set to tools/</b><br>
+      <span class="mono">_tests/test_comparison_basis.py</span> — <b>8 of 8 correct</b><br>
+      <span class="mono">_tests/test_promotion_rule.py</span> — <b>38 of 38 correct</b><br>
+      No verdict changed anywhere except c-tied and iter48/BEST gaining the new code. <span class="mono">songsterr-ai-reference.gp</span> still PASSes, so the check does not fire falsely.
+    </div>
+  </section>
+
+  <section>
+    <h2 class="sec"><span class="tier">Ledger</span><span>Receipts present on this machine</span></h2>
+    <p class="lede">Eleven receipts ship in the bundle. Receipt <span class="mono">6f5b0815969eca47</span>, named in the critique, appears in none of them, and it appears in nothing this machine ran. The three runs below marked local are mine.</p>
+    <div class="receipts">
+      <div><span class="id">7d1254e2 · 2d4e5917</span><span class="what">BEST / iter48 &nbsp;·&nbsp; preservation PASS, position FAIL</span></div>
+      <div><span class="id">52942b12 · 4779832f</span><span class="what">ALLPARTS-PLAYABLE &nbsp;·&nbsp; verdict REVIEW, position FAIL</span></div>
+      <div><span class="id">5538dec2 · 13f93f5e</span><span class="what">ALLPARTS-SOURCE-FAITHFUL &nbsp;·&nbsp; position PASS, IMPOSSIBLE_SPAN ×3</span></div>
+      <div><span class="id">b58a3301</span><span class="what">span88438, the parent chain49 replaced &nbsp;·&nbsp; not shipped in the bundle</span></div>
+      <div><span class="id">14516470</span><span class="what">4462de17 &nbsp;·&nbsp; position PASS, SPAN ×1 + TIE ×1</span></div>
+      <div><span class="id">05723529</span><span class="what">chain49 under the old gate 7a4696cd &nbsp;·&nbsp; position PASS</span></div>
+      <div><span class="id">236e383a · bc363696</span><span class="what">chain49 under gate ece41376 &nbsp;·&nbsp; <b>local</b>, preservation and position NOT_RUN</span></div>
+    </div>
+    <p class="note">Preservation and position read NOT_RUN on the two local receipts because those tiers key off <span class="mono">--source</span> and <span class="mono">--checkpoint</span>, and the parent build <span class="mono">s6389251-span88438.gp</span> was left out of the bundle. Supplying that file restores both tiers against the true parent.</p>
+  </section>
+
+  <footer>
+    <b>Provenance.</b> Verified on MacBookPro, home /Users/brandonchavez, 2026-08-13.<br>
+    Local run receipts <b>0f6733f597ebad72</b>, <b>236e383aeb91caa2</b>, <b>bc36369e6637d9f4</b>.<br>
+    Working copy ~/Projects/_outputs/kilgore-guitar/2026-08-13-macbook · bundle manifest 27 of 27 OK, 0 failed.<br>
+    <b>Not claimed.</b> No build is accepted, no promotion was attempted, and no ledger entry was written by this pass.
+  </footer>
+
+</div>
