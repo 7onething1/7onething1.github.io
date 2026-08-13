@@ -114,7 +114,18 @@ Read the rows, not the columns.
 | Grounded moral centre who gossips | **Lisa Turtle** | **Shirley Bennett** | Reading |
 | Self-awareness held by a character | **Zack's time-out** | **Abed**, moved inside the fiction | "how many sitcoms have done the 'secretly replace a broken, priceless item' thing? 'Cause Abed does" (S03E09 l.53) |
 | Ex-pro below his stated ambition | Absent — comes from **Sam Malone** | **Jeff Winger** | Verified against local Cheers scripts |
-| Authority who tests the straight man | Belding, weakly — stronger in **Jimmy James** | **Dean Pelton**, **Pierce** | Reading, NewsRadio corpus unswept |
+| Authority who tests the straight man | Belding, weakly — stronger in **Jimmy James** | **Dean Pelton**, **Pierce** | "to the great game and to its grand master, Mister Jimmy James. I don't always approve of your methods. In fact, I very, very, very seldom understand them" (s05e21 l.1214) |
+| The staged event with the curriculum withheld | Absent — comes from **Jimmy James** | **The Dean**, whose schemes rarely resolve into a stated moral | "this phony tribute to your fake retirement has eaten up three hours of my life that I will never get back" (s05e21 l.1240) |
+
+### NewsRadio sweep — 45 of 97 episodes, all five seasons
+
+**Confirmed:**
+- *Retirement* (S05E21): Jimmy James stages a fake retirement and accepts a tribute for it. Dave's toast is the clearest statement in the canon of living downstream of a stager. A second, smaller staged test in the same episode is disclosed as one: "That was a test of your patience, which you passed with flying colors." (l.564)
+- *Who's the Boss Pt 1* (S04E12): **both stager positions in one exchange.** "don't you wish sometimes you could just come up with a scheme, like an evil plan to teach him a lesson?" (l.178) followed immediately by "You know, uh, Joe, I think Mr. James treats you pretty well." (l.199)
+
+**Beat B is missing, and that is the signature.** Jimmy's manufactured events carry no fear and no stated curriculum. Nobody is frightened into learning anything. NewsRadio runs the apparatus as a game rather than as pedagogy, which places it beside Brooklyn Nine-Nine.
+
+**Not supported by the sweep:** the earlier claim that NewsRadio supplies the male obliviousness gag Community hands to Troy. What is local runs the opposite direction — Joe pursuing Catherine badly, Catherine unimpressed: "Joe likes you." / "That is the saddest pickup artist I have ever seen." / "I know. I tried to coach him, but it didn't do any good." (s03e03 l.1501). *Catherine Moves On* is not among the 45 local files, so that link stays unsupported rather than assumed.
 
 **Operational rule:** when a resemblance feels right and the character map refuses to line up, the function has been redistributed.
 
@@ -128,7 +139,7 @@ Read the rows, not the columns.
 | **The Office** | 1 | **The stage collapsing.** The drill works too well, real harm lands inside the lesson |
 | **The Good Place** | series | **The engine backwards.** Built as torture, architect educated by his own apparatus failing. The backfired apparatus |
 | **Brooklyn Nine-Nine** | n | **The pedagogy removed.** Full escalation grammar, no lesson. Proves pileup and lesson are separable parts |
-| **NewsRadio** | 2 | The owner-as-tester, plus the NBC precedent for the obliviousness gag |
+| **NewsRadio** | 1 | **The curriculum withheld.** Jimmy James stages events and never says what they were for. Beats A and C only |
 | **Cheers** | 1 | Supplies Community's lead architecture rather than its lesson gag |
 | **Rick and Morty** | n | Recursive false realities as Harmon's standing vocabulary, with no pedagogical motive |
 
@@ -233,4 +244,6 @@ grep -rn -i "adderall\|pillhead\|hooked on pills" Community-*.txt
 
 Wikipedia used for episode plot facts only. Quotations marked Script are verbatim with file and line. Items marked Reading are interpretation.
 
-**Fastest available upgrade:** NewsRadio corpus at `~/Projects/newsradio-transcripts/` is local and unswept.
+**Corpus:** `~/Projects/tv-scripts/text/` (Community complete, Always Sunny S1–S17, Arrested Development S1–S3) plus `~/Projects/newsradio-transcripts/raw/` (45 NewsRadio episodes, all five seasons, swept for this build).
+
+**Next upgrades in order of value:** the 52 missing NewsRadio episodes, which would settle whether Joe and Catherine ever runs in the Troy direction; Arrested Development S4–S5 to close the catchphrase census; a full Always Sunny sweep for faked deaths and manufactured situations.
