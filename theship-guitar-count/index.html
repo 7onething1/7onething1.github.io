@@ -430,6 +430,65 @@ written by the same Songsterr AI transcription being audited. Calibrating a
 muted-strum detector against them is circular. Breaking this needs muted
 attacks labelled independently of the transcriber.</p>
 
+
+<h3>The pooled failure was the LABELS, decided on synthetic truth</h3>
+
+<p>A failed control has two possible causes demanding opposite responses: the
+classifier cannot separate the classes, or the classifier is fine and the labels
+are wrong. Real audio cannot tell those apart, because both produce the same
+failed control. Synthetic audio can, because its labels are true by construction
+and owe nothing to the transcriber or to the detector being tested.</p>
+
+<p>Sixty pitched and sixty muted attacks were rendered with <b>identical attack
+transients</b>, differing only in the one physical property at issue, harmonic
+decay of 600 ms against 30 ms, and placed on the real 02 Flake stem at working
+level.</p>
+
+<table>
+<thead><tr><th>axis</th><th>pitched</th><th>muted</th><th>AUC on synthetic truth</th><th>AUC on the tabs' own marks</th></tr></thead>
+<tbody>
+<tr><td>decay ratio</td><td>1.988</td><td>0.123</td><td><b>1.000</b></td><td>0.522</td></tr>
+<tr><td>sustain support</td><td>0.910</td><td>0.797</td><td>0.451</td><td>0.617</td></tr>
+</tbody></table>
+
+<p><b>Decay ratio separates perfectly when the labels are true and not at all
+against the tabs' own <code>Muted</code> marks.</b> The method is sound and those
+marks are not usable ground truth, which is what a mark written by the
+transcription under audit should be expected to be. Stated against my own
+interest: an AUC of exactly 1.000 means the synthetic case is easier than the
+record, so this licenses the method and does NOT license carrying its threshold
+onto real audio.</p>
+
+<h3>How many muted chords are actually in Flake</h3>
+
+<p>With the method cleared, the real distribution can be asked directly, needing
+no labels at all. If a song hides a population of written chords that the record
+plays dead, its chord attacks are bimodal in decay ratio.</p>
+
+<table>
+<thead><tr><th>song</th><th>chord attacks</th><th>bimodality</th><th>below decay 0.5</th></tr></thead>
+<tbody>
+<tr><td>10 Trapped</td><td>473</td><td>0.770</td><td>7.2%</td></tr>
+<tr><td>01 Seedy Shade</td><td>80</td><td>0.712</td><td>2.5%</td></tr>
+<tr><td>09 MHL</td><td>242</td><td>0.699</td><td>18.2%</td></tr>
+<tr><td>04 Six Feet Under</td><td>244</td><td>0.621</td><td>11.9%</td></tr>
+<tr><td>05 Sleep Vs Death</td><td>105</td><td>0.344</td><td>3.8%</td></tr>
+<tr><td>11 Ambulance</td><td>771</td><td>0.260</td><td>0.9%</td></tr>
+<tr><td>03 Gene</td><td>235</td><td>0.228</td><td>1.7%</td></tr>
+<tr><td>07 MOP</td><td>283</td><td>0.212</td><td>4.2%</td></tr>
+<tr><td><b>02 Flake</b></td><td>925</td><td><b>0.191</b></td><td>7.1%</td></tr>
+</tbody></table>
+
+<p>Uniform is 0.555; above it indicates two populations. <b>02 Flake is the least
+bimodal song in the album.</b> Its chord attacks are one population, so there is
+no large hidden set of written chords that the record plays as dead strums.</p>
+
+<p><b>What survives of the report:</b> 66 of Flake's 925 chord attacks, 7.1%, sit
+below a decay ratio of 0.5 and are the candidate set. That is dozens of local
+corrections rather than a systemic rewrite. The ear-call is not refuted and its
+scale is now bounded. <b>Still no <code>.gp</code> edited</b>, because converting
+those 66 into edits needs a threshold that synthetic data cannot supply.</p>
+
 <h3>04 Six Feet Under bar 58, and a hypothesis the audio refuted</h3>
 
 <p>Brandon: <i>"six feet under bar 58 sounds like a weird chord not quite
