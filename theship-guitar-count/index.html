@@ -1009,6 +1009,49 @@ the delivery.</p>
 <code>_tacet_04/…-TACET.gp</code> sha256[:16] <code>a2e444cbce6e99eb</code><br>
 <code>_tacet_05/…-TACET.gp</code> sha256[:16] <code>b0a4f674323dbb3e</code></p>
 
+
+<h3>02 Flake: the one repair that needed no ear, done and measured</h3>
+
+<p>Two defects were tangled together on this song. The muted-strum question needs
+a listener. <b>Chords written where the guitar is not playing at all do not</b>,
+because an rms of 0.00002 is not a judgement call. Brandon's own rule, now
+standing in the skill, governs it: <i>a synchronized empty passage must remain
+empty</i>.</p>
+
+<p>Scoped at bar level, which is the conservative reading:
+<b>02 Flake Rhythm Guitar, bars 36 to 39, 57 attacks written over silence.</b>
+One contiguous block.</p>
+
+<table>
+<thead><tr><th>track</th><th>before</th><th>after</th><th>change</th></tr></thead>
+<tbody>
+<tr><td><b>Rhythm Guitar</b></td><td>933</td><td>876</td><td><b>&minus;57</b></td></tr>
+<tr><td>Lead Guitar</td><td>225</td><td>225</td><td>0</td></tr>
+<tr><td>Electric Bass</td><td>337</td><td>337</td><td>0</td></tr>
+<tr><td>Drums</td><td>547</td><td>547</td><td>0</td></tr>
+<tr><td>Vocals</td><td>235</td><td>235</td><td>0</td></tr>
+<tr><td>ties</td><td>32</td><td>32</td><td>0</td></tr>
+</tbody></table>
+
+<p><b>The measurement confirms it went the right way:</b></p>
+
+<table>
+<thead><tr><th>02 Flake</th><th>attack precision</th><th>attack recall</th><th>pitch agreement</th></tr></thead>
+<tbody>
+<tr><td>before</td><td>32.6%</td><td>46.1%</td><td>56.6%</td></tr>
+<tr><td><b>after</b></td><td><b>34.2%</b></td><td>45.9%</td><td>56.8%</td></tr>
+</tbody></table>
+
+<p>Precision rose 1.6 points while recall moved 0.2 and pitch 0.2. That is the
+signature of removing material the audio never supported: the tab claims less and
+what it claims is better supported, with nothing real lost. <b>Gate PASS on both
+staves.</b> Artifact sha256[:16] <code>573192c1ca92f16d</code>, source untouched
+with a backup beside it.</p>
+
+<p>The muted-strum question on this song is untouched and still needs sixteen
+ear-calls. These are separate defects with separate repairs, and conflating them
+was the mistake that produced the withdrawn 3.4x claim earlier on this page.</p>
+
 <h3>04 Six Feet Under bar 58, and a hypothesis the audio refuted</h3>
 
 <p>Brandon: <i>"six feet under bar 58 sounds like a weird chord not quite

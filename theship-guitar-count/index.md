@@ -692,3 +692,35 @@ Artifacts (sources untouched, backups beside each):
 ```
 python3 ~/Projects/_outputs/theship-tabs/apply_tacet.py --song 04 --apply
 ```
+
+
+### 02 Flake: the one repair that needed no ear
+
+The muted-strum question needs a listener. Chords written where the guitar is not
+playing do NOT: rms 0.00002 is not a judgement call. Brandon's rule, now standing
+in the skill: *a synchronized empty passage must remain empty.*
+
+Scoped at bar level: **02 Flake Rhythm Guitar, bars 36-39, 57 attacks over
+silence.** One contiguous block.
+
+| track | before | after | change |
+|---|---|---|---|
+| **Rhythm Guitar** | 933 | 876 | **-57** |
+| Lead Guitar | 225 | 225 | 0 |
+| Electric Bass | 337 | 337 | 0 |
+| Drums | 547 | 547 | 0 |
+| Vocals | 235 | 235 | 0 |
+| ties | 32 | 32 | 0 |
+
+| 02 Flake | attack precision | attack recall | pitch agreement |
+|---|---|---|---|
+| before | 32.6% | 46.1% | 56.6% |
+| **after** | **34.2%** | 45.9% | 56.8% |
+
+Precision rose 1.6 points while recall moved 0.2. That is the signature of
+removing material the audio never supported: the tab claims less, what it claims
+is better supported, and nothing real was lost. **Gate PASS both staves.**
+Artifact `573192c1ca92f16d`, source untouched with backup.
+
+The muted-strum question is untouched and still needs sixteen ear-calls. Separate
+defects, separate repairs; conflating them produced the withdrawn 3.4x claim.
