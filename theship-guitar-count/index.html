@@ -324,7 +324,128 @@ estimates 103.4. Three numbers that do not converge, and the written rhythm cann
 beat its own shuffled version at z = +4.0. Its note timing does not match this
 recording at any tempo, so no per-note measurement on it can mean anything.</p>
 
-<h2 id="open">6 &nbsp;What is still open</h2>
+<h2 id="audio">6 &nbsp;2026-08-15: the tabs measured against the RECORDING</h2>
+
+<p>Every gate before this compared a candidate to the inherited Songsterr
+transcription. Tier 1 asks whether a repair kept the source's pitches. That is a
+preservation question, and a build passes it while faithfully reproducing notes
+nobody played. <code>audio_accuracy.py</code> was written on 2026-08-13 to close
+that and was never executed. It has now run on all ten songs.</p>
+
+<h3>The first run produced a number that was worthless, and the control caught it</h3>
+
+<p>Attack scores were checked against a decoy copy of the tab shifted 2.517
+seconds. That is the wrong null for tabs carrying two to five written attacks per
+detected onset, because a shifted dense grid still lands within tolerance by
+coincidence. On <b>07 MOP and 09 MHL the deliberately wrong decoy outscored the
+real tab</b>. Replaced with the shuffled-interval null, which destroys the rhythm
+while preserving attack count, density and span. Timing and pitch are now judged
+and reported separately, since a tab can carry the right notes in the wrong
+rhythm and one blended verdict hides exactly that.</p>
+
+<table>
+<thead><tr><th>song</th><th>align z</th><th>attack recall</th><th>shuffled null</th>
+<th>pitch agreement</th><th>semitone decoy</th><th>timing</th><th>pitch</th></tr></thead>
+<tbody>
+<tr><td>01 Seedy Shade</td><td>5.2</td><td>32.3%</td><td>27.9%</td><td>68.6%</td><td>12.8%</td><td>established</td><td>established</td></tr>
+<tr><td>02 Flake</td><td>8.7</td><td>46.1%</td><td>54.5%</td><td>56.6%</td><td>14.6%</td><td>no</td><td>established</td></tr>
+<tr><td>03 Gene</td><td>17.7</td><td>41.4%</td><td>27.0%</td><td>76.0%</td><td>8.9%</td><td>established</td><td>established</td></tr>
+<tr><td>04 Six Feet Under</td><td>5.6</td><td>37.4%</td><td>23.1%</td><td>79.5%</td><td>6.6%</td><td>established</td><td>established</td></tr>
+<tr><td>05 Sleep Vs Death</td><td>16.7</td><td>30.3%</td><td>21.3%</td><td>72.3%</td><td>12.0%</td><td>established</td><td>established</td></tr>
+<tr><td>07 MOP</td><td>13.5</td><td>36.2%</td><td>37.6%</td><td>63.9%</td><td>8.7%</td><td>no</td><td>established</td></tr>
+<tr><td>08 JGBFTL</td><td colspan="7">REFUSED, aligns at no tempo, so no per-note number on it can mean anything</td></tr>
+<tr><td>09 MHL</td><td>12.9</td><td>42.9%</td><td>39.8%</td><td>75.4%</td><td>8.2%</td><td>no</td><td>established</td></tr>
+<tr><td>10 Trapped</td><td>11.1</td><td>42.1%</td><td>40.4%</td><td>82.9%</td><td>6.0%</td><td>no</td><td>established</td></tr>
+<tr><td>11 Ambulance</td><td>7.7</td><td>33.4%</td><td>32.0%</td><td>70.7%</td><td>11.2%</td><td>no</td><td>established</td></tr>
+</tbody></table>
+
+<p><b>Pitch is established on all nine aligned songs. Timing on four.</b> Chance
+on the pitch test is 25%.</p>
+
+<h3>A test that earned its trust before being used</h3>
+
+<p>Each tab's pitch-class histogram is asked to pick its own recording out of the
+album's ten guitar stems. Chance is one in ten. It scores <b>six of ten</b>, and
+the split is clean: every hit sits at r &ge; 0.929, every miss at r &le; 0.783.
+That is what makes a miss evidence rather than noise.</p>
+
+<table>
+<thead><tr><th>tab</th><th>r vs own stem</th><th>rank</th><th>picks instead</th></tr></thead>
+<tbody>
+<tr><td>11 Ambulance</td><td>0.977</td><td>1 / 10</td><td>&mdash;</td></tr>
+<tr><td>03 Gene</td><td>0.946</td><td>1 / 10</td><td>&mdash;</td></tr>
+<tr><td>04 Six Feet Under</td><td>0.935</td><td>1 / 10</td><td>&mdash;</td></tr>
+<tr><td>05 Sleep Vs Death</td><td>0.933</td><td>1 / 10</td><td>&mdash;</td></tr>
+<tr><td>01 Seedy Shade</td><td>0.931</td><td>1 / 10</td><td>&mdash;</td></tr>
+<tr><td>10 Trapped</td><td>0.929</td><td>1 / 10</td><td>&mdash;</td></tr>
+<tr><td>07 MOP</td><td>0.783</td><td>2 / 10</td><td>04 Six Feet Under</td></tr>
+<tr><td>02 Flake</td><td>0.756</td><td>2 / 10</td><td>01 Seedy Shade</td></tr>
+<tr><td>09 MHL</td><td>0.756</td><td>3 / 10</td><td>02 Flake</td></tr>
+<tr><td><b>08 JGBFTL</b></td><td><b>0.703</b></td><td>2 / 10</td><td>03 Gene</td></tr>
+</tbody></table>
+
+<p><b>08 JGBFTL is the album's weakest</b> and picks 03 Gene's stem over its own.
+Combined with aligning at no tempo, its pitch content is now suspect as well as
+its rhythm.</p>
+
+<h3>A repair that was refused, and why the refusal is the result</h3>
+
+<p>Brandon, 2026-08-15: <i>"like flake of the year has chords where muted strings
+should be."</i> A first detector reported 3.4x more suspicious chord attacks than
+its single-note floor. <b>That was withdrawn</b>: it ran at a placeholder offset
+of 0.0 when 02 Flake's real alignment is +2.600s, so it measured the wrong part
+of the recording.</p>
+
+<p>The replacement measures sustain rather than the transient, since every attack
+is broadband at its onset whether muted or not, and it is gated on labels it did
+not produce: the tabs' own written <code>Muted</code> notes against long-duration
+unmuted attacks. Two bugs surfaced while building that control, both found by it
+returning zero:</p>
+
+<ol>
+<li><b>GPIF Notes are shared definitions</b> in one document-level collection, not
+children of a Track, so <code>trk.iter("Note")</code> found nothing and every
+muted note in the album was invisible. 02 Flake's five definitions expand to
+<b>188 real muted attacks</b>.</li>
+<li>Matching on <b>(string, fret) was wrong even after the ids resolved</b>, since
+a position match claims every other note sharing that position.</li>
+</ol>
+
+<p>With 473 pooled muted attacks against 6,250 pitched ones, the control
+<b>FAILED</b>, and the mean gap is why it had to be measured properly rather than
+eyeballed:</p>
+
+<table>
+<thead><tr><th>axis</th><th>muted mean</th><th>pitched mean</th><th>AUC</th><th>reading</th></tr></thead>
+<tbody>
+<tr><td>decay ratio</td><td>2.495</td><td>5.382</td><td><b>0.522</b></td><td>the 2.9 gap is outlier-driven, the axis is useless</td></tr>
+<tr><td>sustain support</td><td>0.443</td><td>0.572</td><td><b>0.617</b></td><td>weak, nowhere near usable</td></tr>
+</tbody></table>
+
+<p>An AUC of 0.5 is a coin flip. <b>No <code>.gp</code> was edited</b>, and 02
+Flake stands as it is. The hypothesis remains credible and unproven.</p>
+
+<p><b>The deeper obstacle, stated plainly:</b> those <code>Muted</code> marks were
+written by the same Songsterr AI transcription being audited. Calibrating a
+muted-strum detector against them is circular. Breaking this needs muted
+attacks labelled independently of the transcriber.</p>
+
+<h3>04 Six Feet Under bar 58, and a hypothesis the audio refuted</h3>
+
+<p>Brandon: <i>"six feet under bar 58 sounds like a weird chord not quite
+right."</i> The bar repeats one five-note shape six times. G4 and E4 are supported
+on every attack; the inner voices flip. Unsupported notes by bar: 57 at 10%,
+<b>58 at 30%</b>, 59 at 20%, <b>60 at 37.5%</b>, 61 at 0%, 62 at 8.3%. The rough
+patch is real and spans 58 through 60, and bar 58 is not uniquely bad inside it.</p>
+
+<p>The obvious reading, that the written <code>C3 G3 B3 E4 G4</code> is a Cmaj7
+where the record plays a plain C, <b>is refuted by its own head-to-head</b>.
+Across all nine attacks carrying that shape, written B3 averages 8.34 against
+C4's 8.26, and C4 wins only 44% of them. The two sit too close to separate, which
+is what made the semitone probe flip B3 within a single bar. Those per-note flags
+are detector noise.</p>
+
+<h2 id="open">7 &nbsp;What is still open</h2>
 <ol>
   <li><b>08 JGBFTL</b> needs re-transcription. Its written rhythm does not match its
     recording at any tempo. The pipeline's hard gate is that the tab source is
@@ -336,6 +457,12 @@ recording at any tempo, so no per-note measurement on it can mean anything.</p>
     a separation against. It needs stronger evidence before anything is added.</li>
   <li><b>The ledger needs a depan licence</b> so a pass that legitimately reduces the
     instance count can be promoted on its Tier 1 verdict.</li>
+  <li><b>02 Flake muted-strum repair</b> is blocked on a control, not on effort. The
+    detector cannot separate written dead notes from rung ones (AUC 0.52 and 0.62),
+    and the labels available come from the transcriber under audit, which is
+    circular. It needs independently labelled muted attacks.</li>
+  <li><b>01 Seedy Shade has ONE guitar</b>, confirmed by Brandon 2026-08-15. The
+    audio test was inconclusive on this song and his call settles it.</li>
   <li><b>Settled and needing nothing:</b> 01 Seedy Shade, 02 Flake, 03 Gene, 04 Six
     Feet Under, 05 Sleep Vs Death, 09 MHL, 10 Trapped in Wonderland. All align, all
     pass the gate, and every two-staff one among them is a confirmed real pair whose

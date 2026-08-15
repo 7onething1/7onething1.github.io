@@ -133,3 +133,90 @@ Nine of ten songs align with correct tempos. **08 JGBFTL is the one genuinely
 mis-timed tab**: single tempo 88 bpm written, best fit implies ~120, librosa says
 103.4, and z = +4.0 against its own shuffled rhythm. It needs re-transcription
 from Songsterr.
+
+
+## 2026-08-15: measured against the RECORDING, and two results withdrawn
+
+`audio_accuracy.py` was written 2026-08-13 and never run. It has now run on all
+ten songs. The `/goal` evaluator named this gap and it was the right one: every
+prior gate compared a candidate to the inherited Songsterr tab, which is a
+preservation question, so a build passes it while reproducing notes nobody played.
+
+**The first run's attack control was broken.** A rigid 2.517s decoy is the wrong
+null for tabs carrying 2 to 5 attacks per detected onset. On 07 MOP and 09 MHL the
+deliberately wrong decoy OUTSCORED the real tab. Replaced with the
+shuffled-interval null. Timing and pitch are now judged separately.
+
+| song | z | recall | shuffled | pitch | decoy | timing | pitch |
+|---|---|---|---|---|---|---|---|
+| 01 Seedy Shade | 5.2 | 32.3% | 27.9% | 68.6% | 12.8% | established | established |
+| 02 Flake | 8.7 | 46.1% | 54.5% | 56.6% | 14.6% | no | established |
+| 03 Gene | 17.7 | 41.4% | 27.0% | 76.0% | 8.9% | established | established |
+| 04 Six Feet Under | 5.6 | 37.4% | 23.1% | 79.5% | 6.6% | established | established |
+| 05 Sleep Vs Death | 16.7 | 30.3% | 21.3% | 72.3% | 12.0% | established | established |
+| 07 MOP | 13.5 | 36.2% | 37.6% | 63.9% | 8.7% | no | established |
+| 08 JGBFTL | REFUSED, aligns at no tempo |||||||
+| 09 MHL | 12.9 | 42.9% | 39.8% | 75.4% | 8.2% | no | established |
+| 10 Trapped | 11.1 | 42.1% | 40.4% | 82.9% | 6.0% | no | established |
+| 11 Ambulance | 7.7 | 33.4% | 32.0% | 70.7% | 11.2% | no | established |
+
+Pitch established on all nine aligned songs, chance 25%. Timing on four.
+
+### Chroma identification, validated before use
+
+Each tab picks its own recording out of ten stems. Chance 1/10, scored 6/10.
+Hits sit at r >= 0.929, misses at r <= 0.783.
+
+11 Ambulance 0.977, 03 Gene 0.946, 04 Six Feet 0.935, 05 Sleep 0.933,
+01 Seedy Shade 0.931, 10 Trapped 0.929 all rank 1st.
+07 MOP 0.783, 02 Flake 0.756, 09 MHL 0.756 miss.
+**08 JGBFTL 0.703 is the weakest and picks 03 Gene's stem over its own.**
+
+### The Flake muted-strum repair was REFUSED
+
+Brandon: "flake of the year has chords where muted strings should be."
+
+A first detector's 3.4x lift is WITHDRAWN: it ran at offset 0.0 when Flake's real
+alignment is +2.600s.
+
+Building the proper control exposed two bugs, both found by it returning zero:
+GPIF Notes are SHARED definitions at document level, not Track children, so every
+muted note in the album was invisible (Flake's 5 definitions expand to 188 real
+muted attacks); and (string, fret) matching was wrong even after the ids resolved.
+
+With 473 pooled muted attacks against 6,250 pitched, the control FAILED:
+
+| axis | muted | pitched | AUC |
+|---|---|---|---|
+| decay ratio | 2.495 | 5.382 | **0.522** |
+| sustain support | 0.443 | 0.572 | **0.617** |
+
+The 2.9 mean gap on decay ratio is outlier-driven. AUC 0.5 is a coin flip.
+**No .gp was edited.** The hypothesis is credible and unproven.
+
+Deeper obstacle: those `Muted` marks were written by the same Songsterr AI under
+audit, so calibrating against them is circular.
+
+### 04 Six Feet Under bar 58
+
+Brandon: "bar 58 sounds like a weird chord not quite right." Unsupported notes by
+bar: 57 at 10%, **58 at 30%**, 59 at 20%, **60 at 37.5%**, 61 at 0%, 62 at 8.3%.
+The rough patch is real across 58 to 60; bar 58 is not uniquely bad.
+
+The Cmaj7-should-be-C reading is REFUTED by head-to-head: across all 9 attacks
+carrying `C3 G3 B3 E4 G4`, written B3 averages 8.34 vs C4's 8.26, and C4 wins only
+44%. Those per-note flags are detector noise.
+
+### 01 Seedy Shade
+
+**One guitar**, confirmed by Brandon 2026-08-15. The audio test was inconclusive
+here and his call settles it.
+
+### New tools
+
+```
+python3 ~/Projects/_outputs/theship-tabs/audio_accuracy_sweep.py
+python3 ~/Projects/_outputs/theship-tabs/muted_classify.py --pool
+python3 ~/Projects/_outputs/theship-tabs/bar_probe.py --song 04 --bar 58
+python3 ~/Projects/_outputs/theship-tabs/jgbftl_diagnose.py
+```
