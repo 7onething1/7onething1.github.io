@@ -220,3 +220,53 @@ python3 ~/Projects/_outputs/theship-tabs/muted_classify.py --pool
 python3 ~/Projects/_outputs/theship-tabs/bar_probe.py --song 04 --bar 58
 python3 ~/Projects/_outputs/theship-tabs/jgbftl_diagnose.py
 ```
+
+
+## Same day: the synthetic control acquits the classifier and convicts the labels
+
+A failed control has two causes needing opposite responses: the classifier cannot
+separate the classes, or the labels are wrong. Real audio cannot tell them apart.
+Synthetic audio can, because its labels are true by construction.
+
+60 pitched and 60 muted attacks, **identical transients**, differing only in
+harmonic decay (600 ms vs 30 ms), placed on the real Flake stem at working level.
+
+| axis | pitched | muted | AUC synthetic | AUC on tabs' own marks |
+|---|---|---|---|---|
+| decay ratio | 1.988 | 0.123 | **1.000** | 0.522 |
+| sustain support | 0.910 | 0.797 | 0.451 | 0.617 |
+
+**The method is sound; the tabs' `Muted` marks are not usable ground truth**,
+which is what a mark written by the transcription under audit should be expected
+to be. Against my own interest: AUC of exactly 1.000 means the synthetic is
+easier than the record, so this licenses the method and NOT its threshold.
+
+### How many muted chords are actually in Flake, asked without labels
+
+If a song hides written chords the record plays dead, its chord attacks are
+bimodal in decay ratio. Uniform is 0.555.
+
+| song | chord attacks | bimodality | below decay 0.5 |
+|---|---|---|---|
+| 10 Trapped | 473 | 0.770 | 7.2% |
+| 01 Seedy Shade | 80 | 0.712 | 2.5% |
+| 09 MHL | 242 | 0.699 | 18.2% |
+| 04 Six Feet Under | 244 | 0.621 | 11.9% |
+| 05 Sleep Vs Death | 105 | 0.344 | 3.8% |
+| 11 Ambulance | 771 | 0.260 | 0.9% |
+| 03 Gene | 235 | 0.228 | 1.7% |
+| 07 MOP | 283 | 0.212 | 4.2% |
+| **02 Flake** | 925 | **0.191** | 7.1% |
+
+**02 Flake is the LEAST bimodal song in the album.** Its chord attacks are one
+population, so there is no large hidden set of chords the record plays as dead
+strums.
+
+**What survives:** 66 of Flake's 925 chord attacks (7.1%) sit below decay 0.5 and
+are the bounded candidate set. Dozens of local corrections, not a systemic
+rewrite. The ear-call is not refuted and its scale is now known. No .gp edited,
+because turning those 66 into edits needs a threshold synthetic data cannot give.
+
+```
+python3 ~/Projects/_outputs/theship-tabs/muted_synth_control.py
+```
