@@ -532,3 +532,27 @@ measure as sound as the healthy tabs and are worth keeping.
 ```
 python3 ~/Projects/_outputs/theship-tabs/jgbftl_content.py --win 8
 ```
+
+
+### Both suspect tabs PASS every physical gate
+
+The governing rule says it directly: "a build could pass every gate while
+faithfully reproducing wrong notes." Not hypothetical here.
+
+| artifact | sha256[:16] | staff | notes | attacks | hand% | verdict |
+|---|---|---|---|---|---|---|
+| 02 Flake of the Year.gp | `e90b44d28bb5f3fe` | Lead | 225 | 225 | 0% | **PASS** |
+| | | Rhythm | 2948 | 2944 | 13% | **PASS** |
+| 08 JGBFTL.gp | `96df1c1980ae662f` | Lead | 148 | 148 | 0% | **PASS** |
+| | | Rhythm | 1812 | 1767 | 0% | **PASS** |
+
+Validator `impossible_gate.py` sha256[:16] `14bb087850cf9853`.
+
+**02 Flake writes 93 chords over silence and passes. 08 JGBFTL's first 24 bars
+match a TRANSPOSED version of the recording better than the recording, and it
+passes.** Every hand span, string collision, tie and fret shift is legal in both.
+A guitarist could play these note-for-note and be playing something the band
+did not.
+
+That is why audio accuracy comes before any fretboard question, and why five of
+the six detectors built for it were thrown out by their own controls.

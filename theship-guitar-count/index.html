@@ -818,6 +818,35 @@ No other Ship song has more than one of those.</p>
 scoped to <b>bars 1 to 40 of 54</b>. Bars 41 to 54 measure as sound as the healthy
 tabs and are worth keeping rather than discarding.</p>
 
+
+<h3>Both suspect tabs PASS every physical gate, which is the whole point</h3>
+
+<p>The completion rule governing this work states it directly: <i>"a build could
+pass every gate while faithfully reproducing wrong notes."</i> That is not
+hypothetical here. Run on the two tabs with open audio defects:</p>
+
+<table>
+<thead><tr><th>artifact</th><th>sha256[:16]</th><th>staff</th><th>notes</th><th>attacks</th><th>hand%</th><th>same-string</th><th>tie faults</th><th>wide</th><th>verdict</th></tr></thead>
+<tbody>
+<tr><td rowspan="2">02 Flake of the Year.gp</td><td rowspan="2"><code>e90b44d28bb5f3fe</code></td><td>Lead</td><td>225</td><td>225</td><td>0%</td><td>0</td><td>0</td><td>0</td><td><b>PASS</b></td></tr>
+<tr><td>Rhythm</td><td>2948</td><td>2944</td><td>13%</td><td>0</td><td>0</td><td>0</td><td><b>PASS</b></td></tr>
+<tr><td rowspan="2">08 JGBFTL.gp</td><td rowspan="2"><code>96df1c1980ae662f</code></td><td>Lead</td><td>148</td><td>148</td><td>0%</td><td>0</td><td>0</td><td>0</td><td><b>PASS</b></td></tr>
+<tr><td>Rhythm</td><td>1812</td><td>1767</td><td>0%</td><td>0</td><td>0</td><td>0</td><td><b>PASS</b></td></tr>
+</tbody></table>
+
+<p>Validator <code>impossible_gate.py</code>, sha256[:16]
+<code>14bb087850cf9853</code>.</p>
+
+<p><b>02 Flake writes 93 chords over silence and passes.</b> <b>08 JGBFTL's first
+24 bars match a transposed version of the recording better than the recording
+itself, and it passes.</b> Every hand span, string collision, tie and fret shift
+is legal in both. A guitarist could play these note-for-note and would be playing
+something the band did not.</p>
+
+<p>That is why audio accuracy is measured before any fretboard question here, and
+why five of the six detectors built for it were thrown out by their own controls
+rather than shipped.</p>
+
 <h3>04 Six Feet Under bar 58, and a hypothesis the audio refuted</h3>
 
 <p>Brandon: <i>"six feet under bar 58 sounds like a weird chord not quite
