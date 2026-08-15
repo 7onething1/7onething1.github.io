@@ -656,3 +656,39 @@ listening.** His call is ground truth; this scope is a shortlist.
 ```
 python3 ~/Projects/_outputs/theship-tabs/filler_scope.py --win 10
 ```
+
+
+### The repair ran, and it says do not ship the upgrade at all
+
+| song | staff | bars emptied | attacks removed | other tracks | gate |
+|---|---|---|---|---|---|
+| 04 Six Feet Under | Lead | 71-80, 81-90, 111-120, 121-130, 131-140 | **404** | Rhythm/Bass/Drums/Vocals all +0 | PASS |
+| 05 Sleep Vs Death | Rhythm | 31-40 | **59** | Lead/Bass/Drums/Vocals all +0 | REVIEW, 1 wide voicing |
+
+Bars 71-80 added to 04's scope on **Brandon's ear as ground truth**. The
+measurement scored that window REVIEW at yield 0.211, weaker than his call, most
+likely because the Rhythm guitar plays there and the Lead's invented notes land
+near its onsets. His call governs; the disagreement is recorded.
+
+### The measurement that decides it
+
+| 04 Six Feet Under | attack precision | pitch agreement |
+|---|---|---|
+| **BASE (audition file)** | **37.5%** | **79.5%** |
+| UPGRADED (staged to ship) | 31.0% | 62.8% |
+| TACET repair of the upgrade | 33.8% | 67.5% |
+
+**The upgrade made the tab measurably worse and the repair does not get it back.**
+Precision fell 37.5 -> 31.0, pitch 79.5 -> 62.8. Emptying 404 filler attacks
+recovers to 33.8 and 67.5, about 40% and 27% of the loss.
+
+**Recommendation: ship the BASE audition file for 04 and discard the upgrade.**
+The tacet artifact is a partial recovery of a file that should not have been made,
+kept as evidence rather than as the delivery.
+
+Artifacts (sources untouched, backups beside each):
+`_tacet_04/…-TACET.gp` `a2e444cbce6e99eb`, `_tacet_05/…-TACET.gp` `b0a4f674323dbb3e`
+
+```
+python3 ~/Projects/_outputs/theship-tabs/apply_tacet.py --song 04 --apply
+```

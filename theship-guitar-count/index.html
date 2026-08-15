@@ -964,6 +964,51 @@ onsets. <b>A measurement that cannot separate two players in one stem will alway
 be weaker than the person listening</b>, which is why his call is recorded as
 ground truth and this scope is a shortlist rather than a verdict.</p>
 
+
+<h3>The repair ran, and it says do not ship the upgrade at all</h3>
+
+<p>Brandon's instruction was explicit: <i>"the repair should therefore begin by
+deleting those fast lead notes and marking the lead tacet."</i> Done, on both
+songs the scope condemned, writing to new files with the sources copied beside
+them.</p>
+
+<table>
+<thead><tr><th>song</th><th>staff</th><th>bars emptied</th><th>attacks removed</th><th>other tracks</th><th>gate</th></tr></thead>
+<tbody>
+<tr><td>04 Six Feet Under</td><td>Lead</td><td>71-80, 81-90, 111-120, 121-130, 131-140</td><td><b>404</b></td><td>Rhythm, Bass, Drums, Vocals all +0</td><td>PASS</td></tr>
+<tr><td>05 Sleep Vs Death</td><td>Rhythm</td><td>31-40</td><td><b>59</b></td><td>Lead, Bass, Drums, Vocals all +0</td><td>REVIEW, 1 wide voicing</td></tr>
+</tbody></table>
+
+<p>Bars 71-80 were added to 04's scope on <b>Brandon's ear as ground truth</b>. The
+measurement had scored that window REVIEW at yield 0.211 rather than DROP, which
+is weaker than his call, most likely because the Rhythm guitar plays through those
+bars and the Lead's invented notes land near its onsets. His call governs and the
+disagreement is recorded rather than smoothed over.</p>
+
+<h3>The measurement that decides it</h3>
+
+<table>
+<thead><tr><th>04 Six Feet Under</th><th>attack precision</th><th>pitch agreement</th><th>reading</th></tr></thead>
+<tbody>
+<tr><td><b>BASE, the audition file</b></td><td><b>37.5%</b></td><td><b>79.5%</b></td><td><b>the best of the three</b></td></tr>
+<tr><td>UPGRADED, what was staged to ship</td><td>31.0%</td><td>62.8%</td><td>worse on both axes</td></tr>
+<tr><td>TACET repair of the upgrade</td><td>33.8%</td><td>67.5%</td><td>recovers part of the damage</td></tr>
+</tbody></table>
+
+<p><b>The upgrade made the tab measurably worse, and the repair does not get it
+back to where it started.</b> Precision fell 37.5% to 31.0% and pitch agreement
+79.5% to 62.8%. Emptying 404 filler attacks recovers precision to 33.8% and pitch
+to 67.5%, roughly 40% and 27% of the loss.</p>
+
+<p><b>So the recommendation is not the repair.</b> It is to ship the base audition
+file for 04 and discard the upgrade. The tacet artifact is a partial recovery of
+a file that should not have been made, and it is kept as evidence rather than as
+the delivery.</p>
+
+<p>Artifacts, source files untouched with backups beside each:<br>
+<code>_tacet_04/…-TACET.gp</code> sha256[:16] <code>a2e444cbce6e99eb</code><br>
+<code>_tacet_05/…-TACET.gp</code> sha256[:16] <code>b0a4f674323dbb3e</code></p>
+
 <h3>04 Six Feet Under bar 58, and a hypothesis the audio refuted</h3>
 
 <p>Brandon: <i>"six feet under bar 58 sounds like a weird chord not quite
