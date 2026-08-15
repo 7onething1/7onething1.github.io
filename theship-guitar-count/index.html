@@ -625,6 +625,64 @@ specific rather than a shrug: per-window positioning needs a global anchor, and
 JGBFTL by definition has none. The refusal to report CONTENT on a diagnostic that
 also condemns three healthy songs is the result here.</p>
 
+
+<h3>Per-feature validation: one feature dropped, the ranking held</h3>
+
+<p>Averaging nine z-scores is only defensible if each carries signal on its own. A
+noise axis does not average out, it drags everything to the middle and lets one
+loud useless feature outvote a good one. So each was scored separately against the
+synthetic control, where the labels are true by construction.</p>
+
+<table>
+<thead><tr><th>feature</th><th>AUC on synthetic truth</th><th>verdict</th></tr></thead>
+<tbody>
+<tr><td>decay ratio</td><td>1.000</td><td>keep</td></tr>
+<tr><td>spectral flatness</td><td>1.000</td><td>keep</td></tr>
+<tr><td>high-frequency transient</td><td>1.000</td><td>keep</td></tr>
+<tr><td>harmonic-to-noise ratio</td><td>1.000</td><td>keep</td></tr>
+<tr><td>chroma stability</td><td>0.986</td><td>keep</td></tr>
+<tr><td>envelope slope</td><td>0.894</td><td>keep</td></tr>
+<tr><td>periodicity</td><td>0.723</td><td>keep</td></tr>
+<tr><td><b>sustain support</b></td><td><b>0.552</b></td><td><b>dropped, no signal on easy truth</b></td></tr>
+</tbody></table>
+
+<p>Sustain support failing here matches its behaviour on the real pooled control,
+where it managed only AUC 0.617 and then 0.687. The same axis is weak in both
+places, which is the consistent reading.</p>
+
+<p><b>What this test can and cannot do:</b> it can condemn a feature, since one
+that cannot separate a 600 ms ringing chord from a 30 ms damped one on labelled
+audio will do no better on a record. It cannot certify a survivor, because the
+synthetic case is easier than the record. A high score here keeps a feature in a
+CANDIDATE ranking and never licenses a classification.</p>
+
+<h3>The pruned ranking put back through its own control</h3>
+
+<p>Rebuilt from the seven survivors and re-run through the clustering test:
+<b>z = &minus;5.5</b> against the nine-feature ranking's &minus;5.6. The two agree
+on <b>76% of their top 50 and 75% of their top 20</b>, and both concentrate on the
+same passages.</p>
+
+<p>The reading is not that pruning improved things. Both rankings cluster about
+equally, so the dropped axis was carrying some real signal on this record despite
+failing the synthetic case. What the test establishes is <b>stability</b>: the
+localization does not depend on which of these features are included, which is
+what a ranking driven by one lucky axis would not survive.</p>
+
+<p><b>The listening list</b>, top of the pruned ranking, is where a muted strum is
+most likely if these features carry signal at all:</p>
+
+<pre>  1     2.60s   E3 B3 E4 G#4        7    36.17s   C#3 G#3 C#4 E4
+  2   112.78s   G#4 B4 E5           8     2.78s   E3 B3 E4 G#4
+  3    76.17s   G#2 D#3 G#3 C4      9   103.85s   E3 E4
+  4   113.31s   G#4 B4 E5          10    21.17s   E3 B3 E4 G#4
+  5   112.06s   G#4 B4 E5          11    30.46s   G#2 D#3 G#3 C4
+  6    94.03s   E3 E4              12   112.24s   G#4 B4 E5</pre>
+
+<p>Rank 1 sits at 2.60s, which is the alignment offset itself and therefore the
+first attack in the tab. Treat that one with suspicion: an edge position is
+exactly where a window-based feature has least context.</p>
+
 <h3>04 Six Feet Under bar 58, and a hypothesis the audio refuted</h3>
 
 <p>Brandon: <i>"six feet under bar 58 sounds like a weird chord not quite

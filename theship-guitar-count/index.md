@@ -376,3 +376,50 @@ positioning needs a global anchor and JGBFTL has none.
 python3 ~/Projects/_outputs/theship-tabs/flake_candidates.py --song 02 --top 40
 python3 ~/Projects/_outputs/theship-tabs/jgbftl_sections.py --song 08
 ```
+
+
+### Per-feature validation: one dropped, ranking held
+
+Each of the ranking features scored separately on synthetic truth:
+
+| feature | AUC | verdict |
+|---|---|---|
+| decay ratio | 1.000 | keep |
+| spectral flatness | 1.000 | keep |
+| HF transient | 1.000 | keep |
+| harmonic-to-noise | 1.000 | keep |
+| chroma stability | 0.986 | keep |
+| envelope slope | 0.894 | keep |
+| periodicity | 0.723 | keep |
+| **sustain support** | **0.552** | **dropped** |
+
+Sustain support also managed only 0.617 then 0.687 on the real pooled control.
+Weak in both places.
+
+This test can CONDEMN a feature; it cannot CERTIFY one, since the synthetic case
+is easier than the record.
+
+**Pruned ranking re-run through the clustering control: z = -5.5** vs -5.6 for the
+nine-feature version. Top-50 overlap **76%**, top-20 **75%**, same passages.
+
+Pruning did not improve anything; both cluster about equally, so the dropped axis
+carried some real signal on this record. What it establishes is **stability**: the
+localization does not depend on which features are included.
+
+**Listening list** (pruned ranking, top 12):
+
+```
+ 1    2.60s  E3 B3 E4 G#4       7   36.17s  C#3 G#3 C#4 E4
+ 2  112.78s  G#4 B4 E5          8    2.78s  E3 B3 E4 G#4
+ 3   76.17s  G#2 D#3 G#3 C4     9  103.85s  E3 E4
+ 4  113.31s  G#4 B4 E5         10   21.17s  E3 B3 E4 G#4
+ 5  112.06s  G#4 B4 E5         11   30.46s  G#2 D#3 G#3 C4
+ 6   94.03s  E3 E4             12  112.24s  G#4 B4 E5
+```
+
+Rank 1 at 2.60s is the alignment offset itself, the tab's first attack. Suspect it:
+an edge position is where a window feature has least context.
+
+```
+python3 ~/Projects/_outputs/theship-tabs/feature_validate.py
+```
