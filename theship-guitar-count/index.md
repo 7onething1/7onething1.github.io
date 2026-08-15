@@ -614,3 +614,45 @@ shape is right and the content is not.
 python3 ~/Projects/_outputs/theship-tabs/upgrade_marginal_value.py
 python3 ~/Projects/_outputs/theship-tabs/staff_activity.py --song 04
 ```
+
+
+### The removal scope, per song and per bar range
+
+**Nothing deleted.** Removing notes is not reversible from inside a tab.
+
+| song | upgraded staff | attacks scoped for removal | bar ranges |
+|---|---|---|---|
+| **04 Six Feet Under** | Lead | **262** | 81-90, 111-120, 121-130, 131-140 |
+| 05 Sleep Vs Death | Rhythm | 41 | 31-40 |
+| 02 Flake of the Year | Rhythm | 0 | none clear this bar |
+| 07 MOP | Rhythm | 0 | none clear this bar |
+| 09 MHL | Lead | 0 | none clear this bar |
+
+04's windows show it plainly. From bar 61 the upgrade writes a near-constant
+78-80 attacks per ten bars while what it explains collapses:
+
+```
+bars      61-70  71-80  81-90  91-100 101-110 111-120 121-130 131-140
+added        36    142     78      80      80      80      80      24
+onsets       45     74     23      30      38      37      14       3
+explained    11     30      3      12      17       1       6       0
+yield     0.306  0.211  0.038   0.150   0.212   0.013   0.075   0.000
+```
+
+**Bars 111-140 add 184 attacks and explain 7 onsets between them.**
+
+### The anchor holds, and it is weaker than the ear
+
+Brandon: 04 Lead is tacet from bar 71. That window comes out **REVIEW, not KEEP**,
+so the scope is consistent with him.
+
+**Against the tool:** that window scores yield 0.211, above the 0.08 drop line,
+because 30 onsets there are newly covered. His ear says the lead is silent. Most
+likely the staff-separation limit again: the Rhythm guitar plays through those
+bars and the Lead's invented notes land near its onsets. **A measurement that
+cannot separate two players in one stem will always be weaker than the person
+listening.** His call is ground truth; this scope is a shortlist.
+
+```
+python3 ~/Projects/_outputs/theship-tabs/filler_scope.py --win 10
+```
