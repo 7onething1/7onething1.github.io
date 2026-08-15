@@ -1,15 +1,15 @@
-# 02 Flake of the Year, label these attacks
+# 02 Flake, one chord shape, sixteen takes
 
 Live: https://7onething1.github.io/theship-flake-labels/
 
-24 written chord attacks from 02 Flake, each clip starting 0.35s before the strike.
-12 from the top of the candidate ranking, 12 from the bottom, presented in TIME
-order so the detector's opinion does not lead the ear.
+Every clip is the SAME written chord, `E3 B3 E4 G#4`, which the tab writes
+127 times. Eight where the detector scores it most extreme each way, in
+TIME order with NO scores shown.
 
-The ranking is a candidate ordering from seven acoustic features, none of which is
-ground truth. The listener's calls are the ground truth.
+Because the written notes are identical across all sixteen, any audible difference
+is a difference in PLAYING, not arrangement. Does the chord ring, or is it damped?
 
-Write each call into `~/Projects/_outputs/theship-tabs/FLAKE_LABELS_TEMPLATE.txt`:
+Write calls into `~/Projects/_outputs/theship-tabs/FLAKE_LABELS_TEMPLATE.txt`:
 
 ```
 muted 112.78
@@ -22,7 +22,7 @@ Then:
 python3 ~/Projects/_outputs/theship-tabs/muted_classify.py --user-labels ~/Projects/_outputs/theship-tabs/FLAKE_LABELS_TEMPLATE.txt
 ```
 
-Minimum 4 muted + 4 rung, 6 of each preferred. The control requires AUC >= 0.80
-before any .gp edit is licensed.
+Attacks over silence are excluded; separate defect (93 of 925). Scores withheld
+deliberately, and the control warns if labels track the ranking rather than the ear.
 
 Method: https://7onething1.github.io/theship-guitar-count/

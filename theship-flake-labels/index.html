@@ -1,54 +1,44 @@
-<!doctype html><meta charset='utf-8'><title>02 Flake, label these attacks</title>
+<!doctype html><meta charset='utf-8'><title>02 Flake, one chord shape, 16 takes</title>
 <meta name='viewport' content='width=device-width, initial-scale=1'>
 <style>
 :root{--cream:#F4EFE1;--paper:#FBF7EC;--ink:#1A1714;--soft:#5C534A;--rule:#DED2B8;--rust:#B5543A;--dust:#EDE2C9}
 *{box-sizing:border-box}
 body{margin:0;background:var(--cream);color:var(--ink);font:16px/1.6 "Iowan Old Style",Palatino,Georgia,serif}
-.wrap{max-width:880px;margin:0 auto;padding:30px 18px 80px}
+.wrap{max-width:820px;margin:0 auto;padding:30px 18px 80px}
 h1{font-size:1.55rem;line-height:1.15;margin:.2em 0 .5em}
 .kicker{font:600 11px/1 ui-sans-serif,system-ui,sans-serif;letter-spacing:.18em;text-transform:uppercase;color:var(--rust)}
 .lede{background:var(--paper);border:1px solid var(--rule);border-left:5px solid var(--rust);padding:16px 20px;margin:20px 0}
 code{background:var(--dust);padding:1px 5px;border-radius:3px;font:13px ui-monospace,Menlo,monospace}
 .tw{overflow-x:auto;border:1px solid var(--rule);background:var(--paper)}
-table{border-collapse:collapse;width:100%;min-width:540px;font:14px/1.5 ui-sans-serif,system-ui,sans-serif}
-th,td{padding:8px 10px;border-bottom:1px solid var(--rule);text-align:left}
+table{border-collapse:collapse;width:100%;min-width:380px;font:14px/1.5 ui-sans-serif,system-ui,sans-serif}
+th,td{padding:9px 11px;border-bottom:1px solid var(--rule);text-align:left}
 th{background:var(--dust);font-size:12px;letter-spacing:.04em;text-transform:uppercase}
 tr:last-child td{border-bottom:none}
-audio{height:34px;max-width:230px}
+audio{height:34px;max-width:250px}
 .n{font:13px ui-monospace,Menlo,monospace;white-space:nowrap}
 footer{margin-top:40px;padding-top:16px;border-top:3px double var(--rule);color:var(--soft);font-size:13px}
 </style>
 <div class='wrap'>
 <div class='kicker'>The Ship &middot; 02 Flake of the Year</div>
-<h1>Does each chord ring, or die?</h1>
-<div class='lede'><p>Twenty-four written chord attacks, each clip starting 0.35s before the strike. <b>Twelve come from the top of the candidate ranking and twelve from the bottom</b>, and the rows are in <b>time order rather than rank order</b> so the detector's opinion does not lead the ear.</p><p>The ranking is a candidate ordering built from seven acoustic features, none of which is ground truth. <b>Your calls are the ground truth.</b> Four muted and four rung is the minimum the control accepts, six of each is better.</p></div>
-<p>Write each call as a line in <code>FLAKE_LABELS_TEMPLATE.txt</code>:</p>
-<p><code>muted 112.78</code> &nbsp; or &nbsp; <code>rung 47.90</code></p>
-<div class='tw'><table><tr><th>time</th><th>listen</th><th>written pitches</th><th>rank</th></tr>
-<tr><td class='n'>2.60s</td><td><audio controls preload='none' src='t0002.60_rank0001.mp3'></audio></td><td class='n'>E3 B3 E4 G#4</td><td class='n'>1 / 925</td></tr>
-<tr><td class='n'>2.78s</td><td><audio controls preload='none' src='t0002.78_rank0008.mp3'></audio></td><td class='n'>E3 B3 E4 G#4</td><td class='n'>8 / 925</td></tr>
-<tr><td class='n'>19.74s</td><td><audio controls preload='none' src='t0019.74_rank0924.mp3'></audio></td><td class='n'>E3 B3 E4 G#4</td><td class='n'>924 / 925</td></tr>
-<tr><td class='n'>21.17s</td><td><audio controls preload='none' src='t0021.17_rank0010.mp3'></audio></td><td class='n'>E3 B3 E4 G#4</td><td class='n'>10 / 925</td></tr>
-<tr><td class='n'>30.46s</td><td><audio controls preload='none' src='t0030.46_rank0011.mp3'></audio></td><td class='n'>G#2 D#3 G#3 C4</td><td class='n'>11 / 925</td></tr>
-<tr><td class='n'>36.17s</td><td><audio controls preload='none' src='t0036.17_rank0007.mp3'></audio></td><td class='n'>C#3 G#3 C#4 E4</td><td class='n'>7 / 925</td></tr>
-<tr><td class='n'>36.89s</td><td><audio controls preload='none' src='t0036.89_rank0925.mp3'></audio></td><td class='n'>E3 B3 E4 G#4</td><td class='n'>925 / 925</td></tr>
-<tr><td class='n'>76.17s</td><td><audio controls preload='none' src='t0076.17_rank0003.mp3'></audio></td><td class='n'>G#2 D#3 G#3 C4</td><td class='n'>3 / 925</td></tr>
-<tr><td class='n'>94.03s</td><td><audio controls preload='none' src='t0094.03_rank0006.mp3'></audio></td><td class='n'>E3 E4</td><td class='n'>6 / 925</td></tr>
-<tr><td class='n'>103.85s</td><td><audio controls preload='none' src='t0103.85_rank0009.mp3'></audio></td><td class='n'>E3 E4</td><td class='n'>9 / 925</td></tr>
-<tr><td class='n'>112.06s</td><td><audio controls preload='none' src='t0112.06_rank0005.mp3'></audio></td><td class='n'>G#4 B4 E5</td><td class='n'>5 / 925</td></tr>
-<tr><td class='n'>112.24s</td><td><audio controls preload='none' src='t0112.24_rank0012.mp3'></audio></td><td class='n'>G#4 B4 E5</td><td class='n'>12 / 925</td></tr>
-<tr><td class='n'>112.78s</td><td><audio controls preload='none' src='t0112.78_rank0002.mp3'></audio></td><td class='n'>G#4 B4 E5</td><td class='n'>2 / 925</td></tr>
-<tr><td class='n'>113.31s</td><td><audio controls preload='none' src='t0113.31_rank0004.mp3'></audio></td><td class='n'>G#4 B4 E5</td><td class='n'>4 / 925</td></tr>
-<tr><td class='n'>123.14s</td><td><audio controls preload='none' src='t0123.14_rank0919.mp3'></audio></td><td class='n'>G#4 B4 E5</td><td class='n'>919 / 925</td></tr>
-<tr><td class='n'>124.03s</td><td><audio controls preload='none' src='t0124.03_rank0914.mp3'></audio></td><td class='n'>G#4 B4 E5</td><td class='n'>914 / 925</td></tr>
-<tr><td class='n'>125.10s</td><td><audio controls preload='none' src='t0125.10_rank0915.mp3'></audio></td><td class='n'>G3 B3 E4</td><td class='n'>915 / 925</td></tr>
-<tr><td class='n'>126.53s</td><td><audio controls preload='none' src='t0126.53_rank0923.mp3'></audio></td><td class='n'>G#4 C#5 E5</td><td class='n'>923 / 925</td></tr>
-<tr><td class='n'>126.89s</td><td><audio controls preload='none' src='t0126.89_rank0918.mp3'></audio></td><td class='n'>G#4 C#5 E5</td><td class='n'>918 / 925</td></tr>
-<tr><td class='n'>142.18s</td><td><audio controls preload='none' src='t0142.18_rank0922.mp3'></audio></td><td class='n'>G3 B3 E4</td><td class='n'>922 / 925</td></tr>
-<tr><td class='n'>142.35s</td><td><audio controls preload='none' src='t0142.35_rank0916.mp3'></audio></td><td class='n'>G3 B3 E4</td><td class='n'>916 / 925</td></tr>
-<tr><td class='n'>142.71s</td><td><audio controls preload='none' src='t0142.71_rank0920.mp3'></audio></td><td class='n'>G#4 C#5 E5</td><td class='n'>920 / 925</td></tr>
-<tr><td class='n'>142.89s</td><td><audio controls preload='none' src='t0142.89_rank0917.mp3'></audio></td><td class='n'>G#4 C#5 E5</td><td class='n'>917 / 925</td></tr>
-<tr><td class='n'>153.72s</td><td><audio controls preload='none' src='t0153.72_rank0921.mp3'></audio></td><td class='n'>G3 B3 E4</td><td class='n'>921 / 925</td></tr>
+<h1>Sixteen takes of one chord. Which ones die?</h1>
+<div class='lede'><p>Every clip below is the <b>same written chord</b>, <code>E3 B3 E4 G#4</code>, which the tab writes <b>127 times</b>. Eight are where the detector scores it most extreme in one direction and eight in the other, in <b>time order with no scores shown</b>, so nothing primes the ear.</p><p>Because the written notes are identical across all sixteen, any difference you hear is a <b>difference in playing</b>, not in the arrangement. That is the whole question: <b>does the chord ring, or is it damped?</b></p></div>
+<p>Write each call into <code>FLAKE_LABELS_TEMPLATE.txt</code> as <code>muted &lt;seconds&gt;</code> or <code>rung &lt;seconds&gt;</code>. Four of each is the minimum, six of each is better.</p>
+<div class='tw'><table><tr><th>time</th><th>listen</th></tr>
+<tr><td class='n'>2.60s</td><td><audio controls preload='none' src='shape_t0002.60.mp3'></audio></td></tr>
+<tr><td class='n'>2.78s</td><td><audio controls preload='none' src='shape_t0002.78.mp3'></audio></td></tr>
+<tr><td class='n'>2.96s</td><td><audio controls preload='none' src='shape_t0002.96.mp3'></audio></td></tr>
+<tr><td class='n'>3.67s</td><td><audio controls preload='none' src='shape_t0003.67.mp3'></audio></td></tr>
+<tr><td class='n'>9.39s</td><td><audio controls preload='none' src='shape_t0009.39.mp3'></audio></td></tr>
+<tr><td class='n'>14.03s</td><td><audio controls preload='none' src='shape_t0014.03.mp3'></audio></td></tr>
+<tr><td class='n'>19.74s</td><td><audio controls preload='none' src='shape_t0019.74.mp3'></audio></td></tr>
+<tr><td class='n'>20.10s</td><td><audio controls preload='none' src='shape_t0020.10.mp3'></audio></td></tr>
+<tr><td class='n'>21.17s</td><td><audio controls preload='none' src='shape_t0021.17.mp3'></audio></td></tr>
+<tr><td class='n'>21.35s</td><td><audio controls preload='none' src='shape_t0021.35.mp3'></audio></td></tr>
+<tr><td class='n'>26.89s</td><td><audio controls preload='none' src='shape_t0026.89.mp3'></audio></td></tr>
+<tr><td class='n'>31.89s</td><td><audio controls preload='none' src='shape_t0031.89.mp3'></audio></td></tr>
+<tr><td class='n'>36.89s</td><td><audio controls preload='none' src='shape_t0036.89.mp3'></audio></td></tr>
+<tr><td class='n'>59.74s</td><td><audio controls preload='none' src='shape_t0059.74.mp3'></audio></td></tr>
+<tr><td class='n'>77.06s</td><td><audio controls preload='none' src='shape_t0077.06.mp3'></audio></td></tr>
+<tr><td class='n'>78.14s</td><td><audio controls preload='none' src='shape_t0078.14.mp3'></audio></td></tr>
 </table></div>
-<footer><p>Clips cut from <code>02_flake_of_the_year-guitar.mp3</code> at the tab's own aligned attack times, offset +2.600s scale 1.0000. Ranking from <code>feature_validate.py</code>, seven features surviving per-feature validation on synthetic truth. Full method: <a href='../theship-guitar-count/'>The Ship guitar transcription audit</a>.</p></footer>
-</div>
+<footer><p>Clips from <code>02_flake_of_the_year-guitar.mp3</code> at the tab's own aligned attack times, offset +2.600s scale 1.0000, each starting 0.35s before the strike. Attacks over silence are excluded: they are a separate defect, 93 of 925 chord attacks. Scores are withheld deliberately, and the control that consumes these labels warns if they track the detector's ranking instead of the ear. Method: <a href='../theship-guitar-count/'>The Ship guitar transcription audit</a>.</p></footer></div>
