@@ -489,6 +489,33 @@ corrections rather than a systemic rewrite. The ear-call is not refuted and its
 scale is now bounded. <b>Still no <code>.gp</code> edited</b>, because converting
 those 66 into edits needs a threshold that synthetic data cannot supply.</p>
 
+
+<h3>The threshold transfer was tried and it failed, which closes the question</h3>
+
+<p>One route remained that needed no human labels: the synthetic pitched attacks
+were rendered on the Flake bed, so their own decay distribution supplies a
+threshold with a controlled false-positive rate. Set at the 1st percentile of
+synthetic pitched attacks, <b>decay 1.525</b>, it catches 100% of synthetic muted
+attacks at a 1% false-positive rate. On paper that is a finished classifier.</p>
+
+<p>Applied to 02 Flake it flags <b>346 of 925 chord attacks, 37.4%</b>, against
+9.2 expected from the false-positive rate. That result is not credible, and the
+reason is the one already stated: <b>real rung chords in a dense mix decay faster
+than clean synthetic ones</b>, because they are masked, overlapped and re-struck.
+The threshold measures the gap between my synthesiser and a record, not the gap
+between a rung chord and a dead one.</p>
+
+<p>It also contradicts the label-free bimodality result on the same audio, where
+Flake is the album's <b>least</b> bimodal song. When two measurements on the same
+signal disagree this hard, the transferred threshold is the one without standing.</p>
+
+<p><b>This closes the no-labels route rather than leaving it untried.</b> Every
+label-free path available has now been run: the tabs' own marks are circular and
+fail at AUC 0.522, the synthetic proves the method sound at AUC 1.000 but cannot
+carry a threshold, and bimodality bounds the population without being able to name
+its members. Turning candidates into edits needs muted attacks labelled by ear.
+<b>No <code>.gp</code> has been edited at any point.</b></p>
+
 <h3>04 Six Feet Under bar 58, and a hypothesis the audio refuted</h3>
 
 <p>Brandon: <i>"six feet under bar 58 sounds like a weird chord not quite

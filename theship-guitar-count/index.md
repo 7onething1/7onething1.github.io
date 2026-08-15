@@ -270,3 +270,18 @@ because turning those 66 into edits needs a threshold synthetic data cannot give
 ```
 python3 ~/Projects/_outputs/theship-tabs/muted_synth_control.py
 ```
+
+
+### The threshold transfer was tried and failed, closing the no-labels route
+
+Set at the 1st percentile of synthetic pitched attacks (decay **1.525**), the
+threshold catches 100% of synthetic muted at 1% false-positive. Applied to Flake
+it flags **346 of 925 chord attacks (37.4%)** against 9.2 expected. Not credible:
+real rung chords in a dense mix decay faster than clean synthetic ones, so the
+threshold measures my synthesiser against a record, not a rung chord against a
+dead one. It also contradicts the bimodality result on the same audio, where
+Flake is the album's LEAST bimodal song.
+
+Every label-free path is now run and exhausted: circular marks fail at AUC 0.522,
+synthetic proves the method at AUC 1.000 but carries no threshold, bimodality
+bounds the population without naming members. **No .gp edited at any point.**
