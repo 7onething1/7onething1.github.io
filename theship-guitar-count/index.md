@@ -423,3 +423,12 @@ an edge position is where a window feature has least context.
 ```
 python3 ~/Projects/_outputs/theship-tabs/feature_validate.py
 ```
+
+
+### The listening pass is hosted
+
+https://7onething1.github.io/theship-flake-labels/
+
+24 clips, 12 from the top of the ranking and 12 from the bottom, in TIME order so
+the ranking does not prime the ear. The listener's calls are the ground truth; the
+seven-feature ranking only decides which 24 attacks are worth hearing.
