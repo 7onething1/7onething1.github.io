@@ -331,3 +331,48 @@ Real improvement, still short. **Control fails at 0.687, no .gp edited.**
 other song 0.96-1.00). I called that a new defect. It is not: the guitar stops
 playing at ~155s and the 220-241s region is **rms 0.0000**, digital silence with
 noise-floor artifacts. The tab covers all real playing.
+
+
+## 2026-08-15 late: candidate ranking works, section diagnostic refuted
+
+Brandon rejected "nothing executable remains" and he was right. Three corrections
+to my language first:
+
+1. NOT "the method works, the labels do not". The defensible claim: the decay
+   feature works on that synthetic construction while the Songsterr marks show
+   almost no relationship to it. **Real muted vs rung guitar remains unvalidated.**
+2. Bimodality at 0.191 is useful negative evidence against a SHARPLY SEPARATED
+   second population. It does **not** bound the true muted count to 66.
+3. Removed: "everything still open needs an input only you can give."
+
+### Candidate ranking, validated
+
+All 925 Flake chord attacks ranked on **nine features chosen to fail differently**:
+decay ratio, sustain support, HNR, spectral flatness, HF transient proportion,
+post-transient periodicity, sustain-envelope slope, chroma stability, neighbour
+delta. Each z-scored against this song's own attacks.
+
+**Control it could have failed:** noise features would scatter. Top 50 sit a
+median **0.54s** apart vs **2.49s** for random 50, **z = -5.6**. They concentrate
+in **100-120s** and **20-40s**, nothing after 120s.
+
+Candidate ordering, NOT a classification. Nine features reading one recording can
+agree and be wrong together. Artifact: `candidates_02.json`.
+
+### Section defect map for 08 JGBFTL: REFUTED
+
+16-bar windows aligned independently, scored against their own shuffled rhythm.
+On 08 it said CONTENT, every window failing. The controls killed it: known-good
+04 (z +2.4, +0.8), 05 (+0.8, -0.3), 01 (-0.0) show the same pattern. 03 Gene was
+the outlier.
+
+Two earlier versions also caught: a free 0.55-2.00 scale grid pinned at the 1.98
+edge, and a free offset search reporting backwards jumps in a song with none.
+
+**08 JGBFTL's defect stays unclassified**, for a specific reason: per-window
+positioning needs a global anchor and JGBFTL has none.
+
+```
+python3 ~/Projects/_outputs/theship-tabs/flake_candidates.py --song 02 --top 40
+python3 ~/Projects/_outputs/theship-tabs/jgbftl_sections.py --song 08
+```

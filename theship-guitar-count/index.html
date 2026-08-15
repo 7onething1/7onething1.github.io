@@ -451,9 +451,11 @@ level.</p>
 <tr><td>sustain support</td><td>0.910</td><td>0.797</td><td>0.451</td><td>0.617</td></tr>
 </tbody></table>
 
-<p><b>Decay ratio separates perfectly when the labels are true and not at all
-against the tabs' own <code>Muted</code> marks.</b> The method is sound and those
-marks are not usable ground truth, which is what a mark written by the
+<p><b>Decay ratio separates perfectly on that synthetic construction and shows almost
+no relationship to the tabs' own <code>Muted</code> marks.</b> The defensible claim
+is exactly that and no more: the feature works on this synthetic control while
+those marks track it barely at all. <b>Real muted against real rung guitar remains
+unvalidated.</b> The marks are not usable ground truth here, which is what a mark written by the
 transcription under audit should be expected to be. Stated against my own
 interest: an AUC of exactly 1.000 means the synthetic case is easier than the
 record, so this licenses the method and does NOT license carrying its threshold
@@ -571,6 +573,57 @@ be inflated by tails.</p>
 <code>.gp</code> is edited.</b> Two of my own errors were caught by controls
 rather than by review, which is the only reason neither reached a published
 defect claim about a song.</p>
+
+
+<h3>Candidate ranking, which is what was actually missing</h3>
+
+<p>Brandon, 2026-08-15: <i>"Claude has exhausted the three classification routes
+it CHOSE to implement. That does not establish that every useful label-free
+analysis has been exhausted... rank those 66 low-decay attacks by multiple
+independent acoustic features instead of treating decay ratio as the entire
+detector."</i> Correct, and the earlier "nothing executable remains" was wrong.</p>
+
+<p>All 925 Flake chord attacks are now ranked on <b>nine features chosen to fail
+differently from each other</b>: decay ratio, sustain support, harmonic-to-noise
+ratio, spectral flatness, high-frequency transient proportion, post-transient
+periodicity, sustain-envelope slope, chroma stability, and how far an attack sits
+below its immediate neighbours. Each is z-scored against this song's own attacks,
+so a bright mix cannot manufacture a ranking.</p>
+
+<p><b>The ranking passes a control that could have failed it.</b> If the features
+were noise, the top candidates would scatter evenly through the song. The top 50
+sit a median <b>0.54s</b> apart against <b>2.49s</b> for 50 drawn at random,
+<b>z = &minus;5.6</b>. They concentrate in two passages, <b>100 to 120s</b> and
+<b>20 to 40s</b>, with nothing at all after 120s.</p>
+
+<p>This is a <b>candidate ordering, not a classification</b>. Nine features all
+reading the same recording can agree and all be wrong together. What it changes is
+the listening task: instead of twelve blind timestamps across a 204-second song,
+the work starts at rank 1 inside two identified passages.
+Artifact: <code>candidates_02.json</code>.</p>
+
+<h3>The section-level defect map for 08 JGBFTL was refuted by its own controls</h3>
+
+<p>The whole-song verdict, "aligns at no tempo", does not say whether the fault is
+global tempo, section ordering, omitted or extra material, or wrong notes, and
+those need different repairs. So each 16-bar window was aligned independently and
+scored against its own shuffled rhythm.</p>
+
+<p>Run on 08 it reported CONTENT, every window failing. <b>Then the controls
+killed it.</b> Known-good songs produce the same pattern: 04 Six Feet Under at
+z = +2.4 and +0.8, 05 Sleep Vs Death at +0.8 and &minus;0.3, 01 Seedy Shade at
+&minus;0.0, all of which align globally and pass every gate. 03 Gene looked clean
+and was the outlier, not the rule.</p>
+
+<p>Two earlier versions were also caught: a free 0.55 to 2.00 scale grid pinned
+itself at the 1.98 edge on short windows, and a free offset search let every
+window roam the whole recording and report backwards jumps in a song that has
+none. Both were narrowed and the control still failed.</p>
+
+<p><b>So 08 JGBFTL's defect remains unclassified</b>, and the reason is now
+specific rather than a shrug: per-window positioning needs a global anchor, and
+JGBFTL by definition has none. The refusal to report CONTENT on a diagnostic that
+also condemns three healthy songs is the result here.</p>
 
 <h3>04 Six Feet Under bar 58, and a hypothesis the audio refuted</h3>
 
