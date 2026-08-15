@@ -432,3 +432,64 @@ https://7onething1.github.io/theship-flake-labels/
 24 clips, 12 from the top of the ranking and 12 from the bottom, in TIME order so
 the ranking does not prime the ear. The listener's calls are the ground truth; the
 seven-feature ranking only decides which 24 attacks are worth hearing.
+
+
+## 2026-08-15 later: the ranker was detecting SILENCE
+
+Brandon: "94.03s is silent". That was rank 6 on the list I handed him.
+
+**21 of the top 50 sit at or below the song's 10th-percentile loudness floor,
+against 5 expected.** The 100-120s "cluster" is a quiet passage (112.06s reads
+rms 0.00002). An attack over silence has no sustain, no harmonics, no periodicity
+and no chroma stability, so it maxes out every sustain feature at once.
+
+**RETRACTED: the z=-5.6 clustering localization.** The whole-song null was wrong,
+exactly as Brandon predicted.
+
+### Two questions, separated
+
+**Defect A: chords written where the guitar is not playing.** 93 of 925 (10.1%),
+in three stretches:
+
+| stretch | length |
+|---|---|
+| 101.17s - 114.74s | **13.57s of written chords over silence** |
+| 94.03s - 95.64s | 1.61s |
+| 115.28s - 115.99s | 0.71s |
+
+Its own defect, its own repair, NOT evidence of muting.
+
+**Defect B: the muted question**, asked of the 832 audible attacks only.
+
+| control | result | reading |
+|---|---|---|
+| density-matched clustering | z = -3.8 | survives a density-preserving null |
+| feature redundancy | **4.6 of 7 dims** | HNR/periodicity r=0.75, flatness/HF r=0.65 |
+| leave-one-out decay_ratio | **50/50 unchanged** | contributes nothing |
+| leave-one-out hf_transient | 30/50 | this + flatness ARE the detector |
+
+**Synthetic transfer failure:** decay_ratio scored **AUC 1.000** synthetic and
+changes the real top 50 by **nothing**. Brandon's warning, measured.
+
+### The one positive control
+
+| written shape | n | sd | range | in top 50 |
+|---|---|---|---|---|
+| **E3 B3 E4 G#4** | 127 | **0.63** | **-3.21 to +3.57** | 18 |
+| C#3 G#3 C#4 E4 | 104 | 0.34 | -0.56 to +1.30 | 16 |
+| G#4 B4 E5 | 142 | 0.32 | -0.92 to +0.71 | 1 |
+
+E3 B3 E4 G#4 spans 6.8 z across 127 occurrences of the SAME written notes. A
+detector reading tone would score them alike, as it does on G#4 B4 E5. Separating
+takes of identical material is the goal, and it is the first evidence that
+something beyond section structure is being measured.
+
+### The controls are now in the skill
+
+All twelve checks ship as `detector_controls.py` in `/impossible-guitar-parts`
+with a hard gate in SKILL.md.
+
+```
+python3 ~/.claude/skills/impossible-guitar-parts/detector_controls.py
+python3 ~/Projects/_outputs/theship-tabs/flake_rank_v2.py
+```

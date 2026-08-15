@@ -590,11 +590,11 @@ periodicity, sustain-envelope slope, chroma stability, and how far an attack sit
 below its immediate neighbours. Each is z-scored against this song's own attacks,
 so a bright mix cannot manufacture a ranking.</p>
 
-<p><b>The ranking passes a control that could have failed it.</b> If the features
-were noise, the top candidates would scatter evenly through the song. The top 50
-sit a median <b>0.54s</b> apart against <b>2.49s</b> for 50 drawn at random,
-<b>z = &minus;5.6</b>. They concentrate in two passages, <b>100 to 120s</b> and
-<b>20 to 40s</b>, with nothing at all after 120s.</p>
+<p><b>WITHDRAWN, see below.</b> The top 50 clustered at a median 0.54s against
+2.49s for 50 drawn at random, z = &minus;5.6, concentrated in 100 to 120s and 20 to
+40s. That whole-song null was the wrong control: 21 of those 50 attacks sit at or
+below the song's own loudness floor, and the 100 to 120s passage is largely
+silence. Brandon caught it from one clip.</p>
 
 <p>This is a <b>candidate ordering, not a classification</b>. Nine features all
 reading the same recording can agree and all be wrong together. What it changes is
@@ -688,6 +688,89 @@ most likely if these features carry signal at all:</p>
 <p>Rank 1 sits at 2.60s, which is the alignment offset itself and therefore the
 first attack in the tab. Treat that one with suspicion: an edge position is
 exactly where a window-based feature has least context.</p>
+
+
+<h3>The ranker was detecting silence, and Brandon heard it in one clip</h3>
+
+<p>Brandon, 2026-08-15: <i>"94.03s is silent"</i>. That is rank 6 on the list I
+handed him. Measured against the song's own 10th-percentile loudness floor,
+<b>21 of the top 50 sit at or below it, against 5 expected</b>. The 100 to 120s
+"cluster" is a quiet passage: 112.06s reads rms 0.00002.</p>
+
+<p>The cause is structural rather than a tuning error. <b>An attack over silence
+has no sustain, no harmonics, no periodicity and no chroma stability</b>, so it
+maxes out every sustain-style feature at once. He also predicted the failure mode
+exactly, writing that clustering <i>"does not establish that the clustering comes
+from muted playing, because riffs, production changes... and section specific
+guitar tone can produce the same pattern"</i>.</p>
+
+<h3>Two questions that were being conflated, now separated</h3>
+
+<p><b>Defect A, chords written where the guitar is not playing.</b> 93 of 925 Flake
+chord attacks, <b>10.1%</b>, sit at or below the floor, in three contiguous
+stretches:</p>
+
+<table>
+<thead><tr><th>stretch</th><th>length</th></tr></thead>
+<tbody>
+<tr><td>101.17s to 114.74s</td><td><b>13.57s of written chords over silence</b></td></tr>
+<tr><td>94.03s to 95.64s</td><td>1.61s</td></tr>
+<tr><td>115.28s to 115.99s</td><td>0.71s</td></tr>
+</tbody></table>
+
+<p>This is its own defect with its own repair and it is <b>not</b> evidence of
+muted playing.</p>
+
+<p><b>Defect B, the muted question</b>, can only be asked of the 832 audible
+attacks. Re-ranked above the floor and put through four harder controls:</p>
+
+<table>
+<thead><tr><th>control</th><th>result</th><th>reading</th></tr></thead>
+<tbody>
+<tr><td>density-matched clustering</td><td>z = &minus;3.8</td><td>survives a null that holds local attack density, weaker than the &minus;5.6 the wrong null gave</td></tr>
+<tr><td>feature redundancy</td><td><b>4.6 effective dimensions of 7</b></td><td>not seven votes. HNR and periodicity correlate at 0.75, flatness and HF transient at 0.65</td></tr>
+<tr><td>leave-one-out, decay ratio</td><td><b>50/50 unchanged</b></td><td>contributes nothing to the real ranking</td></tr>
+<tr><td>leave-one-out, HF transient</td><td>30/50</td><td>this and flatness are the actual detector</td></tr>
+</tbody></table>
+
+<p><b>The synthetic transfer failure, stated plainly:</b> decay ratio scored
+<b>AUC 1.000</b> on synthetic truth and changes the real top 50 by <b>nothing</b>.
+That is the cleanest possible demonstration of Brandon's warning that a feature
+can score perfectly on a designed synthetic distinction while responding to
+something else entirely on the record.</p>
+
+<h3>The one control that came back positive</h3>
+
+<p>Comparing repeated occurrences of identical written material separates a
+detector reading a riff's tone from one reading a performance:</p>
+
+<table>
+<thead><tr><th>written shape</th><th>occurrences</th><th>score sd</th><th>range</th><th>in top 50</th></tr></thead>
+<tbody>
+<tr><td><b>E3 B3 E4 G#4</b></td><td>127</td><td><b>0.63</b></td><td><b>&minus;3.21 to +3.57</b></td><td>18</td></tr>
+<tr><td>C#3 G#3 C#4 E4</td><td>104</td><td>0.34</td><td>&minus;0.56 to +1.30</td><td>16</td></tr>
+<tr><td>G#4 B4 E5</td><td>142</td><td>0.32</td><td>&minus;0.92 to +0.71</td><td>1</td></tr>
+<tr><td>G#4 C#5 E5</td><td>52</td><td>0.23</td><td>&minus;1.01 to +0.09</td><td>0</td></tr>
+</tbody></table>
+
+<p><b>E3 B3 E4 G#4 spans 6.8 z across 127 occurrences of the same written notes.</b>
+A detector reading arrangement or tone would score every occurrence alike, as it
+does on G#4 B4 E5. Separating takes of identical material is what a performance
+detector is supposed to do, and it is the first evidence here that something
+beyond section structure is being measured.</p>
+
+<p><b>Still no <code>.gp</code> edited.</b> The listening target is now that one
+shape's extreme occurrences rather than a passage, which is a much smaller and
+better-posed question.</p>
+
+<h3>The controls are now part of the skill</h3>
+
+<p>Brandon: <i>"you do that shit alot so build it into the skill all this to check
+for."</i> Six audio detectors were built in this session and <b>five were wrong in
+a way a control caught and reading the code did not</b>. All twelve checks now ship
+as <code>detector_controls.py</code> inside
+<code>/impossible-guitar-parts</code>, with a hard gate in its SKILL.md, so the
+next detector is measured against them before anyone believes it.</p>
 
 <h3>04 Six Feet Under bar 58, and a hypothesis the audio refuted</h3>
 
