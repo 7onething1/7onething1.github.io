@@ -772,6 +772,52 @@ as <code>detector_controls.py</code> inside
 <code>/impossible-guitar-parts</code>, with a hard gate in its SKILL.md, so the
 next detector is measured against them before anyone believes it.</p>
 
+
+<h3>08 JGBFTL, localized at last by a diagnostic that needs no alignment</h3>
+
+<p>The section aligner failed because per-window positioning needs a global anchor
+and this song has none. Pitch-class content does not involve time at all, so it
+can be asked of a song that aligns nowhere. Each 8-bar section's duration-weighted
+histogram is scored against its own stem's chroma, against every other Ship stem,
+and against its own eleven transpositions.</p>
+
+<p><b>This time the controls discriminated.</b> Known-good songs pass both tests on
+<b>71% of sections</b> on average; 08 passes <b>29%</b>. That is the opposite of
+the section aligner, which condemned healthy songs identically.</p>
+
+<table>
+<thead><tr><th>bars</th><th>notes</th><th>own stem</th><th>best other song</th><th>best transposition</th><th>verdict</th></tr></thead>
+<tbody>
+<tr><td>1-8</td><td>308</td><td>+0.376</td><td>+0.631</td><td>+0.715</td><td><b>loses to its own transposition</b></td></tr>
+<tr><td>9-16</td><td>318</td><td>+0.415</td><td>+0.674</td><td>+0.748</td><td><b>loses to its own transposition</b></td></tr>
+<tr><td>17-24</td><td>276</td><td>+0.482</td><td>+0.616</td><td>+0.543</td><td><b>loses to its own transposition</b></td></tr>
+<tr><td>25-32</td><td>256</td><td>+0.520</td><td>+0.772</td><td>+0.515</td><td>weak</td></tr>
+<tr><td>33-40</td><td>241</td><td>+0.685</td><td>+0.766</td><td>+0.559</td><td>weak</td></tr>
+<tr><td>41-48</td><td>308</td><td><b>+0.892</b></td><td>+0.774</td><td>+0.435</td><td>passes both</td></tr>
+<tr><td>49-54</td><td>208</td><td><b>+0.885</b></td><td>+0.778</td><td>+0.421</td><td>passes both</td></tr>
+</tbody></table>
+
+<p><b>The song splits in half.</b> Bars 41 to 54 score 0.89, level with the album's
+healthy tabs. Bars 1 to 24 sit at 0.38 to 0.48 and lose to their own transposed
+selves, which is the strongest form of this failure: the written pitch material
+matches a shifted version of the recording better than the recording.</p>
+
+<p><b>Stated against the finding, because one control is weak:</b> the
+beats-other-song test fails 12 of 12 sections on 07 MOP and 8 of 8 on 02 Flake,
+both of which align cleanly. Ship songs share harmony, so losing to a labelmate
+proves little. The transposition test is the discriminating one, and even there
+<b>05 Sleep Vs Death shows a comparable three-section block</b> while being
+healthy. So this does not by itself prove 08's defect class.</p>
+
+<p><b>What is specific to 08 is the conjunction</b>: it is the only song that fails
+global alignment at every tempo, returns the album's weakest whole-song chroma at
+0.703, AND carries three consecutive sections losing to their own transposition.
+No other Ship song has more than one of those.</p>
+
+<p><b>The practical result for the Songsterr pass:</b> re-transcription is now
+scoped to <b>bars 1 to 40 of 54</b>. Bars 41 to 54 measure as sound as the healthy
+tabs and are worth keeping rather than discarding.</p>
+
 <h3>04 Six Feet Under bar 58, and a hypothesis the audio refuted</h3>
 
 <p>Brandon: <i>"six feet under bar 58 sounds like a weird chord not quite

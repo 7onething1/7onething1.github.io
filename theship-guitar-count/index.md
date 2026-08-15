@@ -493,3 +493,42 @@ with a hard gate in SKILL.md.
 python3 ~/.claude/skills/impossible-guitar-parts/detector_controls.py
 python3 ~/Projects/_outputs/theship-tabs/flake_rank_v2.py
 ```
+
+
+### 08 JGBFTL localized, by a diagnostic that needs no alignment
+
+Pitch-class content is order-free, so it works on a song that aligns nowhere.
+Each 8-bar section scored against its own stem, every other Ship stem, and its
+own 11 transpositions.
+
+**The controls discriminated this time:** known-good songs pass 71% of sections,
+08 passes 29%.
+
+| bars | notes | own | best other | best transp | verdict |
+|---|---|---|---|---|---|
+| 1-8 | 308 | +0.376 | +0.631 | +0.715 | **loses to own transposition** |
+| 9-16 | 318 | +0.415 | +0.674 | +0.748 | **loses to own transposition** |
+| 17-24 | 276 | +0.482 | +0.616 | +0.543 | **loses to own transposition** |
+| 25-32 | 256 | +0.520 | +0.772 | +0.515 | weak |
+| 33-40 | 241 | +0.685 | +0.766 | +0.559 | weak |
+| 41-48 | 308 | **+0.892** | +0.774 | +0.435 | passes both |
+| 49-54 | 208 | **+0.885** | +0.778 | +0.421 | passes both |
+
+**The song splits in half.** Bars 41-54 sit at 0.89, level with healthy tabs.
+Bars 1-24 sit at 0.38-0.48 and lose to their own transposed selves.
+
+**Against the finding:** the beats-other-song control fails 12/12 on 07 MOP and
+8/8 on 02 Flake, both of which align cleanly, so losing to a labelmate proves
+little. Even on transposition, **05 Sleep Vs Death shows a comparable 3-section
+block** while being healthy.
+
+**Specific to 08 is the CONJUNCTION:** the only song failing global alignment at
+every tempo, weakest whole-song chroma at 0.703, AND three consecutive sections
+losing to their own transposition. No other Ship song has more than one.
+
+**Practical result:** re-transcription scoped to **bars 1-40 of 54**. Bars 41-54
+measure as sound as the healthy tabs and are worth keeping.
+
+```
+python3 ~/Projects/_outputs/theship-tabs/jgbftl_content.py --win 8
+```
