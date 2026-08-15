@@ -847,6 +847,81 @@ something the band did not.</p>
 why five of the six detectors built for it were thrown out by their own controls
 rather than shipped.</p>
 
+
+<h3>The audit was grading the wrong file, and Brandon's ear found it</h3>
+
+<p>Brandon, 2026-08-15: <i>"For Six Feet Under, Lead Guitar, starting at bar 71,
+the rapid sixteenth or thirty-second-note figure is spurious, and the lead guitar
+is tacet there."</i> Taken as ground truth, since he could not render that
+Songsterr page and neither could this audit.</p>
+
+<p>The first check contradicted him: <b>the graded file writes ZERO lead attacks
+in bars 66 to 81</b>. He was not wrong. There are two files.</p>
+
+<table>
+<thead><tr><th>copy</th><th>Lead attacks total</th><th>Lead attacks bars 71-81</th></tr></thead>
+<tbody>
+<tr><td><code>_AUDITION_2026-08-07/</code>, what this audit graded</td><td>199</td><td><b>0</b></td></tr>
+<tr><td><code>_fullband_gp/</code></td><td>199</td><td>0</td></tr>
+<tr><td><code>UPGRADED_GUITAR_ready_to_import/</code></td><td><b>763</b></td><td><b>152</b></td></tr>
+<tr><td><code>_upload_staging_2026-08-07/</code>, <b>what ships</b></td><td><b>763</b></td><td><b>152</b></td></tr>
+</tbody></table>
+
+<p><b>Every number on this page grades a file that is not the one staged for
+upload.</b> The "UPGRADED LEAD 247-to-1315" pass invented the passage he heard.</p>
+
+<h3>A test for filler that needs no staff separation</h3>
+
+<p>A guitar stem holds both players, so no per-note measurement can say which
+staff an onset belongs to. That limit is real and it is why an ear settles the
+tacet question. What needs no separation is <b>marginal explanatory value</b>: of
+the recording's onsets, how many did the original already cover, and how many does
+the upgrade newly explain?</p>
+
+<table>
+<thead><tr><th>song</th><th>attacks added</th><th>new onsets explained</th><th>yield</th><th>verdict</th></tr></thead>
+<tbody>
+<tr><td>05 Sleep Vs Death</td><td>190</td><td><b>0</b></td><td><b>0.000</b></td><td><b>filler</b></td></tr>
+<tr><td>07 MOP</td><td>52</td><td><b>&minus;4</b></td><td><b>&minus;0.077</b></td><td><b>filler, coverage went backwards</b></td></tr>
+<tr><td>04 Six Feet Under</td><td>564</td><td>75</td><td>0.133</td><td>weak</td></tr>
+<tr><td>02 Flake of the Year</td><td>63</td><td>10</td><td>0.159</td><td>weak</td></tr>
+<tr><td>09 MHL</td><td>88</td><td>35</td><td>0.398</td><td>the best of five, still not strong</td></tr>
+</tbody></table>
+
+<p><b>All five upgrades are weak or worthless, and all five were staged for
+upload.</b> Brandon's bar 71 is one instance of a systematic pattern.</p>
+
+<h3>The clearest tell: density that ignores the music</h3>
+
+<p>Per ten bars on 04, from bar 81 onward, the upgrade writes:</p>
+
+<pre>attacks added   78   80   80   80   80   24
+stem onsets     23   30   38   37   14    3</pre>
+
+<p><b>A performance follows the recording. This holds a constant rate while the
+music does not.</b> Across bars 71 to 90, where he says the lead is tacet, the
+upgrade adds 220 attacks and explains 33 new onsets.</p>
+
+<h3>Four rules added to the skill, so this is not re-derived</h3>
+
+<ul class="tight">
+<li><b>Staff activity first.</b> Ask whether a staff is PLAYING in a bar before
+judging what it plays. A synchronized empty passage must stay empty: nothing may
+populate a tacet bar without an attack in evidence. This is the regression case
+Brandon asked for.</li>
+<li><b>Marginal value.</b> An added staff must cover onsets nobody was covering.
+Yield below 0.05 is filler.</li>
+<li><b>Density tracks music.</b> Constant attack density across varying onset
+counts is generated material.</li>
+<li><b>Grade the shipping file.</b> Hash what is going out, not a sibling copy.</li>
+</ul>
+
+<p>The upload shape is now a standing rule in the skill rather than something to
+restate: <b>every tab that ships keeps bass, drums and vocals, plus one or two
+guitars matching the number of guitarists the recording actually has.</b> All five
+upgraded files do carry Bass, Drums and Vocals alongside their two guitar staves,
+so the shape is right and the content is not.</p>
+
 <h3>04 Six Feet Under bar 58, and a hypothesis the audio refuted</h3>
 
 <p>Brandon: <i>"six feet under bar 58 sounds like a weird chord not quite

@@ -556,3 +556,61 @@ did not.
 
 That is why audio accuracy comes before any fretboard question, and why five of
 the six detectors built for it were thrown out by their own controls.
+
+
+## 2026-08-15 final: the audit was grading the wrong file
+
+Brandon: "For Six Feet Under, Lead Guitar, starting at bar 71, the rapid sixteenth
+or thirty-second-note figure is spurious, and the lead guitar is tacet there."
+
+The graded file writes **ZERO** lead attacks in bars 66-81. He was not wrong.
+There are two files.
+
+| copy | Lead total | Lead bars 71-81 |
+|---|---|---|
+| `_AUDITION_2026-08-07/` (what this audit graded) | 199 | **0** |
+| `_fullband_gp/` | 199 | 0 |
+| `UPGRADED_GUITAR_ready_to_import/` | **763** | **152** |
+| `_upload_staging_2026-08-07/` (**what ships**) | **763** | **152** |
+
+**Every number on this page grades a file that is not the one staged for upload.**
+
+### Marginal explanatory value: a filler test needing no staff separation
+
+| song | attacks added | new onsets explained | yield | verdict |
+|---|---|---|---|---|
+| 05 Sleep Vs Death | 190 | **0** | **0.000** | **filler** |
+| 07 MOP | 52 | **-4** | **-0.077** | **filler, went backwards** |
+| 04 Six Feet Under | 564 | 75 | 0.133 | weak |
+| 02 Flake of the Year | 63 | 10 | 0.159 | weak |
+| 09 MHL | 88 | 35 | 0.398 | best of five, still not strong |
+
+**All five upgrades are weak or worthless, and all five were staged for upload.**
+
+### Density that ignores the music
+
+Per ten bars on 04 from bar 81:
+
+```
+attacks added   78   80   80   80   80   24
+stem onsets     23   30   38   37   14    3
+```
+
+Bars 71-90, where the lead is tacet: 220 attacks added, 33 new onsets explained.
+
+### Four rules added to the skill
+
+- **Staff activity first.** A synchronized empty passage must STAY empty.
+- **Marginal value.** Yield below 0.05 is filler.
+- **Density tracks music.** Constant density across varying onsets is generated.
+- **Grade the shipping file.** Hash what goes out, not a sibling.
+
+Upload shape is now standing in the skill: every shipped tab keeps **bass, drums
+and vocals**, plus **one or two guitars matching the recording's actual count**.
+All five upgraded files do carry Bass/Drums/Vocals with two guitar staves, so the
+shape is right and the content is not.
+
+```
+python3 ~/Projects/_outputs/theship-tabs/upgrade_marginal_value.py
+python3 ~/Projects/_outputs/theship-tabs/staff_activity.py --song 04
+```
