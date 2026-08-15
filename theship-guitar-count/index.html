@@ -516,6 +516,62 @@ carry a threshold, and bimodality bounds the population without being able to na
 its members. Turning candidates into edits needs muted attacks labelled by ear.
 <b>No <code>.gp</code> has been edited at any point.</b></p>
 
+
+<h3>A bug of mine that nearly became a defect report on two songs</h3>
+
+<p>Chord support was broken out by position within the chord, hunting for a
+transcriber writing bass strings the player never struck. The result looked
+damning: on <b>01 Seedy Shade the lowest string scored 2.5% support and the
+second-lowest 5.0%</b>, against 71.2% on the highest. On 09 MHL, 16.1% against
+63.4%.</p>
+
+<p>It was entirely an artifact of my own measurement. Broken out by frequency
+instead of by string, <b>support is 0% below 130 Hz in every song tested</b>, and
+the reason is already a standing hard gate here: the Demucs guitar stem keeps
+about 1.32% of the mix at 60 to 90 Hz, so it is blind down there. My classifier
+read the fundamental only, so it was reporting the stem's blindness as the tab's
+error.</p>
+
+<table>
+<thead><tr><th>song</th><th>notes</th><th>below 130 Hz</th></tr></thead>
+<tbody>
+<tr><td>09 MHL</td><td>1116</td><td><b>44.7%</b></td></tr>
+<tr><td>07 MOP</td><td>1435</td><td><b>39.7%</b></td></tr>
+<tr><td>04 Six Feet Under</td><td>1100</td><td>34.9%</td></tr>
+<tr><td>10 Trapped</td><td>1646</td><td>30.3%</td></tr>
+<tr><td>01 Seedy Shade</td><td>1026</td><td>22.5%</td></tr>
+<tr><td>11 Ambulance</td><td>3299</td><td>18.9%</td></tr>
+<tr><td>05 Sleep Vs Death</td><td>748</td><td>15.6%</td></tr>
+<tr><td>03 Gene</td><td>1654</td><td>6.2%</td></tr>
+<tr><td>02 Flake</td><td>3169</td><td>4.0%</td></tr>
+</tbody></table>
+
+<p><b>The published pitch-agreement figures are unaffected</b>, because the audit
+uses <code>tone_energy</code>, which already summed f0, 2f0 and 3f0. An 82 Hz low
+E puts its second harmonic at 165 Hz, inside what the stem keeps. The bug was in
+the muted classifier alone, and it is now fixed the same way.</p>
+
+<h3>The pass criterion was the other bug, and it was mine too</h3>
+
+<p>With harmonics summed the control's mean gaps widened enough that the gate
+printed <b>CONTROL PASSED</b>. It should not have. A mean gap had already been
+wrong once here, when decay ratio showed a 2.9 separation at AUC 0.522, because a
+few outliers move a mean and move nothing else. The gate now requires <b>AUC</b>,
+which asks whether a random pitched attack outranks a random muted one and cannot
+be inflated by tails.</p>
+
+<table>
+<thead><tr><th>axis</th><th>AUC before the harmonic fix</th><th>AUC after</th><th>required</th></tr></thead>
+<tbody>
+<tr><td>sustain support</td><td>0.617</td><td><b>0.687</b></td><td>0.80</td></tr>
+<tr><td>decay ratio</td><td>0.522</td><td>0.589</td><td>0.80</td></tr>
+</tbody></table>
+
+<p>Real improvement, still short. <b>The control fails at 0.687 and no
+<code>.gp</code> is edited.</b> Two of my own errors were caught by controls
+rather than by review, which is the only reason neither reached a published
+defect claim about a song.</p>
+
 <h3>04 Six Feet Under bar 58, and a hypothesis the audio refuted</h3>
 
 <p>Brandon: <i>"six feet under bar 58 sounds like a weird chord not quite

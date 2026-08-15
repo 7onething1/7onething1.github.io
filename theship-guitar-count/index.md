@@ -285,3 +285,49 @@ Flake is the album's LEAST bimodal song.
 Every label-free path is now run and exhausted: circular marks fail at AUC 0.522,
 synthetic proves the method at AUC 1.000 but carries no threshold, bimodality
 bounds the population without naming members. **No .gp edited at any point.**
+
+
+### A bug of mine that nearly became a defect report on two songs
+
+Chord support by string position looked damning: **01 Seedy Shade lowest string
+2.5%, second-lowest 5.0%**, against 71.2% highest. 09 MHL 16.1% vs 63.4%.
+
+Entirely my artifact. By frequency instead of by string, **support is 0% below
+130 Hz in every song**, because the Demucs guitar stem keeps ~1.32% of the mix at
+60-90 Hz. My classifier read the fundamental only, so it reported the stem's
+blindness as the tab's error.
+
+| song | notes | below 130 Hz |
+|---|---|---|
+| 09 MHL | 1116 | **44.7%** |
+| 07 MOP | 1435 | **39.7%** |
+| 04 Six Feet Under | 1100 | 34.9% |
+| 10 Trapped | 1646 | 30.3% |
+| 01 Seedy Shade | 1026 | 22.5% |
+| 11 Ambulance | 3299 | 18.9% |
+| 05 Sleep Vs Death | 748 | 15.6% |
+| 03 Gene | 1654 | 6.2% |
+| 02 Flake | 3169 | 4.0% |
+
+**Published pitch agreement is unaffected**: the audit uses `tone_energy`, which
+already summed f0+2f0+3f0. An 82 Hz low E has its 2nd harmonic at 165 Hz.
+
+### The pass criterion was the other bug
+
+With harmonics summed the mean gaps widened enough to print CONTROL PASSED. It
+should not have. A mean gap was already wrong once (decay ratio, 2.9 gap at AUC
+0.522). The gate now requires **AUC >= 0.80**.
+
+| axis | AUC before | AUC after | required |
+|---|---|---|---|
+| sustain support | 0.617 | **0.687** | 0.80 |
+| decay ratio | 0.522 | 0.589 | 0.80 |
+
+Real improvement, still short. **Control fails at 0.687, no .gp edited.**
+
+### Retracted same day
+
+09 MHL's written duration is 171.9s against a 241.0s stem (ratio 0.713, every
+other song 0.96-1.00). I called that a new defect. It is not: the guitar stops
+playing at ~155s and the 220-241s region is **rms 0.0000**, digital silence with
+noise-floor artifacts. The tab covers all real playing.
