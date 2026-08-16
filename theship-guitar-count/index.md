@@ -1506,3 +1506,20 @@ Validated on 10 Trapped in Wonderland, the one album file measuring TWO_PARTS, a
 The split sorts by register and timbre, which the tab already encodes, so it carries no information about which guitar played a note. The refusal is now the regression fixture ownership-refusal, which fails the day the tool starts emitting verdicts on evidence that has not earned them.
 
 Settled: the 48 doubled lead notes on 02 Flake stay, with a measured reason rather than a cautious one. The 04 staff reassignment cannot be decided from audio. Nine measurements this session have failed their own controls, every one built to answer which string, which staff or which instant, and every one measuring register, tilt or base rate instead.
+
+## 17 The synthetic control, and the rests correction measured
+
+A synthetic signal with a tone burst at each of the tab's 933 attack times gives exact ground truth. Short decay: 946 onsets found, recovery of the known times 80.8% against a 31.7% random control, gain +49.1. 600 ms sustaining decay: 958 onsets, recovery 74.7% against 33.1%, gain +41.6.
+
+So the detector finds about 1.01-1.03x the true count and recovers positions far above chance even on a sustaining signal. The hypothesis this page printed, that a sustaining Demucs stem makes the detector under-count, is refuted.
+
+| | Count |
+|---|---|
+| onsets detected in the real stem | 668 |
+| estimated real attacks at the detector's 1.02x yield | 655 |
+| attacks the tab writes | 933 |
+| excess written | 278, or 30% of the tab |
+
+The tab writes roughly 30% more attacks than the recording contains. That is Brandon's rests-and-dead-attacks correction, measured, using no information from the tab's own Muted marks, so it escapes the AUC 0.522 circularity that blocked the case.
+
+What it does not give is which 278. Locating them needs a working alignment and beat_map.py still refuses its map, so the case stays OPEN with the defect measured at 30% instead of unmeasurable.

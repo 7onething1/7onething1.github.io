@@ -558,5 +558,31 @@
    "the 04 staff reassignment cannot be decided from audio"
   ],
   "session_tally": "nine measurements have now failed their own controls"
+ },
+ "synthetic_control": {
+  "why": "the skill's own rule is to run the synthetic control first and it had never been run for the onset detector",
+  "known_attacks": 933,
+  "short_decay": {
+   "onsets": 946,
+   "recovery_pct": 80.8,
+   "random_control_pct": 31.7,
+   "gain": 49.1
+  },
+  "long_decay_600ms": {
+   "onsets": 958,
+   "recovery_pct": 74.7,
+   "random_control_pct": 33.1,
+   "gain": 41.6
+  },
+  "refutes": "the published hypothesis that a sustaining Demucs stem makes onset_detect under-count",
+  "rests_correction_measured": {
+   "real_stem_onsets": 668,
+   "estimated_real_attacks": 655,
+   "tab_written_attacks": 933,
+   "excess": 278,
+   "pct_of_tab": 30,
+   "not_circular": "uses no information from the tab's Muted marks",
+   "what_is_missing": "WHICH 278, which needs a working alignment; beat_map.py still refuses its map"
+  }
  }
 }

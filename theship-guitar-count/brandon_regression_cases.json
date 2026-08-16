@@ -253,6 +253,27 @@
    "previous_graded_artifact": {
     "file": "/Users/drwu/Projects/_outputs/theship-tabs/_AUDITION_2026-08-07/02 Flake of the Year.gp",
     "sha256_16": "e90b44d28bb5f3fe"
+   },
+   "non_circular_measurement_2026-08-16": {
+    "the_blocker_was": "the tab's own Muted marks are circular at AUC 0.522, and no measurement separated a dead strum from a rung one",
+    "what_changed": "the onset detector was validated on a SYNTHETIC control with known attack times, which the pipeline had never done for it",
+    "synthetic_control": {
+     "known_attacks": 933,
+     "short_decay": "946 onsets detected, recovery of the known times 80.8% against a 31.7% random control, gain +49.1",
+     "long_decay_600ms_sustaining": "958 onsets detected, recovery 74.7% against 33.1%, gain +41.6",
+     "means": "the detector finds about 1.01-1.03x the true attack count and recovers their times far above chance, even on a heavily sustaining signal"
+    },
+    "refutes_my_own_hypothesis": "I had published that a sustaining Demucs stem makes onset_detect under-count. The synthetic shows it does not.",
+    "the_measurement": {
+     "real_stem_onsets": 668,
+     "tab_written_attacks": 933,
+     "estimated_real_attacks": 655,
+     "excess_written": 278,
+     "pct_of_the_tab": 30
+    },
+    "why_it_is_not_circular": "it uses no information from the tab's Muted marks; it compares a detector validated on known ground truth against the written attack count",
+    "what_it_does_NOT_give": "WHICH attacks are spurious. That needs a working alignment, and beat_map.py still refuses its map, so the 278 cannot yet be located.",
+    "status": "OPEN, but the defect is now MEASURED at 30% of the tab rather than unmeasurable"
    }
   }
  ],

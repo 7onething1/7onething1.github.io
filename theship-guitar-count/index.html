@@ -105,6 +105,7 @@
     <li><a href="#capo">Brandon supplied the voicing, and it decodes to a capo</a></li>
     <li><a href="#register2">The 127 register notes are one open string</a></li>
     <li><a href="#ownership">The lead-doubling audit, note by note</a></li>
+    <li><a href="#synthetic">The synthetic control, and the rests correction measured</a></li>
     
   </ol>
 </div>
@@ -2723,6 +2724,55 @@ songs whose alignment is not in question. Reporting accuracy numbers computed on
 map is exactly what section 12 was retracted for. <b>The numbers are withheld because the
 map they would rest on does not validate</b>, and that is the honest state rather than a
 gap in effort.</p>
+
+
+<h2 id="synthetic">17 &nbsp;The synthetic control, and the rests correction measured</h2>
+
+<p><b>This skill's own rule is to run the synthetic control first, and I had not run one
+for the onset detector.</b> Doing it refuted a hypothesis this page published and produced
+the first non-circular measurement of Brandon's rests correction.</p>
+
+<h3>The detector works, and my explanation for its failure was wrong</h3>
+
+<p>A synthetic signal was built with a tone burst at each of the tab's 933 attack times, so
+the ground truth is exact:</p>
+
+<div class="tablewrap"><table>
+<thead><tr><th>Synthetic</th><th class="num">Onsets found</th><th class="num">Recovery of the known times</th>
+<th class="num">Random control</th><th class="num">Gain</th></tr></thead>
+<tbody>
+<tr><td>short decay, percussive</td><td class="num">946</td><td class="num">80.8%</td><td class="num">31.7%</td><td class="num"><b>+49.1</b></td></tr>
+<tr><td>600 ms decay, sustaining</td><td class="num">958</td><td class="num">74.7%</td><td class="num">33.1%</td><td class="num"><b>+41.6</b></td></tr>
+</tbody></table></div>
+
+<p><b>The detector finds about 1.01 to 1.03 times the true attack count and recovers their
+positions far above chance, even on a heavily sustaining signal.</b> So the hypothesis this
+page printed, that a sustaining Demucs stem makes the detector under-count, is refuted.</p>
+
+<h3>What that licenses: the rests correction, measured without circularity</h3>
+
+<div class="tablewrap"><table>
+<thead><tr><th></th><th class="num">Count</th></tr></thead>
+<tbody>
+<tr><td>onsets detected in the real stem</td><td class="num">668</td></tr>
+<tr><td>estimated real attacks, correcting for the detector's 1.02x yield</td><td class="num">655</td></tr>
+<tr><td>attacks the tab writes</td><td class="num">933</td></tr>
+<tr><td><b>excess written</b></td><td class="num"><b>278, or 30% of the tab</b></td></tr>
+</tbody></table></div>
+
+<p><b>The tab writes roughly 30% more attacks than the recording contains.</b> That is
+Brandon's "rests or dead attacks replaced with continued chord strumming", measured. It
+uses no information from the tab's own Muted marks, so it escapes the circularity that
+blocked this case at AUC 0.522.</p>
+
+<p><b>What it does not give is WHICH 278.</b> Locating them needs a working alignment, and
+<code>beat_map.py</code> still refuses its map. So the case stays OPEN, with the defect now
+measured at 30% of the tab instead of unmeasurable.</p>
+
+<p><b>The order was wrong again, and this time it worked in my favour.</b> The synthetic
+control belonged before the beat map, before the attack-rise measure, and before the
+retracted section 12. Running it seventeen sections late still overturned a published
+claim and unblocked a case that had been called immeasurable all session.</p>
 
 <footer>
   <p><b>Reproduce:</b><br>
