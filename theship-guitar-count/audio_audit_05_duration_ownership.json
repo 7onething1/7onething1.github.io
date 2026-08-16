@@ -1,0 +1,23 @@
+{
+ "Lead ORIGINAL bars only": {
+  "n": 147,
+  "pan_median": 0.0036,
+  "pan_sd": 0.1453,
+  "decay": 0.657,
+  "decay_control": 1.191
+ },
+ "Lead ADDED bars 21-29": {
+  "n": 58,
+  "pan_median": 0.0034,
+  "pan_sd": 0.0556,
+  "decay": 0.783,
+  "decay_control": 0.293
+ },
+ "Rhythm all": {
+  "n": 644,
+  "pan_median": 0.129,
+  "pan_sd": 0.157,
+  "decay": 0.845,
+  "decay_control": 0.455
+ }
+}

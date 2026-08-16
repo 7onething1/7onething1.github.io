@@ -3275,6 +3275,42 @@ as such rather than summarised as a pass.</p>
 all three notes beating their controls at +19.6, +36.3 and +53.8; and bars 40 and 42 are
 silent in the recording, confirmed by a silence map built with no reference to the tab.</p>
 
+<h3>The last two dimensions: duration agreement and channel ownership</h3>
+
+<p><b>Duration is measurable and the two staves behave differently.</b> For each note, band
+energy at 1.6 times its written length divided by energy at 0.15 of it, against the same
+ratio at a shifted time. A lower number means the note has faded by then.</p>
+
+<div class="tablewrap"><table>
+<thead><tr><th>Notes</th><th class="num">n</th><th class="num">Decay ratio</th>
+<th class="num">Shifted-time control</th><th>Reading</th></tr></thead>
+<tbody>
+<tr><td>Lead, its original bars</td><td class="num">147</td><td class="num">0.657</td><td class="num">1.191</td><td>faded well below baseline, so the written length corresponds</td></tr>
+<tr><td>Rhythm, all</td><td class="num">644</td><td class="num">0.845</td><td class="num">0.455</td><td>still sounding above baseline, so the written length UNDER-runs the real sustain</td></tr>
+<tr><td>Lead, the 58 added</td><td class="num">58</td><td class="num">0.783</td><td class="num">0.293</td><td>follows the Rhythm, which is what they were copied from</td></tr>
+</tbody></table></div>
+
+<p><b>Every one separates from its control</b>, so this dimension has power. The Rhythm's
+notes sustain past their written length, which is a real finding about the inherited
+transcription rather than about this pass.</p>
+
+<p><b>Channel ownership refuses, and the numbers say why.</b> The guitar stem is stereo, so
+pan was measured per note, 0 being dead centre:</p>
+
+<div class="tablewrap"><table>
+<thead><tr><th>Staff</th><th class="num">n</th><th class="num">Pan median</th><th class="num">Standard deviation</th></tr></thead>
+<tbody>
+<tr><td>Lead, original bars</td><td class="num">147</td><td class="num">+0.0036</td><td class="num">0.1453</td></tr>
+<tr><td>Rhythm</td><td class="num">644</td><td class="num">+0.1290</td><td class="num">0.1570</td></tr>
+<tr><td><b>separation</b></td><td class="num"></td><td class="num"><b>0.1254</b></td><td class="num"></td></tr>
+</tbody></table></div>
+
+<p><b>The separation is smaller than either standard deviation.</b> A group-level offset
+exists, the Rhythm sits slightly left of centre and the Lead sits on it. The
+distributions overlap far too much to assign any individual note. That is the same
+conclusion the ownership-refusal fixture reached by a different route, arrived at here on a
+different album with a different measure.</p>
+
 <footer>
   <p><b>Reproduce:</b><br>
   <code>python3 ~/Projects/_outputs/theship-tabs/guitar_count.py</code><br>

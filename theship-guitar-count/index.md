@@ -1731,3 +1731,17 @@ Artifact 4dc3b9b732b9d61f on the validated beat map (+39.2 over control). Covera
 One metric establishes something: attack recall at 88.6% says the recording's attacks are written. Everything else is capped, circular, inside its noise floor, or without a sample.
 
 Separately measured and holding: the open A/D/G chord is accurate (+19.6, +36.3, +53.8 over control on its three notes); bars 40 and 42 are silent in the recording, confirmed by a silence map built with no reference to the tab.
+
+### The last two dimensions: duration agreement and channel ownership
+
+Duration, measured as band energy at 1.6x the written length over energy at 0.15x, against the same ratio at a shifted time:
+
+| Notes | n | Decay ratio | Control | Reading |
+|---|---|---|---|---|
+| Lead, original bars | 147 | 0.657 | 1.191 | faded below baseline, written length corresponds |
+| Rhythm, all | 644 | 0.845 | 0.455 | still sounding above baseline, written length under-runs the real sustain |
+| Lead, the 58 added | 58 | 0.783 | 0.293 | follows the Rhythm it was copied from |
+
+Every one separates from its control, so the dimension has power. The Rhythm's notes sustain past their written length.
+
+Channel ownership refuses. The guitar stem is stereo, so pan was measured per note with 0 as dead centre: Lead original +0.0036 (sd 0.1453), Rhythm +0.1290 (sd 0.1570), separation 0.1254. The separation is smaller than either standard deviation, so a group-level offset exists and the distributions overlap far too much to assign any individual note. Same conclusion as the ownership-refusal fixture, reached on a different album with a different measure.
