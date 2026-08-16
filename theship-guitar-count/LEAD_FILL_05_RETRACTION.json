@@ -1,0 +1,12 @@
+{
+ "retracted": "2026-08-16",
+ "artifact": "the four 05 Sleep Vs Death LEAD-FILL promotions: 0baae2d3c3398e49, ebac804153a7b6ba, e24bc5115516a589, 90fca6fa327f321c",
+ "was": "each promoted best_validated_so_far, gate verdict REVIEW",
+ "why_retracted": "all four receipts carry \"preservation\": \"FAIL\" beside \"promotion\": \"PROMOTED\". They reached BEST through the same hole that promoted the 04 octave copy: in compare_checkpoint the Tier 1 preservation and Tier 1b position tests sat inside the relative branch, the one that runs when the CHECKPOINT itself fails. Against a PASSING checkpoint the only test was the candidate's own verdict, and REVIEW is not FAIL, so a build that lost or invented a pitch promoted with the Tier 1 result printed and ignored.",
+ "how_it_was_found": "swept every RECEIPTS.jsonl under ~/Projects/_outputs/theship-tabs/ for the pair preservation FAIL + promotion PROMOTED. 9 receipt files scanned, 6 hits: 2 on 04 Six Feet Under and 4 on 05 Sleep Vs Death. One further receipt, 11-ambulance-BASELINE, carries preservation NOT_RUN + PROMOTED and is recorded rather than retracted, since an unrun gate on a seeding entry is a different case.",
+ "the_related_measurement": "05 Sleep Vs Death-LEAD-FILL.gp reads 20.5% octave copy on the Lead staff under octave_copy_gate.py, from the same fret+12 lead-fill technique that produced the 04 fraud at 77.4%. It sits under the gate's 50% threshold so the new gate passes it, and it is the same class of content.",
+ "what_survives": "nothing about the 05 measurements is contradicted. The retraction is about how these builds acquired the word BEST, not about any number printed in them.",
+ "file_kept": "every build stays on disk, unpromoted. Nothing deleted.",
+ "durable_fix": "impossible_gate.py compare_checkpoint patched 2026-08-16: preservation_ok is False and position_ok is False are now refusals in ABSOLUTE mode as well as RELATIVE. Verified against the real 04 files, checkpoint PASS and candidate REVIEW, where preservation FAIL now returns replace=False and previously returned replace=True. The skill's regression suite reads 6 PASS / 1 XFAIL / 3 FAIL both before and after the patch, so the three failures are pre-existing open defects rather than breakage. Gate sha256:16 moves 14bb087850cf9853 to 553ab252e1d1cd72.",
+ "still_open": "which bars of 05 are copies, and whether each should be transcribed from the stem or declared as a doubling. Queued as q-2026-08-16-3a3db5."
+}

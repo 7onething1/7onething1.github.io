@@ -1842,3 +1842,51 @@ The 04 intro lead is untranscribed. The real work is to transcribe it from guita
 Four fraud patterns were added to the catalog from this: transposition-sold-as-transcription, articulation-absent-from-named-figure, final-is-a-rollback and gate-skipped-on-first-promotion. The catalog stood at 54 and now holds 58. The previous run of the fraud check on this page printed no fraud patterns detected while the 04 section was publishing a 77.4% copy as delivered, which is the gap those four close.
 
 Full evidence: OCTAVE_COPY_RETRACTION.json beside this file. Reproduce with python3 ~/.claude/skills/impossible-guitar-parts/octave_copy_gate.py FILE.gp
+
+## 27 The intro bends, measured and written in
+
+Section 26 established that the intro was a copy and that the figure Brandon identified by its articulation was written nowhere. This answers what that leaves open: the bend and release IS on the record, nine times.
+
+### The detector passed a control before it was allowed to speak
+
+intro_bend_probe.py tracks f0 with pyin, cuts the contour into note events on voicing, level and pitch jumps, and measures how far pitch travels inside each event. Before touching the record it runs on two synthetic signals built from the tab's own written intro pitches, and exits rather than printing a number about the song when either fails. NEGATIVE, all 14 notes flat: 0 bends, required 0, ok. POSITIVE, 2 bent and released: 2 bends and 2 releases, required at least 2, ok.
+
+That took two tries. The first build reported 2 bends on the FLAT control, because pyin keeps emitting an f0 into a decaying tail where the estimate is noise; a level gate fixed it. The second reported 0 on the BENT control, because a bend starting at the attack puts the onset partway up the ramp, so an onset-median floor read a known 100-cent bend as 46 cents; the floor became the note's 10th percentile. Both failures are recorded because a detector shown only one answer proves nothing either way.
+
+### What the record holds
+
+2.14s bar 2 beat 2.50 G2 rise 80c bend. 2.49s bar 2 beat 3.00 G2 163c bend. 2.87s bar 2 beat 4.00 B2 94c bend. 4.47s bar 3 beat 3.50 G2 195c bend. 6.00s bar 4 beat 4.00 G#2 110c BEND AND RELEASE. 9.67s bar 7 beat 1.00 B2 110c bend. 9.96s bar 7 beat 2.00 B2 110c BEND AND RELEASE. 12.70s bar 8 beat 4.50 F#2 81c bend. 13.52s bar 9 beat 2.80 A#2 200c BEND AND RELEASE.
+
+Brandon's ear was right and the tab was wrong. A low, bendy single-note figure across bars 2 to 9, written as flat notes and then copied up an octave.
+
+### Writing them in, and the trap underneath
+
+Placement is derived from the file's own GPIF Rhythm durations rather than guessed, worst error 0.27 s against a 1.60 s bar, eight of nine inside 0.10 s. The first write still produced a wrong file. The intro's 79 written notes are only 3 distinct Note elements, referenced by 4 or 5 beats each, so a bend written onto one appears at every position that uses it, and nine measured bends collapsed onto three elements. The readback caught it, 7 bend notes where 9 were placed. The fix is copy-on-write down to a single occurrence, cloning the Beat where a voice's reference is shared and the Note under it, giving nine private ids 206 to 214. This project already hit the same trap on Beats in apply_bar_reduce.py.
+
+### The repaired file, every gate
+
+octave copy PASS, Lead 0.0% down from 77.4%. Articulation Lead 9 bends and 3 releases, up from 0 and 0. Tier 1 preservation PASS, 1175 to 1175, 0 lost and 0 invented. Tier 1b position PASS, 0 notes moved. Playability PASS both staves at 0% hand skip. Preflight import CLEARED, 5 tracks, no part loss, grid 1.56% off.
+
+### The audio accuracy audit rewards the fraud
+
+Against the guitar stem at offset 0.0 and 150 BPM, after reproducing this page's own recorded numbers on the checkpoint to prove the parameters. Checkpoint, 177 Lead and no copies: map 68.8%, recall 66.6%, precision 56.9%, pitch 56.1%, separation +5.8. Delivered, 783 Lead with 606 copies: map 68.0%, recall 63.2%, precision 61.3%, pitch 56.1%, separation +6.4. The 1315-note upgraded Lead: map 52.9%, recall 52.5%, precision 77.5%, pitch 52.9%, separation +3.0 with NO discriminating power.
+
+Adding 606 notes carrying no new information moved attack precision from 56.9% to 61.3% and pitch separation from +5.8 to +6.4. Only the Lead staff differs between those two rows, so the gain is attributable to the octave copies alone. An octave double sits on the same onsets, so it buys precision for free. This audit therefore cannot judge a doubled staff.
+
+The ancestor question does not resolve toward the 1315-note build either. Its pitch measure has no discriminating power, the shifted-time control matches it, and 1038 of its 2184 written attacks fall where the stem has no onset. Neither candidate is established as accurate, so 04's Lead staff still needs transcribing against the audio rather than inheriting from either parent.
+
+### The gate hole is closed, and it had taken six receipts
+
+compare_checkpoint consulted Tier 1 preservation only inside its has-a-failing-checkpoint branch. Against a PASSING checkpoint the single test was the candidate's own verdict, and REVIEW is not FAIL. Patched so preservation and position refuse in absolute mode as well, verified on the real 04 files where the same call now returns replace=False and previously returned replace=True. The regression suite reads 6 PASS / 1 XFAIL / 3 FAIL both before and after, so those three are pre-existing open defects. Gate hash 14bb087850cf9853 to 553ab252e1d1cd72.
+
+A sweep of all 9 receipt files found 6 promotions carrying preservation FAIL beside promotion PROMOTED: two on 04 and four on 05 Sleep Vs Death, the file reading 20.5% octave copy. One further receipt, 11 Ambulance baseline, carries preservation NOT_RUN and is recorded rather than retracted. Retractions written for both songs.
+
+### The upload is blocked, with the exact blocker below
+
+The repaired file is gated and cleared and was NOT imported. Live revision r8514035 holds 296 / 1043 / 445 / 1796 / 336 notes across its five parts, read from its own CloudFront JSON; the candidate holds 177 / 998 / 398 / 1767 / 207. Every part on the tab carries more than the candidate, including bass, drums and the vocal line this pass never touched, and drums differ by 29 with zero ties on either side, so that is content rather than a counting convention. Importing would strip all five parts.
+
+The rebase route is broken. Songsterr's Guitar Pro export returned THE WRONG SONG from the 04 editor URL three times, including once immediately after a hard reload during which the page demonstrably fetched the correct 04 parts. Each download carried 04 in its filename and held 02 Flake of the Year: 69 bars, Overdriven 2335, Bass 338, Drums 769, Tenor Sax 310. The filename is not identity. The genuine r8514035 parts were captured by curl straight from CloudFront and archived, which is the irreplaceable piece, since Songsterr keeps one revision and the old parts answer 403 after the next publish.
+
+The exact blocked operation: obtain a Guitar Pro file of r8514035, apply the nine bends to that rather than to the local checkpoint, then import. It unblocks by exporting from a Chrome profile with no other Songsterr session live, or by Brandon exporting r8514035 by hand. A Songsterr-JSON to GPIF converter would also do it and must not be improvised, because a converter that guesses would fabricate content, which is the failure this pass exists to correct.
+
+Evidence: _intro_bends_04/UPLOAD_BLOCKED.md and _songsterr_archive/s5824781-r8514035/.

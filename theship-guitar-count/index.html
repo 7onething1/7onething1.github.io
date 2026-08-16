@@ -110,6 +110,7 @@
     <li><a href="#ceiling">The pitch measure has a ceiling of 2.4 points</a></li>
     <li><a href="#audit">The audio accuracy audit, complete</a></li>
     <li><a href="#octavecopy">04 shipped a transposition, not a transcription</a></li>
+    <li><a href="#thebends">The intro bends, measured and written in</a></li>
   </ol>
 </div>
 
@@ -3650,9 +3651,170 @@ The previous run of the fraud check on this page printed
 <code>✓ No fraud patterns detected</code> while the 04 section was publishing a 77.4% copy
 as delivered, which is the gap those four close.</p>
 
+<h2 id="thebends">22 &nbsp;The intro bends, measured and written in</h2>
+
+<div class="lede">
+<p>Section 21 established that the intro was a copy and that the figure Brandon named
+by its articulation was written nowhere. This section answers the question that
+leaves open: <b>is the bend-and-release actually on the record?</b> It is. Nine of
+them.</p>
+</div>
+
+<h3>The detector had to pass a control before it was allowed to speak</h3>
+
+<p><code>intro_bend_probe.py</code> tracks f0 with pyin, cuts the contour into note events
+on voicing, level and pitch jumps, and measures how far the pitch travels inside each
+event. Before it touches the record it runs on two synthetic signals built from the tab's
+<b>own written intro pitches</b>, and it exits rather than printing a number about the song
+when either fails.</p>
+
+<div class="tablewrap"><table>
+<thead><tr><th>Control</th><th class="num">Events</th><th class="num">Bends</th>
+<th class="num">Released</th><th>Required</th><th>Result</th></tr></thead>
+<tbody>
+<tr><td>NEGATIVE, all 14 notes flat</td><td class="num">14</td><td class="num">0</td>
+<td class="num">0</td><td>0 bends</td><td><span class="pill ok">ok</span></td></tr>
+<tr><td>POSITIVE, 2 bent and released</td><td class="num">14</td><td class="num">2</td>
+<td class="num">2</td><td>at least 2</td><td><span class="pill ok">ok</span></td></tr>
+</tbody></table></div>
+
+<p>It took two tries to earn that. The first build reported <b>2 bends on the flat
+control</b>, because pyin keeps emitting an f0 into a decaying tail where the estimate is
+noise, and a level gate fixed it. The second build then reported <b>0 on the bent
+control</b>, because a bend that starts at the attack puts the note's onset partway up the
+ramp, so an onset-median floor read a known 100-cent bend as 46 cents. The floor became the
+note's 10th percentile. Both failures are recorded here because a detector that had only
+ever been shown one answer would have proved nothing either way.</p>
+
+<h3>What the record holds</h3>
+
+<div class="tablewrap"><table>
+<thead><tr><th class="num">Second</th><th class="num">Bar</th><th class="num">Beat</th>
+<th>Pitch</th><th class="num">Rise</th><th>Kind</th></tr></thead>
+<tbody>
+<tr><td class="num">2.14</td><td class="num">2</td><td class="num">2.50</td><td>G2</td><td class="num">80c</td><td>bend</td></tr>
+<tr><td class="num">2.49</td><td class="num">2</td><td class="num">3.00</td><td>G2</td><td class="num">163c</td><td>bend</td></tr>
+<tr><td class="num">2.87</td><td class="num">2</td><td class="num">4.00</td><td>B2</td><td class="num">94c</td><td>bend</td></tr>
+<tr><td class="num">4.47</td><td class="num">3</td><td class="num">3.50</td><td>G2</td><td class="num">195c</td><td>bend</td></tr>
+<tr><td class="num">6.00</td><td class="num">4</td><td class="num">4.00</td><td>G#2</td><td class="num">110c</td><td><b>bend and release</b></td></tr>
+<tr><td class="num">9.67</td><td class="num">7</td><td class="num">1.00</td><td>B2</td><td class="num">110c</td><td>bend</td></tr>
+<tr><td class="num">9.96</td><td class="num">7</td><td class="num">2.00</td><td>B2</td><td class="num">110c</td><td><b>bend and release</b></td></tr>
+<tr><td class="num">12.70</td><td class="num">8</td><td class="num">4.50</td><td>F#2</td><td class="num">81c</td><td>bend</td></tr>
+<tr><td class="num">13.52</td><td class="num">9</td><td class="num">2.80</td><td>A#2</td><td class="num">200c</td><td><b>bend and release</b></td></tr>
+</tbody></table></div>
+
+<p><b>Brandon's ear was right and the tab was wrong.</b> A low, bendy single-note figure
+across bars 2 to 9, and the pipeline wrote it as flat notes and then copied it up an
+octave.</p>
+
+<h3>Writing them in, and the trap underneath</h3>
+
+<p>Placement is derived from the file's own GPIF Rhythm durations rather than guessed, and
+the worst placement error is <b>0.27 s against a 1.60 s bar</b>, with eight of the nine
+inside 0.10 s. The first write still produced a wrong file, and the reason is worth
+keeping.</p>
+
+<div class="card defect">
+<h3>A GPIF Note is a shared definition, and so is a Beat</h3>
+<p>The intro's <b>79 written notes are only 3 distinct Note elements</b>, referenced by 4
+or 5 beats each. Writing a bend onto one puts that bend on every position that uses it, so
+nine measured bends collapsed onto three elements and fabricated bends at positions nothing
+had measured. The readback caught it: 7 bend notes where 9 were placed. The fix is
+copy-on-write down to a single occurrence, cloning the Beat where a voice's reference is
+shared and the Note underneath it, which gave nine private ids 206 to 214. This project
+already hit the same trap on Beats in <code>apply_bar_reduce.py</code>, where one shared id
+held six positions.</p>
+</div>
+
+<h3>The repaired file, every gate</h3>
+
+<div class="tablewrap"><table>
+<thead><tr><th>Gate</th><th>Result</th></tr></thead>
+<tbody>
+<tr><td>octave copy</td><td><span class="pill ok">PASS</span> Lead <b>0.0%</b>, down from 77.4%</td></tr>
+<tr><td>articulation</td><td>Lead <b>9 bends, 3 releases</b>, up from 0 and 0</td></tr>
+<tr><td>Tier 1 preservation</td><td><span class="pill ok">PASS</span> 1175 to 1175, 0 lost, 0 invented</td></tr>
+<tr><td>Tier 1b position</td><td><span class="pill ok">PASS</span> 0 notes moved</td></tr>
+<tr><td>playability</td><td><span class="pill ok">PASS</span> both staves, 0% hand skip</td></tr>
+<tr><td>preflight import</td><td><span class="pill ok">CLEARED</span> 5 tracks, no part loss, grid 1.56% off</td></tr>
+</tbody></table></div>
+
+<h3>The audio accuracy audit rewards the fraud</h3>
+
+<p>Run against the guitar stem at offset 0.0 and 150 BPM, after reproducing this page's own
+recorded numbers on the checkpoint to prove the parameters.</p>
+
+<div class="tablewrap"><table>
+<thead><tr><th>Build</th><th class="num">Map</th><th class="num">Recall</th>
+<th class="num">Precision</th><th class="num">Pitch</th><th class="num">Separation</th></tr></thead>
+<tbody>
+<tr><td>checkpoint, 177 Lead, no copies</td><td class="num">68.8%</td><td class="num">66.6%</td>
+<td class="num">56.9%</td><td class="num">56.1%</td><td class="num">+5.8</td></tr>
+<tr><td>delivered, 783 Lead, 606 copies</td><td class="num">68.0%</td><td class="num">63.2%</td>
+<td class="num"><b>61.3%</b></td><td class="num">56.1%</td><td class="num"><b>+6.4</b></td></tr>
+<tr><td>the 1315-note upgraded Lead</td><td class="num">52.9%</td><td class="num">52.5%</td>
+<td class="num">77.5%</td><td class="num">52.9%</td><td class="num">+3.0 <span class="pill bad">no power</span></td></tr>
+</tbody></table></div>
+
+<p><b>Adding 606 notes that carry no new information moved attack precision from 56.9% to
+61.3% and pitch separation from +5.8 to +6.4.</b> Only the Lead staff differs between those
+two rows, so the improvement is attributable to the octave copies alone. An octave double
+sits on the same onsets, so it buys precision for free. That is the measurement artifact
+which let the fraud score as an improvement, and it means this audit cannot be used to judge
+a doubled staff.</p>
+
+<p><b>The ancestor question does not resolve toward the 1315-note build either.</b> Its
+pitch measure has no discriminating power, the shifted-time control matches it, and 1038 of
+its 2184 written attacks fall where the stem has no onset. Its 77.5% precision comes from
+writing enough notes to cover more onsets. So neither candidate is established as accurate,
+and the honest state of 04 is that its Lead staff still needs transcribing against the
+audio rather than inheriting from either parent.</p>
+
+<h3>The gate hole is closed, and it had taken six receipts</h3>
+
+<p><code>compare_checkpoint</code> consulted Tier 1 preservation only inside its
+has-a-failing-checkpoint branch. Against a <b>passing</b> checkpoint the single test was the
+candidate's own verdict, and REVIEW is not FAIL. Patched so preservation and position
+refuse in absolute mode as well, verified on the real 04 files where the same call now
+returns <code>replace=False</code> and previously returned <code>replace=True</code>. The
+skill's regression suite reads 6 PASS / 1 XFAIL / 3 FAIL both before and after, so the
+three failures are pre-existing open defects. Gate hash moves
+<code>14bb087850cf9853</code> to <code>553ab252e1d1cd72</code>.</p>
+
+<p>A sweep of all 9 receipt files found <b>6 promotions carrying preservation FAIL beside
+promotion PROMOTED</b>: two on 04 and <b>four on 05 Sleep Vs Death</b>, which is the file
+reading 20.5% octave copy. One further receipt, 11 Ambulance baseline, carries preservation
+NOT_RUN and is recorded rather than retracted. Retractions written for both songs.</p>
+
+<h3>The upload is blocked, and the blocker is named</h3>
+
+<p>The repaired file is gated and cleared, and it was <b>not</b> imported. The live revision
+<code>r8514035</code> holds 296 / 1043 / 445 / 1796 / 336 notes across its five parts, read
+from its own CloudFront JSON, and the candidate holds 177 / 998 / 398 / 1767 / 207. Every
+part on the tab carries more than the candidate, including bass, drums and the vocal line
+this pass never touched, and drums differ by 29 with zero ties on either side, so that is
+content rather than a counting convention. Importing would strip all five parts.</p>
+
+<p>The rebase route is broken. Songsterr's Guitar Pro export returned <b>the wrong
+song</b> from the 04 editor URL three times, including once immediately after a hard reload
+during which the page demonstrably fetched the correct 04 parts. Each download carried 04's name and held 02 Flake of the Year, 69 bars, Overdriven 2335, Bass 338, Drums 769,
+Tenor Sax 310. The filename is not identity. The genuine r8514035 parts were captured by
+curl straight from CloudFront and are archived, which is the irreplaceable piece, since
+Songsterr keeps one revision and the old parts answer 403 after the next publish.</p>
+
+<p>The exact blocked operation: obtain a Guitar Pro file of r8514035, apply the nine bends
+to that rather than to the local checkpoint, then import. It unblocks by exporting from a
+Chrome profile with no other Songsterr session live, or by Brandon exporting r8514035 by
+hand. A Songsterr-JSON to GPIF converter would also do it and must not be improvised,
+because a converter that guesses would fabricate content, which is the failure this whole
+pass exists to correct.</p>
+
 <footer>
   <p><b>Reproduce:</b><br>
   <code>python3 ~/.claude/skills/impossible-guitar-parts/octave_copy_gate.py FILE.gp</code><br>
+  <code>python3 ~/Projects/_outputs/theship-tabs/intro_bend_probe.py --selftest</code><br>
+  <code>python3 ~/Projects/_outputs/theship-tabs/intro_bend_probe.py --stem STEM.mp3 --start 1.5 --end 17.7</code><br>
+  <code>python3 ~/Projects/_outputs/theship-tabs/apply_intro_bends.py --src FILE.gp --apply</code><br>
   <code>python3 ~/.claude/skills/impossible-guitar-parts/octave_copy_gate.py FILE.gp --against EARLIER.gp</code><br>
   <code>python3 ~/Projects/_outputs/theship-tabs/guitar_count.py</code><br>
   <code>python3 ~/Projects/_outputs/theship-tabs/guitar_count_control.py</code><br>
