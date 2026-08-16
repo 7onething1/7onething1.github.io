@@ -1909,7 +1909,25 @@ On 04 the measure is capable, and it says the tab is wrong. The dynamic range he
 
 One caution on the ceiling itself: the render uses decaying harmonic tones rather than guitar timbre, so 53.6 may sit above what real guitar audio could reach. Halving it still leaves the tab far below.
 
-So the honest status of 04 is split. The nine intro bends are transcribed from the stem and verified. The 1100 written attacks underneath them are inherited from the Songsterr AI transcription and now carry a measured verdict rather than an absent one: 14% of ceiling on pitch, 66.6% attack recall, 56.9% precision. The tab that is live is better than the one it replaced and it is not an accurate transcription of the record.
+### The ceiling survives realistic conditions, so the gap is about the tab
+
+A clean synthetic ceiling is worth nothing if real guitar audio could never reach it, and this project holds a fixture where the onset extractor scores 100% on clean plucks and 5.4% on dense material with reverb. So the render was degraded one step at a time toward the record, ground truth staying perfect by construction throughout.
+
+1 clean tones: 86.1% against 32.5%, margin +53.6. 2 plus reverb: 80.4% against 41.3%, +39.1. 3 plus bass, drums and vocals: 79.5% against 46.3%, +33.2. 4 plus reverb and the others: 71.6% against 46.7%, +24.9. The real stem: 56.1% against 48.5%, +7.5.
+
+CORRECTION to the figure published an hour earlier. That section read the tab as 14% of correct against the clean ceiling. The honest number is 30% against the realistic ceiling: a perfect transcription of this record, heard through reverb and a full band, still scores +24.9 where the tab scores +7.5. The direction of the finding is unchanged and the magnitude was overstated.
+
+### Which notes are wrong is a question nothing here can answer
+
+Measuring the gap is not the same as fixing it, and fixing it needs a per-note pitch measure. intro_pitch_check.py was built for the one stretch where a monophonic reading looked defensible, the intro, which the tab itself writes as a single line with the other staff empty. Against the real stem it reported 71% of judged notes disagreeing, with clusters at +4 and +5 semitones.
+
+Its control refused it. Run against the audio rendered from the tab's own pitches, where every note is correct by construction, the same checker still reported 32% disagreeing, with 17 notes at +5 semitones. The +5 cluster is a tracker artifact rather than a finding about the music, and the octave folding meant to forgive tracker octave errors also manufactured false agreements. A checker with a 32% false-disagreement floor cannot say which individual notes are wrong.
+
+So no pitch was rewritten. Rewriting notes on the strength of a measure that fails its own control is precisely the thing this page exists to record: content written because a number seemed to support it. The 71% against 32% says the real stem is worse than perfect input, which the aggregate margin says on its own. It does not point at a single note.
+
+### The terminal position on 04
+
+The nine intro bends are transcribed from the stem, verified against a two-way control, and live. The 1100 written attacks underneath them are inherited Songsterr AI content measuring 30% of a realistic ceiling, so the tab is NOT an accurate transcription of the record. Closing that gap needs a per-note polyphonic pitch measure this project does not have, and three separate attempts to stand one up have now been refused by their own controls. Building that measure is the next real piece of work, and inventing pitches without it would repeat the fraud at the top of this page.
 
 ### The export bug is real, and it was not the blocker
 
