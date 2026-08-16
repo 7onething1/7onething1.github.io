@@ -1893,6 +1893,24 @@ Comparing bar by bar then showed the live revision IS the local checkpoint. Ever
 
 The lesson is the one this page keeps relearning. Two counts of the same music in two formats are not a diff. Comparing them across a format boundary produced a confident, specific, wrong conclusion, and the fix was to find a case with a known answer, the AI revision both sides describe, and calibrate against it.
 
+### The audio accuracy audit on the shipped artifact, and 04's own ceiling
+
+Run on the exact bytes that went live, b1193b60fdb84e5d, judged by validator 553ab252e1d1cd72, against the guitar stem at offset 0.0 and 150 BPM. Map alignment 68.78% against a 17.14% control, gain +51.63, ACCEPTED. Attack recall 66.64%, 733 of 1100 written attacks. Attack precision 56.93%, 337 of 592 onsets. Timing before the warp median 80.9 ms, p90 188.2 ms, n=833. Pitch agreement 56.09% against a 50.27% shifted control, separation +5.82. Ownership REFUSED at -0.0252 against a -0.0531 shifted control. Duration and tie agreement is NOT MEASURED, because no tool in this project measures it.
+
+Every number is identical to the checkpoint before the bends, which is the correct result: nine bend properties add no notes, so they cost nothing on any audio measure.
+
+### Read against 04's own ceiling, the pitch content does not hold up
+
+Section 19 measured a ceiling of 2.4 points, and that was measured on 02, which is harmonically static. Carrying it to 04 untested would repeat this project's own favourite error, so pitch_ceiling_04.py renders 04's written pitches to audio, making ground truth perfect by construction, and scores it with ASE.Rise, the same object the audit scores with.
+
+Audio rendered FROM the tab, every pitch correct: agreement 86.1%, shifted control 32.5%, margin +53.6. The real guitar stem: agreement 56.1%, shifted control 48.5%, margin +7.5.
+
+On 04 the measure is capable, and it says the tab is wrong. The dynamic range here is 53.6 points rather than 02's 2.4, and the real stem reaches +7.5, which is 14% of what a correct transcription scores. This is not the 02 situation where the metric could not discriminate. It discriminates well on this song, and the pitch content of both guitar staves is largely unsupported by the audio.
+
+One caution on the ceiling itself: the render uses decaying harmonic tones rather than guitar timbre, so 53.6 may sit above what real guitar audio could reach. Halving it still leaves the tab far below.
+
+So the honest status of 04 is split. The nine intro bends are transcribed from the stem and verified. The 1100 written attacks underneath them are inherited from the Songsterr AI transcription and now carry a measured verdict rather than an absent one: 14% of ceiling on pitch, 66.6% attack recall, 56.9% precision. The tab that is live is better than the one it replaced and it is not an accurate transcription of the record.
+
 ### The export bug is real, and it was not the blocker
 
 Songsterr's Guitar Pro export returned 02 Flake of the Year six times from the 04 editor URL, every download carrying 04 in its filename and 02's 69-bar contents. It survived a hard reload, a brand new tab, a verified og:url, unregistering the service worker, deleting all four caches, and fronting the tab so it held focus. The service worker is shared across every Songsterr tab in the profile and five other tabs were open, which is the likeliest path, and it stayed reproducible after that worker was gone.
