@@ -1751,6 +1751,37 @@ with eleven borderline fingering reviews left deliberately unrepaired.</li>
 recording's per-bar roots supplied for every window that needs re-transcription.</li>
 </ul>
 
+
+<h3>Completion boundary, machine-readable</h3>
+
+<p>The handoff record sits beside this page as
+<a href="COMPLETION_BOUNDARY.json"><code>COMPLETION_BOUNDARY.json</code></a>. It
+carries the goal verdict, the validator hash and result, every source hash, the
+two perfect songs, the three blocking dependencies with their evidence, the six
+local repair routes and what each produced, and the sha256 of all fifteen evidence
+artifacts.</p>
+
+<pre>"goal": "all songs perfect"
+"ok": false
+"validator": impossible_gate.py 14bb087850cf9853, 8 PASS / 2 REVIEW / 0 FAIL
+"sources_unmodified": true
+"final_sweep_drift": 0
+"perfect": 01 Seedy Shade, 10 Trapped in Wonderland
+"blocked": 3 dependencies covering 6 re-transcription windows
+"evidence_artifacts": 15 of 15 present, each hashed</pre>
+
+<p><b>The goal is not met and says so.</b> Eight songs need note content that only a
+transcription source may supply, and supplying it myself is the one operation this
+pipeline forbids. Every alternative was built rather than assumed: six local repair
+routes, each with its own control, three retracted by those controls and one that
+refused itself.</p>
+
+<p>What the session leaves behind is not a claim that the album is fixed. It is
+<b>two songs proven right, eight specified down to the bar with the recording's own
+roots, sixteen controls shipped inside the skill so the next detector is measured
+before it is believed, and every retraction published beside the number that
+forced it.</b></p>
+
 <h3>04 Six Feet Under bar 58, and a hypothesis the audio refuted</h3>
 
 <p>Brandon: <i>"six feet under bar 58 sounds like a weird chord not quite

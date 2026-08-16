@@ -1,0 +1,122 @@
+{
+ "goal": "all songs perfect",
+ "ok": false,
+ "as_of": "2026-08-16",
+ "validator": {
+  "tool": "impossible_gate.py",
+  "sha256_16": "14bb087850cf9853",
+  "result": "8 PASS, 2 REVIEW, 0 FAIL"
+ },
+ "sources_unmodified": true,
+ "final_sweep_drift": 0,
+ "perfect": [
+  {
+   "song": "01",
+   "title": "Seedy Shade",
+   "sha256_16": "67be02511599ff42",
+   "validator": "PASS",
+   "audio": "no failing window",
+   "note": "one guitar, confirmed by Brandon"
+  },
+  {
+   "song": "10",
+   "title": "Trapped in Wonderland",
+   "sha256_16": "8a0cb4ea4a303dba",
+   "validator": "REVIEW, 11 shifts of 5.0-5.3 frets vs a >5 threshold",
+   "audio": "no failing window",
+   "note": "flagged beats carry 100% pitch support vs an 86.5% baseline; no refret applied"
+  }
+ ],
+ "blocked": [
+  {
+   "dependency": "Songsterr re-transcription on Brandon's account",
+   "why": "the pipeline's hard gate is that a tab's source is Songsterr, never hand-rolled pitch detection",
+   "windows": [
+    {
+     "song": "02",
+     "bars": "61-69",
+     "evidence": "per-note support 35.5% vs 61.5% baseline"
+    },
+    {
+     "song": "03",
+     "bars": "71-80",
+     "evidence": "43.7% vs 77.7%; Lead bars 78-80 at 4.2x/3.4x/7.5x energy deficit"
+    },
+    {
+     "song": "07",
+     "bars": "33-40",
+     "evidence": "drone, 48.5% vs 69.4% for the same staff elsewhere"
+    },
+    {
+     "song": "08",
+     "bars": "1-40",
+     "evidence": "aligns at no tempo; bars 41-54 confirmed sound at rank 1/10"
+    },
+    {
+     "song": "09",
+     "bars": "9-24",
+     "evidence": "drone, 35.5% vs 85.4%; median energy deficit 11.7x, max 37.8x"
+    },
+    {
+     "song": "11",
+     "bars": "85-92 Lead, 88-92 Rhythm",
+     "evidence": "drones at 62.5% and 47.4% vs 77.5% and 74.4%"
+    }
+   ]
+  },
+  {
+   "dependency": "drop-D tuning confirmation, 05 Sleep Vs Death bars 39-40",
+   "why": "GPIF stores tuning per TRACK, not per bar, and two of the sixteen notes are the open low E so no refretting reaches it",
+   "evidence": "12.5% as written, 87.5% with the low E string down two semitones; the same shift hurts every other window in the song, mean -54.2pp"
+  },
+  {
+   "dependency": "twelve muted-strum ear-labels, 02 Flake",
+   "why": "no measurement built in this session separates a dead strum from a rung one on real audio",
+   "evidence": "tab's own Muted marks are circular at AUC 0.522; synthetic proves the feature at AUC 1.000 but its threshold flagged an implausible 37.4% when transferred; bimodality bounds nothing; the ranker's top 50 was 42% silence"
+  }
+ ],
+ "local_repair_routes_exhausted": [
+  {
+   "route": "mute chord attacks",
+   "outcome": "blocked, no non-circular control available"
+  },
+  {
+   "route": "empty bars written over silence",
+   "outcome": "applied to 7, FIVE RETRACTED; a percentile is not silence. 02 and 04 kept"
+  },
+  {
+   "route": "empty invented filler",
+   "outcome": "kept; 04 identification rank 3 -> 1"
+  },
+  {
+   "route": "transpose a window",
+   "outcome": "refused itself on a negative fret"
+  },
+  {
+   "route": "refret to remove shifts",
+   "outcome": "unnecessary, flagged beats carry 100% pitch support"
+  },
+  {
+   "route": "prune unsupported pitches",
+   "outcome": "RETRACTED; precision did not rise and playability regressed"
+  }
+ ],
+ "evidence_artifacts": {
+  "final_gate.json": "a612287215cfad64",
+  "drone_root_spec.json": "42fa3e22312d4276",
+  "retranscription_spec.json": "829562805ca4bc63",
+  "audio_accuracy.json": "2dc0e83c5226378f",
+  "transposition_scope.json": "cda0b307b0042426",
+  "window_verdicts.json": "3b57aed2be056dfe",
+  "drone_confirmed.json": "b8d9041efddd8c55",
+  "filler_scope.json": "06522dd2f141921f",
+  "upgrade_marginal_value.json": "68f39fe9fcbce534",
+  "muted_control_pooled.json": "524db9dc4ac60364",
+  "muted_synth_control.json": "f9110fae412347d2",
+  "feature_validate.json": "9fe676ce78277bfd",
+  "flake_rank_v2.json": "80badd233f60c45a",
+  "jgbftl_content.json": "f76708e9b21d0bc8",
+  "silence_gate_valid.json": "09111f8abac1a264"
+ },
+ "published": "https://7onething1.github.io/theship-guitar-count/"
+}

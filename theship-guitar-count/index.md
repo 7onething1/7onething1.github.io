@@ -1230,3 +1230,28 @@ completion rule's opening sentence made measurable.
   deliberately unrepaired.
 - **The other eight are blocked on one of three named inputs**, with per-bar roots
   supplied for every re-transcription window.
+
+
+### Completion boundary, machine-readable
+
+`COMPLETION_BOUNDARY.json` sits beside this page:
+
+```
+"goal": "all songs perfect"
+"ok": false
+"validator": impossible_gate.py 14bb087850cf9853, 8 PASS / 2 REVIEW / 0 FAIL
+"sources_unmodified": true
+"final_sweep_drift": 0
+"perfect": 01 Seedy Shade, 10 Trapped in Wonderland
+"blocked": 3 dependencies covering 6 re-transcription windows
+"evidence_artifacts": 15 of 15 present, each hashed
+```
+
+**The goal is not met and says so.** Eight songs need note content only a
+transcription source may supply, and supplying it myself is the one operation this
+pipeline forbids. Six local repair routes were built rather than assumed, each with
+its own control; three were retracted by those controls and one refused itself.
+
+What the session leaves is **two songs proven right, eight specified down to the bar
+with the recording's own roots, sixteen controls shipped inside the skill, and every
+retraction published beside the number that forced it.**
