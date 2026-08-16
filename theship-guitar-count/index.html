@@ -1845,13 +1845,14 @@ another album-wide scorecard is allowed to clear a song. They now live in
 
 python3 ~/.claude/skills/impossible-guitar-parts/regressions.py
 
-XFAIL    a-tree-for-trials    pitches gone none, pitches invented [85]; count 417 -&gt; 393 (24 fewer, which is d
+XFAIL    a-tree-for-trials    pitches gone none, pitches invented [85]; count 417 -&gt; 393 (24 fewer, 
 PASS     blind-mans-arrow     capo [0] declared, the rejected capo 7 is absent
 PASS     secret               236 notes shared across the two staves (floor, exact-onset match)
-PASS     kilgore-trout        checkpoint held for 7 reason(s): SAME_STRING rises 0 -&gt; 10; TIE_COLLISION rises 
-FAIL     register-evidence    BLIND_REGISTER: 127 of 3173 notes below the measured 120 Hz floor (4.0%); per st
-FAIL     brandon-ear-cases    6 of 7 cases unresolved (OPEN_BLOCKED 1, OPEN_MEASURED 3, OPEN_NEEDS_SCOPE 1, RE
-3 PASS  1 XFAIL  2 FAIL  0 XPASS  0 MISSING
+PASS     kilgore-trout        checkpoint held for 7 reason(s): SAME_STRING rises 0 -&gt; 10; TIE_COLLIS
+FAIL     register-evidence    BLIND_REGISTER: 127 of 3173 notes below the measured 120 Hz floor (4.0
+PASS     cross-song-refusal   a case measured against another song's file is refused
+FAIL     brandon-ear-cases    6 of 7 cases unresolved (OPEN_BLOCKED 1, OPEN_MEASURED 3, OPEN_NEEDS_S
+4 PASS  1 XFAIL  2 FAIL  0 XPASS  0 MISSING
 MACHINE VERDICT: FAIL
 </pre>
 
@@ -2150,6 +2151,27 @@ beat against a median 2 supported, and the shifted-time control shows a median o
 than written against 60.2% at the control, a separation of <b>+5.2 points</b>. This
 pipeline has already retracted one prune pass, and the Secret fixture records a thinning
 that deleted 145 legitimate notes. That is not a licence to cut.</p>
+
+<h3>The sweep for more deltas found a bug instead</h3>
+
+<p>Running <code>--measure-case</code> across the five remaining cases pointed the 04 Six
+Feet tacet case at the 02 Flake candidate, and it answered:</p>
+
+<pre style="overflow-x:auto;font-size:12px;line-height:1.5;background:var(--dust);padding:10px;border:1px solid var(--rule)">RESOLVED  zero attacked notes in bars 71-69 of 02 Flake of the Year-OCTAVE-LIFT.gp</pre>
+
+<p><b>Bars 71 to 69, on the wrong recording, reading as a pass.</b> A flag that returns
+RESOLVED for a case measured against another song is a way to close any case by choosing
+the file. It now refuses, and the refusal is a regression fixture so it cannot come back:</p>
+
+<pre style="overflow-x:auto;font-size:12px;line-height:1.5;background:var(--dust);padding:10px;border:1px solid var(--rule)">REFUSED: case 04-lead-tacet-71 is defined on song 04 (04 Six Feet Under.gp) and
+--against names song 02. A case measured against another song's file returns a
+number about nothing.
+
+PASS     cross-song-refusal   a case measured against another song's file is refused</pre>
+
+<p><b>No case showed a delta.</b> Measured properly against the candidate, 02-fsharp reads
+10 F#-rooted beats on both files, 02-duplicated-lead reads 48 of 225 on both, 04-lead-tacet
+was already RESOLVED on its own artifact, and 02-rests has no measurement at all.</p>
 
 <h3>What a green suite would actually require</h3>
 

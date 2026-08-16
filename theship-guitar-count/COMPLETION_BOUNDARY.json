@@ -348,6 +348,14 @@
    "three_note_ones_that_fit_the_top_three": 0,
    "means": "the correction needs notes dropped rather than moved",
    "thinning_evidence": "median 4 written vs 2 supported, but the shifted-time control shows a median of 3 supported; 65.4% vs 60.2%, a separation of +5.2 points, which does not license a cut"
+  },
+  "sweep_for_deltas": {
+   "result": "no case shows a delta against the candidate",
+   "02-fsharp-alteration-latter-half": "10 F#-rooted beats on both files",
+   "02-duplicated-lead-notes": "48 of 225 on both files",
+   "04-lead-tacet-71": "already RESOLVED on its own artifact",
+   "02-rests-replaced-by-strumming": "no measurement exists",
+   "bug_found": "--measure-case answered RESOLVED for the 04 tacet case pointed at the 02 candidate, printing a backwards bar range 71-69 on the wrong recording; it now refuses and the refusal is the cross-song-refusal regression fixture"
   }
  }
 }
