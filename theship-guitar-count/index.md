@@ -840,3 +840,30 @@ re-transcription scope is now confirmed by the validated test at section level,
 not inferred from the refuted per-window aligner.
 
 Everything measurable on this song without a Songsterr pass is done.
+
+
+### 02 Flake's defect is uniform, so no scoping is possible
+
+The section test that localized 08 cleanly returns flat on Flake:
+
+| bars | own r | rank | picks | best transposition |
+|---|---|---|---|---|
+| 1-10 | +0.682 | 2 | 01 Seedy Shade | +0.666 |
+| 11-20 | +0.670 | 2 | 10 Trapped | +0.451 |
+| 21-30 | +0.626 | 2 | 10 Trapped | **+0.661, LOSES** |
+| 31-40 | +0.759 | 2 | 10 Trapped | +0.435 |
+| 41-50 | +0.853 | 2 | 01 Seedy Shade | +0.492 |
+| 51-60 | +0.789 | 2 | 01 Seedy Shade | +0.379 |
+| 61-69 | +0.392 | 4 | 10 Trapped | **+0.418, LOSES** |
+
+**Every section fails, none passes.** Compare 08, where bars 41-54 rank FIRST at
+0.889 while bars 1-40 rank third. That split made a bounded re-transcription
+possible. Flake has no split, so **no bar range can be scoped**.
+
+**Inference, not measurement:** a bad passage is local; a writing habit is
+everywhere. Chords carrying extra pitches wherever a muted strum belongs would add
+the same surplus throughout, which is the shape of this table. Consistent with
+Brandon's report, **not proof of it**, since other uniform habits look identical.
+
+Every localization method that worked elsewhere has been applied here and returned
+flat. The remaining route is not a better measurement.
