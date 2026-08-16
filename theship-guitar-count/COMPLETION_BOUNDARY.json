@@ -323,6 +323,31 @@
    "a guitar-versus-bass separation method in the bottom octave, on an axis other than panning, which measured at chance on this album",
    "independently labelled muted attacks for the twelve dead-strum calls",
    "an ownership measurement for the two guitars before any lead-duplication thinning"
-  ]
+  ],
+  "promotion_tested": {
+   "02-upper-three-voicings": {
+    "audition": "445/765",
+    "repaired": "445/765",
+    "delta": "none"
+   },
+   "02-csharp-minor-second-position": {
+    "audition": "204/204 away from position 2",
+    "repaired": "177/204",
+    "delta": "27 beats moved"
+   },
+   "02-duplicated-lead-notes": {
+    "audition": "48/225",
+    "repaired": "48/225",
+    "delta": "none"
+   },
+   "conclusion": "making the repaired file the graded artifact clears zero cases"
+  },
+  "upper_three_strings_unreachable_by_refretting": {
+   "low_reaching_chord_beats": 445,
+   "with_four_or_more_notes": 288,
+   "three_note_ones_that_fit_the_top_three": 0,
+   "means": "the correction needs notes dropped rather than moved",
+   "thinning_evidence": "median 4 written vs 2 supported, but the shifted-time control shows a median of 3 supported; 65.4% vs 60.2%, a separation of +5.2 points, which does not license a cut"
+  }
  }
 }

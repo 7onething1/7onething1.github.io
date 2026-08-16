@@ -1345,3 +1345,7 @@ Attribution at 82-110 Hz was attempted on three axes:
 Only the third axis separates anything, and only on 11, where it weakly supports those notes being genuine guitar. On 09, the worst song at 27.5%, all three come back at or below their controls.
 
 A green suite needs a guitar-versus-bass method for the bottom octave, independently labelled muted attacks, and an ownership measurement for the two guitars. The red suite is the finding.
+
+Promotion was tested and clears nothing: measured against both files, 02-upper-three-voicings reads 445 of 765 on each, 02-duplicated-lead-notes reads 48 of 225 on each, and only 02-csharp-minor-second-position improves, from 204 of 204 to 177 of 204.
+
+The upper-three-string correction cannot be met by refretting: 288 of the 445 low-reaching chord beats carry four or more notes, and none of the 157 three-note ones fit the top three strings at their written pitches. Meeting it needs notes dropped rather than moved. The evidence for dropping them fails its control: median 4 written against 2 supported, but the shifted-time control shows a median of 3 supported, and 65.4% versus 60.2% is a separation of only +5.2 points.

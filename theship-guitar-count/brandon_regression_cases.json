@@ -67,11 +67,13 @@
     "track": 1
    },
    "repair": {
-    "status": "REPAIRED_IN_CANDIDATE",
+    "status": "NOT_REACHABLE_BY_REFRETTING",
     "candidate": "8b7f9dcd609bff4e",
     "what": "134 of the chord tones the recording places an octave higher were lifted and each affected beat re-voiced with the narrowest legal shape",
     "evidence": "paired within-moment control, octave-up wins at 100.0% of the written beats against 88.2% on the same notes shifted, separation +11.8 on n=170; file margin -2.4 -> +0.9; 0 pitches vanished, 0 invented",
-    "why_still_open": "the graded artifact is still the audition source; the candidate is best_validated_so_far, not PASS"
+    "why_still_open": "the graded artifact is still the audition source; the candidate is best_validated_so_far, not PASS",
+    "measured_2026-08-16": "The lift changed this measure by ZERO: 445 of 765 chord beats reach below the top three strings on BOTH the audition source and the repaired candidate. Of those 445, 288 carry four or more notes, which cannot sit on three strings at all, and none of the 157 three-note ones fit the top three at their written pitches even after the octave lift. Meeting the correction therefore needs notes DROPPED, not refretted.",
+    "thinning_evidence_failed_its_control": "median 4 notes written per beat against a median 2 supported, but the shifted-time control shows a median of 3 supported, HIGHER than the real measurement; 65.4% of beats have fewer supported than written against 60.2% at the control, a separation of only +5.2 points. The pipeline has already retracted one prune pass and the Secret fixture records a thinning that deleted 145 legitimate notes, so this does not license a cut."
    }
   },
   {
@@ -104,7 +106,8 @@
     "candidate": "8b7f9dcd609bff4e",
     "what": "same lift; this correction and the upper-three-string one are one defect",
     "evidence": "204 of 204 C#m beats were fretted away from second position at frets 4, 5 and 12 before the lift",
-    "why_still_open": "same as above"
+    "why_still_open": "same as above",
+    "measured_2026-08-16": "the lift moved 27 of 204 C#m beats to second position; 177 remain away from it, at frets 4, 5, 6, 9 and 12"
    }
   },
   {
