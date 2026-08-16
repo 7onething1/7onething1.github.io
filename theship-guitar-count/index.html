@@ -3914,12 +3914,46 @@ because a number seemed to support it. The 71% against 32% says the real stem is
 perfect input, which the aggregate margin says on its own. It does not point at a single note.</p>
 </div>
 
+<h3>The per-note measure, built and calibrated, and the number it returns</h3>
+
+<p>Every earlier attempt shared one flaw: none had been shown a <b>labelled wrong note</b>. A
+detector that has only seen correct input cannot be trusted to flag incorrect input, which is
+the rule this project applies everywhere else. <code>per_note_pitch_gate.py</code> closes
+that by corrupting a known random half of the notes by a known interval, rendering the result
+under realistic conditions, and asking <code>ASE.Rise</code> of every note whether the
+<b>written</b> pitch is sounding. The labels are exact by construction.</p>
+
+<div class="tablewrap"><table>
+<thead><tr><th>On 553 corrupted and 547 correct notes</th><th class="num">Value</th></tr></thead>
+<tbody>
+<tr><td>score of notes that are correct</td><td class="num">median 1.430</td></tr>
+<tr><td>score of notes shifted 1 to 5 semitones</td><td class="num">median 1.028</td></tr>
+<tr><td><b>ROC AUC</b></td><td class="num"><b>0.682</b></td></tr>
+<tr><td>at the best threshold, true positive rate</td><td class="num">63.4%</td></tr>
+<tr><td>at the best threshold, false positive rate</td><td class="num">29.7%</td></tr>
+<tr><td>a note it calls correct really is correct</td><td class="num">67.9%</td></tr>
+</tbody></table></div>
+
+<p><b>0.682 is too weak to rewrite a tab with.</b> A coin flip scores 0.5. At the best
+operating point roughly three in ten of the notes it would flag are correct as written, so a
+rewrite driven by it would inject errors at close to the rate it removed them. Nothing was
+rewritten.</p>
+
+<div class="card gap">
+<h3>This reconciles the two findings rather than contradicting them</h3>
+<p>There is real signal in the measure, 1.430 against 1.028, and it is small next to its own
+spread. Pooling 1100 of those noisy readings averages the noise away, which is why the
+<b>aggregate</b> verdict of +7.5 against a +24.9 ceiling is trustworthy. The identical
+measurement on any <b>single</b> note is not. So both statements hold at once: the tab's pitch
+content is measurably poor overall, and no note in it can be individually convicted.</p>
+</div>
+
 <p><b>The terminal position on 04, stated plainly.</b> The nine intro bends are transcribed
 from the stem, verified against a two-way control, and live. The 1100 written attacks
 underneath them are inherited Songsterr AI content measuring <b>30% of a realistic
 ceiling</b>, so the tab is <b>not an accurate transcription of the record</b>. Closing that
-gap needs a per-note polyphonic pitch measure this project does not have, and three separate
-attempts to stand one up have now been refused by their own controls. Building that measure
+gap needs a per-note pitch measure, and the one built here to do it returns AUC 0.682 on
+labelled data under real conditions, which is not enough to convict a note. Building that measure
 is the next real piece of work, and inventing pitches without it would repeat the fraud at
 the top of this page.</p>
 

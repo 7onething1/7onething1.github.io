@@ -1925,9 +1925,19 @@ Its control refused it. Run against the audio rendered from the tab's own pitche
 
 So no pitch was rewritten. Rewriting notes on the strength of a measure that fails its own control is precisely the thing this page exists to record: content written because a number seemed to support it. The 71% against 32% says the real stem is worse than perfect input, which the aggregate margin says on its own. It does not point at a single note.
 
+### The per-note measure, built and calibrated, and the number it returns
+
+Every earlier attempt shared one flaw: none had been shown a labelled wrong note. A detector that has only seen correct input cannot be trusted to flag incorrect input, which is the rule this project applies everywhere else. per_note_pitch_gate.py closes that by corrupting a known random half of the notes by a known interval, rendering the result under realistic conditions, and asking ASE.Rise of every note whether the WRITTEN pitch is sounding. The labels are exact by construction.
+
+On 553 corrupted and 547 correct notes: notes that are correct score a median of 1.430, notes shifted 1 to 5 semitones score a median of 1.028. ROC AUC 0.682. At the best threshold, true positive rate 63.4%, false positive rate 29.7%, and a note it calls correct really is correct 67.9% of the time.
+
+0.682 is too weak to rewrite a tab with. A coin flip scores 0.5. At the best operating point roughly three in ten of the notes it would flag are correct as written, so a rewrite driven by it would inject errors at close to the rate it removed them. Nothing was rewritten.
+
+This reconciles the two findings rather than contradicting them. There is real signal in the measure, 1.430 against 1.028, and it is small next to its own spread. Pooling 1100 of those noisy readings averages the noise away, which is why the AGGREGATE verdict of +7.5 against a +24.9 ceiling is trustworthy. The identical measurement on any SINGLE note is not. So both statements hold at once: the tab's pitch content is measurably poor overall, and no note in it can be individually convicted.
+
 ### The terminal position on 04
 
-The nine intro bends are transcribed from the stem, verified against a two-way control, and live. The 1100 written attacks underneath them are inherited Songsterr AI content measuring 30% of a realistic ceiling, so the tab is NOT an accurate transcription of the record. Closing that gap needs a per-note polyphonic pitch measure this project does not have, and three separate attempts to stand one up have now been refused by their own controls. Building that measure is the next real piece of work, and inventing pitches without it would repeat the fraud at the top of this page.
+The nine intro bends are transcribed from the stem, verified against a two-way control, and live. The 1100 written attacks underneath them are inherited Songsterr AI content measuring 30% of a realistic ceiling, so the tab is NOT an accurate transcription of the record. Closing that gap needs a per-note pitch measure, and the one built here to do it returns AUC 0.682 on labelled data under real conditions, which is not enough to convict a note. Building that measure is the next real piece of work, and inventing pitches without it would repeat the fraud at the top of this page.
 
 ### The export bug is real, and it was not the blocker
 
