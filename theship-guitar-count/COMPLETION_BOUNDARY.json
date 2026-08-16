@@ -391,5 +391,24 @@
   "active_strings": "0 measured, 926 asserted",
   "articulation": "0 measured, 926 asserted",
   "why": "the two facts Brandon's corrections are about are the two with no evidence at all"
+ },
+ "shape_swap_candidate": {
+  "found_without_audio": "the tab writes the same progression twice, low in bars 1-28 and 65-66, upper in bars 37-56, never in the same bar; 63.7% of chord events spell a harmony written more than one way",
+  "method": "apply_shape_swap.py copies the tab's own upper voicing over its own low voicing and refuses if the target shape is absent from the source",
+  "result": {
+   "below_top_three": "445 of 765 -> 209 of 765",
+   "bars": "37 -> 22",
+   "findings": "1 -> 2",
+   "interior_gap": "0 -> 0",
+   "urgent_jump": "1 -> 2",
+   "notes_dropped": 236
+  },
+  "versus_retracted_octave_lift": {
+   "below_top_three": "445 -> 445",
+   "findings": "1 -> 78",
+   "interior_gap": "0 -> 62"
+  },
+  "not_promoted": "the graded artifact is unchanged; a 236-note thinning on ear authority is a decision to confirm",
+  "check_error_found": "the C#m case was written as want_position 2 and no C#m beat is at fret 2 in any version; the tab holds two C#m voicings at fret 4 and fret 12 and 'second position' most likely names the second of them"
  }
 }

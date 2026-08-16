@@ -1381,3 +1381,13 @@ The DTW map was built and is REFUSED on all four songs, which is the tool workin
 Hypothesis: a Demucs guitar stem sustains heavily, so onset_detect returns 668 events where the tab writes 933 attacks, and no mapping can match more attacks than there are onsets.
 
 The order was wrong. The test was built, a conclusion was published, and only then was the test checked against known answers. The check belonged first.
+
+## 13 The tab contradicts itself, and that is the repair
+
+Found without audio. 02 Flake's rhythm staff writes the same progression twice with two voicings that never share a bar: B/E/G# as s1f7 s2f9 s3f9 s4f9 (132 events, bars 1-27 and 65-66) and as s3f13 s4f12 s5f12 (170 events, bars 37-56); C#/E/G# as s1f4 s2f6 s3f6 s4f5 (104 events, bars 2-28) and as s3f13 s4f14 s5f12 (52 events, bars 38-50). 63.7% of chord events spell a harmony written more than one way, so the file contradicts itself.
+
+apply_shape_swap.py replaces the low form with the upper form the tab already uses, refusing if the target is not present in the source. Result: chord beats reaching below the top three strings 445 -> 209 of 765, bars 37 -> 22, validator findings 1 -> 2, interior_gap 0 -> 0, urgent_jump 1 -> 2, 236 notes dropped. The retracted octave lift left that measure at 445 and took findings to 78.
+
+It also caught an error in my own check: the C#m case was written as want_position 2, and no C#m beat in this tab is at fret 2 in any version. The tab holds two C#m voicings, fret 4 and fret 12, and the swap moved 104 beats from {4:144, 5:8, 12:52} to {4:40, 5:8, 12:156}. 'Second position' most likely refers to the second of the two voicings. The check is unchanged and still OPEN, because editing a check to match a repair is how a gate stops being a gate.
+
+Not promoted. Dropping 236 notes on ear authority is a decision to confirm.

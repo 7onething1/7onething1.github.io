@@ -1757,7 +1757,7 @@
    "sha256_16": "e90b44d28bb5f3fe",
    "sha_matches_case": true,
    "verdict": "OPEN_BLOCKED",
-   "detail": "No measurement separates a dead strum from a rung one on this audio. The tab's own Muted marks are circular at AUC 0.522; the synthetic control proves the feature at AUC 1.000 but its threshold flagged an implausible 37.4% when transferred. Recorded in COMPLETION_BOUNDARY.json as the twelve muted-strum ear-labels dependency.",
+   "detail": "No measurement separates a dead strum from a rung one on this audio. The tab's own Muted marks are circular at AUC 0.522; the synthetic control proves the feature at AUC 1.000 but its threshold flagged an implausible 37.4% when transferred. Recorded in COMPLETION_BOUNDARY.json as the twelve muted-strum ear-labels dependency. ALSO BLOCKED UPSTREAM 2026-08-16: the tab is not time-aligned to the recording, at 55.8% onset alignment against a 58.3% random control, so no per-event articulation measurement can be placed at all.",
    "evidence": {}
   }
  ]

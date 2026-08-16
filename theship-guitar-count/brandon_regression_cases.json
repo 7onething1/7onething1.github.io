@@ -73,7 +73,15 @@
     "evidence": "paired within-moment control, octave-up wins at 100.0% of the written beats against 88.2% on the same notes shifted, separation +11.8 on n=170; file margin -2.4 -> +0.9; 0 pitches vanished, 0 invented",
     "why_still_open": "the graded artifact is still the audition source; the candidate is best_validated_so_far, not PASS",
     "measured_2026-08-16": "The lift changed this measure by ZERO: 445 of 765 chord beats reach below the top three strings on BOTH the audition source and the repaired candidate. Of those 445, 288 carry four or more notes, which cannot sit on three strings at all, and none of the 157 three-note ones fit the top three at their written pitches even after the octave lift. Meeting the correction therefore needs notes DROPPED, not refretted.",
-    "thinning_evidence_failed_its_control": "median 4 notes written per beat against a median 2 supported, but the shifted-time control shows a median of 3 supported, HIGHER than the real measurement; 65.4% of beats have fewer supported than written against 60.2% at the control, a separation of only +5.2 points. The pipeline has already retracted one prune pass and the Secret fixture records a thinning that deleted 145 legitimate notes, so this does not license a cut."
+    "thinning_evidence_failed_its_control": "median 4 notes written per beat against a median 2 supported, but the shifted-time control shows a median of 3 supported, HIGHER than the real measurement; 65.4% of beats have fewer supported than written against 60.2% at the control, a separation of only +5.2 points. The pipeline has already retracted one prune pass and the Secret fixture records a thinning that deleted 145 legitimate notes, so this does not license a cut.",
+    "shape_swap_2026-08-16": {
+     "candidate": "02 Flake of the Year-SHAPE-SWAP.gp",
+     "method": "replaced the tab's own low 4-note voicings with the tab's own upper 3-note voicings for the same harmony; no shape was computed and none invented",
+     "basis": "the tab writes the same progression twice in disjoint stretches, low in bars 1-28 and 65-66, upper in bars 37-56, never in the same bar. 63.7% of chord events spell a harmony the tab writes more than one way, so the file contradicts itself and one form must be wrong. Brandon's ear names which.",
+     "result": "445 of 765 chord beats reaching below the top three strings became 209 of 765, across 22 bars instead of 37",
+     "cost": "236 notes dropped, the fourth note of each 4-note chord; hard profile findings 1 -> 2, urgent_jump 1 -> 2",
+     "not_promoted": "the graded artifact is unchanged; a 236-note thinning on ear authority is a decision to confirm, and the Secret fixture records a thinning that deleted 145 legitimate notes"
+    }
    }
   },
   {
@@ -109,6 +117,13 @@
     "why_still_open": "same as above",
     "measured_2026-08-16": "graded artifact e90b44d28bb5f3fe: 204 of 204 C#m beats fretted AWAY from second position. Candidate 8b7f9dcd609bff4e: 177 of 204 still away, so 27 beats (13.2%) moved to position 2 and 86.8% did not. Verify with: brandon_cases.py --measure-case 02-csharp-minor-second-position --against <candidate>",
     "why_not_resolved": "13.2% is a delta, not a resolution. A status that reads resolved while 177 of 204 beats remain wrong is the same scorecard-over-ear failure that created this case file on 2026-08-16."
+   },
+   "check_definition_corrected": {
+    "was": "want_position 2, read as the index finger at fret 2",
+    "problem": "no C#m beat in this tab is fretted at fret 2 in ANY version, and the tab contains exactly TWO C#m voicings, at fret 4 and fret 12. The fret-2 reading has no referent in the file.",
+    "other_reading": "'second position' as the SECOND of the two voicings the tab uses, the fret-12 upper-three-string form. This reading agrees with the upper-three-string correction, which Brandon says is the same defect.",
+    "measured": "the shape swap moved the distribution from {4:144, 5:8, 12:52} to {4:40, 5:8, 12:156}, so 104 C#m beats moved into the fret-12 form",
+    "status": "the check keeps want_position 2 and reports OPEN, because changing a check to match a repair is how a gate stops being a gate. Both readings are recorded here and the fret-2 reading needs confirmation."
    }
   },
   {
