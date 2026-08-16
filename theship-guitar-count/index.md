@@ -1417,6 +1417,6 @@ Those frets sound C# minor only with a capo at the second fret, which makes both
 
 Brandon's chord is C#5 E5 G#5 in root position. The tab has G#4 C#5 E5 in first inversion at s3f13 s4f14 s5f12. Same pitch classes, a sixth lower, wrong inversion. That is pitch content, so no refretting reaches it, which is why the fret-2 measurement found no second-position C#m at any pitch set the tab contains.
 
-The audio could not adjudicate, for the ninth time: testing at 0, +1, +2, +3 and -2 semitones returned decoy margins of -2.3, -2.4, -2.5, -2.5 and -2.3. The finding stands on fretboard arithmetic and Brandon's ear.
+The audio could not adjudicate, for the ninth time: testing at 0, +1, +2, +3 and -2 semitones returned decoy margins of -2.3, -2.4, -2.5, -2.5 and -2.3. This finding comes from fretboard arithmetic and Brandon's ear.
 
-What decides the repair: whether the whole performance carries a capo at 2, which would re-fret the entire tab, or whether only this chord sits higher than written.
+What decides the repair: whether the whole performance carries a capo at 2, which would re-fret the entire tab, or whether only this chord is higher than written.
