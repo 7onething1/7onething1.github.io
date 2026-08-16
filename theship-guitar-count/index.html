@@ -4031,6 +4031,64 @@ top-1</b> against an 80% bar. Until one of those clears, no per-note rewrite of 
 honest, and the aggregate verdict, <b>+7.5 against a +24.9 ceiling</b>, is the most that can
 be said about its pitch content.</p>
 
+<h3>Density is the variable, and it explains every refusal above</h3>
+
+<p>A per-string separator would thin the material, and no such model exists here. Demucs
+splits instruments rather than strings, it is not importable in either environment on this
+machine, and a per-string model would need a per-string multitrack corpus this project does
+not have. The available way to thin the material is to select the parts that are already
+thin, which is what the intro was.</p>
+
+<p>So all 1100 notes were binned by how many attacks fall within half a second either side,
+and both calibrations were re-run inside each bin on the same labelled render.</p>
+
+<div class="tablewrap"><table>
+<thead><tr><th class="num">Notes per 1s</th><th class="num">Notes</th><th class="num">Comb top-1</th>
+<th class="num">basic-pitch top-1</th><th class="num">Detector AUC</th><th>Verdict</th></tr></thead>
+<tbody>
+<tr><td class="num">0-1</td><td class="num">39</td><td class="num"><b>100.0%</b></td>
+<td class="num"><b>100.0%</b></td><td class="num"><b>1.000</b></td>
+<td><span class="pill ok">transcribable</span></td></tr>
+<tr><td class="num">2-3</td><td class="num">55</td><td class="num">63.6%</td>
+<td class="num">49.1%</td><td class="num">0.992</td><td><span class="pill warn">flag only</span></td></tr>
+<tr><td class="num">4-6</td><td class="num">249</td><td class="num">53.4%</td>
+<td class="num">35.3%</td><td class="num">0.975</td><td><span class="pill warn">flag only</span></td></tr>
+<tr><td class="num">7-11</td><td class="num">112</td><td class="num">39.3%</td>
+<td class="num">30.4%</td><td class="num">0.882</td><td><span class="pill bad">refused</span></td></tr>
+<tr><td class="num">12+</td><td class="num"><b>645</b></td><td class="num">25.3%</td>
+<td class="num">19.1%</td><td class="num">0.798</td><td><span class="pill bad">refused</span></td></tr>
+</tbody></table></div>
+
+<p><b>The global AUC of 0.883 was hiding this.</b> Detection clears the 0.90 bar on the first
+three bands, which is <b>343 of 1100 notes</b>, and collapses on the rest. This song's median
+density is 15 attacks per second and <b>645 notes, 59% of the tab, sit at 12 or above</b>,
+where neither measure works. Averaging the workable third with the unworkable majority
+produced one number that described neither.</p>
+
+<h3>In the sparse band, two independent methods agree with each other and not with the tab</h3>
+
+<p>The 39 notes at density 0-1 are the only place both proposers scored 100% on the control.
+Run on the <b>real stem</b>, they were compared against each other and against what is
+written.</p>
+
+<div class="tablewrap"><table>
+<thead><tr><th>Outcome on the 39 sparsest notes</th><th class="num">Count</th></tr></thead>
+<tbody>
+<tr><td>the two proposers agree with each other</td><td class="num">24 &nbsp;(62%)</td></tr>
+<tr><td>&nbsp;&nbsp;of those, both match the written pitch</td><td class="num">2</td></tr>
+<tr><td>&nbsp;&nbsp;<b>of those, both differ from the written pitch</b></td><td class="num"><b>22</b></td></tr>
+<tr><td>the proposers disagree with each other</td><td class="num">10</td></tr>
+<tr><td>basic-pitch offered nothing</td><td class="num">5</td></tr>
+</tbody></table></div>
+
+<p>A signal-processing comb and a trained neural transcriber share no machinery, so their
+converging on the same pitch in 22 places where the tab writes a different one is real
+corroboration of the aggregate verdict. <b>It is still not enough to write with.</b> The
+control that scored both at 100% was synthetic audio, and this page has been caught once
+already assuming a clean-signal result carries to a real guitar. A real-audio control for the
+sparse band is the next thing that has to exist, and the intro shows how one is built:
+measure a figure directly, prove the measure on a known answer, and only then write.</p>
+
 <p><b>The terminal position on 04, stated plainly.</b> The nine intro bends are transcribed
 from the stem, verified against a two-way control, and live. The 1100 written attacks
 underneath them are inherited Songsterr AI content measuring <b>30% of a realistic

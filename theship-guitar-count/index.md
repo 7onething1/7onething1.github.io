@@ -1959,6 +1959,22 @@ The comb result is the damning one, and it is about density. basic-pitch is trai
 
 So the blocked operation is now named with two numbers on identical labelled data. Detection tops out at AUC 0.883 against a 0.90 bar. Proposal tops out at 37.6% top-1 against an 80% bar. Until one of those clears, no per-note rewrite of 04 can be honest, and the aggregate verdict of +7.5 against a +24.9 ceiling is the most that can be said about its pitch content.
 
+### Density is the variable, and it explains every refusal above
+
+A per-string separator would thin the material, and no such model exists here. Demucs splits instruments rather than strings, it is not importable in either environment on this machine, and a per-string model would need a per-string multitrack corpus this project does not have. The available way to thin the material is to select the parts that are already thin, which is what the intro was.
+
+So all 1100 notes were binned by how many attacks fall within half a second either side, and both calibrations were re-run inside each bin on the same labelled render.
+
+Density 0-1, 39 notes: comb top-1 100.0%, basic-pitch top-1 100.0%, detector AUC 1.000, TRANSCRIBABLE. Density 2-3, 55 notes: 63.6%, 49.1%, AUC 0.992, flag only. Density 4-6, 249 notes: 53.4%, 35.3%, AUC 0.975, flag only. Density 7-11, 112 notes: 39.3%, 30.4%, AUC 0.882, refused. Density 12+, 645 notes: 25.3%, 19.1%, AUC 0.798, refused.
+
+The global AUC of 0.883 was hiding this. Detection clears the 0.90 bar on the first three bands, which is 343 of 1100 notes, and collapses on the rest. This song's median density is 15 attacks per second and 645 notes, 59% of the tab, sit at 12 or above, where neither measure works. Averaging the workable third with the unworkable majority produced one number that described neither.
+
+### In the sparse band, two independent methods agree with each other and not with the tab
+
+The 39 notes at density 0-1 are the only place both proposers scored 100% on the control. Run on the real stem: the two proposers agree with each other on 24 of 39, which is 62%. Of those 24, two match the written pitch and 22 both differ from it. On 10 the proposers disagree with each other, and on 5 basic-pitch offered nothing.
+
+A signal-processing comb and a trained neural transcriber share no machinery, so their converging on the same pitch in 22 places where the tab writes a different one is real corroboration of the aggregate verdict. It is still not enough to write with. The control that scored both at 100% was synthetic audio, and this page has been caught once already assuming a clean-signal result carries to a real guitar. A real-audio control for the sparse band is the next thing that has to exist, and the intro shows how one is built: measure a figure directly, prove the measure on a known answer, and only then write.
+
 ### The terminal position on 04
 
 The nine intro bends are transcribed from the stem, verified against a two-way control, and live. The 1100 written attacks underneath them are inherited Songsterr AI content measuring 30% of a realistic ceiling, so the tab is NOT an accurate transcription of the record. Closing that gap needs a per-note pitch measure. The best one built here reaches AUC 0.883 on a matched labelled control, short of the 0.90 bar, and flagging a wrong note is a different problem from supplying the right one. Building that measure is the next real piece of work, and inventing pitches without it would repeat the fraud at the top of this page.
