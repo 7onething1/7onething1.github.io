@@ -724,3 +724,27 @@ Artifact `573192c1ca92f16d`, source untouched with backup.
 
 The muted-strum question is untouched and still needs sixteen ear-calls. Separate
 defects, separate repairs; conflating them produced the withdrawn 3.4x claim.
+
+
+### Verification against a test the repairs were not tuned on
+
+Chroma identification, built and validated at 6/10 vs chance 1/10 before any
+repair existed.
+
+| artifact | own-stem r | rank | picks instead |
+|---|---|---|---|
+| 04 Six Feet Under, BASE | +0.935 | **1/10** | — |
+| 04, UPGRADED (staged to ship) | +0.669 | **3/10** | 10 Trapped in Wonderland |
+| **04, after tacet repair** | **+0.863** | **1/10** | — |
+| 02 Flake, before | +0.756 | 2/10 | 01 Seedy Shade |
+| 02 Flake, after silence repair | +0.751 | 2/10 | 01 Seedy Shade |
+
+**04 is verified.** The upgrade broke identification outright and made the tab
+pick a different song's recording. Emptying 404 filler attacks restored it to
+first. Independent confirmation: identification measures pitch-class content
+while the repair was scoped by onset coverage. Two measurements, same answer.
+
+**02 Flake is not.** The silence repair is real (precision 32.6 -> 34.2) and moved
+identification by 0.005, which is nothing. **The completion criterion is not met**
+and the remaining gap is the muted-strum question, which no measurement built here
+separates on real audio. That needs the sixteen ear-calls.
