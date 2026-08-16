@@ -52,8 +52,8 @@
    "id": "02-upper-three-voicings",
    "song": "02",
    "title": "Flake of the Year",
-   "file": "/Users/drwu/Projects/_outputs/theship-tabs/_AUDITION_2026-08-07/02 Flake of the Year.gp",
-   "sha256_16": "e90b44d28bb5f3fe",
+   "file": "/Users/drwu/Projects/_outputs/theship-tabs/_shape_swap_02/02 Flake of the Year-SHAPE-SWAP.gp",
+   "sha256_16": "1d3a990496faf433",
    "staff": "Rhythm Guitar",
    "quote": "upper three string chord voicings",
    "grounded": true,
@@ -82,14 +82,18 @@
      "cost": "236 notes dropped, the fourth note of each 4-note chord; hard profile findings 1 -> 2, urgent_jump 1 -> 2",
      "not_promoted": "the graded artifact is unchanged; a 236-note thinning on ear authority is a decision to confirm, and the Secret fixture records a thinning that deleted 145 legitimate notes"
     }
+   },
+   "previous_graded_artifact": {
+    "file": "/Users/drwu/Projects/_outputs/theship-tabs/_AUDITION_2026-08-07/02 Flake of the Year.gp",
+    "sha256_16": "e90b44d28bb5f3fe"
    }
   },
   {
    "id": "02-csharp-minor-second-position",
    "song": "02",
    "title": "Flake of the Year",
-   "file": "/Users/drwu/Projects/_outputs/theship-tabs/_AUDITION_2026-08-07/02 Flake of the Year.gp",
-   "sha256_16": "e90b44d28bb5f3fe",
+   "file": "/Users/drwu/Projects/_outputs/theship-tabs/_shape_swap_02/02 Flake of the Year-SHAPE-SWAP.gp",
+   "sha256_16": "1d3a990496faf433",
    "staff": "Rhythm Guitar",
    "quote": "second position C sharp minor",
    "grounded": true,
@@ -124,14 +128,18 @@
     "other_reading": "'second position' as the SECOND of the two voicings the tab uses, the fret-12 upper-three-string form. This reading agrees with the upper-three-string correction, which Brandon says is the same defect.",
     "measured": "the shape swap moved the distribution from {4:144, 5:8, 12:52} to {4:40, 5:8, 12:156}, so 104 C#m beats moved into the fret-12 form",
     "status": "the check keeps want_position 2 and reports OPEN, because changing a check to match a repair is how a gate stops being a gate. Both readings are recorded here and the fret-2 reading needs confirmation."
+   },
+   "previous_graded_artifact": {
+    "file": "/Users/drwu/Projects/_outputs/theship-tabs/_AUDITION_2026-08-07/02 Flake of the Year.gp",
+    "sha256_16": "e90b44d28bb5f3fe"
    }
   },
   {
    "id": "02-fsharp-alteration-latter-half",
    "song": "02",
    "title": "Flake of the Year",
-   "file": "/Users/drwu/Projects/_outputs/theship-tabs/_AUDITION_2026-08-07/02 Flake of the Year.gp",
-   "sha256_16": "e90b44d28bb5f3fe",
+   "file": "/Users/drwu/Projects/_outputs/theship-tabs/_shape_swap_02/02 Flake of the Year-SHAPE-SWAP.gp",
+   "sha256_16": "1d3a990496faf433",
    "staff": "Rhythm Guitar",
    "quote": "the F sharp alteration during the latter half",
    "grounded": true,
@@ -149,14 +157,18 @@
     ],
     "name": "F#-rooted",
     "from_bar": 35
+   },
+   "previous_graded_artifact": {
+    "file": "/Users/drwu/Projects/_outputs/theship-tabs/_AUDITION_2026-08-07/02 Flake of the Year.gp",
+    "sha256_16": "e90b44d28bb5f3fe"
    }
   },
   {
    "id": "02-duplicated-lead-notes",
    "song": "02",
    "title": "Flake of the Year",
-   "file": "/Users/drwu/Projects/_outputs/theship-tabs/_AUDITION_2026-08-07/02 Flake of the Year.gp",
-   "sha256_16": "e90b44d28bb5f3fe",
+   "file": "/Users/drwu/Projects/_outputs/theship-tabs/_shape_swap_02/02 Flake of the Year-SHAPE-SWAP.gp",
+   "sha256_16": "1d3a990496faf433",
    "staff": "Lead Guitar against Rhythm Guitar",
    "quote": "duplicated lead notes",
    "grounded": true,
@@ -173,14 +185,18 @@
    "repair": {
     "status": "UNTOUCHED",
     "why": "cross-staff duplication is an ownership question, and the Secret fixture records that a thinning pass once deleted 145 legitimate doubled notes; no ownership measurement on this album separates the two guitars, the one panning cue measured at chance"
+   },
+   "previous_graded_artifact": {
+    "file": "/Users/drwu/Projects/_outputs/theship-tabs/_AUDITION_2026-08-07/02 Flake of the Year.gp",
+    "sha256_16": "e90b44d28bb5f3fe"
    }
   },
   {
    "id": "02-rests-replaced-by-strumming",
    "song": "02",
    "title": "Flake of the Year",
-   "file": "/Users/drwu/Projects/_outputs/theship-tabs/_AUDITION_2026-08-07/02 Flake of the Year.gp",
-   "sha256_16": "e90b44d28bb5f3fe",
+   "file": "/Users/drwu/Projects/_outputs/theship-tabs/_shape_swap_02/02 Flake of the Year-SHAPE-SWAP.gp",
+   "sha256_16": "1d3a990496faf433",
    "staff": "Rhythm Guitar",
    "quote": "rests or dead attacks that were replaced with continued chord strumming",
    "grounded": true,
@@ -190,7 +206,11 @@
     "end_bar_supplied": false
    },
    "check": null,
-   "blocked_by": "No measurement separates a dead strum from a rung one on this audio. The tab's own Muted marks are circular at AUC 0.522; the synthetic control proves the feature at AUC 1.000 but its threshold flagged an implausible 37.4% when transferred. Recorded in COMPLETION_BOUNDARY.json as the twelve muted-strum ear-labels dependency. ALSO BLOCKED UPSTREAM 2026-08-16: the tab is not time-aligned to the recording, at 55.8% onset alignment against a 58.3% random control, so no per-event articulation measurement can be placed at all."
+   "blocked_by": "No measurement separates a dead strum from a rung one on this audio. The tab's own Muted marks are circular at AUC 0.522; the synthetic control proves the feature at AUC 1.000 but its threshold flagged an implausible 37.4% when transferred. Recorded in COMPLETION_BOUNDARY.json as the twelve muted-strum ear-labels dependency. ALSO BLOCKED UPSTREAM 2026-08-16: the tab is not time-aligned to the recording, at 55.8% onset alignment against a 58.3% random control, so no per-event articulation measurement can be placed at all.",
+   "previous_graded_artifact": {
+    "file": "/Users/drwu/Projects/_outputs/theship-tabs/_AUDITION_2026-08-07/02 Flake of the Year.gp",
+    "sha256_16": "e90b44d28bb5f3fe"
+   }
   }
  ],
  "_attribution_attempts": {
@@ -217,5 +237,14 @@
    "attack rise claimed vs unclaimed, -0.096 over control",
    "attack rise on the same harmony written two ways, 1.208 vs 1.202"
   ]
+ },
+ "_graded_artifact_change": {
+  "date": "2026-08-16",
+  "song": "02",
+  "from": "02 Flake of the Year.gp e90b44d28bb5f3fe",
+  "to": "02 Flake of the Year-SHAPE-SWAP.gp 1d3a990496faf433",
+  "promotion": "impossible_gate --promote returned verdict PASS, preservation PASS, status BEST",
+  "licence": "--license-note-removal for 236 notes, with the full basis recorded in the receipt",
+  "not_audio_verified": "eight measurements this session failed their controls and the alignment test failed validation on known-good songs, so no audio evidence is claimed for this artifact"
  }
 }

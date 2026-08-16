@@ -291,32 +291,19 @@
     "end_bar": null,
     "end_bar_supplied": false
    },
-   "sha256_16": "e90b44d28bb5f3fe",
+   "sha256_16": "1d3a990496faf433",
    "sha_matches_case": true,
    "verdict": "OPEN_MEASURED",
-   "detail": "445 of 765 chord beats (58.2%) reach below the top three strings, across 37 bars [source 02 Flake of the Year.gp, sha256:16 e90b44d28bb5f3fe]",
+   "detail": "209 of 765 chord beats (27.3%) reach below the top three strings, across 22 bars [source 02 Flake of the Year-SHAPE-SWAP.gp, sha256:16 1d3a990496faf433]",
    "evidence": {
     "chord_beats": 765,
-    "top_three_only": 320,
-    "reaching_lower": 445,
-    "pct_lower": 58.2,
+    "top_three_only": 556,
+    "reaching_lower": 209,
+    "pct_lower": 27.3,
     "bars": [
-     1,
-     2,
-     3,
      4,
-     5,
-     6,
-     7,
-     8,
-     9,
      10,
-     11,
-     12,
-     13,
      14,
-     15,
-     16,
      17,
      18,
      19,
@@ -335,9 +322,7 @@
      60,
      61,
      62,
-     63,
-     65,
-     66
+     63
     ]
    }
   },
@@ -353,37 +338,33 @@
     "end_bar": null,
     "end_bar_supplied": false
    },
-   "sha256_16": "e90b44d28bb5f3fe",
+   "sha256_16": "1d3a990496faf433",
    "sha_matches_case": true,
    "verdict": "OPEN_MEASURED",
-   "detail": "204 of 204 C#m beats are fretted away from position 2; positions found {4: 144, 5: 8, 12: 52} [source 02 Flake of the Year.gp, sha256:16 e90b44d28bb5f3fe]",
+   "detail": "204 of 204 C#m beats are fretted away from position 2; positions found {4: 40, 5: 8, 12: 156} [source 02 Flake of the Year-SHAPE-SWAP.gp, sha256:16 1d3a990496faf433]",
    "evidence": {
     "positions": {
-     "4": 144,
+     "4": 40,
      "5": 8,
-     "12": 52
+     "12": 156
     },
     "hits": [
      {
       "bar": 2,
       "beat": 0.0,
-      "position": 4,
+      "position": 12,
       "frets": [
        [
-        4,
-        5
-       ],
-       [
         3,
-        6
+        13
        ],
        [
-        2,
-        6
+        4,
+        14
        ],
        [
-        1,
-        4
+        5,
+        12
        ]
       ],
       "pitch_classes": [
@@ -395,23 +376,19 @@
      {
       "bar": 2,
       "beat": 0.25,
-      "position": 4,
+      "position": 12,
       "frets": [
        [
-        4,
-        5
-       ],
-       [
         3,
-        6
+        13
        ],
        [
-        2,
-        6
+        4,
+        14
        ],
        [
-        1,
-        4
+        5,
+        12
        ]
       ],
       "pitch_classes": [
@@ -423,23 +400,19 @@
      {
       "bar": 2,
       "beat": 0.5,
-      "position": 4,
+      "position": 12,
       "frets": [
        [
-        4,
-        5
-       ],
-       [
         3,
-        6
+        13
        ],
        [
-        2,
-        6
+        4,
+        14
        ],
        [
-        1,
-        4
+        5,
+        12
        ]
       ],
       "pitch_classes": [
@@ -451,23 +424,19 @@
      {
       "bar": 2,
       "beat": 0.75,
-      "position": 4,
+      "position": 12,
       "frets": [
        [
-        4,
-        5
-       ],
-       [
         3,
-        6
+        13
        ],
        [
-        2,
-        6
+        4,
+        14
        ],
        [
-        1,
-        4
+        5,
+        12
        ]
       ],
       "pitch_classes": [
@@ -479,23 +448,19 @@
      {
       "bar": 2,
       "beat": 1.0,
-      "position": 4,
+      "position": 12,
       "frets": [
        [
-        4,
-        5
-       ],
-       [
         3,
-        6
+        13
        ],
        [
-        2,
-        6
+        4,
+        14
        ],
        [
-        1,
-        4
+        5,
+        12
        ]
       ],
       "pitch_classes": [
@@ -507,23 +472,19 @@
      {
       "bar": 2,
       "beat": 1.25,
-      "position": 4,
+      "position": 12,
       "frets": [
        [
-        4,
-        5
-       ],
-       [
         3,
-        6
+        13
        ],
        [
-        2,
-        6
+        4,
+        14
        ],
        [
-        1,
-        4
+        5,
+        12
        ]
       ],
       "pitch_classes": [
@@ -535,23 +496,19 @@
      {
       "bar": 2,
       "beat": 1.5,
-      "position": 4,
+      "position": 12,
       "frets": [
        [
-        4,
-        5
-       ],
-       [
         3,
-        6
+        13
        ],
        [
-        2,
-        6
+        4,
+        14
        ],
        [
-        1,
-        4
+        5,
+        12
        ]
       ],
       "pitch_classes": [
@@ -563,23 +520,19 @@
      {
       "bar": 2,
       "beat": 1.75,
-      "position": 4,
+      "position": 12,
       "frets": [
        [
-        4,
-        5
-       ],
-       [
         3,
-        6
+        13
        ],
        [
-        2,
-        6
+        4,
+        14
        ],
        [
-        1,
-        4
+        5,
+        12
        ]
       ],
       "pitch_classes": [
@@ -591,23 +544,19 @@
      {
       "bar": 2,
       "beat": 2.0,
-      "position": 4,
+      "position": 12,
       "frets": [
        [
-        4,
-        5
-       ],
-       [
         3,
-        6
+        13
        ],
        [
-        2,
-        6
+        4,
+        14
        ],
        [
-        1,
-        4
+        5,
+        12
        ]
       ],
       "pitch_classes": [
@@ -619,23 +568,19 @@
      {
       "bar": 2,
       "beat": 2.25,
-      "position": 4,
+      "position": 12,
       "frets": [
        [
-        4,
-        5
-       ],
-       [
         3,
-        6
+        13
        ],
        [
-        2,
-        6
+        4,
+        14
        ],
        [
-        1,
-        4
+        5,
+        12
        ]
       ],
       "pitch_classes": [
@@ -647,23 +592,19 @@
      {
       "bar": 2,
       "beat": 2.5,
-      "position": 4,
+      "position": 12,
       "frets": [
        [
-        4,
-        5
-       ],
-       [
         3,
-        6
+        13
        ],
        [
-        2,
-        6
+        4,
+        14
        ],
        [
-        1,
-        4
+        5,
+        12
        ]
       ],
       "pitch_classes": [
@@ -675,23 +616,19 @@
      {
       "bar": 2,
       "beat": 2.75,
-      "position": 4,
+      "position": 12,
       "frets": [
        [
-        4,
-        5
-       ],
-       [
         3,
-        6
+        13
        ],
        [
-        2,
-        6
+        4,
+        14
        ],
        [
-        1,
-        4
+        5,
+        12
        ]
       ],
       "pitch_classes": [
@@ -703,23 +640,19 @@
      {
       "bar": 2,
       "beat": 3.0,
-      "position": 4,
+      "position": 12,
       "frets": [
        [
-        4,
-        5
-       ],
-       [
         3,
-        6
+        13
        ],
        [
-        2,
-        6
+        4,
+        14
        ],
        [
-        1,
-        4
+        5,
+        12
        ]
       ],
       "pitch_classes": [
@@ -731,23 +664,19 @@
      {
       "bar": 2,
       "beat": 3.25,
-      "position": 4,
+      "position": 12,
       "frets": [
        [
-        4,
-        5
-       ],
-       [
         3,
-        6
+        13
        ],
        [
-        2,
-        6
+        4,
+        14
        ],
        [
-        1,
-        4
+        5,
+        12
        ]
       ],
       "pitch_classes": [
@@ -759,23 +688,19 @@
      {
       "bar": 4,
       "beat": 0.0,
-      "position": 4,
+      "position": 12,
       "frets": [
        [
-        4,
-        5
-       ],
-       [
         3,
-        6
+        13
        ],
        [
-        2,
-        6
+        4,
+        14
        ],
        [
-        1,
-        4
+        5,
+        12
        ]
       ],
       "pitch_classes": [
@@ -787,23 +712,19 @@
      {
       "bar": 4,
       "beat": 0.25,
-      "position": 4,
+      "position": 12,
       "frets": [
        [
-        4,
-        5
-       ],
-       [
         3,
-        6
+        13
        ],
        [
-        2,
-        6
+        4,
+        14
        ],
        [
-        1,
-        4
+        5,
+        12
        ]
       ],
       "pitch_classes": [
@@ -815,23 +736,19 @@
      {
       "bar": 4,
       "beat": 0.5,
-      "position": 4,
+      "position": 12,
       "frets": [
        [
-        4,
-        5
-       ],
-       [
         3,
-        6
+        13
        ],
        [
-        2,
-        6
+        4,
+        14
        ],
        [
-        1,
-        4
+        5,
+        12
        ]
       ],
       "pitch_classes": [
@@ -843,23 +760,19 @@
      {
       "bar": 4,
       "beat": 0.75,
-      "position": 4,
+      "position": 12,
       "frets": [
        [
-        4,
-        5
-       ],
-       [
         3,
-        6
+        13
        ],
        [
-        2,
-        6
+        4,
+        14
        ],
        [
-        1,
-        4
+        5,
+        12
        ]
       ],
       "pitch_classes": [
@@ -871,23 +784,19 @@
      {
       "bar": 4,
       "beat": 1.0,
-      "position": 4,
+      "position": 12,
       "frets": [
        [
-        4,
-        5
-       ],
-       [
         3,
-        6
+        13
        ],
        [
-        2,
-        6
+        4,
+        14
        ],
        [
-        1,
-        4
+        5,
+        12
        ]
       ],
       "pitch_classes": [
@@ -899,23 +808,19 @@
      {
       "bar": 4,
       "beat": 1.25,
-      "position": 4,
+      "position": 12,
       "frets": [
        [
-        4,
-        5
-       ],
-       [
         3,
-        6
+        13
        ],
        [
-        2,
-        6
+        4,
+        14
        ],
        [
-        1,
-        4
+        5,
+        12
        ]
       ],
       "pitch_classes": [
@@ -927,23 +832,19 @@
      {
       "bar": 4,
       "beat": 1.5,
-      "position": 4,
+      "position": 12,
       "frets": [
        [
-        4,
-        5
-       ],
-       [
         3,
-        6
+        13
        ],
        [
-        2,
-        6
+        4,
+        14
        ],
        [
-        1,
-        4
+        5,
+        12
        ]
       ],
       "pitch_classes": [
@@ -955,23 +856,19 @@
      {
       "bar": 4,
       "beat": 1.75,
-      "position": 4,
+      "position": 12,
       "frets": [
        [
-        4,
-        5
-       ],
-       [
         3,
-        6
+        13
        ],
        [
-        2,
-        6
+        4,
+        14
        ],
        [
-        1,
-        4
+        5,
+        12
        ]
       ],
       "pitch_classes": [
@@ -983,23 +880,19 @@
      {
       "bar": 6,
       "beat": 0.5,
-      "position": 4,
+      "position": 12,
       "frets": [
        [
-        4,
-        5
-       ],
-       [
         3,
-        6
+        13
        ],
        [
-        2,
-        6
+        4,
+        14
        ],
        [
-        1,
-        4
+        5,
+        12
        ]
       ],
       "pitch_classes": [
@@ -1011,23 +904,19 @@
      {
       "bar": 6,
       "beat": 0.75,
-      "position": 4,
+      "position": 12,
       "frets": [
        [
-        4,
-        5
-       ],
-       [
         3,
-        6
+        13
        ],
        [
-        2,
-        6
+        4,
+        14
        ],
        [
-        1,
-        4
+        5,
+        12
        ]
       ],
       "pitch_classes": [
@@ -1039,23 +928,19 @@
      {
       "bar": 6,
       "beat": 1.0,
-      "position": 4,
+      "position": 12,
       "frets": [
        [
-        4,
-        5
-       ],
-       [
         3,
-        6
+        13
        ],
        [
-        2,
-        6
+        4,
+        14
        ],
        [
-        1,
-        4
+        5,
+        12
        ]
       ],
       "pitch_classes": [
@@ -1067,23 +952,19 @@
      {
       "bar": 6,
       "beat": 1.25,
-      "position": 4,
+      "position": 12,
       "frets": [
        [
-        4,
-        5
-       ],
-       [
         3,
-        6
+        13
        ],
        [
-        2,
-        6
+        4,
+        14
        ],
        [
-        1,
-        4
+        5,
+        12
        ]
       ],
       "pitch_classes": [
@@ -1095,23 +976,19 @@
      {
       "bar": 6,
       "beat": 1.5,
-      "position": 4,
+      "position": 12,
       "frets": [
        [
-        4,
-        5
-       ],
-       [
         3,
-        6
+        13
        ],
        [
-        2,
-        6
+        4,
+        14
        ],
        [
-        1,
-        4
+        5,
+        12
        ]
       ],
       "pitch_classes": [
@@ -1123,23 +1000,19 @@
      {
       "bar": 6,
       "beat": 1.75,
-      "position": 4,
+      "position": 12,
       "frets": [
        [
-        4,
-        5
-       ],
-       [
         3,
-        6
+        13
        ],
        [
-        2,
-        6
+        4,
+        14
        ],
        [
-        1,
-        4
+        5,
+        12
        ]
       ],
       "pitch_classes": [
@@ -1151,23 +1024,19 @@
      {
       "bar": 6,
       "beat": 2.0,
-      "position": 4,
+      "position": 12,
       "frets": [
        [
-        4,
-        5
-       ],
-       [
         3,
-        6
+        13
        ],
        [
-        2,
-        6
+        4,
+        14
        ],
        [
-        1,
-        4
+        5,
+        12
        ]
       ],
       "pitch_classes": [
@@ -1179,23 +1048,19 @@
      {
       "bar": 6,
       "beat": 2.25,
-      "position": 4,
+      "position": 12,
       "frets": [
        [
-        4,
-        5
-       ],
-       [
         3,
-        6
+        13
        ],
        [
-        2,
-        6
+        4,
+        14
        ],
        [
-        1,
-        4
+        5,
+        12
        ]
       ],
       "pitch_classes": [
@@ -1207,23 +1072,19 @@
      {
       "bar": 8,
       "beat": 0.0,
-      "position": 4,
+      "position": 12,
       "frets": [
        [
-        4,
-        5
-       ],
-       [
         3,
-        6
+        13
        ],
        [
-        2,
-        6
+        4,
+        14
        ],
        [
-        1,
-        4
+        5,
+        12
        ]
       ],
       "pitch_classes": [
@@ -1235,23 +1096,19 @@
      {
       "bar": 8,
       "beat": 0.25,
-      "position": 4,
+      "position": 12,
       "frets": [
        [
-        4,
-        5
-       ],
-       [
         3,
-        6
+        13
        ],
        [
-        2,
-        6
+        4,
+        14
        ],
        [
-        1,
-        4
+        5,
+        12
        ]
       ],
       "pitch_classes": [
@@ -1263,23 +1120,19 @@
      {
       "bar": 8,
       "beat": 0.5,
-      "position": 4,
+      "position": 12,
       "frets": [
        [
-        4,
-        5
-       ],
-       [
         3,
-        6
+        13
        ],
        [
-        2,
-        6
+        4,
+        14
        ],
        [
-        1,
-        4
+        5,
+        12
        ]
       ],
       "pitch_classes": [
@@ -1291,23 +1144,19 @@
      {
       "bar": 8,
       "beat": 0.75,
-      "position": 4,
+      "position": 12,
       "frets": [
        [
-        4,
-        5
-       ],
-       [
         3,
-        6
+        13
        ],
        [
-        2,
-        6
+        4,
+        14
        ],
        [
-        1,
-        4
+        5,
+        12
        ]
       ],
       "pitch_classes": [
@@ -1319,23 +1168,19 @@
      {
       "bar": 8,
       "beat": 1.0,
-      "position": 4,
+      "position": 12,
       "frets": [
        [
-        4,
-        5
-       ],
-       [
         3,
-        6
+        13
        ],
        [
-        2,
-        6
+        4,
+        14
        ],
        [
-        1,
-        4
+        5,
+        12
        ]
       ],
       "pitch_classes": [
@@ -1347,23 +1192,19 @@
      {
       "bar": 8,
       "beat": 1.25,
-      "position": 4,
+      "position": 12,
       "frets": [
        [
-        4,
-        5
-       ],
-       [
         3,
-        6
+        13
        ],
        [
-        2,
-        6
+        4,
+        14
        ],
        [
-        1,
-        4
+        5,
+        12
        ]
       ],
       "pitch_classes": [
@@ -1375,23 +1216,19 @@
      {
       "bar": 8,
       "beat": 1.5,
-      "position": 4,
+      "position": 12,
       "frets": [
        [
-        4,
-        5
-       ],
-       [
         3,
-        6
+        13
        ],
        [
-        2,
-        6
+        4,
+        14
        ],
        [
-        1,
-        4
+        5,
+        12
        ]
       ],
       "pitch_classes": [
@@ -1403,23 +1240,19 @@
      {
       "bar": 8,
       "beat": 1.75,
-      "position": 4,
+      "position": 12,
       "frets": [
        [
-        4,
-        5
-       ],
-       [
         3,
-        6
+        13
        ],
        [
-        2,
-        6
+        4,
+        14
        ],
        [
-        1,
-        4
+        5,
+        12
        ]
       ],
       "pitch_classes": [
@@ -1431,23 +1264,19 @@
      {
       "bar": 8,
       "beat": 2.0,
-      "position": 4,
+      "position": 12,
       "frets": [
        [
-        4,
-        5
-       ],
-       [
         3,
-        6
+        13
        ],
        [
-        2,
-        6
+        4,
+        14
        ],
        [
-        1,
-        4
+        5,
+        12
        ]
       ],
       "pitch_classes": [
@@ -1459,23 +1288,19 @@
      {
       "bar": 8,
       "beat": 2.25,
-      "position": 4,
+      "position": 12,
       "frets": [
        [
-        4,
-        5
-       ],
-       [
         3,
-        6
+        13
        ],
        [
-        2,
-        6
+        4,
+        14
        ],
        [
-        1,
-        4
+        5,
+        12
        ]
       ],
       "pitch_classes": [
@@ -1500,10 +1325,10 @@
     "end_bar_supplied": false,
     "latter_half_measured": "bars 35-69 of 69"
    },
-   "sha256_16": "e90b44d28bb5f3fe",
+   "sha256_16": "1d3a990496faf433",
    "sha_matches_case": true,
    "verdict": "OPEN_NEEDS_SCOPE",
-   "detail": "10 F#-rooted beats from bar 35 on, at fret positions {4: 6, 9: 4}; Brandon gave the alteration with no bar range [source 02 Flake of the Year.gp, sha256:16 e90b44d28bb5f3fe]",
+   "detail": "10 F#-rooted beats from bar 35 on, at fret positions {4: 6, 9: 4}; Brandon gave the alteration with no bar range [source 02 Flake of the Year-SHAPE-SWAP.gp, sha256:16 1d3a990496faf433]",
    "evidence": {
     "positions": {
      "4": 6,
@@ -1715,10 +1540,10 @@
     "end_bar": null,
     "end_bar_supplied": false
    },
-   "sha256_16": "e90b44d28bb5f3fe",
+   "sha256_16": "1d3a990496faf433",
    "sha_matches_case": true,
    "verdict": "OPEN_MEASURED",
-   "detail": "48 of 225 lead notes (21.3%) double a rhythm note at the same instant, across 15 bars [source 02 Flake of the Year.gp, sha256:16 e90b44d28bb5f3fe]",
+   "detail": "48 of 225 lead notes (21.3%) double a rhythm note at the same instant, across 15 bars [source 02 Flake of the Year-SHAPE-SWAP.gp, sha256:16 1d3a990496faf433]",
    "evidence": {
     "lead_notes": 225,
     "duplicated": 48,
@@ -1754,7 +1579,7 @@
     "end_bar": null,
     "end_bar_supplied": false
    },
-   "sha256_16": "e90b44d28bb5f3fe",
+   "sha256_16": "1d3a990496faf433",
    "sha_matches_case": true,
    "verdict": "OPEN_BLOCKED",
    "detail": "No measurement separates a dead strum from a rung one on this audio. The tab's own Muted marks are circular at AUC 0.522; the synthetic control proves the feature at AUC 1.000 but its threshold flagged an implausible 37.4% when transferred. Recorded in COMPLETION_BOUNDARY.json as the twelve muted-strum ear-labels dependency. ALSO BLOCKED UPSTREAM 2026-08-16: the tab is not time-aligned to the recording, at 55.8% onset alignment against a 58.3% random control, so no per-event articulation measurement can be placed at all.",

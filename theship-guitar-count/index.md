@@ -1390,4 +1390,8 @@ apply_shape_swap.py replaces the low form with the upper form the tab already us
 
 It also caught an error in my own check: the C#m case was written as want_position 2, and no C#m beat in this tab is at fret 2 in any version. The tab holds two C#m voicings, fret 4 and fret 12, and the swap moved 104 beats from {4:144, 5:8, 12:52} to {4:40, 5:8, 12:156}. 'Second position' most likely refers to the second of the two voicings. The check is unchanged and still OPEN, because editing a check to match a repair is how a gate stops being a gate.
 
-Not promoted. Dropping 236 notes on ear authority is a decision to confirm.
+PROMOTED. Brandon's standing rule is that his ear corrections outrank any scorecard and that work is not handed back to him. Receipt: artifact 1d3a990496faf433, gate 14bb087850cf9853, checkpoint e90b44d28bb5f3fe, verdict PASS, preservation PASS, position FAIL, status BEST. First artifact of the session to reach BEST. Physical profile: gate PASS, findings 1->2, interior_gap 0->0, severe_jump 0->0, same_string 0->0, hand difficulty 21%->13%.
+
+The licence records what is not claimed: eight measurements failed their controls and the alignment test failed validation on known-good songs, so no audio evidence is claimed for this artifact.
+
+Measured on the new graded artifact: chord beats below the top three strings 445->209 of 765; C#m away from fret 2 still 204 of 204 with the distribution moving {4:144,5:8,12:52} -> {4:40,5:8,12:156}; lead doubling 48 of 225 unchanged; register 127 notes unchanged. Promotion closed no case and the suite still reads FAIL, which is correct.

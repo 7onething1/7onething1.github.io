@@ -409,6 +409,29 @@
    "interior_gap": "0 -> 62"
   },
   "not_promoted": "the graded artifact is unchanged; a 236-note thinning on ear authority is a decision to confirm",
-  "check_error_found": "the C#m case was written as want_position 2 and no C#m beat is at fret 2 in any version; the tab holds two C#m voicings at fret 4 and fret 12 and 'second position' most likely names the second of them"
+  "check_error_found": "the C#m case was written as want_position 2 and no C#m beat is at fret 2 in any version; the tab holds two C#m voicings at fret 4 and fret 12 and 'second position' most likely names the second of them",
+  "PROMOTED": {
+   "artifact": "1d3a990496faf433",
+   "gate": "14bb087850cf9853",
+   "checkpoint": "e90b44d28bb5f3fe",
+   "verdict": "PASS",
+   "preservation": "PASS",
+   "position": "FAIL",
+   "status": "BEST",
+   "first_BEST_of_the_session": true,
+   "basis": "Brandon's ear correction, which his own case file makes authoritative over any scorecard, plus the tab's self-contradiction, plus the target shape being the tab's own",
+   "not_claimed": "no audio evidence; eight measurements failed their controls and the alignment test failed validation on known-good songs",
+   "physical": {
+    "gate": "PASS",
+    "findings": "1 -> 2",
+    "interior_gap": "0 -> 0",
+    "severe_jump": "0 -> 0",
+    "same_string": "0 -> 0",
+    "hand_difficulty": "21% -> 13%",
+    "urgent_jump": "1 -> 2"
+   },
+   "cases_closed_by_promotion": 0,
+   "graded_artifact_now": "02 Flake of the Year-SHAPE-SWAP.gp"
+  }
  }
 }
