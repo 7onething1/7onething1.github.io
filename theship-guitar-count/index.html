@@ -3340,6 +3340,34 @@ confirms at 152 against a staff median of 54. The gate is describing the music r
 a defect, and the three routes to PASS all require falsifying something: changing the
 pitch, changing the tuning, or deleting the note.</p>
 
+<h3>REVIEW is terminal here, and the gate is built that way on purpose</h3>
+
+<p><b>The question was whether the validator offers any way to mark a finding
+audio-verified and advance to PASS. It does not, and the source says so plainly.</b></p>
+
+<p>The verdict is computed in <code>check_file</code> as a pure function of the measured
+counts. A non-zero <code>shift</code> forces REVIEW:</p>
+
+<pre style="overflow-x:auto;font-size:12px;line-height:1.5;background:var(--dust);padding:10px;border:1px solid var(--rule)">elif (r["hand_skip_pct"] &gt; SKIP_OK or r["shift"] or r["severe_jump"]
+      or r["evidence"] or r["octave_isolated"] or r["ownership_suspect"]
+      or r["wide_review"]):
+    r["verdict"] = "REVIEW"</pre>
+
+<p><b>Every licence flag the tool has lives somewhere else.</b>
+<code>--license-skip-regression</code>, <code>--license-note-removal</code> and
+<code>--accept-tier-tradeoff</code> are parameters of
+<code>compare_checkpoint</code>, which decides PROMOTION. None of them is in scope where
+the verdict is decided, and no argument reaches that branch.</p>
+
+<p><b>So PASS requires <code>shift == 0</code>, and only three things produce that:</b>
+re-finger the note, which is impossible because G2 has one position on this neck; re-pitch
+it, which falsifies a note the recording confirms at an SNR of 152 against a staff median
+of 54; or delete it, same objection. <b>REVIEW is the terminal state for this artifact</b>,
+and reaching PASS would mean lying about the music.</p>
+
+<p>That is the gate working as designed. A verdict no argument can override is the whole
+point of having one.</p>
+
 <footer>
   <p><b>Reproduce:</b><br>
   <code>python3 ~/Projects/_outputs/theship-tabs/guitar_count.py</code><br>

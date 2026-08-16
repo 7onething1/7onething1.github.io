@@ -1762,3 +1762,9 @@ The validator's last finding is a SHIFT in the Rhythm staff at bar 40, low E fre
 The G2 is about three times better supported than the average note in its own staff. Deleting it to turn the verdict green would remove one of the best-evidenced notes in the transcription.
 
 So REVIEW is the correct verdict and PASS is not available honestly. The three routes to PASS all require falsifying something: changing the pitch, changing the tuning, or deleting the note.
+
+### REVIEW is terminal here, and the gate is built that way on purpose
+
+The verdict is computed in check_file as a pure function of the measured counts, and a non-zero `shift` forces REVIEW. Every licence flag the tool has (--license-skip-regression, --license-note-removal, --accept-tier-tradeoff) is a parameter of compare_checkpoint, which decides PROMOTION. None is in scope where the verdict is decided.
+
+So PASS requires shift == 0, and only three things produce that: re-finger the note, impossible because G2 has one position on this neck; re-pitch it, which falsifies a note the recording confirms at SNR 152 against a staff median of 54; or delete it, same objection. REVIEW is the terminal state for this artifact, and reaching PASS would mean lying about the music.
