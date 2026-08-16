@@ -102,7 +102,7 @@
     <li><a href="#alignment">A conclusion this page published, and then refuted</a></li>
     <li><a href="#swap">The tab contradicts itself, and that is the repair</a></li>
     <li><a href="#staffrole">04 Six Feet Under: the Lead was not transcribed</a></li>
-    <li><a href="#capo">Brandon supplied the voicing, and it decodes to a capo</a></li>
+    <li><a href="#capo">A capo I invented, and the discrepancy underneath it</a></li>
     <li><a href="#register2">The 127 register notes are one open string</a></li>
     <li><a href="#ownership">The lead-doubling audit, note by note</a></li>
     <li><a href="#synthetic">The synthetic control, and the rests correction measured</a></li>
@@ -2452,204 +2452,35 @@ articulation, fingering and lead-doubling decision.</p>
 
 
 
-<h2 id="capo">14 &nbsp;Brandon supplied the voicing, and it decodes to a capo</h2>
+<h2 id="capo">14 &nbsp;A capo I invented, and the discrepancy underneath it</h2>
 
-<p><b>His words:</b> the second-position C sharp minor sounds <b>G string 16, B string 15,
-e string 14</b>. That is arithmetic, and it needs no audio:</p>
+<div style="border:2px solid #8A2F17;background:#F3D9D2;padding:12px 14px;margin:1.2em 0">
+<p style="margin:0"><b>RETRACTED. Brandon never mentioned a capo.</b> He gave one fact: the
+second-position C sharp minor sounds <b>G string 16, B string 15, e string 14</b>. This
+section previously read that as proof of a capo at the second fret. He proposed no such
+thing, and his words for it were "i never said shit about a capo". The capo was my
+invention presented as his statement.</p></div>
 
-<div class="tablewrap"><table>
-<thead><tr><th>Reading</th><th>G16</th><th>B15</th><th>e14</th><th>Chord</th></tr></thead>
-<tbody>
-<tr><td>standard tuning, capo 0</td><td>B4</td><td>D5</td><td>F#5</td><td>B minor</td></tr>
-<tr><td><b>capo at fret 2</b></td><td><b>C#5</b></td><td><b>E5</b></td><td><b>G#5</b></td><td><b>C# minor</b></td></tr>
-</tbody></table></div>
-
-<p><b>Those frets sound C sharp minor only with a capo at the second fret.</b> Which makes
-both of his corrections one statement: the chord is on the upper three strings, and
-"second position" is the capo. The tab declares <code>capo 0</code>.</p>
+<p><b>The arithmetic that prompted it still needs an answer.</b> In the tuning this tab
+declares, standard E, those three frets sound:</p>
 
 <div class="tablewrap"><table>
-<thead><tr><th></th><th>Pitches</th><th>Inversion</th><th>Written as</th></tr></thead>
+<thead><tr><th>String</th><th>Fret</th><th>Sounds</th></tr></thead>
 <tbody>
-<tr><td>Brandon's chord</td><td>C#5 E5 G#5</td><td>root position</td><td>G16 B15 e14, capo 2</td></tr>
-<tr><td>What the tab has</td><td>G#4 C#5 E5</td><td>first inversion</td><td>s3f13 s4f14 s5f12, capo 0</td></tr>
+<tr><td>G</td><td>16</td><td>B4</td></tr>
+<tr><td>B</td><td>15</td><td>D5</td></tr>
+<tr><td>e</td><td>14</td><td>F#5</td></tr>
 </tbody></table></div>
 
-<p><b>The tab writes the same three pitch classes a sixth lower and in the wrong
-inversion.</b> That is a pitch-content error, so no refretting reaches it, which is exactly
-what the fret-2 measurement showed when it found no second-position C#m at any pitch set
-the tab contains.</p>
+<p><b>B, D and F sharp is a B minor.</b> Brandon calls that shape a C sharp minor, and he
+plays the instrument. So one of the tab's assumptions is wrong: either its declared
+standard tuning does not match the recording, or the string labels here do not line up
+with his. <b>That is an open question about the tab, not a theory to build on.</b></p>
 
-<p><b>The audio could not adjudicate this, for the ninth time.</b> Testing the whole staff
-at 0, +1, +2, +3 and -2 semitones returned margins against the decoy of -2.3, -2.4, -2.5,
--2.5 and -2.3. The presence measure cannot distinguish any transposition on this material,
-so this finding comes from the fretboard arithmetic and Brandon's ear.</p>
-
-<p><b>What decides the repair:</b> whether the whole performance carries a capo at 2, which
-would re-fret the entire tab, or whether only this chord is higher than written. Memory
-already records the cost of getting this wrong: a GPIF with CapoFret 2 and Midi written for
-capo 0 read two semitones sharp on 891 notes.</p>
-
-
-<h2 id="staffrole">14 &nbsp;04 Six Feet Under: the Lead was not transcribed, and the Rhythm staff covered for it</h2>
-
-<p><b>Brandon, 2026-08-16:</b> &ldquo;there's a bass and a guitar part and a lead part, but
-the lead part at times was not transcribed at all and the rhythm part is put as the lead
-when that happens and the lead then tacet.&rdquo;</p>
-
-<p><b>That is checkable from the notation alone, and it holds.</b> Measured on
-<code>04 Six Feet Under.gp</code> sha256:16 <code>7bab579303034d9d</code>:</p>
-
-<div class="tablewrap"><table>
-<thead><tr><th>Staff and region</th><th class="num">Events</th><th class="num">Chords</th>
-<th class="num">Single notes</th></tr></thead>
-<tbody>
-<tr><td>Lead, bars 2-56</td><td class="num">204</td><td class="num">7.4%</td><td class="num">92.6%</td></tr>
-<tr><td>Lead, bars 57-140</td><td class="num">0</td><td class="num">-</td><td class="num">-</td></tr>
-<tr><td>Rhythm, where the Lead plays</td><td class="num">98</td><td class="num"><b>100.0%</b></td><td class="num">0.0%</td></tr>
-<tr><td>Rhythm, where the Lead is silent</td><td class="num">303</td><td class="num"><b>32.0%</b></td><td class="num">52.9%</td></tr>
-</tbody></table></div>
-
-<p><b>The Rhythm staff plays nothing but chords for as long as a Lead staff exists, then
-starts playing single-note lines the moment it stops.</b> From <b>bar 69</b> it is pure single
-notes, 8, 6, 8, 6, 8 events a bar with no Lead anywhere. And all <b>18</b> bars in the file
-that mix single lines with chords on one staff fall inside the Lead-empty stretch, with none
-where the Lead is playing.</p>
-
-<h3>Playability could never have caught this</h3>
-
-<p>Each staff on its own is perfectly playable. The defect is the <b>relationship between
-the two staves over time</b>, which no hand-span, collision, tie or fret check looks at.
-<code>staff_role_audit.py</code> measures two things: what share of active bars have BOTH
-staves sounding, and whether a staff's chord-versus-line character changes when the other
-falls silent.</p>
-
-<div class="tablewrap"><table>
-<thead><tr><th>Song</th><th class="num">Co-activity</th><th class="num">Both staves</th>
-<th class="num">Role flip</th><th>Verdict</th></tr></thead>
-<tbody>
-  <tr><td>05 Sleep Vs Death</td><td class="num">0.0%</td><td class="num">0 of 94</td><td class="num">None</td><td><span class="pill bad">one part split</span></td></tr>
-  <tr><td>04 Six Feet Under</td><td class="num">14.5%</td><td class="num">19 of 131</td><td class="num">68.0</td><td><span class="pill bad">one part split</span></td></tr>
-  <tr><td>02 Flake of the Year</td><td class="num">24.2%</td><td class="num">16 of 66</td><td class="num">24.9</td><td><span class="pill bad">one part split</span></td></tr>
-  <tr><td>09 MHL</td><td class="num">28.6%</td><td class="num">24 of 84</td><td class="num">39.7</td><td><span class="pill bad">one part split</span></td></tr>
-  <tr><td>11 Ambulance</td><td class="num">32.5%</td><td class="num">53 of 163</td><td class="num">53.3</td><td><span class="pill bad">one part split</span></td></tr>
-  <tr><td>08 JGBFTL</td><td class="num">37.7%</td><td class="num">20 of 53</td><td class="num">0.0</td><td><span class="pill bad">one part split</span></td></tr>
-  <tr><td>03 Gene (UPGRADED LEAD)</td><td class="num">60.4%</td><td class="num">61 of 101</td><td class="num">51.1</td><td><span class="pill bad">one part split</span></td></tr>
-  <tr><td>10 Trapped in Wonderland</td><td class="num">60.0%</td><td class="num">51 of 85</td><td class="num">21.9</td><td><span class="pill ok">two parts</span></td></tr>
-  <tr><td>01 Seedy Shade</td><td class="num">-</td><td class="num">-</td><td class="num">-</td><td><span class="pill ok">single staff</span></td></tr>
-  <tr><td>07 MOP</td><td class="num">-</td><td class="num">-</td><td class="num">-</td><td><span class="pill ok">single staff</span></td></tr>
-</tbody></table></div>
-
-<p><b>Seven of ten measure as one part split across two staves.</b> 05 Sleep Vs Death returns
-<b>0.0%</b>: its two staves never sound together in any of its 94 active bars. 04 Six Feet
-Under trips all three criteria at once, which is why Brandon heard it there.</p>
-
-<p><b>10 Trapped in Wonderland returns TWO_PARTS at 60.0%</b>, and that is the control. The
-measure is capable of clearing a file, and it clears the one song this page already called
-perfect.</p>
-
-<h3>What this changes about the album</h3>
-
-<p>This page opened by asking how many guitarists were in the room, and answered from the
-audio. <b>Here is the same answer from the notation, reached independently:</b> on seven of
-ten files the two staves hold one player written down in alternating halves, and on 04 the
-halves even swap duties.</p>
-
-<p><b>The repair scope on 04, to the bar, read from <code>04 Six Feet Under.gp</code>
-sha256:16 <code>7bab579303034d9d</code>:</b> the Lead staff is empty from bar 57 to 140,
-and the Rhythm staff carries single-note lead lines from bar 69 onward. Those lines belong
-on the Lead staff, and what remains on the Rhythm staff after they move is what the rhythm
-guitar actually played. That reassignment needs an ownership decision per line, which is the
-same measurement the 48 duplicated lead notes on Flake are waiting for.</p>
-
-
-<h3>The repair was built, promoted, and retracted within the hour</h3>
-
-<p><code>apply_staff_reassign.py</code> moves whole bars between the two staves by swapping
-their bar ids inside MasterBars. Both staves carry <code>[40,45,50,55,59,64]</code> and capo
-0, so a bar means the same thing on either one and <b>not a single note, fret, string, tie
-or duration is edited</b>.</p>
-
-<p><b>First attempt, both directions, RETRACTED.</b> All bar numbers here are read from
-<code>04 Six Feet Under.gp</code> sha256:16 <code>7bab579303034d9d</code>. Moving 4
-pure-chordal Lead bars, 42, 46, 50 and 54, to the Rhythm staff orphaned 14 tie chains, because those bars sit inside a
-tied sequence spanning bars 39-54. The gate returned <code>TIE_INCONSISTENT x14</code> and
-<code>TIE_UNMATCHED x1</code>. A tie chain moves whole or not at all.</p>
-
-<p><b>Second attempt, one direction, clean and then RETRACTED anyway.</b> Moving 35 bars of
-pure single-note lines from the Rhythm staff to the empty Lead staff gave:</p>
-
-<div class="tablewrap"><table>
-<thead><tr><th>Measure</th><th class="num">Result</th></tr></thead>
-<tbody>
-<tr><td>validator verdict, both staves</td><td class="num"><b>PASS</b>, 0 findings</td></tr>
-<tr><td>notes edited</td><td class="num"><b>0</b></td></tr>
-<tr><td>preservation, BOTH GUITARS</td><td class="num">1175 to 1175, none vanished, none invented</td></tr>
-<tr><td>Rhythm chord share where the Lead is silent</td><td class="num">32.0% to <b>58.8%</b></td></tr>
-<tr><td>Lead staff events</td><td class="num">204 to 342, at 4.4% chords</td></tr>
-</tbody></table></div>
-
-<p><b>It promoted to BEST, and then a regression case killed it.</b> The move put attacks on
-the Lead staff in 29 bars at bar 71 or later, and Brandon's grounded verbatim correction is
-that the Lead Guitar must be <b>tacet from bar 71</b>. Case
-<code>04-lead-tacet-71</code> went from RESOLVED to OPEN_MEASURED, so the artifact was
-withdrawn to <code>delete/</code> and the graded artifact reverted to
-<code>7bab579303034d9d</code>.</p>
-
-<p><b>A verbatim correction outranks an inference drawn from a measurement.</b> The
-measurement was sound and the repair it suggested was wrong.</p>
-
-<h3>Both of Brandon's statements hold at once</h3>
-
-<p>They looked contradictory and are not. The rapid sixteenth and thirty-second passage that
-once sat at bar 71 <b>was spurious and is already gone</b>, which is why that case read
-RESOLVED. Separately, <b>the real lead line in that stretch was never transcribed at all</b>.
-So an empty Lead staff there is ALSO a defect, and the fix is to transcribe the missing lead
-rather than to move the Rhythm staff's material into it.</p>
-
-<p><b>What survives, unaffected:</b> the measurement. The Rhythm staff is still 100.0% chords
-across 98 events where the Lead plays and 32.0% across 303 events where it is silent, and 7
-of 10 album files still measure as one part split across two staves. Only the repair was
-withdrawn.</p>
-
-
-
-<h3>Applied, and a regression I caused on the way</h3>
-
-<p><b>His voicing is now in the tab.</b> At the capo 0 the file declares, C#5 E5 G#5 is
-<code>s3f18 s4f17 s5f16</code>, the identical hand position to his G16 B15 e14 at capo 2.
-156 C#m beats carry it.</p>
-
-<pre style="overflow-x:auto;font-size:12px;line-height:1.5;background:var(--dust);padding:10px;border:1px solid var(--rule)">artifact  398b3c7b6970425f   verdict PASS   preservation PASS   status BEST
-gate PASS on both staves, hand 13%, interior_gap 0, severe_jump 0, same_string 0
-urgent_jump 1 -> 6, from the shift between the E chord at fret 12 and the C#m at fret 16
-C#m fret distribution  {4:144, 5:8, 12:52}  ->  {4:40, 5:8, 16:156}</pre>
-
-<p><b>The first attempt at this destroyed the previous artifact.</b>
-<code>apply_shape_swap.py</code> always reads the audition source, so running the C#m swap
-as a second pass silently discarded the 236-beat voicing swap and overwrote the promoted
-file. The note census caught it, printing Rhythm Guitar 2948 to 2948 where 2712 was
-expected. All three swaps now run in one pass. <b>A tool that always reads the source is
-not composable across runs, and writing to the same output name made the loss
-invisible.</b></p>
-
-<p><b>The check stays open and unchanged.</b> It measures whether the HAND is at fret 2.
-His statement decodes to the CAPO at fret 2. Those are different facts, so the honest move
-is a new check for his supplied voicing rather than an edit to this one.</p>
-
-<h3>Neither capo reading fixes everything</h3>
-
-<div class="tablewrap"><table>
-<thead><tr><th>Reading</th><th>The 127 sub-floor notes</th><th>The C#m</th></tr></thead>
-<tbody>
-<tr><td>A: the tab is capo 2, every pitch rises 2</td><td class="num"><b>127 to 2</b></td><td>G#,C#,E becomes A#,D#,F#, so the chord is destroyed</td></tr>
-<tr><td>B: the pitches are right, the notation gains a capo</td><td class="num">127, unchanged</td><td>unchanged</td></tr>
-</tbody></table></div>
-
-<p><b>Reading A would clear 125 of the 127 register notes</b>, which is a striking result
-for a hypothesis that also breaks the chord Brandon names. Both facts are recorded and
-neither is acted on.</p>
-
+<p><b>What was actually applied</b> is the C sharp minor at the pitches C#5, E5 and G#5,
+written at <code>s3f18 s4f17 s5f16</code>. That stands on its own and does not depend on
+the retracted capo reading. Whether it is the chord he means depends on the tuning
+question above.</p>
 
 <h2 id="register2">15 &nbsp;The 127 register notes are one open string</h2>
 

@@ -1621,3 +1621,11 @@ The fixed map on 04 Six Feet Under, promoted artifact 66410cea12c9bf10, 30 ms wi
 What this costs: three published conclusions rested on the broken map and are now suspect rather than settled. The claim that no per-event fact could be measured is simply false; with an accepted map, attack precision and recall, timing error and duration agreement are measurable on 04, and none has been run yet.
 
 What it does not change: the onset extractor still recovers 98.8% on clean synthetic plucks and collapses on dense reverberant material, and the ownership measurement still refuses itself.
+
+### RETRACTION of the capo reading
+
+Brandon never mentioned a capo. He gave one fact: the second-position C sharp minor sounds G string 16, B string 15, e string 14. Section 14 read that as proof of a capo at the second fret; he proposed no such thing. The capo was my invention presented as his statement.
+
+The arithmetic still needs an answer: in the standard E tuning this tab declares, those frets sound B4, D5, F#5, a B minor. He calls the shape a C sharp minor and he plays the instrument, so either the tab's declared tuning does not match the recording or the string labels do not line up. That is an open question about the tab.
+
+What was applied is the C#m at pitches C#5 E5 G#5, written s3f18 s4f17 s5f16. That stands on its own and does not depend on the retracted capo reading.

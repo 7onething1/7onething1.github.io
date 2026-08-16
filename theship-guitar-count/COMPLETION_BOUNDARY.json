@@ -443,30 +443,11 @@
   ]
  },
  "capo_finding": {
-  "source": "Brandon supplied the voicing: G string 16, B string 15, e string 14",
-  "capo_0": "B4 D5 F#5 = B minor",
-  "capo_2": "C#5 E5 G#5 = C# minor",
-  "conclusion": "those frets sound C# minor only with a capo at fret 2, so 'second position' is the capo and both of his corrections are one statement",
-  "tab_declares": "capo 0",
-  "tab_has": "G#4 C#5 E5, first inversion, s3f13 s4f14 s5f12",
-  "target": "C#5 E5 G#5, root position",
-  "why_refretting_cannot_reach_it": "the pitch content differs, which is what the fret-2 measurement showed",
-  "audio": "transposition test at 0/+1/+2/+3/-2 returned decoy margins of -2.3 to -2.5 at every shift; ninth failure of the presence measure",
-  "open_question": "whether the whole performance is capo 2, which would re-fret the entire tab",
-  "APPLIED": {
-   "artifact": "398b3c7b6970425f",
-   "events": 156,
-   "written_as": "s3f18 s4f17 s5f16 at capo 0, the same hand position as G16 B15 e14 at capo 2",
-   "verdict": "PASS",
-   "preservation": "PASS",
-   "status": "BEST",
-   "cost": "urgent_jump 1 -> 6",
-   "C#m_distribution": "{4:144,5:8,12:52} -> {4:40,5:8,16:156}"
-  },
-  "reading_test": {
-   "A_pitches_rise_2": "the 127 sub-floor notes become 2, but G#/C#/E becomes A#/D#/F# and the chord is destroyed",
-   "B_notation_only": "nothing changes"
-  }
+  "RETRACTED": "Brandon never mentioned a capo; the capo reading was my invention presented as his statement",
+  "his_actual_words": "the second-position C sharp minor sounds G string 16, B string 15, e string 14",
+  "the_open_discrepancy": "in the standard E tuning this tab declares, those frets sound B4 D5 F#5, a B minor, and he calls the shape a C sharp minor",
+  "means": "either the tab's declared tuning does not match the recording, or the string labels do not line up",
+  "what_was_applied": "the C#m at pitches C#5 E5 G#5 written s3f18 s4f17 s5f16, which stands independent of the retracted reading"
  },
  "staff_role_audit": {
   "brandon_2026-08-16": "the lead part at times was not transcribed at all and the rhythm part is put as the lead when that happens and the lead then tacet",

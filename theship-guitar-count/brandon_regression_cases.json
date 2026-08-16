@@ -166,7 +166,9 @@
      "sounds": "C#5 E5 G#5",
      "check_still_OPEN": "the check measures whether the HAND is at fret 2; his statement decodes to the CAPO at fret 2. Those are different facts. The check is left unchanged rather than edited to match the repair, and a check for his supplied voicing is the correct addition.",
      "cost": "urgent_jump 1 -> 6 from the position shift between the E chord at fret 12 and the C#m at fret 16"
-    }
+    },
+    "CAPO_READING_RETRACTED": "Brandon never mentioned a capo. His words: 'i never said shit about a capo'. The capo was my inference presented as his statement.",
+    "open_discrepancy": "in the standard E tuning this tab declares, G16 B15 e14 sound B4 D5 F#5, a B minor, and he calls the shape a C sharp minor. Either the tab's tuning does not match the recording or the string labels do not line up."
    }
   },
   {
