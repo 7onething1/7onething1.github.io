@@ -1694,3 +1694,22 @@ Established: nothing was deleted, the boundary is the AI's, and the 157 single-n
 The rhythm split stem is saturated: 100.0% pitch agreement AND a 100.0% control for both staves, so it carries no information. The only nonzero separation runs the wrong way, Rhythm +4.5 against the LEAD stem while Lead is -5.9 against it, which is an independent arrival at the ownership-refusal finding that the split sorts by register rather than by player.
 
 Every map ACCEPTED at gains of +38 to +49 and attack precision is 47 to 58%, so timing corresponds and is about half right. Pitch cannot be verified with the stems that exist. Nothing on this page should be read as pitch-verified.
+
+### Pitch content IS verifiable, on an HPSS separation of the full mix
+
+Every stem on disk failed, so a harmonic/percussive separation of the full mix was built. The test is right-against-wrong: at each written note's mapped time, the written pitch is measured against a deliberately wrong pitch 1, 6 or 11 semitones away.
+
+| Threshold | Rhythm median separation | min | max | seeds positive |
+|---|---|---|---|---|
+| x2 | +4.7 | +3.1 | +6.4 | 20/20 |
+| x3 | +6.4 | +3.6 | +9.5 | 20/20 |
+| x4 | +10.2 | +8.1 | +12.1 | 20/20 |
+| x6 | +14.3 | +11.5 | +18.9 | 20/20 |
+| x8 | +17.9 | +15.4 | +20.7 | 20/20 |
+| x12 | +20.4 | +18.2 | +24.8 | 20/20 |
+
+120 of 120 measurements on the Rhythm staff are positive, 119 of 120 on the Lead, and the separation grows monotonically with the threshold from +4.7 to +20.4, which is the signature of a real signal.
+
+So the inherited Rhythm transcription's pitch content is supported by the recording. This is the first successful pitch verification on this project and it corrects the standing conclusion that pitch could not be settled here. Every earlier attempt used the Demucs stems: guitar_rhythm is saturated at 100.0% for written and wrong pitches alike, and the combined guitar stem separates by only +2.3. The stems were the problem all along.
+
+One intermediate reading is withdrawn: a single-seed sweep reported -8.7 for Rhythm at threshold 3, contradicting +7.0 from the same configuration minutes earlier. Twenty seeds return +3.6 to +9.5, all positive, so the -8.7 was the anomaly.

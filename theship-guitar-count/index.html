@@ -3205,6 +3205,46 @@ is about half right. Its PITCH cannot be verified with the stems that exist. Tha
 property of this separation, not a claim that the notes are right, and nothing on this page
 should be read as pitch-verified.</p>
 
+<h3>Pitch content IS verifiable, on an HPSS separation of the full mix</h3>
+
+<p><b>Every stem on disk failed, so a new separation was built:</b> harmonic/percussive
+source separation of the full mix, keeping the harmonic part. The test is a
+right-against-wrong control that had never been run on this project. At each written note's
+own mapped time, the written pitch is measured against a <b>deliberately wrong</b> pitch,
+1, 6 or 11 semitones away. A measure with no power scores them equally.</p>
+
+<div class="tablewrap"><table>
+<thead><tr><th class="num">Threshold</th><th class="num">Rhythm, median separation</th>
+<th class="num">min</th><th class="num">max</th><th class="num">seeds positive</th></tr></thead>
+<tbody>
+<tr><td class="num">x2</td><td class="num">+4.7</td><td class="num">+3.1</td><td class="num">+6.4</td><td class="num">20/20</td></tr>
+<tr><td class="num">x3</td><td class="num">+6.4</td><td class="num">+3.6</td><td class="num">+9.5</td><td class="num">20/20</td></tr>
+<tr><td class="num">x4</td><td class="num">+10.2</td><td class="num">+8.1</td><td class="num">+12.1</td><td class="num">20/20</td></tr>
+<tr><td class="num">x6</td><td class="num">+14.3</td><td class="num">+11.5</td><td class="num">+18.9</td><td class="num">20/20</td></tr>
+<tr><td class="num">x8</td><td class="num">+17.9</td><td class="num">+15.4</td><td class="num">+20.7</td><td class="num">20/20</td></tr>
+<tr><td class="num"><b>x12</b></td><td class="num"><b>+20.4</b></td><td class="num">+18.2</td><td class="num">+24.8</td><td class="num">20/20</td></tr>
+</tbody></table></div>
+
+<p><b>120 of 120 measurements on the Rhythm staff are positive</b>, and 119 of 120 on the
+Lead. The separation <b>grows monotonically with the threshold</b>, from +4.7 to +20.4,
+which is the signature of a real signal: a stricter criterion discriminates more. A
+threshold artifact would not behave that way.</p>
+
+<p><b>So the inherited Rhythm transcription's pitch content is supported by the
+recording.</b> 644 notes, measured against a control designed to expose a measure with no
+power, on a separation built for the purpose. This is the first successful pitch
+verification on this project, and it corrects the standing conclusion that pitch could not
+be settled here.</p>
+
+<p><b>Why every earlier attempt failed:</b> they used the Demucs stems. The guitar_rhythm
+split is saturated, returning 100.0% for written and wrong pitches alike, and the combined
+guitar stem separates by only +2.3. The stems were the problem all along.</p>
+
+<p><b>One intermediate reading was wrong and is withdrawn.</b> A single-seed threshold sweep
+reported -8.7 for the Rhythm staff at threshold 3, which contradicted a +7.0 from the same
+configuration minutes earlier. Twenty seeds at that threshold return +3.6 to +9.5, all
+positive, so the -8.7 was the anomaly and nothing should be read from it.</p>
+
 <footer>
   <p><b>Reproduce:</b><br>
   <code>python3 ~/Projects/_outputs/theship-tabs/guitar_count.py</code><br>
