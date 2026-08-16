@@ -1195,3 +1195,38 @@ Every source unmodified; every repair wrote to a new path. Final sweep: **zero d
    07 33-40, 08 1-40, 09 9-24, 11 85-92 and 88-92), each with per-bar roots.
 2. **The drop-D answer on 05 bars 39-40.**
 3. **Twelve ear-calls on 02 Flake.**
+
+
+### The validator's own judgment on all ten sources
+
+Validator `impossible_gate.py` sha256[:16] `14bb087850cf9853`.
+
+| song | validator | audio accuracy | together |
+|---|---|---|---|
+| **01 Seedy Shade** | **PASS** | **no failing window** | **perfect on both** |
+| 02 Flake | PASS | bars 61-69 fail | plays fine, wrong there |
+| 03 Gene | PASS | bars 71-80 fail | plays fine, wrong there |
+| 04 Six Feet | PASS | bars 131-140 near-silent | written over nothing |
+| 05 Sleep | REVIEW, 1 shift | bars 39-40 need drop D | both flag it |
+| 07 MOP | PASS | bars 33-40 drone | plays fine, wrong there |
+| 08 JGBFTL | PASS | aligns nowhere | matches no clock |
+| 09 MHL | PASS | bars 9-24 drone, largest defect | sixteen bars wrong |
+| **10 Trapped** | REVIEW, 11 shifts | **no failing window** | shifts 5.0-5.3 frets vs a ">5" threshold, 100% pitch support |
+| 11 Ambulance | PASS | bars 85-92, 88-92 drones | plays fine, wrong there |
+
+**Eight of ten PASS the physical gate. One of ten is right on both counts.**
+09 MHL passes every hand-span, collision, tie and shift check while holding one
+chord through sixteen bars at a median energy deficit of 11.7x. That is the
+completion rule's opening sentence made measurable.
+
+**10's REVIEWs do not overturn its clean audio verdict**: 5.0-5.3 frets against a
+">5" threshold, and those beats carry 100% pitch support vs an 86.5% baseline.
+
+### Completion, stated exactly
+
+- **01 Seedy Shade is perfect**: validator PASS, no failing audio window, one guitar
+  confirmed by Brandon.
+- **10 Trapped has no wrong notes**, with eleven borderline fingering reviews left
+  deliberately unrepaired.
+- **The other eight are blocked on one of three named inputs**, with per-bar roots
+  supplied for every re-transcription window.

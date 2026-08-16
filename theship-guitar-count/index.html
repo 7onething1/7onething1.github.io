@@ -1705,6 +1705,52 @@ or is a second instrument playing it?</li>
 was run and each failure is published with the control that killed it.</li>
 </ol>
 
+
+<h3>The validator's own judgment on all ten sources</h3>
+
+<p>Validator <code>impossible_gate.py</code>, sha256[:16] <code>14bb087850cf9853</code>,
+run across the ten audition files. This is the artifact-level verdict, and it is
+worth reading beside the audio verdict because <b>they disagree, and the
+disagreement is the point of the whole audit.</b></p>
+
+<table>
+<thead><tr><th>song</th><th>validator</th><th>audio accuracy</th><th>the two together</th></tr></thead>
+<tbody>
+<tr><td><b>01 Seedy Shade</b></td><td><b>PASS</b></td><td><b>no failing window</b></td><td><b>perfect on both</b></td></tr>
+<tr><td>02 Flake of the Year</td><td>PASS</td><td>bars 61-69 fail</td><td>plays fine, wrong there</td></tr>
+<tr><td>03 Gene</td><td>PASS</td><td>bars 71-80 fail</td><td>plays fine, wrong there</td></tr>
+<tr><td>04 Six Feet Under</td><td>PASS</td><td>bars 131-140 near-silent</td><td>plays fine, written over nothing</td></tr>
+<tr><td>05 Sleep Vs Death</td><td>REVIEW, 1 shift</td><td>bars 39-40 need drop D</td><td>both flag it, for different reasons</td></tr>
+<tr><td>07 MOP</td><td>PASS</td><td>bars 33-40 drone</td><td>plays fine, wrong there</td></tr>
+<tr><td>08 JGBFTL</td><td>PASS</td><td>aligns nowhere</td><td>plays fine, matches no clock</td></tr>
+<tr><td>09 MHL</td><td>PASS</td><td>bars 9-24 drone, the largest defect</td><td>plays fine, sixteen bars wrong</td></tr>
+<tr><td><b>10 Trapped in Wonderland</b></td><td>REVIEW, 11 shifts</td><td><b>no failing window</b></td><td>shifts are 5.0-5.3 frets against a "&gt;5" threshold, and those beats carry 100% pitch support</td></tr>
+<tr><td>11 Ambulance</td><td>PASS</td><td>bars 85-92, 88-92 drones</td><td>plays fine, wrong there</td></tr>
+</tbody></table>
+
+<p><b>Eight of ten PASS the physical gate. One of ten is right on both counts.</b>
+09 MHL passes every hand-span, string-collision, tie and fret-shift check while
+holding one chord through sixteen bars of moving harmony at a median energy deficit
+of 11.7 times. That is the sentence the completion rule opens with, made
+measurable: a build passes every gate while faithfully reproducing wrong notes.</p>
+
+<p><b>10 Trapped's two REVIEW findings do not overturn its clean audio verdict.</b>
+The eleven shifts measure 5.0 to 5.3 frets in 125 ms against a threshold of more
+than 5, and the flagged beats carry <b>100% pitch support against an 86.5% song
+baseline</b>. The notes are right and only a borderline fingering is questioned,
+which is why no refret was applied.</p>
+
+<h3>Completion, stated exactly</h3>
+
+<ul class="tight">
+<li><b>01 Seedy Shade is perfect</b>: validator PASS, no failing audio window, and
+Brandon's own confirmation that it carries one guitar.</li>
+<li><b>10 Trapped in Wonderland has no wrong notes</b>: no failing audio window,
+with eleven borderline fingering reviews left deliberately unrepaired.</li>
+<li><b>The other eight are each blocked on one of three named inputs</b>, with the
+recording's per-bar roots supplied for every window that needs re-transcription.</li>
+</ul>
+
 <h3>04 Six Feet Under bar 58, and a hypothesis the audio refuted</h3>
 
 <p>Brandon: <i>"six feet under bar 58 sounds like a weird chord not quite
