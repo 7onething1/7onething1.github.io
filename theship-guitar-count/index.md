@@ -996,3 +996,43 @@ or is a second instrument playing it? Either answer settles the repair.
 
 **No file written.** The transposer aborted on the negative fret rather than moving
 notes to another string to hide a tuning problem.
+
+
+### 09 MHL bars 11-20: a fabricated drone over ten bars of real harmony
+
+The tuning scan found nothing in 02/03/04 and a weak drop-C# signal in 09.
+Narrowing split the staff: **Lead 87.5-100% as written and the shift HURTS it**;
+**Rhythm's EVEN bars 12/14/16/18/20 sit at 0-18.8%** and gain 31-50pp. A tuning is
+continuous, so an alternating pattern rules it out.
+
+**The tab writes the same thing in all ten bars: open E2 + open A2.** A static drone.
+
+| bar | written | recording's root | its energy | energy at written E2 |
+|---|---|---|---|---|
+| 11 | E2 | C#3 | 886.6 | 72.4 |
+| **12** | E2 | **G#2** | 812.7 | 39.5 |
+| 13 | E2 | E3 | 561.8 | 37.7 |
+| **14** | E2 | **G#3** | 662.7 | 16.9 |
+| 15 | E2 | G#3 | 879.6 | 32.2 |
+| **16** | E2 | **G#2** | 1121.8 | 9.4 |
+| 17 | E2 | E3 | 715.4 | 52.0 |
+| **18** | E2 | **G#2** | 980.4 | 18.5 |
+| 19 | E2 | C#3 | 844.3 | 89.5 |
+| **20** | E2 | **G#2** | 860.8 | 3.7 |
+
+**Written carries 3.7-89.5 energy where the true root carries 562-1122**, a factor
+of 10 to 200. Ten bars, 160 notes, replaced by a drone. Same behaviour as Flake
+and Six Feet bar 71. The progression above is the re-transcription spec.
+
+### All five defects classified
+
+| defect | cause | locally repairable? |
+|---|---|---|
+| **05 Sleep 39-40** | low E two semitones down (drop D), +75.0pp specific | **No.** GPIF tuning is per track; two notes are the open low E |
+| **09 MHL 11-20** | fabricated static drone over moving harmony | **No.** Ten bars of new notes need a Songsterr source |
+| **04 Six Feet 131-140** | near-silence, 0.07x median loudness | **Partly.** 136-137 already in the applied silence scope |
+| **03 Gene 71-80** | loud single-note line, wrong notes, no tuning cause | **No.** Re-transcription |
+| **02 Flake 61-69** | sparse, marginal, no tuning cause | **No.** Re-transcription |
+
+**None is a fret edit.** Two are physically inexpressible in the file as tuned, two
+need notes only a transcription source may supply, one is partly handled.

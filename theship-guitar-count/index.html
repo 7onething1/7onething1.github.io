@@ -1408,6 +1408,67 @@ tuning produces pitches the recording does not contain.</p>
 than moving those notes to another string, since that would have changed the
 voicing to hide a tuning problem.</p>
 
+
+<h3>09 MHL bars 11-20: a fabricated drone over ten bars of real harmony</h3>
+
+<p>The same tuning scan run on the other four defects found nothing in 02, 03 or
+04, and a weak drop-C# signal in 09. Narrowing it split the staff cleanly:</p>
+
+<ul class="tight">
+<li><b>Lead scores 87.5% to 100% as written</b> and the shift HURTS it, by 12.5 to
+37.5 points.</li>
+<li><b>Rhythm's EVEN bars 12, 14, 16, 18, 20 sit at 0% to 18.8%</b> and gain 31 to
+50 points from the shift. The odd bars are fine.</li>
+</ul>
+
+<p>A tuning is continuous, so an alternating pattern rules it out. Reading what is
+actually written finished it: <b>the tab writes exactly the same thing in all ten
+bars, open E2 plus open A2</b>. A static two-string drone.</p>
+
+<p>Asking the recording which root each bar carries:</p>
+
+<table>
+<thead><tr><th>bar</th><th>written</th><th>the recording's root</th><th>its energy</th><th>energy at the written E2</th></tr></thead>
+<tbody>
+<tr><td>11</td><td>E2</td><td>C#3</td><td>886.6</td><td>72.4</td></tr>
+<tr><td><b>12</b></td><td>E2</td><td><b>G#2</b></td><td>812.7</td><td>39.5</td></tr>
+<tr><td>13</td><td>E2</td><td>E3</td><td>561.8</td><td>37.7</td></tr>
+<tr><td><b>14</b></td><td>E2</td><td><b>G#3</b></td><td>662.7</td><td>16.9</td></tr>
+<tr><td>15</td><td>E2</td><td>G#3</td><td>879.6</td><td>32.2</td></tr>
+<tr><td><b>16</b></td><td>E2</td><td><b>G#2</b></td><td>1121.8</td><td>9.4</td></tr>
+<tr><td>17</td><td>E2</td><td>E3</td><td>715.4</td><td>52.0</td></tr>
+<tr><td><b>18</b></td><td>E2</td><td><b>G#2</b></td><td>980.4</td><td>18.5</td></tr>
+<tr><td>19</td><td>E2</td><td>C#3</td><td>844.3</td><td>89.5</td></tr>
+<tr><td><b>20</b></td><td>E2</td><td><b>G#2</b></td><td>860.8</td><td>3.7</td></tr>
+</tbody></table>
+
+<p><b>The written note carries 3.7 to 89.5 energy where the true root carries 562
+to 1122</b>, a factor of ten to two hundred. The harmony moves
+C#, G#, E, G#, G#, G#, E, G#, C#, G# and the tab holds one chord through all of
+it.</p>
+
+<p>This is the behaviour Brandon named on Flake and on Six Feet Under bar 71:
+uncertain musical space filled with plausible guitar material instead of preserving
+what is there. <b>Ten bars, 160 written notes, replaced by a drone.</b> The
+progression above is the specification a re-transcription needs.</p>
+
+<h3>All five defects classified</h3>
+
+<table>
+<thead><tr><th>defect</th><th>cause</th><th>repairable locally?</th></tr></thead>
+<tbody>
+<tr><td><b>05 Sleep, bars 39-40</b></td><td>the recording plays the low E string two semitones down, drop D, 15 of 16 notes on that string, +75.0 points specific to this window</td><td><b>No.</b> GPIF stores tuning per track, not per bar, and two of the notes are the open low E so no refretting reaches it</td></tr>
+<tr><td><b>09 MHL, bars 11-20</b></td><td>a fabricated static drone over ten bars of moving harmony</td><td><b>No.</b> The replacement is ten bars of new notes, which the pipeline requires to come from Songsterr</td></tr>
+<tr><td><b>04 Six Feet, bars 131-140</b></td><td>near-silence, 0.07 times the song's median bar loudness</td><td><b>Partly.</b> Bars 136-137 already sit in the applied silence scope</td></tr>
+<tr><td><b>03 Gene, bars 71-80</b></td><td>loud single-note line at 2.09 times median, wrong notes, no tuning explanation</td><td><b>No.</b> Re-transcription</td></tr>
+<tr><td><b>02 Flake, bars 61-69</b></td><td>sparse at 15.3 notes per bar against 45.9, marginal, no tuning explanation</td><td><b>No.</b> Re-transcription</td></tr>
+</tbody></table>
+
+<p><b>None of the five is a fret edit.</b> Two are physically inexpressible in the
+file as tuned, two need notes only a transcription source may supply, and one is
+already partly handled. That is the honest classification, and it is why the
+remaining work is an upload rather than a script.</p>
+
 <h3>04 Six Feet Under bar 58, and a hypothesis the audio refuted</h3>
 
 <p>Brandon: <i>"six feet under bar 58 sounds like a weird chord not quite
