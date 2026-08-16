@@ -106,6 +106,7 @@
     <li><a href="#register2">The 127 register notes are one open string</a></li>
     <li><a href="#ownership">The lead-doubling audit, note by note</a></li>
     <li><a href="#synthetic">The synthetic control, and the rests correction measured</a></li>
+    <li><a href="#located">The map works, and the rests correction is located</a></li>
     
   </ol>
 </div>
@@ -2773,6 +2774,62 @@ measured at 30% of the tab instead of unmeasurable.</p>
 control belonged before the beat map, before the attack-rise measure, and before the
 retracted section 12. Running it seventeen sections late still overturned a published
 claim and unblocked a case that had been called immeasurable all session.</p>
+
+
+<h2 id="located">18 &nbsp;The map works, and the rests correction is located</h2>
+
+<p><b>The synthetic control found the bug in my own beat map.</b> Run against a signal whose
+alignment is exactly identity, the first version scored <b>74.9% before the map and 32.6%
+after it</b>, below its own 34.7% control. It destroyed a perfect alignment. The cause: it
+matched a sparse impulse train against a continuous onset-strength curve under a Euclidean
+cost, which compares nothing. Rewritten to align the two event sequences directly:</p>
+
+<div class="tablewrap"><table>
+<thead><tr><th>Song</th><th class="num">Before the map</th><th class="num">After</th>
+<th class="num">Random control</th><th class="num">Gain</th><th>Verdict</th></tr></thead>
+<tbody>
+<tr><td>synthetic, identity alignment</td><td class="num">74.9%</td><td class="num"><b>100.0%</b></td><td class="num">34.7%</td><td class="num">+65.3</td><td>ACCEPTED</td></tr>
+<tr><td>02 Flake</td><td class="num">17.0%</td><td class="num">61.5%</td><td class="num">22.3%</td><td class="num">+39.2</td><td>ACCEPTED</td></tr>
+<tr><td>03 Gene, z = 17.7</td><td class="num">15.4%</td><td class="num">58.4%</td><td class="num">13.5%</td><td class="num">+44.9</td><td>ACCEPTED</td></tr>
+<tr><td>10 Trapped</td><td class="num">11.1%</td><td class="num">54.0%</td><td class="num">12.2%</td><td class="num">+41.8</td><td>ACCEPTED</td></tr>
+<tr><td>05 Sleep Vs Death</td><td class="num">10.1%</td><td class="num">48.6%</td><td class="num">8.9%</td><td class="num">+39.7</td><td>ACCEPTED</td></tr>
+</tbody></table></div>
+
+<h3>The audio accuracy audit, finally on a map that validates</h3>
+
+<div class="tablewrap"><table>
+<thead><tr><th>Measure</th><th class="num">Graded artifact 1897971fe23b1233</th></tr></thead>
+<tbody>
+<tr><td>attack precision</td><td class="num"><b>61.5%</b>, 574 of 933 written attacks match a detected onset</td></tr>
+<tr><td>attack recall</td><td class="num">85.9%, 574 of 668 detected onsets are written</td></tr>
+<tr><td>F1</td><td class="num">71.7%</td></tr>
+<tr><td>pitch agreement</td><td class="num">85.3% against an 87.7% shifted-time control, margin <b>-2.4</b></td></tr>
+<tr><td>timing error</td><td class="num">median 0.0 ms, p90 324 ms</td></tr>
+</tbody></table></div>
+
+<p><b>The timing median is partly circular</b> and is reported as such: the DTW maps attacks
+onto onsets, so matched events align by construction. <b>Pitch agreement still fails its
+control at -2.4</b>, so pitch content remains unverified even with the map working.</p>
+
+<h3>Where the excess attacks are</h3>
+
+<div class="tablewrap"><table>
+<thead><tr><th>Staff</th><th class="num">Attack events</th><th class="num">With no detected onset</th></tr></thead>
+<tbody>
+<tr><td>Rhythm Guitar</td><td class="num">933</td><td class="num"><b>544, 58.3%</b></td></tr>
+<tr><td>Lead Guitar</td><td class="num">225</td><td class="num">40, 17.8%</td></tr>
+<tr><td>both</td><td class="num">1158</td><td class="num">584, 50.4%</td></tr>
+</tbody></table></div>
+
+<p><b>Twelve whole bars carry sixteen written attacks and not one detected onset:</b> bars
+40, 42, 50, 51, 52, 53, 54, 55, 57, 58, 59 and 60. Sixteenth-note strumming written across
+a bar the recording does not strum. That is Brandon's "rests or dead attacks replaced with
+continued chord strumming", located rather than described.</p>
+
+<p><b>The caveat, stated plainly:</b> the matching is greedy and one-to-one, so with 933
+written against 668 detected at least 265 are unmatched by scarcity alone. The remaining
+319 are unmatched for other reasons. Every one of the 584 is listed in
+<code>flake_unmatched_attacks.json</code>.</p>
 
 <footer>
   <p><b>Reproduce:</b><br>

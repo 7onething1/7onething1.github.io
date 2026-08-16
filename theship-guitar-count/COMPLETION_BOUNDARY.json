@@ -584,5 +584,52 @@
    "not_circular": "uses no information from the tab's Muted marks",
    "what_is_missing": "WHICH 278, which needs a working alignment; beat_map.py still refuses its map"
   }
+ },
+ "beat_map_FIXED_AND_VALIDATED": {
+  "bug": "the first DTW matched a sparse impulse train against a continuous onset-strength curve under a Euclidean cost, and on a synthetic identity alignment it took 74.9% down to 32.6%, below its 34.7% control",
+  "fix": "align the two event sequences directly, cost |t_tab - t_audio|",
+  "validation": {
+   "synthetic_identity": "100.0% vs 34.7%, +65.3, ACCEPTED",
+   "02": "+39.2 ACCEPTED",
+   "03 Gene z=17.7": "+44.9 ACCEPTED",
+   "10 Trapped": "+41.8 ACCEPTED",
+   "05": "+39.7 ACCEPTED"
+  }
+ },
+ "AUDIO_ACCURACY_AUDIT": {
+  "artifact": "1897971fe23b1233",
+  "map": "validated",
+  "attack_precision_pct": 61.5,
+  "attack_recall_pct": 85.9,
+  "f1": 71.7,
+  "pitch_agreement_pct": 85.3,
+  "pitch_shifted_control_pct": 87.7,
+  "pitch_margin": -2.4,
+  "timing_median_ms": 0.0,
+  "timing_p90_ms": 324.1,
+  "timing_caveat": "partly circular, the DTW maps attacks onto onsets so matched events align by construction",
+  "pitch_verdict": "still fails its control, so pitch content remains unverified"
+ },
+ "rests_LOCATED": {
+  "written_attack_events": 1158,
+  "unmatched": 584,
+  "pct": 50.4,
+  "Rhythm": "544 of 933, 58.3%",
+  "Lead": "40 of 225, 17.8%",
+  "whole_bars_16_of_16_unmatched": [
+   40,
+   42,
+   50,
+   51,
+   52,
+   53,
+   54,
+   55,
+   57,
+   58,
+   59,
+   60
+  ],
+  "caveat": "greedy one-to-one matching means at least 265 are unmatched by scarcity alone"
  }
 }

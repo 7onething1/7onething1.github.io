@@ -1523,3 +1523,21 @@ So the detector finds about 1.01-1.03x the true count and recovers positions far
 The tab writes roughly 30% more attacks than the recording contains. That is Brandon's rests-and-dead-attacks correction, measured, using no information from the tab's own Muted marks, so it escapes the AUC 0.522 circularity that blocked the case.
 
 What it does not give is which 278. Locating them needs a working alignment and beat_map.py still refuses its map, so the case stays OPEN with the defect measured at 30% instead of unmeasurable.
+
+## 18 The map works, and the rests correction is located
+
+The synthetic control found the bug in my own beat map: against a signal whose alignment is exactly identity, the first version scored 74.9% before the map and 32.6% after, below its own 34.7% control. It matched a sparse impulse train against a continuous onset curve under a Euclidean cost. Rewritten to align event sequences directly:
+
+| Song | Before | After | Control | Gain | Verdict |
+|---|---|---|---|---|---|
+| synthetic, identity | 74.9% | 100.0% | 34.7% | +65.3 | ACCEPTED |
+| 02 Flake | 17.0% | 61.5% | 22.3% | +39.2 | ACCEPTED |
+| 03 Gene z=17.7 | 15.4% | 58.4% | 13.5% | +44.9 | ACCEPTED |
+| 10 Trapped | 11.1% | 54.0% | 12.2% | +41.8 | ACCEPTED |
+| 05 Sleep Vs Death | 10.1% | 48.6% | 8.9% | +39.7 | ACCEPTED |
+
+Audio accuracy on artifact 1897971fe23b1233: attack precision 61.5% (574 of 933), attack recall 85.9% (574 of 668), F1 71.7%, pitch agreement 85.3% against an 87.7% shifted-time control (margin -2.4), timing median 0.0 ms and p90 324 ms. The timing median is partly circular since the DTW maps attacks onto onsets. Pitch agreement still fails its control.
+
+Located: 584 of 1158 written attack events have no detected onset. Rhythm 544 of 933 (58.3%), Lead 40 of 225 (17.8%). Twelve whole bars carry sixteen written attacks and not one detected onset: 40, 42, 50, 51, 52, 53, 54, 55, 57, 58, 59, 60.
+
+Caveat: the matching is greedy and one-to-one, so at least 265 are unmatched by scarcity alone; the remaining 319 for other reasons. All 584 are in flake_unmatched_attacks.json.

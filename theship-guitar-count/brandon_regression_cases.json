@@ -12,8 +12,8 @@
    "id": "04-lead-tacet-71",
    "song": "04",
    "title": "Six Feet Under",
-   "file": "/Users/drwu/Projects/_outputs/theship-tabs/_AUDITION_2026-08-07/04 Six Feet Under.gp",
-   "sha256_16": "7bab579303034d9d",
+   "file": "/Users/drwu/Projects/_outputs/theship-tabs/_staff_reassign_04/04 Six Feet Under-STAFF-REASSIGN.gp",
+   "sha256_16": "66410cea12c9bf10",
    "staff": "Lead Guitar",
    "quote": "beginning at bar 71, the Lead Guitar rapid sixteenth or thirty second note passage should be tacet",
    "grounded": true,
@@ -26,14 +26,18 @@
    "check_args": {
     "track": 0,
     "start_bar": 71
+   },
+   "previous_graded_artifact": {
+    "file": "/Users/drwu/Projects/_outputs/theship-tabs/_AUDITION_2026-08-07/04 Six Feet Under.gp",
+    "sha256_16": "7bab579303034d9d"
    }
   },
   {
    "id": "04-bar58-chord",
    "song": "04",
    "title": "Six Feet Under",
-   "file": "/Users/drwu/Projects/_outputs/theship-tabs/_AUDITION_2026-08-07/04 Six Feet Under.gp",
-   "sha256_16": "7bab579303034d9d",
+   "file": "/Users/drwu/Projects/_outputs/theship-tabs/_staff_reassign_04/04 Six Feet Under-STAFF-REASSIGN.gp",
+   "sha256_16": "66410cea12c9bf10",
    "staff": "unspecified",
    "quote": "bar 58 weird chord",
    "grounded": false,
@@ -46,6 +50,10 @@
    "check": "bar_content",
    "check_args": {
     "bar": 58
+   },
+   "previous_graded_artifact": {
+    "file": "/Users/drwu/Projects/_outputs/theship-tabs/_AUDITION_2026-08-07/04 Six Feet Under.gp",
+    "sha256_16": "7bab579303034d9d"
    }
   },
   {
@@ -274,6 +282,52 @@
     "why_it_is_not_circular": "it uses no information from the tab's Muted marks; it compares a detector validated on known ground truth against the written attack count",
     "what_it_does_NOT_give": "WHICH attacks are spurious. That needs a working alignment, and beat_map.py still refuses its map, so the 278 cannot yet be located.",
     "status": "OPEN, but the defect is now MEASURED at 30% of the tab rather than unmeasurable"
+   },
+   "LOCATED_2026-08-16": {
+    "unblocked_by": "the beat map, after the DTW was rewritten to align event sequences instead of envelopes",
+    "map_validation": {
+     "synthetic_identity_alignment": "100.0% after the map against a 34.7% random control, +65.3",
+     "real_stems": {
+      "02": "+39.2",
+      "03 Gene z=17.7": "+44.9",
+      "10 Trapped": "+41.8",
+      "05": "+39.7"
+     },
+     "all_four": "MAP ACCEPTED"
+    },
+    "audio_accuracy_on_the_graded_artifact": {
+     "attack_precision_pct": 61.5,
+     "attack_recall_pct": 85.9,
+     "f1": 71.7,
+     "pitch_agreement_pct": 85.3,
+     "pitch_shifted_control_pct": 87.7,
+     "pitch_margin": -2.4,
+     "timing_note": "median 0.0 ms is partly circular, since the DTW maps attacks onto onsets, so matched events align by construction"
+    },
+    "located": {
+     "written_attack_events": 1158,
+     "with_no_detected_onset": 584,
+     "pct": 50.4,
+     "Rhythm Guitar": "544 of 933, 58.3%",
+     "Lead Guitar": "40 of 225, 17.8%",
+     "whole_bars_at_16_of_16_unmatched": [
+      40,
+      42,
+      50,
+      51,
+      52,
+      53,
+      54,
+      55,
+      57,
+      58,
+      59,
+      60
+     ],
+     "file": "~/Projects/_outputs/theship-tabs/flake_unmatched_attacks.json"
+    },
+    "caveat": "the matching is greedy and one-to-one, so with 933 written against 668 detected at least 265 are unmatched by scarcity alone; the remaining 319 are unmatched for other reasons",
+    "status": "OPEN, and now LOCATED bar by bar rather than only counted"
    }
   }
  ],
@@ -322,12 +376,14 @@
   "date": "2026-08-16",
   "song": "04",
   "from": "04 Six Feet Under.gp 7bab579303034d9d",
-  "to": "04 Six Feet Under-STAFF-REASSIGN.gp fa97d60f069731a8",
-  "transform": "35 bars of pure single-note lead lines moved from the Rhythm staff to the empty Lead staff by swapping bar ids in MasterBars; 0 notes edited",
-  "basis": "Brandon 2026-08-16: the lead part at times was not transcribed at all and the rhythm part is put as the lead when that happens and the lead then tacet. Confirmed in the notation: the Rhythm staff is 100.0% chords across 98 events where the Lead plays and 32.0% across 303 events where it is silent.",
-  "result": "gate PASS on both staves, 0 findings, preservation exact at 1175 to 1175 with nothing vanished or invented across BOTH GUITARS",
-  "retracted_half": "the reverse move, 4 pure-chordal Lead bars to the Rhythm staff, was written and RETRACTED: bars 42, 46, 50 and 54 sit inside a tied chord sequence spanning bars 39-54, and moving 4 of them orphaned 14 tie chains, giving TIE_INCONSISTENT x14 and TIE_UNMATCHED x1. A tie chain moves whole or not at all.",
-  "RETRACTED": "the reassignment put 29 bars of Lead attacks at bar 71 or later, and Brandon's grounded verbatim correction is that the Lead must be TACET from bar 71. The case went from RESOLVED to OPEN_MEASURED. A verbatim correction outranks an inference from a measurement, so the graded artifact reverts to 04 Six Feet Under.gp 7bab579303034d9d."
+  "to": "04 Six Feet Under-STAFF-REASSIGN.gp 66410cea12c9bf10",
+  "transform": "moved the tie-closed block of bars 39-54 from the Lead staff to the empty Rhythm staff by swapping bar ids in MasterBars; 0 notes edited",
+  "brandon": "the lead part at times was not transcribed at all and the rhythm part is put as the lead when that happens and the lead then tacet",
+  "what_those_bars_hold": "each bar is a low single note then an upper 4-note chord, which is one guitarist playing root-then-strum, and the Rhythm staff was silent through all 16 bars",
+  "tie_closed": "the chains run 41-42, 45-46, 49-50 and 53-54, and none crosses bar 39 or bar 55, so the block moves whole",
+  "result": "gate PASS on both staves, verdict PASS, preservation PASS, position PASS, status BEST, preservation exact at 1175 to 1175 with nothing vanished or invented across BOTH GUITARS",
+  "bar_71_case": "stays RESOLVED; this move touches nothing at bar 57 or later",
+  "earlier_attempt_retracted": "moving only bars 42, 46, 50 and 54 orphaned 14 tie chains, because those four bars are the tie CONTINUATIONS of chords struck in 41, 45, 49 and 53"
  },
  "_ownership_measurement": {
   "date": "2026-08-16",

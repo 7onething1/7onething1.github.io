@@ -1,0 +1,11 @@
+{
+ "artifact": "1897971fe23b1233",
+ "map": "validated, +39.2 over control",
+ "attack_precision": 61.52,
+ "attack_recall": 85.93,
+ "f1": 71.71,
+ "timing_median_ms": 0.0,
+ "timing_p90_ms": 324.1,
+ "pitch_agreement": 85.26,
+ "pitch_control": 87.67
+}
