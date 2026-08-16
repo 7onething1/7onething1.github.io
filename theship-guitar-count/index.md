@@ -1258,7 +1258,27 @@ retraction published beside the number that forced it.**
 
 ## 8 Brandon's ear corrections, as regression cases
 
-The 2026-08-16 completion record carried the scorecard and dropped every one of these. It reported 8 PASS and 2 REVIEW, called 01 and 10 perfect, and reduced 02 Flake to bars 61-69 plus the muted question. Brandon's instruction was to promote his manual bar and performance observations into authoritative regression cases before another album-wide scorecard is allowed to call a song finished.
+The 2026-08-16 completion record carried the scorecard and dropped every one of these. It reported 8 PASS and 2 REVIEW, called 01 and 10 perfect, and reduced 02 Flake to bars 61-69 plus the muted question. All bar numbers here are read from `02 Flake of the Year.gp` sha256:16 `e90b44d28bb5f3fe` and `04 Six Feet Under.gp` sha256:16 `7bab579303034d9d`. Brandon's instruction was to promote his manual bar and performance observations into authoritative regression cases before another album-wide scorecard is allowed to clear a song.
+
+The suite, run just now:
+
+```
+python3 ~/.claude/skills/session-fraud-check/session_fraud_check.py --hard-only
+/Users/drwu/Projects/_outputs/theship-tabs/apply_octave_lift.py
+
+✓ No fraud patterns detected.
+
+python3 ~/.claude/skills/impossible-guitar-parts/regressions.py
+
+XFAIL    a-tree-for-trials    pitches gone none, pitches invented [85]; count 417 -> 393 (24 fewer, which is d
+PASS     blind-mans-arrow     capo [0] declared, the rejected capo 7 is absent
+PASS     secret               236 notes shared across the two staves (floor, exact-onset match)
+PASS     kilgore-trout        checkpoint held for 7 reason(s): SAME_STRING rises 0 -> 10; TIE_COLLISION rises 
+FAIL     register-evidence    UNSUPPORTED_REGISTER: 127 of 3173 notes below the measured 120 Hz floor (4.0%); 
+FAIL     brandon-ear-cases    6 of 7 cases unresolved (OPEN_BLOCKED 1, OPEN_MEASURED 3, OPEN_NEEDS_SCOPE 1, RE
+3 PASS  1 XFAIL  2 FAIL  0 XPASS  0 MISSING
+MACHINE VERDICT: FAIL
+```
 
 Source of record: `5fad405a-af59-4e36-84cc-8af5fb754977.jsonl:1443`, 2026-08-16T16:21:42Z. Every `*.jsonl` in the project directory was scanned for user-typed text mentioning Flake or Six Feet Under and exactly one message matched. Six of seven cases are quoted from it; the seventh appears in no message Brandon typed and is carried UNVERIFIED.
 
@@ -1267,7 +1287,7 @@ Source of record: `5fad405a-af59-4e36-84cc-8af5fb754977.jsonl:1443`, 2026-08-16T
 | **02 Flake of the Year** / Rhythm Guitar | "second position C sharp minor" | OPEN_MEASURED | 204 of 204 C#m beats are fretted away from position 2; positions found {4: 144, 5: 8, 12: 52} |
 | **02 Flake of the Year** / Lead Guitar against Rhythm Guitar | "duplicated lead notes" | OPEN_MEASURED | 48 of 225 lead notes (21.3%) double a rhythm note at the same instant, across 15 bars |
 | **02 Flake of the Year** / Rhythm Guitar | "upper three string chord voicings" | OPEN_MEASURED | 445 of 765 chord beats (58.2%) reach below the top three strings, across 37 bars |
-| **02 Flake of the Year** / Rhythm Guitar | "the F sharp alteration during the latter half" | OPEN_NEEDS_SCOPE | 10 F#-rooted beats from bar 35 on, at fret positions {4: 6, 9: 4}; Brandon gave the alteration with no bar range |
+| **02 Flake of the Year** / Rhythm Guitar | "the F sharp alteration during the latter half" | OPEN_NEEDS_SCOPE | 10 F#-rooted beats from bar 35 of 02 Flake of the Year.gp sha256:16 e90b44d28bb5f3fe on, at fret positions {4: 6, 9: 4}; Brandon gave the alteration with no bar range |
 | **02 Flake of the Year** / Rhythm Guitar | "rests or dead attacks that were replaced with continued chord strumming" | OPEN_BLOCKED | No measurement separates a dead strum from a rung one on this audio. The tab's own Muted marks are circular at AUC 0.522; the synthetic control proves the feature at AUC 1.000 but its threshold flagged an implausible 37.4% when transferred. Recorded in COMPLETION_BOUNDARY.json as the twelve muted-strum ear-labels dependency. |
 | **04 Six Feet Under** / unspecified | "bar 58 weird chord" | UNVERIFIED | Enumerated as Brandon's correction by the assistant in session 5fad405a at 2026-08-16T16:22:20.976Z. A scan of every transcript for user-typed text found no message stating it, so it is carried as UNVERIFIED rather than dropped or asserted. / measured: bar 58 holds 6 guitar beats; Brandon called this bar wrong without saying what it should be |
 | **04 Six Feet Under** / Lead Guitar | "beginning at bar 71, the Lead Guitar rapid sixteenth or thirty second note passage should be tacet" | RESOLVED | zero attacked notes in bars 71-140; the staff's last note of any kind is bar 56, and it carries 231 attacks in bars 1-70 |
@@ -1280,26 +1300,28 @@ python3 ~/.claude/skills/impossible-guitar-parts/regressions.py
 ```
 
 
-## 8 Brandon's ear corrections, as regression cases
+## 9 Why the voicings were wrong, and what the audio says
 
-The earlier 2026-08-16 completion record carried the scorecard and dropped every one of these. It reported 8 PASS and 2 REVIEW, called 01 and 10 perfect, and reduced 02 Flake to bars 61-69 plus the muted question. Brandon's instruction was to promote his manual bar and performance observations into authoritative regression cases before another album-wide scorecard is allowed to call a song finished.
+Brandon's two Flake corrections are one defect: the chord lives higher on the neck than the tab wrote it. The guitar stem carries under 2% of its energy below 120 Hz, so the transcriber had no evidence in the bottom octave and filled it with plausible root-position shapes, which every playability check passes.
 
-Source of record: `5fad405a-af59-4e36-84cc-8af5fb754977.jsonl:1443`, 2026-08-16T16:21:42Z. Every `*.jsonl` in the project directory was scanned for user-typed text mentioning Flake or Six Feet Under and exactly one message matched. Six of seven cases are quoted from it; the seventh appears in no message Brandon typed and is carried UNVERIFIED.
+On the 196 C#m beats whose written low note is above the floor: written low median SNR 1.90, decoy 1.29, same pitch class one octave up 8.21, winning on 81.6% of beats.
 
-| Song / staff | Brandon said | Verdict | Measured |
-|---|---|---|---|
-| **02 Flake of the Year** / Rhythm Guitar | "second position C sharp minor" | OPEN_MEASURED | 204 of 204 C#m beats are fretted away from position 2; positions found {4: 144, 5: 8, 12: 52} [source 02 Flake of the Year.gp, sha256:16 e90b44d28bb5f3fe] |
-| **02 Flake of the Year** / Lead Guitar against Rhythm Guitar | "duplicated lead notes" | OPEN_MEASURED | 48 of 225 lead notes (21.3%) double a rhythm note at the same instant, across 15 bars [source 02 Flake of the Year.gp, sha256:16 e90b44d28bb5f3fe] |
-| **02 Flake of the Year** / Rhythm Guitar | "upper three string chord voicings" | OPEN_MEASURED | 445 of 765 chord beats (58.2%) reach below the top three strings, across 37 bars [source 02 Flake of the Year.gp, sha256:16 e90b44d28bb5f3fe] |
-| **02 Flake of the Year** / Rhythm Guitar | "the F sharp alteration during the latter half" | OPEN_NEEDS_SCOPE | 10 F#-rooted beats from bar 35 on, at fret positions {4: 6, 9: 4}; Brandon gave the alteration with no bar range [source 02 Flake of the Year.gp, sha256:16 e90b44d28bb5f3fe] |
-| **02 Flake of the Year** / Rhythm Guitar | "rests or dead attacks that were replaced with continued chord strumming" | OPEN_BLOCKED | No measurement separates a dead strum from a rung one on this audio. The tab's own Muted marks are circular at AUC 0.522; the synthetic control proves the feature at AUC 1.000 but its threshold flagged an implausible 37.4% when transferred. Recorded in COMPLETION_BOUNDARY.json as the twelve muted-strum ear-labels dependency. |
-| **04 Six Feet Under** / unspecified | "bar 58 weird chord" | UNVERIFIED | Enumerated as Brandon's correction by the assistant in session 5fad405a at 2026-08-16T16:22:20.976Z. A scan of every transcript for user-typed text found no message stating it, so it is carried as UNVERIFIED rather than dropped or asserted. / measured: bar 58 holds 6 guitar beats; Brandon called this bar wrong without saying what it should be [source 04 Six Feet Under.gp, sha256:16 7bab579303034d9d] |
-| **04 Six Feet Under** / Lead Guitar | "beginning at bar 71, the Lead Guitar rapid sixteenth or thirty second note passage should be tacet" | RESOLVED | zero attacked notes in bars 71-140 of 04 Six Feet Under.gp; the staff's last note of any kind is bar 56, and it carries 231 attacks before bar 71 [source 04 Six Feet Under.gp, sha256:16 7bab579303034d9d] |
+| Song | Floor Hz | Below | Notes | % | Verdict |
+|---|---|---|---|---|---|
+| 09 09 MHL | 110 | 308 | 1119 | 27.5% | UNSUPPORTED_REGISTER |
+| 11 11 Ambulance | 110 | 347 | 3358 | 10.3% | UNSUPPORTED_REGISTER |
+| 05 05 Sleep Vs Death | 110 | 35 | 791 | 4.4% | UNSUPPORTED_REGISTER |
+| 02 02 Flake of the Year | 120 | 127 | 3173 | 4.0% | UNSUPPORTED_REGISTER |
+| 07 07 MOP | 90 | 40 | 1491 | 2.7% | UNSUPPORTED_REGISTER |
+| 03 03 Gene (UPGRADED LEAD) | 110 | 17 | 1695 | 1.0% | UNSUPPORTED_REGISTER |
+| 01 01 Seedy Shade | 80 | 0 | 1166 | 0.0% | REGISTER_SUPPORTED |
+| 04 04 Six Feet Under | 70 | 0 | 1175 | 0.0% | REGISTER_SUPPORTED |
+| 08 08 JGBFTL | 0 | 0 | 1960 | 0.0% | REGISTER_SUPPORTED |
+| 10 10 Trapped in Wonderland | 80 | 0 | 2011 | 0.0% | REGISTER_SUPPORTED |
 
-Run it:
+Six of ten songs write notes their own source could not see, 874 notes in all.
 
-```bash
-python3 ~/.claude/skills/impossible-guitar-parts/brandon_cases.py
-python3 ~/.claude/skills/impossible-guitar-parts/regressions.py
-```
+Repair: apply_octave_lift.py moved 134 tones up an octave, re-voicing each beat with the narrowest legal shape for that exact pitch multiset. Per-note support 72.6% -> 77.1%, decoy 75.1% -> 76.2%, margin -2.5 -> +0.9, 0 pitches vanished, 0 invented, hand skip 13.1% -> 19.8%. Receipt 8b7f9dcd609bff4e, verdict REVIEW, status best_validated_so_far.
+
+A wider first attempt invented pitches 62 and 69 and was retracted: their decoy medians (32.19 and 14.65) exceed the measured ones (5.39 and 11.18), so they are ambient and prove nothing.
 

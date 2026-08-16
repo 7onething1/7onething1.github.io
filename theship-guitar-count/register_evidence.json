@@ -1,0 +1,1983 @@
+[
+ {
+  "gp": "01 Seedy Shade.gp",
+  "stem": "01_seedy_shade-guitar.mp3",
+  "stem_seconds": 243.7,
+  "floor_pct": 2.0,
+  "measured_floor_hz": 80.0,
+  "energy_table": [
+   {
+    "below_hz": 60,
+    "pct_of_energy": 0.796
+   },
+   {
+    "below_hz": 70,
+    "pct_of_energy": 1.146
+   },
+   {
+    "below_hz": 80,
+    "pct_of_energy": 1.454
+   },
+   {
+    "below_hz": 90,
+    "pct_of_energy": 2.556
+   },
+   {
+    "below_hz": 100,
+    "pct_of_energy": 3.822
+   },
+   {
+    "below_hz": 110,
+    "pct_of_energy": 5.446
+   },
+   {
+    "below_hz": 120,
+    "pct_of_energy": 7.07
+   },
+   {
+    "below_hz": 130,
+    "pct_of_energy": 9.01
+   },
+   {
+    "below_hz": 150,
+    "pct_of_energy": 10.678
+   },
+   {
+    "below_hz": 175,
+    "pct_of_energy": 17.426
+   },
+   {
+    "below_hz": 200,
+    "pct_of_energy": 20.769
+   },
+   {
+    "below_hz": 250,
+    "pct_of_energy": 40.233
+   },
+   {
+    "below_hz": 300,
+    "pct_of_energy": 50.553
+   },
+   {
+    "below_hz": 400,
+    "pct_of_energy": 61.484
+   }
+  ],
+  "staves": [
+   {
+    "track": "Rhythm Guitar",
+    "notes": 1166,
+    "below_floor": 0,
+    "pct": 0.0,
+    "lowest_written_hz": null,
+    "examples": []
+   }
+  ],
+  "notes_total": 1166,
+  "notes_below_floor": 0,
+  "pct_below_floor": 0.0,
+  "verdict": "REGISTER_SUPPORTED",
+  "means": "notes written where the source stem holds under 2.0% of its energy were not transcribed from evidence in that register, whatever their playability score",
+  "song": "01"
+ },
+ {
+  "gp": "02 Flake of the Year.gp",
+  "stem": "02_flake_of_the_year-guitar.mp3",
+  "stem_seconds": 204.1,
+  "floor_pct": 2.0,
+  "measured_floor_hz": 120.0,
+  "energy_table": [
+   {
+    "below_hz": 60,
+    "pct_of_energy": 0.709
+   },
+   {
+    "below_hz": 70,
+    "pct_of_energy": 0.931
+   },
+   {
+    "below_hz": 80,
+    "pct_of_energy": 1.036
+   },
+   {
+    "below_hz": 90,
+    "pct_of_energy": 1.287
+   },
+   {
+    "below_hz": 100,
+    "pct_of_energy": 1.482
+   },
+   {
+    "below_hz": 110,
+    "pct_of_energy": 1.702
+   },
+   {
+    "below_hz": 120,
+    "pct_of_energy": 1.945
+   },
+   {
+    "below_hz": 130,
+    "pct_of_energy": 2.224
+   },
+   {
+    "below_hz": 150,
+    "pct_of_energy": 2.683
+   },
+   {
+    "below_hz": 175,
+    "pct_of_energy": 3.851
+   },
+   {
+    "below_hz": 200,
+    "pct_of_energy": 4.555
+   },
+   {
+    "below_hz": 250,
+    "pct_of_energy": 7.31
+   },
+   {
+    "below_hz": 300,
+    "pct_of_energy": 9.895
+   },
+   {
+    "below_hz": 400,
+    "pct_of_energy": 16.627
+   }
+  ],
+  "staves": [
+   {
+    "track": "Lead Guitar",
+    "notes": 225,
+    "below_floor": 0,
+    "pct": 0.0,
+    "lowest_written_hz": null,
+    "examples": []
+   },
+   {
+    "track": "Rhythm Guitar",
+    "notes": 2948,
+    "below_floor": 127,
+    "pct": 4.3,
+    "lowest_written_hz": 103.8,
+    "examples": [
+     {
+      "onset_beats": 14.0,
+      "string": 1,
+      "fret": 0,
+      "midi": 45,
+      "hz": 110.0
+     },
+     {
+      "onset_beats": 38.0,
+      "string": 0,
+      "fret": 5,
+      "midi": 45,
+      "hz": 110.0
+     },
+     {
+      "onset_beats": 38.25,
+      "string": 0,
+      "fret": 5,
+      "midi": 45,
+      "hz": 110.0
+     },
+     {
+      "onset_beats": 38.5,
+      "string": 0,
+      "fret": 5,
+      "midi": 45,
+      "hz": 110.0
+     },
+     {
+      "onset_beats": 38.75,
+      "string": 0,
+      "fret": 5,
+      "midi": 45,
+      "hz": 110.0
+     },
+     {
+      "onset_beats": 39.0,
+      "string": 0,
+      "fret": 4,
+      "midi": 44,
+      "hz": 103.8
+     },
+     {
+      "onset_beats": 71.5,
+      "string": 1,
+      "fret": 0,
+      "midi": 45,
+      "hz": 110.0
+     },
+     {
+      "onset_beats": 71.75,
+      "string": 1,
+      "fret": 0,
+      "midi": 45,
+      "hz": 110.0
+     },
+     {
+      "onset_beats": 82.25,
+      "string": 1,
+      "fret": 0,
+      "midi": 45,
+      "hz": 110.0
+     },
+     {
+      "onset_beats": 82.5,
+      "string": 1,
+      "fret": 0,
+      "midi": 45,
+      "hz": 110.0
+     },
+     {
+      "onset_beats": 82.75,
+      "string": 1,
+      "fret": 0,
+      "midi": 45,
+      "hz": 110.0
+     },
+     {
+      "onset_beats": 83.0,
+      "string": 1,
+      "fret": 0,
+      "midi": 45,
+      "hz": 110.0
+     },
+     {
+      "onset_beats": 83.25,
+      "string": 1,
+      "fret": 0,
+      "midi": 45,
+      "hz": 110.0
+     },
+     {
+      "onset_beats": 83.5,
+      "string": 1,
+      "fret": 0,
+      "midi": 45,
+      "hz": 110.0
+     },
+     {
+      "onset_beats": 83.75,
+      "string": 1,
+      "fret": 0,
+      "midi": 45,
+      "hz": 110.0
+     },
+     {
+      "onset_beats": 86.0,
+      "string": 0,
+      "fret": 5,
+      "midi": 45,
+      "hz": 110.0
+     },
+     {
+      "onset_beats": 86.25,
+      "string": 0,
+      "fret": 5,
+      "midi": 45,
+      "hz": 110.0
+     },
+     {
+      "onset_beats": 86.75,
+      "string": 0,
+      "fret": 5,
+      "midi": 45,
+      "hz": 110.0
+     },
+     {
+      "onset_beats": 90.25,
+      "string": 1,
+      "fret": 0,
+      "midi": 45,
+      "hz": 110.0
+     },
+     {
+      "onset_beats": 90.5,
+      "string": 1,
+      "fret": 0,
+      "midi": 45,
+      "hz": 110.0
+     }
+    ]
+   }
+  ],
+  "notes_total": 3173,
+  "notes_below_floor": 127,
+  "pct_below_floor": 4.0,
+  "verdict": "UNSUPPORTED_REGISTER",
+  "means": "notes written where the source stem holds under 2.0% of its energy were not transcribed from evidence in that register, whatever their playability score",
+  "song": "02"
+ },
+ {
+  "gp": "03 Gene (UPGRADED LEAD).gp",
+  "stem": "03_gene-guitar.mp3",
+  "stem_seconds": 275.1,
+  "floor_pct": 2.0,
+  "measured_floor_hz": 110.0,
+  "energy_table": [
+   {
+    "below_hz": 60,
+    "pct_of_energy": 0.328
+   },
+   {
+    "below_hz": 70,
+    "pct_of_energy": 0.445
+   },
+   {
+    "below_hz": 80,
+    "pct_of_energy": 0.533
+   },
+   {
+    "below_hz": 90,
+    "pct_of_energy": 0.827
+   },
+   {
+    "below_hz": 100,
+    "pct_of_energy": 1.164
+   },
+   {
+    "below_hz": 110,
+    "pct_of_energy": 1.932
+   },
+   {
+    "below_hz": 120,
+    "pct_of_energy": 2.641
+   },
+   {
+    "below_hz": 130,
+    "pct_of_energy": 2.986
+   },
+   {
+    "below_hz": 150,
+    "pct_of_energy": 4.453
+   },
+   {
+    "below_hz": 175,
+    "pct_of_energy": 6.063
+   },
+   {
+    "below_hz": 200,
+    "pct_of_energy": 7.497
+   },
+   {
+    "below_hz": 250,
+    "pct_of_energy": 9.996
+   },
+   {
+    "below_hz": 300,
+    "pct_of_energy": 14.204
+   },
+   {
+    "below_hz": 400,
+    "pct_of_energy": 19.795
+   }
+  ],
+  "staves": [
+   {
+    "track": "Lead Guitar",
+    "notes": 581,
+    "below_floor": 0,
+    "pct": 0.0,
+    "lowest_written_hz": null,
+    "examples": []
+   },
+   {
+    "track": "Rhythm Guitar",
+    "notes": 1114,
+    "below_floor": 17,
+    "pct": 1.5,
+    "lowest_written_hz": 82.4,
+    "examples": [
+     {
+      "onset_beats": 4.0,
+      "string": 0,
+      "fret": 0,
+      "midi": 40,
+      "hz": 82.4
+     },
+     {
+      "onset_beats": 5.0,
+      "string": 0,
+      "fret": 2,
+      "midi": 42,
+      "hz": 92.5
+     },
+     {
+      "onset_beats": 8.0,
+      "string": 0,
+      "fret": 0,
+      "midi": 40,
+      "hz": 82.4
+     },
+     {
+      "onset_beats": 12.0,
+      "string": 0,
+      "fret": 0,
+      "midi": 40,
+      "hz": 82.4
+     },
+     {
+      "onset_beats": 13.0,
+      "string": 0,
+      "fret": 2,
+      "midi": 42,
+      "hz": 92.5
+     },
+     {
+      "onset_beats": 16.0,
+      "string": 0,
+      "fret": 0,
+      "midi": 40,
+      "hz": 82.4
+     },
+     {
+      "onset_beats": 20.0,
+      "string": 0,
+      "fret": 0,
+      "midi": 40,
+      "hz": 82.4
+     },
+     {
+      "onset_beats": 21.0,
+      "string": 0,
+      "fret": 2,
+      "midi": 42,
+      "hz": 92.5
+     },
+     {
+      "onset_beats": 24.0,
+      "string": 0,
+      "fret": 0,
+      "midi": 40,
+      "hz": 82.4
+     },
+     {
+      "onset_beats": 28.0,
+      "string": 0,
+      "fret": 0,
+      "midi": 40,
+      "hz": 82.4
+     },
+     {
+      "onset_beats": 29.0,
+      "string": 0,
+      "fret": 2,
+      "midi": 42,
+      "hz": 92.5
+     },
+     {
+      "onset_beats": 32.0,
+      "string": 0,
+      "fret": 0,
+      "midi": 40,
+      "hz": 82.4
+     },
+     {
+      "onset_beats": 37.0,
+      "string": 0,
+      "fret": 2,
+      "midi": 42,
+      "hz": 92.5
+     },
+     {
+      "onset_beats": 40.0,
+      "string": 0,
+      "fret": 0,
+      "midi": 40,
+      "hz": 82.4
+     },
+     {
+      "onset_beats": 44.0,
+      "string": 0,
+      "fret": 0,
+      "midi": 40,
+      "hz": 82.4
+     },
+     {
+      "onset_beats": 45.0,
+      "string": 0,
+      "fret": 2,
+      "midi": 42,
+      "hz": 92.5
+     },
+     {
+      "onset_beats": 48.0,
+      "string": 0,
+      "fret": 0,
+      "midi": 40,
+      "hz": 82.4
+     }
+    ]
+   }
+  ],
+  "notes_total": 1695,
+  "notes_below_floor": 17,
+  "pct_below_floor": 1.0,
+  "verdict": "UNSUPPORTED_REGISTER",
+  "means": "notes written where the source stem holds under 2.0% of its energy were not transcribed from evidence in that register, whatever their playability score",
+  "song": "03"
+ },
+ {
+  "gp": "04 Six Feet Under.gp",
+  "stem": "04_six_feet_under-guitar.mp3",
+  "stem_seconds": 227.2,
+  "floor_pct": 2.0,
+  "measured_floor_hz": 70.0,
+  "energy_table": [
+   {
+    "below_hz": 60,
+    "pct_of_energy": 1.207
+   },
+   {
+    "below_hz": 70,
+    "pct_of_energy": 1.841
+   },
+   {
+    "below_hz": 80,
+    "pct_of_energy": 2.286
+   },
+   {
+    "below_hz": 90,
+    "pct_of_energy": 3.699
+   },
+   {
+    "below_hz": 100,
+    "pct_of_energy": 5.73
+   },
+   {
+    "below_hz": 110,
+    "pct_of_energy": 7.474
+   },
+   {
+    "below_hz": 120,
+    "pct_of_energy": 9.848
+   },
+   {
+    "below_hz": 130,
+    "pct_of_energy": 13.675
+   },
+   {
+    "below_hz": 150,
+    "pct_of_energy": 16.118
+   },
+   {
+    "below_hz": 175,
+    "pct_of_energy": 18.844
+   },
+   {
+    "below_hz": 200,
+    "pct_of_energy": 21.697
+   },
+   {
+    "below_hz": 250,
+    "pct_of_energy": 25.691
+   },
+   {
+    "below_hz": 300,
+    "pct_of_energy": 29.067
+   },
+   {
+    "below_hz": 400,
+    "pct_of_energy": 33.341
+   }
+  ],
+  "staves": [
+   {
+    "track": "Lead Guitar",
+    "notes": 247,
+    "below_floor": 0,
+    "pct": 0.0,
+    "lowest_written_hz": null,
+    "examples": []
+   },
+   {
+    "track": "Rhythm Guitar",
+    "notes": 928,
+    "below_floor": 0,
+    "pct": 0.0,
+    "lowest_written_hz": null,
+    "examples": []
+   }
+  ],
+  "notes_total": 1175,
+  "notes_below_floor": 0,
+  "pct_below_floor": 0.0,
+  "verdict": "REGISTER_SUPPORTED",
+  "means": "notes written where the source stem holds under 2.0% of its energy were not transcribed from evidence in that register, whatever their playability score",
+  "song": "04"
+ },
+ {
+  "gp": "05 Sleep Vs Death.gp",
+  "stem": "05_sleep_vs_death-guitar.mp3",
+  "stem_seconds": 266.7,
+  "floor_pct": 2.0,
+  "measured_floor_hz": 110.0,
+  "energy_table": [
+   {
+    "below_hz": 60,
+    "pct_of_energy": 0.516
+   },
+   {
+    "below_hz": 70,
+    "pct_of_energy": 0.769
+   },
+   {
+    "below_hz": 80,
+    "pct_of_energy": 0.943
+   },
+   {
+    "below_hz": 90,
+    "pct_of_energy": 1.289
+   },
+   {
+    "below_hz": 100,
+    "pct_of_energy": 1.631
+   },
+   {
+    "below_hz": 110,
+    "pct_of_energy": 1.886
+   },
+   {
+    "below_hz": 120,
+    "pct_of_energy": 2.211
+   },
+   {
+    "below_hz": 130,
+    "pct_of_energy": 2.73
+   },
+   {
+    "below_hz": 150,
+    "pct_of_energy": 3.175
+   },
+   {
+    "below_hz": 175,
+    "pct_of_energy": 3.758
+   },
+   {
+    "below_hz": 200,
+    "pct_of_energy": 4.387
+   },
+   {
+    "below_hz": 250,
+    "pct_of_energy": 6.865
+   },
+   {
+    "below_hz": 300,
+    "pct_of_energy": 9.595
+   },
+   {
+    "below_hz": 400,
+    "pct_of_energy": 15.955
+   }
+  ],
+  "staves": [
+   {
+    "track": "Lead Guitar",
+    "notes": 147,
+    "below_floor": 0,
+    "pct": 0.0,
+    "lowest_written_hz": null,
+    "examples": []
+   },
+   {
+    "track": "Rhythm Guitar",
+    "notes": 644,
+    "below_floor": 35,
+    "pct": 5.4,
+    "lowest_written_hz": 82.4,
+    "examples": [
+     {
+      "onset_beats": 152.0,
+      "string": 0,
+      "fret": 0,
+      "midi": 40,
+      "hz": 82.4
+     },
+     {
+      "onset_beats": 152.5,
+      "string": 0,
+      "fret": 0,
+      "midi": 40,
+      "hz": 82.4
+     },
+     {
+      "onset_beats": 158.25,
+      "string": 0,
+      "fret": 3,
+      "midi": 43,
+      "hz": 98.0
+     },
+     {
+      "onset_beats": 158.5,
+      "string": 0,
+      "fret": 3,
+      "midi": 43,
+      "hz": 98.0
+     },
+     {
+      "onset_beats": 159.0,
+      "string": 0,
+      "fret": 3,
+      "midi": 43,
+      "hz": 98.0
+     },
+     {
+      "onset_beats": 159.5,
+      "string": 0,
+      "fret": 3,
+      "midi": 43,
+      "hz": 98.0
+     },
+     {
+      "onset_beats": 166.5,
+      "string": 0,
+      "fret": 1,
+      "midi": 41,
+      "hz": 87.3
+     },
+     {
+      "onset_beats": 167.0,
+      "string": 0,
+      "fret": 1,
+      "midi": 41,
+      "hz": 87.3
+     },
+     {
+      "onset_beats": 174.5,
+      "string": 0,
+      "fret": 1,
+      "midi": 41,
+      "hz": 87.3
+     },
+     {
+      "onset_beats": 175.0,
+      "string": 0,
+      "fret": 1,
+      "midi": 41,
+      "hz": 87.3
+     },
+     {
+      "onset_beats": 175.5,
+      "string": 0,
+      "fret": 1,
+      "midi": 41,
+      "hz": 87.3
+     },
+     {
+      "onset_beats": 182.5,
+      "string": 0,
+      "fret": 1,
+      "midi": 41,
+      "hz": 87.3
+     },
+     {
+      "onset_beats": 183.0,
+      "string": 0,
+      "fret": 1,
+      "midi": 41,
+      "hz": 87.3
+     },
+     {
+      "onset_beats": 183.5,
+      "string": 0,
+      "fret": 1,
+      "midi": 41,
+      "hz": 87.3
+     },
+     {
+      "onset_beats": 254.5,
+      "string": 0,
+      "fret": 1,
+      "midi": 41,
+      "hz": 87.3
+     },
+     {
+      "onset_beats": 255.0,
+      "string": 0,
+      "fret": 1,
+      "midi": 41,
+      "hz": 87.3
+     },
+     {
+      "onset_beats": 255.5,
+      "string": 0,
+      "fret": 1,
+      "midi": 41,
+      "hz": 87.3
+     },
+     {
+      "onset_beats": 262.5,
+      "string": 0,
+      "fret": 1,
+      "midi": 41,
+      "hz": 87.3
+     },
+     {
+      "onset_beats": 263.0,
+      "string": 0,
+      "fret": 1,
+      "midi": 41,
+      "hz": 87.3
+     },
+     {
+      "onset_beats": 263.5,
+      "string": 0,
+      "fret": 1,
+      "midi": 41,
+      "hz": 87.3
+     }
+    ]
+   }
+  ],
+  "notes_total": 791,
+  "notes_below_floor": 35,
+  "pct_below_floor": 4.4,
+  "verdict": "UNSUPPORTED_REGISTER",
+  "means": "notes written where the source stem holds under 2.0% of its energy were not transcribed from evidence in that register, whatever their playability score",
+  "song": "05"
+ },
+ {
+  "gp": "07 MOP.gp",
+  "stem": "07_mop-guitar.mp3",
+  "stem_seconds": 180.3,
+  "floor_pct": 2.0,
+  "measured_floor_hz": 90.0,
+  "energy_table": [
+   {
+    "below_hz": 60,
+    "pct_of_energy": 0.551
+   },
+   {
+    "below_hz": 70,
+    "pct_of_energy": 0.734
+   },
+   {
+    "below_hz": 80,
+    "pct_of_energy": 0.908
+   },
+   {
+    "below_hz": 90,
+    "pct_of_energy": 1.844
+   },
+   {
+    "below_hz": 100,
+    "pct_of_energy": 3.673
+   },
+   {
+    "below_hz": 110,
+    "pct_of_energy": 4.837
+   },
+   {
+    "below_hz": 120,
+    "pct_of_energy": 5.978
+   },
+   {
+    "below_hz": 130,
+    "pct_of_energy": 7.843
+   },
+   {
+    "below_hz": 150,
+    "pct_of_energy": 9.165
+   },
+   {
+    "below_hz": 175,
+    "pct_of_energy": 12.007
+   },
+   {
+    "below_hz": 200,
+    "pct_of_energy": 17.011
+   },
+   {
+    "below_hz": 250,
+    "pct_of_energy": 21.688
+   },
+   {
+    "below_hz": 300,
+    "pct_of_energy": 26.874
+   },
+   {
+    "below_hz": 400,
+    "pct_of_energy": 32.619
+   }
+  ],
+  "staves": [
+   {
+    "track": "Rhythm Guitar",
+    "notes": 1491,
+    "below_floor": 40,
+    "pct": 2.7,
+    "lowest_written_hz": 82.4,
+    "examples": [
+     {
+      "onset_beats": 32.0,
+      "string": 0,
+      "fret": 0,
+      "midi": 40,
+      "hz": 82.4
+     },
+     {
+      "onset_beats": 33.0,
+      "string": 0,
+      "fret": 0,
+      "midi": 40,
+      "hz": 82.4
+     },
+     {
+      "onset_beats": 33.5,
+      "string": 0,
+      "fret": 0,
+      "midi": 40,
+      "hz": 82.4
+     },
+     {
+      "onset_beats": 40.0,
+      "string": 0,
+      "fret": 0,
+      "midi": 40,
+      "hz": 82.4
+     },
+     {
+      "onset_beats": 41.0,
+      "string": 0,
+      "fret": 0,
+      "midi": 40,
+      "hz": 82.4
+     },
+     {
+      "onset_beats": 41.5,
+      "string": 0,
+      "fret": 0,
+      "midi": 40,
+      "hz": 82.4
+     },
+     {
+      "onset_beats": 88.0,
+      "string": 0,
+      "fret": 0,
+      "midi": 40,
+      "hz": 82.4
+     },
+     {
+      "onset_beats": 89.0,
+      "string": 0,
+      "fret": 0,
+      "midi": 40,
+      "hz": 82.4
+     },
+     {
+      "onset_beats": 96.0,
+      "string": 0,
+      "fret": 0,
+      "midi": 40,
+      "hz": 82.4
+     },
+     {
+      "onset_beats": 97.0,
+      "string": 0,
+      "fret": 0,
+      "midi": 40,
+      "hz": 82.4
+     },
+     {
+      "onset_beats": 129.5,
+      "string": 0,
+      "fret": 0,
+      "midi": 40,
+      "hz": 82.4
+     },
+     {
+      "onset_beats": 129.75,
+      "string": 0,
+      "fret": 0,
+      "midi": 40,
+      "hz": 82.4
+     },
+     {
+      "onset_beats": 133.5,
+      "string": 0,
+      "fret": 0,
+      "midi": 40,
+      "hz": 82.4
+     },
+     {
+      "onset_beats": 133.75,
+      "string": 0,
+      "fret": 0,
+      "midi": 40,
+      "hz": 82.4
+     },
+     {
+      "onset_beats": 137.5,
+      "string": 0,
+      "fret": 0,
+      "midi": 40,
+      "hz": 82.4
+     },
+     {
+      "onset_beats": 137.75,
+      "string": 0,
+      "fret": 0,
+      "midi": 40,
+      "hz": 82.4
+     },
+     {
+      "onset_beats": 141.5,
+      "string": 0,
+      "fret": 0,
+      "midi": 40,
+      "hz": 82.4
+     },
+     {
+      "onset_beats": 141.75,
+      "string": 0,
+      "fret": 0,
+      "midi": 40,
+      "hz": 82.4
+     },
+     {
+      "onset_beats": 145.5,
+      "string": 0,
+      "fret": 0,
+      "midi": 40,
+      "hz": 82.4
+     },
+     {
+      "onset_beats": 145.75,
+      "string": 0,
+      "fret": 0,
+      "midi": 40,
+      "hz": 82.4
+     }
+    ]
+   }
+  ],
+  "notes_total": 1491,
+  "notes_below_floor": 40,
+  "pct_below_floor": 2.7,
+  "verdict": "UNSUPPORTED_REGISTER",
+  "means": "notes written where the source stem holds under 2.0% of its energy were not transcribed from evidence in that register, whatever their playability score",
+  "song": "07"
+ },
+ {
+  "gp": "08 JGBFTL.gp",
+  "stem": "08_jgbftl-guitar.mp3",
+  "stem_seconds": 147.4,
+  "floor_pct": 2.0,
+  "measured_floor_hz": 0.0,
+  "energy_table": [
+   {
+    "below_hz": 60,
+    "pct_of_energy": 2.751
+   },
+   {
+    "below_hz": 70,
+    "pct_of_energy": 3.866
+   },
+   {
+    "below_hz": 80,
+    "pct_of_energy": 4.357
+   },
+   {
+    "below_hz": 90,
+    "pct_of_energy": 6.172
+   },
+   {
+    "below_hz": 100,
+    "pct_of_energy": 10.313
+   },
+   {
+    "below_hz": 110,
+    "pct_of_energy": 13.192
+   },
+   {
+    "below_hz": 120,
+    "pct_of_energy": 15.335
+   },
+   {
+    "below_hz": 130,
+    "pct_of_energy": 17.235
+   },
+   {
+    "below_hz": 150,
+    "pct_of_energy": 24.321
+   },
+   {
+    "below_hz": 175,
+    "pct_of_energy": 29.423
+   },
+   {
+    "below_hz": 200,
+    "pct_of_energy": 37.491
+   },
+   {
+    "below_hz": 250,
+    "pct_of_energy": 41.633
+   },
+   {
+    "below_hz": 300,
+    "pct_of_energy": 50.22
+   },
+   {
+    "below_hz": 400,
+    "pct_of_energy": 56.84
+   }
+  ],
+  "staves": [
+   {
+    "track": "Lead Guitar",
+    "notes": 148,
+    "below_floor": 0,
+    "pct": 0.0,
+    "lowest_written_hz": null,
+    "examples": []
+   },
+   {
+    "track": "Rhythm Guitar",
+    "notes": 1812,
+    "below_floor": 0,
+    "pct": 0.0,
+    "lowest_written_hz": null,
+    "examples": []
+   }
+  ],
+  "notes_total": 1960,
+  "notes_below_floor": 0,
+  "pct_below_floor": 0.0,
+  "verdict": "REGISTER_SUPPORTED",
+  "means": "notes written where the source stem holds under 2.0% of its energy were not transcribed from evidence in that register, whatever their playability score",
+  "song": "08"
+ },
+ {
+  "gp": "09 MHL.gp",
+  "stem": "09_mhl-guitar.mp3",
+  "stem_seconds": 240.7,
+  "floor_pct": 2.0,
+  "measured_floor_hz": 110.0,
+  "energy_table": [
+   {
+    "below_hz": 60,
+    "pct_of_energy": 0.387
+   },
+   {
+    "below_hz": 70,
+    "pct_of_energy": 0.503
+   },
+   {
+    "below_hz": 80,
+    "pct_of_energy": 0.575
+   },
+   {
+    "below_hz": 90,
+    "pct_of_energy": 0.769
+   },
+   {
+    "below_hz": 100,
+    "pct_of_energy": 1.122
+   },
+   {
+    "below_hz": 110,
+    "pct_of_energy": 1.789
+   },
+   {
+    "below_hz": 120,
+    "pct_of_energy": 2.233
+   },
+   {
+    "below_hz": 130,
+    "pct_of_energy": 2.716
+   },
+   {
+    "below_hz": 150,
+    "pct_of_energy": 3.348
+   },
+   {
+    "below_hz": 175,
+    "pct_of_energy": 4.549
+   },
+   {
+    "below_hz": 200,
+    "pct_of_energy": 5.668
+   },
+   {
+    "below_hz": 250,
+    "pct_of_energy": 8.785
+   },
+   {
+    "below_hz": 300,
+    "pct_of_energy": 10.836
+   },
+   {
+    "below_hz": 400,
+    "pct_of_energy": 17.223
+   }
+  ],
+  "staves": [
+   {
+    "track": "Lead Guitar",
+    "notes": 370,
+    "below_floor": 89,
+    "pct": 24.1,
+    "lowest_written_hz": 82.4,
+    "examples": [
+     {
+      "onset_beats": 4.0,
+      "string": 0,
+      "fret": 4,
+      "midi": 44,
+      "hz": 103.8
+     },
+     {
+      "onset_beats": 4.5,
+      "string": 0,
+      "fret": 4,
+      "midi": 44,
+      "hz": 103.8
+     },
+     {
+      "onset_beats": 5.5,
+      "string": 0,
+      "fret": 4,
+      "midi": 44,
+      "hz": 103.8
+     },
+     {
+      "onset_beats": 6.0,
+      "string": 0,
+      "fret": 4,
+      "midi": 44,
+      "hz": 103.8
+     },
+     {
+      "onset_beats": 6.5,
+      "string": 0,
+      "fret": 4,
+      "midi": 44,
+      "hz": 103.8
+     },
+     {
+      "onset_beats": 7.5,
+      "string": 0,
+      "fret": 4,
+      "midi": 44,
+      "hz": 103.8
+     },
+     {
+      "onset_beats": 12.0,
+      "string": 0,
+      "fret": 4,
+      "midi": 44,
+      "hz": 103.8
+     },
+     {
+      "onset_beats": 12.5,
+      "string": 0,
+      "fret": 4,
+      "midi": 44,
+      "hz": 103.8
+     },
+     {
+      "onset_beats": 13.5,
+      "string": 0,
+      "fret": 4,
+      "midi": 44,
+      "hz": 103.8
+     },
+     {
+      "onset_beats": 14.0,
+      "string": 0,
+      "fret": 4,
+      "midi": 44,
+      "hz": 103.8
+     },
+     {
+      "onset_beats": 14.5,
+      "string": 0,
+      "fret": 4,
+      "midi": 44,
+      "hz": 103.8
+     },
+     {
+      "onset_beats": 15.5,
+      "string": 0,
+      "fret": 4,
+      "midi": 44,
+      "hz": 103.8
+     },
+     {
+      "onset_beats": 20.0,
+      "string": 0,
+      "fret": 4,
+      "midi": 44,
+      "hz": 103.8
+     },
+     {
+      "onset_beats": 20.5,
+      "string": 0,
+      "fret": 4,
+      "midi": 44,
+      "hz": 103.8
+     },
+     {
+      "onset_beats": 21.5,
+      "string": 0,
+      "fret": 4,
+      "midi": 44,
+      "hz": 103.8
+     },
+     {
+      "onset_beats": 22.0,
+      "string": 0,
+      "fret": 4,
+      "midi": 44,
+      "hz": 103.8
+     },
+     {
+      "onset_beats": 22.5,
+      "string": 0,
+      "fret": 4,
+      "midi": 44,
+      "hz": 103.8
+     },
+     {
+      "onset_beats": 23.5,
+      "string": 0,
+      "fret": 4,
+      "midi": 44,
+      "hz": 103.8
+     },
+     {
+      "onset_beats": 28.0,
+      "string": 0,
+      "fret": 4,
+      "midi": 44,
+      "hz": 103.8
+     },
+     {
+      "onset_beats": 28.5,
+      "string": 0,
+      "fret": 4,
+      "midi": 44,
+      "hz": 103.8
+     }
+    ]
+   },
+   {
+    "track": "Rhythm Guitar",
+    "notes": 749,
+    "below_floor": 219,
+    "pct": 29.2,
+    "lowest_written_hz": 82.4,
+    "examples": [
+     {
+      "onset_beats": 33.0,
+      "string": 0,
+      "fret": 0,
+      "midi": 40,
+      "hz": 82.4
+     },
+     {
+      "onset_beats": 36.0,
+      "string": 0,
+      "fret": 0,
+      "midi": 40,
+      "hz": 82.4
+     },
+     {
+      "onset_beats": 36.5,
+      "string": 0,
+      "fret": 0,
+      "midi": 40,
+      "hz": 82.4
+     },
+     {
+      "onset_beats": 37.0,
+      "string": 0,
+      "fret": 0,
+      "midi": 40,
+      "hz": 82.4
+     },
+     {
+      "onset_beats": 37.5,
+      "string": 0,
+      "fret": 0,
+      "midi": 40,
+      "hz": 82.4
+     },
+     {
+      "onset_beats": 38.0,
+      "string": 0,
+      "fret": 0,
+      "midi": 40,
+      "hz": 82.4
+     },
+     {
+      "onset_beats": 38.5,
+      "string": 0,
+      "fret": 0,
+      "midi": 40,
+      "hz": 82.4
+     },
+     {
+      "onset_beats": 39.0,
+      "string": 0,
+      "fret": 0,
+      "midi": 40,
+      "hz": 82.4
+     },
+     {
+      "onset_beats": 39.5,
+      "string": 0,
+      "fret": 0,
+      "midi": 40,
+      "hz": 82.4
+     },
+     {
+      "onset_beats": 40.0,
+      "string": 0,
+      "fret": 0,
+      "midi": 40,
+      "hz": 82.4
+     },
+     {
+      "onset_beats": 40.5,
+      "string": 0,
+      "fret": 0,
+      "midi": 40,
+      "hz": 82.4
+     },
+     {
+      "onset_beats": 41.0,
+      "string": 0,
+      "fret": 0,
+      "midi": 40,
+      "hz": 82.4
+     },
+     {
+      "onset_beats": 41.5,
+      "string": 0,
+      "fret": 0,
+      "midi": 40,
+      "hz": 82.4
+     },
+     {
+      "onset_beats": 42.0,
+      "string": 0,
+      "fret": 0,
+      "midi": 40,
+      "hz": 82.4
+     },
+     {
+      "onset_beats": 42.5,
+      "string": 0,
+      "fret": 0,
+      "midi": 40,
+      "hz": 82.4
+     },
+     {
+      "onset_beats": 43.0,
+      "string": 0,
+      "fret": 0,
+      "midi": 40,
+      "hz": 82.4
+     },
+     {
+      "onset_beats": 43.5,
+      "string": 0,
+      "fret": 0,
+      "midi": 40,
+      "hz": 82.4
+     },
+     {
+      "onset_beats": 44.0,
+      "string": 0,
+      "fret": 0,
+      "midi": 40,
+      "hz": 82.4
+     },
+     {
+      "onset_beats": 44.5,
+      "string": 0,
+      "fret": 0,
+      "midi": 40,
+      "hz": 82.4
+     },
+     {
+      "onset_beats": 45.0,
+      "string": 0,
+      "fret": 0,
+      "midi": 40,
+      "hz": 82.4
+     }
+    ]
+   }
+  ],
+  "notes_total": 1119,
+  "notes_below_floor": 308,
+  "pct_below_floor": 27.5,
+  "verdict": "UNSUPPORTED_REGISTER",
+  "means": "notes written where the source stem holds under 2.0% of its energy were not transcribed from evidence in that register, whatever their playability score",
+  "song": "09"
+ },
+ {
+  "gp": "10 Trapped in Wonderland.gp",
+  "stem": "10_trapped_in_wonderland-guitar.mp3",
+  "stem_seconds": 175.2,
+  "floor_pct": 2.0,
+  "measured_floor_hz": 80.0,
+  "energy_table": [
+   {
+    "below_hz": 60,
+    "pct_of_energy": 0.811
+   },
+   {
+    "below_hz": 70,
+    "pct_of_energy": 1.219
+   },
+   {
+    "below_hz": 80,
+    "pct_of_energy": 1.842
+   },
+   {
+    "below_hz": 90,
+    "pct_of_energy": 4.625
+   },
+   {
+    "below_hz": 100,
+    "pct_of_energy": 6.152
+   },
+   {
+    "below_hz": 110,
+    "pct_of_energy": 7.917
+   },
+   {
+    "below_hz": 120,
+    "pct_of_energy": 9.765
+   },
+   {
+    "below_hz": 130,
+    "pct_of_energy": 11.794
+   },
+   {
+    "below_hz": 150,
+    "pct_of_energy": 14.82
+   },
+   {
+    "below_hz": 175,
+    "pct_of_energy": 27.127
+   },
+   {
+    "below_hz": 200,
+    "pct_of_energy": 30.607
+   },
+   {
+    "below_hz": 250,
+    "pct_of_energy": 35.102
+   },
+   {
+    "below_hz": 300,
+    "pct_of_energy": 38.113
+   },
+   {
+    "below_hz": 400,
+    "pct_of_energy": 44.523
+   }
+  ],
+  "staves": [
+   {
+    "track": "Lead Guitar",
+    "notes": 280,
+    "below_floor": 0,
+    "pct": 0.0,
+    "lowest_written_hz": null,
+    "examples": []
+   },
+   {
+    "track": "Rhythm Guitar",
+    "notes": 1731,
+    "below_floor": 0,
+    "pct": 0.0,
+    "lowest_written_hz": null,
+    "examples": []
+   }
+  ],
+  "notes_total": 2011,
+  "notes_below_floor": 0,
+  "pct_below_floor": 0.0,
+  "verdict": "REGISTER_SUPPORTED",
+  "means": "notes written where the source stem holds under 2.0% of its energy were not transcribed from evidence in that register, whatever their playability score",
+  "song": "10"
+ },
+ {
+  "gp": "11 Ambulance.gp",
+  "stem": "11_ambulance_encore-guitar.mp3",
+  "stem_seconds": 267.0,
+  "floor_pct": 2.0,
+  "measured_floor_hz": 110.0,
+  "energy_table": [
+   {
+    "below_hz": 60,
+    "pct_of_energy": 0.269
+   },
+   {
+    "below_hz": 70,
+    "pct_of_energy": 0.372
+   },
+   {
+    "below_hz": 80,
+    "pct_of_energy": 0.462
+   },
+   {
+    "below_hz": 90,
+    "pct_of_energy": 0.708
+   },
+   {
+    "below_hz": 100,
+    "pct_of_energy": 1.055
+   },
+   {
+    "below_hz": 110,
+    "pct_of_energy": 1.54
+   },
+   {
+    "below_hz": 120,
+    "pct_of_energy": 2.092
+   },
+   {
+    "below_hz": 130,
+    "pct_of_energy": 3.444
+   },
+   {
+    "below_hz": 150,
+    "pct_of_energy": 5.071
+   },
+   {
+    "below_hz": 175,
+    "pct_of_energy": 8.754
+   },
+   {
+    "below_hz": 200,
+    "pct_of_energy": 12.591
+   },
+   {
+    "below_hz": 250,
+    "pct_of_energy": 16.383
+   },
+   {
+    "below_hz": 300,
+    "pct_of_energy": 20.403
+   },
+   {
+    "below_hz": 400,
+    "pct_of_energy": 27.126
+   }
+  ],
+  "staves": [
+   {
+    "track": "Lead Guitar",
+    "notes": 1158,
+    "below_floor": 129,
+    "pct": 11.1,
+    "lowest_written_hz": 82.4,
+    "examples": [
+     {
+      "onset_beats": 446.0,
+      "string": 0,
+      "fret": 3,
+      "midi": 43,
+      "hz": 98.0
+     },
+     {
+      "onset_beats": 447.0,
+      "string": 0,
+      "fret": 3,
+      "midi": 43,
+      "hz": 98.0
+     },
+     {
+      "onset_beats": 448.0,
+      "string": 0,
+      "fret": 3,
+      "midi": 43,
+      "hz": 98.0
+     },
+     {
+      "onset_beats": 449.0,
+      "string": 0,
+      "fret": 3,
+      "midi": 43,
+      "hz": 98.0
+     },
+     {
+      "onset_beats": 450.0,
+      "string": 0,
+      "fret": 3,
+      "midi": 43,
+      "hz": 98.0
+     },
+     {
+      "onset_beats": 451.0,
+      "string": 0,
+      "fret": 3,
+      "midi": 43,
+      "hz": 98.0
+     },
+     {
+      "onset_beats": 452.0,
+      "string": 0,
+      "fret": 3,
+      "midi": 43,
+      "hz": 98.0
+     },
+     {
+      "onset_beats": 453.0,
+      "string": 0,
+      "fret": 3,
+      "midi": 43,
+      "hz": 98.0
+     },
+     {
+      "onset_beats": 454.0,
+      "string": 0,
+      "fret": 1,
+      "midi": 41,
+      "hz": 87.3
+     },
+     {
+      "onset_beats": 455.0,
+      "string": 0,
+      "fret": 1,
+      "midi": 41,
+      "hz": 87.3
+     },
+     {
+      "onset_beats": 456.0,
+      "string": 0,
+      "fret": 1,
+      "midi": 41,
+      "hz": 87.3
+     },
+     {
+      "onset_beats": 457.0,
+      "string": 0,
+      "fret": 1,
+      "midi": 41,
+      "hz": 87.3
+     },
+     {
+      "onset_beats": 458.0,
+      "string": 0,
+      "fret": 1,
+      "midi": 41,
+      "hz": 87.3
+     },
+     {
+      "onset_beats": 459.0,
+      "string": 0,
+      "fret": 1,
+      "midi": 41,
+      "hz": 87.3
+     },
+     {
+      "onset_beats": 460.0,
+      "string": 0,
+      "fret": 1,
+      "midi": 41,
+      "hz": 87.3
+     },
+     {
+      "onset_beats": 461.0,
+      "string": 0,
+      "fret": 1,
+      "midi": 41,
+      "hz": 87.3
+     },
+     {
+      "onset_beats": 462.0,
+      "string": 0,
+      "fret": 3,
+      "midi": 43,
+      "hz": 98.0
+     },
+     {
+      "onset_beats": 462.5,
+      "string": 0,
+      "fret": 3,
+      "midi": 43,
+      "hz": 98.0
+     },
+     {
+      "onset_beats": 463.0,
+      "string": 0,
+      "fret": 3,
+      "midi": 43,
+      "hz": 98.0
+     },
+     {
+      "onset_beats": 463.5,
+      "string": 0,
+      "fret": 3,
+      "midi": 43,
+      "hz": 98.0
+     }
+    ]
+   },
+   {
+    "track": "Rhythm Guitar",
+    "notes": 2200,
+    "below_floor": 218,
+    "pct": 9.9,
+    "lowest_written_hz": 82.4,
+    "examples": [
+     {
+      "onset_beats": 146.0,
+      "string": 0,
+      "fret": 3,
+      "midi": 43,
+      "hz": 98.0
+     },
+     {
+      "onset_beats": 147.0,
+      "string": 0,
+      "fret": 3,
+      "midi": 43,
+      "hz": 98.0
+     },
+     {
+      "onset_beats": 148.0,
+      "string": 0,
+      "fret": 3,
+      "midi": 43,
+      "hz": 98.0
+     },
+     {
+      "onset_beats": 149.0,
+      "string": 0,
+      "fret": 3,
+      "midi": 43,
+      "hz": 98.0
+     },
+     {
+      "onset_beats": 150.0,
+      "string": 0,
+      "fret": 3,
+      "midi": 43,
+      "hz": 98.0
+     },
+     {
+      "onset_beats": 151.0,
+      "string": 0,
+      "fret": 3,
+      "midi": 43,
+      "hz": 98.0
+     },
+     {
+      "onset_beats": 152.0,
+      "string": 0,
+      "fret": 3,
+      "midi": 43,
+      "hz": 98.0
+     },
+     {
+      "onset_beats": 153.0,
+      "string": 0,
+      "fret": 3,
+      "midi": 43,
+      "hz": 98.0
+     },
+     {
+      "onset_beats": 153.5,
+      "string": 0,
+      "fret": 3,
+      "midi": 43,
+      "hz": 98.0
+     },
+     {
+      "onset_beats": 154.0,
+      "string": 0,
+      "fret": 1,
+      "midi": 41,
+      "hz": 87.3
+     },
+     {
+      "onset_beats": 155.0,
+      "string": 0,
+      "fret": 1,
+      "midi": 41,
+      "hz": 87.3
+     },
+     {
+      "onset_beats": 156.0,
+      "string": 0,
+      "fret": 1,
+      "midi": 41,
+      "hz": 87.3
+     },
+     {
+      "onset_beats": 157.0,
+      "string": 0,
+      "fret": 1,
+      "midi": 41,
+      "hz": 87.3
+     },
+     {
+      "onset_beats": 158.0,
+      "string": 0,
+      "fret": 1,
+      "midi": 41,
+      "hz": 87.3
+     },
+     {
+      "onset_beats": 159.0,
+      "string": 0,
+      "fret": 1,
+      "midi": 41,
+      "hz": 87.3
+     },
+     {
+      "onset_beats": 160.0,
+      "string": 0,
+      "fret": 1,
+      "midi": 41,
+      "hz": 87.3
+     },
+     {
+      "onset_beats": 161.0,
+      "string": 0,
+      "fret": 1,
+      "midi": 41,
+      "hz": 87.3
+     },
+     {
+      "onset_beats": 161.5,
+      "string": 0,
+      "fret": 1,
+      "midi": 41,
+      "hz": 87.3
+     },
+     {
+      "onset_beats": 162.0,
+      "string": 0,
+      "fret": 3,
+      "midi": 43,
+      "hz": 98.0
+     },
+     {
+      "onset_beats": 162.5,
+      "string": 0,
+      "fret": 3,
+      "midi": 43,
+      "hz": 98.0
+     }
+    ]
+   }
+  ],
+  "notes_total": 3358,
+  "notes_below_floor": 347,
+  "pct_below_floor": 10.3,
+  "verdict": "UNSUPPORTED_REGISTER",
+  "means": "notes written where the source stem holds under 2.0% of its energy were not transcribed from evidence in that register, whatever their playability score",
+  "song": "11"
+ }
+]
