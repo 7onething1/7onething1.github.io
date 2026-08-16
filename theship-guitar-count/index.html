@@ -3102,6 +3102,46 @@ about hand position while his correction is about capo position; and 127 registe
 that are 125 instances of one open string. <b>None of the three is a measurement I can
 still run.</b> Each needs a decision from him.</p>
 
+
+<h2 id="map04">20 &nbsp;Correcting my own retraction: the map works, and 04 aligns</h2>
+
+<div style="border:2px solid #3D5023;background:#E2EBD5;padding:12px 14px;margin:1.2em 0">
+<p style="margin:0"><b>Section 12 retracted the beat map on the grounds that its test failed
+on known-good songs. That retraction was itself wrong, and here is why.</b> My
+<code>beat_map.py</code> matched a sparse impulse train against a continuous onset-strength
+curve under a Euclidean cost. Those two signals have nothing comparable about their
+amplitudes, so the warping path was noise. Another session found it and rewrote
+<code>build()</code> to run DTW between the two EVENT SEQUENCES with cost
+|t_tab - t_audio|. I was running the broken copy when I concluded the material was
+unalignable.</p></div>
+
+<p><b>The fixed map on 04 Six Feet Under</b>, measured on the promoted artifact
+<code>66410cea12c9bf10</code> at a 30 ms window:</p>
+
+<pre style="overflow-x:auto;font-size:12px;line-height:1.5;background:var(--dust);padding:10px;border:1px solid var(--rule)">tab attacks 490,  detected onsets 592,  snap window +/-30 ms
+alignment BEFORE the map (linear offset+bpm)   18.6%
+alignment AFTER  the DTW map                   68.8%
+uniformly random control                       16.1%
+GAIN OVER THE CONTROL                         +52.7 points
+MAP ACCEPTED</pre>
+
+<p><b>04 aligns.</b> The linear offset-and-tempo map put 18.6% of attacks on a real onset,
+barely above the 16.1% chance rate, which is what made every per-beat measurement on this
+album look like noise. The warping path puts 68.8% on one.</p>
+
+<p><b>What this costs me.</b> Three published conclusions rested on the broken map, and all
+three are now suspect rather than settled: that the tab matched the recording worse than
+chance, that the alignment question was open, and that no per-event fact about these songs
+could be measured. The first two were retracted already for the wrong reason. The third is
+simply false: with an accepted map, attack precision and recall, timing error and
+duration agreement are all measurable on 04, and none of them has been run yet.</p>
+
+<p><b>What it does not change.</b> The onset extractor still recovers 98.8% of attacks on
+clean synthetic plucks and collapses on dense reverberant material, so the 592 detected
+onsets against 490 written attacks is still a lossy view of the record. And the ownership
+measurement still refuses itself, because the LEAD/RHYTHM split still separates by register
+rather than by player.</p>
+
 <footer>
   <p><b>Reproduce:</b><br>
   <code>python3 ~/Projects/_outputs/theship-tabs/guitar_count.py</code><br>

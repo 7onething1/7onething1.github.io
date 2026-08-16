@@ -1611,3 +1611,13 @@ With perfect input the measure separates by 2.4 points, because the control sits
 The concurrent Six Feet Under session added a matching fixture on the attack side: onset-extractor-limit, clean plucks recall 100.0%, dense with reverb recall 5.4%. The extractor is capable and the material defeats it, which caps what the 61.5% attack precision and the 584 unmatched attacks can mean.
 
 Suite: 6 PASS, 1 XFAIL, 3 FAIL, MACHINE VERDICT FAIL. Red: register-evidence (127 of 2937, 125 of them one open string), staff-role-04 (the other session's song), brandon-ear-cases (7 of 8 unresolved).
+
+## 20 Correcting my own retraction: the map works, and 04 aligns
+
+Section 12 retracted the beat map because its test failed on known-good songs. That retraction was itself wrong. My beat_map.py matched a sparse impulse train against a continuous onset-strength curve under a Euclidean cost, so the warping path was noise. Another session rewrote build() to run DTW between the two EVENT SEQUENCES with cost |t_tab - t_audio|. I was running the broken copy.
+
+The fixed map on 04 Six Feet Under, promoted artifact 66410cea12c9bf10, 30 ms window: tab attacks 490, detected onsets 592, alignment before 18.6%, after 68.8%, random control 16.1%, gain +52.7 points, MAP ACCEPTED.
+
+What this costs: three published conclusions rested on the broken map and are now suspect rather than settled. The claim that no per-event fact could be measured is simply false; with an accepted map, attack precision and recall, timing error and duration agreement are measurable on 04, and none has been run yet.
+
+What it does not change: the onset extractor still recovers 98.8% on clean synthetic plucks and collapses on dense reverberant material, and the ownership measurement still refuses itself.

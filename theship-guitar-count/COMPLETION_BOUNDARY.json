@@ -657,5 +657,18 @@
    "staff-role-04, the other session's song",
    "brandon-ear-cases, 7 of 8 unresolved"
   ]
+ },
+ "beat_map_04_ACCEPTED": {
+  "artifact": "66410cea12c9bf10",
+  "snap_ms": 30,
+  "tab_attacks": 490,
+  "detected_onsets": 592,
+  "align_before_pct": 18.6,
+  "align_after_pct": 68.8,
+  "random_control_pct": 16.1,
+  "gain_over_control": 52.7,
+  "verdict": "MAP ACCEPTED",
+  "corrects": "section 12 retracted the map because its test failed on known-good songs; the cause was an envelope-vs-impulse-train cost in build(), fixed by another session to DTW between two event sequences",
+  "consequence": "attack precision and recall, timing error and duration agreement are now measurable on 04 and have not been run yet"
  }
 }
