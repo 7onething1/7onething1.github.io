@@ -720,5 +720,18 @@
   },
   "preservation": "BOTH GUITARS 1175 to 1175, nothing vanished, nothing invented, 0 notes edited",
   "conclusion": "neither gate warrants a further repair on 04; the remaining defect is the un-transcribed lead line from bar 69 onward"
+ },
+ "lead_reentry_04": {
+  "question": "Brandon: the Lead staff stays empty from bar 57 through 140, so the blanket silence may have removed genuine later Lead entries",
+  "answer": "nothing was removed by this pipeline",
+  "evidence": "the AI export 9282f29d63b3b332 has Electric Guitar (clean) active bars 2-56 with zero notes after 56, identical to our Lead Guitar; its Distortion Guitar has 614 notes after 56 with 157 single-note and 93 chord events, identical to our Rhythm Guitar",
+  "lead_split_cannot_nominate": {
+   "bars_12_30_lead_plays": 0.10234,
+   "bars_1_11_lead_silent": 0.09448,
+   "bars_31_56": 0.01043,
+   "bars_57_139": 0.04459,
+   "why": "bars 1-11 are written silent and still measure 92% of the playing level; the pooled 1141% separation was an artifact of the much quieter 31-56, and on the level-controlled pair the spectral features read -12.4% and -0.4%"
+  },
+  "remaining": "the 157 single-note events after bar 56 are the material any later Lead re-entry would be drawn from; the bar-71 figure among them stays on Rhythm per Brandon"
  }
 }

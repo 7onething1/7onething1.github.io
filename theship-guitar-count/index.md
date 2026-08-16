@@ -1669,3 +1669,13 @@ Zero on both staves in: capo/Midi mismatch, pitch unavailable, same-string colli
 Source event preservation measured at promotion: BOTH GUITARS 1175 to 1175, nothing vanished, nothing invented, 0 notes edited.
 
 Both gates now have their numbers on 04 and neither warrants a further repair. The remaining defect, read from 04 Six Feet Under.gp sha256:16 7bab579303034d9d, is that the Lead staff holds no notes from bar 57 to bar 140, and filling it needs a transcription of the lead line rather than a move of the Rhythm staff's notes.
+
+## 23 Did the silence after bar 56 delete real Lead entries? No.
+
+Comparing the archived Songsterr AI export 9282f29d63b3b332 against our promoted artifact 66410cea12c9bf10: the AI's Electric Guitar (clean) has 33 active bars, first 2, last 56, zero notes after 56. Our Lead Guitar is identical. The AI's Distortion Guitar has 117 active bars, first 1, last 139, 614 notes after 56 with 157 single-note and 93 chord events. Our Rhythm Guitar is identical.
+
+The Lead staff's bar-56 boundary is inherited verbatim from the AI transcription, so this pipeline removed nothing there. The AI put everything after bar 56 on one track, including 157 single-note events, which is lead-character writing on the rhythm staff.
+
+The lead-split stem cannot nominate those entries. Per bar through the accepted map: bars 12-30 (Lead plays) 0.10234, bars 1-11 (Lead silent) 0.09448, bars 31-56 0.01043, bars 57-139 0.04459. Bars 1-11 are the control that kills it, at 92% of the playing level while written silent. Pooling 1-11 with the quieter 31-56 produced a fake 1141% separation; on the honest level-controlled pair the spectral features read -12.4% and -0.4%.
+
+Established: nothing was deleted, the boundary is the AI's, and the 157 single-note events after bar 56 are the material any later Lead re-entry would be drawn from. The bar-71 figure among them stays on Rhythm.

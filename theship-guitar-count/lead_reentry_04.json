@@ -1,0 +1,38 @@
+{
+ "ai": {
+  "Electric Guitar (clean)": {
+   "active_bars": 33,
+   "first": 2,
+   "last": 56,
+   "notes_after_56": 0,
+   "single_events_after_56": 0,
+   "chord_events_after_56": 0
+  },
+  "Distortion Guitar": {
+   "active_bars": 117,
+   "first": 1,
+   "last": 139,
+   "notes_after_56": 614,
+   "single_events_after_56": 157,
+   "chord_events_after_56": 93
+  }
+ },
+ "ours": {
+  "Lead Guitar": {
+   "active_bars": 33,
+   "first": 2,
+   "last": 56,
+   "notes_after_56": 0,
+   "single_events_after_56": 0,
+   "chord_events_after_56": 0
+  },
+  "Rhythm Guitar": {
+   "active_bars": 117,
+   "first": 1,
+   "last": 139,
+   "notes_after_56": 614,
+   "single_events_after_56": 157,
+   "chord_events_after_56": 93
+  }
+ }
+}

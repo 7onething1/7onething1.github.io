@@ -3117,6 +3117,60 @@ failure category. Neither warrants a further repair. The remaining defect on thi
 staff holds no notes from bar 57 to bar 140, and filling it needs a transcription of the
 lead line rather than a move of the Rhythm staff's notes.</p>
 
+
+<h2 id="reentry04">23 &nbsp;Did the silence after bar 56 delete real Lead entries? No.</h2>
+
+<p><b>Brandon, after checking the uploaded file himself:</b> bar 71 is correct, Lead tacet
+with one dotted whole rest and zero notes, and the repeating figure there belongs to Rhythm
+Guitar. His open concern was broader: the Lead staff stays empty from bar 57 through 140,
+well past that one correction, so the blanket silence may have removed genuine later Lead
+entries.</p>
+
+<p><b>The AI transcription answers it, because it heard the full mix.</b> Comparing the
+archived Songsterr AI export <code>9282f29d63b3b332</code> against our promoted artifact
+<code>66410cea12c9bf10</code>:</p>
+
+<div class="tablewrap"><table>
+<thead><tr><th>Staff</th><th class="num">Active bars</th><th class="num">First</th>
+<th class="num">Last</th><th class="num">Notes after 56</th><th class="num">Single / chord events after 56</th></tr></thead>
+<tbody>
+<tr><td>AI, Electric Guitar (clean)</td><td class="num">33</td><td class="num">2</td><td class="num">56</td><td class="num">0</td><td class="num">0 / 0</td></tr>
+<tr><td><b>ours, Lead Guitar</b></td><td class="num">33</td><td class="num">2</td><td class="num">56</td><td class="num">0</td><td class="num">0 / 0</td></tr>
+<tr><td>AI, Distortion Guitar</td><td class="num">117</td><td class="num">1</td><td class="num">139</td><td class="num">614</td><td class="num">157 / 93</td></tr>
+<tr><td><b>ours, Rhythm Guitar</b></td><td class="num">117</td><td class="num">1</td><td class="num">139</td><td class="num">614</td><td class="num">157 / 93</td></tr>
+</tbody></table></div>
+
+<p><b>Identical on every count.</b> The Lead staff's bar-56 boundary is inherited verbatim
+from the AI transcription, so this pipeline removed nothing there. What the AI did was put
+everything after bar 56 on ONE track, including <b>157 single-note events</b>, which is
+lead-character writing sitting on the rhythm staff.</p>
+
+<h3>The measurement that could have nominated those entries, and why it refuses</h3>
+
+<p>The lead-split stem looked like the tool for this. It is not, and its own control says
+so. Measured per bar through the accepted beat map:</p>
+
+<div class="tablewrap"><table>
+<thead><tr><th>Bars</th><th>Lead staff</th><th class="num">Lead-split RMS</th></tr></thead>
+<tbody>
+<tr><td>12-30</td><td>plays</td><td class="num">0.10234</td></tr>
+<tr><td><b>1-11</b></td><td><b>silent</b></td><td class="num"><b>0.09448</b></td></tr>
+<tr><td>31-56</td><td>silent</td><td class="num">0.01043</td></tr>
+<tr><td>57-139</td><td>silent</td><td class="num">0.04459</td></tr>
+</tbody></table></div>
+
+<p><b>Bars 1 to 11 are the control that kills it.</b> The Lead is written silent there and
+the lead-split stem still measures 92% of what it measures where the Lead plays. Pooling
+1-11 with the much quieter 31-56 produced a fake 1141% separation, and on the honest
+level-controlled pair the spectral features read <b>-12.4%</b> and <b>-0.4%</b>, both
+useless and one backwards.</p>
+
+<p><b>So the later entries cannot be nominated from the audio</b>, which is what Brandon
+said before the measurement confirmed it. What is established: nothing was deleted, the
+boundary is the AI's, and the 157 single-note events after bar 56 are the material any
+later Lead re-entry would be drawn from. His ear has already assigned the bar-71 figure
+among them to Rhythm, and that one stays put.</p>
+
 <footer>
   <p><b>Reproduce:</b><br>
   <code>python3 ~/Projects/_outputs/theship-tabs/guitar_count.py</code><br>
