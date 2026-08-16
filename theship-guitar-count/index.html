@@ -3171,6 +3171,40 @@ boundary is the AI's, and the 157 single-note events after bar 56 are the materi
 later Lead re-entry would be drawn from. His ear has already assigned the bar-71 figure
 among them to Rhythm, and that one stays put.</p>
 
+<h3>Pitch verification of the inherited Rhythm content, and why it fails</h3>
+
+<p><b>The Rhythm staff's 644 notes are entirely inherited from the AI transcription</b>, so
+they were audited against every guitar stem available, each with its own validated map and
+its own shifted-time control.</p>
+
+<div class="tablewrap"><table>
+<thead><tr><th>Staff against stem</th><th class="num">Map gain</th><th class="num">Attack precision</th>
+<th class="num">Pitch</th><th class="num">Control</th><th class="num">Margin</th></tr></thead>
+<tbody>
+<tr><td>Rhythm vs guitar_rhythm</td><td class="num">+39.9</td><td class="num">46.9%</td><td class="num">100.0%</td><td class="num">100.0%</td><td class="num"><b>+0.0</b></td></tr>
+<tr><td>Rhythm vs guitar_lead</td><td class="num">+39.4</td><td class="num">49.9%</td><td class="num">71.9%</td><td class="num">67.4%</td><td class="num"><b>+4.5</b></td></tr>
+<tr><td>Rhythm vs guitar (combined)</td><td class="num">+38.3</td><td class="num">47.7%</td><td class="num">97.8%</td><td class="num">97.4%</td><td class="num">+0.5</td></tr>
+<tr><td>Lead vs guitar_rhythm</td><td class="num">+45.1</td><td class="num">52.1%</td><td class="num">100.0%</td><td class="num">100.0%</td><td class="num">+0.0</td></tr>
+<tr><td>Lead vs guitar_lead</td><td class="num">+49.3</td><td class="num">57.6%</td><td class="num">86.8%</td><td class="num">92.7%</td><td class="num"><b>-5.9</b></td></tr>
+<tr><td>Lead vs guitar (combined)</td><td class="num">+43.1</td><td class="num">50.7%</td><td class="num">97.6%</td><td class="num">99.0%</td><td class="num">-1.5</td></tr>
+</tbody></table></div>
+
+<p><b>The rhythm split stem is saturated.</b> It returns 100.0% pitch agreement AND a
+100.0% control, for both staves. Every pitch tested is present at every moment in it, so it
+carries no information about which notes are right and cannot verify anything.</p>
+
+<p><b>The only nonzero separation runs the wrong way.</b> The Rhythm staff scores +4.5
+against the LEAD stem while the Lead staff scores -5.9 against that same stem. If the split
+were part-faithful those signs would be reversed. This is an independent arrival at the
+ownership-refusal finding already on this page: the split sorts by register, which the tab
+already encodes, rather than by player.</p>
+
+<p><b>So the honest state of the inherited Rhythm content:</b> every map ACCEPTED at gains
+of +38 to +49, and attack precision 47 to 58%, so its TIMING corresponds to the record and
+is about half right. Its PITCH cannot be verified with the stems that exist. That is a
+property of this separation, not a claim that the notes are right, and nothing on this page
+should be read as pitch-verified.</p>
+
 <footer>
   <p><b>Reproduce:</b><br>
   <code>python3 ~/Projects/_outputs/theship-tabs/guitar_count.py</code><br>

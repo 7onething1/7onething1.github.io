@@ -1679,3 +1679,18 @@ The Lead staff's bar-56 boundary is inherited verbatim from the AI transcription
 The lead-split stem cannot nominate those entries. Per bar through the accepted map: bars 12-30 (Lead plays) 0.10234, bars 1-11 (Lead silent) 0.09448, bars 31-56 0.01043, bars 57-139 0.04459. Bars 1-11 are the control that kills it, at 92% of the playing level while written silent. Pooling 1-11 with the quieter 31-56 produced a fake 1141% separation; on the honest level-controlled pair the spectral features read -12.4% and -0.4%.
 
 Established: nothing was deleted, the boundary is the AI's, and the 157 single-note events after bar 56 are the material any later Lead re-entry would be drawn from. The bar-71 figure among them stays on Rhythm.
+
+### Pitch verification of the inherited Rhythm content, and why it fails
+
+| Staff against stem | Map gain | Attack precision | Pitch | Control | Margin |
+|---|---|---|---|---|---|
+| Rhythm vs guitar_rhythm | +39.9 | 46.9% | 100.0% | 100.0% | +0.0 |
+| Rhythm vs guitar_lead | +39.4 | 49.9% | 71.9% | 67.4% | +4.5 |
+| Rhythm vs guitar combined | +38.3 | 47.7% | 97.8% | 97.4% | +0.5 |
+| Lead vs guitar_rhythm | +45.1 | 52.1% | 100.0% | 100.0% | +0.0 |
+| Lead vs guitar_lead | +49.3 | 57.6% | 86.8% | 92.7% | -5.9 |
+| Lead vs guitar combined | +43.1 | 50.7% | 97.6% | 99.0% | -1.5 |
+
+The rhythm split stem is saturated: 100.0% pitch agreement AND a 100.0% control for both staves, so it carries no information. The only nonzero separation runs the wrong way, Rhythm +4.5 against the LEAD stem while Lead is -5.9 against it, which is an independent arrival at the ownership-refusal finding that the split sorts by register rather than by player.
+
+Every map ACCEPTED at gains of +38 to +49 and attack precision is 47 to 58%, so timing corresponds and is about half right. Pitch cannot be verified with the stems that exist. Nothing on this page should be read as pitch-verified.

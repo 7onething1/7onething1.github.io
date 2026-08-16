@@ -1,0 +1,56 @@
+[
+ {
+  "staff": "Rhythm Guitar",
+  "stem": "guitar_rhythm.mp3",
+  "gain": 39.9,
+  "precision": 46.9,
+  "pitch": 100.0,
+  "control": 100.0,
+  "margin": 0.0
+ },
+ {
+  "staff": "Rhythm Guitar",
+  "stem": "guitar_lead.mp3",
+  "gain": 39.4,
+  "precision": 49.9,
+  "pitch": 71.9,
+  "control": 67.4,
+  "margin": 4.5
+ },
+ {
+  "staff": "Rhythm Guitar",
+  "stem": "guitar.mp3",
+  "gain": 38.3,
+  "precision": 47.7,
+  "pitch": 97.8,
+  "control": 97.4,
+  "margin": 0.5
+ },
+ {
+  "staff": "Lead Guitar",
+  "stem": "guitar_rhythm.mp3",
+  "gain": 45.1,
+  "precision": 52.1,
+  "pitch": 100.0,
+  "control": 100.0,
+  "margin": 0.0
+ },
+ {
+  "staff": "Lead Guitar",
+  "stem": "guitar_lead.mp3",
+  "gain": 49.3,
+  "precision": 57.6,
+  "pitch": 86.8,
+  "control": 92.7,
+  "margin": -5.9
+ },
+ {
+  "staff": "Lead Guitar",
+  "stem": "guitar.mp3",
+  "gain": 43.1,
+  "precision": 50.7,
+  "pitch": 97.6,
+  "control": 99.0,
+  "margin": -1.5
+ }
+]
