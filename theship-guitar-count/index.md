@@ -1131,3 +1131,31 @@ NEW file; no audition source was modified.
 | tuning inexpressible | 05 (39-40) | drop-D confirmation |
 | near-silent outro | 04 (131-140) | partly handled |
 | unjudgeable | 08 | bars 1-40, 41-54 sound |
+
+
+### Selective pruning was tried on the drones, and retracted
+
+Criterion set BEFORE the run, since notes are selected by per-note support and
+re-measuring that is circular: precision must rise, recall hold, identification move.
+
+| artifact | precision | recall | pitch | identification | gate |
+|---|---|---|---|---|---|
+| 07 MOP before | 24.6% | 36.2% | 63.9% | 0.783, rank 2 | PASS |
+| 07 MOP pruned | **24.6%** | 36.2% | 67.4% | 0.788, rank 2 | **REVIEW** |
+| 11 before | 17.0% | 33.4% | 70.7% | 0.977, rank 1 | PASS |
+| 11 pruned | **16.8%** | 33.4% | 73.0% | 0.981, rank 1 | **REVIEW** |
+
+**Precision did not rise on either and fell on 11.** Identification moved 0.005
+and 0.004, no rank change. The only gain is pitch agreement, the same family that
+chose the notes.
+
+**And it costs playability**: both went PASS to REVIEW with isolated octaves, 07's
+hand-span 2% to 5%.
+
+**Both retracted** to `delete/`. 11's Lead refused outright: every beat in 85-92
+would have emptied, which is the tacet operation and needs its own evidence.
+
+**A wrong voicing over a known root is not reachable by deletion.** What is missing
+has to be written. Two bugs caught by the census while building it: an onset cursor
+advancing by a placeholder instead of by rhythm, and a voice rewrite that repointed
+every shared occurrence of a beat, losing 154 attacks where 75 notes were pruned.

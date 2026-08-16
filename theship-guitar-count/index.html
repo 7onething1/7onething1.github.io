@@ -1611,6 +1611,49 @@ modified at any point.</p>
 <tr><td>unjudgeable</td><td>08 JGBFTL</td><td>bars 1-40, with 41-54 confirmed sound</td></tr>
 </tbody></table>
 
+
+<h3>Selective pruning was tried on the drones, and retracted</h3>
+
+<p>Three of the four drones write a chord that partly contains what is played, so
+dropping the unsupported pitches looked like a local repair. It was built, run and
+withdrawn.</p>
+
+<p><b>The success criterion was set before the run</b>, because notes are selected
+for removal by per-note support and re-measuring that afterwards is guaranteed to
+improve and proves nothing. So the test was attack precision rising, recall
+holding, and the identification test moving, none of which the pruning was tuned
+on.</p>
+
+<table>
+<thead><tr><th>artifact</th><th>precision</th><th>recall</th><th>pitch</th><th>identification</th><th>gate</th></tr></thead>
+<tbody>
+<tr><td>07 MOP before</td><td>24.6%</td><td>36.2%</td><td>63.9%</td><td>0.783, rank 2</td><td>PASS</td></tr>
+<tr><td>07 MOP pruned</td><td><b>24.6%</b></td><td>36.2%</td><td>67.4%</td><td>0.788, rank 2</td><td><b>REVIEW</b></td></tr>
+<tr><td>11 Ambulance before</td><td>17.0%</td><td>33.4%</td><td>70.7%</td><td>0.977, rank 1</td><td>PASS</td></tr>
+<tr><td>11 Ambulance pruned</td><td><b>16.8%</b></td><td>33.4%</td><td>73.0%</td><td>0.981, rank 1</td><td><b>REVIEW</b></td></tr>
+</tbody></table>
+
+<p><b>Precision did not rise on either. It fell on 11.</b> The identification test,
+the one measurement with no per-note component at all, moved by 0.005 and 0.004
+with no change of rank. The only gain is in pitch agreement, which is the same
+family of measurement that chose the notes, so it carries little weight.</p>
+
+<p><b>And it costs playability.</b> Both artifacts went from PASS to REVIEW with
+isolated-octave findings, and 07's hand-span metric rose from 2% to 5%. Removing
+inner voices from a chord leaves a note and its octave with nothing between.</p>
+
+<p><b>Both pruned files are retracted</b> into <code>delete/</code> folders. 11
+Ambulance's Lead staff refused the operation outright, since every beat in bars
+85-92 would have emptied entirely, which is the tacet operation and needs its own
+evidence.</p>
+
+<p>The reading is clean: <b>a wrong voicing over a known root is not reachable by
+deletion</b>. What is missing has to be written, and that is a transcription job
+rather than an edit. Two bugs were caught building it, both by the census: an
+onset cursor advancing by a placeholder rather than by rhythm, and a voice rewrite
+that repointed every shared occurrence of a beat and lost 154 attacks where 75
+notes had been pruned.</p>
+
 <h3>04 Six Feet Under bar 58, and a hypothesis the audio refuted</h3>
 
 <p>Brandon: <i>"six feet under bar 58 sounds like a weird chord not quite
