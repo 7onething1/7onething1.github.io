@@ -631,5 +631,22 @@
    60
   ],
   "caveat": "greedy one-to-one matching means at least 265 are unmatched by scarcity alone"
+ },
+ "staff_reassign_04_PROMOTED": {
+  "artifact": "66410cea12c9bf10",
+  "gate": "14bb087850cf9853",
+  "checkpoint": "7bab579303034d9d",
+  "verdict": "PASS",
+  "preservation": "PASS",
+  "position": "PASS",
+  "status": "BEST",
+  "first_all_three_tiers_of_the_session": true,
+  "transform": "moved the tie-closed block of bars 39-54 from the Lead staff to the empty Rhythm staff by swapping bar ids; 0 notes edited",
+  "what_those_bars_hold": "a low single note then an upper chord, sixteen bars running, which is one guitarist playing root-then-strum, with the Rhythm staff silent throughout",
+  "tie_closure": "chains run 41-42, 45-46, 49-50, 53-54 and none crosses bar 39 or bar 55",
+  "earlier_attempt": "moving only 42, 46, 50 and 54 orphaned 14 tie chains because those are the continuations",
+  "lead_chord_share": "7.4% to 0.0%",
+  "bar_71_case": "RESOLVED before and after",
+  "does_not_fix": "staff_role_audit still returns ONE_PART_SPLIT at 14.5% co-activity; reassignment cannot create a second guitarist"
  }
 }

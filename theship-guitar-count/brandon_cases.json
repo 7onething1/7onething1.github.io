@@ -18,14 +18,14 @@
     "end_bar": null,
     "end_bar_supplied": false
    },
-   "sha256_16": "7bab579303034d9d",
+   "sha256_16": "66410cea12c9bf10",
    "sha_matches_case": true,
    "verdict": "RESOLVED",
-   "detail": "zero attacked notes in bars 71-140 of 04 Six Feet Under.gp; the staff's last note of any kind is bar 56, and it carries 231 attacks before bar 71 [source 04 Six Feet Under.gp, sha256:16 7bab579303034d9d]",
+   "detail": "zero attacked notes in bars 71-140 of 04 Six Feet Under-STAFF-REASSIGN.gp; the staff's last note of any kind is bar 56, and it carries 176 attacks before bar 71 [source 04 Six Feet Under-STAFF-REASSIGN.gp, sha256:16 66410cea12c9bf10]",
    "evidence": {
     "offending_bars": [],
     "last_bar_with_notes": 56,
-    "attacks_before_start": 231,
+    "attacks_before_start": 176,
     "bars_total": 140
    }
   },
@@ -41,10 +41,10 @@
     "end_bar": 58,
     "end_bar_supplied": true
    },
-   "sha256_16": "7bab579303034d9d",
+   "sha256_16": "66410cea12c9bf10",
    "sha_matches_case": true,
    "verdict": "UNVERIFIED",
-   "detail": "Enumerated as Brandon's correction by the assistant in session 5fad405a at 2026-08-16T16:22:20.976Z. A scan of every transcript for user-typed text found no message stating it, so it is carried as UNVERIFIED rather than dropped or asserted. | measured: bar 58 holds 6 guitar beats; Brandon called this bar wrong without saying what it should be [source 04 Six Feet Under.gp, sha256:16 7bab579303034d9d]",
+   "detail": "Enumerated as Brandon's correction by the assistant in session 5fad405a at 2026-08-16T16:22:20.976Z. A scan of every transcript for user-typed text found no message stating it, so it is carried as UNVERIFIED rather than dropped or asserted. | measured: bar 58 holds 6 guitar beats; Brandon called this bar wrong without saying what it should be [source 04 Six Feet Under-STAFF-REASSIGN.gp, sha256:16 66410cea12c9bf10]",
    "evidence": {
     "Lead Guitar": [],
     "Rhythm Guitar": [

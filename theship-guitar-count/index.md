@@ -1541,3 +1541,13 @@ Audio accuracy on artifact 1897971fe23b1233: attack precision 61.5% (574 of 933)
 Located: 584 of 1158 written attack events have no detected onset. Rhythm 544 of 933 (58.3%), Lead 40 of 225 (17.8%). Twelve whole bars carry sixteen written attacks and not one detected onset: 40, 42, 50, 51, 52, 53, 54, 55, 57, 58, 59, 60.
 
 Caveat: the matching is greedy and one-to-one, so at least 265 are unmatched by scarcity alone; the remaining 319 for other reasons. All 584 are in flake_unmatched_attacks.json.
+
+## 16 04 Six Feet Under: the rhythm block is back on the Rhythm staff
+
+Bars 39-54, read from 04 Six Feet Under.gp sha256:16 7bab579303034d9d, are the same shape on the LEAD staff with the Rhythm staff silent throughout: a low single note then an upper chord. Bar 39 is s0f3 (G2) then s5f3 s4f3 s3f0 s2f0; bar 40 is s1f5 (D3) then s5f3 s4f3 s3f4 s2f4; bar 53 is s0f0 (E2) then s4f3 s3f1 s2f2. That is one guitarist playing root-then-strum, which is rhythm playing written onto the Lead staff.
+
+The earlier pass moved only bars 42, 46, 50 and 54, which are the tie continuations of chords struck in 41, 45, 49 and 53, orphaning 14 tie chains. The block is tie-closed as a whole, with no chain crossing bar 39 or bar 55.
+
+Result: gate PASS on both staves with 0 findings, 0 notes edited, preservation exact at 1175 to 1175, Lead staff chord share 7.4% to 0.0%, Lead events 204 to 177, bar-71 tacet case still RESOLVED. Receipt: artifact 66410cea12c9bf10, verdict PASS, preservation PASS, position PASS, status BEST. First artifact of the session to pass all three tiers.
+
+What it does not fix: staff_role_audit still returns ONE_PART_SPLIT at 14.5% co-activity, correctly. Reassignment cannot create a second guitarist. The two staves still never sound together outside 19 bars, because the transcription only ever has one guitar playing at a time.
