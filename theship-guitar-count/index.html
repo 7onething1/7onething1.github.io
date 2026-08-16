@@ -96,6 +96,7 @@
     <li><a href="#align">Alignment, and the model bug that invented two defects</a></li>
     <li><a href="#open">What is still open</a></li>
     <li><a href="#brandon">Brandon's ear corrections, as regression cases</a></li>
+    <li><a href="#brandon">Brandon's ear corrections, as regression cases</a></li>
   </ol>
 </div>
 
@@ -1895,6 +1896,96 @@ rather than dropped or asserted.</p>
 <p><b>The bar 71 correction was satisfied in the tab before this pass began.</b> The Lead
 staff of 04 Six Feet Under has zero attacked notes in bars 71 through 140, and its last
 note of any kind is bar 56, against 231 attacks in bars 1 to 70. The defect lived in the
+record, which never said so, and the artifact was clean.</p>
+
+<p><b>Two Flake corrections are now measured rather than described.</b> Every one of the
+204 C#m beats in the Rhythm staff is fretted away from second position, at frets 4, 5 and
+12. And 445 of 765 chord beats, 58.2%, reach below the top three strings across 37 bars.
+Brandon heard both before any measurement for them existed.</p>
+
+<p><b>A clean measurement does not close a case with no bars.</b> Brandon gave the F#
+alteration and the latter half with no bar range, so the gate holds it OPEN and asks for
+the bars instead of choosing a window and grading itself against it.</p>
+
+<p><b>Run it:</b><br>
+<code>python3 ~/.claude/skills/impossible-guitar-parts/brandon_cases.py</code><br>
+<code>python3 ~/.claude/skills/impossible-guitar-parts/brandon_cases.py --require 04</code><br>
+<code>python3 ~/.claude/skills/impossible-guitar-parts/regressions.py</code> &nbsp;
+returns <code>MACHINE VERDICT: FAIL</code> while any case is open.</p>
+
+
+<h2 id="brandon">8 &nbsp;Brandon's ear corrections, as regression cases</h2>
+
+<p><b>The earlier 2026-08-16 completion record carried the scorecard and dropped every
+one of these.</b> It reported 8 PASS and 2 REVIEW, called 01 and 10 perfect, and reduced
+02 Flake to bars 61-69 plus the muted question. Brandon's instruction was to promote his
+manual bar and performance observations into authoritative regression cases before
+another album-wide scorecard is allowed to call a song finished. They now live in
+<code>brandon_regression_cases.json</code> and are enforced by a gate.</p>
+
+<p><b>One transcript carries these corrections.</b> Every <code>*.jsonl</code> in the
+project directory was scanned for user-typed text mentioning Flake or Six Feet Under, and
+exactly one message matched, at
+<code>5fad405a-af59-4e36-84cc-8af5fb754977.jsonl:1443</code>, 2026-08-16T16:21:42Z. Six
+of the seven cases are quoted from it. The seventh is attributed to Brandon by an earlier
+assistant turn and appears in no message he typed, so it is carried <b>UNVERIFIED</b>
+rather than dropped or asserted.</p>
+
+<div class="tablewrap">
+<table>
+<thead><tr>
+  <th>Song / staff</th><th>Brandon said</th><th>Verdict</th><th>Measured</th>
+</tr></thead>
+<tbody>
+  <tr>
+    <td><b>02 Flake of the Year</b><br><span style="font-size:12px">Rhythm Guitar</span></td>
+    <td>&ldquo;second position C sharp minor&rdquo;<br><span style="font-size:12px">bars from Brandon: none given</span></td>
+    <td><span class="pill bad">OPEN MEASURED</span></td>
+    <td>204 of 204 C#m beats are fretted away from position 2; positions found {4: 144, 5: 8, 12: 52} [source 02 Flake of the Year.gp, sha256:16 e90b44d28bb5f3fe]</td>
+  </tr>
+  <tr>
+    <td><b>02 Flake of the Year</b><br><span style="font-size:12px">Lead Guitar against Rhythm Guitar</span></td>
+    <td>&ldquo;duplicated lead notes&rdquo;<br><span style="font-size:12px">bars from Brandon: none given</span></td>
+    <td><span class="pill bad">OPEN MEASURED</span></td>
+    <td>48 of 225 lead notes (21.3%) double a rhythm note at the same instant, across 15 bars [source 02 Flake of the Year.gp, sha256:16 e90b44d28bb5f3fe]</td>
+  </tr>
+  <tr>
+    <td><b>02 Flake of the Year</b><br><span style="font-size:12px">Rhythm Guitar</span></td>
+    <td>&ldquo;upper three string chord voicings&rdquo;<br><span style="font-size:12px">bars from Brandon: none given</span></td>
+    <td><span class="pill bad">OPEN MEASURED</span></td>
+    <td>445 of 765 chord beats (58.2%) reach below the top three strings, across 37 bars [source 02 Flake of the Year.gp, sha256:16 e90b44d28bb5f3fe]</td>
+  </tr>
+  <tr>
+    <td><b>02 Flake of the Year</b><br><span style="font-size:12px">Rhythm Guitar</span></td>
+    <td>&ldquo;the F sharp alteration during the latter half&rdquo;<br><span style="font-size:12px">bars from Brandon: none given</span></td>
+    <td><span class="pill warn">OPEN NEEDS SCOPE</span></td>
+    <td>10 F#-rooted beats from bar 35 on, at fret positions {4: 6, 9: 4}; Brandon gave the alteration with no bar range [source 02 Flake of the Year.gp, sha256:16 e90b44d28bb5f3fe]</td>
+  </tr>
+  <tr>
+    <td><b>02 Flake of the Year</b><br><span style="font-size:12px">Rhythm Guitar</span></td>
+    <td>&ldquo;rests or dead attacks that were replaced with continued chord strumming&rdquo;<br><span style="font-size:12px">bars from Brandon: none given</span></td>
+    <td><span class="pill warn">OPEN BLOCKED</span></td>
+    <td>No measurement separates a dead strum from a rung one on this audio. The tab's own Muted marks are circular at AUC 0.522; the synthetic control proves the feature at AUC 1.000 but its threshold flagged an implausible 37.4% when transferred. Recorded in COMPLETION_BOUNDARY.json as the twelve muted-strum ear-labels dependency.</td>
+  </tr>
+  <tr>
+    <td><b>04 Six Feet Under</b><br><span style="font-size:12px">unspecified</span></td>
+    <td>&ldquo;bar 58 weird chord&rdquo;<br><span style="font-size:12px">bars from Brandon: bar 58</span></td>
+    <td><span class="pill warn">UNVERIFIED</span></td>
+    <td>Enumerated as Brandon's correction by the assistant in session 5fad405a at 2026-08-16T16:22:20.976Z. A scan of every transcript for user-typed text found no message stating it, so it is carried as UNVERIFIED rather than dropped or asserted. | measured: bar 58 holds 6 guitar beats; Brandon called this bar wrong without saying what it should be [source 04 Six Feet Under.gp, sha256:16 7bab579303034d9d]</td>
+  </tr>
+  <tr>
+    <td><b>04 Six Feet Under</b><br><span style="font-size:12px">Lead Guitar</span></td>
+    <td>&ldquo;beginning at bar 71, the Lead Guitar rapid sixteenth or thirty second note passage should be tacet&rdquo;<br><span style="font-size:12px">bars from Brandon: bar 71</span></td>
+    <td><span class="pill ok">RESOLVED</span></td>
+    <td>zero attacked notes in bars 71-140 of 04 Six Feet Under.gp; the staff's last note of any kind is bar 56, and it carries 231 attacks before bar 71 [source 04 Six Feet Under.gp, sha256:16 7bab579303034d9d]</td>
+  </tr>
+</tbody>
+</table>
+</div>
+
+<p><b>The bar 71 correction was satisfied in the tab before this pass began.</b> The Lead
+staff of 04 Six Feet Under has zero attacked notes in bars 71 through 140, and its last
+note of any kind is bar 56, against 231 attacks before bar 71. The defect lived in the
 record, which never said so, and the artifact was clean.</p>
 
 <p><b>Two Flake corrections are now measured rather than described.</b> Every one of the
