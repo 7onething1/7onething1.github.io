@@ -1551,3 +1551,13 @@ The earlier pass moved only bars 42, 46, 50 and 54, which are the tie continuati
 Result: gate PASS on both staves with 0 findings, 0 notes edited, preservation exact at 1175 to 1175, Lead staff chord share 7.4% to 0.0%, Lead events 204 to 177, bar-71 tacet case still RESOLVED. Receipt: artifact 66410cea12c9bf10, verdict PASS, preservation PASS, position PASS, status BEST. First artifact of the session to pass all three tiers.
 
 What it does not fix: staff_role_audit still returns ONE_PART_SPLIT at 14.5% co-activity, correctly. Reassignment cannot create a second guitarist. The two staves still never sound together outside 19 bars, because the transcription only ever has one guitar playing at a time.
+
+### RETRACTION of the twelve-bar claim, same hour
+
+Counting the onsets the recording contains INSIDE each bar refutes it for ten of the twelve. Bars 50-60 hold 11 to 17 onsets each for 16 written attacks; the recording is strumming there. The twelve average 0.73 onsets per written attack against 0.63 across the rest of the song, so they carry more support than the average bar. The 16-of-16 figure was an artifact of greedy one-to-one matching plus local timing error above the 30 ms window.
+
+Only bars 40 and 42 survive: 16 written attacks each across 3.77 s and 4.88 s with ZERO detected onsets. That is the honest repair scope: 32 attacks in two bars.
+
+The 584 stands only as an upper bound: at least 265 are unmatched by scarcity alone and this control shows most of the rest are matching failures. Deleting them would repeat the prune already retracted once.
+
+Same error as section 12, one section later: a number was published before the control that could refute it was run.

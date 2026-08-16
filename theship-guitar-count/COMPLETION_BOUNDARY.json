@@ -611,26 +611,16 @@
   "pitch_verdict": "still fails its control, so pitch content remains unverified"
  },
  "rests_LOCATED": {
-  "written_attack_events": 1158,
-  "unmatched": 584,
-  "pct": 50.4,
-  "Rhythm": "544 of 933, 58.3%",
-  "Lead": "40 of 225, 17.8%",
-  "whole_bars_16_of_16_unmatched": [
-   40,
-   42,
-   50,
-   51,
-   52,
-   53,
-   54,
-   55,
-   57,
-   58,
-   59,
-   60
-  ],
-  "caveat": "greedy one-to-one matching means at least 265 are unmatched by scarcity alone"
+  "RETRACTED_twelve_bar_claim": "counting onsets inside each bar refutes it for ten of the twelve",
+  "per_bar": {
+   "40": "16 written, 0 onsets, 3.77s",
+   "42": "16 written, 0 onsets, 4.88s",
+   "50-60": "16 written each, 11 to 17 onsets each"
+  },
+  "ratio": "the twelve average 0.73 onsets per written attack against 0.63 across the rest of the song, so they are better supported than average",
+  "true_scope": "bars 40 and 42 only, 32 written attacks across 8.65 seconds with no detected onset",
+  "the_584": "an upper bound only; at least 265 unmatched by scarcity and most of the rest are matching failures. Deleting them would repeat the retracted prune.",
+  "lesson": "a number was published before the control that could refute it was run, the same error as section 12"
  },
  "staff_reassign_04_PROMOTED": {
   "artifact": "66410cea12c9bf10",

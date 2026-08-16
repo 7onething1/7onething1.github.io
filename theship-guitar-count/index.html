@@ -2821,15 +2821,48 @@ control at -2.4</b>, so pitch content remains unverified even with the map worki
 <tr><td>both</td><td class="num">1158</td><td class="num">584, 50.4%</td></tr>
 </tbody></table></div>
 
-<p><b>Twelve whole bars carry sixteen written attacks and not one detected onset:</b> bars
-40, 42, 50, 51, 52, 53, 54, 55, 57, 58, 59 and 60. Sixteenth-note strumming written across
-a bar the recording does not strum. That is Brandon's "rests or dead attacks replaced with
-continued chord strumming", located rather than described.</p>
+<div style="border:2px solid #8A2F17;background:#F3D9D2;padding:12px 14px;margin:1.2em 0">
+<p style="margin:0"><b>RETRACTED within the hour.</b> This section first read: twelve whole
+bars carry sixteen written attacks and not one detected onset, bars 40, 42, 50 to 55 and
+57 to 60. Counting the onsets the recording actually contains inside each bar refutes it
+for ten of the twelve.</p></div>
 
-<p><b>The caveat, stated plainly:</b> the matching is greedy and one-to-one, so with 933
-written against 668 detected at least 265 are unmatched by scarcity alone. The remaining
-319 are unmatched for other reasons. Every one of the 584 is listed in
-<code>flake_unmatched_attacks.json</code>.</p>
+<div class="tablewrap"><table>
+<thead><tr><th>Bar</th><th class="num">Written attacks</th><th class="num">Onsets in the recording</th><th class="num">Seconds</th></tr></thead>
+<tbody>
+<tr><td><b>40</b></td><td class="num">16</td><td class="num"><b>0</b></td><td class="num">3.77</td></tr>
+<tr><td><b>42</b></td><td class="num">16</td><td class="num"><b>0</b></td><td class="num">4.88</td></tr>
+<tr><td>50</td><td class="num">16</td><td class="num">15</td><td class="num">3.03</td></tr>
+<tr><td>51</td><td class="num">16</td><td class="num">16</td><td class="num">2.82</td></tr>
+<tr><td>52</td><td class="num">16</td><td class="num">14</td><td class="num">2.68</td></tr>
+<tr><td>53</td><td class="num">16</td><td class="num">17</td><td class="num">2.89</td></tr>
+<tr><td>54</td><td class="num">16</td><td class="num">13</td><td class="num">2.87</td></tr>
+<tr><td>55</td><td class="num">16</td><td class="num">14</td><td class="num">2.83</td></tr>
+<tr><td>57</td><td class="num">16</td><td class="num">13</td><td class="num">2.84</td></tr>
+<tr><td>58</td><td class="num">16</td><td class="num">11</td><td class="num">2.77</td></tr>
+<tr><td>59</td><td class="num">16</td><td class="num">12</td><td class="num">2.79</td></tr>
+<tr><td>60</td><td class="num">16</td><td class="num">15</td><td class="num">2.89</td></tr>
+</tbody></table></div>
+
+<p><b>Bars 50 to 60 hold 11 to 17 onsets each for 16 written attacks.</b> The recording is
+strumming there. Those twelve bars average <b>0.73 onsets per written attack against 0.63
+across the rest of the song</b>, so they carry more support than the average bar. The
+16-of-16 figure was an artifact of greedy one-to-one matching consuming onsets elsewhere,
+plus local timing error above the 30 ms window.</p>
+
+<p><b>Only bars 40 and 42 survive:</b> 32 written attacks across 8.65 seconds in which the
+recording produces <b>no detected onset at all</b>. That is the honest repair scope for the
+rests correction: 32 attacks in two bars.</p>
+
+<p><b>The 584 figure stands only as an upper bound.</b> With 933 written against 668
+detected, at least 265 are unmatched by scarcity alone, and this control shows most of the
+remainder are matching failures rather than absent attacks. <b>Deleting them would repeat
+the prune this pipeline already retracted once.</b> All 584 remain listed in
+<code>flake_unmatched_attacks.json</code> as candidates rather than findings.</p>
+
+<p><b>Same error as section 12, one section later:</b> a number was published before the
+control that could refute it was run. The control took one command.</p>
+
 
 
 <h2 id="reassign04">16 &nbsp;04 Six Feet Under: the rhythm block is back on the Rhythm staff</h2>
