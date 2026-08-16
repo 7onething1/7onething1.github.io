@@ -1036,3 +1036,36 @@ and Six Feet bar 71. The progression above is the re-transcription spec.
 
 **None is a fret edit.** Two are physically inexpressible in the file as tuned, two
 need notes only a transcription source may supply, one is partly handled.
+
+
+### Re-transcription specs, and an octave hypothesis refuted
+
+**03 Gene bars 71-80.** Lead writes F#4/G4/B4 (78), A4/B4/G5 (79), A#4/D5/E5 (80)
+while the recording's root is D3, B3, B3, at **4.2x, 3.4x, 7.5x** less energy.
+
+That looks like an octave error and is not: shifting Lead down an octave scores
+**48.3% vs 48.3%**, no gain, and some notes would need negative frets. The rest of
+that song scores **90.0% Lead / 87.9% Rhythm** against 42-48% inside the window.
+
+| bar | written roots | recording root | ratio |
+|---|---|---|---|
+| 71 | D3, E3, F#3 | D3 | 1.8x |
+| 72 | A2, A#2, B2 | A3 | 1.6x |
+| 73 | A2, A#2, B2 | E3 | 1.8x |
+| 74 | D3, E3, F#3 | F#3 | 2.2x |
+| 76 | A2, A#2, B2 | F#3 | 2.1x |
+| 77 | A2, B2, E3 | A3 | 2.5x |
+| **78** Lead | F#4, G4, B4 | **D3** | **4.2x** |
+| **79** Lead | A4, B4, G5 | **B3** | **3.4x** |
+| **80** Lead | A#4, D5, E5 | **B3** | **7.5x** |
+
+**02 Flake bars 61-69.** Only 61-64 carry enough notes: the recording wants E3,
+D#3, B3, E3 at ratios 1.3-1.9. Weakest of the five, thinnest spec.
+
+**04 Six Feet 131-140 produced no rows**: too few notes to fit a root, consistent
+with 0.07x median loudness. A near-silent outro, not a wrong passage.
+
+### No regression from the diagnostic work
+
+Zero drift on all nine songs, pitch and precision identical before and after. Every
+repair this session wrote to a NEW file and no audition source was modified.
