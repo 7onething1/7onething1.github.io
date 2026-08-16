@@ -1304,6 +1304,59 @@ against 0.927.</p>
 semitones sharp on another project and scored 24.7% pitch support. Neither defect
 is present here, so the album's pitch-agreement ceiling is not a setup problem.</p>
 
+
+<h3>Re-judged per note: thirteen flagged windows collapse to five real defects</h3>
+
+<p>The transposition test compares the SHAPE of a pitch-class histogram. Per-note
+support asks each written note whether the recording actually carries it, summed
+over f0, 2f0 and 3f0. When the two disagree, the per-note measurement wins, since
+it is grounded in the audio at each note rather than in the outline of a section.</p>
+
+<table>
+<thead><tr><th>song</th><th>window</th><th>per-note support</th><th>song baseline</th><th>delta</th><th>verdict</th></tr></thead>
+<tbody>
+<tr><td>05 Sleep Vs Death</td><td>31-40</td><td>37.9%</td><td>73.8%</td><td><b>&minus;35.9</b></td><td><b>REAL</b></td></tr>
+<tr><td>03 Gene</td><td>71-80</td><td>43.7%</td><td>77.7%</td><td><b>&minus;34.0</b></td><td><b>REAL</b></td></tr>
+<tr><td>04 Six Feet Under</td><td>131-140</td><td>54.2%</td><td>80.7%</td><td><b>&minus;26.6</b></td><td><b>REAL</b></td></tr>
+<tr><td>02 Flake of the Year</td><td>61-69</td><td>35.5%</td><td>61.5%</td><td><b>&minus;26.0</b></td><td><b>REAL</b></td></tr>
+<tr><td>09 MHL</td><td>11-20</td><td>55.4%</td><td>77.1%</td><td><b>&minus;21.6</b></td><td><b>REAL</b></td></tr>
+<tr><td>04 Six Feet Under</td><td>101-110</td><td>61.5%</td><td>80.7%</td><td>&minus;19.2</td><td>minor</td></tr>
+<tr><td>05 Sleep Vs Death</td><td>41-50</td><td>56.4%</td><td>73.8%</td><td>&minus;17.4</td><td>minor</td></tr>
+<tr><td>09 MHL</td><td>21-30</td><td>71.3%</td><td>77.1%</td><td>&minus;5.8</td><td>cleared</td></tr>
+<tr><td>07 MOP</td><td>41-50</td><td>64.7%</td><td>66.5%</td><td>&minus;1.8</td><td>cleared</td></tr>
+<tr><td>02 Flake of the Year</td><td>21-30</td><td>62.6%</td><td>61.5%</td><td>+1.1</td><td>cleared</td></tr>
+<tr><td>09 MHL</td><td>81-90</td><td>83.9%</td><td>77.1%</td><td>+6.9</td><td>cleared</td></tr>
+<tr><td>09 MHL</td><td>1-10</td><td>84.7%</td><td>77.1%</td><td>+7.6</td><td>cleared</td></tr>
+<tr><td>09 MHL</td><td>61-70</td><td>93.4%</td><td>77.1%</td><td>+16.3</td><td>cleared</td></tr>
+<tr><td>11 Ambulance</td><td>31-40</td><td><b>98.4%</b></td><td>73.3%</td><td><b>+25.1</b></td><td>cleared</td></tr>
+</tbody></table>
+
+<p><b>09 MHL drops from the album's worst to one defect.</b> Four of its five
+flagged windows score AT or ABOVE its own baseline, one of them at 93.4%. The
+histogram test was reading section shape, not wrong notes.</p>
+
+<p><b>11 Ambulance's only flagged window scores 98.4%</b>, 25 points above its
+baseline. That is as clear as this measurement gets.</p>
+
+<h3>Album state after the correction</h3>
+
+<table>
+<thead><tr><th>state</th><th>songs</th></tr></thead>
+<tbody>
+<tr><td><b>clean</b></td><td><b>01 Seedy Shade, 07 MOP, 10 Trapped in Wonderland, 11 Ambulance</b></td></tr>
+<tr><td>one real defect</td><td>02 Flake (61-69), 03 Gene (71-80), 09 MHL (11-20)</td></tr>
+<tr><td>one real plus one minor</td><td>04 Six Feet Under (131-140, 101-110), 05 Sleep Vs Death (31-40, 41-50)</td></tr>
+<tr><td>unjudgeable, aligns nowhere</td><td>08 JGBFTL, bars 1-30 by histogram</td></tr>
+</tbody></table>
+
+<p><b>Four of ten are clean. Five carry one real ten-bar window each.</b> Every one
+of those is wrong NOTES, and the pipeline's hard gate is that a tab's source is
+Songsterr rather than hand-rolled pitch detection, so each is a scoped
+re-transcription rather than a local edit I can make.</p>
+
+<p>The practical change is the size of the ask. It was "re-transcribe 08". It is
+now <b>six ten-bar windows across five songs, plus 08's bars 1 to 40</b>.</p>
+
 <h3>04 Six Feet Under bar 58, and a hypothesis the audio refuted</h3>
 
 <p>Brandon: <i>"six feet under bar 58 sounds like a weird chord not quite

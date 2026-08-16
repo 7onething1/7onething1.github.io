@@ -918,3 +918,45 @@ transposition 0.783, bars 81-90 at 0.229 vs 0.927.
 ```
 python3 ~/Projects/_outputs/theship-tabs/jgbftl_content.py --win 10
 ```
+
+
+### Re-judged per note: 13 flagged windows collapse to 5 real defects
+
+The transposition test compares histogram SHAPE. Per-note support asks each written
+note whether the recording carries it (f0+2f0+3f0). When they disagree, per-note wins.
+
+| song | window | per-note | baseline | delta | verdict |
+|---|---|---|---|---|---|
+| 05 Sleep | 31-40 | 37.9% | 73.8% | **-35.9** | **REAL** |
+| 03 Gene | 71-80 | 43.7% | 77.7% | **-34.0** | **REAL** |
+| 04 Six Feet | 131-140 | 54.2% | 80.7% | **-26.6** | **REAL** |
+| 02 Flake | 61-69 | 35.5% | 61.5% | **-26.0** | **REAL** |
+| 09 MHL | 11-20 | 55.4% | 77.1% | **-21.6** | **REAL** |
+| 04 Six Feet | 101-110 | 61.5% | 80.7% | -19.2 | minor |
+| 05 Sleep | 41-50 | 56.4% | 73.8% | -17.4 | minor |
+| 09 MHL | 21-30 | 71.3% | 77.1% | -5.8 | cleared |
+| 07 MOP | 41-50 | 64.7% | 66.5% | -1.8 | cleared |
+| 02 Flake | 21-30 | 62.6% | 61.5% | +1.1 | cleared |
+| 09 MHL | 81-90 | 83.9% | 77.1% | +6.9 | cleared |
+| 09 MHL | 1-10 | 84.7% | 77.1% | +7.6 | cleared |
+| 09 MHL | 61-70 | 93.4% | 77.1% | +16.3 | cleared |
+| 11 Ambulance | 31-40 | **98.4%** | 73.3% | **+25.1** | cleared |
+
+**09 MHL drops from the album's worst to ONE defect.** Four of five flagged windows
+score at or above its baseline, one at 93.4%.
+
+### Album state
+
+| state | songs |
+|---|---|
+| **clean** | **01 Seedy Shade, 07 MOP, 10 Trapped, 11 Ambulance** |
+| one real defect | 02 Flake (61-69), 03 Gene (71-80), 09 MHL (11-20) |
+| one real + one minor | 04 Six Feet (131-140, 101-110), 05 Sleep (31-40, 41-50) |
+| unjudgeable | 08 JGBFTL |
+
+**Four of ten clean. Five carry one real ten-bar window each.** All are wrong NOTES,
+and the pipeline gate requires a Songsterr source, so each is a scoped
+re-transcription rather than a local edit.
+
+The ask shrank from "re-transcribe 08" to **six ten-bar windows across five songs,
+plus 08's bars 1-40**.
