@@ -1949,22 +1949,15 @@ PLAYABILITY, and a low first-position voicing passes hand span, collisions, ties
 shifts cleanly. The wrong register was invisible to every check while being the first
 thing a guitarist hears.</p>
 
-<p><b>The audio settles it.</b> On the 196 C#m beats whose written low note is ABOVE
-the 120 Hz floor, where an absence IS evidence:</p>
+<p><b>The audio settles it, and the FIRST control I used was the wrong one.</b> I originally compared the octave-up pitch AT the written beat against the written low pitch at a SHIFTED time. Those are not matched, and the mismatch made the effect look roughly four times larger than it is. The matched test is paired and within-moment: at each beat, does the octave-up pitch beat the written one, and does it also do that on the same notes at a shifted time?</p>
 
-<div class="tablewrap">
-<table>
-<thead><tr><th>Measured at the written beat</th><th class="num">Median SNR</th><th class="num">Above 3x</th></tr></thead>
-<tbody>
-  <tr><td>the written low tone</td><td class="num">1.90</td><td class="num">40.3%</td></tr>
-  <tr><td>a decoy at a shifted time</td><td class="num">1.29</td><td class="num">35.3%</td></tr>
-  <tr><td><b>the same pitch class one octave up</b></td><td class="num"><b>8.21</b></td><td class="num"><b>68.4%</b></td></tr>
-</tbody>
-</table>
-</div>
+<div class="tablewrap"><table><thead><tr><th>Test on the 170 scoped notes</th><th class="num">Octave-up wins</th></tr></thead><tbody>
+<tr><td>at the written beats</td><td class="num">100.0%</td></tr>
+<tr><td>the same notes at a shifted time</td><td class="num">88.2%</td></tr>
+<tr><td><b>separation</b></td><td class="num"><b>+11.8 points</b></td></tr>
+</tbody></table></div>
 
-<p>The octave-up tone beats the written low on <b>81.6% of beats</b>. The written low is
-at the level of a random moment in the song.</p>
+<p>The 88.2% baseline is spectral tilt: this stem holds <b>55.8% of its energy in 500 to 2000 Hz</b>, so a higher pitch wins almost anywhere. What survives that control is <b>11.8 points on 170 notes</b>. The written low tone is weak on its own terms too, at a median SNR of 1.10 against its own shifted-time value of 2.79.</p>
 
 <h3>The gate this produced</h3>
 
@@ -2066,6 +2059,8 @@ pitches 62 and 69. Their control killed them: at the written times they measure 
 of 5.39 and 11.18, and the decoy measures <b>32.19 and 14.65</b>, higher. Those two
 pitches are ambient in this song, so their presence proves nothing, and the scope was
 rebuilt to invent nothing.</p>
+
+<p><b>Two more candidates were written and retracted the same hour.</b> 07 MOP and 11 Ambulance each cleared the first keep rule, margin improves and nothing vanishes, on file-level deltas of <b>+0.1</b> off 1 and 4 changed notes. That rule passed on noise. The paired control put 07 at n=2 and 11 at n=8, so neither establishes anything, and the rule now demands n at least 30 and a separation of at least 5 points. Both candidates are in their <code>delete/</code> folders, unpromoted. 05 Sleep Vs Death wrote nothing: its single eligible beat was refused on span.</p>
 
 <p><b>Receipt:</b> artifact <code>8b7f9dcd609bff4e</code>, gate
 <code>14bb087850cf9853</code>, verdict REVIEW, preservation PASS, position FAIL, status

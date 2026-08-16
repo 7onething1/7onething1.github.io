@@ -1304,7 +1304,7 @@ python3 ~/.claude/skills/impossible-guitar-parts/regressions.py
 
 Brandon's two Flake corrections are one defect: the chord lives higher on the neck than the tab wrote it. The guitar stem carries under 2% of its energy below 120 Hz, so the transcriber had no evidence in the bottom octave and filled it with plausible root-position shapes, which every playability check passes.
 
-On the 196 C#m beats whose written low note is above the floor: written low median SNR 1.90, decoy 1.29, same pitch class one octave up 8.21, winning on 81.6% of beats.
+CORRECTED control. The first comparison put the octave-up pitch AT the beat against the written low pitch at a SHIFTED time, which is not matched and overstated the effect about fourfold. Matched and paired on the 170 scoped notes: the octave-up pitch wins at 100.0% of the written beats and at 88.2% of the same notes at a shifted time, a separation of +11.8 points. The 88.2% baseline is spectral tilt, since the stem holds 55.8% of its energy in 500-2000 Hz.
 
 | Song | Floor Hz | Below | Notes | % | Verdict |
 |---|---|---|---|---|---|
@@ -1325,5 +1325,5 @@ CORRECTED the same day: a blind register is an attribution gap. The full mix sho
 
 Repair: apply_octave_lift.py moved 134 tones up an octave, re-voicing each beat with the narrowest legal shape for that exact pitch multiset. Per-note support 72.6% -> 77.1%, decoy 75.1% -> 76.2%, margin -2.5 -> +0.9, 0 pitches vanished, 0 invented, hand skip 13.1% -> 19.8%. Receipt 8b7f9dcd609bff4e, verdict REVIEW, status best_validated_so_far.
 
-A wider first attempt invented pitches 62 and 69 and was retracted: their decoy medians (32.19 and 14.65) exceed the measured ones (5.39 and 11.18), so they are ambient and prove nothing.
+07 MOP and 11 Ambulance were written and retracted the same hour: each cleared the first keep rule on a file-level delta of +0.1 off 1 and 4 changed notes, and the paired control put them at n=2 and n=8, so the rule now demands n>=30 and separation>=5 points. 05 wrote nothing, its one eligible beat refused on span. A wider first Flake attempt invented pitches 62 and 69 and was retracted: their decoy medians (32.19 and 14.65) exceed the measured ones (5.39 and 11.18), so they are ambient and prove nothing.
 

@@ -229,11 +229,19 @@
   "what": "Brandon's upper-three-string and second-position corrections are ONE defect: the chord sits an octave above where the tab wrote its bottom.",
   "why_the_pipeline_missed_it": "The Demucs guitar stem holds under 2% of its energy below 120 Hz, so the transcription had no evidence in the guitar's bottom octave and filled it with plausible root-position shapes. Every existing gate measures playability, which those shapes pass.",
   "audio_evidence": {
-   "beats": 196,
-   "written_low_median_snr": 1.9,
-   "decoy_median_snr": 1.29,
-   "octave_up_median_snr": 8.21,
-   "octave_up_wins_pct": 81.6
+   "note": "CORRECTED. The first control was not matched.",
+   "mismatched_first_pass": {
+    "octave_up_at_beat_snr": 8.21,
+    "written_low_at_shifted_time_snr": 1.29,
+    "why_wrong": "different pitch and different time, so it measured spectral tilt as well as the effect"
+   },
+   "matched_paired_test": {
+    "n": 170,
+    "octave_up_wins_at_written_beats_pct": 100.0,
+    "octave_up_wins_at_shifted_times_pct": 88.2,
+    "separation_points": 11.8,
+    "baseline_explained_by": "the stem holds 55.8% of its energy in 500-2000 Hz, so a higher pitch wins almost anywhere"
+   }
   },
   "new_gate": "register_evidence.py, wired into regressions.py as the register-evidence fixture, which FAILS on the audition source",
   "album_scan": {
@@ -259,9 +267,9 @@
    "notes_lifted": 134,
    "beats_refused": 23,
    "support_before": 72.6,
-   "support_after": 77.1,
+   "support_after": 78.8,
    "decoy_before": 75.1,
-   "decoy_after": 76.2,
+   "decoy_after": 77.9,
    "margin_before": -2.5,
    "margin_after": 0.9,
    "pitches_vanished": 0,
@@ -271,7 +279,26 @@
    "receipt": "8b7f9dcd609bff4e",
    "verdict": "REVIEW",
    "status": "best_validated_so_far",
-   "retracted_first_attempt": "lifted 153 and invented pitches 62 and 69; their decoy medians 32.19 and 14.65 exceed the measured 5.39 and 11.18, so they are ambient and the scope was rebuilt to invent nothing"
+   "retracted_first_attempt": "lifted 153 and invented pitches 62 and 69; their decoy medians 32.19 and 14.65 exceed the measured 5.39 and 11.18, so they are ambient and the scope was rebuilt to invent nothing",
+   "retracted_other_songs": {
+    "07": {
+     "changed_notes": 1,
+     "file_margin_delta": 0.1,
+     "paired_n": 2,
+     "verdict": "RETRACT"
+    },
+    "11": {
+     "changed_notes": 4,
+     "file_margin_delta": 0.1,
+     "paired_n": 8,
+     "verdict": "RETRACT"
+    },
+    "05": {
+     "changed_notes": 0,
+     "verdict": "nothing written, the one eligible beat refused on span"
+    },
+    "rule_hardened": "keep now needs n>=30 changed notes and a paired separation of >=5 points, because the first rule accepted two candidates on noise"
+   }
   },
   "album_sweep_eligible": {
    "02": 170,
