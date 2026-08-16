@@ -2237,33 +2237,48 @@ refutation or a bug, including this one, which refuted the only repair the page 
 claiming.</p>
 
 
-<h2 id="alignment">12 &nbsp;The blocking operation, found by the sixth failed control</h2>
+<h2 id="alignment">12 &nbsp;A conclusion this page published, and then refuted</h2>
 
-<p><b>Six measurements were built this session to settle which strings the Flake guitar
-strikes. Every one failed its own control.</b></p>
+<div style="border:2px solid #8A2F17;background:#F3D9D2;padding:12px 14px;margin:1.2em 0">
+<p style="margin:0"><b>RETRACTED, 2026-08-16, the same day it was published.</b> This
+section first said the blocking operation was 02 Flake's beat-to-seconds map, because
+its written chord events aligned to detected onsets at 55.8% against a 58.3% random
+control. That claim rested on an onset-alignment test that had never been validated,
+and validating it afterwards showed it does not work.</p>
+</div>
+
+<p><b>The test was run on songs whose alignment is not in question.</b> 10 Trapped in
+Wonderland was judged earlier on this page as having no failing window, and 03 Gene
+aligns at z = 17.7, the strongest on the album. At a 30 ms window:</p>
 
 <div class="tablewrap"><table>
-<thead><tr><th>Measure</th><th class="num">Result</th><th class="num">Its control</th></tr></thead>
+<thead><tr><th>Song</th><th class="num">Linear map</th><th class="num">DTW map</th>
+<th class="num">Random control</th><th class="num">Gain</th></tr></thead>
 <tbody>
-<tr><td>presence of the written low tone</td><td class="num">1.90</td><td class="num">1.29</td></tr>
-<tr><td>octave-up form, presence</td><td class="num">86.4%</td><td class="num">86.1%</td></tr>
-<tr><td>C#m upper form, presence</td><td class="num">86.2%</td><td class="num">91.7%</td></tr>
-<tr><td>supported against written note count</td><td class="num">65.4%</td><td class="num">60.2%</td></tr>
-<tr><td>attack rise, claimed against unclaimed strings</td><td class="num">-0.116</td><td class="num">-0.020</td></tr>
-<tr><td>attack rise, one harmony written two ways</td><td class="num">1.208</td><td class="num">1.202</td></tr>
-<tr><td><b>onset alignment of the written events</b></td><td class="num"><b>55.8%</b></td><td class="num"><b>58.3%</b></td></tr>
+<tr><td>02 Flake</td><td class="num">17.0%</td><td class="num">9.2%</td><td class="num">22.3%</td><td class="num">-13.1</td></tr>
+<tr><td>03 Gene, z = 17.7</td><td class="num">15.4%</td><td class="num">10.1%</td><td class="num">13.5%</td><td class="num">-3.4</td></tr>
+<tr><td>05 Sleep Vs Death</td><td class="num">10.1%</td><td class="num">12.1%</td><td class="num">8.9%</td><td class="num">+3.2</td></tr>
+<tr><td>10 Trapped, no failing window</td><td class="num">11.1%</td><td class="num">11.5%</td><td class="num">12.2%</td><td class="num">-0.7</td></tr>
 </tbody></table></div>
 
-<p><b>The last row explains the other six.</b> 02 Flake's written chord events land on a
-detected onset in its own stem 55.8% of the time. Uniformly random times land on one
-58.3% of the time, and shifted times 57.0 to 57.9%. <b>The tab matches this recording's
-attacks worse than chance.</b></p>
+<p><b>The test fails on every song, including the two that are known to align.</b> So it
+measures something other than alignment, and the 55.8% figure says nothing about 02 Flake.
+A DTW map was built and it is REFUSED on all four songs, which is the tool behaving
+correctly: a warping path always exists, and this one never beat chance.</p>
 
-<p><code>audio_accuracy.json</code> has recorded <code>timing_established: false</code>
-for this song all along, and six per-beat measurements were built on the linear
-offset-and-tempo map regardless. <b>No per-event fact about Flake can be measured until
-the beat-to-seconds map is established.</b> That is the blocking operation, and it sits
-upstream of every voicing, articulation and doubling question on this song.</p>
+<p><b>The likely reason, stated as a hypothesis:</b> a Demucs guitar
+stem carries heavy sustain, so <code>onset_detect</code> returns 668 events where the tab
+writes 933 attacks, and no mapping can match more attacks than there are onsets. The test
+needs a validated onset extractor before it can judge any tab.</p>
+
+<p><b>The order was wrong, and that is the lesson worth keeping.</b> The test was built,
+a conclusion was published from it, and only then was the test checked against cases with
+known answers. The check belonged first. This is the eighth measurement this session to
+fail its own control, and the only one that reached the page before being checked.</p>
+
+<p><b>So the alignment question remains open.</b> Whether 02 Flake's tab matches
+its recording is unknown, and the sixth and seventh failures above have no established
+cause.</p>
 
 <h3>The chord-event model, and what it exposes</h3>
 

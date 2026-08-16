@@ -375,20 +375,13 @@
   }
  },
  "BLOCKING_OPERATION": {
-  "what": "02 Flake is not time-aligned to its recording",
-  "measured": {
-   "written_events_on_an_onset_pct": 55.8,
-   "uniform_random_pct": 58.3,
-   "shifted_controls_pct": [
-    57.9,
-    57.0,
-    57.3
-   ],
-   "verdict": "worse than chance"
-  },
-  "already_recorded": "audio_accuracy.json timing_established: false for song 02",
-  "consequence": "no per-event fact about this song is measurable until the beat-to-seconds map is established; six measurements built on the linear map all failed their controls",
-  "next_step": "establish the beat map for 02, then re-run every measurement, then reconstruct the chord family"
+  "RETRACTED": "2026-08-16, same day",
+  "was_claimed": "02 Flake's beat map is the blocking operation, on 55.8% onset alignment against a 58.3% random control",
+  "why_retracted": "the onset-alignment test was never validated. At a 30 ms window it fails on every song including two whose alignment is not in question: 02 gain -13.1, 03 Gene at z=17.7 gain -3.4, 05 gain +3.2, 10 Trapped with no failing window gain -0.7. A test that cannot show alignment where alignment exists is not measuring alignment.",
+  "dtw_map": "built by beat_map.py and REFUSED on all four songs, which is the acceptance rule working",
+  "hypothesis": "a Demucs guitar stem sustains heavily, so onset_detect returns 668 events where the tab writes 933 attacks",
+  "status": "the alignment question is OPEN; the sixth and seventh control failures have no established cause",
+  "lesson": "the test was built, a conclusion was published from it, and only then was the test checked against known answers"
  },
  "chord_event_model": {
   "tool": "chord_event.py",

@@ -1362,7 +1362,7 @@ The INTERIOR_GAP records read '4 attacked notes with 1 unexplained interior stri
 
 Retracted. The candidate stays on disk unpromoted with RETRACTION.json beside it. The graded artifact for 02 Flake is the audition source. octave_lift_sweep.py's keep rule now reads the hard profile and returns RETRACT on its own output.
 
-## 12 The blocking operation, found by the sixth failed control
+## 12 A conclusion this page published, and then refuted
 
 Six measurements were built to settle which strings the Flake guitar strikes, and every one failed its control: presence of the written low tone 1.90 vs 1.29; octave-up presence 86.4% vs 86.1%; C#m upper presence 86.2% vs 91.7%; supported-vs-written 65.4% vs 60.2%; attack rise claimed vs unclaimed -0.116 vs -0.020; attack rise on one harmony written two ways 1.208 vs 1.202.
 
@@ -1371,3 +1371,13 @@ The seventh explains them all: the written chord events align to a detected onse
 chord_event.py stores six facts per event beside their evidence. Over 926 Flake chord events: attack_time 517 measured / 409 asserted, active_strings 0 measured / 926 asserted, fret_position 926 derived, pitch_content 517 / 409, articulation 0 / 926 asserted, sustain 926 notation. Mean 2.88 of 6 facts asserted per event, and the two at 926 of 926 are exactly the two the corrections are about.
 
 The next repair is the beat-to-seconds map for 02 Flake, then re-running every measurement on a map that holds.
+
+### RETRACTION of section 12, same day
+
+The claim that 02 Flake's beat map is the blocking operation rested on an onset-alignment test that was never validated. Run at a 30 ms window on songs whose alignment is not in question, it fails on all of them: 02 gain -13.1, 03 Gene (z=17.7) -3.4, 05 +3.2, 10 Trapped (no failing window) -0.7. A test that cannot show alignment on 03 and 10 is not measuring alignment, so the 55.8% figure says nothing about 02.
+
+The DTW map was built and is REFUSED on all four songs, which is the tool working: a warping path always exists and this one never beat chance.
+
+Hypothesis: a Demucs guitar stem sustains heavily, so onset_detect returns 668 events where the tab writes 933 attacks, and no mapping can match more attacks than there are onsets.
+
+The order was wrong. The test was built, a conclusion was published, and only then was the test checked against known answers. The check belonged first.
