@@ -1768,3 +1768,15 @@ So REVIEW is the correct verdict and PASS is not available honestly. The three r
 The verdict is computed in check_file as a pure function of the measured counts, and a non-zero `shift` forces REVIEW. Every licence flag the tool has (--license-skip-regression, --license-note-removal, --accept-tier-tradeoff) is a parameter of compare_checkpoint, which decides PROMOTION. None is in scope where the verdict is decided.
 
 So PASS requires shift == 0, and only three things produce that: re-finger the note, impossible because G2 has one position on this neck; re-pitch it, which falsifies a note the recording confirms at SNR 152 against a staff median of 54; or delete it, same objection. REVIEW is the terminal state for this artifact, and reaching PASS would mean lying about the music.
+
+## 24 The hand-span gate counts frets, not distance
+
+04's octave Lead left one review item, read from 04 Six Feet Under-STAFF-REASSIGN-OCTAVE-LEAD.gp sha256:16 70892d13dce552e4: bar 96.5, s5f15 s4f12 s3f12 s2f16 s1f17, a 5-fret span against a 4-fret threshold. On a 25.5 inch scale: the flagged event spans 3.20 in at frets 12-17; the same shape at frets 0-5 spans 6.40 in; the gate's own 4-fret threshold at the nut spans 5.26 in; a 4-fret hand at the 12th spans 2.63 in.
+
+The flagged stretch is 39% shorter in physical distance than the threshold it violates. The source shape spans 2 frets only by using two open strings, and no octave transposition preserves an open string, so every such shape gains fret count while losing physical span.
+
+best_voicing confirms span 5 is the minimum complete voicing of [62, 66, 67, 71, 79]. The octave-down fallback is unavailable: those pitches minus 24 include MIDI 38, below the open low E at 40.
+
+--accept-tier-tradeoff records the licence and does NOT flip the verdict to PASS. The artifact stays at REVIEW, which is correct.
+
+Fix, named and not yet made: compare span in inches, scale * (2**(-lo/12) - 2**(-hi/12)), with the threshold in inches. Recorded as HAND_SPAN_IS_POSITION_BLIND.md.

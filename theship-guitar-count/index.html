@@ -3368,6 +3368,50 @@ and reaching PASS would mean lying about the music.</p>
 <p>That is the gate working as designed. A verdict no argument can override is the whole
 point of having one.</p>
 
+
+<h2 id="spanblind">24 &nbsp;The hand-span gate counts frets, not distance</h2>
+
+<p><b>04's octave Lead left exactly one review item</b>, read from
+<code>04 Six Feet Under-STAFF-REASSIGN-OCTAVE-LEAD.gp</code> sha256:16
+<code>70892d13dce552e4</code>: bar 96.5,
+<code>s5f15 s4f12 s3f12 s2f16 s1f17</code>, a 5-fret span against a 4-fret threshold.
+Measuring the actual stretch on a 25.5 inch scale turns the finding around:</p>
+
+<div class="tablewrap"><table>
+<thead><tr><th>Stretch</th><th class="num">Frets</th><th class="num">Inches</th></tr></thead>
+<tbody>
+<tr><td>the flagged event, bar 96.5</td><td class="num">12 to 17</td><td class="num"><b>3.20</b></td></tr>
+<tr><td>the same shape at the source position</td><td class="num">0 to 5</td><td class="num">6.40</td></tr>
+<tr><td><b>the gate's own 4-fret threshold at the nut</b></td><td class="num">0 to 4</td><td class="num"><b>5.26</b></td></tr>
+<tr><td>a 4-fret hand at the 12th position</td><td class="num">12 to 16</td><td class="num">2.63</td></tr>
+</tbody></table></div>
+
+<p><b>The flagged stretch is 39% SHORTER in physical distance than the threshold it
+violates.</b> Fret spacing compresses up the neck, so a shape the gate permits at the nut
+is harder to play than one it flags at the twelfth fret.</p>
+
+<h3>Why it will keep happening</h3>
+
+<p>The source shape spans 2 frets only because it uses two open strings,
+<code>s5f3 s4f0 s3f0 s2f4 s1f5</code>. No octave transposition can preserve an open
+string, so every such shape gains fret count while LOSING physical span. Any upward
+transposition pass on this album will trip the same test.</p>
+
+<p><code>best_voicing()</code> confirms span 5 is the minimum complete voicing of pitches
+[62, 66, 67, 71, 79], with nothing at span 4 or less. The octave-down fallback is
+unavailable: those pitches minus 24 include MIDI 38, below the open low E at 40.</p>
+
+<h3>What the gate did right</h3>
+
+<p><code>--accept-tier-tradeoff</code> records the licence and its measurement in the
+receipt, and it does NOT flip the verdict to PASS. The artifact stays at REVIEW. A licence
+is evidence for a human decision, never a way to turn a review into a pass, and the gate
+holding that line is correct even when the licence is sound.</p>
+
+<p><b>The fix is named and not yet made:</b> compare span in inches rather than frets,
+<code>scale * (2**(-lo/12) - 2**(-hi/12))</code>, with the hand threshold expressed in
+inches. Recorded in the skill as <code>HAND_SPAN_IS_POSITION_BLIND.md</code>.</p>
+
 <footer>
   <p><b>Reproduce:</b><br>
   <code>python3 ~/Projects/_outputs/theship-tabs/guitar_count.py</code><br>
