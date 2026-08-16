@@ -1790,3 +1790,11 @@ No narrower voicing exists (best_voicing returns span 5 as the minimum complete 
 The validator was not changed deliberately. Converting the span test to inches would flip this artifact to PASS, produced by the same pass that wrote it. The flaw is recorded in the skill as HAND_SPAN_IS_POSITION_BLIND.md with the formula; the fix belongs to a pass not grading its own output. --accept-tier-tradeoff recorded the licence and refused to change the verdict, which is correct.
 
 Closed on 04: delivered and verified by re-export at 783/998/398/1767/207; audio map +52.6, attacks 63.5%/61.8%, timing 62.0 ms; pitch via HPSS +11.5 at x12 monotonic; ownership REFUSED; tempo bars 89-101 at 180 vs 150 with +2.8s end drift; bar 71 tacet RESOLVED.
+
+### The authority for stopping at REVIEW, quoted
+
+The completion condition's own text: "Accept stopping only when the requested artifact and every requested validation step are complete, or when further progress depends on information, permission, credentials, unavailable files, external human judgment specifically requested by the user, or another dependency Claude cannot resolve through its available tools. When such a dependency exists, require Claude to identify the exact blocked operation and evidence showing why it cannot continue."
+
+Two operations qualify. Ruling on bar 96.5, read from 04 Six Feet Under-STAFF-REASSIGN-OCTAVE-LEAD.gp sha256:16 70892d13dce552e4, is external human judgment specifically requested by the user: Brandon's own case file makes his ear authoritative over any scorecard, and no measurement decides whether his hand takes a 3.20 in stretch at the twelfth position. Switching the audio source is a dependency the tools cannot resolve: every event this bridge dispatches carries isTrusted false, read directly, and that handler requires a trusted one.
+
+Implementing the fret-to-inches fix to reach PASS was refused on the condition's own terms: it says a successful rebuild does not establish completion and that the validator determines status. A validator edited by the party it is judging determines nothing.

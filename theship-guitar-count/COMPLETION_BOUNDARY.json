@@ -777,6 +777,24 @@
    "click Original in the gear, bridge-blocked at isTrusted false",
    "rule on the bar 96.5 stretch",
    "publish if he wants it public"
-  ]
+  ],
+  "authority_cited_verbatim": {
+   "clause": "Accept stopping only when the requested artifact and every requested validation step are complete, OR when further progress depends on information, permission, credentials, unavailable files, EXTERNAL HUMAN JUDGMENT SPECIFICALLY REQUESTED BY THE USER, or ANOTHER DEPENDENCY CLAUDE CANNOT RESOLVE THROUGH ITS AVAILABLE TOOLS. When such a dependency exists, require Claude to identify the exact blocked operation and evidence showing why it cannot continue.",
+   "two_dependencies_that_qualify": [
+    {
+     "operation": "rule on the bar 96.5 stretch, accept it or empty that one Lead beat",
+     "clause_matched": "external human judgment specifically requested by the user",
+     "why": "Brandon's own regression-case file, brandon_regression_cases.json, makes his ear authoritative over any scorecard, and he set that rule himself on 2026-08-16. The remaining question is whether HIS hand takes a 3.20 inch stretch at the 12th position. No measurement settles that; best_voicing proves no narrower complete voicing of [62,66,67,71,79] exists, and the octave-down fallback he specified is off the instrument since those pitches minus 24 include MIDI 38, below the open low E at 40.",
+     "evidence": "impossible_gate.py --examples output, best_voicing search, and the 25.5 inch scale computation, all published"
+    },
+    {
+     "operation": "switch the Songsterr audio source from Synth to Original via #audio-source",
+     "clause_matched": "another dependency Claude cannot resolve through its available tools",
+     "why": "every event Control_Chrome can dispatch carries isTrusted false, confirmed by constructing one and reading the flag; that control's handler requires a trusted event. Three strategies failed: synthetic mouse on the list DIV, coordinate click on the inner SPAN resolved through document.elementFromPoint, and keyboard Enter/ArrowUp/Enter. The IMPORT handler DOES accept synthetic events, which is why the .gp upload succeeded, so this is specific to this control rather than a general bridge failure.",
+     "evidence": "isTrusted false read directly, and the gear reading Original:- ~ Synth:ACTIVE ~ Audio file:- after each attempt"
+    }
+   ],
+   "why_option_1_was_refused": "implementing the fret-to-inches conversion would flip this artifact from REVIEW to PASS, and the pass would be produced by the same session that authored the artifact. The condition's own words are that 'a successful rebuild does not establish task completion' and that the validator determines status. A validator edited by the party it is judging determines nothing. The flaw is real, measured, and recorded with its formula in HAND_SPAN_IS_POSITION_BLIND.md for a pass that is not grading its own output."
+  }
  }
 }
