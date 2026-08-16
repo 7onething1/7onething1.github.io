@@ -4089,6 +4089,67 @@ already assuming a clean-signal result carries to a real guitar. A real-audio co
 sparse band is the next thing that has to exist, and the intro shows how one is built:
 measure a figure directly, prove the measure on a known answer, and only then write.</p>
 
+<h3>The real-audio control, and the assumption it caught</h3>
+
+<p>Everything that scored 100% scored it on a synthetic render. So the sparse band got a
+control built the way the intro was, with <b>pyin as the arbiter</b>, chosen because it shares
+no machinery with either proposer. Scoring the comb against the comb proves nothing.</p>
+
+<div class="tablewrap"><table>
+<thead><tr><th>Step</th><th>Result</th></tr></thead>
+<tbody>
+<tr><td>1. pyin on ISOLATED notes of the labelled render, truth known</td>
+<td><span class="pill ok">clears the 90% arbiter bar</span></td></tr>
+<tr><td>2. pyin on the REAL stem at the same moments</td><td>31 notes carry a reading</td></tr>
+<tr><td>3. harmonic comb against that arbiter, on real audio</td>
+<td class="num"><b>45.2%</b></td></tr>
+<tr><td>3. basic-pitch against that arbiter, on real audio</td>
+<td class="num"><b>45.2%</b></td></tr>
+</tbody></table></div>
+
+<p><b>Both proposers scored 100% on the synthetic render and 45.2% on the record.</b> The bar
+was 80%, set before the run. So the clean-signal result did not carry, which is the exact
+assumption this control existed to test, and it is the second time on this page that a
+synthetic score has failed to survive contact with the real recording. Nothing was
+rewritten.</p>
+
+<h3>Twelve notes, and why they go to Brandon rather than into the tab</h3>
+
+<p>Twelve of the 31 have <b>all three methods agreeing on the same pitch and all three
+differing from the tab</b>. pyin, a CQT harmonic comb and a trained neural transcriber share
+no machinery, so that is a striking convergence.</p>
+
+<div class="tablewrap"><table>
+<thead><tr><th class="num">Bar</th><th class="num">Seconds</th><th>Tab writes</th>
+<th>All three hear</th><th class="num">Interval</th></tr></thead>
+<tbody>
+<tr><td class="num">39</td><td class="num">47.48</td><td>G2</td><td>B3</td><td class="num">+16</td></tr>
+<tr><td class="num">43</td><td class="num">55.11</td><td>B2</td><td>E2</td><td class="num">&minus;7</td></tr>
+<tr><td class="num">45</td><td class="num">58.08</td><td>E2</td><td>G2</td><td class="num">+3</td></tr>
+<tr><td class="num">51</td><td class="num">66.87</td><td>B2</td><td>D3</td><td class="num">+3</td></tr>
+<tr><td class="num">93</td><td class="num">131.70</td><td>C3</td><td>G2</td><td class="num">&minus;5</td></tr>
+<tr><td class="num">105</td><td class="num">151.67</td><td>E2</td><td>B2</td><td class="num">+7</td></tr>
+<tr><td class="num">107</td><td class="num">154.73</td><td>G2</td><td>E2</td><td class="num">&minus;3</td></tr>
+<tr><td class="num">117</td><td class="num">171.00</td><td>C4</td><td>G2</td><td class="num">&minus;17</td></tr>
+<tr><td class="num">118</td><td class="num">172.30</td><td>C4</td><td>G2</td><td class="num">&minus;17</td></tr>
+<tr><td class="num">119</td><td class="num">173.28</td><td>B2</td><td>C3</td><td class="num">+1</td></tr>
+<tr><td class="num">121</td><td class="num">176.41</td><td>E2</td><td>B2</td><td class="num">+7</td></tr>
+<tr><td class="num">127</td><td class="num">184.89</td><td>B2</td><td>G2</td><td class="num">&minus;4</td></tr>
+</tbody></table></div>
+
+<p><b>The bar was 80% and the measured accuracy is 45.2%, so the pre-registered answer is no
+rewrite.</b> Treating a three-way agreement as special after seeing the result would be the
+post-hoc reasoning this whole page exists to record.</p>
+
+<p>Validating a per-note pitch needs ground truth on <b>real</b> audio. The only ground truth
+obtainable here is synthetic, and the control just proved synthetic does not transfer. That
+closes the automated routes, and it is a measured conclusion rather than a shrug: six
+measures were calibrated against labelled data across this session and every one was refused
+at the bar set before it ran. The remaining arbiter is a human ear, and this is a
+<b>twelve-item</b> list of isolated notes rather than a request to check 1100. Each row is a
+timestamp in the guitar stem and two candidate pitches. The list is at
+<code>_intro_bends_04/TWELVE_NOTES_FOR_YOUR_EAR.md</code>.</p>
+
 <p><b>The terminal position on 04, stated plainly.</b> The nine intro bends are transcribed
 from the stem, verified against a two-way control, and live. The 1100 written attacks
 underneath them are inherited Songsterr AI content measuring <b>30% of a realistic

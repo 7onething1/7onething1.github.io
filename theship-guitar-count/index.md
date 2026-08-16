@@ -1975,6 +1975,24 @@ The 39 notes at density 0-1 are the only place both proposers scored 100% on the
 
 A signal-processing comb and a trained neural transcriber share no machinery, so their converging on the same pitch in 22 places where the tab writes a different one is real corroboration of the aggregate verdict. It is still not enough to write with. The control that scored both at 100% was synthetic audio, and this page has been caught once already assuming a clean-signal result carries to a real guitar. A real-audio control for the sparse band is the next thing that has to exist, and the intro shows how one is built: measure a figure directly, prove the measure on a known answer, and only then write.
 
+### The real-audio control, and the assumption it caught
+
+Everything that scored 100% scored it on a synthetic render. So the sparse band got a control built the way the intro was, with pyin as the arbiter, chosen because it shares no machinery with either proposer. Scoring the comb against the comb proves nothing.
+
+Step 1, pyin on ISOLATED notes of the labelled render where truth is known: clears the 90% arbiter bar. Step 2, pyin on the REAL stem at the same moments: 31 notes carry a reading. Step 3, the proposers scored against that arbiter on real audio: harmonic comb 45.2%, basic-pitch 45.2%.
+
+Both proposers scored 100% on the synthetic render and 45.2% on the record. The bar was 80%, set before the run. So the clean-signal result did not carry, which is the exact assumption this control existed to test, and it is the second time on this page that a synthetic score has failed to survive contact with the real recording. Nothing was rewritten.
+
+### Twelve notes, and why they go to Brandon rather than into the tab
+
+Twelve of the 31 have all three methods agreeing on the same pitch and all three differing from the tab. pyin, a CQT harmonic comb and a trained neural transcriber share no machinery, so that is a striking convergence.
+
+bar 39 at 47.48s, tab G2, all three hear B3. bar 43 at 55.11s, tab B2, hear E2. bar 45 at 58.08s, tab E2, hear G2. bar 51 at 66.87s, tab B2, hear D3. bar 93 at 131.70s, tab C3, hear G2. bar 105 at 151.67s, tab E2, hear B2. bar 107 at 154.73s, tab G2, hear E2. bar 117 at 171.00s, tab C4, hear G2. bar 118 at 172.30s, tab C4, hear G2. bar 119 at 173.28s, tab B2, hear C3. bar 121 at 176.41s, tab E2, hear B2. bar 127 at 184.89s, tab B2, hear G2.
+
+The bar was 80% and the measured accuracy is 45.2%, so the pre-registered answer is no rewrite. Treating a three-way agreement as special after seeing the result would be the post-hoc reasoning this whole page exists to record.
+
+Validating a per-note pitch needs ground truth on REAL audio. The only ground truth obtainable here is synthetic, and the control just proved synthetic does not transfer. That closes the automated routes, and it is a measured conclusion rather than a shrug: six measures were calibrated against labelled data across this session and every one was refused at the bar set before it ran. The remaining arbiter is a human ear, and this is a twelve-item list of isolated notes rather than a request to check 1100. Each row is a timestamp in the guitar stem and two candidate pitches. The list is at _intro_bends_04/TWELVE_NOTES_FOR_YOUR_EAR.md.
+
 ### The terminal position on 04
 
 The nine intro bends are transcribed from the stem, verified against a two-way control, and live. The 1100 written attacks underneath them are inherited Songsterr AI content measuring 30% of a realistic ceiling, so the tab is NOT an accurate transcription of the record. Closing that gap needs a per-note pitch measure. The best one built here reaches AUC 0.883 on a matched labelled control, short of the 0.90 bar, and flagging a wrong note is a different problem from supplying the right one. Building that measure is the next real piece of work, and inventing pitches without it would repeat the fraud at the top of this page.
