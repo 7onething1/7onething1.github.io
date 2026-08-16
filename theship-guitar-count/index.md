@@ -1713,3 +1713,21 @@ Every stem on disk failed, so a harmonic/percussive separation of the full mix w
 So the inherited Rhythm transcription's pitch content is supported by the recording. This is the first successful pitch verification on this project and it corrects the standing conclusion that pitch could not be settled here. Every earlier attempt used the Demucs stems: guitar_rhythm is saturated at 100.0% for written and wrong pitches alike, and the combined guitar stem separates by only +2.3. The stems were the problem all along.
 
 One intermediate reading is withdrawn: a single-seed sweep reported -8.7 for Rhythm at threshold 3, contradicting +7.0 from the same configuration minutes earlier. Twenty seeds return +3.6 to +9.5, all positive, so the -8.7 was the anomaly.
+
+## 20 The audio accuracy audit, complete
+
+Artifact 4dc3b9b732b9d61f on the validated beat map (+39.2 over control). Coverage 100%, all 1127 guitar events mapped.
+
+| Measure | Value | What it establishes |
+|---|---|---|
+| attack recall | 88.6% | 592 of 668 detected onsets have a written attack |
+| attack precision | 52.6% | capped by the extractor, 100% recall on clean plucks and 5.4% on dense reverb |
+| F1 | 66.0 | inherits the cap |
+| timing p90 | 272.8 ms | median 0.0 ms is circular, the map places attacks onto onsets |
+| pitch agreement | 85.9% vs 87.8% control | uninformative, -1.9 sits inside the +/-2.4 ceiling |
+| duration and tie | n=5 long notes | no sample, 1087 of 1092 attacks are a quarter beat or shorter |
+| channel ownership | - | INCAPABLE, the split fails its control backwards |
+
+One metric establishes something: attack recall at 88.6% says the recording's attacks are written. Everything else is capped, circular, inside its noise floor, or without a sample.
+
+Separately measured and holding: the open A/D/G chord is accurate (+19.6, +36.3, +53.8 over control on its three notes); bars 40 and 42 are silent in the recording, confirmed by a silence map built with no reference to the tab.

@@ -1,0 +1,22 @@
+{
+ "artifact": "4dc3b9b732b9d61f",
+ "bpm": 81.137,
+ "beat_map": "validated, +39.2 over control",
+ "events": 1127,
+ "attacks": 1126,
+ "stem_onsets": 668,
+ "coverage_pct": 100.0,
+ "attack_precision": 52.6,
+ "attack_recall": 88.6,
+ "f1": 66.0,
+ "timing_median_ms": 0.0,
+ "timing_p90_ms": 272.8,
+ "pitch_agreement": 85.9,
+ "pitch_control": 87.8,
+ "pitch_ceiling": "+2.4 points measured on audio rendered from the tab itself",
+ "duration_short_decay": 1.063,
+ "duration_long_decay": 0.712,
+ "n_short": 1087,
+ "n_long": 5,
+ "channel_ownership": "INCAPABLE: the LEAD/RHYTHM split fails its own control backwards, -11.4 for lead-only notes against -9.5 for rhythm-only"
+}

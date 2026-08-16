@@ -19,17 +19,25 @@
    "grounded": true,
    "scope": {
     "start_bar": 71,
-    "end_bar": null,
-    "end_bar_supplied": false
+    "end_bar": 71,
+    "end_bar_supplied": true
    },
    "check": "lead_tacet_from_bar",
    "check_args": {
     "track": 0,
-    "start_bar": 71
+    "start_bar": 71,
+    "end_bar": 71
    },
    "previous_graded_artifact": {
     "file": "/Users/drwu/Projects/_outputs/theship-tabs/_AUDITION_2026-08-07/04 Six Feet Under.gp",
     "sha256_16": "7bab579303034d9d"
+   },
+   "scope_superseded_2026-08-16": {
+    "was": "start_bar 71, end_bar null, checked as zero attacks in bars 71 through 140",
+    "now": "bar 71 only",
+    "why": "Brandon gave two instructions on the same day. First, quoted verbatim: 'beginning at bar 71, the Lead Guitar rapid sixteenth or thirty second note passage should be tacet', and after checking the uploaded file himself, 'I would keep bar 71 tacet exactly as written'. Then, on the later single-guitar region: 'does it go down to just one guitar part later in the song? if so ... make the lead be an octave higher version of the guitar other part'. The first was about a spurious rapid passage, which is gone. The second asks for new Lead content across that region. Read together, bar 71 stays tacet and the rest of the region gets the octave part.",
+    "not_a_gate_loosened_to_pass": "the check is narrowed because the REQUIREMENT changed on his instruction, and both quotes are recorded here. The repair was built to the old scope first and reported as OPEN before this was written.",
+    "verified": "bar 71 holds 0 Lead events in the octave-lead artifact"
    }
   },
   {
@@ -61,7 +69,7 @@
    "song": "02",
    "title": "Flake of the Year",
    "file": "/Users/drwu/Projects/_outputs/theship-tabs/_tacet_02/02 Flake of the Year-SHAPE-SWAP-TACET.gp",
-   "sha256_16": "3dd76841e64ba1c5",
+   "sha256_16": "d2f31b7e8b9906b9",
    "staff": "Rhythm Guitar",
    "quote": "upper three string chord voicings",
    "grounded": true,
@@ -101,7 +109,7 @@
    "song": "02",
    "title": "Flake of the Year",
    "file": "/Users/drwu/Projects/_outputs/theship-tabs/_tacet_02/02 Flake of the Year-SHAPE-SWAP-TACET.gp",
-   "sha256_16": "3dd76841e64ba1c5",
+   "sha256_16": "d2f31b7e8b9906b9",
    "staff": "Rhythm Guitar",
    "quote": "second position C sharp minor",
    "grounded": true,
@@ -169,6 +177,13 @@
     },
     "CAPO_READING_RETRACTED": "Brandon never mentioned a capo. His words: 'i never said shit about a capo'. The capo was my inference presented as his statement.",
     "open_discrepancy": "in the standard E tuning this tab declares, G16 B15 e14 sound B4 D5 F#5, a B minor, and he calls the shape a C sharp minor. Either the tab's tuning does not match the recording or the string labels do not line up."
+   },
+   "CORRECTED_BY_BRANDONS_OCTAVE_TEST": {
+    "his_test": "make it be an octave higher to the original guitar part, thats how you know if its b or c#",
+    "worked_through": "the original C#m is C#3 G#3 C#4 E4 at s1f4 s2f6 s3f6 s4f5. An octave higher is C#4 G#4 C#5 E5. Its top three notes are G#4 C#5 E5, which is s3f13 s4f14 s5f12, the voicing the tab ALREADY carried.",
+    "what_I_had_written": "s3f18 s4f17 s5f16 = C#5 E5 G#5, a different inversion and NOT the octave-up. That was wrong.",
+    "corrected_artifact": "d2f31b7e8b9906b9",
+    "corroboration": "findings fall from 6 to 2, because the correct form sits beside the E chord at fret 12-13 instead of jumping to 16-18"
    }
   },
   {
@@ -176,7 +191,7 @@
    "song": "02",
    "title": "Flake of the Year",
    "file": "/Users/drwu/Projects/_outputs/theship-tabs/_tacet_02/02 Flake of the Year-SHAPE-SWAP-TACET.gp",
-   "sha256_16": "3dd76841e64ba1c5",
+   "sha256_16": "d2f31b7e8b9906b9",
    "staff": "Rhythm Guitar",
    "quote": "the F sharp alteration during the latter half",
    "grounded": true,
@@ -205,7 +220,7 @@
    "song": "02",
    "title": "Flake of the Year",
    "file": "/Users/drwu/Projects/_outputs/theship-tabs/_tacet_02/02 Flake of the Year-SHAPE-SWAP-TACET.gp",
-   "sha256_16": "3dd76841e64ba1c5",
+   "sha256_16": "d2f31b7e8b9906b9",
    "staff": "Lead Guitar against Rhythm Guitar",
    "quote": "duplicated lead notes",
    "grounded": true,
@@ -242,6 +257,29 @@
    "previous_graded_artifact": {
     "file": "/Users/drwu/Projects/_outputs/theship-tabs/_AUDITION_2026-08-07/02 Flake of the Year.gp",
     "sha256_16": "e90b44d28bb5f3fe"
+   },
+   "proper_audio_audit_2026-08-16": {
+    "what_Brandon_asked_for": "a comparison across simultaneous guitar voices, timing, pitch, stereo stems and the actual recording, not a search for deletable notes in a line",
+    "method": "each note measured in guitar-LEAD-split.wav against guitar-RHYTHM-split.wav at its warped time, on the validated beat map, reported as log2(lead/rhythm)",
+    "CONTROL": {
+     "notes_written_ONLY_in_Lead": {
+      "n": 177,
+      "median_log2_lead_over_rhythm": -11.407
+     },
+     "notes_written_ONLY_in_Rhythm": {
+      "n": 2568,
+      "median_log2_lead_over_rhythm": -9.476
+     },
+     "reading": "notes the tab assigns to Lead alone measure MORE rhythm-owned than notes it assigns to Rhythm alone. The control is not merely weak, it runs backwards."
+    },
+    "the_34_doubled": {
+     "n": 48,
+     "median_log2_lead_over_rhythm": -9.616
+    },
+    "stems_are_real": "LEAD RMS median 0.015976, RHYTHM 0.038327, correlation 0.151, not identical, both 204.1s",
+    "VERDICT": "INCAPABLE. The split separates something, but it is not the tab's Lead/Rhythm assignment, so it cannot attribute the 34 doubled notes.",
+    "action_taken": "no deletion. Two independent measurements now decline to support one: the notation audit found zero candidates, and the stereo-stem audit fails its own control.",
+    "what_would_answer_it": "a lead/rhythm separation whose output is validated against known-single-voice passages before use"
    }
   },
   {
@@ -249,7 +287,7 @@
    "song": "02",
    "title": "Flake of the Year",
    "file": "/Users/drwu/Projects/_outputs/theship-tabs/_tacet_02/02 Flake of the Year-SHAPE-SWAP-TACET.gp",
-   "sha256_16": "3dd76841e64ba1c5",
+   "sha256_16": "d2f31b7e8b9906b9",
    "staff": "Rhythm Guitar",
    "quote": "rests or dead attacks that were replaced with continued chord strumming",
    "grounded": true,
@@ -357,6 +395,19 @@
     "preservation": "0 pitches vanished, 0 invented; 2937 -> 2841 note instances",
     "gate": "PASS both staves, findings 6 -> 6",
     "still_open": "the other unmatched attacks are NOT removed; the twelve-bar claim was retracted when per-bar onset counts showed bars 50-60 hold 11 to 17 onsets each"
+   },
+   "tab_independent_confirmation": {
+    "method": "silent stretches located in the stem by absolute RMS under 2% of its median for at least 1.5 s, with NO reference to the tab",
+    "stretches_found": [
+     "0.0-2.8s",
+     "101.5-103.0s",
+     "103.2-106.8s",
+     "107.9-113.6s",
+     "192.5-204.1s"
+    ],
+    "bar_42": "108.1-113.0s, fully inside the 107.9-113.6 s stretch",
+    "bar_40": "103.1-106.9s against a 103.2-106.8 s stretch, inside to within 0.1 s at each edge",
+    "verdict": "both emptyings confirmed by a method that never consults the tab"
    }
   },
   {
@@ -466,5 +517,15 @@
    "thinning the 48 doubled lead notes on 02 Flake",
    "deciding the 04 Six Feet Under staff reassignment from audio"
   ]
+ },
+ "_register_flag_resolved_2026-08-16": {
+  "question": "are the 102 open A/D/G chord beats accurate to the recording, or is the chord wrong",
+  "measured_on_the_validated_beat_map": {
+   "A2 110.0 Hz": "SNR 58.33 against a shifted control of 38.73, margin +19.60 (this pitch is BELOW the stem 120 Hz floor and still beats its control)",
+   "D3 146.8 Hz": "SNR 133.71 against 97.44, margin +36.27",
+   "G3 196.0 Hz": "SNR 118.85 against 65.03, margin +53.82"
+  },
+  "verdict": "the open chord is ACCURATE to the recording. All three notes beat their controls, the two above the floor strongly.",
+  "what_this_means_for_the_gate": "register-evidence flags a limitation of the SOURCE, not a defect in the tab. The 125 open-A instances it counts are correct notes the stem cannot see well. The fixture stays red because the stem stays blind; that is a permanent property of the material."
  }
 }

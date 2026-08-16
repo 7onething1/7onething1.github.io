@@ -108,6 +108,7 @@
     <li><a href="#synthetic">The synthetic control, and the rests correction measured</a></li>
     <li><a href="#located">The map works, and the rests correction is located</a></li>
     <li><a href="#ceiling">The pitch measure has a ceiling of 2.4 points</a></li>
+    <li><a href="#audit">The audio accuracy audit, complete</a></li>
     
   </ol>
 </div>
@@ -3244,6 +3245,35 @@ guitar stem separates by only +2.3. The stems were the problem all along.</p>
 reported -8.7 for the Rhythm staff at threshold 3, which contradicted a +7.0 from the same
 configuration minutes earlier. Twenty seeds at that threshold return +3.6 to +9.5, all
 positive, so the -8.7 was the anomaly and nothing should be read from it.</p>
+
+
+<h2 id="audit">20 &nbsp;The audio accuracy audit, complete, with what each number can prove</h2>
+
+<p><b>Artifact <code>4dc3b9b732b9d61f</code>, measured on the validated beat map</b> which
+beats its random control by 39.2 points. Coverage <b>100%</b>: every one of the 1127
+guitar events was mapped into the recording.</p>
+
+<div class="tablewrap"><table>
+<thead><tr><th>Measure</th><th class="num">Value</th><th>What it establishes</th></tr></thead>
+<tbody>
+<tr><td>attack recall</td><td class="num"><b>88.6%</b></td><td>592 of the stem's 668 detected onsets have a written attack. The tab covers what the recording plays.</td></tr>
+<tr><td>attack precision</td><td class="num">52.6%</td><td><b>capped by the extractor</b>, which recalls 100% on clean plucks and 5.4% on dense reverb. This number cannot separate a spurious attack from an undetected one.</td></tr>
+<tr><td>F1</td><td class="num">66.0</td><td>inherits the precision cap</td></tr>
+<tr><td>timing p90</td><td class="num">272.8 ms</td><td>the median is 0.0 ms and is <b>circular</b>: the map places attacks onto onsets, so matched events agree by construction</td></tr>
+<tr><td>pitch agreement</td><td class="num">85.9% vs an 87.8% control</td><td><b>uninformative.</b> Margin -1.9 sits inside the measure's ±2.4 ceiling, established on audio rendered from the tab itself</td></tr>
+<tr><td>duration and tie agreement</td><td class="num">n = 5 long notes</td><td><b>no sample.</b> 1087 of 1092 attacks are a quarter beat or shorter, so there is nothing to measure decay against</td></tr>
+<tr><td>channel ownership per note</td><td class="num">-</td><td><b>INCAPABLE.</b> The LEAD/RHYTHM split fails its control backwards: -11.4 for lead-only notes against -9.5 for rhythm-only</td></tr>
+</tbody></table></div>
+
+<p><b>One metric establishes something, and it is the useful direction.</b> Attack recall
+at 88.6% says the recording's attacks are written. Everything else is either capped by a
+known extractor limit, circular by construction, inside its own noise floor, or without a
+sample. <b>That is the honest state of audio accuracy on this song</b>, and it is reported
+as such rather than summarised as a pass.</p>
+
+<p><b>What was separately measured and does hold:</b> the open A/D/G chord is accurate,
+all three notes beating their controls at +19.6, +36.3 and +53.8; and bars 40 and 42 are
+silent in the recording, confirmed by a silence map built with no reference to the tab.</p>
 
 <footer>
   <p><b>Reproduce:</b><br>
