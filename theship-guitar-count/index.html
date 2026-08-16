@@ -3311,6 +3311,35 @@ distributions overlap far too much to assign any individual note. That is the sa
 conclusion the ownership-refusal fixture reached by a different route, arrived at here on a
 different album with a different measure.</p>
 
+<h3>The one remaining finding, tested against the recording</h3>
+
+<p><b>The validator's last finding is a SHIFT in the Rhythm staff at bar 40</b>, where the
+line moves from low E fret 9 to fret 3 in a single sixteenth, roughly 136 ms, and the G2
+then holds to the end of the bar. G2 has exactly one position on this neck, so no
+re-fingering can soften it. The remaining question was whether the note belongs there at
+all.</p>
+
+<div class="tablewrap"><table>
+<thead><tr><th>Event</th><th class="num">Time</th><th class="num">G2 signal-to-noise</th><th>Present at 3x</th></tr></thead>
+<tbody>
+<tr><td>bar 40 beat 2.25</td><td class="num">86.88s</td><td class="num"><b>181.23</b></td><td>yes</td></tr>
+<tr><td>bar 40 beat 2.50</td><td class="num">87.13s</td><td class="num">71.87</td><td>yes</td></tr>
+<tr><td>bar 40 beat 3.00</td><td class="num">87.65s</td><td class="num">134.06</td><td>yes</td></tr>
+<tr><td>bar 40 beat 3.50</td><td class="num">88.16s</td><td class="num">170.92</td><td>yes</td></tr>
+<tr><td><b>median, these four</b></td><td class="num"></td><td class="num"><b>152.49</b></td><td></td></tr>
+<tr><td>median, every other Rhythm note</td><td class="num"></td><td class="num">54.21</td><td></td></tr>
+</tbody></table></div>
+
+<p><b>The G2 is roughly three times better supported than the average note in its own
+staff.</b> Deleting it to turn the verdict green would remove one of the best-evidenced
+notes in the whole transcription.</p>
+
+<p><b>So REVIEW is the correct verdict and PASS is not available honestly.</b> The finding
+marks a fast position change that a hand really does have to make, on a note the recording
+confirms at 152 against a staff median of 54. The gate is describing the music rather than
+a defect, and the three routes to PASS all require falsifying something: changing the
+pitch, changing the tuning, or deleting the note.</p>
+
 <footer>
   <p><b>Reproduce:</b><br>
   <code>python3 ~/Projects/_outputs/theship-tabs/guitar_count.py</code><br>

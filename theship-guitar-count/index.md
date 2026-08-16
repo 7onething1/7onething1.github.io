@@ -1745,3 +1745,20 @@ Duration, measured as band energy at 1.6x the written length over energy at 0.15
 Every one separates from its control, so the dimension has power. The Rhythm's notes sustain past their written length.
 
 Channel ownership refuses. The guitar stem is stereo, so pan was measured per note with 0 as dead centre: Lead original +0.0036 (sd 0.1453), Rhythm +0.1290 (sd 0.1570), separation 0.1254. The separation is smaller than either standard deviation, so a group-level offset exists and the distributions overlap far too much to assign any individual note. Same conclusion as the ownership-refusal fixture, reached on a different album with a different measure.
+
+### The one remaining finding, tested against the recording
+
+The validator's last finding is a SHIFT in the Rhythm staff at bar 40, low E fret 9 to fret 3 in one sixteenth, about 136 ms, with the G2 holding to the end of the bar. G2 has exactly one position on this neck.
+
+| Event | Time | G2 SNR | Present at 3x |
+|---|---|---|---|
+| bar 40 beat 2.25 | 86.88s | 181.23 | yes |
+| bar 40 beat 2.50 | 87.13s | 71.87 | yes |
+| bar 40 beat 3.00 | 87.65s | 134.06 | yes |
+| bar 40 beat 3.50 | 88.16s | 170.92 | yes |
+| median, these four | | 152.49 | |
+| median, every other Rhythm note | | 54.21 | |
+
+The G2 is about three times better supported than the average note in its own staff. Deleting it to turn the verdict green would remove one of the best-evidenced notes in the transcription.
+
+So REVIEW is the correct verdict and PASS is not available honestly. The three routes to PASS all require falsifying something: changing the pitch, changing the tuning, or deleting the note.
