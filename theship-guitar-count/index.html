@@ -2922,7 +2922,7 @@ playing at a time. Moving a block to its proper staff fixes the labelling. The m
 missing.</p>
 
 
-<h2 id="leadfill05">17 &nbsp;05 Sleep Vs Death: the Lead doubles the chords, bars 21-29</h2>
+<h2 id="leadfill05">19 &nbsp;05 Sleep Vs Death: the Lead doubles the chords, bars 21-29</h2>
 
 <div style="border:2px solid #7A5807;background:#F7E9C6;padding:12px 14px;margin:1.2em 0">
 <p style="margin:0"><b>THIS IS AN ARRANGEMENT RATHER THAN A TRANSCRIPTION.</b> Brandon
@@ -2985,6 +2985,51 @@ preservation: nothing vanished on any staff; Rhythm 644 -> 644 with nothing inve
 staff's single SHIFT, which was there before this pass and was not touched. Preservation
 reports FAIL, which is correct for a deliberate addition, and the census shows every
 invented pitch is in the Lead.</p>
+
+<h3>The audio accuracy audit, on a map that validates</h3>
+
+<p><b>This was blocked and is now possible.</b> The event-sequence rewrite of
+<code>beat_map.py</code> validates on 05 as well: 47.2% after the map against an 8.9%
+random control, a gain of +38.3, ACCEPTED.</p>
+
+<div class="tablewrap"><table>
+<thead><tr><th>Measure</th><th>Artifact ebac804153a7b6ba</th></tr></thead>
+<tbody>
+<tr><td>attack precision</td><td>47.2%, 238 of 504 written attacks match a detected onset</td></tr>
+<tr><td>attack recall</td><td>65.1%, 233 of 358 detected onsets are written</td></tr>
+<tr><td>F1</td><td>54.7%</td></tr>
+<tr><td>timing error</td><td>median 55.3 ms, p90 569 ms</td></tr>
+<tr><td>pitch agreement</td><td>97.9% against a 97.8% shifted-time control, margin <b>+0.1</b></td></tr>
+</tbody></table></div>
+
+<p><b>Pitch agreement has no discriminating power on this song, on any staff:</b></p>
+
+<div class="tablewrap"><table>
+<thead><tr><th>Staff</th><th class="num">Notes</th><th class="num">Agreement</th>
+<th class="num">Control</th><th class="num">Margin</th></tr></thead>
+<tbody>
+<tr><td>Rhythm, the transcription</td><td class="num">644</td><td class="num">98.0%</td><td class="num">97.2%</td><td class="num">+0.8</td></tr>
+<tr><td>Lead bars 21-29, this addition</td><td class="num">58</td><td class="num">100.0%</td><td class="num">100.0%</td><td class="num">+0.0</td></tr>
+<tr><td>Lead elsewhere, original</td><td class="num">147</td><td class="num">96.6%</td><td class="num">99.3%</td><td class="num">-2.7</td></tr>
+</tbody></table></div>
+
+<p><b>So the attack measures are real and the pitch measure is not.</b> Every staff scores
+at or below its own control, so nothing here verifies or refutes pitch content. For the 58
+added notes that is expected and not a defect: they are an arrangement, deliberately not
+present in the recording, so measuring them against it would be the wrong test.</p>
+
+<div style="border:2px solid #8A2F17;background:#F3D9D2;padding:12px 14px;margin:1.2em 0">
+<p style="margin:0 0 .5em"><b>A CONTRADICTION THIS RAISES FOR 02 FLAKE, recorded here
+because it undoes a correction published earlier on this page.</b></p>
+<p style="margin:0">Brandon confirms there is <b>no capo</b>. His 02 C#m voicing is G string
+16, B string 15, e string 14. At capo 0 those frets sound <b>B4, D5, F#5, a B minor</b>.
+Only a capo at 2 makes them a C sharp minor, and that capo reading was the entire basis for
+writing 156 C#m beats in 02 to <code>s3f18 s4f17 s5f16</code>. With no capo, the basis is
+gone. Either the chord is a Bm and the C#m label is the loose half, or the frets are
+approximate and the label is the exact half, and those imply opposite repairs. <b>The 02
+C#m case is OPEN and that write should not be relied on.</b> The session working 02 has
+been told.</p>
+</div>
 
 <p><b>The source has zero co-activity.</b> Across all 103 bars the two staves never play in
 the same bar: 19 Lead only, 75 Rhythm only, 9 silent. 05 is one part written across two

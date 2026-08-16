@@ -1562,7 +1562,7 @@ The 584 stands only as an upper bound: at least 265 are unmatched by scarcity al
 
 Same error as section 12, one section later: a number was published before the control that could refute it was run.
 
-## 17 05 Sleep Vs Death: the Lead doubles the chords, bars 21-29
+## 19 05 Sleep Vs Death: the Lead doubles the chords, bars 21-29
 
 THIS IS AN ARRANGEMENT RATHER THAN A TRANSCRIPTION. Brandon asked for it: where the Lead is tacet, have it play a higher inversion of the Rhythm chords. The 58 notes were added by this pass and are not evidence of a second guitarist. The guitar count is unchanged.
 
@@ -1583,3 +1583,19 @@ The 75-bar first pass is retracted. Building it forced three rules: strings must
 Artifact ebac804153a7b6ba, verdict REVIEW, position PASS, status best_validated_so_far. Lead 205 notes at hand 0%, PASS, every hard category zero. Rhythm 644 unchanged at hand 3%, REVIEW SHIFT x1. Preservation: nothing vanished, Rhythm 644 to 644 with nothing invented, Lead 147 to 205. The file's REVIEW comes entirely from the untouched Rhythm staff.
 
 The source has zero co-activity: across 103 bars the two staves never play in the same bar. 19 Lead only, 75 Rhythm only, 9 silent. One part across two staves, which is why the arrangement label matters.
+
+### The audio accuracy audit, on a map that validates
+
+The event-sequence rewrite of beat_map.py validates on 05: 47.2% after the map against an 8.9% random control, gain +38.3, ACCEPTED.
+
+| Measure | Artifact ebac804153a7b6ba |
+|---|---|
+| attack precision | 47.2%, 238 of 504 written attacks match a detected onset |
+| attack recall | 65.1%, 233 of 358 detected onsets are written |
+| F1 | 54.7% |
+| timing error | median 55.3 ms, p90 569 ms |
+| pitch agreement | 97.9% against a 97.8% shifted-time control, margin +0.1 |
+
+Pitch agreement has no discriminating power on any staff: Rhythm 98.0% vs 97.2% control (+0.8), Lead bars 21-29 100.0% vs 100.0% (+0.0), Lead elsewhere 96.6% vs 99.3% (-2.7). The attack measures are real; the pitch measure is not. For the 58 added notes that is expected, since they are an arrangement and deliberately not in the recording.
+
+CONTRADICTION FOR 02 FLAKE: Brandon confirms no capo. His 02 C#m voicing G16 B15 e14 sounds B4 D5 F#5 at capo 0, a B minor. Only capo 2 makes it a C# minor, and that reading was the whole basis for writing 156 C#m beats to s3f18 s4f17 s5f16. The 02 C#m case is OPEN and that write should not be relied on. The session working 02 has been told.
