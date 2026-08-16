@@ -818,3 +818,25 @@ Feet Under. Retracted artifacts sit in `delete/`, no source was ever written.
 
 Corrected gate now in the skill: a bar must be below the percentile floor **and**
 below 5% of the song's median.
+
+
+### 08 JGBFTL: the salvageable half passes the test the whole song fails
+
+Identification test (validated 6/10 vs chance 1/10) applied per half:
+
+| section | own-stem r | rank | picks | best transposition |
+|---|---|---|---|---|
+| whole song, bars 1-54 | +0.710 | 2/10 | 03 Gene | +0.527, beaten |
+| **suspect, bars 1-40** | **+0.513** | **3/10** | 03 Gene | **+0.652, LOSES** |
+| **salvageable, bars 41-54** | **+0.889** | **1/10** | **its own stem** | +0.430, beaten twice over |
+
+**Bars 41-54 pass outright**: they pick their own recording out of ten and beat
+every transposition. **Bars 1-40 fail both**, ranking third and losing to a shifted
+version of the recording.
+
+The whole-song 0.710 at rank 2 is the average of a healthy half and a broken one,
+which is why a song-level score cannot direct a repair. The **bars 1-40**
+re-transcription scope is now confirmed by the validated test at section level,
+not inferred from the refuted per-window aligner.
+
+Everything measurable on this song without a Songsterr pass is done.
