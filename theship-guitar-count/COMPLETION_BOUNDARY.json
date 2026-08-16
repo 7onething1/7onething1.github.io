@@ -487,11 +487,47 @@
   },
   "tool": "staff_role_audit.py, wired into regressions.py as staff-role-04, which FAILS",
   "why_playability_missed_it": "each staff on its own is perfectly playable; the defect is the relationship between the two staves over time",
-  "repair_scope_04": "the Lead staff is empty from bar 57 to 140 and the Rhythm staff carries single-note lead lines from bar 69 onward; moving them needs an ownership decision per line"
+  "repair_scope_04": "the Lead staff is empty from bar 57 to 140 and the Rhythm staff carries single-note lead lines from bar 69 onward; moving them needs an ownership decision per line",
+  "repair_attempted_and_retracted": {
+   "tool": "apply_staff_reassign.py, swaps bar ids in MasterBars, edits no note",
+   "attempt_1": "both directions; moving 4 pure-chordal Lead bars 42, 46, 50, 54 orphaned 14 tie chains inside the tied sequence spanning bars 39-54, giving TIE_INCONSISTENT x14 and TIE_UNMATCHED x1",
+   "attempt_2": {
+    "move": "35 bars of pure single-note lines from Rhythm to the empty Lead staff",
+    "gate": "PASS both staves, 0 findings",
+    "notes_edited": 0,
+    "preservation": "BOTH GUITARS 1175 to 1175, none vanished, none invented",
+    "rhythm_chord_share_where_lead_silent": "32.0% to 58.8%",
+    "promoted": "BEST, artifact fa97d60f069731a8",
+    "RETRACTED": "it put Lead attacks in 29 bars at bar 71 or later against Brandon's grounded tacet correction; case 04-lead-tacet-71 went RESOLVED to OPEN_MEASURED"
+   },
+   "graded_artifact": "04 Six Feet Under.gp 7bab579303034d9d, unchanged",
+   "both_statements_hold": "the rapid passage once at bar 71 was spurious and is already gone, which is why the case read RESOLVED; separately the real lead line there was never transcribed, so the empty Lead staff is also a defect, and the fix is to transcribe the missing lead rather than move the Rhythm staff's material in",
+   "what_survives": "the measurement is unaffected; only the repair was withdrawn"
+  }
  },
  "regression_i_caused_and_fixed": {
   "what": "apply_shape_swap.py always reads the audition source, so a second pass discarded the first and overwrote the promoted artifact",
   "detected_by": "the note census printing 2948 -> 2948 instead of 2712",
   "fix": "all swaps run in one pass"
+ },
+ "register_notes_located": {
+  "A2_110Hz": 125,
+  "G#2_103.8Hz": 2,
+  "dominant_shape": "s1f0 s2f0 s3f0, open A / open D / open G, 102 of the 125",
+  "bars": "21-28 and 57-64",
+  "means": "BLIND_REGISTER on this song is one open string in an open chord, not 127 fabricated low notes; the flag is technically right and musically unremarkable",
+  "gate_gap": "a note below the floor should carry its context: an open string in an open-position chord is the least suspicious case, a fretted low root inside a barre shape the most, and the gate counts them the same"
+ },
+ "graded_artifact_final": {
+  "artifact": "1897971fe23b1233",
+  "verdict": "PASS",
+  "preservation": "PASS",
+  "status": "BEST",
+  "changes": [
+   "E family to the tab's own upper three-string form",
+   "all C#m to Brandon's supplied voicing s3f18 s4f17 s5f16",
+   "F# dyads in bars 60 and 62 unified with bar 58 at frets 7-11"
+  ],
+  "profile": "gate PASS both staves, hand 13%, interior_gap 0, severe_jump 0, same_string 0, 6 JUMP findings"
  }
 }

@@ -1453,3 +1453,27 @@ His voicing is in the tab: at capo 0, C#5 E5 G#5 is s3f18 s4f17 s5f16, the same 
 The first attempt destroyed the previous artifact: apply_shape_swap.py always reads the audition source, so running the C#m swap as a second pass discarded the 236-beat voicing swap and overwrote the promoted file. The note census caught it (2948 -> 2948 where 2712 was expected). All swaps now run in one pass.
 
 Neither capo reading fixes everything. Reading A (tab is capo 2, pitches rise 2) takes the 127 sub-floor notes to 2 but turns G#/C#/E into A#/D#/F#, destroying the chord. Reading B changes nothing. Both recorded, neither acted on.
+
+### The repair was built, promoted, and retracted within the hour
+
+apply_staff_reassign.py moves whole bars between staves by swapping bar ids in MasterBars. Both staves carry [40,45,50,55,59,64] and capo 0, so no note, fret, string, tie or duration is edited.
+
+First attempt, both directions, RETRACTED. All bar numbers are read from 04 Six Feet Under.gp sha256:16 7bab579303034d9d. Moving 4 pure-chordal Lead bars (42, 46, 50, 54) to the Rhythm staff orphaned 14 tie chains, since those bars sit inside a tied sequence spanning bars 39-54. TIE_INCONSISTENT x14, TIE_UNMATCHED x1. A tie chain moves whole or not at all.
+
+Second attempt, one direction: 35 bars of pure single-note lines from Rhythm to the empty Lead staff. Gate PASS on both staves with 0 findings, 0 notes edited, preservation exact at 1175 to 1175 with nothing vanished or invented, Rhythm chord share where the Lead is silent 32.0% to 58.8%, Lead events 204 to 342 at 4.4% chords. It promoted to BEST.
+
+Then a regression case killed it: the move put Lead attacks in 29 bars at bar 71 or later, against Brandon's grounded correction that the Lead must be tacet from bar 71. Case 04-lead-tacet-71 went RESOLVED to OPEN_MEASURED. The artifact is withdrawn to delete/ and the graded artifact reverts to 7bab579303034d9d. A verbatim correction outranks an inference drawn from a measurement.
+
+Both statements hold at once. The rapid sixteenth and thirty-second passage that once sat at bar 71 was spurious and is already gone, which is why that case read RESOLVED. Separately the real lead line there was never transcribed, so the empty Lead staff is also a defect, and the fix is to transcribe the missing lead rather than move the Rhythm staff's material into it.
+
+What survives unaffected: the measurement. Only the repair was withdrawn.
+
+## 15 The 127 register notes are one open string
+
+Located on the graded artifact: A2 at 110.0 Hz accounts for 125 of the 127, and G#2 at 103.8 Hz for the other 2. 102 of the 125 belong to one shape, s1f0 s2f0 s3f0, open A / open D / open G, across bars 21-28 and 57-64.
+
+So BLIND_REGISTER on this song is one open string in an open chord sitting 10 Hz under a floor measured from the stem. The flag is technically right and musically unremarkable. A transcriber does not fabricate an open A the way it fabricates a low barre root.
+
+That is a gap in the gate: a note below the floor should carry its context. An open string in an open-position chord is the least suspicious case; a fretted low root inside a full barre shape is the most. The current gate counts them the same.
+
+Graded artifact 1897971fe23b1233: verdict PASS, preservation PASS, status BEST. E family to the tab's own upper form, all C#m to Brandon's supplied voicing, F# dyads in bars 60 and 62 unified with bar 58. Gate PASS both staves, hand 13%, interior_gap 0, severe_jump 0, same_string 0, 6 JUMP findings from the 4-fret shift his voicing requires.

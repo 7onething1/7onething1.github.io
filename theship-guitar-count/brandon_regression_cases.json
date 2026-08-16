@@ -280,5 +280,16 @@
   "detected_by": "the note census printing Rhythm Guitar 2948 -> 2948 instead of 2712",
   "fix": "all swaps now run in ONE pass from the source; the combined artifact is 398b3c7b6970425f",
   "lesson": "a tool that always reads the source is not composable across runs, and its output filename made the loss invisible"
+ },
+ "_graded_artifact_change_04": {
+  "date": "2026-08-16",
+  "song": "04",
+  "from": "04 Six Feet Under.gp 7bab579303034d9d",
+  "to": "04 Six Feet Under-STAFF-REASSIGN.gp fa97d60f069731a8",
+  "transform": "35 bars of pure single-note lead lines moved from the Rhythm staff to the empty Lead staff by swapping bar ids in MasterBars; 0 notes edited",
+  "basis": "Brandon 2026-08-16: the lead part at times was not transcribed at all and the rhythm part is put as the lead when that happens and the lead then tacet. Confirmed in the notation: the Rhythm staff is 100.0% chords across 98 events where the Lead plays and 32.0% across 303 events where it is silent.",
+  "result": "gate PASS on both staves, 0 findings, preservation exact at 1175 to 1175 with nothing vanished or invented across BOTH GUITARS",
+  "retracted_half": "the reverse move, 4 pure-chordal Lead bars to the Rhythm staff, was written and RETRACTED: bars 42, 46, 50 and 54 sit inside a tied chord sequence spanning bars 39-54, and moving 4 of them orphaned 14 tie chains, giving TIE_INCONSISTENT x14 and TIE_UNMATCHED x1. A tie chain moves whole or not at all.",
+  "RETRACTED": "the reassignment put 29 bars of Lead attacks at bar 71 or later, and Brandon's grounded verbatim correction is that the Lead must be TACET from bar 71. The case went from RESOLVED to OPEN_MEASURED. A verbatim correction outranks an inference from a measurement, so the graded artifact reverts to 04 Six Feet Under.gp 7bab579303034d9d."
  }
 }

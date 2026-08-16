@@ -103,6 +103,7 @@
     <li><a href="#swap">The tab contradicts itself, and that is the repair</a></li>
     <li><a href="#staffrole">04 Six Feet Under: the Lead was not transcribed</a></li>
     <li><a href="#capo">Brandon supplied the voicing, and it decodes to a capo</a></li>
+    <li><a href="#register2">The 127 register notes are one open string</a></li>
     
   </ol>
 </div>
@@ -2557,6 +2558,58 @@ on the Lead staff, and what remains on the Rhythm staff after they move is what 
 guitar actually played. That reassignment needs an ownership decision per line, which is the
 same measurement the 48 duplicated lead notes on Flake are waiting for.</p>
 
+
+<h3>The repair was built, promoted, and retracted within the hour</h3>
+
+<p><code>apply_staff_reassign.py</code> moves whole bars between the two staves by swapping
+their bar ids inside MasterBars. Both staves carry <code>[40,45,50,55,59,64]</code> and capo
+0, so a bar means the same thing on either one and <b>not a single note, fret, string, tie
+or duration is edited</b>.</p>
+
+<p><b>First attempt, both directions, RETRACTED.</b> All bar numbers here are read from
+<code>04 Six Feet Under.gp</code> sha256:16 <code>7bab579303034d9d</code>. Moving 4
+pure-chordal Lead bars, 42, 46, 50 and 54, to the Rhythm staff orphaned 14 tie chains, because those bars sit inside a
+tied sequence spanning bars 39-54. The gate returned <code>TIE_INCONSISTENT x14</code> and
+<code>TIE_UNMATCHED x1</code>. A tie chain moves whole or not at all.</p>
+
+<p><b>Second attempt, one direction, clean and then RETRACTED anyway.</b> Moving 35 bars of
+pure single-note lines from the Rhythm staff to the empty Lead staff gave:</p>
+
+<div class="tablewrap"><table>
+<thead><tr><th>Measure</th><th class="num">Result</th></tr></thead>
+<tbody>
+<tr><td>validator verdict, both staves</td><td class="num"><b>PASS</b>, 0 findings</td></tr>
+<tr><td>notes edited</td><td class="num"><b>0</b></td></tr>
+<tr><td>preservation, BOTH GUITARS</td><td class="num">1175 to 1175, none vanished, none invented</td></tr>
+<tr><td>Rhythm chord share where the Lead is silent</td><td class="num">32.0% to <b>58.8%</b></td></tr>
+<tr><td>Lead staff events</td><td class="num">204 to 342, at 4.4% chords</td></tr>
+</tbody></table></div>
+
+<p><b>It promoted to BEST, and then a regression case killed it.</b> The move put attacks on
+the Lead staff in 29 bars at bar 71 or later, and Brandon's grounded verbatim correction is
+that the Lead Guitar must be <b>tacet from bar 71</b>. Case
+<code>04-lead-tacet-71</code> went from RESOLVED to OPEN_MEASURED, so the artifact was
+withdrawn to <code>delete/</code> and the graded artifact reverted to
+<code>7bab579303034d9d</code>.</p>
+
+<p><b>A verbatim correction outranks an inference drawn from a measurement.</b> The
+measurement was sound and the repair it suggested was wrong.</p>
+
+<h3>Both of Brandon's statements hold at once</h3>
+
+<p>They looked contradictory and are not. The rapid sixteenth and thirty-second passage that
+once sat at bar 71 <b>was spurious and is already gone</b>, which is why that case read
+RESOLVED. Separately, <b>the real lead line in that stretch was never transcribed at all</b>.
+So an empty Lead staff there is ALSO a defect, and the fix is to transcribe the missing lead
+rather than to move the Rhythm staff's material into it.</p>
+
+<p><b>What survives, unaffected:</b> the measurement. The Rhythm staff is still 100.0% chords
+across 98 events where the Lead plays and 32.0% across 303 events where it is silent, and 7
+of 10 album files still measure as one part split across two staves. Only the repair was
+withdrawn.</p>
+
+
+
 <h3>Applied, and a regression I caused on the way</h3>
 
 <p><b>His voicing is now in the tab.</b> At the capo 0 the file declares, C#5 E5 G#5 is
@@ -2592,6 +2645,43 @@ is a new check for his supplied voicing rather than an edit to this one.</p>
 <p><b>Reading A would clear 125 of the 127 register notes</b>, which is a striking result
 for a hypothesis that also breaks the chord Brandon names. Both facts are recorded and
 neither is acted on.</p>
+
+
+<h2 id="register2">15 &nbsp;The 127 register notes are one open string</h2>
+
+<p><b>Located exactly, on the graded artifact:</b></p>
+
+<div class="tablewrap"><table>
+<thead><tr><th>Pitch</th><th class="num">Count</th><th>What it is</th></tr></thead>
+<tbody>
+<tr><td>A2, 110.0 Hz</td><td class="num"><b>125</b></td><td>the open A string</td></tr>
+<tr><td>G#2, 103.8 Hz</td><td class="num">2</td><td>string 0 fret 4</td></tr>
+</tbody></table></div>
+
+<p><b>102 of the 125 belong to one shape: <code>s1f0 s2f0 s3f0</code></b>, open A, open D and
+open G, across bars 21-28 and 57-64. That is an open-position chord, the most ordinary
+thing a guitarist plays.</p>
+
+<p><b>So BLIND_REGISTER on this song is not 127 suspicious low notes.</b> It is one open
+string in an open chord, sitting 10 Hz under a floor the gate measured from the stem. The
+flag is technically right, since the stem genuinely cannot see 110 Hz, and musically
+unremarkable. A transcriber does not fabricate an open A the way it fabricates a low barre
+root.</p>
+
+<p><b>That is a gap in the gate, and it is worth naming.</b> A note below the floor should
+carry its context: an OPEN string in an open-position chord is the least suspicious case,
+and a fretted low root inside a full barre shape is the most. The current gate counts them
+the same, which is how 4.3% of this staff reads as a register problem when almost all of it
+is one open string.</p>
+
+<h3>The graded artifact after this pass</h3>
+
+<pre style="overflow-x:auto;font-size:12px;line-height:1.5;background:var(--dust);padding:10px;border:1px solid var(--rule)">artifact  1897971fe23b1233   verdict PASS   preservation PASS   status BEST
+E family      -> the tab's own upper three-string form
+all C#m       -> Brandon's supplied voicing, s3f18 s4f17 s5f16 at capo 0
+F# dyads      -> bars 60 and 62 unified with bar 58, frets 7-11
+gate PASS both staves, hand 13%, interior_gap 0, severe_jump 0, same_string 0
+6 JUMP findings, the 4-fret shift between the E at fret 12 and the C#m at fret 16</pre>
 
 <footer>
   <p><b>Reproduce:</b><br>

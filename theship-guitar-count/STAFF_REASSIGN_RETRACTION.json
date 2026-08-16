@@ -1,0 +1,10 @@
+{
+ "retracted": "2026-08-16",
+ "artifact": "fa97d60f069731a8  04 Six Feet Under-STAFF-REASSIGN.gp",
+ "was": "promoted BEST, gate PASS both staves, 0 findings, preservation exact 1175 to 1175",
+ "why_retracted": "it moved 35 bars of single-note lines onto the Lead staff, of which the great majority lie at bar 71 or later, and Brandon's grounded verbatim correction is that the Lead Guitar must be TACET from bar 71. The case 04-lead-tacet-71 went from RESOLVED to OPEN_MEASURED with 29 bars still attacking from bar 71 on. A verbatim correction outranks an inference drawn from a measurement.",
+ "what_survives": "the MEASUREMENT stands and is unaffected: the Rhythm staff is 100.0% chords across 98 events where the Lead plays and 32.0% across 303 events where it is silent, and 7 of 10 album files measure as one part split across two staves. Only the repair is withdrawn.",
+ "the_coherent_reading": "both of Brandon's statements hold at once. The rapid sixteenth and thirty-second passage that once sat at bar 71 was spurious and is gone, which is why the case read RESOLVED. Separately, the real lead line in that stretch was never transcribed at all. An empty Lead staff there is therefore ALSO a defect, and the fix is to transcribe the missing lead rather than to move the rhythm staff's material into it.",
+ "also_retracted_earlier_the_same_hour": "the reverse move, 4 pure-chordal Lead bars to the Rhythm staff, orphaned 14 tie chains because bars 42, 46, 50 and 54 sit inside a tied sequence spanning bars 39-54. A tie chain moves whole or not at all.",
+ "graded_artifact": "04 Six Feet Under.gp 7bab579303034d9d, unchanged"
+}
