@@ -1083,7 +1083,7 @@ and the remaining gap is the muted-strum question</b>, which no measurement buil
 here separates on real audio. That needs the sixteen ear-calls and nothing else.</p>
 
 
-<h3>Applied to the whole album: notes written over silence</h3>
+<h3>Applied to the whole album, then five sevenths of it RETRACTED</h3>
 
 <p>Brandon: <i>"then apply all to other songs."</i> The silence defect is the one
 class that needs no listener, since an rms at the song's own floor is not a
@@ -1124,6 +1124,56 @@ repaired in separate runs and <b>the second overwrote the first</b>, so its Lead
 fix was silently lost until a census comparison found it. The runs are now
 chained. Nothing was deleted at any point; superseded files sit in
 <code>delete/</code> folders.</p>
+
+
+<h3>The silence gate was wrong on five songs, and the measurement caught it</h3>
+
+<p>The album-wide pass above repaired seven songs. <b>Five of those repairs were
+wrong and have been retracted.</b> The measurement said so before I worked out
+why:</p>
+
+<table>
+<thead><tr><th>song</th><th>precision before &rarr; after</th><th>recall</th><th>verdict</th></tr></thead>
+<tbody>
+<tr><td>02 Flake</td><td>32.6 &rarr; <b>34.2</b></td><td>46.1 &rarr; 45.9</td><td><b>kept</b></td></tr>
+<tr><td>04 Six Feet Under</td><td>37.5 &rarr; <b>37.8</b></td><td>37.4 &rarr; 37.4</td><td><b>kept</b></td></tr>
+<tr><td>03 Gene</td><td>37.5 &rarr; 38.2</td><td>41.4 &rarr; 41.2</td><td>retracted</td></tr>
+<tr><td>07 MOP</td><td>24.6 &rarr; 26.1</td><td>36.2 &rarr; 35.3</td><td>retracted</td></tr>
+<tr><td>01 Seedy Shade</td><td>13.1 &rarr; 13.1</td><td>32.3 &rarr; 32.3</td><td>retracted, no gain</td></tr>
+<tr><td>09 MHL</td><td>29.8 &rarr; 29.8</td><td>42.9 &rarr; 41.8</td><td>retracted, no gain</td></tr>
+<tr><td><b>11 Ambulance</b></td><td>17.0 &rarr; <b>16.7</b></td><td>33.4 &rarr; <b>31.5</b></td><td><b>retracted, REGRESSED</b></td></tr>
+</tbody></table>
+
+<p><b>The bug: a percentile is not silence.</b> A 10th-percentile floor always
+flags the quietest tenth of a song, even when nothing in it is quiet. 11
+Ambulance's condemned bars measure <b>0.70 to 0.86 of its own "floor" and carry
+five to eight stem onsets each</b>. The guitar is playing there. Removing those
+notes cost real coverage, which is why recall fell nearly two points.</p>
+
+<p>Testing every song for whether it contains real silence at all, by asking
+whether its floor sits below 5% of its own median:</p>
+
+<table>
+<thead><tr><th>song</th><th>median rms</th><th>10th pct</th><th>ratio</th><th>reading</th></tr></thead>
+<tbody>
+<tr><td>05 Sleep Vs Death</td><td>0.02679</td><td>0.00006</td><td>0.002</td><td>real silence</td></tr>
+<tr><td>04 Six Feet Under</td><td>0.01328</td><td>0.00017</td><td>0.013</td><td>real silence</td></tr>
+<tr><td>02 Flake</td><td>0.03809</td><td>0.00075</td><td>0.020</td><td>real silence</td></tr>
+<tr><td>07 MOP</td><td>0.01844</td><td>0.00419</td><td>0.227</td><td>no real silence</td></tr>
+<tr><td>01 Seedy Shade</td><td>0.08524</td><td>0.02144</td><td>0.252</td><td>no real silence</td></tr>
+<tr><td>03 Gene</td><td>0.05734</td><td>0.01722</td><td>0.300</td><td>no real silence</td></tr>
+<tr><td>09 MHL</td><td>0.05783</td><td>0.02404</td><td>0.416</td><td>no real silence</td></tr>
+<tr><td>11 Ambulance</td><td>0.10719</td><td>0.07981</td><td><b>0.745</b></td><td>no real silence</td></tr>
+<tr><td>10 Trapped</td><td>0.09659</td><td>0.07993</td><td><b>0.828</b></td><td>no real silence</td></tr>
+</tbody></table>
+
+<p><b>Only three of nine songs contain real silence.</b> The surviving repairs are
+02 Flake and 04 Six Feet Under. Every retracted artifact sits in a
+<code>delete/</code> folder rather than being erased, and no source file was ever
+written.</p>
+
+<p>The corrected gate is now in the skill: a bar must be below the song's
+percentile floor <b>and</b> below 5% of its median before it counts as silent.</p>
 
 <h3>04 Six Feet Under bar 58, and a hypothesis the audio refuted</h3>
 

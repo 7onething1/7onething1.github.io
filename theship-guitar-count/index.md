@@ -782,3 +782,39 @@ and 137. **Both now PASS.**
 Also caught: 03 Gene had two staves repaired in separate runs and **the second
 overwrote the first**, losing the Lead fix until a census comparison found it. The
 runs are now chained. Nothing deleted; superseded files sit in `delete/`.
+
+
+## RETRACTION: the silence gate was wrong on five of seven songs
+
+| song | precision before -> after | recall | verdict |
+|---|---|---|---|
+| 02 Flake | 32.6 -> **34.2** | 46.1 -> 45.9 | **kept** |
+| 04 Six Feet Under | 37.5 -> **37.8** | 37.4 -> 37.4 | **kept** |
+| 03 Gene | 37.5 -> 38.2 | 41.4 -> 41.2 | retracted |
+| 07 MOP | 24.6 -> 26.1 | 36.2 -> 35.3 | retracted |
+| 01 Seedy Shade | 13.1 -> 13.1 | 32.3 -> 32.3 | retracted, no gain |
+| 09 MHL | 29.8 -> 29.8 | 42.9 -> 41.8 | retracted, no gain |
+| **11 Ambulance** | 17.0 -> **16.7** | 33.4 -> **31.5** | **retracted, REGRESSED** |
+
+**The bug: a percentile is not silence.** A 10th-percentile floor always flags the
+quietest tenth of a song even when nothing in it is quiet. 11 Ambulance's
+condemned bars measure **0.70-0.86 of its own "floor" and carry 5-8 stem onsets
+each**. The guitar is playing there; removing those notes cost real coverage.
+
+| song | median | p10 | ratio | reading |
+|---|---|---|---|---|
+| 05 Sleep | 0.02679 | 0.00006 | 0.002 | real silence |
+| 04 Six Feet | 0.01328 | 0.00017 | 0.013 | real silence |
+| 02 Flake | 0.03809 | 0.00075 | 0.020 | real silence |
+| 07 MOP | 0.01844 | 0.00419 | 0.227 | none |
+| 01 Seedy Shade | 0.08524 | 0.02144 | 0.252 | none |
+| 03 Gene | 0.05734 | 0.01722 | 0.300 | none |
+| 09 MHL | 0.05783 | 0.02404 | 0.416 | none |
+| 11 Ambulance | 0.10719 | 0.07981 | **0.745** | none |
+| 10 Trapped | 0.09659 | 0.07993 | **0.828** | none |
+
+**Only 3 of 9 songs contain real silence.** Surviving repairs: 02 Flake and 04 Six
+Feet Under. Retracted artifacts sit in `delete/`, no source was ever written.
+
+Corrected gate now in the skill: a bar must be below the percentile floor **and**
+below 5% of the song's median.
