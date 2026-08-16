@@ -242,6 +242,33 @@ peer release of another lease -> exit 1, refused
 acquire after 2s expiry       -> exit 0, granted
 record without vocal + drums  -> <span class="w">WARNING, flagged in the ledger</span></pre>
 
+<h2>It closed the loop within eight minutes</h2>
+
+<p>The sessions were messaged at 21:22Z. Confirmed independently from Songsterr's own
+revision API for song 5823892, rather than from the ledger:</p>
+
+<div class="scroll">
+<table>
+<thead><tr><th>Revision</th><th class="num">tracks</th><th>created</th><th>who</th></tr></thead>
+<tbody>
+<tr><td><code>8516250</code></td><td class="num">5</td><td class="mono">2026-08-16T21:22:22Z</td><td><b>Resume goal completion shipping</b>, under the lease</td></tr>
+<tr><td><code>8516072</code></td><td class="num">5</td><td class="mono">2026-08-16T21:11:57Z</td><td>Brandon, by hand</td></tr>
+<tr><td><code>8514056</code></td><td class="num">5</td><td class="mono">2026-08-16T19:22:44Z</td><td>earlier session</td></tr>
+<tr><td><code>7609146</code></td><td class="num">5</td><td class="mono">2026-06-28T15:09:55Z</td><td>original AI transcription</td></tr>
+</tbody>
+</table>
+</div>
+
+<p>A session took the lease, uploaded, recorded the revision and released, with no human
+asked to submit anything. <b>Every revision on this tab carries all five tracks.</b> No
+import has dropped a part. The parked session that had renamed itself and stopped is
+running again, and the ledger now answers the original question in one command:</p>
+
+<pre>upload_lease.py latest --tab s5823892
+
+  02 Flake   s5823892   rev r8516250   5 tracks   2026-08-16T21:29:00Z
+      by <span class="g">Resume goal completion shipping</span>  via session</pre>
+
 <h2>What changed, so this does not need watching again</h2>
 
 <ul>
