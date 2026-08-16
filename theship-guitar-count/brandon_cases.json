@@ -18,44 +18,14 @@
     "end_bar": null,
     "end_bar_supplied": false
    },
-   "sha256_16": "fa97d60f069731a8",
+   "sha256_16": "7bab579303034d9d",
    "sha_matches_case": true,
-   "verdict": "OPEN_MEASURED",
-   "detail": "29 bars still attack from bar 71 on, read from the MasterBars of 04 Six Feet Under-STAFF-REASSIGN.gp [source 04 Six Feet Under-STAFF-REASSIGN.gp, sha256:16 fa97d60f069731a8]",
+   "verdict": "RESOLVED",
+   "detail": "zero attacked notes in bars 71-140 of 04 Six Feet Under.gp; the staff's last note of any kind is bar 56, and it carries 231 attacks before bar 71 [source 04 Six Feet Under.gp, sha256:16 7bab579303034d9d]",
    "evidence": {
-    "offending_bars": [
-     71,
-     72,
-     73,
-     74,
-     75,
-     76,
-     78,
-     79,
-     80,
-     81,
-     82,
-     83,
-     85,
-     87,
-     88,
-     97,
-     98,
-     103,
-     104,
-     107,
-     117,
-     118,
-     119,
-     120,
-     121,
-     123,
-     124,
-     127,
-     129
-    ],
-    "last_bar_with_notes": 130,
-    "attacks_before_start": 245,
+    "offending_bars": [],
+    "last_bar_with_notes": 56,
+    "attacks_before_start": 231,
     "bars_total": 140
    }
   },
@@ -71,10 +41,10 @@
     "end_bar": 58,
     "end_bar_supplied": true
    },
-   "sha256_16": "fa97d60f069731a8",
+   "sha256_16": "7bab579303034d9d",
    "sha_matches_case": true,
    "verdict": "UNVERIFIED",
-   "detail": "Enumerated as Brandon's correction by the assistant in session 5fad405a at 2026-08-16T16:22:20.976Z. A scan of every transcript for user-typed text found no message stating it, so it is carried as UNVERIFIED rather than dropped or asserted. | measured: bar 58 holds 6 guitar beats; Brandon called this bar wrong without saying what it should be [source 04 Six Feet Under-STAFF-REASSIGN.gp, sha256:16 fa97d60f069731a8]",
+   "detail": "Enumerated as Brandon's correction by the assistant in session 5fad405a at 2026-08-16T16:22:20.976Z. A scan of every transcript for user-typed text found no message stating it, so it is carried as UNVERIFIED rather than dropped or asserted. | measured: bar 58 holds 6 guitar beats; Brandon called this bar wrong without saying what it should be [source 04 Six Feet Under.gp, sha256:16 7bab579303034d9d]",
    "evidence": {
     "Lead Guitar": [],
     "Rhythm Guitar": [
@@ -321,10 +291,10 @@
     "end_bar": null,
     "end_bar_supplied": false
    },
-   "sha256_16": "398b3c7b6970425f",
-   "sha_matches_case": true,
+   "sha256_16": "1897971fe23b1233",
+   "sha_matches_case": false,
    "verdict": "OPEN_MEASURED",
-   "detail": "209 of 765 chord beats (27.3%) reach below the top three strings, across 22 bars [source 02 Flake of the Year-SHAPE-SWAP.gp, sha256:16 398b3c7b6970425f]",
+   "detail": "209 of 765 chord beats (27.3%) reach below the top three strings, across 22 bars [source 02 Flake of the Year-SHAPE-SWAP.gp, sha256:16 1897971fe23b1233]",
    "evidence": {
     "chord_beats": 765,
     "top_three_only": 556,
@@ -368,10 +338,10 @@
     "end_bar": null,
     "end_bar_supplied": false
    },
-   "sha256_16": "398b3c7b6970425f",
-   "sha_matches_case": true,
+   "sha256_16": "1897971fe23b1233",
+   "sha_matches_case": false,
    "verdict": "OPEN_MEASURED",
-   "detail": "204 of 204 C#m beats are fretted away from position 2; positions found {4: 40, 5: 8, 16: 156} [source 02 Flake of the Year-SHAPE-SWAP.gp, sha256:16 398b3c7b6970425f]",
+   "detail": "204 of 204 C#m beats are fretted away from position 2; positions found {4: 40, 5: 8, 16: 156} [source 02 Flake of the Year-SHAPE-SWAP.gp, sha256:16 1897971fe23b1233]",
    "evidence": {
     "positions": {
      "4": 40,
@@ -1355,14 +1325,13 @@
     "end_bar_supplied": false,
     "latter_half_measured": "bars 35-69 of 69"
    },
-   "sha256_16": "398b3c7b6970425f",
-   "sha_matches_case": true,
+   "sha256_16": "1897971fe23b1233",
+   "sha_matches_case": false,
    "verdict": "OPEN_NEEDS_SCOPE",
-   "detail": "10 F#-rooted beats from bar 35 on, at fret positions {4: 6, 9: 4}; Brandon gave the alteration with no bar range [source 02 Flake of the Year-SHAPE-SWAP.gp, sha256:16 398b3c7b6970425f]",
+   "detail": "10 F#-rooted beats from bar 35 on, at fret positions {9: 10}; Brandon gave the alteration with no bar range [source 02 Flake of the Year-SHAPE-SWAP.gp, sha256:16 1897971fe23b1233]",
    "evidence": {
     "positions": {
-     "4": 6,
-     "9": 4
+     "9": 10
     },
     "hits": [
      {
@@ -1444,15 +1413,15 @@
      {
       "bar": 60,
       "beat": 1.5,
-      "position": 4,
+      "position": 9,
       "frets": [
        [
-        2,
-        4
+        0,
+        11
        ],
        [
         1,
-        6
+        9
        ]
       ],
       "pitch_classes": [
@@ -1463,15 +1432,15 @@
      {
       "bar": 60,
       "beat": 1.75,
-      "position": 4,
+      "position": 9,
       "frets": [
        [
-        2,
-        4
+        0,
+        11
        ],
        [
         1,
-        6
+        9
        ]
       ],
       "pitch_classes": [
@@ -1482,15 +1451,15 @@
      {
       "bar": 62,
       "beat": 1.5,
-      "position": 4,
+      "position": 9,
       "frets": [
        [
-        2,
-        4
+        0,
+        11
        ],
        [
         1,
-        6
+        9
        ]
       ],
       "pitch_classes": [
@@ -1501,15 +1470,15 @@
      {
       "bar": 62,
       "beat": 1.75,
-      "position": 4,
+      "position": 9,
       "frets": [
        [
-        2,
-        4
+        0,
+        11
        ],
        [
         1,
-        6
+        9
        ]
       ],
       "pitch_classes": [
@@ -1520,15 +1489,15 @@
      {
       "bar": 62,
       "beat": 3.0,
-      "position": 4,
+      "position": 9,
       "frets": [
        [
-        2,
-        4
+        0,
+        11
        ],
        [
         1,
-        6
+        9
        ]
       ],
       "pitch_classes": [
@@ -1539,15 +1508,15 @@
      {
       "bar": 62,
       "beat": 3.25,
-      "position": 4,
+      "position": 9,
       "frets": [
        [
-        2,
-        4
+        0,
+        11
        ],
        [
         1,
-        6
+        9
        ]
       ],
       "pitch_classes": [
@@ -1570,10 +1539,10 @@
     "end_bar": null,
     "end_bar_supplied": false
    },
-   "sha256_16": "398b3c7b6970425f",
-   "sha_matches_case": true,
+   "sha256_16": "1897971fe23b1233",
+   "sha_matches_case": false,
    "verdict": "OPEN_MEASURED",
-   "detail": "34 of 225 lead notes (15.1%) double a rhythm note at the same instant, across 14 bars [source 02 Flake of the Year-SHAPE-SWAP.gp, sha256:16 398b3c7b6970425f]",
+   "detail": "34 of 225 lead notes (15.1%) double a rhythm note at the same instant, across 14 bars [source 02 Flake of the Year-SHAPE-SWAP.gp, sha256:16 1897971fe23b1233]",
    "evidence": {
     "lead_notes": 225,
     "duplicated": 34,
@@ -1608,8 +1577,8 @@
     "end_bar": null,
     "end_bar_supplied": false
    },
-   "sha256_16": "398b3c7b6970425f",
-   "sha_matches_case": true,
+   "sha256_16": "1897971fe23b1233",
+   "sha_matches_case": false,
    "verdict": "OPEN_BLOCKED",
    "detail": "No measurement separates a dead strum from a rung one on this audio. The tab's own Muted marks are circular at AUC 0.522; the synthetic control proves the feature at AUC 1.000 but its threshold flagged an implausible 37.4% when transferred. Recorded in COMPLETION_BOUNDARY.json as the twelve muted-strum ear-labels dependency. ALSO BLOCKED UPSTREAM 2026-08-16: the tab is not time-aligned to the recording, at 55.8% onset alignment against a 58.3% random control, so no per-event articulation measurement can be placed at all.",
    "evidence": {}

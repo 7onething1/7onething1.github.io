@@ -1,0 +1,18 @@
+{
+ "validation": {
+  "ok": true,
+  "song": "10",
+  "gp": "10 Trapped in Wonderland.gp",
+  "co_active_bars": 38,
+  "lead_staff_notes": 152,
+  "rhythm_staff_notes": 689,
+  "lead_staff_median_score": 0.0952,
+  "rhythm_staff_median_score": -0.1699,
+  "separation": 0.2651,
+  "shifted_control_separation": 0.2766,
+  "gain_over_control": -0.0115,
+  "min_gain": 0.05,
+  "usable": false
+ },
+ "verdicts": null
+}

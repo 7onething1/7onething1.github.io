@@ -225,7 +225,9 @@
      "verdict": "ZERO candidates for removal. Every one of the 34 sits inside a continuous Lead line, and 22 have an undoubled Lead note within a beat, so the Lead staff is genuinely playing there and the Rhythm happens to share the pitch.",
      "conflicts_with_the_correction": "Brandon flagged duplicated lead notes as a defect. This audit finds no note whose deletion the notation supports. Either his ear hears doubling that this evidence cannot see, or the doubling is genuine. His ear is authoritative, so the case stays OPEN and the audit is recorded beside it rather than closing it.",
      "protects": "the Secret fixture, which records a thinning pass that deleted 145 legitimate doubled notes"
-    }
+    },
+    "ownership_measured": "MEASURED 2026-08-16. ownership_audit.py scores each note by (E_lead - E_rhythm)/(E_lead + E_rhythm) against the non-circular LEAD and RHYTHM split stems, which album_guitar_split.py derives from the guitar stem's own harmonic salience without reading the tab. Validated on 10 Trapped in Wonderland, the one album file measuring TWO_PARTS, across 38 bars where both staves genuinely play: Lead-staff notes score +0.0952 and Rhythm-staff notes -0.1699, a separation of +0.2651. The SAME notes at a shifted time separate by +0.2766, HIGHER. So the split sorts by register, which the tab already encodes, and it carries no information about which guitar played a note. The tool REFUSES to emit per-note verdicts and the refusal is the regression fixture ownership-refusal.",
+    "consequence": "the 48 doubled lead notes cannot be thinned. The Secret fixture records a thinning that deleted 145 legitimate notes, and there is now a measured reason rather than a cautious one."
    },
    "previous_graded_artifact": {
     "file": "/Users/drwu/Projects/_outputs/theship-tabs/_AUDITION_2026-08-07/02 Flake of the Year.gp",
@@ -305,5 +307,25 @@
   "result": "gate PASS on both staves, 0 findings, preservation exact at 1175 to 1175 with nothing vanished or invented across BOTH GUITARS",
   "retracted_half": "the reverse move, 4 pure-chordal Lead bars to the Rhythm staff, was written and RETRACTED: bars 42, 46, 50 and 54 sit inside a tied chord sequence spanning bars 39-54, and moving 4 of them orphaned 14 tie chains, giving TIE_INCONSISTENT x14 and TIE_UNMATCHED x1. A tie chain moves whole or not at all.",
   "RETRACTED": "the reassignment put 29 bars of Lead attacks at bar 71 or later, and Brandon's grounded verbatim correction is that the Lead must be TACET from bar 71. The case went from RESOLVED to OPEN_MEASURED. A verbatim correction outranks an inference from a measurement, so the graded artifact reverts to 04 Six Feet Under.gp 7bab579303034d9d."
+ },
+ "_ownership_measurement": {
+  "date": "2026-08-16",
+  "tool": "ownership_audit.py",
+  "source": "LEAD and RHYTHM split stems from album_guitar_split.py, non-circular, derived from the guitar stem audio with no reference to the tab",
+  "validation_song": "10 Trapped in Wonderland, the one album file measuring TWO_PARTS",
+  "co_active_bars": 38,
+  "lead_staff_notes": 152,
+  "rhythm_staff_notes": 689,
+  "lead_median": 0.0952,
+  "rhythm_median": -0.1699,
+  "separation": 0.2651,
+  "shifted_time_control": 0.2766,
+  "gain_over_control": -0.0115,
+  "verdict": "REFUSED",
+  "why": "the apparent separation survives a 7.3 second time shift intact, so it is register and timbre rather than ownership; the split sorts notes the same way the tab already does",
+  "blocks": [
+   "thinning the 48 doubled lead notes on 02 Flake",
+   "deciding the 04 Six Feet Under staff reassignment from audio"
+  ]
  }
 }

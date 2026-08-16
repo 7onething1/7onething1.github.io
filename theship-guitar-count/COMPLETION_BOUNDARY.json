@@ -540,5 +540,23 @@
   "verdict": "zero candidates for removal; every one sits inside a continuous Lead line across bars 41-56",
   "conflict": "Brandon flagged duplicated lead notes as a defect and the audit finds none whose deletion the notation supports; his ear is authoritative so the case stays OPEN"
  },
- "no_audio_accuracy_audit": "beat_map.py builds the DTW beat-to-seconds map and REFUSES it, on this song and on two songs whose alignment is not in question. Accuracy numbers computed on a refused map are what section 12 was retracted for, so they are withheld."
+ "no_audio_accuracy_audit": "beat_map.py builds the DTW beat-to-seconds map and REFUSES it, on this song and on two songs whose alignment is not in question. Accuracy numbers computed on a refused map are what section 12 was retracted for, so they are withheld.",
+ "ownership_measurement": {
+  "tool": "ownership_audit.py",
+  "source": "non-circular LEAD/RHYTHM split stems",
+  "validation": "10 Trapped in Wonderland, 38 co-active bars",
+  "lead_median": 0.0952,
+  "rhythm_median": -0.1699,
+  "separation": 0.2651,
+  "shifted_time_control": 0.2766,
+  "gain_over_control": -0.0115,
+  "verdict": "REFUSED",
+  "why": "the separation survives a 7.3 second time shift intact, so it is register and timbre rather than ownership",
+  "fixture": "ownership-refusal, PASS while the refusal holds",
+  "settles": [
+   "the 48 doubled lead notes on 02 Flake stay, on a measured reason",
+   "the 04 staff reassignment cannot be decided from audio"
+  ],
+  "session_tally": "nine measurements have now failed their own controls"
+ }
 }

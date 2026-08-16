@@ -1496,3 +1496,13 @@ Zero candidates for removal. Every one sits inside a continuous Lead line across
 This conflicts with the correction and the correction wins: Brandon flagged duplicated lead notes as a defect and this audit finds none whose deletion the notation supports. His ear is authoritative, so the case stays OPEN with the audit recorded beside it.
 
 No audio accuracy audit appears here because beat_map.py builds the DTW map and REFUSES it, on this song and on two songs whose alignment is not in question. Reporting accuracy numbers on a refused map is what section 12 was retracted for.
+
+## 15 The ownership measurement, built and refused
+
+Two repairs were waiting on one answer: which staff owns a note. ownership_audit.py scores each note by (E_lead - E_rhythm)/(E_lead + E_rhythm) against the LEAD and RHYTHM split stems, which album_guitar_split.py derives from the guitar stem's own harmonic salience and NMF clustering without reading the tab, so the source is not circular.
+
+Validated on 10 Trapped in Wonderland, the one album file measuring TWO_PARTS, across 38 bars where both staves genuinely play: Lead-staff notes n=152 score +0.0952, Rhythm-staff notes n=689 score -0.1699, separation +0.2651. The same notes at a shifted time separate by +0.2766, higher. Gain over control -0.0115. REFUSED.
+
+The split sorts by register and timbre, which the tab already encodes, so it carries no information about which guitar played a note. The refusal is now the regression fixture ownership-refusal, which fails the day the tool starts emitting verdicts on evidence that has not earned them.
+
+Settled: the 48 doubled lead notes on 02 Flake stay, with a measured reason rather than a cautious one. The 04 staff reassignment cannot be decided from audio. Nine measurements this session have failed their own controls, every one built to answer which string, which staff or which instant, and every one measuring register, tilt or base rate instead.
