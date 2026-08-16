@@ -25,8 +25,11 @@ be wrong.
 
 ## Which revision is new
 
-Songsterr shows a revision id and a timestamp and nothing else. Two sessions held opposite
-beliefs about who made `r8516072`. Settled from timestamps: the revision was submitted at
+Songsterr attributes every revision to one account, Brandon's, because six sessions and
+his own hand-uploads all sign in as him. Two sessions held opposite beliefs about who made
+`r8516072`. The API does carry `createdVia` (`GP` for a Guitar Pro import, `Editor` for an
+in-editor edit, `AI` for the original) and a `description`, so `verify --tab` reads those
+live and the ledger only supplies the session name. Settled from timestamps: the revision was submitted at
 21:11:57Z, and Brandon's message "uploaded latest and hit submit" arrived at 21:14:03Z. It
 is his, by hand.
 
@@ -85,10 +88,10 @@ Sessions were messaged at 21:22Z. Confirmed from Songsterr's own revision API fo
 
 | Revision | tracks | created | who |
 |---|---:|---|---|
-| 8516250 | 5 | 2026-08-16T21:22:22Z | Resume goal completion shipping, under the lease |
-| 8516072 | 5 | 2026-08-16T21:11:57Z | Brandon, by hand |
-| 8514056 | 5 | 2026-08-16T19:22:44Z | earlier session |
-| 7609146 | 5 | 2026-06-28T15:09:55Z | original AI transcription |
+| 8516250 | 5 | 21:22:22Z, via Editor | Resume goal completion shipping, under the lease |
+| 8516072 | 5 | 21:11:57Z, via GP | Brandon, by hand |
+| 8514056 | 5 | 19:22:44Z, via GP | earlier session |
+| 7609146 | 5 | 28 Jun, via AI | original transcription, unclaimed by any session |
 
 A session took the lease, uploaded, recorded the revision and released, with no human asked
 to submit anything. Every revision on this tab carries all five tracks, so no import has
