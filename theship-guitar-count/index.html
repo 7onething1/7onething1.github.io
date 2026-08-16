@@ -98,6 +98,7 @@
     <li><a href="#brandon">Brandon's ear corrections, as regression cases</a></li>
     <li><a href="#register">Why the voicings were wrong, and what the audio says</a></li>
     <li><a href="#green">Why this page does not show a green suite</a></li>
+    <li><a href="#retracted">The Flake repair is retracted</a></li>
     
   </ol>
 </div>
@@ -2189,6 +2190,50 @@ thinning, because a thinning pass once deleted 145 legitimate doubled notes.</li
 controlled effect of 11.8 points. The rest carry a question this evidence cannot answer,
 and a gate turned green while that holds would be the exact failure this whole page
 exists to record.</p>
+
+
+<h2 id="retracted">11 &nbsp;The Flake repair is retracted</h2>
+
+<p><b>The full validator profile was run on both files, and it says something the skip
+percentage hid.</b> This page reported the repair's cost as hand skip 13.1% to 19.8%. That
+was one line of a profile with many:</p>
+
+<div class="tablewrap"><table>
+<thead><tr><th>Rhythm Guitar</th><th class="num">Audition</th><th class="num">Candidate</th></tr></thead>
+<tbody>
+<tr><td>validator findings</td><td class="num">1</td><td class="num"><b>78</b></td></tr>
+<tr><td>interior_gap</td><td class="num">0</td><td class="num"><b>62</b></td></tr>
+<tr><td>jump7</td><td class="num">2</td><td class="num">19</td></tr>
+<tr><td>urgent_jump</td><td class="num">1</td><td class="num">15</td></tr>
+<tr><td>severe_jump</td><td class="num">0</td><td class="num"><b>1</b></td></tr>
+<tr><td>hand_skips</td><td class="num">121</td><td class="num">183</td></tr>
+<tr><td>hand_worst / worst_span</td><td class="num">3</td><td class="num">4</td></tr>
+</tbody></table></div>
+
+<p>The INTERIOR_GAP records read <b>"4 attacked notes with 1 unexplained interior string,
+needs positive audio evidence of fingerpicking or hybrid picking"</b>. Suspicious pseudo
+fingerpicking is a failure class this skill exists to catch, and the re-voicing introduced
+62 of them.</p>
+
+<p><b>So the trade does not hold.</b> The lift bought 11.8 points of paired-control audio
+separation on 170 notes and a file margin moving from -2.4 to +0.9. It cost 77 new
+validator findings including a severe jump. The checkpoint ledger had already refused the
+replacement, and my licence overrode it while quoting one metric.</p>
+
+<p><b>Retracted.</b> The candidate stays on disk, unpromoted, with
+<code>RETRACTION.json</code> beside it recording every number above. The graded artifact
+for 02 Flake is the audition source, unchanged.</p>
+
+<p><b>The durable fix:</b> <code>octave_lift_sweep.py</code>'s keep rule now reads the
+hard profile rather than a single percentage. Run against its own output it returns:</p>
+
+<pre style="overflow-x:auto;font-size:12px;line-height:1.5;background:var(--dust);padding:10px;border:1px solid var(--rule)">HARD PROFILE: findings 1 -> 78; worsened {'Rhythm Guitar.interior_gap': '0 -> 62',
+              'Rhythm Guitar.urgent_jump': '1 -> 15', 'Rhythm Guitar.severe_jump': '0 -> 1'}
+VERDICT: RETRACT</pre>
+
+<p>Six routes to a green suite have now been tried on this album. Every one produced a
+refutation or a bug, including this one, which refuted the only repair the page had been
+claiming.</p>
 
 <footer>
   <p><b>Reproduce:</b><br>

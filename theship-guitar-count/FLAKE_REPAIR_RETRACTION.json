@@ -1,0 +1,10 @@
+{
+ "retracted": "2026-08-16",
+ "artifact": "8b7f9dcd609bff4e  02 Flake of the Year-OCTAVE-LIFT.gp",
+ "was": "promoted best_validated_so_far with --license-skip-regression",
+ "why_retracted": "the licence quoted the skip percentage alone, 13.1% to 19.8%. The full validator profile shows the candidate also takes findings from 1 to 78, interior_gap 0 to 62, jump7 2 to 19, urgent_jump 1 to 15, severe_jump 0 to 1, hand_worst 3 to 4. The INTERIOR_GAP records read '4 attacked notes with 1 unexplained interior string, needs positive audio evidence of fingerpicking or hybrid picking', which is a failure class this skill exists to catch.",
+ "what_it_bought": "+11.8 points of paired-control audio separation on 170 notes, and a file margin of -2.4 to +0.9",
+ "verdict": "the trade does not hold. 77 new findings including a severe jump against 11.8 points of separation is not a repair, and the checkpoint ledger had already refused the replacement before the licence overrode it.",
+ "file_kept": "the candidate stays on disk, unpromoted, so the measurement can be re-examined",
+ "durable_fix": "octave_lift_sweep.py keep rule now reads the hard profile, not the skip percentage alone"
+}

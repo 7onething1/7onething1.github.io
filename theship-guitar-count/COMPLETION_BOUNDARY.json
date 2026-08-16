@@ -298,6 +298,22 @@
      "verdict": "nothing written, the one eligible beat refused on span"
     },
     "rule_hardened": "keep now needs n>=30 changed notes and a paired separation of >=5 points, because the first rule accepted two candidates on noise"
+   },
+   "RETRACTED": {
+    "date": "2026-08-16",
+    "artifact": "8b7f9dcd609bff4e",
+    "full_profile_rhythm_guitar": {
+     "findings": "1 -> 78",
+     "interior_gap": "0 -> 62",
+     "jump7": "2 -> 19",
+     "urgent_jump": "1 -> 15",
+     "severe_jump": "0 -> 1",
+     "hand_skips": "121 -> 183",
+     "worst_span": "3 -> 4"
+    },
+    "why": "the licence quoted hand skip alone; the candidate takes 77 new validator findings including a severe jump and 62 interior string gaps, against 11.8 points of paired-control audio separation",
+    "graded_artifact": "02 Flake of the Year.gp, the audition source, unchanged",
+    "durable_fix": "octave_lift_sweep.py keep rule reads the hard profile and returns RETRACT on this candidate"
    }
   },
   "album_sweep_eligible": {

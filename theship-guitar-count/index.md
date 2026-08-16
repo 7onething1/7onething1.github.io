@@ -1353,3 +1353,11 @@ The upper-three-string correction cannot be met by refretting: 288 of the 445 lo
 The C#m case is checkable by command: `brandon_cases.py --measure-case 02-csharp-minor-second-position --against <candidate>`. Graded artifact e90b44d28bb5f3fe reads 204 of 204 C#m beats fretted away from position 2; candidate 8b7f9dcd609bff4e reads 177 of 204 still away. So 27 beats moved, 13.2%, and 86.8% did not. The case stays OPEN.
 
 The sweep for more deltas found a bug: --measure-case pointed the 04 tacet case at the 02 candidate and answered RESOLVED, zero attacked notes in bars 71-69, a backwards range on the wrong recording. It now refuses, and the refusal is a regression fixture (cross-song-refusal, PASS). No case showed a delta: 02-fsharp reads 10 beats on both files, 02-duplicated-lead 48 of 225 on both, 04-lead-tacet was already resolved on its own artifact, 02-rests has no measurement.
+
+## 11 The Flake repair is retracted
+
+The full validator profile on both files shows what the skip percentage hid. Rhythm Guitar, audition to candidate: findings 1 to 78, interior_gap 0 to 62, jump7 2 to 19, urgent_jump 1 to 15, severe_jump 0 to 1, hand_skips 121 to 183, worst_span 3 to 4.
+
+The INTERIOR_GAP records read '4 attacked notes with 1 unexplained interior string, needs positive audio evidence of fingerpicking or hybrid picking'. The lift bought 11.8 points of paired-control separation and cost 77 new findings including a severe jump. The checkpoint ledger had already refused the replacement and the licence overrode it while quoting one metric.
+
+Retracted. The candidate stays on disk unpromoted with RETRACTION.json beside it. The graded artifact for 02 Flake is the audition source. octave_lift_sweep.py's keep rule now reads the hard profile and returns RETRACT on its own output.
