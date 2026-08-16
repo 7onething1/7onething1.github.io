@@ -3786,28 +3786,64 @@ promotion PROMOTED</b>: two on 04 and <b>four on 05 Sleep Vs Death</b>, which is
 reading 20.5% octave copy. One further receipt, 11 Ambulance baseline, carries preservation
 NOT_RUN and is recorded rather than retracted. Retractions written for both songs.</p>
 
-<h3>The upload is blocked, and the blocker is named</h3>
+<h3>It shipped, and the reason it nearly did not is a correction</h3>
 
-<p>The repaired file is gated and cleared, and it was <b>not</b> imported. The live revision
-<code>r8514035</code> holds 296 / 1043 / 445 / 1796 / 336 notes across its five parts, read
-from its own CloudFront JSON, and the candidate holds 177 / 998 / 398 / 1767 / 207. Every
-part on the tab carries more than the candidate, including bass, drums and the vocal line
-this pass never touched, and drums differ by 29 with zero ties on either side, so that is
-content rather than a counting convention. Importing would strip all five parts.</p>
+<div class="lede">
+<p><b>Published as revision <code>r8516865</code> at 2026-08-16T22:03:59Z</b>, 5 tracks,
+read back from its own CloudFront parts as <b>296 / 1043 / 445 / 1796 / 336</b>, identical
+to the revision it replaced, with <b>9 bend-bearing notes on the Lead staff</b>. Nothing was
+lost from any part.</p>
+</div>
 
-<p>The rebase route is broken. Songsterr's Guitar Pro export returned <b>the wrong
-song</b> from the 04 editor URL three times, including once immediately after a hard reload
-during which the page demonstrably fetched the correct 04 parts. Each download carried 04's name and held 02 Flake of the Year, 69 bars, Overdriven 2335, Bass 338, Drums 769,
-Tenor Sax 310. The filename is not identity. The genuine r8514035 parts were captured by
-curl straight from CloudFront and are archived, which is the irreplaceable piece, since
-Songsterr keeps one revision and the old parts answer 403 after the next publish.</p>
+<p><b>An earlier version of this page said the import would strip all five parts. That was
+wrong and is withdrawn.</b> The claim rested on the live revision reading 296 / 1043 / 445 /
+1796 / 336 against the candidate's 177 / 998 / 398 / 1767 / 207, with drums differing by 29
+on a part this pass never touched.</p>
 
-<p>The exact blocked operation: obtain a Guitar Pro file of r8514035, apply the nine bends
-to that rather than to the local checkpoint, then import. It unblocks by exporting from a
-Chrome profile with no other Songsterr session live, or by Brandon exporting r8514035 by
-hand. A Songsterr-JSON to GPIF converter would also do it and must not be improvised,
-because a converter that guesses would fabricate content, which is the failure this whole
-pass exists to correct.</p>
+<p>The test that settled it was 04's own original AI revision, <code>r7610295</code>. Its
+CloudFront JSON reads <b>445 / 1796 / 336</b> for bass, drums and vocals while the local
+Guitar Pro export of that same revision reads <b>398 / 1767 / 207</b>. Same revision, two
+numbers, so the gap is a counting convention rather than content: Songsterr counts a tied
+continuation where the GPIF walk counts one attack. Bass, drums and vocals were byte-identical
+across r7610295 and r8514035, which means they were never edited at all.</p>
+
+<p>Comparing bar by bar then showed the live revision <b>is</b> the local checkpoint. Every
+delta of live minus candidate, across all five parts and all 140 bars, is <b>0, +1 or +2 and
+never negative</b>, and the positive ones fall exactly on tie-carrying bars.</p>
+
+<div class="tablewrap"><table>
+<thead><tr><th>Part</th><th>Delta distribution, live minus candidate</th></tr></thead>
+<tbody>
+<tr><td>Lead Guitar</td><td>0 on 21 bars, +1 on 119</td></tr>
+<tr><td>Rhythm Guitar</td><td>0 on 98 bars, +1 on 39, +2 on 3</td></tr>
+<tr><td>Electric Bass</td><td>0 on 94 bars, +1 on 45, +2 on 1</td></tr>
+<tr><td>Drums</td><td>0 on 111 bars, +1 on 29</td></tr>
+<tr><td>Vocals</td><td>0 on 15 bars, +1 on 121, +2 on 4</td></tr>
+</tbody></table></div>
+
+<p>The lesson is the one this page keeps relearning. <b>Two counts of the same music in two
+formats are not a diff.</b> Comparing them across a format boundary produced a confident,
+specific, wrong conclusion, and the fix was to find a case with a known answer, the AI
+revision that both sides describe, and calibrate against it.</p>
+
+<h3>The export bug is real, and it was not the blocker</h3>
+
+<p>Songsterr's Guitar Pro export returned <b>02 Flake of the Year six times</b> from the 04
+editor URL, every download carrying 04 in its filename and 02's 69-bar contents. It survived
+a hard reload, a brand new tab, a verified <code>og:url</code>, unregistering the service
+worker, deleting all four caches, and fronting the tab so it held focus. The service worker
+is shared across every Songsterr tab in the profile and five other tabs were open, which is
+the likeliest path, and it stayed reproducible after that worker was gone.</p>
+
+<p>That route was only needed to rebase onto the live revision. Once the live revision turned
+out to <b>be</b> the local checkpoint, the rebase was already done and the candidate imported
+cleanly. <b>The filename is still not identity.</b> Anything exported from Songsterr today
+gets its bar count and per-part notes checked before use.</p>
+
+<p>The import itself was guarded at every step: the lease was held for 419 s, every click
+refused unless <code>og:url</code> carried <code>s5824781</code>, and both songs' revision
+lists were read immediately afterwards. <b>02 Flake was untouched</b>, sitting at the peer
+session's own <code>r8516751</code>.</p>
 
 <footer>
   <p><b>Reproduce:</b><br>
