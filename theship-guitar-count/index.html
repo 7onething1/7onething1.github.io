@@ -3990,6 +3990,47 @@ sounding", a strictly harder question on polyphonic guitar and has not been buil
 calibrated. Clearing 0.90 would license flagging, and writing needs a pitch proposer that has not been built here.</p>
 </div>
 
+<h3>The pitch proposer, built from both candidates, and why the rewrite cannot run</h3>
+
+<p>Flagging a note and replacing it are different problems. Every measure above answers "is
+the written pitch sounding". A rewrite needs "what pitch IS sounding", so both remaining
+candidates were built and scored on the same labelled render, where the pitch actually
+rendered at each of the 1100 moments is known exactly.</p>
+
+<div class="tablewrap"><table>
+<thead><tr><th>Proposer</th><th class="num">Top-1 exact</th><th class="num">Octave off</th>
+<th class="num">No proposal</th><th>Verdict</th></tr></thead>
+<tbody>
+<tr><td>basic-pitch, trained polyphonic transcriber, 1060 events</td>
+<td class="num">311 &nbsp;<b>28.3%</b></td><td class="num">80</td><td class="num">0</td>
+<td><span class="pill bad">refused</span></td></tr>
+<tr><td>harmonic comb argmax across the guitar range</td>
+<td class="num">414 &nbsp;<b>37.6%</b></td><td class="num">87</td><td class="num">0</td>
+<td><span class="pill bad">refused</span></td></tr>
+</tbody></table></div>
+
+<p><b>The bar was 80% and the best result is 37.6%.</b> Writing proposals at that accuracy
+would replace 1100 notes with roughly 700 wrong ones, which is far worse than what the tab
+holds now. So the rewrite does not run, and that is a measured refusal rather than a
+reluctance.</p>
+
+<div class="card gap">
+<h3>The comb result is the damning one, and it is about density</h3>
+<p>basic-pitch is trained on real instruments and the render is synthetic harmonic tones, so
+its 28.3% may be unfairly low, and that caveat belongs on it. The comb carries no timbre
+prior at all, and on audio <b>synthesised from those exact pitches</b> its argmax still picks
+the right one only 37.6% of the time. With 1100 overlapping notes and a reverb tail, the
+loudest comb at any instant is very often a note that is still ringing from earlier. That is
+a property of the material rather than of either tool, and it is the same wall the
+onset-extractor fixture hit at 5.4% recall on dense reverberant input.</p>
+</div>
+
+<p><b>So the blocked operation is now named with two numbers on identical labelled data.</b>
+Detection tops out at <b>AUC 0.883</b> against a 0.90 bar. Proposal tops out at <b>37.6%
+top-1</b> against an 80% bar. Until one of those clears, no per-note rewrite of 04 can be
+honest, and the aggregate verdict, <b>+7.5 against a +24.9 ceiling</b>, is the most that can
+be said about its pitch content.</p>
+
 <p><b>The terminal position on 04, stated plainly.</b> The nine intro bends are transcribed
 from the stem, verified against a two-way control, and live. The 1100 written attacks
 underneath them are inherited Songsterr AI content measuring <b>30% of a realistic

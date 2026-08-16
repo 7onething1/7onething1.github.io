@@ -1947,6 +1947,18 @@ Correct notes score a median of 3.116 against 1.254 for corrupted ones, which is
 
 Two reasons this still falls short of licensing a rewrite. The first is the bar that was set before any result was seen, 0.883 against 0.90, and at the best operating point, of the 516 notes it would flag as wrong, 94 are correct as written, so about one note in five would be damaged to fix the others. And a detector says a note is wrong, never what it should be. Every measure on this page answers "is the written pitch sounding", and rewriting needs an answer to "what pitch IS sounding", a strictly harder question on polyphonic guitar that has not been built or calibrated. Clearing 0.90 would license flagging, and writing needs a pitch proposer that has not been built here.
 
+### The pitch proposer, built from both candidates, and why the rewrite cannot run
+
+Flagging a note and replacing it are different problems. Every measure above answers "is the written pitch sounding". A rewrite needs "what pitch IS sounding", so both remaining candidates were built and scored on the same labelled render, where the pitch actually rendered at each of the 1100 moments is known exactly.
+
+basic-pitch, the trained polyphonic transcriber, 1060 events: top-1 exact 311, which is 28.3%, with 80 octave-off and 0 without a proposal. REFUSED. Harmonic comb argmax across the guitar range: top-1 exact 414, which is 37.6%, with 87 octave-off and 0 without a proposal. REFUSED.
+
+The bar was 80% and the best result is 37.6%. Writing proposals at that accuracy would replace 1100 notes with roughly 700 wrong ones, far worse than what the tab holds now. So the rewrite does not run, and that is a measured refusal rather than a reluctance.
+
+The comb result is the damning one, and it is about density. basic-pitch is trained on real instruments and the render is synthetic harmonic tones, so its 28.3% may be unfairly low, and that caveat belongs on it. The comb carries no timbre prior at all, and on audio synthesised from those exact pitches its argmax still picks the right one only 37.6% of the time. With 1100 overlapping notes and a reverb tail, the loudest comb at any instant is very often a note still ringing from earlier. That is a property of the material rather than of either tool, and it is the same wall the onset-extractor fixture hit at 5.4% recall on dense reverberant input.
+
+So the blocked operation is now named with two numbers on identical labelled data. Detection tops out at AUC 0.883 against a 0.90 bar. Proposal tops out at 37.6% top-1 against an 80% bar. Until one of those clears, no per-note rewrite of 04 can be honest, and the aggregate verdict of +7.5 against a +24.9 ceiling is the most that can be said about its pitch content.
+
 ### The terminal position on 04
 
 The nine intro bends are transcribed from the stem, verified against a two-way control, and live. The 1100 written attacks underneath them are inherited Songsterr AI content measuring 30% of a realistic ceiling, so the tab is NOT an accurate transcription of the record. Closing that gap needs a per-note pitch measure. The best one built here reaches AUC 0.883 on a matched labelled control, short of the 0.90 bar, and flagging a wrong note is a different problem from supplying the right one. Building that measure is the next real piece of work, and inventing pitches without it would repeat the fraud at the top of this page.
