@@ -2921,6 +2921,76 @@ never sound together outside 19 bars, because the transcription only ever has on
 playing at a time. Moving a block to its proper staff fixes the labelling. The missing part is still
 missing.</p>
 
+
+<h2 id="leadfill05">17 &nbsp;05 Sleep Vs Death: the Lead doubles the chords, bars 21-29</h2>
+
+<div style="border:2px solid #7A5807;background:#F7E9C6;padding:12px 14px;margin:1.2em 0">
+<p style="margin:0"><b>THIS IS AN ARRANGEMENT RATHER THAN A TRANSCRIPTION.</b> Brandon
+asked for it directly: where the Lead guitar is tacet, have it play a higher inversion of
+the Rhythm chords. The 58 notes below were <b>added by this pass</b> and are not evidence
+that a second guitarist played them. This page's guitar count is unchanged.</p>
+</div>
+
+<p><b>The scope is bars 21 to 29, the chord bars, on his correction.</b> A first pass
+filled all 75 tacet bars, and he narrowed it. Those nine bars hold sustained four and five
+note chords, D with A and F#, and an A#/D/F voicing, one or two per bar.</p>
+
+<div class="tablewrap"><table>
+<thead><tr><th>Per note</th><th class="num">Count</th><th>What happened</th></tr></thead>
+<tbody>
+<tr><td>fingered, +12 frets on its own string</td><td class="num"><b>56</b></td><td>12 half steps up, shape intact</td></tr>
+<tr><td>open string</td><td class="num">2</td><td>kept open, so it sounds the SAME pitch</td></tr>
+<tr><td><b>wrong</b></td><td class="num"><b>0</b></td><td>each note checked against its own source note</td></tr>
+</tbody></table></div>
+
+<p>Every +12 target is on the neck in this range, so nothing needed re-stringing and no
+chord was left unlifted. <b>Nothing was added outside bars 21-29 and nothing was lost
+anywhere.</b> The two open strings are the high E in bars 26 and 28, where the hand plays
+frets 15 to 17 and that string rings open.</p>
+
+<h3>No capo, confirmed</h3>
+
+<p>Brandon confirms there is no capo, and <code>05 Sleep Vs Death.gp</code> declares
+<code>capo 0</code>, so the file and the player agree and the octave arithmetic needs no
+adjustment.</p>
+
+<h3>What the wider first pass taught the tool</h3>
+
+<p>The 75-bar version is retracted, and building it forced three rules that the nine-bar
+version never had to use:</p>
+
+<ul>
+<li><b>A static string set put two notes on one string.</b> Bars 95 and 96 of 05 Sleep Vs
+Death.gp sha256:16 <code>4d012233b53145d0</code> came out <code>s4f22 s5f10 s5f14</code>,
+because both off-neck notes picked the highest string that looked free. Strings are now
+reserved as they are handed out.</li>
+<li><b>Scattering a chord across strings broke it.</b> Bar 95 of that same source is
+<code>s2f12 s3f11 s4f10</code>, a span of 2 near the top of the neck. Re-strung note by
+note it became a span of 8 and the gate called it IMPOSSIBLE_SPAN.</li>
+<li><b>So a chord is lifted whole, or left alone.</b> Any beat holding a note that cannot
+go up 12 on its own string is copied unlifted. That took interior gaps from 8 to 0 and wide
+spans from 2 to 0.</li>
+</ul>
+
+<h3>The artifact</h3>
+
+<pre style="overflow-x:auto;font-size:12px;line-height:1.5;background:var(--dust);padding:10px;border:1px solid var(--rule)">artifact ebac804153a7b6ba   verdict REVIEW   position PASS   status best_validated_so_far
+Lead Guitar    205 notes, hand 0%, PASS       <- every hard category zero
+Rhythm Guitar  644 notes, hand 3%, REVIEW SHIFT x1, unchanged
+
+preservation: nothing vanished on any staff; Rhythm 644 -> 644 with nothing invented
+              Lead 147 -> 205, the 58 added notes</pre>
+
+<p><b>The Lead staff itself passes.</b> The file's REVIEW comes entirely from the Rhythm
+staff's single SHIFT, which was there before this pass and was not touched. Preservation
+reports FAIL, which is correct for a deliberate addition, and the census shows every
+invented pitch is in the Lead.</p>
+
+<p><b>The source has zero co-activity.</b> Across all 103 bars the two staves never play in
+the same bar: 19 Lead only, 75 Rhythm only, 9 silent. 05 is one part written across two
+staves, the same shape the 04 Six Feet audit found, which is why the arrangement label at
+the top of this section matters.</p>
+
 <footer>
   <p><b>Reproduce:</b><br>
   <code>python3 ~/Projects/_outputs/theship-tabs/guitar_count.py</code><br>

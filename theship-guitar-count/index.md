@@ -1561,3 +1561,25 @@ Only bars 40 and 42 survive: 16 written attacks each across 3.77 s and 4.88 s wi
 The 584 stands only as an upper bound: at least 265 are unmatched by scarcity alone and this control shows most of the rest are matching failures. Deleting them would repeat the prune already retracted once.
 
 Same error as section 12, one section later: a number was published before the control that could refute it was run.
+
+## 17 05 Sleep Vs Death: the Lead doubles the chords, bars 21-29
+
+THIS IS AN ARRANGEMENT RATHER THAN A TRANSCRIPTION. Brandon asked for it: where the Lead is tacet, have it play a higher inversion of the Rhythm chords. The 58 notes were added by this pass and are not evidence of a second guitarist. The guitar count is unchanged.
+
+Scope is bars 21-29, the chord bars, on his correction. A first pass filled all 75 tacet bars and he narrowed it. Those nine bars hold sustained four and five note chords, D with A and F#, and an A#/D/F voicing.
+
+| Per note | Count |
+|---|---|
+| fingered, +12 frets on its own string | 56 |
+| open string kept open, same pitch | 2 |
+| wrong | 0 |
+
+Every +12 target is on the neck here, so nothing needed re-stringing and no chord was left unlifted. Nothing added outside bars 21-29, nothing lost anywhere.
+
+No capo, confirmed: Brandon confirms none, and the file declares capo 0, so the two agree.
+
+The 75-bar first pass is retracted. Building it forced three rules: strings must be reserved as they are handed out, after bars 95 and 96 of 05 Sleep Vs Death.gp sha256:16 4d012233b53145d0 came out with two notes on string 5; scattering a chord across strings turned bar 95 of that file from a span of 2 into a span of 8 and drew IMPOSSIBLE_SPAN; so a chord is now lifted whole or left alone, which took interior gaps 8 to 0 and wide spans 2 to 0.
+
+Artifact ebac804153a7b6ba, verdict REVIEW, position PASS, status best_validated_so_far. Lead 205 notes at hand 0%, PASS, every hard category zero. Rhythm 644 unchanged at hand 3%, REVIEW SHIFT x1. Preservation: nothing vanished, Rhythm 644 to 644 with nothing invented, Lead 147 to 205. The file's REVIEW comes entirely from the untouched Rhythm staff.
+
+The source has zero co-activity: across 103 bars the two staves never play in the same bar. 19 Lead only, 75 Rhythm only, 9 silent. One part across two staves, which is why the arrangement label matters.
