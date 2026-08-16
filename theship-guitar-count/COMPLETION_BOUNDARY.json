@@ -447,7 +447,13 @@
   "his_actual_words": "the second-position C sharp minor sounds G string 16, B string 15, e string 14",
   "the_open_discrepancy": "in the standard E tuning this tab declares, those frets sound B4 D5 F#5, a B minor, and he calls the shape a C sharp minor",
   "means": "either the tab's declared tuning does not match the recording, or the string labels do not line up",
-  "what_was_applied": "the C#m at pitches C#5 E5 G#5 written s3f18 s4f17 s5f16, which stands independent of the retracted reading"
+  "what_was_applied": "the C#m at pitches C#5 E5 G#5 written s3f18 s4f17 s5f16, which stands independent of the retracted reading",
+  "tuning_measured": {
+   "method": "tab pitch-class histogram correlated against the recording's chroma at all twelve rotations",
+   "guitar_stem": "best shift 0 semitones, correlation +0.786, next best +4 at 0.441",
+   "full_mix": "best shift 0 semitones, correlation +0.896, next best +4 at 0.198",
+   "conclusion": "the tab is in the right key and tuning as written, standard E, so tuning does not explain the fret discrepancy"
+  }
  },
  "staff_role_audit": {
   "brandon_2026-08-16": "the lead part at times was not transcribed at all and the rhythm part is put as the lead when that happens and the lead then tacet",
@@ -651,5 +657,43 @@
   "verdict": "MAP ACCEPTED",
   "corrects": "section 12 retracted the map because its test failed on known-good songs; the cause was an envelope-vs-impulse-train cost in build(), fixed by another session to DTW between two event sequences",
   "consequence": "attack precision and recall, timing error and duration agreement are now measurable on 04 and have not been run yet"
+ },
+ "audio_accuracy_audit_04": {
+  "gp": "04 Six Feet Under-STAFF-REASSIGN.gp",
+  "stem": "04_six_feet_under-guitar.mp3",
+  "map_alignment_pct": 68.78,
+  "map_control_pct": 16.12,
+  "map_gain": 52.65,
+  "written_attacks": 1100,
+  "detected_onsets": 592,
+  "attack_recall_pct": 65.82,
+  "attack_precision_pct": 56.93,
+  "timing_after_warp_ms": 0.0,
+  "timing_after_warp_is_circular": true,
+  "timing_before_warp_median_ms": 61.2,
+  "timing_before_warp_p90_ms": 191.3,
+  "timing_before_warp_n": 872,
+  "pitch_agreement_pct": 55.36,
+  "pitch_control_pct": 51.18,
+  "pitch_separation": 4.18,
+  "pitch_has_power": false,
+  "ownership": "REFUSED",
+  "ownership_detail": {
+   "ok": true,
+   "song": "10",
+   "gp": "10 Trapped in Wonderland.gp",
+   "co_active_bars": 38,
+   "lead_staff_notes": 152,
+   "rhythm_staff_notes": 689,
+   "lead_staff_median_score": 0.0952,
+   "rhythm_staff_median_score": -0.1699,
+   "separation": 0.2651,
+   "shifted_control_separation": 0.2766,
+   "gain_over_control": -0.0115,
+   "min_gain": 0.05,
+   "usable": false
+  },
+  "self_defect_found": "the first run reported timing median 0.0 ms, which is the warp reporting its own objective; the audit now names the circularity and reports the pre-warp residual of 61.2 ms median and 191.3 ms p90",
+  "conclusion": "the audio does not warrant a further repair on 04; it has no power to adjudicate pitch or ownership on this material, and the staff reassignment stands on the notation evidence"
  }
 }

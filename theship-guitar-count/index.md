@@ -1629,3 +1629,17 @@ Brandon never mentioned a capo. He gave one fact: the second-position C sharp mi
 The arithmetic still needs an answer: in the standard E tuning this tab declares, those frets sound B4, D5, F#5, a B minor. He calls the shape a C sharp minor and he plays the instrument, so either the tab's declared tuning does not match the recording or the string labels do not line up. That is an open question about the tab.
 
 What was applied is the C#m at pitches C#5 E5 G#5, written s3f18 s4f17 s5f16. That stands on its own and does not depend on the retracted capo reading.
+
+## 21 The audio accuracy audit on 04, and what it can honestly say
+
+Measured on promoted artifact 66410cea12c9bf10 against 04_six_feet_under-guitar.mp3: map alignment 68.8% against a 16.1% control (accepted, +52.7); attack recall 65.8%, 724 of 1100 written attacks; attack precision 56.9%, 337 of 592 onsets; timing before the warp 61.2 ms median and 191.3 ms p90 across 872 attacks; pitch agreement 55.4% against a 51.2% shifted-time control, separation +4.2, no discriminating power; ownership REFUSED.
+
+The audit caught a defect in itself. Its first run reported timing median 0.0 ms, which is the warp reporting its own objective rather than a perfect tab. That happens because the DTW path exists to minimise that residual. It now names the circularity and reports the pre-warp residual instead.
+
+So the audio does not yet warrant a further repair on 04. It confirms the tab reaches two thirds of the onsets it should and accounts for just over half of what the record plays, and it has no power to adjudicate pitch or ownership on this material. The staff reassignment stands on the notation evidence.
+
+### The tuning question, answered by measurement
+
+The tab's pitch-class histogram correlated against the recording's chroma at all twelve rotations: guitar stem best at 0 semitones, correlation +0.786, next best +4 at 0.441; full mix best at 0 semitones, +0.896, next best +4 at 0.198.
+
+The tab is in the right key and tuning as written, standard E with no transposition. So tuning does not explain the G16 B15 e14 discrepancy. In standard E those frets sound B4 D5 F#5. What was written is the chord he named, a C sharp minor at C#5 E5 G#5: the quality was honoured, the fret positions do not produce it in this tuning, and the gap is recorded rather than resolved.

@@ -2477,6 +2477,27 @@ plays the instrument. So one of the tab's assumptions is wrong: either its decla
 standard tuning does not match the recording, or the string labels here do not line up
 with his. <b>That is an open question about the tab, not a theory to build on.</b></p>
 
+<h3>The tuning question, answered by measurement</h3>
+
+<p>The tab's pitch-class histogram was correlated against the recording's chroma at all
+twelve rotations:</p>
+
+<div class="tablewrap"><table>
+<thead><tr><th>Source</th><th class="num">Best shift</th><th class="num">Correlation</th><th class="num">Next best</th></tr></thead>
+<tbody>
+<tr><td>guitar stem</td><td class="num"><b>0 semitones</b></td><td class="num">+0.786</td><td class="num">+4 at 0.441</td></tr>
+<tr><td>full mix</td><td class="num"><b>0 semitones</b></td><td class="num">+0.896</td><td class="num">+4 at 0.198</td></tr>
+</tbody></table></div>
+
+<p><b>The tab is in the right key and tuning as written.</b> Standard E, no transposition,
+and the margin over every alternative is large. So the tuning is not the explanation for
+the G16 B15 e14 discrepancy, and the tab's declared tuning stands.</p>
+
+<p><b>Which leaves the fret numbers unreconciled.</b> In standard E those three frets sound
+B4, D5 and F sharp 5. What was written is the chord he named, a C sharp minor, at C#5 E5
+G#5. The quality he stated was honoured; the fret positions he stated do not produce it in
+this tuning, and that gap is recorded rather than resolved.</p>
+
 <p><b>What was actually applied</b> is the C sharp minor at the pitches C#5, E5 and G#5,
 written at <code>s3f18 s4f17 s5f16</code>. That stands on its own and does not depend on
 the retracted capo reading. Whether it is the chord he means depends on the tuning
@@ -2972,6 +2993,52 @@ clean synthetic plucks and collapses on dense reverberant material, so the 592 d
 onsets against 490 written attacks is still a lossy view of the record. And the ownership
 measurement still refuses itself, because the LEAD/RHYTHM split still separates by register
 rather than by player.</p>
+
+
+<h2 id="audit04">21 &nbsp;The audio accuracy audit on 04, and what it can honestly say</h2>
+
+<p><b>With the map accepted, the per-note questions are finally askable.</b> Measured on
+the promoted artifact <code>66410cea12c9bf10</code> against
+<code>04_six_feet_under-guitar.mp3</code>:</p>
+
+<div class="tablewrap"><table>
+<thead><tr><th>Measure</th><th class="num">Result</th><th class="num">Its control</th><th>Verdict</th></tr></thead>
+<tbody>
+<tr><td>map alignment</td><td class="num">68.8%</td><td class="num">16.1%</td><td><span class="pill ok">accepted, +52.7</span></td></tr>
+<tr><td>attack recall, 724 of 1100 written</td><td class="num">65.8%</td><td class="num">-</td><td>reported</td></tr>
+<tr><td>attack precision, 337 of 592 onsets</td><td class="num">56.9%</td><td class="num">-</td><td>reported</td></tr>
+<tr><td>timing, before the warp</td><td class="num">61.2 ms median, 191.3 ms p90</td><td class="num">-</td><td>reported</td></tr>
+<tr><td>timing, after the warp</td><td class="num">0.0 ms</td><td class="num">-</td><td><span class="pill bad">CIRCULAR</span></td></tr>
+<tr><td>pitch agreement</td><td class="num">55.4%</td><td class="num">51.2%</td><td><span class="pill warn">no power, +4.2</span></td></tr>
+<tr><td>ownership per note</td><td class="num">-</td><td class="num">-</td><td><span class="pill warn">REFUSED</span></td></tr>
+</tbody></table></div>
+
+<h3>The audit caught a defect in itself</h3>
+
+<p>Its first run reported <b>timing median 0.0 ms and p90 0.0 ms</b>. That figure is the warp reporting its own objective rather than a perfect tab: the DTW path exists to minimise
+exactly that residual, so measuring it afterwards is circular. The audit now prints the
+circularity by name and reports the residual BEFORE the warp, which is what the tab
+actually asserts: <b>61.2 ms median and 191.3 ms p90</b> across 872 attacks within a
+quarter second.</p>
+
+<h3>What survives, and what does not</h3>
+
+<ul>
+<li><b>Attack recall and precision are the only two numbers here with meaning</b>, and
+even they are bounded: the onset extractor recovers 98.8% of attacks on clean synthetic
+plucks and collapses on dense reverberant material, so 592 detected onsets is a lossy
+view of the record.</li>
+<li><b>Pitch agreement says nothing.</b> 55.4% against a 51.2% shifted-time control on the
+same notes is a separation of +4.2 points, below the threshold. On a harmonically static
+song, a written pitch is about as present at a random moment as at its own attack.</li>
+<li><b>Ownership refuses.</b> The LEAD/RHYTHM split separates by register, +0.2651 against
+a +0.2766 control, so no note may be moved or deleted on it.</li>
+</ul>
+
+<p><b>So the audio does not yet warrant a further repair on 04.</b> It confirms the tab
+reaches two thirds of the onsets it should and accounts for just over half of what the
+record plays, and it has no power to adjudicate pitch or ownership on this material. The
+staff reassignment stands on the notation evidence, which is where it always stood.</p>
 
 <footer>
   <p><b>Reproduce:</b><br>
