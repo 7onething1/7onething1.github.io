@@ -1069,3 +1069,35 @@ with 0.07x median loudness. A near-silent outro, not a wrong passage.
 
 Zero drift on all nine songs, pitch and precision identical before and after. Every
 repair this session wrote to a NEW file and no audition source was modified.
+
+
+## The fabricated-drone pattern is album-wide
+
+Scanning for runs of 5+ consecutive bars writing an IDENTICAL pitch set found ten.
+
+**The control works:** three are genuine. 10 Trapped writes a 19-bar E drone and
+the recording sits on E2 for all nineteen; 07 MOP bars 1-8 and 51-56 likewise.
+
+Seven ran against moving harmony. Per-note support inside each vs the same staff
+elsewhere cut that to four:
+
+| song | staff | bars | inside | elsewhere | delta | verdict |
+|---|---|---|---|---|---|---|
+| **09 MHL** | Rhythm | **9-24** (16) | 35.5% | 85.4% | **-49.9** | **confirmed** |
+| **11 Ambulance** | Rhythm | 88-92 (5) | 47.4% | 74.4% | **-27.0** | **confirmed** |
+| **07 MOP** | Rhythm | 33-40 (8) | 48.5% | 69.4% | **-20.9** | **confirmed** |
+| 11 Ambulance | Lead | 85-92 (8) | 62.5% | 77.5% | -15.0 | probable |
+| 07 MOP | Rhythm | 81-90 | 64.0% | 66.8% | -2.8 | not confirmed |
+| 07 MOP | Rhythm | 15-22 | 66.0% | 66.6% | -0.6 | not confirmed |
+| 02 Flake | Rhythm | 29-35 | 64.7% | 59.3% | **+5.4** | not confirmed |
+
+**Two corrections.** 07 MOP and 11 Ambulance were listed CLEAN and are not.
+**The clean list is now 01 Seedy Shade and 10 Trapped in Wonderland.**
+
+**09 MHL's drone is bars 9-24, not 11-20**: sixteen bars of open E2+A2 while the
+recording moves G#2 C#3 G#2 E3 G#3 G#3 G#2 E3 G#2 C#3 G#2 E3 D#3 C#3 G#2. At 35.5%
+vs 85.4% elsewhere, the album's largest single defect.
+
+**37 bars across four staves** carry this one behaviour, the same one Brandon named
+on Flake and Six Feet bar 71. Invisible to every aggregate score: a tab holding a
+plausible chord passes every playability gate and still aligns.
