@@ -1082,6 +1082,49 @@ still ranks second behind 01 Seedy Shade. <b>The completion criterion is not met
 and the remaining gap is the muted-strum question</b>, which no measurement built
 here separates on real audio. That needs the sixteen ear-calls and nothing else.</p>
 
+
+<h3>Applied to the whole album: notes written over silence</h3>
+
+<p>Brandon: <i>"then apply all to other songs."</i> The silence defect is the one
+class that needs no listener, since an rms at the song's own floor is not a
+judgement call. Scoped at bar level and applied only to contiguous runs of two or
+more bars, because a single flagged bar can be a boundary artifact.</p>
+
+<table>
+<thead><tr><th>song</th><th>staff</th><th>bars</th><th>attacks removed</th><th>sha256[:16]</th><th>gate</th></tr></thead>
+<tbody>
+<tr><td>01 Seedy Shade</td><td>Rhythm</td><td>117-119</td><td>1</td><td><code>83cfc7a36b334789</code></td><td>PASS</td></tr>
+<tr><td>02 Flake of the Year</td><td>Rhythm</td><td>36-39</td><td><b>57</b></td><td><code>573192c1ca92f16d</code></td><td>PASS</td></tr>
+<tr><td>03 Gene</td><td>Lead + Rhythm</td><td>98-101, 96-98</td><td>21</td><td><code>42fde951d045cafc</code></td><td>PASS</td></tr>
+<tr><td>04 Six Feet Under</td><td>Rhythm</td><td>87-89, 91-92, 136-137</td><td>5</td><td><code>8486f7b49f6abae6</code></td><td>PASS</td></tr>
+<tr><td>07 MOP</td><td>Rhythm</td><td>51-53, 55-56</td><td><b>35</b></td><td><code>d335ef4df1f6a04c</code></td><td>PASS</td></tr>
+<tr><td>09 MHL</td><td>Rhythm</td><td>68-69</td><td>16</td><td><code>f76b993c94a9208e</code></td><td>PASS</td></tr>
+<tr><td>11 Ambulance</td><td>Lead</td><td>24-25, 36-37</td><td><b>25</b></td><td><code>2b3506e3510d20cf</code></td><td>PASS</td></tr>
+</tbody></table>
+
+<p>Every one keeps bass, drums and vocals, keeps its guitar count, moves zero
+attacks on any non-target track, and reloads to the same census. <b>01 Seedy Shade
+and 07 MOP carry ONE guitar staff</b>, which matches Brandon's own call on Seedy
+Shade.</p>
+
+<h3>The repair broke ties, and the census did not notice</h3>
+
+<p>The first pass produced <b>gate FAILs on 01 and 04</b>: TIE_DROPPED and
+TIE_INCONSISTENT. Emptying a beat that a tie chain runs THROUGH breaks the chain,
+and the census counted tie DEFINITIONS, which are cloned rather than removed, so
+it reported +0 and reassured falsely.</p>
+
+<p>A beat carrying a tied note is now <b>left alone and reported</b>, because a
+broken tie is a worse defect than the silence being repaired. On 01 that left
+three beats in bars 117-119 untouched and dropped the removal from 3 attacks to 1;
+on 04 it spared bars 89 and 137. <b>Both artifacts now PASS.</b></p>
+
+<p>Two file-handling bugs were caught in the same pass: 03 Gene had two staves
+repaired in separate runs and <b>the second overwrote the first</b>, so its Lead
+fix was silently lost until a census comparison found it. The runs are now
+chained. Nothing was deleted at any point; superseded files sit in
+<code>delete/</code> folders.</p>
+
 <h3>04 Six Feet Under bar 58, and a hypothesis the audio refuted</h3>
 
 <p>Brandon: <i>"six feet under bar 58 sounds like a weird chord not quite

@@ -748,3 +748,37 @@ while the repair was scoped by onset coverage. Two measurements, same answer.
 identification by 0.005, which is nothing. **The completion criterion is not met**
 and the remaining gap is the muted-strum question, which no measurement built here
 separates on real audio. That needs the sixteen ear-calls.
+
+
+## Applied to the whole album: notes written over silence
+
+The one defect class needing no listener. Bar-level scope, contiguous runs of 2+
+bars only.
+
+| song | staff | bars | removed | sha256[:16] | gate |
+|---|---|---|---|---|---|
+| 01 Seedy Shade | Rhythm | 117-119 | 1 | `83cfc7a36b334789` | PASS |
+| 02 Flake | Rhythm | 36-39 | **57** | `573192c1ca92f16d` | PASS |
+| 03 Gene | Lead + Rhythm | 98-101, 96-98 | 21 | `42fde951d045cafc` | PASS |
+| 04 Six Feet Under | Rhythm | 87-89, 91-92, 136-137 | 5 | `8486f7b49f6abae6` | PASS |
+| 07 MOP | Rhythm | 51-53, 55-56 | **35** | `d335ef4df1f6a04c` | PASS |
+| 09 MHL | Rhythm | 68-69 | 16 | `f76b993c94a9208e` | PASS |
+| 11 Ambulance | Lead | 24-25, 36-37 | **25** | `2b3506e3510d20cf` | PASS |
+
+All keep bass/drums/vocals and their guitar count, move zero attacks on any
+non-target track, and reload to the same census. **01 Seedy Shade and 07 MOP carry
+ONE guitar staff**, matching Brandon's call on Seedy Shade.
+
+### The repair broke ties and the census did not notice
+
+First pass: **gate FAILs on 01 and 04**, TIE_DROPPED and TIE_INCONSISTENT.
+Emptying a beat a tie chain runs THROUGH breaks the chain, and the census counted
+tie DEFINITIONS, which clone rather than vanish, so it reported +0.
+
+A beat carrying a tied note is now **left alone and reported**. On 01 that spared
+bars 117-119 and dropped the removal from 3 attacks to 1; on 04 it spared bars 89
+and 137. **Both now PASS.**
+
+Also caught: 03 Gene had two staves repaired in separate runs and **the second
+overwrote the first**, losing the Lead fix until a census comparison found it. The
+runs are now chained. Nothing deleted; superseded files sit in `delete/`.
