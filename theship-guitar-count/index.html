@@ -3948,12 +3948,55 @@ measurement on any <b>single</b> note is not. So both statements hold at once: t
 content is measurably poor overall, and no note in it can be individually convicted.</p>
 </div>
 
+<h3>A stronger measure, built to the bar, and where it actually lands</h3>
+
+<p>A pitch spans a comb rather than a single bin: f0, 2f0, 3f0 and up, which in semitones is +0, +12,
++19.02, +24, +27.86, +31.02. A note written a few semitones off shares almost none of that
+series, so summing it separates the two where a single bin cannot.
+<code>harmonic_comb_gate.py</code> scores the comb at the written pitch against the mean comb
+at neighbours one to six semitones away, which keeps a loud moment from scoring high on its
+own, and it is calibrated on the same labelled render.</p>
+
+<p>The first run also exposed a flaw in the control itself. The labelled render mixed in
+bass, drums and vocals, and the measure runs against the <b>Demucs guitar stem</b>, which
+holds none of them. A control harder than the material understates the measure, so it was
+rebuilt guitar-only with reverb.</p>
+
+<div class="tablewrap"><table>
+<thead><tr><th>Measure and control</th><th class="num">AUC</th><th class="num">TPR</th>
+<th class="num">FPR</th><th>Verdict</th></tr></thead>
+<tbody>
+<tr><td>ASE.Rise, single bin, band-mixed control</td><td class="num">0.682</td>
+<td class="num">63.4%</td><td class="num">29.7%</td><td><span class="pill bad">refused</span></td></tr>
+<tr><td>harmonic comb, band-mixed control</td><td class="num">0.778</td>
+<td class="num">86.1%</td><td class="num">44.1%</td><td><span class="pill bad">refused</span></td></tr>
+<tr><td><b>harmonic comb, matched guitar-only control</b></td><td class="num"><b>0.883</b></td>
+<td class="num">82.8%</td><td class="num">23.7%</td><td><span class="pill warn">short of 0.90</span></td></tr>
+</tbody></table></div>
+
+<p>Correct notes score a median of <b>3.116</b> against <b>1.254</b> for corrupted ones, which
+is clean separation. A sweep of sixteen configurations, windows from 0.08 s to 0.45 s and
+four to eight harmonics, tops out at <b>0.883</b> and degrades past 0.20 s, so that figure is
+the design's limit rather than a tuning accident.</p>
+
+<div class="card gap">
+<h3>Two reasons this still falls short of licensing a rewrite</h3>
+<p><b>It misses the bar that was set before any result was seen.</b> 0.883 against 0.90. At
+the best operating point, of the 516 notes it would flag as wrong, <b>94 are correct as
+written</b>, so about one note in five would be damaged to fix the others.</p>
+<p><b>And a detector says a note is wrong, never what it should be.</b> Every measure on this
+page answers "is the written pitch sounding", and rewriting needs an answer to "what pitch IS
+sounding", a strictly harder question on polyphonic guitar and has not been built or
+calibrated. Clearing 0.90 would license flagging, and writing needs a pitch proposer that has not been built here.</p>
+</div>
+
 <p><b>The terminal position on 04, stated plainly.</b> The nine intro bends are transcribed
 from the stem, verified against a two-way control, and live. The 1100 written attacks
 underneath them are inherited Songsterr AI content measuring <b>30% of a realistic
 ceiling</b>, so the tab is <b>not an accurate transcription of the record</b>. Closing that
-gap needs a per-note pitch measure, and the one built here to do it returns AUC 0.682 on
-labelled data under real conditions, which is not enough to convict a note. Building that measure
+gap needs a per-note pitch measure. The best one built here reaches AUC 0.883 on a matched
+labelled control, short of the 0.90 bar, and flagging a wrong note is a different problem
+from supplying the right one. Building that measure
 is the next real piece of work, and inventing pitches without it would repeat the fraud at
 the top of this page.</p>
 

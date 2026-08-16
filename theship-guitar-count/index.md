@@ -1935,15 +1935,27 @@ On 553 corrupted and 547 correct notes: notes that are correct score a median of
 
 This reconciles the two findings rather than contradicting them. There is real signal in the measure, 1.430 against 1.028, and it is small next to its own spread. Pooling 1100 of those noisy readings averages the noise away, which is why the AGGREGATE verdict of +7.5 against a +24.9 ceiling is trustworthy. The identical measurement on any SINGLE note is not. So both statements hold at once: the tab's pitch content is measurably poor overall, and no note in it can be individually convicted.
 
+### A stronger measure, built to the bar, and the number it reaches
+
+A pitch spans a comb rather than a single bin: f0, 2f0, 3f0 and up, which in semitones is +0, +12, +19.02, +24, +27.86, +31.02. A note written a few semitones off shares almost none of that series, so summing it separates the two where a single bin cannot. harmonic_comb_gate.py scores the comb at the written pitch against the mean comb at neighbours one to six semitones away, which keeps a loud moment from scoring high on its own, and it is calibrated on the same labelled render.
+
+The first run also exposed a flaw in the control itself. The labelled render mixed in bass, drums and vocals, and the measure runs against the Demucs guitar stem, which holds none of them. A control harder than the material understates the measure, so it was rebuilt guitar-only with reverb.
+
+ASE.Rise, single bin, band-mixed control: AUC 0.682, TPR 63.4%, FPR 29.7%, refused. Harmonic comb, band-mixed control: AUC 0.778, TPR 86.1%, FPR 44.1%, refused. Harmonic comb, matched guitar-only control: AUC 0.883, TPR 82.8%, FPR 23.7%, short of 0.90.
+
+Correct notes score a median of 3.116 against 1.254 for corrupted ones, which is clean separation. A sweep of sixteen configurations, windows from 0.08 s to 0.45 s and four to eight harmonics, tops out at 0.883 and degrades past 0.20 s, so that figure is the design's limit rather than a tuning accident.
+
+Two reasons this still falls short of licensing a rewrite. The first is the bar that was set before any result was seen, 0.883 against 0.90, and at the best operating point, of the 516 notes it would flag as wrong, 94 are correct as written, so about one note in five would be damaged to fix the others. And a detector says a note is wrong, never what it should be. Every measure on this page answers "is the written pitch sounding", and rewriting needs an answer to "what pitch IS sounding", a strictly harder question on polyphonic guitar that has not been built or calibrated. Clearing 0.90 would license flagging, and writing needs a pitch proposer that has not been built here.
+
 ### The terminal position on 04
 
-The nine intro bends are transcribed from the stem, verified against a two-way control, and live. The 1100 written attacks underneath them are inherited Songsterr AI content measuring 30% of a realistic ceiling, so the tab is NOT an accurate transcription of the record. Closing that gap needs a per-note pitch measure, and the one built here to do it returns AUC 0.682 on labelled data under real conditions, which is not enough to convict a note. Building that measure is the next real piece of work, and inventing pitches without it would repeat the fraud at the top of this page.
+The nine intro bends are transcribed from the stem, verified against a two-way control, and live. The 1100 written attacks underneath them are inherited Songsterr AI content measuring 30% of a realistic ceiling, so the tab is NOT an accurate transcription of the record. Closing that gap needs a per-note pitch measure. The best one built here reaches AUC 0.883 on a matched labelled control, short of the 0.90 bar, and flagging a wrong note is a different problem from supplying the right one. Building that measure is the next real piece of work, and inventing pitches without it would repeat the fraud at the top of this page.
 
 ### The export bug is real, and it was not the blocker
 
 Songsterr's Guitar Pro export returned 02 Flake of the Year six times from the 04 editor URL, every download carrying 04 in its filename and 02's 69-bar contents. It survived a hard reload, a brand new tab, a verified og:url, unregistering the service worker, deleting all four caches, and fronting the tab so it held focus. The service worker is shared across every Songsterr tab in the profile and five other tabs were open, which is the likeliest path, and it stayed reproducible after that worker was gone.
 
-That route was only needed to rebase onto the live revision. Once the live revision turned out to BE the local checkpoint, the rebase was already done and the candidate imported cleanly. The filename is still not identity, so anything exported from Songsterr today gets its bar count and per-part notes checked before use.
+That route was only needed to rebase onto the live revision. Once the live revision turned out to BE the local checkpoint, the rebase was done and the candidate imported cleanly. The filename is still not identity, so anything exported from Songsterr today gets its bar count and per-part notes checked before use.
 
 The import was guarded at every step: the lease was held 419 s, every click refused unless og:url carried s5824781, and both songs' revision lists were read immediately after. 02 Flake was untouched at the peer session's own r8516751.
 
