@@ -695,5 +695,30 @@
   },
   "self_defect_found": "the first run reported timing median 0.0 ms, which is the warp reporting its own objective; the audit now names the circularity and reports the pre-warp residual of 61.2 ms median and 191.3 ms p90",
   "conclusion": "the audio does not warrant a further repair on 04; it has no power to adjudicate pitch or ownership on this material, and the staff reassignment stands on the notation evidence"
+ },
+ "playability_04": {
+  "artifact": "66410cea12c9bf10",
+  "validator": "14bb087850cf9853",
+  "verdict": "PASS both staves",
+  "findings": 0,
+  "tuning": "[40,45,50,55,59,64] capo 0 both staves",
+  "lead": {
+   "notes": 177,
+   "attacks": 176,
+   "ties": 1,
+   "opens": 2,
+   "all_failure_categories": 0
+  },
+  "rhythm": {
+   "notes": 998,
+   "attacks": 924,
+   "ties": 74,
+   "opens": 102,
+   "worst_span": 3,
+   "jump7": 1,
+   "all_hard_failure_categories": 0
+  },
+  "preservation": "BOTH GUITARS 1175 to 1175, nothing vanished, nothing invented, 0 notes edited",
+  "conclusion": "neither gate warrants a further repair on 04; the remaining defect is the un-transcribed lead line from bar 69 onward"
  }
 }

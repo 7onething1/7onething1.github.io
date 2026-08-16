@@ -1643,3 +1643,29 @@ So the audio does not yet warrant a further repair on 04. It confirms the tab re
 The tab's pitch-class histogram correlated against the recording's chroma at all twelve rotations: guitar stem best at 0 semitones, correlation +0.786, next best +4 at 0.441; full mix best at 0 semitones, +0.896, next best +4 at 0.198.
 
 The tab is in the right key and tuning as written, standard E with no transposition. So tuning does not explain the G16 B15 e14 discrepancy. In standard E those frets sound B4 D5 F#5. What was written is the chord he named, a C sharp minor at C#5 E5 G#5: the quality was honoured, the fret positions do not produce it in this tuning, and the gap is recorded rather than resolved.
+
+### The inherited tracks audited independently, for the first time
+
+Each track has its own map, built from that track's own attacks against that instrument's own stem, validated against a random control before any number was taken.
+
+| Track | Map gain | Attack precision | Recall | F1 | Pitch | Control | Margin |
+|---|---|---|---|---|---|---|---|
+| Lead Guitar | +42.4 | 50.7% | 20.1% | 28.8% | 97.6% | 99.0% | -1.5 |
+| Rhythm Guitar | +39.4 | 47.7% | 48.6% | 48.2% | 97.8% | 97.4% | +0.5 |
+| Electric Bass (finger) | +39.5 | 44.3% | 62.4% | 51.8% | 94.8% | 96.7% | -1.9 |
+| Drums | +42.3 | 53.0% | 76.1% | 62.5% | - | - | - |
+| Vocals | +44.5 | 50.4% | 25.8% | 34.2% | 88.3% | 88.3% | +0.0 |
+
+Every map ACCEPTED at gains of +39 to +45, so a real timing correspondence exists on all five tracks. Attack precision is 44 to 53% everywhere. Pitch agreement fails its control on every track that has one: -1.5, +0.5, -1.9, +0.0. Timing is measurable and about half right; pitch is unverified across the whole file, not only the parts this session touched.
+
+## 22 The physical gate on 04, every category named
+
+Artifact 66410cea12c9bf10, validator 14bb087850cf9853, verdict PASS on both staves, 0 findings. Both staves tuning [40,45,50,55,59,64] at capo 0.
+
+Lead Guitar: 177 notes, 176 attacks, 1 tie, 2 opens. Rhythm Guitar: 998 notes, 924 attacks, 74 ties, 102 opens, worst hand span 3 frets, one seventh-fret jump.
+
+Zero on both staves in: capo/Midi mismatch, pitch unavailable, same-string collisions, tie collision, tie inconsistent, tie unmatched, tie gap, tie dropped, hand skips, wide spans, wide review, position shifts, urgent jumps, severe jumps, interior string gaps, octave shapes, octave recurring, octave isolated, repeated voicing inconsistency, ownership suspect. Findings 0 and 0.
+
+Source event preservation measured at promotion: BOTH GUITARS 1175 to 1175, nothing vanished, nothing invented, 0 notes edited.
+
+Both gates now have their numbers on 04 and neither warrants a further repair. The remaining defect, read from 04 Six Feet Under.gp sha256:16 7bab579303034d9d, is that the Lead staff holds no notes from bar 57 to bar 140, and filling it needs a transcription of the lead line rather than a move of the Rhythm staff's notes.

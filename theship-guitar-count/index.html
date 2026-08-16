@@ -3040,6 +3040,83 @@ reaches two thirds of the onsets it should and accounts for just over half of wh
 record plays, and it has no power to adjudicate pitch or ownership on this material. The
 staff reassignment stands on the notation evidence, which is where it always stood.</p>
 
+<h3>The inherited tracks audited independently, for the first time</h3>
+
+<p><b>The 58 notes this pass added were verified, and everything else in the file was
+not.</b> The Rhythm, Bass, Drums and Vocals staves came from the Songsterr AI
+transcription and had only ever been checked against other transcriptions. Each one now
+has its own map, built from that track's own attacks against that instrument's own stem,
+and each map was validated against a random control before any number was taken from
+it.</p>
+
+<div class="tablewrap"><table>
+<thead><tr><th>Track</th><th class="num">Map gain</th><th class="num">Attack precision</th>
+<th class="num">Recall</th><th class="num">F1</th><th class="num">Pitch</th>
+<th class="num">Control</th><th class="num">Margin</th></tr></thead>
+<tbody>
+<tr><td>Lead Guitar</td><td class="num">+42.4</td><td class="num">50.7%</td><td class="num">20.1%</td><td class="num">28.8%</td><td class="num">97.6%</td><td class="num">99.0%</td><td class="num"><b>-1.5</b></td></tr>
+<tr><td>Rhythm Guitar</td><td class="num">+39.4</td><td class="num">47.7%</td><td class="num">48.6%</td><td class="num">48.2%</td><td class="num">97.8%</td><td class="num">97.4%</td><td class="num"><b>+0.5</b></td></tr>
+<tr><td>Electric Bass (finger)</td><td class="num">+39.5</td><td class="num">44.3%</td><td class="num">62.4%</td><td class="num">51.8%</td><td class="num">94.8%</td><td class="num">96.7%</td><td class="num"><b>-1.9</b></td></tr>
+<tr><td>Drums</td><td class="num">+42.3</td><td class="num">53.0%</td><td class="num">76.1%</td><td class="num">62.5%</td><td class="num">-</td><td class="num">-</td><td class="num">-</td></tr>
+<tr><td>Vocals</td><td class="num">+44.5</td><td class="num">50.4%</td><td class="num">25.8%</td><td class="num">34.2%</td><td class="num">88.3%</td><td class="num">88.3%</td><td class="num"><b>+0.0</b></td></tr>
+</tbody></table></div>
+
+<p><b>Every map was ACCEPTED</b>, at gains of +39 to +45 over a random control, so a real
+timing correspondence exists on all five tracks. <b>Attack precision is 44 to 53% on every
+one of them</b>: about half the written attacks sit on a detected onset in the matching
+stem. Recall separates the tracks sharply, Drums highest at 76.1% and Lead lowest at
+20.1%.</p>
+
+<p><b>Pitch agreement fails its control on every track that has one:</b> -1.5, +0.5, -1.9
+and +0.0. Not one of them separates from a shifted-time measurement of the same notes. So
+the timing dimension of this transcription is measurable and about half right, and the
+pitch dimension is <b>unverified across the whole file</b>, not merely on the parts this
+session touched.</p>
+
+<p>That is the honest answer to the standing question about inherited content: it now has
+an independent audit rather than a preservation check against another transcription, and
+the audit says timing corresponds while pitch cannot be settled by this measure on this
+material.</p>
+
+
+<h2 id="playability04">22 &nbsp;The physical gate on 04, every category named</h2>
+
+<p><b>Artifact <code>66410cea12c9bf10</code>, validator <code>14bb087850cf9853</code>,
+verdict PASS on both staves, 0 findings.</b> Both staves carry tuning
+<code>[40,45,50,55,59,64]</code> at capo 0.</p>
+
+<div class="tablewrap"><table>
+<thead><tr><th>Category</th><th class="num">Lead Guitar</th><th class="num">Rhythm Guitar</th></tr></thead>
+<tbody>
+<tr><td>notes / attacks / ties</td><td class="num">177 / 176 / 1</td><td class="num">998 / 924 / 74</td></tr>
+<tr><td>open strings used</td><td class="num">2</td><td class="num">102</td></tr>
+<tr><td>capo / Midi mismatch</td><td class="num">0</td><td class="num">0</td></tr>
+<tr><td>pitch unavailable on the neck</td><td class="num">0</td><td class="num">0</td></tr>
+<tr><td>same-string collisions</td><td class="num">0</td><td class="num">0</td></tr>
+<tr><td>tie collision / inconsistent / unmatched / gap / dropped</td><td class="num">0 all</td><td class="num">0 all</td></tr>
+<tr><td>hand skips / wide spans / review</td><td class="num">0 / 0 / 0</td><td class="num">0 / 0 / 0</td></tr>
+<tr><td>worst hand span</td><td class="num">0</td><td class="num">3 frets</td></tr>
+<tr><td>position shifts / urgent / severe jumps</td><td class="num">0 / 0 / 0</td><td class="num">0 / 0 / 0</td></tr>
+<tr><td>seventh-fret jumps</td><td class="num">0</td><td class="num">1</td></tr>
+<tr><td>interior string gaps, the pseudo-fingerpicking tell</td><td class="num">0</td><td class="num">0</td></tr>
+<tr><td>octave shapes / recurring / isolated</td><td class="num">0 all</td><td class="num">0 all</td></tr>
+<tr><td>repeated voicing inconsistency</td><td class="num">0</td><td class="num">0</td></tr>
+<tr><td>ownership suspect</td><td class="num">0</td><td class="num">0</td></tr>
+<tr><td><b>findings</b></td><td class="num"><b>0</b></td><td class="num"><b>0</b></td></tr>
+</tbody></table></div>
+
+<p><b>Source event preservation</b> was measured separately at promotion: BOTH GUITARS
+1175 to 1175, nothing vanished and nothing invented, with 0 notes edited. The change was
+which staff sixteen bars belong to.</p>
+
+<p><b>Both gates now have their numbers on 04.</b> The audio audit reports attack recall
+65.8%, precision 56.9%, pre-warp timing 61.2 ms median, pitch agreement with no
+discriminating power and ownership refused. The physical gate reports zero in every
+failure category. Neither warrants a further repair. The remaining defect on this song, read from
+<code>04 Six Feet Under.gp</code> sha256:16 <code>7bab579303034d9d</code>, is that the Lead
+staff holds no notes from bar 57 to bar 140, and filling it needs a transcription of the
+lead line rather than a move of the Rhythm staff's notes.</p>
+
 <footer>
   <p><b>Reproduce:</b><br>
   <code>python3 ~/Projects/_outputs/theship-tabs/guitar_count.py</code><br>

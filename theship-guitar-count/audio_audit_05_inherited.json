@@ -1,0 +1,57 @@
+[
+ {
+  "track": "Lead Guitar",
+  "map": "ACCEPTED",
+  "gain": 42.4,
+  "precision": 50.7,
+  "recall": 20.1,
+  "f1": 28.8,
+  "pitch": 97.6,
+  "pitch_control": 99.0,
+  "pitch_margin": -1.5
+ },
+ {
+  "track": "Rhythm Guitar",
+  "map": "ACCEPTED",
+  "gain": 39.4,
+  "precision": 47.7,
+  "recall": 48.6,
+  "f1": 48.2,
+  "pitch": 97.8,
+  "pitch_control": 97.4,
+  "pitch_margin": 0.5
+ },
+ {
+  "track": "Electric Bass (finger)",
+  "map": "ACCEPTED",
+  "gain": 39.5,
+  "precision": 44.3,
+  "recall": 62.4,
+  "f1": 51.8,
+  "pitch": 94.8,
+  "pitch_control": 96.7,
+  "pitch_margin": -1.9
+ },
+ {
+  "track": "Drums",
+  "map": "ACCEPTED",
+  "gain": 42.3,
+  "precision": 53.0,
+  "recall": 76.1,
+  "f1": 62.5,
+  "pitch": null,
+  "pitch_control": null,
+  "pitch_margin": null
+ },
+ {
+  "track": "Vocals",
+  "map": "ACCEPTED",
+  "gain": 44.5,
+  "precision": 50.4,
+  "recall": 25.8,
+  "f1": 34.2,
+  "pitch": 88.3,
+  "pitch_control": 88.3,
+  "pitch_margin": 0.0
+ }
+]
