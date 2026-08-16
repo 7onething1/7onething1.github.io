@@ -78,6 +78,22 @@ once, exactly one winner, 11 refused. A peer acquire while another holds it exit
 release of someone else's lease exits 1. An acquire after expiry succeeds. A recorded
 upload missing vocal or drums is flagged in the ledger.
 
+## It closed the loop within eight minutes
+
+Sessions were messaged at 21:22Z. Confirmed from Songsterr's own revision API for song
+5823892, and not from the ledger:
+
+| Revision | tracks | created | who |
+|---|---:|---|---|
+| 8516250 | 5 | 2026-08-16T21:22:22Z | Resume goal completion shipping, under the lease |
+| 8516072 | 5 | 2026-08-16T21:11:57Z | Brandon, by hand |
+| 8514056 | 5 | 2026-08-16T19:22:44Z | earlier session |
+| 7609146 | 5 | 2026-06-28T15:09:55Z | original AI transcription |
+
+A session took the lease, uploaded, recorded the revision and released, with no human asked
+to submit anything. Every revision on this tab carries all five tracks, so no import has
+dropped a part.
+
 ## What changed
 
 - Every session was messaged with the rule, the lease commands, and its specific finding.
