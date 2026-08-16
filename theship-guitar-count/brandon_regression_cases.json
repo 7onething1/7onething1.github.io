@@ -53,7 +53,7 @@
    "song": "02",
    "title": "Flake of the Year",
    "file": "/Users/drwu/Projects/_outputs/theship-tabs/_shape_swap_02/02 Flake of the Year-SHAPE-SWAP.gp",
-   "sha256_16": "1d3a990496faf433",
+   "sha256_16": "398b3c7b6970425f",
    "staff": "Rhythm Guitar",
    "quote": "upper three string chord voicings",
    "grounded": true,
@@ -93,7 +93,7 @@
    "song": "02",
    "title": "Flake of the Year",
    "file": "/Users/drwu/Projects/_outputs/theship-tabs/_shape_swap_02/02 Flake of the Year-SHAPE-SWAP.gp",
-   "sha256_16": "1d3a990496faf433",
+   "sha256_16": "398b3c7b6970425f",
    "staff": "Rhythm Guitar",
    "quote": "second position C sharp minor",
    "grounded": true,
@@ -150,7 +150,15 @@
     "difference": "the tab writes the same three pitch classes a sixth lower and in first inversion; Brandon's is root position and higher",
     "audio_could_not_verify": "a transposition test at 0, +1, +2, +3 and -2 semitones returned margins of -2.3 to -2.5 against the decoy at every shift, so the presence measure cannot distinguish any of them. Ninth control failure of that measure class.",
     "what_decides_the_repair": "whether the whole performance is capo 2, which would re-fret the entire tab, or whether only this chord is higher than written. The tab currently declares capo 0.",
-    "memory": "feedback_check_capo_midi_consistency_before_measuring records a GPIF with CapoFret 2 and Midi written for capo 0 reading two semitones sharp on 891 notes"
+    "memory": "feedback_check_capo_midi_consistency_before_measuring records a GPIF with CapoFret 2 and Midi written for capo 0 reading two semitones sharp on 891 notes",
+    "APPLIED": {
+     "artifact": "398b3c7b6970425f",
+     "events": 156,
+     "written_as": "s3f18 s4f17 s5f16 at the capo 0 this file declares, the same hand position as his G16 B15 e14 at capo 2",
+     "sounds": "C#5 E5 G#5",
+     "check_still_OPEN": "the check measures whether the HAND is at fret 2; his statement decodes to the CAPO at fret 2. Those are different facts. The check is left unchanged rather than edited to match the repair, and a check for his supplied voicing is the correct addition.",
+     "cost": "urgent_jump 1 -> 6 from the position shift between the E chord at fret 12 and the C#m at fret 16"
+    }
    }
   },
   {
@@ -158,7 +166,7 @@
    "song": "02",
    "title": "Flake of the Year",
    "file": "/Users/drwu/Projects/_outputs/theship-tabs/_shape_swap_02/02 Flake of the Year-SHAPE-SWAP.gp",
-   "sha256_16": "1d3a990496faf433",
+   "sha256_16": "398b3c7b6970425f",
    "staff": "Rhythm Guitar",
    "quote": "the F sharp alteration during the latter half",
    "grounded": true,
@@ -187,7 +195,7 @@
    "song": "02",
    "title": "Flake of the Year",
    "file": "/Users/drwu/Projects/_outputs/theship-tabs/_shape_swap_02/02 Flake of the Year-SHAPE-SWAP.gp",
-   "sha256_16": "1d3a990496faf433",
+   "sha256_16": "398b3c7b6970425f",
    "staff": "Lead Guitar against Rhythm Guitar",
    "quote": "duplicated lead notes",
    "grounded": true,
@@ -215,7 +223,7 @@
    "song": "02",
    "title": "Flake of the Year",
    "file": "/Users/drwu/Projects/_outputs/theship-tabs/_shape_swap_02/02 Flake of the Year-SHAPE-SWAP.gp",
-   "sha256_16": "1d3a990496faf433",
+   "sha256_16": "398b3c7b6970425f",
    "staff": "Rhythm Guitar",
    "quote": "rests or dead attacks that were replaced with continued chord strumming",
    "grounded": true,
@@ -265,5 +273,12 @@
   "promotion": "impossible_gate --promote returned verdict PASS, preservation PASS, status BEST",
   "licence": "--license-note-removal for 236 notes, with the full basis recorded in the receipt",
   "not_audio_verified": "eight measurements this session failed their controls and the alignment test failed validation on known-good songs, so no audio evidence is claimed for this artifact"
+ },
+ "_regression_i_caused_and_fixed": {
+  "date": "2026-08-16",
+  "what": "apply_shape_swap.py always reads the AUDITION source, so running the C#m swap as a second pass silently discarded the earlier 236-beat voicing swap and overwrote the promoted artifact",
+  "detected_by": "the note census printing Rhythm Guitar 2948 -> 2948 instead of 2712",
+  "fix": "all swaps now run in ONE pass from the source; the combined artifact is 398b3c7b6970425f",
+  "lesson": "a tool that always reads the source is not composable across runs, and its output filename made the loss invisible"
  }
 }

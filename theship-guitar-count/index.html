@@ -2557,6 +2557,42 @@ on the Lead staff, and what remains on the Rhythm staff after they move is what 
 guitar actually played. That reassignment needs an ownership decision per line, which is the
 same measurement the 48 duplicated lead notes on Flake are waiting for.</p>
 
+<h3>Applied, and a regression I caused on the way</h3>
+
+<p><b>His voicing is now in the tab.</b> At the capo 0 the file declares, C#5 E5 G#5 is
+<code>s3f18 s4f17 s5f16</code>, the identical hand position to his G16 B15 e14 at capo 2.
+156 C#m beats carry it.</p>
+
+<pre style="overflow-x:auto;font-size:12px;line-height:1.5;background:var(--dust);padding:10px;border:1px solid var(--rule)">artifact  398b3c7b6970425f   verdict PASS   preservation PASS   status BEST
+gate PASS on both staves, hand 13%, interior_gap 0, severe_jump 0, same_string 0
+urgent_jump 1 -> 6, from the shift between the E chord at fret 12 and the C#m at fret 16
+C#m fret distribution  {4:144, 5:8, 12:52}  ->  {4:40, 5:8, 16:156}</pre>
+
+<p><b>The first attempt at this destroyed the previous artifact.</b>
+<code>apply_shape_swap.py</code> always reads the audition source, so running the C#m swap
+as a second pass silently discarded the 236-beat voicing swap and overwrote the promoted
+file. The note census caught it, printing Rhythm Guitar 2948 to 2948 where 2712 was
+expected. All three swaps now run in one pass. <b>A tool that always reads the source is
+not composable across runs, and writing to the same output name made the loss
+invisible.</b></p>
+
+<p><b>The check stays open and unchanged.</b> It measures whether the HAND is at fret 2.
+His statement decodes to the CAPO at fret 2. Those are different facts, so the honest move
+is a new check for his supplied voicing rather than an edit to this one.</p>
+
+<h3>Neither capo reading fixes everything</h3>
+
+<div class="tablewrap"><table>
+<thead><tr><th>Reading</th><th>The 127 sub-floor notes</th><th>The C#m</th></tr></thead>
+<tbody>
+<tr><td>A: the tab is capo 2, every pitch rises 2</td><td class="num"><b>127 to 2</b></td><td>G#,C#,E becomes A#,D#,F#, so the chord is destroyed</td></tr>
+<tr><td>B: the pitches are right, the notation gains a capo</td><td class="num">127, unchanged</td><td>unchanged</td></tr>
+</tbody></table></div>
+
+<p><b>Reading A would clear 125 of the 127 register notes</b>, which is a striking result
+for a hypothesis that also breaks the chord Brandon names. Both facts are recorded and
+neither is acted on.</p>
+
 <footer>
   <p><b>Reproduce:</b><br>
   <code>python3 ~/Projects/_outputs/theship-tabs/guitar_count.py</code><br>

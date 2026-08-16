@@ -452,7 +452,21 @@
   "target": "C#5 E5 G#5, root position",
   "why_refretting_cannot_reach_it": "the pitch content differs, which is what the fret-2 measurement showed",
   "audio": "transposition test at 0/+1/+2/+3/-2 returned decoy margins of -2.3 to -2.5 at every shift; ninth failure of the presence measure",
-  "open_question": "whether the whole performance is capo 2, which would re-fret the entire tab"
+  "open_question": "whether the whole performance is capo 2, which would re-fret the entire tab",
+  "APPLIED": {
+   "artifact": "398b3c7b6970425f",
+   "events": 156,
+   "written_as": "s3f18 s4f17 s5f16 at capo 0, the same hand position as G16 B15 e14 at capo 2",
+   "verdict": "PASS",
+   "preservation": "PASS",
+   "status": "BEST",
+   "cost": "urgent_jump 1 -> 6",
+   "C#m_distribution": "{4:144,5:8,12:52} -> {4:40,5:8,16:156}"
+  },
+  "reading_test": {
+   "A_pitches_rise_2": "the 127 sub-floor notes become 2, but G#/C#/E becomes A#/D#/F# and the chord is destroyed",
+   "B_notation_only": "nothing changes"
+  }
  },
  "staff_role_audit": {
   "brandon_2026-08-16": "the lead part at times was not transcribed at all and the rhythm part is put as the lead when that happens and the lead then tacet",
@@ -474,5 +488,10 @@
   "tool": "staff_role_audit.py, wired into regressions.py as staff-role-04, which FAILS",
   "why_playability_missed_it": "each staff on its own is perfectly playable; the defect is the relationship between the two staves over time",
   "repair_scope_04": "the Lead staff is empty from bar 57 to 140 and the Rhythm staff carries single-note lead lines from bar 69 onward; moving them needs an ownership decision per line"
+ },
+ "regression_i_caused_and_fixed": {
+  "what": "apply_shape_swap.py always reads the audition source, so a second pass discarded the first and overwrote the promoted artifact",
+  "detected_by": "the note census printing 2948 -> 2948 instead of 2712",
+  "fix": "all swaps run in one pass"
  }
 }

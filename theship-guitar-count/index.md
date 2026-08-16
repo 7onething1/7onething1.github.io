@@ -1445,3 +1445,11 @@ Seven of ten measure as one part split across two staves. 05 Sleep Vs Death retu
 
 Repair scope on 04, read from 04 Six Feet Under.gp sha256:16 7bab579303034d9d: the Lead staff is empty from bar 57 to 140 and the Rhythm staff carries single-note lead lines from bar 69 onward. Those lines belong on the Lead staff. The reassignment needs an ownership decision per line.
 
+
+### Applied, and a regression I caused on the way
+
+His voicing is in the tab: at capo 0, C#5 E5 G#5 is s3f18 s4f17 s5f16, the same hand position as his G16 B15 e14 at capo 2. 156 C#m beats carry it. Artifact 398b3c7b6970425f, verdict PASS, preservation PASS, status BEST. Gate PASS both staves, hand 13%, interior_gap 0, severe_jump 0, same_string 0, urgent_jump 1 -> 6. C#m distribution {4:144,5:8,12:52} -> {4:40,5:8,16:156}.
+
+The first attempt destroyed the previous artifact: apply_shape_swap.py always reads the audition source, so running the C#m swap as a second pass discarded the 236-beat voicing swap and overwrote the promoted file. The note census caught it (2948 -> 2948 where 2712 was expected). All swaps now run in one pass.
+
+Neither capo reading fixes everything. Reading A (tab is capo 2, pitches rise 2) takes the 127 sub-floor notes to 2 but turns G#/C#/E into A#/D#/F#, destroying the chord. Reading B changes nothing. Both recorded, neither acted on.
