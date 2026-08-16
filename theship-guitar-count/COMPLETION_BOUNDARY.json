@@ -16,7 +16,8 @@
    "sha256_16": "67be02511599ff42",
    "validator": "PASS",
    "audio": "no failing window",
-   "note": "one guitar, confirmed by Brandon"
+   "note": "one guitar, confirmed by Brandon; no Brandon ear case is open against this song",
+   "brandon_cases_open": 0
   },
   {
    "song": "10",
@@ -24,7 +25,8 @@
    "sha256_16": "8a0cb4ea4a303dba",
    "validator": "REVIEW, 11 shifts of 5.0-5.3 frets vs a >5 threshold",
    "audio": "no failing window",
-   "note": "flagged beats carry 100% pitch support vs an 86.5% baseline; no refret applied"
+   "note": "flagged beats carry 100% pitch support vs an 86.5% baseline; no refret applied; no Brandon ear case is open against this song",
+   "brandon_cases_open": 0
   }
  ],
  "blocked": [
@@ -118,5 +120,109 @@
   "jgbftl_content.json": "f76708e9b21d0bc8",
   "silence_gate_valid.json": "09111f8abac1a264"
  },
- "published": "https://7onething1.github.io/theship-guitar-count/"
+ "published": "https://7onething1.github.io/theship-guitar-count/",
+ "brandon_ear_cases": {
+  "_why": "The earlier 2026-08-16 record listed 8 PASS / 2 REVIEW and called 01 and 10 perfect while carrying NONE of Brandon's own ear corrections. His instruction: promote the manual bar and performance observations into authoritative regression cases before another album-wide scorecard is allowed to call a song finished.",
+  "gate": "python3 ~/.claude/skills/impossible-guitar-parts/brandon_cases.py",
+  "wired_into": "regressions.py fixture brandon-ear-cases; the suite returns MACHINE VERDICT: FAIL while any case is open",
+  "source_of_record": {
+   "transcript": "/Users/drwu/.claude/projects/-Users-drwu/5fad405a-af59-4e36-84cc-8af5fb754977.jsonl",
+   "line": 1443,
+   "timestamp": "2026-08-16T16:21:42.744Z",
+   "note": "This is the ONLY message in any reachable transcript that states these corrections. A scan of every *.jsonl in the project directory for user-typed text naming Flake or Six Feet Under returned exactly this one hit."
+  },
+  "transcript_scan": "Every *.jsonl in ~/.claude/projects/-Users-drwu was scanned for user-typed text mentioning Flake or Six Feet Under. Exactly one message matched, the one cited above. Six of the seven cases are quoted from it; the seventh is carried UNVERIFIED.",
+  "tally": {
+   "resolved": 1,
+   "open": 6,
+   "total": 7
+  },
+  "cases": [
+   {
+    "id": "04-lead-tacet-71",
+    "song": "04",
+    "title": "Six Feet Under",
+    "staff": "Lead Guitar",
+    "quote": "beginning at bar 71, the Lead Guitar rapid sixteenth or thirty second note passage should be tacet",
+    "grounded": true,
+    "verdict": "RESOLVED",
+    "detail": "zero attacked notes in bars 71-140; the staff's last note of any kind is bar 56, and it carries 231 attacks in bars 1-70"
+   },
+   {
+    "id": "04-bar58-chord",
+    "song": "04",
+    "title": "Six Feet Under",
+    "staff": "unspecified",
+    "quote": "bar 58 weird chord",
+    "grounded": false,
+    "verdict": "UNVERIFIED",
+    "detail": "Enumerated as Brandon's correction by the assistant in session 5fad405a at 2026-08-16T16:22:20.976Z. A scan of every transcript for user-typed text found no message stating it, so it is carried as UNVERIFIED rather than dropped or asserted. | measured: bar 58 holds 6 guitar beats; Brandon called this bar wrong without saying what it should be"
+   },
+   {
+    "id": "02-upper-three-voicings",
+    "song": "02",
+    "title": "Flake of the Year",
+    "staff": "Rhythm Guitar",
+    "quote": "upper three string chord voicings",
+    "grounded": true,
+    "verdict": "OPEN_MEASURED",
+    "detail": "445 of 765 chord beats (58.2%) reach below the top three strings, across 37 bars"
+   },
+   {
+    "id": "02-csharp-minor-second-position",
+    "song": "02",
+    "title": "Flake of the Year",
+    "staff": "Rhythm Guitar",
+    "quote": "second position C sharp minor",
+    "grounded": true,
+    "verdict": "OPEN_MEASURED",
+    "detail": "204 of 204 C#m beats are fretted away from position 2; positions found {4: 144, 5: 8, 12: 52}"
+   },
+   {
+    "id": "02-fsharp-alteration-latter-half",
+    "song": "02",
+    "title": "Flake of the Year",
+    "staff": "Rhythm Guitar",
+    "quote": "the F sharp alteration during the latter half",
+    "grounded": true,
+    "verdict": "OPEN_NEEDS_SCOPE",
+    "detail": "10 F#-rooted beats from bar 35 on, at fret positions {4: 6, 9: 4}; Brandon gave the alteration with no bar range"
+   },
+   {
+    "id": "02-duplicated-lead-notes",
+    "song": "02",
+    "title": "Flake of the Year",
+    "staff": "Lead Guitar against Rhythm Guitar",
+    "quote": "duplicated lead notes",
+    "grounded": true,
+    "verdict": "OPEN_MEASURED",
+    "detail": "48 of 225 lead notes (21.3%) double a rhythm note at the same instant, across 15 bars"
+   },
+   {
+    "id": "02-rests-replaced-by-strumming",
+    "song": "02",
+    "title": "Flake of the Year",
+    "staff": "Rhythm Guitar",
+    "quote": "rests or dead attacks that were replaced with continued chord strumming",
+    "grounded": true,
+    "verdict": "OPEN_BLOCKED",
+    "detail": "No measurement separates a dead strum from a rung one on this audio. The tab's own Muted marks are circular at AUC 0.522; the synthetic control proves the feature at AUC 1.000 but its threshold flagged an implausible 37.4% when transferred. Recorded in COMPLETION_BOUNDARY.json as the twelve muted-strum ear-labels dependency."
+   }
+  ]
+ },
+ "perfect_caveat": "01 and 10 carry no open Brandon case. 02 Flake and 04 Six Feet Under were never in this list, and both now carry cases the previous record omitted.",
+ "retracted_claims": [
+  {
+   "claim": "Six Feet Under has been specified down to its remaining problem areas",
+   "where": "COMPLETION_BOUNDARY.json and the guitar-count page, 2026-08-16 00:46",
+   "why_wrong": "The record listed only bars 131-140 as a near-silent outro. Brandon's bar 71 Lead tacet correction was absent from the repair scope.",
+   "now": "Measured: the Lead staff has ZERO attacked notes in bars 71-140 and its last note of any kind is bar 56, so the correction was satisfied in the artifact before this pass. The record was the defect."
+  },
+  {
+   "claim": "Flake reduces to bars 61-69 plus the muted question",
+   "where": "COMPLETION_BOUNDARY.json blocked[], 2026-08-16 00:46",
+   "why_wrong": "Five further ear corrections were left out entirely.",
+   "now": "Three are measured with bar lists, one needs bars from Brandon, one has no measurement that could settle it."
+  }
+ ]
 }

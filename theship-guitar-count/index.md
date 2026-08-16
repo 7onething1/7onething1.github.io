@@ -1255,3 +1255,27 @@ its own control; three were retracted by those controls and one refused itself.
 What the session leaves is **two songs proven right, eight specified down to the bar
 with the recording's own roots, sixteen controls shipped inside the skill, and every
 retraction published beside the number that forced it.**
+
+## 8 Brandon's ear corrections, as regression cases
+
+The 2026-08-16 completion record carried the scorecard and dropped every one of these. It reported 8 PASS and 2 REVIEW, called 01 and 10 perfect, and reduced 02 Flake to bars 61-69 plus the muted question. Brandon's instruction was to promote his manual bar and performance observations into authoritative regression cases before another album-wide scorecard is allowed to call a song finished.
+
+Source of record: `5fad405a-af59-4e36-84cc-8af5fb754977.jsonl:1443`, 2026-08-16T16:21:42Z. Every `*.jsonl` in the project directory was scanned for user-typed text mentioning Flake or Six Feet Under and exactly one message matched. Six of seven cases are quoted from it; the seventh appears in no message Brandon typed and is carried UNVERIFIED.
+
+| Song / staff | Brandon said | Verdict | Measured |
+|---|---|---|---|
+| **02 Flake of the Year** / Rhythm Guitar | "second position C sharp minor" | OPEN_MEASURED | 204 of 204 C#m beats are fretted away from position 2; positions found {4: 144, 5: 8, 12: 52} |
+| **02 Flake of the Year** / Lead Guitar against Rhythm Guitar | "duplicated lead notes" | OPEN_MEASURED | 48 of 225 lead notes (21.3%) double a rhythm note at the same instant, across 15 bars |
+| **02 Flake of the Year** / Rhythm Guitar | "upper three string chord voicings" | OPEN_MEASURED | 445 of 765 chord beats (58.2%) reach below the top three strings, across 37 bars |
+| **02 Flake of the Year** / Rhythm Guitar | "the F sharp alteration during the latter half" | OPEN_NEEDS_SCOPE | 10 F#-rooted beats from bar 35 on, at fret positions {4: 6, 9: 4}; Brandon gave the alteration with no bar range |
+| **02 Flake of the Year** / Rhythm Guitar | "rests or dead attacks that were replaced with continued chord strumming" | OPEN_BLOCKED | No measurement separates a dead strum from a rung one on this audio. The tab's own Muted marks are circular at AUC 0.522; the synthetic control proves the feature at AUC 1.000 but its threshold flagged an implausible 37.4% when transferred. Recorded in COMPLETION_BOUNDARY.json as the twelve muted-strum ear-labels dependency. |
+| **04 Six Feet Under** / unspecified | "bar 58 weird chord" | UNVERIFIED | Enumerated as Brandon's correction by the assistant in session 5fad405a at 2026-08-16T16:22:20.976Z. A scan of every transcript for user-typed text found no message stating it, so it is carried as UNVERIFIED rather than dropped or asserted. / measured: bar 58 holds 6 guitar beats; Brandon called this bar wrong without saying what it should be |
+| **04 Six Feet Under** / Lead Guitar | "beginning at bar 71, the Lead Guitar rapid sixteenth or thirty second note passage should be tacet" | RESOLVED | zero attacked notes in bars 71-140; the staff's last note of any kind is bar 56, and it carries 231 attacks in bars 1-70 |
+
+Run it:
+
+```bash
+python3 ~/.claude/skills/impossible-guitar-parts/brandon_cases.py
+python3 ~/.claude/skills/impossible-guitar-parts/regressions.py
+```
+
