@@ -1357,6 +1357,57 @@ re-transcription rather than a local edit I can make.</p>
 <p>The practical change is the size of the ask. It was "re-transcribe 08". It is
 now <b>six ten-bar windows across five songs, plus 08's bars 1 to 40</b>.</p>
 
+
+<h3>05 Sleep Vs Death bars 39-40: the tab needs a tuning the file does not have</h3>
+
+<p>Chasing the worst of the five defects to its cause produced the sharpest result
+of the session. Bars 31-40 scored 37.9% per-note support against a 73.8% song
+baseline, and shifting the window down two semitones took it to 75.9%.</p>
+
+<p><b>The control was decisive.</b> Applied to every other window in the song, the
+same shift HURT: mean &minus;54.2 points, best other &minus;20.5. Only this window
+gained, at +37.9. Narrowed bar by bar, the defect is bars <b>39 and 40</b>: 12.5%
+support each as written, 75.0% and 87.5% shifted.</p>
+
+<p><b>Then the repair refused to run, and the refusal was the answer.</b> Two of
+the sixteen notes are the open low E. Two semitones below that does not exist on a
+standard-tuned guitar, so no refretting can produce the pitches the audio wants.</p>
+
+<h3>Drop D, tested on the one string it moves</h3>
+
+<p>Fifteen of the sixteen notes sit on the low E string. Drop D lowers that string
+alone and leaves the other five untouched, which is exactly the shape of the
+error:</p>
+
+<table>
+<thead><tr><th>scope</th><th>notes</th><th>as written</th><th>drop D</th><th>gain</th></tr></thead>
+<tbody>
+<tr><td><b>bars 39-40</b></td><td>16</td><td>12.5%</td><td><b>87.5%</b></td><td><b>+75.0</b></td></tr>
+<tr><td>bars 31-40</td><td>29</td><td>37.9%</td><td>79.3%</td><td>+41.4</td></tr>
+<tr><td>bars 1-30</td><td>58</td><td>65.5%</td><td>65.5%</td><td>0.0</td></tr>
+<tr><td>bars 41-103</td><td>514</td><td><b>79.4%</b></td><td>65.2%</td><td>&minus;14.2, standard wins</td></tr>
+<tr><td>whole song</td><td>601</td><td><b>76.0%</b></td><td>65.9%</td><td>&minus;10.1, standard wins</td></tr>
+</tbody></table>
+
+<p>Two independent separations agree: the Demucs guitar stem and a Moises
+<code>guitar_rhythm</code> stem both score 12.5% as written and 81.2% shifted, so
+this is not an artifact of one separator.</p>
+
+<p><b>What this means.</b> The recording plays those bars two semitones below what
+the tab writes, on the low E string only, while the rest of the song is plainly
+standard. GPIF stores tuning per TRACK, not per bar, so the file cannot express a
+drop-D passage inside a standard-tuned staff. The repair is therefore not a fret
+edit, and no amount of local arithmetic reaches it.</p>
+
+<p><b>The open question for Brandon, and it is a specific one:</b> does the
+guitarist drop to D for that passage, or is a second instrument playing it? Either
+answer settles the repair. Without one, writing those notes anywhere in standard
+tuning produces pitches the recording does not contain.</p>
+
+<p><b>No file was written.</b> The transposer aborted on the negative fret rather
+than moving those notes to another string, since that would have changed the
+voicing to hide a tuning problem.</p>
+
 <h3>04 Six Feet Under bar 58, and a hypothesis the audio refuted</h3>
 
 <p>Brandon: <i>"six feet under bar 58 sounds like a weird chord not quite

@@ -960,3 +960,39 @@ re-transcription rather than a local edit.
 
 The ask shrank from "re-transcribe 08" to **six ten-bar windows across five songs,
 plus 08's bars 1-40**.
+
+
+### 05 Sleep bars 39-40: the tab needs a tuning the file cannot express
+
+Bars 31-40 scored 37.9% vs a 73.8% baseline; shifting -2 took it to 75.9%.
+
+**Control:** the same shift HURT every other window (mean -54.2pp, best other
+-20.5pp). Only this one gained, +37.9pp. Per bar, the defect is **bars 39-40**:
+12.5% as written, 75.0% and 87.5% shifted.
+
+**The repair refused to run, and the refusal was the answer.** Two of sixteen notes
+are the open low E. Two semitones below that does not exist in standard tuning.
+
+### Drop D, tested on the one string it moves
+
+15 of 16 notes sit on the low E string.
+
+| scope | notes | as written | drop D | gain |
+|---|---|---|---|---|
+| **bars 39-40** | 16 | 12.5% | **87.5%** | **+75.0** |
+| bars 31-40 | 29 | 37.9% | 79.3% | +41.4 |
+| bars 1-30 | 58 | 65.5% | 65.5% | 0.0 |
+| bars 41-103 | 514 | **79.4%** | 65.2% | -14.2, standard wins |
+| whole song | 601 | **76.0%** | 65.9% | -10.1, standard wins |
+
+Two independent separations agree: Demucs guitar and a Moises `guitar_rhythm` both
+give 12.5% written, 81.2% shifted.
+
+**GPIF stores tuning per TRACK, not per bar**, so the file cannot express a drop-D
+passage inside a standard-tuned staff. This is not a fret edit.
+
+**Specific question for Brandon:** does the guitarist drop to D for that passage,
+or is a second instrument playing it? Either answer settles the repair.
+
+**No file written.** The transposer aborted on the negative fret rather than moving
+notes to another string to hide a tuning problem.
