@@ -867,3 +867,54 @@ Brandon's report, **not proof of it**, since other uniform habits look identical
 
 Every localization method that worked elsewhere has been applied here and returned
 flat. The remaining route is not a better measurement.
+
+
+## Album scorecard, 2026-08-16
+
+### The stem-similarity confound
+
+Identification failures all land inside harmonic clusters:
+
+| cluster | stem correlation |
+|---|---|
+| 01 Seedy Shade, 02 Flake, 09 MHL | 0.79-**0.90** |
+| 04 Six Feet Under, 07 MOP | **0.70** vs 07's mean 0.17 elsewhere |
+| 03 Gene, 08 JGBFTL | 0.62 |
+| 10 Trapped, 11 Ambulance | 0.58 |
+
+02 picks 01, 09 picks 02, 07 picks 04, 08 picks 03. **Ranking second inside a
+cluster is a limit of the test, not a defect.** The TRANSPOSITION control is
+immune: it never leaves the song.
+
+### Per-song, per-bar work list
+
+| song | sections | failing | bar ranges | gate | state |
+|---|---|---|---|---|---|
+| **01 Seedy Shade** | 14 | **0** | — | PASS | **clean** |
+| **10 Trapped** | 9 | **0** | — | REVIEW, 11 shifts 5.0-5.3 frets | **clean** |
+| 03 Gene | 11 | 1 | 71-80 | PASS | one section |
+| 07 MOP | 9 | 1 | 41-50 | PASS | one section |
+| 11 Ambulance | 17 | 1 | 31-40 | PASS | one section |
+| 02 Flake | 7 | 2 | 21-30, 61-69 | PASS | two, plus muted question |
+| 04 Six Feet Under | 14 | 2 | 101-110, 131-140 | PASS | inside the filler already scoped |
+| 05 Sleep Vs Death | 11 | 3 | 31-40, 41-50, 71-80 | REVIEW, 1 shift | three |
+| **08 JGBFTL** | 6 | **3** | 1-10, 11-20, 21-30 | PASS | half the song |
+| **09 MHL** | 9 | **5** | 1-10, 11-20, 21-30, 61-70, 81-90 | PASS | worst on the album |
+
+**01 and 10 are clean on every window.** 10's shifts are 5.0-5.3 frets in 125 ms
+against a ">5" threshold, and the flagged beats carry **100% pitch support vs an
+86.5% baseline**, so only a borderline fingering is questioned.
+
+**09 MHL is the worst and was previously undiagnosed**: bars 11-20 at r=0.233 vs
+transposition 0.783, bars 81-90 at 0.229 vs 0.927.
+
+### Two systemic defects ruled out
+
+| check | result |
+|---|---|
+| capo vs stored MIDI, 18 guitar staves | **0 mismatches**, all capo 0, standard tuning |
+| global tuning, -2 to +2 semitones | **0 wins on all nine**, 61-85% vs 4-39% |
+
+```
+python3 ~/Projects/_outputs/theship-tabs/jgbftl_content.py --win 10
+```

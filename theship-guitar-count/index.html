@@ -1236,6 +1236,74 @@ is the shape this table has. That is consistent with Brandon's report and it is
 elsewhere has been applied here and returned flat, so the remaining route is not a
 better measurement. It is sixteen ear-calls.</p>
 
+
+<h2 id="scorecard">Album scorecard, 2026-08-16</h2>
+
+<h3>A confound that changes how every identification result reads</h3>
+
+<p>The identification test asks a tab to pick its own recording out of ten. Songs
+that share harmony confuse it, and this album has clear clusters:</p>
+
+<table>
+<thead><tr><th>cluster</th><th>stem-to-stem correlation</th></tr></thead>
+<tbody>
+<tr><td>01 Seedy Shade, 02 Flake, 09 MHL</td><td>0.79 to <b>0.90</b></td></tr>
+<tr><td>04 Six Feet Under, 07 MOP</td><td><b>0.70</b>, against 07's mean of 0.17 elsewhere</td></tr>
+<tr><td>03 Gene, 08 JGBFTL</td><td>0.62</td></tr>
+<tr><td>10 Trapped, 11 Ambulance</td><td>0.58</td></tr>
+</tbody></table>
+
+<p>Every ranking failure reported earlier lands inside a cluster: 02 picks 01,
+09 picks 02, 07 picks 04, 08 picks 03. <b>Ranking second inside a cluster is a
+limit of the test, not evidence of a defect.</b></p>
+
+<p><b>The transposition control is immune to this.</b> A section losing to a
+SHIFTED version of its OWN recording is wrong however many labelmates outrank it,
+because the comparison never leaves the song. That is the measurement the scope
+below rests on.</p>
+
+<h3>Per-song, per-bar work list</h3>
+
+<table>
+<thead><tr><th>song</th><th>sections</th><th>failing</th><th>bar ranges</th><th>gate</th><th>state</th></tr></thead>
+<tbody>
+<tr><td><b>01 Seedy Shade</b></td><td>14</td><td><b>0</b></td><td>&mdash;</td><td>PASS</td><td><b>clean</b></td></tr>
+<tr><td><b>10 Trapped in Wonderland</b></td><td>9</td><td><b>0</b></td><td>&mdash;</td><td>REVIEW, 11 shifts of 5.0-5.3 frets</td><td><b>clean</b></td></tr>
+<tr><td>03 Gene</td><td>11</td><td>1</td><td>71-80</td><td>PASS</td><td>one section</td></tr>
+<tr><td>07 MOP</td><td>9</td><td>1</td><td>41-50</td><td>PASS</td><td>one section</td></tr>
+<tr><td>11 Ambulance</td><td>17</td><td>1</td><td>31-40</td><td>PASS</td><td>one section</td></tr>
+<tr><td>02 Flake of the Year</td><td>7</td><td>2</td><td>21-30, 61-69</td><td>PASS</td><td>two, plus the muted question</td></tr>
+<tr><td>04 Six Feet Under</td><td>14</td><td>2</td><td>101-110, 131-140</td><td>PASS</td><td>two, and they sit inside the filler already scoped</td></tr>
+<tr><td>05 Sleep Vs Death</td><td>11</td><td>3</td><td>31-40, 41-50, 71-80</td><td>REVIEW, 1 shift</td><td>three</td></tr>
+<tr><td><b>08 JGBFTL</b></td><td>6</td><td><b>3</b></td><td>1-10, 11-20, 21-30</td><td>PASS</td><td>half the song</td></tr>
+<tr><td><b>09 MHL</b></td><td>9</td><td><b>5</b></td><td>1-10, 11-20, 21-30, 61-70, 81-90</td><td>PASS</td><td>worst on the album</td></tr>
+</tbody></table>
+
+<p><b>Two songs are clean on every window: 01 Seedy Shade and 10 Trapped in
+Wonderland.</b> 10's eleven shift reviews measure 5.0 to 5.3 frets in 125 ms
+against a threshold of "more than 5", and the flagged beats carry <b>100% pitch
+support against an 86.5% song baseline</b>, so the notes are right and only a
+borderline fingering is questioned. Re-fretting them would risk the drift that
+once walked 76% of a part toward the nut.</p>
+
+<p><b>09 MHL is the album's worst and was previously undiagnosed</b>, with five of
+nine sections losing to their own transposition, two of them catastrophically:
+bars 11-20 at r = 0.233 against a transposition of 0.783, and bars 81-90 at 0.229
+against 0.927.</p>
+
+<h3>Two systemic defects ruled out</h3>
+
+<table>
+<thead><tr><th>check</th><th>result</th></tr></thead>
+<tbody>
+<tr><td>capo against stored MIDI, all 18 guitar staves</td><td><b>0 mismatches</b>, every staff capo 0, standard E A D G B E</td></tr>
+<tr><td>global tuning, shifts of &minus;2 to +2 semitones</td><td><b>0 wins on all nine</b>, 61-85% against 4-39% for any shift</td></tr>
+</tbody></table>
+
+<p>The capo check matters because a CapoFret/Midi mismatch once read 891 notes two
+semitones sharp on another project and scored 24.7% pitch support. Neither defect
+is present here, so the album's pitch-agreement ceiling is not a setup problem.</p>
+
 <h3>04 Six Feet Under bar 58, and a hypothesis the audio refuted</h3>
 
 <p>Brandon: <i>"six feet under bar 58 sounds like a weird chord not quite
