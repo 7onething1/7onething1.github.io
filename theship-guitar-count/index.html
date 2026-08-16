@@ -1654,6 +1654,57 @@ onset cursor advancing by a placeholder rather than by rhythm, and a voice rewri
 that repointed every shared occurrence of a beat and lost 154 attacks where 75
 notes had been pruned.</p>
 
+
+<h2 id="final">Final state, 2026-08-16</h2>
+
+<p>Every source file is unmodified. Every repair this session wrote to a new path
+with the original copied beside it, and the final sweep across all nine aligned
+songs shows <b>zero drift</b>.</p>
+
+<table>
+<thead><tr><th>song</th><th>sha256[:16]</th><th>align z</th><th>pitch</th><th>precision</th><th>recall</th><th>timing</th><th>state</th></tr></thead>
+<tbody>
+<tr><td><b>01 Seedy Shade</b></td><td><code>67be02511599ff42</code></td><td>5.2</td><td>68.6%</td><td>13.1%</td><td>32.3%</td><td>yes</td><td><b>clean</b></td></tr>
+<tr><td>02 Flake of the Year</td><td><code>e90b44d28bb5f3fe</code></td><td>8.7</td><td>56.6%</td><td>32.6%</td><td>46.1%</td><td>no</td><td>bars 61-69, plus the muted question</td></tr>
+<tr><td>03 Gene</td><td><code>5d5eaf319adbbcd5</code></td><td>17.7</td><td>76.0%</td><td>37.5%</td><td>41.4%</td><td>yes</td><td>bars 71-80</td></tr>
+<tr><td>04 Six Feet Under</td><td><code>7bab579303034d9d</code></td><td>5.6</td><td>79.5%</td><td>37.5%</td><td>37.4%</td><td>yes</td><td>bars 131-140, near-silent</td></tr>
+<tr><td>05 Sleep Vs Death</td><td><code>4d012233b53145d0</code></td><td>16.7</td><td>72.3%</td><td>22.3%</td><td>30.3%</td><td>yes</td><td>bars 39-40, tuning question</td></tr>
+<tr><td>07 MOP</td><td><code>71130b0e7b6fe4bc</code></td><td>13.5</td><td>63.9%</td><td>24.6%</td><td>36.2%</td><td>no</td><td>bars 33-40 drone</td></tr>
+<tr><td>08 JGBFTL</td><td><code>96df1c1980ae662f</code></td><td>4.0</td><td>n/a</td><td>n/a</td><td>n/a</td><td>n/a</td><td>bars 1-40, aligns nowhere</td></tr>
+<tr><td>09 MHL</td><td><code>c72799e77db3763e</code></td><td>12.9</td><td>75.4%</td><td>29.8%</td><td>42.9%</td><td>no</td><td>bars 9-24 drone, the largest defect</td></tr>
+<tr><td><b>10 Trapped in Wonderland</b></td><td><code>8a0cb4ea4a303dba</code></td><td>11.1</td><td>82.9%</td><td>25.2%</td><td>42.1%</td><td>no</td><td><b>clean</b></td></tr>
+<tr><td>11 Ambulance</td><td><code>f9b8acf4d74a8810</code></td><td>7.7</td><td>70.7%</td><td>17.0%</td><td>33.4%</td><td>no</td><td>bars 85-92 and 88-92 drones</td></tr>
+</tbody></table>
+
+<h3>What every local repair route produced</h3>
+
+<table>
+<thead><tr><th>route</th><th>built</th><th>outcome</th></tr></thead>
+<tbody>
+<tr><td>mute the chord attacks</td><td>yes, with a user-label control</td><td>blocked: no measurement built here separates a dead strum from a rung one on real audio</td></tr>
+<tr><td>empty bars written over silence</td><td>yes, applied to seven songs</td><td><b>five retracted</b>: a percentile is not silence. 02 and 04 kept</td></tr>
+<tr><td>empty the invented filler</td><td>yes, applied to 04 and 05</td><td>kept, and 04's identification went rank 3 back to rank 1</td></tr>
+<tr><td>transpose a window</td><td>yes</td><td>refused itself: the notes need a tuning the file cannot express per bar</td></tr>
+<tr><td>refret to remove shifts</td><td>measured, not built</td><td>unnecessary: the flagged beats carry 100% pitch support</td></tr>
+<tr><td>prune unsupported pitches</td><td>yes, applied to 07 and 11</td><td><b>retracted</b>: precision did not rise and playability regressed</td></tr>
+</tbody></table>
+
+<h3>The three external dependencies, each with its evidence</h3>
+
+<ol>
+<li><b>Songsterr re-transcription</b>, on Brandon's account, for eight scoped
+windows: 02 bars 61-69, 03 bars 71-80, 07 bars 33-40, 08 bars 1-40, 09 bars 9-24,
+11 bars 85-92 and 88-92. Every one ships with the recording's own per-bar root
+sequence. The pipeline's hard gate is that a tab's source is Songsterr rather than
+hand-rolled pitch detection, which is why none of these is a script.</li>
+<li><b>The drop-D answer on 05 Sleep bars 39-40.</b> Fifteen of sixteen notes sit
+on the low E string, the recording plays them two semitones down, and two of them
+are the open string so no refretting reaches it. Does the guitarist retune there,
+or is a second instrument playing it?</li>
+<li><b>Twelve ear-calls on 02 Flake</b> at the labels page. Every label-free route
+was run and each failure is published with the control that killed it.</li>
+</ol>
+
 <h3>04 Six Feet Under bar 58, and a hypothesis the audio refuted</h3>
 
 <p>Brandon: <i>"six feet under bar 58 sounds like a weird chord not quite

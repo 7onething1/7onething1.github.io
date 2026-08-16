@@ -1159,3 +1159,39 @@ would have emptied, which is the tacet operation and needs its own evidence.
 has to be written. Two bugs caught by the census while building it: an onset cursor
 advancing by a placeholder instead of by rhythm, and a voice rewrite that repointed
 every shared occurrence of a beat, losing 154 attacks where 75 notes were pruned.
+
+
+## Final state, 2026-08-16
+
+Every source unmodified; every repair wrote to a new path. Final sweep: **zero drift**.
+
+| song | sha256[:16] | z | pitch | prec | recall | timing | state |
+|---|---|---|---|---|---|---|---|
+| **01 Seedy Shade** | `67be02511599ff42` | 5.2 | 68.6% | 13.1% | 32.3% | yes | **clean** |
+| 02 Flake | `e90b44d28bb5f3fe` | 8.7 | 56.6% | 32.6% | 46.1% | no | bars 61-69 + muted question |
+| 03 Gene | `5d5eaf319adbbcd5` | 17.7 | 76.0% | 37.5% | 41.4% | yes | bars 71-80 |
+| 04 Six Feet | `7bab579303034d9d` | 5.6 | 79.5% | 37.5% | 37.4% | yes | bars 131-140, near-silent |
+| 05 Sleep | `4d012233b53145d0` | 16.7 | 72.3% | 22.3% | 30.3% | yes | bars 39-40, tuning question |
+| 07 MOP | `71130b0e7b6fe4bc` | 13.5 | 63.9% | 24.6% | 36.2% | no | bars 33-40 drone |
+| 08 JGBFTL | `96df1c1980ae662f` | 4.0 | n/a | n/a | n/a | n/a | bars 1-40 |
+| 09 MHL | `c72799e77db3763e` | 12.9 | 75.4% | 29.8% | 42.9% | no | bars 9-24, largest defect |
+| **10 Trapped** | `8a0cb4ea4a303dba` | 11.1 | 82.9% | 25.2% | 42.1% | no | **clean** |
+| 11 Ambulance | `f9b8acf4d74a8810` | 7.7 | 70.7% | 17.0% | 33.4% | no | bars 85-92, 88-92 drones |
+
+### Every local repair route and what it produced
+
+| route | outcome |
+|---|---|
+| mute chord attacks | blocked: nothing built here separates dead from rung on real audio |
+| empty bars over silence | **five of seven retracted**; a percentile is not silence. 02 and 04 kept |
+| empty invented filler | kept; 04's identification went rank 3 back to rank 1 |
+| transpose a window | refused itself: needs a tuning the file cannot express per bar |
+| refret to remove shifts | unnecessary: flagged beats carry 100% pitch support |
+| prune unsupported pitches | **retracted**: precision did not rise, playability regressed |
+
+### Three external dependencies
+
+1. **Songsterr re-transcription** for eight scoped windows (02 61-69, 03 71-80,
+   07 33-40, 08 1-40, 09 9-24, 11 85-92 and 88-92), each with per-bar roots.
+2. **The drop-D answer on 05 bars 39-40.**
+3. **Twelve ear-calls on 02 Flake.**
