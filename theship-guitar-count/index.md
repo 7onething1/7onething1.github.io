@@ -1601,3 +1601,13 @@ Pitch agreement has no discriminating power on any staff: Rhythm 98.0% vs 97.2% 
 CONTRADICTION FOR 02 FLAKE: Brandon confirms no capo. His 02 C#m voicing G16 B15 e14 sounds B4 D5 F#5 at capo 0, a B minor. Only capo 2 makes it a C# minor, and that reading was the whole basis for writing 156 C#m beats to s3f18 s4f17 s5f16. The 02 C#m case is OPEN and that write should not be relied on. The session working 02 has been told.
 
 The map was validated in this session's own hands before anything was claimed from it, after a peer session challenged it. Synthetic identity control built from 10 Trapped's own attacks: 100.0% before, 100.0% after, 29.2% random control, gain +70.8. The earlier envelope version scored 32.6% there, below its own control, which is how it was caught. Real songs at a 30 ms window: 10 Trapped +41.8, 03 Gene +44.9, 05 Sleep Vs Death +39.7, all ACCEPTED.
+
+## 19 The pitch measure has a ceiling of 2.4 points, so it never said anything
+
+Rendering the tab's own pitches to audio makes the ground truth perfect by construction. On that input the measure scores 100.0% against a 97.6% shifted control, a margin of +2.4. On the real stem it scores 85.3% against 87.7%, margin -2.4.
+
+With perfect input the measure separates by 2.4 points, because the control sits at 97.6% on this harmonically static song. Its entire dynamic range here is about two points. So the -2.4 on the real stem is not a finding about the tab: audio accuracy for this song is UNMEASURED by this metric rather than failed by it, and every earlier sentence reading it as evidence about pitch content was overreading.
+
+The concurrent Six Feet Under session added a matching fixture on the attack side: onset-extractor-limit, clean plucks recall 100.0%, dense with reverb recall 5.4%. The extractor is capable and the material defeats it, which caps what the 61.5% attack precision and the 584 unmatched attacks can mean.
+
+Suite: 6 PASS, 1 XFAIL, 3 FAIL, MACHINE VERDICT FAIL. Red: register-evidence (127 of 2937, 125 of them one open string), staff-role-04 (the other session's song), brandon-ear-cases (7 of 8 unresolved).

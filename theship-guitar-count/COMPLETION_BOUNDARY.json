@@ -638,5 +638,24 @@
   "lead_chord_share": "7.4% to 0.0%",
   "bar_71_case": "RESOLVED before and after",
   "does_not_fix": "staff_role_audit still returns ONE_PART_SPLIT at 14.5% co-activity; reassignment cannot create a second guitarist"
+ },
+ "pitch_measure_ceiling": {
+  "test": "the pitch-agreement measure run on audio rendered FROM the tab, where ground truth is perfect by construction",
+  "result": "100.0% agreement against a 97.6% shifted control, margin +2.4",
+  "real_stem": "85.3% against 87.7%, margin -2.4",
+  "conclusion": "the measure's entire dynamic range on this material is about two points, because the control sits at 97.6% on a harmonically static song. The -2.4 is not a finding about the tab; audio accuracy here is UNMEASURED by this metric rather than failed by it.",
+  "retracts": "every earlier statement on this page that read the -2.4 as evidence about pitch content"
+ },
+ "onset_extractor_limit_from_the_other_session": "clean plucks recall 100.0%, dense with reverb recall 5.4%; the extractor is capable and the material defeats it, which caps what 61.5% attack precision and 584 unmatched attacks can mean",
+ "suite_final": {
+  "PASS": 6,
+  "XFAIL": 1,
+  "FAIL": 3,
+  "verdict": "FAIL",
+  "red": [
+   "register-evidence, 127 of 2937 with 125 being one open string",
+   "staff-role-04, the other session's song",
+   "brandon-ear-cases, 7 of 8 unresolved"
+  ]
  }
 }

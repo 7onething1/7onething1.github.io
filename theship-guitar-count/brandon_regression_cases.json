@@ -60,8 +60,8 @@
    "id": "02-upper-three-voicings",
    "song": "02",
    "title": "Flake of the Year",
-   "file": "/Users/drwu/Projects/_outputs/theship-tabs/_shape_swap_02/02 Flake of the Year-SHAPE-SWAP.gp",
-   "sha256_16": "398b3c7b6970425f",
+   "file": "/Users/drwu/Projects/_outputs/theship-tabs/_tacet_02/02 Flake of the Year-SHAPE-SWAP-TACET.gp",
+   "sha256_16": "3dd76841e64ba1c5",
    "staff": "Rhythm Guitar",
    "quote": "upper three string chord voicings",
    "grounded": true,
@@ -100,8 +100,8 @@
    "id": "02-csharp-minor-second-position",
    "song": "02",
    "title": "Flake of the Year",
-   "file": "/Users/drwu/Projects/_outputs/theship-tabs/_shape_swap_02/02 Flake of the Year-SHAPE-SWAP.gp",
-   "sha256_16": "398b3c7b6970425f",
+   "file": "/Users/drwu/Projects/_outputs/theship-tabs/_tacet_02/02 Flake of the Year-SHAPE-SWAP-TACET.gp",
+   "sha256_16": "3dd76841e64ba1c5",
    "staff": "Rhythm Guitar",
    "quote": "second position C sharp minor",
    "grounded": true,
@@ -173,8 +173,8 @@
    "id": "02-fsharp-alteration-latter-half",
    "song": "02",
    "title": "Flake of the Year",
-   "file": "/Users/drwu/Projects/_outputs/theship-tabs/_shape_swap_02/02 Flake of the Year-SHAPE-SWAP.gp",
-   "sha256_16": "398b3c7b6970425f",
+   "file": "/Users/drwu/Projects/_outputs/theship-tabs/_tacet_02/02 Flake of the Year-SHAPE-SWAP-TACET.gp",
+   "sha256_16": "3dd76841e64ba1c5",
    "staff": "Rhythm Guitar",
    "quote": "the F sharp alteration during the latter half",
    "grounded": true,
@@ -202,8 +202,8 @@
    "id": "02-duplicated-lead-notes",
    "song": "02",
    "title": "Flake of the Year",
-   "file": "/Users/drwu/Projects/_outputs/theship-tabs/_shape_swap_02/02 Flake of the Year-SHAPE-SWAP.gp",
-   "sha256_16": "398b3c7b6970425f",
+   "file": "/Users/drwu/Projects/_outputs/theship-tabs/_tacet_02/02 Flake of the Year-SHAPE-SWAP-TACET.gp",
+   "sha256_16": "3dd76841e64ba1c5",
    "staff": "Lead Guitar against Rhythm Guitar",
    "quote": "duplicated lead notes",
    "grounded": true,
@@ -246,8 +246,8 @@
    "id": "02-rests-replaced-by-strumming",
    "song": "02",
    "title": "Flake of the Year",
-   "file": "/Users/drwu/Projects/_outputs/theship-tabs/_shape_swap_02/02 Flake of the Year-SHAPE-SWAP.gp",
-   "sha256_16": "398b3c7b6970425f",
+   "file": "/Users/drwu/Projects/_outputs/theship-tabs/_tacet_02/02 Flake of the Year-SHAPE-SWAP-TACET.gp",
+   "sha256_16": "3dd76841e64ba1c5",
    "staff": "Rhythm Guitar",
    "quote": "rests or dead attacks that were replaced with continued chord strumming",
    "grounded": true,
@@ -328,7 +328,67 @@
     },
     "caveat": "the matching is greedy and one-to-one, so with 933 written against 668 detected at least 265 are unmatched by scarcity alone; the remaining 319 are unmatched for other reasons",
     "status": "OPEN, and now LOCATED bar by bar rather than only counted"
+   },
+   "APPLIED_2026-08-16": {
+    "artifact": "3dd76841e64ba1c5",
+    "bars": [
+     40,
+     42
+    ],
+    "attacks_removed": 32,
+    "notes_removed": 96,
+    "evidence": {
+     "guitar_stem_median_RMS": {
+      "bar40": 5.2e-05,
+      "bar42": 3e-05,
+      "song_median": 0.02438,
+      "ratio": "0.2% of the song median"
+     },
+     "detected_onsets_in_those_bars": 0,
+     "seconds": [
+      3.77,
+      4.88
+     ],
+     "full_mix_in_the_same_window": "0.426x its own median, so music is playing and the guitar is not"
+    },
+    "why_this_is_not_the_retracted_percentile_pass": "three independent measures agree, and the level is near-digital silence rather than a percentile of a distribution",
+    "preservation": "0 pitches vanished, 0 invented; 2937 -> 2841 note instances",
+    "gate": "PASS both staves, findings 6 -> 6",
+    "still_open": "the other unmatched attacks are NOT removed; the twelve-bar claim was retracted when per-bar onset counts showed bars 50-60 hold 11 to 17 onsets each"
    }
+  },
+  {
+   "id": "07-synth-bass-in-the-chords",
+   "song": "07",
+   "title": "MOP",
+   "file": "/Users/drwu/Projects/_outputs/theship-tabs/_AUDITION_2026-08-07/07 MOP.gp",
+   "sha256_16": "",
+   "staff": "Rhythm Guitar",
+   "quote": "there's some kind of bell drum part and a synth bass that you may be mixing into the chords, adding an extra low note with the synth bass, and not all the time, occasionally, sometimes it's doubled which is fine, but also at times creating an unplayable chord, like on the one in the third chord of bar 27",
+   "grounded": true,
+   "scope": {
+    "start_bar": 27,
+    "end_bar": null,
+    "end_bar_supplied": false,
+    "note": "bar 27 given as an example, not the full scope"
+   },
+   "check": null,
+   "measured_2026-08-16": {
+    "beat_map": "ACCEPTED for 07, +52.2 points over control",
+    "chord_events": 278,
+    "lowest_written_note_of_each_chord": {
+     "guitar_stem_median_SNR": 97.58,
+     "guitar_shifted_control": 103.32,
+     "bass_stem_median_SNR": 11477.29,
+     "bass_shifted_control": 4622.35,
+     "guitar_at_the_TOP_note": 96.37
+    },
+    "verdict": "the guitar stem FAILS its own control at the low note, 97.58 against 103.32, while the bass stem beats its control by 2.5x. The low note is stronger in the bass than the guitar on 242 of 278 chords, 87.1%.",
+    "bar_27": "three chords, all with lowest note C3. Guitar SNR 41.86, 1615.40, 31.28. Bass SNR 33047, 8827, 8096.",
+    "reading": "Brandon's observation is measured: the lowest note of these chords belongs to the bass, not the guitar",
+    "note": "07 MOP carries ONE guitar staff plus bass, drums and vocals"
+   },
+   "blocked_by": "the repair is not applied. Dropping the lowest note from 278 chords is a large edit and the guitar-vs-bass margin, while clear on the bass side, is only slightly negative on the guitar side."
   }
  ],
  "_attribution_attempts": {

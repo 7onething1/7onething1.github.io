@@ -107,6 +107,7 @@
     <li><a href="#ownership">The lead-doubling audit, note by note</a></li>
     <li><a href="#synthetic">The synthetic control, and the rests correction measured</a></li>
     <li><a href="#located">The map works, and the rests correction is located</a></li>
+    <li><a href="#ceiling">The pitch measure has a ceiling of 2.4 points</a></li>
     
   </ol>
 </div>
@@ -3053,6 +3054,53 @@ been told.</p>
 the same bar: 19 Lead only, 75 Rhythm only, 9 silent. 05 is one part written across two
 staves, the same shape the 04 Six Feet audit found, which is why the arrangement label at
 the top of this section matters.</p>
+
+
+<h2 id="ceiling">19 &nbsp;The pitch measure has a ceiling of 2.4 points, so it never said anything</h2>
+
+<p><b>This page has cited "pitch agreement fails its control" all day.</b> The measure was
+never tested on input whose pitches are known correct. Rendering the tab's own pitches to
+audio makes the ground truth perfect by construction:</p>
+
+<div class="tablewrap"><table>
+<thead><tr><th>Input</th><th class="num">Agreement</th><th class="num">Shifted control</th><th class="num">Margin</th></tr></thead>
+<tbody>
+<tr><td>audio rendered FROM the tab, every pitch correct</td><td class="num">100.0%</td><td class="num"><b>97.6%</b></td><td class="num"><b>+2.4</b></td></tr>
+<tr><td>the real guitar stem</td><td class="num">85.3%</td><td class="num">87.7%</td><td class="num">-2.4</td></tr>
+</tbody></table></div>
+
+<p><b>With perfect input the measure separates by 2.4 points.</b> The control sits at 97.6%
+because this song is harmonically static: the same pitch classes recur constantly, so a
+shifted moment contains them too. <b>The measure's entire dynamic range on this material is
+about two points</b>, which is smaller than the noise between takes.</p>
+
+<p><b>So the -2.4 on the real stem is not a finding about the tab.</b> It says the measure
+cannot discriminate here, and every earlier sentence on this page that read it as evidence
+about pitch content was overreading it. Audio accuracy for this song is not
+<i>failed</i> by this metric; it is <b>unmeasured</b> by it.</p>
+
+<h3>The concurrent session found the matching limit on the attack side</h3>
+
+<p>A fixture added from the Six Feet Under session reads: <code>onset-extractor-limit: clean
+plucks recall 100.0%, dense with reverb recall 5.4%</code>. The extractor is capable and the
+material defeats it. <b>That caps what the 61.5% attack precision and the 584 unmatched
+attacks can mean</b>, and it is a second, independent reason the twelve-bar claim was wrong.</p>
+
+<h3>The suite, run just now</h3>
+
+<pre style="overflow-x:auto;font-size:12px;line-height:1.5;background:var(--dust);padding:10px;border:1px solid var(--rule)">PASS   blind-mans-arrow        PASS   secret            PASS   kilgore-trout
+PASS   cross-song-refusal      PASS   ownership-refusal PASS   onset-extractor-limit
+XFAIL  a-tree-for-trials
+FAIL   register-evidence       BLIND_REGISTER, 127 of 2937, and 125 of them are the open A string
+FAIL   staff-role-04           MIXED, role flip 66.1 points   (the other session's song)
+FAIL   brandon-ear-cases       7 of 8 unresolved
+6 PASS  1 XFAIL  3 FAIL  0 XPASS  0 MISSING      MACHINE VERDICT: FAIL</pre>
+
+<p><b>What is actually left on 02 Flake:</b> the lead-doubling question, where a per-note
+audit found nothing to delete and Brandon's ear says otherwise; the C#m check, which asks
+about hand position while his correction is about capo position; and 127 register notes
+that are 125 instances of one open string. <b>None of the three is a measurement I can
+still run.</b> Each needs a decision from him.</p>
 
 <footer>
   <p><b>Reproduce:</b><br>
