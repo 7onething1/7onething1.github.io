@@ -1395,3 +1395,11 @@ PROMOTED. Brandon's standing rule is that his ear corrections outrank any scorec
 The licence records what is not claimed: eight measurements failed their controls and the alignment test failed validation on known-good songs, so no audio evidence is claimed for this artifact.
 
 Measured on the new graded artifact: chord beats below the top three strings 445->209 of 765; C#m away from fret 2 still 204 of 204 with the distribution moving {4:144,5:8,12:52} -> {4:40,5:8,12:156}; lead doubling 48 of 225 unchanged; register 127 notes unchanged. Promotion closed no case and the suite still reads FAIL, which is correct.
+
+### Three corrections to section 13, same day
+
+1. The claim that two voicings prove one wrong does not follow. Guitarists voice the same progression differently across sections. Brandon's ear is what establishes that the opening passage uses the upper-three-string form; the internal repetition contributes a trustworthy shape to copy, so the repair invents no fingering.
+
+2. 'Second position' stays literal and the reinterpretation as 'the second of two voicings' is retracted. Measured on the graded artifact: the 156-event C#m set (G#4 C#5 E5) has 0 second-position voicings; the 16-event set (C#4 E4 G#4) has 0; no C#m pitch set has a second-position voicing on the top three strings. The only second-position C#m available uses the low strings, so the correction reaches past fingering into pitch content and cannot be closed by refretting.
+
+3. BEST does not mean Flake is finished. Still open: the F# alteration and its bars, the genuine rests and muted attacks, the note-by-note audit of the 48 duplicated lead notes, the second-position C#m, and 127 notes in a register their source cannot see.

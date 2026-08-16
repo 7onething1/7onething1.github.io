@@ -2327,9 +2327,15 @@ progression twice, in two stretches that never overlap, with two different voici
 </tbody></table></div>
 
 <p><b>The two forms never appear in the same bar, and 63.7% of the staff's chord events
-spell a harmony the tab writes more than one way.</b> The file contradicts itself, so one
-of the two forms is wrong whatever any audio says. Brandon's ear settles which one: the
-guitarist plays upper-three-string voicings.</p>
+spell a harmony the tab writes more than one way.</b></p>
+
+<div style="border:2px solid #7A5807;background:#F7E9C6;padding:12px 14px;margin:1.2em 0">
+<p style="margin:0"><b>CORRECTED. An earlier version of this section said the two forms
+prove one of them wrong. That does not follow.</b> Guitarists routinely voice the same
+progression differently across sections, so two forms can both be right. What settles it
+is Brandon's ear: the opening passage uses the upper-three-string form. The internal
+repetition contributes something different and still valuable, which is a trustworthy
+shape to copy, so the repair invents no fingering.</p></div>
 
 <h3>The repair copies a shape rather than computing one</h3>
 
@@ -2353,18 +2359,33 @@ harmony</b>, and refuses outright if the target shape is not present in the sour
 <p><b>This is the first pass all session to move the case Brandon named</b>, from 445 to
 209, and it does so at one new urgent jump rather than 77 new findings.</p>
 
-<h3>It also caught an error in my own check</h3>
+<h3>Second position stays literal, and the tab cannot yet satisfy it</h3>
 
-<p>The C#m case was written as <code>want_position 2</code>, meaning the index finger at
-fret 2. <b>No C#m beat in this tab is fretted at fret 2 in any version.</b> The tab holds
-exactly two C#m voicings, at fret 4 and fret 12, and the swap moved 104 beats from one to
-the other: <code>{4:144, 5:8, 12:52}</code> became <code>{4:40, 5:8, 12:156}</code>.</p>
+<div style="border:2px solid #8A2F17;background:#F3D9D2;padding:12px 14px;margin:1.2em 0">
+<p style="margin:0"><b>RETRACTED.</b> This section briefly read Brandon's "second position C
+sharp minor" as "the second of the two voicings the tab uses". That rewrites his correction
+after the fact. He described a fingering position, and it stays literal.</p></div>
 
-<p>So "second position C sharp minor" most likely refers to <b>the second of the two voicings
-the tab uses</b>, which is the upper-three-string form, which makes it the same correction
-as the other one. The check keeps <code>want_position 2</code> and still reports OPEN,
-because editing a check to match a repair is how a gate stops being a gate. Both readings
-are recorded in the case file and the fret-2 reading needs confirmation.</p>
+<p><b>Measured on the graded artifact, at the pitches the tab actually writes:</b></p>
+
+<div class="tablewrap"><table>
+<thead><tr><th>C#m pitch set</th><th class="num">Events</th>
+<th class="num">Second-position voicings</th><th class="num">On the top three strings</th></tr></thead>
+<tbody>
+<tr><td>G#4 C#5 E5</td><td class="num">156</td><td class="num"><b>0</b></td><td class="num">0</td></tr>
+<tr><td>C#3 G#3 B3 C#4 E4</td><td class="num">24</td><td class="num">1, s1f4 s2f6 s3f4 s4f2 s5f0</td><td class="num">0</td></tr>
+<tr><td>C#4 E4 G#4</td><td class="num">16</td><td class="num"><b>0</b></td><td class="num">0</td></tr>
+<tr><td>A2 G#3 C#4 E4</td><td class="num">8</td><td class="num">2</td><td class="num">0</td></tr>
+</tbody></table></div>
+
+<p><b>No second-position C#m exists on the top three strings at any of these pitch sets</b>,
+and the 156-event set has no second-position voicing at all. The only second-position C#m
+available uses the low strings.</p>
+
+<p><b>So the correction reaches past fingering into pitch content.</b> A literal second-position
+C sharp minor sounds a lower voicing than the tab writes, which means the case cannot be
+closed by refretting and is not closed by the shape swap. It stays OPEN with
+<code>want_position 2</code> unchanged.</p>
 
 <h3>Promoted, and what promotion did and did not close</h3>
 
@@ -2401,10 +2422,25 @@ tab's self-contradiction, and the fact that the target shape is the tab's own.</
 <tr><td>notes below the stem's register floor</td><td class="num">127</td><td class="num">127</td><td>BLIND_REGISTER</td></tr>
 </tbody></table></div>
 
-<p><b>Promotion closed no case, and the suite still reads FAIL.</b> That is correct. The
-swap addresses one of Brandon's five Flake corrections. The lead doubling needs an
-ownership measurement, the muted attacks need independent labels, the F# alteration needs
-its bars, and 127 notes still sit in a register their source cannot see.</p>
+<p><b>Promotion closed no case, and the suite still reads FAIL.</b> That is correct.</p>
+
+<p><b>BEST does not mean Flake is finished.</b> BEST is the ledger's word for the best
+artifact validated so far on this item, and the swap solves one family of errors. Still
+open on this song:</p>
+
+<ul>
+<li><b>The F sharp alteration in the latter half</b> needs direct correction, and its bars
+are not yet identified.</li>
+<li><b>The genuine rests and muted attacks</b> need reconstruction, and no measurement
+separates a dead strum from a rung one on this audio.</li>
+<li><b>The 48 duplicated lead notes</b> need a note-by-note ownership audit, never a
+blanket deletion.</li>
+<li><b>The second-position C sharp minor</b> is not represented, as measured above.</li>
+<li><b>127 notes</b> still sit in a register their source cannot see.</li>
+</ul>
+
+<p>The standard is the finished performance: every attack, rest, string, voicing,
+articulation, fingering and lead-doubling decision.</p>
 
 
 

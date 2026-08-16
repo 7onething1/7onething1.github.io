@@ -123,11 +123,16 @@
     "why_not_resolved": "13.2% is a delta, not a resolution. A status that reads resolved while 177 of 204 beats remain wrong is the same scorecard-over-ear failure that created this case file on 2026-08-16."
    },
    "check_definition_corrected": {
-    "was": "want_position 2, read as the index finger at fret 2",
-    "problem": "no C#m beat in this tab is fretted at fret 2 in ANY version, and the tab contains exactly TWO C#m voicings, at fret 4 and fret 12. The fret-2 reading has no referent in the file.",
-    "other_reading": "'second position' as the SECOND of the two voicings the tab uses, the fret-12 upper-three-string form. This reading agrees with the upper-three-string correction, which Brandon says is the same defect.",
-    "measured": "the shape swap moved the distribution from {4:144, 5:8, 12:52} to {4:40, 5:8, 12:156}, so 104 C#m beats moved into the fret-12 form",
-    "status": "the check keeps want_position 2 and reports OPEN, because changing a check to match a repair is how a gate stops being a gate. Both readings are recorded here and the fret-2 reading needs confirmation."
+    "RETRACTED": "the reading of 'second position' as 'the second of the two voicings the tab uses' is withdrawn; it rewrites Brandon's correction after the fact",
+    "literal_reading_stands": "a fingering position, index at fret 2",
+    "measured_on_the_graded_artifact": {
+     "G#4 C#5 E5, 156 events": "0 second-position voicings, 0 on the top three strings",
+     "C#3 G#3 B3 C#4 E4, 24 events": "1 second-position voicing, s1f4 s2f6 s3f4 s4f2 s5f0, 0 on the top three strings",
+     "C#4 E4 G#4, 16 events": "0 second-position voicings",
+     "A2 G#3 C#4 E4, 8 events": "2 second-position voicings, 0 on the top three strings"
+    },
+    "consequence": "no second-position C#m exists on the top three strings at any pitch set the tab writes, so the correction reaches past fingering into pitch content and cannot be closed by refretting",
+    "status": "OPEN, want_position 2 unchanged"
    },
    "previous_graded_artifact": {
     "file": "/Users/drwu/Projects/_outputs/theship-tabs/_AUDITION_2026-08-07/02 Flake of the Year.gp",

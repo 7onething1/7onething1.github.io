@@ -432,6 +432,14 @@
    },
    "cases_closed_by_promotion": 0,
    "graded_artifact_now": "02 Flake of the Year-SHAPE-SWAP.gp"
-  }
+  },
+  "reasoning_corrected": "two voicings of one harmony do not prove either wrong; guitarists voice progressions differently across sections. Brandon's ear establishes which form the opening uses, and the internal repetition supplies a trustworthy shape to copy.",
+  "BEST_is_not_finished": [
+   "the F# alteration and its bars",
+   "the genuine rests and muted attacks",
+   "a note-by-note ownership audit of the 48 duplicated lead notes",
+   "the second-position C#m, which no pitch set in the tab can express on the top three strings",
+   "127 notes in a register their source cannot see"
+  ]
  }
 }
