@@ -1403,3 +1403,20 @@ Measured on the new graded artifact: chord beats below the top three strings 445
 2. 'Second position' stays literal and the reinterpretation as 'the second of two voicings' is retracted. Measured on the graded artifact: the 156-event C#m set (G#4 C#5 E5) has 0 second-position voicings; the 16-event set (C#4 E4 G#4) has 0; no C#m pitch set has a second-position voicing on the top three strings. The only second-position C#m available uses the low strings, so the correction reaches past fingering into pitch content and cannot be closed by refretting.
 
 3. BEST does not mean Flake is finished. Still open: the F# alteration and its bars, the genuine rests and muted attacks, the note-by-note audit of the 48 duplicated lead notes, the second-position C#m, and 127 notes in a register their source cannot see.
+
+## 14 Brandon supplied the voicing, and it decodes to a capo
+
+His words: the second-position C sharp minor sounds G string 16, B string 15, e string 14.
+
+| Reading | G16 | B15 | e14 | Chord |
+|---|---|---|---|---|
+| standard tuning, capo 0 | B4 | D5 | F#5 | B minor |
+| capo at fret 2 | C#5 | E5 | G#5 | C# minor |
+
+Those frets sound C# minor only with a capo at the second fret, which makes both corrections one statement: upper three strings, and 'second position' is the capo. The tab declares capo 0.
+
+Brandon's chord is C#5 E5 G#5 in root position. The tab has G#4 C#5 E5 in first inversion at s3f13 s4f14 s5f12. Same pitch classes, a sixth lower, wrong inversion. That is pitch content, so no refretting reaches it, which is why the fret-2 measurement found no second-position C#m at any pitch set the tab contains.
+
+The audio could not adjudicate, for the ninth time: testing at 0, +1, +2, +3 and -2 semitones returned decoy margins of -2.3, -2.4, -2.5, -2.5 and -2.3. The finding stands on fretboard arithmetic and Brandon's ear.
+
+What decides the repair: whether the whole performance carries a capo at 2, which would re-fret the entire tab, or whether only this chord sits higher than written.

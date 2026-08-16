@@ -441,5 +441,17 @@
    "the second-position C#m, which no pitch set in the tab can express on the top three strings",
    "127 notes in a register their source cannot see"
   ]
+ },
+ "capo_finding": {
+  "source": "Brandon supplied the voicing: G string 16, B string 15, e string 14",
+  "capo_0": "B4 D5 F#5 = B minor",
+  "capo_2": "C#5 E5 G#5 = C# minor",
+  "conclusion": "those frets sound C# minor only with a capo at fret 2, so 'second position' is the capo and both of his corrections are one statement",
+  "tab_declares": "capo 0",
+  "tab_has": "G#4 C#5 E5, first inversion, s3f13 s4f14 s5f12",
+  "target": "C#5 E5 G#5, root position",
+  "why_refretting_cannot_reach_it": "the pitch content differs, which is what the fret-2 measurement showed",
+  "audio": "transposition test at 0/+1/+2/+3/-2 returned decoy margins of -2.3 to -2.5 at every shift; ninth failure of the presence measure",
+  "open_question": "whether the whole performance is capo 2, which would re-fret the entire tab"
  }
 }

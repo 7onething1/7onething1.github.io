@@ -137,6 +137,20 @@
    "previous_graded_artifact": {
     "file": "/Users/drwu/Projects/_outputs/theship-tabs/_AUDITION_2026-08-07/02 Flake of the Year.gp",
     "sha256_16": "e90b44d28bb5f3fe"
+   },
+   "brandon_supplied_the_voicing_2026-08-16": {
+    "his_words": "second-position C sharp minor sounds G string 16, B string 15, e string 14",
+    "arithmetic": {
+     "standard_tuning_capo_0": "G3+16=B4(71), B3+15=D5(74), E4+14=F#5(78) = B MINOR, not C# minor",
+     "capo_2": "G+2+16=C#5(73), B+2+15=E5(76), E+2+14=G#5(80) = C# MINOR",
+     "conclusion": "those frets sound C# minor ONLY with a capo at the 2nd fret, which is what 'second position' means here"
+    },
+    "the_target_chord": "C#5 E5 G#5, root position, on the G, B and e strings",
+    "what_the_tab_has": "G#4 C#5 E5, first inversion, at s3f13 s4f14 s5f12",
+    "difference": "the tab writes the same three pitch classes a sixth lower and in first inversion; Brandon's is root position and higher",
+    "audio_could_not_verify": "a transposition test at 0, +1, +2, +3 and -2 semitones returned margins of -2.3 to -2.5 against the decoy at every shift, so the presence measure cannot distinguish any of them. Ninth control failure of that measure class.",
+    "what_decides_the_repair": "whether the whole performance is capo 2, which would re-fret the entire tab, or whether only this chord is higher than written. The tab currently declares capo 0.",
+    "memory": "feedback_check_capo_midi_consistency_before_measuring records a GPIF with CapoFret 2 and Midi written for capo 0 reading two semitones sharp on 891 notes"
    }
   },
   {
