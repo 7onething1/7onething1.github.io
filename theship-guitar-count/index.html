@@ -101,6 +101,7 @@
     <li><a href="#retracted">The Flake repair is retracted</a></li>
     <li><a href="#alignment">A conclusion this page published, and then refuted</a></li>
     <li><a href="#swap">The tab contradicts itself, and that is the repair</a></li>
+    <li><a href="#staffrole">04 Six Feet Under: the Lead was not transcribed</a></li>
     <li><a href="#capo">Brandon supplied the voicing, and it decodes to a capo</a></li>
     
   </ol>
@@ -2483,6 +2484,78 @@ so this finding comes from the fretboard arithmetic and Brandon's ear.</p>
 would re-fret the entire tab, or whether only this chord is higher than written. Memory
 already records the cost of getting this wrong: a GPIF with CapoFret 2 and Midi written for
 capo 0 read two semitones sharp on 891 notes.</p>
+
+
+<h2 id="staffrole">14 &nbsp;04 Six Feet Under: the Lead was not transcribed, and the Rhythm staff covered for it</h2>
+
+<p><b>Brandon, 2026-08-16:</b> &ldquo;there's a bass and a guitar part and a lead part, but
+the lead part at times was not transcribed at all and the rhythm part is put as the lead
+when that happens and the lead then tacet.&rdquo;</p>
+
+<p><b>That is checkable from the notation alone, and it holds.</b> Measured on
+<code>04 Six Feet Under.gp</code> sha256:16 <code>7bab579303034d9d</code>:</p>
+
+<div class="tablewrap"><table>
+<thead><tr><th>Staff and region</th><th class="num">Events</th><th class="num">Chords</th>
+<th class="num">Single notes</th></tr></thead>
+<tbody>
+<tr><td>Lead, bars 2-56</td><td class="num">204</td><td class="num">7.4%</td><td class="num">92.6%</td></tr>
+<tr><td>Lead, bars 57-140</td><td class="num">0</td><td class="num">-</td><td class="num">-</td></tr>
+<tr><td>Rhythm, where the Lead plays</td><td class="num">98</td><td class="num"><b>100.0%</b></td><td class="num">0.0%</td></tr>
+<tr><td>Rhythm, where the Lead is silent</td><td class="num">303</td><td class="num"><b>32.0%</b></td><td class="num">52.9%</td></tr>
+</tbody></table></div>
+
+<p><b>The Rhythm staff plays nothing but chords for as long as a Lead staff exists, then
+starts playing single-note lines the moment it stops.</b> From <b>bar 69</b> it is pure single
+notes, 8, 6, 8, 6, 8 events a bar with no Lead anywhere. And all <b>18</b> bars in the file
+that mix single lines with chords on one staff fall inside the Lead-empty stretch, with none
+where the Lead is playing.</p>
+
+<h3>Playability could never have caught this</h3>
+
+<p>Each staff on its own is perfectly playable. The defect is the <b>relationship between
+the two staves over time</b>, which no hand-span, collision, tie or fret check looks at.
+<code>staff_role_audit.py</code> measures two things: what share of active bars have BOTH
+staves sounding, and whether a staff's chord-versus-line character changes when the other
+falls silent.</p>
+
+<div class="tablewrap"><table>
+<thead><tr><th>Song</th><th class="num">Co-activity</th><th class="num">Both staves</th>
+<th class="num">Role flip</th><th>Verdict</th></tr></thead>
+<tbody>
+  <tr><td>05 Sleep Vs Death</td><td class="num">0.0%</td><td class="num">0 of 94</td><td class="num">None</td><td><span class="pill bad">one part split</span></td></tr>
+  <tr><td>04 Six Feet Under</td><td class="num">14.5%</td><td class="num">19 of 131</td><td class="num">68.0</td><td><span class="pill bad">one part split</span></td></tr>
+  <tr><td>02 Flake of the Year</td><td class="num">24.2%</td><td class="num">16 of 66</td><td class="num">24.9</td><td><span class="pill bad">one part split</span></td></tr>
+  <tr><td>09 MHL</td><td class="num">28.6%</td><td class="num">24 of 84</td><td class="num">39.7</td><td><span class="pill bad">one part split</span></td></tr>
+  <tr><td>11 Ambulance</td><td class="num">32.5%</td><td class="num">53 of 163</td><td class="num">53.3</td><td><span class="pill bad">one part split</span></td></tr>
+  <tr><td>08 JGBFTL</td><td class="num">37.7%</td><td class="num">20 of 53</td><td class="num">0.0</td><td><span class="pill bad">one part split</span></td></tr>
+  <tr><td>03 Gene (UPGRADED LEAD)</td><td class="num">60.4%</td><td class="num">61 of 101</td><td class="num">51.1</td><td><span class="pill bad">one part split</span></td></tr>
+  <tr><td>10 Trapped in Wonderland</td><td class="num">60.0%</td><td class="num">51 of 85</td><td class="num">21.9</td><td><span class="pill ok">two parts</span></td></tr>
+  <tr><td>01 Seedy Shade</td><td class="num">-</td><td class="num">-</td><td class="num">-</td><td><span class="pill ok">single staff</span></td></tr>
+  <tr><td>07 MOP</td><td class="num">-</td><td class="num">-</td><td class="num">-</td><td><span class="pill ok">single staff</span></td></tr>
+</tbody></table></div>
+
+<p><b>Seven of ten measure as one part split across two staves.</b> 05 Sleep Vs Death returns
+<b>0.0%</b>: its two staves never sound together in any of its 94 active bars. 04 Six Feet
+Under trips all three criteria at once, which is why Brandon heard it there.</p>
+
+<p><b>10 Trapped in Wonderland returns TWO_PARTS at 60.0%</b>, and that is the control. The
+measure is capable of clearing a file, and it clears the one song this page already called
+perfect.</p>
+
+<h3>What this changes about the album</h3>
+
+<p>This page opened by asking how many guitarists were in the room, and answered from the
+audio. <b>Here is the same answer from the notation, reached independently:</b> on seven of
+ten files the two staves hold one player written down in alternating halves, and on 04 the
+halves even swap duties.</p>
+
+<p><b>The repair scope on 04, to the bar, read from <code>04 Six Feet Under.gp</code>
+sha256:16 <code>7bab579303034d9d</code>:</b> the Lead staff is empty from bar 57 to 140,
+and the Rhythm staff carries single-note lead lines from bar 69 onward. Those lines belong
+on the Lead staff, and what remains on the Rhythm staff after they move is what the rhythm
+guitar actually played. That reassignment needs an ownership decision per line, which is the
+same measurement the 48 duplicated lead notes on Flake are waiting for.</p>
 
 <footer>
   <p><b>Reproduce:</b><br>

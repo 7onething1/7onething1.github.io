@@ -1420,3 +1420,28 @@ Brandon's chord is C#5 E5 G#5 in root position. The tab has G#4 C#5 E5 in first 
 The audio could not adjudicate, for the ninth time: testing at 0, +1, +2, +3 and -2 semitones returned decoy margins of -2.3, -2.4, -2.5, -2.5 and -2.3. This finding comes from fretboard arithmetic and Brandon's ear.
 
 What decides the repair: whether the whole performance carries a capo at 2, which would re-fret the entire tab, or whether only this chord is higher than written.
+
+
+## 14 04 Six Feet Under: the Lead was not transcribed, and the Rhythm staff covered for it
+
+Brandon, 2026-08-16: "there's a bass and a guitar part and a lead part, but the lead part at times was not transcribed at all and the rhythm part is put as the lead when that happens and the lead then tacet."
+
+Measured on 04 Six Feet Under.gp sha256:16 7bab579303034d9d: Lead bars 2-56 has 204 events at 92.6% single notes; Lead bars 57-140 has none. Rhythm where the Lead plays: 98 events, 100.0% chords, 0.0% single notes. Rhythm where the Lead is silent: 303 events, 32.0% chords, 52.9% single notes. From bar 69 the Rhythm staff is pure single notes. All 18 bars mixing single lines with chords fall inside the Lead-empty stretch.
+
+| Song | Co-activity | Both staves | Role flip | Verdict |
+|---|---|---|---|---|
+| 05 Sleep Vs Death | 0.0% | 0 of 94 | None | ONE_PART_SPLIT |
+| 04 Six Feet Under | 14.5% | 19 of 131 | 68.0 | ONE_PART_SPLIT |
+| 02 Flake of the Year | 24.2% | 16 of 66 | 24.9 | ONE_PART_SPLIT |
+| 09 MHL | 28.6% | 24 of 84 | 39.7 | ONE_PART_SPLIT |
+| 11 Ambulance | 32.5% | 53 of 163 | 53.3 | ONE_PART_SPLIT |
+| 08 JGBFTL | 37.7% | 20 of 53 | 0.0 | ONE_PART_SPLIT |
+| 03 Gene (UPGRADED LEAD) | 60.4% | 61 of 101 | 51.1 | ONE_PART_SPLIT |
+| 10 Trapped in Wonderland | 60.0% | 51 of 85 | 21.9 | TWO_PARTS |
+| 01 Seedy Shade | - | - | - | single staff |
+| 07 MOP | - | - | - | single staff |
+
+Seven of ten measure as one part split across two staves. 05 Sleep Vs Death returns 0.0%: its two staves never sound together in any of its 94 active bars. 10 Trapped in Wonderland returns TWO_PARTS at 60.0%, the control showing the measure can clear a file.
+
+Repair scope on 04, read from 04 Six Feet Under.gp sha256:16 7bab579303034d9d: the Lead staff is empty from bar 57 to 140 and the Rhythm staff carries single-note lead lines from bar 69 onward. Those lines belong on the Lead staff. The reassignment needs an ownership decision per line.
+

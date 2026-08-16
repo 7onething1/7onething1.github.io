@@ -1,0 +1,198 @@
+[
+ {
+  "gp": "01 Seedy Shade.gp",
+  "guitar_staves": [
+   "Rhythm Guitar"
+  ],
+  "verdict": "SINGLE_STAFF",
+  "detail": "one guitar staff, so there is no split to audit"
+ },
+ {
+  "gp": "02 Flake of the Year.gp",
+  "guitar_staves": [
+   "Lead Guitar",
+   "Rhythm Guitar"
+  ],
+  "bars": 69,
+  "active_bars": 66,
+  "both_staves": 16,
+  "co_activity_pct": 24.2,
+  "only_first": 0,
+  "only_second": 50,
+  "second_staff_chord_pct_where_first_plays": 100.0,
+  "second_staff_chord_pct_where_first_is_silent": 75.1,
+  "role_flip_points": 24.9,
+  "bars_mixing_lines_and_chords": 0,
+  "of_those_where_the_other_staff_is_silent": 0,
+  "verdict": "ONE_PART_SPLIT",
+  "reasons": [
+   "co-activity 24.2% is under 40.0%, so the staves alternate rather than overlap"
+  ]
+ },
+ {
+  "gp": "03 Gene (UPGRADED LEAD).gp",
+  "guitar_staves": [
+   "Lead Guitar",
+   "Rhythm Guitar"
+  ],
+  "bars": 102,
+  "active_bars": 101,
+  "both_staves": 61,
+  "co_activity_pct": 60.4,
+  "only_first": 3,
+  "only_second": 37,
+  "second_staff_chord_pct_where_first_plays": 25.1,
+  "second_staff_chord_pct_where_first_is_silent": 76.2,
+  "role_flip_points": 51.1,
+  "bars_mixing_lines_and_chords": 7,
+  "of_those_where_the_other_staff_is_silent": 3,
+  "verdict": "ONE_PART_SPLIT",
+  "reasons": [
+   "the second staff's chord share moves 51.1 points when the first staff falls silent, which is one staff covering for another"
+  ]
+ },
+ {
+  "gp": "04 Six Feet Under.gp",
+  "guitar_staves": [
+   "Lead Guitar",
+   "Rhythm Guitar"
+  ],
+  "bars": 140,
+  "active_bars": 131,
+  "both_staves": 19,
+  "co_activity_pct": 14.5,
+  "only_first": 30,
+  "only_second": 82,
+  "second_staff_chord_pct_where_first_plays": 100.0,
+  "second_staff_chord_pct_where_first_is_silent": 32.0,
+  "role_flip_points": 68.0,
+  "bars_mixing_lines_and_chords": 18,
+  "of_those_where_the_other_staff_is_silent": 18,
+  "verdict": "ONE_PART_SPLIT",
+  "reasons": [
+   "co-activity 14.5% is under 40.0%, so the staves alternate rather than overlap",
+   "the second staff's chord share moves 68.0 points when the first staff falls silent, which is one staff covering for another",
+   "all 18 bars mixing single lines with chords sit where the other staff is silent"
+  ]
+ },
+ {
+  "gp": "05 Sleep Vs Death.gp",
+  "guitar_staves": [
+   "Lead Guitar",
+   "Rhythm Guitar"
+  ],
+  "bars": 103,
+  "active_bars": 94,
+  "both_staves": 0,
+  "co_activity_pct": 0.0,
+  "only_first": 19,
+  "only_second": 75,
+  "second_staff_chord_pct_where_first_plays": null,
+  "second_staff_chord_pct_where_first_is_silent": 19.8,
+  "role_flip_points": null,
+  "bars_mixing_lines_and_chords": 2,
+  "of_those_where_the_other_staff_is_silent": 2,
+  "verdict": "ONE_PART_SPLIT",
+  "reasons": [
+   "co-activity 0.0% is under 40.0%, so the staves alternate rather than overlap",
+   "all 2 bars mixing single lines with chords sit where the other staff is silent"
+  ]
+ },
+ {
+  "gp": "07 MOP.gp",
+  "guitar_staves": [
+   "Rhythm Guitar"
+  ],
+  "verdict": "SINGLE_STAFF",
+  "detail": "one guitar staff, so there is no split to audit"
+ },
+ {
+  "gp": "08 JGBFTL.gp",
+  "guitar_staves": [
+   "Lead Guitar",
+   "Rhythm Guitar"
+  ],
+  "bars": 54,
+  "active_bars": 53,
+  "both_staves": 20,
+  "co_activity_pct": 37.7,
+  "only_first": 0,
+  "only_second": 33,
+  "second_staff_chord_pct_where_first_plays": 100.0,
+  "second_staff_chord_pct_where_first_is_silent": 100.0,
+  "role_flip_points": 0.0,
+  "bars_mixing_lines_and_chords": 0,
+  "of_those_where_the_other_staff_is_silent": 0,
+  "verdict": "ONE_PART_SPLIT",
+  "reasons": [
+   "co-activity 37.7% is under 40.0%, so the staves alternate rather than overlap"
+  ]
+ },
+ {
+  "gp": "09 MHL.gp",
+  "guitar_staves": [
+   "Lead Guitar",
+   "Rhythm Guitar"
+  ],
+  "bars": 101,
+  "active_bars": 84,
+  "both_staves": 24,
+  "co_activity_pct": 28.6,
+  "only_first": 25,
+  "only_second": 35,
+  "second_staff_chord_pct_where_first_plays": 0.0,
+  "second_staff_chord_pct_where_first_is_silent": 39.7,
+  "role_flip_points": 39.7,
+  "bars_mixing_lines_and_chords": 8,
+  "of_those_where_the_other_staff_is_silent": 8,
+  "verdict": "ONE_PART_SPLIT",
+  "reasons": [
+   "co-activity 28.6% is under 40.0%, so the staves alternate rather than overlap",
+   "the second staff's chord share moves 39.7 points when the first staff falls silent, which is one staff covering for another",
+   "all 8 bars mixing single lines with chords sit where the other staff is silent"
+  ]
+ },
+ {
+  "gp": "10 Trapped in Wonderland.gp",
+  "guitar_staves": [
+   "Lead Guitar",
+   "Rhythm Guitar"
+  ],
+  "bars": 86,
+  "active_bars": 85,
+  "both_staves": 51,
+  "co_activity_pct": 60.0,
+  "only_first": 0,
+  "only_second": 34,
+  "second_staff_chord_pct_where_first_plays": 63.8,
+  "second_staff_chord_pct_where_first_is_silent": 41.9,
+  "role_flip_points": 21.9,
+  "bars_mixing_lines_and_chords": 0,
+  "of_those_where_the_other_staff_is_silent": 0,
+  "verdict": "TWO_PARTS",
+  "reasons": []
+ },
+ {
+  "gp": "11 Ambulance.gp",
+  "guitar_staves": [
+   "Lead Guitar",
+   "Rhythm Guitar"
+  ],
+  "bars": 164,
+  "active_bars": 163,
+  "both_staves": 53,
+  "co_activity_pct": 32.5,
+  "only_first": 55,
+  "only_second": 55,
+  "second_staff_chord_pct_where_first_plays": 88.6,
+  "second_staff_chord_pct_where_first_is_silent": 35.3,
+  "role_flip_points": 53.3,
+  "bars_mixing_lines_and_chords": 8,
+  "of_those_where_the_other_staff_is_silent": 6,
+  "verdict": "ONE_PART_SPLIT",
+  "reasons": [
+   "co-activity 32.5% is under 40.0%, so the staves alternate rather than overlap",
+   "the second staff's chord share moves 53.3 points when the first staff falls silent, which is one staff covering for another"
+  ]
+ }
+]

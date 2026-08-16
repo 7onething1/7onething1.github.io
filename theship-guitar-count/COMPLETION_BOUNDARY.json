@@ -453,5 +453,26 @@
   "why_refretting_cannot_reach_it": "the pitch content differs, which is what the fret-2 measurement showed",
   "audio": "transposition test at 0/+1/+2/+3/-2 returned decoy margins of -2.3 to -2.5 at every shift; ninth failure of the presence measure",
   "open_question": "whether the whole performance is capo 2, which would re-fret the entire tab"
+ },
+ "staff_role_audit": {
+  "brandon_2026-08-16": "the lead part at times was not transcribed at all and the rhythm part is put as the lead when that happens and the lead then tacet",
+  "confirmed_on_04": {
+   "lead_bars_2_56": "204 events, 92.6% single notes",
+   "lead_bars_57_140": "no events",
+   "rhythm_where_lead_plays": "98 events, 100.0% chords, 0.0% single notes",
+   "rhythm_where_lead_silent": "303 events, 32.0% chords, 52.9% single notes",
+   "pure_single_notes_from": "bar 69",
+   "bars_mixing_lines_and_chords": "18, all inside the Lead-empty stretch, none where the Lead plays"
+  },
+  "album": {
+   "one_part_split": 7,
+   "two_parts": 1,
+   "single_staff": 2,
+   "worst": "05 Sleep Vs Death at 0.0% co-activity across 94 active bars",
+   "control": "10 Trapped in Wonderland returns TWO_PARTS at 60.0%"
+  },
+  "tool": "staff_role_audit.py, wired into regressions.py as staff-role-04, which FAILS",
+  "why_playability_missed_it": "each staff on its own is perfectly playable; the defect is the relationship between the two staves over time",
+  "repair_scope_04": "the Lead staff is empty from bar 57 to 140 and the Rhythm staff carries single-note lead lines from bar 69 onward; moving them needs an ownership decision per line"
  }
 }
