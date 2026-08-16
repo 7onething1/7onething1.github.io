@@ -1101,3 +1101,33 @@ vs 85.4% elsewhere, the album's largest single defect.
 **37 bars across four staves** carry this one behaviour, the same one Brandon named
 on Flake and Six Feet bar 71. Invisible to every aggregate score: a tab holding a
 plausible chord passes every playability gate and still aligns.
+
+
+### Root specs for every confirmed drone
+
+| drone | tab writes, every bar | recording plays | energy deficit |
+|---|---|---|---|
+| **09 MHL Rhythm 9-24** | **E2, A2** only | G#2 C#3 G#2 E3 G#3 G#3 G#2 E3 G#2 C#3 G#2 E3 D#3 C#3 G#2 | **median 11.7x, max 37.8x** |
+| 07 MOP Rhythm 33-40 | E2 G2 A2 B2 D3 F#3 G3 B3 | F#2 F#2 F#2 F#2 G2 F#2 G2 E2 | median 2.7x |
+| 11 Ambulance Rhythm 88-92 | A2 C3 E3 F3 G3 B3 E4 F4 | C2 E3 C3 F2 E3 | median 2.2x |
+| 11 Ambulance Lead 85-92 | A2 C3 D3 E3 F3 G3 B3 | E3 C3 C3 C2 E3 C3 F2 E3 | median 2.0x |
+
+**Not the same severity.** 09 writes a two-note skeleton and nothing else for
+sixteen bars, so a median deficit of **11.7x**. The others write a 6-8 pitch chord
+that partly contains what is played, deficit 2.0-2.7x.
+
+**09's sixteen bars need writing from scratch. The other three need correcting.**
+
+### Final measured state
+
+Sweep re-run across all nine aligned songs: **zero drift**. Every repair wrote to a
+NEW file; no audition source was modified.
+
+| state | songs | outstanding |
+|---|---|---|
+| **clean** | **01, 10** | nothing |
+| fabricated drone | 09 (16 bars), 07 (8), 11 (13 across two staves) | roots supplied |
+| wrong notes, specified | 03 (71-80), 02 (61-69) | per-bar roots supplied |
+| tuning inexpressible | 05 (39-40) | drop-D confirmation |
+| near-silent outro | 04 (131-140) | partly handled |
+| unjudgeable | 08 | bars 1-40, 41-54 sound |
