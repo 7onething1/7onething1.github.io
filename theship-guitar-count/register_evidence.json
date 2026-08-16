@@ -77,7 +77,7 @@
   "notes_below_floor": 0,
   "pct_below_floor": 0.0,
   "verdict": "REGISTER_SUPPORTED",
-  "means": "notes written where the source stem holds under 2.0% of its energy were not transcribed from evidence in that register, whatever their playability score",
+  "means": "notes written where the source stem holds under 2.0% of its energy were not transcribed from evidence in that register, whatever their playability score. This is an ATTRIBUTION GAP, not a proven wrong note: the stem cannot see them, so their absence there proves nothing either. Only a note measured ABSENT where the source CAN see it is refuted, which is what refuted_above_floor counts.",
   "song": "01"
  },
  {
@@ -306,8 +306,8 @@
   "notes_total": 3173,
   "notes_below_floor": 127,
   "pct_below_floor": 4.0,
-  "verdict": "UNSUPPORTED_REGISTER",
-  "means": "notes written where the source stem holds under 2.0% of its energy were not transcribed from evidence in that register, whatever their playability score",
+  "verdict": "BLIND_REGISTER",
+  "means": "notes written where the source stem holds under 2.0% of its energy were not transcribed from evidence in that register, whatever their playability score. This is an ATTRIBUTION GAP, not a proven wrong note: the stem cannot see them, so their absence there proves nothing either. Only a note measured ABSENT where the source CAN see it is refuted, which is what refuted_above_floor counts.",
   "song": "02"
  },
  {
@@ -515,9 +515,12 @@
   "notes_total": 1695,
   "notes_below_floor": 17,
   "pct_below_floor": 1.0,
-  "verdict": "UNSUPPORTED_REGISTER",
-  "means": "notes written where the source stem holds under 2.0% of its energy were not transcribed from evidence in that register, whatever their playability score",
-  "song": "03"
+  "verdict": "BLIND_REGISTER",
+  "means": "notes written where the source stem holds under 2.0% of its energy were not transcribed from evidence in that register, whatever their playability score. This is an ATTRIBUTION GAP, not a proven wrong note: the stem cannot see them, so their absence there proves nothing either. Only a note measured ABSENT where the source CAN see it is refuted, which is what refuted_above_floor counts.",
+  "song": "03",
+  "mix_shows_pitch_pct": 88.2,
+  "bass_carries_pitch_pct": null,
+  "attribution": "UNATTRIBUTED: the mix and the bass both fail their own decoy"
  },
  {
   "gp": "04 Six Feet Under.gp",
@@ -605,7 +608,7 @@
   "notes_below_floor": 0,
   "pct_below_floor": 0.0,
   "verdict": "REGISTER_SUPPORTED",
-  "means": "notes written where the source stem holds under 2.0% of its energy were not transcribed from evidence in that register, whatever their playability score",
+  "means": "notes written where the source stem holds under 2.0% of its energy were not transcribed from evidence in that register, whatever their playability score. This is an ATTRIBUTION GAP, not a proven wrong note: the stem cannot see them, so their absence there proves nothing either. Only a note measured ABSENT where the source CAN see it is refuted, which is what refuted_above_floor counts.",
   "song": "04"
  },
  {
@@ -834,9 +837,12 @@
   "notes_total": 791,
   "notes_below_floor": 35,
   "pct_below_floor": 4.4,
-  "verdict": "UNSUPPORTED_REGISTER",
-  "means": "notes written where the source stem holds under 2.0% of its energy were not transcribed from evidence in that register, whatever their playability score",
-  "song": "05"
+  "verdict": "BLIND_REGISTER",
+  "means": "notes written where the source stem holds under 2.0% of its energy were not transcribed from evidence in that register, whatever their playability score. This is an ATTRIBUTION GAP, not a proven wrong note: the stem cannot see them, so their absence there proves nothing either. Only a note measured ABSENT where the source CAN see it is refuted, which is what refuted_above_floor counts.",
+  "song": "05",
+  "mix_shows_pitch_pct": 74.3,
+  "bass_carries_pitch_pct": 85.7,
+  "attribution": "UNATTRIBUTED: the mix and the bass both fail their own decoy"
  },
  {
   "gp": "07 MOP.gp",
@@ -1056,9 +1062,12 @@
   "notes_total": 1491,
   "notes_below_floor": 40,
   "pct_below_floor": 2.7,
-  "verdict": "UNSUPPORTED_REGISTER",
-  "means": "notes written where the source stem holds under 2.0% of its energy were not transcribed from evidence in that register, whatever their playability score",
-  "song": "07"
+  "verdict": "BLIND_REGISTER",
+  "means": "notes written where the source stem holds under 2.0% of its energy were not transcribed from evidence in that register, whatever their playability score. This is an ATTRIBUTION GAP, not a proven wrong note: the stem cannot see them, so their absence there proves nothing either. Only a note measured ABSENT where the source CAN see it is refuted, which is what refuted_above_floor counts.",
+  "song": "07",
+  "mix_shows_pitch_pct": 90.0,
+  "bass_carries_pitch_pct": null,
+  "attribution": "UNATTRIBUTED: the mix and the bass both fail their own decoy"
  },
  {
   "gp": "08 JGBFTL.gp",
@@ -1146,7 +1155,7 @@
   "notes_below_floor": 0,
   "pct_below_floor": 0.0,
   "verdict": "REGISTER_SUPPORTED",
-  "means": "notes written where the source stem holds under 2.0% of its energy were not transcribed from evidence in that register, whatever their playability score",
+  "means": "notes written where the source stem holds under 2.0% of its energy were not transcribed from evidence in that register, whatever their playability score. This is an ATTRIBUTION GAP, not a proven wrong note: the stem cannot see them, so their absence there proves nothing either. Only a note measured ABSENT where the source CAN see it is refuted, which is what refuted_above_floor counts.",
   "song": "08"
  },
  {
@@ -1516,9 +1525,12 @@
   "notes_total": 1119,
   "notes_below_floor": 308,
   "pct_below_floor": 27.5,
-  "verdict": "UNSUPPORTED_REGISTER",
-  "means": "notes written where the source stem holds under 2.0% of its energy were not transcribed from evidence in that register, whatever their playability score",
-  "song": "09"
+  "verdict": "BLIND_REGISTER",
+  "means": "notes written where the source stem holds under 2.0% of its energy were not transcribed from evidence in that register, whatever their playability score. This is an ATTRIBUTION GAP, not a proven wrong note: the stem cannot see them, so their absence there proves nothing either. Only a note measured ABSENT where the source CAN see it is refuted, which is what refuted_above_floor counts.",
+  "song": "09",
+  "mix_shows_pitch_pct": 89.9,
+  "bass_carries_pitch_pct": 89.0,
+  "attribution": "UNATTRIBUTED: the mix and the bass both fail their own decoy"
  },
  {
   "gp": "10 Trapped in Wonderland.gp",
@@ -1606,7 +1618,7 @@
   "notes_below_floor": 0,
   "pct_below_floor": 0.0,
   "verdict": "REGISTER_SUPPORTED",
-  "means": "notes written where the source stem holds under 2.0% of its energy were not transcribed from evidence in that register, whatever their playability score",
+  "means": "notes written where the source stem holds under 2.0% of its energy were not transcribed from evidence in that register, whatever their playability score. This is an ATTRIBUTION GAP, not a proven wrong note: the stem cannot see them, so their absence there proves nothing either. Only a note measured ABSENT where the source CAN see it is refuted, which is what refuted_above_floor counts.",
   "song": "10"
  },
  {
@@ -1976,8 +1988,11 @@
   "notes_total": 3358,
   "notes_below_floor": 347,
   "pct_below_floor": 10.3,
-  "verdict": "UNSUPPORTED_REGISTER",
-  "means": "notes written where the source stem holds under 2.0% of its energy were not transcribed from evidence in that register, whatever their playability score",
-  "song": "11"
+  "verdict": "BLIND_REGISTER",
+  "means": "notes written where the source stem holds under 2.0% of its energy were not transcribed from evidence in that register, whatever their playability score. This is an ATTRIBUTION GAP, not a proven wrong note: the stem cannot see them, so their absence there proves nothing either. Only a note measured ABSENT where the source CAN see it is refuted, which is what refuted_above_floor counts.",
+  "song": "11",
+  "mix_shows_pitch_pct": 93.4,
+  "bass_carries_pitch_pct": 100.0,
+  "attribution": "UNATTRIBUTED: the mix and the bass both fail their own decoy"
  }
 ]

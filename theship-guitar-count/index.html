@@ -1848,7 +1848,7 @@ XFAIL    a-tree-for-trials    pitches gone none, pitches invented [85]; count 41
 PASS     blind-mans-arrow     capo [0] declared, the rejected capo 7 is absent
 PASS     secret               236 notes shared across the two staves (floor, exact-onset match)
 PASS     kilgore-trout        checkpoint held for 7 reason(s): SAME_STRING rises 0 -&gt; 10; TIE_COLLISION rises 
-FAIL     register-evidence    UNSUPPORTED_REGISTER: 127 of 3173 notes below the measured 120 Hz floor (4.0%); 
+FAIL     register-evidence    BLIND_REGISTER: 127 of 3173 notes below the measured 120 Hz floor (4.0%); per st
 FAIL     brandon-ear-cases    6 of 7 cases unresolved (OPEN_BLOCKED 1, OPEN_MEASURED 3, OPEN_NEEDS_SCOPE 1, RE
 3 PASS  1 XFAIL  2 FAIL  0 XPASS  0 MISSING
 MACHINE VERDICT: FAIL
@@ -1969,7 +1969,7 @@ at the level of a random moment in the song.</p>
 <h3>The gate this produced</h3>
 
 <p><code>register_evidence.py</code> measures each stem's own energy floor and flags every
-note written under it. The 130 Hz figure in memory is one stem's answer, not a constant,
+note written under it. The 130 Hz figure in memory is one stem's answer rather than a constant,
 so the floor is measured per song. Run across all ten:</p>
 
 <div class="tablewrap">
@@ -1978,63 +1978,64 @@ so the floor is measured per song. Run across all ten:</p>
 <th class="num">Notes</th><th class="num">%</th><th>Verdict</th></tr></thead>
 <tbody>
   <tr><td><b>09</b> 09 MHL</td>
-    <td class="num">110</td>
-    <td class="num">308</td><td class="num">1119</td>
-    <td class="num">27.5%</td>
-    <td><span class="pill bad">UNSUPPORTED REGISTER</span></td></tr>
+    <td class="num">110</td><td class="num">308</td>
+    <td class="num">1119</td><td class="num">27.5%</td>
+    <td><span class="pill warn">BLIND REGISTER</span></td></tr>
   <tr><td><b>11</b> 11 Ambulance</td>
-    <td class="num">110</td>
-    <td class="num">347</td><td class="num">3358</td>
-    <td class="num">10.3%</td>
-    <td><span class="pill bad">UNSUPPORTED REGISTER</span></td></tr>
+    <td class="num">110</td><td class="num">347</td>
+    <td class="num">3358</td><td class="num">10.3%</td>
+    <td><span class="pill warn">BLIND REGISTER</span></td></tr>
   <tr><td><b>05</b> 05 Sleep Vs Death</td>
-    <td class="num">110</td>
-    <td class="num">35</td><td class="num">791</td>
-    <td class="num">4.4%</td>
-    <td><span class="pill bad">UNSUPPORTED REGISTER</span></td></tr>
+    <td class="num">110</td><td class="num">35</td>
+    <td class="num">791</td><td class="num">4.4%</td>
+    <td><span class="pill warn">BLIND REGISTER</span></td></tr>
   <tr><td><b>02</b> 02 Flake of the Year</td>
-    <td class="num">120</td>
-    <td class="num">127</td><td class="num">3173</td>
-    <td class="num">4.0%</td>
-    <td><span class="pill bad">UNSUPPORTED REGISTER</span></td></tr>
+    <td class="num">120</td><td class="num">127</td>
+    <td class="num">3173</td><td class="num">4.0%</td>
+    <td><span class="pill warn">BLIND REGISTER</span></td></tr>
   <tr><td><b>07</b> 07 MOP</td>
-    <td class="num">90</td>
-    <td class="num">40</td><td class="num">1491</td>
-    <td class="num">2.7%</td>
-    <td><span class="pill warn">UNSUPPORTED REGISTER</span></td></tr>
+    <td class="num">90</td><td class="num">40</td>
+    <td class="num">1491</td><td class="num">2.7%</td>
+    <td><span class="pill warn">BLIND REGISTER</span></td></tr>
   <tr><td><b>03</b> 03 Gene (UPGRADED LEAD)</td>
-    <td class="num">110</td>
-    <td class="num">17</td><td class="num">1695</td>
-    <td class="num">1.0%</td>
-    <td><span class="pill warn">UNSUPPORTED REGISTER</span></td></tr>
+    <td class="num">110</td><td class="num">17</td>
+    <td class="num">1695</td><td class="num">1.0%</td>
+    <td><span class="pill warn">BLIND REGISTER</span></td></tr>
   <tr><td><b>01</b> 01 Seedy Shade</td>
-    <td class="num">80</td>
-    <td class="num">0</td><td class="num">1166</td>
-    <td class="num">0.0%</td>
+    <td class="num">80</td><td class="num">0</td>
+    <td class="num">1166</td><td class="num">0.0%</td>
     <td><span class="pill ok">REGISTER SUPPORTED</span></td></tr>
   <tr><td><b>04</b> 04 Six Feet Under</td>
-    <td class="num">70</td>
-    <td class="num">0</td><td class="num">1175</td>
-    <td class="num">0.0%</td>
+    <td class="num">70</td><td class="num">0</td>
+    <td class="num">1175</td><td class="num">0.0%</td>
     <td><span class="pill ok">REGISTER SUPPORTED</span></td></tr>
   <tr><td><b>08</b> 08 JGBFTL</td>
-    <td class="num">0</td>
-    <td class="num">0</td><td class="num">1960</td>
-    <td class="num">0.0%</td>
+    <td class="num">0</td><td class="num">0</td>
+    <td class="num">1960</td><td class="num">0.0%</td>
     <td><span class="pill ok">REGISTER SUPPORTED</span></td></tr>
   <tr><td><b>10</b> 10 Trapped in Wonderland</td>
-    <td class="num">80</td>
-    <td class="num">0</td><td class="num">2011</td>
-    <td class="num">0.0%</td>
+    <td class="num">80</td><td class="num">0</td>
+    <td class="num">2011</td><td class="num">0.0%</td>
     <td><span class="pill ok">REGISTER SUPPORTED</span></td></tr>
 </tbody>
 </table>
 </div>
 
-<p><b>Six of ten songs write notes their own source could not see</b>, 874 notes in all.
-09 MHL at 27.5% is the same song the earlier record already called its largest defect,
-reached here by a completely different measurement. Four songs come back clean, including
-both songs called perfect, which is the control: the gate can return no-problem.</p>
+<p><b>Six of ten songs write notes their own source could not see</b>, 874 notes in all. 09 MHL at 27.5% is the same song the earlier record already called its largest defect, reached here by a different measurement. Four songs come back clean, including both songs called perfect, which is the control: the gate can return no-problem.</p>
+
+<p><b>CORRECTED the same day. A blind register is an attribution gap.</b> This page first published these 874 as UNSUPPORTED_REGISTER, which claimed more than the measurement supports. The stem cannot see them, so its silence there proves nothing either. Two further sources were measured before the label was changed:</p>
+
+<div class="tablewrap"><table><thead><tr><th>Song</th><th class="num">Sub-floor notes</th><th class="num">Full mix shows the pitch</th><th class="num">Bass stem carries it</th><th class="num">Bass vs its own decoy</th></tr></thead><tbody>
+<tr><td>09 MHL</td><td class="num">308</td><td class="num">89.9%</td><td class="num">89.0%</td><td class="num">-1.6</td></tr>
+<tr><td>11 Ambulance</td><td class="num">347</td><td class="num">93.4%</td><td class="num">100.0%</td><td class="num">+0.0</td></tr>
+<tr><td>05 Sleep Vs Death</td><td class="num">35</td><td class="num">74.3%</td><td class="num">85.7%</td><td class="num">+8.6</td></tr>
+<tr><td>07 MOP</td><td class="num">40</td><td class="num">90.0%</td><td class="num">-</td><td class="num">-</td></tr>
+<tr><td>03 Gene</td><td class="num">17</td><td class="num">88.2%</td><td class="num">-</td><td class="num">-</td></tr>
+</tbody></table></div>
+
+<p>The mix carries the pitch for <b>88 to 93%</b> of them, and the bass stem carries it for <b>89 to 100%</b>. Both fail their own time-shifted decoy on the two largest songs, at -1.6 and +0.0, so neither measurement attributes the note to either instrument. The verdict is now <b>BLIND_REGISTER</b>, and it reads UNATTRIBUTED rather than wrong.</p>
+
+<p><b>Which is why only 02 Flake was repaired.</b> Its flagged notes are the only ones ABOVE their stem floor, where a silence IS evidence. Across the whole album the sweep found 170 eligible notes on 02 and 0, 1, 2, 2 and 7 on the others, so there was no second repair to make on this evidence. 08 JGBFTL refuses outright: its alignment is REFUSED_NOT_ALIGNED, and a window cannot be placed in a recording the tab does not align to.</p>
 
 <h3>The repair, and its price</h3>
 

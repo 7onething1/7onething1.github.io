@@ -1274,7 +1274,7 @@ XFAIL    a-tree-for-trials    pitches gone none, pitches invented [85]; count 41
 PASS     blind-mans-arrow     capo [0] declared, the rejected capo 7 is absent
 PASS     secret               236 notes shared across the two staves (floor, exact-onset match)
 PASS     kilgore-trout        checkpoint held for 7 reason(s): SAME_STRING rises 0 -> 10; TIE_COLLISION rises 
-FAIL     register-evidence    UNSUPPORTED_REGISTER: 127 of 3173 notes below the measured 120 Hz floor (4.0%); 
+FAIL     register-evidence    BLIND_REGISTER: 127 of 3173 notes below the measured 120 Hz floor (4.0%); per st
 FAIL     brandon-ear-cases    6 of 7 cases unresolved (OPEN_BLOCKED 1, OPEN_MEASURED 3, OPEN_NEEDS_SCOPE 1, RE
 3 PASS  1 XFAIL  2 FAIL  0 XPASS  0 MISSING
 MACHINE VERDICT: FAIL
@@ -1308,18 +1308,20 @@ On the 196 C#m beats whose written low note is above the floor: written low medi
 
 | Song | Floor Hz | Below | Notes | % | Verdict |
 |---|---|---|---|---|---|
-| 09 09 MHL | 110 | 308 | 1119 | 27.5% | UNSUPPORTED_REGISTER |
-| 11 11 Ambulance | 110 | 347 | 3358 | 10.3% | UNSUPPORTED_REGISTER |
-| 05 05 Sleep Vs Death | 110 | 35 | 791 | 4.4% | UNSUPPORTED_REGISTER |
-| 02 02 Flake of the Year | 120 | 127 | 3173 | 4.0% | UNSUPPORTED_REGISTER |
-| 07 07 MOP | 90 | 40 | 1491 | 2.7% | UNSUPPORTED_REGISTER |
-| 03 03 Gene (UPGRADED LEAD) | 110 | 17 | 1695 | 1.0% | UNSUPPORTED_REGISTER |
+| 09 09 MHL | 110 | 308 | 1119 | 27.5% | BLIND_REGISTER |
+| 11 11 Ambulance | 110 | 347 | 3358 | 10.3% | BLIND_REGISTER |
+| 05 05 Sleep Vs Death | 110 | 35 | 791 | 4.4% | BLIND_REGISTER |
+| 02 02 Flake of the Year | 120 | 127 | 3173 | 4.0% | BLIND_REGISTER |
+| 07 07 MOP | 90 | 40 | 1491 | 2.7% | BLIND_REGISTER |
+| 03 03 Gene (UPGRADED LEAD) | 110 | 17 | 1695 | 1.0% | BLIND_REGISTER |
 | 01 01 Seedy Shade | 80 | 0 | 1166 | 0.0% | REGISTER_SUPPORTED |
 | 04 04 Six Feet Under | 70 | 0 | 1175 | 0.0% | REGISTER_SUPPORTED |
 | 08 08 JGBFTL | 0 | 0 | 1960 | 0.0% | REGISTER_SUPPORTED |
 | 10 10 Trapped in Wonderland | 80 | 0 | 2011 | 0.0% | REGISTER_SUPPORTED |
 
 Six of ten songs write notes their own source could not see, 874 notes in all.
+
+CORRECTED the same day: a blind register is an attribution gap. The full mix shows the pitch for 88-93% of these notes and the bass stem carries it for 89-100%, and both fail their own time-shifted decoy on the two largest songs (-1.6 on 09, +0.0 on 11). The verdict is now BLIND_REGISTER and reads UNATTRIBUTED. Only 02 Flake's flagged notes sit ABOVE their stem floor where silence is evidence, which is why it is the only song repaired: the album sweep found 170 eligible notes on 02 and 0, 1, 2, 2 and 7 on the others. 08 JGBFTL refuses outright on REFUSED_NOT_ALIGNED.
 
 Repair: apply_octave_lift.py moved 134 tones up an octave, re-voicing each beat with the narrowest legal shape for that exact pitch multiset. Per-note support 72.6% -> 77.1%, decoy 75.1% -> 76.2%, margin -2.5 -> +0.9, 0 pitches vanished, 0 invented, hand skip 13.1% -> 19.8%. Receipt 8b7f9dcd609bff4e, verdict REVIEW, status best_validated_so_far.
 

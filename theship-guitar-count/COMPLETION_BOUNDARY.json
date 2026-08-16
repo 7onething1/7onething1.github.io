@@ -247,7 +247,12 @@
     "04",
     "08",
     "10"
-   ]
+   ],
+   "verdict_corrected": {
+    "was": "UNSUPPORTED_REGISTER",
+    "now": "BLIND_REGISTER",
+    "why": "the stem cannot see these notes, so its silence proves nothing; the full mix shows the pitch for 88-93% and the bass stem carries it for 89-100%, and both fail their own decoy on the two largest songs at -1.6 and +0.0, so ownership is UNATTRIBUTED rather than wrong"
+   }
   },
   "repair": {
    "tool": "apply_octave_lift.py",
@@ -267,6 +272,19 @@
    "verdict": "REVIEW",
    "status": "best_validated_so_far",
    "retracted_first_attempt": "lifted 153 and invented pitches 62 and 69; their decoy medians 32.19 and 14.65 exceed the measured 5.39 and 11.18, so they are ambient and the scope was rebuilt to invent nothing"
+  },
+  "album_sweep_eligible": {
+   "02": 170,
+   "11": 7,
+   "04": 2,
+   "07": 2,
+   "05": 1,
+   "03": 0,
+   "09": 0,
+   "10": 0,
+   "01": 0,
+   "08": "REFUSED_NOT_ALIGNED",
+   "note": "only 02 has flagged notes ABOVE its stem floor, where a silence is evidence, so it is the only song this evidence licenses a repair on"
   }
  }
 }
