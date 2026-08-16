@@ -133,9 +133,10 @@ turned out to be wrong.</p>
 
 <h2>Which revision is new, and what is in it</h2>
 
-<p>This was the actual complaint. Songsterr shows a revision id and a timestamp and
-nothing else, so when a session uploads, and Brandon uploads, and a third session uploads
-over both, nothing on the page records who made which one. Two sessions today held opposite
+<p>This was the actual complaint. Songsterr records the author of every revision as
+<b>one account, Brandon's</b>, because six sessions and his own hand-uploads all sign in
+as him. So when a session uploads, and Brandon uploads, and a third session uploads over
+both, the tab attributes all three to the same person. Two sessions today held opposite
 beliefs about who made <code>r8516072</code>.</p>
 
 <p>Settled from timestamps: the revision was submitted at <b>21:11:57Z</b>, and Brandon's message
@@ -245,21 +246,34 @@ record without vocal + drums  -> <span class="w">WARNING, flagged in the ledger<
 <h2>It closed the loop within eight minutes</h2>
 
 <p>The sessions were messaged at 21:22Z. Confirmed independently from Songsterr's own
-revision API for song 5823892, rather than from the ledger:</p>
+revision API for song 5823892, rather than from the ledger. Checking that API also
+corrected two things I had assumed:</p>
+
+<div class="note">
+<b>Songsterr already records more than a bare id and timestamp.</b> Each revision carries
+<code>createdVia</code>, which reads <code>GP</code> for a Guitar Pro import,
+<code>Editor</code> for an in-editor edit and <code>AI</code> for the original
+transcription, plus a <code>description</code> change note. So r8516250 was an
+<b>editor revision, and not a file upload</b>, which is a correction to what I first
+reported. What the API can never answer: <code>person</code> reads
+<b>"Brandon chavez" on every single revision</b>, because six sessions and Brandon's own
+hand-uploads all go through one account. Session attribution is the only gap the ledger
+fills, and <code>verify --tab</code> now prints both side by side.
+</div>
 
 <div class="scroll">
 <table>
-<thead><tr><th>Revision</th><th class="num">tracks</th><th>created</th><th>who</th></tr></thead>
+<thead><tr><th>Revision</th><th class="num">tracks</th><th>created</th><th>via</th><th>which session</th></tr></thead>
 <tbody>
-<tr><td><code>8516250</code></td><td class="num">5</td><td class="mono">2026-08-16T21:22:22Z</td><td><b>Resume goal completion shipping</b>, under the lease</td></tr>
-<tr><td><code>8516072</code></td><td class="num">5</td><td class="mono">2026-08-16T21:11:57Z</td><td>Brandon, by hand</td></tr>
-<tr><td><code>8514056</code></td><td class="num">5</td><td class="mono">2026-08-16T19:22:44Z</td><td>earlier session</td></tr>
-<tr><td><code>7609146</code></td><td class="num">5</td><td class="mono">2026-06-28T15:09:55Z</td><td>original AI transcription</td></tr>
+<tr><td><code>8516250</code></td><td class="num">5</td><td class="mono">21:22:22Z</td><td>Editor</td><td><b>Resume goal completion shipping</b>, under the lease</td></tr>
+<tr><td><code>8516072</code></td><td class="num">5</td><td class="mono">21:11:57Z</td><td>GP</td><td>Brandon, by hand</td></tr>
+<tr><td><code>8514056</code></td><td class="num">5</td><td class="mono">19:22:44Z</td><td>GP</td><td>earlier session</td></tr>
+<tr><td><code>7609146</code></td><td class="num">5</td><td class="mono">28 Jun</td><td>AI</td><td>original transcription, unclaimed by any session</td></tr>
 </tbody>
 </table>
 </div>
 
-<p>A session took the lease, uploaded, recorded the revision and released, with no human
+<p>A session took the lease, made its revision, recorded it and released, with no human
 asked to submit anything. <b>Every revision on this tab carries all five tracks.</b> No
 import has dropped a part. The parked session that had renamed itself and stopped is
 running again, and the ledger now answers the original question in one command:</p>
