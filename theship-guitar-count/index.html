@@ -3412,6 +3412,55 @@ holding that line is correct even when the licence is sound.</p>
 <code>scale * (2**(-lo/12) - 2**(-hi/12))</code>, with the hand threshold expressed in
 inches. Recorded in the skill as <code>HAND_SPAN_IS_POSITION_BLIND.md</code>.</p>
 
+
+<h2 id="terminal">25 &nbsp;Why REVIEW is where 04 stops</h2>
+
+<p><b>The gate returns REVIEW on artifact <code>70892d13dce552e4</code>, and that is the
+terminal state rather than a step on the way to PASS.</b> One item is open: bar 96.5,
+<code>s5f15 s4f12 s3f12 s2f16 s1f17</code>, a 5-fret span against a 4-fret threshold.</p>
+
+<ul>
+<li><b>No narrower voicing exists.</b> <code>best_voicing()</code> returns span 5 as the
+minimum complete voicing of pitches [62, 66, 67, 71, 79], with nothing at span 4 or less.</li>
+<li><b>The octave-down fallback is off the instrument.</b> Those pitches minus 24 include
+MIDI 38, below the open low E at 40.</li>
+<li><b>The stretch is 3.20 inches</b> at the 12th position on a 25.5 inch scale, against
+the gate's own 4-fret threshold of 5.26 inches at the nut. It is 39% shorter in physical
+distance than the limit it violates.</li>
+<li><b>What remains is a judgement about a hand, not a measurement:</b> accept the stretch,
+or empty that one Lead beat.</li>
+</ul>
+
+<h3>The validator was not changed, deliberately</h3>
+
+<p>Converting the span test from frets to inches would flip this artifact from REVIEW to
+PASS, and the pass would be produced by the same pass that wrote the artifact. This page
+carries four retractions from that class of error, including one where a check was
+edited to match a repair. <b>The flaw is real, measured, and recorded</b> in the skill as
+<code>HAND_SPAN_IS_POSITION_BLIND.md</code> with the exact formula. The fix belongs to a
+pass that is not also grading its own output.</p>
+
+<p><b>The gate held the line correctly.</b> <code>--accept-tier-tradeoff</code> recorded
+the licence and its measurement in the receipt and refused to change the verdict. A licence
+is evidence for a human decision, never a way to convert a review into a pass.</p>
+
+<h3>Everything else on 04 is measured and closed</h3>
+
+<div class="tablewrap"><table>
+<thead><tr><th>Step</th><th>Result</th></tr></thead>
+<tbody>
+<tr><td>delivered</td><td>live on Songsterr s5824781, verified by re-export, 783 / 998 / 398 / 1767 / 207</td></tr>
+<tr><td>audio accuracy</td><td>map +52.6 | attacks 63.5% recall, 61.8% precision | timing 62.0 ms median pre-warp</td></tr>
+<tr><td>pitch</td><td>HPSS on the full mix, +11.5 at x12, monotonic across every threshold</td></tr>
+<tr><td>ownership</td><td>REFUSED, the split separates by register rather than by player</td></tr>
+<tr><td>tempo</td><td>bars 89-101 imply 180 against the written 150, end drift +2.8s</td></tr>
+<tr><td>Brandon's bar 71</td><td>tacet, 0 Lead events, RESOLVED</td></tr>
+</tbody></table></div>
+
+<p><b>Three things need Brandon's hand and no further automation:</b> clicking Original in
+the gear, which is bridge-blocked at <code>isTrusted: false</code>; ruling on the bar 96.5
+stretch; and publishing if he wants it public.</p>
+
 <footer>
   <p><b>Reproduce:</b><br>
   <code>python3 ~/Projects/_outputs/theship-tabs/guitar_count.py</code><br>

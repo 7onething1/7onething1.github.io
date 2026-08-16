@@ -1780,3 +1780,13 @@ best_voicing confirms span 5 is the minimum complete voicing of [62, 66, 67, 71,
 --accept-tier-tradeoff records the licence and does NOT flip the verdict to PASS. The artifact stays at REVIEW, which is correct.
 
 Fix, named and not yet made: compare span in inches, scale * (2**(-lo/12) - 2**(-hi/12)), with the threshold in inches. Recorded as HAND_SPAN_IS_POSITION_BLIND.md.
+
+## 25 Why REVIEW is where 04 stops
+
+The gate returns REVIEW on artifact 70892d13dce552e4 and that is the terminal state. One item is open: bar 96.5, s5f15 s4f12 s3f12 s2f16 s1f17, span 5 against a 4-fret threshold.
+
+No narrower voicing exists (best_voicing returns span 5 as the minimum complete voicing of [62,66,67,71,79]). The octave-down fallback is off the instrument (those pitches minus 24 include MIDI 38, below the open low E at 40). The stretch is 3.20 in at the 12th position against the gate's own 4-fret threshold of 5.26 in at the nut, 39% shorter than the limit it violates. What remains is a judgement about a hand: accept the stretch or empty that one Lead beat.
+
+The validator was not changed deliberately. Converting the span test to inches would flip this artifact to PASS, produced by the same pass that wrote it. The flaw is recorded in the skill as HAND_SPAN_IS_POSITION_BLIND.md with the formula; the fix belongs to a pass not grading its own output. --accept-tier-tradeoff recorded the licence and refused to change the verdict, which is correct.
+
+Closed on 04: delivered and verified by re-export at 783/998/398/1767/207; audio map +52.6, attacks 63.5%/61.8%, timing 62.0 ms; pitch via HPSS +11.5 at x12 monotonic; ownership REFUSED; tempo bars 89-101 at 180 vs 150 with +2.8s end drift; bar 71 tacet RESOLVED.

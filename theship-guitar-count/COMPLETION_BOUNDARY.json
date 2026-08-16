@@ -746,5 +746,37 @@
   "licence": "--accept-tier-tradeoff recorded it and correctly did NOT flip the verdict to PASS",
   "fix_named_not_made": "compare span in inches, scale*(2**(-lo/12)-2**(-hi/12)), threshold in inches",
   "skill_note": "HAND_SPAN_IS_POSITION_BLIND.md"
+ },
+ "TERMINAL_STATE_04": {
+  "date": "2026-08-16",
+  "artifact": "70892d13dce552e4  04 Six Feet Under-STAFF-REASSIGN-OCTAVE-LEAD.gp",
+  "validator": "14bb087850cf9853",
+  "gate_verdict": "REVIEW, and this is the terminal state",
+  "what_is_unresolved": "one WIDE_REVIEW, bar 96.5, s5f15 s4f12 s3f12 s2f16 s1f17, span 5 frets against a 4-fret threshold",
+  "why_REVIEW_is_terminal_rather_than_a_step": [
+   "no narrower voicing exists: best_voicing returns span 5 as the minimum COMPLETE voicing of pitches [62,66,67,71,79], nothing at span 4 or less",
+   "the octave-down fallback Brandon specified is off the instrument: those pitches minus 24 include MIDI 38, below the open low E at 40",
+   "the span is 3.20 inches at the 12th position on a 25.5 inch scale, against the gate's own 4-fret threshold of 5.26 inches at the nut, so it is 39% SHORTER in physical distance than the limit it violates",
+   "the remaining choice is accept the stretch or empty that one Lead beat, which is a judgement about Brandon's hand and not a measurement"
+  ],
+  "why_the_validator_was_NOT_changed": "converting the span test from frets to inches would flip this artifact from REVIEW to PASS, and the pass would be produced by the same pass that authored the artifact. This session already retracted four conclusions for that class of error, including editing a check to match a repair. The flaw is real, measured, and recorded in the skill as HAND_SPAN_IS_POSITION_BLIND.md with the exact formula, so the fix belongs to a pass that is not also grading its own output.",
+  "what_the_gate_did_right": "--accept-tier-tradeoff recorded the licence and its measurement in the receipt and refused to change the verdict. A licence is evidence for a human decision, never a way to convert a review into a pass.",
+  "audio_accuracy_completed": {
+   "map_gain": 52.6,
+   "attack_recall_pct": 63.5,
+   "attack_precision_pct": 61.8,
+   "timing_pre_warp_median_ms": 62.0,
+   "timing_pre_warp_p90_ms": 191.9,
+   "pitch_hpss_full_mix_separation_at_x12": 11.5,
+   "pitch_monotonic": true,
+   "ownership": "REFUSED, the split separates by register"
+  },
+  "tempo": "bars 89-101 imply 180 bpm against the written 150; end-of-song drift +2.8s",
+  "delivered": "live on Songsterr s5824781, verified by re-export at 783/998/398/1767/207",
+  "requires_brandon": [
+   "click Original in the gear, bridge-blocked at isTrusted false",
+   "rule on the bar 96.5 stretch",
+   "publish if he wants it public"
+  ]
  }
 }
