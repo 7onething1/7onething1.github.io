@@ -373,5 +373,30 @@
    "02-rests-replaced-by-strumming": "no measurement exists",
    "bug_found": "--measure-case answered RESOLVED for the 04 tacet case pointed at the 02 candidate, printing a backwards bar range 71-69 on the wrong recording; it now refuses and the refusal is the cross-song-refusal regression fixture"
   }
+ },
+ "BLOCKING_OPERATION": {
+  "what": "02 Flake is not time-aligned to its recording",
+  "measured": {
+   "written_events_on_an_onset_pct": 55.8,
+   "uniform_random_pct": 58.3,
+   "shifted_controls_pct": [
+    57.9,
+    57.0,
+    57.3
+   ],
+   "verdict": "worse than chance"
+  },
+  "already_recorded": "audio_accuracy.json timing_established: false for song 02",
+  "consequence": "no per-event fact about this song is measurable until the beat-to-seconds map is established; six measurements built on the linear map all failed their controls",
+  "next_step": "establish the beat map for 02, then re-run every measurement, then reconstruct the chord family"
+ },
+ "chord_event_model": {
+  "tool": "chord_event.py",
+  "events": 926,
+  "mean_facts_asserted_per_event": 2.88,
+  "of_facts": 6,
+  "active_strings": "0 measured, 926 asserted",
+  "articulation": "0 measured, 926 asserted",
+  "why": "the two facts Brandon's corrections are about are the two with no evidence at all"
  }
 }

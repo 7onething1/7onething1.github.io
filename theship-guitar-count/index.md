@@ -1361,3 +1361,13 @@ The full validator profile on both files shows what the skip percentage hid. Rhy
 The INTERIOR_GAP records read '4 attacked notes with 1 unexplained interior string, needs positive audio evidence of fingerpicking or hybrid picking'. The lift bought 11.8 points of paired-control separation and cost 77 new findings including a severe jump. The checkpoint ledger had already refused the replacement and the licence overrode it while quoting one metric.
 
 Retracted. The candidate stays on disk unpromoted with RETRACTION.json beside it. The graded artifact for 02 Flake is the audition source. octave_lift_sweep.py's keep rule now reads the hard profile and returns RETRACT on its own output.
+
+## 12 The blocking operation, found by the sixth failed control
+
+Six measurements were built to settle which strings the Flake guitar strikes, and every one failed its control: presence of the written low tone 1.90 vs 1.29; octave-up presence 86.4% vs 86.1%; C#m upper presence 86.2% vs 91.7%; supported-vs-written 65.4% vs 60.2%; attack rise claimed vs unclaimed -0.116 vs -0.020; attack rise on one harmony written two ways 1.208 vs 1.202.
+
+The seventh explains them all: the written chord events align to a detected onset 55.8% of the time, while uniformly random times align 58.3% and shifted times 57.0-57.9%. The tab matches this recording's attacks worse than chance. audio_accuracy.json has recorded timing_established: false for this song all along.
+
+chord_event.py stores six facts per event beside their evidence. Over 926 Flake chord events: attack_time 517 measured / 409 asserted, active_strings 0 measured / 926 asserted, fret_position 926 derived, pitch_content 517 / 409, articulation 0 / 926 asserted, sustain 926 notation. Mean 2.88 of 6 facts asserted per event, and the two at 926 of 926 are exactly the two the corrections are about.
+
+The next repair is the beat-to-seconds map for 02 Flake, then re-running every measurement on a map that holds.

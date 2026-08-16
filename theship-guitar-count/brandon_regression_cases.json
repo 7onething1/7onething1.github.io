@@ -175,7 +175,7 @@
     "end_bar_supplied": false
    },
    "check": null,
-   "blocked_by": "No measurement separates a dead strum from a rung one on this audio. The tab's own Muted marks are circular at AUC 0.522; the synthetic control proves the feature at AUC 1.000 but its threshold flagged an implausible 37.4% when transferred. Recorded in COMPLETION_BOUNDARY.json as the twelve muted-strum ear-labels dependency."
+   "blocked_by": "No measurement separates a dead strum from a rung one on this audio. The tab's own Muted marks are circular at AUC 0.522; the synthetic control proves the feature at AUC 1.000 but its threshold flagged an implausible 37.4% when transferred. Recorded in COMPLETION_BOUNDARY.json as the twelve muted-strum ear-labels dependency. ALSO BLOCKED UPSTREAM 2026-08-16: the tab is not time-aligned to the recording, at 55.8% onset alignment against a 58.3% random control, so no per-event articulation measurement can be placed at all."
   }
  ],
  "_attribution_attempts": {
@@ -187,5 +187,20 @@
    "11": "279 of 347 qualify; 93.9% against an 86.4% decoy, separation +7.5, WEAK SUPPORT that these notes are genuinely guitar"
   },
   "conclusion": "attribution is unresolved on 09, the worst song at 27.5%, and leans toward the notes being legitimate on 11. Neither outcome is a defect the gate can repair."
+ },
+ "_blocking_operation_found": {
+  "date": "2026-08-16",
+  "what": "02 Flake's tab is not time-aligned to its recording",
+  "measured": "written chord events align to a detected onset at 55.8%; uniformly random times align at 58.3%, and shifted times at 57.0-57.9%. The tab lands on this recording's attacks WORSE than chance.",
+  "already_known": "audio_accuracy.json records timing_established: false for song 02, and six per-beat measurements were built on the linear offset-plus-bpm map regardless",
+  "consequence": "no per-event fact about this song can be measured until the beat-to-seconds map is established; that is the blocking operation for every Flake case",
+  "measures_that_failed_their_controls_because_of_it": [
+   "presence of the written low tone, 1.90 vs a 1.29 decoy",
+   "octave-up form presence, 86.4% vs 86.1%",
+   "C#m upper form presence, 86.2% vs 91.7%",
+   "supported-vs-written note count, 65.4% vs 60.2%",
+   "attack rise claimed vs unclaimed, -0.096 over control",
+   "attack rise on the same harmony written two ways, 1.208 vs 1.202"
+  ]
  }
 }

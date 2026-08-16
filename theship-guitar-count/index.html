@@ -99,6 +99,7 @@
     <li><a href="#register">Why the voicings were wrong, and what the audio says</a></li>
     <li><a href="#green">Why this page does not show a green suite</a></li>
     <li><a href="#retracted">The Flake repair is retracted</a></li>
+    <li><a href="#alignment">The blocking operation, found by the sixth failed control</a></li>
     
   </ol>
 </div>
@@ -2234,6 +2235,65 @@ VERDICT: RETRACT</pre>
 <p>Six routes to a green suite have now been tried on this album. Every one produced a
 refutation or a bug, including this one, which refuted the only repair the page had been
 claiming.</p>
+
+
+<h2 id="alignment">12 &nbsp;The blocking operation, found by the sixth failed control</h2>
+
+<p><b>Six measurements were built this session to settle which strings the Flake guitar
+strikes. Every one failed its own control.</b></p>
+
+<div class="tablewrap"><table>
+<thead><tr><th>Measure</th><th class="num">Result</th><th class="num">Its control</th></tr></thead>
+<tbody>
+<tr><td>presence of the written low tone</td><td class="num">1.90</td><td class="num">1.29</td></tr>
+<tr><td>octave-up form, presence</td><td class="num">86.4%</td><td class="num">86.1%</td></tr>
+<tr><td>C#m upper form, presence</td><td class="num">86.2%</td><td class="num">91.7%</td></tr>
+<tr><td>supported against written note count</td><td class="num">65.4%</td><td class="num">60.2%</td></tr>
+<tr><td>attack rise, claimed against unclaimed strings</td><td class="num">-0.116</td><td class="num">-0.020</td></tr>
+<tr><td>attack rise, one harmony written two ways</td><td class="num">1.208</td><td class="num">1.202</td></tr>
+<tr><td><b>onset alignment of the written events</b></td><td class="num"><b>55.8%</b></td><td class="num"><b>58.3%</b></td></tr>
+</tbody></table></div>
+
+<p><b>The last row explains the other six.</b> 02 Flake's written chord events land on a
+detected onset in its own stem 55.8% of the time. Uniformly random times land on one
+58.3% of the time, and shifted times 57.0 to 57.9%. <b>The tab matches this recording's
+attacks worse than chance.</b></p>
+
+<p><code>audio_accuracy.json</code> has recorded <code>timing_established: false</code>
+for this song all along, and six per-beat measurements were built on the linear
+offset-and-tempo map regardless. <b>No per-event fact about Flake can be measured until
+the beat-to-seconds map is established.</b> That is the blocking operation, and it sits
+upstream of every voicing, articulation and doubling question on this song.</p>
+
+<h3>The chord-event model, and what it exposes</h3>
+
+<p>Brandon's architecture note: a chord event should carry separate facts for attack time,
+active strings, fret position, pitch content, articulation and sustain, and a detected
+chord should not be allowed to generate extra strings, repeat through a rest, or pick a
+lower position merely because it stays playable. <code>chord_event.py</code> stores each
+fact beside the evidence that fixed it. Over Flake's 926 chord events:</p>
+
+<div class="tablewrap"><table>
+<thead><tr><th>Fact</th><th class="num">Measured</th><th class="num">Notation</th>
+<th class="num">Derived</th><th class="num">Asserted</th></tr></thead>
+<tbody>
+<tr><td>attack_time</td><td class="num">517</td><td class="num">0</td><td class="num">0</td><td class="num">409</td></tr>
+<tr><td><b>active_strings</b></td><td class="num">0</td><td class="num">0</td><td class="num">0</td><td class="num"><b>926</b></td></tr>
+<tr><td>fret_position</td><td class="num">0</td><td class="num">0</td><td class="num">926</td><td class="num">0</td></tr>
+<tr><td>pitch_content</td><td class="num">517</td><td class="num">0</td><td class="num">0</td><td class="num">409</td></tr>
+<tr><td><b>articulation</b></td><td class="num">0</td><td class="num">0</td><td class="num">0</td><td class="num"><b>926</b></td></tr>
+<tr><td>sustain</td><td class="num">0</td><td class="num">926</td><td class="num">0</td><td class="num">0</td></tr>
+</tbody></table></div>
+
+<p><b>2.88 of 6 facts per event are asserted with nothing behind them</b>, and the two at
+926 of 926 are exactly the two Brandon's corrections are about. A scorecard that averages
+over these hides them, which is how a wrong voicing passed every physical gate while an
+ear caught it in seconds.</p>
+
+<p><b>The next repair is not another voicing sweep.</b> It is the beat-to-seconds map for
+02 Flake, then re-running every measurement above on a map that holds, then reconstructing
+the chord family. Nothing before that step can be trusted, including the numbers this page
+published earlier today.</p>
 
 <footer>
   <p><b>Reproduce:</b><br>

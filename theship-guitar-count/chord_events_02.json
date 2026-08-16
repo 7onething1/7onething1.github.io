@@ -1,0 +1,1085 @@
+{
+ "gp": "02 Flake of the Year.gp",
+ "events": 926,
+ "tally": {
+  "attack_time": {
+   "NONE": 409,
+   "MEASURED": 517
+  },
+  "active_strings": {
+   "NONE": 926
+  },
+  "fret_position": {
+   "DERIVED": 926
+  },
+  "pitch_content": {
+   "NONE": 409,
+   "MEASURED": 517
+  },
+  "articulation": {
+   "NONE": 926
+  },
+  "sustain": {
+   "NOTATION": 926
+  }
+ },
+ "mean_asserted_per_event": 2.883,
+ "sample": [
+  {
+   "bar": 1,
+   "beat": 0.0,
+   "value": {
+    "attack_time": 2.6,
+    "active_strings": [
+     1,
+     2,
+     3,
+     4
+    ],
+    "fret_position": 7,
+    "pitch_content": [
+     52,
+     59,
+     64,
+     68
+    ],
+    "articulation": "struck",
+    "sustain": 0
+   },
+   "evidence": {
+    "attack_time": "NONE",
+    "active_strings": "NONE",
+    "fret_position": "DERIVED",
+    "pitch_content": "NONE",
+    "articulation": "NONE",
+    "sustain": "NOTATION"
+   },
+   "note": {
+    "attack_time": "no onset within 90 ms; the position is the tab's own bar cursor",
+    "active_strings": "no measurement on this album separates a struck string from a ringing one; six attempts failed their controls",
+    "fret_position": "derived from active_strings, so it inherits that status",
+    "pitch_content": "0 of 4 pitches rise more at the attack than at a shifted time",
+    "articulation": "the tab's own Muted marks are circular at AUC 0.522, so articulation is asserted",
+    "sustain": "read from the tie chain, which is notation rather than audio"
+   },
+   "asserted": [
+    "attack_time",
+    "active_strings",
+    "pitch_content",
+    "articulation"
+   ]
+  },
+  {
+   "bar": 1,
+   "beat": 0.25,
+   "value": {
+    "attack_time": 2.8212,
+    "active_strings": [
+     1,
+     2,
+     3,
+     4
+    ],
+    "fret_position": 7,
+    "pitch_content": [
+     52,
+     59,
+     64,
+     68
+    ],
+    "articulation": "struck",
+    "sustain": 0
+   },
+   "evidence": {
+    "attack_time": "MEASURED",
+    "active_strings": "NONE",
+    "fret_position": "DERIVED",
+    "pitch_content": "MEASURED",
+    "articulation": "NONE",
+    "sustain": "NOTATION"
+   },
+   "note": {
+    "attack_time": "snapped to a detected onset",
+    "active_strings": "no measurement on this album separates a struck string from a ringing one; six attempts failed their controls",
+    "fret_position": "derived from active_strings, so it inherits that status",
+    "pitch_content": "4 of 4 pitches rise more at the attack than at a shifted time",
+    "articulation": "the tab's own Muted marks are circular at AUC 0.522, so articulation is asserted",
+    "sustain": "read from the tie chain, which is notation rather than audio"
+   },
+   "asserted": [
+    "active_strings",
+    "articulation"
+   ]
+  },
+  {
+   "bar": 1,
+   "beat": 0.5,
+   "value": {
+    "attack_time": 2.9954,
+    "active_strings": [
+     1,
+     2,
+     3,
+     4
+    ],
+    "fret_position": 7,
+    "pitch_content": [
+     52,
+     59,
+     64,
+     68
+    ],
+    "articulation": "struck",
+    "sustain": 0
+   },
+   "evidence": {
+    "attack_time": "MEASURED",
+    "active_strings": "NONE",
+    "fret_position": "DERIVED",
+    "pitch_content": "MEASURED",
+    "articulation": "NONE",
+    "sustain": "NOTATION"
+   },
+   "note": {
+    "attack_time": "snapped to a detected onset",
+    "active_strings": "no measurement on this album separates a struck string from a ringing one; six attempts failed their controls",
+    "fret_position": "derived from active_strings, so it inherits that status",
+    "pitch_content": "4 of 4 pitches rise more at the attack than at a shifted time",
+    "articulation": "the tab's own Muted marks are circular at AUC 0.522, so articulation is asserted",
+    "sustain": "read from the tie chain, which is notation rather than audio"
+   },
+   "asserted": [
+    "active_strings",
+    "articulation"
+   ]
+  },
+  {
+   "bar": 1,
+   "beat": 0.75,
+   "value": {
+    "attack_time": 3.1357,
+    "active_strings": [
+     1,
+     2,
+     3,
+     4
+    ],
+    "fret_position": 7,
+    "pitch_content": [
+     52,
+     59,
+     64,
+     68
+    ],
+    "articulation": "struck",
+    "sustain": 0
+   },
+   "evidence": {
+    "attack_time": "NONE",
+    "active_strings": "NONE",
+    "fret_position": "DERIVED",
+    "pitch_content": "NONE",
+    "articulation": "NONE",
+    "sustain": "NOTATION"
+   },
+   "note": {
+    "attack_time": "no onset within 90 ms; the position is the tab's own bar cursor",
+    "active_strings": "no measurement on this album separates a struck string from a ringing one; six attempts failed their controls",
+    "fret_position": "derived from active_strings, so it inherits that status",
+    "pitch_content": "0 of 4 pitches rise more at the attack than at a shifted time",
+    "articulation": "the tab's own Muted marks are circular at AUC 0.522, so articulation is asserted",
+    "sustain": "read from the tie chain, which is notation rather than audio"
+   },
+   "asserted": [
+    "attack_time",
+    "active_strings",
+    "pitch_content",
+    "articulation"
+   ]
+  },
+  {
+   "bar": 1,
+   "beat": 1.0,
+   "value": {
+    "attack_time": 3.3321,
+    "active_strings": [
+     1,
+     2,
+     3,
+     4
+    ],
+    "fret_position": 7,
+    "pitch_content": [
+     52,
+     59,
+     64,
+     68
+    ],
+    "articulation": "struck",
+    "sustain": 0
+   },
+   "evidence": {
+    "attack_time": "MEASURED",
+    "active_strings": "NONE",
+    "fret_position": "DERIVED",
+    "pitch_content": "MEASURED",
+    "articulation": "NONE",
+    "sustain": "NOTATION"
+   },
+   "note": {
+    "attack_time": "snapped to a detected onset",
+    "active_strings": "no measurement on this album separates a struck string from a ringing one; six attempts failed their controls",
+    "fret_position": "derived from active_strings, so it inherits that status",
+    "pitch_content": "3 of 4 pitches rise more at the attack than at a shifted time",
+    "articulation": "the tab's own Muted marks are circular at AUC 0.522, so articulation is asserted",
+    "sustain": "read from the tie chain, which is notation rather than audio"
+   },
+   "asserted": [
+    "active_strings",
+    "articulation"
+   ]
+  },
+  {
+   "bar": 1,
+   "beat": 1.25,
+   "value": {
+    "attack_time": 3.5062,
+    "active_strings": [
+     1,
+     2,
+     3,
+     4
+    ],
+    "fret_position": 7,
+    "pitch_content": [
+     52,
+     59,
+     64,
+     68
+    ],
+    "articulation": "struck",
+    "sustain": 0
+   },
+   "evidence": {
+    "attack_time": "MEASURED",
+    "active_strings": "NONE",
+    "fret_position": "DERIVED",
+    "pitch_content": "MEASURED",
+    "articulation": "NONE",
+    "sustain": "NOTATION"
+   },
+   "note": {
+    "attack_time": "snapped to a detected onset",
+    "active_strings": "no measurement on this album separates a struck string from a ringing one; six attempts failed their controls",
+    "fret_position": "derived from active_strings, so it inherits that status",
+    "pitch_content": "4 of 4 pitches rise more at the attack than at a shifted time",
+    "articulation": "the tab's own Muted marks are circular at AUC 0.522, so articulation is asserted",
+    "sustain": "read from the tie chain, which is notation rather than audio"
+   },
+   "asserted": [
+    "active_strings",
+    "articulation"
+   ]
+  },
+  {
+   "bar": 1,
+   "beat": 1.5,
+   "value": {
+    "attack_time": 3.6804,
+    "active_strings": [
+     1,
+     2,
+     3,
+     4
+    ],
+    "fret_position": 7,
+    "pitch_content": [
+     52,
+     59,
+     64,
+     68
+    ],
+    "articulation": "struck",
+    "sustain": 0
+   },
+   "evidence": {
+    "attack_time": "MEASURED",
+    "active_strings": "NONE",
+    "fret_position": "DERIVED",
+    "pitch_content": "MEASURED",
+    "articulation": "NONE",
+    "sustain": "NOTATION"
+   },
+   "note": {
+    "attack_time": "snapped to a detected onset",
+    "active_strings": "no measurement on this album separates a struck string from a ringing one; six attempts failed their controls",
+    "fret_position": "derived from active_strings, so it inherits that status",
+    "pitch_content": "2 of 4 pitches rise more at the attack than at a shifted time",
+    "articulation": "the tab's own Muted marks are circular at AUC 0.522, so articulation is asserted",
+    "sustain": "read from the tie chain, which is notation rather than audio"
+   },
+   "asserted": [
+    "active_strings",
+    "articulation"
+   ]
+  },
+  {
+   "bar": 1,
+   "beat": 1.75,
+   "value": {
+    "attack_time": 3.8661,
+    "active_strings": [
+     1,
+     2,
+     3,
+     4
+    ],
+    "fret_position": 7,
+    "pitch_content": [
+     52,
+     59,
+     64,
+     68
+    ],
+    "articulation": "struck",
+    "sustain": 0
+   },
+   "evidence": {
+    "attack_time": "MEASURED",
+    "active_strings": "NONE",
+    "fret_position": "DERIVED",
+    "pitch_content": "MEASURED",
+    "articulation": "NONE",
+    "sustain": "NOTATION"
+   },
+   "note": {
+    "attack_time": "snapped to a detected onset",
+    "active_strings": "no measurement on this album separates a struck string from a ringing one; six attempts failed their controls",
+    "fret_position": "derived from active_strings, so it inherits that status",
+    "pitch_content": "4 of 4 pitches rise more at the attack than at a shifted time",
+    "articulation": "the tab's own Muted marks are circular at AUC 0.522, so articulation is asserted",
+    "sustain": "read from the tie chain, which is notation rather than audio"
+   },
+   "asserted": [
+    "active_strings",
+    "articulation"
+   ]
+  },
+  {
+   "bar": 2,
+   "beat": 0.0,
+   "value": {
+    "attack_time": 4.0519,
+    "active_strings": [
+     1,
+     2,
+     3,
+     4
+    ],
+    "fret_position": 4,
+    "pitch_content": [
+     49,
+     56,
+     61,
+     64
+    ],
+    "articulation": "struck",
+    "sustain": 0
+   },
+   "evidence": {
+    "attack_time": "MEASURED",
+    "active_strings": "NONE",
+    "fret_position": "DERIVED",
+    "pitch_content": "MEASURED",
+    "articulation": "NONE",
+    "sustain": "NOTATION"
+   },
+   "note": {
+    "attack_time": "snapped to a detected onset",
+    "active_strings": "no measurement on this album separates a struck string from a ringing one; six attempts failed their controls",
+    "fret_position": "derived from active_strings, so it inherits that status",
+    "pitch_content": "2 of 4 pitches rise more at the attack than at a shifted time",
+    "articulation": "the tab's own Muted marks are circular at AUC 0.522, so articulation is asserted",
+    "sustain": "read from the tie chain, which is notation rather than audio"
+   },
+   "asserted": [
+    "active_strings",
+    "articulation"
+   ]
+  },
+  {
+   "bar": 2,
+   "beat": 0.25,
+   "value": {
+    "attack_time": 4.2376,
+    "active_strings": [
+     1,
+     2,
+     3,
+     4
+    ],
+    "fret_position": 4,
+    "pitch_content": [
+     49,
+     56,
+     61,
+     64
+    ],
+    "articulation": "struck",
+    "sustain": 0
+   },
+   "evidence": {
+    "attack_time": "MEASURED",
+    "active_strings": "NONE",
+    "fret_position": "DERIVED",
+    "pitch_content": "MEASURED",
+    "articulation": "NONE",
+    "sustain": "NOTATION"
+   },
+   "note": {
+    "attack_time": "snapped to a detected onset",
+    "active_strings": "no measurement on this album separates a struck string from a ringing one; six attempts failed their controls",
+    "fret_position": "derived from active_strings, so it inherits that status",
+    "pitch_content": "3 of 4 pitches rise more at the attack than at a shifted time",
+    "articulation": "the tab's own Muted marks are circular at AUC 0.522, so articulation is asserted",
+    "sustain": "read from the tie chain, which is notation rather than audio"
+   },
+   "asserted": [
+    "active_strings",
+    "articulation"
+   ]
+  },
+  {
+   "bar": 2,
+   "beat": 0.5,
+   "value": {
+    "attack_time": 4.3857,
+    "active_strings": [
+     1,
+     2,
+     3,
+     4
+    ],
+    "fret_position": 4,
+    "pitch_content": [
+     49,
+     56,
+     61,
+     64
+    ],
+    "articulation": "struck",
+    "sustain": 0
+   },
+   "evidence": {
+    "attack_time": "NONE",
+    "active_strings": "NONE",
+    "fret_position": "DERIVED",
+    "pitch_content": "NONE",
+    "articulation": "NONE",
+    "sustain": "NOTATION"
+   },
+   "note": {
+    "attack_time": "no onset within 90 ms; the position is the tab's own bar cursor",
+    "active_strings": "no measurement on this album separates a struck string from a ringing one; six attempts failed their controls",
+    "fret_position": "derived from active_strings, so it inherits that status",
+    "pitch_content": "0 of 4 pitches rise more at the attack than at a shifted time",
+    "articulation": "the tab's own Muted marks are circular at AUC 0.522, so articulation is asserted",
+    "sustain": "read from the tie chain, which is notation rather than audio"
+   },
+   "asserted": [
+    "attack_time",
+    "active_strings",
+    "pitch_content",
+    "articulation"
+   ]
+  },
+  {
+   "bar": 2,
+   "beat": 0.75,
+   "value": {
+    "attack_time": 4.5976,
+    "active_strings": [
+     1,
+     2,
+     3,
+     4
+    ],
+    "fret_position": 4,
+    "pitch_content": [
+     49,
+     56,
+     61,
+     64
+    ],
+    "articulation": "struck",
+    "sustain": 0
+   },
+   "evidence": {
+    "attack_time": "MEASURED",
+    "active_strings": "NONE",
+    "fret_position": "DERIVED",
+    "pitch_content": "MEASURED",
+    "articulation": "NONE",
+    "sustain": "NOTATION"
+   },
+   "note": {
+    "attack_time": "snapped to a detected onset",
+    "active_strings": "no measurement on this album separates a struck string from a ringing one; six attempts failed their controls",
+    "fret_position": "derived from active_strings, so it inherits that status",
+    "pitch_content": "4 of 4 pitches rise more at the attack than at a shifted time",
+    "articulation": "the tab's own Muted marks are circular at AUC 0.522, so articulation is asserted",
+    "sustain": "read from the tie chain, which is notation rather than audio"
+   },
+   "asserted": [
+    "active_strings",
+    "articulation"
+   ]
+  },
+  {
+   "bar": 2,
+   "beat": 1.0,
+   "value": {
+    "attack_time": 4.7717,
+    "active_strings": [
+     1,
+     2,
+     3,
+     4
+    ],
+    "fret_position": 4,
+    "pitch_content": [
+     49,
+     56,
+     61,
+     64
+    ],
+    "articulation": "struck",
+    "sustain": 0
+   },
+   "evidence": {
+    "attack_time": "MEASURED",
+    "active_strings": "NONE",
+    "fret_position": "DERIVED",
+    "pitch_content": "MEASURED",
+    "articulation": "NONE",
+    "sustain": "NOTATION"
+   },
+   "note": {
+    "attack_time": "snapped to a detected onset",
+    "active_strings": "no measurement on this album separates a struck string from a ringing one; six attempts failed their controls",
+    "fret_position": "derived from active_strings, so it inherits that status",
+    "pitch_content": "3 of 4 pitches rise more at the attack than at a shifted time",
+    "articulation": "the tab's own Muted marks are circular at AUC 0.522, so articulation is asserted",
+    "sustain": "read from the tie chain, which is notation rather than audio"
+   },
+   "asserted": [
+    "active_strings",
+    "articulation"
+   ]
+  },
+  {
+   "bar": 2,
+   "beat": 1.25,
+   "value": {
+    "attack_time": 4.9342,
+    "active_strings": [
+     1,
+     2,
+     3,
+     4
+    ],
+    "fret_position": 4,
+    "pitch_content": [
+     49,
+     56,
+     61,
+     64
+    ],
+    "articulation": "struck",
+    "sustain": 0
+   },
+   "evidence": {
+    "attack_time": "MEASURED",
+    "active_strings": "NONE",
+    "fret_position": "DERIVED",
+    "pitch_content": "MEASURED",
+    "articulation": "NONE",
+    "sustain": "NOTATION"
+   },
+   "note": {
+    "attack_time": "snapped to a detected onset",
+    "active_strings": "no measurement on this album separates a struck string from a ringing one; six attempts failed their controls",
+    "fret_position": "derived from active_strings, so it inherits that status",
+    "pitch_content": "3 of 4 pitches rise more at the attack than at a shifted time",
+    "articulation": "the tab's own Muted marks are circular at AUC 0.522, so articulation is asserted",
+    "sustain": "read from the tie chain, which is notation rather than audio"
+   },
+   "asserted": [
+    "active_strings",
+    "articulation"
+   ]
+  },
+  {
+   "bar": 2,
+   "beat": 1.5,
+   "value": {
+    "attack_time": 5.0736,
+    "active_strings": [
+     1,
+     2,
+     3,
+     4
+    ],
+    "fret_position": 4,
+    "pitch_content": [
+     49,
+     56,
+     61,
+     64
+    ],
+    "articulation": "struck",
+    "sustain": 0
+   },
+   "evidence": {
+    "attack_time": "MEASURED",
+    "active_strings": "NONE",
+    "fret_position": "DERIVED",
+    "pitch_content": "MEASURED",
+    "articulation": "NONE",
+    "sustain": "NOTATION"
+   },
+   "note": {
+    "attack_time": "snapped to a detected onset",
+    "active_strings": "no measurement on this album separates a struck string from a ringing one; six attempts failed their controls",
+    "fret_position": "derived from active_strings, so it inherits that status",
+    "pitch_content": "2 of 4 pitches rise more at the attack than at a shifted time",
+    "articulation": "the tab's own Muted marks are circular at AUC 0.522, so articulation is asserted",
+    "sustain": "read from the tie chain, which is notation rather than audio"
+   },
+   "asserted": [
+    "active_strings",
+    "articulation"
+   ]
+  },
+  {
+   "bar": 2,
+   "beat": 1.75,
+   "value": {
+    "attack_time": 5.2825,
+    "active_strings": [
+     1,
+     2,
+     3,
+     4
+    ],
+    "fret_position": 4,
+    "pitch_content": [
+     49,
+     56,
+     61,
+     64
+    ],
+    "articulation": "struck",
+    "sustain": 0
+   },
+   "evidence": {
+    "attack_time": "MEASURED",
+    "active_strings": "NONE",
+    "fret_position": "DERIVED",
+    "pitch_content": "MEASURED",
+    "articulation": "NONE",
+    "sustain": "NOTATION"
+   },
+   "note": {
+    "attack_time": "snapped to a detected onset",
+    "active_strings": "no measurement on this album separates a struck string from a ringing one; six attempts failed their controls",
+    "fret_position": "derived from active_strings, so it inherits that status",
+    "pitch_content": "3 of 4 pitches rise more at the attack than at a shifted time",
+    "articulation": "the tab's own Muted marks are circular at AUC 0.522, so articulation is asserted",
+    "sustain": "read from the tie chain, which is notation rather than audio"
+   },
+   "asserted": [
+    "active_strings",
+    "articulation"
+   ]
+  },
+  {
+   "bar": 2,
+   "beat": 2.0,
+   "value": {
+    "attack_time": 5.4335,
+    "active_strings": [
+     1,
+     2,
+     3,
+     4
+    ],
+    "fret_position": 4,
+    "pitch_content": [
+     49,
+     56,
+     61,
+     64
+    ],
+    "articulation": "struck",
+    "sustain": 0
+   },
+   "evidence": {
+    "attack_time": "MEASURED",
+    "active_strings": "NONE",
+    "fret_position": "DERIVED",
+    "pitch_content": "MEASURED",
+    "articulation": "NONE",
+    "sustain": "NOTATION"
+   },
+   "note": {
+    "attack_time": "snapped to a detected onset",
+    "active_strings": "no measurement on this album separates a struck string from a ringing one; six attempts failed their controls",
+    "fret_position": "derived from active_strings, so it inherits that status",
+    "pitch_content": "4 of 4 pitches rise more at the attack than at a shifted time",
+    "articulation": "the tab's own Muted marks are circular at AUC 0.522, so articulation is asserted",
+    "sustain": "read from the tie chain, which is notation rather than audio"
+   },
+   "asserted": [
+    "active_strings",
+    "articulation"
+   ]
+  },
+  {
+   "bar": 2,
+   "beat": 2.25,
+   "value": {
+    "attack_time": 5.6076,
+    "active_strings": [
+     1,
+     2,
+     3,
+     4
+    ],
+    "fret_position": 4,
+    "pitch_content": [
+     49,
+     56,
+     61,
+     64
+    ],
+    "articulation": "struck",
+    "sustain": 0
+   },
+   "evidence": {
+    "attack_time": "MEASURED",
+    "active_strings": "NONE",
+    "fret_position": "DERIVED",
+    "pitch_content": "MEASURED",
+    "articulation": "NONE",
+    "sustain": "NOTATION"
+   },
+   "note": {
+    "attack_time": "snapped to a detected onset",
+    "active_strings": "no measurement on this album separates a struck string from a ringing one; six attempts failed their controls",
+    "fret_position": "derived from active_strings, so it inherits that status",
+    "pitch_content": "2 of 4 pitches rise more at the attack than at a shifted time",
+    "articulation": "the tab's own Muted marks are circular at AUC 0.522, so articulation is asserted",
+    "sustain": "read from the tie chain, which is notation rather than audio"
+   },
+   "asserted": [
+    "active_strings",
+    "articulation"
+   ]
+  },
+  {
+   "bar": 2,
+   "beat": 2.5,
+   "value": {
+    "attack_time": 5.8166,
+    "active_strings": [
+     1,
+     2,
+     3,
+     4
+    ],
+    "fret_position": 4,
+    "pitch_content": [
+     49,
+     56,
+     61,
+     64
+    ],
+    "articulation": "struck",
+    "sustain": 0
+   },
+   "evidence": {
+    "attack_time": "MEASURED",
+    "active_strings": "NONE",
+    "fret_position": "DERIVED",
+    "pitch_content": "MEASURED",
+    "articulation": "NONE",
+    "sustain": "NOTATION"
+   },
+   "note": {
+    "attack_time": "snapped to a detected onset",
+    "active_strings": "no measurement on this album separates a struck string from a ringing one; six attempts failed their controls",
+    "fret_position": "derived from active_strings, so it inherits that status",
+    "pitch_content": "4 of 4 pitches rise more at the attack than at a shifted time",
+    "articulation": "the tab's own Muted marks are circular at AUC 0.522, so articulation is asserted",
+    "sustain": "read from the tie chain, which is notation rather than audio"
+   },
+   "asserted": [
+    "active_strings",
+    "articulation"
+   ]
+  },
+  {
+   "bar": 2,
+   "beat": 2.75,
+   "value": {
+    "attack_time": 5.9907,
+    "active_strings": [
+     1,
+     2,
+     3,
+     4
+    ],
+    "fret_position": 4,
+    "pitch_content": [
+     49,
+     56,
+     61,
+     64
+    ],
+    "articulation": "struck",
+    "sustain": 0
+   },
+   "evidence": {
+    "attack_time": "MEASURED",
+    "active_strings": "NONE",
+    "fret_position": "DERIVED",
+    "pitch_content": "MEASURED",
+    "articulation": "NONE",
+    "sustain": "NOTATION"
+   },
+   "note": {
+    "attack_time": "snapped to a detected onset",
+    "active_strings": "no measurement on this album separates a struck string from a ringing one; six attempts failed their controls",
+    "fret_position": "derived from active_strings, so it inherits that status",
+    "pitch_content": "2 of 4 pitches rise more at the attack than at a shifted time",
+    "articulation": "the tab's own Muted marks are circular at AUC 0.522, so articulation is asserted",
+    "sustain": "read from the tie chain, which is notation rather than audio"
+   },
+   "asserted": [
+    "active_strings",
+    "articulation"
+   ]
+  },
+  {
+   "bar": 2,
+   "beat": 3.0,
+   "value": {
+    "attack_time": 6.0836,
+    "active_strings": [
+     1,
+     2,
+     3,
+     4
+    ],
+    "fret_position": 4,
+    "pitch_content": [
+     49,
+     56,
+     61,
+     64
+    ],
+    "articulation": "struck",
+    "sustain": 0
+   },
+   "evidence": {
+    "attack_time": "MEASURED",
+    "active_strings": "NONE",
+    "fret_position": "DERIVED",
+    "pitch_content": "MEASURED",
+    "articulation": "NONE",
+    "sustain": "NOTATION"
+   },
+   "note": {
+    "attack_time": "snapped to a detected onset",
+    "active_strings": "no measurement on this album separates a struck string from a ringing one; six attempts failed their controls",
+    "fret_position": "derived from active_strings, so it inherits that status",
+    "pitch_content": "1 of 4 pitches rise more at the attack than at a shifted time",
+    "articulation": "the tab's own Muted marks are circular at AUC 0.522, so articulation is asserted",
+    "sustain": "read from the tie chain, which is notation rather than audio"
+   },
+   "asserted": [
+    "active_strings",
+    "articulation"
+   ]
+  },
+  {
+   "bar": 2,
+   "beat": 3.25,
+   "value": {
+    "attack_time": 6.3274,
+    "active_strings": [
+     1,
+     2,
+     3,
+     4
+    ],
+    "fret_position": 4,
+    "pitch_content": [
+     49,
+     56,
+     61,
+     64
+    ],
+    "articulation": "struck",
+    "sustain": 0
+   },
+   "evidence": {
+    "attack_time": "MEASURED",
+    "active_strings": "NONE",
+    "fret_position": "DERIVED",
+    "pitch_content": "MEASURED",
+    "articulation": "NONE",
+    "sustain": "NOTATION"
+   },
+   "note": {
+    "attack_time": "snapped to a detected onset",
+    "active_strings": "no measurement on this album separates a struck string from a ringing one; six attempts failed their controls",
+    "fret_position": "derived from active_strings, so it inherits that status",
+    "pitch_content": "4 of 4 pitches rise more at the attack than at a shifted time",
+    "articulation": "the tab's own Muted marks are circular at AUC 0.522, so articulation is asserted",
+    "sustain": "read from the tie chain, which is notation rather than audio"
+   },
+   "asserted": [
+    "active_strings",
+    "articulation"
+   ]
+  },
+  {
+   "bar": 3,
+   "beat": 0.0,
+   "value": {
+    "attack_time": 6.49,
+    "active_strings": [
+     1,
+     2,
+     3,
+     4
+    ],
+    "fret_position": 7,
+    "pitch_content": [
+     52,
+     59,
+     64,
+     68
+    ],
+    "articulation": "struck",
+    "sustain": 0
+   },
+   "evidence": {
+    "attack_time": "MEASURED",
+    "active_strings": "NONE",
+    "fret_position": "DERIVED",
+    "pitch_content": "MEASURED",
+    "articulation": "NONE",
+    "sustain": "NOTATION"
+   },
+   "note": {
+    "attack_time": "snapped to a detected onset",
+    "active_strings": "no measurement on this album separates a struck string from a ringing one; six attempts failed their controls",
+    "fret_position": "derived from active_strings, so it inherits that status",
+    "pitch_content": "4 of 4 pitches rise more at the attack than at a shifted time",
+    "articulation": "the tab's own Muted marks are circular at AUC 0.522, so articulation is asserted",
+    "sustain": "read from the tie chain, which is notation rather than audio"
+   },
+   "asserted": [
+    "active_strings",
+    "articulation"
+   ]
+  },
+  {
+   "bar": 3,
+   "beat": 0.25,
+   "value": {
+    "attack_time": 6.6757,
+    "active_strings": [
+     1,
+     2,
+     3,
+     4
+    ],
+    "fret_position": 7,
+    "pitch_content": [
+     52,
+     59,
+     64,
+     68
+    ],
+    "articulation": "struck",
+    "sustain": 0
+   },
+   "evidence": {
+    "attack_time": "MEASURED",
+    "active_strings": "NONE",
+    "fret_position": "DERIVED",
+    "pitch_content": "MEASURED",
+    "articulation": "NONE",
+    "sustain": "NOTATION"
+   },
+   "note": {
+    "attack_time": "snapped to a detected onset",
+    "active_strings": "no measurement on this album separates a struck string from a ringing one; six attempts failed their controls",
+    "fret_position": "derived from active_strings, so it inherits that status",
+    "pitch_content": "1 of 4 pitches rise more at the attack than at a shifted time",
+    "articulation": "the tab's own Muted marks are circular at AUC 0.522, so articulation is asserted",
+    "sustain": "read from the tie chain, which is notation rather than audio"
+   },
+   "asserted": [
+    "active_strings",
+    "articulation"
+   ]
+  },
+  {
+   "bar": 3,
+   "beat": 0.5,
+   "value": {
+    "attack_time": 6.8731,
+    "active_strings": [
+     1,
+     2,
+     3,
+     4
+    ],
+    "fret_position": 7,
+    "pitch_content": [
+     52,
+     59,
+     64,
+     68
+    ],
+    "articulation": "struck",
+    "sustain": 0
+   },
+   "evidence": {
+    "attack_time": "MEASURED",
+    "active_strings": "NONE",
+    "fret_position": "DERIVED",
+    "pitch_content": "MEASURED",
+    "articulation": "NONE",
+    "sustain": "NOTATION"
+   },
+   "note": {
+    "attack_time": "snapped to a detected onset",
+    "active_strings": "no measurement on this album separates a struck string from a ringing one; six attempts failed their controls",
+    "fret_position": "derived from active_strings, so it inherits that status",
+    "pitch_content": "4 of 4 pitches rise more at the attack than at a shifted time",
+    "articulation": "the tab's own Muted marks are circular at AUC 0.522, so articulation is asserted",
+    "sustain": "read from the tie chain, which is notation rather than audio"
+   },
+   "asserted": [
+    "active_strings",
+    "articulation"
+   ]
+  }
+ ]
+}
