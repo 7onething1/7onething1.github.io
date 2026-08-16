@@ -1010,8 +1010,8 @@ a file that should not have been made, and it is kept as evidence rather than as
 the delivery.</p>
 
 <p>Artifacts, source files untouched with backups beside each:<br>
-<code>_tacet_04/…-TACET.gp</code> sha256[:16] <code>a2e444cbce6e99eb</code><br>
-<code>_tacet_05/…-TACET.gp</code> sha256[:16] <code>b0a4f674323dbb3e</code></p>
+<code>_tacet_04/-TACET.gp</code> sha256[:16] <code>a2e444cbce6e99eb</code><br>
+<code>_tacet_05/-TACET.gp</code> sha256[:16] <code>b0a4f674323dbb3e</code></p>
 
 
 <h3>02 Flake: the one repair that needed no ear, done and measured</h3>
@@ -2122,6 +2122,20 @@ REPAIRED CANDIDATE
 
 <p><b>Making the repaired file the graded artifact would clear zero cases.</b> It improves
 one measure by 27 beats and leaves the other two untouched.</p>
+
+<p><b>The C#m case is checkable by command, and the number runs the other way from
+how it reads at a glance.</b></p>
+
+<pre style="overflow-x:auto;font-size:12px;line-height:1.5;background:var(--dust);padding:10px;border:1px solid var(--rule)">brandon_cases.py --measure-case 02-csharp-minor-second-position --against "02 Flake of the Year-OCTAVE-LIFT.gp"
+
+graded artifact    sha256:16 e90b44d28bb5f3fe
+   204 of 204 C#m beats are fretted AWAY from position 2
+--against          sha256:16 8b7f9dcd609bff4e
+   177 of 204 still AWAY; positions found {2: 27, 4: 84, 5: 7, 6: 3, 9: 31, 12: 52}</pre>
+
+<p><b>27 beats of 204 moved to second position, 13.2%.</b> The other 86.8% did not. The
+case status stays OPEN, because a status reading resolved while 177 of 204 beats remain
+wrong is the same scorecard-over-ear failure that created this case file.</p>
 
 <h3>And the upper-three-string correction cannot be met by refretting at all</h3>
 

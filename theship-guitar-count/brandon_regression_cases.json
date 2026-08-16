@@ -102,12 +102,13 @@
     "want_position": 2
    },
    "repair": {
-    "status": "REPAIRED_IN_CANDIDATE",
+    "status": "IMPROVED_IN_CANDIDATE_NOT_RESOLVED",
     "candidate": "8b7f9dcd609bff4e",
     "what": "same lift; this correction and the upper-three-string one are one defect",
     "evidence": "204 of 204 C#m beats were fretted away from second position at frets 4, 5 and 12 before the lift",
     "why_still_open": "same as above",
-    "measured_2026-08-16": "the lift moved 27 of 204 C#m beats to second position; 177 remain away from it, at frets 4, 5, 6, 9 and 12"
+    "measured_2026-08-16": "graded artifact e90b44d28bb5f3fe: 204 of 204 C#m beats fretted AWAY from second position. Candidate 8b7f9dcd609bff4e: 177 of 204 still away, so 27 beats (13.2%) moved to position 2 and 86.8% did not. Verify with: brandon_cases.py --measure-case 02-csharp-minor-second-position --against <candidate>",
+    "why_not_resolved": "13.2% is a delta, not a resolution. A status that reads resolved while 177 of 204 beats remain wrong is the same scorecard-over-ear failure that created this case file on 2026-08-16."
    }
   },
   {

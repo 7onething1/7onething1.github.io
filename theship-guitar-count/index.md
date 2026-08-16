@@ -687,7 +687,7 @@ The tacet artifact is a partial recovery of a file that should not have been mad
 kept as evidence rather than as the delivery.
 
 Artifacts (sources untouched, backups beside each):
-`_tacet_04/…-TACET.gp` `a2e444cbce6e99eb`, `_tacet_05/…-TACET.gp` `b0a4f674323dbb3e`
+`_tacet_04/-TACET.gp` `a2e444cbce6e99eb`, `_tacet_05/-TACET.gp` `b0a4f674323dbb3e`
 
 ```
 python3 ~/Projects/_outputs/theship-tabs/apply_tacet.py --song 04 --apply
@@ -1349,3 +1349,5 @@ A green suite needs a guitar-versus-bass method for the bottom octave, independe
 Promotion was tested and clears nothing: measured against both files, 02-upper-three-voicings reads 445 of 765 on each, 02-duplicated-lead-notes reads 48 of 225 on each, and only 02-csharp-minor-second-position improves, from 204 of 204 to 177 of 204.
 
 The upper-three-string correction cannot be met by refretting: 288 of the 445 low-reaching chord beats carry four or more notes, and none of the 157 three-note ones fit the top three strings at their written pitches. Meeting it needs notes dropped rather than moved. The evidence for dropping them fails its control: median 4 written against 2 supported, but the shifted-time control shows a median of 3 supported, and 65.4% versus 60.2% is a separation of only +5.2 points.
+
+The C#m case is checkable by command: `brandon_cases.py --measure-case 02-csharp-minor-second-position --against <candidate>`. Graded artifact e90b44d28bb5f3fe reads 204 of 204 C#m beats fretted away from position 2; candidate 8b7f9dcd609bff4e reads 177 of 204 still away. So 27 beats moved, 13.2%, and 86.8% did not. The case stays OPEN.
