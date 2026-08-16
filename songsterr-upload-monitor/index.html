@@ -1,0 +1,270 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Six sessions, one Songsterr tab</title>
+<style>
+  :root{
+    --cream:#fbf2ea; --ink:#141210; --rule:#d9c9b6;
+    --mustard:#d8a325; --rust:#b4472e; --teal:#3f7d78;
+    --plum:#7a4a63; --sage:#8a9a5b; --sand:#f3e6d6;
+  }
+  *{box-sizing:border-box}
+  body{margin:0;background:var(--cream);color:var(--ink);
+       font:16px/1.62 "Iowan Old Style","Palatino Linotype",Palatino,Georgia,serif;}
+  .wrap{max-width:920px;margin:0 auto;padding:44px 22px 90px}
+  h1{font-size:2.35rem;line-height:1.12;margin:0 0 6px;letter-spacing:-.015em}
+  .sub{color:#5c5147;font-size:1.05rem;margin:0 0 4px}
+  .stamp{font:12px/1.5 ui-monospace,Menlo,monospace;color:#7d7268;margin:14px 0 0}
+  h2{font-size:1.35rem;margin:46px 0 4px;padding-bottom:7px;border-bottom:2px solid var(--rule)}
+  h3{font-size:1.05rem;margin:26px 0 6px}
+  p{margin:11px 0}
+  .lede{font-size:1.1rem}
+  .ask{background:var(--sand);border-left:5px solid var(--mustard);
+       padding:16px 20px;margin:26px 0;border-radius:0 4px 4px 0}
+  .ask b{display:block;font-size:.76rem;letter-spacing:.1em;text-transform:uppercase;
+         color:#6b5e52;margin-bottom:6px}
+  .ask i{font-style:italic;font-size:1.06rem}
+  table{width:100%;border-collapse:collapse;margin:16px 0;font-size:.93rem}
+  .scroll{overflow-x:auto;-webkit-overflow-scrolling:touch}
+  th{text-align:left;font-size:.72rem;letter-spacing:.09em;text-transform:uppercase;
+     color:#6b5e52;border-bottom:2px solid var(--rule);padding:8px 10px;white-space:nowrap}
+  td{padding:9px 10px;border-bottom:1px solid #e8dccc;vertical-align:top}
+  tr:last-child td{border-bottom:none}
+  code,.mono{font:13px/1.5 ui-monospace,Menlo,monospace}
+  td code{font-size:12px}
+  .pill{display:inline-block;font:11px/1 ui-monospace,Menlo,monospace;
+        padding:4px 7px;border-radius:3px;white-space:nowrap;color:#fff}
+  .p-block{background:var(--rust)} .p-run{background:var(--sage)}
+  .p-stall{background:var(--mustard);color:#3a2d14} .p-fix{background:var(--teal)}
+  pre{background:#22201d;color:#f0e7dc;padding:15px 17px;border-radius:5px;
+      overflow-x:auto;font:12.5px/1.62 ui-monospace,Menlo,monospace;margin:14px 0}
+  pre .c{color:#9db08a} pre .w{color:#e0a33c} pre .g{color:#7fc7a4}
+  .grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(190px,1fr));gap:13px;margin:20px 0}
+  .card{background:#fff;border:1px solid var(--rule);border-radius:5px;padding:14px 15px}
+  .card .n{font-size:1.85rem;font-weight:700;line-height:1;letter-spacing:-.02em}
+  .card .l{font-size:.79rem;color:#6b5e52;margin-top:5px}
+  .rust{color:var(--rust)} .teal{color:var(--teal)} .plum{color:var(--plum)}
+  .mustard{color:#a67a12} .sage{color:#65703f}
+  .note{border:1px solid var(--rule);background:#fff;border-radius:5px;padding:15px 18px;margin:20px 0}
+  .note b{color:var(--rust)}
+  ul{margin:11px 0;padding-left:21px} li{margin:6px 0}
+  .num{font-variant-numeric:tabular-nums;text-align:right;white-space:nowrap}
+  .del{color:var(--rust);font-weight:600}
+  .same{color:#8d8378}
+  footer{margin-top:60px;padding-top:18px;border-top:2px solid var(--rule);
+         font-size:.85rem;color:#6b5e52}
+  a{color:var(--teal)}
+</style>
+</head>
+<body>
+<div class="wrap">
+
+<h1>Six sessions, one Songsterr tab</h1>
+<p class="sub">What today's chats were doing to each other, and the lock that stops it</p>
+<p class="stamp">16 August 2026 &middot; measured from six session transcripts and the live revision backup</p>
+
+<div class="ask">
+  <b>The ask</b>
+  <i>"monitor the active chats of today, make sure each isn't waiting on me to submit the
+  latest gp to songsterr bc when that happens I don't know which is that new. have it
+  upload the latest. make sure each doesn't try to do it at the same time and make sure
+  each is doing it with a file with vocal drum etc"</i>
+</div>
+
+<p class="lede">Six Claude sessions worked The Ship guitar tabs today. Three were parked
+holding a finished file, waiting for a human to upload it. Two were driving the same
+browser tab, flipping it between songs under each other. One had halted on a belief that
+turned out to be wrong.</p>
+
+<div class="grid">
+  <div class="card"><div class="n rust">3</div><div class="l">sessions parked, waiting on Brandon to upload</div></div>
+  <div class="card"><div class="n rust">2</div><div class="l">driving the same browser tab at once</div></div>
+  <div class="card"><div class="n mustard">303</div><div class="l">notes his hand-upload removed, that a stale import would restore</div></div>
+  <div class="card"><div class="n teal">1</div><div class="l">winner out of 12 concurrent lease attempts, tested</div></div>
+</div>
+
+<h2>What each session was actually doing</h2>
+
+<div class="scroll">
+<table>
+<thead><tr><th>Session</th><th>State</th><th>Where it stopped</th></tr></thead>
+<tbody>
+<tr>
+  <td><b>Theship tabs delivery handoff</b><br><span class="mono">02 Flake</span></td>
+  <td><span class="pill p-block">PARKED</span></td>
+  <td>Build preflight-cleared, 5 tracks, grid 0.03% off the record. Halted because it
+      believed a peer session had submitted <code>r8516072</code>. It had not.
+      <b>Brandon</b> uploaded that by hand.</td>
+</tr>
+<tr>
+  <td><b>Goal completion shipping (sleep)</b><br><span class="mono">s5824801</span></td>
+  <td><span class="pill p-block">PARKED</span></td>
+  <td>5 tracks verified by re-export, marked NOT PUBLISHED, then handed Brandon two
+      questions it could answer itself, including "one look at your mixer answers it".</td>
+</tr>
+<tr>
+  <td><b>Guitar tab cadence correction</b><br><span class="mono">03 Gene</span></td>
+  <td><span class="pill p-block">PARKED</span></td>
+  <td>"One more attempt to settle revision 8515317 myself before I ask you anything."
+      Stopped there.</td>
+</tr>
+<tr>
+  <td><b>Resume goal completion shipping</b><br><span class="mono">02 Flake</span></td>
+  <td><span class="pill p-run">WORKING</span></td>
+  <td>Asked the right question and had no way to answer it: does Brandon's revision
+      contain anything my build lacks?</td>
+</tr>
+<tr>
+  <td><b>Goal completion shipping</b><br><span class="mono">04 Six Feet</span></td>
+  <td><span class="pill p-run">WORKING</span></td>
+  <td>Tracing 805 Lead notes missing across 66 bars.</td>
+</tr>
+<tr>
+  <td><b>Ship goal completion</b><br><span class="mono">album-wide</span></td>
+  <td><span class="pill p-stall">STALLED 5h</span></td>
+  <td>Mid-enumeration of nine corrections Brandon supplied. Six were still marked
+      "in the record? no".</td>
+</tr>
+</tbody>
+</table>
+</div>
+
+<h2>Which revision is new, and what is in it</h2>
+
+<p>This was the actual complaint. Songsterr shows a revision id and a timestamp and
+nothing else, so when a session uploads, and Brandon uploads, and a third session uploads
+over both, nothing on the page records who made which one. Two sessions today held opposite
+beliefs about who made <code>r8516072</code>.</p>
+
+<p>Settled from timestamps: the revision was submitted at <b>21:11:57Z</b>, and Brandon's message
+<i>"uploaded latest and hit submit"</i> arrived at <b>21:14:03Z</b>. It is his, by hand.
+Here is what it changed, counted per part from the live backup:</p>
+
+<div class="scroll">
+<table>
+<thead><tr><th>Part</th><th class="num">r8514056</th><th class="num">r8516072</th><th class="num">change</th><th>role</th></tr></thead>
+<tbody>
+<tr><td>Distortion Guitar</td><td class="num">225</td><td class="num">123</td><td class="num del">&minus;102</td><td>guitar</td></tr>
+<tr><td>Overdriven Guitar</td><td class="num">2616</td><td class="num">2415</td><td class="num del">&minus;201</td><td>guitar</td></tr>
+<tr><td>Electric Bass (finger)</td><td class="num">338</td><td class="num">338</td><td class="num same">unchanged</td><td>bass</td></tr>
+<tr><td>Drums</td><td class="num">769</td><td class="num">769</td><td class="num same">unchanged</td><td>drums</td></tr>
+<tr><td>Tenor Sax <span class="mono">(the vocal line)</span></td><td class="num">310</td><td class="num">310</td><td class="num same">unchanged</td><td>vocal</td></tr>
+</tbody>
+</table>
+</div>
+
+<p><b>His edit is a dedup of the two guitar staves and nothing else.</b> That is his own
+correction, "02 Flake, duplicated lead notes", which he applied by hand because the
+pipeline did not. Both parked sessions hold builds that predate it. Importing either one
+as-is puts all 303 duplicate notes back.</p>
+
+<div class="note">
+<b>So the halt was right for the wrong reason.</b> The session stopped because it thought
+a peer owned the tab. The real reason to stop was that Brandon had just fixed something
+by hand that its build would have undone. Both parked sessions now have instructions to
+rebase onto <code>r8516072</code> rather than overwrite it.
+</div>
+
+<h2>The vocal track a name check misses</h2>
+
+<p>"Make sure each is doing it with a file with vocal drum etc" has a trap on this exact
+tab. The fifth part carries the vocal line. Measured on <code>s5823892</code>:</p>
+
+<ul>
+  <li>the track has <b>no name at all</b>, an empty string</li>
+  <li>the instrument is <b>Tenor Sax</b>, General MIDI program 66</li>
+  <li>the lyrics array is <b>empty</b>, zero entries</li>
+  <li>it holds <b>310 notes across 69 bars</b></li>
+</ul>
+
+<p>The pipeline writes vocals onto a Tenor Sax patch, and the upload gate knows to classify
+by name rather than by program for that reason. On a tab that has been round-tripped
+through Songsterr the name is gone entirely, so the classifier returns
+<code>other:tenor sax</code>:</p>
+
+<pre><span class="c"># measured, not asserted</span>
+part4 name      : ''
+part4 instrument: Tenor Sax / id 66
+newLyrics       : list, len 0
+notes           : 310 across 69 bars
+
+role_of('Tenor Sax')             -> <span class="w">'other:tenor sax'</span>
+role_of('Tenor Sax', program=66) -> <span class="w">'other:tenor sax'</span>
+
+<span class="c">VERDICT: a name-based full-band check reports NO VOCAL
+         on a tab that has 310 notes of vocal line.</span></pre>
+
+<p>A gate reading that as a missing vocal would either block a good upload or wave through
+a file that really did drop the part. <b>Full band gets verified by per-part note content,
+and not from what the track is called.</b> That is now written into the skill.</p>
+
+<h2>The lock</h2>
+
+<p><code>importRevisionInput</code> replaces the entire tab. Two overlapping imports do not
+merge. The second one wins outright and the first session's work is gone with no error
+raised anywhere, which is how a five-track tab became a one-track tab on a previous
+occasion.</p>
+
+<p>The deploy pipeline already solved this shape for Vercel: one door, a flock, concurrent
+ships wait their turn. A flock is no use here, because an upload spans many tool
+calls across many turns and a flock dies with the process holding it. So the new tool
+takes a <b>lease</b>: a file that records the holder, with an expiry, taken before the
+browser is touched and released once the upload finishes.</p>
+
+<pre><span class="c"># before touching the browser</span>
+upload_lease.py acquire --session "<span class="g">Theship tabs delivery handoff</span>" \
+    --song "02 Flake" --tab s5823892
+
+<span class="c"># after the upload finishes</span>
+upload_lease.py record  --session "<span class="g">Theship tabs delivery handoff</span>" \
+    --song "02 Flake" --tab s5823892 --rev r8516072 \
+    --tracks 5 --roles vocal,drums,bass,guitar,guitar
+upload_lease.py release --session "<span class="g">Theship tabs delivery handoff</span>"
+
+upload_lease.py status              <span class="c"># who holds it right now</span>
+upload_lease.py latest --tab s5823892   <span class="c"># which revision is new, and whose</span></pre>
+
+<p>The lease self-expires after twenty minutes, so a session that dies mid-upload cannot
+deadlock the others. That is deliberate. A stuck lock is worse than a race, because a race
+at least gets noticed.</p>
+
+<h3>Tested before any session was told to rely on it</h3>
+
+<pre>12 sessions raced for the lease at once
+  winners: <span class="g">[2]</span>
+  refused: 11
+  VERDICT: <span class="g">PASS, exactly one winner</span>
+
+peer acquire, lease held      -> exit 1, refused
+peer release of another lease -> exit 1, refused
+acquire after 2s expiry       -> exit 0, granted
+record without vocal + drums  -> <span class="w">WARNING, flagged in the ledger</span></pre>
+
+<h2>What changed, so this does not need watching again</h2>
+
+<ul>
+  <li><b>Every session was messaged</b> with the rule, the lease commands, and the specific
+      finding it needed. The two parked ones got the note diff so they rebase rather than
+      overwrite.</li>
+  <li><b>The rule now lives in the skill itself.</b> <span class="mono">songsterr-upload/SKILL.md</span>
+      now opens with it, so a session that never sees this page still gets it.</li>
+  <li><b>The ledger answers the original question.</b> Every upload appends the song, the
+      tab, the revision, the track roles it carried, and who did it. Brandon's hand-uploads
+      are recorded too, marked <code>--source brandon</code>. Both Flake revisions are
+      already seeded from the live backup.</li>
+  <li><b>A recorded upload missing vocal, drums, bass or guitar gets flagged</b> in the
+      ledger at write time, so a thin file leaves a trace rather than passing quietly.</li>
+</ul>
+
+<footer>
+Counts measured from <span class="mono">_songsterr_live_backup_2026-08-16/02_flake/</span>
+and six session transcripts under <span class="mono">~/.claude/projects/-Users-drwu/</span>.
+Lease and ledger: <span class="mono">~/.claude/skills/songsterr-upload/upload_lease.py</span>,
+<span class="mono">~/.claude/logs/songsterr_uploads.jsonl</span>.
+</footer>
+
+</div>
+</body>
+</html>
