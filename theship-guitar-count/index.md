@@ -1975,6 +1975,14 @@ The 39 notes at density 0-1 are the only place both proposers scored 100% on the
 
 A signal-processing comb and a trained neural transcriber share no machinery, so their converging on the same pitch in 22 places where the tab writes a different one is real corroboration of the aggregate verdict. It is still not enough to write with. The control that scored both at 100% was synthetic audio, and this page has been caught once already assuming a clean-signal result carries to a real guitar. A real-audio control for the sparse band is the next thing that has to exist, and the intro shows how one is built: measure a figure directly, prove the measure on a known answer, and only then write.
 
+### The full validator sheet on the shipped bytes
+
+Artifact b1193b60fdb84e5d, validator 553ab252e1d1cd72, checkpoint 66410cea12c9bf10. Every defect category the validator reports, on the exact bytes live as r8516865, reads ZERO on both staves: same string collisions, tie collisions, tie inconsistent, tie unmatched, tie dropped, tie gaps, impossible and wide hand spans, hand skips, rapid fret position changes, severe jumps, interior string gaps, pseudo fingerpicking, octave conflicts, octave shapes, octave isolated, octave recurring, repeated voicing consistency, genuine doubled notes, cross-guitar ownership suspect, capo and midi mismatch, high frets, pitch unavailable, two-note.
+
+Lead Guitar 177 notes, 176 attacks, 1 tie, 2 open strings, hand skip 0.0%, capo 0, EADGBE. Rhythm Guitar 998 notes, 924 attacks, 74 ties, 102 open strings, hand skip 0.0%, capo 0, EADGBE. Hard failures 0 on both.
+
+Tier 1 preservation PASS, 1175 to 1175, nothing lost and nothing invented, 23 distinct pitches in and 23 out. Tier 1b position PASS, zero notes moved. Both staves PASS. The playability side of 04 is clean and evidenced. The open question is entirely the pitch content, and the sections below are why it stays open.
+
 ### The real-audio control, and the assumption it caught
 
 Everything that scored 100% scored it on a synthetic render. So the sparse band got a control built the way the intro was, with pyin as the arbiter, chosen because it shares no machinery with either proposer. Scoring the comb against the comb proves nothing.

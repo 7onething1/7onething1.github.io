@@ -4089,6 +4089,40 @@ already assuming a clean-signal result carries to a real guitar. A real-audio co
 sparse band is the next thing that has to exist, and the intro shows how one is built:
 measure a figure directly, prove the measure on a known answer, and only then write.</p>
 
+<h3>The full validator sheet on the shipped bytes</h3>
+
+<p>Artifact <code>b1193b60fdb84e5d</code>, validator <code>553ab252e1d1cd72</code>, checkpoint
+<code>66410cea12c9bf10</code>. Every defect category the validator reports, on the exact bytes
+that are live as <code>r8516865</code>.</p>
+
+<div class="tablewrap"><table>
+<thead><tr><th>Category</th><th class="num">Lead Guitar</th><th class="num">Rhythm Guitar</th></tr></thead>
+<tbody>
+<tr><td>same string collisions</td><td class="num">0</td><td class="num">0</td></tr>
+<tr><td>tie collisions, inconsistent, unmatched, dropped, gaps</td><td class="num">0</td><td class="num">0</td></tr>
+<tr><td>impossible and wide hand spans</td><td class="num">0</td><td class="num">0</td></tr>
+<tr><td>hand skips</td><td class="num">0</td><td class="num">0</td></tr>
+<tr><td>rapid fret position changes, severe jumps</td><td class="num">0</td><td class="num">0</td></tr>
+<tr><td>interior string gaps</td><td class="num">0</td><td class="num">0</td></tr>
+<tr><td>pseudo fingerpicking</td><td class="num">0</td><td class="num">0</td></tr>
+<tr><td>octave conflicts, shapes, isolated, recurring</td><td class="num">0</td><td class="num">0</td></tr>
+<tr><td>repeated voicing consistency</td><td class="num">0</td><td class="num">0</td></tr>
+<tr><td>genuine doubled notes (unison)</td><td class="num">0</td><td class="num">0</td></tr>
+<tr><td>cross-guitar ownership suspect</td><td class="num">0</td><td class="num">0</td></tr>
+<tr><td>capo and midi mismatch</td><td class="num">0</td><td class="num">0</td></tr>
+<tr><td>high frets, pitch unavailable, two-note</td><td class="num">0</td><td class="num">0</td></tr>
+<tr><td><b>hard failures</b></td><td class="num"><b>0</b></td><td class="num"><b>0</b></td></tr>
+<tr><td>notes / attacks / ties / open strings</td><td class="num">177 / 176 / 1 / 2</td>
+<td class="num">998 / 924 / 74 / 102</td></tr>
+<tr><td>hand skip, capo, tuning</td><td class="num">0.0%, capo 0, EADGBE</td>
+<td class="num">0.0%, capo 0, EADGBE</td></tr>
+</tbody></table></div>
+
+<p>Tier 1 preservation <b>PASS</b>, 1175 to 1175, nothing lost and nothing invented, 23
+distinct pitches in and 23 out. Tier 1b position <b>PASS</b>, zero notes moved. Both staves
+<b>PASS</b>. <b>The playability side of 04 is clean and evidenced.</b> The open question is
+entirely the pitch content, and the sections below are why it stays open.</p>
+
 <h3>The real-audio control, and the assumption it caught</h3>
 
 <p>Everything that scored 100% scored it on a synthetic render. So the sparse band got a

@@ -1,0 +1,39 @@
+ARTIFACT  sha256 b1193b60fdb84e5dddf24ca81d2cc94ba0d83c36e5b7b2ded5bf074d84b3e6d0
+VALIDATOR sha256 553ab252e1d1cd72273acba34c2ed5125c1b43ab93437026aca2badd63393ec6
+
+category                             Lead Guitar   Rhythm Guitar
+----------------------------------------------------------------
+same string collisions                         0               0
+tie collisions                                 0               0
+tie inconsistent                               0               0
+tie unmatched                                  0               0
+tie dropped                                    0               0
+tie gaps                                       0               0
+impossible / wide hand spans                   0               0
+hand skips                                     0               0
+rapid fret position changes                    0               0
+severe jumps                                   0               0
+interior string gaps                           0               0
+pseudo fingerpicking                           0               0
+octave conflicts                               0               0
+octave shapes                                  0               0
+octave isolated                                0               0
+octave recurring                               0               0
+repeated voicing consistency                   0               0
+genuine doubled notes                          0               0
+cross-guitar ownership suspect                 0               0
+capo / midi mismatch                           0               0
+high frets                                     0               0
+pitch unavailable                              0               0
+two-note                                       0               0
+
+notes                                        177             998
+attacks                                      176             924
+ties                                           1              74
+open strings                                   2             102
+hand skip %                                  0.0             0.0
+hard failures                                  0               0
+capo                                           0               0
+tuning                           50, 55, 59, 64] 50, 55, 59, 64]
+
+every named defect category reads zero on both staves: YES
