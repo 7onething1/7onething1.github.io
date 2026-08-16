@@ -1,104 +1,187 @@
 {
-  "_what": "Brandon's own ear corrections, promoted to authoritative regression cases. No album-wide scorecard may call a song finished while any case here is unresolved. Created 2026-08-16 after the completion record for /goal 'all songs perfect' omitted every one of them.",
-  "_rule": "A case leaves OPEN only on a measurement against the audio or the artifact, never on a scorecard average and never on an assistant's summary.",
-  "_source_of_record": {
-    "transcript": "/Users/drwu/.claude/projects/-Users-drwu/5fad405a-af59-4e36-84cc-8af5fb754977.jsonl",
-    "line": 1443,
-    "timestamp": "2026-08-16T16:21:42.744Z",
-    "note": "This is the ONLY message in any reachable transcript that states these corrections. A scan of every *.jsonl in the project directory for user-typed text naming Flake or Six Feet Under returned exactly this one hit."
+ "_what": "Brandon's own ear corrections, promoted to authoritative regression cases. No album-wide scorecard may call a song finished while any case here is unresolved. Created 2026-08-16 after the completion record for /goal 'all songs perfect' omitted every one of them.",
+ "_rule": "A case leaves OPEN only on a measurement against the audio or the artifact, never on a scorecard average and never on an assistant's summary.",
+ "_source_of_record": {
+  "transcript": "/Users/drwu/.claude/projects/-Users-drwu/5fad405a-af59-4e36-84cc-8af5fb754977.jsonl",
+  "line": 1443,
+  "timestamp": "2026-08-16T16:21:42.744Z",
+  "note": "This is the ONLY message in any reachable transcript that states these corrections. A scan of every *.jsonl in the project directory for user-typed text naming Flake or Six Feet Under returned exactly this one hit."
+ },
+ "cases": [
+  {
+   "id": "04-lead-tacet-71",
+   "song": "04",
+   "title": "Six Feet Under",
+   "file": "/Users/drwu/Projects/_outputs/theship-tabs/_AUDITION_2026-08-07/04 Six Feet Under.gp",
+   "sha256_16": "7bab579303034d9d",
+   "staff": "Lead Guitar",
+   "quote": "beginning at bar 71, the Lead Guitar rapid sixteenth or thirty second note passage should be tacet",
+   "grounded": true,
+   "scope": {
+    "start_bar": 71,
+    "end_bar": null,
+    "end_bar_supplied": false
+   },
+   "check": "lead_tacet_from_bar",
+   "check_args": {
+    "track": 0,
+    "start_bar": 71
+   }
   },
-  "cases": [
-    {
-      "id": "04-lead-tacet-71",
-      "song": "04",
-      "title": "Six Feet Under",
-      "file": "/Users/drwu/Projects/_outputs/theship-tabs/_AUDITION_2026-08-07/04 Six Feet Under.gp",
-      "sha256_16": "7bab579303034d9d",
-      "staff": "Lead Guitar",
-      "quote": "beginning at bar 71, the Lead Guitar rapid sixteenth or thirty second note passage should be tacet",
-      "grounded": true,
-      "scope": {"start_bar": 71, "end_bar": null, "end_bar_supplied": false},
-      "check": "lead_tacet_from_bar",
-      "check_args": {"track": 0, "start_bar": 71}
-    },
-    {
-      "id": "04-bar58-chord",
-      "song": "04",
-      "title": "Six Feet Under",
-      "file": "/Users/drwu/Projects/_outputs/theship-tabs/_AUDITION_2026-08-07/04 Six Feet Under.gp",
-      "sha256_16": "7bab579303034d9d",
-      "staff": "unspecified",
-      "quote": "bar 58 weird chord",
-      "grounded": false,
-      "provenance": "Enumerated as Brandon's correction by the assistant in session 5fad405a at 2026-08-16T16:22:20.976Z. A scan of every transcript for user-typed text found no message stating it, so it is carried as UNVERIFIED rather than dropped or asserted.",
-      "scope": {"start_bar": 58, "end_bar": 58, "end_bar_supplied": true},
-      "check": "bar_content",
-      "check_args": {"bar": 58}
-    },
-    {
-      "id": "02-upper-three-voicings",
-      "song": "02",
-      "title": "Flake of the Year",
-      "file": "/Users/drwu/Projects/_outputs/theship-tabs/_AUDITION_2026-08-07/02 Flake of the Year.gp",
-      "sha256_16": "e90b44d28bb5f3fe",
-      "staff": "Rhythm Guitar",
-      "quote": "upper three string chord voicings",
-      "grounded": true,
-      "scope": {"start_bar": null, "end_bar": null, "end_bar_supplied": false},
-      "check": "chord_voicing_low_string_use",
-      "check_args": {"track": 1}
-    },
-    {
-      "id": "02-csharp-minor-second-position",
-      "song": "02",
-      "title": "Flake of the Year",
-      "file": "/Users/drwu/Projects/_outputs/theship-tabs/_AUDITION_2026-08-07/02 Flake of the Year.gp",
-      "sha256_16": "e90b44d28bb5f3fe",
-      "staff": "Rhythm Guitar",
-      "quote": "second position C sharp minor",
-      "grounded": true,
-      "scope": {"start_bar": null, "end_bar": null, "end_bar_supplied": false},
-      "check": "chord_spelling_positions",
-      "check_args": {"track": 1, "pitch_classes": [1, 4, 8], "name": "C#m", "want_position": 2}
-    },
-    {
-      "id": "02-fsharp-alteration-latter-half",
-      "song": "02",
-      "title": "Flake of the Year",
-      "file": "/Users/drwu/Projects/_outputs/theship-tabs/_AUDITION_2026-08-07/02 Flake of the Year.gp",
-      "sha256_16": "e90b44d28bb5f3fe",
-      "staff": "Rhythm Guitar",
-      "quote": "the F sharp alteration during the latter half",
-      "grounded": true,
-      "scope": {"start_bar": null, "end_bar": null, "end_bar_supplied": false, "latter_half_measured": "bars 35-69 of 69"},
-      "check": "chord_spelling_positions",
-      "check_args": {"track": 1, "pitch_classes": [6], "name": "F#-rooted", "from_bar": 35}
-    },
-    {
-      "id": "02-duplicated-lead-notes",
-      "song": "02",
-      "title": "Flake of the Year",
-      "file": "/Users/drwu/Projects/_outputs/theship-tabs/_AUDITION_2026-08-07/02 Flake of the Year.gp",
-      "sha256_16": "e90b44d28bb5f3fe",
-      "staff": "Lead Guitar against Rhythm Guitar",
-      "quote": "duplicated lead notes",
-      "grounded": true,
-      "scope": {"start_bar": null, "end_bar": null, "end_bar_supplied": false},
-      "check": "cross_staff_duplication",
-      "check_args": {"a": 0, "b": 1}
-    },
-    {
-      "id": "02-rests-replaced-by-strumming",
-      "song": "02",
-      "title": "Flake of the Year",
-      "file": "/Users/drwu/Projects/_outputs/theship-tabs/_AUDITION_2026-08-07/02 Flake of the Year.gp",
-      "sha256_16": "e90b44d28bb5f3fe",
-      "staff": "Rhythm Guitar",
-      "quote": "rests or dead attacks that were replaced with continued chord strumming",
-      "grounded": true,
-      "scope": {"start_bar": null, "end_bar": null, "end_bar_supplied": false},
-      "check": null,
-      "blocked_by": "No measurement separates a dead strum from a rung one on this audio. The tab's own Muted marks are circular at AUC 0.522; the synthetic control proves the feature at AUC 1.000 but its threshold flagged an implausible 37.4% when transferred. Recorded in COMPLETION_BOUNDARY.json as the twelve muted-strum ear-labels dependency."
-    }
-  ]
+  {
+   "id": "04-bar58-chord",
+   "song": "04",
+   "title": "Six Feet Under",
+   "file": "/Users/drwu/Projects/_outputs/theship-tabs/_AUDITION_2026-08-07/04 Six Feet Under.gp",
+   "sha256_16": "7bab579303034d9d",
+   "staff": "unspecified",
+   "quote": "bar 58 weird chord",
+   "grounded": false,
+   "provenance": "Enumerated as Brandon's correction by the assistant in session 5fad405a at 2026-08-16T16:22:20.976Z. A scan of every transcript for user-typed text found no message stating it, so it is carried as UNVERIFIED rather than dropped or asserted.",
+   "scope": {
+    "start_bar": 58,
+    "end_bar": 58,
+    "end_bar_supplied": true
+   },
+   "check": "bar_content",
+   "check_args": {
+    "bar": 58
+   }
+  },
+  {
+   "id": "02-upper-three-voicings",
+   "song": "02",
+   "title": "Flake of the Year",
+   "file": "/Users/drwu/Projects/_outputs/theship-tabs/_AUDITION_2026-08-07/02 Flake of the Year.gp",
+   "sha256_16": "e90b44d28bb5f3fe",
+   "staff": "Rhythm Guitar",
+   "quote": "upper three string chord voicings",
+   "grounded": true,
+   "scope": {
+    "start_bar": null,
+    "end_bar": null,
+    "end_bar_supplied": false
+   },
+   "check": "chord_voicing_low_string_use",
+   "check_args": {
+    "track": 1
+   },
+   "repair": {
+    "status": "REPAIRED_IN_CANDIDATE",
+    "candidate": "8b7f9dcd609bff4e",
+    "what": "134 of the chord tones the recording places an octave higher were lifted and each affected beat re-voiced with the narrowest legal shape",
+    "evidence": "paired within-moment control, octave-up wins at 100.0% of the written beats against 88.2% on the same notes shifted, separation +11.8 on n=170; file margin -2.4 -> +0.9; 0 pitches vanished, 0 invented",
+    "why_still_open": "the graded artifact is still the audition source; the candidate is best_validated_so_far, not PASS"
+   }
+  },
+  {
+   "id": "02-csharp-minor-second-position",
+   "song": "02",
+   "title": "Flake of the Year",
+   "file": "/Users/drwu/Projects/_outputs/theship-tabs/_AUDITION_2026-08-07/02 Flake of the Year.gp",
+   "sha256_16": "e90b44d28bb5f3fe",
+   "staff": "Rhythm Guitar",
+   "quote": "second position C sharp minor",
+   "grounded": true,
+   "scope": {
+    "start_bar": null,
+    "end_bar": null,
+    "end_bar_supplied": false
+   },
+   "check": "chord_spelling_positions",
+   "check_args": {
+    "track": 1,
+    "pitch_classes": [
+     1,
+     4,
+     8
+    ],
+    "name": "C#m",
+    "want_position": 2
+   },
+   "repair": {
+    "status": "REPAIRED_IN_CANDIDATE",
+    "candidate": "8b7f9dcd609bff4e",
+    "what": "same lift; this correction and the upper-three-string one are one defect",
+    "evidence": "204 of 204 C#m beats were fretted away from second position at frets 4, 5 and 12 before the lift",
+    "why_still_open": "same as above"
+   }
+  },
+  {
+   "id": "02-fsharp-alteration-latter-half",
+   "song": "02",
+   "title": "Flake of the Year",
+   "file": "/Users/drwu/Projects/_outputs/theship-tabs/_AUDITION_2026-08-07/02 Flake of the Year.gp",
+   "sha256_16": "e90b44d28bb5f3fe",
+   "staff": "Rhythm Guitar",
+   "quote": "the F sharp alteration during the latter half",
+   "grounded": true,
+   "scope": {
+    "start_bar": null,
+    "end_bar": null,
+    "end_bar_supplied": false,
+    "latter_half_measured": "bars 35-69 of 69"
+   },
+   "check": "chord_spelling_positions",
+   "check_args": {
+    "track": 1,
+    "pitch_classes": [
+     6
+    ],
+    "name": "F#-rooted",
+    "from_bar": 35
+   }
+  },
+  {
+   "id": "02-duplicated-lead-notes",
+   "song": "02",
+   "title": "Flake of the Year",
+   "file": "/Users/drwu/Projects/_outputs/theship-tabs/_AUDITION_2026-08-07/02 Flake of the Year.gp",
+   "sha256_16": "e90b44d28bb5f3fe",
+   "staff": "Lead Guitar against Rhythm Guitar",
+   "quote": "duplicated lead notes",
+   "grounded": true,
+   "scope": {
+    "start_bar": null,
+    "end_bar": null,
+    "end_bar_supplied": false
+   },
+   "check": "cross_staff_duplication",
+   "check_args": {
+    "a": 0,
+    "b": 1
+   },
+   "repair": {
+    "status": "UNTOUCHED",
+    "why": "cross-staff duplication is an ownership question, and the Secret fixture records that a thinning pass once deleted 145 legitimate doubled notes; no ownership measurement on this album separates the two guitars, the one panning cue measured at chance"
+   }
+  },
+  {
+   "id": "02-rests-replaced-by-strumming",
+   "song": "02",
+   "title": "Flake of the Year",
+   "file": "/Users/drwu/Projects/_outputs/theship-tabs/_AUDITION_2026-08-07/02 Flake of the Year.gp",
+   "sha256_16": "e90b44d28bb5f3fe",
+   "staff": "Rhythm Guitar",
+   "quote": "rests or dead attacks that were replaced with continued chord strumming",
+   "grounded": true,
+   "scope": {
+    "start_bar": null,
+    "end_bar": null,
+    "end_bar_supplied": false
+   },
+   "check": null,
+   "blocked_by": "No measurement separates a dead strum from a rung one on this audio. The tab's own Muted marks are circular at AUC 0.522; the synthetic control proves the feature at AUC 1.000 but its threshold flagged an implausible 37.4% when transferred. Recorded in COMPLETION_BOUNDARY.json as the twelve muted-strum ear-labels dependency."
+  }
+ ],
+ "_attribution_attempts": {
+  "question": "do the sub-floor notes belong to the guitar or the bass, at 82-110 Hz where the guitar stem is blind",
+  "axis_1_full_mix": "shows the pitch for 88-93% of them, but the mix contains the bass, so presence attributes nothing",
+  "axis_2_bass_stem": "carries the pitch for 89-100%; fails its own decoy at -1.6 on 09 and +0.0 on 11",
+  "axis_3_bass_playing_a_different_pitch_class": {
+   "09": "208 of 308 notes qualify; the mix still shows the written pitch at 87.5% against an 88.9% decoy, separation -1.4, REFUTED",
+   "11": "279 of 347 qualify; 93.9% against an 86.4% decoy, separation +7.5, WEAK SUPPORT that these notes are genuinely guitar"
+  },
+  "conclusion": "attribution is unresolved on 09, the worst song at 27.5%, and leans toward the notes being legitimate on 11. Neither outcome is a defect the gate can repair."
+ }
 }

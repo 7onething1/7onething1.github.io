@@ -1327,3 +1327,21 @@ Repair: apply_octave_lift.py moved 134 tones up an octave, re-voicing each beat 
 
 07 MOP and 11 Ambulance were written and retracted the same hour: each cleared the first keep rule on a file-level delta of +0.1 off 1 and 4 changed notes, and the paired control put them at n=2 and n=8, so the rule now demands n>=30 and separation>=5 points. 05 wrote nothing, its one eligible beat refused on span. A wider first Flake attempt invented pitches 62 and 69 and was retracted: their decoy medians (32.19 and 14.65) exceed the measured ones (5.39 and 11.18), so they are ambient and prove nothing.
 
+
+## 10 Why this page does not show a green suite
+
+The suite reads MACHINE VERDICT: FAIL. Two fixtures are red and neither clears by promotion or relabelling.
+
+register-evidence on the REPAIRED candidate returns the same 127 notes below the 120 Hz floor, because the lift only touched notes above it. Making the repaired file the graded artifact would leave the fixture exactly as red.
+
+Attribution at 82-110 Hz was attempted on three axes:
+
+| Axis | 09 MHL | 11 Ambulance |
+|---|---|---|
+| full mix shows the pitch | 89.9%, mix contains the bass | 93.4%, same problem |
+| bass stem carries the pitch | 89.0% vs 90.6% decoy, -1.6 | 100% vs 100%, +0.0 |
+| bass on a different pitch class, mix still shows the note | 87.5% vs 88.9% decoy, -1.4 | 93.9% vs 86.4% decoy, +7.5 |
+
+Only the third axis separates anything, and only on 11, where it weakly supports those notes being genuine guitar. On 09, the worst song at 27.5%, all three come back at or below their controls.
+
+A green suite needs a guitar-versus-bass method for the bottom octave, independently labelled muted attacks, and an ownership measurement for the two guitars. The red suite is the finding.

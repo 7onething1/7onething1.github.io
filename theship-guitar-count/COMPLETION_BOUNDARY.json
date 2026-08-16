@@ -313,5 +313,16 @@
    "08": "REFUSED_NOT_ALIGNED",
    "note": "only 02 has flagged notes ABOVE its stem floor, where a silence is evidence, so it is the only song this evidence licenses a repair on"
   }
+ },
+ "why_not_green": {
+  "register_evidence": "the repaired candidate returns the SAME 127 notes below the 120 Hz floor, since the lift only touched notes above it; promotion cannot clear this fixture",
+  "brandon_ear_cases": "6 of 7 open against the GRADED artifact; two carry status REPAIRED_IN_CANDIDATE with the measurement, and the candidate is best_validated_so_far rather than PASS",
+  "attribution_axes_tried": 3,
+  "axes_that_separated": "one, and only on 11 Ambulance at +7.5 points; 09 MHL came back at or below control on all three",
+  "what_a_green_suite_needs": [
+   "a guitar-versus-bass separation method in the bottom octave, on an axis other than panning, which measured at chance on this album",
+   "independently labelled muted attacks for the twelve dead-strum calls",
+   "an ownership measurement for the two guitars before any lead-duplication thinning"
+  ]
  }
 }

@@ -97,6 +97,7 @@
     <li><a href="#open">What is still open</a></li>
     <li><a href="#brandon">Brandon's ear corrections, as regression cases</a></li>
     <li><a href="#register">Why the voicings were wrong, and what the audio says</a></li>
+    <li><a href="#green">Why this page does not show a green suite</a></li>
     
   </ol>
 </div>
@@ -2067,6 +2068,60 @@ rebuilt to invent nothing.</p>
 <code>best_validated_so_far</code>. The skip regression is licensed against the audio
 evidence and the licence text is in the receipt. BEST is not claimed: the gate verdict is
 not PASS.</p>
+
+
+<h2 id="green">10 &nbsp;Why this page does not show a green suite</h2>
+
+<p><b>The suite reads MACHINE VERDICT: FAIL, and clearing it was tried three ways.</b>
+Two fixtures are red. Neither can be cleared by promoting a file or by relabelling.</p>
+
+<h3>register-evidence cannot be cleared by promotion</h3>
+
+<p>The repaired 02 Flake candidate was measured by the same gate:</p>
+
+<pre style="overflow-x:auto;font-size:12px;line-height:1.5;background:var(--dust);padding:10px;border:1px solid var(--rule)">python3 register_evidence.py --gp "02 Flake of the Year-OCTAVE-LIFT.gp" --stem 02_flake_of_the_year-guitar.mp3
+
+  measured floor: 120.0 Hz
+  Lead Guitar            0 of   225 notes (  0.0%) below the floor
+  Rhythm Guitar        127 of  2948 notes (  4.3%) below the floor
+  VERDICT: BLIND_REGISTER  127/3173 (4.0%)</pre>
+
+<p><b>The same 127 notes.</b> The lift only touched notes ABOVE the floor, by design,
+because a silence below it is meaningless. Making the repaired file the graded artifact
+would leave this fixture exactly as red as it is now.</p>
+
+<h3>Attribution was attempted on three axes, and two failed their controls</h3>
+
+<div class="tablewrap"><table>
+<thead><tr><th>Axis</th><th>09 MHL</th><th>11 Ambulance</th></tr></thead>
+<tbody>
+<tr><td>full mix shows the pitch</td><td>89.9%, but the mix contains the bass</td><td>93.4%, same problem</td></tr>
+<tr><td>bass stem carries the pitch</td><td>89.0% vs a 90.6% decoy, <b>-1.6</b></td><td>100% vs 100%, <b>+0.0</b></td></tr>
+<tr><td>bass on a DIFFERENT pitch class, mix still shows the note</td><td>87.5% vs an 88.9% decoy, <b>-1.4</b></td><td>93.9% vs an 86.4% decoy, <b>+7.5</b></td></tr>
+</tbody></table></div>
+
+<p>The third axis is the only one that separates anything, and it separates on <b>11
+Ambulance only</b>, where it gives weak support that those low notes are genuinely the
+guitar rather than a defect. On <b>09 MHL</b>, the worst song at 27.5%, all three axes
+come back at or below their own controls. Ownership at 82 to 110 Hz is unresolved, and
+an unresolved question is not a repair.</p>
+
+<h3>What a green suite would actually require</h3>
+
+<ul>
+<li><b>A method that separates a guitar from a bass in the bottom octave.</b> This album's
+panning cue already measured at chance, so it needs a different axis than the three
+above.</li>
+<li><b>Independently labelled muted attacks</b> for the twelve dead-strum calls, since the
+tab's own marks are circular at AUC 0.522.</li>
+<li><b>An ownership measurement for the two guitars</b> before any lead-duplication
+thinning, because a thinning pass once deleted 145 legitimate doubled notes.</li>
+</ul>
+
+<p><b>The red suite is the finding.</b> One song carries a licensed repair with a
+controlled effect of 11.8 points. The rest carry a question this evidence cannot answer,
+and a gate turned green while that holds would be the exact failure this whole page
+exists to record.</p>
 
 <footer>
   <p><b>Reproduce:</b><br>
