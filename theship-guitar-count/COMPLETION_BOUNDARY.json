@@ -529,5 +529,16 @@
    "F# dyads in bars 60 and 62 unified with bar 58 at frets 7-11"
   ],
   "profile": "gate PASS both staves, hand 13%, interior_gap 0, severe_jump 0, same_string 0, 6 JUMP findings"
- }
+ },
+ "lead_doubling_audit": {
+  "artifact": "1897971fe23b1233",
+  "count": "48 -> 34 after the shape swap",
+  "isolated": 0,
+  "embedded_in_a_lead_line": 34,
+  "with_an_undoubled_lead_note_nearby": 22,
+  "undecided": 12,
+  "verdict": "zero candidates for removal; every one sits inside a continuous Lead line across bars 41-56",
+  "conflict": "Brandon flagged duplicated lead notes as a defect and the audit finds none whose deletion the notation supports; his ear is authoritative so the case stays OPEN"
+ },
+ "no_audio_accuracy_audit": "beat_map.py builds the DTW beat-to-seconds map and REFUSES it, on this song and on two songs whose alignment is not in question. Accuracy numbers computed on a refused map are what section 12 was retracted for, so they are withheld."
 }

@@ -211,7 +211,21 @@
    },
    "repair": {
     "status": "UNTOUCHED",
-    "why": "cross-staff duplication is an ownership question, and the Secret fixture records that a thinning pass once deleted 145 legitimate doubled notes; no ownership measurement on this album separates the two guitars, the one panning cue measured at chance"
+    "why": "cross-staff duplication is an ownership question, and the Secret fixture records that a thinning pass once deleted 145 legitimate doubled notes; no ownership measurement on this album separates the two guitars, the one panning cue measured at chance",
+    "note_by_note_audit_2026-08-16": {
+     "on_artifact": "1897971fe23b1233",
+     "count_changed": "48 -> 34, because the shape swap moved the Rhythm staff pitches so fewer coincide",
+     "method": "notation-side. For each duplicated Lead note, is it part of a continuous Lead line, and is there an UNDOUBLED Lead note within a beat of it?",
+     "result": {
+      "isolated_no_lead_line_present": 0,
+      "embedded_in_a_lead_line": 34,
+      "with_an_undoubled_lead_note_nearby": 22,
+      "undecided": 12
+     },
+     "verdict": "ZERO candidates for removal. Every one of the 34 sits inside a continuous Lead line, and 22 have an undoubled Lead note within a beat, so the Lead staff is genuinely playing there and the Rhythm happens to share the pitch.",
+     "conflicts_with_the_correction": "Brandon flagged duplicated lead notes as a defect. This audit finds no note whose deletion the notation supports. Either his ear hears doubling that this evidence cannot see, or the doubling is genuine. His ear is authoritative, so the case stays OPEN and the audit is recorded beside it rather than closing it.",
+     "protects": "the Secret fixture, which records a thinning pass that deleted 145 legitimate doubled notes"
+    }
    },
    "previous_graded_artifact": {
     "file": "/Users/drwu/Projects/_outputs/theship-tabs/_AUDITION_2026-08-07/02 Flake of the Year.gp",

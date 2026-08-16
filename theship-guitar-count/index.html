@@ -104,6 +104,7 @@
     <li><a href="#staffrole">04 Six Feet Under: the Lead was not transcribed</a></li>
     <li><a href="#capo">Brandon supplied the voicing, and it decodes to a capo</a></li>
     <li><a href="#register2">The 127 register notes are one open string</a></li>
+    <li><a href="#ownership">The lead-doubling audit, note by note</a></li>
     
   </ol>
 </div>
@@ -2682,6 +2683,46 @@ all C#m       -> Brandon's supplied voicing, s3f18 s4f17 s5f16 at capo 0
 F# dyads      -> bars 60 and 62 unified with bar 58, frets 7-11
 gate PASS both staves, hand 13%, interior_gap 0, severe_jump 0, same_string 0
 6 JUMP findings, the 4-fret shift between the E at fret 12 and the C#m at fret 16</pre>
+
+
+<h2 id="ownership">16 &nbsp;The lead-doubling audit, note by note</h2>
+
+<p><b>The count moved first.</b> On the graded artifact the duplication is 34 of 225, not
+48, because the shape swap changed the Rhythm staff's pitches so fewer coincide.</p>
+
+<p><b>The audit is notation-side</b>, since no ownership cue on this album has beaten
+chance. For each duplicated Lead note: is it part of a continuous Lead line, and is there
+an UNDOUBLED Lead note within a beat of it?</p>
+
+<div class="tablewrap"><table>
+<thead><tr><th>Evidence</th><th class="num">Notes</th><th>Reading</th></tr></thead>
+<tbody>
+<tr><td>isolated, no Lead line present</td><td class="num"><b>0</b></td><td>would be a duplication artifact</td></tr>
+<tr><td>embedded in a Lead line</td><td class="num">34</td><td>the Lead staff is playing there</td></tr>
+<tr><td>with an undoubled Lead note within a beat</td><td class="num">22</td><td>a real line the Rhythm happens to share</td></tr>
+<tr><td>undecided</td><td class="num">12</td><td>-</td></tr>
+</tbody></table></div>
+
+<p><b>Zero candidates for removal.</b> Every one of the 34 sits inside a continuous Lead
+line across bars 41 to 56. A blanket deletion would have removed legitimate notes, which is
+the failure the Secret fixture in this skill records, where a thinning pass deleted 145 of
+them.</p>
+
+<p><b>This conflicts with the correction, and the correction wins.</b> Brandon flagged
+duplicated lead notes as a defect, and this audit finds no note whose deletion the notation
+supports. Either his ear hears doubling this evidence cannot see, or the doubling is
+genuine. His ear is authoritative, so the case stays OPEN and the audit is recorded beside
+it rather than closing it.</p>
+
+<h3>Why no audio accuracy audit appears here</h3>
+
+<p>The completion condition asks for attack precision and recall, pitch agreement, timing
+error and channel ownership <b>measured against the DTW beat-to-seconds map</b>.
+<code>beat_map.py</code> builds that map and <b>REFUSES it</b>, on this song and on two
+songs whose alignment is not in question. Reporting accuracy numbers computed on a refused
+map is exactly what section 12 was retracted for. <b>The numbers are withheld because the
+map they would rest on does not validate</b>, and that is the honest state rather than a
+gap in effort.</p>
 
 <footer>
   <p><b>Reproduce:</b><br>

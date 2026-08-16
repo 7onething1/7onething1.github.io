@@ -1477,3 +1477,22 @@ So BLIND_REGISTER on this song is one open string in an open chord sitting 10 Hz
 That is a gap in the gate: a note below the floor should carry its context. An open string in an open-position chord is the least suspicious case; a fretted low root inside a full barre shape is the most. The current gate counts them the same.
 
 Graded artifact 1897971fe23b1233: verdict PASS, preservation PASS, status BEST. E family to the tab's own upper form, all C#m to Brandon's supplied voicing, F# dyads in bars 60 and 62 unified with bar 58. Gate PASS both staves, hand 13%, interior_gap 0, severe_jump 0, same_string 0, 6 JUMP findings from the 4-fret shift his voicing requires.
+
+## 16 The lead-doubling audit, note by note
+
+On the graded artifact the duplication is 34 of 225, not 48, because the shape swap changed the Rhythm staff's pitches so fewer coincide.
+
+Notation-side audit, since no ownership cue on this album has beaten chance. For each duplicated Lead note: is it inside a continuous Lead line, and is there an undoubled Lead note within a beat?
+
+| Evidence | Notes |
+|---|---|
+| isolated, no Lead line present | 0 |
+| embedded in a Lead line | 34 |
+| with an undoubled Lead note within a beat | 22 |
+| undecided | 12 |
+
+Zero candidates for removal. Every one sits inside a continuous Lead line across bars 41-56. A blanket deletion would have removed legitimate notes, the failure the Secret fixture records where a thinning pass deleted 145.
+
+This conflicts with the correction and the correction wins: Brandon flagged duplicated lead notes as a defect and this audit finds none whose deletion the notation supports. His ear is authoritative, so the case stays OPEN with the audit recorded beside it.
+
+No audio accuracy audit appears here because beat_map.py builds the DTW map and REFUSES it, on this song and on two songs whose alignment is not in question. Reporting accuracy numbers on a refused map is what section 12 was retracted for.
