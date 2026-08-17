@@ -2,6 +2,31 @@
 
 MacBookPro16,1, 8-core i9, 16 GB, macOS 26.5.1. Measured 2026-08-17. Nothing was changed to produce this.
 
+## Applied 2026-08-17
+
+Fix 2 from the ranked list is live. Originals saved to `~/.claude/_config_sync_backups/20260817-contradiction-fix/`. Both retired hook scripts remain on disk.
+
+| Change | File | Result |
+|---|---|---|
+| `ultracode_default.py` unwired, so no turn orders a workflow against the no-subagents rule | `settings.json` | UserPromptSubmit 8 hooks to 6 |
+| `model_fit_gate.py` unwired, so nothing recommends Sonnet against the Opus-always policy | `settings.json` | model policy now single-valued |
+| False path map replaced with the verified one for this Mac | `honesty_gate_nudge.py` | `~/Desktop` named as the live working set |
+| HTML host corrected to GitHub Pages for new pages, Vercel for existing routes | `honesty_gate_nudge.py`, both CLAUDE.md files | route now matches a script that exists |
+| Kid-button requirement removed from the closeout gate | `~/CLAUDE.md` | agrees with the 2026-07-13 retirement |
+| Expired July 19 resource window removed | `~/CLAUDE.md` | policy no longer four weeks stale |
+| Dead Vercel MCP id replaced with the working CLI and overflow route | `~/.claude/CLAUDE.md` | deploy step is executable |
+| Both `ntfy.sh` curls made asynchronous with a 3 s cap | `settings.json` | notifications still fire, off the critical path |
+
+```
+Stop chain now:        0.624 s   (was 1.610 s)
+UserPromptSubmit now:  0.333 s   (6 hooks, was 8)
+ultracode present:     False
+model_fit present:     False
+settings.json:         JSON VALID
+```
+
+Turn-end latency dropped by 0.99 s, a 61% cut, and the seven contradictions are down to zero. Fixes 1, 3, 4, 6, 7, 8 and 9 remain open.
+
 ## Scoreboard
 
 | Metric | Measured here | Healthy range | Verdict |
