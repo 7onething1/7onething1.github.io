@@ -172,7 +172,7 @@ footer{margin-top:52px;padding-top:18px;border-top:2px solid var(--ink);
 <table style="min-width:600px">
 <thead><tr><th>Measure</th><th>n</th><th>Correlation</th><th>Shifted-time control</th><th>Separation</th><th>Verdict</th></tr></thead>
 <tbody>
-<tr><td>Written duration against decay-to-half-energy</td><td>2062</td><td>-0.060</td><td>+0.018</td><td class="no">-0.078</td><td class="no">No discriminating power</td></tr>
+<tr><td>Written duration against decay-to-half-energy</td><td>2219</td><td>-0.060</td><td>+0.021</td><td class="no">-0.081</td><td class="no">No discriminating power</td></tr>
 </tbody>
 </table>
 </div>
@@ -183,13 +183,13 @@ footer{margin-top:52px;padding-top:18px;border-top:2px solid var(--ink);
 <table style="min-width:640px">
 <thead><tr><th>Classification, in the wording <code>/goal</code> uses</th><th>Bars</th><th>Meaning</th></tr></thead>
 <tbody>
-<tr><td><strong>Supported correction</strong></td><td class="yes">0</td><td>Miss rate far above the song's own AND the decoy fails to reproduce it</td></tr>
-<tr><td>Unresolved ambiguity</td><td>12</td><td>Miss rate high, and the decoy misses there too, so the detector explains it</td></tr>
-<tr><td>Unsupported change</td><td>119</td><td>No evidence of a discrepancy at all</td></tr>
+<tr><td><strong>Supported correction</strong></td><td class="yes">0</td><td>Miss rate far above the song's own AND the decoy stays low there</td></tr>
+<tr><td>Unresolved ambiguity</td><td>9</td><td>Miss rate high, and the decoy misses there too, so the detector explains it</td></tr>
+<tr><td>Unsupported change</td><td>122</td><td>No evidence of a discrepancy at all</td></tr>
 </tbody>
 </table>
 </div>
-<p>Song-wide the attack measure discriminates hard: 67.7% real against 11.1% for the decoy at +7.3 s, a 6.1x separation. Per bar it never isolates a discrepancy. The twelve unresolved bars are 3, 20, 72, 80, 124, 125, 126, 129, 130, 133, 134 and 135, and every one has a decoy miss rate of 75% to 100%, so the onset detector rather than the notation accounts for them. Bars 133 to 135 sit beyond the map's anchor span and are unmeasured by construction.</p>
+<p>Song-wide the attack measure discriminates hard: 74.1% real against 11.1% for the decoy at +7.3 s, a 6.7x separation. Per bar it never isolates a discrepancy. The nine unresolved bars are 3, 20, 49, 117, 124, 125, 126, 129 and 130, and every one has a decoy miss rate of 75% to 100%, so the onset detector rather than the notation accounts for them.</p>
 
 <div class="note bad">
   <strong>Zero bars in The Mutiny carry evidence that the notation says something the recording does not.</strong>
@@ -198,6 +198,62 @@ footer{margin-top:52px;padding-top:18px;border-top:2px solid var(--ink);
 
 <h4>Gap 3. Checkpoint ledger</h4>
 <p>Initialised for The Mutiny. <code>CHECKPOINT.json</code> and <code>RECEIPTS.jsonl</code> now sit beside the song, status <code>best_validated_so_far</code>, so any future candidate has a baseline to beat rather than a filename to argue from.</p>
+
+
+<div class="trap">
+<h3>Correction: the first Mutiny miss numbers were wrong, and my own tool was the cause</h3>
+<p><code>AAA.nearest</code> returns a DISTANCE, and <strong>0.0 is falsy in Python</strong>, so the expression <code>(nearest(t) or 9e9) &lt;= WINDOW</code> turned every EXACT match into a miss. The tell appeared on The Alligator, where the tool read 0.3% recall against <code>audio_accuracy_audit.py</code>'s 40.9% on identical inputs. On The Mutiny the same bug read 67.7% against the reference tool's 74.1%, close enough that the first run was let through.</p>
+<div class="scroll"><table style="min-width:560px">
+<thead><tr><th>The Mutiny</th><th>Published from the buggy run</th><th>Corrected</th></tr></thead>
+<tbody>
+<tr><td>Attack recall</td><td class="no">67.7%</td><td class="yes">74.1%, matching the reference tool exactly</td></tr>
+<tr><td>Misses</td><td class="no">991</td><td class="yes">795</td></tr>
+<tr><td>Supported correction</td><td>0</td><td>0, unchanged</td></tr>
+<tr><td>Unresolved ambiguity</td><td class="no">12 bars</td><td class="yes">9 bars</td></tr>
+<tr><td>Unsupported change</td><td class="no">119 bars</td><td class="yes">122 bars</td></tr>
+</tbody></table></div>
+<p><strong>The conclusion for The Mutiny survives: zero supported corrections.</strong> The lesson is the process one. A derived metric has to be cross-checked against the reference tool's own number BEFORE any classification is built on it, and "close enough" is not a check.</p>
+</div>
+
+<h3>Song 2 of 10: The Alligator, full pipeline</h3>
+
+<div class="scroll">
+<table>
+<thead><tr><th>Stage</th><th>Result</th></tr></thead>
+<tbody>
+<tr><td>Two guitars or one staff covering</td><td class="no"><strong>MIXED</strong>, co-activity 97.7%, role flip <strong>34.3</strong>. The second staff's chord share moves 34.3 points when the first falls silent, which is one staff covering for another. The Mutiny was clean TWO_PARTS.</td></tr>
+<tr><td>Map</td><td>42.0% against a 4.1% control, gain +37.9, 8 anchors</td></tr>
+<tr><td>Map health</td><td><span class="pill p-go">PASS</span>, though marginally: clamped 10.6% against a 12% limit, max run 73 against 120, unique 0.895 against 0.85, span 90% against 85%</td></tr>
+<tr><td>Attack recall</td><td>40.9%, 893 of 2186, decoy 4.8%</td></tr>
+<tr><td>Attack precision</td><td class="no">100.0%, 154 of 154 onsets accounted for, which is the saturation shape</td></tr>
+<tr><td>Pitch agreement</td><td class="yes"><strong>63.5% against a 39.6% control, separation +24.0</strong>, the first pitch measure this session that was not labelled no-power</td></tr>
+<tr><td>Timing</td><td>median 54.9 ms, p90 236.4 ms</td></tr>
+<tr><td>Duration</td><td>+0.249 against a +0.273 control, separation -0.024, no power</td></tr>
+<tr><td>Playability</td><td class="yes"><strong>PASS on both staves</strong>, zero faults of any kind</td></tr>
+</tbody>
+</table>
+</div>
+
+<div class="trap">
+<h3>The Alligator tab stops 44 seconds before the song does</h3>
+<p>86 bars at 120 bpm is 172.0 s. The stem runs <strong>216.1 s</strong>. The GPIF holds <strong>zero repeat markers and zero alternate endings</strong>, and the map runs close to one-to-one, with tab 154.00 s falling at recording 153.77 s, so the tempo is right. About <strong>44 seconds of the song, roughly 22 bars, is not transcribed at all</strong>. No audio metric was needed to find this and none of them would have.</p>
+</div>
+
+<div class="scroll">
+<table style="min-width:640px">
+<thead><tr><th>Classification</th><th>Bars</th><th>Which</th></tr></thead>
+<tbody>
+<tr><td class="yes"><strong>Supported correction</strong></td><td class="yes"><strong>2</strong></td><td>bar 21 (11 attacks, miss 100%, decoy 81.8%) and bar 54 (38 attacks, miss 100%, decoy 81.6%)</td></tr>
+<tr><td>Unresolved ambiguity</td><td>4</td><td>bars 18, 42, 44, 57</td></tr>
+<tr><td>Unsupported change</td><td>80</td><td>no evidence of a discrepancy</td></tr>
+</tbody>
+</table>
+</div>
+
+<div class="note warnb">
+  <strong>Both supported bars are marginal and should be treated as listening candidates.</strong>
+  The stem yields 154 onsets across 216 s, which is 0.71 per second, so a bar reading 100% miss carries less weight than the same reading on The Mutiny's 718-onset channel. Both clear the decoy test by a margin of about 18 points against a 15-point threshold. They are the first two bars this session to reach the bar at all, and the honest label is candidate for listening.
+</div>
 
 <h3>Phase 2. The decision that is not mine to make</h3>
 <p>After Phase 1, <code>/goal</code> on The Mutiny reduces to one question. Nine measures were tested with controls on both sides and only attack recall survived, so today a corrected file cannot be justified note by note. Three ways forward:</p>

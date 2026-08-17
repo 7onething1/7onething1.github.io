@@ -37,7 +37,7 @@ Run through the audit's own `BM.build`, `BM.apply_map`, `nearest` and `DECOY_S`.
 
 | Measure | n | Correlation | Control | Separation | Verdict |
 |---|---|---|---|---|---|
-| Written duration vs decay-to-half-energy | 2062 | -0.060 | +0.018 | -0.078 | No discriminating power |
+| Written duration vs decay-to-half-energy | 2219 | -0.060 | +0.021 | -0.081 | No discriminating power |
 
 The /goal line item is satisfied: the measure exists, ran, and is reported with its control. The result belongs on the refused list.
 
@@ -46,14 +46,53 @@ The /goal line item is satisfied: the measure exists, ran, and is reported with 
 | Classification | Bars | Meaning |
 |---|---|---|
 | **Supported correction** | **0** | Miss far above the song rate AND the decoy stays low there |
-| Unresolved ambiguity | 12 | Miss high, decoy misses too, so the detector explains it |
-| Unsupported change | 119 | No evidence of a discrepancy |
+| Unresolved ambiguity | 9 | Miss high, decoy misses too, so the detector explains it |
+| Unsupported change | 122 | No evidence of a discrepancy |
 
-Song-wide the attack measure discriminates hard: 67.7% real against 11.1% decoy at +7.3 s, 6.1x. Per bar, no discrepancy is isolated. The twelve unresolved bars are 3, 20, 72, 80, 124, 125, 126, 129, 130, 133, 134, 135, each with a decoy miss of 75% to 100%. Bars 133 to 135 sit beyond the map's anchor span.
+Song-wide the attack measure discriminates hard: 74.1% real against 11.1% decoy at +7.3 s, 6.7x. Per bar, no discrepancy is isolated. The nine unresolved bars are 3, 20, 49, 117, 124, 125, 126, 129, 130, each with a decoy miss of 75% to 100%.
 
 **Zero bars in The Mutiny reach the evidence bar for a licensed correction.**
 
 **Gap 3. Checkpoint ledger.** Initialised. `CHECKPOINT.json` and `RECEIPTS.jsonl` sit beside the song, status `best_validated_so_far`.
+
+
+### Correction: the first Mutiny miss numbers were wrong
+
+`AAA.nearest` returns a DISTANCE and **0.0 is falsy in Python**, so `(nearest(t) or 9e9) <= WINDOW` turned every exact match into a miss. The tell appeared on The Alligator, where the tool read 0.3% recall against the reference tool's 40.9% on identical inputs.
+
+| The Mutiny | Buggy run | Corrected |
+|---|---|---|
+| Attack recall | 67.7% | 74.1%, matching the reference tool exactly |
+| Misses | 991 | 795 |
+| Supported correction | 0 | 0, unchanged |
+| Unresolved ambiguity | 12 bars | 9 bars |
+| Unsupported change | 119 bars | 122 bars |
+
+The conclusion survives: zero supported corrections. The lesson is a process one. Cross-check a derived metric against the reference tool's own number BEFORE building classification on it; "close enough" is not a check.
+
+### Song 2 of 10: The Alligator, full pipeline
+
+| Stage | Result |
+|---|---|
+| Two guitars or one covering | **MIXED**, co-activity 97.7%, role flip **34.3**, one staff covering for another |
+| Map | 42.0% vs 4.1% control, gain +37.9, 8 anchors |
+| Map health | PASS, marginally: clamped 10.6%/12%, max run 73/120, unique 0.895/0.85, span 90%/85% |
+| Attack recall | 40.9%, 893 of 2186, decoy 4.8% |
+| Attack precision | 100.0%, 154 of 154, the saturation shape |
+| Pitch agreement | **63.5% vs 39.6% control, separation +24.0**, the first not labelled no-power |
+| Timing | median 54.9 ms, p90 236.4 ms |
+| Duration | +0.249 vs +0.273 control, separation -0.024, no power |
+| Playability | **PASS on both staves**, zero faults |
+
+**The Alligator tab stops 44 seconds before the song does.** 86 bars at 120 bpm is 172.0 s; the stem runs 216.1 s. Zero repeat markers, zero alternate endings, and the map runs near one-to-one (tab 154.00 s at recording 153.77 s), so the tempo is right. About 44 seconds, roughly 22 bars, is untranscribed. No audio metric was needed to find this.
+
+| Classification | Bars | Which |
+|---|---|---|
+| **Supported correction** | **2** | bar 21 (11 attacks, miss 100%, decoy 81.8%), bar 54 (38 attacks, miss 100%, decoy 81.6%) |
+| Unresolved ambiguity | 4 | bars 18, 42, 44, 57 |
+| Unsupported change | 80 | no evidence |
+
+Both supported bars are marginal. The stem yields 154 onsets across 216 s, 0.71 per second, so a 100% miss carries less weight than on The Mutiny's 718-onset channel. Both clear the decoy test by about 18 points against a 15-point threshold. Honest label: candidate for listening.
 
 ### Phase 2. The decision that is not mine
 
@@ -407,7 +446,7 @@ There is no existing second staff to correct. Every harmony pass is either split
 | 5 | My Mirror Hates Me | READY | 2 | yes | Rhythm + Solo + Other | 134 | Standard E, the only one |
 | 6 | Endless Summer | READY | 2 | yes | lead + rhythm | 192 | none |
 | 7 | Lazarus | RE-PULL FIRST | 2 | yes, live | lead + rhythm | 138 | local file is a stale 3-track May export; s5476396 has 5 tracks with Vocals + Drums |
-| 8 | Not Too Much | READY | 2 | yes | Rhythm + Solo + Other | 122 | D Standard, not Drop D |
+| 8 | Not Too Much | READY | 2 | yes | Rhythm + Solo + Other | 122 | D Standard rather than Drop D |
 | 9 | Broken Satellites | RE-PULL FIRST | 3 + 1 dupe local | yes | Rhythm + Solo + Other | 171 | copy tracks are a LOCAL artifact; live s5084035 is a clean 5-track Drop C |
 | 10 | Jackie | BLOCKED | 1 | yes | none | 102 | 4-stem FLAC, single guitar staff |
 
