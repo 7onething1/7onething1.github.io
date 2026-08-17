@@ -81,6 +81,20 @@ The full mix at `Music to Stem/Beleiveyoume/BELIEVEYOUME (2025)/03 - The Mutiny.
 
 Attack-level accuracy IS established: 74.1% recall against 13.0% for a wrong stem. Pitch-level accuracy is NOT establishable on this material, proven by the negative control. The register-aware repair changed attack recall by 0.0 points.
 
+
+### A correction protocol on the validated metric, built and refused
+
+With pitch, ownership and attack-string disqualified, only attack support survives. A new tool, `bar_support_audit.py`, localises it per BAR rather than per note, since an onset detector systematically misses attacks inside a held distorted chord. It ships with a decoy control, the tab shifted 3.7 s. Two constructions, both refused:
+
+| Construction | Real | Decoy +3.7s | Gain | Needs | Verdict |
+|---|---|---|---|---|---|
+| DTW fitted to the events it scores | 100.0% | 92.0% | +8.0 | +15.0 | Refused, circular |
+| DTW fitted to all tracks, subset scored through it | 100.0% | 95.3% | +4.7 | +15.0 | Refused |
+
+Cause: 718 onsets over 251 s is one every 0.35 s. The DTW map compresses any input into that distribution, so a tab shifted nearly four seconds still lands beside an onset. Density this high leaves no headroom.
+
+**Terminal state.** Six measures run against controls. Two valid at song level and localising nothing: map alignment 5.75x, attack recall 5.70x. Four cannot license a change: pitch separation inverted, attack precision inverted, ownership -0.0115, attack-string -0.215, per-bar support +4.7 against +15.0. Nothing says the tab is wrong; these tools cannot tell on this material, and each says so itself.
+
 ### Playability
 
 | Track | Notes | Hand skip | Same-string | Tie | Wide | Octave | Verdict |

@@ -292,6 +292,30 @@ footer{margin-top:52px;padding-top:18px;border-top:2px solid var(--ink);
   Attack-level accuracy on The Mutiny IS established and validated: 74.1% recall, 2273 of 3068 written attacks matching a detected onset, against 13.0% for a wrong stem. Pitch-level accuracy is NOT establishable with these tools on this material, proven by the negative control rather than asserted. Dense distorted power chords in Drop C are close to chroma-stationary, so a time-shifted window matches nearly as well as the aligned one. That is a property of the recording rather than a pipeline gap, and the register-aware repair changed attack recall by 0.0 points.
 </div>
 
+
+<h3>Step 6. A correction protocol on the validated metric, built and refused</h3>
+
+<p>With pitch, ownership and attack-string all disqualified, the only surviving audio metric is attack support. A new tool, <code>bar_support_audit.py</code>, localises it: rather than judging a note, it asks which BARS have no acoustic support while their neighbours do. A single unmatched attack proves nothing, since an onset detector systematically misses attacks inside a held distorted chord, and a region carries information a note cannot.</p>
+
+<p>It ships with a decoy control, the same tab shifted 3.7 seconds. Two constructions were tried and both were refused:</p>
+
+<div class="scroll">
+<table>
+<thead><tr><th>Construction</th><th>Real support</th><th>Decoy at +3.7s</th><th>Gain</th><th>Needs</th><th>Verdict</th></tr></thead>
+<tbody>
+<tr><td>DTW fitted to the events it then scores</td><td>100.0%</td><td>92.0%</td><td class="no">+8.0</td><td>+15.0</td><td><span class="pill p-stop">Refused, circular</span></td></tr>
+<tr><td>DTW fitted to all tracks, subset scored through it</td><td>100.0%</td><td>95.3%</td><td class="no">+4.7</td><td>+15.0</td><td><span class="pill p-stop">Refused</span></td></tr>
+</tbody>
+</table>
+</div>
+
+<p><strong>Cause: 718 onsets across 251 seconds is one every 0.35 seconds.</strong> The DTW map compresses any input into that distribution, so a tab shifted by nearly four seconds still lands beside an onset. Onset density this high leaves the measure no headroom, which is a property of dense distorted rhythm guitar rather than a coding error. The tool is kept, exits nonzero, and emits nothing whenever the decoy keeps up.</p>
+
+<div class="note bad">
+  <strong>Terminal state for per-note audio correction on this song.</strong>
+  Six measures were run against controls. Two are valid at song level and localise nothing: map alignment at 5.75x and attack recall at 5.70x, both of which separate the right tab from a wrong one across the whole song. Four cannot license a change: pitch separation is inverted, attack precision is inverted, ownership lost to its control at -0.0115, attack-string evidence lost at -0.215, and per-bar attack support lost at +4.7 against a +15.0 threshold. Nothing here says the tab is wrong. It says these tools cannot tell, on this material, and each of them says so itself.
+</div>
+
 <h3>Step 4. Playability, which needs no audio</h3>
 <div class="scroll">
 <table>
