@@ -1,0 +1,248 @@
+<!doctype html><html lang=en><head>
+<meta charset=utf-8><meta name=viewport content="width=device-width,initial-scale=1">
+<title>BELIEVEYOUME stems vs the stem player</title>
+<style>
+:root{
+  --cream:#f4ecd8; --card:#fbf6ea; --ink:#1b1a17; --muted:#6b6255;
+  --rule:#ddd0b4; --mustard:#d99b1c; --rust:#b4532a; --teal:#2e6f6b;
+  --plum:#7a4b63; --sage:#8a9a5b; --sky:#7fa6b8;
+}
+*{box-sizing:border-box}html,body{margin:0;padding:0}
+body{background:var(--cream);color:var(--ink);font-family:'Futura','Avenir Next',Helvetica,Arial,sans-serif;font-size:16px;line-height:1.6}
+.wrap{max-width:1120px;margin:0 auto;padding:40px 22px 90px}
+h1{font-family:Georgia,serif;font-size:38px;margin:0 0 6px;letter-spacing:-.01em}
+.sub{color:var(--muted);margin:0 0 6px;font-size:15px}
+.stamp{font-family:'SF Mono',Menlo,monospace;font-size:12px;color:var(--muted);letter-spacing:.06em;margin:0 0 26px}
+h2{font-family:Georgia,serif;font-size:25px;margin:44px 0 4px;padding-bottom:7px;border-bottom:2px solid var(--rule)}
+h3{font-family:Georgia,serif;font-size:19px;margin:26px 0 8px;color:var(--rust)}
+p{margin:10px 0}
+a{color:var(--teal)}
+.toc{background:var(--card);border:1px solid var(--rule);border-left:6px solid var(--mustard);border-radius:8px;padding:16px 20px;margin:22px 0 8px}
+.toc ol{margin:8px 0 0;padding-left:20px}
+.toc li{margin:4px 0}
+.verdict{background:var(--card);border:1px solid var(--rule);border-left:6px solid var(--rust);border-radius:8px;padding:18px 22px;margin:22px 0}
+.verdict .big{font-family:Georgia,serif;font-size:21px;margin:0 0 8px}
+.scores{display:grid;grid-template-columns:repeat(auto-fit,minmax(184px,1fr));gap:12px;margin:22px 0}
+.score{background:var(--card);border:1px solid var(--rule);border-radius:8px;padding:14px 16px;border-top:5px solid var(--teal)}
+.score .n{font-family:Georgia,serif;font-size:31px;line-height:1.1}
+.score .l{font-size:12px;color:var(--muted);text-transform:uppercase;letter-spacing:.1em;margin-top:4px}
+.score.warn{border-top-color:var(--rust)}
+.score.good{border-top-color:var(--sage)}
+.tablewrap{overflow-x:auto;margin:16px 0;border:1px solid var(--rule);border-radius:8px;background:var(--card)}
+table{border-collapse:collapse;width:100%;font-size:14px;min-width:720px}
+th{background:#ece0c6;text-align:left;padding:10px 12px;font-size:11.5px;text-transform:uppercase;letter-spacing:.09em;color:#4a4336;border-bottom:2px solid var(--rule);white-space:nowrap}
+td{padding:9px 12px;border-bottom:1px solid #e8dcc2;vertical-align:top}
+tr:last-child td{border-bottom:none}
+td.num{font-family:'SF Mono',Menlo,monospace;text-align:center}
+.pill{display:inline-block;font-family:'SF Mono',Menlo,monospace;font-size:11px;padding:2px 7px;border-radius:10px;margin:1px 2px 1px 0;background:#e9dcc0;color:#4a4336;white-space:nowrap}
+.pill.g{background:#e2ecd6;color:#3f5226}
+.pill.v{background:#f0e0e8;color:#5f3549}
+.pill.dead{background:#eddcd6;color:#8a3d1c;text-decoration:line-through}
+.hi{background:#fdf3d8}
+.mono{font-family:'SF Mono',Menlo,monospace;font-size:13px}
+.tag{display:inline-block;font-family:'SF Mono',Menlo,monospace;font-size:10.5px;padding:2px 7px;border-radius:3px;letter-spacing:.05em;text-transform:uppercase}
+.tag.m{background:var(--teal);color:#fff}
+.tag.i{background:var(--plum);color:#fff}
+.trap{background:var(--card);border:1px solid var(--rule);border-left:6px solid var(--rust);border-radius:8px;padding:14px 18px;margin:14px 0}
+.trap h4{margin:0 0 6px;font-family:Georgia,serif;font-size:17px;color:var(--rust)}
+.ok{background:var(--card);border:1px solid var(--rule);border-left:6px solid var(--sage);border-radius:8px;padding:14px 18px;margin:14px 0}
+.ok h4{margin:0 0 6px;font-family:Georgia,serif;font-size:17px;color:#4d5c30}
+code{font-family:'SF Mono',Menlo,monospace;font-size:13px;background:#ece0c6;padding:1px 5px;border-radius:3px}
+pre{background:#ece0c6;border:1px solid var(--rule);border-radius:6px;padding:12px 14px;overflow-x:auto;font-family:'SF Mono',Menlo,monospace;font-size:12.5px;line-height:1.5}
+footer{margin-top:50px;padding-top:20px;border-top:2px solid var(--rule);color:var(--muted);font-size:13px}
+ul{margin:10px 0;padding-left:22px}li{margin:5px 0}
+.legend{font-size:13px;color:var(--muted);margin:6px 0 0}
+</style></head><body><div class=wrap>
+
+<h1>BELIEVEYOUME stems vs the stem player</h1>
+<p class=sub>What is actually on disk for Shiner's BELIEVEYOUME, and what the live stem player exposes of it.</p>
+<p class=stamp>BUILT 2026-08-17 &middot; SOURCE: /Volumes/T7 Shield/Moises_Stems/BelieveYouMeStems/ &middot; SITE: drwu-htmls.vercel.app/believeyoume-stems</p>
+
+<div class=toc>
+<strong>Contents</strong>
+<ol>
+<li><a href="#answer">The short answer</a></li>
+<li><a href="#census">Per-song stem census (what is on disk)</a></li>
+<li><a href="#site">What the player exposes</a></li>
+<li><a href="#contrast">The contrast, measured</a></li>
+<li><a href="#traps">Four traps in the stem folders</a></li>
+<li><a href="#method">Method and provenance</a></li>
+</ol>
+</div>
+
+<h2 id=answer>1. The short answer</h2>
+
+<div class=verdict>
+<p class=big>Multiple guitars: yes, on 8 of 10 songs. Multiple vocals: no, on any song, anywhere.</p>
+<p>Eight songs carry two to four separate guitar stems. Not one song in any of the five BELIEVEYOUME roots I swept carries more than a single <code>vocals</code> file. The player flattens all 22 guitar stems down to 10 mono-ish guitar lanes, one per song.</p>
+</div>
+
+<div class=scores>
+<div class="score good"><div class=n>22</div><div class=l>guitar stems on disk</div></div>
+<div class="score warn"><div class=n>10</div><div class=l>guitar lanes on the site</div></div>
+<div class="score warn"><div class=n>1</div><div class=l>vocal stems per song, max</div></div>
+<div class="score"><div class=n>101</div><div class=l>stem files on disk</div></div>
+<div class="score warn"><div class=n>70</div><div class=l>lane files served</div></div>
+<div class="score warn"><div class=n>10 / 10</div><div class=l>songs whose guide lane is out of sync</div></div>
+</div>
+
+<h2 id=census>2. Per-song stem census (what is on disk)</h2>
+<p>Root: <code>/Volumes/T7 Shield/Moises_Stems/BelieveYouMeStems/</code>, the complete root, holding all 10 album tracks. Counted from the filesystem, macOS <code>._</code> resource forks excluded.</p>
+
+<div class=tablewrap>
+<table>
+<thead><tr>
+<th>#</th><th>Song</th><th class=num>Files</th><th class=num>Gtr</th><th>Guitar stems</th><th class=num>Voc</th><th>Drum pieces</th><th>Other roles</th>
+</tr></thead>
+<tbody>
+<tr><td class=num>01</td><td>Asleep in the Trunk</td><td class=num>9</td><td class=num>0</td><td><span class="pill dead">none isolated</span> <span class=legend>guitar is inside <code>other</code></span></td><td class=num>1</td><td>kick snare toms hihat cymbals</td><td>bass, drums, other</td></tr>
+<tr class=hi><td class=num>02</td><td>The Alligator</td><td class=num>7</td><td class=num>2</td><td><span class="pill g">lead</span><span class="pill g">rhythm</span></td><td class=num>1</td><td><span class=legend>none (single drums)</span></td><td>bass, drums, other, metronome</td></tr>
+<tr class=hi><td class=num>03</td><td><strong>The Mutiny</strong></td><td class=num>14</td><td class=num>4</td><td><span class="pill g">Rhythm Guitars</span><span class="pill g">RhythmGtr [L]</span><span class="pill g">RhythmGtr [R]</span><span class="pill g">Solo Guitars</span></td><td class=num>1</td><td>c, h, s, t, oth <span class=legend>(abbreviated)</span></td><td>bass, other, <code>l</code>, <code>g3</code></td></tr>
+<tr class=hi><td class=num>04</td><td>So Far So</td><td class=num>12</td><td class=num>3</td><td><span class="pill g">Rhythm Guitars</span><span class="pill g">Solo Guitars</span><span class="pill g">Other Guitar</span></td><td class=num>1</td><td>Kick Snare Toms Hi&nbsp;Hat Cymbals other&nbsp;drum</td><td>bass, other</td></tr>
+<tr class=hi><td class=num>05</td><td>My Mirror Hates Me</td><td class=num>14</td><td class=num>3</td><td><span class="pill g">Rhythm Guitars</span><span class="pill g">Solo Guitars</span><span class="pill g">Other Guitar</span></td><td class=num>1</td><td>Kick Snare Toms Hi&nbsp;Hat Cymbals other&nbsp;drum</td><td>bass, other, <strong>keys</strong>, <strong>piano</strong></td></tr>
+<tr class=hi><td class=num>06</td><td>Endless Summer</td><td class=num>7</td><td class=num>2</td><td><span class="pill g">lead</span><span class="pill g">rhythm</span></td><td class=num>1</td><td><span class=legend>none (single drums)</span></td><td>bass, drums, other, metronome</td></tr>
+<tr class=hi><td class=num>07</td><td>Lazarus</td><td class=num>7</td><td class=num>2</td><td><span class="pill g">lead</span><span class="pill g">rhythm</span></td><td class=num>1</td><td><span class=legend>none (single drums)</span></td><td>bass, drums, other, metronome</td></tr>
+<tr class=hi><td class=num>08</td><td>Not Too Much</td><td class=num>14</td><td class=num>3</td><td><span class="pill g">Rhythm Guitars</span><span class="pill g">Solo Guitars</span><span class="pill g">Other Guitar</span></td><td class=num>1</td><td>Kick Snare Toms Hi&nbsp;Hat Cymbals other&nbsp;drum</td><td>bass, other, keys, <strong>strings</strong></td></tr>
+<tr class=hi><td class=num>09</td><td>Broken Satellites</td><td class=num>13</td><td class=num>3</td><td><span class="pill g">Rhythm Guitars</span><span class="pill g">Solo Guitars</span><span class="pill g">Other Guitar</span></td><td class=num>1</td><td>Kick Snare Toms Hi&nbsp;Hat Cymbals other&nbsp;drum</td><td>bass, other, keys</td></tr>
+<tr><td class=num>10</td><td>Jackie</td><td class=num>4</td><td class=num>0</td><td><span class="pill dead">none isolated</span> <span class=legend>guitar is inside <code>other</code></span></td><td class=num>1</td><td><span class=legend>none</span></td><td>bass, drums, other</td></tr>
+</tbody>
+</table>
+</div>
+<p class=legend>Highlighted rows are the eight multi-guitar songs. The <strong>Voc</strong> column never exceeds 1. That is the measured result.</p>
+
+<h3>The vocal question, settled</h3>
+<p>I swept five roots for any file whose name contains <code>vocal</code>, <code>vox</code>, <code>backing</code>, <code>harmon</code>, <code>lead voc</code>, <code>choir</code>, <code>double</code>, <code>whisper</code>, or <code>scream</code>:</p>
+<ul>
+<li><code>T7 Shield/Moises_Stems/BelieveYouMeStems/</code>: 10 hits, all named exactly <code>vocals</code>, one per song</li>
+<li><code>T7 Shield/Stems/BELIEVEYOUME/</code>: 0 hits</li>
+<li><code>T7 Shield/BandBooks/BELIEVEYOUME/</code>: 2 hits, both <code>vocals.wav</code> from a demucs 6-stem re-separation</li>
+<li><code>T7 Shield/Music to Stem/Beleiveyoume/</code>: 0 hits (source FLACs, un-stemmed)</li>
+<li><code>Moises_Input/stems/htdemucs_6s/</code>: 0 hits</li>
+</ul>
+<p><strong>No lead/backing split, no harmony stem, no doubles exist on disk today.</strong> Getting a multi-vocal player means re-separating with a model that splits vocals. That is a new render. No unused file is sitting there waiting.</p>
+
+<h2 id=site>3. What the player exposes</h2>
+<p>Source: <a href="https://drwu-htmls.vercel.app/believeyoume-stems">drwu-htmls.vercel.app/believeyoume-stems</a>, audio from <code>drwu-stems.vercel.app/believeyoume-charts/stems/</code>.</p>
+<p>The page hard-codes <strong>six lanes for every song</strong>, with no per-song lane list:</p>
+<pre>const LANES = [
+  {key:"drums",  label:"Drums"},
+  {key:"bass",   label:"Bass"},
+  {key:"guitar", label:"Guitar"},   &lt;-- one lane; 22 disk stems fold into 10 of these
+  {key:"piano",  label:"Keys"},
+  {key:"vocals", label:"Vocals"},
+  {key:"midi",   label:"Guide"}
+];</pre>
+<p>I probed all 12 songs &times; 6 lanes on the live host with ranged GETs. Every lane returns <code>206</code> with <code>content-type: audio/mpeg</code>; a deliberate bogus path returns <code>404</code>, so the probe distinguishes real files from a blanket fallback. All 70 expected lane files are present and real. The two <code>midi</code> gaps are declared in the page's own <code>noLanes</code> field, so they are honest.</p>
+
+<h2 id=contrast>4. The contrast, measured</h2>
+
+<h3>4a. The guitar lane is a rhythm-plus-solo sum, and the solo is buried</h3>
+<p><span class="tag m">measured</span> I decoded the site's Mutiny lanes and envelope cross-correlated them against every Mutiny guitar stem on disk, with lag search. Control first: the site <em>vocals</em> lane against the disk <em>vocals</em> stem must top the table, or the measure is worthless.</p>
+
+<div class=tablewrap>
+<table>
+<thead><tr><th>Site lane</th><th>Disk candidate</th><th class=num>r</th><th class=num>lag</th><th>Reading</th></tr></thead>
+<tbody>
+<tr class=hi><td rowspan=3><strong>vocals</strong><br><span class=legend>(control)</span></td><td>vocals</td><td class=num><strong>+0.847</strong></td><td class=num>+0.02s</td><td>top match, as required, so the measure is validated</td></tr>
+<tr class=hi><td>other</td><td class=num>+0.572</td><td class=num>0.00s</td><td>expected bleed</td></tr>
+<tr class=hi><td>Rhythm Guitars</td><td class=num>+0.202</td><td class=num>0.00s</td><td>low, as it should be</td></tr>
+<tr><td rowspan=5><strong>guitar</strong></td><td><strong>Rhythm + Solo summed</strong></td><td class=num><strong>+0.835</strong></td><td class=num>0.00s</td><td><strong>best match, so the lane is a sum</strong></td></tr>
+<tr><td>Rhythm Guitars alone</td><td class=num>+0.710</td><td class=num>0.00s</td><td>close, because rhythm dominates the sum</td></tr>
+<tr><td>RhythmGtr [L]</td><td class=num>+0.679</td><td class=num>0.00s</td><td>L and R score alike, so no stereo split survives</td></tr>
+<tr><td>RhythmGtr [R]</td><td class=num>+0.636</td><td class=num>0.00s</td><td>same</td></tr>
+<tr><td>Solo Guitars alone</td><td class=num>+0.286</td><td class=num>+0.04s</td><td>present, buried</td></tr>
+</tbody>
+</table>
+</div>
+
+<p><span class="tag m">measured</span> Levels explain the burial. On disk, Mutiny <code>Rhythm Guitars</code> peaks at <strong>&minus;0.0 dBFS</strong> (mean &minus;17.3), <code>Solo Guitars</code> peaks at <strong>&minus;2.9 dBFS</strong> (mean &minus;28.4). Summed into one lane, the solo is about <strong>11 dB under</strong> the rhythm. Pressing the SOLO button on the player's guitar lane cannot separate them, because they were summed before encoding.</p>
+
+<h3>4b. What each song loses at the lane boundary</h3>
+<div class=tablewrap>
+<table>
+<thead><tr><th>Song</th><th class=num>Disk stems</th><th class=num>Site lanes</th><th>Folded away by the player</th></tr></thead>
+<tbody>
+<tr class=hi><td>The Mutiny</td><td class=num>14</td><td class=num>6</td><td>3 of 4 guitars, the only true L/R rhythm pair on the album, 5 drum pieces</td></tr>
+<tr class=hi><td>My Mirror Hates Me</td><td class=num>14</td><td class=num>6</td><td>2 of 3 guitars, 6 drum pieces, <code>keys</code> and <code>piano</code> collapse into one Keys lane</td></tr>
+<tr class=hi><td>Not Too Much</td><td class=num>14</td><td class=num>6</td><td>2 of 3 guitars, 6 drum pieces, <strong>strings has no lane at all</strong></td></tr>
+<tr class=hi><td>Broken Satellites</td><td class=num>13</td><td class=num>6</td><td>2 of 3 guitars, 6 drum pieces</td></tr>
+<tr class=hi><td>So Far So</td><td class=num>12</td><td class=num>6</td><td>2 of 3 guitars, 6 drum pieces</td></tr>
+<tr><td>Asleep in the Trunk</td><td class=num>9</td><td class=num>6</td><td>5 drum pieces</td></tr>
+<tr class=hi><td>The Alligator</td><td class=num>7</td><td class=num>6</td><td>lead and rhythm collapse into one Guitar lane; metronome dropped</td></tr>
+<tr class=hi><td>Endless Summer</td><td class=num>7</td><td class=num>6</td><td>same</td></tr>
+<tr class=hi><td>Lazarus</td><td class=num>7</td><td class=num>6</td><td>same</td></tr>
+<tr><td>Jackie</td><td class=num>4</td><td class=num>6</td><td>nothing folded; the player <em>adds</em> Keys and Guide beyond what this folder holds</td></tr>
+</tbody>
+</table>
+</div>
+<p class=legend>Jackie and Asleep in the Trunk get a Guitar and a Keys lane despite neither folder having one. A demucs 6-stem re-separation of exactly those two songs is at <code>BandBooks/BELIEVEYOUME/3-guitar-derivation/_demucs_6s/htdemucs_6s/</code> with <code>guitar.wav</code> and <code>piano.wav</code>, which accounts for it.</p>
+
+<h3>4c. Fidelity</h3>
+<p><span class="tag m">measured</span> Disk stems are 44,100 Hz stereo WAV, roughly 44 MB per Mutiny stem. The site serves <strong>96,021 bps CBR MP3</strong>, about 3.0 MB per lane. Equal-duration lanes therefore produce byte-identical file sizes. To rule out duplication I md5'd all six Mutiny lanes, and every one differs, so the lanes carry genuinely different audio. The house bar of 48 kHz / 24-bit applies to sample delivery, so 96 kbps counts as a deliberate streaming choice here.</p>
+
+<h3>4d. Two songs on the player are not on the album</h3>
+<p><span class="tag m">measured</span> The player's dropdown lists <strong>12</strong> songs. The album source folder <code>Music to Stem/Beleiveyoume/BELIEVEYOUME (2025)/</code> holds exactly <strong>10</strong> FLACs. <code>Number One Crush</code> and <code>Only Happy When It Rains</code> are on the player, serve real audio for 5 lanes each, and have <strong>no stem folder in any BELIEVEYOUME root</strong>. <span class="tag i">inference</span> Both titles are Garbage songs, so a covers session or a cross-project spill would explain it, and I have not confirmed which.</p>
+
+<h2 id=traps>5. Four traps in the stem folders</h2>
+
+<div class=trap>
+<h4>Trap 1. The file called <code>g3</code> looks like a third guitar and is close to empty</h4>
+<p><span class="tag m">measured</span> The Mutiny's <code>g3.wav</code> has mean <strong>&minus;48.7 dBFS</strong> and peak <strong>&minus;16.1 dBFS</strong>. Compare <code>Rhythm Guitars</code> at mean &minus;17.3 / peak &minus;0.0. That is roughly 31 dB below the real guitar and falls in the same range as the <code>other drum</code> residue stem (&minus;47.6). Writing a third guitar part from this file means transcribing separation residue. It also correlates only <strong>+0.409</strong> with the site's guitar lane, below <code>other</code> at +0.496.</p>
+</div>
+
+<div class=trap>
+<h4>Trap 2. The file called <code>l</code> is the kick drum</h4>
+<p><span class="tag m">measured</span> Mutiny's single-letter files abbreviate drum pieces. Band-energy fingerprint of <code>l.wav</code>: overall &minus;19.4, below 120 Hz &minus;20.7, 250 Hz&ndash;2.5 kHz &minus;32.6, above 6 kHz &minus;46.6. The So Far So <code>Kick</code> stem: &minus;16.7 / &minus;17.6 / &minus;32.5 / &minus;45.4. Same low-dominant shape within about 3 dB across all four bands. <span class="tag i">inference</span> The letter <code>l</code> does not derive from "kick", so the abbreviation scheme is not simply first-initial and the label origin is unresolved. The audio is a kick regardless.</p>
+</div>
+
+<div class=trap>
+<h4>Trap 3. The Guide lane is out of sync on all 10 songs</h4>
+<p><span class="tag m">measured</span> Duration of each song's <code>midi.mp3</code> guide against its <code>guitar.mp3</code>, read straight off the live host:</p>
+<div class=tablewrap>
+<table>
+<thead><tr><th>Song</th><th class=num>Audio</th><th class=num>Guide</th><th class=num>Delta</th></tr></thead>
+<tbody>
+<tr class=hi><td>Asleep in the Trunk</td><td class=num>278s</td><td class=num>527s</td><td class=num><strong>+249s</strong></td></tr>
+<tr class=hi><td>Endless Summer</td><td class=num>246s</td><td class=num>379s</td><td class=num><strong>+133s</strong></td></tr>
+<tr class=hi><td>Not Too Much</td><td class=num>348s</td><td class=num>237s</td><td class=num><strong>&minus;111s</strong></td></tr>
+<tr><td>The Alligator</td><td class=num>216s</td><td class=num>174s</td><td class=num>&minus;42s</td></tr>
+<tr><td>Broken Satellites</td><td class=num>362s</td><td class=num>324s</td><td class=num>&minus;38s</td></tr>
+<tr><td>Jackie</td><td class=num>173s</td><td class=num>203s</td><td class=num>+30s</td></tr>
+<tr><td>My Mirror Hates Me</td><td class=num>286s</td><td class=num>258s</td><td class=num>&minus;28s</td></tr>
+<tr><td>So Far So</td><td class=num>259s</td><td class=num>279s</td><td class=num>+20s</td></tr>
+<tr><td>The Mutiny</td><td class=num>251s</td><td class=num>269s</td><td class=num>+18s</td></tr>
+<tr><td>Lazarus</td><td class=num>281s</td><td class=num>275s</td><td class=num>&minus;6s</td></tr>
+</tbody>
+</table>
+</div>
+<p>Not one guide matches its song. Asleep in the Trunk's guide runs 1.9&times; the track. The player's buffer engine locks every lane to one clock, so a wrong-length guide plays against the record from the first bar and stays wrong.</p>
+</div>
+
+<div class=trap>
+<h4>Trap 4. The stem map under-reports this album</h4>
+<p><span class="tag m">measured</span> <code>~/Projects/stem-map/stem-map.md</code> lists BelieveYouMeStems as <strong>7 songs</strong> with plain demucs role labels. The folder holds <strong>10 songs and 101 files</strong>, and the Moises role names (<code>Rhythm Guitars</code>, <code>Solo Guitars</code>, <code>RhythmGtr [L]</code>) do not appear in the map at all. Anything that plans off the map alone will not know the multi-guitar stems exist. Regenerate with <code>build_stem_map.py</code> before trusting it for this album.</p>
+</div>
+
+<div class=ok>
+<h4>What the player gets right</h4>
+<p>All 70 expected lane files are live and real, verified against a 404 control. The two missing guide lanes are declared in the page's own <code>noLanes</code> field, so they do not fail silently. The buffer engine decodes every lane into a single AudioContext clock, so lanes cannot drift against each other. Missing lanes disable their own controls instead of playing silence under an active fader.</p>
+</div>
+
+<h2 id=method>6. Method and provenance</h2>
+<ul>
+<li><span class="tag m">measured</span> File census: <code>find</code> over five roots, <code>._</code> resource forks excluded, roles parsed from filenames.</li>
+<li><span class="tag m">measured</span> Levels: <code>ffmpeg volumedetect</code>, whole-file mean and peak, plus band splits at &lt;120 Hz, 250 Hz&ndash;2.5 kHz, &gt;6 kHz.</li>
+<li><span class="tag m">measured</span> Source attribution: 20 ms RMS log-envelope, FFT cross-correlation with &plusmn;10 s lag search. <strong>Validated before use.</strong> A plain zero-lag sample correlation put the vocals control at r=&minus;0.02 and was discarded as unusable; the envelope method put the same control at r=+0.847 as top match.</li>
+<li><span class="tag m">measured</span> Live host: ranged GETs reading status, content-type and content-range; a bogus path returned 404 to prove the probe separates real files from a fallback.</li>
+<li><span class="tag i">inference</span> Only three claims are inference and are tagged as such: the account for the two non-album songs, the origin of the <code>l</code> label, and the reading that <code>g3</code> was meant as a guitar slot.</li>
+<li>Per the stem-detection gate, a pitch found in one stem does not prove that instrument played it. Nothing here attributes an instrument to a part; this page reports which files exist, how loud they are, and which of them the player is serving.</li>
+</ul>
+
+<h3>If you want the multi-guitar detail on the player</h3>
+<p>The stems that would carry it exist today for 8 songs and need no new separation. The player needs a per-song lane list in place of the hard-coded six-lane array, since the lane sets genuinely differ (Mutiny has an L/R pair nothing else has, Not Too Much has strings, three songs have only lead/rhythm). Multi-vocal needs a re-separation first, because no file on disk supports it.</p>
+
+<footer>
+<p><strong>BELIEVEYOUME stems vs the stem player</strong> &middot; built 2026-08-17.<br>
+Disk root <code>/Volumes/T7 Shield/Moises_Stems/BelieveYouMeStems/</code> &middot; live player <a href="https://drwu-htmls.vercel.app/believeyoume-stems">/believeyoume-stems</a> &middot; audio host <code>drwu-stems.vercel.app/believeyoume-charts/stems/</code></p>
+</footer>
+</div></body></html>
