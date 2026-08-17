@@ -125,6 +125,24 @@ A wrong pairing yields few anchors, so interpolation pins a quarter of the tab o
 
 Pitch agreement is not inherently inverted. It was fed maps that could not carry it, on pairings nothing screened.
 
+
+### Pitch on healthy maps, measured three times
+
+The wrong pairing that appeared to invert the metric **fails the health gate on all four criteria**, so it is disqualified as a control. Pitch measured only through maps that pass:
+
+| Pairing | Map health | Attack recall | Pitch agree | Pitch control | Separation | Verdict |
+|---|---|---|---|---|---|---|
+| Mutiny tab vs its [R] channel | PASS | 74.1% | 53.4% | 51.0% | +2.4 | no power |
+| Mutiny tab vs its [L] channel | PASS | 34.9% | 52.3% | 49.7% | +2.6 | no power |
+| My Mirror tab vs its own guitar | PASS | 66.3% | 55.8% | 52.2% | +3.6 | no power |
+| Mutiny tab vs So Far So (wrong) | FAIL, 4 criteria | 13.0% | 42.4% | 33.7% | +8.7 | disqualified |
+
+**The settled reading supersedes the inversion story.** Pitch agreement is not inverted. On every healthy map its separation is +2.4, +2.6, +3.6, all labelled no power. The inversion was an artifact of degenerate maps, which the health gate now excludes. The duller, firmer fact: chroma agreement cannot tell a correct guitar transcription from an incorrect one on this material.
+
+The [L] against [R] pair is the sharpest form: same song, same instant, both maps healthy, pitch 53.4% against 52.3%. **Attack recall separates them 2.1x, 74.1% against 34.9%.** Chroma cannot see a difference attack timing makes obvious.
+
+**A per-staff ownership attempt failed and is reported rather than shipped.** Decomposing attack recall by staff returned 100.0% for both staves against both channels, ratio 1.00 everywhere. That is saturation: the DTW map is fitted to the tab attacks, so mapping them back through it puts every one on an onset by construction. The song-level figures come from the audit tool's own method and stand; the per-staff decomposition does not.
+
 ### Playability
 
 | Track | Notes | Hand skip | Same-string | Tie | Wide | Octave | Verdict |

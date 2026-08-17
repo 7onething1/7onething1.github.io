@@ -369,6 +369,35 @@ footer{margin-top:52px;padding-top:18px;border-top:2px solid var(--ink);
 
 <p>This changes the standing conclusion. Pitch agreement is not inherently inverted. It was being fed maps that could not carry it, on pairings nothing was screening. Whether it becomes usable on a map that passes the health gate is the next thing to measure, and it now has a gate in front of it.</p>
 
+
+<h3>Step 9. Pitch on healthy maps, measured three times</h3>
+
+<p>With the health gate in place the earlier comparison can be redone properly. The wrong pairing that appeared to invert the metric <strong>fails the health gate on all four criteria</strong>, so it is disqualified as a control. What remains is pitch measured only through maps that pass.</p>
+
+<div class="scroll">
+<table>
+<thead><tr><th>Pairing</th><th>Map health</th><th>Attack recall</th><th>Pitch agreement</th><th>Pitch control</th><th>Separation</th><th>Tool's own verdict</th></tr></thead>
+<tbody>
+<tr><td>Mutiny tab vs its <code>[R]</code> channel</td><td class="yes">PASS</td><td class="yes">74.1%</td><td>53.4%</td><td>51.0%</td><td>+2.4</td><td class="no">no power</td></tr>
+<tr><td>Mutiny tab vs its <code>[L]</code> channel</td><td class="yes">PASS</td><td>34.9%</td><td>52.3%</td><td>49.7%</td><td>+2.6</td><td class="no">no power</td></tr>
+<tr><td>My Mirror tab vs its own guitar</td><td class="yes">PASS</td><td>66.3%</td><td>55.8%</td><td>52.2%</td><td>+3.6</td><td class="no">no power</td></tr>
+<tr class="no"><td>Mutiny tab vs So Far So (wrong)</td><td class="no">FAIL, 4 criteria</td><td>13.0%</td><td>42.4%</td><td>33.7%</td><td>+8.7</td><td>disqualified</td></tr>
+</tbody>
+</table>
+</div>
+
+<div class="note bad">
+  <strong>The settled reading, which supersedes the inversion story.</strong>
+  Pitch agreement is not inverted. On every map that passes the health gate its separation is +2.4, +2.6 and +3.6, and the tool labels all three as having no discriminating power. The dramatic inversion was an artifact of degenerate maps, and the health gate now excludes those. The plain fact underneath is duller and firmer: chroma agreement cannot tell a correct guitar transcription from an incorrect one on this material, and it never could.
+</div>
+
+<p>The <code>[L]</code> and <code>[R]</code> comparison is the sharpest form of it. Two channels of the same song at the same instant, both maps healthy, and pitch scores 53.4% against 52.3%. <strong>Attack recall separates them 2.1 times over, 74.1% against 34.9%, so the tab's attacks clearly follow the right channel.</strong> Chroma cannot see a difference that attack timing makes obvious.</p>
+
+<div class="note warnb">
+  <strong>An attempt to turn that into per-staff ownership failed, and is reported rather than shipped.</strong>
+  Decomposing attack recall by staff returned 100.0% for both the Lead and Rhythm staves against both channels, a ratio of exactly 1.00 everywhere. That is saturation: the DTW map is fitted to the tab attacks, so mapping those same attacks back through it puts every one on an onset by construction. The song-level 74.1% against 34.9% comes from the audit tool's own internal method and stands; the per-staff decomposition does not, and no ownership claim is made from it.
+</div>
+
 <h3>Step 4. Playability, which needs no audio</h3>
 <div class="scroll">
 <table>
