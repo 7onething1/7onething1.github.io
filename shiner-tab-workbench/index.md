@@ -28,6 +28,33 @@ Census taken 2026-08-17. Every Songsterr tab, Guitar Pro file, and stem folder f
 3. **Classify every miss** as supported correction, unsupported change, or unresolved ambiguity, the wording that /goal uses.
 4. **Initialise the checkpoint ledger** with `--init-checkpoint` so a future candidate has a baseline.
 
+
+### Phase 1 executed, all three gaps closed
+
+Run through the audit's own `BM.build`, `BM.apply_map`, `nearest` and `DECOY_S`. New tool: `miss_and_duration_audit.py`.
+
+**Gap 1. Duration and tie agreement, now implemented.**
+
+| Measure | n | Correlation | Control | Separation | Verdict |
+|---|---|---|---|---|---|
+| Written duration vs decay-to-half-energy | 2062 | -0.060 | +0.018 | -0.078 | No discriminating power |
+
+The /goal line item is satisfied: the measure exists, ran, and is reported with its control. The result belongs on the refused list.
+
+**Gap 2. The 991 misses, itemised and classified.**
+
+| Classification | Bars | Meaning |
+|---|---|---|
+| **Supported correction** | **0** | Miss far above the song rate AND the decoy stays low there |
+| Unresolved ambiguity | 12 | Miss high, decoy misses too, so the detector explains it |
+| Unsupported change | 119 | No evidence of a discrepancy |
+
+Song-wide the attack measure discriminates hard: 67.7% real against 11.1% decoy at +7.3 s, 6.1x. Per bar, no discrepancy is isolated. The twelve unresolved bars are 3, 20, 72, 80, 124, 125, 126, 129, 130, 133, 134, 135, each with a decoy miss of 75% to 100%. Bars 133 to 135 sit beyond the map's anchor span.
+
+**Zero bars in The Mutiny reach the evidence bar for a licensed correction.**
+
+**Gap 3. Checkpoint ledger.** Initialised. `CHECKPOINT.json` and `RECEIPTS.jsonl` sit beside the song, status `best_validated_so_far`.
+
 ### Phase 2. The decision that is not mine
 
 Nine measures tested with controls on both sides, only attack recall survived, so today a corrected file cannot be justified note by note. Three ways forward:

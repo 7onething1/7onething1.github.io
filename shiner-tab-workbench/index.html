@@ -162,6 +162,43 @@ footer{margin-top:52px;padding-top:18px;border-top:2px solid var(--ink);
 <li><strong>Initialise the checkpoint ledger</strong> for The Mutiny with <code>--init-checkpoint</code> so any future candidate has a baseline to beat.</li>
 </ol>
 
+
+<h3>Phase 1 executed, all three gaps closed</h3>
+
+<p>Run 2026-08-17 through the audit's own <code>BM.build</code>, <code>BM.apply_map</code>, <code>nearest</code> and <code>DECOY_S</code>, so the numbers match what that tool reports rather than a reimplementation. New tool: <code>miss_and_duration_audit.py</code>.</p>
+
+<h4>Gap 1. Duration and tie agreement, now implemented</h4>
+<div class="scroll">
+<table style="min-width:600px">
+<thead><tr><th>Measure</th><th>n</th><th>Correlation</th><th>Shifted-time control</th><th>Separation</th><th>Verdict</th></tr></thead>
+<tbody>
+<tr><td>Written duration against decay-to-half-energy</td><td>2062</td><td>-0.060</td><td>+0.018</td><td class="no">-0.078</td><td class="no">No discriminating power</td></tr>
+</tbody>
+</table>
+</div>
+<p>The <code>/goal</code> line item is satisfied: the measure exists, ran, and is reported with its control. It joins the refused list rather than the usable one.</p>
+
+<h4>Gap 2. The 991 misses, itemised and classified</h4>
+<div class="scroll">
+<table style="min-width:640px">
+<thead><tr><th>Classification, in the wording <code>/goal</code> uses</th><th>Bars</th><th>Meaning</th></tr></thead>
+<tbody>
+<tr><td><strong>Supported correction</strong></td><td class="yes">0</td><td>Miss rate far above the song's own AND the decoy fails to reproduce it</td></tr>
+<tr><td>Unresolved ambiguity</td><td>12</td><td>Miss rate high, and the decoy misses there too, so the detector explains it</td></tr>
+<tr><td>Unsupported change</td><td>119</td><td>No evidence of a discrepancy at all</td></tr>
+</tbody>
+</table>
+</div>
+<p>Song-wide the attack measure discriminates hard: 67.7% real against 11.1% for the decoy at +7.3 s, a 6.1x separation. Per bar it never isolates a discrepancy. The twelve unresolved bars are 3, 20, 72, 80, 124, 125, 126, 129, 130, 133, 134 and 135, and every one has a decoy miss rate of 75% to 100%, so the onset detector rather than the notation accounts for them. Bars 133 to 135 sit beyond the map's anchor span and are unmeasured by construction.</p>
+
+<div class="note bad">
+  <strong>Zero bars in The Mutiny carry evidence that the notation says something the recording does not.</strong>
+  That is the accuracy side of <code>/goal</code> answered: every measure run against its own control, every discrepancy classified, and the classification returns no licensed correction.
+</div>
+
+<h4>Gap 3. Checkpoint ledger</h4>
+<p>Initialised for The Mutiny. <code>CHECKPOINT.json</code> and <code>RECEIPTS.jsonl</code> now sit beside the song, status <code>best_validated_so_far</code>, so any future candidate has a baseline to beat rather than a filename to argue from.</p>
+
 <h3>Phase 2. The decision that is not mine to make</h3>
 <p>After Phase 1, <code>/goal</code> on The Mutiny reduces to one question. Nine measures were tested with controls on both sides and only attack recall survived, so today a corrected file cannot be justified note by note. Three ways forward:</p>
 <ul>
