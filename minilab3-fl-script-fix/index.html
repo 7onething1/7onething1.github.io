@@ -1,0 +1,416 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>MiniLab 3 Script Repair</title>
+<style>
+:root{
+  color-scheme: light;
+  --cream:#f6f0e2;
+  --paper:#fdfaf1;
+  --ink:#141414;
+  --ink-soft:#4a463d;
+  --rule:#ddd2b8;
+  --red:#a63d40;
+  --pink:#d99a9a;
+  --mustard:#dfa93c;
+  --teal:#3f7f80;
+  --olive:#7d8c5c;
+  --navy:#2e4057;
+  --mono:"JetBrains Mono",ui-monospace,SFMono-Regular,Menlo,Consolas,monospace;
+  --sans:-apple-system,BlinkMacSystemFont,"Inter","Segoe UI",Helvetica,sans-serif;
+}
+*{box-sizing:border-box}
+html{-webkit-text-size-adjust:100%}
+body{
+  margin:0; background:var(--cream); color:var(--ink);
+  font-family:var(--sans); line-height:1.62; font-size:17px;
+}
+.wrap{max-width:980px;margin:0 auto;padding:2.2rem 1.25rem 5rem}
+
+header.masthead{
+  border:3px solid var(--ink); background:var(--paper);
+  padding:1.9rem 1.6rem; margin-bottom:2rem;
+}
+.kicker{
+  font-family:var(--mono); font-size:.72rem; letter-spacing:.19em;
+  text-transform:uppercase; color:var(--red); margin:0 0 .7rem;
+}
+h1{font-size:clamp(1.85rem,5vw,2.9rem);line-height:1.1;margin:0 0 .6rem;letter-spacing:-.02em}
+.sub{margin:0;color:var(--ink-soft);font-size:1.04rem;max-width:62ch}
+.meta{
+  margin-top:1.3rem;padding-top:1.1rem;border-top:1px solid var(--rule);
+  display:flex;flex-wrap:wrap;gap:.5rem 1.6rem;
+  font-family:var(--mono);font-size:.76rem;color:var(--ink-soft);
+}
+.meta b{color:var(--ink);font-weight:600}
+
+h2{
+  font-size:1.42rem;margin:2.9rem 0 .9rem;letter-spacing:-.01em;
+  padding-bottom:.45rem;border-bottom:2px solid var(--ink);
+}
+h3{font-size:1.06rem;margin:1.9rem 0 .55rem}
+p{margin:.75rem 0}
+a{color:var(--navy)}
+
+nav.toc{background:var(--paper);border:2px solid var(--rule);padding:1.2rem 1.4rem;margin:0 0 2rem}
+nav.toc p{font-family:var(--mono);font-size:.72rem;letter-spacing:.16em;text-transform:uppercase;color:var(--red);margin:0 0 .6rem}
+nav.toc ol{margin:0;padding-left:1.3rem;columns:2;column-gap:2rem}
+nav.toc li{margin:.22rem 0;break-inside:avoid}
+@media (max-width:640px){nav.toc ol{columns:1}}
+
+.verdict{
+  border:3px solid var(--ink);background:var(--paper);
+  padding:1.4rem 1.5rem;margin:1.4rem 0 2rem;
+}
+.verdict .line{
+  display:flex;flex-wrap:wrap;gap:.4rem 1rem;align-items:baseline;
+  font-family:var(--mono);font-size:.86rem;padding:.42rem 0;
+  border-bottom:1px dotted var(--rule);
+}
+.verdict .line:last-child{border-bottom:0}
+.verdict .lbl{color:var(--ink-soft);min-width:19rem}
+.pass{color:#2f6b34;font-weight:700}
+.fail{color:var(--red);font-weight:700}
+
+table{width:100%;border-collapse:collapse;margin:1rem 0;font-size:.9rem;background:var(--paper)}
+.scroller{overflow-x:auto;border:2px solid var(--rule)}
+th,td{padding:.62rem .8rem;text-align:left;border-bottom:1px solid var(--rule);vertical-align:top}
+th{background:var(--ink);color:var(--cream);font-family:var(--mono);font-size:.7rem;letter-spacing:.11em;text-transform:uppercase;font-weight:600}
+tbody tr:last-child td{border-bottom:0}
+td code{white-space:nowrap}
+
+code{font-family:var(--mono);font-size:.86em;background:#eee5cf;padding:.09em .34em;border-radius:2px}
+pre{
+  background:#20201d;color:#eee6d2;padding:1rem 1.1rem;overflow-x:auto;
+  border-radius:0;margin:.7rem 0;font-size:.82rem;line-height:1.55;
+}
+pre code{background:none;padding:0;color:inherit;white-space:pre}
+.was{border-left:5px solid var(--red)}
+.now{border-left:5px solid var(--olive)}
+.lbl-was,.lbl-now{font-family:var(--mono);font-size:.68rem;letter-spacing:.15em;text-transform:uppercase;margin:.9rem 0 -.3rem;display:block}
+.lbl-was{color:var(--red)}
+.lbl-now{color:var(--olive)}
+
+.fix{background:var(--paper);border:2px solid var(--rule);border-left:8px solid var(--mustard);padding:1.15rem 1.3rem;margin:1.15rem 0}
+.fix.crash{border-left-color:var(--red)}
+.fix.behavior{border-left-color:var(--teal)}
+.fix.hygiene{border-left-color:var(--olive)}
+.fix h3{margin-top:0;display:flex;flex-wrap:wrap;gap:.55rem;align-items:baseline}
+.tag{font-family:var(--mono);font-size:.62rem;letter-spacing:.13em;text-transform:uppercase;padding:.2em .55em;border-radius:2px;color:#fff;font-weight:700;white-space:nowrap}
+.tag.crash{background:var(--red)}
+.tag.behavior{background:var(--teal)}
+.tag.hygiene{background:var(--olive)}
+.where{font-family:var(--mono);font-size:.76rem;color:var(--ink-soft);font-weight:400}
+
+.callout{background:#efe6cc;border:2px solid var(--rule);border-left:8px solid var(--navy);padding:1rem 1.2rem;margin:1.3rem 0}
+.callout p:first-child{margin-top:0}
+.callout p:last-child{margin-bottom:0}
+
+footer{margin-top:3.4rem;padding-top:1.2rem;border-top:2px solid var(--ink);font-family:var(--mono);font-size:.75rem;color:var(--ink-soft)}
+strong{font-weight:700}
+</style>
+</head>
+<body>
+<div class="wrap">
+
+<header class="masthead">
+  <p class="kicker">FL Studio device script · repair report</p>
+  <h1>Arturia MiniLab 3</h1>
+  <p class="sub">Twenty one repairs across six of the ten script files. Seven of them were live crashes that took the whole controller script down inside FL Studio. Every fix is proven by a stub harness that fakes the FL Studio API and drives the broken code paths directly.</p>
+  <div class="meta">
+    <span><b>Script version</b> 1.0.8</span>
+    <span><b>Files touched</b> 6 of 10</span>
+    <span><b>Harness</b> 17 of 17 passing</span>
+    <span><b>Date</b> 17 August 2026</span>
+  </div>
+</header>
+
+<nav class="toc">
+  <p>Contents</p>
+  <ol>
+    <li><a href="#proof">Proof of repair</a></li>
+    <li><a href="#crashes">The seven crashes</a></li>
+    <li><a href="#behavior">Behaviour repairs</a></li>
+    <li><a href="#hygiene">Structural cleanup</a></li>
+    <li><a href="#table">Every change in one table</a></li>
+    <li><a href="#install">Installing it</a></li>
+    <li><a href="#harness">How the harness works</a></li>
+  </ol>
+</nav>
+
+<h2 id="proof">Proof of repair</h2>
+
+<p>The harness stubs every FL Studio module the script imports, then runs seventeen scenarios against the real code. It ran against the untouched backup first, so the failures below are reproduced rather than assumed.</p>
+
+<div class="verdict">
+  <div class="line"><span class="lbl">Original backup, scenarios passing</span> <span class="fail">7 of 17</span></div>
+  <div class="line"><span class="lbl">Original backup, exit code</span> <span class="fail">1</span></div>
+  <div class="line"><span class="lbl">Original backup, malformed SysEx frames</span> <span class="fail">16</span></div>
+  <div class="line"><span class="lbl">Repaired folder, scenarios passing</span> <span class="pass">17 of 17</span></div>
+  <div class="line"><span class="lbl">Repaired folder, exit code</span> <span class="pass">0</span></div>
+  <div class="line"><span class="lbl">Repaired folder, malformed SysEx frames</span> <span class="pass">0</span></div>
+  <div class="line"><span class="lbl">Analog Lab CC forwarding, both builds</span> <span class="pass">2 and 2, unchanged</span></div>
+</div>
+
+<p>Those sixteen malformed frames matter on their own. A parameter reading above 1.0 produced the byte <code>0xF1</code> inside a SysEx frame, and <strong>0xF1 is a MIDI System Real Time status byte</strong>. The MiniLab 3 would read it as the end of the message and drop the rest of the frame.</p>
+
+<pre class="was"><code>first offender: f0 00 20 6b 7f 42 21 10 00 07 00 f1 f7</code></pre>
+
+<h2 id="crashes">The seven crashes</h2>
+
+<div class="fix crash">
+  <h3><span class="tag crash">Crash</span> Analog Lab knob on a stock plugin <span class="where">MiniLab3Process.py:516</span></h3>
+  <p><code>Plugin()</code> accepts the event and nothing else. The call site passed three arguments, so <strong>every Analog Lab knob turn raised TypeError</strong> whenever the selected channel held a plugin outside the V Collection list. That covers CC 9, 16, 17, 18, 19, 71, 74, 76, 77, 82, 83, 85, 93 and 112 through 115.</p>
+  <span class="lbl-was">Was</span>
+  <pre class="was"><code>self.Plugin(event, 0, 1)</code></pre>
+  <span class="lbl-now">Now</span>
+  <pre class="now"><code>self.Plugin(event)</code></pre>
+</div>
+
+<div class="fix crash">
+  <h3><span class="tag crash">Crash</span> Unmapped CC reached setParamValue <span class="where">MiniLab3Plugin.py:831</span></h3>
+  <p><code>PARAM_MAP</code> holds thirteen keys. Any other CC number returned <code>None</code> from <code>.get()</code>, and <code>None != -1</code> is true, so the code walked straight into the mapped branch and <strong>handed None to FL as a parameter index</strong>.</p>
+  <span class="lbl-was">Was</span>
+  <pre class="was"><code>PLUGIN_PARAM = PARAM_MAP.get(cle)
+if PLUGIN_PARAM != -1 :
+    plugins.setParamValue(value, PLUGIN_PARAM, channels.selectedChannel())</code></pre>
+  <span class="lbl-now">Now</span>
+  <pre class="now"><code>PLUGIN_PARAM = PARAM_MAP.get(cle, -1)
+if PLUGIN_PARAM != -1 :
+    plugins.setParamValue(hw_value/127, PLUGIN_PARAM, channel)</code></pre>
+</div>
+
+<div class="fix crash">
+  <h3><span class="tag crash">Crash</span> Plugins with no mapped knobs <span class="where">MiniLab3Plugin.py:853</span></h3>
+  <p>The refresh branch only bound <code>parameter</code>, <code>value</code> and <code>mapped</code> inside a conditional. Six of the stock maps set all eight knob slots to <code>-1</code>, so the loop assigned nothing and the return line raised UnboundLocalError. <strong>Fruity Keyboard Controller, BooBass, Autogun, PLUCKED!, Fruit kick and Fruity Dance all hit this.</strong></p>
+  <span class="lbl-now">Now</span>
+  <pre class="now"><code>cle = str(hw_param)
+mapped = 0
+parameter = ("Knob " if hw_param in KNOB_ID else "Fader ") + str(PARAM_ID.get(cle))
+value = str(hw_value)</code></pre>
+</div>
+
+<div class="fix crash">
+  <h3><span class="tag crash">Crash</span> Pad note outside the 36 to 51 bank <span class="where">MiniLab3Process.py:255</span></h3>
+  <p>Two failures in one line. <code>FPC_MAP.get()</code> wrote <code>None</code> into <code>event.data1</code>, and <code>PAD_MATRIX_STATE[note - 36]</code> ran past the end of a sixteen slot list. Shift the pads one octave and the script dies on the first hit.</p>
+  <span class="lbl-was">Was</span>
+  <pre class="was"><code>index = event.data1
+if event.status == 153 :
+    self.PadOn(index)
+    event.data1 = FPC_MAP.get(str(event.data1))</code></pre>
+  <span class="lbl-now">Now</span>
+  <pre class="now"><code>index = event.data1
+mapped_note = FPC_MAP.get(str(index))
+if mapped_note is None :
+    event.handled = False
+    return False
+if event.status == 153 :
+    self.PadOn(index)</code></pre>
+</div>
+
+<div class="fix crash">
+  <h3><span class="tag crash">Crash</span> Sysex memory callbacks <span class="where">MiniLab3Process.py:571</span></h3>
+  <p><code>DAWMemory</code> and <code>ArturiaMemory</code> are registered in the sysex dispatcher, which calls every callback with the event. Both were declared taking <code>self</code> alone, so <strong>wiring that dispatcher up would raise TypeError on the first message</strong>. Both now accept the event.</p>
+</div>
+
+<div class="fix crash">
+  <h3><span class="tag crash">Crash</span> Knob moved with no valid plugin <span class="where">MiniLab3Plugin.py:98</span></h3>
+  <p><code>plugins.getPluginName(channels.selectedChannel())</code> ran with no guard at all. <code>selectedChannel()</code> returns 0 rather than -1 on an empty rack, so a knob moved before any channel was loaded reached into a channel that holds nothing.</p>
+  <span class="lbl-now">Now</span>
+  <pre class="now"><code>channel = channels.selectedChannel(1)
+if channel == -1 or not plugins.isValid(channel) :
+    plugin_name = ''
+else :
+    plugin_name = plugins.getPluginName(channel)</code></pre>
+</div>
+
+<div class="fix crash">
+  <h3><span class="tag crash">Crash</span> Display fed a string, a None or an overshoot <span class="where">MiniLab3Display.py:132</span></h3>
+  <p>The encoder and fader screens ran <code>int(int(value)*127/100)</code> straight into <code>bytes()</code>. Value arrives as a string from the plugin pages and as <code>None</code> when nothing is mapped, and a parameter reading above 1.0 pushed the byte past 127. All three paths now route through one clamped helper.</p>
+  <span class="lbl-now">Now</span>
+  <pre class="now"><code>@staticmethod
+def _scale_to_byte(value):
+    try:
+        scaled = int(float(value) * 127 / 100)
+    except (TypeError, ValueError):
+        return 0
+    return min(127, max(0, scaled))</code></pre>
+</div>
+
+<h2 id="behavior">Behaviour repairs</h2>
+
+<div class="fix behavior">
+  <h3><span class="tag behavior">Behaviour</span> Every control was processed twice <span class="where">device_MiniLab3.py:115</span></h3>
+  <p>This is the headline defect. <code>event.handled</code> already defaults to False, so setting it to False was a no operation. <strong>Every button and knob the script consumed was then handed to FL Studio's own MIDI handling for a second pass.</strong> That is where doubled transport hits and jumping knob values come from.</p>
+  <span class="lbl-was">Was</span>
+  <pre class="was"><code>if _processor.ProcessEvent(event):
+    event.handled = False</code></pre>
+  <span class="lbl-now">Now</span>
+  <pre class="now"><code>if _processor.ProcessEvent(event):
+    event.handled = True</code></pre>
+  <p>Flipping that flag alone would swallow every CC on the port, including the mod wheel and anything the user assigns by hand. Three call sites were changed so the answer is honest. <code>Dispatch()</code> now reports False for a key it does not own, <code>OnCommandEvent</code> passes the inner result up instead of dropping it, and <code>OnWheelEvent</code> claims the event only when it actually forwarded to Analog Lab.</p>
+  <span class="lbl-now">Now</span>
+  <pre class="now"><code>def Dispatch(self, event):
+    key = self._transform_fn(event)
+    if key not in self._dispatch_map:
+        return False
+    callback_fn, filter_fn = self._dispatch_map[key]
+    if not filter_fn(event):
+        return True
+    result = callback_fn(event)
+    if result is None:
+        return True
+    return bool(result)</code></pre>
+  <p>The harness holds that line in both directions. An unmapped CC 22 stays available to FL, CC 106 Stop is consumed, a V Collection pitch bend still forwards, and <strong>a pitch bend on an ordinary channel still reaches FL so bends keep working</strong>.</p>
+</div>
+
+<div class="fix behavior">
+  <h3><span class="tag behavior">Behaviour</span> Three plugins fell out of the list <span class="where">MiniLab3Plugin.py:68</span></h3>
+  <p>Three missing commas. Python joins adjacent string literals, so <code>'BASSDRUM' 'Fruit kick' 'MiniSynth'</code> became the single entry <code>'BASSDRUMFruit kickMiniSynth'</code>. <strong>Knob feedback never engaged for BASSDRUM, Fruit kick or MiniSynth</strong>, because the name test could never match.</p>
+  <span class="lbl-was">Was</span>
+  <pre class="was"><code>'BASSDRUM'
+'Fruit kick'
+'MiniSynth'
+'PoiZone',</code></pre>
+  <span class="lbl-now">Now</span>
+  <pre class="now"><code>'BASSDRUM',
+'Fruit kick',
+'MiniSynth',
+'PoiZone',</code></pre>
+</div>
+
+<div class="fix behavior">
+  <h3><span class="tag behavior">Behaviour</span> Debug print on every refresh <span class="where">MiniLab3Plugin.py:887</span></h3>
+  <p><code>SetParamValue</code> carried a bare <code>print(param, value)</code>. <code>PluginParamReturn</code> calls it eight times per <code>OnRefresh</code>, so it <strong>flooded the FL Studio script log continuously while a stock plugin was selected</strong>. Removed, and the byte is clamped in the same pass.</p>
+</div>
+
+<div class="fix behavior">
+  <h3><span class="tag behavior">Behaviour</span> Wrong unpack in the knob refresh branch <span class="where">MiniLab3Process.py:494</span></h3>
+  <p>The branch unpacked two values from a function that always returns three, and passed the event object where a CC number belongs. Dead in the shipped mapping, live the moment CC 29 is routed differently.</p>
+  <span class="lbl-was">Was</span>
+  <pre class="was"><code>KNOB_HW_VALUE, mapped = MiniLab3Plugin.Plugin(event, 0, 1)</code></pre>
+  <span class="lbl-now">Now</span>
+  <pre class="now"><code>parameter, value, mapped = MiniLab3Plugin.Plugin(event.data1, event.data2, 0)
+KNOB_HW_VALUE = MiniLab3Plugin.KNOB_HW_VALUE</code></pre>
+</div>
+
+<div class="fix behavior">
+  <h3><span class="tag behavior">Behaviour</span> Tempo read as sliced digits <span class="where">MiniLab3Navigation.py:246</span></h3>
+  <p><code>getCurrentTempo</code> returns BPM multiplied by a thousand. The old code chose two or three characters off the front of the string, so <strong>99.5 BPM displayed as 995 BPM</strong>. Now it divides and rounds.</p>
+  <span class="lbl-now">Now</span>
+  <pre class="now"><code>tempo_str = str(round(mixer.getCurrentTempo(0) / 1000))</code></pre>
+</div>
+
+<div class="fix behavior">
+  <h3><span class="tag behavior">Behaviour</span> Snap mode 2 showed stale text <span class="where">MiniLab3Navigation.py:275</span></h3>
+  <p>The snap table has no entry for mode 2, so the lookup returned <code>None</code>, and a None line leaves the previous text on screen. The display then <strong>reported the wrong snap mode with no sign anything went wrong</strong>. It now falls back to a labelled value.</p>
+</div>
+
+<div class="fix behavior">
+  <h3><span class="tag behavior">Behaviour</span> Channel name sanitising <span class="where">device_MiniLab3.py:79</span></h3>
+  <p><code>Sync()</code> called <code>getChannelName</code> without checking for a selection, and rebuilt the string one slice at a time inside a loop that constructed a fresh <code>range</code> object per character. Replaced with a guarded single pass that maps anything above ASCII to a question mark.</p>
+  <span class="lbl-now">Now</span>
+  <pre class="now"><code>active_index = channels.selectedChannel(1)
+if active_index != -1 :
+    channel_name = channels.getChannelName(active_index)
+else :
+    channel_name = ''
+channel_name = ''.join(c if ord(c) &lt; 128 else '?' for c in channel_name)</code></pre>
+</div>
+
+<h2 id="hygiene">Structural cleanup</h2>
+
+<div class="fix hygiene">
+  <h3><span class="tag hygiene">Hygiene</span> Circular import removed <span class="where">MiniLab3Navigation.py:19</span></h3>
+  <p><code>MiniLab3Navigation</code> imported <code>MiniLab3Process</code>, which imports <code>NavigationMode</code> back out of Navigation. The alias was never referenced anywhere in the file, so the cycle bought nothing and left the loader holding a half built module. Deleted.</p>
+</div>
+
+<div class="fix hygiene">
+  <h3><span class="tag hygiene">Hygiene</span> MEMORY declared before use <span class="where">MiniLab3Process.py:141</span></h3>
+  <p>The two memory callbacks wrote to a global that no module level statement ever created. Declared alongside the other constants so it exists before the first sysex arrives.</p>
+</div>
+
+<div class="fix hygiene">
+  <h3><span class="tag hygiene">Hygiene</span> Knob feedback byte clamped <span class="where">MiniLab3Process.py:565</span></h3>
+  <p><code>SetParamValue</code> in the processor built a SysEx byte from a raw parameter reading, with the same overflow the plugin module had. Clamped to 0 through 127 for consistency.</p>
+</div>
+
+<h2 id="table">Every change in one table</h2>
+
+<div class="scroller">
+<table>
+  <thead>
+    <tr><th>#</th><th>File</th><th>Where</th><th>Severity</th><th>What was wrong</th></tr>
+  </thead>
+  <tbody>
+    <tr><td>1</td><td>MiniLab3Dispatch.py</td><td><code>Dispatch</code></td><td>Behaviour</td><td>Reported an unowned key as processed, and discarded the callback's own answer</td></tr>
+    <tr><td>2</td><td>MiniLab3Process.py</td><td><code>OnCommandEvent</code></td><td>Behaviour</td><td>Dropped the inner dispatch result</td></tr>
+    <tr><td>3</td><td>MiniLab3Process.py</td><td><code>OnWheelEvent</code></td><td>Behaviour</td><td>Never said whether it forwarded, so pitch bend could be swallowed</td></tr>
+    <tr><td>4</td><td>MiniLab3Process.py</td><td><code>OnKnobEvent</code></td><td>Behaviour</td><td>Dropped the inner dispatch result</td></tr>
+    <tr><td>5</td><td>MiniLab3Process.py</td><td><code>OnDrumEvent</code></td><td>Crash</td><td>None written to data1, index past the pad matrix</td></tr>
+    <tr><td>6</td><td>MiniLab3Process.py</td><td><code>Plugin</code></td><td>Crash</td><td>Two value unpack from a three value return, event passed as a CC number</td></tr>
+    <tr><td>7</td><td>MiniLab3Process.py</td><td><code>ForwardAnalogLab</code></td><td>Crash</td><td>Called Plugin with three arguments</td></tr>
+    <tr><td>8</td><td>MiniLab3Process.py</td><td><code>SetParamValue</code></td><td>Behaviour</td><td>Unclamped SysEx byte</td></tr>
+    <tr><td>9</td><td>MiniLab3Process.py</td><td><code>DAWMemory</code>, <code>ArturiaMemory</code></td><td>Crash</td><td>No event parameter on a dispatcher callback</td></tr>
+    <tr><td>10</td><td>MiniLab3Process.py</td><td>module level</td><td>Hygiene</td><td>MEMORY never declared</td></tr>
+    <tr><td>11</td><td>MiniLab3Plugin.py</td><td><code>NATIVE_PLUGIN_LIST</code></td><td>Behaviour</td><td>Three missing commas merged three names into one</td></tr>
+    <tr><td>12</td><td>MiniLab3Plugin.py</td><td><code>Plugin</code></td><td>Crash</td><td>getPluginName with no validity guard</td></tr>
+    <tr><td>13</td><td>MiniLab3Plugin.py</td><td><code>Plugin</code></td><td>Crash</td><td>PARAM_MAP.get returned None into setParamValue</td></tr>
+    <tr><td>14</td><td>MiniLab3Plugin.py</td><td><code>Plugin</code></td><td>Crash</td><td>UnboundLocalError on any all-minus-one map</td></tr>
+    <tr><td>15</td><td>MiniLab3Plugin.py</td><td><code>SetParamValue</code></td><td>Behaviour</td><td>Log flooding print, unclamped byte</td></tr>
+    <tr><td>16</td><td>MiniLab3Display.py</td><td><code>_refresh_display</code></td><td>Crash</td><td>Unclamped byte from a string or None value</td></tr>
+    <tr><td>17</td><td>MiniLab3Navigation.py</td><td>imports</td><td>Hygiene</td><td>Unused circular import</td></tr>
+    <tr><td>18</td><td>MiniLab3Navigation.py</td><td><code>TapTempoRefresh</code></td><td>Behaviour</td><td>Tempo built by slicing digits</td></tr>
+    <tr><td>19</td><td>MiniLab3Navigation.py</td><td><code>SnapModeRefresh</code></td><td>Behaviour</td><td>Missing table entry left stale text on screen</td></tr>
+    <tr><td>20</td><td>device_MiniLab3.py</td><td><code>OnMidiMsg</code></td><td>Behaviour</td><td>handled set to False, so FL processed everything twice</td></tr>
+    <tr><td>21</td><td>device_MiniLab3.py</td><td><code>Sync</code></td><td>Behaviour</td><td>Unguarded selection, per character range allocation</td></tr>
+  </tbody>
+</table>
+</div>
+
+<p>Four files were read and left alone, because nothing in them was broken: <code>MiniLab3Pages.py</code>, <code>MiniLab3Connexion.py</code>, <code>MiniLab3Return.py</code> and <code>ArturiaVCOL.py</code>.</p>
+
+<h2 id="install">Installing it</h2>
+
+<div class="callout">
+  <p><strong>FL Studio is not installed on this Mac.</strong> The repairs were verified against a stub of the FL Studio API rather than inside the DAW, so the last mile is a real hardware test on a machine that runs FL Studio.</p>
+</div>
+
+<p>Drop the whole folder, all ten files together, into the FL Studio hardware scripts directory.</p>
+
+<table>
+  <thead><tr><th>Platform</th><th>Path</th></tr></thead>
+  <tbody>
+    <tr><td>macOS</td><td><code>~/Documents/Image-Line/FL Studio/Settings/Hardware/</code></td></tr>
+    <tr><td>Windows</td><td><code>%USERPROFILE%\Documents\Image-Line\FL Studio\Settings\Hardware\</code></td></tr>
+  </tbody>
+</table>
+
+<p>Then open FL Studio, go to Options and MIDI settings, select the MiniLab 3 DAW port, and set its controller type to Arturia MiniLab 3. Set the MiniLab 3 itself to DAW mode. Watch the script output window on load: <strong>a clean load prints both status lines and nothing else</strong>.</p>
+
+<pre class="now"><code>Loaded MIDI script for Arturia MiniLab 3
+### Successfully created class objects ###
+### Messages successfully sent to MINILAB3 ###</code></pre>
+
+<h2 id="harness">How the harness works</h2>
+
+<p>FL Studio device scripts import ten modules that only exist inside FL Studio, so none of this code can be imported on a plain Python install. The harness builds each of those modules as a stub, wires in state the scenarios can steer, then imports the real script and calls into it.</p>
+
+<p>Two stub choices decide whether the harness is worth anything. <code>plugins.setParamValue</code> rejects a non integer parameter index, and <code>plugins.getPluginName</code> raises when the channel holds nothing. Both mirror what FL actually does. A first pass with permissive stubs reported those two scenarios as passing on the broken code, which is exactly the false negative a stub harness exists to avoid.</p>
+
+<p>One stub returns <code>1.9</code> from <code>getParamValue</code> on purpose. That single reading is what surfaced the sixteen malformed SysEx frames, since 127 multiplied by 1.9 lands on 241 and 241 is <code>0xF1</code>.</p>
+
+<pre class="now"><code>scenarios: 17   passed: 17   failed: 0
+sysex messages sent to the stub device: 87
+CC forwarded to the Analog Lab port:    2
+sysex frames containing a byte &gt; 0x7F:  0</code></pre>
+
+<footer>
+  Arturia MiniLab 3 FL Studio script, community version 1.0.8 by Farès MEZDOUR. Repair pass 17 August 2026. Original folder preserved untouched alongside the repaired copy.
+</footer>
+
+</div>
+</body>
+</html>
