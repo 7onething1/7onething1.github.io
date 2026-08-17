@@ -457,6 +457,47 @@ footer{margin-top:52px;padding-top:18px;border-top:2px solid var(--ink);
   The correct action was to refute the flag rather than edit the file, and nothing was changed. The gate already prints "held span", so it knows the note is held; it just does not use that fact when choosing the limit. The fix it needs is a held-pedal exemption: when one note of a pair is inside a tie chain and the other is the only moving voice, judge the span against a two-finger reach rather than the flat four-fret limit.
 </div>
 
+
+<h3>Step 12. Discrete measures without a map, also refuted</h3>
+
+<p>Step 10 concluded the surviving signal class was discrete event matching rather than continuous features. That is testable without a DTW map at all, which sidesteps both the circularity of Step 6 and the map degeneracy of Step 8. Tab attacks placed at linear time from bpm alone, compared against the audio's onset stream as a sequence.</p>
+
+<div class="scroll">
+<table>
+<thead><tr><th>Pairing</th><th>Kind</th><th>Tab attacks</th><th>Onsets</th><th>Density correlation</th><th>Inter-onset similarity</th></tr></thead>
+<tbody>
+<tr><td>Mutiny tab vs its own <code>[R]</code></td><td>correct</td><td>2582</td><td>718</td><td class="no">-0.004</td><td>0.381</td></tr>
+<tr><td>Mutiny tab vs its own <code>[L]</code></td><td>other channel</td><td>2582</td><td>292</td><td class="no">-0.126</td><td>0.246</td></tr>
+<tr><td>Mutiny tab vs its summed rhythm</td><td>correct</td><td>2582</td><td>236</td><td class="no">-0.367</td><td>0.267</td></tr>
+<tr><td>Mutiny tab vs So Far So</td><td>wrong song</td><td>2582</td><td>83</td><td>-0.078</td><td>0.248</td></tr>
+<tr><td>Mutiny tab vs My Mirror</td><td>wrong song</td><td>2582</td><td>456</td><td>+0.042</td><td>0.269</td></tr>
+<tr><td>My Mirror tab vs its own</td><td>correct</td><td>3326</td><td>456</td><td class="no">-0.129</td><td>0.166</td></tr>
+<tr><td>My Mirror tab vs The Mutiny</td><td>wrong song</td><td>3326</td><td>236</td><td>-0.522</td><td>0.112</td></tr>
+</tbody>
+</table>
+</div>
+
+<div class="scroll">
+<table style="min-width:620px">
+<thead><tr><th>Measure</th><th>Correct mean</th><th>Wrong-song mean</th><th>Ratio</th><th>Verdict</th></tr></thead>
+<tbody>
+<tr><td>Density correlation</td><td>-0.167</td><td>-0.186</td><td class="no">0.90</td><td class="no">No ordering</td></tr>
+<tr><td>Inter-onset similarity</td><td>+0.271</td><td>+0.210</td><td class="no">1.29</td><td class="no">Weak, under the 1.5 bar</td></tr>
+<tr class="yes"><td><strong>Attack recall, the reference</strong></td><td><strong>74.1%</strong></td><td><strong>13.0%</strong></td><td class="yes"><strong>5.70</strong></td><td class="yes">The unique survivor</td></tr>
+</tbody>
+</table>
+</div>
+
+<div class="note bad">
+  <strong>Density correlation reaches zero even on correct pairings.</strong>
+  The tab writes 2582 attacks where the detector finds 718, so the two streams describe different things and their per-bin profiles carry no shared shape. Inter-onset similarity is directional at 1.29 and swamped by variance inside the correct group, 0.381 against 0.166.
+</div>
+
+<div class="note">
+  <strong>The survey result, stated as the shape it actually has.</strong>
+  Nine measures tested across two songs with controls on both sides. Map-based continuous features fail. Map-free discrete measures fail. Map-based pitch has no power. <strong>Attack recall through a health-gated map is the unique survivor at 5.70x.</strong> The map is not the enemy; a degenerate map is, and the health gate now separates the two. Attack recall works precisely because the map lets it ask whether an onset exists where an attack is written, a question that survives warping while everything else measured does not.
+</div>
+
 <h3>Step 4. Playability, which needs no audio</h3>
 <div class="scroll">
 <table>

@@ -183,6 +183,31 @@ Playability needs no audio, so the audio blocker never applied. The tie state ac
 
 **So The Mutiny has zero genuine playability faults.** The correct action was to refute the flag, and nothing was changed. The gate needs a held-pedal exemption: when one note of a pair is inside a tie chain and the other is the only moving voice, judge the span against a two-finger reach rather than the flat four-fret limit.
 
+
+### Discrete measures without a map, also refuted
+
+Tab attacks placed at linear time from bpm alone, compared against the audio's onset stream as a sequence. No DTW, so neither circularity nor map degeneracy applies.
+
+| Pairing | Kind | Tab attacks | Onsets | Density r | IOI similarity |
+|---|---|---|---|---|---|
+| Mutiny tab vs its own [R] | correct | 2582 | 718 | -0.004 | 0.381 |
+| Mutiny tab vs its own [L] | other channel | 2582 | 292 | -0.126 | 0.246 |
+| Mutiny tab vs its summed rhythm | correct | 2582 | 236 | -0.367 | 0.267 |
+| Mutiny tab vs So Far So | wrong song | 2582 | 83 | -0.078 | 0.248 |
+| Mutiny tab vs My Mirror | wrong song | 2582 | 456 | +0.042 | 0.269 |
+| My Mirror tab vs its own | correct | 3326 | 456 | -0.129 | 0.166 |
+| My Mirror tab vs The Mutiny | wrong song | 3326 | 236 | -0.522 | 0.112 |
+
+| Measure | Correct mean | Wrong mean | Ratio | Verdict |
+|---|---|---|---|---|
+| Density correlation | -0.167 | -0.186 | 0.90 | No ordering |
+| Inter-onset similarity | +0.271 | +0.210 | 1.29 | Weak, under the 1.5 bar |
+| **Attack recall, reference** | **74.1%** | **13.0%** | **5.70** | The unique survivor |
+
+Density correlation reaches zero even on correct pairings: the tab writes 2582 attacks where the detector finds 718, so the streams describe different things.
+
+**Nine measures across two songs with controls on both sides.** Map-based continuous features fail. Map-free discrete measures fail. Map-based pitch has no power. Attack recall through a health-gated map is the unique survivor at 5.70x. The map is not the enemy; a degenerate map is.
+
 ### Playability
 
 | Track | Notes | Hand skip | Same-string | Tie | Wide | Octave | Verdict |
