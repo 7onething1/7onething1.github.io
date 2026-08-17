@@ -4,6 +4,47 @@ Census taken 2026-08-17. Every Songsterr tab, Guitar Pro file, and stem folder f
 
 
 
+
+## Plan: finishing every /goal requirement
+
+| /goal requirement | Status | Evidence |
+|---|---|---|
+| Attack precision and recall | Done | 88.0% and 74.1%, validated 5.70x against a wrong stem |
+| Pitch agreement | Done | 53.4% vs 51.0% control, no power, reported with control |
+| Timing error | Done | median 48.2 ms, p90 204.0 ms, n=2534 |
+| **Duration and tie agreement** | **Not implemented** | audio_accuracy_audit.py documents it in its header and never codes it |
+| Channel ownership per note | Done | Refused at -0.0115 against a 0.05 threshold |
+| DTW map, validated | Done | 5.75x, bar CV 2.22% over 126/135, PASSES health gate |
+| Full playability tier | Done | Lead REVIEW, Rhythm one flag refuted as a held-pedal false positive |
+| Candidate artifact hash | Done | source 21b37b73b6f35faa, rejected candidate c2c7710ee5488821 |
+| Preservation census | Done | 3260 in, 3260 out, zero lost, zero invented |
+| **Checkpoint ledger entry** | **Missing** | no baseline exists for this song |
+| **Per-note discrepancy classification** | **Missing** | the 795 unmatched attacks are counted, never itemised |
+
+### Phase 1. Close the three executable gaps, no new research needed
+
+1. **Implement duration and tie agreement.** `written_attacks()` already returns `duration_beats`, so the data is there and only the comparison is missing. Ship it with a shifted-time control like every other measure.
+2. **Itemise the 795 unmatched attacks.** The earlier attempt saturated at 100% because it rebuilt the map with `np.interp`. The tool's own `BM.apply_map(tab_t, rec_t, times)` is the call that produces 74.1%, so extraction goes through that call and yields each miss with staff and bar.
+3. **Classify every miss** as supported correction, unsupported change, or unresolved ambiguity, the wording that /goal uses.
+4. **Initialise the checkpoint ledger** with `--init-checkpoint` so a future candidate has a baseline.
+
+### Phase 2. The decision that is not mine
+
+Nine measures tested with controls on both sides, only attack recall survived, so today a corrected file cannot be justified note by note. Three ways forward:
+
+- **Accept the inherited tab** with its documented profile: 74.1% attack recall, 88.0% precision, 48.2 ms median timing, zero genuine playability faults.
+- **Fund the missing-signal work.** The space is mapped; what is untried is a learned or template matcher rather than a hand-designed statistic.
+- **Correct by ear** with the tools as evidence rather than as the licenser.
+
+### Phase 3. The other nine songs
+
+- **Ready now, five:** Not Too Much, The Alligator, So Far So, My Mirror Hates Me, and Endless Summer
+- **Needs a re-pull first, two:** Lazarus, Broken Satellites
+- **Blocked on stems, two:** Asleep in the Trunk, Jackie need six-stem re-separation
+- **Pilot already run:** The Mutiny
+
+Phase 1 closes the three /goal line items missing for implementation reasons rather than research reasons, which leaves exactly one precise gap. Per-note correction stays blocked either way.
+
 ## Phase 0 result: run, measured, closed
 
 Executed 2026-08-17. Live notation pulled per track off the Songsterr CDN route `st_gpdiff.py` uses, then counted bar by bar. Four of five items settled by measurement.

@@ -98,6 +98,7 @@ footer{margin-top:52px;padding-top:18px;border-top:2px solid var(--ink);
 <div class="toc">
   <strong>On this page</strong>
   <ol>
+    <li><a href="#goalplan">Plan: finishing every /goal requirement</a></li>
     <li><a href="#phase0">Phase 0 result: run, measured, closed</a></li>
     <li><a href="#phase1">Phase 1 result: The Mutiny, measured</a></li>
     <li><a href="#vocal">Vocal harmony: the direct answer</a></li>
@@ -128,6 +129,59 @@ footer{margin-top:52px;padding-top:18px;border-top:2px solid var(--ink);
 <p class="lead">All ten songs have a Songsterr tab, a <code>.gp</code> file, and a stem folder. What separates them is whether the stems can actually <em>prove</em> the guitar part. Two songs were separated to four stems only, so the guitar is buried inside <code>other</code> and no per-attack guitar evidence exists for them.</p>
 
 
+
+
+<h2 id="goalplan"><span class="n">PLAN</span>Finishing every <code>/goal</code> requirement</h2>
+
+<p>The <code>/goal</code> condition asks for two things in order: audio accuracy against the stems reported as measured numbers, then physical playability. Below is every requirement in that condition, against what The Mutiny has been measured to hold.</p>
+
+<div class="scroll">
+<table>
+<thead><tr><th><code>/goal</code> requirement</th><th>Status</th><th>Evidence</th></tr></thead>
+<tbody>
+<tr><td>Attack precision and recall against detected stem events</td><td><span class="pill p-go">Done</span></td><td>88.0% and 74.1%, validated at 5.70x against a wrong stem</td></tr>
+<tr><td>Pitch agreement</td><td><span class="pill p-go">Done</span></td><td>53.4% against a 51.0% control, no power, reported with its control</td></tr>
+<tr><td>Timing error</td><td><span class="pill p-go">Done</span></td><td>median 48.2 ms, p90 204.0 ms, n=2534</td></tr>
+<tr><td><strong>Duration and tie agreement</strong></td><td><span class="pill p-stop">Not implemented</span></td><td><code>audio_accuracy_audit.py</code> documents it in its header and never codes it. Two mentions in the file, both in docstrings.</td></tr>
+<tr><td>Channel ownership per note</td><td><span class="pill p-go">Done</span></td><td>Refused at -0.0115 against a 0.05 threshold, refusal reported</td></tr>
+<tr><td>DTW beat-to-seconds map, validated</td><td><span class="pill p-go">Done</span></td><td>5.75x, bar-length CV 2.22% over 126 of 135 bars, PASSES the health gate</td></tr>
+<tr><td>Full playability tier</td><td><span class="pill p-go">Done</span></td><td>Lead REVIEW, Rhythm one flag, refuted as a held-pedal false positive</td></tr>
+<tr><td>Candidate artifact hash</td><td><span class="pill p-go">Done</span></td><td>source <code>21b37b73b6f35faa</code>, rejected candidate <code>c2c7710ee5488821</code></td></tr>
+<tr><td>Preservation census</td><td><span class="pill p-go">Done</span></td><td>3260 in, 3260 out, zero lost, zero invented</td></tr>
+<tr><td><strong>Checkpoint ledger entry</strong></td><td><span class="pill p-warn">Missing</span></td><td>No ledger baseline exists for this song, so <code>--assert-best</code> has nothing to compare</td></tr>
+<tr><td><strong>Per-note discrepancy classification</strong></td><td><span class="pill p-warn">Missing</span></td><td>The 795 unmatched attacks have a count and no itemisation</td></tr>
+</tbody>
+</table>
+</div>
+
+<h3>Phase 1. Close the three executable gaps, no new research needed</h3>
+<ol>
+<li><strong>Implement duration and tie agreement.</strong> <code>written_attacks()</code> already returns <code>duration_beats</code> per note, so the data is there and the comparison against decay-to-half-energy is missing. Ship it with a shifted-time control like every other measure, and report it refused if it loses.</li>
+<li><strong>Itemise the 795 unmatched attacks.</strong> The earlier attempt saturated at 100% because it rebuilt the map with <code>np.interp</code>. The tool's own <code>BM.apply_map(tab_t, rec_t, times)</code> is the call that produces 74.1%, so extraction goes through that call and yields each miss with its staff and bar.</li>
+<li><strong>Classify every miss</strong> as supported correction, unsupported change, or unresolved ambiguity, which is the wording that <code>/goal</code> uses. On present evidence most will fall under unresolved, since an onset detector misses attacks inside a held chord, and saying so per note is the requirement.</li>
+<li><strong>Initialise the checkpoint ledger</strong> for The Mutiny with <code>--init-checkpoint</code> so any future candidate has a baseline to beat.</li>
+</ol>
+
+<h3>Phase 2. The decision that is not mine to make</h3>
+<p>After Phase 1, <code>/goal</code> on The Mutiny reduces to one question. Nine measures were tested with controls on both sides and only attack recall survived, so today a corrected file cannot be justified note by note. Three ways forward:</p>
+<ul>
+<li><strong>Accept the inherited tab</strong> with its documented profile: 74.1% attack recall, 88.0% precision, 48.2 ms median timing, zero genuine playability faults. Ship it, and write the standard down.</li>
+<li><strong>Fund the missing-signal work.</strong> The search space is mapped: map-based continuous features fail, map-free discrete measures fail, chroma has no power. What is untried is a learned or template-based matcher rather than a hand-designed statistic.</li>
+<li><strong>Correct by ear</strong> with the tools as evidence rather than as the licenser, which is the route that your own standing rule already prefers when a scorecard and your ear disagree.</li>
+</ul>
+
+<h3>Phase 3. The other nine songs, with the real cost</h3>
+<ul>
+<li><strong>Ready now, five songs:</strong> Not Too Much, The Alligator, So Far So, My Mirror Hates Me, and Endless Summer. Each needs a map build, a health gate, the audit, the playability tier, and the triage.</li>
+<li><strong>Needs a re-pull first, two songs:</strong> Lazarus and Broken Satellites, both settled in Phase 0 and neither pulled yet.</li>
+<li><strong>Blocked on stems, two songs:</strong> Asleep in the Trunk and Jackie hold four stems each with the guitar inside <code>other</code>, so they need six-stem re-separation before any guitar question.</li>
+<li><strong>One song is the pilot already run:</strong> The Mutiny.</li>
+</ul>
+
+<div class="note">
+  <strong>What Phase 1 changes about the answer.</strong>
+  Phase 1 closes the three <code>/goal</code> line items that are missing for implementation reasons rather than research reasons, so the remaining gap is exactly one thing stated precisely, instead of a mix of unfinished work and genuine unknowns. Per-note correction stays blocked either way.
+</div>
 
 <h2 id="phase0"><span class="n">00</span>Phase 0 result: run, measured, closed</h2>
 
@@ -309,7 +363,7 @@ footer{margin-top:52px;padding-top:18px;border-top:2px solid var(--ink);
 </table>
 </div>
 
-<p><strong>Cause: 718 onsets across 251 seconds is one every 0.35 seconds.</strong> The DTW map compresses any input into that distribution, so a tab shifted by nearly four seconds still lands beside an onset. Onset density this high leaves the measure no headroom, which is a property of dense distorted rhythm guitar rather than a coding error. The tool is kept, exits nonzero, and emits nothing whenever the decoy keeps up.</p>
+<p><strong>Cause: 718 onsets across 251 seconds is one every 0.35 seconds.</strong> The DTW map compresses any input into that distribution, so a tab shifted by nearly four seconds still falls beside an onset. Onset density this high leaves the measure no headroom, which is a property of dense distorted rhythm guitar rather than a coding error. The tool is kept, exits nonzero, and emits nothing whenever the decoy keeps up.</p>
 
 <div class="note bad">
   <strong>Terminal state for per-note audio correction on this song.</strong>
