@@ -153,6 +153,48 @@ The Lead staff carries the same TUNING_EVIDENCE review as The Mutiny.
 
 **A pattern is forming.** The two songs reading TWO_PARTS also carry healthy maps and high attack recall. The two reading MIXED are the two with structural problems: The Alligator is missing 44 seconds, and So Far So cannot produce a usable map from any stem. Role flip and map health are tracking together, worth testing on the remaining six rather than assuming.
 
+
+### Song 5 of 10: Endless Summer, and the first successful correction
+
+**Correction to my own reading first.** I recorded the tab as 83 s longer than the song. That was my error: **Endless Summer is in 3/4**, 179 of 192 bars, 581 quarter-beats. At 140 bpm that is 249.0 s against a 246.4 s song, 1% apart. The tab is complete. I had assumed 4/4.
+
+I then suspected the tooling mishandled meter, since `ASE.events` derives bar length from notes and defaults to 4.0 on an empty bar. **Measured, refuted:** drift is -0.4 s on Endless Summer and 0.0 s on The Mutiny.
+
+| Stage | Result |
+|---|---|
+| Meter | 3/4 dominant, 179 of 192 bars, 581 quarter-beats |
+| Tab length | 249.0 s at 140 bpm vs a 246.4 s song and mix |
+| Staff roles | **TWO_PARTS**, co-activity 56.8%, role flip 9.2 |
+| Map health | Both stems PASS (lead 18 anchors, 4.2% clamped) |
+| Playability, source | Lead PASS, Rhythm **FAIL IMPOSSIBLE_SPAN x20** |
+
+| Shape | Span | Alternative | New span | Pitches | Ties | Instances |
+|---|---|---|---|---|---|---|
+| s0f6 s1f3 s2f6 s3f8 | 5 | s0f6 s1f3 s2f6 s4f4 | 3 | [42,46,54,61] both | none | 12 |
+| s2f10 s3f12 s4f15 | 5 | s1f15 s2f17 s4f15 | 2 | [58,65,72] both | none | 8 |
+
+**The first attempt regressed 20 faults into 533, and exposed the cause of both earlier failures.**
+
+| Attempt | Notes edited | Notes moved | Before | After |
+|---|---|---|---|---|
+| The Mutiny, in place | 1 | 3 positions | 1 | 5 |
+| Endless Summer, in place | 3 | 274 | 20 | 533 |
+| **Endless Summer, cloned** | 0 edited, **9 cloned** | **0** | 20 | **0** |
+
+GPIF keeps every `<Note>` in one shared pool and the same id is reused by many beats, so an in-place edit rewrites every beat referencing it. The fix is to deepcopy the notes a flagged beat needs into fresh ids and repoint only that beat. Beat shapes must be snapshotted before editing: the in-place run found 1 beat per shape where the cloned run found 3.
+
+**The validated candidate:**
+
+| Gate | Result |
+|---|---|
+| Tier 1 pitch preservation | **PASS**, 3917 in and out, zero lost, zero invented, 27 distinct both ways |
+| Tier 1b position | **PASS**, zero notes moved outside repaired beats |
+| Playability | **PASS both staves**, IMPOSSIBLE_SPAN **20 to 0** |
+| Checkpoint | **KEEP THE CHECKPOINT**. Hard total 20 to 0, hand skip 0.0% to 1.8%, trade must be licensed |
+| Hashes | source a54bbb8f582aad48, candidate 1bf5b965e04ff740 |
+
+The candidate is validated and deliberately not promoted. Removing 20 impossible spans at the price of 1.8% hand skip is a judgment about how the record should read.
+
 ### Phase 2. The decision that is not mine
 
 Nine measures tested with controls on both sides, only attack recall survived, so today a corrected file cannot be justified note by note. Three ways forward:

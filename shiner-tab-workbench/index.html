@@ -347,6 +347,75 @@ footer{margin-top:52px;padding-top:18px;border-top:2px solid var(--ink);
   The two songs whose staves read TWO_PARTS also carry healthy maps and high attack recall. The two that read MIXED are the two with structural problems: The Alligator is missing 44 seconds of music, and So Far So cannot produce a usable map from any of its three stems. Role flip and map health are tracking together, which is worth testing on the remaining six rather than assuming.
 </div>
 
+
+<h3>Song 5 of 10: Endless Summer, and the session's first successful correction</h3>
+
+<div class="note warnb">
+  <strong>Correction to my own reading first.</strong>
+  I recorded the tab as 83 seconds longer than the song, 329.1 s against 246.4 s. That was my error: <strong>Endless Summer is in 3/4</strong>, with 179 of its 192 bars in 3/4, nine in 4/4 and four in 2/4, totalling 581 quarter-beats. At 140 bpm that is 249.0 s against a 246.4 s song, a 1% match. <strong>The tab is complete.</strong> I had assumed 4/4 and multiplied 192 by 4.
+</div>
+
+<p>I then suspected the tooling mishandled the meter, since <code>ASE.events</code> derives each bar's length from its notes and defaults to 4.0 for an empty bar rather than reading the time signature. <strong>Measured, that hypothesis is refuted:</strong> drift is -0.4 s across 248 s on Endless Summer and 0.0 s on The Mutiny, because filled bars derive their span correctly.</p>
+
+<div class="scroll">
+<table style="min-width:640px">
+<thead><tr><th>Stage</th><th>Result</th></tr></thead>
+<tbody>
+<tr><td>Meter</td><td>3/4 dominant, 179 of 192 bars, 581 quarter-beats</td></tr>
+<tr><td>Tab length</td><td class="yes">249.0 s at 140 bpm against a 246.4 s song and mix, 1% apart</td></tr>
+<tr><td>Two guitars or one covering</td><td class="yes"><strong>TWO_PARTS</strong>, co-activity 56.8%, role flip 9.2</td></tr>
+<tr><td>Map health</td><td class="yes">Both stems PASS. lead 18 anchors, 4.2% clamped, max run 29. rhythm 13 anchors, 5.1% clamped.</td></tr>
+<tr><td>Playability, source</td><td class="no">Lead PASS. Rhythm <strong>FAIL, IMPOSSIBLE_SPAN x20</strong></td></tr>
+</tbody>
+</table>
+</div>
+
+<h4>The two shapes, and why they were safe to repair</h4>
+<div class="scroll">
+<table style="min-width:660px">
+<thead><tr><th>Shape</th><th>Span</th><th>Alternative</th><th>New span</th><th>Pitches</th><th>Ties</th><th>Instances</th></tr></thead>
+<tbody>
+<tr><td class="mono">s0f6 s1f3 s2f6 s3f8</td><td>5</td><td class="mono">s0f6 s1f3 s2f6 s4f4</td><td class="yes">3</td><td class="yes">[42,46,54,61] both ways</td><td class="yes">none</td><td>12</td></tr>
+<tr><td class="mono">s2f10 s3f12 s4f15</td><td>5</td><td class="mono">s1f15 s2f17 s4f15</td><td class="yes">2</td><td class="yes">[58,65,72] both ways</td><td class="yes">none</td><td>8</td></tr>
+</tbody>
+</table>
+</div>
+<p>Every one of the 20 records carries <code>ties: []</code>, so the tie-chain trap that regressed The Mutiny candidate does not apply. Both alternatives were verified pitch-identical before any edit.</p>
+
+<div class="trap">
+<h3>The first attempt regressed 20 faults into 533, and it exposed the cause of BOTH earlier failures</h3>
+<p>Editing the notes in place changed <strong>3 notes</strong> and the position gate reported <strong>274 notes moved</strong>, 10% of the staff. Faults went from 20 to IMPOSSIBLE_SPAN x177 plus SAME_STRING x178 plus TIE_COLLISION x178.</p>
+<p><strong>GPIF keeps every <code>&lt;Note&gt;</code> in one shared pool and each <code>&lt;Beat&gt;</code> references notes by id, and the same id is reused by many beats.</strong> So an in-place edit does not repair one beat, it rewrites every beat referencing that note. That is also why The Mutiny's single-note edit moved three playback positions and turned 1 fault into 5.</p>
+<div class="scroll"><table style="min-width:600px">
+<thead><tr><th>Attempt</th><th>Notes edited</th><th>Notes moved</th><th>Faults before</th><th>Faults after</th></tr></thead>
+<tbody>
+<tr><td>The Mutiny, in place</td><td>1</td><td>3 positions</td><td>1</td><td class="no">5</td></tr>
+<tr><td>Endless Summer, in place</td><td>3</td><td class="no">274</td><td>20</td><td class="no">533</td></tr>
+<tr class="yes"><td><strong>Endless Summer, cloned</strong></td><td>0 edited, <strong>9 cloned</strong></td><td class="yes"><strong>0</strong></td><td>20</td><td class="yes"><strong>0</strong></td></tr>
+</tbody>
+</table></div>
+<p>The fix is to <code>deepcopy</code> the notes a flagged beat needs changed into fresh ids, apply the refret to the clones, and repoint only that beat. Beat shapes also have to be snapshotted BEFORE editing, since an earlier edit changes what a later beat looks like: the in-place run found 1 beat per shape where the cloned run found 3.</p>
+</div>
+
+<h4>The validated candidate</h4>
+<div class="scroll">
+<table style="min-width:640px">
+<thead><tr><th>Gate</th><th>Result</th></tr></thead>
+<tbody>
+<tr><td>Tier 1, pitch preservation</td><td class="yes"><strong>PASS</strong>, 3917 in and 3917 out, zero lost, zero invented, 27 distinct pitches both ways</td></tr>
+<tr><td>Tier 1b, position</td><td class="yes"><strong>PASS</strong>, zero notes moved outside the repaired beats</td></tr>
+<tr><td>Playability</td><td class="yes"><strong>PASS on both staves</strong>, IMPOSSIBLE_SPAN <strong>20 to 0</strong></td></tr>
+<tr><td>Checkpoint comparison</td><td class="p-warn"><strong>KEEP THE CHECKPOINT</strong>. Hard total falls 20 to 0, and hand skip rises 0.0% to 1.8%. The gate holds the candidate as a draft and asks for that trade to be licensed with evidence rather than assumed.</td></tr>
+<tr><td>Hashes</td><td class="mono">source a54bbb8f582aad48, candidate 1bf5b965e04ff740</td></tr>
+</tbody>
+</table>
+</div>
+
+<div class="note">
+  <strong>The candidate is validated and deliberately not promoted.</strong>
+  Removing 20 impossible spans at the price of 1.8% hand skip is a judgment about how this record should read, so it stays a draft with the checkpoint standing. The promotion command, once that trade is accepted, is <code>--license-skip-regression</code> with the evidence, which the gate records in the receipt.
+</div>
+
 <h3>Phase 2. The decision that is not mine to make</h3>
 <p>After Phase 1, <code>/goal</code> on The Mutiny reduces to one question. Nine measures were tested with controls on both sides and only attack recall survived, so today a corrected file cannot be justified note by note. Three ways forward:</p>
 <ul>
