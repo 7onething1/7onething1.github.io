@@ -338,15 +338,40 @@ footer{margin-top:56px;padding-top:16px;border-top:2px solid var(--rule);font-si
 <tr><th>Plugin</th><th>Installed here</th><th>Verdict on the one job</th></tr>
 <tr><td><b>zplane PEEL-STEMS</b> 1.0.2, AU and VST3</td><td><b>Yes</b>, since 2024-08-19</td><td><b>Dead.</b> Its stem labels are Vocals, Drums, Bass, Other. No guitar output at all, so it is weaker than Demucs here</td></tr>
 <tr><td>Waves ARA shells 16.7 and 16.8</td><td>Yes</td><td><b>Dead.</b> ARA is the host protocol. The Waves ARA plugins are vocal tools</td></tr>
-<tr><td><b>Celemony Melodyne</b> (DNA polyphonic)</td><td><b>No</b></td><td>The strongest untried idea. Gives per-note objects inside a polyphonic recording, which is note-level rather than stem-level</td></tr>
-<tr><td><b>Hit'n'Mix RipX</b></td><td><b>No</b></td><td>Same shape as Melodyne. Per-note editing and reassignment</td></tr>
+<tr><td><b>Celemony Melodyne</b> (DNA polyphonic)</td><td><b>No</b></td><td><b>Ruled out by the vendor's own manual.</b> DNA separates by pitch, never by instrument, so two guitars at one pitch stay one note. See the comparison below</td></tr>
+<tr><td><b>Hit'n'Mix RipX</b></td><td><b>No</b></td><td><b>The one worth trialling.</b> Per-note editing plus its own instrument-separation stage. 21-day free trial</td></tr>
 <tr><td>Steinberg SpectraLayers</td><td>No</td><td>Manual spectral painting, human-guided rather than model-guided</td></tr>
 <tr><td>iZotope RX Music Rebalance</td><td>No</td><td>Four-source rebalance. No guitar roles</td></tr>
 </table>
 </div>
 
 <div class="card note">
-<p><b>What the plugin world offers that the model world does not: human-guided, note-level separation.</b> Melodyne DNA and RipX hand back individual note objects you can audition and reassign by ear, rather than a stem you have to re-transcribe. <b>Our problem is note-level ownership, so that shape fits the problem better than any stem splitter does.</b> Neither is installed, and both are paid, so they sit behind the Moises control in priority.</p>
+<p><b>What the plugin world offers that the model world does not: human-guided, note-level separation.</b> Melodyne DNA and RipX hand back individual note objects you can audition and reassign by ear, rather than a stem you have to re-transcribe. <b>Our problem is note-level ownership, so that shape fits the problem better than any stem splitter does.</b></p>
+</div>
+
+<h3>Melodyne against RipX, priced and judged on our actual case</h3>
+
+<div class="card lose">
+<p><b>Celemony documents the kill themselves.</b> From the Melodyne 5 manual: <b>"DNA is intended for polyphonic instruments recorded singly, as it separates notes by pitch, not by instrument,"</b> and <b>"if two or more instruments play a note of the same pitch on the same beat, one note only, representing the combined sound of the instruments in question, is available for editing (no separation of instruments)."</b></p>
+<p>That is the same failure our own <code>album_guitar_split.py</code> had, which sorted by register rather than by player. And it applies to exactly the notes that matter here: <b>the cross-channel duplicates run 19% to 56% of the transcription</b>, which is the unison case Melodyne says it cannot split. Buying Melodyne to solve two-guitar ownership buys a tool the vendor says does not do it.</p>
+</div>
+
+<div class="scroll">
+<table>
+<tr><th></th><th>Melodyne 5</th><th>RipX</th></tr>
+<tr><td>Entry price for the feature</td><td class="num"><b>$399</b> (Editor). Essential $99 and Assistant $249 have no DNA at all. Studio $699</td><td class="num"><b>£99</b> RipX DAW, <b>£198</b> RipX DAW PRO. Perpetual</td></tr>
+<tr><td>Free trial</td><td class="num"><b>30 days</b>, full Studio, once per computer</td><td class="num"><b>21 days</b></td></tr>
+<tr><td>Two instruments at the same pitch</td><td class="num"><b>Cannot separate.</b> Vendor-documented</td><td class="num">Same architectural limit expected. <b>Not vendor-confirmed, so this is inference</b></td></tr>
+<tr><td>Instrument separation stage</td><td class="num"><b>None by design.</b> Melodyne splits notes, never sources</td><td class="num"><b>Yes.</b> Its own unmix and instrument-separation stage on top of note editing</td></tr>
+<tr><td>Note data out toward our pipeline</td><td class="num">Note edits, MIDI export</td><td class="num">Rip Audio treats audio and MIDI as one object</td></tr>
+<tr><td>Ableton Live 11 integration</td><td class="num"><b>No ARA.</b> Ableton has never implemented it, so this is the transfer workflow</td><td class="num">Standalone DAW, so ARA is moot</td></tr>
+<tr><td>This Mac (i5-7500, 4 cores, 40 GB, macOS 13.7.8)</td><td class="num">Supported</td><td class="num">Supported. Meets the <b>recommended</b> 4-core and 16 GB bar</td></tr>
+</table>
+</div>
+
+<div class="card win">
+<p><b>Verdict: RipX, and the correct spend today is $0.</b> It is half the price, it carries an instrument-separation stage that Melodyne lacks entirely, its note data moves toward MIDI which is what our pipeline eats, and it has a 21-day trial. Melodyne's own manual rules it out on our worst case before any money changes hands.</p>
+<p><b>Both trials are free, so no purchase decision is needed to answer the question.</b> Run the same shifted-time control on a RipX split that killed our own splitter. A tool that cannot beat a time-shifted decoy is sorting by register, whatever it costs.</p>
 </div>
 
 <div class="card warn">
