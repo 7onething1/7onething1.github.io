@@ -98,6 +98,7 @@ footer{margin-top:52px;padding-top:18px;border-top:2px solid var(--ink);
 <div class="toc">
   <strong>On this page</strong>
   <ol>
+    <li><a href="#phase0">Phase 0 result: run, measured, closed</a></li>
     <li><a href="#vocal">Vocal harmony: the direct answer</a></li>
     <li><a href="#content">Note content, every staff</a></li>
     <li><a href="#plan">The fix plan, in order</a></li>
@@ -119,10 +120,77 @@ footer{margin-top:52px;padding-top:18px;border-top:2px solid var(--ink);
   <div class="card info"><span class="big">3</span><span class="lbl">Local .gp files now stale</span></div>
   <div class="card info"><span class="big">16</span><span class="lbl">Shiner tabs live, 10 held locally</span></div>
   <div class="card stop"><span class="big">0</span><span class="lbl">Tabs with a second vocal staff</span></div>
+  <div class="card go"><span class="big">4/5</span><span class="lbl">Phase 0 items closed by measurement</span></div>
 </div>
 
 <p class="lead">All ten songs have a Songsterr tab, a <code>.gp</code> file, and a stem folder. What separates them is whether the stems can actually <em>prove</em> the guitar part. Two songs were separated to four stems only, so the guitar is buried inside <code>other</code> and no per-attack guitar evidence exists for them.</p>
 
+
+
+<h2 id="phase0"><span class="n">00</span>Phase 0 result: run, measured, closed</h2>
+
+<p>Executed 2026-08-17. Live notation pulled per track off the Songsterr CDN route <code>st_gpdiff.py</code> uses, then counted bar by bar. Four of the five Phase 0 items are now settled by measurement rather than by inference.</p>
+
+<div class="note warnb">
+  <strong>A measurement bug was caught and fixed before any of this was reported.</strong>
+  Songsterr encodes a rest as <code>{"notes":[{"rest":true}]}</code>, so the first counting pass scored rests as notes and returned 100% occupancy on every track. Every number below excludes rests. The occupancy column now separates a part that plays throughout from one that enters rarely.
+</div>
+
+<div class="scroll">
+<table>
+<thead><tr><th>Song</th><th>Live rev</th><th>Live notes</th><th>Local notes</th><th>Verdict</th><th>What the measurement settled</th></tr></thead>
+<tbody>
+<tr><td class="song">Asleep in the Trunk</td><td class="mono">7798309</td><td class="yes">7245</td><td class="no">173</td><td><span class="pill p-stop">Re-pull</span></td>
+  <td><strong>The source was always fine. Our copy was the defect.</strong> 42 times the content. Vocals go from 14 notes to 311, with 15 stacked beats.</td></tr>
+<tr><td class="song">Lazarus</td><td class="mono">7834445</td><td class="yes">8672</td><td>3319</td><td><span class="pill p-stop">Re-pull</span></td>
+  <td><strong>The new tab carries the vocal and drum staves the local file lacks</strong>, 228 and 2040 notes. It runs 207 bars against the local 138.</td></tr>
+<tr><td class="song">Jackie</td><td class="mono">7834599</td><td>3014</td><td>3013</td><td><span class="pill p-go">No action</span></td>
+  <td><strong>Correction. The local copy is current.</strong> Track for track the counts match, vocals 139 against 139. The revision date moved and the content did not.</td></tr>
+<tr><td class="song">Broken Satellites</td><td class="mono">6648000</td><td>5870</td><td>9071</td><td><span class="pill p-warn">Use live</span></td>
+  <td><strong>The Copy tracks exist only in our file.</strong> Songsterr holds five tracks with no duplicates. Lead 924, Rhythm 2671, Vocals 335, identical to ours track for track. The extra 3201 local notes are the two copies.</td></tr>
+<tr><td class="song">Broken Satellites BC</td><td class="mono">7791000</td><td>4700</td><td>n/a</td><td><span class="pill p-stop">Reject</span></td>
+  <td><strong>The rival tab has almost no lead.</strong> 129 notes at 13.3% occupancy with zero stacks, against 924 at 60.2% with 144 stacks on <code>s5084035</code>.</td></tr>
+</tbody>
+</table>
+</div>
+
+<h3>Per-track detail, live</h3>
+<div class="scroll">
+<table>
+<thead><tr><th>Song</th><th>Track</th><th>Notes</th><th>Occupancy</th><th>Stacked</th><th>Max stack</th><th>Songsterr isVocalTrack</th></tr></thead>
+<tbody>
+<tr><td class="song" rowspan="5">Asleep in the Trunk</td><td>Lead Guitar</td><td>731</td><td>45.1%</td><td>195</td><td>4</td><td>false</td></tr>
+<tr><td>Rhythm Guitar</td><td>3027</td><td>97.0%</td><td>1038</td><td>4</td><td>false</td></tr>
+<tr><td>Bass</td><td>1402</td><td>100.0%</td><td>0</td><td>1</td><td>false</td></tr>
+<tr><td>Drums</td><td>1774</td><td>78.4%</td><td>495</td><td>3</td><td>false</td></tr>
+<tr><td>Vocals</td><td>311</td><td>66.3%</td><td class="yes">15</td><td>2</td><td class="yes">true</td></tr>
+<tr><td class="song" rowspan="5">Lazarus</td><td>Lead Guitar</td><td class="no">154</td><td class="no">43.0%</td><td>0</td><td>1</td><td>false</td></tr>
+<tr><td>Rhythm Guitar</td><td>5040</td><td>99.5%</td><td>1553</td><td>4</td><td>false</td></tr>
+<tr><td>Bass</td><td>1210</td><td>94.7%</td><td>0</td><td>1</td><td>false</td></tr>
+<tr><td>Drums</td><td>2040</td><td>93.7%</td><td>565</td><td>3</td><td>false</td></tr>
+<tr><td>Vocals</td><td>228</td><td>44.9%</td><td class="no">0</td><td>1</td><td class="yes">true</td></tr>
+<tr><td class="song" rowspan="4">Jackie</td><td>Rhythm Guitar</td><td>1242</td><td>99.0%</td><td>275</td><td>3</td><td>false</td></tr>
+<tr><td>Bass</td><td>581</td><td>97.1%</td><td>0</td><td>1</td><td>false</td></tr>
+<tr><td>Drums</td><td>1052</td><td>97.1%</td><td>362</td><td>2</td><td>false</td></tr>
+<tr><td>Vocals</td><td>139</td><td>39.2%</td><td class="no">0</td><td>1</td><td class="yes">true</td></tr>
+<tr><td class="song" rowspan="5">Broken Satellites</td><td>Lead Guitar</td><td>924</td><td>60.2%</td><td>144</td><td>6</td><td>false</td></tr>
+<tr><td>Rhythm Guitar</td><td>2671</td><td>98.8%</td><td>773</td><td>6</td><td>false</td></tr>
+<tr><td>Bass</td><td>530</td><td>96.5%</td><td>0</td><td>1</td><td>false</td></tr>
+<tr><td>Drums</td><td>1410</td><td>91.2%</td><td>359</td><td>2</td><td>false</td></tr>
+<tr><td>Vocals</td><td>335</td><td>54.4%</td><td class="yes">67</td><td>2</td><td class="yes">true</td></tr>
+</tbody>
+</table>
+</div>
+
+<div class="note bad">
+  <strong>The vocal answer holds on the live tabs too, from Songsterr's own flag.</strong>
+  Every song returns <code>isVocalTrack: true</code> on exactly one track. Not one returns two. The live Asleep vocal carries 15 stacked beats and the live Broken Satellites carries 67, so the harmony pattern is the same as the local files: written as stacks on one staff, never as a second staff.
+</div>
+
+<div class="note">
+  <strong>A new Phase 1 item came out of this.</strong>
+  The Lazarus lead staff holds 154 notes at 43% occupancy with zero stacked beats, and the Broken Satellites BC lead holds 129 at 13.3%. That is the documented Songsterr solo failure, where a fast lead comes back thin or an octave low rather than empty. Read the lead's note count and fret range before accepting any tab, which is now a Phase 1 check.
+</div>
 
 <h2 id="vocal"><span class="n">01</span>Vocal harmony: the direct answer</h2>
 
@@ -193,11 +261,11 @@ footer{margin-top:52px;padding-top:18px;border-top:2px solid var(--ink);
 <table>
 <thead><tr><th>#</th><th>Issue</th><th>Fix</th><th>Skill or gate</th><th>Past mistake it guards</th></tr></thead>
 <tbody>
-<tr><td>1</td><td>Asleep local <code>.gp</code> is a 173-note shell</td><td>Re-pull <code>s5085156</code> rev 7798309, the hand-built 2026-07-08 revision</td><td><code>/songsterr-tab-guide</code>, <code>st_gpdiff.py</code></td><td>Fixed-shape tools emit full-size empty files</td></tr>
-<tr><td>2</td><td>Lazarus local has no vocal and no drum staff</td><td>Re-pull <code>s5476396</code>, which carries both</td><td><code>/songsterr-tab-guide</code></td><td>Judging a source by a stale local export</td></tr>
-<tr><td>3</td><td>Jackie local is two months stale</td><td>Re-pull <code>s5418285</code> rev 7834599</td><td><code>/songsterr-tab-guide</code></td><td>Same</td></tr>
-<tr><td>4</td><td>Broken Satellites local carries <code>Copy</code> tracks</td><td>Re-pull <code>s5084035</code>, then decide against <code>s5965143</code></td><td><code>octave_copy_gate.py</code></td><td>A lead staff that was 77.4% fret+12 copy reached Songsterr</td></tr>
-<tr><td>5</td><td>Nothing measured whether a file holds content</td><td>Run the new gate on every re-pull before use</td><td><code>empty_staff_gate.py</code>, built today</td><td>Exit 0 and file-exists prove a tool ran, never that its output is good</td></tr>
+<tr><td>1</td><td>Asleep local <code>.gp</code> is a 173-note shell</td><td><span class="pill p-go">DONE</span> Live measured at 7245 notes against our 173. Re-pull confirmed necessary.</td><td><code>/songsterr-tab-guide</code>, <code>st_gpdiff.py</code></td><td>Fixed-shape tools emit full-size empty files</td></tr>
+<tr><td>2</td><td>Lazarus local has no vocal and no drum staff</td><td><span class="pill p-go">DONE</span> Live carries vocals 228 and drums 2040 over 207 bars. Re-pull confirmed necessary.</td><td><code>/songsterr-tab-guide</code></td><td>Judging a source by a stale local export</td></tr>
+<tr><td>3</td><td>Jackie local is two months stale</td><td><span class="pill p-go">DONE</span> Content identical track for track. No re-pull needed, the staleness claim was wrong.</td><td><code>/songsterr-tab-guide</code></td><td>Same</td></tr>
+<tr><td>4</td><td>Broken Satellites local carries <code>Copy</code> tracks</td><td><span class="pill p-go">DONE</span> Copies are local only. <code>s5084035</code> beats <code>s5965143</code>, whose lead holds 129 notes at 13.3%.</td><td><code>octave_copy_gate.py</code></td><td>A lead staff that was 77.4% fret+12 copy reached Songsterr</td></tr>
+<tr><td>5</td><td>Nothing measured whether a file holds content</td><td><span class="pill p-go">DONE</span> Gate built, validated, and run. A rest-counting bug in the live reader was caught and fixed before reporting.</td><td><code>empty_staff_gate.py</code>, built today</td><td>Exit 0 and file-exists prove a tool ran, never that its output is good</td></tr>
 </tbody>
 </table>
 </div>
@@ -295,7 +363,7 @@ footer{margin-top:52px;padding-top:18px;border-top:2px solid var(--ink);
   <td>Standard E tuning, the only one. Has a separate <code>piano.wav</code> alongside <code>keys.wav</code>.</td></tr>
 <tr><td>6</td><td class="song">Endless Summer</td><td><span class="pill p-go">Ready</span></td>
   <td>2</td><td class="yes">yes</td><td class="yes">lead + rhythm</td><td class="yes">yes</td><td class="yes">yes</td><td>192</td>
-  <td>Moises 6-stem. Bass is written as finger, not pick, unlike its neighbours.</td></tr>
+  <td>Moises 6-stem. Bass is written as finger where its neighbours use pick.</td></tr>
 <tr><td>7</td><td class="song">Lazarus</td><td><span class="pill p-warn">Re-pull first</span></td>
   <td>2</td><td class="yes">yes, live</td><td class="yes">lead + rhythm</td><td class="yes">yes</td><td class="yes">yes</td><td>138</td>
   <td>The local file is a stale 3-track May export. Songsterr <code>s5476396</code> from 2026-07-11 carries 5 tracks with Vocals and Drums. Re-pull.</td></tr>

@@ -3,6 +3,25 @@
 Census taken 2026-08-17. Every Songsterr tab, Guitar Pro file, and stem folder for the ten songs, matched song by song.
 
 
+
+## Phase 0 result: run, measured, closed
+
+Executed 2026-08-17. Live notation pulled per track off the Songsterr CDN route `st_gpdiff.py` uses, then counted bar by bar. Four of five items settled by measurement.
+
+**A measurement bug was caught and fixed before reporting.** Songsterr encodes a rest as `{"notes":[{"rest":true}]}`, so the first pass scored rests as notes and returned 100% occupancy everywhere. Every number below excludes rests.
+
+| Song | Live rev | Live notes | Local notes | Verdict | What it settled |
+|---|---|---|---|---|---|
+| Asleep in the Trunk | 7798309 | 7245 | 173 | Re-pull | The source was always fine, our copy was the defect. 42x the content. Vocals 14 to 311. |
+| Lazarus | 7834445 | 8672 | 3319 | Re-pull | New tab carries the vocal (228) and drum (2040) staves the local file lacks. 207 bars against 138. |
+| Jackie | 7834599 | 3014 | 3013 | No action | Correction: the local copy is current. Track for track identical, vocals 139 against 139. |
+| Broken Satellites | 6648000 | 5870 | 9071 | Use live | The Copy tracks exist only in our file. Lead 924, Rhythm 2671, Vocals 335, identical to ours. The extra 3201 local notes are the copies. |
+| Broken Satellites BC | 7791000 | 4700 | n/a | Reject | Lead holds 129 notes at 13.3% occupancy against 924 at 60.2% on s5084035. |
+
+**The vocal answer holds on the live tabs, from Songsterr's own flag.** Every song returns `isVocalTrack: true` on exactly one track. Not one returns two. Live Asleep vocal carries 15 stacked beats, live Broken Satellites carries 67.
+
+**New Phase 1 item.** The Lazarus lead holds 154 notes at 43% occupancy with zero stacks, and the BC lead holds 129 at 13.3%. That is the documented Songsterr solo failure. Read the lead's note count and fret range before accepting any tab.
+
 ## Vocal harmony: the direct answer
 
 **No. Not one tab carries a second vocal staff.** Measured across 10 local `.gp` files and 17 live Songsterr revisions, counting any track whose name matches vocal, voice, sing, vox, lyric or harmon, cross-checked against MIDI program 66. Every tab holds exactly one `Vocals` staff. The old Lazarus holds none. Zero of 27 hold two.
