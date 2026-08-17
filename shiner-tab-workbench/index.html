@@ -102,6 +102,7 @@ footer{margin-top:52px;padding-top:18px;border-top:2px solid var(--ink);
     <li><a href="#songsterr">Songsterr registry (10 IDs, live-checked)</a></li>
     <li><a href="#gp">Guitar Pro track census</a></li>
     <li><a href="#stems">Stem census</a></li>
+    <li><a href="#live">Live Songsterr versus the local export</a></li>
     <li><a href="#traps">Four traps that will bite</a></li>
     <li><a href="#queue">The correction queue</a></li>
     <li><a href="#paths">Canonical paths</a></li>
@@ -112,7 +113,8 @@ footer{margin-top:52px;padding-top:18px;border-top:2px solid var(--ink);
   <div class="card go"><span class="big">6</span><span class="lbl">Ready to correct now</span></div>
   <div class="card warn"><span class="big">2</span><span class="lbl">Ready with repairs first</span></div>
   <div class="card stop"><span class="big">2</span><span class="lbl">Blocked, no guitar stem</span></div>
-  <div class="card info"><span class="big">9/10</span><span class="lbl">Songsterr tabs public</span></div>
+  <div class="card info"><span class="big">3</span><span class="lbl">Local .gp files now stale</span></div>
+  <div class="card info"><span class="big">16</span><span class="lbl">Shiner tabs live, 10 held locally</span></div>
 </div>
 
 <p class="lead">All ten songs have a Songsterr tab, a <code>.gp</code> file, and a stem folder. What separates them is whether the stems can actually <em>prove</em> the guitar part. Two songs were separated to four stems only, so the guitar is buried inside <code>other</code> and no per-attack guitar evidence exists for them.</p>
@@ -137,22 +139,22 @@ footer{margin-top:52px;padding-top:18px;border-top:2px solid var(--ink);
   <td>Only song with true <code>RhythmGtr [L]</code> / <code>[R]</code> splits. Start here.</td></tr>
 <tr><td>4</td><td class="song">So Far So</td><td><span class="pill p-go">Ready</span></td>
   <td>2</td><td class="yes">yes</td><td class="yes">Rhythm + Solo + Other</td><td class="yes">yes</td><td class="yes">yes</td><td>140</td>
-  <td>Tab is private on Songsterr (403 anonymous). Needs the signed-in session to read or edit.</td></tr>
+  <td>Private tab <code>s5110187</code> is Drop C. A public <code>s4938058</code> also exists in <strong>Drop D</strong>, a different arrangement. Use the private one.</td></tr>
 <tr><td>5</td><td class="song">My Mirror Hates Me</td><td><span class="pill p-go">Ready</span></td>
   <td>2</td><td class="yes">yes</td><td class="yes">Rhythm + Solo + Other</td><td class="yes">yes</td><td class="yes">yes</td><td>134</td>
   <td>Standard E tuning, the only one. Has a separate <code>piano.wav</code> alongside <code>keys.wav</code>.</td></tr>
 <tr><td>6</td><td class="song">Endless Summer</td><td><span class="pill p-go">Ready</span></td>
   <td>2</td><td class="yes">yes</td><td class="yes">lead + rhythm</td><td class="yes">yes</td><td class="yes">yes</td><td>192</td>
   <td>Moises 6-stem. Bass is written as finger, not pick, unlike its neighbours.</td></tr>
-<tr><td>7</td><td class="song">Lazarus</td><td><span class="pill p-warn">Repair first</span></td>
-  <td>2</td><td class="no">MISSING</td><td class="yes">lead + rhythm</td><td class="yes">yes</td><td class="yes">yes</td><td>138</td>
-  <td>GP has three tracks only. No vocal staff and no drum staff exist to correct.</td></tr>
+<tr><td>7</td><td class="song">Lazarus</td><td><span class="pill p-warn">Re-pull first</span></td>
+  <td>2</td><td class="yes">yes, live</td><td class="yes">lead + rhythm</td><td class="yes">yes</td><td class="yes">yes</td><td>138</td>
+  <td>The local file is a stale 3-track May export. Songsterr <code>s5476396</code> from 2026-07-11 carries 5 tracks with Vocals and Drums. Re-pull.</td></tr>
 <tr><td>8</td><td class="song">Not Too Much</td><td><span class="pill p-go">Ready</span></td>
   <td>2</td><td class="yes">yes</td><td class="yes">Rhythm + Solo + Other</td><td class="yes">yes</td><td class="yes">yes</td><td>122</td>
   <td>D Standard rather than Drop D. The GP carries the corrected tuning; prose elsewhere may not.</td></tr>
 <tr><td>9</td><td class="song">Broken Satellites</td><td><span class="pill p-warn">Repair first</span></td>
-  <td>3 + 1 dupe</td><td class="yes">yes</td><td class="yes">Rhythm + Solo + Other</td><td class="yes">yes</td><td class="yes">yes</td><td>171</td>
-  <td>Carries <code>Rhythm Guitar Copy</code> and a bass <code>Copy</code>. Bass is 5-string standard against a Drop C guitar.</td></tr>
+  <td>3 + 1 dupe local</td><td class="yes">yes</td><td class="yes">Rhythm + Solo + Other</td><td class="yes">yes</td><td class="yes">yes</td><td>171</td>
+  <td>The copy tracks are a LOCAL artifact. Live <code>s5084035</code> is a clean 5-track Drop C, and a second 2026-07-08 upload <code>s5965143</code> exists. Re-pull, then pick.</td></tr>
 <tr><td>10</td><td class="song">Jackie</td><td><span class="pill p-stop">Blocked</span></td>
   <td>1</td><td class="yes">yes</td><td class="no">none</td><td class="yes">yes</td><td class="yes">yes</td><td>102</td>
   <td>4-stem FLAC and a single guitar staff. Fails the two-guitar rule on both sides at once.</td></tr>
@@ -241,7 +243,52 @@ footer{margin-top:52px;padding-top:18px;border-top:2px solid var(--ink);
 </table>
 </div>
 
-<h2 id="traps"><span class="n">05</span>Four traps that will bite</h2>
+
+<h2 id="live"><span class="n">05</span>What Songsterr holds that the local export does not</h2>
+
+<p>The canonical folder was exported 2026-06-02/03. Songsterr has moved since. Every row below was read from <code>songsterr.com/api/meta/&lt;id&gt;/revisions</code> and the matching revision endpoint on 2026-08-17, so the track titles and tuning come from the live revision rather than from the local file.</p>
+
+<div class="scroll">
+<table>
+<thead><tr><th>Song</th><th>ID</th><th>Latest revision</th><th>Built</th><th>Source</th><th>Tracks</th><th>Held locally?</th></tr></thead>
+<tbody>
+<tr><td class="song">So Far So</td><td class="mono">s5110187</td><td>private</td><td>n/a</td><td>n/a</td><td>5, Drop C</td><td class="yes">yes</td></tr>
+<tr><td class="song">So Far So</td><td class="mono">s4938058</td><td>6458676</td><td>2026-04-24</td><td>AI</td><td>5, <strong>Drop D</strong></td><td class="no">no</td></tr>
+<tr><td class="song">The Alligator</td><td class="mono">s5083283</td><td>6647001</td><td>2026-05-05</td><td>AI</td><td>5</td><td class="yes">yes</td></tr>
+<tr><td class="song">The Alligator</td><td class="mono">s2132594</td><td>2834004</td><td>2025-08-25</td><td>AI</td><td>4</td><td class="no">no</td></tr>
+<tr><td class="song">The Mutiny</td><td class="mono">s5083529</td><td>6647326</td><td>2026-05-05</td><td>AI</td><td>5</td><td class="yes">yes</td></tr>
+<tr><td class="song">Asleep In The Trunk</td><td class="mono">s5085156</td><td>7798309</td><td><strong>2026-07-08</strong></td><td>Editor, hand-built</td><td>5</td><td class="no">stale copy</td></tr>
+<tr><td class="song">Asleep In The Trunk</td><td class="mono">s4937622</td><td>6458071</td><td>2026-04-24</td><td>AI</td><td>5</td><td class="no">no</td></tr>
+<tr><td class="song">My Mirror Hates Me</td><td class="mono">s5418315</td><td>7085816</td><td>2026-05-29</td><td>AI</td><td>5</td><td class="yes">yes</td></tr>
+<tr><td class="song">Endless Summer</td><td class="mono">s5083970</td><td>6647906</td><td>2026-05-05</td><td>AI</td><td>5</td><td class="yes">yes</td></tr>
+<tr><td class="song">Lazarus</td><td class="mono">s5082702</td><td>6646409</td><td>2026-05-04</td><td>GP import</td><td>3</td><td class="yes">yes, this is the stale one</td></tr>
+<tr><td class="song">Lazarus</td><td class="mono">s5476396</td><td>7834445</td><td><strong>2026-07-11</strong></td><td>Editor, hand-built</td><td><strong>5, with Vocals + Drums</strong></td><td class="no">no</td></tr>
+<tr><td class="song">Not Too Much</td><td class="mono">s5084025</td><td>6647986</td><td>2026-05-05</td><td>AI</td><td>5</td><td class="yes">yes</td></tr>
+<tr><td class="song">Broken Satellites</td><td class="mono">s5084035</td><td>6648000</td><td>2026-05-05</td><td>AI</td><td>5, clean</td><td class="no">stale copy</td></tr>
+<tr><td class="song">Broken Satellites BC version</td><td class="mono">s5965143</td><td>7791000</td><td><strong>2026-07-08</strong></td><td>AI</td><td>5</td><td class="no">no</td></tr>
+<tr><td class="song">Jackie</td><td class="mono">s5418285</td><td>7834599</td><td><strong>2026-07-11</strong></td><td>Editor, hand-built</td><td>4</td><td class="no">stale copy</td></tr>
+<tr><td class="song">Surgery</td><td class="mono">s5071338</td><td>6631358</td><td>2026-05-04</td><td>AI</td><td>5</td><td class="no">not an album track</td></tr>
+<tr><td class="song">The Truth About Cows</td><td class="mono">s5097434</td><td>6665514</td><td>2026-05-06</td><td>AI</td><td>5</td><td class="no">not an album track</td></tr>
+</tbody>
+</table>
+</div>
+
+<div class="note bad">
+  <strong>Three local files are stale, and one of them changes a verdict.</strong>
+  Lazarus, Asleep In The Trunk, and Jackie all carry Songsterr revisions built in the Editor on 2026-07-08 and 2026-07-11, after the local export. The Lazarus one matters most: <code>s5476396</code> holds Lead Guitar, Rhythm Guitar, bass, drums, and a Vocals staff at MIDI program 66. The three-track local file is simply an old GP import. Re-pull before deciding anything about Lazarus.
+</div>
+
+<div class="note warnb">
+  <strong>The Broken Satellites copy tracks were never on Songsterr.</strong>
+  The live tab returns five clean tracks with a Drop C bass at <code>41 36 31 24</code>. <code>Rhythm Guitar Copy</code>, the bass <code>Copy</code>, and the five-string standard tuning exist only in the local <code>songsterr.gp</code>. That is a local edit, so treat it as such rather than as a defect in the source.
+</div>
+
+<div class="note">
+  <strong>Two artist pages, which is why three songs looked missing.</strong>
+  Songsterr splits the catalogue across <code>shiner-tabs-a86009</code> and <code>shiner-allen-epley-josh-newton-paul-malinowski-jason-gerken-tabs-a829768</code>. The Mutiny, Endless Summer, Broken Satellites, and the new Lazarus live on the second page. Searching only the first one finds seven of the ten.
+</div>
+
+<h2 id="traps"><span class="n">06</span>Four traps that will bite</h2>
 
 <div class="trap">
 <h3>1. The folder numbers are three different numbering schemes</h3>
@@ -264,8 +311,8 @@ footer{margin-top:52px;padding-top:18px;border-top:2px solid var(--ink);
 </div>
 
 <div class="trap">
-<h3>2. Broken Satellites has copy tracks and a mismatched bass</h3>
-<p>The file carries <code>Rhythm Guitar Copy</code> next to <code>Rhythm Guitar</code>, and a track literally named <code>Copy</code> next to the bass. A part filled by duplicating another part is a duplication rather than a transcription. The bass compounds it: tuned <code>23 28 33 38 43</code>, a five-string standard B E A D G, under a Drop C guitar, with the <code>Copy</code> a six-string bass on top. Every other song on the record uses a Drop C four-string at <code>24 31 36 41</code>. Run the octave-copy gate before treating any of those four staves as evidence.</p>
+<h3>2. Broken Satellites copy tracks, local only</h3>
+<p>The local file carries <code>Rhythm Guitar Copy</code> next to <code>Rhythm Guitar</code>, and a track literally named <code>Copy</code> next to the bass, plus a five-string standard B E A D G bass under a Drop C guitar. None of that is on Songsterr: the live revision returns five clean tracks with a Drop C bass. So the duplication happened locally. A part filled by duplicating another part is a duplication rather than a transcription, so run the octave-copy gate on the local file, and re-pull the live tab as the reference.</p>
 </div>
 
 <div class="trap">
@@ -278,15 +325,15 @@ footer{margin-top:52px;padding-top:18px;border-top:2px solid var(--ink);
 <p>Asleep in the Trunk and Jackie were separated to four stems, so their guitars are mixed into <code>other</code>. No amount of care on the tab will produce a per-attack guitar attribution from a stem that also contains keys and everything else. A pitch found in <code>other</code> does not prove the guitar played it. Both need re-separation to a six-stem model before they enter the queue.</p>
 </div>
 
-<h2 id="queue"><span class="n">06</span>The correction queue</h2>
+<h2 id="queue"><span class="n">07</span>The correction queue</h2>
 
 <ol>
 <li><strong>The Mutiny</strong>: start here. It is the only song carrying real <code>RhythmGtr [L]</code> and <code>[R]</code> files, so the two-guitar split can be validated against ground truth rather than inferred. Whatever the splitter concludes on Mutiny is the calibration for the other nine.</li>
 <li><strong>The Alligator</strong>: second, because it has an <code>audio_truth.gp3</code> from the 2026-06-02 stem pass. That gives a prior to regress against, and a resolved key at high confidence.</li>
 <li><strong>Not Too Much, So Far So, My Mirror Hates Me, Endless Summer</strong>: the clean middle. Full guitar layers, two GP staves, vocal and bass stems present.</li>
-<li><strong>Lazarus</strong>: guitar and bass can proceed immediately. The vocal melody has to be built from the vocal stem rather than corrected, since no vocal staff exists in the file.</li>
-<li><strong>Broken Satellites</strong>: resolve the copy tracks and the bass tuning first, then correct.</li>
-<li><strong>Asleep in the Trunk, Jackie</strong>: re-separate to six stems, settle the Asleep time signature, then queue.</li>
+<li><strong>Lazarus</strong>: re-pull <code>s5476396</code> first. The vocal and drum staves exist there, so nothing has to be built from scratch.</li>
+<li><strong>Broken Satellites</strong>: re-pull the live tab, decide between <code>s5084035</code> and the 2026-07-08 <code>s5965143</code>, then correct.</li>
+<li><strong>Asleep in the Trunk, Jackie</strong>: re-pull the 2026-07 hand-built revisions, re-separate the audio to six stems, settle the Asleep time signature, then queue. The stem gap is a disk fact and does not change with the tab.</li>
 </ol>
 
 <div class="note bad">
@@ -294,7 +341,7 @@ footer{margin-top:52px;padding-top:18px;border-top:2px solid var(--ink);
   A finished transcription is not finished because a file exists or a script exited zero. It has to be checked against the stems for pitch, attack timing, duration, guitar ownership, doubled notes, tuning, and articulation, reported as measured numbers, and then checked for physical playability: string and fret realizability, tie chains, hand span, position movement at tempo, open-string behaviour. Every difference from the prior gets classified as supported correction, unsupported change, or unresolved ambiguity.
 </div>
 
-<h2 id="paths"><span class="n">07</span>Canonical paths</h2>
+<h2 id="paths"><span class="n">08</span>Canonical paths</h2>
 
 <ul>
 <li><strong>Tabs, GP, charts, lyrics</strong>: <code>/Volumes/T7 Shield/BandBooks/BELIEVEYOUME/_canonical_2026-06-04/songs/&lt;NN_slug&gt;/</code>, each holding <code>songsterr.gp</code>, <code>songsterr.mid</code>, <code>fromcdn.mid</code>, <code>3guitar.mid</code>, <code>chart_GBV_TAB.md</code>, <code>lyrics.txt</code>, <code>stems_pointer.txt</code></li>
@@ -315,7 +362,7 @@ footer{margin-top:52px;padding-top:18px;border-top:2px solid var(--ink);
 </ul>
 
 <footer>
-  <p>Census taken 2026-08-17 by direct read of every <code>score.gpif</code>, every stem directory, and a following HTTP check on all ten Songsterr IDs. No claim here is carried over from an earlier session without being re-measured today, except the tempo and time-signature column, which is the 2026-06-03 on-site audit and is labelled as such.</p>
+  <p>Census taken 2026-08-17 by direct read of every <code>score.gpif</code>, every stem directory, a following HTTP check on all ten Songsterr IDs, and a pull of both Shiner artist pages plus the revision API for all sixteen live tabs. No claim here is carried over from an earlier session without being re-measured today, except the tempo and time-signature column, which is the 2026-06-03 on-site audit and is labelled as such.</p><p>Corrected mid-build: the first pass read Lazarus as having no vocal staff and Broken Satellites as carrying duplicate tracks. Both were true of the local files and false of the live tabs. The artist-page sweep that found this was prompted by the standing rule that one closed fetch path never settles whether information is reachable.</p>
 </footer>
 
 </div>
