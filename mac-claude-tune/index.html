@@ -79,7 +79,7 @@
 
 <div class="grid">
   <div class="tile bad"><div class="n">0.8%</div><div class="l">free disk (7.7 GB of 932 GB). The single largest cause of slowness.</div></div>
-  <div class="tile bad"><div class="n">33,206</div><div class="l">tokens of fixed preamble every turn, 16.6% of the window, before you type.</div></div>
+  <div class="tile bad"><div class="n">33,206</div><div class="l">tokens of fixed preamble every turn, 16.6% of the window, spent ahead of your first word.</div></div>
   <div class="tile warn"><div class="n">7</div><div class="l">standing rules that contradict each other or point at files that do not exist.</div></div>
   <div class="tile warn"><div class="n">1.61 s</div><div class="l">hook latency at every turn end, one full second of it a network call.</div></div>
   <div class="tile warn"><div class="n">18 / 158</div><div class="l">MCP servers and tools, with four duplicated capability families.</div></div>
@@ -162,7 +162,7 @@ Container Free Space: 7.7 GB (7662919680 Bytes)</div>
 
 <div class="card crit">
   <span class="score">10 / 10</span>
-  <h3>Why this costs accuracy, not just tokens</h3>
+  <h3>Why this costs accuracy on top of tokens</h3>
   <p><strong>A model given two opposite orders picks one and looks disobedient either way.</strong> Rules 1 and 2 arrive in every single turn, so every session opens with a coin flip on model policy and on whether to fan out. Rule 3 is worse than a contradiction, since it asserts a folder layout that is false here, and any path reasoning built on it starts wrong.</p>
   <div class="evidence">$ ls -d "$HOME/New Desktop"
 ls: /Users/brandonchavez/New Desktop: No such file or directory
@@ -246,7 +246,7 @@ python3 cold start:       0.04 s each</div>
  83M  ~/.claude/skills
  33M  ~/.claude/projects</div>
   <div class="src">source: du -sh ~/.claude/*</div>
-  <p><code>claude-sync</code> is named as banned in your own CLAUDE.md and its <code>sync.sh</code> was disabled on 2026-05-18. It is 2.3 GB of a git repo that is never allowed to run again.</p>
+  <p><code>claude-sync</code> is named as banned in your own CLAUDE.md and its <code>sync.sh</code> was disabled on 2026-05-18. That folder holds 2.3 GB of a git repo that is never allowed to run again.</p>
   <h3>Claude Desktop on disk: 8.2 GB</h3>
   <div class="evidence">6.0G  vm_bundles
 628M  local-agent-mode-sessions
@@ -263,7 +263,7 @@ python3 cold start:       0.04 s each</div>
 
 <div class="card ok">
   <span class="score">pass</span>
-  <h3>Three things that need no work</h3>
+  <h3>Three areas that need no work</h3>
   <p><strong>RAM is fine.</strong> 74% free with 131 MB of swap used out of 1 GB. There is no memory pressure problem here, so a RAM upgrade would buy nothing.</p>
   <p><strong>Shell startup is fast.</strong> 0.01 s for an interactive zsh, so your profile adds nothing measurable to Bash tool calls.</p>
   <p><strong>Spotlight is enabled and idle, Time Machine is not running, and the Trash is empty.</strong> None of the usual background-indexing suspects are the cause.</p>
