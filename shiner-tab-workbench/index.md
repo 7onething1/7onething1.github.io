@@ -2,11 +2,106 @@
 
 Census taken 2026-08-17. Every Songsterr tab, Guitar Pro file, and stem folder for the ten songs, matched song by song.
 
+
+## Vocal harmony: the direct answer
+
+**No. Not one tab carries a second vocal staff.** Measured across 10 local `.gp` files and 17 live Songsterr revisions, counting any track whose name matches vocal, voice, sing, vox, lyric or harmon, cross-checked against MIDI program 66. Every tab holds exactly one `Vocals` staff. The old Lazarus holds none. Zero of 27 hold two.
+
+**Harmony does exist, written as stacked notes on that single staff.** Five of ten stack notes inside the vocal part, up to three at once.
+
+| Song | Vocal staves | Vocal notes | Stacked beats | Max stack | Reading |
+|---|---|---|---|---|---|
+| So Far So | 1 | 342 | 53 | 3 | Three-part harmony on one staff |
+| Broken Satellites | 1 | 335 | 67 | 2 | Most stacked beats on the record |
+| The Mutiny | 1 | 247 | 18 | 2 | Two-part in places |
+| My Mirror Hates Me | 1 | 177 | 17 | 3 | Three-part in places |
+| Not Too Much | 1 | 189 | 6 | 2 | Barely stacked |
+| The Alligator | 1 | 178 | 0 | 1 | Monophonic, no written harmony |
+| Endless Summer | 1 | 210 | 0 | 1 | Monophonic, no written harmony |
+| Jackie | 1 | 139 | 0 | 1 | Monophonic, no written harmony |
+| Asleep in the Trunk | 1 | 14 | 0 | 1 | 14 notes across 264 bars, the staff is empty |
+| Lazarus (local) | 0 | 0 | 0 | 0 | No vocal staff; the live 2026-07-11 build has one |
+
+There is no existing second staff to correct. Every harmony pass is either splitting a stack into its own staff, or building a harmony line from the vocal stem where the notation carries none.
+
+## Note content, every staff
+
+| Song | Bars | Total | Lead | Rhythm | Bass | Drums | Vocal | Notes/bar |
+|---|---|---|---|---|---|---|---|---|
+| Broken Satellites | 171 | 9071 | 924 | 2671 | 530 | 1410 | 335 | 53.0 |
+| Not Too Much | 122 | 6885 | 811 | 3333 | 876 | 1676 | 189 | 56.4 |
+| Endless Summer | 192 | 5639 | 1139 | 2778 | 595 | 917 | 210 | 29.4 |
+| So Far So | 140 | 4941 | 579 | 1413 | 770 | 1837 | 342 | 35.3 |
+| The Mutiny | 135 | 4906 | 674 | 2586 | 505 | 894 | 247 | 36.3 |
+| My Mirror Hates Me | 134 | 4722 | 342 | 1270 | 612 | 2321 | 177 | 35.2 |
+| The Alligator | 86 | 4134 | 698 | 1586 | 439 | 1233 | 178 | 48.1 |
+| Lazarus | 138 | 3319 | 718 | 1392 | 1209 | 0 | 0 | 24.1 |
+| Jackie | 102 | 3013 | 0 | 1241 | 581 | 1052 | 139 | 29.5 |
+| Asleep in the Trunk | 264 | 173 | 0 | 33 | 101 | 25 | 14 | 0.7 |
+
+**The local Asleep file is a shell.** 264 bars, 173 notes, a Lead Guitar staff holding zero. It clears every rule `preflight_import.py` owns, because that gate counts staff presence and role identity and never parses a single Beat. Built today to close it: `~/.claude/skills/impossible-guitar-parts/empty_staff_gate.py`, validated at exit 1 on Asleep with five faults and exit 0 on the other nine.
+
+## The fix plan, in order
+
+### Phase 0. Trust the source before touching anything
+
+| # | Issue | Fix | Skill or gate | Past mistake it guards |
+|---|---|---|---|---|
+| 1 | Asleep local `.gp` is a 173-note shell | Re-pull `s5085156` rev 7798309 | `/songsterr-tab-guide`, `st_gpdiff.py` | Fixed-shape tools emit full-size empty files |
+| 2 | Lazarus local has no vocal or drum staff | Re-pull `s5476396` | `/songsterr-tab-guide` | Judging a source by a stale local export |
+| 3 | Jackie local is two months stale | Re-pull `s5418285` rev 7834599 | `/songsterr-tab-guide` | Same |
+| 4 | Broken Satellites local carries `Copy` tracks | Re-pull `s5084035`, then weigh `s5965143` | `octave_copy_gate.py` | A lead 77.4% fret+12 copy reached Songsterr |
+| 5 | Nothing measured file content | Run the new gate on every re-pull | `empty_staff_gate.py`, built today | Exit 0 proves a tool ran, never that output is good |
+
+### Phase 1. Calibrate the guitar split where ground truth exists
+
+| # | Issue | Fix | Skill or gate | Past mistake it guards |
+|---|---|---|---|---|
+| 6 | No beat-to-seconds map | Build and validate on The Mutiny | `/composite-stem-alignment`, `beat_map.py` | A map beating a random control can still be seven bars wrong |
+| 7 | Two guitars on one staff | Split by register and pitch against real `RhythmGtr [L]`/`[R]` | `attack_string_evidence.py`, `register_evidence.py`, `ownership_audit.py` | Splitting by panning, when 19-56% of notes are in BOTH channels |
+| 8 | Lead tacet while rhythm covers | Co-activity and role-character audit | `staff_role_audit.py` | A lead with no events from bar 57 |
+| 9 | Unplayable voicings | Five-tier playability grade | `impossible_gate.py` | 1111 unreachable chords shipped |
+| 10 | A rebuild silently losing notes | Pitch preservation first, skip percentage last | `/impossible-guitar-parts` tier order | A processing-order bug deleted 32 notes at pitch 38 |
+
+### Phase 2. Bass
+
+| # | Issue | Fix | Skill or gate | Past mistake it guards |
+|---|---|---|---|---|
+| 11 | No bass staff checked against a bass stem | Per-beat fundamental, compared bar by bar | `/audio-stems-to-midi`, crepe and yin | Tab MIDI encodes fingering rather than sounded harmony |
+| 12 | Broken Satellites bass tuning conflict | Resolve after re-pull, the live tab is Drop C | `empty_staff_gate.py` then `octave_copy_gate.py` | Treating a local edit as a source defect |
+
+### Phase 3. Vocals, which is the harmony question
+
+| # | Issue | Fix | Skill or gate | Past mistake it guards |
+|---|---|---|---|---|
+| 13 | Five songs write harmony as stacks | Verify each stack against the vocal stem before splitting it out | `/audio-stems-to-midi`, `/five-stem-song-analyst` | A pitch in one stem never proves which part sang it |
+| 14 | Four songs write a monophonic vocal | Check the stem for harmony the notation omits, add a staff only where the stem carries one | `/audio-stems-to-midi` | Inventing a part the evidence does not support |
+| 15 | Asleep has 14 vocal notes over 264 bars | Covered by the Phase 0 re-pull, then re-measure | `empty_staff_gate.py` | Shipping a staff that exists and is empty |
+| 16 | No gate for vocal-harmony fidelity | Build one after Phase 3, on the `octave_copy_gate.py` model | GAP, nothing covers this | One mention means a recurring class |
+
+### Phase 4. Unblock the two songs with no guitar evidence
+
+| # | Issue | Fix | Skill or gate | Past mistake it guards |
+|---|---|---|---|---|
+| 17 | Asleep and Jackie are 4-stem only | Re-separate with the Moises role split | Moises Guitar parts module | A pitch inside `other` proving nothing about the guitar |
+| 18 | Asleep 3/4 against 4/4 | Settle against audio on the validated beat map | `/composite-stem-alignment` | Correcting 264 bars against the wrong grid |
+| 19 | Jackie has one guitar staff | Decide by pan bimodality on the re-separated stems | `/impossible-guitar-parts` guitar count | Counting guitarists by stereo width |
+
+### Phase 5. Put the corrections back
+
+| # | Issue | Fix | Skill or gate | Past mistake it guards |
+|---|---|---|---|---|
+| 20 | An import deleting parts the existing tab holds | Preflight every upload, refuse on role drop | `/songsterr-upload`, `preflight_import.py` | 72 files shipped with no vocal at all |
+| 21 | A vocal uploaded as a guitar program | Keep program 66 and the sax type, classify by name | `preflight_import.py` | The vocal filed under horns by a program-first rule |
+| 22 | Upload order losing audio sync | YouTube first, then import, then wait for SAVED | `/songsterr-upload` | Importing first produces a silent tab |
+
+**One song per pass.** Phase 0 is the only step running across all ten at once, since it is a re-pull and a measurement. Everything from Phase 1 onward runs one song at a time, starting with The Mutiny.
+
 ## Verdict
 
 | # | Song | Verdict | GP guitars | GP vocal | Isolated gtr stem | Bars | Blocker |
 |---|---|---|---|---|---|---|---|
-| 1 | Asleep in the Trunk | BLOCKED | 2 | yes | none | 264 | 4-stem FLAC only, guitar inside `other.flac` |
+| 1 | Asleep in the Trunk | BLOCKED | 2 | yes | none | 264 | local file is a 173-note shell with a zero-note Lead staff; also 4-stem FLAC |
 | 2 | The Alligator | READY | 2 | yes | lead + rhythm | 86 | has `audio_truth.gp3` prior |
 | 3 | The Mutiny | READY, best first | 2 | yes | Rhythm L + R + Solo | 135 | only song with true L/R splits |
 | 4 | So Far So | READY | 2 | yes | Rhythm + Solo + Other | 140 | private s5110187 is Drop C; public s4938058 is a different Drop D arrangement |

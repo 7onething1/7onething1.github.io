@@ -98,6 +98,9 @@ footer{margin-top:52px;padding-top:18px;border-top:2px solid var(--ink);
 <div class="toc">
   <strong>On this page</strong>
   <ol>
+    <li><a href="#vocal">Vocal harmony: the direct answer</a></li>
+    <li><a href="#content">Note content, every staff</a></li>
+    <li><a href="#plan">The fix plan, in order</a></li>
     <li><a href="#verdict">The verdict, in one table</a></li>
     <li><a href="#songsterr">Songsterr registry (10 IDs, live-checked)</a></li>
     <li><a href="#gp">Guitar Pro track census</a></li>
@@ -115,11 +118,158 @@ footer{margin-top:52px;padding-top:18px;border-top:2px solid var(--ink);
   <div class="card stop"><span class="big">2</span><span class="lbl">Blocked, no guitar stem</span></div>
   <div class="card info"><span class="big">3</span><span class="lbl">Local .gp files now stale</span></div>
   <div class="card info"><span class="big">16</span><span class="lbl">Shiner tabs live, 10 held locally</span></div>
+  <div class="card stop"><span class="big">0</span><span class="lbl">Tabs with a second vocal staff</span></div>
 </div>
 
 <p class="lead">All ten songs have a Songsterr tab, a <code>.gp</code> file, and a stem folder. What separates them is whether the stems can actually <em>prove</em> the guitar part. Two songs were separated to four stems only, so the guitar is buried inside <code>other</code> and no per-attack guitar evidence exists for them.</p>
 
-<h2 id="verdict"><span class="n">01</span>The verdict, in one table</h2>
+
+<h2 id="vocal"><span class="n">01</span>Vocal harmony: the direct answer</h2>
+
+<div class="note bad">
+  <strong>No. Not one tab carries a second vocal staff.</strong>
+  Measured across 10 local <code>.gp</code> files and 17 live Songsterr revisions, counting any track whose name matches vocal, voice, sing, vox, lyric or harmon, and cross-checking against MIDI program 66. Every tab holds exactly one <code>Vocals</code> staff. The old Lazarus holds none. Zero of 27 hold two.
+</div>
+
+<p><strong>Harmony does exist, written as stacked notes on that single staff.</strong> Five of the ten stack notes inside the vocal part, up to three at once. The other four are strictly one note at a time, so any harmony those songs actually sing is absent from the notation entirely.</p>
+
+<div class="scroll">
+<table>
+<thead><tr><th>Song</th><th>Vocal staves</th><th>Vocal notes</th><th>Stacked beats</th><th>Max stack</th><th>Reading</th></tr></thead>
+<tbody>
+<tr><td class="song">So Far So</td><td>1</td><td>342</td><td class="yes">53</td><td class="yes">3</td><td>Three-part harmony written on one staff</td></tr>
+<tr><td class="song">Broken Satellites</td><td>1</td><td>335</td><td class="yes">67</td><td>2</td><td>Most stacked beats on the record</td></tr>
+<tr><td class="song">The Mutiny</td><td>1</td><td>247</td><td class="yes">18</td><td>2</td><td>Two-part in places</td></tr>
+<tr><td class="song">My Mirror Hates Me</td><td>1</td><td>177</td><td class="yes">17</td><td class="yes">3</td><td>Three-part in places</td></tr>
+<tr><td class="song">Not Too Much</td><td>1</td><td>189</td><td class="yes">6</td><td>2</td><td>Barely stacked</td></tr>
+<tr><td class="song">The Alligator</td><td>1</td><td>178</td><td class="no">0</td><td>1</td><td>Monophonic, no written harmony</td></tr>
+<tr><td class="song">Endless Summer</td><td>1</td><td>210</td><td class="no">0</td><td>1</td><td>Monophonic, no written harmony</td></tr>
+<tr><td class="song">Jackie</td><td>1</td><td>139</td><td class="no">0</td><td>1</td><td>Monophonic, no written harmony</td></tr>
+<tr><td class="song">Asleep in the Trunk</td><td>1</td><td class="no">14</td><td class="no">0</td><td>1</td><td>14 notes across 264 bars. The staff is empty.</td></tr>
+<tr><td class="song">Lazarus (local)</td><td class="no">0</td><td class="no">0</td><td class="no">0</td><td>0</td><td>No vocal staff. The live 2026-07-11 build has one.</td></tr>
+</tbody>
+</table>
+</div>
+
+<div class="note warnb">
+  <strong>What that means for the harmony work.</strong>
+  There is no existing second staff to correct. Every harmony pass is either splitting an existing stack into its own staff, or building a harmony line from the vocal stem where the notation carries none. Four songs are in the second case, and a fifth, Asleep, has no usable vocal notation at all.
+</div>
+
+<h2 id="content"><span class="n">02</span>Note content, every staff</h2>
+
+<p>Counted out of the GPIF by walking MasterBar to Bar to Voice to Beat to Notes. This is the measure that separates a real transcription from a correctly-shaped empty one.</p>
+
+<div class="scroll">
+<table>
+<thead><tr><th>Song</th><th>Bars</th><th>Total notes</th><th>Lead</th><th>Rhythm</th><th>Bass</th><th>Drums</th><th>Vocal</th><th>Notes/bar</th></tr></thead>
+<tbody>
+<tr><td class="song">Broken Satellites</td><td>171</td><td>9071</td><td>924</td><td>2671</td><td>530</td><td>1410</td><td>335</td><td>53.0</td></tr>
+<tr><td class="song">Not Too Much</td><td>122</td><td>6885</td><td>811</td><td>3333</td><td>876</td><td>1676</td><td>189</td><td>56.4</td></tr>
+<tr><td class="song">Endless Summer</td><td>192</td><td>5639</td><td>1139</td><td>2778</td><td>595</td><td>917</td><td>210</td><td>29.4</td></tr>
+<tr><td class="song">So Far So</td><td>140</td><td>4941</td><td>579</td><td>1413</td><td>770</td><td>1837</td><td>342</td><td>35.3</td></tr>
+<tr><td class="song">The Mutiny</td><td>135</td><td>4906</td><td>674</td><td>2586</td><td>505</td><td>894</td><td>247</td><td>36.3</td></tr>
+<tr><td class="song">My Mirror Hates Me</td><td>134</td><td>4722</td><td>342</td><td>1270</td><td>612</td><td>2321</td><td>177</td><td>35.2</td></tr>
+<tr><td class="song">The Alligator</td><td>86</td><td>4134</td><td>698</td><td>1586</td><td>439</td><td>1233</td><td>178</td><td>48.1</td></tr>
+<tr><td class="song">Lazarus</td><td>138</td><td>3319</td><td>718</td><td>1392</td><td>1209</td><td class="no">0</td><td class="no">0</td><td>24.1</td></tr>
+<tr><td class="song">Jackie</td><td>102</td><td>3013</td><td class="no">0</td><td>1241</td><td>581</td><td>1052</td><td>139</td><td>29.5</td></tr>
+<tr><td class="song">Asleep in the Trunk</td><td>264</td><td class="no">173</td><td class="no">0</td><td class="no">33</td><td class="no">101</td><td class="no">25</td><td class="no">14</td><td class="no">0.7</td></tr>
+</tbody>
+</table>
+</div>
+
+<div class="trap">
+<h3>The local Asleep in the Trunk file is a shell</h3>
+<p>264 bars, 173 notes, a Lead Guitar staff holding zero. Every other song on the record runs 24 to 56 notes per bar. This file carries all five expected staves, the right Drop C tuning, the right MIDI programs, and a Vocals track at program 66, so it clears every rule <code>preflight_import.py</code> owns, because that gate counts staff presence and role identity and never parses a single Beat.</p>
+<p><strong>Built today to close it:</strong> <code>~/.claude/skills/impossible-guitar-parts/empty_staff_gate.py</code>. It measures notes per bar, per-staff occupancy, zero-note staves, and the vocal stack. Validated against all ten files: exit 1 on Asleep with five separate faults, exit 0 on the other nine.</p>
+</div>
+
+<h2 id="plan"><span class="n">03</span>The fix plan, in order</h2>
+
+<p>Ordered by dependency. Nothing below Phase 0 is worth doing against a file that has not been re-pulled and content-checked, because four of the issues found so far turned out to be defects in the local copy rather than in the source.</p>
+
+<h3>Phase 0. Trust the source before touching anything</h3>
+<div class="scroll">
+<table>
+<thead><tr><th>#</th><th>Issue</th><th>Fix</th><th>Skill or gate</th><th>Past mistake it guards</th></tr></thead>
+<tbody>
+<tr><td>1</td><td>Asleep local <code>.gp</code> is a 173-note shell</td><td>Re-pull <code>s5085156</code> rev 7798309, the hand-built 2026-07-08 revision</td><td><code>/songsterr-tab-guide</code>, <code>st_gpdiff.py</code></td><td>Fixed-shape tools emit full-size empty files</td></tr>
+<tr><td>2</td><td>Lazarus local has no vocal and no drum staff</td><td>Re-pull <code>s5476396</code>, which carries both</td><td><code>/songsterr-tab-guide</code></td><td>Judging a source by a stale local export</td></tr>
+<tr><td>3</td><td>Jackie local is two months stale</td><td>Re-pull <code>s5418285</code> rev 7834599</td><td><code>/songsterr-tab-guide</code></td><td>Same</td></tr>
+<tr><td>4</td><td>Broken Satellites local carries <code>Copy</code> tracks</td><td>Re-pull <code>s5084035</code>, then decide against <code>s5965143</code></td><td><code>octave_copy_gate.py</code></td><td>A lead staff that was 77.4% fret+12 copy reached Songsterr</td></tr>
+<tr><td>5</td><td>Nothing measured whether a file holds content</td><td>Run the new gate on every re-pull before use</td><td><code>empty_staff_gate.py</code>, built today</td><td>Exit 0 and file-exists prove a tool ran, never that its output is good</td></tr>
+</tbody>
+</table>
+</div>
+
+<h3>Phase 1. Calibrate the guitar split on the one song with ground truth</h3>
+<div class="scroll">
+<table>
+<thead><tr><th>#</th><th>Issue</th><th>Fix</th><th>Skill or gate</th><th>Past mistake it guards</th></tr></thead>
+<tbody>
+<tr><td>6</td><td>Beat-to-seconds map has to exist before any audio check</td><td>Build and validate the map on The Mutiny</td><td><code>/composite-stem-alignment</code>, <code>beat_map.py</code></td><td>A map that beats a random control can still be seven bars wrong</td></tr>
+<tr><td>7</td><td>Two guitars written onto one staff</td><td>Split by register and pitch against the real <code>RhythmGtr [L]</code> and <code>[R]</code> files</td><td><code>attack_string_evidence.py</code>, <code>register_evidence.py</code>, <code>ownership_audit.py</code></td><td>Splitting by panning or stem loudness, when 19 to 56% of notes appear in BOTH channels</td></tr>
+<tr><td>8</td><td>A lead staff going tacet while rhythm covers for it</td><td>Co-activity and role-character audit</td><td><code>staff_role_audit.py</code></td><td>A lead with no events from bar 57 while rhythm flipped to single notes</td></tr>
+<tr><td>9</td><td>Voicings no hand can play</td><td>Five-tier playability grade</td><td><code>impossible_gate.py</code></td><td>1111 unreachable chords shipped</td></tr>
+<tr><td>10</td><td>A rebuild silently losing notes</td><td>Pitch-preservation check first, skip percentage last</td><td><code>/impossible-guitar-parts</code> tier order</td><td>A processing-order bug deleted 32 notes at pitch 38 while every ergonomic score stayed clean</td></tr>
+</tbody>
+</table>
+</div>
+
+<h3>Phase 2. Bass</h3>
+<div class="scroll">
+<table>
+<thead><tr><th>#</th><th>Issue</th><th>Fix</th><th>Skill or gate</th><th>Past mistake it guards</th></tr></thead>
+<tbody>
+<tr><td>11</td><td>No bass staff has been checked against a bass stem</td><td>Per-beat fundamental on the bass stem, compared bar by bar</td><td><code>/audio-stems-to-midi</code>, crepe and yin</td><td>Tab MIDI encodes fingering rather than sounded harmony</td></tr>
+<tr><td>12</td><td>Broken Satellites bass tuning conflict</td><td>Resolve after the re-pull, since the live tab is Drop C</td><td><code>empty_staff_gate.py</code> then <code>octave_copy_gate.py</code></td><td>Treating a local edit as a source defect</td></tr>
+</tbody>
+</table>
+</div>
+
+<h3>Phase 3. Vocals, which is the harmony question</h3>
+<div class="scroll">
+<table>
+<thead><tr><th>#</th><th>Issue</th><th>Fix</th><th>Skill or gate</th><th>Past mistake it guards</th></tr></thead>
+<tbody>
+<tr><td>13</td><td>Five songs write harmony as stacks on one staff</td><td>Verify every stack against the vocal stem before splitting it into its own staff</td><td><code>/audio-stems-to-midi</code>, <code>/five-stem-song-analyst</code></td><td>A pitch found in one stem never proves which part sang it</td></tr>
+<tr><td>14</td><td>Four songs write a strictly monophonic vocal</td><td>Check the vocal stem for harmony the notation omits, then add a staff only where the stem carries one</td><td><code>/audio-stems-to-midi</code></td><td>Inventing a part the evidence does not support</td></tr>
+<tr><td>15</td><td>Asleep has 14 vocal notes across 264 bars</td><td>Covered by the Phase 0 re-pull, then re-measure</td><td><code>empty_staff_gate.py</code></td><td>Shipping a staff that exists and is empty</td></tr>
+<tr><td>16</td><td>No gate exists for vocal-harmony fidelity</td><td>Build one after Phase 3 measurement, on the model of <code>octave_copy_gate.py</code></td><td class="no">GAP, nothing covers this yet</td><td>One mention means a recurring class, so the gate gets built</td></tr>
+</tbody>
+</table>
+</div>
+
+<h3>Phase 4. Unblock the two songs with no guitar evidence</h3>
+<div class="scroll">
+<table>
+<thead><tr><th>#</th><th>Issue</th><th>Fix</th><th>Skill or gate</th><th>Past mistake it guards</th></tr></thead>
+<tbody>
+<tr><td>17</td><td>Asleep and Jackie were separated to four stems</td><td>Re-separate with the Moises role split, which emits Rhythm, Solo and Other Guitar</td><td>Moises Guitar parts module</td><td>A pitch inside <code>other</code> proving nothing about the guitar</td></tr>
+<tr><td>18</td><td>Asleep time signature, 3/4 against 4/4</td><td>Settle against the audio using the validated beat map</td><td><code>/composite-stem-alignment</code></td><td>Correcting 264 bars against the wrong bar grid</td></tr>
+<tr><td>19</td><td>Jackie has a single guitar staff</td><td>Decide whether a second guitar exists, by pan bimodality on the re-separated stems</td><td><code>/impossible-guitar-parts</code> guitar count</td><td>Counting guitarists by stereo width rather than per-attack bimodality</td></tr>
+</tbody>
+</table>
+</div>
+
+<h3>Phase 5. Put the corrections back</h3>
+<div class="scroll">
+<table>
+<thead><tr><th>#</th><th>Issue</th><th>Fix</th><th>Skill or gate</th><th>Past mistake it guards</th></tr></thead>
+<tbody>
+<tr><td>20</td><td>An import that deletes parts the existing tab holds</td><td>Preflight every upload, and refuse on any role drop</td><td><code>/songsterr-upload</code>, <code>preflight_import.py</code></td><td>72 files shipped with no vocal at all</td></tr>
+<tr><td>21</td><td>A vocal uploaded as a guitar program</td><td>Keep program 66 and the sax instrument type, classify by name</td><td><code>preflight_import.py</code></td><td>The vocal filed under horns by a program-first rule</td></tr>
+<tr><td>22</td><td>Upload order silently losing the audio sync</td><td>YouTube first, then the file import, then wait for SAVED</td><td><code>/songsterr-upload</code></td><td>Importing first produces a silent tab with no audio attached</td></tr>
+</tbody>
+</table>
+</div>
+
+<div class="note">
+  <strong>One song per pass.</strong>
+  Phase 0 is the only step that runs across all ten at once, because it is a re-pull and a measurement rather than a correction. Everything from Phase 1 onward runs one song at a time, starting with The Mutiny.
+</div>
+
+<h2 id="verdict"><span class="n">04</span>The verdict, in one table</h2>
 
 <div class="scroll">
 <table>
@@ -130,7 +280,7 @@ footer{margin-top:52px;padding-top:18px;border-top:2px solid var(--ink);
 <tbody>
 <tr><td>1</td><td class="song">Asleep in the Trunk</td><td><span class="pill p-stop">Blocked</span></td>
   <td>2</td><td class="yes">yes</td><td class="no">none</td><td class="yes">yes</td><td class="yes">yes</td><td>264</td>
-  <td>4-stem FLAC only. Guitar lives inside <code>other.flac</code>. Re-separate before any guitar pass.</td></tr>
+  <td>Local file is a 173-note shell with a zero-note Lead staff. Also 4-stem FLAC, guitar inside <code>other.flac</code>. Re-pull, then re-separate.</td></tr>
 <tr><td>2</td><td class="song">The Alligator</td><td><span class="pill p-go">Ready</span></td>
   <td>2</td><td class="yes">yes</td><td class="yes">lead + rhythm</td><td class="yes">yes</td><td class="yes">yes</td><td>86</td>
   <td>Carries an <code>audio_truth.gp3</code> stem-corrected prior to regress against.</td></tr>
@@ -167,7 +317,7 @@ footer{margin-top:52px;padding-top:18px;border-top:2px solid var(--ink);
   The standing rule is two guitar staves, Gtr 1 and Gtr 2, split by register and pitch rather than by panning or stem loudness. Eight of ten GP files carry exactly two. Jackie carries one, Broken Satellites carries three plus a duplicate.
 </div>
 
-<h2 id="songsterr"><span class="n">02</span>Songsterr registry</h2>
+<h2 id="songsterr"><span class="n">05</span>Songsterr registry</h2>
 
 <p>Every ID resolved with a following <code>curl -sIL</code> on 2026-08-17. Tempo, tuning, and time signature are the values Songsterr displays; they were read off the site in the 2026-06-03 audit and match the tuning bytes inside each <code>.gp</code>, which I re-read today.</p>
 
@@ -194,7 +344,7 @@ footer{margin-top:52px;padding-top:18px;border-top:2px solid var(--ink);
   Tempo, tuning, and time signature are displayed and reliable. Key is not a field the site carries, so any key claim has to come from the stems or from Brandon's ear. Three keys were disputed in the 2026-06-03 stem audit and only The Alligator has been resolved since, to G major at high confidence off a three-stem consensus. So Far So and Broken Satellites are still open.
 </div>
 
-<h2 id="gp"><span class="n">03</span>Guitar Pro track census</h2>
+<h2 id="gp"><span class="n">06</span>Guitar Pro track census</h2>
 
 <p>Read straight out of each <code>Content/score.gpif</code> today. Tuning is given as MIDI pitch numbers low to high, exactly as the file stores them.</p>
 
@@ -221,7 +371,7 @@ footer{margin-top:52px;padding-top:18px;border-top:2px solid var(--ink);
   All nine vocal tracks carry MIDI program 66 on a six-string standard-tuning staff. That is the known Songsterr AI shape: the vocal line gets written as a sax-programmed track named <code>Vocals</code>. Classify these by track name and ignore the program, or the preflight will read the album as having no vocal at all.
 </div>
 
-<h2 id="stems"><span class="n">04</span>Stem census</h2>
+<h2 id="stems"><span class="n">07</span>Stem census</h2>
 
 <p>Two roots hold BELIEVEYOUME stems. <code>Moises_Stems/BelieveYouMeStems/</code> is the superset with all ten songs; <code>Full wav files for music books are here/</code> holds the same eight and is missing Asleep and Jackie. Eight of the ten <code>stems_pointer.txt</code> files point at the smaller root.</p>
 
@@ -244,7 +394,7 @@ footer{margin-top:52px;padding-top:18px;border-top:2px solid var(--ink);
 </div>
 
 
-<h2 id="live"><span class="n">05</span>What Songsterr holds that the local export does not</h2>
+<h2 id="live"><span class="n">08</span>What Songsterr holds that the local export does not</h2>
 
 <p>The canonical folder was exported 2026-06-02/03. Songsterr has moved since. Every row below was read from <code>songsterr.com/api/meta/&lt;id&gt;/revisions</code> and the matching revision endpoint on 2026-08-17, so the track titles and tuning come from the live revision rather than from the local file.</p>
 
@@ -288,7 +438,7 @@ footer{margin-top:52px;padding-top:18px;border-top:2px solid var(--ink);
   Songsterr splits the catalogue across <code>shiner-tabs-a86009</code> and <code>shiner-allen-epley-josh-newton-paul-malinowski-jason-gerken-tabs-a829768</code>. The Mutiny, Endless Summer, Broken Satellites, and the new Lazarus live on the second page. Searching only the first one finds seven of the ten.
 </div>
 
-<h2 id="traps"><span class="n">06</span>Four traps that will bite</h2>
+<h2 id="traps"><span class="n">09</span>Four traps that will bite</h2>
 
 <div class="trap">
 <h3>1. The folder numbers are three different numbering schemes</h3>
@@ -325,7 +475,7 @@ footer{margin-top:52px;padding-top:18px;border-top:2px solid var(--ink);
 <p>Asleep in the Trunk and Jackie were separated to four stems, so their guitars are mixed into <code>other</code>. No amount of care on the tab will produce a per-attack guitar attribution from a stem that also contains keys and everything else. A pitch found in <code>other</code> does not prove the guitar played it. Both need re-separation to a six-stem model before they enter the queue.</p>
 </div>
 
-<h2 id="queue"><span class="n">07</span>The correction queue</h2>
+<h2 id="queue"><span class="n">10</span>The correction queue</h2>
 
 <ol>
 <li><strong>The Mutiny</strong>: start here. It is the only song carrying real <code>RhythmGtr [L]</code> and <code>[R]</code> files, so the two-guitar split can be validated against ground truth rather than inferred. Whatever the splitter concludes on Mutiny is the calibration for the other nine.</li>
@@ -341,7 +491,7 @@ footer{margin-top:52px;padding-top:18px;border-top:2px solid var(--ink);
   A finished transcription is not finished because a file exists or a script exited zero. It has to be checked against the stems for pitch, attack timing, duration, guitar ownership, doubled notes, tuning, and articulation, reported as measured numbers, and then checked for physical playability: string and fret realizability, tie chains, hand span, position movement at tempo, open-string behaviour. Every difference from the prior gets classified as supported correction, unsupported change, or unresolved ambiguity.
 </div>
 
-<h2 id="paths"><span class="n">08</span>Canonical paths</h2>
+<h2 id="paths"><span class="n">11</span>Canonical paths</h2>
 
 <ul>
 <li><strong>Tabs, GP, charts, lyrics</strong>: <code>/Volumes/T7 Shield/BandBooks/BELIEVEYOUME/_canonical_2026-06-04/songs/&lt;NN_slug&gt;/</code>, each holding <code>songsterr.gp</code>, <code>songsterr.mid</code>, <code>fromcdn.mid</code>, <code>3guitar.mid</code>, <code>chart_GBV_TAB.md</code>, <code>lyrics.txt</code>, <code>stems_pointer.txt</code></li>
