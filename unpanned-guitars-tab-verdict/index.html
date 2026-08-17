@@ -1,0 +1,264 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Unpanned guitars, stem to tab: us against Songsterr and Moises</title>
+<style>
+:root{
+  --cream:#F4EBD9; --paper:#FBF6EC; --ink:#1B1B1B; --rule:#D8C9AC;
+  --rust:#A8452B; --mustard:#D9A441; --sage:#7E9B76; --teal:#2E6E78;
+  --plum:#6B4E71; --dust:#8A8577;
+}
+*{box-sizing:border-box}
+body{margin:0;background:var(--cream);color:var(--ink);
+  font:16px/1.62 "Iowan Old Style","Palatino Linotype",Palatino,Georgia,serif;}
+.wrap{max-width:1020px;margin:0 auto;padding:34px 22px 90px}
+h1{font-size:2.05rem;line-height:1.16;margin:0 0 6px;letter-spacing:-.01em}
+.sub{color:var(--dust);font-size:.95rem;margin:0 0 26px}
+h2{font-size:1.32rem;margin:44px 0 4px;padding-bottom:6px;border-bottom:2px solid var(--rule)}
+h3{font-size:1.05rem;margin:26px 0 6px;color:var(--teal)}
+p{margin:.6em 0}
+b,strong{font-weight:700}
+a{color:var(--teal)}
+code{background:#EFE4CE;padding:1px 5px;border-radius:3px;font:.86em/1.4 "SF Mono",Menlo,monospace}
+table{width:100%;border-collapse:collapse;margin:14px 0;background:var(--paper);
+  font-size:.9rem;box-shadow:0 1px 0 var(--rule)}
+th,td{padding:8px 10px;text-align:left;border-bottom:1px solid var(--rule);vertical-align:top}
+th{background:#EFE4CE;font-weight:700;font-size:.82rem;letter-spacing:.02em;text-transform:uppercase}
+td.num{font-variant-numeric:tabular-nums;white-space:nowrap}
+.scroll{overflow-x:auto}
+.toc{background:var(--paper);border-left:5px solid var(--mustard);padding:14px 18px;margin:22px 0}
+.toc ol{margin:6px 0 0;padding-left:20px}
+.toc li{margin:3px 0}
+.card{background:var(--paper);border-left:5px solid var(--rule);padding:14px 18px;margin:16px 0}
+.win{border-left-color:var(--sage)}
+.lose{border-left-color:var(--rust)}
+.warn{border-left-color:var(--mustard)}
+.note{border-left-color:var(--plum)}
+.quote{background:#EFE4CE;border-left:5px solid var(--plum);padding:12px 18px;margin:16px 0;font-style:italic}
+.quote span{display:block;font-style:normal;font-size:.82rem;color:var(--dust);margin-top:6px}
+.pill{display:inline-block;font-size:.72rem;letter-spacing:.05em;text-transform:uppercase;
+  padding:2px 9px;border-radius:11px;font-weight:700;color:#fff}
+.p-us{background:var(--sage)} .p-ss{background:var(--teal)} .p-mo{background:var(--plum)}
+.p-no{background:var(--rust)} .p-mix{background:var(--mustard);color:#3A2A00}
+.score{font-size:1.5rem;font-weight:700;font-variant-numeric:tabular-nums}
+.grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(215px,1fr));gap:14px;margin:18px 0}
+.kpi{background:var(--paper);padding:14px 16px;border-top:4px solid var(--teal)}
+.kpi .score{display:block;color:var(--rust)}
+.kpi .lab{font-size:.8rem;color:var(--dust);line-height:1.4}
+footer{margin-top:56px;padding-top:16px;border-top:2px solid var(--rule);font-size:.82rem;color:var(--dust)}
+</style>
+</head>
+<body>
+<div class="wrap">
+
+<h1>Unpanned guitars, stem to tab</h1>
+<p class="sub">What our pipeline, Songsterr, and Moises can each actually do with a track that has two or three guitars and no useful panning. Every number below is measured, with its source named. 2026-08-17.</p>
+
+<div class="toc">
+<b>Contents</b>
+<ol>
+<li><a href="#verdict">The one-line verdict and the scorecard</a></li>
+<li><a href="#sep">Stage 1, separation: only Moises splits unpanned guitars</a></li>
+<li><a href="#pan">Stage 2: panning was never the signal, and it cost us badly</a></li>
+<li><a href="#trans">Stage 3, transcription: Songsterr wins the rhythm, quits on the solo</a></li>
+<li><a href="#notate">Stage 4, notation: our lane, and it is not close</a></li>
+<li><a href="#mistakes">The mistakes ledger, in Brandon's words</a></li>
+<li><a href="#chain">The recommended chain, all three tools</a></li>
+<li><a href="#gap">The one experiment nobody has run</a></li>
+</ol>
+</div>
+
+<h2 id="verdict">1. The verdict</h2>
+
+<div class="card win">
+<p><b>No single tool does this job.</b> The chain that works is <b>Moises for separation, Songsterr for the rhythm transcription, ours for ownership and playability, and a hand-built tracker for the fast lead</b>. Each of the three is the best available at exactly one stage and demonstrably wrong at another.</p>
+</div>
+
+<div class="grid">
+<div class="kpi"><span class="score">1.32%</span><span class="lab">of the mix's 60-90 Hz energy survives into the Demucs guitar stem. The bottom of every chord is thrown away before transcription starts.</span></div>
+<div class="kpi"><span class="score">53.5%</span><span class="lab">ownership accuracy from panning on the real Kilgore Trout audio, which is chance. The same detector hit 88.0% on a synthetic control.</span></div>
+<div class="kpi"><span class="score">247</span><span class="lab">notes in Songsterr's lead track on 04 Six Feet Under, all inside frets 0 to 5, against 1,315 from the isolated stem.</span></div>
+<div class="kpi"><span class="score">449 &rarr; 0</span><span class="lab">wide-span beats on Flake of the Year after our dedupe pass, with zero notes removed and zero healthy notes relocated.</span></div>
+</div>
+
+<h3>Scorecard, by stage</h3>
+<div class="scroll">
+<table>
+<tr><th>Stage</th><th>Winner</th><th>Margin, measured</th><th>Source</th></tr>
+<tr><td>Split 2-3 guitars with no panning</td><td><span class="pill p-mo">Moises</span></td><td class="num">Only tool that does it at all</td><td>Role stems on disk, 6 songs</td></tr>
+<tr><td>Low register, below 130 Hz</td><td><span class="pill p-no">No stem</span></td><td class="num">Use the full mix. Guitar stem keeps 1.32% at 60-90 Hz</td><td>Sean song, 2026-08-13</td></tr>
+<tr><td>Count how many guitarists played</td><td><span class="pill p-us">Ours</span></td><td class="num">Pan bimodality 0.79 two-source vs 0.22-0.51 one-source</td><td>The Ship, 10 songs</td></tr>
+<tr><td>Transcribe a rhythm part</td><td><span class="pill p-ss">Songsterr</span></td><td class="num">41.1% pitch support vs our 24.7%; 73.7% ownership vs our 66.6%</td><td>Kilgore Trout</td></tr>
+<tr><td>Transcribe a fast, high lead solo</td><td><span class="pill p-no">Nobody, unaided</span></td><td class="num">Songsterr writes it an octave low. Ours: pyin and crepe agree on 58%</td><td>The Ship 03 Gene</td></tr>
+<tr><td>Guitar ownership, which player</td><td><span class="pill p-us">Ours</span></td><td class="num">Restaffing moved staff agreement 74% &rarr; 98.5%</td><td>Kilgore Trout</td></tr>
+<tr><td>Playability of the written tab</td><td><span class="pill p-us">Ours</span></td><td class="num">1,111 unreachable chords &rarr; 0, keeping 94.4% of notes</td><td>Appleseed, 8 songs</td></tr>
+<tr><td>Verifying any of the above</td><td><span class="pill p-mix">Ours, only with controls</span></td><td class="num">5 of 6 detectors built in one session were wrong</td><td>The Ship, 2026-08-15</td></tr>
+</table>
+</div>
+
+<h2 id="sep">2. Separation: only Moises splits unpanned guitars</h2>
+
+<p>This is the whole question, and it has a clean answer. <b>Demucs separates by instrument, so two guitars come back as one file.</b> Every Radiohead song in the library shows it: a single <code>-guitar.wav</code> per song folder. Six-stem separation collapses both players into one mono stem, and every observation about two parts becomes unrecoverable at that step.</p>
+
+<p>Pan-based masking is the usual workaround and it is <b>disqualified by the premise here</b>. On 3 Gene it worked well, dropping the two-guitar correlation from 0.66 to 0.15 on the solo region, because those guitars were panned apart. A track with no panning gives that method nothing to mask on.</p>
+
+<div class="card win">
+<p><b>Moises splits by role rather than by position.</b> Its Guitar parts module emits <code>Rhythm Guitars</code>, <code>Solo Guitars</code>, and <code>Other Guitar</code> as separate files. That is a completely different axis from panning, and it is the only thing in the stack that addresses the unpanned case directly.</p>
+<p>Proof on disk, <code>/Volumes/T7 Shield/Moises_Stems/</code>, six songs: BELIEVEYOUME 04, 05, 08, 09 and The Mutiny, plus Goldfrapp Clowns. Three older manual exports (The Alligator, Endless Summer, Lazarus) carry a <code>lead</code> and <code>rhythm</code> pair on the same principle.</p>
+</div>
+
+<div class="card warn">
+<p><b>The standing ruling against paying for Moises does not cover this.</b> The 2026-05-25 standard says the Moises API at roughly $3 a song is no quality upgrade over the free pipeline. Read the reasoning and it is entirely about <b>drum</b> quality, where Moises measures equivalent to htdemucs_ft. It says nothing about role-based guitar splitting, and the free stack has no equivalent to compare against. The ruling stands for drums and does not decide this case.</p>
+</div>
+
+<div class="card lose">
+<p><b>A second reason the Demucs guitar stem cannot carry this work.</b> Measured on the Sean song from <code>htdemucs_6s</code>: the guitar stem retains 1.32% of the mix's energy at 60-90 Hz and 9.82% at 90-130 Hz. It is effectively high-passed, so every low note a guitar plays gets routed to the bass stem. A chord transcribed from that stem comes back missing its lowest note, every time. A matcher validated at 87% root recovery on a synthetic render scored 29% on the real stem, and in every disagreement the detected set was the tab's chord with the bottom pitch class removed.</p>
+</div>
+
+<h2 id="pan">3. Panning was never the signal</h2>
+
+<div class="quote">we struggled by thinking panning would separate the guitars rather than frequencies, and matching and fixing what songsterr got wrong, and started to get insane and burn a wild amount of tokens.
+<span>Brandon, 2026-08-13</span></div>
+
+<p>That instinct was tested properly and it failed. Appleseed Cast, Kilgore Trout, against a synthetic control rendered with the Lead hard left and the Rhythm hard right so the answer is known:</p>
+
+<div class="scroll">
+<table>
+<tr><th></th><th>Lead</th><th>Rhythm</th></tr>
+<tr><td>Cross-stem median margin, real audio</td><td class="num">2.30 dB</td><td class="num">2.96 dB</td></tr>
+<tr><td>Ownership agreement, real audio</td><td class="num"><b>53.5%</b>, chance</td><td class="num">72.1%</td></tr>
+<tr><td>Cross-stem margin, synthetic control</td><td class="num">21.8 dB</td><td class="num">19.3 dB</td></tr>
+<tr><td>Ownership agreement, synthetic control</td><td class="num">88.0%</td><td class="num">83.7%</td></tr>
+</table>
+</div>
+
+<p><b>The detector was fine. The panning was not there to be read.</b> That distinction took 57 chain builds to establish, and the synthetic control settled it in one run.</p>
+
+<h3>How much of the transcription is written into both staves</h3>
+<p>Because the guitars are not hard panned, a per-channel transcription writes the same note into both parts. Notes appearing in both channels at the same instant and pitch:</p>
+
+<div class="scroll">
+<table>
+<tr><th>Song</th><th>Shared notes</th></tr>
+<tr><td>A Tree For Trials</td><td class="num"><b>56%</b></td></tr>
+<tr><td>Blind Man's Arrow</td><td class="num">46%</td></tr>
+<tr><td>Rooms and Gardens</td><td class="num">37%</td></tr>
+<tr><td>On Reflection</td><td class="num">35%</td></tr>
+<tr><td>Rest of the catalogue</td><td class="num">19% to 36%</td></tr>
+</table>
+</div>
+
+<p>Every one of those was written into <b>both</b> staves. A chord built from one note the left guitarist played and one the right guitarist played is what forces the unplayable stretch and the skipped middle string. Per-note depanning on A Tree For Trials moved skip rates from <b>75% and 82% down to 38% and 33%</b> with the pitches preserved.</p>
+
+<div class="card note">
+<p><b>The one metric that survived its controls: per-attack pan bimodality.</b> L/R correlation, side energy, and onset independence were each beaten by a synthetic one-guitar case. A single guitar through a Haas delay produced the lowest correlation of anything measured, real tracks included, at 0.049. Bimodality reads 0.79 for two synthetic guitars at both wide and subtle pan, against 0.22 to 0.51 for real single-source stems.</p>
+<p><b>State its limit every time: it counts pan positions rather than people.</b> One guitarist overdubbing a second part to the same position scores as ONE. Pair it with cross-staff duplication. On The Ship that separated 11 Ambulance, 60% duplication and a real defect, from 08 JGBFTL, 0.7% and a correct overdub.</p>
+</div>
+
+<h2 id="trans">4. Transcription: Songsterr wins the rhythm and quits on the solo</h2>
+
+<h3>Where Songsterr beats us outright</h3>
+<p>On Kilgore Trout, Songsterr's own file measured <b>73.7% Rhythm ownership, the best of any file tested</b>, and its Rhythm pitch support beat our stem-derived source <b>41.1% against 24.7%</b>. Our best register-based ownership reached 66.6% on both staves against measured ceilings of 84.0% and 77.5%. Being stem-derived is a statement about production. It carries no information about accuracy.</p>
+
+<h3>Where Songsterr stops trying, which is the thing you asked about</h3>
+
+<div class="quote">you are just redoing the rhythm parts and skipping the fast hard part lazily
+<span>Brandon, on The Ship redo</span></div>
+
+<p>This is documented with numbers, and it has a specific shape. <b>Songsterr returns a solo transcribed an octave low, or a lead track collapsed into the bottom of the neck.</b> An empty track would be obvious. These two shapes pass for a finished tab under any check that counts notes.</p>
+
+<div class="scroll">
+<table>
+<tr><th>Song</th><th>Track</th><th>Songsterr live</th><th>From the isolated stem</th><th>Reading</th></tr>
+<tr><td>03 Gene</td><td>Lead</td><td class="num">563 notes, A2 to E5, frets 4-12</td><td class="num">724 built, 581 shipped, up to B5, frets 4-19</td><td>Solo written an <b>octave low</b>. Real part sits near the 12th position.</td></tr>
+<tr><td>04 Six Feet Under</td><td>Lead</td><td class="num">247 notes, frets 0 to 5</td><td class="num"><b>1,315 notes</b></td><td>Live lead is near-empty. Biggest available win on the album.</td></tr>
+<tr><td>05 Sleep Vs Death</td><td>Rhythm</td><td class="num">644</td><td class="num">1,321</td><td>Real upgrade</td></tr>
+<tr><td>02 Flake</td><td>Rhythm</td><td class="num">2,948</td><td class="num">4,570</td><td>Real upgrade</td></tr>
+<tr><td>08 JGBFTL</td><td>Both</td><td class="num">148 / 1,812</td><td class="num">56 / 1,075</td><td><b>Songsterr is better.</b> Leave it alone.</td></tr>
+<tr><td>10 Trapped</td><td>Lead</td><td class="num">280 notes, frets 7-22, to A5</td><td class="num">229 notes, frets 0-15</td><td><b>Songsterr is better.</b> Leave it alone.</td></tr>
+</table>
+</div>
+
+<div class="card warn">
+<p><b>More notes is not automatically better, and 08 and 10 are the proof.</b> Two of eight songs came back worse from our own pipeline. Any rule of the form "replace Songsterr's lead" would have damaged those two files. Measure per song before swapping.</p>
+</div>
+
+<h3>Our own solo transcription is worse, not better</h3>
+<p>The reason Songsterr's octave-low solo survived so long is that the alternatives measured worse. On The Ship "Gene", <b>pyin and torchcrepe agreed on only 58% of the solo notes and disagreed on 42%, and both missed the F#5 Brandon corrected by ear.</b> Hand-rolled pitch detection fails on fast, dense, distorted guitar because each note rings through the next attack and every tracker locks onto the ringing note.</p>
+
+<p>The method that does work on a stem holding more than one guitar is a <b>Viterbi melody tracker</b>, taking the top N autocorrelation peaks per frame and running dynamic programming for the smoothest path that rewards salience and height, then <b>position-based DP fretting</b> over the note sequence rather than lowest-fret-per-note. That combination brought the average fret jump to about 1.5 and kept the hand in position.</p>
+
+<h2 id="notate">5. Notation: our lane, and it is not close</h2>
+
+<p>Neither Songsterr nor Moises has anything at this stage. Songsterr's own Kilgore tab posted 60% and 53% skip rates. Our gate is five tiers deep with twelve mandatory controls and a regression suite.</p>
+
+<div class="scroll">
+<table>
+<tr><th>Repair</th><th>Before</th><th>After</th><th>Cost</th></tr>
+<tr><td>Depan, A Tree For Trials</td><td class="num">75% / 82% skip</td><td class="num">38% / 33%</td><td>Pitches preserved</td></tr>
+<tr><td>Unison dedupe, Flake of the Year</td><td class="num">449 wide-span beats</td><td class="num"><b>0</b></td><td>Zero notes removed, zero relocated</td></tr>
+<tr><td>Restaffing, Kilgore Trout</td><td class="num">265 of 1,022 notes on the wrong staff</td><td class="num">Staff agreement 74% &rarr; 98.5%</td><td>Refused ties 78 &rarr; 4</td></tr>
+<tr><td>Force-playable refret, 8 Appleseed songs</td><td class="num">1,111 unreachable chords, worst reach 22 frets</td><td class="num">0 unreachable, worst reach 4</td><td>94.4% of notes kept</td></tr>
+</table>
+</div>
+
+<p><b>The unison-merge artifact is the single highest-yield repair.</b> Across three staged Ship upgrades, 491 wide-span beats, of which <b>475 (97%) contain a duplicated pitch and 468 (95%) become playable by dropping the redundant string with no pitch change at all</b>. Flake went from 0 of 926 chords carrying a duplicated pitch to 433 of 923 after the merge pass, which is the control proving the artifact came from the merge.</p>
+
+<h2 id="mistakes">6. The mistakes ledger</h2>
+
+<p>You asked for this part. Every item is a real failure that shipped or nearly shipped.</p>
+
+<div class="scroll">
+<table>
+<tr><th>What happened</th><th>The measurement that looked fine</th><th>Date</th></tr>
+<tr><td>Four guitar staves invented from a two-guitar record</td><td>Shipped to <b>six live Songsterr tabs</b> before Brandon caught it</td><td>2026-08-11</td></tr>
+<tr><td>Processing order ran <code>apply_setup</code> after the swap</td><td><b>All 32 notes at pitch 38 disappeared silently.</b> Every ergonomic score still looked fine</td><td>2026-08-12</td></tr>
+<tr><td>Blanket refret used as a repair</td><td><b>76% of Lead notes walked toward the nut.</b> Same pitches, zero skips, every gate green, a performance nobody gave</td><td>2026-08-12</td></tr>
+<tr><td>Doubled chord tones deleted to satisfy the span rule</td><td>Hand-skip went to 48% against 13% on the live tab</td><td>2026-08-12</td></tr>
+<tr><td>Six audio detectors built in one session</td><td><b>Five were wrong.</b> A rigid time decoy outscored the real tab. A mean-gap criterion printed PASSED at AUC 0.522</td><td>2026-08-15</td></tr>
+<tr><td>Nine pitch tests run on Demucs stems</td><td>All died on their controls. The Demucs split is <b>saturated: +0.0 separation, 100% for written and deliberately wrong pitches alike.</b> HPSS on the full mix gives +4.7 rising to +20.4</td><td>2026-08-16</td></tr>
+<tr><td>A DTW beat map beat its random control by 39.2 points</td><td><b>Still seven bars wrong.</b> It made 1.3 s bars in a song whose bar is 2.958 s, deleting two bars the guitar was playing</td><td>2026-08-16</td></tr>
+<tr><td>CapoFret 2 written against capo-0 stored MIDI</td><td>All 891 notes read two semitones sharp. Pitch support 24.7%, and <b>the capo fix alone moved it to 63.4%</b></td><td>2026-08-13</td></tr>
+<tr><td>Ties read beat by beat instead of per string</td><td>245 phantom failures invented</td><td>2026-08-12</td></tr>
+<tr><td>Multi-firing a paid action to be safe</td><td>Burned <b>3 Songsterr credits on one song</b></td><td>-</td></tr>
+<tr><td>Moises API jobs run against a blank workflow shell</td><td>Returned <code>SUCCEEDED</code> with empty results in 0 ms. Credits spent, no stems produced, then reported as "lost forever"</td><td>2026-05-24</td></tr>
+</table>
+</div>
+
+<div class="card lose">
+<p><b>The pattern behind almost all of it: a confident number computed off evidence that had already been thrown away.</b> The Demucs stem discards the low register and then reports the chord as wrong. The panning axis carries 2 dB and then reports ownership at chance. A saturated stem scores a real pitch and a deliberately wrong pitch identically and reports 100%. In each case the fix was the same, which is running a control that can fail before quoting the number.</p>
+</div>
+
+<h2 id="chain">7. The recommended chain</h2>
+
+<div class="card win">
+<p><b>Step 0. Stereo pass on the raw mix, before any separation.</b> Costs nothing, no model weights. Compute per-attack pan bimodality to decide one guitar or two. Pair it with cross-staff duplication so an overdub to the same position is not misread as a single player.</p>
+<p><b>Step 1. Moises Guitar parts.</b> Rhythm Guitars, Solo Guitars, Other Guitar. This is the step Demucs cannot perform, and it is the reason to spend here. If the Rhythm Guitars stem comes back stereo, an <code>ffmpeg channelsplit</code> recovers a further L and R pair from it.</p>
+<p><b>Step 2. Take the low register from the full mix, never from a stem.</b> Below 130 Hz the guitar stem holds nothing worth measuring.</p>
+<p><b>Step 3. Songsterr transcribes each role stem separately.</b> The rhythm stem into Songsterr is the strongest single link in the whole chain. Prefer the AI-generated tab where both exist.</p>
+<p><b>Step 4. Do not accept Songsterr's first pass on the solo.</b> Check the lead track's top note and fret range. A lead capping near E5 with frets under 12, on audio that clearly has content an octave up, is the octave-low failure. Rebuild that part with the Viterbi tracker plus position DP fretting, then Brandon's ear decides.</p>
+<p><b>Step 5. Our gate runs last.</b> Depan, restaff as a whole-part operation, dedupe the unison, repair only the beats that fail. Never a blanket refret. Verify the pitches on an HPSS harmonic separation of the full mix with a written-against-deliberately-wrong control.</p>
+<p><b>Step 6. Ship through <code>/songsterr-upload</code></b> with <code>preflight_import.py</code> and the upload lease, so nothing waits on Brandon and no two sessions drive the same browser tab.</p>
+</div>
+
+<h2 id="gap">8. The one experiment nobody has run</h2>
+
+<div class="card warn">
+<p><b>We have never put a Moises Solo Guitars stem into Songsterr and measured what came back.</b> Every comparison above transcribed either the full mix, a Demucs combined guitar stem, or a channel split. The single most informative test available costs one song of Moises credits and one Songsterr transcription.</p>
+<p><b>The specific question it answers:</b> Songsterr writes the solo an octave low when the lead is buried under a rhythm part in the same stem. Hand it a stem that holds the solo alone and the octave ambiguity may simply go away. If it does, the fast-solo problem is solved by better input rather than by a better tracker, and step 4 above collapses into step 3.</p>
+<p><b>The blocker:</b> Moises credits have read <code>400 Insufficient credits</code> since 2026-05-24. Role-split stems exist for six songs only, so the test can run today on BELIEVEYOUME or Goldfrapp Clowns at zero cost, using material already on the T7 drive.</p>
+</div>
+
+<h3>Honest ceiling today</h3>
+<p>For a non-panned two or three guitar track, right now: <b>a good rhythm tab and a contested lead</b>. The rhythm side is production-ready through Moises into Songsterr into our gate. The lead side depends on a hand-built tracker and Brandon's ear on every fast passage, and that is where the whole gap sits.</p>
+
+<footer>
+Sources: <code>~/.claude/skills/impossible-guitar-parts/SKILL.md</code> · memory files <code>feedback_guitar_ownership_by_frequency_not_panning</code>, <code>reference_guitar_count_pan_bimodality_not_width</code>, <code>feedback_demucs_guitar_stem_is_blind_below_130hz</code>, <code>reference_pitch_verification_hpss_not_demucs_stems</code>, <code>project_theship_midi_gp_redo</code>, <code>reference_uvr5_stem_standard</code>, <code>project_moises_credit_burn_rootcause</code> · stem inventory read live from <code>/Volumes/T7 Shield/Moises_Stems/</code>.<br>
+Related pages: <a href="https://7onething1.github.io/theship-guitar-count/">The Ship, how many guitarists</a> · <a href="https://7onething1.github.io/kilgore-guitar-accuracy-audit/">Kilgore guitar accuracy audit</a> · <a href="https://7onething1.github.io/appleseed-gp-vs-songsterr/">Appleseed drum tabs against Songsterr</a>
+</footer>
+
+</div>
+</body>
+</html>
