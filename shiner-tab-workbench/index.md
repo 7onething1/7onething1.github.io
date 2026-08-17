@@ -120,6 +120,39 @@ Both faults involve ties, the shape that proved to be a held pedal on The Mutiny
 
 The Lead staff carries the same TUNING_EVIDENCE review as The Mutiny.
 
+
+### Song 4 of 10: My Mirror Hates Me, the cleanest so far
+
+| Stage | Result |
+|---|---|
+| Tab length vs song | 282.1 s written against a 286.9 s stem, 1.7% apart |
+| Two guitars or one covering | **TWO_PARTS**, co-activity 94.0% over 125 of 133 bars, role flip **8.3** |
+| Map health, all three stems | **All three PASS**, the first song where every guitar stem yields a usable map |
+| Attack recall | 66.3%, 949 of 1432, decoy 10.2%, 6.5x |
+| Pitch agreement | 55.8% vs 52.2% control, +3.6, no power |
+| Duration | +0.012 vs -0.039 control, +0.051, no power |
+| Playability | **PASS on both staves, zero faults** |
+| Classification | 1 supported (bar 81), 7 unresolved, 111 unsupported |
+
+| Stem | Onsets | Alignment | Gain | Anchors | Clamped | Max run | Health |
+|---|---|---|---|---|---|---|---|
+| Rhythm Guitars | 456 | 64.4% | +52.8 | 18 | 5.3% | 57 | PASS |
+| Other Guitar | 367 | 50.4% | +43.2 | 14 | 9.1% | 98 | PASS |
+| Solo Guitars | 321 | 45.8% | +40.2 | 12 | 7.6% | 82 | PASS |
+
+**The one supported bar is too thin to act on.** Bar 81 carries 4 attacks, miss 75%, decoy 50%. Three of four missing on a 4-attack bar with the decoy 25 points below is inside what an onset detector does by chance.
+
+### Four songs profiled, side by side
+
+| Song | Length match | Staff roles | Map health | Attack recall | Playability | Supported bars |
+|---|---|---|---|---|---|---|
+| The Mutiny | good | TWO_PARTS, flip 7.0 | PASS | 74.1% | clean once refuted | 0 |
+| My Mirror Hates Me | 1.7% apart | TWO_PARTS, flip 8.3 | PASS on all 3 | 66.3% | PASS, zero faults | 1, too thin |
+| The Alligator | 44 s untranscribed | MIXED, flip 34.3 | PASS, marginal | 40.9% | PASS, zero faults | 2, marginal |
+| So Far So | 0.4% apart | MIXED, flip 39.6 | FAIL, all 3 | n/a | FAIL x2, tie-related | not measurable |
+
+**A pattern is forming.** The two songs reading TWO_PARTS also carry healthy maps and high attack recall. The two reading MIXED are the two with structural problems: The Alligator is missing 44 seconds, and So Far So cannot produce a usable map from any stem. Role flip and map health are tracking together, worth testing on the remaining six rather than assuming.
+
 ### Phase 2. The decision that is not mine
 
 Nine measures tested with controls on both sides, only attack recall survived, so today a corrected file cannot be justified note by note. Three ways forward:
