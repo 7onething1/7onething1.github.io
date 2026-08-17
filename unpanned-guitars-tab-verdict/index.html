@@ -54,26 +54,27 @@ footer{margin-top:56px;padding-top:16px;border-top:2px solid var(--rule);font-si
 <div class="wrap">
 
 <h1>Unpanned guitars, stem to tab</h1>
-<p class="sub">What our pipeline, Songsterr, and Moises can each actually do with a track that has two or three guitars and no useful panning. Every number below is measured, with its source named. 2026-08-17.</p>
+<p class="sub">What our pipeline, Songsterr, and the Moises app can each actually do with a track that has two or three guitars and only slight panning. Measured findings are labelled with their source. Proposals are labelled untested. Revised 2026-08-17 after Brandon corrected the Moises product and the panning claim.</p>
 
 <div class="toc">
 <b>Contents</b>
 <ol>
 <li><a href="#verdict">The one-line verdict and the scorecard</a></li>
-<li><a href="#sep">Stage 1, separation: only Moises splits unpanned guitars</a></li>
-<li><a href="#pan">Stage 2: panning was never the signal, and it cost us badly</a></li>
+<li><a href="#sep">Stage 1, separation: the Demucs into Moises cascade</a></li>
+<li><a href="#pan">Stage 2: slight panning, and the reverb trails hiding inside it</a></li>
 <li><a href="#trans">Stage 3, transcription: Songsterr wins the rhythm, quits on the solo</a></li>
 <li><a href="#notate">Stage 4, notation: our lane, and it is not close</a></li>
 <li><a href="#mistakes">The mistakes ledger, in Brandon's words</a></li>
 <li><a href="#chain">The recommended chain, all three tools</a></li>
-<li><a href="#gap">The one experiment nobody has run</a></li>
+<li><a href="#gap">The four experiments nobody has run</a></li>
 </ol>
 </div>
 
 <h2 id="verdict">1. The verdict</h2>
 
 <div class="card win">
-<p><b>No single tool does this job.</b> The chain that works is <b>Moises for separation, Songsterr for the rhythm transcription, ours for ownership and playability, and a hand-built tracker for the fast lead</b>. Each of the three is the best available at exactly one stage and demonstrably wrong at another.</p>
+<p><b>No single tool does this job, and the separation stage is a cascade rather than a choice.</b> <b>Demucs strips the band, the Moises Premium app splits the guitars by role, Songsterr transcribes the rhythm, ours fixes ownership and playability, and a hand-built tracker handles the fast lead.</b> Each tool is the best available at exactly one stage and demonstrably wrong at another.</p>
+<p><b>The panning in these mixes is slight and real.</b> It carries usable information on one staff at 72.1% and none on the other at 53.5%, so it earns a vote rather than an assignment. Reverb and delay returns are panned separately from the dry signal, which puts a measurement bug inside every pan number here.</p>
 </div>
 
 <div class="grid">
@@ -81,15 +82,19 @@ footer{margin-top:56px;padding-top:16px;border-top:2px solid var(--rule);font-si
 <div class="kpi"><span class="score">53.5%</span><span class="lab">ownership accuracy from panning on the real Kilgore Trout audio, which is chance. The same detector hit 88.0% on a synthetic control.</span></div>
 <div class="kpi"><span class="score">247</span><span class="lab">notes in Songsterr's lead track on 04 Six Feet Under, all inside frets 0 to 5, against 1,315 from the isolated stem.</span></div>
 <div class="kpi"><span class="score">449 &rarr; 0</span><span class="lab">wide-span beats on Flake of the Year after our dedupe pass, with zero notes removed and zero healthy notes relocated.</span></div>
+<div class="kpi"><span class="score">80 ms</span><span class="lab">is the window every pan reading here uses. A dry guitar attack is 5 to 20 ms, so the rest of that window is panned reverb and delay return.</span></div>
+<div class="kpi"><span class="score">$3.99</span><span class="lab">a month for Moises Premium, unlimited, which does the guitar role split. The credit wall we recorded as a blocker belongs to the separate developer API.</span></div>
 </div>
 
 <h3>Scorecard, by stage</h3>
 <div class="scroll">
 <table>
 <tr><th>Stage</th><th>Winner</th><th>Margin, measured</th><th>Source</th></tr>
-<tr><td>Split 2-3 guitars with no panning</td><td><span class="pill p-mo">Moises</span></td><td class="num">Only tool that does it at all</td><td>Role stems on disk, 6 songs</td></tr>
+<tr><td>Isolate guitar from the band</td><td><span class="pill p-us">Demucs, ours</span></td><td class="num">Free, local, and it feeds the next row</td><td>htdemucs_6s</td></tr>
+<tr><td>Split 2-3 guitars with no panning</td><td><span class="pill p-mo">Moises Premium app</span></td><td class="num">Only tool that does it at all. $3.99/mo, unlimited</td><td>Role stems on disk, 6 songs</td></tr>
 <tr><td>Low register, below 130 Hz</td><td><span class="pill p-no">No stem</span></td><td class="num">Use the full mix. Guitar stem keeps 1.32% at 60-90 Hz</td><td>Sean song, 2026-08-13</td></tr>
 <tr><td>Count how many guitarists played</td><td><span class="pill p-us">Ours</span></td><td class="num">Pan bimodality 0.79 two-source vs 0.22-0.51 one-source</td><td>The Ship, 10 songs</td></tr>
+<tr><td>Read slight panning safely</td><td><span class="pill p-mix">Open problem</span></td><td class="num">2.30 dB carries real information at 72.1% on one staff, 53.5% on the other</td><td>Kilgore Trout</td></tr>
 <tr><td>Transcribe a rhythm part</td><td><span class="pill p-ss">Songsterr</span></td><td class="num">41.1% pitch support vs our 24.7%; 73.7% ownership vs our 66.6%</td><td>Kilgore Trout</td></tr>
 <tr><td>Transcribe a fast, high lead solo</td><td><span class="pill p-no">Nobody, unaided</span></td><td class="num">Songsterr writes it an octave low. Ours: pyin and crepe agree on 58%</td><td>The Ship 03 Gene</td></tr>
 <tr><td>Guitar ownership, which player</td><td><span class="pill p-us">Ours</span></td><td class="num">Restaffing moved staff agreement 74% &rarr; 98.5%</td><td>Kilgore Trout</td></tr>
@@ -98,31 +103,66 @@ footer{margin-top:56px;padding-top:16px;border-top:2px solid var(--rule);font-si
 </table>
 </div>
 
-<h2 id="sep">2. Separation: only Moises splits unpanned guitars</h2>
+<h2 id="sep">2. Separation: the Demucs into Moises cascade</h2>
 
-<p>This is the whole question, and it has a clean answer. <b>Demucs separates by instrument, so two guitars come back as one file.</b> Every Radiohead song in the library shows it: a single <code>-guitar.wav</code> per song folder. Six-stem separation collapses both players into one mono stem, and every observation about two parts becomes unrecoverable at that step.</p>
+<p><b>Demucs separates by instrument, so two guitars come back as one file.</b> Every Radiohead song in the library shows it: a single <code>-guitar.wav</code> per song folder. Six-stem separation collapses both players into one mono stem at that step.</p>
 
-<p>Pan-based masking is the usual workaround and it is <b>disqualified by the premise here</b>. On 3 Gene it worked well, dropping the two-guitar correlation from 0.66 to 0.15 on the solo region, because those guitars were panned apart. A track with no panning gives that method nothing to mask on.</p>
+<p>Pan-based masking is the usual workaround and it is <b>disqualified by the premise here</b>. On 3 Gene it worked well, dropping the two-guitar correlation from 0.66 to 0.15 on the solo region, because those guitars were panned apart. A track with weak panning gives that method almost nothing to mask on.</p>
 
 <div class="card win">
-<p><b>Moises splits by role rather than by position.</b> Its Guitar parts module emits <code>Rhythm Guitars</code>, <code>Solo Guitars</code>, and <code>Other Guitar</code> as separate files. That is a completely different axis from panning, and it is the only thing in the stack that addresses the unpanned case directly.</p>
-<p>Proof on disk, <code>/Volumes/T7 Shield/Moises_Stems/</code>, six songs: BELIEVEYOUME 04, 05, 08, 09 and The Mutiny, plus Goldfrapp Clowns. Three older manual exports (The Alligator, Endless Summer, Lazarus) carry a <code>lead</code> and <code>rhythm</code> pair on the same principle.</p>
+<h3 style="margin-top:0">The working method is a cascade, and the two stages do different jobs</h3>
+<p><b>Stage 1, Demucs, strips the band.</b> Free, local, and it produces a guitar-only file that no longer has to be defended against drums, bass, and vocals.</p>
+<p><b>Stage 2, the Moises app, splits the guitars by role.</b> Given guitar-only input, its Lead and Rhythm model spends all of its capacity on the one distinction that matters here. <b>Role is a completely different axis from position</b>, which is why it survives a mix with no useful panning.</p>
+<p>Proof on disk at <code>/Volumes/T7 Shield/Moises_Stems/</code>, six songs: BELIEVEYOUME 03, 04, 05, 08, 09 and Goldfrapp Clowns, carrying <code>Rhythm Guitars</code>, <code>Solo Guitars</code> and <code>Other Guitar</code>. Three older app exports (The Alligator, Endless Summer, Lazarus) carry a <code>lead</code> and <code>rhythm</code> pair.</p>
+</div>
+
+<h3>The app and the developer API are two different products, and only one of them has the credit wall</h3>
+
+<div class="scroll">
+<table>
+<tr><th>Product</th><th>Guitar role split</th><th>Cost</th><th>State here</th></tr>
+<tr><td>Moises <b>Free</b> tier</td><td>No. Vocals, drums, bass only</td><td class="num">$0, 5 separations a month</td><td>Cannot do this job</td></tr>
+<tr><td>Moises <b>Premium</b> app</td><td><b>Yes.</b> Lead and Rhythm, plus Acoustic and Electric</td><td class="num">$3.99/mo, unlimited separation</td><td><b>This is the lane.</b> Disk evidence says an account at this level was used on 2026-05-10</td></tr>
+<tr><td>Moises <b>Pro</b> app</td><td>Yes, plus Hi-Fi models and drum parts</td><td class="num">$9.99/mo, 180 min per upload</td><td>Upgrade if the Hi-Fi model measures better</td></tr>
+<tr><td>Moises <b>developer API</b></td><td>Yes, via a wired workflow</td><td class="num">Metered, roughly $3 a song</td><td>Reads <code>400 Insufficient credits</code> since 2026-05-24</td></tr>
+</table>
 </div>
 
 <div class="card warn">
-<p><b>The standing ruling against paying for Moises does not cover this.</b> The 2026-05-25 standard says the Moises API at roughly $3 a song is no quality upgrade over the free pipeline. Read the reasoning and it is entirely about <b>drum</b> quality, where Moises measures equivalent to htdemucs_ft. It says nothing about role-based guitar splitting, and the free stack has no equivalent to compare against. The ruling stands for drums and does not decide this case.</p>
+<p><b>Correction to an earlier verdict on this page and in memory.</b> The blocker previously recorded as "Moises credits are out" is an <b>API</b> blocker. It has no bearing on the app, where Premium runs unlimited separations for the price of two coffees a month. The 2026-05-25 ruling against paying for Moises is likewise about the API and is argued entirely from <b>drum</b> quality, where Moises measures equivalent to htdemucs_ft. Neither statement decides the guitar role split, and the free stack has no equivalent to compare against.</p>
+<p>The naming on disk tells you which product made a file. <code>Rhythm Guitars</code> and <code>Solo Guitars</code> come from the API workflow modules. A plain <code>lead</code> and <code>rhythm</code> pair comes from the app.</p>
 </div>
+
+<div class="card win">
+<p><b>Evidence that a Premium-capable account has already been used here.</b> Three songs on the T7 drive carry app-style exports with a <code>lead</code> and a <code>rhythm</code> file: The Alligator, Endless Summer, and Lazarus, in the <code>&lt;song&gt;-&lt;stem&gt;-&lt;key&gt;-&lt;bpm&gt;-&lt;hz&gt;.wav</code> app naming, dated 2026-05-10. <b>Lead and rhythm guitar separation is a Premium feature</b>, so those files could not have come out of a Free account.</p>
+<p><b>What that does not prove:</b> whether the subscription is live today. Chrome on this machine is signed out of Moises (<code>studio.moises.ai/auth/login</code> as of 2026-08-17), so the current billing state is unverified from here. One sign-in settles it.</p>
+</div>
+
+<h3>The one measured cost of the cascade, and how to pay less of it</h3>
 
 <div class="card lose">
-<p><b>A second reason the Demucs guitar stem cannot carry this work.</b> Measured on the Sean song from <code>htdemucs_6s</code>: the guitar stem retains 1.32% of the mix's energy at 60-90 Hz and 9.82% at 90-130 Hz. It is effectively high-passed, so every low note a guitar plays gets routed to the bass stem. A chord transcribed from that stem comes back missing its lowest note, every time. A matcher validated at 87% root recovery on a synthetic render scored 29% on the real stem, and in every disagreement the detected set was the tab's chord with the bottom pitch class removed.</p>
+<p><b>Demucs throws away the guitar's low register before Moises ever sees it.</b> Measured on the Sean song from <code>htdemucs_6s</code>: the guitar stem retains 1.32% of the mix's energy at 60-90 Hz and 9.82% at 90-130 Hz. It is effectively high-passed, because the separator has to put the shared low band somewhere and sends it to <code>bass</code>.</p>
+<p>In a cascade that loss is <b>permanent and inherited by both output parts</b>. A chord transcribed downstream comes back missing its lowest note, every time. A matcher validated at 87% root recovery on a synthetic render scored 29% on the real stem, and in every disagreement the detected set was the tab's chord with the bottom pitch class removed.</p>
+<p>htdemucs_6s is also the weakest Demucs model on transients and the most prone to spectral smearing, so stage 2 inherits stage 1's artifacts as well.</p>
 </div>
 
-<h2 id="pan">3. Panning was never the signal</h2>
+<div class="card note">
+<p><b>Three ways to keep the cascade and pay less for it. All three are untested and each is a one-song experiment.</b></p>
+<p><b>A. Feed Moises guitar plus bass summed</b> rather than the guitar stem alone. The guitar's low notes ended up in the bass stem, so summing them back puts the evidence in front of Moises while still removing drums and vocals. Moises then decides what is guitar, which is the job it is trained for.</p>
+<p><b>B. Feed a mix minus drums and vocals.</b> Same idea with a wider net, removing only the two sources that are loudest and least guitar-like. Least lossy input, most work left for Moises.</p>
+<p><b>C. Take the low register from the full mix in parallel</b> and reconcile it against whatever the cascade returns. This is a standing hard gate and it works regardless of which input wins.</p>
+<p>The control that settles A against B against the plain guitar stem: run all three on one song and measure 60-130 Hz energy retention plus the written-against-deliberately-wrong pitch separation on each output.</p>
+</div>
+
+<h2 id="pan">3. Slight panning is real evidence, and it is not a splitter</h2>
+
+<div class="quote">there's often slight panning but we must not treat that as full panning plus sometimes reverb trails are fed panned etc.
+<span>Brandon, 2026-08-17</span></div>
 
 <div class="quote">we struggled by thinking panning would separate the guitars rather than frequencies, and matching and fixing what songsterr got wrong, and started to get insane and burn a wild amount of tokens.
 <span>Brandon, 2026-08-13</span></div>
 
-<p>That instinct was tested properly and it failed. Appleseed Cast, Kilgore Trout, against a synthetic control rendered with the Lead hard left and the Rhythm hard right so the answer is known:</p>
+<p>An earlier version of this page said the panning was not there to be read. <b>That overstates it and the numbers below say so.</b> A 2.30 dB margin is slight panning that genuinely exists. Read as a hard left and right split it produces chance. Read as one weak vote among several it is worth having. Appleseed Cast, Kilgore Trout, against a synthetic control rendered with the Lead hard left and the Rhythm hard right so the answer is known:</p>
 
 <div class="scroll">
 <table>
@@ -134,7 +174,27 @@ footer{margin-top:56px;padding-top:16px;border-top:2px solid var(--rule);font-si
 </table>
 </div>
 
-<p><b>The detector was fine. The panning was not there to be read.</b> That distinction took 57 chain builds to establish, and the synthetic control settled it in one run.</p>
+<p><b>The detector was fine. The panning present was roughly a tenth of what the method assumed.</b> That distinction took 57 chain builds to establish, and the synthetic control settled it in one run.</p>
+
+<p>Read the two real-audio rows carefully, because they do not say the same thing. <b>Rhythm at 72.1% is well above chance and is usable evidence.</b> Lead at 53.5% is a coin flip. One signal, two very different qualities on the two staves, from the same recording. Any rule that treats pan as uniformly good or uniformly worthless gets one of these two wrong.</p>
+
+<div class="card note">
+<p><b>The practical shape this argues for, and it is untested.</b> Stop assigning every note from pan. Take only the notes whose pan margin clears a real threshold as <b>seeds</b>, then propagate ownership from those seeds by register and phrase continuity. A 2.30 dB median means about half the notes sit below any usable margin, which is exactly the arithmetic that drags an aggregate down to 53.5%. The skill carries a 3 dB doubling threshold as an initial cut, so the seed set exists and is simply not being used as a seed set.</p>
+</div>
+
+<h3>Reverb and delay returns are panned separately from the dry signal</h3>
+
+<div class="card lose">
+<p><b>This is a measurement bug hiding inside every pan number on this page.</b> The current method reads the L/R energy balance <b>over the 80 ms following each transient</b>, and the ownership harmonic measurement reads 80 to 150 ms after the attack. A dry electric guitar attack is roughly 5 to 20 ms. Everything after that window is increasingly early reflections, delay repeats, and reverb, and <b>those returns are routed and panned independently of the dry signal.</b> A player panned slightly left with a wide stereo return can measure as centred, or as right of centre.</p>
+<p>The corpus contains the proof, and we interpreted it differently at the time. <b>A single guitar through a Haas delay produced an L/R correlation of 0.049, the lowest of anything measured, real tracks included.</b> A ping-pong delay produced the highest onset independence at 59.1%. Both are one player. Both were logged as evidence that those metrics measure mix width. They also measure the wet return, which is the more actionable reading.</p>
+</div>
+
+<div class="card note">
+<p><b>Three fixes, all untested, all cheap to try.</b></p>
+<p><b>A. Move the pan window onto the dry attack.</b> Measure roughly the first 10 to 20 ms rather than 80 ms, so the estimate is taken before the return arrives.</p>
+<p><b>B. Make window drift a rejection criterion.</b> Compute the pan estimate at 15 ms and again at 80 ms. Agreement means the note's position is a dry position and the note votes. Disagreement means the tail is panned differently from the source, so <b>discard that note rather than letting it vote wrong.</b> This turns Brandon's observation into a gate that can abort, which is the one thing that separates a real detector from a confident one here.</p>
+<p><b>C. Detect the delay before counting attacks.</b> A panned repeat is a copy of an earlier attack at a fixed lag. Autocorrelate the onset train per channel; a strong peak at a constant lag is a delay line, and those onsets are echoes rather than notes. Run this before the bimodality count, since a ping-pong repeat manufactures a second pan cluster out of one player.</p>
+</div>
 
 <h3>How much of the transcription is written into both staves</h3>
 <p>Because the guitars are not hard panned, a per-channel transcription writes the same note into both parts. Notes appearing in both channels at the same instant and pitch:</p>
@@ -172,7 +232,7 @@ footer{margin-top:56px;padding-top:16px;border-top:2px solid var(--rule);font-si
 <div class="scroll">
 <table>
 <tr><th>Song</th><th>Track</th><th>Songsterr live</th><th>From the isolated stem</th><th>Reading</th></tr>
-<tr><td>03 Gene</td><td>Lead</td><td class="num">563 notes, A2 to E5, frets 4-12</td><td class="num">724 built, 581 shipped, up to B5, frets 4-19</td><td>Solo written an <b>octave low</b>. Real part sits near the 12th position.</td></tr>
+<tr><td>03 Gene</td><td>Lead</td><td class="num">563 notes, A2 to E5, frets 4-12</td><td class="num">724 built, 581 shipped, up to B5, frets 4-19</td><td>Solo written an <b>octave low</b>. Real part is up near the 12th position.</td></tr>
 <tr><td>04 Six Feet Under</td><td>Lead</td><td class="num">247 notes, frets 0 to 5</td><td class="num"><b>1,315 notes</b></td><td>Live lead is near-empty. Biggest available win on the album.</td></tr>
 <tr><td>05 Sleep Vs Death</td><td>Rhythm</td><td class="num">644</td><td class="num">1,321</td><td>Real upgrade</td></tr>
 <tr><td>02 Flake</td><td>Rhythm</td><td class="num">2,948</td><td class="num">4,570</td><td>Real upgrade</td></tr>
@@ -228,34 +288,45 @@ footer{margin-top:56px;padding-top:16px;border-top:2px solid var(--rule);font-si
 </div>
 
 <div class="card lose">
-<p><b>The pattern behind almost all of it: a confident number computed off evidence that had already been thrown away.</b> The Demucs stem discards the low register and then reports the chord as wrong. The panning axis carries 2 dB and then reports ownership at chance. A saturated stem scores a real pitch and a deliberately wrong pitch identically and reports 100%. In each case the fix was the same, which is running a control that can fail before quoting the number.</p>
+<p><b>The pattern behind almost all of it: a confident number computed off evidence that was thrown away earlier in the chain.</b> The Demucs stem discards the low register and then reports the chord as wrong. The panning axis carries 2 dB and then reports ownership at chance. A saturated stem scores a real pitch and a deliberately wrong pitch identically and reports 100%. In each case the fix was the same, which is running a control that can fail before quoting the number.</p>
 </div>
 
 <h2 id="chain">7. The recommended chain</h2>
 
 <div class="card win">
-<p><b>Step 0. Stereo pass on the raw mix, before any separation.</b> Costs nothing, no model weights. Compute per-attack pan bimodality to decide one guitar or two. Pair it with cross-staff duplication so an overdub to the same position is not misread as a single player.</p>
-<p><b>Step 1. Moises Guitar parts.</b> Rhythm Guitars, Solo Guitars, Other Guitar. This is the step Demucs cannot perform, and it is the reason to spend here. If the Rhythm Guitars stem comes back stereo, an <code>ffmpeg channelsplit</code> recovers a further L and R pair from it.</p>
-<p><b>Step 2. Take the low register from the full mix, never from a stem.</b> Below 130 Hz the guitar stem holds nothing worth measuring.</p>
-<p><b>Step 3. Songsterr transcribes each role stem separately.</b> The rhythm stem into Songsterr is the strongest single link in the whole chain. Prefer the AI-generated tab where both exist.</p>
-<p><b>Step 4. Do not accept Songsterr's first pass on the solo.</b> Check the lead track's top note and fret range. A lead capping near E5 with frets under 12, on audio that clearly has content an octave up, is the octave-low failure. Rebuild that part with the Viterbi tracker plus position DP fretting, then Brandon's ear decides.</p>
-<p><b>Step 5. Our gate runs last.</b> Depan, restaff as a whole-part operation, dedupe the unison, repair only the beats that fail. Never a blanket refret. Verify the pitches on an HPSS harmonic separation of the full mix with a written-against-deliberately-wrong control.</p>
-<p><b>Step 6. Ship through <code>/songsterr-upload</code></b> with <code>preflight_import.py</code> and the upload lease, so nothing waits on Brandon and no two sessions drive the same browser tab.</p>
+<p><b>Step 0. Stereo pass on the raw mix, before any separation.</b> Costs nothing, no model weights. Detect panned delay repeats first, then compute per-attack pan bimodality on a dry-attack window to decide one guitar or two. Pair it with cross-staff duplication so an overdub to the same position is not miscounted as a single player.</p>
+<p><b>Step 1. Demucs strips the band.</b> <code>htdemucs_6s</code>, free and local, producing a guitar-only file. Keep the bass stem beside it, because the guitar's low notes are inside it.</p>
+<p><b>Step 2. The Moises Premium app splits the guitars by role.</b> Lead and Rhythm, from guitar-only input so the model spends everything on that one distinction. This is the step Demucs cannot perform, and it is the reason to spend the $3.99. Until the input experiment is run, feed it guitar plus bass summed rather than the guitar stem alone, so the low register is still in front of it. If a returned stem is stereo, an <code>ffmpeg channelsplit</code> recovers a further L and R pair from it.</p>
+<p><b>Step 3. Take the low register from the full mix in parallel.</b> Below 130 Hz the Demucs guitar stem holds 1.32% of the energy, so anything downstream of it is guessing about the bottom of every chord.</p>
+<p><b>Step 4. Songsterr transcribes each role stem separately.</b> The rhythm stem into Songsterr is the strongest single link in the whole chain. Prefer the AI-generated tab where both exist.</p>
+<p><b>Step 5. Do not accept Songsterr's first pass on the solo.</b> Check the lead track's top note and fret range. A lead capping near E5 with frets under 12, on audio that clearly has content an octave up, is the octave-low failure. Rebuild that part with the Viterbi tracker plus position DP fretting, then Brandon's ear decides.</p>
+<p><b>Step 6. Our gate runs last.</b> Use pan as a seed rather than as an assignment, discarding any note whose 15 ms and 80 ms pan estimates disagree. Restaff as a whole-part operation, dedupe the unison, repair only the beats that fail. Never a blanket refret. Verify the pitches on an HPSS harmonic separation of the full mix with a written-against-deliberately-wrong control.</p>
+<p><b>Step 7. Ship through <code>/songsterr-upload</code></b> with <code>preflight_import.py</code> and the upload lease, so nothing waits on Brandon and no two sessions drive the same browser tab.</p>
 </div>
 
-<h2 id="gap">8. The one experiment nobody has run</h2>
+<h2 id="gap">8. The four experiments nobody has run</h2>
+
+<p>Everything on this page that concerns the cascade is an argument rather than a measurement. Four tests turn it into evidence, and every one of them runs on material that is on the T7 drive now.</p>
+
+<div class="scroll">
+<table>
+<tr><th>#</th><th>Test</th><th>What it settles</th><th>Cost</th></tr>
+<tr><td class="num">1</td><td>Moises <code>Solo Guitars</code> stem into Songsterr</td><td>Whether the octave-low solo failure is caused by the lead being buried under a rhythm part in the same stem. If it is, better input replaces the whole hand-built tracker</td><td class="num">One transcription, zero credits</td></tr>
+<tr><td class="num">2</td><td>Three Moises inputs on one song: guitar stem alone, guitar plus bass summed, mix minus drums and vocals</td><td>How much of the 60-130 Hz loss the cascade has to accept, and which input keeps the most of it</td><td class="num">Three separations on a Premium sub</td></tr>
+<tr><td class="num">3</td><td>Pan estimate at 15 ms against the same estimate at 80 ms, per note</td><td>How many notes have wet-contaminated pan, which is the size of the reverb-trail problem</td><td class="num">Pure numpy, no model</td></tr>
+<tr><td class="num">4</td><td>Seeded ownership: assign only above the 3 dB margin, propagate the rest by register and phrase</td><td>Whether the 53.5% Lead figure is a bad signal or a badly used one</td><td class="num">Rerun of an existing script</td></tr>
+</table>
+</div>
 
 <div class="card warn">
-<p><b>We have never put a Moises Solo Guitars stem into Songsterr and measured what came back.</b> Every comparison above transcribed either the full mix, a Demucs combined guitar stem, or a channel split. The single most informative test available costs one song of Moises credits and one Songsterr transcription.</p>
-<p><b>The specific question it answers:</b> Songsterr writes the solo an octave low when the lead is buried under a rhythm part in the same stem. Hand it a stem that holds the solo alone and the octave ambiguity may simply go away. If it does, the fast-solo problem is solved by better input rather than by a better tracker, and step 4 above collapses into step 3.</p>
-<p><b>The blocker:</b> Moises credits have read <code>400 Insufficient credits</code> since 2026-05-24. Role-split stems exist for six songs only, so the test can run today on BELIEVEYOUME or Goldfrapp Clowns at zero cost, using material already on the T7 drive.</p>
+<p><b>Test 3 is the one to run first,</b> because it costs nothing, needs no subscription, and its result changes how every other pan number on this page should be read. It is also the only one of the four that can invalidate work we have shipped.</p>
 </div>
 
 <h3>Honest ceiling today</h3>
-<p>For a non-panned two or three guitar track, right now: <b>a good rhythm tab and a contested lead</b>. The rhythm side is production-ready through Moises into Songsterr into our gate. The lead side depends on a hand-built tracker and Brandon's ear on every fast passage, and that is where the whole gap sits.</p>
+<p>For a two or three guitar track with slight panning, right now: <b>a good rhythm tab and a contested lead</b>. The rhythm side is production-ready through Demucs into Moises Premium into Songsterr into our gate. The lead side depends on a hand-built tracker and Brandon's ear on every fast passage, and that is where the whole gap is. Test 1 is the one that could close it.</p>
 
 <footer>
-Sources: <code>~/.claude/skills/impossible-guitar-parts/SKILL.md</code> · memory files <code>feedback_guitar_ownership_by_frequency_not_panning</code>, <code>reference_guitar_count_pan_bimodality_not_width</code>, <code>feedback_demucs_guitar_stem_is_blind_below_130hz</code>, <code>reference_pitch_verification_hpss_not_demucs_stems</code>, <code>project_theship_midi_gp_redo</code>, <code>reference_uvr5_stem_standard</code>, <code>project_moises_credit_burn_rootcause</code> · stem inventory read live from <code>/Volumes/T7 Shield/Moises_Stems/</code>.<br>
+Sources: <code>~/.claude/skills/impossible-guitar-parts/SKILL.md</code> · memory files <code>feedback_guitar_ownership_by_frequency_not_panning</code>, <code>reference_guitar_count_pan_bimodality_not_width</code>, <code>feedback_demucs_guitar_stem_is_blind_below_130hz</code>, <code>reference_pitch_verification_hpss_not_demucs_stems</code>, <code>project_theship_midi_gp_redo</code>, <code>reference_uvr5_stem_standard</code>, <code>project_moises_credit_burn_rootcause</code> · stem inventory read live from <code>/Volumes/T7 Shield/Moises_Stems/</code> · Moises plan tiers from <a href="https://moises.ai/blog/moises-news/new-guitar-separation-models/">moises.ai new guitar separation models</a> and <a href="https://stemsplit.io/blog/moises-ai-review">StemSplit's 2026 Moises review</a>.<br>
 Related pages: <a href="https://7onething1.github.io/theship-guitar-count/">The Ship, how many guitarists</a> · <a href="https://7onething1.github.io/kilgore-guitar-accuracy-audit/">Kilgore guitar accuracy audit</a> · <a href="https://7onething1.github.io/appleseed-gp-vs-songsterr/">Appleseed drum tabs against Songsterr</a>
 </footer>
 
