@@ -163,6 +163,26 @@ Four candidates, sampled at 3068 attack times through each channel's own healthy
 
 The searchable space narrows to discrete event matching. Continuous spectral features are ruled out on this material.
 
+
+### The one hard fault is a false positive, and the tab is right
+
+Playability needs no audio, so the audio blocker never applied. The tie state across bars 3 to 8:
+
+| Bar / beat | String 4, moving line | String 3, the pedal |
+|---|---|---|
+| bar 3, beat 99 | s4f8 tie origin, p65 | s3f5 tie origin, p58 |
+| bar 3, beat 100 | s4f8 tie dest | s3f5 tie dest |
+| **bar 3, beat 101, flagged** | s4f10 tie origin, p67 | s3f5 tie origin, p58 |
+| bar 4, beats 102-104 | s4f10, then s4f8 | s3f5 held |
+| bar 4-5, beats 105-106 | s4f9 | s3f5 held |
+| bar 7-8, beats 107-110 | s4f10 | s3f5 held, with s2f5 and s1f3 |
+
+**String 3 fret 5 is a pedal held by an unbroken tie chain from bar 3 through bar 8** while the melody moves on string 4 through frets 8, 9, 10. One finger holds, another reaches: index and pinky across adjacent strings at position 5. The gate models it as four fingers inside four frets at once, the wrong model for a two-finger pedal and reach.
+
+**Every span-reducing alternative breaks a tie.** The gate's own `s2f10 + s4f10` collides with the s2f5 tie held from bar 7, which is why it took the file from 1 fault to 5. `s2f10 + s3f14` needs string 3, the pedal. `s4f1 + s5f5` moves the pedal onto string 4, the moving line.
+
+**So The Mutiny has zero genuine playability faults.** The correct action was to refute the flag, and nothing was changed. The gate needs a held-pedal exemption: when one note of a pair is inside a tie chain and the other is the only moving voice, judge the span against a two-finger reach rather than the flat four-fret limit.
+
 ### Playability
 
 | Track | Notes | Hand skip | Same-string | Tie | Wide | Octave | Verdict |

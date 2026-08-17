@@ -426,6 +426,37 @@ footer{margin-top:52px;padding-top:18px;border-top:2px solid var(--ink);
 
 <p><strong>The searchable space narrows to discrete event matching rather than continuous spectral features.</strong> Onset strength, spectral flux, transient clarity and attack envelope sharpness are all ruled out on this material with proper controls, so a future attempt should start from event-level questions rather than from frame-level ones.</p>
 
+
+<h3>Step 11. The one hard fault is a false positive, and the tab is right</h3>
+
+<p>Playability needs no audio, so the audio blocker never applied to it. Dumping the tie state across bars 3 to 8 resolves the single hard fault on the file.</p>
+
+<div class="scroll">
+<table style="min-width:620px">
+<thead><tr><th>Bar / beat</th><th>String 4, the moving line</th><th>String 3, the pedal</th></tr></thead>
+<tbody>
+<tr><td>bar 3, beat 99</td><td>s4f8 tie origin, p65</td><td>s3f5 tie origin, p58</td></tr>
+<tr><td>bar 3, beat 100</td><td>s4f8 tie dest</td><td>s3f5 tie dest</td></tr>
+<tr class="no"><td><strong>bar 3, beat 101, the flagged beat</strong></td><td>s4f10 tie origin, p67</td><td>s3f5 tie origin, p58</td></tr>
+<tr><td>bar 4, beats 102 to 104</td><td>s4f10, then s4f8</td><td>s3f5 held</td></tr>
+<tr><td>bar 4 to 5, beats 105 to 106</td><td>s4f9</td><td>s3f5 held</td></tr>
+<tr><td>bar 7 to 8, beats 107 to 110</td><td>s4f10</td><td>s3f5 held, with s2f5 and s1f3</td></tr>
+</tbody>
+</table>
+</div>
+
+<p><strong>String 3 fret 5 is a pedal held by an unbroken tie chain from bar 3 through bar 8</strong> while the melody moves on string 4 through frets 8, 9 and 10. One finger holds, another reaches. That is index and pinky across adjacent strings at position 5, which every guitarist does. The gate models it as four fingers fitting inside four frets at once, which is the wrong model for a two-finger pedal and reach.</p>
+
+<div class="note bad">
+  <strong>Every span-reducing alternative breaks a tie the music depends on.</strong>
+  Legal placements in Drop C are pitch 58 at s0f22, s1f15, s2f10, s3f5, s4f1 and pitch 67 at s1f24, s2f19, s3f14, s4f10, s5f5. The gate's own suggestion <code>s2f10 + s4f10</code> collides with the s2f5 tie held from bar 7, which is why applying it took the file from 1 fault to 5. <code>s2f10 + s3f14</code> needs string 3, which carries the pedal. <code>s4f1 + s5f5</code> moves the pedal onto string 4, the string carrying the moving line.
+</div>
+
+<div class="note">
+  <strong>So The Mutiny has zero genuine playability faults.</strong>
+  The correct action was to refute the flag rather than edit the file, and nothing was changed. The gate already prints "held span", so it knows the note is held; it just does not use that fact when choosing the limit. The fix it needs is a held-pedal exemption: when one note of a pair is inside a tie chain and the other is the only moving voice, judge the span against a two-finger reach rather than the flat four-fret limit.
+</div>
+
 <h3>Step 4. Playability, which needs no audio</h3>
 <div class="scroll">
 <table>
