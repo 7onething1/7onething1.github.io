@@ -255,6 +255,45 @@ footer{margin-top:52px;padding-top:18px;border-top:2px solid var(--ink);
   The stem yields 154 onsets across 216 s, which is 0.71 per second, so a bar reading 100% miss carries less weight than the same reading on The Mutiny's 718-onset channel. Both clear the decoy test by a margin of about 18 points against a 15-point threshold. They are the first two bars this session to reach the bar at all, and the honest label is candidate for listening.
 </div>
 
+
+<h3>Song 3 of 10: So Far So, blocked at the map stage</h3>
+
+<div class="scroll">
+<table>
+<thead><tr><th>Stem tried</th><th>Onsets</th><th>Alignment</th><th>Gain</th><th>Anchors</th><th>Clamped</th><th>Max run</th><th>Span</th><th>Health</th></tr></thead>
+<tbody>
+<tr><td><code>Rhythm Guitars</code></td><td>83</td><td>16.6%</td><td>+14.1</td><td>3</td><td class="no">38.1%</td><td class="no">302</td><td class="no">62%</td><td class="no">FAIL x4</td></tr>
+<tr><td><code>Solo Guitars</code></td><td>85</td><td>24.0%</td><td>+21.0</td><td>4</td><td class="no">26.8%</td><td class="no">175</td><td class="no">73%</td><td class="no">FAIL x4</td></tr>
+<tr><td><code>Other Guitar</code></td><td>132</td><td class="yes">75.4%</td><td class="yes">+72.1</td><td class="no">2</td><td class="no">73.9%</td><td class="no">704</td><td class="no">26%</td><td class="no">FAIL x4</td></tr>
+</tbody>
+</table>
+</div>
+
+<div class="note bad">
+  <strong>The highest alignment gain of the whole session came from the most degenerate map, and the health gate caught it.</strong>
+  <code>Other Guitar</code> scores 75.4% alignment and +72.1 gain, beating The Mutiny's best, on <strong>two anchors</strong>. Those two anchors clamp 73.9% of the tab and collapse 704 consecutive attacks onto one audio time. <code>beat_map.py</code> ACCEPTED it, since it judges gain against a random control and nothing else. Without the health gate this would have become So Far So's headline number.
+</div>
+
+<p><strong>All three stems fail on all four criteria, so no per-note audio metric is interpretable for So Far So.</strong> The cause is onset yield: 83 to 132 onsets across 259 seconds is 0.32 to 0.51 per second, against The Mutiny's 2.86. Song-level alignment and attack recall stay reportable; nothing per-note does.</p>
+
+<div class="scroll">
+<table style="min-width:620px">
+<thead><tr><th>Stage</th><th>Result</th></tr></thead>
+<tbody>
+<tr><td>Tab length against the song</td><td class="yes">258.5 s written against a 259.7 s stem, 0.4% apart. Complete, unlike The Alligator.</td></tr>
+<tr><td>Two guitars or one covering</td><td class="no"><strong>MIXED</strong>, co-activity 66.7% over 64 of 96 bars, role flip <strong>39.6</strong>, the worst of the three songs so far. Genuine two-guitar runs at bars 26-30, 45-50, 55-70, 96-100 and 103-134.</td></tr>
+<tr><td>Playability</td><td class="no"><strong>FAIL</strong>, one IMPOSSIBLE_SPAN per staff</td></tr>
+</tbody>
+</table>
+</div>
+
+<p>Both playability faults involve ties, the same shape that turned out to be a held pedal on The Mutiny:</p>
+<div class="scroll"><table style="min-width:620px"><tbody>
+<tr><td class="mono">IMPOSSIBLE_SPAN bar 66.0 Lead Guitar. Written s2f9 s3f7 s4f3~, span 6, tie on s4, sounding [57, 60, 60]. Alternative offered at span 5.</td></tr>
+<tr><td class="mono">IMPOSSIBLE_SPAN bar 106.0 Rhythm Guitar. Written s0f4 s1f2 s2f9~ s3f4 s4f3 s5f2, span 7, tie on s2, sounding [40, 45, 57, 57, 60, 64]. The offered alternative is ALSO span 7, so the tool admits no narrower voicing exists.</td></tr>
+</tbody></table></div>
+<p>The Lead staff also carries the same TUNING_EVIDENCE review as The Mutiny: string 0 detuned by 2 with its open pitch never used in that staff.</p>
+
 <h3>Phase 2. The decision that is not mine to make</h3>
 <p>After Phase 1, <code>/goal</code> on The Mutiny reduces to one question. Nine measures were tested with controls on both sides and only attack recall survived, so today a corrected file cannot be justified note by note. Three ways forward:</p>
 <ul>

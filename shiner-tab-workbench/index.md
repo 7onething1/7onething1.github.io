@@ -94,6 +94,32 @@ The conclusion survives: zero supported corrections. The lesson is a process one
 
 Both supported bars are marginal. The stem yields 154 onsets across 216 s, 0.71 per second, so a 100% miss carries less weight than on The Mutiny's 718-onset channel. Both clear the decoy test by about 18 points against a 15-point threshold. Honest label: candidate for listening.
 
+
+### Song 3 of 10: So Far So, blocked at the map stage
+
+| Stem tried | Onsets | Alignment | Gain | Anchors | Clamped | Max run | Span | Health |
+|---|---|---|---|---|---|---|---|---|
+| Rhythm Guitars | 83 | 16.6% | +14.1 | 3 | 38.1% | 302 | 62% | FAIL x4 |
+| Solo Guitars | 85 | 24.0% | +21.0 | 4 | 26.8% | 175 | 73% | FAIL x4 |
+| Other Guitar | 132 | 75.4% | +72.1 | 2 | 73.9% | 704 | 26% | FAIL x4 |
+
+**The highest alignment gain of the session came from the most degenerate map, and the health gate caught it.** Other Guitar scores 75.4% and +72.1, beating The Mutiny's best, on **two anchors** that clamp 73.9% of the tab and collapse 704 consecutive attacks onto one audio time. `beat_map.py` ACCEPTED it. Without the health gate this would have been So Far So's headline number.
+
+**All three stems fail on all four criteria, so no per-note audio metric is interpretable here.** Cause: 83 to 132 onsets across 259 s is 0.32 to 0.51 per second against The Mutiny's 2.86.
+
+| Stage | Result |
+|---|---|
+| Tab length vs song | 258.5 s written against a 259.7 s stem, 0.4% apart. Complete. |
+| Two guitars or one covering | **MIXED**, co-activity 66.7% over 64 of 96 bars, role flip **39.6**, worst of the three |
+| Playability | **FAIL**, one IMPOSSIBLE_SPAN per staff |
+
+Both faults involve ties, the shape that proved to be a held pedal on The Mutiny:
+
+- `bar 66.0 Lead Guitar: s2f9 s3f7 s4f3~, span 6, tie on s4, sounding [57, 60, 60]`
+- `bar 106.0 Rhythm Guitar: s0f4 s1f2 s2f9~ s3f4 s4f3 s5f2, span 7, tie on s2. The offered alternative is ALSO span 7, so no narrower voicing exists.`
+
+The Lead staff carries the same TUNING_EVIDENCE review as The Mutiny.
+
 ### Phase 2. The decision that is not mine
 
 Nine measures tested with controls on both sides, only attack recall survived, so today a corrected file cannot be justified note by note. Three ways forward:
