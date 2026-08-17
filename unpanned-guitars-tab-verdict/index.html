@@ -84,7 +84,7 @@ footer{margin-top:56px;padding-top:16px;border-top:2px solid var(--rule);font-si
 <div class="kpi"><span class="score">247</span><span class="lab">notes in Songsterr's lead track on 04 Six Feet Under, all inside frets 0 to 5, against 1,315 from the isolated stem.</span></div>
 <div class="kpi"><span class="score">449 &rarr; 0</span><span class="lab">wide-span beats on Flake of the Year after our dedupe pass, with zero notes removed and zero healthy notes relocated.</span></div>
 <div class="kpi"><span class="score">80 ms</span><span class="lab">is the window every pan reading here uses. A dry guitar attack is 5 to 20 ms, so the rest of that window is panned reverb and delay return.</span></div>
-<div class="kpi"><span class="score">0.0000</span><span class="lab">time-variance for a known frequency crossover, on all three songs. Moises scored 0.128 to 0.323, so its guitar split is not a register filter.</span></div>
+<div class="kpi"><span class="score">1 of 3</span><span class="lab">songs where the Moises split beat its shifted-time decoy on real Songsterr notation. One failed outright, one could not be aligned. Run the control per song.</span></div>
 </div>
 
 <h3>Scorecard, by stage</h3>
@@ -92,7 +92,7 @@ footer{margin-top:56px;padding-top:16px;border-top:2px solid var(--rule);font-si
 <table>
 <tr><th>Stage</th><th>Winner</th><th>Margin, measured</th><th>Source</th></tr>
 <tr><td>Isolate guitar from the band</td><td><span class="pill p-us">Demucs, ours</span></td><td class="num">Free, local, and it feeds the next row</td><td>htdemucs_6s</td></tr>
-<tr><td>Split 2-3 guitars <b>by player</b></td><td><span class="pill p-mo">Moises</span></td><td class="num"><b>Passed its filter control on 3 songs.</b> Negative pole 0.0000, Moises 0.128-0.323, positive pole 0.132-0.171</td><td>Measured 2026-08-17</td></tr>
+<tr><td>Split 2-3 guitars <b>by player</b></td><td><span class="pill p-mix">Moises, song by song</span></td><td class="num"><b>1 of 3 songs passed the attribution control</b>, gain +0.4128. One failed at -0.0076, one could not be aligned</td><td>Measured 2026-08-17</td></tr>
 <tr><td>Low register, below 130 Hz</td><td><span class="pill p-no">No stem</span></td><td class="num">Use the full mix. Guitar stem keeps 1.32% at 60-90 Hz</td><td>Sean song, 2026-08-13</td></tr>
 <tr><td>Count how many guitarists played</td><td><span class="pill p-us">Ours</span></td><td class="num">Pan bimodality 0.79 two-source vs 0.22-0.51 one-source</td><td>The Ship, 10 songs</td></tr>
 <tr><td>Read slight panning safely</td><td><span class="pill p-mix">Open problem</span></td><td class="num">2.30 dB carries real information at 72.1% on one staff, 53.5% on the other</td><td>Kilgore Trout</td></tr>
@@ -399,9 +399,37 @@ footer{margin-top:56px;padding-top:16px;border-top:2px solid var(--rule);font-si
 </div>
 
 <div class="card warn">
-<p><b>State the limit, because this proves less than it looks like.</b> The test rules OUT the register-filter hypothesis. It does <b>not</b> prove Moises attributes notes to the correct player, which needs a labelled two-staff reference to score against. A high time-variance could also come from an unstable split rather than a clean one.</p>
-<p>Note also that <b>05 My Mirror Hates Me measured 92%, level with the positive pole rather than past it</b>, so the effect is not uniform across the album. Report that instead of averaging it away.</p>
-<p><b>What it does establish:</b> Moises is the first route in this whole investigation to survive its filter control. Our own <code>album_guitar_split.py</code> failed the equivalent test, and Melodyne is documented as separating by pitch, which is the same class of failure.</p>
+<p><b>State the limit, because this proves less than it looks like.</b> The test rules OUT the register-filter hypothesis. It does <b>not</b> prove Moises attributes notes to the correct player. That needs a labelled two-staff reference, which is the next section.</p>
+</div>
+
+<h3>MEASURED, same day: the attribution test, and it is song by song</h3>
+
+<p>Scored against real Songsterr notation for three Shiner songs, using the same design as <code>ownership_audit.py</code>: each written note gets <code>(E_solo - E_rhythm) / (E_solo + E_rhythm)</code> at its own pitch and its own attack, and Lead-staff notes should sit closer to the Solo stem than Rhythm-staff notes do. <b>The notation and the stems are independent</b>, since Songsterr never saw the stems and Moises never saw the tab.</p>
+
+<p><b>Two gates run before any number is reported.</b> Alignment comes from the drum staff, which exists in both the tab and the kit stems with neither derived from the other, and the winning offset must stand at least three sigma above the whole offset field. Then the shifted-time control re-scores the same notes at five wrong times. A separation that survives being moved to the wrong moments is sorting by register or timbre, which the tab already encodes.</p>
+
+<div class="scroll">
+<table>
+<tr><th>Song</th><th>Alignment</th><th>Lead notes</th><th>Rhythm notes</th><th>Real separation</th><th>Shifted decoy</th><th>Gain</th><th>Verdict</th></tr>
+<tr><td>08 Not Too Much</td><td class="num">z +3.45, +0.400s</td><td class="num">-0.1243, n=811</td><td class="num">-0.7521, n=3333</td><td class="num"><b>+0.6278</b></td><td class="num">+0.2150</td><td class="num"><b>+0.4128</b></td><td><span class="pill p-us">PASSED</span></td></tr>
+<tr><td>09 Broken Satellites</td><td class="num">z +3.82, +0.420s</td><td class="num">-0.6903, n=924</td><td class="num">-0.8368, n=2671</td><td class="num">+0.1465</td><td class="num"><b>+0.1541</b></td><td class="num"><b>-0.0076</b></td><td><span class="pill p-no">REFUSED</span></td></tr>
+<tr><td>05 My Mirror Hates Me</td><td class="num"><b>z +2.29, failed</b></td><td class="num">342 written</td><td class="num">1270 written</td><td class="num">not reported</td><td class="num">not reported</td><td class="num">-</td><td><span class="pill p-mix">UNDECIDABLE</span></td></tr>
+</table>
+</div>
+
+<div class="card lose">
+<p><b>Correction to what this page said earlier today.</b> The filter result was read as promising and that was too generous. <b>On Broken Satellites the shifted decoy scored HIGHER than the real notes, +0.1541 against +0.1465.</b> That is the identical shape that killed our own <code>album_guitar_split.py</code>, where the decoy scored +0.2766 against +0.2651. On that song the Moises split carries no information about which guitar played a note.</p>
+<p><b>The obvious confound was checked and does not explain it.</b> The Solo stem is not near-empty there: it holds 20.6% of the guitar energy and is active in 61.8% of frames. There was signal to work with and the test still failed.</p>
+</div>
+
+<div class="card win">
+<p><b>What DID pass, and it passed hard.</b> On 08 Not Too Much the real separation is <b>+0.6278 against a +0.2150 decoy, a gain of +0.4128</b>. That is not a marginal effect. On that song the Moises split genuinely knows which guitar played which note.</p>
+</div>
+
+<div class="card warn">
+<p><b>The usable conclusion: run the control per song, never once for the album.</b> One song passed decisively, one failed outright, and one could not be aligned well enough to ask. <b>Moises is a tool that sometimes carries ownership and sometimes does not</b>, so the control belongs in the pipeline as a gate rather than as a one-time qualification.</p>
+<p>Energy share does not predict which way it goes on this sample. Broken Satellites sits at 0.21 solo share and failed, Not Too Much at 0.32 and passed, My Mirror at 0.43 and could not be tested. Two data points support no rule, so that is an observation rather than a finding.</p>
+<p><b>The third song refused at the alignment stage rather than the ownership stage</b>, which is the gate doing its job. A per-note table built on a 2.29-sigma alignment would have looked exactly as confident as the other two and meant nothing.</p>
 </div>
 
 <h3>Does NOT need Moises, all free, all measured</h3>
