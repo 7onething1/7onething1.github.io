@@ -251,6 +251,47 @@ footer{margin-top:52px;padding-top:18px;border-top:2px solid var(--ink);
   Under 2% of the stem's energy is below 150 Hz, and 46.6% of the Rhythm Guitar part and 24.3% of the Lead are written below that floor, down to 65.4 Hz. Drop C tuning puts the low C at 65.4 Hz. That is the documented blindness of a separated guitar stem in the low register, so the low half of this song has to be read from the full mix rather than from the guitar stem.
 </div>
 
+
+<h3>Step 5. The register-aware fix, tested and refuted</h3>
+
+<p>The guitar stem holds under 2% of its energy below 150 Hz, so the obvious repair is to read the low band from the full mix. The mix at <code>Music to Stem/Beleiveyoume/BELIEVEYOUME (2025)/03 - The Mutiny.flac</code> runs 251.490295s against the stems' 251.490295s, identical to the sample, so no time correction was needed. A combined file was built with a 4-pole crossover: guitar right channel above 150 Hz, full mix below it.</p>
+
+<p>Then a negative control, which is the test that settles it: the same Mutiny tab measured against <em>So Far So</em>'s guitar stem, a deliberately wrong pairing.</p>
+
+<div class="scroll">
+<table>
+<thead><tr><th>Pairing</th><th>Map alignment</th><th>Attack recall</th><th>Attack precision</th><th>Pitch agreement</th><th>Pitch control</th><th>Pitch separation</th></tr></thead>
+<tbody>
+<tr><td>Mutiny tab vs its own <code>RhythmGtr [R]</code></td><td>73.6%</td><td>74.1%</td><td>88.0%</td><td>53.4%</td><td>51.0%</td><td>+2.4</td></tr>
+<tr><td>Mutiny tab vs register-aware combine</td><td>73.4%</td><td>74.1%</td><td>87.8%</td><td>51.0%</td><td>47.2%</td><td>+3.9</td></tr>
+<tr><td>Mutiny tab vs its own full mix</td><td>54.9%</td><td>53.2%</td><td>90.2%</td><td>52.9%</td><td>51.0%</td><td>+1.9</td></tr>
+<tr class="no"><td><strong>Mutiny tab vs SO FAR SO guitar (wrong on purpose)</strong></td><td class="no">12.8%</td><td class="no">13.0%</td><td>94.0%</td><td>42.4%</td><td>33.7%</td><td class="no"><strong>+8.7</strong></td></tr>
+</tbody>
+</table>
+</div>
+
+<div class="note bad">
+  <strong>The deliberately wrong pairing scored the BEST pitch separation of the four.</strong>
+  +8.7 against the correct pairing's +2.4, and it was the only run the tool did not label NO DISCRIMINATING POWER. A metric that rewards a mismatched stem cannot judge a tab, and a decision taken on it would be backwards.
+</div>
+
+<div class="scroll">
+<table>
+<thead><tr><th>Metric</th><th>Correct over wrong</th><th>Usable</th></tr></thead>
+<tbody>
+<tr><td>Map alignment</td><td class="yes">5.75x  (73.6 / 12.8)</td><td class="yes">VALID</td></tr>
+<tr><td>Attack recall</td><td class="yes">5.70x  (74.1 / 13.0)</td><td class="yes">VALID</td></tr>
+<tr><td>Attack precision</td><td class="no">0.94x  (88.0 / 94.0)</td><td class="no">INVALID, the wrong stem scores higher</td></tr>
+<tr><td>Pitch separation</td><td class="no">0.28x  (+2.4 / +8.7)</td><td class="no">INVALID and inverted</td></tr>
+</tbody>
+</table>
+</div>
+
+<div class="note warnb">
+  <strong>What is established, and what is not.</strong>
+  Attack-level accuracy on The Mutiny IS established and validated: 74.1% recall, 2273 of 3068 written attacks matching a detected onset, against 13.0% for a wrong stem. Pitch-level accuracy is NOT establishable with these tools on this material, proven by the negative control rather than asserted. Dense distorted power chords in Drop C are close to chroma-stationary, so a time-shifted window matches nearly as well as the aligned one. That is a property of the recording rather than a pipeline gap, and the register-aware repair changed attack recall by 0.0 points.
+</div>
+
 <h3>Step 4. Playability, which needs no audio</h3>
 <div class="scroll">
 <table>

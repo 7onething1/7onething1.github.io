@@ -58,6 +58,29 @@ Covers 126 of 135 bars, mean bar 1.8469s against nominal 1.8462s. The stereo sum
 
 The stem holds under 2% of its energy below 150 Hz while 46.6% of the Rhythm part and 24.3% of the Lead are written below it, down to 65.4 Hz. Drop C puts the low C at 65.4 Hz.
 
+
+### The register-aware fix, tested and refuted
+
+The full mix at `Music to Stem/Beleiveyoume/BELIEVEYOUME (2025)/03 - The Mutiny.flac` runs 251.490295s against the stems' 251.490295s, identical to the sample. A combined file was built with a 4-pole crossover: guitar right channel above 150 Hz, full mix below. Then a negative control: the same tab against So Far So's guitar stem.
+
+| Pairing | Map align | Attack recall | Attack precision | Pitch agree | Pitch control | Pitch separation |
+|---|---|---|---|---|---|---|
+| Mutiny tab vs its own RhythmGtr [R] | 73.6% | 74.1% | 88.0% | 53.4% | 51.0% | +2.4 |
+| Mutiny tab vs register-aware combine | 73.4% | 74.1% | 87.8% | 51.0% | 47.2% | +3.9 |
+| Mutiny tab vs its own full mix | 54.9% | 53.2% | 90.2% | 52.9% | 51.0% | +1.9 |
+| **Mutiny tab vs SO FAR SO guitar (wrong on purpose)** | **12.8%** | **13.0%** | 94.0% | 42.4% | 33.7% | **+8.7** |
+
+**The deliberately wrong pairing scored the best pitch separation of the four**, and was the only run the tool did not label NO DISCRIMINATING POWER.
+
+| Metric | Correct over wrong | Usable |
+|---|---|---|
+| Map alignment | 5.75x | VALID |
+| Attack recall | 5.70x | VALID |
+| Attack precision | 0.94x | INVALID, wrong stem scores higher |
+| Pitch separation | 0.28x | INVALID and inverted |
+
+Attack-level accuracy IS established: 74.1% recall against 13.0% for a wrong stem. Pitch-level accuracy is NOT establishable on this material, proven by the negative control. The register-aware repair changed attack recall by 0.0 points.
+
 ### Playability
 
 | Track | Notes | Hand skip | Same-string | Tie | Wide | Octave | Verdict |
