@@ -84,7 +84,7 @@ footer{margin-top:56px;padding-top:16px;border-top:2px solid var(--rule);font-si
 <div class="kpi"><span class="score">247</span><span class="lab">notes in Songsterr's lead track on 04 Six Feet Under, all inside frets 0 to 5, against 1,315 from the isolated stem.</span></div>
 <div class="kpi"><span class="score">449 &rarr; 0</span><span class="lab">wide-span beats on Flake of the Year after our dedupe pass, with zero notes removed and zero healthy notes relocated.</span></div>
 <div class="kpi"><span class="score">80 ms</span><span class="lab">is the window every pan reading here uses. A dry guitar attack is 5 to 20 ms, so the rest of that window is panned reverb and delay return.</span></div>
-<div class="kpi"><span class="score">7</span><span class="lab">routes to a player-level guitar split checked, including the installed Ableton plugin rack. Four are measured or structurally dead, two are not installed.</span></div>
+<div class="kpi"><span class="score">0.0000</span><span class="lab">time-variance for a known frequency crossover, on all three songs. Moises scored 0.128 to 0.323, so its guitar split is not a register filter.</span></div>
 </div>
 
 <h3>Scorecard, by stage</h3>
@@ -92,7 +92,7 @@ footer{margin-top:56px;padding-top:16px;border-top:2px solid var(--rule);font-si
 <table>
 <tr><th>Stage</th><th>Winner</th><th>Margin, measured</th><th>Source</th></tr>
 <tr><td>Isolate guitar from the band</td><td><span class="pill p-us">Demucs, ours</span></td><td class="num">Free, local, and it feeds the next row</td><td>htdemucs_6s</td></tr>
-<tr><td>Split 2-3 guitars <b>by player</b></td><td><span class="pill p-mo">Moises, unproven</span></td><td class="num">Last capable route available. 7 routes checked including the installed Ableton rack</td><td>See section 8</td></tr>
+<tr><td>Split 2-3 guitars <b>by player</b></td><td><span class="pill p-mo">Moises</span></td><td class="num"><b>Passed its filter control on 3 songs.</b> Negative pole 0.0000, Moises 0.128-0.323, positive pole 0.132-0.171</td><td>Measured 2026-08-17</td></tr>
 <tr><td>Low register, below 130 Hz</td><td><span class="pill p-no">No stem</span></td><td class="num">Use the full mix. Guitar stem keeps 1.32% at 60-90 Hz</td><td>Sean song, 2026-08-13</td></tr>
 <tr><td>Count how many guitarists played</td><td><span class="pill p-us">Ours</span></td><td class="num">Pan bimodality 0.79 two-source vs 0.22-0.51 one-source</td><td>The Ship, 10 songs</td></tr>
 <tr><td>Read slight panning safely</td><td><span class="pill p-mix">Open problem</span></td><td class="num">2.30 dB carries real information at 72.1% on one staff, 53.5% on the other</td><td>Kilgore Trout</td></tr>
@@ -378,8 +378,30 @@ footer{margin-top:56px;padding-top:16px;border-top:2px solid var(--rule);font-si
 <p><b>Seven routes checked in total.</b> Four are measured or structurally dead. Two credible plugin routes are not installed. Moises is the one route that is both capable and already available, which is what makes it the next test rather than the answer.</p>
 </div>
 
+<div class="card win">
+<h3 style="margin-top:0">MEASURED 2026-08-17: the Moises guitar split is not a register filter</h3>
+<p>This was the open question on this page for one day. It is now run, on three songs, with both control poles.</p>
+<p><b>The discriminator.</b> For each frequency bin, track the share of energy going to one stem <b>across time</b>. A frequency filter sets the share by frequency alone, so at a fixed frequency it never moves and its time-variance is zero. Real sources trade the same frequency back and forth, so the share moves.</p>
+<p><b>The controls.</b> Negative pole is the two guitar stems summed and re-split with a real crossover, which is a filter by construction. Positive pole is that song's own bass stem against its vocal stem, two genuinely unrelated sources.</p>
+
+<div class="scroll">
+<table>
+<tr><th>Song</th><th>Negative pole, a crossover</th><th><b>Moises Solo vs Rhythm</b></th><th>Positive pole, bass vs vocals</th><th>Where Moises sits</th></tr>
+<tr><td>09 Broken Satellites</td><td class="num">0.0000</td><td class="num"><b>0.3233</b></td><td class="num">0.1713</td><td class="num"><b>188.7%</b></td></tr>
+<tr><td>05 My Mirror Hates Me</td><td class="num">0.0000</td><td class="num"><b>0.1283</b></td><td class="num">0.1394</td><td class="num"><b>92.0%</b></td></tr>
+<tr><td>08 Not Too Much</td><td class="num">0.0000</td><td class="num"><b>0.2267</b></td><td class="num">0.1325</td><td class="num"><b>171.0%</b></td></tr>
+</table>
+</div>
+
+<p><b>The negative control read exactly 0.0000 on all three songs</b>, which is what licenses the rest of the table: the measure detects a filter when one is there. Moises never comes close to that pole. On two of three songs it exceeds the bass-against-vocals pole. That is the expected signature of two players sharing a register, where the share at any one frequency swings as each takes a turn.</p>
+
+<p><b>Corroborated by a second, independent signal.</b> The band-share curve: Moises gives the Solo stem between 0.02 and 0.30 of the energy in every one of twelve log-spaced bands, with no monotonic march. The crossover control marches 0.998 down to 0.000 across the same bands. Two different measurements agreeing that this is not a frequency split.</p>
+</div>
+
 <div class="card warn">
-<p><b>Moises is the last untried route, and it is not a proven fix.</b> Nobody has put a Moises Solo or Rhythm stem through the same shifted-time control that killed our own splitter. <b>If the Moises split also sorts by register, it fails identically and the ownership problem stays open.</b> Run that control before spending anything on the assumption that it works.</p>
+<p><b>State the limit, because this proves less than it looks like.</b> The test rules OUT the register-filter hypothesis. It does <b>not</b> prove Moises attributes notes to the correct player, which needs a labelled two-staff reference to score against. A high time-variance could also come from an unstable split rather than a clean one.</p>
+<p>Note also that <b>05 My Mirror Hates Me measured 92%, level with the positive pole rather than past it</b>, so the effect is not uniform across the album. Report that instead of averaging it away.</p>
+<p><b>What it does establish:</b> Moises is the first route in this whole investigation to survive its filter control. Our own <code>album_guitar_split.py</code> failed the equivalent test, and Melodyne is documented as separating by pitch, which is the same class of failure.</p>
 </div>
 
 <h3>Does NOT need Moises, all free, all measured</h3>
