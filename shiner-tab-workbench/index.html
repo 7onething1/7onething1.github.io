@@ -1,0 +1,323 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Shiner BELIEVEYOUME, Tab Workbench</title>
+<style>
+:root{
+  --cream:#F5EFE0; --paper:#FBF7EC; --ink:#1A1614; --ink2:#4A4038;
+  --mustard:#D9A441; --rust:#C1553B; --teal:#3E7C7B; --pink:#E8B4B8;
+  --olive:#7A8450; --line:#D8CDB4; --shadow:rgba(26,22,20,.10);
+}
+*{box-sizing:border-box}
+body{margin:0;background:var(--cream);color:var(--ink);
+  font:16px/1.55 "Iowan Old Style","Palatino Linotype",Palatino,Georgia,serif;
+  padding:0 0 80px;}
+.wrap{max-width:1180px;margin:0 auto;padding:0 22px}
+header{background:var(--paper);border-bottom:3px solid var(--ink);padding:34px 0 26px;margin-bottom:30px}
+h1{font-size:2.1rem;margin:0 0 6px;letter-spacing:-.4px}
+.sub{color:var(--ink2);font-size:1.02rem;margin:0}
+.kicker{display:inline-block;background:var(--mustard);color:var(--ink);
+  font:600 11px/1 ui-sans-serif,system-ui,sans-serif;letter-spacing:1.6px;
+  text-transform:uppercase;padding:6px 11px;border:2px solid var(--ink);margin-bottom:14px}
+h2{font-size:1.35rem;margin:42px 0 6px;padding-bottom:7px;border-bottom:2px solid var(--ink)}
+h2 .n{color:var(--rust);font-family:ui-sans-serif,system-ui,sans-serif;font-size:.8rem;
+  letter-spacing:1.4px;margin-right:9px;vertical-align:2px}
+h3{font-size:1.05rem;margin:26px 0 8px}
+p{margin:10px 0}
+.lead{font-size:1.05rem;color:var(--ink2)}
+a{color:var(--teal);text-decoration-thickness:1px;text-underline-offset:2px}
+a:hover{color:var(--rust)}
+code,.mono{font-family:"SF Mono",ui-monospace,Menlo,Consolas,monospace;font-size:.83em}
+code{background:#EDE5D2;padding:1px 5px;border-radius:3px;word-break:break-word}
+
+.cards{display:grid;grid-template-columns:repeat(auto-fit,minmax(215px,1fr));gap:14px;margin:20px 0 6px}
+.card{background:var(--paper);border:2px solid var(--ink);padding:14px 15px;box-shadow:4px 4px 0 var(--shadow)}
+.card .big{font-size:2rem;font-weight:700;line-height:1;display:block;margin-bottom:5px}
+.card .lbl{font:600 11px/1.3 ui-sans-serif,system-ui,sans-serif;letter-spacing:1.1px;
+  text-transform:uppercase;color:var(--ink2)}
+.card.go{border-left:9px solid var(--olive)} .card.go .big{color:var(--olive)}
+.card.warn{border-left:9px solid var(--mustard)} .card.warn .big{color:#A87A1E}
+.card.stop{border-left:9px solid var(--rust)} .card.stop .big{color:var(--rust)}
+.card.info{border-left:9px solid var(--teal)} .card.info .big{color:var(--teal)}
+
+.scroll{overflow-x:auto;border:2px solid var(--ink);background:var(--paper);margin:16px 0;
+  box-shadow:5px 5px 0 var(--shadow)}
+table{border-collapse:collapse;width:100%;min-width:900px;font-size:.87rem}
+th{background:var(--ink);color:var(--cream);text-align:left;padding:9px 10px;
+  font:600 11px/1.3 ui-sans-serif,system-ui,sans-serif;letter-spacing:.8px;text-transform:uppercase;
+  position:sticky;top:0}
+td{padding:8px 10px;border-top:1px solid var(--line);vertical-align:top}
+tbody tr:nth-child(even){background:#F3EDDD}
+.song{font-weight:700;white-space:nowrap}
+.pill{display:inline-block;font:700 10px/1 ui-sans-serif,system-ui,sans-serif;letter-spacing:.7px;
+  text-transform:uppercase;padding:4px 7px;border:1.5px solid var(--ink);white-space:nowrap}
+.p-go{background:var(--olive);color:#fff}
+.p-warn{background:var(--mustard);color:var(--ink)}
+.p-stop{background:var(--rust);color:#fff}
+.p-nul{background:#E2D9C4;color:var(--ink2)}
+.yes{color:var(--olive);font-weight:700}
+.no{color:var(--rust);font-weight:700}
+
+.note{border-left:6px solid var(--teal);background:var(--paper);padding:13px 16px;margin:16px 0;
+  border-top:1px solid var(--line);border-right:1px solid var(--line);border-bottom:1px solid var(--line)}
+.note.bad{border-left-color:var(--rust)}
+.note.warnb{border-left-color:var(--mustard)}
+.note strong:first-child{display:block;margin-bottom:4px}
+
+ul{padding-left:20px;margin:10px 0} li{margin:6px 0}
+ol{padding-left:22px} ol li{margin:9px 0}
+
+.trap{background:var(--paper);border:2px solid var(--rust);padding:15px 17px;margin:18px 0;
+  box-shadow:5px 5px 0 rgba(193,85,59,.18)}
+.trap h3{margin-top:0;color:var(--rust)}
+
+.toc{background:var(--paper);border:2px solid var(--ink);padding:14px 20px;margin:0 0 8px;
+  box-shadow:4px 4px 0 var(--shadow)}
+.toc ol{margin:6px 0;padding-left:20px;columns:2;column-gap:34px}
+.toc li{margin:4px 0;break-inside:avoid}
+
+footer{margin-top:52px;padding-top:18px;border-top:2px solid var(--ink);
+  color:var(--ink2);font-size:.85rem}
+@media(max-width:700px){ .toc ol{columns:1} h1{font-size:1.6rem} }
+</style>
+</head>
+<body>
+
+<header>
+  <div class="wrap">
+    <span class="kicker">Collected 2026-08-17 · read-only census</span>
+    <h1>Shiner · <em>BELIEVEYOUME</em>, Tab Workbench</h1>
+    <p class="sub">Every Songsterr tab, Guitar Pro file, and stem folder for the ten songs, matched song by song, with the blockers named before any correction pass starts.</p>
+  </div>
+</header>
+
+<div class="wrap">
+
+<div class="toc">
+  <strong>On this page</strong>
+  <ol>
+    <li><a href="#verdict">The verdict, in one table</a></li>
+    <li><a href="#songsterr">Songsterr registry (10 IDs, live-checked)</a></li>
+    <li><a href="#gp">Guitar Pro track census</a></li>
+    <li><a href="#stems">Stem census</a></li>
+    <li><a href="#traps">Four traps that will bite</a></li>
+    <li><a href="#queue">The correction queue</a></li>
+    <li><a href="#paths">Canonical paths</a></li>
+  </ol>
+</div>
+
+<div class="cards">
+  <div class="card go"><span class="big">6</span><span class="lbl">Ready to correct now</span></div>
+  <div class="card warn"><span class="big">2</span><span class="lbl">Ready with repairs first</span></div>
+  <div class="card stop"><span class="big">2</span><span class="lbl">Blocked, no guitar stem</span></div>
+  <div class="card info"><span class="big">9/10</span><span class="lbl">Songsterr tabs public</span></div>
+</div>
+
+<p class="lead">All ten songs have a Songsterr tab, a <code>.gp</code> file, and a stem folder. What separates them is whether the stems can actually <em>prove</em> the guitar part. Two songs were separated to four stems only, so the guitar is buried inside <code>other</code> and no per-attack guitar evidence exists for them.</p>
+
+<h2 id="verdict"><span class="n">01</span>The verdict, in one table</h2>
+
+<div class="scroll">
+<table>
+<thead><tr>
+  <th>#</th><th>Song</th><th>Verdict</th><th>GP guitars</th><th>GP vocal</th>
+  <th>Isolated gtr stem</th><th>Vocal stem</th><th>Bass stem</th><th>Bars</th><th>What stands in the way</th>
+</tr></thead>
+<tbody>
+<tr><td>1</td><td class="song">Asleep in the Trunk</td><td><span class="pill p-stop">Blocked</span></td>
+  <td>2</td><td class="yes">yes</td><td class="no">none</td><td class="yes">yes</td><td class="yes">yes</td><td>264</td>
+  <td>4-stem FLAC only. Guitar lives inside <code>other.flac</code>. Re-separate before any guitar pass.</td></tr>
+<tr><td>2</td><td class="song">The Alligator</td><td><span class="pill p-go">Ready</span></td>
+  <td>2</td><td class="yes">yes</td><td class="yes">lead + rhythm</td><td class="yes">yes</td><td class="yes">yes</td><td>86</td>
+  <td>Carries an <code>audio_truth.gp3</code> stem-corrected prior to regress against.</td></tr>
+<tr><td>3</td><td class="song">The Mutiny</td><td><span class="pill p-go">Ready · best first</span></td>
+  <td>2</td><td class="yes">yes</td><td class="yes">Rhythm L + R + Solo</td><td class="yes">yes</td><td class="yes">yes</td><td>135</td>
+  <td>Only song with true <code>RhythmGtr [L]</code> / <code>[R]</code> splits. Start here.</td></tr>
+<tr><td>4</td><td class="song">So Far So</td><td><span class="pill p-go">Ready</span></td>
+  <td>2</td><td class="yes">yes</td><td class="yes">Rhythm + Solo + Other</td><td class="yes">yes</td><td class="yes">yes</td><td>140</td>
+  <td>Tab is private on Songsterr (403 anonymous). Needs the signed-in session to read or edit.</td></tr>
+<tr><td>5</td><td class="song">My Mirror Hates Me</td><td><span class="pill p-go">Ready</span></td>
+  <td>2</td><td class="yes">yes</td><td class="yes">Rhythm + Solo + Other</td><td class="yes">yes</td><td class="yes">yes</td><td>134</td>
+  <td>Standard E tuning, the only one. Has a separate <code>piano.wav</code> alongside <code>keys.wav</code>.</td></tr>
+<tr><td>6</td><td class="song">Endless Summer</td><td><span class="pill p-go">Ready</span></td>
+  <td>2</td><td class="yes">yes</td><td class="yes">lead + rhythm</td><td class="yes">yes</td><td class="yes">yes</td><td>192</td>
+  <td>Moises 6-stem. Bass is written as finger, not pick, unlike its neighbours.</td></tr>
+<tr><td>7</td><td class="song">Lazarus</td><td><span class="pill p-warn">Repair first</span></td>
+  <td>2</td><td class="no">MISSING</td><td class="yes">lead + rhythm</td><td class="yes">yes</td><td class="yes">yes</td><td>138</td>
+  <td>GP has three tracks only. No vocal staff and no drum staff exist to correct.</td></tr>
+<tr><td>8</td><td class="song">Not Too Much</td><td><span class="pill p-go">Ready</span></td>
+  <td>2</td><td class="yes">yes</td><td class="yes">Rhythm + Solo + Other</td><td class="yes">yes</td><td class="yes">yes</td><td>122</td>
+  <td>D Standard rather than Drop D. The GP carries the corrected tuning; prose elsewhere may not.</td></tr>
+<tr><td>9</td><td class="song">Broken Satellites</td><td><span class="pill p-warn">Repair first</span></td>
+  <td>3 + 1 dupe</td><td class="yes">yes</td><td class="yes">Rhythm + Solo + Other</td><td class="yes">yes</td><td class="yes">yes</td><td>171</td>
+  <td>Carries <code>Rhythm Guitar Copy</code> and a bass <code>Copy</code>. Bass is 5-string standard against a Drop C guitar.</td></tr>
+<tr><td>10</td><td class="song">Jackie</td><td><span class="pill p-stop">Blocked</span></td>
+  <td>1</td><td class="yes">yes</td><td class="no">none</td><td class="yes">yes</td><td class="yes">yes</td><td>102</td>
+  <td>4-stem FLAC and a single guitar staff. Fails the two-guitar rule on both sides at once.</td></tr>
+</tbody>
+</table>
+</div>
+
+<div class="note">
+  <strong>Reading the guitar column.</strong>
+  The standing rule is two guitar staves, Gtr 1 and Gtr 2, split by register and pitch rather than by panning or stem loudness. Eight of ten GP files carry exactly two. Jackie carries one, Broken Satellites carries three plus a duplicate.
+</div>
+
+<h2 id="songsterr"><span class="n">02</span>Songsterr registry</h2>
+
+<p>Every ID resolved with a following <code>curl -sIL</code> on 2026-08-17. Tempo, tuning, and time signature are the values Songsterr displays; they were read off the site in the 2026-06-03 audit and match the tuning bytes inside each <code>.gp</code>, which I re-read today.</p>
+
+<div class="scroll">
+<table>
+<thead><tr><th>Song</th><th>ID</th><th>HTTP</th><th>Tempo</th><th>Tuning</th><th>Time</th><th>Tab URL</th></tr></thead>
+<tbody>
+<tr><td class="song">Asleep in the Trunk</td><td class="mono">s5085156</td><td><span class="pill p-go">200</span></td><td>♩=173</td><td>Drop C</td><td><strong>3/4</strong></td><td><a href="https://www.songsterr.com/a/wsa/shiner-asleep-in-the-trunk-tab-s5085156">shiner-asleep-in-the-trunk</a></td></tr>
+<tr><td class="song">The Alligator</td><td class="mono">s5083283</td><td><span class="pill p-go">200</span></td><td>♩=120</td><td>Drop C</td><td>4/4</td><td><a href="https://www.songsterr.com/a/wsa/shiner-the-alligator-tab-s5083283">shiner-the-alligator</a></td></tr>
+<tr><td class="song">The Mutiny</td><td class="mono">s5083529</td><td><span class="pill p-go">200</span></td><td>♩=130</td><td>Drop C</td><td>4/4</td><td><a href="https://www.songsterr.com/a/wsa/shiner-allen-epley-josh-newton-paul-malinowski-jason-gerken-the-mutiny-tab-s5083529">gerken-the-mutiny</a></td></tr>
+<tr><td class="song">So Far So</td><td class="mono">s5110187</td><td><span class="pill p-stop">403</span></td><td>♩=130</td><td>Drop C</td><td>4/4</td><td>private / unpublished, signed-in access only</td></tr>
+<tr><td class="song">My Mirror Hates Me</td><td class="mono">s5418315</td><td><span class="pill p-go">200</span></td><td>♩=114</td><td>Standard E</td><td>4/4</td><td><a href="https://www.songsterr.com/a/wsa/shiner-my-mirror-hates-me-tab-s5418315">shiner-my-mirror-hates-me</a></td></tr>
+<tr><td class="song">Endless Summer</td><td class="mono">s5083970</td><td><span class="pill p-go">200</span></td><td>♩=140</td><td>Drop C</td><td>4/4</td><td><a href="https://www.songsterr.com/a/wsa/shiner-allen-epley-josh-newton-paul-malinowski-jason-gerken-endless-summer-tab-s5083970">gerken-endless-summer</a></td></tr>
+<tr><td class="song">Lazarus</td><td class="mono">s5082702</td><td><span class="pill p-go">200</span></td><td>♩=117</td><td>Drop C</td><td>4/4</td><td><a href="https://www.songsterr.com/a/wsa/shiner-lazarus-tab-s5082702">shiner-lazarus</a></td></tr>
+<tr><td class="song">Not Too Much</td><td class="mono">s5084025</td><td><span class="pill p-go">200</span></td><td>♩=85</td><td><strong>D Standard</strong></td><td>4/4</td><td><a href="https://www.songsterr.com/a/wsa/shiner-not-too-much-tab-s5084025">shiner-not-too-much</a></td></tr>
+<tr><td class="song">Broken Satellites</td><td class="mono">s5084035</td><td><span class="pill p-go">200</span></td><td>♩=116</td><td>Drop C</td><td>4/4</td><td><a href="https://www.songsterr.com/a/wsa/shiner-allen-epley-josh-newton-paul-malinowski-jason-gerken-broken-satellites-tab-s5084035">gerken-broken-satellites</a></td></tr>
+<tr><td class="song">Jackie</td><td class="mono">s5418285</td><td><span class="pill p-go">200</span></td><td>♩=144</td><td>Drop C</td><td>4/4</td><td><a href="https://www.songsterr.com/a/wsa/shiner-jackie-tab-s5418285">shiner-jackie</a></td></tr>
+</tbody>
+</table>
+</div>
+
+<div class="note warnb">
+  <strong>Songsterr never shows a key.</strong>
+  Tempo, tuning, and time signature are displayed and reliable. Key is not a field the site carries, so any key claim has to come from the stems or from Brandon's ear. Three keys were disputed in the 2026-06-03 stem audit and only The Alligator has been resolved since, to G major at high confidence off a three-stem consensus. So Far So and Broken Satellites are still open.
+</div>
+
+<h2 id="gp"><span class="n">03</span>Guitar Pro track census</h2>
+
+<p>Read straight out of each <code>Content/score.gpif</code> today. Tuning is given as MIDI pitch numbers low to high, exactly as the file stores them.</p>
+
+<div class="scroll">
+<table>
+<thead><tr><th>Song</th><th>Tracks</th><th>Guitar tuning</th><th>Bass tuning</th><th>Artist field</th><th>Note</th></tr></thead>
+<tbody>
+<tr><td class="song">Asleep in the Trunk</td><td>Lead, Rhythm, Bass&nbsp;pick, Drums, Vocals</td><td class="mono">36 43 48 53 57 62</td><td class="mono">24 31 36 41</td><td>Shiner</td><td>Clean five-track shape.</td></tr>
+<tr><td class="song">The Alligator</td><td>Lead, Rhythm, Bass&nbsp;pick, Drums, Vocals</td><td class="mono">36 43 48 53 57 62</td><td class="mono">24 31 36 41</td><td>Shiner</td><td>Clean.</td></tr>
+<tr><td class="song">The Mutiny</td><td>Lead, Rhythm, Bass&nbsp;pick, Drums, Vocals</td><td class="mono">36 43 48 53 57 62</td><td class="mono">24 31 36 41</td><td>full lineup</td><td>Clean.</td></tr>
+<tr><td class="song">So Far So</td><td>Lead, Rhythm, Bass&nbsp;pick, Drums, Vocals</td><td class="mono">36 43 48 53 57 62</td><td class="mono">24 31 36 41</td><td>Shiner</td><td>Title stored with literal quote marks.</td></tr>
+<tr><td class="song">My Mirror Hates Me</td><td>Lead, Rhythm, Bass&nbsp;pick, Drums, Vocals</td><td class="mono">40 45 50 55 59 64</td><td class="mono">28 33 38 43</td><td><span class="no">Unknown Artist</span></td><td>Standard E throughout.</td></tr>
+<tr><td class="song">Endless Summer</td><td>Lead, Rhythm, Bass&nbsp;finger, Drums, Vocals</td><td class="mono">36 43 48 53 57 62</td><td class="mono">24 31 36 41</td><td>full lineup</td><td>Clean.</td></tr>
+<tr><td class="song">Lazarus</td><td><span class="no">Rhythm, Lead, Bass only</span></td><td class="mono">36 43 48 53 57 62</td><td class="mono">24 31 36 41</td><td>Shiner</td><td>No Vocals staff, no Drums staff.</td></tr>
+<tr><td class="song">Not Too Much</td><td>Lead, Rhythm, Bass&nbsp;pick, Drums, Vocals</td><td class="mono">38 43 48 53 57 62</td><td class="mono">26 31 36 41</td><td>Shiner</td><td>D Standard confirmed in the file itself.</td></tr>
+<tr><td class="song">Broken Satellites</td><td>Vocals, Lead, Rhythm, <span class="no">Rhythm&nbsp;Copy</span>, Bass, <span class="no">Copy</span>, Drums</td><td class="mono">36 43 48 53 57 62</td><td class="mono no">23 28 33 38 43</td><td>full lineup</td><td>Two duplicate staves, and a 5-string standard bass under a Drop C guitar.</td></tr>
+<tr><td class="song">Jackie</td><td><span class="no">Rhythm only</span>, Bass&nbsp;pick, Drums, Vocals</td><td class="mono">36 43 48 53 57 62</td><td class="mono">24 31 36 41</td><td><span class="no">Unknown Artist</span></td><td>Single guitar staff.</td></tr>
+</tbody>
+</table>
+</div>
+
+<div class="note">
+  <strong>Every Vocals staff is a sax in disguise.</strong>
+  All nine vocal tracks carry MIDI program 66 on a six-string standard-tuning staff. That is the known Songsterr AI shape: the vocal line gets written as a sax-programmed track named <code>Vocals</code>. Classify these by track name and ignore the program, or the preflight will read the album as having no vocal at all.
+</div>
+
+<h2 id="stems"><span class="n">04</span>Stem census</h2>
+
+<p>Two roots hold BELIEVEYOUME stems. <code>Moises_Stems/BelieveYouMeStems/</code> is the superset with all ten songs; <code>Full wav files for music books are here/</code> holds the same eight and is missing Asleep and Jackie. Eight of the ten <code>stems_pointer.txt</code> files point at the smaller root.</p>
+
+<div class="scroll">
+<table>
+<thead><tr><th>Song</th><th>Files</th><th>Separation shape</th><th>Guitar layers</th><th>Drum split</th><th>Extras</th></tr></thead>
+<tbody>
+<tr><td class="song">Asleep in the Trunk</td><td>4</td><td>4-stem FLAC</td><td class="no">none, inside <code>other</code></td><td><code>drums_pieces/</code> present</td><td>alt copy in <code>Stems/BELIEVEYOUME/</code></td></tr>
+<tr><td class="song">The Alligator</td><td>7</td><td>Moises 6-stem</td><td class="yes">lead, rhythm</td><td>single <code>drums</code></td><td>metronome</td></tr>
+<tr><td class="song">The Mutiny</td><td>14</td><td>custom multi</td><td class="yes">Rhythm, <strong>RhythmGtr [L]</strong>, <strong>[R]</strong>, Solo</td><td>c, g3, h, l, s, t</td><td>oth, other</td></tr>
+<tr><td class="song">So Far So</td><td>12</td><td>custom multi</td><td class="yes">Rhythm, Solo, Other</td><td>Kick, Snare, Toms, HiHat, Cymbals, other drum</td><td>n/a</td></tr>
+<tr><td class="song">My Mirror Hates Me</td><td>14</td><td>custom multi</td><td class="yes">Rhythm, Solo, Other</td><td>full 6-piece split</td><td>keys, piano</td></tr>
+<tr><td class="song">Endless Summer</td><td>7</td><td>Moises 6-stem</td><td class="yes">lead, rhythm</td><td>single <code>drums</code></td><td>metronome</td></tr>
+<tr><td class="song">Lazarus</td><td>7</td><td>Moises 6-stem</td><td class="yes">lead, rhythm</td><td>single <code>drums</code></td><td>metronome</td></tr>
+<tr><td class="song">Not Too Much</td><td>14</td><td>custom multi</td><td class="yes">Rhythm, Solo, Other</td><td>full 6-piece split</td><td>keys, strings</td></tr>
+<tr><td class="song">Broken Satellites</td><td>13</td><td>custom multi</td><td class="yes">Rhythm, Solo, Other</td><td>full 6-piece split</td><td>keys</td></tr>
+<tr><td class="song">Jackie</td><td>4</td><td>4-stem FLAC</td><td class="no">none, inside <code>other</code></td><td>single <code>drums</code></td><td>n/a</td></tr>
+</tbody>
+</table>
+</div>
+
+<h2 id="traps"><span class="n">05</span>Four traps that will bite</h2>
+
+<div class="trap">
+<h3>1. The folder numbers are three different numbering schemes</h3>
+<p>The canonical song folders are numbered by one order and the stem folders by another. They collide instead of missing cleanly, which is the dangerous kind:</p>
+<div class="scroll"><table style="min-width:640px">
+<thead><tr><th>Album order</th><th>Canonical folder</th><th>Stem folder</th></tr></thead>
+<tbody>
+<tr><td>1 Asleep in the Trunk</td><td class="mono">05_asleep_in_the_trunk</td><td class="mono">01 - Asleep in the Trunk</td></tr>
+<tr><td>2 The Alligator</td><td class="mono">02_the_alligator</td><td class="mono">1-02 The Alligator-G major-120bpm-441hz</td></tr>
+<tr><td>3 The Mutiny</td><td class="mono">08_the_mutiny</td><td class="mono">03 - The Mutiny</td></tr>
+<tr><td>4 So Far So</td><td class="mono">01_so_far_so</td><td class="mono">04 - So Far So</td></tr>
+<tr><td>5 My Mirror Hates Me</td><td class="mono">09_my_mirror_hates_me</td><td class="mono">05 - My Mirror Hates Me</td></tr>
+<tr><td>6 Endless Summer</td><td class="mono">07_endless_summer</td><td class="mono">1-06 Endless Summer-Bb major-142bpm-440hz</td></tr>
+<tr><td>7 Lazarus</td><td class="mono">04_lazarus</td><td class="mono">1-07 Lazarus-G major-180bpm-440hz</td></tr>
+<tr><td>8 Not Too Much</td><td class="mono">06_not_too_much</td><td class="mono">08 - Not Too Much</td></tr>
+<tr><td>9 Broken Satellites</td><td class="mono">03_broken_satellites</td><td class="mono">09 - Broken Satellites</td></tr>
+<tr><td>10 Jackie</td><td class="mono">10_jackie</td><td class="mono">10 - Jackie</td></tr>
+</tbody></table></div>
+<p>Canonical <code>03_</code> is Broken Satellites. Stem <code>03 -</code> is The Mutiny. Match on title, and ignore the leading digits entirely. Album order above comes from <code>sources.yaml</code> and the stem prefixes, which agree with each other.</p>
+</div>
+
+<div class="trap">
+<h3>2. Broken Satellites has copy tracks and a mismatched bass</h3>
+<p>The file carries <code>Rhythm Guitar Copy</code> next to <code>Rhythm Guitar</code>, and a track literally named <code>Copy</code> next to the bass. A part filled by duplicating another part is a duplication rather than a transcription. The bass compounds it: tuned <code>23 28 33 38 43</code>, a five-string standard B E A D G, under a Drop C guitar, with the <code>Copy</code> a six-string bass on top. Every other song on the record uses a Drop C four-string at <code>24 31 36 41</code>. Run the octave-copy gate before treating any of those four staves as evidence.</p>
+</div>
+
+<div class="trap">
+<h3>3. Asleep in the Trunk is in 3/4, and the book says 4/4</h3>
+<p>Songsterr's transcriber entered 3/4 explicitly. The MIDI metadata says 4/4 and so do the book cards. That is unresolved, and it changes every bar number in the song, so it has to be settled before bar-level correction on a 264-bar chart. The 2026-06-03 audit left the caveat that the song may open in 3/4 and move to 4/4.</p>
+</div>
+
+<div class="trap">
+<h3>4. Two songs cannot yield guitar evidence at all</h3>
+<p>Asleep in the Trunk and Jackie were separated to four stems, so their guitars are mixed into <code>other</code>. No amount of care on the tab will produce a per-attack guitar attribution from a stem that also contains keys and everything else. A pitch found in <code>other</code> does not prove the guitar played it. Both need re-separation to a six-stem model before they enter the queue.</p>
+</div>
+
+<h2 id="queue"><span class="n">06</span>The correction queue</h2>
+
+<ol>
+<li><strong>The Mutiny</strong>: start here. It is the only song carrying real <code>RhythmGtr [L]</code> and <code>[R]</code> files, so the two-guitar split can be validated against ground truth rather than inferred. Whatever the splitter concludes on Mutiny is the calibration for the other nine.</li>
+<li><strong>The Alligator</strong>: second, because it has an <code>audio_truth.gp3</code> from the 2026-06-02 stem pass. That gives a prior to regress against, and a resolved key at high confidence.</li>
+<li><strong>Not Too Much, So Far So, My Mirror Hates Me, Endless Summer</strong>: the clean middle. Full guitar layers, two GP staves, vocal and bass stems present.</li>
+<li><strong>Lazarus</strong>: guitar and bass can proceed immediately. The vocal melody has to be built from the vocal stem rather than corrected, since no vocal staff exists in the file.</li>
+<li><strong>Broken Satellites</strong>: resolve the copy tracks and the bass tuning first, then correct.</li>
+<li><strong>Asleep in the Trunk, Jackie</strong>: re-separate to six stems, settle the Asleep time signature, then queue.</li>
+</ol>
+
+<div class="note bad">
+  <strong>The bar the work has to clear.</strong>
+  A finished transcription is not finished because a file exists or a script exited zero. It has to be checked against the stems for pitch, attack timing, duration, guitar ownership, doubled notes, tuning, and articulation, reported as measured numbers, and then checked for physical playability: string and fret realizability, tie chains, hand span, position movement at tempo, open-string behaviour. Every difference from the prior gets classified as supported correction, unsupported change, or unresolved ambiguity.
+</div>
+
+<h2 id="paths"><span class="n">07</span>Canonical paths</h2>
+
+<ul>
+<li><strong>Tabs, GP, charts, lyrics</strong>: <code>/Volumes/T7 Shield/BandBooks/BELIEVEYOUME/_canonical_2026-06-04/songs/&lt;NN_slug&gt;/</code>, each holding <code>songsterr.gp</code>, <code>songsterr.mid</code>, <code>fromcdn.mid</code>, <code>3guitar.mid</code>, <code>chart_GBV_TAB.md</code>, <code>lyrics.txt</code>, <code>stems_pointer.txt</code></li>
+<li><strong>Stems, all ten songs</strong>: <code>/Volumes/T7 Shield/Moises_Stems/BelieveYouMeStems/</code></li>
+<li><strong>Stems, eight songs, redundant</strong>: <code>/Volumes/T7 Shield/Full wav files for music books are here/</code></li>
+<li><strong>Resolved keys and method trails</strong>: <code>/Volumes/T7 Shield/BandBooks/BELIEVEYOUME/keys_resolved.yaml</code></li>
+<li><strong>Songsterr metadata audit</strong>: <code>/Volumes/T7 Shield/BandBooks/BELIEVEYOUME/SONGSTERR_AUDIT_2026-06-03.md</code></li>
+<li><strong>Stem versus MIDI disputes</strong>: <code>/Volumes/T7 Shield/BandBooks/BELIEVEYOUME/STEM_VS_MIDI_AUDIT_2026-06-03.md</code></li>
+<li><strong>Three-guitar derivation work</strong>: <code>/Volumes/T7 Shield/BandBooks/BELIEVEYOUME/3-guitar-derivation/</code></li>
+</ul>
+
+<h3>Skills this feeds</h3>
+<ul>
+<li><code>/impossible-guitar-parts</code>: grades a staff for playability and finds the two-guitars-on-one-staff cause</li>
+<li><code>/composite-stem-alignment</code>: the beat-to-seconds map the audio checks depend on</li>
+<li><code>/songsterr-tab-guide</code> and <code>/songsterr-upload</code>: build, diff, and push corrected tabs back, preflight first</li>
+<li><code>/five-stem-song-analyst</code> and <code>/audio-stems-to-midi</code>: the vocal and bass evidence layer</li>
+</ul>
+
+<footer>
+  <p>Census taken 2026-08-17 by direct read of every <code>score.gpif</code>, every stem directory, and a following HTTP check on all ten Songsterr IDs. No claim here is carried over from an earlier session without being re-measured today, except the tempo and time-signature column, which is the 2026-06-03 on-site audit and is labelled as such.</p>
+</footer>
+
+</div>
+</body>
+</html>
