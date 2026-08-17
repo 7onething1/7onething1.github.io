@@ -74,7 +74,7 @@ footer{margin-top:56px;padding-top:16px;border-top:2px solid var(--rule);font-si
 <h2 id="verdict">1. The verdict</h2>
 
 <div class="card win">
-<p><b>No single tool does this job, and the separation stage is a cascade rather than a choice.</b> <b>Demucs strips the band, the Moises Premium app splits the guitars by role, Songsterr transcribes the rhythm, ours fixes ownership and playability, and a hand-built tracker handles the fast lead.</b> Each tool is the best available at exactly one stage and demonstrably wrong at another.</p>
+<p><b>No single tool does this job, and the separation stage is a cascade rather than a choice.</b> <b>Demucs strips the band, the Moises app splits the guitars by role, Songsterr transcribes the rhythm, ours fixes ownership and playability, and a hand-built tracker handles the fast lead.</b> Each tool is the best available at exactly one stage and demonstrably wrong at another.</p>
 <p><b>The panning in these mixes is slight and real.</b> It carries usable information on one staff at 72.1% and none on the other at 53.5%, so it earns a vote rather than an assignment. Reverb and delay returns are panned separately from the dry signal, which puts a measurement bug inside every pan number here.</p>
 </div>
 
@@ -84,7 +84,7 @@ footer{margin-top:56px;padding-top:16px;border-top:2px solid var(--rule);font-si
 <div class="kpi"><span class="score">247</span><span class="lab">notes in Songsterr's lead track on 04 Six Feet Under, all inside frets 0 to 5, against 1,315 from the isolated stem.</span></div>
 <div class="kpi"><span class="score">449 &rarr; 0</span><span class="lab">wide-span beats on Flake of the Year after our dedupe pass, with zero notes removed and zero healthy notes relocated.</span></div>
 <div class="kpi"><span class="score">80 ms</span><span class="lab">is the window every pan reading here uses. A dry guitar attack is 5 to 20 ms, so the rest of that window is panned reverb and delay return.</span></div>
-<div class="kpi"><span class="score">$3.99</span><span class="lab">a month for Moises Premium, unlimited, which does the guitar role split. The credit wall we recorded as a blocker belongs to the separate developer API.</span></div>
+<div class="kpi"><span class="score">7</span><span class="lab">routes to a player-level guitar split checked, including the installed Ableton plugin rack. Four are measured or structurally dead, two are not installed.</span></div>
 </div>
 
 <h3>Scorecard, by stage</h3>
@@ -92,7 +92,7 @@ footer{margin-top:56px;padding-top:16px;border-top:2px solid var(--rule);font-si
 <table>
 <tr><th>Stage</th><th>Winner</th><th>Margin, measured</th><th>Source</th></tr>
 <tr><td>Isolate guitar from the band</td><td><span class="pill p-us">Demucs, ours</span></td><td class="num">Free, local, and it feeds the next row</td><td>htdemucs_6s</td></tr>
-<tr><td>Split 2-3 guitars <b>by player</b></td><td><span class="pill p-mo">Moises, unproven</span></td><td class="num">Last route standing. 5 free routes checked, 3 measured and failed, 2 incapable</td><td>See section 8</td></tr>
+<tr><td>Split 2-3 guitars <b>by player</b></td><td><span class="pill p-mo">Moises, unproven</span></td><td class="num">Last capable route available. 7 routes checked including the installed Ableton rack</td><td>See section 8</td></tr>
 <tr><td>Low register, below 130 Hz</td><td><span class="pill p-no">No stem</span></td><td class="num">Use the full mix. Guitar stem keeps 1.32% at 60-90 Hz</td><td>Sean song, 2026-08-13</td></tr>
 <tr><td>Count how many guitarists played</td><td><span class="pill p-us">Ours</span></td><td class="num">Pan bimodality 0.79 two-source vs 0.22-0.51 one-source</td><td>The Ship, 10 songs</td></tr>
 <tr><td>Read slight panning safely</td><td><span class="pill p-mix">Open problem</span></td><td class="num">2.30 dB carries real information at 72.1% on one staff, 53.5% on the other</td><td>Kilgore Trout</td></tr>
@@ -327,7 +327,30 @@ footer{margin-top:56px;padding-top:16px;border-top:2px solid var(--rule);font-si
 </div>
 
 <div class="card lose">
-<p>The regression fixture states it plainly: <b>"no ownership measurement on this album separates the two guitars, the one panning cue measured at chance."</b> Three of the five routes were measured and failed. Two cannot do it by construction. That is what makes Moises the remaining candidate.</p>
+<p>The regression fixture states it plainly: <b>"no ownership measurement on this album separates the two guitars, the one panning cue measured at chance."</b> Three of those routes were measured and failed. Two cannot do it by construction.</p>
+</div>
+
+<h3>The Ableton plugin rack, checked against the installed rig</h3>
+<p>The plugin world is a genuinely different approach, so it earned its own pass. Read from this Mac's actual plug-in folders rather than assumed.</p>
+
+<div class="scroll">
+<table>
+<tr><th>Plugin</th><th>Installed here</th><th>Verdict on the one job</th></tr>
+<tr><td><b>zplane PEEL-STEMS</b> 1.0.2, AU and VST3</td><td><b>Yes</b>, since 2024-08-19</td><td><b>Dead.</b> Its stem labels are Vocals, Drums, Bass, Other. No guitar output at all, so it is weaker than Demucs here</td></tr>
+<tr><td>Waves ARA shells 16.7 and 16.8</td><td>Yes</td><td><b>Dead.</b> ARA is the host protocol. The Waves ARA plugins are vocal tools</td></tr>
+<tr><td><b>Celemony Melodyne</b> (DNA polyphonic)</td><td><b>No</b></td><td>The strongest untried idea. Gives per-note objects inside a polyphonic recording, which is note-level rather than stem-level</td></tr>
+<tr><td><b>Hit'n'Mix RipX</b></td><td><b>No</b></td><td>Same shape as Melodyne. Per-note editing and reassignment</td></tr>
+<tr><td>Steinberg SpectraLayers</td><td>No</td><td>Manual spectral painting, human-guided rather than model-guided</td></tr>
+<tr><td>iZotope RX Music Rebalance</td><td>No</td><td>Four-source rebalance. No guitar roles</td></tr>
+</table>
+</div>
+
+<div class="card note">
+<p><b>What the plugin world offers that the model world does not: human-guided, note-level separation.</b> Melodyne DNA and RipX hand back individual note objects you can audition and reassign by ear, rather than a stem you have to re-transcribe. <b>Our problem is note-level ownership, so that shape fits the problem better than any stem splitter does.</b> Neither is installed, and both are paid, so they sit behind the Moises control in priority.</p>
+</div>
+
+<div class="card warn">
+<p><b>Seven routes checked in total.</b> Four are measured or structurally dead. Two credible plugin routes are not installed. Moises is the one route that is both capable and already available, which is what makes it the next test rather than the answer.</p>
 </div>
 
 <div class="card warn">
