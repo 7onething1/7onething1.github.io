@@ -143,6 +143,26 @@ The [L] against [R] pair is the sharpest form: same song, same instant, both map
 
 **A per-staff ownership attempt failed and is reported rather than shipped.** Decomposing attack recall by staff returned 100.0% for both staves against both channels, ratio 1.00 everywhere. That is saturation: the DTW map is fitted to the tab attacks, so mapping them back through it puts every one on an onset by construction. The song-level figures come from the audit tool's own method and stand; the per-staff decomposition does not.
 
+
+### The feature survey, all four candidates refuted
+
+The obvious control, My Mirror's tab against The Mutiny's stem, fails the health gate on all four criteria and is disqualified. The one healthy-map wrong pairing is The Mutiny's own left channel: both maps pass, same song, same instant, attack recall orders them 2.13 to one.
+
+Four candidates, sampled at 3068 attack times through each channel's own healthy map, each against a within-channel control shifted 3.7 s:
+
+| Feature | [R] tab | [R] ctrl | [R] gain | [L] gain | R/L | Verdict |
+|---|---|---|---|---|---|---|
+| Onset strength envelope | 0.559 | 0.567 | 0.986 | 0.996 | 0.990 | Loses to its own control |
+| Spectral flux ratio | 1.259 | 1.277 | 0.986 | 0.996 | 0.990 | Loses to its own control |
+| Attack sharpness | 1.065 | 1.045 | 1.019 | 1.072 | 0.951 | Orders the channels backwards |
+| Transient over sustain | 0.994 | 1.001 | 0.992 | 0.998 | 0.994 | Loses to its own control |
+| **Attack recall, reference** | | | **74.1%** | **34.9%** | **2.13** | The target |
+| Pitch agreement, the failure | | | 53.4% | 52.3% | 1.02 | Cannot tell them apart |
+
+**All four continuous features fail, and the reason narrows the search.** A DTW map warps tab time onto onset time, so both real and shifted times end up beside onsets, and any continuous feature sampled at either returns the same distribution. Attack recall survives because it asks a discrete question, whether an onset exists there at all, which warping preserves while destroying continuous locality.
+
+The searchable space narrows to discrete event matching. Continuous spectral features are ruled out on this material.
+
 ### Playability
 
 | Track | Notes | Hand skip | Same-string | Tie | Wide | Octave | Verdict |

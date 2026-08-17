@@ -398,6 +398,34 @@ footer{margin-top:52px;padding-top:18px;border-top:2px solid var(--ink);
   Decomposing attack recall by staff returned 100.0% for both the Lead and Rhythm staves against both channels, a ratio of exactly 1.00 everywhere. That is saturation: the DTW map is fitted to the tab attacks, so mapping those same attacks back through it puts every one on an onset by construction. The song-level 74.1% against 34.9% comes from the audit tool's own internal method and stands; the per-staff decomposition does not, and no ownership claim is made from it.
 </div>
 
+
+<h3>Step 10. The feature survey, all four candidates refuted</h3>
+
+<p>The natural next question is which audio feature can order a correct pairing above an incorrect one when chroma cannot. The obvious control, My Mirror's tab against The Mutiny's stem, <strong>fails the health gate on all four criteria</strong>, so it is disqualified before any feature is computed. The one healthy-map pairing that is nonetheless wrong is The Mutiny's own left channel: both channel maps pass, both cover the same song at the same instant, and attack recall already orders them 2.13 to one.</p>
+
+<p>Four candidates, each sampled at the tab's 3068 attack times mapped through that channel's own healthy map, each against a within-channel control at the same times shifted 3.7 seconds.</p>
+
+<div class="scroll">
+<table>
+<thead><tr><th>Feature</th><th>[R] tab</th><th>[R] control</th><th>[R] gain</th><th>[L] gain</th><th>R/L</th><th>Verdict</th></tr></thead>
+<tbody>
+<tr><td>Onset strength envelope</td><td>0.559</td><td>0.567</td><td class="no">0.986</td><td>0.996</td><td class="no">0.990</td><td class="no">Loses to its own control</td></tr>
+<tr><td>Spectral flux ratio</td><td>1.259</td><td>1.277</td><td class="no">0.986</td><td>0.996</td><td class="no">0.990</td><td class="no">Loses to its own control</td></tr>
+<tr><td>Attack sharpness, post over pre</td><td>1.065</td><td>1.045</td><td>1.019</td><td>1.072</td><td class="no">0.951</td><td class="no">Orders the channels backwards</td></tr>
+<tr><td>Transient over sustain</td><td>0.994</td><td>1.001</td><td class="no">0.992</td><td>0.998</td><td class="no">0.994</td><td class="no">Loses to its own control</td></tr>
+<tr class="yes"><td><strong>Attack recall, the reference</strong></td><td colspan="3"><strong>74.1% on [R]</strong></td><td><strong>34.9% on [L]</strong></td><td class="yes"><strong>2.13</strong></td><td class="yes">The target to beat</td></tr>
+<tr><td>Pitch agreement, the failure</td><td colspan="3">53.4% on [R]</td><td>52.3% on [L]</td><td class="no">1.02</td><td class="no">Cannot tell them apart</td></tr>
+</tbody>
+</table>
+</div>
+
+<div class="note bad">
+  <strong>All four continuous features fail, and the reason explains which class of signal survives.</strong>
+  A DTW map warps tab time onto onset time, so both the real times and the shifted control times end up beside onsets. Sampling any continuous spectral feature at either set returns the same distribution, which is what the near-1.0 gains show. Attack recall survives because it asks a discrete question, whether a detected onset exists there at all, and warping preserves that while destroying continuous locality.
+</div>
+
+<p><strong>The searchable space narrows to discrete event matching rather than continuous spectral features.</strong> Onset strength, spectral flux, transient clarity and attack envelope sharpness are all ruled out on this material with proper controls, so a future attempt should start from event-level questions rather than from frame-level ones.</p>
+
 <h3>Step 4. Playability, which needs no audio</h3>
 <div class="scroll">
 <table>
