@@ -66,6 +66,7 @@ footer{margin-top:56px;padding-top:16px;border-top:2px solid var(--rule);font-si
 <li><a href="#notate">Stage 4, notation: our lane, and it is not close</a></li>
 <li><a href="#mistakes">The mistakes ledger, in Brandon's words</a></li>
 <li><a href="#chain">The recommended chain, all three tools</a></li>
+<li><a href="#needs">Exactly what needs Moises, and what does not</a></li>
 <li><a href="#gap">The four experiments nobody has run</a></li>
 </ol>
 </div>
@@ -91,7 +92,7 @@ footer{margin-top:56px;padding-top:16px;border-top:2px solid var(--rule);font-si
 <table>
 <tr><th>Stage</th><th>Winner</th><th>Margin, measured</th><th>Source</th></tr>
 <tr><td>Isolate guitar from the band</td><td><span class="pill p-us">Demucs, ours</span></td><td class="num">Free, local, and it feeds the next row</td><td>htdemucs_6s</td></tr>
-<tr><td>Split 2-3 guitars with no panning</td><td><span class="pill p-mo">Moises Premium app</span></td><td class="num">Only tool that does it at all. $3.99/mo, unlimited</td><td>Role stems on disk, 6 songs</td></tr>
+<tr><td>Split 2-3 guitars <b>by player</b></td><td><span class="pill p-mo">Moises, unproven</span></td><td class="num">Last route standing. 5 free routes checked, 3 measured and failed, 2 incapable</td><td>See section 8</td></tr>
 <tr><td>Low register, below 130 Hz</td><td><span class="pill p-no">No stem</span></td><td class="num">Use the full mix. Guitar stem keeps 1.32% at 60-90 Hz</td><td>Sean song, 2026-08-13</td></tr>
 <tr><td>Count how many guitarists played</td><td><span class="pill p-us">Ours</span></td><td class="num">Pan bimodality 0.79 two-source vs 0.22-0.51 one-source</td><td>The Ship, 10 songs</td></tr>
 <tr><td>Read slight panning safely</td><td><span class="pill p-mix">Open problem</span></td><td class="num">2.30 dB carries real information at 72.1% on one staff, 53.5% on the other</td><td>Kilgore Trout</td></tr>
@@ -304,7 +305,50 @@ footer{margin-top:56px;padding-top:16px;border-top:2px solid var(--rule);font-si
 <p><b>Step 7. Ship through <code>/songsterr-upload</code></b> with <code>preflight_import.py</code> and the upload lease, so nothing waits on Brandon and no two sessions drive the same browser tab.</p>
 </div>
 
-<h2 id="gap">8. The four experiments nobody has run</h2>
+<h2 id="needs">8. Exactly what needs Moises, and what does not</h2>
+
+<p>An earlier version of this page put Moises in the scorecard without checking whether anything else could do the job. Here is that check, run properly.</p>
+
+<div class="card win">
+<h3 style="margin-top:0">Needs Moises: ONE thing</h3>
+<p><b>Audio that separates the two guitars by PLAYER rather than by register.</b> That is the whole list. Everything else in the chain has a free route that is already measured and working.</p>
+</div>
+
+<h3>Five free routes to that one thing, and how each died</h3>
+<div class="scroll">
+<table>
+<tr><th>Route</th><th>Result</th><th>How we know</th></tr>
+<tr><td>Demucs <code>htdemucs_6s</code></td><td>Structurally incapable. One mono <code>guitar.wav</code></td><td>Read off the stem library on disk</td></tr>
+<tr><td>UVR / <code>audio-separator</code></td><td>No lead-versus-rhythm model exists. Same Demucs plus MDX and Roformer families</td><td>Model catalogue, 2026 survey</td></tr>
+<tr><td>MVSEP, 30+ models</td><td>Has a dedicated guitar model. It is <b>guitar against everything else</b>, a binary split. No multi-part guitar output anywhere in the catalogue</td><td>MVSEP's own algorithms page</td></tr>
+<tr><td>Panning, L/R channel split</td><td><b>Chance.</b> 53.5% on Lead at a 2.30 dB margin, against 88.0% for the same detector on a synthetic control</td><td>Kilgore Trout, 2026-08-13</td></tr>
+<tr><td><b>Our own <code>album_guitar_split.py</code></b>, harmonic salience plus NMF component clustering</td><td><b>Failed its control.</b> Lead-staff notes +0.0952, Rhythm-staff notes -0.1699, separation +0.2651. The SAME notes at a shifted time separated by <b>+0.2766, higher.</b> It sorts by register, which the tab already encodes. <code>ownership_audit.py</code> REFUSES to emit per-note verdicts</td><td>Measured 2026-08-16, kept as the regression fixture <code>ownership-refusal</code></td></tr>
+</table>
+</div>
+
+<div class="card lose">
+<p>The regression fixture states it plainly: <b>"no ownership measurement on this album separates the two guitars, the one panning cue measured at chance."</b> Three of the five routes were measured and failed. Two cannot do it by construction. That is what makes Moises the remaining candidate.</p>
+</div>
+
+<div class="card warn">
+<p><b>Moises is the last untried route, and it is not a proven fix.</b> Nobody has put a Moises Solo or Rhythm stem through the same shifted-time control that killed our own splitter. <b>If the Moises split also sorts by register, it fails identically and the ownership problem stays open.</b> Run that control before spending anything on the assumption that it works.</p>
+</div>
+
+<h3>Does NOT need Moises, all free, all measured</h3>
+<div class="scroll">
+<table>
+<tr><th>Job</th><th>Free tool</th><th>Measured result</th></tr>
+<tr><td>Count the guitarists</td><td>Pan bimodality on the raw mix</td><td>0.79 two-source against 0.22-0.51 one-source, validated with synthetic positives</td></tr>
+<tr><td>Isolate guitar from the band</td><td>Demucs <code>htdemucs_6s</code></td><td>Works, at the cost of the low register</td></tr>
+<tr><td>Transcribe notes</td><td>Songsterr</td><td>41.1% pitch support against our 24.7%</td></tr>
+<tr><td>Recover the low register</td><td>The full mix</td><td>Stem holds 1.32% at 60-90 Hz, the mix holds all of it</td></tr>
+<tr><td>Verify a tab's pitches</td><td>HPSS harmonic of the full mix</td><td>+4.7 at x2 rising to +20.4 at x12, 120 of 120 seeds positive</td></tr>
+<tr><td>Fix playability</td><td><code>impossible_gate.py</code> plus targeted repair</td><td>Flake 449 wide spans to 0 with zero notes removed. Appleseed 1,111 unreachable chords to 0, keeping 94.4%</td></tr>
+<tr><td>Decide whether a doubled note is real</td><td>Notation-side continuity audit</td><td>34 duplicated Lead notes examined, <b>zero</b> candidates for removal</td></tr>
+</table>
+</div>
+
+<h2 id="gap">9. The four experiments nobody has run</h2>
 
 <p>Everything on this page that concerns the cascade is an argument rather than a measurement. Four tests turn it into evidence, and every one of them runs on material that is on the T7 drive now.</p>
 
