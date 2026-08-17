@@ -107,6 +107,24 @@ My Mirror Hates Me differs on every property that could explain Step 5: Standard
 
 **The wrong stem won again, by 4.2x.** Two songs sharing almost no properties, the same inversion. The material explanation is refuted; the defect is in the measure's construction. Attack recall stayed correctly ordered on both songs and remains the only metric that has never pointed the wrong way.
 
+
+### The mechanism, found, and the gate that catches it
+
+| Case | Anchors | Alignment | Unique times/attack | Longest collapse run | Clamped |
+|---|---|---|---|---|---|
+| Mutiny vs its own guitar | 32 | 73.5% | 0.940 | 66 | 6.0% |
+| **Mutiny vs So Far So (wrong)** | 4 | 12.8% | 0.738 | **284** | **26.3%** |
+| My Mirror vs its own guitar | 18 | 64.4% | 0.948 | 57 | 5.3% |
+| **My Mirror vs Mutiny (wrong)** | 10 | 48.7% | 0.778 | **239** | **22.3%** |
+
+A wrong pairing yields few anchors, so interpolation pins a quarter of the tab outside the anchor span and collapses up to 284 consecutive attacks onto one audio time. All compared against the same frame; when it is a sustained chord a large share of written pitches agree with it, while the shifted control falls on a sparser frame and collapses. That is the spurious separation.
+
+**`beat_map.py` accepted both wrong maps** (gain +11.24 and +44.1 over its +8.0 threshold) because it judges alignment gain only. Nothing checked map health.
+
+**Built and validated: `map_health_gate.py`.** Fails a map on clamped share above 12%, collapse run over 120, under 0.85 distinct audio times per attack, or under 85% span coverage. Validated 4 for 4: both correct pairings PASS, both wrong FAIL on all four criteria. A failing map still supports song-level alignment and attack recall.
+
+Pitch agreement is not inherently inverted. It was fed maps that could not carry it, on pairings nothing screened.
+
 ### Playability
 
 | Track | Notes | Hand skip | Same-string | Tie | Wide | Octave | Verdict |

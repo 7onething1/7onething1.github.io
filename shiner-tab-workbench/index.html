@@ -338,6 +338,37 @@ footer{margin-top:52px;padding-top:18px;border-top:2px solid var(--ink);
 
 <p>Attack recall stayed correctly ordered on both songs, 74.1% against 13.0% on The Mutiny and 66.3% against 44.6% here. Its discrimination is much weaker on this pairing, 1.49x against 5.70x, because the two songs run 287s and 251s and the warp absorbs some of the difference. Attack recall remains the only metric that has never pointed the wrong way.</p>
 
+
+<h3>Step 8. The mechanism, found, and the gate that catches it</h3>
+
+<p>Step 7 said the defect was in the measure's construction, which was as far as the evidence went at the time. It goes further. The cause is a degenerate DTW map, and it is measurable directly.</p>
+
+<div class="scroll">
+<table>
+<thead><tr><th>Case</th><th>Anchors</th><th>Alignment</th><th>Unique audio times per attack</th><th>Longest collapse run</th><th>Clamped share</th></tr></thead>
+<tbody>
+<tr><td>Mutiny vs its own guitar</td><td>32</td><td>73.5%</td><td class="yes">0.940</td><td class="yes">66</td><td class="yes">6.0%</td></tr>
+<tr class="no"><td><strong>Mutiny vs So Far So (wrong)</strong></td><td class="no">4</td><td>12.8%</td><td class="no">0.738</td><td class="no"><strong>284</strong></td><td class="no"><strong>26.3%</strong></td></tr>
+<tr><td>My Mirror vs its own guitar</td><td>18</td><td>64.4%</td><td class="yes">0.948</td><td class="yes">57</td><td class="yes">5.3%</td></tr>
+<tr class="no"><td><strong>My Mirror vs Mutiny (wrong)</strong></td><td class="no">10</td><td>48.7%</td><td class="no">0.778</td><td class="no"><strong>239</strong></td><td class="no"><strong>22.3%</strong></td></tr>
+</tbody>
+</table>
+</div>
+
+<p><strong>A wrong pairing yields few anchors, so interpolation pins a quarter of the tab outside the anchor span and collapses up to 284 consecutive attacks onto a single audio time.</strong> Every one of those notes is then compared against the same frame. When that frame is a sustained chord, a large share of written pitches agree with it, while the shifted-time control falls on a different and sparser frame and collapses. That is the large spurious separation, appearing on the pairing that is most wrong.</p>
+
+<div class="note bad">
+  <strong><code>beat_map.py</code> accepted both wrong maps.</strong>
+  Gain +11.24 and +44.1, over its +8.0 threshold, because it judges alignment gain against a random control and nothing else. <code>audio_accuracy_audit.py</code> then measured pitch through those maps. No stage asked whether the map was healthy enough to carry a per-note question.
+</div>
+
+<div class="note">
+  <strong>Built and validated: <code>map_health_gate.py</code>.</strong>
+  It reads a <code>beat_map.py --json</code> file and fails a map on clamped share above 12%, a collapse run over 120, fewer than 0.85 distinct audio times per attack, or under 85% span coverage. Thresholds sit between the two measured groups with margin. Validated 4 for 4: both correct pairings PASS, both wrong ones FAIL on all four criteria at once. A failing map still supports song-level alignment and attack recall, which is what those metrics were always measuring.
+</div>
+
+<p>This changes the standing conclusion. Pitch agreement is not inherently inverted. It was being fed maps that could not carry it, on pairings nothing was screening. Whether it becomes usable on a map that passes the health gate is the next thing to measure, and it now has a gate in front of it.</p>
+
 <h3>Step 4. Playability, which needs no audio</h3>
 <div class="scroll">
 <table>
