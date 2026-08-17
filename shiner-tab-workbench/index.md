@@ -95,6 +95,18 @@ Cause: 718 onsets over 251 s is one every 0.35 s. The DTW map compresses any inp
 
 **Terminal state.** Six measures run against controls. Two valid at song level and localising nothing: map alignment 5.75x, attack recall 5.70x. Four cannot license a change: pitch separation inverted, attack precision inverted, ownership -0.0115, attack-string -0.215, per-bar support +4.7 against +15.0. Nothing says the tab is wrong; these tools cannot tell on this material, and each says so itself.
 
+
+### Replication on a second song, which refutes the material explanation
+
+My Mirror Hates Me differs on every property that could explain Step 5: Standard E rather than Drop C, 114 bpm rather than 130, 1.59 onsets/s rather than 2.86.
+
+| Pairing | Map align | Attack recall | Pitch agree | Pitch control | Pitch separation |
+|---|---|---|---|---|---|
+| My Mirror tab vs its own Rhythm Guitars | 64.4% | 66.3% | 55.8% | 52.2% | +3.6, no power |
+| **My Mirror tab vs THE MUTINY's guitar (wrong)** | 48.7% | 44.6% | **63.3%** | 48.3% | **+15.0** |
+
+**The wrong stem won again, by 4.2x.** Two songs sharing almost no properties, the same inversion. The material explanation is refuted; the defect is in the measure's construction. Attack recall stayed correctly ordered on both songs and remains the only metric that has never pointed the wrong way.
+
 ### Playability
 
 | Track | Notes | Hand skip | Same-string | Tie | Wide | Octave | Verdict |

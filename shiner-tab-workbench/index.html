@@ -316,6 +316,28 @@ footer{margin-top:52px;padding-top:18px;border-top:2px solid var(--ink);
   Six measures were run against controls. Two are valid at song level and localise nothing: map alignment at 5.75x and attack recall at 5.70x, both of which separate the right tab from a wrong one across the whole song. Four cannot license a change: pitch separation is inverted, attack precision is inverted, ownership lost to its control at -0.0115, attack-string evidence lost at -0.215, and per-bar attack support lost at +4.7 against a +15.0 threshold. Nothing here says the tab is wrong. It says these tools cannot tell, on this material, and each of them says so itself.
 </div>
 
+
+<h3>Step 7. Replication on a second song, which refutes the material explanation</h3>
+
+<p>The obvious reading of Step 5 was that the material defeats pitch matching, since dense distorted power chords in Drop C are close to chroma-stationary. That is testable. <strong>My Mirror Hates Me</strong> differs on every property that could explain it: Standard E rather than Drop C, 114 bpm rather than 130, and 1.59 onsets per second rather than 2.86.</p>
+
+<div class="scroll">
+<table>
+<thead><tr><th>Pairing</th><th>Map alignment</th><th>Attack recall</th><th>Pitch agreement</th><th>Pitch control</th><th>Pitch separation</th></tr></thead>
+<tbody>
+<tr><td>My Mirror tab vs its own Rhythm Guitars</td><td>64.4%</td><td>66.3%</td><td>55.8%</td><td>52.2%</td><td>+3.6, no power</td></tr>
+<tr class="no"><td><strong>My Mirror tab vs THE MUTINY's guitar (wrong on purpose)</strong></td><td>48.7%</td><td>44.6%</td><td class="no"><strong>63.3%</strong></td><td>48.3%</td><td class="no"><strong>+15.0</strong></td></tr>
+</tbody>
+</table>
+</div>
+
+<div class="note bad">
+  <strong>The wrong stem won again, by 4.2 times this run.</strong>
+  Two songs sharing almost no properties, the same inversion. The material explanation is refuted. The defect is in how the measure is constructed, so choosing easier songs will not recover it, and neither will a different onset detector tuning.
+</div>
+
+<p>Attack recall stayed correctly ordered on both songs, 74.1% against 13.0% on The Mutiny and 66.3% against 44.6% here. Its discrimination is much weaker on this pairing, 1.49x against 5.70x, because the two songs run 287s and 251s and the warp absorbs some of the difference. Attack recall remains the only metric that has never pointed the wrong way.</p>
+
 <h3>Step 4. Playability, which needs no audio</h3>
 <div class="scroll">
 <table>
