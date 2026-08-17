@@ -22,6 +22,68 @@ Executed 2026-08-17. Live notation pulled per track off the Songsterr CDN route 
 
 **New Phase 1 item.** The Lazarus lead holds 154 notes at 43% occupancy with zero stacks, and the BC lead holds 129 at 13.3%. That is the documented Songsterr solo failure. Read the lead's note count and fret range before accepting any tab.
 
+
+## Phase 1 result: The Mutiny, measured
+
+Run 2026-08-17 against `08_the_mutiny/songsterr.gp`, sha256 `21b37b73b6f35faa`, 135 bars, 4906 notes.
+
+**Headline: three of four evidence measures lost to their own controls, so none licenses a note change.** Each ran its own control and reported that it lost.
+
+### Two guitars or one part split
+
+`staff_role_audit.py`: co-activity 50.4%, both staves play in 68 of 135 bars, role flip 7.0. Verdict **TWO_PARTS**. Genuine two-guitar runs at bars 7-35, 71-80, 101-105, 111-130. The Mutiny is clear of the one-part-chopped-in-two defect.
+
+### Beat-to-seconds map
+
+| Stem | Onsets | Alignment | Control | Gain | Anchors | Bar CV | Verdict |
+|---|---|---|---|---|---|---|---|
+| Rhythm Guitars (stereo) | 236 | 30.8% | 7.3% | +23.5 | 12 | 7.20%, 10 bars off | Reject |
+| RhythmGtr [L] | 292 | 35.2% | 8.5% | +26.7 | 15 | 3.02% | Weaker |
+| RhythmGtr [R] | 718 | 73.6% | 17.5% | +56.1 | 32 | 2.22%, 0 off | **Accepted** |
+
+Covers 126 of 135 bars, mean bar 1.8469s against nominal 1.8462s. The stereo sum masks transients the isolated channel keeps.
+
+### Audio accuracy
+
+| Measure | Number | Control | Verdict |
+|---|---|---|---|
+| Attack recall | 74.1% (2273 of 3068) | n/a | Usable |
+| Attack precision | 88.0% (632 of 718) | n/a | Usable |
+| Timing post-warp | median 0.0 ms | circular | Discarded |
+| Timing as the tab asserts it | median 48.2 ms, p90 204.0 ms, n=2534 | n/a | Usable |
+| Pitch agreement | 53.4% | 51.0% shifted-time, +2.4 | **No discriminating power** |
+| Ownership separation | +0.2651 | +0.2766 shifted, gain -0.0115 vs 0.05 | **Refused** |
+| Attack-string evidence | -0.197 | -0.215 over its own control | **Not usable** |
+| Register evidence | 1368 of 3260 (42.0%) below the 150 Hz floor | n/a | BLIND_REGISTER |
+
+The stem holds under 2% of its energy below 150 Hz while 46.6% of the Rhythm part and 24.3% of the Lead are written below it, down to 65.4 Hz. Drop C puts the low C at 65.4 Hz.
+
+### Playability
+
+| Track | Notes | Hand skip | Same-string | Tie | Wide | Octave | Verdict |
+|---|---|---|---|---|---|---|---|
+| Lead Guitar | 674 | 7% | 0 | 0 | 0 | 0 | REVIEW TUNING_EVIDENCE |
+| Rhythm Guitar | 2586 | 0% | 0 | 0 | 1 | 0 | **FAIL** IMPOSSIBLE_SPAN x1 |
+
+`IMPOSSIBLE_SPAN bar 3.875, Rhythm Guitar. Written s3f5 s4f10, span 5, sounding [58, 67]. Held span 5 frets against a 4-fret hand at 130 bpm. Simplest legal alternative, span 0: s2f10 s4f10.`
+
+### The prescribed fix regressed the file, so it was rejected
+
+| Fault | Source | Candidate |
+|---|---|---|
+| IMPOSSIBLE_SPAN | 1 | 1 (moved to bar 7.0) |
+| SAME_STRING | 0 | 1 |
+| TIE_COLLISION | 0 | 1 |
+| TIE_DROPPED | 0 | 1 |
+| TIE_UNMATCHED | 0 | 1 |
+| **total** | **1** | **5** |
+
+Tier 1 pitch preservation passed, 3260 in and 3260 out, zero lost and zero invented. Tier 1b position passed. Every preservation gate stayed green while the file got worse.
+
+Cause: the string-3 note anchored a tie chain. Moving it left a tie on string 3 with nothing struck there, and put fret 10 on string 2 where a tie reserved that string until beat 28. The span-5 voicing exists because a tie holds string 3, and the suggested alternative is computed per beat with no view of tie reservations.
+
+Candidate kept as evidence at `~/Projects/_outputs/impossible-guitar-parts/the-mutiny-span-fix-REJECTED-broke-tie-chains.gp`, sha256 `c2c7710ee5488821`. Nothing promoted, nothing deleted.
+
 ## Vocal harmony: the direct answer
 
 **No. Not one tab carries a second vocal staff.** Measured across 10 local `.gp` files and 17 live Songsterr revisions, counting any track whose name matches vocal, voice, sing, vox, lyric or harmon, cross-checked against MIDI program 66. Every tab holds exactly one `Vocals` staff. The old Lazarus holds none. Zero of 27 hold two.

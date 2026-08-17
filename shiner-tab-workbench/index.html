@@ -99,6 +99,7 @@ footer{margin-top:52px;padding-top:18px;border-top:2px solid var(--ink);
   <strong>On this page</strong>
   <ol>
     <li><a href="#phase0">Phase 0 result: run, measured, closed</a></li>
+    <li><a href="#phase1">Phase 1 result: The Mutiny, measured</a></li>
     <li><a href="#vocal">Vocal harmony: the direct answer</a></li>
     <li><a href="#content">Note content, every staff</a></li>
     <li><a href="#plan">The fix plan, in order</a></li>
@@ -121,6 +122,7 @@ footer{margin-top:52px;padding-top:18px;border-top:2px solid var(--ink);
   <div class="card info"><span class="big">16</span><span class="lbl">Shiner tabs live, 10 held locally</span></div>
   <div class="card stop"><span class="big">0</span><span class="lbl">Tabs with a second vocal staff</span></div>
   <div class="card go"><span class="big">4/5</span><span class="lbl">Phase 0 items closed by measurement</span></div>
+  <div class="card stop"><span class="big">3/4</span><span class="lbl">Phase 1 measures that lost to control</span></div>
 </div>
 
 <p class="lead">All ten songs have a Songsterr tab, a <code>.gp</code> file, and a stem folder. What separates them is whether the stems can actually <em>prove</em> the guitar part. Two songs were separated to four stems only, so the guitar is buried inside <code>other</code> and no per-attack guitar evidence exists for them.</p>
@@ -190,6 +192,103 @@ footer{margin-top:52px;padding-top:18px;border-top:2px solid var(--ink);
 <div class="note">
   <strong>A new Phase 1 item came out of this.</strong>
   The Lazarus lead staff holds 154 notes at 43% occupancy with zero stacked beats, and the Broken Satellites BC lead holds 129 at 13.3%. That is the documented Songsterr solo failure, where a fast lead comes back thin or an octave low rather than empty. Read the lead's note count and fret range before accepting any tab, which is now a Phase 1 check.
+</div>
+
+
+<h2 id="phase1"><span class="n">00b</span>Phase 1 result: The Mutiny, measured</h2>
+
+<p>Run 2026-08-17 against <code>08_the_mutiny/songsterr.gp</code>, sha256 <code>21b37b73b6f35faa</code>, 135 bars, 4906 notes. Every number below is validator output rather than a claim.</p>
+
+<div class="note bad">
+  <strong>Headline: three of the four evidence measures lost to their own controls, so none of them licenses a note change on this song.</strong>
+  Each tool ran its own control and each reported that it lost. Nothing was moved or deleted on that evidence, which is the tools working as designed.
+</div>
+
+<h3>Step 1. Two guitars, or one part split across two staves</h3>
+<div class="scroll">
+<table>
+<thead><tr><th>Measure</th><th>Result</th><th>Reading</th></tr></thead>
+<tbody>
+<tr><td><code>staff_role_audit.py</code> co-activity</td><td class="yes">50.4%, both staves play in 68 of 135 bars</td><td>Verdict <strong>TWO_PARTS</strong>. Genuine two-guitar runs at bars 7-35, 71-80, 101-105, 111-130.</td></tr>
+<tr><td>Role flip</td><td>7.0</td><td>The Mutiny is clear of the one-part-chopped-in-two defect. Its two staves are two guitarists.</td></tr>
+</tbody>
+</table>
+</div>
+
+<h3>Step 2. The beat-to-seconds map</h3>
+<p>Three stems were tried at offset 4.04s, 130 bpm. The right channel wins by a wide margin, and the reason matters: the stereo sum masks transients that the isolated channel keeps.</p>
+<div class="scroll">
+<table>
+<thead><tr><th>Stem</th><th>Onsets detected</th><th>Alignment</th><th>Random control</th><th>Gain</th><th>Anchors</th><th>Bar-length CV</th><th>Verdict</th></tr></thead>
+<tbody>
+<tr><td><code>Rhythm Guitars</code> (stereo)</td><td>236</td><td>30.8%</td><td>7.3%</td><td>+23.5</td><td>12</td><td class="no">7.20%, 10 bars off</td><td><span class="pill p-stop">Reject</span></td></tr>
+<tr><td><code>RhythmGtr [L]</code></td><td>292</td><td>35.2%</td><td>8.5%</td><td>+26.7</td><td>15</td><td>3.02%</td><td><span class="pill p-warn">Weaker</span></td></tr>
+<tr><td class="yes"><code>RhythmGtr [R]</code></td><td class="yes">718</td><td class="yes">73.6%</td><td>17.5%</td><td class="yes">+56.1</td><td>32</td><td class="yes">2.22%, 0 bars off</td><td><span class="pill p-go">Accepted</span></td></tr>
+</tbody>
+</table>
+</div>
+<p>The accepted map covers <strong>126 of 135 bars</strong>, mean bar length 1.8469s against a nominal 1.8462s. The last nine bars fall beyond the final anchor and are not measured. Passing the chance test alone was not enough: the first bar-length reading looked catastrophic until the extrapolation past the anchor span was removed, so the covered span is stated explicitly rather than implied.</p>
+
+<h3>Step 3. Audio accuracy against the right-channel stem</h3>
+<div class="scroll">
+<table>
+<thead><tr><th>Measure</th><th>Number</th><th>Control</th><th>Verdict</th></tr></thead>
+<tbody>
+<tr><td>Attack recall</td><td>74.1%, 2273 of 3068 written attacks match a detected onset</td><td>n/a</td><td><span class="pill p-warn">Usable</span></td></tr>
+<tr><td>Attack precision</td><td>88.0%, 632 of 718 onsets accounted for</td><td>n/a</td><td><span class="pill p-go">Usable</span></td></tr>
+<tr><td>Timing, post-warp</td><td>median 0.0 ms</td><td>circular</td><td><span class="pill p-stop">Discarded</span>, the warp minimises its own residual</td></tr>
+<tr><td>Timing, as the tab asserts it</td><td>median 48.2 ms, p90 204.0 ms, n=2534</td><td>n/a</td><td><span class="pill p-warn">Usable</span></td></tr>
+<tr><td>Pitch agreement</td><td>53.4%</td><td class="no">51.0% shifted-time, separation +2.4</td><td><span class="pill p-stop">No discriminating power</span></td></tr>
+<tr><td>Ownership separation</td><td>+0.2651</td><td class="no">+0.2766 shifted-time, gain -0.0115 against a 0.05 threshold</td><td><span class="pill p-stop">Refused</span></td></tr>
+<tr><td>Attack-string evidence</td><td>separation -0.197</td><td class="no">its own control 0.018, so -0.215 over control</td><td><span class="pill p-stop">Not usable</span></td></tr>
+<tr><td>Register evidence</td><td>1368 of 3260 notes (42.0%) below the measured 150 Hz floor</td><td>n/a</td><td><span class="pill p-warn">BLIND_REGISTER</span>, an attribution gap</td></tr>
+</tbody>
+</table>
+</div>
+
+<div class="note warnb">
+  <strong>Why note attribution fails on this stem.</strong>
+  Under 2% of the stem's energy is below 150 Hz, and 46.6% of the Rhythm Guitar part and 24.3% of the Lead are written below that floor, down to 65.4 Hz. Drop C tuning puts the low C at 65.4 Hz. That is the documented blindness of a separated guitar stem in the low register, so the low half of this song has to be read from the full mix rather than from the guitar stem.
+</div>
+
+<h3>Step 4. Playability, which needs no audio</h3>
+<div class="scroll">
+<table>
+<thead><tr><th>Track</th><th>Notes</th><th>Hand skip</th><th>Same-string</th><th>Tie faults</th><th>Wide</th><th>Octave copies</th><th>Verdict</th></tr></thead>
+<tbody>
+<tr><td>Lead Guitar</td><td>674</td><td>7%</td><td>0</td><td>0</td><td>0</td><td>0</td><td><span class="pill p-warn">REVIEW</span> TUNING_EVIDENCE</td></tr>
+<tr><td>Rhythm Guitar</td><td>2586</td><td>0%</td><td>0</td><td>0</td><td>1</td><td>0</td><td><span class="pill p-stop">FAIL</span> IMPOSSIBLE_SPAN x1</td></tr>
+</tbody>
+</table>
+</div>
+<p>The single hard fault, in full:</p>
+<div class="scroll"><table style="min-width:640px"><tbody>
+<tr><td class="mono">IMPOSSIBLE_SPAN bar 3.875, Rhythm Guitar. Written s3f5 s4f10, span 5, sounding [58, 67]. Held span 5 frets against a 4-fret hand at 130 bpm. Simplest legal alternative, span 0: s2f10 s4f10.</td></tr>
+</tbody></table></div>
+<p>The Lead REVIEW says string 0 is detuned by 2 from the rest of the tuning and its open pitch is never used in that staff. The whole guitar is in Drop C for the Rhythm part, which uses the low C. Read on its own, the Lead staff gives no evidence for the drop. That is a review flag rather than a fault.</p>
+
+<div class="trap">
+<h3>The prescribed fix made the file worse, so it was rejected</h3>
+<p>The refret preserves pitch exactly, since s3f5 is 53+5 = 58 and s2f10 is 48+10 = 58. Three beats carry that shape and only one was flagged, so the edit was narrowed to beat 101, bar 3 last eighth, copy-on-write.</p>
+<div class="scroll"><table style="min-width:560px">
+<thead><tr><th>Fault</th><th>Source</th><th>Candidate</th></tr></thead>
+<tbody>
+<tr><td>IMPOSSIBLE_SPAN</td><td>1</td><td>1, moved to bar 7.0</td></tr>
+<tr><td>SAME_STRING</td><td>0</td><td class="no">1</td></tr>
+<tr><td>TIE_COLLISION</td><td>0</td><td class="no">1</td></tr>
+<tr><td>TIE_DROPPED</td><td>0</td><td class="no">1</td></tr>
+<tr><td>TIE_UNMATCHED</td><td>0</td><td class="no">1</td></tr>
+<tr><td><strong>total</strong></td><td><strong>1</strong></td><td class="no"><strong>5</strong></td></tr>
+</tbody>
+</table></div>
+<p><strong>Every preservation gate stayed green while the file got worse.</strong> Tier 1 pitch preservation passed with 3260 notes in and 3260 out, zero lost and zero invented. Tier 1b position passed. The fault count is the measure that caught it.</p>
+<p>The cause: the note on string 3 anchored a tie chain. Moving it left a tie on string 3 with nothing struck on that string, and put fret 10 on string 2 where a tie already reserved that string until beat 28. The span-5 voicing the gate called impossible exists <em>because</em> a tie holds string 3, and the suggested alternative is computed per beat with no view of tie reservations.</p>
+<p>Candidate kept as evidence at <code>~/Projects/_outputs/impossible-guitar-parts/the-mutiny-span-fix-REJECTED-broke-tie-chains.gp</code>, sha256 <code>c2c7710ee5488821</code>. Nothing was promoted and nothing was deleted.</p>
+</div>
+
+<div class="note">
+  <strong>Where Phase 1 stands.</strong>
+  The map is validated and the playability picture is complete. The per-note audio work is blocked on a measurable cause rather than an opinion: pitch agreement, ownership and attack-string all lose to their own shifted-time controls on this stem, and 42% of the part sits below the stem's usable floor. The next executable step is a register-aware pass that reads the low half from the full mix, and a tie-aware alternative generator, since the current one is tie-blind.
 </div>
 
 <h2 id="vocal"><span class="n">01</span>Vocal harmony: the direct answer</h2>
