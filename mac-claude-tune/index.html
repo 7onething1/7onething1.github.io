@@ -1,0 +1,314 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Mac + Claude Tune-Up</title>
+<style>
+  :root{
+    --cream:#F6F0E2; --cream2:#FBF7EC; --ink:#171512; --ink2:#4A443B;
+    --rule:#D9CFB8;
+    --red:#C0453E; --mustard:#DFA13A; --teal:#6E9490; --terra:#B4694A;
+    --navy:#42627A; --olive:#8A9457; --plum:#7B5B70;
+  }
+  *{box-sizing:border-box}
+  body{margin:0;background:var(--cream);color:var(--ink);
+       font:16px/1.62 "Iowan Old Style","Palatino Linotype",Palatino,Georgia,serif;}
+  .wrap{max-width:1080px;margin:0 auto;padding:0 22px 90px}
+  header{border-bottom:3px double var(--rule);padding:44px 0 26px;margin-bottom:30px}
+  h1{font-size:clamp(30px,5vw,46px);margin:0 0 6px;letter-spacing:-.5px}
+  .sub{color:var(--ink2);font-size:15px}
+  .stamp{display:inline-block;font:600 11px/1 ui-monospace,SFMono-Regular,Menlo,monospace;
+         letter-spacing:.11em;text-transform:uppercase;padding:6px 11px;border:1.5px solid var(--ink);
+         border-radius:3px;margin-right:8px;margin-top:14px}
+  h2{font-size:24px;margin:52px 0 8px;padding-bottom:7px;border-bottom:2px solid var(--rule)}
+  h3{font-size:17px;margin:30px 0 8px}
+  p{margin:.6em 0}
+  a{color:var(--navy)}
+  code,.mono{font:13px/1.5 ui-monospace,SFMono-Regular,Menlo,monospace;
+       background:#EDE5D2;padding:1px 5px;border-radius:3px}
+  /* TOC */
+  nav.toc{background:var(--cream2);border:1.5px solid var(--rule);border-radius:5px;padding:18px 22px;margin:26px 0}
+  nav.toc ol{margin:8px 0 0;padding-left:20px;columns:2;column-gap:34px}
+  nav.toc li{margin:4px 0;break-inside:avoid}
+  nav.toc a{text-decoration:none;border-bottom:1px solid var(--rule)}
+  /* tables */
+  table{width:100%;border-collapse:collapse;margin:16px 0;font-size:14.5px;
+        display:block;overflow-x:auto;white-space:normal}
+  th{text-align:left;background:#EDE5D2;border-bottom:2px solid var(--rule);
+     padding:9px 11px;font:600 12px/1.3 ui-monospace,Menlo,monospace;letter-spacing:.06em;text-transform:uppercase}
+  td{padding:9px 11px;border-bottom:1px solid var(--rule);vertical-align:top}
+  tbody tr:nth-child(even){background:#F2EBDA}
+  /* severity chips */
+  .chip{display:inline-block;font:700 10.5px/1 ui-monospace,Menlo,monospace;letter-spacing:.07em;
+        padding:5px 8px;border-radius:3px;color:#fff;white-space:nowrap}
+  .c-crit{background:var(--red)} .c-high{background:var(--terra)}
+  .c-med{background:var(--mustard);color:#2B2110} .c-low{background:var(--teal)}
+  .c-ok{background:var(--olive)}
+  /* finding cards */
+  .card{background:var(--cream2);border:1.5px solid var(--rule);border-left:7px solid var(--teal);
+        border-radius:5px;padding:18px 22px;margin:18px 0}
+  .card.crit{border-left-color:var(--red)}
+  .card.high{border-left-color:var(--terra)}
+  .card.med{border-left-color:var(--mustard)}
+  .card.ok{border-left-color:var(--olive)}
+  .card h3{margin-top:0}
+  .evidence{background:#2B2620;color:#EDE5D2;border-radius:4px;padding:11px 14px;margin:11px 0 4px;
+            font:12.5px/1.6 ui-monospace,SFMono-Regular,Menlo,monospace;overflow-x:auto;white-space:pre}
+  .src{font:11px/1.4 ui-monospace,Menlo,monospace;color:var(--ink2);letter-spacing:.04em}
+  .score{float:right;font:700 13px/1 ui-monospace,Menlo,monospace;
+         border:1.5px solid var(--ink);border-radius:3px;padding:6px 9px}
+  .grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(215px,1fr));gap:14px;margin:20px 0}
+  .tile{background:var(--cream2);border:1.5px solid var(--rule);border-radius:5px;padding:15px 17px}
+  .tile .n{font:700 27px/1.1 ui-monospace,Menlo,monospace;letter-spacing:-1px}
+  .tile .l{font-size:12.5px;color:var(--ink2);margin-top:5px}
+  .tile.bad .n{color:var(--red)} .tile.warn .n{color:var(--terra)} .tile.good .n{color:var(--olive)}
+  strong{font-weight:700}
+  footer{margin-top:64px;padding-top:20px;border-top:3px double var(--rule);font-size:13px;color:var(--ink2)}
+  @media (max-width:640px){nav.toc ol{columns:1}}
+</style>
+</head>
+<body>
+<div class="wrap">
+
+<header>
+  <h1>Mac + Claude Tune-Up</h1>
+  <div class="sub">MacBookPro16,1 · 8-core i9 · 16 GB · macOS 26.5.1 · measured 2026-08-17</div>
+  <span class="stamp">every number below came from a command on this Mac</span>
+</header>
+
+<div class="grid">
+  <div class="tile bad"><div class="n">0.8%</div><div class="l">free disk (7.7 GB of 932 GB). The single largest cause of slowness.</div></div>
+  <div class="tile bad"><div class="n">33,206</div><div class="l">tokens of fixed preamble every turn, 16.6% of the window, before you type.</div></div>
+  <div class="tile warn"><div class="n">7</div><div class="l">standing rules that contradict each other or point at files that do not exist.</div></div>
+  <div class="tile warn"><div class="n">1.61 s</div><div class="l">hook latency at every turn end, one full second of it a network call.</div></div>
+  <div class="tile warn"><div class="n">18 / 158</div><div class="l">MCP servers and tools, with four duplicated capability families.</div></div>
+  <div class="tile good"><div class="n">74%</div><div class="l">memory free, 131 MB swap. RAM is healthy. Do not spend money here.</div></div>
+</div>
+
+<nav class="toc">
+  <strong>Contents</strong>
+  <ol>
+    <li><a href="#board">Scoreboard</a></li>
+    <li><a href="#disk">1. The disk is the emergency</a></li>
+    <li><a href="#contra">2. Seven rules that fight each other</a></li>
+    <li><a href="#skills">3. The skill-description tax</a></li>
+    <li><a href="#mcp">4. Four duplicated tool families</a></li>
+    <li><a href="#hooks">5. Hook latency, measured</a></li>
+    <li><a href="#deadweight">6. Dead weight and background load</a></li>
+    <li><a href="#healthy">7. What is already healthy</a></li>
+    <li><a href="#fixes">Ranked fix list</a></li>
+    <li><a href="#method">How each number was measured</a></li>
+  </ol>
+</nav>
+
+<h2 id="board">Scoreboard</h2>
+<table>
+<thead><tr><th>Metric</th><th>Measured here</th><th>Healthy range</th><th>Verdict</th></tr></thead>
+<tbody>
+<tr><td>Free disk space</td><td>7.7 GB of 932 GB (0.8%)</td><td>93 GB to 140 GB (10 to 15%)</td><td><span class="chip c-crit">CRITICAL</span></td></tr>
+<tr><td>Contradictory standing rules</td><td>7</td><td>0</td><td><span class="chip c-crit">CRITICAL</span></td></tr>
+<tr><td>Fixed context tax per turn</td><td>33,206 tokens (16.6%)</td><td>under 8,000</td><td><span class="chip c-high">HIGH</span></td></tr>
+<tr><td>Skill frontmatter alone</td><td>20,507 tokens across 140 skills</td><td>under 6,000</td><td><span class="chip c-high">HIGH</span></td></tr>
+<tr><td>MCP servers / tools</td><td>18 servers, about 158 tools</td><td>6 to 8 servers</td><td><span class="chip c-high">HIGH</span></td></tr>
+<tr><td>Stop hook chain</td><td>1.61 s per turn end</td><td>under 0.2 s</td><td><span class="chip c-med">MEDIUM</span></td></tr>
+<tr><td>PreToolUse chain per Bash call</td><td>0.383 s, 7 python starts</td><td>under 0.1 s</td><td><span class="chip c-med">MEDIUM</span></td></tr>
+<tr><td>Dead weight inside <code>~/.claude</code></td><td>2.42 GB (banned sync repo plus backups)</td><td>0</td><td><span class="chip c-med">MEDIUM</span></td></tr>
+<tr><td>Claude Desktop footprint</td><td>27 processes, 3.09 GB RAM, 8.2 GB disk</td><td>normal for Electron</td><td><span class="chip c-low">INFO</span></td></tr>
+<tr><td>Memory pressure</td><td>74% free, 131 MB swap used</td><td>under 50% swap</td><td><span class="chip c-ok">HEALTHY</span></td></tr>
+<tr><td>Shell startup per Bash call</td><td>0.01 s</td><td>under 0.3 s</td><td><span class="chip c-ok">HEALTHY</span></td></tr>
+</tbody>
+</table>
+
+<h2 id="disk">1. The disk is the emergency</h2>
+
+<div class="card crit">
+  <span class="score">10 / 10</span>
+  <h3>932 GB volume with 7.7 GB left</h3>
+  <p><strong>macOS degrades hard below roughly 10% free.</strong> Swap cannot grow past its 1 GB file, APFS copy-on-write has nowhere to land, Spotlight re-indexing stalls, and app caches thrash. Everything you feel as general slowness on this machine traces back here first.</p>
+  <div class="evidence">/dev/disk1s1   932Gi  907Gi  7.1Gi  100%  /System/Volumes/Data
+Container Free Space: 7.7 GB (7662919680 Bytes)</div>
+  <div class="src">source: df -h + diskutil info /System/Volumes/Data</div>
+  <p>Where the 813 GB of home directory sits:</p>
+  <table>
+  <thead><tr><th>Folder</th><th>Size</th><th>Largest child</th></tr></thead>
+  <tbody>
+  <tr><td><code>~/Desktop</code></td><td>233 GB</td><td>Anatomy-Jams 49 GB, jam-7-3-26-rebuild 39 GB</td></tr>
+  <tr><td><code>~/Documents</code></td><td>178 GB</td><td><code>Documents/complete</code> 151 GB</td></tr>
+  <tr><td><code>~/Pictures</code></td><td>159 GB</td><td>Photos Library 159 GB</td></tr>
+  <tr><td><code>~/Downloads</code></td><td>133 GB</td><td><code>Downloads/complete</code> 106 GB</td></tr>
+  <tr><td><code>~/Library</code></td><td>66 GB</td><td>Application Support 31 GB, Caches 14 GB</td></tr>
+  </tbody>
+  </table>
+  <p><strong>The fastest 257 GB is the two <code>complete</code> folders.</strong> They live in Documents and Downloads and read as finished-transfer staging. Moving those two to an external drive takes the volume from 0.8% free to roughly 28% free in one operation, with no deletion.</p>
+</div>
+
+<h2 id="contra">2. Seven rules that fight each other</h2>
+
+<p>This is the accuracy problem. Seven standing instructions arrive in the same turn and give opposite orders, or point at paths that do not exist on this machine. Every one of them was verified today.</p>
+
+<table>
+<thead><tr><th>#</th><th>One rule says</th><th>The other says</th><th>Status</th></tr></thead>
+<tbody>
+<tr><td>1</td><td><code>ultracode_default.py</code> forces ultracode on every turn: author and run a workflow for every substantive task, spawn dozens of agents</td><td><code>~/CLAUDE.md:13</code>: do not launch subagents, parallel chats, or <code>/loop</code> without permission</td><td><span class="chip c-crit">OPPOSITE</span></td></tr>
+<tr><td>2</td><td><code>model_fit_gate.py</code> recommends Sonnet 5 as the floor and offers to delegate</td><td><code>~/CLAUDE.md:13</code>: use Opus for all work, do not self-route to Sonnet or Haiku</td><td><span class="chip c-crit">OPPOSITE</span></td></tr>
+<tr><td>3</td><td>PATHS hook: Desktop was offloaded, never write to <code>~/Desktop</code>, old content lives in <code>~/New Desktop</code></td><td>Reality on this Mac: <code>~/New Desktop</code> does not exist, and <code>~/Desktop</code> is the live 233 GB working set</td><td><span class="chip c-crit">FALSE MAP</span></td></tr>
+<tr><td>4</td><td><code>~/CLAUDE.md</code>: every HTML ships to Vercel at <code>~/Projects/drwu-htmls/public/</code></td><td>Memory rule dated 2026-07-29: new pages go to GitHub Pages. The Vercel public folder here is empty with no git repo</td><td><span class="chip c-high">STALE</span></td></tr>
+<tr><td>5</td><td>Ship gate demands one real kid button on every page</td><td>Memory <code>feedback_kid_mode_retired_never_inject</code>, dated 2026-07-13</td><td><span class="chip c-high">RETIRED</span></td></tr>
+<tr><td>6</td><td><code>~/CLAUDE.md:15</code>: conserve allowance through Sunday, July 19, 2026 at 6 PM</td><td>Today is 2026-08-17. That window closed four weeks ago</td><td><span class="chip c-med">EXPIRED</span></td></tr>
+<tr><td>7</td><td><code>~/.claude/CLAUDE.md</code>: deploy via <code>mcp__1da7f971-…__deploy_to_vercel</code></td><td>That MCP server is not present in this session's tool list</td><td><span class="chip c-med">MISSING</span></td></tr>
+</tbody>
+</table>
+
+<div class="card crit">
+  <span class="score">10 / 10</span>
+  <h3>Why this costs accuracy, not just tokens</h3>
+  <p><strong>A model given two opposite orders picks one and looks disobedient either way.</strong> Rules 1 and 2 arrive in every single turn, so every session opens with a coin flip on model policy and on whether to fan out. Rule 3 is worse than a contradiction, since it asserts a folder layout that is false here, and any path reasoning built on it starts wrong.</p>
+  <div class="evidence">$ ls -d "$HOME/New Desktop"
+ls: /Users/brandonchavez/New Desktop: No such file or directory
+
+$ du -x -d 1 -g ~/Desktop
+233  /Users/brandonchavez/Desktop</div>
+  <div class="src">source: direct filesystem check, 2026-08-17</div>
+</div>
+
+<h2 id="skills">3. The skill-description tax</h2>
+
+<div class="card high">
+  <span class="score">9 / 10</span>
+  <h3>20,507 tokens of skill frontmatter, every turn, forever</h3>
+  <p>There are <strong>167 skill folders, 160 with a SKILL.md, and 140 carrying frontmatter</strong>. Only the body of a skill is free. The frontmatter description is injected into every turn whether the skill is used or not.</p>
+  <div class="evidence">SKILLS=160  FRONTMATTER_BYTES=82031  APPROX_TOKENS=20507
+description bytes: total=75692  median=495  max=1422
+descriptions over 300 bytes: 115  (~17,449 tokens)
+trimming those 115 to 200 bytes saves ~11,699 tokens EVERY turn</div>
+  <div class="src">source: python scan of ~/.claude/skills/*/SKILL.md</div>
+  <p>The ten heaviest descriptions run 900 to 1,461 bytes each: <code>rock-analysis-canon</code>, <code>chavez-radiohead-failure-craft</code>, <code>jazz-harmony-craft</code>, <code>chiron-intuition</code>, <code>engineering-the-guitar</code>, <code>mixing-engineering-craft</code>, <code>rock-form-canon</code>, <code>counterpoint-craft</code>, <code>orchestration-craft</code>, <code>mtg-price-verify</code>.</p>
+  <p><strong>A description only has to do one job: help pick the right skill.</strong> Two sentences and the trigger words do that. Everything else belongs in the body, where it costs nothing until the skill is invoked.</p>
+</div>
+
+<h2 id="mcp">4. Four duplicated tool families</h2>
+
+<div class="card high">
+  <span class="score">8 / 10</span>
+  <h3>Three separate browser bridges, two PDF servers, two chart servers</h3>
+  <p>Eighteen MCP servers expose roughly 158 tools into this session. Four capability families are duplicated, which is a direct cause of wrong-tool selection.</p>
+  <table>
+  <thead><tr><th>Family</th><th>Servers holding it</th><th>Tools</th></tr></thead>
+  <tbody>
+  <tr><td>Browser control</td><td><code>Claude_Browser</code>, <code>Control_Chrome</code>, <code>claude-in-chrome</code></td><td>18 + 10 + 22 = 50</td></tr>
+  <tr><td>Mac control</td><td><code>computer-use</code>, <code>Control_your_Mac</code>, <code>terminal</code></td><td>27 + 1 + 1 = 29</td></tr>
+  <tr><td>PDF</td><td><code>pdf-viewer</code>, <code>plugin_pdf-viewer_pdf</code></td><td>3 + 9 = 12</td></tr>
+  <tr><td>Charts and widgets</td><td><code>visualize</code>, a second identical server under a UUID name</td><td>2 + 2 = 4</td></tr>
+  </tbody>
+  </table>
+  <div class="evidence">$ ps -Ao comm | grep -i mcp | sort | uniq -c
+   4 npm exec @modelcontextprotocol/server-pdf --stdio</div>
+  <div class="src">source: process table, 2026-08-17. Four copies of one PDF server were running.</div>
+  <p><strong>Fifty tools for one job is how a session picks the dead bridge and reports blocked.</strong> Your own memory already records that failure mode for the Chrome bridges. Keeping one browser server, one Mac server, one PDF server and one chart server removes the choice entirely.</p>
+</div>
+
+<h2 id="hooks">5. Hook latency, measured</h2>
+
+<div class="card med">
+  <span class="score">6 / 10</span>
+  <h3>37 hook entries, timed against the real scripts</h3>
+  <table>
+  <thead><tr><th>Event</th><th>Hooks</th><th>Measured</th><th>Fires</th></tr></thead>
+  <tbody>
+  <tr><td>Stop</td><td>10 python gates + 1 curl + 1 log write</td><td><strong>0.616 s</strong> python, <strong>0.99 s</strong> for the ntfy.sh calls</td><td>every turn end</td></tr>
+  <tr><td>PreToolUse : Bash</td><td>7 gates</td><td><strong>0.383 s</strong></td><td>every Bash call</td></tr>
+  <tr><td>UserPromptSubmit</td><td>8 injectors</td><td><strong>0.363 s</strong> for 6 of 8</td><td>every prompt</td></tr>
+  <tr><td>PostToolUse : Write, Edit</td><td>3</td><td>not timed</td><td>every file write</td></tr>
+  <tr><td>statusline</td><td>1</td><td>0.091 s</td><td>every render</td></tr>
+  </tbody>
+  </table>
+  <p>A moderate session with 20 prompts and 40 Bash calls pays about <strong>55 seconds in hook overhead alone</strong>. The worst single item is the pair of <code>ntfy.sh</code> network calls, which add a full second to every turn end for a phone notification.</p>
+  <div class="evidence">Stop python gates:        0.616 s
+ntfy round trip:          0.492 s
+ntfy round trip:          0.502 s
+PreToolUse chain total:   0.383 s
+UserPromptSubmit chain:   0.363 s
+python3 cold start:       0.04 s each</div>
+  <div class="src">source: timed against the actual hook scripts with real JSON payloads on stdin</div>
+  <p>Python cold start is 0.04 s, so seven gates on one Bash call spend 0.28 s starting interpreters. <strong>One dispatcher script importing seven modules would cut that to roughly 0.06 s</strong> with no loss of enforcement.</p>
+</div>
+
+<h2 id="deadweight">6. Dead weight and background load</h2>
+
+<div class="card med">
+  <span class="score">5 / 10</span>
+  <h3>2.42 GB of retired material inside <code>~/.claude</code></h3>
+  <div class="evidence">2.3G  ~/.claude/claude-sync        <- banned in CLAUDE.md, sync.sh.disabled-2026-05-18
+ 75M  ~/.claude/backups
+ 42M  ~/.claude/_config_sync_backups
+2.5M  ~/.claude/_cleanup_backups
+ 83M  ~/.claude/skills
+ 33M  ~/.claude/projects</div>
+  <div class="src">source: du -sh ~/.claude/*</div>
+  <p><code>claude-sync</code> is named as banned in your own CLAUDE.md and its <code>sync.sh</code> was disabled on 2026-05-18. It is 2.3 GB of a git repo that is never allowed to run again.</p>
+  <h3>Claude Desktop on disk: 8.2 GB</h3>
+  <div class="evidence">6.0G  vm_bundles
+628M  local-agent-mode-sessions
+618M  Cache
+289M  claude-code
+224M  claude-code-vm
+206M  Code Cache</div>
+  <div class="src">source: du -sh ~/Library/Application Support/Claude/*</div>
+  <h3>Background apps competing for a throttled i9</h3>
+  <p>Login items are <strong>Cloudflare WARP</strong> and <strong>Untapped.gg Companion</strong>. Also resident: five Epic Games Launcher processes, UnrealEditorServices, GeoComply PlayerLocationCheck, and two Google updater agents. WindowServer was at 30.8% CPU with a load average of 3.18 on an 8-core chip that throttles under sustained load.</p>
+</div>
+
+<h2 id="healthy">7. What is already healthy</h2>
+
+<div class="card ok">
+  <span class="score">pass</span>
+  <h3>Three things that need no work</h3>
+  <p><strong>RAM is fine.</strong> 74% free with 131 MB of swap used out of 1 GB. There is no memory pressure problem here, so a RAM upgrade would buy nothing.</p>
+  <p><strong>Shell startup is fast.</strong> 0.01 s for an interactive zsh, so your profile adds nothing measurable to Bash tool calls.</p>
+  <p><strong>Spotlight is enabled and idle, Time Machine is not running, and the Trash is empty.</strong> None of the usual background-indexing suspects are the cause.</p>
+</div>
+
+<h2 id="fixes">Ranked fix list</h2>
+
+<table>
+<thead><tr><th>#</th><th>Fix</th><th>Payoff</th><th>Effort</th><th>Risk</th></tr></thead>
+<tbody>
+<tr><td>1</td><td><strong>Move <code>Documents/complete</code> (151 GB) and <code>Downloads/complete</code> (106 GB) to an external drive.</strong> Takes free space from 0.8% to about 28%. A move, never a delete.</td><td>10</td><td>low</td><td>low</td></tr>
+<tr><td>2</td><td><strong>Resolve the seven contradictions.</strong> Pick one model policy, one fan-out policy, one HTML host. Correct the PATHS hook to match this machine. Delete the expired July 19 paragraph.</td><td>10</td><td>low</td><td>low</td></tr>
+<tr><td>3</td><td><strong>Trim the 115 skill descriptions over 300 bytes down to 200.</strong> Saves 11,699 tokens on every turn, with the detail moved into the skill body where it is free.</td><td>9</td><td>medium</td><td>low</td></tr>
+<tr><td>4</td><td><strong>Retire the duplicate MCP servers.</strong> One browser bridge, one Mac bridge, one PDF server, one chart server. Removes 40 or more redundant tools and the wrong-bridge failure mode.</td><td>8</td><td>low</td><td>low</td></tr>
+<tr><td>5</td><td><strong>Make the two <code>ntfy.sh</code> curls asynchronous</strong> by appending <code>&amp;</code>, or drop them. Returns a full second per turn end.</td><td>6</td><td>trivial</td><td>none</td></tr>
+<tr><td>6</td><td><strong>Merge the seven PreToolUse Bash gates into one dispatcher.</strong> 0.383 s becomes about 0.06 s per Bash call, same enforcement.</td><td>6</td><td>medium</td><td>low</td></tr>
+<tr><td>7</td><td><strong>Stage <code>~/.claude/claude-sync</code> (2.3 GB) out of the tree.</strong> It is banned and disabled. Move it, do not delete it.</td><td>5</td><td>trivial</td><td>low</td></tr>
+<tr><td>8</td><td><strong>Clear Claude Desktop caches and review <code>vm_bundles</code> (6.0 GB).</strong> The app rebuilds Cache and Code Cache on its own.</td><td>5</td><td>low</td><td>low</td></tr>
+<tr><td>9</td><td><strong>Remove Epic Games Launcher and Untapped.gg from login items.</strong> Frees CPU headroom on a chip that throttles.</td><td>4</td><td>trivial</td><td>none</td></tr>
+</tbody>
+</table>
+
+<p><strong>Items 1, 2 and 3 carry most of the gain.</strong> One recovers the machine, one recovers instruction clarity, one recovers a sixth of the context window.</p>
+
+<h2 id="method">How each number was measured</h2>
+
+<table>
+<thead><tr><th>Claim</th><th>Command</th></tr></thead>
+<tbody>
+<tr><td>Free disk, volume size</td><td><code>df -h /System/Volumes/Data</code>, <code>diskutil info</code></td></tr>
+<tr><td>Folder sizes</td><td><code>du -x -d 1 -g ~</code> and per-folder repeats</td></tr>
+<tr><td>Memory and swap</td><td><code>memory_pressure</code>, <code>sysctl vm.swapusage</code></td></tr>
+<tr><td>CPU and processes</td><td><code>ps -Ao %cpu,%mem,rss,comm -r</code>, <code>uptime</code></td></tr>
+<tr><td>Context tax</td><td>byte count of both CLAUDE.md files, MEMORY.md, and every SKILL.md frontmatter block, divided by 4</td></tr>
+<tr><td>Hook latency</td><td>each hook script run directly with a real JSON payload on stdin, wall clock around the loop</td></tr>
+<tr><td>MCP inventory</td><td>the session tool manifest plus <code>ps</code> for running server processes</td></tr>
+<tr><td>Contradictions</td><td><code>grep</code> against CLAUDE.md line numbers, <code>ls</code> against every path a rule asserts</td></tr>
+<tr><td>Login items</td><td><code>osascript</code> against System Events</td></tr>
+</tbody>
+</table>
+
+<footer>
+  <p>Measured on MacBookPro16,1 running macOS 26.5.1, 2026-08-17. Nothing was deleted, moved, or changed to produce this page. Every figure is a reading, and the command that produced it is listed above.</p>
+</footer>
+
+</div>
+</body>
+</html>
