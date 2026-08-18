@@ -1,6 +1,6 @@
 # @Khanoisseur forensic tweet recovery — RECOVERY REPORT (2016–2017)
 
-Generated: 2026-08-18T05:03:12Z  
+Generated: 2026-08-18T05:10:51Z  
 Target: Adam Khan, `@Khanoisseur` (suspended)  
 Database: `data/khanoisseur.db`
 
@@ -21,7 +21,7 @@ Database: `data/khanoisseur.db`
 | — fetched and parsed | 92 |
 | — queued, not yet fetched | 80,158 |
 | Media references recovered | 10 |
-| Open unresolved leads | 2 |
+| Open unresolved leads | 5 |
 | Date span of recovered IDs | 2016-01-02T12:54:43Z → 2017-12-31T18:17:36Z |
 
 ### Coverage measured, not asserted
@@ -88,11 +88,11 @@ The runner is idempotent: captures already fetched are skipped, IDs that already
 
 ## Deliverables
 
-- `exports/coverage.json` (7,176 bytes)
-- `exports/khanoisseur_all_recovered_tweets.csv` (5,707,951 bytes)
-- `exports/khanoisseur_all_recovered_tweets.jsonl` (28,868,147 bytes)
-- `exports/khanoisseur_recovered_tweets.md` (72,150 bytes)
-- `exports/khanoisseur_recovery.xlsx` (1,154,221 bytes)
-- `exports/khanoisseur_sources.csv` (243,981 bytes)
+- `exports/coverage.json` (2,440 bytes)
+- `exports/khanoisseur_all_recovered_tweets.csv` (869,920 bytes)
+- `exports/khanoisseur_all_recovered_tweets.jsonl` (4,408,712 bytes)
+- `exports/khanoisseur_recovered_tweets.md` (11,801 bytes)
+- `exports/khanoisseur_recovery.xlsx` (1,113,017 bytes)
+- `exports/khanoisseur_sources.csv` (22,476 bytes)
 - `exports/khanoisseur_threads.csv` (12,995 bytes)
 - `exports/stats.json` (176 bytes)
