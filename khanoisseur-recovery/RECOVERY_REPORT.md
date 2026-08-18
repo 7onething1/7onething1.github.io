@@ -1,6 +1,6 @@
 # @Khanoisseur forensic tweet recovery — RECOVERY REPORT (2016–2017)
 
-Generated: 2026-08-18T18:30:00Z  
+Generated: 2026-08-18T19:51:23Z  
 Target: Adam Khan, `@Khanoisseur` (suspended)  
 Database: `data/khanoisseur.db`
 
@@ -8,39 +8,39 @@ Database: `data/khanoisseur.db`
 
 | Metric | Value |
 |---|---:|
-| Unique tweet IDs recovered (all accounts) | **5,461** |
-| — primary account `@Khanoisseur` | 5,461 |
+| Unique tweet IDs recovered (all accounts) | **5,526** |
+| — primary account `@Khanoisseur` | 5,526 |
 | — related account `@Khanoisseur_` | 0 |
-| Tweets with recovered body text | **1,877** |
-| — primary account | 1,877 |
+| Tweets with recovered body text | **1,890** |
+| — primary account | 1,890 |
 | — related account | 0 |
 | Partial-text records | 5 |
-| ID-only records (documented gaps) | 3,579 |
-| Independent evidence sources stored | 2,019 |
+| ID-only records (documented gaps) | 3,631 |
+| Independent evidence sources stored | 2,032 |
 | Wayback captures indexed | 80,250 |
-| — fetched and parsed | 231 |
-| — queued, not yet fetched | 80,019 |
-| Media references recovered | 3,628 |
-| Open unresolved leads | 5 |
+| — fetched and parsed | 232 |
+| — queued, not yet fetched | 80,018 |
+| Media references recovered | 3,642 |
+| Open unresolved leads | 17 |
 | Date span of recovered IDs | 2016-01-02T12:54:43Z → 2017-12-31T18:17:36Z |
 
 ### Coverage measured, not asserted
 
-Body text is recovered for **34.4%** of known IDs (1,877 of 5,461). Every remaining ID is preserved as an explicit ID-only record with a canonical URL and a Snowflake-derived UTC timestamp, so each gap is individually addressable rather than silently dropped.
+Body text is recovered for **34.2%** of known IDs (1,890 of 5,526). Every remaining ID is preserved as an explicit ID-only record with a canonical URL and a Snowflake-derived UTC timestamp, so each gap is individually addressable rather than silently dropped.
 
 ## Recovery by year (primary account)
 
 | Year | Unique IDs | With body text | % text |
 |---|---:|---:|---:|
-| 2016 | 1,653 | 149 | 9.0% |
-| 2017 | 3,808 | 1,728 | 45.4% |
+| 2016 | 1,657 | 149 | 9.0% |
+| 2017 | 3,869 | 1,741 | 45.0% |
 
 ## Evidence classification
 
 | Evidence class | Records |
 |---|---:|
-| `ID_ONLY` | 3,579 |
-| `EXACT_PRIMARY` | 1,868 |
+| `ID_ONLY` | 3,631 |
+| `EXACT_PRIMARY` | 1,881 |
 | `EXACT_COPY` | 9 |
 | `PARTIAL` | 5 |
 
@@ -48,9 +48,9 @@ Body text is recovered for **34.4%** of known IDs (1,877 of 5,461). Every remain
 
 | Type | Records |
 |---|---:|
-| unknown | 3,593 |
-| reply | 786 |
-| original | 583 |
+| unknown | 3,645 |
+| reply | 798 |
+| original | 584 |
 | retweet | 334 |
 | quote | 165 |
 
@@ -58,7 +58,7 @@ Body text is recovered for **34.4%** of known IDs (1,877 of 5,461). Every remain
 
 | Source type | Source rows | Distinct tweets |
 |---|---:|---:|
-| `wayback_twitter_timeline` | 2,299 | 2,006 |
+| `wayback_twitter_timeline` | 2,312 | 2,019 |
 | `search_result_title` | 18 | 18 |
 | `search_result` | 16 | 15 |
 | `wayback_twitter_status` | 14 | 14 |
@@ -93,10 +93,10 @@ The runner is idempotent: captures already fetched are skipped, IDs that already
 ## Deliverables
 
 - `exports/coverage.json` (2,635 bytes)
-- `exports/khanoisseur_all_recovered_tweets.csv` (1,892,091 bytes)
-- `exports/khanoisseur_all_recovered_tweets.jsonl` (8,565,776 bytes)
-- `exports/khanoisseur_recovered_tweets.md` (597,700 bytes)
-- `exports/khanoisseur_recovery.xlsx` (2,044,633 bytes)
+- `exports/khanoisseur_all_recovered_tweets.csv` (1,902,956 bytes)
+- `exports/khanoisseur_all_recovered_tweets.jsonl` (8,621,161 bytes)
+- `exports/khanoisseur_recovered_tweets.md` (601,445 bytes)
+- `exports/khanoisseur_recovery.xlsx` (2,071,993 bytes)
 - `exports/khanoisseur_sources.csv` (1,143,899 bytes)
-- `exports/khanoisseur_threads.csv` (172,696 bytes)
-- `exports/stats.json` (180 bytes)
+- `exports/khanoisseur_threads.csv` (208,383 bytes)
+- `exports/stats.json` (181 bytes)
