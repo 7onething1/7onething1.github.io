@@ -473,12 +473,20 @@ source inside their boundaries. The originals of 16 and 17 stay whole on disk.</
 </div>
 
 <h2 id="stems">Stems for the whole set</h2>
-<p class="lede">Every song in the delivery runs through htdemucs_6s at 24 bit. That is drums,
-bass, guitar, piano, vocals and other, six files per song. The set is 32 songs and 148 minutes,
-which measured out to about 110 minutes of compute on this machine.</p>
-<p class="lede">Output lands in
-<code>~/Projects/_outputs/real-song-finder/band-practice-8-14-26/stems/htdemucs_6s/</code>,
-one folder per song.</p>
+<p class="lede">The tape is mono and it carries most of its energy in the low end, which sits
+outside what Demucs was trained on. Separating it raw drops the guitar stem into bass
+register, measured at 93.9 percent below 250 Hz on song 04 in the earlier pass. So the mix gets the tilt first, then separation
+runs, and the inverse tilt goes back on every delivered stem so the tone matches the source.</p>
+<p class="lede">Two models run on each song. htdemucs_6s carries the only guitar head, so guitar
+and other come from there. htdemucs holds more capacity per source across four heads, so bass,
+drums and vocals come from that one. Every stem sums to one channel, since the source channels
+are bit identical. Five stems per song at 44.1 kHz 24 bit.</p>
+<p class="lede">The drum chair rotates through this band. A silent drums stem on a take means an
+empty chair, and it is not a separation failure. Songs 04, 05 and 06 already came through this
+pipeline last night and their numbers are on
+<a href="https://7onething1.github.io/band-practice-8-14-26-stems/">the stems page</a>.</p>
+<p class="lede">The set is 32 songs and 148 minutes, running as two parallel chains.
+Output lands in <code>~/Projects/_outputs/band-practice-stems/STEMS/</code>, one folder per song.</p>
 
 <h2 id="method">How a cut gets found</h2>
 <p class="lede">Four signals vote on every second of a take. Chroma self similarity catches a new

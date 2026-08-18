@@ -69,12 +69,24 @@ Files 16 and 17 stay whole on disk in `songs/`.
 
 ## Stems
 
-Every song in the delivery set runs through htdemucs_6s at 24 bit: drums, bass,
-guitar, piano, vocals, other. The set is 32 songs and 148 minutes, measured at
-1.33x realtime with four jobs, so about 110 minutes of compute.
+The tape is mono and most of its energy sits in the low end, outside what Demucs
+was trained on. Separating it raw puts the guitar stem in bass register, measured
+at 93.9% below 250 Hz on song 04 in the earlier pass. The mix is tilted before
+separation and the inverse tilt goes back on every delivered stem.
 
-Output: `~/Projects/_outputs/real-song-finder/band-practice-8-14-26/stems/htdemucs_6s/`
-Progress log: `stems/demucs_progress.log`
+| Model | Supplies | Why |
+|---|---|---|
+| `htdemucs_6s` | guitar, other | the only model with a guitar head |
+| `htdemucs` | bass, drums, vocals | four heads hold more capacity per source |
+
+Every stem sums to one channel, since the source channels are bit identical.
+Five stems per song, 44.1 kHz 24 bit. The drum chair rotates, so a silent drums
+stem on a take is an empty chair rather than a separation failure.
+
+Set: 32 songs, 148 minutes, two parallel chains.
+Output: `~/Projects/_outputs/band-practice-stems/STEMS/<stub>/`
+Driver: `~/Projects/_outputs/band-practice-stems/run_song2.sh`
+Logs: `chainC.log`, `chainD.log` in the same folder.
 
 ## Source
 
