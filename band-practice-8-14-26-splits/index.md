@@ -71,8 +71,8 @@ Files 16 and 17 stay whole on disk in `songs/`.
 
 The tape is mono and most of its energy sits in the low end, outside what Demucs
 was trained on. Separating it raw puts the guitar stem in bass register, measured
-at 93.9% below 250 Hz on song 04 in the earlier pass. The mix is tilted before
-separation and the inverse tilt goes back on every delivered stem.
+at 93.9% below 250 Hz on song 04 in the earlier pass. The mix gets the tilt first, then
+separation runs, and the inverse tilt goes back on every delivered stem.
 
 | Model | Supplies | Why |
 |---|---|---|
