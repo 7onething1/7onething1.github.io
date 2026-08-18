@@ -123,77 +123,77 @@ pan cue. A silent drums stem means an empty chair, because the drum chair rotate
 
 ### 16a, `16a_00-00_to_02-55.wav`
 
-- 2:55 long, tape 2:30:22, cut out of file 16
+- 2:55 long, tape 2:30:22, 136.0 BPM, cut out of file 16
 - Still separating at build time
 
 ### 16b, `16b_02-55_to_08-50.wav`
 
-- 5:55 long, tape 2:33:17, cut out of file 16
+- 5:55 long, tape 2:33:17, 129.2 BPM, cut out of file 16
 - Still separating at build time
 
 ### 16c, `16c_08-50_to_13-54.wav`
 
-- 5:04 long, tape 2:39:12, cut out of file 16
+- 5:04 long, tape 2:39:12, 143.6 BPM, cut out of file 16
 - Still separating at build time
 
 ### 16d, `16d_13-54_to_18-35.wav`
 
-- 4:41 long, tape 2:44:16, cut out of file 16
+- 4:41 long, tape 2:44:16, 123.0 BPM, cut out of file 16
 - Still separating at build time
 
 ### 16e, `16e_18-35_to_25-21.wav`
 
-- 6:46 long, tape 2:48:57, cut out of file 16
+- 6:46 long, tape 2:48:57, 136.0 BPM, cut out of file 16
 - Still separating at build time
 
 ### 16f, `16f_25-21_to_28-41.wav`
 
-- 3:20 long, tape 2:55:43, cut out of file 16
+- 3:20 long, tape 2:55:43, 136.0 BPM, cut out of file 16
 - Still separating at build time
 
 ### 16g, `16g_28-41_to_31-40.wav`
 
-- 2:59 long, tape 2:59:03, cut out of file 16
+- 2:59 long, tape 2:59:03, 129.2 BPM, cut out of file 16
 - Still separating at build time
 
 ### 16h, `16h_31-40_to_35-27.wav`
 
-- 3:47 long, tape 3:02:02, cut out of file 16
+- 3:47 long, tape 3:02:02, 136.0 BPM, cut out of file 16
 - Still separating at build time
 
 ### 17a, `17a_00-00_to_04-17.wav`
 
-- 4:17 long, tape 3:06:46, cut out of file 17
+- 4:17 long, tape 3:06:46, 136.0 BPM, cut out of file 17
 - Still separating at build time
 
 ### 17b, `17b_04-17_to_09-11.wav`
 
-- 4:54 long, tape 3:11:03, cut out of file 17
+- 4:54 long, tape 3:11:03, 143.6 BPM, cut out of file 17
 - Still separating at build time
 
 ### 17c, `17c_09-11_to_12-28.wav`
 
-- 3:17 long, tape 3:15:57, cut out of file 17
+- 3:17 long, tape 3:15:57, 129.2 BPM, cut out of file 17
 - Still separating at build time
 
 ### 17d, `17d_12-28_to_15-04.wav`
 
-- 2:36 long, tape 3:19:14, cut out of file 17
+- 2:36 long, tape 3:19:14, 136.0 BPM, cut out of file 17
 - Still separating at build time
 
 ### 17e, `17e_15-04_to_18-14.wav`
 
-- 3:10 long, tape 3:21:50, cut out of file 17
+- 3:10 long, tape 3:21:50, 152.0 BPM, cut out of file 17
 - Still separating at build time
 
 ### 17f, `17f_18-14_to_22-01.wav`
 
-- 3:47 long, tape 3:25:00, cut out of file 17
+- 3:47 long, tape 3:25:00, 136.0 BPM, cut out of file 17
 - Still separating at build time
 
 ### 17g, `17g_22-01_to_24-42.wav`
 
-- 2:41 long, tape 3:28:47, cut out of file 17
+- 2:41 long, tape 3:28:47, 129.2 BPM, cut out of file 17
 - Still separating at build time
 
 ### 18, `18_3-33-28_take80_score71.wav`
