@@ -502,6 +502,9 @@ footer{
 
   /* ---------- audio events ---------- */
   audio.addEventListener('timeupdate', tick);
+  audio.addEventListener('seeked', tick);
+  audio.addEventListener('seeking', tick);
+  audio.addEventListener('durationchange', tick);
   audio.addEventListener('play',  setPlayLabel);
   audio.addEventListener('pause', setPlayLabel);
   audio.addEventListener('ended', function(){ setPlayLabel(); });
@@ -512,6 +515,7 @@ footer{
       elRem.textContent = '-' + fmt(DUR);
     }
     renderLoop();
+    tick();
   });
   audio.addEventListener('error', function(){
     showErr('The audio file did not load. Try the direct download links below.');
@@ -531,6 +535,7 @@ footer{
       elDur.textContent = fmt(DUR);
       elRem.textContent = '-' + fmt(DUR);
       draw();
+      tick();
     })
     .catch(function(){ peaks = null; draw(); });
 
