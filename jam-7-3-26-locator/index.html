@@ -1,0 +1,148 @@
+<!DOCTYPE html>
+<html lang="en"><head><meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Jam Session Work Product  Locator</title>
+<style>
+:root{--cream:#F4EFE6;--ink:#1A1613;--rule:#D8CDBD;--mustard:#E3B23C;--pink:#D98E96;--teal:#4A7C7E;--rust:#C1512F;--olive:#7D8C4A;--card:#FBF8F2;}
+*{box-sizing:border-box}
+body{margin:0;background:var(--cream);color:var(--ink);font:16px/1.6 "Iowan Old Style","Palatino Linotype",Georgia,serif;}
+.wrap{max-width:1080px;margin:0 auto;padding:40px 24px 90px}
+h1{font-size:34px;line-height:1.15;margin:0 0 6px;letter-spacing:-.01em}
+.sub{color:#6A6156;font-size:15px;margin:0 0 28px}
+h2{font-size:21px;margin:44px 0 14px;padding-bottom:7px;border-bottom:2px solid var(--rule)}
+.mono{font-family:"SF Mono",Menlo,monospace;font-size:12.5px}
+.hero{background:var(--card);border:1px solid var(--rule);border-left:6px solid var(--mustard);border-radius:4px;padding:20px 22px;margin-bottom:8px}
+.hero b{font-size:17px}
+.grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(168px,1fr));gap:12px;margin:20px 0}
+.stat{background:var(--card);border:1px solid var(--rule);border-radius:4px;padding:14px 16px}
+.stat .n{font-size:27px;font-weight:700;line-height:1.1}
+.stat .l{font-size:11.5px;text-transform:uppercase;letter-spacing:.07em;color:#6A6156;margin-top:3px}
+.chain{display:flex;flex-wrap:wrap;gap:8px;align-items:center;margin:18px 0;font-size:13px}
+.chain .s{background:var(--card);border:1px solid var(--rule);border-radius:3px;padding:7px 12px}
+.chain .s.done{border-color:var(--olive);background:#EFF2E4}
+.chain .s.gone{border-color:var(--rust);background:#F7E8E3;color:#8C3A1F}
+.chain .a{color:#9A9081}
+.tblwrap{overflow-x:auto;border:1px solid var(--rule);border-radius:4px;background:var(--card)}
+table{border-collapse:collapse;width:100%;min-width:640px}
+th{text-align:left;font-size:11.5px;text-transform:uppercase;letter-spacing:.07em;color:#6A6156;padding:11px 13px;border-bottom:2px solid var(--rule);font-weight:600;white-space:nowrap}
+td{padding:9px 13px;border-bottom:1px solid #EAE2D5;vertical-align:middle}
+tr:last-child td{border-bottom:none}
+tr:hover td{background:#F5F0E6}
+.num{text-align:right}
+.pill{display:inline-block;font-size:10.5px;font-weight:700;letter-spacing:.05em;padding:2px 7px;border-radius:9px;background:#E8E1D4}
+.pill.hi{background:var(--teal);color:#fff}
+.pill.med{background:var(--mustard);color:#2A2118}
+.frac{font-family:"SF Mono",Menlo,monospace;font-size:11.5px;color:#6A6156}
+.warn{font-family:"SF Mono",Menlo,monospace;font-size:11px;color:var(--rust);font-weight:700}
+.note{background:#F7E8E3;border:1px solid #E5C3B6;border-left:5px solid var(--rust);border-radius:4px;padding:15px 18px;margin:18px 0;font-size:14.5px}
+.note.good{background:#EFF2E4;border-color:#CBD4B0;border-left-color:var(--olive)}
+.note.info{background:#E6EEEE;border-color:#B9CFCF;border-left-color:var(--teal)}
+.note b{display:block;margin-bottom:4px}
+ul{margin:9px 0 0;padding-left:20px}li{margin:4px 0}
+.pathrow{display:flex;justify-content:space-between;gap:14px;align-items:baseline;padding:9px 0;border-bottom:1px solid #EAE2D5;flex-wrap:wrap}
+.pathrow:last-child{border-bottom:none}
+.tag{font-size:10.5px;font-weight:700;letter-spacing:.05em;padding:2px 8px;border-radius:9px;white-space:nowrap}
+.tag.live{background:var(--olive);color:#fff}
+.tag.off{background:var(--rust);color:#fff}
+.tag.part{background:var(--mustard);color:#2A2118}
+footer{margin-top:52px;padding-top:16px;border-top:2px solid var(--rule);font-size:12.5px;color:#6A6156}
+</style></head><body><div class="wrap">
+<h1>Jam session work product</h1>
+<p class="sub">Located 2026-08-17 &middot; second-brain retrieval test &middot; every path below was stat&#39;d on disk, nothing inferred</p>
+
+<div class="hero"><b>The answer: the 7.3.26 jam.</b> One 4&nbsp;h&nbsp;32&nbsp;m master recording, mapped into 100 contiguous performances, of which 29 drum-carrying songs were cut and separated. Two full pipeline runs exist: a July&nbsp;8 silence-cull, and a July&nbsp;19 drum-aware rebuild that replaced it.</div>
+
+<div class="grid">
+<div class="stat"><div class="n">4:32:24</div><div class="l">master duration</div></div>
+<div class="stat"><div class="n">29</div><div class="l">songs cut</div></div>
+<div class="stat"><div class="n">2:06</div><div class="l">music extracted</div></div>
+<div class="stat"><div class="n">100</div><div class="l">performances mapped</div></div>
+<div class="stat"><div class="n">6</div><div class="l">full stem packages</div></div>
+</div>
+<h2>Pipeline chain, where it stands</h2>
+<div class="chain">
+<span class="s done">4h32m master &check;</span><span class="a">&rarr;</span>
+<span class="s done">100-perf song map &check;</span><span class="a">&rarr;</span>
+<span class="s gone">29 lossless cuts, gone</span><span class="a">&rarr;</span>
+<span class="s gone">Demucs 6-stem, gone</span><span class="a">&rarr;</span>
+<span class="s gone">DrumSep 5-piece, gone</span><span class="a">&rarr;</span>
+<span class="s done">29 mp3 renders &check;</span><span class="a">&rarr;</span>
+<span class="s done">6 stem packages &check;</span>
+</div>
+
+<div class="note"><b>The intermediate audio is gone, and it is reproducible.</b>
+T7 Shield was mounted during this session (<span class="mono">disk3</span>, 1&nbsp;TB NTFS). The tree the symlinks point at, <span class="mono">/Volumes/T7 Shield/jam-7-3-26-rebuild/</span>, no longer exists. A search for <span class="mono">cuts_manifest.json</span> across T7 Shield, Black and <span class="mono">~/Projects</span> returned nothing, and no <span class="mono">song0*.wav</span> survives on either external. The 24-bit cuts, the Demucs output and the DrumSep output were cleared.
+<ul>
+<li><b>Nothing irreplaceable was lost.</b> The master is intact in three byte-identical copies and <span class="mono">song_map.json</span> holds all 100 performance windows, so <span class="mono">cut_refine.py</span> regenerates the cuts deterministically. Separation is CPU time, not information.</li>
+<li>What that costs to redo: 29 cuts is minutes; Demucs plus DrumSep ran 20&ndash;50 minutes per song on CPU, so a full re-separation is a long unattended job.</li>
+<li>Six finished 7-stem packages survived off that drive and do not need redoing.</li>
+</ul></div>
+
+<div class="note good"><b>Master verified three times over.</b>
+<span class="mono">md5 9892b41f4d84bb224fdb37c8156a6ff3</span> matches on all three copies: the run source, the jam-cull repull, and the original capture <span class="mono">7.3.26 - 7_7_26, 4.57 PM_1.m4a</span> sitting at the root of T7 Shield. 49,868,049 bytes, aac 44100&nbsp;Hz stereo, 4:32:24, full start-to-end decode PASS.</div>
+
+<h2>The 29 songs, mapped back to the master</h2>
+<p class="sub" style="margin:0 0 12px">Source windows recovered from <span class="mono">maps/song_map.json</span>. The naming is not sequential in time: <b>song01&ndash;03 were the three priority drum cuts</b> done first, then song04&ndash;29 fill the remaining 26 in timeline order. That reconstruction was validated against three independent anchors it was not fitted to. song09, song10 and song11 each carry a <span class="mono">PROVENANCE.md</span> recording exact source timestamps, and all three land within 1.5&nbsp;s.</p>
+<div class="tblwrap"><table>
+<thead><tr><th>File</th><th>Source window</th><th>Length</th><th>Size</th><th>Drums</th><th>Check</th></tr></thead>
+<tbody>
+<tr><td class="mono">song01</td><td class="mono">0:01:05–0:10:53</td><td class="mono num">9:48</td><td class="mono num">9.0 MB</td><td><span class="pill hi">HIGH</span> <span class="frac">0.76</span></td><td></td></tr>
+<tr><td class="mono">song02</td><td class="mono">1:36:16–1:40:02</td><td class="mono num">3:46</td><td class="mono num">3.4 MB</td><td><span class="pill hi">HIGH</span> <span class="frac">0.7</span></td><td></td></tr>
+<tr><td class="mono">song03</td><td class="mono">4:11:22–4:14:30</td><td class="mono num">3:10</td><td class="mono num">2.9 MB</td><td><span class="pill hi">HIGH</span> <span class="frac">0.69</span></td><td></td></tr>
+<tr><td class="mono">song04</td><td class="mono">0:14:16–0:17:41</td><td class="mono num">3:25</td><td class="mono num">3.1 MB</td><td><span class="pill med">MEDIUM</span> <span class="frac">0.46</span></td><td></td></tr>
+<tr><td class="mono">song05</td><td class="mono">0:22:04–0:26:10</td><td class="mono num">4:08</td><td class="mono num">3.8 MB</td><td><span class="pill hi">HIGH</span> <span class="frac">0.51</span></td><td></td></tr>
+<tr><td class="mono">song06</td><td class="mono">0:26:10–0:31:10</td><td class="mono num">4:59</td><td class="mono num">4.6 MB</td><td><span class="pill med">MEDIUM</span> <span class="frac">0.44</span></td><td></td></tr>
+<tr><td class="mono">song07</td><td class="mono">0:34:39–0:37:58</td><td class="mono num">2:27</td><td class="mono num">2.2 MB</td><td><span class="pill med">MEDIUM</span> <span class="frac">0.36</span></td><td><span class="warn">DELTA 52s</span></td></tr>
+<tr><td class="mono">song08</td><td class="mono">0:47:49–0:54:08</td><td class="mono num">6:19</td><td class="mono num">5.8 MB</td><td><span class="pill med">MEDIUM</span> <span class="frac">0.41</span></td><td></td></tr>
+<tr><td class="mono">song09</td><td class="mono">1:03:28–1:07:25</td><td class="mono num">3:57</td><td class="mono num">3.6 MB</td><td><span class="pill hi">HIGH</span> <span class="frac">0.52</span></td><td></td></tr>
+<tr><td class="mono">song10</td><td class="mono">1:13:34–1:16:53</td><td class="mono num">3:19</td><td class="mono num">3.0 MB</td><td><span class="pill hi">HIGH</span> <span class="frac">0.69</span></td><td></td></tr>
+<tr><td class="mono">song11</td><td class="mono">1:23:03–1:26:22</td><td class="mono num">3:17</td><td class="mono num">3.0 MB</td><td><span class="pill med">MEDIUM</span> <span class="frac">0.34</span></td><td></td></tr>
+<tr><td class="mono">song12</td><td class="mono">1:26:22–1:32:17</td><td class="mono num">5:53</td><td class="mono num">5.4 MB</td><td><span class="pill hi">HIGH</span> <span class="frac">0.48</span></td><td></td></tr>
+<tr><td class="mono">song13</td><td class="mono">1:41:40–1:44:51</td><td class="mono num">3:11</td><td class="mono num">2.9 MB</td><td><span class="pill hi">HIGH</span> <span class="frac">0.54</span></td><td></td></tr>
+<tr><td class="mono">song14</td><td class="mono">1:48:06–1:51:11</td><td class="mono num">3:06</td><td class="mono num">2.9 MB</td><td><span class="pill hi">HIGH</span> <span class="frac">0.63</span></td><td></td></tr>
+<tr><td class="mono">song15</td><td class="mono">1:51:11–1:54:22</td><td class="mono num">3:09</td><td class="mono num">2.9 MB</td><td><span class="pill hi">HIGH</span> <span class="frac">0.51</span></td><td></td></tr>
+<tr><td class="mono">song16</td><td class="mono">2:24:00–2:28:49</td><td class="mono num">4:49</td><td class="mono num">4.4 MB</td><td><span class="pill med">MEDIUM</span> <span class="frac">0.31</span></td><td></td></tr>
+<tr><td class="mono">song17</td><td class="mono">2:41:14–2:48:14</td><td class="mono num">7:01</td><td class="mono num">6.4 MB</td><td><span class="pill med">MEDIUM</span> <span class="frac">0.4</span></td><td></td></tr>
+<tr><td class="mono">song18</td><td class="mono">2:50:36–2:54:18</td><td class="mono num">3:43</td><td class="mono num">3.4 MB</td><td><span class="pill med">MEDIUM</span> <span class="frac">0.31</span></td><td></td></tr>
+<tr><td class="mono">song19</td><td class="mono">3:00:27–3:03:43</td><td class="mono num">3:16</td><td class="mono num">3.0 MB</td><td><span class="pill med">MEDIUM</span> <span class="frac">0.26</span></td><td></td></tr>
+<tr><td class="mono">song20</td><td class="mono">3:12:12–3:16:03</td><td class="mono num">3:49</td><td class="mono num">3.5 MB</td><td><span class="pill med">MEDIUM</span> <span class="frac">0.33</span></td><td></td></tr>
+<tr><td class="mono">song21</td><td class="mono">3:16:03–3:21:43</td><td class="mono num">5:39</td><td class="mono num">5.2 MB</td><td><span class="pill med">MEDIUM</span> <span class="frac">0.38</span></td><td></td></tr>
+<tr><td class="mono">song22</td><td class="mono">3:21:43–3:24:51</td><td class="mono num">3:08</td><td class="mono num">2.9 MB</td><td><span class="pill med">MEDIUM</span> <span class="frac">0.32</span></td><td></td></tr>
+<tr><td class="mono">song23</td><td class="mono">3:28:01–3:31:13</td><td class="mono num">3:12</td><td class="mono num">2.9 MB</td><td><span class="pill med">MEDIUM</span> <span class="frac">0.38</span></td><td></td></tr>
+<tr><td class="mono">song24</td><td class="mono">3:34:03–3:38:58</td><td class="mono num">4:54</td><td class="mono num">4.5 MB</td><td><span class="pill med">MEDIUM</span> <span class="frac">0.36</span></td><td></td></tr>
+<tr><td class="mono">song25</td><td class="mono">3:47:05–3:52:05</td><td class="mono num">5:00</td><td class="mono num">4.6 MB</td><td><span class="pill med">MEDIUM</span> <span class="frac">0.3</span></td><td></td></tr>
+<tr><td class="mono">song26</td><td class="mono">3:54:31–4:00:10</td><td class="mono num">5:39</td><td class="mono num">5.2 MB</td><td><span class="pill med">MEDIUM</span> <span class="frac">0.42</span></td><td></td></tr>
+<tr><td class="mono">song27</td><td class="mono">4:06:20–4:09:38</td><td class="mono num">3:18</td><td class="mono num">3.0 MB</td><td><span class="pill hi">HIGH</span> <span class="frac">0.54</span></td><td></td></tr>
+<tr><td class="mono">song28</td><td class="mono">4:16:06–4:20:08</td><td class="mono num">4:01</td><td class="mono num">3.7 MB</td><td><span class="pill med">MEDIUM</span> <span class="frac">0.24</span></td><td></td></tr>
+<tr><td class="mono">song29</td><td class="mono">4:23:53–4:28:40</td><td class="mono num">4:49</td><td class="mono num">4.4 MB</td><td><span class="pill med">MEDIUM</span> <span class="frac">0.3</span></td><td></td></tr></tbody></table></div>
+<div class="note" style="margin-top:14px"><b>One row does not reconcile.</b> song07&#39;s mp3 runs 2:27 while its mapped performance is 3:19, a 52&nbsp;s gap, well past the few seconds that valley-snapping explains. Every other row agrees within 12&nbsp;s. The cut manifest that would settle it was on the cleared drive, so treat song07&#39;s window as unconfirmed.</div>
+<h2>Every directory, with status</h2>
+<div class="tblwrap" style="padding:6px 18px">
+<div class="pathrow"><span><b>jam-7-3-26-rebuild</b>: run root: verified master, 100-perf map, PROJECT_STATE.md, logs. Its four audio symlinks now dangle.<br><span class="mono">~/Projects/_outputs/jam-7-3-26-rebuild/</span></span><span class="tag part">PARTIAL</span></div>
+<div class="pathrow"><span><b>jam-7-3-26-rebuild-mp3</b>: all 29 cut songs as mp3 (2h06m) plus a playable index.html<br><span class="mono">~/Projects/_outputs/jam-7-3-26-rebuild-mp3/</span></span><span class="tag live">LOCAL</span></div>
+<div class="pathrow"><span><b>jam-eligible-sections</b>: 3 complete 7-stem packages (song09/10/11), mono, SHA256 provenance, Ableton .asd analysis files; 7 dirs staged empty<br><span class="mono">~/Projects/_outputs/jam-eligible-sections/</span></span><span class="tag part">3 of 10</span></div>
+<div class="pathrow"><span><b>jam-cull-drumkit-stems</b>: 2 full drumkit packages (song02/song04) incl. bright variants, MIX_CHAIN.md, ABLETON_IMPORT.md<br><span class="mono">~/Projects/_outputs/jam-cull-drumkit-stems/</span></span><span class="tag live">LOCAL</span></div>
+<div class="pathrow"><span><b>jam-cull-stems</b>: Demucs 6-stem output for 11 songs plus drum_rank.json<br><span class="mono">~/Projects/_outputs/jam-cull-stems/</span></span><span class="tag live">LOCAL</span></div>
+<div class="pathrow"><span><b>jam-cull/7.3.26-7.7.26</b>: the superseded July&nbsp;8 silence-cull: 20 clips (10 tagged &ldquo;maybe&rdquo;), SONGS_ONLY_keep.mp3, index.html, and a hand-curated &ldquo;Session July 3 - 12 songs&rdquo; folder<br><span class="mono">~/Projects/_outputs/jam-cull/7.3.26-7.7.26/</span></span><span class="tag live">LOCAL</span></div>
+<div class="pathrow"><span><b>jam-rebalance/songs-balanced</b>: 20 loudness-balanced mp3 renders<br><span class="mono">~/Projects/_outputs/jam-rebalance/songs-balanced/</span></span><span class="tag live">LOCAL</span></div>
+<div class="pathrow"><span><b>jam-fullfreq-verify</b>: the QA toolkit: integrity_full.py, compare_sources.py, scan_mics_v2.py, results.json<br><span class="mono">~/Projects/_outputs/jam-fullfreq-verify/</span></span><span class="tag live">LOCAL</span></div>
+<div class="pathrow"><span><b>bandpractice_stems</b>: a separate one-take run from the same night (take_8-07PM_mid12), full 7-stem package<br><span class="mono">/Volumes/T7 Shield/bandpractice_stems/</span></span><span class="tag live">ON T7</span></div>
+<div class="pathrow"><span><b>the original capture</b>: 49,868,049 bytes, md5 matches the verified master<br><span class="mono">/Volumes/T7 Shield/7.3.26 - 7_7_26, 4.57 PM_1.m4a</span></span><span class="tag live">ON T7</span></div>
+<div class="pathrow"><span><b>cuts / demucs / drumsep / packages</b>: the 24-bit cuts and all separation output<br><span class="mono">/Volumes/T7 Shield/jam-7-3-26-rebuild/</span></span><span class="tag off">CLEARED</span></div>
+</div>
+
+<h2>Why the rebuild replaced the cull</h2>
+<div class="note info"><b>Silence-splitting cannot find songs in a continuous jam.</b>
+The July&nbsp;8 pass cut on volume drops and produced 20 clips, half of them tagged <span class="mono">maybe</span>. A jam that never stops has almost no silences to split on, so the drum-driven performances were missed. The July&nbsp;19 rebuild maps the kick band directly, using periodic pulse plus broadband groove novelty, and found 29 drum performances of three minutes or more inside the same recording, 2h06m of music out of 4h32m. That method is now the <span class="mono">/jam-stem-rebuild</span> skill.</div>
+
+<h2>Second-brain test result</h2>
+<div class="note"><b>Semantic retrieval missed this entirely.</b>
+<span class="mono">/ask</span> returned 23 cited hits above the 0.60 gate across corpus, vault, memory and the domain registry. Not one pointed at the 7.3.26 jam. Vault hits went to a Phish video project and a Reba jam-anatomy session; corpus hits went to a mixing-engineering book. The work was found by listing the output directory.
+<ul>
+<li>The run has no vault note. <span class="mono">PROJECT_STATE.md</span> lives in the output folder, outside the indexed tree, so nothing describing it was ever embedded.</li>
+<li>The chats layer ranks by raw term count and surfaced four transcripts whose top matches were boilerplate tool preambles, not jam content.</li>
+<li>Fix: write a Brandon-Vault project note for the 7.3.26 jam pointing at these paths, then re-run <span class="mono">ask.py index --layer vault --apply</span>. Indexing is incremental.</li>
+</ul></div>
+
+<footer>Located 2026-08-17. Master md5 <span class="mono">9892b41f4d84bb224fdb37c8156a6ff3</span>, sha256 <span class="mono">2fbc1cd1&hellip;bbf59df</span>, 44100&nbsp;Hz / 2&nbsp;ch, 720,768,960 frames per channel, full decode PASS. Durations measured with ffprobe; source windows from maps/song_map.json; drive state from diskutil, ioreg and find.</footer>
+</div></body></html>
