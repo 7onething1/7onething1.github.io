@@ -23,7 +23,17 @@ measurement.
 | `htdemucs` | drums, bass, other, vocals | bass, drums, vocals |
 
 Both passes ran on CPU at 24 bit. Stems were summed back to one channel after
-separation. The channel difference measured zero going in, so the sum lost nothing.
+separation. The sources are bit-identical across channels, and Demucs still emits
+two channels because its model runs a stereo path internally. Those output channels
+differ slightly, measured at 0.0136 max on the take 41 guitar stem. Each delivered
+stem is the average of the two. Per-stem measurements land in `manifest.json`.
+
+## Who was playing
+
+The drum chair rotates. On some takes it is empty because that player moved to
+second guitar or to bass. Take 32 carries a kit at 19.8% of energy peaking at
+-13.8 dB. Takes 36 and 41 carry nothing above -40 dB, and both models agree, so
+the silence is an empty drum chair rather than a separation failure.
 
 ## Results
 
@@ -33,11 +43,10 @@ separation. The channel difference measured zero going in, so the sum lost nothi
 
 | Stem | Energy share | Playing | Peak dB |
 |---|---|---|---|
-| guitar | 33.2% | 97% | -9.4 |
-| bass | 50.2% | 92% | -8.3 |
-| drums | 16.4% | 88% | -13.9 |
-| vocals | 0.0% | 7% | -48.9 |
-| piano | 0.1% | 4% | -18.8 |
+| guitar | 42.0% | 97% | -9.4 |
+| bass | 38.2% | 90% | -9.7 |
+| drums | 19.8% | 89% | -13.8 |
+| vocals | 0.0% | 80% | -49.0 |
 | other | 0.0% | 100% | -61.6 |
 
 ### Song 05, `05_0-55-28_take36_score82.wav`
@@ -46,11 +55,10 @@ separation. The channel difference measured zero going in, so the sum lost nothi
 
 | Stem | Energy share | Playing | Peak dB |
 |---|---|---|---|
-| guitar | 13.9% | 92% | -18.1 |
-| bass | 85.0% | 92% | -10.0 |
-| drums | 0.0% | 100% | -72.6 |
-| vocals | 0.0% | 47% | -60.1 |
-| piano | 1.0% | 17% | -22.5 |
+| guitar | 20.3% | 92% | -18.1 |
+| bass | 79.6% | 72% | -9.6 |
+| drums | 0.0% | 46% | -43.1 |
+| vocals | 0.0% | 4% | -43.0 |
 | other | 0.1% | 7% | -28.9 |
 
 ### Song 06, `06_1-05-46_take41_score80.wav`
@@ -59,12 +67,11 @@ separation. The channel difference measured zero going in, so the sum lost nothi
 
 | Stem | Energy share | Playing | Peak dB |
 |---|---|---|---|
-| guitar | 18.3% | 80% | -11.6 |
-| bass | 81.0% | 88% | -5.5 |
-| drums | 0.0% | 82% | -64.0 |
-| vocals | 0.5% | 3% | -17.0 |
-| piano | 0.0% | 11% | -27.7 |
-| other | 0.2% | 5% | -20.9 |
+| guitar | 25.6% | 80% | -11.6 |
+| bass | 73.1% | 66% | -8.0 |
+| drums | 0.0% | 45% | -40.8 |
+| vocals | 1.0% | 6% | -16.7 |
+| other | 0.3% | 5% | -20.9 |
 
 ## Files
 
