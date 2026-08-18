@@ -229,6 +229,37 @@ The third shape holds ties on three strings and its alternative is also span 7, 
 
 Neither is promoted. Endless Summer trades 0.0% to 1.8% hand skip for 20 spans removed; Not Too Much trades 7.7% to 9.1% for 14. The gate asks for that trade to be licensed with evidence.
 
+
+### Song 7 of 10: Lazarus, blocked on both maps, with forced octave leaps
+
+The Phase 0 re-pull could not be completed as a `.gp`: Songsterr serves notation as JSON per track with no `.gp` export over plain HTTP, and the only other Lazarus file on disk holds the identical 138 bars and three tracks. The audit ran on the local file; the live `s5476396` with its vocal and drum staves remains the better source nothing local can supply.
+
+| Stage | Result |
+|---|---|
+| Meter and length | 138 bars all 4/4, 552 quarter-beats, 283.1 s at 117 bpm vs a 281.0 s stem |
+| Tempo | GPIF says 117. The stem folder is named "180bpm", which is wrong. |
+| Staves | Three only. Rhythm 100% occupancy, Lead 50.7%, Bass 95.7%. No vocal, no drums. |
+| Staff roles | **TWO_PARTS**, co-activity 50.7% |
+| Playability | Rhythm **PASS**, 1392 notes, zero faults. Lead **REVIEW**, SHIFT x68, severe JUMP x12 |
+
+**Both maps fail, so no audio verification is possible.**
+
+| Stem | Onsets | Alignment | Anchors | Clamped | Max run | Health |
+|---|---|---|---|---|---|---|
+| rhythm | 13 | 8.7% | 1 | n/a | n/a | FAIL, fewer than two anchors |
+| lead | 134 | 22.8% | 6 | 18.3% | 202 | FAIL x4 |
+
+Thirteen onsets across 281 s is 0.05 per second. Lazarus joins So Far So as a song where no stem yields an interpretable map.
+
+**The octave leaps are forced by the fretboard.** 136 SHIFT and JUMP records concentrate on one string: s5 carries 210, s4 carries 60, s2 carries 2.
+
+- `SHIFT bar 16.812  s5f8   sounding [70]  hand moves 12.0 frets in 128 ms`
+- `JUMP  bar 17.062  s5f20  sounding [82]  12.0 frets in 128 ms, 94 frets/sec`
+
+**Pitch 82 has exactly one placement on a Drop C guitar, `s5f20`.** Pitch 70 has four. So the high note cannot move, and the only refret available raises the low note to `s4f13`, shortening the leap from 12 frets to 7. The gate flags a 7-fret move in 128 ms as a JUMP too, so that repair trades one flag for another.
+
+**Nothing was changed on Lazarus.** Audio accuracy comes before any fretboard choice, both maps fail, and there is no way to check whether pitch 70 and 82 are the right notes. The Lead staff is also 50.7% occupancy with 472 of 718 notes tied, the thin-lead signature flagged in Phase 0.
+
 ### Phase 2. The decision that is not mine
 
 Nine measures tested with controls on both sides, only attack recall survived, so today a corrected file cannot be justified note by note. Three ways forward:
