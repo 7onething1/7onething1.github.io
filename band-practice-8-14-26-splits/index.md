@@ -62,9 +62,14 @@ seconds apart, then snap to the quietest instant within ten seconds.
 
 ## Cutting method
 
-ffmpeg stream copy from the exported 24 bit files, no re-encoding, so every
-segment is bit identical to the master inside its boundaries. Segment lengths
-sum to the parent length within half a second, which is packet rounding.
+Sliced on the exact sample from the exported 24 bit files, so the 15 pieces tile
+their parents with zero frames of drift: 93,800,700 frames out of file 16 and
+65,365,020 out of file 17, both matching the parent exactly. The 24 bit values
+pass through untouched, proven by a SHA256 round trip on the PCM.
+
+The first pass used ffmpeg stream copy, which seeks to a packet edge, so cuts
+landed up to 60 ms from the mark and neighbours overlapped. Those files are
+parked in `songs-split/_packet_rounded_superseded/`.
 Files 16 and 17 stay whole on disk in `songs/`.
 
 ## Stems

@@ -318,8 +318,10 @@ this browser, and the button at the bottom copies them as text you can paste bac
 </div>
 
 <h2 id="songs">The 15 songs that came out</h2>
-<p class="lede">Cut from the 24 bit files with no re-encoding, so these are bit identical to the
-source inside their boundaries. The originals of 16 and 17 stay whole on disk.</p>
+<p class="lede">Sliced on the exact sample, so the pieces tile their parent with zero frames of
+drift and the 24 bit values pass through untouched. The first pass used stream copy, which lands
+on a packet edge and let neighbours overlap by up to 60 milliseconds. Those are parked in
+<code>songs-split/_packet_rounded_superseded/</code>. The originals of 16 and 17 stay whole.</p>
 <h3 class="segh">From file 16</h3>
 <div class="song seg">
  <header><div class="num">16a</div>
@@ -474,9 +476,10 @@ source inside their boundaries. The originals of 16 and 17 stay whole on disk.</
 
 <h2 id="stems">Stems for the whole set</h2>
 <p class="lede">The tape is mono and it carries most of its energy in the low end, which sits
-outside what Demucs was trained on. Separating it raw drops the guitar stem into bass
-register, measured at 93.9 percent below 250 Hz on song 04 in the earlier pass. So the mix gets the tilt first, then separation
-runs, and the inverse tilt goes back on every delivered stem so the tone matches the source.</p>
+outside what Demucs was trained on. Separating it raw puts the guitar stem down in bass
+register, measured at 93.9 percent below 250 Hz on song 04 in the earlier pass. So the mix gets
+tilted before separation, and the inverse tilt goes back on every delivered stem so the tone
+matches the source.</p>
 <p class="lede">Two models run on each song. htdemucs_6s carries the only guitar head, so guitar
 and other come from there. htdemucs holds more capacity per source across four heads, so bass,
 drums and vocals come from that one. Every stem sums to one channel, since the source channels
