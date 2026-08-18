@@ -195,6 +195,40 @@ GPIF keeps every `<Note>` in one shared pool and the same id is reused by many b
 
 The candidate is validated and deliberately not promoted. Removing 20 impossible spans at the price of 1.8% hand skip is a judgment about how the record should read.
 
+
+### Song 6 of 10: Not Too Much, 15 spans down to 1
+
+| Stage | Result |
+|---|---|
+| Meter and length | 122 bars all 4/4, 488 quarter-beats, 344.5 s at 85 bpm vs a 348.1 s stem |
+| Staff roles | **TWO_PARTS**, co-activity 69.2%, role flip **2.3**, cleanest of all six |
+| Playability, source | Lead REVIEW (hand skip 59%), Rhythm **FAIL IMPOSSIBLE_SPAN x15** |
+
+**The health gate caught a high-gain degenerate map for the third time.**
+
+| Stem | Onsets | Alignment | Gain | Anchors | Clamped | Max run | Health |
+|---|---|---|---|---|---|---|---|
+| Rhythm Guitars | 60 | 52.7% | +51.5 | 3 | 58.3% | 568 | FAIL x4 |
+| Solo Guitars | 437 | 34.3% | +27.1 | 18 | 22.8% | 222 | FAIL x4 |
+| **Other Guitar** | 427 | 38.1% | +30.3 | 20 | 5.7% | 55 | **PASS** |
+
+| Shape | Span | Alternative | New span | Ties | Instances | Action |
+|---|---|---|---|---|---|---|
+| s0f2 s1f5 s2f7 s3f7 | 5 | s0f2 s2f0 s3f2 s4f3 | 1 | none | 12 | repaired |
+| s0f1 s1f5 s2f7 s3f7 | 6 | s0f1 s2f0 s3f2 s4f3 | 2 | none | 2 | repaired |
+| s1f8~ s2f8~ s3f7~ s4f3 s5f1 | 7 | s0f13 s1f13 s2f12 s3f7 s4f6 | 7 | s1,s2,s3 | 1 | left as written |
+
+The third shape holds ties on three strings and its alternative is also span 7, the held-chord pattern that proved correct on The Mutiny. The script skipped those beats itself.
+
+**Both candidates, with receipts:**
+
+| Candidate | run_id | Artifact | Gate | Checkpoint | Hard faults | Preservation | Position | Declared |
+|---|---|---|---|---|---|---|---|---|
+| endless-summer-refret-cloned.gp | 9108ce5b89c369e4 | 1bf5b965e04ff740 | 553ab252e1d1cd72 | a54bbb8f582aad48 | 20 to 0 | PASS | PASS | True |
+| not-too-much-refret-cloned.gp | d27623407f403a43 | 15911652a98631e2 | 553ab252e1d1cd72 | e0a024dbc0023730 | 15 to 1 | PASS | PASS | True |
+
+Neither is promoted. Endless Summer trades 0.0% to 1.8% hand skip for 20 spans removed; Not Too Much trades 7.7% to 9.1% for 14. The gate asks for that trade to be licensed with evidence.
+
 ### Phase 2. The decision that is not mine
 
 Nine measures tested with controls on both sides, only attack recall survived, so today a corrected file cannot be justified note by note. Three ways forward:

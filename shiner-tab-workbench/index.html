@@ -416,6 +416,62 @@ footer{margin-top:52px;padding-top:18px;border-top:2px solid var(--ink);
   Removing 20 impossible spans at the price of 1.8% hand skip is a judgment about how this record should read, so it stays a draft with the checkpoint standing. The promotion command, once that trade is accepted, is <code>--license-skip-regression</code> with the evidence, which the gate records in the receipt.
 </div>
 
+
+<h3>Song 6 of 10: Not Too Much, 15 spans down to 1</h3>
+
+<div class="scroll">
+<table style="min-width:640px">
+<thead><tr><th>Stage</th><th>Result</th></tr></thead>
+<tbody>
+<tr><td>Meter and length</td><td class="yes">122 bars all 4/4, 488 quarter-beats, 344.5 s at 85 bpm against a 348.1 s stem</td></tr>
+<tr><td>Two guitars or one covering</td><td class="yes"><strong>TWO_PARTS</strong>, co-activity 69.2%, role flip <strong>2.3</strong>, the cleanest of all six songs</td></tr>
+<tr><td>Playability, source</td><td class="no">Lead REVIEW, hand skip 59% in the uncorrected band. Rhythm <strong>FAIL, IMPOSSIBLE_SPAN x15</strong></td></tr>
+</tbody>
+</table>
+</div>
+
+<h4>The health gate caught a high-gain degenerate map for the third time</h4>
+<div class="scroll">
+<table style="min-width:640px">
+<thead><tr><th>Stem</th><th>Onsets</th><th>Alignment</th><th>Gain</th><th>Anchors</th><th>Clamped</th><th>Max run</th><th>Health</th></tr></thead>
+<tbody>
+<tr><td><code>Rhythm Guitars</code></td><td class="no">60</td><td>52.7%</td><td class="no">+51.5</td><td class="no">3</td><td class="no">58.3%</td><td class="no">568</td><td class="no">FAIL x4</td></tr>
+<tr><td><code>Solo Guitars</code></td><td>437</td><td>34.3%</td><td>+27.1</td><td>18</td><td class="no">22.8%</td><td class="no">222</td><td class="no">FAIL x4</td></tr>
+<tr><td class="yes"><code>Other Guitar</code></td><td>427</td><td>38.1%</td><td>+30.3</td><td>20</td><td class="yes">5.7%</td><td class="yes">55</td><td class="yes">PASS</td></tr>
+</tbody>
+</table>
+</div>
+<p>The Rhythm stem scores the highest gain of the three on <strong>3 anchors and 60 onsets</strong>, clamping 58.3% of the tab and collapsing 568 consecutive attacks onto one audio time. The stem that actually carries the tab is Other Guitar, which scores lower and is the only one that is interpretable.</p>
+
+<h4>14 of the 15 spans were repairable, and 1 was not</h4>
+<div class="scroll">
+<table style="min-width:660px">
+<thead><tr><th>Shape</th><th>Span</th><th>Alternative</th><th>New span</th><th>Ties</th><th>Instances</th><th>Action</th></tr></thead>
+<tbody>
+<tr><td class="mono">s0f2 s1f5 s2f7 s3f7</td><td>5</td><td class="mono">s0f2 s2f0 s3f2 s4f3</td><td class="yes">1</td><td class="yes">none</td><td>12</td><td class="yes">repaired</td></tr>
+<tr><td class="mono">s0f1 s1f5 s2f7 s3f7</td><td>6</td><td class="mono">s0f1 s2f0 s3f2 s4f3</td><td class="yes">2</td><td class="yes">none</td><td>2</td><td class="yes">repaired</td></tr>
+<tr><td class="mono">s1f8~ s2f8~ s3f7~ s4f3 s5f1</td><td>7</td><td class="mono">s0f13 s1f13 s2f12 s3f7 s4f6</td><td class="no">7</td><td class="no">s1, s2, s3</td><td>1</td><td class="no">left as written</td></tr>
+</tbody>
+</table>
+</div>
+<p>The two repaired shapes share the same three pitch-identical moves in D Standard: <code>s1f5</code> to <code>s2f0</code>, <code>s2f7</code> to <code>s3f2</code>, <code>s3f7</code> to <code>s4f3</code>. The third shape holds ties on three strings and its own suggested alternative is <strong>also span 7</strong>, which is the held-chord pattern that proved to be correct notation on The Mutiny, so it was left alone. The repair script skipped those two beats by itself and said so.</p>
+
+<h4>Both candidates, with receipts</h4>
+<div class="scroll">
+<table>
+<thead><tr><th>Candidate</th><th>run_id</th><th>Artifact</th><th>Gate</th><th>Checkpoint</th><th>Hard faults</th><th>Preservation</th><th>Position</th><th>Declared</th></tr></thead>
+<tbody>
+<tr><td>endless-summer-refret-cloned.gp</td><td class="mono">9108ce5b89c369e4</td><td class="mono">1bf5b965e04ff740</td><td class="mono">553ab252e1d1cd72</td><td class="mono">a54bbb8f582aad48</td><td class="yes">20 to 0</td><td class="yes">PASS</td><td class="yes">PASS</td><td class="yes">True</td></tr>
+<tr><td>not-too-much-refret-cloned.gp</td><td class="mono">d27623407f403a43</td><td class="mono">15911652a98631e2</td><td class="mono">553ab252e1d1cd72</td><td class="mono">e0a024dbc0023730</td><td class="yes">15 to 1</td><td class="yes">PASS</td><td class="yes">PASS</td><td class="yes">True</td></tr>
+</tbody>
+</table>
+</div>
+
+<div class="note warnb">
+  <strong>Neither is promoted, and both are held for the same reason.</strong>
+  Endless Summer trades 0.0% to 1.8% hand skip for 20 spans removed. Not Too Much trades 7.7% to 9.1% for 14 removed. The gate withholds promotion on both and asks for that trade to be licensed with evidence rather than assumed, which is a judgment about how the record should read.
+</div>
+
 <h3>Phase 2. The decision that is not mine to make</h3>
 <p>After Phase 1, <code>/goal</code> on The Mutiny reduces to one question. Nine measures were tested with controls on both sides and only attack recall survived, so today a corrected file cannot be justified note by note. Three ways forward:</p>
 <ul>
