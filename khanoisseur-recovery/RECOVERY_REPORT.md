@@ -1,6 +1,6 @@
-# @Khanoisseur forensic tweet recovery — RECOVERY REPORT
+# @Khanoisseur forensic tweet recovery — RECOVERY REPORT (2016–2017)
 
-Generated: 2026-08-18T04:43:25Z  
+Generated: 2026-08-18T05:03:12Z  
 Target: Adam Khan, `@Khanoisseur` (suspended)  
 Database: `data/khanoisseur.db`
 
@@ -8,66 +8,56 @@ Database: `data/khanoisseur.db`
 
 | Metric | Value |
 |---|---:|
-| Unique tweet IDs recovered (all accounts) | **27,103** |
-| — primary account `@Khanoisseur` | 20,997 |
-| — related account `@Khanoisseur_` | 6,106 |
-| Tweets with recovered body text | **177** |
-| — primary account | 177 |
+| Unique tweet IDs recovered (all accounts) | **4,176** |
+| — primary account `@Khanoisseur` | 4,176 |
+| — related account `@Khanoisseur_` | 0 |
+| Tweets with recovered body text | **29** |
+| — primary account | 29 |
 | — related account | 0 |
-| Partial-text records | 6 |
-| ID-only records (documented gaps) | 26,920 |
-| Independent evidence sources stored | 368 |
+| Partial-text records | 5 |
+| ID-only records (documented gaps) | 4,142 |
+| Independent evidence sources stored | 48 |
 | Wayback captures indexed | 80,250 |
 | — fetched and parsed | 92 |
 | — queued, not yet fetched | 80,158 |
-| Media references recovered | 92 |
+| Media references recovered | 10 |
 | Open unresolved leads | 2 |
-| Date span of recovered IDs | 2013-02-25T03:00:52Z → 2021-05-13T21:55:10Z |
+| Date span of recovered IDs | 2016-01-02T12:54:43Z → 2017-12-31T18:17:36Z |
 
 ### Coverage measured, not asserted
 
-Body text is recovered for **0.7%** of known IDs (177 of 27,103). Every remaining ID is preserved as an explicit ID-only record with a canonical URL and a Snowflake-derived UTC timestamp, so each gap is individually addressable rather than silently dropped.
+Body text is recovered for **0.7%** of known IDs (29 of 4,176). Every remaining ID is preserved as an explicit ID-only record with a canonical URL and a Snowflake-derived UTC timestamp, so each gap is individually addressable rather than silently dropped.
 
 ## Recovery by year (primary account)
 
 | Year | Unique IDs | With body text | % text |
 |---|---:|---:|---:|
-| 2013 | 8 | 0 | 0.0% |
-| 2014 | 9 | 0 | 0.0% |
-| 2015 | 113 | 2 | 1.8% |
 | 2016 | 1,612 | 2 | 0.1% |
-| 2017 | 2,562 | 23 | 0.9% |
-| 2018 | 391 | 14 | 3.6% |
-| 2019 | 4,438 | 0 | 0.0% |
-| 2020 | 9,778 | 117 | 1.2% |
-| 2021 | 2,086 | 19 | 0.9% |
+| 2017 | 2,564 | 27 | 1.1% |
 
 ## Evidence classification
 
 | Evidence class | Records |
 |---|---:|
-| `ID_ONLY` | 26,920 |
-| `EXACT_PRIMARY` | 168 |
-| `EXACT_COPY` | 9 |
-| `PARTIAL` | 6 |
+| `ID_ONLY` | 4,142 |
+| `EXACT_PRIMARY` | 18 |
+| `EXACT_COPY` | 11 |
+| `PARTIAL` | 5 |
 
 ## Tweet type
 
 | Type | Records |
 |---|---:|
-| unknown | 26,953 |
-| quote | 89 |
-| reply | 31 |
-| original | 30 |
+| unknown | 4,176 |
 
 ## Source families that produced results
 
 | Source type | Source rows | Distinct tweets |
 |---|---:|---:|
 | `wayback_twitter_timeline` | 323 | 155 |
+| `search_result_title` | 18 | 18 |
+| `search_result` | 16 | 15 |
 | `wayback_twitter_status` | 14 | 14 |
-| `search_result_title` | 14 | 14 |
-| `search_result` | 11 | 11 |
 | `thread_mirror` | 6 | 6 |
 
 ## Methodology
