@@ -1,6 +1,6 @@
 # David Sliker Twitter Recovery: Recovery Report
 
-Generated 2026-08-18T04:25:07+00:00
+Generated 2026-08-18T04:51:20+00:00
 
 ## Contents
 
@@ -47,30 +47,30 @@ The historical account left the platform and the username was registered again l
 
 | Measure | Count |
 |---|---|
-| tweets total | 6,519 |
-| with exact text | 6,519 |
+| tweets total | 6,522 |
+| with exact text | 6,522 |
 | with tweet id | 414 |
-| confirmed historical | 6,466 |
+| confirmed historical | 6,469 |
 | identity unresolved | 53 |
 | excluded new account | 0 |
 | noise suspect | 0 |
-| originals | 4,845 |
+| originals | 4,848 |
 | replies | 971 |
 | retweets | 654 |
-| sources | 20,780 |
+| sources | 20,783 |
 | profiles | 11 |
 | captures | 4,813 |
 | media | 4,082 |
 | id queue | 1,084 |
 | id queue unrecovered | 390 |
 | leads open | 9 |
-| searches | 16 |
+| searches | 18 |
 
 ## Preservation classes
 
 | Class | Count | Meaning |
 |---|---|---|
-| `EXACT_COPY` | 6,057 | a contemporaneous capture reproduces the complete post with clear attribution |
+| `EXACT_COPY` | 6,060 | a contemporaneous capture reproduces the complete post with clear attribution |
 | `EXACT_PRIMARY` | 413 | archived Twitter itself preserves the complete post |
 | `IDENTITY_UNRESOLVED` | 49 | attribution is not established |
 
@@ -112,14 +112,15 @@ as denominators.
 |---|---|---|
 | local_capture | 20,010 | 6,108 |
 | wayback | 748 | 413 |
+| article | 12 | 12 |
 | site_link_evidence | 12 | 0 |
-| article | 9 | 9 |
 | search | 1 | 1 |
 
 | Search family | Queries | Rows returned | New tweet IDs |
 |---|---|---|---|
-| article | 3 | 9 | 0 |
+| article | 4 | 12 | 0 |
 | personal_site | 1 | 12 | 0 |
+| reddit | 1 | 2 | 0 |
 | wayback | 12 | 10,471 | 707 |
 
 ## Method
@@ -138,8 +139,8 @@ as denominators.
 | other_author_tweet | `1740579858223354074` | oEmbed attributes this to @gabriel_hancock. The post is not his; kept as context about him |
 | other_author_tweet | `1742742415574753747` | oEmbed attributes this to @malachiobrien. The post is not his; kept as context about him a |
 | other_author_tweet | `1742747370394091643` | oEmbed attributes this to @DunningAwen. The post is not his; kept as context about him and |
-| blocked_route | `reddit.com` | reddit search JSON returns 403 to plain clients and reddit.com is not accessible to the se |
 | blocked_route | `archive.today` | secondary archives gate automated access; query by hand or through a browser session |
 | open_family | `threadreaderapp.com` | thread roots are only discoverable once conversation IDs are recovered from archived pages |
 | gap | `2015-2022 body recovery` | the local captures stop in 2014, so the middle years rest entirely on Internet Archive cov |
 | gap | `saved-page tweet IDs` | 6,000+ posts have verbatim text and no status ID; matching them to IDs is the next pass |
+| rate_limited | `arctic-shift comment sweeps` | r/Christianity, r/Exvangelical and r/exchristian comment searches hit the mirror's 422 slo |
