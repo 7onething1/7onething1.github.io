@@ -79,25 +79,42 @@ was trained on. Raw separation drops the guitar stem into bass register, measure
 at 93.9 percent below 250 Hz on song 04. The mix gets a corrective tilt first,
 then separation runs.
 
-The 15 segments need no separation run of their own. Their parents are separated
-whole, and the finished stems get sliced at the same 13 boundaries, sample exact,
-which costs no compute and cannot drift. Round trip proven by SHA256 over the PCM.
+The 15 segments needed no separation run of their own. Their parents were separated
+whole by the parallel job, and the finished stems were sliced at the same 13
+boundaries, sample exact. Proof, all measured after the cut:
 
-Segment stem sets on disk: 7 of 15, five mono 24 bit stems each
-(guitar, bass, drums, vocals, other) plus an activity measurement.
+- 15 segment folders, 75 stem files, every one PCM_24 mono at 44,100
+- children sum to 93,800,700 frames against a parent of 93,800,700 for file 16
+- children sum to 65,365,020 frames against a parent of 65,365,020 for file 17
+- SHA256 of segment 16d drums equals SHA256 of the parent drums over the same
+  sample range, so the slice copies the parent exactly
+- 15 activity measurements, same columns as the whole songs
+
+All five lanes come from `htdemucs_6s`. The parallel job set `SIX_ONLY=1`, which
+routes every lane through the six-head model rather than the two-model plan used
+on songs 04, 05 and 06 last night. Its stated reason is wall clock, and the guitar
+lane, the one that was broken, comes from that model under either plan.
+
 Location: `~/Projects/_outputs/real-song-finder/band-practice-8-14-26/stems-split/`
 
 ## What the isolated stems say about each cut
 
-The cuts were found on the full mix, where a loud guitar smears the pulse. Once a
-parent is separated, the stem that carries the pulse gives an independent read.
-The first attempt read the drums stem alone and disagreed almost everywhere, and
-the reason was in the levels: the kit sits near -60 dB across most of file 17,
-which is the empty drum chair this band rotates through. The detector was reading
-room bleed. The check now picks drums or bass by level, and records which.
+The cuts were found on the full mix, where a loud guitar smears the pulse. With the
+parents separated, the stem that carries the pulse gives an independent read. A first
+attempt read the drums stem alone and disagreed almost everywhere, and the levels
+explain it: the kit sits near -60 dB across most of file 17, which is the empty drum
+chair this band rotates through, so the detector was reading room bleed. The check
+now picks drums or bass by level and records which.
 
 | file | cut | pulse stem | level | stem bpm | mix bpm | verdict |
 |---|---|---|---|---|---|---|
+| 16 | 2:55 | drums | -30 dB | 144 to 144 | 136 to 132 | agrees |
+| 16 | 8:50 | drums | -34 dB | 152 to 136 | 125 to 109 | agrees |
+| 16 | 13:54 | drums | -32 dB | 144 to 136 | 112 to 122 | differs |
+| 16 | 18:35 | drums | -32 dB | 136 to 123 | 115 to 118 | differs |
+| 16 | 25:21 | drums | -33 dB | 136 to 118 | 134 to 129 | differs |
+| 16 | 28:41 | drums | -33 dB | 129 to 129 | 121 to 98 | differs |
+| 16 | 31:40 | bass | -19 dB | 96 to 136 | 103 to 118 | agrees |
 | 17 | 4:17 | bass | -16 dB | 136 to 136 | 131 to 107 | differs |
 | 17 | 9:11 | drums | -24 dB | 129 to 129 | 116 to 124 | differs |
 | 17 | 12:28 | bass | -19 dB | 112 to 118 | 65 to 76 | differs |
@@ -105,10 +122,10 @@ room bleed. The check now picks drums or bass by level, and records which.
 | 17 | 18:14 | drums | -31 dB | 136 to 96 | 124 to 135 | agrees |
 | 17 | 22:01 | bass | -15 dB | 123 to 86 | 117 to 131 | agrees |
 
+Result: 5 of 13 cuts get their tempo step backed by the isolated stem.
 A differs row weakens one signal out of four. Tempo carried 0.20 of the score and
-the harmonic plus timbral novelty carried 0.68, so those cuts still stand on the
-evidence that found them. Your ear settles it, which is what the vote buttons on
-the page are for.
+harmonic plus timbral novelty carried 0.68, so those cuts still stand on the evidence
+that found them. Your ear settles it, which is what the vote buttons are for.
 ## Source
 
 - `8.14.26 - 8:17:26, 7.17 PM.wav`, 3,584,105,324 bytes, 3:45:27
