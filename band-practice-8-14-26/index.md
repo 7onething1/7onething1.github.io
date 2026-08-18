@@ -54,3 +54,12 @@ Backup: `find_songs.py.bak-preserve24bit-20260817`.
 
 - Do files 16 and 17 need splitting, and where
 - Do any of the twelve strong takes under two minutes deserve export as well
+
+## Update, 8.18.26: files 16 and 17 are split
+
+Boundary analysis found 13 song changes across the two long takes, so 60 minutes
+came out as 15 tracks. Cuts, evidence and preview audio:
+https://7onething1.github.io/band-practice-8-14-26-splits/
+
+Every song in the set (32 files, 148 minutes) is running through htdemucs_6s
+for 6-stem separation at 24 bit.
