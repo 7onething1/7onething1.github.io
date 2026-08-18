@@ -75,24 +75,40 @@ Files 16 and 17 stay whole on disk in `songs/`.
 ## Stems
 
 The tape is mono and most of its energy sits in the low end, outside what Demucs
-was trained on. Separating it raw puts the guitar stem in bass register, measured
-at 93.9% below 250 Hz on song 04 in the earlier pass. The mix gets the tilt first, then
-separation runs, and the inverse tilt goes back on every delivered stem.
+was trained on. Raw separation drops the guitar stem into bass register, measured
+at 93.9 percent below 250 Hz on song 04. The mix gets a corrective tilt first,
+then separation runs.
 
-| Model | Supplies | Why |
-|---|---|---|
-| `htdemucs_6s` | guitar, other | the only model with a guitar head |
-| `htdemucs` | bass, drums, vocals | four heads hold more capacity per source |
+The 15 segments need no separation run of their own. Their parents are separated
+whole, and the finished stems get sliced at the same 13 boundaries, sample exact,
+which costs no compute and cannot drift. Round trip proven by SHA256 over the PCM.
 
-Every stem sums to one channel, since the source channels are bit identical.
-Five stems per song, 44.1 kHz 24 bit. The drum chair rotates, so a silent drums
-stem on a take is an empty chair rather than a separation failure.
+Segment stem sets on disk: 7 of 15, five mono 24 bit stems each
+(guitar, bass, drums, vocals, other) plus an activity measurement.
+Location: `~/Projects/_outputs/real-song-finder/band-practice-8-14-26/stems-split/`
 
-Set: 32 songs, 148 minutes, two parallel chains.
-Output: `~/Projects/_outputs/band-practice-stems/STEMS/<stub>/`
-Driver: `~/Projects/_outputs/band-practice-stems/run_song2.sh`
-Logs: `chainC.log`, `chainD.log` in the same folder.
+## What the isolated stems say about each cut
 
+The cuts were found on the full mix, where a loud guitar smears the pulse. Once a
+parent is separated, the stem that carries the pulse gives an independent read.
+The first attempt read the drums stem alone and disagreed almost everywhere, and
+the reason was in the levels: the kit sits near -60 dB across most of file 17,
+which is the empty drum chair this band rotates through. The detector was reading
+room bleed. The check now picks drums or bass by level, and records which.
+
+| file | cut | pulse stem | level | stem bpm | mix bpm | verdict |
+|---|---|---|---|---|---|---|
+| 17 | 4:17 | bass | -16 dB | 136 to 136 | 131 to 107 | differs |
+| 17 | 9:11 | drums | -24 dB | 129 to 129 | 116 to 124 | differs |
+| 17 | 12:28 | bass | -19 dB | 112 to 118 | 65 to 76 | differs |
+| 17 | 15:04 | drums | -40 dB | 144 to 152 | 108 to 130 | differs |
+| 17 | 18:14 | drums | -31 dB | 136 to 96 | 124 to 135 | agrees |
+| 17 | 22:01 | bass | -15 dB | 123 to 86 | 117 to 131 | agrees |
+
+A differs row weakens one signal out of four. Tempo carried 0.20 of the score and
+the harmonic plus timbral novelty carried 0.68, so those cuts still stand on the
+evidence that found them. Your ear settles it, which is what the vote buttons on
+the page are for.
 ## Source
 
 - `8.14.26 - 8:17:26, 7.17 PM.wav`, 3,584,105,324 bytes, 3:45:27
