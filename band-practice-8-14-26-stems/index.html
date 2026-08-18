@@ -47,14 +47,14 @@ footer{margin-top:3rem;padding-top:1rem;border-top:1px solid var(--line);font-si
 <h1>Band practice 8.14.26, stems</h1>
 <p class="lede">Every keeper take from the session, pulled apart into separate instrument tracks. The tape is mono and extremely bass heavy, and both of those facts decide what can be recovered here.</p>
 <div class="stats"><div><b>19</b><span>of 19 songs</span></div><div><b>95</b><span>stem files</span></div><div><b>5</b><span>stems per song</span></div><div><b>1</b><span>guitar stem, not 2</span></div><div><b>24<small style="font-size:.55em">bit</small></b><span>44.1 kHz wav</span></div></div>
-<nav><b>On this page</b><ol><li><a href="#mono">What mono costs</a></li><li><a href="#eqfix">The guitar stem fix</a></li><li><a href="#songs">The three songs</a></li><li><a href="#method">How it was separated</a></li><li><a href="#files">Where the files are</a></li></ol></nav>
+<nav><b>On this page</b><ol><li><a href="#mono">What mono costs</a></li><li><a href="#eqfix">The guitar stem fix</a></li><li><a href="#lead">Pulling one guitar out, and tuning it</a></li><li><a href="#songs">The three songs</a></li><li><a href="#method">How it was separated</a></li><li><a href="#files">Where the files are</a></li></ol></nav>
 <h2 id="mono">What mono costs</h2>
 <div class="callout stop"><b>There is one guitar stem, not two.</b> The usual way to separate two guitarists is to take Guitar 1 from the left channel and Guitar 2 from the right. That needs a stereo field. On all three of these files the left channel minus the right channel is exactly zero and the correlation reads 1.0, so the two channels are bit-identical. Both players sit inside one <code>guitar.wav</code>. Splitting them by pitch range would be a guess dressed up as a measurement, so it was not done.</div>
 <p>Two questions a mono practice recording cannot settle, and both are marked untested rather than upgraded: which guitarist played a given line, and any claim about stereo placement. Everything else on this page is measured.</p>
 <h2 id="eqfix">The guitar stem fix</h2>
-<p>A first pass produced a guitar stem that was really a bass line. Measured on song 04, the guitar track held 88.7% of its energy below 250 Hz and 3.1% above 500 Hz. That is bass register, not guitar register.</p>
+<p>A first pass produced a guitar stem that sat in bass register. Measured on song 04, the guitar track held 88.7% of its energy below 250 Hz and 3.1% above 500 Hz. That is bass register, not guitar register.</p>
 <div class="callout"><b>The cause was the tape, not the model.</b> These recordings carry roughly 88% of their energy below 200 Hz, far outside the spectral balance Demucs was trained on. The guitar head was handed almost nothing above 250 Hz to work with, so it took bass register instead.</div>
-<p>The fix is to tilt the mix toward a normal balance before separating: a 45 Hz high pass, then cuts of 9 dB at 90 Hz and 5 dB at 200 Hz, then lifts of 5 dB at 2.5 kHz and 7 dB at 6 kHz. Separation runs on the tilted audio.</p>
+<p>The fix is to tilt the mix toward a normal balance ahead of separation: a 45 Hz high pass, then cuts of 9 dB at 90 Hz and 5 dB at 200 Hz, then lifts of 5 dB at 2.5 kHz and 7 dB at 6 kHz. Separation runs on the tilted audio.</p>
 <table><thead><tr><th>song 04 guitar stem</th><th>below 250 Hz</th><th>above 500 Hz</th></tr></thead><tbody><tr><td>first pass, no tilt</td><td>88.7%</td><td>3.1%</td></tr><tr><td>tilt, then inverse tilt on output</td><td>90.9%</td><td>3.0%</td></tr><tr><td><b>tilt, no inverse</b></td><td><b>53.8%</b></td><td><b>33.7%</b></td></tr></tbody></table>
 <p>Restoring the original tone afterwards defeats the whole thing, since the inverse boost puts the low energy straight back. The delivered stems therefore stay in the tilted domain and sound brighter than the room. Add your own low shelf downstream if you want the tape sound back.</p>
 <h2 id="songs">The songs</h2>
@@ -401,6 +401,33 @@ footer{margin-top:3rem;padding-top:1rem;border-top:1px solid var(--line);font-si
 </div>
 <p class="cap">Loudness envelope across the full 3:50, half second windows. The faint line is that stem's own activity gate, 25 dB below its peak. Flat stretches below the line are where the instrument is not playing.</p>
 </article>
+<h2 id="lead">Pulling one guitar out, and tuning it</h2>
+<p>Your band records to one mono channel, so there is no pan cue and no ground-truth way to split two guitarists into two audio files. What runs instead is a Viterbi melody tracker over the mixed guitar stem: per frame it takes the top autocorrelation peaks as candidates, then finds the smoothest path that rewards salience and pitch height, since the lead sits on top, and penalises large jumps. That follows one continuous voice through the mix.</p>
+<div class="callout"><b>Why the naive approach fails.</b> A per-frame loudest-pitch tracker bounces between the two guitarists. Measured on song 01 over the same 40 seconds: the naive tracker moved 11.94 semitones at the 90th percentile with 14.3% of jumps over 7 semitones, spanning MIDI 40 to 85. The Viterbi path moved 0.12 semitones at the 90th percentile with 0.9% large jumps, spanning MIDI 52 to 77.</div>
+<p>A harmonic comb mask around the tracked pitch then splits the audio into <code>isolated.wav</code>, the tracked lead, and <code>residual.wav</code>, everything else including the other guitarist. The two sum back to the original to machine precision, worst case 1.3e-05 RMS error across all 19 songs, so the mask is an exact partition rather than a lossy guess. Pitch correction is TD-PSOLA, snapping each voiced frame to the nearest equal-tempered semitone.</p>
+<table><thead><tr><th>song</th><th>cents error, raw</th><th>cents error, corrected</th><th>within 10 cents, raw</th><th>within 10 cents, corrected</th></tr></thead><tbody>
+<tr><td>01</td><td>8.3</td><td><b>2.1</b></td><td>54.6%</td><td><b>86.8%</b></td></tr>
+<tr><td>02</td><td>13.4</td><td><b>5.5</b></td><td>39.3%</td><td><b>63.8%</b></td></tr>
+<tr><td>03</td><td>12.1</td><td><b>5.8</b></td><td>42.2%</td><td><b>63.6%</b></td></tr>
+<tr><td>04</td><td>10.5</td><td><b>6.4</b></td><td>48.2%</td><td><b>64.2%</b></td></tr>
+<tr><td>05</td><td>8.6</td><td><b>3.8</b></td><td>55.6%</td><td><b>76.6%</b></td></tr>
+<tr><td>06</td><td>9.1</td><td><b>4.0</b></td><td>54.1%</td><td><b>75.5%</b></td></tr>
+<tr><td>07</td><td>8.2</td><td><b>3.4</b></td><td>57.2%</td><td><b>81.3%</b></td></tr>
+<tr><td>08</td><td>6.9</td><td><b>3.7</b></td><td>62.4%</td><td><b>79.2%</b></td></tr>
+<tr><td>09</td><td>7.1</td><td><b>3.0</b></td><td>61.4%</td><td><b>83.5%</b></td></tr>
+<tr><td>10</td><td>8.6</td><td><b>2.7</b></td><td>57.0%</td><td><b>84.5%</b></td></tr>
+<tr><td>11</td><td>11.2</td><td><b>4.8</b></td><td>46.4%</td><td><b>71.5%</b></td></tr>
+<tr><td>12</td><td>13.0</td><td><b>5.0</b></td><td>41.0%</td><td><b>69.4%</b></td></tr>
+<tr><td>13</td><td>7.1</td><td><b>3.1</b></td><td>64.1%</td><td><b>81.9%</b></td></tr>
+<tr><td>14</td><td>7.0</td><td><b>4.0</b></td><td>61.3%</td><td><b>76.4%</b></td></tr>
+<tr><td>15</td><td>7.0</td><td><b>3.0</b></td><td>62.5%</td><td><b>81.6%</b></td></tr>
+<tr><td>16</td><td>13.9</td><td><b>6.1</b></td><td>39.5%</td><td><b>64.1%</b></td></tr>
+<tr><td>17</td><td>13.8</td><td><b>6.3</b></td><td>38.5%</td><td><b>62.5%</b></td></tr>
+<tr><td>18</td><td>13.0</td><td><b>5.0</b></td><td>40.9%</td><td><b>67.0%</b></td></tr>
+<tr><td>19</td><td>15.4</td><td><b>6.5</b></td><td>36.1%</td><td><b>64.1%</b></td></tr>
+</tbody></table>
+<p>Improved on <b>19 of 19</b> songs, worsened on 0.</p>
+<div class="callout stop"><b>Two limits worth stating.</b> This is not a true two-guitar audio split. Where both players share a harmonic at the same instant, a mono recording cannot resolve them and some bleed stays in the isolated track. And note transitions are the weak spot: individual frames at a change of note can overshoot the target by 40 cents or more, where the pitch tracker is least stable, even while the whole-song numbers move strongly in the right direction.</div>
 <h2 id="method">How it was separated</h2>
 <p>Every song went through two Demucs v4 passes, and the final stem set takes the best source from each.</p>
 <table><thead><tr><th>model</th><th>gives</th><th>used for</th></tr></thead><tbody><tr><td><code>htdemucs_6s</code></td><td>drums, bass, other, vocals, guitar, piano</td><td>the guitar stem, since this is the only Demucs model carrying a guitar head.</td></tr><tr><td><code>htdemucs</code></td><td>drums, bass, other, vocals</td><td>bass, drums and vocals. Four heads means more capacity per source, so the low end and the vocal come out cleaner.</td></tr></tbody></table>
