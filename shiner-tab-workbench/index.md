@@ -260,6 +260,41 @@ Thirteen onsets across 281 s is 0.05 per second. Lazarus joins So Far So as a so
 
 **Nothing was changed on Lazarus.** Audio accuracy comes before any fretboard choice, both maps fail, and there is no way to check whether pitch 70 and 82 are the right notes. The Lead staff is also 50.7% occupancy with 472 of 718 notes tied, the thin-lead signature flagged in Phase 0.
 
+
+### Correction: the drive being absent blocks LESS than I said
+
+A complete copy of all ten `.gp` files sits on the internal disk at `~/Desktop/Brandon-Vault/New Folder With Items 2/New Folder With Items 7/IF YOU CAN'T FIND SOMETHING ITS HERE/BandBooks/BELIEVEYOUME/_canonical_2026-06-04/songs/`. What is genuinely missing is the STEMS.
+
+| Work | Needs | Runnable without the drive |
+|---|---|---|
+| Content gate, staff roles, playability | the `.gp` only | YES |
+| Beat map, audio accuracy, mir_eval | stems | no |
+
+### Song 8 of 10: Broken Satellites, the notation half
+
+| Stage | Result |
+|---|---|
+| Content | 171 bars, 9071 notes, 53.0 per bar, PASS |
+| Staff roles | **TWO_PARTS**, co-activity 60.9%, role flip **0.0**, cleanest of all eight |
+| Structure | **FAIL, TRACKCOUNT: 3 guitar staves against a gate of 2** |
+| Lead Guitar | REVIEW TUNING_EVIDENCE, plus a JUMP at bar 41 of 17 frets in 259 ms |
+| Rhythm Guitar | PASS, zero faults, its Copy scores identically |
+| Vocals | 335 notes, 67 stacked beats, the most vocal harmony on the record |
+
+**The duplicate staves are exact, and the fix is the re-pull rather than a repair.** `Rhythm Guitar Copy` holds 2671 notes at 98.8%, identical to `Rhythm Guitar`. `Copy` holds 530 at 96.5%, identical to the bass. Phase 0 established the live `s5084035` returns five clean tracks with Lead 924, Rhythm 2671 and Vocals 335 matching ours exactly. The structural fail is an artifact of the local file.
+
+
+### Songs 9 and 10: Asleep in the Trunk and Jackie, notation half
+
+| Song | Content gate | Staff roles | Playability | Vocals |
+|---|---|---|---|---|
+| Asleep in the Trunk | **FAIL, EMPTY SHELL**. 264 bars, 173 notes, 0.66/bar. Lead holds ZERO notes. Rhythm plays 12 of 264 bars. | n/a on a shell | Lead REVIEW on zero notes; Rhythm REVIEW, hand skip 57% | 14 notes over 264 bars, monophonic |
+| Jackie | PASS, 102 bars, 3013 notes, 29.5/bar | **SINGLE_STAFF**, one guitar only | Rhythm Guitar **PASS**, zero faults | 139 notes, 39.2% occupancy, monophonic |
+
+Asleep confirms on the local copy what Phase 0 found against the live tab: our file is a shell while `s5085156` holds 7245 notes. Jackie's single guitar staff is genuine, since the live tab also returns one.
+
+**The notation half is now complete for all ten songs.** Content gate, staff-role audit and the full playability tier have run on every one. What remains for the three unfinished songs is the AUDIO half only, which needs the stems.
+
 ### Phase 2. The decision that is not mine
 
 Nine measures tested with controls on both sides, only attack recall survived, so today a corrected file cannot be justified note by note. Three ways forward:

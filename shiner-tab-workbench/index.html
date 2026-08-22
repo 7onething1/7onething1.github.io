@@ -516,6 +516,51 @@ footer{margin-top:52px;padding-top:18px;border-top:2px solid var(--ink);
   Audio accuracy comes before any fretboard choice. Both maps fail the health gate, so there is no way to check whether pitch 70 and pitch 82 are even the right notes. Refingering a passage whose pitches cannot be verified would be optimising notation against nothing. The Lead staff is also 50.7% occupancy with 472 of its 718 notes tied, the thin-lead signature already flagged on the live tab in Phase 0.
 </div>
 
+
+<h3>Correction: the drive being absent blocks LESS than I said</h3>
+<p>I reported the work as blocked on the missing <code>T7 Shield</code> volume. That was too broad. <strong>A complete copy of all ten <code>.gp</code> files sits on the internal disk</strong> at <code>~/Desktop/Brandon-Vault/New Folder With Items 2/New Folder With Items 7/IF YOU CAN'T FIND SOMETHING ITS HERE/BandBooks/BELIEVEYOUME/_canonical_2026-06-04/songs/</code>. What is genuinely missing is the STEMS, which exist nowhere on the internal disk apart from a drum-only extract.</p>
+<div class="scroll"><table style="min-width:600px">
+<thead><tr><th>Work</th><th>Needs</th><th>Runnable without the drive</th></tr></thead>
+<tbody>
+<tr><td>Content gate, staff roles, playability</td><td>the <code>.gp</code> only</td><td class="yes">YES</td></tr>
+<tr><td>Beat map, audio accuracy, mir_eval</td><td>stems</td><td class="no">no</td></tr>
+</tbody></table></div>
+
+<h3>Song 8 of 10: Broken Satellites, the notation half</h3>
+<div class="scroll">
+<table style="min-width:640px">
+<thead><tr><th>Stage</th><th>Result</th></tr></thead>
+<tbody>
+<tr><td>Content</td><td class="yes">171 bars, 9071 notes, 53.0 per bar, PASS</td></tr>
+<tr><td>Two guitars or one covering</td><td class="yes"><strong>TWO_PARTS</strong>, co-activity 60.9%, role flip <strong>0.0</strong>, the cleanest of all eight measured</td></tr>
+<tr><td>Structure</td><td class="no"><strong>FAIL, TRACKCOUNT: 3 guitar staves against a gate of 2</strong></td></tr>
+<tr><td>Lead Guitar</td><td class="p-warn">REVIEW, TUNING_EVIDENCE, plus a JUMP at bar 41 of 17 frets in 259 ms, 66 frets per second</td></tr>
+<tr><td>Rhythm Guitar</td><td class="yes">PASS, zero faults, and its Copy scores identically</td></tr>
+<tr><td>Vocals</td><td>335 notes, 67 stacked beats, max stack 2, the most vocal harmony written on the record</td></tr>
+</tbody>
+</table>
+</div>
+<div class="note bad">
+  <strong>The duplicate staves are exact, and the fix is the re-pull rather than a repair.</strong>
+  <code>Rhythm Guitar Copy</code> holds 2671 notes at 98.8% occupancy, identical to <code>Rhythm Guitar</code>. <code>Copy</code> holds 530 at 96.5%, identical to the bass. Phase 0 already established that the live <code>s5084035</code> returns five clean tracks with no duplicates and with Lead 924, Rhythm 2671 and Vocals 335 matching ours exactly. So the structural fail is an artifact of the local file, and the correct action is to take the live tab rather than to edit ours.
+</div>
+
+<h3>Songs 9 and 10: Asleep in the Trunk and Jackie, notation half</h3>
+<div class="scroll">
+<table style="min-width:660px">
+<thead><tr><th>Song</th><th>Content gate</th><th>Staff roles</th><th>Playability</th><th>Vocals</th></tr></thead>
+<tbody>
+<tr><td class="song">Asleep in the Trunk</td><td class="no"><strong>FAIL, EMPTY SHELL</strong>. 264 bars, 173 notes, 0.66 per bar. Lead Guitar holds ZERO notes. Rhythm plays 12 of 264 bars.</td><td>n/a on a shell</td><td>Lead REVIEW on zero notes. Rhythm REVIEW, hand skip 57%.</td><td class="no">14 notes over 264 bars, monophonic</td></tr>
+<tr><td class="song">Jackie</td><td class="yes">PASS, 102 bars, 3013 notes, 29.5 per bar</td><td class="no"><strong>SINGLE_STAFF</strong>, one guitar only</td><td class="yes">Rhythm Guitar <strong>PASS</strong>, zero faults</td><td>139 notes, 39.2% occupancy, monophonic</td></tr>
+</tbody>
+</table>
+</div>
+<p>Asleep confirms on the local copy exactly what Phase 0 found against the live tab: our file is a shell while <code>s5085156</code> holds 7245 notes. Jackie's single guitar staff is genuine rather than a local defect, since the live tab also returns one.</p>
+
+<div class="note">
+  <strong>The notation half is now complete for all ten songs.</strong>
+  Content gate, staff-role audit and the full playability tier have run on every one. What remains for the three unfinished songs is the AUDIO half only, which needs the stems.
+</div>
 <h3>Phase 2. The decision that is not mine to make</h3>
 <p>After Phase 1, <code>/goal</code> on The Mutiny reduces to one question. Nine measures were tested with controls on both sides and only attack recall survived, so today a corrected file cannot be justified note by note. Three ways forward:</p>
 <ul>
