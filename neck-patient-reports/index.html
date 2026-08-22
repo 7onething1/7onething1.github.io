@@ -1,0 +1,405 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>The Neck Roll, In Patients' Own Words</title>
+<style>
+:root{
+  --cream:#FBF3E4; --cream2:#F4E8D2; --ink:#17110B; --ink2:#4A3D2E;
+  --mustard:#E3B23C; --rust:#C4552F; --sage:#7C8C63; --blue:#6E8CA0; --plum:#8A5B6E;
+  --line:#D9C9A9;
+}
+*{box-sizing:border-box}
+body{margin:0;background:var(--cream);color:var(--ink);
+  font-family:"Iowan Old Style","Palatino Linotype",Palatino,Georgia,serif;
+  font-size:17px;line-height:1.62;}
+.wrap{max-width:900px;margin:0 auto;padding:38px 22px 90px}
+header{border-bottom:4px solid var(--ink);padding-bottom:18px;margin-bottom:26px}
+.kicker{font-family:ui-monospace,Menlo,Consolas,monospace;font-size:11.5px;letter-spacing:.19em;
+  text-transform:uppercase;color:var(--rust);font-weight:700}
+h1{font-size:2.35rem;line-height:1.12;margin:.28em 0 .18em;letter-spacing:-.015em}
+.sub{color:var(--ink2);font-size:1.03rem;max-width:63ch;margin:0}
+.stamp{font-family:ui-monospace,Menlo,monospace;font-size:11px;color:var(--ink2);margin-top:14px}
+
+nav.toc{background:var(--cream2);border:2px solid var(--ink);padding:16px 20px;margin:0 0 34px}
+nav.toc h2{font-family:ui-monospace,Menlo,monospace;font-size:11.5px;letter-spacing:.18em;
+  text-transform:uppercase;margin:0 0 10px;color:var(--ink2)}
+nav.toc ol{margin:0;padding-left:20px;columns:2;column-gap:30px}
+nav.toc li{margin:3px 0;break-inside:avoid}
+nav.toc a{color:var(--ink);text-decoration:none;border-bottom:1px solid var(--line)}
+nav.toc a:hover{border-bottom-color:var(--rust);color:var(--rust)}
+@media(max-width:620px){nav.toc ol{columns:1}}
+
+section{margin:0 0 46px;scroll-margin-top:16px}
+h2.sec{font-size:1.5rem;margin:0 0 6px;padding-bottom:7px;border-bottom:2px solid var(--ink)}
+h2.sec .n{font-family:ui-monospace,Menlo,monospace;font-size:.72em;color:var(--rust);margin-right:10px}
+.lede{color:var(--ink2);margin:0 0 20px;max-width:66ch}
+
+.q{border-left:5px solid var(--mustard);background:var(--cream2);padding:13px 17px;margin:14px 0;}
+.q.rust{border-left-color:var(--rust)}
+.q.sage{border-left-color:var(--sage)}
+.q.blue{border-left-color:var(--blue)}
+.q.plum{border-left-color:var(--plum)}
+.q p{margin:0 0 8px}
+.q p:last-of-type{margin-bottom:8px}
+.src{font-family:ui-monospace,Menlo,monospace;font-size:11px;color:var(--ink2);display:block}
+.src a{color:var(--ink2)}
+.src a:hover{color:var(--rust)}
+
+.card{border:2px solid var(--ink);background:#fff;padding:16px 18px;margin:16px 0}
+.card h3{margin:0 0 4px;font-size:1.13rem}
+.tag{display:inline-block;font-family:ui-monospace,Menlo,monospace;font-size:10.5px;letter-spacing:.09em;
+  text-transform:uppercase;padding:3px 8px;border:1.5px solid var(--ink);margin:0 6px 8px 0;background:var(--cream)}
+.tag.m{background:var(--mustard)}.tag.r{background:var(--rust);color:#fff;border-color:var(--rust)}
+.tag.s{background:var(--sage);color:#fff;border-color:var(--sage)}
+.tag.b{background:var(--blue);color:#fff;border-color:var(--blue)}
+.tag.p{background:var(--plum);color:#fff;border-color:var(--plum)}
+strong{background:linear-gradient(transparent 62%, var(--mustard) 62%);padding:0 1px}
+
+table{width:100%;border-collapse:collapse;margin:16px 0;font-size:15px}
+th,td{border:1.5px solid var(--ink);padding:9px 11px;text-align:left;vertical-align:top}
+th{background:var(--ink);color:var(--cream);font-family:ui-monospace,Menlo,monospace;
+  font-size:11px;letter-spacing:.11em;text-transform:uppercase}
+tbody tr:nth-child(even){background:var(--cream2)}
+.scroller{overflow-x:auto}
+
+.note{border:2px dashed var(--ink);padding:15px 18px;background:var(--cream2);margin:22px 0}
+.note h3{margin:0 0 6px;font-size:1.05rem}
+ul.tight li{margin:6px 0}
+footer{border-top:2px solid var(--ink);padding-top:16px;margin-top:40px;
+  font-family:ui-monospace,Menlo,monospace;font-size:11.5px;color:var(--ink2)}
+footer a{color:var(--ink2)}
+.srclist{font-size:14.5px}
+.srclist li{margin:7px 0}
+</style>
+</head>
+<body>
+<div class="wrap">
+
+<header>
+  <div class="kicker">In patients&rsquo; own words</div>
+  <h1>The neck you have to keep rolling</h1>
+  <p class="sub">What people with this exact pattern say about it in their own words: the constant urge to roll, crack or stretch the neck, the relief that does not hold, and what happens when they stop.</p>
+  <div class="stamp">Compiled 2026-08-22 &middot; 11 first-person forum threads and 4 peer-reviewed qualitative studies &middot; every quote linked to its source</div>
+</header>
+
+<nav class="toc">
+  <h2>Contents</h2>
+  <ol>
+    <li><a href="#pattern">Your exact pattern, in their words</a></li>
+    <li><a href="#clusters">Six clusters of patient report</a></li>
+    <li><a href="#relief">What relief feels like and how long it lasts</a></li>
+    <li><a href="#stopping">What people report when they stop</a></li>
+    <li><a href="#helped">What lowered the urge, per patients</a></li>
+    <li><a href="#landed">Where these reporters landed</a></li>
+    <li><a href="#studies">The same voice in published research</a></li>
+    <li><a href="#sources">Sources</a></li>
+  </ol>
+</nav>
+
+<section id="pattern">
+<h2 class="sec"><span class="n">01</span>Your exact pattern, in their words</h2>
+<p class="lede">Three reporters describe the same loop you did. The rolling and stretching are what hold the pain off, and the pain arrives when the movement stops.</p>
+
+<div class="q rust">
+<p>"I do find that I need to stretch my neck to avoid it getting all stiff and painful which for me then causes chronic headaches. By stretching I mean just moving my neck around a bunch in it's comfortable range of motion. That will usually lead to some various crunchy sounds as I guess it gets itself back to how it should be. <strong>I try to do that multiple times a day</strong> and also not to go overboard with it in one sitting cos that can start to make me dizzy."</p>
+<span class="src">r/ehlersdanlos, commenter in <a href="https://old.reddit.com/r/ehlersdanlos/comments/1fncs12/recently_abstaining_from_neck_cracking/">"Recently abstaining from neck cracking"</a></span>
+</div>
+
+<div class="q">
+<p>"I feel the constant need to try to stretch and pop, but nothing provides long-lasting relief. The stiffness and tightness in my neck at the base of my skull is there from the time I wake up in the morning until I go to bed at night. <strong>I'm constantly rolling my neck around in a 360 degree motion, trying to loosen it up</strong>, unfortunately, that's kind of become addicting and it doesn't even help to loosen it really."</p>
+<span class="src">r/ChronicPain, 31F, <a href="https://old.reddit.com/r/ChronicPain/comments/1b1vuwo/daily_neck_stiffness_with_grinding_sounds_please/">"DAILY NECK STIFFNESS with grinding sounds"</a></span>
+</div>
+
+<div class="q sage">
+<p>"It hurts when I don't crack. My neck, knuckles, wrists, ankles, back, elbow, everything! But then it's only a moment of relief when I do. I know this is just aggravating the problem in the long run, <strong>but it hurts not to crack</strong>. Is this just a never ending battle of will power? I do exercise, a lot, but all the time I'm stiff."</p>
+<span class="src">r/ehlersdanlos, <a href="https://old.reddit.com/r/ehlersdanlos/comments/1gqpqdf/how_do_i_stop_cracking_my_joints/">"How do I stop cracking my joints?"</a></span>
+</div>
+</section>
+
+<section id="clusters">
+<h2 class="sec"><span class="n">02</span>Six clusters of patient report</h2>
+<p class="lede">Reading across the threads, self-descriptions sort into six recurring shapes. Most reporters describe two or three at once.</p>
+
+<div class="card">
+  <span class="tag m">Cluster 1</span><span class="tag">most common</span>
+  <h3>Pressure that builds until it is released</h3>
+  <p>Reporters describe an accumulating physical pressure rather than a background ache. The verb they reach for is release.</p>
+  <div class="q" style="margin-top:10px">
+  <p>"Pretty much every single joint in my body builds up 'pressure' that can only be relieved through cracking. When my chiropractor cracks my neck <strong>I can literally breath better</strong>."</p>
+  <span class="src">r/ehlersdanlos, <a href="https://old.reddit.com/r/ehlersdanlos/comments/pyih3v/doctors_keep_telling_me_not_to_crack_my_neck_but/">"Doctors keep telling me not to crack my neck"</a></span>
+  </div>
+  <div class="q">
+  <p>"I'll get this squeezing pain in my chest and middle back when I turn <strong>if I don't crack my neck</strong> and adjust my spine. I'm just sick of having to deal with it by cracking. I'm developing crepitus cause my body cracks all the time now."</p>
+  <span class="src">r/ChronicPain, 19M, <a href="https://old.reddit.com/r/ChronicPain/comments/zlfguk/built_up_pressure_in_chest_and_back_if_i_dont/">"Built up pressure in chest and back"</a></span>
+  </div>
+</div>
+
+<div class="card">
+  <span class="tag r">Cluster 2</span>
+  <h3>The head feels wrong on the neck</h3>
+  <p>A distinct group describes weight and misalignment rather than pain. The head sits badly, and the roll is an attempt to reseat it.</p>
+  <div class="q rust" style="margin-top:10px">
+  <p>"It doesn't feel like my head was jammed onto my neck by a toddler with low motor function." <span style="color:var(--ink2)">(describing the moment after release)</span></p>
+  <span class="src">r/ehlersdanlos, <a href="https://old.reddit.com/r/ehlersdanlos/comments/pyih3v/doctors_keep_telling_me_not_to_crack_my_neck_but/">same thread</a></span>
+  </div>
+  <div class="q rust">
+  <p>"If I don't at least attempt to get temporary relief, <strong>everything is uncalibrated and restricted</strong>. My physical and mental composure is constantly affected by this."</p>
+  <span class="src">r/ChronicPain, commenter in <a href="https://old.reddit.com/r/ChronicPain/comments/14msjix/ocd_self_inflicted_pain_neck_creaking_and_cracking/">"Neck creaking and cracking"</a></span>
+  </div>
+</div>
+
+<div class="card">
+  <span class="tag s">Cluster 3</span>
+  <h3>Sound as the main symptom</h3>
+  <p>Grinding, crunching and gravel come up repeatedly, sometimes as the thing that worries people more than the pain does.</p>
+  <div class="q sage" style="margin-top:10px">
+  <p>"My neck constantly is clicking, cracking, popping, and <strong>making grinding sounds in my neck at the base of my skull</strong>."</p>
+  <span class="src">r/ChronicPain, 31F, <a href="https://old.reddit.com/r/ChronicPain/comments/1b1vuwo/daily_neck_stiffness_with_grinding_sounds_please/">"Daily neck stiffness"</a></span>
+  </div>
+  <div class="q sage">
+  <p>"I noticed when turning my head it makes a gravelly noise, and I also noticed for some reason <strong>it's harder for me to crack my neck than it used to be</strong>."</p>
+  <span class="src">r/ehlersdanlos, <a href="https://old.reddit.com/r/ehlersdanlos/comments/1039aio/is_it_possible_to_break_or_mess_up_my_neck_from/">"Is it possible to mess up my neck from cracking it"</a></span>
+  </div>
+</div>
+
+<div class="card">
+  <span class="tag b">Cluster 4</span>
+  <h3>The compulsion loop</h3>
+  <p>Several reporters separate the physical need from a mental one, and call the second one the harder problem. One of the most detailed accounts on this pattern came from a poster who counted the repetitions.</p>
+  <div class="q blue" style="margin-top:10px">
+  <p>"It's currently 3 am and I've been up for an hour popping my neck, desperate to make it feel better. Logically, I know that popping my neck isn't going to make the pain go away and will probably make it worse, but in the moment I spiral into this maniacal state where I can't help but pop and hope that all the pain goes away. <strong>I crack my neck hundreds of times a day.</strong> I feel out of control."</p>
+  <span class="src">r/ehlersdanlos, <a href="https://old.reddit.com/r/ehlersdanlos/comments/14vpl1k/neck_popping_addiction/">"Neck popping addiction"</a></span>
+  </div>
+  <div class="q blue">
+  <p>"I turn my neck like <strong>thousands of times a day</strong> probably. I got a weird kinda pop I can do over and over again and it just kinda fades never does one large pop and stops."</p>
+  <span class="src">r/ChronicPain, <a href="https://old.reddit.com/r/ChronicPain/comments/s4lz6f/how_to_stop_cracking_my_neck_2_years_of_pain_and/">"How to stop cracking my neck"</a></span>
+  </div>
+</div>
+
+<div class="card">
+  <span class="tag p">Cluster 5</span>
+  <h3>A specific angle, a specific spot</h3>
+  <p>Reporters in this group can locate the release precisely. They describe hunting for one angle, and the hunt is what the rolling actually is.</p>
+  <div class="q plum" style="margin-top:10px">
+  <p>"It's not a normal crack like the knuckles. And <strong>I have to get it right on. The right angle.</strong>"</p>
+  <span class="src">r/ChronicPain, <a href="https://old.reddit.com/r/ChronicPain/comments/14msjix/ocd_self_inflicted_pain_neck_creaking_and_cracking/">"Neck creaking and cracking"</a></span>
+  </div>
+  <div class="q plum">
+  <p>"I feel as if there a pocket of fluid that is moving around my cervical spine, and if I move my head 'correctly' I can push it around then release it, resulting in an audible snap. But <strong>it doesn't FEEL like a real crack.</strong> There's a handful of odd looking neck movements I do to get the snap, but the tension only seems to build."</p>
+  <span class="src">r/ChronicPain, <a href="https://old.reddit.com/r/ChronicPain/comments/14msjix/ocd_self_inflicted_pain_neck_creaking_and_cracking/">same thread, OP</a></span>
+  </div>
+</div>
+
+<div class="card">
+  <span class="tag">Cluster 6</span>
+  <h3>The knot that wants to be broken open</h3>
+  <p>A palpable lump, described as needing force rather than stretch. This reporter had eight years of it and a stack of clean scans.</p>
+  <div class="q" style="margin-top:10px">
+  <p>"Deep pain; <strong>feels like a hard ball that needs to be busted open</strong>. There is literally a ball if you push deep enough. When trying to relax, my muscle will contract and my neck will tweak. Constantly cracking my neck; I try not to but it hurts so bad I can't help it."</p>
+  <span class="src">r/ChronicPain, 25F, 8 years, <a href="https://old.reddit.com/r/ChronicPain/comments/591k0b/undiagnosed_chronic_neck_pain_anybody_have/">"Undiagnosed chronic neck pain"</a></span>
+  </div>
+</div>
+</section>
+
+<section id="relief">
+<h2 class="sec"><span class="n">03</span>What relief feels like and how long it lasts</h2>
+<p class="lede">Almost nobody in these threads reports lasting relief. The consistent report is a short window followed by return, and the window shrinking over time.</p>
+<div class="scroller">
+<table>
+<thead><tr><th>Reported duration</th><th>How they put it</th><th>Source</th></tr></thead>
+<tbody>
+<tr><td>Seconds to a minute</td><td>"only a moment of relief when I do"</td><td>r/ehlersdanlos, stop cracking joints</td></tr>
+<tr><td>Long enough to function</td><td>"crack it or don't expect to use it. It can get kinda stuck"</td><td>r/ehlersdanlos, doctors keep telling me</td></tr>
+<tr><td>Immediate, then gone</td><td>"I get nearly immediate relief when my chiropractor cracks my neck"</td><td>r/ehlersdanlos, doctors keep telling me</td></tr>
+<tr><td>Never arrives at all</td><td>"it just kinda fades never does one large pop and stops"</td><td>r/ChronicPain, how to stop cracking</td></tr>
+<tr><td>Mild, takes the edge off</td><td>"temporary relief, but it's very mild relief, the stiffness and pain are still there"</td><td>r/ChronicPain, daily neck stiffness</td></tr>
+<tr><td>An hour, during treatment</td><td>"only for the hour during the massage it gives me a moment of pain relief"</td><td>r/ehlersdanlos, abstaining</td></tr>
+<tr><td>Weeks, then back</td><td>"it's OK for a time and I don't have as much trouble"</td><td>Scherer et al. 2010, ID 0181, 27F</td></tr>
+<tr><td>Nothing durable</td><td>"it does do something for a while, but it doesn't actually achieve anything"</td><td>Scherer et al. 2010, ID 0223, 76F</td></tr>
+</tbody>
+</table>
+</div>
+</section>
+
+<section id="stopping">
+<h2 class="sec"><span class="n">04</span>What people report when they stop</h2>
+<p class="lede">This is the part clinical pages leave out, and it is the most directly useful report for someone in your position. Several reporters quit deliberately and wrote down what followed.</p>
+
+<div class="q rust">
+<p>"I've historically been a chronic neck cracker, for years I'd crack my neck to relieve tension throughout the day. I made a point to stop. I stopped about a month ago. Since then, <strong>my neck has become far stiffer, my head feels heavier</strong>, and, if not constantly supported by KT tape, my neck pain by the end of the day is unbearable. It lands around the C7 area at the base of the neck."</p>
+<span class="src">r/ehlersdanlos, <a href="https://old.reddit.com/r/ehlersdanlos/comments/1fncs12/recently_abstaining_from_neck_cracking/">"Recently abstaining from neck cracking"</a></span>
+</div>
+
+<div class="q rust">
+<p>"I stopped for a month or so, and <strong>was in agony</strong>, the migraines, tinnitus was worse, movement in general awful. Unable to drive as I couldn't turn my neck."</p>
+<span class="src">r/ehlersdanlos, commenter in the same thread</span>
+</div>
+
+<div class="q sage">
+<p>"I was a chronic neck cracker for a long time growing up, <strong>stopping helped immensely</strong>. PT and learning how to relax, release tension, and strengthen according to my weak areas is what got me back to a high sense of normalcy."</p>
+<span class="src">r/ehlersdanlos, <a href="https://old.reddit.com/r/ehlersdanlos/comments/pyih3v/doctors_keep_telling_me_not_to_crack_my_neck_but/">"Doctors keep telling me not to crack my neck"</a></span>
+</div>
+
+<p>The split is consistent across the threads. Reporters who stopped <strong>and replaced the movement with something</strong> describe improvement. Reporters who stopped and did nothing else describe the pain getting sharply worse within a month.</p>
+
+<div class="q blue">
+<p>"All these comments seem to miss the point. Your neck cracking offers a form of mild relief. <strong>If they really wanted you to stop, they'd attack the reason you do it, not 'stop it!'</strong>"</p>
+<span class="src">r/ChronicPain, <a href="https://old.reddit.com/r/ChronicPain/comments/ulybkl/ive_been_told_not_to_crack_my_neck_but_the_pain/">"I've been told not to crack my neck"</a></span>
+</div>
+</section>
+
+<section id="helped">
+<h2 class="sec"><span class="n">05</span>What lowered the urge, per patients</h2>
+<p class="lede">Sorted by how many independent reporters mention it. These are patient reports of what worked for them. They are not recommendations.</p>
+
+<div class="card">
+<span class="tag m">most reported</span>
+<h3>Isometric resistance instead of a twist</h3>
+<p>The single most upvoted piece of peer advice in the corpus, and the one other posters came back months later to thank the writer for.</p>
+<div class="q">
+<p>"Just hold your head in straight, neutral position looking forward. Put the palm of your hand against side of head, above ear. <strong>Push with your hand while resisting with your neck.</strong> Don't bend head. You should occasionally get some pops or cracks that relieve the tension, but without bending head/neck."</p>
+<span class="src">r/ChronicPain, <a href="https://old.reddit.com/r/ChronicPain/comments/s4lz6f/how_to_stop_cracking_my_neck_2_years_of_pain_and/">"How to stop cracking my neck"</a></span>
+</div>
+<div class="q">
+<p>"I've been cranking my head and neck to pop it for at least 6 years now, never have I ever heard of this idea until now. I just tried it and had a jaw dropping moment, <strong>it felt more relieved and more natural than anything else</strong>."</p>
+<span class="src">r/ChronicPain, reply in the same thread</span>
+</div>
+</div>
+
+<div class="card">
+<h3>The distinction reporters were given: hands versus movement</h3>
+<p>Multiple posters relay the same rule from their own PTs and doctors, which reframes the goal from stopping to changing method.</p>
+<div class="q blue">
+<p>"Cracking it via moving it at various angles is fine (except for trying to put the back of the skull towards your back) <strong>as long as you aren't using your hands or something else to push against</strong>. This is because you can misalign/sublux your vertebrae by physically manipulating it."</p>
+<span class="src">r/ehlersdanlos, <a href="https://old.reddit.com/r/ehlersdanlos/comments/pyih3v/doctors_keep_telling_me_not_to_crack_my_neck_but/">"Doctors keep telling me not to crack my neck"</a></span>
+</div>
+</div>
+
+<div class="card">
+<h3>Trigger point work on the muscle doing the pulling</h3>
+<div class="q sage">
+<p>"I finally learned in my 30's about how to release the tight muscles that were pulling things out of place <strong>instead of just popping the joint</strong>. I'd still pop something back in if it was out, and then focus on the hella tight muscle that was often causing the problem. It was highly effective in lowering my pain levels as well."</p>
+<span class="src">r/ehlersdanlos, <a href="https://old.reddit.com/r/ehlersdanlos/comments/1fncs12/recently_abstaining_from_neck_cracking/">"Recently abstaining"</a>. This reporter, a massage therapist, points to Claire Davies, <em>The Trigger Point Therapy Workbook</em>, as the self-treatment source.</span>
+</div>
+</div>
+
+<div class="card">
+<h3>Chin tuck and floor rest</h3>
+<div class="q">
+<p>"Lie flat on your back on the floor, legs and arms slightly spread and flat, a small washcloth or towel can be rolled to put under the neck, for a few minutes, lie completely still and try to consciously relax your muscle groups." Plus the chin tuck: "without moving your neck tuck your chin slightly to your Adams apple, think about it as <strong>creating a slight double chin</strong>, hold for 2 seconds and slowly release."</p>
+<span class="src">r/ehlersdanlos, <a href="https://old.reddit.com/r/ehlersdanlos/comments/pyih3v/doctors_keep_telling_me_not_to_crack_my_neck_but/">"Doctors keep telling me not to crack my neck"</a></span>
+</div>
+</div>
+
+<div class="card">
+<h3>A substitute object for the compulsion half</h3>
+<div class="q plum">
+<p>"My PT recommended movement to compensate. For instance if you want to crack your fingers because they're stiff, instead get some therapy putty or a stress ball and use that instead. <strong>It'll have a similar effect of helping with the stiffness with none of the eventual side effects.</strong>"</p>
+<span class="src">r/ehlersdanlos, <a href="https://old.reddit.com/r/ehlersdanlos/comments/1gqpqdf/how_do_i_stop_cracking_my_joints/">"How do I stop cracking my joints?"</a></span>
+</div>
+</div>
+
+<div class="card">
+<h3>Also mentioned, by fewer reporters</h3>
+<ul class="tight">
+<li><strong>Kinesiology tape</strong> for end-of-day support, named by two reporters as the thing standing between them and unbearable evening pain.</li>
+<li><strong>Cyclobenzaprine</strong> (a muscle relaxant), reported as helping "a lot when my cervical spine is acting up." A UK poster in the same thread found it unavailable there.</li>
+<li><strong>Weight change</strong>, one reporter tracked 8 kg down against "less noticeable, hurts less."</li>
+<li><strong>Heat</strong>, specifically sauna stretching and a heat pad during flares.</li>
+<li><strong>Massage guns</strong> for the spots a person cannot reach alone.</li>
+<li><strong>CBT and a written note</strong> for the compulsion half, from the poster cracking hundreds of times a day.</li>
+</ul>
+</div>
+</section>
+
+<section id="landed">
+<h2 class="sec"><span class="n">06</span>Where these reporters landed</h2>
+<p class="lede">Worth knowing because several of these people spent years being told it was just muscle. This lists what they were eventually told, as they reported it. It is not a list of what you have.</p>
+<div class="scroller">
+<table>
+<thead><tr><th>Reporter</th><th>Time to an answer</th><th>What they were eventually told</th></tr></thead>
+<tbody>
+<tr><td>25F, one spot at neck and shoulder junction</td><td>8+ years, two clean MRIs, clean CT, clean bloodwork</td><td><strong>Thoracic outlet syndrome</strong>, resolved by surgery. She notes it "doesn't show up on ANY tests" and needs a specific physical exam.</td></tr>
+<tr><td>20F, cracking daily since age 12</td><td>Found at a musculoskeletal assessment</td><td><strong>Joint hypermobility</strong>, Beighton score 7 of 9</td></tr>
+<tr><td>Construction worker, 10 years of self-diagnosed sciatica</td><td>10 years</td><td><strong>C5 disc degeneration plus stenosis</strong>, and two arthritic hips producing the leg symptoms</td></tr>
+<tr><td>Poster with constant urge to crack</td><td>Imaging</td><td><strong>Bilateral neural foraminal narrowing C3 to C6</strong>, with nausea and headaches</td></tr>
+<tr><td>31F, daily stiffness and grinding</td><td>3 years, stalled after 3 PT visits</td><td>Unresolved. Traces onset to being <strong>t-boned in a car in 2021</strong>, with symptoms surfacing about six months later.</td></tr>
+<tr><td>Neck cracker, MRI negative</td><td>Ongoing</td><td>Peer suggestion of <strong>occipital neuralgia</strong>, which the commenter notes typically does not appear on MRI</td></tr>
+</tbody>
+</table>
+</div>
+
+<div class="note">
+<h3>What recurs across these accounts</h3>
+<p>Two things recur often enough to be the point of this page. First, <strong>a clean MRI did not mean nothing was there</strong> for several of these reporters. Second, the reporters who got an answer almost all got it after asking to be sent to a specific specialist rather than accepting another round of general physiotherapy.</p>
+<p>One put it directly: "Finally pulled the trigger and told my doctor to <strong>refer me to a specialist instead of ignoring me and sending me straight to PT</strong>."</p>
+</div>
+</section>
+
+<section id="studies">
+<h2 class="sec"><span class="n">07</span>The same voice in published research</h2>
+<p class="lede">Qualitative studies record patients verbatim rather than translating them into clinical terms. Four of them carry the same notes as the forum threads.</p>
+
+<div class="q">
+<p>"It does do something for a while, <strong>but it doesn't actually achieve anything</strong>, no." <span style="color:var(--ink2)">(on treatment)</span></p>
+<span class="src">ID 0223, 76F. Scherer M et al., <a href="https://pmc.ncbi.nlm.nih.gov/articles/PMC2899974/">"The experience and management of neck pain in general practice: the patients' perspective"</a>, European Spine Journal, 2010</span>
+</div>
+
+<div class="q">
+<p>"I am really not that old <strong>and then I just feel totally inflexible</strong>."</p>
+<span class="src">30F, baseline interview. Holmberg C et al., <a href="https://pmc.ncbi.nlm.nih.gov/articles/PMC4932153/">"How do patients with chronic neck pain experience the effects of qigong and exercise therapy?"</a>, Evid Based Complement Alternat Med, 2016;2016:8010891</span>
+</div>
+
+<div class="q">
+<p>"I could hardly move my neck. <strong>It hurt all the way down to the arm.</strong>"</p>
+<span class="src">52F, same study</span>
+</div>
+
+<div class="q">
+<p>"That afternoon I had a very bad afternoon, I was very angry and worried, honestly, and <strong>the pain increased, I endured it and then pain increased even more</strong>."</p>
+<span class="src">Participant 2. P&eacute;rez-Mart&iacute;n Y et al., <a href="https://pmc.ncbi.nlm.nih.gov/articles/PMC12250658/">"Exploring emotional conflicts and pain experience in patients with non-specific chronic neck pain"</a>, J Clin Med, 2025;14(13):4748</span>
+</div>
+
+<p>The 2016 study also records the change reporters describe when a movement practice replaces the roll, in the same plain register: "I am able to turn my head much more freely," and, from a 55-year-old participant, that specific muscles felt "shortened or cramped up" before the work started.</p>
+</section>
+
+<section id="sources">
+<h2 class="sec"><span class="n">08</span>Sources</h2>
+<p class="lede">Every quote above comes from one of these. Forum threads are first-person patient posts. Studies are peer-reviewed and open access.</p>
+<ol class="srclist">
+<li><a href="https://old.reddit.com/r/ehlersdanlos/comments/1fncs12/recently_abstaining_from_neck_cracking/">Recently abstaining from neck cracking</a> &mdash; r/ehlersdanlos</li>
+<li><a href="https://old.reddit.com/r/ehlersdanlos/comments/pyih3v/doctors_keep_telling_me_not_to_crack_my_neck_but/">Doctors keep telling me not to crack my neck but if I don't, pressure builds up</a> &mdash; r/ehlersdanlos</li>
+<li><a href="https://old.reddit.com/r/ehlersdanlos/comments/14vpl1k/neck_popping_addiction/">Neck popping addiction</a> &mdash; r/ehlersdanlos</li>
+<li><a href="https://old.reddit.com/r/ehlersdanlos/comments/1gqpqdf/how_do_i_stop_cracking_my_joints/">How do I stop cracking my joints?</a> &mdash; r/ehlersdanlos</li>
+<li><a href="https://old.reddit.com/r/ehlersdanlos/comments/1mlw25l/anyone_else_have_bilateral_neural_foraminal/">Bilateral neural foraminal narrowing in the cervical spine</a> &mdash; r/ehlersdanlos</li>
+<li><a href="https://old.reddit.com/r/ehlersdanlos/comments/1039aio/is_it_possible_to_break_or_mess_up_my_neck_from/">Is it possible to mess up my neck from trying to crack it too forcefully?</a> &mdash; r/ehlersdanlos</li>
+<li><a href="https://old.reddit.com/r/ChronicPain/comments/s4lz6f/how_to_stop_cracking_my_neck_2_years_of_pain_and/">How to stop cracking my neck? 2 years of pain</a> &mdash; r/ChronicPain</li>
+<li><a href="https://old.reddit.com/r/ChronicPain/comments/ulybkl/ive_been_told_not_to_crack_my_neck_but_the_pain/">I've been told not to crack my neck but the pain is becoming unbearable</a> &mdash; r/ChronicPain</li>
+<li><a href="https://old.reddit.com/r/ChronicPain/comments/zlfguk/built_up_pressure_in_chest_and_back_if_i_dont/">Built up pressure in chest and back if I don't crack my neck</a> &mdash; r/ChronicPain</li>
+<li><a href="https://old.reddit.com/r/ChronicPain/comments/591k0b/undiagnosed_chronic_neck_pain_anybody_have/">Undiagnosed chronic neck pain; anybody have similar symptoms?</a> &mdash; r/ChronicPain</li>
+<li><a href="https://old.reddit.com/r/ChronicPain/comments/14msjix/ocd_self_inflicted_pain_neck_creaking_and_cracking/">OCD and self inflicted pain, neck creaking and cracking</a> &mdash; r/ChronicPain</li>
+<li><a href="https://old.reddit.com/r/ChronicPain/comments/1b1vuwo/daily_neck_stiffness_with_grinding_sounds_please/">Daily neck stiffness with grinding sounds</a> &mdash; r/ChronicPain</li>
+<li>Scherer M, Le Reste JY, et al. <a href="https://pmc.ncbi.nlm.nih.gov/articles/PMC2899974/">The experience and management of neck pain in general practice: the patients' perspective.</a> European Spine Journal, 2010.</li>
+<li>Holmberg C, Rappenecker J, Karner JJ, Witt CM. <a href="https://pmc.ncbi.nlm.nih.gov/articles/PMC4932153/">How do patients with chronic neck pain experience the effects of qigong and exercise therapy?</a> Evid Based Complement Alternat Med, 2016;2016:8010891.</li>
+<li>P&eacute;rez-Mart&iacute;n Y, et al. <a href="https://pmc.ncbi.nlm.nih.gov/articles/PMC12250658/">Exploring emotional conflicts and pain experience in patients with non-specific chronic neck pain: a qualitative study.</a> J Clin Med, 2025;14(13):4748.</li>
+<li><a href="https://www.healthrising.org/forums/threads/craniocervical-instability.6512/">Craniocervical instability thread</a> &mdash; Health Rising forums</li>
+</ol>
+
+<div class="note" style="margin-top:26px">
+<h3>What this page is</h3>
+<p>A collection of what patients said, gathered because you asked for patient report rather than clinical description. <strong>Nothing here is medical advice and none of it is a diagnosis.</strong> It is worth reading because it shows which questions other people had to ask before anyone looked properly.</p>
+<p>If you take one thing to a clinician from this page, the reporters here would make it two: ask for a <strong>hypermobility assessment</strong> (the Beighton score, a five-minute bedside test), and ask what would explain the symptoms <strong>if the imaging comes back clean</strong>, since that was the wall most of them hit.</p>
+</div>
+</section>
+
+<footer>
+Built 2026-08-22 &middot; 12 first-person threads, 4 studies, 0 unattributed quotes &middot;
+Sources are linked inline and listed in section 08 &middot;
+Patient report throughout &middot; not medical advice
+</footer>
+
+</div>
+</body>
+</html>
