@@ -315,6 +315,30 @@ Asleep confirms on the local copy what Phase 0 found against the live tab: our f
 
 **The clean test is one install away.** `basic_pitch` is present in `~/venvs/audio_midi_311` and crashes with SIGFPE (exit 136) because neither `tensorflow` nor `tflite-runtime` is installed there. `pip install 'basic-pitch[tf]'` into that venv should fix it, and mir_eval can then be re-run against a polyphonic reference. That is a package install rather than research, and it is the highest-value next action on the board.
 
+
+### mir_eval with a POLYPHONIC reference: it works, and no install was needed
+
+`basic_pitch`'s default model is `nmp.mlpackage` (CoreML), which crashes with SIGFPE. `nmp.onnx` ships in the same directory and `onnxruntime 1.23.2` was already installed, so selecting ONNX fixed it. No tensorflow, no tflite-runtime, no download.
+
+| Pairing, reference is basic_pitch on the full mix | Ref notes | P | R | F at 50 ms | F at 250 ms | Ratio |
+|---|---|---|---|---|---|---|
+| **CORRECT the_mutiny.mp3** | 1444 | 0.060 | 0.100 | **0.075** | **0.205** | reference |
+| WRONG endless_summer.mp3 | 1860 | 0.036 | 0.047 | 0.041 | 0.101 | 1.83 |
+| WRONG so_far_so.mp3 | 1231 | 0.009 | 0.017 | 0.012 | 0.046 | 6.48 |
+| WRONG my_mirror_hates_me.mp3 | 1642 | 0.004 | 0.006 | 0.005 | 0.011 | 15.14 |
+
+**Worst-case 1.83x at 50 ms and 2.04x at 250 ms. Both clear the 1.5 bar, so mir_eval is USABLE.** All four references are full mixes, so density is comparable by construction (1231 to 1860 against the correct 1444), which removes the confound that faked the earlier 28.8x.
+
+| Measure | Worst-case discrimination | Verdict |
+|---|---|---|
+| Attack recall, health-gated map | **5.70x** | the leader |
+| Map alignment | 5.75x | valid, song level only |
+| **mir_eval note F, polyphonic reference** | **2.04x at 250 ms** | USABLE, second validated discriminator |
+| mir_eval note F, monophonic YIN reference | 1.28x | weak, the reference was the handicap |
+| Everything else measured this session | under 1.5x or inverted | unusable |
+
+**Absolute F is low because the reference is the FULL MIX**, so basic_pitch transcribes bass, drums and vocals alongside the guitar while the estimate is one guitar staff. The isolated stem would raise it, and that is the one thing still wanting the drive. The discrimination holds without it.
+
 ### Phase 2. The decision that is not mine
 
 Nine measures tested with controls on both sides, only attack recall survived, so today a corrected file cannot be justified note by note. Three ways forward:

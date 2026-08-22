@@ -594,6 +594,45 @@ footer{margin-top:52px;padding-top:18px;border-top:2px solid var(--ink);
   <strong>The clean test is one install away.</strong>
   <code>basic_pitch</code> is present in <code>~/venvs/audio_midi_311</code> and crashes with SIGFPE, exit 136, because neither <code>tensorflow</code> nor <code>tflite-runtime</code> is installed there; it warns about both on import. <code>pip install 'basic-pitch[tf]'</code> into that venv should fix it, and then mir_eval can be re-run against a polyphonic reference on the same tabs and the same local audio. That is a package install rather than research, and it is the highest-value next action on the whole board.
 </div>
+
+<h3>mir_eval with a POLYPHONIC reference: it works, and no install was needed</h3>
+
+<p>The monophonic YIN run gave a weak 1.28x and was not a fair test of the metric. The fair test needs a polyphonic reference, and <code>basic_pitch</code> crashed with SIGFPE on this box. <strong>The fix turned out to be free.</strong> Its default model is <code>nmp.mlpackage</code>, CoreML, which is what crashes. <code>nmp.onnx</code> ships in the same directory and <code>onnxruntime 1.23.2</code> is already installed, so selecting the ONNX backend fixed it. No <code>tensorflow</code>, no <code>tflite-runtime</code>, no download.</p>
+
+<div class="scroll">
+<table>
+<thead><tr><th>Pairing, reference is basic_pitch on the full mix</th><th>Ref notes</th><th>P</th><th>R</th><th>F at 50 ms</th><th>F at 250 ms</th><th>Ratio, 50 ms</th></tr></thead>
+<tbody>
+<tr class="yes"><td><strong>CORRECT the_mutiny.mp3</strong></td><td>1444</td><td>0.060</td><td>0.100</td><td><strong>0.075</strong></td><td><strong>0.205</strong></td><td>reference</td></tr>
+<tr><td>WRONG endless_summer.mp3</td><td>1860</td><td>0.036</td><td>0.047</td><td>0.041</td><td>0.101</td><td class="p-warn">1.83</td></tr>
+<tr><td>WRONG so_far_so.mp3</td><td>1231</td><td>0.009</td><td>0.017</td><td>0.012</td><td>0.046</td><td>6.48</td></tr>
+<tr><td>WRONG my_mirror_hates_me.mp3</td><td>1642</td><td>0.004</td><td>0.006</td><td>0.005</td><td>0.011</td><td class="yes">15.14</td></tr>
+</tbody>
+</table>
+</div>
+
+<div class="note">
+  <strong>Worst-case 1.83x at 50 ms and 2.04x at 250 ms. Both clear the 1.5 bar, so mir_eval is USABLE.</strong>
+  All four references are full mixes, so note density is comparable by construction, 1231 to 1860 against the correct pairing's 1444. That removes the density confound that faked the earlier 28.8x. Endless Summer is again the hardest control to separate, as it was under the YIN reference.
+</div>
+
+<div class="scroll">
+<table style="min-width:560px">
+<thead><tr><th>Measure</th><th>Worst-case discrimination</th><th>Verdict</th></tr></thead>
+<tbody>
+<tr class="yes"><td>Attack recall, through a health-gated map</td><td class="yes"><strong>5.70x</strong></td><td class="yes">the leader</td></tr>
+<tr><td>Map alignment</td><td>5.75x</td><td>valid, song level only</td></tr>
+<tr class="yes"><td><strong>mir_eval note F, polyphonic reference</strong></td><td class="yes"><strong>2.04x at 250 ms</strong></td><td class="yes">USABLE, the second validated discriminator</td></tr>
+<tr><td>mir_eval note F, monophonic YIN reference</td><td class="no">1.28x</td><td class="no">weak, the reference was the handicap</td></tr>
+<tr><td>Everything else measured this session</td><td class="no">under 1.5x or inverted</td><td class="no">unusable</td></tr>
+</tbody>
+</table>
+</div>
+
+<div class="note warnb">
+  <strong>Absolute F is still low, and the reason is the audio rather than the tab.</strong>
+  0.075 at 50 ms means the reference is the FULL MIX, so <code>basic_pitch</code> is transcribing bass, drums and vocals alongside the guitar while the estimate is one guitar staff. The isolated guitar stem would raise it, and that is the one thing still wanting the T7 Shield drive. The DISCRIMINATION is what matters here, and it holds without the stem.
+</div>
 <h3>Phase 2. The decision that is not mine to make</h3>
 <p>After Phase 1, <code>/goal</code> on The Mutiny reduces to one question. Nine measures were tested with controls on both sides and only attack recall survived, so today a corrected file cannot be justified note by note. Three ways forward:</p>
 <ul>
