@@ -263,7 +263,7 @@ Thirteen onsets across 281 s is 0.05 per second. Lazarus joins So Far So as a so
 
 ### Correction: the drive being absent blocks LESS than I said
 
-A complete copy of all ten `.gp` files sits on the internal disk at `~/Desktop/Brandon-Vault/New Folder With Items 2/New Folder With Items 7/IF YOU CAN'T FIND SOMETHING ITS HERE/BandBooks/BELIEVEYOUME/_canonical_2026-06-04/songs/`. What is genuinely missing is the STEMS.
+A complete copy of all ten `.gp` files lives on the internal disk at `~/Desktop/Brandon-Vault/New Folder With Items 2/New Folder With Items 7/IF YOU CAN'T FIND SOMETHING ITS HERE/BandBooks/BELIEVEYOUME/_canonical_2026-06-04/songs/`. What is genuinely missing is the STEMS.
 
 | Work | Needs | Runnable without the drive |
 |---|---|---|
@@ -352,13 +352,13 @@ The local full-mix mp3s cover all ten songs, so the audio pipeline runs on them.
 | Attack recall | 32.9%, 1855 of 5645, decoy 5.3%, **6.2x** |
 | Attack precision | 89.6%, 311 of 347 |
 | Timing | median 125.4 ms, p90 176.3 ms, n=2340 |
-| Pitch agreement | **53.2% vs 44.8% control, separation +8.4**, not labelled no-power |
+| Pitch agreement | **53.2% vs 44.8% control, separation +8.4**, and the tool withheld its no-power label |
 | Duration | -0.079 vs -0.006 control, no power |
 | Classification | 2 supported (bars 4, 28), 0 unresolved, 146 unsupported |
 
 **The 5645 written attacks are inflated by the duplicate staves.** This file carries `Rhythm Guitar Copy` and `Copy`, so roughly a third are counted twice and 32.9% is a floor. The re-pull of `s5084035` would raise it.
 
-Both supported bars carry 40 and 90 attacks with 100% miss against decoys at 80.0% and 83.3%, clearing the threshold by a wider margin than The Alligator's. Listening candidates, not proven defects.
+Both supported bars carry 40 and 90 attacks with 100% miss against decoys at 80.0% and 83.3%, clearing the threshold by a wider margin than The Alligator's. Treat them as listening candidates.
 
 **Eight of ten songs now carry both halves.** Only Asleep in the Trunk and Jackie remain, and their local mp3s exist.
 
