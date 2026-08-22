@@ -5,6 +5,39 @@ Census taken 2026-08-17. Every Songsterr tab, Guitar Pro file, and stem folder f
 
 
 
+
+## Songs 9 and 10, and the audit is complete
+
+### Asleep in the Trunk: 88.9% attack recall on a file that is almost empty
+
+| Measure | Value | What it means |
+|---|---|---|
+| Attack recall | 88.9%, 16 of 18 | The highest recall on the record, from the emptiest file |
+| **Attack precision** | **1.1%, 7 of 663** | The number that exposes it |
+| Map | 1 anchor, 8 tab attacks | Health gate FAILS, fewer than two anchors |
+| Pitch separation | -22.2 (55.6% vs a 77.8% control) | Inverted, on n=18 |
+| Length | 274.7 s at 173 bpm in 3/4 vs a 278.9 s mix | The shell has the right bar count and tempo |
+
+**The sharpest case on the board for never reading recall alone.** A tab of 173 notes across 264 bars scores 88.9% attack recall, higher than every real transcription measured. Precision at 1.1% catches it, and the health gate refuses the map at one anchor. Three independent checks disagree with the flattering number.
+
+### Jackie: the cleanest map on the record
+
+| Stage | Result |
+|---|---|
+| Length | 170.0 s at 144 bpm vs a 173.0 s mix, 1.7% apart |
+| Map | 66.3% alignment vs 14.5% control, gain +51.7, 20 anchors |
+| Map health | **PASS, best measured**: clamped 1.7%, max run 12, unique 0.984, span 98% |
+| Attack recall | 68.9%, 717 of 1041, decoy 25.1% |
+| Attack precision | 89.0%, 381 of 428 |
+| Timing | median 70.0 ms, p90 176.3 ms, n=919 |
+| Pitch agreement | 62.8% vs 52.8% control, separation +10.0 |
+| Duration | -0.015 vs +0.014, no power |
+| Classification | 0 supported, 5 unresolved, 88 unsupported |
+
+Jackie's map beats The Mutiny's on every health measure. Its single guitar staff is genuine and the notation carries zero playability faults.
+
+**All ten songs now carry both halves**, every one run off the internal disk.
+
 ## Plan: finishing every /goal requirement
 
 | /goal requirement | Status | Evidence |
