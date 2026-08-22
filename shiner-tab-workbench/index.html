@@ -561,6 +561,39 @@ footer{margin-top:52px;padding-top:18px;border-top:2px solid var(--ink);
   <strong>The notation half is now complete for all ten songs.</strong>
   Content gate, staff-role audit and the full playability tier have run on every one. What remains for the three unfinished songs is the AUDIO half only, which needs the stems.
 </div>
+
+<h3>The field-standard metric, finally run, and it is weak</h3>
+
+<p><code>mir_eval.transcription</code> note-level F-measure is the MIREX standard and the one thing this pipeline had never executed. It pairs onset AND pitch into a single matched-note decision, which is neither of the questions the earlier measures asked. <strong>It has now been run.</strong> It needed no drive: the tabs, the full-mix mp3s and per-instrument YIN transcriptions of the stems are all on the internal disk.</p>
+
+<div class="note warnb">
+  <strong>The first run said 28.8x and I did not publish it, because the control was almost empty.</strong>
+  <code>so_far_so_rhythm_guitar_PYIN.mid</code> holds 105 notes across 189.6 s against the Mutiny reference's 7639 across 248.4 s. A ratio against that measures the file's emptiness rather than a mismatch. Re-run against three density-matched controls, the number collapses.
+</div>
+
+<div class="scroll">
+<table>
+<thead><tr><th>Pairing</th><th>Reference notes</th><th>F at 50 ms</th><th>F at 250 ms</th><th>Ratio, 50 ms</th></tr></thead>
+<tbody>
+<tr class="yes"><td><strong>CORRECT, the_mutiny rhythm YIN</strong></td><td>7639 over 248.4 s</td><td><strong>0.046</strong></td><td><strong>0.112</strong></td><td>reference</td></tr>
+<tr><td>WRONG, endless_summer rhythm YIN</td><td>8381 over 245.2 s</td><td>0.036</td><td>0.097</td><td class="no">1.28</td></tr>
+<tr><td>WRONG, my_mirror rhythm YIN</td><td>8225 over 283.5 s</td><td>0.021</td><td>0.052</td><td>2.14</td></tr>
+<tr><td>WRONG, so_far_so rhythm YIN</td><td>3537 over 248.7 s</td><td>0.023</td><td>0.054</td><td>2.00</td></tr>
+</tbody>
+</table>
+</div>
+
+<p><strong>Worst-case discrimination is 1.28x at 50 ms and 1.16x at 250 ms, both under the 1.5 bar.</strong> Endless Summer is the closest control on both note count and duration, and it is the one the metric struggles hardest to separate. Attack recall remains the leader at 5.70x.</p>
+
+<div class="note bad">
+  <strong>This is not a clean verdict on mir_eval, and saying otherwise would overclaim.</strong>
+  The reference is a YIN transcription, and YIN is MONOPHONIC. On a chordal rhythm guitar it captures one pitch per instant, which is why absolute F sits at 0.046. The metric is being handicapped by the reference rather than judged on its own terms. The fair test needs a POLYPHONIC reference.
+</div>
+
+<div class="note">
+  <strong>The clean test is one install away.</strong>
+  <code>basic_pitch</code> is present in <code>~/venvs/audio_midi_311</code> and crashes with SIGFPE, exit 136, because neither <code>tensorflow</code> nor <code>tflite-runtime</code> is installed there; it warns about both on import. <code>pip install 'basic-pitch[tf]'</code> into that venv should fix it, and then mir_eval can be re-run against a polyphonic reference on the same tabs and the same local audio. That is a package install rather than research, and it is the highest-value next action on the whole board.
+</div>
 <h3>Phase 2. The decision that is not mine to make</h3>
 <p>After Phase 1, <code>/goal</code> on The Mutiny reduces to one question. Nine measures were tested with controls on both sides and only attack recall survived, so today a corrected file cannot be justified note by note. Three ways forward:</p>
 <ul>

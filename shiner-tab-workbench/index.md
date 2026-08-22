@@ -295,6 +295,26 @@ Asleep confirms on the local copy what Phase 0 found against the live tab: our f
 
 **The notation half is now complete for all ten songs.** Content gate, staff-role audit and the full playability tier have run on every one. What remains for the three unfinished songs is the AUDIO half only, which needs the stems.
 
+
+### The field-standard metric, finally run, and it is weak
+
+`mir_eval.transcription` note-level F-measure is the MIREX standard and the one thing this pipeline had never executed. **It has now been run**, and it needed no drive: tabs, full-mix mp3s and per-instrument YIN transcriptions of the stems are all on the internal disk.
+
+**The first run said 28.8x and I did not publish it, because the control was almost empty.** `so_far_so_rhythm_guitar_PYIN.mid` holds 105 notes across 189.6 s against the Mutiny reference's 7639 across 248.4 s. Re-run against three density-matched controls:
+
+| Pairing | Reference notes | F at 50 ms | F at 250 ms | Ratio, 50 ms |
+|---|---|---|---|---|
+| **CORRECT, the_mutiny rhythm YIN** | 7639 over 248.4 s | **0.046** | **0.112** | reference |
+| WRONG, endless_summer rhythm YIN | 8381 over 245.2 s | 0.036 | 0.097 | 1.28 |
+| WRONG, my_mirror rhythm YIN | 8225 over 283.5 s | 0.021 | 0.052 | 2.14 |
+| WRONG, so_far_so rhythm YIN | 3537 over 248.7 s | 0.023 | 0.054 | 2.00 |
+
+**Worst-case discrimination is 1.28x at 50 ms and 1.16x at 250 ms, both under the 1.5 bar.** Attack recall remains the leader at 5.70x.
+
+**This is not a clean verdict on mir_eval.** The reference is a YIN transcription and YIN is monophonic, so on a chordal rhythm guitar it captures one pitch per instant, which is why absolute F sits at 0.046. The metric is handicapped by the reference rather than judged on its own terms.
+
+**The clean test is one install away.** `basic_pitch` is present in `~/venvs/audio_midi_311` and crashes with SIGFPE (exit 136) because neither `tensorflow` nor `tflite-runtime` is installed there. `pip install 'basic-pitch[tf]'` into that venv should fix it, and mir_eval can then be re-run against a polyphonic reference. That is a package install rather than research, and it is the highest-value next action on the board.
+
 ### Phase 2. The decision that is not mine
 
 Nine measures tested with controls on both sides, only attack recall survived, so today a corrected file cannot be justified note by note. Three ways forward:
