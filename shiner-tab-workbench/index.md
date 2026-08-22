@@ -339,6 +339,29 @@ Asleep confirms on the local copy what Phase 0 found against the live tab: our f
 
 **Absolute F is low because the reference is the FULL MIX**, so basic_pitch transcribes bass, drums and vocals alongside the guitar while the estimate is one guitar staff. The isolated stem would raise it, and that is the one thing still wanting the drive. The discrimination holds without it.
 
+
+### Broken Satellites, audio half, and it needed no drive either
+
+The local full-mix mp3s cover all ten songs, so the audio pipeline runs on them.
+
+| Stage | Result |
+|---|---|
+| Length | 353.8 s at 116 bpm against a 362.7 s mix, 2.5% apart |
+| Map | 35.1% alignment vs 5.1% control, gain +30.0, 16 anchors |
+| Map health | **PASS**, clamped 8.3%, max run 114, unique 0.917, span 92% |
+| Attack recall | 32.9%, 1855 of 5645, decoy 5.3%, **6.2x** |
+| Attack precision | 89.6%, 311 of 347 |
+| Timing | median 125.4 ms, p90 176.3 ms, n=2340 |
+| Pitch agreement | **53.2% vs 44.8% control, separation +8.4**, not labelled no-power |
+| Duration | -0.079 vs -0.006 control, no power |
+| Classification | 2 supported (bars 4, 28), 0 unresolved, 146 unsupported |
+
+**The 5645 written attacks are inflated by the duplicate staves.** This file carries `Rhythm Guitar Copy` and `Copy`, so roughly a third are counted twice and 32.9% is a floor. The re-pull of `s5084035` would raise it.
+
+Both supported bars carry 40 and 90 attacks with 100% miss against decoys at 80.0% and 83.3%, clearing the threshold by a wider margin than The Alligator's. Listening candidates, not proven defects.
+
+**Eight of ten songs now carry both halves.** Only Asleep in the Trunk and Jackie remain, and their local mp3s exist.
+
 ### Phase 2. The decision that is not mine
 
 Nine measures tested with controls on both sides, only attack recall survived, so today a corrected file cannot be justified note by note. Three ways forward:

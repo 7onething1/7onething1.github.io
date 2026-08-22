@@ -633,6 +633,39 @@ footer{margin-top:52px;padding-top:18px;border-top:2px solid var(--ink);
   <strong>Absolute F is still low, and the reason is the audio rather than the tab.</strong>
   0.075 at 50 ms means the reference is the FULL MIX, so <code>basic_pitch</code> is transcribing bass, drums and vocals alongside the guitar while the estimate is one guitar staff. The isolated guitar stem would raise it, and that is the one thing still wanting the T7 Shield drive. The DISCRIMINATION is what matters here, and it holds without the stem.
 </div>
+
+<h3>Broken Satellites, audio half, and it needed no drive either</h3>
+
+<p>The local full-mix mp3s cover all ten songs, so the audio pipeline runs on them exactly as it ran on The Mutiny. The isolated stem would be better and is not required.</p>
+
+<div class="scroll">
+<table style="min-width:660px">
+<thead><tr><th>Stage</th><th>Result</th></tr></thead>
+<tbody>
+<tr><td>Length</td><td class="yes">353.8 s at 116 bpm against a 362.7 s mix, 2.5% apart</td></tr>
+<tr><td>Map</td><td class="yes">35.1% alignment against a 5.1% control, gain +30.0, 16 anchors</td></tr>
+<tr><td>Map health</td><td class="yes"><strong>PASS</strong>, clamped 8.3%, max run 114, unique 0.917, span 92%</td></tr>
+<tr><td>Attack recall</td><td class="yes">32.9%, 1855 of 5645, decoy 5.3%, a <strong>6.2x</strong> separation</td></tr>
+<tr><td>Attack precision</td><td>89.6%, 311 of 347 onsets accounted for</td></tr>
+<tr><td>Timing</td><td>median 125.4 ms, p90 176.3 ms, n=2340</td></tr>
+<tr><td>Pitch agreement</td><td class="yes"><strong>53.2% against a 44.8% control, separation +8.4</strong>, not labelled no-power</td></tr>
+<tr><td>Duration</td><td>-0.079 against a -0.006 control, no power</td></tr>
+<tr><td>Classification</td><td>2 supported (bars 4 and 28), 0 unresolved, 146 unsupported</td></tr>
+</tbody>
+</table>
+</div>
+
+<div class="note warnb">
+  <strong>The 5645 written attacks are inflated by the duplicate staves.</strong>
+  This file carries <code>Rhythm Guitar Copy</code> and <code>Copy</code>, so roughly a third of those attacks are counted twice. Attack recall is depressed accordingly, and the honest reading is that 32.9% is a floor. The re-pull of <code>s5084035</code>, which has five clean tracks, would raise it.
+</div>
+
+<p>Both supported bars carry 40 and 90 attacks with 100% miss against decoys at 80.0% and 83.3%, so they clear the threshold by a wider margin than The Alligator's did. They are listening candidates rather than proven defects, and the duplicate-staff inflation applies to them too.</p>
+
+<div class="note">
+  <strong>Eight of ten songs now carry both halves.</strong>
+  Only Asleep in the Trunk and Jackie remain, and their local mp3s exist, so they are runnable the same way. Asleep's tab is the 173-note shell, so its audio numbers will describe the shell rather than the song until the re-pull happens.
+</div>
 <h3>Phase 2. The decision that is not mine to make</h3>
 <p>After Phase 1, <code>/goal</code> on The Mutiny reduces to one question. Nine measures were tested with controls on both sides and only attack recall survived, so today a corrected file cannot be justified note by note. Three ways forward:</p>
 <ul>
