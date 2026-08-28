@@ -1,0 +1,391 @@
+<!doctype html>
+<html lang="en"><head><meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Zappa Drum Archive</title>
+<style>
+:root{--cream:#f4ead8;--paper:#fbf5e9;--ink:#1c1a17;--rust:#b5462f;--mustard:#d9a441;
+--teal:#3f6b6b;--dusty:#8f6f5a;--line:#ddcdb2;--shade:#efe2cb;}
+*{box-sizing:border-box}
+body{margin:0;background:var(--cream);color:var(--ink);
+font:16px/1.6 "Futura","Avenir Next","Helvetica Neue",Helvetica,Arial,sans-serif;}
+.wrap{max-width:1080px;margin:0 auto;padding:34px 22px 80px}
+header{border:3px solid var(--ink);background:var(--paper);padding:26px 28px;margin-bottom:26px}
+h1{margin:0;font-size:31px;letter-spacing:.06em;text-transform:uppercase}
+.sub{margin-top:8px;color:var(--dusty);font-size:14px;letter-spacing:.13em;text-transform:uppercase}
+.stats{display:flex;flex-wrap:wrap;gap:10px;margin-top:20px}
+.stat{border:2px solid var(--ink);background:var(--cream);padding:9px 15px;font-size:13px}
+.stat b{display:block;font-size:22px;color:var(--rust);letter-spacing:.02em}
+h2{margin:42px 0 6px;font-size:20px;letter-spacing:.05em;text-transform:uppercase;
+border-bottom:3px solid var(--ink);padding-bottom:7px}
+h3{margin:26px 0 8px;font-size:15px;letter-spacing:.08em;text-transform:uppercase;color:var(--teal)}
+p{margin:10px 0}
+nav{background:var(--paper);border:2px solid var(--line);padding:16px 20px;margin-bottom:8px}
+nav a{display:inline-block;margin:4px 16px 4px 0;color:var(--teal);font-size:14px}
+a{color:var(--rust);text-decoration:none;border-bottom:1px solid rgba(181,70,47.35)}
+a:hover{border-bottom-color:var(--rust)}
+table{width:100%;border-collapse:collapse;margin:14px 0;background:var(--paper);font-size:14px}
+th{background:var(--shade);text-align:left;padding:9px 11px;border:1px solid var(--line);
+font-size:11px;letter-spacing:.11em;text-transform:uppercase}
+td{padding:8px 11px;border:1px solid var(--line);vertical-align:top}
+tr:nth-child(even) td{background:rgba(239,226,203.42)}
+.num{text-align:right;white-space:nowrap;font-variant-numeric:tabular-nums}
+.mono{font-family:"SF Mono",Menlo,monospace;font-size:12px;color:var(--dusty)}
+.path{font-family:"SF Mono",Menlo,monospace;font-size:11px;color:var(--dusty);margin-top:2px}
+.note{border-left:5px solid var(--mustard);background:var(--paper);padding:13px 17px;margin:16px 0;font-size:14px}
+.warn{border-left:5px solid var(--rust)}
+.key{font-weight:700}
+.scroll{overflow-x:auto}
+.two{max-height:430px;overflow-y:auto;border:2px solid var(--line)}
+footer{margin-top:52px;padding-top:18px;border-top:2px solid var(--line);
+font-size:12px;color:var(--dusty)}
+</style></head><body><div class="wrap">
+
+<header>
+<h1>Frank Zappa Drum Archive</h1>
+<div class="sub">Transcriptions &amp; analysis · retrieved 28 August 2026</div>
+<div class="stats">
+<div class="stat"><b>1,116</b>files</div>
+<div class="stat"><b>139.6 MB</b>downloaded</div>
+<div class="stat"><b>10</b>sources harvested</div>
+<div class="stat"><b>1,401</b>pages crawled</div>
+<div class="stat"><b>0</b>integrity failures</div>
+</div>
+</header>
+
+<nav>
+<a href="#sources">Sources</a><a href="#csd">Cruise Ship Drummer</a><a href="#drum">DRUM Magazine</a>
+<a href="#sweeney">Pete Sweeney</a><a href="#drumnet">Drumnet</a><a href="#za">zappa-analysis</a>
+<a href="#vai">Steve Vai</a><a href="#acad">Academic</a><a href="#rondo">Rondo Hatton</a>
+<a href="#songsterr">Songsterr</a><a href="#corrections">Corrections</a><a href="#not">Not downloaded</a>
+</nav>
+
+<p>Everything below is on the Mac at <span class="mono">~/Projects/_outputs/zappa-drum-sources/</span>.
+Every file was verified byte-complete, JPEG end-of-image marker, PNG IEND chunk, GIF trailer, PDF
+<span class="mono">%%EOF</span>, not merely present on disk. This page is the index; the scores
+themselves stay local.</p>
+
+<h2 id="sources">The ten sources</h2>
+<div class="scroll"><table>
+<tr><th>#</th><th>Source</th><th>What landed</th><th>Files</th><th>Size</th></tr>
+<tr><td class="num">1</td><td><a href="https://cruiseshipdrummer.com/frank-zappa/" target="_blank" rel="noopener">Cruise Ship Drummer</a><div class="path">01-cruiseshipdrummer/</div></td><td>18 full-res score pages + 4 PDFs</td><td class="num">22</td><td class="num">8.1 MB</td></tr>
+<tr><td class="num">2</td><td><a href="https://drummagazine.com/groove-analysis-frank-zappas-drummers/" target="_blank" rel="noopener">DRUM Magazine</a><div class="path">02-drummagazine/</div></td><td>10 notation graphics</td><td class="num">10</td><td class="num">0.3 MB</td></tr>
+<tr><td class="num">3</td><td><a href="https://www.petesweeney.net/lessons.html" target="_blank" rel="noopener">Pete Sweeney</a><div class="path">03-petesweeney/</div></td><td>9-page Colaiuta PDF</td><td class="num">1</td><td class="num">6.1 MB</td></tr>
+<tr><td class="num">4</td><td><a href="https://drumnet.ru/drumsheets.php?lng=en&idgroup=1989" target="_blank" rel="noopener">Drumnet.ru</a><div class="path">06-drumnet/</div></td><td>6 charts, 21 pages</td><td class="num">21</td><td class="num">1.3 MB</td></tr>
+<tr><td class="num">5</td><td><a href="https://www.songsterr.com/a/wsa/frank-zappa-tabs-a5912?inst=drum" target="_blank" rel="noopener">Songsterr</a><div class="path">07-songsterr/</div></td><td>50-tab catalog</td><td class="num">2</td><td class="num">0.0 MB</td></tr>
+<tr><td class="num">6</td><td><a href="https://www.zappa-analysis.com/" target="_blank" rel="noopener">zappa-analysis.com</a><div class="path">08-analysis/</div></td><td>120 pages, 879 images</td><td class="num">1009</td><td class="num">85.7 MB</td></tr>
+<tr><td class="num">7</td><td><a href="https://www.vai.com/tempo-mental/" target="_blank" rel="noopener">Steve Vai, Tempo Mental</a><div class="path">09-vai/</div></td><td>29 notation examples</td><td class="num">29</td><td class="num">0.6 MB</td></tr>
+<tr><td class="num">8</td><td><a href="https://rave.ohiolink.edu/etdc/view?acc_num=ucin1248708091" target="_blank" rel="noopener">Academic theses</a><div class="path">10-academic/</div></td><td>Clement 402pp + Wall 132pp</td><td class="num">2</td><td class="num">13.8 MB</td></tr>
+<tr><td class="num">9</td><td><a href="https://www.afka.net/Mags/Rondo_Hatton_Report.htm" target="_blank" rel="noopener">Rondo Hatton Report</a><div class="path">11-rondo-hatton/</div></td><td>all 13 editions</td><td class="num">13</td><td class="num">23.7 MB</td></tr>
+<tr><td class="num">10</td><td><a href="https://pas.org/publication-articles/the-mallets-of-invention-a-listening-guide-to-frank-zappas-percussionists/" target="_blank" rel="noopener">Article text</a><div class="path">12-article-text/</div></td><td>7 articles as Markdown</td><td class="num">7</td><td class="num">0.1 MB</td></tr>
+</table></div>
+
+<h2 id="csd">1. Cruise Ship Drummer: Todd Bishop</h2>
+<p>The Zappa category runs 14 posts across two pages; all 14 were crawled. The scores are
+full-resolution 2550×3300 Blogger-hosted page scans linked from inside each post body, the thumbnails
+shown on the page are 247px wide, so the visible image is not the one worth keeping.</p>
+<div class="scroll"><table>
+<tr><th>Piece</th><th>Drummer</th><th>Pages</th></tr>
+<tr><td><a href="https://cruiseshipdrummer.com/2011/07/28/transcription-jim-gordon-apostrophe/" target="_blank" rel="noopener">Apostrophe</a></td><td>Jim Gordon</td><td class="num">1</td></tr>
+<tr><td><a href="https://cruiseshipdrummer.com/2015/05/19/transcription-vinnie-colaiuta-beat-it-with-your-fist/" target="_blank" rel="noopener">Beat It With Your Fist</a></td><td>Vinnie Colaiuta</td><td class="num">2</td></tr>
+<tr><td><a href="https://cruiseshipdrummer.com/2021/08/26/very-occasional-quote-of-the-day-bozzio-auditions-for-zappa/" target="_blank" rel="noopener">Bozzio auditions for Zappa</a></td><td>Terry Bozzio</td><td class="num">1</td></tr>
+<tr><td><a href="https://cruiseshipdrummer.com/2017/02/06/transcription-terry-bozzio-dancin-fool-the-cool-parts/" target="_blank" rel="noopener">Dancin&#x27; Fool (the cool parts)</a></td><td>Terry Bozzio</td><td class="num">1</td></tr>
+<tr><td><a href="https://cruiseshipdrummer.com/2013/04/21/transcription-ralph-humphrey-dont-eat-the-yellow-snow/" target="_blank" rel="noopener">Don&#x27;t Eat The Yellow Snow</a></td><td>Ralph Humphrey</td><td class="num">1</td></tr>
+<tr><td><a href="https://cruiseshipdrummer.com/2011/02/13/best-books-even-in-the-odds-by-ralph-humphrey/" target="_blank" rel="noopener">Even In The Odds (book note)</a></td><td>Ralph Humphrey</td><td class="num">1</td></tr>
+<tr><td><a href="https://cruiseshipdrummer.com/2021/12/21/transcription-both-versions-of-flower-punk/" target="_blank" rel="noopener">Flower Punk (both versions)</a></td><td>Jimmy Carl Black / Chad Wackerman</td><td class="num">4</td></tr>
+<tr><td><a href="https://cruiseshipdrummer.com/2021/02/20/from-the-zone-zappa-transcription-project/" target="_blank" rel="noopener">From the Zone, Bédard&#x27;s 52 charts</a></td><td>Daniel Bédard</td><td class="num">2</td></tr>
+<tr><td><a href="https://cruiseshipdrummer.com/2013/09/08/transcription-frank-zappa-im-a-beautiful-guy/" target="_blank" rel="noopener">I&#x27;m A Beautiful Guy</a></td><td>David Logeman</td><td class="num">1</td></tr>
+<tr><td><a href="https://cruiseshipdrummer.com/2013/09/11/transcription-terry-bozzio-rubber-shirt/" target="_blank" rel="noopener">Rubber Shirt</a></td><td>Terry Bozzio</td><td class="num">1</td></tr>
+<tr><td><a href="https://cruiseshipdrummer.com/2013/09/14/groove-o-the-day-vinnie-colaiuta-the-central-scrutinizer/" target="_blank" rel="noopener">The Central Scrutinizer</a></td><td>Vinnie Colaiuta</td><td class="num">2</td></tr>
+<tr><td><a href="https://cruiseshipdrummer.com/2011/08/08/the-hawaii-5-o-fill/" target="_blank" rel="noopener">The Hawaii 5-O fill</a></td><td>n/a</td><td class="num">0</td></tr>
+<tr><td><a href="https://cruiseshipdrummer.com/2013/06/19/two-links/" target="_blank" rel="noopener">Two links</a></td><td>n/a</td><td class="num">1</td></tr>
+<tr><td><a href="https://cruiseshipdrummer.com/2011/12/18/vinnie-colaiuta-q-a/" target="_blank" rel="noopener">Vinnie Colaiuta Q&amp;A</a></td><td>Vinnie Colaiuta</td><td class="num">0</td></tr>
+</table></div>
+<div class="note"><span class="key">Excerpts by design.</span> Bishop posts pages and sells the
+complete charts. Flower Punk shows the first 2 of 4 pages per version; both complete transcriptions
+are $3 via Venmo <span class="mono">@todd-bishop-16</span>. The four
+<span class="mono">__pdxdrummer.pdf</span> files are his older full-PDF transcriptions, still live.</div>
+<div class="note"><span class="key">Daniel Bédard's 52 charts.</span> The CSD post is the only public
+artifact, two photos, the stack of 52 and a Zomby Woof page. His own site is a teaching site selling
+snare methods; the Zappa transcriptions are not published anywhere.</div>
+
+<h2 id="drum">2. DRUM Magazine: Ryan Brown</h2>
+<p>Full-resolution notation from <i>Groove Analysis: Frank Zappa's Drummers</i>, Who Are The Brain
+Police?, The Grand Wazoo, Zomby Woof, Andy, Muffin Man, Keep It Greasey, Drowning Witch, plus the
+three examples from the separate Colaiuta lesson breaking the 19/16 <i>Keep It Greasy</i> groove into
+7+5+7. Article prose saved as Markdown.</p>
+
+<h2 id="sweeney">3. Pete Sweeney</h2>
+<p><span class="mono">Vinnietranscriptions.pdf</span>, 9 pages. Checked page by page rather than
+trusted from the filename, it is a Colaiuta bundle, not Zappa-only:</p>
+<div class="scroll"><table>
+<tr><th>Pages</th><th>Piece</th><th>Transcriber</th></tr>
+<tr><td class="num">1–2</td><td>"All Blues", <i>not Zappa</i></td><td>Jeff Wald</td></tr>
+<tr><td class="num">3–5</td><td><b>Dong Work For Yuda</b></td><td>Chris Brady</td></tr>
+<tr><td class="num">6–9</td><td><b>Keep It Greasy</b></td><td>Marc Atkinson</td></tr>
+</table></div>
+<div class="note">Atkinson's <i>Keep It Greasy</i> chart is here in full, worth noting because his
+<i>Deathless Horsie</i> transcription at Modern Drummer is subscriber-gated.</div>
+
+<h2 id="drumnet">4. Drumnet.ru</h2>
+<p>Free page scans for all six Zappa charts the site carries, 21 pages total.</p>
+<div class="scroll"><table><tr><th>Chart</th><th>Pages</th></tr><tr><td>Oh No</td><td class="num">3</td></tr>
+<tr><td>Shut Up And Play Yer Guitar</td><td class="num">6</td></tr>
+<tr><td>Whipping Post</td><td class="num">2</td></tr>
+<tr><td>Muffin Man</td><td class="num">4</td></tr>
+<tr><td>Watermelon In Easter Hay</td><td class="num">5</td></tr>
+<tr><td>Zomby Woof</td><td class="num">1</td></tr></table></div>
+
+<h2 id="za">6. zappa-analysis.com: Kasper Sloots</h2>
+<p>The largest haul, and the source that most rewarded a full crawl. 83 album pages led to 1,318 song
+pages; all <b>1,401 were fetched</b>. Of those, <b>120 carry drum or percussion notation</b>,
+holding <b>879 images</b>, every one downloaded and validated. Each page's HTML sits beside its
+images, so the folder browses offline.</p>
+<p>It includes dedicated pages for <span class="mono">the-black-page-drum-solo.htm</span> and
+<span class="mono">fz-jcb-drum-duet.htm</span>, alongside the four named in the source list.</p>
+<div class="two scroll"><table>
+<tr><th>Page</th><th>Title</th><th>Images</th><th>Drum refs</th></tr>
+<tr><td class="mono">civilization-phaze-iii.htm</td><td>Civilization Phaze III</td><td class="num">18</td><td class="num">26</td></tr>
+<tr><td class="mono">dance-me-this.htm</td><td>Dance me this</td><td class="num">10</td><td class="num">23</td></tr>
+<tr><td class="mono">uncle-meat.htm</td><td>Uncle Meat</td><td class="num">18</td><td class="num">22</td></tr>
+<tr><td class="mono">the-london-symphony-orchestra.htm</td><td>The London Symphony Orchestra</td><td class="num">25</td><td class="num">20</td></tr>
+<tr><td class="mono">chungas-revenge.htm</td><td>Chunga&#x27;s Revenge</td><td class="num">11</td><td class="num">19</td></tr>
+<tr><td class="mono">shut-up-n-play-yer-guitar.htm</td><td>Shut up &#x27;n play yer guitar</td><td class="num">10</td><td class="num">19</td></tr>
+<tr><td class="mono">ycdtosa5a.htm</td><td>YCDTOSA vol. V</td><td class="num">4</td><td class="num">19</td></tr>
+<tr><td class="mono">the-yellow-shark.htm</td><td>The yellow shark</td><td class="num">29</td><td class="num">18</td></tr>
+<tr><td class="mono">ycdtosa5.htm</td><td>YCDTOSA vol. V</td><td class="num">4</td><td class="num">18</td></tr>
+<tr><td class="mono">ahead-of-their-time.htm</td><td>Ahead of their time</td><td class="num">5</td><td class="num">17</td></tr>
+<tr><td class="mono">lumpy-gravy.htm</td><td>Lumpy gravy</td><td class="num">5</td><td class="num">17</td></tr>
+<tr><td class="mono">roxy-and-elsewhere.htm</td><td>Roxy and Elsewhere</td><td class="num">17</td><td class="num">17</td></tr>
+<tr><td class="mono">them-or-us.htm</td><td>Them or us - Sinister footwear</td><td class="num">11</td><td class="num">17</td></tr>
+<tr><td class="mono">200-motels.htm</td><td>200 Motels</td><td class="num">41</td><td class="num">15</td></tr>
+<tr><td class="mono">joes-garage.htm</td><td>Joe&#x27;s garage</td><td class="num">14</td><td class="num">15</td></tr>
+<tr><td class="mono">sheik-yerbouti.htm</td><td>Frank Zappa, Sheik Yerbouti - Hammersmith Odeon</td><td class="num">11</td><td class="num">15</td></tr>
+<tr><td class="mono">the-lost-episodes.htm</td><td>The lost episodes</td><td class="num">9</td><td class="num">15</td></tr>
+<tr><td class="mono">zappa-in-new-york.htm</td><td>Zappa in New York</td><td class="num">25</td><td class="num">15</td></tr>
+<tr><td class="mono">leather.htm</td><td>Frank Zappa, Läther - Baby snakes - Halloween</td><td class="num">11</td><td class="num">12</td></tr>
+<tr><td class="mono">ycdtosa2.htm</td><td>YCDTOSA vol. II</td><td class="num">6</td><td class="num">12</td></tr>
+<tr><td class="mono">drowning-witch.htm</td><td>Ship arriving too late to save a drowning witch</td><td class="num">8</td><td class="num">11</td></tr>
+<tr><td class="mono">cruising-with-ruben-and-the-jets.htm</td><td>Cruising with Ruben and the Jets</td><td class="num">7</td><td class="num">10</td></tr>
+<tr><td class="mono">halloween.htm</td><td>One shot deal, Chicago &#x27;78 and Halloween</td><td class="num">6</td><td class="num">8</td></tr>
+<tr><td class="mono">hot-rats.htm</td><td>Hot Rats</td><td class="num">13</td><td class="num">8</td></tr>
+<tr><td class="mono">imaginary-diseases.htm</td><td>Wazoo, Imaginary diseases and Litte dots.</td><td class="num">16</td><td class="num">8</td></tr>
+<tr><td class="mono">the-black-page-drum-solo.htm</td><td>The black page drum solo</td><td class="num">1</td><td class="num">8</td></tr>
+<tr><td class="mono">were-only-in-it-for-the-money.htm</td><td>We&#x27;re only in it for the money</td><td class="num">12</td><td class="num">8</td></tr>
+<tr><td class="mono">apostrophe.htm</td><td>Apostrophe</td><td class="num">13</td><td class="num">7</td></tr>
+<tr><td class="mono">freak-out.htm</td><td>Freak out!</td><td class="num">14</td><td class="num">7</td></tr>
+<tr><td class="mono">fz-jcb-drum-duet.htm</td><td>FZ/JCB drum duet</td><td class="num">2</td><td class="num">7</td></tr>
+<tr><td class="mono">guitar.htm</td><td>Guitar</td><td class="num">8</td><td class="num">7</td></tr>
+<tr><td class="mono">orchestral-favorites.htm</td><td>Orchestral favorites - Studio tan</td><td class="num">14</td><td class="num">7</td></tr>
+<tr><td class="mono">studio-tan.htm</td><td>Orchestral favorites - Studio tan</td><td class="num">13</td><td class="num">7</td></tr>
+<tr><td class="mono">the-man-from-utopia.htm</td><td>The man from Utopia</td><td class="num">13</td><td class="num">7</td></tr>
+<tr><td class="mono">beat-it-with-your-fist.htm</td><td>Beat it with your fist</td><td class="num">2</td><td class="num">6</td></tr>
+<tr><td class="mono">burnt-weeny-sandwich.htm</td><td>Burnt weeny sandwich</td><td class="num">11</td><td class="num">6</td></tr>
+<tr><td class="mono">mos-vacation2.htm</td><td>Mo&#x27;s vacation, opening</td><td class="num">2</td><td class="num">6</td></tr>
+<tr><td class="mono">you-are-what-you-is.htm</td><td>You are what you is</td><td class="num">16</td><td class="num">6</td></tr>
+<tr><td class="mono">andy2.htm</td><td>Andy (1988)</td><td class="num">6</td><td class="num">5</td></tr>
+<tr><td class="mono">fz-oz.htm</td><td>FZ:OZ - FZ plays FZ - Joe&#x27;s series - Philly &#x27;76</td><td class="num">6</td><td class="num">5</td></tr>
+<tr><td class="mono">harry-as-a-boy.htm</td><td>Harry-as-a-boy</td><td class="num">3</td><td class="num">5</td></tr>
+<tr><td class="mono">help-im-a-rock.htm</td><td>Help I&#x27;m a rock</td><td class="num">1</td><td class="num">5</td></tr>
+<tr><td class="mono">i-was-in-a-drum.htm</td><td>I was in a drum</td><td class="num">2</td><td class="num">5</td></tr>
+<tr><td class="mono">it-cant-happen-here.htm</td><td>It can&#x27;t happen here</td><td class="num">2</td><td class="num">5</td></tr>
+<tr><td class="mono">mo-n-herbs-vacation-Ia.htm</td><td>Mo &#x27;n Herbs vacation, main theme</td><td class="num">3</td><td class="num">5</td></tr>
+<tr><td class="mono">one-size-fits-all.htm</td><td>One size fits all</td><td class="num">13</td><td class="num">5</td></tr>
+<tr><td class="mono">rubber-shirt.htm</td><td>Rubber shirt</td><td class="num">3</td><td class="num">5</td></tr>
+<tr><td class="mono">while-you-were-art-ii.htm</td><td>While you were art II</td><td class="num">6</td><td class="num">5</td></tr>
+<tr><td class="mono">zoot-allures.htm</td><td>Zoot allures</td><td class="num">37</td><td class="num">5</td></tr>
+<tr><td class="mono">apostrophe1.htm</td><td>Apostrophe (song), theme</td><td class="num">1</td><td class="num">4</td></tr>
+<tr><td class="mono">apostrophe2.htm</td><td>Apostrophe (song), solo section #2</td><td class="num">1</td><td class="num">4</td></tr>
+<tr><td class="mono">apostrophe3.htm</td><td>Apostrophe (song), solo section #3</td><td class="num">1</td><td class="num">4</td></tr>
+<tr><td class="mono">greggery-peccary17.htm</td><td>Greggery Peccary, section</td><td class="num">7</td><td class="num">4</td></tr>
+<tr><td class="mono">i-was-a-teenage-malt-shop1.htm</td><td>The mystery disc, projects</td><td class="num">4</td><td class="num">4</td></tr>
+<tr><td class="mono">mo-n-herbs-vacation-IIIc.htm</td><td>Mo &#x27;n Herbs vacation III, section #1</td><td class="num">2</td><td class="num">4</td></tr>
+<tr><td class="mono">mo-n-herbs-vacation-Ic.htm</td><td>Mo &#x27;n Herbs vacation, opening</td><td class="num">2</td><td class="num">4</td></tr>
+<tr><td class="mono">music-for-low-budget-orchestra1.htm</td><td>Music for a low budget orchestra, bars 1-10</td><td class="num">4</td><td class="num">4</td></tr>
+<tr><td class="mono">no-no-no.htm</td><td>&quot;No. No. No.&quot;</td><td class="num">1</td><td class="num">4</td></tr>
+<tr><td class="mono">overnite-sensation.htm</td><td>Overnite sensation</td><td class="num">11</td><td class="num">4</td></tr>
+<tr><td class="mono">samba-funk.htm</td><td>Samba funk</td><td class="num">2</td><td class="num">4</td></tr>
+<tr><td class="mono">sleep-dirt.htm</td><td>Sleep dirt</td><td class="num">3</td><td class="num">4</td></tr>
+<tr><td class="mono">stuff-up-the-cracks.htm</td><td>Stuff up the cracks</td><td class="num">3</td><td class="num">4</td></tr>
+<tr><td class="mono">the-massive-improvelence.htm</td><td>The massive improve&#x27;lence</td><td class="num">1</td><td class="num">4</td></tr>
+<tr><td class="mono">the-return-of-the-son-of-the-monster-magnet.htm</td><td>The return of the son of the monster magnet</td><td class="num">2</td><td class="num">4</td></tr>
+<tr><td class="mono">thing-fish.htm</td><td>Thing-Fish</td><td class="num">16</td><td class="num">4</td></tr>
+<tr><td class="mono">tinsel-town-rebellion.htm</td><td>Tinsel town rebellion</td><td class="num">7</td><td class="num">4</td></tr>
+<tr><td class="mono">trouble-every-day-1984a.htm</td><td>Trouble every day (1984), opening</td><td class="num">3</td><td class="num">4</td></tr>
+<tr><td class="mono">unit-9.htm</td><td>Unit 9/A vicious circle</td><td class="num">3</td><td class="num">4</td></tr>
+<tr><td class="mono">absolutely-free.htm</td><td>Absolutely Free</td><td class="num">8</td><td class="num">3</td></tr>
+<tr><td class="mono">does-humor-belong-in-music.htm</td><td>Frank Zappa. Does humor belong in music?</td><td class="num">6</td><td class="num">3</td></tr>
+<tr><td class="mono">frank-zappa-meets-the-mothers-of-prevention.htm</td><td>Frank Zappa meets the mothers of prevention</td><td class="num">13</td><td class="num">3</td></tr>
+<tr><td class="mono">funky-nothingness.htm</td><td>Quaudiophiliac</td><td class="num">8</td><td class="num">3</td></tr>
+<tr><td class="mono">hr-2911.htm</td><td>H.R. 2911</td><td class="num">1</td><td class="num">3</td></tr>
+<tr><td class="mono">index.html</td><td></td><td class="num">11</td><td class="num">3</td></tr>
+<tr><td class="mono">jazz-from-hell.htm</td><td>Jazz from hell</td><td class="num">15</td><td class="num">3</td></tr>
+<tr><td class="mono">porn-wars1.htm</td><td>Porn wars, section #1</td><td class="num">2</td><td class="num">3</td></tr>
+<tr><td class="mono">the-perfect-stranger.htm</td><td>The perfect stranger (Boulez conducts Zappa)</td><td class="num">16</td><td class="num">3</td></tr>
+<tr><td class="mono">waka-jawaka.htm</td><td>Waka/Jawaka</td><td class="num">9</td><td class="num">3</td></tr>
+<tr><td class="mono">bongo-fury.htm</td><td>Bongo fury</td><td class="num">13</td><td class="num">2</td></tr>
+<tr><td class="mono">dog-meat.htm</td><td>Dog/Meat</td><td class="num">3</td><td class="num">2</td></tr>
+<tr><td class="mono">fillmore-east.htm</td><td>Fillmore East, June 1971</td><td class="num">6</td><td class="num">2</td></tr>
+<tr><td class="mono">goat-polo.htm</td><td>Goat polo</td><td class="num">2</td><td class="num">2</td></tr>
+<tr><td class="mono">just-another-band-from-la.htm</td><td>Just another band from L.A.</td><td class="num">9</td><td class="num">2</td></tr>
+<tr><td class="mono">make-a-jazz-noise-here.htm</td><td>The best band you never heard in your life - Make a jazz noise here</td><td class="num">5</td><td class="num">2</td></tr>
+<tr><td class="mono">mo-n-herbs-vacation-Ib.htm</td><td>Mo &#x27;n Herbs vacation, section</td><td class="num">3</td><td class="num">2</td></tr>
+<tr><td class="mono">the-best-band-you-never-heard-in-your-life.htm</td><td>The best band you never heard in your life</td><td class="num">7</td><td class="num">2</td></tr>
+<tr><td class="mono">the-grand-wazoo.htm</td><td>The grand wazoo</td><td class="num">6</td><td class="num">2</td></tr>
+<tr><td class="mono">you-cant-do-that-on-stage-anymore.htm</td><td>You can&#x27;t do that on stage anymore</td><td class="num">8</td><td class="num">2</td></tr>
+<tr><td class="mono">bob-in-dacron3.htm</td><td>Bob in dacron, bars 106-117</td><td class="num">5</td><td class="num">1</td></tr>
+<tr><td class="mono">bob-in-dacron4.htm</td><td>Bob in dacron, bars 253-257</td><td class="num">2</td><td class="num">1</td></tr>
+<tr><td class="mono">broadway-the-hard-way.htm</td><td>Broadway the hard way</td><td class="num">11</td><td class="num">1</td></tr>
+<tr><td class="mono">correspondance.htm</td><td>E-mail, Hard copies, Corrections</td><td class="num">6</td><td class="num">1</td></tr>
+<tr><td class="mono">cucamonga.htm</td><td>Cucamonga years</td><td class="num">14</td><td class="num">1</td></tr>
+<tr><td class="mono">dong-work-for-yuda2.htm</td><td>Dong work for Yuda (1989)</td><td class="num">4</td><td class="num">1</td></tr>
+<tr><td class="mono">duprees-paradise1.htm</td><td>Dupree&#x27;s paradise (1984), bars 5-13</td><td class="num">1</td><td class="num">1</td></tr>
+<tr><td class="mono">echidnas-arf-of-you1.htm</td><td>Echidna&#x27;s arf (of you)</td><td class="num">2</td><td class="num">1</td></tr>
+<tr><td class="mono">frank-zappa-paul-buff.htm</td><td>Paul Buff, Original sound, Pal records</td><td class="num">3</td><td class="num">1</td></tr>
+<tr><td class="mono">g-spot-tornado2.htm</td><td>G-spot tornado (1992)</td><td class="num">3</td><td class="num">1</td></tr>
+<tr><td class="mono">greggery-peccary5.htm</td><td>Greggery Peccary, mvt. III</td><td class="num">4</td><td class="num">1</td></tr>
+<tr><td class="mono">harry-youre-a-beast2.htm</td><td>Harry you&#x27;re a beast (1969)</td><td class="num">4</td><td class="num">1</td></tr>
+<tr><td class="mono">is-there-anything-good-inside-of-you1.htm</td><td>Is there anything good inside of you?, opening</td><td class="num">8</td><td class="num">1</td></tr>
+<tr><td class="mono">move-it-or-park-it.htm</td><td>Move it or park it</td><td class="num">2</td><td class="num">1</td></tr>
+<tr><td class="mono">music-for-low-budget-orchestra5.htm</td><td>Music for a low budget orchestra, solo</td><td class="num">3</td><td class="num">1</td></tr>
+<tr><td class="mono">outrage-at-valdez.htm</td><td>Outrage at Valdez</td><td class="num">7</td><td class="num">1</td></tr>
+<tr><td class="mono">pedros-dowry7.htm</td><td>Pedro&#x27;s dowry, bars 63-72</td><td class="num">2</td><td class="num">1</td></tr>
+<tr><td class="mono">playground-psychotics.htm</td><td>Playground psychotics</td><td class="num">9</td><td class="num">1</td></tr>
+<tr><td class="mono">run-home-slow1.htm</td><td>Run home, slow</td><td class="num">4</td><td class="num">1</td></tr>
+<tr><td class="mono">sad-jane2.htm</td><td>Sad Jane, section</td><td class="num">3</td><td class="num">1</td></tr>
+<tr><td class="mono">shelves.htm</td><td>On the shelves</td><td class="num">4</td><td class="num">1</td></tr>
+<tr><td class="mono">shut-up-n-play-yer-guitar-title-track1.htm</td><td>Shut up &#x27;n play your guitar some more</td><td class="num">2</td><td class="num">1</td></tr>
+<tr><td class="mono">sinister-footwear-i-1.htm</td><td>Sinister footwear I, bars 1-11</td><td class="num">1</td><td class="num">1</td></tr>
+<tr><td class="mono">sinister-footwear-i-4.htm</td><td>Sinister footwear I, samples</td><td class="num">3</td><td class="num">1</td></tr>
+<tr><td class="mono">the-dub-room-special.htm</td><td>The dub room special - Halloween 81</td><td class="num">3</td><td class="num">1</td></tr>
+<tr><td class="mono">the-jazz-discharge-party-hats.htm</td><td>The jazz discharge party hats</td><td class="num">3</td><td class="num">1</td></tr>
+<tr><td class="mono">the-mystery-disc.htm</td><td>The mystery disc</td><td class="num">4</td><td class="num">1</td></tr>
+<tr><td class="mono">the-ocean-is-the-ultimate-solution3.htm</td><td>The ocean is the ultimate solution, F Dorian section</td><td class="num">3</td><td class="num">1</td></tr>
+<tr><td class="mono">uncle-meat-1992b.htm</td><td>Uncle Meat, coda (1992)</td><td class="num">3</td><td class="num">1</td></tr>
+<tr><td class="mono">watermelon-in-easter-hay-1979.htm</td><td>Watermelon in Easter hay (1979)</td><td class="num">1</td><td class="num">1</td></tr>
+<tr><td class="mono">wolf-harbor1b.htm</td><td>Wolf Harbor, percussion sample</td><td class="num">1</td><td class="num">1</td></tr>
+<tr><td class="mono">ycdtosa5b.htm</td><td>You can&#x27;t do that on stage anymore</td><td class="num">3</td><td class="num">1</td></tr>
+</table></div>
+
+<h2 id="vai">7. Steve Vai: Tempo Mental</h2>
+<p>29 notation examples covering nested tuplets, metric modulation, displaced rhythms and interrupted
+polyrhythms, the notation decisions Vai developed transcribing for Zappa, which is unusually direct
+evidence about how the hard rhythmic passages were heard and written down.</p>
+
+<h2 id="acad">8. Academic</h2>
+<div class="scroll"><table>
+<tr><th>Work</th><th>Pages</th><th>Size</th><th>Verified content</th></tr>
+<tr><td><b>Brett Clement</b>, <i>A Study of the Instrumental Music of Frank Zappa</i>, Cincinnati</td>
+<td class="num">402</td><td class="num">5.8 MB</td>
+<td>831 × "Zappa", 56 × "Black Page", 18 × "polymeter", 11 × "Drowning Witch"</td></tr>
+<tr><td><b>Ben Wall</b>, <i>Inca Roads: The Musical Worlds of Frank Zappa</i>, Huddersfield MA</td>
+<td class="num">132</td><td class="num">8.0 MB</td>
+<td>626 × "Zappa", 179 × "Inca Roads"</td></tr>
+</table></div>
+
+<h2 id="rondo">9. The Rondo Hatton Report</h2>
+<p>All <b>13 quarterly editions</b>, December 2009 through December 2012, 23.7 MB.</p>
+<div class="note warn"><span class="key">The linked host is dead.</span> Ten of the thirteen PDFs are
+linked to <span class="mono">rhreport.net</span>, which now answers HTTP 200 and returns a 114-byte HTML stub for every
+file, so the download looks successful and contains nothing. All
+thirteen were recovered instead from the afka.net mirror at
+<span class="mono">/Stuff/Rondo_Hatton_Report/</span>.</div>
+
+<h2 id="songsterr">5. Songsterr: 50 drum tabs</h2>
+<p>The catalog is far larger than either source list suggested: 50 Zappa drum transcriptions, against
+the 6–17 named. Community-made, so every hard passage still needs checking against the recording and
+against published notation.</p>
+<div class="two scroll"><table>
+<tr><th>#</th><th>Song</th><th>Tab</th></tr><tr><td class="num">1</td><td>Alien Orifice</td><td><a href="https://www.songsterr.com/a/wsa/frank-zappa-alien-orifice-drum-tab-s68246" target="_blank" rel="noopener">s68246</a></td></tr>
+<tr><td class="num">2</td><td>Andy</td><td><a href="https://www.songsterr.com/a/wsa/frank-zappa-andy-drum-tab-s21495" target="_blank" rel="noopener">s21495</a></td></tr>
+<tr><td class="num">3</td><td>Black Napkins</td><td><a href="https://www.songsterr.com/a/wsa/frank-zappa-black-napkins-drum-tab-s59089" target="_blank" rel="noopener">s59089</a></td></tr>
+<tr><td class="num">4</td><td>Bobby Brown Goes Down</td><td><a href="https://www.songsterr.com/a/wsa/frank-zappa-bobby-brown-goes-down-drum-tab-s506656" target="_blank" rel="noopener">s506656</a></td></tr>
+<tr><td class="num">5</td><td>Camarillo Brillo</td><td><a href="https://www.songsterr.com/a/wsa/frank-zappa-camarillo-brillo-drum-tab-s412176" target="_blank" rel="noopener">s412176</a></td></tr>
+<tr><td class="num">6</td><td>Catholic Girls</td><td><a href="https://www.songsterr.com/a/wsa/frank-zappa-catholic-girls-drum-tab-s749523" target="_blank" rel="noopener">s749523</a></td></tr>
+<tr><td class="num">7</td><td>Charlies Enormous Mouth</td><td><a href="https://www.songsterr.com/a/wsa/frank-zappa-charlies-enormous-mouth-drum-tab-s5799448" target="_blank" rel="noopener">s5799448</a></td></tr>
+<tr><td class="num">8</td><td>City Of Tiny Lites</td><td><a href="https://www.songsterr.com/a/wsa/frank-zappa-city-of-tiny-lites-drum-tab-s68251" target="_blank" rel="noopener">s68251</a></td></tr>
+<tr><td class="num">9</td><td>Cosmik Debris</td><td><a href="https://www.songsterr.com/a/wsa/frank-zappa-cosmik-debris-drum-tab-s412177" target="_blank" rel="noopener">s412177</a></td></tr>
+<tr><td class="num">10</td><td>Cosmik Debris Live</td><td><a href="https://www.songsterr.com/a/wsa/frank-zappa-cosmik-debris-live-drum-tab-s1154774" target="_blank" rel="noopener">s1154774</a></td></tr>
+<tr><td class="num">11</td><td>Disco Boy</td><td><a href="https://www.songsterr.com/a/wsa/frank-zappa-disco-boy-drum-tab-s1821195" target="_blank" rel="noopener">s1821195</a></td></tr>
+<tr><td class="num">12</td><td>Dont Eat The Yellow Snow</td><td><a href="https://www.songsterr.com/a/wsa/frank-zappa-dont-eat-the-yellow-snow-drum-tab-s35866" target="_blank" rel="noopener">s35866</a></td></tr>
+<tr><td class="num">13</td><td>Drowning Witch</td><td><a href="https://www.songsterr.com/a/wsa/frank-zappa-drowning-witch-drum-tab-s620961" target="_blank" rel="noopener">s620961</a></td></tr>
+<tr><td class="num">14</td><td>Echidnas Arf Of You</td><td><a href="https://www.songsterr.com/a/wsa/frank-zappa-echidnas-arf-of-you-drum-tab-s35891" target="_blank" rel="noopener">s35891</a></td></tr>
+<tr><td class="num">15</td><td>Father Oblivion</td><td><a href="https://www.songsterr.com/a/wsa/frank-zappa-father-oblivion-drum-tab-s35864" target="_blank" rel="noopener">s35864</a></td></tr>
+<tr><td class="num">16</td><td>Fembot In A Wet T Shirt</td><td><a href="https://www.songsterr.com/a/wsa/frank-zappa-fembot-in-a-wet-t-shirt-drum-tab-s748459" target="_blank" rel="noopener">s748459</a></td></tr>
+<tr><td class="num">17</td><td>Five Five Five</td><td><a href="https://www.songsterr.com/a/wsa/frank-zappa-five-five-five-drum-tab-s2983241" target="_blank" rel="noopener">s2983241</a></td></tr>
+<tr><td class="num">18</td><td>Hungry Freaks Daddy</td><td><a href="https://www.songsterr.com/a/wsa/frank-zappa-hungry-freaks-daddy-drum-tab-s35880" target="_blank" rel="noopener">s35880</a></td></tr>
+<tr><td class="num">19</td><td>Im The Slime 1</td><td><a href="https://www.songsterr.com/a/wsa/frank-zappa-im-the-slime-1-drum-tab-s4663113" target="_blank" rel="noopener">s4663113</a></td></tr>
+<tr><td class="num">20</td><td>Im The Slime</td><td><a href="https://www.songsterr.com/a/wsa/frank-zappa-im-the-slime-drum-tab-s642618" target="_blank" rel="noopener">s642618</a></td></tr>
+<tr><td class="num">21</td><td>Inca Roads</td><td><a href="https://www.songsterr.com/a/wsa/frank-zappa-inca-roads-drum-tab-s412178" target="_blank" rel="noopener">s412178</a></td></tr>
+<tr><td class="num">22</td><td>Inca Roads Helsinki Really</td><td><a href="https://www.songsterr.com/a/wsa/frank-zappa-inca-roads-helsinki-really-drum-tab-s2824994" target="_blank" rel="noopener">s2824994</a></td></tr>
+<tr><td class="num">23</td><td>Joes Garage</td><td><a href="https://www.songsterr.com/a/wsa/frank-zappa-joes-garage-drum-tab-s187096" target="_blank" rel="noopener">s187096</a></td></tr>
+<tr><td class="num">24</td><td>Joes Garage</td><td><a href="https://www.songsterr.com/a/wsa/frank-zappa-joes-garage-drum-tab-s615252" target="_blank" rel="noopener">s615252</a></td></tr>
+<tr><td class="num">25</td><td>Keep It Greasey</td><td><a href="https://www.songsterr.com/a/wsa/frank-zappa-keep-it-greasey-drum-tab-s604777" target="_blank" rel="noopener">s604777</a></td></tr>
+<tr><td class="num">26</td><td>Lucille Has Messed My Mind Up</td><td><a href="https://www.songsterr.com/a/wsa/frank-zappa-lucille-has-messed-my-mind-up-drum-tab-s187088" target="_blank" rel="noopener">s187088</a></td></tr>
+<tr><td class="num">27</td><td>Montana</td><td><a href="https://www.songsterr.com/a/wsa/frank-zappa-montana-drum-tab-s35870" target="_blank" rel="noopener">s35870</a></td></tr>
+<tr><td class="num">28</td><td>Montana Live</td><td><a href="https://www.songsterr.com/a/wsa/frank-zappa-montana-live-drum-tab-s1381052" target="_blank" rel="noopener">s1381052</a></td></tr>
+<tr><td class="num">29</td><td>Muffin Man</td><td><a href="https://www.songsterr.com/a/wsa/frank-zappa-muffin-man-drum-tab-s35886" target="_blank" rel="noopener">s35886</a></td></tr>
+<tr><td class="num">30</td><td>Oh No</td><td><a href="https://www.songsterr.com/a/wsa/frank-zappa-oh-no-drum-tab-s35884" target="_blank" rel="noopener">s35884</a></td></tr>
+<tr><td class="num">31</td><td>Packard Goose</td><td><a href="https://www.songsterr.com/a/wsa/frank-zappa-packard-goose-drum-tab-s35875" target="_blank" rel="noopener">s35875</a></td></tr>
+<tr><td class="num">32</td><td>Peaches En Regalia</td><td><a href="https://www.songsterr.com/a/wsa/frank-zappa-peaches-en-regalia-drum-tab-s35889" target="_blank" rel="noopener">s35889</a></td></tr>
+<tr><td class="num">33</td><td>Sinister Footwear Ii</td><td><a href="https://www.songsterr.com/a/wsa/frank-zappa-sinister-footwear-ii-drum-tab-s21874" target="_blank" rel="noopener">s21874</a></td></tr>
+<tr><td class="num">34</td><td>Son Of Mr Green Genes</td><td><a href="https://www.songsterr.com/a/wsa/frank-zappa-son-of-mr-green-genes-drum-tab-s35898" target="_blank" rel="noopener">s35898</a></td></tr>
+<tr><td class="num">35</td><td>St Alfonzos Pancake Breakfast</td><td><a href="https://www.songsterr.com/a/wsa/frank-zappa-st-alfonzos-pancake-breakfast-drum-tab-s35892" target="_blank" rel="noopener">s35892</a></td></tr>
+<tr><td class="num">36</td><td>The Black Page 1 2 Zappa Plays Zappa</td><td><a href="https://www.songsterr.com/a/wsa/frank-zappa-the-black-page-1-2-zappa-plays-zappa-drum-tab-s958478" target="_blank" rel="noopener">s958478</a></td></tr>
+<tr><td class="num">37</td><td>The Black Page 2</td><td><a href="https://www.songsterr.com/a/wsa/frank-zappa-the-black-page-2-drum-tab-s35874" target="_blank" rel="noopener">s35874</a></td></tr>
+<tr><td class="num">38</td><td>The Black Page</td><td><a href="https://www.songsterr.com/a/wsa/frank-zappa-the-black-page-drum-tab-s1105085" target="_blank" rel="noopener">s1105085</a></td></tr>
+<tr><td class="num">39</td><td>The Gumbo Variations</td><td><a href="https://www.songsterr.com/a/wsa/frank-zappa-the-gumbo-variations-drum-tab-s1223393" target="_blank" rel="noopener">s1223393</a></td></tr>
+<tr><td class="num">40</td><td>Transylvania Boogie</td><td><a href="https://www.songsterr.com/a/wsa/frank-zappa-transylvania-boogie-drum-tab-s2085601" target="_blank" rel="noopener">s2085601</a></td></tr>
+<tr><td class="num">41</td><td>Uncle Meat Main Title Theme</td><td><a href="https://www.songsterr.com/a/wsa/frank-zappa-uncle-meat-main-title-theme-drum-tab-s5601351" target="_blank" rel="noopener">s5601351</a></td></tr>
+<tr><td class="num">42</td><td>Uncle Remus</td><td><a href="https://www.songsterr.com/a/wsa/frank-zappa-uncle-remus-drum-tab-s35894" target="_blank" rel="noopener">s35894</a></td></tr>
+<tr><td class="num">43</td><td>Waka Jawaka</td><td><a href="https://www.songsterr.com/a/wsa/frank-zappa-waka-jawaka-drum-tab-s1252762" target="_blank" rel="noopener">s1252762</a></td></tr>
+<tr><td class="num">44</td><td>Watermelon In Easter Hay</td><td><a href="https://www.songsterr.com/a/wsa/frank-zappa-watermelon-in-easter-hay-drum-tab-s35881" target="_blank" rel="noopener">s35881</a></td></tr>
+<tr><td class="num">45</td><td>Whats New In Baltimore</td><td><a href="https://www.songsterr.com/a/wsa/frank-zappa-whats-new-in-baltimore-drum-tab-s35887" target="_blank" rel="noopener">s35887</a></td></tr>
+<tr><td class="num">46</td><td>Why Does It Hurt When I Pee</td><td><a href="https://www.songsterr.com/a/wsa/frank-zappa-why-does-it-hurt-when-i-pee-drum-tab-s3098900" target="_blank" rel="noopener">s3098900</a></td></tr>
+<tr><td class="num">47</td><td>Willie The Pimp</td><td><a href="https://www.songsterr.com/a/wsa/frank-zappa-willie-the-pimp-drum-tab-s35896" target="_blank" rel="noopener">s35896</a></td></tr>
+<tr><td class="num">48</td><td>Wonderful Wino</td><td><a href="https://www.songsterr.com/a/wsa/frank-zappa-wonderful-wino-drum-tab-s3436976" target="_blank" rel="noopener">s3436976</a></td></tr>
+<tr><td class="num">49</td><td>Zomby Woof</td><td><a href="https://www.songsterr.com/a/wsa/frank-zappa-zomby-woof-drum-tab-s412162" target="_blank" rel="noopener">s412162</a></td></tr>
+<tr><td class="num">50</td><td>Zoot Allures</td><td><a href="https://www.songsterr.com/a/wsa/frank-zappa-zoot-allures-drum-tab-s35883" target="_blank" rel="noopener">s35883</a></td></tr></table></div>
+
+<h2 id="corrections">Corrections to the source list</h2>
+<div class="scroll"><table>
+<tr><th>Claim</th><th>What the files show</th></tr>
+<tr><td>"Barry Wall's <i>The Musical Worlds of Frank Zappa</i>"</td>
+<td>The author is <b>Ben Wall</b>. Huddersfield MA thesis, 2011.</td></tr>
+<tr><td>Drumnet supplies Zappa charts at the IDs on its group page</td>
+<td>Three of the nine linked IDs are cross-promotion: The Cranberries "Zombie", Dolly Parton "9 to 5",
+Michael Jackson "Billie Jean". Identified by title after download and set aside.</td></tr>
+<tr><td>Pete Sweeney's PDF contains Dong Work for Yuda and Keep It Greasy</td>
+<td>True, from page 3 on. Pages 1–2 are a non-Zappa Colaiuta chart, so the file is a bundle rather
+than a Zappa pair.</td></tr>
+<tr><td>Rondo Hatton essays download from the report index</td>
+<td>Ten of thirteen links point at a dead host that answers 200 with an HTML stub. Recovered from the
+afka.net mirror.</td></tr>
+<tr><td>Songsterr covers roughly a dozen-plus drum parts</td>
+<td>50 drum tabs.</td></tr>
+<tr><td>zappa-analysis "contains more drum material than its main page suggests"</td>
+<td>Confirmed and quantified: 120 pages, 879 notation images.</td></tr>
+</table></div>
+
+<h2 id="not">Not downloaded, and why</h2>
+<div class="scroll"><table>
+<tr><th>Source</th><th>Reason</th></tr>
+<tr><td><b>The Frank Zappa Guitar Book</b> (Hal Leonard / Munchkin 1982)</td>
+<td>In-print commercial book, 302pp, transcribed by Steve Vai. Not obtainable as a download. The full
+22-composition contents list was captured as text.</td></tr>
+<tr><td><b>Modern Drummer</b>, The Deathless Horsie</td>
+<td>Article prose downloaded; Atkinson's notation is subscriber-gated.</td></tr>
+<tr><td><b>DrumSetSheetMusic</b> Zappa collection</td>
+<td>Paid marketplace with a JS-rendered index; it links out to per-chart vendors and hosts nothing free.</td></tr>
+<tr><td><b>Songsterr</b> tab files</td>
+<td>Playable in-browser; Guitar Pro export needs a Plus account. Catalogued with direct URLs instead.</td></tr>
+<tr><td><b>Globalia</b> (donlope.net/fz)</td>
+<td>A reference wiki about recordings and personnel, not a document set, no drum notation to fetch.</td></tr>
+<tr><td><b>Cruise Ship Drummer</b> complete charts</td>
+<td>Excerpt-only by design; $3 via Venmo for the full transcriptions.</td></tr>
+</table></div>
+
+<footer>
+Copyrighted transcriptions gathered for private study. This page indexes and links them; it does not
+republish any score image. Built 2026-08-28.
+</footer>
+</div></body></html>
