@@ -66,6 +66,7 @@
   <li><a href="#inventory">Verified inventory</a></li>
   <li><a href="#repo">What got built</a></li>
   <li><a href="#mundo">Mundo Cani, live result</a></li>
+  <li><a href="#octave">The 87/88 octave probe</a></li>
   <li><a href="#blocked">The one blocker</a></li>
 </ol>
 
@@ -146,6 +147,7 @@
 <tr><td class="mono">env.sh</td><td>Pins the three interpreters and <code>BASIC_PITCH_MODEL_TYPE=onnx</code>. Source it before anything.</td></tr>
 <tr><td class="mono">doctor.py</td><td>33 live checks across CLI tools, packages, both transcription environments, the GUI apps, the six gates, and the corpus. Exits non zero on a hard failure.</td></tr>
 <tr><td class="mono">validate_song.py</td><td>Takes a path or part of a song title, resolves the candidate and its guitar stem out of the corpus, runs the gates, prints one verdict, writes JSON to <code>reports/</code>.</td></tr>
+<tr><td class="mono">octave_probe.py</td><td>Tests the 87/88 harmonic hypothesis. Known-answer self test, count matched control, wrong time control, two anchor map health gate. Refuses to publish a verdict on a suspect map.</td></tr>
 <tr><td class="mono">tests/test_workstation.py</td><td>The rules as tests. Package imports, the ONNX pin, gate presence, the human tab regression anchor, and a check that no pitch exceeds a 22 fret neck.</td></tr>
 </div>
 
@@ -183,6 +185,71 @@ python3 -m pytest tests/ -q</pre>
 <div class="card dusty">
   <h3>On two guitar ownership for Mare Vitalis</h3>
   <p>The proposal routes through a two guitar ownership step. On this album that step was measured on 2026-08-11 and it does not separate. Both players fall within about <b>1 dB</b> of each other in the stereo image where roughly <b>12 dB</b> would be needed to assign a note. Ownership scored at chance across all 46 songs. The workable route is the one the corpus README describes: split an unplayable beat into two hands by register and reach, change no pitches, and treat the audio as evidence for pitch rather than for authorship.</p>
+</div>
+
+
+<h2 id="octave">The 87/88 octave probe</h2>
+
+<p>Task 2 in the corpus README: 19 bad beats hold a pitch that does not exist on a 22 fret
+guitar, only MIDI 87 and 88, across five songs. The suspicion is that the transcriber heard the
+second harmonic of a note an octave below and wrote the harmonic as the note.
+<code>octave_probe.py</code> tests that. It measures band energy at the written pitch against
+the band an octave below, in the guitar stem, at each note's own time.</p>
+
+<div class="card olive">
+  <h3>The measure was validated before it was pointed at any music</h3>
+  <p>Two synthetic signals with a known answer, run on every invocation. The probe refuses to
+  read audio if either fails.</p>
+  <pre>SELF TEST  (synthetic signals, known answer)
+  [ok] written_pitch_is_real        ratio 6051095.288
+  [ok] octave_below_with_harmonic   ratio       0.400
+  =&gt; the measure separates the two cases</pre>
+</div>
+
+<div class="card teal">
+  <h3>Map free finding: all 19 are one written position class</h3>
+  <p>This needs no audio and no time map, so it holds regardless of everything below.</p>
+  <div class="scroll">
+  <table>
+  <tr><th>Song</th><th>Count</th><th>Written position</th></tr>
+  <tr><td>30 Degrees 3 Am</td><td>1</td><td class="mono">string 5, fret 23, pitch 87</td></tr>
+  <tr><td>Barrier Islands (Do We Remain)</td><td>4</td><td class="mono">string 5, fret 24, pitch 88</td></tr>
+  <tr><td>Sentence</td><td>7</td><td class="mono">string 5, fret 24, pitch 88</td></tr>
+  <tr><td>Convict</td><td>3</td><td class="mono">string 5, fret 23 x2 and fret 24 x1</td></tr>
+  <tr><td>Confession</td><td>4</td><td class="mono">string 5, fret 24, pitch 88</td></tr>
+  <tr><th>Total</th><th>19</th><th class="mono">88 on str5/fret24 x16, 87 on str5/fret23 x3</th></tr>
+  </table>
+  </div>
+  <p><b>Every one is on string 5, the high E, at fret 23 or 24. Not one appears on any other
+  string.</b> Since 87 and 88 have no legal position on a 22 fret neck, the writer had nowhere
+  to put them and fell back to arithmetic fret on the top string. That makes this one systematic
+  fallback firing 19 times rather than 19 independent mishearings, and it points the
+  investigation at the pitch detector rather than the fingering.</p>
+</div>
+
+<div class="card rust">
+  <h3>No octave verdict yet, because the beat map fails its own control</h3>
+  <p>On Sentence, with the score tempo of 200 bpm at offset 0:</p>
+  <pre>map anchor 1  notated onsets to nearest real attack:  median 88 ms
+              SAME map pointed 11 s off the mark:    median 83 ms
+              -&gt; MAP DOES NOT BEAT ITS CONTROL
+map anchor 2  notated end 153.5 s vs audio 177.5 s (13.5% drift)
+MAP           SUSPECT</pre>
+  <p>Pointing the map eleven seconds away from the music aligns slightly <b>better</b> than
+  pointing it at the music. A map that cannot beat its own wrong time control does not locate
+  notes, so the per note ratios below carry no information. The wrong time ratio control agrees:
+  median 1.31 against 1.122 for the flagged notes.</p>
+  <p>The probe prints MAP SUSPECT and withholds the verdict. That is the gate doing its job.
+  The existing <code>04_TABLES/octave_test.json</code> shows offenders at median 2.17 against a
+  decoy control at 1.77, which is very likely the same problem: with a broken time map,
+  offenders and decoys measure the same thing.</p>
+</div>
+
+<div class="card mustard">
+  <h3>What unblocks it</h3>
+  <p>A validated beat map for these five songs, real offset and real tempo anchored at two
+  musical events, rather than the score tempo at offset zero. <code>octave_probe.py</code> takes
+  <code>--offset</code> and <code>--bpm</code>, so the re run costs minutes once those exist.</p>
 </div>
 
 <h2 id="blocked">The one blocker</h2>

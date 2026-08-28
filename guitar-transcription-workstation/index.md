@@ -52,3 +52,25 @@ Guitar Pro 8's Homebrew cask is a `pkg` artifact and prompts for an admin passwo
 
 Sonic Visualiser 5.2.1 installed cleanly. `doctor.py` goes to zero hard failures once
 Guitar Pro is in.
+
+## The 87/88 octave probe (added same day)
+
+`octave_probe.py` tests whether the 19 impossible pitches are harmonics of a note an
+octave below. It passes a known-answer self-test on synthetic signals (written pitch
+ratio 6.05e6, octave-below-with-harmonic ratio 0.400) before it will read audio.
+
+**Map-free finding, holds regardless of audio:** all 19 flagged notes sit on string 5
+(high E) at fret 23 or 24. Pitch 88 on str5/fret24 x16, pitch 87 on str5/fret23 x3,
+across 30 Degrees 3 Am (1), Barrier Islands (4), Sentence (7), Convict (3), Confession
+(4). Since 87 and 88 have no legal position on a 22-fret neck, the writer fell back to
+arithmetic fret on the top string. One systematic fallback firing 19 times, not 19
+independent mishearings. The pitch detector is what to interrogate.
+
+**No octave verdict yet.** On Sentence the score-tempo map fails both anchors:
+notated onsets align to real attacks at median 88 ms, while the SAME map pointed 11 s
+off aligns at 83 ms. The wrong time aligns better, so the map does not locate notes.
+Notated end 153.5 s vs audio 177.5 s, 13.5% drift. The wrong-time ratio control (1.31)
+matches the flagged notes (1.122). The probe prints MAP SUSPECT and withholds the verdict.
+
+**Unblock:** a validated offset and tempo for these 5 songs, anchored at two musical
+events. `octave_probe.py --offset --bpm` re-runs in minutes.
