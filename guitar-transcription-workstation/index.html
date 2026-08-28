@@ -1,0 +1,207 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Guitar Transcription Workstation</title>
+<style>
+  :root{
+    --cream:#F4EDE0; --card:#FBF6EC; --ink:#141210; --rule:#D8C9AE;
+    --mustard:#D9A521; --rust:#B24A2E; --teal:#3E7C74; --dusty:#8C6D8F; --olive:#7A7F45;
+  }
+  *{box-sizing:border-box}
+  body{margin:0;background:var(--cream);color:var(--ink);
+       font-family:"Futura","Avenir Next",Avenir,"Helvetica Neue",sans-serif;
+       font-size:16px;line-height:1.6}
+  .wrap{max-width:1080px;margin:0 auto;padding:44px 22px 90px}
+  h1{font-size:40px;letter-spacing:.02em;margin:0 0 6px;font-weight:700}
+  .sub{color:#5b5348;margin:0 0 6px;font-size:17px}
+  .stamp{font-size:13px;color:#7a7266;letter-spacing:.06em;text-transform:uppercase;margin-bottom:30px}
+  h2{font-size:15px;letter-spacing:.16em;text-transform:uppercase;margin:44px 0 14px;
+     padding-bottom:7px;border-bottom:2px solid var(--rule);font-weight:700}
+  .card{background:var(--card);border:1px solid var(--rule);border-radius:5px;padding:18px 20px;margin:14px 0}
+  .card.mustard{border-left:7px solid var(--mustard)}
+  .card.rust{border-left:7px solid var(--rust)}
+  .card.teal{border-left:7px solid var(--teal)}
+  .card.dusty{border-left:7px solid var(--dusty)}
+  .card.olive{border-left:7px solid var(--olive)}
+  .card h3{margin:0 0 8px;font-size:17px}
+  b,strong{font-weight:700}
+  table{width:100%;border-collapse:collapse;margin:12px 0;font-size:14.5px;background:var(--card)}
+  th,td{text-align:left;padding:8px 11px;border-bottom:1px solid var(--rule);vertical-align:top}
+  th{background:#EFE4CE;font-size:12px;letter-spacing:.09em;text-transform:uppercase}
+  code,.mono{font-family:"SF Mono",Menlo,Consolas,monospace;font-size:13px}
+  code{background:#EFE4CE;padding:1px 5px;border-radius:3px}
+  pre{background:#221E19;color:#EFE4CE;padding:15px 17px;border-radius:5px;overflow-x:auto;
+      font-family:"SF Mono",Menlo,Consolas,monospace;font-size:13px;line-height:1.55}
+  .tag{display:inline-block;font-size:11px;letter-spacing:.09em;text-transform:uppercase;
+       padding:3px 9px;border-radius:11px;font-weight:700;color:#fff;white-space:nowrap}
+  .ok{background:var(--olive)} .no{background:var(--rust)} .warn{background:var(--mustard);color:#241f16}
+  .grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(215px,1fr));gap:12px}
+  .stat{background:var(--card);border:1px solid var(--rule);border-radius:5px;padding:15px}
+  .stat .n{font-size:31px;font-weight:700;line-height:1.1}
+  .stat .l{font-size:12.5px;color:#6b6357;letter-spacing:.05em;text-transform:uppercase;margin-top:4px}
+  .tocs a{color:var(--rust);text-decoration:none;border-bottom:1px solid var(--rule)}
+  ol.toc{columns:2;font-size:15px;padding-left:20px}
+  .scroll{overflow-x:auto}
+  footer{margin-top:56px;padding-top:16px;border-top:2px solid var(--rule);font-size:13px;color:#7a7266}
+</style>
+</head>
+<body>
+<div class="wrap">
+
+<h1>Guitar Transcription Workstation</h1>
+<p class="sub">Claude Code plus Python for auditing and repairing Guitar Pro tabs, with Guitar Pro for human verification.</p>
+<p class="stamp">Jacks-iMac &middot; x86_64 &middot; macOS 13.7.8 &middot; built and measured 2026-08-28</p>
+
+<div class="card mustard">
+  <h3>Read this first</h3>
+  <p>Four premises in the proposed setup do not hold on this machine, and the fixes cost less work than the original plan. This page carries the corrections, the live inventory, the repo that got built, and the one thing still blocked.</p>
+</div>
+
+<h2 class="tocs">Contents</h2>
+<ol class="toc">
+  <li><a href="#plan">The three phases</a></li>
+  <li><a href="#corrections">Four corrections</a></li>
+  <li><a href="#inventory">Verified inventory</a></li>
+  <li><a href="#repo">What got built</a></li>
+  <li><a href="#mundo">Mundo Cani, live result</a></li>
+  <li><a href="#blocked">The one blocker</a></li>
+</ol>
+
+<h2 id="plan">Phase plan</h2>
+
+<div class="card teal">
+  <h3>Phase 1. Verify the machine before installing anything</h3>
+  <p>Read the actual interpreter, architecture, package versions, and app list. Most of the proposed stack was present before this session, and one proposed step would have reintroduced a known crash. <span class="tag ok">done</span></p>
+</div>
+<div class="card dusty">
+  <h3>Phase 2. Build the repo around the gates that exist</h3>
+  <p>Twenty five validators live in <code>~/.claude/skills/impossible-guitar-parts/</code>, tuned against recorded regression cases. The new repo calls them and never forks them. Ships <code>doctor.py</code>, <code>validate_song.py</code>, <code>env.sh</code>, and a pytest suite. <span class="tag ok">done</span></p>
+</div>
+<div class="card olive">
+  <h3>Phase 3. Prove it on the named song and publish the state</h3>
+  <p><code>validate_song.py "Mundo Cani"</code> runs end to end against the real corpus and surfaces a finding the plan did not anticipate. This page is the showcase. <span class="tag ok">done</span></p>
+</div>
+
+<h2 id="corrections">Four corrections to the proposal</h2>
+
+<div class="card rust">
+  <h3>1. This Mac is Intel, not Apple Silicon</h3>
+  <p><code>uname -m</code> returns <b>x86_64</b> on macOS 13.7.8. The Apple Silicon rationale for pinning Basic Pitch to Python 3.10 does not apply here.</p>
+</div>
+
+<div class="card rust">
+  <h3>2. A new 3.10 Basic Pitch environment would rebuild a working one and reintroduce a crash</h3>
+  <p><code>~/venvs/audio_midi_311</code> holds <b>basic-pitch 0.4.0</b> on Python 3.11.15 with <b>onnxruntime 1.23.2</b>. The constraint on this machine is the model format. The Python version is not what breaks. Basic Pitch defaults to:</p>
+  <pre>/Users/drwu/venvs/audio_midi_311/lib/python3.11/site-packages/
+    basic_pitch/saved_models/icassp_2022/nmp.mlpackage</pre>
+  <p>That CoreML package <b>SIGFPEs on this Mac</b>. <code>nmp.onnx</code> ships in the same directory, so no download is needed. <code>env.sh</code> pins <code>BASIC_PITCH_MODEL_TYPE=onnx</code>, and a pytest case fails if that pin is ever dropped.</p>
+</div>
+
+<div class="card rust">
+  <h3>3. The validator stack was installed before this session, minus one package</h3>
+  <p>Python 3.13.6 at <code>/usr/local/bin/python3</code> carried pyguitarpro, lxml, numpy, scipy, librosa, soundfile, audioread, mido, pretty_midi, pandas, matplotlib, pydub, and music21. Only <b>pytest</b> was missing, now installed at 9.1.1. Building a fresh 3.12 venv would have duplicated thirteen working packages. Demucs 4.0.1 is installed in <code>~/venvs/demucs</code> on Python 3.12.13 with torch 2.2.2.</p>
+</div>
+
+<div class="card rust">
+  <h3>4. <code>validate_song.py</code> mostly exists</h3>
+  <p>The gates for pitch preservation, impossible spans, string collisions, ownership, octave doubling, tuning, and candidate versus source statistics are written and tuned. Writing a second set from scratch would have thrown away the recorded regression cases. The new script is an orchestrator over them, roughly 130 lines.</p>
+</div>
+
+<h2 id="inventory">Verified inventory</h2>
+
+<div class="grid">
+  <div class="stat"><div class="n">33</div><div class="l">doctor checks</div></div>
+  <div class="stat"><div class="n">1</div><div class="l">hard failure left</div></div>
+  <div class="stat"><div class="n">25</div><div class="l">gates written before this</div></div>
+  <div class="stat"><div class="n">46</div><div class="l">guitar stems on disk</div></div>
+</div>
+
+<div class="scroll">
+<table>
+<tr><th>Component</th><th>Proposed</th><th>Found on the machine</th><th>Action</th></tr>
+<tr><td>Homebrew</td><td>install</td><td class="mono">6.0.15</td><td><span class="tag ok">present</span></td></tr>
+<tr><td>git</td><td>install</td><td class="mono">2.39.2 (Apple)</td><td><span class="tag ok">present</span></td></tr>
+<tr><td>ffmpeg</td><td>install</td><td class="mono">8.1.1</td><td><span class="tag ok">present</span></td></tr>
+<tr><td>uv</td><td>install</td><td class="mono">0.11.29</td><td><span class="tag ok">present</span></td></tr>
+<tr><td>Claude Code</td><td>brew cask</td><td class="mono">~/.local/bin/claude</td><td><span class="tag ok">present</span></td></tr>
+<tr><td>Python 3.12 validator env</td><td>new venv</td><td class="mono">3.13.6 with 13 of 14 pkgs</td><td><span class="tag warn">used in place</span></td></tr>
+<tr><td>pytest</td><td>in the venv</td><td class="mono">absent</td><td><span class="tag ok">installed 9.1.1</span></td></tr>
+<tr><td>Python 3.10 Basic Pitch env</td><td>new venv</td><td class="mono">3.11.15, basic-pitch 0.4.0</td><td><span class="tag warn">reused, ONNX pinned</span></td></tr>
+<tr><td>Demucs</td><td>new venv</td><td class="mono">4.0.1, torch 2.2.2</td><td><span class="tag ok">present</span></td></tr>
+<tr><td>Sonic Visualiser</td><td>install</td><td class="mono">absent</td><td><span class="tag ok">installed 5.2.1</span></td></tr>
+<tr><td>Guitar Pro 8</td><td>install</td><td class="mono">absent</td><td><span class="tag no">needs your password</span></td></tr>
+<tr><td>MuseScore 4</td><td>auxiliary</td><td class="mono">absent</td><td><span class="tag warn">left out, optional</span></td></tr>
+</table>
+</div>
+
+<h2 id="repo">What got built</h2>
+
+<p>Repo at <code>~/Music/guitar-transcription</code>, git initialised, one commit.</p>
+
+<div class="scroll">
+<table>
+<tr><th>File</th><th>Does</th></tr>
+<tr><td class="mono">env.sh</td><td>Pins the three interpreters and <code>BASIC_PITCH_MODEL_TYPE=onnx</code>. Source it before anything.</td></tr>
+<tr><td class="mono">doctor.py</td><td>33 live checks across CLI tools, packages, both transcription environments, the GUI apps, the six gates, and the corpus. Exits non zero on a hard failure.</td></tr>
+<tr><td class="mono">validate_song.py</td><td>Takes a path or part of a song title, resolves the candidate and its guitar stem out of the corpus, runs the gates, prints one verdict, writes JSON to <code>reports/</code>.</td></tr>
+<tr><td class="mono">tests/test_workstation.py</td><td>The rules as tests. Package imports, the ONNX pin, gate presence, the human tab regression anchor, and a check that no pitch exceeds a 22 fret neck.</td></tr>
+</div>
+
+<div class="card teal">
+  <h3>A gate that cannot run reports NOT RUN</h3>
+  <p>The audio gates need <code>--stem --offset --bpm</code>. Without a validated beat map they are skipped and printed as <b>NOT RUN</b>. A skipped gate is never folded into a pass.</p>
+</div>
+
+<pre>. ~/Music/guitar-transcription/env.sh
+python3 doctor.py
+python3 validate_song.py "Mundo Cani"
+python3 -m pytest tests/ -q</pre>
+
+<h2 id="mundo">Mundo Cani, live result</h2>
+
+<p>The command from the proposal, run for real against
+<code>05_TWO_STAFF_SPLIT/Mare-Vitalis-01-The Immortal Soul of Mundo Cani__beamfix__split.gp</code>.</p>
+
+<div class="scroll">
+<table>
+<tr><th>Gate</th><th>Verdict</th><th>What it found</th></tr>
+<tr><td>playability</td><td><span class="tag warn">review</span></td><td>585 notes, 539 attacks, hand skip 42 percent, SHIFT x4, severe JUMP x7, isolated octave x6, ownership suspect x9, tuning evidence flagged. BPM read as 172.</td></tr>
+<tr><td>octave copy and note loss</td><td><span class="tag ok">pass</span></td><td>0.0 percent copy rate on both guitar staves. Neither staff is the other at fret plus twelve.</td></tr>
+<tr><td>audio accuracy</td><td><span class="tag warn">not run</span></td><td>Needs a validated beat map. The stem was resolved automatically and is ready.</td></tr>
+<tr><td>duration and tie</td><td><span class="tag warn">not run</span></td><td>Same requirement.</td></tr>
+</table>
+</div>
+
+<div class="card rust">
+  <h3>The finding the run surfaced</h3>
+  <p>The existing two staff split of this song put <b>585 notes on Guitar and 1 note on Guitar 2</b>. The split ran and produced a file, and the file does almost nothing. The 42 percent hand skip and the nine ownership flags remain on the first staff. Exit zero and a written file prove only that the tool ran. Neither measures whether the output is good.</p>
+  <p><b>Another session is editing that same tree right now.</b> The delivery README changed on disk mid read. Nothing here writes into <code>~/Projects/_outputs/APPLESEED-DELIVERY-2026-08-28/</code>, and coordinating before any repair pass is the safe move.</p>
+</div>
+
+<div class="card dusty">
+  <h3>On two guitar ownership for Mare Vitalis</h3>
+  <p>The proposal routes through a two guitar ownership step. On this album that step was measured on 2026-08-11 and it does not separate. Both players fall within about <b>1 dB</b> of each other in the stereo image where roughly <b>12 dB</b> would be needed to assign a note. Ownership scored at chance across all 46 songs. The workable route is the one the corpus README describes: split an unplayable beat into two hands by register and reach, change no pitches, and treat the audio as evidence for pitch rather than for authorship.</p>
+</div>
+
+<h2 id="blocked">The one blocker</h2>
+
+<div class="card no rust">
+  <h3>Guitar Pro 8 needs an admin password</h3>
+  <p>The Homebrew cask ships a <code>pkg</code> installer, so it prompts for a password that I will not enter on your behalf. Sonic Visualiser installed cleanly because its cask is a plain app bundle. Run this yourself and <code>doctor.py</code> goes to zero hard failures:</p>
+</div>
+
+<pre>brew install --cask guitar-pro</pre>
+
+<p>Optional, if the auxiliary conversion path is wanted: <code>brew install --cask musescore</code>. Keeping it away from the authoritative editing path stays correct, since conversion can drop Guitar Pro specific detail.</p>
+
+<footer>
+  Every number here came from a command run on this machine on 2026-08-28. Gate output is in
+  <span class="mono">~/Music/guitar-transcription/reports/</span>.
+  Validators are in <span class="mono">~/.claude/skills/impossible-guitar-parts/</span> and were not modified.
+</footer>
+
+</div>
+</body>
+</html>
