@@ -74,3 +74,49 @@ matches the flagged notes (1.122). The probe prints MAP SUSPECT and withholds th
 
 **Unblock:** a validated offset and tempo for these 5 songs, anchored at two musical
 events. `octave_probe.py --offset --bpm` re-runs in minutes.
+
+## Beat maps derived from the audio (same day)
+
+`beatmap_fit.py` fits offset and tempo by cross-correlating the notated onset train against
+the stem's onset envelope, then refuses the fit unless it covers more real attacks than
+two controls (same map shifted 11 s, and random times of the same count).
+
+Thresholds are calibrated, not invented. A positive control (synthetic audio built from a
+known map) is recovered to 0.1 bpm and 3 ms. Across three trials: lag z positive 6.29-7.87
+vs negative 2.63-2.77; coverage lift positive 1.163-1.366 vs negative 0.819-0.961. A fourth
+positive scored z 4.38, so the bar is z 4.0 and lift 1.08.
+
+| Song | Score bpm | Fitted bpm | Offset | z | Lift/random | Lift/shifted | Notated/attacks | Verdict |
+|---|---|---|---|---|---|---|---|---|
+| Sentence | 200 | 191.25 | 1.161 s | 4.39 | 1.321 | 1.267 | 898/467 | ACCEPTED |
+| 30 Degrees 3 Am | 161 | 161.20 | 13.421 s | 5.23 | 1.010 | 0.998 | 1374/517 | REFUSED |
+| Barrier Islands | 148 | 147.60 | 3.611 s | 2.95 | 0.949 | 0.970 | 1573/347 | REFUSED |
+| Convict | 184 | 178.05 | 30.174 s | 5.85 | 1.443 | 0.944 | 742/253 | REFUSED |
+| Confession | 174 | 158.05 | 11.424 s | 3.87 | 0.948 | 1.078 | 2702/891 | REFUSED |
+
+**Why four refuse:** these tabs carry 1.9x to 4.5x as many note onsets as the guitar stem
+has detectable attacks. At that density almost any alignment lands a fifth of its onsets
+near something, so the map cannot be distinguished from a random one. Only Sentence, at
+1.9x, is sparse enough. That density is consistent with the documented two-guitar merge.
+
+## Octave verdict, Sentence only
+
+With the accepted map (bpm 191.25, offset 1.161 s):
+
+| Bar | Time | Position | E written | E oct below | Ratio | Reading |
+|---|---|---|---|---|---|---|
+| 51 | 58.34 s | str5 fret24 | 13.249 | 24.126 | 0.549 | octave below, weak |
+| 73 | 83.51 s | str5 fret24 | 135.757 | 105.778 | 1.283 | ambiguous |
+| 90 | 104.06 s | str5 fret24 | 8.981 | 20.826 | 0.431 | octave below |
+| 92 | 106.10 s | str5 fret24 | 127.707 | 123.135 | 1.037 | ambiguous |
+| 108 | 125.08 s | str5 fret24 | 20.741 | 7.316 | 2.835 | written pitch |
+| 110 | 127.67 s | str5 fret24 | 52.557 | 87.766 | 0.599 | octave below, weak |
+| 111 | 128.14 s | str5 fret24 | 51.282 | 91.059 | 0.563 | octave below, weak |
+
+Controls: flagged median 0.599, count-matched other notes 7.083, same notes at the wrong
+time 1.066. Ordinary notes put ~7x more energy at the written pitch than an octave below;
+the flagged notes invert that; the wrong-time control does not reproduce it.
+
+**Four of seven point an octave below, two ambiguous, one matches the written pitch.**
+Since MIDI 88 is unplayable on a 22-fret guitar, that one cannot be a guitar fundamental
+either. Majority evidence supports the harmonic hypothesis on this song. One song is not five.
