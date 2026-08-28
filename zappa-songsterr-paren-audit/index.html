@@ -1,0 +1,425 @@
+<!doctype html><html lang="en"><head><meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Zappa Songsterr Parenthesis Audit</title>
+<style>
+:root{--cream:#F4EBD9;--ink:#1B1B1B;--rust:#B5533C;--mustard:#D8A24A;--teal:#3E7C7B;--dusty:#9C7C9C;--line:#DBCDB4;--paper:#FBF6EC;}
+*{box-sizing:border-box}
+body{margin:0;background:var(--cream);color:var(--ink);font:16px/1.6 "Iowan Old Style",Palatino,Georgia,serif;}
+.wrap{max-width:1080px;margin:0 auto;padding:38px 22px 90px}
+h1{font-size:2.05rem;margin:0 0 6px;letter-spacing:-.4px}
+.dek{color:#5c5347;margin:0 0 26px;font-size:1.02rem}
+h2{font-size:1.32rem;margin:44px 0 4px;padding-bottom:7px;border-bottom:2px solid var(--line)}
+.sub{margin:0 0 14px;color:#5c5347;font-size:.93rem}
+.verdict{background:var(--paper);border:1px solid var(--line);border-left:6px solid var(--rust);padding:18px 20px;margin:0 0 26px;border-radius:3px}
+.verdict h3{margin:0 0 10px;font-size:1.05rem;color:var(--rust)}
+.verdict p{margin:0 0 9px} .verdict p:last-child{margin:0}
+.toc{background:var(--paper);border:1px solid var(--line);padding:14px 18px;border-radius:3px;margin:0 0 26px}
+.toc a{color:var(--teal);text-decoration:none;margin-right:16px;font-size:.93rem;white-space:nowrap}
+.scroll{overflow-x:auto;border:1px solid var(--line);border-radius:3px;background:var(--paper)}
+table{border-collapse:collapse;width:100%;font-size:.88rem;min-width:860px}
+th{background:#EDE0C8;text-align:left;padding:9px 11px;font-weight:600;font-size:.79rem;text-transform:uppercase;letter-spacing:.5px;border-bottom:2px solid var(--line)}
+td{padding:9px 11px;border-bottom:1px solid #EAE0CD;vertical-align:top}
+tr.bad{background:#FBEDE8}
+td.t a{color:var(--ink);font-weight:600;text-decoration:none;border-bottom:1px dotted #999}
+td.t a:hover{color:var(--rust)}
+.sid{display:block;font-size:.72rem;color:#8b8171;font-family:ui-monospace,Menlo,monospace}
+.mine{background:var(--teal);color:#fff;font-size:.65rem;padding:1px 6px;border-radius:9px;letter-spacing:.4px}
+.n{text-align:right;font-variant-numeric:tabular-nums;white-space:nowrap}
+.gbad{color:var(--rust);font-weight:700} .gok{color:#a49a86}
+.gd{font-size:.83rem;color:#4a443a}
+.bars{font-size:.74rem;color:#8b8171;margin-top:3px;font-family:ui-monospace,Menlo,monospace}
+.b{display:inline-block;padding:2px 8px;border-radius:11px;font-size:.71rem;font-weight:700;letter-spacing:.4px;color:#fff}
+.b.ai{background:var(--teal)} .b.hand{background:var(--mustard);color:#3a2f14}
+.b.leg{background:var(--dusty)} .b.gp{background:#8b8171}
+.rev{display:block;font-size:.72rem;color:#8b8171;margin-top:3px}
+.grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(178px,1fr));gap:12px;margin:0 0 26px}
+.card{background:var(--paper);border:1px solid var(--line);border-radius:3px;padding:14px}
+.card .big{font-size:1.85rem;font-weight:700;line-height:1.1}
+.card .lab{font-size:.78rem;color:#5c5347;margin-top:3px}
+.r{color:var(--rust)} .t2{color:var(--teal)} .m{color:#a8802f}
+code{background:#EDE0C8;padding:1px 5px;border-radius:3px;font-family:ui-monospace,Menlo,monospace;font-size:.85em}
+.fix{background:var(--paper);border:1px solid var(--line);border-left:6px solid var(--teal);padding:18px 20px;border-radius:3px;margin:26px 0}
+.fix h3{margin:0 0 10px;font-size:1.05rem;color:var(--teal)}
+.corr{background:#FDF6E3;border:1px solid var(--line);border-left:6px solid var(--mustard);padding:16px 20px;border-radius:3px;margin:26px 0;font-size:.94rem}
+.corr h3{margin:0 0 8px;font-size:1rem;color:#a8802f}
+.note{font-size:.86rem;color:#5c5347;border-top:1px solid var(--line);margin-top:40px;padding-top:16px}
+</style></head><body><div class="wrap">
+<h1>Zappa on Songsterr: the parenthesis audit</h1>
+<p class="dek">Every <em>Over-Nite Sensation</em> and <em>Roxy &amp; Elsewhere</em> tab on Songsterr, classified AI vs hand-tabbed, and checked for the parenthesised-drum-note defect. 43 tabs, read from Songsterr's own revision API and notation data.</p>
+<div class="toc"><strong style="font-size:.83rem;letter-spacing:.5px">JUMP:</strong>
+<a href="#verdict">Verdict</a><a href="#what">What the parentheses are</a><a href="#ons">Over-Nite Sensation</a><a href="#roxy">Roxy &amp; Elsewhere</a><a href="#method">Method</a></div>
+<div class="grid">
+<div class="card"><div class="big r">4</div><div class="lab">tabs with parenthesised drum notes, of 43</div></div>
+<div class="card"><div class="big m">358</div><div class="lab">on hand-tabbed drums</div></div>
+<div class="card"><div class="big t2">10</div><div class="lab">on AI drums, all one tab</div></div>
+<div class="card"><div class="big r">174</div><div class="lab">snare hits in Montana alone</div></div>
+</div>
+<h2 id="verdict">Verdict</h2>
+<div class="verdict"><h3>Concentrated in hand-tabbed drums, but not exclusive to them</h3>
+<p><strong>Four tabs carry it.</strong> Montana at 317, the community Zomby Woof at 32, an AI Zomby Woof at 10, and Trouble Every Day Live at 9. The remaining 39 are clean.</p>
+<p><strong>The weight sits on hand-tabbed tracks:</strong> 358 of the 368 parenthesised notes. One AI tab carries the other 10, all on acoustic snare, so an AI transcription can produce them and usually does not.</p>
+<p><strong>Montana settles the mechanism inside a single tab.</strong> It holds three drum tracks: the hand-tabbed <code>1 Ralph Humphrey</code> with <strong>212</strong>, a <code>Percussion</code> track with <strong>105</strong>, and Songsterr's own <code>AI</code> drum track with <strong>0</strong>.</p>
+<p><strong>Hand tabs are shorter,</strong> a median 92 bars against 181 for the AI transcriptions.</p></div>
+<h2 id="what">What the parentheses actually are</h2>
+<p>In Songsterr's note model each note is <code>fret</code> + <code>string</code> plus flags, and the one that draws a parenthesised notehead is <code>ghost: true</code>. Confirmed by eye: Zomby Woof bar&nbsp;4 carries <code>{"fret": 38, "ghost": true}</code>, MIDI&nbsp;38 being the acoustic snare, and the rendered page shows a bracketed notehead at exactly that bar.</p>
+<div class="fix"><h3>What goes instead of them</h3>
+<p>Ghost notes get <strong>the staccato dot at velocity&nbsp;31</strong>, never the parentheses. Recorded in <code>stems-to-guitar-pro-drums</code>: <em>&ldquo;parentheses used to be let ring not ghost&rdquo;</em> and <em>&ldquo;when you do the note with parentheses is hard to not hit it, just add the correct dot to it.&rdquo;</em> In Guitar&nbsp;Pro terms that is the <code>ghostNote</code> effect flag, which our writer sets to <code>False</code> while adding a staccato dot instead. <code>preflight_import.py</code> refuses any import carrying them.</p>
+<p>Parentheses for ghost notes <em>are</em> a common convention in published drum charts. This is a house standard, set because they read as let-ring and a bracketed note is hard to play as the quiet hit it is meant to be.</p></div>
+<div class="corr"><h3>Correction, 2026-08-28</h3>
+<p>A first pass covered 27 tabs and reported that every AI tab carried zero parentheses. That filtered on the artist string <code>Frank Zappa</code> and missed the <code>Frank Zappa, The Mothers of Invention</code> variants, 16 further tabs. Searching by song title instead brings the total to 43 and turns up one AI tab that does carry them, Zomby Woof <code>s5820647</code>, 10 notes on acoustic snare in bars 4 to 7. The claim that AI tabs are uniformly clean was wrong.</p></div>
+<h2 id="ons">Over-Nite Sensation (1973)</h2>
+<p class="sub">17 tabs found &middot; <strong>3</strong> carrying parenthesised drum notes</p>
+<div class="scroll"><table>
+<thead><tr><th>Tab</th><th>Source</th><th>Bars</th><th>Drum notes</th><th>Paren.</th><th>Which drums / where</th><th>Synced</th></tr></thead>
+<tbody><tr class="bad">
+<td class="t"><a href="https://www.songsterr.com/a/wsa/x-tab-s35870" target="_blank" rel="noopener">Montana</a><span class="sid">s35870</span></td>
+<td><span class="b hand">hand</span><span class="rev">4 rev</span></td>
+<td class="n">142</td>
+<td class="n">2821</td>
+<td class="n gbad">317</td>
+<td class="gd">Ac Snare&nbsp;&times;95, El Snare&nbsp;&times;79, Bass Drum&nbsp;&times;24, Low Floor Tom&nbsp;&times;3, High Floor Tom&nbsp;&times;3<div class="bars">bars 7, 8, 9, 10, 13, 14, 15, 16, 17, 18 &hellip;</div></td>
+<td class="n">yes</td></tr>
+<tr class="bad">
+<td class="t"><a href="https://www.songsterr.com/a/wsa/x-tab-s412162" target="_blank" rel="noopener">Zomby Woof</a><span class="sid">s412162</span></td>
+<td><span class="b hand">hand</span><span class="rev">10 rev</span></td>
+<td class="n">114</td>
+<td class="n">1574</td>
+<td class="n gbad">32</td>
+<td class="gd">Closed HH&nbsp;&times;18, Pedal HH&nbsp;&times;4, Ac Snare&nbsp;&times;2, Hi-Mid Tom&nbsp;&times;2, Low-Mid Tom&nbsp;&times;2<div class="bars">bars 4, 13, 15, 40, 41, 42, 43</div></td>
+<td class="n">yes</td></tr>
+<tr class="bad">
+<td class="t"><a href="https://www.songsterr.com/a/wsa/x-tab-s5820647" target="_blank" rel="noopener">Zomby Woof</a><span class="sid">s5820647</span></td>
+<td><span class="b ai">AI</span><span class="rev">1 rev</span></td>
+<td class="n">123</td>
+<td class="n">182</td>
+<td class="n gbad">10</td>
+<td class="gd">Ac Snare&nbsp;&times;10<div class="bars">bars 4, 5, 6, 7</div></td>
+<td class="n">yes</td></tr>
+<tr class="">
+<td class="t"><a href="https://www.songsterr.com/a/wsa/x-tab-s412176" target="_blank" rel="noopener">Camarillo Brillo</a><span class="sid">s412176</span></td>
+<td><span class="b hand">hand</span><span class="rev">3 rev</span></td>
+<td class="n">122</td>
+<td class="n">1769</td>
+<td class="n gok">0</td>
+<td class="gd">&mdash;</td>
+<td class="n">yes</td></tr>
+<tr class="">
+<td class="t"><a href="https://www.songsterr.com/a/wsa/x-tab-s187082" target="_blank" rel="noopener">Camarillo Brillo (alt)</a><span class="sid">s187082</span></td>
+<td><span class="b ai">AI</span><span class="rev">1 rev</span></td>
+<td class="n">151</td>
+<td class="n">2296</td>
+<td class="n gok">0</td>
+<td class="gd">&mdash;</td>
+<td class="n">yes</td></tr>
+<tr class="">
+<td class="t"><a href="https://www.songsterr.com/a/wsa/x-tab-s1137599" target="_blank" rel="noopener">Dinah Mo Hum (alt)</a><span class="sid">s1137599</span></td>
+<td><span class="b ai">AI</span><span class="rev">1 rev</span></td>
+<td class="n">190</td>
+<td class="n">2961</td>
+<td class="n gok">0</td>
+<td class="gd">&mdash;</td>
+<td class="n">yes</td></tr>
+<tr class="">
+<td class="t"><a href="https://www.songsterr.com/a/wsa/x-tab-s5469271" target="_blank" rel="noopener">Dinah Moe Hum</a><span class="sid">s5469271</span></td>
+<td><span class="b ai">AI</span><span class="rev">1 rev</span></td>
+<td class="n">203</td>
+<td class="n">2909</td>
+<td class="n gok">0</td>
+<td class="gd">&mdash;</td>
+<td class="n">yes</td></tr>
+<tr class="">
+<td class="t"><a href="https://www.songsterr.com/a/wsa/x-tab-s35862" target="_blank" rel="noopener">Dirty Love</a><span class="sid">s35862</span></td>
+<td><span class="b hand">hand</span><span class="rev">3 rev</span></td>
+<td class="n">75</td>
+<td class="n">1244</td>
+<td class="n gok">0</td>
+<td class="gd">&mdash;</td>
+<td class="n">yes</td></tr>
+<tr class="">
+<td class="t"><a href="https://www.songsterr.com/a/wsa/x-tab-s5469260" target="_blank" rel="noopener">Fifty-Fifty</a><span class="sid">s5469260</span></td>
+<td><span class="b ai">AI</span><span class="rev">1 rev</span></td>
+<td class="n">200</td>
+<td class="n">3271</td>
+<td class="n gok">0</td>
+<td class="gd">&mdash;</td>
+<td class="n">yes</td></tr>
+<tr class="">
+<td class="t"><a href="https://www.songsterr.com/a/wsa/x-tab-s4861438" target="_blank" rel="noopener">Fifty-Fifty</a><span class="sid">s4861438</span></td>
+<td><span class="b ai">AI</span><span class="rev">1 rev</span></td>
+<td class="n">200</td>
+<td class="n">3279</td>
+<td class="n gok">0</td>
+<td class="gd">&mdash;</td>
+<td class="n">yes</td></tr>
+<tr class="">
+<td class="t"><a href="https://www.songsterr.com/a/wsa/x-tab-s642618" target="_blank" rel="noopener">I&#x27;m The Slime</a><span class="sid">s642618</span></td>
+<td><span class="b hand">hand</span><span class="rev">3 rev</span></td>
+<td class="n">80</td>
+<td class="n">1352</td>
+<td class="n gok">0</td>
+<td class="gd">&mdash;</td>
+<td class="n">yes</td></tr>
+<tr class="">
+<td class="t"><a href="https://www.songsterr.com/a/wsa/x-tab-s6070985" target="_blank" rel="noopener">I&#x27;m The Slime</a><span class="sid">s6070985</span></td>
+<td><span class="b ai">AI</span><span class="rev">1 rev</span></td>
+<td class="n">81</td>
+<td class="n">235</td>
+<td class="n gok">0</td>
+<td class="gd">&mdash;</td>
+<td class="n">yes</td></tr>
+<tr class="">
+<td class="t"><a href="https://www.songsterr.com/a/wsa/x-tab-s2826582" target="_blank" rel="noopener">I&#x27;m The Slime (alt)</a><span class="sid">s2826582</span></td>
+<td><span class="b ai">AI</span><span class="rev">1 rev</span></td>
+<td class="n">81</td>
+<td class="n">1508</td>
+<td class="n gok">0</td>
+<td class="gd">&mdash;</td>
+<td class="n">yes</td></tr>
+<tr class="">
+<td class="t"><a href="https://www.songsterr.com/a/wsa/x-tab-s4663113" target="_blank" rel="noopener">I&#x27;m The Slime 1</a><span class="sid">s4663113</span></td>
+<td><span class="b ai">AI</span><span class="rev">1 rev</span></td>
+<td class="n">81</td>
+<td class="n">1530</td>
+<td class="n gok">0</td>
+<td class="gd">&mdash;</td>
+<td class="n">yes</td></tr>
+<tr class="">
+<td class="t"><a href="https://www.songsterr.com/a/wsa/x-tab-s684699" target="_blank" rel="noopener">I&#x27;m the silme</a><span class="sid">s684699</span></td>
+<td><span class="b leg">hand · legacy</span><span class="rev">1 rev</span></td>
+<td class="n">81</td>
+<td class="n">1135</td>
+<td class="n gok">0</td>
+<td class="gd">&mdash;</td>
+<td class="n">yes</td></tr>
+<tr class="">
+<td class="t"><a href="https://www.songsterr.com/a/wsa/x-tab-s1381052" target="_blank" rel="noopener">Montana (live)</a><span class="sid">s1381052</span></td>
+<td><span class="b ai">AI</span><span class="rev">1 rev</span></td>
+<td class="n">141</td>
+<td class="n">2129</td>
+<td class="n gok">0</td>
+<td class="gd">&mdash;</td>
+<td class="n">yes</td></tr>
+<tr class="">
+<td class="t"><a href="https://www.songsterr.com/a/wsa/x-tab-s797870" target="_blank" rel="noopener">Montana Solo</a><span class="sid">s797870</span></td>
+<td><span class="b gp">GP import</span><span class="rev">1 rev</span></td>
+<td class="n">9</td>
+<td class="n">&mdash;</td>
+<td class="n gok">0</td>
+<td class="gd">&mdash;</td>
+<td class="n">no</td></tr></tbody></table></div><h2 id="roxy">Roxy &amp; Elsewhere (1974)</h2>
+<p class="sub">26 tabs found &middot; <strong>1</strong> carrying parenthesised drum notes</p>
+<div class="scroll"><table>
+<thead><tr><th>Tab</th><th>Source</th><th>Bars</th><th>Drum notes</th><th>Paren.</th><th>Which drums / where</th><th>Synced</th></tr></thead>
+<tbody><tr class="bad">
+<td class="t"><a href="https://www.songsterr.com/a/wsa/x-tab-s412170" target="_blank" rel="noopener">Trouble Every Day (Live)</a><span class="sid">s412170</span></td>
+<td><span class="b leg">hand · legacy</span><span class="rev">1 rev</span></td>
+<td class="n">92</td>
+<td class="n">852</td>
+<td class="n gbad">9</td>
+<td class="gd">Crash 1&nbsp;&times;6, Pedal HH&nbsp;&times;3<div class="bars">bars 1, 67, 69</div></td>
+<td class="n">yes</td></tr>
+<tr class="">
+<td class="t"><a href="https://www.songsterr.com/a/wsa/x-tab-s5469948" target="_blank" rel="noopener">Be-Bop Tango</a><span class="sid">s5469948</span></td>
+<td><span class="b ai">AI</span><span class="rev">1 rev</span></td>
+<td class="n">477</td>
+<td class="n">4820</td>
+<td class="n gok">0</td>
+<td class="gd">&mdash;</td>
+<td class="n">yes</td></tr>
+<tr class="">
+<td class="t"><a href="https://www.songsterr.com/a/wsa/x-tab-s5469732" target="_blank" rel="noopener">Cheepnis</a><span class="sid">s5469732</span></td>
+<td><span class="b ai">AI</span><span class="rev">1 rev</span></td>
+<td class="n">200</td>
+<td class="n">2266</td>
+<td class="n gok">0</td>
+<td class="gd">&mdash;</td>
+<td class="n">yes</td></tr>
+<tr class="">
+<td class="t"><a href="https://www.songsterr.com/a/wsa/x-tab-s2829238" target="_blank" rel="noopener">Don&#x27;t You Ever Wash That Thing?</a><span class="sid">s2829238</span></td>
+<td><span class="b ai">AI</span><span class="rev">1 rev</span></td>
+<td class="n">165</td>
+<td class="n">2189</td>
+<td class="n gok">0</td>
+<td class="gd">&mdash;</td>
+<td class="n">yes</td></tr>
+<tr class="">
+<td class="t"><a href="https://www.songsterr.com/a/wsa/x-tab-s5469773" target="_blank" rel="noopener">Don&#x27;t You Ever Wash That Thing?</a><span class="sid">s5469773</span></td>
+<td><span class="b ai">AI</span><span class="rev">1 rev</span></td>
+<td class="n">312</td>
+<td class="n">5296</td>
+<td class="n gok">0</td>
+<td class="gd">&mdash;</td>
+<td class="n">yes</td></tr>
+<tr class="">
+<td class="t"><a href="https://www.songsterr.com/a/wsa/x-tab-s5469676" target="_blank" rel="noopener">Dummy Up</a><span class="sid">s5469676</span></td>
+<td><span class="b ai">AI</span><span class="rev">1 rev</span></td>
+<td class="n">181</td>
+<td class="n">2169</td>
+<td class="n gok">0</td>
+<td class="gd">&mdash;</td>
+<td class="n">yes</td></tr>
+<tr class="">
+<td class="t"><a href="https://www.songsterr.com/a/wsa/x-tab-s1473034" target="_blank" rel="noopener">Echidna</a><span class="sid">s1473034</span></td>
+<td><span class="b ai">AI</span><span class="rev">1 rev</span></td>
+<td class="n">155</td>
+<td class="n">1702</td>
+<td class="n gok">0</td>
+<td class="gd">&mdash;</td>
+<td class="n">yes</td></tr>
+<tr class="">
+<td class="t"><a href="https://www.songsterr.com/a/wsa/x-tab-s2825328" target="_blank" rel="noopener">Echidna&#x27;s Ar</a><span class="sid">s2825328</span></td>
+<td><span class="b ai">AI</span><span class="rev">1 rev</span></td>
+<td class="n">120</td>
+<td class="n">1740</td>
+<td class="n gok">0</td>
+<td class="gd">&mdash;</td>
+<td class="n">yes</td></tr>
+<tr class="">
+<td class="t"><a href="https://www.songsterr.com/a/wsa/x-tab-s3387460" target="_blank" rel="noopener">Echidna&#x27;s Arf</a><span class="sid">s3387460</span></td>
+<td><span class="b ai">AI</span><span class="rev">1 rev</span></td>
+<td class="n">114</td>
+<td class="n">129</td>
+<td class="n gok">0</td>
+<td class="gd">&mdash;</td>
+<td class="n">yes</td></tr>
+<tr class="">
+<td class="t"><a href="https://www.songsterr.com/a/wsa/x-tab-s2825336" target="_blank" rel="noopener">Echidna&#x27;s Arf (alt)</a><span class="sid">s2825336</span></td>
+<td><span class="b ai">AI</span><span class="rev">1 rev</span></td>
+<td class="n">135</td>
+<td class="n">1928</td>
+<td class="n gok">0</td>
+<td class="gd">&mdash;</td>
+<td class="n">yes</td></tr>
+<tr class="">
+<td class="t"><a href="https://www.songsterr.com/a/wsa/x-tab-s2825469" target="_blank" rel="noopener">Echidna&#x27;s Arf Helsinki</a><span class="sid">s2825469</span></td>
+<td><span class="b ai">AI</span><span class="rev">1 rev</span></td>
+<td class="n">103</td>
+<td class="n">1508</td>
+<td class="n gok">0</td>
+<td class="gd">&mdash;</td>
+<td class="n">yes</td></tr>
+<tr class="">
+<td class="t"><a href="https://www.songsterr.com/a/wsa/x-tab-s35891" target="_blank" rel="noopener">Echidna&#x27;s Arf of You</a><span class="sid">s35891</span></td>
+<td><span class="b hand">hand</span><span class="rev">4 rev</span></td>
+<td class="n">100</td>
+<td class="n">1671</td>
+<td class="n gok">0</td>
+<td class="gd">&mdash;</td>
+<td class="n">yes</td></tr>
+<tr class="">
+<td class="t"><a href="https://www.songsterr.com/a/wsa/x-tab-s187105" target="_blank" rel="noopener">More Trouble Every Day</a><span class="sid">s187105</span></td>
+<td><span class="b ai">AI</span><span class="rev">1 rev</span></td>
+<td class="n">239</td>
+<td class="n">109</td>
+<td class="n gok">0</td>
+<td class="gd">&mdash;</td>
+<td class="n">yes</td></tr>
+<tr class="">
+<td class="t"><a href="https://www.songsterr.com/a/wsa/x-tab-s5469710" target="_blank" rel="noopener">Penguin in Bondage</a><span class="sid">s5469710</span></td>
+<td><span class="b ai">AI</span><span class="rev">1 rev</span></td>
+<td class="n">251</td>
+<td class="n">1547</td>
+<td class="n gok">0</td>
+<td class="gd">&mdash;</td>
+<td class="n">yes</td></tr>
+<tr class="">
+<td class="t"><a href="https://www.songsterr.com/a/wsa/x-tab-s1473002" target="_blank" rel="noopener">Pygmy</a><span class="sid">s1473002</span></td>
+<td><span class="b ai">AI</span><span class="rev">1 rev</span></td>
+<td class="n">63</td>
+<td class="n">913</td>
+<td class="n gok">0</td>
+<td class="gd">&mdash;</td>
+<td class="n">yes</td></tr>
+<tr class="">
+<td class="t"><a href="https://www.songsterr.com/a/wsa/x-tab-s627774" target="_blank" rel="noopener">Pygmy Twylyte</a><span class="sid">s627774</span></td>
+<td><span class="b leg">hand · legacy</span><span class="rev">1 rev</span></td>
+<td class="n">61</td>
+<td class="n">986</td>
+<td class="n gok">0</td>
+<td class="gd">&mdash;</td>
+<td class="n">yes</td></tr>
+<tr class="">
+<td class="t"><a href="https://www.songsterr.com/a/wsa/x-tab-s2824765" target="_blank" rel="noopener">Pygmy Twylyte (Helsinki)</a><span class="sid">s2824765</span></td>
+<td><span class="b ai">AI</span><span class="rev">1 rev</span></td>
+<td class="n">171</td>
+<td class="n">43</td>
+<td class="n gok">0</td>
+<td class="gd">&mdash;</td>
+<td class="n">yes</td></tr>
+<tr class="">
+<td class="t"><a href="https://www.songsterr.com/a/wsa/x-tab-s2847936" target="_blank" rel="noopener">Pygmy Twylyte (alt)</a><span class="sid">s2847936</span></td>
+<td><span class="b ai">AI</span><span class="rev">1 rev</span></td>
+<td class="n">63</td>
+<td class="n">1093</td>
+<td class="n gok">0</td>
+<td class="gd">&mdash;</td>
+<td class="n">yes</td></tr>
+<tr class="">
+<td class="t"><a href="https://www.songsterr.com/a/wsa/x-tab-s35898" target="_blank" rel="noopener">Son Of Mr. Green Genes</a><span class="sid">s35898</span></td>
+<td><span class="b hand">hand</span><span class="rev">6 rev</span></td>
+<td class="n">214</td>
+<td class="n">4334</td>
+<td class="n gok">0</td>
+<td class="gd">&mdash;</td>
+<td class="n">yes</td></tr>
+<tr class="">
+<td class="t"><a href="https://www.songsterr.com/a/wsa/x-tab-s187084" target="_blank" rel="noopener">Son Of Orange County</a><span class="sid">s187084</span></td>
+<td><span class="b ai">AI</span><span class="rev">1 rev</span></td>
+<td class="n">187</td>
+<td class="n">&mdash;</td>
+<td class="n gok">0</td>
+<td class="gd">&mdash;</td>
+<td class="n">yes</td></tr>
+<tr class="">
+<td class="t"><a href="https://www.songsterr.com/a/wsa/x-tab-s5469750" target="_blank" rel="noopener">Son Of Orange County</a><span class="sid">s5469750</span></td>
+<td><span class="b ai">AI</span><span class="rev">1 rev</span></td>
+<td class="n">184</td>
+<td class="n">2106</td>
+<td class="n gok">0</td>
+<td class="gd">&mdash;</td>
+<td class="n">yes</td></tr>
+<tr class="">
+<td class="t"><a href="https://www.songsterr.com/a/wsa/x-tab-s1381481" target="_blank" rel="noopener">Sons of Orange County/More Trouble Everyday (live)</a><span class="sid">s1381481</span></td>
+<td><span class="b ai">AI</span><span class="rev">1 rev</span></td>
+<td class="n">228</td>
+<td class="n">2382</td>
+<td class="n gok">0</td>
+<td class="gd">&mdash;</td>
+<td class="n">yes</td></tr>
+<tr class="">
+<td class="t"><a href="https://www.songsterr.com/a/wsa/x-tab-s2247271" target="_blank" rel="noopener">Trouble Every Day (alt)</a><span class="sid">s2247271</span></td>
+<td><span class="b ai">AI</span><span class="rev">1 rev</span></td>
+<td class="n">180</td>
+<td class="n">2672</td>
+<td class="n gok">0</td>
+<td class="gd">&mdash;</td>
+<td class="n">yes</td></tr>
+<tr class="">
+<td class="t"><a href="https://www.songsterr.com/a/wsa/x-tab-s412175" target="_blank" rel="noopener">Village Of The Sun</a><span class="sid">s412175</span></td>
+<td><span class="b leg">hand · legacy</span><span class="rev">1 rev</span></td>
+<td class="n">43</td>
+<td class="n">402</td>
+<td class="n gok">0</td>
+<td class="gd">&mdash;</td>
+<td class="n">yes</td></tr>
+<tr class="">
+<td class="t"><a href="https://www.songsterr.com/a/wsa/x-tab-s6109180" target="_blank" rel="noopener">Village Of The Sun (LIVE)</a><span class="sid">s6109180</span></td>
+<td><span class="b ai">AI</span><span class="rev">1 rev</span></td>
+<td class="n">239</td>
+<td class="n">189</td>
+<td class="n gok">0</td>
+<td class="gd">&mdash;</td>
+<td class="n">yes</td></tr>
+<tr class="">
+<td class="t"><a href="https://www.songsterr.com/a/wsa/x-tab-s6628550" target="_blank" rel="noopener">Village Of The Sun (live and better)</a> <span class="mine">yours</span><span class="sid">s6628550</span></td>
+<td><span class="b ai">AI</span><span class="rev">1 rev</span></td>
+<td class="n">261</td>
+<td class="n">1799</td>
+<td class="n gok">0</td>
+<td class="gd">&mdash;</td>
+<td class="n">yes</td></tr></tbody></table></div>
+<h2 id="method">Method</h2>
+<p>Song list built by searching Songsterr for each track title on both records and keeping every result whose artist names Zappa or the Mothers, which catches the artist-string variants an artist filter drops. Source classification from <code>/api/meta/{songId}/revisions</code>, whose <code>createdVia</code> field records <code>AI</code>, <code>GP</code> or <code>Editor</code>. Notation read from the per-part JSON on Songsterr's CloudFront origin, counting the <code>ghost</code> flag per track and mapping each <code>fret</code> value through the GM percussion map.</p>
+<p>The measure was validated before it was trusted. A first pass counted the <code>tie</code> flag and would have put Zomby Woof's parentheses at bars 16&ndash;44; loading the page showed the bracketed notehead at bar&nbsp;4, which is a <code>ghost</code>. The <code>ghost</code> key had been missed because the first schema sample came from Cheepnis, which has none.</p>
+<p class="note"><strong>Caveats.</strong> The synced column reports whether Songsterr holds an original synced video, not how well that sync tracks the record. Montana's <code>Percussion</code> track also carries 22 notes at MIDI&nbsp;87, outside the GM percussion range, a separate anomaly. Tabs marked <em>yours</em> are in Brandon's own account; his unpublished <code>Zomby Woof2</code> <code>s6685613</code> is private and absent from the public API, and its drum track carries no ghosts and no staccato at all.</p>
+</div></body></html>
