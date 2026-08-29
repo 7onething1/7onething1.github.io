@@ -85,9 +85,9 @@ different passages. No label here is confirmed by both.</div>
 <div class="scroll"><table>
 <tr><th>Tab</th><th>Bars</th><th>BPM</th><th>Duration</th><th>Drum notes</th><th>Paren.</th>
 <th>Published meters present</th><th>Meters written</th></tr>
-<tr><td><b>Community, hand-tabbed</b><div class="path">s412162</div></td><td class="num">114</td><td class="num">88</td><td class="num">5:03.86</td><td class="num">1,612</td><td class="num">32</td><td class="ok"><b>6 of 6</b></td><td class="mono">3/4, 10/16, 2/4, 5/4, 15/16, 4/4, 6/4, 7/8</td></tr>
-<tr><td><b>Songsterr AI</b><div class="path">s5820647</div></td><td class="num">123</td><td class="num">89</td><td class="num">5:30.84</td><td class="num">297</td><td class="num">10</td><td class="bad"><b>2 of 6</b></td><td class="mono">13/16, 4/4, 9/8, 7/8</td></tr>
-<tr><td><b>Yours</b><div class="path">s6685613</div></td><td class="num">232</td><td class="num">175</td><td class="num">5:08.23</td><td class="num">2,076</td><td class="num">0</td><td class="mid"><b>3 of 6</b></td><td class="mono">4/4, 5/4, 2/4, 6/4, 5/8, 3/4</td></tr>
+<tr><td><b>Community, hand-tabbed</b><div class="path">s412162 &middot; by meh32 / Ben Dibden1</div></td><td class="num">114</td><td class="num">88</td><td class="num">5:03.86</td><td class="num">1,574</td><td class="num">32</td><td class="ok"><b>6 of 6</b></td><td class="mono">3/4, 10/16, 2/4, 5/4, 15/16, 4/4, 6/4, 7/8</td></tr>
+<tr><td><b>Incomplete upload</b><div class="path">s5820647 &middot; AI run by CoolDude</div></td><td class="num">123</td><td class="num">89</td><td class="num">5:30.84</td><td class="num">182</td><td class="num">10</td><td class="bad"><b>2 of 6</b></td><td class="mono">13/16, 4/4, 9/8, 7/8</td></tr>
+<tr><td><b>Yours</b><div class="path">s6685613 &middot; your own AI run, private</div></td><td class="num">232</td><td class="num">175</td><td class="num">5:08.23</td><td class="num">2,063</td><td class="num">0</td><td class="mid"><b>3 of 6</b></td><td class="mono">4/4, 5/4, 2/4, 6/4, 5/8, 3/4</td></tr>
 </table></div>
 <p class="path">Album track length is 5:11. Drum-track data read from Songsterr's own revision API.</p>
 
@@ -97,10 +97,10 @@ published signature labels.</span> The community hand tab carries every one, and
 Sloots prints, in order. That makes it the strongest provisional bar map. A label matching a label is
 not yet a verified transcription.</div>
 
-<div class="note warn"><span class="bad">The AI tab flattens the song.</span> 119 of its 123 bars are
+<div class="note warn"><span class="bad">The incomplete upload flattens the song.</span> 119 of its 123 bars are
 4/4. It has none of 5/4, 10/16 or 15/16, and it carries a 13/16 and a 9/8 that neither published
-source shows. Its drum track holds 297 notes against the hand tab's 1,612, and 115 of those carry a
-null pitch, so the part is malformed as well as thin.</div>
+source shows. Its drum staff holds 182 real notes against the hand tab's 1,574.</div>
+<div class="note warn"><b>Correction, 29 August.</b> A first version of this page said this tab carried "297 notes, 115 of them null-pitched, so the part is malformed". That was wrong. Songsterr's JSON emits a <span class="mono">{"rest": true}</span> object inside each beat's note list, and I counted those rests as notes. The 115 are rests, which is ordinary notation. Every note count on this page is now rest-excluded.</div>
 
 <div class="note"><span class="mid">Yours is the densest drum candidate with the closest calculated
 duration.</span> 2,076 drum notes shows density. 5:08.23 against the album's 5:11 shows approximate
@@ -109,6 +109,18 @@ those three measurements establishes accurate drums, appropriate cymbals, playab
 correct attack placement, so it stays a detailed repair candidate pending comparison against the
 audio. It writes at 175 bpm in 232 bars, double-time against 88 bpm in 114, a legitimate choice. What
 it does not carry is the 7/8, 10/16 or 15/16 labelling, with twelve bars of 5/8 in their place.</div>
+
+<div class="note warn"><b>Provenance, corrected 29 August.</b> These three are not "hand versus AI versus yours". Songsterr's API records <span class="mono">s412162</span> as editor-made by meh32 over Ben Dibden1, and BOTH <span class="mono">s5820647</span> and your <span class="mono">s6685613</span> as AI runs, the first uploaded by CoolDude and the second your own. What separates them is how completely each was uploaded. Measured per staff, rests excluded:</div>
+<div class="scroll"><table>
+<tr><th>Staff</th><th>s5820647 (CoolDude)</th><th>s6685613 (yours)</th></tr>
+<tr><td>Lead Guitar</td><td class="bad num">0</td><td class="num">651</td></tr>
+<tr><td>Rhythm Guitar</td><td class="num">108</td><td class="num">532</td></tr>
+<tr><td>Bass</td><td class="num">121</td><td class="num">1,176</td></tr>
+<tr><td>Drums</td><td class="num">182</td><td class="num">2,063</td></tr>
+<tr><td>Vocals</td><td class="bad num">0</td><td class="num">380</td></tr>
+<tr><td><b>Total</b></td><td class="num"><b>411</b></td><td class="num"><b>4,802</b></td></tr>
+</table></div>
+<p>Two of the five staves on <span class="mono">s5820647</span> contain rests and nothing else. A survey of 34 Zappa tabs across both records found this on three of them, and never on a tab built in the editor. Incomplete uploads are the pattern here, and they appear across tools.</p>
 
 <h2 id="align">The alignment test</h2>
 <p>A matching list of labels proves less than it looks like, since the same labels could sit in the
@@ -144,16 +156,15 @@ thirteen-bar span within 3.2 percent of the stated excerpt</td></tr>
 <tr><td>Drum material to repair from</td><td><b>Yours s6685613</b></td>
 <td>The densest drum candidate with the closest calculated duration. Density and duration and file-rule
 compliance, and no evidence yet on accuracy, cymbal choice, orchestration or attack placement</td></tr>
-<tr><td>Nothing yet</td><td class="bad">AI s5820647</td>
-<td>Flattened to 4/4, labels no source shows, 297 notes with 115 null-pitched</td></tr>
+<tr><td>Nothing yet</td><td class="bad">s5820647</td>
+<td>Flattened to 4/4, labels no source shows, and two of its five staves hold nothing but rests</td></tr>
 </table></div>
 <div class="note"><b>The next move on this song.</b> Align the community bar map against the exact
 album master first, then move your drum material into that structure bar by bar. Re-barring before
 that alignment is confirmed would carry any error in the map straight into the result.</div>
 
-<div class="note"><b>On the parenthesised notes.</b> A parenthesis is a normal ghost-note convention
-in published drum notation. Counting them here records a house file rule, and it does not by itself
-mark a transcriber's error.</div>
+<div class="note"><b>On the parenthesised notes.</b> A parenthesis is a normal ghost-note convention in published
+drum notation. Counting them records a house file rule and does not by itself mark an error. Measured against the flam test (a short preparatory stroke on snare or tom with a main strike following), 357 of the 359 parenthesised drum notes across these tabs are true ghosts sitting on their own subdivision. Only 2, both in Montana, are genuine flam candidates. Converting the rest to grace notes would misread quiet sixteenths as flams.</div>
 
 <h2 id="matrix">What is ready for the next passes</h2>
 <p>Every song on both records that has published notation in the archive and at least one Songsterr tab.</p>
