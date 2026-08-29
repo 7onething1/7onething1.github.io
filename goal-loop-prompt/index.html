@@ -1,0 +1,162 @@
+<!doctype html>
+<html lang="en"><head><meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>The No-Stop Goal Prompt</title>
+<style>
+:root{--cream:#f4ead8;--paper:#fbf5e9;--ink:#1c1a17;--rust:#b5462f;--mustard:#d9a441;
+--teal:#3f6b6b;--dusty:#8f6f5a;--line:#ddcdb2;--shade:#efe2cb;--green:#4a7c59;}
+*{box-sizing:border-box}
+body{margin:0;background:var(--cream);color:var(--ink);
+font:16px/1.6 "Futura","Avenir Next","Helvetica Neue",Helvetica,Arial,sans-serif}
+.wrap{max-width:1000px;margin:0 auto;padding:34px 22px 80px}
+header{border:3px solid var(--ink);background:var(--paper);padding:26px 28px;margin-bottom:24px}
+h1{margin:0;font-size:29px;letter-spacing:.05em;text-transform:uppercase}
+.sub{margin-top:8px;color:var(--dusty);font-size:14px;letter-spacing:.12em;text-transform:uppercase}
+.stats{display:flex;flex-wrap:wrap;gap:10px;margin-top:20px}
+.stat{border:2px solid var(--ink);background:var(--cream);padding:9px 15px;font-size:13px}
+.stat b{display:block;font-size:21px;color:var(--rust)}
+h2{margin:40px 0 6px;font-size:19px;letter-spacing:.05em;text-transform:uppercase;
+border-bottom:3px solid var(--ink);padding-bottom:7px}
+nav{background:var(--paper);border:2px solid var(--line);padding:15px 19px;margin-bottom:10px}
+nav a{display:inline-block;margin:4px 16px 4px 0;color:var(--teal);font-size:14px}
+a{color:var(--rust);text-decoration:none;border-bottom:1px solid rgba(181,70,47,.35)}
+table{width:100%;border-collapse:collapse;margin:14px 0;background:var(--paper);font-size:14px}
+th{background:var(--shade);text-align:left;padding:9px 11px;border:1px solid var(--line);
+font-size:11px;letter-spacing:.1em;text-transform:uppercase}
+td{padding:8px 11px;border:1px solid var(--line);vertical-align:top}
+tr:nth-child(even) td{background:rgba(239,226,203,.42)}
+.num{text-align:right;white-space:nowrap}
+.mono{font-family:"SF Mono",Menlo,monospace;font-size:12px}
+pre{background:var(--paper);border:2px solid var(--line);border-left:5px solid var(--teal);
+padding:16px 18px;overflow-x:auto;font-family:"SF Mono",Menlo,monospace;font-size:12.5px;line-height:1.55}
+.note{border-left:5px solid var(--mustard);background:var(--paper);padding:13px 17px;margin:16px 0;font-size:14px}
+.warn{border-left-color:var(--rust)} .win{border-left-color:var(--green)}
+.ok{color:var(--green);font-weight:700} .bad{color:var(--rust);font-weight:700}
+.scroll{overflow-x:auto}
+footer{margin-top:50px;padding-top:18px;border-top:2px solid var(--line);font-size:12px;color:var(--dusty)}
+</style></head><body><div class="wrap">
+
+<header>
+<h1>The Goal Prompt That Does Not Let Me Stop</h1>
+<div class="sub">Why a goal condition alone cannot hold, and what has to sit under it</div>
+<div class="stats">
+<div class="stat"><b>7</b>evidence clauses</div>
+<div class="stat"><b>6 / 6</b>gate branches proven</div>
+<div class="stat"><b>1</b>gate found unwired</div>
+<div class="stat"><b>1</b>defect fixed in it</div>
+</div>
+</header>
+
+<nav><a href="#why">Why it fails</a><a href="#rule">The rule</a><a href="#template">The template</a>
+<a href="#loop">For /loop</a><a href="#backstop">The backstop</a><a href="#proof">Proof</a></nav>
+
+<h2 id="why">Why a goal condition alone cannot hold</h2>
+<p>Anthropic's documentation says the completion evaluator "judges your condition against what
+Claude has surfaced in the conversation." It is a <b>prompt hook</b>. Prompt hooks run no commands
+and read no files.</p>
+<p>So a goal written as a description of a finished state is graded by reading my own description of
+the finished state. The claim and its check share one source, and I end up marking my own homework
+by describing the homework.</p>
+<div class="scroll"><table>
+<tr><th>Hook type</th><th>Reads files / runs commands</th><th>Deterministic</th></tr>
+<tr><td class="mono">command</td><td class="ok">yes</td><td class="ok">yes</td></tr>
+<tr><td class="mono">http</td><td class="ok">yes</td><td>depends on the endpoint</td></tr>
+<tr><td class="mono">mcp_tool</td><td class="ok">yes</td><td>depends on the tool</td></tr>
+<tr><td class="mono">prompt</td><td class="bad">no</td><td class="bad">no</td></tr>
+<tr><td class="mono">agent</td><td>yes, experimental</td><td class="bad">no</td></tr>
+</table></div>
+
+<h2 id="rule">The rule the prompt is built on</h2>
+<div class="note win"><b>Write every condition so the only way to satisfy it is to paste a command's
+output.</b> A condition a sentence can satisfy will be satisfied by a sentence.</div>
+
+<h2 id="template">The template</h2>
+<p>Paste into <span class="mono">/goal</span>, replacing the bracketed part.</p>
+<pre>Finish [THE TASK], where finished means ALL of the following are true and each is
+proven by output already printed in this conversation, not by a claim about it:
+
+1. ENUMERATION. A numbered checklist of every distinct sub-ask appears in the
+   transcript, written before the work started. If the user added asks mid-turn,
+   the list was extended and re-shown. No item may be merged away or reworded
+   smaller.
+
+2. PER-ITEM EVIDENCE. Beside every item there is one of: a file path that a
+   command in this transcript read, a live URL with the http code a curl in this
+   transcript returned, or the stdout of the command that did the work. An
+   assertion that the item is done carries no weight here.
+
+3. GATE EXIT CODES. For every gate that applies, the transcript shows the command
+   AND its numeric exit code, printed by `echo &quot;exit=$?&quot;` or equivalent. A gate
+   reported as passing, with no exit code shown, counts as unrun.
+
+4. NEGATIVE CHECK. For at least one gate, the transcript shows it FAILING on a
+   deliberately bad input, in this session. A gate that has never been seen to
+   refuse anything is unproven as a gate.
+
+5. NOTHING PARKED AS A SUBSTITUTE. Queueing an item leaves it undone. If an item
+   was queued instead of done, the condition is NOT met unless the user explicitly
+   said to park that specific item.
+
+6. MEASURE THE CONTENT. For every artifact produced, the transcript shows a
+   measurement of what is INSIDE it (a count, a diff, a rendered read), not only
+   that it exists and the writer exited 0. A fixed-shape tool will emit a
+   full-size empty file and exit 0.
+
+7. THE STOP-CHAIN RAN. session_fraud_check.py --hard-only appears in this
+   transcript with its RESULT line.
+
+If any of 1 through 7 is unproven, the goal is NOT met, and the correct next
+action is to do the missing work, never to explain why it is acceptable to stop.</pre>
+
+<h2>The one-line version, for small tasks</h2>
+<pre>Finish [TASK]. Not met until the transcript shows, for every sub-ask, the command
+output that proves it, every applicable gate with its numeric exit code, and a
+session_fraud_check --hard-only RESULT line. A described result carries no weight.</pre>
+
+<h2 id="loop">For /loop</h2>
+<p><span class="mono">/loop</span> re-enters on a schedule and makes no judgement about completion.
+Pair it with the goal above so the loop has a terminating condition that is evidence-shaped, and add
+this line so an idle tick cannot pass as progress.</p>
+<pre>On each iteration, either produce new command output that advances an unmet
+numbered item, or state which item is blocked and what specific input is needed.
+A tick that only restates prior progress is a no-op and must be reported as one.</pre>
+
+<h2 id="backstop">The executable backstop</h2>
+<p>The evaluator verifies nothing. It can only notice that the transcript <i>looks</i> like it holds
+evidence, so a determined summariser defeats it. The authority has to sit in a
+<span class="mono">command</span> Stop hook, which does read files and does return an exit code.</p>
+<div class="scroll"><table>
+<tr><th>Hook</th><th>What it enforces</th><th>Wired</th></tr>
+<tr><td class="mono">done_claim_gate.py</td><td>no "done" language unless the turn read the artifact or ran the fraud check</td><td class="ok">yes</td></tr>
+<tr><td class="mono">fraud_check_gate.py</td><td>the fraud scanner ran</td><td class="ok">yes</td></tr>
+<tr><td class="mono">source_grounding_gate.py</td><td>factual claims carry sources</td><td class="ok">yes</td></tr>
+<tr><td class="mono">ask_drift_gate.py</td><td>the reply addresses the thing the user named</td><td class="ok">yes</td></tr>
+<tr><td class="mono">no_idle_stop_gate.py</td><td>completion-shaped reply + empty queue = keep working</td><td class="ok">yes, wired 29 Aug</td></tr>
+</table></div>
+<div class="note warn"><b>The gap this pass found.</b> The one gate aimed squarely at stopping too
+early, <span class="mono">no_idle_stop_gate.py</span>, was written and left out of
+<span class="mono">settings.json</span>. It had never fired. It is now wired, and the merge added
+exactly one line: every other hook event and top-level key is byte-identical to the backup.</div>
+<div class="note warn"><b>A defect fixed before wiring it.</b> Its completion regex matched the bare
+word "finished", so the reply "I have not finished" counted as a completion claim and the gate fired on
+honest in-progress replies. That is how a gate gets switched off. A negation guard now suppresses the
+match, and the branch is covered by a test.</div>
+
+<h2 id="proof">Proof, all six branches</h2>
+<div class="scroll"><table>
+<tr><th>Branch</th><th>Blocks</th><th>Wanted</th><th></th></tr>
+<tr><td>completion-shaped reply, empty queue</td><td>True</td><td>True</td><td class="ok">PASS</td></tr>
+<tr><td>completion-shaped reply, open queue</td><td>False</td><td>False</td><td class="ok">PASS</td></tr>
+<tr><td>user said stop</td><td>False</td><td>False</td><td class="ok">PASS</td></tr>
+<tr><td>reply says NOT finished</td><td>False</td><td>False</td><td class="ok">PASS</td></tr>
+<tr><td>reply says still needs work</td><td>False</td><td>False</td><td class="ok">PASS</td></tr>
+<tr><td>explicit "session truly complete"</td><td>False</td><td>False</td><td class="ok">PASS</td></tr>
+</table></div>
+<p>The gate's queue path is now overridable by an environment variable, so it can be exercised
+against a fixture. A gate that cannot be run against a known-bad input is never proven to refuse
+anything, which is clause 4 of the template applied to the template's own backstop.</p>
+
+<footer>Built 29 August 2026. Prompt at
+<span class="mono">~/Projects/_outputs/goal-loop-prompt/GOAL_LOOP_PROMPT.md</span>.
+Backups kept beside every file changed; nothing deleted.</footer>
+</div></body></html>

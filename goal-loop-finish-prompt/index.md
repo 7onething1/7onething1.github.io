@@ -3,10 +3,11 @@
 Source: `~/.claude/skills/_shared/GOAL_ALL_DONE.md`
 
 The `/goal` evaluator judges what was surfaced in the conversation, having no way to run a
-command or open a file. Both blocks demand only artefacts that appear in the
-transcript.
+command or open a file. Both blocks demand only artefacts that appear in the transcript.
+Its third verdict, Impossible, clears the goal and records a failure, so the condition
+reserves that for something no one could satisfy.
 
-## The /goal condition (2901 chars, cap 4000)
+## The /goal condition (3279 chars, cap 4000)
 
 ```
 Evaluate whether the WHOLE job the user asked for is finished, not whether Claude finished its latest step. Judge the conversation, since that is all you can read.
@@ -22,6 +23,8 @@ Return INCOMPLETE on stopping-shaped moves when executable work remains. All of 
 A local success is not completion. A script exiting zero, a build succeeding, a file being written, or an aggregate metric improving does not finish the job when a hard requirement still fails. Better numbers are not a passing gate.
 
 Where Claude reports something blocked, require three things before accepting it: the exact operation that failed, the exact error or output it produced, and every distinct route already attempted with the result of each. One failed route is not a block. If an untried route exists that Claude has the tools to attempt, return INCOMPLETE and identify that route.
+
+Never judge this condition impossible while any untried route exists. Impossible is reserved for a condition that can never be satisfied by anyone, and it clears the goal, so hard, slow, repeatedly failing, or currently blocked all mean INCOMPLETE instead. A task that needs a decision only the user can make is not impossible either; return INCOMPLETE and say which decision.
 
 Accept stopping only when every enumerated sub-ask carries its own evidence, or when the remainder genuinely depends on information, access, credentials, a file that does not exist, or a decision only the user can make, documented to the standard above.
 
@@ -52,5 +55,6 @@ Continue the current job to completion. Do not summarise progress, do not ask wh
 | exit zero is not completion | a fixed-shape tool writes a full-size empty file and still exits 0 |
 | one failed route is not a block | a 403 closes one fetch path, never the information |
 | the reason is the next instruction | the evaluator's text is fed back, so it has to be an action |
+| impossible is not for hard | the third verdict CLEARS the goal and logs a failure, so it needs its own guard |
 
 Written 29 August 2026.

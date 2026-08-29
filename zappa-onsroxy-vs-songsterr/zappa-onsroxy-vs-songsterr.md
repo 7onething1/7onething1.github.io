@@ -135,3 +135,89 @@ never on a tab built in the editor.
 strike following), 357 of the 359 parenthesised drum notes across these tabs are true ghosts on their
 own subdivision. Only 2, both in Montana, are genuine flam candidates. Converting the rest to grace
 notes would misread quiet sixteenths as flams.
+
+## Pass 2: Penguin In Bondage
+
+Chosen for the deepest published coverage on either record: eleven notation images across four
+transcriptions, one by a member of the band.
+
+| Published source | Covers | Transcriber | Signature labels |
+|---|---|---|---|
+| Guitar-solo opening | opening bars | **Mike Keneally** | 4/4 (quarter = ca 70, Dm) |
+| Album version | 2:09 to 2:33 | Kasper Sloots | 4/4, 3/4 |
+| 12-9-73 early show | 1:42 to 2:49 | Kasper Sloots | 4/4, **7/8** |
+| 12-10-73 late show | 2:39 to 2:59 | Kasper Sloots | 4/4 |
+
+**Combined published labels:** `4/4, 3/4, 7/8`. Both ambiguous signatures were resolved by zooming the
+image rather than guessed: the album one is 3/4, the early-show one is 7/8.
+
+| Songsterr tab | Bars | BPM | Parts | Published labels present | Labels written |
+|---|---|---|---|---|---|
+| `s5469710` (AI run) | 251 | 115 / 155 | 5 | **2 of 3** | 4/4 x214, 2/4 x24, 3/4 x13 |
+
+Per-part notes, rests excluded: Lead Guitar 619, Rhythm Guitar 1,992, Bass 769, Drums 1,547, Vocals 172.
+
+**The honest limit.** The 7/8 appears only in the 12-9-73 early show transcription, and the tab is of
+the album version. Which Roxy night the album take comes from is not established here, so the missing
+7/8 may belong to a performance the tab never claimed to cover. Scoring it as a flat miss would
+overstate the evidence. What stands without that caveat: the tab writes `2/4` twenty-four times and no
+published source shows a 2/4 anywhere.
+
+**A tempo question left open.** Keneally writes the solo at quarter = ca 70; the tab runs 115 and 155.
+155 is close to 70 doubled, so the tab may be notating double-time, the same choice seen on Zomby Woof.
+Settling it needs the audio.
+
+## Pass 3: Village Of The Sun
+
+The published set covers three different performances, and each has its own meter map.
+
+| Published source | Transcribers | Signature labels |
+|---|---|---|
+| **Roxy & Elsewhere, 1974** (the album), end section | Paul Strawser, Wolfgang Ludwig, Kasper Sloots | 4/4 |
+| Helsinki 1973, opening | Sloots, Ludwig | 9/8, 4/4, 6/8, 5/4, 11/4, 3/4 |
+| Helsinki 1974, opening | Sloots, Ludwig | 12/8, 4/4 (metric modulation) |
+
+**Each performance has its own meter map.** Helsinki 1973 carries 9/8, 6/8, 11/4
+and 5/4. The album take is written in 4/4. Any score of "does this tab match the published labels" is
+conditional on the tab and the transcription covering the same night. That generalises the pass 2
+caveat rather than being special to this song.
+
+| Songsterr tab | Bars | Notated | Drum notes | Labels written | Note |
+|---|---|---|---|---|---|
+| `s412175` editor-made | 43 | 2:06 | 402 | 4/4 x39, 6/4 x4 | half the record: 2:06 against 4:16 |
+| `s6109180` AI "LIVE" | 239 | 4:32 | 189 | 4/4 x238, 2/4 | 0 notes on Lead Guitar and Vocals |
+| `s6628550` AI "live and better" | 261 | 4:32 | 1,799 | 4/4 x254, 2/4 x4, 6/4, 5/4, 3/8 | fullest: 2,612 rhythm, 991 bass, 492 vocal |
+
+Album length 4:16. Both AI tabs notate 4:32, about 6 percent long. Counts exclude rests.
+
+**What holds without a version caveat.** The editor-made tab covers roughly half the record, so a full-song
+score is the wrong yardstick for it. `s6109180` is the third tab in this survey shipping two staves at 0 notes. Only `s6628550` carries a full band across the whole length.
+
+## Pass 4: Cheepnis
+
+Version check first, as pass 3 requires. The published transcription is labelled "Cheepnis, opening"
+and links back to Roxy & Elsewhere, so it is the album take. The tab notates 6:29 against the album's
+6:34, 1.3 percent short, consistent with the same take. Its one synced video returned nothing when
+queried, so the version match comes from duration and page label rather than from the video.
+
+| Published source | Covers | Transcriber | Signature labels |
+|---|---|---|---|
+| Roxy album, 7 images | the opening only | Kasper Sloots, Fall 2019 | 4/4, 12/8, 7/8, 7/4 |
+
+| Songsterr tab | Bars | Notated | Parts | Published labels present | Labels written |
+|---|---|---|---|---|---|
+| `s5469732` AI run | 200 | 6:29 | 5 | **2 of 4** | 4/4 x185, 3/4 x7, 7/8 x4, 6/4 x2, 5/4, 2/4 |
+
+Per-part notes, rests excluded: Lead Guitar 192, Rhythm Guitar 3,064, Bass 1,068, Drums 2,266,
+Vocals 779. All five staves carry notes.
+
+**The first AI tab in this series to carry an odd meter the published score also shows.** It writes
+7/8 four times and the published opening uses 7/8. Zomby Woof and Penguin In Bondage both missed the
+odd meters entirely.
+
+**What it lacks.** No 12/8 and no 7/4 appear anywhere across its 200 bars, and the published opening
+uses both. The tab's first meter change is at bar 59; the published opening is in 12/8 by its bar 5.
+
+**The coverage limit, stated rather than scored away.** The published excerpt stops after the opening
+while the tab runs the full 6:29. The 3/4, 6/4, 5/4 and 2/4 the tab writes later have no published
+counterpart, so they are neither confirmed nor contradicted here.
