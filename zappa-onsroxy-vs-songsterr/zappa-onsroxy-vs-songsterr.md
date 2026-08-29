@@ -192,3 +192,32 @@ Album length 4:16. Both AI tabs notate 4:32, about 6 percent long. Counts exclud
 
 **What holds without a version caveat.** The editor-made tab covers roughly half the record, so a full-song
 score is the wrong yardstick for it. `s6109180` is the third tab in this survey shipping two staves at 0 notes. Only `s6628550` carries a full band across the whole length.
+
+## Pass 4: Cheepnis
+
+Version check first, as pass 3 requires. The published transcription is labelled "Cheepnis, opening"
+and links back to Roxy & Elsewhere, so it is the album take. The tab notates 6:29 against the album's
+6:34, 1.3 percent short, consistent with the same take. Its one synced video returned nothing when
+queried, so the version match comes from duration and page label rather than from the video.
+
+| Published source | Covers | Transcriber | Signature labels |
+|---|---|---|---|
+| Roxy album, 7 images | the opening only | Kasper Sloots, Fall 2019 | 4/4, 12/8, 7/8, 7/4 |
+
+| Songsterr tab | Bars | Notated | Parts | Published labels present | Labels written |
+|---|---|---|---|---|---|
+| `s5469732` AI run | 200 | 6:29 | 5 | **2 of 4** | 4/4 x185, 3/4 x7, 7/8 x4, 6/4 x2, 5/4, 2/4 |
+
+Per-part notes, rests excluded: Lead Guitar 192, Rhythm Guitar 3,064, Bass 1,068, Drums 2,266,
+Vocals 779. All five staves carry notes.
+
+**The first AI tab in this series to carry an odd meter the published score also shows.** It writes
+7/8 four times and the published opening uses 7/8. Zomby Woof and Penguin In Bondage both missed the
+odd meters entirely.
+
+**What it lacks.** No 12/8 and no 7/4 appear anywhere across its 200 bars, and the published opening
+uses both. The tab's first meter change is at bar 59; the published opening is in 12/8 by its bar 5.
+
+**The coverage limit, stated rather than scored away.** The published excerpt stops after the opening
+while the tab runs the full 6:29. The 3/4, 6/4, 5/4 and 2/4 the tab writes later have no published
+counterpart, so they are neither confirmed nor contradicted here.
