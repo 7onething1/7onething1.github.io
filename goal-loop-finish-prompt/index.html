@@ -37,15 +37,20 @@ its own evidence. Source of truth is
 
 <div class="box good"><b>The one constraint that decides every clause.</b> The
 <code>/goal</code> evaluator judges what was surfaced in the conversation, having no way to
-run a command or open a file. So "require the tests to pass" is worthless, because
-Claude can write "tests pass" and the evaluator has nothing to check it against. Both blocks
-below demand only artefacts that appear IN the transcript: real command output, a path with
-a hash or size, a URL with its HTTP code, a number with units, or a validator verdict quoted
-from the validator.</div>
+run a command or open a file. So "require the tests to pass" is worthless, because Claude
+can write "tests pass" and the evaluator has nothing to check it against. Both blocks below
+demand only artefacts that appear IN the transcript: real command output, a path with a hash
+or size, a URL with its HTTP code, a number with units, or a validator verdict quoted from
+the validator.</div>
+
+<div class="box"><b>The third verdict is an escape hatch, so it gets its own clause.</b> The
+evaluator can return <b>Impossible</b>, which clears the goal and records a failure rather
+than continuing. The condition therefore reserves that verdict for something no one could
+satisfy, and sends hard, slow, repeatedly failing and currently blocked to INCOMPLETE.</div>
 
 <h2>The /goal condition</h2>
 <p><button class="copy" data-t="cond">Copy the condition</button>
-<span class="meta">2901 characters, against a 4,000 cap</span></p>
+<span class="meta">3279 characters, against a 4,000 cap</span></p>
 <pre id="cond">Evaluate whether the WHOLE job the user asked for is finished, not whether Claude finished its latest step. Judge the conversation, since that is all you can read.
 
 Require an explicit enumeration. Claude must have restated the request as numbered sub-asks. If no such list appears, return INCOMPLETE and require it first, because an unenumerated request cannot be shown complete.
@@ -59,6 +64,8 @@ Return INCOMPLETE on stopping-shaped moves when executable work remains. All of 
 A local success is not completion. A script exiting zero, a build succeeding, a file being written, or an aggregate metric improving does not finish the job when a hard requirement still fails. Better numbers are not a passing gate.
 
 Where Claude reports something blocked, require three things before accepting it: the exact operation that failed, the exact error or output it produced, and every distinct route already attempted with the result of each. One failed route is not a block. If an untried route exists that Claude has the tools to attempt, return INCOMPLETE and identify that route.
+
+Never judge this condition impossible while any untried route exists. Impossible is reserved for a condition that can never be satisfied by anyone, and it clears the goal, so hard, slow, repeatedly failing, or currently blocked all mean INCOMPLETE instead. A task that needs a decision only the user can make is not impossible either; return INCOMPLETE and say which decision.
 
 Accept stopping only when every enumerated sub-ask carries its own evidence, or when the remainder genuinely depends on information, access, credentials, a file that does not exist, or a decision only the user can make, documented to the standard above.
 
@@ -85,7 +92,7 @@ turn is a full main-model turn.</p>
 
 <h2>Why each clause is there</h2>
 <table><tr><th>clause</th><th>the failure it was written against</th></tr>
-<tr><td>enumeration first</td><td>chats do part of the ask, then report the part as the whole</td></tr><tr><td>evidence you can see</td><td>the evaluator reads the transcript, so a claim and its check share one source</td></tr><tr><td>filename is not evidence</td><td>`s6389251-BEST.gp` was iter48, the outlier, and its filename decided a regression call</td></tr><tr><td>queued or deferred means incomplete</td><td>queueing an item became a way to look finished while dropping it</td></tr><tr><td>stopping-shaped moves</td><td>&quot;should I continue?&quot; is how a turn ends short of finishing</td></tr><tr><td>exit zero is not completion</td><td>a fixed-shape tool writes a full-size empty file and still exits 0</td></tr><tr><td>one failed route is not a block</td><td>a 403 closes one fetch path, never the information</td></tr><tr><td>the reason is the next instruction</td><td>the evaluator&#x27;s text is fed back, so it has to be an action</td></tr>
+<tr><td>enumeration first</td><td>chats do part of the ask, then report the part as the whole</td></tr><tr><td>evidence you can see</td><td>the evaluator reads the transcript, so a claim and its check share one source</td></tr><tr><td>filename is not evidence</td><td>`s6389251-BEST.gp` was iter48, the outlier, and its filename decided a regression call</td></tr><tr><td>queued or deferred means incomplete</td><td>queueing an item became a way to look finished while dropping it</td></tr><tr><td>stopping-shaped moves</td><td>&quot;should I continue?&quot; is how a turn ends short of finishing</td></tr><tr><td>exit zero is not completion</td><td>a fixed-shape tool writes a full-size empty file and still exits 0</td></tr><tr><td>one failed route is not a block</td><td>a 403 closes one fetch path, never the information</td></tr><tr><td>the reason is the next instruction</td><td>the evaluator&#x27;s text is fed back, so it has to be an action</td></tr><tr><td>impossible is not for hard</td><td>the third verdict CLEARS the goal and logs a failure, so it needs its own guard</td></tr>
 </table>
 
 <p class="foot">The guitar-specific condition stays separate at
