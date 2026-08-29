@@ -27,9 +27,9 @@ contradiction rather than mutual corroboration. Neither confirms the other's bar
 
 | Tab | Bars | BPM | Duration | Drum notes | Paren. | Published meters present | Meters written |
 |---|---|---|---|---|---|---|---|
-| Community, hand `s412162` | 114 | 88 | 5:03.86 | 1,612 | 32 | **6 of 6** | 3/4, 10/16, 2/4, 5/4, 15/16, 4/4, 6/4, 7/8 |
-| Songsterr AI `s5820647` | 123 | 89 | 5:30.84 | 297 | 10 | **2 of 6** | 13/16, 4/4, 9/8, 7/8 |
-| Yours `s6685613` | 232 | 175 | 5:08.23 | 2,076 | 0 | **3 of 6** | 4/4, 5/4, 2/4, 6/4, 5/8, 3/4 |
+| Community, editor-made `s412162` | 114 | 88 | 5:03.86 | 1,574 | 32 | **6 of 6** | 3/4, 10/16, 2/4, 5/4, 15/16, 4/4, 6/4, 7/8 |
+| Incomplete upload `s5820647` | 123 | 89 | 5:30.84 | 182 | 10 | **2 of 6** | 13/16, 4/4, 9/8, 7/8 |
+| Yours `s6685613` | 232 | 175 | 5:08.23 | 2,063 | 0 | **3 of 6** | 4/4, 5/4, 2/4, 6/4, 5/8, 3/4 |
 
 Album track length is 5:11.
 
@@ -38,8 +38,8 @@ Album track length is 5:11.
   prints, in order. That makes it the strongest provisional bar map. A label matching a label is not yet a
   verified transcription.
 - **The AI tab flattens the song.** 119 of 123 bars are 4/4. None of 5/4, 10/16 or 15/16. It invents a
-  13/16 and a 9/8 that neither published source shows. 297 drum notes with 115 carrying a null pitch.
-- **Yours is the densest drum candidate with the closest calculated duration.** 2,076 notes shows density.
+  13/16 and a 9/8 that neither published source shows. 182 real drum notes, and two of its five staves hold nothing but rests.
+- **Yours is the densest drum candidate with the closest calculated duration.** 2,063 notes shows density.
   5:08.23 against 5:11 shows approximate structural coverage. Zero parenthesised notes shows compliance
   with the house file rule. None of those establishes accurate drums, appropriate cymbals, playable
   orchestration or correct attack placement, so it stays a detailed repair candidate pending comparison
@@ -81,7 +81,7 @@ notation. Counting them records a house file rule, and does not by itself mark a
 |---|---|---|
 | Bar map and signature labels | **Community s412162** | The strongest provisional bar map. All six labels, printed order, thirteen-bar span within 3.2% |
 | Drum material to repair from | **Yours s6685613** | The densest drum candidate with the closest calculated duration. No evidence yet on accuracy, cymbals, orchestration or attack placement |
-| Nothing yet | AI s5820647 | Flattened to 4/4, labels no source shows, 115 null-pitched notes |
+| Nothing yet | s5820647 | Flattened to 4/4, labels no source shows, two staves are rests only |
 
 **Next move on this song:** align the community bar map against the exact album master first, then move
 your drum material into that structure bar by bar. Re-barring before that alignment is confirmed would
@@ -106,3 +106,32 @@ tabs to separate, five each.
 Songsterr notation comes from the public meta API and its CloudFront path, no browser and no login,
 the route recorded in the songsterr-tab-guide skill. Meters, tempo maps and note counts are read from
 the tab JSON directly. Nothing is read off a rendered screenshot.
+
+## Corrections, 2026-08-29
+
+**Rests were counted as notes.** Songsterr's JSON emits a `{"rest": true}` object inside each beat's
+note list. An earlier version of this page reported `s5820647` as "297 notes, 115 null-pitched, so the
+part is malformed". Those 115 are rests, which is ordinary notation. Every count here is now
+rest-excluded.
+
+**Provenance was mislabelled.** Songsterr's API records `s412162` as editor-made (meh32 over Ben
+Dibden1) and BOTH `s5820647` and `s6685613` as AI runs, the first uploaded by CoolDude and the second
+Brandon's own. The three do not divide into hand versus AI versus mine. What separates them is how
+completely each was uploaded, measured per staff, rests excluded:
+
+| Staff | s5820647 | s6685613 |
+|---|---|---|
+| Lead Guitar | 0 | 651 |
+| Rhythm Guitar | 108 | 532 |
+| Bass | 121 | 1,176 |
+| Drums | 182 | 2,063 |
+| Vocals | 0 | 380 |
+| **Total** | **411** | **4,802** |
+
+A survey of 34 Zappa tabs across both records found staves containing only rests on three of them, and
+never on a tab built in the editor.
+
+**Ghost against grace.** Against the flam test (a short preparatory stroke on snare or tom with a main
+strike following), 357 of the 359 parenthesised drum notes across these tabs are true ghosts on their
+own subdivision. Only 2, both in Montana, are genuine flam candidates. Converting the rest to grace
+notes would misread quiet sixteenths as flams.
