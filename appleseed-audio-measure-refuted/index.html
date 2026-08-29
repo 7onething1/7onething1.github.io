@@ -1,571 +1,607 @@
-<title>The Appleseed Audio Verdicts Were a Measurement Artifact</title>
+<title>Three Clock Bugs Under the Appleseed Audio Verdicts</title>
 <style>
 :root{--cream:#f4ead5;--ink:#14100c;--rust:#a8452a;--olive:#6b7a3a;--mustard:#d99b1e;
 --teal:#3d6b6b;--dust:#c9b79c;--paper:#fbf6ea;}
 *{box-sizing:border-box;}
-body{margin:0;background:var(--cream);color:var(--ink);
-font:16px/1.6 "Futura","Avenir Next",Helvetica,sans-serif;}
-.wrap{max-width:1080px;margin:0 auto;padding:2.4rem 1.2rem 5rem;}
+body{margin:0;background:var(--cream);color:var(--ink);font:16px/1.6 "Futura","Avenir Next",Helvetica,sans-serif;}
+.wrap{max-width:1100px;margin:0 auto;padding:2.4rem 1.2rem 5rem;}
 h1{font-size:2.1rem;margin:0 0 .3rem;letter-spacing:-.02em;}
 h2{font-size:1.35rem;margin:2.8rem 0 .6rem;padding-bottom:.3rem;border-bottom:3px solid var(--dust);}
 h3{font-size:1.05rem;margin:1.6rem 0 .4rem;color:var(--teal);}
 .sub{color:#6a5f4e;margin:0 0 1.6rem;}
 .toc{background:var(--paper);border:2px solid var(--dust);border-radius:4px;padding:.9rem 1.2rem;margin:1.4rem 0 2rem;}
-.toc ol{margin:.3rem 0 0 1.1rem;padding:0;} .toc li{margin:.22rem 0;}
-.toc a{color:var(--teal);}
+.toc ol{margin:.3rem 0 0 1.1rem;padding:0;} .toc li{margin:.22rem 0;} .toc a{color:var(--teal);}
 .v{background:var(--paper);border-left:9px solid var(--dust);padding:1rem 1.2rem;border-radius:3px;margin:.9rem 0;}
-.v.no{border-left-color:var(--rust);} .v.yes{border-left-color:var(--olive);}
-.v.part{border-left-color:var(--mustard);}
+.v.no{border-left-color:var(--rust);} .v.yes{border-left-color:var(--olive);} .v.part{border-left-color:var(--mustard);}
 .v .q{font-weight:700;font-size:1.05rem;} .v .a{font-size:1.4rem;font-weight:700;margin:.15rem 0 .35rem;}
 .v.no .a{color:var(--rust);} .v.yes .a{color:var(--olive);} .v.part .a{color:#8a6410;}
 .stats{display:flex;flex-wrap:wrap;gap:.7rem;margin:1.2rem 0 1.6rem;}
-.stat{background:var(--paper);border:2px solid var(--dust);border-radius:4px;padding:.55rem .9rem;min-width:104px;}
-.stat .n{font-size:1.5rem;font-weight:700;display:block;line-height:1.15;}
-.stat .l{font-size:.74rem;text-transform:uppercase;letter-spacing:.06em;color:#6a5f4e;}
+.stat{background:var(--paper);border:2px solid var(--dust);border-radius:4px;padding:.55rem .9rem;min-width:110px;}
+.stat .n{font-size:1.45rem;font-weight:700;display:block;line-height:1.15;}
+.stat .l{font-size:.72rem;text-transform:uppercase;letter-spacing:.06em;color:#6a5f4e;}
 .stat.alarm{border-color:var(--rust);} .stat.alarm .n{color:var(--rust);}
 .stat.good{border-color:var(--olive);} .stat.good .n{color:var(--olive);}
 .tw{overflow-x:auto;margin:.8rem 0 1.4rem;}
-table{border-collapse:collapse;width:100%;font-size:.9rem;background:var(--paper);}
-th{text-align:left;background:var(--teal);color:var(--paper);padding:.5rem .6rem;
-font-size:.76rem;text-transform:uppercase;letter-spacing:.05em;white-space:nowrap;}
-td{padding:.42rem .6rem;border-bottom:1px solid #e6dcc6;white-space:nowrap;}
+table{border-collapse:collapse;width:100%;font-size:.88rem;background:var(--paper);}
+th{text-align:left;background:var(--teal);color:var(--paper);padding:.5rem .6rem;font-size:.74rem;
+text-transform:uppercase;letter-spacing:.05em;white-space:nowrap;}
+td{padding:.4rem .6rem;border-bottom:1px solid #e6dcc6;white-space:nowrap;}
 td.song{white-space:normal;min-width:190px;} td.num{text-align:right;font-variant-numeric:tabular-nums;}
 td.bad{color:var(--paper);background:var(--rust);font-weight:700;}
 td.ok{color:var(--olive);font-weight:700;} td.muted,.muted{color:#9a8e7c;}
 tr.hum td{background:#efe7d2;font-style:italic;}
 .box{background:var(--paper);border:2px solid var(--dust);border-radius:4px;padding:1rem 1.2rem;margin:1rem 0;}
-.box.alarm{border-color:var(--rust);background:#fbeee9;}
-.box.good{border-color:var(--olive);background:#f1f4e6;}
+.box.alarm{border-color:var(--rust);background:#fbeee9;} .box.good{border-color:var(--olive);background:#f1f4e6;}
 ul{margin:.5rem 0 .5rem 1.1rem;padding:0;} li{margin:.3rem 0;}
-code{background:#ece2cc;padding:.1rem .3rem;border-radius:3px;
-font-family:"SF Mono",Menlo,monospace;font-size:.86rem;}
+code{background:#ece2cc;padding:.1rem .3rem;border-radius:3px;font-family:"SF Mono",Menlo,monospace;font-size:.85rem;}
 .foot{margin-top:3rem;padding-top:1rem;border-top:3px solid var(--dust);font-size:.85rem;color:#6a5f4e;}
 @media (max-width:640px){h1{font-size:1.6rem;} .v .a{font-size:1.15rem;}}
 </style>
 <div class="wrap">
-<h1>The Appleseed audio verdicts were a measurement artifact</h1>
+<h1>Three clock bugs under the Appleseed audio verdicts</h1>
 <p class="sub">29 of 46 songs were marked <b>audio refuted</b> on 2026-08-29 and queued for
-re-transcription. The measure that produced those verdicts was tested against 8 tabs typed
-by human transcribers for these same songs, where the answer is already known. It called
-3 of them refuted too. Measured 2026-08-29, all numbers read from the project's own tools.</p>
-
-<div class="toc"><b>What is on this page</b>
-<ol>
-<li><a href="#verdict">The verdict, and what to do with the work order</a></li>
-<li><a href="#known">The known-answer test that broke it</a></li>
-<li><a href="#mech">The mechanism, and where the defect actually lives</a></li>
-<li><a href="#tried">Five repairs tried, four failed</a></li>
-<li><a href="#works">The measure that survived, and its false-positive rate</a></li>
-<li><a href="#table">All 46 songs, rescored honestly</a></li>
-<li><a href="#next">What is actually known, and what is next</a></li>
+re-transcription. Three separate defects were found underneath that number, each measured
+against tabs whose answer is already known. Every figure here is read from the project's own
+tools. 29 August 2026.</p>
+<div class="toc"><b>On this page</b><ol>
+<li><a href="#v">What to do with the work order</a></li>
+<li><a href="#one">Bug one, the control was chosen by onset count and not duration</a></li>
+<li><a href="#two">Bug two, the reader's clock loses a median 9.6 seconds per file</a></li>
+<li><a href="#three">Bug three, the reference onsets sit 58 ms off the beat grid</a></li>
+<li><a href="#cmp">Three clocks compared, on the same negative controls</a></li>
+<li><a href="#tempo">The tempo map, and why it is not an improvement</a></li>
+<li><a href="#table">All 46 rescored</a></li>
+<li><a href="#conf">Confession, built and not promoted</a></li>
 </ol></div>
 
-<h2 id="verdict">1. The verdict</h2>
-<div class="v no"><div class="q">Should the 29 refuted songs be re-transcribed, worst margin first?</div>
-<div class="a">No. That work order is sorted by a duration artifact.</div>
-The ordering correlates <b>-0.861</b> with how much the winning control stem piled its
-hits onto a single onset, and that pileup correlates <b>+0.850</b> with the control
-recording simply being shorter than the song. Confession heads the list because its control
-was 1.59&times; shorter rather than because its tab is the worst.</div>
+<h2 id="v">1. The verdict</h2>
+<div class="v no"><div class="q">Re-transcribe the 29 refuted songs, worst margin first?</div>
+<div class="a">No. That order is sorted by a duration artifact.</div>
+The margin correlates <b>-0.861</b> with how far the winning control piled its hits onto one
+onset, and that pileup correlates <b>+0.850</b> with the control recording simply being
+shorter. The same procedure refutes <b>3 of 8</b> human Songsterr tabs against their own
+recordings, and <b>7 of 11</b> supported verdicts reverse under duration-matched
+controls.</div>
+<div class="v yes"><div class="q">What actually moved the needle?</div>
+<div class="a">Fixing the bar-length bug. Confirmed machine tabs 4 to 8.</div>
+Reading each bar's length from its time signature instead of from its last note recovers a
+median <b>9.6 s</b> per file, and takes confirmed machine tabs from
+4 of 46 to <b>8 of 46</b> with none lost.</div>
+<div class="v part"><div class="q">Did recording-derived tempo maps help?</div>
+<div class="a">No. They inflate the wrong pairings too.</div>
+All 46 files were written with per-bar tempo from their own recordings. Measured against its
+own negative controls the map is more permissive rather than more discriminating: the ceiling a
+KNOWN wrong pairing reaches goes from about +5 to <b>+25.7</b>, and at a threshold read
+off that ceiling <b>0 of 46</b> machine tabs confirm.</div>
 
-<div class="v no"><div class="q">Were the 11 &ldquo;audio supported&rdquo; verdicts safe?</div>
-<div class="a">No. 7 of 11 flip to refuted.</div>
-Re-run with controls picked for duration instead of onset count, Reaction goes
-+8.6 to &minus;47.2, Decline +14.6 to &minus;26.4, Signal +9.7 to &minus;23.0. The verdict
-depended on which control happened to be drawn rather than on the tab.</div>
-
-<div class="v part"><div class="q">So what is established about these 46 tabs on audio?</div>
-<div class="a">7 confirmed, the rest undetermined. Nothing is refuted.</div>
-A validated measure confirms 4 machine tabs and 3 human tabs against their own recordings,
-with <b>0 of 162</b> known wrong pairings passing the same gate. Everything else is
-undetermined, which is not evidence of a bad tab: 5 of the 8 human tabs are undetermined too.</div>
-
-<h2 id="known">2. The known-answer test</h2>
-<p><code>01_RESTORED_SONGSTERR_PASS/</code> holds 8 tabs typed by human transcribers for 8 of
-these songs. A human transcription of a song is a transcription of that song. Any measure
-calling one &ldquo;aligns better to a recording that is not its own&rdquo; is reporting its own
-defect. Run through the identical audit code path:</p>
-<div class="tw"><table><tr><th>Human tab, scored against its own recording</th><th>own align</th>
-<th>best wrong stem</th><th>margin</th><th>the audit&rsquo;s verdict</th></tr>
-<tr><td class="song">s6388955_-And-Nothing-Less</td>
-<td class="num">92.5%</td><td class="num">99.6%</td>
-<td class="num">-7.1</td>
-<td class="bad">REFUTED</td></tr>
-<tr><td class="song">s6206980_On-Reflection</td>
-<td class="num">92.0%</td><td class="num">96.7%</td>
-<td class="num">-4.7</td>
-<td class="bad">REFUTED</td></tr>
-<tr><td class="song">s6389274_Blind-Mans-Arrow</td>
-<td class="num">63.0%</td><td class="num">67.6%</td>
-<td class="num">-4.6</td>
-<td class="bad">REFUTED</td></tr>
-<tr><td class="song">s6388915_Secret</td>
-<td class="num">38.4%</td><td class="num">37.5%</td>
-<td class="num">+0.9</td>
-<td class="ok">inconclusive one control survived</td></tr>
-<tr><td class="song">s6285808_The-Immortal-Soul-Of-Mundo-Cani</td>
-<td class="num">51.3%</td><td class="num">47.1%</td>
-<td class="num">+4.2</td>
-<td class="ok">inconclusive one control survived</td></tr>
-<tr><td class="song">s6389251_Kilgore-Trout</td>
-<td class="num">60.6%</td><td class="num">55.0%</td>
-<td class="num">+5.6</td>
-<td class="ok">audio supported</td></tr>
-<tr><td class="song">s6389335_A-Tree-For-Trials</td>
-<td class="num">97.7%</td><td class="num">89.1%</td>
-<td class="num">+8.6</td>
-<td class="ok">audio supported</td></tr>
-<tr><td class="song">s6389349_Mile-Marker</td>
-<td class="num">80.7%</td><td class="num">67.8%</td>
-<td class="num">+12.9</td>
-<td class="ok">audio supported</td></tr>
-</table></div>
-<div class="box alarm"><b>3 of 8 human transcriptions were refuted against their own recordings.</b>
-All three are the piled-control signature: the winning control put 17.2%, 38.7% and 39.0% of
-every hit it scored onto one single onset. The three whose controls stayed clean
-(4.1% to 5.7%) all came out supported. The measure is tracking the control rather than the tab.</div>
-
-<h2 id="mech">3. The mechanism</h2>
-<p><code>beat_map.py</code> calls <code>librosa.sequence.dtw(subseq=False)</code>, which forces the
-warping path to span both sequences end to end. The audit picks its control stems by
-<b>onset count</b> and never looks at <b>duration</b>. When a control recording is shorter than
-the song, the path has to compress the tab into it, and the compression becomes flat runs:
-hundreds of tab attacks interpolated onto one onset, every one of them counted as a hit
-inside the 30 ms window.</p>
+<h2 id="one">2. Bug one, control selection</h2>
+<p><code>librosa.sequence.dtw(subseq=False)</code> forces the path to span both sequences, and the
+audit picks controls by <b>onset count</b> and ignores <b>duration</b>. A control shorter than
+the song makes the warp compress the tab into it, and the compression becomes flat runs:
+hundreds of attacks on one onset, all counted as hits in the 30 ms window.</p>
 <div class="stats">
-<div class="stat alarm"><span class="n">+0.850</span><span class="l">corr, duration ratio to pileup</span></div>
-<div class="stat alarm"><span class="n">-0.861</span><span class="l">corr, pileup to margin</span></div>
-<div class="stat alarm"><span class="n">663</span><span class="l">Confession: control hits on ONE onset</span></div>
-<div class="stat"><span class="n">3</span><span class="l">Confession: own map, same figure</span></div>
-<div class="stat"><span class="n">1.36</span><span class="l">median duration ratio, piled cases</span></div>
-<div class="stat"><span class="n">0.91</span><span class="l">median duration ratio, clean cases</span></div>
+<div class="stat alarm"><span class="n">663</span><span class="l">Confession, control hits on ONE onset</span></div>
+<div class="stat"><span class="n">3</span><span class="l">its own map, same figure</span></div>
+<div class="stat alarm"><span class="n">3 of 8</span><span class="l">human tabs refuted</span></div>
+<div class="stat alarm"><span class="n">7 of 11</span><span class="l">supports that reverse</span></div>
 </div>
-<p>Every one of the 29 refuted songs drew a control <b>shorter</b> than itself. Every one of the
-11 supported drew a control <b>longer</b>. A longer control forces the warp to stretch, which
-manufactures nothing. The verdict was decided by control selection before the tab was read.
-The existing collapse guard cannot see this because it tests the <b>mean</b> attacks per used
-onset against 2.0, and the pathology lives in the tail: Confession&rsquo;s winning control averaged
-1.56 while dumping 663 hits on one onset.</p>
-
-<h2 id="tried">4. Five repairs tried</h2>
-<p>Each scored on the same 8 known-good human tabs, against wrong stems from other albums.
-A working measure scores 8 of 8.</p>
-<div class="tw"><table><tr><th>Measure</th><th>own tab beats every wrong stem</th><th>result</th></tr>
-<tr><td>Raw warped alignment percent, what produced the 46 verdicts</td><td class="num">5 of 8</td><td class="bad">fails</td></tr>
-<tr><td>Controls matched on duration as well as onset count</td><td class="num">2 of 8</td><td class="bad">fails, worse</td></tr>
-<tr><td>Distinct-onset score, structurally immune to piling</td><td class="num">0 of 8</td><td class="bad">fails</td></tr>
-<tr><td>Sakoe-Chiba banded DTW, radius 0.20 / 0.10 / 0.05 / 0.02 / 0.01</td><td class="num">3, 3, 2, 3, 3 of 8</td><td class="bad">fails at every radius</td></tr>
-<tr><td>Warped gain over each stem&rsquo;s own chance level</td><td class="num">4 of 8</td><td class="bad">fails</td></tr>
-<tr><td><b>Alignment BEFORE any warp, chance-normalised</b></td><td class="num">6 of 8</td><td class="ok">usable, see below</td></tr>
+<div class="tw"><table><tr><th>repair tried, scored on the 8 known-good human tabs</th><th>own beats every wrong stem</th></tr>
+<tr><td>raw warped alignment percent, what produced the 46 verdicts</td><td class="num bad">5 of 8</td></tr>
+<tr><td>controls matched on duration as well as onset count</td><td class="num bad">2 of 8</td></tr>
+<tr><td>distinct-onset score, structurally immune to piling</td><td class="num bad">0 of 8</td></tr>
+<tr><td>Sakoe-Chiba banded DTW at radius 0.20 / 0.10 / 0.05 / 0.02 / 0.01</td><td class="num bad">3, 3, 2, 3, 3 of 8</td></tr>
+<tr><td>warped gain over each stem's own chance level</td><td class="num bad">4 of 8</td></tr>
+<tr><td>alignment BEFORE any warp, chance-normalised</td><td class="num ok">6 of 8</td></tr>
 </table></div>
-<div class="box">Constraining the warp does not help because it tightens both sides at once. At
-radius 0.01, Blind Man&rsquo;s Arrow scores 79.0% against its own recording and <b>98.1%</b> against
-a recording that is not its own. Once a monotone path is free to run over roughly 2,700 attacks
-and 1,200 onsets, it can fit a tab to nearly any recording, which is what
-<code>beat_map.py</code>&rsquo;s own docstring warns: a warping path always exists.</div>
 
-<h2 id="works">5. The measure that survived</h2>
-<p>Alignment before any warping, with a &plusmn;3 s offset search offered equally to the own stem
-and to every control, scored as gain over that recording&rsquo;s own chance level. It is
-<b>asymmetric and is reported that way</b>: a large gain confirms the tab is a transcription of
-that recording, a null gain is undetermined, because the tab&rsquo;s tempo map may simply not track
-the performance. It never refutes.</p>
-<div class="box good"><b>The gate:</b> z &ge; 5.0 over the recording&rsquo;s own chance level
-<b>and</b> a gain at least 5.0 points above every duration-matched wrong stem.
-<b>False positives: 0 of 162</b> wrong-stem pairings pass it. The largest gain any
-wrong pairing reached was +6.5, against +6.9
-for the weakest confirmed tab.<br><br>
-<b>The independent check:</b> Blind Man&rsquo;s Arrow and Mile Marker each have a human tab and a
-machine tab. Both transcriptions confirm independently against the same recording. Blind Man&rsquo;s
-Arrow was one of the worst songs on the refuted list, at &minus;22.9.</div>
-<div class="tw"><table><tr><th>Confirmed against its own recording</th><th>source</th>
-<th>gain</th><th>z</th><th>margin over wrong stems</th><th>old verdict</th></tr>
-<tr class="hum"><td class="song">s6389349_Mile-Marker</td>
-<td>human</td><td class="num ok">+34.8</td><td class="num">+81.6</td>
-<td class="num">+34.0</td><td class="muted">not in the 46</td></tr>
-<tr class="hum"><td class="song">s6389274_Blind-Mans-Arrow</td>
-<td>human</td><td class="num ok">+22.7</td><td class="num">+32.8</td>
-<td class="num">+20.9</td><td class="muted">not in the 46</td></tr>
+<h2 id="two">3. Bug two, the reader's clock</h2>
+<p><code>attack_string_evidence.events()</code> sets each bar's length to
+<code>max(onset + duration)</code> over that bar's <b>note-bearing</b> beats. A bar ending in a
+rest reports a short span, and the loss is carried for the rest of the song. Within-bar
+positions are fine; the bar cursor is not.</p>
+<div class="stats">
+<div class="stat alarm"><span class="n">48 of 54</span><span class="l">files drifting over 1 s</span></div>
+<div class="stat alarm"><span class="n">40</span><span class="l">over 5 s</span></div>
+<div class="stat alarm"><span class="n">93 s</span><span class="l">worst file</span></div>
+<div class="stat good"><span class="n">0.9 s</span><span class="l">notation vs recording length</span></div>
+<div class="stat alarm"><span class="n">12.5 s</span><span class="l">reader vs recording length</span></div>
+</div>
+<div class="box alarm">The written notation matches the recording to a median <b>0.9 s</b>.
+The reader's version of the same file misses it by a median <b>12.5 s</b>, worst
+<b>92.5 s</b>. The notation was right and the clock reading it was wrong. The 8 human
+tabs drift 0.0 to 2.4 s because Songsterr exports carry no trailing rests, which was an
+unisolated confound in the first known-answer test on this page.</div>
+
+<h2 id="three">4. Bug three, the onset frame</h2>
+<p><code>beat_map.py</code> takes its reference onsets from
+<code>onset_detect(backtrack=True)</code>, which walks every detection back to the energy minimum
+before the peak. <code>librosa.beat.beat_track</code> puts its beats on the peaks. The two live in
+different frames.</p>
+<div class="stats">
+<div class="stat alarm"><span class="n">&minus;58 ms</span><span class="l">signed offset, 5 of 6 stems</span></div>
+<div class="stat alarm"><span class="n">2.6%</span><span class="l">beats hitting an onset</span></div>
+<div class="stat"><span class="n">13.6%</span><span class="l">chance level</span></div>
+<div class="stat good"><span class="n">63.7%</span><span class="l">same test, backtracking off</span></div>
+</div>
+<div class="box">A fixed &minus;58 ms is 5 frames at hop 256. Beats hit the reference onsets
+<b>less often than chance</b> until the frame is corrected. Backtracking is kept, because a
+struck note starts at the rise rather than at the spectral peak and the tabs align to it: a
+human Mile Marker tab scores 56.9% against backtracked onsets at a 15.0% chance level. It is
+the beat grid that is moved, by each stem's own median offset, so no tab is consulted.</div>
+
+<h2 id="cmp">5. Three clocks, same negative controls</h2>
+<div class="tw"><table><tr><th>configuration</th><th>threshold</th><th>confirmed</th><th>machine</th>
+<th>human</th><th>undetermined machine</th><th>false positives</th></tr>
+<tr><td>note-driven clock, constant bpm</td><td class="num">sep &ge; 5.0</td><td class="num">7</td>
+<td class="num">4 of 46</td><td class="num">3 of 8</td><td class="num">42</td>
+<td class="num ok">0 of 162</td></tr>
+<tr><td><b>meter clock, constant bpm</b></td><td class="num">sep &ge; 5.0</td><td class="num ok">11</td>
+<td class="num ok">8 of 46</td><td class="num">3 of 8</td><td class="num ok">38</td>
+<td class="num">1 of 162</td></tr>
+<tr><td>meter clock + frame-corrected tempo map</td><td class="num">sep &ge; 25.8</td><td class="num">3</td>
+<td class="num bad">0 of 46</td><td class="num">3 of 8</td><td class="num bad">46</td>
+<td class="num ok">0 of 162</td></tr>
+</table></div>
+<div class="box">Each threshold is read off that configuration's own negative controls rather than
+chosen, which is why they differ. The tempo map needs sep &ge; 25.8 because a known wrong
+pairing reaches +25.7 there, against about +5 under a constant bpm. Raising both sides
+equally is not an improvement.</div>
+
+<h2 id="tempo">6. The tempo maps</h2>
+<p>All 46 files were written with per-bar tempo derived from their own recordings, originals
+untouched, so the comparison reproduces. The grid comes from the audio alone and the notation is
+laid on it afterwards, because fitting a tempo curve to the tab it is about to score would repeat
+the circularity that let the DTW warp manufacture alignment.</p>
+<div class="tw"><table><tr><th>human tab, known-good</th><th>meter clock gain</th><th>tempo map gain</th>
+<th>meter sep</th><th>tempo sep</th></tr>
 <tr class="hum"><td class="song">s6389335_A-Tree-For-Trials</td>
-<td>human</td><td class="num ok">+16.7</td><td class="num">+12.9</td>
-<td class="num">+15.6</td><td class="muted">not in the 46</td></tr>
-<tr class=""><td class="song">Low-Level-Owl-I-10-Mile Marker</td>
-<td>machine</td><td class="num ok">+9.5</td><td class="num">+19.8</td>
-<td class="num">+9.5</td><td class="muted">supported +5.8</td></tr>
-<tr class=""><td class="song">Low-Level-Owl-II-09-Decline</td>
-<td>machine</td><td class="num ok">+9.4</td><td class="num">+5.9</td>
-<td class="num">+6.6</td><td class="muted">supported +14.6</td></tr>
-<tr class=""><td class="song">Low-Level-Owl-I-06-Doors Lead to Questions</td>
-<td>machine</td><td class="num ok">+7.4</td><td class="num">+9.7</td>
-<td class="num">+7.0</td><td class="muted">refuted -1.7</td></tr>
-<tr class=""><td class="song">Low-Level-Owl-I-03-Blind Mans Arrow</td>
-<td>machine</td><td class="num ok">+6.9</td><td class="num">+13.2</td>
-<td class="num">+5.8</td><td class="muted">refuted -22.9</td></tr>
-</table></div>
-
-<h2 id="table">6. All 46, rescored</h2>
-<p>Machine tabs, plus the 8 human tabs as anchors, sorted by gain. <b>Undetermined carries no finding against the tab</b>, and the human rows make that concrete: 5 of the 8 known-good
-transcriptions end up in exactly that state.</p>
-<div class="tw"><table><tr><th>song</th><th>src</th><th>own</th><th>chance</th><th>gain</th><th>z</th>
-<th>best wrong stem</th><th>verdict</th><th>old verdict</th></tr>
+<td class="num">+16.7</td><td class="num">+75.2</td>
+<td class="num">+15.6</td><td class="num">+29.6</td></tr>
+<tr class="hum"><td class="song">s6388955_-And-Nothing-Less</td>
+<td class="num">-0.1</td><td class="num">+55.7</td>
+<td class="num">+1.3</td><td class="num">+32.4</td></tr>
 <tr class="hum"><td class="song">s6389349_Mile-Marker</td>
-<td>huma</td><td class="num">55.5%</td><td class="num muted">20.7%</td>
-<td class="num ok">+34.8</td><td class="num">+81.6</td>
-<td class="num muted">+0.8</td>
+<td class="num">+35.6</td><td class="num">+50.5</td>
+<td class="num">+34.7</td><td class="num">+26.3</td></tr>
+<tr class="hum"><td class="song">s6206980_On-Reflection</td>
+<td class="num">+2.0</td><td class="num">+38.9</td>
+<td class="num">+2.2</td><td class="num">+19.2</td></tr>
+<tr class="hum"><td class="song">s6389274_Blind-Mans-Arrow</td>
+<td class="num">+22.7</td><td class="num">+31.2</td>
+<td class="num">+20.9</td><td class="num">+9.7</td></tr>
+<tr class="hum"><td class="song">s6285808_The-Immortal-Soul-Of-Mundo-Cani</td>
+<td class="num">+1.9</td><td class="num">+13.5</td>
+<td class="num">+0.5</td><td class="num">-15.4</td></tr>
+<tr class="hum"><td class="song">s6389251_Kilgore-Trout</td>
+<td class="num">+0.2</td><td class="num">+11.7</td>
+<td class="num">+0.9</td><td class="num">-20.1</td></tr>
+<tr class="hum"><td class="song">s6388915_Secret</td>
+<td class="num">+0.1</td><td class="num">+5.8</td>
+<td class="num">+0.8</td><td class="num">-1.9</td></tr>
+</table></div>
+<div class="box alarm">The tempo map lifts the known-good tabs a long way, and lifts the wrong
+stems just as far. Kilgore Trout reaches gain +11.7
+against a wrong stem at +31.8, so
+its separation is -20.1. Gain alone stops
+meaning anything, and only the separation carries information.</div>
+
+<h2 id="table">7. All 46 rescored, meter clock</h2>
+<p>The configuration the evidence supports. <b>Undetermined carries no finding against the tab</b>:
+5 of the 8 known-good human transcriptions end up there too.</p>
+<div class="tw"><table><tr><th>song</th><th>src</th><th>prewarp</th><th>chance</th><th>gain</th><th>z</th>
+<th>best wrong</th><th>sep</th><th>reader drift</th><th>verdict</th><th>old audit</th></tr>
+<tr class="hum"><td class="song">s6389349_Mile-Marker</td>
+<td>huma</td><td class="num">56.3%</td><td class="num muted">20.7%</td>
+<td class="num ok">+35.6</td><td class="num">+77.8</td>
+<td class="num muted">+0.9</td><td class="num ok">+34.7</td>
+<td class="num muted">-1.3s</td>
 <td class="ok">CONFIRMED</td>
 <td class="muted">n/a</td></tr>
 <tr class="hum"><td class="song">s6389274_Blind-Mans-Arrow</td>
 <td>huma</td><td class="num">41.0%</td><td class="num muted">18.2%</td>
 <td class="num ok">+22.7</td><td class="num">+32.8</td>
-<td class="num muted">+1.8</td>
+<td class="num muted">+1.8</td><td class="num ok">+20.9</td>
+<td class="num muted">0.0s</td>
 <td class="ok">CONFIRMED</td>
 <td class="muted">n/a</td></tr>
 <tr class="hum"><td class="song">s6389335_A-Tree-For-Trials</td>
 <td>huma</td><td class="num">34.4%</td><td class="num muted">17.7%</td>
 <td class="num ok">+16.7</td><td class="num">+12.9</td>
-<td class="num muted">+1.1</td>
+<td class="num muted">+1.1</td><td class="num ok">+15.6</td>
+<td class="num muted">0.0s</td>
 <td class="ok">CONFIRMED</td>
 <td class="muted">n/a</td></tr>
 <tr class=""><td class="song">Low-Level-Owl-I-10-Mile Marker</td>
-<td>mach</td><td class="num">29.2%</td><td class="num muted">19.7%</td>
-<td class="num ok">+9.5</td><td class="num">+19.8</td>
-<td class="num muted">-0.0</td>
+<td>mach</td><td class="num">31.9%</td><td class="num muted">19.7%</td>
+<td class="num ok">+12.2</td><td class="num">+25.5</td>
+<td class="num muted">-0.3</td><td class="num ok">+12.5</td>
+<td class="num muted">8.2s</td>
 <td class="ok">CONFIRMED</td>
 <td class="muted">supported +5.8</td></tr>
-<tr class=""><td class="song">Low-Level-Owl-II-09-Decline</td>
-<td>mach</td><td class="num">32.5%</td><td class="num muted">23.1%</td>
-<td class="num ok">+9.4</td><td class="num">+5.9</td>
-<td class="num muted">+2.8</td>
-<td class="ok">CONFIRMED</td>
-<td class="muted">supported +14.6</td></tr>
 <tr class=""><td class="song">Low-Level-Owl-I-06-Doors Lead to Questions</td>
-<td>mach</td><td class="num">24.8%</td><td class="num muted">17.4%</td>
-<td class="num ok">+7.4</td><td class="num">+9.7</td>
-<td class="num muted">+0.4</td>
+<td>mach</td><td class="num">26.4%</td><td class="num muted">17.4%</td>
+<td class="num ok">+9.1</td><td class="num">+11.9</td>
+<td class="num muted">-1.0</td><td class="num ok">+10.1</td>
+<td class="num muted">18.8s</td>
 <td class="ok">CONFIRMED</td>
 <td class="muted">refuted -1.7</td></tr>
+<tr class=""><td class="song">Low-Level-Owl-I-07-Steps and Numbers</td>
+<td>mach</td><td class="num">39.6%</td><td class="num muted">27.0%</td>
+<td class="num ok">+12.6</td><td class="num">+27.6</td>
+<td class="num muted">+2.9</td><td class="num ok">+9.7</td>
+<td class="num muted">3.8s</td>
+<td class="ok">CONFIRMED</td>
+<td class="muted">supported +15.5</td></tr>
+<tr class=""><td class="song">Low-Level-Owl-II-09-Decline</td>
+<td>mach</td><td class="num">33.6%</td><td class="num muted">23.1%</td>
+<td class="num ok">+10.5</td><td class="num">+6.6</td>
+<td class="num muted">+1.8</td><td class="num ok">+8.7</td>
+<td class="num muted">2.3s</td>
+<td class="ok">CONFIRMED</td>
+<td class="muted">supported +14.6</td></tr>
+<tr class=""><td class="song">Low-Level-Owl-II-03-A Place in Line</td>
+<td>mach</td><td class="num">28.0%</td><td class="num muted">21.5%</td>
+<td class="num ok">+6.5</td><td class="num">+11.1</td>
+<td class="num muted">-0.9</td><td class="num ok">+7.4</td>
+<td class="num muted">2.7s</td>
+<td class="ok">CONFIRMED</td>
+<td class="muted">refuted -10.7</td></tr>
+<tr class=""><td class="song">Low-Level-Owl-II-07-Sunset Drama King</td>
+<td>mach</td><td class="num">27.7%</td><td class="num muted">20.1%</td>
+<td class="num ok">+7.6</td><td class="num">+23.1</td>
+<td class="num muted">+0.4</td><td class="num ok">+7.2</td>
+<td class="num muted">8.0s</td>
+<td class="ok">CONFIRMED</td>
+<td class="muted">refuted -1.9</td></tr>
 <tr class=""><td class="song">Low-Level-Owl-I-03-Blind Mans Arrow</td>
-<td>mach</td><td class="num">24.1%</td><td class="num muted">17.2%</td>
-<td class="num ok">+6.9</td><td class="num">+13.2</td>
-<td class="num muted">+1.1</td>
+<td>mach</td><td class="num">24.7%</td><td class="num muted">17.2%</td>
+<td class="num ok">+7.5</td><td class="num">+14.4</td>
+<td class="num muted">+1.1</td><td class="num ok">+6.4</td>
+<td class="num muted">5.2s</td>
 <td class="ok">CONFIRMED</td>
 <td class="muted">refuted -22.9</td></tr>
-<tr class=""><td class="song">Low-Level-Owl-I-07-Steps and Numbers</td>
-<td>mach</td><td class="num">31.7%</td><td class="num muted">27.0%</td>
-<td class="num ">+4.7</td><td class="num">+10.3</td>
-<td class="num muted">+0.6</td>
+<tr class=""><td class="song">Low-Level-Owl-II-08-The Last in a Line</td>
+<td>mach</td><td class="num">34.0%</td><td class="num muted">27.9%</td>
+<td class="num ok">+6.1</td><td class="num">+9.6</td>
+<td class="num muted">+0.2</td><td class="num ok">+5.9</td>
+<td class="num muted">9.7s</td>
+<td class="ok">CONFIRMED</td>
+<td class="muted">refuted -14.4</td></tr>
+<tr class=""><td class="song">Illumination-Ritual-01-Adriatic to Black Sea</td>
+<td>mach</td><td class="num">21.3%</td><td class="num muted">17.1%</td>
+<td class="num ">+4.2</td><td class="num">+17.7</td>
+<td class="num muted">-0.2</td><td class="num ">+4.4</td>
+<td class="num muted">16.8s</td>
 <td class="muted">undetermined</td>
-<td class="muted">supported +15.5</td></tr>
-<tr class=""><td class="song">Illumination-Ritual-03-Simple Forms</td>
-<td>mach</td><td class="num">26.7%</td><td class="num muted">22.2%</td>
-<td class="num ">+4.5</td><td class="num">+7.1</td>
-<td class="num muted">+2.1</td>
-<td class="muted">undetermined</td>
-<td class="muted">supported +5.4</td></tr>
-<tr class=""><td class="song">Low-Level-Owl-II-07-Sunset Drama King</td>
-<td>mach</td><td class="num">24.6%</td><td class="num muted">20.1%</td>
-<td class="num ">+4.5</td><td class="num">+13.8</td>
-<td class="num muted">+0.2</td>
-<td class="muted">undetermined</td>
-<td class="muted">refuted -1.9</td></tr>
-<tr class=""><td class="song">Low-Level-Owl-II-01-View of a Burning City reprise</td>
-<td>mach</td><td class="num">38.8%</td><td class="num muted">34.9%</td>
-<td class="num ">+3.9</td><td class="num">+3.1</td>
-<td class="num muted">+4.5</td>
-<td class="muted">undetermined</td>
-<td class="muted">supported +32.9</td></tr>
-<tr class=""><td class="song">Mare-Vitalis-08-Poseidon</td>
-<td>mach</td><td class="num">25.6%</td><td class="num muted">22.7%</td>
-<td class="num ">+2.9</td><td class="num">+6.5</td>
-<td class="num muted">+0.6</td>
-<td class="muted">undetermined</td>
-<td class="muted">supported +5.3</td></tr>
-<tr class=""><td class="song">Low-Level-Owl-II-03-A Place in Line</td>
-<td>mach</td><td class="num">24.2%</td><td class="num muted">21.5%</td>
-<td class="num ">+2.7</td><td class="num">+4.6</td>
-<td class="num muted">-0.7</td>
-<td class="muted">undetermined</td>
-<td class="muted">refuted -10.7</td></tr>
-<tr class=""><td class="song">Mare-Vitalis-05-Santa Maria</td>
-<td>mach</td><td class="num">25.7%</td><td class="num muted">23.0%</td>
-<td class="num ">+2.7</td><td class="num">+5.3</td>
-<td class="num muted">+1.5</td>
-<td class="muted">undetermined</td>
-<td class="muted">refuted -23.3</td></tr>
-<tr class=""><td class="song">Illumination-Ritual-09-Clearing Life</td>
-<td>mach</td><td class="num">17.7%</td><td class="num muted">15.2%</td>
-<td class="num ">+2.5</td><td class="num">+5.8</td>
-<td class="num muted">+0.6</td>
-<td class="muted">undetermined</td>
-<td class="muted">refuted -12.4</td></tr>
-<tr class=""><td class="song">Illumination-Ritual-05-30 Degrees 3 Am</td>
-<td>mach</td><td class="num">19.5%</td><td class="num muted">17.3%</td>
-<td class="num ">+2.2</td><td class="num">+3.6</td>
-<td class="num muted">+0.9</td>
-<td class="muted">undetermined</td>
-<td class="muted">refuted -16.5</td></tr>
+<td class="muted">refuted -30.7</td></tr>
 <tr class=""><td class="song">Illumination-Ritual-04-Cathedral Rings</td>
-<td>mach</td><td class="num">15.2%</td><td class="num muted">13.3%</td>
-<td class="num ">+2.0</td><td class="num">+6.6</td>
-<td class="num muted">-0.3</td>
+<td>mach</td><td class="num">16.8%</td><td class="num muted">13.3%</td>
+<td class="num ">+3.5</td><td class="num">+11.7</td>
+<td class="num muted">-0.6</td><td class="num ">+4.1</td>
+<td class="num muted">19.1s</td>
 <td class="muted">undetermined</td>
 <td class="muted">refuted -18.8</td></tr>
-<tr class=""><td class="song">Low-Level-Owl-I-02-On Reflection</td>
-<td>mach</td><td class="num">30.2%</td><td class="num muted">28.2%</td>
-<td class="num ">+2.0</td><td class="num">+4.5</td>
-<td class="num muted">-0.3</td>
+<tr class=""><td class="song">Mare-Vitalis-08-Poseidon</td>
+<td>mach</td><td class="num">27.0%</td><td class="num muted">22.7%</td>
+<td class="num ">+4.3</td><td class="num">+9.6</td>
+<td class="num muted">+0.2</td><td class="num ">+4.1</td>
+<td class="num muted">13.8s</td>
 <td class="muted">undetermined</td>
-<td class="muted">refuted -14.2</td></tr>
+<td class="muted">supported +5.3</td></tr>
+<tr class=""><td class="song">Illumination-Ritual-09-Clearing Life</td>
+<td>mach</td><td class="num">19.4%</td><td class="num muted">15.2%</td>
+<td class="num ">+4.2</td><td class="num">+9.5</td>
+<td class="num muted">+0.3</td><td class="num ">+3.9</td>
+<td class="num muted">21.7s</td>
+<td class="muted">undetermined</td>
+<td class="muted">refuted -12.4</td></tr>
+<tr class=""><td class="song">Illumination-Ritual-03-Simple Forms</td>
+<td>mach</td><td class="num">27.2%</td><td class="num muted">22.2%</td>
+<td class="num ">+5.0</td><td class="num">+7.9</td>
+<td class="num muted">+1.2</td><td class="num ">+3.8</td>
+<td class="num muted">9.3s</td>
+<td class="muted">undetermined</td>
+<td class="muted">supported +5.4</td></tr>
+<tr class=""><td class="song">Illumination-Ritual-10-Illumination Ritual</td>
+<td>mach</td><td class="num">18.6%</td><td class="num muted">14.7%</td>
+<td class="num ">+3.9</td><td class="num">+12.6</td>
+<td class="num muted">+1.0</td><td class="num ">+2.9</td>
+<td class="num muted">25.9s</td>
+<td class="muted">undetermined</td>
+<td class="muted">refuted -3.8</td></tr>
+<tr class=""><td class="song">Illumination-Ritual-05-30 Degrees 3 Am</td>
+<td>mach</td><td class="num">20.5%</td><td class="num muted">17.3%</td>
+<td class="num ">+3.1</td><td class="num">+5.2</td>
+<td class="num muted">+0.3</td><td class="num ">+2.8</td>
+<td class="num muted">17.8s</td>
+<td class="muted">undetermined</td>
+<td class="muted">refuted -16.5</td></tr>
+<tr class=""><td class="song">Mare-Vitalis-05-Santa Maria</td>
+<td>mach</td><td class="num">26.7%</td><td class="num muted">23.0%</td>
+<td class="num ">+3.7</td><td class="num">+7.4</td>
+<td class="num muted">+1.1</td><td class="num ">+2.6</td>
+<td class="num muted">9.5s</td>
+<td class="muted">undetermined</td>
+<td class="muted">refuted -23.3</td></tr>
+<tr class=""><td class="song">Low-Level-Owl-I-08-Sentence</td>
+<td>mach</td><td class="num">23.7%</td><td class="num muted">21.1%</td>
+<td class="num ">+2.6</td><td class="num">+6.7</td>
+<td class="num muted">+0.2</td><td class="num ">+2.4</td>
+<td class="num muted">13.7s</td>
+<td class="muted">undetermined</td>
+<td class="muted">refuted -0.6</td></tr>
+<tr class=""><td class="song">Illumination-Ritual-06-Branches on the Arrow Peak Revelation</td>
+<td>mach</td><td class="num">36.5%</td><td class="num muted">34.3%</td>
+<td class="num ">+2.2</td><td class="num">+4.2</td>
+<td class="num muted">-0.1</td><td class="num ">+2.3</td>
+<td class="num muted">7.5s</td>
+<td class="muted">undetermined</td>
+<td class="muted">supported +23.2</td></tr>
 <tr class="hum"><td class="song">s6206980_On-Reflection</td>
 <td>huma</td><td class="num">30.7%</td><td class="num muted">28.7%</td>
 <td class="num ">+2.0</td><td class="num">+3.1</td>
-<td class="num muted">-0.2</td>
+<td class="num muted">-0.2</td><td class="num ">+2.2</td>
+<td class="num muted">0.0s</td>
 <td class="muted">undetermined</td>
 <td class="muted">n/a</td></tr>
-<tr class=""><td class="song">Low-Level-Owl-I-05-Messenger</td>
-<td>mach</td><td class="num">54.3%</td><td class="num muted">52.4%</td>
-<td class="num ">+1.9</td><td class="num">+0.6</td>
-<td class="num muted">+6.5</td>
+<tr class=""><td class="song">Low-Level-Owl-II-02-Strings</td>
+<td>mach</td><td class="num">16.6%</td><td class="num muted">14.4%</td>
+<td class="num ">+2.2</td><td class="num">+5.7</td>
+<td class="num muted">+0.1</td><td class="num ">+2.1</td>
+<td class="num muted">22.7s</td>
 <td class="muted">undetermined</td>
-<td class="muted">inconclusive margin inside spread +10.0</td></tr>
-<tr class="hum"><td class="song">s6285808_The-Immortal-Soul-Of-Mundo-Cani</td>
-<td>huma</td><td class="num">14.3%</td><td class="num muted">12.4%</td>
-<td class="num ">+1.9</td><td class="num">+2.1</td>
-<td class="num muted">+1.4</td>
+<td class="muted">refuted -14.5</td></tr>
+<tr class=""><td class="song">Illumination-Ritual-08-North Star Ordination</td>
+<td>mach</td><td class="num">19.7%</td><td class="num muted">17.4%</td>
+<td class="num ">+2.3</td><td class="num">+9.9</td>
+<td class="num muted">+0.4</td><td class="num ">+1.9</td>
+<td class="num muted">20.9s</td>
 <td class="muted">undetermined</td>
-<td class="muted">n/a</td></tr>
+<td class="muted">refuted -15.9</td></tr>
+<tr class=""><td class="song">Low-Level-Owl-II-01-View of a Burning City reprise</td>
+<td>mach</td><td class="num">40.2%</td><td class="num muted">34.9%</td>
+<td class="num ">+5.3</td><td class="num">+4.2</td>
+<td class="num muted">+3.7</td><td class="num ">+1.6</td>
+<td class="num muted">4.2s</td>
+<td class="muted">undetermined</td>
+<td class="muted">supported +32.9</td></tr>
+<tr class=""><td class="song">Mare-Vitalis-10-Storms</td>
+<td>mach</td><td class="num">20.9%</td><td class="num muted">18.9%</td>
+<td class="num ">+2.0</td><td class="num">+3.8</td>
+<td class="num muted">+0.5</td><td class="num ">+1.5</td>
+<td class="num muted">15.6s</td>
+<td class="muted">undetermined</td>
+<td class="muted">refuted -24.6</td></tr>
 <tr class=""><td class="song">Illumination-Ritual-02-Great Lake Derelict</td>
-<td>mach</td><td class="num">12.1%</td><td class="num muted">10.3%</td>
-<td class="num ">+1.8</td><td class="num">+6.4</td>
-<td class="num muted">+0.2</td>
+<td>mach</td><td class="num">12.0%</td><td class="num muted">10.3%</td>
+<td class="num ">+1.7</td><td class="num">+6.2</td>
+<td class="num muted">+0.4</td><td class="num ">+1.3</td>
+<td class="num muted">20.8s</td>
 <td class="muted">undetermined</td>
 <td class="muted">refuted -10.5</td></tr>
-<tr class=""><td class="song">Illumination-Ritual-10-Illumination Ritual</td>
-<td>mach</td><td class="num">16.6%</td><td class="num muted">14.7%</td>
-<td class="num ">+1.8</td><td class="num">+6.0</td>
-<td class="num muted">+1.3</td>
-<td class="muted">undetermined</td>
-<td class="muted">refuted -3.8</td></tr>
-<tr class=""><td class="song">Low-Level-Owl-I-12-A Tree for Trials</td>
-<td>mach</td><td class="num">17.7%</td><td class="num muted">15.9%</td>
-<td class="num ">+1.8</td><td class="num">+1.6</td>
-<td class="num muted">+3.8</td>
-<td class="muted">undetermined</td>
-<td class="muted">refuted -13.6</td></tr>
-<tr class=""><td class="song">Low-Level-Owl-I-08-Sentence</td>
-<td>mach</td><td class="num">22.5%</td><td class="num muted">21.1%</td>
-<td class="num ">+1.4</td><td class="num">+3.5</td>
-<td class="num muted">+0.4</td>
-<td class="muted">undetermined</td>
-<td class="muted">refuted -0.6</td></tr>
-<tr class=""><td class="song">Mare-Vitalis-04-Mare Mortis</td>
-<td>mach</td><td class="num">25.8%</td><td class="num muted">24.5%</td>
-<td class="num ">+1.3</td><td class="num">+4.2</td>
-<td class="num muted">+1.7</td>
-<td class="muted">undetermined</td>
-<td class="muted">refuted -21.0</td></tr>
-<tr class=""><td class="song">Illumination-Ritual-08-North Star Ordination</td>
-<td>mach</td><td class="num">18.5%</td><td class="num muted">17.4%</td>
-<td class="num ">+1.2</td><td class="num">+5.0</td>
-<td class="num muted">-0.0</td>
-<td class="muted">undetermined</td>
-<td class="muted">refuted -15.9</td></tr>
-<tr class=""><td class="song">Low-Level-Owl-II-02-Strings</td>
-<td>mach</td><td class="num">15.3%</td><td class="num muted">14.4%</td>
-<td class="num ">+1.0</td><td class="num">+2.4</td>
-<td class="num muted">+0.7</td>
-<td class="muted">undetermined</td>
-<td class="muted">refuted -14.5</td></tr>
 <tr class=""><td class="song">Low-Level-Owl-I-11-Convict</td>
-<td>mach</td><td class="num">8.1%</td><td class="num muted">7.2%</td>
-<td class="num ">+0.9</td><td class="num">+2.2</td>
-<td class="num muted">+2.8</td>
+<td>mach</td><td class="num">8.5%</td><td class="num muted">7.2%</td>
+<td class="num ">+1.3</td><td class="num">+3.3</td>
+<td class="num muted">-0.0</td><td class="num ">+1.3</td>
+<td class="num muted">92.7s</td>
 <td class="muted">undetermined</td>
 <td class="muted">refuted -20.1</td></tr>
-<tr class=""><td class="song">Mare-Vitalis-09-Kilgore Trout</td>
-<td>mach</td><td class="num">16.4%</td><td class="num muted">15.5%</td>
-<td class="num ">+0.9</td><td class="num">+1.6</td>
-<td class="num muted">+1.2</td>
-<td class="muted">undetermined</td>
-<td class="muted">inconclusive margin inside spread +1.8</td></tr>
-<tr class=""><td class="song">Low-Level-Owl-I-09-Bird of Paradise</td>
-<td>mach</td><td class="num">34.4%</td><td class="num muted">33.5%</td>
-<td class="num ">+0.9</td><td class="num">+0.8</td>
-<td class="num muted">+3.0</td>
-<td class="muted">undetermined</td>
-<td class="muted">supported +5.1</td></tr>
-<tr class=""><td class="song">Mare-Vitalis-02-Fishing the Sky</td>
-<td>mach</td><td class="num">13.2%</td><td class="num muted">12.4%</td>
-<td class="num ">+0.8</td><td class="num">+1.5</td>
-<td class="num muted">+1.2</td>
-<td class="muted">undetermined</td>
-<td class="muted">refuted -15.9</td></tr>
-<tr class=""><td class="song">Illumination-Ritual-07-Barrier Islands (Do We Remain)</td>
-<td>mach</td><td class="num">10.4%</td><td class="num muted">9.8%</td>
-<td class="num ">+0.7</td><td class="num">+3.5</td>
-<td class="num muted">+0.7</td>
-<td class="muted">undetermined</td>
-<td class="muted">inconclusive one control survived +8.2</td></tr>
-<tr class=""><td class="song">Mare-Vitalis-06-Secret</td>
-<td>mach</td><td class="num">11.1%</td><td class="num muted">10.5%</td>
-<td class="num ">+0.6</td><td class="num">+1.5</td>
-<td class="num muted">+0.7</td>
-<td class="muted">undetermined</td>
-<td class="muted">refuted -1.8</td></tr>
-<tr class=""><td class="song">Low-Level-Owl-II-05-Rooms and Gardens</td>
-<td>mach</td><td class="num">15.5%</td><td class="num muted">15.0%</td>
-<td class="num ">+0.5</td><td class="num">+1.8</td>
-<td class="num muted">+0.8</td>
-<td class="muted">undetermined</td>
-<td class="muted">refuted -14.5</td></tr>
-<tr class=""><td class="song">Low-Level-Owl-II-04-Shaking Hands</td>
-<td>mach</td><td class="num">9.0%</td><td class="num muted">8.6%</td>
-<td class="num ">+0.4</td><td class="num">+0.4</td>
-<td class="num muted">+3.1</td>
-<td class="muted">undetermined</td>
-<td class="muted">inconclusive margin inside spread +1.3</td></tr>
 <tr class=""><td class="song">Low-Level-Owl-I-14-View of a Burning City</td>
-<td>mach</td><td class="num">12.6%</td><td class="num muted">12.3%</td>
-<td class="num ">+0.3</td><td class="num">+1.5</td>
-<td class="num muted">+0.9</td>
+<td>mach</td><td class="num">13.1%</td><td class="num muted">12.3%</td>
+<td class="num ">+0.8</td><td class="num">+4.3</td>
+<td class="num muted">-0.5</td><td class="num ">+1.3</td>
+<td class="num muted">36.6s</td>
 <td class="muted">undetermined</td>
 <td class="muted">refuted -26.1</td></tr>
-<tr class=""><td class="song">Mare-Vitalis-03-Forever Longing the Golden Sunsets</td>
-<td>mach</td><td class="num">12.8%</td><td class="num muted">12.5%</td>
-<td class="num ">+0.3</td><td class="num">+0.8</td>
-<td class="num muted">+0.6</td>
-<td class="muted">undetermined</td>
-<td class="muted">refuted -2.5</td></tr>
-<tr class=""><td class="song">Mare-Vitalis-07-And Nothing Less</td>
-<td>mach</td><td class="num">21.4%</td><td class="num muted">21.3%</td>
-<td class="num ">+0.1</td><td class="num">+0.2</td>
-<td class="num muted">-0.1</td>
-<td class="muted">undetermined</td>
-<td class="muted">refuted -29.3</td></tr>
-<tr class=""><td class="song">Low-Level-Owl-I-04-Flowers Falling From Dying Hands</td>
-<td>mach</td><td class="num">4.1%</td><td class="num muted">4.0%</td>
-<td class="num ">+0.1</td><td class="num">+0.2</td>
-<td class="num muted">+3.1</td>
-<td class="muted">undetermined</td>
-<td class="muted">unresolved all controls collapsed</td></tr>
-<tr class=""><td class="song">Illumination-Ritual-01-Adriatic to Black Sea</td>
-<td>mach</td><td class="num">17.1%</td><td class="num muted">17.1%</td>
-<td class="num ">+0.0</td><td class="num">+0.1</td>
-<td class="num muted">-0.2</td>
-<td class="muted">undetermined</td>
-<td class="muted">refuted -30.7</td></tr>
-<tr class=""><td class="song">Low-Level-Owl-I-01-The Waking of Pertelotte</td>
-<td>mach</td><td class="num">9.4%</td><td class="num muted">9.5%</td>
-<td class="num ">-0.1</td><td class="num">-0.1</td>
-<td class="num muted">-0.2</td>
-<td class="muted">undetermined</td>
-<td class="muted">refuted -0.7</td></tr>
-<tr class=""><td class="song">Low-Level-Owl-II-08-The Last in a Line</td>
-<td>mach</td><td class="num">27.8%</td><td class="num muted">27.9%</td>
-<td class="num ">-0.1</td><td class="num">-0.1</td>
-<td class="num muted">+1.1</td>
-<td class="muted">undetermined</td>
-<td class="muted">refuted -14.4</td></tr>
 <tr class="hum"><td class="song">s6388955_-And-Nothing-Less</td>
 <td>huma</td><td class="num">21.8%</td><td class="num muted">21.9%</td>
 <td class="num ">-0.1</td><td class="num">-0.2</td>
-<td class="num muted">-1.4</td>
+<td class="num muted">-1.4</td><td class="num ">+1.3</td>
+<td class="num muted">0.0s</td>
 <td class="muted">undetermined</td>
 <td class="muted">n/a</td></tr>
+<tr class=""><td class="song">Low-Level-Owl-II-05-Rooms and Gardens</td>
+<td>mach</td><td class="num">16.4%</td><td class="num muted">15.0%</td>
+<td class="num ">+1.4</td><td class="num">+5.3</td>
+<td class="num muted">+0.3</td><td class="num ">+1.1</td>
+<td class="num muted">15.6s</td>
+<td class="muted">undetermined</td>
+<td class="muted">refuted -14.5</td></tr>
+<tr class=""><td class="song">Mare-Vitalis-07-And Nothing Less</td>
+<td>mach</td><td class="num">22.3%</td><td class="num muted">21.3%</td>
+<td class="num ">+1.0</td><td class="num">+1.7</td>
+<td class="num muted">-0.1</td><td class="num ">+1.1</td>
+<td class="num muted">6.8s</td>
+<td class="muted">undetermined</td>
+<td class="muted">refuted -29.3</td></tr>
+<tr class=""><td class="song">Low-Level-Owl-I-02-On Reflection</td>
+<td>mach</td><td class="num">28.8%</td><td class="num muted">28.2%</td>
+<td class="num ">+0.6</td><td class="num">+1.4</td>
+<td class="num muted">-0.3</td><td class="num ">+0.9</td>
+<td class="num muted">12.7s</td>
+<td class="muted">undetermined</td>
+<td class="muted">refuted -14.2</td></tr>
 <tr class="hum"><td class="song">s6389251_Kilgore-Trout</td>
-<td>huma</td><td class="num">16.4%</td><td class="num muted">16.4%</td>
-<td class="num ">-0.1</td><td class="num">-0.1</td>
-<td class="num muted">-0.4</td>
+<td>huma</td><td class="num">16.6%</td><td class="num muted">16.4%</td>
+<td class="num ">+0.2</td><td class="num">+0.3</td>
+<td class="num muted">-0.7</td><td class="num ">+0.9</td>
+<td class="num muted">-0.9s</td>
 <td class="muted">undetermined</td>
 <td class="muted">n/a</td></tr>
-<tr class=""><td class="song">Low-Level-Owl-I-13-Signal</td>
-<td>mach</td><td class="num">22.1%</td><td class="num muted">22.3%</td>
-<td class="num ">-0.2</td><td class="num">-0.4</td>
-<td class="num muted">+1.8</td>
+<tr class="hum"><td class="song">s6388915_Secret</td>
+<td>huma</td><td class="num">10.8%</td><td class="num muted">10.7%</td>
+<td class="num ">+0.1</td><td class="num">+0.1</td>
+<td class="num muted">-0.7</td><td class="num ">+0.8</td>
+<td class="num muted">-2.4s</td>
 <td class="muted">undetermined</td>
-<td class="muted">supported +9.7</td></tr>
-<tr class=""><td class="song">Low-Level-Owl-II-06-Ring Out the Warning Bell</td>
-<td>mach</td><td class="num">11.1%</td><td class="num muted">11.3%</td>
-<td class="num ">-0.2</td><td class="num">-0.4</td>
-<td class="num muted">+3.6</td>
+<td class="muted">n/a</td></tr>
+<tr class=""><td class="song">Low-Level-Owl-I-04-Flowers Falling From Dying Hands</td>
+<td>mach</td><td class="num">3.9%</td><td class="num muted">4.0%</td>
+<td class="num ">-0.1</td><td class="num">-0.3</td>
+<td class="num muted">-0.6</td><td class="num ">+0.5</td>
+<td class="num muted">48.5s</td>
 <td class="muted">undetermined</td>
-<td class="muted">refuted -28.8</td></tr>
+<td class="muted">n/a</td></tr>
+<tr class="hum"><td class="song">s6285808_The-Immortal-Soul-Of-Mundo-Cani</td>
+<td>huma</td><td class="num">14.3%</td><td class="num muted">12.4%</td>
+<td class="num ">+1.9</td><td class="num">+2.1</td>
+<td class="num muted">+1.4</td><td class="num ">+0.5</td>
+<td class="num muted">0.0s</td>
+<td class="muted">undetermined</td>
+<td class="muted">n/a</td></tr>
+<tr class=""><td class="song">Illumination-Ritual-07-Barrier Islands (Do We Remain)</td>
+<td>mach</td><td class="num">10.4%</td><td class="num muted">9.8%</td>
+<td class="num ">+0.6</td><td class="num">+3.2</td>
+<td class="num muted">+0.2</td><td class="num ">+0.4</td>
+<td class="num muted">8.7s</td>
+<td class="muted">undetermined</td>
+<td class="muted">inconclusive one control survived +8.2</td></tr>
+<tr class=""><td class="song">Low-Level-Owl-I-01-The Waking of Pertelotte</td>
+<td>mach</td><td class="num">10.6%</td><td class="num muted">9.5%</td>
+<td class="num ">+1.1</td><td class="num">+1.6</td>
+<td class="num muted">+0.8</td><td class="num ">+0.3</td>
+<td class="num muted">16.5s</td>
+<td class="muted">undetermined</td>
+<td class="muted">refuted -0.7</td></tr>
+<tr class=""><td class="song">Mare-Vitalis-02-Fishing the Sky</td>
+<td>mach</td><td class="num">13.0%</td><td class="num muted">12.4%</td>
+<td class="num ">+0.7</td><td class="num">+1.2</td>
+<td class="num muted">+0.5</td><td class="num ">+0.2</td>
+<td class="num muted">15.9s</td>
+<td class="muted">undetermined</td>
+<td class="muted">refuted -15.9</td></tr>
+<tr class=""><td class="song">Mare-Vitalis-04-Mare Mortis</td>
+<td>mach</td><td class="num">25.9%</td><td class="num muted">24.5%</td>
+<td class="num ">+1.4</td><td class="num">+4.5</td>
+<td class="num muted">+1.2</td><td class="num ">+0.2</td>
+<td class="num muted">8.7s</td>
+<td class="muted">undetermined</td>
+<td class="muted">refuted -21.0</td></tr>
+<tr class=""><td class="song">Mare-Vitalis-06-Secret</td>
+<td>mach</td><td class="num">11.3%</td><td class="num muted">10.5%</td>
+<td class="num ">+0.8</td><td class="num">+1.9</td>
+<td class="num muted">+0.7</td><td class="num ">+0.1</td>
+<td class="num muted">12.8s</td>
+<td class="muted">undetermined</td>
+<td class="muted">refuted -1.8</td></tr>
 <tr class=""><td class="song">Mare-Vitalis-01-The Immortal Soul of Mundo Cani</td>
-<td>mach</td><td class="num">10.6%</td><td class="num muted">10.8%</td>
-<td class="num ">-0.2</td><td class="num">-0.5</td>
-<td class="num muted">+0.7</td>
+<td>mach</td><td class="num">11.5%</td><td class="num muted">10.8%</td>
+<td class="num ">+0.7</td><td class="num">+1.5</td>
+<td class="num muted">+0.7</td><td class="num ">+0.0</td>
+<td class="num muted">18.4s</td>
 <td class="muted">undetermined</td>
 <td class="muted">inconclusive one control survived +1.9</td></tr>
-<tr class=""><td class="song">Mare-Vitalis-10-Storms</td>
-<td>mach</td><td class="num">18.6%</td><td class="num muted">18.9%</td>
-<td class="num ">-0.3</td><td class="num">-0.5</td>
-<td class="num muted">+1.3</td>
+<tr class=""><td class="song">Mare-Vitalis-03-Forever Longing the Golden Sunsets</td>
+<td>mach</td><td class="num">12.6%</td><td class="num muted">12.5%</td>
+<td class="num ">+0.1</td><td class="num">+0.3</td>
+<td class="num muted">+0.2</td><td class="num ">-0.1</td>
+<td class="num muted">8.9s</td>
 <td class="muted">undetermined</td>
-<td class="muted">refuted -24.6</td></tr>
+<td class="muted">refuted -2.5</td></tr>
+<tr class=""><td class="song">Mare-Vitalis-09-Kilgore Trout</td>
+<td>mach</td><td class="num">16.4%</td><td class="num muted">15.5%</td>
+<td class="num ">+0.9</td><td class="num">+1.6</td>
+<td class="num muted">+1.2</td><td class="num ">-0.3</td>
+<td class="num muted">11.6s</td>
+<td class="muted">undetermined</td>
+<td class="muted">inconclusive margin inside spread +1.8</td></tr>
+<tr class=""><td class="song">Low-Level-Owl-I-09-Bird of Paradise</td>
+<td>mach</td><td class="num">35.0%</td><td class="num muted">33.5%</td>
+<td class="num ">+1.5</td><td class="num">+1.2</td>
+<td class="num muted">+1.8</td><td class="num ">-0.3</td>
+<td class="num muted">12.0s</td>
+<td class="muted">undetermined</td>
+<td class="muted">supported +5.1</td></tr>
 <tr class=""><td class="song">Low-Level-Owl-II-11-Reaction</td>
-<td>mach</td><td class="num">14.7%</td><td class="num muted">15.0%</td>
-<td class="num ">-0.4</td><td class="num">-0.5</td>
-<td class="num muted">+1.1</td>
+<td>mach</td><td class="num">14.8%</td><td class="num muted">15.0%</td>
+<td class="num ">-0.2</td><td class="num">-0.3</td>
+<td class="num muted">+0.4</td><td class="num ">-0.6</td>
+<td class="num muted">2.9s</td>
 <td class="muted">undetermined</td>
 <td class="muted">supported +8.6</td></tr>
-<tr class="hum"><td class="song">s6388915_Secret</td>
-<td>huma</td><td class="num">10.0%</td><td class="num muted">10.7%</td>
-<td class="num ">-0.7</td><td class="num">-1.4</td>
-<td class="num muted">-0.7</td>
-<td class="muted">undetermined</td>
-<td class="muted">n/a</td></tr>
-<tr class=""><td class="song">Low-Level-Owl-II-10-The Argument</td>
-<td>mach</td><td class="num">37.8%</td><td class="num muted">38.6%</td>
-<td class="num ">-0.8</td><td class="num">-2.1</td>
-<td class="num muted">+0.4</td>
-<td class="muted">undetermined</td>
-<td class="muted">supported +11.6</td></tr>
 <tr class=""><td class="song">Low-Level-Owl-II-12-Confession</td>
-<td>mach</td><td class="num">13.8%</td><td class="num muted">14.5%</td>
-<td class="num ">-0.8</td><td class="num">-2.8</td>
-<td class="num muted">+0.4</td>
+<td>mach</td><td class="num">14.2%</td><td class="num muted">14.5%</td>
+<td class="num ">-0.3</td><td class="num">-1.3</td>
+<td class="num muted">+0.3</td><td class="num ">-0.6</td>
+<td class="num muted">47.8s</td>
 <td class="muted">undetermined</td>
 <td class="muted">refuted -36.6</td></tr>
-<tr class=""><td class="song">Illumination-Ritual-06-Branches on the Arrow Peak Revelation</td>
-<td>mach</td><td class="num">33.3%</td><td class="num muted">34.3%</td>
-<td class="num ">-1.0</td><td class="num">-1.9</td>
-<td class="num muted">+0.4</td>
+<tr class=""><td class="song">Low-Level-Owl-I-13-Signal</td>
+<td>mach</td><td class="num">22.8%</td><td class="num muted">22.3%</td>
+<td class="num ">+0.4</td><td class="num">+1.0</td>
+<td class="num muted">+1.2</td><td class="num ">-0.8</td>
+<td class="num muted">5.1s</td>
 <td class="muted">undetermined</td>
-<td class="muted">supported +23.2</td></tr>
+<td class="muted">supported +9.7</td></tr>
+<tr class=""><td class="song">Low-Level-Owl-II-04-Shaking Hands</td>
+<td>mach</td><td class="num">9.0%</td><td class="num muted">8.6%</td>
+<td class="num ">+0.4</td><td class="num">+0.4</td>
+<td class="num muted">+1.3</td><td class="num ">-0.9</td>
+<td class="num muted">19.3s</td>
+<td class="muted">undetermined</td>
+<td class="muted">inconclusive margin inside spread +1.3</td></tr>
+<tr class=""><td class="song">Low-Level-Owl-II-10-The Argument</td>
+<td>mach</td><td class="num">37.9%</td><td class="num muted">38.6%</td>
+<td class="num ">-0.7</td><td class="num">-1.9</td>
+<td class="num muted">+0.5</td><td class="num ">-1.2</td>
+<td class="num muted">4.0s</td>
+<td class="muted">undetermined</td>
+<td class="muted">supported +11.6</td></tr>
+<tr class=""><td class="song">Low-Level-Owl-I-12-A Tree for Trials</td>
+<td>mach</td><td class="num">18.2%</td><td class="num muted">15.9%</td>
+<td class="num ">+2.3</td><td class="num">+2.0</td>
+<td class="num muted">+3.8</td><td class="num ">-1.5</td>
+<td class="num muted">7.7s</td>
+<td class="muted">undetermined</td>
+<td class="muted">refuted -13.6</td></tr>
+<tr class=""><td class="song">Low-Level-Owl-II-06-Ring Out the Warning Bell</td>
+<td>mach</td><td class="num">13.2%</td><td class="num muted">11.3%</td>
+<td class="num ">+1.9</td><td class="num">+3.8</td>
+<td class="num muted">+6.9</td><td class="num ">-5.0</td>
+<td class="num muted">55.0s</td>
+<td class="muted">undetermined</td>
+<td class="muted">refuted -28.8</td></tr>
+<tr class=""><td class="song">Low-Level-Owl-I-05-Messenger</td>
+<td>mach</td><td class="num">52.9%</td><td class="num muted">52.4%</td>
+<td class="num ">+0.5</td><td class="num">+0.2</td>
+<td class="num muted">+9.4</td><td class="num ">-8.9</td>
+<td class="num muted">7.1s</td>
+<td class="muted">undetermined</td>
+<td class="muted">inconclusive margin inside spread +10.0</td></tr>
 </table></div>
 
-<h2 id="next">7. What is known, and what is next</h2>
-<div class="box"><b>Established.</b>
-<ul>
-<li>The 29 refutations and the 11 supports are both artifacts of control selection. Neither
-direction was measured.</li>
-<li>4 machine tabs are positively confirmed against their own recordings, at 0 false positives
-over 162 known wrong pairings. Two of them, Blind Man&rsquo;s Arrow and Doors Lead to
-Questions, were on the refuted list.</li>
-<li>Playability is untouched by any of this. It was measured against the files themselves rather
-than against audio. Hard failures 1248 to 212, 15 of 46 hard clean. That result stands.</li>
-</ul></div>
-<div class="box alarm"><b>Not established, and left open on purpose.</b>
-<ul>
-<li>Whether Confession&rsquo;s tab is accurate. Its gain is 
--0.8 with a
-best wrong stem at +0.4.
-The measure cannot speak on it either way.</li>
-<li>Whether re-transcribing from the stems would improve anything. It cannot be scored on audio
-with the tools in this project, so the re-transcription of Confession was <b>not</b> started.
-Spending it now buys an artifact nobody can grade.</li>
-<li>Why 42 of 46 machine tabs come back undetermined. The most likely reason is a single constant BPM
-written into files whose performances move, which would put the pre-warp measure out of reach
-without saying anything about the notes.</li>
-</ul></div>
-<p class="foot">Mare Vitalis track 7 is written here as <b>And Nothing Less</b>. The released
-title begins with an ellipsis and the filename on disk is unchanged.<br>Sources, all under
-<code>~/Projects/_outputs/appleseed-regen-2026-08-28/</code>:
+<h2 id="conf">8. Confession, built and not promoted</h2>
+<p>Confession was re-derived end to end from
+<code>03_GUITAR_STEMS/Low Level Owl Vol II/12 - Confession.guitar.wav</code> with basic_pitch on
+the ONNX model, quantised to a 16th grid at 174 bpm, and the fretboard solved with the skill's
+own beam. Nothing was carried over except the container.</p>
+<div class="stats">
+<div class="stat"><span class="n">4122</span><span class="l">events detected</span></div>
+<div class="stat"><span class="n">3922</span><span class="l">notes written</span></div>
+<div class="stat"><span class="n">199</span><span class="l">dropped above range</span></div>
+<div class="stat good"><span class="n">16 &rarr; 7</span><span class="l">hard failures</span></div>
+<div class="stat alarm"><span class="n">-0.8 &rarr; -0.3</span><span class="l">audio gain</span></div>
+</div>
+<div class="box alarm">Playability improved and audio accuracy did not: gain
+<b>-0.8 to -0.3</b>, separation
+-1.2 to -0.8, still undetermined. The file stays unpromoted.
+Its status in the queue reads <b>audio accuracy undetermined, playability repair pending reliable
+timing alignment</b>, with the old &minus;36.6 kept only as a deprecated diagnostic.
+<br><br>Two things the build surfaced. A first pass clamped a fret to force a wide chord to fit,
+silently turning pitch 83 into 60 on 7 chords; the fallback now preserves every pitch and lets
+the beat fail honestly. And those 7 chords span up to 43 semitones, which is the
+two-guitarists-on-one-staff case this catalogue is full of.</div>
+
+<p class="foot">Mare Vitalis track 7 is written here as <b>And Nothing Less</b>. The released title
+begins with an ellipsis and the filename on disk is unchanged.<br>
+Tools and raw records in <code>~/Projects/_outputs/appleseed-regen-2026-08-28/</code>:
 <code>validate_alignment_measure.py</code>, <code>duration_matched_test.py</code>,
 <code>banded_dtw_test.py</code>, <code>chance_normalized_test.py</code>,
-<code>prewarp_test.py</code>, <code>prewarp_full46.py</code> and their <code>.jsonl</code> /
-<code>.json</code> outputs. Prior verdicts from <code>full46_audio.jsonl</code> and
-<code>04_TABLES/2026-08-29_audio_accuracy_ALL_46.md</code>. Measured 29 August 2026. The FFT
-offset search was checked against a brute-force loop before any number here was used, and
-agreed to 1e&minus;6.</p>
+<code>prewarp_full46.py</code>, <code>reader_clock_drift.py</code>, <code>meter_clock.py</code>,
+<code>prewarp_meter46.py</code>, <code>beat_census.py</code>, <code>tempo_map.py</code>,
+<code>tempo_audit_full.py</code>, <code>write_tempo_maps.py</code>, and
+<code>confession_rederive/</code>. Tempo-mapped files in <code>tempo_mapped_gp/</code>, originals
+untouched. Every fast path was checked against a brute-force reference before its numbers were
+used. Playability is unaffected by any of this: it was measured against the files rather than
+against audio, and the 1248 to 212 hard-failure reduction with 15 of 46 hard clean stands.</p>
 </div>
