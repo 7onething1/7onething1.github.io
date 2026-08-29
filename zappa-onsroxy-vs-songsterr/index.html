@@ -1,0 +1,171 @@
+<!doctype html>
+<html lang="en"><head><meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Zappa Notation vs Songsterr</title>
+<style>
+:root{--cream:#f4ead8;--paper:#fbf5e9;--ink:#1c1a17;--rust:#b5462f;--mustard:#d9a441;
+--teal:#3f6b6b;--dusty:#8f6f5a;--line:#ddcdb2;--shade:#efe2cb;--green:#4a7c59;}
+*{box-sizing:border-box}
+body{margin:0;background:var(--cream);color:var(--ink);
+font:16px/1.6 "Futura","Avenir Next","Helvetica Neue",Helvetica,Arial,sans-serif}
+.wrap{max-width:1100px;margin:0 auto;padding:34px 22px 80px}
+header{border:3px solid var(--ink);background:var(--paper);padding:26px 28px;margin-bottom:24px}
+h1{margin:0;font-size:30px;letter-spacing:.05em;text-transform:uppercase}
+.sub{margin-top:8px;color:var(--dusty);font-size:14px;letter-spacing:.12em;text-transform:uppercase}
+.stats{display:flex;flex-wrap:wrap;gap:10px;margin-top:20px}
+.stat{border:2px solid var(--ink);background:var(--cream);padding:9px 15px;font-size:13px}
+.stat b{display:block;font-size:21px;color:var(--rust)}
+h2{margin:40px 0 6px;font-size:19px;letter-spacing:.05em;text-transform:uppercase;
+border-bottom:3px solid var(--ink);padding-bottom:7px}
+h3{margin:24px 0 8px;font-size:14px;letter-spacing:.08em;text-transform:uppercase;color:var(--teal)}
+nav{background:var(--paper);border:2px solid var(--line);padding:15px 19px;margin-bottom:10px}
+nav a{display:inline-block;margin:4px 16px 4px 0;color:var(--teal);font-size:14px}
+a{color:var(--rust);text-decoration:none;border-bottom:1px solid rgba(181,70,47,.35)}
+a:hover{border-bottom-color:var(--rust)}
+table{width:100%;border-collapse:collapse;margin:14px 0;background:var(--paper);font-size:14px}
+th{background:var(--shade);text-align:left;padding:9px 11px;border:1px solid var(--line);
+font-size:11px;letter-spacing:.1em;text-transform:uppercase}
+td{padding:8px 11px;border:1px solid var(--line);vertical-align:top}
+tr:nth-child(even) td{background:rgba(239,226,203,.42)}
+.num{text-align:right;white-space:nowrap;font-variant-numeric:tabular-nums}
+.mono{font-family:"SF Mono",Menlo,monospace;font-size:12px}
+.path{font-family:"SF Mono",Menlo,monospace;font-size:11px;color:var(--dusty)}
+.ok{color:var(--green);font-weight:700} .bad{color:var(--rust);font-weight:700}
+.mid{color:#a9761f;font-weight:700}
+.note{border-left:5px solid var(--mustard);background:var(--paper);padding:13px 17px;margin:16px 0;font-size:14px}
+.win{border-left-color:var(--green)} .warn{border-left-color:var(--rust)}
+blockquote{margin:14px 0;padding:12px 18px;background:var(--paper);border-left:5px solid var(--teal);font-size:14px}
+.scroll{overflow-x:auto}
+footer{margin-top:50px;padding-top:18px;border-top:2px solid var(--line);font-size:12px;color:var(--dusty)}
+</style></head><body><div class="wrap">
+
+<header>
+<h1>Published Notation vs the Songsterr GPs</h1>
+<div class="sub">Over-Nite Sensation &amp; Roxy &amp; Elsewhere · pass 1: Zomby Woof</div>
+<div class="stats">
+<div class="stat"><b>17</b>songs matched</div>
+<div class="stat"><b>92</b>notation images</div>
+<div class="stat"><b>43</b>Songsterr tabs</div>
+<div class="stat"><b>6</b>published meters in Zomby Woof</div>
+<div class="stat"><b>1 of 3</b>tabs reproduce them</div>
+</div>
+</header>
+
+<nav><a href="#q">The question</a><a href="#pub">Published side</a><a href="#zw">Zomby Woof</a>
+<a href="#align">Alignment test</a><a href="#verdict">Verdict</a><a href="#matrix">Next passes</a><a href="#method">Method</a></nav>
+
+<h2 id="q">The question</h2>
+<p>Songsterr's Zappa tabs are community and AI made. The archive built on 28 August holds published
+notation for these same two records, so each tab can be checked against a source with real editorial
+standing rather than taken on trust. One song per pass. This is pass 1, Zomby Woof, chosen because it
+has two independent published sources, three tabs to compare, and the odd-meter writing that makes a
+transcription easy to get wrong.</p>
+
+<h2 id="pub">What the published side actually says</h2>
+<p>Two independent sources, neither derived from the other.</p>
+
+<h3>1. Kasper Sloots / Paul Pappas, zappa-analysis.com</h3>
+<p>Full score of Zomby Woof from <b>1:39 to 2:10</b>, updated fall 2024, deposited at the I-depot in
+The Hague. Its interlude page cites the official <b>Over-Nite Sensation Guitar Book, page 64</b>.
+The notated meter sequence runs <span class="mono">7/8, 5/4, 10/16, 10/16, then 7/8, 6/4, 4/4</span>.</p>
+
+<h3>2. Ryan Brown, DRUM Magazine</h3>
+<blockquote>"It has lots of fives, including groups of five sixteenth-notes and quintuplets. The song also has a lot of different time signatures."<br><br>"I always hear the 15/16 section as two groups of notes: one group of four eighth-notes, plus one group of seven sixteenth-notes."</blockquote>
+<p>Four eighths is 8/16, plus seven sixteenths is 15/16. The arithmetic checks.</p>
+
+<div class="note"><span class="ok">Combined published meter set for Zomby Woof:</span>
+<span class="mono">4/4, 5/4, 6/4, 7/8, 10/16, 15/16</span>. Six meters, from two sources that agree.</div>
+
+<h2 id="zw">The three Songsterr tabs against that set</h2>
+<div class="scroll"><table>
+<tr><th>Tab</th><th>Bars</th><th>BPM</th><th>Duration</th><th>Drum notes</th><th>Paren.</th>
+<th>Published meters present</th><th>Meters written</th></tr>
+<tr><td><b>Community, hand-tabbed</b><div class="path">s412162</div></td><td class="num">114</td><td class="num">88</td><td class="num">5:03.86</td><td class="num">1,612</td><td class="num">32</td><td class="ok"><b>6 of 6</b></td><td class="mono">3/4, 10/16, 2/4, 5/4, 15/16, 4/4, 6/4, 7/8</td></tr>
+<tr><td><b>Songsterr AI</b><div class="path">s5820647</div></td><td class="num">123</td><td class="num">89</td><td class="num">5:30.84</td><td class="num">297</td><td class="num">10</td><td class="bad"><b>2 of 6</b></td><td class="mono">13/16, 4/4, 9/8, 7/8</td></tr>
+<tr><td><b>Yours</b><div class="path">s6685613</div></td><td class="num">232</td><td class="num">175</td><td class="num">5:08.23</td><td class="num">2,076</td><td class="num">0</td><td class="mid"><b>3 of 6</b></td><td class="mono">4/4, 5/4, 2/4, 6/4, 5/8, 3/4</td></tr>
+</table></div>
+<p class="path">Album track length is 5:11. Drum-track data read from Songsterr's own revision API.</p>
+
+<div class="note win"><span class="ok">The community hand tab is the only one that reproduces the
+published meter map.</span> It carries all six, and its bars 38 to 46 run
+<span class="mono">7/8, 5/4, 10/16 &times;4, 7/8, 6/4, 4/4</span>, which is the Sloots sequence in order.</div>
+
+<div class="note warn"><span class="bad">The AI tab flattens the song.</span> 119 of its 123 bars are
+4/4. It has none of 5/4, 10/16 or 15/16, and it invents a 13/16 and a 9/8 that neither published
+source shows. Its drum track holds 297 notes against the hand tab's 1,612, and 115 of those carry a
+null pitch, so the part is malformed as well as thin.</div>
+
+<div class="note"><span class="mid">Your tab is the most detailed and the closest in length, and it
+writes the odd meters straight.</span> 2,076 drum notes, 5:08.23 against the album's 5:11, and zero
+parenthesised notes, so it already meets the house standard the other two break. It writes at 175 bpm
+in 232 bars, double-time against the hand tab's 88 bpm in 114, which is a legitimate choice. What it
+loses is the meter writing: no 7/8, no 10/16, no 15/16, with twelve bars of 5/8 in their place.</div>
+
+<h2 id="align">The alignment test</h2>
+<p>A matching list of meters proves less than it looks like, because the same meters could sit in the
+wrong bars. The Sloots excerpt states its own timestamps, so the tab's tempo map gives an independent
+check.</p>
+<div class="scroll"><table>
+<tr><th>Event</th><th>Published</th><th>Community tab</th><th>Offset</th></tr>
+<tr><td>Start of the odd-meter block</td><td class="num">1:39</td><td class="num">bar 38 at 1:41.07</td><td class="num">+2.1 s</td></tr>
+<tr><td>End of the excerpt</td><td class="num">2:10</td><td class="num">bar 48 at 2:05.07</td><td class="num">&minus;4.9 s</td></tr>
+<tr><td>Whole track</td><td class="num">5:11</td><td class="num">5:03.86</td><td class="num">&minus;7.1 s</td></tr>
+</table></div>
+<p>Computed from the tab's own signatures and its six tempo marks (88, 76, 88, 90, 82, 88 bpm).
+The offset stays near 2 percent across 100 seconds of music. That corroborates the sequence, and it
+is not a per-bar proof: confirming that would need the audio.</p>
+
+<h2 id="verdict">Verdict for Zomby Woof</h2>
+<div class="scroll"><table>
+<tr><th>Use it for</th><th>Take</th><th>Because</th></tr>
+<tr><td>Correct meters and bar structure</td><td><b>Community s412162</b></td>
+<td>The only tab carrying all six published meters, in the published order, timed within 2 percent</td></tr>
+<tr><td>Drum detail and playable density</td><td><b>Yours s6685613</b></td>
+<td>2,076 notes, closest duration to the record, zero parenthesised notes</td></tr>
+<tr><td>Anything</td><td class="bad">Not the AI s5820647</td>
+<td>Flattened to 4/4, invented meters, 297 notes with 115 of them null-pitched</td></tr>
+</table></div>
+<div class="note"><b>The concrete next move on this song:</b> keep your drum writing and re-bar it onto
+the community tab's meter map. That is the one thing your version is missing and the one thing the
+community tab has.</div>
+
+<h2 id="matrix">What is ready for the next passes</h2>
+<p>Every song on both records that has published notation in the archive and at least one Songsterr tab.</p>
+<div class="scroll"><table>
+<tr><th>Song</th><th>Album</th><th>Notation images</th><th>Songsterr tabs</th><th>Comparable</th></tr>
+<tr><td>Camarillo Brillo</td><td>Over-Nite Sensation</td><td class="num">5</td><td class="num">2</td><td class="ok">yes</td></tr>
+<tr><td>Dinah-Moe Humm</td><td>Over-Nite Sensation</td><td class="num">7</td><td class="num">0</td><td class="bad">no</td></tr>
+<tr><td>Dirty Love</td><td>Over-Nite Sensation</td><td class="num">5</td><td class="num">1</td><td class="ok">yes</td></tr>
+<tr><td>Fifty-Fifty</td><td>Over-Nite Sensation</td><td class="num">6</td><td class="num">2</td><td class="ok">yes</td></tr>
+<tr><td>I&#x27;m The Slime</td><td>Over-Nite Sensation</td><td class="num">3</td><td class="num">5</td><td class="ok">yes</td></tr>
+<tr><td>Montana</td><td>Over-Nite Sensation</td><td class="num">8</td><td class="num">3</td><td class="ok">yes</td></tr>
+<tr><td>Zomby Woof</td><td>Over-Nite Sensation</td><td class="num">8</td><td class="num">3</td><td class="ok">yes</td></tr>
+<tr><td>Penguin In Bondage</td><td>Roxy &amp; Elsewhere</td><td class="num">11</td><td class="num">1</td><td class="ok">yes</td></tr>
+<tr><td>Pygmy Twylyte</td><td>Roxy &amp; Elsewhere</td><td class="num">6</td><td class="num">4</td><td class="ok">yes</td></tr>
+<tr><td>Village Of The Sun</td><td>Roxy &amp; Elsewhere</td><td class="num">8</td><td class="num">3</td><td class="ok">yes</td></tr>
+<tr><td>Echidna&#x27;s Arf</td><td>Roxy &amp; Elsewhere</td><td class="num">4</td><td class="num">5</td><td class="ok">yes</td></tr>
+<tr><td>Don&#x27;t You Ever Wash That Thing</td><td>Roxy &amp; Elsewhere</td><td class="num">2</td><td class="num">2</td><td class="ok">yes</td></tr>
+<tr><td>Cheepnis</td><td>Roxy &amp; Elsewhere</td><td class="num">7</td><td class="num">1</td><td class="ok">yes</td></tr>
+<tr><td>Son Of Orange County</td><td>Roxy &amp; Elsewhere</td><td class="num">5</td><td class="num">4</td><td class="ok">yes</td></tr>
+<tr><td>More Trouble Every Day</td><td>Roxy &amp; Elsewhere</td><td class="num">3</td><td class="num">2</td><td class="ok">yes</td></tr>
+<tr><td>Be-Bop Tango</td><td>Roxy &amp; Elsewhere</td><td class="num">5</td><td class="num">1</td><td class="ok">yes</td></tr>
+<tr><td>All Skate</td><td>Roxy &amp; Elsewhere</td><td class="num">3</td><td class="num">0</td><td class="bad">no</td></tr>
+<tr><td>Dickie&#x27;s Such An Asshole</td><td>Roxy &amp; Elsewhere</td><td class="num">4</td><td class="num">0</td><td class="bad">no</td></tr>
+</table></div>
+<p>Penguin In Bondage has the deepest published coverage at 11 images. Echidna's Arf and I'm The Slime
+have the most tabs to separate, at five each.</p>
+
+<h2 id="method">Method</h2>
+<p>Songsterr notation comes from the public meta API and its CloudFront path, with no browser and no
+login, which is the route recorded in the songsterr-tab-guide skill. Published notation comes from the
+Zappa drum archive built 28 August. Meters, tempo maps and note counts are read from the tab JSON
+directly. Nothing here is read off a rendered screenshot.</p>
+<p>Two repairs were needed to the archive during this pass. Its Zomby Woof page had been saved as a
+Cloudflare interstitial rather than content, and 21 other pages had the same problem at the tail of the
+crawl, so 13 real pages were refetched. Separately, the first crawl kept images only from pages that
+mentioned drums, which left most per-song notation for these two records missing: 113 further images
+were fetched and validated.</p>
+
+<footer>Pass 1 of a per-song series. Built 29 August 2026. Copyrighted transcriptions consulted for
+private study; this page reports measurements and reproduces no score.</footer>
+</div></body></html>
