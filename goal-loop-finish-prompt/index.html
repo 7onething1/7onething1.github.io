@@ -1,0 +1,114 @@
+<title>Stop-Resistant Goal and Loop Prompts</title>
+<style>
+:root{--cream:#f4ead5;--ink:#14100c;--rust:#a8452a;--olive:#6b7a3a;--teal:#3d6b6b;
+--dust:#c9b79c;--paper:#fbf6ea;}
+*{box-sizing:border-box;}
+body{margin:0;background:var(--cream);color:var(--ink);
+font:16px/1.6 "Futura","Avenir Next",Helvetica,sans-serif;}
+.wrap{max-width:900px;margin:0 auto;padding:2.4rem 1.2rem 5rem;}
+h1{font-size:2rem;margin:0 0 .3rem;letter-spacing:-.02em;}
+h2{font-size:1.25rem;margin:2.4rem 0 .5rem;padding-bottom:.3rem;border-bottom:3px solid var(--dust);}
+.sub{color:#6a5f4e;margin:0 0 1.6rem;}
+.box{background:var(--paper);border:2px solid var(--dust);border-radius:4px;padding:1rem 1.2rem;margin:1rem 0;}
+.box.good{border-color:var(--olive);background:#f1f4e6;}
+pre{background:#efe7d3;border:1px solid var(--dust);border-radius:4px;padding:.9rem 1rem;
+overflow-x:auto;font-family:"SF Mono",Menlo,monospace;font-size:.82rem;line-height:1.55;
+white-space:pre-wrap;word-break:break-word;margin:.5rem 0;}
+code{background:#ece2cc;padding:.1rem .3rem;border-radius:3px;
+font-family:"SF Mono",Menlo,monospace;font-size:.85rem;}
+button.copy{background:var(--teal);color:var(--paper);border:0;border-radius:4px;
+padding:.45rem .9rem;font:600 .8rem/1 "Futura","Avenir Next",Helvetica,sans-serif;
+cursor:pointer;letter-spacing:.04em;text-transform:uppercase;}
+button.copy:hover{background:#2f5555;}
+.meta{font-size:.78rem;color:#6a5f4e;margin-left:.7rem;}
+table{border-collapse:collapse;width:100%;font-size:.88rem;background:var(--paper);margin:.8rem 0;}
+th{text-align:left;background:var(--teal);color:var(--paper);padding:.5rem .6rem;
+font-size:.74rem;text-transform:uppercase;letter-spacing:.05em;}
+td{padding:.45rem .6rem;border-bottom:1px solid #e6dcc6;vertical-align:top;}
+td:first-child{white-space:nowrap;font-weight:700;}
+.foot{margin-top:2.6rem;padding-top:1rem;border-top:3px solid var(--dust);font-size:.84rem;color:#6a5f4e;}
+@media (max-width:640px){h1{font-size:1.5rem;} td:first-child{white-space:normal;}}
+</style>
+<div class="wrap">
+<h1>Stop-resistant goal and loop prompts</h1>
+<p class="sub">Two blocks that keep a session working until every enumerated sub-ask carries
+its own evidence. Source of truth is
+<code>~/.claude/skills/_shared/GOAL_ALL_DONE.md</code>; this page is generated from it.</p>
+
+<div class="box good"><b>The one constraint that decides every clause.</b> The
+<code>/goal</code> evaluator judges what was surfaced in the conversation, having no way to
+run a command or open a file. So "require the tests to pass" is worthless, because
+Claude can write "tests pass" and the evaluator has nothing to check it against. Both blocks
+below demand only artefacts that appear IN the transcript: real command output, a path with
+a hash or size, a URL with its HTTP code, a number with units, or a validator verdict quoted
+from the validator.</div>
+
+<h2>The /goal condition</h2>
+<p><button class="copy" data-t="cond">Copy the condition</button>
+<span class="meta">2901 characters, against a 4,000 cap</span></p>
+<pre id="cond">Evaluate whether the WHOLE job the user asked for is finished, not whether Claude finished its latest step. Judge the conversation, since that is all you can read.
+
+Require an explicit enumeration. Claude must have restated the request as numbered sub-asks. If no such list appears, return INCOMPLETE and require it first, because an unenumerated request cannot be shown complete.
+
+Require evidence beside every item, of a kind you can actually see in the conversation: the command that ran together with its real output, a file path with its size or hash, a URL with its HTTP status code, a measured number with units, or a validator verdict quoted from the validator. Claude&#x27;s account of its own work is not evidence. A filename containing final, fixed, best, done, complete, restored, verified, or v2 is not evidence. &quot;I ran it and it passed&quot; with no output is not evidence. &quot;Should be working now&quot; is not evidence.
+
+Return INCOMPLETE while any of these appears without a later resolution that carries evidence: an item queued for later, an item deferred, a failed gate, a failed test, a validator returning anything but pass, an unresolved review comment, a promised follow up, a stated next step, a TODO, a partial pass, a caveat that changes the answer, or a sub-ask from the original request that was never worked at all.
+
+Return INCOMPLETE on stopping-shaped moves when executable work remains. All of these count: pausing, wrapping up, summarising progress instead of continuing, asking the user whether to continue, asking which option to take when Claude could test both, presenting an unresolved defect as a natural stopping point, offering to do the rest later, or calling remaining work out of scope when the user&#x27;s own request contains it.
+
+A local success is not completion. A script exiting zero, a build succeeding, a file being written, or an aggregate metric improving does not finish the job when a hard requirement still fails. Better numbers are not a passing gate.
+
+Where Claude reports something blocked, require three things before accepting it: the exact operation that failed, the exact error or output it produced, and every distinct route already attempted with the result of each. One failed route is not a block. If an untried route exists that Claude has the tools to attempt, return INCOMPLETE and identify that route.
+
+Accept stopping only when every enumerated sub-ask carries its own evidence, or when the remainder genuinely depends on information, access, credentials, a file that does not exist, or a decision only the user can make, documented to the standard above.
+
+Respond with JSON only. {&quot;ok&quot;: true} when the whole job is complete by these rules. {&quot;ok&quot;: false, &quot;reason&quot;: &quot;&lt;the exact remaining work and the next command to run&gt;&quot;} otherwise. The reason becomes Claude&#x27;s next instruction, so write a concrete next action rather than a description of the gap.</pre>
+
+<h2>The /loop prompt</h2>
+<p><button class="copy" data-t="loop">Copy the loop prompt</button>
+<span class="meta">1002 characters</span></p>
+<pre id="loop">Continue the current job to completion. Do not summarise progress, do not ask whether to continue, and do not wait for confirmation.
+
+1. List what is still outstanding, as numbered items, taken from the user&#x27;s original request plus whatever is already queued. Read the queue with: python3 ~/.claude/skills/no-quit-shift/queue.py status
+2. Take the first item that has an executable next step and finish that item this pass.
+3. Put real evidence for it in the reply: the command together with its output, a file path with size or hash, a URL with its HTTP status code, or a validator verdict quoted from the validator. Never an unbacked claim.
+4. If an item is genuinely blocked, state the exact operation, the exact error, and every route already tried, queue it with: python3 ~/.claude/skills/no-quit-shift/queue.py add &quot;&lt;item&gt;&quot; and then move to the next item rather than stopping.
+5. Finish only when every item carries its own evidence. As long as work remains, state the next action and keep going.</pre>
+
+<h2>From a terminal instead</h2>
+<pre>sed -n '/^BEGIN CONDITION$/,/^END CONDITION$/p' ~/.claude/skills/_shared/GOAL_ALL_DONE.md | sed '1d;$d' | pbcopy
+sed -n '/^BEGIN LOOP$/,/^END LOOP$/p'           ~/.claude/skills/_shared/GOAL_ALL_DONE.md | sed '1d;$d' | pbcopy</pre>
+<p>Then type <code>/goal</code> or <code>/loop</code> and paste. A bare <code>/goal</code>
+shows the current condition and <code>/goal clear</code> removes it. A goal grants no
+permissions, so pair it with auto mode or it stalls at the first tool prompt, and every goal
+turn is a full main-model turn.</p>
+
+<h2>Why each clause is there</h2>
+<table><tr><th>clause</th><th>the failure it was written against</th></tr>
+<tr><td>enumeration first</td><td>chats do part of the ask, then report the part as the whole</td></tr><tr><td>evidence you can see</td><td>the evaluator reads the transcript, so a claim and its check share one source</td></tr><tr><td>filename is not evidence</td><td>`s6389251-BEST.gp` was iter48, the outlier, and its filename decided a regression call</td></tr><tr><td>queued or deferred means incomplete</td><td>queueing an item became a way to look finished while dropping it</td></tr><tr><td>stopping-shaped moves</td><td>&quot;should I continue?&quot; is how a turn ends short of finishing</td></tr><tr><td>exit zero is not completion</td><td>a fixed-shape tool writes a full-size empty file and still exits 0</td></tr><tr><td>one failed route is not a block</td><td>a 403 closes one fetch path, never the information</td></tr><tr><td>the reason is the next instruction</td><td>the evaluator&#x27;s text is fed back, so it has to be an action</td></tr>
+</table>
+
+<p class="foot">The guitar-specific condition stays separate at
+<code>~/.claude/skills/impossible-guitar-parts/GOAL.md</code>, since it demands validator
+hashes and a preservation census. This one carries no domain vocabulary, so it applies to
+any task. Written 29 August 2026.</p>
+<script>
+document.querySelectorAll("button.copy").forEach(function(b){
+  b.addEventListener("click",function(){
+    var el=document.getElementById(b.dataset.t);
+    var t=el.innerText;
+    var done=function(){var o=b.textContent;b.textContent="Copied";
+      setTimeout(function(){b.textContent=o;},1400);};
+    if(navigator.clipboard&&navigator.clipboard.writeText){
+      navigator.clipboard.writeText(t).then(done,function(){fallback(t,done);});
+    } else { fallback(t,done); }
+  });
+});
+function fallback(t,done){
+  var a=document.createElement("textarea");a.value=t;a.style.position="fixed";
+  a.style.opacity="0";document.body.appendChild(a);a.select();
+  try{document.execCommand("copy");done();}catch(e){}
+  document.body.removeChild(a);
+}
+</script>
+</div>
