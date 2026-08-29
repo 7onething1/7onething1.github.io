@@ -41,13 +41,13 @@ footer{margin-top:50px;padding-top:18px;border-top:2px solid var(--line);font-si
 
 <header>
 <h1>Published Notation vs the Songsterr GPs</h1>
-<div class="sub">Over-Nite Sensation &amp; Roxy &amp; Elsewhere · pass 1: Zomby Woof</div>
+<div class="sub">Over-Nite Sensation &amp; Roxy &amp; Elsewhere · pass 1: Zomby Woof · rev 2</div>
 <div class="stats">
 <div class="stat"><b>17</b>songs matched</div>
 <div class="stat"><b>92</b>notation images</div>
 <div class="stat"><b>43</b>Songsterr tabs</div>
-<div class="stat"><b>6</b>published meters in Zomby Woof</div>
-<div class="stat"><b>1 of 3</b>tabs reproduce them</div>
+<div class="stat"><b>6</b>published signature labels</div>
+<div class="stat"><b>1 of 3</b>tabs use all six labels</div>
 </div>
 </header>
 
@@ -66,7 +66,9 @@ transcription easy to get wrong.</p>
 
 <h3>1. Kasper Sloots / Paul Pappas, zappa-analysis.com</h3>
 <p>Full score of Zomby Woof from <b>1:39 to 2:10</b>, updated fall 2024, deposited at the I-depot in
-The Hague. Its interlude page cites the official <b>Over-Nite Sensation Guitar Book, page 64</b>.
+The Hague. He identifies it as a transcription from the recording. A separate interlude image on the
+same page is reproduced from the <b>Over-Nite Sensation Guitar Book, page 64</b>, serving as a
+comparison rather than as the source of the excerpt.
 The notated meter sequence runs <span class="mono">7/8, 5/4, 10/16, 10/16, then 7/8, 6/4, 4/4</span>.</p>
 
 <h3>2. Ryan Brown, DRUM Magazine</h3>
@@ -86,48 +88,69 @@ The notated meter sequence runs <span class="mono">7/8, 5/4, 10/16, 10/16, then 
 </table></div>
 <p class="path">Album track length is 5:11. Drum-track data read from Songsterr's own revision API.</p>
 
-<div class="note win"><span class="ok">The community hand tab is the only one that reproduces the
-published meter map.</span> It carries all six, and its bars 38 to 46 run
-<span class="mono">7/8, 5/4, 10/16 &times;4, 7/8, 6/4, 4/4</span>, which is the Sloots sequence in order.</div>
+<div class="note win"><span class="ok">One of the three tabs uses all six
+published signature labels.</span> The community hand tab carries every one, and its bars 38 to 50 run
+<span class="mono">7/8, 5/4, 10/16 &times;4, 7/8, 6/4, 4/4 &times;5</span>, matching the thirteen bars
+Sloots prints, in order. That makes it the strongest provisional bar map. A label matching a label is
+not yet a verified transcription.</div>
 
 <div class="note warn"><span class="bad">The AI tab flattens the song.</span> 119 of its 123 bars are
-4/4. It has none of 5/4, 10/16 or 15/16, and it invents a 13/16 and a 9/8 that neither published
+4/4. It has none of 5/4, 10/16 or 15/16, and it carries a 13/16 and a 9/8 that neither published
 source shows. Its drum track holds 297 notes against the hand tab's 1,612, and 115 of those carry a
 null pitch, so the part is malformed as well as thin.</div>
 
-<div class="note"><span class="mid">Your tab is the most detailed and the closest in length, and it
-writes the odd meters straight.</span> 2,076 drum notes, 5:08.23 against the album's 5:11, and zero
-parenthesised notes, so it already meets the house standard the other two break. It writes at 175 bpm
-in 232 bars, double-time against the hand tab's 88 bpm in 114, which is a legitimate choice. What it
-loses is the meter writing: no 7/8, no 10/16, no 15/16, with twelve bars of 5/8 in their place.</div>
+<div class="note"><span class="mid">Yours is the densest drum candidate with the closest calculated
+duration.</span> 2,076 drum notes shows density. 5:08.23 against the album's 5:11 shows approximate
+structural coverage. Zero parenthesised notes shows compliance with the house file rule. None of
+those three measurements establishes accurate drums, appropriate cymbals, playable orchestration, or
+correct attack placement, so it stays a detailed repair candidate pending comparison against the
+audio. It writes at 175 bpm in 232 bars, double-time against 88 bpm in 114, a legitimate choice. What
+it does not carry is the 7/8, 10/16 or 15/16 labelling, with twelve bars of 5/8 in their place.</div>
 
 <h2 id="align">The alignment test</h2>
-<p>A matching list of meters proves less than it looks like, because the same meters could sit in the
-wrong bars. The Sloots excerpt states its own timestamps, so the tab's tempo map gives an independent
-check.</p>
+<p>A matching list of labels proves less than it looks like, since the same labels could sit in the
+wrong bars. Sloots states his own timestamps and prints thirteen bars, so the tab's tempo map gives a
+check on both the span and its contents.</p>
 <div class="scroll"><table>
-<tr><th>Event</th><th>Published</th><th>Community tab</th><th>Offset</th></tr>
-<tr><td>Start of the odd-meter block</td><td class="num">1:39</td><td class="num">bar 38 at 1:41.07</td><td class="num">+2.1 s</td></tr>
-<tr><td>End of the excerpt</td><td class="num">2:10</td><td class="num">bar 48 at 2:05.07</td><td class="num">&minus;4.9 s</td></tr>
-<tr><td>Whole track</td><td class="num">5:11</td><td class="num">5:03.86</td><td class="num">&minus;7.1 s</td></tr>
+<tr><th>Span mapped</th><th>Bars</th><th>Tab duration</th><th>vs the 31.0 s excerpt</th></tr>
+<tr><td>b38 to b46</td><td class="num">9</td><td class="num">21.33 s</td><td class="bad num">&minus;31.2%</td></tr>
+<tr><td>b38 to b48</td><td class="num">11</td><td class="num">26.67 s</td><td class="mid num">&minus;14.0%</td></tr>
+<tr><td><b>b38 to b50</b></td><td class="num"><b>13</b></td><td class="num"><b>32.00 s</b></td><td class="ok num"><b>+3.2%</b></td></tr>
+<tr><td>b38 to b52</td><td class="num">15</td><td class="num">37.33 s</td><td class="bad num">+20.4%</td></tr>
 </table></div>
-<p>Computed from the tab's own signatures and its six tempo marks (88, 76, 88, 90, 82, 88 bpm).
-The offset stays near 2 percent across 100 seconds of music. That corroborates the sequence, and it
-is not a per-bar proof: confirming that would need the audio.</p>
+<div class="note warn"><b>Correction, 29 August.</b> A first version of this page mapped nine bars and
+reported the alignment as 2 percent. That figure came from dividing each endpoint offset by its
+absolute position in the song, which measures nothing about alignment. Across the excerpt itself the
+nine-bar span is 31.2 percent short. The fault was mapping nine bars against the thirteen Sloots
+prints.</div>
+<p>Thirteen bars is both the count Sloots prints and the closest duration match, at 32.00 s against
+31.0 s. Its endpoints sit at <span class="mono">+2.07 s</span> and <span class="mono">+3.07 s</span>,
+so the tab runs about one second long across the passage. The thirteen-bar run is
+<span class="mono">7/8, 5/4, 10/16, 10/16, 10/16, 10/16, 7/8, 6/4, 4/4, 4/4, 4/4, 4/4, 4/4</span>,
+which is the order and the page breaks Sloots prints.</p>
+<p>Computed from the tab's own signatures and its six tempo marks (88, 76, 88, 90, 82, 88 bpm). This
+corroborates the bar map at the level of labels and span. It is not a per-bar proof of the notes, and
+confirming that needs the album master.</p>
 
 <h2 id="verdict">Verdict for Zomby Woof</h2>
 <div class="scroll"><table>
-<tr><th>Use it for</th><th>Take</th><th>Because</th></tr>
-<tr><td>Correct meters and bar structure</td><td><b>Community s412162</b></td>
-<td>The only tab carrying all six published meters, in the published order, timed within 2 percent</td></tr>
-<tr><td>Drum detail and playable density</td><td><b>Yours s6685613</b></td>
-<td>2,076 notes, closest duration to the record, zero parenthesised notes</td></tr>
-<tr><td>Anything</td><td class="bad">Not the AI s5820647</td>
-<td>Flattened to 4/4, invented meters, 297 notes with 115 of them null-pitched</td></tr>
+<tr><th>Use it for</th><th>Take</th><th>What the measurement supports</th></tr>
+<tr><td>Bar map and signature labels</td><td><b>Community s412162</b></td>
+<td>The strongest provisional bar map. All six published labels, in the printed order, across a
+thirteen-bar span within 3.2 percent of the stated excerpt</td></tr>
+<tr><td>Drum material to repair from</td><td><b>Yours s6685613</b></td>
+<td>The densest drum candidate with the closest calculated duration. Density and duration and file-rule
+compliance, and no evidence yet on accuracy, cymbal choice, orchestration or attack placement</td></tr>
+<tr><td>Nothing yet</td><td class="bad">AI s5820647</td>
+<td>Flattened to 4/4, labels no source shows, 297 notes with 115 null-pitched</td></tr>
 </table></div>
-<div class="note"><b>The concrete next move on this song:</b> keep your drum writing and re-bar it onto
-the community tab's meter map. That is the one thing your version is missing and the one thing the
-community tab has.</div>
+<div class="note"><b>The next move on this song.</b> Align the community bar map against the exact
+album master first, then move your drum material into that structure bar by bar. Re-barring before
+that alignment is confirmed would carry any error in the map straight into the result.</div>
+
+<div class="note"><b>On the parenthesised notes.</b> A parenthesis is a normal ghost-note convention
+in published drum notation. Counting them here records a house file rule, and it does not by itself
+mark a transcriber's error.</div>
 
 <h2 id="matrix">What is ready for the next passes</h2>
 <p>Every song on both records that has published notation in the archive and at least one Songsterr tab.</p>
