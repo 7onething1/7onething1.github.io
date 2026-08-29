@@ -164,5 +164,31 @@ overstate the evidence. What stands without that caveat: the tab writes `2/4` tw
 published source shows a 2/4 anywhere.
 
 **A tempo question left open.** Keneally writes the solo at quarter = ca 70; the tab runs 115 and 155.
-155 sits near 70 doubled, so the tab may be notating double-time, the same choice seen on Zomby Woof.
+155 is close to 70 doubled, so the tab may be notating double-time, the same choice seen on Zomby Woof.
 Settling it needs the audio.
+
+## Pass 3: Village Of The Sun
+
+The published set covers three different performances, and each has its own meter map.
+
+| Published source | Transcribers | Signature labels |
+|---|---|---|
+| **Roxy & Elsewhere, 1974** (the album), end section | Paul Strawser, Wolfgang Ludwig, Kasper Sloots | 4/4 |
+| Helsinki 1973, opening | Sloots, Ludwig | 9/8, 4/4, 6/8, 5/4, 11/4, 3/4 |
+| Helsinki 1974, opening | Sloots, Ludwig | 12/8, 4/4 (metric modulation) |
+
+**Each performance has its own meter map.** Helsinki 1973 carries 9/8, 6/8, 11/4
+and 5/4. The album take is written in 4/4. Any score of "does this tab match the published labels" is
+conditional on the tab and the transcription covering the same night. That generalises the pass 2
+caveat rather than being special to this song.
+
+| Songsterr tab | Bars | Notated | Drum notes | Labels written | Note |
+|---|---|---|---|---|---|
+| `s412175` editor-made | 43 | 2:06 | 402 | 4/4 x39, 6/4 x4 | half the record: 2:06 against 4:16 |
+| `s6109180` AI "LIVE" | 239 | 4:32 | 189 | 4/4 x238, 2/4 | 0 notes on Lead Guitar and Vocals |
+| `s6628550` AI "live and better" | 261 | 4:32 | 1,799 | 4/4 x254, 2/4 x4, 6/4, 5/4, 3/8 | fullest: 2,612 rhythm, 991 bass, 492 vocal |
+
+Album length 4:16. Both AI tabs notate 4:32, about 6 percent long. Counts exclude rests.
+
+**What holds without a version caveat.** The editor-made tab covers roughly half the record, so a full-song
+score is the wrong yardstick for it. `s6109180` is the third tab in this survey shipping two staves at 0 notes. Only `s6628550` carries a full band across the whole length.
