@@ -135,3 +135,34 @@ never on a tab built in the editor.
 strike following), 357 of the 359 parenthesised drum notes across these tabs are true ghosts on their
 own subdivision. Only 2, both in Montana, are genuine flam candidates. Converting the rest to grace
 notes would misread quiet sixteenths as flams.
+
+## Pass 2: Penguin In Bondage
+
+Chosen for the deepest published coverage on either record: eleven notation images across four
+transcriptions, one by a member of the band.
+
+| Published source | Covers | Transcriber | Signature labels |
+|---|---|---|---|
+| Guitar-solo opening | opening bars | **Mike Keneally** | 4/4 (quarter = ca 70, Dm) |
+| Album version | 2:09 to 2:33 | Kasper Sloots | 4/4, 3/4 |
+| 12-9-73 early show | 1:42 to 2:49 | Kasper Sloots | 4/4, **7/8** |
+| 12-10-73 late show | 2:39 to 2:59 | Kasper Sloots | 4/4 |
+
+**Combined published labels:** `4/4, 3/4, 7/8`. Both ambiguous signatures were resolved by zooming the
+image rather than guessed: the album one is 3/4, the early-show one is 7/8.
+
+| Songsterr tab | Bars | BPM | Parts | Published labels present | Labels written |
+|---|---|---|---|---|---|
+| `s5469710` (AI run) | 251 | 115 / 155 | 5 | **2 of 3** | 4/4 x214, 2/4 x24, 3/4 x13 |
+
+Per-part notes, rests excluded: Lead Guitar 619, Rhythm Guitar 1,992, Bass 769, Drums 1,547, Vocals 172.
+
+**The honest limit.** The 7/8 appears only in the 12-9-73 early show transcription, and the tab is of
+the album version. Which Roxy night the album take comes from is not established here, so the missing
+7/8 may belong to a performance the tab never claimed to cover. Scoring it as a flat miss would
+overstate the evidence. What stands without that caveat: the tab writes `2/4` twenty-four times and no
+published source shows a 2/4 anywhere.
+
+**A tempo question left open.** Keneally writes the solo at quarter = ca 70; the tab runs 115 and 155.
+155 sits near 70 doubled, so the tab may be notating double-time, the same choice seen on Zomby Woof.
+Settling it needs the audio.
