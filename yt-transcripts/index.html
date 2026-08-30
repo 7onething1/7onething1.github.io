@@ -1,0 +1,243 @@
+<!doctype html>
+<html lang="en"><head><meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>YouTube transcripts &middot; Davis Mattek &amp; Ship Chasing</title>
+<meta name="robots" content="noindex, nofollow">
+<style>
+  :root{
+    --paper:#f2ece0; --ink:#171310; --rule:#d8cdb8;
+    --mustard:#c9a227; --rust:#a8412a; --teal:#2f6b6a;
+    --olive:#6f7647; --faint:#6b6055; --card:#ece4d4;
+  }
+  *{box-sizing:border-box}
+  body{margin:0;background:var(--paper);color:var(--ink);
+    font:16px/1.62 "Iowan Old Style","Palatino Linotype",Palatino,Georgia,serif;}
+  .wrap{max-width:900px;margin:0 auto;padding:44px 22px 90px}
+  header{border-bottom:3px double var(--ink);padding-bottom:20px;margin-bottom:34px}
+  .kicker{font:600 11px/1 ui-sans-serif,system-ui,sans-serif;letter-spacing:.19em;
+    text-transform:uppercase;color:var(--rust)}
+  h1{margin:.28em 0 .12em;font-size:2.35rem;line-height:1.1;letter-spacing:-.012em}
+  .sub{color:var(--faint);font-size:1.02rem;margin:0}
+  h2{margin:2.5em 0 .55em;font-size:1.32rem;letter-spacing:-.008em;
+    border-left:5px solid var(--mustard);padding-left:11px}
+  p{margin:.72em 0}
+  a{color:var(--teal)}
+  code{font-family:"SF Mono",ui-monospace,Menlo,monospace;font-size:.87em;
+    background:#e8e0cf;padding:.1em .36em;border-radius:3px}
+  pre{background:#e8e0cf;border-left:4px solid var(--teal);padding:13px 15px;
+    overflow-x:auto;border-radius:0 4px 4px 0;font-size:.83rem;line-height:1.55}
+  .grid{display:grid;gap:13px;grid-template-columns:repeat(auto-fit,minmax(170px,1fr));margin:1.1em 0}
+  .stat{background:var(--card);border:1px solid var(--rule);border-radius:5px;padding:13px 15px}
+  .stat .n{font-size:1.62rem;font-weight:700;line-height:1.1;display:block;color:var(--olive)}
+  .stat .l{font:600 10.5px/1.35 ui-sans-serif,system-ui,sans-serif;letter-spacing:.11em;
+    text-transform:uppercase;color:var(--faint);display:block;margin-top:4px}
+  table{border-collapse:collapse;width:100%;margin:1.05em 0;font-size:.92rem}
+  th,td{text-align:left;padding:8px 11px;border-bottom:1px solid var(--rule);vertical-align:top}
+  th{font:600 10.5px/1.4 ui-sans-serif,system-ui,sans-serif;letter-spacing:.1em;
+    text-transform:uppercase;color:var(--faint);border-bottom:2px solid var(--ink)}
+  td.num{text-align:right;font-family:"SF Mono",ui-monospace,Menlo,monospace;font-size:.83rem}
+  .tw{overflow-x:auto}
+  .flag{border:1px solid var(--rust);border-left:6px solid var(--rust);
+    background:#f0e2dc;padding:13px 16px;border-radius:0 4px 4px 0;margin:1.2em 0}
+  .flag strong{color:var(--rust)}
+  .searchbar{display:flex;gap:9px;margin:1.1em 0 .4em;flex-wrap:wrap}
+  .searchbar input,.searchbar select{font:15px/1.4 inherit;padding:9px 12px;
+    border:1px solid var(--rule);border-radius:5px;background:#fbf7ec;color:var(--ink)}
+  .searchbar input{flex:1 1 260px}
+  .hit{background:var(--card);border:1px solid var(--rule);border-radius:4px;
+    padding:10px 14px;margin:.6em 0}
+  .hit .meta{font:500 11px/1.45 ui-sans-serif,system-ui,sans-serif;letter-spacing:.05em;
+    color:var(--faint);display:block;margin-top:6px}
+  .hit mark{background:var(--mustard);color:var(--ink);padding:0 .12em;border-radius:2px}
+  .status{color:var(--faint);font-size:.9rem;margin:.6em 0}
+  footer{margin-top:3.4em;padding-top:16px;border-top:3px double var(--ink);
+    color:var(--faint);font-size:.86rem}
+  @media (max-width:560px){ .wrap{padding:28px 14px 60px} h1{font-size:1.8rem} }
+</style></head><body>
+<div class="wrap">
+
+<header>
+  <div class="kicker">Caption harvest &middot; local corpus</div>
+  <h1>Davis Mattek &amp; Ship Chasing</h1>
+  <p class="sub">A searchable index of the captions on two YouTube channels. The
+  caption text itself is a local corpus and is not published from this page &mdash;
+  what ships is the metadata below, and every hit points back at the second it
+  came from on the source video.</p>
+</header>
+
+<div class="grid" id="stats"></div>
+
+<div id="setup" hidden>
+  <div class="flag">
+    <strong>Corpus is empty.</strong> Nothing has been fetched yet. Fill the two
+    channel URLs into <code>sources.json</code>, then run the harness from this
+    folder on a machine that can reach YouTube.
+  </div>
+<pre>pip3 install -U yt-dlp
+python3 fetch.py                 # every source, newest 40 each
+python3 fetch.py --limit 100     # go deeper
+python3 fetch.py --source mattek # one channel only
+python3 fetch.py https://www.youtube.com/watch?v=...   # ad-hoc</pre>
+  <p>Captions land in <code>_local/transcripts/</code>, which is gitignored.
+  <code>fetch.py</code> rewrites <code>manifest.json</code> &mdash; id, title,
+  channel, date, duration, word count &mdash; and that is the file this page
+  reads. Commit the manifest, leave the text where it is.</p>
+</div>
+
+<section id="live" hidden>
+  <h2>Search</h2>
+  <p>Runs over the local corpus in <code>_local/</code>, so it works from the
+  machine that ran the fetch. Each hit is one caption line, timestamped and
+  linked to that moment in the video.</p>
+  <div class="searchbar">
+    <input id="q" type="search" placeholder="a phrase, a player, a name&hellip;" autocomplete="off">
+    <select id="scope"><option value="">Both channels</option></select>
+  </div>
+  <p class="status" id="status"></p>
+  <div id="hits"></div>
+</section>
+
+<h2>Sources</h2>
+<div class="tw"><table id="srctable">
+  <thead><tr><th>Source</th><th>Channel</th><th class="num">Videos</th><th class="num">Words</th></tr></thead>
+  <tbody></tbody>
+</table></div>
+
+<h2>Corpus</h2>
+<div class="tw"><table id="vidtable">
+  <thead><tr><th>Video</th><th>Source</th><th>Date</th><th class="num">Length</th><th class="num">Words</th><th>Captions</th></tr></thead>
+  <tbody></tbody>
+</table></div>
+<p class="status" id="vidnote"></p>
+
+<h2>How it was built</h2>
+<p><code>fetch.py</code> asks yt-dlp for each video's caption tracks and prefers a
+human-written English track over a machine one, recording which it got in the
+<em>Captions</em> column above &mdash; an <code>auto</code> row is a speech
+recogniser's guess and should be read as one. YouTube's automatic captions
+arrive as a rolling window in which each event repeats the tail of the one
+before it; the parser drops those repeats both by the <code>aAppend</code> flag
+that marks them and by a prefix check behind it, so the text is not doubled
+either way.</p>
+
+<footer>
+  Metadata generated by <code>fetch.py</code>&nbsp;&middot;&nbsp;<span id="gen">not yet run</span>.
+  Caption text belongs to the channels that published it and stays local; this
+  page holds links and counts.
+</footer>
+
+</div>
+<script>
+const $ = s => document.querySelector(s);
+const esc = s => s.replace(/[&<>"]/g, c => ({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;'}[c]));
+const num = n => (n || 0).toLocaleString();
+const hms = s => { s = Math.round(s || 0);
+  const h = Math.floor(s/3600), m = Math.floor(s%3600/60), x = s%60;
+  return h ? `${h}:${String(m).padStart(2,'0')}:${String(x).padStart(2,'0')}`
+           : `${m}:${String(x).padStart(2,'0')}`; };
+
+let MAN = null, LABEL = {};
+const cache = new Map();
+
+fetch('manifest.json').then(r => r.json()).then(m => { MAN = m; render(); })
+  .catch(() => { $('#status').textContent = 'manifest.json could not be read.'; });
+
+function render() {
+  MAN.sources.forEach(s => LABEL[s.key] = s.label);
+  const t = MAN.totals;
+  $('#stats').innerHTML = [
+    [num(t.videos), 'Videos'],
+    [num(t.words), 'Words of caption'],
+    [(t.seconds/3600).toFixed(1), 'Hours of tape'],
+    [MAN.sources.length, 'Channels'],
+  ].map(([n,l]) => `<div class="stat"><span class="n">${n}</span><span class="l">${l}</span></div>`).join('');
+
+  if (MAN.generated) $('#gen').textContent = MAN.generated.replace('T',' ').replace('Z',' UTC');
+
+  const per = {};
+  MAN.videos.forEach(v => {
+    per[v.source] = per[v.source] || {n:0, w:0};
+    per[v.source].n++; per[v.source].w += v.words;
+  });
+  $('#srctable tbody').innerHTML = MAN.sources.map(s => {
+    const p = per[s.key] || {n:0, w:0};
+    const ch = s.url ? `<a href="${esc(s.url)}" rel="noopener">${esc(s.url)}</a>`
+                     : '<em>URL not set</em>';
+    return `<tr><td>${esc(s.label)}</td><td>${ch}</td>
+      <td class="num">${p.n}</td><td class="num">${num(p.w)}</td></tr>`;
+  }).join('');
+
+  $('#vidtable tbody').innerHTML = MAN.videos.map(v =>
+    `<tr><td><a href="${esc(v.url)}" rel="noopener">${esc(v.title)}</a></td>
+     <td>${esc(LABEL[v.source] || v.source || '')}</td><td>${esc(v.upload_date || '')}</td>
+     <td class="num">${hms(v.duration)}</td><td class="num">${num(v.words)}</td>
+     <td>${esc(v.captions || '')}</td></tr>`).join('');
+
+  if (!MAN.videos.length) {
+    $('#setup').hidden = false;
+    $('#vidnote').textContent = 'Nothing fetched yet.';
+    return;
+  }
+  $('#live').hidden = false;
+  $('#scope').innerHTML = '<option value="">Both channels</option>' +
+    MAN.sources.map(s => `<option value="${esc(s.key)}">${esc(s.label)}</option>`).join('');
+  $('#q').addEventListener('input', debounce(search, 220));
+  $('#scope').addEventListener('change', search);
+}
+
+function debounce(fn, ms) { let t; return () => { clearTimeout(t); t = setTimeout(fn, ms); }; }
+
+async function load(id) {
+  if (cache.has(id)) return cache.get(id);
+  const r = await fetch(`_local/transcripts/${id}.json`);
+  if (!r.ok) throw new Error('missing');
+  const rec = await r.json();
+  cache.set(id, rec);
+  return rec;
+}
+
+async function search() {
+  const q = $('#q').value.trim(), scope = $('#scope').value;
+  const hits = $('#hits'), status = $('#status');
+  if (q.length < 2) { hits.innerHTML = ''; status.textContent = ''; return; }
+
+  const vids = MAN.videos.filter(v => !scope || v.source === scope);
+  status.textContent = `searching ${vids.length} video(s)…`;
+  const needle = q.toLowerCase();
+  const out = [];
+  let missing = 0;
+
+  for (const v of vids) {
+    let rec;
+    try { rec = await load(v.id); } catch { missing++; continue; }
+    for (const c of rec.cues) {
+      if (c.s.toLowerCase().includes(needle)) {
+        out.push({v, t: c.t, s: c.s});
+        if (out.length >= 200) break;
+      }
+    }
+    if (out.length >= 200) break;
+  }
+
+  if (missing === vids.length) {
+    hits.innerHTML = '';
+    status.innerHTML = 'No caption text reachable from here — <code>_local/</code> ' +
+      'is gitignored, so search only runs on the machine that fetched it. ' +
+      'The table below still lists the whole corpus.';
+    return;
+  }
+
+  const re = new RegExp(q.replace(/[.*+?^${}()|[\]\\]/g, '\\$&'), 'ig');
+  hits.innerHTML = out.map(h => {
+    const at = Math.max(0, Math.floor(h.t));
+    return `<div class="hit">${esc(h.s).replace(re, m => `<mark>${m}</mark>`)}
+      <span class="meta"><a href="${esc(h.v.url)}?t=${at}" rel="noopener">${esc(h.v.title)}</a>
+      &middot; ${hms(at)} &middot; ${esc(LABEL[h.v.source] || h.v.source || '')}
+      &middot; ${esc(h.v.upload_date || '')}</span></div>`;
+  }).join('') || '<p class="status">No match.</p>';
+
+  status.textContent = `${out.length}${out.length >= 200 ? '+' : ''} line(s)` +
+    (missing ? ` · ${missing} video(s) had no local text` : '');
+}
+</script>
+</body></html>

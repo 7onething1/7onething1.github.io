@@ -1,0 +1,17 @@
+{
+  "_note": "Fill in url for each source, then run: python3 fetch.py",
+  "sources": [
+    {
+      "key": "mattek",
+      "label": "Davis Mattek",
+      "url": "",
+      "hint": "channel URL, e.g. https://www.youtube.com/@handle -- or a specific playlist"
+    },
+    {
+      "key": "shipchasing",
+      "label": "Ship Chasing",
+      "url": "",
+      "hint": "channel URL, e.g. https://www.youtube.com/@handle -- or a specific playlist"
+    }
+  ]
+}
