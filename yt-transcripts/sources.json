@@ -1,17 +1,24 @@
 {
-  "_note": "Fill in url for each source, then run: python3 fetch.py",
+  "_note": "URLs verified 2026-08-30 by resolving each handle and confirming the channel title and externalId agree in both directions (handle -> id, id -> title). Not guessed. Re-verify before any fetch if this file is older than a season.",
+  "_caveat": "These two sources are NOT independent. Davis Mattek appears on Ship Chasing as a recurring co-host/guest (see playlist PL_aJEIS_S2Wshh2YUtS2Me0SlhVVgKRfv, 'Ship Chasing ft. Pat Kerrane, Pete Overzet & Davis Mattek'). Treat agreement between them as one opinion stated twice, not as corroboration. Ship Chasing's regular hosts are Pete Overzet, Pat Kerrane and Ben Gretch.",
   "sources": [
     {
       "key": "mattek",
       "label": "Davis Mattek",
-      "url": "",
-      "hint": "channel URL, e.g. https://www.youtube.com/@handle -- or a specific playlist"
+      "url": "https://www.youtube.com/@davis_mattek",
+      "channel_id": "UChjRIs14reAo-on9z5iHJFA",
+      "verified": "2026-08-30",
+      "verified_how": "curl 200; channelMetadataRenderer.title='Davis Mattek'; externalId=UChjRIs14reAo-on9z5iHJFA matches the handle",
+      "published_rankings_lead": "https://www.fantasypros.com/nfl/rankings/davis-mattek.php -- FantasyPros carries him as an expert (Underdog Fantasy). A plain fetch returned the JS shell reading 'Draft rankings are not available', which is a tooling limit, NOT proof of absence. Load it in a real browser before concluding he has no published board."
     },
     {
       "key": "shipchasing",
       "label": "Ship Chasing",
-      "url": "",
-      "hint": "channel URL, e.g. https://www.youtube.com/@handle -- or a specific playlist"
+      "url": "https://www.youtube.com/@ShipChasing",
+      "channel_id": "UCxYSi5ohjZRGG4EbZuMqU-w",
+      "verified": "2026-08-30",
+      "verified_how": "curl 200; channelMetadataRenderer.title='Ship Chasing'; externalId=UCxYSi5ohjZRGG4EbZuMqU-w matches the handle",
+      "published_rankings_lead": "Check peteroverzet.com/ship-chasing and the show's Patreon/VIP tier for a tier sheet or board before falling back to captions."
     }
   ]
 }

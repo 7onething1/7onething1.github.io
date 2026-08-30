@@ -23,9 +23,13 @@ There is a half-built starting point for this in my overflow repo, on the branch
   live YouTube**, so expect to debug the json3 caption parsing on first run.
 - `index.html` — a page that renders the corpus metadata and searches the local
   caption text, each hit deep-linked to its timestamp.
-- `sources.json` — **both channel URLs are blank.** They were deliberately not
-  guessed. Confirm the real channels before fetching; a wrong handle silently
-  harvests someone else's videos.
+- `sources.json` — **both channel URLs are now filled and verified** (2026-08-30):
+  Davis Mattek is `https://www.youtube.com/@davis_mattek` (UChjRIs14reAo-on9z5iHJFA)
+  and Ship Chasing is `https://www.youtube.com/@ShipChasing` (UCxYSi5ohjZRGG4EbZuMqU-w).
+  Each was confirmed by resolving the handle and checking that the channel title
+  and `externalId` agree in both directions, so neither is a guess. Re-check them
+  anyway if this file has gone stale; a wrong handle silently harvests someone
+  else's videos.
 
 ## What I actually want
 
@@ -42,6 +46,10 @@ Only fall back to the transcripts if there is no published board. If you do:
 - Cite every call: video title, timestamp link, and the line it rests on.
 - Keep the caption text local. Quote the specific lines you're relying on;
   don't republish whole transcripts.
+- **The two sources are not independent.** Davis Mattek is a recurring co-host
+  and guest on Ship Chasing, so the two feeds carry a lot of the same person.
+  When they agree, that is one opinion stated twice, not corroboration; say so
+  rather than counting it as two votes.
 - Where the two sources disagree on a player, show both rather than averaging
   them into a number that neither of them said.
 - Flag anything you're guessing at. A ranking full of confident-looking numbers
