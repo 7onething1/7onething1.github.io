@@ -60,6 +60,7 @@ claim I should not be trusted to make from memory.</p>
 <li><a href="#ask">Twice I turned an executable action into a question</a></li>
 <li><a href="#false">The self-criticism I nearly got wrong</a></li>
 <li><a href="#fix">What would actually change it</a></li>
+<li><a href="#seven">Instance seven, found while publishing this page</a></li>
 </ol></div>
 
 <h2 id="num"><span class="n">1.</span> The number that settles it</h2>
@@ -161,6 +162,30 @@ wait.</div>
 is proven, enumerate what it leaves untouched, out loud, and only then write anything up.</div>
 <div class="lead warn"><b>A thing I already did unprompted in this session is a thing I do not ask
 permission for later.</b> The precedent is the answer.</div>
+
+<h2 id="seven"><span class="n">8.</span> Instance seven, found while publishing this page</h2>
+<p>Minutes after this page went live, a Stop gate refused the reply announcing it. The reason: the
+reply declared something unreachable and no search stood behind the claim.</p>
+<p>Twice this session I had written that DrumSep was unavailable, and used it to mark the cymbal
+decision blocked. My local probe was correct. <code>/Users/Shared/_run_engine</code> absent,
+<code>~/venvs/mss_training</code> absent, no checkpoint anywhere on disk. Then I turned a local
+absence into a global unavailability and searched nothing.</p>
+<p><b>One search settled it.</b></p>
+<div class="tw"><table>
+<tr><th>layer</th><th>status</th></tr>
+<tr><td><code>github.com/jarredou/models/releases</code>, every file</td><td class="hook">404</td></tr>
+<tr><td><code>huggingface.co/Politrees/UVR_resources</code> checkpoint</td><td><b style="color:var(--olive)">200</b>, 417.3 MB</td></tr>
+<tr><td>same mirror, matching config</td><td><b style="color:var(--olive)">200</b>, 2,417 B</td></tr>
+</table></div>
+<p>The closed layer is one host. The open layer had the model the whole time.</p>
+<div class="lead warn">Then the part that stings. The mirror carries the <b>six-stem</b> aufr33 and
+jarredou model, which separates ride from crash, against the five-stem solo model installed here
+that merges them into one <code>cymbals</code> lane. That merge is the direct cause of the defect
+this session spent hours measuring, where <b>87.1%</b> of shipped cymbal notes carry a fallback
+label because a heuristic has to guess crash against ride.</div>
+<div class="lead">So the pattern has a second half I had not named. Stopping at the first null does
+not only cost me the thing I was looking for. <b>Sometimes what sits one search past the null is
+better than the thing I gave up on.</b></div>
 
 <footer>
 Read from <code>~/.claude/projects/-Users-brandonchavez/40e86d1b.jsonl</code>, this

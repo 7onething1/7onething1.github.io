@@ -111,3 +111,33 @@ Read from this session's own transcript at
 `~/.claude/projects/-Users-brandonchavez/40e86d1b-f805-4448-8346-3cc76ba48b82.jsonl`. Stop counts,
 summary lengths and batch rates are computed from it rather than recalled. File dates from `stat`.
 29 August 2026.
+
+## 8. Instance seven, found while publishing this page
+
+Minutes after this page went live, a Stop gate refused the reply announcing it. The reason: the
+reply declared something unreachable and no search stood behind the claim.
+
+Twice this session I had written that DrumSep was unavailable, and used it to mark the cymbal
+decision blocked. My local probe was correct. `/Users/Shared/_run_engine` absent,
+`~/venvs/mss_training` absent, no checkpoint anywhere on disk. Then I turned a local absence into a
+global unavailability and searched nothing.
+
+One search settled it.
+
+| layer | status |
+|---|---|
+| `github.com/jarredou/models/releases`, every file | **404** |
+| `huggingface.co/Politrees/UVR_resources` checkpoint | **200**, 417.3 MB |
+| same mirror, matching config | **200**, 2,417 B |
+
+The closed layer is one host. The open layer had the model the whole time.
+
+Then the part that stings. The mirror carries the **six-stem** aufr33 and jarredou model, which
+separates ride from crash, against the five-stem solo model installed here that merges them into
+one `cymbals` lane. That merge is the direct cause of the defect this session spent hours
+measuring, where 87.1% of shipped cymbal notes carry a fallback label because a heuristic has to
+guess crash against ride.
+
+So the pattern has a second half I had not named. Stopping at the first null does not only cost me
+the thing I was looking for. Sometimes what sits one search past the null is better than the thing
+I gave up on.
