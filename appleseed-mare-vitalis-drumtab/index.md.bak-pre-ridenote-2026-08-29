@@ -41,8 +41,6 @@ figure was never a read of a file at any generation. Same on the sister page: it
 Album totals: 20 bells, 159 open hats, **0 rim clicks**, 1,011 ghosts, 97 flams,
 103 crashes, 1,667 rides.
 
-> **The 1,667 rides are a fallback label rather than a measurement.** `classify_cymbals` in `sd_lanes.py` opens with `out = ["ride"] * len(F)` and then overwrites only where a positive test fires, for a crash or for a bell. No branch ever writes ride, so every ride counted here is the initial value that survived. Of this album's 1,790 cymbal-lane notes, 123 carry a positive verdict and 1,667, which is 93.1%, carry the default. On Mare Mortis, the one song here with a human transcription to check against, the human writes 57 bell and 7 bow while this build writes 0 bell and 171 ride. Measured 2026-08-29, evidence in `~/Projects/_outputs/appleseed-cymbal-default-ride-2026-08-29-macbook/`.
-
 ## 182 hits came out, and 353 flagged ones stayed in
 
 Flams fell from **647 to 97** in the 4 August pass, because the first build wrote grace
