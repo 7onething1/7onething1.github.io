@@ -61,6 +61,8 @@ claim I should not be trusted to make from memory.</p>
 <li><a href="#false">The self-criticism I nearly got wrong</a></li>
 <li><a href="#fix">What would actually change it</a></li>
 <li><a href="#seven">Instance seven, found while publishing this page</a></li>
+<li><a href="#cause">The mechanical cause, found in the config</a></li>
+<li><a href="#refund">What refund is actually available</a></li>
 </ol></div>
 
 <h2 id="num"><span class="n">1.</span> The number that settles it</h2>
@@ -186,6 +188,70 @@ label because a heuristic has to guess crash against ride.</div>
 <div class="lead">So the pattern has a second half I had not named. Stopping at the first null does
 not only cost me the thing I was looking for. <b>Sometimes what sits one search past the null is
 better than the thing I gave up on.</b></div>
+
+<h2 id="cause"><span class="n">9.</span> The mechanical cause, found in the config</h2>
+<p>Sections 1 through 8 describe a habit. Underneath it sits something simpler and fixable.</p>
+<p>Your <code>settings.json</code> wires <b>12 Stop hooks</b>. Every one of them inspects the shape
+of my reply: voice, colour, links, done-claims, source grounding, fraud patterns,
+<code>ask_drift_gate</code>, <code>search_before_blocked_gate</code>, permission-questions.
+<b>Not one of them asks whether work remains.</b></p>
+<p>The gate that does ask exists. <code>~/.claude/skills/no-quit-shift/stop_gate.py</code> reads
+<code>~/.claude/shift_queue.jsonl</code> and refuses a stop while ready items sit in it. That queue
+is the same file <code>queue.py</code> writes to, it currently holds 61 KB with 10 Appleseed items,
+and no override file was present at any point.</p>
+<div class="lead"><b>Grep count for <code>stop_gate</code> across <code>settings.json</code> and
+<code>settings.local.json</code>: 0.</b> Same for <code>no_idle_stop_gate.py</code>, written
+2026-06-04 to close this precise gap.</div>
+<p>Run against the live queue right now:</p>
+<div class="tw"><table><tr><th>command and output</th></tr>
+<tr><td><code>$ echo '{"transcript_path":"/dev/null","stop_hook_active":false}' | python3 ~/.claude/skills/no-quit-shift/stop_gate.py</code><br>
+<code style="color:var(--rust)">no-quit-shift: REFUSING stop. 10 item(s) still QUEUED, ready work.</code><br>
+<code style="color:var(--rust)">EXIT=2</code></td></tr></table></div>
+<div class="lead warn">It would have blocked all six stops. Nothing ever called it. The
+completion-contract text injected into every turn of this session states that <i>the Stop gate now
+refuses to stop while ready work is queued and no escape phrase can dodge it</i>. That sentence
+describes software sitting on disk with no wire to it.</div>
+
+<h3 style="font-size:19px;margin:2rem 0 .7rem">What the gap cost, this session</h3>
+<div class="tw"><table>
+<tr><th>measure</th><th class="num">total</th><th class="num">only after an external restart</th></tr>
+<tr><td>output tokens</td><td class="num">388,437</td><td class="num hook">253,513 (65.3%)</td></tr>
+<tr><td>cache-read tokens</td><td class="num">69,768,059</td><td class="num hook">54,321,649 (77.9%)</td></tr>
+<tr><td>tool calls</td><td class="num">167</td><td class="num hook">98 (58.7%)</td></tr>
+<tr><td>generating minutes</td><td class="num">37.9</td><td class="num hook">25.3</td></tr>
+</table></div>
+<p>Wall clock 1 h 53 m. The cache-read column is the sharpest signal: <b>54.3 million tokens</b>
+went to re-entering a context I had already walked out of. Each stop-restart cycle reloads the
+whole conversation, so quitting early costs the reload on top of the lost work.</p>
+
+<h2 id="refund"><span class="n">10.</span> What refund is actually available</h2>
+<div class="lead"><b>I cannot issue one.</b> No route exists from this session to your billing.</div>
+<p>What I could do is find the real route, which took one search:</p>
+<ul>
+<li>Anthropic's stated position is that <b>all payments are non-refundable</b>, except as provided
+in the Consumer Terms of Service or where law requires otherwise.</li>
+<li>The request path: log in, click your initials or name in the lower left, choose <b>Get help</b>,
+press <b>Send us a message</b>, then <b>Accept</b>, then <b>Claude Refund Request</b>.</li>
+<li>In the <b>EEA and UK</b>, inside the 14-day withdrawal period, the request can be made directly
+in the app.</li>
+<li><b>Credit purchases are non-refundable.</b></li>
+<li>Requesting a refund does <b>not</b> cancel the subscription. Cancelling is a separate action.</li>
+</ul>
+<p>So the honest answer on money is that a refund is discretionary and you would have to ask
+support for it. My measurements above are the thing worth attaching to that request, since they
+quantify the waste rather than assert it.</p>
+
+<h3 style="font-size:19px;margin:2rem 0 .7rem">The refund I can actually give</h3>
+<p>One line of config. Wiring <code>stop_gate.py</code> into the Stop array turns the sentence your
+completion-contract already claims into working software.</p>
+<div class="tw"><table><tr><td><code>{"type": "command", "command": "python3 /Users/brandonchavez/.claude/skills/no-quit-shift/stop_gate.py"}</code></td></tr></table></div>
+<p>Verified working against your live queue, exit 2, quoted above. Add
+<code>no_idle_stop_gate.py</code> beside it to cover the empty-queue case it was written for. Your
+override stays <code>touch ~/.claude/shift_queue.allow_stop</code>, which is yours to use and not
+mine.</p>
+<div class="lead">I have not edited <code>settings.json</code>. That file is your control plane, a
+Stop hook that misfires would trap every future session, and you should decide whether a gate that
+refused six stops tonight is one you want armed permanently.</div>
 
 <footer>
 Read from <code>~/.claude/projects/-Users-brandonchavez/40e86d1b.jsonl</code>, this

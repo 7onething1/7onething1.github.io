@@ -1,0 +1,576 @@
+<!doctype html><html lang="en"><head><meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>The Annie Edison Ledger</title>
+<link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,600;0,700;1,400&family=Inter:wght@400;500;600;700&family=JetBrains+Mono:wght@400;600&display=swap" rel="stylesheet">
+<style>
+:root{--bg:#F4EDDC;--ink:#16130E;--mut:#6E6553;--line:#D8CDB4;--card:#FBF6EA;--acc:#B5502F;}
+*{box-sizing:border-box}
+body{margin:0;background:var(--bg);color:var(--ink);font-family:Inter,system-ui,sans-serif;line-height:1.6;-webkit-font-smoothing:antialiased}
+.wrap{max-width:1120px;margin:0 auto;padding:0 22px}
+header.top{border-bottom:3px double var(--line);padding:54px 0 30px;margin-bottom:26px}
+h1{font-family:'Cormorant Garamond',serif;font-size:clamp(2.5rem,6vw,4.1rem);line-height:1.02;margin:0 0 6px;font-weight:700;letter-spacing:-.01em}
+.sub{font-family:'Cormorant Garamond',serif;font-style:italic;font-size:clamp(1.05rem,2.3vw,1.45rem);color:var(--mut);margin:0 0 20px}
+.lede{max-width:62ch;font-size:1.02rem}
+.lede b{background:linear-gradient(transparent 62%,rgba(192,138,46,.38) 62%)}
+.stats{display:flex;flex-wrap:wrap;gap:10px;margin:24px 0 0}
+.stat{background:var(--card);border:1px solid var(--line);padding:9px 15px;min-width:96px}
+.stat b{display:block;font-family:'Cormorant Garamond',serif;font-size:1.8rem;line-height:1;font-weight:700}
+.stat span{font-size:.68rem;text-transform:uppercase;letter-spacing:.1em;color:var(--mut)}
+h2{font-family:'Cormorant Garamond',serif;font-size:2.05rem;margin:52px 0 6px;font-weight:700;border-bottom:1px solid var(--line);padding-bottom:7px}
+h2 .n{font-family:'JetBrains Mono',monospace;font-size:.72rem;color:var(--acc);vertical-align:super;letter-spacing:.06em}
+.sect-note{color:var(--mut);max-width:64ch;margin:0 0 22px;font-size:.95rem}
+nav.toc{background:var(--card);border:1px solid var(--line);padding:16px 20px;margin:26px 0 0}
+nav.toc b{font-size:.68rem;text-transform:uppercase;letter-spacing:.12em;color:var(--mut);display:block;margin-bottom:8px}
+nav.toc a{color:var(--ink);text-decoration:none;border-bottom:1px solid var(--line);margin-right:16px;display:inline-block;padding:2px 0;font-size:.9rem}
+nav.toc a:hover{border-color:var(--acc);color:var(--acc)}
+.filters{position:sticky;top:0;z-index:20;background:var(--bg);border-bottom:1px solid var(--line);padding:12px 0 11px;margin-bottom:20px}
+.frow{display:flex;flex-wrap:wrap;gap:6px;align-items:center;margin-bottom:6px}
+.flabel{font-size:.63rem;text-transform:uppercase;letter-spacing:.12em;color:var(--mut);width:64px;flex:none}
+button.f{--c:#6E6553;background:transparent;border:1px solid var(--line);color:var(--ink);font:inherit;font-size:.76rem;padding:4px 10px;cursor:pointer;border-radius:2px;transition:.15s}
+button.f b{color:var(--mut);font-weight:600;font-size:.7rem}
+button.f:hover{border-color:var(--c)}
+button.f.on{background:var(--c);border-color:var(--c);color:#FBF6EA}
+button.f.on b{color:rgba(251,246,234,.75)}
+#reset{margin-left:auto;font-size:.72rem;background:var(--ink);color:var(--bg);border-color:var(--ink)}
+.grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(330px,1fr));gap:14px}
+.card{background:var(--card);border:1px solid var(--line);padding:17px 18px 14px;display:flex;flex-direction:column;gap:9px}
+.card header{display:flex;justify-content:space-between;align-items:flex-start;gap:10px}
+.epline{display:flex;flex-direction:column;gap:1px}
+.code{font-family:'JetBrains Mono',monospace;font-size:.7rem;color:var(--acc);letter-spacing:.05em;font-weight:600}
+.ep{font-family:'Cormorant Garamond',serif;font-size:1.16rem;font-weight:600;line-height:1.15}
+.status{--c:#6E6553;font-size:.58rem;text-transform:uppercase;letter-spacing:.1em;border:1px solid var(--c);color:var(--c);padding:2px 7px;white-space:nowrap;flex:none;margin-top:2px}
+.act{margin:0;font-size:.92rem}
+blockquote{margin:0;padding:9px 13px;border-left:3px solid var(--acc);background:rgba(181,80,47,.055);font-family:'Cormorant Garamond',serif;font-size:1.02rem;font-style:italic;line-height:1.42}
+blockquote.none{border-color:var(--line);background:transparent;color:var(--mut);font-size:.9rem}
+.note{margin:0;font-size:.82rem;color:var(--mut);border-top:1px dotted var(--line);padding-top:8px}
+.card footer{display:flex;justify-content:space-between;align-items:center;gap:8px;margin-top:auto;padding-top:4px}
+.chips{display:flex;flex-wrap:wrap;gap:4px}
+.chip{--c:#6E6553;font-size:.6rem;color:var(--c);border:1px solid var(--c);padding:1px 6px;border-radius:2px;white-space:nowrap}
+.sev{display:flex;gap:2px;flex:none}
+.sev i{width:7px;height:7px;background:var(--line);display:block;border-radius:50%}
+.sev i.on{background:var(--acc)}
+table{width:100%;border-collapse:collapse;font-size:.87rem;background:var(--card);border:1px solid var(--line)}
+th,td{text-align:left;padding:8px 11px;border-bottom:1px solid var(--line);vertical-align:top}
+th{font-size:.63rem;text-transform:uppercase;letter-spacing:.1em;color:var(--mut);background:rgba(216,205,180,.3)}
+td.c{font-family:'JetBrains Mono',monospace;font-size:.72rem;color:var(--acc);white-space:nowrap;font-weight:600}
+td.w{font-weight:600;white-space:nowrap}
+td.e{color:var(--mut);font-size:.79rem}
+.tw{overflow-x:auto}
+.pat{background:var(--card);border:1px solid var(--line);border-left:4px solid #2E5F7A;padding:18px 22px}
+.pat ul{margin:0;padding-left:19px}
+.pat li{margin-bottom:7px;font-size:.9rem}
+.pat li b{font-family:'JetBrains Mono',monospace;font-size:.71rem;color:#2E5F7A;margin-right:5px}
+.verdict{background:var(--card);border:1px solid var(--line);padding:26px 28px;margin-top:16px}
+.verdict p{max-width:66ch}
+.verdict p:first-child{margin-top:0}
+.pull{font-family:'Cormorant Garamond',serif;font-size:1.5rem;font-style:italic;line-height:1.32;border-left:4px solid var(--acc);padding-left:18px;margin:26px 0;color:var(--ink);max-width:54ch}
+footer.end{margin:56px 0 40px;padding-top:18px;border-top:3px double var(--line);color:var(--mut);font-size:.8rem}
+.empty{display:none;padding:36px;text-align:center;color:var(--mut);border:1px dashed var(--line)}
+@media(max-width:640px){.flabel{width:100%}.grid{grid-template-columns:1fr}}
+</style></head><body>
+<div class="wrap">
+<header class="top">
+<h1>The Annie Edison Ledger</h1>
+<p class="sub">A transcript-grounded audit of one sitcom character's behaviour, across all six seasons</p>
+<p class="lede">Third pass, and every claim is now resolved against a speaker-labeled transcript. Nothing is left in the <i>unconfirmed</i> bucket. What survives is 60 ledgerable decisions: <b>43 confirmed verbatim</b>, 14 found in this work and absent from the original reading, and 3 corrected. <b>10 claims were thrown out</b>, two of those my own findings from the previous pass. A third of my entries had a quote misattributed. All three were caught by the same move: reading a transcript that names who is speaking.</p>
+<div class="stats">
+<div class="stat"><b>60</b><span>Entries</span></div>
+<div class="stat"><b>110</b><span>Scripts read</span></div>
+<div class="stat"><b>14</b><span>New finds</span></div>
+<div class="stat"><b>0</b><span>Unresolved</span></div>
+<div class="stat"><b>10</b><span>Rejected</span></div>
+<div class="stat"><b>13</b><span>Meta-lines</span></div>
+</div>
+<nav class="toc"><b>Contents</b>
+<a href="#ledger">The ledger</a><a href="#paternalism">The paternalism thread</a><a href="#meta">What the writers let them say</a><a href="#excluded">Thrown out</a><a href="#verdict">Where this lands</a><a href="#method">Method</a>
+</nav>
+</header>
+
+<h2 id="ledger">The ledger <span class="n">60 ENTRIES</span></h2>
+<p class="sect-note">Filter by tactic, season, or verification status. Severity runs one to five and weighs real harm to a real person, so a chloroformed janitor outranks a video-game blacksmith. Entries at zero are counterweights and thesis text rather than offences.</p>
+<div class="filters">
+<div class="frow"><span class="flabel">Tactic</span><button class="f" data-f="cls" data-v="deception" style="--c:#B5502F">Deception <b>16</b></button><button class="f" data-f="cls" data-v="information-control" style="--c:#3F6B58">Information control <b>15</b></button><button class="f" data-f="cls" data-v="strategic-innocence" style="--c:#C08A2E">Strategic innocence <b>10</b></button><button class="f" data-f="cls" data-v="coercion" style="--c:#7A5C8E">Coercion <b>9</b></button><button class="f" data-f="cls" data-v="sexual-leverage" style="--c:#A84A62">Sexual bargaining <b>6</b></button><button class="f" data-f="cls" data-v="paternalism" style="--c:#2E5F7A">Paternalism <b>7</b></button><button class="f" data-f="cls" data-v="competitive-displacement" style="--c:#6E7B3A">Competitive displacement <b>4</b></button><button class="f" data-f="cls" data-v="sabotage" style="--c:#8B4A2B">Sabotage <b>6</b></button><button class="f" data-f="cls" data-v="bodily-interference" style="--c:#8C2F2F">Bodily interference <b>3</b></button></div>
+<div class="frow"><span class="flabel">Season</span><button class="f" data-f="s" data-v="1">Season One <b>23</b></button><button class="f" data-f="s" data-v="2">Season Two <b>11</b></button><button class="f" data-f="s" data-v="3">Season Three <b>11</b></button><button class="f" data-f="s" data-v="4">Season Four <b>6</b></button><button class="f" data-f="s" data-v="5">Season Five <b>6</b></button><button class="f" data-f="s" data-v="6">Season Six <b>3</b></button></div>
+<div class="frow"><span class="flabel">Status</span><button class="f" data-f="status" data-v="VERIFIED" style="--c:#3F6B58">Verified <b>43</b></button><button class="f" data-f="status" data-v="NEW" style="--c:#B5502F">New this pass <b>14</b></button><button class="f" data-f="status" data-v="CORRECTED" style="--c:#C08A2E">Corrected <b>3</b></button><button class="f" data-f="status" data-v="CARRIED" style="--c:#8A8272">Unconfirmed <b>0</b></button><button class="f" id="reset">Reset</button></div>
+</div>
+<div class="grid" id="grid"><article class="card" data-s="1" data-cls="information-control strategic-innocence" data-status="NEW" data-sev="2" id="e1">
+<header><div class="epline"><span class="code">S1E04</span><span class="ep">Social Psychology</span></div>
+<span class="status" style="--c:#B5502F">New this pass</span></header>
+<p class="act">Pitches Duncan for early lab access by disclosing her pill addiction, lost scholarship and lost virginity as the emotional case.</p>
+<blockquote>I&#x27;m only here because of a brief addiction to pills that I was told would help me focus but they actually made me lose my scholarship and virginity.</blockquote>
+<p class="note">The disclosure is unprompted and instrumental. It arrives inside a request, not a confidence.</p>
+<footer><div class="chips"><span class="chip" style="--c:#3F6B58">Information control</span><span class="chip" style="--c:#C08A2E">Strategic innocence</span></div><div class="sev" title="Severity 2 of 5"><i class="on"></i><i class="on"></i><i class=""></i><i class=""></i><i class=""></i></div></footer>
+</article><article class="card" data-s="1" data-cls="strategic-innocence" data-status="NEW" data-sev="2" id="e2">
+<header><div class="epline"><span class="code">S1E04</span><span class="ep">Social Psychology</span></div>
+<span class="status" style="--c:#B5502F">New this pass</span></header>
+<p class="act">Duncan grants the slot on an openly romantic premise. Annie leaves the misread standing and moves straight to logistics.</p>
+<blockquote>I&#x27;m not allowed to date students. But if in spite of that you are still interested, then you may join the lab. / Oh! Ah. Okay, you need to bring two human subjects.</blockquote>
+<p class="note">Strategic non-correction. Saying nothing is the whole tactic.</p>
+<footer><div class="chips"><span class="chip" style="--c:#C08A2E">Strategic innocence</span></div><div class="sev" title="Severity 2 of 5"><i class="on"></i><i class="on"></i><i class=""></i><i class=""></i><i class=""></i></div></footer>
+</article><article class="card" data-s="1" data-cls="coercion" data-status="VERIFIED" data-sev="3" id="e3">
+<header><div class="epline"><span class="code">S1E04</span><span class="ep">Social Psychology</span></div>
+<span class="status" style="--c:#3F6B58">Verified</span></header>
+<p class="act">Recruits Abed by upgrading the friendship label on the spot, in the same breath as the ask.</p>
+<blockquote>This is really important to me, Abed. Could you please go as my friend? My really good friend?</blockquote>
+<p class="note">Abed notices the upgrade and accepts anyway: &#x27;I didn&#x27;t realize we were really good friends. I figured we were more like Chandler and Phoebe.&#x27;</p>
+<footer><div class="chips"><span class="chip" style="--c:#7A5C8E">Coercion</span></div><div class="sev" title="Severity 3 of 5"><i class="on"></i><i class="on"></i><i class="on"></i><i class=""></i><i class=""></i></div></footer>
+</article><article class="card" data-s="1" data-cls="deception" data-status="VERIFIED" data-sev="4" id="e4">
+<header><div class="epline"><span class="code">S1E04</span><span class="ep">Social Psychology</span></div>
+<span class="status" style="--c:#3F6B58">Verified</span></header>
+<p class="act">Told outright the experiment will never begin, she personally delivers the five-minute lie to the subjects, repeatedly, across twenty six hours.</p>
+<blockquote>Sorry you&#x27;ve been waiting 26 hours. It&#x27;s just going to be another five minutes.</blockquote>
+<p class="note">Duncan authored the design. Annie is the mouth that runs it.</p>
+<footer><div class="chips"><span class="chip" style="--c:#B5502F">Deception</span></div><div class="sev" title="Severity 4 of 5"><i class="on"></i><i class="on"></i><i class="on"></i><i class="on"></i><i class=""></i></div></footer>
+</article><article class="card" data-s="1" data-cls="deception coercion" data-status="CORRECTED" data-sev="4" id="e5">
+<header><div class="epline"><span class="code">S1E04</span><span class="ep">Social Psychology</span></div>
+<span class="status" style="--c:#C08A2E">Corrected</span></header>
+<p class="act">Abed sits twenty six hours because Annie invoked friendship, not because he was studying Duncan.</p>
+<blockquote>Yeah, I was livid. / Then why didn&#x27;t you leave? / Because you asked me to stay and you said we were friends.</blockquote>
+<p class="note">Prior pass had Abed staying out of curiosity about Duncan. The transcript makes Annie the sole reason he stayed.</p>
+<footer><div class="chips"><span class="chip" style="--c:#B5502F">Deception</span><span class="chip" style="--c:#7A5C8E">Coercion</span></div><div class="sev" title="Severity 4 of 5"><i class="on"></i><i class="on"></i><i class="on"></i><i class="on"></i><i class=""></i></div></footer>
+</article><article class="card" data-s="1" data-cls="competitive-displacement coercion" data-status="VERIFIED" data-sev="3" id="e6">
+<header><div class="epline"><span class="code">S1E06</span><span class="ep">Football, Feminism and You</span></div>
+<span class="status" style="--c:#3F6B58">Verified</span></header>
+<p class="act">Works to keep Troy out of football so she stays the only person he depends on. Jeff diagnoses it to her face and she deflects rather than denies.</p>
+<blockquote>The important thing is that you are the only one there for him. And you don&#x27;t really care what he wants, just as long as you don&#x27;t have to share him with the world. Because, really, you are just as selfish as I am. You&#x27;re just not as good at it yet.</blockquote>
+<p class="note">Her reply is &#x27;You&#x27;re right. I could never be as good as you.&#x27; The show establishes the pattern in episode six and never retracts it.</p>
+<footer><div class="chips"><span class="chip" style="--c:#6E7B3A">Competitive displacement</span><span class="chip" style="--c:#7A5C8E">Coercion</span></div><div class="sev" title="Severity 3 of 5"><i class="on"></i><i class="on"></i><i class="on"></i><i class=""></i><i class=""></i></div></footer>
+</article><article class="card" data-s="1" data-cls="strategic-innocence coercion" data-status="VERIFIED" data-sev="3" id="e7">
+<header><div class="epline"><span class="code">S1E07</span><span class="ep">Introduction to Statistics</span></div>
+<span class="status" style="--c:#3F6B58">Verified</span></header>
+<p class="act">Deploys crying and high-school trauma to force Jeff&#x27;s attendance. Jeff names it as a repeated technique he has been training against.</p>
+<blockquote>This won&#x27;t work. The last time you did this, I saved a vial of your tears. And I&#x27;ve been slowly building up an immunity.</blockquote>
+<p class="note">Immunity implies exposure. The technique predates the episode.</p>
+<footer><div class="chips"><span class="chip" style="--c:#C08A2E">Strategic innocence</span><span class="chip" style="--c:#7A5C8E">Coercion</span></div><div class="sev" title="Severity 3 of 5"><i class="on"></i><i class="on"></i><i class="on"></i><i class=""></i><i class=""></i></div></footer>
+</article><article class="card" data-s="1" data-cls="coercion" data-status="NEW" data-sev="1" id="e8">
+<header><div class="epline"><span class="code">S1E07</span><span class="ep">Introduction to Statistics</span></div>
+<span class="status" style="--c:#B5502F">New this pass</span></header>
+<p class="act">The instant Jeff concedes, she converts the win into further extraction without pausing.</p>
+<blockquote>Look, I will come to your party. / Thank you. I&#x27;m putting you down for two bags of ice and a sleeve of paper cups.</blockquote>
+<p class="note">Small, and one of the cleanest demonstrations of method in the series.</p>
+<footer><div class="chips"><span class="chip" style="--c:#7A5C8E">Coercion</span></div><div class="sev" title="Severity 1 of 5"><i class="on"></i><i class=""></i><i class=""></i><i class=""></i><i class=""></i></div></footer>
+</article><article class="card" data-s="1" data-cls="strategic-innocence" data-status="NEW" data-sev="1" id="e9">
+<header><div class="epline"><span class="code">S1E07</span><span class="ep">Introduction to Statistics</span></div>
+<span class="status" style="--c:#B5502F">New this pass</span></header>
+<p class="act">Narrates her own technique aloud while running it.</p>
+<blockquote>I am putting my foot down, do you understand? I am being assertive, and I am making eye contact, and it is achieving results.</blockquote>
+<p class="note">Self-aware operation, stated in the moment.</p>
+<footer><div class="chips"><span class="chip" style="--c:#C08A2E">Strategic innocence</span></div><div class="sev" title="Severity 1 of 5"><i class="on"></i><i class=""></i><i class=""></i><i class=""></i><i class=""></i></div></footer>
+</article><article class="card" data-s="1" data-cls="sabotage" data-status="VERIFIED" data-sev="3" id="e10">
+<header><div class="epline"><span class="code">S1E08</span><span class="ep">Home Economics</span></div>
+<span class="status" style="--c:#3F6B58">Verified</span></header>
+<p class="act">Coaches Troy through an elaborate perfect date for another woman, in loving detail, and then wrecks it.</p>
+<blockquote>You&#x27;ll light the candles and you&#x27;ll take a bite and she&#x27;ll take a bite and you&#x27;ll laugh. And you&#x27;ll offer her your letter jacket after you notice this funny way she shakes when she gets cold.</blockquote>
+<p class="note">She builds the thing she then wrecks. The construction is what makes the wrecking legible.</p>
+<footer><div class="chips"><span class="chip" style="--c:#8B4A2B">Sabotage</span></div><div class="sev" title="Severity 3 of 5"><i class="on"></i><i class="on"></i><i class="on"></i><i class=""></i><i class=""></i></div></footer>
+</article><article class="card" data-s="1" data-cls="deception sabotage" data-status="VERIFIED" data-sev="4" id="e11">
+<header><div class="epline"><span class="code">S1E08</span><span class="ep">Home Economics</span></div>
+<span class="status" style="--c:#3F6B58">Verified</span></header>
+<p class="act">Fakes a medical emergency to pull Troy off the date.</p>
+<blockquote>Troy, wait. I have to tell you. My appendix is bursting.</blockquote>
+<p class="note">Also verbatim in this episode: &#x27;And I hate you. And I wanna have your children.&#x27;</p>
+<footer><div class="chips"><span class="chip" style="--c:#B5502F">Deception</span><span class="chip" style="--c:#8B4A2B">Sabotage</span></div><div class="sev" title="Severity 4 of 5"><i class="on"></i><i class="on"></i><i class="on"></i><i class="on"></i><i class=""></i></div></footer>
+</article><article class="card" data-s="1" data-cls="deception sabotage" data-status="NEW" data-sev="4" id="e12">
+<header><div class="epline"><span class="code">S1E08</span><span class="ep">Home Economics</span></div>
+<span class="status" style="--c:#B5502F">New this pass</span></header>
+<p class="act">After the clinic clears her and Troy moves to leave, she escalates the fake symptom instead of folding, triggering a quarantine and an overnight hold.</p>
+<blockquote>Doesn&#x27;t seem to be anything wrong with you. / Cool. I&#x27;ll see you. / Where does it hurt? / Everywhere.</blockquote>
+<p class="note">The strongest beat in the episode and absent from the prior pass. Being caught does not end the scheme, it upgrades it.</p>
+<footer><div class="chips"><span class="chip" style="--c:#B5502F">Deception</span><span class="chip" style="--c:#8B4A2B">Sabotage</span></div><div class="sev" title="Severity 4 of 5"><i class="on"></i><i class="on"></i><i class="on"></i><i class="on"></i><i class=""></i></div></footer>
+</article><article class="card" data-s="1" data-cls="coercion" data-status="NEW" data-sev="2" id="e13">
+<header><div class="epline"><span class="code">S1E09</span><span class="ep">Debate 109</span></div>
+<span class="status" style="--c:#B5502F">New this pass</span></header>
+<p class="act">Recruits Jeff by attacking his ego rather than asking him.</p>
+<blockquote>Maybe Simmons is right. You really are all sizzle and no steak. You probably couldn&#x27;t beat him.</blockquote>
+<p class="note">He takes the bait inside one line.</p>
+<footer><div class="chips"><span class="chip" style="--c:#7A5C8E">Coercion</span></div><div class="sev" title="Severity 2 of 5"><i class="on"></i><i class="on"></i><i class=""></i><i class=""></i><i class=""></i></div></footer>
+</article><article class="card" data-s="1" data-cls="sexual-leverage strategic-innocence" data-status="NEW" data-sev="2" id="e14">
+<header><div class="epline"><span class="code">S1E09</span><span class="ep">Debate 109</span></div>
+<span class="status" style="--c:#B5502F">New this pass</span></header>
+<p class="act">Reframes her own presentation as a persuasion instrument during preparation, ahead of the kiss.</p>
+<blockquote>Simmons is so good at using his inherent magnetism to sell his points and here I am, like a spinster librarian with my hair pulled back.</blockquote>
+<p class="note">She is also pre-warned in this episode: &#x27;Be careful. Abed thinks you two are going to kiss.&#x27; She keeps working alone with him.</p>
+<footer><div class="chips"><span class="chip" style="--c:#A84A62">Sexual bargaining</span><span class="chip" style="--c:#C08A2E">Strategic innocence</span></div><div class="sev" title="Severity 2 of 5"><i class="on"></i><i class="on"></i><i class=""></i><i class=""></i><i class=""></i></div></footer>
+</article><article class="card" data-s="1" data-cls="sexual-leverage" data-status="CORRECTED" data-sev="4" id="e15">
+<header><div class="epline"><span class="code">S1E09</span><span class="ep">Debate 109</span></div>
+<span class="status" style="--c:#C08A2E">Corrected</span></header>
+<p class="act">Kisses Jeff at the exact moment Simmons has proved human goodness by trusting Jeff to catch him. Jeff drops him, and the drop becomes the winning argument.</p>
+<blockquote>Simmons: He hates me, yet he caught me. Man is good. / Annie: He was horny, so he dropped him. Man is evil. / Jean: Greendale wins! / Annie: That off-book enough for ya?</blockquote>
+<p class="note">RESOLVED on the speaker-labeled transcript. Annie delivers the winning line herself, then claims the kiss as her tactic, answering Jeff&#x27;s earlier instruction to go off book. Prior pass credited the winning argument to Jeff.</p>
+<footer><div class="chips"><span class="chip" style="--c:#A84A62">Sexual bargaining</span></div><div class="sev" title="Severity 4 of 5"><i class="on"></i><i class="on"></i><i class="on"></i><i class="on"></i><i class=""></i></div></footer>
+</article><article class="card" data-s="1" data-cls="strategic-innocence" data-status="VERIFIED" data-sev="1" id="e16">
+<header><div class="epline"><span class="code">S1E18</span><span class="ep">Basic Genealogy</span></div>
+<span class="status" style="--c:#3F6B58">Verified</span></header>
+<p class="act">Recruits Jeff with the wide-eyed appeal. He names the effect and calls it dangerous.</p>
+<blockquote>You&#x27;re becoming dangerous, Annie. It&#x27;s those doe eyes. Disappointing you is like choking the Little Mermaid with a bike chain.</blockquote>
+<p class="note">Season one, and the group has already learned the face is a mechanism.</p>
+<footer><div class="chips"><span class="chip" style="--c:#C08A2E">Strategic innocence</span></div><div class="sev" title="Severity 1 of 5"><i class="on"></i><i class=""></i><i class=""></i><i class=""></i><i class=""></i></div></footer>
+</article><article class="card" data-s="1" data-cls="coercion" data-status="VERIFIED" data-sev="3" id="e17">
+<header><div class="epline"><span class="code">S1E20</span><span class="ep">The Science of Illusion</span></div>
+<span class="status" style="--c:#3F6B58">Verified</span></header>
+<p class="act">Introduces herself on security duty by the nickname, then refuses to surrender authority, detains Jeff and threatens him.</p>
+<blockquote>I&#x27;m Annie Edison. But people call me Psycho because I had a nervous breakdown in high school. / Her name&#x27;s not Annie, it&#x27;s Psycho. / because if I have to hand you off to Shirley, you&#x27;re gonna enter a kitchen of pain.</blockquote>
+<p class="note">EXCLUDED from this episode: the &#x27;I framed Jeff&#x27; confession is Britta&#x27;s, not Annie&#x27;s. Prior passes elsewhere have mis-assigned it.</p>
+<footer><div class="chips"><span class="chip" style="--c:#7A5C8E">Coercion</span></div><div class="sev" title="Severity 3 of 5"><i class="on"></i><i class="on"></i><i class="on"></i><i class=""></i><i class=""></i></div></footer>
+</article><article class="card" data-s="1" data-cls="information-control sabotage" data-status="VERIFIED" data-sev="5" id="e18">
+<header><div class="epline"><span class="code">S1E24</span><span class="ep">English as a Second Language</span></div>
+<span class="status" style="--c:#3F6B58">Verified</span></header>
+<p class="act">Records every class, captures Chang&#x27;s confession that he has no credentials, and reports him anonymously, knowing it invalidates the group&#x27;s grades.</p>
+<blockquote>I received an anonymous tip that Chang had misrepresented certain aspects of his qualifications.</blockquote>
+<p class="note">She holds the recording while the group discusses retaking Spanish, and says nothing until Jeff cross-examines her.</p>
+<footer><div class="chips"><span class="chip" style="--c:#3F6B58">Information control</span><span class="chip" style="--c:#8B4A2B">Sabotage</span></div><div class="sev" title="Severity 5 of 5"><i class="on"></i><i class="on"></i><i class="on"></i><i class="on"></i><i class="on"></i></div></footer>
+</article><article class="card" data-s="1" data-cls="information-control" data-status="VERIFIED" data-sev="5" id="e19">
+<header><div class="epline"><span class="code">S1E24</span><span class="ep">English as a Second Language</span></div>
+<span class="status" style="--c:#3F6B58">Verified</span></header>
+<p class="act">Confesses only under cross-examination, and states the abandonment mechanism plainly.</p>
+<blockquote>Fine. I did it. / Go ahead and hate me. We were all gonna drift apart. / that&#x27;s what my rehab group used to say. The only one that keeps in touch is the guy that sells jewelry made out of bottle caps.</blockquote>
+<p class="note">The clearest statement of motive in the series. Fear of the group dissolving licenses the sabotage.</p>
+<footer><div class="chips"><span class="chip" style="--c:#3F6B58">Information control</span></div><div class="sev" title="Severity 5 of 5"><i class="on"></i><i class="on"></i><i class="on"></i><i class="on"></i><i class="on"></i></div></footer>
+</article><article class="card" data-s="1" data-cls="strategic-innocence" data-status="VERIFIED" data-sev="3" id="e20">
+<header><div class="epline"><span class="code">S1E24</span><span class="ep">English as a Second Language</span></div>
+<span class="status" style="--c:#3F6B58">Verified</span></header>
+<p class="act">The group pre-empts the face out loud, in real time, and instructs each other not to look.</p>
+<blockquote>Now she is going to make the Disney face. Her lip is gonna quiver and her eyes will flutter, but they won&#x27;t ever actually close. But do not feel sorry for her. She stole a year of our lives, and we&#x27;re right to be pissed.</blockquote>
+<p class="note">CORRECTION: this is where the phrase &#x27;Disney face&#x27; occurs. The prior pass located the mechanism in Introduction to Statistics.</p>
+<footer><div class="chips"><span class="chip" style="--c:#C08A2E">Strategic innocence</span></div><div class="sev" title="Severity 3 of 5"><i class="on"></i><i class="on"></i><i class="on"></i><i class=""></i><i class=""></i></div></footer>
+</article><article class="card" data-s="1" data-cls="strategic-innocence" data-status="NEW" data-sev="2" id="e21">
+<header><div class="epline"><span class="code">S1E24</span><span class="ep">English as a Second Language</span></div>
+<span class="status" style="--c:#B5502F">New this pass</span></header>
+<p class="act">Jeff reads even her remorse as tactical and tells the group to withhold contact.</p>
+<blockquote>That&#x27;s what she wants, more personal drama so we fail the exam and stay in Spanish forever. We have to beat her. Don&#x27;t text her. Don&#x27;t call her. Don&#x27;t mention her.</blockquote>
+<p class="note">Shirley is separately warned: &#x27;Don&#x27;t play into her ploy for attention.&#x27;</p>
+<footer><div class="chips"><span class="chip" style="--c:#C08A2E">Strategic innocence</span></div><div class="sev" title="Severity 2 of 5"><i class="on"></i><i class="on"></i><i class=""></i><i class=""></i><i class=""></i></div></footer>
+</article><article class="card" data-s="1" data-cls="information-control" data-status="NEW" data-sev="0" id="e22">
+<header><div class="epline"><span class="code">S1E24</span><span class="ep">English as a Second Language</span></div>
+<span class="status" style="--c:#B5502F">New this pass</span></header>
+<p class="act">COUNTERWEIGHT. She then repairs the damage to Chang directly and at cost to herself.</p>
+<blockquote>Annie getting me fired was the best thing that ever happened to me. She&#x27;s helping me re-plan my life.</blockquote>
+<p class="note">Logged because the empathy is real. Note the sequence: it arrives after the consequence lands.</p>
+<footer><div class="chips"><span class="chip" style="--c:#3F6B58">Information control</span></div><div class="sev" title="Severity 0 of 5"><i class=""></i><i class=""></i><i class=""></i><i class=""></i><i class=""></i></div></footer>
+</article><article class="card" data-s="1" data-cls="competitive-displacement" data-status="VERIFIED" data-sev="1" id="e23">
+<header><div class="epline"><span class="code">S1E25</span><span class="ep">Pascal&#x27;s Triangle Revisited</span></div>
+<span class="status" style="--c:#3F6B58">Verified</span></header>
+<p class="act">The Delaware move is real and it is Vaughn&#x27;s, an offer from a hacky sack team, with Annie as the girlfriend who would follow.</p>
+<blockquote>Your boyfriend just got offered a spot on the number-one community-college hacky sack team in the nation. / There&#x27;s just one thing, mountain flower, and that&#x27;s that the school&#x27;s in Delaware.</blockquote>
+<p class="note">RESOLVED. Delaware exists and belongs to Vaughn. Nothing supports the reading that Annie invented the plan to force Jeff&#x27;s hand, so that reading is dropped and only the competition context remains.</p>
+<footer><div class="chips"><span class="chip" style="--c:#6E7B3A">Competitive displacement</span></div><div class="sev" title="Severity 1 of 5"><i class="on"></i><i class=""></i><i class=""></i><i class=""></i><i class=""></i></div></footer>
+</article><article class="card" data-s="2" data-cls="sexual-leverage" data-status="VERIFIED" data-sev="1" id="e25">
+<header><div class="epline"><span class="code">S2E02</span><span class="ep">Accounting for Lawyers</span></div>
+<span class="status" style="--c:#3F6B58">Verified</span></header>
+<p class="act">Objects to being deployed as bait, and in objecting shows she understands exactly how the group prices her appearance.</p>
+<blockquote>If someone comes up, Kanye and Kumar get taken to jail. You get taken to dinner. / You guys, I&#x27;m the smartest one in this whole group and all I&#x27;ve been used for is bait and distraction.</blockquote>
+<p class="note">The complaint is about wasted intelligence, not about the premise.</p>
+<footer><div class="chips"><span class="chip" style="--c:#A84A62">Sexual bargaining</span></div><div class="sev" title="Severity 1 of 5"><i class="on"></i><i class=""></i><i class=""></i><i class=""></i><i class=""></i></div></footer>
+</article><article class="card" data-s="2" data-cls="bodily-interference" data-status="VERIFIED" data-sev="5" id="e26">
+<header><div class="epline"><span class="code">S2E02</span><span class="ep">Accounting for Lawyers</span></div>
+<span class="status" style="--c:#3F6B58">Verified</span></header>
+<p class="act">Chloroforms the janitor when the group is caught.</p>
+<blockquote>You chloroformed the janitor? / Oh, my God. I didn&#x27;t know what to do.</blockquote>
+<p class="note">Non-consensual chemical incapacitation of an uninvolved worker.</p>
+<footer><div class="chips"><span class="chip" style="--c:#8C2F2F">Bodily interference</span></div><div class="sev" title="Severity 5 of 5"><i class="on"></i><i class="on"></i><i class="on"></i><i class="on"></i><i class="on"></i></div></footer>
+</article><article class="card" data-s="2" data-cls="bodily-interference deception" data-status="VERIFIED" data-sev="5" id="e27">
+<header><div class="epline"><span class="code">S2E02</span><span class="ep">Accounting for Lawyers</span></div>
+<span class="status" style="--c:#3F6B58">Verified</span></header>
+<p class="act">Executes a second chloroforming of the same man as a cover story, staging a mass dosing so the group can pose as fellow victims.</p>
+<blockquote>Abed: I have an idea. Okay, it may sound a little weird, but trust me. / Troy: We all got chloroformed. / Annie: Somebody chloroformed all of us. / Janitor: Who is she? Why is she holding a rag?</blockquote>
+<p class="note">CORRECTED against my own first pass. The plan is Abed&#x27;s. Annie is the one holding the rag both times, so both assaults are hers physically, and neither was her design.</p>
+<footer><div class="chips"><span class="chip" style="--c:#8C2F2F">Bodily interference</span><span class="chip" style="--c:#B5502F">Deception</span></div><div class="sev" title="Severity 5 of 5"><i class="on"></i><i class="on"></i><i class="on"></i><i class="on"></i><i class="on"></i></div></footer>
+</article><article class="card" data-s="2" data-cls="information-control sabotage" data-status="VERIFIED" data-sev="4" id="e29">
+<header><div class="epline"><span class="code">S2E04</span><span class="ep">Basic Rocket Science</span></div>
+<span class="status" style="--c:#3F6B58">Verified</span></header>
+<p class="act">Agreed a quid pro quo with City College&#x27;s dean: sabotage Greendale&#x27;s launch in exchange for admission, and clear the area so the simulator could be stolen.</p>
+<blockquote>I set it up. I called City College about transferring and the dean told me that he would get me in if I helped sabotage Greendale&#x27;s launch. I was to make sure nobody was around so they could steal it.</blockquote>
+<p class="note">Far stronger than the prior reading of arranged circumstances. This is an agreement with a rival institution to damage her own. The group being trapped inside was not intended.</p>
+<footer><div class="chips"><span class="chip" style="--c:#3F6B58">Information control</span><span class="chip" style="--c:#8B4A2B">Sabotage</span></div><div class="sev" title="Severity 4 of 5"><i class="on"></i><i class="on"></i><i class="on"></i><i class="on"></i><i class=""></i></div></footer>
+</article><article class="card" data-s="2" data-cls="information-control" data-status="NEW" data-sev="1" id="e63">
+<header><div class="epline"><span class="code">S2E04</span><span class="ep">Basic Rocket Science</span></div>
+<span class="status" style="--c:#B5502F">New this pass</span></header>
+<p class="act">Anonymously informs on the study group for the obscene flag they submitted anonymously.</p>
+<blockquote>Troy: How do you know it was our flag? We submitted it anonymously. Oops. / Dean: One of you actually came forward. (Everyone looks at Annie Edison.) / Annie: What?</blockquote>
+<p class="note">A second informant beat in the same episode as the City College deal. The reflex to report is not reserved for high stakes.</p>
+<footer><div class="chips"><span class="chip" style="--c:#3F6B58">Information control</span></div><div class="sev" title="Severity 1 of 5"><i class="on"></i><i class=""></i><i class=""></i><i class=""></i><i class=""></i></div></footer>
+</article><article class="card" data-s="2" data-cls="coercion" data-status="VERIFIED" data-sev="2" id="e30">
+<header><div class="epline"><span class="code">S2E08</span><span class="ep">Cooperative Calligraphy</span></div>
+<span class="status" style="--c:#3F6B58">Verified</span></header>
+<p class="act">Refuses to let a missing pen go, escalating until the room becomes a search, a strip and an accusation scene.</p>
+<blockquote>Annie: Abed, did you pick up my pen? It&#x27;s a purple pen with a gel grip? / Abed: Nope. I&#x27;m strictly mechanical pencils these days. / Annie: It was just here.</blockquote>
+<p class="note">Compulsive control rather than deliberate cruelty. The group escalates alongside her.</p>
+<footer><div class="chips"><span class="chip" style="--c:#7A5C8E">Coercion</span></div><div class="sev" title="Severity 2 of 5"><i class="on"></i><i class="on"></i><i class=""></i><i class=""></i><i class=""></i></div></footer>
+</article><article class="card" data-s="2" data-cls="deception" data-status="VERIFIED" data-sev="4" id="e31">
+<header><div class="epline"><span class="code">S2E09</span><span class="ep">Conspiracy Theories and Interior Design</span></div>
+<span class="status" style="--c:#3F6B58">Verified</span></header>
+<p class="act">Fires a prop gun at the fake Professorson in front of Jeff and justifies the shooting as punishment for dishonesty.</p>
+<blockquote>Oh, my God! You shot him. / Of course, I shot him. He was being dishonest.</blockquote>
+<p class="note">Jeff believes he has watched a man die.</p>
+<footer><div class="chips"><span class="chip" style="--c:#B5502F">Deception</span></div><div class="sev" title="Severity 4 of 5"><i class="on"></i><i class="on"></i><i class="on"></i><i class="on"></i><i class=""></i></div></footer>
+</article><article class="card" data-s="2" data-cls="deception" data-status="VERIFIED" data-sev="4" id="e32">
+<header><div class="epline"><span class="code">S2E09</span><span class="ep">Conspiracy Theories and Interior Design</span></div>
+<span class="status" style="--c:#3F6B58">Verified</span></header>
+<p class="act">Reveals her deception was nested inside his and already running. She had been working with the Dean from the start.</p>
+<blockquote>He and I were in on this from the start. He found out you were faking.</blockquote>
+<p class="note">Jeff stages one deception. Hers was already underneath it. The structural point is that she was ahead of the room.</p>
+<footer><div class="chips"><span class="chip" style="--c:#B5502F">Deception</span></div><div class="sev" title="Severity 4 of 5"><i class="on"></i><i class="on"></i><i class="on"></i><i class="on"></i><i class=""></i></div></footer>
+</article><article class="card" data-s="2" data-cls="competitive-displacement" data-status="VERIFIED" data-sev="2" id="e33">
+<header><div class="epline"><span class="code">S2E12</span><span class="ep">Asian Population Studies</span></div>
+<span class="status" style="--c:#3F6B58">Verified</span></header>
+<p class="act">Pursues Rich while Jeff&#x27;s jealousy is active, and reads Rich&#x27;s enrolment as a scoreboard.</p>
+<blockquote>I can&#x27;t believe Rich actually enrolled in our class. It means he likes me, right?</blockquote>
+<p class="note">Rich&#x27;s appeal is genuine. Romantic pressure, and not a fabricated relationship.</p>
+<footer><div class="chips"><span class="chip" style="--c:#6E7B3A">Competitive displacement</span></div><div class="sev" title="Severity 2 of 5"><i class="on"></i><i class="on"></i><i class=""></i><i class=""></i><i class=""></i></div></footer>
+</article><article class="card" data-s="2" data-cls="information-control" data-status="VERIFIED" data-sev="2" id="e34">
+<header><div class="epline"><span class="code">S2E13</span><span class="ep">Celebrity Pharmacology</span></div>
+<span class="status" style="--c:#3F6B58">Verified</span></header>
+<p class="act">Takes Pierce&#x27;s money for the anti-drug production and lets his influence distort the message while the dependency runs. The transcript establishes the dependency as real.</p>
+<blockquote>After my nervous breakdown, my Mom wanted to put the problem behind us and I wanted to deal with it. So, I went to rehab and she cut me off. / I saved. Every penny from babysitting, every birthday check.</blockquote>
+<p class="note">She ultimately refuses his control. Knowing she is genuinely cut off makes the bargain material rather than casual.</p>
+<footer><div class="chips"><span class="chip" style="--c:#3F6B58">Information control</span></div><div class="sev" title="Severity 2 of 5"><i class="on"></i><i class="on"></i><i class=""></i><i class=""></i><i class=""></i></div></footer>
+</article><article class="card" data-s="2" data-cls="sexual-leverage" data-status="VERIFIED" data-sev="2" id="e35">
+<header><div class="epline"><span class="code">S2E14</span><span class="ep">Advanced Dungeons &amp; Dragons</span></div>
+<span class="status" style="--c:#3F6B58">Verified</span></header>
+<p class="act">Takes over after a male character&#x27;s seduction attempt fails, and wins the Pegasi by performing an explicit sexual encounter aloud to the table, overriding the DM&#x27;s hesitation.</p>
+<blockquote>All right, can we just do this? Hi, hello. I&#x27;m Hector the Well-Endowed. You got a bunch of Pegasi. Let&#x27;s make a deal. / I take her by the hand and lead her to the stable. Light a candle and rip off a piece of my tunic, which I fashion into a blindfold. / I&#x27;d like to, but I don&#x27;t know if I / Shh. Shh. Shh. I place it gently over the elf maiden&#x27;s eyes.</blockquote>
+<p class="note">Sexual knowledge carries no diagnostic weight. The weight sits in three facts: it is instrumental, it is public, and it lands after someone else&#x27;s attempt failed.</p>
+<footer><div class="chips"><span class="chip" style="--c:#A84A62">Sexual bargaining</span></div><div class="sev" title="Severity 2 of 5"><i class="on"></i><i class="on"></i><i class=""></i><i class=""></i><i class=""></i></div></footer>
+</article><article class="card" data-s="3" data-cls="competitive-displacement" data-status="CORRECTED" data-sev="2" id="e36">
+<header><div class="epline"><span class="code">S3E02</span><span class="ep">Geography of Global Conflict</span></div>
+<span class="status" style="--c:#C08A2E">Corrected</span></header>
+<p class="act">Runs a competing Model UN against Annie Kim and collapses publicly when winning becomes uncertain.</p>
+<blockquote>My Annie gave this other Annie the idea and the diabolical little b--usybody stabbed her in the back.</blockquote>
+<p class="note">CORRECTION: the Dean&#x27;s account has Edison originating the idea and Kim taking it. Prior pass framed Edison as the one who could not tolerate being displaced by a rival. The provocation ran the other way.</p>
+<footer><div class="chips"><span class="chip" style="--c:#6E7B3A">Competitive displacement</span></div><div class="sev" title="Severity 2 of 5"><i class="on"></i><i class="on"></i><i class=""></i><i class=""></i><i class=""></i></div></footer>
+</article><article class="card" data-s="3" data-cls="deception" data-status="VERIFIED" data-sev="4" id="e37">
+<header><div class="epline"><span class="code">S3E09</span><span class="ep">Foosball and Nocturnal Vigilantism</span></div>
+<span class="status" style="--c:#3F6B58">Verified</span></header>
+<p class="act">Breaks Abed&#x27;s DVD, conceals it, and stages a burglary.</p>
+<blockquote>Something doesn&#x27;t add up. If there was no forced entry, it had to be an inside job.</blockquote>
+<p class="note">Concealment is chosen immediately, with no pressure yet applied.</p>
+<footer><div class="chips"><span class="chip" style="--c:#B5502F">Deception</span></div><div class="sev" title="Severity 4 of 5"><i class="on"></i><i class="on"></i><i class="on"></i><i class="on"></i><i class=""></i></div></footer>
+</article><article class="card" data-s="3" data-cls="deception" data-status="VERIFIED" data-sev="5" id="e38">
+<header><div class="epline"><span class="code">S3E09</span><span class="ep">Foosball and Nocturnal Vigilantism</span></div>
+<span class="status" style="--c:#3F6B58">Verified</span></header>
+<p class="act">Improvises an elaborate false statement to police, inventing a stolen heirloom with a full sentimental backstory, and doubles down when Troy signals he knows.</p>
+<blockquote>Some of my jewelry&#x27;s missing. / You sure about that, Annie? / Mm-hmm. My necklace. It was gold, white gold, with emeralds. And my name engraved in Hebrew. It was a bat mitzvah gift from my Nana. She was a rockette. She married a count. He was blind. He loved her for her mind.</blockquote>
+<p class="note">The invention is fluent, specific and instant. Prior pass had the false report but not its texture.</p>
+<footer><div class="chips"><span class="chip" style="--c:#B5502F">Deception</span></div><div class="sev" title="Severity 5 of 5"><i class="on"></i><i class="on"></i><i class="on"></i><i class="on"></i><i class="on"></i></div></footer>
+</article><article class="card" data-s="3" data-cls="deception sabotage" data-status="VERIFIED" data-sev="5" id="e39">
+<header><div class="epline"><span class="code">S3E09</span><span class="ep">Foosball and Nocturnal Vigilantism</span></div>
+<span class="status" style="--c:#3F6B58">Verified</span></header>
+<p class="act">Lets Abed reason his way to the innocent landlord, plants the broken disc among his possessions, and declines to intervene.</p>
+<blockquote>Abed: Something doesn&#x27;t add up. If there was no forced entry, it had to be an inside job. / Annie: We don&#x27;t know that. / Abed: ...one piece of oddly ornate Hebrew-themed jewelry? / Annie: Nana gave it. / Abed: The landlord did it. It all makes sense. Rick has keys to every apartment. Means. / Troy: Oh, let&#x27;s not leap to thing-doing. Right, Annie? / Annie: Aaah?</blockquote>
+<p class="note">CORRECTED against my own pass: &#x27;let&#x27;s not leap to thing-doing&#x27; is Troy prompting her, not Annie. Her real contributions are worse. She deflects the inside-job inference and reinforces the invented necklace, then answers Troy&#x27;s opening with a non-answer while an innocent man is framed.</p>
+<footer><div class="chips"><span class="chip" style="--c:#B5502F">Deception</span><span class="chip" style="--c:#8B4A2B">Sabotage</span></div><div class="sev" title="Severity 5 of 5"><i class="on"></i><i class="on"></i><i class="on"></i><i class="on"></i><i class="on"></i></div></footer>
+</article><article class="card" data-s="3" data-cls="deception" data-status="NEW" data-sev="0" id="e40">
+<header><div class="epline"><span class="code">S3E09</span><span class="ep">Foosball and Nocturnal Vigilantism</span></div>
+<span class="status" style="--c:#B5502F">New this pass</span></header>
+<p class="act">THE FIND. She finally confesses, and Abed refuses to believe her, because her established pattern makes honesty the less plausible reading.</p>
+<blockquote>I did it. I stepped on your DVD, and it broke, and I staged a break-in to cover it up. / If that were true, you would&#x27;ve come forward a long time ago. You&#x27;re lying to keep me out of danger.</blockquote>
+<p class="note">Absent from the prior pass and the single sharpest consequence in the ledger. She has spent her credibility so thoroughly that the truth no longer clears.</p>
+<footer><div class="chips"><span class="chip" style="--c:#B5502F">Deception</span></div><div class="sev" title="Severity 0 of 5"><i class=""></i><i class=""></i><i class=""></i><i class=""></i><i class=""></i></div></footer>
+</article><article class="card" data-s="3" data-cls="sexual-leverage strategic-innocence" data-status="VERIFIED" data-sev="3" id="e41">
+<header><div class="epline"><span class="code">S3E10</span><span class="ep">Regional Holiday Music</span></div>
+<span class="status" style="--c:#3F6B58">Verified</span></header>
+<p class="act">Performs a fused baby-talk and sexual number to recruit Jeff, and Jeff names the diminishing returns to her face.</p>
+<blockquote>You smarty, me dumb / help &#x27;pwetty&#x27; have fun / boopy doopy doop boop / sex / Look, eventually, you hit a point of diminishing returns on the sexiness.</blockquote>
+<p class="note">The clearest artifact for the whole strategic-innocence thread. Infantilised speech and sexual offer occupy the same lyric.</p>
+<footer><div class="chips"><span class="chip" style="--c:#A84A62">Sexual bargaining</span><span class="chip" style="--c:#C08A2E">Strategic innocence</span></div><div class="sev" title="Severity 3 of 5"><i class="on"></i><i class="on"></i><i class="on"></i><i class=""></i><i class=""></i></div></footer>
+</article><article class="card" data-s="3" data-cls="deception information-control paternalism" data-status="VERIFIED" data-sev="5" id="e42">
+<header><div class="epline"><span class="code">S3E15</span><span class="ep">Origins of Vampire Mythology</span></div>
+<span class="status" style="--c:#3F6B58">Verified</span></header>
+<p class="act">Swaps Blade&#x27;s number in Britta&#x27;s phone for her own, intercepts the messages and impersonates him, with a therapeutic justification stated in advance.</p>
+<blockquote>She needs to feel trust to recover, or she&#x27;ll relapse. / No, I secretly switched Blade&#x27;s number in her phone to my number. So if she tries to get in touch with him, it&#x27;ll come to me. / That&#x27;s diabolical.</blockquote>
+<p class="note">The justification is the tell. Britta&#x27;s recovery is the stated reason for removing Britta&#x27;s agency.</p>
+<footer><div class="chips"><span class="chip" style="--c:#B5502F">Deception</span><span class="chip" style="--c:#3F6B58">Information control</span><span class="chip" style="--c:#2E5F7A">Paternalism</span></div><div class="sev" title="Severity 5 of 5"><i class="on"></i><i class="on"></i><i class="on"></i><i class="on"></i><i class="on"></i></div></footer>
+</article><article class="card" data-s="3" data-cls="information-control" data-status="VERIFIED" data-sev="2" id="e43">
+<header><div class="epline"><span class="code">S3E16</span><span class="ep">Virtual Systems Analysis</span></div>
+<span class="status" style="--c:#3F6B58">Verified</span></header>
+<p class="act">Concedes that clearing Troy and Britta away would have benefited her, while denying it was the motive.</p>
+<blockquote>I did not push Troy and Britta together so this would happen. I did it because I thought they were cute together and this would have been a bonus.</blockquote>
+<p class="note">A bonus is still a benefit she had priced.</p>
+<footer><div class="chips"><span class="chip" style="--c:#3F6B58">Information control</span></div><div class="sev" title="Severity 2 of 5"><i class="on"></i><i class="on"></i><i class=""></i><i class=""></i><i class=""></i></div></footer>
+</article><article class="card" data-s="3" data-cls="information-control" data-status="VERIFIED" data-sev="0" id="e44">
+<header><div class="epline"><span class="code">S3E16</span><span class="ep">Virtual Systems Analysis</span></div>
+<span class="status" style="--c:#3F6B58">Verified</span></header>
+<p class="act">THE THESIS TEXT. States that Jeff is an outcome she is trying to produce, and that the scenario repeats.</p>
+<blockquote>We&#x27;re just in love with the idea of being loved. And if we can teach a guy like Jeff to do it, we&#x27;ll never be unloved. So we keep running the same scenario over and over hoping for a different result.</blockquote>
+<p class="note">The final clause is the load-bearing one and was missing from the prior pass. She describes her own pattern as a loop she cannot exit.</p>
+<footer><div class="chips"><span class="chip" style="--c:#3F6B58">Information control</span></div><div class="sev" title="Severity 0 of 5"><i class=""></i><i class=""></i><i class=""></i><i class=""></i><i class=""></i></div></footer>
+</article><article class="card" data-s="3" data-cls="deception" data-status="VERIFIED" data-sev="2" id="e45">
+<header><div class="epline"><span class="code">S3E17</span><span class="ep">Basic Lupine Urology</span></div>
+<span class="status" style="--c:#3F6B58">Verified</span></header>
+<p class="act">Lies to two people in the same minute: a misleading text to bring Jeff in, and a false report of a murder to bring a professor in at midnight.</p>
+<blockquote>Professor Kane: Ms. Edison, when you called me down here at midnight, I expected more than a yam. Specifically since you said, &#x27;There&#x27;s been a murder.&#x27; / Jeff: If it&#x27;s any consolation, she got me here on a very misleading text message.</blockquote>
+<p class="note">Prior pass had only the text to Jeff. The false murder report to faculty is the harder half and it was missing.</p>
+<footer><div class="chips"><span class="chip" style="--c:#B5502F">Deception</span></div><div class="sev" title="Severity 2 of 5"><i class="on"></i><i class="on"></i><i class=""></i><i class=""></i><i class=""></i></div></footer>
+</article><article class="card" data-s="3" data-cls="deception" data-status="VERIFIED" data-sev="2" id="e46">
+<header><div class="epline"><span class="code">S3E20</span><span class="ep">Digital Estate Planning</span></div>
+<span class="status" style="--c:#3F6B58">Verified</span></header>
+<p class="act">Articulates the permission structure that licenses the group&#x27;s killing spree, and Shirley executes the escalation from it.</p>
+<blockquote>Shirley, these things happen in video games. / They do? / Yes. We can&#x27;t get hung up on real world morality. We need to survive and win.</blockquote>
+<p class="note">Virtual violence carries little weight. The stated principle carries all of it: outcome determines permissible conduct.</p>
+<footer><div class="chips"><span class="chip" style="--c:#B5502F">Deception</span></div><div class="sev" title="Severity 2 of 5"><i class="on"></i><i class="on"></i><i class=""></i><i class=""></i><i class=""></i></div></footer>
+</article><article class="card" data-s="4" data-cls="deception" data-status="VERIFIED" data-sev="2" id="e47">
+<header><div class="epline"><span class="code">S4E03</span><span class="ep">Conventions of Space and Time</span></div>
+<span class="status" style="--c:#3F6B58">Verified</span></header>
+<p class="act">Begins to correct the Mrs. Winger mistake, stops herself, and builds out the marriage in detail instead.</p>
+<blockquote>And how many people will be dining today, Mrs. Winger? / Oh, I&#x27;m not... Two. Yeah, I&#x27;d like a turkey burger and a second turkey burger, but with no bun. My husband doesn&#x27;t do carbs. But he would like a scotch.</blockquote>
+<p class="note">The audible half-correction is the whole entry. She had the sentence started and chose the other way.</p>
+<footer><div class="chips"><span class="chip" style="--c:#B5502F">Deception</span></div><div class="sev" title="Severity 2 of 5"><i class="on"></i><i class="on"></i><i class=""></i><i class=""></i><i class=""></i></div></footer>
+</article><article class="card" data-s="4" data-cls="paternalism" data-status="NEW" data-sev="1" id="e64">
+<header><div class="epline"><span class="code">S4E03</span><span class="ep">Conventions of Space and Time</span></div>
+<span class="status" style="--c:#B5502F">New this pass</span></header>
+<p class="act">States the paternalism principle outright while crashing Troy and Abed&#x27;s weekend.</p>
+<blockquote>Are you sure Troy and Abed want us here? / They do. They just don&#x27;t know it yet.</blockquote>
+<p class="note">The cleanest one-line statement of the pattern anywhere in the series, and it sits in season four between the drugged coffee and Britta&#x27;s parents.</p>
+<footer><div class="chips"><span class="chip" style="--c:#2E5F7A">Paternalism</span></div><div class="sev" title="Severity 1 of 5"><i class="on"></i><i class=""></i><i class=""></i><i class=""></i><i class=""></i></div></footer>
+</article><article class="card" data-s="4" data-cls="information-control" data-status="VERIFIED" data-sev="2" id="e48">
+<header><div class="epline"><span class="code">S4E07</span><span class="ep">Economics of Marine Biology</span></div>
+<span class="status" style="--c:#3F6B58">Verified</span></header>
+<p class="act">Runs a whale-recruitment operation on Archie with the Dean, organising the pursuit around his family&#x27;s money.</p>
+<blockquote>Family net worth: $8 million. Ladies and gentlemen, this is what we in the comm[unity college business call a whale]</blockquote>
+<p class="note">Institutional rather than romantic. The method travels across domains unchanged.</p>
+<footer><div class="chips"><span class="chip" style="--c:#3F6B58">Information control</span></div><div class="sev" title="Severity 2 of 5"><i class="on"></i><i class="on"></i><i class=""></i><i class=""></i><i class=""></i></div></footer>
+</article><article class="card" data-s="4" data-cls="sexual-leverage" data-status="VERIFIED" data-sev="2" id="e49">
+<header><div class="epline"><span class="code">S4E09</span><span class="ep">Intro to Felt Surrogacy</span></div>
+<span class="status" style="--c:#3F6B58">Verified</span></header>
+<p class="act">Trades bodily contact to a professor for test answers, confessed in song.</p>
+<blockquote>I was struggling in history / I&#x27;m normally the best / I let Cornwallis rub my feet / To give me all the answers to a test</blockquote>
+<p class="note">The transaction is the point, not the contact. Academic outcome is again the thing worth trading for.</p>
+<footer><div class="chips"><span class="chip" style="--c:#A84A62">Sexual bargaining</span></div><div class="sev" title="Severity 2 of 5"><i class="on"></i><i class="on"></i><i class=""></i><i class=""></i><i class=""></i></div></footer>
+</article><article class="card" data-s="4" data-cls="information-control" data-status="VERIFIED" data-sev="3" id="e50">
+<header><div class="epline"><span class="code">S4E10</span><span class="ep">Intro to Knots</span></div>
+<span class="status" style="--c:#3F6B58">Verified</span></header>
+<p class="act">Privately invites Cornwallis to Jeff&#x27;s party to work the grade socially, and announces it to the group only after it is arranged.</p>
+<blockquote>There&#x27;s no need to point fingers, because I haven&#x27;t told you the good news. I invited the professor tonight. / Annie. / How is that better?</blockquote>
+<p class="note">Engineer the environment first, ask afterwards. The evening later escalates well past her opening move.</p>
+<footer><div class="chips"><span class="chip" style="--c:#3F6B58">Information control</span></div><div class="sev" title="Severity 3 of 5"><i class="on"></i><i class="on"></i><i class="on"></i><i class=""></i><i class=""></i></div></footer>
+</article><article class="card" data-s="4" data-cls="deception" data-status="VERIFIED" data-sev="3" id="e51">
+<header><div class="epline"><span class="code">S4E12</span><span class="ep">Heroic Origins</span></div>
+<span class="status" style="--c:#3F6B58">Verified</span></header>
+<p class="act">Steals a psychiatrist&#x27;s prescription pad during her addiction, shown in flashback.</p>
+<blockquote>Hey, doc. By the way, someone just stole your prescription pad.</blockquote>
+<p class="note">Addiction heavily discounts the personality inference. Included for chronology, not for character weight.</p>
+<footer><div class="chips"><span class="chip" style="--c:#B5502F">Deception</span></div><div class="sev" title="Severity 3 of 5"><i class="on"></i><i class="on"></i><i class="on"></i><i class=""></i><i class=""></i></div></footer>
+</article><article class="card" data-s="5" data-cls="information-control" data-status="NEW" data-sev="3" id="e53">
+<header><div class="epline"><span class="code">S5E03</span><span class="ep">Basic Intergluteal Numismatics</span></div>
+<span class="status" style="--c:#B5502F">New this pass</span></header>
+<p class="act">Runs a covert investigation of the faculty, destroys classrooms in the process, and is suspended for it.</p>
+<blockquote>Destroying classrooms? Secretly investigating teachers behind my back? / Annie, you&#x27;re suspended.</blockquote>
+<p class="note">An entire episode absent from the prior pass. The covert-investigation instinct survives into season five.</p>
+<footer><div class="chips"><span class="chip" style="--c:#3F6B58">Information control</span></div><div class="sev" title="Severity 3 of 5"><i class="on"></i><i class="on"></i><i class="on"></i><i class=""></i><i class=""></i></div></footer>
+</article><article class="card" data-s="5" data-cls="bodily-interference paternalism" data-status="VERIFIED" data-sev="5" id="e54">
+<header><div class="epline"><span class="code">S5E04</span><span class="ep">Cooperative Polygraphy</span></div>
+<span class="status" style="--c:#3F6B58">Verified</span></header>
+<p class="act">Secretly dosed the study group with amphetamine so they would keep studying, and minimises it in the same breath as the admission.</p>
+<blockquote>is it true you once secretly dosed the members of your study group with a pharmaceutical amphetamine? / Oh, uh, yes, kind of. It sounds worse on paper than it was. / I put 5 milligrams of something-something in your coffees and we all got an &#x27;A.&#x27; / I was up for three days that week. I invented an entire language.</blockquote>
+<p class="note">&#x27;It sounds worse on paper than it was&#x27; arrives ahead of any defence of the act. The reframe is instant.</p>
+<footer><div class="chips"><span class="chip" style="--c:#8C2F2F">Bodily interference</span><span class="chip" style="--c:#2E5F7A">Paternalism</span></div><div class="sev" title="Severity 5 of 5"><i class="on"></i><i class="on"></i><i class="on"></i><i class="on"></i><i class="on"></i></div></footer>
+</article><article class="card" data-s="5" data-cls="paternalism" data-status="VERIFIED" data-sev="4" id="e55">
+<header><div class="epline"><span class="code">S5E04</span><span class="ep">Cooperative Polygraphy</span></div>
+<span class="status" style="--c:#3F6B58">Verified</span></header>
+<p class="act">Padded Troy and Abed&#x27;s rent for years and banked the difference, having decided they cannot manage money.</p>
+<blockquote>Yes, but for a good reason. You guys know you&#x27;re bad with money. I padded your share of the rent by $10 and I&#x27;ve been putting it into a savings account that yields 4%. You&#x27;ll be thanking me in six years when you find out you have $86.</blockquote>
+<p class="note">They respond that they have been washing paper plates and making their own toothpaste.</p>
+<footer><div class="chips"><span class="chip" style="--c:#2E5F7A">Paternalism</span></div><div class="sev" title="Severity 4 of 5"><i class="on"></i><i class="on"></i><i class="on"></i><i class="on"></i><i class=""></i></div></footer>
+</article><article class="card" data-s="5" data-cls="strategic-innocence" data-status="VERIFIED" data-sev="0" id="e56">
+<header><div class="epline"><span class="code">S5E04</span><span class="ep">Cooperative Polygraphy</span></div>
+<span class="status" style="--c:#3F6B58">Verified</span></header>
+<p class="act">META. Asked whether she used her intelligence to plan a foolproof murder, she is flattered first, and denies it second.</p>
+<blockquote>did you use your exceptional intelligence and organizational skills to plot the foolproof murder of Pierce Hawthorne? / Aww! And no.</blockquote>
+<p class="note">The joke only lands because the writers know the competence points somewhere frightening.</p>
+<footer><div class="chips"><span class="chip" style="--c:#C08A2E">Strategic innocence</span></div><div class="sev" title="Severity 0 of 5"><i class=""></i><i class=""></i><i class=""></i><i class=""></i><i class=""></i></div></footer>
+</article><article class="card" data-s="5" data-cls="information-control" data-status="VERIFIED" data-sev="4" id="e57">
+<header><div class="epline"><span class="code">S5E06</span><span class="ep">Analysis of Cork-Based Networking</span></div>
+<span class="status" style="--c:#3F6B58">Verified</span></header>
+<p class="act">Enters Greendale&#x27;s favour economy for one bulletin board, trading through layers of corruption until every board on campus is worthless.</p>
+<blockquote>You whored yourself out, kid. You wanted that board so bad that you made every board on campus worthless, and in doing so made the school just a shade dirtier. I thought better of you, young lady.</blockquote>
+<p class="note">Her stated motive is her completion record: &#x27;Annie Edison doesn&#x27;t get nothing done.&#x27; Prior pass paraphrased Hickey as &#x27;prostituted her principles&#x27;. The line is harsher.</p>
+<footer><div class="chips"><span class="chip" style="--c:#3F6B58">Information control</span></div><div class="sev" title="Severity 4 of 5"><i class="on"></i><i class="on"></i><i class="on"></i><i class="on"></i><i class=""></i></div></footer>
+</article><article class="card" data-s="5" data-cls="coercion" data-status="VERIFIED" data-sev="1" id="e58">
+<header><div class="epline"><span class="code">S5E09</span><span class="ep">VCR Maintenance and Educational Publishing</span></div>
+<span class="status" style="--c:#3F6B58">Verified</span></header>
+<p class="act">Orders chores easiest first so volunteers commit while the worst one is still unannounced. Jeff names the pattern out loud, people volunteer anyway, and she is delighted.</p>
+<blockquote>Jeff: Yeah, Annie always goes from the easy chores to the hardest. / Shirley: That&#x27;s true, isn&#x27;t it? I&#x27;ll do it too. / Hickey: Yeah, me too. / Annie: Okay, that concludes this meeting. / Annie: Nobody picks up on my patterns! What am I gonna say next? Graham cracker! You didn&#x27;t know.</blockquote>
+<p class="note">Confirmed on the speaker-labeled transcript. Jeff names the pattern aloud, Shirley agrees with it, and all three volunteer anyway. Choice architecture as an ordinary daily habit, with no crisis and no romance attached.</p>
+<footer><div class="chips"><span class="chip" style="--c:#7A5C8E">Coercion</span></div><div class="sev" title="Severity 1 of 5"><i class="on"></i><i class=""></i><i class=""></i><i class=""></i><i class=""></i></div></footer>
+</article><article class="card" data-s="6" data-cls="paternalism information-control" data-status="VERIFIED" data-sev="5" id="e60">
+<header><div class="epline"><span class="code">S6E02</span><span class="ep">Lawnmower Maintenance and Postnatal Care</span></div>
+<span class="status" style="--c:#3F6B58">Verified</span></header>
+<p class="act">Maintained a secret years-long relationship with Britta&#x27;s estranged parents, took their money to cover Britta&#x27;s rent and debts, and concealed the source.</p>
+<blockquote>They knew you wouldn&#x27;t let them help you, at least not directly. / You needed our help, but we needed their help to help you. That&#x27;s why we were able to get you such a good deal on the rent. / They&#x27;re supplementing my rent too? / Mm-hm.</blockquote>
+<p class="note">The exact boundary Britta had set is the thing the arrangement is designed to route around.</p>
+<footer><div class="chips"><span class="chip" style="--c:#2E5F7A">Paternalism</span><span class="chip" style="--c:#3F6B58">Information control</span></div><div class="sev" title="Severity 5 of 5"><i class="on"></i><i class="on"></i><i class="on"></i><i class="on"></i><i class="on"></i></div></footer>
+</article><article class="card" data-s="6" data-cls="paternalism" data-status="NEW" data-sev="3" id="e61">
+<header><div class="epline"><span class="code">S6E02</span><span class="ep">Lawnmower Maintenance and Postnatal Care</span></div>
+<span class="status" style="--c:#B5502F">New this pass</span></header>
+<p class="act">Overrides Britta&#x27;s account of her own parents when she objects.</p>
+<blockquote>You make them sound like monsters, but they&#x27;re actually really nice. / Well, they are! My parents are horrible people. / You&#x27;re being dramatic.</blockquote>
+<p class="note">Britta names the mechanism herself later in the episode: &#x27;Stop infantilizing me!&#x27;</p>
+<footer><div class="chips"><span class="chip" style="--c:#2E5F7A">Paternalism</span></div><div class="sev" title="Severity 3 of 5"><i class="on"></i><i class="on"></i><i class="on"></i><i class=""></i><i class=""></i></div></footer>
+</article><article class="card" data-s="6" data-cls="paternalism" data-status="VERIFIED" data-sev="4" id="e62">
+<header><div class="epline"><span class="code">S6E02</span><span class="ep">Lawnmower Maintenance and Postnatal Care</span></div>
+<span class="status" style="--c:#3F6B58">Verified</span></header>
+<p class="act">Britta states the scale of the deception and the years it ran.</p>
+<blockquote>They&#x27;ve been sabotaging my life from the shadows by paying off my debts and buying me things. / You&#x27;ve all been lying to me for years. What kind of friends are you?</blockquote>
+<p class="note">Season six confirms the pattern survives maturation intact.</p>
+<footer><div class="chips"><span class="chip" style="--c:#2E5F7A">Paternalism</span></div><div class="sev" title="Severity 4 of 5"><i class="on"></i><i class="on"></i><i class="on"></i><i class="on"></i><i class=""></i></div></footer>
+</article></div>
+<div class="empty" id="empty">Nothing matches that combination.</div>
+
+<h2 id="paternalism">The paternalism thread <span class="n">7 ENTRIES</span></h2>
+<p class="sect-note">Pulling the paternalism entries out on their own was the most useful thing this pass produced. The same structure runs from season three to season six without changing shape: Annie concludes she knows what another adult needs, removes their ability to consent, and arranges the outcome privately. Each time there is a reason available that sounds like care.</p>
+<div class="pat"><ul><li><b>S3E15</b> Swaps Blade&#x27;s number in Britta&#x27;s phone for her own, intercepts the messages and impersonates him, with a therapeutic justification stated in advance.</li><li><b>S4E03</b> States the paternalism principle outright while crashing Troy and Abed&#x27;s weekend.</li><li><b>S5E04</b> Secretly dosed the study group with amphetamine so they would keep studying, and minimises it in the same breath as the admission.</li><li><b>S5E04</b> Padded Troy and Abed&#x27;s rent for years and banked the difference, having decided they cannot manage money.</li><li><b>S6E02</b> Maintained a secret years-long relationship with Britta&#x27;s estranged parents, took their money to cover Britta&#x27;s rent and debts, and concealed the source.</li><li><b>S6E02</b> Overrides Britta&#x27;s account of her own parents when she objects.</li><li><b>S6E02</b> Britta states the scale of the deception and the years it ran.</li></ul>
+<p class="note" style="margin-top:14px">Britta names it herself in the last of these, and the show gives her the line rather than burying it: <em>Stop infantilizing me.</em></p></div>
+
+<h2 id="meta">What the writers let the other characters say <span class="n">13 LINES</span></h2>
+<p class="sect-note">Assembled in order, these stop reading like scattered jokes. The group works out what Annie is across six seasons, says it out loud, and then keeps her anyway.</p>
+<div class="tw"><table><thead><tr><th>Episode</th><th>Who</th><th>Line</th><th>Title</th></tr></thead><tbody><tr><td class="c">S1E06</td><td class="w">Jeff</td><td>you are just as selfish as I am. You&#x27;re just not as good at it yet.</td><td class="e">Football, Feminism and You</td></tr><tr><td class="c">S1E18</td><td class="w">Jeff</td><td>You&#x27;re becoming dangerous, Annie. It&#x27;s those doe eyes. Disappointing you is like choking the Little Mermaid with a bike chain.</td><td class="e">Basic Genealogy</td></tr><tr><td class="c">S1E20</td><td class="w">Annie</td><td>I&#x27;m Annie Edison. But people call me Psycho because I had a nervous breakdown in high school.</td><td class="e">The Science of Illusion</td></tr><tr><td class="c">S1E20</td><td class="w">Abed</td><td>Her name&#x27;s not Annie, it&#x27;s Psycho.</td><td class="e">The Science of Illusion</td></tr><tr><td class="c">S1E24</td><td class="w">Jeff</td><td>Now she is going to make the Disney face. Her lip is gonna quiver and her eyes will flutter, but they won&#x27;t ever actually close.</td><td class="e">English as a Second Language</td></tr><tr><td class="c">S1E24</td><td class="w">Troy and Britta</td><td>Maybe not too cool, maybe just, you know, not psycho enough. / Yeah, a little crazy. / A little psycho.</td><td class="e">English as a Second Language</td></tr><tr><td class="c">S3E09</td><td class="w">Troy</td><td>I know you think you can think your way out of this with your thinkiness, but don&#x27;t think too much. You just have to confess.</td><td class="e">Foosball and Nocturnal Vigilantism</td></tr><tr><td class="c">S3E09</td><td class="w">Abed</td><td>If that were true, you would&#x27;ve come forward a long time ago. You&#x27;re lying to keep me out of danger.</td><td class="e">Foosball and Nocturnal Vigilantism</td></tr><tr><td class="c">S3E10</td><td class="w">Jeff</td><td>Look, eventually, you hit a point of diminishing returns on the sexiness.</td><td class="e">Regional Holiday Music</td></tr><tr><td class="c">S3E15</td><td class="w">Troy</td><td>That&#x27;s diabolical.</td><td class="e">Origins of Vampire Mythology</td></tr><tr><td class="c">S5E04</td><td class="w">Pierce (posthumous)</td><td>did you use your exceptional intelligence and organizational skills to plot the foolproof murder of Pierce Hawthorne?</td><td class="e">Cooperative Polygraphy</td></tr><tr><td class="c">S5E06</td><td class="w">Hickey</td><td>You whored yourself out, kid. I thought better of you, young lady.</td><td class="e">Analysis of Cork-Based Networking</td></tr><tr><td class="c">S6E02</td><td class="w">Britta</td><td>Stop infantilizing me!</td><td class="e">Lawnmower Maintenance and Postnatal Care</td></tr></tbody></table></div>
+
+<h2 id="excluded">Thrown out <span class="n">10 ITEMS</span></h2>
+<p class="sect-note">Items a recap supports and the script does not. Removing them makes the remaining case stronger, because everything left is something Annie is shown choosing. <b>The first two are my own errors from an earlier pass of this ledger.</b> I had flagged the chloroform attribution as needing a second source; the second source refuted me, and the withdrawn finding had been one of my three headlines. A third error survives inside the ledger rather than here: the <i>Foosball</i> entry quoted a line of Troy's as Annie's, and the corrected entry says so.</p>
+<div class="tw"><table><thead><tr><th>Episode</th><th>Claim</th><th>Why it fails</th></tr></thead><tbody><tr><td class="c">S02E02</td><td class="w">Annie packed the chloroform</td><td>MY OWN first-pass error, not the prior reading&#x27;s. The speaker-labeled transcript gives the line to Abed: &#x27;I brought stuff people use for capers. Suction cup. Credit card. Chloroform.&#x27; The premeditation finding is withdrawn.</td></tr><tr><td class="c">S02E02</td><td class="w">Annie proposed the second chloroforming</td><td>Also mine. The cover-story plan is Abed&#x27;s: &#x27;I have an idea. Okay, it may sound a little weird, but trust me.&#x27; She executed it; she did not design it.</td></tr><tr><td class="c">S05E02</td><td class="w">Annie&#x27;s A-minus riot as disproportionate</td><td>She was right. Hickey coached Jeff to sabotage her: &#x27;I say minus her. Give her A-minuses. It&#x27;ll drive her nuts, she&#x27;ll drop.&#x27; Her project was an A. The outrage tracked a real injustice.</td></tr><tr><td class="c">S02E03</td><td class="w">Annie used her chest competitively at the oil-spill fundraiser</td><td>No supporting dialogue exists in the episode. Britta and Annie fundraise together and the donations follow a pelican appeal.</td></tr><tr><td class="c">S06E01</td><td class="w">Annie organised the secret speakeasy</td><td>Britta moves it and Annie thirds it. She is a participant, not an author.</td></tr><tr><td class="c">S01E08</td><td class="w">The reclaimed picnic blanket</td><td>The heirloom is Pierce&#x27;s nana&#x27;s, lent to Troy and taken back by Pierce. Not an Annie sabotage.</td></tr><tr><td class="c">S01E20</td><td class="w">&#x27;I did it. I framed Jeff.&#x27;</td><td>Britta&#x27;s confession about the corpse prank, not Annie&#x27;s.</td></tr><tr><td class="c">S03E09</td><td class="w">&#x27;Troy asks Annie who she even is&#x27;</td><td>The &#x27;Who are you?&#x27; line belongs to the Jeff bully subplot. Not directed at Annie.</td></tr><tr><td class="c">S05E04</td><td class="w">The Facebook catfishing</td><td>Abed built the fake profile and ran it on Annie. She is the target, not the author.</td></tr><tr><td class="c">S01E24</td><td class="w">&#x27;Thanks for making it easy&#x27;</td><td>A closing joke about the replacement Spanish professor, unconnected to Annie.</td></tr></tbody></table></div>
+
+<h2 id="verdict">Where this lands</h2>
+<div class="verdict">
+<p>The Machiavellian reading holds up under transcript scrutiny, and it holds up better than it did on recap evidence, with one caveat earned the hard way. Speaker labels moved five items, and two of those moves went against findings I had made myself. Careful attribution cuts in both directions.</p>
+<p>What survives that test is still substantial. Annie reads what a person wants, remembers it, changes method when the first approach fails, builds false environments with real fluency, and accepts collateral damage once an outcome is important enough to her. The season one material already contains the entire vocabulary. Season six still runs it.</p>
+<p>Two findings change the shape of the case. Abed sat for twenty six hours because Annie invoked friendship, which the earlier reading had softened into curiosity about Duncan. She conspired with a rival school's dean, agreeing to sabotage Greendale's launch in exchange for admission. The second finding is the one worth sitting with.</p>
+<p class="pull">She confesses to Abed, truthfully and completely, and he refuses to believe her, because a person with her record is more plausibly lying than telling the truth.</p>
+<p>That beat does more analytic work than any other single moment in the series. A character has been built whose honesty no longer clears, and the show lets her discover the cost inside the same half hour where she framed an innocent man over a disc. Nothing else in the ledger prices the pattern that exactly.</p>
+<p>A clinical claim stays unavailable. The transcripts make the reason clearer. Annie repairs the damage to Chang at her own expense. She rejects Pierce's control over the production. She gives Britta back her phone, having first made the phone useless. Her empathy is genuine, and it recurs often enough that no empathyless reading survives contact with the text. What the evidence supports is narrower and more interesting: <b>empathy that arrives after the outcome has been secured</b>, paired with an unusually high tolerance for imposing costs on other people in the interval.</p>
+<p>The innocent persona belongs inside the pattern rather than beside it. Jeff builds an immunity to her crying. The group closes their eyes so the face cannot reach them. Hickey tells her what she traded away. Britta tells her to stop infantilising her. In <i>Regional Holiday Music</i> the baby talk and the sexual offer sit in the same lyric, and Jeff tells her the returns are diminishing. The writers never let the innocence be simply true, and they never let it be simply false either.</p>
+</div>
+
+<h2 id="method">Method</h2>
+<p class="sect-note">All 110 episode scripts were pulled and read rather than sampled. The first pass used subtitle scripts, which carry the dialogue and no speaker labels, so twelve items ended up either unconfirmed or attributed from surrounding context alone. This pass closed every one of them against speaker-labeled transcripts carrying stage directions, drawn from the show's wiki and from a forum archive loaded in a real browser. Every quote was then machine-audited against those labeled transcripts, checking the speaker name attached to each line. Attribution changed the answer in six places, three of them against my own work, which is the argument for doing it at all. One early sweep returned zero hits across every search term because the local grep silently failed on the context pattern, a false negative worth naming rather than hiding.</p>
+
+<footer class="end">Annie Edison Ledger. Second pass, transcript-grounded. 60 entries across 110 episode scripts. Source: full episode dialogue for <i>Community</i> seasons one through six.</footer>
+</div>
+<script>
+const state={cls:new Set(),s:new Set(),status:new Set()};
+const cards=[...document.querySelectorAll('.card')];
+function apply(){
+ let n=0;
+ cards.forEach(c=>{
+  const okC=!state.cls.size||[...state.cls].some(v=>c.dataset.cls.split(' ').includes(v));
+  const okS=!state.s.size||state.s.has(c.dataset.s);
+  const okT=!state.status.size||state.status.has(c.dataset.status);
+  const vis=okC&&okS&&okT; c.style.display=vis?'':'none'; if(vis)n++;
+ });
+ document.getElementById('empty').style.display=n?'none':'block';
+}
+document.querySelectorAll('button.f').forEach(b=>{
+ if(b.id==='reset')return;
+ b.addEventListener('click',()=>{
+  const f=b.dataset.f,v=b.dataset.v;
+  if(state[f].has(v)){state[f].delete(v);b.classList.remove('on');}
+  else{state[f].add(v);b.classList.add('on');}
+  apply();
+ });
+});
+document.getElementById('reset').addEventListener('click',()=>{
+ Object.values(state).forEach(s=>s.clear());
+ document.querySelectorAll('button.f').forEach(b=>b.classList.remove('on'));
+ apply();
+});
+</script></body></html>
