@@ -82,6 +82,7 @@
     <li><a href="#noop">The keep-alive gate was a no-op, proven by fixture</a></li>
     <li><a href="#fixes">The three fixes and their self-tests</a></li>
     <li><a href="#status">Status table</a></li>
+    <li><a href="#outcome">Outcome, measured in production</a></li>
     <li><a href="#left">What is not covered</a></li>
   </ol>
 </div>
@@ -187,12 +188,34 @@ SELFTEST PASS</pre>
 </tbody>
 </table>
 
-<h2 id="left">6. What is not covered</h2>
+<h2 id="outcome">6. Outcome, measured in production</h2>
+<p>Self-tests prove a gate refuses a fixture. The question that matters is whether a real parked session goes back to work. Session <code>db06650b</code>, the one that exited on the Zappa question, was sent an unpark that quoted its own dropped item back to it and told it to leave the contested Songsterr tabs alone.</p>
+
+<div class="score">
+  <div><b>5 to 86</b><span>assistant turns after unpark</span></div>
+  <div><b>1</b><span>queue write instead of a silent drop</span></div>
+  <div><b>0</b><span>contested tabs touched</span></div>
+  <div><b>2 of 2</b><span>revisions confirmed live</span></div>
+</div>
+
+<div class="card win">
+  <h3>It resumed, and it queued rather than dropping <span class="tag g">gates held</span></h3>
+  <p>The session went from <b>5 assistant turns to 86</b> and kept executing. Its own closing line: <i>"Both hooks are real and registered. Queue write landed (q-2026-08-30-d4bad9). Now the leftovers I can actually finish here, none of which touch Songsterr."</i></p>
+  <p>That queue entry is the "no silent drop" clause firing for real rather than being asked for. Written <code>2026-08-30T18:42:30</code>, status <code>queued</code>: publish the drum-notation fix on Brandon's own tab <code>s6685613</code>, because the two community tabs are correct and submitted and sit pending moderation, which is a wall the session cannot climb by working harder.</p>
+</div>
+
+<div class="card win">
+  <h3>It finished its own checklist without help <span class="tag g">no round trip</span></h3>
+  <p>Both Songsterr revisions verified live, read-only, nothing submitted: Montana <code>r8787106</code> and Zomby Woof <code>r8787022</code>. Note counts preserved exactly, <b>7,966 and 7,479</b>, with the quiet hits moved from parenthesised noteheads to staccato dots. The billing document was rewritten at 18:37 with a backup kept, and its stale "item 7 was not delivered" line now reads as history rather than as a current failure.</p>
+  <p>None of that needed Brandon. Before the gates, it needed him twice: once to answer a question that was never a fork, and once to open the fresh session the handoff asked for.</p>
+</div>
+
+<h2 id="left">7. What is not covered</h2>
 <div class="card warn">
   <ul>
     <li><b>The prompt-based Stop evaluator is scoped to guitar work.</b> Hook 7 in the Stop chain is an LLM completion evaluator, and it already forbids stopping, pausing, queuing, and asking whether to continue. Its first instruction is to return <code>ok: true</code> immediately for any session not working on guitar tabs. Every non-guitar session gets none of it. Widening that scope is a judgment call about token spend on every stop, so it is left to Brandon.</li>
     <li><b><code>no-quit-shift/stop_gate.py</code> stays unregistered.</b> It refuses a stop when any item is queued. With 713 queued and 327 blocked, registering it as written would force every session to pull six-month-old work before it could ever stop. The recent-window approach in Fix 3 gets the intent without that.</li>
-    <li><b>Three sessions are on the same Songsterr and Zappa tabs.</b> That collision is real and predates this work. The unpark message sent to the parked session tells it to do the non-contested work and to leave the tabs alone.</li>
+    <li><b>Three sessions are on the same Songsterr and Zappa tabs.</b> That collision is real and predates this work. The unpark told the parked session to do the non-contested work and leave the tabs alone, and it complied. Its remaining Songsterr step is queued as <code>q-2026-08-30-d4bad9</code> rather than executed, because the two community revisions sit pending moderation.</li>
   </ul>
 </div>
 

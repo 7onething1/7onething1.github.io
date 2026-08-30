@@ -57,6 +57,31 @@ block) rather than on a sentence.
 
 Run any of them with `--selftest`.
 
+## Outcome, measured in production
+
+Self-tests prove a gate refuses a fixture. The question that matters is whether a
+real parked session goes back to work. Session `db06650b`, the one that exited on
+the Zappa question, was sent an unpark that quoted its own dropped item back to it
+and told it to leave the contested Songsterr tabs alone.
+
+- **5 assistant turns to 86**, still executing.
+- Its closing line: "Both hooks are real and registered. Queue write landed
+  (q-2026-08-30-d4bad9). Now the leftovers I can actually finish here, none of
+  which touch Songsterr."
+- **Queued rather than dropped:** `q-2026-08-30-d4bad9`, written
+  `2026-08-30T18:42:30`, status `queued`. Publish the drum fix on Brandon's own
+  tab `s6685613`, because the two community revisions are correct, submitted, and
+  pending moderation, which is a wall the session cannot climb by working harder.
+- **Zero contested tabs touched.**
+- Both revisions verified live, read-only: Montana `r8787106`, Zomby Woof
+  `r8787022`. Note counts preserved exactly at 7,966 and 7,479, quiet hits moved
+  from parenthesised noteheads to staccato dots. Billing doc rewritten 18:37 with
+  a backup kept; the stale "item 7 was not delivered" line now reads as history.
+
+None of that needed Brandon. Before the gates it needed him twice: once to answer
+a question that was never a fork, once to open the fresh session the handoff
+asked for.
+
 ## Not covered
 
 - The prompt-based Stop evaluator (hook 7) already forbids stopping, pausing,
