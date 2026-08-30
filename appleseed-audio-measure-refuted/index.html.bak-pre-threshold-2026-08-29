@@ -50,7 +50,6 @@ tools. 29 August 2026.</p>
 <li><a href="#three">Bug three, the reference onsets sit 58 ms off the beat grid</a></li>
 <li><a href="#cmp">Three clocks compared, on the same negative controls</a></li>
 <li><a href="#tempo">The tempo map, and why it is not an improvement</a></li>
-<li><a href="#cut">The confirmation threshold, validated leave-one-out</a></li>
 <li><a href="#table">All 46 rescored</a></li>
 <li><a href="#conf">Confession, built and not promoted</a></li>
 </ol></div>
@@ -63,14 +62,11 @@ onset, and that pileup correlates <b>+0.850</b> with the control recording simpl
 shorter. The same procedure refutes <b>3 of 8</b> human Songsterr tabs against their own
 recordings, and <b>7 of 11</b> supported verdicts reverse under duration-matched
 controls.</div>
-<div class="v part"><div class="q">What actually moved the needle?</div>
-<div class="a">The bar-length bug repairs the clock. Its confirmed-count gain is withdrawn.</div>
+<div class="v yes"><div class="q">What actually moved the needle?</div>
+<div class="a">Fixing the bar-length bug. Confirmed machine tabs 4 to 8.</div>
 Reading each bar's length from its time signature instead of from its last note recovers a
-median <b>9.6 s</b> per file. That drift repair is measured and it stands. The confirmed-count
-gain of 4 of 46 to <b>8 of 46</b> was read at an unvalidated sep &ge; 5.0 cut, and it is
-withdrawn here. At the validated cut the meter clock confirms <b>4 of 46</b> machine tabs, and
-the note-driven clock was never scored at that cut, so this fix carries no measured gain in
-confirmations. See section 7.</div>
+median <b>9.6 s</b> per file, and takes confirmed machine tabs from
+4 of 46 to <b>8 of 46</b> with none lost.</div>
 <div class="v part"><div class="q">Did recording-derived tempo maps help?</div>
 <div class="a">No. They inflate the wrong pairings too.</div>
 All 46 files were written with per-bar tempo from their own recordings. Measured against its
@@ -139,24 +135,17 @@ the beat grid that is moved, by each stem's own median offset, so no tab is cons
 <tr><td>note-driven clock, constant bpm</td><td class="num">sep &ge; 5.0</td><td class="num">7</td>
 <td class="num">4 of 46</td><td class="num">3 of 8</td><td class="num">42</td>
 <td class="num ok">0 of 162</td></tr>
-<tr><td>meter clock, constant bpm <span class="muted">(cut retired)</span></td>
-<td class="num">sep &ge; 5.0</td><td class="num">11</td>
-<td class="num">8 of 46</td><td class="num">3 of 8</td><td class="num">38</td>
+<tr><td><b>meter clock, constant bpm</b></td><td class="num">sep &ge; 5.0</td><td class="num ok">11</td>
+<td class="num ok">8 of 46</td><td class="num">3 of 8</td><td class="num ok">38</td>
 <td class="num">1 of 162</td></tr>
 <tr><td>meter clock + frame-corrected tempo map</td><td class="num">sep &ge; 25.8</td><td class="num">3</td>
 <td class="num bad">0 of 46</td><td class="num">3 of 8</td><td class="num bad">46</td>
 <td class="num ok">0 of 162</td></tr>
-<tr><td><b>meter clock, validated leave-one-out cut</b></td>
-<td class="num">sep &ge; 7.7, z &ge; 5.0</td><td class="num ok">7</td>
-<td class="num ok">4 of 46</td><td class="num ok">3 of 8</td><td class="num">42</td>
-<td class="num ok">1 of 162</td></tr>
 </table></div>
-<div class="box">Each threshold in the first three rows is read off that configuration's own
-negative controls rather than chosen, which is why they differ. The tempo map needs
-sep &ge; 25.8 because a known wrong pairing reaches +25.7 there, against about +5 under a
-constant bpm. Raising both sides equally is not an improvement. The first three rows read their
-cut from the same sample they then judge, so the last row is the one that governs. Section 7
-derives it.</div>
+<div class="box">Each threshold is read off that configuration's own negative controls rather than
+chosen, which is why they differ. The tempo map needs sep &ge; 25.8 because a known wrong
+pairing reaches +25.7 there, against about +5 under a constant bpm. Raising both sides
+equally is not an improvement.</div>
 
 <h2 id="tempo">6. The tempo maps</h2>
 <p>All 46 files were written with per-bar tempo derived from their own recordings, originals
@@ -196,33 +185,8 @@ against a wrong stem at +31.8, so
 its separation is -20.1. Gain alone stops
 meaning anything, and only the separation carries information.</div>
 
-<h2 id="cut">7. The confirmation threshold, validated</h2>
-<p>Reading the cut off the observed maximum of the negative controls is post hoc calibration,
-and it guarantees zero false positives inside the same sample that set it. Brandon called that
-on 2026-08-29, so the cut was re-derived leave-one-song-out: for each song the threshold comes
-from the other 45 songs' negative controls alone, and the held-out song is judged by a number it
-never contributed to.</p>
-<div class="stats">
-<div class="stat"><span class="n">162</span><span class="l">negative pairings, 54 songs</span></div>
-<div class="stat"><span class="n">+7.6</span><span class="l">max negative separation</span></div>
-<div class="stat"><span class="n">7.7</span><span class="l">held-out cut, median</span></div>
-<div class="stat good"><span class="n">7 of 54</span><span class="l">confirmed, leave-one-out</span></div>
-<div class="stat"><span class="n">1 of 162</span><span class="l">false positives</span></div>
-</div>
-<div class="box alarm">The earlier pass on this page used <b>sep &ge; 5.0</b>, a round number
-chosen rather than measured, and reported <b>8 of 46</b> machine tabs confirmed. That figure was
-too loose and it is retired here. The negative controls run median &minus;2.6, p95 +0.3 and a
-maximum of +7.6. Held-out cuts span 5.1 to 7.7 with a median of 7.7, and leave-one-out confirms
-the same 7 songs of 54 that the in-sample cut of 7.7 confirms.</div>
-<p><b>The validated standard for any promotion on this measure is separation &ge; 7.7 with
-z &ge; 5.0.</b> Four machine tabs clear it: Mile Marker, Doors Lead to Questions, Steps and
-Numbers, and Decline. Four that the 5.0 cut had confirmed now fall below it: A Place in Line at
-+7.4, Sunset Drama King at +7.2, Blind Man's Arrow at +6.4, and The Last in a Line at +5.9.
-Three of the eight human tabs clear it, the same three as before.</p>
-
-<h2 id="table">8. All 46 rescored, meter clock</h2>
-<p>The configuration the evidence supports, judged at the validated cut of
-<b>sep &ge; 7.7 with z &ge; 5.0</b>. <b>Undetermined carries no finding against the tab</b>:
+<h2 id="table">7. All 46 rescored, meter clock</h2>
+<p>The configuration the evidence supports. <b>Undetermined carries no finding against the tab</b>:
 5 of the 8 known-good human transcriptions end up there too.</p>
 <div class="tw"><table><tr><th>song</th><th>src</th><th>prewarp</th><th>chance</th><th>gain</th><th>z</th>
 <th>best wrong</th><th>sep</th><th>reader drift</th><th>verdict</th><th>old audit</th></tr>
@@ -277,31 +241,31 @@ Three of the eight human tabs clear it, the same three as before.</p>
 <td class="muted">supported +14.6</td></tr>
 <tr class=""><td class="song">Low-Level-Owl-II-03-A Place in Line</td>
 <td>mach</td><td class="num">28.0%</td><td class="num muted">21.5%</td>
-<td class="num">+6.5</td><td class="num">+11.1</td>
-<td class="num muted">-0.9</td><td class="num">+7.4</td>
+<td class="num ok">+6.5</td><td class="num">+11.1</td>
+<td class="num muted">-0.9</td><td class="num ok">+7.4</td>
 <td class="num muted">2.7s</td>
-<td class="muted">undetermined</td>
+<td class="ok">CONFIRMED</td>
 <td class="muted">refuted -10.7</td></tr>
 <tr class=""><td class="song">Low-Level-Owl-II-07-Sunset Drama King</td>
 <td>mach</td><td class="num">27.7%</td><td class="num muted">20.1%</td>
-<td class="num">+7.6</td><td class="num">+23.1</td>
-<td class="num muted">+0.4</td><td class="num">+7.2</td>
+<td class="num ok">+7.6</td><td class="num">+23.1</td>
+<td class="num muted">+0.4</td><td class="num ok">+7.2</td>
 <td class="num muted">8.0s</td>
-<td class="muted">undetermined</td>
+<td class="ok">CONFIRMED</td>
 <td class="muted">refuted -1.9</td></tr>
 <tr class=""><td class="song">Low-Level-Owl-I-03-Blind Mans Arrow</td>
 <td>mach</td><td class="num">24.7%</td><td class="num muted">17.2%</td>
-<td class="num">+7.5</td><td class="num">+14.4</td>
-<td class="num muted">+1.1</td><td class="num">+6.4</td>
+<td class="num ok">+7.5</td><td class="num">+14.4</td>
+<td class="num muted">+1.1</td><td class="num ok">+6.4</td>
 <td class="num muted">5.2s</td>
-<td class="muted">undetermined</td>
+<td class="ok">CONFIRMED</td>
 <td class="muted">refuted -22.9</td></tr>
 <tr class=""><td class="song">Low-Level-Owl-II-08-The Last in a Line</td>
 <td>mach</td><td class="num">34.0%</td><td class="num muted">27.9%</td>
-<td class="num">+6.1</td><td class="num">+9.6</td>
-<td class="num muted">+0.2</td><td class="num">+5.9</td>
+<td class="num ok">+6.1</td><td class="num">+9.6</td>
+<td class="num muted">+0.2</td><td class="num ok">+5.9</td>
 <td class="num muted">9.7s</td>
-<td class="muted">undetermined</td>
+<td class="ok">CONFIRMED</td>
 <td class="muted">refuted -14.4</td></tr>
 <tr class=""><td class="song">Illumination-Ritual-01-Adriatic to Black Sea</td>
 <td>mach</td><td class="num">21.3%</td><td class="num muted">17.1%</td>
@@ -606,48 +570,27 @@ Three of the eight human tabs clear it, the same three as before.</p>
 <td class="muted">inconclusive margin inside spread +10.0</td></tr>
 </table></div>
 
-<h2 id="conf">9. Confession, rebuilt and not promoted</h2>
+<h2 id="conf">8. Confession, built and not promoted</h2>
 <p>Confession was re-derived end to end from
 <code>03_GUITAR_STEMS/Low Level Owl Vol II/12 - Confession.guitar.wav</code> with basic_pitch on
-the ONNX model and the fretboard solved with the skill's own beam. Nothing was carried over
-except the container. The first build quantised to a 16th grid at 174 bpm and that grid was the
-whole defect: it pushed <b>31.0%</b> of attacks outside the 30 ms scoring window. Requantised to
-a <b>32nd</b> grid, 0.0% fall outside it.</p>
+the ONNX model, quantised to a 16th grid at 174 bpm, and the fretboard solved with the skill's
+own beam. Nothing was carried over except the container.</p>
 <div class="stats">
 <div class="stat"><span class="n">4122</span><span class="l">events detected</span></div>
 <div class="stat"><span class="n">3922</span><span class="l">notes written</span></div>
 <div class="stat"><span class="n">199</span><span class="l">dropped above range</span></div>
-<div class="stat good"><span class="n">16 &rarr; 0</span><span class="l">hard failures</span></div>
-<div class="stat good"><span class="n">EXACT</span><span class="l">round trip, 0 changed pitches</span></div>
-<div class="stat"><span class="n">+5.2</span><span class="l">separation, below the 7.7 cut</span></div>
+<div class="stat good"><span class="n">16 &rarr; 7</span><span class="l">hard failures</span></div>
+<div class="stat alarm"><span class="n">-0.8 &rarr; -0.3</span><span class="l">audio gain</span></div>
 </div>
-<div class="tw"><table><tr><th>measure</th><th>inherited tab</th><th>32nd-grid rebuild</th><th>reading</th></tr>
-<tr><td>hard failures</td><td class="num">16</td><td class="num ok">0</td>
-<td>all seven impossible spans resolved across two guitar staves</td></tr>
-<tr><td>round trip</td><td class="num muted">n/a</td><td class="num ok">3922 of 3922</td>
-<td>0 changed pitches, 3059 onset ticks kept</td></tr>
-<tr><td>audio gain</td><td class="num">-0.4</td><td class="num">+4.5</td>
-<td>z +15.3 on the rebuild</td></tr>
-<tr><td>separation</td><td class="num">+0.5</td><td class="num">+5.2</td>
-<td class="bad">UNDETERMINED, the validated cut is +7.7</td></tr>
-</table></div>
-<div class="box"><b>Provenance.</b> sha256 <code>52df966249b0541a</code>, validator run_id
-<code>e184ad420e21b1d1</code>, gate <code>9b21d05326633dde</code>. Verdict REVIEW, which is the
-hand-skip diagnostic only, with preservation PASS and position PASS. Actual filename on disk is
-<code>Confession-32nd-FINAL.gp</code>.</div>
-<div class="box alarm"><b>Do not promote it.</b> Audio accuracy comes before playability, and at
-the validated cut Confession is undetermined. Its playability result is real and it is separate:
-hard failures 16 to 0 with an exact round trip and zero changed pitches. That is a repair worth
-keeping on disk and worth nothing as an accuracy claim. The +5.2 also measures <b>detector
-agreement</b> rather than pitch accuracy, because basic_pitch produced these notes from the same
-recording the score then reads.
-<br><br>One more thing the build surfaced. A first pass clamped a fret to force a wide chord to
-fit, silently turning pitch 83 into 60 on 7 chords; the fallback now preserves every pitch and
-lets the beat fail honestly. Those 7 chords span up to 43 semitones, which is the
+<div class="box alarm">Playability improved and audio accuracy did not: gain
+<b>-0.8 to -0.3</b>, separation
+-1.2 to -0.8, still undetermined. The file stays unpromoted.
+Its status in the queue reads <b>audio accuracy undetermined, playability repair pending reliable
+timing alignment</b>, with the old &minus;36.6 kept only as a deprecated diagnostic.
+<br><br>Two things the build surfaced. A first pass clamped a fret to force a wide chord to fit,
+silently turning pitch 83 into 60 on 7 chords; the fallback now preserves every pitch and lets
+the beat fail honestly. And those 7 chords span up to 43 semitones, which is the
 two-guitarists-on-one-staff case this catalogue is full of.</div>
-<div class="box"><b>Open decision.</b> Whether to keep re-deriving at 32nd resolution across the
-catalogue. The grid change is real and measured, and it did not clear +7.7 on this song.
-<b>Adriatic to Black Sea</b> is the natural second test at gain +4.2, z +17.7, separation +4.4.</div>
 
 <p class="foot">Mare Vitalis track 7 is written here as <b>And Nothing Less</b>. The released title
 begins with an ellipsis and the filename on disk is unchanged.<br>
