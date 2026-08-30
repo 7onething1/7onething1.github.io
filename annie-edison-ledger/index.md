@@ -2,13 +2,19 @@
 
 A transcript-grounded audit of one sitcom character's behaviour across all six seasons of *Community*.
 
-Second pass. Every claim checked against the episode script rather than a recap. 62 entries: 37 confirmed verbatim, 13 new this pass, 2 corrected, 10 unconfirmable and marked as such. 5 prior claims thrown out.
+Third pass. Every claim resolved against a speaker-labeled transcript; nothing left unconfirmed. 60 entries: 43 confirmed verbatim, 14 new, 3 corrected. 10 claims thrown out, two of them my own prior findings.
 
 ## Headline findings
 
-1. **Abed sat twenty six hours because Annie invoked friendship.** The prior reading had him staying out of curiosity about Duncan. The script: "Because you asked me to stay and you said we were friends."
-2. **She packed the chloroform before the break-in.** "I brought stuff people use for capers. Suction cup. Credit card. Chloroform." The first assault was equipment, not panic.
-3. **Abed refuses to believe her confession.** "If that were true, you would've come forward a long time ago. You're lying to keep me out of danger." Her honesty no longer clears.
+1. **Abed sat twenty six hours because Annie invoked friendship.** "Because you asked me to stay and you said we were friends."
+2. **She conspired with City College's dean.** "I called City College about transferring and the dean told me that he would get me in if I helped sabotage Greendale's launch."
+3. **Abed refuses to believe her confession.** "If that were true, you would've come forward a long time ago. You're lying to keep me out of danger."
+
+## Withdrawn from my own previous pass
+
+- **The chloroform was not hers.** Speaker-labeled transcript gives the line to Abed. The premeditation finding is withdrawn.
+- **The second chloroforming was not her plan.** Abed proposes it; she executes it.
+- **The A-minus riot was justified.** Hickey coached Jeff to sabotage her grades. Her project was an A.
 
 ## The ledger
 
@@ -96,7 +102,7 @@ Self-aware operation, stated in the moment.
 ### S1E08 Home Economics — VERIFIED (severity 3/5)
 *Tactics: sabotage*
 
-Coaches Troy through an elaborate perfect date for another woman, in loving detail, before destroying it.
+Coaches Troy through an elaborate perfect date for another woman, in loving detail, and then wrecks it.
 
 > You'll light the candles and you'll take a bite and she'll take a bite and you'll laugh. And you'll offer her your letter jacket after you notice this funny way she shakes when she gets cold.
 
@@ -132,20 +138,20 @@ He takes the bait inside one line.
 ### S1E09 Debate 109 — NEW (severity 2/5)
 *Tactics: sexual-leverage, strategic-innocence*
 
-Reframes her own presentation as a persuasion instrument during preparation, before the kiss.
+Reframes her own presentation as a persuasion instrument during preparation, ahead of the kiss.
 
 > Simmons is so good at using his inherent magnetism to sell his points and here I am, like a spinster librarian with my hair pulled back.
 
 She is also pre-warned in this episode: 'Be careful. Abed thinks you two are going to kiss.' She keeps working alone with him.
 
-### S1E09 Debate 109 — VERIFIED (severity 4/5)
+### S1E09 Debate 109 — CORRECTED (severity 4/5)
 *Tactics: sexual-leverage*
 
 Kisses Jeff at the exact moment Simmons has proved human goodness by trusting Jeff to catch him. Jeff drops him, and the drop becomes the winning argument.
 
-> It's a gambit. He hates me, yet he caught me. Man is good. / He was horny, so he dropped him. Man is evil. Greendale wins.
+> Simmons: He hates me, yet he caught me. Man is good. / Annie: He was horny, so he dropped him. Man is evil. / Jean: Greendale wins! / Annie: That off-book enough for ya?
 
-QUALIFIED: subtitles carry no stage direction naming who initiates the kiss. The drop and its conversion into the win are confirmed.
+RESOLVED on the speaker-labeled transcript. Annie delivers the winning line herself, then claims the kiss as her tactic, answering Jeff's earlier instruction to go off book. Prior pass credited the winning argument to Jeff.
 
 ### S1E18 Basic Genealogy — VERIFIED (severity 1/5)
 *Tactics: strategic-innocence*
@@ -210,21 +216,14 @@ COUNTERWEIGHT. She then repairs the damage to Chang directly and at cost to hers
 
 Logged because the empathy is real. Note the sequence: it arrives after the consequence lands.
 
-### S1E25 Pascal's Triangle Revisited — CARRIED (severity 2/5)
+### S1E25 Pascal's Triangle Revisited — VERIFIED (severity 1/5)
 *Tactics: competitive-displacement*
 
-Discusses transferring to Delaware with Vaughn during the Jeff triangle.
+The Delaware move is real and it is Vaughn's, an offer from a hacky sack team, with Annie as the girlfriend who would follow.
 
-NOT CONFIRMED from the episode script. No Delaware reference appears in the subtitle transcript. Prior pass already flagged this as the weakest item; it stays flagged.
+> Your boyfriend just got offered a spot on the number-one community-college hacky sack team in the nation. / There's just one thing, mountain flower, and that's that the school's in Delaware.
 
-### S2E02 Accounting for Lawyers — NEW (severity 5/5)
-*Tactics: bodily-interference, deception*
-
-Brings chloroform to the break-in as packed equipment, alongside the suction cup and credit card.
-
-> I brought stuff people use for capers. Suction cup. Credit card. Chloroform. The credit card doesn't work, the chloroform does.
-
-Premeditation. Prior pass read the first assault as panic improvisation. She packed it in advance.
+RESOLVED. Delaware exists and belongs to Vaughn. Nothing supports the reading that Annie invented the plan to force Jeff's hand, so that reading is dropped and only the competition context remains.
 
 ### S2E02 Accounting for Lawyers — VERIFIED (severity 1/5)
 *Tactics: sexual-leverage*
@@ -247,32 +246,36 @@ Non-consensual chemical incapacitation of an uninvolved worker.
 ### S2E02 Accounting for Lawyers — VERIFIED (severity 5/5)
 *Tactics: bodily-interference, deception*
 
-Proposes and executes a second chloroforming as a cover story, staging a mass dosing so she can pose as a fellow victim.
+Executes a second chloroforming of the same man as a cover story, staging a mass dosing so the group can pose as fellow victims.
 
-> I have an idea. Okay, it may sound a little weird, but trust me. / We all got chloroformed. Somebody chloroformed all of us. / Who is she? Why is she holding a rag?
+> Abed: I have an idea. Okay, it may sound a little weird, but trust me. / Troy: We all got chloroformed. / Annie: Somebody chloroformed all of us. / Janitor: Who is she? Why is she holding a rag?
 
-The second assault is deliberate and authored. It is not a repeat of the panic.
+CORRECTED against my own first pass. The plan is Abed's. Annie is the one holding the rag both times, so both assaults are hers physically, and neither was her design.
 
-### S2E03 The Psychology of Letting Go — CARRIED (severity 1/5)
-*Tactics: sexual-leverage*
+### S2E04 Basic Rocket Science — VERIFIED (severity 4/5)
+*Tactics: information-control, sabotage*
 
-Outperforms Britta at the oil-spill fundraiser on physical presentation, drawing a competitive complaint.
+Agreed a quid pro quo with City College's dean: sabotage Greendale's launch in exchange for admission, and clear the area so the simulator could be stolen.
 
-NOT CONFIRMED. The fundraiser exists in the script; the chest-competition dialogue does not appear in the subtitle transcript. Likely from a wiki recap. Downgraded.
+> I set it up. I called City College about transferring and the dean told me that he would get me in if I helped sabotage Greendale's launch. I was to make sure nobody was around so they could steal it.
 
-### S2E04 Basic Rocket Science — CARRIED (severity 3/5)
+Far stronger than the prior reading of arranged circumstances. This is an agreement with a rival institution to damage her own. The group being trapped inside was not intended.
+
+### S2E04 Basic Rocket Science — NEW (severity 1/5)
 *Tactics: information-control*
 
-Works secretly toward a City College transfer and helps arrange conditions under which the simulator is hauled away with the group inside.
+Anonymously informs on the study group for the obscene flag they submitted anonymously.
 
-> I know how she works.
+> Troy: How do you know it was our flag? We submitted it anonymously. Oops. / Dean: One of you actually came forward. (Everyone looks at Annie Edison.) / Annie: What?
 
-The group's entrapment is not her intent. The covert operation around them is.
+A second informant beat in the same episode as the City College deal. The reflex to report is not reserved for high stakes.
 
-### S2E08 Cooperative Calligraphy — CARRIED (severity 2/5)
+### S2E08 Cooperative Calligraphy — VERIFIED (severity 2/5)
 *Tactics: coercion*
 
 Refuses to let a missing pen go, escalating until the room becomes a search, a strip and an accusation scene.
+
+> Annie: Abed, did you pick up my pen? It's a purple pen with a gel grip? / Abed: Nope. I'm strictly mechanical pencils these days. / Annie: It was just here.
 
 Compulsive control rather than deliberate cruelty. The group escalates alongside her.
 
@@ -288,7 +291,7 @@ Jeff believes he has watched a man die.
 ### S2E09 Conspiracy Theories and Interior Design — VERIFIED (severity 4/5)
 *Tactics: deception*
 
-Reveals her deception was nested inside and running before Jeff's own. She had been working with the Dean from the start.
+Reveals her deception was nested inside his and already running. She had been working with the Dean from the start.
 
 > He and I were in on this from the start. He found out you were faking.
 
@@ -301,16 +304,16 @@ Pursues Rich while Jeff's jealousy is active, and reads Rich's enrolment as a sc
 
 > I can't believe Rich actually enrolled in our class. It means he likes me, right?
 
-Rich's appeal is genuine. Romantic leverage rather than a fabricated relationship.
+Rich's appeal is genuine. Romantic pressure, and not a fabricated relationship.
 
-### S2E13 Celebrity Pharmacology — CARRIED (severity 2/5)
+### S2E13 Celebrity Pharmacology — VERIFIED (severity 2/5)
 *Tactics: information-control*
 
-Takes Pierce's money for the anti-drug production and lets his influence distort the message while the dependency runs.
+Takes Pierce's money for the anti-drug production and lets his influence distort the message while the dependency runs. The transcript establishes the dependency as real.
 
-> I mean, I thought this show was about drug awareness.
+> After my nervous breakdown, my Mom wanted to put the problem behind us and I wanted to deal with it. So, I went to rehab and she cut me off. / I saved. Every penny from babysitting, every birthday check.
 
-She ultimately refuses his control. The initial bargain still belongs in the ledger.
+She ultimately refuses his control. Knowing she is genuinely cut off makes the bargain material rather than casual.
 
 ### S2E14 Advanced Dungeons & Dragons — VERIFIED (severity 2/5)
 *Tactics: sexual-leverage*
@@ -319,7 +322,7 @@ Takes over after a male character's seduction attempt fails, and wins the Pegasi
 
 > All right, can we just do this? Hi, hello. I'm Hector the Well-Endowed. You got a bunch of Pegasi. Let's make a deal. / I take her by the hand and lead her to the stable. Light a candle and rip off a piece of my tunic, which I fashion into a blindfold. / I'd like to, but I don't know if I / Shh. Shh. Shh. I place it gently over the elf maiden's eyes.
 
-Sexual knowledge carries no diagnostic weight. What matters is that it is instrumental, public, and deployed after someone else's attempt failed.
+Sexual knowledge carries no diagnostic weight. The weight sits in three facts: it is instrumental, it is public, and it lands after someone else's attempt failed.
 
 ### S3E02 Geography of Global Conflict — CORRECTED (severity 2/5)
 *Tactics: competitive-displacement*
@@ -337,7 +340,7 @@ Breaks Abed's DVD, conceals it, and stages a burglary.
 
 > Something doesn't add up. If there was no forced entry, it had to be an inside job.
 
-Concealment is chosen immediately, before any pressure exists.
+Concealment is chosen immediately, with no pressure yet applied.
 
 ### S3E09 Foosball and Nocturnal Vigilantism — VERIFIED (severity 5/5)
 *Tactics: deception*
@@ -402,12 +405,14 @@ THE THESIS TEXT. States that Jeff is an outcome she is trying to produce, and th
 
 The final clause is the load-bearing one and was missing from the prior pass. She describes her own pattern as a loop she cannot exit.
 
-### S3E17 Basic Lupine Urology — CARRIED (severity 1/5)
+### S3E17 Basic Lupine Urology — VERIFIED (severity 2/5)
 *Tactics: deception*
 
-Gets Jeff to the biology lab at midnight with a message built to read as sexual, then produces the yam investigation.
+Lies to two people in the same minute: a misleading text to bring Jeff in, and a false report of a murder to bring a professor in at midnight.
 
-Trivial in harm. Useful as evidence that behavioural engineering has become routine for her.
+> Professor Kane: Ms. Edison, when you called me down here at midnight, I expected more than a yam. Specifically since you said, 'There's been a murder.' / Jeff: If it's any consolation, she got me here on a very misleading text message.
+
+Prior pass had only the text to Jeff. The false murder report to faculty is the harder half and it was missing.
 
 ### S3E20 Digital Estate Planning — VERIFIED (severity 2/5)
 *Tactics: deception*
@@ -418,12 +423,23 @@ Articulates the permission structure that licenses the group's killing spree, an
 
 Virtual violence carries little weight. The stated principle carries all of it: outcome determines permissible conduct.
 
-### S4E03 Conventions of Space and Time — CARRIED (severity 2/5)
+### S4E03 Conventions of Space and Time — VERIFIED (severity 2/5)
 *Tactics: deception*
 
-Mistaken for Mrs. Winger, she sustains and elaborates the false marriage, then stages a public jealous confrontation.
+Begins to correct the Mrs. Winger mistake, stops herself, and builds out the marriage in detail instead.
 
-Genuine hurt underneath. The chosen response is to build a false social reality and require Jeff to inhabit it.
+> And how many people will be dining today, Mrs. Winger? / Oh, I'm not... Two. Yeah, I'd like a turkey burger and a second turkey burger, but with no bun. My husband doesn't do carbs. But he would like a scotch.
+
+The audible half-correction is the whole entry. She had the sentence started and chose the other way.
+
+### S4E03 Conventions of Space and Time — NEW (severity 1/5)
+*Tactics: paternalism*
+
+States the paternalism principle outright while crashing Troy and Abed's weekend.
+
+> Are you sure Troy and Abed want us here? / They do. They just don't know it yet.
+
+The cleanest one-line statement of the pattern anywhere in the series, and it sits in season four between the drugged coffee and Britta's parents.
 
 ### S4E07 Economics of Marine Biology — VERIFIED (severity 2/5)
 *Tactics: information-control*
@@ -452,19 +468,14 @@ Privately invites Cornwallis to Jeff's party to work the grade socially, and ann
 
 Engineer the environment first, ask afterwards. The evening later escalates well past her opening move.
 
-### S4E12 Heroic Origins — CARRIED (severity 3/5)
+### S4E12 Heroic Origins — VERIFIED (severity 3/5)
 *Tactics: deception*
 
-Steals a psychiatrist's prescription pad while seeking Adderall during her addiction.
+Steals a psychiatrist's prescription pad during her addiction, shown in flashback.
+
+> Hey, doc. By the way, someone just stole your prescription pad.
 
 Addiction heavily discounts the personality inference. Included for chronology, not for character weight.
-
-### S5E02 Introduction to Teaching — CARRIED (severity 1/5)
-*Tactics: competitive-displacement*
-
-Consumed by an A minus, escalates into a campus grade riot.
-
-Dysregulation rather than calculation. Proportionality fails again around academic outcome.
 
 ### S5E03 Basic Intergluteal Numismatics — NEW (severity 3/5)
 *Tactics: information-control*
@@ -482,7 +493,7 @@ Secretly dosed the study group with amphetamine so they would keep studying, and
 
 > is it true you once secretly dosed the members of your study group with a pharmaceutical amphetamine? / Oh, uh, yes, kind of. It sounds worse on paper than it was. / I put 5 milligrams of something-something in your coffees and we all got an 'A.' / I was up for three days that week. I invented an entire language.
 
-'It sounds worse on paper than it was' arrives before any defence of the act. The reframe is instant.
+'It sounds worse on paper than it was' arrives ahead of any defence of the act. The reframe is instant.
 
 ### S5E04 Cooperative Polygraphy — VERIFIED (severity 4/5)
 *Tactics: paternalism*
@@ -496,7 +507,7 @@ They respond that they have been washing paper plates and making their own tooth
 ### S5E04 Cooperative Polygraphy — VERIFIED (severity 0/5)
 *Tactics: strategic-innocence*
 
-META. Asked whether she used her intelligence to plan a foolproof murder, she is flattered before she denies it.
+META. Asked whether she used her intelligence to plan a foolproof murder, she is flattered first, and denies it second.
 
 > did you use your exceptional intelligence and organizational skills to plot the foolproof murder of Pierce Hawthorne? / Aww! And no.
 
@@ -514,18 +525,11 @@ Her stated motive is her completion record: 'Annie Edison doesn't get nothing do
 ### S5E09 VCR Maintenance and Educational Publishing — VERIFIED (severity 1/5)
 *Tactics: coercion*
 
-Orders chores easiest first so volunteers commit before hearing the worst one. Jeff names the pattern out loud, people volunteer anyway, and she is delighted.
+Orders chores easiest first so volunteers commit while the worst one is still unannounced. Jeff names the pattern out loud, people volunteer anyway, and she is delighted.
 
 > Yeah, Annie always goes from the easy chores to the hardest. / That's true, isn't it? / Nobody picks up on my patterns! What am I gonna say next? Graham cracker! You didn't know.
 
 No crisis, no romance, no stakes. Choice architecture as an ordinary daily habit.
-
-### S6E01 Ladders — CARRIED (severity 1/5)
-*Tactics: deception*
-
-Helps build and run the hidden speakeasy under Frankie's rules.
-
-Comic rebellion, small moral weight. Continuity of method: solve a restriction by organised concealment.
 
 ### S6E02 Lawnmower Maintenance and Postnatal Care — VERIFIED (severity 5/5)
 *Tactics: paternalism, information-control*
@@ -572,6 +576,11 @@ Season six confirms the pattern survives maturation intact.
 
 ## Thrown out
 
+- **S02E02** — Annie packed the chloroform: MY OWN first-pass error, not the prior reading's. The speaker-labeled transcript gives the line to Abed: 'I brought stuff people use for capers. Suction cup. Credit card. Chloroform.' The premeditation finding is withdrawn.
+- **S02E02** — Annie proposed the second chloroforming: Also mine. The cover-story plan is Abed's: 'I have an idea. Okay, it may sound a little weird, but trust me.' She executed it; she did not design it.
+- **S05E02** — Annie's A-minus riot as disproportionate: She was right. Hickey coached Jeff to sabotage her: 'I say minus her. Give her A-minuses. It'll drive her nuts, she'll drop.' Her project was an A. The outrage tracked a real injustice.
+- **S02E03** — Annie used her chest competitively at the oil-spill fundraiser: No supporting dialogue exists in the episode. Britta and Annie fundraise together and the donations follow a pelican appeal.
+- **S06E01** — Annie organised the secret speakeasy: Britta moves it and Annie thirds it. She is a participant, not an author.
 - **S01E08** — The reclaimed picnic blanket: The heirloom is Pierce's nana's, lent to Troy and taken back by Pierce. Not an Annie sabotage.
 - **S01E20** — 'I did it. I framed Jeff.': Britta's confession about the corpse prank, not Annie's.
 - **S03E09** — 'Troy asks Annie who she even is': The 'Who are you?' line belongs to the Jeff bully subplot. Not directed at Annie.
@@ -580,4 +589,4 @@ Season six confirms the pattern survives maturation intact.
 
 ## Method
 
-All 110 episode scripts pulled and read rather than sampled. Where a prior claim cannot be supported by the script it is kept and marked Unconfirmed rather than dropped, because absence in a subtitle transcript is weaker evidence than presence. Subtitle scripts carry no speaker labels, so attribution came from surrounding dialogue; two items carry explicit qualifications where that was not enough.
+All 110 episode scripts pulled and read. The first pass used subtitle scripts, which carry dialogue and no speaker labels; twelve items ended up unconfirmed or attributed from context alone. This pass closed every one against speaker-labeled transcripts with stage directions, from the show's wiki and a forum archive loaded in a real browser. Attribution changed the answer in five places, twice against my own findings.
