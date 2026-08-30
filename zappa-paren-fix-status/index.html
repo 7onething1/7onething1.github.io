@@ -1,0 +1,199 @@
+<!doctype html><html lang="en"><head><meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Zappa Drum Notation Fix: Delivery State</title>
+<style>
+:root{--cream:#F4EBD9;--ink:#1B1B1B;--rust:#B5533C;--mustard:#D8A24A;--teal:#3E7C7B;--dusty:#9C7C9C;--line:#DBCDB4;--paper:#FBF6EC;}
+*{box-sizing:border-box}
+body{margin:0;background:var(--cream);color:var(--ink);font:16px/1.6 "Iowan Old Style",Palatino,Georgia,serif;}
+.wrap{max-width:1080px;margin:0 auto;padding:38px 22px 90px}
+h1{font-size:2.05rem;margin:0 0 6px;letter-spacing:-.4px}
+.dek{color:#5c5347;margin:0 0 26px;font-size:1.02rem}
+h2{font-size:1.32rem;margin:44px 0 4px;padding-bottom:7px;border-bottom:2px solid var(--line)}
+h3.st{font-size:1rem;margin:26px 0 6px;color:#5c5347;letter-spacing:.3px}
+.sub{margin:0 0 14px;color:#5c5347;font-size:.93rem}
+.verdict{background:var(--paper);border:1px solid var(--line);border-left:6px solid var(--rust);padding:18px 20px;margin:0 0 26px;border-radius:3px}
+.verdict h3{margin:0 0 10px;font-size:1.05rem;color:var(--rust)}
+.verdict p{margin:0 0 9px} .verdict p:last-child{margin:0}
+.toc{background:var(--paper);border:1px solid var(--line);padding:14px 18px;border-radius:3px;margin:0 0 26px}
+.toc a{color:var(--teal);text-decoration:none;margin-right:16px;font-size:.93rem;white-space:nowrap;display:inline-block}
+.scroll{overflow-x:auto;border:1px solid var(--line);border-radius:3px;background:var(--paper)}
+table{border-collapse:collapse;width:100%;font-size:.88rem;min-width:760px}
+th{background:#EDE0C8;text-align:left;padding:9px 11px;font-weight:600;font-size:.79rem;text-transform:uppercase;letter-spacing:.5px;border-bottom:2px solid var(--line)}
+td{padding:9px 11px;border-bottom:1px solid #EAE0CD;vertical-align:top}
+tr.bad{background:#FBEDE8} tr.good{background:#EEF4F3} tr.dim td{color:#8b8171}
+td.t{font-weight:600}
+.sid{display:block;font-size:.72rem;color:#8b8171;font-family:ui-monospace,Menlo,monospace}
+.mine{background:var(--teal);color:#fff;font-size:.65rem;padding:1px 6px;border-radius:9px;letter-spacing:.4px}
+.n{text-align:right;font-variant-numeric:tabular-nums;white-space:nowrap}
+.gbad{color:var(--rust);font-weight:700} .gok{color:#a49a86} .gfix{color:var(--teal);font-weight:700}
+.gd{font-size:.83rem;color:#4a443a}
+.b{display:inline-block;padding:2px 8px;border-radius:11px;font-size:.71rem;font-weight:700;letter-spacing:.4px;color:#fff;white-space:nowrap}
+.b.pend{background:var(--mustard);color:#3a2f14} .b.pub{background:var(--teal)} .b.old{background:#b3aa98}
+.rev{display:block;font-size:.72rem;color:#8b8171;margin-top:3px}
+.grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(160px,1fr));gap:12px;margin:0 0 26px}
+.card{background:var(--paper);border:1px solid var(--line);border-radius:3px;padding:14px}
+.card .big{font-size:1.85rem;font-weight:700;line-height:1.1}
+.card .lab{font-size:.78rem;color:#5c5347;margin-top:3px}
+.r{color:var(--rust)} .t2{color:var(--teal)} .m{color:#a8802f}
+code{background:#EDE0C8;padding:1px 5px;border-radius:3px;font-family:ui-monospace,Menlo,monospace;font-size:.85em}
+pre{background:var(--paper);border:1px solid var(--line);border-left:5px solid #b3aa98;border-radius:3px;padding:13px 15px;overflow-x:auto;font-family:ui-monospace,Menlo,monospace;font-size:.79rem;line-height:1.55;margin:0 0 16px}
+.fix{background:var(--paper);border:1px solid var(--line);border-left:6px solid var(--teal);padding:18px 20px;border-radius:3px;margin:26px 0}
+.fix h3{margin:0 0 10px;font-size:1.05rem;color:var(--teal)}
+.corr{background:#FDF6E3;border:1px solid var(--line);border-left:6px solid var(--mustard);padding:16px 20px;border-radius:3px;margin:26px 0;font-size:.94rem}
+.corr h3{margin:0 0 8px;font-size:1rem;color:#a8802f}
+.corr ol{margin:8px 0 0;padding-left:20px} .corr li{margin-bottom:9px}
+.note{font-size:.86rem;color:#5c5347;border-top:1px solid var(--line);margin-top:40px;padding-top:16px}
+.note a{color:var(--teal)}
+ul.tight{margin:6px 0 0;padding-left:20px} ul.tight li{margin-bottom:5px}
+.arrow{color:#8b8171;padding:0 3px}
+</style></head><body><div class="wrap">
+
+<h1>Zappa drum notation fix</h1>
+<p class="dek">What the parenthesis edit actually changed on <strong>Montana</strong> and <strong>Zomby Woof</strong>, what state it is in on Songsterr now, and every number checked against the live API rather than against a local file. Verified 2026-08-30.</p>
+
+<div class="verdict">
+<h3>Verdict: both edits are correct, and both are waiting on a moderator</h3>
+<p>The two fix revisions exist on Songsterr, carry exactly the intended change, and alter <strong>zero notes</strong>. Neither is the revision Songsterr serves to the public. <code>api/meta/35870</code> still returns <strong>7294223</strong> and <code>api/meta/412162</code> still returns <strong>7115188</strong>, both predating this work.</p>
+<p>Promotion is a Songsterr moderator decision. The submission side is finished, the publication side is not, and the earlier audit record was wrong to head its table "Delivered, live and verified."</p>
+</div>
+
+<div class="toc">
+<a href="#counts">Public vs fix</a><a href="#staves">Per staff</a><a href="#timeline">Revision timeline</a><a href="#preserve">Preservation proof</a><a href="#corr">Corrections</a><a href="#controls">Failed controls</a><a href="#repro">Verify it yourself</a>
+</div>
+
+<div class="grid">
+<div class="card"><div class="big t2">349</div><div class="lab">brackets converted to dots</div></div>
+<div class="card"><div class="big t2">0</div><div class="lab">pitch differences</div></div>
+<div class="card"><div class="big t2">0</div><div class="lab">rhythm differences</div></div>
+<div class="card"><div class="big">16,103</div><div class="lab">beat events compared</div></div>
+<div class="card"><div class="big m">4</div><div class="lab">revisions pending moderation</div></div>
+<div class="card"><div class="big r">0</div><div class="lab">published to the public</div></div>
+</div>
+
+<h2 id="counts">What the public sees, against what the fix holds</h2>
+<p class="sub">Census counts every non-rest note on every track, read from Songsterr's own rendered JSON.</p>
+<div class="scroll"><table>
+<tr><th>Tab</th><th>Revision</th><th>State</th><th class="n">Notes</th><th class="n">Ghost (brackets)</th><th class="n">Staccato (dots)</th><th class="n">Ties</th></tr>
+<tr class="bad"><td class="t">Montana<span class="sid">s35870</span></td><td>7294223<span class="rev">Ben Dibden1, 2026-06-10</span></td><td><span class="b pub">PUBLISHED</span></td><td class="n">7966</td><td class="n gbad">574</td><td class="n">261</td><td class="n">276</td></tr>
+<tr class="good"><td class="t">Montana<span class="sid">s35870</span></td><td>8787106<span class="rev">Brandon chavez, 2026-08-30 21:49:50Z</span></td><td><span class="b pend">PENDING</span></td><td class="n">7966</td><td class="n">257</td><td class="n gfix">578</td><td class="n">276</td></tr>
+<tr class="bad"><td class="t">Zomby Woof<span class="sid">s412162</span></td><td>7115188<span class="rev">meh, 2026-05-31</span></td><td><span class="b pub">PUBLISHED</span></td><td class="n">7479</td><td class="n gbad">32</td><td class="n">138</td><td class="n">449</td></tr>
+<tr class="good"><td class="t">Zomby Woof<span class="sid">s412162</span></td><td>8787022<span class="rev">Brandon chavez, 2026-08-30 21:45:34Z</span></td><td><span class="b pend">PENDING</span></td><td class="n">7479</td><td class="n gfix">0</td><td class="n gfix">170</td><td class="n">431</td></tr>
+</table></div>
+
+<div class="fix">
+<h3>Reading the deltas</h3>
+<p><strong>Montana:</strong> ghost <span class="arrow">&minus;</span>317, staccato <span class="arrow">+</span>317, ties unchanged, notes unchanged. Every bracket removed became a dot on the same note.</p>
+<p><strong>Zomby Woof:</strong> ghost <span class="arrow">&minus;</span>32, staccato <span class="arrow">+</span>32, ties <span class="arrow">&minus;</span>18, notes unchanged. The 18 removed ties are the kick ties the fix description names.</p>
+<p>Montana keeps 257 brackets because the scope was drum notation only. Those sit on vocal, guitar, keys and mallet staves and were left alone on purpose. Zomby Woof reaches zero at file level because all 32 of its brackets were on one drum staff.</p>
+</div>
+
+<h2 id="staves">Per staff, on the fix revisions</h2>
+<p class="sub">Only staves carrying a bracket or a dot are listed. Drum staves in bold.</p>
+<h3 class="st">Montana &mdash; revision 8787106</h3>
+<div class="scroll"><table>
+<tr><th class="n">#</th><th>Staff</th><th class="n">Notes</th><th class="n">Ghost</th><th class="n">Staccato</th></tr>
+<tr><td class="n">0</td><td>Vocal 1</td><td class="n">323</td><td class="n">24</td><td class="n">0</td></tr>
+<tr><td class="n">1</td><td>Vocal 2</td><td class="n">507</td><td class="n">62</td><td class="n">0</td></tr>
+<tr><td class="n">2</td><td>Vocal 3</td><td class="n">122</td><td class="n">16</td><td class="n">0</td></tr>
+<tr><td class="n">3</td><td>1 Frank Zappa | Lead</td><td class="n">1782</td><td class="n">112</td><td class="n">0</td></tr>
+<tr><td class="n">5</td><td>1 Tom Fowler</td><td class="n">532</td><td class="n">6</td><td class="n">36</td></tr>
+<tr><td class="n">6</td><td>AI</td><td class="n">285</td><td class="n">0</td><td class="n">36</td></tr>
+<tr><td class="n">7</td><td>1</td><td class="n">99</td><td class="n">0</td><td class="n">41</td></tr>
+<tr><td class="n">8</td><td>2</td><td class="n">182</td><td class="n">0</td><td class="n">79</td></tr>
+<tr><td class="n">9</td><td>3</td><td class="n">50</td><td class="n">0</td><td class="n">26</td></tr>
+<tr><td class="n">10</td><td>George Duke</td><td class="n">195</td><td class="n">23</td><td class="n">20</td></tr>
+<tr><td class="n">11</td><td>Ruth Underwood</td><td class="n">119</td><td class="n">0</td><td class="n">4</td></tr>
+<tr><td class="n">12</td><td>Ruth Underwood</td><td class="n">31</td><td class="n">0</td><td class="n">19</td></tr>
+<tr><td class="n">13</td><td>Ruth Underwood | Bridge High</td><td class="n">187</td><td class="n">7</td><td class="n">0</td></tr>
+<tr><td class="n">14</td><td>Ruth Underwood | Bridge Low</td><td class="n">187</td><td class="n">7</td><td class="n">0</td></tr>
+<tr class="good"><td class="n">15</td><td class="t">1 Ralph Humphrey</td><td class="n">2188</td><td class="n gfix">0</td><td class="n gfix">212</td></tr>
+<tr class="good"><td class="n">17</td><td class="t">Percussion</td><td class="n">121</td><td class="n gfix">0</td><td class="n gfix">105</td></tr>
+<tr class="dim"><td class="n"></td><td><em>drum total</em></td><td class="n">2309</td><td class="n">0</td><td class="n">317</td></tr>
+</table></div>
+
+<h3 class="st">Zomby Woof &mdash; revision 8787022</h3>
+<div class="scroll"><table>
+<tr><th class="n">#</th><th>Staff</th><th class="n">Notes</th><th class="n">Ghost</th><th class="n">Staccato</th></tr>
+<tr><td class="n">0</td><td>Frank Zappa 1</td><td class="n">1184</td><td class="n">0</td><td class="n">6</td></tr>
+<tr><td class="n">1</td><td>Frank Zappa 2</td><td class="n">42</td><td class="n">0</td><td class="n">34</td></tr>
+<tr><td class="n">2</td><td>Tom Fowler</td><td class="n">1076</td><td class="n">0</td><td class="n">51</td></tr>
+<tr><td class="n">4</td><td>Bruce Fowler</td><td class="n">564</td><td class="n">0</td><td class="n">6</td></tr>
+<tr><td class="n">5</td><td>George Duke</td><td class="n">170</td><td class="n">0</td><td class="n">1</td></tr>
+<tr><td class="n">6</td><td>George Duke</td><td class="n">1993</td><td class="n">0</td><td class="n">18</td></tr>
+<tr><td class="n">7</td><td>Ruth Underwood</td><td class="n">550</td><td class="n">0</td><td class="n">8</td></tr>
+<tr><td class="n">8</td><td>Sal Marquez</td><td class="n">319</td><td class="n">0</td><td class="n">14</td></tr>
+<tr class="good"><td class="n">9</td><td class="t">Ralph Humphrey</td><td class="n">1574</td><td class="n gfix">0</td><td class="n gfix">32</td></tr>
+</table></div>
+<p class="sub">Track 9 is the source of the figure <code>notes=1574 BRACKETS=0 DOTS=32</code> quoted in the audit record. It describes this staff. The whole file holds 7,479 notes.</p>
+
+<h2 id="timeline">Revision timeline</h2>
+<p class="sub">Both tabs carry two pending edits. The 08-29 pair removed brackets without adding dots, and the 08-30 pair supplied the dots.</p>
+<div class="scroll"><table>
+<tr><th>Tab</th><th>Revision</th><th>Submitted</th><th>Author</th><th class="n">Ghost</th><th class="n">Staccato</th><th>State</th></tr>
+<tr class="good"><td class="t">Montana</td><td>8787106</td><td>2026-08-30 21:49:50Z</td><td>Brandon chavez</td><td class="n">257</td><td class="n gfix">578</td><td><span class="b pend">PENDING</span></td></tr>
+<tr><td class="t">Montana</td><td>8764165</td><td>2026-08-29 19:02:38Z</td><td>Brandon chavez</td><td class="n">257</td><td class="n gbad">261</td><td><span class="b pend">PENDING</span></td></tr>
+<tr class="bad"><td class="t">Montana</td><td>7294223</td><td>2026-06-10</td><td>Ben Dibden1</td><td class="n gbad">574</td><td class="n">261</td><td><span class="b pub">PUBLISHED</span></td></tr>
+<tr class="dim"><td class="t">Montana</td><td>7287585 / 7259267 / 50661</td><td>2026-06-09 back to 2009-11-17</td><td>Ben Dibden1, Leonard</td><td class="n">&mdash;</td><td class="n">&mdash;</td><td><span class="b old">SUPERSEDED</span></td></tr>
+<tr class="good"><td class="t">Zomby Woof</td><td>8787022</td><td>2026-08-30 21:45:34Z</td><td>Brandon chavez</td><td class="n gfix">0</td><td class="n gfix">170</td><td><span class="b pend">PENDING</span></td></tr>
+<tr><td class="t">Zomby Woof</td><td>8766102</td><td>2026-08-29 21:03:22Z</td><td>Brandon chavez</td><td class="n gfix">0</td><td class="n gbad">138</td><td><span class="b pend">PENDING</span></td></tr>
+<tr class="bad"><td class="t">Zomby Woof</td><td>7115188</td><td>2026-05-31</td><td>meh</td><td class="n gbad">32</td><td class="n">138</td><td><span class="b pub">PUBLISHED</span></td></tr>
+<tr class="dim"><td class="t">Zomby Woof</td><td>9 earlier revisions</td><td>2026-05-25 back to 2016-09-03</td><td>Ben Dibden1, wheat thin, ChessPiece99, enikey87</td><td class="n">&mdash;</td><td class="n">&mdash;</td><td><span class="b old">SUPERSEDED</span></td></tr>
+</table></div>
+<p class="sub">This confirms the concurrency note in the billing summary. Revisions 8764165 and 8766102 were submitted from the same account during the 08-29 session and not by it. Their census shows brackets gone and the staccato count unmoved, which is the signature the summary described.</p>
+
+<h2 id="preserve">Preservation proof</h2>
+<p class="sub">Two independent measurements, one local and one from the server.</p>
+<div class="scroll"><table>
+<tr><th>Measurement</th><th>Method</th><th class="n">Pitch diffs</th><th class="n">Rhythm diffs</th><th>Result</th></tr>
+<tr><td class="t">Local, per beat event</td><td>Sorted MIDI pitch set plus rhythm tuple (NoteValue, PrimaryTuplet, AugmentationDot) across 28 tracks, 16,103 events</td><td class="n gfix">0</td><td class="n gfix">0</td><td>Identical note content and timing</td></tr>
+<tr><td class="t">Live, note totals</td><td>Non-rest note count on every track, published revision against fix revision</td><td class="n gfix">0</td><td class="n">&mdash;</td><td>7966 &rarr; 7966 and 7479 &rarr; 7479</td></tr>
+</table></div>
+<p class="sub">The edit moved articulation flags only. No note was added, removed, retimed or repitched, and the second measurement was taken from Songsterr's own rendering rather than from the files that were uploaded.</p>
+
+<h2 id="corr">Corrections to the 2026-08-30 audit record</h2>
+<div class="corr">
+<h3>Three claims restated</h3>
+<ol>
+<li><strong>"Delivered, live and verified"</strong> was wrong. The correct state is submitted and pending moderation. Reading the published-revision endpoint takes one request and was not done before that header was written. The body of the same document did say "Both submitted for Songsterr moderation," so the document contradicted itself.</li>
+<li><strong>"notes=1574 BRACKETS=0 DOTS=32 TIES=0"</strong> is the census of Zomby Woof track 9, Ralph Humphrey. It was presented as a file-level figure. The file holds 7,479 notes, and at file level the fix revision reads ghost 0, staccato 170, ties 431.</li>
+<li><strong>"BRACKETS=0 DOTS=317"</strong> for Montana is true of the two drum staves and false of the file. The file keeps 257 brackets on non-drum staves, which is correct for a drums-only scope. DOTS 317 is the delta added. The total is 578.</li>
+</ol>
+</div>
+
+<h2 id="controls">Measures that failed their own controls</h2>
+<p class="sub">Retained on instruction. None of these supports an accuracy claim, and they are listed so nobody later mistakes them for one.</p>
+<div class="scroll"><table>
+<tr><th>Measure</th><th>Own stem</th><th>Wrong stem</th><th>Why it fails</th></tr>
+<tr class="bad"><td class="t">Attack precision and recall, Montana</td><td class="n">F1 0.148</td><td class="n">F1 0.188</td><td>The wrong recording scored higher</td></tr>
+<tr class="bad"><td class="t">Attack precision and recall, Zomby Woof</td><td class="n">F1 0.184</td><td class="n">F1 0.148</td><td>Margin of 0.036 is inside the noise</td></tr>
+<tr class="bad"><td class="t">Tempo agreement</td><td class="n">172.3 bpm</td><td class="n">172.3 bpm</td><td>Identical on both, so it separates nothing</td></tr>
+<tr class="bad"><td class="t">IOI fingerprint</td><td class="n">0.5189</td><td class="n">0.5513</td><td>The wrong recording scored higher</td></tr>
+<tr class="bad"><td class="t">Beat-synchronous flux</td><td class="n">z &minus;1.37</td><td class="n">z +1.48</td><td>On-grid energy came in below off-grid</td></tr>
+<tr class="bad"><td class="t">DTW warped map</td><td class="n">cost 0.0730</td><td class="n">cost 0.0561</td><td>The wrong song fit at lower cost</td></tr>
+<tr class="bad"><td class="t">Drum-class census</td><td class="n">0.1% kick</td><td class="n">&mdash;</td><td>22.2% is notated, so the classifier is broken</td></tr>
+</table></div>
+<div class="corr">
+<h3>The artefact these controls exposed</h3>
+<p>The same grid against the same audio scored <strong>z &minus;1.37</strong> under linear mapping and <strong>z +81.97</strong> after warping. Nothing changed but the warp. A z of +82 would normally mean overwhelming confirmation. Here it is an artefact of bending the grid onto whatever energy it finds.</p>
+<p>Root cause: drum onsets are dense and near-periodic, so any two rock drum recordings agree about equally well. A chroma measure on the same files with the same controls passed at 0.8146 against 0.6561, which places the failure in the drum-only material rather than in the method.</p>
+</div>
+
+<h2 id="repro">Verify it yourself</h2>
+<p class="sub">Every number on this page comes from these three public endpoints. No authentication is needed.</p>
+<pre># which revision does the public actually get
+curl -s https://www.songsterr.com/api/meta/35870  | python3 -c "import json,sys;d=json.load(sys.stdin);print(d['revisionId'],d['author']['name'])"
+curl -s https://www.songsterr.com/api/meta/412162 | python3 -c "import json,sys;d=json.load(sys.stdin);print(d['revisionId'],d['author']['name'])"
+
+# the full revision list, newest first
+curl -s https://www.songsterr.com/api/meta/35870/revisions
+
+# one specific revision, which yields the CDN hash for its per-track JSON
+curl -s https://www.songsterr.com/api/meta/35870/8787106</pre>
+<p class="sub">Per-track note data then reads from <code>https://dqsljvtekg760.cloudfront.net/&lt;songId&gt;/&lt;revisionId&gt;/&lt;image&gt;/&lt;track&gt;.json</code>, where <code>image</code> is the hash in that revision's meta. Brackets are the note flag <code>ghost</code> and dots are <code>staccato</code>.</p>
+
+<div class="note">
+<p><strong>Provenance.</strong> Live figures read 2026-08-30 from the Songsterr public API by <code>_verify_live.py</code> and <code>_verify_pending.py</code>, output saved to <code>_live_verify_2026-08-30.json</code>. Local preservation figures from <code>PRESERVATION-DIFF-2026-08-30.txt</code>. Control results quoted from <code>AUDIT-RECORD-2026-08-30.md</code>, which retains them on instruction. Nothing on this page was submitted to Songsterr by the session that built it, and no revision was created, edited or withdrawn.</p>
+<p><strong>Companion page.</strong> The 43-tab source audit that identified these files: <a href="https://7onething1.github.io/zappa-songsterr-paren-audit/">Zappa Songsterr parenthesis audit</a>.</p>
+</div>
+
+</div></body></html>
