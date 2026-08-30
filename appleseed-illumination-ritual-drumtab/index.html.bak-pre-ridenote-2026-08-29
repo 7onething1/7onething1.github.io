@@ -127,7 +127,6 @@ three untested lanes may hold more.</p>
 <tr><td>10</td><td>Illumination Ritual</td><td class="num">168</td><td class="num">137</td><td class="num">1,679</td><td class="num">25</td><td class="num">0</td><td class="num">75</td><td class="num">30</td><td class="med">MEDIUM</td></tr>
 </table></div>
 <p>Album totals: 253 bells, 230 open hats, <b>0 rim clicks</b>, 1,389 ghosts, 697 flams, 226 crashes, 2,403 rides.</p>
-<div class="lead"><p><b>The 2,403 rides are a fallback label rather than a measurement.</b> <code>classify_cymbals</code> in <code>sd_lanes.py</code> opens with <code>out = ["ride"] * len(F)</code> and then overwrites only where a positive test fires, for a crash or for a bell. No branch ever writes ride, so every ride counted here is the initial value that survived. Of this album's 2,882 cymbal-lane notes, 479 carry a positive verdict and 2,403, which is 83.4%, carry the default. That is the same lane the table above marks untested, so those notes went out with neither an audio check nor a positive classification. Measured 2026-08-29, evidence in <code>~/Projects/_outputs/appleseed-cymbal-default-ride-2026-08-29-macbook/</code>.</p></div>
 <p><b>Track 04 nearly did not happen.</b> The album's separation script skipped it on the
 note "already has a published 6-stem set", and that pack carries bass, guitars, keys,
 metronome, other and vocals with <b>no drums file at all</b>. A drums stem does exist,
