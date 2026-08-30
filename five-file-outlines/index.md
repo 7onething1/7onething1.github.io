@@ -1,5 +1,7 @@
 # Five File Outlines
 
+**Second pass, 29 August 2026.** These outlines describe the files, so none of it is postable on its own. The claims are pulled out into 99 standalone, cited facts at https://7onething1.github.io/five-file-tweetables/
+
 Triage and outlines for five mixed source files. Built 29 August 2026.
 
 ## What each file is
