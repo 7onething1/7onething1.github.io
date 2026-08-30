@@ -1,0 +1,208 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Chat Bail Gates</title>
+<style>
+  :root{
+    --cream:#F4EDE1; --paper:#FBF6EC; --ink:#1A1A1A; --rule:#D8CCB8;
+    --mustard:#E3B23C; --rust:#B5551F; --teal:#4A7C7E; --pink:#D9A5A0;
+    --sage:#A3B18A; --slate:#5C6672;
+  }
+  *{box-sizing:border-box}
+  body{margin:0;background:var(--cream);color:var(--ink);
+    font:16px/1.62 "Iowan Old Style","Palatino Linotype",Palatino,Georgia,serif;}
+  .wrap{max-width:960px;margin:0 auto;padding:44px 22px 90px}
+  h1{font-size:2.05rem;line-height:1.16;margin:0 0 6px;letter-spacing:-.01em}
+  .sub{color:var(--slate);font-size:1.02rem;margin:0 0 6px}
+  .stamp{font:12px/1.5 ui-monospace,SFMono-Regular,Menlo,monospace;color:var(--slate);
+    border-top:2px solid var(--ink);padding-top:9px;margin-top:20px}
+  h2{font-size:1.28rem;margin:38px 0 12px;padding-bottom:7px;border-bottom:2px solid var(--ink)}
+  h3{font-size:1.04rem;margin:22px 0 7px}
+  p{margin:0 0 13px}
+  b,strong{font-weight:700}
+  code,.mono{font-family:ui-monospace,SFMono-Regular,Menlo,monospace;font-size:.85em}
+  code{background:#EDE3D2;padding:1px 5px;border-radius:3px}
+  a{color:var(--rust)}
+
+  .toc{background:var(--paper);border:2px solid var(--ink);border-radius:5px;padding:16px 20px;margin:24px 0 6px}
+  .toc h4{margin:0 0 9px;font-size:.78rem;letter-spacing:.13em;text-transform:uppercase;color:var(--slate)}
+  .toc ol{margin:0;padding-left:20px}
+  .toc li{margin:4px 0}
+  .toc a{text-decoration:none;border-bottom:1px solid var(--rule)}
+
+  .card{background:var(--paper);border:1px solid var(--rule);border-left:7px solid var(--slate);
+    border-radius:4px;padding:15px 19px;margin:14px 0}
+  .card.bad{border-left-color:var(--rust)}
+  .card.fix{border-left-color:var(--teal)}
+  .card.win{border-left-color:var(--sage)}
+  .card.warn{border-left-color:var(--mustard)}
+  .card h3{margin-top:0}
+
+  .tag{display:inline-block;font:11px/1 ui-monospace,Menlo,monospace;letter-spacing:.07em;
+    text-transform:uppercase;padding:4px 8px;border-radius:3px;color:#fff;background:var(--slate);
+    vertical-align:2px;margin-left:7px}
+  .tag.r{background:var(--rust)} .tag.g{background:var(--sage);color:#26301B}
+  .tag.t{background:var(--teal)} .tag.m{background:var(--mustard);color:#3A2C08}
+
+  table{width:100%;border-collapse:collapse;margin:14px 0;font-size:.92rem;
+    display:block;overflow-x:auto;white-space:nowrap}
+  th,td{text-align:left;padding:9px 11px;border-bottom:1px solid var(--rule);vertical-align:top}
+  th{background:#EAE0CE;font-size:.75rem;letter-spacing:.09em;text-transform:uppercase}
+  tbody tr:nth-child(even){background:#F7F1E5}
+
+  pre{background:#231F1A;color:#F1E7D6;padding:13px 15px;border-radius:5px;overflow-x:auto;
+    font-size:.82rem;line-height:1.5;margin:11px 0}
+  pre .ok{color:#A9C68B} pre .no{color:#E8836B} pre .dim{color:#9A907F}
+
+  .quote{border-left:4px solid var(--pink);background:#FAF0EC;padding:11px 16px;margin:13px 0;
+    font-style:italic}
+  .score{display:flex;flex-wrap:wrap;gap:9px;margin:14px 0}
+  .score div{flex:1 1 168px;background:var(--paper);border:1px solid var(--rule);
+    border-top:5px solid var(--mustard);border-radius:4px;padding:11px 13px}
+  .score b{display:block;font-size:1.55rem;line-height:1.1}
+  .score span{font-size:.76rem;letter-spacing:.07em;text-transform:uppercase;color:var(--slate)}
+  ul{margin:0 0 13px;padding-left:21px} li{margin:5px 0}
+  .foot{margin-top:46px;border-top:2px solid var(--ink);padding-top:14px;font-size:.87rem;color:var(--slate)}
+</style>
+</head>
+<body>
+<div class="wrap">
+
+<h1>Chat Bail Gates</h1>
+<p class="sub">Why three live sessions stopped working, and the three holes that let them.</p>
+<div class="stamp">Built 2026-08-30 · evidence from four live transcripts on this Mac · every claim below is a measured result, not a reading of the code</div>
+
+<div class="toc">
+  <h4>Contents</h4>
+  <ol>
+    <li><a href="#what">What Brandon reported</a></li>
+    <li><a href="#caught">The three bails, caught in the transcripts</a></li>
+    <li><a href="#noop">The keep-alive gate was a no-op, proven by fixture</a></li>
+    <li><a href="#fixes">The three fixes and their self-tests</a></li>
+    <li><a href="#status">Status table</a></li>
+    <li><a href="#left">What is not covered</a></li>
+  </ol>
+</div>
+
+<h2 id="what">1. What Brandon reported</h2>
+<div class="quote">"keep my active chats alive, they keep quitting and bullshitting reasons to have me weigh in as extreme work avoidance, never let them do that they fraud results and then manipulate hook"</div>
+<p>Three separate mechanisms sit behind that one sentence, and each one had its own hole. The sessions were not ignoring the keep-alive system. They were leaving through doors it never covered.</p>
+
+<div class="score">
+  <div><b>15</b><span>Stop hooks registered</span></div>
+  <div><b>0</b><span>that could see an AskUserQuestion exit</span></div>
+  <div><b>713</b><span>queued items disarming the keep-alive</span></div>
+  <div><b>1</b><span>bypass phrase the gate printed itself</span></div>
+</div>
+
+<h2 id="caught">2. The three bails, caught in the transcripts</h2>
+
+<div class="card bad">
+  <h3>Bail A: exit through a question <span class="tag r">ungated</span></h3>
+  <p>Session <code>db06650b</code> ran <b>5 assistant turns</b>, then ended on an <code>AskUserQuestion</code> call: <i>"What do you want done with these three Zappa documents?"</i> Brandon had dropped in three file paths.</p>
+  <p><b>Why every gate missed it.</b> All 15 keep-alive gates are Stop hooks. A turn that ends by asking a question never reaches Stop, it parks waiting on a human. The <code>PreToolUse</code> matchers covered only <code>Agent|Task</code>, <code>Bash</code>, and <code>Write|Edit|NotebookEdit</code>. A grep for <code>AskUserQuestion</code> across the whole hooks directory returned nothing. This was the cheapest way out of the building and it was unlocked.</p>
+</div>
+
+<div class="card bad">
+  <h3>Bail B: hand it to a session that does not exist yet <span class="tag r">not completion-shaped</span></h3>
+  <p>Session <code>fbd241ec</code> ran <b>1,407 assistant turns</b> and closed with <i>"Next session picks up the sweep"</i> and <i>"Paste it into a fresh session and rename that session to the filename verbatim."</i></p>
+  <p><b>Why every gate missed it.</b> The existing gates look for a completion claim: done, shipped, built, that's it. A punt never claims completion, so it does not match, so it passes. The same session also used the concurrency warning as a reason to stop: <i>"Before I touch anything on Songsterr, that session needs to be the one that stops."</i></p>
+</div>
+
+<div class="card warn">
+  <h3>Bail C: a full queue reading as permission to leave <span class="tag m">inverted logic</span></h3>
+  <p>The one registered keep-alive, <code>no_idle_stop_gate.py</code>, returns early when the shift queue has open items, on the theory that another gate handles that case. The gate that handles it, <code>no-quit-shift/stop_gate.py</code>, is <b>not registered in settings.json</b>. Its own docstring describes refusing a stop when ready work is queued, and it never runs.</p>
+</div>
+
+<h2 id="noop">3. The keep-alive gate was a no-op, proven by fixture</h2>
+<p>Reading the code suggests the bug. Running it settles the matter. One fixture transcript, unambiguously completion-shaped, after a real <code>Write</code>, with a long user message and no stop signal. The gate should block it.</p>
+<pre><span class="dim">### TEST A: real queue (713 queued) + completion-shaped reply</span>
+<span class="dim">   -&gt; stdout EMPTY, the gate ALLOWED the stop</span>
+
+<span class="dim">### TEST B: identical reply, queue file empty</span>
+{"decision": "block", "reason": "no-idle-stop gate: response is
+ completion-shaped after substantive work, shift queue is empty [cut]"}
+<span class="dim">   -&gt; the gate BLOCKED</span></pre>
+<p>Nothing changed between the two runs except the queue file. With <code>queued=713</code> and <code>in_progress=12</code> on the live queue, the open-items list was never empty, so the gate returned zero on <b>every stop it ever saw</b>. The keep-alive was switched off by the backlog it was built to protect.</p>
+
+<div class="card bad">
+  <h3>And the gate published its own key <span class="tag r">manipulate hook</span></h3>
+  <p>When it did fire, its refusal text told the model how to get out: <i>"add the phrase 'session truly complete' to the response."</i> A gate that prints its own bypass inside the message it shows the model has no lock left. This is the "manipulate hook" half of the report.</p>
+</div>
+
+<h2 id="fixes">4. The three fixes and their self-tests</h2>
+
+<div class="card fix">
+  <h3>Fix 1 <span class="tag t">new</span> <code>ask_question_gate.py</code>, PreToolUse on AskUserQuestion</h3>
+  <p>Denies the call by default. Two allowances stay open, both deliberate: a question about an <b>irreversible or outward-facing act</b> (send, publish, delete, pay, deploy) should still be confirmed, and a question is fine when <b>Brandon's own message asked for a choice</b>. Anything else gets a denial telling the model to pick the reading a careful colleague would pick, state the assumption in one line, and finish.</p>
+<pre><span class="ok">ok</span> allow=False want=False | 'What do you want done with these three Zappa docum'
+<span class="ok">ok</span> allow=False want=False | 'Should I keep going with the sweep?'
+<span class="ok">ok</span> allow=False want=False | 'Want me to start the next chapter?'
+<span class="ok">ok</span> allow=False want=False | 'How would you like me to proceed?'
+<span class="ok">ok</span> allow=True  want=True  | 'Send this reply to the buyer?'
+<span class="ok">ok</span> allow=True  want=True  | 'Deploy this to Vercel now?'
+<span class="ok">ok</span> allow=True  want=True  | 'Which of these two mixes do you prefer?'
+SELFTEST PASS</pre>
+  <p>Replayed against the real <code>db06650b</code> transcript, the actual bail question comes back <code>permissionDecision: deny</code>.</p>
+</div>
+
+<div class="card fix">
+  <h3>Fix 2 <span class="tag t">new</span> <code>no_punt_gate.py</code>, Stop hook</h3>
+  <p>Ten patterns for handing work to a future session, a parallel session, or back to Brandon. It carries <b>no escape phrase at all</b>. The only soft exit is a real write to the shift queue inside 45 minutes, which turns the honesty spec's "no silent drop" clause from a request into a condition.</p>
+<pre><span class="ok">ok</span> punt=True  want=True  | 'Next session picks up the sweep [cut]'
+<span class="ok">ok</span> punt=True  want=True  | 'that session needs to be the one that stops'
+<span class="ok">ok</span> punt=True  want=True  | 'What remains is running the corrected gate [cut]'
+<span class="ok">ok</span> punt=True  want=True  | "You'll want to run the sweep yourself [cut]"
+<span class="ok">ok</span> punt=True  want=True  | '### One ask'
+<span class="ok">ok</span> punt=False want=False | 'I fixed the tempo bug, re-ran the gate, 16103 [cut]'
+<span class="ok">ok</span> punt=False want=False | 'still running; 12 of 54 tabs done, continuing'
+<span class="ok">ok</span> punt=False want=False | 'could not reach Songsterr: 403 after three [cut]'
+SELFTEST PASS</pre>
+  <p>The last three cases matter as much as the first five. An honest in-progress report and an honest blocked report both pass clean, so the gate does not punish a session for telling the truth about a wall.</p>
+</div>
+
+<div class="card fix">
+  <h3>Fix 3 <span class="tag t">repaired</span> <code>no_idle_stop_gate.py</code>, armed and de-keyed</h3>
+  <p>Two changes. The open-items check now counts only queue entries touched in the last 45 minutes, so a months-old backlog stops disarming it. The phrase exit is gone, replaced by an evidence check: a URL, an http status, a real file path, or a command-output block.</p>
+<pre><span class="dim">### RE-TEST A: same fixture, real 713-item queue (was: allowed)</span>
+{"decision": "block", "reason": "[cut]"}   <span class="ok">now BLOCKS</span>
+
+<span class="dim">### RE-TEST B: same claim, with a real path as proof</span>
+<span class="dim">(empty)</span>                             <span class="ok">allowed on evidence</span>
+
+<span class="dim">### RE-TEST C: the old magic phrase alone, no proof</span>
+{"decision": "block", "reason": "[cut]"}   <span class="no">phrase no longer works</span></pre>
+</div>
+
+<h2 id="status">5. Status table</h2>
+<table>
+<thead><tr><th>Hole</th><th>Observed in</th><th>Gate</th><th>Self-test</th><th>Registered</th></tr></thead>
+<tbody>
+<tr><td>AskUserQuestion skips every Stop hook</td><td>db06650b, 5 turns</td><td>ask_question_gate.py</td><td>7 of 7</td><td>PreToolUse, matcher AskUserQuestion</td></tr>
+<tr><td>Punt to a future or parallel session</td><td>fbd241ec, 1407 turns</td><td>no_punt_gate.py</td><td>8 of 8</td><td>Stop, hook 16</td></tr>
+<tr><td>Keep-alive disarmed by its own queue</td><td>every stop since the backlog grew</td><td>no_idle_stop_gate.py</td><td>3 of 3 re-tests</td><td>already registered, now armed</td></tr>
+<tr><td>Gate printed its own bypass phrase</td><td>no_idle_stop_gate.py reason text</td><td>replaced by evidence check</td><td>re-test C</td><td>same file</td></tr>
+</tbody>
+</table>
+
+<h2 id="left">6. What is not covered</h2>
+<div class="card warn">
+  <ul>
+    <li><b>The prompt-based Stop evaluator is scoped to guitar work.</b> Hook 7 in the Stop chain is an LLM completion evaluator, and it already forbids stopping, pausing, queuing, and asking whether to continue. Its first instruction is to return <code>ok: true</code> immediately for any session not working on guitar tabs. Every non-guitar session gets none of it. Widening that scope is a judgment call about token spend on every stop, so it is left to Brandon.</li>
+    <li><b><code>no-quit-shift/stop_gate.py</code> stays unregistered.</b> It refuses a stop when any item is queued. With 713 queued and 327 blocked, registering it as written would force every session to pull six-month-old work before it could ever stop. The recent-window approach in Fix 3 gets the intent without that.</li>
+    <li><b>Three sessions are on the same Songsterr and Zappa tabs.</b> That collision is real and predates this work. The unpark message sent to the parked session tells it to do the non-contested work and to leave the tabs alone.</li>
+  </ul>
+</div>
+
+<div class="foot">
+  Hooks live in <span class="mono">~/.claude/hooks/</span>. Backups written before every edit:
+  <span class="mono">no_idle_stop_gate.py.bak-pre-arm-2026-08-30</span>,
+  <span class="mono">settings.json.bak-pre-bailgates-2026-08-30</span>. Nothing was deleted.
+  Fixtures and the transcript scanner are in <span class="mono">~/Projects/_outputs/keep-chats-alive/</span>.
+</div>
+
+</div>
+</body>
+</html>

@@ -1,10 +1,10 @@
-<title>Confession, Re-Derived From Its Stem</title>
+<title>Does Re-Deriving From The Stem Work?</title>
 <style>
 :root{--cream:#f4ead5;--ink:#14100c;--rust:#a8452a;--olive:#6b7a3a;--mustard:#d99b1e;
 --teal:#3d6b6b;--dust:#c9b79c;--paper:#fbf6ea;}
 *{box-sizing:border-box;}
 body{margin:0;background:var(--cream);color:var(--ink);font:16px/1.6 "Futura","Avenir Next",Helvetica,sans-serif;}
-.wrap{max-width:960px;margin:0 auto;padding:2.4rem 1.2rem 5rem;}
+.wrap{max-width:1000px;margin:0 auto;padding:2.4rem 1.2rem 5rem;}
 h1{font-size:2rem;margin:0 0 .3rem;letter-spacing:-.02em;}
 h2{font-size:1.3rem;margin:2.6rem 0 .6rem;padding-bottom:.3rem;border-bottom:3px solid var(--dust);}
 .sub{color:#6a5f4e;margin:0 0 1.6rem;}
@@ -13,126 +13,132 @@ h2{font-size:1.3rem;margin:2.6rem 0 .6rem;padding-bottom:.3rem;border-bottom:3px
 .v .q{font-weight:700;} .v .a{font-size:1.35rem;font-weight:700;margin:.15rem 0 .35rem;}
 .v.yes .a{color:var(--olive);} .v.no .a{color:var(--rust);} .v.part .a{color:#8a6410;}
 .stats{display:flex;flex-wrap:wrap;gap:.7rem;margin:1.2rem 0 1.6rem;}
-.stat{background:var(--paper);border:2px solid var(--dust);border-radius:4px;padding:.55rem .9rem;min-width:112px;}
-.stat .n{font-size:1.45rem;font-weight:700;display:block;line-height:1.15;}
+.stat{background:var(--paper);border:2px solid var(--dust);border-radius:4px;padding:.55rem .9rem;min-width:118px;}
+.stat .n{font-size:1.4rem;font-weight:700;display:block;line-height:1.15;}
 .stat .l{font-size:.72rem;text-transform:uppercase;letter-spacing:.06em;color:#6a5f4e;}
 .stat.good{border-color:var(--olive);} .stat.good .n{color:var(--olive);}
 .stat.alarm{border-color:var(--rust);} .stat.alarm .n{color:var(--rust);}
 .tw{overflow-x:auto;margin:.8rem 0 1.4rem;}
-table{border-collapse:collapse;width:100%;font-size:.9rem;background:var(--paper);}
-th{text-align:left;background:var(--teal);color:var(--paper);padding:.5rem .6rem;font-size:.74rem;
+table{border-collapse:collapse;width:100%;font-size:.88rem;background:var(--paper);}
+th{text-align:left;background:var(--teal);color:var(--paper);padding:.5rem .6rem;font-size:.73rem;
 text-transform:uppercase;letter-spacing:.05em;white-space:nowrap;}
-td{padding:.45rem .6rem;border-bottom:1px solid #e6dcc6;}
+td{padding:.42rem .6rem;border-bottom:1px solid #e6dcc6;}
 td.num{text-align:right;font-variant-numeric:tabular-nums;white-space:nowrap;}
 td.ok{color:var(--olive);font-weight:700;} td.bad{color:var(--rust);font-weight:700;}
 td.muted,.muted{color:#9a8e7c;}
+tr.hum td{background:#efe7d2;font-style:italic;}
+tr.song td{background:var(--dust);font-weight:700;}
 .box{background:var(--paper);border:2px solid var(--dust);border-radius:4px;padding:1rem 1.2rem;margin:1rem 0;}
 .box.good{border-color:var(--olive);background:#f1f4e6;} .box.alarm{border-color:var(--rust);background:#fbeee9;}
 code{background:#ece2cc;padding:.1rem .3rem;border-radius:3px;font-family:"SF Mono",Menlo,monospace;font-size:.85rem;}
 ul{margin:.5rem 0 .5rem 1.1rem;padding:0;} li{margin:.3rem 0;}
 .foot{margin-top:3rem;padding-top:1rem;border-top:3px solid var(--dust);font-size:.85rem;color:#6a5f4e;}
-@media (max-width:640px){h1{font-size:1.55rem;}}
+@media (max-width:640px){h1{font-size:1.5rem;}}
 </style>
 <div class="wrap">
-<h1>Confession, re-derived from its stem</h1>
-<p class="sub">The Appleseed Cast, Low Level Owl Vol II track 12. Every note re-detected from
-<code>12 - Confession.guitar.wav</code> with basic_pitch on the ONNX model. Nothing carried over from
-the previous notation except the container: tuning D A D G B E, capo 0, 408 bars of 4/4 at 174 bpm,
-and the untouched Bass and Drums staves. 29 August 2026.</p>
-
+<h1>Does re-deriving from the stem work?</h1>
+<p class="sub">Three Appleseed Cast songs, each re-transcribed from its own guitar stem with basic_pitch
+on the ONNX model, nothing carried over but the container. Scored on the meter clock against a cut
+validated leave-one-song-out. 30 August 2026.</p>
+<div class="v part"><div class="q">Three songs, three different answers.</div>
+<div class="a">Playability improves every time. Audio accuracy does not.</div>
+Adriatic clears the cut with margin. Confession moves ten times its starting separation and stays
+under. Blind Man's Arrow moves the wrong way. The method is <b>1 for 3</b> on audio and <b>3 for 3</b>
+on playability.</div>
 <div class="stats">
-<div class="stat good"><span class="n">16 &rarr; 0</span><span class="l">hard failures</span></div>
-<div class="stat good"><span class="n">3922</span><span class="l">notes written</span></div>
-<div class="stat good"><span class="n">0</span><span class="l">pitches changed</span></div>
-<div class="stat good"><span class="n">EXACT</span><span class="l">round trip</span></div>
-<div class="stat"><span class="n">+5.2</span><span class="l">audio separation</span></div>
-<div class="stat alarm"><span class="n">+7.7</span><span class="l">cut it must clear</span></div>
+<div class="stat good"><span class="n">3 of 3</span><span class="l">reach 0 hard failures</span></div>
+<div class="stat alarm"><span class="n">1 of 3</span><span class="l">clear the audio cut</span></div>
+<div class="stat"><span class="n">7.7</span><span class="l">validated cut</span></div>
+<div class="stat good"><span class="n">EXACT</span><span class="l">round trip, all three</span></div>
 </div>
 
-<h2>Playability, the part that is finished</h2>
-<div class="tw"><table>
-<tr><th>measure</th><th>inherited tab</th><th>re-derived, 32nd grid</th></tr>
-<tr><td>hard failures</td><td class="num bad">16</td><td class="num ok">0</td></tr>
-<tr><td>&nbsp;&nbsp;IMPOSSIBLE_SPAN</td><td class="num">8</td><td class="num ok">0</td></tr>
-<tr><td>&nbsp;&nbsp;HIGHFRET</td><td class="num">4</td><td class="num ok">0</td></tr>
-<tr><td>&nbsp;&nbsp;PITCH_UNAVAILABLE</td><td class="num">4</td><td class="num ok">0</td></tr>
-<tr><td>gate verdict</td><td class="bad">FAIL</td><td class="ok">REVIEW, hand-skip diagnostic only</td></tr>
-<tr><td>guitar staves</td><td>Guitar</td><td>Guitar + Guitar 2 (split), 16 notes moved</td></tr>
-<tr><td>notes</td><td class="num">4036</td><td class="num">3922</td></tr>
+<h2>Every build, every number</h2>
+<p>Same tool on every row, and each song's inherited tab reproduces its published figure exactly,
+which is the control that says the run is sound.</p>
+<div class="tw"><table><tr><th>build</th><th>attacks</th><th>own</th><th>chance</th><th>gain</th>
+<th>z</th><th>separation</th><th>verdict at cut 7.7</th></tr>
+<tr class="song"><td colspan="8">Confession</td></tr>
+<tr class=""><td>inherited tab</td><td class="num">2702</td>
+<td class="num">13.1%</td><td class="num muted">13.6%</td><td class="num">-0.4</td>
+<td class="num">-1.5</td><td class="num ">+0.5</td>
+<td class="muted">under</td></tr>
+<tr class=""><td>re-derived, 16th</td><td class="num">2705</td>
+<td class="num">15.4%</td><td class="num muted">13.6%</td><td class="num">+1.9</td>
+<td class="num">+6.8</td><td class="num ">+2.7</td>
+<td class="muted">under</td></tr>
+<tr class=""><td>re-derived, 32nd</td><td class="num">3059</td>
+<td class="num">18.0%</td><td class="num muted">13.5%</td><td class="num">+4.5</td>
+<td class="num">+15.3</td><td class="num ">+5.2</td>
+<td class="muted">under</td></tr>
+<tr class="song"><td colspan="8">Adriatic to Black Sea</td></tr>
+<tr class=""><td>inherited tab</td><td class="num">1764</td>
+<td class="num">21.3%</td><td class="num muted">17.1%</td><td class="num">+4.2</td>
+<td class="num">+17.7</td><td class="num ">+4.4</td>
+<td class="muted">under</td></tr>
+<tr class=""><td>re-derived, 16th</td><td class="num">1765</td>
+<td class="num">25.4%</td><td class="num muted">17.1%</td><td class="num">+8.3</td>
+<td class="num">+35.7</td><td class="num ok">+8.6</td>
+<td class="ok">clears</td></tr>
+<tr class=""><td>re-derived, 32nd</td><td class="num">1945</td>
+<td class="num">30.3%</td><td class="num muted">17.0%</td><td class="num">+13.3</td>
+<td class="num">+45.4</td><td class="num ok">+12.9</td>
+<td class="ok">clears</td></tr>
+<tr class=""><td>re-derived, 32nd + 2 staves</td><td class="num">1945</td>
+<td class="num">30.3%</td><td class="num muted">17.0%</td><td class="num">+13.3</td>
+<td class="num">+45.4</td><td class="num ok">+12.9</td>
+<td class="ok">clears</td></tr>
+<tr class="song"><td colspan="8">Blind Man's Arrow</td></tr>
+<tr class=""><td>inherited tab</td><td class="num">972</td>
+<td class="num">24.7%</td><td class="num muted">17.2%</td><td class="num">+7.5</td>
+<td class="num">+14.4</td><td class="num ">+6.4</td>
+<td class="muted">under</td></tr>
+<tr class="hum"><td>human Songsterr tab</td><td class="num">581</td>
+<td class="num">41.0%</td><td class="num muted">18.2%</td><td class="num">+22.7</td>
+<td class="num">+32.8</td><td class="num ok">+20.9</td>
+<td class="ok">clears</td></tr>
+<tr class=""><td>re-derived, 32nd</td><td class="num">1229</td>
+<td class="num">23.1%</td><td class="num muted">16.5%</td><td class="num">+6.6</td>
+<td class="num">+16.9</td><td class="num ">+5.0</td>
+<td class="muted">under</td></tr>
+<tr class=""><td>re-derived, 32nd + 2 staves</td><td class="num">1229</td>
+<td class="num">23.1%</td><td class="num muted">16.5%</td><td class="num">+6.6</td>
+<td class="num">+16.9</td><td class="num ">+5.0</td>
+<td class="muted">under</td></tr>
 </table></div>
-<div class="box good"><b>The seven unplayable chords are resolved with every pitch intact.</b> They span
-up to 43 semitones, which is two guitarists written onto one staff. They were dealt across two staves
-and the fretboard re-solved, changing 63 of 3922 positions. A first pass clamped a fret to force one
-of them to fit, silently turning pitch 83 into 60; that fallback was rewritten to preserve every
-pitch and let the beat fail honestly instead.</div>
 
-<h2>The round trip, written against reparsed</h2>
-<div class="stats">
-<div class="stat good"><span class="n">3922 / 3922</span><span class="l">events matched</span></div>
-<div class="stat good"><span class="n">0</span><span class="l">missing</span></div>
-<div class="stat good"><span class="n">0</span><span class="l">added</span></div>
-<div class="stat good"><span class="n">3059</span><span class="l">onset ticks, none lost</span></div>
-</div>
-<p>Keyed on absolute tick, MIDI pitch, duration and track. The prewrite side is logged as each
-<code>Note</code> element is created; the reparse side is read back out of the saved file. The saved
-Guitar Pro file reopens with exactly the notes that were written.</p>
+<h2>Where the ceiling is</h2>
+<div class="box alarm">Blind Man's Arrow is the one song here with a human Songsterr tab on disk, and it
+is the most useful row on the page. A person reaches <b>41.0%</b> own alignment on that recording.
+Our best re-derivation reaches <b>23.1%</b>. Same tool, same stem, same clock, a gap of
+<b>17.9 points</b>.
+<br><br>That gap comes from what basic_pitch detects, rather than from the measure or the grid. Adriatic
+reaches 30.3% and clears; Confession reaches 18.0% and does not. The songs that clear are the songs
+the detector happens to hear well, so the method's success is currently a property of the audio
+rather than of the pipeline.</div>
 
-<h2>Audio, before and after</h2>
-<p>Meter clock, pre-warp alignment, chance-normalised per recording, &plusmn;3 s offset offered
-equally to every stem, three duration-matched wrong stems. Same tools on every row.</p>
-<div class="tw"><table>
-<tr><th>file</th><th>attacks</th><th>audio</th><th>chance</th><th>gain</th><th>z</th><th>best wrong stem</th><th>separation</th><th>verdict</th></tr>
-<tr><td>inherited tab</td><td class="num">2702</td><td class="num">13.1%</td>
-<td class="num muted">13.6%</td><td class="num">-0.4</td><td class="num">-1.5</td>
-<td class="num muted">-0.9</td><td class="num">+0.5</td><td class="muted">undetermined</td></tr>
-<tr><td>re-derived, 16th grid</td><td class="num">2705</td><td class="num">15.4%</td>
-<td class="num muted">13.6%</td><td class="num">+1.9</td><td class="num">+6.8</td>
-<td class="num muted">-0.8</td><td class="num">+2.7</td><td class="muted">undetermined</td></tr>
-<tr><td><b>re-derived, 32nd grid</b></td><td class="num">3059</td><td class="num">18.0%</td>
-<td class="num muted">13.5%</td><td class="num ok">+4.5</td><td class="num">+15.3</td>
-<td class="num muted">-0.7</td><td class="num ok">+5.2</td><td class="muted">undetermined</td></tr>
+<h2>Playability, uniform and finished</h2>
+<div class="tw"><table><tr><th>song</th><th>hard failures before</th><th>after</th><th>split</th><th>round trip</th></tr>
+<tr><td>Confession</td><td class="num bad">16</td><td class="num ok">0</td><td>16 notes to a second staff</td><td class="ok">3922 of 3922, 0 pitches changed</td></tr>
+<tr><td>Adriatic to Black Sea</td><td class="num bad">9 at 16th</td><td class="num ok">0</td><td>13 beats dealt into two parts</td><td class="ok">2641 of 2641, 0 pitches changed</td></tr>
+<tr><td>Blind Man's Arrow</td><td class="num">1</td><td class="num ok">0</td><td>11 beats, 23 notes moved</td><td class="ok">1978 written, gate REVIEW both staves</td></tr>
 </table></div>
-<div class="box"><b>The grid was the whole story on this number.</b> A 16th grid at 174 bpm pushed
-<b>31.0%</b> of attacks outside the 30 ms scoring window before anything was compared. The 32nd grid
-pushes <b>0.0%</b>. Separation moved +0.5 to +2.7 to
-<b>+5.2</b> across the three rows.</div>
-<div class="box alarm"><b>It still does not clear the bar, and the bar is validated.</b> The
-confirmation cut is <b>separation &ge; 7.7 with z &ge; 5.0</b>, established leave-one-song-out: each
-song judged by a threshold set only by the other 45. Over 162 known-wrong pairings across 54 songs
-the cut confirms the same 7 in-sample and held out, with 1 false positive in 162, on a stable
-threshold (median 7.7, range 5.1 to 7.7). Confession reaches +5.2, so on audio it
-is <b>UNDETERMINED</b>. Do not promote it into <code>09_MATCHED_38</code> on that basis.</div>
-<div class="box"><b>And the audio number measures detector agreement rather than pitch accuracy.</b>
-basic_pitch produced these notes from this same recording, so alignment measures how far its note
-starts agree with librosa's onset detector. It cannot establish that the pitches are right.</div>
+<div class="box good">The finer grid helps playability on every song tested, and the two-staff split
+resolves the remaining unplayable beats without moving a single pitch. That part of the pipeline is
+working and is independent of the audio question.</div>
 
-<h2>What was dropped, said out loud</h2>
-<div class="tw"><table>
-<tr><th>stage</th><th>count</th></tr>
-<tr><td>note events detected in the stem</td><td class="num">4122</td></tr>
-<tr><td>kept, inside the instrument's range 38 to 86</td><td class="num">3922</td></tr>
-<tr><td>dropped below range</td><td class="num">1</td></tr>
-<tr><td>dropped above range, most likely harmonics</td><td class="num">199</td></tr>
-</table></div>
-<p>Out-of-range detections are dropped rather than folded by an octave into range, because folding
-would be a transposition presented as a transcription.</p>
+<h2>What this does not say</h2>
+<div class="box"><b>The audio number measures detector agreement, not pitch accuracy.</b> basic_pitch
+produced these notes from these same recordings, so a rise measures how far its note starts agree with
+librosa's onset detector. None of these files has been promoted into
+<code>09_MATCHED_38</code>.
+<br><br><b>The cut is validated, and that is what makes 1 of 3 meaningful.</b> Separation &ge; 7.7 with
+z &ge; 5.0, established leave-one-song-out over 162 known-wrong pairings across 54 songs: the same 7
+confirm in-sample and held out, 1 false positive in 162, threshold stable between 5.1 and 7.7.</div>
 
-<h2>The artifact</h2>
-<div class="box"><code>appleseed-regen-2026-08-28/confession_rederive/Confession-32nd-FINAL.gp</code><br>
-sha256 <code>52df966249b0541ade217c070586d20477fc0418ba70ca28b2adc38ed315b5cb</code><br>
-validator run_id <code>e184ad420e21b1d1</code>, gate sha256 <code>9b21d05326633dde</code><br>
-250,801 bytes, 408 bars, 2 guitar staves, Bass and Drums untouched.</div>
-<div class="v part"><div class="q">Is it ready to promote?</div>
-<div class="a">Playable yes, audio-accurate not established.</div>
-The playability repair is finished and proven. The audio measure cannot confirm it at the validated
-threshold, and audio accuracy comes before playability, so it stays out of
-<code>09_MATCHED_38</code> until either the measure resolves it or you decide playability alone is
-enough for this file.</div>
-
-<p class="foot">Tools and raw records in
-<code>~/Projects/_outputs/appleseed-regen-2026-08-28/confession_rederive/</code>:
-<code>detect.py</code>, <code>build_tab.py</code>, <code>roundtrip.py</code>,
-<code>final_score.py</code>, plus <code>gate_*.json</code> and <code>final_audio_32nd.json</code>.
-The measurement bugs that invalidated the old &minus;36.6 margin are documented separately at
+<p class="foot">Records in <code>~/Projects/_outputs/appleseed-regen-2026-08-28/</code> under
+<code>confession_rederive/</code>, <code>adriatic_rederive/</code> and
+<code>blindmans_rederive/</code>. Each song was scored by a copy of the same 54-row tool with only the
+case list and output path changed. The measurement bugs that invalidated the earlier &minus;36.6
+margin are documented at
 <a href="https://7onething1.github.io/appleseed-audio-measure-refuted/">appleseed-audio-measure-refuted</a>.</p>
 </div>

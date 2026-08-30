@@ -1,53 +1,48 @@
-# Confession, re-derived from its stem
+# Does re-deriving from the stem work?
 
-The Appleseed Cast, Low Level Owl Vol II track 12. Every note re-detected from
-`12 - Confession.guitar.wav` with basic_pitch on the ONNX model. Nothing carried over from the
-previous notation except the container: tuning D A D G B E, capo 0, 408 bars of 4/4 at 174 bpm, and
-the untouched Bass and Drums staves.
+Three Appleseed Cast songs re-transcribed from their own guitar stems with basic_pitch on the ONNX
+model, nothing carried over but the container. Scored on the meter clock against a cut validated
+leave-one-song-out (separation >= 7.7 with z >= 5.0).
 
-## Playability, finished
+## Answer: 1 of 3 on audio, 3 of 3 on playability
 
-| measure | inherited tab | re-derived, 32nd grid |
-|---|---|---|
-| hard failures | 16 | **0** |
-| IMPOSSIBLE_SPAN | 8 | 0 |
-| HIGHFRET | 4 | 0 |
-| PITCH_UNAVAILABLE | 4 | 0 |
-| gate verdict | FAIL | REVIEW, hand-skip diagnostic only |
-| guitar staves | Guitar | Guitar + Guitar 2 (split), 16 notes moved |
-
-The seven unplayable chords span up to 43 semitones, which is two guitarists on one staff. Dealt
-across two staves with the fretboard re-solved, 63 of 3922 positions changed, every pitch intact.
-
-## Round trip, written against reparsed
-
-3922 of 3922 events matched, 0 missing, 0 added, 0 pitches changed, 3059 onset ticks all preserved.
-Keyed on absolute tick, MIDI pitch, duration and track.
-
-## Audio, before and after
-
-| file | attacks | audio | chance | gain | z | best wrong stem | separation | verdict |
+| song | build | attacks | own | chance | gain | z | separation | at cut 7.7 |
 |---|---|---|---|---|---|---|---|---|
-| inherited tab | 2702 | 13.1% | 13.6% | -0.4 | -1.5 | -0.9 | +0.5 | undetermined |
-| re-derived, 16th grid | 2705 | 15.4% | 13.6% | +1.9 | +6.8 | -0.8 | +2.7 | undetermined |
-| **re-derived, 32nd grid** | 3059 | 18.0% | 13.5% | **+4.5** | +15.3 | -0.7 | **+5.2** | undetermined |
+| Confession | inherited tab | 2702 | 13.1% | 13.6 | -0.4 | -1.5 | **+0.5** | under |
+| Confession | re-derived, 16th | 2705 | 15.4% | 13.6 | +1.9 | +6.8 | **+2.7** | under |
+| Confession | re-derived, 32nd | 3059 | 18.0% | 13.5 | +4.5 | +15.3 | **+5.2** | under |
+| Adriatic to Black Sea | inherited tab | 1764 | 21.3% | 17.1 | +4.2 | +17.7 | **+4.4** | under |
+| Adriatic to Black Sea | re-derived, 16th | 1765 | 25.4% | 17.1 | +8.3 | +35.7 | **+8.6** | clears |
+| Adriatic to Black Sea | re-derived, 32nd | 1945 | 30.3% | 17.0 | +13.3 | +45.4 | **+12.9** | clears |
+| Adriatic to Black Sea | re-derived, 32nd + 2 staves | 1945 | 30.3% | 17.0 | +13.3 | +45.4 | **+12.9** | clears |
+| Blind Man's Arrow | inherited tab | 972 | 24.7% | 17.2 | +7.5 | +14.4 | **+6.4** | under |
+| Blind Man's Arrow | human Songsterr tab | 581 | 41.0% | 18.2 | +22.7 | +32.8 | **+20.9** | clears |
+| Blind Man's Arrow | re-derived, 32nd | 1229 | 23.1% | 16.5 | +6.6 | +16.9 | **+5.0** | under |
+| Blind Man's Arrow | re-derived, 32nd + 2 staves | 1229 | 23.1% | 16.5 | +6.6 | +16.9 | **+5.0** | under |
 
-A 16th grid at 174 bpm pushed 31.0% of attacks outside the 30 ms window before anything was
-compared. The 32nd grid pushes 0.0%.
+## Where the ceiling is
 
-The confirmation cut is separation >= 7.7 with z >= 5.0, established leave-one-song-out over 162
-known-wrong pairings across 54 songs: the same 7 confirm in-sample and held out, 1 false positive in
-162, threshold stable (median 7.7, range 5.1 to 7.7). Confession reaches +5.2, so
-on audio it is UNDETERMINED. Do not promote on that basis.
+Blind Man's Arrow is the one song with a human Songsterr tab on disk. A person reaches **41.0%** own
+alignment on that recording; our best re-derivation reaches **23.1%**. Same tool, same stem, same
+clock, a gap of **17.9 points**. That gap comes from what basic_pitch detects, rather than from the
+measure or the grid. Adriatic reaches 30.3% and clears; Confession reaches 18.0% and does not. The
+songs that clear are the songs the detector happens to hear well.
+
+## Playability, uniform
+
+| song | hard failures before | after | split | round trip |
+|---|---|---|---|---|
+| Confession | 16 | **0** | 16 notes to a second staff | 3922 of 3922, 0 pitches changed |
+| Adriatic to Black Sea | 9 at 16th | **0** | 13 beats dealt into two parts | 2641 of 2641, 0 pitches changed |
+| Blind Man's Arrow | 1 | **0** | 11 beats, 23 notes moved | 1978 written, gate REVIEW both staves |
+
+The finer grid helps playability on every song tested, and the two-staff split resolves the remaining
+unplayable beats without moving a pitch. That part is working and is independent of the audio question.
+
+## What this does not say
 
 The audio number measures detector agreement rather than pitch accuracy, since basic_pitch produced
-these notes from this same recording.
+these notes from these same recordings. Nothing is promoted into `09_MATCHED_38`.
 
-## Artifact
-
-`appleseed-regen-2026-08-28/confession_rederive/Confession-32nd-FINAL.gp`
-sha256 `52df966249b0541ade217c070586d20477fc0418ba70ca28b2adc38ed315b5cb`
-validator run_id `e184ad420e21b1d1`, gate sha256 `9b21d05326633dde`
-250,801 bytes, 408 bars, 2 guitar staves, Bass and Drums untouched.
-
-Playable yes, audio-accurate not established.
+Records in `~/Projects/_outputs/appleseed-regen-2026-08-28/` under `confession_rederive/`,
+`adriatic_rederive/` and `blindmans_rederive/`.
