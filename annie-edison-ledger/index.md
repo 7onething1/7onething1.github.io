@@ -2,7 +2,7 @@
 
 A transcript-grounded audit of one sitcom character's behaviour across all six seasons of *Community*.
 
-Third pass. Every claim resolved against a speaker-labeled transcript; nothing left unconfirmed. 60 entries: 43 confirmed verbatim, 14 new, 3 corrected. 10 claims thrown out, two of them my own prior findings.
+Every claim resolved against a speaker-labeled transcript and every quote machine-audited for who is speaking. 60 entries: 43 confirmed verbatim, 14 new, 3 corrected. 10 claims thrown out.
 
 ## Headline findings
 
@@ -10,10 +10,11 @@ Third pass. Every claim resolved against a speaker-labeled transcript; nothing l
 2. **She conspired with City College's dean.** "I called City College about transferring and the dean told me that he would get me in if I helped sabotage Greendale's launch."
 3. **Abed refuses to believe her confession.** "If that were true, you would've come forward a long time ago. You're lying to keep me out of danger."
 
-## Withdrawn from my own previous pass
+## Withdrawn or corrected against my own earlier work
 
-- **The chloroform was not hers.** Speaker-labeled transcript gives the line to Abed. The premeditation finding is withdrawn.
+- **The chloroform was not hers.** The line belongs to Abed. Premeditation finding withdrawn.
 - **The second chloroforming was not her plan.** Abed proposes it; she executes it.
+- **"Let's not leap to thing-doing" is Troy, not Annie.** Her real lines in that scene are worse: she deflects the inside-job inference and reinforces the invented necklace.
 - **The A-minus riot was justified.** Hickey coached Jeff to sabotage her grades. Her project was an A.
 
 ## The ledger
@@ -356,9 +357,9 @@ The invention is fluent, specific and instant. Prior pass had the false report b
 
 Lets Abed reason his way to the innocent landlord, plants the broken disc among his possessions, and declines to intervene.
 
-> The landlord did it. It all makes sense. Rick has keys to every apartment, means. / Oh, let's not leap to thing-doing.
+> Abed: Something doesn't add up. If there was no forced entry, it had to be an inside job. / Annie: We don't know that. / Abed: ...one piece of oddly ornate Hebrew-themed jewelry? / Annie: Nana gave it. / Abed: The landlord did it. It all makes sense. Rick has keys to every apartment. Means. / Troy: Oh, let's not leap to thing-doing. Right, Annie? / Annie: Aaah?
 
-An innocent man is framed to protect a lie about a disc.
+CORRECTED against my own pass: 'let's not leap to thing-doing' is Troy prompting her, not Annie. Her real contributions are worse. She deflects the inside-job inference and reinforces the invented necklace, then answers Troy's opening with a non-answer while an innocent man is framed.
 
 ### S3E09 Foosball and Nocturnal Vigilantism — NEW (severity 0/5)
 *Tactics: deception*
@@ -527,9 +528,9 @@ Her stated motive is her completion record: 'Annie Edison doesn't get nothing do
 
 Orders chores easiest first so volunteers commit while the worst one is still unannounced. Jeff names the pattern out loud, people volunteer anyway, and she is delighted.
 
-> Yeah, Annie always goes from the easy chores to the hardest. / That's true, isn't it? / Nobody picks up on my patterns! What am I gonna say next? Graham cracker! You didn't know.
+> Jeff: Yeah, Annie always goes from the easy chores to the hardest. / Shirley: That's true, isn't it? I'll do it too. / Hickey: Yeah, me too. / Annie: Okay, that concludes this meeting. / Annie: Nobody picks up on my patterns! What am I gonna say next? Graham cracker! You didn't know.
 
-No crisis, no romance, no stakes. Choice architecture as an ordinary daily habit.
+Confirmed on the speaker-labeled transcript. Jeff names the pattern aloud, Shirley agrees with it, and all three volunteer anyway. Choice architecture as an ordinary daily habit, with no crisis and no romance attached.
 
 ### S6E02 Lawnmower Maintenance and Postnatal Care — VERIFIED (severity 5/5)
 *Tactics: paternalism, information-control*
@@ -589,4 +590,4 @@ Season six confirms the pattern survives maturation intact.
 
 ## Method
 
-All 110 episode scripts pulled and read. The first pass used subtitle scripts, which carry dialogue and no speaker labels; twelve items ended up unconfirmed or attributed from context alone. This pass closed every one against speaker-labeled transcripts with stage directions, from the show's wiki and a forum archive loaded in a real browser. Attribution changed the answer in five places, twice against my own findings.
+All 110 episode scripts pulled and read. The first pass used subtitle scripts, which carry dialogue and no speaker labels. Twelve items ended up unconfirmed or attributed from context alone, and all twelve were closed against speaker-labeled transcripts with stage directions, from the show's wiki and a forum archive loaded in a real browser. Every quote was then machine-audited against those labeled transcripts. Attribution changed the answer in six places, three of them against my own work.
