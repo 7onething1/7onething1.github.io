@@ -1,0 +1,779 @@
+<!doctype html>
+<html lang="en"><head>
+<meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Zappa Tweetables</title>
+<meta name="description" content="Twenty postable facts from each of four Frank Zappa books, each cited to its chapter.">
+<link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@500;600;700&family=Inter:wght@400;500;600&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
+<style>
+:root{--cream:#F4EFE2;--ink:#1A1714;--ink2:#4A423A;--rule:#DED4C0;--card:#FBF8F0;--brick:#A8452F;--teal:#3E6F76}
+*{box-sizing:border-box}
+body{margin:0;background:var(--cream);color:var(--ink);font-family:Inter,-apple-system,BlinkMacSystemFont,"Segoe UI",Helvetica,Arial,sans-serif;font-size:16px;line-height:1.6}
+.wrap{max-width:960px;margin:0 auto;padding:0 20px 80px}
+h1,h2{font-family:"Cormorant Garamond",Georgia,serif;font-weight:600}
+a{color:var(--teal)}
+.masthead{padding:52px 0 22px;border-bottom:3px double var(--ink)}
+.kicker{font-family:"JetBrains Mono",ui-monospace,Menlo,monospace;font-size:11px;letter-spacing:.22em;text-transform:uppercase;color:var(--brick);margin:0 0 10px}
+h1{font-size:54px;line-height:1.02;margin:0 0 10px}
+.dek{font-size:18.5px;color:var(--ink2);max-width:72ch;margin:0 0 6px}
+.note{font-family:"JetBrains Mono",ui-monospace,monospace;font-size:11.5px;color:var(--ink2);background:var(--card);border:1px solid var(--rule);border-radius:6px;padding:10px 14px;margin:16px 0 0;line-height:1.75}
+nav.toc{margin:30px 0 0;display:grid;grid-template-columns:repeat(auto-fit,minmax(210px,1fr));gap:10px}
+nav.toc a{display:block;text-decoration:none;color:var(--ink);background:var(--card);border:1px solid var(--rule);border-left-width:5px;border-radius:0 6px 6px 0;padding:11px 14px}
+nav.toc a:hover{background:#EFE8D6}
+nav.toc strong{display:block;font-size:15.5px;line-height:1.25}
+nav.toc span{font-size:12px;color:var(--ink2)}
+section.book{margin:56px 0 0;padding-top:26px;border-top:3px double var(--ink)}
+.bh{border-left:6px solid var(--rule);padding-left:16px;margin-bottom:20px}
+.bh h2{font-size:33px;margin:0 0 4px;line-height:1.12}
+.by{margin:0 0 6px;font-size:14px;color:var(--brick);font-weight:600}
+.bl{margin:0;font-size:14.5px;color:var(--ink2)}
+ol.pts{list-style:none;margin:0;padding:0}
+li.pt{display:flex;gap:14px;background:var(--card);border:1px solid var(--rule);border-radius:8px;padding:14px 16px;margin-bottom:10px}
+.ptn{flex:0 0 auto;width:30px;height:30px;border-radius:50%;color:#1A1714;display:flex;align-items:center;justify-content:center;font-family:"JetBrains Mono",ui-monospace,monospace;font-size:12.5px;font-weight:600}
+.ptb{flex:1 1 auto;min-width:0}
+.ptt{margin:0 0 9px;font-size:16.5px;line-height:1.52}
+.ptf{display:flex;flex-wrap:wrap;align-items:center;gap:10px}
+.src{font-family:"JetBrains Mono",ui-monospace,monospace;font-size:10.5px;letter-spacing:.06em;text-transform:uppercase;color:var(--ink2)}
+.cc{font-family:"JetBrains Mono",ui-monospace,monospace;font-size:10.5px;color:#5C7A4E}
+.cc.over{color:var(--brick);font-weight:600}
+button.cp{margin-left:auto;background:var(--ink);color:var(--cream);border:0;border-radius:4px;padding:5px 13px;font-family:"JetBrains Mono",ui-monospace,monospace;font-size:10.5px;letter-spacing:.1em;text-transform:uppercase;cursor:pointer}
+button.cp:hover{background:var(--brick)}
+button.cp.done{background:#5C7A4E}
+details.extras{margin-top:14px}
+details.extras summary{cursor:pointer;font-family:"JetBrains Mono",ui-monospace,monospace;font-size:11px;letter-spacing:.1em;text-transform:uppercase;color:var(--teal);padding:8px 0}
+details.extras summary:hover{color:var(--brick)}
+.backtop{display:inline-block;margin-top:14px;font-family:"JetBrains Mono",ui-monospace,monospace;font-size:11px;letter-spacing:.13em;text-transform:uppercase;text-decoration:none;color:var(--brick)}
+footer{margin:64px 0 0;padding-top:22px;border-top:3px double var(--ink);font-size:13.5px;color:var(--ink2)}
+footer code{background:var(--card);border:1px solid var(--rule);border-radius:3px;padding:1px 6px;font-family:"JetBrains Mono",ui-monospace,monospace;font-size:11.5px;word-break:break-all}
+@media(max-width:720px){h1{font-size:36px}.bh h2{font-size:25px}.wrap{padding:0 14px 60px}}
+</style></head><body id="top"><div class="wrap">
+<header class="masthead">
+ <p class="kicker">Four books &middot; 80 points &middot; every one cited</p>
+ <h1>Zappa Tweetables</h1>
+ <p class="dek">Twenty postable facts from each of four Frank Zappa books, pulled from the text rather than from memory. Every point names the chapter it came from, shows its character count, and copies to the clipboard in one click.</p>
+ <p class="note">Sourced by reading the EPUB text directly. Quotation marks mark words quoted in the book itself. Character counts include the fact only, with no handle, link, or hashtag, so leave headroom. 16 further points that did not make the cut sit in the extras block under each book.</p>
+ <nav class="toc"><a href="#benac" style="border-left-color:#D9A441"><strong>Every Album, Every Song</strong><span>Eric Benac &middot; 20 points + 2 extra</span></a><a href="#butcher" style="border-left-color:#C97B6E"><strong>Freak Out! My Life With Frank Zappa</strong><span>Pauline Butcher &middot; 20 points + 2 extra</span></a><a href="#moon" style="border-left-color:#3E6F76"><strong>Earth to Moon</strong><span>Moon Unit Zappa &middot; 20 points + 8 extra</span></a><a href="#watson" style="border-left-color:#7C8C6A"><strong>The Complete Guide to His Music</strong><span>Ben Watson &middot; 20 points + 4 extra</span></a></nav>
+</header>
+<section class="book" id="benac">
+ <header class="bh" style="border-left-color:#D9A441">
+  <h2>Every Album, Every Song</h2>
+  <p class="by">Eric Benac &middot; Sonicbond, 2025</p>
+  <p class="bl">Dates, budgets, chart numbers, and session facts. The densest source of hard detail.</p>
+ </header>
+ <ol class="pts"><li class="pt">
+ <div class="ptn" style="background:#D9A441">1</div>
+ <div class="ptb">
+  <p class="ptt" id="tD9A4411">Freak Out! peaked at number 130. Paul McCartney later said Sgt. Pepper was the Beatles&#x27; version of it.</p>
+  <div class="ptf"><span class="src">Ch 2, Freak Out! (1966)</span>
+   <span class="cc">102 chars</span>
+   <button class="cp" data-t="Freak Out! peaked at number 130. Paul McCartney later said Sgt. Pepper was the Beatles&#x27; version of it.">copy</button></div>
+ </div></li><li class="pt">
+ <div class="ptn" style="background:#D9A441">2</div>
+ <div class="ptb">
+  <p class="ptt" id="tD9A4412">Freak Out! was one of the first double albums in rock and the very first double-album debut by any band.</p>
+  <div class="ptf"><span class="src">Ch 2, Freak Out! (1966)</span>
+   <span class="cc">104 chars</span>
+   <button class="cp" data-t="Freak Out! was one of the first double albums in rock and the very first double-album debut by any band.">copy</button></div>
+ </div></li><li class="pt">
+ <div class="ptn" style="background:#D9A441">3</div>
+ <div class="ptb">
+  <p class="ptt" id="tD9A4413">Tom Wilson signed the Mothers after hearing &#x27;Trouble Every Day&#x27; and said: &#x27;Zappa, without exception, is the biggest talent I have ever come across.&#x27;</p>
+  <div class="ptf"><span class="src">Ch 2, Freak Out! (1966)</span>
+   <span class="cc">148 chars</span>
+   <button class="cp" data-t="Tom Wilson signed the Mothers after hearing &#x27;Trouble Every Day&#x27; and said: &#x27;Zappa, without exception, is the biggest talent I have ever come across.&#x27;">copy</button></div>
+ </div></li><li class="pt">
+ <div class="ptn" style="background:#D9A441">4</div>
+ <div class="ptb">
+  <p class="ptt" id="tD9A4414">Zappa thought naming the band the Mothers was presumptuous. On real musicianship, he said, they were &#x27;right down there in the swamp.&#x27;</p>
+  <div class="ptf"><span class="src">Ch 2, Freak Out! (1966)</span>
+   <span class="cc">133 chars</span>
+   <button class="cp" data-t="Zappa thought naming the band the Mothers was presumptuous. On real musicianship, he said, they were &#x27;right down there in the swamp.&#x27;">copy</button></div>
+ </div></li><li class="pt">
+ <div class="ptn" style="background:#D9A441">5</div>
+ <div class="ptb">
+  <p class="ptt" id="tD9A4415">Carol Kaye claimed only the bassist and drummer from the band played on Freak Out! and the Wrecking Crew did the guitars. She also said only Zappa and Brian Wilson wrote their own arrangements in LA.</p>
+  <div class="ptf"><span class="src">Ch 2, Freak Out! (1966)</span>
+   <span class="cc">199 chars</span>
+   <button class="cp" data-t="Carol Kaye claimed only the bassist and drummer from the band played on Freak Out! and the Wrecking Crew did the guitars. She also said only Zappa and Brian Wilson wrote their own arrangements in LA.">copy</button></div>
+ </div></li><li class="pt">
+ <div class="ptn" style="background:#D9A441">6</div>
+ <div class="ptb">
+  <p class="ptt" id="tD9A4416">MGM gave Freak Out! a $25,000 budget when $6,000 was normal. After it sold 30,000 copies they cut the next album to $11,000.</p>
+  <div class="ptf"><span class="src">Ch 2 and 3</span>
+   <span class="cc">124 chars</span>
+   <button class="cp" data-t="MGM gave Freak Out! a $25,000 budget when $6,000 was normal. After it sold 30,000 copies they cut the next album to $11,000.">copy</button></div>
+ </div></li><li class="pt">
+ <div class="ptn" style="background:#D9A441">7</div>
+ <div class="ptb">
+  <p class="ptt" id="tD9A4417">Capitol paid Zappa $40,000 to write Lumpy Gravy. He composed it in eleven days and was barred from playing on it, because Verve owned him as a performer.</p>
+  <div class="ptf"><span class="src">Ch 4, Lumpy Gravy (1967/68)</span>
+   <span class="cc">153 chars</span>
+   <button class="cp" data-t="Capitol paid Zappa $40,000 to write Lumpy Gravy. He composed it in eleven days and was barred from playing on it, because Verve owned him as a performer.">copy</button></div>
+ </div></li><li class="pt">
+ <div class="ptn" style="background:#D9A441">8</div>
+ <div class="ptb">
+  <p class="ptt" id="tD9A4418">The bassoonist and bass clarinetist called Zappa&#x27;s Lumpy Gravy parts unplayable. He said, &#x27;If I play your part, will you at least try it?&#x27; Then he played them on guitar.</p>
+  <div class="ptf"><span class="src">Ch 4, Lumpy Gravy (1967/68)</span>
+   <span class="cc">169 chars</span>
+   <button class="cp" data-t="The bassoonist and bass clarinetist called Zappa&#x27;s Lumpy Gravy parts unplayable. He said, &#x27;If I play your part, will you at least try it?&#x27; Then he played them on guitar.">copy</button></div>
+ </div></li><li class="pt">
+ <div class="ptn" style="background:#D9A441">9</div>
+ <div class="ptb">
+  <p class="ptt" id="tD9A4419">Verve censored a line on We&#x27;re Only In It for the Money where engineer Gary Kellgren calls the Velvet Underground a shitty band.</p>
+  <div class="ptf"><span class="src">Ch 5, We&#x27;re Only In It for the Money (1968)</span>
+   <span class="cc">128 chars</span>
+   <button class="cp" data-t="Verve censored a line on We&#x27;re Only In It for the Money where engineer Gary Kellgren calls the Velvet Underground a shitty band.">copy</button></div>
+ </div></li><li class="pt">
+ <div class="ptn" style="background:#D9A441">10</div>
+ <div class="ptb">
+  <p class="ptt" id="tD9A44110">Zappa on his 1967 albums: he could cut the master tapes apart with a razor blade, reassemble them in a different order, and it would still make one piece of music.</p>
+  <div class="ptf"><span class="src">Ch 5, We&#x27;re Only In It for the Money (1968)</span>
+   <span class="cc">163 chars</span>
+   <button class="cp" data-t="Zappa on his 1967 albums: he could cut the master tapes apart with a razor blade, reassemble them in a different order, and it would still make one piece of music.">copy</button></div>
+ </div></li><li class="pt">
+ <div class="ptn" style="background:#D9A441">11</div>
+ <div class="ptb">
+  <p class="ptt" id="tD9A44111">Uncle Meat runs 75 minutes, the longest studio project the Mothers made. It includes a taped argument between Zappa and drummer Jimmy Carl Black about money.</p>
+  <div class="ptf"><span class="src">Ch 7, Uncle Meat (1969)</span>
+   <span class="cc">157 chars</span>
+   <button class="cp" data-t="Uncle Meat runs 75 minutes, the longest studio project the Mothers made. It includes a taped argument between Zappa and drummer Jimmy Carl Black about money.">copy</button></div>
+ </div></li><li class="pt">
+ <div class="ptn" style="background:#D9A441">12</div>
+ <div class="ptb">
+  <p class="ptt" id="tD9A44112">Ian Underwood plays almost every instrument on Hot Rats. Lowell George played rhythm guitar and went uncredited.</p>
+  <div class="ptf"><span class="src">Ch 8, Hot Rats (1969)</span>
+   <span class="cc">112 chars</span>
+   <button class="cp" data-t="Ian Underwood plays almost every instrument on Hot Rats. Lowell George played rhythm guitar and went uncredited.">copy</button></div>
+ </div></li><li class="pt">
+ <div class="ptn" style="background:#D9A441">13</div>
+ <div class="ptb">
+  <p class="ptt" id="tD9A44113">Hot Rats was Zappa&#x27;s first 16-track record. He spent four of the sixteen tracks on drums alone, which nobody was doing in 1969.</p>
+  <div class="ptf"><span class="src">Ch 8, Hot Rats (1969)</span>
+   <span class="cc">127 chars</span>
+   <button class="cp" data-t="Hot Rats was Zappa&#x27;s first 16-track record. He spent four of the sixteen tracks on drums alone, which nobody was doing in 1969.">copy</button></div>
+ </div></li><li class="pt">
+ <div class="ptn" style="background:#D9A441">14</div>
+ <div class="ptb">
+  <p class="ptt" id="tD9A44114">The figure lurking in the empty pool on the Hot Rats cover is model Christine Frka. Casual fans still think it is Zappa.</p>
+  <div class="ptf"><span class="src">Ch 8, Hot Rats (1969)</span>
+   <span class="cc">120 chars</span>
+   <button class="cp" data-t="The figure lurking in the empty pool on the Hot Rats cover is model Christine Frka. Casual fans still think it is Zappa.">copy</button></div>
+ </div></li><li class="pt">
+ <div class="ptn" style="background:#D9A441">15</div>
+ <div class="ptb">
+  <p class="ptt" id="tD9A44115">Lester Bangs said Hot Rats whaled the tar out of every jam album of the previous two years. Christgau gave it a C and wrote &#x27;Doo-doo to you, Frank.&#x27;</p>
+  <div class="ptf"><span class="src">Ch 8, Hot Rats (1969)</span>
+   <span class="cc">148 chars</span>
+   <button class="cp" data-t="Lester Bangs said Hot Rats whaled the tar out of every jam album of the previous two years. Christgau gave it a C and wrote &#x27;Doo-doo to you, Frank.&#x27;">copy</button></div>
+ </div></li><li class="pt">
+ <div class="ptn" style="background:#D9A441">16</div>
+ <div class="ptb">
+  <p class="ptt" id="tD9A44116">Zappa said Weasels Ripped My Flesh is 80 percent improvisation. The title came from a story in the September 1956 issue of Man&#x27;s Life.</p>
+  <div class="ptf"><span class="src">Ch 10, Weasels Ripped My Flesh (1970)</span>
+   <span class="cc">134 chars</span>
+   <button class="cp" data-t="Zappa said Weasels Ripped My Flesh is 80 percent improvisation. The title came from a story in the September 1956 issue of Man&#x27;s Life.">copy</button></div>
+ </div></li><li class="pt">
+ <div class="ptn" style="background:#D9A441">17</div>
+ <div class="ptb">
+  <p class="ptt" id="tD9A44117">On 10 December 1971 a fan named Trevor Charles Howell shoved Zappa off the Rainbow Theatre stage into the orchestra pit. Broken rib, fractured leg, gashed head, one arm paralysed.</p>
+  <div class="ptf"><span class="src">Ch 14, Just Another Band From L.A. (1971)</span>
+   <span class="cc">179 chars</span>
+   <button class="cp" data-t="On 10 December 1971 a fan named Trevor Charles Howell shoved Zappa off the Rainbow Theatre stage into the orchestra pit. Broken rib, fractured leg, gashed head, one arm paralysed.">copy</button></div>
+ </div></li><li class="pt">
+ <div class="ptn" style="background:#D9A441">18</div>
+ <div class="ptb">
+  <p class="ptt" id="tD9A44118">Howell said he pushed Zappa because he thought Zappa was flirting with his girlfriend. The fall crushed Zappa&#x27;s larynx and permanently deepened his voice.</p>
+  <div class="ptf"><span class="src">Ch 14, Just Another Band From L.A. (1971)</span>
+   <span class="cc">154 chars</span>
+   <button class="cp" data-t="Howell said he pushed Zappa because he thought Zappa was flirting with his girlfriend. The fall crushed Zappa&#x27;s larynx and permanently deepened his voice.">copy</button></div>
+ </div></li><li class="pt">
+ <div class="ptn" style="background:#D9A441">19</div>
+ <div class="ptb">
+  <p class="ptt" id="tD9A44119">Tina Turner and the Ikettes sing backing vocals on Over-Nite Sensation. Neither is credited.</p>
+  <div class="ptf"><span class="src">Ch 17, Overnite Sensation (1973)</span>
+   <span class="cc">92 chars</span>
+   <button class="cp" data-t="Tina Turner and the Ikettes sing backing vocals on Over-Nite Sensation. Neither is credited.">copy</button></div>
+ </div></li><li class="pt">
+ <div class="ptn" style="background:#D9A441">20</div>
+ <div class="ptb">
+  <p class="ptt" id="tD9A44120">Beefheart auditioned for Zappa&#x27;s band on Halloween 1974 and flunked. He could not get through &#x27;Willie the Pimp.&#x27;</p>
+  <div class="ptf"><span class="src">Ch 21, Bongo Fury (1975)</span>
+   <span class="cc">112 chars</span>
+   <button class="cp" data-t="Beefheart auditioned for Zappa&#x27;s band on Halloween 1974 and flunked. He could not get through &#x27;Willie the Pimp.&#x27;">copy</button></div>
+ </div></li></ol>
+ <details class="extras"><summary>2 more that did not make the twenty</summary><ol class="pts" start="21"><li class="pt">
+ <div class="ptn" style="background:#D9A441">21</div>
+ <div class="ptb">
+  <p class="ptt" id="tD9A44121">The Anti-Defamation League demanded an apology for &#x27;Jewish Princess.&#x27; Zappa refused: &#x27;Unlike the unicorn, such creatures do exist.&#x27;</p>
+  <div class="ptf"><span class="src">Ch 26, Sheik Yerbouti (1979)</span>
+   <span class="cc">131 chars</span>
+   <button class="cp" data-t="The Anti-Defamation League demanded an apology for &#x27;Jewish Princess.&#x27; Zappa refused: &#x27;Unlike the unicorn, such creatures do exist.&#x27;">copy</button></div>
+ </div></li><li class="pt">
+ <div class="ptn" style="background:#D9A441">22</div>
+ <div class="ptb">
+  <p class="ptt" id="tD9A44122">Joe&#x27;s Garage began life as a single, &#x27;Joe&#x27;s Garage&#x27; backed with &#x27;Catholic Girls.&#x27; Rolling Stone ended up calling the finished album Frank Zappa&#x27;s Apocalypse Now.</p>
+  <div class="ptf"><span class="src">Ch 28, Joe&#x27;s Garage (1979)</span>
+   <span class="cc">161 chars</span>
+   <button class="cp" data-t="Joe&#x27;s Garage began life as a single, &#x27;Joe&#x27;s Garage&#x27; backed with &#x27;Catholic Girls.&#x27; Rolling Stone ended up calling the finished album Frank Zappa&#x27;s Apocalypse Now.">copy</button></div>
+ </div></li></ol></details>
+ <a class="backtop" href="#top">Back to top</a>
+</section><section class="book" id="butcher">
+ <header class="bh" style="border-left-color:#C97B6E">
+  <h2>Freak Out! My Life With Frank Zappa</h2>
+  <p class="by">Pauline Butcher &middot; Plexus, 2011</p>
+  <p class="bl">Money, scenes, and dialogue from inside the house, 1967 to 1972.</p>
+ </header>
+ <ol class="pts"><li class="pt">
+ <div class="ptn" style="background:#C97B6E">1</div>
+ <div class="ptb">
+  <p class="ptt" id="tC97B6E1">The book exists because Butcher&#x27;s mother kept every letter her daughter wrote home from Laurel Canyon for forty years.</p>
+  <div class="ptf"><span class="src">Dedication</span>
+   <span class="cc">118 chars</span>
+   <button class="cp" data-t="The book exists because Butcher&#x27;s mother kept every letter her daughter wrote home from Laurel Canyon for forty years.">copy</button></div>
+ </div></li><li class="pt">
+ <div class="ptn" style="background:#C97B6E">2</div>
+ <div class="ptb">
+  <p class="ptt" id="tC97B6E2">She was typing menus and scripts at ten shillings an hour in a Dover Street bureau when the agency sent her to take dictation in Frank Zappa&#x27;s London hotel room. August 1967.</p>
+  <div class="ptf"><span class="src">Ch 1</span>
+   <span class="cc">174 chars</span>
+   <button class="cp" data-t="She was typing menus and scripts at ten shillings an hour in a Dover Street bureau when the agency sent her to take dictation in Frank Zappa&#x27;s London hotel room. August 1967.">copy</button></div>
+ </div></li><li class="pt">
+ <div class="ptn" style="background:#C97B6E">3</div>
+ <div class="ptb">
+  <p class="ptt" id="tC97B6E3">Her first wages from the Zappa household came to $70. She spent them taking a friend to dinner at Schwab&#x27;s.</p>
+  <div class="ptf"><span class="src">Ch 12</span>
+   <span class="cc">107 chars</span>
+   <button class="cp" data-t="Her first wages from the Zappa household came to $70. She spent them taking a friend to dinner at Schwab&#x27;s.">copy</button></div>
+ </div></li><li class="pt">
+ <div class="ptn" style="background:#C97B6E">4</div>
+ <div class="ptb">
+  <p class="ptt" id="tC97B6E4">Life magazine paid Zappa $2,500 for five thousand words on the 1950s, and gave him two weeks to write it.</p>
+  <div class="ptf"><span class="src">Ch 14</span>
+   <span class="cc">105 chars</span>
+   <button class="cp" data-t="Life magazine paid Zappa $2,500 for five thousand words on the 1950s, and gave him two weeks to write it.">copy</button></div>
+ </div></li><li class="pt">
+ <div class="ptn" style="background:#C97B6E">5</div>
+ <div class="ptb">
+  <p class="ptt" id="tC97B6E5">Frank rang to say he had the $2,500 Life cheque plus a $27,500 part-royalty cheque from MGM. &#x27;Now we can get things moving,&#x27; he said.</p>
+  <div class="ptf"><span class="src">Ch 23</span>
+   <span class="cc">133 chars</span>
+   <button class="cp" data-t="Frank rang to say he had the $2,500 Life cheque plus a $27,500 part-royalty cheque from MGM. &#x27;Now we can get things moving,&#x27; he said.">copy</button></div>
+ </div></li><li class="pt">
+ <div class="ptn" style="background:#C97B6E">6</div>
+ <div class="ptb">
+  <p class="ptt" id="tC97B6E6">The Mothers of Invention were on $250 a week while their tours sold out everywhere they played.</p>
+  <div class="ptf"><span class="src">Ch 31</span>
+   <span class="cc">95 chars</span>
+   <button class="cp" data-t="The Mothers of Invention were on $250 a week while their tours sold out everywhere they played.">copy</button></div>
+ </div></li><li class="pt">
+ <div class="ptn" style="background:#C97B6E">7</div>
+ <div class="ptb">
+  <p class="ptt" id="tC97B6E7">Zappa disbanded the Mothers because he could not keep paying $250 a week while they sat around, and had been taking out loans to cover expenses.</p>
+  <div class="ptf"><span class="src">Ch 43</span>
+   <span class="cc">144 chars</span>
+   <button class="cp" data-t="Zappa disbanded the Mothers because he could not keep paying $250 a week while they sat around, and had been taking out loans to cover expenses.">copy</button></div>
+ </div></li><li class="pt">
+ <div class="ptn" style="background:#C97B6E">8</div>
+ <div class="ptb">
+  <p class="ptt" id="tC97B6E8">At the meeting that ended the Mothers, Herbie Cohen handed out a statement showing a $20,000 deficit after all the gear was sold, and told each man he owed Frank a share of it.</p>
+  <div class="ptf"><span class="src">Ch 43</span>
+   <span class="cc">176 chars</span>
+   <button class="cp" data-t="At the meeting that ended the Mothers, Herbie Cohen handed out a statement showing a $20,000 deficit after all the gear was sold, and told each man he owed Frank a share of it.">copy</button></div>
+ </div></li><li class="pt">
+ <div class="ptn" style="background:#C97B6E">9</div>
+ <div class="ptb">
+  <p class="ptt" id="tC97B6E9">Ten days after the Kent State shootings, Zappa paid $7,000 to a team of copyists so he could hear his own music played by the LA orchestra under Zubin Mehta.</p>
+  <div class="ptf"><span class="src">Ch 45</span>
+   <span class="cc">157 chars</span>
+   <button class="cp" data-t="Ten days after the Kent State shootings, Zappa paid $7,000 to a team of copyists so he could hear his own music played by the LA orchestra under Zubin Mehta.">copy</button></div>
+ </div></li><li class="pt">
+ <div class="ptn" style="background:#C97B6E">10</div>
+ <div class="ptb">
+  <p class="ptt" id="tC97B6E10">Cal Schenkel was paid $300 a cover and worked out of a rented abandoned dentist&#x27;s clinic above a hot dog shop on Melrose.</p>
+  <div class="ptf"><span class="src">Ch 39</span>
+   <span class="cc">121 chars</span>
+   <button class="cp" data-t="Cal Schenkel was paid $300 a cover and worked out of a rented abandoned dentist&#x27;s clinic above a hot dog shop on Melrose.">copy</button></div>
+ </div></li><li class="pt">
+ <div class="ptn" style="background:#C97B6E">11</div>
+ <div class="ptb">
+  <p class="ptt" id="tC97B6E11">&#x27;After music, my great interest in life is lust,&#x27; Zappa told her. &#x27;If I didn&#x27;t spend my life composing and playing music, I&#x27;d be into lust at every opportunity.&#x27;</p>
+  <div class="ptf"><span class="src">Ch 20</span>
+   <span class="cc">161 chars</span>
+   <button class="cp" data-t="&#x27;After music, my great interest in life is lust,&#x27; Zappa told her. &#x27;If I didn&#x27;t spend my life composing and playing music, I&#x27;d be into lust at every opportunity.&#x27;">copy</button></div>
+ </div></li><li class="pt">
+ <div class="ptn" style="background:#C97B6E">12</div>
+ <div class="ptb">
+  <p class="ptt" id="tC97B6E12">At twenty-two Zappa talked his way onto The Steve Allen Show by offering to play a bicycle wheel, purely to publicise a film score he had written.</p>
+  <div class="ptf"><span class="src">Ch 20</span>
+   <span class="cc">146 chars</span>
+   <button class="cp" data-t="At twenty-two Zappa talked his way onto The Steve Allen Show by offering to play a bicycle wheel, purely to publicise a film score he had written.">copy</button></div>
+ </div></li><li class="pt">
+ <div class="ptn" style="background:#C97B6E">13</div>
+ <div class="ptb">
+  <p class="ptt" id="tC97B6E13">He told Steve Allen&#x27;s studio orchestra that when he raised five fingers they should make the worst noise they could think of. They did.</p>
+  <div class="ptf"><span class="src">Ch 20</span>
+   <span class="cc">135 chars</span>
+   <button class="cp" data-t="He told Steve Allen&#x27;s studio orchestra that when he raised five fingers they should make the worst noise they could think of. They did.">copy</button></div>
+ </div></li><li class="pt">
+ <div class="ptn" style="background:#C97B6E">14</div>
+ <div class="ptb">
+  <p class="ptt" id="tC97B6E14">Zappa never visited anybody. He turned up at Butcher&#x27;s cottage once in June 1970 and still recalled the whole scene in detail when she interviewed him eighteen years later.</p>
+  <div class="ptf"><span class="src">Ch 44</span>
+   <span class="cc">172 chars</span>
+   <button class="cp" data-t="Zappa never visited anybody. He turned up at Butcher&#x27;s cottage once in June 1970 and still recalled the whole scene in detail when she interviewed him eighteen years later.">copy</button></div>
+ </div></li><li class="pt">
+ <div class="ptn" style="background:#C97B6E">15</div>
+ <div class="ptb">
+  <p class="ptt" id="tC97B6E15">Butcher summarised Kate Millett&#x27;s argument that romantic love is a grant men bestow on women to keep power, while perched on the edge of a bath, to Frank Zappa.</p>
+  <div class="ptf"><span class="src">Ch 44</span>
+   <span class="cc">160 chars</span>
+   <button class="cp" data-t="Butcher summarised Kate Millett&#x27;s argument that romantic love is a grant men bestow on women to keep power, while perched on the edge of a bath, to Frank Zappa.">copy</button></div>
+ </div></li><li class="pt">
+ <div class="ptn" style="background:#C97B6E">16</div>
+ <div class="ptb">
+  <p class="ptt" id="tC97B6E16">The log cabin was said to have belonged to cowboy star Tom Mix, with his horse buried somewhere in the garden. The house burned down on Halloween 1981.</p>
+  <div class="ptf"><span class="src">Ch 6 and plates</span>
+   <span class="cc">151 chars</span>
+   <button class="cp" data-t="The log cabin was said to have belonged to cowboy star Tom Mix, with his horse buried somewhere in the garden. The house burned down on Halloween 1981.">copy</button></div>
+ </div></li><li class="pt">
+ <div class="ptn" style="background:#C97B6E">17</div>
+ <div class="ptb">
+  <p class="ptt" id="tC97B6E17">Membership of the United Mutations fan club cost three dollars, and came with a questionnaire asking who God is.</p>
+  <div class="ptf"><span class="src">Ch 22</span>
+   <span class="cc">112 chars</span>
+   <button class="cp" data-t="Membership of the United Mutations fan club cost three dollars, and came with a questionnaire asking who God is.">copy</button></div>
+ </div></li><li class="pt">
+ <div class="ptn" style="background:#C97B6E">18</div>
+ <div class="ptb">
+  <p class="ptt" id="tC97B6E18">Eric Clapton introduced Zappa to Cynthia Plaster Caster in Chicago. Zappa carried three of her diaries home for Butcher to type, then drove out for legal advice on whether they could be published.</p>
+  <div class="ptf"><span class="src">Ch 30</span>
+   <span class="cc">196 chars</span>
+   <button class="cp" data-t="Eric Clapton introduced Zappa to Cynthia Plaster Caster in Chicago. Zappa carried three of her diaries home for Butcher to type, then drove out for legal advice on whether they could be published.">copy</button></div>
+ </div></li><li class="pt">
+ <div class="ptn" style="background:#C97B6E">19</div>
+ <div class="ptb">
+  <p class="ptt" id="tC97B6E19">Cynthia kept the diaries in code so her mother would not understand them. &#x27;Rig&#x27; meant penis. &#x27;Plating,&#x27; &#x27;banking&#x27; and &#x27;charva&#x27; covered the rest.</p>
+  <div class="ptf"><span class="src">Ch 30</span>
+   <span class="cc">144 chars</span>
+   <button class="cp" data-t="Cynthia kept the diaries in code so her mother would not understand them. &#x27;Rig&#x27; meant penis. &#x27;Plating,&#x27; &#x27;banking&#x27; and &#x27;charva&#x27; covered the rest.">copy</button></div>
+ </div></li><li class="pt">
+ <div class="ptn" style="background:#C97B6E">20</div>
+ <div class="ptb">
+  <p class="ptt" id="tC97B6E20">Butcher typed nine hundred pages of The Groupie Papers, then cut them to three hundred and fifty in two months, handing the edit over on 2 February 1970.</p>
+  <div class="ptf"><span class="src">Ch 40 and 42</span>
+   <span class="cc">153 chars</span>
+   <button class="cp" data-t="Butcher typed nine hundred pages of The Groupie Papers, then cut them to three hundred and fifty in two months, handing the edit over on 2 February 1970.">copy</button></div>
+ </div></li></ol>
+ <details class="extras"><summary>2 more that did not make the twenty</summary><ol class="pts" start="21"><li class="pt">
+ <div class="ptn" style="background:#C97B6E">21</div>
+ <div class="ptb">
+  <p class="ptt" id="tC97B6E21">United Artists gave Zappa eleven days to edit 200 Motels, then erased the used videotapes and resold them as stock. &#x27;Hours of material I could have used elsewhere.&#x27;</p>
+  <div class="ptf"><span class="src">Ch 46</span>
+   <span class="cc">164 chars</span>
+   <button class="cp" data-t="United Artists gave Zappa eleven days to edit 200 Motels, then erased the used videotapes and resold them as stock. &#x27;Hours of material I could have used elsewhere.&#x27;">copy</button></div>
+ </div></li><li class="pt">
+ <div class="ptn" style="background:#C97B6E">22</div>
+ <div class="ptb">
+  <p class="ptt" id="tC97B6E22">She worked in America illegally for months and got her green card by telling immigration she was living off the proceeds of a car sold to her sister in England.</p>
+  <div class="ptf"><span class="src">Ch 37</span>
+   <span class="cc">160 chars</span>
+   <button class="cp" data-t="She worked in America illegally for months and got her green card by telling immigration she was living off the proceeds of a car sold to her sister in England.">copy</button></div>
+ </div></li></ol></details>
+ <a class="backtop" href="#top">Back to top</a>
+</section><section class="book" id="moon">
+ <header class="bh" style="border-left-color:#3E6F76">
+  <h2>Earth to Moon</h2>
+  <p class="by">Moon Unit Zappa &middot; Dey Street, 2024</p>
+  <p class="bl">The family cost, in her own present-tense voice.</p>
+ </header>
+ <ol class="pts"><li class="pt">
+ <div class="ptn" style="background:#3E6F76">1</div>
+ <div class="ptb">
+  <p class="ptt" id="t3E6F761">Her middle name was not a gag. &#x27;Unit&#x27; marked her arrival turning Frank and Gail into a family unit.</p>
+  <div class="ptf"><span class="src">Ch 1, Moon Unit</span>
+   <span class="cc">99 chars</span>
+   <button class="cp" data-t="Her middle name was not a gag. &#x27;Unit&#x27; marked her arrival turning Frank and Gail into a family unit.">copy</button></div>
+ </div></li><li class="pt">
+ <div class="ptn" style="background:#3E6F76">2</div>
+ <div class="ptb">
+  <p class="ptt" id="t3E6F762">Gail was a twenty-year-old secretary at the Whisky a Go Go. She met Frank at LAX, ran into him again at a bank, and he asked her out while waiting for the teller.</p>
+  <div class="ptf"><span class="src">Ch 1, Moon Unit</span>
+   <span class="cc">162 chars</span>
+   <button class="cp" data-t="Gail was a twenty-year-old secretary at the Whisky a Go Go. She met Frank at LAX, ran into him again at a bank, and he asked her out while waiting for the teller.">copy</button></div>
+ </div></li><li class="pt">
+ <div class="ptn" style="background:#3E6F76">3</div>
+ <div class="ptb">
+  <p class="ptt" id="t3E6F763">&#x27;Valley Girl&#x27; started as a letter Moon wrote her father asking to work together. He read it, then woke her on a school night and said they were recording a song.</p>
+  <div class="ptf"><span class="src">Ch 21, Valley Girl</span>
+   <span class="cc">161 chars</span>
+   <button class="cp" data-t="&#x27;Valley Girl&#x27; started as a letter Moon wrote her father asking to work together. He read it, then woke her on a school night and said they were recording a song.">copy</button></div>
+ </div></li><li class="pt">
+ <div class="ptn" style="background:#3E6F76">4</div>
+ <div class="ptb">
+  <p class="ptt" id="t3E6F764">In the vocal booth he fed her lines. &#x27;Say more about the cat box.&#x27; &#x27;Talk about bagging your face.&#x27; &#x27;Try to work in gag me with a spoon.&#x27; &#x27;Throw in a tubular.&#x27;</p>
+  <div class="ptf"><span class="src">Ch 21, Valley Girl</span>
+   <span class="cc">158 chars</span>
+   <button class="cp" data-t="In the vocal booth he fed her lines. &#x27;Say more about the cat box.&#x27; &#x27;Talk about bagging your face.&#x27; &#x27;Try to work in gag me with a spoon.&#x27; &#x27;Throw in a tubular.&#x27;">copy</button></div>
+ </div></li><li class="pt">
+ <div class="ptn" style="background:#3E6F76">5</div>
+ <div class="ptb">
+  <p class="ptt" id="t3E6F765">After the take there was a hug, and then she was back upstairs in bed wishing they could keep recording and that the hug had lasted forever.</p>
+  <div class="ptf"><span class="src">Ch 21, Valley Girl</span>
+   <span class="cc">140 chars</span>
+   <button class="cp" data-t="After the take there was a hug, and then she was back upstairs in bed wishing they could keep recording and that the hug had lasted forever.">copy</button></div>
+ </div></li><li class="pt">
+ <div class="ptn" style="background:#3E6F76">6</div>
+ <div class="ptb">
+  <p class="ptt" id="t3E6F766">The first time her father ever telephoned her was the year she turned twenty. He was calling to set her up with someone.</p>
+  <div class="ptf"><span class="src">Ch 37, Matchmaker Frank</span>
+   <span class="cc">120 chars</span>
+   <button class="cp" data-t="The first time her father ever telephoned her was the year she turned twenty. He was calling to set her up with someone.">copy</button></div>
+ </div></li><li class="pt">
+ <div class="ptn" style="background:#3E6F76">7</div>
+ <div class="ptb">
+  <p class="ptt" id="t3E6F767">Frank introduced her to David Carson while Carson was starting Ray Gun, and told him to print her art and hire her as a journalist.</p>
+  <div class="ptf"><span class="src">Ch 37, Matchmaker Frank</span>
+   <span class="cc">131 chars</span>
+   <button class="cp" data-t="Frank introduced her to David Carson while Carson was starting Ray Gun, and told him to print her art and hire her as a journalist.">copy</button></div>
+ </div></li><li class="pt">
+ <div class="ptn" style="background:#3E6F76">8</div>
+ <div class="ptb">
+  <p class="ptt" id="t3E6F768">Frank took Moon and Dweezil to the PMRC hearings in Congress, partly as evidence that children raised in a First Amendment household do not turn out degenerate.</p>
+  <div class="ptf"><span class="src">Ch 33, Art and Artists</span>
+   <span class="cc">160 chars</span>
+   <button class="cp" data-t="Frank took Moon and Dweezil to the PMRC hearings in Congress, partly as evidence that children raised in a First Amendment household do not turn out degenerate.">copy</button></div>
+ </div></li><li class="pt">
+ <div class="ptn" style="background:#3E6F76">9</div>
+ <div class="ptb">
+  <p class="ptt" id="t3E6F769">Zappa&#x27;s own warning label read: &#x27;This album contains material which a truly free society would neither fear nor suppress.&#x27; He put it on his classical records too.</p>
+  <div class="ptf"><span class="src">Ch 33, Art and Artists</span>
+   <span class="cc">162 chars</span>
+   <button class="cp" data-t="Zappa&#x27;s own warning label read: &#x27;This album contains material which a truly free society would neither fear nor suppress.&#x27; He put it on his classical records too.">copy</button></div>
+ </div></li><li class="pt">
+ <div class="ptn" style="background:#3E6F76">10</div>
+ <div class="ptb">
+  <p class="ptt" id="t3E6F7610">By her account three people publicly fought the PMRC: her father, John Denver, and Dee Snider of Twisted Sister.</p>
+  <div class="ptf"><span class="src">Ch 33, Art and Artists</span>
+   <span class="cc">112 chars</span>
+   <button class="cp" data-t="By her account three people publicly fought the PMRC: her father, John Denver, and Dee Snider of Twisted Sister.">copy</button></div>
+ </div></li><li class="pt">
+ <div class="ptn" style="background:#3E6F76">11</div>
+ <div class="ptb">
+  <p class="ptt" id="t3E6F7611">On a talk show she told the story of being handcuffed to Dweezil in a bathroom with a tape recorder so they could hear how annoying they were. At the commercial break the host said, &#x27;That&#x27;s child abuse.&#x27;</p>
+  <div class="ptf"><span class="src">Ch 33, Art and Artists</span>
+   <span class="cc">203 chars</span>
+   <button class="cp" data-t="On a talk show she told the story of being handcuffed to Dweezil in a bathroom with a tape recorder so they could hear how annoying they were. At the commercial break the host said, &#x27;That&#x27;s child abuse.&#x27;">copy</button></div>
+ </div></li><li class="pt">
+ <div class="ptn" style="background:#3E6F76">12</div>
+ <div class="ptb">
+  <p class="ptt" id="t3E6F7612">At nineteen she was sent to New York as Dweezil&#x27;s legal guardian so that his MTV job could go ahead.</p>
+  <div class="ptf"><span class="src">Ch 34, It&#x27;s Fun Being Me</span>
+   <span class="cc">100 chars</span>
+   <button class="cp" data-t="At nineteen she was sent to New York as Dweezil&#x27;s legal guardian so that his MTV job could go ahead.">copy</button></div>
+ </div></li><li class="pt">
+ <div class="ptn" style="background:#3E6F76">13</div>
+ <div class="ptb">
+  <p class="ptt" id="t3E6F7613">She was hired as a language consultant on the Fast Times at Ridgemont High TV series, to keep the teenage dialogue authentic.</p>
+  <div class="ptf"><span class="src">Ch 35, Sex, Awkwardness, and Rock and Roll</span>
+   <span class="cc">125 chars</span>
+   <button class="cp" data-t="She was hired as a language consultant on the Fast Times at Ridgemont High TV series, to keep the teenage dialogue authentic.">copy</button></div>
+ </div></li><li class="pt">
+ <div class="ptn" style="background:#3E6F76">14</div>
+ <div class="ptb">
+  <p class="ptt" id="t3E6F7614">A month before the diagnosis her father was preparing to run for president and serving as Václav Havel&#x27;s cultural ambassador. Then stage four, at forty-eight.</p>
+  <div class="ptf"><span class="src">Ch 42, Healers</span>
+   <span class="cc">158 chars</span>
+   <button class="cp" data-t="A month before the diagnosis her father was preparing to run for president and serving as Václav Havel&#x27;s cultural ambassador. Then stage four, at forty-eight.">copy</button></div>
+ </div></li><li class="pt">
+ <div class="ptn" style="background:#3E6F76">15</div>
+ <div class="ptb">
+  <p class="ptt" id="t3E6F7615">She was a blood match for her father and donated for his transfusions.</p>
+  <div class="ptf"><span class="src">Ch 45, Transfusion</span>
+   <span class="cc">70 chars</span>
+   <button class="cp" data-t="She was a blood match for her father and donated for his transfusions.">copy</button></div>
+ </div></li><li class="pt">
+ <div class="ptn" style="background:#3E6F76">16</div>
+ <div class="ptb">
+  <p class="ptt" id="t3E6F7616">Their weekly ritual was Lynda Barry. She clipped Ernie Pook&#x27;s Comeek out of LA Weekly and brought it to him like a treaty to be signed between him and Death.</p>
+  <div class="ptf"><span class="src">Ch 46, Dark Comedy</span>
+   <span class="cc">157 chars</span>
+   <button class="cp" data-t="Their weekly ritual was Lynda Barry. She clipped Ernie Pook&#x27;s Comeek out of LA Weekly and brought it to him like a treaty to be signed between him and Death.">copy</button></div>
+ </div></li><li class="pt">
+ <div class="ptn" style="background:#3E6F76">17</div>
+ <div class="ptb">
+  <p class="ptt" id="t3E6F7617">Booked on Howard Stern at twenty-five to say her father was fine, she got told to show more skin. Then Frank phoned in and agreed his kids should stop taking his money. &#x27;There&#x27;s got to be an end to it sometime, Howard.&#x27;</p>
+  <div class="ptf"><span class="src">Ch 47, Payback</span>
+   <span class="cc">219 chars</span>
+   <button class="cp" data-t="Booked on Howard Stern at twenty-five to say her father was fine, she got told to show more skin. Then Frank phoned in and agreed his kids should stop taking his money. &#x27;There&#x27;s got to be an end to it sometime, Howard.&#x27;">copy</button></div>
+ </div></li><li class="pt">
+ <div class="ptn" style="background:#3E6F76">18</div>
+ <div class="ptb">
+  <p class="ptt" id="t3E6F7618">When she tried to make peace with him before he died, he said, &#x27;I am too sick to do this, Moon.&#x27;</p>
+  <div class="ptf"><span class="src">Ch 47, Payback</span>
+   <span class="cc">96 chars</span>
+   <button class="cp" data-t="When she tried to make peace with him before he died, he said, &#x27;I am too sick to do this, Moon.&#x27;">copy</button></div>
+ </div></li><li class="pt">
+ <div class="ptn" style="background:#3E6F76">19</div>
+ <div class="ptb">
+  <p class="ptt" id="t3E6F7619">Gail had him write each child a letter. In shaky black ink, hers said: &#x27;I love you, Moon.&#x27;</p>
+  <div class="ptf"><span class="src">Ch 47, Payback</span>
+   <span class="cc">90 chars</span>
+   <button class="cp" data-t="Gail had him write each child a letter. In shaky black ink, hers said: &#x27;I love you, Moon.&#x27;">copy</button></div>
+ </div></li><li class="pt">
+ <div class="ptn" style="background:#3E6F76">20</div>
+ <div class="ptb">
+  <p class="ptt" id="t3E6F7620">The moment the warmth left him, her mother and three siblings formed a tight circle. She watched them from outside it and kissed his fingers.</p>
+  <div class="ptf"><span class="src">Ch 48, December 1993</span>
+   <span class="cc">141 chars</span>
+   <button class="cp" data-t="The moment the warmth left him, her mother and three siblings formed a tight circle. She watched them from outside it and kissed his fingers.">copy</button></div>
+ </div></li></ol>
+ <details class="extras"><summary>8 more that did not make the twenty</summary><ol class="pts" start="21"><li class="pt">
+ <div class="ptn" style="background:#3E6F76">21</div>
+ <div class="ptb">
+  <p class="ptt" id="t3E6F7621">Within a year of her father&#x27;s death she also lost Roy to AIDS and June to cancer. The chapter that says so is sixty-eight words long.</p>
+  <div class="ptf"><span class="src">Ch 50, Unfathomable</span>
+   <span class="cc">133 chars</span>
+   <button class="cp" data-t="Within a year of her father&#x27;s death she also lost Roy to AIDS and June to cancer. The chapter that says so is sixty-eight words long.">copy</button></div>
+ </div></li><li class="pt">
+ <div class="ptn" style="background:#3E6F76">22</div>
+ <div class="ptb">
+  <p class="ptt" id="t3E6F7622">Around a Beverly Hills conference table Gail told her four children she was five million dollars in debt, and asked each of them to sign away two and a half million.</p>
+  <div class="ptf"><span class="src">Ch 60, Insurance Policy</span>
+   <span class="cc">165 chars</span>
+   <button class="cp" data-t="Around a Beverly Hills conference table Gail told her four children she was five million dollars in debt, and asked each of them to sign away two and a half million.">copy</button></div>
+ </div></li><li class="pt">
+ <div class="ptn" style="background:#3E6F76">23</div>
+ <div class="ptb">
+  <p class="ptt" id="t3E6F7623">The ten million dollar policy would liquidate to seven hundred and fifty thousand. If Gail could not find the rest, Universal would take Frank&#x27;s catalogue.</p>
+  <div class="ptf"><span class="src">Ch 60, Insurance Policy</span>
+   <span class="cc">155 chars</span>
+   <button class="cp" data-t="The ten million dollar policy would liquidate to seven hundred and fifty thousand. If Gail could not find the rest, Universal would take Frank&#x27;s catalogue.">copy</button></div>
+ </div></li><li class="pt">
+ <div class="ptn" style="background:#3E6F76">24</div>
+ <div class="ptb">
+  <p class="ptt" id="t3E6F7624">Her probate attorney gave her the legal term for what her mother&#x27;s will did to her: &#x27;unnatural disposition.&#x27;</p>
+  <div class="ptf"><span class="src">Ch 63, Trust</span>
+   <span class="cc">108 chars</span>
+   <button class="cp" data-t="Her probate attorney gave her the legal term for what her mother&#x27;s will did to her: &#x27;unnatural disposition.&#x27;">copy</button></div>
+ </div></li><li class="pt">
+ <div class="ptn" style="background:#3E6F76">25</div>
+ <div class="ptb">
+  <p class="ptt" id="t3E6F7625">Gail is buried in Westwood, on top of Frank. The funeral was an open-casket celebrity circus.</p>
+  <div class="ptf"><span class="src">Ch 64, Wishes</span>
+   <span class="cc">93 chars</span>
+   <button class="cp" data-t="Gail is buried in Westwood, on top of Frank. The funeral was an open-casket celebrity circus.">copy</button></div>
+ </div></li><li class="pt">
+ <div class="ptn" style="background:#3E6F76">26</div>
+ <div class="ptb">
+  <p class="ptt" id="t3E6F7626">Ahmet and Diva petitioned against Moon and Dweezil in probate court, including over Dweezil&#x27;s right to play his father&#x27;s music. Steve Vai appointed himself mediator.</p>
+  <div class="ptf"><span class="src">Ch 65, Walk with Me</span>
+   <span class="cc">165 chars</span>
+   <button class="cp" data-t="Ahmet and Diva petitioned against Moon and Dweezil in probate court, including over Dweezil&#x27;s right to play his father&#x27;s music. Steve Vai appointed himself mediator.">copy</button></div>
+ </div></li><li class="pt">
+ <div class="ptn" style="background:#3E6F76">27</div>
+ <div class="ptb">
+  <p class="ptt" id="t3E6F7627">The case ended in March 2019 with a judge&#x27;s stipulation. She calls it a Pyrrhic victory, and says she is her father&#x27;s daughter after all.</p>
+  <div class="ptf"><span class="src">Ch 66, Stipulation</span>
+   <span class="cc">137 chars</span>
+   <button class="cp" data-t="The case ended in March 2019 with a judge&#x27;s stipulation. She calls it a Pyrrhic victory, and says she is her father&#x27;s daughter after all.">copy</button></div>
+ </div></li><li class="pt">
+ <div class="ptn" style="background:#3E6F76">28</div>
+ <div class="ptb">
+  <p class="ptt" id="t3E6F7628">The final chapter is 105 words. She sends her living siblings a five-word group text: all is forgiven, come home. &#x27;Delivered, it says back.&#x27;</p>
+  <div class="ptf"><span class="src">Ch 70, Text</span>
+   <span class="cc">140 chars</span>
+   <button class="cp" data-t="The final chapter is 105 words. She sends her living siblings a five-word group text: all is forgiven, come home. &#x27;Delivered, it says back.&#x27;">copy</button></div>
+ </div></li></ol></details>
+ <a class="backtop" href="#top">Back to top</a>
+</section><section class="book" id="watson">
+ <header class="bh" style="border-left-color:#7C8C6A">
+  <h2>The Complete Guide to His Music</h2>
+  <p class="by">Ben Watson &middot; Omnibus, 2005</p>
+  <p class="bl">Sharp critical connections across the whole catalogue, 1966 to 2004.</p>
+ </header>
+ <ol class="pts"><li class="pt">
+ <div class="ptn" style="background:#7C8C6A">1</div>
+ <div class="ptb">
+  <p class="ptt" id="t7C8C6A1">Zappa and Herbie Cohen founded Bizarre Records in March 1969 and had it distributed by Reprise, Frank Sinatra&#x27;s label.</p>
+  <div class="ptf"><span class="src">Ch 3, The Bizarre Years</span>
+   <span class="cc">118 chars</span>
+   <button class="cp" data-t="Zappa and Herbie Cohen founded Bizarre Records in March 1969 and had it distributed by Reprise, Frank Sinatra&#x27;s label.">copy</button></div>
+ </div></li><li class="pt">
+ <div class="ptn" style="background:#7C8C6A">2</div>
+ <div class="ptb">
+  <p class="ptt" id="t7C8C6A2">Watson&#x27;s theory on why Zappa was bigger in Europe: for non-English speakers the lyrics stop getting in the way of the music.</p>
+  <div class="ptf"><span class="src">Ch 3, Hot Rats</span>
+   <span class="cc">124 chars</span>
+   <button class="cp" data-t="Watson&#x27;s theory on why Zappa was bigger in Europe: for non-English speakers the lyrics stop getting in the way of the music.">copy</button></div>
+ </div></li><li class="pt">
+ <div class="ptn" style="background:#7C8C6A">3</div>
+ <div class="ptb">
+  <p class="ptt" id="t7C8C6A3">Weasels Ripped My Flesh was originally a sampler for a planned twelve-record set called The History And Collected Improvisations Of The Mothers Of Invention.</p>
+  <div class="ptf"><span class="src">Ch 3, Weasels Ripped My Flesh</span>
+   <span class="cc">157 chars</span>
+   <button class="cp" data-t="Weasels Ripped My Flesh was originally a sampler for a planned twelve-record set called The History And Collected Improvisations Of The Mothers Of Invention.">copy</button></div>
+ </div></li><li class="pt">
+ <div class="ptn" style="background:#7C8C6A">4</div>
+ <div class="ptb">
+  <p class="ptt" id="t7C8C6A4">The title track of Weasels Ripped My Flesh is two minutes and seven seconds of feedback. It took the arrival of Sonic Youth for rock listeners to catch up.</p>
+  <div class="ptf"><span class="src">Ch 3, Weasels Ripped My Flesh</span>
+   <span class="cc">155 chars</span>
+   <button class="cp" data-t="The title track of Weasels Ripped My Flesh is two minutes and seven seconds of feedback. It took the arrival of Sonic Youth for rock listeners to catch up.">copy</button></div>
+ </div></li><li class="pt">
+ <div class="ptn" style="background:#7C8C6A">5</div>
+ <div class="ptb">
+  <p class="ptt" id="t7C8C6A5">Neon Park painted the Weasels sleeve. Lowell George liked it enough to insist on using him for every Little Feat cover.</p>
+  <div class="ptf"><span class="src">Ch 3, Weasels Ripped My Flesh</span>
+   <span class="cc">119 chars</span>
+   <button class="cp" data-t="Neon Park painted the Weasels sleeve. Lowell George liked it enough to insist on using him for every Little Feat cover.">copy</button></div>
+ </div></li><li class="pt">
+ <div class="ptn" style="background:#7C8C6A">6</div>
+ <div class="ptb">
+  <p class="ptt" id="t7C8C6A6">&#x27;Holiday In Berlin&#x27; was written for the German students who stormed the stage in October 1968 demanding an anti-capitalist statement. Their leaders wanted Zappa to tell the crowd to burn down a nearby American forces base.</p>
+  <div class="ptf"><span class="src">Ch 3, Burnt Weeny Sandwich</span>
+   <span class="cc">222 chars</span>
+   <button class="cp" data-t="&#x27;Holiday In Berlin&#x27; was written for the German students who stormed the stage in October 1968 demanding an anti-capitalist statement. Their leaders wanted Zappa to tell the crowd to burn down a nearby American forces base.">copy</button></div>
+ </div></li><li class="pt">
+ <div class="ptn" style="background:#7C8C6A">7</div>
+ <div class="ptb">
+  <p class="ptt" id="t7C8C6A7">Zappa&#x27;s organ solo on &#x27;The Little House I Used To Live In&#x27; reaches back to pipe-band rudiments he learned at twelve, in Keith McKillop&#x27;s percussion class in 1952.</p>
+  <div class="ptf"><span class="src">Ch 3, Burnt Weeny Sandwich</span>
+   <span class="cc">162 chars</span>
+   <button class="cp" data-t="Zappa&#x27;s organ solo on &#x27;The Little House I Used To Live In&#x27; reaches back to pipe-band rudiments he learned at twelve, in Keith McKillop&#x27;s percussion class in 1952.">copy</button></div>
+ </div></li><li class="pt">
+ <div class="ptn" style="background:#7C8C6A">8</div>
+ <div class="ptb">
+  <p class="ptt" id="t7C8C6A8">Jean-Luc Ponty&#x27;s &#x27;Music For Electric Violin And Low Budget Orchestra&#x27; got its title after Pacific Records refused Zappa&#x27;s request for a 97-piece orchestra.</p>
+  <div class="ptf"><span class="src">Ch 3, King Kong</span>
+   <span class="cc">155 chars</span>
+   <button class="cp" data-t="Jean-Luc Ponty&#x27;s &#x27;Music For Electric Violin And Low Budget Orchestra&#x27; got its title after Pacific Records refused Zappa&#x27;s request for a 97-piece orchestra.">copy</button></div>
+ </div></li><li class="pt">
+ <div class="ptn" style="background:#7C8C6A">9</div>
+ <div class="ptb">
+  <p class="ptt" id="t7C8C6A9">Over-Nite Sensation sat on the US charts for most of a year and peaked at 32, Zappa&#x27;s best to that point. It was released in quadrophonic.</p>
+  <div class="ptf"><span class="src">Ch 4, Over-Nite Sensation</span>
+   <span class="cc">138 chars</span>
+   <button class="cp" data-t="Over-Nite Sensation sat on the US charts for most of a year and peaked at 32, Zappa&#x27;s best to that point. It was released in quadrophonic.">copy</button></div>
+ </div></li><li class="pt">
+ <div class="ptn" style="background:#7C8C6A">10</div>
+ <div class="ptb">
+  <p class="ptt" id="t7C8C6A10">&#x27;Montana&#x27; exists because Zappa glanced at a box of dental floss and decided he needed to write songs that were more specific.</p>
+  <div class="ptf"><span class="src">Ch 4, Over-Nite Sensation</span>
+   <span class="cc">125 chars</span>
+   <button class="cp" data-t="&#x27;Montana&#x27; exists because Zappa glanced at a box of dental floss and decided he needed to write songs that were more specific.">copy</button></div>
+ </div></li><li class="pt">
+ <div class="ptn" style="background:#7C8C6A">11</div>
+ <div class="ptb">
+  <p class="ptt" id="t7C8C6A11">Zappa on singer Ricky Lancelotti: he carried a .45 and had a cassette of himself imitating 100 cartoon voices in 60 seconds.</p>
+  <div class="ptf"><span class="src">Ch 4, Over-Nite Sensation</span>
+   <span class="cc">124 chars</span>
+   <button class="cp" data-t="Zappa on singer Ricky Lancelotti: he carried a .45 and had a cassette of himself imitating 100 cartoon voices in 60 seconds.">copy</button></div>
+ </div></li><li class="pt">
+ <div class="ptn" style="background:#7C8C6A">12</div>
+ <div class="ptb">
+  <p class="ptt" id="t7C8C6A12">Watson read Zappa his own Plato and King Lear reading of Apostrophe in October 1993, weeks before Zappa died. Zappa said nothing about the theory, then nodded hard at the idea that artists reach themes beyond what they consciously know.</p>
+  <div class="ptf"><span class="src">Ch 4, Apostrophe (&#x27;)</span>
+   <span class="cc">236 chars</span>
+   <button class="cp" data-t="Watson read Zappa his own Plato and King Lear reading of Apostrophe in October 1993, weeks before Zappa died. Zappa said nothing about the theory, then nodded hard at the idea that artists reach themes beyond what they consciously know.">copy</button></div>
+ </div></li><li class="pt">
+ <div class="ptn" style="background:#7C8C6A">13</div>
+ <div class="ptb">
+  <p class="ptt" id="t7C8C6A13">&#x27;Black Napkins&#x27; is named after the tableware at a promoter&#x27;s Thanksgiving dinner in Japan. It was recorded in Osaka on 3 February 1976 and is the only live performance on Zoot Allures.</p>
+  <div class="ptf"><span class="src">Ch 5, Zoot Allures</span>
+   <span class="cc">184 chars</span>
+   <button class="cp" data-t="&#x27;Black Napkins&#x27; is named after the tableware at a promoter&#x27;s Thanksgiving dinner in Japan. It was recorded in Osaka on 3 February 1976 and is the only live performance on Zoot Allures.">copy</button></div>
+ </div></li><li class="pt">
+ <div class="ptn" style="background:#7C8C6A">14</div>
+ <div class="ptb">
+  <p class="ptt" id="t7C8C6A14">Patrick O&#x27;Hearn and Eddie Jobson both appear on the Zoot Allures cover. Neither one plays a note on the record.</p>
+  <div class="ptf"><span class="src">Ch 5, Zoot Allures</span>
+   <span class="cc">111 chars</span>
+   <button class="cp" data-t="Patrick O&#x27;Hearn and Eddie Jobson both appear on the Zoot Allures cover. Neither one plays a note on the record.">copy</button></div>
+ </div></li><li class="pt">
+ <div class="ptn" style="background:#7C8C6A">15</div>
+ <div class="ptb">
+  <p class="ptt" id="t7C8C6A15">Zappa had to fight his own engineers to stack tracks by musicians who were not listening to each other. On Joe&#x27;s Garage he gave the technique a name: xenochrony, alien time.</p>
+  <div class="ptf"><span class="src">Ch 5, Zoot Allures</span>
+   <span class="cc">173 chars</span>
+   <button class="cp" data-t="Zappa had to fight his own engineers to stack tracks by musicians who were not listening to each other. On Joe&#x27;s Garage he gave the technique a name: xenochrony, alien time.">copy</button></div>
+ </div></li><li class="pt">
+ <div class="ptn" style="background:#7C8C6A">16</div>
+ <div class="ptb">
+  <p class="ptt" id="t7C8C6A16">To show Warner Brothers what he thought of them, Zappa broadcast the whole two-and-a-half-hour Läther on the radio and told listeners to tape it off the air.</p>
+  <div class="ptf"><span class="src">Ch 5, Läther</span>
+   <span class="cc">157 chars</span>
+   <button class="cp" data-t="To show Warner Brothers what he thought of them, Zappa broadcast the whole two-and-a-half-hour Läther on the radio and told listeners to tape it off the air.">copy</button></div>
+ </div></li><li class="pt">
+ <div class="ptn" style="background:#7C8C6A">17</div>
+ <div class="ptb">
+  <p class="ptt" id="t7C8C6A17">Zappa invented the entire Joe&#x27;s Garage storyline over one weekend. His description of the process: &#x27;it&#x27;s like doing crossword puzzles.&#x27;</p>
+  <div class="ptf"><span class="src">Ch 6, Joe&#x27;s Garage</span>
+   <span class="cc">135 chars</span>
+   <button class="cp" data-t="Zappa invented the entire Joe&#x27;s Garage storyline over one weekend. His description of the process: &#x27;it&#x27;s like doing crossword puzzles.&#x27;">copy</button></div>
+ </div></li><li class="pt">
+ <div class="ptn" style="background:#7C8C6A">18</div>
+ <div class="ptb">
+  <p class="ptt" id="t7C8C6A18">Ike Willis talked his way onto Zappa&#x27;s stage crew at Washington University in St Louis on 2 October 1977. Zappa found out he could sing and auditioned him on the spot.</p>
+  <div class="ptf"><span class="src">Ch 6, Joe&#x27;s Garage</span>
+   <span class="cc">167 chars</span>
+   <button class="cp" data-t="Ike Willis talked his way onto Zappa&#x27;s stage crew at Washington University in St Louis on 2 October 1977. Zappa found out he could sing and auditioned him on the spot.">copy</button></div>
+ </div></li><li class="pt">
+ <div class="ptn" style="background:#7C8C6A">19</div>
+ <div class="ptb">
+  <p class="ptt" id="t7C8C6A19">The entire vocal track of &#x27;Ya Hozna&#x27; is backward-masked. It came out while TV evangelists were claiming backward-masking proved Judas Priest had signed a pact with the Devil.</p>
+  <div class="ptf"><span class="src">Ch 8, Them Or Us</span>
+   <span class="cc">174 chars</span>
+   <button class="cp" data-t="The entire vocal track of &#x27;Ya Hozna&#x27; is backward-masked. It came out while TV evangelists were claiming backward-masking proved Judas Priest had signed a pact with the Devil.">copy</button></div>
+ </div></li><li class="pt">
+ <div class="ptn" style="background:#7C8C6A">20</div>
+ <div class="ptb">
+  <p class="ptt" id="t7C8C6A20">&#x27;Be In My Video&#x27; mocks MTV, so Zappa cut it in 4/4 in the key of C major to make the disdain structural.</p>
+  <div class="ptf"><span class="src">Ch 8, Them Or Us</span>
+   <span class="cc">104 chars</span>
+   <button class="cp" data-t="&#x27;Be In My Video&#x27; mocks MTV, so Zappa cut it in 4/4 in the key of C major to make the disdain structural.">copy</button></div>
+ </div></li></ol>
+ <details class="extras"><summary>4 more that did not make the twenty</summary><ol class="pts" start="21"><li class="pt">
+ <div class="ptn" style="background:#7C8C6A">21</div>
+ <div class="ptb">
+  <p class="ptt" id="t7C8C6A21">CBS refused to distribute Zappa&#x27;s anti-war single &#x27;I Don&#x27;t Wanna Get Drafted.&#x27;</p>
+  <div class="ptf"><span class="src">Ch 6, The CBS Years</span>
+   <span class="cc">78 chars</span>
+   <button class="cp" data-t="CBS refused to distribute Zappa&#x27;s anti-war single &#x27;I Don&#x27;t Wanna Get Drafted.&#x27;">copy</button></div>
+ </div></li><li class="pt">
+ <div class="ptn" style="background:#7C8C6A">22</div>
+ <div class="ptb">
+  <p class="ptt" id="t7C8C6A22">Zappa called minimalism &#x27;mononchromonotony,&#x27; and meant it as an insult. He called Black Sabbath&#x27;s &#x27;Iron Man&#x27; a classic, and meant that sincerely.</p>
+  <div class="ptf"><span class="src">Ch 7 and Ch 10</span>
+   <span class="cc">145 chars</span>
+   <button class="cp" data-t="Zappa called minimalism &#x27;mononchromonotony,&#x27; and meant it as an insult. He called Black Sabbath&#x27;s &#x27;Iron Man&#x27; a classic, and meant that sincerely.">copy</button></div>
+ </div></li><li class="pt">
+ <div class="ptn" style="background:#7C8C6A">23</div>
+ <div class="ptb">
+  <p class="ptt" id="t7C8C6A23">On Playground Psychotics the band read out scripts Zappa transcribed from their own secretly taped complaints about him secretly taping them.</p>
+  <div class="ptf"><span class="src">Ch 9, Playground Psychotics</span>
+   <span class="cc">141 chars</span>
+   <button class="cp" data-t="On Playground Psychotics the band read out scripts Zappa transcribed from their own secretly taped complaints about him secretly taping them.">copy</button></div>
+ </div></li><li class="pt">
+ <div class="ptn" style="background:#7C8C6A">24</div>
+ <div class="ptb">
+  <p class="ptt" id="t7C8C6A24">Watching half of Lincoln Center walk out on a Boulez concert, Zappa wanted to shout &#x27;sit down assholes, this is one of the real guys.&#x27;</p>
+  <div class="ptf"><span class="src">Ch 7, Classical Projects</span>
+   <span class="cc">134 chars</span>
+   <button class="cp" data-t="Watching half of Lincoln Center walk out on a Boulez concert, Zappa wanted to shout &#x27;sit down assholes, this is one of the real guys.&#x27;">copy</button></div>
+ </div></li></ol></details>
+ <a class="backtop" href="#top">Back to top</a>
+</section>
+<footer>
+ <p><b>On sourcing.</b> Benac carries the hard numbers, since his format prints personnel, recording dates, release dates, and Billboard peaks for every album. Butcher carries the money and the dialogue, because she typed the letters and kept a diary. Moon carries the family. Watson carries the connections nobody else draws.</p>
+ <p><b>One caution before posting.</b> Several of these are the book author reporting a claim rather than a settled fact. The Carol Kaye account of who played on Freak Out!, the Duke Ellington ten dollar story, and Gail Zappa's version of the Läther delivery are all disputed inside the books themselves. Post those as what somebody said, and you stay accurate.</p>
+ <p>Companion chapter index: <a href="https://7onething1.github.io/zappa-book-outlines/">zappa-book-outlines</a>. Source EPUBs in <code>~/Downloads/complete/complete/complete/frank zappa books/</code> and <code>~/Downloads/complete/complete/complete/epub/</code>.</p>
+</footer>
+</div><script>
+document.addEventListener("click",function(ev){
+ var b=ev.target.closest("button.cp"); if(!b) return;
+ var t=b.getAttribute("data-t")||"";
+ function done(){b.textContent="copied";b.classList.add("done");setTimeout(function(){b.textContent="copy";b.classList.remove("done")},1400)}
+ if(navigator.clipboard&&navigator.clipboard.writeText){navigator.clipboard.writeText(t).then(done,fallback)}else{fallback()}
+ function fallback(){var a=document.createElement("textarea");a.value=t;a.setAttribute("readonly","");a.style.position="fixed";a.style.opacity="0";document.body.appendChild(a);a.select();try{document.execCommand("copy");done()}catch(e){}document.body.removeChild(a)}
+});
+</script></body></html>
