@@ -54,7 +54,7 @@ ul.tight{margin:6px 0 14px;padding-left:20px} ul.tight li{margin-bottom:5px}
 </div>
 
 <div class="toc">
-<a href="#missing">What is missing</a><a href="#found">What was found</a><a href="#timeline">Revision timeline</a><a href="#control">Known-answer control</a><a href="#ties">The 18 ties</a><a href="#paren">Paren to staccato</a><a href="#lanes">Two machines</a><a href="#sibling">Sibling session</a><a href="#repair">Repair pass</a><a href="#kick">Kick defect</a><a href="#blocked">Still blocked</a><a href="#repro">Reproduce it</a>
+<a href="#missing">What is missing</a><a href="#found">What was found</a><a href="#timeline">Revision timeline</a><a href="#control">Known-answer control</a><a href="#ties">The 18 ties</a><a href="#paren">Paren to staccato</a><a href="#lanes">Two machines</a><a href="#sibling">Sibling session</a><a href="#repair">Repair pass</a><a href="#gate">Gate fix</a><a href="#kick">Kick defect</a><a href="#blocked">Still blocked</a><a href="#repro">Reproduce it</a>
 </div>
 
 <div class="grid">
@@ -280,6 +280,39 @@ beat 10-11  Hi-Hat closed + kick lane 36 (line 7), tied pair</pre>
 <h3>A bug in my own tool, caught by cross-checking</h3>
 <p>The first reality-gate run keyed lanes on <code>OutputMidiNumber</code>. On this drumset map <code>Hi-Hat (half)</code> carries input <strong>92</strong> and output <strong>46</strong>, the same output as <code>Hi-Hat (open)</code>, so the gate silently merged two lanes a reader sees as distinct. Two of my own outputs disagreed, which is what surfaced it.</p>
 <p>Fixed to key on <code>InputMidiNumbers</code>, the field the reader and Songsterr both use. The corrected run matches the iMac census on <strong>all 17 lanes</strong> and on the 1,574 total.</p>
+</div>
+
+<h2 id="gate">FIXED: the gate that examined zero tracks</h2>
+<p class="sub">The 2026-08-30 audit left this open, and the Zomby Woof file turned out to be the fixture that proves it.</p>
+<pre>def is_guitar(name):
+    n = name.lower()
+    return "guitar" in n and "bass" not in n</pre>
+<p>Songsterr community tabs name tracks after the musicians. Zomby Woof carries <code>Frank Zappa 1</code>, <code>Frank Zappa 2</code>, <code>Tom Fowler</code>, <code>Ruth Underwood</code>, <code>Ralph Humphrey</code>. Not one contains the word. The gate reported on <strong>zero tracks</strong>, so the file passed unexamined, and a gate that examines nothing passes everything.</p>
+<p>GPIF states the instrument outright, so the fix reads that instead.</p>
+<div class="scroll"><table>
+<tr><th class="n">#</th><th>Track name</th><th>InstrumentSet/Type</th><th class="n">Old test</th><th class="n">New test</th></tr>
+<tr class="good"><td class="n">0</td><td class="t">Frank Zappa 1</td><td><code>electricGuitar</code></td><td class="n">False</td><td class="n"><strong>True</strong></td></tr>
+<tr class="good"><td class="n">1</td><td class="t">Frank Zappa 2</td><td><code>electricGuitar</code></td><td class="n">False</td><td class="n"><strong>True</strong></td></tr>
+<tr class=""><td class="n">2</td><td class="t">Tom Fowler</td><td><code>electricBass</code></td><td class="n">False</td><td class="n">False</td></tr>
+<tr class=""><td class="n">3</td><td class="t">Voice Oohs</td><td><code>voice</code></td><td class="n">False</td><td class="n">False</td></tr>
+<tr class=""><td class="n">4</td><td class="t">Bruce Fowler</td><td><code>trombone</code></td><td class="n">False</td><td class="n">False</td></tr>
+<tr class=""><td class="n">5</td><td class="t">George Duke</td><td><code>harpsichord</code></td><td class="n">False</td><td class="n">False</td></tr>
+<tr class=""><td class="n">6</td><td class="t">George Duke</td><td><code>electricOrgan</code></td><td class="n">False</td><td class="n">False</td></tr>
+<tr class=""><td class="n">7</td><td class="t">Ruth Underwood</td><td><code>vibraphone</code></td><td class="n">False</td><td class="n">False</td></tr>
+<tr class=""><td class="n">8</td><td class="t">Sal Marquez</td><td><code>trumpet</code></td><td class="n">False</td><td class="n">False</td></tr>
+<tr class=""><td class="n">9</td><td class="t">Ralph Humphrey</td><td><code>drumKit</code></td><td class="n">False</td><td class="n">False</td></tr>
+</table></div>
+<p>Resolution order is instrument type, then instrument name, then the display name for callers that only ever held a string. <code>bassGuitar</code> is excluded correctly at step one because it carries the word bass.</p>
+<div class="fix">
+<h3>Fixed in all three copies, and now tested</h3>
+<p>Each backed up as <code>.bak-pre-isguitar-2026-08-31</code>: the skill copy, <code>kilgore-guitar-tools</code>, and <code>kilgore-guitar/2026-08-13-macbook/tools</code>.</p>
+<p>A regression test now exists at <code>_tests/test_is_guitar_instrument_resolution.py</code>. It passes against the fix and fails against the backup, which is the check that was missing when the defect shipped.</p>
+<pre style="margin:10px 0 0">against the fixed gate  : PASS  10 tracks resolved by instrument, 2 guitars found
+against the backup      : FAIL  impossible_gate has no instrument_of</pre>
+</div>
+<div class="corr">
+<h3>Two suite failures are pre-existing</h3>
+<p>Running both tests against the pre-patch backup gives byte-identical errors, so <code>test_comparison_basis.py</code> and <code>test_promotion_rule.py</code> were already broken before this change. Queued as <code>q-2026-08-31-d739fb</code>.</p>
 </div>
 
 <h2 id="blocked">Still blocked</h2>

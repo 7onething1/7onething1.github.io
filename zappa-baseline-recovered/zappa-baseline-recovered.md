@@ -342,6 +342,61 @@ Fixed to key on `InputMidiNumbers`, the field the reader and Songsterr both use.
 corrected run matches the iMac census on **all 17 lanes** and on the 1,574 total. That
 is the rule about reading the field the human acts on, earning its keep.
 
+## FIXED: the gate that examined zero tracks
+
+The 2026-08-30 audit left this open, and the Zomby Woof file turned out to be the
+fixture that proves it.
+
+`impossible_gate.py` decided what counts as a guitar staff with a name test:
+
+    def is_guitar(name):
+        n = name.lower()
+        return "guitar" in n and "bass" not in n
+
+Songsterr community tabs name tracks after the musicians. Zomby Woof carries
+`Frank Zappa 1`, `Frank Zappa 2`, `Tom Fowler`, `Ruth Underwood`, `Ralph Humphrey`.
+Not one contains the word. The gate reported on **zero tracks**, so the file passed
+unexamined, and a gate that examines nothing passes everything.
+
+GPIF states the instrument outright, so the fix reads that instead.
+
+| # | Track name | `InstrumentSet/Type` | Old test | New test |
+|---|---|---|---|---|
+| 0 | Frank Zappa 1 | electricGuitar | False | **True** |
+| 1 | Frank Zappa 2 | electricGuitar | False | **True** |
+| 2 | Tom Fowler | electricBass | False | False |
+| 3 | Voice Oohs | voice | False | False |
+| 4 | Bruce Fowler | trombone | False | False |
+| 5 | George Duke | harpsichord | False | False |
+| 6 | George Duke | electricOrgan | False | False |
+| 7 | Ruth Underwood | vibraphone | False | False |
+| 8 | Sal Marquez | trumpet | False | False |
+| 9 | Ralph Humphrey | drumKit | False | False |
+
+Resolution order is instrument type, then instrument name, then the display name for
+callers that only ever held a string. `bassGuitar` is excluded correctly at step one
+because it carries the word bass.
+
+**Fixed in all three copies on this Mac**, each backed up as
+`.bak-pre-isguitar-2026-08-31`:
+
+    ~/.claude/skills/impossible-guitar-parts/impossible_gate.py
+    ~/Projects/_outputs/kilgore-guitar-tools/impossible_gate.py
+    ~/Projects/_outputs/kilgore-guitar/2026-08-13-macbook/tools/impossible_gate.py
+
+**And a regression test now exists**, at
+`kilgore-guitar-tools/_tests/test_is_guitar_instrument_resolution.py`. It passes
+against the fix and fails against the backup, which is the check that was missing when
+the defect shipped.
+
+    against the fixed gate  : PASS  10 tracks resolved by instrument, 2 guitars found
+    against the backup      : FAIL  impossible_gate has no instrument_of
+
+**Two suite failures are pre-existing and are not from this change.** Running both
+tests against the pre-patch backup gives byte-identical errors, so
+`test_comparison_basis.py` and `test_promotion_rule.py` were already broken. Queued as
+`q-2026-08-31-d739fb`.
+
 ## Still blocked
 
 1. **The iMac working tree.** The immutable `ORIGINAL-*.gp` set, the published-source
