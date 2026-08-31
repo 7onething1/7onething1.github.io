@@ -23,11 +23,19 @@ That set comes to exactly 100 tracks.
 ## How each entry was verified
 
 Each weekly post was fetched from stereogum.com by its own post ID. The publish date came from
-the page metadata. The five ranked entries came from the article body. Every date landed on a
-Friday and the sequence runs unbroken across all 21 weeks recovered.
+the page metadata. The five ranked entries came from the article body. Every date landed on a Friday,
+and all 49 posts came back with a full set of five, giving 245 tracks for the year.
 
 The 50 tracks covering weeks #187 through #196 were checked against a previously supplied list.
 All 50 matched exactly, including ranks and featured-artist credits.
+
+## Where 2017 begins and ends
+
+The franchise opened the year with week #173 on January 6, 2017 and closed it with week #221 on
+December 15, 2017. Stereogum then paused for the holidays and resumed with week #222 on January 5, 2018.
+
+One Friday inside that run carries no post: November 24, 2017, which was Thanksgiving week. That is an
+editorial skip in the original record rather than a gap in this reconstruction.
 
 ## The open question
 
