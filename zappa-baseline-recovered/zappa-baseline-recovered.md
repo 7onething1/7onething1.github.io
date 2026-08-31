@@ -270,6 +270,31 @@ covering the entire solo from bar 56 to bar 101. That is the fingerprint of sepa
 contributors working separate sections across twelve revisions, not a notational
 choice. The repair is to normalise every kick onto one lane.
 
+### The same defect, swept across all twenty songs
+
+The iMac census carries per-lane counts for every song, so the split can be checked
+catalogue-wide without holding twenty score files.
+
+| Song | songId | lane 35 | lane 36 | Drum events |
+|---|---|---|---|---|
+| What's New In Baltimore | s35887 | 317 | 48 | 1,696 |
+| **Zomby Woof** | s412162 | 163 | 186 | 1,574 |
+| Carolina Hard-Core Ecstasy | s68248 | 8 | 274 | 1,567 |
+| Alien Orifice | s68246 | 8 | 180 | 1,384 |
+
+**Four of twenty.** The other sixteen use exactly one lane, which is what establishes
+one lane as the norm and the split as an anomaly.
+
+The house convention is lane 36, used alone by thirteen songs including Montana, Inca
+Roads, Drowning Witch and Muffin Man. Lane 35 alone covers three: Keep It Greasey,
+Catholic Girls and Fembot.
+
+Two of the four splits are small contaminations. Carolina Hard-Core Ecstasy and Alien
+Orifice each carry exactly **8 stray notes** on lane 35 against a dominant lane 36, so
+each is an eight-note repair. Zomby Woof at 163 against 186 and What's New In
+Baltimore at 317 against 48 are section-scale, and Zomby Woof is the worst of the set
+because its two lanes are nearly even.
+
 ### What bars 16 and 17 actually contain
 
 Those are the bars whose kick ties r8787022 removed, and the pattern explains itself
