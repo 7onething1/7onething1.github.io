@@ -1,0 +1,224 @@
+{
+ "68246": {
+  "name": "Alien Orifice",
+  "baseline": 7636083,
+  "baseline_author": "Ben Dibden1",
+  "baseline_date": "2026-06-30T00:58:07",
+  "ours": [
+   8769118
+  ],
+  "published": 7636083,
+  "ours_is_live": false
+ },
+ "68248": {
+  "name": "Carolina Hard-Core Ecstasy",
+  "baseline": 593836,
+  "baseline_author": "Darr",
+  "baseline_date": "2023-07-14T18:54:46",
+  "ours": [
+   8769058
+  ],
+  "published": 593836,
+  "ours_is_live": false
+ },
+ "749523": {
+  "name": "Catholic Girls",
+  "baseline": 1971732,
+  "baseline_author": "Kevin Sheppard",
+  "baseline_date": "2025-05-11T19:03:44",
+  "ours": [
+   8788801
+  ],
+  "published": 1971732,
+  "ours_is_live": false
+ },
+ "620961": {
+  "name": "Drowning Witch",
+  "baseline": 2606944,
+  "baseline_author": "Khashoggi",
+  "baseline_date": "2025-08-02T20:49:49",
+  "ours": [
+   8768566
+  ],
+  "published": 2606944,
+  "ours_is_live": false
+ },
+ "748459": {
+  "name": "Fembot",
+  "baseline": 8742638,
+  "baseline_author": "Kevin Sheppard",
+  "baseline_date": "2026-08-28T16:30:02",
+  "ours": [
+   8769165
+  ],
+  "published": 8769165,
+  "ours_is_live": true
+ },
+ "412178": {
+  "name": "Inca Roads",
+  "baseline": 7750859,
+  "baseline_author": "Darr",
+  "baseline_date": "2026-07-06T10:09:41",
+  "ours": [
+   8769026
+  ],
+  "published": 7750859,
+  "ours_is_live": false
+ },
+ "604777": {
+  "name": "Keep It Greasey",
+  "baseline": 2463117,
+  "baseline_author": "Kevin Sheppard",
+  "baseline_date": "2025-07-15T22:16:47",
+  "ours": [
+   8768457
+  ],
+  "published": 2463117,
+  "ours_is_live": false
+ },
+ "35870": {
+  "name": "Montana",
+  "baseline": 7294223,
+  "baseline_author": "Ben Dibden1",
+  "baseline_date": "2026-06-10T10:47:05",
+  "ours": [
+   8764165,
+   8787106
+  ],
+  "published": 7294223,
+  "ours_is_live": false
+ },
+ "35886": {
+  "name": "Muffin Man",
+  "baseline": 7716657,
+  "baseline_author": "Ben Dibden1",
+  "baseline_date": "2026-07-04T10:54:08",
+  "ours": [
+   8768517
+  ],
+  "published": 7716657,
+  "ours_is_live": false
+ },
+ "35865": {
+  "name": "Nanook Rubs It",
+  "baseline": 4719269,
+  "baseline_author": "Taburet",
+  "baseline_date": "2026-01-14T20:14:14",
+  "ours": [
+   8768967
+  ],
+  "published": 4719269,
+  "ours_is_live": false
+ },
+ "35878": {
+  "name": "Nanook Suite",
+  "baseline": 7807785,
+  "baseline_author": "Kirill",
+  "baseline_date": "2026-07-09T14:10:19",
+  "ours": [
+   8769001
+  ],
+  "published": 7807785,
+  "ours_is_live": false
+ },
+ "35884": {
+  "name": "Oh No",
+  "baseline": 7494834,
+  "baseline_author": "Ben Dibden1",
+  "baseline_date": "2026-06-21T22:15:00",
+  "ours": [
+   8769089
+  ],
+  "published": 7494834,
+  "ours_is_live": false
+ },
+ "1105085": {
+  "name": "The Black Page",
+  "baseline": 7108692,
+  "baseline_author": "Achille",
+  "baseline_date": "2026-05-31T05:05:51",
+  "ours": [
+   8768613
+  ],
+  "published": 7108692,
+  "ours_is_live": false
+ },
+ "412170": {
+  "name": "Trouble Every Day Live",
+  "baseline": 279371,
+  "baseline_author": "enikey87",
+  "baseline_date": "2016-09-03T03:46:39",
+  "ours": [
+   8766285
+  ],
+  "published": 279371,
+  "ours_is_live": false
+ },
+ "20690": {
+  "name": "Uncle Meat",
+  "baseline": 24054,
+  "baseline_author": "Leonard",
+  "baseline_date": "2009-02-04T08:34:29",
+  "ours": [
+   8788757
+  ],
+  "published": 24054,
+  "ours_is_live": false
+ },
+ "35881": {
+  "name": "Watermelon In Easter Hay",
+  "baseline": 7715683,
+  "baseline_author": "Ben Dibden1",
+  "baseline_date": "2026-07-04T09:27:00",
+  "ours": [
+   8768414
+  ],
+  "published": 7715683,
+  "ours_is_live": false
+ },
+ "35887": {
+  "name": "Whats New In Baltimore",
+  "baseline": 8555291,
+  "baseline_author": "e",
+  "baseline_date": "2026-08-18T21:44:09",
+  "ours": [
+   8769141
+  ],
+  "published": 8555291,
+  "ours_is_live": false
+ },
+ "412162": {
+  "name": "Zomby Woof",
+  "baseline": 7115188,
+  "baseline_author": "meh",
+  "baseline_date": "2026-05-31T14:39:41",
+  "ours": [
+   8766102,
+   8787022
+  ],
+  "published": 7115188,
+  "ours_is_live": false
+ },
+ "5820647": {
+  "name": "Zomby Woof AI",
+  "baseline": 7605020,
+  "baseline_author": "CoolDude",
+  "baseline_date": "2026-06-28T09:24:02",
+  "ours": [
+   8766178
+  ],
+  "published": 8766178,
+  "ours_is_live": true
+ },
+ "35883": {
+  "name": "Zoot Allures",
+  "baseline": 7179991,
+  "baseline_author": "Ben Dibden1",
+  "baseline_date": "2026-06-03T23:44:10",
+  "ours": [
+   8769199
+  ],
+  "published": 7179991,
+  "ours_is_live": false
+ }
+}

@@ -1,0 +1,283 @@
+<title>Zappa Drum Tab Forensics</title>
+<style>
+:root{--bg:#f4ead6;--ink:#1b1a17;--rule:#d8c9a8;--red:#a63d40;--amber:#c8873b;--green:#5c7a4a;
+--blue:#3f5e77;--card:#fbf5e7;--mute:#7a6f5c;}
+*{box-sizing:border-box}
+body{background:var(--bg);color:var(--ink);font:16px/1.6 "Iowan Old Style",Palatino,Georgia,serif;
+margin:0;padding:0 0 80px}
+.wrap{max-width:1120px;margin:0 auto;padding:0 24px}
+header{background:var(--ink);color:var(--bg);padding:38px 0 30px;margin-bottom:34px}
+h1{margin:0 0 6px;font-size:31px;letter-spacing:-.4px}
+.sub{color:var(--mute);font-size:13px}
+header .sub{color:#c9bda4}
+h2{font-size:20px;margin:38px 0 12px;padding-bottom:7px;border-bottom:2px solid var(--rule)}
+.kpis{display:grid;grid-template-columns:repeat(auto-fit,minmax(178px,1fr));gap:14px;margin:22px 0 8px}
+.kpi{background:var(--card);border:1px solid var(--rule);border-left:5px solid var(--blue);
+padding:14px 16px;border-radius:3px}
+.kpi.bad{border-left-color:var(--red)} .kpi.good{border-left-color:var(--green)}
+.kpi.warn{border-left-color:var(--amber)}
+.kpi b{display:block;font-size:27px;line-height:1.15}
+.kpi span{font-size:12.5px;color:var(--mute)}
+table{width:100%;border-collapse:collapse;font-size:14px;background:var(--card);
+border:1px solid var(--rule)}
+th{text-align:left;background:#ece0c6;padding:9px 10px;border-bottom:2px solid var(--rule);
+font-size:12px;text-transform:uppercase;letter-spacing:.5px}
+td{padding:9px 10px;border-bottom:1px solid var(--rule);vertical-align:top}
+td.num{text-align:right;font-variant-numeric:tabular-nums;white-space:nowrap}
+.song{font-weight:600}
+.ok{color:var(--green);font-weight:600} .bad{color:var(--red);font-weight:600}
+.warn{color:var(--amber);font-weight:600}
+.alb{font-size:11px;background:var(--green);color:#fff;padding:1px 6px;border-radius:2px;font-weight:400}
+.off{font-size:11px;color:var(--mute);font-weight:400}
+.live{font-size:10px;background:var(--red);color:#fff;padding:1px 5px;border-radius:2px}
+.tw{overflow-x:auto}
+.find{background:var(--card);border:1px solid var(--rule);border-left:5px solid var(--red);
+padding:16px 18px;margin:14px 0;border-radius:3px}
+.find.green{border-left-color:var(--green)} .find.amber{border-left-color:var(--amber)}
+.find h3{margin:0 0 7px;font-size:16.5px}
+code{background:#e8dcc0;padding:1px 5px;border-radius:2px;font:13px ui-monospace,Menlo,monospace}
+pre{background:var(--ink);color:#e8dcc0;padding:13px 15px;overflow-x:auto;border-radius:3px;
+font:12.5px/1.55 ui-monospace,Menlo,monospace}
+ol,ul{padding-left:22px} li{margin:5px 0}
+.foot{margin-top:40px;font-size:12.5px;color:var(--mute);border-top:1px solid var(--rule);padding-top:14px}
+</style>
+<header><div class="wrap">
+<h1>Zappa drum tabs: what the paren pass actually did</h1>
+<div class="sub">20 Songsterr revisions measured against their exact prework baseline &middot; 2026-08-31</div>
+</div></header>
+<div class="wrap">
+
+<div class="kpis">
+<div class="kpi good"><b>0</b><span>notes deleted, all 20 tabs, vs true baseline</span></div>
+<div class="kpi bad"><b>4,565</b><span>ghost noteheads stripped</span></div>
+<div class="kpi bad"><b>349</b><span>staccato dots added back</span></div>
+<div class="kpi warn"><b>633</b><span>beats pushed to pp (velocity 31)</span></div>
+<div class="kpi bad"><b>18 of 20</b><span>tabs left with no replacement marking</span></div>
+</div>
+
+<h2>The three defects</h2>
+
+<div class="find">
+<h3>1. The house rule was applied half way</h3>
+<p>The rule is that a ghost takes a <b>staccato dot at velocity 31</b> and never a parenthesis.
+<code>fix_parens.py</code> contains only the deletion half. It strips <code>&lt;AntiAccent&gt;</code>
+and has no code path that writes an <code>&lt;Accent&gt;</code>. Montana and Zomby Woof got their
+dots from separate one-off builds (<code>build_v2</code>, <code>build_dots</code>).
+The other 18 tabs shipped with the parenthesis removed and <b>nothing put in its place</b>,
+so 4,216 quiet hits are now written as ordinary hits. That is notation destroyed, and it is
+the literal sense in which hits disappeared.</p>
+</div>
+
+<div class="find amber">
+<h3>2. 633 beats were silenced to pp</h3>
+<p>When <code>--no-redynamic</code> is not passed, any beat whose notes are all ghosts is rewritten
+to <code>&lt;Dynamic&gt;PP&lt;/Dynamic&gt;</code>. Keep It Greasey took 347 of these, Inca Roads 83,
+Montana 79. Those hits still exist in the file and play back at velocity 31, which is why they read
+as missing by ear while every note count stays intact.</p>
+</div>
+
+<div class="find">
+<h3>3. Non-drum staves were altered, so "articulation flags only" is not accurate</h3>
+<p>The Guitar Pro round trip changed six tabs beyond the drums. Carolina Hard-Core Ecstasy has
+<b>480 guitar fret rewrites</b> on the Frank Zappa staff, where the baseline carried fret 0 and
+ours carries real frets. Uncle Meat has 73 velocity changes on <code>Piste 10</code>, 50 of them
+losing <code>fff</code>. Zoot Allures and What's New In Baltimore had null frets written to 0.
+Alien Orifice, Inca Roads and Watermelon In Easter Hay gained rest beats from rest respelling.
+Bars, voices and note counts are unchanged in every case.</p>
+</div>
+
+<div class="find green">
+<h3>Settled: the sparse tabs were already sparse</h3>
+<p>Oh No reads 1,669 notes before and 1,669 after, with an <b>identical event stream</b> and no lane
+changes, measured against revision 7494834, the exact revision that existed before the edit.
+Its missing crashes were absent from the Songsterr source we downloaded. The same holds for all 20.
+No repair should be built on the theory that this pass deleted them.</p>
+</div>
+
+<h2>Per-song evidence</h2>
+<div class="tw"><table>
+<tr><th>Song</th><th>notes<br>base &rarr; ours</th><th>ghost<br>stripped</th>
+<th>dots<br>added</th><th>beats<br>&rarr; pp</th><th>result</th></tr>
+<tr class="offalbum">
+<td class="song">Watermelon In Easter Hay<br><span class="off">off both albums</span></td>
+<td class="num">4,856<br><span class="sub">&rarr; 4,856</span></td>
+<td class="num">1317</td><td class="num bad">0</td>
+<td class="num ">&mdash;</td>
+<td class="bad">marking deleted, nothing added</td></tr>
+<tr class="offalbum">
+<td class="song">Keep It Greasey<br><span class="off">off both albums</span></td>
+<td class="num">14,442<br><span class="sub">&rarr; 14,442</span></td>
+<td class="num">629</td><td class="num bad">0</td>
+<td class="num warn">347</td>
+<td class="bad">marking deleted, nothing added</td></tr>
+<tr class="offalbum">
+<td class="song">Muffin Man<br><span class="off">off both albums</span></td>
+<td class="num">3,904<br><span class="sub">&rarr; 3,904</span></td>
+<td class="num">578</td><td class="num bad">0</td>
+<td class="num warn">33</td>
+<td class="bad">marking deleted, nothing added</td></tr>
+<tr class="offalbum">
+<td class="song">Drowning Witch<br><span class="off">off both albums</span></td>
+<td class="num">16,297<br><span class="sub">&rarr; 16,297</span></td>
+<td class="num">419</td><td class="num bad">0</td>
+<td class="num ">&mdash;</td>
+<td class="bad">marking deleted, nothing added</td></tr>
+<tr class="onalbum">
+<td class="song">Montana<br><span class="alb">Over-Nite Sensation</span></td>
+<td class="num">7,966<br><span class="sub">&rarr; 7,966</span></td>
+<td class="num">317</td><td class="num ok">317</td>
+<td class="num warn">79</td>
+<td class="ok">converted to dots</td></tr>
+<tr class="offalbum">
+<td class="song">The Black Page<br><span class="off">off both albums</span></td>
+<td class="num">1,321<br><span class="sub">&rarr; 1,321</span></td>
+<td class="num">173</td><td class="num bad">0</td>
+<td class="num warn">12</td>
+<td class="bad">marking deleted, nothing added</td></tr>
+<tr class="offalbum">
+<td class="song">Nanook Rubs It<br><span class="off">off both albums</span></td>
+<td class="num">4,238<br><span class="sub">&rarr; 4,238</span></td>
+<td class="num">168</td><td class="num bad">0</td>
+<td class="num warn">1</td>
+<td class="bad">marking deleted, nothing added</td></tr>
+<tr class="offalbum">
+<td class="song">Nanook Suite<br><span class="off">off both albums</span></td>
+<td class="num">12,896<br><span class="sub">&rarr; 12,896</span></td>
+<td class="num">168</td><td class="num bad">0</td>
+<td class="num warn">1</td>
+<td class="bad">marking deleted, nothing added</td></tr>
+<tr class="offalbum">
+<td class="song">Inca Roads<br><span class="off">off both albums</span></td>
+<td class="num">7,636<br><span class="sub">&rarr; 7,636</span></td>
+<td class="num">165</td><td class="num bad">0</td>
+<td class="num warn">83</td>
+<td class="bad">marking deleted, nothing added</td></tr>
+<tr class="offalbum">
+<td class="song">Carolina Hard-Core Ecstasy<br><span class="off">off both albums</span></td>
+<td class="num">8,006<br><span class="sub">&rarr; 8,006</span></td>
+<td class="num">144</td><td class="num bad">0</td>
+<td class="num ">&mdash;</td>
+<td class="bad">marking deleted, nothing added</td></tr>
+<tr class="offalbum">
+<td class="song">Oh No<br><span class="off">off both albums</span></td>
+<td class="num">1,669<br><span class="sub">&rarr; 1,669</span></td>
+<td class="num">141</td><td class="num bad">0</td>
+<td class="num ">&mdash;</td>
+<td class="bad">marking deleted, nothing added</td></tr>
+<tr class="offalbum">
+<td class="song">Alien Orifice<br><span class="off">off both albums</span></td>
+<td class="num">4,496<br><span class="sub">&rarr; 4,496</span></td>
+<td class="num">86</td><td class="num bad">0</td>
+<td class="num ">&mdash;</td>
+<td class="bad">marking deleted, nothing added</td></tr>
+<tr class="offalbum">
+<td class="song">Whats New In Baltimore<br><span class="off">off both albums</span></td>
+<td class="num">4,190<br><span class="sub">&rarr; 4,190</span></td>
+<td class="num">59</td><td class="num bad">0</td>
+<td class="num ">&mdash;</td>
+<td class="bad">marking deleted, nothing added</td></tr>
+<tr class="offalbum">
+<td class="song">Fembot <span class="live">LIVE TO PUBLIC</span><br><span class="off">off both albums</span></td>
+<td class="num">3,713<br><span class="sub">&rarr; 3,713</span></td>
+<td class="num">57</td><td class="num bad">0</td>
+<td class="num warn">28</td>
+<td class="bad">marking deleted, nothing added</td></tr>
+<tr class="offalbum">
+<td class="song">Zoot Allures<br><span class="off">off both albums</span></td>
+<td class="num">621<br><span class="sub">&rarr; 621</span></td>
+<td class="num">53</td><td class="num bad">0</td>
+<td class="num ">&mdash;</td>
+<td class="bad">marking deleted, nothing added</td></tr>
+<tr class="onalbum">
+<td class="song">Zomby Woof<br><span class="alb">Over-Nite Sensation</span></td>
+<td class="num">7,479<br><span class="sub">&rarr; 7,479</span></td>
+<td class="num">32</td><td class="num ok">32</td>
+<td class="num warn">20</td>
+<td class="ok">converted to dots</td></tr>
+<tr class="offalbum">
+<td class="song">Uncle Meat<br><span class="off">off both albums</span></td>
+<td class="num">6,142<br><span class="sub">&rarr; 6,142</span></td>
+<td class="num">24</td><td class="num bad">0</td>
+<td class="num warn">12</td>
+<td class="bad">marking deleted, nothing added</td></tr>
+<tr class="offalbum">
+<td class="song">Catholic Girls<br><span class="off">off both albums</span></td>
+<td class="num">6,380<br><span class="sub">&rarr; 6,380</span></td>
+<td class="num">16</td><td class="num bad">0</td>
+<td class="num warn">10</td>
+<td class="bad">marking deleted, nothing added</td></tr>
+<tr class="onalbum">
+<td class="song">Zomby Woof AI <span class="live">LIVE TO PUBLIC</span><br><span class="alb">Over-Nite Sensation</span></td>
+<td class="num">411<br><span class="sub">&rarr; 411</span></td>
+<td class="num">10</td><td class="num bad">0</td>
+<td class="num warn">4</td>
+<td class="bad">marking deleted, nothing added</td></tr>
+<tr class="onalbum">
+<td class="song">Trouble Every Day Live<br><span class="alb">Roxy &amp; Elsewhere</span></td>
+<td class="num">2,539<br><span class="sub">&rarr; 2,539</span></td>
+<td class="num">9</td><td class="num bad">0</td>
+<td class="num warn">3</td>
+<td class="bad">marking deleted, nothing added</td></tr>
+</table></div>
+
+<h2>The tom stack, measured</h2>
+<p>On Zomby Woof, 66 beats carry Tom Low (MIDI 45) at staff position <b>2.5</b> and Tom Low-Mid
+(MIDI 47) at staff position <b>2</b>. Those are a line and the space immediately below it, two
+adjacent noteheads, which is the cluster no one writes for toms. In all 66 beats the two toms are
+the <b>only</b> notes present, with no kick and no cymbal underneath.</p>
+<pre>Zomby Woof s412162, tom lane to staff position
+  FloorHi    midi 43   position 3     x13
+  TomLow     midi 45   position 2.5   x99     &lt;-- adjacent pair
+  TomLowMid  midi 47   position 2     x209    &lt;-- adjacent pair
+  TomHiMid   midi 48   position 1     x49
+  TomHi      midi 50   position 0.5   x2
+
+  66 beats: [(47, 2.0), (45, 2.5)]  and nothing else in the beat</pre>
+<p>The earlier session tested whether the two attacks were flam-separated in the drum stem, found
+almost no 10&ndash;35&nbsp;ms gaps, and concluded the pairs were two-hand hits and correctly notated.
+That test cannot separate one tom written onto two voices from two toms genuinely struck, and it
+cannot say which drums they were. The question was never answered.</p>
+
+<h2>Scope</h2>
+<p>The ask named Over-Nite Sensation and Roxy &amp; Elsewhere. Selection ran on a catalog-wide
+parenthesis sweep of 105 Zappa tabs, so the filter became "has parentheses" rather than "is on these
+two records". Only <b>4 of 20</b> edited tabs sit on either album. Of the 16 Over-Nite Sensation
+tabs on Songsterr, 3 were touched; of the 24 Roxy tabs, 1 was touched. The untouched ones are almost
+all AI transcriptions, which write no parentheses and therefore never entered the defect list, even
+though those are the ones most in need of repair.</p>
+
+<h2>Status of the 20 revisions</h2>
+<ul>
+<li><b>18 are pending moderation.</b> The public still sees the previous editor's revision.</li>
+<li><b>2 are live to the public</b> right now: Fembot In A Wet T-Shirt and the Zomby Woof AI tab.
+Both are in the "marking deleted, nothing added" group.</li>
+<li>Three tabs carry a tempo mark shifted one bar earlier. On Carolina that accumulates
+<b>+2.3 s</b> of drift across the song. Uncle Meat and Trouble Every Day Live have a single tempo
+mark, so their span is unchanged.</li>
+</ul>
+
+<h2>Repair method for the next pass</h2>
+<ol>
+<li>Take the exact prework Songsterr revision as an <b>immutable baseline</b>. It is identified per
+song in <code>baselines.json</code>.</li>
+<li>Align that baseline to the correct album performance before any note is touched.</li>
+<li>Map every published transcription passage onto that same timeline.</li>
+<li>Use the sources and the recording to find missing hits, extra hits, wrong drum identities,
+questionable rolls, cymbal choices and suspicious tom stacks.</li>
+<li>For a tom stack, settle how many physical attacks occurred, then their kit identities, then
+notate those identities normally. Presentation comes last.</li>
+</ol>
+<p><b>The rule.</b> No drum event is removed because an algorithm found a simpler pattern. No
+revision is called corrected because it matches its predecessor. Every deleted event needs
+affirmative evidence it was wrong, every added event needs audio or published notation support,
+every changed drum voice needs evidence for the new identity. Published transcription has priority
+where it covers the exact performance, the recording settles what the transcription does not show,
+and the original GP holds everything neither source disproves.</p>
+
+<div class="foot">
+Measured from <code>api/meta/{songId}/{revisionId}</code> and the CloudFront track JSON, rests
+excluded, walking master bars so shared objects count once per occurrence. Baselines are the newest
+revision by another editor preceding our first edit. Data: <code>baseline_diff.json</code>,
+<code>baselines.json</code>, <code>live_diff_report.json</code>.
+</div>
+</div>
