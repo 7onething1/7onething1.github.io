@@ -87,28 +87,41 @@ The count itself is soft. The two suites print 46 cases between them. The third 
 PASS line covering 10 tracks and 6 string cases. `47` reconciles only by counting the third
 file as a single assertion.
 
-## The drift: POINTERS.md says 727 and holds 728
+## The drift, and the tool bug under it
 
 The handoff reports the memory index repaired:
 
 > Now 727 of 727 linked, zero dead links, header corrected to `727 entries, last verified 2026-08-31`.
 
-The checker agrees on the substance and disagrees on the number:
+The substance holds. Every memory file is linked and every link resolves, re-run and confirmed
+during this audit. The header number stopped tracking, and a defect in the shipped tool is why.
 
 ```
-memory files       : 728
-linked by POINTERS : 728
+memory files       : 731
+linked by POINTERS : 731
 MISSING from POINTERS : 0
 DEAD links in POINTERS: 0
-FINAL: 728 files, 728 linked, 0 missing, 0 dead
+FINAL: 731 files, 731 linked, 0 missing, 0 dead
 POINTERS.md is COMPLETE: every file linked, every link resolves
 exit 0
+
+header line still reads: 727 entries, last verified 2026-08-31
 ```
 
-One memory file was added after the handoff was saved, it was linked, and the header text was
-left behind. The repair holds. The header is one integer stale, and
-`pointers_check.py --fix --header` closes it. Reading the script confirms the append-only
-claim: it writes new entries under one appended heading and never rewrites an existing line.
+The header rewrite in `pointers_check.py` matches one pattern only:
+
+```python
+re.sub(r'Every memory file with its own description, \d+ entries, '
+       r'regenerated [\d-]+\.', ...)
+```
+
+The 2026-08-31 run replaced `regenerated 2026-08-04` with `last verified 2026-08-31`, so the
+pattern stopped matching its own output. Every later `--fix --header` run changes nothing,
+says nothing about it, and exits 0. I ran it during this audit and watched it append one entry
+and leave the count at 727 against 731 files.
+
+The append-only claim does hold. The script writes new entries under one appended heading and
+never rewrites an existing line, which reading the source confirms.
 
 ## The wording: twelve switch points
 

@@ -57,13 +57,13 @@ ul.tight{margin:6px 0 14px;padding-left:20px} ul.tight li{margin-bottom:5px}
 </div>
 
 <div class="toc">
-<a href="#expired">The expired claim</a><a href="#tests">The overstated one</a><a href="#drift">The drift</a><a href="#wording">The wording</a><a href="#reproduced">What reproduced</a><a href="#bundle">Newly testable</a><a href="#untested">Untested here</a><a href="#repro">Reproduce it</a><a href="#sources">Sources</a>
+<a href="#expired">The expired claim</a><a href="#tests">The overstated one</a><a href="#drift">The drift and a tool bug</a><a href="#wording">The wording</a><a href="#reproduced">What reproduced</a><a href="#bundle">Newly testable</a><a href="#untested">Untested here</a><a href="#repro">Reproduce it</a><a href="#sources">Sources</a>
 </div>
 
 <div class="grid">
 <div class="card"><div class="big t2">19</div><div class="lab">claims reproduced exactly</div></div>
 <div class="card"><div class="big r">1</div><div class="lab">true then, false now</div></div>
-<div class="card"><div class="big m">2</div><div class="lab">overstated or drifted</div></div>
+<div class="card"><div class="big m">3</div><div class="lab">overstated, drifted, or buggy</div></div>
 <div class="card"><div class="big t2">21,385</div><div class="lab">events compared, zero differences</div></div>
 <div class="card"><div class="big t2">7,479</div><div class="lab">events re-derived independently</div></div>
 <div class="card"><div class="big" style="color:#8a8272">2</div><div class="lab">need the other machine</div></div>
@@ -109,16 +109,26 @@ ul.tight{margin:6px 0 14px;padding-left:20px} ul.tight li{margin-bottom:5px}
 <p>The bundle copy fails for a packaging reason. Its two module copies were renamed to <code>impossible_gate.SKILL-COPY.py</code> and <code>impossible_gate.KILGORE-TOOLS-COPY.py</code>, so the tests find no <code>impossible_gate.py</code> in their own directory and fall back to the skill copy. That fallback is the exact defect the fix was written to remove, and the iMac will see red on both files.</p>
 <p>The count is soft as well. The two suites print 46 cases between them, and the third prints one PASS line covering 10 tracks and 6 string cases. <strong>47</strong> reconciles only by counting the third file as a single assertion.</p>
 
-<h2 id="drift">The drift: POINTERS.md says 727 and holds 728</h2>
+<h2 id="drift">The drift, and the tool bug under it</h2>
 <blockquote><p>Now 727 of 727 linked, zero dead links, header corrected to <code>727 entries, last verified 2026-08-31</code>.</p></blockquote>
-<pre>memory files       : 728
-linked by POINTERS : 728
+<p>The substance of that repair holds. Every memory file is linked and every link resolves, which I re-ran and confirmed. The header number stopped tracking, and the reason is a defect in the tool the handoff shipped.</p>
+<pre>memory files       : 731
+linked by POINTERS : 731
 MISSING from POINTERS : 0
 DEAD links in POINTERS: 0
-FINAL: 728 files, 728 linked, 0 missing, 0 dead
+FINAL: 731 files, 731 linked, 0 missing, 0 dead
 POINTERS.md is COMPLETE: every file linked, every link resolves
-exit 0</pre>
-<p>One memory file was added after the handoff was saved, it was linked, and the header text stayed behind. The repair holds and the header is one integer stale, which <code>pointers_check.py --fix --header</code> closes. Reading the script confirms the append-only claim, since it writes new entries under one appended heading and never rewrites an existing line.</p>
+exit 0
+
+header line still reads: 727 entries, last verified 2026-08-31</pre>
+<div class="blk">
+<h3><code>--header</code> is a one-shot that reports nothing when it fires blank</h3>
+<p>The header rewrite matches one pattern only:</p>
+<pre>re.sub(r'Every memory file with its own description, \d+ entries, '
+       r'regenerated [\d-]+\.', ...)</pre>
+<p>The 2026-08-31 run replaced <code>regenerated 2026-08-04</code> with <code>last verified 2026-08-31</code>, so the pattern stopped matching its own output. Every later <code>--fix --header</code> run changes nothing, prints nothing about it, and exits 0. I ran it during this audit and watched it append one entry and leave the count at 727 against 731 files.</p>
+<p>The append-only claim does hold. The script writes new entries under one appended heading and never rewrites an existing line, which reading the source confirms.</p>
+</div>
 
 <h2 id="wording">The wording: twelve switch points</h2>
 <p class="sub">The musical finding is intact. The word "switch" is counting spans.</p>
