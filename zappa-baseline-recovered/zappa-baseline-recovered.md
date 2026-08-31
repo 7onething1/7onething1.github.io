@@ -238,6 +238,29 @@ all 114 bars.
 Three voices at once is the ceiling, reached 11 times. No bar is empty. No bar asks
 for open and closed hi-hat together.
 
+### The expansion validated on twenty known answers
+
+The two censuses cover all ten tracks, so the GPIF expansion can be checked against
+every one rather than against the drum staff alone.
+
+| # | Track | Notes, both sides | Ties, both sides |
+|---|---|---|---|
+| 0 | Frank Zappa 1 | 1,184 | 162 |
+| 1 | Frank Zappa 2 | 42 | 0 |
+| 2 | Tom Fowler | 1,076 | 55 |
+| 3 | Voice Oohs | 7 | 0 |
+| 4 | Bruce Fowler | 564 | 44 |
+| 5 | George Duke, Clavi | 170 | 0 |
+| 6 | George Duke, Organ | 1,993 | 133 |
+| 7 | Ruth Underwood | 550 | 32 |
+| 8 | Sal Marquez | 319 | 5 |
+| 9 | Ralph Humphrey | 1,574 | 18 |
+
+**Ten note counts and ten tie counts, twenty matches, no exceptions.** Totals agree at
+7,479. The ties matter most, because counting them correctly requires walking the
+shared Beat and Note references properly and pairing each origin with its destination.
+Getting all ten right is what makes the expansion trustworthy for an edit diff.
+
 ### NEW DEFECT: the bass drum is written on two staff lines
 
 This one is not in the handoff, and it is more consequential than the parentheses.
