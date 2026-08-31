@@ -392,10 +392,37 @@ the defect shipped.
     against the fixed gate  : PASS  10 tracks resolved by instrument, 2 guitars found
     against the backup      : FAIL  impossible_gate has no instrument_of
 
-**Two suite failures are pre-existing and are not from this change.** Running both
-tests against the pre-patch backup gives byte-identical errors, so
-`test_comparison_basis.py` and `test_promotion_rule.py` were already broken. Queued as
-`q-2026-08-31-d739fb`.
+### The suite was broken before this, and now runs
+
+Running both other tests against the pre-patch backup gave byte-identical errors, so
+`test_comparison_basis.py` and `test_promotion_rule.py` were already broken and not by
+this change. Both had **one root cause**: they hardcoded
+
+    sys.path.insert(0, os.path.expanduser("~/.claude/skills/impossible-guitar-parts"))
+
+and that directory holds the smaller copy. It lacks `basis_refusals` and `build_basis`,
+and its `compare_checkpoint` takes two arguments against the eight the test passes. The
+assertions were written against the 99 KB copy sitting beside them.
+
+Resolving the import to the test's own tree first, with the skill directory as a
+fallback, fixes both. **No analysis code changed.**
+
+| Test | Before | After |
+|---|---|---|
+| `test_comparison_basis.py` | exit 1, ImportError | **exit 0, 8/8 cases correct** |
+| `test_promotion_rule.py` | exit 1, TypeError | **exit 0, 38/38 cases correct** |
+| `test_is_guitar_instrument_resolution.py` | did not exist | **exit 0** |
+
+**47 assertions now run** where two of the three files previously died on import.
+`regressions.py` still reports 4 MISSING, because those artifacts live in the appleseed
+tree that is not on this Mac.
+
+### One decision left on this
+
+Two copies of `impossible_gate.py` have diverged and neither is marked canonical. The
+skill copy is 52 KB and is what `/impossible-guitar-parts` actually invokes, so the
+older, thinner copy is the one that runs in production. The 99 KB copy is what the
+tests exercise. Both now carry the instrument fix. Queued as `q-2026-08-31-c452ea`.
 
 ## Still blocked
 

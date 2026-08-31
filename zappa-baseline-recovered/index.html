@@ -61,7 +61,7 @@ ul.tight{margin:6px 0 14px;padding-left:20px} ul.tight li{margin-bottom:5px}
 <div class="card"><div class="big t2">7,479</div><div class="lab">rendered events, reproduced</div></div>
 <div class="card"><div class="big t2">1,574</div><div class="lab">drum staff events, reproduced</div></div>
 <div class="card"><div class="big t2">18</div><div class="lab">tie connections, confirmed</div></div>
-<div class="card"><div class="big t2">20/20</div><div class="lab">known answers matched</div></div>
+<div class="card"><div class="big t2">47</div><div class="lab">test assertions now running</div></div>
 <div class="card"><div class="big m">6</div><div class="lab">Notes carrying all 36 tied events</div></div>
 <div class="card"><div class="big r">4/20</div><div class="lab">songs with a split kick lane</div></div>
 </div>
@@ -310,9 +310,20 @@ beat 10-11  Hi-Hat closed + kick lane 36 (line 7), tied pair</pre>
 <pre style="margin:10px 0 0">against the fixed gate  : PASS  10 tracks resolved by instrument, 2 guitars found
 against the backup      : FAIL  impossible_gate has no instrument_of</pre>
 </div>
+<div class="fix">
+<h3>The suite was broken before this, and now runs</h3>
+<p>Running both other tests against the pre-patch backup gave byte-identical errors, so they were already broken and not by this change. Both had <strong>one root cause</strong>: they hardcoded the skill directory on <code>sys.path</code>, and that copy lacks <code>basis_refusals</code> and <code>build_basis</code>, and its <code>compare_checkpoint</code> takes two arguments against the eight the test passes. The assertions were written against the 99 KB copy sitting beside them. Resolving the import to the test's own tree first fixes both, and <strong>no analysis code changed</strong>.</p>
+</div>
+<div class="scroll"><table>
+<tr><th>Test</th><th>Before</th><th>After</th></tr>
+<tr class="good"><td class="t"><code>test_comparison_basis.py</code></td><td>exit 1, ImportError</td><td><strong>exit 0, 8/8 cases</strong></td></tr>
+<tr class="good"><td class="t"><code>test_promotion_rule.py</code></td><td>exit 1, TypeError</td><td><strong>exit 0, 38/38 cases</strong></td></tr>
+<tr class="good"><td class="t"><code>test_is_guitar_instrument_resolution.py</code></td><td>did not exist</td><td><strong>exit 0</strong></td></tr>
+</table></div>
+<p><strong>47 assertions now run</strong> where two of the three files previously died on import. <code>regressions.py</code> still reports 4 MISSING, because those artifacts live in the appleseed tree that is not on this Mac.</p>
 <div class="corr">
-<h3>Two suite failures are pre-existing</h3>
-<p>Running both tests against the pre-patch backup gives byte-identical errors, so <code>test_comparison_basis.py</code> and <code>test_promotion_rule.py</code> were already broken before this change. Queued as <code>q-2026-08-31-d739fb</code>.</p>
+<h3>One decision left on this</h3>
+<p>Two copies of <code>impossible_gate.py</code> have diverged and neither is marked canonical. The skill copy is 52 KB and is what <code>/impossible-guitar-parts</code> actually invokes, so the older, thinner copy is the one that runs in production. The 99 KB copy is what the tests exercise. Both now carry the instrument fix. Queued as <code>q-2026-08-31-c452ea</code>.</p>
 </div>
 
 <h2 id="blocked">Still blocked</h2>
