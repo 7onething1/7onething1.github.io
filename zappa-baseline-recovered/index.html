@@ -50,11 +50,11 @@ ul.tight{margin:6px 0 14px;padding-left:20px} ul.tight li{margin-bottom:5px}
 <div class="verdict">
 <h3>Verdict: the repair is unblocked for Zomby Woof, and two claims now split</h3>
 <p>The handoff's <code>s*/</code> tree, its six tools and its 139.6 MB source archive are not on this machine. A Songsterr export of <strong>r8766102</strong> was, and it is the exact file the published fix was built from.</p>
-<p>Against it, the <strong>18-tie</strong> claim reproduces perfectly, twelve bars named and twelve found. A sibling session on the iMac published its Songsterr-side census mid-run, and the two measurements agree on <strong>all seventeen drum lanes</strong>, the event total, the bar count and the tie count.</p>
+<p>Against it, the <strong>18-tie</strong> claim reproduces perfectly, twelve bars named and twelve found, and the iMac census agrees on <strong>all seventeen drum lanes</strong>. Bars 1 to 8 match the PRESERVE order exactly, the staff passes the playability gate, and one defect the handoff never named turned up: <strong>the bass drum is written on two staff lines</strong>.</p>
 </div>
 
 <div class="toc">
-<a href="#missing">What is missing</a><a href="#found">What was found</a><a href="#timeline">Revision timeline</a><a href="#control">Known-answer control</a><a href="#ties">The 18 ties</a><a href="#paren">Paren to staccato</a><a href="#lanes">Two machines</a><a href="#sibling">Sibling session</a><a href="#blocked">Still blocked</a><a href="#repro">Reproduce it</a>
+<a href="#missing">What is missing</a><a href="#found">What was found</a><a href="#timeline">Revision timeline</a><a href="#control">Known-answer control</a><a href="#ties">The 18 ties</a><a href="#paren">Paren to staccato</a><a href="#lanes">Two machines</a><a href="#sibling">Sibling session</a><a href="#repair">Repair pass</a><a href="#kick">Kick defect</a><a href="#blocked">Still blocked</a><a href="#repro">Reproduce it</a>
 </div>
 
 <div class="grid">
@@ -63,7 +63,7 @@ ul.tight{margin:6px 0 14px;padding-left:20px} ul.tight li{margin-bottom:5px}
 <div class="card"><div class="big t2">18</div><div class="lab">tie connections, confirmed</div></div>
 <div class="card"><div class="big t2">17/17</div><div class="lab">drum lanes, two machines</div></div>
 <div class="card"><div class="big m">6</div><div class="lab">Notes carrying all 36 tied events</div></div>
-<div class="card"><div class="big r">2</div><div class="lab">revisions still on moderation</div></div>
+<div class="card"><div class="big r">2</div><div class="lab">kick lanes for one bass drum</div></div>
 </div>
 
 <h2 id="missing">What the handoff named, and what is here</h2>
@@ -186,6 +186,71 @@ internal Content/score.gpif stamped 2026-08-30 00:25 CDT</pre>
 <div class="blk">
 <h3>Two machines, one repair</h3>
 <p><code>zappa-drum-tab-forensics</code> was committed at 2026-08-31 13:25 CDT and arrived here by rebase from origin, never committed locally. Its dataset covers twenty songs, reaches the Songsterr track JSON, and holds the baseline census this Mac lacks. Splitting the work deliberately is worth a decision, and that decision belongs to Brandon.</p>
+</div>
+
+<h2 id="repair">The repair pass: what the score file says</h2>
+<p class="sub">Measured on the recovered <code>r8766102</code> file with the two tools now in <code>tools/</code>.</p>
+
+<h3 style="font-size:1.05rem;margin:26px 0 6px;color:#5c5347">VERIFIED: bars 1 to 8, the ones marked PRESERVE EXACTLY</h3>
+<p>The handoff records bars 1 to 8 as corroborated by Ryan Brown and Drumnet independently, and orders them preserved. They match the file exactly.</p>
+<pre>published : 3/4, 10/16, 2/4, 5/4, 15/16, 15/16, 15/16, 15/16
+this file : 3/4, 10/16, 2/4, 5/4, 15/16, 15/16, 15/16, 15/16</pre>
+<p>The section labels back the reading: bar 1 <code>Head</code>, bar 5 <code>Pre-Verse 1</code>, bar 9 <code>Verse 1</code>, with double barlines on 3 and 4.</p>
+
+<h3 style="font-size:1.05rem;margin:26px 0 6px;color:#5c5347">VERIFIED: the Sloots alignment, and the tempo map behind it</h3>
+<p>The file carries six tempo changes, not a flat 88.</p>
+<div class="scroll"><table>
+<tr><th>At displayed bar</th><th class="n">Tempo</th></tr>
+<tr><td>1</td><td class="n">88</td></tr><tr><td>24</td><td class="n">76</td></tr><tr><td>26</td><td class="n">88</td></tr>
+<tr class="good"><td>38</td><td class="n"><strong>90</strong></td></tr><tr><td>92</td><td class="n">82</td></tr><tr><td>101</td><td class="n">88</td></tr>
+</table></div>
+<p>Bar 38 is where the Sloots span opens, and it sets 90. Recomputing bars 38 to 50 on the file's own map gives <strong>32.00 s</strong> against the 31.0 s excerpt, <code>+3.2%</code>. A flat 88 would give 32.73 s, <code>+5.6%</code>. The published page reported 32.00 s and <code>+3.2%</code>, so it used the real map and it stands. The thirteen meters read <code>7/8, 5/4, 10/16 x4, 7/8, 6/4, 4/4 x5</code>, the order Sloots prints.</p>
+
+<h3 style="font-size:1.05rem;margin:26px 0 6px;color:#5c5347">VERIFIED: the drum staff is playable</h3>
+<pre>events 1574, voices per bar {1: 108, 2: 6}
+simultaneity histogram {1: 707, 2: 417, 3: 11}
+REALITY GATE: PASS. No unplayable simultaneity found.</pre>
+<p>Three voices at once is the ceiling, reached 11 times across 114 bars. No bar is empty. No bar asks for open and closed hi-hat together.</p>
+
+<h2 id="kick">NEW DEFECT: the bass drum is written on two staff lines</h2>
+<p class="sub">Not in the handoff, and more consequential than the parentheses.</p>
+<div class="scroll"><table>
+<tr><th>Lane</th><th>Articulation</th><th class="n">Staff line</th><th class="n">Bars</th></tr>
+<tr class="bad"><td class="n">35</td><td class="t">Acoustic Kick Drum, Kick (hit)</td><td class="n"><strong>8</strong></td><td class="n">48</td></tr>
+<tr class="bad"><td class="n">36</td><td class="t">Kick Drum, Kick (hit)</td><td class="n"><strong>7</strong></td><td class="n">60</td></tr>
+</table></div>
+<p>Ralph Humphrey played one bass drum. This tab prints it on two positions, and a reader watching the staff sees the notehead jump a line. The switch points give the cause.</p>
+<div class="scroll"><table>
+<tr><th class="n">Bar</th><th>Lane</th><th>Section</th><th>On a section start</th></tr>
+<tr class="good"><td class="n">1</td><td>36</td><td>Head</td><td>yes</td></tr>
+<tr class="good"><td class="n">9</td><td>35</td><td>Verse 1</td><td>yes</td></tr>
+<tr class="good"><td class="n">13</td><td>36</td><td>Pre-Chorus 1</td><td>yes</td></tr>
+<tr><td class="n">16</td><td><strong>both</strong></td><td>Pre-Chorus 1</td><td>no</td></tr>
+<tr class="good"><td class="n">18</td><td>35</td><td>Chorus 1</td><td>yes</td></tr>
+<tr><td class="n">40</td><td>36</td><td>Chorus 2</td><td>no</td></tr>
+<tr><td class="n">44</td><td>35</td><td>Chorus 2</td><td>no</td></tr>
+<tr><td class="n">45</td><td><strong>both</strong></td><td>Chorus 2</td><td>no</td></tr>
+<tr class="good"><td class="n">46</td><td>35</td><td>Bridge</td><td>yes</td></tr>
+<tr class="good"><td class="n">56</td><td>36</td><td>Solo</td><td>yes</td></tr>
+<tr><td class="n">102</td><td>35</td><td>Pre-Chorus 2</td><td>no</td></tr>
+<tr class="good"><td class="n">112</td><td>36</td><td>Head</td><td>yes</td></tr>
+</table></div>
+<p>Twelve switch points, <strong>seven of them landing exactly on a section start</strong>, and lane 36 covering the entire solo from bar 56 to bar 101. That is the fingerprint of separate contributors working separate sections across twelve revisions. The repair is to normalise every kick onto one lane.</p>
+
+<div class="corr">
+<h3>What bars 16 and 17 actually contain</h3>
+<p>Those are the bars whose kick ties r8787022 removed, and the pattern explains itself once both lanes are visible.</p>
+<pre style="margin:10px 0 0">beat 0-1    Hi-Hat closed + kick lane 35 (line 8), tied pair
+beat 2-3    Hi-Hat closed + kick lane 36 (line 7), tied pair
+beat 8-9    Hi-Hat closed + kick lane 35 (line 8), tied pair
+beat 10-11  Hi-Hat closed + kick lane 36 (line 7), tied pair</pre>
+<p style="margin-top:10px">The bass drum alternates staff line every two sixteenths, with a tie on each pair. Removing those ties was right. The line alternation underneath them is still there.</p>
+</div>
+
+<div class="corr">
+<h3>A bug in my own tool, caught by cross-checking</h3>
+<p>The first reality-gate run keyed lanes on <code>OutputMidiNumber</code>. On this drumset map <code>Hi-Hat (half)</code> carries input <strong>92</strong> and output <strong>46</strong>, the same output as <code>Hi-Hat (open)</code>, so the gate silently merged two lanes a reader sees as distinct. Two of my own outputs disagreed, which is what surfaced it.</p>
+<p>Fixed to key on <code>InputMidiNumbers</code>, the field the reader and Songsterr both use. The corrected run matches the iMac census on <strong>all 17 lanes</strong> and on the 1,574 total.</p>
 </div>
 
 <h2 id="blocked">Still blocked</h2>

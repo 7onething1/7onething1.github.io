@@ -189,6 +189,111 @@ the Songsterr track JSON, and holds the baseline census this Mac lacks. Two mach
 are now on the same repair. Splitting it deliberately is worth a decision, and
 that decision belongs to Brandon.
 
+## The repair pass: what the score file says about Zomby Woof
+
+Everything below was measured on the recovered `r8766102` file, on 2026-08-31, with
+the two tools now in `tools/`.
+
+### VERIFIED: bars 1 to 8, the ones marked PRESERVE EXACTLY
+
+The handoff records bars 1 to 8 as corroborated by Ryan Brown and Drumnet
+independently, and orders them preserved. They match the file exactly.
+
+    published : 3/4, 10/16, 2/4, 5/4, 15/16, 15/16, 15/16, 15/16
+    this file : 3/4, 10/16, 2/4, 5/4, 15/16, 15/16, 15/16, 15/16
+
+The section labels back the reading: bar 1 `Head`, bar 5 `Pre-Verse 1`, bar 9
+`Verse 1`, with double barlines on 3 and 4.
+
+### VERIFIED: the Sloots alignment, and the tempo map behind it
+
+The file carries six tempo changes, not a flat 88.
+
+| At displayed bar | Tempo |
+|---|---|
+| 1 | 88 |
+| 24 | 76 |
+| 26 | 88 |
+| 38 | 90 |
+| 92 | 82 |
+| 101 | 88 |
+
+Bar 38 is where the Sloots span opens, and it sets 90. Recomputing the thirteen bars
+38 to 50 on the file's own map gives **32.00 s** against the 31.0 s excerpt, `+3.2%`.
+A flat 88 would give 32.73 s, `+5.6%`. The published page reported 32.00 s and `+3.2%`,
+so it used the real map and it stands.
+
+The thirteen meters read `7/8, 5/4, 10/16, 10/16, 10/16, 10/16, 7/8, 6/4, 4/4, 4/4,
+4/4, 4/4, 4/4`, the order Sloots prints.
+
+### VERIFIED: the drum staff is playable
+
+`drum_reality_gate.py` checks limb load, hi-hat state conflicts and empty bars across
+all 114 bars.
+
+    events 1574, voices per bar {1: 108, 2: 6}
+    simultaneity histogram {1: 707, 2: 417, 3: 11}
+    REALITY GATE: PASS. No unplayable simultaneity found.
+
+Three voices at once is the ceiling, reached 11 times. No bar is empty. No bar asks
+for open and closed hi-hat together.
+
+### NEW DEFECT: the bass drum is written on two staff lines
+
+This one is not in the handoff, and it is more consequential than the parentheses.
+
+| Lane | Articulation | Staff line | Bars |
+|---|---|---|---|
+| 35 | Acoustic Kick Drum, Kick (hit) | **8** | 48 |
+| 36 | Kick Drum, Kick (hit) | **7** | 60 |
+
+Ralph Humphrey played one bass drum. This tab prints it on two positions, and a reader
+watching the staff sees the notehead jump a line. The switch points give the cause.
+
+| Bar | Lane | Section | On a section start |
+|---|---|---|---|
+| 1 | 36 | Head | yes |
+| 9 | 35 | Verse 1 | yes |
+| 13 | 36 | Pre-Chorus 1 | yes |
+| 16 | both | Pre-Chorus 1 | no |
+| 18 | 35 | Chorus 1 | yes |
+| 40 | 36 | Chorus 2 | no |
+| 44 | 35 | Chorus 2 | no |
+| 45 | both | Chorus 2 | no |
+| 46 | 35 | Bridge | yes |
+| 56 | 36 | Solo | yes |
+| 102 | 35 | Pre-Chorus 2 | no |
+| 112 | 36 | Head | yes |
+
+Twelve switch points, **seven of them landing exactly on a section start**, and lane 36
+covering the entire solo from bar 56 to bar 101. That is the fingerprint of separate
+contributors working separate sections across twelve revisions, not a notational
+choice. The repair is to normalise every kick onto one lane.
+
+### What bars 16 and 17 actually contain
+
+Those are the bars whose kick ties r8787022 removed, and the pattern explains itself
+once both lanes are visible.
+
+    beat 0-1   Hi-Hat closed + kick lane 35 (line 8), tied pair
+    beat 2-3   Hi-Hat closed + kick lane 36 (line 7), tied pair
+    beat 8-9   Hi-Hat closed + kick lane 35 (line 8), tied pair
+    beat 10-11 Hi-Hat closed + kick lane 36 (line 7), tied pair
+
+The bass drum alternates staff line every two sixteenths, with a tie on each pair.
+Removing those ties was right. The line alternation underneath them is still there.
+
+### A bug in my own tool, caught by cross-checking
+
+The first reality-gate run keyed lanes on `OutputMidiNumber`. On this drumset map
+`Hi-Hat (half)` carries input **92** and output **46**, the same output as
+`Hi-Hat (open)`, so the gate silently merged two lanes a reader sees as distinct. Two
+of my own outputs disagreed, which is what surfaced it.
+
+Fixed to key on `InputMidiNumbers`, the field the reader and Songsterr both use. The
+corrected run matches the iMac census on **all 17 lanes** and on the 1,574 total. That
+is the rule about reading the field the human acts on, earning its keep.
+
 ## Still blocked
 
 1. **The iMac working tree.** The immutable `ORIGINAL-*.gp` set, the published-source
