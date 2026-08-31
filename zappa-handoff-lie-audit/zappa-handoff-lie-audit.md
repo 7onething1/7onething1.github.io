@@ -205,6 +205,32 @@ clean. The other fourteen stay unverified from here.
 
 Both are recorded as untested rather than accepted.
 
+## How this keeps running
+
+The audit is a script, so a claim cannot quietly rot between readings.
+
+`audit.py` re-derives every settled number from the score files and exits non-zero on any
+drift. It runs **31 checks**: 27 settled claims that reproduce today, and 4 open defects that
+flip to green on their own once someone fixes them.
+
+```
+31 checks, 4 failing
+FAIL OPEN    second test tree: test_comparison_basis exit 0   want 0 got 1
+FAIL OPEN    second test tree: test_promotion_rule exit 0     want 0 got 1
+FAIL OPEN    sfg bundle tests run in place                    want 0 got 1
+FAIL OPEN    POINTERS header count matches file count         want 731 got 727
+```
+
+`watch.sh` fingerprints both handoffs and both sfg bundles once a minute. Any byte that moves
+triggers a full re-audit into `watch.log`, so a rewritten handoff gets checked against the
+files the moment it lands.
+
+```
+~/Projects/_outputs/zappa-handoff-lie-audit/audit.py     31 checks, exit 0 when clean
+~/Projects/_outputs/zappa-handoff-lie-audit/watch.sh     INTERVAL=60 ROUNDS=170 ./watch.sh
+~/Projects/_outputs/zappa-handoff-lie-audit/watch.log    every pass, stamped
+```
+
 ## Reproduce this audit
 
 ```bash

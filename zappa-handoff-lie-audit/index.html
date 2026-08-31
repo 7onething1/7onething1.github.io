@@ -57,7 +57,7 @@ ul.tight{margin:6px 0 14px;padding-left:20px} ul.tight li{margin-bottom:5px}
 </div>
 
 <div class="toc">
-<a href="#expired">The expired claim</a><a href="#tests">The overstated one</a><a href="#drift">The drift and a tool bug</a><a href="#wording">The wording</a><a href="#reproduced">What reproduced</a><a href="#bundle">Newly testable</a><a href="#untested">Untested here</a><a href="#repro">Reproduce it</a><a href="#sources">Sources</a>
+<a href="#expired">The expired claim</a><a href="#tests">The overstated one</a><a href="#drift">The drift and a tool bug</a><a href="#wording">The wording</a><a href="#reproduced">What reproduced</a><a href="#bundle">Newly testable</a><a href="#untested">Untested here</a><a href="#watch">How it keeps running</a><a href="#repro">Reproduce it</a><a href="#sources">Sources</a>
 </div>
 
 <div class="grid">
@@ -190,6 +190,19 @@ TOTAL                                         21,385 events   0 differences</pre
 <li><strong>Audio alignment fails its controls at 45.9% against 48.5% shifted and 47.8% random.</strong> No audio came across, so the control cannot be re-run here.</li>
 </ol>
 </div>
+
+<h2 id="watch">How this keeps running</h2>
+<p class="sub">The audit is a script, so a claim cannot quietly rot between readings.</p>
+<p><code>audit.py</code> re-derives every settled number from the score files and exits non-zero on any drift. It runs <strong>31 checks</strong>: 27 settled claims that reproduce today, and 4 open defects that flip to green on their own once someone fixes them.</p>
+<pre>31 checks, 4 failing
+FAIL OPEN    second test tree: test_comparison_basis exit 0   want 0 got 1
+FAIL OPEN    second test tree: test_promotion_rule exit 0     want 0 got 1
+FAIL OPEN    sfg bundle tests run in place                    want 0 got 1
+FAIL OPEN    POINTERS header count matches file count         want 731 got 727</pre>
+<p><code>watch.sh</code> fingerprints both handoffs and both sfg bundles once a minute. Any byte that moves triggers a full re-audit into <code>watch.log</code>, so a rewritten handoff gets checked against the files the moment it lands.</p>
+<pre>~/Projects/_outputs/zappa-handoff-lie-audit/audit.py     31 checks, exit 0 when clean
+~/Projects/_outputs/zappa-handoff-lie-audit/watch.sh     INTERVAL=60 ROUNDS=170 ./watch.sh
+~/Projects/_outputs/zappa-handoff-lie-audit/watch.log    every pass, stamped</pre>
 
 <h2 id="repro">Reproduce this audit</h2>
 <pre># the timeline that expires the sfg claim
