@@ -1,63 +1,75 @@
-# Stereogum's Best New Music, 2017 Edition
+# Stereogum's Rolling Playlist, Summer 2017
 
-A week-by-week reconstruction of Stereogum's 2017 new-music feed, rebuilt from the
-original articles and verified against the live site.
+A reconstruction of Stereogum's rolling new-music Spotify playlist, rebuilt from the original
+weekly articles and verified against the live site.
 
-## What the record actually shows
+## What the record shows
 
-Stereogum published no ranked "best songs of 2017" year-end list. Their 2017 year-in-review
-run covered albums, music videos, EPs, new bands, pop singles and the worst songs of the year.
-Songs coverage ran through one weekly franchise called The 5 Best Songs Of The Week, and that
-franchise fed the rolling Spotify playlist.
+Stereogum published no ranked "best songs of 2017" year-end list. Their 2017 year-in-review run
+covered albums, music videos, EPs, new bands, pop singles and the worst songs of the year. Songs
+coverage ran through one weekly franchise called The 5 Best Songs Of The Week, and that franchise
+refreshed the rolling Spotify playlist every Friday.
 
-So the 2017 edition of the playlist is the weekly franchise, gathered up and put in order.
+So the 2017 edition of the playlist is that franchise, gathered up and put in order.
 
-## The June 16, 2017 hundred
+## How the hundred-track window was pinned
 
-The rolling playlist carried roughly one hundred tracks and refreshed every Friday with that
-week's five picks. Twenty weeks of five picks reaches one hundred tracks. Counting back from
-June 16, 2017 gives weeks #177 through #196, which is February 3 through June 16, 2017.
+Nine songs were remembered from the playlist. Each carries one fixed publication date in the
+Stereogum record. A rolling hundred-track playlist holds twenty weekly editions of five, so every
+candidate is a run of twenty consecutive Fridays. The correct window contains all nine.
 
-That set comes to exactly 100 tracks.
+Three candidates were tested:
 
-## How each entry was verified
+| Window | Weeks | Dates | Anchors held |
+|---|---|---|---|
+| July 14 refresh | #181 to #200 | March 3 to July 14, 2017 | 9 of 9 |
+| July 7 refresh | #180 to #199 | February 24 to July 7, 2017 | 9 of 9 |
+| June 16 refresh | #177 to #196 | February 3 to June 16, 2017 | 7 of 9 |
 
-Each weekly post was fetched from stereogum.com by its own post ID. The publish date came from
-the page metadata. The five ranked entries came from the article body. Every date landed on a Friday,
-and all 49 posts came back with a full set of five, giving 245 tracks for the year.
+The June 16 window is ruled out. It ends before July 7, so it cannot carry St. Vincent's "New York"
+or Japanese Breakfast's "Road Head". Those two picks move the reconstruction three weeks later.
 
-The 50 tracks covering weeks #187 through #196 were checked against a previously supplied list.
-All 50 matched exactly, including ranks and featured-artist credits.
+## The check that settles the last question
+
+Both July windows hold all nine anchors, so one detail separates them. The July 14 refresh puts
+Lorde's "Green Light" in the oldest week, sitting at the very tail of the playlist. The July 7
+refresh puts Arca's "Piel", Lana Del Rey's "Love" and Future's "Mask Off" below it.
+
+Look at the bottom of the playlist in the screenshots. "Green Light" sitting last means July 14.
+Anything from February 24 below it means July 7. Both lists ship as separate files.
 
 ## Where 2017 begins and ends
 
 The franchise opened the year with week #173 on January 6, 2017 and closed it with week #221 on
-December 15, 2017. Stereogum then paused for the holidays and resumed with week #222 on January 5, 2018.
+December 15, 2017. That is 49 posts and 245 tracks, every week complete at five. Stereogum paused
+for the holidays and resumed with week #222 on January 5, 2018.
 
-One Friday inside that run carries no post: November 24, 2017, which was Thanksgiving week. That is an
-editorial skip in the original record rather than a gap in this reconstruction.
+One Friday inside the run carries no post: November 24, 2017, which was Thanksgiving week. That is
+an editorial skip in the original record rather than a gap in this reconstruction.
 
-## The open question
+## How each entry was verified
 
-No source I could reach documents the playlist's track count in June 2017. One hundred is the
-working assumption, taken from the count the playlist carries today. The reconstruction is built
-week by week, so a different count moves only the boundary week and leaves everything else intact.
+Each weekly post was fetched from stereogum.com by its own post ID. The publish date came from the
+page metadata. The five ranked entries came from the article body. All 49 posts returned a full set
+of five.
 
 ## Getting it into Spotify
 
-Spotify offers no public route to create a playlist from a text list without account access.
-The import runs through a converter instead. Soundiiz and TuneMyMusic both accept a pasted
-"Artist - Title" list and build the playlist on a connected account. Each track on the page also
-carries its own Spotify search link for anything a converter fails to match.
+Spotify offers no public route to create a playlist from a text list without account access, so the
+import runs through a converter. Soundiiz and TuneMyMusic both accept a pasted "Artist - Title" list
+and build the playlist on a connected account. Each track on the page also carries its own Spotify
+search link for anything a converter fails to match.
 
 ## Files
 
-- `index.html` is the browsable page with per-track Spotify and YouTube search links
-- `stereogum-2017-06-16-100.txt` is the 100-track import list, newest week first
-- `stereogum-2017-all.txt` is every track recovered
-- `stereogum-2017.csv` carries week number, publish date, rank, artist, title and source URL
+- `index.html` is the browsable page with the anchor test and per-track search links
+- `stereogum-2017-07-14-100.txt` is the primary hundred, March 3 to July 14
+- `stereogum-2017-07-07-100.txt` is the alternate hundred, February 24 to July 7
+- `stereogum-2017-06-16-100.txt` is the ruled-out hundred, kept for the record
+- `stereogum-2017-all.txt` is all 245 tracks of 2017
+- `stereogum-2017.csv` carries week number, date, rank, artist, title, both window flags and source URL
 
 ## Source
 
-stereogum.com, The 5 Best Songs Of The Week. Every artist, title and rank was parsed from the
-live article at the linked URL. Nothing was supplied from memory.
+stereogum.com, The 5 Best Songs Of The Week. Every artist, title and rank was parsed from the live
+article at the linked URL. Nothing came from memory.
