@@ -104,45 +104,99 @@ and 794 carry every open hi-hat tie across all ten bars. Dropping the tie from n
 793 changes ten bars at once. Here that is the intended result, and the auditor is
 what turns it from an assumption into a count.
 
-## OPEN: the paren-to-staccato claim does not reproduce from the GPIF
+## VERIFIED: the paren-to-staccato conversion, confirmed from the other side
+
+While this session ran, the iMac pushed a route called `zappa-drum-tab-forensics` to
+the overflow host at 2026-08-31 13:25 CDT, roughly thirty minutes ahead of this session. It carries a twenty-song dataset read from Songsterr's own track JSON, the
+payload CloudFront refused here.
+
+Its Zomby Woof entry answers the question this file could not answer alone.
+
+| Revision | drum notes | flags |
+|---|---|---|
+| r7115188, published | 1,574 | `ghost: 32`, `tie: 18` |
+| r8787022, ours | 1,574 | `staccato: 32` |
+
+with `evt_identical: true`, `lanechg: 0`, and `base_total` and `ours_total` both 7,479.
+
+So the three states run like this:
+
+| State | ghost | staccato | ties |
+|---|---|---|---|
+| r7115188, the original | 32 | 0 | 18 |
+| r8766102, the file recovered here | 0 | 0 | **18** |
+| r8787022, the published fix | 0 | 32 | 0 |
+
+The recovered file sits in the middle of a two-step edit, which is exactly why its
+GPIF carries neither marking. The 18 ties this session counted independently are the
+same 18 the published baseline reports, and r8787022 dropped all of them.
+
+**Correction to an earlier reading.** This page first called the two revision
+descriptions contradictory, on the grounds that the same 32 noteheads cannot be
+removed and then converted. The two descriptions turn out to be consistent. r8766102
+removed the parentheses, r8787022 added the staccato dots and dropped the ties, and
+r8787022 states its net effect against the published baseline rather than against its
+immediate parent.
+
+## Two machines, two formats, seventeen lanes
+
+The GPIF read here and the Songsterr JSON read there are independent measurements of
+the same performance, one from the score file and one from the served payload.
+
+| MIDI | Drum voice | This session, from GPIF | iMac, from Songsterr JSON |
+|---|---|---|---|
+| 51 | Ride | 287 | 287 |
+| 38 | Snare | 271 | 271 |
+| 47 | Mid tom | 209 | 209 |
+| 36 | Kick | 186 | 186 |
+| 35 | Acoustic kick | 163 | 163 |
+| 42 | Hi-hat closed | 141 | 141 |
+| 45 | Low tom | 99 | 99 |
+| 46 | Hi-hat open | 92 | 92 |
+| 48 | High tom | 49 | 49 |
+| 92 | Hi-hat half | 29 | 29 |
+| 44 | Pedal hi-hat | 23 | 23 |
+| 43 | Very low tom | 13 | 13 |
+| 49 | Crash high | 4 | 4 |
+| 84 | Bell tree | 4 | 4 |
+| 50 | High floor tom | 2 | 2 |
+| 74 | Guiro | 1 | 1 |
+| 58 | Vibraslap | 1 | 1 |
+
+Seventeen lanes, seventeen matches, no exceptions. Total events, drum events, bar
+count and tie count agree as well.
+
+## What the GPIF articulation layer does show
 
 Track 9 offers 119 articulations. Five render a staccato dot and six render a
-parenthesis notehead.
+parenthesis notehead. None of the eleven is used.
 
 | Rendering | Articulations that carry it | Used on this staff |
 |---|---|---|
-| `articStaccatoAbove` | Ride choke, Splash choke, Crash high choke, Crash medium choke, Ride 2 choke | **0** |
-| `noteheadParenthesis` | Bongo High mute, Bongo Low mute, Conga low mute, Conga high mute, Surdo mute, Triangle mute | **0** |
+| `articStaccatoAbove` | Ride choke, Splash choke, Crash high choke, Crash medium choke, Ride 2 choke | 0 |
+| `noteheadParenthesis` | Bongo High mute, Bongo Low mute, Conga low mute, Conga high mute, Surdo mute, Triangle mute | 0 |
 
-The staff uses 17 articulation indices, all of them plain hits: ride, snare, three
-toms, kick, four hi-hat states, crash, bell tree, guiro, vibraslap. Every one reports
-an empty `TechniqueSymbol`.
+The staff uses 17 articulation indices, all plain hits, every one reporting an empty
+`TechniqueSymbol`. Worth carrying forward: Songsterr's ghost and staccato flags do not
+live in the GPIF articulation layer, so an edit driven from the GPIF side cannot set
+or read them there. That is a real constraint on any scripted pass built on this Mac.
 
-So in this file no drum note renders with a parenthesis, none renders with a staccato
-dot, and the drumset map has no staccato articulation for snare, kick or hi-hat at
-all. The five that exist are cymbal chokes.
+## A session on the iMac is working this same job
 
-**What that does and does not establish.** It establishes that the parenthesis
-rendering is not carried in the GPIF articulation layer of the file r8787022 was
-built from. It does not establish that Songsterr's own renderer showed no
-parentheses, because Songsterr draws from its own track JSON, and that payload sits
-behind CloudFront and returns `AccessDenied` to an unauthenticated fetch, with and
-without browser headers.
-
-**A second thing worth Brandon's eye.** r8766102 says it *removed* the 32
-parenthesised noteheads. r8787022, one day later, says it *converted* the same 32 to
-staccato dots. The same 32 noteheads cannot be removed and then converted, and total
-events held at 7,479 across both, so nothing was deleted either time. One of the two
-descriptions does not match what its revision did.
+`zappa-drum-tab-forensics` was committed at 2026-08-31 13:25 CDT and arrived here by
+rebase from origin, never committed locally. Its dataset covers twenty songs, reaches
+the Songsterr track JSON, and holds the baseline census this Mac lacks. Two machines
+are now on the same repair. Splitting it deliberately is worth a decision, and
+that decision belongs to Brandon.
 
 ## Still blocked
 
 1. **The iMac working tree.** The immutable `ORIGINAL-*.gp` set, the published-source
    archive, and the five other tools live there. iCloud `sfg/` is the sanctioned
    channel.
-2. **CloudFront track JSON.** `403 AccessDenied` on every unauthenticated route,
-   confirmed again this session on the original revision `r7115188`. Reading it needs
-   a signed-in browser, and Songsterr sign-in is Brandon's to do.
+2. **CloudFront track JSON, from this Mac.** `403 AccessDenied` on every
+   unauthenticated route, confirmed again this session on `r7115188`. The iMac reads
+   it, so the capability exists on that machine and not on this one.
 3. **No notation editor on this Mac.** No Guitar Pro, no TuxGuitar, no MuseScore in
    `/Applications`. The native GPIF pipeline in `songsterr-upload` is the only editor
    here, which is enough for scripted edits and not for eyes-on review.

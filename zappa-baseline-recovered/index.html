@@ -50,18 +50,18 @@ ul.tight{margin:6px 0 14px;padding-left:20px} ul.tight li{margin-bottom:5px}
 <div class="verdict">
 <h3>Verdict: the repair is unblocked for Zomby Woof, and two claims now split</h3>
 <p>The handoff's <code>s*/</code> tree, its six tools and its 139.6 MB source archive are not on this machine. A Songsterr export of <strong>r8766102</strong> was, and it is the exact file the published fix was built from.</p>
-<p>Against it, the <strong>18-tie</strong> claim reproduces perfectly, twelve bars named and twelve found. The <strong>paren-to-staccato</strong> claim does not reproduce from the score file at all, and the two revision descriptions contradict each other on the same 32 noteheads.</p>
+<p>Against it, the <strong>18-tie</strong> claim reproduces perfectly, twelve bars named and twelve found. A sibling session on the iMac published its Songsterr-side census mid-run, and the two measurements agree on <strong>all seventeen drum lanes</strong>, the event total, the bar count and the tie count.</p>
 </div>
 
 <div class="toc">
-<a href="#missing">What is missing</a><a href="#found">What was found</a><a href="#timeline">Revision timeline</a><a href="#control">Known-answer control</a><a href="#ties">The 18 ties</a><a href="#paren">The paren claim</a><a href="#blocked">Still blocked</a><a href="#repro">Reproduce it</a>
+<a href="#missing">What is missing</a><a href="#found">What was found</a><a href="#timeline">Revision timeline</a><a href="#control">Known-answer control</a><a href="#ties">The 18 ties</a><a href="#paren">Paren to staccato</a><a href="#lanes">Two machines</a><a href="#sibling">Sibling session</a><a href="#blocked">Still blocked</a><a href="#repro">Reproduce it</a>
 </div>
 
 <div class="grid">
 <div class="card"><div class="big t2">7,479</div><div class="lab">rendered events, reproduced</div></div>
 <div class="card"><div class="big t2">1,574</div><div class="lab">drum staff events, reproduced</div></div>
 <div class="card"><div class="big t2">18</div><div class="lab">tie connections, confirmed</div></div>
-<div class="card"><div class="big r">0</div><div class="lab">paren noteheads in the file</div></div>
+<div class="card"><div class="big t2">17/17</div><div class="lab">drum lanes, two machines</div></div>
 <div class="card"><div class="big m">6</div><div class="lab">Notes carrying all 36 tied events</div></div>
 <div class="card"><div class="big r">2</div><div class="lab">revisions still on moderation</div></div>
 </div>
@@ -126,22 +126,66 @@ internal Content/score.gpif stamped 2026-08-30 00:25 CDT</pre>
 <p>Those 36 tied events come from <strong>6 distinct Note elements</strong>. Notes 788 to 791 render twice each in bar 16. Notes 793 and 794 carry every open hi-hat tie across all ten bars. Dropping the tie from note 793 changes ten bars at once. Here that is the intended result, and the auditor is what turns it from an assumption into a count.</p>
 </div>
 
-<h2 id="paren">OPEN: the paren-to-staccato claim does not reproduce</h2>
-<p class="sub">Track 9 offers 119 articulations. Five render a staccato dot, six render a parenthesis notehead.</p>
+<h2 id="paren">VERIFIED: the paren-to-staccato conversion, confirmed from the other side</h2>
+<p class="sub">While this session ran, the iMac pushed <code>zappa-drum-tab-forensics</code> to the overflow host at 2026-08-31 13:25 CDT, roughly thirty minutes ahead of this session. It carries a twenty-song dataset read from Songsterr's own track JSON, the payload CloudFront refused here.</p>
+<div class="scroll"><table>
+<tr><th>Revision</th><th class="n">drum notes</th><th>flags</th></tr>
+<tr><td class="t">r7115188, published</td><td class="n">1,574</td><td><code>ghost: 32</code>, <code>tie: 18</code></td></tr>
+<tr class="good"><td class="t">r8787022, ours</td><td class="n">1,574</td><td><code>staccato: 32</code></td></tr>
+</table></div>
+<p>with <code>evt_identical: true</code>, <code>lanechg: 0</code>, and <code>base_total</code> and <code>ours_total</code> both 7,479. So the three states run like this.</p>
+<div class="scroll"><table>
+<tr><th>State</th><th class="n">ghost</th><th class="n">staccato</th><th class="n">ties</th></tr>
+<tr><td class="t">r7115188, the original</td><td class="n">32</td><td class="n">0</td><td class="n">18</td></tr>
+<tr class="good"><td class="t">r8766102, the file recovered here</td><td class="n">0</td><td class="n">0</td><td class="n"><strong>18</strong></td></tr>
+<tr><td class="t">r8787022, the published fix</td><td class="n">0</td><td class="n">32</td><td class="n">0</td></tr>
+</table></div>
+<p>The recovered file sits in the middle of a two-step edit, which is exactly why its GPIF carries neither marking. The 18 ties counted independently here are the same 18 the published baseline reports, and r8787022 dropped all of them.</p>
+<div class="corr">
+<h3>Correction to an earlier reading of this page</h3>
+<p>This page first called the two revision descriptions contradictory, on the grounds that the same 32 noteheads cannot be removed and then converted. The two descriptions turn out to be consistent. r8766102 removed the parentheses, r8787022 added the staccato dots and dropped the ties, and r8787022 states its net effect against the published baseline rather than against its immediate parent.</p>
+</div>
+
+<h2 id="lanes">Two machines, two formats, seventeen lanes</h2>
+<p class="sub">The GPIF read here and the Songsterr JSON read there are independent measurements of the same performance, one from the score file and one from the served payload.</p>
+<div class="scroll"><table>
+<tr><th>MIDI</th><th>Drum voice</th><th class="n">This Mac, from GPIF</th><th class="n">iMac, from Songsterr JSON</th></tr>
+<tr class="good"><td class="n">51</td><td class="t">Ride</td><td class="n">287</td><td class="n">287</td></tr>
+<tr class="good"><td class="n">38</td><td class="t">Snare</td><td class="n">271</td><td class="n">271</td></tr>
+<tr class="good"><td class="n">47</td><td class="t">Mid tom</td><td class="n">209</td><td class="n">209</td></tr>
+<tr class="good"><td class="n">36</td><td class="t">Kick</td><td class="n">186</td><td class="n">186</td></tr>
+<tr class="good"><td class="n">35</td><td class="t">Acoustic kick</td><td class="n">163</td><td class="n">163</td></tr>
+<tr class="good"><td class="n">42</td><td class="t">Hi-hat closed</td><td class="n">141</td><td class="n">141</td></tr>
+<tr class="good"><td class="n">45</td><td class="t">Low tom</td><td class="n">99</td><td class="n">99</td></tr>
+<tr class="good"><td class="n">46</td><td class="t">Hi-hat open</td><td class="n">92</td><td class="n">92</td></tr>
+<tr class="good"><td class="n">48</td><td class="t">High tom</td><td class="n">49</td><td class="n">49</td></tr>
+<tr class="good"><td class="n">92</td><td class="t">Hi-hat half</td><td class="n">29</td><td class="n">29</td></tr>
+<tr class="good"><td class="n">44</td><td class="t">Pedal hi-hat</td><td class="n">23</td><td class="n">23</td></tr>
+<tr class="good"><td class="n">43</td><td class="t">Very low tom</td><td class="n">13</td><td class="n">13</td></tr>
+<tr class="good"><td class="n">49</td><td class="t">Crash high</td><td class="n">4</td><td class="n">4</td></tr>
+<tr class="good"><td class="n">84</td><td class="t">Bell tree</td><td class="n">4</td><td class="n">4</td></tr>
+<tr class="good"><td class="n">50</td><td class="t">High floor tom</td><td class="n">2</td><td class="n">2</td></tr>
+<tr class="good"><td class="n">74</td><td class="t">Guiro</td><td class="n">1</td><td class="n">1</td></tr>
+<tr class="good"><td class="n">58</td><td class="t">Vibraslap</td><td class="n">1</td><td class="n">1</td></tr>
+</table></div>
+<p>Seventeen lanes, seventeen matches, no exceptions. Total events, drum events, bar count and tie count agree as well.</p>
+
+<h2>What the GPIF articulation layer does show</h2>
+<p class="sub">Track 9 offers 119 articulations. Five render a staccato dot and six render a parenthesis notehead. None of the eleven is used.</p>
 <div class="scroll"><table>
 <tr><th>Rendering</th><th>Articulations that carry it</th><th class="n">Used on this staff</th></tr>
-<tr class="bad"><td class="t"><code>articStaccatoAbove</code></td><td>Ride choke, Splash choke, Crash high choke, Crash medium choke, Ride 2 choke</td><td class="n"><strong>0</strong></td></tr>
-<tr class="bad"><td class="t"><code>noteheadParenthesis</code></td><td>Bongo High mute, Bongo Low mute, Conga low mute, Conga high mute, Surdo mute, Triangle mute</td><td class="n"><strong>0</strong></td></tr>
+<tr><td class="t"><code>articStaccatoAbove</code></td><td>Ride choke, Splash choke, Crash high choke, Crash medium choke, Ride 2 choke</td><td class="n">0</td></tr>
+<tr><td class="t"><code>noteheadParenthesis</code></td><td>Bongo High mute, Bongo Low mute, Conga low mute, Conga high mute, Surdo mute, Triangle mute</td><td class="n">0</td></tr>
 </table></div>
-<p>The staff uses 17 articulation indices, all of them plain hits: ride, snare, three toms, kick, four hi-hat states, crash, bell tree, guiro, vibraslap. Every one reports an empty <code>TechniqueSymbol</code>. No drum note in this file renders with a parenthesis, none renders with a staccato dot, and the drumset map carries no staccato articulation for snare, kick or hi-hat. The five that exist are cymbal chokes.</p>
 <div class="corr">
-<h3>What that does and does not establish</h3>
-<p><strong>It does establish</strong> that the parenthesis rendering is absent from the GPIF articulation layer of the file r8787022 was built from.</p>
-<p><strong>It does not establish</strong> that Songsterr's renderer showed no parentheses, because Songsterr draws from its own track JSON. That payload sits behind CloudFront and returned <code>403 AccessDenied</code> to an unauthenticated fetch this session, with and without browser headers, on the original revision r7115188.</p>
+<h3>Carry this forward</h3>
+<p>Songsterr's ghost and staccato flags do not live in the GPIF articulation layer, so an edit driven from the GPIF side cannot set or read them there. That is a real constraint on any scripted pass built on this Mac.</p>
 </div>
-<div class="corr">
-<h3>The two descriptions contradict each other</h3>
-<p>r8766102 says it <strong>removed</strong> the 32 parenthesised noteheads. r8787022, one day later, says it <strong>converted</strong> the same 32 to staccato dots. The same 32 noteheads cannot be removed and then converted. Total events held at 7,479 across both, so nothing was deleted either time. One of the two descriptions does not match what its revision did.</p>
+
+<h2 id="sibling">A session on the iMac is working this same job</h2>
+<div class="blk">
+<h3>Two machines, one repair</h3>
+<p><code>zappa-drum-tab-forensics</code> was committed at 2026-08-31 13:25 CDT and arrived here by rebase from origin, never committed locally. Its dataset covers twenty songs, reaches the Songsterr track JSON, and holds the baseline census this Mac lacks. Splitting the work deliberately is worth a decision, and that decision belongs to Brandon.</p>
 </div>
 
 <h2 id="blocked">Still blocked</h2>
@@ -149,7 +193,7 @@ internal Content/score.gpif stamped 2026-08-30 00:25 CDT</pre>
 <h3>Four items, none of them solvable from this machine alone</h3>
 <ol>
 <li><strong>The iMac working tree.</strong> The immutable <code>ORIGINAL-*.gp</code> set, the published-source archive and the five other tools live there. iCloud <code>sfg/</code> is the sanctioned channel.</li>
-<li><strong>CloudFront track JSON.</strong> <code>403 AccessDenied</code> on every unauthenticated route, confirmed again this session. Reading it needs a signed-in browser, and Songsterr sign-in is Brandon's to do.</li>
+<li><strong>CloudFront track JSON, from this Mac.</strong> <code>403 AccessDenied</code> on every unauthenticated route, confirmed again this session on <code>r7115188</code>. The iMac reads it, so the capability exists on that machine and not on this one.</li>
 <li><strong>No notation editor here.</strong> No Guitar Pro, no TuxGuitar, no MuseScore in <code>/Applications</code>. The native GPIF pipeline in <code>songsterr-upload</code> is the only editor on this Mac, which covers scripted edits and not eyes-on review.</li>
 <li><strong>Moderation.</strong> Both revisions have sat pending for one and two days. Promotion is a Songsterr moderator decision.</li>
 </ol>
