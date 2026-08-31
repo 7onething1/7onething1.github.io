@@ -1,75 +1,68 @@
-# Stereogum's Rolling Playlist, Summer 2017
+# Stereogum's Rolling Playlist, 2017
 
 A reconstruction of Stereogum's rolling new-music Spotify playlist, rebuilt from the original
 weekly articles and verified against the live site.
 
 ## What the record shows
 
-Stereogum published no ranked "best songs of 2017" year-end list. Their 2017 year-in-review run
-covered albums, music videos, EPs, new bands, pop singles and the worst songs of the year. Songs
-coverage ran through one weekly franchise called The 5 Best Songs Of The Week, and that franchise
-refreshed the rolling Spotify playlist every Friday.
+Stereogum published no ranked "best songs of 2017" year-end list. Their songs coverage ran through
+one weekly franchise called The 5 Best Songs Of The Week, and that franchise refreshed the rolling
+Spotify playlist every Friday.
 
-So the 2017 edition of the playlist is that franchise, gathered up and put in order.
+## The main list
 
-## How the hundred-track window was pinned
+February 3 through June 16, 2017. Weeks #177 through #196, twenty weekly editions of five, 100 tracks.
+It runs from Lorde's "Sober" at the top down to Pallbearer's "Thorns" at the tail.
 
-Nine songs were remembered from the playlist. Each carries one fixed publication date in the
-Stereogum record. A rolling hundred-track playlist holds twenty weekly editions of five, so every
-candidate is a run of twenty consecutive Fridays. The correct window contains all nine.
+This is the list that matches Brandon's ear, so the page leads with it.
 
-Three candidates were tested:
+## The 120-track extension
 
-| Window | Weeks | Dates | Anchors held |
-|---|---|---|---|
-| July 14 refresh | #181 to #200 | March 3 to July 14, 2017 | 9 of 9 |
-| July 7 refresh | #180 to #199 | February 24 to July 7, 2017 | 9 of 9 |
-| June 16 refresh | #177 to #196 | February 3 to June 16, 2017 | 7 of 9 |
+February 3 through July 14, 2017. Weeks #177 through #200, 120 tracks.
 
-The June 16 window is ruled out. It ends before July 7, so it cannot carry St. Vincent's "New York"
-or Japanese Breakfast's "Road Head". Those two picks move the reconstruction three weeks later.
+It keeps every track in the hundred and adds the four later weeks, which carry St. Vincent's
+"New York", Japanese Breakfast's "Road Head", JAY-Z's "The Story Of O.J.", Kesha's "Praying",
+Lorde's "Supercut" and Nine Inch Nails' "LESS THAN".
 
-## The check that settles the last question
+A strict hundred-track window reaching July 14 has to drop February to make room, and February
+holds Mount Eerie, Jay Som, Vince Staples, Lana Del Rey and The Jesus & Mary Chain. The 120 keeps
+both ends rather than trading one for the other.
 
-Both July windows hold all nine anchors, so one detail separates them. The July 14 refresh puts
-Lorde's "Green Light" in the oldest week, sitting at the very tail of the playlist. The July 7
-refresh puts Arca's "Piel", Lana Del Rey's "Love" and Future's "Mask Off" below it.
+## Two other windows, kept for reference
 
-Look at the bottom of the playlist in the screenshots. "Green Light" sitting last means July 14.
-Anything from February 24 below it means July 7. Both lists ship as separate files.
+March 3 to July 14 and February 24 to July 7 are both 100 tracks and both reach the July songs.
+Each one costs a chunk of February. They ship as separate files.
 
 ## Where 2017 begins and ends
 
-The franchise opened the year with week #173 on January 6, 2017 and closed it with week #221 on
+The franchise opened the year with week #173 on January 6, 2017 and closed with week #221 on
 December 15, 2017. That is 49 posts and 245 tracks, every week complete at five. Stereogum paused
 for the holidays and resumed with week #222 on January 5, 2018.
 
-One Friday inside the run carries no post: November 24, 2017, which was Thanksgiving week. That is
-an editorial skip in the original record rather than a gap in this reconstruction.
+One Friday inside the run carries no post: November 24, 2017, Thanksgiving week. That is an
+editorial skip in the original record.
 
 ## How each entry was verified
 
 Each weekly post was fetched from stereogum.com by its own post ID. The publish date came from the
-page metadata. The five ranked entries came from the article body. All 49 posts returned a full set
-of five.
+page metadata. The five ranked entries came from the article body. All 49 posts returned five.
 
 ## Getting it into Spotify
 
 Spotify offers no public route to create a playlist from a text list without account access, so the
 import runs through a converter. Soundiiz and TuneMyMusic both accept a pasted "Artist - Title" list
-and build the playlist on a connected account. Each track on the page also carries its own Spotify
-search link for anything a converter fails to match.
+and build the playlist on a connected account.
 
 ## Files
 
-- `index.html` is the browsable page with the anchor test and per-track search links
-- `stereogum-2017-07-14-100.txt` is the primary hundred, March 3 to July 14
-- `stereogum-2017-07-07-100.txt` is the alternate hundred, February 24 to July 7
-- `stereogum-2017-06-16-100.txt` is the ruled-out hundred, kept for the record
+- `index.html` is the browsable page with per-track search links
+- `stereogum-2017-06-16-100.txt` is the main hundred, February 3 to June 16
+- `stereogum-2017-feb03-jul14-120.txt` is the 120 extension
+- `stereogum-2017-07-14-100.txt` and `stereogum-2017-07-07-100.txt` are the two alternates
 - `stereogum-2017-all.txt` is all 245 tracks of 2017
-- `stereogum-2017.csv` carries week number, date, rank, artist, title, both window flags and source URL
+- `stereogum-2017.csv` carries week, date, rank, artist, title, list flags and source URL
 
 ## Source
 
 stereogum.com, The 5 Best Songs Of The Week. Every artist, title and rank was parsed from the live
-article at the linked URL. Nothing came from memory.
+article at the linked URL.
