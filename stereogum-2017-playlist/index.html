@@ -1,0 +1,996 @@
+<!doctype html>
+<html lang="en"><head>
+<meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Stereogum 2017 Best New Music Playlist, Reconstructed</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@600;700&family=Inter:wght@400;500;600;700&family=JetBrains+Mono:wght@400;600&display=swap" rel="stylesheet">
+<style>
+:root{
+ --cream:#F4EBD9; --cream2:#EADFC8; --ink:#12100E; --ink2:#4A4136;
+ --rose:#D98C8C; --mustard:#E3B23C; --teal:#4E8098; --olive:#8A9A5B; --rust:#C4622D;
+ --line:#D6C7AC;
+}
+*{box-sizing:border-box}
+body{margin:0;background:var(--cream);color:var(--ink);
+ font-family:Inter,system-ui,-apple-system,"Helvetica Neue",sans-serif;line-height:1.55}
+.wrap{max-width:1080px;margin:0 auto;padding:0 20px 90px}
+header.top{padding:56px 0 26px;border-bottom:3px double var(--ink)}
+h1{font-family:"Cormorant Garamond",Georgia,serif;font-size:clamp(2.1rem,5.4vw,3.9rem);
+ line-height:1.03;margin:0 0 10px;letter-spacing:-.015em}
+.sub{font-family:"JetBrains Mono",ui-monospace,monospace;font-size:.72rem;letter-spacing:.17em;
+ text-transform:uppercase;color:var(--ink2)}
+.lede{max-width:64ch;margin:20px 0 0;font-size:1.03rem}
+.stats{display:grid;grid-template-columns:repeat(auto-fit,minmax(148px,1fr));gap:12px;margin:30px 0 6px}
+.stat{background:var(--cream2);border:1px solid var(--line);border-radius:11px;padding:15px 16px}
+.stat b{display:block;font-family:"Cormorant Garamond",Georgia,serif;font-size:2.1rem;line-height:1}
+.stat span{font-family:"JetBrains Mono",monospace;font-size:.6rem;letter-spacing:.13em;
+ text-transform:uppercase;color:var(--ink2)}
+h2{font-family:"Cormorant Garamond",Georgia,serif;font-size:1.95rem;margin:52px 0 6px;
+ padding-bottom:7px;border-bottom:2px solid var(--ink)}
+.note{background:var(--cream2);border-left:5px solid var(--mustard);border-radius:0 9px 9px 0;
+ padding:15px 18px;margin:18px 0;max-width:74ch;font-size:.94rem}
+.note.teal{border-left-color:var(--teal)}
+.note.rose{border-left-color:var(--rose)}
+.note b{font-weight:700}
+.toc{display:grid;grid-template-columns:repeat(auto-fill,minmax(158px,1fr));gap:7px;margin:18px 0 8px}
+.tocitem{display:flex;justify-content:space-between;gap:8px;background:var(--cream2);
+ border:1px solid var(--line);border-radius:8px;padding:8px 11px;text-decoration:none;color:var(--ink);
+ font-size:.8rem;transition:.13s}
+.tocitem:hover{background:var(--mustard);border-color:var(--ink)}
+.tocitem.core{border-left:4px solid var(--rust)}
+.tocwk{font-family:"JetBrains Mono",monospace;font-size:.68rem;color:var(--ink2)}
+.wk{margin:26px 0;background:#FBF6EA;border:1px solid var(--line);border-radius:13px;overflow:hidden}
+.wk.core{border-left:6px solid var(--rust)}
+.wkh{display:flex;justify-content:space-between;align-items:center;gap:14px;flex-wrap:wrap;
+ padding:15px 20px;background:var(--cream2);border-bottom:1px solid var(--line)}
+.wkh h3{font-family:"Cormorant Garamond",Georgia,serif;font-size:1.5rem;margin:0}
+.wkm{margin:2px 0 0;font-family:"JetBrains Mono",monospace;font-size:.64rem;letter-spacing:.1em;
+ text-transform:uppercase;color:var(--ink2)}
+.src{font-family:"JetBrains Mono",monospace;font-size:.66rem;letter-spacing:.08em;text-transform:uppercase;
+ color:var(--ink);text-decoration:none;border-bottom:1.5px solid var(--teal);padding-bottom:2px;white-space:nowrap}
+.src:hover{background:var(--teal);color:#fff}
+ol.trks{list-style:none;margin:0;padding:0}
+.trk{display:flex;align-items:center;gap:14px;padding:11px 20px;border-bottom:1px solid #EFE6D2}
+.trk:last-child{border-bottom:0}
+.trk:hover{background:var(--cream2)}
+.rk{flex:0 0 30px;height:30px;border-radius:50%;display:grid;place-items:center;color:#fff;
+ font-family:"JetBrains Mono",monospace;font-weight:600;font-size:.82rem}
+.r1{background:var(--rust)}.r2{background:var(--teal)}.r3{background:var(--olive)}
+.r4{background:var(--rose)}.r5{background:#9A8C98}
+.meta{flex:1 1 auto;min-width:0}
+.art{display:block;font-weight:700;font-size:.96rem}
+.ttl{display:block;color:var(--ink2);font-size:.9rem}
+.lnks{flex:0 0 auto;display:flex;gap:6px}
+.btn{font-family:"JetBrains Mono",monospace;font-size:.6rem;letter-spacing:.09em;text-transform:uppercase;
+ text-decoration:none;padding:5px 9px;border-radius:6px;border:1px solid var(--ink);color:var(--ink);
+ background:transparent;white-space:nowrap}
+.btn.sp:hover{background:var(--olive);color:#fff;border-color:var(--olive)}
+.btn.yt:hover{background:var(--rust);color:#fff;border-color:var(--rust)}
+textarea{width:100%;height:260px;font-family:"JetBrains Mono",monospace;font-size:.76rem;
+ background:#FBF6EA;color:var(--ink);border:1px solid var(--line);border-radius:10px;padding:14px;line-height:1.65}
+.dl{display:flex;gap:9px;flex-wrap:wrap;margin:14px 0}
+.dl a{font-family:"JetBrains Mono",monospace;font-size:.68rem;letter-spacing:.09em;text-transform:uppercase;
+ text-decoration:none;padding:9px 14px;border-radius:8px;background:var(--ink);color:var(--cream)}
+.dl a:hover{background:var(--rust)}
+ol.steps{max-width:70ch;padding-left:20px} ol.steps li{margin:7px 0}
+footer{margin-top:60px;padding-top:22px;border-top:3px double var(--ink);
+ font-family:"JetBrains Mono",monospace;font-size:.68rem;color:var(--ink2);line-height:1.8}
+@media(max-width:620px){.trk{flex-wrap:wrap}.lnks{width:100%;padding-left:44px}}
+</style></head><body><div class="wrap">
+
+<header class="top">
+<p class="sub">Reconstruction &middot; verified against stereogum.com</p>
+<h1>Stereogum&rsquo;s Best New Music,<br>2017 Edition</h1>
+<p class="lede">Stereogum ran no ranked &ldquo;best songs of 2017&rdquo; year-end list. Their new-music
+coverage that year lived in one weekly franchise, <em>The 5 Best Songs Of The Week</em>, and in the rolling
+Spotify playlist fed by it. This page rebuilds that feed from the original posts, one week at a time,
+with every track carrying a link back to the Stereogum article it came from.</p>
+<div class="stats">
+<div class="stat"><b>100</b><span>tracks in the June 16 hundred</span></div>
+<div class="stat"><b>105</b><span>tracks recovered total</span></div>
+<div class="stat"><b>21</b><span>weekly posts parsed</span></div>
+<div class="stat"><b>100%</b><span>sourced to a live URL</span></div>
+</div>
+</header>
+
+<h2>What this is</h2>
+<div class="note"><b>The target.</b> Stereogum&rsquo;s rolling &ldquo;Favorite New Music&rdquo; Spotify playlist
+held roughly one hundred tracks and was refreshed every Friday from that week&rsquo;s five picks. To recover how
+it stood on <b>June 16, 2017</b>, take the twenty weeks ending that day. That is weeks #177 through #196,
+February 3 through June 16, and it comes to exactly 100 tracks.</div>
+<div class="note teal"><b>How each track was verified.</b> Every week below was fetched from stereogum.com by
+its own post ID, the publish date was read from the page metadata, and the five ranked entries were parsed from
+the article body. The dates run in an unbroken Friday sequence with no gaps.</div>
+<div class="note rose"><b>The one open question.</b> The playlist track count for June 2017 is not documented
+anywhere I could reach. One hundred is the working assumption, drawn from the size the playlist carries now.
+If it held a different number then, the boundary week moves and the rest of the reconstruction still stands,
+since it is built week by week rather than as a single block.</div>
+
+<h2>Jump to a week</h2>
+<p class="sub" style="margin-bottom:12px">Rust bar marks the twenty weeks inside the June 16 hundred</p>
+<div class="toc"><a class="tocitem core" href="#wk196"><span class="tocdate">June 16, 2017</span><span class="tocwk">#196</span></a><a class="tocitem core" href="#wk195"><span class="tocdate">June 9, 2017</span><span class="tocwk">#195</span></a><a class="tocitem core" href="#wk194"><span class="tocdate">June 2, 2017</span><span class="tocwk">#194</span></a><a class="tocitem core" href="#wk193"><span class="tocdate">May 26, 2017</span><span class="tocwk">#193</span></a><a class="tocitem core" href="#wk192"><span class="tocdate">May 19, 2017</span><span class="tocwk">#192</span></a><a class="tocitem core" href="#wk191"><span class="tocdate">May 12, 2017</span><span class="tocwk">#191</span></a><a class="tocitem core" href="#wk190"><span class="tocdate">May 5, 2017</span><span class="tocwk">#190</span></a><a class="tocitem core" href="#wk189"><span class="tocdate">April 28, 2017</span><span class="tocwk">#189</span></a><a class="tocitem core" href="#wk188"><span class="tocdate">April 21, 2017</span><span class="tocwk">#188</span></a><a class="tocitem core" href="#wk187"><span class="tocdate">April 14, 2017</span><span class="tocwk">#187</span></a><a class="tocitem core" href="#wk186"><span class="tocdate">April 7, 2017</span><span class="tocwk">#186</span></a><a class="tocitem core" href="#wk185"><span class="tocdate">March 31, 2017</span><span class="tocwk">#185</span></a><a class="tocitem core" href="#wk184"><span class="tocdate">March 24, 2017</span><span class="tocwk">#184</span></a><a class="tocitem core" href="#wk183"><span class="tocdate">March 17, 2017</span><span class="tocwk">#183</span></a><a class="tocitem core" href="#wk182"><span class="tocdate">March 10, 2017</span><span class="tocwk">#182</span></a><a class="tocitem core" href="#wk181"><span class="tocdate">March 3, 2017</span><span class="tocwk">#181</span></a><a class="tocitem core" href="#wk180"><span class="tocdate">February 24, 2017</span><span class="tocwk">#180</span></a><a class="tocitem core" href="#wk179"><span class="tocdate">February 17, 2017</span><span class="tocwk">#179</span></a><a class="tocitem core" href="#wk178"><span class="tocdate">February 10, 2017</span><span class="tocwk">#178</span></a><a class="tocitem core" href="#wk177"><span class="tocdate">February 3, 2017</span><span class="tocwk">#177</span></a><a class="tocitem" href="#wk176"><span class="tocdate">January 27, 2017</span><span class="tocwk">#176</span></a></div>
+
+<h2>Get it into Spotify</h2>
+<div class="note"><b>Spotify has no public route to mint a playlist from a text list without account access,</b>
+so the import runs through a converter. Both of the ones below take a pasted &ldquo;Artist - Title&rdquo; list
+and build the playlist on your account.</div>
+<ol class="steps">
+<li>Copy the block below, or download the .txt file.</li>
+<li>Open <a href="https://soundiiz.com" target="_blank" rel="noopener">Soundiiz</a> or
+<a href="https://www.tunemymusic.com" target="_blank" rel="noopener">TuneMyMusic</a> and pick the text-import option.</li>
+<li>Paste, connect Spotify, name it, convert.</li>
+<li>Anything the converter misses has a per-track Spotify search button in the week listings below.</li>
+</ol>
+<div class="dl">
+<a href="stereogum-2017-06-16-100.txt" download>Download the 100-track list</a>
+<a href="stereogum-2017-all.txt" download>Download all 105 tracks</a>
+<a href="stereogum-2017.csv" download>Download CSV with sources</a>
+</div>
+<textarea readonly onclick="this.select()">Lorde - Sober
+SZA - Supermodel
+Chelsea Wolfe - 16 Psyche
+Emily Haines &amp; The Soft Skeleton - Fatal Gift
+Algiers - Cleveland
+Waxahatchee - Never Been Wrong
+Alvvays - In Undertow
+Todd Terje - Maskindans (Feat. Det Gylne Triangel)
+Julia Michaels - Uh Huh
+Guerilla Toss - Betty Dreams Of Green Men
+Carly Rae Jepsen - Cut To The Feeling
+Rainer Maria - Lower Worlds
+Lorde - Perfect Places
+The War On Drugs - Holding On
+Katie Dey - Battery (Demo)
+Downtown Boys - A Wall
+Katie Ellen - Lucy Stone
+Amy O - Lavender Night
+The Pollyseeds - Intention
+Crumb - Plants
+Broken Social Scene - Hug Of Thunder
+Soccer Mommy - Out Worn
+Selena Gomez - Bad Liar
+Guerilla Toss - The String Game
+Grizzly Bear - Mourning Sound
+The National - The System Only Dreams In Total Darkness
+Hundred Waters - Particle
+Elder - The Falling Veil
+Hundredth - Youth
+Now, Now - SGL
+(Sandy) Alex G - Sportstar
+LCD Soundsystem - Call The Police
+Paramore - Told You So
+Japanese Breakfast - Machinist
+Waxahatchee - No Curse
+Frank Ocean - Lens
+The War On Drugs - Thinking Of A Place
+Palm - Walkie Talkie
+Jeff Rosenstock - Dramamine
+SZA - Love Galore (Feat. Travis Scott)
+Kendrick Lamar - DNA
+Waxahatchee - Silver
+EMA - Aryan Nation
+Juana Molina - Lentísimo Halo
+Perfume Genius - Go Ahead
+Flasher - Burn Blue
+Kamasi Washington - Truth
+PWR BTTM - LOL
+Girlpool - It Gets More Blue
+Land Of Talk - Loving
+Charly Bliss - Black Hole
+(Sandy) Alex G - Proud
+Cashmere Cat - 9 (After Coachella) (Feat. MØ &amp; SOPHIE)
+Calvin Harris - Heatstroke (Feat. Young Thug, Pharrell, &amp; Ariana Grande)
+Amber Mark - Lose My Cool
+Kendrick Lamar - HUMBLE.
+Kendrick Lamar - The Heart Part 4
+Slowdive - Sugar For The Pill
+Broken Social Scene - Halfway Home
+Show Me The Body - In A Grave (Feat. Denzel Curry, Eartheater, &amp; Moor Mother)
+Perfume Genius - Slip Away
+Feist - Pleasure
+Soccer Mommy - Last Girl
+Gorillaz - Andromeda
+Drake - Passionfruit
+Frank Ocean - Chanel
+Downtown Boys - Somos Chulas (No Somos Pendejas)
+EMA - Stand With You (Song For Ghostship)
+Tinashe - Flame
+Tara Jane O&#x27;Neil - Blow
+PWR BTTM - Answer My Text
+Pallbearer - I Saw The End
+Girlpool - 123
+Flasher - Winnie
+Joan Shelley - Wild Indifference
+Lorde - Green Light
+Charly Bliss - Percolator
+Calvin Harris - Slide (Feat. Frank Ocean &amp; Migos)
+Alex G - Bobby
+Young Thug - Safe
+Arca - Piel
+Lana Del Rey - Love
+Mathew Lee Cothran - Farrah Abraham
+Future - Mask Off
+Slingshot Dakota - Grudge
+Mount Eerie - Ravens
+PWR BTTM - Big Beautiful Day
+Sorority Noise - A Better Sun
+The Jesus &amp; Mary Chain - Always Sad
+Half Waif - Night Heat
+Vince Staples - BagBak
+Charly Bliss - Glitter
+Danny Brown &amp; Paul White - Accelerator
+Jeremih - I Think Of You (Feat. Chris Brown &amp; Big Sean)
+Lydia Ainsworth - Afterglow
+Half Waif - Frost Burn
+The Magnetic Fields - &#x27;83 Foxx And I
+Tara Jane O&#x27;Neil - Sand
+Jay Som - 1 Billion Dogs
+Pallbearer - Thorns</textarea>
+
+<h2>Week by week</h2>
+<p class="sub" style="margin-bottom:10px">Newest first &middot; ranked 1 through 5 as Stereogum ranked them</p>
+<section class="wk core" id="wk196">
+<header class="wkh">
+<div class="wkl"><h3>June 16, 2017</h3>
+<p class="wkm">Week #196 &middot; in the June 16 hundred</p></div>
+<a class="src" href="https://stereogum.com/1947334/the-5-best-songs-of-the-week-196/" target="_blank" rel="noopener">Stereogum source &rarr;</a>
+</header>
+<ol class="trks"><li class="trk">
+<span class="rk r1">1</span>
+<span class="meta"><span class="art">Lorde</span><span class="ttl">Sober</span></span>
+<span class="lnks">
+<a class="btn sp" href="https://open.spotify.com/search/Lorde%20Sober" target="_blank" rel="noopener">Spotify</a>
+<a class="btn yt" href="https://www.youtube.com/results?search_query=Lorde%20Sober" target="_blank" rel="noopener">YouTube</a>
+</span></li><li class="trk">
+<span class="rk r2">2</span>
+<span class="meta"><span class="art">SZA</span><span class="ttl">Supermodel</span></span>
+<span class="lnks">
+<a class="btn sp" href="https://open.spotify.com/search/SZA%20Supermodel" target="_blank" rel="noopener">Spotify</a>
+<a class="btn yt" href="https://www.youtube.com/results?search_query=SZA%20Supermodel" target="_blank" rel="noopener">YouTube</a>
+</span></li><li class="trk">
+<span class="rk r3">3</span>
+<span class="meta"><span class="art">Chelsea Wolfe</span><span class="ttl">16 Psyche</span></span>
+<span class="lnks">
+<a class="btn sp" href="https://open.spotify.com/search/Chelsea%20Wolfe%2016%20Psyche" target="_blank" rel="noopener">Spotify</a>
+<a class="btn yt" href="https://www.youtube.com/results?search_query=Chelsea%20Wolfe%2016%20Psyche" target="_blank" rel="noopener">YouTube</a>
+</span></li><li class="trk">
+<span class="rk r4">4</span>
+<span class="meta"><span class="art">Emily Haines &amp; The Soft Skeleton</span><span class="ttl">Fatal Gift</span></span>
+<span class="lnks">
+<a class="btn sp" href="https://open.spotify.com/search/Emily%20Haines%20%26%20The%20Soft%20Skeleton%20Fatal%20Gift" target="_blank" rel="noopener">Spotify</a>
+<a class="btn yt" href="https://www.youtube.com/results?search_query=Emily%20Haines%20%26%20The%20Soft%20Skeleton%20Fatal%20Gift" target="_blank" rel="noopener">YouTube</a>
+</span></li><li class="trk">
+<span class="rk r5">5</span>
+<span class="meta"><span class="art">Algiers</span><span class="ttl">Cleveland</span></span>
+<span class="lnks">
+<a class="btn sp" href="https://open.spotify.com/search/Algiers%20Cleveland" target="_blank" rel="noopener">Spotify</a>
+<a class="btn yt" href="https://www.youtube.com/results?search_query=Algiers%20Cleveland" target="_blank" rel="noopener">YouTube</a>
+</span></li></ol></section><section class="wk core" id="wk195">
+<header class="wkh">
+<div class="wkl"><h3>June 9, 2017</h3>
+<p class="wkm">Week #195 &middot; in the June 16 hundred</p></div>
+<a class="src" href="https://stereogum.com/1945923/the-5-best-songs-of-the-week-195/" target="_blank" rel="noopener">Stereogum source &rarr;</a>
+</header>
+<ol class="trks"><li class="trk">
+<span class="rk r1">1</span>
+<span class="meta"><span class="art">Waxahatchee</span><span class="ttl">Never Been Wrong</span></span>
+<span class="lnks">
+<a class="btn sp" href="https://open.spotify.com/search/Waxahatchee%20Never%20Been%20Wrong" target="_blank" rel="noopener">Spotify</a>
+<a class="btn yt" href="https://www.youtube.com/results?search_query=Waxahatchee%20Never%20Been%20Wrong" target="_blank" rel="noopener">YouTube</a>
+</span></li><li class="trk">
+<span class="rk r2">2</span>
+<span class="meta"><span class="art">Alvvays</span><span class="ttl">In Undertow</span></span>
+<span class="lnks">
+<a class="btn sp" href="https://open.spotify.com/search/Alvvays%20In%20Undertow" target="_blank" rel="noopener">Spotify</a>
+<a class="btn yt" href="https://www.youtube.com/results?search_query=Alvvays%20In%20Undertow" target="_blank" rel="noopener">YouTube</a>
+</span></li><li class="trk">
+<span class="rk r3">3</span>
+<span class="meta"><span class="art">Todd Terje</span><span class="ttl">Maskindans (Feat. Det Gylne Triangel)</span></span>
+<span class="lnks">
+<a class="btn sp" href="https://open.spotify.com/search/Todd%20Terje%20Maskindans%20%28Feat.%20Det%20Gylne%20Triangel%29" target="_blank" rel="noopener">Spotify</a>
+<a class="btn yt" href="https://www.youtube.com/results?search_query=Todd%20Terje%20Maskindans%20%28Feat.%20Det%20Gylne%20Triangel%29" target="_blank" rel="noopener">YouTube</a>
+</span></li><li class="trk">
+<span class="rk r4">4</span>
+<span class="meta"><span class="art">Julia Michaels</span><span class="ttl">Uh Huh</span></span>
+<span class="lnks">
+<a class="btn sp" href="https://open.spotify.com/search/Julia%20Michaels%20Uh%20Huh" target="_blank" rel="noopener">Spotify</a>
+<a class="btn yt" href="https://www.youtube.com/results?search_query=Julia%20Michaels%20Uh%20Huh" target="_blank" rel="noopener">YouTube</a>
+</span></li><li class="trk">
+<span class="rk r5">5</span>
+<span class="meta"><span class="art">Guerilla Toss</span><span class="ttl">Betty Dreams Of Green Men</span></span>
+<span class="lnks">
+<a class="btn sp" href="https://open.spotify.com/search/Guerilla%20Toss%20Betty%20Dreams%20Of%20Green%20Men" target="_blank" rel="noopener">Spotify</a>
+<a class="btn yt" href="https://www.youtube.com/results?search_query=Guerilla%20Toss%20Betty%20Dreams%20Of%20Green%20Men" target="_blank" rel="noopener">YouTube</a>
+</span></li></ol></section><section class="wk core" id="wk194">
+<header class="wkh">
+<div class="wkl"><h3>June 2, 2017</h3>
+<p class="wkm">Week #194 &middot; in the June 16 hundred</p></div>
+<a class="src" href="https://stereogum.com/1944503/the-5-best-songs-of-the-week-194/" target="_blank" rel="noopener">Stereogum source &rarr;</a>
+</header>
+<ol class="trks"><li class="trk">
+<span class="rk r1">1</span>
+<span class="meta"><span class="art">Carly Rae Jepsen</span><span class="ttl">Cut To The Feeling</span></span>
+<span class="lnks">
+<a class="btn sp" href="https://open.spotify.com/search/Carly%20Rae%20Jepsen%20Cut%20To%20The%20Feeling" target="_blank" rel="noopener">Spotify</a>
+<a class="btn yt" href="https://www.youtube.com/results?search_query=Carly%20Rae%20Jepsen%20Cut%20To%20The%20Feeling" target="_blank" rel="noopener">YouTube</a>
+</span></li><li class="trk">
+<span class="rk r2">2</span>
+<span class="meta"><span class="art">Rainer Maria</span><span class="ttl">Lower Worlds</span></span>
+<span class="lnks">
+<a class="btn sp" href="https://open.spotify.com/search/Rainer%20Maria%20Lower%20Worlds" target="_blank" rel="noopener">Spotify</a>
+<a class="btn yt" href="https://www.youtube.com/results?search_query=Rainer%20Maria%20Lower%20Worlds" target="_blank" rel="noopener">YouTube</a>
+</span></li><li class="trk">
+<span class="rk r3">3</span>
+<span class="meta"><span class="art">Lorde</span><span class="ttl">Perfect Places</span></span>
+<span class="lnks">
+<a class="btn sp" href="https://open.spotify.com/search/Lorde%20Perfect%20Places" target="_blank" rel="noopener">Spotify</a>
+<a class="btn yt" href="https://www.youtube.com/results?search_query=Lorde%20Perfect%20Places" target="_blank" rel="noopener">YouTube</a>
+</span></li><li class="trk">
+<span class="rk r4">4</span>
+<span class="meta"><span class="art">The War On Drugs</span><span class="ttl">Holding On</span></span>
+<span class="lnks">
+<a class="btn sp" href="https://open.spotify.com/search/The%20War%20On%20Drugs%20Holding%20On" target="_blank" rel="noopener">Spotify</a>
+<a class="btn yt" href="https://www.youtube.com/results?search_query=The%20War%20On%20Drugs%20Holding%20On" target="_blank" rel="noopener">YouTube</a>
+</span></li><li class="trk">
+<span class="rk r5">5</span>
+<span class="meta"><span class="art">Katie Dey</span><span class="ttl">Battery (Demo)</span></span>
+<span class="lnks">
+<a class="btn sp" href="https://open.spotify.com/search/Katie%20Dey%20Battery%20%28Demo%29" target="_blank" rel="noopener">Spotify</a>
+<a class="btn yt" href="https://www.youtube.com/results?search_query=Katie%20Dey%20Battery%20%28Demo%29" target="_blank" rel="noopener">YouTube</a>
+</span></li></ol></section><section class="wk core" id="wk193">
+<header class="wkh">
+<div class="wkl"><h3>May 26, 2017</h3>
+<p class="wkm">Week #193 &middot; in the June 16 hundred</p></div>
+<a class="src" href="https://stereogum.com/1943297/the-5-best-songs-of-the-week-193/" target="_blank" rel="noopener">Stereogum source &rarr;</a>
+</header>
+<ol class="trks"><li class="trk">
+<span class="rk r1">1</span>
+<span class="meta"><span class="art">Downtown Boys</span><span class="ttl">A Wall</span></span>
+<span class="lnks">
+<a class="btn sp" href="https://open.spotify.com/search/Downtown%20Boys%20A%20Wall" target="_blank" rel="noopener">Spotify</a>
+<a class="btn yt" href="https://www.youtube.com/results?search_query=Downtown%20Boys%20A%20Wall" target="_blank" rel="noopener">YouTube</a>
+</span></li><li class="trk">
+<span class="rk r2">2</span>
+<span class="meta"><span class="art">Katie Ellen</span><span class="ttl">Lucy Stone</span></span>
+<span class="lnks">
+<a class="btn sp" href="https://open.spotify.com/search/Katie%20Ellen%20Lucy%20Stone" target="_blank" rel="noopener">Spotify</a>
+<a class="btn yt" href="https://www.youtube.com/results?search_query=Katie%20Ellen%20Lucy%20Stone" target="_blank" rel="noopener">YouTube</a>
+</span></li><li class="trk">
+<span class="rk r3">3</span>
+<span class="meta"><span class="art">Amy O</span><span class="ttl">Lavender Night</span></span>
+<span class="lnks">
+<a class="btn sp" href="https://open.spotify.com/search/Amy%20O%20Lavender%20Night" target="_blank" rel="noopener">Spotify</a>
+<a class="btn yt" href="https://www.youtube.com/results?search_query=Amy%20O%20Lavender%20Night" target="_blank" rel="noopener">YouTube</a>
+</span></li><li class="trk">
+<span class="rk r4">4</span>
+<span class="meta"><span class="art">The Pollyseeds</span><span class="ttl">Intention</span></span>
+<span class="lnks">
+<a class="btn sp" href="https://open.spotify.com/search/The%20Pollyseeds%20Intention" target="_blank" rel="noopener">Spotify</a>
+<a class="btn yt" href="https://www.youtube.com/results?search_query=The%20Pollyseeds%20Intention" target="_blank" rel="noopener">YouTube</a>
+</span></li><li class="trk">
+<span class="rk r5">5</span>
+<span class="meta"><span class="art">Crumb</span><span class="ttl">Plants</span></span>
+<span class="lnks">
+<a class="btn sp" href="https://open.spotify.com/search/Crumb%20Plants" target="_blank" rel="noopener">Spotify</a>
+<a class="btn yt" href="https://www.youtube.com/results?search_query=Crumb%20Plants" target="_blank" rel="noopener">YouTube</a>
+</span></li></ol></section><section class="wk core" id="wk192">
+<header class="wkh">
+<div class="wkl"><h3>May 19, 2017</h3>
+<p class="wkm">Week #192 &middot; in the June 16 hundred</p></div>
+<a class="src" href="https://stereogum.com/1942151/the-5-best-songs-of-the-week-192/" target="_blank" rel="noopener">Stereogum source &rarr;</a>
+</header>
+<ol class="trks"><li class="trk">
+<span class="rk r1">1</span>
+<span class="meta"><span class="art">Broken Social Scene</span><span class="ttl">Hug Of Thunder</span></span>
+<span class="lnks">
+<a class="btn sp" href="https://open.spotify.com/search/Broken%20Social%20Scene%20Hug%20Of%20Thunder" target="_blank" rel="noopener">Spotify</a>
+<a class="btn yt" href="https://www.youtube.com/results?search_query=Broken%20Social%20Scene%20Hug%20Of%20Thunder" target="_blank" rel="noopener">YouTube</a>
+</span></li><li class="trk">
+<span class="rk r2">2</span>
+<span class="meta"><span class="art">Soccer Mommy</span><span class="ttl">Out Worn</span></span>
+<span class="lnks">
+<a class="btn sp" href="https://open.spotify.com/search/Soccer%20Mommy%20Out%20Worn" target="_blank" rel="noopener">Spotify</a>
+<a class="btn yt" href="https://www.youtube.com/results?search_query=Soccer%20Mommy%20Out%20Worn" target="_blank" rel="noopener">YouTube</a>
+</span></li><li class="trk">
+<span class="rk r3">3</span>
+<span class="meta"><span class="art">Selena Gomez</span><span class="ttl">Bad Liar</span></span>
+<span class="lnks">
+<a class="btn sp" href="https://open.spotify.com/search/Selena%20Gomez%20Bad%20Liar" target="_blank" rel="noopener">Spotify</a>
+<a class="btn yt" href="https://www.youtube.com/results?search_query=Selena%20Gomez%20Bad%20Liar" target="_blank" rel="noopener">YouTube</a>
+</span></li><li class="trk">
+<span class="rk r4">4</span>
+<span class="meta"><span class="art">Guerilla Toss</span><span class="ttl">The String Game</span></span>
+<span class="lnks">
+<a class="btn sp" href="https://open.spotify.com/search/Guerilla%20Toss%20The%20String%20Game" target="_blank" rel="noopener">Spotify</a>
+<a class="btn yt" href="https://www.youtube.com/results?search_query=Guerilla%20Toss%20The%20String%20Game" target="_blank" rel="noopener">YouTube</a>
+</span></li><li class="trk">
+<span class="rk r5">5</span>
+<span class="meta"><span class="art">Grizzly Bear</span><span class="ttl">Mourning Sound</span></span>
+<span class="lnks">
+<a class="btn sp" href="https://open.spotify.com/search/Grizzly%20Bear%20Mourning%20Sound" target="_blank" rel="noopener">Spotify</a>
+<a class="btn yt" href="https://www.youtube.com/results?search_query=Grizzly%20Bear%20Mourning%20Sound" target="_blank" rel="noopener">YouTube</a>
+</span></li></ol></section><section class="wk core" id="wk191">
+<header class="wkh">
+<div class="wkl"><h3>May 12, 2017</h3>
+<p class="wkm">Week #191 &middot; in the June 16 hundred</p></div>
+<a class="src" href="https://stereogum.com/1940817/the-5-best-songs-of-the-week-191/" target="_blank" rel="noopener">Stereogum source &rarr;</a>
+</header>
+<ol class="trks"><li class="trk">
+<span class="rk r1">1</span>
+<span class="meta"><span class="art">The National</span><span class="ttl">The System Only Dreams In Total Darkness</span></span>
+<span class="lnks">
+<a class="btn sp" href="https://open.spotify.com/search/The%20National%20The%20System%20Only%20Dreams%20In%20Total%20Darkness" target="_blank" rel="noopener">Spotify</a>
+<a class="btn yt" href="https://www.youtube.com/results?search_query=The%20National%20The%20System%20Only%20Dreams%20In%20Total%20Darkness" target="_blank" rel="noopener">YouTube</a>
+</span></li><li class="trk">
+<span class="rk r2">2</span>
+<span class="meta"><span class="art">Hundred Waters</span><span class="ttl">Particle</span></span>
+<span class="lnks">
+<a class="btn sp" href="https://open.spotify.com/search/Hundred%20Waters%20Particle" target="_blank" rel="noopener">Spotify</a>
+<a class="btn yt" href="https://www.youtube.com/results?search_query=Hundred%20Waters%20Particle" target="_blank" rel="noopener">YouTube</a>
+</span></li><li class="trk">
+<span class="rk r3">3</span>
+<span class="meta"><span class="art">Elder</span><span class="ttl">The Falling Veil</span></span>
+<span class="lnks">
+<a class="btn sp" href="https://open.spotify.com/search/Elder%20The%20Falling%20Veil" target="_blank" rel="noopener">Spotify</a>
+<a class="btn yt" href="https://www.youtube.com/results?search_query=Elder%20The%20Falling%20Veil" target="_blank" rel="noopener">YouTube</a>
+</span></li><li class="trk">
+<span class="rk r4">4</span>
+<span class="meta"><span class="art">Hundredth</span><span class="ttl">Youth</span></span>
+<span class="lnks">
+<a class="btn sp" href="https://open.spotify.com/search/Hundredth%20Youth" target="_blank" rel="noopener">Spotify</a>
+<a class="btn yt" href="https://www.youtube.com/results?search_query=Hundredth%20Youth" target="_blank" rel="noopener">YouTube</a>
+</span></li><li class="trk">
+<span class="rk r5">5</span>
+<span class="meta"><span class="art">Now, Now</span><span class="ttl">SGL</span></span>
+<span class="lnks">
+<a class="btn sp" href="https://open.spotify.com/search/Now%2C%20Now%20SGL" target="_blank" rel="noopener">Spotify</a>
+<a class="btn yt" href="https://www.youtube.com/results?search_query=Now%2C%20Now%20SGL" target="_blank" rel="noopener">YouTube</a>
+</span></li></ol></section><section class="wk core" id="wk190">
+<header class="wkh">
+<div class="wkl"><h3>May 5, 2017</h3>
+<p class="wkm">Week #190 &middot; in the June 16 hundred</p></div>
+<a class="src" href="https://stereogum.com/1939548/the-5-best-songs-of-the-week-190/" target="_blank" rel="noopener">Stereogum source &rarr;</a>
+</header>
+<ol class="trks"><li class="trk">
+<span class="rk r1">1</span>
+<span class="meta"><span class="art">(Sandy) Alex G</span><span class="ttl">Sportstar</span></span>
+<span class="lnks">
+<a class="btn sp" href="https://open.spotify.com/search/%28Sandy%29%20Alex%20G%20Sportstar" target="_blank" rel="noopener">Spotify</a>
+<a class="btn yt" href="https://www.youtube.com/results?search_query=%28Sandy%29%20Alex%20G%20Sportstar" target="_blank" rel="noopener">YouTube</a>
+</span></li><li class="trk">
+<span class="rk r2">2</span>
+<span class="meta"><span class="art">LCD Soundsystem</span><span class="ttl">Call The Police</span></span>
+<span class="lnks">
+<a class="btn sp" href="https://open.spotify.com/search/LCD%20Soundsystem%20Call%20The%20Police" target="_blank" rel="noopener">Spotify</a>
+<a class="btn yt" href="https://www.youtube.com/results?search_query=LCD%20Soundsystem%20Call%20The%20Police" target="_blank" rel="noopener">YouTube</a>
+</span></li><li class="trk">
+<span class="rk r3">3</span>
+<span class="meta"><span class="art">Paramore</span><span class="ttl">Told You So</span></span>
+<span class="lnks">
+<a class="btn sp" href="https://open.spotify.com/search/Paramore%20Told%20You%20So" target="_blank" rel="noopener">Spotify</a>
+<a class="btn yt" href="https://www.youtube.com/results?search_query=Paramore%20Told%20You%20So" target="_blank" rel="noopener">YouTube</a>
+</span></li><li class="trk">
+<span class="rk r4">4</span>
+<span class="meta"><span class="art">Japanese Breakfast</span><span class="ttl">Machinist</span></span>
+<span class="lnks">
+<a class="btn sp" href="https://open.spotify.com/search/Japanese%20Breakfast%20Machinist" target="_blank" rel="noopener">Spotify</a>
+<a class="btn yt" href="https://www.youtube.com/results?search_query=Japanese%20Breakfast%20Machinist" target="_blank" rel="noopener">YouTube</a>
+</span></li><li class="trk">
+<span class="rk r5">5</span>
+<span class="meta"><span class="art">Waxahatchee</span><span class="ttl">No Curse</span></span>
+<span class="lnks">
+<a class="btn sp" href="https://open.spotify.com/search/Waxahatchee%20No%20Curse" target="_blank" rel="noopener">Spotify</a>
+<a class="btn yt" href="https://www.youtube.com/results?search_query=Waxahatchee%20No%20Curse" target="_blank" rel="noopener">YouTube</a>
+</span></li></ol></section><section class="wk core" id="wk189">
+<header class="wkh">
+<div class="wkl"><h3>April 28, 2017</h3>
+<p class="wkm">Week #189 &middot; in the June 16 hundred</p></div>
+<a class="src" href="https://stereogum.com/1938132/the-5-best-songs-of-the-week-189/" target="_blank" rel="noopener">Stereogum source &rarr;</a>
+</header>
+<ol class="trks"><li class="trk">
+<span class="rk r1">1</span>
+<span class="meta"><span class="art">Frank Ocean</span><span class="ttl">Lens</span></span>
+<span class="lnks">
+<a class="btn sp" href="https://open.spotify.com/search/Frank%20Ocean%20Lens" target="_blank" rel="noopener">Spotify</a>
+<a class="btn yt" href="https://www.youtube.com/results?search_query=Frank%20Ocean%20Lens" target="_blank" rel="noopener">YouTube</a>
+</span></li><li class="trk">
+<span class="rk r2">2</span>
+<span class="meta"><span class="art">The War On Drugs</span><span class="ttl">Thinking Of A Place</span></span>
+<span class="lnks">
+<a class="btn sp" href="https://open.spotify.com/search/The%20War%20On%20Drugs%20Thinking%20Of%20A%20Place" target="_blank" rel="noopener">Spotify</a>
+<a class="btn yt" href="https://www.youtube.com/results?search_query=The%20War%20On%20Drugs%20Thinking%20Of%20A%20Place" target="_blank" rel="noopener">YouTube</a>
+</span></li><li class="trk">
+<span class="rk r3">3</span>
+<span class="meta"><span class="art">Palm</span><span class="ttl">Walkie Talkie</span></span>
+<span class="lnks">
+<a class="btn sp" href="https://open.spotify.com/search/Palm%20Walkie%20Talkie" target="_blank" rel="noopener">Spotify</a>
+<a class="btn yt" href="https://www.youtube.com/results?search_query=Palm%20Walkie%20Talkie" target="_blank" rel="noopener">YouTube</a>
+</span></li><li class="trk">
+<span class="rk r4">4</span>
+<span class="meta"><span class="art">Jeff Rosenstock</span><span class="ttl">Dramamine</span></span>
+<span class="lnks">
+<a class="btn sp" href="https://open.spotify.com/search/Jeff%20Rosenstock%20Dramamine" target="_blank" rel="noopener">Spotify</a>
+<a class="btn yt" href="https://www.youtube.com/results?search_query=Jeff%20Rosenstock%20Dramamine" target="_blank" rel="noopener">YouTube</a>
+</span></li><li class="trk">
+<span class="rk r5">5</span>
+<span class="meta"><span class="art">SZA</span><span class="ttl">Love Galore (Feat. Travis Scott)</span></span>
+<span class="lnks">
+<a class="btn sp" href="https://open.spotify.com/search/SZA%20Love%20Galore%20%28Feat.%20Travis%20Scott%29" target="_blank" rel="noopener">Spotify</a>
+<a class="btn yt" href="https://www.youtube.com/results?search_query=SZA%20Love%20Galore%20%28Feat.%20Travis%20Scott%29" target="_blank" rel="noopener">YouTube</a>
+</span></li></ol></section><section class="wk core" id="wk188">
+<header class="wkh">
+<div class="wkl"><h3>April 21, 2017</h3>
+<p class="wkm">Week #188 &middot; in the June 16 hundred</p></div>
+<a class="src" href="https://stereogum.com/1936591/the-5-best-songs-of-the-week-188/" target="_blank" rel="noopener">Stereogum source &rarr;</a>
+</header>
+<ol class="trks"><li class="trk">
+<span class="rk r1">1</span>
+<span class="meta"><span class="art">Kendrick Lamar</span><span class="ttl">DNA</span></span>
+<span class="lnks">
+<a class="btn sp" href="https://open.spotify.com/search/Kendrick%20Lamar%20DNA" target="_blank" rel="noopener">Spotify</a>
+<a class="btn yt" href="https://www.youtube.com/results?search_query=Kendrick%20Lamar%20DNA" target="_blank" rel="noopener">YouTube</a>
+</span></li><li class="trk">
+<span class="rk r2">2</span>
+<span class="meta"><span class="art">Waxahatchee</span><span class="ttl">Silver</span></span>
+<span class="lnks">
+<a class="btn sp" href="https://open.spotify.com/search/Waxahatchee%20Silver" target="_blank" rel="noopener">Spotify</a>
+<a class="btn yt" href="https://www.youtube.com/results?search_query=Waxahatchee%20Silver" target="_blank" rel="noopener">YouTube</a>
+</span></li><li class="trk">
+<span class="rk r3">3</span>
+<span class="meta"><span class="art">EMA</span><span class="ttl">Aryan Nation</span></span>
+<span class="lnks">
+<a class="btn sp" href="https://open.spotify.com/search/EMA%20Aryan%20Nation" target="_blank" rel="noopener">Spotify</a>
+<a class="btn yt" href="https://www.youtube.com/results?search_query=EMA%20Aryan%20Nation" target="_blank" rel="noopener">YouTube</a>
+</span></li><li class="trk">
+<span class="rk r4">4</span>
+<span class="meta"><span class="art">Juana Molina</span><span class="ttl">Lentísimo Halo</span></span>
+<span class="lnks">
+<a class="btn sp" href="https://open.spotify.com/search/Juana%20Molina%20Lent%C3%ADsimo%20Halo" target="_blank" rel="noopener">Spotify</a>
+<a class="btn yt" href="https://www.youtube.com/results?search_query=Juana%20Molina%20Lent%C3%ADsimo%20Halo" target="_blank" rel="noopener">YouTube</a>
+</span></li><li class="trk">
+<span class="rk r5">5</span>
+<span class="meta"><span class="art">Perfume Genius</span><span class="ttl">Go Ahead</span></span>
+<span class="lnks">
+<a class="btn sp" href="https://open.spotify.com/search/Perfume%20Genius%20Go%20Ahead" target="_blank" rel="noopener">Spotify</a>
+<a class="btn yt" href="https://www.youtube.com/results?search_query=Perfume%20Genius%20Go%20Ahead" target="_blank" rel="noopener">YouTube</a>
+</span></li></ol></section><section class="wk core" id="wk187">
+<header class="wkh">
+<div class="wkl"><h3>April 14, 2017</h3>
+<p class="wkm">Week #187 &middot; in the June 16 hundred</p></div>
+<a class="src" href="https://stereogum.com/1935179/the-5-best-songs-of-the-week-187/" target="_blank" rel="noopener">Stereogum source &rarr;</a>
+</header>
+<ol class="trks"><li class="trk">
+<span class="rk r1">1</span>
+<span class="meta"><span class="art">Flasher</span><span class="ttl">Burn Blue</span></span>
+<span class="lnks">
+<a class="btn sp" href="https://open.spotify.com/search/Flasher%20Burn%20Blue" target="_blank" rel="noopener">Spotify</a>
+<a class="btn yt" href="https://www.youtube.com/results?search_query=Flasher%20Burn%20Blue" target="_blank" rel="noopener">YouTube</a>
+</span></li><li class="trk">
+<span class="rk r2">2</span>
+<span class="meta"><span class="art">Kamasi Washington</span><span class="ttl">Truth</span></span>
+<span class="lnks">
+<a class="btn sp" href="https://open.spotify.com/search/Kamasi%20Washington%20Truth" target="_blank" rel="noopener">Spotify</a>
+<a class="btn yt" href="https://www.youtube.com/results?search_query=Kamasi%20Washington%20Truth" target="_blank" rel="noopener">YouTube</a>
+</span></li><li class="trk">
+<span class="rk r3">3</span>
+<span class="meta"><span class="art">PWR BTTM</span><span class="ttl">LOL</span></span>
+<span class="lnks">
+<a class="btn sp" href="https://open.spotify.com/search/PWR%20BTTM%20LOL" target="_blank" rel="noopener">Spotify</a>
+<a class="btn yt" href="https://www.youtube.com/results?search_query=PWR%20BTTM%20LOL" target="_blank" rel="noopener">YouTube</a>
+</span></li><li class="trk">
+<span class="rk r4">4</span>
+<span class="meta"><span class="art">Girlpool</span><span class="ttl">It Gets More Blue</span></span>
+<span class="lnks">
+<a class="btn sp" href="https://open.spotify.com/search/Girlpool%20It%20Gets%20More%20Blue" target="_blank" rel="noopener">Spotify</a>
+<a class="btn yt" href="https://www.youtube.com/results?search_query=Girlpool%20It%20Gets%20More%20Blue" target="_blank" rel="noopener">YouTube</a>
+</span></li><li class="trk">
+<span class="rk r5">5</span>
+<span class="meta"><span class="art">Land Of Talk</span><span class="ttl">Loving</span></span>
+<span class="lnks">
+<a class="btn sp" href="https://open.spotify.com/search/Land%20Of%20Talk%20Loving" target="_blank" rel="noopener">Spotify</a>
+<a class="btn yt" href="https://www.youtube.com/results?search_query=Land%20Of%20Talk%20Loving" target="_blank" rel="noopener">YouTube</a>
+</span></li></ol></section><section class="wk core" id="wk186">
+<header class="wkh">
+<div class="wkl"><h3>April 7, 2017</h3>
+<p class="wkm">Week #186 &middot; in the June 16 hundred</p></div>
+<a class="src" href="https://stereogum.com/1933995/the-5-best-songs-of-the-week-186/" target="_blank" rel="noopener">Stereogum source &rarr;</a>
+</header>
+<ol class="trks"><li class="trk">
+<span class="rk r1">1</span>
+<span class="meta"><span class="art">Charly Bliss</span><span class="ttl">Black Hole</span></span>
+<span class="lnks">
+<a class="btn sp" href="https://open.spotify.com/search/Charly%20Bliss%20Black%20Hole" target="_blank" rel="noopener">Spotify</a>
+<a class="btn yt" href="https://www.youtube.com/results?search_query=Charly%20Bliss%20Black%20Hole" target="_blank" rel="noopener">YouTube</a>
+</span></li><li class="trk">
+<span class="rk r2">2</span>
+<span class="meta"><span class="art">(Sandy) Alex G</span><span class="ttl">Proud</span></span>
+<span class="lnks">
+<a class="btn sp" href="https://open.spotify.com/search/%28Sandy%29%20Alex%20G%20Proud" target="_blank" rel="noopener">Spotify</a>
+<a class="btn yt" href="https://www.youtube.com/results?search_query=%28Sandy%29%20Alex%20G%20Proud" target="_blank" rel="noopener">YouTube</a>
+</span></li><li class="trk">
+<span class="rk r3">3</span>
+<span class="meta"><span class="art">Cashmere Cat</span><span class="ttl">9 (After Coachella) (Feat. MØ &amp; SOPHIE)</span></span>
+<span class="lnks">
+<a class="btn sp" href="https://open.spotify.com/search/Cashmere%20Cat%209%20%28After%20Coachella%29%20%28Feat.%20M%C3%98%20%26%20SOPHIE%29" target="_blank" rel="noopener">Spotify</a>
+<a class="btn yt" href="https://www.youtube.com/results?search_query=Cashmere%20Cat%209%20%28After%20Coachella%29%20%28Feat.%20M%C3%98%20%26%20SOPHIE%29" target="_blank" rel="noopener">YouTube</a>
+</span></li><li class="trk">
+<span class="rk r4">4</span>
+<span class="meta"><span class="art">Calvin Harris</span><span class="ttl">Heatstroke (Feat. Young Thug, Pharrell, &amp; Ariana Grande)</span></span>
+<span class="lnks">
+<a class="btn sp" href="https://open.spotify.com/search/Calvin%20Harris%20Heatstroke%20%28Feat.%20Young%20Thug%2C%20Pharrell%2C%20%26%20Ariana%20Grande%29" target="_blank" rel="noopener">Spotify</a>
+<a class="btn yt" href="https://www.youtube.com/results?search_query=Calvin%20Harris%20Heatstroke%20%28Feat.%20Young%20Thug%2C%20Pharrell%2C%20%26%20Ariana%20Grande%29" target="_blank" rel="noopener">YouTube</a>
+</span></li><li class="trk">
+<span class="rk r5">5</span>
+<span class="meta"><span class="art">Amber Mark</span><span class="ttl">Lose My Cool</span></span>
+<span class="lnks">
+<a class="btn sp" href="https://open.spotify.com/search/Amber%20Mark%20Lose%20My%20Cool" target="_blank" rel="noopener">Spotify</a>
+<a class="btn yt" href="https://www.youtube.com/results?search_query=Amber%20Mark%20Lose%20My%20Cool" target="_blank" rel="noopener">YouTube</a>
+</span></li></ol></section><section class="wk core" id="wk185">
+<header class="wkh">
+<div class="wkl"><h3>March 31, 2017</h3>
+<p class="wkm">Week #185 &middot; in the June 16 hundred</p></div>
+<a class="src" href="https://stereogum.com/1932826/the-5-best-songs-of-the-week-185/" target="_blank" rel="noopener">Stereogum source &rarr;</a>
+</header>
+<ol class="trks"><li class="trk">
+<span class="rk r1">1</span>
+<span class="meta"><span class="art">Kendrick Lamar</span><span class="ttl">HUMBLE.</span></span>
+<span class="lnks">
+<a class="btn sp" href="https://open.spotify.com/search/Kendrick%20Lamar%20HUMBLE." target="_blank" rel="noopener">Spotify</a>
+<a class="btn yt" href="https://www.youtube.com/results?search_query=Kendrick%20Lamar%20HUMBLE." target="_blank" rel="noopener">YouTube</a>
+</span></li><li class="trk">
+<span class="rk r2">2</span>
+<span class="meta"><span class="art">Kendrick Lamar</span><span class="ttl">The Heart Part 4</span></span>
+<span class="lnks">
+<a class="btn sp" href="https://open.spotify.com/search/Kendrick%20Lamar%20The%20Heart%20Part%204" target="_blank" rel="noopener">Spotify</a>
+<a class="btn yt" href="https://www.youtube.com/results?search_query=Kendrick%20Lamar%20The%20Heart%20Part%204" target="_blank" rel="noopener">YouTube</a>
+</span></li><li class="trk">
+<span class="rk r3">3</span>
+<span class="meta"><span class="art">Slowdive</span><span class="ttl">Sugar For The Pill</span></span>
+<span class="lnks">
+<a class="btn sp" href="https://open.spotify.com/search/Slowdive%20Sugar%20For%20The%20Pill" target="_blank" rel="noopener">Spotify</a>
+<a class="btn yt" href="https://www.youtube.com/results?search_query=Slowdive%20Sugar%20For%20The%20Pill" target="_blank" rel="noopener">YouTube</a>
+</span></li><li class="trk">
+<span class="rk r4">4</span>
+<span class="meta"><span class="art">Broken Social Scene</span><span class="ttl">Halfway Home</span></span>
+<span class="lnks">
+<a class="btn sp" href="https://open.spotify.com/search/Broken%20Social%20Scene%20Halfway%20Home" target="_blank" rel="noopener">Spotify</a>
+<a class="btn yt" href="https://www.youtube.com/results?search_query=Broken%20Social%20Scene%20Halfway%20Home" target="_blank" rel="noopener">YouTube</a>
+</span></li><li class="trk">
+<span class="rk r5">5</span>
+<span class="meta"><span class="art">Show Me The Body</span><span class="ttl">In A Grave (Feat. Denzel Curry, Eartheater, &amp; Moor Mother)</span></span>
+<span class="lnks">
+<a class="btn sp" href="https://open.spotify.com/search/Show%20Me%20The%20Body%20In%20A%20Grave%20%28Feat.%20Denzel%20Curry%2C%20Eartheater%2C%20%26%20Moor%20Mother%29" target="_blank" rel="noopener">Spotify</a>
+<a class="btn yt" href="https://www.youtube.com/results?search_query=Show%20Me%20The%20Body%20In%20A%20Grave%20%28Feat.%20Denzel%20Curry%2C%20Eartheater%2C%20%26%20Moor%20Mother%29" target="_blank" rel="noopener">YouTube</a>
+</span></li></ol></section><section class="wk core" id="wk184">
+<header class="wkh">
+<div class="wkl"><h3>March 24, 2017</h3>
+<p class="wkm">Week #184 &middot; in the June 16 hundred</p></div>
+<a class="src" href="https://stereogum.com/1931673/the-5-best-songs-of-the-week-184/" target="_blank" rel="noopener">Stereogum source &rarr;</a>
+</header>
+<ol class="trks"><li class="trk">
+<span class="rk r1">1</span>
+<span class="meta"><span class="art">Perfume Genius</span><span class="ttl">Slip Away</span></span>
+<span class="lnks">
+<a class="btn sp" href="https://open.spotify.com/search/Perfume%20Genius%20Slip%20Away" target="_blank" rel="noopener">Spotify</a>
+<a class="btn yt" href="https://www.youtube.com/results?search_query=Perfume%20Genius%20Slip%20Away" target="_blank" rel="noopener">YouTube</a>
+</span></li><li class="trk">
+<span class="rk r2">2</span>
+<span class="meta"><span class="art">Feist</span><span class="ttl">Pleasure</span></span>
+<span class="lnks">
+<a class="btn sp" href="https://open.spotify.com/search/Feist%20Pleasure" target="_blank" rel="noopener">Spotify</a>
+<a class="btn yt" href="https://www.youtube.com/results?search_query=Feist%20Pleasure" target="_blank" rel="noopener">YouTube</a>
+</span></li><li class="trk">
+<span class="rk r3">3</span>
+<span class="meta"><span class="art">Soccer Mommy</span><span class="ttl">Last Girl</span></span>
+<span class="lnks">
+<a class="btn sp" href="https://open.spotify.com/search/Soccer%20Mommy%20Last%20Girl" target="_blank" rel="noopener">Spotify</a>
+<a class="btn yt" href="https://www.youtube.com/results?search_query=Soccer%20Mommy%20Last%20Girl" target="_blank" rel="noopener">YouTube</a>
+</span></li><li class="trk">
+<span class="rk r4">4</span>
+<span class="meta"><span class="art">Gorillaz</span><span class="ttl">Andromeda</span></span>
+<span class="lnks">
+<a class="btn sp" href="https://open.spotify.com/search/Gorillaz%20Andromeda" target="_blank" rel="noopener">Spotify</a>
+<a class="btn yt" href="https://www.youtube.com/results?search_query=Gorillaz%20Andromeda" target="_blank" rel="noopener">YouTube</a>
+</span></li><li class="trk">
+<span class="rk r5">5</span>
+<span class="meta"><span class="art">Drake</span><span class="ttl">Passionfruit</span></span>
+<span class="lnks">
+<a class="btn sp" href="https://open.spotify.com/search/Drake%20Passionfruit" target="_blank" rel="noopener">Spotify</a>
+<a class="btn yt" href="https://www.youtube.com/results?search_query=Drake%20Passionfruit" target="_blank" rel="noopener">YouTube</a>
+</span></li></ol></section><section class="wk core" id="wk183">
+<header class="wkh">
+<div class="wkl"><h3>March 17, 2017</h3>
+<p class="wkm">Week #183 &middot; in the June 16 hundred</p></div>
+<a class="src" href="https://stereogum.com/1930423/the-5-best-songs-of-the-week-183/" target="_blank" rel="noopener">Stereogum source &rarr;</a>
+</header>
+<ol class="trks"><li class="trk">
+<span class="rk r1">1</span>
+<span class="meta"><span class="art">Frank Ocean</span><span class="ttl">Chanel</span></span>
+<span class="lnks">
+<a class="btn sp" href="https://open.spotify.com/search/Frank%20Ocean%20Chanel" target="_blank" rel="noopener">Spotify</a>
+<a class="btn yt" href="https://www.youtube.com/results?search_query=Frank%20Ocean%20Chanel" target="_blank" rel="noopener">YouTube</a>
+</span></li><li class="trk">
+<span class="rk r2">2</span>
+<span class="meta"><span class="art">Downtown Boys</span><span class="ttl">Somos Chulas (No Somos Pendejas)</span></span>
+<span class="lnks">
+<a class="btn sp" href="https://open.spotify.com/search/Downtown%20Boys%20Somos%20Chulas%20%28No%20Somos%20Pendejas%29" target="_blank" rel="noopener">Spotify</a>
+<a class="btn yt" href="https://www.youtube.com/results?search_query=Downtown%20Boys%20Somos%20Chulas%20%28No%20Somos%20Pendejas%29" target="_blank" rel="noopener">YouTube</a>
+</span></li><li class="trk">
+<span class="rk r3">3</span>
+<span class="meta"><span class="art">EMA</span><span class="ttl">Stand With You (Song For Ghostship)</span></span>
+<span class="lnks">
+<a class="btn sp" href="https://open.spotify.com/search/EMA%20Stand%20With%20You%20%28Song%20For%20Ghostship%29" target="_blank" rel="noopener">Spotify</a>
+<a class="btn yt" href="https://www.youtube.com/results?search_query=EMA%20Stand%20With%20You%20%28Song%20For%20Ghostship%29" target="_blank" rel="noopener">YouTube</a>
+</span></li><li class="trk">
+<span class="rk r4">4</span>
+<span class="meta"><span class="art">Tinashe</span><span class="ttl">Flame</span></span>
+<span class="lnks">
+<a class="btn sp" href="https://open.spotify.com/search/Tinashe%20Flame" target="_blank" rel="noopener">Spotify</a>
+<a class="btn yt" href="https://www.youtube.com/results?search_query=Tinashe%20Flame" target="_blank" rel="noopener">YouTube</a>
+</span></li><li class="trk">
+<span class="rk r5">5</span>
+<span class="meta"><span class="art">Tara Jane O&#x27;Neil</span><span class="ttl">Blow</span></span>
+<span class="lnks">
+<a class="btn sp" href="https://open.spotify.com/search/Tara%20Jane%20O%27Neil%20Blow" target="_blank" rel="noopener">Spotify</a>
+<a class="btn yt" href="https://www.youtube.com/results?search_query=Tara%20Jane%20O%27Neil%20Blow" target="_blank" rel="noopener">YouTube</a>
+</span></li></ol></section><section class="wk core" id="wk182">
+<header class="wkh">
+<div class="wkl"><h3>March 10, 2017</h3>
+<p class="wkm">Week #182 &middot; in the June 16 hundred</p></div>
+<a class="src" href="https://stereogum.com/1929246/the-5-best-songs-of-the-week-182/" target="_blank" rel="noopener">Stereogum source &rarr;</a>
+</header>
+<ol class="trks"><li class="trk">
+<span class="rk r1">1</span>
+<span class="meta"><span class="art">PWR BTTM</span><span class="ttl">Answer My Text</span></span>
+<span class="lnks">
+<a class="btn sp" href="https://open.spotify.com/search/PWR%20BTTM%20Answer%20My%20Text" target="_blank" rel="noopener">Spotify</a>
+<a class="btn yt" href="https://www.youtube.com/results?search_query=PWR%20BTTM%20Answer%20My%20Text" target="_blank" rel="noopener">YouTube</a>
+</span></li><li class="trk">
+<span class="rk r2">2</span>
+<span class="meta"><span class="art">Pallbearer</span><span class="ttl">I Saw The End</span></span>
+<span class="lnks">
+<a class="btn sp" href="https://open.spotify.com/search/Pallbearer%20I%20Saw%20The%20End" target="_blank" rel="noopener">Spotify</a>
+<a class="btn yt" href="https://www.youtube.com/results?search_query=Pallbearer%20I%20Saw%20The%20End" target="_blank" rel="noopener">YouTube</a>
+</span></li><li class="trk">
+<span class="rk r3">3</span>
+<span class="meta"><span class="art">Girlpool</span><span class="ttl">123</span></span>
+<span class="lnks">
+<a class="btn sp" href="https://open.spotify.com/search/Girlpool%20123" target="_blank" rel="noopener">Spotify</a>
+<a class="btn yt" href="https://www.youtube.com/results?search_query=Girlpool%20123" target="_blank" rel="noopener">YouTube</a>
+</span></li><li class="trk">
+<span class="rk r4">4</span>
+<span class="meta"><span class="art">Flasher</span><span class="ttl">Winnie</span></span>
+<span class="lnks">
+<a class="btn sp" href="https://open.spotify.com/search/Flasher%20Winnie" target="_blank" rel="noopener">Spotify</a>
+<a class="btn yt" href="https://www.youtube.com/results?search_query=Flasher%20Winnie" target="_blank" rel="noopener">YouTube</a>
+</span></li><li class="trk">
+<span class="rk r5">5</span>
+<span class="meta"><span class="art">Joan Shelley</span><span class="ttl">Wild Indifference</span></span>
+<span class="lnks">
+<a class="btn sp" href="https://open.spotify.com/search/Joan%20Shelley%20Wild%20Indifference" target="_blank" rel="noopener">Spotify</a>
+<a class="btn yt" href="https://www.youtube.com/results?search_query=Joan%20Shelley%20Wild%20Indifference" target="_blank" rel="noopener">YouTube</a>
+</span></li></ol></section><section class="wk core" id="wk181">
+<header class="wkh">
+<div class="wkl"><h3>March 3, 2017</h3>
+<p class="wkm">Week #181 &middot; in the June 16 hundred</p></div>
+<a class="src" href="https://stereogum.com/1927999/the-5-best-songs-of-the-week-181/" target="_blank" rel="noopener">Stereogum source &rarr;</a>
+</header>
+<ol class="trks"><li class="trk">
+<span class="rk r1">1</span>
+<span class="meta"><span class="art">Lorde</span><span class="ttl">Green Light</span></span>
+<span class="lnks">
+<a class="btn sp" href="https://open.spotify.com/search/Lorde%20Green%20Light" target="_blank" rel="noopener">Spotify</a>
+<a class="btn yt" href="https://www.youtube.com/results?search_query=Lorde%20Green%20Light" target="_blank" rel="noopener">YouTube</a>
+</span></li><li class="trk">
+<span class="rk r2">2</span>
+<span class="meta"><span class="art">Charly Bliss</span><span class="ttl">Percolator</span></span>
+<span class="lnks">
+<a class="btn sp" href="https://open.spotify.com/search/Charly%20Bliss%20Percolator" target="_blank" rel="noopener">Spotify</a>
+<a class="btn yt" href="https://www.youtube.com/results?search_query=Charly%20Bliss%20Percolator" target="_blank" rel="noopener">YouTube</a>
+</span></li><li class="trk">
+<span class="rk r3">3</span>
+<span class="meta"><span class="art">Calvin Harris</span><span class="ttl">Slide (Feat. Frank Ocean &amp; Migos)</span></span>
+<span class="lnks">
+<a class="btn sp" href="https://open.spotify.com/search/Calvin%20Harris%20Slide%20%28Feat.%20Frank%20Ocean%20%26%20Migos%29" target="_blank" rel="noopener">Spotify</a>
+<a class="btn yt" href="https://www.youtube.com/results?search_query=Calvin%20Harris%20Slide%20%28Feat.%20Frank%20Ocean%20%26%20Migos%29" target="_blank" rel="noopener">YouTube</a>
+</span></li><li class="trk">
+<span class="rk r4">4</span>
+<span class="meta"><span class="art">Alex G</span><span class="ttl">Bobby</span></span>
+<span class="lnks">
+<a class="btn sp" href="https://open.spotify.com/search/Alex%20G%20Bobby" target="_blank" rel="noopener">Spotify</a>
+<a class="btn yt" href="https://www.youtube.com/results?search_query=Alex%20G%20Bobby" target="_blank" rel="noopener">YouTube</a>
+</span></li><li class="trk">
+<span class="rk r5">5</span>
+<span class="meta"><span class="art">Young Thug</span><span class="ttl">Safe</span></span>
+<span class="lnks">
+<a class="btn sp" href="https://open.spotify.com/search/Young%20Thug%20Safe" target="_blank" rel="noopener">Spotify</a>
+<a class="btn yt" href="https://www.youtube.com/results?search_query=Young%20Thug%20Safe" target="_blank" rel="noopener">YouTube</a>
+</span></li></ol></section><section class="wk core" id="wk180">
+<header class="wkh">
+<div class="wkl"><h3>February 24, 2017</h3>
+<p class="wkm">Week #180 &middot; in the June 16 hundred</p></div>
+<a class="src" href="https://stereogum.com/1926495/the-5-best-songs-of-the-week-180/" target="_blank" rel="noopener">Stereogum source &rarr;</a>
+</header>
+<ol class="trks"><li class="trk">
+<span class="rk r1">1</span>
+<span class="meta"><span class="art">Arca</span><span class="ttl">Piel</span></span>
+<span class="lnks">
+<a class="btn sp" href="https://open.spotify.com/search/Arca%20Piel" target="_blank" rel="noopener">Spotify</a>
+<a class="btn yt" href="https://www.youtube.com/results?search_query=Arca%20Piel" target="_blank" rel="noopener">YouTube</a>
+</span></li><li class="trk">
+<span class="rk r2">2</span>
+<span class="meta"><span class="art">Lana Del Rey</span><span class="ttl">Love</span></span>
+<span class="lnks">
+<a class="btn sp" href="https://open.spotify.com/search/Lana%20Del%20Rey%20Love" target="_blank" rel="noopener">Spotify</a>
+<a class="btn yt" href="https://www.youtube.com/results?search_query=Lana%20Del%20Rey%20Love" target="_blank" rel="noopener">YouTube</a>
+</span></li><li class="trk">
+<span class="rk r3">3</span>
+<span class="meta"><span class="art">Mathew Lee Cothran</span><span class="ttl">Farrah Abraham</span></span>
+<span class="lnks">
+<a class="btn sp" href="https://open.spotify.com/search/Mathew%20Lee%20Cothran%20Farrah%20Abraham" target="_blank" rel="noopener">Spotify</a>
+<a class="btn yt" href="https://www.youtube.com/results?search_query=Mathew%20Lee%20Cothran%20Farrah%20Abraham" target="_blank" rel="noopener">YouTube</a>
+</span></li><li class="trk">
+<span class="rk r4">4</span>
+<span class="meta"><span class="art">Future</span><span class="ttl">Mask Off</span></span>
+<span class="lnks">
+<a class="btn sp" href="https://open.spotify.com/search/Future%20Mask%20Off" target="_blank" rel="noopener">Spotify</a>
+<a class="btn yt" href="https://www.youtube.com/results?search_query=Future%20Mask%20Off" target="_blank" rel="noopener">YouTube</a>
+</span></li><li class="trk">
+<span class="rk r5">5</span>
+<span class="meta"><span class="art">Slingshot Dakota</span><span class="ttl">Grudge</span></span>
+<span class="lnks">
+<a class="btn sp" href="https://open.spotify.com/search/Slingshot%20Dakota%20Grudge" target="_blank" rel="noopener">Spotify</a>
+<a class="btn yt" href="https://www.youtube.com/results?search_query=Slingshot%20Dakota%20Grudge" target="_blank" rel="noopener">YouTube</a>
+</span></li></ol></section><section class="wk core" id="wk179">
+<header class="wkh">
+<div class="wkl"><h3>February 17, 2017</h3>
+<p class="wkm">Week #179 &middot; in the June 16 hundred</p></div>
+<a class="src" href="https://stereogum.com/1925482/the-5-best-songs-of-the-week-179/" target="_blank" rel="noopener">Stereogum source &rarr;</a>
+</header>
+<ol class="trks"><li class="trk">
+<span class="rk r1">1</span>
+<span class="meta"><span class="art">Mount Eerie</span><span class="ttl">Ravens</span></span>
+<span class="lnks">
+<a class="btn sp" href="https://open.spotify.com/search/Mount%20Eerie%20Ravens" target="_blank" rel="noopener">Spotify</a>
+<a class="btn yt" href="https://www.youtube.com/results?search_query=Mount%20Eerie%20Ravens" target="_blank" rel="noopener">YouTube</a>
+</span></li><li class="trk">
+<span class="rk r2">2</span>
+<span class="meta"><span class="art">PWR BTTM</span><span class="ttl">Big Beautiful Day</span></span>
+<span class="lnks">
+<a class="btn sp" href="https://open.spotify.com/search/PWR%20BTTM%20Big%20Beautiful%20Day" target="_blank" rel="noopener">Spotify</a>
+<a class="btn yt" href="https://www.youtube.com/results?search_query=PWR%20BTTM%20Big%20Beautiful%20Day" target="_blank" rel="noopener">YouTube</a>
+</span></li><li class="trk">
+<span class="rk r3">3</span>
+<span class="meta"><span class="art">Sorority Noise</span><span class="ttl">A Better Sun</span></span>
+<span class="lnks">
+<a class="btn sp" href="https://open.spotify.com/search/Sorority%20Noise%20A%20Better%20Sun" target="_blank" rel="noopener">Spotify</a>
+<a class="btn yt" href="https://www.youtube.com/results?search_query=Sorority%20Noise%20A%20Better%20Sun" target="_blank" rel="noopener">YouTube</a>
+</span></li><li class="trk">
+<span class="rk r4">4</span>
+<span class="meta"><span class="art">The Jesus &amp; Mary Chain</span><span class="ttl">Always Sad</span></span>
+<span class="lnks">
+<a class="btn sp" href="https://open.spotify.com/search/The%20Jesus%20%26%20Mary%20Chain%20Always%20Sad" target="_blank" rel="noopener">Spotify</a>
+<a class="btn yt" href="https://www.youtube.com/results?search_query=The%20Jesus%20%26%20Mary%20Chain%20Always%20Sad" target="_blank" rel="noopener">YouTube</a>
+</span></li><li class="trk">
+<span class="rk r5">5</span>
+<span class="meta"><span class="art">Half Waif</span><span class="ttl">Night Heat</span></span>
+<span class="lnks">
+<a class="btn sp" href="https://open.spotify.com/search/Half%20Waif%20Night%20Heat" target="_blank" rel="noopener">Spotify</a>
+<a class="btn yt" href="https://www.youtube.com/results?search_query=Half%20Waif%20Night%20Heat" target="_blank" rel="noopener">YouTube</a>
+</span></li></ol></section><section class="wk core" id="wk178">
+<header class="wkh">
+<div class="wkl"><h3>February 10, 2017</h3>
+<p class="wkm">Week #178 &middot; in the June 16 hundred</p></div>
+<a class="src" href="https://stereogum.com/1924071/the-5-best-songs-of-the-week-178/" target="_blank" rel="noopener">Stereogum source &rarr;</a>
+</header>
+<ol class="trks"><li class="trk">
+<span class="rk r1">1</span>
+<span class="meta"><span class="art">Vince Staples</span><span class="ttl">BagBak</span></span>
+<span class="lnks">
+<a class="btn sp" href="https://open.spotify.com/search/Vince%20Staples%20BagBak" target="_blank" rel="noopener">Spotify</a>
+<a class="btn yt" href="https://www.youtube.com/results?search_query=Vince%20Staples%20BagBak" target="_blank" rel="noopener">YouTube</a>
+</span></li><li class="trk">
+<span class="rk r2">2</span>
+<span class="meta"><span class="art">Charly Bliss</span><span class="ttl">Glitter</span></span>
+<span class="lnks">
+<a class="btn sp" href="https://open.spotify.com/search/Charly%20Bliss%20Glitter" target="_blank" rel="noopener">Spotify</a>
+<a class="btn yt" href="https://www.youtube.com/results?search_query=Charly%20Bliss%20Glitter" target="_blank" rel="noopener">YouTube</a>
+</span></li><li class="trk">
+<span class="rk r3">3</span>
+<span class="meta"><span class="art">Danny Brown &amp; Paul White</span><span class="ttl">Accelerator</span></span>
+<span class="lnks">
+<a class="btn sp" href="https://open.spotify.com/search/Danny%20Brown%20%26%20Paul%20White%20Accelerator" target="_blank" rel="noopener">Spotify</a>
+<a class="btn yt" href="https://www.youtube.com/results?search_query=Danny%20Brown%20%26%20Paul%20White%20Accelerator" target="_blank" rel="noopener">YouTube</a>
+</span></li><li class="trk">
+<span class="rk r4">4</span>
+<span class="meta"><span class="art">Jeremih</span><span class="ttl">I Think Of You (Feat. Chris Brown &amp; Big Sean)</span></span>
+<span class="lnks">
+<a class="btn sp" href="https://open.spotify.com/search/Jeremih%20I%20Think%20Of%20You%20%28Feat.%20Chris%20Brown%20%26%20Big%20Sean%29" target="_blank" rel="noopener">Spotify</a>
+<a class="btn yt" href="https://www.youtube.com/results?search_query=Jeremih%20I%20Think%20Of%20You%20%28Feat.%20Chris%20Brown%20%26%20Big%20Sean%29" target="_blank" rel="noopener">YouTube</a>
+</span></li><li class="trk">
+<span class="rk r5">5</span>
+<span class="meta"><span class="art">Lydia Ainsworth</span><span class="ttl">Afterglow</span></span>
+<span class="lnks">
+<a class="btn sp" href="https://open.spotify.com/search/Lydia%20Ainsworth%20Afterglow" target="_blank" rel="noopener">Spotify</a>
+<a class="btn yt" href="https://www.youtube.com/results?search_query=Lydia%20Ainsworth%20Afterglow" target="_blank" rel="noopener">YouTube</a>
+</span></li></ol></section><section class="wk core" id="wk177">
+<header class="wkh">
+<div class="wkl"><h3>February 3, 2017</h3>
+<p class="wkm">Week #177 &middot; in the June 16 hundred</p></div>
+<a class="src" href="https://stereogum.com/1922914/the-5-best-songs-of-the-week-177/" target="_blank" rel="noopener">Stereogum source &rarr;</a>
+</header>
+<ol class="trks"><li class="trk">
+<span class="rk r1">1</span>
+<span class="meta"><span class="art">Half Waif</span><span class="ttl">Frost Burn</span></span>
+<span class="lnks">
+<a class="btn sp" href="https://open.spotify.com/search/Half%20Waif%20Frost%20Burn" target="_blank" rel="noopener">Spotify</a>
+<a class="btn yt" href="https://www.youtube.com/results?search_query=Half%20Waif%20Frost%20Burn" target="_blank" rel="noopener">YouTube</a>
+</span></li><li class="trk">
+<span class="rk r2">2</span>
+<span class="meta"><span class="art">The Magnetic Fields</span><span class="ttl">&#x27;83 Foxx And I</span></span>
+<span class="lnks">
+<a class="btn sp" href="https://open.spotify.com/search/The%20Magnetic%20Fields%20%2783%20Foxx%20And%20I" target="_blank" rel="noopener">Spotify</a>
+<a class="btn yt" href="https://www.youtube.com/results?search_query=The%20Magnetic%20Fields%20%2783%20Foxx%20And%20I" target="_blank" rel="noopener">YouTube</a>
+</span></li><li class="trk">
+<span class="rk r3">3</span>
+<span class="meta"><span class="art">Tara Jane O&#x27;Neil</span><span class="ttl">Sand</span></span>
+<span class="lnks">
+<a class="btn sp" href="https://open.spotify.com/search/Tara%20Jane%20O%27Neil%20Sand" target="_blank" rel="noopener">Spotify</a>
+<a class="btn yt" href="https://www.youtube.com/results?search_query=Tara%20Jane%20O%27Neil%20Sand" target="_blank" rel="noopener">YouTube</a>
+</span></li><li class="trk">
+<span class="rk r4">4</span>
+<span class="meta"><span class="art">Jay Som</span><span class="ttl">1 Billion Dogs</span></span>
+<span class="lnks">
+<a class="btn sp" href="https://open.spotify.com/search/Jay%20Som%201%20Billion%20Dogs" target="_blank" rel="noopener">Spotify</a>
+<a class="btn yt" href="https://www.youtube.com/results?search_query=Jay%20Som%201%20Billion%20Dogs" target="_blank" rel="noopener">YouTube</a>
+</span></li><li class="trk">
+<span class="rk r5">5</span>
+<span class="meta"><span class="art">Pallbearer</span><span class="ttl">Thorns</span></span>
+<span class="lnks">
+<a class="btn sp" href="https://open.spotify.com/search/Pallbearer%20Thorns" target="_blank" rel="noopener">Spotify</a>
+<a class="btn yt" href="https://www.youtube.com/results?search_query=Pallbearer%20Thorns" target="_blank" rel="noopener">YouTube</a>
+</span></li></ol></section><section class="wk" id="wk176">
+<header class="wkh">
+<div class="wkl"><h3>January 27, 2017</h3>
+<p class="wkm">Week #176 &middot; outside the hundred</p></div>
+<a class="src" href="https://stereogum.com/1921875/the-5-best-songs-of-the-week-176/" target="_blank" rel="noopener">Stereogum source &rarr;</a>
+</header>
+<ol class="trks"><li class="trk">
+<span class="rk r1">1</span>
+<span class="meta"><span class="art">Mount Eerie</span><span class="ttl">Real Death</span></span>
+<span class="lnks">
+<a class="btn sp" href="https://open.spotify.com/search/Mount%20Eerie%20Real%20Death" target="_blank" rel="noopener">Spotify</a>
+<a class="btn yt" href="https://www.youtube.com/results?search_query=Mount%20Eerie%20Real%20Death" target="_blank" rel="noopener">YouTube</a>
+</span></li><li class="trk">
+<span class="rk r2">2</span>
+<span class="meta"><span class="art">Father John Misty</span><span class="ttl">Pure Comedy</span></span>
+<span class="lnks">
+<a class="btn sp" href="https://open.spotify.com/search/Father%20John%20Misty%20Pure%20Comedy" target="_blank" rel="noopener">Spotify</a>
+<a class="btn yt" href="https://www.youtube.com/results?search_query=Father%20John%20Misty%20Pure%20Comedy" target="_blank" rel="noopener">YouTube</a>
+</span></li><li class="trk">
+<span class="rk r3">3</span>
+<span class="meta"><span class="art">La Neve</span><span class="ttl">American Sounds</span></span>
+<span class="lnks">
+<a class="btn sp" href="https://open.spotify.com/search/La%20Neve%20American%20Sounds" target="_blank" rel="noopener">Spotify</a>
+<a class="btn yt" href="https://www.youtube.com/results?search_query=La%20Neve%20American%20Sounds" target="_blank" rel="noopener">YouTube</a>
+</span></li><li class="trk">
+<span class="rk r4">4</span>
+<span class="meta"><span class="art">PWR BTTM</span><span class="ttl">Vacation</span></span>
+<span class="lnks">
+<a class="btn sp" href="https://open.spotify.com/search/PWR%20BTTM%20Vacation" target="_blank" rel="noopener">Spotify</a>
+<a class="btn yt" href="https://www.youtube.com/results?search_query=PWR%20BTTM%20Vacation" target="_blank" rel="noopener">YouTube</a>
+</span></li><li class="trk">
+<span class="rk r5">5</span>
+<span class="meta"><span class="art">Angel Olsen</span><span class="ttl">Fly On Your Wall</span></span>
+<span class="lnks">
+<a class="btn sp" href="https://open.spotify.com/search/Angel%20Olsen%20Fly%20On%20Your%20Wall" target="_blank" rel="noopener">Spotify</a>
+<a class="btn yt" href="https://www.youtube.com/results?search_query=Angel%20Olsen%20Fly%20On%20Your%20Wall" target="_blank" rel="noopener">YouTube</a>
+</span></li></ol></section>
+
+<footer>
+Source: stereogum.com, <em>The 5 Best Songs Of The Week</em>, weeks #176 through #196.<br>
+Every artist, title and rank was parsed from the live article at the linked URL. Nothing here was supplied from memory.<br>
+Built 2026-08-30. Track counts: 100 in the June 16 hundred, 105 recovered across 21 weeks.
+</footer>
+</div></body></html>
