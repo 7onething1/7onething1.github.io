@@ -1,0 +1,173 @@
+<!doctype html><html lang="en"><head><meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Zomby Woof: The Baseline Was Here</title>
+<style>
+:root{--cream:#F4EBD9;--ink:#1B1B1B;--rust:#B5533C;--mustard:#D8A24A;--teal:#3E7C7B;--dusty:#9C7C9C;--line:#DBCDB4;--paper:#FBF6EC;}
+*{box-sizing:border-box}
+body{margin:0;background:var(--cream);color:var(--ink);font:16px/1.6 "Iowan Old Style",Palatino,Georgia,serif;}
+.wrap{max-width:1080px;margin:0 auto;padding:38px 22px 90px}
+h1{font-size:2.05rem;margin:0 0 6px;letter-spacing:-.4px}
+.dek{color:#5c5347;margin:0 0 26px;font-size:1.02rem}
+h2{font-size:1.32rem;margin:44px 0 4px;padding-bottom:7px;border-bottom:2px solid var(--line)}
+.sub{margin:0 0 14px;color:#5c5347;font-size:.93rem}
+.verdict{background:var(--paper);border:1px solid var(--line);border-left:6px solid var(--teal);padding:18px 20px;margin:0 0 26px;border-radius:3px}
+.verdict h3{margin:0 0 10px;font-size:1.05rem;color:var(--teal)}
+.verdict p{margin:0 0 9px} .verdict p:last-child{margin:0}
+.toc{background:var(--paper);border:1px solid var(--line);padding:14px 18px;border-radius:3px;margin:0 0 26px}
+.toc a{color:var(--teal);text-decoration:none;margin-right:16px;font-size:.93rem;white-space:nowrap;display:inline-block}
+.toc a:hover{text-decoration:underline}
+.scroll{overflow-x:auto;border:1px solid var(--line);border-radius:3px;background:var(--paper);margin:0 0 18px}
+table{border-collapse:collapse;width:100%;font-size:.88rem;min-width:640px}
+th{background:#EDE0C8;text-align:left;padding:9px 11px;font-weight:600;font-size:.79rem;text-transform:uppercase;letter-spacing:.5px;border-bottom:2px solid var(--line)}
+td{padding:9px 11px;border-bottom:1px solid #EAE0CD;vertical-align:top}
+tr.bad{background:#FBEDE8} tr.good{background:#EEF4F3}
+td.t{font-weight:600}
+.n{text-align:right;font-variant-numeric:tabular-nums;white-space:nowrap}
+.grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(158px,1fr));gap:12px;margin:0 0 26px}
+.card{background:var(--paper);border:1px solid var(--line);border-radius:3px;padding:14px}
+.card .big{font-size:1.85rem;font-weight:700;line-height:1.1;font-variant-numeric:tabular-nums}
+.card .lab{font-size:.78rem;color:#5c5347;margin-top:3px}
+.r{color:var(--rust)} .t2{color:var(--teal)} .m{color:#a8802f}
+code{background:#EDE0C8;padding:1px 5px;border-radius:3px;font-family:ui-monospace,Menlo,monospace;font-size:.85em}
+pre{background:var(--paper);border:1px solid var(--line);border-left:5px solid #b3aa98;border-radius:3px;padding:13px 15px;overflow-x:auto;font-family:ui-monospace,Menlo,monospace;font-size:.79rem;line-height:1.55;margin:0 0 16px}
+.fix{background:var(--paper);border:1px solid var(--line);border-left:6px solid var(--teal);padding:18px 20px;border-radius:3px;margin:26px 0}
+.fix h3{margin:0 0 10px;font-size:1.05rem;color:var(--teal)}
+.corr{background:#FDF6E3;border:1px solid var(--line);border-left:6px solid var(--mustard);padding:16px 20px;border-radius:3px;margin:26px 0;font-size:.94rem}
+.corr h3{margin:0 0 8px;font-size:1rem;color:#a8802f}
+.blk{background:var(--paper);border:1px solid var(--line);border-left:6px solid var(--rust);padding:16px 20px;border-radius:3px;margin:26px 0;font-size:.94rem}
+.blk h3{margin:0 0 8px;font-size:1rem;color:var(--rust)}
+.blk ol,.corr ol{margin:8px 0 0;padding-left:20px} .blk li,.corr li{margin-bottom:9px}
+.note{font-size:.86rem;color:#5c5347;border-top:1px solid var(--line);margin-top:40px;padding-top:16px}
+.note a{color:var(--teal)}
+ul.tight{margin:6px 0 14px;padding-left:20px} ul.tight li{margin-bottom:5px}
+.b{display:inline-block;padding:2px 8px;border-radius:11px;font-size:.71rem;font-weight:700;letter-spacing:.4px;color:#fff;white-space:nowrap}
+.b.ver{background:var(--teal)} .b.open{background:var(--mustard);color:#3a2f14} .b.no{background:var(--rust)}
+</style></head><body><div class="wrap">
+
+<h1>Zomby Woof: the baseline was here</h1>
+<p class="dek">The <strong>2026-08-31</strong> drum-repair handoff pointed at a working tree that lives on the other Mac. A usable baseline was sitting in <code>~/Downloads</code> the whole time. Rebuilt the auditor, reproduced two published figures from the file, confirmed the tie edit bar for bar, and found one revision description that does not match its revision. Verified 2026-08-31 on MacBookPro.</p>
+
+<div class="verdict">
+<h3>Verdict: the repair is unblocked for Zomby Woof, and two claims now split</h3>
+<p>The handoff's <code>s*/</code> tree, its six tools and its 139.6 MB source archive are not on this machine. A Songsterr export of <strong>r8766102</strong> was, and it is the exact file the published fix was built from.</p>
+<p>Against it, the <strong>18-tie</strong> claim reproduces perfectly, twelve bars named and twelve found. The <strong>paren-to-staccato</strong> claim does not reproduce from the score file at all, and the two revision descriptions contradict each other on the same 32 noteheads.</p>
+</div>
+
+<div class="toc">
+<a href="#missing">What is missing</a><a href="#found">What was found</a><a href="#timeline">Revision timeline</a><a href="#control">Known-answer control</a><a href="#ties">The 18 ties</a><a href="#paren">The paren claim</a><a href="#blocked">Still blocked</a><a href="#repro">Reproduce it</a>
+</div>
+
+<div class="grid">
+<div class="card"><div class="big t2">7,479</div><div class="lab">rendered events, reproduced</div></div>
+<div class="card"><div class="big t2">1,574</div><div class="lab">drum staff events, reproduced</div></div>
+<div class="card"><div class="big t2">18</div><div class="lab">tie connections, confirmed</div></div>
+<div class="card"><div class="big r">0</div><div class="lab">paren noteheads in the file</div></div>
+<div class="card"><div class="big m">6</div><div class="lab">Notes carrying all 36 tied events</div></div>
+<div class="card"><div class="big r">2</div><div class="lab">revisions still on moderation</div></div>
+</div>
+
+<h2 id="missing">What the handoff named, and what is here</h2>
+<p class="sub"><code>hostname -s</code> returns <code>MacBookPro</code>. The handoff was authored on the other machine.</p>
+<div class="scroll"><table>
+<tr><th>Handoff item</th><th>State on this Mac</th></tr>
+<tr class="bad"><td class="t"><code>songsterr-zappa-paren-fix/s*/</code> baselines</td><td>folder held one file, <code>AUDIT-RECORD-2026-08-30.md</code></td></tr>
+<tr class="bad"><td class="t"><code>ORIGINAL-*.gp</code> immutable baselines</td><td>0 found, by <code>find</code> and by Spotlight</td></tr>
+<tr class="bad"><td class="t"><code>zappa-drum-sources/</code>, 1,116 files, 139.6 MB</td><td>absent</td></tr>
+<tr class="bad"><td class="t">the six analysis tools</td><td>0 of 6</td></tr>
+<tr class="bad"><td class="t">queue items <code>q-2026-08-31-*</code></td><td>0 of 6 in the local queue, newest local item is 08-30</td></tr>
+<tr class="bad"><td class="t">a 2026-08-31 Zappa transcript</td><td>absent; only local match for <code>noteloss_audit</code> is this session</td></tr>
+</table></div>
+<p class="sub">Every other route came back empty too. iCloud <code>sfg/</code> carries no Zappa bundle, <code>/Volumes</code> shows only <code>Macintosh HD</code> so the T7 Shield is unmounted, <code>~/.Trash</code> is empty, no Time Machine destination is configured, <code>/Users/7onething1</code> is a root-owned stub holding only <code>Library</code>, and <code>drwu-overflow</code> carries the six published Zappa pages with no score data.</p>
+
+<h2 id="found">A real baseline was sitting in Downloads</h2>
+<pre>~/Downloads/Frank Zappa-Zomby Woof-08-29-2026.gp
+76,963 bytes   md5 4343175d94bff82235497f5bb5360bab
+internal Content/score.gpif stamped 2026-08-30 00:25 CDT</pre>
+<p>A Songsterr export, newest file in the folder. Ten tracks, 114 bars, named for the players: Frank Zappa 1 and 2, Tom Fowler, Voice Oohs, Bruce Fowler, George Duke twice, Ruth Underwood, Sal Marquez, Ralph Humphrey. Preserved to <code>~/Projects/_outputs/songsterr-zappa-paren-fix/s412162/r8766102-Zomby-Woof.gp</code>.</p>
+
+<h2 id="timeline">The revision timeline places it exactly</h2>
+<div class="scroll"><table>
+<tr><th>Revision</th><th>Created</th><th>Author</th><th>What the description says</th></tr>
+<tr><td class="t">r7115188</td><td>2026-05-31 14:39Z</td><td>meh</td><td>last community revision, and the one Songsterr still serves to the public</td></tr>
+<tr class="good"><td class="t">r8766102</td><td>2026-08-29 21:03Z</td><td>Brandon chavez</td><td>removed the 32 parenthesised ghost noteheads, marked 8 all-ghost beats pp</td></tr>
+<tr><td class="t">r8787022</td><td>2026-08-30 21:45Z</td><td>Brandon chavez</td><td>converted the 32 parenthesised ghost noteheads to staccato dots, removed 18 ties</td></tr>
+</table></div>
+<p>The file's internal stamp sits between the two Brandon revisions, so it holds the <strong>r8766102 state</strong>, which is the file r8787022 was built from.</p>
+<p><span class="b ver">VERIFIED LIVE 2026-08-31</span> &nbsp; <code>api/meta/412162</code> returns <code>revisionId 7115188</code> and <code>api/meta/35870</code> returns <code>7294223</code>. Both Brandon revisions read <code>isOnModeration: true</code>, <code>isBlocked: false</code>. One day past the earlier audit, nothing has been promoted.</p>
+
+<h2 id="control">The rebuilt auditor passes its known-answer control</h2>
+<p class="sub"><code>noteloss_audit.py</code> was rewritten from the handoff's specification. It expands the GPIF reference graph, MasterBars to Bars to Voices to Beats to Notes, into a flat event list.</p>
+<div class="scroll"><table>
+<tr><th>Measure</th><th class="n">This file</th><th class="n">Published figure</th><th>Where the published figure came from</th></tr>
+<tr class="good"><td class="t">rendered events, all tracks</td><td class="n"><strong>7,479</strong></td><td class="n">7,479</td><td>r8787022 description</td></tr>
+<tr class="good"><td class="t">drum staff events</td><td class="n"><strong>1,574</strong></td><td class="n">1,574</td><td><code>zappa-onsroxy-vs-songsterr</code>, built 08-29</td></tr>
+<tr class="good"><td class="t">masterbars</td><td class="n">114</td><td class="n">114</td><td>same page</td></tr>
+<tr class="good"><td class="t">distinct meters written</td><td class="n">8</td><td class="n">8</td><td>4/4, 10/16, 5/4, 15/16, 7/8, 3/4, 2/4, 6/4</td></tr>
+</table></div>
+<p>Two figures that previously rested only on revision descriptions Brandon wrote himself now reproduce from a file. That is the control the handoff demanded, and it passes.</p>
+
+<div class="fix">
+<h3>Underneath: why one edit moved 63 events</h3>
+<p>802 unique Note elements and 2,278 unique Beat elements carry all 7,479 rendered events. <strong>576 Notes are shared</strong>, one of them across 312 positions. <strong>1,136 Beats are shared</strong>, one across 238. The very first voice in bar 1 reads <code>Beats = 0 1 1 2 3 1 4 5 6 7</code>, with beat 1 referenced three times.</p>
+</div>
+
+<h2 id="ties">VERIFIED: the 18 ties, bar for bar</h2>
+<p class="sub">r8787022 names its edit precisely, so it can be checked against the file it edited.</p>
+<div class="scroll"><table>
+<tr><th>Claim in r8787022</th><th>Found in the r8766102 file</th></tr>
+<tr class="good"><td class="t">kick ties, bars 16 to 17</td><td>bars 16 and 17, 8 tied events each</td></tr>
+<tr class="good"><td class="t">open hi-hat ties, bars 18, 22, 32, 34, 35, 36, 38, 44, 104, 108</td><td>all ten bars, 2 tied events each</td></tr>
+<tr class="good"><td class="t">18 ties</td><td>36 tied events, 18 <code>origin=true</code> and 18 <code>destination=true</code>, 0 mid-chain, so <strong>18 connections</strong></td></tr>
+<tr class="good"><td class="t">no other tied drum voices</td><td>none</td></tr>
+</table></div>
+<p>Twelve bars named, twelve bars found, no misses and no extras.</p>
+<div class="corr">
+<h3>The shared-reference trap, in the open</h3>
+<p>Those 36 tied events come from <strong>6 distinct Note elements</strong>. Notes 788 to 791 render twice each in bar 16. Notes 793 and 794 carry every open hi-hat tie across all ten bars. Dropping the tie from note 793 changes ten bars at once. Here that is the intended result, and the auditor is what turns it from an assumption into a count.</p>
+</div>
+
+<h2 id="paren">OPEN: the paren-to-staccato claim does not reproduce</h2>
+<p class="sub">Track 9 offers 119 articulations. Five render a staccato dot, six render a parenthesis notehead.</p>
+<div class="scroll"><table>
+<tr><th>Rendering</th><th>Articulations that carry it</th><th class="n">Used on this staff</th></tr>
+<tr class="bad"><td class="t"><code>articStaccatoAbove</code></td><td>Ride choke, Splash choke, Crash high choke, Crash medium choke, Ride 2 choke</td><td class="n"><strong>0</strong></td></tr>
+<tr class="bad"><td class="t"><code>noteheadParenthesis</code></td><td>Bongo High mute, Bongo Low mute, Conga low mute, Conga high mute, Surdo mute, Triangle mute</td><td class="n"><strong>0</strong></td></tr>
+</table></div>
+<p>The staff uses 17 articulation indices, all of them plain hits: ride, snare, three toms, kick, four hi-hat states, crash, bell tree, guiro, vibraslap. Every one reports an empty <code>TechniqueSymbol</code>. No drum note in this file renders with a parenthesis, none renders with a staccato dot, and the drumset map carries no staccato articulation for snare, kick or hi-hat. The five that exist are cymbal chokes.</p>
+<div class="corr">
+<h3>What that does and does not establish</h3>
+<p><strong>It does establish</strong> that the parenthesis rendering is absent from the GPIF articulation layer of the file r8787022 was built from.</p>
+<p><strong>It does not establish</strong> that Songsterr's renderer showed no parentheses, because Songsterr draws from its own track JSON. That payload sits behind CloudFront and returned <code>403 AccessDenied</code> to an unauthenticated fetch this session, with and without browser headers, on the original revision r7115188.</p>
+</div>
+<div class="corr">
+<h3>The two descriptions contradict each other</h3>
+<p>r8766102 says it <strong>removed</strong> the 32 parenthesised noteheads. r8787022, one day later, says it <strong>converted</strong> the same 32 to staccato dots. The same 32 noteheads cannot be removed and then converted. Total events held at 7,479 across both, so nothing was deleted either time. One of the two descriptions does not match what its revision did.</p>
+</div>
+
+<h2 id="blocked">Still blocked</h2>
+<div class="blk">
+<h3>Four items, none of them solvable from this machine alone</h3>
+<ol>
+<li><strong>The iMac working tree.</strong> The immutable <code>ORIGINAL-*.gp</code> set, the published-source archive and the five other tools live there. iCloud <code>sfg/</code> is the sanctioned channel.</li>
+<li><strong>CloudFront track JSON.</strong> <code>403 AccessDenied</code> on every unauthenticated route, confirmed again this session. Reading it needs a signed-in browser, and Songsterr sign-in is Brandon's to do.</li>
+<li><strong>No notation editor here.</strong> No Guitar Pro, no TuxGuitar, no MuseScore in <code>/Applications</code>. The native GPIF pipeline in <code>songsterr-upload</code> is the only editor on this Mac, which covers scripted edits and not eyes-on review.</li>
+<li><strong>Moderation.</strong> Both revisions have sat pending for one and two days. Promotion is a Songsterr moderator decision.</li>
+</ol>
+</div>
+
+<h2 id="repro">Reproduce any of it</h2>
+<pre>cd ~/Projects/_outputs/songsterr-zappa-paren-fix
+python3 tools/noteloss_audit.py s412162/r8766102-Zomby-Woof.gp --track 9
+python3 tools/noteloss_audit.py s412162/r8766102-Zomby-Woof.gp --diff EDITED.gp --expect-changed N
+curl -s https://www.songsterr.com/api/meta/412162/revisions | python3 -m json.tool
+curl -s https://www.songsterr.com/api/meta/412162 | python3 -c "import json,sys;print(json.load(sys.stdin)['revisionId'])"</pre>
+<p><code>--expect-changed</code> exits non-zero unless the event delta equals the intended count exactly. That is the mechanism the handoff called for after one edit moved 63 events.</p>
+
+<p class="note">Built 2026-08-31 on MacBookPro, <code>/Users/brandonchavez</code>, resuming <code>[ZAPPA-DRUM-REPAIR-2026-08-31] handoff.md</code>.
+Sources: the live Songsterr meta and revisions API, the recovered <code>r8766102</code> score file, and the published sibling pages
+<a href="https://7onething1.github.io/zappa-onsroxy-vs-songsterr/">zappa-onsroxy-vs-songsterr</a>,
+<a href="https://7onething1.github.io/zappa-paren-fix-status/">zappa-paren-fix-status</a> and
+<a href="https://7onething1.github.io/zappa-drum-archive/">zappa-drum-archive</a>.
+Notes: <a href="zappa-baseline-recovered.md">zappa-baseline-recovered.md</a></p>
+
+</div></body></html>
