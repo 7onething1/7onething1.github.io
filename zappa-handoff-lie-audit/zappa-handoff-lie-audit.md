@@ -48,8 +48,9 @@ finding travelled into the handoff three hours and forty-six minutes afterwards 
 
 What actually sits on this Mac right now:
 
-- 19 `.gp` files across 6 song folders, every one fully downloaded, no iCloud placeholders.
-- 8 `ORIGINAL-*.gp` immutable baselines, the exact class the handoff calls absent.
+- 19 `.gp` files across 7 song folders, every one fully downloaded, no iCloud placeholders.
+- 10 `ORIGINAL-*.gp` immutable baselines, the exact class the handoff calls absent. Two of the ten
+  are the same download under two names, which the bundle's own `MANIFEST.md` states.
 - `ORIGINAL-Frank Zappa-Zomby Woof-05-31-2026.gp`, the pre-work community baseline, dated to
   the day revision **r7115188** was created.
 
