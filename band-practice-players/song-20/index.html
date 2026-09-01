@@ -1,0 +1,551 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Song 20 · 8.14 Player</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,600;0,700;1,400&family=Inter:wght@400;500;600;700&family=JetBrains+Mono:wght@400;500;700&display=swap" rel="stylesheet">
+<style>
+:root{
+  --cream:#f4ecd8;
+  --cream-2:#fbf6e9;
+  --card:#fdfaf1;
+  --ink:#14110d;
+  --ink-2:#4a4237;
+  --ink-3:#7d7362;
+  --line:#ddd0b2;
+  --line-2:#c9b291;
+  --mustard:#c9a227;
+  --rust:#a6462a;
+  --sage:#7d8a6a;
+  --blue:#6b7f96;
+  color-scheme:light;
+}
+*{box-sizing:border-box}
+html,body{margin:0;padding:0}
+body{
+  background:var(--cream);
+  color:var(--ink);
+  font-family:Inter,-apple-system,BlinkMacSystemFont,"Segoe UI",sans-serif;
+  line-height:1.55;
+  -webkit-font-smoothing:antialiased;
+  padding:2.2rem 1.1rem 4rem;
+}
+main{max-width:920px;margin:0 auto}
+
+/* ---------- header ---------- */
+.eyebrow{
+  font-family:"JetBrains Mono",monospace;
+  font-size:.72rem;letter-spacing:.16em;text-transform:uppercase;
+  color:var(--rust);margin:0 0 .5rem;
+}
+h1{
+  font-family:"Cormorant Garamond",Georgia,serif;
+  font-weight:700;font-size:clamp(2.1rem,5.6vw,3.3rem);
+  line-height:1.06;margin:0 0 .35rem;letter-spacing:-.01em;
+}
+.dek{
+  font-size:1rem;color:var(--ink-2);margin:0 0 1.6rem;max-width:56ch;
+}
+.rule{height:3px;background:var(--ink);width:64px;margin:0 0 1.7rem;border-radius:2px}
+
+/* ---------- player card ---------- */
+.player{
+  background:var(--card);
+  border:1px solid var(--line);
+  border-radius:14px;
+  padding:1.3rem 1.3rem 1.15rem;
+  box-shadow:0 1px 0 #fff inset, 0 6px 22px rgba(20,17,13,.07);
+}
+.track-line{
+  display:flex;align-items:baseline;justify-content:space-between;
+  gap:1rem;flex-wrap:wrap;margin-bottom:.9rem;
+}
+.track-name{
+  font-family:"Cormorant Garamond",Georgia,serif;
+  font-size:1.5rem;font-weight:600;line-height:1.2;
+}
+.track-meta{
+  font-family:"JetBrains Mono",monospace;font-size:.74rem;
+  color:var(--ink-3);letter-spacing:.03em;white-space:nowrap;
+}
+
+/* ---------- waveform ---------- */
+.wave-wrap{
+  position:relative;
+  background:var(--cream-2);
+  border:1px solid var(--line);
+  border-radius:9px;
+  overflow:hidden;
+  cursor:crosshair;
+  touch-action:none;
+  user-select:none;
+}
+canvas{display:block;width:100%;height:168px}
+@media(max-width:600px){canvas{height:128px}}
+.playhead{
+  position:absolute;top:0;bottom:0;width:2px;background:var(--rust);
+  left:0;pointer-events:none;transform:translateX(-1px);
+  box-shadow:0 0 0 1px rgba(246,240,226,.65);
+}
+.hoverline{
+  position:absolute;top:0;bottom:0;width:1px;background:rgba(20,17,13,.28);
+  left:0;pointer-events:none;opacity:0;
+}
+.hovertip{
+  position:absolute;top:6px;transform:translateX(-50%);
+  font-family:"JetBrains Mono",monospace;font-size:.68rem;
+  background:var(--ink);color:var(--cream);padding:.14rem .4rem;
+  border-radius:4px;pointer-events:none;opacity:0;white-space:nowrap;
+}
+.loopband{
+  position:absolute;top:0;bottom:0;background:rgba(201,162,39,.22);
+  border-left:2px solid var(--mustard);border-right:2px solid var(--mustard);
+  pointer-events:none;display:none;
+}
+
+/* ---------- times ---------- */
+.times{
+  display:flex;justify-content:space-between;align-items:center;
+  font-family:"JetBrains Mono",monospace;font-size:.82rem;
+  color:var(--ink-2);margin-top:.55rem;
+}
+.times .cur{color:var(--ink);font-weight:700;font-size:.95rem}
+
+/* ---------- transport ---------- */
+.transport{
+  display:flex;align-items:center;gap:.55rem;flex-wrap:wrap;
+  margin-top:.9rem;padding-top:.9rem;border-top:1px solid var(--line);
+}
+button{
+  font-family:Inter,sans-serif;font-size:.85rem;font-weight:600;
+  background:var(--cream-2);color:var(--ink);
+  border:1px solid var(--line);border-radius:8px;
+  padding:.5rem .8rem;cursor:pointer;
+  transition:background .12s,border-color .12s,transform .06s;
+}
+button:hover{background:#f1e7cd;border-color:#c3b291}
+button:active{transform:translateY(1px)}
+button:focus-visible{outline:2px solid var(--blue);outline-offset:2px}
+button.primary{
+  background:var(--ink);color:var(--cream);border-color:var(--ink);
+  min-width:104px;display:inline-flex;align-items:center;
+  justify-content:center;gap:.45rem;padding:.55rem 1rem;
+}
+button.primary:hover{background:#2a2419;border-color:#2a2419}
+button.on{background:var(--mustard);border-color:#ab8a1d;color:var(--ink)}
+button.on:hover{background:#d4ad2f}
+.spacer{flex:1 1 auto;min-width:.5rem}
+
+.ctl{
+  display:inline-flex;align-items:center;gap:.4rem;
+  font-family:"JetBrains Mono",monospace;font-size:.72rem;color:var(--ink-3);
+}
+input[type=range]{
+  -webkit-appearance:none;appearance:none;background:transparent;
+  width:88px;cursor:pointer;
+}
+input[type=range]::-webkit-slider-runnable-track{
+  height:4px;background:var(--line);border-radius:3px;
+}
+input[type=range]::-webkit-slider-thumb{
+  -webkit-appearance:none;width:14px;height:14px;border-radius:50%;
+  background:var(--ink);margin-top:-5px;border:2px solid var(--cream-2);
+}
+input[type=range]::-moz-range-track{height:4px;background:var(--line);border-radius:3px}
+input[type=range]::-moz-range-thumb{width:12px;height:12px;border:2px solid var(--cream-2);border-radius:50%;background:var(--ink)}
+select{
+  font-family:"JetBrains Mono",monospace;font-size:.74rem;
+  background:var(--cream-2);border:1px solid var(--line);
+  border-radius:6px;padding:.32rem .4rem;color:var(--ink);cursor:pointer;
+}
+
+/* ---------- loop bar ---------- */
+.loopbar{
+  display:flex;align-items:center;gap:.5rem;flex-wrap:wrap;
+  margin-top:.75rem;padding-top:.75rem;border-top:1px dashed var(--line);
+  font-family:"JetBrains Mono",monospace;font-size:.74rem;color:var(--ink-3);
+}
+.loopbar .tag{
+  color:var(--ink-2);letter-spacing:.1em;text-transform:uppercase;font-size:.66rem;
+}
+.badge{
+  background:var(--cream);border:1px solid var(--line);
+  border-radius:5px;padding:.2rem .45rem;color:var(--ink);
+}
+
+/* ---------- info grid ---------- */
+h2{
+  font-family:"Cormorant Garamond",Georgia,serif;
+  font-size:1.55rem;font-weight:700;margin:2.4rem 0 .8rem;
+}
+.grid{
+  display:grid;grid-template-columns:repeat(auto-fit,minmax(155px,1fr));
+  gap:.7rem;
+}
+.stat{
+  background:var(--card);border:1px solid var(--line);
+  border-radius:10px;padding:.75rem .85rem;
+}
+.stat .k{
+  font-family:"JetBrains Mono",monospace;font-size:.64rem;
+  letter-spacing:.11em;text-transform:uppercase;color:var(--ink-3);
+  margin-bottom:.25rem;
+}
+.stat .v{
+  font-family:"JetBrains Mono",monospace;font-size:1.05rem;
+  font-weight:700;color:var(--ink);
+}
+.stat .n{font-size:.7rem;color:var(--ink-3);margin-top:.15rem;font-family:Inter,sans-serif}
+
+/* ---------- prose + links ---------- */
+p.body{max-width:66ch;color:var(--ink-2);font-size:.95rem}
+a{color:var(--rust);font-weight:600;text-decoration:none}
+a:hover{text-decoration:underline}
+.dl{display:flex;gap:.55rem;flex-wrap:wrap;margin-top:.7rem}
+.dl a{
+  display:inline-block;background:var(--card);border:1px solid var(--line);
+  border-radius:8px;padding:.5rem .8rem;font-size:.82rem;color:var(--ink);
+}
+.dl a:hover{background:#f1e7cd;text-decoration:none}
+.dl a .sz{font-family:"JetBrains Mono",monospace;font-size:.7rem;color:var(--ink-3);margin-left:.35rem}
+
+.keys{
+  font-family:"JetBrains Mono",monospace;font-size:.75rem;color:var(--ink-3);
+  background:var(--card);border:1px solid var(--line);border-radius:10px;
+  padding:.8rem .9rem;margin-top:.7rem;
+}
+kbd{
+  background:var(--cream);border:1px solid var(--line);border-bottom-width:2px;
+  border-radius:4px;padding:.08em .35em;font-size:.92em;color:var(--ink);
+}
+footer{
+  margin-top:2.6rem;padding-top:1rem;border-top:1px solid var(--line);
+  font-family:"JetBrains Mono",monospace;font-size:.7rem;color:var(--ink-3);
+}
+.err{
+  background:#f7e4dd;border:1px solid var(--rust);color:#6d2c19;
+  border-radius:8px;padding:.6rem .8rem;font-size:.82rem;margin-top:.7rem;display:none;
+}
+</style>
+</head>
+<body>
+<main>
+
+  <p class="eyebrow">Audio · 8.14 session</p>
+  <h1>Song 20</h1>
+  <p class="dek">A 24:42 take from the 8.14.26 practice tape at 3:06:46, playable in the browser with a real waveform, scrub-to-seek, and an A/B loop for working a single passage. False starts and chatter are already removed.</p>
+  <div class="rule"></div>
+
+  <section class="player">
+    <div class="track-line">
+      <div class="track-name">song 20 · 8.14.26</div>
+      <div class="track-meta" id="fmtline">44.1 kHz · 24-bit source · stereo</div>
+    </div>
+
+    <div class="wave-wrap" id="wrap">
+      <canvas id="wave"></canvas>
+      <div class="loopband" id="loopband"></div>
+      <div class="hoverline" id="hoverline"></div>
+      <div class="hovertip" id="hovertip">0:00</div>
+      <div class="playhead" id="playhead"></div>
+    </div>
+
+    <div class="times">
+      <span class="cur" id="cur">0:00</span>
+      <span id="remain">-24:42</span>
+      <span id="dur">24:42</span>
+    </div>
+
+    <div class="transport">
+      <button class="primary" id="play" aria-label="Play or pause">▶ Play</button>
+      <button id="back10" title="Back 10 seconds">↺ 10s</button>
+      <button id="fwd10" title="Forward 10 seconds">10s ↻</button>
+      <div class="spacer"></div>
+      <label class="ctl">speed
+        <select id="rate">
+          <option value="0.5">0.50×</option>
+          <option value="0.75">0.75×</option>
+          <option value="0.9">0.90×</option>
+          <option value="1" selected>1.00×</option>
+          <option value="1.25">1.25×</option>
+          <option value="1.5">1.50×</option>
+        </select>
+      </label>
+      <label class="ctl">vol
+        <input type="range" id="vol" min="0" max="1" step="0.01" value="1" aria-label="Volume">
+      </label>
+    </div>
+
+    <div class="loopbar">
+      <span class="tag">A/B loop</span>
+      <button id="setA">Set A</button>
+      <button id="setB">Set B</button>
+      <button id="loopToggle">Loop off</button>
+      <button id="clearLoop">Clear</button>
+      <span class="badge" id="loopReadout">A - · B -</span>
+    </div>
+
+    <div class="err" id="err"></div>
+
+    <audio id="audio" preload="metadata">
+      <source src="audio/song-20.m4a" type="audio/mp4">
+
+    </audio>
+  </section>
+
+  <h2>The file</h2>
+  <div class="grid">
+    <div class="stat"><div class="k">Duration</div><div class="v">24:42</div><div class="n">1482.2 seconds</div></div>
+    <div class="stat"><div class="k">Source</div><div class="v">WAV</div><div class="n">PCM 24-bit, 374.0 MB</div></div>
+    <div class="stat"><div class="k">Sample rate</div><div class="v">44.1 kHz</div><div class="n">stereo, 2117 kbps</div></div>
+    <div class="stat"><div class="k">Sample peak</div><div class="v">0.00 dB</div><div class="n">at full scale</div></div>
+    <div class="stat"><div class="k">Average RMS</div><div class="v">-4.6 dB</div><div class="n">unmastered level</div></div>
+    <div class="stat"><div class="k">Crest factor</div><div class="v">4.6 dB</div><div class="n">wide, uncompressed</div></div>
+  </div>
+
+  <h2>Downloads</h2>
+  <p class="body">The player streams a 128 kbps AAC encode made from the 24-bit source in one pass, with no gain change and no normalization. The lossless original stays on disk at <code>~/Music/Band-Practice/songs-clean/20_tape3-06-46_len24m42s.wav</code>.</p>
+  <div class="dl">
+    <a href="audio/song-20.m4a" download>M4A / AAC 128 kbps <span class="sz">22.9 MB</span></a>
+
+  </div>
+
+  <h2>Keyboard</h2>
+  <div class="keys">
+    <kbd>Space</kbd> play or pause &nbsp;·&nbsp;
+    <kbd>←</kbd> <kbd>→</kbd> nudge 5 seconds &nbsp;·&nbsp;
+    <kbd>J</kbd> <kbd>L</kbd> jump 10 seconds &nbsp;·&nbsp;
+    <kbd>A</kbd> set loop start &nbsp;·&nbsp;
+    <kbd>B</kbd> set loop end &nbsp;·&nbsp;
+    <kbd>0</kbd> back to the top
+  </div>
+
+  <h2>Where it sits</h2>
+  <p class="body">This take sits at <strong>3:06:46</strong> in the 3:45:27 practice tape. No head trim was needed. The take opens on the downbeat as recorded. It passes a from-scratch re-check with no dead air at the head, no early stop, and no run of internal stops. The full set of takes and the rules that separated songs from false starts are in
+    <a href="https://7onething1.github.io/band-practice-songs/">the songs report</a>, and every player is listed on
+    <a href="../">the players index</a>.</p>
+
+  <footer>
+    Built 2026-09-01 · waveform drawn from 1,600 precomputed peak and RMS buckets off the 24-bit source · <span id="pk">peaks.json</span>
+  </footer>
+</main>
+
+<script>
+(function(){
+  var audio    = document.getElementById('audio');
+  var canvas   = document.getElementById('wave');
+  var wrap     = document.getElementById('wrap');
+  var head     = document.getElementById('playhead');
+  var hline    = document.getElementById('hoverline');
+  var htip     = document.getElementById('hovertip');
+  var band     = document.getElementById('loopband');
+  var elCur    = document.getElementById('cur');
+  var elDur    = document.getElementById('dur');
+  var elRem    = document.getElementById('remain');
+  var btnPlay  = document.getElementById('play');
+  var errBox   = document.getElementById('err');
+  var ctx      = canvas.getContext('2d');
+
+  var peaks = null, rms = null, DUR = 1482.2;
+  var loopA = null, loopB = null, looping = false;
+
+  function fmt(t){
+    if(!isFinite(t) || t < 0) t = 0;
+    var m = Math.floor(t/60), s = Math.floor(t%60);
+    return m + ':' + (s<10?'0':'') + s;
+  }
+  function showErr(msg){ errBox.textContent = msg; errBox.style.display='block'; }
+
+  /* ---------- waveform ---------- */
+  function draw(){
+    var dpr = window.devicePixelRatio || 1;
+    var w = canvas.clientWidth, h = canvas.clientHeight;
+    canvas.width = Math.round(w*dpr); canvas.height = Math.round(h*dpr);
+    ctx.setTransform(dpr,0,0,dpr,0,0);
+    ctx.clearRect(0,0,w,h);
+
+    var mid = h/2;
+
+    // centre line
+    ctx.strokeStyle = '#e2d6ba'; ctx.lineWidth = 1;
+    ctx.beginPath(); ctx.moveTo(0, mid+.5); ctx.lineTo(w, mid+.5); ctx.stroke();
+
+    if(!peaks){
+      ctx.fillStyle = '#7d7362';
+      ctx.font = '12px "JetBrains Mono", monospace';
+      ctx.textAlign = 'center';
+      ctx.fillText('loading waveform', w/2, mid+4);
+      return;
+    }
+
+    var n = peaks.length;
+    var bw = w / n;
+    var barW = Math.max(1, bw*0.82);
+
+    // outer peak envelope
+    ctx.fillStyle = '#b9ae95';
+    for(var i=0;i<n;i++){
+      var ph = Math.max(1, peaks[i]*(h*0.46));
+      ctx.fillRect(i*bw, mid-ph, barW, ph*2);
+    }
+    // inner RMS body
+    ctx.fillStyle = '#14110d';
+    for(var j=0;j<n;j++){
+      var rh = Math.max(0.6, rms[j]*(h*0.46));
+      ctx.fillRect(j*bw, mid-rh, barW, rh*2);
+    }
+  }
+
+  /* ---------- progress ---------- */
+  function tick(){
+    var t = audio.currentTime || 0;
+    var d = (isFinite(audio.duration) && audio.duration>0) ? audio.duration : DUR;
+    var pct = Math.min(1, Math.max(0, t/d));
+    head.style.left = (pct * wrap.clientWidth) + 'px';
+    elCur.textContent = fmt(t);
+    elRem.textContent = '-' + fmt(d - t);
+
+    if(looping && loopA !== null && loopB !== null && t >= loopB){
+      audio.currentTime = loopA;
+    }
+  }
+
+  /* ---------- seeking ---------- */
+  function seekFromEvent(e){
+    var r = wrap.getBoundingClientRect();
+    var x = (e.touches ? e.touches[0].clientX : e.clientX) - r.left;
+    var pct = Math.min(1, Math.max(0, x / r.width));
+    var d = (isFinite(audio.duration) && audio.duration>0) ? audio.duration : DUR;
+    audio.currentTime = pct * d;
+    tick();
+  }
+  var scrubbing = false;
+  wrap.addEventListener('pointerdown', function(e){
+    scrubbing = true; wrap.setPointerCapture(e.pointerId); seekFromEvent(e);
+  });
+  wrap.addEventListener('pointermove', function(e){
+    var r = wrap.getBoundingClientRect();
+    var x = Math.min(r.width, Math.max(0, e.clientX - r.left));
+    var d = (isFinite(audio.duration) && audio.duration>0) ? audio.duration : DUR;
+    hline.style.left = x+'px'; hline.style.opacity = 1;
+    htip.style.left = x+'px'; htip.style.opacity = 1;
+    htip.textContent = fmt((x/r.width)*d);
+    if(scrubbing) seekFromEvent(e);
+  });
+  wrap.addEventListener('pointerup',   function(){ scrubbing = false; });
+  wrap.addEventListener('pointerleave',function(){
+    scrubbing = false; hline.style.opacity = 0; htip.style.opacity = 0;
+  });
+
+  /* ---------- transport ---------- */
+  function setPlayLabel(){
+    btnPlay.textContent = audio.paused ? '▶ Play' : '❚❚ Pause';
+  }
+  btnPlay.addEventListener('click', function(){
+    if(audio.paused){ audio.play().catch(function(e){ showErr('Playback blocked: '+e.message); }); }
+    else audio.pause();
+  });
+  document.getElementById('back10').addEventListener('click', function(){ audio.currentTime = Math.max(0, audio.currentTime-10); tick(); });
+  document.getElementById('fwd10').addEventListener('click',  function(){ audio.currentTime = Math.min((audio.duration||DUR), audio.currentTime+10); tick(); });
+  document.getElementById('rate').addEventListener('change', function(){ audio.playbackRate = parseFloat(this.value); });
+  document.getElementById('vol').addEventListener('input',   function(){ audio.volume = parseFloat(this.value); });
+
+  /* ---------- A/B loop ---------- */
+  var readout = document.getElementById('loopReadout');
+  var btnLoop = document.getElementById('loopToggle');
+  function renderLoop(){
+    readout.textContent = 'A ' + (loopA===null?'-':fmt(loopA)) + ' · B ' + (loopB===null?'-':fmt(loopB));
+    var d = (isFinite(audio.duration) && audio.duration>0) ? audio.duration : DUR;
+    if(loopA!==null && loopB!==null && loopB>loopA){
+      var w = wrap.clientWidth;
+      band.style.display = 'block';
+      band.style.left  = (loopA/d*w) + 'px';
+      band.style.width = ((loopB-loopA)/d*w) + 'px';
+    } else {
+      band.style.display = 'none';
+    }
+    btnLoop.textContent = looping ? 'Loop on' : 'Loop off';
+    btnLoop.classList.toggle('on', looping);
+  }
+  function markA(){ loopA = audio.currentTime; if(loopB!==null && loopB<=loopA) loopB = null; renderLoop(); }
+  function markB(){ loopB = audio.currentTime; if(loopA!==null && loopB<=loopA) loopA = null; renderLoop(); }
+  document.getElementById('setA').addEventListener('click', markA);
+  document.getElementById('setB').addEventListener('click', markB);
+  btnLoop.addEventListener('click', function(){
+    if(loopA===null || loopB===null){ showErr('Set both A and B before turning the loop on.'); return; }
+    errBox.style.display='none';
+    looping = !looping; renderLoop();
+  });
+  document.getElementById('clearLoop').addEventListener('click', function(){
+    loopA = loopB = null; looping = false; errBox.style.display='none'; renderLoop();
+  });
+
+  /* ---------- keyboard ---------- */
+  document.addEventListener('keydown', function(e){
+    var tag = (e.target.tagName||'').toLowerCase();
+    if(tag==='input' || tag==='select' || tag==='textarea') return;
+    var d = audio.duration || DUR;
+    switch(e.key){
+      case ' ': e.preventDefault(); btnPlay.click(); break;
+      case 'ArrowLeft':  e.preventDefault(); audio.currentTime = Math.max(0, audio.currentTime-5); tick(); break;
+      case 'ArrowRight': e.preventDefault(); audio.currentTime = Math.min(d, audio.currentTime+5); tick(); break;
+      case 'j': case 'J': audio.currentTime = Math.max(0, audio.currentTime-10); tick(); break;
+      case 'l': case 'L': audio.currentTime = Math.min(d, audio.currentTime+10); tick(); break;
+      case 'a': case 'A': markA(); break;
+      case 'b': case 'B': markB(); break;
+      case '0': audio.currentTime = 0; tick(); break;
+    }
+  });
+
+  /* ---------- audio events ---------- */
+  audio.addEventListener('timeupdate', tick);
+  audio.addEventListener('seeked', tick);
+  audio.addEventListener('seeking', tick);
+  audio.addEventListener('durationchange', tick);
+  audio.addEventListener('play',  setPlayLabel);
+  audio.addEventListener('pause', setPlayLabel);
+  audio.addEventListener('ended', function(){ setPlayLabel(); });
+  audio.addEventListener('loadedmetadata', function(){
+    if(isFinite(audio.duration) && audio.duration>0){
+      DUR = audio.duration;
+      elDur.textContent = fmt(DUR);
+      elRem.textContent = '-' + fmt(DUR);
+    }
+    renderLoop();
+    tick();
+  });
+  audio.addEventListener('error', function(){
+    showErr('The audio file did not load. Try the direct download links below.');
+  });
+
+  /* ---------- boot ---------- */
+  draw();
+  fetch('peaks.json')
+    .then(function(r){ if(!r.ok) throw new Error('peaks '+r.status); return r.json(); })
+    .then(function(j){
+      peaks = j.peaks; rms = j.rms;
+      if(j.duration) DUR = j.duration;
+      if(j.sample_rate){
+        document.getElementById('fmtline').textContent =
+          (j.sample_rate/1000).toFixed(1)+' kHz · 16-bit · '+(j.channels===2?'stereo':'mono');
+      }
+      elDur.textContent = fmt(DUR);
+      elRem.textContent = '-' + fmt(DUR);
+      draw();
+      tick();
+    })
+    .catch(function(){ peaks = null; draw(); });
+
+  var rt;
+  window.addEventListener('resize', function(){
+    clearTimeout(rt);
+    rt = setTimeout(function(){ draw(); tick(); renderLoop(); }, 120);
+  });
+  setPlayLabel(); renderLoop();
+})();
+</script>
+</body>
+</html>

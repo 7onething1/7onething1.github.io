@@ -1,0 +1,290 @@
+<!doctype html>
+<html lang="en"><head><meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Band Practice Players</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@400;600;700&family=Inter:wght@400;500;600;700&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
+<style>
+:root{--cream:#f4ecd8;--cream-2:#fbf6e9;--card:#fdfaf1;--ink:#14110d;--ink-2:#4a4237;
+--ink-3:#7d7362;--line:#ddd0b2;--mustard:#c9a227;--rust:#a6462a;--sage:#7d8a6a;color-scheme:light}
+*{box-sizing:border-box}
+html,body{margin:0;padding:0}
+body{background:var(--cream);color:var(--ink);font-family:Inter,-apple-system,BlinkMacSystemFont,sans-serif;
+line-height:1.55;-webkit-font-smoothing:antialiased;padding:2.2rem 1.1rem 4rem}
+main{max-width:920px;margin:0 auto}
+.eyebrow{font-family:"JetBrains Mono",monospace;font-size:.72rem;letter-spacing:.16em;
+text-transform:uppercase;color:var(--rust);margin:0 0 .5rem}
+h1{font-family:"Cormorant Garamond",Georgia,serif;font-weight:700;
+font-size:clamp(2.1rem,5.6vw,3.3rem);line-height:1.06;margin:0 0 .35rem;letter-spacing:-.01em}
+.dek{font-size:1rem;color:var(--ink-2);margin:0 0 1.4rem;max-width:60ch}
+.rule{height:3px;background:var(--ink);width:64px;margin:0 0 1.7rem;border-radius:2px}
+.stats{display:flex;flex-wrap:wrap;gap:.7rem;margin:0 0 1.8rem}
+.stat{flex:1 1 140px;background:var(--card);border:1px solid var(--line);border-radius:10px;padding:.75rem .9rem}
+.stat .v{font-family:"Cormorant Garamond",serif;font-size:1.9rem;font-weight:700;line-height:1}
+.stat .k{font-family:"JetBrains Mono",monospace;font-size:.66rem;letter-spacing:.1em;
+text-transform:uppercase;color:var(--ink-3);margin-top:.2rem}
+.grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(272px,1fr));gap:.7rem}
+a.card{display:flex;align-items:center;gap:.85rem;background:var(--card);border:1px solid var(--line);
+border-radius:12px;padding:.8rem .95rem;text-decoration:none;color:var(--ink);
+box-shadow:0 1px 0 #fff inset;transition:background .12s,transform .12s}
+a.card:hover{background:#f1e7cd;transform:translateY(-1px)}
+.num{font-family:"Cormorant Garamond",serif;font-size:2rem;font-weight:700;
+color:var(--rust);min-width:2ch;text-align:right;line-height:1}
+.card .body{flex:1;min-width:0}
+.len{font-family:"JetBrains Mono",monospace;font-size:1rem;font-weight:500}
+.at{font-size:.74rem;color:var(--ink-3);margin-top:.05rem}
+.pills{margin-top:.35rem;display:flex;gap:.3rem;flex-wrap:wrap}
+.pill{font-family:"JetBrains Mono",monospace;font-size:.6rem;letter-spacing:.06em;
+text-transform:uppercase;padding:.12rem .4rem;border-radius:4px;border:1px solid var(--line)}
+.pill.ok{color:var(--sage);border-color:#c3ccb6;background:#f2f5ec}
+.pill.warn{color:#8a6d14;border-color:#e0cf94;background:#faf3dd}
+.pill.trim{color:var(--rust);border-color:#e0bfb2;background:#faece6}
+.sz{font-family:"JetBrains Mono",monospace;font-size:.68rem;color:var(--ink-3);white-space:nowrap}
+h2{font-family:"Cormorant Garamond",Georgia,serif;font-size:1.7rem;font-weight:600;margin:2.4rem 0 .5rem}
+p.body{max-width:66ch;color:var(--ink-2);font-size:.95rem}
+a.link{color:var(--rust);font-weight:600;text-decoration:none}
+a.link:hover{text-decoration:underline}
+code{background:#efe7d3;padding:.08em .35em;border-radius:4px;font-size:.85em;
+font-family:"JetBrains Mono",monospace}
+footer{margin-top:2.6rem;padding-top:1rem;border-top:1px solid var(--line);
+font-family:"JetBrains Mono",monospace;font-size:.7rem;color:var(--ink-3)}
+</style></head><body><main>
+
+<p class="eyebrow">Audio · 8.14.26 session</p>
+<h1>Band Practice Players</h1>
+<p class="dek">Every complete take from the 8.14.26 practice tape, one player each, with a real
+waveform, scrub-to-seek, speed control and an A/B loop. False starts, tuning pauses, section
+drilling and chatter were removed before these were cut.</p>
+<div class="rule"></div>
+
+<div class="stats">
+  <div class="stat"><div class="v">22</div><div class="k">players</div></div>
+  <div class="stat"><div class="v">21</div><div class="k">verified clean</div></div>
+  <div class="stat"><div class="v">147</div><div class="k">minutes</div></div>
+  <div class="stat"><div class="v">6</div><div class="k">head trims</div></div>
+</div>
+
+<div class="grid">
+<a class="card" href="song-01/">
+  <div class="num">01</div>
+  <div class="body">
+    <div class="len">1:15</div>
+    <div class="at">at 0:29:52 in the tape</div>
+    <div class="pills"><span class="pill ok">clean</span></div>
+  </div>
+  <div class="sz">1.2 MB</div>
+</a>
+<a class="card" href="song-02/">
+  <div class="num">02</div>
+  <div class="body">
+    <div class="len">4:07</div>
+    <div class="at">at 0:34:28 in the tape</div>
+    <div class="pills"><span class="pill ok">clean</span></div>
+  </div>
+  <div class="sz">3.8 MB</div>
+</a>
+<a class="card" href="song-03/">
+  <div class="num">03</div>
+  <div class="body">
+    <div class="len">3:42</div>
+    <div class="at">at 0:43:16 in the tape</div>
+    <div class="pills"><span class="pill ok">clean</span></div>
+  </div>
+  <div class="sz">3.4 MB</div>
+</a>
+<a class="card" href="song-04/">
+  <div class="num">04</div>
+  <div class="body">
+    <div class="len">3:39</div>
+    <div class="at">at 0:47:02 in the tape</div>
+    <div class="pills"><span class="pill ok">clean</span></div>
+  </div>
+  <div class="sz">3.4 MB</div>
+</a>
+<a class="card" href="song-05/">
+  <div class="num">05</div>
+  <div class="body">
+    <div class="len">5:03</div>
+    <div class="at">at 0:55:27 in the tape</div>
+    <div class="pills"><span class="pill ok">clean</span></div>
+  </div>
+  <div class="sz">4.7 MB</div>
+</a>
+<a class="card" href="song-06/">
+  <div class="num">06</div>
+  <div class="body">
+    <div class="len">10:25</div>
+    <div class="at">at 1:06:14 in the tape</div>
+    <div class="pills"><span class="pill ok">clean</span><span class="pill trim">head trim 29.3s</span></div>
+  </div>
+  <div class="sz">9.7 MB</div>
+</a>
+<a class="card" href="song-07/">
+  <div class="num">07</div>
+  <div class="body">
+    <div class="len">4:20</div>
+    <div class="at">at 1:21:10 in the tape</div>
+    <div class="pills"><span class="pill ok">clean</span></div>
+  </div>
+  <div class="sz">4.0 MB</div>
+</a>
+<a class="card" href="song-08/">
+  <div class="num">08</div>
+  <div class="body">
+    <div class="len">4:22</div>
+    <div class="at">at 1:26:58 in the tape</div>
+    <div class="pills"><span class="pill ok">clean</span><span class="pill trim">head trim 12.5s</span></div>
+  </div>
+  <div class="sz">4.1 MB</div>
+</a>
+<a class="card" href="song-09/">
+  <div class="num">09</div>
+  <div class="body">
+    <div class="len">5:01</div>
+    <div class="at">at 1:31:34 in the tape</div>
+    <div class="pills"><span class="pill ok">clean</span></div>
+  </div>
+  <div class="sz">4.7 MB</div>
+</a>
+<a class="card" href="song-10/">
+  <div class="num">10</div>
+  <div class="body">
+    <div class="len">4:39</div>
+    <div class="at">at 1:36:56 in the tape</div>
+    <div class="pills"><span class="pill ok">clean</span><span class="pill trim">head trim 19.1s</span></div>
+  </div>
+  <div class="sz">4.3 MB</div>
+</a>
+<a class="card" href="song-11/">
+  <div class="num">11</div>
+  <div class="body">
+    <div class="len">9:38</div>
+    <div class="at">at 1:43:27 in the tape</div>
+    <div class="pills"><span class="pill ok">clean</span></div>
+  </div>
+  <div class="sz">8.9 MB</div>
+</a>
+<a class="card" href="song-12/">
+  <div class="num">12</div>
+  <div class="body">
+    <div class="len">1:14</div>
+    <div class="at">at 1:53:19 in the tape</div>
+    <div class="pills"><span class="pill ok">clean</span><span class="pill trim">head trim 7.2s</span></div>
+  </div>
+  <div class="sz">1.2 MB</div>
+</a>
+<a class="card" href="song-13/">
+  <div class="num">13</div>
+  <div class="body">
+    <div class="len">9:16</div>
+    <div class="at">at 1:55:00 in the tape</div>
+    <div class="pills"><span class="pill ok">clean</span></div>
+  </div>
+  <div class="sz">8.6 MB</div>
+</a>
+<a class="card" href="song-14/">
+  <div class="num">14</div>
+  <div class="body">
+    <div class="len">2:27</div>
+    <div class="at">at 2:11:22 in the tape</div>
+    <div class="pills"><span class="pill warn">quiet passage</span></div>
+  </div>
+  <div class="sz">2.3 MB</div>
+</a>
+<a class="card" href="song-15/">
+  <div class="num">15</div>
+  <div class="body">
+    <div class="len">3:04</div>
+    <div class="at">at 2:14:06 in the tape</div>
+    <div class="pills"><span class="pill ok">clean</span><span class="pill trim">head trim 9.4s</span></div>
+  </div>
+  <div class="sz">2.9 MB</div>
+</a>
+<a class="card" href="song-16/">
+  <div class="num">16</div>
+  <div class="body">
+    <div class="len">8:19</div>
+    <div class="at">at 2:19:27 in the tape</div>
+    <div class="pills"><span class="pill ok">clean</span></div>
+  </div>
+  <div class="sz">7.7 MB</div>
+</a>
+<a class="card" href="song-17/">
+  <div class="num">17</div>
+  <div class="body">
+    <div class="len">8:20</div>
+    <div class="at">at 2:30:21 in the tape</div>
+    <div class="pills"><span class="pill ok">clean</span><span class="pill trim">head trim 4.1s</span></div>
+  </div>
+  <div class="sz">7.7 MB</div>
+</a>
+<a class="card" href="song-18/">
+  <div class="num">18</div>
+  <div class="body">
+    <div class="len">20:12</div>
+    <div class="at">at 2:38:47 in the tape</div>
+    <div class="pills"><span class="pill ok">clean</span></div>
+  </div>
+  <div class="sz">18.7 MB</div>
+</a>
+<a class="card" href="song-19/">
+  <div class="num">19</div>
+  <div class="body">
+    <div class="len">6:39</div>
+    <div class="at">at 2:59:08 in the tape</div>
+    <div class="pills"><span class="pill ok">clean</span></div>
+  </div>
+  <div class="sz">6.2 MB</div>
+</a>
+<a class="card" href="song-20/">
+  <div class="num">20</div>
+  <div class="body">
+    <div class="len">24:42</div>
+    <div class="at">at 3:06:46 in the tape</div>
+    <div class="pills"><span class="pill ok">clean</span></div>
+  </div>
+  <div class="sz">22.9 MB</div>
+</a>
+<a class="card" href="song-21/">
+  <div class="num">21</div>
+  <div class="body">
+    <div class="len">2:12</div>
+    <div class="at">at 3:33:27 in the tape</div>
+    <div class="pills"><span class="pill ok">clean</span></div>
+  </div>
+  <div class="sz">2.0 MB</div>
+</a>
+<a class="card" href="song-22/">
+  <div class="num">22</div>
+  <div class="body">
+    <div class="len">3:50</div>
+    <div class="at">at 3:35:48 in the tape</div>
+    <div class="pills"><span class="pill ok">clean</span></div>
+  </div>
+  <div class="sz">3.6 MB</div>
+</a>
+</div>
+
+<h2>What was removed</h2>
+<p class="body">The tape ran 3:45:27. These 22 takes account for 147 minutes of it.
+The other 79 minutes were 46 fragments, 9 stretches with no steady pulse, 5 passes of the band
+drilling one section, and 3 abandoned attempts. Six takes also carried a false start welded to the
+front, and each of those was cut back to the real downbeat.</p>
+
+<h2>The audio</h2>
+<p class="body">Each player streams a 128 kbps AAC encode made from the 24-bit source in one pass,
+with no gain change and no normalization, totalling 136 MB. The lossless originals stay
+on disk at <code>~/Music/Band-Practice/songs-clean/</code>. Every waveform is drawn from 1,600
+precomputed peak and RMS buckets read off the 24-bit file rather than off the encode.</p>
+
+<h2>How these were chosen</h2>
+<p class="body">The detector treats a false start as a take the band tried again, and compares each
+take head-to-head against the ones that follow using chroma-sequence similarity with lag alignment.
+The full method, the verdict counts, and the places where the evidence is thin are written up in
+<a class="link" href="https://7onething1.github.io/band-practice-songs/">the songs report</a>.</p>
+
+<footer>
+Built 2026-09-01 · source <code>band-practice-8-14-26.wav</code>, PCM 24-bit / 44.1 kHz, 3:45:27
+</footer>
+</main></body></html>
