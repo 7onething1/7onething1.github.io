@@ -544,6 +544,14 @@ footer{
     clearTimeout(rt);
     rt = setTimeout(function(){ draw(); tick(); renderLoop(); }, 120);
   });
+  if (window.ResizeObserver) {
+    new ResizeObserver(function(){
+      if (wrap.clientWidth > 0) { draw(); tick(); }
+    }).observe(wrap);
+  }
+  if (document.fonts && document.fonts.ready) {
+    document.fonts.ready.then(function(){ draw(); tick(); });
+  }
   setPlayLabel(); renderLoop();
 })();
 </script>
