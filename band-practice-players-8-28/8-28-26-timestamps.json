@@ -4,135 +4,127 @@
  "source_duration_hms": "5:12:25",
  "note": "Timecodes derived from the 24 kbps AAC that Messages produced. The lossless master has the same duration, so these apply unchanged.",
  "counts": {
-  "takes": 158,
-  "songs": 12,
-  "false_starts": 28,
-  "workshop": 48,
-  "fragments": 67,
-  "noodles": 3
+  "takes": 120,
+  "songs": 27,
+  "false_starts": 7,
+  "workshop": 13,
+  "fragments": 59,
+  "noodles": 14
  },
  "takes": [
   {
    "idx": 1,
-   "song_no": null,
-   "verdict": "FRAGMENT",
-   "score": 28.1,
-   "start_s": 83.0,
-   "end_s": 93.0,
-   "duration_s": 10.0,
-   "start_hms": "0:01:23",
-   "end_hms": "0:01:33",
-   "bpm": 222.22222900390625,
+   "song_no": 1,
+   "verdict": "SONG",
+   "score": 87.4,
+   "start_s": 0.0,
+   "end_s": 461.0,
+   "duration_s": 461.0,
+   "start_hms": "0:00:00",
+   "end_hms": "0:07:41",
+   "bpm": 117.64705657958984,
    "reasons": [
-    "under 20s of playing"
+    "8 section change(s), steady pulse at 118 BPM, 7.7 min sustained"
    ]
   },
   {
    "idx": 2,
    "song_no": null,
-   "verdict": "WORKSHOP",
-   "score": 13.1,
-   "start_s": 110.0,
-   "end_s": 118.0,
-   "duration_s": 8.0,
-   "start_hms": "0:01:50",
-   "end_hms": "0:01:58",
-   "bpm": 160.71429443359375,
+   "verdict": "FRAGMENT",
+   "score": 14.5,
+   "start_s": 466.0,
+   "end_s": 480.0,
+   "duration_s": 14.0,
+   "start_hms": "0:07:46",
+   "end_hms": "0:08:00",
+   "bpm": 79.8319320678711,
    "reasons": [
-    "under 20s of playing",
-    "4 nearby short takes play the same material, so this is a section being drilled"
+    "under 20s of playing"
    ]
   },
   {
    "idx": 3,
    "song_no": null,
-   "verdict": "FALSE_START",
-   "score": 0.0,
-   "start_s": 175.0,
-   "end_s": 195.0,
-   "duration_s": 20.0,
-   "start_hms": "0:02:55",
-   "end_hms": "0:03:15",
-   "bpm": 230.76922607421875,
+   "verdict": "WORKSHOP",
+   "score": 20.7,
+   "start_s": 490.0,
+   "end_s": 509.0,
+   "duration_s": 19.0,
+   "start_hms": "0:08:10",
+   "end_hms": "0:08:29",
+   "bpm": 142.85714721679688,
    "reasons": [
-    "take 4 replays this head, sequence match 0.78, so this attempt was aborted"
+    "under 20s of playing",
+    "2 nearby short takes play the same material, so this is a section being drilled"
    ]
   },
   {
    "idx": 4,
    "song_no": null,
-   "verdict": "WORKSHOP",
-   "score": 0.0,
-   "start_s": 203.0,
-   "end_s": 211.0,
-   "duration_s": 8.0,
-   "start_hms": "0:03:23",
-   "end_hms": "0:03:31",
-   "bpm": 218.25396728515625,
-   "reasons": [
-    "take 5 replays this head, sequence match 0.78, so this attempt was aborted",
-    "under 20s of playing",
-    "4 nearby short takes play the same material, so this is a section being drilled"
-   ]
+   "verdict": "FRAGMENT",
+   "score": 43.3,
+   "start_s": 554.0,
+   "end_s": 586.0,
+   "duration_s": 32.0,
+   "start_hms": "0:09:14",
+   "end_hms": "0:09:46",
+   "bpm": 104.41888427734375,
+   "reasons": []
   },
   {
    "idx": 5,
    "song_no": null,
    "verdict": "WORKSHOP",
-   "score": 19.2,
-   "start_s": 255.0,
-   "end_s": 273.0,
-   "duration_s": 18.0,
-   "start_hms": "0:04:15",
-   "end_hms": "0:04:33",
-   "bpm": 214.2857208251953,
+   "score": 44.5,
+   "start_s": 593.0,
+   "end_s": 620.0,
+   "duration_s": 27.0,
+   "start_hms": "0:09:53",
+   "end_hms": "0:10:20",
+   "bpm": 109.09091186523438,
    "reasons": [
-    "under 20s of playing",
-    "5 nearby short takes play the same material, so this is a section being drilled"
+    "2 nearby short takes play the same material, so this is a section being drilled"
    ]
   },
   {
    "idx": 6,
    "song_no": null,
-   "verdict": "FALSE_START",
-   "score": 35.0,
-   "start_s": 280.0,
-   "end_s": 378.0,
-   "duration_s": 98.0,
-   "start_hms": "0:04:40",
-   "end_hms": "0:06:18",
-   "bpm": 117.64705657958984,
+   "verdict": "WORKSHOP",
+   "score": 71.1,
+   "start_s": 629.0,
+   "end_s": 673.0,
+   "duration_s": 44.0,
+   "start_hms": "0:10:29",
+   "end_hms": "0:11:13",
+   "bpm": 164.41441345214844,
    "reasons": [
-    "take 7 replays this head, sequence match 0.68, so this attempt was aborted"
+    "3 nearby short takes play the same material, so this is a section being drilled"
    ]
   },
   {
    "idx": 7,
    "song_no": null,
-   "verdict": "WORKSHOP",
-   "score": 23.1,
-   "start_s": 431.0,
-   "end_s": 449.0,
-   "duration_s": 18.0,
-   "start_hms": "0:07:11",
-   "end_hms": "0:07:29",
+   "verdict": "FRAGMENT",
+   "score": 53.5,
+   "start_s": 680.0,
+   "end_s": 725.0,
+   "duration_s": 45.0,
+   "start_hms": "0:11:20",
+   "end_hms": "0:12:05",
    "bpm": 117.64705657958984,
-   "reasons": [
-    "under 20s of playing",
-    "3 nearby short takes play the same material, so this is a section being drilled"
-   ]
+   "reasons": []
   },
   {
    "idx": 8,
    "song_no": null,
    "verdict": "WORKSHOP",
-   "score": 49.4,
-   "start_s": 586.0,
-   "end_s": 611.0,
-   "duration_s": 25.0,
-   "start_hms": "0:09:46",
-   "end_hms": "0:10:11",
-   "bpm": 107.14286041259766,
+   "score": 51.8,
+   "start_s": 739.0,
+   "end_s": 770.0,
+   "duration_s": 31.0,
+   "start_hms": "0:12:19",
+   "end_hms": "0:12:50",
+   "bpm": 89.55223846435547,
    "reasons": [
     "2 nearby short takes play the same material, so this is a section being drilled"
    ]
@@ -140,237 +132,244 @@
   {
    "idx": 9,
    "song_no": null,
-   "verdict": "WORKSHOP",
-   "score": 57.3,
-   "start_s": 632.0,
-   "end_s": 667.0,
-   "duration_s": 35.0,
-   "start_hms": "0:10:32",
-   "end_hms": "0:11:07",
-   "bpm": 166.6666717529297,
+   "verdict": "FALSE_START",
+   "score": 28.9,
+   "start_s": 862.0,
+   "end_s": 904.0,
+   "duration_s": 42.0,
+   "start_hms": "0:14:22",
+   "end_hms": "0:15:04",
+   "bpm": 152.5096435546875,
    "reasons": [
-    "2 nearby short takes play the same material, so this is a section being drilled"
+    "6s of off-song activity right after it stops",
+    "a real attempt that stops dead with no ending, then off-song activity over the top"
    ]
   },
   {
    "idx": 10,
    "song_no": null,
    "verdict": "FRAGMENT",
-   "score": 66.2,
-   "start_s": 970.0,
-   "end_s": 1021.0,
-   "duration_s": 51.0,
-   "start_hms": "0:16:10",
-   "end_hms": "0:17:01",
-   "bpm": 120.0,
-   "reasons": []
+   "score": 0.0,
+   "start_s": 1046.0,
+   "end_s": 1060.0,
+   "duration_s": 14.0,
+   "start_hms": "0:17:26",
+   "end_hms": "0:17:40",
+   "bpm": 92.30769348144531,
+   "reasons": [
+    "4s of off-song activity right after it stops",
+    "under 20s of playing"
+   ]
   },
   {
    "idx": 11,
    "song_no": null,
-   "verdict": "FRAGMENT",
-   "score": 20.2,
-   "start_s": 1607.0,
-   "end_s": 1616.0,
-   "duration_s": 9.0,
-   "start_hms": "0:26:47",
-   "end_hms": "0:26:56",
-   "bpm": 71.42857360839844,
+   "verdict": "WORKSHOP",
+   "score": 51.5,
+   "start_s": 1203.0,
+   "end_s": 1261.0,
+   "duration_s": 58.0,
+   "start_hms": "0:20:03",
+   "end_hms": "0:21:01",
+   "bpm": 90.23066711425781,
    "reasons": [
-    "under 20s of playing"
+    "2 nearby short takes play the same material, so this is a section being drilled"
    ]
   },
   {
    "idx": 12,
    "song_no": null,
-   "verdict": "FRAGMENT",
-   "score": 22.8,
-   "start_s": 2906.0,
-   "end_s": 2917.0,
-   "duration_s": 11.0,
-   "start_hms": "0:48:26",
-   "end_hms": "0:48:37",
-   "bpm": 240.0,
+   "verdict": "WORKSHOP",
+   "score": 0.0,
+   "start_s": 1267.0,
+   "end_s": 1281.0,
+   "duration_s": 14.0,
+   "start_hms": "0:21:07",
+   "end_hms": "0:21:21",
+   "bpm": 65.001708984375,
    "reasons": [
-    "under 20s of playing"
+    "7s of off-song activity right after it stops",
+    "under 20s of playing",
+    "3 nearby short takes play the same material, so this is a section being drilled"
    ]
   },
   {
    "idx": 13,
    "song_no": null,
-   "verdict": "FRAGMENT",
-   "score": 23.2,
-   "start_s": 2946.0,
-   "end_s": 2954.0,
-   "duration_s": 8.0,
-   "start_hms": "0:49:06",
-   "end_hms": "0:49:14",
-   "bpm": 68.18181610107422,
+   "verdict": "WORKSHOP",
+   "score": 20.0,
+   "start_s": 1288.0,
+   "end_s": 1310.0,
+   "duration_s": 22.0,
+   "start_hms": "0:21:28",
+   "end_hms": "0:21:50",
+   "bpm": 89.55223846435547,
    "reasons": [
-    "under 20s of playing"
+    "5s of off-song activity right after it stops",
+    "2 nearby short takes play the same material, so this is a section being drilled"
    ]
   },
   {
    "idx": 14,
    "song_no": null,
-   "verdict": "FRAGMENT",
-   "score": 43.5,
-   "start_s": 3047.0,
-   "end_s": 3067.0,
-   "duration_s": 20.0,
-   "start_hms": "0:50:47",
-   "end_hms": "0:51:07",
-   "bpm": 150.0,
-   "reasons": []
+   "verdict": "FALSE_START",
+   "score": 63.0,
+   "start_s": 1323.0,
+   "end_s": 1392.0,
+   "duration_s": 69.0,
+   "start_hms": "0:22:03",
+   "end_hms": "0:23:12",
+   "bpm": 142.85714721679688,
+   "reasons": [
+    "a real attempt that stops dead with no ending, then off-song activity over the top"
+   ]
   },
   {
    "idx": 15,
    "song_no": null,
-   "verdict": "WORKSHOP",
-   "score": 56.5,
-   "start_s": 3129.0,
-   "end_s": 3161.0,
-   "duration_s": 32.0,
-   "start_hms": "0:52:09",
-   "end_hms": "0:52:41",
-   "bpm": 142.85714721679688,
+   "verdict": "FRAGMENT",
+   "score": 0.0,
+   "start_s": 1507.0,
+   "end_s": 1520.0,
+   "duration_s": 13.0,
+   "start_hms": "0:25:07",
+   "end_hms": "0:25:20",
+   "bpm": 125.0,
    "reasons": [
-    "3 nearby short takes play the same material, so this is a section being drilled"
+    "7s of off-song activity right after it stops",
+    "under 20s of playing"
    ]
   },
   {
    "idx": 16,
    "song_no": null,
-   "verdict": "WORKSHOP",
-   "score": 18.6,
-   "start_s": 3197.0,
-   "end_s": 3206.0,
-   "duration_s": 9.0,
-   "start_hms": "0:53:17",
-   "end_hms": "0:53:26",
-   "bpm": 53.57143020629883,
-   "reasons": [
-    "under 20s of playing",
-    "3 nearby short takes play the same material, so this is a section being drilled"
-   ]
+   "verdict": "FRAGMENT",
+   "score": 56.1,
+   "start_s": 1607.0,
+   "end_s": 1649.0,
+   "duration_s": 42.0,
+   "start_hms": "0:26:47",
+   "end_hms": "0:27:29",
+   "bpm": 76.92308044433594,
+   "reasons": []
   },
   {
    "idx": 17,
    "song_no": null,
    "verdict": "FALSE_START",
-   "score": 3.7,
-   "start_s": 3244.0,
-   "end_s": 3270.0,
-   "duration_s": 26.0,
-   "start_hms": "0:54:04",
-   "end_hms": "0:54:30",
-   "bpm": 115.38461303710938,
+   "score": 7.3,
+   "start_s": 1919.0,
+   "end_s": 1934.0,
+   "duration_s": 15.0,
+   "start_hms": "0:31:59",
+   "end_hms": "0:32:14",
+   "bpm": 142.85714721679688,
    "reasons": [
-    "take 18 replays this head, sequence match 0.68, so this attempt was aborted"
+    "4s of off-song activity right after it stops",
+    "under 20s of playing",
+    "a real attempt that stops dead with no ending, then off-song activity over the top"
    ]
   },
   {
    "idx": 18,
    "song_no": null,
-   "verdict": "WORKSHOP",
-   "score": 55.3,
-   "start_s": 3287.0,
-   "end_s": 3323.0,
-   "duration_s": 36.0,
-   "start_hms": "0:54:47",
-   "end_hms": "0:55:23",
-   "bpm": 111.11111450195312,
-   "reasons": [
-    "3 nearby short takes play the same material, so this is a section being drilled"
-   ]
-  },
-  {
-   "idx": 19,
-   "song_no": null,
-   "verdict": "WORKSHOP",
-   "score": 23.9,
-   "start_s": 3470.0,
-   "end_s": 3479.0,
-   "duration_s": 9.0,
-   "start_hms": "0:57:50",
-   "end_hms": "0:57:59",
-   "bpm": 130.43478393554688,
-   "reasons": [
-    "under 20s of playing",
-    "2 nearby short takes play the same material, so this is a section being drilled"
-   ]
-  },
-  {
-   "idx": 20,
-   "song_no": null,
    "verdict": "FRAGMENT",
-   "score": 24.5,
-   "start_s": 3667.0,
-   "end_s": 3685.0,
-   "duration_s": 18.0,
-   "start_hms": "1:01:07",
-   "end_hms": "1:01:25",
-   "bpm": 125.0,
+   "score": 27.5,
+   "start_s": 2027.0,
+   "end_s": 2043.0,
+   "duration_s": 16.0,
+   "start_hms": "0:33:47",
+   "end_hms": "0:34:03",
+   "bpm": 127.65957641601562,
    "reasons": [
     "under 20s of playing"
    ]
   },
   {
-   "idx": 21,
+   "idx": 19,
+   "song_no": null,
+   "verdict": "FRAGMENT",
+   "score": 2.4,
+   "start_s": 2121.0,
+   "end_s": 2131.0,
+   "duration_s": 10.0,
+   "start_hms": "0:35:21",
+   "end_hms": "0:35:31",
+   "bpm": 126.66666412353516,
+   "reasons": [
+    "under 20s of playing"
+   ]
+  },
+  {
+   "idx": 20,
    "song_no": null,
    "verdict": "WORKSHOP",
-   "score": 21.1,
-   "start_s": 3726.0,
-   "end_s": 3738.0,
-   "duration_s": 12.0,
-   "start_hms": "1:02:06",
-   "end_hms": "1:02:18",
-   "bpm": 76.92308044433594,
+   "score": 0.0,
+   "start_s": 2295.0,
+   "end_s": 2303.0,
+   "duration_s": 8.0,
+   "start_hms": "0:38:15",
+   "end_hms": "0:38:23",
+   "bpm": 106.20301055908203,
    "reasons": [
+    "8s of off-song activity right after it stops",
     "under 20s of playing",
     "2 nearby short takes play the same material, so this is a section being drilled"
    ]
   },
   {
+   "idx": 21,
+   "song_no": null,
+   "verdict": "NOODLE",
+   "score": 60.0,
+   "start_s": 2870.0,
+   "end_s": 2939.0,
+   "duration_s": 69.0,
+   "start_hms": "0:47:50",
+   "end_hms": "0:48:59",
+   "bpm": 133.3333282470703,
+   "reasons": []
+  },
+  {
    "idx": 22,
    "song_no": null,
    "verdict": "WORKSHOP",
-   "score": 20.6,
-   "start_s": 3782.0,
-   "end_s": 3793.0,
-   "duration_s": 11.0,
-   "start_hms": "1:03:02",
-   "end_hms": "1:03:13",
-   "bpm": 96.7741928100586,
+   "score": 26.6,
+   "start_s": 2944.0,
+   "end_s": 2960.0,
+   "duration_s": 16.0,
+   "start_hms": "0:49:04",
+   "end_hms": "0:49:20",
+   "bpm": 68.96551513671875,
    "reasons": [
     "under 20s of playing",
-    "3 nearby short takes play the same material, so this is a section being drilled"
+    "2 nearby short takes play the same material, so this is a section being drilled"
    ]
   },
   {
    "idx": 23,
    "song_no": null,
    "verdict": "FRAGMENT",
-   "score": 40.1,
-   "start_s": 3970.0,
-   "end_s": 3991.0,
-   "duration_s": 21.0,
-   "start_hms": "1:06:10",
-   "end_hms": "1:06:31",
-   "bpm": 103.44827270507812,
+   "score": 38.4,
+   "start_s": 2965.0,
+   "end_s": 2996.0,
+   "duration_s": 31.0,
+   "start_hms": "0:49:25",
+   "end_hms": "0:49:56",
+   "bpm": 81.0810775756836,
    "reasons": []
   },
   {
    "idx": 24,
    "song_no": null,
    "verdict": "FRAGMENT",
-   "score": 24.5,
-   "start_s": 4132.0,
-   "end_s": 4143.0,
+   "score": 15.5,
+   "start_s": 2999.0,
+   "end_s": 3010.0,
    "duration_s": 11.0,
-   "start_hms": "1:08:52",
-   "end_hms": "1:09:03",
-   "bpm": 56.60377502441406,
+   "start_hms": "0:49:59",
+   "end_hms": "0:50:10",
+   "bpm": 61.224491119384766,
    "reasons": [
     "under 20s of playing"
    ]
@@ -378,194 +377,191 @@
   {
    "idx": 25,
    "song_no": null,
-   "verdict": "FRAGMENT",
-   "score": 25.2,
-   "start_s": 4187.0,
-   "end_s": 4203.0,
-   "duration_s": 16.0,
-   "start_hms": "1:09:47",
-   "end_hms": "1:10:03",
-   "bpm": 68.18181610107422,
-   "reasons": [
-    "under 20s of playing"
-   ]
+   "verdict": "NOODLE",
+   "score": 64.0,
+   "start_s": 3025.0,
+   "end_s": 3087.0,
+   "duration_s": 62.0,
+   "start_hms": "0:50:25",
+   "end_hms": "0:51:27",
+   "bpm": 134.84848022460938,
+   "reasons": []
   },
   {
    "idx": 26,
    "song_no": null,
-   "verdict": "FALSE_START",
-   "score": 20.7,
-   "start_s": 4215.0,
-   "end_s": 4255.0,
-   "duration_s": 40.0,
-   "start_hms": "1:10:15",
-   "end_hms": "1:10:55",
-   "bpm": 157.8947296142578,
-   "reasons": [
-    "take 27 replays this head, sequence match 0.86, so this attempt was aborted"
-   ]
+   "verdict": "FRAGMENT",
+   "score": 62.3,
+   "start_s": 3134.0,
+   "end_s": 3164.0,
+   "duration_s": 30.0,
+   "start_hms": "0:52:14",
+   "end_hms": "0:52:44",
+   "bpm": 142.85714721679688,
+   "reasons": []
   },
   {
    "idx": 27,
-   "song_no": null,
-   "verdict": "FRAGMENT",
-   "score": 24.6,
-   "start_s": 4275.0,
-   "end_s": 4286.0,
-   "duration_s": 11.0,
-   "start_hms": "1:11:15",
-   "end_hms": "1:11:26",
-   "bpm": 157.8947296142578,
+   "song_no": 2,
+   "verdict": "SONG",
+   "score": 86.3,
+   "start_s": 3181.0,
+   "end_s": 3526.0,
+   "duration_s": 345.0,
+   "start_hms": "0:53:01",
+   "end_hms": "0:58:46",
+   "bpm": 117.64705657958984,
    "reasons": [
-    "under 20s of playing"
+    "5 section change(s), steady pulse at 118 BPM, 5.8 min sustained"
    ]
   },
   {
    "idx": 28,
    "song_no": null,
-   "verdict": "FRAGMENT",
-   "score": 19.6,
-   "start_s": 4290.0,
-   "end_s": 4302.0,
-   "duration_s": 12.0,
-   "start_hms": "1:11:30",
-   "end_hms": "1:11:42",
-   "bpm": 80.0,
-   "reasons": [
-    "3s of off-song activity right after it stops",
-    "under 20s of playing"
-   ]
+   "verdict": "NOODLE",
+   "score": 69.0,
+   "start_s": 3575.0,
+   "end_s": 3650.0,
+   "duration_s": 75.0,
+   "start_hms": "0:59:35",
+   "end_hms": "1:00:50",
+   "bpm": 66.66666412353516,
+   "reasons": []
   },
   {
    "idx": 29,
-   "song_no": null,
-   "verdict": "FRAGMENT",
-   "score": 7.4,
-   "start_s": 4325.0,
-   "end_s": 4335.0,
-   "duration_s": 10.0,
-   "start_hms": "1:12:05",
-   "end_hms": "1:12:15",
-   "bpm": 73.62240600585938,
+   "song_no": 3,
+   "verdict": "SONG",
+   "score": 82.6,
+   "start_s": 3654.0,
+   "end_s": 4039.0,
+   "duration_s": 385.0,
+   "start_hms": "1:00:54",
+   "end_hms": "1:07:19",
+   "bpm": 101.69491577148438,
    "reasons": [
-    "5s of off-song activity right after it stops",
-    "under 20s of playing"
+    "8 section change(s), steady pulse at 102 BPM, 6.4 min sustained"
    ]
   },
   {
    "idx": 30,
    "song_no": null,
    "verdict": "FRAGMENT",
-   "score": 27.2,
-   "start_s": 4678.0,
-   "end_s": 4689.0,
-   "duration_s": 11.0,
-   "start_hms": "1:17:58",
-   "end_hms": "1:18:09",
-   "bpm": 90.90908813476562,
-   "reasons": [
-    "under 20s of playing"
-   ]
-  },
-  {
-   "idx": 31,
-   "song_no": null,
-   "verdict": "FRAGMENT",
-   "score": 47.4,
-   "start_s": 4776.0,
-   "end_s": 4798.0,
-   "duration_s": 22.0,
-   "start_hms": "1:19:36",
-   "end_hms": "1:19:58",
-   "bpm": 50.0,
-   "reasons": []
-  },
-  {
-   "idx": 32,
-   "song_no": 1,
-   "verdict": "SONG",
-   "score": 89.4,
-   "start_s": 4805.0,
-   "end_s": 4955.0,
-   "duration_s": 150.0,
-   "start_hms": "1:20:05",
-   "end_hms": "1:22:35",
-   "bpm": 100.0,
-   "reasons": [
-    "4 section change(s), steady pulse at 100 BPM, 2.5 min sustained"
-   ]
-  },
-  {
-   "idx": 33,
-   "song_no": null,
-   "verdict": "NOODLE",
-   "score": 64.4,
-   "start_s": 4986.0,
-   "end_s": 5053.0,
-   "duration_s": 67.0,
-   "start_hms": "1:23:06",
-   "end_hms": "1:24:13",
-   "bpm": 214.2857208251953,
-   "reasons": []
-  },
-  {
-   "idx": 34,
-   "song_no": null,
-   "verdict": "FRAGMENT",
-   "score": 7.8,
-   "start_s": 5057.0,
-   "end_s": 5068.0,
-   "duration_s": 11.0,
-   "start_hms": "1:24:17",
-   "end_hms": "1:24:28",
-   "bpm": 214.2857208251953,
+   "score": 0.0,
+   "start_s": 4079.0,
+   "end_s": 4091.0,
+   "duration_s": 12.0,
+   "start_hms": "1:07:59",
+   "end_hms": "1:08:11",
+   "bpm": 82.19178009033203,
    "reasons": [
     "3s of off-song activity right after it stops",
     "under 20s of playing"
    ]
   },
   {
-   "idx": 35,
+   "idx": 31,
+   "song_no": 4,
+   "verdict": "SONG",
+   "score": 81.9,
+   "start_s": 4094.0,
+   "end_s": 4299.0,
+   "duration_s": 205.0,
+   "start_hms": "1:08:14",
+   "end_hms": "1:11:39",
+   "bpm": 133.3333282470703,
+   "reasons": [
+    "6 section change(s), steady pulse at 133 BPM, 3.4 min sustained"
+   ]
+  },
+  {
+   "idx": 32,
    "song_no": null,
-   "verdict": "FRAGMENT",
-   "score": 57.4,
-   "start_s": 5087.0,
-   "end_s": 5123.0,
-   "duration_s": 36.0,
-   "start_hms": "1:24:47",
-   "end_hms": "1:25:23",
-   "bpm": 105.2631607055664,
+   "verdict": "NOODLE",
+   "score": 64.3,
+   "start_s": 4321.0,
+   "end_s": 4426.0,
+   "duration_s": 105.0,
+   "start_hms": "1:12:01",
+   "end_hms": "1:13:46",
+   "bpm": 92.30769348144531,
    "reasons": []
   },
   {
-   "idx": 36,
+   "idx": 33,
    "song_no": null,
    "verdict": "FRAGMENT",
-   "score": 5.6,
-   "start_s": 5225.0,
-   "end_s": 5234.0,
-   "duration_s": 9.0,
-   "start_hms": "1:27:05",
-   "end_hms": "1:27:14",
-   "bpm": 56.60377502441406,
+   "score": 15.2,
+   "start_s": 4657.0,
+   "end_s": 4668.0,
+   "duration_s": 11.0,
+   "start_hms": "1:17:37",
+   "end_hms": "1:17:48",
+   "bpm": 142.85714721679688,
+   "reasons": [
+    "under 20s of playing"
+   ]
+  },
+  {
+   "idx": 34,
+   "song_no": null,
+   "verdict": "FALSE_START",
+   "score": 33.1,
+   "start_s": 4672.0,
+   "end_s": 4705.0,
+   "duration_s": 33.0,
+   "start_hms": "1:17:52",
+   "end_hms": "1:18:25",
+   "bpm": 92.30769348144531,
+   "reasons": [
+    "7s of off-song activity right after it stops",
+    "a real attempt that stops dead with no ending, then off-song activity over the top"
+   ]
+  },
+  {
+   "idx": 35,
+   "song_no": null,
+   "verdict": "FALSE_START",
+   "score": 19.3,
+   "start_s": 4714.0,
+   "end_s": 4738.0,
+   "duration_s": 24.0,
+   "start_hms": "1:18:34",
+   "end_hms": "1:18:58",
+   "bpm": 98.38710021972656,
    "reasons": [
     "4s of off-song activity right after it stops",
-    "under 20s of playing"
+    "a real attempt that stops dead with no ending, then off-song activity over the top"
+   ]
+  },
+  {
+   "idx": 36,
+   "song_no": 5,
+   "verdict": "SONG",
+   "score": 89.0,
+   "start_s": 4761.0,
+   "end_s": 5149.0,
+   "duration_s": 388.0,
+   "start_hms": "1:19:21",
+   "end_hms": "1:25:49",
+   "bpm": 101.69491577148438,
+   "reasons": [
+    "10 section change(s), steady pulse at 102 BPM, 6.5 min sustained"
    ]
   },
   {
    "idx": 37,
    "song_no": null,
    "verdict": "FRAGMENT",
-   "score": 0.0,
-   "start_s": 5680.0,
-   "end_s": 5690.0,
-   "duration_s": 10.0,
-   "start_hms": "1:34:40",
-   "end_hms": "1:34:50",
-   "bpm": 144.59930419921875,
+   "score": 5.7,
+   "start_s": 5223.0,
+   "end_s": 5234.0,
+   "duration_s": 11.0,
+   "start_hms": "1:27:03",
+   "end_hms": "1:27:14",
+   "bpm": 56.60377502441406,
    "reasons": [
-    "take 38 replays this head, sequence match 0.87, so this attempt was aborted",
+    "3s of off-song activity right after it stops",
     "under 20s of playing"
    ]
   },
@@ -573,14 +569,15 @@
    "idx": 38,
    "song_no": null,
    "verdict": "FRAGMENT",
-   "score": 29.7,
-   "start_s": 5696.0,
-   "end_s": 5704.0,
-   "duration_s": 8.0,
-   "start_hms": "1:34:56",
-   "end_hms": "1:35:04",
-   "bpm": 150.0,
+   "score": 5.6,
+   "start_s": 5260.0,
+   "end_s": 5271.0,
+   "duration_s": 11.0,
+   "start_hms": "1:27:40",
+   "end_hms": "1:27:51",
+   "bpm": 72.28915405273438,
    "reasons": [
+    "4s of off-song activity right after it stops",
     "under 20s of playing"
    ]
   },
@@ -588,133 +585,131 @@
    "idx": 39,
    "song_no": null,
    "verdict": "FRAGMENT",
-   "score": 0.0,
-   "start_s": 5832.0,
-   "end_s": 5844.0,
-   "duration_s": 12.0,
-   "start_hms": "1:37:12",
-   "end_hms": "1:37:24",
-   "bpm": 127.65957641601562,
-   "reasons": [
-    "take 40 replays this head, sequence match 0.70, so this attempt was aborted",
-    "under 20s of playing"
-   ]
+   "score": 55.6,
+   "start_s": 5281.0,
+   "end_s": 5327.0,
+   "duration_s": 46.0,
+   "start_hms": "1:28:01",
+   "end_hms": "1:28:47",
+   "bpm": 122.5,
+   "reasons": []
   },
   {
    "idx": 40,
    "song_no": null,
    "verdict": "FRAGMENT",
-   "score": 18.7,
-   "start_s": 5850.0,
-   "end_s": 5858.0,
-   "duration_s": 8.0,
-   "start_hms": "1:37:30",
-   "end_hms": "1:37:38",
-   "bpm": 130.43478393554688,
-   "reasons": [
-    "under 20s of playing"
-   ]
+   "score": 61.3,
+   "start_s": 5675.0,
+   "end_s": 5714.0,
+   "duration_s": 39.0,
+   "start_hms": "1:34:35",
+   "end_hms": "1:35:14",
+   "bpm": 150.0,
+   "reasons": []
   },
   {
    "idx": 41,
    "song_no": null,
-   "verdict": "FRAGMENT",
-   "score": 67.7,
-   "start_s": 5879.0,
-   "end_s": 5925.0,
-   "duration_s": 46.0,
-   "start_hms": "1:37:59",
-   "end_hms": "1:38:45",
-   "bpm": 142.85714721679688,
-   "reasons": []
+   "verdict": "WORKSHOP",
+   "score": 6.7,
+   "start_s": 5722.0,
+   "end_s": 5731.0,
+   "duration_s": 9.0,
+   "start_hms": "1:35:22",
+   "end_hms": "1:35:31",
+   "bpm": 240.0,
+   "reasons": [
+    "under 20s of playing",
+    "2 nearby short takes play the same material, so this is a section being drilled"
+   ]
   },
   {
    "idx": 42,
-   "song_no": 2,
-   "verdict": "SONG",
-   "score": 86.3,
-   "start_s": 5972.0,
-   "end_s": 6165.0,
-   "duration_s": 193.0,
-   "start_hms": "1:39:32",
-   "end_hms": "1:42:45",
-   "bpm": 54.054054260253906,
+   "song_no": null,
+   "verdict": "FRAGMENT",
+   "score": 3.0,
+   "start_s": 5734.0,
+   "end_s": 5753.0,
+   "duration_s": 19.0,
+   "start_hms": "1:35:34",
+   "end_hms": "1:35:53",
+   "bpm": 125.0,
    "reasons": [
-    "6 section change(s), steady pulse at 54 BPM, 3.2 min sustained"
+    "3s of off-song activity right after it stops",
+    "under 20s of playing"
    ]
   },
   {
    "idx": 43,
-   "song_no": null,
-   "verdict": "FALSE_START",
-   "score": 67.8,
-   "start_s": 6171.0,
-   "end_s": 6217.0,
-   "duration_s": 46.0,
-   "start_hms": "1:42:51",
-   "end_hms": "1:43:37",
-   "bpm": 52.173912048339844,
+   "song_no": 6,
+   "verdict": "SONG",
+   "score": 72.4,
+   "start_s": 5800.0,
+   "end_s": 5953.0,
+   "duration_s": 153.0,
+   "start_hms": "1:36:40",
+   "end_hms": "1:39:13",
+   "bpm": 133.3333282470703,
    "reasons": [
-    "a real attempt that stops dead with no ending, then off-song activity over the top"
+    "4 section change(s), steady pulse at 133 BPM, 2.5 min sustained"
    ]
   },
   {
    "idx": 44,
-   "song_no": null,
-   "verdict": "FALSE_START",
-   "score": 48.8,
-   "start_s": 6248.0,
-   "end_s": 6268.0,
-   "duration_s": 20.0,
-   "start_hms": "1:44:08",
-   "end_hms": "1:44:28",
-   "bpm": 68.18181610107422,
+   "song_no": 7,
+   "verdict": "SONG",
+   "score": 91.2,
+   "start_s": 5966.0,
+   "end_s": 6245.0,
+   "duration_s": 279.0,
+   "start_hms": "1:39:26",
+   "end_hms": "1:44:05",
+   "bpm": 53.57143020629883,
    "reasons": [
-    "a real attempt that stops dead with no ending, then off-song activity over the top"
+    "8 section change(s), steady pulse at 54 BPM, 4.7 min sustained"
    ]
   },
   {
    "idx": 45,
    "song_no": null,
    "verdict": "FRAGMENT",
-   "score": 22.7,
-   "start_s": 6320.0,
-   "end_s": 6330.0,
-   "duration_s": 10.0,
-   "start_hms": "1:45:20",
-   "end_hms": "1:45:30",
-   "bpm": 71.8588638305664,
+   "score": 10.3,
+   "start_s": 6251.0,
+   "end_s": 6265.0,
+   "duration_s": 14.0,
+   "start_hms": "1:44:11",
+   "end_hms": "1:44:25",
+   "bpm": 68.18181610107422,
    "reasons": [
+    "3s of off-song activity right after it stops",
     "under 20s of playing"
    ]
   },
   {
    "idx": 46,
-   "song_no": null,
-   "verdict": "FALSE_START",
-   "score": 8.9,
-   "start_s": 6335.0,
-   "end_s": 6352.0,
-   "duration_s": 17.0,
-   "start_hms": "1:45:35",
-   "end_hms": "1:45:52",
-   "bpm": 146.34146118164062,
+   "song_no": 8,
+   "verdict": "SONG",
+   "score": 75.1,
+   "start_s": 6268.0,
+   "end_s": 6360.0,
+   "duration_s": 92.0,
+   "start_hms": "1:44:28",
+   "end_hms": "1:46:00",
+   "bpm": 129.04718017578125,
    "reasons": [
-    "3s of off-song activity right after it stops",
-    "under 20s of playing",
-    "a real attempt that stops dead with no ending, then off-song activity over the top"
+    "3 section change(s), steady pulse at 129 BPM, 1.5 min sustained"
    ]
   },
   {
    "idx": 47,
    "song_no": null,
    "verdict": "FRAGMENT",
-   "score": 35.8,
-   "start_s": 6509.0,
-   "end_s": 6525.0,
-   "duration_s": 16.0,
-   "start_hms": "1:48:29",
-   "end_hms": "1:48:45",
+   "score": 23.9,
+   "start_s": 6511.0,
+   "end_s": 6521.0,
+   "duration_s": 10.0,
+   "start_hms": "1:48:31",
+   "end_hms": "1:48:41",
    "bpm": 107.14286041259766,
    "reasons": [
     "under 20s of playing"
@@ -724,26 +719,28 @@
    "idx": 48,
    "song_no": null,
    "verdict": "FRAGMENT",
-   "score": 47.9,
-   "start_s": 6699.0,
-   "end_s": 6727.0,
-   "duration_s": 28.0,
-   "start_hms": "1:51:39",
-   "end_hms": "1:52:07",
-   "bpm": 125.0,
-   "reasons": []
+   "score": 6.3,
+   "start_s": 6553.0,
+   "end_s": 6564.0,
+   "duration_s": 11.0,
+   "start_hms": "1:49:13",
+   "end_hms": "1:49:24",
+   "bpm": 75.9493637084961,
+   "reasons": [
+    "under 20s of playing"
+   ]
   },
   {
    "idx": 49,
    "song_no": null,
    "verdict": "FRAGMENT",
-   "score": 23.6,
-   "start_s": 6780.0,
-   "end_s": 6789.0,
-   "duration_s": 9.0,
-   "start_hms": "1:53:00",
-   "end_hms": "1:53:09",
-   "bpm": 157.8947296142578,
+   "score": 11.4,
+   "start_s": 6614.0,
+   "end_s": 6627.0,
+   "duration_s": 13.0,
+   "start_hms": "1:50:14",
+   "end_hms": "1:50:27",
+   "bpm": 113.20755004882812,
    "reasons": [
     "under 20s of playing"
    ]
@@ -752,852 +749,789 @@
    "idx": 50,
    "song_no": null,
    "verdict": "FRAGMENT",
-   "score": 24.3,
-   "start_s": 6908.0,
-   "end_s": 6919.0,
-   "duration_s": 11.0,
-   "start_hms": "1:55:08",
-   "end_hms": "1:55:19",
-   "bpm": 150.0,
+   "score": 21.5,
+   "start_s": 6631.0,
+   "end_s": 6645.0,
+   "duration_s": 14.0,
+   "start_hms": "1:50:31",
+   "end_hms": "1:50:45",
+   "bpm": 122.44898223876953,
    "reasons": [
     "under 20s of playing"
    ]
   },
   {
    "idx": 51,
-   "song_no": null,
-   "verdict": "FALSE_START",
-   "score": 0.0,
-   "start_s": 7126.0,
-   "end_s": 7141.0,
-   "duration_s": 15.0,
-   "start_hms": "1:58:46",
-   "end_hms": "1:59:01",
-   "bpm": 117.64705657958984,
+   "song_no": 9,
+   "verdict": "SONG",
+   "score": 73.7,
+   "start_s": 6689.0,
+   "end_s": 6829.0,
+   "duration_s": 140.0,
+   "start_hms": "1:51:29",
+   "end_hms": "1:53:49",
+   "bpm": 110.17520141601562,
    "reasons": [
-    "take 52 replays this head, sequence match 0.95, so this attempt was aborted",
-    "under 20s of playing"
+    "4 section change(s), steady pulse at 110 BPM, 2.3 min sustained"
    ]
   },
   {
    "idx": 52,
    "song_no": null,
-   "verdict": "WORKSHOP",
-   "score": 26.3,
-   "start_s": 7200.0,
-   "end_s": 7215.0,
-   "duration_s": 15.0,
-   "start_hms": "2:00:00",
-   "end_hms": "2:00:15",
-   "bpm": 120.0,
-   "reasons": [
-    "under 20s of playing",
-    "3 nearby short takes play the same material, so this is a section being drilled"
-   ]
+   "verdict": "FRAGMENT",
+   "score": 57.0,
+   "start_s": 6889.0,
+   "end_s": 6934.0,
+   "duration_s": 45.0,
+   "start_hms": "1:54:49",
+   "end_hms": "1:55:34",
+   "bpm": 92.30769348144531,
+   "reasons": []
   },
   {
    "idx": 53,
    "song_no": null,
-   "verdict": "FALSE_START",
-   "score": 23.7,
-   "start_s": 7218.0,
-   "end_s": 7264.0,
-   "duration_s": 46.0,
-   "start_hms": "2:00:18",
-   "end_hms": "2:01:04",
-   "bpm": 73.62240600585938,
+   "verdict": "FRAGMENT",
+   "score": 4.5,
+   "start_s": 6950.0,
+   "end_s": 6958.0,
+   "duration_s": 8.0,
+   "start_hms": "1:55:50",
+   "end_hms": "1:55:58",
+   "bpm": 71.42857360839844,
    "reasons": [
-    "take 54 replays this head, sequence match 0.73, so this attempt was aborted"
+    "under 20s of playing"
    ]
   },
   {
    "idx": 54,
    "song_no": null,
-   "verdict": "FALSE_START",
-   "score": 2.4,
-   "start_s": 7282.0,
-   "end_s": 7309.0,
-   "duration_s": 27.0,
-   "start_hms": "2:01:22",
-   "end_hms": "2:01:49",
-   "bpm": 75.9493637084961,
+   "verdict": "FRAGMENT",
+   "score": 13.1,
+   "start_s": 6969.0,
+   "end_s": 6986.0,
+   "duration_s": 17.0,
+   "start_hms": "1:56:09",
+   "end_hms": "1:56:26",
+   "bpm": 157.8947296142578,
    "reasons": [
-    "take 55 replays this head, sequence match 0.89, so this attempt was aborted"
+    "under 20s of playing"
    ]
   },
   {
    "idx": 55,
-   "song_no": 3,
-   "verdict": "SONG",
-   "score": 83.1,
-   "start_s": 7340.0,
-   "end_s": 7443.0,
-   "duration_s": 103.0,
-   "start_hms": "2:02:20",
-   "end_hms": "2:04:03",
-   "bpm": 76.92308044433594,
-   "reasons": [
-    "3 section change(s), steady pulse at 77 BPM, 1.7 min sustained"
-   ]
+   "song_no": null,
+   "verdict": "FRAGMENT",
+   "score": 48.6,
+   "start_s": 7024.0,
+   "end_s": 7058.0,
+   "duration_s": 34.0,
+   "start_hms": "1:57:04",
+   "end_hms": "1:57:38",
+   "bpm": 166.7953643798828,
+   "reasons": []
   },
   {
    "idx": 56,
    "song_no": null,
-   "verdict": "WORKSHOP",
-   "score": 24.4,
-   "start_s": 7484.0,
-   "end_s": 7503.0,
-   "duration_s": 19.0,
-   "start_hms": "2:04:44",
-   "end_hms": "2:05:03",
-   "bpm": 117.64705657958984,
+   "verdict": "FRAGMENT",
+   "score": 3.6,
+   "start_s": 7073.0,
+   "end_s": 7083.0,
+   "duration_s": 10.0,
+   "start_hms": "1:57:53",
+   "end_hms": "1:58:03",
+   "bpm": 101.68067169189453,
    "reasons": [
-    "under 20s of playing",
-    "4 nearby short takes play the same material, so this is a section being drilled"
+    "under 20s of playing"
    ]
   },
   {
    "idx": 57,
    "song_no": null,
-   "verdict": "WORKSHOP",
-   "score": 0.0,
-   "start_s": 7531.0,
-   "end_s": 7542.0,
-   "duration_s": 11.0,
-   "start_hms": "2:05:31",
-   "end_hms": "2:05:42",
-   "bpm": 214.2857208251953,
+   "verdict": "FALSE_START",
+   "score": 17.3,
+   "start_s": 7111.0,
+   "end_s": 7150.0,
+   "duration_s": 39.0,
+   "start_hms": "1:58:31",
+   "end_hms": "1:59:10",
+   "bpm": 117.64705657958984,
    "reasons": [
-    "take 58 replays this head, sequence match 0.93, so this attempt was aborted",
-    "under 20s of playing",
-    "3 nearby short takes play the same material, so this is a section being drilled"
+    "take 59 replays this head, sequence match 0.63, so this attempt was aborted"
    ]
   },
   {
    "idx": 58,
-   "song_no": null,
-   "verdict": "WORKSHOP",
-   "score": 21.9,
-   "start_s": 7592.0,
-   "end_s": 7602.0,
-   "duration_s": 10.0,
-   "start_hms": "2:06:32",
-   "end_hms": "2:06:42",
-   "bpm": 222.22222900390625,
+   "song_no": 10,
+   "verdict": "SONG",
+   "score": 88.4,
+   "start_s": 7199.0,
+   "end_s": 7322.0,
+   "duration_s": 123.0,
+   "start_hms": "1:59:59",
+   "end_hms": "2:02:02",
+   "bpm": 75.9493637084961,
    "reasons": [
-    "under 20s of playing",
-    "3 nearby short takes play the same material, so this is a section being drilled"
+    "4 section change(s), steady pulse at 76 BPM, 2.0 min sustained"
    ]
   },
   {
    "idx": 59,
-   "song_no": null,
-   "verdict": "WORKSHOP",
-   "score": 37.0,
-   "start_s": 7620.0,
-   "end_s": 7640.0,
-   "duration_s": 20.0,
-   "start_hms": "2:07:00",
-   "end_hms": "2:07:20",
-   "bpm": 169.9346466064453,
+   "song_no": 11,
+   "verdict": "SONG",
+   "score": 91.8,
+   "start_s": 7340.0,
+   "end_s": 7873.0,
+   "duration_s": 533.0,
+   "start_hms": "2:02:20",
+   "end_hms": "2:11:13",
+   "bpm": 117.64705657958984,
    "reasons": [
-    "3 nearby short takes play the same material, so this is a section being drilled"
+    "12 section change(s), steady pulse at 118 BPM, 8.9 min sustained"
    ]
   },
   {
    "idx": 60,
    "song_no": null,
-   "verdict": "FALSE_START",
-   "score": 23.5,
-   "start_s": 7645.0,
-   "end_s": 7724.0,
-   "duration_s": 79.0,
-   "start_hms": "2:07:25",
-   "end_hms": "2:08:44",
-   "bpm": 117.64705657958984,
+   "verdict": "FRAGMENT",
+   "score": 6.4,
+   "start_s": 7929.0,
+   "end_s": 7940.0,
+   "duration_s": 11.0,
+   "start_hms": "2:12:09",
+   "end_hms": "2:12:20",
+   "bpm": 111.11111450195312,
    "reasons": [
-    "take 63 replays this head, sequence match 0.71, so this attempt was aborted"
+    "under 20s of playing"
    ]
   },
   {
    "idx": 61,
-   "song_no": null,
-   "verdict": "FALSE_START",
-   "score": 19.3,
-   "start_s": 7733.0,
-   "end_s": 7784.0,
-   "duration_s": 51.0,
-   "start_hms": "2:08:53",
-   "end_hms": "2:09:44",
+   "song_no": 12,
+   "verdict": "SONG",
+   "score": 80.5,
+   "start_s": 7953.0,
+   "end_s": 8072.0,
+   "duration_s": 119.0,
+   "start_hms": "2:12:33",
+   "end_hms": "2:14:32",
    "bpm": 117.64705657958984,
    "reasons": [
-    "take 64 replays this head, sequence match 0.62, so this attempt was aborted"
+    "3 section change(s), steady pulse at 118 BPM, 2.0 min sustained"
    ]
   },
   {
    "idx": 62,
    "song_no": null,
-   "verdict": "WORKSHOP",
-   "score": 63.2,
-   "start_s": 7804.0,
-   "end_s": 7852.0,
-   "duration_s": 48.0,
-   "start_hms": "2:10:04",
-   "end_hms": "2:10:52",
-   "bpm": 61.85567092895508,
+   "verdict": "FRAGMENT",
+   "score": 17.5,
+   "start_s": 8076.0,
+   "end_s": 8092.0,
+   "duration_s": 16.0,
+   "start_hms": "2:14:36",
+   "end_hms": "2:14:52",
+   "bpm": 136.58535766601562,
    "reasons": [
-    "4 nearby short takes play the same material, so this is a section being drilled"
+    "under 20s of playing"
    ]
   },
   {
    "idx": 63,
    "song_no": null,
-   "verdict": "FALSE_START",
-   "score": 0.0,
-   "start_s": 7999.0,
-   "end_s": 8022.0,
-   "duration_s": 23.0,
-   "start_hms": "2:13:19",
-   "end_hms": "2:13:42",
-   "bpm": 115.38461303710938,
-   "reasons": [
-    "take 64 replays this head, sequence match 0.70, so this attempt was aborted"
-   ]
+   "verdict": "FRAGMENT",
+   "score": 60.4,
+   "start_s": 8131.0,
+   "end_s": 8181.0,
+   "duration_s": 50.0,
+   "start_hms": "2:15:31",
+   "end_hms": "2:16:21",
+   "bpm": 120.0,
+   "reasons": []
   },
   {
    "idx": 64,
    "song_no": null,
-   "verdict": "WORKSHOP",
-   "score": 69.2,
-   "start_s": 8031.0,
-   "end_s": 8069.0,
-   "duration_s": 38.0,
-   "start_hms": "2:13:51",
-   "end_hms": "2:14:29",
-   "bpm": 117.64705657958984,
-   "reasons": [
-    "4 nearby short takes play the same material, so this is a section being drilled"
-   ]
+   "verdict": "NOODLE",
+   "score": 68.5,
+   "start_s": 8203.0,
+   "end_s": 8305.0,
+   "duration_s": 102.0,
+   "start_hms": "2:16:43",
+   "end_hms": "2:18:25",
+   "bpm": 130.43478393554688,
+   "reasons": []
   },
   {
    "idx": 65,
-   "song_no": null,
-   "verdict": "FRAGMENT",
-   "score": 17.1,
-   "start_s": 8249.0,
-   "end_s": 8267.0,
-   "duration_s": 18.0,
-   "start_hms": "2:17:29",
-   "end_hms": "2:17:47",
-   "bpm": 183.8297882080078,
+   "song_no": 13,
+   "verdict": "SONG",
+   "score": 84.5,
+   "start_s": 8476.0,
+   "end_s": 9110.0,
+   "duration_s": 634.0,
+   "start_hms": "2:21:16",
+   "end_hms": "2:31:50",
+   "bpm": 100.0,
    "reasons": [
-    "under 20s of playing"
+    "7 section change(s), steady pulse at 100 BPM, 10.6 min sustained"
    ]
   },
   {
    "idx": 66,
    "song_no": null,
-   "verdict": "WORKSHOP",
-   "score": 29.8,
-   "start_s": 8282.0,
-   "end_s": 8290.0,
-   "duration_s": 8.0,
-   "start_hms": "2:18:02",
-   "end_hms": "2:18:10",
-   "bpm": 142.85714721679688,
-   "reasons": [
-    "under 20s of playing",
-    "5 nearby short takes play the same material, so this is a section being drilled"
-   ]
+   "verdict": "NOODLE",
+   "score": 66.7,
+   "start_s": 9124.0,
+   "end_s": 9202.0,
+   "duration_s": 78.0,
+   "start_hms": "2:32:04",
+   "end_hms": "2:33:22",
+   "bpm": 104.97737121582031,
+   "reasons": []
   },
   {
    "idx": 67,
    "song_no": null,
-   "verdict": "WORKSHOP",
-   "score": 0.0,
-   "start_s": 8505.0,
-   "end_s": 8513.0,
-   "duration_s": 8.0,
-   "start_hms": "2:21:45",
-   "end_hms": "2:21:53",
-   "bpm": 77.92208099365234,
-   "reasons": [
-    "take 68 replays this head, sequence match 0.94, so this attempt was aborted",
-    "under 20s of playing",
-    "4 nearby short takes play the same material, so this is a section being drilled"
-   ]
+   "verdict": "FRAGMENT",
+   "score": 59.9,
+   "start_s": 9210.0,
+   "end_s": 9255.0,
+   "duration_s": 45.0,
+   "start_hms": "2:33:30",
+   "end_hms": "2:34:15",
+   "bpm": 95.23809814453125,
+   "reasons": []
   },
   {
    "idx": 68,
    "song_no": null,
    "verdict": "WORKSHOP",
-   "score": 0.0,
-   "start_s": 8530.0,
-   "end_s": 8540.0,
-   "duration_s": 10.0,
-   "start_hms": "2:22:10",
-   "end_hms": "2:22:20",
-   "bpm": 75.9493637084961,
+   "score": 42.6,
+   "start_s": 9267.0,
+   "end_s": 9302.0,
+   "duration_s": 35.0,
+   "start_hms": "2:34:27",
+   "end_hms": "2:35:02",
+   "bpm": 142.85714721679688,
    "reasons": [
-    "take 69 replays this head, sequence match 0.88, so this attempt was aborted",
-    "under 20s of playing",
-    "5 nearby short takes play the same material, so this is a section being drilled"
+    "2 nearby short takes play the same material, so this is a section being drilled"
    ]
   },
   {
    "idx": 69,
    "song_no": null,
-   "verdict": "FALSE_START",
-   "score": 7.0,
-   "start_s": 8545.0,
-   "end_s": 8576.0,
-   "duration_s": 31.0,
-   "start_hms": "2:22:25",
-   "end_hms": "2:22:56",
-   "bpm": 81.0810775756836,
+   "verdict": "FRAGMENT",
+   "score": 16.9,
+   "start_s": 9307.0,
+   "end_s": 9326.0,
+   "duration_s": 19.0,
+   "start_hms": "2:35:07",
+   "end_hms": "2:35:26",
+   "bpm": 92.30769348144531,
    "reasons": [
-    "take 70 replays this head, sequence match 0.83, so this attempt was aborted"
+    "under 20s of playing"
    ]
   },
   {
    "idx": 70,
    "song_no": null,
-   "verdict": "WORKSHOP",
-   "score": 50.0,
-   "start_s": 8617.0,
-   "end_s": 8644.0,
-   "duration_s": 27.0,
-   "start_hms": "2:23:37",
-   "end_hms": "2:24:04",
-   "bpm": 81.0810775756836,
-   "reasons": [
-    "6 nearby short takes play the same material, so this is a section being drilled"
-   ]
+   "verdict": "NOODLE",
+   "score": 68.4,
+   "start_s": 9330.0,
+   "end_s": 9505.0,
+   "duration_s": 175.0,
+   "start_hms": "2:35:30",
+   "end_hms": "2:38:25",
+   "bpm": 117.64705657958984,
+   "reasons": []
   },
   {
    "idx": 71,
    "song_no": null,
-   "verdict": "WORKSHOP",
-   "score": 22.0,
-   "start_s": 8657.0,
-   "end_s": 8665.0,
-   "duration_s": 8.0,
-   "start_hms": "2:24:17",
-   "end_hms": "2:24:25",
-   "bpm": 130.43478393554688,
-   "reasons": [
-    "under 20s of playing",
-    "4 nearby short takes play the same material, so this is a section being drilled"
-   ]
+   "verdict": "NOODLE",
+   "score": 59.4,
+   "start_s": 9541.0,
+   "end_s": 9648.0,
+   "duration_s": 107.0,
+   "start_hms": "2:39:01",
+   "end_hms": "2:40:48",
+   "bpm": 146.34146118164062,
+   "reasons": []
   },
   {
    "idx": 72,
    "song_no": null,
-   "verdict": "FALSE_START",
-   "score": 10.2,
-   "start_s": 8693.0,
-   "end_s": 8725.0,
-   "duration_s": 32.0,
-   "start_hms": "2:24:53",
-   "end_hms": "2:25:25",
-   "bpm": 64.51612854003906,
-   "reasons": [
-    "take 75 replays this head, sequence match 0.68, so this attempt was aborted"
-   ]
+   "verdict": "FRAGMENT",
+   "score": 67.5,
+   "start_s": 9659.0,
+   "end_s": 9718.0,
+   "duration_s": 59.0,
+   "start_hms": "2:40:59",
+   "end_hms": "2:41:58",
+   "bpm": 162.1621551513672,
+   "reasons": []
   },
   {
    "idx": 73,
    "song_no": null,
-   "verdict": "WORKSHOP",
-   "score": 51.7,
-   "start_s": 8729.0,
-   "end_s": 8761.0,
-   "duration_s": 32.0,
-   "start_hms": "2:25:29",
-   "end_hms": "2:26:01",
-   "bpm": 240.0,
-   "reasons": [
-    "5 nearby short takes play the same material, so this is a section being drilled"
-   ]
+   "verdict": "FRAGMENT",
+   "score": 46.7,
+   "start_s": 9727.0,
+   "end_s": 9780.0,
+   "duration_s": 53.0,
+   "start_hms": "2:42:07",
+   "end_hms": "2:43:00",
+   "bpm": 142.85714721679688,
+   "reasons": []
   },
   {
    "idx": 74,
    "song_no": null,
-   "verdict": "FALSE_START",
-   "score": 0.0,
-   "start_s": 8856.0,
-   "end_s": 8885.0,
-   "duration_s": 29.0,
-   "start_hms": "2:27:36",
-   "end_hms": "2:28:05",
-   "bpm": 127.65957641601562,
-   "reasons": [
-    "take 76 replays this head, sequence match 0.78, so this attempt was aborted"
-   ]
+   "verdict": "NOODLE",
+   "score": 66.3,
+   "start_s": 9795.0,
+   "end_s": 9896.0,
+   "duration_s": 101.0,
+   "start_hms": "2:43:15",
+   "end_hms": "2:44:56",
+   "bpm": 107.14286041259766,
+   "reasons": []
   },
   {
    "idx": 75,
    "song_no": null,
-   "verdict": "WORKSHOP",
-   "score": 24.3,
-   "start_s": 8906.0,
-   "end_s": 8917.0,
-   "duration_s": 11.0,
-   "start_hms": "2:28:26",
-   "end_hms": "2:28:37",
-   "bpm": 61.85567092895508,
-   "reasons": [
-    "under 20s of playing",
-    "6 nearby short takes play the same material, so this is a section being drilled"
-   ]
+   "verdict": "FRAGMENT",
+   "score": 49.0,
+   "start_s": 9937.0,
+   "end_s": 9975.0,
+   "duration_s": 38.0,
+   "start_hms": "2:45:37",
+   "end_hms": "2:46:15",
+   "bpm": 142.85714721679688,
+   "reasons": []
   },
   {
    "idx": 76,
-   "song_no": null,
-   "verdict": "WORKSHOP",
-   "score": 12.6,
-   "start_s": 8953.0,
-   "end_s": 8961.0,
-   "duration_s": 8.0,
-   "start_hms": "2:29:13",
-   "end_hms": "2:29:21",
-   "bpm": 117.64705657958984,
+   "song_no": 14,
+   "verdict": "SONG",
+   "score": 79.3,
+   "start_s": 10002.0,
+   "end_s": 10165.0,
+   "duration_s": 163.0,
+   "start_hms": "2:46:42",
+   "end_hms": "2:49:25",
+   "bpm": 113.20755004882812,
    "reasons": [
-    "10s of off-song activity right after it stops",
-    "under 20s of playing",
-    "5 nearby short takes play the same material, so this is a section being drilled"
+    "5 section change(s), steady pulse at 113 BPM, 2.7 min sustained"
    ]
   },
   {
    "idx": 77,
    "song_no": null,
-   "verdict": "WORKSHOP",
-   "score": 5.6,
-   "start_s": 9051.0,
-   "end_s": 9065.0,
-   "duration_s": 14.0,
-   "start_hms": "2:30:51",
-   "end_hms": "2:31:05",
-   "bpm": 130.43478393554688,
+   "verdict": "FRAGMENT",
+   "score": 9.6,
+   "start_s": 10181.0,
+   "end_s": 10191.0,
+   "duration_s": 10.0,
+   "start_hms": "2:49:41",
+   "end_hms": "2:49:51",
+   "bpm": 117.64705657958984,
    "reasons": [
-    "3s of off-song activity right after it stops",
-    "under 20s of playing",
-    "4 nearby short takes play the same material, so this is a section being drilled"
+    "under 20s of playing"
    ]
   },
   {
    "idx": 78,
    "song_no": null,
-   "verdict": "WORKSHOP",
-   "score": 21.7,
-   "start_s": 9089.0,
-   "end_s": 9105.0,
+   "verdict": "FRAGMENT",
+   "score": 1.9,
+   "start_s": 10302.0,
+   "end_s": 10318.0,
    "duration_s": 16.0,
-   "start_hms": "2:31:29",
-   "end_hms": "2:31:45",
-   "bpm": 214.2857208251953,
+   "start_hms": "2:51:42",
+   "end_hms": "2:51:58",
+   "bpm": 109.8901138305664,
    "reasons": [
-    "under 20s of playing",
-    "3 nearby short takes play the same material, so this is a section being drilled"
+    "under 20s of playing"
    ]
   },
   {
    "idx": 79,
-   "song_no": null,
-   "verdict": "FRAGMENT",
-   "score": 23.6,
-   "start_s": 9614.0,
-   "end_s": 9623.0,
-   "duration_s": 9.0,
-   "start_hms": "2:40:14",
-   "end_hms": "2:40:23",
-   "bpm": 162.1621551513672,
+   "song_no": 15,
+   "verdict": "SONG",
+   "score": 88.8,
+   "start_s": 10321.0,
+   "end_s": 10803.0,
+   "duration_s": 482.0,
+   "start_hms": "2:52:01",
+   "end_hms": "3:00:03",
+   "bpm": 120.0,
    "reasons": [
-    "under 20s of playing"
+    "11 section change(s), steady pulse at 120 BPM, 8.0 min sustained"
    ]
   },
   {
    "idx": 80,
-   "song_no": null,
-   "verdict": "FALSE_START",
-   "score": 0.0,
-   "start_s": 10133.0,
-   "end_s": 10149.0,
-   "duration_s": 16.0,
-   "start_hms": "2:48:53",
-   "end_hms": "2:49:09",
-   "bpm": 113.20755004882812,
+   "song_no": 16,
+   "verdict": "SONG",
+   "score": 81.0,
+   "start_s": 10881.0,
+   "end_s": 11287.0,
+   "duration_s": 406.0,
+   "start_hms": "3:01:21",
+   "end_hms": "3:08:07",
+   "bpm": 98.36065673828125,
    "reasons": [
-    "take 81 replays this head, sequence match 0.85, so this attempt was aborted",
-    "under 20s of playing"
+    "8 section change(s), steady pulse at 98 BPM, 6.8 min sustained"
    ]
   },
   {
    "idx": 81,
    "song_no": null,
-   "verdict": "WORKSHOP",
-   "score": 23.6,
-   "start_s": 10152.0,
-   "end_s": 10161.0,
-   "duration_s": 9.0,
-   "start_hms": "2:49:12",
-   "end_hms": "2:49:21",
-   "bpm": 117.64705657958984,
-   "reasons": [
-    "under 20s of playing",
-    "2 nearby short takes play the same material, so this is a section being drilled"
-   ]
+   "verdict": "NOODLE",
+   "score": 66.3,
+   "start_s": 11329.0,
+   "end_s": 11404.0,
+   "duration_s": 75.0,
+   "start_hms": "3:08:49",
+   "end_hms": "3:10:04",
+   "bpm": 77.92208099365234,
+   "reasons": []
   },
   {
    "idx": 82,
    "song_no": null,
-   "verdict": "WORKSHOP",
-   "score": 21.4,
-   "start_s": 10345.0,
-   "end_s": 10358.0,
-   "duration_s": 13.0,
-   "start_hms": "2:52:25",
-   "end_hms": "2:52:38",
-   "bpm": 133.3333282470703,
-   "reasons": [
-    "under 20s of playing",
-    "2 nearby short takes play the same material, so this is a section being drilled"
-   ]
+   "verdict": "FRAGMENT",
+   "score": 46.0,
+   "start_s": 11408.0,
+   "end_s": 11442.0,
+   "duration_s": 34.0,
+   "start_hms": "3:10:08",
+   "end_hms": "3:10:42",
+   "bpm": 125.0,
+   "reasons": []
   },
   {
    "idx": 83,
-   "song_no": null,
-   "verdict": "FALSE_START",
-   "score": 0.0,
-   "start_s": 10404.0,
-   "end_s": 10422.0,
-   "duration_s": 18.0,
-   "start_hms": "2:53:24",
-   "end_hms": "2:53:42",
-   "bpm": 133.3333282470703,
+   "song_no": 17,
+   "verdict": "SONG",
+   "score": 81.0,
+   "start_s": 11451.0,
+   "end_s": 12203.0,
+   "duration_s": 752.0,
+   "start_hms": "3:10:51",
+   "end_hms": "3:23:23",
+   "bpm": 81.0810775756836,
    "reasons": [
-    "take 84 replays this head, sequence match 0.63, so this attempt was aborted",
-    "under 20s of playing"
+    "14 section change(s), steady pulse at 81 BPM, 12.5 min sustained"
    ]
   },
   {
    "idx": 84,
-   "song_no": 4,
-   "verdict": "SONG",
-   "score": 79.7,
-   "start_s": 10444.0,
-   "end_s": 10562.0,
-   "duration_s": 118.0,
-   "start_hms": "2:54:04",
-   "end_hms": "2:56:02",
-   "bpm": 127.65957641601562,
+   "song_no": null,
+   "verdict": "FRAGMENT",
+   "score": 0.0,
+   "start_s": 12223.0,
+   "end_s": 12231.0,
+   "duration_s": 8.0,
+   "start_hms": "3:23:43",
+   "end_hms": "3:23:51",
+   "bpm": 115.42425537109375,
    "reasons": [
-    "4 section change(s), steady pulse at 128 BPM, 2.0 min sustained"
+    "under 20s of playing"
    ]
   },
   {
    "idx": 85,
-   "song_no": null,
-   "verdict": "FALSE_START",
-   "score": 6.5,
-   "start_s": 10566.0,
-   "end_s": 10601.0,
-   "duration_s": 35.0,
-   "start_hms": "2:56:06",
-   "end_hms": "2:56:41",
-   "bpm": 117.64705657958984,
+   "song_no": 18,
+   "verdict": "SONG",
+   "score": 83.2,
+   "start_s": 12236.0,
+   "end_s": 12606.0,
+   "duration_s": 370.0,
+   "start_hms": "3:23:56",
+   "end_hms": "3:30:06",
+   "bpm": 113.20755004882812,
    "reasons": [
-    "take 87 replays this head, sequence match 0.66, so this attempt was aborted"
+    "10 section change(s), steady pulse at 113 BPM, 6.2 min sustained"
    ]
   },
   {
    "idx": 86,
    "song_no": null,
-   "verdict": "FALSE_START",
-   "score": 1.8,
-   "start_s": 10613.0,
-   "end_s": 10636.0,
-   "duration_s": 23.0,
-   "start_hms": "2:56:53",
-   "end_hms": "2:57:16",
-   "bpm": 122.44898223876953,
-   "reasons": [
-    "take 87 replays this head, sequence match 0.78, so this attempt was aborted"
-   ]
+   "verdict": "FRAGMENT",
+   "score": 44.9,
+   "start_s": 12612.0,
+   "end_s": 12642.0,
+   "duration_s": 30.0,
+   "start_hms": "3:30:12",
+   "end_hms": "3:30:42",
+   "bpm": 91.60839080810547,
+   "reasons": []
   },
   {
    "idx": 87,
    "song_no": null,
-   "verdict": "WORKSHOP",
-   "score": 60.5,
-   "start_s": 10640.0,
-   "end_s": 10677.0,
-   "duration_s": 37.0,
-   "start_hms": "2:57:20",
-   "end_hms": "2:57:57",
-   "bpm": 120.0,
+   "verdict": "FRAGMENT",
+   "score": 15.3,
+   "start_s": 12653.0,
+   "end_s": 12672.0,
+   "duration_s": 19.0,
+   "start_hms": "3:30:53",
+   "end_hms": "3:31:12",
+   "bpm": 74.0740737915039,
    "reasons": [
-    "4 nearby short takes play the same material, so this is a section being drilled"
+    "under 20s of playing"
    ]
   },
   {
    "idx": 88,
    "song_no": null,
-   "verdict": "WORKSHOP",
-   "score": 45.1,
-   "start_s": 10690.0,
-   "end_s": 10717.0,
-   "duration_s": 27.0,
-   "start_hms": "2:58:10",
-   "end_hms": "2:58:37",
-   "bpm": 61.224491119384766,
+   "verdict": "FRAGMENT",
+   "score": 22.4,
+   "start_s": 12677.0,
+   "end_s": 12690.0,
+   "duration_s": 13.0,
+   "start_hms": "3:31:17",
+   "end_hms": "3:31:30",
+   "bpm": 133.3333282470703,
    "reasons": [
-    "3 nearby short takes play the same material, so this is a section being drilled"
+    "under 20s of playing"
    ]
   },
   {
    "idx": 89,
    "song_no": null,
-   "verdict": "WORKSHOP",
-   "score": 17.2,
-   "start_s": 10721.0,
-   "end_s": 10737.0,
-   "duration_s": 16.0,
-   "start_hms": "2:58:41",
-   "end_hms": "2:58:57",
-   "bpm": 82.76255798339844,
-   "reasons": [
-    "under 20s of playing",
-    "3 nearby short takes play the same material, so this is a section being drilled"
-   ]
+   "verdict": "FRAGMENT",
+   "score": 28.6,
+   "start_s": 12702.0,
+   "end_s": 12724.0,
+   "duration_s": 22.0,
+   "start_hms": "3:31:42",
+   "end_hms": "3:32:04",
+   "bpm": 92.30769348144531,
+   "reasons": []
   },
   {
    "idx": 90,
    "song_no": null,
-   "verdict": "FRAGMENT",
-   "score": 22.5,
-   "start_s": 11276.0,
-   "end_s": 11285.0,
-   "duration_s": 9.0,
-   "start_hms": "3:07:56",
-   "end_hms": "3:08:05",
-   "bpm": 130.43478393554688,
-   "reasons": [
-    "under 20s of playing"
-   ]
+   "verdict": "NOODLE",
+   "score": 67.8,
+   "start_s": 12814.0,
+   "end_s": 12945.0,
+   "duration_s": 131.0,
+   "start_hms": "3:33:34",
+   "end_hms": "3:35:45",
+   "bpm": 105.2631607055664,
+   "reasons": []
   },
   {
    "idx": 91,
-   "song_no": null,
-   "verdict": "FRAGMENT",
-   "score": 23.0,
-   "start_s": 11353.0,
-   "end_s": 11362.0,
-   "duration_s": 9.0,
-   "start_hms": "3:09:13",
-   "end_hms": "3:09:22",
-   "bpm": 83.33333587646484,
+   "song_no": 19,
+   "verdict": "SONG",
+   "score": 80.9,
+   "start_s": 12951.0,
+   "end_s": 13522.0,
+   "duration_s": 571.0,
+   "start_hms": "3:35:51",
+   "end_hms": "3:45:22",
+   "bpm": 107.14286041259766,
    "reasons": [
-    "under 20s of playing"
+    "7 section change(s), steady pulse at 107 BPM, 9.5 min sustained"
    ]
   },
   {
    "idx": 92,
-   "song_no": null,
-   "verdict": "FRAGMENT",
-   "score": 22.8,
-   "start_s": 11378.0,
-   "end_s": 11389.0,
-   "duration_s": 11.0,
-   "start_hms": "3:09:38",
-   "end_hms": "3:09:49",
-   "bpm": 77.92208099365234,
+   "song_no": 20,
+   "verdict": "SONG",
+   "score": 77.3,
+   "start_s": 13658.0,
+   "end_s": 13853.0,
+   "duration_s": 195.0,
+   "start_hms": "3:47:38",
+   "end_hms": "3:50:53",
+   "bpm": 107.14286041259766,
    "reasons": [
-    "under 20s of playing"
+    "6 section change(s), steady pulse at 107 BPM, 3.2 min sustained"
    ]
   },
   {
    "idx": 93,
    "song_no": null,
    "verdict": "FRAGMENT",
-   "score": 42.3,
-   "start_s": 11475.0,
-   "end_s": 11496.0,
-   "duration_s": 21.0,
-   "start_hms": "3:11:15",
-   "end_hms": "3:11:36",
-   "bpm": 240.0,
-   "reasons": []
+   "score": 56.1,
+   "start_s": 13904.0,
+   "end_s": 13963.0,
+   "duration_s": 59.0,
+   "start_hms": "3:51:44",
+   "end_hms": "3:52:43",
+   "bpm": 78.9473648071289,
+   "reasons": [
+    "trimmed 10s false start off the head, the same material restarts after the stop"
+   ]
   },
   {
    "idx": 94,
    "song_no": null,
-   "verdict": "FRAGMENT",
-   "score": 42.6,
-   "start_s": 11511.0,
-   "end_s": 11532.0,
-   "duration_s": 21.0,
-   "start_hms": "3:11:51",
-   "end_hms": "3:12:12",
-   "bpm": 80.0,
+   "verdict": "NOODLE",
+   "score": 61.6,
+   "start_s": 13966.0,
+   "end_s": 14038.0,
+   "duration_s": 72.0,
+   "start_hms": "3:52:46",
+   "end_hms": "3:53:58",
+   "bpm": 130.43478393554688,
    "reasons": []
   },
   {
    "idx": 95,
-   "song_no": null,
-   "verdict": "FRAGMENT",
-   "score": 0.0,
-   "start_s": 11551.0,
-   "end_s": 11562.0,
-   "duration_s": 11.0,
-   "start_hms": "3:12:31",
-   "end_hms": "3:12:42",
-   "bpm": 80.0,
+   "song_no": 21,
+   "verdict": "SONG",
+   "score": 84.3,
+   "start_s": 14109.0,
+   "end_s": 14384.0,
+   "duration_s": 275.0,
+   "start_hms": "3:55:09",
+   "end_hms": "3:59:44",
+   "bpm": 100.0,
    "reasons": [
-    "take 98 replays this head, sequence match 0.66, so this attempt was aborted",
-    "under 20s of playing"
+    "8 section change(s), steady pulse at 100 BPM, 4.6 min sustained"
    ]
   },
   {
    "idx": 96,
    "song_no": null,
-   "verdict": "WORKSHOP",
+   "verdict": "FRAGMENT",
    "score": 0.0,
-   "start_s": 11567.0,
-   "end_s": 11581.0,
-   "duration_s": 14.0,
-   "start_hms": "3:12:47",
-   "end_hms": "3:13:01",
-   "bpm": 81.0810775756836,
+   "start_s": 14395.0,
+   "end_s": 14405.0,
+   "duration_s": 10.0,
+   "start_hms": "3:59:55",
+   "end_hms": "4:00:05",
+   "bpm": 72.08238220214844,
    "reasons": [
-    "take 97 replays this head, sequence match 0.79, so this attempt was aborted",
-    "under 20s of playing",
-    "3 nearby short takes play the same material, so this is a section being drilled"
+    "under 20s of playing"
    ]
   },
   {
    "idx": 97,
-   "song_no": null,
-   "verdict": "FALSE_START",
-   "score": 0.0,
-   "start_s": 11650.0,
-   "end_s": 11667.0,
-   "duration_s": 17.0,
-   "start_hms": "3:14:10",
-   "end_hms": "3:14:27",
-   "bpm": 76.92308044433594,
+   "song_no": 22,
+   "verdict": "SONG",
+   "score": 83.5,
+   "start_s": 14408.0,
+   "end_s": 14682.0,
+   "duration_s": 274.0,
+   "start_hms": "4:00:08",
+   "end_hms": "4:04:42",
+   "bpm": 92.30769348144531,
    "reasons": [
-    "take 100 replays this head, sequence match 0.83, so this attempt was aborted",
-    "under 20s of playing"
+    "9 section change(s), steady pulse at 92 BPM, 4.6 min sustained"
    ]
   },
   {
    "idx": 98,
    "song_no": null,
    "verdict": "WORKSHOP",
-   "score": 0.0,
-   "start_s": 11675.0,
-   "end_s": 11684.0,
-   "duration_s": 9.0,
-   "start_hms": "3:14:35",
-   "end_hms": "3:14:44",
-   "bpm": 77.92208099365234,
-   "reasons": [
-    "take 100 replays this head, sequence match 0.96, so this attempt was aborted",
-    "under 20s of playing",
-    "5 nearby short takes play the same material, so this is a section being drilled"
-   ]
-  },
-  {
-   "idx": 99,
-   "song_no": null,
-   "verdict": "FALSE_START",
-   "score": 0.0,
-   "start_s": 11696.0,
-   "end_s": 11720.0,
-   "duration_s": 24.0,
-   "start_hms": "3:14:56",
-   "end_hms": "3:15:20",
-   "bpm": 81.0810775756836,
-   "reasons": [
-    "take 100 replays this head, sequence match 0.90, so this attempt was aborted"
-   ]
-  },
-  {
-   "idx": 100,
-   "song_no": null,
-   "verdict": "WORKSHOP",
-   "score": 22.6,
-   "start_s": 11727.0,
-   "end_s": 11738.0,
-   "duration_s": 11.0,
-   "start_hms": "3:15:27",
-   "end_hms": "3:15:38",
-   "bpm": 80.0,
-   "reasons": [
-    "under 20s of playing",
-    "5 nearby short takes play the same material, so this is a section being drilled"
-   ]
-  },
-  {
-   "idx": 101,
-   "song_no": 5,
-   "verdict": "SONG",
-   "score": 80.8,
-   "start_s": 11742.0,
-   "end_s": 11885.0,
-   "duration_s": 143.0,
-   "start_hms": "3:15:42",
-   "end_hms": "3:18:05",
-   "bpm": 81.0810775756836,
-   "reasons": [
-    "3 section change(s), steady pulse at 81 BPM, 2.4 min sustained"
-   ]
-  },
-  {
-   "idx": 102,
-   "song_no": null,
-   "verdict": "WORKSHOP",
-   "score": 26.4,
-   "start_s": 12095.0,
-   "end_s": 12111.0,
-   "duration_s": 16.0,
-   "start_hms": "3:21:35",
-   "end_hms": "3:21:51",
-   "bpm": 131.88406372070312,
-   "reasons": [
-    "under 20s of playing",
-    "4 nearby short takes play the same material, so this is a section being drilled"
-   ]
-  },
-  {
-   "idx": 103,
-   "song_no": null,
-   "verdict": "WORKSHOP",
-   "score": 17.4,
-   "start_s": 12147.0,
-   "end_s": 12159.0,
-   "duration_s": 12.0,
-   "start_hms": "3:22:27",
-   "end_hms": "3:22:39",
-   "bpm": 142.85714721679688,
+   "score": 5.7,
+   "start_s": 14687.0,
+   "end_s": 14695.0,
+   "duration_s": 8.0,
+   "start_hms": "4:04:47",
+   "end_hms": "4:04:55",
+   "bpm": 171.99017333984375,
    "reasons": [
     "under 20s of playing",
     "2 nearby short takes play the same material, so this is a section being drilled"
    ]
   },
   {
+   "idx": 99,
+   "song_no": 23,
+   "verdict": "SONG",
+   "score": 80.5,
+   "start_s": 14698.0,
+   "end_s": 14837.0,
+   "duration_s": 139.0,
+   "start_hms": "4:04:58",
+   "end_hms": "4:07:17",
+   "bpm": 142.85714721679688,
+   "reasons": [
+    "2 section change(s), steady pulse at 143 BPM, 2.3 min sustained"
+   ]
+  },
+  {
+   "idx": 100,
+   "song_no": null,
+   "verdict": "FRAGMENT",
+   "score": 16.6,
+   "start_s": 14840.0,
+   "end_s": 14848.0,
+   "duration_s": 8.0,
+   "start_hms": "4:07:20",
+   "end_hms": "4:07:28",
+   "bpm": 114.37908935546875,
+   "reasons": [
+    "under 20s of playing"
+   ]
+  },
+  {
+   "idx": 101,
+   "song_no": null,
+   "verdict": "WORKSHOP",
+   "score": 51.4,
+   "start_s": 14868.0,
+   "end_s": 14903.0,
+   "duration_s": 35.0,
+   "start_hms": "4:07:48",
+   "end_hms": "4:08:23",
+   "bpm": 70.5882339477539,
+   "reasons": [
+    "trimmed 11s false start off the head, the same material restarts after the stop",
+    "2 nearby short takes play the same material, so this is a section being drilled"
+   ]
+  },
+  {
+   "idx": 102,
+   "song_no": null,
+   "verdict": "NOODLE",
+   "score": 59.6,
+   "start_s": 14941.0,
+   "end_s": 15004.0,
+   "duration_s": 63.0,
+   "start_hms": "4:09:01",
+   "end_hms": "4:10:04",
+   "bpm": 86.9565200805664,
+   "reasons": []
+  },
+  {
+   "idx": 103,
+   "song_no": 24,
+   "verdict": "SONG",
+   "score": 91.2,
+   "start_s": 15007.0,
+   "end_s": 15627.0,
+   "duration_s": 620.0,
+   "start_hms": "4:10:07",
+   "end_hms": "4:20:27",
+   "bpm": 125.0,
+   "reasons": [
+    "11 section change(s), steady pulse at 125 BPM, 10.3 min sustained"
+   ]
+  },
+  {
    "idx": 104,
    "song_no": null,
    "verdict": "FRAGMENT",
-   "score": 25.5,
-   "start_s": 12162.0,
-   "end_s": 12176.0,
-   "duration_s": 14.0,
-   "start_hms": "3:22:42",
-   "end_hms": "3:22:56",
-   "bpm": 142.85714721679688,
+   "score": 1.4,
+   "start_s": 15633.0,
+   "end_s": 15644.0,
+   "duration_s": 11.0,
+   "start_hms": "4:20:33",
+   "end_hms": "4:20:44",
+   "bpm": 214.2857208251953,
    "reasons": [
+    "5s of off-song activity right after it stops",
     "under 20s of playing"
    ]
   },
@@ -1605,117 +1539,115 @@
    "idx": 105,
    "song_no": null,
    "verdict": "FRAGMENT",
-   "score": 0.0,
-   "start_s": 12269.0,
-   "end_s": 12281.0,
-   "duration_s": 12.0,
-   "start_hms": "3:24:29",
-   "end_hms": "3:24:41",
-   "bpm": 113.20755004882812,
+   "score": 6.8,
+   "start_s": 15660.0,
+   "end_s": 15675.0,
+   "duration_s": 15.0,
+   "start_hms": "4:21:00",
+   "end_hms": "4:21:15",
+   "bpm": 142.85714721679688,
    "reasons": [
-    "take 106 replays this head, sequence match 0.71, so this attempt was aborted",
     "under 20s of playing"
    ]
   },
   {
    "idx": 106,
-   "song_no": 6,
-   "verdict": "SONG",
-   "score": 76.3,
-   "start_s": 12296.0,
-   "end_s": 12363.0,
-   "duration_s": 67.0,
-   "start_hms": "3:24:56",
-   "end_hms": "3:26:03",
-   "bpm": 109.09091186523438,
-   "reasons": [
-    "2 section change(s), steady pulse at 109 BPM, 1.1 min sustained"
-   ]
+   "song_no": null,
+   "verdict": "FRAGMENT",
+   "score": 50.1,
+   "start_s": 15679.0,
+   "end_s": 15724.0,
+   "duration_s": 45.0,
+   "start_hms": "4:21:19",
+   "end_hms": "4:22:04",
+   "bpm": 171.42857360839844,
+   "reasons": []
   },
   {
    "idx": 107,
-   "song_no": null,
-   "verdict": "FRAGMENT",
-   "score": 25.4,
-   "start_s": 12398.0,
-   "end_s": 12412.0,
-   "duration_s": 14.0,
-   "start_hms": "3:26:38",
-   "end_hms": "3:26:52",
-   "bpm": 142.85714721679688,
+   "song_no": 25,
+   "verdict": "SONG",
+   "score": 83.6,
+   "start_s": 15731.0,
+   "end_s": 16329.0,
+   "duration_s": 598.0,
+   "start_hms": "4:22:11",
+   "end_hms": "4:32:09",
+   "bpm": 127.65957641601562,
    "reasons": [
-    "under 20s of playing"
+    "12 section change(s), steady pulse at 128 BPM, 10.0 min sustained"
    ]
   },
   {
    "idx": 108,
-   "song_no": null,
-   "verdict": "FRAGMENT",
-   "score": 12.7,
-   "start_s": 12421.0,
-   "end_s": 12437.0,
-   "duration_s": 16.0,
-   "start_hms": "3:27:01",
-   "end_hms": "3:27:17",
-   "bpm": 157.0196990966797,
+   "song_no": 26,
+   "verdict": "SONG",
+   "score": 90.1,
+   "start_s": 16335.0,
+   "end_s": 17644.0,
+   "duration_s": 1309.0,
+   "start_hms": "4:32:15",
+   "end_hms": "4:54:04",
+   "bpm": 68.96551513671875,
    "reasons": [
-    "under 20s of playing"
+    "21 section change(s), steady pulse at 69 BPM, 21.8 min sustained"
    ]
   },
   {
    "idx": 109,
    "song_no": null,
-   "verdict": "FRAGMENT",
-   "score": 48.5,
-   "start_s": 12461.0,
-   "end_s": 12482.0,
-   "duration_s": 21.0,
-   "start_hms": "3:27:41",
-   "end_hms": "3:28:02",
-   "bpm": 120.0,
+   "verdict": "NOODLE",
+   "score": 64.5,
+   "start_s": 17655.0,
+   "end_s": 17743.0,
+   "duration_s": 88.0,
+   "start_hms": "4:54:15",
+   "end_hms": "4:55:43",
+   "bpm": 133.3333282470703,
    "reasons": []
   },
   {
    "idx": 110,
-   "song_no": 7,
-   "verdict": "SONG",
-   "score": 76.5,
-   "start_s": 12489.0,
-   "end_s": 12588.0,
-   "duration_s": 99.0,
-   "start_hms": "3:28:09",
-   "end_hms": "3:29:48",
-   "bpm": 142.85714721679688,
+   "song_no": null,
+   "verdict": "FRAGMENT",
+   "score": 9.1,
+   "start_s": 17787.0,
+   "end_s": 17795.0,
+   "duration_s": 8.0,
+   "start_hms": "4:56:27",
+   "end_hms": "4:56:35",
+   "bpm": 57.69230651855469,
    "reasons": [
-    "3 section change(s), steady pulse at 143 BPM, 1.6 min sustained"
+    "under 20s of playing"
    ]
   },
   {
    "idx": 111,
    "song_no": null,
    "verdict": "FRAGMENT",
-   "score": 49.2,
-   "start_s": 12851.0,
-   "end_s": 12876.0,
-   "duration_s": 25.0,
-   "start_hms": "3:34:11",
-   "end_hms": "3:34:36",
-   "bpm": 142.85714721679688,
-   "reasons": []
+   "score": 18.1,
+   "start_s": 17804.0,
+   "end_s": 17812.0,
+   "duration_s": 8.0,
+   "start_hms": "4:56:44",
+   "end_hms": "4:56:52",
+   "bpm": 127.65957641601562,
+   "reasons": [
+    "under 20s of playing"
+   ]
   },
   {
    "idx": 112,
    "song_no": null,
    "verdict": "FRAGMENT",
-   "score": 0.0,
-   "start_s": 13058.0,
-   "end_s": 13072.0,
-   "duration_s": 14.0,
-   "start_hms": "3:37:38",
-   "end_hms": "3:37:52",
-   "bpm": 157.8947296142578,
+   "score": 22.6,
+   "start_s": 17816.0,
+   "end_s": 17831.0,
+   "duration_s": 15.0,
+   "start_hms": "4:56:56",
+   "end_hms": "4:57:11",
+   "bpm": 100.0,
    "reasons": [
-    "take 115 replays this head, sequence match 0.70, so this attempt was aborted",
     "under 20s of playing"
    ]
   },
@@ -1723,681 +1655,114 @@
    "idx": 113,
    "song_no": null,
    "verdict": "FRAGMENT",
-   "score": 16.9,
-   "start_s": 13200.0,
-   "end_s": 13212.0,
-   "duration_s": 12.0,
-   "start_hms": "3:40:00",
-   "end_hms": "3:40:12",
-   "bpm": 136.36363220214844,
-   "reasons": [
-    "under 20s of playing"
-   ]
+   "score": 39.8,
+   "start_s": 17834.0,
+   "end_s": 17857.0,
+   "duration_s": 23.0,
+   "start_hms": "4:57:14",
+   "end_hms": "4:57:37",
+   "bpm": 214.2857208251953,
+   "reasons": []
   },
   {
    "idx": 114,
    "song_no": null,
-   "verdict": "WORKSHOP",
-   "score": 50.1,
-   "start_s": 13225.0,
-   "end_s": 13253.0,
-   "duration_s": 28.0,
-   "start_hms": "3:40:25",
-   "end_hms": "3:40:53",
-   "bpm": 150.0,
-   "reasons": [
-    "2 nearby short takes play the same material, so this is a section being drilled"
-   ]
+   "verdict": "FRAGMENT",
+   "score": 46.5,
+   "start_s": 17944.0,
+   "end_s": 17977.0,
+   "duration_s": 33.0,
+   "start_hms": "4:59:04",
+   "end_hms": "4:59:37",
+   "bpm": 68.18181610107422,
+   "reasons": []
   },
   {
    "idx": 115,
    "song_no": null,
-   "verdict": "FALSE_START",
-   "score": 0.0,
-   "start_s": 13258.0,
-   "end_s": 13273.0,
-   "duration_s": 15.0,
-   "start_hms": "3:40:58",
-   "end_hms": "3:41:13",
-   "bpm": 153.84616088867188,
+   "verdict": "FRAGMENT",
+   "score": 24.2,
+   "start_s": 17983.0,
+   "end_s": 17992.0,
+   "duration_s": 9.0,
+   "start_hms": "4:59:43",
+   "end_hms": "4:59:52",
+   "bpm": 75.9493637084961,
    "reasons": [
-    "take 118 replays this head, sequence match 0.74, so this attempt was aborted",
     "under 20s of playing"
    ]
   },
   {
    "idx": 116,
    "song_no": null,
-   "verdict": "WORKSHOP",
-   "score": 11.7,
-   "start_s": 13279.0,
-   "end_s": 13287.0,
-   "duration_s": 8.0,
-   "start_hms": "3:41:19",
-   "end_hms": "3:41:27",
-   "bpm": 160.71429443359375,
+   "verdict": "FALSE_START",
+   "score": 62.2,
+   "start_s": 17995.0,
+   "end_s": 18072.0,
+   "duration_s": 77.0,
+   "start_hms": "4:59:55",
+   "end_hms": "5:01:12",
+   "bpm": 125.0,
    "reasons": [
-    "under 20s of playing",
-    "4 nearby short takes play the same material, so this is a section being drilled"
+    "a real attempt that stops dead with no ending, then off-song activity over the top"
    ]
   },
   {
    "idx": 117,
-   "song_no": null,
-   "verdict": "WORKSHOP",
-   "score": 23.4,
-   "start_s": 13339.0,
-   "end_s": 13349.0,
-   "duration_s": 10.0,
-   "start_hms": "3:42:19",
-   "end_hms": "3:42:29",
-   "bpm": 200.0,
+   "song_no": 27,
+   "verdict": "SONG",
+   "score": 71.2,
+   "start_s": 18107.0,
+   "end_s": 18499.0,
+   "duration_s": 392.0,
+   "start_hms": "5:01:47",
+   "end_hms": "5:08:19",
+   "bpm": 117.64705657958984,
    "reasons": [
-    "under 20s of playing",
-    "4 nearby short takes play the same material, so this is a section being drilled"
+    "7 section change(s), steady pulse at 118 BPM, 6.5 min sustained"
    ]
   },
   {
    "idx": 118,
    "song_no": null,
-   "verdict": "WORKSHOP",
-   "score": 26.9,
-   "start_s": 13352.0,
-   "end_s": 13361.0,
-   "duration_s": 9.0,
-   "start_hms": "3:42:32",
-   "end_hms": "3:42:41",
-   "bpm": 142.85714721679688,
-   "reasons": [
-    "under 20s of playing",
-    "3 nearby short takes play the same material, so this is a section being drilled"
-   ]
+   "verdict": "FRAGMENT",
+   "score": 63.2,
+   "start_s": 18517.0,
+   "end_s": 18560.0,
+   "duration_s": 43.0,
+   "start_hms": "5:08:37",
+   "end_hms": "5:09:20",
+   "bpm": 101.69491577148438,
+   "reasons": []
   },
   {
    "idx": 119,
    "song_no": null,
    "verdict": "FRAGMENT",
-   "score": 67.0,
-   "start_s": 13382.0,
-   "end_s": 13427.0,
-   "duration_s": 45.0,
-   "start_hms": "3:43:02",
-   "end_hms": "3:43:47",
-   "bpm": 62.5,
-   "reasons": []
+   "score": 8.5,
+   "start_s": 18688.0,
+   "end_s": 18697.0,
+   "duration_s": 9.0,
+   "start_hms": "5:11:28",
+   "end_hms": "5:11:37",
+   "bpm": 57.14285659790039,
+   "reasons": [
+    "under 20s of playing"
+   ]
   },
   {
    "idx": 120,
    "song_no": null,
    "verdict": "FRAGMENT",
-   "score": 20.5,
-   "start_s": 13902.0,
-   "end_s": 13921.0,
-   "duration_s": 19.0,
-   "start_hms": "3:51:42",
-   "end_hms": "3:52:01",
-   "bpm": 76.92308044433594,
-   "reasons": [
-    "under 20s of playing"
-   ]
-  },
-  {
-   "idx": 121,
-   "song_no": null,
-   "verdict": "FRAGMENT",
-   "score": 23.5,
-   "start_s": 13979.0,
-   "end_s": 13989.0,
-   "duration_s": 10.0,
-   "start_hms": "3:52:59",
-   "end_hms": "3:53:09",
-   "bpm": 75.9493637084961,
-   "reasons": [
-    "under 20s of playing"
-   ]
-  },
-  {
-   "idx": 122,
-   "song_no": null,
-   "verdict": "WORKSHOP",
-   "score": 22.7,
-   "start_s": 14270.0,
-   "end_s": 14287.0,
-   "duration_s": 17.0,
-   "start_hms": "3:57:50",
-   "end_hms": "3:58:07",
-   "bpm": 130.43478393554688,
-   "reasons": [
-    "under 20s of playing",
-    "3 nearby short takes play the same material, so this is a section being drilled"
-   ]
-  },
-  {
-   "idx": 123,
-   "song_no": null,
-   "verdict": "FALSE_START",
-   "score": 20.4,
-   "start_s": 14295.0,
-   "end_s": 14354.0,
-   "duration_s": 59.0,
-   "start_hms": "3:58:15",
-   "end_hms": "3:59:14",
-   "bpm": 65.21739196777344,
-   "reasons": [
-    "take 124 replays this head, sequence match 0.88, so this attempt was aborted"
-   ]
-  },
-  {
-   "idx": 124,
-   "song_no": null,
-   "verdict": "WORKSHOP",
-   "score": 17.8,
-   "start_s": 14454.0,
-   "end_s": 14463.0,
-   "duration_s": 9.0,
-   "start_hms": "4:00:54",
-   "end_hms": "4:01:03",
-   "bpm": 65.21739196777344,
-   "reasons": [
-    "under 20s of playing",
-    "4 nearby short takes play the same material, so this is a section being drilled"
-   ]
-  },
-  {
-   "idx": 125,
-   "song_no": null,
-   "verdict": "WORKSHOP",
-   "score": 24.3,
-   "start_s": 14605.0,
-   "end_s": 14616.0,
-   "duration_s": 11.0,
-   "start_hms": "4:03:25",
-   "end_hms": "4:03:36",
-   "bpm": 83.33333587646484,
-   "reasons": [
-    "under 20s of playing",
-    "4 nearby short takes play the same material, so this is a section being drilled"
-   ]
-  },
-  {
-   "idx": 126,
-   "song_no": null,
-   "verdict": "WORKSHOP",
-   "score": 63.8,
-   "start_s": 14710.0,
-   "end_s": 14749.0,
-   "duration_s": 39.0,
-   "start_hms": "4:05:10",
-   "end_hms": "4:05:49",
-   "bpm": 142.85714721679688,
-   "reasons": [
-    "3 nearby short takes play the same material, so this is a section being drilled"
-   ]
-  },
-  {
-   "idx": 127,
-   "song_no": null,
-   "verdict": "FALSE_START",
-   "score": 1.3,
-   "start_s": 14769.0,
-   "end_s": 14795.0,
-   "duration_s": 26.0,
-   "start_hms": "4:06:09",
-   "end_hms": "4:06:35",
-   "bpm": 68.96551513671875,
-   "reasons": [
-    "take 128 replays this head, sequence match 0.63, so this attempt was aborted"
-   ]
-  },
-  {
-   "idx": 128,
-   "song_no": null,
-   "verdict": "FRAGMENT",
-   "score": 20.7,
-   "start_s": 14800.0,
-   "end_s": 14808.0,
+   "score": 0.0,
+   "start_s": 18708.0,
+   "end_s": 18716.0,
    "duration_s": 8.0,
-   "start_hms": "4:06:40",
-   "end_hms": "4:06:48",
-   "bpm": 68.96551513671875,
+   "start_hms": "5:11:48",
+   "end_hms": "5:11:56",
+   "bpm": 51.28205108642578,
    "reasons": [
-    "under 20s of playing"
-   ]
-  },
-  {
-   "idx": 129,
-   "song_no": null,
-   "verdict": "FRAGMENT",
-   "score": 21.4,
-   "start_s": 14815.0,
-   "end_s": 14824.0,
-   "duration_s": 9.0,
-   "start_hms": "4:06:55",
-   "end_hms": "4:07:04",
-   "bpm": 139.53488159179688,
-   "reasons": [
-    "under 20s of playing"
-   ]
-  },
-  {
-   "idx": 130,
-   "song_no": null,
-   "verdict": "FRAGMENT",
-   "score": 38.0,
-   "start_s": 15053.0,
-   "end_s": 15077.0,
-   "duration_s": 24.0,
-   "start_hms": "4:10:53",
-   "end_hms": "4:11:17",
-   "bpm": 89.7513656616211,
-   "reasons": []
-  },
-  {
-   "idx": 131,
-   "song_no": 8,
-   "verdict": "SONG",
-   "score": 70.6,
-   "start_s": 15098.0,
-   "end_s": 15162.0,
-   "duration_s": 64.0,
-   "start_hms": "4:11:38",
-   "end_hms": "4:12:42",
-   "bpm": 125.0,
-   "reasons": [
-    "3 section change(s), steady pulse at 125 BPM, 1.1 min sustained"
-   ]
-  },
-  {
-   "idx": 132,
-   "song_no": null,
-   "verdict": "NOODLE",
-   "score": 65.4,
-   "start_s": 15177.0,
-   "end_s": 15240.0,
-   "duration_s": 63.0,
-   "start_hms": "4:12:57",
-   "end_hms": "4:14:00",
-   "bpm": 127.65957641601562,
-   "reasons": []
-  },
-  {
-   "idx": 133,
-   "song_no": null,
-   "verdict": "FRAGMENT",
-   "score": 21.0,
-   "start_s": 15342.0,
-   "end_s": 15360.0,
-   "duration_s": 18.0,
-   "start_hms": "4:15:42",
-   "end_hms": "4:16:00",
-   "bpm": 61.85567092895508,
-   "reasons": [
-    "under 20s of playing"
-   ]
-  },
-  {
-   "idx": 134,
-   "song_no": null,
-   "verdict": "WORKSHOP",
-   "score": 23.6,
-   "start_s": 15384.0,
-   "end_s": 15392.0,
-   "duration_s": 8.0,
-   "start_hms": "4:16:24",
-   "end_hms": "4:16:32",
-   "bpm": 77.42257690429688,
-   "reasons": [
-    "under 20s of playing",
-    "2 nearby short takes play the same material, so this is a section being drilled"
-   ]
-  },
-  {
-   "idx": 135,
-   "song_no": null,
-   "verdict": "FALSE_START",
-   "score": 22.4,
-   "start_s": 15455.0,
-   "end_s": 15523.0,
-   "duration_s": 68.0,
-   "start_hms": "4:17:35",
-   "end_hms": "4:18:43",
-   "bpm": 127.65957641601562,
-   "reasons": [
-    "take 136 replays this head, sequence match 0.64, so this attempt was aborted"
-   ]
-  },
-  {
-   "idx": 136,
-   "song_no": null,
-   "verdict": "NOODLE",
-   "score": 65.1,
-   "start_s": 15527.0,
-   "end_s": 15590.0,
-   "duration_s": 63.0,
-   "start_hms": "4:18:47",
-   "end_hms": "4:19:50",
-   "bpm": 125.0,
-   "reasons": []
-  },
-  {
-   "idx": 137,
-   "song_no": null,
-   "verdict": "FRAGMENT",
-   "score": 18.1,
-   "start_s": 15602.0,
-   "end_s": 15610.0,
-   "duration_s": 8.0,
-   "start_hms": "4:20:02",
-   "end_hms": "4:20:10",
-   "bpm": 85.71428680419922,
-   "reasons": [
-    "under 20s of playing"
-   ]
-  },
-  {
-   "idx": 138,
-   "song_no": null,
-   "verdict": "FRAGMENT",
-   "score": 24.3,
-   "start_s": 15835.0,
-   "end_s": 15844.0,
-   "duration_s": 9.0,
-   "start_hms": "4:23:55",
-   "end_hms": "4:24:04",
-   "bpm": 117.64705657958984,
-   "reasons": [
-    "under 20s of playing"
-   ]
-  },
-  {
-   "idx": 139,
-   "song_no": null,
-   "verdict": "FRAGMENT",
-   "score": 21.4,
-   "start_s": 15875.0,
-   "end_s": 15887.0,
-   "duration_s": 12.0,
-   "start_hms": "4:24:35",
-   "end_hms": "4:24:47",
-   "bpm": 75.9493637084961,
-   "reasons": [
-    "under 20s of playing"
-   ]
-  },
-  {
-   "idx": 140,
-   "song_no": null,
-   "verdict": "FRAGMENT",
-   "score": 19.1,
-   "start_s": 15892.0,
-   "end_s": 15905.0,
-   "duration_s": 13.0,
-   "start_hms": "4:24:52",
-   "end_hms": "4:25:05",
-   "bpm": 162.1621551513672,
-   "reasons": [
-    "under 20s of playing"
-   ]
-  },
-  {
-   "idx": 141,
-   "song_no": 9,
-   "verdict": "SONG",
-   "score": 75.1,
-   "start_s": 15944.0,
-   "end_s": 16023.0,
-   "duration_s": 79.0,
-   "start_hms": "4:25:44",
-   "end_hms": "4:27:03",
-   "bpm": 214.2857208251953,
-   "reasons": [
-    "3 section change(s), steady pulse at 214 BPM, 1.3 min sustained"
-   ]
-  },
-  {
-   "idx": 142,
-   "song_no": null,
-   "verdict": "FRAGMENT",
-   "score": 25.8,
-   "start_s": 16028.0,
-   "end_s": 16045.0,
-   "duration_s": 17.0,
-   "start_hms": "4:27:08",
-   "end_hms": "4:27:25",
-   "bpm": 214.2857208251953,
-   "reasons": [
-    "under 20s of playing"
-   ]
-  },
-  {
-   "idx": 143,
-   "song_no": null,
-   "verdict": "FRAGMENT",
-   "score": 19.9,
-   "start_s": 16102.0,
-   "end_s": 16112.0,
-   "duration_s": 10.0,
-   "start_hms": "4:28:22",
-   "end_hms": "4:28:32",
-   "bpm": 162.1621551513672,
-   "reasons": [
-    "under 20s of playing"
-   ]
-  },
-  {
-   "idx": 144,
-   "song_no": null,
-   "verdict": "FRAGMENT",
-   "score": 16.3,
-   "start_s": 16260.0,
-   "end_s": 16270.0,
-   "duration_s": 10.0,
-   "start_hms": "4:31:00",
-   "end_hms": "4:31:10",
-   "bpm": 191.42857360839844,
-   "reasons": [
-    "under 20s of playing"
-   ]
-  },
-  {
-   "idx": 145,
-   "song_no": null,
-   "verdict": "FRAGMENT",
-   "score": 52.6,
-   "start_s": 16304.0,
-   "end_s": 16326.0,
-   "duration_s": 22.0,
-   "start_hms": "4:31:44",
-   "end_hms": "4:32:06",
-   "bpm": 127.65957641601562,
-   "reasons": []
-  },
-  {
-   "idx": 146,
-   "song_no": null,
-   "verdict": "FRAGMENT",
-   "score": 44.9,
-   "start_s": 16387.0,
-   "end_s": 16413.0,
-   "duration_s": 26.0,
-   "start_hms": "4:33:07",
-   "end_hms": "4:33:33",
-   "bpm": 98.36065673828125,
-   "reasons": []
-  },
-  {
-   "idx": 147,
-   "song_no": null,
-   "verdict": "FALSE_START",
-   "score": 65.3,
-   "start_s": 16422.0,
-   "end_s": 16482.0,
-   "duration_s": 60.0,
-   "start_hms": "4:33:42",
-   "end_hms": "4:34:42",
-   "bpm": 72.28915405273438,
-   "reasons": [
-    "a real attempt that stops dead with no ending, then off-song activity over the top"
-   ]
-  },
-  {
-   "idx": 148,
-   "song_no": 10,
-   "verdict": "SONG",
-   "score": 81.4,
-   "start_s": 16486.0,
-   "end_s": 16603.0,
-   "duration_s": 117.0,
-   "start_hms": "4:34:46",
-   "end_hms": "4:36:43",
-   "bpm": 68.96551513671875,
-   "reasons": [
-    "3 section change(s), steady pulse at 69 BPM, 1.9 min sustained"
-   ]
-  },
-  {
-   "idx": 149,
-   "song_no": null,
-   "verdict": "FRAGMENT",
-   "score": 24.4,
-   "start_s": 16609.0,
-   "end_s": 16620.0,
-   "duration_s": 11.0,
-   "start_hms": "4:36:49",
-   "end_hms": "4:37:00",
-   "bpm": 67.41573333740234,
-   "reasons": [
-    "under 20s of playing"
-   ]
-  },
-  {
-   "idx": 150,
-   "song_no": null,
-   "verdict": "FRAGMENT",
-   "score": 68.6,
-   "start_s": 16625.0,
-   "end_s": 16676.0,
-   "duration_s": 51.0,
-   "start_hms": "4:37:05",
-   "end_hms": "4:37:56",
-   "bpm": 68.96551513671875,
-   "reasons": []
-  },
-  {
-   "idx": 151,
-   "song_no": 11,
-   "verdict": "SONG",
-   "score": 88.3,
-   "start_s": 16705.0,
-   "end_s": 17262.0,
-   "duration_s": 557.0,
-   "start_hms": "4:38:25",
-   "end_hms": "4:47:42",
-   "bpm": 68.96551513671875,
-   "reasons": [
-    "10 section change(s), steady pulse at 69 BPM, 9.3 min sustained"
-   ]
-  },
-  {
-   "idx": 152,
-   "song_no": null,
-   "verdict": "FRAGMENT",
-   "score": 55.2,
-   "start_s": 17271.0,
-   "end_s": 17304.0,
-   "duration_s": 33.0,
-   "start_hms": "4:47:51",
-   "end_hms": "4:48:24",
-   "bpm": 68.96551513671875,
-   "reasons": []
-  },
-  {
-   "idx": 153,
-   "song_no": 12,
-   "verdict": "SONG",
-   "score": 88.1,
-   "start_s": 17311.0,
-   "end_s": 17629.0,
-   "duration_s": 318.0,
-   "start_hms": "4:48:31",
-   "end_hms": "4:53:49",
-   "bpm": 68.96551513671875,
-   "reasons": [
-    "9 section change(s), steady pulse at 69 BPM, 5.3 min sustained"
-   ]
-  },
-  {
-   "idx": 154,
-   "song_no": null,
-   "verdict": "FRAGMENT",
-   "score": 21.5,
-   "start_s": 17729.0,
-   "end_s": 17740.0,
-   "duration_s": 11.0,
-   "start_hms": "4:55:29",
-   "end_hms": "4:55:40",
-   "bpm": 133.3333282470703,
-   "reasons": [
-    "under 20s of playing"
-   ]
-  },
-  {
-   "idx": 155,
-   "song_no": null,
-   "verdict": "FALSE_START",
-   "score": 48.3,
-   "start_s": 17995.0,
-   "end_s": 18025.0,
-   "duration_s": 30.0,
-   "start_hms": "4:59:55",
-   "end_hms": "5:00:25",
-   "bpm": 74.0740737915039,
-   "reasons": [
-    "a real attempt that stops dead with no ending, then off-song activity over the top"
-   ]
-  },
-  {
-   "idx": 156,
-   "song_no": null,
-   "verdict": "FRAGMENT",
-   "score": 16.6,
-   "start_s": 18159.0,
-   "end_s": 18177.0,
-   "duration_s": 18.0,
-   "start_hms": "5:02:39",
-   "end_hms": "5:02:57",
-   "bpm": 86.9565200805664,
-   "reasons": [
-    "under 20s of playing"
-   ]
-  },
-  {
-   "idx": 157,
-   "song_no": null,
-   "verdict": "FRAGMENT",
-   "score": 22.0,
-   "start_s": 18184.0,
-   "end_s": 18202.0,
-   "duration_s": 18.0,
-   "start_hms": "5:03:04",
-   "end_hms": "5:03:22",
-   "bpm": 127.65957641601562,
-   "reasons": [
-    "under 20s of playing"
-   ]
-  },
-  {
-   "idx": 158,
-   "song_no": null,
-   "verdict": "FRAGMENT",
-   "score": 24.3,
-   "start_s": 18522.0,
-   "end_s": 18533.0,
-   "duration_s": 11.0,
-   "start_hms": "5:08:42",
-   "end_hms": "5:08:53",
-   "bpm": 98.36065673828125,
-   "reasons": [
+    "3s of off-song activity right after it stops",
     "under 20s of playing"
    ]
   }

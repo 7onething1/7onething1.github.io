@@ -236,7 +236,7 @@ footer{
 
   <p class="eyebrow">Audio · 8.28 session</p>
   <h1>Song 11</h1>
-  <p class="dek">A 9:18 take from the 8.28.26 practice tape at 4:38:25, playable in the browser with a real waveform, scrub-to-seek, and an A/B loop for working a single passage. False starts, section drilling and chatter are already removed.</p>
+  <p class="dek">A 8:54 take from the 8.28.26 practice tape at 2:02:20, playable in the browser with a real waveform, scrub-to-seek, and an A/B loop for working a single passage. False starts, section drilling and chatter are already removed.</p>
   <div class="rule"></div>
 
   <section class="player">
@@ -255,8 +255,8 @@ footer{
 
     <div class="times">
       <span class="cur" id="cur">0:00</span>
-      <span id="remain">-9:18</span>
-      <span id="dur">9:18</span>
+      <span id="remain">-8:54</span>
+      <span id="dur">8:54</span>
     </div>
 
     <div class="transport">
@@ -298,18 +298,18 @@ footer{
 
   <h2>The file</h2>
   <div class="grid">
-    <div class="stat"><div class="k">Duration</div><div class="v">9:18</div><div class="n">558.2 seconds</div></div>
+    <div class="stat"><div class="k">Duration</div><div class="v">8:54</div><div class="n">534.2 seconds</div></div>
     <div class="stat"><div class="k">Source</div><div class="v">AAC</div><div class="n">24 kbps, transcoded by Messages</div></div>
     <div class="stat"><div class="k">Sample rate</div><div class="v">44.1 kHz</div><div class="n">stereo</div></div>
     <div class="stat"><div class="k">Sample peak</div><div class="v">0.00 dB</div><div class="n">at full scale</div></div>
-    <div class="stat"><div class="k">Average RMS</div><div class="v">-5.4 dB</div><div class="n">unmastered level</div></div>
-    <div class="stat"><div class="k">Crest factor</div><div class="v">5.4 dB</div><div class="n">narrowed by the encode</div></div>
+    <div class="stat"><div class="k">Average RMS</div><div class="v">-7.1 dB</div><div class="n">unmastered level</div></div>
+    <div class="stat"><div class="k">Crest factor</div><div class="v">7.1 dB</div><div class="n">narrowed by the encode</div></div>
   </div>
 
   <h2>Downloads</h2>
   <p class="body">This take came off the 24 kbps AAC that Messages produced when the 4 GB session WAV was sent by text. The encode below sits at 64 kbps, well above what the source carries, so nothing further was lost here. Treat it as a reference copy for finding parts. The lossless 8.28 master has not reached this Mac.</p>
   <div class="dl">
-    <a href="audio/song-11.m4a" download>M4A / AAC 64 kbps <span class="sz">4.4 MB</span></a>
+    <a href="audio/song-11.m4a" download>M4A / AAC 64 kbps <span class="sz">4.2 MB</span></a>
 
   </div>
 
@@ -324,7 +324,7 @@ footer{
   </div>
 
   <h2>Where it sits</h2>
-  <p class="body">This take sits at <strong>4:38:25</strong> in the 5:12:25 tape and passes a from-scratch re-check with no dead air at the head, no early stop and no internal stops. The 8.28 session ran heavy on parts work: of 158 takes, 67 were fragments, 48 were the band drilling one section and 28 were abandoned attempts, leaving 12 complete songs. Every player is listed on
+  <p class="body">This take sits at <strong>2:02:20</strong> in the 5:12:25 tape and passes a from-scratch re-check with no dead air at the head and no internal stops. This is the corrected read of the 8.28 session: the first pass weighted pulse salience heaviest when calibrating what counts as playing, that feature carries no signal on this board mix, and 90 minutes of playing was dropped. Of 120 takes, 59 were fragments, 13 were the band drilling one section and 7 were abandoned attempts, leaving 27 complete songs. Every player is listed on
     <a href="../">the 8.28 index</a>, and the older lossless session is at
     <a href="https://7onething1.github.io/band-practice-players/">band practice 8.14</a>.</p>
 
@@ -349,7 +349,7 @@ footer{
   var errBox   = document.getElementById('err');
   var ctx      = canvas.getContext('2d');
 
-  var peaks = null, rms = null, DUR = 558.2;
+  var peaks = null, rms = null, DUR = 534.2;
   var loopA = null, loopB = null, looping = false;
 
   function fmt(t){
