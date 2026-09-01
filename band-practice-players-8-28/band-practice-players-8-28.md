@@ -13,6 +13,7 @@ master is still on the recording machine.
 ## What is here
 
 - 27 players, one per complete take
+- 18 of them are new in this pass, 9 are the old 12 restored to full length
 - 22 of 27 clean on a from-scratch re-check, 5 flagged for a brief internal stop near the head
 - 174 minutes kept out of a 312 minute tape, about 56%
 - 120 takes analysed
@@ -89,12 +90,42 @@ All 27 encodes were probed against their source durations at build time.
 ## Paths
 
 - Source: `~/Music/Band-Practice/8.28.26.m4a`
-- Songs: `~/Music/Band-Practice/songs-clean-8-28-v2/`
+- Songs, all 27: `~/Music/Band-Practice/songs-clean-8-28-v2/`
+- Songs, the 18 new ones only: `~/Music/Band-Practice/songs-8-28-NEW/`
+- Songs, the 9 already shipped: `~/Music/Band-Practice/songs-8-28-PREVIOUSLY-SHIPPED/`
 - Timestamps: `~/Music/Band-Practice/8-28-26-timestamps.xlsx`
 - Cut script: `~/Music/Band-Practice/cut_8-28-26.sh`
 - Detector output: `~/Projects/_outputs/real-song-finder/bp-8-28-26-v2/`
 - Previous 12-song read: `~/Music/Band-Practice/previous-12song-read/`
 - Skill patch backup: `~/.claude/skills/real-song-finder/find_songs.py.bak-precalib-20260901`
+
+## Who was playing, measured
+
+The roster rotates on these tapes, so a silent stem is an empty chair and not a
+separation failure. Measured with htdemucs_6s and the peak criterion from the 8.14
+work, where an empty chair reads near -40 dB.
+
+**No take on either tape has an empty bass chair.** On 8.28, nine candidates were
+separated at three windows each, and the quietest bass peak found anywhere was -21.7 dB
+inside song 02. On 8.14, all 19 separated songs carry bass, the quietest peak -14.1 dB.
+
+The method does detect an empty chair, and it reports one for **drums**. Five of the 19
+8.14 songs have no drummer: takes 28, 36, 41, 47 and 67, reading 0.00 to 0.01 percent
+share with peaks from -30.7 dB down to -53.6 dB. On 8.28 the closest is song 16 at
+3:01:21, holding 0.00 to 0.01 percent drums across all three windows.
+
+| Take | Tape | Bass share | Bass peak | Drums share | Drums peak | Chair |
+|---|---|---|---|---|---|---|
+| song 02 | 8.28 | 0.32 to 6.42% | -21.7 dB | 54.6 to 95.6% | -0.1 dB | both filled |
+| song 04 | 8.28 | 3.92 to 7.97% | -8.2 dB | 25.7 to 36.4% | -0.1 dB | both filled |
+| song 16 | 8.28 | 0.01 to 54.1% | -11.8 dB | 0.00 to 0.01% | -39.5 dB | no drums |
+| 07_take47 | 8.14 | 8.71% | -6.5 dB | 0.00% | -53.6 dB | no drums |
+| 05_take36 | 8.14 | 10.21% | -6.6 dB | 0.00% | -44.5 dB | no drums |
+| 14_take67 | 8.14 | 80.66% | -5.7 dB | 0.01% | -45.6 dB | no drums |
+
+Two limits worth stating. These tapes are mono, so two guitars cannot be split into
+separate stems and both land in one guitar stem. And a share number on a bass-heavy
+board mix moves around a lot, which is why the chair test reads peak level instead.
 
 ## Related
 

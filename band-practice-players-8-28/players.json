@@ -8,7 +8,19 @@
   "mb": 3.6,
   "rms": -15.0,
   "tp": 0.0,
-  "wav": "01_tape0-00-00_len7m41s.wav"
+  "wav": "01_tape0-00-00_len7m41s.wav",
+  "is_new": true,
+  "contains_previous": [],
+  "stem": {
+   "drums": 72.51,
+   "bass": 16.36,
+   "guitar": 11.13
+  },
+  "stem_pk": {
+   "drums": -0.1,
+   "bass": -5.8,
+   "guitar": -5.4
+  }
  },
  {
   "k": 2,
@@ -19,7 +31,19 @@
   "mb": 2.7,
   "rms": -14.2,
   "tp": 0.0,
-  "wav": "02_tape0-53-01_len5m46s.wav"
+  "wav": "02_tape0-53-01_len5m46s.wav",
+  "is_new": true,
+  "contains_previous": [],
+  "stem": {
+   "drums": 54.64,
+   "bass": 2.7,
+   "guitar": 42.66
+  },
+  "stem_pk": {
+   "drums": -0.1,
+   "bass": -12.6,
+   "guitar": -2.3
+  }
  },
  {
   "k": 3,
@@ -30,7 +54,19 @@
   "mb": 3.0,
   "rms": -8.5,
   "tp": 0.0,
-  "wav": "03_tape1-00-54_len6m26s.wav"
+  "wav": "03_tape1-00-54_len6m26s.wav",
+  "is_new": true,
+  "contains_previous": [],
+  "stem": {
+   "drums": 83.95,
+   "bass": 0.71,
+   "guitar": 1.33
+  },
+  "stem_pk": {
+   "drums": -0.1,
+   "bass": -7.4,
+   "guitar": -4.0
+  }
  },
  {
   "k": 4,
@@ -41,7 +77,19 @@
   "mb": 1.6,
   "rms": -5.6,
   "tp": 0.0,
-  "wav": "04_tape1-08-14_len3m26s.wav"
+  "wav": "04_tape1-08-14_len3m26s.wav",
+  "is_new": true,
+  "contains_previous": [],
+  "stem": {
+   "drums": 36.44,
+   "bass": 7.97,
+   "guitar": 0.1
+  },
+  "stem_pk": {
+   "drums": -0.1,
+   "bass": -8.1,
+   "guitar": -9.7
+  }
  },
  {
   "k": 5,
@@ -52,7 +100,21 @@
   "mb": 3.0,
   "rms": -12.1,
   "tp": 0.0,
-  "wav": "05_tape1-19-21_len6m29s.wav"
+  "wav": "05_tape1-19-21_len6m29s.wav",
+  "is_new": false,
+  "contains_previous": [
+   "1:20:05"
+  ],
+  "stem": {
+   "drums": 56.15,
+   "bass": 25.44,
+   "guitar": 17.49
+  },
+  "stem_pk": {
+   "drums": -0.1,
+   "bass": -6.6,
+   "guitar": -3.0
+  }
  },
  {
   "k": 6,
@@ -63,7 +125,19 @@
   "mb": 1.2,
   "rms": -13.1,
   "tp": 0.0,
-  "wav": "06_tape1-36-40_len2m34s.wav"
+  "wav": "06_tape1-36-40_len2m34s.wav",
+  "is_new": true,
+  "contains_previous": [],
+  "stem": {
+   "drums": 36.64,
+   "bass": 51.88,
+   "guitar": 11.48
+  },
+  "stem_pk": {
+   "drums": -0.1,
+   "bass": -4.1,
+   "guitar": -0.9
+  }
  },
  {
   "k": 7,
@@ -74,7 +148,21 @@
   "mb": 2.2,
   "rms": -12.3,
   "tp": 0.0,
-  "wav": "07_tape1-39-26_len4m40s.wav"
+  "wav": "07_tape1-39-26_len4m40s.wav",
+  "is_new": false,
+  "contains_previous": [
+   "1:39:32"
+  ],
+  "stem": {
+   "drums": 30.47,
+   "bass": 61.77,
+   "guitar": 5.89
+  },
+  "stem_pk": {
+   "drums": -0.1,
+   "bass": -0.1,
+   "guitar": -6.8
+  }
  },
  {
   "k": 8,
@@ -85,7 +173,19 @@
   "mb": 0.7,
   "rms": -13.3,
   "tp": 0.0,
-  "wav": "08_tape1-44-28_len1m33s.wav"
+  "wav": "08_tape1-44-28_len1m33s.wav",
+  "is_new": true,
+  "contains_previous": [],
+  "stem": {
+   "drums": 58.87,
+   "bass": 11.53,
+   "guitar": 28.66
+  },
+  "stem_pk": {
+   "drums": -0.1,
+   "bass": -2.7,
+   "guitar": -3.0
+  }
  },
  {
   "k": 9,
@@ -96,7 +196,19 @@
   "mb": 1.1,
   "rms": -6.3,
   "tp": 0.0,
-  "wav": "09_tape1-51-29_len2m21s.wav"
+  "wav": "09_tape1-51-29_len2m21s.wav",
+  "is_new": true,
+  "contains_previous": [],
+  "stem": {
+   "drums": 0.03,
+   "bass": 98.17,
+   "guitar": 1.79
+  },
+  "stem_pk": {
+   "drums": -8.8,
+   "bass": -0.1,
+   "guitar": -4.5
+  }
  },
  {
   "k": 10,
@@ -107,7 +219,19 @@
   "mb": 1.0,
   "rms": -6.5,
   "tp": 0.0,
-  "wav": "10_tape1-59-59_len2m04s.wav"
+  "wav": "10_tape1-59-59_len2m04s.wav",
+  "is_new": true,
+  "contains_previous": [],
+  "stem": {
+   "drums": 22.14,
+   "bass": 19.39,
+   "guitar": 58.45
+  },
+  "stem_pk": {
+   "drums": -0.1,
+   "bass": -2.6,
+   "guitar": -0.1
+  }
  },
  {
   "k": 11,
@@ -118,7 +242,21 @@
   "mb": 4.2,
   "rms": -7.1,
   "tp": 0.0,
-  "wav": "11_tape2-02-20_len8m54s.wav"
+  "wav": "11_tape2-02-20_len8m54s.wav",
+  "is_new": false,
+  "contains_previous": [
+   "2:02:20"
+  ],
+  "stem": {
+   "drums": 27.82,
+   "bass": 63.56,
+   "guitar": 8.61
+  },
+  "stem_pk": {
+   "drums": -0.1,
+   "bass": -0.1,
+   "guitar": -1.8
+  }
  },
  {
   "k": 12,
@@ -129,7 +267,19 @@
   "mb": 0.9,
   "rms": -11.2,
   "tp": 0.0,
-  "wav": "12_tape2-12-33_len2m00s.wav"
+  "wav": "12_tape2-12-33_len2m00s.wav",
+  "is_new": true,
+  "contains_previous": [],
+  "stem": {
+   "drums": 29.54,
+   "bass": 39.62,
+   "guitar": 30.63
+  },
+  "stem_pk": {
+   "drums": -0.1,
+   "bass": -1.3,
+   "guitar": -0.1
+  }
  },
  {
   "k": 13,
@@ -140,7 +290,19 @@
   "mb": 5.0,
   "rms": -9.5,
   "tp": 0.0,
-  "wav": "13_tape2-21-16_len10m35s.wav"
+  "wav": "13_tape2-21-16_len10m35s.wav",
+  "is_new": true,
+  "contains_previous": [],
+  "stem": {
+   "drums": 39.41,
+   "bass": 2.57,
+   "guitar": 57.11
+  },
+  "stem_pk": {
+   "drums": -0.1,
+   "bass": -11.4,
+   "guitar": -0.1
+  }
  },
  {
   "k": 14,
@@ -151,7 +313,19 @@
   "mb": 1.3,
   "rms": -11.5,
   "tp": 0.0,
-  "wav": "14_tape2-46-42_len2m44s.wav"
+  "wav": "14_tape2-46-42_len2m44s.wav",
+  "is_new": true,
+  "contains_previous": [],
+  "stem": {
+   "drums": 2.27,
+   "bass": 91.96,
+   "guitar": 5.77
+  },
+  "stem_pk": {
+   "drums": -0.1,
+   "bass": -0.1,
+   "guitar": -5.2
+  }
  },
  {
   "k": 15,
@@ -162,7 +336,21 @@
   "mb": 3.8,
   "rms": -5.4,
   "tp": 0.0,
-  "wav": "15_tape2-52-01_len8m03s.wav"
+  "wav": "15_tape2-52-01_len8m03s.wav",
+  "is_new": false,
+  "contains_previous": [
+   "2:54:04"
+  ],
+  "stem": {
+   "drums": 18.97,
+   "bass": 53.32,
+   "guitar": 27.7
+  },
+  "stem_pk": {
+   "drums": -0.1,
+   "bass": -1.6,
+   "guitar": -0.1
+  }
  },
  {
   "k": 16,
@@ -173,7 +361,19 @@
   "mb": 3.2,
   "rms": -3.7,
   "tp": 0.0,
-  "wav": "16_tape3-01-21_len6m47s.wav"
+  "wav": "16_tape3-01-21_len6m47s.wav",
+  "is_new": true,
+  "contains_previous": [],
+  "stem": {
+   "drums": 0.01,
+   "bass": 0.2,
+   "guitar": 81.07
+  },
+  "stem_pk": {
+   "drums": -14.7,
+   "bass": -7.7,
+   "guitar": -0.1
+  }
  },
  {
   "k": 17,
@@ -184,7 +384,21 @@
   "mb": 5.9,
   "rms": -7.6,
   "tp": 0.0,
-  "wav": "17_tape3-10-51_len12m33s.wav"
+  "wav": "17_tape3-10-51_len12m33s.wav",
+  "is_new": false,
+  "contains_previous": [
+   "3:15:42"
+  ],
+  "stem": {
+   "drums": 36.78,
+   "bass": 34.51,
+   "guitar": 28.71
+  },
+  "stem_pk": {
+   "drums": -0.1,
+   "bass": -2.6,
+   "guitar": -0.1
+  }
  },
  {
   "k": 18,
@@ -195,7 +409,22 @@
   "mb": 2.9,
   "rms": -7.5,
   "tp": 0.0,
-  "wav": "18_tape3-23-56_len6m11s.wav"
+  "wav": "18_tape3-23-56_len6m11s.wav",
+  "is_new": false,
+  "contains_previous": [
+   "3:24:56",
+   "3:28:09"
+  ],
+  "stem": {
+   "drums": 1.88,
+   "bass": 83.5,
+   "guitar": 14.6
+  },
+  "stem_pk": {
+   "drums": -0.1,
+   "bass": -0.1,
+   "guitar": -0.5
+  }
  },
  {
   "k": 19,
@@ -206,7 +435,19 @@
   "mb": 4.5,
   "rms": -8.2,
   "tp": 0.0,
-  "wav": "19_tape3-35-51_len9m32s.wav"
+  "wav": "19_tape3-35-51_len9m32s.wav",
+  "is_new": true,
+  "contains_previous": [],
+  "stem": {
+   "drums": 0.28,
+   "bass": 86.7,
+   "guitar": 13.01
+  },
+  "stem_pk": {
+   "drums": -5.2,
+   "bass": -0.1,
+   "guitar": -0.1
+  }
  },
  {
   "k": 20,
@@ -217,7 +458,19 @@
   "mb": 1.5,
   "rms": -13.2,
   "tp": 0.0,
-  "wav": "20_tape3-47-38_len3m16s.wav"
+  "wav": "20_tape3-47-38_len3m16s.wav",
+  "is_new": true,
+  "contains_previous": [],
+  "stem": {
+   "drums": 55.5,
+   "bass": 31.07,
+   "guitar": 13.44
+  },
+  "stem_pk": {
+   "drums": -0.1,
+   "bass": -9.5,
+   "guitar": -7.3
+  }
  },
  {
   "k": 21,
@@ -228,7 +481,19 @@
   "mb": 2.2,
   "rms": -14.9,
   "tp": 0.0,
-  "wav": "21_tape3-55-09_len4m36s.wav"
+  "wav": "21_tape3-55-09_len4m36s.wav",
+  "is_new": true,
+  "contains_previous": [],
+  "stem": {
+   "drums": 47.58,
+   "bass": 38.11,
+   "guitar": 14.07
+  },
+  "stem_pk": {
+   "drums": -0.1,
+   "bass": -8.3,
+   "guitar": -10.0
+  }
  },
  {
   "k": 22,
@@ -239,7 +504,19 @@
   "mb": 2.2,
   "rms": -13.0,
   "tp": 0.0,
-  "wav": "22_tape4-00-08_len4m35s.wav"
+  "wav": "22_tape4-00-08_len4m35s.wav",
+  "is_new": true,
+  "contains_previous": [],
+  "stem": {
+   "drums": 53.65,
+   "bass": 15.38,
+   "guitar": 30.8
+  },
+  "stem_pk": {
+   "drums": -0.1,
+   "bass": -8.9,
+   "guitar": -1.7
+  }
  },
  {
   "k": 23,
@@ -250,7 +527,19 @@
   "mb": 1.1,
   "rms": -13.3,
   "tp": 0.0,
-  "wav": "23_tape4-04-58_len2m20s.wav"
+  "wav": "23_tape4-04-58_len2m20s.wav",
+  "is_new": true,
+  "contains_previous": [],
+  "stem": {
+   "drums": 14.03,
+   "bass": 69.68,
+   "guitar": 15.76
+  },
+  "stem_pk": {
+   "drums": -0.1,
+   "bass": -2.6,
+   "guitar": -4.1
+  }
  },
  {
   "k": 24,
@@ -261,7 +550,21 @@
   "mb": 4.9,
   "rms": -9.7,
   "tp": 0.0,
-  "wav": "24_tape4-10-07_len10m21s.wav"
+  "wav": "24_tape4-10-07_len10m21s.wav",
+  "is_new": false,
+  "contains_previous": [
+   "4:11:38"
+  ],
+  "stem": {
+   "drums": 24.66,
+   "bass": 19.87,
+   "guitar": 55.37
+  },
+  "stem_pk": {
+   "drums": -0.1,
+   "bass": -3.4,
+   "guitar": -0.1
+  }
  },
  {
   "k": 25,
@@ -272,7 +575,21 @@
   "mb": 4.7,
   "rms": -8.4,
   "tp": 0.0,
-  "wav": "25_tape4-22-11_len9m59s.wav"
+  "wav": "25_tape4-22-11_len9m59s.wav",
+  "is_new": false,
+  "contains_previous": [
+   "4:25:44"
+  ],
+  "stem": {
+   "drums": 0.24,
+   "bass": 76.07,
+   "guitar": 0.29
+  },
+  "stem_pk": {
+   "drums": -14.6,
+   "bass": -0.1,
+   "guitar": -9.1
+  }
  },
  {
   "k": 26,
@@ -283,7 +600,23 @@
   "mb": 10.3,
   "rms": -5.4,
   "tp": 0.0,
-  "wav": "26_tape4-32-15_len21m50s.wav"
+  "wav": "26_tape4-32-15_len21m50s.wav",
+  "is_new": false,
+  "contains_previous": [
+   "4:34:46",
+   "4:38:25",
+   "4:48:31"
+  ],
+  "stem": {
+   "drums": 30.47,
+   "bass": 64.98,
+   "guitar": 2.37
+  },
+  "stem_pk": {
+   "drums": -2.9,
+   "bass": -1.9,
+   "guitar": -5.6
+  }
  },
  {
   "k": 27,
@@ -294,6 +627,18 @@
   "mb": 3.1,
   "rms": -8.8,
   "tp": 0.0,
-  "wav": "27_tape5-01-47_len6m33s.wav"
+  "wav": "27_tape5-01-47_len6m33s.wav",
+  "is_new": true,
+  "contains_previous": [],
+  "stem": {
+   "drums": 26.91,
+   "bass": 22.88,
+   "guitar": 50.2
+  },
+  "stem_pk": {
+   "drums": -0.1,
+   "bass": -1.9,
+   "guitar": -0.1
+  }
  }
 ]
