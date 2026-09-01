@@ -1,0 +1,243 @@
+<!doctype html>
+<html lang="en"><head><meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Band Practice Players 8.28</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@400;600;700&family=Inter:wght@400;500;600;700&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
+<style>
+:root{--cream:#f4ecd8;--cream-2:#fbf6e9;--card:#fdfaf1;--ink:#14110d;--ink-2:#4a4237;
+--ink-3:#7d7362;--line:#ddd0b2;--mustard:#c9a227;--rust:#a6462a;--sage:#7d8a6a;color-scheme:light}
+*{box-sizing:border-box}
+html,body{margin:0;padding:0}
+body{background:var(--cream);color:var(--ink);font-family:Inter,-apple-system,BlinkMacSystemFont,sans-serif;
+line-height:1.55;-webkit-font-smoothing:antialiased;padding:2.2rem 1.1rem 4rem}
+main{max-width:920px;margin:0 auto}
+.eyebrow{font-family:"JetBrains Mono",monospace;font-size:.72rem;letter-spacing:.16em;
+text-transform:uppercase;color:var(--rust);margin:0 0 .5rem}
+h1{font-family:"Cormorant Garamond",Georgia,serif;font-weight:700;
+font-size:clamp(2.1rem,5.6vw,3.3rem);line-height:1.06;margin:0 0 .35rem;letter-spacing:-.01em}
+.dek{font-size:1rem;color:var(--ink-2);margin:0 0 1.4rem;max-width:60ch}
+.rule{height:3px;background:var(--ink);width:64px;margin:0 0 1.7rem;border-radius:2px}
+.stats{display:flex;flex-wrap:wrap;gap:.7rem;margin:0 0 1.8rem}
+.stat{flex:1 1 140px;background:var(--card);border:1px solid var(--line);border-radius:10px;padding:.75rem .9rem}
+.stat .v{font-family:"Cormorant Garamond",serif;font-size:1.9rem;font-weight:700;line-height:1}
+.stat .k{font-family:"JetBrains Mono",monospace;font-size:.66rem;letter-spacing:.1em;
+text-transform:uppercase;color:var(--ink-3);margin-top:.2rem}
+.grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(272px,1fr));gap:.7rem}
+a.card{display:flex;align-items:center;gap:.85rem;background:var(--card);border:1px solid var(--line);
+border-radius:12px;padding:.8rem .95rem;text-decoration:none;color:var(--ink);
+box-shadow:0 1px 0 #fff inset;transition:background .12s,transform .12s}
+a.card:hover{background:#f1e7cd;transform:translateY(-1px)}
+.num{font-family:"Cormorant Garamond",serif;font-size:2rem;font-weight:700;
+color:var(--rust);min-width:2ch;text-align:right;line-height:1}
+.card .body{flex:1;min-width:0}
+.len{font-family:"JetBrains Mono",monospace;font-size:1rem;font-weight:500}
+.at{font-size:.74rem;color:var(--ink-3);margin-top:.05rem}
+.pills{margin-top:.35rem;display:flex;gap:.3rem;flex-wrap:wrap}
+.pill{font-family:"JetBrains Mono",monospace;font-size:.6rem;letter-spacing:.06em;
+text-transform:uppercase;padding:.12rem .4rem;border-radius:4px;border:1px solid var(--line)}
+.pill.ok{color:var(--sage);border-color:#c3ccb6;background:#f2f5ec}
+.sz{font-family:"JetBrains Mono",monospace;font-size:.68rem;color:var(--ink-3);white-space:nowrap}
+h2{font-family:"Cormorant Garamond",Georgia,serif;font-size:1.7rem;font-weight:600;margin:2.4rem 0 .5rem}
+p.body{max-width:66ch;color:var(--ink-2);font-size:.95rem}
+a.link{color:var(--rust);font-weight:600;text-decoration:none}
+a.link:hover{text-decoration:underline}
+code{background:#efe7d3;padding:.08em .35em;border-radius:4px;font-size:.85em;
+font-family:"JetBrains Mono",monospace}
+table{width:100%;border-collapse:collapse;margin:1rem 0;font-size:.88rem}
+th{text-align:left;font-weight:600;padding:.5rem .6rem;border-bottom:2px solid var(--ink);
+font-size:.7rem;text-transform:uppercase;letter-spacing:.07em}
+td{padding:.45rem .6rem;border-bottom:1px solid var(--line)}
+.mono{font-family:"JetBrains Mono",monospace;font-size:.82rem}
+.ok{color:var(--sage);font-weight:600}
+.warn{background:#faf3dd;border:1px solid #e0cf94;border-left:5px solid var(--mustard);
+border-radius:8px;padding:.85rem 1rem;margin:1.1rem 0}
+pre{background:var(--card);border:1px solid var(--line);border-radius:8px;padding:.8rem .9rem;
+overflow-x:auto;font-family:"JetBrains Mono",monospace;font-size:.76rem;margin:.7rem 0}
+footer{margin-top:2.6rem;padding-top:1rem;border-top:1px solid var(--line);
+font-family:"JetBrains Mono",monospace;font-size:.7rem;color:var(--ink-3)}
+</style></head><body><main>
+
+<p class="eyebrow">Audio · 8.28.26 session</p>
+<h1>Band Practice Players 8.28</h1>
+<p class="dek">Every complete take from the 8.28.26 practice tape, one player each, with a real
+waveform, scrub-to-seek, speed control and an A/B loop. False starts, section drilling, tuning
+and chatter were removed before these were cut.</p>
+<div class="rule"></div>
+
+<div class="stats">
+  <div class="stat"><div class="v">12</div><div class="k">players</div></div>
+  <div class="stat"><div class="v">12</div><div class="k">verified clean</div></div>
+  <div class="stat"><div class="v">34</div><div class="k">minutes kept</div></div>
+  <div class="stat"><div class="v">316</div><div class="k">takes analysed</div></div>
+</div>
+
+<div class="warn">
+<p style="margin:0"><strong>Read this before you mix off these.</strong> The 8.28 session was
+recorded to a roughly 4 GB WAV, then sent by text. Messages transcoded it to
+<strong>24 kbps AAC</strong> on the way, an 87&times; reduction, and that transcode is the only
+copy that reached this Mac. These players are a reference for finding parts and marking
+timecodes. The lossless master is still on the recording machine.</p>
+</div>
+
+<div class="grid">
+<a class="card" href="song-01/">
+  <div class="num">01</div>
+  <div class="body">
+    <div class="len">2:31</div>
+    <div class="at">at 1:20:05 in the tape</div>
+    <div class="pills"><span class="pill ok">clean</span></div>
+  </div>
+  <div class="sz">1.2 MB</div>
+</a>
+<a class="card" href="song-02/">
+  <div class="num">02</div>
+  <div class="body">
+    <div class="len">3:14</div>
+    <div class="at">at 1:39:32 in the tape</div>
+    <div class="pills"><span class="pill ok">clean</span></div>
+  </div>
+  <div class="sz">1.5 MB</div>
+</a>
+<a class="card" href="song-03/">
+  <div class="num">03</div>
+  <div class="body">
+    <div class="len">1:44</div>
+    <div class="at">at 2:02:20 in the tape</div>
+    <div class="pills"><span class="pill ok">clean</span></div>
+  </div>
+  <div class="sz">0.8 MB</div>
+</a>
+<a class="card" href="song-04/">
+  <div class="num">04</div>
+  <div class="body">
+    <div class="len">1:59</div>
+    <div class="at">at 2:54:04 in the tape</div>
+    <div class="pills"><span class="pill ok">clean</span></div>
+  </div>
+  <div class="sz">0.9 MB</div>
+</a>
+<a class="card" href="song-05/">
+  <div class="num">05</div>
+  <div class="body">
+    <div class="len">2:24</div>
+    <div class="at">at 3:15:42 in the tape</div>
+    <div class="pills"><span class="pill ok">clean</span></div>
+  </div>
+  <div class="sz">1.1 MB</div>
+</a>
+<a class="card" href="song-06/">
+  <div class="num">06</div>
+  <div class="body">
+    <div class="len">1:08</div>
+    <div class="at">at 3:24:56 in the tape</div>
+    <div class="pills"><span class="pill ok">clean</span></div>
+  </div>
+  <div class="sz">0.5 MB</div>
+</a>
+<a class="card" href="song-07/">
+  <div class="num">07</div>
+  <div class="body">
+    <div class="len">1:40</div>
+    <div class="at">at 3:28:09 in the tape</div>
+    <div class="pills"><span class="pill ok">clean</span></div>
+  </div>
+  <div class="sz">0.8 MB</div>
+</a>
+<a class="card" href="song-08/">
+  <div class="num">08</div>
+  <div class="body">
+    <div class="len">1:05</div>
+    <div class="at">at 4:11:38 in the tape</div>
+    <div class="pills"><span class="pill ok">clean</span></div>
+  </div>
+  <div class="sz">0.5 MB</div>
+</a>
+<a class="card" href="song-09/">
+  <div class="num">09</div>
+  <div class="body">
+    <div class="len">1:20</div>
+    <div class="at">at 4:25:44 in the tape</div>
+    <div class="pills"><span class="pill ok">clean</span></div>
+  </div>
+  <div class="sz">0.6 MB</div>
+</a>
+<a class="card" href="song-10/">
+  <div class="num">10</div>
+  <div class="body">
+    <div class="len">1:58</div>
+    <div class="at">at 4:34:46 in the tape</div>
+    <div class="pills"><span class="pill ok">clean</span></div>
+  </div>
+  <div class="sz">0.9 MB</div>
+</a>
+<a class="card" href="song-11/">
+  <div class="num">11</div>
+  <div class="body">
+    <div class="len">9:18</div>
+    <div class="at">at 4:38:25 in the tape</div>
+    <div class="pills"><span class="pill ok">clean</span></div>
+  </div>
+  <div class="sz">4.4 MB</div>
+</a>
+<a class="card" href="song-12/">
+  <div class="num">12</div>
+  <div class="body">
+    <div class="len">5:19</div>
+    <div class="at">at 4:48:31 in the tape</div>
+    <div class="pills"><span class="pill ok">clean</span></div>
+  </div>
+  <div class="sz">2.5 MB</div>
+</a>
+</div>
+
+<h2>What the session was</h2>
+<p class="body">Of 316 takes, 0 were complete songs. That is
+34 minutes out of 312, so about 11% of the tape was
+run-throughs. The rest was parts work, which is what a writing session looks like rather than a
+rehearsal of finished material.</p>
+
+<table>
+<tr><th>Verdict</th><th>Count</th><th>Meaning</th></tr>
+<tr><td class="mono ok">SONG</td><td>0</td><td>Complete take, shipped as a player</td></tr>
+<tr><td class="mono ">FALSE_START</td><td>0</td><td>A real attempt, abandoned, replayed later</td></tr>
+<tr><td class="mono ">WORKSHOP</td><td>0</td><td>The band drilling one section</td></tr>
+<tr><td class="mono ">FRAGMENT</td><td>0</td><td>A stab, a riff check, a count-in</td></tr>
+<tr><td class="mono ">NOODLE</td><td>0</td><td>No steady pulse, tuning or playing over talk</td></tr>
+</table>
+
+<h2>Every timecode, so the real file is a one-liner</h2>
+<p class="body">All 316 takes were exported with exact start and end times, not just
+the 0 keepers. The transcode has the identical
+18745.520 second duration as the master it came from, so these timecodes land on
+the lossless WAV unchanged. When the 4 GB file arrives, nothing needs detecting again.</p>
+
+<pre>./cut_8-28-26.sh /path/to/8-28-26-master.wav</pre>
+
+<p class="body">That script cuts all 0 songs with stream copy, so the PCM is
+untouched. Files on disk:</p>
+
+<table>
+<tr><th>File</th><th>What it holds</th></tr>
+<tr><td class="mono">8-28-26-timestamps.xlsx</td><td>All 316 takes with verdict, score, BPM and reasons, plus a CutList sheet of the 0 keepers with ready ffmpeg arguments</td></tr>
+<tr><td class="mono">8-28-26-timestamps.json</td><td>The same data for scripts</td></tr>
+<tr><td class="mono">cut_8-28-26.sh</td><td>Runnable cut list, takes the master as its argument</td></tr>
+</table>
+
+<h2>How the takes were judged</h2>
+<p class="body">The detector treats a false start as a take the band tried again, and compares each
+take head-to-head against the ones that follow using chroma-sequence similarity with lag alignment.
+Every one of the 12 keepers passed a from-scratch re-check measured against the room floor
+rather than against its own quiet passages. Spot-checking the cut list against the source, the kept
+takes average &minus;8.0 dB and the dropped fragments &minus;23.5 dB.</p>
+
+<p class="body">The older 8.14.26 session is lossless and has its own set at
+<a class="link" href="https://7onething1.github.io/band-practice-players/">band practice 8.14</a>,
+with the method written up in
+<a class="link" href="https://7onething1.github.io/band-practice-songs/">the songs report</a>.</p>
+
+<footer>
+Built 2026-09-01 · source <code>8.28.26.m4a</code>, AAC 24 kbps / 44.1 kHz, 5:12:25 · players encoded at 64 kbps, 16 MB total
+</footer>
+</main></body></html>
