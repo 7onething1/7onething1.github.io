@@ -345,7 +345,7 @@ from https://drummagazine.com/groove-analysis-frank-zappas-drummers/</pre>
 <div class="corr">
 <h3>This overturns an item the handoff marked "Proven, do not re-litigate"</h3>
 <p>The handoff records: <em>barring (both use a single 10/16, not two 5/16)</em>. The image refutes that for Brown. The <code>5/16</code> signature is legible at 3x in <code>crop_sys1_left.png</code>, and <code>crop_sys1_mid.png</code> shows the bar, a barline, then a second bar of the same meter before the <code>2/4</code>. Ten sixteenths either way, so the two agree on duration and disagree on how it is barred.</p>
-<p><b>The Drumnet half stays unverified.</b> <code>drumnet.ru</code> returned nothing within 120 seconds on 2026-08-31, and the handoff itself records that its PDF is not served.</p>
+<p><b>The Drumnet half was later recovered and it holds.</b> See the section below.</p>
 </div>
 <p>Everything else corroborates. Bar 1, bar 4, bar 5 and the four bars of <code>15/16</code> match, and Brown's eighth = 178 puts the quarter at 89 against the tab's 88, the 1.1% gap the handoff already recorded.</p>
 <p><b>Under the handoff's own method this matters.</b> Published drum notation has priority where it covers the performance. Brown covers these nine bars, so the barring question is now a decision rather than a settled fact.</p>
@@ -362,6 +362,22 @@ from https://drummagazine.com/groove-analysis-frank-zappas-drummers/</pre>
 </table></div>
 <p><b>Two independent professional transcriptions, the same barring.</b> B&eacute;dard's <code>5/16</code> read as <code>15/16</code> until 5x magnification, where the leading stroke resolves as the barline. <code>bedard_sys1_right.png</code> shows the signature, a bar, a barline, and a second bar of the same meter.</p>
 <p>So the tab stands alone on <code>10/16</code>, and the handoff's claim that the published sources back it is refuted by both sources this session could reach. Drumnet is still unverified.</p>
+
+<h3 style="font-size:1.05rem;margin:30px 0 6px;color:#5c5347">Drumnet recovered, and the sources turn out to be split</h3>
+<p class="sub">Drumnet was called unreachable twice in this session and it was never blocked. Sheet id <b>2637</b>. A HEAD request declares <code>Content-Length: 68574</code> and <code>Accept-Ranges: bytes</code>. The failing fetches returned 16,124 bytes of 68,574, a truncated transfer read as a dead host. Re-fetching with <code>Accept-Encoding: identity</code> and a 90 second timeout returned the whole file, and it decodes.</p>
+<div class="corr">
+<h3>Three failures, all mine, none the site's</h3>
+<p><code>curl</code> on the group page returned 15,665 bytes with no song titles, while <code>WebFetch</code> on the identical URL listed all six Zappa charts with their ids. The notation images are referenced in a form my <code>src="..."</code> grep never matched. And a two-byte EOI test called the truncated files corrupt without noticing they were short.</p>
+</div>
+<p><b>The chart says <code>10/16</code></b>, legible at 6x in <code>dn_sys1_left.png</code>, with a tempo mark of quarter <code>= 89</code>.</p>
+<div class="scroll"><table>
+<tr><th>Source</th><th>Bar 2</th><th class="n">Bars of <code>15/16</code></th></tr>
+<tr class="good"><td class="t">Ryan Brown, DRUM Magazine</td><td><code>5/16</code> + <code>5/16</code></td><td class="n">4</td></tr>
+<tr class="good"><td class="t">Daniel B&eacute;dard</td><td><code>5/16</code> + <code>5/16</code></td><td class="n">not read past bar 5</td></tr>
+<tr class="bad"><td class="t"><b>Drumnet</b></td><td><b><code>10/16</code></b></td><td class="n"><b>1</b></td></tr>
+<tr class="bad"><td class="t">Songsterr <code>s412162</code></td><td><code>10/16</code></td><td class="n">4</td></tr>
+</table></div>
+<p><b>So this is a split, not a refutation.</b> The handoff says Brown and Drumnet "both use a single 10/16". Drumnet does. Brown does not. Half the claim holds. The tab sides with Drumnet on the barring and with Brown on the four bars of <code>15/16</code>, and no single published source matches it on both. Drumnet's quarter <code>= 89</code> and Brown's eighth <code>= 178</code> are the same tempo.</p>
 
 <h2 id="blocked">Still blocked</h2>
 <div class="blk">

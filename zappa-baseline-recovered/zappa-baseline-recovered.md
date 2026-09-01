@@ -456,8 +456,7 @@ The image refutes that for Brown. The `5/16` signature is legible at 3x in
 bar of the same meter before the `2/4`. Ten sixteenths either way, so the two agree on
 duration and disagree on how it is barred.
 
-**The Drumnet half stays unverified.** `drumnet.ru` returned nothing within 120 seconds
-on 2026-08-31, and the handoff itself records that its PDF is not served.
+**The Drumnet half was later recovered and it holds.** See the section below.
 
 Everything else corroborates. Bar 1, bar 4, bar 5 and the four bars of `15/16` match,
 and Brown's eighth = 178 puts the quarter at 89 against the tab's 88, the 1.1% gap the
@@ -492,6 +491,36 @@ bar of the same meter.
 So the tab stands alone on `10/16`, and the handoff's claim that the published sources
 back it is refuted by both sources this session could reach. Drumnet is still
 unverified.
+
+### Drumnet recovered, and the sources turn out to be split
+
+Drumnet was called unreachable twice in this session and it was never blocked. Sheet id
+**2637**. A HEAD request declares `Content-Length: 68574` and `Accept-Ranges: bytes`.
+The failing fetches had returned 16,124 bytes of 68,574, a truncated transfer read as a
+dead host. Re-fetching with `Accept-Encoding: identity` and a 90 second timeout returned
+the whole file, and it decodes.
+
+Two other reads had failed for reasons that were also mine. `curl` on the group page
+returned 15,665 bytes with no song titles, while `WebFetch` on the identical URL listed
+all six Zappa charts with their ids. And the notation images are referenced in a form
+the `src="..."` grep never matched.
+
+**The chart says `10/16`.** Legible at 6x in `dn_sys1_left.png`, with a tempo mark of
+quarter `= 89`.
+
+| Source | Bar 2 | Bars of `15/16` |
+|---|---|---|
+| Ryan Brown, DRUM Magazine | `5/16` + `5/16` | 4 |
+| Daniel Bédard | `5/16` + `5/16` | not read past bar 5 |
+| **Drumnet** | **`10/16`** | **1** |
+| Songsterr `s412162` | `10/16` | 4 |
+
+**So this is a split, not a refutation.** The handoff says Brown and Drumnet "both use a
+single 10/16". Drumnet does. Brown does not. Half the claim holds. The tab sides with
+Drumnet on the barring and with Brown on the four bars of `15/16`, and no single
+published source matches it on both.
+
+Drumnet's quarter `= 89` and Brown's eighth `= 178` are the same tempo.
 
 ## Still blocked
 
