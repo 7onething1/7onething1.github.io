@@ -467,6 +467,32 @@ handoff already recorded.
 where it covers the performance. Brown covers these nine bars, so the barring question
 is now a decision rather than a settled fact.
 
+### A second professional transcriber says the same thing
+
+Daniel Bédard transcribed 52 Zappa charts. Todd Bishop's Cruise Ship Drummer post is
+the only public artifact of that project, and it carries page 1 of his handwritten
+Zomby Woof chart at full resolution.
+
+`~/Projects/_outputs/zappa-drum-sources/01-cruiseshipdrummer/Zomby1_daniel-bedard.jpg`,
+750x1058, JPEG SOI and EOI verified.
+
+| Bar | Ryan Brown, DRUM Magazine | Daniel Bédard | Songsterr `s412162` |
+|---|---|---|---|
+| 1 | `3/4` | `3/4` | `3/4` |
+| 2 | **`5/16`** | **`5/16`** | **`10/16`** |
+| 3 | **`5/16`** | **`5/16`** | absorbed |
+| 4 | `2/4` | `2/4` | `2/4` |
+| 5 | `5/4` quintuplets | `5/4` quintuplets | `5/4` |
+
+**Two independent professional transcriptions, the same barring.** Bédard's `5/16`
+read as `15/16` until 5x magnification, where the leading stroke resolves as the
+barline. `bedard_sys1_right.png` shows the signature, a bar, a barline, and a second
+bar of the same meter.
+
+So the tab stands alone on `10/16`, and the handoff's claim that the published sources
+back it is refuted by both sources this session could reach. Drumnet is still
+unverified.
+
 ## Still blocked
 
 1. **The iMac working tree.** The immutable `ORIGINAL-*.gp` set, the published-source
