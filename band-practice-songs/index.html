@@ -1,0 +1,135 @@
+<!doctype html>
+<html lang="en"><head><meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Band Practice Songs</title>
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@400;600;700&family=Inter:wght@400;500;600&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
+<style>
+:root{--cream:#F4EFE6;--ink:#14110E;--rose:#C97B84;--mustard:#D9A441;--teal:#4A7C72;--dust:#8A7E6D;--rule:#DED5C6;--panel:#FBF8F2}
+*{box-sizing:border-box}
+body{margin:0;background:var(--cream);color:var(--ink);font-family:Inter,system-ui,sans-serif;line-height:1.65}
+.wrap{max-width:940px;margin:0 auto;padding:56px 24px 90px}
+h1{font-family:'Cormorant Garamond',Georgia,serif;font-size:clamp(2.4rem,6vw,3.6rem);font-weight:700;margin:0 0 6px;letter-spacing:-.01em}
+.sub{color:var(--dust);font-size:.95rem;margin-bottom:38px}
+h2{font-family:'Cormorant Garamond',Georgia,serif;font-size:1.9rem;font-weight:600;margin:46px 0 14px;padding-bottom:8px;border-bottom:2px solid var(--rule)}
+.card{background:var(--panel);border:1px solid var(--rule);border-left:5px solid var(--teal);padding:20px 24px;margin:18px 0;border-radius:3px}
+.card.red{border-left-color:var(--rose)}
+.card.gold{border-left-color:var(--mustard)}
+.k{font-weight:600}
+code,.mono{font-family:'JetBrains Mono',Menlo,monospace;font-size:.85rem}
+.sm{font-size:.72rem;color:var(--dust)}
+table{width:100%;border-collapse:collapse;margin:18px 0;font-size:.88rem}
+th{text-align:left;font-weight:600;padding:9px 10px;border-bottom:2px solid var(--ink);font-size:.75rem;text-transform:uppercase;letter-spacing:.06em}
+td{padding:8px 10px;border-bottom:1px solid var(--rule);vertical-align:top}
+tr:nth-child(even) td{background:rgba(255,255,255,.45)}
+.ok{color:var(--teal);font-weight:600}
+.warn{color:var(--mustard);font-weight:600}
+.no{color:var(--rose);font-weight:600}
+.scroll{overflow-x:auto}
+.stats{display:flex;flex-wrap:wrap;gap:14px;margin:22px 0}
+.stat{flex:1 1 150px;background:var(--panel);border:1px solid var(--rule);padding:14px 16px;border-radius:3px}
+.stat .n{font-family:'Cormorant Garamond',serif;font-size:2.1rem;font-weight:700;line-height:1}
+.stat .l{font-size:.74rem;text-transform:uppercase;letter-spacing:.06em;color:var(--dust);margin-top:4px}
+footer{margin-top:56px;padding-top:20px;border-top:1px solid var(--rule);color:var(--dust);font-size:.82rem}
+</style></head><body><div class="wrap">
+
+<h1>Band Practice Songs</h1>
+<div class="sub">8&#8209;14&#8209;26 board tape &middot; complete takes only, false starts and chatter removed &middot; 2026&#8209;09&#8209;01</div>
+
+<div class="stats">
+<div class="stat"><div class="n">22</div><div class="l">songs kept</div></div>
+<div class="stat"><div class="n">21</div><div class="l">verified clean</div></div>
+<div class="stat"><div class="n">146.5</div><div class="l">minutes kept</div></div>
+<div class="stat"><div class="n">79</div><div class="l">minutes dropped</div></div>
+</div>
+
+<h2>What went wrong first</h2>
+<div class="card red">
+<p>The earlier pass cut the tape into <span class="k">100 equal 2:15 slices</span> on a blind clock grid. A slice boundary landed wherever the timer said, so songs were cut in half and every false start, tuning pause and bit of chatter stayed in. That answered a request for tenths and it did not answer the real ask.</p>
+</div>
+
+<h2>How these were found</h2>
+<p>The detector treats <span class="k">a false start as a take the band tried again</span>. It compares each take head-to-head against the takes that follow using chroma-sequence similarity with lag alignment, so the same pitch classes have to appear in the same order. Duration and loudness alone would mislabel almost everything, since talking is loud and a rehearsal room is never silent.</p>
+
+<table>
+<tr><th>Stage</th><th>Result</th></tr>
+<tr><td>Takes segmented from the tape</td><td>83</td></tr>
+<tr><td>First pass, default threshold</td><td>31 kept, <span class="no">17 survived re-check</span></td></tr>
+<tr><td>Stricter pass, score 70 / min 60s</td><td>20 kept, <span class="warn">13 survived re-check</span></td></tr>
+<tr><td>Head trims applied</td><td>6 files</td></tr>
+<tr><td>Long take split into songs</td><td>1 take into 3</td></tr>
+<tr><td class="k">Final</td><td class="ok">22 songs, 21 verified clean</td></tr>
+</table>
+
+<h2>What was thrown away</h2>
+<table>
+<tr><th>Verdict</th><th>Count</th><th>Meaning</th></tr>
+<tr><td class="mono">FRAGMENT</td><td>46</td><td>A stab, a riff check, a count-in</td></tr>
+<tr><td class="mono">NOODLE</td><td>9</td><td>No steady pulse, tuning or playing over talk</td></tr>
+<tr><td class="mono">WORKSHOP</td><td>5</td><td>The band drilling one section repeatedly</td></tr>
+<tr><td class="mono">FALSE_START</td><td>3</td><td>A real attempt, abandoned, replayed later</td></tr>
+</table>
+
+<h2>The 22 songs</h2>
+<p>Timecodes are positions in the original 3:45:27 tape, so any song can be found in the master.</p>
+<div class="scroll"><table>
+<tr><th>#</th><th>Tape start</th><th>Length</th><th>Play</th><th>Stops</th><th>Check</th><th>File</th></tr>
+<tr><td>1</td><td class='mono'>0:29:52</td><td class='mono'>0:01:15</td><td>94.7%</td><td>0</td><td class='ok'>clean</td><td class='mono sm'>01_tape0-29-52_len1m15s.wav</td></tr>
+<tr><td>2</td><td class='mono'>0:34:28</td><td class='mono'>0:04:07</td><td>93.0%</td><td>1</td><td class='ok'>clean</td><td class='mono sm'>02_tape0-34-28_len4m07s.wav</td></tr>
+<tr><td>3</td><td class='mono'>0:43:16</td><td class='mono'>0:03:42</td><td>99.1%</td><td>0</td><td class='ok'>clean</td><td class='mono sm'>03_tape0-43-16_len3m42s.wav</td></tr>
+<tr><td>4</td><td class='mono'>0:47:02</td><td class='mono'>0:03:39</td><td>97.7%</td><td>1</td><td class='ok'>clean</td><td class='mono sm'>04_tape0-47-02_len3m39s.wav</td></tr>
+<tr><td>5</td><td class='mono'>0:55:27</td><td class='mono'>0:05:03</td><td>95.4%</td><td>2</td><td class='ok'>clean</td><td class='mono sm'>05_tape0-55-27_len5m03s.wav</td></tr>
+<tr><td>6</td><td class='mono'>1:06:14</td><td class='mono'>0:10:25</td><td>97.5%</td><td>2</td><td class='ok'>clean</td><td class='mono sm'>06_tape1-06-14_len10m25s.wav</td></tr>
+<tr><td>7</td><td class='mono'>1:21:10</td><td class='mono'>0:04:20</td><td>98.1%</td><td>1</td><td class='ok'>clean</td><td class='mono sm'>07_tape1-21-10_len4m20s.wav</td></tr>
+<tr><td>8</td><td class='mono'>1:26:58</td><td class='mono'>0:04:22</td><td>90.1%</td><td>3</td><td class='ok'>clean</td><td class='mono sm'>08_tape1-26-58_len4m22s.wav</td></tr>
+<tr><td>9</td><td class='mono'>1:31:34</td><td class='mono'>0:05:01</td><td>97.9%</td><td>1</td><td class='ok'>clean</td><td class='mono sm'>09_tape1-31-34_len5m01s.wav</td></tr>
+<tr><td>10</td><td class='mono'>1:36:56</td><td class='mono'>0:04:39</td><td>99.0%</td><td>1</td><td class='ok'>clean</td><td class='mono sm'>10_tape1-36-56_len4m39s.wav</td></tr>
+<tr><td>11</td><td class='mono'>1:43:27</td><td class='mono'>0:09:38</td><td>97.8%</td><td>0</td><td class='ok'>clean</td><td class='mono sm'>11_tape1-43-27_len9m38s.wav</td></tr>
+<tr><td>12</td><td class='mono'>1:53:19</td><td class='mono'>0:01:14</td><td>94.0%</td><td>0</td><td class='ok'>clean</td><td class='mono sm'>12_tape1-53-19_len1m14s.wav</td></tr>
+<tr><td>13</td><td class='mono'>1:55:00</td><td class='mono'>0:09:16</td><td>96.5%</td><td>4</td><td class='ok'>clean</td><td class='mono sm'>13_tape1-55-00_len9m16s.wav</td></tr>
+<tr><td>14</td><td class='mono'>2:11:22</td><td class='mono'>0:02:27</td><td>82.9%</td><td>0</td><td class='warn'>83% play</td><td class='mono sm'>14_tape2-11-22_len2m27s.wav</td></tr>
+<tr><td>15</td><td class='mono'>2:14:06</td><td class='mono'>0:03:04</td><td>99.3%</td><td>0</td><td class='ok'>clean</td><td class='mono sm'>15_tape2-14-06_len3m04s.wav</td></tr>
+<tr><td>16</td><td class='mono'>2:19:27</td><td class='mono'>0:08:19</td><td>95.1%</td><td>4</td><td class='ok'>clean</td><td class='mono sm'>16_tape2-19-27_len8m19s.wav</td></tr>
+<tr><td>17</td><td class='mono'>2:30:21</td><td class='mono'>0:08:20</td><td>99.7%</td><td>0</td><td class='ok'>clean</td><td class='mono sm'>17_tape2-30-21_len8m20s.wav</td></tr>
+<tr><td>18</td><td class='mono'>2:38:47</td><td class='mono'>0:20:12</td><td>99.1%</td><td>0</td><td class='ok'>clean</td><td class='mono sm'>18_tape2-38-47_len20m12s.wav</td></tr>
+<tr><td>19</td><td class='mono'>2:59:08</td><td class='mono'>0:06:39</td><td>99.4%</td><td>0</td><td class='ok'>clean</td><td class='mono sm'>19_tape2-59-08_len6m39s.wav</td></tr>
+<tr><td>20</td><td class='mono'>3:06:46</td><td class='mono'>0:24:42</td><td>99.2%</td><td>1</td><td class='ok'>clean</td><td class='mono sm'>20_tape3-06-46_len24m42s.wav</td></tr>
+<tr><td>21</td><td class='mono'>3:33:27</td><td class='mono'>0:02:12</td><td>93.9%</td><td>0</td><td class='ok'>clean</td><td class='mono sm'>21_tape3-33-27_len2m12s.wav</td></tr>
+<tr><td>22</td><td class='mono'>3:35:48</td><td class='mono'>0:03:50</td><td>97.7%</td><td>1</td><td class='ok'>clean</td><td class='mono sm'>22_tape3-35-48_len3m50s.wav</td></tr>
+</table></div>
+
+<h2>Where the honest gaps are</h2>
+
+<div class="card gold">
+<p><span class="k">The speech confirmation returned nothing.</span> All 83 takes came back UNKNOWN with zero contradictions. The room is silent between takes on this tape, so whisper had no talk to transcribe. That check gave no independent confirmation here and is not counted as a pass.</p>
+</div>
+
+<div class="card gold">
+<p><span class="k">Song 14 reads 83% above the room floor</span> and is the one file still flagged. Its gap analysis found zero stops over 1.2 seconds, so the low reading is a quiet passage rather than chatter. Kept on that evidence.</p>
+</div>
+
+<div class="card">
+<p><span class="k">Songs 17, 18 and 19 came out of one 35.5 minute block.</span> Two independent methods agreed on where to cut: silence gaps at 8:24 and 28:42, and a tempo analysis run on 2026-08-18 that found boundaries at 8:50 and 28:41. The cuts sit on the gap edges, so no music was clipped.</p>
+</div>
+
+<div class="card">
+<p><span class="k">Song 20 is a single 24:42 jam and was left whole.</span> It holds one 1.6 second gap across the entire span, so there is no evidence it contains separate songs.</p>
+</div>
+
+<h2>Head trims</h2>
+<p>Six keepers began with an aborted intro welded to the front. Each was cut to the end of the last early gap so the file starts on the real downbeat.</p>
+<table>
+<tr><th>Song</th><th>Trimmed</th><th>Why</th></tr>
+<tr><td>6</td><td class="mono">29.3s</td><td>Four separate stops before the take settled</td></tr>
+<tr><td>8</td><td class="mono">12.5s</td><td>Stop at 11s</td></tr>
+<tr><td>10</td><td class="mono">19.1s</td><td>Stop at 18s</td></tr>
+<tr><td>12</td><td class="mono">7.2s</td><td>Stop at 5s</td></tr>
+<tr><td>15</td><td class="mono">9.4s</td><td>Head air plus a stop at 8s</td></tr>
+<tr><td>17</td><td class="mono">4.1s</td><td>Dead air at head</td></tr>
+</table>
+
+<footer>
+Source: <span class="mono">~/Music/Band-Practice/band-practice-8-14-26.wav</span>, PCM 24-bit / 44.1 kHz, 3:45:27.
+Songs at <span class="mono">~/Music/Band-Practice/songs-clean/</span>, cut with stream copy so the PCM is untouched.
+Every figure came from the detector, <span class="mono">verify_exports</span>, or <span class="mono">ffprobe</span> output in the session transcript.
+</footer>
+</div></body></html>
