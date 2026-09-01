@@ -530,7 +530,7 @@ footer{
       if(j.duration) DUR = j.duration;
       if(j.sample_rate){
         document.getElementById('fmtline').textContent =
-          (j.sample_rate/1000).toFixed(1)+' kHz · 16-bit · '+(j.channels===2?'stereo':'mono');
+          (j.sample_rate/1000).toFixed(1)+' kHz · '+String(j.subtype||'').replace('PCM_','')+'-bit source · '+(j.channels===2?'stereo':'mono');
       }
       elDur.textContent = fmt(DUR);
       elRem.textContent = '-' + fmt(DUR);
