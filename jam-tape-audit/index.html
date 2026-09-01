@@ -1,0 +1,265 @@
+<!doctype html>
+<html lang="en"><head><meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Jam Tape Audit</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@400;600;700&family=Inter:wght@400;500;600;700&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
+<style>:root{--cream:#f4ecd8;--cream-2:#fbf6e9;--card:#fdfaf1;--ink:#14110d;--ink-2:#4a4237;
+--ink-3:#7d7362;--line:#ddd0b2;--mustard:#c9a227;--rust:#a6462a;--sage:#7d8a6a;color-scheme:light}
+*{box-sizing:border-box}html,body{margin:0;padding:0}
+body{background:var(--cream);color:var(--ink);font-family:Inter,-apple-system,BlinkMacSystemFont,sans-serif;
+line-height:1.55;-webkit-font-smoothing:antialiased;padding:2.2rem 1.1rem 4rem}
+main{max-width:960px;margin:0 auto}
+.eyebrow{font-family:"JetBrains Mono",monospace;font-size:.72rem;letter-spacing:.16em;
+text-transform:uppercase;color:var(--rust);margin:0 0 .5rem}
+h1{font-family:"Cormorant Garamond",Georgia,serif;font-weight:700;
+font-size:clamp(2.1rem,5.6vw,3.3rem);line-height:1.06;margin:0 0 .35rem;letter-spacing:-.01em}
+.dek{font-size:1.02rem;color:var(--ink-2);margin:0 0 1.4rem;max-width:64ch}
+.rule{height:3px;background:var(--ink);width:64px;margin:0 0 1.7rem;border-radius:2px}
+.stats{display:flex;flex-wrap:wrap;gap:.7rem;margin:0 0 1.8rem}
+.stat{flex:1 1 150px;background:var(--card);border:1px solid var(--line);border-radius:10px;padding:.75rem .9rem}
+.stat .v{font-family:"Cormorant Garamond",serif;font-size:1.95rem;font-weight:700;line-height:1}
+.stat .k{font-family:"JetBrains Mono",monospace;font-size:.64rem;letter-spacing:.1em;
+text-transform:uppercase;color:var(--ink-3);margin-top:.25rem}
+h2{font-family:"Cormorant Garamond",Georgia,serif;font-size:1.75rem;font-weight:600;margin:2.5rem 0 .5rem}
+h3{font-family:"Cormorant Garamond",Georgia,serif;font-size:1.25rem;font-weight:600;margin:1.6rem 0 .35rem}
+p.body{max-width:68ch;color:var(--ink-2);font-size:.95rem}
+a.link{color:var(--rust);font-weight:600;text-decoration:none}
+a.link:hover{text-decoration:underline}
+code{background:#efe7d3;padding:.08em .35em;border-radius:4px;font-size:.85em;font-family:"JetBrains Mono",monospace}
+.tablewrap{overflow-x:auto;margin:1rem 0}
+table{width:100%;border-collapse:collapse;font-size:.87rem;min-width:640px}
+th{text-align:left;font-weight:600;padding:.5rem .6rem;border-bottom:2px solid var(--ink);
+font-size:.68rem;text-transform:uppercase;letter-spacing:.07em;white-space:nowrap}
+td{padding:.5rem .6rem;border-bottom:1px solid var(--line);vertical-align:top}
+tr.hit td{background:#fbf0ea}
+tr.gold td{background:#fbf6e4}
+.mono{font-family:"JetBrains Mono",monospace;font-size:.8rem}
+.num{font-family:"JetBrains Mono",monospace;font-size:.82rem;text-align:right;white-space:nowrap}
+.pill{font-family:"JetBrains Mono",monospace;font-size:.6rem;letter-spacing:.06em;text-transform:uppercase;
+padding:.14rem .45rem;border-radius:4px;border:1px solid var(--line);white-space:nowrap;display:inline-block}
+.pill.ok{color:#5e6b4d;border-color:#c3ccb6;background:#f2f5ec}
+.pill.bad{color:#8c3a22;border-color:#e2b7a6;background:#fbeee8}
+.pill.warn{color:#8a6d14;border-color:#e0cf94;background:#faf3dd}
+.pill.gold{color:#8a6d14;border-color:#d8bf72;background:#f8efd2}
+.warn{background:#faf3dd;border:1px solid #e0cf94;border-left:5px solid var(--mustard);
+border-radius:8px;padding:.9rem 1.05rem;margin:1.2rem 0;max-width:70ch}
+.hitbox{background:#fbeee8;border:1px solid #e2b7a6;border-left:5px solid var(--rust);
+border-radius:8px;padding:.9rem 1.05rem;margin:1.2rem 0;max-width:70ch}
+.goodbox{background:#f2f5ec;border:1px solid #c3ccb6;border-left:5px solid var(--sage);
+border-radius:8px;padding:.9rem 1.05rem;margin:1.2rem 0;max-width:70ch}
+.warn p,.hitbox p,.goodbox p{margin:.3rem 0;font-size:.93rem;color:var(--ink-2)}
+.warn p:first-child,.hitbox p:first-child,.goodbox p:first-child{margin-top:0}
+.warn strong,.hitbox strong,.goodbox strong{color:var(--ink)}
+pre{background:var(--card);border:1px solid var(--line);border-radius:8px;padding:.85rem .95rem;
+overflow-x:auto;font-family:"JetBrains Mono",monospace;font-size:.75rem;margin:.7rem 0;line-height:1.5}
+.bar{height:9px;background:#e8dcc0;border-radius:5px;overflow:hidden;min-width:88px;margin-top:.25rem}
+.bar span{display:block;height:100%;border-radius:5px}
+ul.body{max-width:68ch;color:var(--ink-2);font-size:.95rem}
+ul.body li{margin:.3rem 0}
+.toc{background:var(--card);border:1px solid var(--line);border-radius:10px;padding:.9rem 1.1rem;margin:0 0 1.8rem;max-width:70ch}
+.toc ol{margin:.35rem 0 0;padding-left:1.2rem;font-size:.9rem}
+.toc li{margin:.18rem 0}
+footer{margin-top:2.8rem;padding-top:1rem;border-top:1px solid var(--line);
+font-family:"JetBrains Mono",monospace;font-size:.7rem;color:var(--ink-3);line-height:1.7}</style></head><body><main>
+
+<p class="eyebrow">missed-songs-audit &middot; six tapes &middot; 2026-09-01</p>
+<h1>Jam Tape Audit</h1>
+<p class="dek">Every long band tape on this Mac, ranked by how much frequency survived the recorder,
+then run through the missed-songs audit. One tape carried the same silent failure that cost
+the 8.28 board tape ninety minutes of playing.</p>
+<div class="rule"></div>
+
+<div class="stats">
+<div class="stat"><div class="v">6</div><div class="k">tapes audited</div></div>
+<div class="stat"><div class="v">19.8 h</div><div class="k">total runtime</div></div>
+<div class="stat"><div class="v">154</div><div class="k">songs now held</div></div>
+<div class="stat"><div class="v">+36</div><div class="k">songs recovered</div></div>
+<div class="stat"><div class="v">24 min</div><div class="k">still uncovered</div></div>
+</div>
+
+<div class="toc"><strong>What is on this page</strong>
+<ol>
+<li><a class="link" href="#fidelity">Which tape has no frequency loss</a></li>
+<li><a class="link" href="#table">The audit, tape by tape</a></li>
+<li><a class="link" href="#731">7.31.26 carried the 8.28 failure</a></li>
+<li><a class="link" href="#814">The 8-14 cut that shipped is short</a></li>
+<li><a class="link" href="#residual">Two tapes still hold uncovered playing</a></li>
+<li><a class="link" href="#calib">The calibration flag decides every lossy tape</a></li>
+<li><a class="link" href="#method">Method, controls, and limits</a></li>
+</ol></div>
+
+<h2 id="fidelity">1. Which tape has no frequency loss</h2>
+<p class="body">Container and bitrate describe a file. They do not measure what reached the disk.
+The test here samples nine windows spread across each tape, averages the spectrum, and reads the
+level at 16 kHz against the 1 kHz to 4 kHz band that every one of these recordings has. A codec
+cutoff shows up as a wall, with energy tens of dB below anything an instrument produces.</p>
+
+<div class="goodbox">
+<p><strong>One tape qualifies.</strong> <code>band-practice-8-14-26.wav</code> reads
+<strong>-38.7 dB at 16 kHz</strong>. The next best reads -76.8 dB. That is a gap of 38 dB,
+and the five AAC tapes sit 38 to 47 dB below the WAV.</p>
+<p>Every other file in the set is a 23.6 kbps AAC voice recording, or a decode of one.</p>
+</div>
+
+<div class="tablewrap"><table>
+<thead><tr><th>file</th><th>codec</th><th>dB @16k</th><th>reading</th></tr></thead>
+<tbody><tr class="gold"><td class="mono">8-14-26</td><td class="mono">PCM 24-bit 44.1k</td><td class="num">-38.7</td><td>real content at 16 kHz</td></tr><tr><td class="mono">5-22-26</td><td class="mono">AAC 23.6 kbps</td><td class="num">-76.8</td><td>dead above roughly 12 kHz</td></tr><tr><td class="mono">8.28.26</td><td class="mono">AAC 23.7 kbps</td><td class="num">-81.7</td><td>dead above roughly 12 kHz</td></tr><tr><td class="mono">7.3.26</td><td class="mono">AAC 23.7 kbps</td><td class="num">-83.2</td><td>dead above roughly 12 kHz</td></tr><tr><td class="mono">5.8.26</td><td class="mono">AAC 23.6 kbps</td><td class="num">-85.5</td><td>dead above roughly 12 kHz</td></tr><tr><td class="mono">7.31.26</td><td class="mono">AAC 23.7 kbps</td><td class="num">-85.7</td><td>dead above roughly 12 kHz</td></tr><tr><td class="mono" style="color:var(--ink-3)">~/Downloads/7:14:26.m4a</td><td class="mono" style="color:var(--ink-3)">copy of 8-14-26</td><td class="num" style="color:var(--ink-3)">-85.0</td><td style="color:var(--ink-3);font-size:.85em">envelope r = 0.998 at a constant -0.070 s AAC priming delay</td></tr><tr><td class="mono" style="color:var(--ink-3)">~/Desktop/Stems/5.8.26-jam/source.wav</td><td class="mono" style="color:var(--ink-3)">copy of 5.8.26</td><td class="num" style="color:var(--ink-3)">-56.9</td><td style="color:var(--ink-3);font-size:.85em">envelope r = 1.0000 at zero lag</td></tr></tbody></table></div>
+
+<p class="body">The two greyed rows are copies rather than separate sessions.
+<code>7:14:26.m4a</code> matches the 8-14 WAV at an envelope correlation of 0.998 once a constant
+70 ms AAC priming delay is removed, so it is a lossy sibling of the same performance under a
+different date in its name. The 5.8.26 WAV matches its m4a at 1.0000 with no lag at all,
+so it carries no information the m4a lacks.</p>
+
+<h2 id="table">2. The audit, tape by tape</h2>
+<p class="body">Coverage is the share of the tape the detector called a song. On a practice tape,
+anything under about 40 percent is the alarm. Uncovered regions are stretches of at least 45 seconds
+that measure as playing and carry no take, each one confirmed by transcription against a talk
+control from the same tape.</p>
+
+<div class="tablewrap"><table>
+<thead><tr><th>tape</th><th>fidelity</th><th>before</th><th>songs now</th><th>coverage</th><th>uncovered</th><th>verdict</th></tr></thead>
+<tbody><tr class="">
+<td class="mono"><strong>8.28.26</strong><br><span style="color:var(--ink-3);font-size:.72rem">5.21 h</span></td>
+<td><span class="pill">lossy</span><br><span class="mono" style="color:var(--ink-3);font-size:.7rem">-81.7 dB @16k</span></td>
+<td class="mono">12 @ 10.7%</td>
+<td class="num">27<br><span style="color:var(--ink-3);font-size:.7rem">173 min</span></td>
+<td class="num">55.5%<div class="bar"><span style="width:56%;background:#c9a227"></span></div></td>
+<td class="num">0<br><span style="color:var(--ink-3);font-size:.7rem">0 min</span></td>
+<td><span class="pill ok">repaired earlier</span></td></tr><tr class="gold">
+<td class="mono"><strong>8-14-26</strong><br><span style="color:var(--ink-3);font-size:.72rem">3.76 h</span></td>
+<td><span class="pill gold">full band</span><br><span class="mono" style="color:var(--ink-3);font-size:.7rem">-38.7 dB @16k</span></td>
+<td class="mono">20 @ 65.6%</td>
+<td class="num">31<br><span style="color:var(--ink-3);font-size:.7rem">161 min</span></td>
+<td class="num">71.6%<div class="bar"><span style="width:72%;background:#7d8a6a"></span></div></td>
+<td class="num">0<br><span style="color:var(--ink-3);font-size:.7rem">0 min</span></td>
+<td><span class="pill gold">clean run, short cut</span></td></tr><tr class="">
+<td class="mono"><strong>5.8.26</strong><br><span style="color:var(--ink-3);font-size:.72rem">2.96 h</span></td>
+<td><span class="pill">lossy</span><br><span class="mono" style="color:var(--ink-3);font-size:.7rem">-85.5 dB @16k</span></td>
+<td class="mono">no prior run</td>
+<td class="num">20<br><span style="color:var(--ink-3);font-size:.7rem">64 min</span></td>
+<td class="num">36.0%<div class="bar"><span style="width:36%;background:#a6462a"></span></div></td>
+<td class="num">6<br><span style="color:var(--ink-3);font-size:.7rem">10 min</span></td>
+<td><span class="pill warn">gap remains</span></td></tr><tr class="hit">
+<td class="mono"><strong>7.31.26</strong><br><span style="color:var(--ink-3);font-size:.72rem">2.82 h</span></td>
+<td><span class="pill">lossy</span><br><span class="mono" style="color:var(--ink-3);font-size:.7rem">-85.7 dB @16k</span></td>
+<td class="mono">10 @ 10.6%</td>
+<td class="num">35<br><span style="color:var(--ink-3);font-size:.7rem">108 min</span></td>
+<td class="num">63.6%<div class="bar"><span style="width:64%;background:#7d8a6a"></span></div></td>
+<td class="num">0<br><span style="color:var(--ink-3);font-size:.7rem">0 min</span></td>
+<td><span class="pill bad">was broken, fixed today</span></td></tr><tr class="">
+<td class="mono"><strong>5-22-26</strong><br><span style="color:var(--ink-3);font-size:.72rem">2.58 h</span></td>
+<td><span class="pill">lossy</span><br><span class="mono" style="color:var(--ink-3);font-size:.7rem">-76.8 dB @16k</span></td>
+<td class="mono">no prior run</td>
+<td class="num">24<br><span style="color:var(--ink-3);font-size:.7rem">126 min</span></td>
+<td class="num">81.7%<div class="bar"><span style="width:82%;background:#7d8a6a"></span></div></td>
+<td class="num">1<br><span style="color:var(--ink-3);font-size:.7rem">2 min</span></td>
+<td><span class="pill ok">clean</span></td></tr><tr class="">
+<td class="mono"><strong>7.3.26</strong><br><span style="color:var(--ink-3);font-size:.72rem">2.46 h</span></td>
+<td><span class="pill">lossy</span><br><span class="mono" style="color:var(--ink-3);font-size:.7rem">-83.2 dB @16k</span></td>
+<td class="mono">no prior run</td>
+<td class="num">17<br><span style="color:var(--ink-3);font-size:.7rem">56 min</span></td>
+<td class="num">38.2%<div class="bar"><span style="width:38%;background:#a6462a"></span></div></td>
+<td class="num">7<br><span style="color:var(--ink-3);font-size:.7rem">12 min</span></td>
+<td><span class="pill warn">gap remains</span></td></tr></tbody></table></div>
+
+<h2 id="731">3. 7.31.26 carried the 8.28 failure</h2>
+<div class="hitbox">
+<p><strong>The old run kept 10 songs across a 169 minute tape.</strong> Song coverage measured
+10.6 percent, which is the alarm and almost exactly the 10.7 percent the broken 8.28 run produced.
+The audit found 21 stretches with no take, totalling 44 minutes.</p>
+<p>Ten of those stretches were sampled and transcribed. All ten returned zero words, against a
+talk control from the same tape that returned 37 words at 0.93 words per second.</p>
+</div>
+<p class="body">Re-running the detector with <code>--calib loudness</code>, the same flag that repaired
+8.28, took the tape from 10 songs to <strong>35 songs</strong> and coverage from 10.6 percent to
+63.6 percent. The audit then reported zero uncovered regions. Thirty of the 35 songs are ones the
+old run never held in any form.</p>
+<p class="body">Two songs from the old run do not appear whole in the new one, and both are accounted for.
+The take at 1:36:57 is now split across two songs that together cover the same audio. The take at
+0:30:08 is a 53 second stretch the new run calls two fragments, which is the one genuine downgrade.</p>
+
+<h2 id="814">4. The 8-14 cut that shipped is short</h2>
+<p class="body">The 8-14 detector run is healthy on its own terms. Coverage reads 71.6 percent,
+80.3 percent counting every take, and the audit reports zero uncovered regions. The problem sits
+downstream of the detector.</p>
+<div class="warn">
+<p><strong>The cut on disk came from the strict run, which holds 20 songs.</strong> The default run
+on the same tape holds 31. Mapping one onto the other, all 20 strict songs sit inside longer default
+takes, so the strict pass was clipping songs as well as dropping them.</p>
+<p>Eleven songs in the default run have no counterpart in the shipped cut, at 0:10:24, 0:15:58,
+0:20:21, 0:33:40, 0:38:39, 1:17:26, 1:25:46, 1:42:20, 2:05:36, 2:28:41 and 3:31:31.</p>
+</div>
+<p class="body">The 8-14 tape is worth cutting again, since it is the only full band master in the set.</p>
+
+<h2 id="residual">5. Two tapes still hold uncovered playing</h2>
+<p class="body">Three tapes had never been through the song detector at all. Two of them come back
+with playing the new run still does not hold.</p>
+<ul class="body">
+<li><strong>5.8.26</strong> reads 36.0 percent coverage across 20 songs. Six regions totalling
+10 minutes measure as playing and carry no take. All six transcribed to zero words against a
+talk control that returned six words.</li>
+<li><strong>7.3.26</strong> reads 38.2 percent coverage across 17 songs. Seven regions totalling
+12 minutes carry no take. All seven transcribed to zero words against a talk control that returned
+20 words at 0.50 words per second.</li>
+<li><strong>5-22-26</strong> reads 81.7 percent coverage across 24 songs, the highest here.
+One region of two minutes carries no take.</li>
+</ul>
+<p class="body">On both of the tapes that fire the talk control at 0.0 percent, the audit test rejects
+conversation cleanly, so the zero-word readings in those regions carry their full weight.</p>
+
+<h2 id="calib">6. The calibration flag decides every lossy tape</h2>
+<p class="body">The 8.28 repair added <code>--calib loudness</code>, which drops pulse salience from the
+split that decides playing against not playing. That was treated as a fix for one tape. Running both
+calibrations across this whole set shows it is the correct setting for every phone recording here.</p>
+
+<div class="tablewrap"><table>
+<thead><tr><th>tape</th><th>fidelity</th><th>default calib</th><th>loudness calib</th><th>gain</th></tr></thead>
+<tbody><tr><td class="mono">5-22-26</td><td><span class="pill">lossy</span></td><td class="num" style="color:#8c3a22">8 @ 7.1%</td><td class="num" style="color:#5e6b4d"><strong>24 @ 81.7%</strong></td><td class="num">+74.6 pts</td></tr><tr><td class="mono">7.31.26</td><td><span class="pill">lossy</span></td><td class="num" style="color:#8c3a22">10 @ 10.6%</td><td class="num" style="color:#5e6b4d"><strong>35 @ 63.6%</strong></td><td class="num">+53.0 pts</td></tr><tr><td class="mono">8.28.26</td><td><span class="pill">lossy</span></td><td class="num" style="color:#8c3a22">12 @ 10.7%</td><td class="num" style="color:#5e6b4d"><strong>27 @ 55.5%</strong></td><td class="num">+44.8 pts</td></tr><tr><td class="mono">5.8.26</td><td><span class="pill">lossy</span></td><td class="num" style="color:#8c3a22">15 @ 16.9%</td><td class="num" style="color:#5e6b4d"><strong>20 @ 36.0%</strong></td><td class="num">+19.1 pts</td></tr><tr><td class="mono">7.3.26</td><td><span class="pill">lossy</span></td><td class="num" style="color:#8c3a22">13 @ 19.5%</td><td class="num" style="color:#5e6b4d"><strong>17 @ 38.2%</strong></td><td class="num">+18.7 pts</td></tr><tr class="gold"><td class="mono">8-14-26</td><td><span class="pill gold">full band</span></td><td class="num">31 @ 71.6%</td><td class="num" style="color:var(--ink-3)">not needed</td><td>default is already correct here</td></tr></tbody></table></div>
+
+<div class="hitbox">
+<p><strong>5-22-26 is the sharpest case.</strong> Under the default calibration it returns 8 songs at
+7.1 percent coverage, the worst reading anywhere in this set. Under loudness it returns 24 songs at
+81.7 percent, the best. The tape did not change between those two runs.</p>
+</div>
+
+<p class="body">The split follows fidelity rather than session. Five lossy tapes all improve under
+loudness, by 19 to 75 percentage points. The one full band master is the only tape where the default
+calibration already reads correctly, at 71.6 percent. Pulse salience carries information when the
+recording has real high frequency content, and carries noise when a 23.6 kbps encoder has stripped
+the transient detail the autocorrelation depends on.</p>
+
+<div class="goodbox">
+<p><strong>Standing rule this produces:</strong> run <code>--calib loudness</code> on any phone or
+voice memo band tape. Keep the default for full band masters, and check the tape's level at 16 kHz,
+then choose.</p>
+</div>
+
+<h2 id="method">7. Method, controls, and limits</h2>
+<p class="body">Each tape went through the same four steps. The profile is built from loudness and a
+mid-band ratio, deliberately not the detector's own feature set, so the audit does not inherit the
+blind spot it exists to find. Coverage calibrates on the detector's own confirmed songs rather than a
+hand-picked threshold. Every disputed region is then settled by transcription.</p>
+<pre>python3 scripts/profile_tape.py --audio TAPE --out profile.npz
+python3 scripts/audit_coverage.py --profile profile.npz --manifest MANIFEST.json --talk START END
+~/.venvs/rsf311/bin/python scripts/speech_probe.py --audio TAPE --windows windows.json
+python3 scripts/compare_runs.py --old OLD.json --new NEW.json</pre>
+<p class="body"><strong>The talk control is the load-bearing part.</strong> The first probe on 7.31.26
+returned zero words in all eleven windows, including the ones meant to be conversation. The script
+refused to let that stand, because a batch with no talk control cannot prove that a zero-word reading
+means music. A 24 window sweep across the whole tape then found speech at 1:48, and the audit was
+re-run against it.</p>
+<p class="body">Three limits belong with these numbers. Recall of the audit test against each
+detector's own songs runs 80 to 83 percent, so it under-reports rather than over-reports. The talk
+control fires the test between 0 and 33 percent depending on tape, which is why every region here
+was transcribed rather than believed on spectrum alone. And each probe samples 75 seconds from the
+middle of a region, so a long region is confirmed at its centre rather than end to end.</p>
+
+<footer>
+Built 2026-09-01 from measurements on this MacBook. Audit scripts:
+~/.claude/skills/missed-songs-audit/scripts/. Detector: ~/.claude/skills/real-song-finder/find_songs.py.<br>
+Run manifests: ~/Projects/_outputs/real-song-finder/.
+</footer>
+</main></body></html>
