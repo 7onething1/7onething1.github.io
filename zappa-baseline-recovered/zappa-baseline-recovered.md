@@ -424,6 +424,49 @@ skill copy is 52 KB and is what `/impossible-guitar-parts` actually invokes, so 
 older, thinner copy is the one that runs in production. The 99 KB copy is what the
 tests exercise. Both now carry the instrument fix. Queued as `q-2026-08-31-c452ea`.
 
+## REFUTED: the 10/16 barring, from the professional transcription
+
+Brandon, 2026-08-31: pull from the downloaded transcriptions by professional
+transcribers, not from old Guitar Pro files. The archive holding them is on the iMac,
+so the DRUM Magazine set was re-downloaded here from the URL the archive page records.
+
+`~/Projects/_outputs/zappa-drum-sources/02-drummagazine/zomby-woof.png`, 1178x733,
+PNG signature and IEND verified, from
+`https://drummagazine.com/groove-analysis-frank-zappas-drummers/`.
+
+Ryan Brown's page states **'ZOMBY WOOF', @ 0:00, eighth note = 178**, and reads:
+
+| Bar | Brown | Songsterr `s412162` |
+|---|---|---|
+| 1 | `3/4` | `3/4` |
+| 2 | **`5/16`** | **`10/16`** |
+| 3 | **`5/16`** | absorbed into bar 2 |
+| 4 | `2/4` | `2/4` |
+| 5 | `5/4` | `5/4` |
+| 6 to 9 | `15/16` x4 | `15/16` x4 |
+
+**Nine bars in Brown, eight in the tab.**
+
+The handoff records under "Proven, do not re-litigate":
+
+> barring (both use a single 10/16, not two 5/16)
+
+The image refutes that for Brown. The `5/16` signature is legible at 3x in
+`crop_sys1_left.png`, and `crop_sys1_mid.png` shows the bar, a barline, then a second
+bar of the same meter before the `2/4`. Ten sixteenths either way, so the two agree on
+duration and disagree on how it is barred.
+
+**The Drumnet half stays unverified.** `drumnet.ru` returned nothing within 120 seconds
+on 2026-08-31, and the handoff itself records that its PDF is not served.
+
+Everything else corroborates. Bar 1, bar 4, bar 5 and the four bars of `15/16` match,
+and Brown's eighth = 178 puts the quarter at 89 against the tab's 88, the 1.1% gap the
+handoff already recorded.
+
+**Under the handoff's own method this matters.** Published drum notation has priority
+where it covers the performance. Brown covers these nine bars, so the barring question
+is now a decision rather than a settled fact.
+
 ## Still blocked
 
 1. **The iMac working tree.** The immutable `ORIGINAL-*.gp` set, the published-source

@@ -54,7 +54,7 @@ ul.tight{margin:6px 0 14px;padding-left:20px} ul.tight li{margin-bottom:5px}
 </div>
 
 <div class="toc">
-<a href="#missing">What is missing</a><a href="#found">What was found</a><a href="#timeline">Revision timeline</a><a href="#control">Known-answer control</a><a href="#ties">The 18 ties</a><a href="#paren">Paren to staccato</a><a href="#lanes">Two machines</a><a href="#sibling">Sibling session</a><a href="#repair">Repair pass</a><a href="#gate">Gate fix</a><a href="#kick">Kick defect</a><a href="#blocked">Still blocked</a><a href="#repro">Reproduce it</a>
+<a href="#missing">What is missing</a><a href="#found">What was found</a><a href="#timeline">Revision timeline</a><a href="#control">Known-answer control</a><a href="#ties">The 18 ties</a><a href="#paren">Paren to staccato</a><a href="#lanes">Two machines</a><a href="#sibling">Sibling session</a><a href="#repair">Repair pass</a><a href="#brown">Ryan Brown refutes 10/16</a><a href="#gate">Gate fix</a><a href="#kick">Kick defect</a><a href="#blocked">Still blocked</a><a href="#repro">Reproduce it</a>
 </div>
 
 <div class="grid">
@@ -63,7 +63,7 @@ ul.tight{margin:6px 0 14px;padding-left:20px} ul.tight li{margin-bottom:5px}
 <div class="card"><div class="big t2">18</div><div class="lab">tie connections, confirmed</div></div>
 <div class="card"><div class="big t2">47</div><div class="lab">test assertions now running</div></div>
 <div class="card"><div class="big m">6</div><div class="lab">Notes carrying all 36 tied events</div></div>
-<div class="card"><div class="big r">4/20</div><div class="lab">songs with a split kick lane</div></div>
+<div class="card"><div class="big r">9 vs 8</div><div class="lab">Brown\u2019s bars vs the tab\u2019s</div></div>
 </div>
 
 <h2 id="missing">What the handoff named, and what is here</h2>
@@ -325,6 +325,30 @@ against the backup      : FAIL  impossible_gate has no instrument_of</pre>
 <h3>One decision left on this</h3>
 <p>Two copies of <code>impossible_gate.py</code> have diverged and neither is marked canonical. The skill copy is 52 KB and is what <code>/impossible-guitar-parts</code> actually invokes, so the older, thinner copy is the one that runs in production. The 99 KB copy is what the tests exercise. Both now carry the instrument fix. Queued as <code>q-2026-08-31-c452ea</code>.</p>
 </div>
+
+<h2 id="brown">REFUTED: the 10/16 barring, from the professional transcription</h2>
+<p class="sub">Brandon, 2026-08-31: pull from the downloaded transcriptions by professional transcribers, not from old Guitar Pro files. The archive holding them is on the iMac, so the DRUM Magazine set was re-downloaded here from the URL the archive page records.</p>
+<pre>~/Projects/_outputs/zappa-drum-sources/02-drummagazine/zomby-woof.png
+1178x733, PNG signature and IEND verified
+from https://drummagazine.com/groove-analysis-frank-zappas-drummers/</pre>
+<p>Ryan Brown's page states <b>'ZOMBY WOOF', @ 0:00, eighth note = 178</b>, and reads:</p>
+<div class="scroll"><table>
+<tr><th class="n">Bar</th><th>Ryan Brown, DRUM Magazine</th><th>Songsterr <code>s412162</code></th></tr>
+<tr class="good"><td class="n">1</td><td><code>3/4</code></td><td><code>3/4</code></td></tr>
+<tr class="bad"><td class="n">2</td><td><b><code>5/16</code></b></td><td><b><code>10/16</code></b></td></tr>
+<tr class="bad"><td class="n">3</td><td><b><code>5/16</code></b></td><td>absorbed into bar 2</td></tr>
+<tr class="good"><td class="n">4</td><td><code>2/4</code></td><td><code>2/4</code></td></tr>
+<tr class="good"><td class="n">5</td><td><code>5/4</code></td><td><code>5/4</code></td></tr>
+<tr class="good"><td class="n">6 to 9</td><td><code>15/16</code> x4</td><td><code>15/16</code> x4</td></tr>
+</table></div>
+<p><b>Nine bars in Brown, eight in the tab.</b></p>
+<div class="corr">
+<h3>This overturns an item the handoff marked "Proven, do not re-litigate"</h3>
+<p>The handoff records: <em>barring (both use a single 10/16, not two 5/16)</em>. The image refutes that for Brown. The <code>5/16</code> signature is legible at 3x in <code>crop_sys1_left.png</code>, and <code>crop_sys1_mid.png</code> shows the bar, a barline, then a second bar of the same meter before the <code>2/4</code>. Ten sixteenths either way, so the two agree on duration and disagree on how it is barred.</p>
+<p><b>The Drumnet half stays unverified.</b> <code>drumnet.ru</code> returned nothing within 120 seconds on 2026-08-31, and the handoff itself records that its PDF is not served.</p>
+</div>
+<p>Everything else corroborates. Bar 1, bar 4, bar 5 and the four bars of <code>15/16</code> match, and Brown's eighth = 178 puts the quarter at 89 against the tab's 88, the 1.1% gap the handoff already recorded.</p>
+<p><b>Under the handoff's own method this matters.</b> Published drum notation has priority where it covers the performance. Brown covers these nine bars, so the barring question is now a decision rather than a settled fact.</p>
 
 <h2 id="blocked">Still blocked</h2>
 <div class="blk">
