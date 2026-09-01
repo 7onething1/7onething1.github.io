@@ -33,7 +33,7 @@ footer{margin-top:60px;padding-top:20px;border-top:1px solid var(--rule);color:v
 <body><div class="wrap">
 
 <h1>Messages 4&nbsp;GB Audit</h1>
-<div class="sub">Band practice board tape &middot; located, verified, split into tenths &middot; 2026&#8209;09&#8209;01</div>
+<div class="sub">Band practice board tape &middot; located, verified, split into tenths and hundredths &middot; 2026&#8209;09&#8209;01</div>
 
 <h2>The finding</h2>
 <div class="card red">
@@ -79,6 +79,114 @@ footer{margin-top:60px;padding-top:20px;border-top:1px solid var(--rule);color:v
 <div class="card gold">
 <p><span class="k">Sample-accuracy proof.</span> The ten segment durations sum to 13527.756827 s against the source at 13527.756825 s. The 2 microsecond gap is float rounding in the reported values, well under one sample at 44.1 kHz. Every part reads back as <code>pcm_s24le, 44100, 2</code>, so the format survived the cut.</p>
 </div>
+
+<h2>Split again into hundredths</h2>
+<p>Each of the ten parts cut into ten more at <span class="k">135.27757 seconds</span> each, giving <span class="k">100 segments</span> of roughly 2:15. Stream-copied again, so the PCM is still untouched.</p>
+<div class="card gold"><p><span class="k">Sample-accuracy proof.</span> The hundred durations sum to 13527.756847 s against the source at 13527.756825 s. That 22 microsecond spread is float rounding accumulated over 100 readings, under one sample at 44.1 kHz. Zero format mismatches and zero decode failures across all 100.</p></div>
+<div class="scroll"><table>
+<tr><th>File</th><th>Part</th><th>Sub</th><th>Start</th><th>End</th><th>Length</th><th>MB</th></tr>
+<tr><td class="mono">p00-s00.wav</td><td>1</td><td>1</td><td class="mono">0:00:00.000</td><td class="mono">0:02:15.326</td><td class="mono">0:02:15.326</td><td>34.1</td></tr>
+<tr><td class="mono">p00-s01.wav</td><td>1</td><td>2</td><td class="mono">0:02:15.278</td><td class="mono">0:04:30.511</td><td class="mono">0:02:15.233</td><td>34.1</td></tr>
+<tr><td class="mono">p00-s02.wav</td><td>1</td><td>3</td><td class="mono">0:04:30.555</td><td class="mono">0:06:45.881</td><td class="mono">0:02:15.326</td><td>34.1</td></tr>
+<tr><td class="mono">p00-s03.wav</td><td>1</td><td>4</td><td class="mono">0:06:45.833</td><td class="mono">0:09:01.066</td><td class="mono">0:02:15.233</td><td>34.1</td></tr>
+<tr><td class="mono">p00-s04.wav</td><td>1</td><td>5</td><td class="mono">0:09:01.110</td><td class="mono">0:11:16.436</td><td class="mono">0:02:15.326</td><td>34.1</td></tr>
+<tr><td class="mono">p00-s05.wav</td><td>1</td><td>6</td><td class="mono">0:11:16.388</td><td class="mono">0:13:31.621</td><td class="mono">0:02:15.233</td><td>34.1</td></tr>
+<tr><td class="mono">p00-s06.wav</td><td>1</td><td>7</td><td class="mono">0:13:31.665</td><td class="mono">0:15:46.991</td><td class="mono">0:02:15.326</td><td>34.1</td></tr>
+<tr><td class="mono">p00-s07.wav</td><td>1</td><td>8</td><td class="mono">0:15:46.943</td><td class="mono">0:18:02.176</td><td class="mono">0:02:15.233</td><td>34.1</td></tr>
+<tr><td class="mono">p00-s08.wav</td><td>1</td><td>9</td><td class="mono">0:18:02.221</td><td class="mono">0:20:17.546</td><td class="mono">0:02:15.326</td><td>34.1</td></tr>
+<tr><td class="mono">p00-s09.wav</td><td>1</td><td>10</td><td class="mono">0:20:17.498</td><td class="mono">0:22:32.731</td><td class="mono">0:02:15.233</td><td>34.1</td></tr>
+<tr><td class="mono">p01-s00.wav</td><td>2</td><td>1</td><td class="mono">0:22:32.776</td><td class="mono">0:24:48.102</td><td class="mono">0:02:15.326</td><td>34.1</td></tr>
+<tr><td class="mono">p01-s01.wav</td><td>2</td><td>2</td><td class="mono">0:24:48.053</td><td class="mono">0:27:03.286</td><td class="mono">0:02:15.233</td><td>34.1</td></tr>
+<tr><td class="mono">p01-s02.wav</td><td>2</td><td>3</td><td class="mono">0:27:03.331</td><td class="mono">0:29:18.657</td><td class="mono">0:02:15.326</td><td>34.1</td></tr>
+<tr><td class="mono">p01-s03.wav</td><td>2</td><td>4</td><td class="mono">0:29:18.608</td><td class="mono">0:31:33.841</td><td class="mono">0:02:15.233</td><td>34.1</td></tr>
+<tr><td class="mono">p01-s04.wav</td><td>2</td><td>5</td><td class="mono">0:31:33.886</td><td class="mono">0:33:49.212</td><td class="mono">0:02:15.326</td><td>34.1</td></tr>
+<tr><td class="mono">p01-s05.wav</td><td>2</td><td>6</td><td class="mono">0:33:49.164</td><td class="mono">0:36:04.397</td><td class="mono">0:02:15.233</td><td>34.1</td></tr>
+<tr><td class="mono">p01-s06.wav</td><td>2</td><td>7</td><td class="mono">0:36:04.441</td><td class="mono">0:38:19.767</td><td class="mono">0:02:15.326</td><td>34.1</td></tr>
+<tr><td class="mono">p01-s07.wav</td><td>2</td><td>8</td><td class="mono">0:38:19.719</td><td class="mono">0:40:34.952</td><td class="mono">0:02:15.233</td><td>34.1</td></tr>
+<tr><td class="mono">p01-s08.wav</td><td>2</td><td>9</td><td class="mono">0:40:34.996</td><td class="mono">0:42:50.322</td><td class="mono">0:02:15.326</td><td>34.1</td></tr>
+<tr><td class="mono">p01-s09.wav</td><td>2</td><td>10</td><td class="mono">0:42:50.274</td><td class="mono">0:45:05.507</td><td class="mono">0:02:15.233</td><td>34.1</td></tr>
+<tr><td class="mono">p02-s00.wav</td><td>3</td><td>1</td><td class="mono">0:45:05.551</td><td class="mono">0:47:20.877</td><td class="mono">0:02:15.326</td><td>34.1</td></tr>
+<tr><td class="mono">p02-s01.wav</td><td>3</td><td>2</td><td class="mono">0:47:20.829</td><td class="mono">0:49:36.062</td><td class="mono">0:02:15.233</td><td>34.1</td></tr>
+<tr><td class="mono">p02-s02.wav</td><td>3</td><td>3</td><td class="mono">0:49:36.107</td><td class="mono">0:51:51.432</td><td class="mono">0:02:15.326</td><td>34.1</td></tr>
+<tr><td class="mono">p02-s03.wav</td><td>3</td><td>4</td><td class="mono">0:51:51.384</td><td class="mono">0:54:06.617</td><td class="mono">0:02:15.233</td><td>34.1</td></tr>
+<tr><td class="mono">p02-s04.wav</td><td>3</td><td>5</td><td class="mono">0:54:06.662</td><td class="mono">0:56:21.988</td><td class="mono">0:02:15.326</td><td>34.1</td></tr>
+<tr><td class="mono">p02-s05.wav</td><td>3</td><td>6</td><td class="mono">0:56:21.939</td><td class="mono">0:58:37.172</td><td class="mono">0:02:15.233</td><td>34.1</td></tr>
+<tr><td class="mono">p02-s06.wav</td><td>3</td><td>7</td><td class="mono">0:58:37.217</td><td class="mono">1:00:52.543</td><td class="mono">0:02:15.326</td><td>34.1</td></tr>
+<tr><td class="mono">p02-s07.wav</td><td>3</td><td>8</td><td class="mono">1:00:52.494</td><td class="mono">1:03:07.727</td><td class="mono">0:02:15.233</td><td>34.1</td></tr>
+<tr><td class="mono">p02-s08.wav</td><td>3</td><td>9</td><td class="mono">1:03:07.772</td><td class="mono">1:05:23.098</td><td class="mono">0:02:15.326</td><td>34.1</td></tr>
+<tr><td class="mono">p02-s09.wav</td><td>3</td><td>10</td><td class="mono">1:05:23.050</td><td class="mono">1:07:38.283</td><td class="mono">0:02:15.233</td><td>34.1</td></tr>
+<tr><td class="mono">p03-s00.wav</td><td>4</td><td>1</td><td class="mono">1:07:38.327</td><td class="mono">1:09:53.653</td><td class="mono">0:02:15.326</td><td>34.1</td></tr>
+<tr><td class="mono">p03-s01.wav</td><td>4</td><td>2</td><td class="mono">1:09:53.605</td><td class="mono">1:12:08.838</td><td class="mono">0:02:15.233</td><td>34.1</td></tr>
+<tr><td class="mono">p03-s02.wav</td><td>4</td><td>3</td><td class="mono">1:12:08.882</td><td class="mono">1:14:24.208</td><td class="mono">0:02:15.326</td><td>34.1</td></tr>
+<tr><td class="mono">p03-s03.wav</td><td>4</td><td>4</td><td class="mono">1:14:24.160</td><td class="mono">1:16:39.393</td><td class="mono">0:02:15.233</td><td>34.1</td></tr>
+<tr><td class="mono">p03-s04.wav</td><td>4</td><td>5</td><td class="mono">1:16:39.437</td><td class="mono">1:18:54.763</td><td class="mono">0:02:15.326</td><td>34.1</td></tr>
+<tr><td class="mono">p03-s05.wav</td><td>4</td><td>6</td><td class="mono">1:18:54.715</td><td class="mono">1:21:09.948</td><td class="mono">0:02:15.233</td><td>34.1</td></tr>
+<tr><td class="mono">p03-s06.wav</td><td>4</td><td>7</td><td class="mono">1:21:09.993</td><td class="mono">1:23:25.318</td><td class="mono">0:02:15.326</td><td>34.1</td></tr>
+<tr><td class="mono">p03-s07.wav</td><td>4</td><td>8</td><td class="mono">1:23:25.270</td><td class="mono">1:25:40.503</td><td class="mono">0:02:15.233</td><td>34.1</td></tr>
+<tr><td class="mono">p03-s08.wav</td><td>4</td><td>9</td><td class="mono">1:25:40.548</td><td class="mono">1:27:55.874</td><td class="mono">0:02:15.326</td><td>34.1</td></tr>
+<tr><td class="mono">p03-s09.wav</td><td>4</td><td>10</td><td class="mono">1:27:55.825</td><td class="mono">1:30:11.058</td><td class="mono">0:02:15.233</td><td>34.1</td></tr>
+<tr><td class="mono">p04-s00.wav</td><td>5</td><td>1</td><td class="mono">1:30:11.103</td><td class="mono">1:32:26.429</td><td class="mono">0:02:15.326</td><td>34.1</td></tr>
+<tr><td class="mono">p04-s01.wav</td><td>5</td><td>2</td><td class="mono">1:32:26.380</td><td class="mono">1:34:41.613</td><td class="mono">0:02:15.233</td><td>34.1</td></tr>
+<tr><td class="mono">p04-s02.wav</td><td>5</td><td>3</td><td class="mono">1:34:41.658</td><td class="mono">1:36:56.984</td><td class="mono">0:02:15.326</td><td>34.1</td></tr>
+<tr><td class="mono">p04-s03.wav</td><td>5</td><td>4</td><td class="mono">1:36:56.936</td><td class="mono">1:39:12.169</td><td class="mono">0:02:15.233</td><td>34.1</td></tr>
+<tr><td class="mono">p04-s04.wav</td><td>5</td><td>5</td><td class="mono">1:39:12.213</td><td class="mono">1:41:27.539</td><td class="mono">0:02:15.326</td><td>34.1</td></tr>
+<tr><td class="mono">p04-s05.wav</td><td>5</td><td>6</td><td class="mono">1:41:27.491</td><td class="mono">1:43:42.724</td><td class="mono">0:02:15.233</td><td>34.1</td></tr>
+<tr><td class="mono">p04-s06.wav</td><td>5</td><td>7</td><td class="mono">1:43:42.768</td><td class="mono">1:45:58.094</td><td class="mono">0:02:15.326</td><td>34.1</td></tr>
+<tr><td class="mono">p04-s07.wav</td><td>5</td><td>8</td><td class="mono">1:45:58.046</td><td class="mono">1:48:13.279</td><td class="mono">0:02:15.233</td><td>34.1</td></tr>
+<tr><td class="mono">p04-s08.wav</td><td>5</td><td>9</td><td class="mono">1:48:13.323</td><td class="mono">1:50:28.649</td><td class="mono">0:02:15.326</td><td>34.1</td></tr>
+<tr><td class="mono">p04-s09.wav</td><td>5</td><td>10</td><td class="mono">1:50:28.601</td><td class="mono">1:52:43.741</td><td class="mono">0:02:15.140</td><td>34.1</td></tr>
+<tr><td class="mono">p05-s00.wav</td><td>6</td><td>1</td><td class="mono">1:52:43.878</td><td class="mono">1:54:59.204</td><td class="mono">0:02:15.326</td><td>34.1</td></tr>
+<tr><td class="mono">p05-s01.wav</td><td>6</td><td>2</td><td class="mono">1:54:59.156</td><td class="mono">1:57:14.389</td><td class="mono">0:02:15.233</td><td>34.1</td></tr>
+<tr><td class="mono">p05-s02.wav</td><td>6</td><td>3</td><td class="mono">1:57:14.434</td><td class="mono">1:59:29.760</td><td class="mono">0:02:15.326</td><td>34.1</td></tr>
+<tr><td class="mono">p05-s03.wav</td><td>6</td><td>4</td><td class="mono">1:59:29.711</td><td class="mono">2:01:44.944</td><td class="mono">0:02:15.233</td><td>34.1</td></tr>
+<tr><td class="mono">p05-s04.wav</td><td>6</td><td>5</td><td class="mono">2:01:44.989</td><td class="mono">2:04:00.315</td><td class="mono">0:02:15.326</td><td>34.1</td></tr>
+<tr><td class="mono">p05-s05.wav</td><td>6</td><td>6</td><td class="mono">2:04:00.266</td><td class="mono">2:06:15.499</td><td class="mono">0:02:15.233</td><td>34.1</td></tr>
+<tr><td class="mono">p05-s06.wav</td><td>6</td><td>7</td><td class="mono">2:06:15.544</td><td class="mono">2:08:30.870</td><td class="mono">0:02:15.326</td><td>34.1</td></tr>
+<tr><td class="mono">p05-s07.wav</td><td>6</td><td>8</td><td class="mono">2:08:30.821</td><td class="mono">2:10:46.055</td><td class="mono">0:02:15.233</td><td>34.1</td></tr>
+<tr><td class="mono">p05-s08.wav</td><td>6</td><td>9</td><td class="mono">2:10:46.099</td><td class="mono">2:13:01.425</td><td class="mono">0:02:15.326</td><td>34.1</td></tr>
+<tr><td class="mono">p05-s09.wav</td><td>6</td><td>10</td><td class="mono">2:13:01.377</td><td class="mono">2:15:16.610</td><td class="mono">0:02:15.233</td><td>34.1</td></tr>
+<tr><td class="mono">p06-s00.wav</td><td>7</td><td>1</td><td class="mono">2:15:16.654</td><td class="mono">2:17:31.980</td><td class="mono">0:02:15.326</td><td>34.1</td></tr>
+<tr><td class="mono">p06-s01.wav</td><td>7</td><td>2</td><td class="mono">2:17:31.932</td><td class="mono">2:19:47.165</td><td class="mono">0:02:15.233</td><td>34.1</td></tr>
+<tr><td class="mono">p06-s02.wav</td><td>7</td><td>3</td><td class="mono">2:19:47.209</td><td class="mono">2:22:02.535</td><td class="mono">0:02:15.326</td><td>34.1</td></tr>
+<tr><td class="mono">p06-s03.wav</td><td>7</td><td>4</td><td class="mono">2:22:02.487</td><td class="mono">2:24:17.720</td><td class="mono">0:02:15.233</td><td>34.1</td></tr>
+<tr><td class="mono">p06-s04.wav</td><td>7</td><td>5</td><td class="mono">2:24:17.764</td><td class="mono">2:26:33.090</td><td class="mono">0:02:15.326</td><td>34.1</td></tr>
+<tr><td class="mono">p06-s05.wav</td><td>7</td><td>6</td><td class="mono">2:26:33.042</td><td class="mono">2:28:48.275</td><td class="mono">0:02:15.233</td><td>34.1</td></tr>
+<tr><td class="mono">p06-s06.wav</td><td>7</td><td>7</td><td class="mono">2:28:48.320</td><td class="mono">2:31:03.646</td><td class="mono">0:02:15.326</td><td>34.1</td></tr>
+<tr><td class="mono">p06-s07.wav</td><td>7</td><td>8</td><td class="mono">2:31:03.597</td><td class="mono">2:33:18.830</td><td class="mono">0:02:15.233</td><td>34.1</td></tr>
+<tr><td class="mono">p06-s08.wav</td><td>7</td><td>9</td><td class="mono">2:33:18.875</td><td class="mono">2:35:34.201</td><td class="mono">0:02:15.326</td><td>34.1</td></tr>
+<tr><td class="mono">p06-s09.wav</td><td>7</td><td>10</td><td class="mono">2:35:34.152</td><td class="mono">2:37:49.385</td><td class="mono">0:02:15.233</td><td>34.1</td></tr>
+<tr><td class="mono">p07-s00.wav</td><td>8</td><td>1</td><td class="mono">2:37:49.430</td><td class="mono">2:40:04.756</td><td class="mono">0:02:15.326</td><td>34.1</td></tr>
+<tr><td class="mono">p07-s01.wav</td><td>8</td><td>2</td><td class="mono">2:40:04.707</td><td class="mono">2:42:19.940</td><td class="mono">0:02:15.233</td><td>34.1</td></tr>
+<tr><td class="mono">p07-s02.wav</td><td>8</td><td>3</td><td class="mono">2:42:19.985</td><td class="mono">2:44:35.311</td><td class="mono">0:02:15.326</td><td>34.1</td></tr>
+<tr><td class="mono">p07-s03.wav</td><td>8</td><td>4</td><td class="mono">2:44:35.263</td><td class="mono">2:46:50.496</td><td class="mono">0:02:15.233</td><td>34.1</td></tr>
+<tr><td class="mono">p07-s04.wav</td><td>8</td><td>5</td><td class="mono">2:46:50.540</td><td class="mono">2:49:05.866</td><td class="mono">0:02:15.326</td><td>34.1</td></tr>
+<tr><td class="mono">p07-s05.wav</td><td>8</td><td>6</td><td class="mono">2:49:05.818</td><td class="mono">2:51:21.051</td><td class="mono">0:02:15.233</td><td>34.1</td></tr>
+<tr><td class="mono">p07-s06.wav</td><td>8</td><td>7</td><td class="mono">2:51:21.095</td><td class="mono">2:53:36.421</td><td class="mono">0:02:15.326</td><td>34.1</td></tr>
+<tr><td class="mono">p07-s07.wav</td><td>8</td><td>8</td><td class="mono">2:53:36.373</td><td class="mono">2:55:51.606</td><td class="mono">0:02:15.233</td><td>34.1</td></tr>
+<tr><td class="mono">p07-s08.wav</td><td>8</td><td>9</td><td class="mono">2:55:51.650</td><td class="mono">2:58:06.976</td><td class="mono">0:02:15.326</td><td>34.1</td></tr>
+<tr><td class="mono">p07-s09.wav</td><td>8</td><td>10</td><td class="mono">2:58:06.928</td><td class="mono">3:00:22.161</td><td class="mono">0:02:15.233</td><td>34.1</td></tr>
+<tr><td class="mono">p08-s00.wav</td><td>9</td><td>1</td><td class="mono">3:00:22.206</td><td class="mono">3:02:37.531</td><td class="mono">0:02:15.326</td><td>34.1</td></tr>
+<tr><td class="mono">p08-s01.wav</td><td>9</td><td>2</td><td class="mono">3:02:37.483</td><td class="mono">3:04:52.716</td><td class="mono">0:02:15.233</td><td>34.1</td></tr>
+<tr><td class="mono">p08-s02.wav</td><td>9</td><td>3</td><td class="mono">3:04:52.761</td><td class="mono">3:07:08.087</td><td class="mono">0:02:15.326</td><td>34.1</td></tr>
+<tr><td class="mono">p08-s03.wav</td><td>9</td><td>4</td><td class="mono">3:07:08.038</td><td class="mono">3:09:23.271</td><td class="mono">0:02:15.233</td><td>34.1</td></tr>
+<tr><td class="mono">p08-s04.wav</td><td>9</td><td>5</td><td class="mono">3:09:23.316</td><td class="mono">3:11:38.642</td><td class="mono">0:02:15.326</td><td>34.1</td></tr>
+<tr><td class="mono">p08-s05.wav</td><td>9</td><td>6</td><td class="mono">3:11:38.593</td><td class="mono">3:13:53.826</td><td class="mono">0:02:15.233</td><td>34.1</td></tr>
+<tr><td class="mono">p08-s06.wav</td><td>9</td><td>7</td><td class="mono">3:13:53.871</td><td class="mono">3:16:09.197</td><td class="mono">0:02:15.326</td><td>34.1</td></tr>
+<tr><td class="mono">p08-s07.wav</td><td>9</td><td>8</td><td class="mono">3:16:09.149</td><td class="mono">3:18:24.382</td><td class="mono">0:02:15.233</td><td>34.1</td></tr>
+<tr><td class="mono">p08-s08.wav</td><td>9</td><td>9</td><td class="mono">3:18:24.426</td><td class="mono">3:20:39.752</td><td class="mono">0:02:15.326</td><td>34.1</td></tr>
+<tr><td class="mono">p08-s09.wav</td><td>9</td><td>10</td><td class="mono">3:20:39.704</td><td class="mono">3:22:54.937</td><td class="mono">0:02:15.233</td><td>34.1</td></tr>
+<tr><td class="mono">p09-s00.wav</td><td>10</td><td>1</td><td class="mono">3:22:54.981</td><td class="mono">3:25:10.307</td><td class="mono">0:02:15.326</td><td>34.1</td></tr>
+<tr><td class="mono">p09-s01.wav</td><td>10</td><td>2</td><td class="mono">3:25:10.259</td><td class="mono">3:27:25.492</td><td class="mono">0:02:15.233</td><td>34.1</td></tr>
+<tr><td class="mono">p09-s02.wav</td><td>10</td><td>3</td><td class="mono">3:27:25.536</td><td class="mono">3:29:40.862</td><td class="mono">0:02:15.326</td><td>34.1</td></tr>
+<tr><td class="mono">p09-s03.wav</td><td>10</td><td>4</td><td class="mono">3:29:40.814</td><td class="mono">3:31:56.047</td><td class="mono">0:02:15.233</td><td>34.1</td></tr>
+<tr><td class="mono">p09-s04.wav</td><td>10</td><td>5</td><td class="mono">3:31:56.092</td><td class="mono">3:34:11.417</td><td class="mono">0:02:15.326</td><td>34.1</td></tr>
+<tr><td class="mono">p09-s05.wav</td><td>10</td><td>6</td><td class="mono">3:34:11.369</td><td class="mono">3:36:26.602</td><td class="mono">0:02:15.233</td><td>34.1</td></tr>
+<tr><td class="mono">p09-s06.wav</td><td>10</td><td>7</td><td class="mono">3:36:26.647</td><td class="mono">3:38:41.973</td><td class="mono">0:02:15.326</td><td>34.1</td></tr>
+<tr><td class="mono">p09-s07.wav</td><td>10</td><td>8</td><td class="mono">3:38:41.924</td><td class="mono">3:40:57.157</td><td class="mono">0:02:15.233</td><td>34.1</td></tr>
+<tr><td class="mono">p09-s08.wav</td><td>10</td><td>9</td><td class="mono">3:40:57.202</td><td class="mono">3:43:12.528</td><td class="mono">0:02:15.326</td><td>34.1</td></tr>
+<tr><td class="mono">p09-s09.wav</td><td>10</td><td>10</td><td class="mono">3:43:12.479</td><td class="mono">3:45:27.617</td><td class="mono">0:02:15.137</td><td>34.1</td></tr>
+</table></div>
+<p>Full manifest as a spreadsheet with a named table: <span class="mono">~/Music/Band-Practice/splits-100-manifest.xlsx</span></p>
 
 <h2>Still pending in Messages</h2>
 <div class="card red">

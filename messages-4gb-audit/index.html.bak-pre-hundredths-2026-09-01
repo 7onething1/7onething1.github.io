@@ -1,0 +1,99 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Messages 4GB Audit</title>
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@400;600;700&family=Inter:wght@400;500;600&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
+<style>
+:root{--cream:#F4EFE6;--ink:#14110E;--rose:#C97B84;--mustard:#D9A441;--teal:#4A7C72;--dust:#8A7E6D;--rule:#DED5C6;--panel:#FBF8F2}
+*{box-sizing:border-box}
+body{margin:0;background:var(--cream);color:var(--ink);font-family:Inter,system-ui,sans-serif;line-height:1.65}
+.wrap{max-width:920px;margin:0 auto;padding:56px 24px 90px}
+h1{font-family:'Cormorant Garamond',Georgia,serif;font-size:clamp(2.4rem,6vw,3.6rem);font-weight:700;margin:0 0 6px;letter-spacing:-.01em}
+.sub{color:var(--dust);font-size:.95rem;margin-bottom:40px}
+h2{font-family:'Cormorant Garamond',Georgia,serif;font-size:1.9rem;font-weight:600;margin:48px 0 14px;padding-bottom:8px;border-bottom:2px solid var(--rule)}
+.card{background:var(--panel);border:1px solid var(--rule);border-left:5px solid var(--teal);padding:20px 24px;margin:18px 0;border-radius:3px}
+.card.red{border-left-color:var(--rose)}
+.card.gold{border-left-color:var(--mustard)}
+.k{font-weight:600}
+code,.mono{font-family:'JetBrains Mono',Menlo,monospace;font-size:.85rem}
+pre{background:var(--ink);color:#EDE7DB;padding:16px 18px;border-radius:4px;overflow-x:auto;font-family:'JetBrains Mono',monospace;font-size:.8rem;line-height:1.6}
+table{width:100%;border-collapse:collapse;margin:18px 0;font-size:.88rem}
+th{text-align:left;font-weight:600;padding:9px 10px;border-bottom:2px solid var(--ink);font-size:.78rem;text-transform:uppercase;letter-spacing:.06em}
+td{padding:9px 10px;border-bottom:1px solid var(--rule);vertical-align:top}
+tr:nth-child(even) td{background:rgba(255,255,255,.45)}
+.ok{color:var(--teal);font-weight:600}
+.no{color:var(--rose);font-weight:600}
+blockquote{margin:16px 0;padding:12px 20px;border-left:3px solid var(--mustard);background:rgba(217,164,65,.09);font-family:'Cormorant Garamond',serif;font-size:1.2rem}
+.scroll{overflow-x:auto}
+footer{margin-top:60px;padding-top:20px;border-top:1px solid var(--rule);color:var(--dust);font-size:.82rem}
+</style>
+</head>
+<body><div class="wrap">
+
+<h1>Messages 4&nbsp;GB Audit</h1>
+<div class="sub">Band practice board tape &middot; located, verified, split into tenths &middot; 2026&#8209;09&#8209;01</div>
+
+<h2>The finding</h2>
+<div class="card red">
+<p><span class="k">No 4 GB attachment exists in Messages.</span> All 6,594 attachment rows in <code>chat.db</code> were scanned. The largest item in the entire history is 776 MB.</p>
+</div>
+
+<p>Your message from 2026-08-17 at 23:47 names the file:</p>
+<blockquote>Went there today to get the full frequenxy 4GB file to mix</blockquote>
+<p>That file never travelled through Messages. You carried it back from the studio, and it landed on disk 72 minutes before you sent that text.</p>
+
+<h2>The source file</h2>
+<div class="card">
+<p class="mono">~/Music/Band-Practice/band-practice-8-14-26.wav</p>
+<table>
+<tr><th>Property</th><th>Value</th></tr>
+<tr><td>Size</td><td>3,584,105,324 bytes (3.58 GB)</td></tr>
+<tr><td>Format</td><td>PCM 24-bit / 44.1 kHz stereo</td></tr>
+<tr><td>Length</td><td>3:45:27.76</td></tr>
+<tr><td>Saved</td><td>Aug 17, 22:35</td></tr>
+<tr><td>Integrity</td><td class="ok">Full decode, zero errors</td></tr>
+</table>
+</div>
+
+<h2>Split into tenths</h2>
+<p>Ten equal segments cut at <span class="k">1352.7757 seconds</span> each, stream-copied so the PCM samples are untouched. Elapsed build time was 4.1 seconds.</p>
+
+<div class="scroll">
+<table>
+<tr><th>#</th><th>File</th><th>Start</th><th>End</th><th>Length</th><th>Size</th><th>Decode</th></tr>
+<tr><td>1</td><td class="mono">part-00.wav</td><td class="mono">0:00:00</td><td class="mono">0:22:32</td><td class="mono">22:32.79</td><td>341M</td><td class="ok">pass</td></tr>
+<tr><td>2</td><td class="mono">part-01.wav</td><td class="mono">0:22:32</td><td class="mono">0:45:05</td><td class="mono">22:32.79</td><td>341M</td><td class="ok">pass</td></tr>
+<tr><td>3</td><td class="mono">part-02.wav</td><td class="mono">0:45:05</td><td class="mono">1:07:38</td><td class="mono">22:32.79</td><td>341M</td><td class="ok">pass</td></tr>
+<tr><td>4</td><td class="mono">part-03.wav</td><td class="mono">1:07:38</td><td class="mono">1:30:11</td><td class="mono">22:32.79</td><td>341M</td><td class="ok">pass</td></tr>
+<tr><td>5</td><td class="mono">part-04.wav</td><td class="mono">1:30:11</td><td class="mono">1:52:43</td><td class="mono">22:32.70</td><td>341M</td><td class="ok">pass</td></tr>
+<tr><td>6</td><td class="mono">part-05.wav</td><td class="mono">1:52:43</td><td class="mono">2:15:16</td><td class="mono">22:32.79</td><td>341M</td><td class="ok">pass</td></tr>
+<tr><td>7</td><td class="mono">part-06.wav</td><td class="mono">2:15:16</td><td class="mono">2:37:49</td><td class="mono">22:32.79</td><td>341M</td><td class="ok">pass</td></tr>
+<tr><td>8</td><td class="mono">part-07.wav</td><td class="mono">2:37:49</td><td class="mono">3:00:22</td><td class="mono">22:32.79</td><td>341M</td><td class="ok">pass</td></tr>
+<tr><td>9</td><td class="mono">part-08.wav</td><td class="mono">3:00:22</td><td class="mono">3:22:55</td><td class="mono">22:32.79</td><td>341M</td><td class="ok">pass</td></tr>
+<tr><td>10</td><td class="mono">part-09.wav</td><td class="mono">3:22:55</td><td class="mono">3:45:27</td><td class="mono">22:32.70</td><td>341M</td><td class="ok">pass</td></tr>
+</table>
+</div>
+
+<div class="card gold">
+<p><span class="k">Sample-accuracy proof.</span> The ten segment durations sum to 13527.756827 s against the source at 13527.756825 s. The 2 microsecond gap is float rounding in the reported values, well under one sample at 44.1 kHz. Every part reads back as <code>pcm_s24le, 44100, 2</code>, so the format survived the cut.</p>
+</div>
+
+<h2>Still pending in Messages</h2>
+<div class="card red">
+<p><span class="k">7.3.26 - 7:7:26, 4.57 PM_1.m4a</span> is 377 MB, sent 2026-07-18 at 22:31 by +1 (816) 810-1202, and it was never downloaded. This is the high-bitrate version of the 7/3/26 jam. The copy you hold runs at 24 kbps, which is the one you called worse than an mp3.</p>
+<p>Messages in iCloud is switched off here (<code>CloudKitSyncingEnabled = 0</code>), so the blob lived only on Apple's transfer servers under a roughly 30 day window. It was sent 45 days ago. Tap the bubble first, and ask for a re-send when that fails.</p>
+</div>
+
+<h2>Commands used</h2>
+<pre>ffmpeg -v error -i band-practice-8-14-26.wav \
+  -f segment -segment_time 1352.7757 -c copy \
+  -reset_timestamps 1 part-%02d.wav</pre>
+
+<footer>
+Source of record: <span class="mono">~/Library/Messages/chat.db</span> (read-only query) and <span class="mono">~/Music/Band-Practice/</span>.
+Every figure on this page came from <span class="mono">sqlite3</span>, <span class="mono">ffprobe</span>, or <span class="mono">ffmpeg</span> output in the session transcript.
+</footer>
+
+</div></body></html>
