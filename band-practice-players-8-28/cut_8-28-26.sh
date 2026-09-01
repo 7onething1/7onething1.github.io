@@ -1,5 +1,5 @@
 #!/usr/bin/env bash
-# Re-cut the 12 complete takes of the 8.28.26 session from a full-quality master.
+# Re-cut the 27 complete takes of the 8.28.26 session from a full-quality master.
 # Timecodes were derived from the 24 kbps Messages transcode, which has the
 # identical 18745.516 s duration, so they land on the lossless WAV unchanged.
 # usage: ./cut_8-28-26.sh /path/to/8-28-26-master.wav [outdir]
