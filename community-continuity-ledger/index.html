@@ -93,7 +93,7 @@ footer .path{word-break:break-all}
 <div class="wrap">
 
 <header class="masthead">
-  <p class="kicker">Community · Continuity Project · Passes Four and Five</p>
+  <p class="kicker">Community · Continuity Project · Passes Four to Six</p>
   <h1>The Transcript-Verified Ledger</h1>
   <p class="standfirst">Every entry tested against a subtitle track before it was written. Episode code, timecode, and the line as the disc renders it. Where the transcript refuses a claim, the refusal is recorded beside it.</p>
 </header>
@@ -102,7 +102,7 @@ footer .path{word-break:break-all}
   <div class="stat"><span class="n">23</span><span class="l">Episodes in evidence</span></div>
   <div class="stat"><span class="n">10,136</span><span class="l">Timecoded cues</span></div>
   <div class="stat"><span class="n">21</span><span class="l">Claims confirmed</span></div>
-  <div class="stat"><span class="n">4</span><span class="l">Corrected or refused</span></div>
+  <div class="stat"><span class="n">6</span><span class="l">Corrected or refused</span></div>
   <div class="stat"><span class="n">8</span><span class="l">Out of reach</span></div>
 </div>
 
@@ -136,6 +136,13 @@ footer .path{word-break:break-all}
     <li><a href="#robocop">The RoboCop line does something else</a></li>
     <li><a href="#owms">A person converted into a format</a></li>
     <li><a href="#chang">Chang's titles change inside Season One</a></li>
+  </ol>
+  <h2 style="margin-top:20px">Pass six · method audit</h2>
+  <ol start="25">
+    <li><a href="#flip">Four negatives flipped, one flip was my own bad probe</a></li>
+    <li><a href="#count">Correcting a correction: the count is four</a></li>
+    <li><a href="#held">Five negatives held under both patterns</a></li>
+    <li><a href="#rule">The two-probe rule</a></li>
   </ol>
 </nav>
 
@@ -328,8 +335,10 @@ footer .path{word-break:break-all}
 <p>Pass four reported that the triple-cool verbal tic returned nothing across the corpus, and then drew a conclusion from that silence. The probe was broken. It demanded a specific punctuation shape, and the subtitle renders the phrase with commas.</p>
 <div class="cite">
 <span class="ep">S01E08</span> <span class="tc">00:07:09</span> cue 154<br>
+<span class="ep">S02E07</span> <span class="tc">00:03:42</span> cue 80 — <strong>added in pass six</strong><br>
 <span class="ep">S02E19</span> <span class="tc">00:16:02</span> cue 362<br>
-<span class="ep">S02E20</span> <span class="tc">00:12:25</span> cue 267
+<span class="ep">S02E20</span> <span class="tc">00:12:25</span> cue 267<br>
+<span class="note">Pass five published three. The loose re-run found a fourth. Count is four.</span>
 </div>
 <p>The tic is installed in Season One rather than arriving later. A probe that fails on punctuation produces silence that looks exactly like absence, and the ledger treated that silence as a finding. Every negative result in pass four has since been re-run with looser patterns.</p>
 </section>
@@ -479,12 +488,67 @@ footer .path{word-break:break-all}
 <p>Every visual claim stays outside what a subtitle can test. Those keep their existing grades until a frame-level evidence layer exists.</p>
 </section>
 
+<section class="entry" id="passsix">
+<h2 class="head" style="border-top:3px double var(--ink);padding-top:34px">Pass six · method audit</h2>
+<p>Pass five caught one negative result that turned out to be a broken probe rather than an absence. That raised an obvious question about the other negatives, so all eleven were re-run under a second, deliberately loose pattern. The audit lives in <span style="font-family:'JetBrains Mono',monospace;font-size:12.5px">reaudit.py</span>, and it changed the ledger in both directions.</p>
+</section>
+
+<section class="entry" id="flip">
+<h2 class="head">Four negatives flipped, and one of the flips was my own bad probe</h2>
+<span class="badge b-corr">Method correction</span>
+<p>Running each claim twice, once strict and once loose, produced four apparent reversals. Three are real. The fourth is a lesson.</p>
+<div class="cite">
+<span class="ep">Chang ventilation claim</span> — loose pattern returned 23 hits across 12 episodes<br>
+<span class="note">Every hit was a substring artifact: <code>vent</code> inside "events", <code>duct</code> inside "product", plus unrelated dialogue about a ceiling. Not one referred to a ventilation system.</span>
+</div>
+<p>The original negative holds, and the correction runs against my own method rather than against the show. A loose pattern manufactures false positives exactly the way a strict pattern manufactures false negatives.</p>
+</section>
+
+<section class="entry" id="count">
+<h2 class="head">Correcting a correction: the count is four</h2>
+<span class="badge b-corr">Pass five revised</span>
+<p>Pass five recorded three instances of the triple-cool tic and published that as the corrected figure. The loose re-run found a fourth.</p>
+<div class="cite">
+<span class="ep">S01E08</span> <span class="tc">00:07:09</span> · <span class="ep">S02E07</span> <span class="tc">00:03:42</span> · <span class="ep">S02E19</span> <span class="tc">00:16:02</span> · <span class="ep">S02E20</span> <span class="tc">00:12:25</span><br>
+<span class="note">A doubled version at S01E08 00:10:32 is recorded separately rather than counted with these.</span>
+</div>
+<p>Pass four said zero, pass five said three, and the count is four. Stating that plainly matters more than the number does, because the ledger's value rests on how it behaves when it is wrong.</p>
+</section>
+
+<section class="entry" id="held">
+<h2 class="head">Five negatives held under both patterns</h2>
+<span class="badge b-conf">Absence now evidenced</span>
+<div class="tblwrap">
+<table>
+<caption>Absent under strict and loose patterns, all 23 episodes</caption>
+<thead><tr><th>Claim</th><th>Strict</th><th>Loose</th><th>Verdict</th></tr></thead>
+<tbody>
+<tr><td>The pile-of construction</td><td class="mono">0</td><td class="mono">0</td><td>Absent from range</td></tr>
+<tr><td>Magnitude's catchphrase</td><td class="mono">0</td><td class="mono">0</td><td>Absent from range</td></tr>
+<tr><td>The six-seasons line</td><td class="mono">0</td><td class="mono">0</td><td>Absent from range</td></tr>
+<tr><td>Streets ahead</td><td class="mono">0</td><td class="mono">0</td><td>Absent from range</td></tr>
+<tr><td>A Winger speech named as one</td><td class="mono">0</td><td class="mono">0</td><td>Absent from range</td></tr>
+</tbody>
+</table>
+</div>
+<p>Holding under two independent patterns is a stronger result than holding under one, so these five are recorded as absent rather than untested. The Winger speech result carries the most weight. The show's most recognizable structural device is never named aloud by any character across these twenty-three episodes, which places the self-aware naming of it later than the stretch in evidence.</p>
+</section>
+
+<section class="entry" id="rule">
+<h2 class="head">The two-probe rule</h2>
+<div class="callout">
+<h3>Added to the method, retroactive to every entry</h3>
+<p>Every negative result needs two probes to enter the ledger. A strict pattern establishes the claim as worded. A loose pattern tests whether the strict one was doing the work. A loose hit gets inspected first and only then counts, because substring matching finds words inside other words.</p>
+<p>Silence only becomes a finding after both probes return nothing. Pass four broke that rule and published a conclusion drawn from a single broken pattern, which is the error this method exists to prevent.</p>
+</div>
+</section>
+
 <footer>
-  Community continuity project · passes four and five · built 2 September 2026<br>
+  Community continuity project · passes four to six · built 2 September 2026<br>
   Evidence: 23 episodes, 10,136 timecoded cues, extracted from local BluRay subtitle tracks<br>
   Harness: <span class="path">~/Projects/_outputs/community-continuity/</span> — <span class="path">cite.py</span>, <span class="path">verify.py</span>, <span class="path">corpus.json</span><br>
   Harness additions: <span class="path">recur.py</span> (cross-episode phrase mining), <span class="path">locate.py</span>, <span class="path">inventory.py</span><br>
-  Voice gate: ai_tells_gate.py hard mode, pass four score 5, pass five score 0, both PASS
+  Voice gate: ai_tells_gate.py hard mode, pass four score 5, passes five and six score 0, all PASS
 </footer>
 
 </div>
