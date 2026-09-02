@@ -55,7 +55,9 @@ tape holds 31. All 20 strict songs sit inside longer default takes, so the stric
 songs as well as dropping them.
 
 Eleven songs in the default run have no counterpart in the shipped cut, at 0:10:24, 0:15:58,
-0:20:21, 0:33:40, 0:38:39, 1:17:26, 1:25:46, 1:42:20, 2:05:36, 2:28:41 and 3:31:31. The 8-14 tape is worth cutting again, since it is the only full band master in the set.
+0:20:21, 0:33:40, 0:38:39, 1:17:26, 1:25:46, 1:42:20, 2:05:36, 2:28:41 and 3:31:31. Those eleven were exported by the detector on 2026-08-18 and sit as WAVs in
+`~/Projects/_outputs/real-song-finder/band-practice-8-14-26/songs/`. The gap is in the curation
+step rather than the export.
 
 ## Two tapes still hold uncovered playing
 
