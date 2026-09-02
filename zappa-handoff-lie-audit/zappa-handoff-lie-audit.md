@@ -167,7 +167,7 @@ census derived from it.
 
 | # | Claim | Source | Independent result |
 |---|---|---|---|
-| 1 | 20 counts match the iMac census, 7,479 both sides | MacBook | 10 of 10 per-track note counts match; 10 of 10 tie counts match at 2 tied events per tie |
+| 1 | 20 counts match the iMac census, 7,479 both sides | MacBook | 10 of 10 per-track note counts match; 10 of 10 tie counts match. **Corrected 2026-09-02:** "2 tied events per tie" holds on 6 tracks and fails on 3. A mid-chain event carries `origin=true destination=true`, ending one connection and starting the next, so a chain of N notes is N events for N-1 connections. Frank Zappa 1 has 60 mid-chain events (1.63 per connection), Ruth Underwood 4 (1.88), Bruce Fowler 2 (1.95); 66 in the score. The drum staff has 0, so the conversion is exact there |
 | 2 | 17 drum lanes, 1,574 total | MacBook | 17 lanes, 1,574, lane for lane identical to the census |
 | 3 | Bars 1-8 read 3/4, 10/16, 2/4, 5/4, 15/16 x4 | MacBook | exact, and sections read Head, Pre-Verse 1, Verse 1 at bars 1, 5, 9 |
 | 4 | 18 ties, twelve bars named | MacBook | 36 tied events in bars 16, 17, 18, 22, 32, 34, 35, 36, 38, 44, 104, 108 |
