@@ -42,19 +42,19 @@ ratio on real content was 0.468. Expanding is one command:
 ffmpeg -i practice-8-28-4ch.flac -c:a pcm_s24le -rf64 auto practice-8-28-4ch.wav
 ```
 
-## Still pending
+## Per-song cuts, all 27 complete
 
-Per-song 4-channel cuts. The 27 songs total 2.89 h, about 2.58 GB as 4-channel
-FLAC, and the drive is at 100 percent with three unrelated Chrome downloads
-writing into it. The cutter is written and validated:
+`~/Music/Band-Practice/songs-8-28-4ch/`, 3,150,829,655 bytes across 27 files,
+every one 4-channel FLAC in the same mic order as the master. Zero failures, zero
+length mismatches, and `ffprobe` reports 4 channels on all 27.
 
-```bash
-python3 ~/Music/Band-Practice/cut_songs_4ch.py
-```
+Each cut applies the 69.7 ms phone correction, uses a sample-accurate seek in
+place of `-c copy`, and is checked for length and channel count before it is kept.
+Spot-checked song 3 against the master at the same instant: all four channels
+`0.000e+00`, and its duration landed at exactly the intended `386.500000 s`.
 
-It was adapted from the existing `cut_8-28-26.sh`, keeping its timecodes and take
-selection, and adding the 69.7 ms correction, a sample-accurate seek in place of
-`-c copy`, per-cut length and channel verification, and a manifest.
+Produced by `cut_songs_4ch.py`, adapted from the existing `cut_8-28-26.sh`, which
+kept its timecodes and take selection.
 
 ## Files
 

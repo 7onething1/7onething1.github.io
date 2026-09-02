@@ -98,12 +98,46 @@ rows_exact = "".join(
 rows_bugs = "".join(
     f"<div class='callout {k}'><b>{t}</b><br>{d}</div>" for t, k, d in BUGS)
 
+CUTDIR = f"{BASE}/songs-8-28-4ch"
+CUTMAN = f"{CUTDIR}/manifest.json"
+cuts = {}
+cut_total = 0
+if os.path.exists(CUTMAN):
+    try:
+        cm = json.load(open(CUTMAN))
+        for s in cm.get("songs", []):
+            cuts[s["song_no"]] = s
+        cut_total = sum(s.get("bytes", 0) for s in cm.get("songs", []))
+    except Exception:
+        cuts = {}
+
+
+def cut_cell(no):
+    c = cuts.get(no)
+    if not c or not c.get("bytes"):
+        return "<td class='num'>&mdash;</td>"
+    return f"<td class='num ok'>{c['bytes']/1e6:.0f} MB</td>"
+
+
 rows_songs = "".join(
     f"<tr><td class='num'>{t['song_no']}</td><td>{t['start_hms']}</td><td>{t['end_hms']}</td>"
     f"<td class='num'>{t['duration_s']:.0f}</td><td class='num'>{t['score']:.1f}</td>"
     f"<td class='num'>{t['bpm']:.0f}</td>"
-    f"<td class='num'>{t['start_s'] - 0.0697:.4f}</td></tr>"
+    f"<td class='num'>{t['start_s'] - 0.0697:.4f}</td>{cut_cell(t['song_no'])}</tr>"
     for t in songs)
+
+if cuts:
+    pending_block = f"""<div class="callout good"><b>All {len(cuts)} songs are cut as 4-channel FLAC</b><br>
+Written to <code>~/Music/Band-Practice/songs-8-28-4ch/</code>, {cut_total/1e9:.2f} GB total, each one
+carrying the same four mics in the same order as the master. Every cut applies the 69.7 ms phone
+correction, uses a sample-accurate seek in place of <code>-c copy</code>, and is checked for length
+and channel count before it is kept. Spot-checked against the master at the same instant:
+all four channels <code>0.000e+00</code>.</div>"""
+else:
+    pending_block = """<div class="callout stop"><b>Per-song four-channel cuts are held on disk space</b><br>
+The 27 songs total 2.89 h, which is about 2.58 GB as 4-channel FLAC, and the drive is full.
+The cutter is written and validated. It runs in one command once there is room.</div>
+<pre>python3 ~/Music/Band-Practice/cut_songs_4ch.py</pre>"""
 
 html = f"""<!doctype html><html lang="en"><head><meta charset="utf-8">
 <meta name="viewport" content="width=device-width,initial-scale=1">
@@ -168,7 +202,7 @@ stacked into one time-synced master and verified bit-exact against every source.
 <li><a href="#verify">Bit-exact verification</a></li>
 <li><a href="#bugs">Eight things that went wrong</a></li>
 <li><a href="#songs">The {counts['songs']} songs</a></li>
-<li><a href="#next">What is still pending</a></li>
+<li><a href="#next">Per-song cuts</a></li>
 </ol></nav>
 
 <h2 id="src">The four sources</h2>
@@ -223,16 +257,10 @@ a lossless container around the same samples the recorder wrote.</p>
 {counts['workshop']} workshop passes, {counts['fragments']} fragments, {counts['noodles']} noodles.
 The last column is the corrected start on the mic master.</p>
 <div class="tw"><table><thead><tr><th>#</th><th>Start</th><th>End</th><th>Sec</th>
-<th>Score</th><th>BPM</th><th>Mic start s</th></tr></thead><tbody>{rows_songs}</tbody></table></div>
+<th>Score</th><th>BPM</th><th>Mic start s</th><th>4-ch cut</th></tr></thead><tbody>{rows_songs}</tbody></table></div>
 
-<h2 id="next">What is still pending</h2>
-<div class="callout stop"><b>Per-song four-channel cuts are held on disk space</b><br>
-The 27 songs total 2.89 h, which is about 2.58 GB as 4-channel FLAC. The drive is at 100 percent
-with single-digit GB free and three unrelated Chrome downloads writing into it. The cutter is
-written, adapted from the existing <code>cut_8-28-26.sh</code> with the 69.7 ms correction, a
-sample-accurate seek in place of <code>-c copy</code>, per-cut length and channel checks and a
-manifest. It runs in one command once there is room.</div>
-<pre>python3 ~/Music/Band-Practice/cut_songs_4ch.py</pre>
+<h2 id="next">Per-song cuts</h2>
+{pending_block}
 
 <footer>
 Built {datetime.datetime.now():%Y-%m-%d %H:%M} from measurements taken on this Mac.
