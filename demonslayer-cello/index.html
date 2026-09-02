@@ -19,6 +19,8 @@
     --rose:#C0797B;
     --navy:#2B4162;
     --wisteria:#6B5A9E;
+    --blood:#8C2F39;
+    --slate:#3E5C76;
   }
   *{box-sizing:border-box}
   html{scroll-behavior:smooth}
@@ -130,10 +132,22 @@
   footer{margin-top:56px;border-top:1px solid var(--rule);padding-top:18px;font-size:13.5px;color:var(--soft)}
 
   @media print{
+    @page{margin:14mm}
     .bar,.btns,footer,.src{display:none}
     body{background:#fff}
     .piece{break-inside:avoid;page-break-inside:avoid;border-color:#bbb}
+    .piece::before{display:none}
     .wrap{max-width:none;padding:0}
+    body.print-one .piece:not(.print-target),
+    body.print-one header,
+    body.print-one h2,
+    body.print-one table,
+    body.print-one .box,
+    body.print-one p{display:none}
+    body.print-one .piece .psub,
+    body.print-one .piece .pmeta,
+    body.print-one .piece .tips li{display:revert}
+    body.print-one .print-target{border:none;margin:0}
   }
 </style>
 </head>
@@ -141,15 +155,15 @@
 <div class="wrap">
 
 <header>
-  <p class="kicker">unaccompanied cello &middot; 8 original pieces &middot; playable in first through fourth position</p>
+  <p class="kicker">unaccompanied cello &middot; 10 original pieces &middot; three of them duets &middot; first through fourth position</p>
   <h1>Demon Slayer, Solo Cello</h1>
   <p class="sub">
     Two halves. <b>Find</b> lists where the actual <i>Kimetsu no Yaiba</i> themes exist as legal, printable
-    cello sheet music, and what each one does to a cellist's hand. <b>Make</b> is eight original solo pieces
+    cello sheet music, and what each one does to a cellist's hand. <b>Make</b> is ten original pieces
     written for this page &mdash; one per breathing style and mood &mdash; engraved in bass clef with cello
     fingerings, playable in the browser, and downloadable as MIDI so you can open them in MuseScore and print.
   </p>
-  <p class="src">All eight pieces below are original compositions written for this page. They are not
+  <p class="src">All ten pieces below are original compositions written for this page. They are not
 transcriptions of the anime's music. Play them, record them, teach them, no permission needed.</p>
 </header>
 
@@ -252,11 +266,11 @@ transcriptions of the anime's music. Play them, record them, teach them, no perm
   one you upload.
 </div>
 
-<h2><span class="num">Part two</span>Make &mdash; eight originals for unaccompanied cello</h2>
+<h2><span class="num">Part two</span>Make &mdash; ten originals for unaccompanied cello</h2>
 <p>
   Written in the show's sound world rather than from its songs: Japanese <i>yo</i> and <i>insen</i> scales,
-  open-string drones, Taish&#333;-era waltz lilt, and one piece per breathing style. Every note is reachable
-  in first through fourth position &mdash; no thumb position anywhere. Press <b>Play</b> to hear a bowed
+  open-string drones, Taish&#333;-era waltz lilt, a phrygian seven-eight for the thing that hunts you, and one
+  piece per breathing style. Every note is reachable in first through fourth position &mdash; no thumb position anywhere. Press <b>Play</b> to hear a bowed
   synth read it back, and <b>MIDI</b> to open it in MuseScore, Dorico or Logic for a printable part.
 </p>
 <p>
@@ -289,7 +303,7 @@ bowings: one bow for the whole slur.</p>
   the Web Audio API, and the metronome is a filtered blip from the same place. Nothing is streamed and no
   audio file is hosted, so the page works offline.
   The synth is a reference for pitch and rhythm, not a model of tone &mdash; your bow will do better.</p>
-  <p><b>Licence:</b> the eight compositions on this page are released for any use, including performance,
+  <p><b>Licence:</b> the ten compositions on this page are released for any use, including performance,
   recording, teaching and publication, with no attribution required.</p>
 </footer>
 
@@ -480,6 +494,47 @@ const PIECES = [
    "<b>Vibrate the half notes from the start of the note</b>, not after it has already spoken. On a slow line, a note that begins straight and then wobbles sounds nervous.",
    "<b>As a duet.</b> Cello II moves in thirds and tenths under the melody and drops to the low D at the end. In bars 13–15, where the piece turns major, tune the F sharps to each other rather than to the drone."
   ]
+},
+{
+  id:"uppermoon", accent:"var(--blood)", tag:"Upper rank",
+  title:"Upper Moon, Counting Backwards",
+  sub:"Something older than you, and patient about it. Seven-eight in C phrygian, played entirely on the C and G strings, grouped 3+2+2 so the bar never quite resolves the way the last one did.",
+  keyName:"C phrygian", sig:null, meter:[7,8], bpm:168, unit:"e", level:"Intermediate",
+  focus:"Irregular metre, low-register clarity, string crossing under the hand",
+  drone:36, beams:[6,4,4],
+  music:
+   "C2:2 Db2:2 Eb2:2 C2:2 G2:2 Ab2:2 G2:2 | C3:2 Bb2:2 Ab2:2 G2:2 F2:2 Eb2:2 Db2:2 |"+
+   "C2:2 Eb2:2 G2:2 C3:2 G2:2 Eb2:2 C2:2 | G2:6 F2:4 Eb2:4 |"+
+   "Ab2:2 G2:2 F2:2 Eb2:2 F2:2 G2:2 Ab2:2 | Bb2:2 Ab2:2 G2:2 F2:2 G2:2 Ab2:2 Bb2:2 |"+
+   "C3:6 Bb2:4 Ab2:4 | C2:6 G2:4 C2:4 |"+
+   "Eb2:2 F2:2 G2:2 Ab2:2 G2:2 F2:2 Eb2:2 | Db2:2 Eb2:2 F2:2 G2:2 F2:2 Eb2:2 Db2:2 |"+
+   "C3:2 Bb2:2 C3:2 Ab2:2 G2:2 Ab2:2 G2:2 | F2:6 Eb2:4 Db2:4 |"+
+   "C2:2 G2:2 C3:2 G2:2 Eb2:2 G2:2 C2:2 | Db2:2 Ab2:2 Db3:2 Ab2:2 F2:2 Ab2:2 Db2:2 |"+
+   "C3:6 Bb2:4 Ab2:4 | C2:6 G2:4 C2:4",
+  tips:[
+   "<b>Count 3+2+2</b>, not seven. Say <i>ONE-two-three, ONE-two, ONE-two</i> until the bar has a shape; the beams on the staff are drawn in those groups so your eye gets the same grouping your mouth does.",
+   "<b>The D flat is the character.</b> A half step above the open C, it is what makes the mode sound like a threat rather than a minor scale. With the drone on you will hear the beating — that narrowness is correct, do not widen it.",
+   "<b>Everything is on the C and G strings</b> and mostly in first position. Keep the bow closer to the bridge than feels natural down there; low strings go woolly fast at this speed.",
+   "<b>Bar 14</b> is the one reach, up to D flat above the G string — take it in the position the score marks and come straight back down for the last two bars."
+  ]
+},
+{
+  id:"tomioka", accent:"var(--slate)", tag:"Stillness",
+  title:"Still Water",
+  sub:"The calm one. D dorian, long bows, no hurry, and a B natural in the middle of it that keeps the piece from turning sad.",
+  keyName:"D dorian", sig:null, meter:[4,4], bpm:58, unit:"q", level:"Beginner",
+  focus:"Whole-bow control, D-A crossings, the dorian sixth",
+  drone:50,
+  music:
+   "D3:8 F3:4_ G3:4_ | A3:12 G3:4_ | F3:8 E3:8_ | D3:16 |"+
+   "F3:8 A3:4_ B3:4_ | C4:12 A3:4_ | G3:8 F3:8_ | E3:16 |"+
+   "D3:4 F3:4_ A3:4 C4:4_ | B3:8 A3:8_ | G3:6 F3:2_ E3:8_ | D3:16",
+  tips:[
+   "<b>One bow per bar</b> wherever you can. At this tempo that is a real test — start at the frog, move slowly and evenly, and let the sound stay the same from end to end rather than swelling in the middle.",
+   "<b>The B natural</b> in bars 5 and 10 is the whole piece. D minor would give you B flat; the natural is what makes it dorian, open rather than mournful. Play it slightly high and let it ring against the open D.",
+   "<b>All first position</b> except the C4s, which are a comfortable second finger on the A string. If a note ever feels like a stretch here, you have drifted up — reset against the open strings.",
+   "<b>Twelve bars, no repeat.</b> It is meant to be played twice: once plain, once with vibrato and a little more bow. The second time should sound like the same piece remembered, not a different one."
+  ]
 }
 ];
 
@@ -626,7 +681,15 @@ function fClef(x, y){
 function engrave(piece, notes, width, idPrefix){
   idPrefix = idPrefix || piece.id;
   const perBar = piece.meter[0] * (16 / piece.meter[1]);
-  const beamWin = piece.meter[1] === 8 ? 6 : (piece.meter[0] === 4 ? 8 : 4);
+  /* Beam groups in sixteenths: compound metres beam in dotted quarters, 4/4 in
+     half bars, everything else by the beat. A piece may override for an
+     irregular metre (7/8 as 3+2+2, say). */
+  const groups = piece.beams || (piece.meter[1] === 8
+    ? Array.from({length: Math.ceil(perBar / 6)}, (_, i) => Math.min(6, perBar - i * 6))
+    : piece.meter[0] === 4 ? [8, 8]
+    : Array.from({length: perBar / 4}, () => 4));
+  const bounds = groups.reduce((a, g) => (a.push((a[a.length - 1] || 0) + g), a), []);
+  const gidx = beat => { let k = 0; while(k < bounds.length && beat >= bounds[k]) k++; return k; };
   const bars = [];
   notes.forEach(n => { (bars[n.bar] = bars[n.bar] || []).push(n); });
 
@@ -744,7 +807,7 @@ function engrave(piece, notes, width, idPrefix){
       const p = arr[i];
       if(p.n.dur > 2 || i === arr.length - 1 ||
          arr[i + 1].n.dur > 2 ||
-         Math.floor(arr[i + 1].n.beat / beamWin) !== Math.floor(p.n.beat / beamWin) ||
+         gidx(arr[i + 1].n.beat) !== gidx(p.n.beat) ||
          arr[i + 1].si !== p.si){
         out += stemAndFlag(p);
         i++;
@@ -752,7 +815,7 @@ function engrave(piece, notes, width, idPrefix){
       }
       let j = i;
       while(j + 1 < arr.length && arr[j + 1].n.dur <= 2 &&
-            Math.floor(arr[j + 1].n.beat / beamWin) === Math.floor(p.n.beat / beamWin) &&
+            gidx(arr[j + 1].n.beat) === gidx(p.n.beat) &&
             arr[j + 1].si === p.si) j++;
       out += beamGroup(arr.slice(i, j + 1));
       i = j + 1;
@@ -1161,6 +1224,7 @@ host.innerHTML = PIECES.map((p, i) => {
       '<button class="play" data-play="' + p.id + '">▶ Play</button>' +
       '<button data-midi="' + p.id + '">MIDI</button>' +
       (p.music2 ? '<button data-duet="' + p.id + '">Both parts</button>' : '') +
+      '<button data-print="' + p.id + '">Print</button>' +
       '<span class="range">bars' +
         '<input type="number" id="from-' + p.id + '" min="1" max="' + bars + '" value="1">' +
         '–<input type="number" id="to-' + p.id + '" min="1" max="' + bars + '" value="' + bars + '">' +
@@ -1195,6 +1259,19 @@ host.addEventListener("click", e => {
   const pid = e.target.dataset.play, mid = e.target.dataset.midi, did = e.target.dataset.duet;
   if(pid) play(PIECES.find(x => x.id === pid), e.target);
   if(mid) downloadMidi(PIECES.find(x => x.id === mid));
+  const prid = e.target.dataset.print;
+  if(prid){
+    const card = el("p-" + prid);
+    document.body.classList.add("print-one");
+    card.classList.add("print-target");
+    const clean = () => {
+      document.body.classList.remove("print-one");
+      card.classList.remove("print-target");
+      window.removeEventListener("afterprint", clean);
+    };
+    window.addEventListener("afterprint", clean);
+    setTimeout(() => { window.print(); setTimeout(clean, 1200); }, 30);
+  }
   if(did){
     const piece = PIECES.find(x => x.id === did);
     piece._duet = !piece._duet;

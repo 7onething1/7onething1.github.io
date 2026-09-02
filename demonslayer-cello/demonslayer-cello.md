@@ -7,8 +7,8 @@ Two halves, answering "find or make Demon Slayer songs for single cello."
 **Find** — where the actual *Kimetsu no Yaiba* themes exist as legal cello sheet music, and what
 each one costs you as a player when there is no accompaniment underneath.
 
-**Make** — eight original solo cello pieces written for this page, engraved in bass clef with
-cello fingerings, playable in the browser, and downloadable as MIDI.
+**Make** — ten original cello pieces written for this page (three with a second cello part),
+engraved in bass clef with cello fingerings, playable in the browser, and downloadable as MIDI.
 
 ## Why originals
 
@@ -17,10 +17,10 @@ Every theme and every score cue in the show is under copyright. Writing out a tr
 does the honest version instead: it points at the licensed shops for the real songs, and the
 music it actually ships is original — written in the show's sound world (Japanese *yo* and
 *insen* scales, open-string drones, a Taishō-era waltz lilt, one piece per breathing style)
-rather than lifted from it. The eight compositions are released for any use with no attribution
+rather than lifted from it. The ten compositions are released for any use with no attribution
 required.
 
-## The eight pieces
+## The ten pieces
 
 | # | Piece | Idea | Key / metre | Level | Technique |
 |---|---|---|---|---|---|
@@ -32,6 +32,8 @@ required.
 | 6 | Fading Edges | Mist breathing | D insen, 4/4, ♩=52 | Early intermediate | Sul tasto colour, slow bow |
 | 7 | Taishō Whisper Waltz | The street outside | D yo scale, 3/4, ♩=120 | Beginner | Pizzicato, waltz lilt |
 | 8 | Wisteria at Dusk ⁺ | Finale, minor turning major | D minor → major, 4/4, ♩=60 | Early intermediate | Cantabile, one shift |
+| 9 | Upper Moon, Counting Backwards | The thing that hunts you | C phrygian, 7/8 (3+2+2), ♪=168 | Intermediate | Irregular metre, C and G strings only |
+| 10 | Still Water | Tomioka, the calm one | D dorian, 4/4, ♩=58 | Beginner | Whole-bow control, the dorian sixth |
 
 ⁺ carries a second cello part, engraved below the first: "Both parts" plays them together and the
 MIDI export becomes a two-track file, one named track per player.
@@ -46,7 +48,7 @@ files, no libraries.
 
 | Part | What it does |
 |---|---|
-| Notation | Hand-rolled SVG engraver: bass clef, key signatures, ledger lines, flags and beams, dots, slurs, accents and staccato dots, bar numbers. Re-lays out on resize — four bars per system on a desktop, two on a phone. |
+| Notation | Hand-rolled SVG engraver: bass clef, key signatures, ledger lines, flags and beams (grouped by metre, overridable for irregular ones like 7/8 as 3+2+2), dots, slurs, accents and staccato dots, pizz./arco marks, bar numbers. Re-lays out on resize — four bars per system on a desktop, two on a phone. |
 | Fingerings | Computed, not typed. A Viterbi search over string × hand-position × hand-shape candidates picks the cheapest playable path through each piece: shifts cost, extensions cost less, open strings are free and sit outside the search. Printed as finger number + string letter, italic for an extension, with Roman numerals marking each change of position. |
 | Playback | Web Audio bowed synth — two detuned saws and a triangle through a low-pass, with vibrato faded in after the attack. Separate pizzicato and accent envelopes. Optional open-string drone under each piece. |
 | MIDI | Written byte by byte in JS: tempo and time-signature metas, GM cello program, note on/off with staccato shortening. Solo pieces export as format 0; duets as format 1, one named track per part on its own channel. Opens in MuseScore, Dorico or Logic for a printable part. |
@@ -66,9 +68,12 @@ Ordered, next item first. Item 1 is in progress.
 
 1. ~~**Practice tools** — count-in, metronome click, bar-range looping, speed trainer.~~ Done.
 2. ~~**Second voice** — second cello parts for Water, Flame and Wisteria with a "both parts" mode.~~ Done.
-3. **Print one piece** — the print stylesheet currently prints all eight; add a per-piece print that
-   isolates one score on its own page.
-4. **Two more pieces** — an upper-moon piece in 7/8 on the C and G strings, and a still, low Tomioka
-   theme to sit between the lullaby and the mist piece.
+3. ~~**Print one piece** — a per-piece Print that isolates one score.~~ Done.
+4. ~~**Two more pieces** — the 7/8 upper-moon piece and the Tomioka calm piece.~~ Done.
 5. **Ship to Vercel** — once PR #5 is merged and the page is live on Pages, copy the route into
    `drwu-htmls` for the permanent home. Needs the user; nothing here blocks on it.
+
+6. **Bowings for the second parts** — Cello II is currently unslurred; mark the bowings so the two
+   players' bow changes line up where they should.
+7. **A tuner** — an A440 (and open-string) reference tone in the control bar, so the page is enough
+   on its own to sit down and play from.
