@@ -595,6 +595,26 @@ r8766102 still carried all 18 and no export of r8787022 exists on this machine.
 **The split kick lane is still there.** Lane 35 holds 163 events and lane 36 holds 185 on the
 live tab, so nothing has repaired the two-staff-line defect and the built fix still applies.
 
+### The whole-score delta is one note, and the tie correction is confirmed from the other format
+
+**Nine of the ten tracks are identical bar for bar** between the local `r8766102` export and the
+live `r8814965` JSON. Frank Zappa 1 holds 1,184 both sides, Tom Fowler 1,076, George Duke's organ
+1,993, and so on down the list. The only difference anywhere in 7,479 events is the single lane-36
+kick missing from **bar 16** of the drum staff.
+
+**The tie arithmetic now has a cross-format proof.** Songsterr's JSON stores one flag per
+connection; GPIF stores an origin event and a destination event. On every track the JSON connection
+count equals the GPIF `origin=true` count exactly: 162 and 162 on Frank Zappa 1, 55 and 55 on Tom
+Fowler, 44 and 44 on Bruce Fowler, 133 and 133 on the organ, 32 and 32 on Ruth Underwood, 5 and 5 on
+Sal Marquez. Dividing events by two gives 132, 43 and 30 on the three tracks that carry mid-chain
+ties, which is wrong by 30, 1 and 2. Connections equal origins, and the halving rule only holds
+where no tie chains.
+
+**The repair cannot be rebased into a file yet.** Songsterr serves no Guitar Pro export route that
+answers here; four shapes were tried and returned 404, 404, 400 and 400. The repair itself is
+unaffected, since the live tab still holds 163 kick events on lane 35. Applied to `r8814965` it
+would leave lane 36 at 348 rather than 349, the one note fewer.
+
 ## What a rebar would actually cost
 
 Measured 2026-09-02 from `r8766102-Zomby-Woof.gp`. The barring question was open as a
