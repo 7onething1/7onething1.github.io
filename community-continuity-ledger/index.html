@@ -93,17 +93,17 @@ footer .path{word-break:break-all}
 <div class="wrap">
 
 <header class="masthead">
-  <p class="kicker">Community · Continuity Project · Passes Four to Six</p>
+  <p class="kicker">Community · Continuity Project · Passes Four to Seven</p>
   <h1>The Transcript-Verified Ledger</h1>
   <p class="standfirst">Every entry tested against a subtitle track before it was written. Episode code, timecode, and the line as the disc renders it. Where the transcript refuses a claim, the refusal is recorded beside it.</p>
 </header>
 
 <div class="statbar">
-  <div class="stat"><span class="n">23</span><span class="l">Episodes in evidence</span></div>
-  <div class="stat"><span class="n">10,136</span><span class="l">Timecoded cues</span></div>
-  <div class="stat"><span class="n">21</span><span class="l">Claims confirmed</span></div>
-  <div class="stat"><span class="n">6</span><span class="l">Corrected or refused</span></div>
-  <div class="stat"><span class="n">8</span><span class="l">Out of reach</span></div>
+  <div class="stat"><span class="n">28</span><span class="l">Episodes in evidence</span></div>
+  <div class="stat"><span class="n">11,817</span><span class="l">Dialogue cues</span></div>
+  <div class="stat"><span class="n">28</span><span class="l">Claims confirmed</span></div>
+  <div class="stat"><span class="n">9</span><span class="l">Corrected or refused</span></div>
+  <div class="stat"><span class="n">628</span><span class="l">Non-dialogue excluded</span></div>
 </div>
 
 <nav class="toc">
@@ -143,6 +143,16 @@ footer .path{word-break:break-all}
     <li><a href="#count">Correcting a correction: the count is four</a></li>
     <li><a href="#held">Five negatives held under both patterns</a></li>
     <li><a href="#rule">The two-probe rule</a></li>
+  </ol>
+  <h2 style="margin-top:20px">Pass seven · reading the pictures</h2>
+  <ol start="29">
+    <li><a href="#ocr">How five unreadable episodes got in</a></li>
+    <li><a href="#hygiene">Six hundred cues were never dialogue</a></li>
+    <li><a href="#magnitude">The catchphrase, and a third broken probe</a></li>
+    <li><a href="#streets">Streets ahead, speaker tagged</a></li>
+    <li><a href="#arrival">A character installed and back-dated at once</a></li>
+    <li><a href="#title">The title echo has a source</a></li>
+    <li><a href="#counts">Counts that moved, and why</a></li>
   </ol>
 </nav>
 
@@ -524,9 +534,9 @@ footer .path{word-break:break-all}
 <thead><tr><th>Claim</th><th>Strict</th><th>Loose</th><th>Verdict</th></tr></thead>
 <tbody>
 <tr><td>The pile-of construction</td><td class="mono">0</td><td class="mono">0</td><td>Absent from range</td></tr>
-<tr><td>Magnitude's catchphrase</td><td class="mono">0</td><td class="mono">0</td><td>Absent from range</td></tr>
+<tr><td><s>Magnitude's catchphrase</s></td><td class="mono">0</td><td class="mono">0</td><td><strong>OVERTURNED in pass seven</strong></td></tr>
 <tr><td>The six-seasons line</td><td class="mono">0</td><td class="mono">0</td><td>Absent from range</td></tr>
-<tr><td>Streets ahead</td><td class="mono">0</td><td class="mono">0</td><td>Absent from range</td></tr>
+<tr><td><s>Streets ahead</s></td><td class="mono">0</td><td class="mono">0</td><td><strong>OVERTURNED in pass seven</strong></td></tr>
 <tr><td>A Winger speech named as one</td><td class="mono">0</td><td class="mono">0</td><td>Absent from range</td></tr>
 </tbody>
 </table>
@@ -543,12 +553,116 @@ footer .path{word-break:break-all}
 </div>
 </section>
 
+<section class="entry" id="passseven">
+<h2 class="head" style="border-top:3px double var(--ink);padding-top:34px">Pass seven · reading the pictures</h2>
+<p>Five episodes carried Blu-ray bitmap subtitles rather than text, so they had been sitting outside evidence. They are in now. The corpus stands at 28 episodes and 12,445 cues, of which 11,817 are dialogue.</p>
+<div class="tblwrap">
+<table>
+<caption>Episodes added by optical recognition</caption>
+<thead><tr><th>Code</th><th>Title</th><th class="mono">Cues</th></tr></thead>
+<tbody>
+<tr><td class="mono">S02E12</td><td>Asian Population Studies</td><td class="mono">492</td></tr>
+<tr><td class="mono">S02E14</td><td>Advanced Dungeons &amp; Dragons</td><td class="mono">495</td></tr>
+<tr><td class="mono">S02E15</td><td>Early 21st Century Romanticism</td><td class="mono">472</td></tr>
+<tr><td class="mono">S02E17</td><td>Intro to Political Science</td><td class="mono">482</td></tr>
+<tr><td class="mono">S02E23</td><td>A Fistful of Paintballs</td><td class="mono">368</td></tr>
+</tbody>
+</table>
+</div>
+</section>
+
+<section class="entry" id="ocr">
+<h2 class="head">How five unreadable episodes got in</h2>
+<span class="badge b-struct">Pipeline built</span>
+<p>Blu-ray stores subtitles as compressed images, so there is no text to extract. Getting them into the corpus took a decoder written against the PGS specification: segment container, run length decoding, YCrCb palette conversion, one image per displayed subtitle. Optical recognition then runs through the Vision framework that ships with macOS, which needed nothing installed.</p>
+<div class="callout">
+<h3>The bug I caught before trusting the output</h3>
+<p>The first run produced 499 images that were all identical. The cause was mine. Rendering happened after parsing finished, and the format reuses object identifier zero for every subtitle, so each event drew the final bitmap. Moving the render to the end-of-display-set segment fixed it, and the bad output went to a quarantine folder rather than into the corpus.</p>
+</div>
+<p>Quality holds up. Asian Population Studies yields 492 cues with speaker tags intact at three and a half percent, which beats the average attribution coverage of the disc's own text tracks.</p>
+</section>
+
+<section class="entry" id="hygiene">
+<h2 class="head">Six hundred cues were never dialogue at all</h2>
+<span class="badge b-corr">Corpus hygiene, retroactive</span>
+<p>Re-mining the enlarged corpus surfaced a phrase appearing across five consecutive episodes with a high rarity score, which is the exact signature of a planted callback. The culprit was a release group watermark, a bare URL sitting in the credits of every episode from one rip. A second false pattern sat beside it, a bracketed sound description naming the song under the opening titles, present in eight episodes.</p>
+<div class="cite">
+<span class="note">Both would have registered as repeated dialogue across many episodes and produced callbacks nobody ever said.</span>
+</div>
+<p>Cues now carry a classification: dialogue, music, sound, or watermark. Only dialogue counts as spoken evidence. That removes <strong>628 cues</strong> from consideration, and it removes two manufactured callbacks with them.</p>
+</section>
+
+<section class="entry" id="magnitude">
+<h2 class="head">The Magnitude catchphrase, and a third probe of the same broken shape</h2>
+<span class="badge b-corr">Pass six overturned</span>
+<p>Pass six recorded the catchphrase as absent under two patterns. It appears six times over in Early 21st Century Romanticism.</p>
+<div class="cite">
+<span class="ep">S02E15</span> <span class="tc">00:11:14</span> · <span class="tc">00:11:17</span> · <span class="tc">00:14:53</span> · <span class="tc">00:14:55</span> · <span class="tc">00:14:57</span> · <span class="tc">00:17:32</span><br>
+<span class="note">Two faults hid it: the episode was outside the corpus, and the pattern allowed one character between the repeated word where the subtitle puts a comma and a space.</span>
+</div>
+<p>That makes three probes failing on the same punctuation assumption, after the triple-cool tic and the Britta question. The pattern class was the defect, rather than any individual probe.</p>
+</section>
+
+<section class="entry" id="streets">
+<h2 class="head">Streets ahead, with a speaker tag attached</h2>
+<span class="badge b-corr">Pass six overturned</span><span class="badge b-struct">Speaker confirmed</span>
+<p>Also recorded absent in pass six, also present now that the episode is readable. The attribution needs no inference here, since the subtitle carries a tag.</p>
+<div class="cite">
+<span class="ep">S02E15</span> <span class="tc">00:04:54</span> cue 104 — tagged to a minor character rather than to Pierce
+</div>
+<p>The tag shapes how the joke works. The phrase is already in circulation among background students at the point the episode uses it.</p>
+</section>
+
+<section class="entry" id="arrival">
+<h2 class="head">A character installed and back-dated inside one episode</h2>
+<span class="badge b-conf">Confirmed</span>
+<p>The same episode introduces Magnitude through a run of denials, then treats him as a fixture.</p>
+<div class="cite">
+<span class="ep">S02E15</span> <span class="tc">00:11:11</span> cue 266 — a warning not to say a thing to him<br>
+<span class="ep">S02E15</span> <span class="tc">00:11:12</span> cue 267 — the immediate reply asks who he is<br>
+<span class="ep">S02E15</span> <span class="tc">00:14:37</span> cue 339 — a third character says the name is new to them tonight<br>
+<span class="ep">S02E15</span> <span class="tc">00:17:32</span> cue 408 — a roll call lists him among the regulars, catchphrase attached
+</div>
+<p>The character gets installed and treated as long established within twenty minutes, and by the roll call the catchphrase stands in for the person entirely.</p>
+</section>
+
+<section class="entry" id="title">
+<h2 class="head">The title echo has a source, and it predates the finale by a season</h2>
+<span class="badge b-part">Probable title echo</span><span class="badge b-corr">Upgraded from speculation</span>
+<p>The ledger flagged the Season Two finale title as a possible echo of earlier threat language, and asked for both quotations side by side. The earlier one sits in a menacing exchange over a cookie, pairing a fist with the anatomical noun in one short line.</p>
+<div class="cite">
+<span class="ep">S01E12</span> <span class="tc">00:02:08</span> cue 49 — the threat line<br>
+<span class="ep">S01E12</span> <span class="tc">00:16:30</span>, <span class="tc">00:16:33</span> — the bully is named later in the same episode, so the speaker is identifiable without a tag<br>
+<span class="ep">S02E23</span> — the finale title, one season later
+</div>
+<p>Placing them side by side supports the ledger's instinct. The wording is specific enough that coincidence is the weaker explanation, and the gap is one season.</p>
+</section>
+
+<section class="entry" id="counts">
+<h2 class="head">Counts that moved, and why the reason is recorded</h2>
+<div class="tblwrap">
+<table>
+<caption>Count changes this pass, with cause</caption>
+<thead><tr><th>Item</th><th class="mono">Now</th><th>Cause of change</th></tr></thead>
+<tbody>
+<tr><td>Triple-cool tic</td><td class="mono">5</td><td>Corpus grew (S02E17 added)</td></tr>
+<tr><td>Spanish honorific for Chang</td><td class="mono">7 eps</td><td>Corpus grew</td></tr>
+<tr><td>Late-arrival line</td><td class="mono">6 eps</td><td>Unchanged</td></tr>
+<tr><td>Magnitude catchphrase</td><td class="mono">6+</td><td>Corpus grew <em>and</em> probe was broken</td></tr>
+<tr><td>Streets ahead</td><td class="mono">1</td><td>Corpus grew</td></tr>
+<tr><td>Ventilation claim</td><td class="mono">0</td><td>Negative upheld, third test</td></tr>
+</tbody>
+</table>
+</div>
+<p>A count that changes because new evidence arrived is a separate event from a count that changes because a pattern was broken. Recording which cause applies is what keeps the ledger's own error rate legible.</p>
+</section>
+
 <footer>
-  Community continuity project · passes four to six · built 2 September 2026<br>
-  Evidence: 23 episodes, 10,136 timecoded cues, extracted from local BluRay subtitle tracks<br>
+  Community continuity project · passes four to seven · built 2 September 2026<br>
+  Evidence: 28 episodes, 12,445 timecoded cues (11,817 dialogue), from local BluRay text and bitmap subtitle tracks<br>
   Harness: <span class="path">~/Projects/_outputs/community-continuity/</span> — <span class="path">cite.py</span>, <span class="path">verify.py</span>, <span class="path">corpus.json</span><br>
-  Harness additions: <span class="path">recur.py</span> (cross-episode phrase mining), <span class="path">locate.py</span>, <span class="path">inventory.py</span><br>
-  Voice gate: ai_tells_gate.py hard mode, pass four score 5, passes five and six score 0, all PASS
+  Harness additions: <span class="path">recur.py</span> (cross-episode phrase mining), <span class="path">locate.py</span>, <span class="path">pgs_parse.py</span> + <span class="path">vision_ocr.swift</span> (bitmap subtitle OCR), <span class="path">reaudit.py</span><br>
+  Voice gate: ai_tells_gate.py hard mode, pass four score 5, passes five to seven score 0, all PASS
 </footer>
 
 </div>
