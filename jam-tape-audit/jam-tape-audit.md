@@ -5,11 +5,19 @@ through the missed-songs audit. Six tapes, 19.8 hours, 154 songs now held.
 
 ## Which tape has no frequency loss
 
-One tape qualifies. `band-practice-8-14-26.wav` reads -38.7 dB at 16 kHz. The next best reads
--76.8 dB. Every other file in the set is a 23.6 kbps AAC voice recording, or a decode of one.
+**Correction, 2026-09-02.** The first version of this page said one tape qualified. The 8.28
+practice has four 24-bit multitrack mic masters, each 5.21 h, written to disk between 17:27 and
+01:41, after the sweep behind this page ran at 15:15. `mic1_4-40PM.wav` reads -32.6 dB at 16 kHz,
+the highest fidelity anywhere in this set. `band-practice-8-14-26.wav` reads -38.7 dB. Every AAC
+tape reads -76.8 dB or lower. The 8.28 audit below was run against the 23.7 kbps m4a, and
+re-running it against mic1 is the open item.
 
 | file | codec | dB @16k | reading |
 |---|---|---|---|
+| 8.28.26 mic1 | PCM 24-bit 44.1k | -32.6 | real content at 16 kHz |
+| 8.28.26 mic2 | PCM 24-bit 44.1k | -52.7 | real content at 16 kHz |
+| 8.28.26 mic4 | PCM 24-bit 44.1k | -52.7 | real content at 16 kHz |
+| 8.28.26 mic3 | PCM 24-bit 44.1k | -57.3 | real content at 16 kHz |
 | 8-14-26 | PCM 24-bit 44.1k | -38.7 | real content at 16 kHz |
 | 5-22-26 | AAC 23.6 kbps | -76.8 | dead above roughly 12 kHz |
 | 8.28.26 | AAC 23.7 kbps | -81.7 | dead above roughly 12 kHz |
