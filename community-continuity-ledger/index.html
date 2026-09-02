@@ -93,7 +93,7 @@ footer .path{word-break:break-all}
 <div class="wrap">
 
 <header class="masthead">
-  <p class="kicker">Community · Continuity Project · Passes Four to Seven</p>
+  <p class="kicker">Community · Continuity Project · Passes Four to Eight</p>
   <h1>The Transcript-Verified Ledger</h1>
   <p class="standfirst">Every entry tested against a subtitle track before it was written. Episode code, timecode, and the line as the disc renders it. Where the transcript refuses a claim, the refusal is recorded beside it.</p>
 </header>
@@ -101,7 +101,7 @@ footer .path{word-break:break-all}
 <div class="statbar">
   <div class="stat"><span class="n">28</span><span class="l">Episodes in evidence</span></div>
   <div class="stat"><span class="n">11,817</span><span class="l">Dialogue cues</span></div>
-  <div class="stat"><span class="n">28</span><span class="l">Claims confirmed</span></div>
+  <div class="stat"><span class="n">36</span><span class="l">Claims confirmed</span></div>
   <div class="stat"><span class="n">9</span><span class="l">Corrected or refused</span></div>
   <div class="stat"><span class="n">628</span><span class="l">Non-dialogue excluded</span></div>
 </div>
@@ -153,6 +153,14 @@ footer .path{word-break:break-all}
     <li><a href="#arrival">A character installed and back-dated at once</a></li>
     <li><a href="#title">The title echo has a source</a></li>
     <li><a href="#counts">Counts that moved, and why</a></li>
+  </ol>
+  <h2 style="margin-top:20px">Pass eight · granular tracks</h2>
+  <ol start="36">
+    <li><a href="#attrib">The measurement that decides it</a></li>
+    <li><a href="#supported">Categories the corpus supports</a></li>
+    <li><a href="#unsupported">Categories it cannot support</a></li>
+    <li><a href="#winger">The Winger construction</a></li>
+    <li><a href="#rule3">The third method rule</a></li>
   </ol>
 </nav>
 
@@ -657,12 +665,104 @@ footer .path{word-break:break-all}
 <p>A count that changes because new evidence arrived is a separate event from a count that changes because a pattern was broken. Recording which cause applies is what keeps the ledger's own error rate legible.</p>
 </section>
 
+<section class="entry" id="passeight">
+<h2 class="head" style="border-top:3px double var(--ink);padding-top:34px">Pass eight · the granular tracks</h2>
+<p>The ledger asked for granular character tracks: Annie's binders, Shirley's baking, Britta's activist recurrences, Troy's inherited objects, Jeff's phone and car, Chang's changing titles, Dean entrances, study room objects, paintball repetitions, and background character persistence. This pass ran that sweep across all 28 episodes, then tested whether the results mean what the category names claim.</p>
+<p>Nine of the ten produced hits. Most cannot support the claim their name makes, and the measurement says so precisely.</p>
+</section>
+
+<section class="entry" id="attrib">
+<h2 class="head">The measurement that decides it</h2>
+<span class="badge b-open">Negative result, quantified</span>
+<p>A keyword sweep finds a topic. Whether the named character is the one speaking is a separate question, and subtitles carry a speaker on almost no lines. The audit counts, for every track hit carrying a speaker tag, whether that tag matches the character the track is named for.</p>
+<div class="cite">
+<span class="ep">169</span> keyword hits across nine character tracks<br>
+<span class="ep">2</span> carry any speaker tag at all — <span class="tc">1.2%</span><br>
+<span class="ep">0</span> of those two match the track's character<br>
+<span class="note">One is a narrator, the other a guest character. The attribution rate is zero. Not low, zero.</span>
+</div>
+<p>The remaining 167 hits are unattributed and cannot support a claim about who said anything.</p>
+</section>
+
+<section class="entry" id="supported">
+<h2 class="head">Categories the corpus supports</h2>
+<span class="badge b-conf">Self-attributing</span>
+<p>A line naming a character is evidence about that character whoever happens to speak it. A line about an object is not. The Spanish honorific carries Chang's own name, so every hit concerns Chang. A binder does not carry Annie's name.</p>
+<div class="tblwrap">
+<table>
+<caption>Name-bearing tracks, 28 episodes</caption>
+<thead><tr><th>Track</th><th class="mono">Hits</th><th class="mono">Episodes</th></tr></thead>
+<tbody>
+<tr><td>Jeff by surname</td><td class="mono">58</td><td class="mono">24 of 28</td></tr>
+<tr><td>Hawthorne by surname</td><td class="mono">20</td><td class="mono">9</td></tr>
+<tr><td>Leonard</td><td class="mono">17</td><td class="mono">5</td></tr>
+<tr><td>Dean Pelton by name</td><td class="mono">16</td><td class="mono">7</td></tr>
+<tr><td>Chang honorific and nicknames</td><td class="mono">13</td><td class="mono">7</td></tr>
+<tr><td>Star-Burns</td><td class="mono">12</td><td class="mono">7</td></tr>
+<tr><td>Magnitude</td><td class="mono">10</td><td class="mono">2</td></tr>
+<tr><td>The Winger construction</td><td class="mono">3</td><td class="mono">3</td></tr>
+</tbody>
+</table>
+</div>
+<p><strong>Background character persistence is the strongest result here.</strong> Star-Burns appears by name in seven episodes and Leonard in five, across both seasons in evidence. Those two are load-bearing recurring figures rather than one-off jokes, and the counts carry the category without needing a single attribution.</p>
+<p>The surname result earns its own line. Jeff is called by his last name in 24 of the 28 episodes, and no other character comes close. That is a naming convention the group applies to him specifically.</p>
+</section>
+
+<section class="entry" id="unsupported">
+<h2 class="head">Categories the corpus cannot support</h2>
+<span class="badge b-open">Topic frequency only</span>
+<div class="tblwrap">
+<table>
+<caption>Object-keyed categories: hits without attribution</caption>
+<thead><tr><th>Category asked for</th><th class="mono">Hits</th><th class="mono">Tagged</th><th>Verdict</th></tr></thead>
+<tbody>
+<tr><td>Shirley's maternal tone</td><td class="mono">21</td><td class="mono">0</td><td>Topic only</td></tr>
+<tr><td>Jeff's phone and car</td><td class="mono">18</td><td class="mono">0</td><td>Topic only</td></tr>
+<tr><td>Shirley's baking</td><td class="mono">16</td><td class="mono">0</td><td>Topic only</td></tr>
+<tr><td>Abed as camera</td><td class="mono">15</td><td class="mono">0</td><td>Topic only</td></tr>
+<tr><td>Britta's activism</td><td class="mono">10</td><td class="mono">0</td><td>Topic only</td></tr>
+<tr><td>Troy's inherited objects</td><td class="mono">4</td><td class="mono">0</td><td>Topic only</td></tr>
+<tr><td>Annie's binders and bags</td><td class="mono">2</td><td class="mono">0</td><td>Topic only</td></tr>
+</tbody>
+</table>
+</div>
+<p>Three spot-checks show what the raw counts hide.</p>
+<div class="cite">
+<span class="ep">S01E02</span> <span class="tc">00:02:07</span> — filed under Shirley's maternal tone, sits inside Jeff's entrance sequence<br>
+<span class="ep">S01E08</span> <span class="tc">00:04:36</span> — filed under Pierce's father, belongs to whoever offers Jeff a couch<br>
+<span class="ep">S01E02</span> <span class="tc">00:02:48</span> — filed under Annie's binders, is Jeff describing his own life
+</div>
+<p>The last is the clearest. The sweep credited Annie with a line whose whole function is Jeff performing emptiness at her to obtain her Spanish notes, which pass four had already documented as his twenty-minute maneuver.</p>
+</section>
+
+<section class="entry" id="winger">
+<h2 class="head">One real find came out of the sweep</h2>
+<span class="badge b-conf">Confirmed pattern</span><span class="badge b-struct">Feeds the Jeff money file</span>
+<p>The Jeff finances file gains two more citations, and the earliest is the most useful.</p>
+<div class="cite">
+<span class="ep">S01E08</span> <span class="tc">00:04:32</span> cue 91 — Jeff is locked out over unpaid fees, is asked directly how he will get the money, and the answer is a third-person claim about what Winger has<br>
+<span class="ep">S02E17</span> <span class="tc">00:11:25</span> cue 284 — same construction, <strong>speaker tag confirms Troy</strong><br>
+<span class="ep">S02E19</span> <span class="tc">00:12:30</span> cue 293 — the man-of-means line recorded in pass five
+</div>
+<p>Three instances across two seasons, all spoken by other people about Jeff, all substituting reputation for a specific resource. The first arrives as an answer to a direct question about money, and it answers without naming a source.</p>
+</section>
+
+<section class="entry" id="rule3">
+<h2 class="head">The third method rule</h2>
+<div class="callout">
+<h3>A track is self-attributing, or it is topic frequency</h3>
+<p>A keyword naming a character carries its own attribution. A keyword naming an object carries none, and counting object hits under a character's name produces a number that looks like evidence and is not.</p>
+<p>Three rules now govern the ledger. A claim needs a citation. A negative needs two probes. A character track needs to name its character.</p>
+</div>
+<p>The granular category list stays open. Seven of its entries need speaker-attributed transcripts, which these discs do not carry.</p>
+</section>
+
 <footer>
-  Community continuity project · passes four to seven · built 2 September 2026<br>
+  Community continuity project · passes four to eight · built 2 September 2026<br>
   Evidence: 28 episodes, 12,445 timecoded cues (11,817 dialogue), from local BluRay text and bitmap subtitle tracks<br>
   Harness: <span class="path">~/Projects/_outputs/community-continuity/</span> — <span class="path">cite.py</span>, <span class="path">verify.py</span>, <span class="path">corpus.json</span><br>
-  Harness additions: <span class="path">recur.py</span> (cross-episode phrase mining), <span class="path">locate.py</span>, <span class="path">pgs_parse.py</span> + <span class="path">vision_ocr.swift</span> (bitmap subtitle OCR), <span class="path">reaudit.py</span><br>
-  Voice gate: ai_tells_gate.py hard mode, pass four score 5, passes five to seven score 0, all PASS
+  Harness additions: <span class="path">recur.py</span> (cross-episode phrase mining), <span class="path">locate.py</span>, <span class="path">pgs_parse.py</span> + <span class="path">vision_ocr.swift</span> (bitmap subtitle OCR), <span class="path">reaudit.py</span>, <span class="path">track_audit.py</span><br>
+  Voice gate: ai_tells_gate.py hard mode, pass four score 5, passes five to eight score 0, all PASS
 </footer>
 
 </div>
