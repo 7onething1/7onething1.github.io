@@ -452,7 +452,14 @@ from https://drummagazine.com/groove-analysis-frank-zappas-drummers/</pre>
 python3 tools/noteloss_audit.py s412162/r8766102-Zomby-Woof.gp --track 9
 python3 tools/noteloss_audit.py s412162/r8766102-Zomby-Woof.gp --diff EDITED.gp --expect-changed N
 curl -s https://www.songsterr.com/api/meta/412162/revisions | python3 -m json.tool
-curl -s https://www.songsterr.com/api/meta/412162 | python3 -c "import json,sys;print(json.load(sys.stdin)['revisionId'])"</pre>
+curl -s https://www.songsterr.com/api/meta/412162 | python3 -c "import json,sys;print(json.load(sys.stdin)['revisionId'])"
+
+# read the LIVE published tab, any song, no auth (added 2026-09-02)
+python3 tools/songsterr_live_read.py 412162              # meta + a census of all ten parts
+python3 tools/songsterr_live_read.py 412162 --part 9     # drum staff with per-lane counts
+python3 tools/songsterr_live_read.py 412162 --revisions  # full revision history
+python3 tools/songsterr_live_read.py 412162 --save DIR   # keep the raw part JSON</pre>
+<p><code>songsterr_live_read.py</code> fetches through <code>curl</code> rather than <code>urllib</code>, because the song page answers with an HTTP 103 Early Hints frame ahead of the 200 and <code>urllib</code> raises on it. It reproduces every drum figure on this page from the live tab.</p>
 <p><code>--expect-changed</code> exits non-zero unless the event delta equals the intended count exactly. That is the mechanism the handoff called for after one edit moved 63 events.</p>
 
 <p class="note">Built 2026-08-31 on MacBookPro, <code>/Users/brandonchavez</code>, resuming <code>[ZAPPA-DRUM-REPAIR-2026-08-31] handoff.md</code>.
