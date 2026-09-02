@@ -55,3 +55,18 @@ The vendor list was checked against Musicnotes' Demon Slayer strings catalogue a
 cello editions of "Gurenge"; theme titles and their writers were checked against current search
 results rather than memory. Anything I could not confirm — which arcs' cello editions exist at
 the Japanese shops, in particular — is written as "check", not as fact.
+
+## Backlog
+
+Ordered, next item first. Item 1 is in progress.
+
+1. **Practice tools** — count-in, metronome click, bar-range looping (drill bars 9–12 rather than
+   the whole piece), and a speed trainer that ratchets the tempo up a notch each time round.
+2. **Second voice** — an optional lower line for the pieces that want one (Water, Wisteria, Flame),
+   so two cellists can play them as duets; playback gains a "both parts" mode.
+3. **Print one piece** — the print stylesheet currently prints all eight; add a per-piece print that
+   isolates one score on its own page.
+4. **Two more pieces** — an upper-moon piece in 7/8 on the C and G strings, and a still, low Tomioka
+   theme to sit between the lullaby and the mist piece.
+5. **Ship to Vercel** — once PR #5 is merged and the page is live on Pages, copy the route into
+   `drwu-htmls` for the permanent home. Needs the user; nothing here blocks on it.
