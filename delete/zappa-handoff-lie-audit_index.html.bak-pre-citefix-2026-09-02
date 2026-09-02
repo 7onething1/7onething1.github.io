@@ -1,0 +1,234 @@
+<!doctype html><html lang="en"><head><meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>The Zappa Handoff, Checked for Lies</title>
+<style>
+:root{--cream:#F4EBD9;--ink:#1B1B1B;--rust:#B5533C;--mustard:#D8A24A;--teal:#3E7C7B;--dusty:#9C7C9C;--line:#DBCDB4;--paper:#FBF6EC;}
+*{box-sizing:border-box}
+body{margin:0;background:var(--cream);color:var(--ink);font:16px/1.6 "Iowan Old Style",Palatino,Georgia,serif;}
+.wrap{max-width:1080px;margin:0 auto;padding:38px 22px 90px}
+h1{font-size:2.05rem;margin:0 0 6px;letter-spacing:-.4px}
+.dek{color:#5c5347;margin:0 0 26px;font-size:1.02rem}
+h2{font-size:1.32rem;margin:44px 0 4px;padding-bottom:7px;border-bottom:2px solid var(--line)}
+h3.sec{font-size:1.05rem;margin:26px 0 6px}
+.sub{margin:0 0 14px;color:#5c5347;font-size:.93rem}
+.verdict{background:var(--paper);border:1px solid var(--line);border-left:6px solid var(--teal);padding:18px 20px;margin:0 0 26px;border-radius:3px}
+.verdict h3{margin:0 0 10px;font-size:1.05rem;color:var(--teal)}
+.verdict p{margin:0 0 9px} .verdict p:last-child{margin:0}
+.toc{background:var(--paper);border:1px solid var(--line);padding:14px 18px;border-radius:3px;margin:0 0 26px}
+.toc a{color:var(--teal);text-decoration:none;margin-right:16px;font-size:.93rem;white-space:nowrap;display:inline-block}
+.toc a:hover{text-decoration:underline}
+.scroll{overflow-x:auto;border:1px solid var(--line);border-radius:3px;background:var(--paper);margin:0 0 18px}
+table{border-collapse:collapse;width:100%;font-size:.88rem;min-width:640px}
+th{background:#EDE0C8;text-align:left;padding:9px 11px;font-weight:600;font-size:.79rem;text-transform:uppercase;letter-spacing:.5px;border-bottom:2px solid var(--line)}
+td{padding:9px 11px;border-bottom:1px solid #EAE0CD;vertical-align:top}
+tr.bad{background:#FBEDE8} tr.good{background:#EEF4F3} tr.warn{background:#FDF6E3}
+td.t{font-weight:600}
+.n{text-align:right;font-variant-numeric:tabular-nums;white-space:nowrap}
+.grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(158px,1fr));gap:12px;margin:0 0 26px}
+.card{background:var(--paper);border:1px solid var(--line);border-radius:3px;padding:14px}
+.card .big{font-size:1.85rem;font-weight:700;line-height:1.1;font-variant-numeric:tabular-nums}
+.card .lab{font-size:.78rem;color:#5c5347;margin-top:3px}
+.r{color:var(--rust)} .t2{color:var(--teal)} .m{color:#a8802f}
+code{background:#EDE0C8;padding:1px 5px;border-radius:3px;font-family:ui-monospace,Menlo,monospace;font-size:.85em}
+pre{background:var(--paper);border:1px solid var(--line);border-left:5px solid #b3aa98;border-radius:3px;padding:13px 15px;overflow-x:auto;font-family:ui-monospace,Menlo,monospace;font-size:.79rem;line-height:1.55;margin:0 0 16px}
+blockquote{margin:0 0 16px;padding:10px 16px;border-left:4px solid var(--dusty);background:var(--paper);color:#4a4437;font-size:.94rem}
+blockquote p{margin:0 0 7px} blockquote p:last-child{margin:0}
+.fix{background:var(--paper);border:1px solid var(--line);border-left:6px solid var(--teal);padding:18px 20px;border-radius:3px;margin:26px 0}
+.fix h3{margin:0 0 10px;font-size:1.05rem;color:var(--teal)}
+.corr{background:#FDF6E3;border:1px solid var(--line);border-left:6px solid var(--mustard);padding:16px 20px;border-radius:3px;margin:26px 0;font-size:.94rem}
+.corr h3{margin:0 0 8px;font-size:1rem;color:#a8802f}
+.blk{background:var(--paper);border:1px solid var(--line);border-left:6px solid var(--rust);padding:16px 20px;border-radius:3px;margin:26px 0;font-size:.94rem}
+.blk h3{margin:0 0 8px;font-size:1rem;color:var(--rust)}
+.blk ol,.corr ol{margin:8px 0 0;padding-left:20px} .blk li,.corr li{margin-bottom:9px}
+.note{font-size:.86rem;color:#5c5347;border-top:1px solid var(--line);margin-top:40px;padding-top:16px}
+.note a{color:var(--teal)}
+ul.tight{margin:6px 0 14px;padding-left:20px} ul.tight li{margin-bottom:5px}
+.b{display:inline-block;padding:2px 8px;border-radius:11px;font-size:.71rem;font-weight:700;letter-spacing:.4px;color:#fff;white-space:nowrap}
+.b.ver{background:var(--teal)} .b.open{background:var(--mustard);color:#3a2f14} .b.no{background:var(--rust)} .b.grey{background:#8a8272}
+</style></head><body><div class="wrap">
+
+<h1>The Zappa handoff, checked for lies</h1>
+<p class="dek">Two handoffs carry the Zappa drum repair. <code>[ZAPPA-DRUM-REPAIR-2026-08-31]</code> was written on the iMac and saved at <strong>13:52 CDT</strong>. <code>[ZAPPA-BASELINE-RECOVERED-2026-08-31]</code> was written on this MacBook and saved at <strong>17:42 CDT</strong>. Every falsifiable number in both was re-derived here with a GPIF parser written for this audit alone, so no verdict below leans on the tool that produced the claim. Audited 2026-08-31 on MacBookPro.</p>
+
+<div class="verdict">
+<h3>Verdict: nothing was invented, and one claim has expired</h3>
+<p>Twenty-six claims went through the check. <strong>Nineteen reproduce exactly</strong>, including every count, every meter and every named bar. <strong>One reproduces after a wording correction.</strong></p>
+<p><strong>One was true when it was tested and is false now</strong>, and that one changes what the next session should do first. <strong>One drifted</strong> in the hours after the handoff was saved. <strong>One is broader than the evidence behind it.</strong> <strong>Two need the other machine</strong> and stay untested.</p>
+</div>
+
+<div class="toc">
+<a href="#expired">The expired claim</a><a href="#tests">The overstated one</a><a href="#drift">The drift and a tool bug</a><a href="#wording">The wording</a><a href="#reproduced">What reproduced</a><a href="#bundle">Newly testable</a><a href="#untested">Untested here</a><a href="#watch">How it keeps running</a><a href="#repro">Reproduce it</a><a href="#sources">Sources</a>
+</div>
+
+<div class="grid">
+<div class="card"><div class="big t2">19</div><div class="lab">claims reproduced exactly</div></div>
+<div class="card"><div class="big r">1</div><div class="lab">true then, false now</div></div>
+<div class="card"><div class="big m">3</div><div class="lab">overstated, drifted, or buggy</div></div>
+<div class="card"><div class="big t2">21,385</div><div class="lab">events compared, zero differences</div></div>
+<div class="card"><div class="big t2">7,479</div><div class="lab">events re-derived independently</div></div>
+<div class="card"><div class="big" style="color:#8a8272">2</div><div class="lab">need the other machine</div></div>
+</div>
+
+<h2 id="expired">The finding that changes the work: the iMac bundle already landed</h2>
+<p class="sub">This is the one claim a next session would act on and be wrong.</p>
+<blockquote><p>The handoff's <code>s*/</code> tree, the <code>ORIGINAL-*.gp</code> baselines, the 139.6 MB source archive and five of six tools are NOT on the MacBook. Confirmed by <code>find</code>, Spotlight, an empty Trash, no Time Machine destination, an unmounted T7 Shield, and no Zappa bundle in <code>sfg/</code>.</p>
+<p>Still blocked: 1. The iMac working tree, via <code>sfg/</code>. Queued <code>q-2026-08-31-45a6f4</code>.</p></blockquote>
+
+<div class="scroll"><table>
+<tr><th>Time, CDT</th><th>Event</th><th>Evidence</th></tr>
+<tr><td class="n">13:52:49</td><td>iMac handoff saved</td><td>file mtime</td></tr>
+<tr class="good"><td class="n">13:56:57</td><td>MacBook session runs <code>ls sfg | grep -i zappa</code> and gets nothing</td><td>session transcript, <code>2026-08-31T18:56:57Z</code></td></tr>
+<tr class="bad"><td class="n">14:01:13</td><td><code>sfg/zappa-drum-repair-2026-08-31/</code> appears with 19 <code>.gp</code> files</td><td>directory mtime</td></tr>
+<tr class="bad"><td class="n">17:42:51</td><td>MacBook handoff saved, still carrying the 13:56 finding</td><td>file mtime</td></tr>
+</table></div>
+
+<p>The sfg check was honest at the moment it ran. The bundle landed four minutes later, and the finding travelled into the handoff three hours and forty-six minutes afterwards as present tense.</p>
+
+<div class="blk">
+<h3>What actually sits on this Mac right now</h3>
+<ol>
+<li><strong>19 <code>.gp</code> files across 7 song folders</strong>, every one fully downloaded, with no iCloud placeholders.</li>
+<li><strong>10 <code>ORIGINAL-*.gp</code> immutable baselines</strong>, the exact class the handoff calls absent. Two of the ten are the same download under two names, which the bundle's own <code>MANIFEST.md</code> states.</li>
+<li><strong><code>ORIGINAL-Frank Zappa-Zomby Woof-05-31-2026.gp</code></strong>, the pre-work community baseline, dated to the day revision <strong>r7115188</strong> was created.</li>
+</ol>
+</div>
+
+<p>The MacBook handoff says any claim needing the untouched community text <em>must wait for r7115188 itself</em>. That wait is over. The file is here, it renders the same <strong>7,479</strong> events as the recovered r8766102, and its ten per-track counts match the iMac census one for one.</p>
+
+<h2 id="tests">The overstated one: the test suite is green in one tree of two</h2>
+<blockquote><p>The test suite ran zero of its assertions and now runs 47.<br>
+<code>test_comparison_basis.py</code> exit 1 ImportError -&gt; exit 0, 8/8 cases.<br>
+<code>test_promotion_rule.py</code> exit 1 TypeError -&gt; exit 0, 38/38 cases.</p></blockquote>
+<p>That holds in <code>~/Projects/_outputs/kilgore-guitar-tools/_tests/</code>. All three files exit 0 there, 8 of 8 and 38 of 38, and the new <code>is_guitar</code> test passes. Two other places still carry the original failure.</p>
+<div class="scroll"><table>
+<tr><th>Location</th><th><code>test_comparison_basis.py</code></th><th><code>test_promotion_rule.py</code></th></tr>
+<tr class="good"><td class="t"><code>kilgore-guitar-tools/_tests/</code></td><td>exit 0, 8/8</td><td>exit 0, 38/38</td></tr>
+<tr class="bad"><td class="t"><code>kilgore-guitar/2026-08-13-macbook/tools/_tests/</code></td><td>exit 1, same ImportError</td><td>exit 1, same TypeError</td></tr>
+<tr class="bad"><td class="t"><code>sfg/zappa-macbook-return-2026-08-31/impossible-gate-fix/</code></td><td>exit 1, same ImportError</td><td>exit 1, same TypeError</td></tr>
+</table></div>
+<p>The bundle copy fails for a packaging reason. Its two module copies were renamed to <code>impossible_gate.SKILL-COPY.py</code> and <code>impossible_gate.KILGORE-TOOLS-COPY.py</code>, so the tests find no <code>impossible_gate.py</code> in their own directory and fall back to the skill copy. That fallback is the exact defect the fix was written to remove, and the iMac will see red on both files.</p>
+<p>The count is soft as well. The two suites print 46 cases between them, and the third prints one PASS line covering 10 tracks and 6 string cases. <strong>47</strong> reconciles only by counting the third file as a single assertion.</p>
+
+<h2 id="drift">The drift, and the tool bug under it</h2>
+<blockquote><p>Now 727 of 727 linked, zero dead links, header corrected to <code>727 entries, last verified 2026-08-31</code>.</p></blockquote>
+<p>The substance of that repair holds. Every memory file is linked and every link resolves, which I re-ran and confirmed. The header number stopped tracking, and the reason is a defect in the tool the handoff shipped.</p>
+<pre>memory files       : 731
+linked by POINTERS : 731
+MISSING from POINTERS : 0
+DEAD links in POINTERS: 0
+FINAL: 731 files, 731 linked, 0 missing, 0 dead
+POINTERS.md is COMPLETE: every file linked, every link resolves
+exit 0
+
+header line still reads: 727 entries, last verified 2026-08-31</pre>
+<div class="blk">
+<h3><code>--header</code> is a one-shot that reports nothing when it fires blank</h3>
+<p>The header rewrite matches one pattern only:</p>
+<pre>re.sub(r'Every memory file with its own description, \d+ entries, '
+       r'regenerated [\d-]+\.', ...)</pre>
+<p>The 2026-08-31 run replaced <code>regenerated 2026-08-04</code> with <code>last verified 2026-08-31</code>, so the pattern stopped matching its own output. Every later <code>--fix --header</code> run changes nothing, prints nothing about it, and exits 0. I ran it during this audit and watched it append one entry and leave the count at 727 against 731 files.</p>
+<p>The append-only claim does hold. The script writes new entries under one appended heading and never rewrites an existing line, which reading the source confirms.</p>
+</div>
+
+<h2 id="wording">The wording: twelve switch points</h2>
+<p class="sub">The musical finding is intact. The word "switch" is counting spans.</p>
+<pre>36  : bars 1-8       -&gt; 35 : 9    Verse 1
+35  : bars 9-12      -&gt; 36 : 13   Pre-Chorus 1
+36  : bars 13-15     -&gt; both : 16
+both: bars 16-17     -&gt; 35 : 18   Chorus 1
+35  : bars 18-39     -&gt; 36 : 40
+36  : bars 40-43     -&gt; 35 : 44
+35  : bar 44         -&gt; both : 45
+both: bar 45         -&gt; 35 : 46   Bridge
+35  : bars 46-55     -&gt; 36 : 56   Solo
+36  : bars 56-101    -&gt; 35 : 102
+35  : bars 102-111   -&gt; 36 : 112  Head</pre>
+<p>Twelve spans, eleven boundaries, and seven of the twelve span starts land on a labelled section once bar 1 is counted: bar 1 Head, bar 9 Verse 1, bar 13 Pre-Chorus 1, bar 18 Chorus 1, bar 46 Bridge, bar 56 Solo, bar 112 Head.</p>
+
+<h2 id="reproduced">What reproduced exactly</h2>
+<p class="sub">Each row was re-derived from the score file by an independent parser, then compared with the handoff text and with the iMac census at <code>drwu-overflow/zappa-drum-tab-forensics/baseline_diff.json</code>.</p>
+<div class="scroll"><table>
+<tr><th>#</th><th>Claim</th><th>Source</th><th>Independent result</th></tr>
+<tr class="good"><td class="n">1</td><td class="t">20 counts match the iMac census, 7,479 both sides</td><td>MacBook</td><td>10 of 10 per-track note counts match; 10 of 10 tie counts match at 2 tied events per tie</td></tr>
+<tr class="good"><td class="n">2</td><td class="t">17 drum lanes, 1,574 total</td><td>MacBook</td><td>17 lanes, 1,574, lane for lane identical to the census</td></tr>
+<tr class="good"><td class="n">3</td><td class="t">Bars 1-8 read 3/4, 10/16, 2/4, 5/4, 15/16 x4</td><td>MacBook</td><td>exact, and sections read Head, Pre-Verse 1, Verse 1 at bars 1, 5, 9</td></tr>
+<tr class="good"><td class="n">4</td><td class="t">18 ties, twelve bars named</td><td>MacBook</td><td>36 tied events in bars 16, 17, 18, 22, 32, 34, 35, 36, 38, 44, 104, 108</td></tr>
+<tr class="good"><td class="n">5</td><td class="t">Sloots span 32.00 s, +3.2%, flat 88 gives 32.73 s</td><td>MacBook</td><td>bars 38-50 total 48 quarters; 32.00 s at 90 bpm, 32.73 s at 88, +3.2% and +5.6% against 31.0 s</td></tr>
+<tr class="good"><td class="n">6</td><td class="t">Drum staff playable, max 3 voices, no empty bars</td><td>MacBook</td><td>max 3 notes in one beat, 0 empty drum bars in 114</td></tr>
+<tr class="good"><td class="n">7</td><td class="t">r7115188 ghost 32, r8787022 staccato 32, r8766102 neither</td><td>MacBook</td><td>census reads ghost [32, 0] and staccato [0, 32], events identical</td></tr>
+<tr class="good"><td class="n">8</td><td class="t">Kick on two lanes, 35 over 48 bars, 36 over 60 bars</td><td>MacBook</td><td>163 notes on lane 35 across 48 bars, 186 on lane 36 across 60, both lanes in bars 16, 17, 45</td></tr>
+<tr class="good"><td class="n">9</td><td class="t">4 of 20 songs split, 13 use lane 36 alone</td><td>MacBook</td><td>census gives exactly 4 split, 13 lane-36-only, 3 lane-35-only</td></tr>
+<tr class="good"><td class="n">10</td><td class="t">Recovered baseline md5 <code>4343175d94bff82235497f5bb5360bab</code></td><td>MacBook</td><td>matches, and the bundled copy matches byte for byte</td></tr>
+<tr class="good"><td class="n">11</td><td class="t">Published page returns http 200</td><td>MacBook</td><td>200</td></tr>
+<tr class="good"><td class="n">12</td><td class="t">Both new revisions still on moderation</td><td>MacBook</td><td>re-fetched live: 8787022 and 8766102 both <code>isOnModeration: true</code>, 7115188 public</td></tr>
+<tr class="good"><td class="n">13</td><td class="t"><code>pointers_check.py</code> only appends</td><td>MacBook</td><td>source confirms, appends under one heading, never rewrites a line</td></tr>
+<tr class="good"><td class="n">14</td><td class="t"><code>is_guitar</code> fixed in three copies, each backed up</td><td>MacBook</td><td>three files and three <code>.bak-pre-isguitar-2026-08-31</code>, all written 17:32</td></tr>
+<tr class="good"><td class="n">15</td><td class="t">Zomby Woof goes 0 guitar staves to 2</td><td>MacBook</td><td>test reports 10 tracks resolved, 2 guitars, 0 track names containing the word</td></tr>
+<tr class="good"><td class="n">16</td><td class="t">No notes lost by the parentheses sweep</td><td>iMac</td><td>6 archived pairs, 21,385 events, zero pitch, rhythm or position differences</td></tr>
+<tr class="good"><td class="n">17</td><td class="t">Oh No is sparse: 611 notes, 0 crashes, 0 open hi-hat, 66 bars</td><td>iMac</td><td>611 drum events, 66 bars, 0 on lanes 49 and 57, 0 on lane 46</td></tr>
+<tr class="good"><td class="n">18</td><td class="t">The AI tab opens 13/16, 4/4, 9/8, 4/4, 7/8 with two empty staves</td><td>iMac</td><td>exact meters, and Lead Guitar and Vocals hold 0 events</td></tr>
+<tr class="good"><td class="n">19</td><td class="t">The stacked tom pair is Mid Tom line 4 and Low Tom line 5</td><td>iMac</td><td>Mid Tom (hit) staff line 4, Low Tom (hit) staff line 5, adjacent</td></tr>
+<tr class="good"><td class="n">20</td><td class="t">GPIF Beats and Notes are shared by reference</td><td>iMac</td><td>802 Note definitions render 7,479 events; 36 tied drum events come from 6 Notes</td></tr>
+</table></div>
+
+<h2 id="bundle">What the arriving bundle made testable for the first time</h2>
+<p class="sub">Rows 16 through 19 were untestable here at the hour the MacBook handoff was written.</p>
+<pre>s412162-Zomby-Woof-community       10 tracks   7,479 events   0 differing tracks
+s35884-Oh-No                        6 tracks   1,669 events   0 differing tracks
+s35870-Montana                     18 tracks   7,966 events   0 differing tracks
+s412170-Trouble-Every-Day-Live      6 tracks   2,539 events   0 differing tracks
+s1105085-The-Black-Page             4 tracks   1,321 events   0 differing tracks
+s5820647-Zomby-Woof-AI              5 tracks     411 events   0 differing tracks
+TOTAL                                         21,385 events   0 differences</pre>
+<p>The iMac claimed 20 folders and 120,579 beat events. Six folders travelled, and those six are clean. The other fourteen stay unverified from here.</p>
+
+<h2 id="untested">Two claims this machine cannot test</h2>
+<div class="corr">
+<h3>Recorded as untested rather than accepted</h3>
+<ol>
+<li><strong>Bars 1-8 corroborated by Ryan Brown in DRUM Magazine and by Drumnet.</strong> The published sources live in <code>~/Projects/_outputs/zappa-drum-sources/</code> on the iMac, and that archive did not travel.</li>
+<li><strong>Audio alignment fails its controls at 45.9% against 48.5% shifted and 47.8% random.</strong> No audio came across, so the control cannot be re-run here.</li>
+</ol>
+</div>
+
+<h2 id="watch">How this keeps running</h2>
+<p class="sub">The audit is a script, so a claim cannot quietly rot between readings.</p>
+<p><code>audit.py</code> re-derives every settled number from the score files and exits non-zero on any drift. It runs <strong>31 checks</strong>: 27 settled claims that reproduce today, and 4 open defects that flip to green on their own once someone fixes them.</p>
+<pre>31 checks, 4 failing
+FAIL OPEN    second test tree: test_comparison_basis exit 0   want 0 got 1
+FAIL OPEN    second test tree: test_promotion_rule exit 0     want 0 got 1
+FAIL OPEN    sfg bundle tests run in place                    want 0 got 1
+FAIL OPEN    POINTERS header count matches file count         want 731 got 727</pre>
+<p><code>watch.sh</code> fingerprints both handoffs and both sfg bundles once a minute. Any byte that moves triggers a full re-audit into <code>watch.log</code>, so a rewritten handoff gets checked against the files the moment it lands.</p>
+<pre>~/Projects/_outputs/zappa-handoff-lie-audit/audit.py     31 checks, exit 0 when clean
+~/Projects/_outputs/zappa-handoff-lie-audit/watch.sh     INTERVAL=60 ROUNDS=170 ./watch.sh
+~/Projects/_outputs/zappa-handoff-lie-audit/watch.log    every pass, stamped</pre>
+
+<h2 id="repro">Reproduce this audit</h2>
+<pre># the timeline that expires the sfg claim
+ls -laT ~/Library/Mobile\ Documents/com~apple~CloudDocs/sfg/zappa-drum-repair-2026-08-31
+ls -laT ~/Library/Mobile\ Documents/com~apple~CloudDocs/SVG/\[ZAPPA-BASELINE-RECOVERED-2026-08-31\]\ handoff.md
+
+# the two test trees
+cd ~/Projects/_outputs/kilgore-guitar-tools/_tests &amp;&amp; python3 test_comparison_basis.py; echo $?
+cd ~/Projects/_outputs/kilgore-guitar/2026-08-13-macbook/tools/_tests &amp;&amp; python3 test_comparison_basis.py; echo $?
+
+# the memory index
+python3 ~/.claude/skills/_shared/pointers_check.py
+
+# live moderation state
+curl -s https://www.songsterr.com/api/meta/412162/revisions | head -c 400</pre>
+
+<h2 id="sources">Sources</h2>
+<ul class="tight">
+<li><code>SVG/[ZAPPA-BASELINE-RECOVERED-2026-08-31] handoff.md</code> and <code>SVG/[ZAPPA-DRUM-REPAIR-2026-08-31] handoff.md</code></li>
+<li><code>sfg/zappa-drum-repair-2026-08-31/</code> with its <code>MANIFEST.md</code>, and <code>sfg/zappa-macbook-return-2026-08-31/</code></li>
+<li><code>~/Projects/drwu-overflow/zappa-drum-tab-forensics/baseline_diff.json</code> and <code>live_diff_report.json</code></li>
+<li><code>~/Projects/_outputs/songsterr-zappa-paren-fix/</code></li>
+<li>session transcript <code>aecf628c-427d-4908-a169-2b1786a0d199.jsonl</code></li>
+<li>Songsterr revisions API, song 412162, re-fetched during this audit</li>
+</ul>
+
+<p class="note">Audited on MacBookPro, 2026-08-31. Companion page: <a href="https://7onething1.github.io/zappa-baseline-recovered/">zappa-baseline-recovered</a>. Markdown source sits beside this page as <a href="zappa-handoff-lie-audit.md">zappa-handoff-lie-audit.md</a>.</p>
+
+</div></body></html>

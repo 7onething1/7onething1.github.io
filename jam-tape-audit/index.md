@@ -64,8 +64,29 @@ songs as well as dropping them.
 
 Eleven songs in the default run have no counterpart in the shipped cut, at 0:10:24, 0:15:58,
 0:20:21, 0:33:40, 0:38:39, 1:17:26, 1:25:46, 1:42:20, 2:05:36, 2:28:41 and 3:31:31. Those eleven were exported by the detector on 2026-08-18 and sit as WAVs in
-`~/Projects/_outputs/real-song-finder/band-practice-8-14-26/songs/`. The gap is in the curation
-step rather than the export.
+`~/Projects/_outputs/real-song-finder/band-practice-8-14-26/songs/`, 210 MB in total. The gap is
+in the curation step rather than the export.
+
+They were dropped for a reason worth stating. The curated twenty run 74 to 2129 seconds with a
+median of 274, and score 71.3 to 92.1 with a median of 81.3. The extra eleven run 45 to 146
+seconds with a median of 75, and score 59.8 to 72.6 with a median of 63.0. They are short
+borderline takes sitting just under the strict pass, and the two score bands almost touch at 71.3
+against 72.6. Judging them belongs to the ear rather than the detector.
+
+| tape | length | score | file in songs/ |
+|---|---|---|---|
+| 0:10:24 | 47s | 60.4 | `01_0-10-24_take11_score60.wav` |
+| 0:15:58 | 51s | 59.8 | `02_0-15-58_take12_score59.wav` |
+| 0:20:21 | 86s | 67.7 | `03_0-20-21_take18_score67.wav` |
+| 0:33:40 | 45s | 60.8 | `05_0-33-40_take27_score60.wav` |
+| 0:38:39 | 146s | 67.4 | `07_0-38-39_take29_score67.wav` |
+| 1:17:26 | 84s | 61.3 | `12_1-17-26_take42_score61.wav` |
+| 1:25:46 | 56s | 72.6 | `14_1-25-46_take48_score72.wav` |
+| 1:42:20 | 63s | 68.6 | `18_1-42-20_take53_score68.wav` |
+| 2:05:36 | 91s | 60.5 | `22_2-05-36_take59_score60.wav` |
+| 2:28:41 | 75s | 63.0 | `26_2-28-41_take73_score63.wav` |
+| 3:31:31 | 76s | 66.1 | `29_3-31-31_take78_score66.wav` |
+
 
 ## The two residual gaps, now recovered
 
