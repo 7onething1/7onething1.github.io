@@ -109,6 +109,13 @@
   .psub{color:var(--soft);font-size:14.5px;margin:5px 0 0;max-width:76ch}
   .pbody{padding:6px 8px 4px 12px;overflow-x:auto}
   .score{display:block;width:100%;height:auto}
+  .take{padding:2px 18px 6px 20px}
+  .takecanvas{display:block;width:100%;height:96px}
+  .takesay{
+    font-family:ui-monospace,Menlo,monospace;font-size:12px;color:var(--soft);
+    margin:6px 0 0;line-height:1.7;
+  }
+  .takesay b{color:var(--ink)}
   .partlabel{
     font-family:ui-monospace,Menlo,monospace;font-size:10.5px;letter-spacing:.14em;
     text-transform:uppercase;color:var(--soft);margin:6px 0 -6px 10px;
@@ -154,7 +161,7 @@
 
   @media print{
     @page{margin:14mm}
-    .bar,.btns,footer,.src,.ear{display:none}
+    .bar,.btns,footer,.src,.ear,.take{display:none}
     body{background:#fff}
     .piece{break-inside:avoid;page-break-inside:avoid;border-color:#bbb}
     .piece::before{display:none}
@@ -314,6 +321,15 @@ transcriptions of the anime's music. Play them, record them, teach them, no perm
 <p>
   <b>Tuner</b> in the bar above gives you the four open strings and an A440, held until you press the
   button again &mdash; enough to sit down with the instrument and this page and nothing else.
+</p>
+<p>
+  <b>Record</b> asks for the microphone, counts you in, and listens while you play the selected bars.
+  Afterwards it draws what it heard against the note times the page would have played, and tells you two
+  numbers. The <i>spread</i> is how unevenly the notes landed &mdash; that one is yours, and it is the
+  number to practise down. The <i>average offset</i> is mostly the delay in getting sound from your
+  strings back through the microphone, so a constant lateness across every note is the equipment, not
+  you. Nothing is uploaded or saved: the audio becomes a loudness curve in the page and disappears when
+  you reload.
 </p>
 <p>
   <b>Three of them are duets.</b> Water Surface Slice, Flame Vow and Wisteria at Dusk carry a second
@@ -1318,12 +1334,17 @@ host.innerHTML = PIECES.map((p, i) => {
       '<button data-midi="' + p.id + '">MIDI</button>' +
       (p.music2 ? '<button data-duet="' + p.id + '">Both parts</button>' : '') +
       '<button data-print="' + p.id + '">Print</button>' +
+      '<button data-rec="' + p.id + '">Record</button>' +
       '<span class="range">bars' +
         '<input type="number" id="from-' + p.id + '" min="1" max="' + bars + '" value="1">' +
         '–<input type="number" id="to-' + p.id + '" min="1" max="' + bars + '" value="' + bars + '">' +
       '</span>' +
     '</div>' +
     '<div class="pbody" id="body-' + p.id + '"></div>' +
+    '<div class="take" id="take-' + p.id + '" hidden>' +
+      '<canvas class="takecanvas" id="canvas-' + p.id + '"></canvas>' +
+      '<p class="takesay" id="say-' + p.id + '"></p>' +
+    '</div>' +
     '<div class="pfoot"><ul class="tips">' + p.tips.map(t => "<li>" + t + "</li>").join("") + '</ul></div>' +
   '</article>';
 }).join("");
@@ -1352,6 +1373,8 @@ host.addEventListener("click", e => {
   const pid = e.target.dataset.play, mid = e.target.dataset.midi, did = e.target.dataset.duet;
   if(pid) play(PIECES.find(x => x.id === pid), e.target);
   if(mid) downloadMidi(PIECES.find(x => x.id === mid));
+  const rid = e.target.dataset.rec;
+  if(rid) record(PIECES.find(x => x.id === rid), e.target);
   const prid = e.target.dataset.print;
   if(prid){
     const card = el("p-" + prid);
@@ -1382,8 +1405,236 @@ el("tuner").addEventListener("click", e => {
   if(m) playTune(parseInt(m, 10), e.target);
 });
 document.addEventListener("keydown", e => {
-  if(e.key === "Escape"){ stopAll(); stopTune(); }
+  if(e.key === "Escape"){ stopAll(); stopTune(); stopTake(); }
 });
+/* ===============================================================
+   RECORD AND COMPARE
+   A take is an amplitude envelope of the microphone, sampled every few
+   milliseconds while you play the selected bars against the click. The
+   envelope is compared with the note times the page would have played.
+   A constant offset across every note is input latency, not you; the
+   spread around that offset is the thing worth practising.
+================================================================*/
+const ENV_HOP = 256;                                   // samples per envelope point
+let take = null;                                       // {id, env, expected, stop}
+
+function detectOnsets(env, floor){
+  const on = [];
+  const thresh = Math.max(floor * 3.5, 0.012);
+  let last = -1;
+  for(let i = 0; i < env.length; i++){
+    const a = env[i].rms;
+    if(a < thresh) continue;
+    if(last >= 0 && env[i].t - last < 0.08) continue;   // one attack per 80 ms
+    if(i >= 2){
+      const prev = env[i - 1].rms, back = env[i - 2].rms;
+      // an attack must rise into this point, unless the take opens already loud
+      if(last >= 0 && (a < prev * 1.35 || prev < back * 0.9)) continue;
+      if(last < 0 && prev >= thresh && a < prev * 1.35) continue;
+    }
+    last = env[i].t;
+    on.push(env[i].t);
+  }
+  return on;
+}
+function noiseFloor(env){
+  if(!env.length) return 0;
+  const sorted = env.map(e => e.rms).sort((a, b) => a - b);
+  return sorted[Math.floor(sorted.length * 0.2)] || 0;
+}
+/* Expected times are relative to the first note; onsets are aligned to their
+   own first attack, so the comparison is about spacing rather than when the
+   player happened to come in. */
+function analyseTake(env, expected, tol){
+  tol = tol || 0.25;
+  const onsets = detectOnsets(env, noiseFloor(env));
+  if(!onsets.length || !expected.length)
+    return {onsets, matched:[], missed:expected.length, extra:onsets.length,
+            mean:0, spread:0, worst:null, empty:true};
+  /* One missed or spurious first attack must not shift the whole comparison by a
+     note, so try the plausible alignments and keep the one that explains the most
+     notes (ties going to the tighter fit). */
+  const matchAt = shift => {
+    const matched = [], used = new Set();
+    expected.forEach((e, i) => {
+      let best = -1, bestD = Infinity;
+      onsets.forEach((o, k) => {
+        const d = Math.abs(o - shift - e);
+        if(d < bestD && d <= tol && !used.has(k)){ bestD = d; best = k; }
+      });
+      if(best >= 0){ used.add(best); matched.push({i, dev:onsets[best] - shift - e}); }
+    });
+    const err = matched.reduce((a, m) => a + Math.abs(m.dev), 0);
+    return {shift, matched, used, err};
+  };
+  const cands = new Set();
+  for(let a = 0; a < Math.min(3, onsets.length); a++)
+    for(let b = 0; b < Math.min(3, expected.length); b++) cands.add(onsets[a] - expected[b]);
+  let fit = null;
+  cands.forEach(sh => {
+    const f = matchAt(sh);
+    if(!fit || f.matched.length > fit.matched.length ||
+       (f.matched.length === fit.matched.length && f.err < fit.err)) fit = f;
+  });
+  const shift = fit.shift, matched = fit.matched, used = fit.used;
+  const devs = matched.map(m => m.dev);
+  const mean = devs.reduce((a, b) => a + b, 0) / (devs.length || 1);
+  const spread = Math.sqrt(devs.reduce((a, d) => a + (d - mean) * (d - mean), 0) / (devs.length || 1));
+  const worst = matched.reduce((a, m) => (!a || Math.abs(m.dev) > Math.abs(a.dev) ? m : a), null);
+  return {onsets, matched, missed:expected.length - matched.length,
+          extra:onsets.length - used.size, mean, spread, worst, shift};
+}
+
+function drawTake(id, env, expected, an){
+  const cv = el("canvas-" + id);
+  const w = cv.clientWidth || 600, h = 96, dpr = window.devicePixelRatio || 1;
+  cv.width = w * dpr; cv.height = h * dpr;
+  const g = cv.getContext("2d");
+  g.setTransform(dpr, 0, 0, dpr, 0, 0);
+  g.clearRect(0, 0, w, h);
+
+  const span = Math.max(env.length ? env[env.length - 1].t : 1,
+                        expected.length ? expected[expected.length - 1] + 0.5 : 1);
+  const x = t => (t / span) * (w - 8) + 4;
+  const mid = h - 26;
+
+  g.fillStyle = "#EFE7D3";
+  g.fillRect(0, 0, w, h);
+
+  // expected note times
+  g.strokeStyle = "#C9BFA6";
+  g.lineWidth = 1;
+  expected.forEach(e => {
+    g.beginPath(); g.moveTo(x(e), 6); g.lineTo(x(e), mid); g.stroke();
+  });
+
+  // envelope
+  const peak = env.reduce((a, e) => Math.max(a, e.rms), 0.0001);
+  g.strokeStyle = "#5C5344";
+  g.beginPath();
+  env.forEach((e, i) => {
+    const y = mid - (e.rms / peak) * (mid - 10);
+    i ? g.lineTo(x(e.t), y) : g.moveTo(x(e.t), y);
+  });
+  g.stroke();
+
+  // detected attacks, drawn where they land against the grid
+  const shift = an.shift || 0;
+  g.fillStyle = "#B4553A";
+  an.onsets.forEach(o => {
+    g.beginPath(); g.arc(x(o - shift), mid + 6, 2.6, 0, 6.3); g.fill();
+  });
+
+  // deviation bars under the grid
+  an.matched.forEach(m => {
+    const px = x(expected[m.i]);
+    const d = Math.max(-1, Math.min(1, m.dev / 0.15)) * 14;
+    g.fillStyle = Math.abs(m.dev) < 0.03 ? "#6E7A4F" : "#B4553A";
+    g.fillRect(px - 1, mid + 12, 2, d);
+  });
+  g.strokeStyle = "#8C8574";
+  g.beginPath(); g.moveTo(4, mid + 12); g.lineTo(w - 4, mid + 12); g.stroke();
+}
+
+function takeSummary(id, an, expected){
+  const ms = v => (v >= 0 ? "+" : "−") + Math.round(Math.abs(v) * 1000) + " ms";
+  const say = el("say-" + id);
+  if(an.empty){
+    say.innerHTML = "Nothing came through loud enough to read. Check the microphone, " +
+                    "or play a little closer to it.";
+    return;
+  }
+  const late = an.mean > 0;
+  say.innerHTML =
+    "<b>" + an.matched.length + " of " + expected.length + " notes found</b>" +
+    (an.missed ? " · " + an.missed + " missed" : "") +
+    (an.extra ? " · " + an.extra + " extra attack" + (an.extra > 1 ? "s" : "") : "") +
+    "<br>Spread around your own pulse: <b>" + Math.round(an.spread * 1000) + " ms</b>" +
+    " — that is the number to practise down." +
+    "<br>Average offset " + ms(an.mean) + " (" + (late ? "behind" : "ahead of") +
+    " the grid); a constant offset is mostly microphone latency, not you." +
+    (an.worst ? "<br>Furthest note: " + ms(an.worst.dev) + " at note " + (an.worst.i + 1) + "." : "");
+}
+
+function stopTake(){
+  if(!take) return;
+  try{ take.stop(); }catch(e){}
+  document.querySelectorAll("[data-rec]").forEach(b => { b.textContent = "Record"; b.classList.remove("on"); });
+  take = null;
+}
+
+async function record(p, btn){
+  if(take && take.id === p.id){ stopTake(); return; }
+  stopTake(); stopAll(); stopTune();
+  if(!navigator.mediaDevices || !navigator.mediaDevices.getUserMedia){
+    el("take-" + p.id).hidden = false;
+    el("say-" + p.id).textContent = "This browser will not give the page a microphone.";
+    return;
+  }
+  let stream;
+  try{
+    stream = await navigator.mediaDevices.getUserMedia({audio:{echoCancellation:false,
+                                                              noiseSuppression:false,
+                                                              autoGainControl:false}});
+  }catch(err){
+    el("take-" + p.id).hidden = false;
+    el("say-" + p.id).textContent = "No microphone: " + err.name +
+      ". The rest of the page works without it.";
+    return;
+  }
+
+  const c = audio();
+  const u = sec16(p);
+  const { seg } = segmentOf(p);
+  const expected = [];
+  let t = 0;
+  seg.forEach(({n}) => { if(!n.rest) expected.push(t); t += n.dur * u; });
+  const total = t;
+
+  const bt = beat16(p) * u, per = beatsPerBar(p);
+  const startAt = c.currentTime + 0.15 + per * bt;                 // always a count-in
+  for(let k = 0; k < per; k++) tickSound(startAt - per * bt + k * bt, k === 0, null);
+  if(el("click").checked)
+    for(let x = 0, k = 0; x < total - 0.001; x += bt, k++) tickSound(startAt + x, k % per === 0, null);
+
+  const src = c.createMediaStreamSource(stream);
+  const proc = c.createScriptProcessor(1024, 1, 1);     // deprecated, but needs no worklet file
+  const sink = c.createGain();
+  sink.gain.value = 0;                                  // keep the graph alive, hear nothing back
+  const env = [];
+  proc.onaudioprocess = e => {
+    const buf = e.inputBuffer.getChannelData(0);
+    const base = (e.playbackTime || c.currentTime) - startAt;
+    for(let i = 0; i + ENV_HOP <= buf.length; i += ENV_HOP){
+      let sum = 0;
+      for(let k = 0; k < ENV_HOP; k++){ const v = buf[i + k]; sum += v * v; }
+      const at = base + i / c.sampleRate;
+      if(at >= -0.05) env.push({t:at, rms:Math.sqrt(sum / ENV_HOP)});
+    }
+  };
+  src.connect(proc).connect(sink).connect(c.destination);
+
+  btn.textContent = "■ Stop"; btn.classList.add("on");
+  el("take-" + p.id).hidden = false;
+  el("say-" + p.id).textContent = "Count-in, then play bars " + segmentOf(p).from + "–" +
+                                  segmentOf(p).to + " with the click.";
+
+  const finish = () => {
+    proc.onaudioprocess = null;
+    try{ src.disconnect(); proc.disconnect(); sink.disconnect(); }catch(e){}
+    stream.getTracks().forEach(t => t.stop());
+    const an = analyseTake(env, expected);
+    drawTake(p.id, env, expected, an);
+    takeSummary(p.id, an, expected);
+    take = null;
+    btn.textContent = "Record"; btn.classList.remove("on");
+    return an;
+  };
+  const timer = setTimeout(finish, (per * bt + total + 0.6) * 1000);
+  take = {id:p.id, env, expected, startAt, stop:() => { clearTimeout(timer); finish(); }};
+  return take;
+}
+
 /* ===============================================================
    EAR DRILL  —  name the degree, in the modes the pieces use
 ================================================================*/

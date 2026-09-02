@@ -53,6 +53,8 @@ files, no libraries.
 | Playback | Web Audio bowed synth — two detuned saws and a triangle through a low-pass, with vibrato faded in after the attack. Separate pizzicato and accent envelopes. Optional open-string drone under each piece. |
 | MIDI | Written byte by byte in JS: tempo and time-signature metas, GM cello program, note on/off with staccato shortening. Solo pieces export as format 0; duets as format 1, one named track per part on its own channel. Opens in MuseScore, Dorico or Logic for a printable part. |
 | Practice tools | Per-piece bar range (drill bars 9–12 alone), count-in, metronome click on the beat grid of the metre, and a speed trainer that adds 5% per loop pass up to 160%. |
+| Ear drill | Sounds the tonic, holds it, then one degree of the mode; seven modes, taken from the pieces themselves. Scores attempts, locks a correct answer so it cannot be double-counted. |
+| Record | Microphone take over the selected bars after a count-in. A ScriptProcessor keeps a 5 ms loudness envelope; onsets are detected off that and aligned to the expected note times by the fit that explains the most notes, so one missed first attack cannot shift the whole comparison. Reports spread (the player) separately from mean offset (mostly input latency). Audio never leaves the page and is not stored. |
 | Controls | Global tempo (55–130%), volume, drone, fingerings on/off, loop, count-in, click, speed trainer, print all or one piece, and a tuner (four open strings plus A440, sine with a quiet octave and fifth). Escape stops everything. |
 
 ## Source notes
@@ -77,8 +79,13 @@ Ordered, next item first. Item 1 is in progress.
    the only duet where both parts are slurred; Water's second part is one note a bar and Flame's is
    deliberately unslurred in both parts.
 7. ~~**A tuner** — open-string and A440 reference tones in the control bar.~~ Done.
-8. **Ear-training drill** — name the interval or the note the page plays, using the pieces' own
-   material rather than abstract tones; the melodic-intervals-player page is the model.
-9. **Record and compare** — capture the microphone while a piece plays and lay the waveform against
-   the beat grid, so a player can see where they rushed. Needs a permission prompt, so it should be
-   opt-in per session.
+8. ~~**Ear-training drill** — name the degree, in the seven modes the pieces use.~~ Done.
+9. ~~**Record and compare** — microphone take laid against the note grid, with spread and offset
+   reported separately.~~ Done.
+10. **Tempo-curve view** — the record feature knows where each note landed; graph tempo across the
+    take so a player can see a phrase speeding up rather than reading it off a spread number.
+11. **Save a take** — keep the last take per piece in localStorage so a player can compare today
+    against last week. Only the derived numbers, never audio.
+12. **A second look at Thunderclap** — it is the one piece whose printed fingering shifts more than a
+    player would; worth hand-checking the DP's output against how a cellist would actually take bars 1
+    and 5.
