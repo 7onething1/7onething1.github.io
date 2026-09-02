@@ -541,6 +541,21 @@ published source matches it on both.
 
 Drumnet's quarter `= 89` and Brown's eighth `= 178` are the same tempo.
 
+### VERIFIED 2026-09-02: three independent layers agree lane for lane
+
+The drum staff was measured a third time, from Songsterr's own part JSON for `r7115188`, and
+compared with the iMac census and with a direct GPIF parse. All three read **17 lanes** and
+**1,574 notes**, and every one of the seventeen per-lane counts is identical across all three.
+
+Two figures that only the JSON layer can settle came out exactly as the census claims: **32 ghost
+flags** and **0 staccato** on the base revision. The GPIF layer cannot show these, so this is the
+first reading of them taken on this machine.
+
+The JSON also resolves the tie arithmetic from the other side. It stores **18 tie flags**, one per
+connection, where GPIF stores an origin event and a destination event for each, which is the 36
+tied events counted on the drum staff. A first pass read the JSON note array as 1,612 notes; 38 of
+those entries are rests, and removing them gives 1,574.
+
 ## What a rebar would actually cost
 
 Measured 2026-09-02 from `r8766102-Zomby-Woof.gp`. The barring question was open as a
@@ -591,7 +606,7 @@ belongs to Brandon.
    `/Applications`. The native GPIF pipeline in `songsterr-upload` is the only editor
    here, which is enough for scripted edits and not for eyes-on review.
 4. **Moderation.** Both revisions have sat pending for one and two days. Promotion is
-   a Songsterr moderator decision, not a pipeline step.
+   a Songsterr moderator decision, not a pipeline step. **Half-resolved 2026-09-02:** the fetch is still refused, and the payload itself arrived through the iCloud `sfg/` bundle. All ten part files for `r7115188` now sit in `sfg/zappa-drum-repair-2026-08-31/s412162-Zomby-Woof-community/`, so the JSON layer is readable here even though the direct route is not.
 
 ## Reproduce any of it
 
