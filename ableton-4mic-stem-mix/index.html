@@ -1,0 +1,204 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Ableton Setup: 4 Mics to 7 Stems</title>
+<style>
+:root{
+  --cream:#F4EFE6; --ink:#1B1A17; --rule:#D8CFC0;
+  --mustard:#D9A404; --teal:#3D5A5B; --rust:#C1666B;
+  --navy:#2E4057; --sage:#8FA68E; --pink:#E8B4B8;
+}
+*{box-sizing:border-box}
+body{margin:0;background:var(--cream);color:var(--ink);
+  font:16px/1.6 "Iowan Old Style","Palatino Linotype",Palatino,Georgia,serif;}
+.wrap{max-width:1000px;margin:0 auto;padding:32px 20px 80px}
+h1{font-size:2.1rem;margin:0 0 6px;letter-spacing:-.01em}
+.sub{color:var(--teal);font-size:1rem;margin:0 0 28px}
+h2{font-size:1.3rem;margin:40px 0 12px;padding-bottom:6px;border-bottom:3px solid var(--mustard)}
+h3{font-size:1.02rem;margin:22px 0 8px;color:var(--navy)}
+table{width:100%;border-collapse:collapse;margin:12px 0;font-size:.9rem;
+  font-family:ui-monospace,"SF Mono",Menlo,monospace}
+th,td{text-align:left;padding:7px 9px;border-bottom:1px solid var(--rule);vertical-align:top}
+th{background:#EAE3D6;font-weight:700;font-size:.8rem;text-transform:uppercase;letter-spacing:.04em}
+.scroll{overflow-x:auto}
+code{background:#EAE3D6;padding:1px 5px;border-radius:3px;font-size:.86em}
+.tag{display:inline-block;padding:1px 8px;border-radius:11px;font-size:.72rem;
+  font-weight:700;color:#fff;letter-spacing:.03em;font-family:ui-monospace,Menlo,monospace}
+.ok{background:var(--sage)} .no{background:var(--rust)} .sub2{background:var(--mustard);color:#241E00}
+.card{background:#FBF8F2;border:1px solid var(--rule);border-left:5px solid var(--teal);
+  padding:14px 18px;margin:14px 0;border-radius:0 5px 5px 0}
+.card.warn{border-left-color:var(--rust)}
+.card.good{border-left-color:var(--sage)}
+.toc{background:#FBF8F2;border:1px solid var(--rule);padding:14px 20px;border-radius:5px}
+.toc ol{margin:6px 0 0;padding-left:20px} .toc a{color:var(--navy)}
+ul{padding-left:20px} li{margin:5px 0}
+.lane{font-weight:700;color:var(--navy)}
+footer{margin-top:56px;padding-top:16px;border-top:1px solid var(--rule);
+  font-size:.82rem;color:var(--teal)}
+</style>
+</head>
+<body>
+<div class="wrap">
+
+<h1>Ableton Setup: Four Mics to Seven Stems</h1>
+<p class="sub">Two Live 11.3.43 sessions, built and load-tested against Live's own log. 2026-09-02.</p>
+
+<div class="toc">
+  <strong>On this page</strong>
+  <ol>
+    <li><a href="#files">What was built</a></li>
+    <li><a href="#rig">Rig audit: what this Mac owns</a></li>
+    <li><a href="#lanes">Per-lane chains and settings</a></li>
+    <li><a href="#proof">Verification</a></li>
+    <li><a href="#next">What happens next</a></li>
+  </ol>
+</div>
+
+<h2 id="files">1. What was built</h2>
+
+<div class="scroll"><table>
+<tr><th>Session</th><th>Purpose</th><th>Path</th></tr>
+<tr><td><strong>4-Mic Alignment.als</strong></td>
+    <td>Offset, polarity and drift, settled before Demucs and DrumSep run</td>
+    <td><code>~/Music/Ableton Projects/4-Mic Alignment.als</code></td></tr>
+<tr><td><strong>7-Stem Mix Template.als</strong></td>
+    <td>The mix session, every lane's chain preloaded at the plan's numbers</td>
+    <td><code>~/Music/Ableton Projects/7-Stem Mix Template.als</code></td></tr>
+</table></div>
+
+<div class="card">
+<strong>Alignment set.</strong> Four mic lanes plus four spares. Every mic lane carries a Utility
+for the polarity decision, and its track delay is switched to <strong>samples</strong> rather than
+milliseconds, so the physical offset can be nudged one sample at a time. Master is empty on
+purpose. One offset and one polarity setting per microphone carries through both separation stages.
+</div>
+
+<div class="card">
+<strong>Mix set topology.</strong> Bass and Guitar are outside a <span class="lane">DRUM BUS</span>
+group holding Kick, Snare, Toms, HiHat and Cymbals. A ninth lane runs the parallel bass amp. One
+plate return, one spare return, and the master chain on the master track.
+</div>
+
+<h2 id="rig">2. Rig audit: what this Mac owns</h2>
+<p>Checked against Live's own scanned plugin table, <code>Live-files-53.db</code>, 1737 rows.
+A folder listing was not treated as evidence.</p>
+
+<div class="scroll"><table>
+<tr><th>Plan calls for</th><th>Status</th><th>What goes in that slot</th></tr>
+<tr><td>FabFilter Pro-Q 4</td><td><span class="tag no">MISSING</span></td>
+    <td><strong>Waves F6</strong> for the dynamic bands, <strong>Live EQ Eight</strong> for the high-passes</td></tr>
+<tr><td>FabFilter Pro-L2</td><td><span class="tag no">MISSING</span></td><td><strong>Waves L2</strong></td></tr>
+<tr><td>Helix Native SVT / B-15</td><td><span class="tag no">MISSING</span></td><td><strong>Waves Voltage Amps Bass</strong></td></tr>
+<tr><td>UAD API 2500</td><td><span class="tag sub2">NOT OWNED</span></td><td><strong>Waves API-2500</strong>, same unit, same Thrust control</td></tr>
+<tr><td>Waves Trans-X Wide</td><td><span class="tag ok">INSTALLED</span></td><td>as written</td></tr>
+<tr><td>Waves CLA-2A</td><td><span class="tag ok">INSTALLED</span></td><td>as written</td></tr>
+<tr><td>Waves MaxxBass</td><td><span class="tag ok">INSTALLED</span></td><td>as written</td></tr>
+<tr><td>Waves J37</td><td><span class="tag ok">INSTALLED</span></td><td>as written</td></tr>
+<tr><td>Waves Reel ADT</td><td><span class="tag ok">INSTALLED</span></td><td>as written</td></tr>
+<tr><td>Abbey Road Plates</td><td><span class="tag ok">INSTALLED</span></td><td>as written</td></tr>
+<tr><td>UADx SSL G Bus Compressor</td><td><span class="tag ok">INSTALLED</span></td><td>as written</td></tr>
+<tr><td>UAD Pultec EQP-1A</td><td><span class="tag ok">INSTALLED</span></td>
+    <td><strong>Waves PuigTec EQP1A</strong> is loaded instead, see the note below</td></tr>
+</table></div>
+
+<div class="card warn">
+<strong>The one deliberate swap.</strong> UADx Pultec EQP-1A is installed and works. Its only
+saved instance on this Mac is in <code>Fiona.als</code>, which <strong>Ableton Live 9.7.5</strong>
+wrote, and Live 9 device blocks omit element ids that Live 11 requires. That format mismatch is
+what made three build attempts load-fail. The master carries <strong>Waves PuigTec EQP1A</strong>,
+which is the same Pultec circuit. Dragging the UADx one over it takes a second in the browser.
+</div>
+
+<h2 id="lanes">3. Per-lane chains and settings</h2>
+
+<h3>Drum lanes, inside the DRUM BUS group</h3>
+<div class="scroll"><table>
+<tr><th>Lane</th><th>Chain as built</th><th>Settings from the plan</th></tr>
+<tr><td class="lane">Kick</td><td>EQ Eight &rarr; F6 Mono &rarr; TransX Wide Mono</td>
+    <td>High-pass <strong>28 Hz</strong>, 12 dB/oct. Trans-X range about <strong>+3 dB</strong>, sensitivity set on real hits.</td></tr>
+<tr><td class="lane">Snare</td><td>EQ Eight &rarr; F6 Mono &rarr; TransX Wide Mono</td>
+    <td>High-pass <strong>45 Hz</strong>. Same Trans-X treatment.</td></tr>
+<tr><td class="lane">Toms</td><td>EQ Eight &rarr; F6 Mono</td><td>High-pass <strong>45 Hz</strong>.</td></tr>
+<tr><td class="lane">HiHat</td><td>EQ Eight &rarr; F6 Mono</td>
+    <td>High-pass <strong>180 Hz</strong>. Definition from <strong>2.5 to 4 kHz</strong>.</td></tr>
+<tr><td class="lane">Cymbals</td><td>EQ Eight &rarr; F6 Mono</td>
+    <td>High-pass <strong>180 Hz</strong>. Definition from <strong>2.5 to 4 kHz</strong>, because 8 to 12 kHz mostly raises separation residue.</td></tr>
+<tr><td class="lane">DRUM BUS</td><td>Waves API-2500 Stereo</td>
+    <td><strong>3:1</strong>, attack <strong>10 ms</strong>, release <strong>100 ms</strong>, Thrust <strong>Medium</strong>, about <strong>2 dB</strong> gain reduction.</td></tr>
+</table></div>
+
+<h3>Bass and guitar</h3>
+<div class="scroll"><table>
+<tr><th>Lane</th><th>Chain as built</th><th>Settings from the plan</th></tr>
+<tr><td class="lane">Bass</td><td>EQ Eight &rarr; F6 Mono &rarr; CLA-2A Mono &rarr; MaxxBass Stereo</td>
+    <td>High-pass <strong>28 Hz</strong>. F6 rides the <strong>79 to 83 Hz</strong> bloom down by <strong>2 to 3 dB</strong> while note fundamentals stay. CLA-2A about <strong>3 dB</strong> gain reduction. MaxxBass around <strong>95 to 110 Hz</strong>, restrained.</td></tr>
+<tr><td class="lane">Bass Par SVT</td><td>EQ Eight &rarr; Voltage Amps Bass Mono</td>
+    <td>Parallel midrange lane. High-pass <strong>120 Hz</strong>, low-pass <strong>2.5 kHz</strong> on EQ Eight band 8. Blend <strong>10 to 15 percent</strong>.</td></tr>
+<tr><td class="lane">Guitar</td><td>EQ Eight &rarr; F6 Mono &rarr; J37 Mono &rarr; Reel ADT</td>
+    <td>High-pass <strong>90 Hz</strong>. F6 controls <strong>220 to 350 Hz</strong> congestion dynamically. J37 at <strong>15 ips</strong>, saturation <strong>2 to 3</strong>, minimal wow and flutter. Reel ADT on a <strong>10 percent</strong> send for restrained width.</td></tr>
+</table></div>
+
+<h3>Return and master</h3>
+<div class="scroll"><table>
+<tr><th>Slot</th><th>Chain as built</th><th>Settings from the plan</th></tr>
+<tr><td class="lane">Return A</td><td>EQ Eight &rarr; Abbey Road Plates Stereo</td>
+    <td>Decay <strong>0.9 to 1.2 s</strong>. High-pass the return at <strong>250 Hz</strong>, low-pass at <strong>4.5 kHz</strong>. One shared return for the whole kit.</td></tr>
+<tr><td class="lane">Master</td><td>UADx SSL G Bus Compressor &rarr; PuigTec EQP1A &rarr; L2 Stereo</td>
+    <td>SSL at <strong>2:1</strong>, attack <strong>30 ms</strong>, release auto, <strong>1 to 2 dB</strong> gain reduction. Target <strong>-14 to -15 LUFS</strong>, output ceiling <strong>-1 dBTP</strong>, under <strong>3 dB</strong> of limiting.</td></tr>
+</table></div>
+
+<div class="card">
+<strong>Kick and bass stay centred.</strong> Every artificial stereo effect gets checked in mono,
+Reel ADT included. The Renaissance family is left out on purpose.
+</div>
+
+<h2 id="proof">4. Verification</h2>
+
+<div class="card good">
+<strong>Both sets open in Live 11.3.43.</strong> The mix template instantiated
+<strong>21 plugin devices</strong>, every one the intended plugin, with no fallback to the default
+document and no missing-plugin line. Counted from Live's own log at 16:31 on 2026-09-02:
+F6 Mono &times;7, TransX Wide Mono &times;2, then one each of CLA-2A Mono, MaxxBass Stereo,
+Voltage Amps Bass Mono, J37 Mono, Reel ADT Mono/Stereo, API-2500 Stereo, Abbey Road Plates Stereo,
+UADx SSL G Bus Compressor, PuigTec EQP1A Stereo and L2 Stereo, plus the two devices left on the
+spare return.
+</div>
+
+<h3>Four defects the load test caught</h3>
+<ul>
+  <li><strong>Duplicate device ids.</strong> Two devices in one chain shared <code>Id="4"</code>, and Live called the whole document corrupt. Members of a device list are now numbered by position.</li>
+  <li><strong>Live 9 device blocks.</strong> The UAD Pultec block came from a set Live 9.7.5 wrote, missing ids Live 11 requires. That source is out of the harvest entirely.</li>
+  <li><strong>Dangling automation.</strong> Renumbering the pointee space left an envelope pointing at an id that no longer existed, logged as <code>Invalid Pointee ID 10</code>. A fresh template carries no automation, so the envelopes come out.</li>
+  <li><strong>A silent identity swap.</strong> Each device block holds <em>two</em> class-id blocks. Replacing only the first let five lanes load Smack Attack while the file read correctly on inspection. Both blocks are now written, and the log shows the right plugin on every lane.</li>
+</ul>
+
+<p>An offline validator now reproduces Live's rejection without a restart, learning from four
+reference sets which parent-child tag pairs Live always writes with an id, then flagging any
+member that lacks one. It reports clean on both sets and on Brandon's own working session.</p>
+
+<h2 id="next">5. What happens next</h2>
+<ul>
+  <li><strong>Four mic files.</strong> Drop them into the alignment set. Their path was not given, so no audio is placed yet.</li>
+  <li><strong>Separate per microphone.</strong> Run each aligned mic through Demucs and DrumSep independently, then pick the clearest capture per lane by listening for bleed, attack, body and separator artifacts. A separator pass over the finished composite would bake every microphone compromise into every lane.</li>
+  <li><strong>Seven stems in.</strong> Same length, same start, no normalisation, no processing.</li>
+  <li><strong>Clip gain before compression.</strong> The large source changes are at 1:44, 2:46, 3:02, 4:18, 5:20, 6:22, 8:02 and 9:26. Handle genuine capture changes there and leave musical dynamics alone.</li>
+</ul>
+
+<div class="card">
+<strong>The source composite, measured.</strong> 10:35, mono, 24-bit, 44.1 kHz, about
+<strong>-22.5 LUFS</strong> with a <strong>-2.7 dBTP</strong> peak. Roughly <strong>72 percent</strong>
+of its energy is below 315 Hz, concentrated near <strong>79 Hz</strong>, and the spectrum falls
+sharply above 4 kHz, which matches the 24 kbps AAC source ceiling. That ceiling is the reason
+cymbal definition is taken from 2.5 to 4 kHz.
+</div>
+
+<footer>
+Built 2026-09-02 for Ableton Live 11.3.43. Builders and validators are in
+<code>~/Projects/_outputs/ableton-mix-template/</code>.
+</footer>
+
+</div>
+</body>
+</html>
