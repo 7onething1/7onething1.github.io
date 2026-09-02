@@ -135,11 +135,26 @@
   .tips li{margin:4px 0;max-width:76ch}
   .tips b{font-weight:600}
 
+  .ear{
+    background:var(--paper);border:1px solid var(--rule);border-radius:10px;
+    padding:14px 18px 16px;margin:18px 0 0;position:relative;
+  }
+  .ear::before{content:"";position:absolute;left:0;top:0;bottom:0;width:4px;background:var(--mist);
+    border-radius:10px 0 0 10px}
+  .earbar{display:flex;flex-wrap:wrap;gap:10px 14px;align-items:center}
+  .earscore{font-family:ui-monospace,Menlo,monospace;font-size:13px;color:var(--soft);margin-left:auto}
+  .earsrc{font-family:ui-monospace,Menlo,monospace;font-size:11.5px;color:var(--soft);
+    letter-spacing:.05em;margin:10px 0 0}
+  .degrees{display:flex;flex-wrap:wrap;gap:8px;margin:12px 0 0}
+  .degrees button{min-width:58px;font-size:15px}
+  .degrees button.right{background:var(--mist);border-color:var(--mist);color:#fff}
+  .degrees button.wrong{background:var(--flame);border-color:var(--flame);color:#fff}
+  .earsay{font-size:14.5px;color:var(--soft);margin:12px 0 0;min-height:1.4em}
   footer{margin-top:56px;border-top:1px solid var(--rule);padding-top:18px;font-size:13.5px;color:var(--soft)}
 
   @media print{
     @page{margin:14mm}
-    .bar,.btns,footer,.src{display:none}
+    .bar,.btns,footer,.src,.ear{display:none}
     body{background:#fff}
     .piece{break-inside:avoid;page-break-inside:avoid;border-color:#bbb}
     .piece::before{display:none}
@@ -149,6 +164,7 @@
     body.print-one h2,
     body.print-one table,
     body.print-one .box,
+    body.print-one .ear,
     body.print-one p{display:none}
     body.print-one .piece .psub,
     body.print-one .piece .pmeta,
@@ -313,6 +329,28 @@ first, II = second, and so on); the small number at the left of each system is t
 bowings: one bow for the whole slur.</p>
 
 <div id="pieces"></div>
+
+<h2><span class="num">Part three</span>Ear &mdash; the modes these pieces are built from</h2>
+<p>
+  Every piece above lives in a mode rather than a key, and the note that makes each one what it is
+  &mdash; the flat second in the phrygian piece, the natural sixth in the dorian one &mdash; is the note
+  most players slide past. This drill sounds the tonic, then one degree of the mode, and asks you which
+  one it was. It is the same ear you need to play the pieces in tune against an open string.
+</p>
+
+<div class="ear" id="ear">
+  <div class="earbar">
+    <div class="ctl"><label for="mode">Mode</label>
+      <select id="mode"></select></div>
+    <button id="earNew">New note</button>
+    <button id="earAgain">Replay</button>
+    <label class="switch"><input type="checkbox" id="earDrone" checked> Hold the tonic</label>
+    <span class="earscore" id="earScore">0 / 0</span>
+  </div>
+  <p class="earsrc" id="earFrom"></p>
+  <div class="degrees" id="degrees"></div>
+  <p class="earsay" id="earSay">Press <b>New note</b>. Space replays, N draws another.</p>
+</div>
 
 <footer>
   <p><b>Tuning:</b> C2 G2 D3 A3, low to high &mdash; the tuner in the control bar sounds all four, plus
@@ -1346,6 +1384,102 @@ el("tuner").addEventListener("click", e => {
 document.addEventListener("keydown", e => {
   if(e.key === "Escape"){ stopAll(); stopTune(); }
 });
+/* ===============================================================
+   EAR DRILL  —  name the degree, in the modes the pieces use
+================================================================*/
+const MODES = [
+  {id:"dorian", name:"D dorian", from:"Still Water", root:50,
+   deg:[["1",0],["2",2],["♭3",3],["4",5],["5",7],["♮6",9],["♭7",10]],
+   tell:"the natural sixth is the one to hear — B natural, not B flat"},
+  {id:"phrygian", name:"C phrygian", from:"Upper Moon, Counting Backwards", root:48,
+   deg:[["1",0],["♭2",1],["♭3",3],["4",5],["5",7],["♭6",8],["♭7",10]],
+   tell:"the flat second sits a half step above the tonic and should beat against it"},
+  {id:"mixolydian", name:"C mixolydian", from:"Flame Vow", root:48,
+   deg:[["1",0],["2",2],["3",4],["4",5],["5",7],["6",9],["♭7",10]],
+   tell:"major everywhere except the seventh, which is flat"},
+  {id:"aeolian", name:"D minor", from:"Water Surface Slice · Wisteria at Dusk", root:50,
+   deg:[["1",0],["2",2],["♭3",3],["4",5],["5",7],["♭6",8],["♭7",10]],
+   tell:"the flat sixth is what separates it from dorian"},
+  {id:"insen", name:"D insen", from:"Fading Edges", root:50,
+   deg:[["1",0],["♭2",1],["4",5],["5",7],["♭7",10]],
+   tell:"five notes, and the gap between the flat second and the fourth is the sound of it"},
+  {id:"yo", name:"D yo", from:"Taishō Whisper Waltz", root:50,
+   deg:[["1",0],["2",2],["4",5],["5",7],["6",9]],
+   tell:"five notes with no half steps anywhere — nothing to lean on"},
+  {id:"pentatonic", name:"G major pentatonic", from:"Box Lullaby", root:43,
+   deg:[["1",0],["2",2],["3",4],["5",7],["6",9]],
+   tell:"the two missing degrees are the fourth and the seventh"}
+];
+
+let ear = {mode:MODES[0], answer:null, asked:0, right:0, locked:false};
+
+function earRender(){
+  el("earFrom").textContent = "From " + ear.mode.from + " · " + ear.mode.tell;
+  el("degrees").innerHTML = ear.mode.deg
+    .map(([label], i) => '<button data-deg="' + i + '">' + label + '</button>').join("");
+  el("earScore").textContent = ear.right + " / " + ear.asked;
+}
+function earSound(){
+  if(ear.answer === null) return;
+  stopTune(); stopAll();
+  const c = audio();
+  const at = c.currentTime + 0.1;
+  const root = ear.mode.root, note = root + ear.mode.deg[ear.answer][1];
+  if(el("earDrone").checked){
+    bow(root, at, 3.4, {gain:0.09});
+    bow(root - 12, at, 3.4, {gain:0.06});
+    bow(note, at + 1.0, 2.0, {gain:0.26});
+  }else{
+    bow(root, at, 1.0, {gain:0.2});
+    bow(note, at + 1.15, 1.6, {gain:0.26});
+  }
+}
+function earNew(){
+  ear.answer = Math.floor(Math.random() * ear.mode.deg.length);
+  ear.locked = false;
+  document.querySelectorAll("#degrees button").forEach(b => b.classList.remove("right", "wrong"));
+  el("earSay").textContent = "Tonic first, then the degree. Which one?";
+  earSound();
+}
+function earGuess(i, btn){
+  if(ear.answer === null || ear.locked) return;
+  const correct = i === ear.answer;
+  if(correct){
+    ear.locked = true;
+    ear.asked++; ear.right++;
+    btn.classList.add("right");
+    el("earSay").textContent = "Yes — " + ear.mode.deg[i][0] + " of " + ear.mode.name +
+                              ". N for another.";
+  }else{
+    ear.asked++;
+    btn.classList.add("wrong");
+    el("earSay").textContent = "Not " + ear.mode.deg[i][0] + ". Listen again.";
+    earSound();
+  }
+  el("earScore").textContent = ear.right + " / " + ear.asked;
+}
+
+el("mode").innerHTML = MODES.map(m => '<option value="' + m.id + '">' + m.name + '</option>').join("");
+el("mode").addEventListener("change", e => {
+  ear.mode = MODES.find(m => m.id === e.target.value);
+  ear.answer = null;
+  earRender();
+  el("earSay").textContent = "Press New note.";
+});
+el("degrees").addEventListener("click", e => {
+  const d = e.target.dataset.deg;
+  if(d !== undefined) earGuess(parseInt(d, 10), e.target);
+});
+el("earNew").addEventListener("click", earNew);
+el("earAgain").addEventListener("click", earSound);
+earRender();
+
+document.addEventListener("keydown", e => {
+  if(e.target.tagName === "INPUT" || e.target.tagName === "SELECT") return;
+  if(e.key === " " && ear.answer !== null){ e.preventDefault(); earSound(); }
+  if(e.key === "n" || e.key === "N") earNew();
+});
+
 let rt = null;
 window.addEventListener("resize", () => {
   clearTimeout(rt);
