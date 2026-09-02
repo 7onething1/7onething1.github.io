@@ -1,0 +1,135 @@
+<!doctype html><html lang="en"><head><meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>8.28.26 four-mic master</title>
+<style>
+:root{color-scheme:light;--cream:#f6f0e2;--panel:#fbf7ec;--ink:#1a1a1a;--soft:#5f5849;
+--line:#d8cfb8;--p1:#F1BB7B;--p2:#FD6467;--p3:#D67236;--p4:#E6A0C4;--p5:#C6CDF7;
+--p6:#D8A499;--p7:#7294D4;--p8:#5B1A18}
+*{box-sizing:border-box}
+body{margin:0;background:var(--cream);color:var(--ink);line-height:1.6;
+font-family:-apple-system,BlinkMacSystemFont,"Inter","Segoe UI",sans-serif}
+main{max-width:980px;margin:0 auto;padding:2.6rem 1.2rem 5rem}
+h1{font-size:2.05rem;margin:0 0 .3rem;letter-spacing:-.02em}
+h2{font-size:1.28rem;margin:2.8rem 0 .9rem;padding-bottom:.4rem;border-bottom:3px solid var(--p3)}
+h3{margin:1.6rem 0 .4rem;font-size:1.02rem;font-weight:650}
+p.lede{color:var(--soft);margin:.2rem 0 1.6rem;font-size:1.02rem}
+.stats{display:grid;grid-template-columns:repeat(auto-fit,minmax(132px,1fr));gap:.7rem;margin:1.4rem 0}
+.stats div{background:var(--panel);border:1px solid var(--line);border-top:4px solid var(--p1);
+border-radius:11px;padding:.85rem .7rem;text-align:center}
+.stats div:nth-child(2){border-top-color:var(--p2)} .stats div:nth-child(3){border-top-color:var(--p3)}
+.stats div:nth-child(4){border-top-color:var(--p7)} .stats div:nth-child(5){border-top-color:var(--p8)}
+.stats b{display:block;font-size:1.42rem;color:var(--p3);line-height:1.15}
+.stats span{font-size:.72rem;color:var(--soft);text-transform:uppercase;letter-spacing:.05em}
+.tw{overflow-x:auto}
+table{width:100%;border-collapse:collapse;font-size:.85rem;margin:.4rem 0}
+th,td{text-align:left;padding:.42rem .5rem;border-bottom:1px solid var(--line);white-space:nowrap}
+th{font-size:.7rem;text-transform:uppercase;letter-spacing:.04em;color:var(--soft)}
+td.num{text-align:right;font-variant-numeric:tabular-nums}
+td.ok{color:#2c6e49;font-weight:600}
+.callout{background:#f2ead6;border-left:5px solid var(--p1);border-radius:0 9px 9px 0;
+padding:.85rem 1rem;margin:.85rem 0;font-size:.9rem}
+.callout b{color:#8a5a12}
+.callout.stop{border-left-color:var(--p2)} .callout.stop b{color:#8c3a26}
+.callout.good{border-left-color:var(--p7)} .callout.good b{color:#3d5a9e}
+nav{background:var(--panel);border:1px solid var(--line);border-radius:11px;padding:.9rem 1.1rem;margin:1.5rem 0}
+nav b{font-size:.72rem;text-transform:uppercase;letter-spacing:.05em;color:var(--soft)}
+nav ol{margin:.5rem 0 0;padding-left:1.15rem;columns:2;font-size:.9rem}
+nav a{color:#8a5a12;text-decoration:none} nav a:hover{text-decoration:underline}
+code{background:#efe7d3;padding:.1em .38em;border-radius:4px;font-size:.9em;white-space:normal}
+pre{background:#efe7d3;padding:.8rem 1rem;border-radius:8px;overflow-x:auto;font-size:.82rem}
+footer{margin-top:3rem;padding-top:1rem;border-top:3px solid var(--p4);font-size:.79rem;color:var(--soft)}
+@media(max-width:600px){nav ol{columns:1}.stats{grid-template-columns:repeat(2,1fr)}}
+</style></head><body><main>
+
+<h1>8.28.26 four-mic master</h1>
+<p class="lede">Eight mics down to four channels, four separate 4.97 GB files off Google Drive,
+stacked into one time-synced master and verified bit-exact against every source.</p>
+
+<div class="stats">
+<div><b>4</b><span>mic channels</span></div>
+<div><b>5:12:25</b><span>runtime</span></div>
+<div><b>5.32 GB</b><span>master, FLAC</span></div>
+<div><b>12/12</b><span>bit-exact checks</span></div>
+<div><b>27</b><span>complete songs</span></div>
+</div>
+
+<nav><b>On this page</b><ol>
+<li><a href="#src">The four sources</a></li>
+<li><a href="#shape">One file, one mic</a></li>
+<li><a href="#lag">The lags are acoustic</a></li>
+<li><a href="#sync">Phone tape sync</a></li>
+<li><a href="#verify">Bit-exact verification</a></li>
+<li><a href="#bugs">Eight things that went wrong</a></li>
+<li><a href="#songs">The 27 songs</a></li>
+<li><a href="#next">What is still pending</a></li>
+</ol></nav>
+
+<h2 id="src">The four sources</h2>
+<p>All four came off Drive as separate stereo files. The recorder wrote them on one clock,
+which shows in four identical durations.</p>
+<div class="tw"><table><thead><tr><th>Ch</th><th>Local file</th><th>Drive title</th>
+<th>Bytes</th><th>Duration s</th></tr></thead><tbody><tr><td>1</td><td><code>mic1_4-40PM.wav</code></td><td>4.40 PM</td><td class='num'>4,966,484,332</td><td class='num'>18745.373515</td></tr><tr><td>2</td><td><code>mic2_4-48PM.wav</code></td><td>4.48 PM 3</td><td class='num'>4,966,484,332</td><td class='num'>18745.373515</td></tr><tr><td>3</td><td><code>mic3_4-53PM.wav</code></td><td>4.53 PM</td><td class='num'>4,960,025,948</td><td class='num'>18745.373515</td></tr><tr><td>4</td><td><code>mic4_4-44PM.wav</code></td><td>4.44 PM II</td><td class='num'>4,966,484,332</td><td class='num'>18745.373515</td></tr></tbody></table></div>
+
+<h2 id="shape">One file carries one mic</h2>
+<p>Every source is <b>true dual-mono</b>. Sampled 20 s at 30, 90 and 180 minutes into each
+file, the left and right channels are bit-identical:</p>
+<div class="callout good"><b>max |L &minus; R| = 0.00e+00 at all nine windows</b><br>
+Correlation <code>+1.000000</code> in every one. Half of each 4.97 GB file is a duplicate of the
+other half, so four files give four real channels, which is exactly the four-channel submix off
+eight mics. The merge takes one channel per file and discards the duplicate.</div>
+
+<h2 id="lag">The lags between mics are acoustic, not clock drift</h2>
+<p>GCC-PHAT against mic1. If these were clock offsets they would hold steady or drift in one
+direction. They move with the window instead, because the loudest source moves.</p>
+<div class="tw"><table><thead><tr><th>Window</th><th>mic2 samples</th><th>mic2</th>
+<th>mic3 samples</th><th>mic3</th></tr></thead><tbody><tr><td>30 min</td><td class='num'>+539</td><td class='num'>12.222 ms</td><td class='num'>+626</td><td class='num'>14.195 ms</td></tr><tr><td>90 min</td><td class='num'>+541</td><td class='num'>12.268 ms</td><td class='num'>+636</td><td class='num'>14.422 ms</td></tr><tr><td>180 min</td><td class='num'>+551</td><td class='num'>12.494 ms</td><td class='num'>+643</td><td class='num'>14.580 ms</td></tr><tr><td>240 min</td><td class='num'>-207</td><td class='num'>-4.694 ms</td><td class='num'>-161</td><td class='num'>-3.651 ms</td></tr></tbody></table></div>
+<p>12 ms of air is about 4.1 m and 14.5 ms about 5 m, both plausible room distances.
+<b>So the master stacks at zero offset.</b> Correcting these lags would smear the room image,
+which is the failure the multi-mic tooling exists to prevent.</p>
+
+<h2 id="sync">The phone tape shares the recorder's clock</h2>
+<p>The song timecodes were derived from the 24 kbps AAC that Messages produced. Rather than
+assume they transfer, the phone tape was cross-correlated against mic1 at six windows:</p>
+<div class="tw"><table><thead><tr><th>Window</th><th>Offset</th><th>peak / median</th>
+</tr></thead><tbody><tr><td>10 min</td><td class='num'>+0.0697 s</td><td class='num'>521.6</td></tr><tr><td>45 min</td><td class='num'>+0.0697 s</td><td class='num'>1008.6</td></tr><tr><td>90 min</td><td class='num'>+0.0697 s</td><td class='num'>832.2</td></tr><tr><td>150 min</td><td class='num'>+0.0697 s</td><td class='num'>192.2</td></tr><tr><td>210 min</td><td class='num'>+0.0697 s</td><td class='num'>357.2</td></tr><tr><td>270 min</td><td class='num'>+0.0697 s</td><td class='num'>356.9</td></tr></tbody></table></div>
+<div class="callout good"><b>Identical to four decimals across 4.5 hours</b><br>
+No drift at all. The phone runs 69.7 ms late, so <code>mic_time = phone_time &minus; 0.0697</code>
+converts every song boundary onto the mic feeds.</div>
+
+<h2 id="verify">Bit-exact verification</h2>
+<p>Each master channel read against its own source, raw channel to raw channel, no downmix
+anywhere in the path:</p>
+<div class="tw"><table><thead><tr><th>Window</th><th>ch0 vs mic1</th><th>ch1 vs mic2</th>
+<th>ch2 vs mic3</th><th>ch3 vs mic4</th></tr></thead><tbody><tr><td>20 min</td><td class='num ok'>0.000e+00</td><td class='num ok'>0.000e+00</td><td class='num ok'>0.000e+00</td><td class='num ok'>0.000e+00</td></tr><tr><td>120 min</td><td class='num ok'>0.000e+00</td><td class='num ok'>0.000e+00</td><td class='num ok'>0.000e+00</td><td class='num ok'>0.000e+00</td></tr><tr><td>260 min</td><td class='num ok'>0.000e+00</td><td class='num ok'>0.000e+00</td><td class='num ok'>0.000e+00</td><td class='num ok'>0.000e+00</td></tr></tbody></table></div>
+<p>Twelve of twelve bit-exact, RMS ratio <code>1.000000</code> in every cell. The FLAC master is
+a lossless container around the same samples the recorder wrote.</p>
+<h3>Expanding to WAV</h3>
+<pre>ffmpeg -i practice-8-28-4ch.flac -c:a pcm_s24le -rf64 auto practice-8-28-4ch.wav</pre>
+<p>FLAC was chosen because a 4-channel 24-bit WAV of this runtime is 9.9 GB and the drive had
+13.4 GB free at that moment. Measured FLAC ratio on real content was <code>0.468</code>.</p>
+
+<h2 id="bugs">Eight things that went wrong</h2>
+<div class='callout stop'><b>A watcher that could never match</b><br>The candidate filenames used a plain space. Google Drive writes <code>U+202F</code>, a narrow no-break space, before <code>PM</code>. Proven from <code>manifest.json</code> on all three feeds that had already landed. The watcher sat silent for hours on a name that does not exist on disk.</div><div class='callout stop'><b>launchd cannot list ~/Downloads</b><br>An interactive shell enumerates it fine. A background job gets nothing from a glob, and a permission-bit test still reports the directory readable, so the check has to be a real probe. The daemon logs <code>glob=BLOCKED exact-stat=yes</code> every tick. Detection by exact path works, and reading the bytes is a separate capability that fails on its own.</div><div class='callout stop'><b>Jobs that died with their parent chat</b><br>The first watcher and merger ran as children of a chat process and vanished silently when it exited, losing about three hours. Everything now runs under a launchd agent.</div><div class='callout stop'><b>A pgrep that matched its own watcher</b><br><code>pgrep -f practice-8-28-4ch</code> matched any process merely naming the file, so the daemon logged “merge in progress” and skipped every tick while the fourth mic sat ready on disk. Now scoped to <code>ffmpeg.*</code>.</div><div class='callout stop'><b>A copy that reported success after failing</b><br>The log line ran outside the <code>&amp;&amp;</code> chain, so a failed copy still printed “imported” with an empty byte count. The copy result and the resulting size are both checked now.</div><div class='callout stop'><b>Two writers on one inode</b><br>A 5 GB copy takes about 40 s, long enough for a daemon tick to begin during an interactive import and write into the same fixed <code>.part</code> path. The temp path carries the PID now. The file was verified clean anyway, <code>cmp</code> against the Drive original returned 0.</div><div class='callout stop'><b>ffmpeg cannot infer a muxer from .part</b><br>The first merge died with <code>Invalid argument</code> before writing a byte. The format is explicit now and the temp file carries a real extension.</div><div class='callout good'><b>The verification was the bug, not the master</b><br>A first pass compared master channels against sources decoded with <code>-ac 1</code> and every channel read <code>0.70711</code>, exactly 1/√2, which looks precisely like a pan-filter downmix normalization. <code>pan=mono|c0=c0</code>, <code>pan=1c|c0=c0</code> and <code>channelsplit</code> all produced the identical figure, and a filter difference cannot survive <code>channelsplit</code>, which applies no gain. Reading the raw interleaved channel instead gave bit-exact agreement. <code>-ac 1</code> inflates dual-mono by √2.</div>
+
+<h2 id="songs">The 27 complete songs</h2>
+<p>Out of 120 takes: 27 songs, 7 false starts,
+13 workshop passes, 59 fragments, 14 noodles.
+The last column is the corrected start on the mic master.</p>
+<div class="tw"><table><thead><tr><th>#</th><th>Start</th><th>End</th><th>Sec</th>
+<th>Score</th><th>BPM</th><th>Mic start s</th></tr></thead><tbody><tr><td class='num'>1</td><td>0:00:00</td><td>0:07:41</td><td class='num'>461</td><td class='num'>87.4</td><td class='num'>118</td><td class='num'>-0.0697</td></tr><tr><td class='num'>2</td><td>0:53:01</td><td>0:58:46</td><td class='num'>345</td><td class='num'>86.3</td><td class='num'>118</td><td class='num'>3180.9303</td></tr><tr><td class='num'>3</td><td>1:00:54</td><td>1:07:19</td><td class='num'>385</td><td class='num'>82.6</td><td class='num'>102</td><td class='num'>3653.9303</td></tr><tr><td class='num'>4</td><td>1:08:14</td><td>1:11:39</td><td class='num'>205</td><td class='num'>81.9</td><td class='num'>133</td><td class='num'>4093.9303</td></tr><tr><td class='num'>5</td><td>1:19:21</td><td>1:25:49</td><td class='num'>388</td><td class='num'>89.0</td><td class='num'>102</td><td class='num'>4760.9303</td></tr><tr><td class='num'>6</td><td>1:36:40</td><td>1:39:13</td><td class='num'>153</td><td class='num'>72.4</td><td class='num'>133</td><td class='num'>5799.9303</td></tr><tr><td class='num'>7</td><td>1:39:26</td><td>1:44:05</td><td class='num'>279</td><td class='num'>91.2</td><td class='num'>54</td><td class='num'>5965.9303</td></tr><tr><td class='num'>8</td><td>1:44:28</td><td>1:46:00</td><td class='num'>92</td><td class='num'>75.1</td><td class='num'>129</td><td class='num'>6267.9303</td></tr><tr><td class='num'>9</td><td>1:51:29</td><td>1:53:49</td><td class='num'>140</td><td class='num'>73.7</td><td class='num'>110</td><td class='num'>6688.9303</td></tr><tr><td class='num'>10</td><td>1:59:59</td><td>2:02:02</td><td class='num'>123</td><td class='num'>88.4</td><td class='num'>76</td><td class='num'>7198.9303</td></tr><tr><td class='num'>11</td><td>2:02:20</td><td>2:11:13</td><td class='num'>533</td><td class='num'>91.8</td><td class='num'>118</td><td class='num'>7339.9303</td></tr><tr><td class='num'>12</td><td>2:12:33</td><td>2:14:32</td><td class='num'>119</td><td class='num'>80.5</td><td class='num'>118</td><td class='num'>7952.9303</td></tr><tr><td class='num'>13</td><td>2:21:16</td><td>2:31:50</td><td class='num'>634</td><td class='num'>84.5</td><td class='num'>100</td><td class='num'>8475.9303</td></tr><tr><td class='num'>14</td><td>2:46:42</td><td>2:49:25</td><td class='num'>163</td><td class='num'>79.3</td><td class='num'>113</td><td class='num'>10001.9303</td></tr><tr><td class='num'>15</td><td>2:52:01</td><td>3:00:03</td><td class='num'>482</td><td class='num'>88.8</td><td class='num'>120</td><td class='num'>10320.9303</td></tr><tr><td class='num'>16</td><td>3:01:21</td><td>3:08:07</td><td class='num'>406</td><td class='num'>81.0</td><td class='num'>98</td><td class='num'>10880.9303</td></tr><tr><td class='num'>17</td><td>3:10:51</td><td>3:23:23</td><td class='num'>752</td><td class='num'>81.0</td><td class='num'>81</td><td class='num'>11450.9303</td></tr><tr><td class='num'>18</td><td>3:23:56</td><td>3:30:06</td><td class='num'>370</td><td class='num'>83.2</td><td class='num'>113</td><td class='num'>12235.9303</td></tr><tr><td class='num'>19</td><td>3:35:51</td><td>3:45:22</td><td class='num'>571</td><td class='num'>80.9</td><td class='num'>107</td><td class='num'>12950.9303</td></tr><tr><td class='num'>20</td><td>3:47:38</td><td>3:50:53</td><td class='num'>195</td><td class='num'>77.3</td><td class='num'>107</td><td class='num'>13657.9303</td></tr><tr><td class='num'>21</td><td>3:55:09</td><td>3:59:44</td><td class='num'>275</td><td class='num'>84.3</td><td class='num'>100</td><td class='num'>14108.9303</td></tr><tr><td class='num'>22</td><td>4:00:08</td><td>4:04:42</td><td class='num'>274</td><td class='num'>83.5</td><td class='num'>92</td><td class='num'>14407.9303</td></tr><tr><td class='num'>23</td><td>4:04:58</td><td>4:07:17</td><td class='num'>139</td><td class='num'>80.5</td><td class='num'>143</td><td class='num'>14697.9303</td></tr><tr><td class='num'>24</td><td>4:10:07</td><td>4:20:27</td><td class='num'>620</td><td class='num'>91.2</td><td class='num'>125</td><td class='num'>15006.9303</td></tr><tr><td class='num'>25</td><td>4:22:11</td><td>4:32:09</td><td class='num'>598</td><td class='num'>83.6</td><td class='num'>128</td><td class='num'>15730.9303</td></tr><tr><td class='num'>26</td><td>4:32:15</td><td>4:54:04</td><td class='num'>1309</td><td class='num'>90.1</td><td class='num'>69</td><td class='num'>16334.9303</td></tr><tr><td class='num'>27</td><td>5:01:47</td><td>5:08:19</td><td class='num'>392</td><td class='num'>71.2</td><td class='num'>118</td><td class='num'>18106.9303</td></tr></tbody></table></div>
+
+<h2 id="next">What is still pending</h2>
+<div class="callout stop"><b>Per-song four-channel cuts are held on disk space</b><br>
+The 27 songs total 2.89 h, which is about 2.58 GB as 4-channel FLAC. The drive is at 100 percent
+with single-digit GB free and three unrelated Chrome downloads writing into it. The cutter is
+written, adapted from the existing <code>cut_8-28-26.sh</code> with the 69.7 ms correction, a
+sample-accurate seek in place of <code>-c copy</code>, per-cut length and channel checks and a
+manifest. It runs in one command once there is room.</div>
+<pre>python3 ~/Music/Band-Practice/cut_songs_4ch.py</pre>
+
+<footer>
+Built 2026-09-02 02:16 from measurements taken on this Mac.
+Master <code>~/Music/Band-Practice/practice-8-28-4ch.flac</code>.
+Full working notes in <code>STATE-8-28.md</code> beside it.
+</footer>
+</main></body></html>
