@@ -101,6 +101,10 @@
   .psub{color:var(--soft);font-size:14.5px;margin:5px 0 0;max-width:76ch}
   .pbody{padding:6px 8px 4px 12px;overflow-x:auto}
   .score{display:block;width:100%;height:auto}
+  .partlabel{
+    font-family:ui-monospace,Menlo,monospace;font-size:10.5px;letter-spacing:.14em;
+    text-transform:uppercase;color:var(--soft);margin:6px 0 -6px 10px;
+  }
   .pfoot{padding:4px 18px 16px 20px}
   .btns{display:flex;flex-wrap:wrap;gap:8px;padding:12px 18px 4px 20px}
   button{
@@ -263,6 +267,13 @@ transcriptions of the anime's music. Play them, record them, teach them, no perm
   <b>Click</b> leaves the metronome running underneath &mdash; both count dotted quarters in 6/8 and
   quarters everywhere else. Escape stops everything.
 </p>
+<p>
+  <b>Three of them are duets.</b> Water Surface Slice, Flame Vow and Wisteria at Dusk carry a second
+  cello part, engraved under the first. <b>Both parts</b> plays them together, the bar range and the
+  metronome apply to both, and the MIDI file for a duet arrives as two named tracks so each player can
+  print their own. Alone, Cello I is still the whole piece &mdash; the second part adds the harmony a
+  solo line can only imply.
+</p>
 <p class="src">Reading the fingerings: the number under each note is the left-hand finger (0 = open string),
 the letter under that is the string. An <i>italic</i> number means the hand stretches for that note &mdash; a
 forward or backward extension, not a shift. Roman numerals above the staff mark a change of position (I =
@@ -313,11 +324,16 @@ const PIECES = [
    "A3:2 C4:2_ F4:2_ E4:2 C4:2_ A3:2_ | G3:2 Bb3:2_ E4:2_ D4:2 Bb3:2_ G3:2_ |"+
    "F4:4 E4:2_ D4:6_ | C4:4 Bb3:2_ A3:6_ |"+
    "G3:2 A3:2_ Bb3:2_ A3:2 G3:2_ F3:2_ | D3:12",
+  part2:"Cello II — a bass line under the wave, all on the C and G strings.",
+  music2:
+   "D2:12 | G2:12 | F2:12 | C3:12 | Bb2:12 | A2:6 C3:6 | D3:12 | D2:12 |"+
+   "D3:6 A2:6 | Bb2:12 | F2:12 | G2:12 | D3:12 | A2:12 | G2:6 A2:6 | D2:12",
   tips:[
    "<b>Bow.</b> Three notes to a bow, the whole piece. If the wave breaks, it is almost always because the down-bow ran out on beat 4 — start each down-bow nearer the frog than feels necessary.",
    "<b>Crossings.</b> Bars 1–6 cross D–A repeatedly. Set the right arm at the height <i>between</i> the two strings and let the fingers do the rest; do not re-level the arm per note.",
    "<b>Bars 9–13</b> move up to third position on the A string — D4 under the second finger, the top F4 under an extended fourth. Shift at the end of bar 8 while the D is still ringing, not on the downbeat of 9.",
-   "<b>Drone.</b> Turn on the open-string drone in the bar above: the piece is built over an open D, and hearing it makes the F naturals and B flats place themselves."
+   "<b>Drone.</b> Turn on the open-string drone in the bar above: the piece is built over an open D, and hearing it makes the F naturals and B flats place themselves.",
+   "<b>As a duet.</b> Cello II is a bass line under the wave, all on the C and G strings, a note or two to a bar. It is deliberately plain: the wave should stay the thing you hear, and the low D at bars 8 and 16 is what makes the arrival land."
   ]
 },
 {
@@ -370,11 +386,18 @@ const PIECES = [
    "G3:6 A3:2 Bb3:8 | C4:8 G3:4 E3:4 | F3:6 G3:2 A3:8 | G3:16 |"+
    "C2:8 G2:8 | C3:6 Bb2:2 G2:8 | F2:8 C3:8 | G2:16 |"+
    "C3:6 D3:2 E3:8 | G3:6 F3:2 E3:4 D3:4 | C3:4 E3:4 G3:4 C4:4 | C4:16",
+  part2:"Cello II — thirds above the hymn, then the tune itself while Cello I goes down to the C string.",
+  music2:
+   "E3:6 F3:2 G3:8 | B3:6 A3:2 G3:4 F3:4 | E3:6 G3:2 C4:8 | C4:8 B3:8 |"+
+   "Bb3:6 C4:2 D4:8 | E4:8 C4:4 G3:4 | A3:6 B3:2 C4:8 | B3:16 |"+
+   "C3:8 G3:8 | C4:6 Bb3:2 G3:8 | F3:8 C4:8 | G3:16 |"+
+   "E3:6 F3:2 G3:8 | B3:6 A3:2 G3:4 F3:4 | E3:4 G3:4 C4:4 E4:4 | E4:16",
   tips:[
    "<b>The dotted quarter is the character.</b> Give it the whole dotted length and put the eighth right up against the next downbeat. Rush it and the hymn turns into a march.",
    "<b>Bars 9–12 on the C string</b> need arm weight, not speed. Play nearer the bridge than you think and let the bow sink in — that is where the instrument sounds like a hearth rather than a growl.",
    "<b>The B flats</b> (bars 5 and 10) are the whole harmonic idea: they turn C major into something older and less triumphant. Do not correct them upward out of habit.",
-   "<b>Final C4</b> is printed as the second finger in first position. Whatever you choose, pick the finger you can vibrate freely on — that note is held longer than anything else in the piece."
+   "<b>Final C4</b> is printed as the second finger in first position. Whatever you choose, pick the finger you can vibrate freely on — that note is held longer than anything else in the piece.",
+   "<b>As a duet.</b> Cello II sits a third above through the hymn, then takes the tune itself in bars 9–12 while Cello I goes down to the C string. That swap is the whole arrangement — play it as an exchange, not as an accompaniment."
   ]
 },
 {
@@ -444,11 +467,18 @@ const PIECES = [
    "A3:8 D4:4_ E4:4_ | F4:8 E4:8_ | D4:6 C4:2_ Bb3:4 A3:4_ | A3:16 |"+
    "F3:4 G3:4_ A3:4 Bb3:4_ | C4:8 A3:8_ | Bb3:4 A3:4_ G3:4 F3:4_ | E3:8 A3:8_ |"+
    "D3:4 F3:4_ A3:4 D4:4_ | F#4:8 E4:8_ | D4:6 A3:2_ F#3:8 | D3:16",
+  part2:"Cello II — the harmony underneath, moving in thirds and tenths, holding the low D at the end.",
+  music2:
+   "D3:8 F3:8 | G3:8 F3:8 | E3:8 F3:8 | D3:16 |"+
+   "F3:8 A3:8 | A3:8 G3:8 | F3:8 E3:8 | F3:16 |"+
+   "D3:4 E3:4 F3:4 G3:4 | A3:8 D3:8 | G3:4 F3:4 E3:4 D3:4 | C3:8 E3:8 |"+
+   "D2:8 A2:8 | D3:8 A2:8 | A2:8 D3:8 | D2:16",
   tips:[
    "<b>Phrase in four-bar arcs.</b> Bars 1–4 rise and settle, 5–8 do it higher, 9–12 come down, 13–16 open out. Decide where the top of each arc is and let everything else lead to or away from it.",
    "<b>The F sharps in bars 14–15</b> are the point of the piece — D minor becoming D major at the last moment. Place them high and warm; a flat-sounding F sharp there kills the turn.",
    "<b>Bars 5–7</b> want third position on the A string so the whole phrase stays on one string, with the F4 as an extended fourth finger. Shift during the long F at the end of bar 4, under the bow, where it cannot be heard.",
-   "<b>Vibrate the half notes from the start of the note</b>, not after it has already spoken. On a slow line, a note that begins straight and then wobbles sounds nervous."
+   "<b>Vibrate the half notes from the start of the note</b>, not after it has already spoken. On a slow line, a note that begins straight and then wobbles sounds nervous.",
+   "<b>As a duet.</b> Cello II moves in thirds and tenths under the melody and drops to the low D at the end. In bars 13–15, where the piece turns major, tune the F sharps to each other rather than to the drone."
   ]
 }
 ];
@@ -593,7 +623,8 @@ function fClef(x, y){
     svgEl("circle", {cx:10.5, cy:5.5,  r:1.9}));
 }
 
-function engrave(piece, notes, width){
+function engrave(piece, notes, width, idPrefix){
+  idPrefix = idPrefix || piece.id;
   const perBar = piece.meter[0] * (16 / piece.meter[1]);
   const beamWin = piece.meter[1] === 8 ? 6 : (piece.meter[0] === 4 ? 8 : 4);
   const bars = [];
@@ -686,7 +717,7 @@ function engrave(piece, notes, width){
 
         // notehead
         const hollow = n.dur >= 8;
-        out += svgEl("ellipse", {id:piece.id + "-n" + notes.indexOf(n), class:"nh",
+        out += svgEl("ellipse", {id:idPrefix + "-n" + notes.indexOf(n), class:"nh",
           cx:x, cy:y, rx:5.4, ry:4.0, transform:"rotate(-18 " + x + " " + y + ")",
           fill:hollow ? "none" : "#17150F", stroke:"#17150F", "stroke-width":hollow ? 1.7 : 0.8});
         if(n.dur === 6 || n.dur === 12 || n.dur === 3)
@@ -948,12 +979,15 @@ function segmentOf(p){
   if(to < from) to = from;
   if(fEl) fEl.value = from;
   if(tEl) tEl.value = to;
+  return {from, to, seg: sliceBars(p._notes, from, to), whole: from === 1 && to === bars};
+}
+function sliceBars(notes, from, to){
   const seg = [];
-  p._notes.forEach((n, i) => { if(n.bar >= from - 1 && n.bar <= to - 1) seg.push({n, i}); });
-  return {from, to, seg, whole: from === 1 && to === bars};
+  notes.forEach((n, i) => { if(n.bar >= from - 1 && n.bar <= to - 1) seg.push({n, i}); });
+  return seg;
 }
 
-function schedule(p, seg, startAt, bus, u){
+function schedule(p, seg, startAt, bus, u, level){
   const times = [];
   let t = 0;
   seg.forEach(({n}) => {
@@ -962,7 +996,7 @@ function schedule(p, seg, startAt, bus, u){
     if(!n.rest){
       const sound = dur * (n.stacc ? 0.5 : n.slurNext ? 1.0 : 0.94);
       bow(n.midi, startAt + t, sound, {pizz:n.pizz, accent:n.accent, bus:bus,
-                                       gain: n.pizz ? 0.3 : 0.26});
+                                       gain: (n.pizz ? 0.3 : 0.26) * (level === undefined ? 1 : level)});
     }
     t += dur;
   });
@@ -982,7 +1016,7 @@ function play(p, btn, mult){
   bus.connect(master);
 
   const u = sec16(p) / mult;                        // seconds per sixteenth
-  const { seg, whole } = segmentOf(p);
+  const { seg, whole, from, to } = segmentOf(p);
   if(!seg.length) return;
 
   const bt = beat16(p) * u, per = beatsPerBar(p);
@@ -992,7 +1026,18 @@ function play(p, btn, mult){
   for(let k = 0; k < per && lead; k++)
     tickSound(startAt - lead + k * bt, k === 0, bus);
 
-  const { times, total } = schedule(p, seg, startAt, bus, u);
+  const voices = [{seg, prefix:p.id, level:1}];
+  if(p._duet && p._notes2)
+    voices.push({seg: sliceBars(p._notes2, from, to), prefix:p.id + "-b", level:0.82});
+
+  voices.forEach(v => {
+    const r = schedule(p, v.seg, startAt, bus, u, v.level);
+    v.times = r.times;
+    v.total = r.total;
+    v.heads = v.seg.map(({i}) => el(v.prefix + "-n" + i));
+    v.cur = -1;
+  });
+  const total = Math.max(...voices.map(v => v.total));
 
   if(el("click").checked)
     for(let t = 0, k = 0; t < total - 0.001; t += bt, k++)
@@ -1006,20 +1051,20 @@ function play(p, btn, mult){
   btn.textContent = mult > 1 ? "■ Stop · " + Math.round(mult * 100) + "%" : "■ Stop";
   btn.classList.add("on");
 
-  now = {piece:p.id, t0:startAt, times, total, mult, bus, raf:null, timer:null};
+  now = {piece:p.id, t0:startAt, voices, total, mult, bus, raf:null, timer:null};
 
-  const heads = seg.map(({i}) => el(p.id + "-n" + i));
-  let cur = -1;
   const tick = () => {
     if(!now) return;
     const e = ctx.currentTime - now.t0;
-    let k = -1;
-    for(let i = 0; i < times.length; i++) if(times[i] <= e) k = i; else break;
-    if(k !== cur){
-      if(heads[cur]) heads[cur].classList.remove("hit");
-      if(heads[k])   heads[k].classList.add("hit");
-      cur = k;
-    }
+    voices.forEach(v => {
+      let k = -1;
+      for(let i = 0; i < v.times.length; i++) if(v.times[i] <= e) k = i; else break;
+      if(k !== v.cur){
+        if(v.heads[v.cur]) v.heads[v.cur].classList.remove("hit");
+        if(v.heads[k])     v.heads[k].classList.add("hit");
+        v.cur = k;
+      }
+    });
     now.raf = requestAnimationFrame(tick);
   };
   now.raf = requestAnimationFrame(tick);
@@ -1042,36 +1087,40 @@ function vlq(n){
   while(n){ bytes.unshift((n & 0x7f) | 0x80); n >>= 7; }
   return bytes;
 }
-function midiBytes(p){
-  const TPQ = 480, T16 = TPQ / 4;
-  const ev = [];                                   // {tick, data[]}
+function midiTrack(notes, name, chan, head){
+  const T16 = 120;                                   // 480 ticks per quarter
+  const ev = [];
   let t = 0;
-  p._notes.forEach(n => {
+  notes.forEach(n => {
     if(!n.rest){
       const len = Math.max(1, Math.round(n.dur * T16 * (n.stacc ? 0.5 : 0.94)));
-      ev.push({tick:t, data:[0x90, n.midi, n.accent ? 108 : 84]});
-      ev.push({tick:t + len, data:[0x80, n.midi, 0]});
+      ev.push({tick:t, data:[0x90 | chan, n.midi, n.accent ? 108 : 84]});
+      ev.push({tick:t + len, data:[0x80 | chan, n.midi, 0]});
     }
     t += n.dur * T16;
   });
   ev.sort((a, b) => a.tick - b.tick || (a.data[0] & 0xf0) - (b.data[0] & 0xf0));
 
-  const usPerQ = Math.round(60000000 / qpmOf(p));
-  const name = [...(p.title + " — original for solo cello")].map(ch => ch.charCodeAt(0) & 0x7f);
-  let track = [
-    0, 0xff, 0x03, name.length, ...name,
-    0, 0xff, 0x51, 0x03, (usPerQ >> 16) & 255, (usPerQ >> 8) & 255, usPerQ & 255,
-    0, 0xff, 0x58, 0x04, p.meter[0], Math.round(Math.log2(p.meter[1])), 24, 8,
-    0, 0xc0, 41                                     // GM cello
-  ];
+  const nm = [...name.replace(/[—–]/g, "-").normalize("NFKD").replace(/[^\x20-\x7e]/g, "")]
+              .map(ch => ch.charCodeAt(0));
+  let body = [0, 0xff, 0x03, nm.length, ...nm].concat(head || [],
+             [0, 0xc0 | chan, 41]);                  // GM cello
   let last = 0;
-  ev.forEach(e => { track = track.concat(vlq(e.tick - last), e.data); last = e.tick; });
-  track = track.concat([0, 0xff, 0x2f, 0x00]);
-  const L = track.length;
-  const bytes = [0x4d, 0x54, 0x68, 0x64, 0, 0, 0, 6, 0, 0, 0, 1, (TPQ >> 8) & 255, TPQ & 255,
-                 0x4d, 0x54, 0x72, 0x6b, (L >> 24) & 255, (L >> 16) & 255, (L >> 8) & 255, L & 255,
-                 ...track];
-  return new Uint8Array(bytes);
+  ev.forEach(e => { body = body.concat(vlq(e.tick - last), e.data); last = e.tick; });
+  body = body.concat([0, 0xff, 0x2f, 0x00]);
+  const L = body.length;
+  return [0x4d, 0x54, 0x72, 0x6b, (L >> 24) & 255, (L >> 16) & 255, (L >> 8) & 255, L & 255, ...body];
+}
+function midiBytes(p){
+  const TPQ = 480;
+  const usPerQ = Math.round(60000000 / qpmOf(p));
+  const head = [0, 0xff, 0x51, 0x03, (usPerQ >> 16) & 255, (usPerQ >> 8) & 255, usPerQ & 255,
+                0, 0xff, 0x58, 0x04, p.meter[0], Math.round(Math.log2(p.meter[1])), 24, 8];
+  const tracks = [midiTrack(p._notes, p.title + (p._notes2 ? " — Cello I" : ""), 0, head)];
+  if(p._notes2) tracks.push(midiTrack(p._notes2, p.title + " — Cello II", 1));
+  const fmt = tracks.length > 1 ? 1 : 0;
+  return new Uint8Array([0x4d, 0x54, 0x68, 0x64, 0, 0, 0, 6, 0, fmt, 0, tracks.length,
+                         (TPQ >> 8) & 255, TPQ & 255].concat(...tracks));
 }
 function downloadMidi(p){
   const blob = new Blob([midiBytes(p)], {type:"audio/midi"});
@@ -1086,10 +1135,14 @@ function downloadMidi(p){
    BUILD
 ================================================================*/
 const UNIT_GLYPH = {q:"♩", e:"♪", dq:"♩."};
+function prepare(notes){
+  notes.forEach((n, i) => { const nx = notes[i + 1]; n.slurNext = !!(nx && nx.slur); });
+  assignFingerings(notes);
+  return notes;
+}
 PIECES.forEach(p => {
-  p._notes = parseMusic(p.music, p.meter);
-  p._notes.forEach((n, i) => { const nx = p._notes[i + 1]; n.slurNext = !!(nx && nx.slur); });
-  assignFingerings(p._notes);
+  p._notes = prepare(parseMusic(p.music, p.meter));
+  if(p.music2) p._notes2 = prepare(parseMusic(p.music2, p.meter));
 });
 
 const host = el("pieces");
@@ -1107,6 +1160,7 @@ host.innerHTML = PIECES.map((p, i) => {
     '<div class="btns">' +
       '<button class="play" data-play="' + p.id + '">▶ Play</button>' +
       '<button data-midi="' + p.id + '">MIDI</button>' +
+      (p.music2 ? '<button data-duet="' + p.id + '">Both parts</button>' : '') +
       '<span class="range">bars' +
         '<input type="number" id="from-' + p.id + '" min="1" max="' + bars + '" value="1">' +
         '–<input type="number" id="to-' + p.id + '" min="1" max="' + bars + '" value="' + bars + '">' +
@@ -1121,7 +1175,10 @@ function renderAll(){
   PIECES.forEach(p => {
     const box = el("body-" + p.id);
     const w = Math.max(320, Math.min(1040, box.clientWidth - 4));
-    box.innerHTML = engrave(p, p._notes, w);
+    box.innerHTML = p._notes2
+      ? '<p class="partlabel">Cello I</p>' + engrave(p, p._notes, w) +
+        '<p class="partlabel">Cello II</p>' + engrave(p, p._notes2, w, p.id + "-b")
+      : engrave(p, p._notes, w);
   });
   document.querySelectorAll(".nh").forEach(n => {
     n.style.transition = "fill .06s linear";
@@ -1135,9 +1192,15 @@ document.head.appendChild(styleHit);
 
 /* ---- events ---- */
 host.addEventListener("click", e => {
-  const pid = e.target.dataset.play, mid = e.target.dataset.midi;
+  const pid = e.target.dataset.play, mid = e.target.dataset.midi, did = e.target.dataset.duet;
   if(pid) play(PIECES.find(x => x.id === pid), e.target);
   if(mid) downloadMidi(PIECES.find(x => x.id === mid));
+  if(did){
+    const piece = PIECES.find(x => x.id === did);
+    piece._duet = !piece._duet;
+    e.target.classList.toggle("on", piece._duet);
+    if(now && now.piece === piece.id) stopAll();
+  }
 });
 el("vol").addEventListener("input", e => { if(master) master.gain.value = parseFloat(e.target.value); });
 el("tempo").addEventListener("input", e => { el("tempoVal").textContent = e.target.value + "%"; });
