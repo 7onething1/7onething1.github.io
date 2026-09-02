@@ -15,7 +15,7 @@ back. Cutting the songs was the deliverable. Once he swore at me and I ran it, i
 ## The mistake
 
 A verified intermediate result feels like a finish line, since it is checkable, tidy and
-writes up well. It is not one. The measurement was never the deliverable.
+writes up well. A finish line it is not. The measurement was never the deliverable.
 
 Two shapes:
 
@@ -45,7 +45,7 @@ voice, colour, links, citations. None checked whether the next obvious action go
 | Work genuinely built and verified | ALLOW | That is a real finish |
 | Asking before send / publish / delete / spend | ALLOW | Irreversible acts should be asked |
 
-All five verified against fixtures before wiring, including one built from the verbatim
+All five verified against fixtures prior to wiring, including one built from the verbatim
 text of the reply that triggered his anger.
 
 Safety: caps at 3 continuations per message, kill switch at `~/.claude/next_action.allow`
