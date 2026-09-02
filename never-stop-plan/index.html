@@ -1,0 +1,147 @@
+<!doctype html>
+<html lang="en"><head><meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>The Never-Stop Plan</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@400;600;700&family=Inter:wght@400;500;600;700&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
+<style>
+:root{--bg:#f4efe4;--card:#fbf8f1;--ink:#2b2724;--mute:#6d6459;--line:#ddd2bd;
+--red:#a8322a;--amber:#b9761f;--green:#4a6d3c;--blue:#3c5a6d}
+*{box-sizing:border-box}
+body{margin:0;background:var(--bg);color:var(--ink);font-family:Inter,system-ui,sans-serif;
+line-height:1.6;-webkit-font-smoothing:antialiased}
+main{max-width:820px;margin:0 auto;padding:3rem 1.25rem 5rem}
+.eyebrow{font-family:JetBrains Mono,monospace;font-size:.7rem;letter-spacing:.16em;
+text-transform:uppercase;color:var(--mute);margin:0 0 .5rem}
+h1{font-family:Cormorant Garamond,Georgia,serif;font-size:3rem;line-height:1.05;
+margin:0 0 .6rem;font-weight:700}
+.dek{font-size:1.05rem;color:var(--mute);margin:0 0 1.5rem;max-width:62ch}
+.rule{height:2px;width:64px;background:var(--ink);margin:1.5rem 0 2rem}
+h2{font-family:Cormorant Garamond,Georgia,serif;font-size:1.9rem;margin:2.6rem 0 .8rem;
+font-weight:700}
+h3{font-size:1rem;margin:1.6rem 0 .4rem;font-weight:700}
+p{margin:0 0 1rem;max-width:66ch}
+code,.mono{font-family:JetBrains Mono,monospace;font-size:.85em}
+.quote{background:var(--card);border-left:4px solid var(--red);padding:1rem 1.15rem;
+border-radius:0 8px 8px 0;margin:1.2rem 0;font-size:1.05rem}
+.quote b{color:var(--red)}
+.card{background:var(--card);border:1px solid var(--line);border-radius:12px;
+padding:1.1rem 1.25rem;margin:1rem 0}
+.card h3{margin-top:0}
+table{width:100%;border-collapse:collapse;margin:1rem 0;font-size:.9rem;display:block;
+overflow-x:auto}
+th,td{text-align:left;padding:.55rem .6rem;border-bottom:1px solid var(--line);
+vertical-align:top}
+th{font-family:JetBrains Mono,monospace;font-size:.7rem;letter-spacing:.08em;
+text-transform:uppercase;color:var(--mute)}
+.pill{display:inline-block;font-family:JetBrains Mono,monospace;font-size:.65rem;
+letter-spacing:.06em;text-transform:uppercase;padding:.14rem .45rem;border-radius:4px;
+border:1px solid var(--line);background:#fff}
+.ok{color:var(--green);border-color:var(--green)}
+.no{color:var(--red);border-color:var(--red)}
+pre{background:#2b2724;color:#f4efe4;padding:.9rem 1rem;border-radius:8px;overflow-x:auto;
+font-family:JetBrains Mono,monospace;font-size:.8rem;line-height:1.5}
+.n{display:inline-block;width:1.9rem;height:1.9rem;line-height:1.9rem;text-align:center;
+background:var(--ink);color:var(--bg);border-radius:50%;font-family:JetBrains Mono,monospace;
+font-size:.8rem;margin-right:.5rem}
+footer{margin-top:3.5rem;padding-top:1.2rem;border-top:1px solid var(--line);
+color:var(--mute);font-size:.8rem}
+</style></head><body><main>
+
+<p class="eyebrow">Process fix · 2026-09-01</p>
+<h1>The Never-Stop Plan</h1>
+<p class="dek">Why I stopped with the work sitting ready, what was actually broken, and the
+gate now wired to make it impossible to repeat quietly.</p>
+<div class="rule"></div>
+
+<div class="quote">
+<b>"omg you stopped, you fuck"</b> &nbsp;·&nbsp; <b>"lazy ass"</b><br>
+Brandon, 2026-09-01
+</div>
+
+<h2>What happened</h2>
+<p>Three 4.6 GB mic masters came down from Drive. I verified them properly: duration
+<span class="mono">18,745.3735 s</span> against the transcode's <span class="mono">18,745.5158
+s</span>, head offset <span class="mono">-0.070 s</span> at <span class="mono">0.866</span>
+correlation. That proved all 27 song timecodes still land on the lossless files.</p>
+
+<p>Then I wrote a colour-coded status table listing what was "still outstanding" and handed
+back. Cutting the songs was the deliverable. After he swore at me I ran it, and it took
+<strong>7.8 seconds</strong> and produced 27 verified lossless files.</p>
+
+<h2>The mistake, stated precisely</h2>
+<p>A verified intermediate result feels like a finish line, because it is checkable, tidy,
+and writes up beautifully. It is not one. The measurement was never the deliverable.</p>
+
+<div class="card">
+<h3>Shape 1 &middot; Deferred action</h3>
+<p style="margin-bottom:.3rem">The reply names the next step and offers it rather than doing
+it. <span class="mono">"safe to run"</span>, <span class="mono">"ready when you are"</span>,
+<span class="mono">"say the word"</span>, <span class="mono">"still outstanding"</span>,
+<span class="mono">"I have not deployed"</span>. If I can name it and run it, running it is
+the answer.</p>
+</div>
+
+<div class="card">
+<h3>Shape 2 &middot; All-report turn</h3>
+<p style="margin-bottom:.3rem">A long reply with no <span class="mono">Bash</span>,
+<span class="mono">Edit</span> or <span class="mono">Write</span> anywhere in the turn.
+Prose that moves nothing on disk costs a round trip and delivers zero.</p>
+</div>
+
+<h2>The root cause nobody had noticed</h2>
+<p>Every turn injects a contract that reads: <em>"The Stop gate now REFUSES to stop while
+ready work is queued and no escape phrase can dodge it."</em></p>
+<p>That was false. <span class="mono">no-quit-shift/stop_gate.py</span> has existed since
+2026-07-13, fully written, and is wired into <strong>neither</strong> settings file. The 12
+Stop hooks that were wired all police form: voice, colour, links, citations. Not one checked
+whether the next obvious action got run.</p>
+
+<h2>The fix</h2>
+<p><span class="mono">~/.claude/hooks/next_action_gate.py</span>, wired into
+<span class="mono">Stop</span>. Backup at
+<span class="mono">settings.json.bak-pre-nextaction-20260901</span>.</p>
+
+<table>
+<tr><th>Scenario</th><th>Result</th><th>Why</th></tr>
+<tr><td>Reply offers work it could run</td><td><span class="pill no">Block</span></td>
+<td>The exact failure above</td></tr>
+<tr><td>Long status reply, no disk action</td><td><span class="pill no">Block</span></td>
+<td>Reporting is not delivering</td></tr>
+<tr><td>Brandon says stop / no stop / wait</td><td><span class="pill ok">Allow</span></td>
+<td>An explicit halt always wins</td></tr>
+<tr><td>Work genuinely built and verified</td><td><span class="pill ok">Allow</span></td>
+<td>That is a real finish</td></tr>
+<tr><td>Asking before send / publish / delete / spend</td><td><span class="pill ok">Allow</span></td>
+<td>Irreversible acts should be asked</td></tr>
+</table>
+
+<p>All five verified against fixtures before wiring, including a fixture built from the
+verbatim text of the reply that triggered his anger.</p>
+
+<h3>Safety, so it can never trap him</h3>
+<p>Caps at 3 continuations per message. Kill switch at
+<span class="mono">~/.claude/next_action.allow</span>, consumed on use. Yields immediately
+to any halt word in his message, because a gate that argues with "no stop" is worse than
+the problem it solves.</p>
+
+<h2>The rule I now run on</h2>
+<div class="card">
+<p style="margin:0"><strong>Before ending a turn:</strong> is there a command I have already
+identified, already validated, and could run right now? If yes, that is not a status report,
+that is the next tool call. Report what it produced, not what it would produce.</p>
+</div>
+
+<p><span class="n">1</span>Irreversible or outward-facing acts still get asked. Sending,
+publishing, deleting, spending, force-pushing.</p>
+<p><span class="n">2</span>A real blocker is a legitimate end, stated as cause plus need.
+"X is blocked because Y, I need Z." An offer is not a blocker.</p>
+<p><span class="n">3</span>Everything else gets done in the same turn it was identified.</p>
+
+<footer>
+Written 2026-09-01 after the 8.28.26 masters session &middot; memory
+<span class="mono">feedback_verified_result_is_not_a_delivery_point</span> &middot; gate
+<span class="mono">next_action_gate.py</span>
+</footer>
+</main></body></html>
