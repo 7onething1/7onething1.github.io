@@ -80,7 +80,7 @@ did not hold, and those stretches are now cut to audio.
 - **5-22-26** reads 81.7 percent coverage across 24 songs, the highest here. One region of two
   minutes carries no take.
 
-**All 13 regions were cut on 2026-09-02, 22.3 minutes of audio.** They live in
+**All 14 regions were cut on 2026-09-02, 24.2 minutes of audio.** They live in
 `songs-audit-recovered/` beside each run, named by tape position, with a `recovered_manifest.json`
 carrying the evidence for each. Every file decodes clean. They are labelled audit-recovered rather
 than detector-found, because the detector never marked them as playing.
