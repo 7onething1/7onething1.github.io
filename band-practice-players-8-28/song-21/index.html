@@ -236,7 +236,7 @@ footer{
 
   <p class="eyebrow">Audio · 8.28 session</p>
   <h1>Song 21</h1>
-  <p class="dek">A 4:36 take from the 8.28.26 practice tape at 3:55:09, playable in the browser with a real waveform, scrub-to-seek, and an A/B loop for working a single passage. False starts, section drilling and chatter are already removed.</p>
+  <p class="dek">A 4:35 take from the 8.28.26 practice tape at 3:55:09, playable in the browser with a real waveform, scrub-to-seek, and an A/B loop for working a single passage. False starts, section drilling and chatter are already removed.</p>
   <div class="rule"></div>
 
   <section class="player">
@@ -255,8 +255,8 @@ footer{
 
     <div class="times">
       <span class="cur" id="cur">0:00</span>
-      <span id="remain">-4:36</span>
-      <span id="dur">4:36</span>
+      <span id="remain">-4:35</span>
+      <span id="dur">4:35</span>
     </div>
 
     <div class="transport">
@@ -298,18 +298,18 @@ footer{
 
   <h2>The file</h2>
   <div class="grid">
-    <div class="stat"><div class="k">Duration</div><div class="v">4:36</div><div class="n">276.2 seconds</div></div>
-    <div class="stat"><div class="k">Source</div><div class="v">AAC</div><div class="n">24 kbps, transcoded by Messages</div></div>
+    <div class="stat"><div class="k">Duration</div><div class="v">4:35</div><div class="n">275.0 seconds</div></div>
+    <div class="stat"><div class="k">Source</div><div class="v">WAV</div><div class="n">24 kbps, transcoded by Messages</div></div>
     <div class="stat"><div class="k">Sample rate</div><div class="v">44.1 kHz</div><div class="n">stereo</div></div>
     <div class="stat"><div class="k">Sample peak</div><div class="v">0.00 dB</div><div class="n">at full scale</div></div>
-    <div class="stat"><div class="k">Average RMS</div><div class="v">-14.9 dB</div><div class="n">unmastered level</div></div>
-    <div class="stat"><div class="k">Crest factor</div><div class="v">14.9 dB</div><div class="n">narrowed by the encode</div></div>
+    <div class="stat"><div class="k">Average RMS</div><div class="v">-19.2 dB</div><div class="n">unmastered level</div></div>
+    <div class="stat"><div class="k">Crest factor</div><div class="v">19.2 dB</div><div class="n">narrowed by the encode</div></div>
   </div>
 
   <h2>Downloads</h2>
-  <p class="body">This take came off the 24 kbps AAC that Messages produced when the 4 GB session WAV was sent by text. The encode below sits at 64 kbps, well above what the source carries, so nothing further was lost here. Treat it as a reference copy for finding parts. The lossless 8.28 master has not reached this Mac.</p>
+  <p class="body">This take is cut from the 24-bit 44.1 kHz lossless master, which arrived 2026-09-01. It replaces the 24 kbps copy that came through Messages. The encode below sits at 160 kbps. Head alignment against the old transcode measured -0.070 s at 0.866 correlation, so the timecodes carried over with no re-detection.</p>
   <div class="dl">
-    <a href="audio/song-21.m4a" download>M4A / AAC 64 kbps <span class="sz">2.2 MB</span></a>
+    <a href="audio/song-21.m4a" download>M4A / AAC 160 kbps <span class="sz">5.3 MB</span></a>
 
   </div>
 
@@ -349,7 +349,7 @@ footer{
   var errBox   = document.getElementById('err');
   var ctx      = canvas.getContext('2d');
 
-  var peaks = null, rms = null, DUR = 276.2;
+  var peaks = null, rms = null, DUR = 275.0;
   var loopA = null, loopB = null, looping = false;
 
   function fmt(t){
