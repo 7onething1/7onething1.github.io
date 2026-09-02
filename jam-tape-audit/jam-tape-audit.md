@@ -67,10 +67,10 @@ Eleven songs in the default run have no counterpart in the shipped cut, at 0:10:
 `~/Projects/_outputs/real-song-finder/band-practice-8-14-26/songs/`. The gap is in the curation
 step rather than the export.
 
-## Two tapes still hold uncovered playing
+## The two residual gaps, now recovered
 
-Three tapes had never been through the song detector at all. Two come back with playing the new run
-still does not hold.
+Three tapes had never been through the song detector at all. Two came back with playing the new run
+did not hold, and those stretches are now cut to audio.
 
 - **5.8.26** reads 36.0 percent coverage across 20 songs. Six regions totalling 10 minutes measure
   as playing and carry no take. All six transcribed to zero words against a talk control that
@@ -79,6 +79,11 @@ still does not hold.
   no take. All seven transcribed to zero words against a talk control that returned 20 words.
 - **5-22-26** reads 81.7 percent coverage across 24 songs, the highest here. One region of two
   minutes carries no take.
+
+**All 13 regions were cut on 2026-09-02, 22.3 minutes of audio.** They live in
+`songs-audit-recovered/` beside each run, named by tape position, with a `recovered_manifest.json`
+carrying the evidence for each. Every file decodes clean. They are labelled audit-recovered rather
+than detector-found, because the detector never marked them as playing.
 
 ## The calibration flag decides every lossy tape
 

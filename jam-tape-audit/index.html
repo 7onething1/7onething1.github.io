@@ -76,7 +76,7 @@ the 8.28 board tape ninety minutes of playing.</p>
 <div class="stat"><div class="v">19.8 h</div><div class="k">total runtime</div></div>
 <div class="stat"><div class="v">154</div><div class="k">songs now held</div></div>
 <div class="stat"><div class="v">+36</div><div class="k">songs recovered</div></div>
-<div class="stat"><div class="v">24 min</div><div class="k">still uncovered</div></div>
+<div class="stat"><div class="v">22.3 min</div><div class="k">gaps recovered</div></div>
 </div>
 
 <div class="toc"><strong>What is on this page</strong>
@@ -85,7 +85,7 @@ the 8.28 board tape ninety minutes of playing.</p>
 <li><a class="link" href="#table">The audit, tape by tape</a></li>
 <li><a class="link" href="#731">7.31.26 carried the 8.28 failure</a></li>
 <li><a class="link" href="#814">The 8-14 cut that shipped is short</a></li>
-<li><a class="link" href="#residual">Two tapes still hold uncovered playing</a></li>
+<li><a class="link" href="#residual">The two residual gaps, now recovered</a></li>
 <li><a class="link" href="#calib">The calibration flag decides every lossy tape</a></li>
 <li><a class="link" href="#method">Method, controls, and limits</a></li>
 </ol></div>
@@ -206,19 +206,27 @@ takes, so the strict pass was clipping songs as well as dropping them.</p>
 curation step rather than the export, so the eleven need promoting into the curated cut instead of
 cutting from scratch.</p>
 
-<h2 id="residual">5. Two tapes still hold uncovered playing</h2>
-<p class="body">Three tapes had never been through the song detector at all. Two of them come back
-with playing the new run still does not hold.</p>
+<h2 id="residual">5. The two residual gaps, now recovered</h2>
+<p class="body">Three tapes had never been through the song detector at all. Two of them came back
+with playing the new run did not hold, and those stretches are now cut to audio.</p>
 <ul class="body">
 <li><strong>5.8.26</strong> reads 36.0 percent coverage across 20 songs. Six regions totalling
-10 minutes measure as playing and carry no take. All six transcribed to zero words against a
+10 minutes measured as playing and carried no take. All six transcribed to zero words against a
 talk control that returned six words.</li>
 <li><strong>7.3.26</strong> reads 38.2 percent coverage across 17 songs. Seven regions totalling
-12 minutes carry no take. All seven transcribed to zero words against a talk control that returned
+12 minutes carried no take. All seven transcribed to zero words against a talk control that returned
 20 words at 0.50 words per second.</li>
 <li><strong>5-22-26</strong> reads 81.7 percent coverage across 24 songs, the highest here.
 One region of two minutes carries no take.</li>
 </ul>
+<div class="goodbox">
+<p><strong>All 13 regions were cut on 2026-09-02, 22.3 minutes of audio.</strong>
+They live in <code>songs-audit-recovered/</code> beside each run, named by their tape position, with a
+<code>recovered_manifest.json</code> carrying the evidence for each one. Every file decodes clean.</p>
+<p>They are labelled as audit-recovered rather than detector-found, because the detector never marked
+them as playing. The evidence for each is the loudness and mid-band reading plus a zero-word
+transcription against a same-tape talk control.</p>
+</div>
 <p class="body">On both of the tapes that fire the talk control at 0.0 percent, the audit test rejects
 conversation cleanly, so the zero-word readings in those regions carry their full weight.</p>
 
