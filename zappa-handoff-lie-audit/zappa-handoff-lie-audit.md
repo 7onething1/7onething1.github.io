@@ -178,7 +178,7 @@ census derived from it.
 | 9 | 4 of 20 songs split, 13 use lane 36 alone | MacBook | census gives exactly 4 split, 13 lane-36-only, 3 lane-35-only |
 | 10 | Recovered baseline md5 `4343175d94bff82235497f5bb5360bab` | MacBook | matches, and the bundled copy matches byte for byte |
 | 11 | Published page returns http 200 | MacBook | 200 |
-| 12 | Both new revisions still on moderation | MacBook | re-fetched live: 8787022 and 8766102 both `isOnModeration: true`, 7115188 public |
+| 12 | Both new revisions still on moderation | MacBook | re-fetched live: 8787022 and 8766102 both `isOnModeration: true`, 7115188 public. **EXPIRED, re-checked 2026-09-02:** `songsterr.com/api/meta/412162` returns http 200 unauthenticated and reads `revisionId 8814965`, `latestRevisionId 8814965`, `prevRevisionId 8787022`, `isOnModeration false`, `isPublished true`, `moderationType "no"`. So 8787022 went through, and a moderator named Kirill pushed **8814965** on top of it on 2026-09-01 with the description "Minor changes." The live tab has moved off the revision every repair here was built against. |
 | 13 | `pointers_check.py` only appends | MacBook | source confirms, appends under one heading, never rewrites a line |
 | 14 | `is_guitar` fixed in three copies, each backed up | MacBook | three files and three `.bak-pre-isguitar-2026-08-31`, all written 17:32 |
 | 15 | Zomby Woof goes 0 guitar staves to 2 | MacBook | test reports 10 tracks resolved, 2 guitars, 0 track names containing the word |
