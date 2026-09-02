@@ -132,7 +132,6 @@ header line still reads: 727 entries, last verified 2026-08-31</pre>
 
 <h2 id="wording">The wording: twelve switch points</h2>
 <p class="sub">The musical finding is intact. The word "switch" is counting spans.</p>
-<p class="sub">Measured from <code>_outputs/songsterr-zappa-paren-fix/s412162/bar-census-r8766102.json</code>, the 114-bar census parsed out of <code>r8766102-Zomby-Woof.gp</code>.</p>
 <pre>36  : bars 1-8       -&gt; 35 : 9    Verse 1
 35  : bars 9-12      -&gt; 36 : 13   Pre-Chorus 1
 36  : bars 13-15     -&gt; both : 16
@@ -144,11 +143,10 @@ both: bar 45         -&gt; 35 : 46   Bridge
 35  : bars 46-55     -&gt; 36 : 56   Solo
 36  : bars 56-101    -&gt; 35 : 102
 35  : bars 102-111   -&gt; 36 : 112  Head</pre>
-<p>Spans run from one switch point to the next, so a span can carry bars where neither kick lane sounds. Four spans do: bars 2-4 inside the opening lane-36 span, bars 14-15 inside 13-15, bars 24-25 inside 18-39, and bars 113-114 inside the closing 112-114. Re-verified 2026-09-02 against the same census: no bar inside any span carries the opposite lane, so all twelve spans are contradiction-free.</p>
 <p>Twelve spans, eleven boundaries, and seven of the twelve span starts land on a labelled section once bar 1 is counted: bar 1 Head, bar 9 Verse 1, bar 13 Pre-Chorus 1, bar 18 Chorus 1, bar 46 Bridge, bar 56 Solo, bar 112 Head.</p>
 
 <h2 id="reproduced">What reproduced exactly</h2>
-<p class="sub">Each row was re-derived from the score file by an independent parser, then compared with the handoff text and with the iMac census at <code>drwu-overflow/zappa-drum-tab-forensics/baseline_diff.json</code>. The score file is <code>_outputs/songsterr-zappa-paren-fix/s412162/r8766102-Zomby-Woof.gp</code>, and every bar, meter, tie and kick-lane figure below reads out of the <code>bar-census-r8766102.json</code> census derived from it.</p>
+<p class="sub">Each row was re-derived from the score file by an independent parser, then compared with the handoff text and with the iMac census at <code>drwu-overflow/zappa-drum-tab-forensics/baseline_diff.json</code>.</p>
 <div class="scroll"><table>
 <tr><th>#</th><th>Claim</th><th>Source</th><th>Independent result</th></tr>
 <tr class="good"><td class="n">1</td><td class="t">20 counts match the iMac census, 7,479 both sides</td><td>MacBook</td><td>10 of 10 per-track note counts match; 10 of 10 tie counts match at 2 tied events per tie</td></tr>

@@ -129,9 +129,6 @@ The handoff says twelve switch points and seven section starts. My parse of the 
 finds **eleven transitions** across **twelve spans**, and seven of the twelve span starts land
 on a section start once bar 1 is counted.
 
-Measured from `~/Projects/_outputs/songsterr-zappa-paren-fix/s412162/bar-census-r8766102.json`,
-the 114-bar census parsed out of `r8766102-Zomby-Woof.gp`.
-
 ```
 36 : bars 1-8       -> 35 : 9  Verse 1
 35 : bars 9-12      -> 36 : 13 Pre-Chorus 1
@@ -146,12 +143,6 @@ both: bar 45        -> 35 : 46 Bridge
 35 : bars 102-111   -> 36 : 112 Head
 ```
 
-Spans run from one switch point to the next, so a span can carry bars where neither kick
-lane sounds. Four spans do: bars 2-4 inside the opening lane-36 span, bars 14-15 inside
-13-15, bars 24-25 inside 18-39, and bars 113-114 inside the closing 112-114. Re-verified
-2026-09-02 against the same census: no bar inside any span carries the opposite lane, so
-all twelve spans are contradiction-free.
-
 Twelve spans, eleven boundaries, seven of the twelve starts on a labelled section. Bar 1 Head,
 bar 9 Verse 1, bar 13 Pre-Chorus 1, bar 18 Chorus 1, bar 46 Bridge, bar 56 Solo, bar 112 Head.
 The musical finding is intact. The word "switch" is counting spans.
@@ -160,10 +151,7 @@ The musical finding is intact. The word "switch" is counting spans.
 
 Each row was re-derived from the score file by an independent parser, then compared with the
 handoff text and with the iMac census at
-`~/Projects/drwu-overflow/zappa-drum-tab-forensics/baseline_diff.json`. The score file is
-`~/Projects/_outputs/songsterr-zappa-paren-fix/s412162/r8766102-Zomby-Woof.gp`, and every bar,
-meter, tie and kick-lane figure in the table below reads out of the `bar-census-r8766102.json`
-census derived from it.
+`~/Projects/drwu-overflow/zappa-drum-tab-forensics/baseline_diff.json`.
 
 | # | Claim | Source | Independent result |
 |---|---|---|---|
