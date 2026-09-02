@@ -417,6 +417,29 @@ from https://drummagazine.com/groove-analysis-frank-zappas-drummers/</pre>
 <p><b>The repair cannot be rebased into a file yet.</b> Songsterr serves no Guitar Pro export route that answers here; four shapes were tried and returned 404, 404, 400 and 400. The repair itself is unaffected, since the live tab still holds 163 kick events on lane 35. Applied to <code>r8814965</code> it would leave lane 36 at 348 rather than 349, the one note fewer.</p>
 </div>
 
+<div class="blk">
+<h3>Located to the beat: exactly what r8814965 dropped</h3>
+<p><b>The deleted note is bar 16, slot 2</b>, a 1/16 kick on lane 36 that sat under a closed hi-hat. Only the hi-hat remains. The kick at slot 3 was tied from it, so that tie went too, which makes those two losses one event.</p>
+<div class="scroll"><table>
+<tr><th>Bar</th><th class="n">Slot</th><th class="n">Lane</th><th>Instrument</th></tr>
+<tr class="bad"><td class="n">16</td><td class="n">3</td><td class="n">36</td><td>kick</td></tr>
+<tr class="bad"><td class="n">16</td><td class="n">9</td><td class="n">35</td><td>kick</td></tr>
+<tr class="bad"><td class="n">16</td><td class="n">11</td><td class="n">36</td><td>kick</td></tr>
+<tr class="bad"><td class="n">17</td><td class="n">1</td><td class="n">35</td><td>kick</td></tr>
+<tr class="bad"><td class="n">17</td><td class="n">3</td><td class="n">36</td><td>kick</td></tr>
+<tr class="bad"><td class="n">17</td><td class="n">9</td><td class="n">35</td><td>kick</td></tr>
+<tr class="bad"><td class="n">17</td><td class="n">11</td><td class="n">36</td><td>kick</td></tr>
+<tr class="bad"><td class="n">18</td><td class="n">1</td><td class="n">46</td><td>open hi-hat</td></tr>
+<tr class="bad"><td class="n">22</td><td class="n">1</td><td class="n">46</td><td>open hi-hat</td></tr>
+<tr class="bad"><td class="n">38</td><td class="n">4</td><td class="n">46</td><td>open hi-hat</td></tr>
+<tr class="bad"><td class="n">44</td><td class="n">4</td><td class="n">46</td><td>open hi-hat</td></tr>
+<tr class="bad"><td class="n">104</td><td class="n">4</td><td class="n">46</td><td>open hi-hat</td></tr>
+<tr class="bad"><td class="n">108</td><td class="n">4</td><td class="n">46</td><td>open hi-hat</td></tr>
+</table></div>
+<p><b>The seven kick ties are defensible.</b> The bass drum alternates staff line every two sixteenths with a tie on each pair, and removing those was judged right during the earlier audit.</p>
+<p><b>The six open hi-hat ties are not.</b> Four identical ties in bars 32, 34, 35 and 36 survived while these six vanished. A rule that removes six of ten identical ties and keeps four is not a rule, so this reads as loss rather than a decision. Full restoration spec, beat by beat, in <code>s412162/REGRESSION-RESTORE-SPEC.md</code>.</p>
+</div>
+
 <h2 id="rebar">What a rebar would actually cost</h2>
 <p class="sub">Measured 2026-09-02 from <code>r8766102-Zomby-Woof.gp</code>. The barring question was open as a decision; these are the numbers it needs.</p>
 <p><b>The tab's <code>10/16</code> bar is already two identical <code>5/16</code> figures.</b> Reading the rhythm off the drum staff, bar 2 runs 16th, 16th, 32nd, 32nd, 16th, 16th, and then repeats that exact group. Each group totals five sixteenths. Ryan Brown's page prints the same repeated figure across a barline, which I read directly off <code>crop_sys1_left.png</code> and <code>crop_sys1_mid.png</code>: a <code>3/4</code> signature, one bar, a barline, a <code>5/16</code> signature, a bar, a barline, a second bar carrying no new signature and therefore inheriting <code>5/16</code>, then <code>2/4</code>.</p>
