@@ -1,0 +1,1071 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Demon Slayer, Solo Cello</title>
+<style>
+  :root{
+    --cream:#F2EADB;
+    --paper:#FBF6EC;
+    --ink:#17150F;
+    --soft:#5C5344;
+    --rule:#D9CDB6;
+    --water:#2E6E6B;
+    --flame:#B4553A;
+    --thunder:#BE9A1F;
+    --insect:#7A5A8E;
+    --mist:#6E7A4F;
+    --rose:#C0797B;
+    --navy:#2B4162;
+    --wisteria:#6B5A9E;
+  }
+  *{box-sizing:border-box}
+  html{scroll-behavior:smooth}
+  body{
+    margin:0;background:var(--cream);color:var(--ink);
+    font-family:"Iowan Old Style","Palatino Linotype",Palatino,Georgia,serif;
+    line-height:1.5;-webkit-font-smoothing:antialiased;
+  }
+  .wrap{max-width:1120px;margin:0 auto;padding:36px 22px 90px}
+  header h1{font-size:clamp(28px,4.6vw,46px);margin:0 0 6px;letter-spacing:-.015em;font-weight:600}
+  .sub{color:var(--soft);font-size:16px;margin:0 0 4px;max-width:74ch}
+  .kicker{
+    font-family:ui-monospace,"SF Mono",Menlo,monospace;font-size:11px;
+    letter-spacing:.14em;text-transform:uppercase;color:var(--soft);margin:0 0 10px;
+  }
+  .src{
+    font-family:ui-monospace,"SF Mono",Menlo,monospace;font-size:12px;color:var(--soft);
+    border-left:3px solid var(--rule);padding:6px 0 6px 10px;margin:18px 0 0;max-width:78ch;
+  }
+  h2{font-size:22px;margin:46px 0 6px;letter-spacing:-.01em}
+  h2 .num{font-family:ui-monospace,Menlo,monospace;font-size:12px;color:var(--soft);
+    letter-spacing:.12em;display:block;margin-bottom:3px;text-transform:uppercase}
+  h3{font-size:17px;margin:26px 0 4px}
+  p{max-width:78ch}
+  a{color:#8a5a12}
+  a:hover{text-decoration:none}
+
+  /* ---- control bar ---- */
+  .bar{
+    position:sticky;top:0;z-index:20;background:rgba(242,234,219,.95);
+    backdrop-filter:blur(8px);border-bottom:1px solid var(--rule);
+    margin:26px -22px 0;padding:11px 22px;
+    display:flex;flex-wrap:wrap;gap:14px;align-items:center;
+  }
+  .ctl{display:flex;align-items:center;gap:7px;font-size:13px;color:var(--soft)}
+  .ctl label{white-space:nowrap;letter-spacing:.05em;text-transform:uppercase;font-size:11px}
+  select,input[type=range]{
+    font-family:inherit;font-size:14px;color:var(--ink);
+    background:var(--paper);border:1px solid var(--rule);border-radius:6px;padding:4px 7px;
+  }
+  input[type=range]{padding:0;width:92px;accent-color:var(--water)}
+  .switch{
+    display:inline-flex;align-items:center;gap:6px;cursor:pointer;
+    border:1px solid var(--rule);background:var(--paper);border-radius:999px;
+    padding:4px 11px;font-size:13px;color:var(--ink);user-select:none;
+  }
+  .switch input{accent-color:var(--water);margin:0}
+  .val{font-family:ui-monospace,Menlo,monospace;font-size:12px;min-width:38px}
+
+  /* ---- tables ---- */
+  table{border-collapse:collapse;width:100%;margin:14px 0 0;font-size:14px;background:var(--paper)}
+  th,td{border:1px solid var(--rule);padding:7px 10px;text-align:left;vertical-align:top}
+  th{background:#EFE6D2;font-size:12px;letter-spacing:.05em;text-transform:uppercase;color:var(--soft);font-weight:600}
+  td code{font-family:ui-monospace,Menlo,monospace;font-size:12.5px}
+
+  /* ---- note box ---- */
+  .box{
+    background:var(--paper);border:1px solid var(--rule);border-left:4px solid var(--wisteria);
+    border-radius:8px;padding:13px 16px;margin:18px 0 0;font-size:14.5px;max-width:82ch;
+  }
+  .box strong{letter-spacing:.01em}
+
+  /* ---- piece cards ---- */
+  .piece{
+    background:var(--paper);border:1px solid var(--rule);border-radius:10px;
+    margin:22px 0 0;overflow:hidden;position:relative;
+  }
+  .piece::before{content:"";position:absolute;left:0;top:0;bottom:0;width:4px;background:var(--accent,var(--water))}
+  .phead{padding:15px 18px 12px 20px;border-bottom:1px solid var(--rule)}
+  .ptitle{font-size:20px;margin:0;letter-spacing:-.01em}
+  .ptag{
+    font-family:ui-monospace,Menlo,monospace;font-size:11px;letter-spacing:.08em;
+    text-transform:uppercase;color:#fff;background:var(--accent,var(--water));
+    border-radius:999px;padding:2px 9px;display:inline-block;margin:0 0 7px;
+  }
+  .pmeta{
+    font-family:ui-monospace,Menlo,monospace;font-size:12px;color:var(--soft);
+    margin:6px 0 0;display:flex;flex-wrap:wrap;gap:4px 14px;
+  }
+  .psub{color:var(--soft);font-size:14.5px;margin:5px 0 0;max-width:76ch}
+  .pbody{padding:6px 8px 4px 12px;overflow-x:auto}
+  .score{display:block;width:100%;height:auto}
+  .pfoot{padding:4px 18px 16px 20px}
+  .btns{display:flex;flex-wrap:wrap;gap:8px;padding:12px 18px 4px 20px}
+  button{
+    font-family:inherit;font-size:14px;color:var(--ink);background:var(--paper);
+    border:1px solid var(--rule);border-radius:7px;padding:6px 14px;cursor:pointer;
+  }
+  button:hover{background:#F3EAD6}
+  button.on{background:var(--accent,var(--water));border-color:var(--accent,var(--water));color:#fff}
+  button.play{font-weight:600;min-width:96px}
+  .tips{margin:10px 0 0;padding:0 0 0 18px;font-size:14.5px;color:var(--ink)}
+  .tips li{margin:4px 0;max-width:76ch}
+  .tips b{font-weight:600}
+
+  footer{margin-top:56px;border-top:1px solid var(--rule);padding-top:18px;font-size:13.5px;color:var(--soft)}
+
+  @media print{
+    .bar,.btns,footer,.src{display:none}
+    body{background:#fff}
+    .piece{break-inside:avoid;page-break-inside:avoid;border-color:#bbb}
+    .wrap{max-width:none;padding:0}
+  }
+</style>
+</head>
+<body>
+<div class="wrap">
+
+<header>
+  <p class="kicker">unaccompanied cello &middot; 8 original pieces &middot; playable in first through fourth position</p>
+  <h1>Demon Slayer, Solo Cello</h1>
+  <p class="sub">
+    Two halves. <b>Find</b> lists where the actual <i>Kimetsu no Yaiba</i> themes exist as legal, printable
+    cello sheet music, and what each one does to a cellist's hand. <b>Make</b> is eight original solo pieces
+    written for this page &mdash; one per breathing style and mood &mdash; engraved in bass clef with cello
+    fingerings, playable in the browser, and downloadable as MIDI so you can open them in MuseScore and print.
+  </p>
+  <p class="src">All eight pieces below are original compositions written for this page. They are not
+transcriptions of the anime's music. Play them, record them, teach them, no permission needed.</p>
+</header>
+
+<div class="bar">
+  <div class="ctl"><label for="tempo">Tempo</label>
+    <input type="range" id="tempo" min="55" max="130" step="5" value="100">
+    <span class="val" id="tempoVal">100%</span></div>
+  <div class="ctl"><label for="vol">Volume</label>
+    <input type="range" id="vol" min="0" max="1" step="0.02" value="0.5"></div>
+  <label class="switch"><input type="checkbox" id="drone"> Open-string drone</label>
+  <label class="switch"><input type="checkbox" id="fings" checked> Fingerings</label>
+  <label class="switch"><input type="checkbox" id="loopAll"> Loop</label>
+  <button onclick="window.print()">Print sheets</button>
+</div>
+
+<h2><span class="num">Part one</span>Find &mdash; the real themes, legally, for cello</h2>
+<p>
+  Every theme song and every cue in the show is under copyright, so the honest routes are the licensed
+  ones. These four cover almost everything a cellist would want, and all of them pay the writers.
+</p>
+
+<table>
+  <thead><tr><th style="width:20%">Source</th><th style="width:26%">What it has for cello</th><th>Worth knowing</th></tr></thead>
+  <tbody>
+    <tr>
+      <td><a href="https://www.musicnotes.com/sheet-music/instrument/strings/violin-family/show/demon-slayer-kimetsu-no-yaiba" target="_blank" rel="noopener">Musicnotes</a></td>
+      <td>Officially licensed single-song PDFs; the string/violin-family filter is where cello editions live.</td>
+      <td>Largest licensed catalogue for the show. Buy the cello edition rather than transposing a violin
+          one &mdash; violin sheets sit an octave and a fifth off and read in treble clef.</td>
+    </tr>
+    <tr>
+      <td><a href="https://tomplay.com/cello-sheet-music/" target="_blank" rel="noopener">Tomplay</a></td>
+      <td><i>Gurenge</i> for cello at Very Easy, Easy/Intermediate and Intermediate levels.</td>
+      <td>Each edition ships with a backing track that follows your tempo, which is the fastest way to make
+          one cello line sound like an arrangement instead of an exercise.</td>
+    </tr>
+    <tr>
+      <td><a href="https://www.sheetmusicplus.com" target="_blank" rel="noopener">Sheet Music Plus</a> /
+          <a href="https://www.halleonard.com" target="_blank" rel="noopener">Hal Leonard</a></td>
+      <td>Print collections of the anime's songs, mostly piano; cello parts appear in instrumental
+          play-along series.</td>
+      <td>Buy the piano/vocal collection if you want the harmony under the tune &mdash; you get the chords a
+          solo cello has to imply on its own.</td>
+    </tr>
+    <tr>
+      <td><a href="https://www.print-gakufu.com" target="_blank" rel="noopener">@ELISE</a> /
+          <a href="https://store.piascore.com" target="_blank" rel="noopener">Piascore</a></td>
+      <td>The Japanese licensed print-score shops. Deepest catalogue for insert songs and score cues that
+          never got a Western release.</td>
+      <td>Search the Japanese titles (&#31088;&#34092;&#33775;, &#28814;, &#27515;&#38360;&#25945;&#20736;) &mdash; the English titles often return nothing.</td>
+    </tr>
+  </tbody>
+</table>
+
+<h3>What each theme does to your left hand</h3>
+<p>Before you buy, this is what you are signing up for on an unaccompanied cello.</p>
+<table>
+  <thead><tr><th style="width:23%">Theme</th><th style="width:24%">Where it's from</th><th>On solo cello</th></tr></thead>
+  <tbody>
+    <tr><td><b>Gurenge</b><br><span style="color:#5C5344;font-size:13px">LiSA, comp. Kayoko Kusano</span></td>
+        <td>Season 1 opening</td>
+        <td>The obvious first one, and the one with the most editions. The chorus lives high &mdash; on cello
+            it wants the A string in fourth position and up, or drop it an octave and lose the lift. Driving
+            eighths, so it survives without accompaniment.</td></tr>
+    <tr><td><b>Kamado Tanjiro no Uta</b><br><span style="color:#5C5344;font-size:13px">comp. Go Shiina</span></td>
+        <td>Episode 19 insert song</td>
+        <td>The best fit on this list for one cello. Slow, modal, mostly stepwise, sits in the D&ndash;A octave,
+            and the long notes are the point &mdash; it's a bow-control piece more than a fingering piece.</td></tr>
+    <tr><td><b>Homura</b><br><span style="color:#5C5344;font-size:13px">LiSA, comp. Yuki Kajiura</span></td>
+        <td><i>Mugen Train</i> film theme</td>
+        <td>Kajiura writes a long descending line that lies beautifully on the D string. The final chorus
+            modulates up; take it on the A string rather than shifting mid-phrase.</td></tr>
+    <tr><td><b>Akeboshi</b> &middot; <b>Zankyou Sanka</b><br><span style="color:#5C5344;font-size:13px">LiSA &middot; Aimer</span></td>
+        <td>Mugen Train arc &middot; Entertainment District arc openings</td>
+        <td>Both are rhythm-first songs. Alone, a cello has to play the groove and the tune at once &mdash;
+            worth it only with a backing track or a second player.</td></tr>
+    <tr><td><b>Kizuna no Kiseki</b> &middot; <b>Mugen</b><br><span style="color:#5C5344;font-size:13px">MAN WITH A MISSION &times; milet &middot; MY FIRST STORY &times; HYDE</span></td>
+        <td>Swordsmith Village &middot; Hashira Training arcs</td>
+        <td>Rock arrangements. The riffs transfer well to the C and G strings; the vocal lines need an octave
+            drop to stay in a comfortable position.</td></tr>
+    <tr><td><b>Shine in the Cruel Night</b><br><span style="color:#5C5344;font-size:13px">LiSA</span></td>
+        <td><i>Infinity Castle</i> film theme</td>
+        <td>Newest, so licensed cello editions are thinnest &mdash; check the Japanese shops first.</td></tr>
+    <tr><td><b>Score cues</b><br><span style="color:#5C5344;font-size:13px">Yuki Kajiura &amp; Go Shiina</span></td>
+        <td>All seasons</td>
+        <td>Kajiura already scores for strings, so the cue material is the most idiomatic thing in the show
+            for you. Buy the soundtrack albums and transcribe by ear &mdash; a transcription you keep to
+            yourself is yours; posting it is where licensing starts.</td></tr>
+  </tbody>
+</table>
+
+<div class="box">
+  <strong>If you want to publish your own arrangement.</strong> A cover recording needs a mechanical licence
+  (Easy Song, Songtrust); posting your own written-out arrangement as a PDF or on MuseScore needs the
+  publisher's permission, which for these titles usually means Aniplex or the Japanese publisher. MuseScore's
+  paid tier covers you only for the arrangements already licensed inside its own catalogue &mdash; not for
+  one you upload.
+</div>
+
+<h2><span class="num">Part two</span>Make &mdash; eight originals for unaccompanied cello</h2>
+<p>
+  Written in the show's sound world rather than from its songs: Japanese <i>yo</i> and <i>insen</i> scales,
+  open-string drones, Taish&#333;-era waltz lilt, and one piece per breathing style. Every note is reachable
+  in first through fourth position &mdash; no thumb position anywhere. Press <b>Play</b> to hear a bowed
+  synth read it back, and <b>MIDI</b> to open it in MuseScore, Dorico or Logic for a printable part.
+</p>
+<p class="src">Reading the fingerings: the number under each note is the left-hand finger (0 = open string),
+the letter under that is the string. An <i>italic</i> number means the hand stretches for that note &mdash; a
+forward or backward extension, not a shift. Roman numerals above the staff mark a change of position (I =
+first, II = second, and so on); the small number at the left of each system is the bar number. Slurs are
+bowings: one bow for the whole slur.</p>
+
+<div id="pieces"></div>
+
+<footer>
+  <p><b>Tuning:</b> C2 G2 D3 A3, low to high. Everything here assumes standard tuning and a normally set-up
+  cello &mdash; no scordatura, no extended technique beyond the harmonics mentioned in the notes.</p>
+  <p><b>Playback:</b> the sound is a synthesised bow (two detuned saws, low-pass, delayed vibrato) built with
+  the Web Audio API. Nothing is streamed and no audio file is hosted, so the page works offline.
+  The synth is a reference for pitch and rhythm, not a model of tone &mdash; your bow will do better.</p>
+  <p><b>Licence:</b> the eight compositions on this page are released for any use, including performance,
+  recording, teaching and publication, with no attribution required.</p>
+</footer>
+
+</div>
+
+<script>
+"use strict";
+
+/* ===============================================================
+   THE MUSIC
+   Durations are in sixteenth notes: 16 = whole, 12 = dotted half,
+   8 = half, 6 = dotted quarter, 4 = quarter, 2 = eighth, 1 = 16th.
+   Flags after a token:  _ = under the previous bow (slur)
+                         > = accent   . = staccato   p = pizzicato
+   Bars are separated by | purely for readability; the parser
+   re-derives bar lines from the time signature and checks them.
+================================================================*/
+const PIECES = [
+{
+  id:"water", accent:"var(--water)", tag:"Water Breathing",
+  title:"Water Surface Slice",
+  sub:"An unbroken 6/8 wave. The first form is one continuous motion, so the whole piece is written as one line that never stops moving — the only rests are the ones your bow takes at the end of a slur.",
+  keyName:"D minor", sig:{type:"flat",count:1}, meter:[6,8], bpm:112, unit:"e", level:"Early intermediate",
+  focus:"Legato string crossings, three notes to a bow",
+  drone:50,
+  music:
+   "D3:2 F3:2_ A3:2_ D4:2 A3:2_ F3:2_ | G3:2 Bb3:2_ D4:2_ Bb3:2 G3:2_ E3:2_ |"+
+   "F3:2 A3:2_ D4:2_ C4:2 A3:2_ F3:2_ | E3:2 G3:2_ C4:2_ A3:2 F3:2_ D3:2_ |"+
+   "D4:2 C4:2_ Bb3:2_ A3:2 G3:2_ F3:2_ | E3:2 F3:2_ G3:2_ A3:2 Bb3:2_ C4:2_ |"+
+   "D4:6 A3:2_ F3:2_ D3:2_ | D3:12 |"+
+   "A3:2 D4:2_ F4:2_ E4:2 D4:2_ A3:2_ | Bb3:2 D4:2_ F4:2_ E4:2 D4:2_ Bb3:2_ |"+
+   "A3:2 C4:2_ F4:2_ E4:2 C4:2_ A3:2_ | G3:2 Bb3:2_ E4:2_ D4:2 Bb3:2_ G3:2_ |"+
+   "F4:4 E4:2_ D4:6_ | C4:4 Bb3:2_ A3:6_ |"+
+   "G3:2 A3:2_ Bb3:2_ A3:2 G3:2_ F3:2_ | D3:12",
+  tips:[
+   "<b>Bow.</b> Three notes to a bow, the whole piece. If the wave breaks, it is almost always because the down-bow ran out on beat 4 — start each down-bow nearer the frog than feels necessary.",
+   "<b>Crossings.</b> Bars 1–6 cross D–A repeatedly. Set the right arm at the height <i>between</i> the two strings and let the fingers do the rest; do not re-level the arm per note.",
+   "<b>Bars 9–13</b> move up to third position on the A string — D4 under the second finger, the top F4 under an extended fourth. Shift at the end of bar 8 while the D is still ringing, not on the downbeat of 9.",
+   "<b>Drone.</b> Turn on the open-string drone in the bar above: the piece is built over an open D, and hearing it makes the F naturals and B flats place themselves."
+  ]
+},
+{
+  id:"nezuko", accent:"var(--rose)", tag:"Lullaby",
+  title:"Box Lullaby",
+  sub:"For the small dark box carried on a back. A pentatonic tune in G, no note lower than E3, nothing faster than a quarter — the easiest piece here and the one that most needs a beautiful sound.",
+  keyName:"G major (pentatonic)", sig:{type:"sharp",count:1}, meter:[3,4], bpm:66, unit:"q", level:"Beginner",
+  focus:"Sustained tone, two-note slurs, first position throughout",
+  drone:43,
+  music:
+   "D4:4 B3:4_ G3:4 | A3:8 B3:4_ | D4:4 E4:4_ D4:4 | B3:12 |"+
+   "B3:4 D4:4_ E4:4 | D4:8 B3:4_ | A3:4 B3:4_ D4:4 | G3:12 |"+
+   "E4:4 D4:4_ B3:4 | A3:8 G3:4_ | B3:4 A3:4_ G3:4 | E3:12 |"+
+   "G3:4 A3:4_ B3:4 | D4:8 B3:4_ | A3:8 G3:4_ | G3:12",
+  tips:[
+   "<b>Everything is first position</b> except the E4s in bars 3, 5 and 9. The printed fingering reaches for them — second position, extended fourth finger, marked II — and comes straight back. If the stretch pulls your hand out of shape, shift to fourth position and take them with the second finger instead.",
+   "<b>Bow speed, not pressure.</b> The half notes are the whole point. Aim for one steady speed from frog to tip and let the string ring; any extra arm weight will choke it at this dynamic.",
+   "<b>Ending.</b> Try the last G as a natural harmonic — touch lightly at the halfway point of the G string. It sounds an octave up and lets the note disappear rather than stop.",
+   "<b>If you have a second player</b>, hold an open G under the whole first half and an open D under the second."
+  ]
+},
+{
+  id:"thunder", accent:"var(--thunder)", tag:"Thunder Breathing",
+  title:"Thunderclap and Flash",
+  sub:"One form, practised until it is the only one you need. Straight eighths at speed, hammered off the open A, with the accent always on the first of four.",
+  keyName:"A minor", sig:null, meter:[4,4], bpm:132, unit:"q", level:"Intermediate",
+  focus:"Martelé and spiccato, accented attacks, fast string crossing",
+  drone:57,
+  music:
+   "A3:2> A3:2 C4:2 A3:2 E4:2> A3:2 D4:2 C4:2 | B3:2> A3:2 G3:2 A3:2 B3:2> C4:2 D4:2 E4:2 |"+
+   "F4:2> E4:2 D4:2 C4:2 B3:2> C4:2 D4:2 B3:2 | A3:4> E3:4 A3:8 |"+
+   "E3:2> A3:2 C4:2 E4:2 D4:2> C4:2 B3:2 A3:2 | G3:2> B3:2 D4:2 G3:2 F3:2> A3:2 C4:2 F3:2 |"+
+   "E3:2> G3:2 B3:2 D4:2 C4:2> B3:2 A3:2 G3:2 | A3:16>",
+  tips:[
+   "<b>Start slow and mean it.</b> Take it at 60% on the tempo slider until the accents land without a bow-arm jerk, then move in steps of 5.",
+   "<b>Marteлé first, spiccato second.</b> Play it on the string with a bitten start and full stop between notes. Only when that is even should you let the bow bounce — spiccato built on an uneven martelé is just noise.",
+   "<b>Bar 4 and bar 8</b> are the breath. The long A is not a rest: keep the bow moving and the vibrato going, or the piece deflates right where it should gather.",
+   "<b>Left hand.</b> The hand lives in first position and reaches twice: the E4s are an extended fourth finger, and the F4 at the top of bar 3 is the one real shift — third position, then straight back down."
+  ]
+},
+{
+  id:"flame", accent:"var(--flame)", tag:"Flame Breathing",
+  title:"Flame Vow",
+  sub:"Set your heart ablaze. A broad C-major hymn with a flattened seventh, stated in the middle of the cello, dropped onto the C string for the second strain, then brought back up an octave higher than it started.",
+  keyName:"C mixolydian", sig:null, meter:[4,4], bpm:76, unit:"q", level:"Early intermediate",
+  focus:"C-string weight, dotted rhythms, sustaining across the whole bow",
+  drone:36,
+  music:
+   "C3:6 D3:2 E3:8 | G3:6 F3:2 E3:4 D3:4 | C3:6 E3:2 G3:8 | A3:8 G3:8 |"+
+   "G3:6 A3:2 Bb3:8 | C4:8 G3:4 E3:4 | F3:6 G3:2 A3:8 | G3:16 |"+
+   "C2:8 G2:8 | C3:6 Bb2:2 G2:8 | F2:8 C3:8 | G2:16 |"+
+   "C3:6 D3:2 E3:8 | G3:6 F3:2 E3:4 D3:4 | C3:4 E3:4 G3:4 C4:4 | C4:16",
+  tips:[
+   "<b>The dotted quarter is the character.</b> Give it the whole dotted length and put the eighth right up against the next downbeat. Rush it and the hymn turns into a march.",
+   "<b>Bars 9–12 on the C string</b> need arm weight, not speed. Play nearer the bridge than you think and let the bow sink in — that is where the instrument sounds like a hearth rather than a growl.",
+   "<b>The B flats</b> (bars 5 and 10) are the whole harmonic idea: they turn C major into something older and less triumphant. Do not correct them upward out of habit.",
+   "<b>Final C4</b> is printed as the second finger in first position. Whatever you choose, pick the finger you can vibrate freely on — that note is held longer than anything else in the piece."
+  ]
+},
+{
+  id:"insect", accent:"var(--insect)", tag:"Insect Breathing",
+  title:"Dance of the Dragonfly",
+  sub:"Light, quick, and not as harmless as it looks. Six-eight at speed, off the string, in B minor with the raised sixth flickering through it.",
+  keyName:"B minor", sig:{type:"sharp",count:2}, meter:[6,8], bpm:126, unit:"e", level:"Intermediate",
+  focus:"Spiccato at the balance point, light left hand, upper A string",
+  drone:50,
+  music:
+   "B3:2. C#4:2. D4:2. E4:2. D4:2. B3:2. | A3:2. B3:2. C#4:2. D4:2. C#4:2. A3:2. |"+
+   "G3:2. A3:2. B3:2. C#4:2. B3:2. G3:2. | F#3:2. A3:2. D4:2. C#4:2. A3:2. F#3:2. |"+
+   "B3:2. D4:2. E4:2. F#4:2. E4:2. D4:2. | C#4:2. E4:2. F#4:2. E4:2. C#4:2. A3:2. |"+
+   "D4:4 C#4:2 B3:4 A3:2 | B3:12",
+  tips:[
+   "<b>Find the balance point</b> — about a third of the way up from the frog — and let the bow do the bouncing. The arm stays quiet; if your elbow is working, you are throwing the bow rather than letting it drop.",
+   "<b>Left hand lifts, not presses.</b> At this speed the fingers only need enough weight to stop the string. A heavy hand here is the single most common reason the passage muddies.",
+   "<b>Bar 5–6</b> touches F#4 — fourth position on the A string. It is the top of the piece, so let it be brighter, then come straight back down.",
+   "<b>The last bar is not staccato.</b> Land on it, hold it, and let the dance settle."
+  ]
+},
+{
+  id:"mist", accent:"var(--mist)", tag:"Mist Breathing",
+  title:"Fading Edges",
+  sub:"Almost still. Built on the Japanese insen scale (D E♭ G A C), the piece has no strong beat and no fast note — the shape comes from where the bow changes and how far the sound drifts before the next note arrives.",
+  keyName:"D insen", sig:null, meter:[4,4], bpm:52, unit:"q", level:"Early intermediate",
+  focus:"Sul tasto colour, slow bow, intonation on the flat second",
+  drone:50,
+  music:
+   "D3:12 Eb3:4 | G3:8 A3:8 | C4:6 A3:2 G3:8 | Eb3:8 D3:8 |"+
+   "A3:12 C4:4 | D4:8 C4:4 A3:4 | G3:8 Eb3:8 | D3:16",
+  tips:[
+   "<b>Play it over the fingerboard</b> (sul tasto) for the first four bars, then move gradually toward the bridge through bars 5–6 and back out again. The dynamic barely changes; the colour does everything.",
+   "<b>E♭ is the whole piece.</b> It is a half step above the open D and it must be genuinely close — with the drone on you will hear it as a bright, narrow beating. Anything wider sounds like a mistake instead of a scale.",
+   "<b>Bow changes are the rhythm.</b> Aim to make them audible but not accented: a slight lift and re-entry, which is what makes the line seem to fade and re-form.",
+   "<b>Try the last D as a harmonic</b> — lightly at the octave on the D string. The piece should end without a stop."
+  ]
+},
+{
+  id:"taisho", accent:"var(--navy)", tag:"Taishō era",
+  title:"Taishō Whisper Waltz",
+  sub:"The street outside, before any of it happens. A yo-scale waltz — plucked for the first half, bowed for the second, same tune both times.",
+  keyName:"D yo scale", sig:null, meter:[3,4], bpm:120, unit:"q", level:"Beginner",
+  focus:"Pizzicato tone, first position, waltz lilt",
+  drone:50,
+  music:
+   "D3:4p A3:4p B3:4p | A3:4p G3:4p E3:4p | G3:4p B3:4p D4:4p | B3:8p A3:4p |"+
+   "D3:4p A3:4p B3:4p | D4:4p B3:4p A3:4p | G3:4p E3:4p D3:4p | D3:12p |"+
+   "D4:8 B3:4_ | A3:8 G3:4_ | E4:4 D4:4_ B3:4 | A3:12 |"+
+   "B3:4 D4:4_ E4:4 | D4:8 B3:4_ | A3:4 G3:4_ E3:4 | D3:12",
+  tips:[
+   "<b>Pizzicato with the side of the fingertip</b>, pulling slightly across the string rather than straight up, about where the fingerboard ends. Straight-up plucks slap; across-the-string plucks sing.",
+   "<b>The lilt</b> is beat one long, beats two and three light. Lean on the downbeat with the pluck and let the other two fall off, and it becomes a waltz instead of three equal notes.",
+   "<b>Bar 9</b> is where the bow comes back. Have it already on the string before bar 8 ends — the change should sound like a decision, not a scramble.",
+   "<b>Whole piece is first position</b> apart from the E4s in bars 11 and 13, printed as a stretch into second position. A shift to fourth position works too, and is steadier if the arco half of the piece is going to be played slowly."
+  ]
+},
+{
+  id:"wisteria", accent:"var(--wisteria)", tag:"Finale",
+  title:"Wisteria at Dusk",
+  sub:"The flower demons will not pass. A slow lament in D minor that turns major in its last four bars — the most singable piece here, and the one to play if you only learn one.",
+  keyName:"D minor → D major", sig:{type:"flat",count:1}, meter:[4,4], bpm:60, unit:"q", level:"Early intermediate",
+  focus:"Cantabile phrasing, vibrato on long notes, one shift to fourth position",
+  drone:50,
+  music:
+   "A3:8 D4:4_ C4:4_ | Bb3:8 A3:8_ | G3:6 A3:2_ Bb3:4 A3:4_ | F3:16 |"+
+   "A3:8 D4:4_ E4:4_ | F4:8 E4:8_ | D4:6 C4:2_ Bb3:4 A3:4_ | A3:16 |"+
+   "F3:4 G3:4_ A3:4 Bb3:4_ | C4:8 A3:8_ | Bb3:4 A3:4_ G3:4 F3:4_ | E3:8 A3:8_ |"+
+   "D3:4 F3:4_ A3:4 D4:4_ | F#4:8 E4:8_ | D4:6 A3:2_ F#3:8 | D3:16",
+  tips:[
+   "<b>Phrase in four-bar arcs.</b> Bars 1–4 rise and settle, 5–8 do it higher, 9–12 come down, 13–16 open out. Decide where the top of each arc is and let everything else lead to or away from it.",
+   "<b>The F sharps in bars 14–15</b> are the point of the piece — D minor becoming D major at the last moment. Place them high and warm; a flat-sounding F sharp there kills the turn.",
+   "<b>Bars 5–7</b> want third position on the A string so the whole phrase stays on one string, with the F4 as an extended fourth finger. Shift during the long F at the end of bar 4, under the bow, where it cannot be heard.",
+   "<b>Vibrate the half notes from the start of the note</b>, not after it has already spoken. On a slow line, a note that begins straight and then wobbles sounds nervous."
+  ]
+}
+];
+
+/* ===============================================================
+   PARSING
+================================================================*/
+const LETTER_PC = {C:0,D:2,E:4,F:5,G:7,A:9,B:11};
+const LETTER_IX = {C:0,D:1,E:2,F:3,G:4,A:5,B:6};
+const OPEN = [36,43,50,57];              // C2 G2 D3 A3
+const STRING_NAME = ["C","G","D","A"];
+
+function parseMusic(src, meter){
+  const perBar = meter[0] * (16 / meter[1]);
+  const out = [];
+  let bar = 0, fill = 0;
+  src.split("|").forEach(barSrc => {
+    const toks = barSrc.trim().split(/\s+/).filter(Boolean);
+    if(!toks.length) return;
+    toks.forEach(tok => {
+      const m = tok.match(/^([A-GR])([#b]?)(\d?):(\d+)([_>.p]*)$/);
+      if(!m){ console.warn("bad token", tok); return; }
+      const [, letter, acc, oct, durS, flags] = m;
+      const dur = parseInt(durS, 10);
+      const rest = letter === "R";
+      const alter = acc === "#" ? 1 : acc === "b" ? -1 : 0;
+      const octave = parseInt(oct || "3", 10);
+      out.push({
+        rest,
+        letter, alter, octave,
+        midi: rest ? null : (octave + 1) * 12 + LETTER_PC[letter] + alter,
+        dia:  rest ? null : octave * 7 + LETTER_IX[letter],
+        dur,
+        slur: flags.includes("_"),
+        accent: flags.includes(">"),
+        stacc: flags.includes("."),
+        pizz: flags.includes("p"),
+        bar, beat: fill
+      });
+      fill += dur;
+      if(fill >= perBar){ bar++; fill = 0; }
+    });
+  });
+  return out;
+}
+
+/* ===============================================================
+   FINGERING  (Viterbi over string / position candidates)
+================================================================*/
+/* Hand shapes: finger 1..4 as semitone offsets from the hand's first-finger
+   position o1. Cellists flex the hand rather than shift for a single note,
+   so a forward or backward extension is modelled as a shape, not a position. */
+const SHAPES = [
+  {off:[0, 1, 2, 3],  ext:false},          // closed
+  {off:[0, 2, 3, 4],  ext:true},           // forward extension (2-3-4 up)
+  {off:[-1, 1, 2, 3], ext:true}            // backward extension (1 reaches back)
+];
+function candidates(midi){
+  const out = [];
+  for(let s = 0; s < 4; s++){
+    const off = midi - OPEN[s];
+    if(off < 1) continue;                            // open strings are handled separately
+    const maxPos = s === 3 ? 9 : 7;
+    for(let o1 = 1; o1 <= maxPos; o1++)
+      SHAPES.forEach(sh => sh.off.forEach((d, i) => {
+        if(o1 + d === off && o1 + d >= 1) out.push({str:s, finger:i + 1, o1, ext:sh.ext});
+      }));
+  }
+  return out;
+}
+function stateCost(c){
+  let k = Math.abs(c.o1 - 2) * 0.45;                  // first position is home
+  if(c.o1 === 1) k += 0.40;                           // half position, rarer still
+  if(c.ext) k += 0.50;                                // a stretch costs less than a shift
+  if(c.finger === 4 && c.o1 >= 5) k += 0.20;
+  return k;
+}
+function moveCost(a, b){
+  return Math.abs(a.o1 - b.o1) * 1.2 + (a.str === b.str ? 0 : 0.7);
+}
+/* Open strings need no hand at all, so they sit outside the search and
+   inherit the position of whatever is around them. */
+function assignFingerings(notes){
+  const idx = [];
+  notes.forEach((n, i) => { if(!n.rest && OPEN.indexOf(n.midi) < 0) idx.push(i); });
+  if(idx.length){
+    let paths = candidates(notes[idx[0]].midi).map(c => ({cost:stateCost(c), seq:[c]}));
+    for(let k = 1; k < idx.length; k++){
+      paths = candidates(notes[idx[k]].midi).map(c => {
+        let best = null;
+        paths.forEach(p => {
+          const cost = p.cost + stateCost(c) + moveCost(p.seq[p.seq.length - 1], c);
+          if(!best || cost < best.cost) best = {cost, seq:p.seq.concat([c])};
+        });
+        return best;
+      });
+    }
+    const best = paths.reduce((a, b) => (b.cost < a.cost ? b : a));
+    idx.forEach((i, k) => { notes[i].fing = best.seq[k]; });
+  }
+  let carried = idx.length ? notes[idx[0]].fing.o1 : 2;
+  notes.forEach((n, i) => {
+    if(n.rest) return;
+    if(n.fing){ carried = n.fing.o1; return; }
+    const ahead = idx.find(j => j > i);
+    n.fing = {str:OPEN.indexOf(n.midi), finger:0, ext:false,
+              o1: ahead !== undefined ? Math.min(carried, notes[ahead].fing.o1) : carried};
+  });
+}
+const POS_ROMAN = {1:"½", 2:"I", 3:"II", 4:"III", 5:"IV", 6:"V", 7:"VI", 8:"VII", 9:"VIII"};
+</script>
+
+<script>
+"use strict";
+
+/* ===============================================================
+   ENGRAVER  —  bass clef staff, flags and beams, cello fingerings
+================================================================*/
+const S = 9;                     // staff space
+const STAFF_TOP = 56;            // within a system
+const BOTTOM = STAFF_TOP + 4 * S;
+const SYS_H = 150;
+const DIA_G2 = 2 * 7 + 4;        // diatonic index of G2, the bottom line
+
+const stepOf = n => n.dia - DIA_G2;
+const yOf    = step => BOTTOM - step * (S / 2);
+const FLAT_STEPS  = [2, 5, 1, 4, 0, 3];
+const SHARP_STEPS = [6, 3, 7, 4, 1, 5];
+const GLYPH = {1:"♯", "-1":"♭", 0:"♮"};
+
+function svgEl(tag, attrs, inner){
+  let s = "<" + tag;
+  for(const k in attrs) s += " " + k + '="' + attrs[k] + '"';
+  return inner === undefined ? s + "/>" : s + ">" + inner + "</" + tag + ">";
+}
+function fClef(x, y){
+  return svgEl("g", {transform:"translate(" + x + "," + y + ")", fill:"#17150F"},
+    svgEl("circle", {cx:0, cy:0, r:4}) +
+    svgEl("path", {d:"M1,-3.6 C9,-8 15,-1 13,8 C11,17 3,24 -8,28",
+                   fill:"none", stroke:"#17150F", "stroke-width":3.2, "stroke-linecap":"round"}) +
+    svgEl("circle", {cx:10.5, cy:-5.5, r:1.9}) +
+    svgEl("circle", {cx:10.5, cy:5.5,  r:1.9}));
+}
+
+function engrave(piece, notes, width){
+  const perBar = piece.meter[0] * (16 / piece.meter[1]);
+  const beamWin = piece.meter[1] === 8 ? 6 : (piece.meter[0] === 4 ? 8 : 4);
+  const bars = [];
+  notes.forEach(n => { (bars[n.bar] = bars[n.bar] || []).push(n); });
+
+  const mps  = width < 520 ? 2 : width < 820 ? 3 : 4;
+  const sigW = piece.sig ? piece.sig.count * 7 + 6 : 0;
+  const pad  = 12;
+
+  const systems = [];
+  for(let i = 0; i < bars.length; i += mps) systems.push(bars.slice(i, i + mps));
+  const H = systems.length * SYS_H + 16;
+
+  let out = "";
+  const place = [];                       // {n, x, y, sysY, step}
+
+  systems.forEach((sys, si) => {
+    const oy    = si * SYS_H;
+    const headW = 34 + sigW + (si === 0 ? 24 : 0);
+    const x0    = pad, xs = pad + headW, xe = width - pad;
+    const usable = xe - xs, mw = usable / sys.length;
+
+    // staff
+    for(let l = 0; l < 5; l++)
+      out += svgEl("line", {x1:x0, y1:oy + STAFF_TOP + l * S, x2:xe, y2:oy + STAFF_TOP + l * S,
+                            stroke:"#8C8574", "stroke-width":0.9});
+    out += fClef(x0 + 14, oy + yOf(6));
+    out += svgEl("text", {x:x0, y:oy + 22, "font-size":9.5, fill:"#8C8574"},
+                 String(sys[0][0].bar + 1));
+
+    // key signature
+    if(piece.sig){
+      const steps = piece.sig.type === "flat" ? FLAT_STEPS : SHARP_STEPS;
+      for(let k = 0; k < piece.sig.count; k++)
+        out += svgEl("text", {x:x0 + 32 + k * 7, y:oy + yOf(steps[k]) + 4.5,
+                              "font-size":15, fill:"#17150F"},
+                     piece.sig.type === "flat" ? "♭" : "♯");
+    }
+    // time signature, first system only
+    if(si === 0){
+      const tx = x0 + 32 + sigW;
+      out += svgEl("text", {x:tx, y:oy + STAFF_TOP + 15, "font-size":16, "font-weight":600,
+                            fill:"#17150F", "text-anchor":"start"}, piece.meter[0]);
+      out += svgEl("text", {x:tx, y:oy + STAFF_TOP + 33, "font-size":16, "font-weight":600,
+                            fill:"#17150F", "text-anchor":"start"}, piece.meter[1]);
+    }
+    // bar lines
+    out += svgEl("line", {x1:xs, y1:oy + STAFF_TOP, x2:xs, y2:oy + BOTTOM, stroke:"#17150F", "stroke-width":1});
+    sys.forEach((bar, bi) => {
+      const bx = xs + (bi + 1) * mw, last = (si === systems.length - 1) && (bi === sys.length - 1);
+      out += svgEl("line", {x1:bx, y1:oy + STAFF_TOP, x2:bx, y2:oy + BOTTOM,
+                            stroke:"#17150F", "stroke-width":last ? 3 : 1});
+      if(last) out += svgEl("line", {x1:bx - 5.5, y1:oy + STAFF_TOP, x2:bx - 5.5, y2:oy + BOTTOM,
+                                     stroke:"#17150F", "stroke-width":1});
+    });
+
+    // notes
+    sys.forEach((bar, bi) => {
+      const mx = xs + bi * mw;
+      const acc = {};                                    // accidentals so far this bar
+      bar.forEach(n => {
+        const x = mx + 9 + (n.beat / perBar) * (mw - 20);
+        if(n.rest){
+          out += svgEl("rect", {x:x - 5, y:oy + yOf(5) - 2, width:10, height:4, fill:"#17150F"});
+          return;
+        }
+        const step = stepOf(n), y = oy + yOf(step);
+        place.push({n, x, y, step, oy, si});
+
+        // ledger lines
+        if(step > 8) for(let s2 = 10; s2 <= step; s2 += 2)
+          out += svgEl("line", {x1:x - 8.5, y1:oy + yOf(s2), x2:x + 8.5, y2:oy + yOf(s2),
+                                stroke:"#8C8574", "stroke-width":0.9});
+        if(step < 0) for(let s2 = -2; s2 >= step; s2 -= 2)
+          out += svgEl("line", {x1:x - 8.5, y1:oy + yOf(s2), x2:x + 8.5, y2:oy + yOf(s2),
+                                stroke:"#8C8574", "stroke-width":0.9});
+
+        // accidental, against key signature and what the bar has already shown
+        const inSig = piece.sig
+          ? (piece.sig.type === "flat"  ? FLAT_STEPS.slice(0, piece.sig.count)
+                                       : SHARP_STEPS.slice(0, piece.sig.count))
+              .some(st => ((st % 7) + 7) % 7 === ((step % 7) + 7) % 7) *
+            (piece.sig.type === "flat" ? -1 : 1)
+          : 0;
+        const shown = acc[step] === undefined ? inSig : acc[step];
+        if(n.alter !== shown){
+          out += svgEl("text", {x:x - 13, y:y + 4.5, "font-size":15, fill:"#17150F"}, GLYPH[n.alter]);
+          acc[step] = n.alter;
+        }
+
+        // notehead
+        const hollow = n.dur >= 8;
+        out += svgEl("ellipse", {id:piece.id + "-n" + notes.indexOf(n), class:"nh",
+          cx:x, cy:y, rx:5.4, ry:4.0, transform:"rotate(-18 " + x + " " + y + ")",
+          fill:hollow ? "none" : "#17150F", stroke:"#17150F", "stroke-width":hollow ? 1.7 : 0.8});
+        if(n.dur === 6 || n.dur === 12 || n.dur === 3)
+          out += svgEl("circle", {cx:x + 9.5, cy:y - (step % 2 === 0 ? 4.5 : 0), r:1.7, fill:"#17150F"});
+
+        // articulation
+        const up = step < 4;
+        if(n.accent)
+          out += svgEl("text", {x:x, y:y + (up ? 17 : -12), "font-size":12, "text-anchor":"middle",
+                                fill:"#17150F"}, ">");
+        if(n.stacc)
+          out += svgEl("circle", {cx:x, cy:y + (up ? 12 : -12), r:1.6, fill:"#17150F"});
+      });
+    });
+  });
+
+  // stems, flags, beams
+  const byBar = {};
+  place.forEach(p => { (byBar[p.n.bar] = byBar[p.n.bar] || []).push(p); });
+  Object.keys(byBar).forEach(b => {
+    const arr = byBar[b];
+    let i = 0;
+    while(i < arr.length){
+      const p = arr[i];
+      if(p.n.dur > 2 || i === arr.length - 1 ||
+         arr[i + 1].n.dur > 2 ||
+         Math.floor(arr[i + 1].n.beat / beamWin) !== Math.floor(p.n.beat / beamWin) ||
+         arr[i + 1].si !== p.si){
+        out += stemAndFlag(p);
+        i++;
+        continue;
+      }
+      let j = i;
+      while(j + 1 < arr.length && arr[j + 1].n.dur <= 2 &&
+            Math.floor(arr[j + 1].n.beat / beamWin) === Math.floor(p.n.beat / beamWin) &&
+            arr[j + 1].si === p.si) j++;
+      out += beamGroup(arr.slice(i, j + 1));
+      i = j + 1;
+    }
+  });
+
+  // slurs
+  let g = [];
+  const flush = () => {
+    if(g.length > 1){
+      const a = g[0], z = g[g.length - 1];
+      const top = Math.max(Math.min(...g.map(p => p.y)) - 26, g[0].oy + 20);
+      out += svgEl("path", {d:"M" + a.x + "," + (a.y - 13) + " Q" + ((a.x + z.x) / 2) + "," + top +
+                               " " + z.x + "," + (z.y - 13),
+                            fill:"none", stroke:"#17150F", "stroke-width":1.2, opacity:.85});
+    }
+    g = [];
+  };
+  place.forEach(p => {
+    if(p.n.slur && g.length && g[g.length - 1].si === p.si) g.push(p);
+    else { flush(); g = [p]; }
+  });
+  flush();
+
+  // pizzicato / arco changes
+  let pizzState = null;
+  place.forEach(p => {
+    if(p.n.pizz === pizzState) return;
+    if(pizzState !== null || p.n.pizz)
+      out += svgEl("text", {x:p.x - 6, y:p.oy + BOTTOM + 16, "font-size":11.5,
+                            "font-style":"italic", fill:"#17150F"}, p.n.pizz ? "pizz." : "arco");
+    pizzState = p.n.pizz;
+  });
+
+  // fingerings and position marks
+  let lastPos = null;
+  place.forEach(p => {
+    const f = p.n.fing;
+    if(!f) return;
+    out += svgEl("text", {class:"fing", x:p.x, y:p.oy + BOTTOM + 30, "font-size":12.5,
+                          "font-weight":600, "text-anchor":"middle", fill:piece.accent,
+                          "font-style":f.ext ? "italic" : "normal"},
+                 String(f.finger));
+    out += svgEl("text", {class:"fing", x:p.x, y:p.oy + BOTTOM + 41, "font-size":9.5,
+                          "text-anchor":"middle", fill:"#5C5344", "letter-spacing":".05em"},
+                 STRING_NAME[f.str]);
+    if(f.finger !== 0 && f.o1 !== lastPos){
+      out += svgEl("text", {class:"fing", x:p.x,
+                            y:p.oy + 11, "font-size":11,
+                            "text-anchor":"middle", fill:"#5C5344", "font-style":"italic"},
+                   POS_ROMAN[f.o1] || "");
+      lastPos = f.o1;
+    }
+  });
+
+  return svgEl("svg", {class:"score", viewBox:"0 0 " + width + " " + H, width:width, height:H,
+                       xmlns:"http://www.w3.org/2000/svg",
+                       "font-family":"Iowan Old Style, Palatino, Georgia, serif"}, out);
+}
+
+function stemAndFlag(p){
+  const up = p.step < 4;
+  if(p.n.dur >= 16) return "";                       // whole note, no stem
+  const x  = p.x + (up ? 5.0 : -5.0);
+  const y2 = p.y + (up ? -26 : 26);
+  let s = svgEl("line", {x1:x, y1:p.y + (up ? -1 : 1), x2:x, y2:y2, stroke:"#17150F", "stroke-width":1.3});
+  if(p.n.dur <= 2){
+    const d = up ? 1 : -1;
+    s += svgEl("path", {d:"M" + x + "," + y2 + " c 6," + (4 * d) + " 8," + (9 * d) + " 4," + (15 * d) +
+                           " c 3," + (-7 * d) + " -1," + (-9 * d) + " -4," + (-11 * d) + " z",
+                        fill:"#17150F"});
+    if(p.n.dur === 1)
+      s += svgEl("path", {d:"M" + x + "," + (y2 + 6 * d) + " c 6," + (4 * d) + " 8," + (9 * d) + " 4," + (15 * d) +
+                             " c 3," + (-7 * d) + " -1," + (-9 * d) + " -4," + (-11 * d) + " z",
+                          fill:"#17150F"});
+  }
+  return s;
+}
+function beamGroup(gs){
+  const avg = gs.reduce((a, p) => a + p.step, 0) / gs.length;
+  const up  = avg < 4;
+  const yb  = up ? Math.min(...gs.map(p => p.y)) - 27 : Math.max(...gs.map(p => p.y)) + 27;
+  let s = "";
+  gs.forEach(p => {
+    const x = p.x + (up ? 5.0 : -5.0);
+    s += svgEl("line", {x1:x, y1:p.y + (up ? -1 : 1), x2:x, y2:yb, stroke:"#17150F", "stroke-width":1.3});
+  });
+  const xa = gs[0].x + (up ? 5.0 : -5.0), xz = gs[gs.length - 1].x + (up ? 5.0 : -5.0);
+  s += svgEl("line", {x1:xa, y1:yb, x2:xz, y2:yb, stroke:"#17150F", "stroke-width":3.6,
+                      "stroke-linecap":"butt"});
+  if(gs.every(p => p.n.dur === 1))
+    s += svgEl("line", {x1:xa, y1:yb + (up ? 6 : -6), x2:xz, y2:yb + (up ? 6 : -6),
+                        stroke:"#17150F", "stroke-width":3.6});
+  return s;
+}
+</script>
+
+<style>.nofing .fing{display:none}</style>
+<script>
+"use strict";
+
+/* ===============================================================
+   AUDIO  —  a synthesised bow
+================================================================*/
+let ctx = null, master = null;
+function audio(){
+  if(!ctx){
+    ctx = new (window.AudioContext || window.webkitAudioContext)();
+    master = ctx.createGain();
+    master.gain.value = parseFloat(document.getElementById("vol").value);
+    master.connect(ctx.destination);
+  }
+  if(ctx.state === "suspended") ctx.resume();
+  return ctx;
+}
+const hz = m => 440 * Math.pow(2, (m - 69) / 12);
+let live = [];                              // oscillators currently scheduled
+
+function bow(midi, at, dur, o){
+  o = o || {};
+  const c = audio(), f = hz(midi);
+  const bus = c.createGain(), lp = c.createBiquadFilter();
+  lp.type = "lowpass";
+  lp.frequency.setValueAtTime(Math.min(f * 7 + 500, 6200), at);
+  lp.Q.value = 0.7;
+  lp.connect(bus).connect(o.bus || master);
+
+  const peak = (o.gain || 0.26) * (o.accent ? 1.25 : 1);
+  const g = bus.gain, end = at + dur;
+  g.setValueAtTime(0.0001, at);
+  if(o.pizz){
+    g.exponentialRampToValueAtTime(peak * 1.3, at + 0.006);
+    g.exponentialRampToValueAtTime(0.0001, at + Math.min(dur + 0.5, 1.7));
+  }else{
+    const atk = o.accent ? 0.022 : 0.055;
+    g.exponentialRampToValueAtTime(peak, at + atk);
+    g.exponentialRampToValueAtTime(peak * 0.78, at + atk + 0.12);
+    g.setValueAtTime(peak * 0.78, Math.max(end - 0.06, at + atk + 0.13));
+    g.exponentialRampToValueAtTime(0.0001, end + 0.09);
+  }
+  const stop = at + (o.pizz ? Math.min(dur + 0.6, 1.9) : dur + 0.14);
+
+  // vibrato, faded in the way a player leans into a held note
+  const lfo = c.createOscillator(), depth = c.createGain();
+  lfo.frequency.value = 5.3;
+  depth.gain.setValueAtTime(0.0001, at);
+  if(!o.pizz && dur > 0.28){
+    depth.gain.setValueAtTime(0.0001, at + 0.12);
+    depth.gain.linearRampToValueAtTime(7, at + 0.34);
+  }
+  lfo.connect(depth);
+  lfo.start(at); lfo.stop(stop);
+  live.push(lfo);
+
+  [[-5, 0.5, "sawtooth"], [5, 0.5, "sawtooth"], [0, 0.22, "triangle"]].forEach(([det, amp, type]) => {
+    const osc = c.createOscillator(), og = c.createGain();
+    osc.type = type;
+    osc.frequency.setValueAtTime(f, at);
+    osc.detune.setValueAtTime(det, at);
+    depth.connect(osc.detune);
+    og.gain.value = amp * (o.pizz ? (type === "triangle" ? 0.6 : 0.9) : 1);
+    osc.connect(og).connect(lp);
+    osc.start(at); osc.stop(stop);
+    live.push(osc);
+  });
+}
+
+/* ===============================================================
+   TRANSPORT
+================================================================*/
+const el = id => document.getElementById(id);
+const qpmOf  = p => p.unit === "e" ? p.bpm / 2 : p.unit === "dq" ? p.bpm * 1.5 : p.bpm;
+const rate   = () => parseInt(el("tempo").value, 10) / 100;
+const sec16  = p => 60 / (qpmOf(p) * rate()) / 4;
+
+let now = null;                             // {piece, t0, times, dur, timer, raf, bus}
+function stopAll(){
+  if(now){
+    if(now.timer) clearTimeout(now.timer);
+    if(now.raf) cancelAnimationFrame(now.raf);
+    if(now.bus){
+      const t = ctx.currentTime;
+      now.bus.gain.cancelScheduledValues(t);
+      now.bus.gain.setValueAtTime(now.bus.gain.value, t);
+      now.bus.gain.linearRampToValueAtTime(0.0001, t + 0.07);
+    }
+    live.forEach(o => { try{ o.stop(ctx.currentTime + 0.09); }catch(e){} });
+    live = [];
+    document.querySelectorAll(".nh").forEach(n => n.classList.remove("hit"));
+    document.querySelectorAll(".play").forEach(b => { b.textContent = "▶ Play"; b.classList.remove("on"); });
+    now = null;
+  }
+}
+function schedule(p, notes, startAt, bus){
+  const u = sec16(p);
+  const times = [];
+  let t = 0;
+  notes.forEach((n, i) => {
+    const dur = n.dur * u;
+    times.push(t);
+    if(!n.rest){
+      let sound = dur * (n.stacc ? 0.5 : n.slurNext ? 1.0 : 0.94);
+      bow(n.midi, startAt + t, sound, {pizz:n.pizz, accent:n.accent, bus:bus,
+                                       gain: n.pizz ? 0.3 : 0.26});
+    }
+    t += dur;
+  });
+  return {times, total:t};
+}
+function play(p, btn){
+  const wasSame = now && now.piece === p.id;
+  stopAll();
+  if(wasSame) return;
+  const c = audio();
+  const bus = c.createGain();
+  bus.gain.value = 1;
+  bus.connect(master);
+  const startAt = c.currentTime + 0.12;
+  const { times, total } = schedule(p, p._notes, startAt, bus);
+
+  if(el("drone").checked && p.drone){
+    bow(p.drone - 12, startAt, total, {gain:0.055, bus:bus});
+    bow(p.drone,      startAt, total, {gain:0.05,  bus:bus});
+  }
+  btn.textContent = "■ Stop"; btn.classList.add("on");
+
+  now = {piece:p.id, t0:startAt, times, total, bus, raf:null, timer:null};
+  const heads = p._notes.map((n, i) => el(p.id + "-n" + i));
+  let cur = -1;
+  const tick = () => {
+    if(!now) return;
+    const e = ctx.currentTime - now.t0;
+    let k = -1;
+    for(let i = 0; i < times.length; i++) if(times[i] <= e) k = i; else break;
+    if(k !== cur){
+      if(heads[cur]) heads[cur].classList.remove("hit");
+      if(heads[k])   heads[k].classList.add("hit");
+      cur = k;
+    }
+    now.raf = requestAnimationFrame(tick);
+  };
+  now.raf = requestAnimationFrame(tick);
+
+  now.timer = setTimeout(() => {
+    if(!now) return;
+    if(el("loopAll").checked){ play(p, btn); }
+    else stopAll();
+  }, (total + 0.35) * 1000);
+}
+
+/* ===============================================================
+   MIDI EXPORT
+================================================================*/
+function vlq(n){
+  const bytes = [n & 0x7f];
+  n >>= 7;
+  while(n){ bytes.unshift((n & 0x7f) | 0x80); n >>= 7; }
+  return bytes;
+}
+function midiBytes(p){
+  const TPQ = 480, T16 = TPQ / 4;
+  const ev = [];                                   // {tick, data[]}
+  let t = 0;
+  p._notes.forEach(n => {
+    if(!n.rest){
+      const len = Math.max(1, Math.round(n.dur * T16 * (n.stacc ? 0.5 : 0.94)));
+      ev.push({tick:t, data:[0x90, n.midi, n.accent ? 108 : 84]});
+      ev.push({tick:t + len, data:[0x80, n.midi, 0]});
+    }
+    t += n.dur * T16;
+  });
+  ev.sort((a, b) => a.tick - b.tick || (a.data[0] & 0xf0) - (b.data[0] & 0xf0));
+
+  const usPerQ = Math.round(60000000 / qpmOf(p));
+  const name = [...(p.title + " — original for solo cello")].map(ch => ch.charCodeAt(0) & 0x7f);
+  let track = [
+    0, 0xff, 0x03, name.length, ...name,
+    0, 0xff, 0x51, 0x03, (usPerQ >> 16) & 255, (usPerQ >> 8) & 255, usPerQ & 255,
+    0, 0xff, 0x58, 0x04, p.meter[0], Math.round(Math.log2(p.meter[1])), 24, 8,
+    0, 0xc0, 41                                     // GM cello
+  ];
+  let last = 0;
+  ev.forEach(e => { track = track.concat(vlq(e.tick - last), e.data); last = e.tick; });
+  track = track.concat([0, 0xff, 0x2f, 0x00]);
+  const L = track.length;
+  const bytes = [0x4d, 0x54, 0x68, 0x64, 0, 0, 0, 6, 0, 0, 0, 1, (TPQ >> 8) & 255, TPQ & 255,
+                 0x4d, 0x54, 0x72, 0x6b, (L >> 24) & 255, (L >> 16) & 255, (L >> 8) & 255, L & 255,
+                 ...track];
+  return new Uint8Array(bytes);
+}
+function downloadMidi(p){
+  const blob = new Blob([midiBytes(p)], {type:"audio/midi"});
+  const a = document.createElement("a");
+  a.href = URL.createObjectURL(blob);
+  a.download = p.id + "-solo-cello.mid";
+  document.body.appendChild(a); a.click();
+  setTimeout(() => { URL.revokeObjectURL(a.href); a.remove(); }, 800);
+}
+
+/* ===============================================================
+   BUILD
+================================================================*/
+const UNIT_GLYPH = {q:"♩", e:"♪", dq:"♩."};
+PIECES.forEach(p => {
+  p._notes = parseMusic(p.music, p.meter);
+  p._notes.forEach((n, i) => { const nx = p._notes[i + 1]; n.slurNext = !!(nx && nx.slur); });
+  assignFingerings(p._notes);
+});
+
+const host = el("pieces");
+host.innerHTML = PIECES.map((p, i) => {
+  const bars = p._notes[p._notes.length - 1].bar + 1;
+  return '<article class="piece" id="p-' + p.id + '" style="--accent:' + p.accent + '">' +
+    '<div class="phead">' +
+      '<span class="ptag">' + (i + 1) + ' · ' + p.tag + '</span>' +
+      '<h3 class="ptitle">' + p.title + '</h3>' +
+      '<p class="psub">' + p.sub + '</p>' +
+      '<p class="pmeta"><span>' + p.keyName + '</span><span>' + p.meter[0] + '/' + p.meter[1] + '</span>' +
+        '<span>' + UNIT_GLYPH[p.unit] + ' = ' + p.bpm + '</span><span>' + bars + ' bars</span>' +
+        '<span>' + p.level + '</span><span>' + p.focus + '</span></p>' +
+    '</div>' +
+    '<div class="btns">' +
+      '<button class="play" data-play="' + p.id + '">▶ Play</button>' +
+      '<button data-midi="' + p.id + '">MIDI</button>' +
+    '</div>' +
+    '<div class="pbody" id="body-' + p.id + '"></div>' +
+    '<div class="pfoot"><ul class="tips">' + p.tips.map(t => "<li>" + t + "</li>").join("") + '</ul></div>' +
+  '</article>';
+}).join("");
+
+function renderAll(){
+  PIECES.forEach(p => {
+    const box = el("body-" + p.id);
+    const w = Math.max(320, Math.min(1040, box.clientWidth - 4));
+    box.innerHTML = engrave(p, p._notes, w);
+  });
+  document.querySelectorAll(".nh").forEach(n => {
+    n.style.transition = "fill .06s linear";
+  });
+}
+renderAll();
+
+const styleHit = document.createElement("style");
+styleHit.textContent = ".nh.hit{fill:#B4553A !important;stroke:#B4553A !important}";
+document.head.appendChild(styleHit);
+
+/* ---- events ---- */
+host.addEventListener("click", e => {
+  const pid = e.target.dataset.play, mid = e.target.dataset.midi;
+  if(pid) play(PIECES.find(x => x.id === pid), e.target);
+  if(mid) downloadMidi(PIECES.find(x => x.id === mid));
+});
+el("vol").addEventListener("input", e => { if(master) master.gain.value = parseFloat(e.target.value); });
+el("tempo").addEventListener("input", e => { el("tempoVal").textContent = e.target.value + "%"; });
+el("tempo").addEventListener("change", () => { if(now) stopAll(); });
+el("fings").addEventListener("change", e => host.classList.toggle("nofing", !e.target.checked));
+el("drone").addEventListener("change", () => { if(now) stopAll(); });
+document.addEventListener("keydown", e => {
+  if(e.key === "Escape") stopAll();
+});
+let rt = null;
+window.addEventListener("resize", () => {
+  clearTimeout(rt);
+  rt = setTimeout(() => { const playing = now && now.piece; stopAll(); renderAll(); }, 220);
+});
+</script>
+</body>
+</html>
