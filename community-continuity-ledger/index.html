@@ -1,0 +1,313 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Community Continuity Ledger — Pass Four, Transcript-Verified</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,600;0,700;1,400&family=Inter:wght@400;500;600;700&family=JetBrains+Mono:wght@400;500;700&display=swap" rel="stylesheet">
+<style>
+:root{
+  --cream:#f4ecd8; --cream-2:#efe4ca; --ink:#1c1a17; --ink-soft:#3d382f;
+  --rule:#d6c7a8; --mustard:#d9a521; --rust:#b4451f; --sage:#6f7f5c;
+  --dusty:#8c6f8e; --teal:#3f6f74; --paper:#fbf6ea;
+}
+*{box-sizing:border-box}
+body{margin:0;background:var(--cream);color:var(--ink);
+  font-family:Inter,-apple-system,BlinkMacSystemFont,"Segoe UI",sans-serif;
+  font-size:16px;line-height:1.62;-webkit-font-smoothing:antialiased}
+.wrap{max-width:940px;margin:0 auto;padding:0 24px 96px}
+
+header.masthead{border-bottom:3px double var(--ink);padding:56px 0 26px;margin-bottom:34px}
+.kicker{font-family:"JetBrains Mono",monospace;font-size:11px;letter-spacing:.22em;
+  text-transform:uppercase;color:var(--rust);margin:0 0 14px}
+h1{font-family:"Cormorant Garamond",Georgia,serif;font-weight:700;font-size:clamp(34px,6vw,60px);
+  line-height:1.04;margin:0 0 14px;letter-spacing:-.01em}
+.standfirst{font-family:"Cormorant Garamond",Georgia,serif;font-size:clamp(18px,2.4vw,23px);
+  font-style:italic;color:var(--ink-soft);margin:0;max-width:66ch}
+
+.statbar{display:grid;grid-template-columns:repeat(auto-fit,minmax(150px,1fr));gap:1px;
+  background:var(--rule);border:1px solid var(--rule);margin:32px 0 40px}
+.stat{background:var(--paper);padding:16px 18px}
+.stat .n{font-family:"JetBrains Mono",monospace;font-size:26px;font-weight:700;color:var(--rust);
+  display:block;line-height:1.1}
+.stat .l{font-family:"JetBrains Mono",monospace;font-size:10px;letter-spacing:.14em;
+  text-transform:uppercase;color:var(--ink-soft);margin-top:6px;display:block}
+
+nav.toc{background:var(--paper);border:1px solid var(--rule);border-left:5px solid var(--mustard);
+  padding:22px 26px;margin:0 0 46px}
+nav.toc h2{font-family:"JetBrains Mono",monospace;font-size:11px;letter-spacing:.2em;
+  text-transform:uppercase;margin:0 0 14px;color:var(--ink-soft)}
+nav.toc ol{margin:0;padding-left:22px;columns:2;column-gap:34px}
+@media(max-width:640px){nav.toc ol{columns:1}}
+nav.toc li{margin:0 0 8px;break-inside:avoid}
+nav.toc a{color:var(--ink);text-decoration:none;border-bottom:1px solid var(--rule)}
+nav.toc a:hover{border-bottom-color:var(--rust);color:var(--rust)}
+
+section.entry{margin:0 0 52px;scroll-margin-top:20px}
+h2.head{font-family:"Cormorant Garamond",Georgia,serif;font-size:clamp(24px,3.4vw,33px);
+  font-weight:700;line-height:1.16;margin:0 0 6px;padding-top:22px;border-top:1px solid var(--rule)}
+p{margin:0 0 15px;max-width:74ch}
+strong{font-weight:600}
+
+.badge{display:inline-block;font-family:"JetBrains Mono",monospace;font-size:10px;font-weight:700;
+  letter-spacing:.12em;text-transform:uppercase;padding:4px 9px;border-radius:2px;
+  color:var(--paper);margin:0 6px 12px 0;vertical-align:middle}
+.b-conf{background:var(--sage)}
+.b-corr{background:var(--mustard);color:var(--ink)}
+.b-struct{background:var(--teal)}
+.b-part{background:var(--dusty)}
+.b-open{background:var(--rust)}
+
+.cite{background:var(--paper);border:1px solid var(--rule);border-left:5px solid var(--teal);
+  padding:14px 18px;margin:16px 0 18px;font-family:"JetBrains Mono",monospace;font-size:12.5px;
+  line-height:1.75;overflow-x:auto}
+.cite .ep{color:var(--rust);font-weight:700}
+.cite .tc{color:var(--teal);font-weight:500}
+.cite .note{color:var(--ink-soft);font-style:italic;font-family:Inter,sans-serif;font-size:12px}
+
+table{width:100%;border-collapse:collapse;margin:20px 0 26px;font-size:13.5px;
+  background:var(--paper);border:1px solid var(--rule)}
+caption{caption-side:top;text-align:left;font-family:"JetBrains Mono",monospace;font-size:10px;
+  letter-spacing:.16em;text-transform:uppercase;color:var(--ink-soft);padding:0 0 9px}
+th,td{border-bottom:1px solid var(--rule);padding:9px 12px;text-align:left;vertical-align:top}
+th{font-family:"JetBrains Mono",monospace;font-size:10px;letter-spacing:.11em;text-transform:uppercase;
+  background:var(--cream-2);color:var(--ink-soft);font-weight:700}
+td.mono{font-family:"JetBrains Mono",monospace;font-size:12px;white-space:nowrap}
+tr:last-child td{border-bottom:none}
+.tblwrap{overflow-x:auto}
+
+.callout{background:var(--cream-2);border:1px solid var(--rule);border-left:5px solid var(--rust);
+  padding:20px 24px;margin:34px 0}
+.callout h3{font-family:"JetBrains Mono",monospace;font-size:11px;letter-spacing:.18em;
+  text-transform:uppercase;margin:0 0 11px;color:var(--rust)}
+.callout p:last-child{margin-bottom:0}
+
+footer{border-top:3px double var(--ink);margin-top:64px;padding-top:22px;
+  font-family:"JetBrains Mono",monospace;font-size:11.5px;color:var(--ink-soft);line-height:1.9}
+footer .path{word-break:break-all}
+</style>
+</head>
+<body>
+<div class="wrap">
+
+<header class="masthead">
+  <p class="kicker">Community · Continuity Project · Pass Four</p>
+  <h1>The Transcript-Verified Ledger</h1>
+  <p class="standfirst">Every entry tested against a subtitle track before it was written. Episode code, timecode, and the line as the disc renders it. Where the transcript refuses a claim, the refusal is recorded beside it.</p>
+</header>
+
+<div class="statbar">
+  <div class="stat"><span class="n">18</span><span class="l">Episodes in evidence</span></div>
+  <div class="stat"><span class="n">7,828</span><span class="l">Timecoded cues</span></div>
+  <div class="stat"><span class="n">10</span><span class="l">Claims confirmed</span></div>
+  <div class="stat"><span class="n">2</span><span class="l">Claims corrected</span></div>
+  <div class="stat"><span class="n">6</span><span class="l">Out of reach</span></div>
+</div>
+
+<nav class="toc">
+  <h2>Contents</h2>
+  <ol>
+    <li><a href="#evidence">The evidence base and its limits</a></li>
+    <li><a href="#opening">Spanish 101 opens as one continuous stretch</a></li>
+    <li><a href="#lotus">Laser Lotus starts a season earlier</a></li>
+    <li><a href="#beetlejuice">Beetlejuice, instance one, timecoded</a></li>
+    <li><a href="#greeting">The courtly greeting returns, sung</a></li>
+    <li><a href="#anniversary">What the two-week anniversary commemorates</a></li>
+    <li><a href="#douche">The douche-ray line has a stated source</a></li>
+    <li><a href="#cannabis">The cannabis patch and its missing payoff</a></li>
+    <li><a href="#catalogue">Both catalogue errors, confirmed</a></li>
+    <li><a href="#diehard">Die Hard enters as characterization</a></li>
+    <li><a href="#silence">Claims the evidence could not reach</a></li>
+    <li><a href="#status">Status vocabulary and the three-way split</a></li>
+  </ol>
+</nav>
+
+<section class="entry" id="evidence">
+<h2 class="head">The evidence base and its limits</h2>
+<p>The corpus is built from the BluRay discs on this machine. Eighteen episodes carried an embedded English subtitle track, and those were extracted to SRT, parsed into cues, and indexed by timecode. That yields <strong>7,828 cues across eighteen episodes</strong>, spanning Season One episodes 2 through 19 and five episodes from Season Two.</p>
+<p>One limitation governs the whole pass. Subtitle tracks carry no speaker attribution, so any statement about who says a line is marked <em>inferred from placement</em>. A speaker-tagged transcript would settle those. Episodes with no local video sit outside evidence entirely, and silence from this corpus is never treated as refusal for them.</p>
+<div class="tblwrap">
+<table>
+<caption>Episodes in evidence</caption>
+<thead><tr><th>Code</th><th>Title</th><th class="mono">Cues</th></tr></thead>
+<tbody>
+<tr><td class="mono">S01E02</td><td>Spanish 101</td><td class="mono">401</td></tr>
+<tr><td class="mono">S01E04</td><td>Social Psychology</td><td class="mono">430</td></tr>
+<tr><td class="mono">S01E06</td><td>Football, Feminism and You</td><td class="mono">462</td></tr>
+<tr><td class="mono">S01E08</td><td>Home Economics</td><td class="mono">455</td></tr>
+<tr><td class="mono">S01E09</td><td>Debate 109</td><td class="mono">382</td></tr>
+<tr><td class="mono">S01E11</td><td>The Politics of Human Sexuality</td><td class="mono">421</td></tr>
+<tr><td class="mono">S01E12</td><td>Comparative Religion</td><td class="mono">441</td></tr>
+<tr><td class="mono">S01E14</td><td>Interpretive Dance</td><td class="mono">455</td></tr>
+<tr><td class="mono">S01E16</td><td>Communication Studies</td><td class="mono">453</td></tr>
+<tr><td class="mono">S01E17</td><td>Physical Education</td><td class="mono">425</td></tr>
+<tr><td class="mono">S01E18</td><td>Basic Genealogy</td><td class="mono">461</td></tr>
+<tr><td class="mono">S01E19</td><td>Beginner Pottery</td><td class="mono">434</td></tr>
+<tr><td class="mono">S02E05</td><td>Messianic Myths and Ancient Peoples</td><td class="mono">423</td></tr>
+<tr><td class="mono">S02E06</td><td>Epidemiology</td><td class="mono">415</td></tr>
+<tr><td class="mono">S02E16</td><td>Intermediate Documentary Filmmaking</td><td class="mono">438</td></tr>
+<tr><td class="mono">S02E18</td><td>Custody Law and Eastern European Diplomacy</td><td class="mono">474</td></tr>
+<tr><td class="mono">S02E19</td><td>Critical Film Studies</td><td class="mono">442</td></tr>
+<tr><td class="mono">S02E20</td><td>Competitive Wine Tasting</td><td class="mono">416</td></tr>
+</tbody>
+</table>
+</div>
+</section>
+
+<section class="entry" id="opening">
+<h2 class="head">Spanish 101 opens as one continuous stretch, not five scattered seeds</h2>
+<span class="badge b-struct">Structural · confirmed by timecode</span>
+<p>The ledger had been treating Abed's television framing, Britta's reality question, the courtly greeting, and Jeff's entrance as separate seeds inside a dense episode. The timecodes show them occupying roughly ninety seconds of a single unbroken sequence.</p>
+<div class="cite">
+<span class="ep">S01E02</span> <span class="tc">00:00:46</span> cue 20 — Abed says the Dean's announcements make every ten minutes feel like a new scene of a TV show<br>
+<span class="ep">S01E02</span> <span class="tc">00:00:54</span> cue 24 — Abed names the device aloud and the illusion collapses<br>
+<span class="ep">S01E02</span> <span class="tc">00:01:57</span> cue 52 — Britta asks whether he understands television and life are separate<br>
+<span class="ep">S01E02</span> <span class="tc">00:02:04</span> cue 54 — the courtly greeting, both halves in one cue<br>
+<span class="ep">S01E02</span> <span class="tc">00:02:15</span> cue 59 — Abed grades the entrance, Jeff says it was staged for him<br>
+<span class="note">Speakers inferred from placement. Subtitle track carries no attribution.</span>
+</div>
+<p>Reading those five beats as one sequence changes what the episode is doing. The show establishes Abed's television grammar. It tests that grammar through Britta, demonstrates it through Jeff, then confirms that Jeff performs inside it on purpose, and the third minute has not arrived.</p>
+</section>
+
+<section class="entry" id="lotus">
+<h2 class="head">The Laser Lotus vocabulary begins a full season earlier than the ledger placed it</h2>
+<span class="badge b-conf">Confirmed callback</span><span class="badge b-corr">Upgraded from thematic echo</span>
+<p>The ledger assigned the Energon material to S02E03 and treated <em>Comparative Religion</em> as establishing Pierce's religious language in a general way. The transcript places considerably more of the system in S01E12.</p>
+<div class="cite">
+<span class="ep">S01E12</span> <span class="tc">00:04:37</span> cue 101 — Pierce announces a numbered rank inside his stated Buddhist community<br>
+<span class="ep">S01E12</span> <span class="tc">00:04:41</span> cue 102 — first challenge, that this does not resemble Buddhism<br>
+<span class="ep">S01E12</span> <span class="tc">00:04:43</span> cue 103 — second challenge, the cult question<br>
+<span class="ep">S01E12</span> <span class="tc">00:04:45</span> cue 105 — asking the question costs the asker a rank<br>
+<span class="ep">S01E12</span> <span class="tc">00:04:49</span> cue 106 — a debt of two thousand energon cubes is assessed
+</div>
+<p>The numbered levels are present, along with the demotion penalty and the energon currency, ahead of the death of Pierce's mother by a full season. This strengthens the existing claim rather than weakening it. Pierce's reaction to that death draws on a belief system the series had already built, priced, and mocked.</p>
+</section>
+
+<section class="entry" id="beetlejuice">
+<h2 class="head">Beetlejuice, instance one, located and timecoded</h2>
+<span class="badge b-part">One leg confirmed · two pending</span>
+<p>The ledger uses Beetlejuice as its benchmark for deliberate long-range setup, and a benchmark that depends on a count needs its instances anchored. The first sits in the cold open of <em>Communication Studies</em>, where a speaker guessing Britta's name runs a short list of wrong B-names and lands on Beetlejuice.</p>
+<div class="cite">
+<span class="ep">S01E16</span> <span class="tc">00:00:24</span> cue 9 — the name appears third in a list of guesses<br>
+<span class="note">Placement makes the Dean the likely speaker. Attribution inferred.</span>
+</div>
+<p>The second and third invocations sit in episodes with no local video, so they remain outside evidence. Recording one anchored leg is worth doing precisely because the argument rests on the sequence being complete.</p>
+</section>
+
+<section class="entry" id="greeting">
+<h2 class="head">The courtly greeting returns four episodes later, sung</h2>
+<span class="badge b-conf">Confirmed recurrence</span><span class="badge b-open">New to the ledger</span>
+<p>The ledger has no entry for this one. The greeting appears in <em>Spanish 101</em>, and it returns in <em>Football, Feminism and You</em> inside a musical number, with the two halves of the exchange split across consecutive cues and interleaved with sung lines.</p>
+<div class="cite">
+<span class="ep">S01E02</span> <span class="tc">00:02:04</span> cue 54 — both halves delivered in one cue, spoken<br>
+<span class="ep">S01E06</span> <span class="tc">00:20:18</span> cue 448 — first half, inside a musical number<br>
+<span class="ep">S01E06</span> <span class="tc">00:20:20</span> cue 449 — second half, one cue later
+</div>
+<p>A ritual phrase returning inside another performance register four episodes later belongs in the recurring-phrase ledger rather than the callback column. The series is establishing the exchange as something the characters can pick up and restage.</p>
+</section>
+
+<section class="entry" id="anniversary">
+<h2 class="head">The two-week anniversary commemorates something other than the relationship</h2>
+<span class="badge b-corr">Confirmed with correction</span>
+<p>The ledger records Jeff remembering a two week anniversary involving Britta, and reads that as evidence Britta mattered to him immediately. The line says the anniversary belongs to his own horrible first impression.</p>
+<div class="cite">
+<span class="ep">S01E02</span> <span class="tc">00:03:40</span> cue 85 — the anniversary is of the first impression, self-assessed as horrible
+</div>
+<p>That wording moves the observation without destroying it. Jeff is tracking his own performance history with precision, and Britta is the audience that performance failed in front of. The comparison with Troy forgetting his anniversary in Season Four still holds, and it now compares two different objects of attention. Troy remembers a shared ritual with Abed. Jeff remembers a personal failure.</p>
+</section>
+
+<section class="entry" id="douche">
+<h2 class="head">The douche-ray line is grounded in stated biography</h2>
+<span class="badge b-conf">Confirmed, exact wording</span>
+<p>The ledger paraphrases Britta's early read on Jeff. The subtitle renders the phrase hyphenated and attaches it to a stated history of ups and downs, so Britta presents the ability as earned through her own life rather than as a joke about intuition.</p>
+<div class="cite">
+<span class="ep">S01E02</span> <span class="tc">00:03:55</span> cue 92 — the faculty is credited to a life of ups and downs
+</div>
+<p>That carries weight in the long Britta thread, since her diagnostic accuracy about Jeff is repeatedly played as luck later in the series. The first statement of it claims experience as the source.</p>
+</section>
+
+<section class="entry" id="cannabis">
+<h2 class="head">The cannabis patch, exact wording and what it does not say</h2>
+<span class="badge b-conf">Seed confirmed</span><span class="badge b-open">Literal payoff unsupported</span>
+<p>The ledger flags a cannabis reference planted early and connects it forward to later Greendale drug material. The line is confirmed, delivered as a Dean announcement addressed to whoever is growing a small patch behind the gymnasium.</p>
+<div class="cite">
+<span class="ep">S01E02</span> <span class="tc">00:00:17</span> cue 8 — an unnamed grower, a small patch, one named location
+</div>
+<p>The wording supports the seed and refuses the payoff. Nothing in the line identifies a grower or a strain that a later episode could claim as the same plot. The Season Five botany material stays graded as a strong thematic callback with the literal chain unproven.</p>
+</section>
+
+<section class="entry" id="catalogue">
+<h2 class="head">Both catalogue errors, confirmed inside fifteen seconds</h2>
+<span class="badge b-conf">Confirmed</span>
+<p>Both corrections land before the episode's first fifteen seconds are out. The first swaps a science for a beauty qualification. The second swaps a divination practice for a science.</p>
+<div class="cite">
+<span class="ep">S01E02</span> <span class="tc">00:00:08</span> cue 4 — correction one<br>
+<span class="ep">S01E02</span> <span class="tc">00:00:11</span> cue 5 — correction two
+</div>
+<p>The pair establishes the institutional rule the ledger credits, that Greendale's paperwork generates its own reality and a typo can become a department. The Season Four program built from a catalogue typo sits in an episode with no local video and stays evidence pending.</p>
+</section>
+
+<section class="entry" id="diehard">
+<h2 class="head">Die Hard enters the vocabulary as characterization</h2>
+<span class="badge b-conf">Confirmed · function recorded</span>
+<p>The ledger asks for Die Hard references tracked by speaker and situation, because a repeated reference changes meaning depending on who inherits it. The earliest one inside local evidence describes a character type who drinks Scotch and loves the film.</p>
+<div class="cite">
+<span class="ep">S01E19</span> <span class="tc">00:00:51</span> cue 24 — the reference sketches a person, it does not decode a situation
+</div>
+<p>That distinction is the one the ledger wanted, and it gives the tracking column its first row.</p>
+</section>
+
+<section class="entry" id="silence">
+<h2 class="head">Claims the local evidence could not reach</h2>
+<span class="badge b-open">Silence, not refusal</span>
+<p>Each of these was probed against all eighteen episodes and returned nothing. Every one belongs to an episode with no local video, so the result is silence rather than refusal.</p>
+<div class="tblwrap">
+<table>
+<caption>Probed across 18 episodes, zero hits</caption>
+<thead><tr><th>Claim</th><th>Where it actually lives</th><th>Status</th></tr></thead>
+<tbody>
+<tr><td>Pile-of-nothing / pile-of-bullets pairing</td><td>Season 2 and later</td><td>Evidence pending</td></tr>
+<tr><td>Chang and the ventilation system</td><td>Season 3 onward</td><td>Evidence pending</td></tr>
+<tr><td>Magnitude's catchphrase</td><td>Season 2 onward</td><td>Evidence pending</td></tr>
+<tr><td>The morning-show routine</td><td>Season 2 onward</td><td>Evidence pending</td></tr>
+<tr><td>The six-seasons line</td><td>Season 2</td><td>Evidence pending</td></tr>
+<tr><td>Streets ahead</td><td>Season 2</td><td>Evidence pending</td></tr>
+<tr><td>The triple-cool verbal tic</td><td>Season 2 onward</td><td>Evidence pending</td></tr>
+</tbody>
+</table>
+</div>
+<p>The silence carries one finding of its own. Every verbal tic the show is now known for is absent across this eighteen-episode range, which places their installation later than the stretch this corpus covers.</p>
+</section>
+
+<section class="entry" id="status">
+<h2 class="head">Status vocabulary and the three-way evidence split</h2>
+<p>Subtitles give exact wording. They give exact timing. They give no speaker, no stage direction, and no camera information. That divides the ledger's claims three ways, and the division should govern every future pass.</p>
+<div class="tblwrap">
+<table>
+<caption>What this corpus can and cannot settle</caption>
+<thead><tr><th>Claim type</th><th>Testable here</th><th>Label it earns</th></tr></thead>
+<tbody>
+<tr><td>Exact wording, exact timing</td><td>Yes, fully</td><td>Confirmed, or refused</td></tr>
+<tr><td>Who says the line</td><td>Placement only</td><td>Inferred from placement</td></tr>
+<tr><td>Visual, staging, camera, costume</td><td>No</td><td>Needs another evidence layer</td></tr>
+</tbody>
+</table>
+</div>
+<div class="callout">
+<h3>The rule this pass adds</h3>
+<p>The background childbirth, the RoboCop display, the buried study table, and the whole costume ledger sit outside what a subtitle can test. Marking any of them confirmed on the strength of this corpus would be a false citation. They keep their existing grade until a visual evidence layer exists.</p>
+</div>
+</section>
+
+<footer>
+  Community continuity project · pass four · built 2 September 2026<br>
+  Evidence: 18 episodes, 7,828 timecoded cues, extracted from local BluRay subtitle tracks<br>
+  Harness: <span class="path">~/Projects/_outputs/community-continuity/</span> — <span class="path">cite.py</span>, <span class="path">verify.py</span>, <span class="path">corpus.json</span><br>
+  Voice gate: ai_tells_gate.py hard mode, score 5, PASS
+</footer>
+
+</div>
+</body>
+</html>
