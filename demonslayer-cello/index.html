@@ -110,6 +110,15 @@
   button:hover{background:#F3EAD6}
   button.on{background:var(--accent,var(--water));border-color:var(--accent,var(--water));color:#fff}
   button.play{font-weight:600;min-width:96px}
+  .range{
+    display:inline-flex;align-items:center;gap:5px;font-size:12px;color:var(--soft);
+    letter-spacing:.05em;text-transform:uppercase;margin-left:2px;
+  }
+  .range input{
+    font-family:ui-monospace,Menlo,monospace;font-size:13px;width:46px;text-align:center;
+    color:var(--ink);background:var(--paper);border:1px solid var(--rule);
+    border-radius:6px;padding:5px 4px;
+  }
   .tips{margin:10px 0 0;padding:0 0 0 18px;font-size:14.5px;color:var(--ink)}
   .tips li{margin:4px 0;max-width:76ch}
   .tips b{font-weight:600}
@@ -149,6 +158,9 @@ transcriptions of the anime's music. Play them, record them, teach them, no perm
   <label class="switch"><input type="checkbox" id="drone"> Open-string drone</label>
   <label class="switch"><input type="checkbox" id="fings" checked> Fingerings</label>
   <label class="switch"><input type="checkbox" id="loopAll"> Loop</label>
+  <label class="switch"><input type="checkbox" id="countin"> Count-in</label>
+  <label class="switch"><input type="checkbox" id="click"> Click</label>
+  <label class="switch"><input type="checkbox" id="trainer"> Speed trainer</label>
   <button onclick="window.print()">Print sheets</button>
 </div>
 
@@ -243,6 +255,14 @@ transcriptions of the anime's music. Play them, record them, teach them, no perm
   in first through fourth position &mdash; no thumb position anywhere. Press <b>Play</b> to hear a bowed
   synth read it back, and <b>MIDI</b> to open it in MuseScore, Dorico or Logic for a printable part.
 </p>
+<p>
+  <b>Practising a hard bar.</b> The <b>bars</b> boxes on each piece set what Play actually plays, so you
+  can drill bars 9&ndash;12 on their own instead of running the whole piece to reach them. Turn on
+  <b>Loop</b> and they repeat; add <b>Speed trainer</b> and each repeat comes back 5% faster, up to
+  half again the written tempo. <b>Count-in</b> gives you a bar of clicks before the first note and
+  <b>Click</b> leaves the metronome running underneath &mdash; both count dotted quarters in 6/8 and
+  quarters everywhere else. Escape stops everything.
+</p>
 <p class="src">Reading the fingerings: the number under each note is the left-hand finger (0 = open string),
 the letter under that is the string. An <i>italic</i> number means the hand stretches for that note &mdash; a
 forward or backward extension, not a shift. Roman numerals above the staff mark a change of position (I =
@@ -255,7 +275,8 @@ bowings: one bow for the whole slur.</p>
   <p><b>Tuning:</b> C2 G2 D3 A3, low to high. Everything here assumes standard tuning and a normally set-up
   cello &mdash; no scordatura, no extended technique beyond the harmonics mentioned in the notes.</p>
   <p><b>Playback:</b> the sound is a synthesised bow (two detuned saws, low-pass, delayed vibrato) built with
-  the Web Audio API. Nothing is streamed and no audio file is hosted, so the page works offline.
+  the Web Audio API, and the metronome is a filtered blip from the same place. Nothing is streamed and no
+  audio file is hosted, so the page works offline.
   The synth is a reference for pitch and rhythm, not a model of tone &mdash; your bow will do better.</p>
   <p><b>Licence:</b> the eight compositions on this page are released for any use, including performance,
   recording, teaching and publication, with no attribution required.</p>
@@ -876,7 +897,8 @@ const qpmOf  = p => p.unit === "e" ? p.bpm / 2 : p.unit === "dq" ? p.bpm * 1.5 :
 const rate   = () => parseInt(el("tempo").value, 10) / 100;
 const sec16  = p => 60 / (qpmOf(p) * rate()) / 4;
 
-let now = null;                             // {piece, t0, times, dur, timer, raf, bus}
+let now = null;      // {piece, t0, times, seg, total, mult, bus, raf, timer}
+
 function stopAll(){
   if(now){
     if(now.timer) clearTimeout(now.timer);
@@ -894,15 +916,51 @@ function stopAll(){
     now = null;
   }
 }
-function schedule(p, notes, startAt, bus){
-  const u = sec16(p);
+
+/* A woodblock-ish click: a short filtered blip, brighter on the downbeat. */
+function tickSound(at, strong, bus){
+  const c = audio();
+  const o = c.createOscillator(), g = c.createGain(), lp = c.createBiquadFilter();
+  o.type = "square";
+  o.frequency.setValueAtTime(strong ? 1560 : 1040, at);
+  lp.type = "lowpass";
+  lp.frequency.setValueAtTime(strong ? 4200 : 3000, at);
+  g.gain.setValueAtTime(0.0001, at);
+  g.gain.exponentialRampToValueAtTime(strong ? 0.13 : 0.075, at + 0.004);
+  g.gain.exponentialRampToValueAtTime(0.0001, at + 0.075);
+  o.connect(lp).connect(g).connect(bus || master);
+  o.start(at); o.stop(at + 0.09);
+  live.push(o);
+}
+
+/* Beat grid: 6/8 counts in dotted quarters, everything else in quarters. */
+const beat16 = p => p.meter[1] === 8 ? 6 : 4;
+const beatsPerBar = p => (p.meter[0] * (16 / p.meter[1])) / beat16(p);
+const lastBar = p => p._notes[p._notes.length - 1].bar + 1;
+
+/* The bars the player has dialled in, as {n, i} pairs keeping the original index
+   so note highlighting still lines up with the engraved score. */
+function segmentOf(p){
+  const bars = lastBar(p);
+  const fEl = el("from-" + p.id), tEl = el("to-" + p.id);
+  let from = Math.min(Math.max(parseInt(fEl && fEl.value, 10) || 1, 1), bars);
+  let to   = Math.min(Math.max(parseInt(tEl && tEl.value, 10) || bars, 1), bars);
+  if(to < from) to = from;
+  if(fEl) fEl.value = from;
+  if(tEl) tEl.value = to;
+  const seg = [];
+  p._notes.forEach((n, i) => { if(n.bar >= from - 1 && n.bar <= to - 1) seg.push({n, i}); });
+  return {from, to, seg, whole: from === 1 && to === bars};
+}
+
+function schedule(p, seg, startAt, bus, u){
   const times = [];
   let t = 0;
-  notes.forEach((n, i) => {
+  seg.forEach(({n}) => {
     const dur = n.dur * u;
     times.push(t);
     if(!n.rest){
-      let sound = dur * (n.stacc ? 0.5 : n.slurNext ? 1.0 : 0.94);
+      const sound = dur * (n.stacc ? 0.5 : n.slurNext ? 1.0 : 0.94);
       bow(n.midi, startAt + t, sound, {pizz:n.pizz, accent:n.accent, bus:bus,
                                        gain: n.pizz ? 0.3 : 0.26});
     }
@@ -910,25 +968,47 @@ function schedule(p, notes, startAt, bus){
   });
   return {times, total:t};
 }
-function play(p, btn){
+
+function play(p, btn, mult){
+  const again = mult !== undefined;                 // a loop pass, not a fresh click
   const wasSame = now && now.piece === p.id;
   stopAll();
-  if(wasSame) return;
+  if(wasSame && !again) return;                     // second click on Play = stop
+  mult = mult || 1;
+
   const c = audio();
   const bus = c.createGain();
   bus.gain.value = 1;
   bus.connect(master);
-  const startAt = c.currentTime + 0.12;
-  const { times, total } = schedule(p, p._notes, startAt, bus);
+
+  const u = sec16(p) / mult;                        // seconds per sixteenth
+  const { seg, whole } = segmentOf(p);
+  if(!seg.length) return;
+
+  const bt = beat16(p) * u, per = beatsPerBar(p);
+  const lead = el("countin").checked ? per * bt : 0;
+  const startAt = c.currentTime + 0.12 + lead;
+
+  for(let k = 0; k < per && lead; k++)
+    tickSound(startAt - lead + k * bt, k === 0, bus);
+
+  const { times, total } = schedule(p, seg, startAt, bus, u);
+
+  if(el("click").checked)
+    for(let t = 0, k = 0; t < total - 0.001; t += bt, k++)
+      tickSound(startAt + t, k % per === 0, bus);
 
   if(el("drone").checked && p.drone){
     bow(p.drone - 12, startAt, total, {gain:0.055, bus:bus});
     bow(p.drone,      startAt, total, {gain:0.05,  bus:bus});
   }
-  btn.textContent = "■ Stop"; btn.classList.add("on");
 
-  now = {piece:p.id, t0:startAt, times, total, bus, raf:null, timer:null};
-  const heads = p._notes.map((n, i) => el(p.id + "-n" + i));
+  btn.textContent = mult > 1 ? "■ Stop · " + Math.round(mult * 100) + "%" : "■ Stop";
+  btn.classList.add("on");
+
+  now = {piece:p.id, t0:startAt, times, total, mult, bus, raf:null, timer:null};
+
+  const heads = seg.map(({i}) => el(p.id + "-n" + i));
   let cur = -1;
   const tick = () => {
     if(!now) return;
@@ -946,9 +1026,11 @@ function play(p, btn){
 
   now.timer = setTimeout(() => {
     if(!now) return;
-    if(el("loopAll").checked){ play(p, btn); }
-    else stopAll();
-  }, (total + 0.35) * 1000);
+    if(el("loopAll").checked){
+      const next = el("trainer").checked ? Math.min(mult * 1.05, 1.6) : mult;
+      play(p, btn, next);
+    }else stopAll();
+  }, (total + (whole ? 0.35 : 0.25)) * 1000);
 }
 
 /* ===============================================================
@@ -1025,6 +1107,10 @@ host.innerHTML = PIECES.map((p, i) => {
     '<div class="btns">' +
       '<button class="play" data-play="' + p.id + '">▶ Play</button>' +
       '<button data-midi="' + p.id + '">MIDI</button>' +
+      '<span class="range">bars' +
+        '<input type="number" id="from-' + p.id + '" min="1" max="' + bars + '" value="1">' +
+        '–<input type="number" id="to-' + p.id + '" min="1" max="' + bars + '" value="' + bars + '">' +
+      '</span>' +
     '</div>' +
     '<div class="pbody" id="body-' + p.id + '"></div>' +
     '<div class="pfoot"><ul class="tips">' + p.tips.map(t => "<li>" + t + "</li>").join("") + '</ul></div>' +

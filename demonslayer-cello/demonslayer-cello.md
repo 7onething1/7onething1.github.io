@@ -47,7 +47,8 @@ files, no libraries.
 | Fingerings | Computed, not typed. A Viterbi search over string × hand-position × hand-shape candidates picks the cheapest playable path through each piece: shifts cost, extensions cost less, open strings are free and sit outside the search. Printed as finger number + string letter, italic for an extension, with Roman numerals marking each change of position. |
 | Playback | Web Audio bowed synth — two detuned saws and a triangle through a low-pass, with vibrato faded in after the attack. Separate pizzicato and accent envelopes. Optional open-string drone under each piece. |
 | MIDI | Format-0 file written byte by byte in JS: tempo and time-signature metas, GM cello program, note on/off with staccato shortening. Opens in MuseScore, Dorico or Logic for a printable part. |
-| Controls | Global tempo (55–130%), volume, drone, fingerings on/off, loop, print. Escape stops playback. |
+| Practice tools | Per-piece bar range (drill bars 9–12 alone), count-in, metronome click on the beat grid of the metre, and a speed trainer that adds 5% per loop pass up to 160%. |
+| Controls | Global tempo (55–130%), volume, drone, fingerings on/off, loop, count-in, click, speed trainer, print. Escape stops playback. |
 
 ## Source notes
 
@@ -60,8 +61,7 @@ the Japanese shops, in particular — is written as "check", not as fact.
 
 Ordered, next item first. Item 1 is in progress.
 
-1. **Practice tools** — count-in, metronome click, bar-range looping (drill bars 9–12 rather than
-   the whole piece), and a speed trainer that ratchets the tempo up a notch each time round.
+1. ~~**Practice tools** — count-in, metronome click, bar-range looping, speed trainer.~~ Done.
 2. **Second voice** — an optional lower line for the pieces that want one (Water, Wisteria, Flame),
    so two cellists can play them as duets; playback gains a "both parts" mode.
 3. **Print one piece** — the print stylesheet currently prints all eight; add a per-piece print that
