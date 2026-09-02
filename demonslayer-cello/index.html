@@ -69,6 +69,12 @@
   }
   .switch input{accent-color:var(--water);margin:0}
   .val{font-family:ui-monospace,Menlo,monospace;font-size:12px;min-width:38px}
+  #tuner{display:inline-flex;gap:4px}
+  .tune{
+    font-family:ui-monospace,Menlo,monospace;font-size:12px;padding:4px 8px;
+    border-radius:6px;min-width:30px;
+  }
+  .tune.on{background:var(--water);border-color:var(--water);color:#fff}
 
   /* ---- tables ---- */
   table{border-collapse:collapse;width:100%;margin:14px 0 0;font-size:14px;background:var(--paper)}
@@ -179,6 +185,14 @@ transcriptions of the anime's music. Play them, record them, teach them, no perm
   <label class="switch"><input type="checkbox" id="countin"> Count-in</label>
   <label class="switch"><input type="checkbox" id="click"> Click</label>
   <label class="switch"><input type="checkbox" id="trainer"> Speed trainer</label>
+  <div class="ctl"><label>Tuner</label>
+    <span id="tuner">
+      <button class="tune" data-tune="36">C</button>
+      <button class="tune" data-tune="43">G</button>
+      <button class="tune" data-tune="50">D</button>
+      <button class="tune" data-tune="57">A</button>
+      <button class="tune" data-tune="69">A440</button>
+    </span></div>
   <button onclick="window.print()">Print sheets</button>
 </div>
 
@@ -282,6 +296,10 @@ transcriptions of the anime's music. Play them, record them, teach them, no perm
   quarters everywhere else. Escape stops everything.
 </p>
 <p>
+  <b>Tuner</b> in the bar above gives you the four open strings and an A440, held until you press the
+  button again &mdash; enough to sit down with the instrument and this page and nothing else.
+</p>
+<p>
   <b>Three of them are duets.</b> Water Surface Slice, Flame Vow and Wisteria at Dusk carry a second
   cello part, engraved under the first. <b>Both parts</b> plays them together, the bar range and the
   metronome apply to both, and the MIDI file for a duet arrives as two named tracks so each player can
@@ -297,7 +315,8 @@ bowings: one bow for the whole slur.</p>
 <div id="pieces"></div>
 
 <footer>
-  <p><b>Tuning:</b> C2 G2 D3 A3, low to high. Everything here assumes standard tuning and a normally set-up
+  <p><b>Tuning:</b> C2 G2 D3 A3, low to high &mdash; the tuner in the control bar sounds all four, plus
+  an A440 if you are tuning to someone else. Everything here assumes standard tuning and a normally set-up
   cello &mdash; no scordatura, no extended technique beyond the harmonics mentioned in the notes.</p>
   <p><b>Playback:</b> the sound is a synthesised bow (two detuned saws, low-pass, delayed vibrato) built with
   the Web Audio API, and the metronome is a filtered blip from the same place. Nothing is streamed and no
@@ -483,10 +502,10 @@ const PIECES = [
    "D3:4 F3:4_ A3:4 D4:4_ | F#4:8 E4:8_ | D4:6 A3:2_ F#3:8 | D3:16",
   part2:"Cello II — the harmony underneath, moving in thirds and tenths, holding the low D at the end.",
   music2:
-   "D3:8 F3:8 | G3:8 F3:8 | E3:8 F3:8 | D3:16 |"+
-   "F3:8 A3:8 | A3:8 G3:8 | F3:8 E3:8 | F3:16 |"+
-   "D3:4 E3:4 F3:4 G3:4 | A3:8 D3:8 | G3:4 F3:4 E3:4 D3:4 | C3:8 E3:8 |"+
-   "D2:8 A2:8 | D3:8 A2:8 | A2:8 D3:8 | D2:16",
+   "D3:8 F3:8_ | G3:8 F3:8_ | E3:8 F3:8_ | D3:16 |"+
+   "F3:8 A3:8_ | A3:8 G3:8_ | F3:8 E3:8_ | F3:16 |"+
+   "D3:4 E3:4_ F3:4 G3:4_ | A3:8 D3:8_ | G3:4 F3:4_ E3:4 D3:4_ | C3:8 E3:8_ |"+
+   "D2:8 A2:8_ | D3:8 A2:8_ | A2:8 D3:8_ | D2:16",
   tips:[
    "<b>Phrase in four-bar arcs.</b> Bars 1–4 rise and settle, 5–8 do it higher, 9–12 come down, 13–16 open out. Decide where the top of each arc is and let everything else lead to or away from it.",
    "<b>The F sharps in bars 14–15</b> are the point of the piece — D minor becoming D major at the last moment. Place them high and warm; a flat-sounding F sharp there kills the turn.",
@@ -1067,6 +1086,7 @@ function schedule(p, seg, startAt, bus, u, level){
 }
 
 function play(p, btn, mult){
+  stopTune();
   const again = mult !== undefined;                 // a loop pass, not a fresh click
   const wasSame = now && now.piece === p.id;
   stopAll();
@@ -1139,6 +1159,41 @@ function play(p, btn, mult){
       play(p, btn, next);
     }else stopAll();
   }, (total + (whole ? 0.35 : 0.25)) * 1000);
+}
+
+/* A steady reference pitch: sine plus a quiet octave and fifth, so it has
+   enough colour to tune a beating string against. */
+let tuning = null;
+function stopTune(){
+  if(!tuning) return;
+  const t = ctx.currentTime;
+  tuning.g.gain.cancelScheduledValues(t);
+  tuning.g.gain.setValueAtTime(tuning.g.gain.value, t);
+  tuning.g.gain.linearRampToValueAtTime(0.0001, t + 0.12);
+  tuning.osc.forEach(o => { try{ o.stop(t + 0.16); }catch(e){} });
+  document.querySelectorAll(".tune").forEach(b => b.classList.remove("on"));
+  tuning = null;
+}
+function playTune(midi, btn){
+  const same = tuning && tuning.midi === midi;
+  stopTune();
+  if(same) return;
+  const c = audio();
+  const g = c.createGain();
+  g.gain.setValueAtTime(0.0001, c.currentTime);
+  g.gain.exponentialRampToValueAtTime(0.22, c.currentTime + 0.05);
+  g.connect(master);
+  const osc = [[1, 1], [2, 0.16], [3, 0.07]].map(([mult, amp]) => {
+    const o = c.createOscillator(), og = c.createGain();
+    o.type = "sine";
+    o.frequency.setValueAtTime(hz(midi) * mult, c.currentTime);
+    og.gain.value = amp;
+    o.connect(og).connect(g);
+    o.start();
+    return o;
+  });
+  tuning = {midi, g, osc};
+  btn.classList.add("on");
 }
 
 /* ===============================================================
@@ -1284,8 +1339,12 @@ el("tempo").addEventListener("input", e => { el("tempoVal").textContent = e.targ
 el("tempo").addEventListener("change", () => { if(now) stopAll(); });
 el("fings").addEventListener("change", e => host.classList.toggle("nofing", !e.target.checked));
 el("drone").addEventListener("change", () => { if(now) stopAll(); });
+el("tuner").addEventListener("click", e => {
+  const m = e.target.dataset.tune;
+  if(m) playTune(parseInt(m, 10), e.target);
+});
 document.addEventListener("keydown", e => {
-  if(e.key === "Escape") stopAll();
+  if(e.key === "Escape"){ stopAll(); stopTune(); }
 });
 let rt = null;
 window.addEventListener("resize", () => {

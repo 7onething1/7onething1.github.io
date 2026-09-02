@@ -53,7 +53,7 @@ files, no libraries.
 | Playback | Web Audio bowed synth — two detuned saws and a triangle through a low-pass, with vibrato faded in after the attack. Separate pizzicato and accent envelopes. Optional open-string drone under each piece. |
 | MIDI | Written byte by byte in JS: tempo and time-signature metas, GM cello program, note on/off with staccato shortening. Solo pieces export as format 0; duets as format 1, one named track per part on its own channel. Opens in MuseScore, Dorico or Logic for a printable part. |
 | Practice tools | Per-piece bar range (drill bars 9–12 alone), count-in, metronome click on the beat grid of the metre, and a speed trainer that adds 5% per loop pass up to 160%. |
-| Controls | Global tempo (55–130%), volume, drone, fingerings on/off, loop, count-in, click, speed trainer, print. Escape stops playback. |
+| Controls | Global tempo (55–130%), volume, drone, fingerings on/off, loop, count-in, click, speed trainer, print all or one piece, and a tuner (four open strings plus A440, sine with a quiet octave and fifth). Escape stops everything. |
 
 ## Source notes
 
@@ -73,7 +73,12 @@ Ordered, next item first. Item 1 is in progress.
 5. **Ship to Vercel** — once PR #5 is merged and the page is live on Pages, copy the route into
    `drwu-htmls` for the permanent home. Needs the user; nothing here blocks on it.
 
-6. **Bowings for the second parts** — Cello II is currently unslurred; mark the bowings so the two
-   players' bow changes line up where they should.
-7. **A tuner** — an A440 (and open-string) reference tone in the control bar, so the page is enough
-   on its own to sit down and play from.
+6. ~~**Bowings for the second parts** — Cello II bow changes aligned with Cello I.~~ Done for Wisteria,
+   the only duet where both parts are slurred; Water's second part is one note a bar and Flame's is
+   deliberately unslurred in both parts.
+7. ~~**A tuner** — open-string and A440 reference tones in the control bar.~~ Done.
+8. **Ear-training drill** — name the interval or the note the page plays, using the pieces' own
+   material rather than abstract tones; the melodic-intervals-player page is the model.
+9. **Record and compare** — capture the microphone while a piece plays and lay the waveform against
+   the beat grid, so a player can see where they rushed. Needs a permission prompt, so it should be
+   opt-in per session.
