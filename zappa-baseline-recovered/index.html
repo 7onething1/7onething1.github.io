@@ -54,7 +54,7 @@ ul.tight{margin:6px 0 14px;padding-left:20px} ul.tight li{margin-bottom:5px}
 </div>
 
 <div class="toc">
-<a href="#missing">What is missing</a><a href="#found">What was found</a><a href="#timeline">Revision timeline</a><a href="#control">Known-answer control</a><a href="#ties">The 18 ties</a><a href="#paren">Paren to staccato</a><a href="#lanes">Two machines</a><a href="#sibling">Sibling session</a><a href="#repair">Repair pass</a><a href="#brown">Ryan Brown refutes 10/16</a><a href="#rebar">Rebar cost</a><a href="#gate">Gate fix</a><a href="#kick">Kick defect</a><a href="#blocked">Still blocked</a><a href="#repro">Reproduce it</a>
+<a href="#missing">What is missing</a><a href="#found">What was found</a><a href="#timeline">Revision timeline</a><a href="#control">Known-answer control</a><a href="#ties">The 18 ties</a><a href="#paren">Paren to staccato</a><a href="#lanes">Two machines</a><a href="#sibling">Sibling session</a><a href="#repair">Repair pass</a><a href="#brown">Ryan Brown refutes 10/16</a><a href="#live">Live tab r8814965</a><a href="#rebar">Rebar cost</a><a href="#gate">Gate fix</a><a href="#kick">Kick defect</a><a href="#blocked">Still blocked</a><a href="#repro">Reproduce it</a>
 </div>
 
 <div class="grid">
@@ -392,6 +392,23 @@ from https://drummagazine.com/groove-analysis-frank-zappas-drummers/</pre>
 <p>Two figures that only the JSON layer can settle came out exactly as the census claims: <b>32 ghost flags</b> and <b>0 staccato</b> on the base revision. The GPIF layer cannot show these, so this is the first reading of them taken on this machine.</p>
 <p>The JSON also resolves the tie arithmetic from the other side. It stores <b>18 tie flags</b>, one per connection, where GPIF stores an origin event and a destination event for each, which is the 36 tied events counted on the drum staff. A first pass read the JSON note array as 1,612 notes; 38 of those entries are rests, and removing them gives 1,574.</p>
 </div>
+
+<h2 id="live">READ FROM THE LIVE TAB: r8814965 lost 13 ties and one kick note</h2>
+<p class="sub">2026-09-02. The CloudFront route opened once the revision hash was scraped off the public song page, so the current drum part was read directly for the first time.</p>
+<p><b>How the route was found.</b> <code>songsterr.com/api/meta/412162</code> answers http 200 unauthenticated and names the current revision. The public song page carries the data hash <code>v0-3-2-rlgl-11J3X41cEuO</code>, and <code>cloudfront.net/412162/8814965/&lt;hash&gt;/9.json</code> then returns 200. Older revisions still 403 under that hash, so each revision carries its own and only the current one is reachable.</p>
+<div class="scroll"><table>
+<tr><th>Drum staff</th><th class="n">r7115188</th><th class="n">r8814965 live</th><th>Reading</th></tr>
+<tr class="good"><td class="t">bars</td><td class="n">114</td><td class="n">114</td><td>unchanged</td></tr>
+<tr class="bad"><td class="t">notes</td><td class="n">1,574</td><td class="n"><b>1,573</b></td><td><b>one note gone</b></td></tr>
+<tr class="good"><td class="t">ghost flags</td><td class="n">32</td><td class="n">0</td><td>intended</td></tr>
+<tr class="good"><td class="t">staccato</td><td class="n">0</td><td class="n">32</td><td>intended, same 7 bars, same per-bar counts</td></tr>
+<tr class="bad"><td class="t">ties</td><td class="n">18</td><td class="n"><b>5</b></td><td><b>thirteen gone</b></td></tr>
+<tr class="good"><td class="t">rests / empty bars / max simultaneity</td><td class="n">38 / 0 / 3</td><td class="n">38 / 0 / 3</td><td>unchanged</td></tr>
+</table></div>
+<p><b>The ghost conversion is clean.</b> All 32 ghosts sat in bars 4, 13, 15, 40, 41, 42 and 43, and all 32 staccatos land in those same seven bars with identical per-bar counts. That edit did what it said.</p>
+<p><b>The tie loss is not clean.</b> Bar 16 went 4 to 1, bar 17 went 4 to 0, and single ties vanished from bars 18, 22, 38, 44, 104 and 108. Four survive, in bars 32, 34, 35 and 36. Removing the bar 16 and 17 kick ties was judged right here, and that accounts for at most eight. The six open hi-hat ties are collateral, and the one tie left standing in bar 16 makes the pattern look accidental rather than chosen.</p>
+<p><b>The lost note is attributable.</b> The iMac census reads <code>lanes_ours</code> for r8787022 with lane 36 at 186 and a drum total of 1,574. The live tab reads lane 36 at 185 and 1,573, and the single missing note is in <b>bar 16</b>. So it went between r8787022 and r8814965, which is the revision a moderator described as &quot;Minor changes.&quot; The tie loss cannot be pinned that precisely, since r8766102 still carried all 18 and no export of r8787022 exists on this machine.</p>
+<p><b>The split kick lane is still there.</b> Lane 35 holds 163 events and lane 36 holds 185 on the live tab, so nothing has repaired the two-staff-line defect and the built fix still applies.</p>
 
 <h2 id="rebar">What a rebar would actually cost</h2>
 <p class="sub">Measured 2026-09-02 from <code>r8766102-Zomby-Woof.gp</code>. The barring question was open as a decision; these are the numbers it needs.</p>

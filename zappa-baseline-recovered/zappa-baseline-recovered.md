@@ -556,6 +556,45 @@ connection, where GPIF stores an origin event and a destination event for each, 
 tied events counted on the drum staff. A first pass read the JSON note array as 1,612 notes; 38 of
 those entries are rests, and removing them gives 1,574.
 
+## READ FROM THE LIVE TAB: r8814965 lost 13 ties and one kick note
+
+2026-09-02. The CloudFront route opened once the revision hash was scraped off the public
+song page, so the current drum part was read directly for the first time.
+
+**How the route was found.** `songsterr.com/api/meta/412162` answers http 200 unauthenticated
+and names the current revision. The public song page carries the data hash
+`v0-3-2-rlgl-11J3X41cEuO`, and `cloudfront.net/412162/8814965/<hash>/9.json` then returns 200.
+Older revisions still 403 under that hash, so each revision carries its own and only the
+current one is reachable.
+
+| Drum staff | r7115188 | r8814965 live | Reading |
+|---|---|---|---|
+| bars | 114 | 114 | unchanged |
+| notes | 1,574 | **1,573** | **one note gone** |
+| ghost flags | 32 | 0 | intended |
+| staccato | 0 | 32 | intended, same 7 bars, same per-bar counts |
+| ties | 18 | **5** | **thirteen gone** |
+| rests / empty bars / max simultaneity | 38 / 0 / 3 | 38 / 0 / 3 | unchanged |
+
+**The ghost conversion is clean.** All 32 ghosts sat in bars 4, 13, 15, 40, 41, 42 and 43, and
+all 32 staccatos land in those same seven bars with identical per-bar counts. That edit did
+what it said.
+
+**The tie loss is not clean.** Bar 16 went 4 to 1, bar 17 went 4 to 0, and single ties vanished
+from bars 18, 22, 38, 44, 104 and 108. Four survive, in bars 32, 34, 35 and 36. Removing the bar
+16 and 17 kick ties was judged right here, and that accounts for at most eight. The six open
+hi-hat ties are collateral, and the one tie left standing in bar 16 makes the pattern look
+accidental rather than chosen.
+
+**The lost note is attributable.** The iMac census reads `lanes_ours` for r8787022 with lane 36
+at 186 and a drum total of 1,574. The live tab reads lane 36 at 185 and 1,573, and the single
+missing note is in **bar 16**. So it went between r8787022 and r8814965, which is the revision a
+moderator described as "Minor changes." The tie loss cannot be pinned that precisely, since
+r8766102 still carried all 18 and no export of r8787022 exists on this machine.
+
+**The split kick lane is still there.** Lane 35 holds 163 events and lane 36 holds 185 on the
+live tab, so nothing has repaired the two-staff-line defect and the built fix still applies.
+
 ## What a rebar would actually cost
 
 Measured 2026-09-02 from `r8766102-Zomby-Woof.gp`. The barring question was open as a
