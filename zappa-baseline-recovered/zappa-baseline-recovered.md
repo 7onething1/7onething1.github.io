@@ -342,6 +342,25 @@ Fixed to key on `InputMidiNumbers`, the field the reader and Songsterr both use.
 corrected run matches the iMac census on **all 17 lanes** and on the 1,574 total. That
 is the rule about reading the field the human acts on, earning its keep.
 
+### UPDATE 2026-09-02: the repair is built, verified, and held
+
+All 163 lane-35 kick events now sit on lane 36 in `r8766102-Zomby-Woof-KICKFIX.gp`, giving
+349 events over 105 bars. The method retargets 27 `Beat` note references onto the lane-36
+`Note` elements rather than editing a `Note` in place, because GPIF shares one `Note` across
+many beats. Fourteen checks pass: 16 non-kick lanes identical, drum staff 1,574 and whole
+score 7,479 on both sides, all 114 bars conserving the kick count, 36 ties intact, every one
+of the 349 rhythm references identical. `noteloss_audit.py --diff --expect-changed 163`
+returns added 0, removed 0, changed 163, reorder-only 0.
+
+**A first build of this repair was wrong.** The percussion staff is a six-line tab, so two
+notes in one beat cannot share a `String`. Version 1 moved 9 events onto `String 0` where
+MIDI 92 already sat, putting 9 beats into a state the original never had. Note 795 was
+carrying `String 5` to avoid exactly that collision. Version 2 creates a lane-36 kick that
+keeps `String 5`, and a new string audit now runs on each side of any lane merge. The broken
+build is kept as a known-answer control: original 0 shared-string beats, v1 9, v2 0.
+
+**Nothing was submitted.** Which machine owns this repair is still open, so the file waits.
+
 ## FIXED: the gate that examined zero tracks
 
 The 2026-08-30 audit left this open, and the Zomby Woof file turned out to be the
@@ -521,6 +540,44 @@ Drumnet on the barring and with Brown on the four bars of `15/16`, and no single
 published source matches it on both.
 
 Drumnet's quarter `= 89` and Brown's eighth `= 178` are the same tempo.
+
+## What a rebar would actually cost
+
+Measured 2026-09-02 from `r8766102-Zomby-Woof.gp`. The barring question was open as a
+decision; these are the numbers it needs.
+
+**The tab's `10/16` bar is already two identical `5/16` figures.** Reading the rhythm off
+the drum staff, bar 2 runs 16th, 16th, 32nd, 32nd, 16th, 16th, and then repeats that exact
+group. Each group totals five sixteenths. Ryan Brown's page prints the same repeated figure
+across a barline, read directly off `crop_sys1_left.png` and `crop_sys1_mid.png`: a `3/4`
+signature, one bar, a barline, a `5/16` signature, a bar, a barline, a second bar carrying no
+new signature and therefore inheriting `5/16`, then `2/4`.
+
+**The split lands clean.** The proposed barline sits at 1.25 quarters into bar 2. On all six
+sounding tracks a beat ends exactly there and the next beat starts exactly there, so no note
+and no tie crosses it. The four tracks resting through the bar hold one 2-quarter rest that
+would need re-spelling as two rests, which is the same subdivision Songsterr's own exporter
+already performs elsewhere in this file.
+
+### The cost is renumbering, and it reaches everything already published
+
+Splitting bar 2 takes the score from **114 bars to 115**. Every bar from 3 onward shifts by
+one, so every bar number in the audit pages, the census JSON, the queue items and the
+kick-repair record moves with it.
+
+| Claim as published | After the rebar |
+|---|---|
+| section starts 1, 9, 13, 18, 46, 56, 112 | 1, 10, 14, 19, 47, 57, 113 |
+| kick lane 36 covers the solo, bars 56-101 | bars 57-102 |
+| kick spans, all twelve rows | row 1 becomes 1-9, every later row shifts +1 |
+| 36 tied events in bars 16, 17, 18, 22, 32, 34, 35, 36, 38, 44, 104, 108 | 17, 18, 19, 23, 33, 35, 36, 37, 39, 45, 105, 109 |
+| bars 38-50 total 48 quarters | bars 39-51 |
+| both kick lanes sound in bars 16, 17, 45 | bars 17, 18, 46 |
+
+**Nothing was rebarred.** Two professional transcriptions agree against the tab and the tab's
+own content divides exactly where they put the barline, so the musical case is strong. The
+renumbering ripple is the part that is a judgement call rather than a measurement, and it
+belongs to Brandon.
 
 ## Still blocked
 

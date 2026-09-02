@@ -54,7 +54,7 @@ ul.tight{margin:6px 0 14px;padding-left:20px} ul.tight li{margin-bottom:5px}
 </div>
 
 <div class="toc">
-<a href="#missing">What is missing</a><a href="#found">What was found</a><a href="#timeline">Revision timeline</a><a href="#control">Known-answer control</a><a href="#ties">The 18 ties</a><a href="#paren">Paren to staccato</a><a href="#lanes">Two machines</a><a href="#sibling">Sibling session</a><a href="#repair">Repair pass</a><a href="#brown">Ryan Brown refutes 10/16</a><a href="#gate">Gate fix</a><a href="#kick">Kick defect</a><a href="#blocked">Still blocked</a><a href="#repro">Reproduce it</a>
+<a href="#missing">What is missing</a><a href="#found">What was found</a><a href="#timeline">Revision timeline</a><a href="#control">Known-answer control</a><a href="#ties">The 18 ties</a><a href="#paren">Paren to staccato</a><a href="#lanes">Two machines</a><a href="#sibling">Sibling session</a><a href="#repair">Repair pass</a><a href="#brown">Ryan Brown refutes 10/16</a><a href="#rebar">Rebar cost</a><a href="#gate">Gate fix</a><a href="#kick">Kick defect</a><a href="#blocked">Still blocked</a><a href="#repro">Reproduce it</a>
 </div>
 
 <div class="grid">
@@ -282,6 +282,13 @@ beat 10-11  Hi-Hat closed + kick lane 36 (line 7), tied pair</pre>
 <p>Fixed to key on <code>InputMidiNumbers</code>, the field the reader and Songsterr both use. The corrected run matches the iMac census on <strong>all 17 lanes</strong> and on the 1,574 total.</p>
 </div>
 
+<div class="blk">
+<h3>UPDATE 2026-09-02: the repair is built, verified, and held</h3>
+<p>All 163 lane-35 kick events now sit on lane 36 in <code>r8766102-Zomby-Woof-KICKFIX.gp</code>, giving 349 events over 105 bars. The method retargets 27 <code>Beat</code> note references onto the lane-36 <code>Note</code> elements rather than editing a <code>Note</code> in place, because GPIF shares one <code>Note</code> across many beats. Fourteen checks pass: 16 non-kick lanes identical, drum staff 1,574 and whole score 7,479 on both sides, all 114 bars conserving the kick count, 36 ties intact, every one of the 349 rhythm references identical. <code>noteloss_audit.py --diff --expect-changed 163</code> returns added 0, removed 0, changed 163, reorder-only 0.</p>
+<p><b>A first build of this repair was wrong.</b> The percussion staff is a six-line tab, so two notes in one beat cannot share a <code>String</code>. Version 1 moved 9 events onto <code>String 0</code> where MIDI 92 already sat, putting 9 beats into a state the original never had. Note 795 was carrying <code>String 5</code> to avoid exactly that collision. Version 2 creates a lane-36 kick that keeps <code>String 5</code>, and a new string audit now runs on each side of any lane merge. The broken build is kept as a known-answer control: original 0 shared-string beats, v1 9, v2 0.</p>
+<p><b>Nothing was submitted.</b> Which machine owns this repair is still open, so the file waits.</p>
+</div>
+
 <h2 id="gate">FIXED: the gate that examined zero tracks</h2>
 <p class="sub">The 2026-08-30 audit left this open, and the Zomby Woof file turned out to be the fixture that proves it.</p>
 <pre>def is_guitar(name):
@@ -378,6 +385,25 @@ from https://drummagazine.com/groove-analysis-frank-zappas-drummers/</pre>
 <tr class="bad"><td class="t">Songsterr <code>s412162</code></td><td><code>10/16</code></td><td class="n">4</td></tr>
 </table></div>
 <p><b>So this is a split, not a refutation.</b> The handoff says Brown and Drumnet "both use a single 10/16". Drumnet does. Brown does not. Half the claim holds. The tab sides with Drumnet on the barring and with Brown on the four bars of <code>15/16</code>, and no single published source matches it on both. Drumnet's quarter <code>= 89</code> and Brown's eighth <code>= 178</code> are the same tempo.</p>
+
+<h2 id="rebar">What a rebar would actually cost</h2>
+<p class="sub">Measured 2026-09-02 from <code>r8766102-Zomby-Woof.gp</code>. The barring question was open as a decision; these are the numbers it needs.</p>
+<p><b>The tab's <code>10/16</code> bar is already two identical <code>5/16</code> figures.</b> Reading the rhythm off the drum staff, bar 2 runs 16th, 16th, 32nd, 32nd, 16th, 16th, and then repeats that exact group. Each group totals five sixteenths. Ryan Brown's page prints the same repeated figure across a barline, which I read directly off <code>crop_sys1_left.png</code> and <code>crop_sys1_mid.png</code>: a <code>3/4</code> signature, one bar, a barline, a <code>5/16</code> signature, a bar, a barline, a second bar carrying no new signature and therefore inheriting <code>5/16</code>, then <code>2/4</code>.</p>
+<p><b>The split lands clean.</b> The proposed barline sits at 1.25 quarters into bar 2. On all six sounding tracks a beat ends exactly there and the next beat starts exactly there, so no note and no tie crosses it. The four tracks resting through the bar hold one 2-quarter rest that would need re-spelling as two rests, which is the same subdivision Songsterr's own exporter already performs elsewhere in this file.</p>
+<div class="blk">
+<h3>The cost is renumbering, and it reaches everything already published</h3>
+<p>Splitting bar 2 takes the score from <b>114 bars to 115</b>. Every bar from 3 onward shifts by one, so every bar number in the audit pages, the census JSON, the queue items and the kick-repair record moves with it.</p>
+<div class="scroll"><table>
+<tr><th>Claim as published</th><th>After the rebar</th></tr>
+<tr><td class="t">section starts 1, 9, 13, 18, 46, 56, 112</td><td>1, 10, 14, 19, 47, 57, 113</td></tr>
+<tr><td class="t">kick lane 36 covers the solo, bars 56-101</td><td>bars 57-102</td></tr>
+<tr><td class="t">kick spans, all twelve rows</td><td>row 1 becomes 1-9, every later row shifts +1</td></tr>
+<tr><td class="t">36 tied events in bars 16, 17, 18, 22, 32, 34, 35, 36, 38, 44, 104, 108</td><td>17, 18, 19, 23, 33, 35, 36, 37, 39, 45, 105, 109</td></tr>
+<tr><td class="t">bars 38-50 total 48 quarters</td><td>bars 39-51</td></tr>
+<tr><td class="t">both kick lanes sound in bars 16, 17, 45</td><td>bars 17, 18, 46</td></tr>
+</table></div>
+</div>
+<p><b>Nothing was rebarred.</b> Two professional transcriptions agree against the tab and the tab's own content divides exactly where they put the barline, so the musical case is strong. The renumbering ripple is the part that is a judgement call rather than a measurement, and it belongs to Brandon.</p>
 
 <h2 id="blocked">Still blocked</h2>
 <div class="blk">
