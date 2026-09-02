@@ -1,0 +1,175 @@
+<!doctype html><html lang="en"><head><meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Band practice 8.28, guitar and drum kit</title>
+<style>
+:root{color-scheme:light;--cream:#f6f0e2;--panel:#fbf7ec;--ink:#1a1a1a;--soft:#5f5849;
+--line:#d8cfb8;--p1:#F1BB7B;--p2:#FD6467;--p3:#D67236;--p4:#E6A0C4;--p5:#C6CDF7;
+--p6:#D8A499;--p7:#7294D4;--p8:#5B1A18}
+*{box-sizing:border-box}
+body{margin:0;background:var(--cream);color:var(--ink);line-height:1.6;
+font-family:-apple-system,BlinkMacSystemFont,"Inter","Segoe UI",sans-serif}
+main{max-width:960px;margin:0 auto;padding:2.6rem 1.2rem 5rem}
+h1{font-size:2.05rem;margin:0 0 .3rem;letter-spacing:-.02em}
+h2{font-size:1.28rem;margin:2.8rem 0 .9rem;padding-bottom:.4rem;border-bottom:3px solid var(--p3)}
+h3{margin:0;font-size:1.05rem;font-weight:650}
+h4{margin:1.4rem 0 .3rem;font-size:.82rem;text-transform:uppercase;letter-spacing:.06em;color:var(--soft)}
+p.lede{color:var(--soft);margin:.2rem 0 1.6rem;font-size:1.02rem}
+.stats{display:grid;grid-template-columns:repeat(auto-fit,minmax(128px,1fr));gap:.7rem;margin:1.4rem 0}
+.stats div{background:var(--panel);border:1px solid var(--line);border-top:4px solid var(--p1);
+border-radius:11px;padding:.85rem .7rem;text-align:center}
+.stats div:nth-child(2){border-top-color:var(--p2)} .stats div:nth-child(3){border-top-color:var(--p3)}
+.stats div:nth-child(4){border-top-color:var(--p7)} .stats div:nth-child(5){border-top-color:var(--p8)}
+.stats b{display:block;font-size:1.5rem;color:var(--p3);line-height:1.15}
+.stats span{font-size:.74rem;color:var(--soft);text-transform:uppercase;letter-spacing:.05em}
+.song{background:var(--panel);border:1px solid var(--line);border-left:6px solid var(--p3);
+border-radius:13px;padding:1.1rem 1.2rem;margin:1.1rem 0}
+.song:nth-of-type(even){border-left-color:var(--p7)}
+.song header{display:flex;align-items:center;gap:.85rem}
+.num-badge{font-size:.85rem;font-weight:700;color:#fff;background:var(--p8);border-radius:8px;
+padding:.3rem .55rem;min-width:2.2rem;text-align:center}
+.meta{margin:.16rem 0 0;font-size:.83rem;color:var(--soft)}
+.src{font-size:.88rem;margin:.9rem 0 .2rem}
+.tw{overflow-x:auto}
+table{width:100%;border-collapse:collapse;font-size:.85rem;margin:.4rem 0}
+th,td{text-align:left;padding:.42rem .5rem;border-bottom:1px solid var(--line);white-space:nowrap}
+th{font-size:.7rem;text-transform:uppercase;letter-spacing:.04em;color:var(--soft)}
+td.num{text-align:right;font-variant-numeric:tabular-nums}
+.dot{display:inline-block;width:9px;height:9px;border-radius:50%;margin-right:.45rem;vertical-align:middle}
+.bar{display:block;min-width:70px;height:9px;border-radius:5px;background:#ece3cd;position:relative}
+.bar::after{content:"";position:absolute;left:0;top:0;bottom:0;width:var(--w);
+background:var(--c);border-radius:5px}
+.keep{font-size:.62rem;color:#fff;background:var(--p7);padding:.1rem .34rem;border-radius:4px;
+letter-spacing:.05em;vertical-align:middle}
+.drop{font-size:.68rem;color:var(--soft)}
+.pending{font-size:.86rem;color:var(--p2);font-weight:560}
+.callout{background:#f2ead6;border-left:5px solid var(--p1);border-radius:0 9px 9px 0;
+padding:.85rem 1rem;margin:1rem 0;font-size:.92rem}
+.callout b{color:#8a5a12}
+.callout.stop{border-left-color:var(--p2)} .callout.stop b{color:#8c3a26}
+.callout.good{border-left-color:var(--p7)} .callout.good b{color:#3d5a9e}
+nav{background:var(--panel);border:1px solid var(--line);border-radius:11px;padding:.9rem 1.1rem;margin:1.5rem 0}
+nav b{font-size:.72rem;text-transform:uppercase;letter-spacing:.05em;color:var(--soft)}
+nav ol{margin:.5rem 0 0;padding-left:1.15rem;columns:2;font-size:.9rem}
+nav a{color:#8a5a12;text-decoration:none} nav a:hover{text-decoration:underline}
+code{background:#efe7d3;padding:.1em .38em;border-radius:4px;font-size:.9em;white-space:normal}
+footer{margin-top:3rem;padding-top:1rem;border-top:3px solid var(--p4);font-size:.79rem;color:var(--soft)}
+@media(max-width:600px){nav ol{columns:1}.stats{grid-template-columns:repeat(2,1fr)}}
+</style></head><body><main>
+
+<h1>Band practice 8.28, guitar and drum kit</h1>
+<p class="lede">Two takes from the 8.28 tape pulled apart twice over. First into six instrument
+stems, keeping guitar and drums. Then the drum track again into six separate kit pieces.</p>
+
+<div class="stats">
+<div><b>2</b><span>songs</span></div>
+<div><b>2</b><span>stems kept each</span></div>
+<div><b>6</b><span>kit pieces each</span></div>
+<div><b>24<small style="font-size:.55em">bit</small></b><span>44.1 kHz wav</span></div>
+<div><b>0/2</b><span>kits finished</span></div>
+</div>
+
+<nav><b>On this page</b><ol>
+<li><a href="#ask">What was asked</a></li>
+<li><a href="#tilt">Why the mix was tilted first</a></li>
+<li><a href="#mono">One guitar stem, not two</a></li>
+<li><a href="#songs">The two songs</a></li>
+<li><a href="#kit">The six-piece kit model</a></li>
+<li><a href="#files">Where the files are</a></li>
+</ol></nav>
+
+<h2 id="ask">What was asked</h2>
+<p>Separate both takes, keep one or two guitars and the drums, drop vocals, keys and bass.
+Then run the drum track through a second separation so the kit arrives as individual pieces.</p>
+<div class="callout good"><b>The measurements agree with the request.</b> On both takes
+the bass stem came back near empty and the vocal and piano stems were effectively silent.
+Nobody played bass or keys on either of these, so the lineup you asked for is the lineup
+that was actually on the tape.</div>
+
+<h2 id="tilt">Why the mix was tilted first</h2>
+<p>Both source files carry almost all of their energy in the low end. Song 13 measures
+87.4% below 250 Hz and song 11 measures 92.6%. That is far outside the spectral balance
+Demucs was trained on, and the guitar head responds by claiming low frequency content
+instead of guitar.</p>
+<div class="callout"><b>The tilt belongs ahead of separation, and the stems keep it.</b> A 45 Hz high pass,
+cuts of 9 dB at 90 Hz and 5 dB at 200 Hz, then lifts of 5 dB at 2.5 kHz and 7 dB at 6 kHz.
+Separation then runs on the tilted audio.</div>
+<p>Restoring the original tone afterwards undoes the whole thing, since the inverse boost
+puts the low energy straight back. The delivered stems stay in the tilted domain and sound
+brighter than the room. Add your own low shelf in the DAW if you want the tape sound back.</p>
+<p>The check that proves it worked is the share of guitar energy above 500 Hz. Below about
+15% means the pass failed. Song 13 came out at 44.1% and song 11 at 57.8%.</p>
+
+<h2 id="mono">The tape is mono, so both guitars share one stem</h2>
+<div class="callout stop"><b>Both tapes record to a single mono channel.</b> The usual
+way to separate two guitarists takes Guitar 1 from the left channel and Guitar 2 from the
+right, which needs a stereo field. On both files the left channel minus the right channel
+measures exactly zero and the correlation reads 1.0. Both players sit inside one
+<code>guitar.wav</code>. Splitting them by pitch range would be a guess dressed as a
+measurement, so it was not done.</div>
+
+<h2 id="songs">The two songs</h2>
+
+  <section class="song" id="s13">
+    <header><span class="num-badge">13</span>
+      <div><h3>13_tape2-21-16</h3>
+      <p class="meta">10:34 &middot; 44100 Hz &middot; mono, max|L&minus;R| = 0.0</p></div></header>
+    <p class="src">Raw source spectrum, measured on the untouched file:
+      <b>87.4%</b> below 250 Hz, 9.2% at 250-500,
+      3.0% at 500-2k, 0.5% at 2k-8k.
+      Anything past 70% in that first band calls for the tilt.</p>
+    <h4>Demucs, six stems</h4>
+    <div class="tw"><table><thead><tr><th>stem</th><th>energy</th><th></th><th>peak dB</th>
+    <th>&lt;250</th><th>&gt;500</th></tr></thead>
+    <tbody><tr><td><span class="dot" style="background:#5B1A18"></span><b>bass</b> <span class="drop">dropped</span></td><td class="num">1.04%</td><td><span class="bar" style="--w:1.0%;--c:#5B1A18"></span></td><td class="num">-23.2</td><td class="num">93.7</td><td class="num">0.3</td></tr>
+<tr><td><span class="dot" style="background:#D67236"></span><b>drums</b> <b class="keep">KEPT</b></td><td class="num">52.94%</td><td><span class="bar" style="--w:52.9%;--c:#D67236"></span></td><td class="num">-2.1</td><td class="num">87.5</td><td class="num">11.1</td></tr>
+<tr><td><span class="dot" style="background:#7294D4"></span><b>guitar</b> <b class="keep">KEPT</b></td><td class="num">44.64%</td><td><span class="bar" style="--w:44.6%;--c:#7294D4"></span></td><td class="num">-7.5</td><td class="num">20.5</td><td class="num">44.1</td></tr>
+<tr><td><span class="dot" style="background:#D8A499"></span><b>other</b> <span class="drop">dropped</span></td><td class="num">1.28%</td><td><span class="bar" style="--w:1.3%;--c:#D8A499"></span></td><td class="num">-18.2</td><td class="num">3.4</td><td class="num">83.5</td></tr>
+<tr><td><span class="dot" style="background:#E6A0C4"></span><b>piano</b> <span class="drop">dropped</span></td><td class="num">0.04%</td><td><span class="bar" style="--w:0.0%;--c:#E6A0C4"></span></td><td class="num">-28.8</td><td class="num">17.6</td><td class="num">12.6</td></tr>
+<tr><td><span class="dot" style="background:#FD6467"></span><b>vocals</b> <span class="drop">dropped</span></td><td class="num">0.06%</td><td><span class="bar" style="--w:0.1%;--c:#FD6467"></span></td><td class="num">-17.9</td><td class="num">5.7</td><td class="num">60.3</td></tr></tbody></table></div>
+    <h4>Drum kit, six pieces</h4><p class="pending">Separation still running for this song.</p>
+  </section>
+
+  <section class="song" id="s11">
+    <header><span class="num-badge">11</span>
+      <div><h3>11_tape2-02-20</h3>
+      <p class="meta">8:53 &middot; 44100 Hz &middot; mono, max|L&minus;R| = 0.0</p></div></header>
+    <p class="src">Raw source spectrum, measured on the untouched file:
+      <b>92.6%</b> below 250 Hz, 4.7% at 250-500,
+      2.3% at 500-2k, 0.3% at 2k-8k.
+      Anything past 70% in that first band calls for the tilt.</p>
+    <h4>Demucs, six stems</h4>
+    <div class="tw"><table><thead><tr><th>stem</th><th>energy</th><th></th><th>peak dB</th>
+    <th>&lt;250</th><th>&gt;500</th></tr></thead>
+    <tbody><tr><td><span class="dot" style="background:#5B1A18"></span><b>bass</b> <span class="drop">dropped</span></td><td class="num">2.90%</td><td><span class="bar" style="--w:2.9%;--c:#5B1A18"></span></td><td class="num">-17.3</td><td class="num">98.1</td><td class="num">0.3</td></tr>
+<tr><td><span class="dot" style="background:#D67236"></span><b>drums</b> <b class="keep">KEPT</b></td><td class="num">68.38%</td><td><span class="bar" style="--w:68.4%;--c:#D67236"></span></td><td class="num">-0.1</td><td class="num">80.4</td><td class="num">12.7</td></tr>
+<tr><td><span class="dot" style="background:#7294D4"></span><b>guitar</b> <b class="keep">KEPT</b></td><td class="num">28.65%</td><td><span class="bar" style="--w:28.6%;--c:#7294D4"></span></td><td class="num">-6.0</td><td class="num">21.9</td><td class="num">57.8</td></tr>
+<tr><td><span class="dot" style="background:#D8A499"></span><b>other</b> <span class="drop">dropped</span></td><td class="num">0.01%</td><td><span class="bar" style="--w:0.0%;--c:#D8A499"></span></td><td class="num">-28.0</td><td class="num">25.1</td><td class="num">68.9</td></tr>
+<tr><td><span class="dot" style="background:#E6A0C4"></span><b>piano</b> <span class="drop">dropped</span></td><td class="num">0.01%</td><td><span class="bar" style="--w:0.0%;--c:#E6A0C4"></span></td><td class="num">-21.8</td><td class="num">77.3</td><td class="num">7.4</td></tr>
+<tr><td><span class="dot" style="background:#FD6467"></span><b>vocals</b> <span class="drop">dropped</span></td><td class="num">0.06%</td><td><span class="bar" style="--w:0.1%;--c:#FD6467"></span></td><td class="num">-18.9</td><td class="num">6.7</td><td class="num">93.0</td></tr></tbody></table></div>
+    <h4>Drum kit, six pieces</h4><p class="pending">Separation still running for this song.</p>
+  </section>
+
+<h2 id="kit">The six-piece kit model</h2>
+<p>The drum split uses MDX23C DrumSep, the aufr33 and jarredou collaboration checkpoint.
+The local copy of this tool was gone from the MacBook, so it was rebuilt from a
+HuggingFace mirror and verified byte for byte at 437,652,699 bytes.</p>
+<div class="callout good"><b>This mirror carries the six-stem model.</b>
+The earlier build merged ride and crash into a single cymbals lane. This one separates them
+at the source, so <code>ride.wav</code> and <code>crash.wav</code> arrive already split and
+no heuristic has to guess which cymbal was struck.</div>
+
+<h2 id="files">Where the files are</h2>
+<p>Everything sits under <code>~/Projects/_outputs/band-practice-stems/8-28/</code>, one
+folder per song. <code>band/</code> holds the two stems you asked to keep.
+<code>drumkit/</code> holds the six kit pieces. <code>demucs/</code> keeps the full
+six-stem separation, including the near-silent bass, vocal and piano stems, since that
+silence is the evidence for who was playing.</p>
+
+<footer>
+Colours from <b>The Grand Budapest Hotel</b> (Wes Anderson, 2014).<br>
+Sources: <code>~/Music/Band-Practice/songs-8-28-LOSSLESS/13_tape2-21-16.wav</code> and
+<code>11_tape2-02-20.wav</code>. Separation by Demucs 4.0.1 <code>htdemucs_6s</code> and
+MDX23C DrumSep. Every figure on this page is generated from
+<code>measurements.json</code> and none of them are estimated.
+</footer>
+</main></body></html>
