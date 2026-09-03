@@ -49,8 +49,29 @@ the one to three percent on dead-mic songs is bleed from kick and toms.
 
 ### Two risks the v2 run has not accounted for
 
-**Risk 1, the cymbals.** Every v2 drumkit is split from `kick_mic1.wav`, and mic1 carries almost no
-cymbal energy.
+**Risk 1, the cymbals. MEASURED AND CONFIRMED at 13:52.** The first blocks landed so this was tested
+rather than left as a prediction. Method: load `_blocks/b000000000000.npy` per song, lane order
+`kick, snare, toms, hh, ride, crash`, compare against the same first 60 s of the v1 kit. Cymbal SHARE
+of kit energy is used because it is level-independent and immune to the 1.45 s cut offset.
+
+| Song | v1 cymbal share | v2 cymbal share | Factor |
+|---|---|---|---|
+| song17 | 0.60 % | 0.13 % | 4.6x thinner |
+| song19 | 8.30 % | 0.32 % | **26x thinner** |
+| song21 | 3.81 % | 0.17 % | 22x thinner |
+| song22 | 2.12 % | 0.20 % | 11x thinner |
+
+Absolute levels mostly rose in v2, since raw mic1 runs far hotter than the Demucs drum stem. song17
+kick gained 10.13 dB and toms gained 23.49 dB. The cymbals failed to keep pace and several fell
+outright: song17 crash -3.62 dB, song21 crash -5.40 dB and hh -3.83 dB, song22 crash -9.13 dB and hh
+-3.25 dB. Kick and toms gain while crash and hats lose, which is what a kick-mic source predicts.
+
+**Separate flag found during this test.** The v1 `song19` drumkit looks broken. Across the first 60 s
+every lane sits between -75 and -92 dBFS, kick at -77.38, against song17 kick at -28.24 and song21
+kick at -28.83. The v2 pass on the same window reads -43.45, so the passage is quiet and not 34 dB
+quiet. That folder was written 09-03 12:06.
+
+The mechanism: mic1 carries almost no cymbal energy.
 
 | Song | mic1 presence | mic3 presence | mic3 advantage |
 |---|---|---|---|

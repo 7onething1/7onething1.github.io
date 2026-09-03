@@ -172,9 +172,40 @@ methods, and the one to three percent on the dead-mic songs is bleed from kick a
 
 <h3>Two risks the v2 run has not accounted for</h3>
 
+<div class="verdict" style="border-color:#8C3A3A">
+<p class="big" style="font-size:22px">Risk 1 is now measured and confirmed. The v2 kits are cymbal-starved.</p>
+<p style="margin:0 0 10px">The first blocks landed at 13:52, so this was tested rather than left as a prediction.
+Method: load <code>_blocks/b000000000000.npy</code> per song, lane order <code>kick, snare, toms, hh, ride,
+crash</code>, and compare against the same first 60 seconds of the v1 kit. Cymbal <b>share</b> of kit energy is
+used because it is level-independent and immune to the 1.45 s cut offset.</p>
+<div class="scroller" style="margin:0">
+<table>
+<thead><tr><th>Song</th><th>v1 cymbal share</th><th>v2 cymbal share</th><th>Factor</th><th>Verdict</th></tr></thead>
+<tbody>
+<tr><td>song17</td><td class="mono">0.60 %</td><td class="mono">0.13 %</td><td class="mono">4.6&times; thinner</td><td><span class="pill p-fail">Confirmed</span></td></tr>
+<tr><td>song19</td><td class="mono">8.30 %</td><td class="mono">0.32 %</td><td class="mono"><b>26&times; thinner</b></td><td><span class="pill p-fail">Confirmed</span></td></tr>
+<tr><td>song21</td><td class="mono">3.81 %</td><td class="mono">0.17 %</td><td class="mono">22&times; thinner</td><td><span class="pill p-fail">Confirmed</span></td></tr>
+<tr><td>song22</td><td class="mono">2.12 %</td><td class="mono">0.20 %</td><td class="mono">11&times; thinner</td><td><span class="pill p-fail">Confirmed</span></td></tr>
+</tbody>
+</table>
+</div>
+</div>
+
+<p>The absolute levels mostly rose in v2, since raw mic1 runs far hotter than the Demucs drum stem. song17 kick
+gained 10.13 dB and toms gained 23.49 dB. The cymbals failed to keep pace and several fell outright: song17
+crash &minus;3.62 dB, song21 crash &minus;5.40 dB and hh &minus;3.83 dB, song22 crash &minus;9.13 dB and hh
+&minus;3.25 dB. Kick and toms gain while crash and hats lose, which is what a kick-mic source predicts.</p>
+
+<div class="callout warn">
+<p style="margin:0"><b>A separate flag found during this test.</b> The v1 <code>song19</code> drumkit looks broken.
+Across the first 60 seconds every lane sits between &minus;75 and &minus;92 dBFS, kick at &minus;77.38, against
+song17 kick at &minus;28.24 and song21 kick at &minus;28.83. The v2 pass on the same window reads &minus;43.45,
+so the passage is quiet and not 34 dB quiet. That folder was written 09-03 12:06.</p>
+</div>
+
 <div class="callout bad">
-<p style="margin:0 0 8px"><b>Risk 1, the cymbals.</b> Every v2 drumkit is split from <code>kick_mic1.wav</code>,
-and mic1 carries almost no cymbal energy. Measured presence for the four songs in flight:</p>
+<p style="margin:0 0 8px"><b>The mechanism behind Risk 1.</b> Every v2 drumkit is split from <code>kick_mic1.wav</code>,
+and mic1 carries almost no cymbal energy. Measured presence for the four songs tested:</p>
 <div class="scroller" style="margin:8px 0">
 <table>
 <thead><tr><th>Song</th><th>mic1 presence</th><th>mic3 presence</th><th>mic3 advantage</th></tr></thead>
