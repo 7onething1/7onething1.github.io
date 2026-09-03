@@ -3,6 +3,72 @@
 Compiled 2026-09-03 on MacBookPro. Audited session: Fraud Chat, `local_b5aa940c`.
 Files measured: 95 WAV, 9.40 GB. No audited file was modified.
 
+## v2 mic-lanes run, live status at 13:31
+
+The audited session restarted at 13:21 on a new design writing to `v2-mic-lanes/`. It pulls each
+instrument's own close mic straight out of the four-channel master with no separation, no EQ and no
+downmix, then splits the kick mic into a six-piece kit. Thirteen songs have lanes extracted. Four
+DrumSep workers run on songs 17, 19, 21 and 22.
+
+This design answers both failures of the first attempt. Lanes are verbatim mic channels, so no
+fidelity claim is needed. A lane is written only when its mic is live, so a dead mic never ships as
+an empty instrument. Every lane is duration-checked and decode-checked at write time, into a new tree.
+
+### Verified: no worker collision
+
+Four unique PIDs on four distinct songs. Lists `A:17,13,10` `B:19,11,18` `C:21,15,16` `D:22,20,12`,
+no overlap. The collision the session flagged was fixed correctly.
+
+### Verified: the mic map is exactly accurate
+
+| Mic | Role | Live | Sub 0-120 Hz | Presence 2-6 kHz | Crest | Check |
+|---|---|---|---|---|---|---|
+| mic1 | kick | 27/27 | 61.6 % claim, 61.6 % real | 0.77 % / 0.77 % | 16.4 / 16.4 | Exact |
+| mic2 | guitar 2 | 9/27 | 22.8 % | 3.53 % / 3.53 % | 16.6 | Exact |
+| mic3 | guitar 1 | 25/27 | 20.9 % | 11.22 % / 11.22 % | 19.0 | Exact |
+| mic4 | bass cab | 13/27 | 40.7 % claim, 40.7 % real | 3.67 % | 14.0 / 14.0 | Exact |
+
+### Two independent methods agree on which songs have bass
+
+| Song | mic4 live | Demucs bass energy | Reading |
+|---|---|---|---|
+| song14 | true | 14.00 % | Bass |
+| song17 | true | 11.42 % | Bass |
+| song18 | true | 9.24 % | Bass |
+| song15 | true | 3.45 % | Bass |
+| song11 | false | 2.90 % | No bass |
+| song21 | false | 2.57 % | No bass |
+| song22 | false | 2.46 % | No bass |
+| song20 | false | 2.27 % | No bass |
+| song13 | false | 1.04 % | No bass |
+| song10 | false | 0.00 % | No bass |
+
+Live mic4 songs run 3.45 % to 14.00 %. Dead mic4 songs run 0.00 % to 2.90 %. The gap is clean, so the
+split is unambiguous. Brandon's call that some songs carry no bass is confirmed by both methods, and
+the one to three percent on dead-mic songs is bleed from kick and toms.
+
+### Two risks the v2 run has not accounted for
+
+**Risk 1, the cymbals.** Every v2 drumkit is split from `kick_mic1.wav`, and mic1 carries almost no
+cymbal energy.
+
+| Song | mic1 presence | mic3 presence | mic3 advantage |
+|---|---|---|---|
+| song17 | 0.19 % | 2.32 % | 12.2x |
+| song19 | 0.14 % | 0.84 % | 6.0x |
+| song21 | 0.20 % | 20.85 % | 104.2x |
+| song22 | 0.14 % | 15.20 % | 108.6x |
+
+The old pipeline lifted this band before separating, at +5 dB on 2.5 kHz and +7 dB on 6 kHz. The v2
+path uses raw mic1 with no tilt. Prediction to check when song17 lands: hh, ride and crash come out
+thinner than their v1 counterparts.
+
+**Risk 2, clipping on the source.** mic1 clips on 25 of 27 songs, mean 23,324 samples, peak pinned at
+0.00 dBFS. mic4 is worse at a mean of 30,021 across 9 of its 13 live songs. mic3 is clean at 135. The
+v1 picker carried an `excluded_clipped` field and dropped mic4 on song15 for it.
+`extract_mic_lanes.sh` gates on liveness alone with no clipping check. Worst cases are song4 at
+169,971 samples and song26 at 126,368.
+
 ## Update at 13:10, with corrections
 
 The audited session confirmed the finding against its own measurement and named its bug. It had

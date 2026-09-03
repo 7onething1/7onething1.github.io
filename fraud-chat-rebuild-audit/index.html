@@ -94,6 +94,7 @@ footer a{color:var(--burg)}
 <nav class="toc">
   <h4>Contents</h4>
   <ol>
+    <li><a href="#v2">v2 mic-lanes run, live status</a></li>
     <li><a href="#update">Update at 13:10, with corrections</a></li>
     <li><a href="#verdict">The verdict</a></li>
     <li><a href="#premise">The premise that failed</a></li>
@@ -108,7 +109,97 @@ footer a{color:var(--burg)}
   </ol>
 </nav>
 
-<h2 id="update">0. Update at 13:10, with corrections</h2>
+<h2 id="v2">0. v2 mic-lanes run, live status at 13:31</h2>
+
+<p>The audited session restarted at 13:21 on a new design, writing to <code>v2-mic-lanes/</code>. It pulls each
+instrument's own close mic straight out of the four-channel master with no separation, no EQ and no downmix,
+then splits the kick mic into a six-piece kit. Thirteen songs have mic lanes extracted. Four DrumSep workers
+are running on songs 17, 19, 21 and 22.</p>
+
+<div class="callout">
+<p style="margin:0"><b>This design answers the two failures in the first attempt.</b> Lanes are verbatim mic
+channels rather than a tilted blend, so no fidelity claim is needed. A lane is written only when its mic is
+live on that song, so a dead mic never ships as an empty instrument. Every lane is duration-checked against
+the source and decode-checked at write time, and it writes to a new tree without touching anything existing.</p>
+</div>
+
+<h3>Verified: no worker collision</h3>
+<p>The session flagged that songs 12, 20 and 22 had been assigned to two workers each, which would collide
+writing the same blocks, and restarted with disjoint lists. Confirmed at the process table: four unique PIDs,
+four distinct songs, lists <code>A:17,13,10</code> <code>B:19,11,18</code> <code>C:21,15,16</code>
+<code>D:22,20,12</code> with no overlap.</p>
+
+<h3>Verified: the mic map is exactly accurate</h3>
+<p>Every figure in the script's comment block reproduces on live-song data.</p>
+
+<div class="scroller">
+<table>
+<thead><tr><th>Mic</th><th>Role</th><th>Live</th><th>Sub 0&ndash;120 Hz</th><th>Presence 2&ndash;6 kHz</th><th>Crest</th><th>Check</th></tr></thead>
+<tbody>
+<tr><td>mic1</td><td>kick</td><td class="mono">27 / 27</td><td class="mono">61.6 % claim, 61.6 % real</td><td class="mono">0.77 % / 0.77 %</td><td class="mono">16.4 / 16.4</td><td><span class="pill p-pass">Exact</span></td></tr>
+<tr><td>mic2</td><td>guitar 2</td><td class="mono">9 / 27</td><td class="mono">22.8 %</td><td class="mono">3.53 % / 3.53 %</td><td class="mono">16.6</td><td><span class="pill p-pass">Exact</span></td></tr>
+<tr><td>mic3</td><td>guitar 1</td><td class="mono">25 / 27</td><td class="mono">20.9 %</td><td class="mono">11.22 % / 11.22 %</td><td class="mono">19.0</td><td><span class="pill p-pass">Exact</span></td></tr>
+<tr><td>mic4</td><td>bass cab</td><td class="mono">13 / 27</td><td class="mono">40.7 % claim, 40.7 % real</td><td class="mono">3.67 %</td><td class="mono">14.0 / 14.0</td><td><span class="pill p-pass">Exact</span></td></tr>
+</tbody>
+</table>
+</div>
+
+<h3>Two independent methods now agree on which songs have bass</h3>
+<p>Mic4 liveness comes from the mic measurements. Bass-lane energy comes from Demucs in the earlier pipeline.
+The two share no code and no input, and they agree on every song.</p>
+
+<div class="scroller">
+<table>
+<thead><tr><th>Song</th><th>mic4 live</th><th>Demucs bass energy</th><th>Agreement</th></tr></thead>
+<tbody>
+<tr><td>song14</td><td class="mono">true</td><td class="mono">14.00 %</td><td><span class="pill p-pass">Bass</span></td></tr>
+<tr><td>song17</td><td class="mono">true</td><td class="mono">11.42 %</td><td><span class="pill p-pass">Bass</span></td></tr>
+<tr><td>song18</td><td class="mono">true</td><td class="mono">9.24 %</td><td><span class="pill p-pass">Bass</span></td></tr>
+<tr><td>song15</td><td class="mono">true</td><td class="mono">3.45 %</td><td><span class="pill p-pass">Bass</span></td></tr>
+<tr><td>song11</td><td class="mono">false</td><td class="mono">2.90 %</td><td><span class="pill p-info">No bass</span></td></tr>
+<tr><td>song21</td><td class="mono">false</td><td class="mono">2.57 %</td><td><span class="pill p-info">No bass</span></td></tr>
+<tr><td>song22</td><td class="mono">false</td><td class="mono">2.46 %</td><td><span class="pill p-info">No bass</span></td></tr>
+<tr><td>song20</td><td class="mono">false</td><td class="mono">2.27 %</td><td><span class="pill p-info">No bass</span></td></tr>
+<tr><td>song13</td><td class="mono">false</td><td class="mono">1.04 %</td><td><span class="pill p-info">No bass</span></td></tr>
+<tr><td>song10</td><td class="mono">false</td><td class="mono">0.00 %</td><td><span class="pill p-info">No bass</span></td></tr>
+</tbody>
+</table>
+</div>
+
+<p>Live mic4 songs run 3.45 % to 14.00 %. Dead mic4 songs run 0.00 % to 2.90 %. The gap between 2.90 and 3.45
+is clean, so the split is unambiguous. Brandon's call that some songs carry no bass is confirmed by both
+methods, and the one to three percent on the dead-mic songs is bleed from kick and toms.</p>
+
+<h3>Two risks the v2 run has not accounted for</h3>
+
+<div class="callout bad">
+<p style="margin:0 0 8px"><b>Risk 1, the cymbals.</b> Every v2 drumkit is split from <code>kick_mic1.wav</code>,
+and mic1 carries almost no cymbal energy. Measured presence for the four songs in flight:</p>
+<div class="scroller" style="margin:8px 0">
+<table>
+<thead><tr><th>Song</th><th>mic1 presence</th><th>mic3 presence</th><th>mic3 advantage</th></tr></thead>
+<tbody>
+<tr><td>song17</td><td class="mono">0.19 %</td><td class="mono">2.32 %</td><td class="mono">12.2&times;</td></tr>
+<tr><td>song19</td><td class="mono">0.14 %</td><td class="mono">0.84 %</td><td class="mono">6.0&times;</td></tr>
+<tr><td>song21</td><td class="mono">0.20 %</td><td class="mono">20.85 %</td><td class="mono">104.2&times;</td></tr>
+<tr><td>song22</td><td class="mono">0.14 %</td><td class="mono">15.20 %</td><td class="mono">108.6&times;</td></tr>
+</tbody>
+</table>
+</div>
+<p style="margin:0">The old pipeline lifted this band before separating, at <b>+5 dB on 2.5 kHz and +7 dB on
+6 kHz</b>. The v2 path uses raw mic1 with no tilt. Prediction to check when song17 lands: the hh, ride and
+crash lanes come out thinner than their v1 counterparts.</p>
+</div>
+
+<div class="callout warn">
+<p style="margin:0"><b>Risk 2, clipping on the source.</b> mic1 clips on <b>25 of 27 songs</b>, mean 23,324
+samples, peak pinned at 0.00 dBFS. mic4 is worse at a mean of 30,021 across 9 of its 13 live songs. mic3 is
+the clean one at 135. The v1 picker carried an <code>excluded_clipped</code> field and dropped mic4 on song15
+for it. <code>extract_mic_lanes.sh</code> gates on liveness alone and has no clipping check. Worst cases are
+song4 at 169,971 samples and song26 at 126,368.</p>
+</div>
+
+<h2 id="update">0.5 Update at 13:10, with corrections</h2>
 
 <p>The audited session confirmed the finding against its own measurement and named its bug. It had compared
 the LOSSLESS cut to the four-channel master through <code>ffmpeg -ac 1</code>, which averages all four mics
