@@ -57,7 +57,7 @@ of kit energy is used because it is level-independent and immune to the 1.45 s c
 | Song | v1 cymbal share | v2 cymbal share | Factor |
 |---|---|---|---|
 | song17 | 0.60 % | 0.13 % | 4.6x thinner |
-| song19 | 8.30 % | 0.32 % | **26x thinner** |
+| song19 | 8.30 % | 0.32 % | withdrawn, near-silent window |
 | song21 | 3.81 % | 0.17 % | 22x thinner |
 | song22 | 2.12 % | 0.20 % | 11x thinner |
 
@@ -66,10 +66,15 @@ kick gained 10.13 dB and toms gained 23.49 dB. The cymbals failed to keep pace a
 outright: song17 crash -3.62 dB, song21 crash -5.40 dB and hh -3.83 dB, song22 crash -9.13 dB and hh
 -3.25 dB. Kick and toms gain while crash and hats lose, which is what a kick-mic source predicts.
 
-**Separate flag found during this test.** The v1 `song19` drumkit looks broken. Across the first 60 s
-every lane sits between -75 and -92 dBFS, kick at -77.38, against song17 kick at -28.24 and song21
-kick at -28.83. The v2 pass on the same window reads -43.45, so the passage is quiet and not 34 dB
-quiet. That folder was written 09-03 12:06.
+**Correction, withdrawn on 13:57 evidence.** This audit briefly flagged the v1 `song19` drumkit as
+broken on the strength of its first 60 seconds. That was wrong and the flag is withdrawn. On the full
+file it is healthy: kick peak -6.49 dBFS, snare -7.53, crash -12.94, all 571.0 s, against song17 kick
+at -6.39. Summing the six lanes against `band/drums.wav` over a 20 s window at 200 s gives source
+-57.05 dBFS and sum -57.14 dBFS, a deficit of 0.09 dB. The opening of song19 is simply near-silent.
+
+The same error costs the song19 cymbal figure, withdrawn above, since its v1 denominator sat close to
+noise. The verdict rests on song17, song21 and song22, where the v1 kick ran between -28.24 and
+-30.19 dBFS in-window. The honest range is 4.6x to 22x on three songs.
 
 The mechanism: mic1 carries almost no cymbal energy.
 

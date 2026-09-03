@@ -183,7 +183,7 @@ used because it is level-independent and immune to the 1.45 s cut offset.</p>
 <thead><tr><th>Song</th><th>v1 cymbal share</th><th>v2 cymbal share</th><th>Factor</th><th>Verdict</th></tr></thead>
 <tbody>
 <tr><td>song17</td><td class="mono">0.60 %</td><td class="mono">0.13 %</td><td class="mono">4.6&times; thinner</td><td><span class="pill p-fail">Confirmed</span></td></tr>
-<tr><td>song19</td><td class="mono">8.30 %</td><td class="mono">0.32 %</td><td class="mono"><b>26&times; thinner</b></td><td><span class="pill p-fail">Confirmed</span></td></tr>
+<tr style="opacity:.55"><td>song19</td><td class="mono">8.30 %</td><td class="mono">0.32 %</td><td class="mono">withdrawn</td><td><span class="pill p-info">Near-silent window</span></td></tr>
 <tr><td>song21</td><td class="mono">3.81 %</td><td class="mono">0.17 %</td><td class="mono">22&times; thinner</td><td><span class="pill p-fail">Confirmed</span></td></tr>
 <tr><td>song22</td><td class="mono">2.12 %</td><td class="mono">0.20 %</td><td class="mono">11&times; thinner</td><td><span class="pill p-fail">Confirmed</span></td></tr>
 </tbody>
@@ -196,11 +196,17 @@ gained 10.13 dB and toms gained 23.49 dB. The cymbals failed to keep pace and se
 crash &minus;3.62 dB, song21 crash &minus;5.40 dB and hh &minus;3.83 dB, song22 crash &minus;9.13 dB and hh
 &minus;3.25 dB. Kick and toms gain while crash and hats lose, which is what a kick-mic source predicts.</p>
 
-<div class="callout warn">
-<p style="margin:0"><b>A separate flag found during this test.</b> The v1 <code>song19</code> drumkit looks broken.
-Across the first 60 seconds every lane sits between &minus;75 and &minus;92 dBFS, kick at &minus;77.38, against
-song17 kick at &minus;28.24 and song21 kick at &minus;28.83. The v2 pass on the same window reads &minus;43.45,
-so the passage is quiet and not 34 dB quiet. That folder was written 09-03 12:06.</p>
+<div class="callout">
+<p style="margin:0 0 8px"><b>Correction, withdrawn on 13:57 evidence.</b> This audit briefly flagged the v1
+<code>song19</code> drumkit as broken on the strength of its first 60 seconds. That was wrong and the flag is
+withdrawn. On the full file it is healthy: kick peak &minus;6.49 dBFS, snare &minus;7.53, crash &minus;12.94,
+all 571.0 s, against song17 kick at &minus;6.39. Summing the six lanes against <code>band/drums.wav</code> over
+a 20 s window at 200 s gives source &minus;57.05 dBFS and sum &minus;57.14 dBFS, a deficit of 0.09 dB. The
+separation is intact. The opening of song19 is simply near-silent.</p>
+<p style="margin:0">The same error costs the song19 cymbal figure, which is why it reads withdrawn above. Its
+v1 denominator sat close to noise. The verdict rests on song17, song21 and song22, all measured on windows
+where the v1 kick ran between &minus;28.24 and &minus;30.19 dBFS. The honest range is <b>4.6&times; to
+22&times; on three songs</b>.</p>
 </div>
 
 <div class="callout bad">
