@@ -94,6 +94,7 @@ footer a{color:var(--burg)}
 <nav class="toc">
   <h4>Contents</h4>
   <ol>
+    <li><a href="#update">Update at 13:10, with corrections</a></li>
     <li><a href="#verdict">The verdict</a></li>
     <li><a href="#premise">The premise that failed</a></li>
     <li><a href="#null">Null-test evidence</a></li>
@@ -106,6 +107,82 @@ footer a{color:var(--burg)}
     <li><a href="#next">Recommended next step</a></li>
   </ol>
 </nav>
+
+<h2 id="update">0. Update at 13:10, with corrections</h2>
+
+<p>The audited session confirmed the finding against its own measurement and named its bug. It had compared
+the LOSSLESS cut to the four-channel master through <code>ffmpeg -ac 1</code>, which averages all four mics
+into one. Mic2 and mic3 roll off at 7.5 kHz and 9.7 kHz from placement, so the average looked steeper than
+mic1 alone and read as an encoder shelf. <code>STATE-8-28.md</code> warns against exactly that, saying any
+check of a dual-mono source must read the raw channel.</p>
+
+<h3>Verified on disk</h3>
+<div class="scroller">
+<table>
+<thead><tr><th>Claim from the audited session</th><th>Check</th><th>Result</th></tr></thead>
+<tbody>
+<tr><td>song13mic bass retained, 168 MB</td><td><code>cmp</code> against the Demucs source</td><td><span class="pill p-pass">Byte-identical, decodes clean</span></td></tr>
+<tr><td>song21 restored to 8 lanes</td><td>file listing</td><td><span class="pill p-pass">8 lanes present</span></td></tr>
+<tr><td>All 12 folders intact</td><td>per-folder lane count</td><td><span class="pill p-pass">Intact</span></td></tr>
+<tr><td>Nothing lost</td><td><code>delete/lossy-phone-tape/</code> empty</td><td><span class="pill p-pass">Confirmed</span></td></tr>
+<tr><td>The rebuild queue is stopped</td><td>process table at 13:00</td><td><span class="pill p-part">Queue stopped, song13mic still ran to 13:03</span></td></tr>
+</tbody>
+</table>
+</div>
+
+<div class="callout bad">
+<p style="margin:0 0 8px"><b>Correction to this audit.</b> An earlier draft of section 10 argued that the
+pre-separation tilt filter emptied the bass lane. Brandon pushed back that some songs may have no bass at all,
+and that low-frequency content could be tom and kick. He is right and the claim was wrong.</p>
+<p style="margin:0">The same tilt runs on every song. Bass lane energy across those songs ranges from
+<b>0.00 % on song10 to 14.00 % on song14</b>. A filter defect would flatten every song equally. The spread is
+real musical variation in whether bass was played.</p>
+</div>
+
+<h3>Who owns the low end on song 13</h3>
+<p>The six-piece drumkit answers this directly, since it was separated from the drum lane of the same song.</p>
+
+<div class="scroller">
+<table>
+<thead><tr><th>Stem</th><th>Peak dBFS</th><th>RMS dBFS</th><th>Energy below 250 Hz</th></tr></thead>
+<tbody>
+<tr><td><code>song13/drumkit/kick</code></td><td class="mono">&minus;7.75</td><td class="mono">&minus;27.36</td><td class="mono"><b>81.6 %</b></td></tr>
+<tr><td><code>song13/drumkit/toms</code></td><td class="mono">&minus;16.44</td><td class="mono">&minus;50.48</td><td class="mono">52.6 %</td></tr>
+<tr><td><code>song13/drumkit/snare</code></td><td class="mono">&minus;1.87</td><td class="mono">&minus;37.94</td><td class="mono">10.3 %</td></tr>
+<tr><td><code>song13mic/band/bass.wav</code></td><td class="mono">&minus;32.87</td><td class="mono">&minus;81.94</td><td class="mono">4.6 %</td></tr>
+</tbody>
+</table>
+</div>
+
+<p>The kick sits <b>54 dB above</b> the rescued bass lane and carries 81.6 percent of its energy under 250 Hz.
+The low end on song 13 belongs to kick and toms. The rescued bass lane is near-silent because song 13 has
+little or no bass guitar on it, which matches the 1.04 percent the September pipeline measured for the same song.</p>
+
+<h3>What a retained bass lane would actually contain</h3>
+<p>From <code>measurements.json</code>, produced by the existing pipeline before any of this.</p>
+
+<div class="scroller">
+<table>
+<thead><tr><th>Song</th><th>Bass lane energy</th><th>Bass peak</th><th>Reading</th></tr></thead>
+<tbody>
+<tr><td>song14</td><td class="mono">14.00 %</td><td class="mono">&minus;21.9 dB</td><td><span class="pill p-pass">Bass present</span></td></tr>
+<tr><td>song17</td><td class="mono">11.42 %</td><td class="mono">&minus;13.3 dB</td><td><span class="pill p-pass">Bass present</span></td></tr>
+<tr><td>song18</td><td class="mono">9.24 %</td><td class="mono">&minus;12.2 dB</td><td><span class="pill p-pass">Bass present</span></td></tr>
+<tr><td>song15</td><td class="mono">3.45 %</td><td class="mono">&minus;17.7 dB</td><td><span class="pill p-part">Marginal</span></td></tr>
+<tr><td>song11</td><td class="mono">2.90 %</td><td class="mono">&minus;17.3 dB</td><td><span class="pill p-part">Marginal</span></td></tr>
+<tr><td>song21</td><td class="mono">2.57 %</td><td class="mono">&minus;13.9 dB</td><td><span class="pill p-part">Marginal</span></td></tr>
+<tr><td>song22</td><td class="mono">2.46 %</td><td class="mono">&minus;24.8 dB</td><td><span class="pill p-part">Marginal</span></td></tr>
+<tr><td>song20</td><td class="mono">2.27 %</td><td class="mono">&minus;27.4 dB</td><td><span class="pill p-part">Marginal</span></td></tr>
+<tr><td>song13</td><td class="mono">1.04 %</td><td class="mono">&minus;23.2 dB</td><td><span class="pill p-fail">Little or none</span></td></tr>
+<tr><td>song10</td><td class="mono">0.00 %</td><td class="mono">&minus;26.0 dB</td><td><span class="pill p-fail">None</span></td></tr>
+<tr><td>song19</td><td class="mono">not measured</td><td class="mono">&ndash;</td><td><span class="pill p-info">Unknown</span></td></tr>
+</tbody>
+</table>
+</div>
+
+<p>Retaining bass is still worth doing. The expectation should be three songs with a usable bass lane, six
+marginal, and at least one with nothing to find. A near-silent bass lane on those songs is the correct result
+rather than a fault to chase.</p>
 
 <h2 id="verdict">1. The verdict</h2>
 
@@ -376,9 +453,10 @@ rebuild aborted at 12:34:39 with a terminated Demucs process, and the folder exi
 <ul class="tight">
 <li><b>Settle the premise before any further rebuild.</b> The stems already carry 24-bit mic1 audio. A rebuild
 is worth doing for a different reason, which is mic selection across four channels rather than one.</li>
-<li><b>Stop the bass regression first.</b> The song13mic run drops its bass into scratch on completion. Copying
-<code>song13mic/demucs/htdemucs_6s/preeq/bass.wav</code> to <code>song13mic/band/bass.wav</code> before that
-script finishes retains it with no recomputation.</li>
+<li><b>The bass rescue is done and verified.</b> <code>song13mic/band/bass.wav</code> is byte-identical to its
+Demucs source and decodes clean. Its near-silence reflects song 13 rather than a pipeline fault.</li>
+<li><b>Expect an empty bass lane on several songs.</b> Grade a retained bass lane against the per-song table
+in section 0. Treating silence on song10 or song13 as a bug will send the next pass chasing a part nobody played.</li>
 <li><b>Replace the retire gate</b> with the two tests the instruction set names, which are the build date and
 the drumkit source.</li>
 <li><b>Record the frame offset</b> between the two cut generations so comparison against September 1 output

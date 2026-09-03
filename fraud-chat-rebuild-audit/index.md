@@ -3,6 +3,65 @@
 Compiled 2026-09-03 on MacBookPro. Audited session: Fraud Chat, `local_b5aa940c`.
 Files measured: 95 WAV, 9.40 GB. No audited file was modified.
 
+## Update at 13:10, with corrections
+
+The audited session confirmed the finding against its own measurement and named its bug. It had
+compared the LOSSLESS cut to the four-channel master through `ffmpeg -ac 1`, which averages all
+four mics into one. Mic2 and mic3 roll off at 7.5 kHz and 9.7 kHz from placement, so the average
+looked steeper than mic1 alone and read as an encoder shelf. `STATE-8-28.md` warns against exactly
+that, saying any check of a dual-mono source must read the raw channel.
+
+### Verified on disk
+
+| Claim from the audited session | Check | Result |
+|---|---|---|
+| song13mic bass retained, 168 MB | `cmp` against Demucs source | Byte-identical, decodes clean |
+| song21 restored to 8 lanes | file listing | 8 lanes present |
+| All 12 folders intact | per-folder lane count | Intact |
+| Nothing lost | `delete/lossy-phone-tape/` empty | Confirmed |
+| The rebuild queue is stopped | process table at 13:00 | Queue stopped, song13mic ran to 13:03 |
+
+### Correction to this audit
+
+An earlier draft of the recommendations argued that the pre-separation tilt filter emptied the bass
+lane. Brandon pushed back that some songs may have no bass at all, and that low-frequency content
+could be tom and kick. He is right and the claim was wrong.
+
+The same tilt runs on every song. Bass lane energy ranges from **0.00 % on song10 to 14.00 % on
+song14**. A filter defect would flatten every song equally. The spread is real musical variation.
+
+### Who owns the low end on song 13
+
+| Stem | Peak dBFS | RMS dBFS | Energy below 250 Hz |
+|---|---|---|---|
+| `song13/drumkit/kick` | -7.75 | -27.36 | **81.6 %** |
+| `song13/drumkit/toms` | -16.44 | -50.48 | 52.6 % |
+| `song13/drumkit/snare` | -1.87 | -37.94 | 10.3 % |
+| `song13mic/band/bass.wav` | -32.87 | -81.94 | 4.6 % |
+
+The kick sits 54 dB above the rescued bass lane and carries 81.6 percent of its energy under 250 Hz.
+The low end on song 13 belongs to kick and toms. The rescued bass lane is near-silent because song 13
+has little or no bass guitar, matching the 1.04 percent the September pipeline measured.
+
+### What a retained bass lane would actually contain
+
+| Song | Bass lane energy | Bass peak | Reading |
+|---|---|---|---|
+| song14 | 14.00 % | -21.9 dB | Bass present |
+| song17 | 11.42 % | -13.3 dB | Bass present |
+| song18 | 9.24 % | -12.2 dB | Bass present |
+| song15 | 3.45 % | -17.7 dB | Marginal |
+| song11 | 2.90 % | -17.3 dB | Marginal |
+| song21 | 2.57 % | -13.9 dB | Marginal |
+| song22 | 2.46 % | -24.8 dB | Marginal |
+| song20 | 2.27 % | -27.4 dB | Marginal |
+| song13 | 1.04 % | -23.2 dB | Little or none |
+| song10 | 0.00 % | -26.0 dB | None |
+| song19 | not measured | - | Unknown |
+
+Retaining bass is still worth doing. Expect three songs with a usable bass lane, six marginal, and at
+least one with nothing to find.
+
 ## The verdict
 
 The rebuild was ordered to escape a lossy source that does not exist.
@@ -151,8 +210,9 @@ folder existed only under `delete/` until it was restored. Recovery worked and n
 
 1. Settle the premise before any further rebuild. A rebuild is worth doing for mic selection
    across four channels rather than one.
-2. Stop the bass regression. Copy `song13mic/demucs/htdemucs_6s/preeq/bass.wav` to
-   `song13mic/band/bass.wav` before that script finishes.
+2. The bass rescue is done and verified. `song13mic/band/bass.wav` is byte-identical to its Demucs
+   source and decodes clean. Grade retained bass lanes against the per-song table above, since
+   silence on song10 or song13 is the correct result rather than a fault to chase.
 3. Replace the retire gate with the build date and the drumkit source.
 4. Record the frame offset between the two cut generations.
 5. Leave the ten September 2 songs alone until the rationale is restated on measured grounds.
