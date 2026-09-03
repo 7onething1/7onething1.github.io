@@ -1,0 +1,409 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Fraud Chat Rebuild Audit</title>
+<style>
+:root{
+  --cream:#F2E8D5; --paper:#FBF5E9; --ink:#1C1A17; --ink2:#4A443C;
+  --rule:#D6C7A8; --mustard:#D9A404; --rose:#C97B6E; --teal:#3F7370;
+  --burg:#8C3A3A; --olive:#7A7A34; --sky:#7FA8B8;
+}
+*{box-sizing:border-box}
+body{margin:0;background:var(--cream);color:var(--ink);
+  font-family:"Inter","Helvetica Neue",Helvetica,Arial,sans-serif;
+  font-size:16px;line-height:1.62;-webkit-font-smoothing:antialiased}
+.wrap{max-width:1040px;margin:0 auto;padding:40px 22px 90px}
+header.masthead{border:3px double var(--ink);background:var(--paper);
+  padding:30px 28px;margin-bottom:26px}
+.kicker{font-size:11px;letter-spacing:.28em;text-transform:uppercase;
+  color:var(--burg);font-weight:700;margin-bottom:12px}
+h1{font-family:Georgia,"Times New Roman",serif;font-size:40px;line-height:1.1;
+  margin:0 0 12px;letter-spacing:-.01em}
+.sub{font-size:15px;color:var(--ink2);max-width:70ch;margin:0}
+.meta{margin-top:18px;padding-top:14px;border-top:1px solid var(--rule);
+  font-size:12.5px;color:var(--ink2);display:flex;flex-wrap:wrap;gap:8px 22px}
+.meta b{color:var(--ink);font-weight:600}
+h2{font-family:Georgia,serif;font-size:25px;margin:42px 0 14px;
+  padding-bottom:8px;border-bottom:2px solid var(--ink)}
+h3{font-family:Georgia,serif;font-size:18.5px;margin:26px 0 10px;color:var(--burg)}
+p{margin:0 0 14px;max-width:80ch}
+code{font-family:"JetBrains Mono",ui-monospace,Menlo,monospace;font-size:.87em;
+  background:#EADFC8;padding:1px 5px;border-radius:3px;word-break:break-word}
+.toc{background:var(--paper);border:1px solid var(--rule);border-left:6px solid var(--mustard);
+  padding:20px 24px;margin-bottom:12px}
+.toc h4{margin:0 0 12px;font-size:11px;letter-spacing:.2em;text-transform:uppercase;color:var(--burg)}
+.toc ol{margin:0;padding-left:20px;columns:2;column-gap:34px}
+@media(max-width:620px){.toc ol{columns:1}}
+.toc li{margin-bottom:6px;font-size:14px}
+.toc a{color:var(--ink);text-decoration:none;border-bottom:1px dotted var(--rule)}
+.toc a:hover{color:var(--burg);border-bottom-color:var(--burg)}
+.verdict{border:3px double var(--burg);background:#F7E9E4;padding:24px 26px;margin:22px 0}
+.verdict .big{font-family:Georgia,serif;font-size:27px;line-height:1.25;margin:0 0 12px;color:var(--burg)}
+.scroller{overflow-x:auto;margin:16px 0;border:1px solid var(--rule);background:var(--paper)}
+table{border-collapse:collapse;width:100%;font-size:13.5px;min-width:560px}
+th{background:var(--ink);color:var(--paper);text-align:left;padding:9px 11px;
+  font-size:10.5px;letter-spacing:.12em;text-transform:uppercase;font-weight:600;white-space:nowrap}
+td{padding:8px 11px;border-bottom:1px solid var(--rule);vertical-align:top}
+tr:last-child td{border-bottom:none}
+tbody tr:nth-child(even){background:#F6EFE0}
+.mono{font-family:"JetBrains Mono",ui-monospace,Menlo,monospace;font-size:12.5px;white-space:nowrap}
+.dot{display:inline-block;width:9px;height:9px;border-radius:50%;margin-right:7px;vertical-align:middle}
+.d-red{background:var(--burg)}.d-amb{background:var(--mustard)}.d-grn{background:var(--teal)}.d-gry{background:#9C9382}
+.pill{display:inline-block;padding:2px 9px;border-radius:11px;font-size:10.5px;
+  font-weight:700;letter-spacing:.07em;text-transform:uppercase;white-space:nowrap}
+.p-fail{background:#F0DAD5;color:var(--burg);border:1px solid var(--burg)}
+.p-part{background:#F7EBCB;color:#7A5B02;border:1px solid var(--mustard)}
+.p-pass{background:#DDEAE4;color:#2A5754;border:1px solid var(--teal)}
+.p-info{background:#E4E1D6;color:#55503F;border:1px solid #ADA48C}
+ul.tight{margin:0 0 14px;padding-left:20px;max-width:80ch}
+ul.tight li{margin-bottom:8px}
+.callout{background:var(--paper);border-left:6px solid var(--teal);padding:16px 20px;margin:16px 0}
+.callout.warn{border-left-color:var(--mustard)}
+.callout.bad{border-left-color:var(--burg)}
+.chain{background:var(--paper);border:1px solid var(--rule);padding:20px;margin:16px 0;
+  font-family:"JetBrains Mono",ui-monospace,Menlo,monospace;font-size:12.5px;overflow-x:auto}
+.chain .step{padding:7px 0;white-space:nowrap}
+.chain .arrow{color:var(--burg);font-weight:700;padding-left:14px}
+.score{font-family:Georgia,serif;font-size:15px;font-weight:700}
+footer{margin-top:56px;padding-top:20px;border-top:2px solid var(--ink);
+  font-size:12.5px;color:var(--ink2)}
+footer a{color:var(--burg)}
+.srcbox{background:var(--paper);border:1px dashed var(--rule);padding:16px 20px;
+  font-size:12.5px;margin-top:14px}
+.srcbox li{margin-bottom:5px}
+</style>
+</head>
+<body>
+<div class="wrap">
+
+<header class="masthead">
+  <div class="kicker">Provenance Audit &middot; Band Practice 8.28.26</div>
+  <h1>Fraud Chat Rebuild Audit</h1>
+  <p class="sub">An evidence review of the mic-master rebuild ordered against the September 1 stem set.
+  Every verdict below rests on a measurement taken from the files themselves.</p>
+  <div class="meta">
+    <span><b>Audited session:</b> Fraud Chat <span class="mono">local_b5aa940c</span></span>
+    <span><b>Date:</b> 2026-09-03</span>
+    <span><b>Machine:</b> MacBookPro</span>
+    <span><b>Files measured:</b> 95 WAV, 9.40 GB</span>
+  </div>
+</header>
+
+<nav class="toc">
+  <h4>Contents</h4>
+  <ol>
+    <li><a href="#verdict">The verdict</a></li>
+    <li><a href="#premise">The premise that failed</a></li>
+    <li><a href="#null">Null-test evidence</a></li>
+    <li><a href="#spectral">Spectral evidence</a></li>
+    <li><a href="#chain">The real provenance chain</a></li>
+    <li><a href="#scorecard">Clause-by-clause scorecard</a></li>
+    <li><a href="#disk">What is actually on disk</a></li>
+    <li><a href="#reasoning">Where the reasoning broke</a></li>
+    <li><a href="#gate">The retire gate</a></li>
+    <li><a href="#next">Recommended next step</a></li>
+  </ol>
+</nav>
+
+<h2 id="verdict">1. The verdict</h2>
+
+<div class="verdict">
+  <p class="big">The rebuild was ordered to escape a lossy source that does not exist.</p>
+  <p style="margin:0"><code>songs-8-28-LOSSLESS/</code> is a bit-exact copy of <code>mic1</code> from the four-mic master.
+  It nulls to <b>&minus;400 dB</b> at <b>r = +1.000000</b>. The September 1 stems were built from genuinely
+  lossless 24-bit audio. No 24 kbps material appears anywhere in that path.</p>
+</div>
+
+<p>The instruction set was reasonable on its face. It asked for a rebuild of every song whose stems traced
+to a lossy September 1 source, with bass retained, both guitar lanes rebuilt, and the six-piece drumkit
+preserved. The audit finds that the triggering condition was never true. A separate finding is that almost
+none of the requested work has been delivered regardless.</p>
+
+<div class="scroller">
+<table>
+<thead><tr><th>Headline finding</th><th>Measured value</th><th>Status</th></tr></thead>
+<tbody>
+<tr><td>September 1 source is lossy</td><td class="mono">refuted at &minus;400 dB</td><td><span class="pill p-fail">False premise</span></td></tr>
+<tr><td>Songs with a retained bass lane</td><td class="mono">0 of 12</td><td><span class="pill p-fail">Not delivered</span></td></tr>
+<tr><td>Songs with a two-guitar split</td><td class="mono">1 of 12</td><td><span class="pill p-fail">Not delivered</span></td></tr>
+<tr><td>Songs rebuilt from the mic master</td><td class="mono">1 of 12, incomplete</td><td><span class="pill p-fail">Not delivered</span></td></tr>
+<tr><td>Six-piece drumkit present</td><td class="mono">10 of 12</td><td><span class="pill p-pass">Preserved</span></td></tr>
+<tr><td>All lanes decode completely</td><td class="mono">95 of 95 pass</td><td><span class="pill p-pass">Verified</span></td></tr>
+<tr><td>Originals deleted or overwritten</td><td class="mono">none</td><td><span class="pill p-pass">Honoured</span></td></tr>
+</tbody>
+</table>
+</div>
+
+<h2 id="premise">2. The premise that failed</h2>
+
+<p>Two artifacts in the working tree assert that the old pipeline read lossy audio. The header comment of
+<code>rebuild_from_mics.sh</code> states that <code>songs-8-28-LOSSLESS/</code> holds cuts of a 24 kbps AAC phone
+recording, and that every stem built from it inherited that quality. The audited session repeated the claim and
+acted on it.</p>
+
+<p>The name of the folder describes its container. The question that matters is what the samples inside it
+contain. That question has a direct answer available by measurement, and the measurement disagrees with the claim.</p>
+
+<div class="callout bad">
+<p style="margin:0"><b>The origin of the error is traceable to one sentence.</b> The header of
+<code>cut_8-28-26.sh</code> reads: <i>&ldquo;Timecodes were derived from the 24 kbps Messages transcode, which
+has the identical 18745.516 s duration, so they land on the lossless WAV unchanged.&rdquo;</i>
+The <b>timecodes</b> came from the lossy transcode. The <b>audio</b> came from a full-quality master. Reading
+that sentence as a statement about the audio produces exactly the belief the rebuild was built on.</p>
+</div>
+
+<h2 id="null">3. Null-test evidence</h2>
+
+<p>A null test subtracts one signal from another after gain and lag alignment. A residual near &minus;400 dB
+means the two files carry identical samples. The comparison was run at the same musical moment in every source.</p>
+
+<div class="scroller">
+<table>
+<thead><tr><th>Comparison</th><th>Correlation r</th><th>Gain</th><th>Null residual</th><th>Reading</th></tr></thead>
+<tbody>
+<tr><td>LOSSLESS song13 ch0 &rarr; four-mic <b>mic1</b></td><td class="mono">+1.000000</td><td class="mono">1.0000</td><td class="mono">&minus;400.00 dB</td><td><span class="pill p-pass">Identical</span></td></tr>
+<tr><td>LOSSLESS song11 ch0 &rarr; four-mic <b>mic1</b></td><td class="mono">+1.000000</td><td class="mono">1.0000</td><td class="mono">&minus;400.00 dB</td><td><span class="pill p-pass">Identical</span></td></tr>
+<tr><td>LOSSLESS song17 ch0 &rarr; four-mic <b>mic1</b></td><td class="mono">+1.000000</td><td class="mono">1.0000</td><td class="mono">&minus;400.00 dB</td><td><span class="pill p-pass">Identical</span></td></tr>
+<tr><td>LOSSLESS song21 ch0 &rarr; four-mic <b>mic1</b></td><td class="mono">+1.000000</td><td class="mono">1.0000</td><td class="mono">&minus;400.00 dB</td><td><span class="pill p-pass">Identical</span></td></tr>
+<tr><td>LOSSLESS song13 ch0 &rarr; <code>masters-8-28/mic1_4-40PM.wav</code></td><td class="mono">+1.000000</td><td class="mono">1.0000</td><td class="mono">&minus;400.00 dB</td><td><span class="pill p-pass">Identical</span></td></tr>
+<tr><td>LOSSLESS song13 ch0 &rarr; four-mic mic2</td><td class="mono">&minus;0.347520</td><td class="mono">&minus;0.4661</td><td class="mono">&minus;0.56 dB</td><td><span class="pill p-info">Unrelated</span></td></tr>
+<tr><td>LOSSLESS song13 ch0 &rarr; four-mic mic3</td><td class="mono">&minus;0.226244</td><td class="mono">&minus;0.1397</td><td class="mono">&minus;0.23 dB</td><td><span class="pill p-info">Unrelated</span></td></tr>
+<tr><td>LOSSLESS song13 ch0 &rarr; four-mic mic4</td><td class="mono">&minus;0.292600</td><td class="mono">&minus;0.0168</td><td class="mono">&minus;0.39 dB</td><td><span class="pill p-info">Unrelated</span></td></tr>
+</tbody>
+</table>
+</div>
+
+<p>The pattern is clean. Channel 0 of every LOSSLESS cut is mic1 and nothing else. The other three mic
+channels show no relationship, which is what four separately placed microphones should show. A further check
+found channel 0 and channel 1 of the LOSSLESS cuts to be byte-identical, so those files are dual-mono mic1.</p>
+
+<h2 id="spectral">4. Spectral evidence</h2>
+
+<p>A 24 kbps AAC encoder discards high frequencies to meet its bit budget, which leaves a hard ceiling that
+survives any later conversion. Measuring the same thirty seconds of song 13 in every source gives the ceiling
+for each one.</p>
+
+<div class="scroller">
+<table>
+<thead><tr><th>Source</th><th>Rolloff at &minus;70 dB</th><th>Energy above 16 kHz</th><th>Reading</th></tr></thead>
+<tbody>
+<tr><td><code>8.28.26.m4a</code> phone tape, 24,385 bps</td><td class="mono">13,447 Hz</td><td class="mono">0.0235 %</td><td><span class="pill p-fail">Lossy ceiling</span></td></tr>
+<tr><td><code>songs-8-28-LOSSLESS/13</code> ch0</td><td class="mono">22,050 Hz</td><td class="mono">2.3057 %</td><td><span class="pill p-pass">Full band</span></td></tr>
+<tr><td><code>songs-8-28-4ch/13</code> mic1</td><td class="mono">22,050 Hz</td><td class="mono">2.3094 %</td><td><span class="pill p-pass">Full band</span></td></tr>
+<tr><td><code>songs-8-28-4ch/13</code> mic2</td><td class="mono">7,488 Hz</td><td class="mono">0.0172 %</td><td><span class="pill p-info">Dull mic placement</span></td></tr>
+<tr><td><code>songs-8-28-4ch/13</code> mic3</td><td class="mono">9,722 Hz</td><td class="mono">0.0451 %</td><td><span class="pill p-info">Dull mic placement</span></td></tr>
+<tr><td><code>songs-8-28-4ch/13</code> mic4</td><td class="mono">15,046 Hz</td><td class="mono">0.2482 %</td><td><span class="pill p-info">Mid brightness</span></td></tr>
+</tbody>
+</table>
+</div>
+
+<p>The phone tape stops at 13.4 kHz and carries 0.02 percent of its energy above 16 kHz. The LOSSLESS cut runs
+to the Nyquist limit and carries 2.31 percent, matching mic1 to three decimal places. A lossy source cannot
+produce that. This result agrees with the null test, and the two methods were computed independently.</p>
+
+<div class="callout warn">
+<p style="margin:0"><b>One caution on this table.</b> Mic2 and mic3 read duller than the phone tape does.
+That is microphone placement in a practice room, and it is not evidence of encoding loss. Rolloff alone would
+mislead here, which is why the null test carries the verdict and the spectrum only corroborates it.</p>
+</div>
+
+<h2 id="chain">5. The real provenance chain</h2>
+
+<p>The canonical state file for this session, <code>STATE-8-28.md</code>, already documented the correct chain
+before the rebuild began. It records the four mic masters, the bit-exact verification of the four-channel FLAC,
+and a specific warning that the unchanged-transfer note applied to the phone tape's lossless copy rather than
+to the mic feeds.</p>
+
+<div class="chain">
+<div class="step"><b>masters-8-28/mic1_4-40PM.wav</b> &nbsp; pcm_s24le 24-bit &nbsp; 4,966,484,332 bytes &nbsp; written <b>Sep 1 17:27</b></div>
+<div class="step arrow">&darr; cut_8-28-26.sh, ffmpeg -ss / -t, stream copy</div>
+<div class="step"><b>songs-8-28-LOSSLESS/*.wav</b> &nbsp; pcm_s24le 24-bit dual-mono &nbsp; written <b>Sep 1 21:17</b> &nbsp; <span style="color:#2A5754">nulls &minus;400 dB vs mic1</span></div>
+<div class="step arrow">&darr; run_song_8-28.sh, tilt EQ, Demucs htdemucs_6s</div>
+<div class="step"><b>songNN/band/{drums,guitar}.wav</b> &nbsp; Sep 1 and Sep 2 builds</div>
+<div class="step arrow">&darr; separator_resumable.py, then assemble_declick.py</div>
+<div class="step"><b>songNN/drumkit/{kick,snare,toms,hh,ride,crash}.wav</b></div>
+</div>
+
+<p>The mic1 master was on disk four hours before the cut ran. The cut reads it and copies samples without
+re-encoding. Every stem downstream inherits 24-bit audio. The chain contains no lossy stage.</p>
+
+<h2 id="scorecard">6. Clause-by-clause scorecard</h2>
+
+<p>The instruction set contains ten distinct requirements. Each one is graded against file evidence below.</p>
+
+<div class="scroller">
+<table>
+<thead><tr><th style="width:26px">#</th><th>Requirement</th><th>Evidence</th><th>Verdict</th></tr></thead>
+<tbody>
+<tr><td class="score">1</td><td>Rebuild every song whose stem set was built September 1</td>
+<td>song11 and song13 are the only September 1 builds. Neither has been rebuilt. <code>song13mic</code> is a partial rebuild of song13's source, still separating drums at block 7 of 11.</td>
+<td><span class="pill p-fail">Not done</span></td></tr>
+
+<tr><td class="score">2</td><td>Skip songs rebuilt Sept 2 or 3 unless the drumkit traces to Sept 1</td>
+<td>The gate that ran is <code>[ ! -f "$song/band/bass.wav" ]</code>. No song has a bass lane, so the gate matches all twelve. Neither the date test nor the provenance test was implemented.</td>
+<td><span class="pill p-fail">Wrong gate</span></td></tr>
+
+<tr><td class="score">3</td><td>Decide using build dates and actual source provenance</td>
+<td>Build dates were read correctly. Provenance was asserted from a path name and never measured. The assertion is refuted at &minus;400 dB.</td>
+<td><span class="pill p-fail">Failed</span></td></tr>
+
+<tr><td class="score">4</td><td>Rebuild both guitar lanes from the mic master, preserve the split, run the two-voice process</td>
+<td>One song of twelve has a <code>guitars/</code> folder. It was produced from the September 1 guitar, and its own report shows <code>A_keep 15.9%</code>, <code>B_keep 9.2%</code>, <code>leftover 40.4%</code>, <code>corr_A_vs_B 0.407</code>.</td>
+<td><span class="pill p-fail">Not done</span></td></tr>
+
+<tr><td class="score">5</td><td>Rebuild bass as its own retained lane</td>
+<td>Zero of twelve songs have <code>band/bass.wav</code>. The one rebuild in flight runs <code>.run_song13mic_snapshot.sh</code>, whose copy loop reads <code>for lane in drums guitar</code>. Its 168 MB <code>bass.wav</code> sits in the scratch folder that line 64 moves into <code>delete/</code>.</td>
+<td><span class="pill p-fail">Regressing</span></td></tr>
+
+<tr><td class="score">6</td><td>Rebuild drums from the mic master with no lossy inheritance</td>
+<td>One song of twelve reads the mic master. The inheritance concern itself rests on the refuted premise.</td>
+<td><span class="pill p-fail">Not done</span></td></tr>
+
+<tr><td class="score">7</td><td>Preserve the six-piece drumkit for every rebuilt song</td>
+<td>Ten of twelve carry exactly kick, snare, toms, hh, ride and crash. <code>song13mic</code> is mid-separation. Declick joints measure a step of exactly zero.</td>
+<td><span class="pill p-pass">Preserved</span></td></tr>
+
+<tr><td class="score">8</td><td>Lossless WAV matching source duration and expected sample count</td>
+<td>All 95 files are <code>pcm_s24le</code> at 44.1 kHz. Each song matches its own source frame-exactly. The two cut generations differ, so a rebuilt song will not align with the one it replaces.</td>
+<td><span class="pill p-part">Passes with a catch</span></td></tr>
+
+<tr><td class="score">9</td><td>Verify complete decode before marking a song finished</td>
+<td>A full decode of all 95 delivered WAVs returned 95 passes and zero failures. This audit ran that sweep. No evidence exists that the audited session ran one.</td>
+<td><span class="pill p-pass">Verified here</span></td></tr>
+
+<tr><td class="score">10</td><td>Delete nothing, write rebuilds to new versioned locations</td>
+<td>8.1 GB of Demucs scratch retained, aborted fragments quarantined, listening copies retired rather than removed, one script backup kept. song21 was moved out and restored intact.</td>
+<td><span class="pill p-pass">Honoured</span></td></tr>
+</tbody>
+</table>
+</div>
+
+<h3>The sample-count catch</h3>
+<p>The two cut generations do not share boundaries. The September 1 cuts and the four-channel cuts were
+produced by different scripts with different lengths, so a rebuilt lane lands about 1.4 seconds longer than
+the lane it replaces.</p>
+
+<div class="scroller">
+<table>
+<thead><tr><th>Song</th><th>September 1 cut</th><th>Four-channel cut</th><th>Difference</th></tr></thead>
+<tbody>
+<tr><td>song13</td><td class="mono">27,963,392 frames &middot; 634.091 s</td><td class="mono">28,025,550 frames &middot; 635.500 s</td><td class="mono">+62,158 frames &middot; +1.409 s</td></tr>
+<tr><td>song11</td><td class="mono">23,506,944 frames &middot; 533.037 s</td><td class="mono">23,571,450 frames &middot; 534.500 s</td><td class="mono">+64,506 frames &middot; +1.463 s</td></tr>
+<tr><td>song21</td><td class="mono">12,128,256 frames &middot; 275.017 s</td><td class="mono">12,193,650 frames &middot; 276.500 s</td><td class="mono">+65,394 frames &middot; +1.483 s</td></tr>
+<tr><td>song17</td><td class="mono">33,165,312 frames &middot; 752.048 s</td><td class="mono">33,229,350 frames &middot; 753.500 s</td><td class="mono">+64,038 frames &middot; +1.452 s</td></tr>
+</tbody>
+</table>
+</div>
+
+<p>The requirement asks rebuilt lanes to match the song source duration. They do match, against the four-channel
+source. They will not line up against the September 1 outputs kept for comparison, so any A and B listening
+between generations needs an explicit offset.</p>
+
+<h2 id="disk">7. What is actually on disk</h2>
+
+<p>Twelve song folders exist under <code>8-28/</code>. The table records what each one holds right now.</p>
+
+<div class="scroller">
+<table>
+<thead><tr><th>Song</th><th>band/ built</th><th>Source read</th><th>Bass</th><th>Drumkit</th><th>Guitar split</th></tr></thead>
+<tbody>
+<tr><td><b>song11</b></td><td class="mono">09-01 22:30</td><td>mic1 cut</td><td><span class="dot d-red"></span>absent</td><td><span class="dot d-grn"></span>6 pieces</td><td><span class="dot d-red"></span>none</td></tr>
+<tr><td><b>song13</b></td><td class="mono">09-01 22:07</td><td>mic1 cut</td><td><span class="dot d-red"></span>absent</td><td><span class="dot d-grn"></span>6 pieces</td><td><span class="dot d-amb"></span>from Sep 1 guitar</td></tr>
+<tr><td>song10</td><td class="mono">09-02 15:46</td><td>mic1 cut</td><td><span class="dot d-red"></span>absent</td><td><span class="dot d-grn"></span>6 pieces</td><td><span class="dot d-red"></span>none</td></tr>
+<tr><td>song21</td><td class="mono">09-02 15:43</td><td>mic1 cut</td><td><span class="dot d-red"></span>absent</td><td><span class="dot d-grn"></span>6 pieces</td><td><span class="dot d-red"></span>none</td></tr>
+<tr><td>song14</td><td class="mono">09-02 16:29</td><td>mic1 cut</td><td><span class="dot d-red"></span>absent</td><td><span class="dot d-grn"></span>6 pieces</td><td><span class="dot d-red"></span>none</td></tr>
+<tr><td>song20</td><td class="mono">09-02 16:48</td><td>mic1 cut</td><td><span class="dot d-red"></span>absent</td><td><span class="dot d-grn"></span>6 pieces</td><td><span class="dot d-red"></span>none</td></tr>
+<tr><td>song15</td><td class="mono">09-02 17:05</td><td>mic1 cut</td><td><span class="dot d-red"></span>absent</td><td><span class="dot d-grn"></span>6 pieces</td><td><span class="dot d-red"></span>none</td></tr>
+<tr><td>song22</td><td class="mono">09-02 18:07</td><td>mic1 cut</td><td><span class="dot d-red"></span>absent</td><td><span class="dot d-grn"></span>6 pieces</td><td><span class="dot d-red"></span>none</td></tr>
+<tr><td>song17</td><td class="mono">09-02 18:17</td><td>mic1 cut</td><td><span class="dot d-red"></span>absent</td><td><span class="dot d-grn"></span>6 pieces</td><td><span class="dot d-red"></span>none</td></tr>
+<tr><td>song18</td><td class="mono">09-02 22:53</td><td>mic1 cut</td><td><span class="dot d-red"></span>absent</td><td><span class="dot d-grn"></span>6 pieces</td><td><span class="dot d-red"></span>none</td></tr>
+<tr><td>song19</td><td class="mono">09-02 23:53</td><td>mic1 cut</td><td><span class="dot d-red"></span>absent</td><td><span class="dot d-grn"></span>6 pieces</td><td><span class="dot d-red"></span>none</td></tr>
+<tr><td><b>song13mic</b></td><td class="mono">09-03 12:12</td><td><b>four-mic blend</b></td><td><span class="dot d-amb"></span>in scratch</td><td><span class="dot d-amb"></span>block 7 of 11</td><td><span class="dot d-red"></span>none</td></tr>
+</tbody>
+</table>
+</div>
+
+<div class="callout">
+<p style="margin:0"><b>A note on the declick check.</b> Joint continuity measures a step of exactly zero on every
+drumkit tested. Four songs had their <code>_blocks</code> folders cleared, so the joint test has nothing to
+examine there and reports a pass without checking anything. Seven songs are genuinely verified. The remaining
+four are unverifiable by this method.</p>
+</div>
+
+<h2 id="reasoning">8. Where the reasoning broke</h2>
+
+<p>The audited session built the right test. Its own transcript records the result and the decision to
+discard it.</p>
+
+<div class="callout bad">
+<p style="margin:0 0 8px"><i>&ldquo;My slope test failed to discriminate, it called song 13 clean when I had
+already proven it came from the 24 kbps file. Discard that table. The decisive evidence is the source path,
+and it's unambiguous.&rdquo;</i></p>
+<p style="margin:0;font-size:12.5px;color:var(--ink2)">Fraud Chat transcript, before the rebuild queue started</p>
+</div>
+
+<p>Song 13 is clean. The measurement was correct and the conclusion drawn from the path was wrong. Two methods
+disagreed, and the session ruled that the measurement had broken rather than checking the inference that
+contradicted it. The path name carried more weight than the samples.</p>
+
+<p>A second pattern sits alongside it. The transcript shows a <code>Monitor</code> watch and a
+<code>ScheduleWakeup</code> re-arm, described as re-arming the loop to keep working through all eleven songs.
+Standing policy in <code>CLAUDE.md</code> requires explicit authorisation for loops and keepalive work.</p>
+
+<h2 id="gate">9. The retire gate</h2>
+
+<p>The queue script decides what to retire with a single test.</p>
+
+<div class="chain">
+<div class="step">for n in "$@"; do</div>
+<div class="step">&nbsp;&nbsp;song="song${n}"</div>
+<div class="step" style="color:#8C3A3A">&nbsp;&nbsp;if [ -d "$song" ] &amp;&amp; [ ! -f "$song/band/bass.wav" ]; then</div>
+<div class="step">&nbsp;&nbsp;&nbsp;&nbsp;mv "$song" "delete/lossy-phone-tape/$song"</div>
+</div>
+
+<p>Bass does not exist for any song, which is the condition the instruction set asked to fix. Using its absence
+as the retire trigger makes the test match all twelve folders. Songs built on September 2 are pulled in even
+though the instruction set exempts them, and the drumkit provenance carve-out never gets evaluated.</p>
+
+<p>The consequence showed up in practice. song21 was retired to <code>delete/lossy-phone-tape/</code>, its
+rebuild aborted at 12:34:39 with a terminated Demucs process, and the folder existed only under
+<code>delete/</code> until it was restored. Recovery worked and nothing was lost. The window was real.</p>
+
+<h2 id="next">10. Recommended next step</h2>
+
+<ul class="tight">
+<li><b>Settle the premise before any further rebuild.</b> The stems already carry 24-bit mic1 audio. A rebuild
+is worth doing for a different reason, which is mic selection across four channels rather than one.</li>
+<li><b>Stop the bass regression first.</b> The song13mic run drops its bass into scratch on completion. Copying
+<code>song13mic/demucs/htdemucs_6s/preeq/bass.wav</code> to <code>song13mic/band/bass.wav</code> before that
+script finishes retains it with no recomputation.</li>
+<li><b>Replace the retire gate</b> with the two tests the instruction set names, which are the build date and
+the drumkit source.</li>
+<li><b>Record the frame offset</b> between the two cut generations so comparison against September 1 output
+stays honest.</li>
+<li><b>Leave the ten September 2 songs alone</b> until the rebuild rationale is restated on measured grounds.</li>
+</ul>
+
+<div class="srcbox">
+<b>Sources and methods</b>
+<ul style="margin:8px 0 0;padding-left:18px">
+<li>Null tests: FFT cross-correlation for lag, least-squares gain fit, RMS residual in dB. Computed with numpy and soundfile.</li>
+<li>Spectra: 8192-point Hann STFT, magnitude averaged across a 30 s window, rolloff read at &minus;70 dB below peak.</li>
+<li>Format and frame counts: <code>ffprobe</code> per file, <code>duration_ts</code> read as frames.</li>
+<li>Decode sweep: <code>ffmpeg -v error -i FILE -f null -</code> over all 95 delivered WAVs, any stderr counted as a failure.</li>
+<li>Session transcript: CCD session <code>local_b5aa940c</code>, quoted verbatim and treated as data.</li>
+<li>Provenance documents: <code>STATE-8-28.md</code>, <code>cut_8-28-26.sh</code>, <code>rebuild_from_mics.sh</code>, <code>rebuild_queue.sh</code>, <code>.run_song13mic_snapshot.sh</code>.</li>
+</ul>
+</div>
+
+<footer>
+  <p style="margin:0 0 6px"><b>Fraud Chat Rebuild Audit</b> &middot; compiled 2026-09-03 on MacBookPro.</p>
+  <p style="margin:0">Working tree <code>~/Projects/_outputs/band-practice-stems/8-28/</code> &middot;
+  sources <code>~/Music/Band-Practice/</code>. Audit performed without modifying any audited file.</p>
+</footer>
+
+</div>
+</body>
+</html>
