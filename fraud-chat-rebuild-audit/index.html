@@ -94,6 +94,7 @@ footer a{color:var(--burg)}
 <nav class="toc">
   <h4>Contents</h4>
   <ol>
+    <li><a href="#final">Final state: v2 verifies clean</a></li>
     <li><a href="#reverify">Re-verification after the 14:08 rebuild</a></li>
     <li><a href="#ship">Ship verification, Sept 4 (superseded in part)</a></li>
     <li><a href="#retract">MAJOR CORRECTION: the cymbal verdict</a></li>
@@ -114,7 +115,73 @@ footer a{color:var(--burg)}
   </ol>
 </nav>
 
-<h2 id="reverify">0. Re-verification after the 14:08 rebuild</h2>
+<h2 id="final">0. Final state: v2 verifies clean</h2>
+
+<div class="verdict" style="border-color:#3F7370;background:#E3EFEA">
+<p class="big" style="color:#2A5754;font-size:24px">Every defect this audit raised is fixed and independently re-measured.</p>
+<p style="margin:0">160 manifest keys, <b>0 unresolvable</b>, 160 files on disk, <b>0 orphans</b>. A perfect
+bijection in both directions. The repair copies reach zero clipped honestly at a uniform &minus;3.54 dB.</p>
+</div>
+
+<div class="scroller">
+<table>
+<thead><tr><th>Defect this audit found</th><th>Fix</th><th>Verified</th></tr></thead>
+<tbody>
+<tr><td>Lane count asserted as 43</td><td>Read from disk, 38 verbatim</td><td><span class="pill p-pass">Closed</span></td></tr>
+<tr><td>Manifest stale, no repair copies, no drum lanes</td><td>Regenerated, all 160 catalogued</td><td><span class="pill p-pass">Closed</span></td></tr>
+<tr><td>Repair copies silently 6 to 15 dB quiet</td><td>Interpolation clamped, gain recorded</td><td><span class="pill p-pass">Closed</span></td></tr>
+<tr><td>28 manifest paths did not resolve</td><td><code>relpath</code> keys plus an abort-on-fail gate</td><td><span class="pill p-pass">Closed</span></td></tr>
+<tr><td>Clipped counts measuring the cap, not clipping</td><td>Normalise to 0.998, under the threshold</td><td><span class="pill p-pass">Closed</span></td></tr>
+</tbody>
+</table>
+</div>
+
+<h3>Independent re-measure of the repair copies</h3>
+<div class="scroller">
+<table>
+<thead><tr><th>File</th><th>Clipped at 0.999</th><th>Peak</th><th>Gain</th><th>Frames</th></tr></thead>
+<tbody>
+<tr><td><code>song16/bass_mic4_DECLIP</code></td><td class="mono"><b>0</b></td><td class="mono">0.998000</td><td class="mono">&minus;3.54 dB</td><td class="mono">17,970,750</td></tr>
+<tr><td><code>song15/bass_mic4_DECLIP</code></td><td class="mono"><b>0</b></td><td class="mono">0.998000</td><td class="mono">&minus;3.54 dB</td><td class="mono">21,322,350</td></tr>
+<tr><td><code>song11/kick_mic1_DECLIP</code></td><td class="mono"><b>0</b></td><td class="mono">0.998000</td><td class="mono">&minus;3.54 dB</td><td class="mono">23,571,450</td></tr>
+</tbody>
+</table>
+</div>
+<p>Zero is real this time. The peak sits at exactly 0.998000, deliberately under the 0.999 test, and the cost is
+a uniform &minus;3.54 dB rather than the 6 to 15 dB the first build charged. The broken copies are retired to
+<code>delete/declip-broken-globalgain/</code> rather than removed.</p>
+
+<h3>The inventory, read from disk</h3>
+<div class="scroller">
+<table>
+<thead><tr><th>Class</th><th>Count</th><th>Note</th></tr></thead>
+<tbody>
+<tr><td>Verbatim mic lanes</td><td class="mono">38</td><td>raw channels, no EQ, no separation, no downmix</td></tr>
+<tr><td>Drumkit lanes</td><td class="mono">78</td><td>13 songs &times; 6 pieces, joints 0.00000000</td></tr>
+<tr><td>Guitar-split files</td><td class="mono">28</td><td>7 songs &times; 4, with a stated correlation caveat</td></tr>
+<tr><td>Kit sources</td><td class="mono">13</td><td>derived separation inputs, marked not deliverable</td></tr>
+<tr><td>Repair copies</td><td class="mono">3</td><td>reconstructions, gain recorded</td></tr>
+<tr><td><b>Total</b></td><td class="mono"><b>160</b></td><td>every one catalogued and resolving</td></tr>
+</tbody>
+</table>
+</div>
+
+<div class="callout warn">
+<p style="margin:0"><b>One error persists, and it is instructive.</b> The audited session's closing summary states
+14 guitar-split files. It is 28, and its own manifest catalogues all 28 correctly. The arithmetic gives it away:
+38 + 78 + 14 + 13 + 3 = 146, while 28 closes at exactly 160. This is the third time a hand-written count was the
+thing that was wrong while the measured artifact was fine, after the invented 43 and the stale manifest. The
+durable fix is to derive summary numbers from the same disk scan the gate already runs.</p>
+</div>
+
+<div class="callout">
+<p style="margin:0"><b>The most transferable result of this exchange.</b> The counts reconciled perfectly at 160
+of 160 while 28 paths pointed at nothing. <b>Count reconciliation is structurally blind to a wrong path.</b>
+Only resolution catches it. The session now aborts the manifest write unless every key resolves, which is a
+better outcome than the fix itself.</p>
+</div>
+
+<h2 id="reverify">0.1 Re-verification after the 14:08 rebuild</h2>
 
 <p>The audited session rebuilt the repair copies at 14:06 and regenerated the manifest at
 <b>2026-09-04 14:08:07</b>, after the findings in the next section were sent. Three of the four are now closed
