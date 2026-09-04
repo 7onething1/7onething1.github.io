@@ -42,11 +42,11 @@ code{font:12px ui-monospace,Menlo,monospace}
 }
 </style></head><body><div class="wrap">
 <h1>Chat Babysitter</h1>
-<p class="sub">2026-09-04 13:57 CDT &middot; 31 chats read &middot; verdicts from transcript tails, not self-report</p>
+<p class="sub">2026-09-04 17:51 CDT &middot; 32 chats read &middot; verdicts from transcript tails, not self-report</p>
 <div class="tiles">
  <div class="tile bad"><b>6</b><span>Fraud risk</span></div>
  <div class="tile warn"><b>0</b><span>Watch</span></div>
- <div class="tile ok"><b>25</b><span>Clean exit</span></div>
+ <div class="tile ok"><b>26</b><span>Clean exit</span></div>
  <div class="tile warn"><b>168</b><span>Queue debt</span></div>
 </div>
 <h2>Root cause</h2>
@@ -58,139 +58,139 @@ code{font:12px ui-monospace,Menlo,monospace}
       <div class="ev">Stop hooks installed (13): source_grounding_gate.py, done_claim_gate.py, fraud_check_gate.py, chat_voice_gate.py, chat_color_gate.py, chat_link_gate.py, chat_donelink_gate.py, curl -s -m 3 -H &quot;Title: Claude done&quot; -d &quot;Done: $, L=&quot;/Users/brandonchavez/Library/Mobile Documents, ask_drift_gate.py, search_before_blocked_gate.py, no_permission_questions_gate.py, next_action_gate.py</div></li>
     <li class="f info"><span class="rule">DRY RUN</span>
       <span class="det">Run standalone the gate does work, it just never runs.</span>
-      <div class="ev">no-quit-shift: REFUSING stop. 143 item(s) still QUEUED, ready work.   (exit 2)</div></li>
+      <div class="ev">no-quit-shift: continuation cap (40) reached; allowing stop.   (exit )</div></li>
   </ul>
 </section>
 <h2>Flagged &mdash; stopped without finishing</h2>
 <article class="card bad">
   <header><h3>Slant rhyme chats</h3><span class="pill bad">FRAUD_RISK</span></header>
-  <div class="meta">idle 27 min &middot; 2257 assistant turns &middot; <code>230f440e</code></div>
-  <ul class="findings"><li class="f hard"><span class="rule">ABANDONED_MIDTOOL</span><span class="det">Bash call never returned, silent 27 min</span><div class="ev">**What you'll get when it finishes:** a per-take table of drum levels across your whole 8/14 tape, and kit splits only for the takes that actually have drums on them. That also answers, as a side effect, how many of those nineteen takes are missing a drummer.</div></li><li class="f hard"><span class="rule">UNHANDLED_NOTIFICATION</span><span class="det">a harness notification landed and nothing handled it for 27 min. The chat delegated its own wake-up and the notice arrived in a session that had stopped</span><div class="ev">(last record is a task-notification, not Brandon)</div></li></ul>
+  <div class="meta">idle 261 min &middot; 2257 assistant turns &middot; <code>230f440e</code></div>
+  <ul class="findings"><li class="f hard"><span class="rule">ABANDONED_MIDTOOL</span><span class="det">Bash call never returned, silent 261 min</span><div class="ev">**What you'll get when it finishes:** a per-take table of drum levels across your whole 8/14 tape, and kit splits only for the takes that actually have drums on them. That also answers, as a side effect, how many of those nineteen takes are missing a drummer.</div></li><li class="f hard"><span class="rule">UNHANDLED_NOTIFICATION</span><span class="det">a harness notification landed and nothing handled it for 261 min. The chat delegated its own wake-up and the notice arrived in a session that had stopped</span><div class="ev">(last record is a task-notification, not Brandon)</div></li><li class="f warn"><span class="rule">ORPHANED_JOB</span><span class="det">a process is still working on run_8_14_chain.py while this chat has been silent 261 min. Nobody is reading the result</span><div class="ev">/usr/local/Cellar/python@3.11/3.11.15_1/Frameworks/Python.framework/Versions/3.11/Resources/Python.app/Contents/MacOS/Python /Users/brandonchavez/Proj</div></li></ul>
 </article><article class="card bad">
   <header><h3>Demucs guitar/drums isolation</h3><span class="pill bad">FRAUD_RISK</span></header>
-  <div class="meta">idle 2261 min &middot; 742 assistant turns &middot; <code>5d64fd40</code></div>
-  <ul class="findings"><li class="f hard"><span class="rule">ABANDONED_MIDTOOL</span><span class="det">Bash call never returned, silent 2261 min</span><div class="ev">Holding.</div></li></ul>
+  <div class="meta">idle 2495 min &middot; 742 assistant turns &middot; <code>5d64fd40</code></div>
+  <ul class="findings"><li class="f hard"><span class="rule">ABANDONED_MIDTOOL</span><span class="det">Bash call never returned, silent 2495 min</span><div class="ev">Holding.</div></li></ul>
 </article><article class="card bad">
   <header><h3>Download large text message</h3><span class="pill bad">FRAUD_RISK</span></header>
-  <div class="meta">idle 4344 min &middot; 444 assistant turns &middot; <code>74647aaa</code></div>
-  <ul class="findings"><li class="f hard"><span class="rule">ABANDONED_MIDTOOL</span><span class="det">Bash call never returned, silent 4344 min</span><div class="ev">Only 7 dropped takes are even 60 seconds long, so `--min-song 60` was not the main filter. The detector found 12 songs in 5 hours here versus 20 in under 4 hours on 8/14. Something is suppressing detection. Sweeping the thresholds.</div></li></ul>
+  <div class="meta">idle 4578 min &middot; 444 assistant turns &middot; <code>74647aaa</code></div>
+  <ul class="findings"><li class="f hard"><span class="rule">ABANDONED_MIDTOOL</span><span class="det">Bash call never returned, silent 4578 min</span><div class="ev">Only 7 dropped takes are even 60 seconds long, so `--min-song 60` was not the main filter. The detector found 12 songs in 5 hours here versus 20 in under 4 hours on 8/14. Something is suppressing detection. Sweeping the thresholds.</div></li></ul>
 </article><article class="card bad">
   <header><h3>Zappa handoff for Lies</h3><span class="pill bad">FRAUD_RISK</span></header>
-  <div class="meta">idle 5081 min &middot; 546 assistant turns &middot; <code>13f11d43</code></div>
-  <ul class="findings"><li class="f hard"><span class="rule">PUNTED_TO_QUESTION</span><span class="det">handed the work back as a AskUserQuestion and died there, unanswered 5081 min</span><div class="ev">Everything is built, verified, and preflighted. The final step needs one click from you.</div></li></ul>
+  <div class="meta">idle 5315 min &middot; 546 assistant turns &middot; <code>13f11d43</code></div>
+  <ul class="findings"><li class="f hard"><span class="rule">PUNTED_TO_QUESTION</span><span class="det">handed the work back as a AskUserQuestion and died there, unanswered 5315 min</span><div class="ev">Everything is built, verified, and preflighted. The final step needs one click from you.</div></li></ul>
 </article><article class="card bad">
   <header><h3>TuxGuitar and Songmuse installation</h3><span class="pill bad">FRAUD_RISK</span></header>
-  <div class="meta">idle 5393 min &middot; 36 assistant turns &middot; <code>c8edb741</code></div>
-  <ul class="findings"><li class="f hard"><span class="rule">PUNTED_TO_QUESTION</span><span class="det">handed the work back as a AskUserQuestion and died there, unanswered 5393 min</span><div class="ev">nd its bundled Java gets **SIGKILLed by Gatekeeper** (exit 137), which is exactly the reason Homebrew deprecated the cask. The app is unsigned, so it needs one approval before it will run. And SongMuse turned out to be a browser product with no Mac app at all.</div></li></ul>
+  <div class="meta">idle 5627 min &middot; 36 assistant turns &middot; <code>c8edb741</code></div>
+  <ul class="findings"><li class="f hard"><span class="rule">PUNTED_TO_QUESTION</span><span class="det">handed the work back as a AskUserQuestion and died there, unanswered 5627 min</span><div class="ev">nd its bundled Java gets **SIGKILLed by Gatekeeper** (exit 137), which is exactly the reason Homebrew deprecated the cask. The app is unsigned, so it needs one approval before it will run. And SongMuse turned out to be a browser product with no Mac app at all.</div></li></ul>
 </article><article class="card bad">
   <header><h3>Authorized execution verification</h3><span class="pill bad">FRAUD_RISK</span></header>
-  <div class="meta">idle 6926 min &middot; 51 assistant turns &middot; <code>a4c13f6b</code></div>
-  <ul class="findings"><li class="f hard"><span class="rule">ABANDONED_MIDTOOL</span><span class="det">Bash call never returned, silent 6926 min</span><div class="ev">Every claim now checked. Writing the real record and saving the standing rule.</div></li></ul>
+  <div class="meta">idle 7159 min &middot; 51 assistant turns &middot; <code>a4c13f6b</code></div>
+  <ul class="findings"><li class="f hard"><span class="rule">ABANDONED_MIDTOOL</span><span class="det">Bash call never returned, silent 7159 min</span><div class="ev">Every claim now checked. Writing the real record and saving the standing rule.</div></li></ul>
 </article>
 <h2>Watch &mdash; promised a next step</h2>
 <p class="sub">None.</p>
 <h2>Open queue debt (168 items)</h2>
 <table><thead><tr><th>ID</th><th>Status</th><th>Item</th></tr></thead><tbody><tr><td><code>q-2026-08-10-e7d7da</code></td><td class="st blocked">blocked</td><td>Reclaim the 264 GB in ~/Documents/complete (151 GB) + ~/Downloads/complete (113 GB) Soulseek dumps on MacBookPro. BLOCKED: needs Brandon's delete sign-off or an external drive to offload to; moving within the same volume</td></tr><tr><td><code>q-2026-08-12-420d15</code></td><td class="st blocked">blocked</td><td>MEMORY.md is 22.8KB, near the 24.4KB read limit. Compact to under 17.1KB WITHOUT repeating the past failure: a prior compaction cut it to 31 entries with hooks clipped mid-sentence and left 550 memories unreachable by na</td></tr><tr><td><code>q-2026-08-13-344422</code></td><td class="st blocked">blocked</td><td>Kilgore: obtain s6389251-span88438.gp (the parent chain49 replaced, sha 2bab76bdd5e63ff4) from the iMac. Preservation and position read NOT_RUN without it.</td></tr><tr><td><code>q-2026-08-13-9cafeb</code></td><td class="st blocked">blocked</td><td>Kilgore: get the Mare Vitalis source mix onto the MacBook (or attach the T7 Shield). Blocks the sub-130 Hz register AND the pitch-47 half of the bar 62.938 impossible span.</td></tr><tr><td><code>q-2026-08-13-7a97c2</code></td><td class="st blocked">blocked</td><td>Community S01: build VLC-playable stereo AAC audio tracks for the 7 Opus-5.1 episodes (blocked 2026-08-13 by full disk, 121MB free). Also remove quarantined partial at 'Downloads/complete/complete/complete/Community S01/</td></tr><tr><td><code>q-2026-08-14-573582</code></td><td class="st blocked">blocked</td><td>Handoff repair 2 of 5: branch honesty_gate_nudge.py, block_desktop_writes.py and search_index_gate.py on hostname -s so this Mac gets its own path block; add /Users/brandonchavez/Desktop/ to the block_desktop_writes rege</td></tr><tr><td><code>q-2026-08-14-8efcde</code></td><td class="st blocked">blocked</td><td>Handoff repair 3 of 5: resolve the Brandon-Vault dependency. Either restore the vault from iCloud or strip the citation from the 5 hooks that quote a spec they cannot open (block_desktop_writes, fraud_eval_prompt, honest</td></tr><tr><td><code>q-2026-08-14-d8128d</code></td><td class="st blocked">blocked</td><td>Handoff repair 5 of 5: add install.sh plus a receive log to the sfg skill-sync bundle format so a cross-Mac handoff has a verifiable completion step on the receiving side.</td></tr><tr><td><code>q-2026-08-14-9a3c15</code></td><td class="st blocked">blocked</td><td>Handoff repair 6: ship the handoff-failure diagnosis as an HTML board with evidence commands inline.</td></tr><tr><td><code>q-2026-08-14-1f5cdb</code></td><td class="st blocked">blocked</td><td>Peer session at uds:/tmp/cc-socks/42756.sock asserted twice that Brandon gave no authorization in this session, and asked for a correction stating 'no Brandon authorization' be written into q-2026-08-14-89ec2e. Transcrip</td></tr><tr><td><code>q-2026-08-17-763f86</code></td><td class="st blocked">blocked</td><td>Khanoisseur recovery: resume body-text fetch after Internet Archive playback cooldown. Run: cd ~/khanoisseur_recovery &amp;&amp; ~/.venvs/khanrec/bin/python src/run_recover.py --mode both --base-delay 10 --max-minutes 600, then </td></tr><tr><td><code>q-2026-08-18-0942c3</code></td><td class="st blocked">blocked</td><td>Khanoisseur 2016-17 ONLY (Brandon narrowed scope): resume body-text fetch after IA playback cooldown. cd ~/khanoisseur_recovery &amp;&amp; ~/.venvs/khanrec/bin/python src/run_recover.py --mode both --years 2016,2017 --base-delay</td></tr><tr><td><code>q-2026-08-18-8bde1c</code></td><td class="st blocked">blocked</td><td>band-practice-8-14-26: run the htdemucs 4-stem second pass over all 19 songs from the preeq.wav in each work folder under ~/Projects/_outputs/band-practice-stems/work/, then re-assemble bass, drums and vocals from it wit</td></tr><tr><td><code>q-2026-08-18-a7e441</code></td><td class="st blocked">blocked</td><td>band-practice-8-14-26: DrumSep kit-piece split, kick snare toms hihat cymbals, on the 19 drums stems. The install directory under /Users/Shared is gone on MacBookPro, so re-acquire per the drumsep playbook memory (MDX23C</td></tr><tr><td><code>q-2026-08-18-b0bf30</code></td><td class="st blocked">blocked</td><td>Khanoisseur 2016-17: continue recovery. 2016 sits at 9.0% (1503 status captures unfetched, only 19 timeline captures left for that year - IA barely crawled his 2016 profile). 2017 at 45.4% (121 timeline + 2080 status lef</td></tr><tr><td><code>q-2026-08-29-d1b1de</code></td><td class="st blocked">blocked</td><td>APPLESEED BLOCKER: the audit working tree ~/Projects/_outputs/appleseed-regen-2026-08-28/ is NOT on this MacBook. Whole-disk find returned nothing for appleseed-regen-2026-08-28, confession_rederive, _bellfix_2026-08-29 </td></tr><tr><td><code>q-2026-08-29-588a6b</code></td><td class="st blocked">blocked</td><td>APPLESEED DECISION 1 (Brandon): keep re-deriving at 32nd resolution across the catalogue, or stop. Confession 32nd rebuild gave hard failures 16 to 0, exact round trip, separation +0.5 to +5.2, still under the validated </td></tr><tr><td><code>q-2026-08-29-323b00</code></td><td class="st blocked">blocked</td><td>APPLESEED DECISION 2 (Brandon): hand-label ~500 cymbal onsets on On Reflection (human 168 crash / 127 bell / 153 bow), or leave the cymbal classifier alone. Three candidate fixes already tested and rejected on measuremen</td></tr><tr><td><code>q-2026-08-29-777962</code></td><td class="st blocked">blocked</td><td>APPLESEED DECISION 2, FOURTH OPTION: the DrumSep 404 closes github.com/jarredou/models/releases ONLY. HuggingFace Politrees/UVR_resources serves a working pair at http 200: MDX23C-DrumSep-aufr33-jarredou.ckpt (417.3 MB) </td></tr><tr><td><code>q-2026-08-30-74344c</code></td><td class="st blocked">blocked</td><td>WIRE THE STOP GATE (Brandon's call): ~/.claude/skills/no-quit-shift/stop_gate.py is referenced 0 times in settings.json and settings.local.json, though the completion-contract text injected every turn claims it is active</td></tr><tr><td><code>q-2026-08-31-61d759</code></td><td class="st in_progress">in_progress</td><td>ZAPPA SPLIT DECISION (Brandon): two machines are on the same repair right now. The iMac pushed drwu-overflow route zappa-drum-tab-forensics at 2026-08-31 13:25 CDT with a 20-song Songsterr-JSON census; the MacBook publis</td></tr><tr><td><code>q-2026-08-31-227358</code></td><td class="st in_progress">in_progress</td><td>ZAPPA REPAIR ITEM 2: three more songs carry the split bass-drum lane defect found on Zomby Woof. Carolina Hard-Core Ecstasy s68248 (8 stray notes on lane 35 against 274 on lane 36) and Alien Orifice s68246 (8 stray on 35</td></tr><tr><td><code>q-2026-08-31-adc8ee</code></td><td class="st queued">queued</td><td>POSSIBLE OVERWRITE, needs the iMac to settle it. On 2026-08-31 I wrote ~/.claude/projects/-Users-brandonchavez/memory/reference_songsterr_ghost_flags_not_in_gpif_layer.md with 'cat &gt;' (truncating). A line with that exact</td></tr><tr><td><code>q-2026-08-31-05e218</code></td><td class="st queued">queued</td><td>Confirm Ableton Live 11 lists the 5 Antares AUs when Brandon next opens it. Disk and OS registry are already verified 2026-08-31: auval -a enumerates AutoTune, Vocal De-Esser, Vocal Reverb, Vocal Compressor, Vocal EQ at </td></tr><tr><td><code>q-2026-08-31-f2ac81</code></td><td class="st queued">queued</td><td>Community guide: the 114 unanchored claims are real analysis with no evidenced episode. Two ways to anchor them honestly: (a) re-read the source conversations and record the episode heading structure per message rather t</td></tr><tr><td><code>q-2026-08-31-45fdb5</code></td><td class="st queued">queued</td><td>ZAPPA UNBLOCK: the claim 'no Zappa bundle in sfg/' in [ZAPPA-BASELINE-RECOVERED-2026-08-31] handoff.md has EXPIRED. The check ran 13:56:57 CDT and the iMac bundle landed 14:01:13 CDT, so the handoff shipped a stale findi</td></tr><tr><td><code>q-2026-08-31-f6dcb0</code></td><td class="st queued">queued</td><td>SFG BUNDLE DEFECT: sfg/zappa-macbook-return-2026-08-31/impossible-gate-fix/ ships test_comparison_basis.py and test_promotion_rule.py that FAIL when run in place, because the module copies beside them were renamed imposs</td></tr><tr><td><code>q-2026-08-31-80b0b2</code></td><td class="st queued">queued</td><td>CORRECTION to q-2026-08-31-45fdb5 counts: sfg/zappa-drum-repair-2026-08-31/ holds 19 .gp files across 7 song folders (not 6) and 10 ORIGINAL-*.gp baselines (not 8). Two of the ten are byte-identical, the same download un</td></tr><tr><td><code>q-2026-08-31-41c892</code></td><td class="st queued">queued</td><td>CAROLINA HARD-CORE ECSTASY s68248, two repairs BUILT and VERIFIED but NOT submitted, because no professional transcription covers this song. Files in ~/Projects/_outputs/zappa-handoff-lie-audit/: carolina-BASE-8769058.gp</td></tr><tr><td><code>q-2026-08-31-1e8bfb</code></td><td class="st queued">queued</td><td>ZAPPA CYMBAL FINDING: the unusual double cymbal hits are in Carolina Hard-Core Ecstasy s68248 ONLY, and they predate all 2026 work. 6 beats stack Crash 1 (lane 49, staff line -2) with Crash 2 (lane 57, staff line -1): ba</td></tr><tr><td><code>q-2026-08-31-b5c89b</code></td><td class="st queued">queued</td><td>ZAPPA CORRECTION, high priority: the handoff's 'PROVEN, do not re-litigate' entry that Ryan Brown and Drumnet 'both use a single 10/16, not two 5/16' is REFUTED for the Brown half. His DRUM Magazine page, re-downloaded 2</td></tr><tr><td><code>q-2026-08-31-fc32a4</code></td><td class="st queued">queued</td><td>COMMUNITY GUIDE, parked 2026-08-31 mid-build at Brandon's direction. State: extract/transcript_receipts.py builds 2,750 candidate callbacks from the 110 transcripts with verbatim quotes and filename-derived episode codes</td></tr><tr><td><code>q-2026-08-31-5df5c2</code></td><td class="st queued">queued</td><td>STEER, from the babysitter session: STAY ON ZAPPA. The only target Brandon gave session aecf628c at 13:55 CDT is [ZAPPA-DRUM-REPAIR-2026-08-31] handoff.md. Measured drift across 575 assistant turns: only 32.3% are on Zap</td></tr><tr><td><code>q-2026-08-31-c2abf7</code></td><td class="st queued">queued</td><td>SENT 2026-08-31: the professional transcriptions are now in sfg/zappa-macbook-return-2026-08-31/zappa-drum-sources/. The first send shipped only the .gp and the tools; the iMac was right that the transcriptions were miss</td></tr><tr><td><code>q-2026-08-31-2e2556</code></td><td class="st queued">queued</td><td>NOTATION DIRECTIVE FROM BRANDON, verbatim, 2026-08-31 20:0x CDT. Apply to the drum roll currently written as 64 separate noteheads: 'Use measured thirty-second-note tremolo notation here. Write quarter notes with three t</td></tr><tr><td><code>q-2026-08-31-7db947</code></td><td class="st queued">queued</td><td>BRANDON, DECISION NEEDED: a peer session relayed a tremolo-notation directive that does NOT match Zomby Woof s412162. Measured against s412162/bar-census-r8766102.json and the GPIF: (1) 'the current sixty-four separate n</td></tr><tr><td><code>q-2026-08-31-c75f5e</code></td><td class="st queued">queued</td><td>CORRECTION + TARGET for the tremolo directive: it is MONTANA s35870 revision 8787106, the Intro, quarter=90. Verified from a fresh live export at ~/Projects/_outputs/zappa-handoff-lie-audit/montana-LIVE-8787106.gp. Real </td></tr><tr><td><code>q-2026-08-31-a23da9</code></td><td class="st queued">queued</td><td>MONTANA s35870 r8787106 TREMOLO DIRECTIVE, independently verified, NO EDIT MADE. The peer's bar-by-bar counts reproduce EXACTLY on my own audit of montana-LIVE-8787106.gp (md5 3376b9bd34ee75809b5dd0f4341d982f, identical </td></tr><tr><td><code>q-2026-08-31-2a42b8</code></td><td class="st queued">queued</td><td>ZOMBY WOOF r8766102 CHANGED NOTHING MUSICALLY, proven from the recovered baselines. Now that sfg/zappa-drum-repair-2026-08-31/ is materialised I have the TRUE ORIGINAL (ORIGINAL-ZombyWoof-s412162.gp = r7115188 state, 76,</td></tr><tr><td><code>q-2026-08-31-390c6c</code></td><td class="st queued">queued</td><td>MONTANA s35870 NEW DEFECT, 21 impossible hi-hat events, found on the recovered ORIGINAL baseline. Open hi-hat (lane 46) and closed hi-hat (lane 42) are struck SIMULTANEOUSLY in one beat, and BOTH sit on staffLine -1, so </td></tr><tr><td><code>q-2026-08-31-dc6867</code></td><td class="st queued">queued</td><td>CAROLINA s68248, 6 impossible kick events on the recovered ORIGINAL baseline: MIDI 35 and 36 struck TOGETHER in bar 41 beats 4-5 and bar 54 beats 4-7. One bass drum, two lanes, simultaneously. This is the split-lane defe</td></tr><tr><td><code>q-2026-09-01-9098c7</code></td><td class="st blocked">blocked</td><td>Messages attachment ROWID 6037 '7.3.26 - 7:7:26, 4.57 PM_1.m4a' (377MB, hi-quality version of the 7/3/26 jam) was never downloaded. From +18168101202, sent 2026-07-18 22:31 in group chat with +18165100308. Messages-in-iC</td></tr><tr><td><code>q-2026-09-01-a5c39d</code></td><td class="st blocked">blocked</td><td>Optional refinement on band-practice-8-14-26 songs-clean: song 18 (tape 2:38:47, 20m12s) still spans tempo boundaries the Aug-18 analysis found at 13:54, 18:35 and 25:21 with no silence gap at any of them. If Brandon say</td></tr><tr><td><code>q-2026-09-01-22970c</code></td><td class="st blocked">blocked</td><td>Add /band-practice-players and /band-practice-songs to the canonical indexes-board at drwu-htmls.vercel.app/indexes-board. Not done unprompted because it needs a Vercel --prod deploy, and rapid prod deploys have flapped </td></tr><tr><td><code>q-2026-09-01-760b69</code></td><td class="st queued">queued</td><td>Get the 4 GB 8/28/26 practice WAV from Adam (+18168101202). It was sent through Messages on 2026-08-31 20:38 and iMessage transcoded it to 54.5 MB / 24 kbps AAC before delivery. Proof: attachment ROWID 6751 user_info car</td></tr><tr><td><code>q-2026-09-01-e2da5b</code></td><td class="st queued">queued</td><td>ROUTES for getting the 4 GB 8/28 WAV from Adam (+18168101202), verified by web search 2026-09-01. macOS Messages converts 24-bit WAV to .m4a with NO setting to disable it (Apple Community threads 255984784, 256062093), s</td></tr><tr><td><code>q-2026-09-01-5ef078</code></td><td class="st queued">queued</td><td>Brandon reports takes with no bass, 2 guitars and drums. Measured across BOTH band-practice tapes and found zero empty bass chairs: 19 fully separated 8/14 songs (quietest bass peak -14.1 dB) and 9 candidates on 8/28 at </td></tr><tr><td><code>q-2026-09-01-899f2a</code></td><td class="st queued">queued</td><td>UPDATE to q-2026-09-01-5ef078 (no-bass 2-guitar takes): sweep of every separated stem set on disk is now COMPLETE and still finds zero. Totals: 19 8/14 songs + 15 8/14 split segments (takes 16a-16h, 17a-17g) + 9 8/28 can</td></tr><tr><td><code>q-2026-09-01-797960</code></td><td class="st queued">queued</td><td>PENDING: 8.28.26 lossless master from Google Drive. Checked 2026-09-01 across the connected account 7onething1@gmail.com and brandonxchavez@gmail.com: NOT uploaded yet. Searched recent files, all audio/video mime types, </td></tr><tr><td><code>q-2026-09-01-656138</code></td><td class="st queued">queued</td><td>UPDATE to q-2026-09-01-797960 (8.28 master): re-checked 2026-09-01 ~17:00 on Brandon's 'try now'. STILL NOT UPLOADED, and the ROOT CAUSE of the visibility gap is now known: brandonxchavez@gmail.com is NOT signed into thi</td></tr><tr><td><code>q-2026-09-01-d5b45f</code></td><td class="st queued">queued</td><td>8.28.26 MASTERS ARRIVING 2026-09-01. Brandon uploaded MULTIPLE MIC FEEDS of the same take, not duplicates: 4.40 PM, 4.44 PM II, 4.48 PM 3, 4.53 PM, all exactly 4,966,484,332 bytes (one recorder, one start/stop). Drive ha</td></tr><tr><td><code>q-2026-09-01-37351e</code></td><td class="st queued">queued</td><td>CORRECTION + RESULTS to q-2026-09-01-d5b45f (8.28 masters), 2026-09-01 21:0x. THE +24.27s ALARM WAS WRONG, it was my arithmetic: I treated all 4,966,484,332 bytes as audio data, but the WAV carries a ~6.4 MB non-audio ch</td></tr><tr><td><code>q-2026-09-01-da1187</code></td><td class="st queued">queued</td><td>TWO-GUITAR SEPARATION, 8.28 multi-mic test 2026-09-01. SETUP: mic1 left / mic2 right, mic2 aligned +0.0064 s, 60 s windows, htdemucs_6s. CONFIRMED: mono baseline reproduces the documented wall exactly, guitar stem L/R co</td></tr><tr><td><code>q-2026-09-02-ba9dde</code></td><td class="st queued">queued</td><td>BRANDON ACTION, one paste: wire the two no-quit Stop gates into ~/.claude/settings.json hooks.Stop array. Commands are in the 2026-09-02 reply and in memory feedback_never_stop_silently_wire_the_stop_gate.md. The two ent</td></tr><tr><td><code>q-2026-09-02-efc3d1</code></td><td class="st queued">queued</td><td>BRANDON, EASIEST ROUTE for the stop-gate wiring (found by websearch 2026-09-02, supersedes the paste): run /hooks in an interactive claude terminal, choose the Stop event (no matcher), and add the two commands: python3 /</td></tr><tr><td><code>q-2026-09-02-7e1a09</code></td><td class="st queued">queued</td><td>VERIFIED STALE, no action: q-2026-08-31-83f20f claimed pointers_check.py --header was a one-shot whose regex only matched 'regenerated'. Read the source 2026-09-02: line 133 is r'(?:regenerated|last verified) [0-9-]+\.' </td></tr><tr><td><code>q-2026-09-02-7454a0</code></td><td class="st queued">queued</td><td>DISK CENSUS 2026-09-02 (corrects the stale 264 GB in q-2026-08-10-e7d7da). Home total 807G. By folder: Desktop 221G, Pictures 158G, Documents 116G, Downloads 79G, Library 78G, Projects 61G, Music 52G, 'Taylor Swift' 13G,</td></tr><tr><td><code>q-2026-09-02-f6faf0</code></td><td class="st queued">queued</td><td>OPERATIONAL: brctl download does NOT materialise dataless iCloud files here. It returns immediately having done nothing, or hangs past 120s, matching the known brctl-hangs behaviour. What DOES work is READING the file: h</td></tr><tr><td><code>q-2026-09-02-783e37</code></td><td class="st queued">queued</td><td>Deploy the slant-rhyme-chats route: page is BUILT and voice-gated (score 0) at ~/Projects/drwu-htmls/public/slant-rhyme-chats/{index.html,index.md}. The deploy command 'cd ~/Projects/drwu-overflow &amp;&amp; ./overflow.sh slant-</td></tr><tr><td><code>q-2026-09-02-7bf4c8</code></td><td class="st queued">queued</td><td>BLOCKER, DISK FULL 2026-09-02 02:2x. /Users/brandonchavez is at 100%, 1.0 GB free of 932 GB. The 3-mic blend master died at 2.94 GB with ffmpeg 'No space left on device', and the three live Drive downloads (partials at 3</td></tr></tbody></table>
-<h2>Clean exits (25)</h2>
+<h2>Clean exits (26)</h2>
 <article class="card ok">
   <header><h3>Active chats quitting early</h3><span class="pill ok">CLEAN</span></header>
-  <div class="meta">idle 0 min &middot; 133 assistant turns &middot; <code>9afcd690</code></div>
-  <ul class="findings"><li class="f ok"><span class="det">Ended clean.</span></li></ul>
-</article><article class="card ok">
-  <header><h3>Fraud Chat</h3><span class="pill ok">CLEAN</span></header>
-  <div class="meta">idle 1 min &middot; 759 assistant turns &middot; <code>844e3466</code></div>
-  <ul class="findings"><li class="f ok"><span class="det">Ended clean.</span></li></ul>
-</article><article class="card ok">
-  <header><h3>Rebuild stems from four mic master</h3><span class="pill ok">CLEAN</span></header>
-  <div class="meta">idle 5 min &middot; 310 assistant turns &middot; <code>757aecd8</code></div>
+  <div class="meta">idle 0 min &middot; 199 assistant turns &middot; <code>9afcd690</code></div>
   <ul class="findings"><li class="f ok"><span class="det">Ended clean.</span></li></ul>
 </article><article class="card ok">
   <header><h3>Zappa chat single-song focus limitation</h3><span class="pill ok">CLEAN</span></header>
-  <div class="meta">idle 759 min &middot; 708 assistant turns &middot; <code>c1e4ffee</code></div>
+  <div class="meta">idle 0 min &middot; 730 assistant turns &middot; <code>c1e4ffee</code></div>
+  <ul class="findings"><li class="f ok"><span class="det">Ended clean.</span></li></ul>
+</article><article class="card ok">
+  <header><h3>Skill transfer drum kit separation</h3><span class="pill ok">CLEAN</span></header>
+  <div class="meta">idle 125 min &middot; 116 assistant turns &middot; <code>d5e5c9a5</code></div>
+  <ul class="findings"><li class="f ok"><span class="det">Ended clean.</span></li></ul>
+</article><article class="card ok">
+  <header><h3>Fraud Chat</h3><span class="pill ok">CLEAN</span></header>
+  <div class="meta">idle 185 min &middot; 843 assistant turns &middot; <code>844e3466</code></div>
+  <ul class="findings"><li class="f ok"><span class="det">Ended clean.</span></li></ul>
+</article><article class="card ok">
+  <header><h3>Rebuild stems from four mic master</h3><span class="pill ok">CLEAN</span></header>
+  <div class="meta">idle 185 min &middot; 472 assistant turns &middot; <code>757aecd8</code></div>
   <ul class="findings"><li class="f ok"><span class="det">Ended clean.</span></li></ul>
 </article><article class="card ok">
   <header><h3>Sound limit daytime behavior</h3><span class="pill ok">CLEAN</span></header>
-  <div class="meta">idle 806 min &middot; 86 assistant turns &middot; <code>b6c7cd58</code></div>
+  <div class="meta">idle 1040 min &middot; 86 assistant turns &middot; <code>b6c7cd58</code></div>
   <ul class="findings"><li class="f ok"><span class="det">Ended clean.</span></li></ul>
 </article><article class="card ok">
   <header><h3>YouTube transcripts</h3><span class="pill ok">CLEAN</span></header>
-  <div class="meta">idle 1332 min &middot; 215 assistant turns &middot; <code>6324796b</code></div>
+  <div class="meta">idle 1566 min &middot; 215 assistant turns &middot; <code>6324796b</code></div>
   <ul class="findings"><li class="f ok"><span class="det">Ended clean.</span></li></ul>
 </article><article class="card ok">
   <header><h3>Large text message chat file consolidation</h3><span class="pill ok">CLEAN</span></header>
-  <div class="meta">idle 2898 min &middot; 454 assistant turns &middot; <code>73a27316</code></div>
+  <div class="meta">idle 3131 min &middot; 454 assistant turns &middot; <code>73a27316</code></div>
   <ul class="findings"><li class="f ok"><span class="det">Ended clean.</span></li></ul>
 </article><article class="card ok">
   <header><h3>Zappa drum repair handoff</h3><span class="pill ok">CLEAN</span></header>
-  <div class="meta">idle 3339 min &middot; 848 assistant turns &middot; <code>aecf628c</code></div>
+  <div class="meta">idle 3572 min &middot; 848 assistant turns &middot; <code>aecf628c</code></div>
   <ul class="findings"><li class="f ok"><span class="det">Ended clean.</span></li></ul>
 </article><article class="card ok">
   <header><h3>Tarot feedback guidelines</h3><span class="pill ok">CLEAN</span></header>
-  <div class="meta">idle 3342 min &middot; 355 assistant turns &middot; <code>9b7d077d</code></div>
+  <div class="meta">idle 3576 min &middot; 355 assistant turns &middot; <code>9b7d077d</code></div>
   <ul class="findings"><li class="f ok"><span class="det">Ended clean.</span></li></ul>
 </article><article class="card ok">
   <header><h3>Community continuity ledger</h3><span class="pill ok">CLEAN</span></header>
-  <div class="meta">idle 3462 min &middot; 379 assistant turns &middot; <code>c6b09588</code></div>
+  <div class="meta">idle 3696 min &middot; 379 assistant turns &middot; <code>c6b09588</code></div>
   <ul class="findings"><li class="f ok"><span class="det">Ended clean.</span></li></ul>
 </article><article class="card ok">
   <header><h3>Missed songs audit verification</h3><span class="pill ok">CLEAN</span></header>
-  <div class="meta">idle 3485 min &middot; 419 assistant turns &middot; <code>5da7f2e0</code></div>
+  <div class="meta">idle 3719 min &middot; 419 assistant turns &middot; <code>5da7f2e0</code></div>
   <ul class="findings"><li class="f ok"><span class="det">Ended clean.</span></li></ul>
 </article><article class="card ok">
   <header><h3>Chat GPT read aloud setup</h3><span class="pill ok">CLEAN</span></header>
-  <div class="meta">idle 3489 min &middot; 213 assistant turns &middot; <code>d860f28f</code></div>
+  <div class="meta">idle 3723 min &middot; 213 assistant turns &middot; <code>d860f28f</code></div>
   <ul class="findings"><li class="f ok"><span class="det">Ended clean.</span></li></ul>
 </article><article class="card ok">
   <header><h3>Large text message chat</h3><span class="pill ok">CLEAN</span></header>
-  <div class="meta">idle 3515 min &middot; 841 assistant turns &middot; <code>b577abd4</code></div>
+  <div class="meta">idle 3748 min &middot; 841 assistant turns &middot; <code>b577abd4</code></div>
   <ul class="findings"><li class="f ok"><span class="det">Ended clean.</span></li></ul>
 </article><article class="card ok">
   <header><h3>Sound reducer daily schedule</h3><span class="pill ok">CLEAN</span></header>
-  <div class="meta">idle 3577 min &middot; 67 assistant turns &middot; <code>127d333e</code></div>
+  <div class="meta">idle 3811 min &middot; 67 assistant turns &middot; <code>127d333e</code></div>
   <ul class="findings"><li class="f ok"><span class="det">Ended clean.</span></li></ul>
 </article><article class="card ok">
   <header><h3>Etsy API message history review</h3><span class="pill ok">CLEAN</span></header>
-  <div class="meta">idle 3587 min &middot; 238 assistant turns &middot; <code>16e6b87e</code></div>
+  <div class="meta">idle 3821 min &middot; 238 assistant turns &middot; <code>16e6b87e</code></div>
   <ul class="findings"><li class="f ok"><span class="det">Ended clean.</span></li></ul>
 </article><article class="card ok">
   <header><h3>Screen saver activation</h3><span class="pill ok">CLEAN</span></header>
-  <div class="meta">idle 4232 min &middot; 3 assistant turns &middot; <code>0926aebe</code></div>
+  <div class="meta">idle 4466 min &middot; 3 assistant turns &middot; <code>0926aebe</code></div>
   <ul class="findings"><li class="f ok"><span class="det">Ended clean.</span></li></ul>
 </article><article class="card ok">
   <header><h3>Stereogum 2017 best new music playlist</h3><span class="pill ok">CLEAN</span></header>
-  <div class="meta">idle 5392 min &middot; 313 assistant turns &middot; <code>d02d6125</code></div>
+  <div class="meta">idle 5625 min &middot; 313 assistant turns &middot; <code>d02d6125</code></div>
   <ul class="findings"><li class="f ok"><span class="det">Ended clean.</span></li></ul>
 </article><article class="card ok">
   <header><h3>PC sound volume limit</h3><span class="pill ok">CLEAN</span></header>
-  <div class="meta">idle 6401 min &middot; 167 assistant turns &middot; <code>a6c44dd8</code></div>
+  <div class="meta">idle 6635 min &middot; 167 assistant turns &middot; <code>a6c44dd8</code></div>
   <ul class="findings"><li class="f ok"><span class="det">Ended clean.</span></li></ul>
 </article><article class="card ok">
   <header><h3>Community chat script updates</h3><span class="pill ok">CLEAN</span></header>
-  <div class="meta">idle 6939 min &middot; 182 assistant turns &middot; <code>5bb0cd11</code></div>
+  <div class="meta">idle 7173 min &middot; 182 assistant turns &middot; <code>5bb0cd11</code></div>
   <ul class="findings"><li class="f ok"><span class="det">Ended clean.</span></li></ul>
 </article><article class="card ok">
   <header><h3>Frank Zappa books outline</h3><span class="pill ok">CLEAN</span></header>
-  <div class="meta">idle 8139 min &middot; 246 assistant turns &middot; <code>8aef7956</code></div>
+  <div class="meta">idle 8373 min &middot; 246 assistant turns &middot; <code>8aef7956</code></div>
   <ul class="findings"><li class="f ok"><span class="det">Ended clean.</span></li></ul>
 </article><article class="card ok">
   <header><h3>Five-file outlines review</h3><span class="pill ok">CLEAN</span></header>
-  <div class="meta">idle 8123 min &middot; 99 assistant turns &middot; <code>09af691e</code></div>
+  <div class="meta">idle 8357 min &middot; 99 assistant turns &middot; <code>09af691e</code></div>
   <ul class="findings"><li class="f ok"><span class="det">Ended clean.</span></li></ul>
 </article><article class="card ok">
   <header><h3>Appleseed cast project</h3><span class="pill ok">CLEAN</span></header>
-  <div class="meta">idle 8026 min &middot; 362 assistant turns &middot; <code>40e86d1b</code></div>
+  <div class="meta">idle 8260 min &middot; 362 assistant turns &middot; <code>40e86d1b</code></div>
   <ul class="findings"><li class="f info"><span class="rule">DECISION_PARKED</span><span class="det">stopped on &quot;your call&quot; but parked the decision in the queue</span><div class="ev">every future session, so whether the gate that would have refused six stops tonight gets armed permanently is your call. The line is on the page and in `q-2026-08-30-74344c`.  Page gate score **0**, handoff gate PASS, `session_fr</div></li></ul>
 </article><article class="card ok">
   <header><h3>ChatGPT read aloud audio extraction</h3><span class="pill ok">CLEAN</span></header>
-  <div class="meta">idle 7726 min &middot; 399 assistant turns &middot; <code>d414efe3</code></div>
+  <div class="meta">idle 7960 min &middot; 399 assistant turns &middot; <code>d414efe3</code></div>
   <ul class="findings"><li class="f ok"><span class="det">Ended clean.</span></li></ul>
 </article><article class="card ok">
   <header><h3>Annie's Machiavellian behavior patterns</h3><span class="pill ok">CLEAN</span></header>
-  <div class="meta">idle 7999 min &middot; 202 assistant turns &middot; <code>c3484e69</code></div>
-  <ul class="findings"><li class="f ok"><span class="det">Ended clean.</span></li></ul>
-</article><article class="card ok">
-  <header><h3>Demucs audio stem separation</h3><span class="pill ok">CLEAN</span></header>
-  <div class="meta">idle 24429 min &middot; 543 assistant turns &middot; <code>f79afb47</code></div>
+  <div class="meta">idle 8233 min &middot; 202 assistant turns &middot; <code>c3484e69</code></div>
   <ul class="findings"><li class="f ok"><span class="det">Ended clean.</span></li></ul>
 </article>
 </div></body></html>
