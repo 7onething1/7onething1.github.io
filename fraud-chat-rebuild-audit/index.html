@@ -94,6 +94,7 @@ footer a{color:var(--burg)}
 <nav class="toc">
   <h4>Contents</h4>
   <ol>
+    <li><a href="#ship">Ship verification, Sept 4</a></li>
     <li><a href="#retract">MAJOR CORRECTION: the cymbal verdict</a></li>
     <li><a href="#liftresult">Sept 4: did the fix work?</a></li>
     <li><a href="#clipping">Clipping census</a></li>
@@ -112,7 +113,77 @@ footer a{color:var(--burg)}
   </ol>
 </nav>
 
-<h2 id="retract">0. Major correction: the cymbal verdict was measured wrong</h2>
+<h2 id="ship">0. Ship verification, September 4</h2>
+
+<p>The audited session declared v2 ready to ship. Each claim was checked against disk. Three hold. Two do not,
+and one of those is a usability trap inside the repair copies.</p>
+
+<div class="scroller">
+<table>
+<thead><tr><th>Claim</th><th>Measured</th><th>Verdict</th></tr></thead>
+<tbody>
+<tr><td>Duration-exact against source</td><td class="mono">13 of 13 songs, every lane matches its own source frame count</td><td><span class="pill p-pass">Holds</span></td></tr>
+<tr><td>Joints 0.00000000</td><td class="mono">78 of 78 drum lanes, real block counts 3 to 13</td><td><span class="pill p-pass">Holds</span></td></tr>
+<tr><td>Full-decode clean</td><td class="mono">3 of 3 repair copies decode with no error</td><td><span class="pill p-pass">Holds</span></td></tr>
+<tr><td>78 drum lanes</td><td class="mono">78</td><td><span class="pill p-pass">Holds</span></td></tr>
+<tr><td><b>43 mic lanes</b></td><td class="mono">38 verbatim, 41 counting repair copies</td><td><span class="pill p-fail">Wrong count</span></td></tr>
+<tr><td><b>Manifest covers all lanes</b></td><td class="mono">38 covered, 3 repair copies absent, 78 drum lanes absent</td><td><span class="pill p-fail">Incomplete</span></td></tr>
+</tbody>
+</table>
+</div>
+
+<p><code>MANIFEST.json</code> is dated <b>Sep 3 13:39</b>, before the repair copies were built, and the string
+<code>DECLIP</code> does not appear anywhere in it. So <code>song16</code> does not currently ship with its
+damage stated beside its alternative, and the reconstruction carries no manifest record saying it is a
+reconstruction. That is the precise thing the <code>_DECLIP-ESTIMATE</code> naming convention exists to prevent.</p>
+
+<h3>The trap: the repair copies are 6 to 15 dB quieter</h3>
+<p>The repair was described as scaling repaired peaks to 0.999 so nothing re-clips. Measuring the gain on
+unclipped samples only, then removing it and inspecting the residual:</p>
+
+<div class="scroller">
+<table>
+<thead><tr><th>Repair copy</th><th>Gain applied</th><th>In dB</th><th>Residual after removing gain</th></tr></thead>
+<tbody>
+<tr><td><code>song11/kick_mic1_DECLIP-ESTIMATE</code></td><td class="mono">0.181343</td><td class="mono"><b>&minus;14.83 dB</b></td><td class="mono">&minus;115.0 dB</td></tr>
+<tr><td><code>song16/bass_mic4_DECLIP-ESTIMATE</code></td><td class="mono">0.318629</td><td class="mono"><b>&minus;9.93 dB</b></td><td class="mono">&minus;126.6 dB</td></tr>
+<tr><td><code>song15/bass_mic4_DECLIP-ESTIMATE</code></td><td class="mono">0.486514</td><td class="mono"><b>&minus;6.26 dB</b></td><td class="mono">&minus;121.4 dB</td></tr>
+</tbody>
+</table>
+</div>
+
+<p>Residuals at &minus;115 to &minus;127 dB mean that outside the clipped runs these files are a <b>pure
+rescale</b> of the original. Every sample is attenuated and 99.99 % of samples differ. The cause is the
+interpolation overshooting: cubic across a long flat-topped run extrapolates above full scale, and normalising
+the whole file afterwards pulls everything down by that overshoot. The song11 gain of 0.181 implies an
+interpolated peak near 5.5&times; full scale.</p>
+
+<div class="callout bad">
+<p style="margin:0"><b>Why it matters.</b> Anyone substituting <code>kick_mic1_DECLIP-ESTIMATE.wav</code> for
+<code>kick_mic1.wav</code> gets a lane <b>14.8 dB quieter</b> with nothing on disk explaining why. Either clamp
+the interpolated peak before normalising, or record the applied gain in the manifest so it can be undone.</p>
+</div>
+
+<h3>The clipped-count gap was a threshold, not a window</h3>
+<p>This audit and the audited session reported different clipped counts. The session attributed it to window
+versus full file. Both read whole files. It is the detection threshold.</p>
+
+<div class="scroller">
+<table>
+<thead><tr><th>Lane</th><th>at 0.999969</th><th>at 0.9999</th><th>at 0.999</th></tr></thead>
+<tbody>
+<tr><td><code>song16/bass_mic4</code></td><td class="mono">730,591</td><td class="mono">733,397</td><td class="mono"><b>769,169</b></td></tr>
+<tr><td><code>song15/bass_mic4</code></td><td class="mono">234,157</td><td class="mono">235,499</td><td class="mono"><b>253,289</b></td></tr>
+<tr><td><code>song11/kick_mic1</code></td><td class="mono">132,808</td><td class="mono">133,450</td><td class="mono"><b>141,188</b></td></tr>
+</tbody>
+</table>
+</div>
+
+<p>The 0.999 column reproduces the session's figures exactly on all three lanes. It counts at 0.999, this audit
+counted at 0.999969. The more inclusive threshold is the better choice, and it belongs in the manifest so the
+number is reproducible.</p>
+
+<h2 id="retract">0.4 Major correction: the cymbal verdict was measured wrong</h2>
 
 <div class="verdict">
 <p class="big">The v2 kits are not cymbal-starved. That verdict came from a confounded metric and it is withdrawn.</p>
