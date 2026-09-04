@@ -47,6 +47,18 @@ Demucs-first snare: centroid 3445 Hz, 27.4% above 5 kHz, crest 32.2 dB.
 A lag search from -3 s to +3 s confirms the Demucs-first result is not an artifact of
 misalignment: best-lag snare 2.2% against 1.9% at zero lag.
 
+## Status, 2026-09-04
+
+Phase 1 is running. Launched 15:42:49 as launchd job `com.drwu.phase1-song12-song16`,
+building song12 and song16 through `do_song.sh` on the correct Demucs-first path, and
+self-verifying with the bleed measurement at the end. Log:
+`8-28/phase1_song12_song16.log`, marker `PHASE1_DONE`.
+
+The 13 contaminated kits were quarantined at 15:44, 17 GB moved to
+`v2-mic-lanes/.../delete/CONTAMINATED-drumkits-2026-09-04/`. Nothing deleted. Each
+song folder keeps a `QUARANTINED-drumkit.md` with the location and the reason. The
+verbatim mic lanes were left in place.
+
 ## Plan
 
 1. Adopt the 11 Demucs-first kits already on disk, retire the mic-direct kits into a

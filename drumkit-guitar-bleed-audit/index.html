@@ -68,6 +68,12 @@ ul.tight li{margin:.3rem 0}
 <p><b>The good kits already exist on disk for 11 of 13 songs.</b> Fixing this is hours, not three days.</p>
 </div>
 
+<div class="verdict ok">
+<h3>Status: Phase 1 is running now</h3>
+<p><b>Launched 2026-09-04T15:42:49</b> as launchd job <code>com.drwu.phase1-song12-song16</code>. It runs <code>do_song.sh</code> on the two songs that have no clean kit, which is the correct path: tilt, then Demucs <code>htdemucs_6s</code>, then DrumSep six-piece, then declick assemble. It verifies itself at the end by re-running the guitar-bleed measurement against the verbatim guitar mic and writing the table into its own log.</p>
+<p><b>The 13 contaminated kits were quarantined at 2026-09-04T15:44</b>, 17&nbsp;GB moved into <code>v2-mic-lanes/&hellip;/delete/CONTAMINATED-drumkits-2026-09-04/</code>. Nothing was deleted. Each song folder keeps a <code>QUARANTINED-drumkit.md</code> naming the new location and the reason. The verbatim mic lanes were not touched.</p>
+<p>Log: <code>~/Projects/_outputs/band-practice-stems/8-28/phase1_song12_song16.log</code>. Completion marker: <code>PHASE1_DONE</code>.</p>
+</div>
 <nav class="toc"><b>On this page</b>
 <ol>
 <li><a href="#hear">Hear it first</a></li>
@@ -162,7 +168,7 @@ ul.tight li{margin:.3rem 0}
 <li>Run <code>do_song.sh 12</code> and <code>do_song.sh 16</code> under launchd. Demucs is about 10 minutes per song, DrumSep is 80 to 90 minutes per song at <code>num_overlap: 4</code>.</li>
 <li>Gate every lane on the air-band reality check from <code>composite-stem-alignment/scripts/drum_lane_reality_gate.py</code> so a hallucinated cymbal never ships.</li>
 </ul>
-<p class="cost">Cost: about 3 hours of machine time, unattended. No attention needed while it runs.</p>
+<p class="cost">Status: <b>running since 2026-09-04T15:42:49</b> under <code>com.drwu.phase1-song12-song16</code>. Quarantine of the 13 contaminated kits completed at 15:44.</p>
 </div>
 
 <div class="phase">
