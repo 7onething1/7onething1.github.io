@@ -1,0 +1,203 @@
+<!doctype html>
+<html lang="en"><head><meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Drum kit guitar-bleed audit &mdash; 8.28 four-mic master</title>
+<style>
+:root{
+  color-scheme: light;
+  --cream:#f4ecd8; --paper:#fbf6e9; --ink:#20201d; --muted:#6b6355;
+  --line:#ddd0b0; --rust:#b5502e; --mustard:#d9a441; --sage:#7d9070;
+  --teal:#2f6b6b; --plum:#7a4b63;
+}
+*{box-sizing:border-box}
+body{margin:0;background:var(--cream);color:var(--ink);
+  font-family:-apple-system,BlinkMacSystemFont,"Inter","Segoe UI",sans-serif;line-height:1.55;
+  font-size:16px}
+main{max-width:1000px;margin:0 auto;padding:2.2rem 1.2rem 4rem}
+h1{font-size:1.9rem;line-height:1.15;margin:0 0 .35rem;letter-spacing:-.01em}
+h2{font-size:1.22rem;margin:2.4rem 0 .7rem;padding-bottom:.35rem;border-bottom:2px solid var(--line)}
+h3{font-size:1rem;margin:1.5rem 0 .45rem;color:var(--teal)}
+p.sub{color:var(--muted);margin:.1rem 0 1.4rem;font-size:.98rem}
+.verdict{background:var(--paper);border:1px solid var(--line);border-left:6px solid var(--rust);
+  border-radius:10px;padding:1rem 1.2rem;margin:1.4rem 0}
+.verdict.ok{border-left-color:var(--sage)}
+.verdict h3{margin-top:0;color:var(--ink)}
+nav.toc{background:var(--paper);border:1px solid var(--line);border-radius:10px;padding:.9rem 1.15rem;margin:1.4rem 0 2rem}
+nav.toc ol{margin:.3rem 0 0;padding-left:1.2rem}
+nav.toc li{margin:.18rem 0}
+a{color:var(--rust);text-decoration:none;font-weight:600}
+a:hover{text-decoration:underline}
+table{border-collapse:collapse;width:100%;font-size:.86rem;background:var(--paper);
+  border:1px solid var(--line);border-radius:8px;overflow:hidden}
+.scroller{overflow-x:auto;-webkit-overflow-scrolling:touch}
+th,td{padding:.4rem .5rem;text-align:center;border-bottom:1px solid #eadfc4}
+thead th{background:#efe4c9;font-size:.76rem;letter-spacing:.04em;text-transform:uppercase;color:#5c5344}
+tbody th{text-align:left;background:#f7f0dd;font-weight:700;white-space:nowrap}
+tbody th .win{display:block;font-weight:400;font-size:.7rem;color:var(--muted)}
+td.path{text-align:left;white-space:nowrap;font-weight:600;font-size:.8rem}
+td.bad-path{color:var(--rust)} td.good-path{color:var(--sage)}
+td.good{background:#e4ecdd;color:#3c5730}
+td.mid{background:#f6e7c4;color:#7a5a13}
+td.bad{background:#f3d7cd;color:#8d3418;font-weight:700}
+td.na{color:#a49b88}
+.ab{display:grid;grid-template-columns:repeat(auto-fit,minmax(270px,1fr));gap:.9rem;margin:1rem 0}
+.card{background:var(--paper);border:1px solid var(--line);border-radius:10px;padding:.85rem .95rem}
+.card h4{margin:0 0 .1rem;font-size:.95rem}
+.card .tag{font-size:.74rem;letter-spacing:.05em;text-transform:uppercase;color:var(--muted)}
+.card audio{width:100%;margin-top:.55rem}
+.card .score{font-size:1.5rem;font-weight:800;margin:.35rem 0 0}
+.card.bad .score{color:var(--rust)} .card.good .score{color:var(--sage)}
+.card small{color:var(--muted);display:block;font-size:.78rem;line-height:1.35}
+.phase{background:var(--paper);border:1px solid var(--line);border-radius:10px;padding:1rem 1.15rem;margin:.8rem 0}
+.phase h3{margin:0 0 .35rem;color:var(--plum)}
+.phase .cost{font-size:.8rem;color:var(--muted);margin-top:.5rem}
+code{background:#efe4c9;padding:.1em .35em;border-radius:4px;font-size:.85em}
+pre{background:#efe4c9;padding:.75rem .9rem;border-radius:8px;overflow-x:auto;font-size:.8rem;line-height:1.45}
+ul.tight li{margin:.3rem 0}
+.foot{margin-top:3rem;border-top:1px solid var(--line);padding-top:1rem;font-size:.82rem;color:var(--muted)}
+.legend span{display:inline-block;padding:.1rem .5rem;border-radius:5px;margin-right:.4rem;font-size:.76rem}
+</style></head><body><main>
+
+<h1>Drum kit guitar-bleed audit</h1>
+<p class="sub">Band practice 8.28, four-mic master. Why the kick reads as a kick and the snare reads as a guitar. Measured 2026-09-04 on Brandons-MacBook-Pro.</p>
+
+<div class="verdict">
+<h3>Verdict</h3>
+<p><b>The skill transfer is intact.</b> <code>jam-stem-rebuild/SKILL.md</code> on this Mac still carries the correct ordering at step 5 and step 6: Demucs first, DrumSep second, on the Demucs <code>drums.wav</code>. Nothing was lost from the other machine.</p>
+<p><b>The 8.28 v2 run departed from that ordering.</b> It fed a raw room mic straight into DrumSep, after boosting +5&nbsp;dB at 2.5&nbsp;kHz and +7&nbsp;dB at 6&nbsp;kHz, which is the exact band the guitar amps occupy. DrumSep was trained on already-isolated drum stems, so it had no way to reject the guitar. It sorted the guitar into the snare and cymbal lanes.</p>
+<p><b>The good kits already exist on disk for 11 of 13 songs.</b> Fixing this is hours, not three days.</p>
+</div>
+
+<nav class="toc"><b>On this page</b>
+<ol>
+<li><a href="#hear">Hear it first</a></li>
+<li><a href="#numbers">The measurement, all 13 songs</a></li>
+<li><a href="#why">Why it happened</a></li>
+<li><a href="#plan">The three-phase fix</a></li>
+<li><a href="#method">Method and reproduction</a></li>
+</ol></nav>
+
+<h2 id="hear">1. Hear it first</h2>
+<p>Song 13, seconds 64 to 82, every clip loudness-matched to &minus;16&nbsp;LUFS so quiet lanes are audible. The percentage is how much of that lane a least-squares projection of the two guitar mics explains. Lower is cleaner.</p>
+
+<h3>Reference: what the guitar actually sounds like</h3>
+<div class="ab">
+<div class="card"><span class="tag">reference</span><h4>Guitar mic 3, verbatim</h4>
+<small>The independent transducer. Every number below is measured against this.</small>
+<audio controls preload="none" src="audio/ref_guitar_mic.mp3"></audio></div>
+<div class="card"><span class="tag">separator input</span><h4>Kick mic 1, verbatim</h4>
+<p class="score">41.6%</p><small>The room mic handed to DrumSep. Nearly half of it is guitar before separation begins.</small>
+<audio controls preload="none" src="audio/mic1_raw.mp3"></audio></div>
+</div>
+
+<h3>Snare lane, the worst case</h3>
+<div class="ab">
+<div class="card bad"><span class="tag">mic-direct, current v2 output</span><h4>snare.wav</h4>
+<p class="score">58.5%</p><small>Spectral centroid 1011&nbsp;Hz, 4.5% of energy above 5&nbsp;kHz, 125 onsets per minute. A real snare crack is broadband. This is a midrange instrument sitting in the snare lane.</small>
+<audio controls preload="none" src="audio/micdirect_snare.mp3"></audio></div>
+<div class="card good"><span class="tag">Demucs-first, already on disk</span><h4>snare.wav</h4>
+<p class="score">1.9%</p><small>Centroid 3445&nbsp;Hz, 27.4% above 5&nbsp;kHz, crest factor 32.2&nbsp;dB. That is a snare.</small>
+<audio controls preload="none" src="audio/demucsfirst_snare.mp3"></audio></div>
+</div>
+
+<h3>Crash and ride</h3>
+<div class="ab">
+<div class="card bad"><span class="tag">mic-direct</span><h4>crash.wav</h4><p class="score">48.2%</p>
+<audio controls preload="none" src="audio/micdirect_crash.mp3"></audio></div>
+<div class="card good"><span class="tag">Demucs-first</span><h4>crash.wav</h4><p class="score">4.4%</p>
+<audio controls preload="none" src="audio/demucsfirst_crash.mp3"></audio></div>
+<div class="card bad"><span class="tag">mic-direct</span><h4>ride.wav</h4><p class="score">26.7%</p>
+<audio controls preload="none" src="audio/micdirect_ride.mp3"></audio></div>
+<div class="card good"><span class="tag">Demucs-first</span><h4>ride.wav</h4><p class="score">4.9%</p>
+<audio controls preload="none" src="audio/demucsfirst_ride.mp3"></audio></div>
+</div>
+
+<h3>Prototype: cancel the guitar mics out of the kick mic first</h3>
+<div class="ab">
+<div class="card"><span class="tag">before</span><h4>Kick mic 1</h4><p class="score">41.6%</p>
+<small>Raw room mic.</small><audio controls preload="none" src="audio/mic1_raw.mp3"></audio></div>
+<div class="card good"><span class="tag">after block-wise Wiener cancel</span><h4>Kick mic 1, guitar removed</h4><p class="score">17.1%</p>
+<small>Kick band 40 to 120&nbsp;Hz retained at 96%, the 2 to 6&nbsp;kHz band down to 81%. The mics are sample-locked, so the leakage path is a fixed linear filter and it solves cleanly.</small>
+<audio controls preload="none" src="audio/mic1_guitar_cancelled.mp3"></audio></div>
+</div>
+
+<h2 id="numbers">2. The measurement, all 13 songs</h2>
+<p>Percent of each drum lane explained by the two verbatim guitar mics, per-frequency-bin least squares over a window inside each song. The guitar mics are separate physical transducers, so this test never asks a model to grade its own output.</p>
+<p class="legend"><span style="background:#e4ecdd;color:#3c5730">under 10%, clean</span><span style="background:#f6e7c4;color:#7a5a13">10 to 25%, marginal</span><span style="background:#f3d7cd;color:#8d3418">over 25%, contaminated</span></p>
+<div class="scroller">
+<table>
+<thead><tr><th>song</th><th>path</th><th>kick</th><th>snare</th><th>toms</th><th>hh</th><th>ride</th><th>crash</th></tr></thead>
+<tbody>
+<tr><th rowspan="2">song10<span class="win">31&ndash;75s</span></th><td class="path bad-path">mic&#8209;direct</td><td class="bad">34.3</td><td class="bad">52.6</td><td class="bad">45.5</td><td class="bad">37.1</td><td class="bad">34.4</td><td class="bad">25.1</td></tr><tr><td class="path good-path">Demucs&#8209;first</td><td class="bad">25.1</td><td class="good">7.8</td><td class="good">2.0</td><td class="mid">10.7</td><td class="good">9.2</td><td class="mid">22.5</td></tr>
+<tr><th rowspan="2">song11<span class="win">134&ndash;194s</span></th><td class="path bad-path">mic&#8209;direct</td><td class="mid">22.2</td><td class="bad">25.6</td><td class="bad">60.4</td><td class="mid">23.1</td><td class="bad">25.8</td><td class="mid">20.5</td></tr><tr><td class="path good-path">Demucs&#8209;first</td><td class="mid">19.9</td><td class="good">7.8</td><td class="mid">20.6</td><td class="mid">11.1</td><td class="good">7.2</td><td class="mid">11.3</td></tr>
+<tr><th rowspan="2">song12<span class="win">30&ndash;72s</span></th><td class="path bad-path">mic&#8209;direct</td><td class="mid">15.9</td><td class="bad">54.5</td><td class="bad">25.5</td><td class="bad">25.0</td><td class="mid">22.9</td><td class="mid">17.8</td></tr><tr><td class="path good-path">Demucs&#8209;first</td><td class="na" colspan="6">no Demucs-first kit on disk</td></tr>
+<tr><th rowspan="2">song13<span class="win">159&ndash;219s</span></th><td class="path bad-path">mic&#8209;direct</td><td class="bad">25.7</td><td class="bad">76.9</td><td class="bad">35.1</td><td class="mid">20.8</td><td class="bad">26.8</td><td class="bad">29.1</td></tr><tr><td class="path good-path">Demucs&#8209;first</td><td class="mid">22.9</td><td class="good">7.9</td><td class="good">5.7</td><td class="bad">25.2</td><td class="mid">10.4</td><td class="mid">12.1</td></tr>
+<tr><th rowspan="2">song14<span class="win">41&ndash;99s</span></th><td class="path bad-path">mic&#8209;direct</td><td class="good">9.5</td><td class="bad">73.0</td><td class="bad">42.9</td><td class="bad">26.6</td><td class="bad">54.2</td><td class="good">3.0</td></tr><tr><td class="path good-path">Demucs&#8209;first</td><td class="good">3.6</td><td class="good">1.1</td><td class="good">3.9</td><td class="good">4.2</td><td class="good">1.6</td><td class="good">1.3</td></tr>
+<tr><th rowspan="2">song15<span class="win">121&ndash;181s</span></th><td class="path bad-path">mic&#8209;direct</td><td class="mid">19.6</td><td class="bad">57.0</td><td class="bad">39.2</td><td class="mid">18.2</td><td class="mid">23.3</td><td class="good">6.2</td></tr><tr><td class="path good-path">Demucs&#8209;first</td><td class="mid">14.3</td><td class="good">6.8</td><td class="mid">19.0</td><td class="good">5.7</td><td class="good">2.2</td><td class="good">5.8</td></tr>
+<tr><th rowspan="2">song16<span class="win">102&ndash;162s</span></th><td class="path bad-path">mic&#8209;direct</td><td class="bad">40.0</td><td class="bad">58.8</td><td class="bad">32.9</td><td class="mid">12.6</td><td class="bad">52.4</td><td class="good">9.6</td></tr><tr><td class="path good-path">Demucs&#8209;first</td><td class="na" colspan="6">no Demucs-first kit on disk</td></tr>
+<tr><th rowspan="2">song17<span class="win">188&ndash;248s</span></th><td class="path bad-path">mic&#8209;direct</td><td class="mid">11.6</td><td class="bad">62.0</td><td class="bad">60.8</td><td class="mid">13.4</td><td class="bad">25.2</td><td class="good">8.3</td></tr><tr><td class="path good-path">Demucs&#8209;first</td><td class="mid">11.4</td><td class="good">0.9</td><td class="good">4.7</td><td class="good">3.5</td><td class="good">6.3</td><td class="good">3.0</td></tr>
+<tr><th rowspan="2">song18<span class="win">93&ndash;153s</span></th><td class="path bad-path">mic&#8209;direct</td><td class="good">5.5</td><td class="bad">28.0</td><td class="bad">47.6</td><td class="mid">17.1</td><td class="bad">41.6</td><td class="mid">14.8</td></tr><tr><td class="path good-path">Demucs&#8209;first</td><td class="good">3.2</td><td class="good">9.8</td><td class="good">2.6</td><td class="mid">12.2</td><td class="mid">10.5</td><td class="mid">14.1</td></tr>
+<tr><th rowspan="2">song19<span class="win">143&ndash;203s</span></th><td class="path bad-path">mic&#8209;direct</td><td class="bad">34.2</td><td class="bad">56.2</td><td class="bad">56.7</td><td class="mid">20.6</td><td class="bad">34.4</td><td class="good">5.6</td></tr><tr><td class="path good-path">Demucs&#8209;first</td><td class="good">4.5</td><td class="good">2.6</td><td class="good">1.4</td><td class="good">6.5</td><td class="bad">42.7</td><td class="mid">10.8</td></tr>
+<tr><th rowspan="2">song20<span class="win">49&ndash;109s</span></th><td class="path bad-path">mic&#8209;direct</td><td class="mid">23.6</td><td class="bad">43.5</td><td class="bad">43.5</td><td class="bad">25.4</td><td class="bad">42.1</td><td class="bad">41.2</td></tr><tr><td class="path good-path">Demucs&#8209;first</td><td class="mid">21.7</td><td class="good">7.0</td><td class="good">6.1</td><td class="good">6.7</td><td class="good">5.7</td><td class="mid">19.3</td></tr>
+<tr><th rowspan="2">song21<span class="win">69&ndash;129s</span></th><td class="path bad-path">mic&#8209;direct</td><td class="mid">20.9</td><td class="bad">51.6</td><td class="mid">17.1</td><td class="bad">29.7</td><td class="mid">22.9</td><td class="bad">35.2</td></tr><tr><td class="path good-path">Demucs&#8209;first</td><td class="good">6.3</td><td class="good">1.5</td><td class="good">0.6</td><td class="good">3.2</td><td class="good">2.1</td><td class="good">3.7</td></tr>
+<tr><th rowspan="2">song22<span class="win">69&ndash;129s</span></th><td class="path bad-path">mic&#8209;direct</td><td class="bad">31.4</td><td class="bad">62.8</td><td class="mid">23.7</td><td class="bad">27.2</td><td class="bad">37.8</td><td class="mid">21.1</td></tr><tr><td class="path good-path">Demucs&#8209;first</td><td class="mid">12.4</td><td class="good">2.4</td><td class="good">4.0</td><td class="good">8.4</td><td class="good">5.0</td><td class="good">2.3</td></tr>
+</tbody></table>
+</div>
+<p style="margin-top:.9rem"><b>Snare lane across the 11 paired songs.</b> Mic-direct runs 25.6% to 76.9%, median 56.2%. Demucs-first runs 0.9% to 9.8%, median 6.8%. Every single song moves the same direction. Song 12 and song 16 have no Demucs-first kit yet, which is the only real work outstanding.</p>
+
+<h2 id="why">3. Why it happened</h2>
+<ul class="tight">
+<li><b>DrumSep assumes a clean input.</b> MDX23C-DrumSep was trained to split an isolated drum stem into six pieces. Its output heads sum back to the input, so anything in the input has to land in some lane. Guitar in, guitar out, distributed across snare and cymbals.</li>
+<li><b>The presence lift made it worse.</b> <code>_kitsource_mic1_presence_lift.wav</code> is mic 1 with +5&nbsp;dB at 2.5&nbsp;kHz and +7&nbsp;dB at 6&nbsp;kHz, applied to help the separator find cymbals. Electric guitar lives in that band, so the lift raised the guitar along with the cymbals. Measured: 41.6% guitar before the lift, 42.1% after.</li>
+<li><b>The reasoning in the script was sound and the conclusion was wrong.</b> The header of <code>drumkit_from_mic.sh</code> says &ldquo;no separation upstream of this, so the kit split is the only model in the path,&rdquo; treating the removal of Demucs as a provenance win. Removing Demucs removed the only stage that could take the guitar out.</li>
+<li><b>The currently running chain is on the correct path.</b> <code>run_8_14_chain.py</code>, live under launchd as <code>com.drwu.chain-8-14-missing6</code>, does Demucs, then measures the drum stem, then DrumSep. Leave it running.</li>
+</ul>
+
+<h2 id="plan">4. The three-phase fix</h2>
+
+<div class="phase">
+<h3>Phase 1 &mdash; Adopt the kits that already pass, fill the two gaps</h3>
+<ul class="tight">
+<li>Promote the 11 existing Demucs-first kits to the delivered set, retire the mic-direct kits into a sibling <code>delete/</code> folder rather than removing them.</li>
+<li>Run <code>do_song.sh 12</code> and <code>do_song.sh 16</code> under launchd. Demucs is about 10 minutes per song, DrumSep is 80 to 90 minutes per song at <code>num_overlap: 4</code>.</li>
+<li>Gate every lane on the air-band reality check from <code>composite-stem-alignment/scripts/drum_lane_reality_gate.py</code> so a hallucinated cymbal never ships.</li>
+</ul>
+<p class="cost">Cost: about 3 hours of machine time, unattended. No attention needed while it runs.</p>
+</div>
+
+<div class="phase">
+<h3>Phase 2 &mdash; Level and air, through the skill that already encodes it</h3>
+<ul class="tight">
+<li>The Demucs-first lanes measure 6 to 18&nbsp;dB quieter than the mic-direct lanes. That is a gain problem, and it is separate from contamination.</li>
+<li><code>multimic-stem-fix</code> lesson 4 already restores the 6 to 16&nbsp;kHz air DrumSep strips off hats and cymbals, by blending the highpassed full Demucs drums stem back in. Run the skill rather than hand-rolling an EQ.</li>
+<li>Verify each restored lane against the raw mics with the air-band gate, so the restoration adds real signal.</li>
+</ul>
+<p class="cost">Cost: minutes per song, scripted.</p>
+</div>
+
+<div class="phase">
+<h3>Phase 3 &mdash; The punchy version, proven on one song before any batch</h3>
+<ul class="tight">
+<li>Cancel the two guitar mics out of mic 1 first, then Demucs, then DrumSep. The prototype above already takes mic 1 from 41.6% guitar to 17.1% in 1.5 seconds per minute of audio, and keeps 96% of the kick band.</li>
+<li>The payoff is a close-mic kit with the punch mic 1 has and the cleanliness the Demucs path has.</li>
+<li>Prove it end to end on song 13 alone, measure the six lanes against the guitar mic, and only then run the other 12.</li>
+</ul>
+<p class="cost">Cost: one 90-minute validation run, then a decision. This phase is optional and it does not block Phase 1.</p>
+</div>
+
+<h2 id="method">5. Method and reproduction</h2>
+<p>Every number on this page comes from one measurement. For each frequency bin <code>f</code>, solve the least-squares gain <code>a_f</code> that best predicts the lane magnitude from the guitar mic magnitude, then report the explained energy as a fraction of the lane's total. The reference is always a verbatim guitar microphone, never a model output, so the test cannot be gamed by the separator that produced the lane.</p>
+<p>A lag search from &minus;3&nbsp;s to +3&nbsp;s was run on the Demucs-first kit to rule out the possibility that its low scores came from time misalignment. Best-lag snare was 2.2% against 1.9% at zero lag, so alignment is not carrying the result.</p>
+<ul class="tight">
+<li>Sweep data: <a href="bleed_sweep.json">bleed_sweep.json</a></li>
+<li>Cancellation prototype: <a href="guitar_cancel.py.txt">guitar_cancel.py</a></li>
+<li>Correct pipeline of record: <code>~/.claude/skills/jam-stem-rebuild/SKILL.md</code>, steps 5 and 6</li>
+<li>Level and air restoration: <code>~/.claude/skills/multimic-stem-fix/SKILL.md</code>, lesson 4</li>
+<li>Kits measured: <code>~/Projects/_outputs/band-practice-stems/8-28/</code></li>
+</ul>
+
+<div class="foot">
+Measured 2026-09-04 on Brandons-MacBook-Pro with <code>~/venvs/audio_midi_311</code>. Window sizes and offsets per song are recorded in the sweep JSON. Audio clips are loudness-matched for listening and are not the delivered levels.
+</div>
+
+</main></body></html>

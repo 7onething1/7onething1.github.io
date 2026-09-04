@@ -1,0 +1,67 @@
+"""Block-wise multichannel Wiener cancellation of the guitar mics out of the kick mic.
+
+The four practice mics are sample-locked (multimic-stem-fix lesson 1), so leakage from
+each guitar amp into mic1 is a fixed linear acoustic path. Per frequency bin, per short
+block, solve for the complex 2-tap filter that best predicts mic1 from the two guitar
+mics, then subtract that prediction. A magnitude floor stops over-subtraction from
+eating drum transients that share the band.
+"""
+import sys, os, numpy as np, soundfile as sf
+
+NFFT, HOP = 2048, 512
+BLOCK_FRAMES = int(os.environ.get("CANCEL_BLOCK_FRAMES", 172))
+FLOOR_DB = float(os.environ.get("CANCEL_FLOOR_DB", -12.0))
+
+def stft(x):
+    w = np.hanning(NFFT).astype(np.float32)
+    F = 1 + (len(x) - NFFT)//HOP
+    S = np.empty((NFFT//2+1, F), dtype=np.complex64)
+    for i in range(F):
+        S[:, i] = np.fft.rfft(x[i*HOP:i*HOP+NFFT]*w)
+    return S
+
+def istft(S, n):
+    w = np.hanning(NFFT).astype(np.float32)
+    y = np.zeros(n); wsum = np.zeros(n)
+    for i in range(S.shape[1]):
+        a, b = i*HOP, i*HOP+NFFT
+        if b > n: break
+        y[a:b] += np.fft.irfft(S[:, i], NFFT)*w; wsum[a:b] += w*w
+    good = wsum > 1e-3*wsum.max()
+    y[good] /= wsum[good]
+    y[~good] = 0.0
+    return y.astype(np.float32)
+
+def cancel(m, refs, floor_db=FLOOR_DB):
+    M = stft(m); R = [stft(r) for r in refs]
+    K = len(R); F, T = M.shape
+    Y = M.copy()
+    floor = 10**(floor_db/20.0)
+    for t0 in range(0, T, BLOCK_FRAMES):
+        t1 = min(T, t0+BLOCK_FRAMES)
+        if t1-t0 < 8: continue
+        G = np.stack([r[:, t0:t1] for r in R], axis=1)
+        Gh = np.conj(G)
+        Rxx = np.einsum('fjn,fkn->fjk', Gh, G)   # Rxx[j,k] = sum_n conj(G_j) G_k
+        rxd = np.einsum('fkn,fn->fk', Gh, M[:, t0:t1])
+        tr = np.real(np.einsum('fkk->f', Rxx))
+        reg = (tr/max(K, 1)*1e-3 + 1e-12)[:, None, None]*np.eye(K)[None]
+        h = np.linalg.solve(Rxx+reg, rxd[..., None])[..., 0]
+        res = M[:, t0:t1] - np.einsum('fk,fkn->fn', h, G)
+        mag_in = np.abs(M[:, t0:t1]); mag_out = np.abs(res)
+        keep = np.maximum(mag_out, floor*mag_in)
+        res = np.where(mag_out > 1e-12, res*(keep/np.maximum(mag_out, 1e-12)), M[:, t0:t1]*floor)
+        Y[:, t0:t1] = res
+    return istft(Y, len(m))
+
+if __name__ == "__main__":
+    mic, out = sys.argv[1], sys.argv[2]
+    m, sr = sf.read(mic, dtype="float32", always_2d=True); m = m.mean(1)
+    refs = []
+    for p in sys.argv[3:]:
+        r, _ = sf.read(p, dtype="float32", always_2d=True); refs.append(r.mean(1))
+    n = min([len(m)] + [len(r) for r in refs]); m = m[:n]; refs = [r[:n] for r in refs]
+    y = cancel(m, refs)
+    tmp = out + ".tmp"
+    sf.write(tmp, y, sr, subtype="PCM_24", format="WAV"); os.replace(tmp, out)
+    print(f"wrote {out}  {len(y)/sr:.2f}s  peak {20*np.log10(np.max(np.abs(y))+1e-12):.1f} dBFS")

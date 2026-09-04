@@ -1,0 +1,298 @@
+[
+ {
+  "song": "song10",
+  "window": [
+   31.1,
+   74.7
+  ],
+  "dur": 124.5,
+  "micdirect": {
+   "kick": 34.3,
+   "snare": 52.6,
+   "toms": 45.5,
+   "hh": 37.1,
+   "ride": 34.4,
+   "crash": 25.1
+  },
+  "demucsfirst": {
+   "kick": 25.1,
+   "snare": 7.8,
+   "toms": 2.0,
+   "hh": 10.7,
+   "ride": 9.2,
+   "crash": 22.5
+  }
+ },
+ {
+  "song": "song11",
+  "window": [
+   133.6,
+   193.6
+  ],
+  "dur": 534.5,
+  "micdirect": {
+   "kick": 22.2,
+   "snare": 25.6,
+   "toms": 60.4,
+   "hh": 23.1,
+   "ride": 25.8,
+   "crash": 20.5
+  },
+  "demucsfirst": {
+   "kick": 19.9,
+   "snare": 7.8,
+   "toms": 20.6,
+   "hh": 11.1,
+   "ride": 7.2,
+   "crash": 11.3
+  }
+ },
+ {
+  "song": "song12",
+  "window": [
+   30.1,
+   72.3
+  ],
+  "dur": 120.5,
+  "micdirect": {
+   "kick": 15.9,
+   "snare": 54.5,
+   "toms": 25.5,
+   "hh": 25.0,
+   "ride": 22.9,
+   "crash": 17.8
+  }
+ },
+ {
+  "song": "song13",
+  "window": [
+   158.9,
+   218.9
+  ],
+  "dur": 635.5,
+  "micdirect": {
+   "kick": 25.7,
+   "snare": 76.9,
+   "toms": 35.1,
+   "hh": 20.8,
+   "ride": 26.8,
+   "crash": 29.1
+  },
+  "demucsfirst": {
+   "kick": 22.9,
+   "snare": 7.9,
+   "toms": 5.7,
+   "hh": 25.2,
+   "ride": 10.4,
+   "crash": 12.1
+  }
+ },
+ {
+  "song": "song14",
+  "window": [
+   41.1,
+   98.7
+  ],
+  "dur": 164.5,
+  "micdirect": {
+   "kick": 9.5,
+   "snare": 73.0,
+   "toms": 42.9,
+   "hh": 26.6,
+   "ride": 54.2,
+   "crash": 3.0
+  },
+  "demucsfirst": {
+   "kick": 3.6,
+   "snare": 1.1,
+   "toms": 3.9,
+   "hh": 4.2,
+   "ride": 1.6,
+   "crash": 1.3
+  }
+ },
+ {
+  "song": "song15",
+  "window": [
+   120.9,
+   180.9
+  ],
+  "dur": 483.5,
+  "micdirect": {
+   "kick": 19.6,
+   "snare": 57.0,
+   "toms": 39.2,
+   "hh": 18.2,
+   "ride": 23.3,
+   "crash": 6.2
+  },
+  "demucsfirst": {
+   "kick": 14.3,
+   "snare": 6.8,
+   "toms": 19.0,
+   "hh": 5.7,
+   "ride": 2.2,
+   "crash": 5.8
+  }
+ },
+ {
+  "song": "song16",
+  "window": [
+   101.9,
+   161.9
+  ],
+  "dur": 407.5,
+  "micdirect": {
+   "kick": 40.0,
+   "snare": 58.8,
+   "toms": 32.9,
+   "hh": 12.6,
+   "ride": 52.4,
+   "crash": 9.6
+  }
+ },
+ {
+  "song": "song17",
+  "window": [
+   188.4,
+   248.4
+  ],
+  "dur": 753.5,
+  "micdirect": {
+   "kick": 11.6,
+   "snare": 62.0,
+   "toms": 60.8,
+   "hh": 13.4,
+   "ride": 25.2,
+   "crash": 8.3
+  },
+  "demucsfirst": {
+   "kick": 11.4,
+   "snare": 0.9,
+   "toms": 4.7,
+   "hh": 3.5,
+   "ride": 6.3,
+   "crash": 3.0
+  }
+ },
+ {
+  "song": "song18",
+  "window": [
+   92.9,
+   152.9
+  ],
+  "dur": 371.5,
+  "micdirect": {
+   "kick": 5.5,
+   "snare": 28.0,
+   "toms": 47.6,
+   "hh": 17.1,
+   "ride": 41.6,
+   "crash": 14.8
+  },
+  "demucsfirst": {
+   "kick": 3.2,
+   "snare": 9.8,
+   "toms": 2.6,
+   "hh": 12.2,
+   "ride": 10.5,
+   "crash": 14.1
+  }
+ },
+ {
+  "song": "song19",
+  "window": [
+   143.1,
+   203.1
+  ],
+  "dur": 572.5,
+  "micdirect": {
+   "kick": 34.2,
+   "snare": 56.2,
+   "toms": 56.7,
+   "hh": 20.6,
+   "ride": 34.4,
+   "crash": 5.6
+  },
+  "demucsfirst": {
+   "kick": 4.5,
+   "snare": 2.6,
+   "toms": 1.4,
+   "hh": 6.5,
+   "ride": 42.7,
+   "crash": 10.8
+  }
+ },
+ {
+  "song": "song20",
+  "window": [
+   49.1,
+   109.1
+  ],
+  "dur": 196.5,
+  "micdirect": {
+   "kick": 23.6,
+   "snare": 43.5,
+   "toms": 43.5,
+   "hh": 25.4,
+   "ride": 42.1,
+   "crash": 41.2
+  },
+  "demucsfirst": {
+   "kick": 21.7,
+   "snare": 7.0,
+   "toms": 6.1,
+   "hh": 6.7,
+   "ride": 5.7,
+   "crash": 19.3
+  }
+ },
+ {
+  "song": "song21",
+  "window": [
+   69.1,
+   129.1
+  ],
+  "dur": 276.5,
+  "micdirect": {
+   "kick": 20.9,
+   "snare": 51.6,
+   "toms": 17.1,
+   "hh": 29.7,
+   "ride": 22.9,
+   "crash": 35.2
+  },
+  "demucsfirst": {
+   "kick": 6.3,
+   "snare": 1.5,
+   "toms": 0.6,
+   "hh": 3.2,
+   "ride": 2.1,
+   "crash": 3.7
+  }
+ },
+ {
+  "song": "song22",
+  "window": [
+   68.9,
+   128.9
+  ],
+  "dur": 275.5,
+  "micdirect": {
+   "kick": 31.4,
+   "snare": 62.8,
+   "toms": 23.7,
+   "hh": 27.2,
+   "ride": 37.8,
+   "crash": 21.1
+  },
+  "demucsfirst": {
+   "kick": 12.4,
+   "snare": 2.4,
+   "toms": 4.0,
+   "hh": 8.4,
+   "ride": 5.0,
+   "crash": 2.3
+  }
+ }
+]
