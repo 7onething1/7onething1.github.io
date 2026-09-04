@@ -95,6 +95,7 @@ footer a{color:var(--burg)}
   <h4>Contents</h4>
   <ol>
     <li><a href="#liftresult">Sept 4: did the fix work?</a></li>
+    <li><a href="#clipping">Clipping census</a></li>
     <li><a href="#v2">v2 mic-lanes run, live status</a></li>
     <li><a href="#update">Update at 13:10, with corrections</a></li>
     <li><a href="#verdict">The verdict</a></li>
@@ -191,6 +192,50 @@ the purity claim and recovers the cymbals, or keeping v2 and documenting plainly
 on kick and toms and poor on cymbals at a median 0.44&times; of v1. Both are defensible. Shipping a six-piece
 kit without saying which was chosen is not.</p>
 </div>
+
+<h2 id="clipping">0.6 Clipping census, the unaddressed risk</h2>
+
+<p>Risk 2 was raised twice and never actioned. <code>extract_mic_lanes.sh</code> gates on microphone liveness
+alone and carries no clipping check, while the v1 picker had an <code>excluded_clipped</code> field and dropped
+mic4 on song15 for exactly this. Every v2 deliverable lane was measured.</p>
+
+<div class="verdict" style="border-color:#8C3A3A">
+<p class="big" style="font-size:22px">The bass lane is the worst-clipped material in the set.</p>
+<p style="margin:0">Bass is the instrument the original instruction set most wanted retained. It clips on
+<b>6 of 6</b> songs where its microphone is live, <b>1,019,936</b> clipped samples in total, and
+<code>song16/bass_mic4.wav</code> alone is <b>4.07 % clipped</b>.</p>
+</div>
+
+<div class="scroller">
+<table>
+<thead><tr><th>Instrument</th><th>Songs</th><th>Songs clipping</th><th>Total clipped samples</th><th>Worst single lane</th></tr></thead>
+<tbody>
+<tr><td><b>bass_mic4</b></td><td class="mono">6</td><td class="mono"><b>6 of 6</b></td><td class="mono">1,019,936</td><td class="mono">730,591</td></tr>
+<tr><td>kick_mic1</td><td class="mono">13</td><td class="mono"><b>13 of 13</b></td><td class="mono">431,418</td><td class="mono">132,808</td></tr>
+<tr><td>gtr1_mic3</td><td class="mono">13</td><td class="mono">7 of 13</td><td class="mono">71,289</td><td class="mono">64,170</td></tr>
+<tr><td>gtr2_mic2</td><td class="mono">6</td><td class="mono">5 of 6</td><td class="mono">24,283</td><td class="mono">12,132</td></tr>
+</tbody>
+</table>
+</div>
+
+<h3>The lanes worth looking at first</h3>
+<div class="scroller">
+<table>
+<thead><tr><th>Lane</th><th>Clipped samples</th><th>Share of file</th></tr></thead>
+<tbody>
+<tr><td><code>song16/bass_mic4.wav</code></td><td class="mono">730,591</td><td class="mono"><b>4.0654 %</b></td></tr>
+<tr><td><code>song15/bass_mic4.wav</code></td><td class="mono">234,157</td><td class="mono">1.0982 %</td></tr>
+<tr><td><code>song11/kick_mic1.wav</code></td><td class="mono">132,808</td><td class="mono">0.5634 %</td></tr>
+<tr><td><code>song16/kick_mic1.wav</code></td><td class="mono">70,940</td><td class="mono">0.3948 %</td></tr>
+<tr><td><code>song10/kick_mic1.wav</code></td><td class="mono">21,265</td><td class="mono">0.3873 %</td></tr>
+<tr><td><code>song15/kick_mic1.wav</code></td><td class="mono">79,077</td><td class="mono">0.3709 %</td></tr>
+</tbody>
+</table>
+</div>
+
+<p>Verbatim extraction is the right principle and it carries the clipping through untouched. That is honest and
+it is not free. These counts belong in the extraction log so anyone consuming a lane knows what it holds, and
+<code>song16/bass_mic4.wav</code> at four percent needs a decision before it ships as a bass deliverable.</p>
 
 <h2 id="v2">0.7 v2 mic-lanes run, live status at 13:31</h2>
 
