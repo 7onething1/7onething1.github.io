@@ -94,6 +94,7 @@ footer a{color:var(--burg)}
 <nav class="toc">
   <h4>Contents</h4>
   <ol>
+    <li><a href="#regrade">The original spec, re-graded against v2</a></li>
     <li><a href="#final">Final state: v2 verifies clean</a></li>
     <li><a href="#reverify">Re-verification after the 14:08 rebuild</a></li>
     <li><a href="#ship">Ship verification, Sept 4 (superseded in part)</a></li>
@@ -115,7 +116,72 @@ footer a{color:var(--burg)}
   </ol>
 </nav>
 
-<h2 id="final">0. Final state: v2 verifies clean</h2>
+<h2 id="regrade">0. The original spec, re-graded against v2</h2>
+
+<p>The scorecard further down grades the September state, which was the honest answer when it was written and
+is now stale. This section answers the original question against what exists today. Every row was measured in
+this pass.</p>
+
+<div class="verdict" style="border-color:#3F7370;background:#E3EFEA">
+<p class="big" style="color:#2A5754;font-size:23px">Eight of ten clauses delivered, one delivered with a stated caveat, one never honoured on a premise that turned out to be void.</p>
+<p style="margin:0">The work asked for exists. The reasoning that ordered it did not survive measurement.</p>
+</div>
+
+<div class="scroller">
+<table>
+<thead><tr><th style="width:24px">#</th><th>Clause</th><th>Measured against v2</th><th>Verdict</th></tr></thead>
+<tbody>
+<tr><td class="score">1</td><td>Rebuild every song whose stems were built Sept 1</td>
+<td>song11 and song13 both carry full v2 lanes. v2 covers 13 songs, including song12 and song16 that v1 never had.</td>
+<td><span class="pill p-pass">Delivered</span></td></tr>
+
+<tr><td class="score">2</td><td>Skip Sept 2 and 3 rebuilds unless the drumkit traces to Sept 1</td>
+<td>All 13 were rebuilt regardless. The exemption was never coded. The lossy premise it protected against was refuted at &minus;400 dB, so the clause guarded nothing.</td>
+<td><span class="pill p-fail">Not honoured</span></td></tr>
+
+<tr><td class="score">3</td><td>Decide on build dates and actual source provenance</td>
+<td>v2 lanes are verbatim mic channels with provenance stated per lane. Provenance is measured now rather than inferred from a folder name.</td>
+<td><span class="pill p-pass">Delivered</span></td></tr>
+
+<tr><td class="score">4</td><td>Both guitar lanes from the mic master, split preserved, two-voice run</td>
+<td>6 songs carry two real guitar mics and need no split. The two-voice process ran on the 7 single-mic songs, producing 28 files, with a manifest caveat that those songs had one guitarist so the A/B split correlates 0.70 to 0.915 with 40 to 56 % leftover.</td>
+<td><span class="pill p-part">Delivered, caveated</span></td></tr>
+
+<tr><td class="score">5</td><td>Bass rebuilt as its own retained lane</td>
+<td>6 songs carry a verbatim <code>bass_mic4</code>. 7 carry none because mic4 was dead, cross-validated against Demucs bass energy with a clean gap between 2.90 % and 3.45 %.</td>
+<td><span class="pill p-pass">Delivered where bass exists</span></td></tr>
+
+<tr><td class="score">6</td><td>Drums from the mic master with no lossy inheritance</td>
+<td>78 drum lanes, every one from mic1 through the presence-lifted derived source. No lossy stage anywhere in the path.</td>
+<td><span class="pill p-pass">Delivered</span></td></tr>
+
+<tr><td class="score">7</td><td>Six-piece drumkit preserved per song</td>
+<td>13 songs &times; 6 pieces = 78, joints measured at 0.00000000 on every lane.</td>
+<td><span class="pill p-pass">Delivered</span></td></tr>
+
+<tr><td class="score">8</td><td>Lossless WAV matching source duration and sample count</td>
+<td>Every lane duration-exact against its own song source, verified per song across all 13.</td>
+<td><span class="pill p-pass">Delivered</span></td></tr>
+
+<tr><td class="score">9</td><td>Verify complete decode before marking a song finished</td>
+<td>Full decode of all 160 v2 files run in this pass: <b>160 pass, 0 fail</b>.</td>
+<td><span class="pill p-pass">Verified</span></td></tr>
+
+<tr><td class="score">10</td><td>Delete nothing, write to new versioned locations</td>
+<td>The v1 tree stands untouched at 101 lanes. v2 lives in its own tree. 128 MB of superseded repair copies retired to <code>delete/</code> rather than removed.</td>
+<td><span class="pill p-pass">Delivered</span></td></tr>
+</tbody>
+</table>
+</div>
+
+<h3>The one structural finding worth carrying forward</h3>
+<p>Clause 5 asked for bass on every song. Six songs have it and seven do not, and that is the correct outcome
+rather than a shortfall. Mic4 liveness and Demucs bass energy, two methods sharing no code, agree on every song.
+The same six-and-seven split appears in the second-player lane: a song carries either <code>bass_mic4</code> or
+<code>gtr2_mic2</code>, and no song carries both. The band had one second player who moved between bass and a
+second guitar.</p>
+
+<h2 id="final">0.05 Final state: v2 verifies clean</h2>
 
 <div class="verdict" style="border-color:#3F7370;background:#E3EFEA">
 <p class="big" style="color:#2A5754;font-size:24px">Every defect this audit raised is fixed and independently re-measured.</p>
