@@ -166,19 +166,43 @@ a uniform &minus;3.54 dB rather than the 6 to 15 dB the first build charged. The
 </table>
 </div>
 
-<div class="callout warn">
-<p style="margin:0"><b>One error persists, and it is instructive.</b> The audited session's closing summary states
-14 guitar-split files. It is 28, and its own manifest catalogues all 28 correctly. The arithmetic gives it away:
-38 + 78 + 14 + 13 + 3 = 146, while 28 closes at exactly 160. This is the third time a hand-written count was the
-thing that was wrong while the measured artifact was fine, after the invented 43 and the stale manifest. The
-durable fix is to derive summary numbers from the same disk scan the gate already runs.</p>
+<div class="callout">
+<p style="margin:0 0 8px"><b>The 14 was a broken counter, and it is now closed.</b> The session traced it to a
+census that matched the substring <code>guitar_</code>. That caught <code>guitar_A_lead</code> and
+<code>guitar_B_second</code> and silently missed <code>_minusA</code> and <code>leftover</code>, so it printed
+14 and the summary quoted its own broken counter twice. The manifest was correct throughout.</p>
+<p style="margin:0">The census is now a real partition derived from disk, written into
+<code>MANIFEST.json</code> at line 1481 so summaries quote it rather than retype it, guarded by two asserts:
+the classes must sum to the file total, and UNCLASSIFIED must be zero.</p>
 </div>
 
-<div class="callout">
-<p style="margin:0"><b>The most transferable result of this exchange.</b> The counts reconciled perfectly at 160
-of 160 while 28 paths pointed at nothing. <b>Count reconciliation is structurally blind to a wrong path.</b>
-Only resolution catches it. The session now aborts the manifest write unless every key resolves, which is a
-better outcome than the fix itself.</p>
+<h3>Independently reproduced partition</h3>
+<p>Built from a separate disk walk in this audit, without reading the session's census, then compared:</p>
+<div class="scroller">
+<table>
+<thead><tr><th>Class</th><th>This audit</th><th>Session census</th><th>Agreement</th></tr></thead>
+<tbody>
+<tr><td>drumkit</td><td class="mono">78</td><td class="mono">78</td><td><span class="pill p-pass">Match</span></td></tr>
+<tr><td>guitar-split</td><td class="mono">28</td><td class="mono">28</td><td><span class="pill p-pass">Match</span></td></tr>
+<tr><td>verbatim mic</td><td class="mono">38</td><td class="mono">38</td><td><span class="pill p-pass">Match</span></td></tr>
+<tr><td>kitsource</td><td class="mono">13</td><td class="mono">13</td><td><span class="pill p-pass">Match</span></td></tr>
+<tr><td>repair</td><td class="mono">3</td><td class="mono">3</td><td><span class="pill p-pass">Match</span></td></tr>
+<tr><td><b>Total</b></td><td class="mono"><b>160</b></td><td class="mono"><b>160</b></td><td><span class="pill p-pass">Closes</span></td></tr>
+<tr><td>unclassified</td><td class="mono">0</td><td class="mono">0</td><td><span class="pill p-pass">Empty</span></td></tr>
+</tbody>
+</table>
+</div>
+
+<div class="verdict" style="border-color:#3F7370;background:#E3EFEA">
+<p class="big" style="color:#2A5754;font-size:22px">A check that agrees is not a check that closes.</p>
+<p style="margin:0 0 8px">Two verification shapes here looked rigorous and were blind by construction.
+<b>Count reconciliation cannot see a wrong path</b>, since 160 keys against 160 files reconciled perfectly while
+28 of them pointed at nothing. <b>Substring classification cannot see a file it does not name</b>, since
+matching <code>guitar_</code> missed <code>_minusA</code> and <code>leftover</code> and printed 14 for 28.</p>
+<p style="margin:0">Both now fail loudly: the manifest write aborts unless every key resolves, and the census
+asserts that its classes sum to the file total with an empty UNCLASSIFIED bucket. The arithmetic tell was there
+the whole time, since 38 + 78 + 14 + 13 + 3 gives 146 against a stated 160. Adding up a breakdown before
+quoting it catches this entire family.</p>
 </div>
 
 <h2 id="reverify">0.1 Re-verification after the 14:08 rebuild</h2>
