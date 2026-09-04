@@ -94,7 +94,8 @@ footer a{color:var(--burg)}
 <nav class="toc">
   <h4>Contents</h4>
   <ol>
-    <li><a href="#ship">Ship verification, Sept 4</a></li>
+    <li><a href="#reverify">Re-verification after the 14:08 rebuild</a></li>
+    <li><a href="#ship">Ship verification, Sept 4 (superseded in part)</a></li>
     <li><a href="#retract">MAJOR CORRECTION: the cymbal verdict</a></li>
     <li><a href="#liftresult">Sept 4: did the fix work?</a></li>
     <li><a href="#clipping">Clipping census</a></li>
@@ -113,7 +114,69 @@ footer a{color:var(--burg)}
   </ol>
 </nav>
 
-<h2 id="ship">0. Ship verification, September 4</h2>
+<h2 id="reverify">0. Re-verification after the 14:08 rebuild</h2>
+
+<p>The audited session rebuilt the repair copies at 14:06 and regenerated the manifest at
+<b>2026-09-04 14:08:07</b>, after the findings in the next section were sent. Three of the four are now closed
+by that fix. One new defect surfaced, and one figure in the manifest is an artifact of its own threshold.</p>
+
+<div class="scroller">
+<table>
+<thead><tr><th>Earlier finding</th><th>Status now</th><th>Evidence</th></tr></thead>
+<tbody>
+<tr><td>Manifest missing repair copies and drum lanes</td><td><span class="pill p-pass">Closed</span></td><td class="mono">160 entries against 160 files, exact</td></tr>
+<tr><td>Repair copies 6 to 15 dB quiet</td><td><span class="pill p-pass">Closed</span></td><td class="mono">now 0.666000 = &minus;3.53 dB on all three</td></tr>
+<tr><td>Threshold and gain undocumented</td><td><span class="pill p-pass">Closed</span></td><td class="mono">lines 2, 3 and 145 of MANIFEST.json</td></tr>
+<tr><td>Lane count stated as 43</td><td><span class="pill p-part">Superseded</span></td><td class="mono">38 verbatim, 160 total including all classes</td></tr>
+</tbody>
+</table>
+</div>
+
+<p>The rebuilt repair gain measures <code>0.666000</code> on unclipped samples, matching the manifest's
+<code>applied_gain_db: -3.53</code> to the decimal, with residuals of &minus;124 to &minus;134 dB confirming a
+clean pure rescale outside the repaired runs. The earlier &minus;14.83 dB measurement applied to the 13:39
+build and no longer describes what is on disk.</p>
+
+<h3>New defect: 28 manifest paths do not resolve</h3>
+<p>The guitar-split keys are missing their subdirectory, and the file is inconsistent with itself:</p>
+<div class="chain">
+<div class="step">line &nbsp;45 &nbsp; <code>"drumkit/crash"</code> &nbsp; correct, resolves to <code>songNN/drumkit/crash.wav</code></div>
+<div class="step" style="color:#8C3A3A">line 487 &nbsp; <code>"guitar_A_lead"</code> &nbsp; wrong, file lives at <code>songNN/<b>guitars/</b>guitar_A_lead.wav</code></div>
+<div class="step" style="color:#8C3A3A">line 478 &nbsp; <code>"_minusA"</code> &nbsp;&nbsp; line 505 &nbsp; <code>"leftover"</code></div>
+</div>
+<p>Drumkit entries are prefixed and guitar entries are not. All 28 guitar entries across 7 songs resolve to a
+path that does not exist. The counts reconcile perfectly at 160, so a count check never catches this. Only
+path resolution does.</p>
+
+<h3>The residual clipped counts are a threshold artifact</h3>
+<p>The manifest reports 2,972 clipped samples on the song11 repair and 30,200 on song16, and both reproduce
+exactly, so the reporting is honest. The samples are not clipping.</p>
+
+<div class="scroller">
+<table>
+<thead><tr><th>Repair copy</th><th>Samples &ge; 0.999</th><th>Their min and max</th><th>Above 0.9999</th></tr></thead>
+<tbody>
+<tr><td><code>song11/kick_mic1_DECLIP</code></td><td class="mono">2,972</td><td class="mono">0.999000072 / 0.999000072</td><td class="mono"><b>0</b></td></tr>
+<tr><td><code>song16/bass_mic4_DECLIP</code></td><td class="mono">30,200</td><td class="mono">0.999000072 / 0.999000072</td><td class="mono"><b>0</b></td></tr>
+</tbody>
+</table>
+</div>
+
+<p><b>1.5 &times; 0.666 = 0.999000.</b> The interpolation cap multiplied by the normalisation gain lands exactly
+on the detection threshold, so every capped sample counts as clipped. Nothing sits at true full scale. Scaling
+to 0.6655 puts the cap at 0.99825 and those counts go to zero with no audible change. A reader comparing
+song16 verbatim at 769,169 against its repair at 30,200 would reasonably conclude the repair still clips badly.
+It does not clip at all.</p>
+
+<div class="callout">
+<p style="margin:0"><b>Credit where it is due.</b> The manifest now carries a <code>two_voice_caveat</code> at
+line 6 stating that on the seven single-guitar-mic songs the A/B split correlates 0.70 to 0.915 with 40 to
+56 % leftover, because those songs had one guitarist and nothing to separate. Self-disclosing a limitation a
+user would otherwise hit blind is the right call, and this audit would have flagged it had the session not
+written it first.</p>
+</div>
+
+<h2 id="ship">0.2 Ship verification, September 4, partly superseded above</h2>
 
 <p>The audited session declared v2 ready to ship. Each claim was checked against disk. Three hold. Two do not,
 and one of those is a usability trap inside the repair copies.</p>
