@@ -147,8 +147,49 @@ microphone never heard. The boost lifts the noise floor and the bleed alongside 
 
 <div class="callout warn">
 <p style="margin:0"><b>A correction to how this audit framed it.</b> The earlier section called the presence lift
-the fix. It is a partial fix. The measurement above is the correction, and the second option originally
-offered, a mic1 plus mic3 sum, is now under test on song22 with real compute rather than argument.</p>
+the fix. It is a partial fix, and the measurement above is the correction.</p>
+</div>
+
+<h3>The alternative was tested and it is worse</h3>
+<p>This audit originally offered a second option, a mic1 plus mic3 sum, on the reasoning that mic3 carries far
+more presence energy. That option was built and run on song22, RMS-matched, DrumSep on the first 60 seconds.
+It is wrong and the recommendation is withdrawn.</p>
+
+<div class="scroller">
+<table>
+<thead><tr><th>Kit lane</th><th>r against guitar mic</th><th>r against kick mic</th><th>Reading</th></tr></thead>
+<tbody>
+<tr><td>mic1+mic3 <b>ride</b></td><td class="mono"><b>0.613</b></td><td class="mono">&minus;0.000</td><td><span class="pill p-fail">Guitar, not a cymbal</span></td></tr>
+<tr><td>mic1+mic3 hh</td><td class="mono">0.353</td><td class="mono">0.013</td><td><span class="pill p-fail">Guitar-dominated</span></td></tr>
+<tr><td>mic1+mic3 crash</td><td class="mono">0.271</td><td class="mono">&minus;0.001</td><td><span class="pill p-fail">Guitar-dominated</span></td></tr>
+<tr><td>presence-lift hh</td><td class="mono">&minus;0.031</td><td class="mono">0.127</td><td><span class="pill p-pass">Drum-led</span></td></tr>
+<tr><td>presence-lift ride</td><td class="mono">&minus;0.122</td><td class="mono">0.097</td><td><span class="pill p-part">Mixed</span></td></tr>
+<tr><td>presence-lift crash</td><td class="mono">0.013</td><td class="mono">0.022</td><td><span class="pill p-pass">Drum-led</span></td></tr>
+</tbody>
+</table>
+</div>
+
+<p>The sum produced a 20.86 % cymbal share against v1's 2.12 %, a 9.8&times; jump that reads as a win until the
+lanes are attributed. The ride lane correlates <b>0.613</b> with the guitar microphone and flat zero with the
+kick. DrumSep is handed broadband guitar in the band it uses to find cymbals, so it files guitar under cymbals.
+The presence-lift lanes are drum-led. The lift wins on measurement.</p>
+
+<div class="callout warn">
+<p style="margin:0"><b>Evidence this audit will not lean on.</b> The same test run against the v1 kit returned
+r = 0.000 on all three lanes, which looks clean and is not usable. v1 song22 runs 274.088 s against the v2 cut
+at 275.500 s, and a 1.4 s offset collapses that correlation to zero whatever the content. Only the v2 against
+v3 rows above share a timebase, and those are the ones carrying the verdict.</p>
+</div>
+
+<div class="callout bad">
+<p style="margin:0 0 8px"><b>What the result actually points at.</b> The v1 path ran Demucs first to isolate a
+drum stem, then split that stem. <b>That Demucs stage was load-bearing.</b> It removed the guitar before the
+kit split ever saw it. The v2 design dropped it under a no-separation-upstream principle, and that is the real
+reason the cymbals are thin. mic1 alone does not carry them, and the obvious way to add them carries guitar too.</p>
+<p style="margin:0">The choice is between reinstating a drum-isolation stage before the kit split, which costs
+the purity claim and recovers the cymbals, or keeping v2 and documenting plainly that these kits are accurate
+on kick and toms and poor on cymbals at a median 0.44&times; of v1. Both are defensible. Shipping a six-piece
+kit without saying which was chosen is not.</p>
 </div>
 
 <h2 id="v2">0.7 v2 mic-lanes run, live status at 13:31</h2>
