@@ -94,6 +94,7 @@ footer a{color:var(--burg)}
 <nav class="toc">
   <h4>Contents</h4>
   <ol>
+    <li><a href="#liftresult">Sept 4: did the fix work?</a></li>
     <li><a href="#v2">v2 mic-lanes run, live status</a></li>
     <li><a href="#update">Update at 13:10, with corrections</a></li>
     <li><a href="#verdict">The verdict</a></li>
@@ -109,7 +110,48 @@ footer a{color:var(--burg)}
   </ol>
 </nav>
 
-<h2 id="v2">0. v2 mic-lanes run, live status at 13:31</h2>
+<h2 id="liftresult">0. September 4: did the presence-lift fix work?</h2>
+
+<p>All thirteen v2 kits finished overnight from the presence-lift source. This section measures the result
+rather than assuming the fix landed. Full files, whole song, cymbal share of total kit energy.</p>
+
+<div class="verdict" style="border-color:#D9A404;background:#FBF3DF">
+<p class="big" style="color:#7A5B02;font-size:23px">The lift helped and it did not finish the job.</p>
+<p style="margin:0">Median cymbal share is <b>0.44&times; of v1</b>. One song of eleven reaches v1 level and
+five remain below 0.4&times;. The raw-mic1 kits sat near 0.1&times; before the fix, so this moved from about
+0.1&times; to 0.44&times;. Real improvement, still less than half of what v1 carried.</p>
+</div>
+
+<div class="scroller">
+<table>
+<thead><tr><th>Song</th><th>v1 cymbal share</th><th>v2 cymbal share</th><th>v2 / v1</th><th>Reading</th></tr></thead>
+<tbody>
+<tr><td>song11</td><td class="mono">2.48 %</td><td class="mono">2.57 %</td><td class="mono">1.04&times;</td><td><span class="pill p-pass">Restored</span></td></tr>
+<tr><td>song18</td><td class="mono">5.09 %</td><td class="mono">4.38 %</td><td class="mono">0.86&times;</td><td><span class="pill p-part">Partly</span></td></tr>
+<tr><td>song10</td><td class="mono">3.46 %</td><td class="mono">2.33 %</td><td class="mono">0.67&times;</td><td><span class="pill p-part">Partly</span></td></tr>
+<tr><td>song13</td><td class="mono">5.41 %</td><td class="mono">3.21 %</td><td class="mono">0.59&times;</td><td><span class="pill p-part">Partly</span></td></tr>
+<tr><td>song17</td><td class="mono">1.46 %</td><td class="mono">0.70 %</td><td class="mono">0.48&times;</td><td><span class="pill p-part">Partly</span></td></tr>
+<tr><td>song20</td><td class="mono">1.42 %</td><td class="mono">0.63 %</td><td class="mono">0.44&times;</td><td><span class="pill p-part">Partly</span></td></tr>
+<tr><td>song21</td><td class="mono">1.99 %</td><td class="mono">0.68 %</td><td class="mono">0.34&times;</td><td><span class="pill p-fail">Still thin</span></td></tr>
+<tr><td>song15</td><td class="mono">1.88 %</td><td class="mono">0.60 %</td><td class="mono">0.32&times;</td><td><span class="pill p-fail">Still thin</span></td></tr>
+<tr><td>song22</td><td class="mono">2.77 %</td><td class="mono">0.82 %</td><td class="mono">0.29&times;</td><td><span class="pill p-fail">Still thin</span></td></tr>
+<tr><td>song14</td><td class="mono">2.14 %</td><td class="mono">0.55 %</td><td class="mono">0.26&times;</td><td><span class="pill p-fail">Still thin</span></td></tr>
+<tr><td>song19</td><td class="mono">8.47 %</td><td class="mono">0.67 %</td><td class="mono">0.08&times;</td><td><span class="pill p-fail">Still thin</span></td></tr>
+</tbody>
+</table>
+</div>
+
+<p><b>The reason is the one thing an equaliser cannot solve.</b> mic1 holds a fraction of a percent of its
+energy in the 2 to 6 kHz band. A boost amplifies what the microphone captured, and it cannot add detail the
+microphone never heard. The boost lifts the noise floor and the bleed alongside the cymbals.</p>
+
+<div class="callout warn">
+<p style="margin:0"><b>A correction to how this audit framed it.</b> The earlier section called the presence lift
+the fix. It is a partial fix. The measurement above is the correction, and the second option originally
+offered, a mic1 plus mic3 sum, is now under test on song22 with real compute rather than argument.</p>
+</div>
+
+<h2 id="v2">0.7 v2 mic-lanes run, live status at 13:31</h2>
 
 <p>The audited session restarted at 13:21 on a new design, writing to <code>v2-mic-lanes/</code>. It pulls each
 instrument's own close mic straight out of the four-channel master with no separation, no EQ and no downmix,
