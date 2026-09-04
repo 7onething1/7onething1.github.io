@@ -94,6 +94,7 @@ footer a{color:var(--burg)}
 <nav class="toc">
   <h4>Contents</h4>
   <ol>
+    <li><a href="#retract">MAJOR CORRECTION: the cymbal verdict</a></li>
     <li><a href="#liftresult">Sept 4: did the fix work?</a></li>
     <li><a href="#clipping">Clipping census</a></li>
     <li><a href="#v2">v2 mic-lanes run, live status</a></li>
@@ -111,7 +112,75 @@ footer a{color:var(--burg)}
   </ol>
 </nav>
 
-<h2 id="liftresult">0. September 4: did the presence-lift fix work?</h2>
+<h2 id="retract">0. Major correction: the cymbal verdict was measured wrong</h2>
+
+<div class="verdict">
+<p class="big">The v2 kits are not cymbal-starved. That verdict came from a confounded metric and it is withdrawn.</p>
+<p style="margin:0">Measured in absolute level, <b>v2 cymbals are louder than v1 on 11 of 11 songs, median
++4.91 dB</b>. The earlier finding scored cymbal <i>share</i>, a ratio whose denominator the two pipelines do
+not share.</p>
+</div>
+
+<h3>The confound</h3>
+<p>The two filters are not the same filter, and this audit reported a ratio before comparing them.</p>
+<div class="chain">
+<div class="step"><b>v1</b> <code>run_song_8-28.sh</code> &nbsp; highpass 45, <b>90 Hz &minus;9 dB</b>, <b>200 Hz &minus;5 dB</b>, 2500 +5, 6000 +7</div>
+<div class="step"><b>v2</b> <code>make_kit_source.sh</code> &nbsp; 2500 +5, 6000 +7</div>
+</div>
+<p>The v1 filter cuts the low end by up to 9 dB before separating. That suppresses kick and toms, shrinks the
+denominator of the share calculation, and inflates cymbal share without adding a single decibel of cymbal. The
+v2 lift kept only the presence half, which is correct, so its denominator stayed large and its share read small.</p>
+
+<h3>Absolute cymbal level, full files</h3>
+<div class="scroller">
+<table>
+<thead><tr><th>Song</th><th>v1 cymbals</th><th>v2 cymbals</th><th>Change</th></tr></thead>
+<tbody>
+<tr><td>song11</td><td class="mono">&minus;39.43</td><td class="mono">&minus;31.82</td><td class="mono"><b>+7.61 dB</b></td></tr>
+<tr><td>song18</td><td class="mono">&minus;40.58</td><td class="mono">&minus;33.09</td><td class="mono"><b>+7.50 dB</b></td></tr>
+<tr><td>song10</td><td class="mono">&minus;39.07</td><td class="mono">&minus;32.85</td><td class="mono">+6.22 dB</td></tr>
+<tr><td>song13</td><td class="mono">&minus;39.40</td><td class="mono">&minus;33.47</td><td class="mono">+5.93 dB</td></tr>
+<tr><td>song17</td><td class="mono">&minus;46.18</td><td class="mono">&minus;40.61</td><td class="mono">+5.57 dB</td></tr>
+<tr><td>song20</td><td class="mono">&minus;45.27</td><td class="mono">&minus;40.35</td><td class="mono">+4.91 dB</td></tr>
+<tr><td>song21</td><td class="mono">&minus;46.45</td><td class="mono">&minus;42.11</td><td class="mono">+4.34 dB</td></tr>
+<tr><td>song14</td><td class="mono">&minus;50.98</td><td class="mono">&minus;47.20</td><td class="mono">+3.78 dB</td></tr>
+<tr><td>song22</td><td class="mono">&minus;44.14</td><td class="mono">&minus;40.72</td><td class="mono">+3.42 dB</td></tr>
+<tr><td>song15</td><td class="mono">&minus;41.74</td><td class="mono">&minus;38.58</td><td class="mono">+3.16 dB</td></tr>
+<tr><td>song19</td><td class="mono">&minus;44.80</td><td class="mono">&minus;44.14</td><td class="mono">+0.66 dB</td></tr>
+</tbody>
+</table>
+</div>
+
+<h3>What is actually true</h3>
+<p>The v2 kits are louder throughout, and the kick gained more than the cymbals did. The balance sits about
+<b>3.36 dB more kick-forward</b> than v1 in median cymbal-to-kick ratio. That is a mix balance rather than
+missing information, and it is arguably the more faithful of the two, since v1 was cutting real low end out of
+the source. Recovering the v1 balance is a gain move on finished lanes, not a re-separation.</p>
+
+<h3>Five architectures tested, song22 first 60 s, one shared timebase</h3>
+<div class="scroller">
+<table>
+<thead><tr><th>Architecture</th><th>Cymbal share</th><th>r(ride, guitar)</th><th>Reading</th></tr></thead>
+<tbody>
+<tr><td>v2 &nbsp; tilt only, no Demucs</td><td class="mono">0.80 %</td><td class="mono">&minus;0.122</td><td><span class="pill p-pass">Best clean</span></td></tr>
+<tr><td>v3 &nbsp; mic1+mic3, no Demucs</td><td class="mono">20.86 %</td><td class="mono">+0.613</td><td><span class="pill p-fail">Guitar, not cymbals</span></td></tr>
+<tr><td>v4 &nbsp; mic1+mic3 + Demucs</td><td class="mono">0.21 %</td><td class="mono">+0.041</td><td><span class="pill p-part">Clean, worse</span></td></tr>
+<tr><td>v5 &nbsp; tilt + Demucs</td><td class="mono">0.26 %</td><td class="mono">&minus;0.008</td><td><span class="pill p-part">Cleanest, still worse</span></td></tr>
+</tbody>
+</table>
+</div>
+
+<p>Adding a Demucs stage drops cymbal share from 0.80 % to 0.26 %. This audit's earlier claim that the Demucs
+stage was load-bearing for cymbals is <b>withdrawn</b>. The v2 architecture, mic1 plus presence lift straight
+into DrumSep, is the best of the five tested.</p>
+
+<div class="callout bad">
+<p style="margin:0"><b>What survives from the cymbal work.</b> One item, and it is the clipping census in the
+next section. The share metric was the wrong instrument, and the two filter strings should have been compared
+before any ratio was reported.</p>
+</div>
+
+<h2 id="liftresult">0.5 September 4: the share measurement, retained for the record</h2>
 
 <p>All thirteen v2 kits finished overnight from the presence-lift source. This section measures the result
 rather than assuming the fix landed. Full files, whole song, cymbal share of total kit energy.</p>
