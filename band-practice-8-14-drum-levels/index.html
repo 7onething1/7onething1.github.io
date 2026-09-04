@@ -1,0 +1,43 @@
+<!doctype html>
+<html lang="en"><head><meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>8/14 Drum Levels</title>
+<style>
+:root{--cream:#f4efe3;--ink:#1a1a1a;--rule:#d8cfba;--bad:#a3352b;--warn:#b8791f;--ok:#3f6b42;--muted:#6c6455}
+*{box-sizing:border-box}
+body{margin:0;background:var(--cream);color:var(--ink);font:16px/1.55 -apple-system,BlinkMacSystemFont,"Segoe UI",Helvetica,Arial,sans-serif}
+.wrap{max-width:820px;margin:0 auto;padding:38px 22px 80px}
+h1{font-size:32px;margin:0 0 4px;letter-spacing:-.02em}
+.sub{color:var(--muted);margin:0 0 26px;font-size:14px}
+.tiles{display:grid;grid-template-columns:repeat(auto-fit,minmax(140px,1fr));gap:12px;margin-bottom:28px}
+.tile{background:#fff;border:1px solid var(--rule);border-radius:10px;padding:14px 16px}
+.tile b{display:block;font-size:30px;line-height:1.1}
+.tile span{font-size:12px;color:var(--muted);text-transform:uppercase;letter-spacing:.07em}
+.tile.ok b{color:var(--ok)} .tile.warn b{color:var(--warn)} .tile.bad b{color:var(--bad)}
+table{width:100%;border-collapse:collapse;background:#fff;border:1px solid var(--rule);border-radius:8px;overflow:hidden;font-size:14px}
+th,td{text-align:left;padding:8px 12px;border-bottom:1px solid var(--rule)}
+th{background:#efe8d8;font-size:11px;letter-spacing:.07em;text-transform:uppercase}
+.tk{font:13px ui-monospace,Menlo,monospace}
+.num{text-align:right;font:13px ui-monospace,Menlo,monospace}
+.y{color:var(--ok);font-weight:600} .n{color:var(--muted)} .u{color:var(--bad);font-weight:600}
+.note{margin-top:22px;font-size:13.5px;color:var(--muted);background:#faf7f0;border:1px solid var(--rule);border-radius:8px;padding:12px 14px}
+@media(prefers-color-scheme:dark){
+ :root{--cream:#181613;--ink:#ece5d6;--rule:#3a3630;--muted:#9a9182}
+ .tile,table{background:#211e1a} th{background:#2a2620} .note{background:#1c1a16}
+}
+</style></head><body><div class="wrap">
+<h1>8/14 Drum Levels</h1>
+<p class="sub">2026-09-04 14:38 CDT &middot; measured from each take's demucs drums stem</p>
+<div class="tiles">
+ <div class="tile ok"><b>7</b><span>Takes with drums</span></div>
+ <div class="tile warn"><b>9</b><span>Drum-light</span></div>
+ <div class="tile bad"><b>6</b><span>Not measured</span></div>
+ <div class="tile ok"><b>8</b><span>Kit splits on disk</span></div>
+</div>
+<table><thead><tr><th>Take</th><th>Verdict</th><th>Peak dBFS</th><th>RMS dBFS</th><th>Kit wavs</th></tr></thead>
+<tbody><tr><td class="tk">01_take28</td><td class="n">drum-light</td><td class="num">-36.4</td><td class="num">-71.0</td><td class="num"></td></tr><tr><td class="tk">02_take29</td><td class="y">drums</td><td class="num">-3.4</td><td class="num">-32.5</td><td class="num">6</td></tr><tr><td class="tk">03_take31</td><td class="y">drums</td><td class="num">-1.1</td><td class="num">-28.2</td><td class="num">6</td></tr><tr><td class="tk">04_take32</td><td class="y">drums</td><td class="num">-1.5</td><td class="num">-26.7</td><td class="num">6</td></tr><tr><td class="tk">05_take36</td><td class="n">drum-light</td><td class="num">-26.5</td><td class="num">-67.7</td><td class="num"></td></tr><tr><td class="tk">06_take41</td><td class="n">drum-light</td><td class="num">-25.9</td><td class="num">-69.5</td><td class="num"></td></tr><tr><td class="tk">07_take47</td><td class="n">drum-light</td><td class="num">-43.1</td><td class="num">-75.0</td><td class="num"></td></tr><tr><td class="tk">08_take49</td><td class="n">drum-light</td><td class="num">-10.5</td><td class="num">-56.2</td><td class="num"></td></tr><tr><td class="tk">09_take50</td><td class="n">drum-light</td><td class="num">-22.8</td><td class="num">-66.8</td><td class="num"></td></tr><tr><td class="tk">10_take51</td><td class="y">drums</td><td class="num">-0.1</td><td class="num">-27.9</td><td class="num">6</td></tr><tr><td class="tk">11_take54</td><td class="y">drums</td><td class="num">-0.1</td><td class="num">-30.1</td><td class="num">6</td></tr><tr><td class="tk">12_take57</td><td class="y">drums</td><td class="num">-0.3</td><td class="num">-32.2</td><td class="num">6</td></tr><tr><td class="tk">13_take66</td><td class="y">drums</td><td class="num">-0.1</td><td class="num">-46.9</td><td class="num">6</td></tr><tr><td class="tk">14_take67</td><td class="n">drum-light</td><td class="num">-39.3</td><td class="num">-58.3</td><td class="num"></td></tr><tr><td class="tk">15_take72</td><td class="n">drum-light</td><td class="num">-11.7</td><td class="num">-57.8</td><td class="num"></td></tr><tr><td class="tk">16_take74</td><td class="u">not measured</td><td class="num"></td><td class="num"></td><td class="num"></td></tr><tr><td class="tk">16b</td><td class="u">not measured</td><td class="num"></td><td class="num"></td><td class="num"></td></tr><tr><td class="tk">16c</td><td class="u">not measured</td><td class="num"></td><td class="num"></td><td class="num"></td></tr><tr><td class="tk">16e</td><td class="u">not measured</td><td class="num"></td><td class="num"></td><td class="num"></td></tr><tr><td class="tk">17_take77</td><td class="u">not measured</td><td class="num"></td><td class="num"></td><td class="num"></td></tr><tr><td class="tk">18_take80</td><td class="n">drum-light</td><td class="num">-33.4</td><td class="num">-61.4</td><td class="num">6</td></tr><tr><td class="tk">19_take81</td><td class="u">not measured</td><td class="num"></td><td class="num"></td><td class="num"></td></tr></tbody></table>
+<p class="note">Gate: a take splits when drums peak reaches -25 dBFS and RMS reaches
+-50 dBFS. The thresholds reject silence rather than quiet playing. They exist because
+<code>18_take80</code> had no drums at all and a full DrumSep pass produced six valid,
+near-silent, useless stems.</p>
+</div></body></html>
