@@ -51,7 +51,7 @@ footer{margin-top:50px;padding-top:18px;border-top:2px solid var(--line);font-si
 <div class="stat"><b>81</b>open hats written</div>
 <div class="stat"><b>24</b>pedal hats, all in one block</div>
 <div class="stat"><b>8:06</b>audio pulled and analysed</div>
-<div class="stat"><b>2.4&ndash;4.7&times;</b>snare over-write, bars 1&ndash;4</div><div class="stat"><b>154/159</b>bars on a supported meter</div><div class="stat"><b>0 of 7</b>ride sections correct</div>
+<div class="stat"><b>2.4&ndash;4.7&times;</b>snare over-write, bars 1&ndash;4</div><div class="stat"><b>154/159</b>bars on a supported meter</div><div class="stat"><b>0 of 7</b>ride sections correct</div><div class="stat"><b>4 of 5</b>articulation blocks inverted</div>
 </div>
 </header>
 
@@ -241,29 +241,42 @@ from a separate source the archive did not record. This scan reads here as an un
 account of the meter. The scan is copyrighted, described here and not reproduced.</div>
 
 <h2 id="answer">The answer, from the isolated hat lane</h2>
-<p>The original question was whether the hi-hat writing in this tab describes what the drummer
-played. On the mixed drum stem the honest reply was that the measurement could not resolve it,
-p&nbsp;=&nbsp;0.80 on a unimodal distribution. On the isolated hat lane it resolves, and the answer
-is stronger than a null.</p>
-<table><thead><tr><th>The tab's own showcase blocks</th><th class="num">hat events</th>
-<th class="num">median decay</th><th class="num">p90</th></tr></thead><tbody>
-<tr><td>bars 123&ndash;125 &nbsp; <b>0 closed, 23 OPEN</b></td><td class="num">23</td><td class="num bad">110.3 ms</td><td class="num">253.1 ms</td></tr>
-<tr><td>bars 45&ndash;65 &nbsp; 225 closed, 0 open</td><td class="num">165</td><td class="num">220.6 ms</td><td class="num">307.1 ms</td></tr>
-<tr><td>bars 92&ndash;113 &nbsp; 240 closed, 9 open</td><td class="num">185</td><td class="num">252.5 ms</td><td class="num">368.6 ms</td></tr>
+<p>The question was whether the hi-hat writing in this tab describes what the drummer played. On the
+mixed drum stem the honest reply was that the measurement could not resolve it, p&nbsp;=&nbsp;0.80 on
+a unimodal distribution. On the isolated hat lane, across the complete 486.4 seconds and 1,091 hat
+onsets, it resolves.</p>
+<table><thead><tr><th>The tab's own articulation blocks</th><th class="num">hat events</th>
+<th class="num">median decay</th><th class="num">p90</th><th>reading</th></tr></thead><tbody>
+<tr><td>bars 123&ndash;125 &nbsp; <b>0 closed, 23 OPEN</b></td><td class="num">23</td><td class="num bad">110.3 ms</td><td class="num">253.1 ms</td><td class="bad">choked, marked open</td></tr>
+<tr><td>bars 150&ndash;154 &nbsp; <b>19 closed, 25 OPEN</b></td><td class="num">30</td><td class="num bad">91.4 ms</td><td class="num">261.5 ms</td><td class="bad">choked, marked open</td></tr>
+<tr><td>bars 45&ndash;65 &nbsp; 225 closed, 0 open</td><td class="num">165</td><td class="num">220.6 ms</td><td class="num">307.1 ms</td><td class="bad">rings, marked closed</td></tr>
+<tr><td>bars 92&ndash;113 &nbsp; 240 closed, 9 open</td><td class="num">185</td><td class="num">252.5 ms</td><td class="num">368.6 ms</td><td class="bad">rings, marked closed</td></tr>
+<tr><td>bars 129&ndash;146 &nbsp; 143 closed, 24 pedal</td><td class="num">124</td><td class="num">91.4 ms</td><td class="num">148.0 ms</td><td class="ok">choked, and marked closed</td></tr>
 </tbody></table>
 <div class="note warn"><b>The open marks are inverted.</b> An open hi-hat rings and a closed one is
-choked by the pedal, so the tab's open block should decay slowest. It decays <b>fastest</b>, at
-110.3&nbsp;ms against 220.6 and 252.5. Testing the direction the tab implies, that open rings longer,
-returns <b>p&nbsp;=&nbsp;1</b>. Testing the inverse returns <b>p&nbsp;=&nbsp;2.1&times;10<sup>-5</sup></b>. Where this tab writes open, the hat is choked. Where it writes closed, the hat rings.</div>
+choked by the pedal, so the open blocks should decay slowest. Pooled, they decay <b>fastest</b>:
+open n&nbsp;=&nbsp;53 median <b>107.4&nbsp;ms</b>, closed n&nbsp;=&nbsp;474 median <b>180.0&nbsp;ms</b>.
+Testing the direction the tab implies returns <b>p&nbsp;=&nbsp;1</b>. Testing the inverse returns
+<b>p&nbsp;=&nbsp;2.8&times;10<sup>-5</sup></b>. Where this tab writes open, the hat is choked. Where
+it writes closed, the hat rings.</div>
+<div class="note win"><b>One block out of five is right, and it is worth naming.</b> Bars 129 to 146
+carry 143 closed and all 24 of the tab's pedal notes, and that stretch measures 91.4&nbsp;ms with a
+p90 of 148&nbsp;ms, the tightest in the song. A pedal chick is choked by definition, so a short decay
+under a closed-and-pedal marking is the tab agreeing with the audio. The inversion is 4 blocks of 5,
+not 5 of 5, and saying so is the difference between a finding and a slogan.</div>
 <p>The earlier p&nbsp;=&nbsp;0.80 was not wrong, it was blind. A drum stem carrying kick, snare,
 toms, ride and crash alongside the hat cannot answer a question about hi-hat articulation, and the
 unimodal ring-ratio was that blindness showing up as noise. Splitting the kit six ways turned a
 non-result into a signed one.</p>
-<h3>And the same lane settles the ride</h3>
-<div class="note warn"><b>All 7 ride sections wrong. All 12 hat sections right.</b> Where this tab
-writes ride, the isolated ride lane is quiet and the hat lane is loud, median hh/ride 3.92 against a
-4.92 baseline, holding across 295 of 297 alignment combinations. The tab knows there is a cymbal. It
-does not know which one.</p></div>
+<h3>And the same lanes settle the ride</h3>
+<div class="note warn"><b>All 7 ride sections wrong. All 14 hat sections right.</b> Twenty-one
+sections, every one measured on the isolated lanes over the full track. Median hh/ride in the ride
+sections is 3.92 against a whole-track baseline of 5.37, so the tab's ride stretches are more
+hat-dominated than the song average. The verdict holds across 295 of 297 alignment combinations.</div>
+<p>The tab's largest ride section, 348.5 to 377.1 seconds carrying 109 ride notes, is the closest it
+comes. The ride lane peaks there at RMS 0.02053, its loudest anywhere, so the drummer does lean
+toward the ride across that stretch. The hat still leads it 1.52 to 1. The tab hears the move and
+overstates it into an exclusive ride passage.</p>
 
 <h2 id="isolated">The isolated kit, and what it corrects</h2>
 <p>The verdict above rests on a Demucs drum stem holding the whole kit at once. DrumSep MDX23C

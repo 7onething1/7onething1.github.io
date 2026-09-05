@@ -144,29 +144,39 @@ not reproduced.
 ## The answer, from the isolated hat lane
 
 On the mixed drum stem the honest reply was that the measurement could not resolve it, p = 0.80 on a
-unimodal distribution. On the isolated hat lane it resolves, and the answer is stronger than a null.
+unimodal distribution. On the isolated hat lane, across the complete 486.4 seconds and 1,091 hat
+onsets, it resolves.
 
-| The tab's own showcase blocks | hat events | median decay | p90 |
-|---|---|---|---|
-| bars 123-125 **0 closed, 23 OPEN** | 23 | **110.3 ms** | 253.1 ms |
-| bars 45-65  225 closed, 0 open | 165 | 220.6 ms | 307.1 ms |
-| bars 92-113  240 closed, 9 open | 185 | 252.5 ms | 368.6 ms |
+| The tab's own articulation blocks | events | median decay | p90 | reading |
+|---|---|---|---|---|
+| bars 123-125 **0 closed, 23 OPEN** | 23 | **110.3 ms** | 253.1 ms | choked, marked open |
+| bars 150-154 **19 closed, 25 OPEN** | 30 | **91.4 ms** | 261.5 ms | choked, marked open |
+| bars 45-65  225 closed, 0 open | 165 | 220.6 ms | 307.1 ms | rings, marked closed |
+| bars 92-113  240 closed, 9 open | 185 | 252.5 ms | 368.6 ms | rings, marked closed |
+| bars 129-146  143 closed, 24 pedal | 124 | 91.4 ms | 148.0 ms | choked, and marked closed |
 
 **The open marks are inverted.** An open hi-hat rings and a closed one is choked by the pedal, so the
-tab's open block should decay slowest. It decays **fastest**, 110.3 ms against 220.6 and 252.5.
-Testing the direction the tab implies, that open rings longer, returns **p = 1**. Testing the inverse
-returns **p = 2.1e-05**. Where this tab writes open, the hat is choked. Where it writes closed, the
-hat rings.
+open blocks should decay slowest. Pooled, they decay **fastest**: open n = 53 median **107.4 ms**,
+closed n = 474 median **180.0 ms**. Testing the direction the tab implies returns **p = 1**. Testing
+the inverse returns **p = 2.8e-05**.
+
+**One block of five is right, and it is worth naming.** Bars 129 to 146 carry 143 closed and all 24
+of the tab's pedal notes, and that stretch measures 91.4 ms with a p90 of 148 ms, the tightest in the
+song. A pedal chick is choked by definition, so a short decay under a closed-and-pedal marking is the
+tab agreeing with the audio. The inversion is 4 blocks of 5, not 5 of 5.
 
 The earlier p = 0.80 was not wrong, it was blind. A drum stem carrying kick, snare, toms, ride and
-crash alongside the hat cannot answer a question about hi-hat articulation, and the unimodal
-ring-ratio was that blindness showing up as noise.
+crash alongside the hat cannot answer a question about hi-hat articulation.
 
-### And the same lane settles the ride
+### And the same lanes settle the ride
 
-**All 7 ride sections wrong. All 12 hat sections right.** Where this tab writes ride, the isolated
-ride lane is quiet and the hat lane is loud, median hh/ride 3.92 against a 4.92 baseline, holding
-across 295 of 297 alignment combinations. The tab knows there is a cymbal. It does not know which one.
+**All 7 ride sections wrong. All 14 hat sections right.** Twenty-one sections, every one measured on
+the isolated lanes over the full track. Median hh/ride in the ride sections is 3.92 against a
+whole-track baseline of 5.37. The verdict holds across 295 of 297 alignment combinations.
+
+The tab's largest ride section, 348.5 to 377.1 seconds carrying 109 ride notes, is the closest it
+comes. The ride lane peaks there at RMS 0.02053, its loudest anywhere, so the drummer does lean
+toward the ride. The hat still leads it 1.52 to 1.
 
 ## The isolated kit, and what it corrects
 
