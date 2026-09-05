@@ -298,7 +298,7 @@ footer{margin-top:60px;padding-top:20px;border-top:1px solid var(--line);color:v
 <div class="pane wrong"><h4>What r8768414 claimed</h4>
 <p>"They are all on ride and crash at forte, so they are not ghost notes and no dynamic was changed."</p></div>
 <div class="pane right"><h4>What the pre-sweep data holds</h4>
-<p>1,316 sit on ride (MIDI 51) and 1 on crash (MIDI 49), so the lane half is right. Every one of the 2,091 notes on that staff carries <code>dynamic: null</code>. There is no forte written anywhere. That reading was invented.</p></div>
+<p>1,316 sit on ride (MIDI 51) and 1 on crash (MIDI 49), so the lane half is right. The staff holds <strong>1,785 beats and exactly one written dynamic</strong>. That single forte is bar 1, and it sits on the one ghosted crash, a tremolo swell marked <code>velocity f</code> with <code>gradualVelocity crescendo</code>. The other 1,784 beats carry no written dynamic, so 1,316 ride ghosts stand on no dynamic at all.</p></div>
 </div>
 
 <div class="box r"><h3>The placement is a perfect accent grid</h3>
@@ -382,6 +382,13 @@ footer{margin-top:60px;padding-top:20px;border-top:1px solid var(--line);color:v
 </tbody></table></div>
 <div class="box g"><p><strong>Who blocked the two dead revisions.</strong> Keep It Greasey <code>r8768457</code> was rejected by Kirill527 and Zoot Allures <code>r8769199</code> by Darr, both on 2026-09-01. Live Zoot Allures keeps all 53 ghosts: 18 snare, 13 crash, 12 closed hat, 8 pedal hat, 1 kick, 1 low tom, letRing 0.</p></div>
 <div class="box a"><p><strong>Montana is counted across two drum staves</strong>, 212 on track 15 and 105 on track 17. A single-part read returns 212 and undercounts the tab.</p></div>
+
+
+<div class="box a"><h3>Correction, my second field-name error in the same audit</h3>
+<p>I first wrote that every note on that staff carries <code>dynamic: null</code>, so no forte existed anywhere. Wrong, and wrong the same way the rest bug was. <strong>Songsterr names that field <code>velocity</code>, not <code>dynamic</code>.</strong> The key <code>dynamic</code> appears zero times in the schema, so reading it returned null for all 1,785 beats and I mistook an absent key for an absent marking.</p>
+<p>Measured on <code>velocity</code>: one beat carries <code>f</code>, 1,784 carry nothing. A parallel session caught this. It leaves the verdict standing, since one forte in 1,785 beats cannot support "they are all at forte", and it stops the page overshooting in the other direction.</p>
+<p>The beat is worth seeing on its own terms. It is the only crash ghost on the staff and it reads <code>{fret 49, ghost true, velocity f, gradualVelocity crescendo, tremolo [1,32]}</code>: a cymbal swell, not a quiet stroke. That one ghost means something different from the 1,316 on the ride. Velocity is identical in both revisions, so the sweep did not change any dynamic, which its description got right.</p>
+<p>Both errors share a root: <strong>I searched for a field name I assumed and read its absence as evidence.</strong> Same as grepping <code>&lt;Ghost&gt;</code> in GPIF and concluding the file had no ghosts.</p></div>
 
 <footer>
 <p>Ghost counts come from the drum-staff census in <code>_defects.json</code>. Revision state was read from <code>songsterr.com/api/meta/&lt;songId&gt;/revisions</code> on 2026-09-05, using the fields <code>isBlocked</code>, <code>isOnModeration</code> and <code>reviewed</code>. Source data: <code>~/Library/Mobile Documents/com~apple~CloudDocs/sfg/zappa-drum-repair-2026-08-31/</code>, <code>~/Projects/_outputs/songsterr-zappa-paren-fix/</code> and <code>~/Projects/_outputs/zappa-drum-sources/</code>.</p>

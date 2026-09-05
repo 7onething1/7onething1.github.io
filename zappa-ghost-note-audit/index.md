@@ -146,8 +146,20 @@ be promoted. Zoot Allures keeps all 53 ghosts live, Keep It Greasey keeps all 62
 
 Its stripping revision claimed the 1,317 marks were "all on ride and crash at forte, so
 they are not ghost notes." The lane half is right: 1,316 on ride (MIDI 51), 1 on crash
-(MIDI 49). The forte half is invented. All 2,091 notes on that staff carry
-`dynamic: null`, so no dynamic is written anywhere.
+(MIDI 49). The forte half fails too. The staff holds 1,785 beats and **exactly one written
+dynamic**: bar 1, on the single ghosted crash, a tremolo swell marked `velocity f` with
+`gradualVelocity crescendo`. The other 1,784 beats carry none, so the 1,316 ride ghosts
+stand on no dynamic at all.
+
+**Correction, my second field-name error here.** I first wrote that every note carries
+`dynamic: null`. Songsterr names that field **`velocity`**, not `dynamic`; the key
+`dynamic` appears zero times in the schema, so I mistook an absent key for an absent
+marking. Caught by a parallel session. The verdict stands, since one forte in 1,785 beats
+cannot support "they are all at forte". Velocity is identical across both revisions, so
+the sweep changed no dynamic, which its description got right.
+
+Both my errors share a root: I searched for an assumed field name and read its absence as
+evidence, the same as grepping `<Ghost>` in GPIF and concluding a file has no ghosts.
 
 The placement settles it. The ride runs a continuous sixteenth ostinato:
 
