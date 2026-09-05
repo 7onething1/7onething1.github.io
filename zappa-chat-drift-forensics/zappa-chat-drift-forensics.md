@@ -65,7 +65,8 @@ Brandon, session A, 5 September 22:02:
 > huge concern and wild drift
 
 Four minutes later session B sent a safety retraction withdrawing its own steer to delete
-revisions from the stack.
+revisions from the stack. The queued stack is the only place the staccato-reversal work
+exists, and Songsterr deletion is permanent with no undo.
 
 ## Why Zomby specifically
 
@@ -104,11 +105,28 @@ A mention records presence in the transcript and never proves an edit on its own
 53 distinct revision ids appear in session A. Brandon counted eight revisions in one day on
 5 September, against a standing rule of one upload per song after the song is finished.
 
-```
-r8904052   restored 8 snare ghosts, bars 6 to 9, slots 6 and 7
-r8905491   recorded in the queue as the only revision that should be taken
-r8814965   the original untouched community revision, still live
-```
+### Correction, 22:25
+
+An earlier version of this file said `r8904052` held eight snare ghosts "restored" at bars
+6 to 9, and called `r8814965` the original untouched community revision. Both came from a
+peer session's message that I relayed without measuring. Session A measured it properly and
+both are wrong.
+
+| Revision | Author | Bars | Opening | Ghost | Staccato |
+|---|---|---|---|---|---|
+| `r7115188` | the tab's author, 31 May | 114 | 10/16 | 32 | 0 |
+| `r8766102` | session A, edit 1 | 114 | 10/16 | 0 | 0 |
+| `r8787022` | session A, edit 2 | 114 | 10/16 | 0 | 32 |
+| `r8814965` | Kirill published edit 2, live now | 114 | 10/16 | 0 | 32 |
+| `r8905491` | session A, queued | 115 | 5/16 + 5/16 | 8 | 32 |
+
+The author's 32 ghost marks sit at bars 4, 13, 15 and 40 to 43. Thirty of the 32 survive at
+the identical bar, slot and drum. The marking changed from a parenthesised ghost notehead to
+a staccato dot, which prints a different instruction. The eight ghost snares at bars 5 to 8
+in the queued revisions were added by session A and match no printed source, so they come
+out. The live tab is Kirill's publication of session A's own staccato edit.
+
+Source: `~/Projects/_outputs/songsterr-zappa-paren-fix/s412162/GHOST-RESTORE-SHORTFALL-2026-09-05.md`
 
 ## The gate itself
 
@@ -134,10 +152,11 @@ That reasoning holds up under this audit. The rule has three defects, all visibl
    and it never proposes deletion on a shared artifact.
 5. Put the real ask first in a new chat so the auto-title stops colliding.
 
-## Nothing was lost
+## Nothing was deleted
 
-No revision was deleted. The original community revision `r8814965` is still the live one
-on s412162, drum staff at 1,573 notes. The ghost restoration sits in the pending stack.
+No revision was deleted. Verified against Songsterr's own API at 22:25: songId 412162, live
+revisionId 8814965, 10 tracks. Seven of session A's revisions sit queued and unreviewed. The
+staccato reversal is built and verified locally, and it has not been uploaded.
 
 ## Sources
 

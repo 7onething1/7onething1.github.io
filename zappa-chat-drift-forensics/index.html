@@ -88,8 +88,16 @@ exactly as written on a song that cannot be finished.</p>
 <div class="note warn">
 <b>Live hazard at time of measurement.</b> Two of the three sessions were still running.
 Session B sent Session A a steer to delete revisions from the Songsterr stack, then
-retracted it. Deleting newest-first would have destroyed the eight snare ghosts restored
-at bars 6 to 9 in <span class="mono">r8904052</span>. Songsterr deletion is permanent.
+retracted it. The queued stack is the only place the staccato-reversal work exists, and
+Songsterr deletion is permanent with no undo.
+</div>
+
+<div class="note warn">
+<b>CORRECTION, 22:25.</b> An earlier version of this page said
+<span class="mono">r8904052</span> held eight snare ghosts "restored" at bars 6 to 9, and
+called <span class="mono">r8814965</span> the original untouched community revision. Both
+came from a peer session's message that I relayed without measuring. Session A measured it
+properly and both are wrong. Corrected in the revision table below.
 </div>
 
 <h2 id="sessions">The three sessions</h2>
@@ -229,10 +237,27 @@ eight revisions in one day, on a song where the standing rule is one upload per 
 the song is finished. The revisions were not clutter. The newest ones carry the ghost
 restoration, which is why the delete steer was dangerous.</p>
 
-<div class="eq">
-r8904052   restored 8 snare ghosts, bars 6 to 9, slots 6 and 7
-r8905491   recorded in the queue as the only revision that should be taken
-r8814965   the original untouched community revision, still live
+<table>
+<tr><th>Revision</th><th>Author</th><th>Bars</th><th>Opening</th><th class="num">Ghost</th><th class="num">Staccato</th></tr>
+<tr><td class="mono">r7115188</td><td>the tab's author, 31 May</td><td class="num">114</td>
+  <td>10/16</td><td class="num ok">32</td><td class="num">0</td></tr>
+<tr><td class="mono">r8766102</td><td>session A, edit 1</td><td class="num">114</td>
+  <td>10/16</td><td class="num bad">0</td><td class="num">0</td></tr>
+<tr><td class="mono">r8787022</td><td>session A, edit 2</td><td class="num">114</td>
+  <td>10/16</td><td class="num bad">0</td><td class="num mid">32</td></tr>
+<tr><td class="mono">r8814965</td><td>Kirill published edit 2, <b>live now</b></td><td class="num">114</td>
+  <td>10/16</td><td class="num bad">0</td><td class="num mid">32</td></tr>
+<tr><td class="mono">r8905491</td><td>session A, queued</td><td class="num">115</td>
+  <td class="bad">5/16 + 5/16</td><td class="num mid">8</td><td class="num mid">32</td></tr>
+</table>
+
+<div class="note warn">
+<b>What the measurement actually shows.</b> The author's 32 ghost marks sit at bars 4, 13,
+15 and 40 to 43. Thirty of the 32 survive at the identical bar, slot and drum. The marking
+changed from a parenthesised ghost notehead to a staccato dot, which prints a different
+instruction. The eight ghost snares at bars 5 to 8 in the queued revisions were added by
+session A and match no printed source, so they come out. The live tab is Kirill's
+publication of session A's own staccato edit, so it is not an untouched original.
 </div>
 
 <h2 id="gate">The gate itself</h2>
@@ -291,9 +316,10 @@ Both babysitter sessions were told to stand down from steering.
 </div>
 
 <div class="note win">
-<b>Nothing was lost.</b> No revision was deleted. The original community revision
-<span class="mono">r8814965</span> is still the live one on s412162, drum staff at 1,573
-notes. The ghost restoration sits in the pending stack where it belongs.
+<b>Nothing was deleted.</b> Verified against Songsterr's own API at 22:25: songId 412162,
+live revisionId <span class="mono">8814965</span>, 10 tracks. Seven of session A's revisions
+sit queued and unreviewed. The staccato reversal is built and verified locally, and it has
+not been uploaded.
 </div>
 
 <footer>
