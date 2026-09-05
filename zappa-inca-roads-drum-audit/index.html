@@ -1,0 +1,270 @@
+<!doctype html>
+<html lang="en"><head><meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Inca Roads: what the drum tab is missing</title>
+<style>
+:root{--cream:#f4ead8;--paper:#fbf5e9;--ink:#1c1a17;--rust:#b5462f;--mustard:#d9a441;
+--teal:#3f6b6b;--dusty:#8f6f5a;--line:#ddcdb2;--shade:#efe2cb;--green:#4a7c59;}
+*{box-sizing:border-box}
+body{margin:0;background:var(--cream);color:var(--ink);
+font:16px/1.6 "Futura","Avenir Next","Helvetica Neue",Helvetica,Arial,sans-serif}
+.wrap{max-width:1100px;margin:0 auto;padding:34px 22px 80px}
+header{border:3px solid var(--ink);background:var(--paper);padding:26px 28px;margin-bottom:24px}
+h1{margin:0;font-size:30px;letter-spacing:.05em;text-transform:uppercase}
+.sub{margin-top:8px;color:var(--dusty);font-size:14px;letter-spacing:.12em;text-transform:uppercase}
+.stats{display:flex;flex-wrap:wrap;gap:10px;margin-top:20px}
+.stat{border:2px solid var(--ink);background:var(--cream);padding:9px 15px;font-size:13px;max-width:210px}
+.stat b{display:block;font-size:21px;color:var(--rust);font-variant-numeric:tabular-nums}
+h2{margin:40px 0 6px;font-size:19px;letter-spacing:.05em;text-transform:uppercase;
+border-bottom:3px solid var(--ink);padding-bottom:7px}
+h3{margin:24px 0 8px;font-size:14px;letter-spacing:.08em;text-transform:uppercase;color:var(--teal)}
+nav{background:var(--paper);border:2px solid var(--line);padding:15px 19px;margin-bottom:10px}
+nav a{display:inline-block;margin:4px 16px 4px 0;color:var(--teal);font-size:14px}
+a{color:var(--rust);text-decoration:none;border-bottom:1px solid rgba(181,70,47,.35)}
+a:hover{border-bottom-color:var(--rust)}
+table{width:100%;border-collapse:collapse;margin:14px 0;background:var(--paper);font-size:14px}
+th{background:var(--shade);text-align:left;padding:9px 11px;border:1px solid var(--line);
+font-size:11px;letter-spacing:.1em;text-transform:uppercase}
+td{padding:8px 11px;border:1px solid var(--line);vertical-align:top}
+tr:nth-child(even) td{background:rgba(239,226,203,.42)}
+tr.hot td{background:rgba(181,70,47,.10)}
+.num{text-align:right;white-space:nowrap;font-variant-numeric:tabular-nums}
+.mono{font-family:"SF Mono",Menlo,monospace;font-size:12.5px}
+.mut{color:var(--dusty);font-size:12px}
+.ok{color:var(--green);font-weight:700}.bad{color:var(--rust);font-weight:700}
+.mid{color:#a9761f;font-weight:700}
+.note{border-left:5px solid var(--mustard);background:var(--paper);padding:13px 17px;margin:16px 0;font-size:14.5px}
+.win{border-left-color:var(--green)}.warn{border-left-color:var(--rust)}
+.scroll{overflow-x:auto}
+.grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(232px,1fr));gap:14px;margin:16px 0}
+.card{border:2px solid var(--line);background:var(--paper);padding:15px 17px}
+.card b{display:block;font-size:11px;letter-spacing:.1em;text-transform:uppercase;color:var(--teal);margin-bottom:6px}
+.big{font-size:27px;color:var(--rust);font-weight:700;font-variant-numeric:tabular-nums}
+.striprow{background:var(--paper);border:2px solid var(--line);padding:12px 12px 8px;margin:10px 0}
+.strip{display:flex;gap:1px}
+.strip i{flex:1 1 0;height:30px;display:block;border-radius:1px;min-width:2px}
+.s3{background:var(--rust)}.s2{background:var(--mustard)}
+.s1{background:#bcae90}.s0{background:var(--shade);border:1px solid var(--line)}
+.lab{font-size:11px;letter-spacing:.1em;text-transform:uppercase;color:var(--teal);margin-bottom:6px}
+.mkrow{position:relative;height:52px;margin-top:4px}
+.mk{position:absolute;top:0;font-size:9.5px;color:var(--dusty);white-space:nowrap;
+transform:rotate(55deg);transform-origin:left top}
+.key{font-size:12px;color:var(--dusty);margin-top:8px}
+.key em{display:inline-block;width:11px;height:11px;vertical-align:-1px;margin:0 4px 0 12px;border-radius:1px}
+footer{margin-top:52px;border-top:3px solid var(--ink);padding-top:16px;font-size:13px;color:var(--dusty)}
+code{background:var(--shade);padding:1px 5px;font-family:"SF Mono",Menlo,monospace;font-size:12.5px}
+</style></head><body><div class=wrap>
+
+<header>
+<h1>Inca Roads: what the drum tab is missing</h1>
+<div class=sub>Songsterr s412178 &middot; live revision r8769026 &middot; Frank Zappa, One Size Fits All, 1975 &middot; built 2026-09-05</div>
+<div class=stats>
+<div class=stat><b>165</b>ghost notes stripped and still absent</div>
+<div class=stat><b>166</b>dynamic marks added that no author wrote</div>
+<div class=stat><b>8</b>bars carry no drums on either staff</div>
+<div class=stat><b>0</b>professional drum charts of this song on the drive</div>
+<div class=stat><b>1</b>bar where the two drum staves overlap</div>
+</header>
+
+<nav><b style="letter-spacing:.1em;font-size:11px;text-transform:uppercase;color:#8f6f5a">Contents</b><br>
+<a href="#ask">The ask</a><a href="#tab">What the tab is</a><a href="#ghosts">Missing: 165 ghost notes</a>
+<a href="#dyn">Wrong: 166 invented dynamics</a><a href="#split">The two staves split the song</a>
+<a href="#hole">Missing: the Interlude 3 hole</a><a href="#rests">Wrong: the AI staff was touched</a>
+<a href="#odd">The note outside the kit</a><a href="#sources">What we actually hold on the drive</a>
+<a href="#stale">The baseline that cannot be trusted</a><a href="#open">What is not proven</a></nav>
+
+<h2 id=ask>The ask</h2>
+<p>Compare the live Inca Roads drum tab against every transcription we hold on this Mac and
+report what is missing or wrong. The comparison ran against the Songsterr revision chain,
+the archived professional transcriptions at <code>~/Projects/_outputs/zappa-drum-sources/</code>,
+and the baseline Guitar Pro export kept for this song. Every number below came from the
+part JSON that a reader actually receives from CloudFront.</p>
+
+<div class="note warn"><b>Headline.</b> The single largest problem is my own doing. Revision
+r8769026, published under Brandon&rsquo;s account on 2026-08-30, stripped 165 ghost notes from
+the Chester Thompson staff and added 166 dynamic marks that the previous author never wrote.
+The repair revision r8907511 is sitting in the moderation queue and has not gone public, so
+the tab a reader opens today is still the damaged one.</p></div>
+
+<h2 id=tab>What this tab is</h2>
+<div class=grid>
+<div class=card><b>Song</b>Inca Roads<br><span class=mut>One Size Fits All, 1975</span></div>
+<div class=card><b>Tab</b>s412178, live revision r8769026<br><span class=mut>12 tracks, two of them drums</span></div>
+<div class=card><b>Origin</b><span class=mono>aiGenerated: false</span><br><span class=mut>initial revision r279379 by enikey87, 2016</span></div>
+<div class=card><b>Length</b><span class=big>322</span><span class=mut>bars, with 42 meter changes</span></div>
+<div class=card><b>Drum staff 11</b>Chester Thompson<br><span class=mut>1,529 notes, 966 views</span></div>
+<div class=card><b>Drum staff 10</b>AI<br><span class=mut>1,844 notes, 92 views</span></div>
+</div>
+
+<h3>The revision chain</h3>
+<div class=scroll><table>
+<tr><th>Revision</th><th>Date</th><th>Author</th><th>Tracks</th><th>State</th><th>What it says</th></tr>
+<tr class=hot><td class=mono>r8907511</td><td>2026-09-05</td><td>Brandon chavez</td><td class=num>12</td><td><b class=bad>on moderation</b></td><td>Restores the 165 ghosts. Not public.</td></tr>
+<tr class=hot><td class=mono>r8769026</td><td>2026-08-30</td><td>Brandon chavez</td><td class=num>12</td><td><b class=bad>LIVE</b></td><td>Removed the 165 parenthesised noteheads.</td></tr>
+<tr><td class=mono>r7750859</td><td>2026-07-06</td><td>Darr</td><td class=num>12</td><td>superseded</td><td>Reverted a track deletion. Last clean state.</td></tr>
+<tr><td class=mono>r7723273</td><td>2026-07-04</td><td>e</td><td class=num>10</td><td>superseded</td><td>Finished the guitar solo, deleted the AI tracks.</td></tr>
+<tr><td class=mono>r7244427</td><td>2026-06-07</td><td>Ben Dibden1</td><td class=num>13</td><td>superseded</td><td>Earlier full build.</td></tr>
+<tr><td class=mono>r279379</td><td>2016-09-03</td><td>enikey87</td><td class=num>8</td><td>superseded</td><td>Initial revision.</td></tr>
+</table></div>
+<p class=mut>Eleven revisions exist in total. The five omitted rows are earlier Ben Dibden1 and
+&ldquo;e&rdquo; passes that no finding depends on.</p>
+
+<h2 id=ghosts>Missing: 165 ghost notes</h2>
+<p>Comparing Darr&rsquo;s r7750859 against the live r8769026, beat by beat, on the Chester
+Thompson staff. Beat count and note count are identical at 1,491 and 1,529, so no playing was
+deleted. What vanished is the ghost flag on 165 of those notes, the bracketed noteheads that
+mark the quiet strokes between the loud ones.</p>
+<div class=scroll><table>
+<tr><th>Lane</th><th>MIDI</th><th class=num>Ghosts lost</th><th class=num>Share</th></tr>
+<tr class=hot><td>Acoustic snare</td><td class=mono>38</td><td class=num>134</td><td class=num>81.2%</td></tr>
+<tr><td>Crash cymbal 1</td><td class=mono>49</td><td class=num>14</td><td class=num>8.5%</td></tr>
+<tr><td>Bass drum</td><td class=mono>36</td><td class=num>7</td><td class=num>4.2%</td></tr>
+<tr><td>Crash cymbal 2</td><td class=mono>57</td><td class=num>6</td><td class=num>3.6%</td></tr>
+<tr><td>Closed hi-hat</td><td class=mono>42</td><td class=num>3</td><td class=num>1.8%</td></tr>
+<tr><td>Outside the kit</td><td class=mono>92</td><td class=num>1</td><td class=num>0.6%</td></tr>
+<tr><td><b>Total</b></td><td></td><td class=num><b>165</b></td><td class=num><b>100%</b></td></tr>
+</table></div>
+<div class="note"><b>Why this counts for more than formatting.</b> A ghost on the snare
+is a real stroke played quietly. Removing the bracket tells a reader to play 134 quiet snare
+strokes at full volume. The crash ghosts are a separate case worth naming, because a bracketed
+crash is unusual notation and it belongs to the author who wrote it.</div>
+
+<h2 id=dyn>Wrong: 166 dynamic marks that no author wrote</h2>
+<p>The same sweep added a dynamic to every beat it touched. In r7750859 those 165 beats carry
+<code>velocity: null</code>. In the live revision they carry 83 <code>pp</code> marks and 83
+<code>mf</code> marks. The stated reason was to preserve the quiet reading after the brackets
+came off. The effect is that a reader now sees written dynamics that Darr never put in the
+score, on a staff that previously had none.</p>
+<div class=grid>
+<div class=card><b>Pre-sweep r7750859</b><span class=big>0</span><span class=mut>dynamic marks on the drum staff</span></div>
+<div class=card><b>Live r8769026</b><span class=big>166</span><span class=mut>83 pp and 83 mf</span></div>
+<div class=card><b>Ghost flags remaining</b><span class=big>0</span><span class=mut>on both drum staves</span></div>
+</div>
+
+<h2 id=split>The two drum staves divide the song between them</h2>
+<p>This is the finding that would break any audit that looked at one staff alone. The AI staff
+carries bars 1 to 155 and is completely empty from bar 156 to the end. The Chester Thompson
+staff is the mirror image, silent through most of the first half and carrying everything from
+Interlude 2 onward. Exactly one bar, bar 3, has notes on both.</p>
+
+<div class=striprow>
+<div class=lab>Staff 11, Chester Thompson &middot; 322 bars</div>
+<div class=strip><i class="s3" title="bar 1: 18 notes"></i><i class="s3" title="bar 2: 21 notes"></i><i class="s1" title="bar 3: 1 notes"></i><i class="s0" title="bar 4: 0 notes"></i><i class="s0" title="bar 5: 0 notes"></i><i class="s0" title="bar 6: 0 notes"></i><i class="s0" title="bar 7: 0 notes"></i><i class="s0" title="bar 8: 0 notes"></i><i class="s0" title="bar 9: 0 notes"></i><i class="s0" title="bar 10: 0 notes"></i><i class="s0" title="bar 11: 0 notes"></i><i class="s0" title="bar 12: 0 notes"></i><i class="s0" title="bar 13: 0 notes"></i><i class="s0" title="bar 14: 0 notes"></i><i class="s0" title="bar 15: 0 notes"></i><i class="s0" title="bar 16: 0 notes"></i><i class="s0" title="bar 17: 0 notes"></i><i class="s0" title="bar 18: 0 notes"></i><i class="s0" title="bar 19: 0 notes"></i><i class="s0" title="bar 20: 0 notes"></i><i class="s0" title="bar 21: 0 notes"></i><i class="s0" title="bar 22: 0 notes"></i><i class="s0" title="bar 23: 0 notes"></i><i class="s0" title="bar 24: 0 notes"></i><i class="s0" title="bar 25: 0 notes"></i><i class="s0" title="bar 26: 0 notes"></i><i class="s0" title="bar 27: 0 notes"></i><i class="s0" title="bar 28: 0 notes"></i><i class="s3" title="bar 29: 26 notes"></i><i class="s1" title="bar 30: 1 notes"></i><i class="s0" title="bar 31: 0 notes"></i><i class="s2" title="bar 32: 10 notes"></i><i class="s0" title="bar 33: 0 notes"></i><i class="s1" title="bar 34: 4 notes"></i><i class="s3" title="bar 35: 12 notes"></i><i class="s2" title="bar 36: 10 notes"></i><i class="s0" title="bar 37: 0 notes"></i><i class="s0" title="bar 38: 0 notes"></i><i class="s0" title="bar 39: 0 notes"></i><i class="s0" title="bar 40: 0 notes"></i><i class="s0" title="bar 41: 0 notes"></i><i class="s0" title="bar 42: 0 notes"></i><i class="s0" title="bar 43: 0 notes"></i><i class="s0" title="bar 44: 0 notes"></i><i class="s0" title="bar 45: 0 notes"></i><i class="s0" title="bar 46: 0 notes"></i><i class="s0" title="bar 47: 0 notes"></i><i class="s0" title="bar 48: 0 notes"></i><i class="s0" title="bar 49: 0 notes"></i><i class="s0" title="bar 50: 0 notes"></i><i class="s0" title="bar 51: 0 notes"></i><i class="s2" title="bar 52: 10 notes"></i><i class="s2" title="bar 53: 10 notes"></i><i class="s2" title="bar 54: 10 notes"></i><i class="s2" title="bar 55: 10 notes"></i><i class="s2" title="bar 56: 10 notes"></i><i class="s2" title="bar 57: 10 notes"></i><i class="s2" title="bar 58: 10 notes"></i><i class="s2" title="bar 59: 10 notes"></i><i class="s2" title="bar 60: 10 notes"></i><i class="s2" title="bar 61: 10 notes"></i><i class="s2" title="bar 62: 10 notes"></i><i class="s0" title="bar 63: 0 notes"></i><i class="s0" title="bar 64: 0 notes"></i><i class="s0" title="bar 65: 0 notes"></i><i class="s0" title="bar 66: 0 notes"></i><i class="s0" title="bar 67: 0 notes"></i><i class="s0" title="bar 68: 0 notes"></i><i class="s0" title="bar 69: 0 notes"></i><i class="s0" title="bar 70: 0 notes"></i><i class="s0" title="bar 71: 0 notes"></i><i class="s0" title="bar 72: 0 notes"></i><i class="s0" title="bar 73: 0 notes"></i><i class="s0" title="bar 74: 0 notes"></i><i class="s0" title="bar 75: 0 notes"></i><i class="s0" title="bar 76: 0 notes"></i><i class="s0" title="bar 77: 0 notes"></i><i class="s0" title="bar 78: 0 notes"></i><i class="s0" title="bar 79: 0 notes"></i><i class="s0" title="bar 80: 0 notes"></i><i class="s0" title="bar 81: 0 notes"></i><i class="s0" title="bar 82: 0 notes"></i><i class="s0" title="bar 83: 0 notes"></i><i class="s0" title="bar 84: 0 notes"></i><i class="s0" title="bar 85: 0 notes"></i><i class="s0" title="bar 86: 0 notes"></i><i class="s0" title="bar 87: 0 notes"></i><i class="s0" title="bar 88: 0 notes"></i><i class="s0" title="bar 89: 0 notes"></i><i class="s0" title="bar 90: 0 notes"></i><i class="s0" title="bar 91: 0 notes"></i><i class="s0" title="bar 92: 0 notes"></i><i class="s0" title="bar 93: 0 notes"></i><i class="s0" title="bar 94: 0 notes"></i><i class="s0" title="bar 95: 0 notes"></i><i class="s0" title="bar 96: 0 notes"></i><i class="s0" title="bar 97: 0 notes"></i><i class="s0" title="bar 98: 0 notes"></i><i class="s0" title="bar 99: 0 notes"></i><i class="s0" title="bar 100: 0 notes"></i><i class="s0" title="bar 101: 0 notes"></i><i class="s0" title="bar 102: 0 notes"></i><i class="s0" title="bar 103: 0 notes"></i><i class="s0" title="bar 104: 0 notes"></i><i class="s0" title="bar 105: 0 notes"></i><i class="s0" title="bar 106: 0 notes"></i><i class="s0" title="bar 107: 0 notes"></i><i class="s0" title="bar 108: 0 notes"></i><i class="s0" title="bar 109: 0 notes"></i><i class="s0" title="bar 110: 0 notes"></i><i class="s0" title="bar 111: 0 notes"></i><i class="s0" title="bar 112: 0 notes"></i><i class="s0" title="bar 113: 0 notes"></i><i class="s0" title="bar 114: 0 notes"></i><i class="s0" title="bar 115: 0 notes"></i><i class="s0" title="bar 116: 0 notes"></i><i class="s0" title="bar 117: 0 notes"></i><i class="s0" title="bar 118: 0 notes"></i><i class="s0" title="bar 119: 0 notes"></i><i class="s0" title="bar 120: 0 notes"></i><i class="s0" title="bar 121: 0 notes"></i><i class="s0" title="bar 122: 0 notes"></i><i class="s0" title="bar 123: 0 notes"></i><i class="s0" title="bar 124: 0 notes"></i><i class="s0" title="bar 125: 0 notes"></i><i class="s0" title="bar 126: 0 notes"></i><i class="s0" title="bar 127: 0 notes"></i><i class="s0" title="bar 128: 0 notes"></i><i class="s0" title="bar 129: 0 notes"></i><i class="s0" title="bar 130: 0 notes"></i><i class="s0" title="bar 131: 0 notes"></i><i class="s0" title="bar 132: 0 notes"></i><i class="s0" title="bar 133: 0 notes"></i><i class="s0" title="bar 134: 0 notes"></i><i class="s0" title="bar 135: 0 notes"></i><i class="s0" title="bar 136: 0 notes"></i><i class="s0" title="bar 137: 0 notes"></i><i class="s3" title="bar 138: 14 notes"></i><i class="s3" title="bar 139: 15 notes"></i><i class="s2" title="bar 140: 8 notes"></i><i class="s0" title="bar 141: 0 notes"></i><i class="s0" title="bar 142: 0 notes"></i><i class="s0" title="bar 143: 0 notes"></i><i class="s0" title="bar 144: 0 notes"></i><i class="s0" title="bar 145: 0 notes"></i><i class="s0" title="bar 146: 0 notes"></i><i class="s0" title="bar 147: 0 notes"></i><i class="s0" title="bar 148: 0 notes"></i><i class="s0" title="bar 149: 0 notes"></i><i class="s0" title="bar 150: 0 notes"></i><i class="s0" title="bar 151: 0 notes"></i><i class="s0" title="bar 152: 0 notes"></i><i class="s0" title="bar 153: 0 notes"></i><i class="s0" title="bar 154: 0 notes"></i><i class="s0" title="bar 155: 0 notes"></i><i class="s2" title="bar 156: 10 notes"></i><i class="s2" title="bar 157: 10 notes"></i><i class="s2" title="bar 158: 10 notes"></i><i class="s2" title="bar 159: 10 notes"></i><i class="s2" title="bar 160: 10 notes"></i><i class="s2" title="bar 161: 10 notes"></i><i class="s2" title="bar 162: 10 notes"></i><i class="s2" title="bar 163: 10 notes"></i><i class="s3" title="bar 164: 11 notes"></i><i class="s3" title="bar 165: 11 notes"></i><i class="s1" title="bar 166: 1 notes"></i><i class="s2" title="bar 167: 9 notes"></i><i class="s2" title="bar 168: 6 notes"></i><i class="s1" title="bar 169: 2 notes"></i><i class="s1" title="bar 170: 4 notes"></i><i class="s1" title="bar 171: 2 notes"></i><i class="s3" title="bar 172: 16 notes"></i><i class="s3" title="bar 173: 11 notes"></i><i class="s2" title="bar 174: 9 notes"></i><i class="s2" title="bar 175: 10 notes"></i><i class="s2" title="bar 176: 7 notes"></i><i class="s2" title="bar 177: 7 notes"></i><i class="s2" title="bar 178: 7 notes"></i><i class="s2" title="bar 179: 6 notes"></i><i class="s2" title="bar 180: 6 notes"></i><i class="s2" title="bar 181: 6 notes"></i><i class="s2" title="bar 182: 8 notes"></i><i class="s2" title="bar 183: 5 notes"></i><i class="s1" title="bar 184: 2 notes"></i><i class="s3" title="bar 185: 25 notes"></i><i class="s3" title="bar 186: 13 notes"></i><i class="s3" title="bar 187: 13 notes"></i><i class="s2" title="bar 188: 6 notes"></i><i class="s2" title="bar 189: 7 notes"></i><i class="s2" title="bar 190: 5 notes"></i><i class="s1" title="bar 191: 1 notes"></i><i class="s3" title="bar 192: 22 notes"></i><i class="s1" title="bar 193: 4 notes"></i><i class="s1" title="bar 194: 4 notes"></i><i class="s1" title="bar 195: 4 notes"></i><i class="s1" title="bar 196: 4 notes"></i><i class="s1" title="bar 197: 4 notes"></i><i class="s1" title="bar 198: 4 notes"></i><i class="s1" title="bar 199: 4 notes"></i><i class="s1" title="bar 200: 4 notes"></i><i class="s1" title="bar 201: 4 notes"></i><i class="s1" title="bar 202: 4 notes"></i><i class="s1" title="bar 203: 4 notes"></i><i class="s1" title="bar 204: 4 notes"></i><i class="s1" title="bar 205: 4 notes"></i><i class="s1" title="bar 206: 4 notes"></i><i class="s1" title="bar 207: 4 notes"></i><i class="s1" title="bar 208: 4 notes"></i><i class="s2" title="bar 209: 9 notes"></i><i class="s3" title="bar 210: 15 notes"></i><i class="s2" title="bar 211: 8 notes"></i><i class="s2" title="bar 212: 8 notes"></i><i class="s2" title="bar 213: 9 notes"></i><i class="s2" title="bar 214: 8 notes"></i><i class="s3" title="bar 215: 12 notes"></i><i class="s3" title="bar 216: 11 notes"></i><i class="s2" title="bar 217: 7 notes"></i><i class="s2" title="bar 218: 8 notes"></i><i class="s2" title="bar 219: 8 notes"></i><i class="s2" title="bar 220: 8 notes"></i><i class="s2" title="bar 221: 8 notes"></i><i class="s2" title="bar 222: 8 notes"></i><i class="s2" title="bar 223: 8 notes"></i><i class="s2" title="bar 224: 8 notes"></i><i class="s2" title="bar 225: 8 notes"></i><i class="s2" title="bar 226: 8 notes"></i><i class="s2" title="bar 227: 8 notes"></i><i class="s2" title="bar 228: 8 notes"></i><i class="s2" title="bar 229: 8 notes"></i><i class="s2" title="bar 230: 8 notes"></i><i class="s2" title="bar 231: 8 notes"></i><i class="s2" title="bar 232: 8 notes"></i><i class="s2" title="bar 233: 8 notes"></i><i class="s2" title="bar 234: 8 notes"></i><i class="s2" title="bar 235: 8 notes"></i><i class="s2" title="bar 236: 8 notes"></i><i class="s2" title="bar 237: 8 notes"></i><i class="s2" title="bar 238: 8 notes"></i><i class="s2" title="bar 239: 8 notes"></i><i class="s2" title="bar 240: 8 notes"></i><i class="s2" title="bar 241: 8 notes"></i><i class="s2" title="bar 242: 8 notes"></i><i class="s2" title="bar 243: 8 notes"></i><i class="s2" title="bar 244: 8 notes"></i><i class="s2" title="bar 245: 8 notes"></i><i class="s2" title="bar 246: 8 notes"></i><i class="s2" title="bar 247: 8 notes"></i><i class="s2" title="bar 248: 8 notes"></i><i class="s2" title="bar 249: 8 notes"></i><i class="s2" title="bar 250: 8 notes"></i><i class="s2" title="bar 251: 8 notes"></i><i class="s2" title="bar 252: 8 notes"></i><i class="s2" title="bar 253: 8 notes"></i><i class="s2" title="bar 254: 8 notes"></i><i class="s2" title="bar 255: 8 notes"></i><i class="s2" title="bar 256: 8 notes"></i><i class="s2" title="bar 257: 8 notes"></i><i class="s2" title="bar 258: 8 notes"></i><i class="s2" title="bar 259: 8 notes"></i><i class="s2" title="bar 260: 8 notes"></i><i class="s2" title="bar 261: 8 notes"></i><i class="s2" title="bar 262: 8 notes"></i><i class="s2" title="bar 263: 8 notes"></i><i class="s2" title="bar 264: 8 notes"></i><i class="s2" title="bar 265: 8 notes"></i><i class="s2" title="bar 266: 8 notes"></i><i class="s2" title="bar 267: 8 notes"></i><i class="s2" title="bar 268: 8 notes"></i><i class="s2" title="bar 269: 8 notes"></i><i class="s2" title="bar 270: 8 notes"></i><i class="s2" title="bar 271: 8 notes"></i><i class="s2" title="bar 272: 8 notes"></i><i class="s2" title="bar 273: 8 notes"></i><i class="s2" title="bar 274: 8 notes"></i><i class="s2" title="bar 275: 8 notes"></i><i class="s2" title="bar 276: 8 notes"></i><i class="s2" title="bar 277: 8 notes"></i><i class="s2" title="bar 278: 8 notes"></i><i class="s2" title="bar 279: 8 notes"></i><i class="s2" title="bar 280: 8 notes"></i><i class="s2" title="bar 281: 8 notes"></i><i class="s2" title="bar 282: 8 notes"></i><i class="s2" title="bar 283: 8 notes"></i><i class="s2" title="bar 284: 8 notes"></i><i class="s2" title="bar 285: 8 notes"></i><i class="s2" title="bar 286: 8 notes"></i><i class="s2" title="bar 287: 8 notes"></i><i class="s2" title="bar 288: 8 notes"></i><i class="s2" title="bar 289: 8 notes"></i><i class="s0" title="bar 290: 0 notes"></i><i class="s0" title="bar 291: 0 notes"></i><i class="s0" title="bar 292: 0 notes"></i><i class="s0" title="bar 293: 0 notes"></i><i class="s0" title="bar 294: 0 notes"></i><i class="s0" title="bar 295: 0 notes"></i><i class="s3" title="bar 296: 13 notes"></i><i class="s2" title="bar 297: 10 notes"></i><i class="s3" title="bar 298: 14 notes"></i><i class="s2" title="bar 299: 6 notes"></i><i class="s1" title="bar 300: 2 notes"></i><i class="s1" title="bar 301: 2 notes"></i><i class="s1" title="bar 302: 2 notes"></i><i class="s2" title="bar 303: 7 notes"></i><i class="s2" title="bar 304: 9 notes"></i><i class="s2" title="bar 305: 7 notes"></i><i class="s2" title="bar 306: 10 notes"></i><i class="s3" title="bar 307: 25 notes"></i><i class="s3" title="bar 308: 13 notes"></i><i class="s3" title="bar 309: 13 notes"></i><i class="s3" title="bar 310: 13 notes"></i><i class="s1" title="bar 311: 4 notes"></i><i class="s1" title="bar 312: 1 notes"></i><i class="s3" title="bar 313: 11 notes"></i><i class="s2" title="bar 314: 9 notes"></i><i class="s2" title="bar 315: 9 notes"></i><i class="s2" title="bar 316: 6 notes"></i><i class="s2" title="bar 317: 8 notes"></i><i class="s2" title="bar 318: 8 notes"></i><i class="s2" title="bar 319: 8 notes"></i><i class="s3" title="bar 320: 18 notes"></i><i class="s1" title="bar 321: 4 notes"></i><i class="s1" title="bar 322: 2 notes"></i></div>
+<div class=lab style="margin-top:14px">Staff 10, AI &middot; 322 bars</div>
+<div class=strip><i class="s0" title="bar 1: 0 notes"></i><i class="s0" title="bar 2: 0 notes"></i><i class="s3" title="bar 3: 19 notes"></i><i class="s3" title="bar 4: 17 notes"></i><i class="s3" title="bar 5: 19 notes"></i><i class="s3" title="bar 6: 15 notes"></i><i class="s3" title="bar 7: 19 notes"></i><i class="s3" title="bar 8: 19 notes"></i><i class="s3" title="bar 9: 19 notes"></i><i class="s3" title="bar 10: 15 notes"></i><i class="s3" title="bar 11: 19 notes"></i><i class="s3" title="bar 12: 17 notes"></i><i class="s3" title="bar 13: 19 notes"></i><i class="s3" title="bar 14: 17 notes"></i><i class="s3" title="bar 15: 19 notes"></i><i class="s3" title="bar 16: 15 notes"></i><i class="s3" title="bar 17: 19 notes"></i><i class="s3" title="bar 18: 18 notes"></i><i class="s3" title="bar 19: 18 notes"></i><i class="s3" title="bar 20: 18 notes"></i><i class="s3" title="bar 21: 18 notes"></i><i class="s3" title="bar 22: 18 notes"></i><i class="s3" title="bar 23: 19 notes"></i><i class="s3" title="bar 24: 19 notes"></i><i class="s3" title="bar 25: 19 notes"></i><i class="s3" title="bar 26: 19 notes"></i><i class="s3" title="bar 27: 18 notes"></i><i class="s3" title="bar 28: 12 notes"></i><i class="s0" title="bar 29: 0 notes"></i><i class="s0" title="bar 30: 0 notes"></i><i class="s0" title="bar 31: 0 notes"></i><i class="s0" title="bar 32: 0 notes"></i><i class="s0" title="bar 33: 0 notes"></i><i class="s0" title="bar 34: 0 notes"></i><i class="s0" title="bar 35: 0 notes"></i><i class="s0" title="bar 36: 0 notes"></i><i class="s3" title="bar 37: 19 notes"></i><i class="s3" title="bar 38: 18 notes"></i><i class="s3" title="bar 39: 19 notes"></i><i class="s3" title="bar 40: 19 notes"></i><i class="s3" title="bar 41: 19 notes"></i><i class="s3" title="bar 42: 18 notes"></i><i class="s3" title="bar 43: 20 notes"></i><i class="s1" title="bar 44: 2 notes"></i><i class="s3" title="bar 45: 17 notes"></i><i class="s2" title="bar 46: 7 notes"></i><i class="s3" title="bar 47: 18 notes"></i><i class="s3" title="bar 48: 17 notes"></i><i class="s3" title="bar 49: 18 notes"></i><i class="s3" title="bar 50: 17 notes"></i><i class="s3" title="bar 51: 17 notes"></i><i class="s0" title="bar 52: 0 notes"></i><i class="s0" title="bar 53: 0 notes"></i><i class="s0" title="bar 54: 0 notes"></i><i class="s0" title="bar 55: 0 notes"></i><i class="s0" title="bar 56: 0 notes"></i><i class="s0" title="bar 57: 0 notes"></i><i class="s0" title="bar 58: 0 notes"></i><i class="s0" title="bar 59: 0 notes"></i><i class="s0" title="bar 60: 0 notes"></i><i class="s0" title="bar 61: 0 notes"></i><i class="s0" title="bar 62: 0 notes"></i><i class="s3" title="bar 63: 15 notes"></i><i class="s3" title="bar 64: 12 notes"></i><i class="s3" title="bar 65: 15 notes"></i><i class="s3" title="bar 66: 12 notes"></i><i class="s3" title="bar 67: 15 notes"></i><i class="s2" title="bar 68: 8 notes"></i><i class="s2" title="bar 69: 10 notes"></i><i class="s2" title="bar 70: 8 notes"></i><i class="s2" title="bar 71: 10 notes"></i><i class="s2" title="bar 72: 8 notes"></i><i class="s2" title="bar 73: 10 notes"></i><i class="s2" title="bar 74: 8 notes"></i><i class="s2" title="bar 75: 10 notes"></i><i class="s2" title="bar 76: 8 notes"></i><i class="s2" title="bar 77: 10 notes"></i><i class="s3" title="bar 78: 12 notes"></i><i class="s3" title="bar 79: 14 notes"></i><i class="s3" title="bar 80: 12 notes"></i><i class="s3" title="bar 81: 14 notes"></i><i class="s3" title="bar 82: 12 notes"></i><i class="s3" title="bar 83: 12 notes"></i><i class="s2" title="bar 84: 8 notes"></i><i class="s3" title="bar 85: 15 notes"></i><i class="s3" title="bar 86: 12 notes"></i><i class="s3" title="bar 87: 11 notes"></i><i class="s3" title="bar 88: 12 notes"></i><i class="s3" title="bar 89: 12 notes"></i><i class="s3" title="bar 90: 12 notes"></i><i class="s3" title="bar 91: 12 notes"></i><i class="s3" title="bar 92: 12 notes"></i><i class="s3" title="bar 93: 12 notes"></i><i class="s3" title="bar 94: 12 notes"></i><i class="s3" title="bar 95: 14 notes"></i><i class="s3" title="bar 96: 13 notes"></i><i class="s3" title="bar 97: 16 notes"></i><i class="s3" title="bar 98: 16 notes"></i><i class="s3" title="bar 99: 16 notes"></i><i class="s2" title="bar 100: 8 notes"></i><i class="s2" title="bar 101: 10 notes"></i><i class="s2" title="bar 102: 8 notes"></i><i class="s3" title="bar 103: 13 notes"></i><i class="s3" title="bar 104: 13 notes"></i><i class="s3" title="bar 105: 13 notes"></i><i class="s3" title="bar 106: 13 notes"></i><i class="s3" title="bar 107: 13 notes"></i><i class="s2" title="bar 108: 8 notes"></i><i class="s3" title="bar 109: 11 notes"></i><i class="s3" title="bar 110: 11 notes"></i><i class="s3" title="bar 111: 16 notes"></i><i class="s2" title="bar 112: 10 notes"></i><i class="s3" title="bar 113: 14 notes"></i><i class="s3" title="bar 114: 14 notes"></i><i class="s3" title="bar 115: 16 notes"></i><i class="s3" title="bar 116: 15 notes"></i><i class="s3" title="bar 117: 15 notes"></i><i class="s3" title="bar 118: 13 notes"></i><i class="s3" title="bar 119: 14 notes"></i><i class="s3" title="bar 120: 13 notes"></i><i class="s3" title="bar 121: 14 notes"></i><i class="s3" title="bar 122: 13 notes"></i><i class="s3" title="bar 123: 16 notes"></i><i class="s2" title="bar 124: 8 notes"></i><i class="s3" title="bar 125: 16 notes"></i><i class="s2" title="bar 126: 8 notes"></i><i class="s3" title="bar 127: 16 notes"></i><i class="s3" title="bar 128: 16 notes"></i><i class="s3" title="bar 129: 21 notes"></i><i class="s3" title="bar 130: 22 notes"></i><i class="s3" title="bar 131: 20 notes"></i><i class="s3" title="bar 132: 12 notes"></i><i class="s3" title="bar 133: 15 notes"></i><i class="s3" title="bar 134: 13 notes"></i><i class="s3" title="bar 135: 14 notes"></i><i class="s3" title="bar 136: 14 notes"></i><i class="s3" title="bar 137: 16 notes"></i><i class="s0" title="bar 138: 0 notes"></i><i class="s0" title="bar 139: 0 notes"></i><i class="s0" title="bar 140: 0 notes"></i><i class="s2" title="bar 141: 8 notes"></i><i class="s2" title="bar 142: 8 notes"></i><i class="s3" title="bar 143: 16 notes"></i><i class="s2" title="bar 144: 8 notes"></i><i class="s2" title="bar 145: 10 notes"></i><i class="s2" title="bar 146: 9 notes"></i><i class="s3" title="bar 147: 19 notes"></i><i class="s2" title="bar 148: 9 notes"></i><i class="s3" title="bar 149: 11 notes"></i><i class="s2" title="bar 150: 9 notes"></i><i class="s3" title="bar 151: 21 notes"></i><i class="s2" title="bar 152: 9 notes"></i><i class="s3" title="bar 153: 15 notes"></i><i class="s3" title="bar 154: 13 notes"></i><i class="s3" title="bar 155: 16 notes"></i><i class="s0" title="bar 156: 0 notes"></i><i class="s0" title="bar 157: 0 notes"></i><i class="s0" title="bar 158: 0 notes"></i><i class="s0" title="bar 159: 0 notes"></i><i class="s0" title="bar 160: 0 notes"></i><i class="s0" title="bar 161: 0 notes"></i><i class="s0" title="bar 162: 0 notes"></i><i class="s0" title="bar 163: 0 notes"></i><i class="s0" title="bar 164: 0 notes"></i><i class="s0" title="bar 165: 0 notes"></i><i class="s0" title="bar 166: 0 notes"></i><i class="s0" title="bar 167: 0 notes"></i><i class="s0" title="bar 168: 0 notes"></i><i class="s0" title="bar 169: 0 notes"></i><i class="s0" title="bar 170: 0 notes"></i><i class="s0" title="bar 171: 0 notes"></i><i class="s0" title="bar 172: 0 notes"></i><i class="s0" title="bar 173: 0 notes"></i><i class="s0" title="bar 174: 0 notes"></i><i class="s0" title="bar 175: 0 notes"></i><i class="s0" title="bar 176: 0 notes"></i><i class="s0" title="bar 177: 0 notes"></i><i class="s0" title="bar 178: 0 notes"></i><i class="s0" title="bar 179: 0 notes"></i><i class="s0" title="bar 180: 0 notes"></i><i class="s0" title="bar 181: 0 notes"></i><i class="s0" title="bar 182: 0 notes"></i><i class="s0" title="bar 183: 0 notes"></i><i class="s0" title="bar 184: 0 notes"></i><i class="s0" title="bar 185: 0 notes"></i><i class="s0" title="bar 186: 0 notes"></i><i class="s0" title="bar 187: 0 notes"></i><i class="s0" title="bar 188: 0 notes"></i><i class="s0" title="bar 189: 0 notes"></i><i class="s0" title="bar 190: 0 notes"></i><i class="s0" title="bar 191: 0 notes"></i><i class="s0" title="bar 192: 0 notes"></i><i class="s0" title="bar 193: 0 notes"></i><i class="s0" title="bar 194: 0 notes"></i><i class="s0" title="bar 195: 0 notes"></i><i class="s0" title="bar 196: 0 notes"></i><i class="s0" title="bar 197: 0 notes"></i><i class="s0" title="bar 198: 0 notes"></i><i class="s0" title="bar 199: 0 notes"></i><i class="s0" title="bar 200: 0 notes"></i><i class="s0" title="bar 201: 0 notes"></i><i class="s0" title="bar 202: 0 notes"></i><i class="s0" title="bar 203: 0 notes"></i><i class="s0" title="bar 204: 0 notes"></i><i class="s0" title="bar 205: 0 notes"></i><i class="s0" title="bar 206: 0 notes"></i><i class="s0" title="bar 207: 0 notes"></i><i class="s0" title="bar 208: 0 notes"></i><i class="s0" title="bar 209: 0 notes"></i><i class="s0" title="bar 210: 0 notes"></i><i class="s0" title="bar 211: 0 notes"></i><i class="s0" title="bar 212: 0 notes"></i><i class="s0" title="bar 213: 0 notes"></i><i class="s0" title="bar 214: 0 notes"></i><i class="s0" title="bar 215: 0 notes"></i><i class="s0" title="bar 216: 0 notes"></i><i class="s0" title="bar 217: 0 notes"></i><i class="s0" title="bar 218: 0 notes"></i><i class="s0" title="bar 219: 0 notes"></i><i class="s0" title="bar 220: 0 notes"></i><i class="s0" title="bar 221: 0 notes"></i><i class="s0" title="bar 222: 0 notes"></i><i class="s0" title="bar 223: 0 notes"></i><i class="s0" title="bar 224: 0 notes"></i><i class="s0" title="bar 225: 0 notes"></i><i class="s0" title="bar 226: 0 notes"></i><i class="s0" title="bar 227: 0 notes"></i><i class="s0" title="bar 228: 0 notes"></i><i class="s0" title="bar 229: 0 notes"></i><i class="s0" title="bar 230: 0 notes"></i><i class="s0" title="bar 231: 0 notes"></i><i class="s0" title="bar 232: 0 notes"></i><i class="s0" title="bar 233: 0 notes"></i><i class="s0" title="bar 234: 0 notes"></i><i class="s0" title="bar 235: 0 notes"></i><i class="s0" title="bar 236: 0 notes"></i><i class="s0" title="bar 237: 0 notes"></i><i class="s0" title="bar 238: 0 notes"></i><i class="s0" title="bar 239: 0 notes"></i><i class="s0" title="bar 240: 0 notes"></i><i class="s0" title="bar 241: 0 notes"></i><i class="s0" title="bar 242: 0 notes"></i><i class="s0" title="bar 243: 0 notes"></i><i class="s0" title="bar 244: 0 notes"></i><i class="s0" title="bar 245: 0 notes"></i><i class="s0" title="bar 246: 0 notes"></i><i class="s0" title="bar 247: 0 notes"></i><i class="s0" title="bar 248: 0 notes"></i><i class="s0" title="bar 249: 0 notes"></i><i class="s0" title="bar 250: 0 notes"></i><i class="s0" title="bar 251: 0 notes"></i><i class="s0" title="bar 252: 0 notes"></i><i class="s0" title="bar 253: 0 notes"></i><i class="s0" title="bar 254: 0 notes"></i><i class="s0" title="bar 255: 0 notes"></i><i class="s0" title="bar 256: 0 notes"></i><i class="s0" title="bar 257: 0 notes"></i><i class="s0" title="bar 258: 0 notes"></i><i class="s0" title="bar 259: 0 notes"></i><i class="s0" title="bar 260: 0 notes"></i><i class="s0" title="bar 261: 0 notes"></i><i class="s0" title="bar 262: 0 notes"></i><i class="s0" title="bar 263: 0 notes"></i><i class="s0" title="bar 264: 0 notes"></i><i class="s0" title="bar 265: 0 notes"></i><i class="s0" title="bar 266: 0 notes"></i><i class="s0" title="bar 267: 0 notes"></i><i class="s0" title="bar 268: 0 notes"></i><i class="s0" title="bar 269: 0 notes"></i><i class="s0" title="bar 270: 0 notes"></i><i class="s0" title="bar 271: 0 notes"></i><i class="s0" title="bar 272: 0 notes"></i><i class="s0" title="bar 273: 0 notes"></i><i class="s0" title="bar 274: 0 notes"></i><i class="s0" title="bar 275: 0 notes"></i><i class="s0" title="bar 276: 0 notes"></i><i class="s0" title="bar 277: 0 notes"></i><i class="s0" title="bar 278: 0 notes"></i><i class="s0" title="bar 279: 0 notes"></i><i class="s0" title="bar 280: 0 notes"></i><i class="s0" title="bar 281: 0 notes"></i><i class="s0" title="bar 282: 0 notes"></i><i class="s0" title="bar 283: 0 notes"></i><i class="s0" title="bar 284: 0 notes"></i><i class="s0" title="bar 285: 0 notes"></i><i class="s0" title="bar 286: 0 notes"></i><i class="s0" title="bar 287: 0 notes"></i><i class="s0" title="bar 288: 0 notes"></i><i class="s0" title="bar 289: 0 notes"></i><i class="s0" title="bar 290: 0 notes"></i><i class="s0" title="bar 291: 0 notes"></i><i class="s0" title="bar 292: 0 notes"></i><i class="s0" title="bar 293: 0 notes"></i><i class="s0" title="bar 294: 0 notes"></i><i class="s0" title="bar 295: 0 notes"></i><i class="s0" title="bar 296: 0 notes"></i><i class="s0" title="bar 297: 0 notes"></i><i class="s0" title="bar 298: 0 notes"></i><i class="s0" title="bar 299: 0 notes"></i><i class="s0" title="bar 300: 0 notes"></i><i class="s0" title="bar 301: 0 notes"></i><i class="s0" title="bar 302: 0 notes"></i><i class="s0" title="bar 303: 0 notes"></i><i class="s0" title="bar 304: 0 notes"></i><i class="s0" title="bar 305: 0 notes"></i><i class="s0" title="bar 306: 0 notes"></i><i class="s0" title="bar 307: 0 notes"></i><i class="s0" title="bar 308: 0 notes"></i><i class="s0" title="bar 309: 0 notes"></i><i class="s0" title="bar 310: 0 notes"></i><i class="s0" title="bar 311: 0 notes"></i><i class="s0" title="bar 312: 0 notes"></i><i class="s0" title="bar 313: 0 notes"></i><i class="s0" title="bar 314: 0 notes"></i><i class="s0" title="bar 315: 0 notes"></i><i class="s0" title="bar 316: 0 notes"></i><i class="s0" title="bar 317: 0 notes"></i><i class="s0" title="bar 318: 0 notes"></i><i class="s0" title="bar 319: 0 notes"></i><i class="s0" title="bar 320: 0 notes"></i><i class="s0" title="bar 321: 0 notes"></i><i class="s0" title="bar 322: 0 notes"></i></div>
+<div class=mkrow><span class=mk style="left:0.000%">Intro</span><span class=mk style="left:4.969%">Verse 1</span><span class=mk style="left:8.696%">Break 1</span><span class=mk style="left:10.870%">Verse 2</span><span class=mk style="left:14.286%">Verse 3</span><span class=mk style="left:15.839%">Interlude 1</span><span class=mk style="left:18.323%">Guitar Solo</span><span class=mk style="left:43.168%">Post-Solo</span><span class=mk style="left:48.137%">Interlude 2</span><span class=mk style="left:50.932%">Verse 4</span><span class=mk style="left:53.416%">Breakdown</span><span class=mk style="left:59.627%">Bridge</span><span class=mk style="left:67.391%">Keys Solo</span><span class=mk style="left:89.752%">Interlude 3</span><span class=mk style="left:91.615%">Booger</span><span class=mk style="left:97.205%">Outro</span><span class=mk style="left:99.379%">Ending</span></div>
+<div class=key>Note density per bar:
+<em class=s0 style="background:#efe2cb;border:1px solid #ddcdb2"></em>empty
+<em class=s1 style="background:#bcae90"></em>1 to 4
+<em class=s2 style="background:#d9a441"></em>5 to 10
+<em class=s3 style="background:#b5462f"></em>11 and up</div>
+</div>
+
+<div class=scroll><table>
+<tr><th>Staff</th><th>Bars with notes</th><th>Empty bars</th><th class=num>Notes</th></tr>
+<tr><td>10, AI</td><td class=mono>1-28, 37-51, 63-137, 141-155</td><td class=num>191</td><td class=num>1,844</td></tr>
+<tr><td>11, Chester Thompson</td><td class=mono>1-3, 29-36, 52-62, 138-140, 156-289, 296-322</td><td class=num>138</td><td class=num>1,529</td></tr>
+</table></div>
+<div class="note win"><b>Read this ahead of judging either staff.</b> Neither one is a complete
+drum part. Anyone measuring staff 11 on its own would report 138 empty bars and call the tab
+half finished. The correct unit of judgement is the pair.</div>
+
+<h2 id=hole>Missing: six bars with no drums anywhere</h2>
+<p>Combining both staves leaves eight bars with zero drum notes. Six of them run consecutively
+and land on a named section.</p>
+<div class=scroll><table>
+<tr><th>Bars</th><th>Section marker</th><th>Staff 10</th><th>Staff 11</th><th>Verdict</th></tr>
+<tr class=hot><td class=mono>290-295</td><td>Interlude 3</td><td>empty</td><td>empty</td><td><b class=bad>six-bar hole</b></td></tr>
+<tr><td class=mono>31</td><td>Break 1</td><td>empty</td><td>empty</td><td>single bar</td></tr>
+<tr><td class=mono>33</td><td>Break 1</td><td>empty</td><td>empty</td><td>single bar</td></tr>
+</table></div>
+<p>The two single bars inside Break 1 are plausible as written rests, because a break is where
+a band stops. Interlude 3 is the one to check against the recording, since six bars of silence
+going into the Booger section is a large claim for a tab to make.</p>
+
+<h2 id=rests>Wrong: the AI staff was touched after all</h2>
+<p>The live revision description states that the second drum staff <em>&ldquo;had none and was
+not touched.&rdquo;</em> The beat counts disagree. Staff 10 went from 1,475 beats to 1,501, a gain
+of 26 across 17 bars. Every added beat is a rest and the note count holds at 1,844, so no playing
+changed. The claim in the description is still wrong and should be corrected in any future note.</p>
+<p class=mono style="font-size:12.5px">bars affected: 168, 173, 175, 177, 178, 179, 180, 186, 187, 188, 296, 298, 300, 301, 302, 308, 309</p>
+<div class="note"><b>Most likely cause.</b> A Guitar Pro round trip re-split rests inside
+odd-meter bars. All 17 bars sit in the 11/16, 8/16 and 5/16 stretches, which supports that
+reading and does not prove it.</div>
+
+<h2 id=odd>The note outside the kit</h2>
+<p>Bar 1 of the Chester Thompson staff carries a note at MIDI 92 on string position -0.5, which
+places it on a ledger above the staff. General MIDI percussion runs from 35 to 81, so 92 sits
+outside the drum map entirely and will not sound as any kit piece.</p>
+<div class="note win"><b>This marking belongs to Darr and should stay.</b> The same note is present in
+Darr&rsquo;s r7750859 carrying <code>ghost: true</code>. The marking belongs to the author and predates the sweep. The repair restores its ghost flag and leaves the pitch alone, which is the correct
+call under the rule that restoring means reproducing what the author wrote.</div>
+
+<h2 id=sources>What we actually hold on the drive</h2>
+<p>The honest answer to &ldquo;compare it against all our transcriptions&rdquo; is that no
+professional drum transcription of Inca Roads exists in the archive. Every folder was checked.</p>
+<div class=scroll><table>
+<tr><th>Source folder</th><th>Transcriber</th><th>Holds</th><th>Covers Inca Roads</th></tr>
+<tr><td class=mono>02-drummagazine</td><td>Ryan Brown</td><td>7 notation PNGs</td><td class=bad>No</td></tr>
+<tr><td class=mono>01-cruiseshipdrummer</td><td>Todd Bishop, Daniel B&eacute;dard</td><td>Flower Punk, Apostrophe, Yellow Snow, others</td><td class=bad>No</td></tr>
+<tr><td class=mono>03-petesweeney</td><td>Pete Sweeney</td><td>Vinnie transcriptions PDF, 9 pages</td><td class=bad>No. Dong Work For Yuda and Keep It Greasy only.</td></tr>
+<tr><td class=mono>06-drumnet</td><td>Drumnet.ru</td><td>Not recovered on this Mac</td><td class=bad>No</td></tr>
+<tr class=hot><td class=mono>08-analysis/zappa-analysis</td><td>Kasper Sloots</td><td><span class=mono>inca-roads-1973-a.jpg</span>, <span class=mono>-b.jpg</span></td><td class=mid>Melodic only</td></tr>
+<tr><td class=mono>10-academic</td><td>Clement, Wall</td><td>Dissertation and thesis</td><td class=bad>No drum notation</td></tr>
+</table></div>
+<div class="note warn"><b>The Sloots charts do not vote on drums.</b> Both images were opened and
+read. They are handwritten full scores carrying flute, trombone, keyboards, whistling and bass
+guitar staves, with no drum staff on either page. They also transcribe the 1973 Roxy-era
+performance in 12/16, and this tab transcribes the 1975 album version that opens in 4/4. They are
+a different arrangement of a different take. Under the rule that a source votes only on the
+passage it transcribes, they vote on nothing here.</div>
+<p>That leaves the Songsterr revision chain as the only valid comparator, which is why every
+finding above is a revision-to-revision measurement rather than a chart reading.</p>
+
+<h2 id=stale>The baseline on disk cannot be trusted</h2>
+<p>Two files sit in the Inca Roads work folder. They are byte-identical, sha256
+<span class=mono>ddb5235078c6cae4</span> for both, despite one being named for the original and
+one for revision r7750859.</p>
+<div class=scroll><table>
+<tr><th>File</th><th class=num>Bytes</th><th>AntiAccent</th><th>On the drum staves</th></tr>
+<tr class=hot><td class=mono>ORIGINAL-Frank Zappa-Inca Roads-07-06-2026.gp</td><td class=num>111,487</td><td class=num>14</td><td class=bad>zero</td></tr>
+<tr class=hot><td class=mono>RESTORE-r7750859.gp</td><td class=num>111,487</td><td class=num>14</td><td class=bad>zero</td></tr>
+</table></div>
+<p>All 14 ghost markings in those files sit on pitched notes, MIDI 69 and 62 at octave 5, which
+puts them on the guitar and marimba staves. The drum staves carry none. A file that genuinely
+held r7750859 would carry 165 on the Chester Thompson staff. Both files are post-sweep exports
+wearing a pre-sweep name, and the modification date of 2026-08-29 19:27 matches the day the
+sweep ran.</p>
+<div class="note warn"><b>Operational consequence.</b> Anyone who reaches for
+<code>RESTORE-r7750859.gp</code> to rebuild this restore would publish a stripped tab a second
+time. The working repair was built from the CloudFront part JSON instead, which is the method
+the skill already prescribes. These two files should be renamed to say what they are.</div>
+
+<h2 id=open>What is not proven</h2>
+<ul>
+<li>Whether the six silent bars at Interlude 3 are correct has not been tested against the
+recording. That needs the audio and a separated drum stem, and this pass did not run one.</li>
+<li>Whether the surviving hi-hat and cymbal writing on staff 11 is complete is untested. Staff 11
+carries 93 hi-hat events against staff 10&rsquo;s 361 over the same 322 bars, and the two staves
+cover opposite halves of the song, so that gap is not yet evidence of anything.</li>
+<li>The cause of the 26 added rest beats is inferred from where they fall, not measured.</li>
+<li>No claim is made about the accuracy of the notated rhythms themselves. The comparison here
+is between revisions of the same tab, and both sides of it share whatever the original got wrong.</li>
+</ul>
+
+<h2>Sources</h2>
+<ul>
+<li>Live tab, <a href="https://www.songsterr.com/a/wsa/frank-zappa-inca-roads-drum-tab-s412178t10">songsterr.com s412178</a>, revision r8769026, part JSON read from CloudFront on 2026-09-05.</li>
+<li>Pre-sweep revision r7750859 by Darr, same route, image hash <span class=mono>v0-3-2--J1WPCKhadNeBx-S</span>.</li>
+<li>Revision list, <span class=mono>api/meta/412178/revisions</span>, 11 revisions.</li>
+<li>Archived transcriptions, <span class=mono>~/Projects/_outputs/zappa-drum-sources/</span>, manifest <span class=mono>ARCHIVE-STATE.md</span>.</li>
+<li>Kasper Sloots, zappa-analysis.com, Inca Roads 1973 sections 1 and 2, transcription deposited at the I-depot, The Hague, June 2014.</li>
+<li>Damage log, <span class=mono>~/.claude/skills/songsterr-drum-repair/reference/damage-log.md</span>.</li>
+</ul>
+
+<footer>
+Built 2026-09-05 on MacBookPro. Every count in this page came from the part JSON a reader
+receives, not from a Guitar Pro file on disk. Method and traps: the
+<span class=mono>/songsterr-drum-repair</span> skill.
+</footer>
+</div></body></html>
