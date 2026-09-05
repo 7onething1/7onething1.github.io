@@ -14,15 +14,15 @@ coverage of the studio recording.
 
 | # | Song | Album length | AI drum tab (album take)? | Any drum tab (album take)? | Linked tab | Live-take tabs | Drums on recording |
 |---|---|---|---|---|---|---|---|
-| 1 | Don’t Eat the Yellow Snow | 2:06 | Yes | Yes | [s1459839](https://www.songsterr.com/a/wsa/frank-zappa-tab-s1459839) (AI, 674 drum notes) | - | n/a, transcription exists |
-| 2 | Nanook Rubs It | 4:37 | No | Yes | [s35865](https://www.songsterr.com/a/wsa/frank-zappa-tab-s35865) (human, 1,309 drum notes) | - | n/a, transcription exists |
-| 3 | St. Alfonzo’s Pancake Breakfast | 1:52 | No | Yes | [s35892](https://www.songsterr.com/a/wsa/frank-zappa-tab-s35892) (human, 851 drum notes) | - | n/a, transcription exists |
-| 4 | Father O’Blivion | 2:18 | No | Yes | [s35864](https://www.songsterr.com/a/wsa/frank-zappa-tab-s35864) (human, 1,339 drum notes) | - | n/a, transcription exists |
+| 1 | Don’t Eat the Yellow Snow | 2:06 | Yes | Yes | [s1459839](https://www.songsterr.com/a/wsa/frank-zappa-tab-s1459839) (AI, 674 drum notes), [s2549677](https://www.songsterr.com/a/wsa/frank-zappa-tab-s2549677) (AI, 599 drum notes) | [s6075883](https://www.songsterr.com/a/wsa/frank-zappa-tab-s6075883) (+74%), [s35878](https://www.songsterr.com/a/wsa/frank-zappa-tab-s35878) (suite over 4 tracks) | n/a, transcription exists |
+| 2 | Nanook Rubs It | 4:37 | No | Yes | [s35865](https://www.songsterr.com/a/wsa/frank-zappa-tab-s35865) (human, 1,309 drum notes) | [s35878](https://www.songsterr.com/a/wsa/frank-zappa-tab-s35878) (suite over 4 tracks) | n/a, transcription exists |
+| 3 | St. Alfonzo’s Pancake Breakfast | 1:52 | No | Yes | [s35892](https://www.songsterr.com/a/wsa/frank-zappa-tab-s35892) (human, 851 drum notes) | [s35878](https://www.songsterr.com/a/wsa/frank-zappa-tab-s35878) (suite over 4 tracks) | n/a, transcription exists |
+| 4 | Father O’Blivion | 2:18 | No | Yes | [s35864](https://www.songsterr.com/a/wsa/frank-zappa-tab-s35864) (human, 1,339 drum notes) | [s35878](https://www.songsterr.com/a/wsa/frank-zappa-tab-s35878) (suite over 4 tracks) | n/a, transcription exists |
 | 5 | Cosmik Debris | 4:10 | No (AI tab exists, not the album take) | Yes | [s412177](https://www.songsterr.com/a/wsa/frank-zappa-tab-s412177) (human, 1,581 drum notes) | [s1154774](https://www.songsterr.com/a/wsa/frank-zappa-tab-s1154774) (+84%) | n/a, transcription exists |
-| 6 | Excentrifugal Forz | 1:31 | No | No | none found | - | n/a, transcription exists |
+| 6 | Excentrifugal Forz | 1:31 | No | No | none found | [s1014276](https://www.songsterr.com/a/wsa/frank-zappa-tab-s1014276) (-80%) | n/a, transcription exists |
 | 7 | Apostrophe’ | 5:53 | No (AI tab exists, not the album take) | No | none found | [s6035435](https://www.songsterr.com/a/wsa/frank-zappa-tab-s6035435) (+12%) | n/a, transcription exists |
 | 8 | Uncle Remus | 2:54 | No | Yes | [s35894](https://www.songsterr.com/a/wsa/frank-zappa-tab-s35894) (human, 834 drum notes) | - | n/a, transcription exists |
-| 9 | Stink‐foot | 6:35 | No (AI tab exists, not the album take) | Yes | [s2382928](https://www.songsterr.com/a/wsa/frank-zappa-tab-s2382928) (human, 2,599 drum notes) | - | n/a, transcription exists |
+| 9 | Stink‐foot | 6:35 | No (AI tab exists, not the album take) | Yes | [s2382928](https://www.songsterr.com/a/wsa/frank-zappa-tab-s2382928) (human, 2,599 drum notes), [s6205368](https://www.songsterr.com/a/wsa/frank-zappa-tab-s6205368) (human, 2,524 drum notes) | [s4428902](https://www.songsterr.com/a/wsa/frank-zappa-tab-s4428902) (-71%) | n/a, transcription exists |
 
 ### One Size Fits All
 
@@ -52,16 +52,16 @@ coverage of the studio recording.
 | 2 | Joe’s Garage | 6:15 | Yes | Yes | [s615252](https://www.songsterr.com/a/wsa/frank-zappa-tab-s615252) (AI, 1,949 drum notes) | - | n/a, transcription exists |
 | 3 | Catholic Girls | 4:26 | Yes | Yes | [s187085](https://www.songsterr.com/a/wsa/frank-zappa-tab-s187085) (AI, 172 drum notes) | - | n/a, transcription exists |
 | 4 | Crew Slut | 6:32 | Yes | Yes | [s4982983](https://www.songsterr.com/a/wsa/frank-zappa-tab-s4982983) (AI, 2,723 drum notes) | - | n/a, transcription exists |
-| 5 | Fembot in a Wet T‐Shirt | 4:45 | No | No | none found | - | n/a, transcription exists |
+| 5 | Fembot in a Wet T‐Shirt | 4:45 | No | No | none found | [s748459](https://www.songsterr.com/a/wsa/frank-zappa-tab-s748459) (-44%) | n/a, transcription exists |
 | 6 | On the Bus | 4:18 | No | No | none found | - | Yes ([evidence](https://musicbrainz.org/recording/be6fc387-997d-477d-b51c-a60d9b24d07d)) |
 | 7 | Why Does It Hurt When I Pee? | 2:36 | No | Yes | [s3098900](https://www.songsterr.com/a/wsa/frank-zappa-tab-s3098900) (human, 527 drum notes) | - | n/a, transcription exists |
 | 8 | Lucille Has Messed My Mind Up | 5:43 | Yes | Yes | [s187088](https://www.songsterr.com/a/wsa/frank-zappa-tab-s187088) (AI, 1,049 drum notes) | - | n/a, transcription exists |
 | 9 | Scrutinizer Postlude | 1:35 | No | No | none found | - | Unconfirmed ([evidence](https://musicbrainz.org/recording/30507086-9f80-4e5a-a417-46decce73e1a)) |
-| 10 | A Token of My Extreme | 5:30 | No | No | none found | - | n/a, transcription exists |
+| 10 | A Token of My Extreme | 5:30 | No | No | none found | [s817574](https://www.songsterr.com/a/wsa/frank-zappa-tab-s817574) (-95%) | n/a, transcription exists |
 | 11 | Stick It Out | 4:34 | No | No | none found | - | Yes ([evidence](https://musicbrainz.org/recording/5c8dc711-b5fe-495f-b429-152e9087f7ec)) |
 | 12 | Sy Borg | 8:56 | Yes | Yes | [s3362954](https://www.songsterr.com/a/wsa/frank-zappa-tab-s3362954) (AI, 2,376 drum notes) | - | n/a, transcription exists |
 | 13 | Dong Work for Yuda | 5:03 | Yes | Yes | [s768189](https://www.songsterr.com/a/wsa/frank-zappa-tab-s768189) (AI, 1,606 drum notes) | - | n/a, transcription exists |
-| 14 | Keep It Greasey | 8:22 | No (AI tab exists, not the album take) | Yes | [s604777](https://www.songsterr.com/a/wsa/frank-zappa-tab-s604777) (human, 4,948 drum notes) | - | n/a, transcription exists |
+| 14 | Keep It Greasey | 8:22 | No (AI tab exists, not the album take) | Yes | [s604777](https://www.songsterr.com/a/wsa/frank-zappa-tab-s604777) (human, 4,948 drum notes) | [s2832032](https://www.songsterr.com/a/wsa/frank-zappa-tab-s2832032) (-65%) | n/a, transcription exists |
 | 15 | Outside Now | 5:50 | Yes | Yes | [s1200335](https://www.songsterr.com/a/wsa/frank-zappa-tab-s1200335) (AI, 1,537 drum notes) | - | n/a, transcription exists |
 | 16 | He Used to Cut the Grass | 8:35 | No | No | none found | - | Yes ([evidence](https://musicbrainz.org/recording/e30a251a-8264-406d-810e-cfbdb95a1535)) |
 | 17 | Packard Goose | 11:34 | No | Yes | [s35875](https://www.songsterr.com/a/wsa/frank-zappa-tab-s35875) (human, 4,768 drum notes) | - | n/a, transcription exists |
