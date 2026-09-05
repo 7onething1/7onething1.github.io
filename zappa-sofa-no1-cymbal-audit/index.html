@@ -1,0 +1,200 @@
+<!doctype html>
+<html lang="en"><head><meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Sofa No. 1: the cymbal-on-every-beat audit</title>
+<style>
+:root{--cream:#f4ead8;--paper:#fbf5e9;--ink:#1c1a17;--rust:#b5462f;--mustard:#d9a441;
+--teal:#3f6b6b;--dusty:#8f6f5a;--line:#ddcdb2;--shade:#efe2cb;--green:#4a7c59;}
+*{box-sizing:border-box}
+body{margin:0;background:var(--cream);color:var(--ink);
+font:16px/1.6 "Futura","Avenir Next","Helvetica Neue",Helvetica,Arial,sans-serif}
+.wrap{max-width:1100px;margin:0 auto;padding:34px 22px 80px}
+header{border:3px solid var(--ink);background:var(--paper);padding:26px 28px;margin-bottom:24px}
+h1{margin:0;font-size:30px;letter-spacing:.05em;text-transform:uppercase}
+.sub{margin-top:8px;color:var(--dusty);font-size:14px;letter-spacing:.12em;text-transform:uppercase}
+.stats{display:flex;flex-wrap:wrap;gap:10px;margin-top:20px}
+.stat{border:2px solid var(--ink);background:var(--cream);padding:9px 15px;font-size:13px}
+.stat b{display:block;font-size:21px;color:var(--rust);font-variant-numeric:tabular-nums}
+h2{margin:40px 0 6px;font-size:19px;letter-spacing:.05em;text-transform:uppercase;
+border-bottom:3px solid var(--ink);padding-bottom:7px}
+h3{margin:24px 0 8px;font-size:14px;letter-spacing:.08em;text-transform:uppercase;color:var(--teal)}
+nav{background:var(--paper);border:2px solid var(--line);padding:15px 19px;margin-bottom:10px}
+nav a{display:inline-block;margin:4px 16px 4px 0;color:var(--teal);font-size:14px}
+a{color:var(--rust);text-decoration:none;border-bottom:1px solid rgba(181,70,47,.35)}
+a:hover{border-bottom-color:var(--rust)}
+table{width:100%;border-collapse:collapse;margin:14px 0;background:var(--paper);font-size:14px}
+th{background:var(--shade);text-align:left;padding:9px 11px;border:1px solid var(--line);
+font-size:11px;letter-spacing:.1em;text-transform:uppercase}
+td{padding:8px 11px;border:1px solid var(--line);vertical-align:top}
+tr:nth-child(even) td{background:rgba(239,226,203,.42)}
+tr.cymrow td{background:rgba(181,70,47,.10)}
+.num{text-align:right;white-space:nowrap;font-variant-numeric:tabular-nums}
+.mono{font-family:"SF Mono",Menlo,monospace;font-size:12.5px}
+.mut{color:var(--dusty);font-size:12px}
+.ok{color:var(--green);font-weight:700}.bad{color:var(--rust);font-weight:700}
+.mid{color:#a9761f;font-weight:700}
+.note{border-left:5px solid var(--mustard);background:var(--paper);padding:13px 17px;margin:16px 0;font-size:14.5px}
+.win{border-left-color:var(--green)}.warn{border-left-color:var(--rust)}
+.scroll{overflow-x:auto}
+.grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(232px,1fr));gap:14px;margin:16px 0}
+.card{border:2px solid var(--line);background:var(--paper);padding:15px 17px}
+.card b{display:block;font-size:11px;letter-spacing:.1em;text-transform:uppercase;color:var(--teal);margin-bottom:6px}
+.big{font-size:27px;color:var(--rust);font-weight:700;font-variant-numeric:tabular-nums}
+.strip{display:flex;flex-wrap:wrap;gap:2px;margin:14px 0;background:var(--paper);
+border:2px solid var(--line);padding:12px}
+.strip i{width:9px;height:26px;display:block;border-radius:1px}
+.s3{background:var(--rust)}.s2{background:var(--mustard)}
+.s1{background:#bcae90}.s0{background:var(--shade);border:1px solid var(--line)}
+.key{font-size:12px;color:var(--dusty);margin-top:6px}
+.key em{display:inline-block;width:11px;height:11px;vertical-align:-1px;margin:0 4px 0 12px;border-radius:1px}
+.barfill{display:block;height:11px;background:var(--rust);border-radius:1px}
+footer{margin-top:52px;border-top:3px solid var(--ink);padding-top:16px;font-size:13px;color:var(--dusty)}
+code{background:var(--shade);padding:1px 5px;font-family:"SF Mono",Menlo,monospace;font-size:12.5px}
+</style></head><body><div class=wrap>
+
+<header>
+<h1>Sofa No. 1: the cymbal-on-every-beat audit</h1>
+<div class=sub>Songsterr AI tab s6822181 r8906238 &middot; Frank Zappa, One Size Fits All, 1975 &middot; built 2026-09-05</div>
+<div class=stats>
+<div class=stat><b>81.0%</b>of notated beats carry a cymbal</div>
+<div class=stat><b>75/99</b>bars saturated on every beat</div>
+<div class=stat><b>92.0%</b>of cymbal gaps are one quarter note</div>
+<div class=stat><b>201:11</b>ride against closed hat</div>
+<div class=stat><b>75</b>cymbals with nothing under them</div>
+</div>
+</header>
+
+<nav><b style="letter-spacing:.1em;font-size:11px;text-transform:uppercase;color:#8f6f5a">Contents</b><br>
+<a href="#claim">The claim</a><a href="#what">What the tab is</a><a href="#count">The count</a>
+<a href="#strip">Bar by bar</a><a href="#sections">Against Zappa's own sections</a>
+<a href="#patterns">The repeated bars</a><a href="#spacing">Onset spacing</a>
+<a href="#meter">The meter trap</a><a href="#open">What is not proven</a><a href="#sources">Sources</a></nav>
+
+<h2 id=claim>The claim</h2>
+<p>Brandon, listening to the tab against the record: <em>&ldquo;it&rsquo;s like the AI Songsterr
+puts a cymbal or hi-hat hit on every beat even when there&rsquo;s not.&rdquo;</em>
+This page measures that against the tab&rsquo;s own note data. The verdict on the notation is
+that the description is accurate. The verdict on the recording is still open, and the last
+section says exactly why.</p>
+
+<h2 id=what>What this tab is</h2>
+<div class=grid>
+<div class=card><b>Tab</b>s6822181, revision r8906238<br><span class=mut>4 tracks, drums at index 3</span></div>
+<div class=card><b>Origin</b><span class=mono>aiGenerated: true</span><br><span class=mono>createdVia: "AI"</span><br><span class=mut>created 2026-09-05 16:50Z under Brandon&rsquo;s own account</span></div>
+<div class=card><b>Synced to</b>YouTube <span class=mono>mgIK23Karm4</span><br><span class=mut>FrankZappaVEVO studio visualiser</span></div>
+<div class=card><b>Drummer on the take</b>Chester Thompson<br><span class=mut>per MusicBrainz recording credit</span></div>
+<div class=card><b>Tab length</b><span class=big>2:38.3</span><span class=mut>99 bars at 116 BPM, against a 2:39 album track</span></div>
+<div class=card><b>Drum notes</b><span class=big>636</span><span class=mut>39.5% of them cymbal or hat</span></div>
+</div>
+<div class="note win"><b>Why this tab is fair game.</b> It was generated under Brandon&rsquo;s own
+account, so revising it breaks no rule about other transcribers&rsquo; work.</div>
+
+<h2 id=count>The count</h2>
+<div class=scroll><table>
+<tr><th>MIDI</th><th>Lane</th><th class=num>Notes</th><th class=num>Share</th><th>Family</th></tr>
+<tr><td class=mono>36</td><td>Kick</td><td class=num>203</td><td class=num>31.9%</td><td></td></tr><tr class=cymrow><td class=mono>51</td><td>Ride</td><td class=num>201</td><td class=num>31.6%</td><td>cymbal / hat</td></tr><tr><td class=mono>38</td><td>Snare</td><td class=num>119</td><td class=num>18.7%</td><td></td></tr><tr><td class=mono>45</td><td>Tom low</td><td class=num>41</td><td class=num>6.4%</td><td></td></tr><tr class=cymrow><td class=mono>49</td><td>Crash</td><td class=num>39</td><td class=num>6.1%</td><td>cymbal / hat</td></tr><tr><td class=mono>43</td><td>Floor tom hi</td><td class=num>14</td><td class=num>2.2%</td><td></td></tr><tr class=cymrow><td class=mono>42</td><td>Closed hat</td><td class=num>11</td><td class=num>1.7%</td><td>cymbal / hat</td></tr><tr><td class=mono>48</td><td>Tom hi-mid</td><td class=num>5</td><td class=num>0.8%</td><td></td></tr><tr><td class=mono>47</td><td>Tom low-mid</td><td class=num>3</td><td class=num>0.5%</td><td></td></tr></table></div>
+<p><b>Ride 51 carries 201 notes. Closed hat 42 carries 11.</b> The generator picked one cymbal
+and parked on it for the length of the piece.</p>
+
+<h3>Occupancy of notated beats</h3>
+<div class=grid>
+<div class=card><b>Notated beats in the track</b><span class=big>306</span></div>
+<div class=card><b>Carrying any drum onset</b><span class=big>290</span><span class=mut>94.8%</span></div>
+<div class=card><b>Carrying a cymbal or hat</b><span class=big>248</span><span class=mut>81.0%</span></div>
+<div class=card><b>Bars saturated on every beat</b><span class=big>75</span><span class=mut>of 99, 75.8%</span></div>
+<div class=card><b>Longest unbroken saturated run</b><span class=big>20 bars</span><span class=mut>from bar 2</span></div>
+<div class=card><b>Cymbals with no kick, snare or tom</b><span class=big>75</span><span class=mut>a bare stroke on a beat</span></div>
+</div>
+
+<h2 id=strip>Bar by bar</h2>
+<p>One tick per bar, left to right, bar 1 to bar 99. Hover any tick for its numbers.</p>
+<div class=strip><i class="s0" title="bar 1 (3/4) sec A: 0/3 beats carry a cymbal"></i><i class="s3" title="bar 2 (3/4) sec A: 3/3 beats carry a cymbal"></i><i class="s3" title="bar 3 (3/4) sec A: 3/3 beats carry a cymbal"></i><i class="s3" title="bar 4 (3/4) sec A: 3/3 beats carry a cymbal"></i><i class="s3" title="bar 5 (3/4) sec A: 3/3 beats carry a cymbal"></i><i class="s3" title="bar 6 (3/4) sec A: 3/3 beats carry a cymbal"></i><i class="s3" title="bar 7 (3/4) sec A: 3/3 beats carry a cymbal"></i><i class="s3" title="bar 8 (3/4) sec A: 3/3 beats carry a cymbal"></i><i class="s3" title="bar 9 (3/4) sec A: 3/3 beats carry a cymbal"></i><i class="s3" title="bar 10 (3/4) sec A: 3/3 beats carry a cymbal"></i><i class="s3" title="bar 11 (3/4) sec A: 3/3 beats carry a cymbal"></i><i class="s3" title="bar 12 (3/4) sec A: 3/3 beats carry a cymbal"></i><i class="s3" title="bar 13 (3/4) sec A: 3/3 beats carry a cymbal"></i><i class="s3" title="bar 14 (3/4) sec A: 3/3 beats carry a cymbal"></i><i class="s3" title="bar 15 (3/4) sec A: 3/3 beats carry a cymbal"></i><i class="s3" title="bar 16 (3/4) sec A: 3/3 beats carry a cymbal"></i><i class="s3" title="bar 17 (3/4) sec A: 3/3 beats carry a cymbal"></i><i class="s3" title="bar 18 (3/4) sec A: 3/3 beats carry a cymbal"></i><i class="s3" title="bar 19 (3/4) sec A: 3/3 beats carry a cymbal"></i><i class="s3" title="bar 20 (3/4) sec A: 3/3 beats carry a cymbal"></i><i class="s3" title="bar 21 (3/4) sec A: 3/3 beats carry a cymbal"></i><i class="s1" title="bar 22 (3/4) sec A: 1/3 beats carry a cymbal"></i><i class="s3" title="bar 23 (3/4) sec B: 3/3 beats carry a cymbal"></i><i class="s3" title="bar 24 (3/4) sec B: 3/3 beats carry a cymbal"></i><i class="s3" title="bar 25 (3/4) sec B: 3/3 beats carry a cymbal"></i><i class="s3" title="bar 26 (3/4) sec B: 3/3 beats carry a cymbal"></i><i class="s3" title="bar 27 (3/4) sec B: 3/3 beats carry a cymbal"></i><i class="s1" title="bar 28 (3/4) sec B: 1/3 beats carry a cymbal"></i><i class="s3" title="bar 29 (3/4) sec B: 3/3 beats carry a cymbal"></i><i class="s3" title="bar 30 (3/4) sec B: 3/3 beats carry a cymbal"></i><i class="s3" title="bar 31 (3/4) sec B: 3/3 beats carry a cymbal"></i><i class="s3" title="bar 32 (3/4) sec B: 3/3 beats carry a cymbal"></i><i class="s3" title="bar 33 (3/4) sec B: 3/3 beats carry a cymbal"></i><i class="s3" title="bar 34 (3/4) sec B: 3/3 beats carry a cymbal"></i><i class="s3" title="bar 35 (3/4) sec B: 3/3 beats carry a cymbal"></i><i class="s0" title="bar 36 (3/4) sec B: 0/3 beats carry a cymbal"></i><i class="s3" title="bar 37 (3/4) sec C: 3/3 beats carry a cymbal"></i><i class="s3" title="bar 38 (3/4) sec C: 3/3 beats carry a cymbal"></i><i class="s3" title="bar 39 (3/4) sec C: 3/3 beats carry a cymbal"></i><i class="s3" title="bar 40 (3/4) sec C: 3/3 beats carry a cymbal"></i><i class="s3" title="bar 41 (3/4) sec C: 3/3 beats carry a cymbal"></i><i class="s3" title="bar 42 (3/4) sec C: 3/3 beats carry a cymbal"></i><i class="s3" title="bar 43 (3/4) sec C: 3/3 beats carry a cymbal"></i><i class="s3" title="bar 44 (3/4) sec C: 3/3 beats carry a cymbal"></i><i class="s3" title="bar 45 (3/4) sec C: 3/3 beats carry a cymbal"></i><i class="s3" title="bar 46 (3/4) sec C: 3/3 beats carry a cymbal"></i><i class="s3" title="bar 47 (3/4) sec C: 3/3 beats carry a cymbal"></i><i class="s0" title="bar 48 (3/4) sec C: 0/3 beats carry a cymbal"></i><i class="s3" title="bar 49 (3/4) sec C: 3/3 beats carry a cymbal"></i><i class="s3" title="bar 50 (3/4) sec C: 3/3 beats carry a cymbal"></i><i class="s3" title="bar 51 (3/4) sec C: 3/3 beats carry a cymbal"></i><i class="s3" title="bar 52 (3/4) sec C: 3/3 beats carry a cymbal"></i><i class="s3" title="bar 53 (3/4) sec C: 3/3 beats carry a cymbal"></i><i class="s3" title="bar 54 (3/4) sec C: 3/3 beats carry a cymbal"></i><i class="s3" title="bar 55 (3/4) sec C: 3/3 beats carry a cymbal"></i><i class="s3" title="bar 56 (3/4) sec C: 3/3 beats carry a cymbal"></i><i class="s3" title="bar 57 (3/4) sec C: 3/3 beats carry a cymbal"></i><i class="s3" title="bar 58 (3/4) sec C: 3/3 beats carry a cymbal"></i><i class="s3" title="bar 59 (3/4) sec C: 3/3 beats carry a cymbal"></i><i class="s3" title="bar 60 (3/4) sec C: 3/3 beats carry a cymbal"></i><i class="s1" title="bar 61 (3/4) sec C: 1/3 beats carry a cymbal"></i><i class="s1" title="bar 62 (3/4) sec C: 1/3 beats carry a cymbal"></i><i class="s3" title="bar 63 (3/4) sec C: 3/3 beats carry a cymbal"></i><i class="s3" title="bar 64 (3/4) sec C: 3/3 beats carry a cymbal"></i><i class="s3" title="bar 65 (3/4) sec D: 3/3 beats carry a cymbal"></i><i class="s3" title="bar 66 (3/4) sec D: 3/3 beats carry a cymbal"></i><i class="s3" title="bar 67 (3/4) sec D: 3/3 beats carry a cymbal"></i><i class="s2" title="bar 68 (3/4) sec D: 2/3 beats carry a cymbal"></i><i class="s3" title="bar 69 (3/4) sec D: 3/3 beats carry a cymbal"></i><i class="s3" title="bar 70 (3/4) sec D: 3/3 beats carry a cymbal"></i><i class="s2" title="bar 71 (3/4) sec D: 2/3 beats carry a cymbal"></i><i class="s3" title="bar 72 (3/4) sec D: 3/3 beats carry a cymbal"></i><i class="s3" title="bar 73 (3/4) sec D: 3/3 beats carry a cymbal"></i><i class="s3" title="bar 74 (3/4) sec D: 3/3 beats carry a cymbal"></i><i class="s3" title="bar 75 (3/4) sec D: 3/3 beats carry a cymbal"></i><i class="s3" title="bar 76 (3/4) sec D: 3/3 beats carry a cymbal"></i><i class="s2" title="bar 77 (3/4) sec D: 2/3 beats carry a cymbal"></i><i class="s0" title="bar 78 (3/4) sec D: 0/3 beats carry a cymbal"></i><i class="s3" title="bar 79 (3/4) sec D: 3/3 beats carry a cymbal"></i><i class="s3" title="bar 80 (3/4) sec E: 3/3 beats carry a cymbal"></i><i class="s3" title="bar 81 (3/4) sec E: 3/3 beats carry a cymbal"></i><i class="s3" title="bar 82 (3/4) sec E: 3/3 beats carry a cymbal"></i><i class="s2" title="bar 83 (4/4) sec E: 3/4 beats carry a cymbal"></i><i class="s1" title="bar 84 (5/4) sec E: 1/5 beats carry a cymbal"></i><i class="s1" title="bar 85 (3/4) sec E: 1/3 beats carry a cymbal"></i><i class="s0" title="bar 86 (3/4) sec E: 0/3 beats carry a cymbal"></i><i class="s3" title="bar 87 (3/4) sec E: 3/3 beats carry a cymbal"></i><i class="s3" title="bar 88 (3/4) sec E: 3/3 beats carry a cymbal"></i><i class="s3" title="bar 89 (3/4) sec E: 3/3 beats carry a cymbal"></i><i class="s2" title="bar 90 (4/4) sec E: 3/4 beats carry a cymbal"></i><i class="s1" title="bar 91 (4/4) sec E: 1/4 beats carry a cymbal"></i><i class="s3" title="bar 92 (4/4) sec E: 4/4 beats carry a cymbal"></i><i class="s0" title="bar 93 (3/4) sec E: 0/3 beats carry a cymbal"></i><i class="s1" title="bar 94 (4/4) sec E: 1/4 beats carry a cymbal"></i><i class="s0" title="bar 95 (2/4) sec E: 0/2 beats carry a cymbal"></i><i class="s1" title="bar 96 (4/4) sec E: 1/4 beats carry a cymbal"></i><i class="s0" title="bar 97 (3/4) sec E: 0/3 beats carry a cymbal"></i><i class="s1" title="bar 98 (4/4) sec E: 1/4 beats carry a cymbal"></i><i class="s0" title="bar 99 (4/4) sec E: 0/4 beats carry a cymbal"></i></div>
+<div class=key>
+<em class=s3 style="background:#b5462f"></em>every beat carries a cymbal
+<em class=s2 style="background:#d9a441"></em>most beats do
+<em class=s1 style="background:#bcae90"></em>some do
+<em class=s0 style="background:#efe2cb;border:1px solid #ddcdb2"></em>none
+</div>
+<div class="note"><b>Bar 83 is separately broken.</b> Its beat durations do not sum to its
+time signature, which renders as a misfilled bar regardless of the cymbal question.</div>
+
+<h2 id=sections>Against Zappa&rsquo;s own sections</h2>
+<p>Zappa marked this piece with capital-letter sections in his own scores, reproduced in the
+Hal Leonard <em>One Size Fits All</em> guitar book and catalogued by Kasper Sloots. Reading
+those bar ranges and timestamps as 3/4 returns <b>116.5, 114.5, 117.2, 122.7 and 116.8 BPM</b>
+per section against the tab&rsquo;s stated 116. Two independent sources land on the same meter
+and tempo, which is what licenses every number on this page.</p>
+<div class=scroll><table>
+<tr><th>Section</th><th class=num>Bars</th><th class=num>Starts</th><th class=num>Beats</th>
+<th class=num>With cymbal</th><th class=num>Saturation</th><th class=num>Full bars</th>
+<th class=num>Ride</th><th class=num>Hat</th><th class=num>Crash</th></tr>
+<tr><td><b>A</b> <span class=mut>main theme</span></td><td class=num>1&ndash;22</td><td class=num>0:00</td><td class=num>66</td><td class=num>61</td><td class='num bad'>92.4%</td><td class=num>20/22</td><td class=num>55</td><td class=num>0</td><td class=num>6</td></tr><tr><td><b>B</b> <span class=mut>F-Em-Dm-G</span></td><td class=num>23&ndash;36</td><td class=num>0:34</td><td class=num>42</td><td class=num>37</td><td class='num bad'>88.1%</td><td class=num>12/14</td><td class=num>37</td><td class=num>0</td><td class=num>0</td></tr><tr><td><b>C</b> <span class=mut>variation on the main theme</span></td><td class=num>37&ndash;64</td><td class=num>0:56</td><td class=num>84</td><td class=num>77</td><td class='num bad'>91.7%</td><td class=num>25/28</td><td class=num>54</td><td class=num>11</td><td class=num>14</td></tr><tr><td><b>D</b> <span class=mut>steady G pedal, G Mixolydian</span></td><td class=num>65&ndash;79</td><td class=num>1:39</td><td class=num>45</td><td class=num>39</td><td class='num bad'>86.7%</td><td class=num>11/15</td><td class=num>36</td><td class=num>0</td><td class=num>3</td></tr><tr><td><b>E</b> <span class=mut>outro, ends on a sustained A</span></td><td class=num>80&ndash;103</td><td class=num>2:01</td><td class=num>69</td><td class=num>34</td><td class='num ok'>49.3%</td><td class=num>7/20</td><td class=num>19</td><td class=num>0</td><td class=num>16</td></tr></table></div>
+<div class="note"><b>The tab does change at every section boundary.</b> No single bar is pasted 99 times.
+What it does is hold 86% to 92% cymbal saturation across four consecutive sections that
+Zappa wrote as distinct music, and drop to 49% only in the outro.</div>
+<div class="note warn"><b>Zappa&rsquo;s score runs 103 bars. The tab runs 99.</b> The tab is
+four bars short of the published structure.</div>
+
+<h2 id=patterns>The repeated bars</h2>
+<p>Positions are in quarter notes from the barline. <span class=mono>K</span> kick,
+<span class=mono>S</span> snare, <span class=mono>RD</span> ride,
+<span class=mono>CR</span> crash, <span class=mono>hh</span> closed hat.</p>
+<div class=scroll><table>
+<tr><th class=num>Count</th><th>Bar content</th><th>Note</th></tr>
+<tr><td class=num><b>21&times;</b></td><td class=mono><b>0</b>&nbsp;K+RD &nbsp;|&nbsp; <b>1</b>&nbsp;RD &nbsp;|&nbsp; <b>2</b>&nbsp;S+RD &nbsp;|&nbsp; <b>3/2</b>&nbsp;K &nbsp;|&nbsp; <b>5/2</b>&nbsp;K</td><td><span class=bad>cymbal on every beat</span></td></tr><tr><td class=num><b>10&times;</b></td><td class=mono><b>0</b>&nbsp;K+CR &nbsp;|&nbsp; <b>1</b>&nbsp;RD &nbsp;|&nbsp; <b>2</b>&nbsp;S+RD &nbsp;|&nbsp; <b>5/2</b>&nbsp;K</td><td><span class=bad>cymbal on every beat</span></td></tr><tr><td class=num><b>9&times;</b></td><td class=mono><b>0</b>&nbsp;K+RD &nbsp;|&nbsp; <b>1</b>&nbsp;RD &nbsp;|&nbsp; <b>2</b>&nbsp;S+RD &nbsp;|&nbsp; <b>5/2</b>&nbsp;K</td><td><span class=bad>cymbal on every beat</span></td></tr><tr><td class=num><b>5&times;</b></td><td class=mono><b>0</b>&nbsp;K+RD &nbsp;|&nbsp; <b>1</b>&nbsp;RD &nbsp;|&nbsp; <b>2</b>&nbsp;S+RD &nbsp;|&nbsp; <b>3/2</b>&nbsp;K</td><td><span class=bad>cymbal on every beat</span></td></tr><tr><td class=num><b>4&times;</b></td><td class=mono><b>0</b>&nbsp;K+CR &nbsp;|&nbsp; <b>1</b>&nbsp;hh &nbsp;|&nbsp; <b>2</b>&nbsp;S+hh &nbsp;|&nbsp; <b>5/2</b>&nbsp;K</td><td><span class=bad>cymbal on every beat</span></td></tr><tr><td class=num><b>3&times;</b></td><td class=mono><b>0</b>&nbsp;K+RD &nbsp;|&nbsp; <b>1</b>&nbsp;RD &nbsp;|&nbsp; <b>2</b>&nbsp;K+RD</td><td><span class=bad>cymbal on every beat</span></td></tr></table></div>
+<p><b>The five most repeated bars are the same idea five ways: a cymbal on beat 1, beat 2 and
+beat 3.</b> Between them they account for 49 of the 99 bars. The single most common bar,
+kick+ride, ride, snare+ride, appears 21 times. Across the whole track there are 46 distinct
+bar patterns for 99 bars.</p>
+
+<h2 id=spacing>Onset spacing</h2>
+<p>The gap between one cymbal onset and the next, over all 251 of them.</p>
+<div class=scroll><table>
+<tr><th>Gap, quarter notes</th><th class=num>Count</th><th class=num>Share</th><th>&nbsp;</th></tr>
+<tr><td class=mono>1</td><td class=num>230</td><td class=num>92.0%</td><td><span class=barfill style='width:92.0%'></span></td></tr><tr><td class=mono>4</td><td class=num>4</td><td class=num>1.6%</td><td><span class=barfill style='width:1.6%'></span></td></tr><tr><td class=mono>3/2</td><td class=num>4</td><td class=num>1.6%</td><td><span class=barfill style='width:1.6%'></span></td></tr><tr><td class=mono>2</td><td class=num>4</td><td class=num>1.6%</td><td><span class=barfill style='width:1.6%'></span></td></tr><tr><td class=mono>3</td><td class=num>2</td><td class=num>0.8%</td><td><span class=barfill style='width:0.8%'></span></td></tr><tr><td class=mono>6</td><td class=num>2</td><td class=num>0.8%</td><td><span class=barfill style='width:0.8%'></span></td></tr><tr><td class=mono>5</td><td class=num>1</td><td class=num>0.4%</td><td><span class=barfill style='width:0.6%'></span></td></tr></table></div>
+<p><b>230 of 250 gaps are exactly one quarter note.</b> A drummer playing a slow waltz leaves gaps of
+several sizes across a piece. This one holds a single size for 92% of it.</p>
+
+<h2 id=meter>The meter trap, stated because it nearly produced the wrong answer</h2>
+<p>Songsterr writes <code>signature</code> into a bar <b>only when the meter changes</b>.
+Reading each bar independently and defaulting to 4/4 reports this piece as 93 bars of 4/4
+and gives <b>63.4%</b> saturation with <b>1</b> fully saturated bar. Carrying the signature
+forward gives 89 bars of 3/4, <b>81.0%</b> saturation and <b>75</b> fully saturated bars.
+Same file, same script, opposite verdict, no error raised.</p>
+<p>Two checks catch it. Every bar&rsquo;s durations must sum to its bar length, and the summed
+bar lengths at the stated tempo must land on the record&rsquo;s runtime. The correct reading
+gives 2:38.3 against a 2:39 track. The wrong one gives 3:22.</p>
+
+<h2 id=open>What this page does not prove</h2>
+<div class="note warn">
+<p><b>Every number here measures the notation. None of them measures Chester Thompson.</b>
+Proving that a written cymbal is absent from the record needs the recording split into
+separate cymbal lanes. A mixed Demucs drums stem holds kick, snare, toms, hat, ride and crash together
+and cannot say which one was struck; on Cosmik Debris that same shortcut produced two wrong
+verdicts that the six-lane split overturned.</p>
+<p>The remaining work is queued: pull <span class=mono>mgIK23Karm4</span>, Demucs to a drums
+stem, run <span class=mono>separator_resumable.py</span> for the six-lane split, then score
+all 248 written cymbal beats against <span class=mono>ride.wav</span> and
+<span class=mono>hh.wav</span>.</p>
+</div>
+<div class=note><b>One inventory row is now stale.</b> The Zappa drum transcription inventory
+was built at 12:10 on 2026-09-05 and records Sofa No. 1 as having no drum tab of the album
+take. This tab was created at 16:50, so it is the first.</div>
+
+<h2 id=sources>Sources</h2>
+<table>
+<tr><th>What</th><th>Where</th></tr>
+<tr><td>Tab metadata and per-track notes</td><td class=mono>songsterr.com/api/meta/6822181 &rarr; dqsljvtekg760.cloudfront.net/6822181/8906238/&lt;hash&gt;/3.json</td></tr>
+<tr><td>Live editor export</td><td class=mono>frank zappa-Sofa No. 1-09-05-2026.gp</td></tr>
+<tr><td>Section letters, bar ranges, timestamps</td><td>Hal Leonard <em>One Size Fits All</em> guitar book, via Kasper Sloots, <span class=mono>zappa-analysis/one-size-fits-all.htm</span></td></tr>
+<tr><td>Drum credit for the album take</td><td><a href="https://musicbrainz.org/recording/c541a734-bc6a-437d-a2cd-76525ad307b0">MusicBrainz recording</a></td></tr>
+<tr><td>Analysis scripts</td><td class=mono>~/Projects/_outputs/zappa-sofa-no1-cymbal-audit/analysis/</td></tr>
+<tr><td>Related audit</td><td><a href="https://7onething1.github.io/zappa-cosmik-debris-hihat-audit/">Cosmik Debris hi-hat audit</a>, <a href="https://7onething1.github.io/zappa-drum-transcription-inventory/">Zappa drum transcription inventory</a></td></tr>
+</table>
+
+<footer>
+Built 2026-09-05 from the live revision r8906238. Every figure on this page is reproducible
+from <span class=mono>analysis/analyze_tab.py</span> and <span class=mono>analysis/section_verdict.py</span>.
+The audio half is queued and unfinished, and is marked as such above.
+</footer>
+</div></body></html>
