@@ -1,11 +1,12 @@
 # 8/14 Drum Levels
 
-Generated 2026-09-05 07:44 CDT from `work/_chain_8_14.jsonl`.
+Generated 2026-09-05 07:47 CDT from `work/_chain_8_14.jsonl`.
 
 - Takes with drums: **8**
 - Drum-light: **9**
 - Not measured: **5**
-- Kit splits on disk: **9**
+- Usable kit splits: **8**
+- Kit folders on disk: **9** (the extra is `18_take80`, split before the gate existed, six near-silent stems)
 
 | Take | Verdict | Peak dBFS | RMS dBFS | Kit wavs |
 |---|---|---:|---:|---:|
@@ -29,7 +30,7 @@ Generated 2026-09-05 07:44 CDT from `work/_chain_8_14.jsonl`.
 | `16c` | not measured |  |  |  |
 | `16e` | not measured |  |  |  |
 | `17_take77` | not measured |  |  |  |
-| `18_take80` | drum-light | -33.4 | -61.4 | 6 |
+| `18_take80` | drum-light | -33.4 | -61.4 | 6 (near-silent) |
 | `19_take81` | not measured |  |  |  |
 
 Gate: a take splits when drums peak reaches -25 dBFS and RMS reaches -50 dBFS.
