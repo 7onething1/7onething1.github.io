@@ -163,7 +163,7 @@ the inverse returns **p = 2.8e-05**.
 **One block of five is right, and it is worth naming.** Bars 129 to 146 carry 143 closed and all 24
 of the tab's pedal notes, and that stretch measures 91.4 ms with a p90 of 148 ms, the tightest in the
 song. A pedal chick is choked by definition, so a short decay under a closed-and-pedal marking is the
-tab agreeing with the audio. The inversion is 4 blocks of 5, not 5 of 5.
+tab agreeing with the audio. The inversion covers 4 blocks of 5. Reporting it as 5 of 5 would turn a finding into a slogan.
 
 The earlier p = 0.80 was not wrong, it was blind. A drum stem carrying kick, snare, toms, ride and
 crash alongside the hat cannot answer a question about hi-hat articulation.
@@ -216,7 +216,7 @@ With `hh.wav` and `ride.wav` separated, the tab's lane call is checkable against
 | HAT | 107.5-117.1s | 0.02465 | 0.00503 | 4.90 | correct |
 | **RIDE** | 126.6-129.7s | 0.03288 | 0.00064 | 51.36 | wrong, ride lane near silent |
 
-**Hat calls 12 of 12 correct. Ride calls 0 of 7.** Where the tab writes ride, the isolated ride lane is
+**Hat calls 14 of 14 correct. Ride calls 0 of 7.** Where the tab writes ride, the isolated ride lane is
 quiet and the hi-hat lane is loud, with a median hh/ride of 3.92 across the seven, against a baseline of 4.92. The
 ride is also louder inside the tab's hat sections than inside its ride sections, a straight
 inversion.
