@@ -1,0 +1,324 @@
+<!doctype html>
+<html lang="en"><head><meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Zappa Repair State</title>
+<style>
+:root{--cream:#F6F1E4;--ink:#141210;--rule:#D8CEB8;
+--c1:#9A8822;--c2:#F5CDB4;--c3:#F8AFA8;--c4:#FDDDA0;--c5:#74A089;--c6:#899DA4;--c7:#DC863B;}
+*{box-sizing:border-box}
+body{margin:0;background:var(--cream);color:var(--ink);
+font:16px/1.65 "Inter","Helvetica Neue",Helvetica,Arial,sans-serif}
+.wrap{max-width:1120px;margin:0 auto;padding:40px 24px 80px}
+h1{font-family:Cormorant Garamond,Georgia,serif;font-size:54px;line-height:1.03;margin:0 0 6px;letter-spacing:-.02em}
+.sub{font-size:17px;color:#5C5346;margin:0 0 4px}
+.stamp{font:12px/1.5 "JetBrains Mono",ui-monospace,Menlo,monospace;color:#7A7060;letter-spacing:.05em;text-transform:uppercase}
+h2{font-family:Cormorant Garamond,Georgia,serif;font-size:32px;margin:52px 0 4px}
+h2 .n{font:11px/1 "JetBrains Mono",ui-monospace,monospace;vertical-align:super;color:#9A907E;margin-right:9px}
+.lede{color:#5C5346;margin:0 0 18px;max-width:76ch}
+.q{border:2px solid var(--ink);border-left-width:13px;background:#FFFDF7;padding:20px 24px;margin:26px 0}
+.q.no{border-left-color:var(--c7)}
+.q b{display:block;font-family:Cormorant Garamond,Georgia,serif;font-size:24px;margin-bottom:7px}
+.grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(200px,1fr));gap:14px;margin:22px 0}
+.stat{border:1px solid var(--rule);background:#FFFDF7;padding:16px 18px;border-top:6px solid var(--c1)}
+.stat:nth-child(2){border-top-color:var(--c7)}.stat:nth-child(3){border-top-color:var(--c4)}
+.stat:nth-child(4){border-top-color:var(--c5)}.stat:nth-child(5){border-top-color:var(--c6)}
+.stat .k{font:11px/1.4 "JetBrains Mono",ui-monospace,monospace;text-transform:uppercase;letter-spacing:.07em;color:#7A7060}
+.stat .v{font-family:Cormorant Garamond,Georgia,serif;font-size:42px;line-height:1.05;margin:4px 0 2px}
+.stat .d{font-size:13px;color:#5C5346}
+table{border-collapse:collapse;width:100%;margin:16px 0;font-size:14px;background:#FFFDF7}
+th,td{border:1px solid var(--rule);padding:8px 10px;text-align:left}
+th{background:#EFE7D4;font:11px/1.4 "JetBrains Mono",ui-monospace,monospace;text-transform:uppercase;letter-spacing:.05em}
+td.num{font-family:"JetBrains Mono",ui-monospace,monospace;text-align:right;white-space:nowrap}
+td.pt{font-size:12.5px;color:#5C5346}
+.bar{height:14px;display:inline-block;vertical-align:middle}
+.v{font:10px/1 "JetBrains Mono",ui-monospace,monospace;padding:4px 6px;border:1px solid rgba(0,0,0,.3);text-transform:uppercase;white-space:nowrap}
+.scroll{overflow-x:auto}
+.card{border:1px solid var(--rule);background:#FFFDF7;padding:17px 20px;margin:13px 0;border-left:8px solid var(--c6)}
+.card.bad{border-left-color:var(--c7)}.card.ok{border-left-color:var(--c5)}
+.card .t{font-weight:700;margin-bottom:5px}
+code{font:12.5px/1.5 "JetBrains Mono",ui-monospace,monospace;background:#EFE7D4;padding:1px 5px}
+a{color:#6B7F2E;text-underline-offset:3px}
+footer{margin-top:58px;border-top:1px solid var(--rule);padding-top:17px;
+font:12px/1.7 "JetBrains Mono",ui-monospace,monospace;color:#7A7060}
+</style></head><body><div class="wrap">
+
+<p class="stamp">Measured live 2026-09-05</p>
+<h1>Zappa Repair State</h1>
+<p class="sub">Two questions Brandon asked, answered from Songsterr's own served data.</p>
+
+<div class="q no">
+<b>1. Are all the ghost notes fixed?</b>
+No. <b>3,870 of 4,574 drum ghost flags are still missing from the live tabs.</b>
+17 of the 24 damaged drum parts are still fully stripped, 1 is partial,
+and the 6 reading RESTORED are the ones whose stripping revision never took
+effect. Zomby Woof <code>s412162</code>, the song this whole chat covered, reads
+<b>0 of 32</b>.
+</div>
+
+<div class="q no">
+<b>2. Do the uploaded songs match the transcriptions?</b>
+No, and that work has barely begun. Exactly <b>one</b> song has a bar-level comparison
+against a printed chart, Zomby Woof bars 1 to 9. It ends with a <b>10-event gap</b>
+unexplained, Ryan Brown 137 against tab 127, and its own caveat says the counts are
+shape-filtered notehead counts rather than lane-resolved readings. No other song has a
+bar-level tab-versus-chart audit on disk.
+</div>
+
+<div class="grid">
+<div class="stat"><div class="k">Ghosts pre-sweep</div><div class="v">4,574</div><div class="d">on drum parts, per the ledger</div></div>
+<div class="stat"><div class="k">Still missing</div><div class="v">3,870</div><div class="d">live on Songsterr right now</div></div>
+<div class="stat"><div class="k">Parts still stripped</div><div class="v">17</div><div class="d">of 24 damaged drum parts</div></div>
+<div class="stat"><div class="k">Genuinely restored</div><div class="v">6</div><div class="d">mostly never stripped at all</div></div>
+<div class="stat"><div class="k">Songs chart-audited</div><div class="v">1</div><div class="d">Zomby Woof, bars 1 to 9</div></div>
+</div>
+
+<h2><span class="n">01</span>Every damaged drum part, live</h2>
+<p class="lede">Ghost flags counted from Songsterr's own served part JSON for each tab's
+current live revision, restricted to the drum part the ledger names. Green is what is back,
+orange is what is gone.</p>
+
+<div class="scroll"><table>
+<tr><th>song</th><th>title</th><th>part</th><th>was</th><th>now</th><th>gap</th><th>restored vs missing</th><th>verdict</th></tr>
+<tr>
+<td class="num">35881</td>
+<td>Watermelon In Easter Hay</td>
+<td class="pt">Vinnie Colaiuta</td>
+<td class="num">1317</td>
+<td class="num">0</td>
+<td class="num"><b>1317</b></td>
+<td><span class="bar" style="width:0px;background:#74A089"></span><span class="bar" style="width:240px;background:#DC863B"></span></td>
+<td><span class="v" style="background:#DC863B">STILL STRIPPED</span></td></tr><tr>
+<td class="num">35886</td>
+<td>Muffin Man</td>
+<td class="pt">Terry Bozio</td>
+<td class="num">578</td>
+<td class="num">0</td>
+<td class="num"><b>578</b></td>
+<td><span class="bar" style="width:0px;background:#74A089"></span><span class="bar" style="width:105px;background:#DC863B"></span></td>
+<td><span class="v" style="background:#DC863B">STILL STRIPPED</span></td></tr><tr>
+<td class="num">620961</td>
+<td>Drowning Witch</td>
+<td class="pt">Drums</td>
+<td class="num">419</td>
+<td class="num">0</td>
+<td class="num"><b>419</b></td>
+<td><span class="bar" style="width:0px;background:#74A089"></span><span class="bar" style="width:76px;background:#DC863B"></span></td>
+<td><span class="v" style="background:#DC863B">STILL STRIPPED</span></td></tr><tr>
+<td class="num">35870</td>
+<td>Montana</td>
+<td class="pt">1 Ralph Humphrey</td>
+<td class="num">212</td>
+<td class="num">0</td>
+<td class="num"><b>212</b></td>
+<td><span class="bar" style="width:0px;background:#74A089"></span><span class="bar" style="width:38px;background:#DC863B"></span></td>
+<td><span class="v" style="background:#DC863B">STILL STRIPPED</span></td></tr><tr>
+<td class="num">1105085</td>
+<td>The Black Page</td>
+<td class="pt">Drums</td>
+<td class="num">173</td>
+<td class="num">0</td>
+<td class="num"><b>173</b></td>
+<td><span class="bar" style="width:0px;background:#74A089"></span><span class="bar" style="width:31px;background:#DC863B"></span></td>
+<td><span class="v" style="background:#DC863B">STILL STRIPPED</span></td></tr><tr>
+<td class="num">35865</td>
+<td>Nanook Rubs It</td>
+<td class="pt">Drums</td>
+<td class="num">168</td>
+<td class="num">0</td>
+<td class="num"><b>168</b></td>
+<td><span class="bar" style="width:0px;background:#74A089"></span><span class="bar" style="width:30px;background:#DC863B"></span></td>
+<td><span class="v" style="background:#DC863B">STILL STRIPPED</span></td></tr><tr>
+<td class="num">35878</td>
+<td>Nanook Suite</td>
+<td class="pt">Drums</td>
+<td class="num">168</td>
+<td class="num">0</td>
+<td class="num"><b>168</b></td>
+<td><span class="bar" style="width:0px;background:#74A089"></span><span class="bar" style="width:30px;background:#DC863B"></span></td>
+<td><span class="v" style="background:#DC863B">STILL STRIPPED</span></td></tr><tr>
+<td class="num">412178</td>
+<td>Inca Roads</td>
+<td class="pt">Chester Thompson</td>
+<td class="num">165</td>
+<td class="num">0</td>
+<td class="num"><b>165</b></td>
+<td><span class="bar" style="width:0px;background:#74A089"></span><span class="bar" style="width:30px;background:#DC863B"></span></td>
+<td><span class="v" style="background:#DC863B">STILL STRIPPED</span></td></tr><tr>
+<td class="num">68248</td>
+<td>Carolina Hard-Core Ecstasy</td>
+<td class="pt">Drums</td>
+<td class="num">144</td>
+<td class="num">0</td>
+<td class="num"><b>144</b></td>
+<td><span class="bar" style="width:0px;background:#74A089"></span><span class="bar" style="width:26px;background:#DC863B"></span></td>
+<td><span class="v" style="background:#DC863B">STILL STRIPPED</span></td></tr><tr>
+<td class="num">35884</td>
+<td>Oh No</td>
+<td class="pt">Drums</td>
+<td class="num">141</td>
+<td class="num">0</td>
+<td class="num"><b>141</b></td>
+<td><span class="bar" style="width:0px;background:#74A089"></span><span class="bar" style="width:25px;background:#DC863B"></span></td>
+<td><span class="v" style="background:#DC863B">STILL STRIPPED</span></td></tr><tr>
+<td class="num">35870</td>
+<td>Montana</td>
+<td class="pt">Percussion</td>
+<td class="num">105</td>
+<td class="num">0</td>
+<td class="num"><b>105</b></td>
+<td><span class="bar" style="width:0px;background:#74A089"></span><span class="bar" style="width:19px;background:#DC863B"></span></td>
+<td><span class="v" style="background:#DC863B">STILL STRIPPED</span></td></tr><tr>
+<td class="num">68246</td>
+<td>Alien Orifice</td>
+<td class="pt">Chad Wackerman</td>
+<td class="num">86</td>
+<td class="num">0</td>
+<td class="num"><b>86</b></td>
+<td><span class="bar" style="width:0px;background:#74A089"></span><span class="bar" style="width:15px;background:#DC863B"></span></td>
+<td><span class="v" style="background:#DC863B">STILL STRIPPED</span></td></tr><tr>
+<td class="num">35887</td>
+<td>What&#x27;s New In Baltimore?</td>
+<td class="pt">Chad Wackerman</td>
+<td class="num">59</td>
+<td class="num">0</td>
+<td class="num"><b>59</b></td>
+<td><span class="bar" style="width:0px;background:#74A089"></span><span class="bar" style="width:10px;background:#DC863B"></span></td>
+<td><span class="v" style="background:#DC863B">STILL STRIPPED</span></td></tr><tr>
+<td class="num">748459</td>
+<td>Fembot In A Wet T-Shirt</td>
+<td class="pt">Vinnie Colaiuta</td>
+<td class="num">57</td>
+<td class="num">0</td>
+<td class="num"><b>57</b></td>
+<td><span class="bar" style="width:0px;background:#74A089"></span><span class="bar" style="width:10px;background:#DC863B"></span></td>
+<td><span class="v" style="background:#DC863B">STILL STRIPPED</span></td></tr><tr>
+<td class="num">412162</td>
+<td>Zomby Woof</td>
+<td class="pt">Ralph Humphrey</td>
+<td class="num">32</td>
+<td class="num">0</td>
+<td class="num"><b>32</b></td>
+<td><span class="bar" style="width:0px;background:#74A089"></span><span class="bar" style="width:5px;background:#DC863B"></span></td>
+<td><span class="v" style="background:#DC863B">STILL STRIPPED</span></td></tr><tr>
+<td class="num">20690</td>
+<td>Uncle Meat (YCDTOSA Vol. 2)</td>
+<td class="pt">Percussions</td>
+<td class="num">24</td>
+<td class="num">0</td>
+<td class="num"><b>24</b></td>
+<td><span class="bar" style="width:0px;background:#74A089"></span><span class="bar" style="width:4px;background:#DC863B"></span></td>
+<td><span class="v" style="background:#DC863B">STILL STRIPPED</span></td></tr><tr>
+<td class="num">749523</td>
+<td>Catholic Girls</td>
+<td class="pt">Drums</td>
+<td class="num">16</td>
+<td class="num">0</td>
+<td class="num"><b>16</b></td>
+<td><span class="bar" style="width:0px;background:#74A089"></span><span class="bar" style="width:3px;background:#DC863B"></span></td>
+<td><span class="v" style="background:#DC863B">STILL STRIPPED</span></td></tr><tr>
+<td class="num">412170</td>
+<td>Trouble Every Day (Live)</td>
+<td class="pt">Chad Wakerman - Percussion</td>
+<td class="num">9</td>
+<td class="num">3</td>
+<td class="num"><b>6</b></td>
+<td><span class="bar" style="width:1px;background:#74A089"></span><span class="bar" style="width:2px;background:#FDDDA0"></span></td>
+<td><span class="v" style="background:#FDDDA0">PARTIAL</span></td></tr><tr>
+<td class="num">21495</td>
+<td>Andy</td>
+<td class="pt">Drums</td>
+<td class="num">1</td>
+<td class="num">1</td>
+<td class="num"><b></b></td>
+<td><span class="bar" style="width:3px;background:#74A089"></span><span class="bar" style="width:0px;background:#74A089"></span></td>
+<td><span class="v" style="background:#74A089">RESTORED</span></td></tr><tr>
+<td class="num">35875</td>
+<td>Packard Goose</td>
+<td class="pt">Drums</td>
+<td class="num">3</td>
+<td class="num">3</td>
+<td class="num"><b></b></td>
+<td><span class="bar" style="width:3px;background:#74A089"></span><span class="bar" style="width:0px;background:#74A089"></span></td>
+<td><span class="v" style="background:#74A089">RESTORED</span></td></tr><tr>
+<td class="num">35883</td>
+<td>Zoot Allures</td>
+<td class="pt">Terry Bozio</td>
+<td class="num">53</td>
+<td class="num">53</td>
+<td class="num"><b></b></td>
+<td><span class="bar" style="width:9px;background:#74A089"></span><span class="bar" style="width:0px;background:#74A089"></span></td>
+<td><span class="v" style="background:#74A089">RESTORED</span></td></tr><tr>
+<td class="num">35889</td>
+<td>Peaches En Regalia</td>
+<td class="pt">Drums</td>
+<td class="num">14</td>
+<td class="num">14</td>
+<td class="num"><b></b></td>
+<td><span class="bar" style="width:3px;background:#74A089"></span><span class="bar" style="width:0px;background:#74A089"></span></td>
+<td><span class="v" style="background:#74A089">RESTORED</span></td></tr><tr>
+<td class="num">59089</td>
+<td>Black Napkins</td>
+<td class="pt">Terry Bozio</td>
+<td class="num">1</td>
+<td class="num">1</td>
+<td class="num"><b></b></td>
+<td><span class="bar" style="width:3px;background:#74A089"></span><span class="bar" style="width:0px;background:#74A089"></span></td>
+<td><span class="v" style="background:#74A089">RESTORED</span></td></tr><tr>
+<td class="num">604777</td>
+<td>Keep It Greasey</td>
+<td class="pt">Drums (Vinnie Colaiuta)</td>
+<td class="num">629</td>
+<td class="num">629</td>
+<td class="num"><b></b></td>
+<td><span class="bar" style="width:114px;background:#74A089"></span><span class="bar" style="width:0px;background:#74A089"></span></td>
+<td><span class="v" style="background:#74A089">RESTORED</span></td></tr>
+</table></div>
+
+<h2><span class="n">02</span>The claim that said this was finished</h2>
+<div class="card bad">
+<div class="t">Queue item <code>q-2026-09-05-ef3afd</code> is false</div>
+<p>It reads "Ghost restoration is finished (16 tabs, 3,842 flags, all verified live)."
+Measured live today, 3,870 drum ghost flags are still gone and 17 parts
+carry zero. The restorations that were built do exist, and they sit in pending moderation
+stacks that no moderator has taken, so they are not on the public tabs.</p>
+<p>The memory <code>reference_zappa_ghost_note_sweep_damage</code> was right all along at
+3,842 live flags dropped. Today's independent count is 3,870 on the same ledger, so
+the damage figure reproduces and the restoration figure does not.</p>
+</div>
+
+<h2><span class="n">03</span>Why RESTORED mostly means never broken</h2>
+<div class="card ok">
+<div class="t">The 6 green rows</div>
+<p>Zoot Allures <code>s35883</code> at 53 and Keep It Greasey <code>s604777</code> at 629
+show full counts because their stripping revisions were <b>rejected by moderators</b> and
+carry <code>isBlocked=true</code>, so they could never publish. Andy, Packard Goose,
+Peaches En Regalia and Black Napkins carry 1, 3, 14 and 1 flags, small enough that the
+sweep never landed on them. <b>Six of the seven green rows were saved by something other
+than the repair work.</b></p>
+</div>
+
+<h2><span class="n">04</span>What finishing actually requires</h2>
+<div class="card">
+<div class="t">Ghosts</div>
+<p>17 drum parts need a restoring revision each, one song per pass, and every one of them
+then needs a moderator to take it. The building is the smaller half. Nothing reaches the
+public tab without moderation, which is why 6 revisions on Zomby Woof alone are sitting
+unreviewed.</p>
+</div>
+<div class="card">
+<div class="t">Transcription matching</div>
+<p>22 songs have no bar-level chart comparison at all. The one that does covers 9 bars and
+ends on an unresolved 10-event gap. The sources are on disk at
+<code>~/Projects/_outputs/zappa-drum-sources/</code> across 12 publisher folders.</p>
+</div>
+
+<footer>
+Palette: The Royal Tenenbaums (Wes Anderson)<br>
+Method: for each song in <code>_defects.json</code>, fetch <code>api/meta/&lt;songId&gt;</code> for the
+live revisionId and image hash, then every part JSON from CloudFront, counting <code>"ghost":true</code>
+on the drum part the ledger names. Read-only, no writes.<br>
+Data: <a href="ghost_sweep.json">ghost_sweep.json</a><br>
+Related: <a href="https://7onething1.github.io/zappa-ghost-note-audit/">zappa-ghost-note-audit</a> &middot;
+<a href="https://7onething1.github.io/zappa-babysitter/">zappa-babysitter</a>
+</footer>
+</div></body></html>
