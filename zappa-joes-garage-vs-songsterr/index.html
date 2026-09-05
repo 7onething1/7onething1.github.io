@@ -191,10 +191,17 @@ current revisions, one of the two source tabs carries the count in its
 <span class="mono">staccato</span> field and the other carries no note-level flags whatsoever, so the
 two cannot come from one field. Rather than publish a number whose source is uncertain, this page
 omits the column and says why.</div>
-<div class="note warn"><b>The AI flag is two fields, and they disagree.</b> Songsterr exposes
-<span class="mono">aiGenerated</span> and <span class="mono">createdVia</span>. Some tabs read
-<span class="mono">aiGenerated=false</span> alongside <span class="mono">createdVia=AI</span>. A tab
-counts as AI here when either field says so, and both are printed per tab so the call is checkable.</div>
+<div class="note warn"><b>Correction, 5 September. The AI flag is two fields answering two
+questions.</b> Songsterr exposes <span class="mono">aiGenerated</span> and
+<span class="mono">createdVia</span>. A first version of this page counted a tab as AI when either one
+said so. Across 49 tabs that union changed exactly one row, and it changed it on the weaker signal:
+<span class="mono">s412177</span> Cosmik Debris reads <span class="mono">aiGenerated=false</span> with
+<span class="mono">createdVia=AI</span>, and carries <span class="mono">prevRevisionId 2010328</span>
+and 9,376 views. It is a long-standing tab whose latest revision was submitted through the AI route.
+<span class="mono">aiGenerated</span> records whether the tab originated as AI;
+<span class="mono">createdVia</span> records how the current revision was produced.
+<span class="mono">aiGenerated</span> is now the authority, and the revision route is reported beside
+it rather than merged into it. Both are printed per tab so the call stays checkable.</div>
 <div class="note"><b>The &plusmn;20 percent band is a choice.</b> It is wide enough to admit a tab that
 notates a fade or a count-in differently from the master, and narrow enough to exclude an excerpt. A
 tab sitting near the edge of the band is a coverage question rather than a settled verdict.</div>

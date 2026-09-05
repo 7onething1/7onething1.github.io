@@ -11,12 +11,11 @@ Album reference release: Apostrophe (’) / 1974 / 6933009f-2a2d-4c9b-aa1a-274b7
 - **AI transcription**: Songsterr's `aiGenerated` flag or `createdVia` reading `AI`.
 - **Has drums**: a drum staff carrying real notes, rests excluded.
 
-## What passed (2 of 14 tabs)
+## What passed (1 of 14 tabs)
 
 | Song | Tab | Bars | Tab length | Album | Delta | Drum notes | All staves |
 |---|---|---|---|---|---|---|---|
 | Apostrophe' (live) | s6035435 | 152 | 6:36 | 5:53 | +12.3% | 2,855 | 7,369 |
-| Cosmik Debris | s412177 | 80 | 4:19 | 4:10 | +3.8% | 1,581 | 3,360 |
 
 ## Every tab measured
 
@@ -25,7 +24,7 @@ Album reference release: Apostrophe (’) / 1974 / 6933009f-2a2d-4c9b-aa1a-274b7
 | Apostrophe' | s6035435 | AI | 152 | 6:36 | 5:53 | +12.3% | 2,855 | 7,369 | - |
 | Apostrophe' | s35873 | no | 125 | 5:48 | 5:53 | -1.2% | 0 | 3,351 | - |
 | Cosmik Debris | s1154774 | AI | 159 | 7:40 | 4:10 | +84.1% | 3,135 | 8,380 | - |
-| Cosmik Debris | s412177 | AI | 80 | 4:19 | 4:10 | +3.8% | 1,581 | 3,360 | - |
+| Cosmik Debris | s412177 | no | 80 | 4:19 | 4:10 | +3.8% | 1,581 | 3,360 | - |
 | Don't Eat The Yellow Snow | s6075883 | AI | 85 | 3:38 | 2:06 | +73.8% | 934 | 2,126 | - |
 | Don't Eat The Yellow Snow | s35866 | no | 38 | 1:50 | 2:06 | -12.4% | 560 | 2,720 | - |
 | Don't Eat The Yellow Snow | s2561609 | no | 4 | 0:12 | 2:06 | -90.3% | 0 | 44 | - |
