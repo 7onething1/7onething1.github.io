@@ -278,6 +278,37 @@ event belongs to, and separates genuine omissions from counting artifacts.</p>
 changes which drum sounds, so it gets decided from the charts on disk.</p>
 </div>
 
+<h2><span class="n">06b</span>Measured state of the live tab</h2>
+<p class="lede">Read from Songsterr's own CDN, read-only, after Brandon raised the concern
+that ghost notes were being removed.</p>
+
+<div class="scroll">
+<table>
+<tr><th>Field</th><th>Value</th><th>Reading</th></tr>
+<tr><td>live revisionId</td><td class="num">8814965</td>
+    <td>The original community revision, unchanged</td></tr>
+<tr><td>drum staff</td><td>Ralph Humphrey</td><td>track 9 of 10</td></tr>
+<tr><td>notes on that staff</td><td class="num">1573</td><td>matches the recorded baseline</td></tr>
+<tr><td>staccato</td><td class="num">32</td><td>present, the marks r8787022 left</td></tr>
+<tr><td>letRing</td><td class="num">0</td><td>requirement already met</td></tr>
+<tr><td><b>ghost field</b></td><td><b>absent from the schema</b></td>
+    <td><b>this layer cannot answer the ghost question either way</b></td></tr>
+</table>
+</div>
+
+<div class="card c">
+<div class="t">The zero that is not a finding</div>
+<p>A first pass counted ghost flags in this JSON and got zero on all ten tracks. That same
+pass got zero staccato, which is false, so the detector was wrong rather than the tab.
+Inventorying the real keys shows the schema carries <code>staccato</code>,
+<code>velocity</code>, <code>tie</code>, <code>tremolo</code> and
+<code>gradualVelocity</code>, and <b>no ghost key at all</b>. Ghosts live in the GPIF layer
+as <code>AntiAccent</code>, never here. Absence of the key is not absence of ghosts.</p>
+<p>The six pending revisions return 403 under the live image hash. That is what an
+unpublished revision does, so it is <b>not</b> evidence about whether they still exist.
+Settling that needs the signed-in browser.</p>
+</div>
+
 <h2><span class="n">07</span>Waiting on Brandon</h2>
 <p class="lede">Three decisions block the s412162 pipeline. None can be settled inside the chat.</p>
 
@@ -291,9 +322,14 @@ and Zappa Analysis write a single 10/16, which is what the tab originally had.</
 <div class="card b">
 <div class="t">2. Supersede the revision stack, or wait for moderation</div>
 <p>Six revisions are queued: 8902998, 8903141, 8903886, 8904052, 8905411, 8905491. Only
-r8905491 should be taken. The rest are superseded and now redundant. If the trash can
-control peels them newest-first, the stack can be reduced to the one that should be taken.
-Deletion is permanent, so this is Brandon's call rather than the chat's.</p>
+r8905491 should be taken.</p>
+<p><b>Retracted, and Brandon caught it.</b> An earlier version of this card suggested the
+trash-can control could peel the stack newest-first. That points at the wrong end.
+<b>The newest revisions carry the ghost restoration:</b> r8904052 is the one that put the
+eight snare ghosts back at bars 6, 7, 8 and 9, and r8905491 is the one that should be
+taken. Newest-first deletion would permanently destroy the ghost repair. The root error
+was treating the stack as clutter to reduce. <b>The stack is the repair.</b> Nothing on
+s412162 should be deleted.</p>
 </div>
 
 <div class="card b">

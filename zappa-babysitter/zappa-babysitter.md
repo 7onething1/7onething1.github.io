@@ -152,15 +152,46 @@ Sources: songsterr.com/help and songsterr.com/a/wsa/delete-tabs-a17600
 2. **Settle two tom disagreements**, bar 4 slot 16 and bar 15 slot 16. Both read low tom in
    the author's file and high floor tom in the rebuilt one. That changes which drum sounds.
 
+## Measured state of the live tab
+
+Read from Songsterr's own CDN, read-only, after Brandon raised the concern that ghost notes
+were being removed.
+
+| Field | Value | Reading |
+|---|---|---|
+| live revisionId | 8814965 | The original community revision, unchanged |
+| drum staff | Ralph Humphrey | track 9 of 10 |
+| notes on that staff | 1573 | matches the recorded baseline |
+| staccato | 32 | present, the marks r8787022 left |
+| letRing | 0 | requirement already met |
+| **ghost field** | **absent from the schema** | **this layer cannot answer the ghost question either way** |
+
+### The zero that is not a finding
+
+A first pass counted ghost flags in this JSON and got zero on all ten tracks. That same pass
+got zero staccato, which is false, so the detector was wrong rather than the tab.
+Inventorying the real keys shows the schema carries `staccato`, `velocity`, `tie`, `tremolo`
+and `gradualVelocity`, and **no ghost key at all**. Ghosts live in the GPIF layer as
+`AntiAccent`, never here. Absence of the key is not absence of ghosts.
+
+The six pending revisions return 403 under the live image hash. That is what an unpublished
+revision does, so it is **not** evidence about whether they still exist. Settling that needs
+the signed-in browser.
+
 ## Waiting on Brandon
 
 1. Keep the bar 2 rebar or revert it. Bar 2 went from 10/16 into 5/16 plus 5/16 and is
    already submitted. Sources split two against two: Ryan Brown and Daniel Bedard write two
    bars of 5/16, Drumnet and Zappa Analysis write a single 10/16.
-2. Supersede the revision stack or wait for moderation. Six are queued: 8902998, 8903141,
-   8903886, 8904052, 8905411, 8905491. Only r8905491 should be taken. If the trash can
-   control peels them newest-first, the stack reduces to that one. Deletion is permanent,
-   so this is Brandon's call.
+2. Wait for moderation. Six are queued: 8902998, 8903141, 8903886, 8904052, 8905411,
+   8905491. Only r8905491 should be taken.
+
+   **Retracted, and Brandon caught it.** An earlier version suggested the trash-can control
+   could peel the stack newest-first. That points at the wrong end. **The newest revisions
+   carry the ghost restoration:** r8904052 put the eight snare ghosts back at bars 6, 7, 8
+   and 9, and r8905491 is the one that should be taken. Newest-first deletion would
+   permanently destroy the ghost repair. The root error was treating the stack as clutter to
+   reduce. **The stack is the repair.** Nothing on s412162 should be deleted.
 3. Nothing. The third item here was the link-gate patch and it is withdrawn as a miscount.
    No hook needs changing.
 
