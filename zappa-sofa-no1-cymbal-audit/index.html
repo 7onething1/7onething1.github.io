@@ -67,7 +67,7 @@ code{background:var(--shade);padding:1px 5px;font-family:"SF Mono",Menlo,monospa
 <nav><b style="letter-spacing:.1em;font-size:11px;text-transform:uppercase;color:#8f6f5a">Contents</b><br>
 <a href="#claim">The claim</a><a href="#what">What the tab is</a><a href="#count">The count</a>
 <a href="#strip">Bar by bar</a><a href="#sections">Against Zappa's own sections</a>
-<a href="#patterns">The repeated bars</a><a href="#spacing">Onset spacing</a>
+<a href="#patterns">The repeated bars</a><a href="#spacing">Onset spacing</a><a href="#audio">The recording</a>
 <a href="#meter">The meter trap</a><a href="#open">What is not proven</a><a href="#sources">Sources</a></nav>
 
 <h2 id=claim>The claim</h2>
@@ -165,6 +165,45 @@ Same file, same script, opposite verdict, no error raised.</p>
 bar lengths at the stated tempo must land on the record&rsquo;s runtime. The correct reading
 gives 2:38.3 against a 2:39 track. The wrong one gives 3:22.</p>
 
+<h2 id=audio>The recording, first pass</h2>
+<p>The source the tab names, <span class=mono>mgIK23Karm4</span>, is pulled and separated.
+<b>The audio runs 159.02 s and the tab computes to 158.3 s</b>, a 0.45% difference, so the
+3/4-at-116 reading is now confirmed against the record itself rather than only against
+Zappa&rsquo;s score.</p>
+<h3>High-band onsets, 7 to 14 kHz, swept across five thresholds</h3>
+<div class=scroll><table>
+<tr><th class=num>Threshold</th><th class=num>Onsets found</th><th class=num>Per second</th></tr>
+<tr><td class=num>0.04</td><td class=num>353</td><td class=num>2.22</td></tr>
+<tr><td class=num>0.06</td><td class=num>302</td><td class=num>1.90</td></tr>
+<tr><td class=num>0.08</td><td class=num>234</td><td class=num>1.47</td></tr>
+<tr><td class=num>0.10</td><td class=num>193</td><td class=num>1.21</td></tr>
+<tr><td class=num>0.14</td><td class=num>151</td><td class=num>0.95</td></tr>
+</table></div>
+<div class="note warn"><b>This result cuts against the simple story, and it is reported
+because it does.</b> The tab writes 251 cymbal and hat notes. The measured range is 151 to
+353. <b>251 sits inside that range.</b> On the mixed stem the cymbal count is not obviously
+too high. Two things keep the question open: that band catches snare transients as well as
+cymbals, and a count says nothing about <em>where</em> the hits land. A grid of 230
+one-quarter-note gaps and a drummer&rsquo;s 251 scattered strokes can share a total.</p></div>
+<h3>High-band energy across Zappa&rsquo;s sections</h3>
+<div class=scroll><table>
+<tr><th>Section</th><th class=num>Window</th><th class=num>Hi-band RMS</th><th class=num>Against track average</th><th class=num>Tab saturation</th></tr>
+<tr><td>A main theme</td><td class=num>0-34 s</td><td class=num>0.12646</td><td class=num>1.02</td><td class=num>92.4%</td></tr>
+<tr><td>B</td><td class=num>34-56 s</td><td class=num>0.12266</td><td class=num>0.99</td><td class=num>88.1%</td></tr>
+<tr><td>C variation</td><td class=num>56-99 s</td><td class=num>0.11438</td><td class=num>0.93</td><td class=num>91.7%</td></tr>
+<tr><td class=bad>D G pedal</td><td class=num>99-121 s</td><td class="num bad">0.07278</td><td class="num bad">0.59</td><td class=num>86.7%</td></tr>
+<tr><td>E outro</td><td class=num>121-158 s</td><td class=num>0.15254</td><td class=num>1.24</td><td class=num>49.3%</td></tr>
+</table></div>
+<div class="note"><b>Section D is the sharpest lead on the page.</b> Cymbal-region energy
+there falls to 0.59 of the track average, the lowest of the five sections, while the tab
+holds 86.7% saturation and 36 ride notes across those 15 bars. The outro runs the opposite
+way, carrying the highest energy at 1.24 against the lowest written saturation at 49.3%.
+Both readings point the same direction: the writing is flat where the playing is not.</div>
+<div class="note"><b>One threshold sweep failed and is reported rather than dropped.</b> The
+full-band onset sweep as a fraction of stem peak returned 272, 161, 16, then zero. A single
+loud transient dominates that envelope, so fractions of its peak are the wrong knob. The
+high-band sweep above is well behaved across all five settings.</div>
+
 <h2 id=open>What this page does not prove</h2>
 <div class="note warn">
 <p><b>Every number here measures the notation. None of them measures Chester Thompson.</b>
@@ -172,10 +211,10 @@ Proving that a written cymbal is absent from the record needs the recording spli
 separate cymbal lanes. A mixed Demucs drums stem holds kick, snare, toms, hat, ride and crash together
 and cannot say which one was struck; on Cosmik Debris that same shortcut produced two wrong
 verdicts that the six-lane split overturned.</p>
-<p>The remaining work is queued: pull <span class=mono>mgIK23Karm4</span>, Demucs to a drums
-stem, run <span class=mono>separator_resumable.py</span> for the six-lane split, then score
-all 248 written cymbal beats against <span class=mono>ride.wav</span> and
-<span class=mono>hh.wav</span>.</p>
+<p><b>Status.</b> The pull and the Demucs drums stem are done. The six-lane DrumSep split
+is running and checkpoints per 60-second block. The last step, scoring all 248 written cymbal
+beats against <span class=mono>ride.wav</span> and <span class=mono>hh.wav</span>, waits on
+it. Until then no claim is made about which cymbal Chester Thompson struck.</p>
 </div>
 <div class=note><b>One inventory row is now stale.</b> The Zappa drum transcription inventory
 was built at 12:10 on 2026-09-05 and records Sofa No. 1 as having no drum tab of the album

@@ -109,6 +109,50 @@ Two checks catch the mistake. Every bar's durations must sum to its bar length, 
 summed bar lengths at the stated tempo must land on the record's runtime. The correct
 reading gives 2:38.3 against a 2:39 track. The wrong reading gives 3:22.
 
+## The recording, first pass
+
+The source the tab names, `mgIK23Karm4`, is pulled and separated. The audio runs 159.02 s
+and the tab computes to 158.3 s, a 0.45% difference, so the 3/4-at-116 reading is confirmed
+against the record itself and not only against Zappa's score.
+
+High-band onsets, 7 to 14 kHz, swept across five thresholds:
+
+| Threshold | Onsets | Per second |
+|---|---|---|
+| 0.04 | 353 | 2.22 |
+| 0.06 | 302 | 1.90 |
+| 0.08 | 234 | 1.47 |
+| 0.10 | 193 | 1.21 |
+| 0.14 | 151 | 0.95 |
+
+This cuts against the simple story, and it is reported because it does. The tab writes 251
+cymbal and hat notes. The measured range is 151 to 353, so 251 sits inside it. On the mixed
+stem the cymbal count is not obviously too high. Two things keep the question open. That
+band catches snare transients alongside cymbals, and a count says nothing about where the
+hits land. A grid of 230 one-quarter-note gaps and a drummer's 251 scattered strokes can
+share a total.
+
+High-band energy across Zappa's sections:
+
+| Section | Window | Hi-band RMS | Against track average | Tab saturation |
+|---|---|---|---|---|
+| A main theme | 0-34 s | 0.12646 | 1.02 | 92.4% |
+| B | 34-56 s | 0.12266 | 0.99 | 88.1% |
+| C variation | 56-99 s | 0.11438 | 0.93 | 91.7% |
+| D G pedal | 99-121 s | 0.07278 | 0.59 | 86.7% |
+| E outro | 121-158 s | 0.15254 | 1.24 | 49.3% |
+
+Section D is the sharpest lead here. Cymbal-region energy falls to 0.59 of the track average,
+the lowest of the five, while the tab holds 86.7% saturation and 36 ride notes across those
+15 bars. The outro runs the other way, carrying the highest energy at 1.24 against the lowest
+written saturation at 49.3%. Both readings point one direction: the writing is flat where the
+playing is not.
+
+One threshold sweep failed and is reported rather than dropped. The full-band onset sweep as
+a fraction of stem peak returned 272, 161, 16, then zero. A single loud transient dominates
+that envelope, so fractions of its peak are the wrong knob there. The high-band sweep above
+behaves across all five settings.
+
 ## What this page does not prove
 
 Every number here measures the notation. None of them measures Chester Thompson. Proving
@@ -117,9 +161,10 @@ cymbal lanes. A mixed Demucs drums stem holds kick, snare, toms, hat, ride and c
 together and cannot say which one was struck. On Cosmik Debris that same shortcut produced
 two wrong verdicts, and the six-lane split overturned both of them.
 
-The remaining work is queued. Pull `mgIK23Karm4`, run Demucs for a drums stem, run
-`separator_resumable.py` for the six-lane split, then score all 248 written cymbal beats
-against `ride.wav` and `hh.wav`.
+Status: the pull and the Demucs drums stem are done. The six-lane DrumSep split is running
+and checkpoints per 60-second block. The last step, scoring all 248 written cymbal beats
+against `ride.wav` and `hh.wav`, waits on it. Until then no claim is made about which cymbal
+Chester Thompson struck.
 
 One inventory row is now stale. The Zappa drum transcription inventory was built at 12:10
 on 2026-09-05 and records Sofa No. 1 as having no drum tab of the album take. This tab was
