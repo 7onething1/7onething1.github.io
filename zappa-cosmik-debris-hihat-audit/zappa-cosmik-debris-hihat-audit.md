@@ -179,6 +179,13 @@ quiet and the hi-hat lane is loud, by ratios of 13.6, 3.4 and 51.4 against a bas
 ride is also louder inside the tab's hat sections than inside its ride sections, a straight
 inversion.
 
+**The ride finding was swept for alignment**, because section windows depend on a time mapping.
+Three time scales crossed with offsets from minus 8 to plus 8 seconds gives 297 combinations of
+scale, offset and ride section, each over at least a second of audio. The ride comes out louder than
+the hat in **2 of 297**, 0.7 percent, and the median hh/ride across all 297 is **15.44**. Both
+exceptions are the same short three-second section at one hand-picked offset. No alignment rescues
+the ride calls.
+
 Scope, stated plainly: three of seven ride stretches measured. The remaining four include the
 largest, 348 to 377 seconds carrying 109 ride notes.
 
