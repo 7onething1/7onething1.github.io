@@ -1,0 +1,359 @@
+<!doctype html><html lang="en"><head><meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Zappa Ghost Adjudication</title>
+<style>
+:root{--cream:#F6F1E4;--ink:#141210;--rule:#D8CEB8;
+--c1:#85D4E3;--c2:#F4B5BD;--c3:#9C964A;--c4:#CDC08C;--c5:#FAD77B;--c6:#F3DF6C}
+*{box-sizing:border-box}
+body{margin:0;background:var(--cream);color:var(--ink);font:16px/1.65 "Inter",Helvetica,Arial,sans-serif}
+.wrap{max-width:1240px;margin:0 auto;padding:40px 22px 80px}
+h1{font-family:Cormorant Garamond,Georgia,serif;font-size:54px;line-height:1.03;margin:0 0 6px;letter-spacing:-.02em}
+.sub{font-size:17px;color:#5C5346;margin:0 0 4px;max-width:74ch}
+.stamp{font:12px/1.5 "JetBrains Mono",ui-monospace,monospace;color:#7A7060;letter-spacing:.05em;text-transform:uppercase}
+h2{font-family:Cormorant Garamond,Georgia,serif;font-size:32px;margin:50px 0 4px}
+h2 .n{font:11px/1 "JetBrains Mono",ui-monospace,monospace;vertical-align:super;color:#9A907E;margin-right:9px}
+.lede{color:#5C5346;margin:0 0 18px;max-width:78ch}
+.key{border:2px solid var(--ink);border-left-width:13px;border-left-color:var(--c3);background:#FFFDF7;padding:20px 24px;margin:26px 0}
+.key b{display:block;font-family:Cormorant Garamond,Georgia,serif;font-size:25px;margin-bottom:7px}
+.grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(196px,1fr));gap:14px;margin:22px 0}
+.stat{border:1px solid var(--rule);background:#FFFDF7;padding:15px 17px;border-top:6px solid var(--c1)}
+.stat:nth-child(2){border-top-color:var(--c2)}.stat:nth-child(3){border-top-color:var(--c3)}
+.stat:nth-child(4){border-top-color:var(--c5)}.stat:nth-child(5){border-top-color:var(--c4)}
+.stat .k{font:11px/1.4 "JetBrains Mono",ui-monospace,monospace;text-transform:uppercase;letter-spacing:.06em;color:#7A7060}
+.stat .v{font-family:Cormorant Garamond,Georgia,serif;font-size:40px;line-height:1.05;margin:4px 0 2px}
+.stat .d{font-size:13px;color:#5C5346}
+table{border-collapse:collapse;width:100%;margin:16px 0;font-size:13.5px;background:#FFFDF7}
+th,td{border:1px solid var(--rule);padding:8px 9px;text-align:left;vertical-align:top}
+th{background:#EFE7D4;font:11px/1.4 "JetBrains Mono",ui-monospace,monospace;text-transform:uppercase;letter-spacing:.04em}
+td.num{font-family:"JetBrains Mono",ui-monospace,monospace;text-align:right;white-space:nowrap}
+td.lm{font-size:12px;color:#5C5346}
+.bar{height:13px;display:inline-block;vertical-align:middle}
+.v{font:9.5px/1 "JetBrains Mono",ui-monospace,monospace;padding:4px 5px;border:1px solid rgba(0,0,0,.32);text-transform:uppercase;white-space:nowrap}
+.vd{margin-top:6px;padding:7px 9px;background:#EFE7D4;border-left:4px solid var(--c3);font-size:12px;line-height:1.5}
+.vd .q{font:10px/1 "JetBrains Mono",ui-monospace,monospace;color:#7A7060}
+.scroll{overflow-x:auto}
+.card{border:1px solid var(--rule);background:#FFFDF7;padding:16px 19px;margin:12px 0;border-left:8px solid var(--c1)}
+.card.b{border-left-color:var(--c2)}.card.c{border-left-color:var(--c5)}
+.card .t{font-weight:700;margin-bottom:5px}
+code{font:12.5px/1.5 "JetBrains Mono",ui-monospace,monospace;background:#EFE7D4;padding:1px 5px}
+a{color:#3D7C8A;text-underline-offset:3px}
+footer{margin-top:56px;border-top:1px solid var(--rule);padding-top:17px;font:12px/1.7 "JetBrains Mono",ui-monospace,monospace;color:#7A7060}
+</style></head><body><div class="wrap">
+
+<p class="stamp">Measured 2026-09-05</p>
+<h1>Zappa Ghost Adjudication</h1>
+<p class="sub">Not "put all the ghosts back". Which ghosts the printed transcriptions
+support, song by song and lane by lane, so the genuine ones return and the invented ones
+stay gone.</p>
+
+<div class="key">
+<b>The rule that decides it</b>
+A ghost notehead is standard notation for <b>a quiet snare stroke between the loud ones</b>.
+On a snare lane a ghost flag carries its ordinary meaning and is presumptively genuine. On
+ride, hi-hat, tambourine, kick or crash it means something else, so it needs a printed chart
+to justify keeping. That single test splits the 4,574 removed flags almost in half.
+</div>
+
+<div class="grid">
+<div class="stat"><div class="k">Snare ghosts</div><div class="v">2,211</div><div class="d">presumptively genuine, restore</div></div>
+<div class="stat"><div class="k">Non-snare ghosts</div><div class="v">2,335</div><div class="d">need a chart to justify</div></div>
+<div class="stat"><div class="k">Already adjudicated</div><div class="v">3</div><div class="d">of 23 songs</div></div>
+<div class="stat"><div class="k">Lanes unmeasured</div><div class="v">28</div><div class="d">flags across 5 small songs</div></div>
+<div class="stat"><div class="k">No chart on disk</div><div class="v">5</div><div class="d">songs, cannot be judged yet</div></div>
+</div>
+
+<h2><span class="n">01</span>The three songs already settled show the whole spread</h2>
+<p class="lede">Each landed differently, which is exactly why a blanket restore would be
+wrong.</p>
+
+<div class="card">
+<div class="t">Watermelon In Easter Hay <code>s35881</code> &mdash; KEEP ALL 1,317, on the ride</div>
+<p>Zero snare ghosts. Every flag sits on ride, which normally reads as the wrong lane. The
+placement settles it: slots 0, 4, 8 and 12 are 407 plain against 2 ghosted, and every other
+sixteenth is 1 plain against 1,314 ghosted. That is <b>an accent grid</b>, the soft rides
+between the accented ones. A ghosted ride is alone in its beat 99.4% of the time, and every
+note reads <code>dynamic:null</code>, so the strip revision's "at forte" justification was
+invented.</p>
+</div>
+
+<div class="card b">
+<div class="t">Zomby Woof <code>s412162</code> &mdash; DROP ALL 32, ADD 8 THAT WERE NEVER THERE</div>
+<p>The 32 automatic detections sit at bars 4, 13, 15 and 40 to 43, with <b>22 of them on
+hi-hat lanes</b> where ghost brackets are not valid notation. Drumnet prints genuine
+parenthesised snare pairs at bars 5 to 8, slots 6 and 7, right after the open hi-hat, and
+the transcriber missed every one. <b>Zero overlap between what was flagged and what is
+printed.</b> This song has the richest chart coverage of all 23, and its ghosts turned out
+to be the wrong ones.</p>
+</div>
+
+<div class="card c">
+<div class="t">Montana <code>s35870</code> &mdash; RESTORE 317 AND REMOVE THE DOTS</div>
+<p>A later revision converted all 317 ghosts into staccato dots. A dot marks duration and a
+ghost marks dynamic, so the substitution is wrong whichever ghosts prove genuine. The dots
+come off in the same pass.</p>
+</div>
+
+<h2><span class="n">02</span>Every song, lane split against chart availability</h2>
+<p class="lede">Blue is snare, pink is every other lane. The publishers column is what
+exists on this Mac at <code>~/Projects/_outputs/zappa-drum-sources/</code>.</p>
+
+<div class="scroll"><table>
+<tr><th>song</th><th>title and verdict</th><th>removed</th><th>snare</th><th>other</th>
+<th>lane split</th><th>where they sat</th><th>charts on disk</th><th>class</th></tr>
+<tr>
+<td class="num">35881</td>
+<td><b>Watermelon In Easter Hay</b><div class="vd"><b>KEEP ALL 1317</b> <span class="q">q-2026-09-05-2f7aec</span><br>Ride ghosts encode an accent grid: slots 0/4/8/12 are 407 plain vs 2 ghosted, every other 16th is 1 plain vs 1,314 ghosted. Ghosted ride alone in its beat 99.4%. dynamic:null throughout, so the strip revision&#x27;s &#x27;at forte&#x27; claim was invented.</div></td>
+<td class="num">1317</td>
+<td class="num">0</td>
+<td class="num">1317</td>
+<td><span class="bar" style="width:0px;background:#85D4E3"></span><span class="bar" style="width:200px;background:#F4B5BD"></span></td>
+<td class="lm">Ride 1,316, Crash 1. Zero snare.</td>
+<td class="lm">drumnet, analysis</td>
+<td><span class="v" style="background:#9C964A">SETTLED</span></td></tr><tr>
+<td class="num">604777</td>
+<td><b>Keep It Greasey</b></td>
+<td class="num">629</td>
+<td class="num">629</td>
+<td class="num">0</td>
+<td><span class="bar" style="width:95px;background:#85D4E3"></span><span class="bar" style="width:0px;background:#F4B5BD"></span></td>
+<td class="lm">never stripped live, revision rejected</td>
+<td class="lm">drummagazine, petesweeney, analysis</td>
+<td><span class="v" style="background:#85D4E3">SNARE ONLY</span></td></tr><tr>
+<td class="num">35886</td>
+<td><b>Muffin Man</b></td>
+<td class="num">578</td>
+<td class="num">504</td>
+<td class="num">74</td>
+<td><span class="bar" style="width:75px;background:#85D4E3"></span><span class="bar" style="width:12px;background:#F4B5BD"></span></td>
+<td class="lm">Snare 481, Snare2 23, then hats, crashes, toms</td>
+<td class="lm">drummagazine, drumnet</td>
+<td><span class="v" style="background:#FAD77B">MIXED LANES</span></td></tr><tr>
+<td class="num">620961</td>
+<td><b>Drowning Witch</b></td>
+<td class="num">419</td>
+<td class="num">101</td>
+<td class="num">318</td>
+<td><span class="bar" style="width:15px;background:#85D4E3"></span><span class="bar" style="width:48px;background:#F4B5BD"></span></td>
+<td class="lm">Ride 128, Snare 101, HatClosed 61, Kick 41, TomLow 33</td>
+<td class="lm">drummagazine, analysis</td>
+<td><span class="v" style="background:#FAD77B">MIXED LANES</span></td></tr><tr>
+<td class="num">35870</td>
+<td><b>Montana</b><div class="vd"><b>RESTORE 317 AND REMOVE THE DOTS</b> <span class="q">q-2026-09-05-6845bf</span><br>r8787106 converted all 317 ghosts into staccato dots. A dot is a duration mark and a ghost is a dynamic, so the substitution is wrong regardless of which ghosts are genuine.</div></td>
+<td class="num">317</td>
+<td class="num">174</td>
+<td class="num">143</td>
+<td><span class="bar" style="width:26px;background:#85D4E3"></span><span class="bar" style="width:22px;background:#F4B5BD"></span></td>
+<td class="lm">Snare 95, Tambourine 83, Snare2 79, Kick 24</td>
+<td class="lm">analysis</td>
+<td><span class="v" style="background:#9C964A">SETTLED</span></td></tr><tr>
+<td class="num">1105085</td>
+<td><b>The Black Page</b></td>
+<td class="num">173</td>
+<td class="num">170</td>
+<td class="num">3</td>
+<td><span class="bar" style="width:25px;background:#85D4E3"></span><span class="bar" style="width:1px;background:#F4B5BD"></span></td>
+<td class="lm">Snare 170, HatPedal 3</td>
+<td class="lm">analysis</td>
+<td><span class="v" style="background:#FAD77B">MIXED LANES</span></td></tr><tr>
+<td class="num">35865</td>
+<td><b>Nanook Rubs It</b></td>
+<td class="num">168</td>
+<td class="num">168</td>
+<td class="num">0</td>
+<td><span class="bar" style="width:25px;background:#85D4E3"></span><span class="bar" style="width:0px;background:#F4B5BD"></span></td>
+<td class="lm">Snare 168</td>
+<td class="lm"><b>none on disk</b></td>
+<td><span class="v" style="background:#85D4E3">SNARE ONLY</span></td></tr><tr>
+<td class="num">35878</td>
+<td><b>Nanook Suite</b></td>
+<td class="num">168</td>
+<td class="num">168</td>
+<td class="num">0</td>
+<td><span class="bar" style="width:25px;background:#85D4E3"></span><span class="bar" style="width:0px;background:#F4B5BD"></span></td>
+<td class="lm">Snare 168</td>
+<td class="lm"><b>none on disk</b></td>
+<td><span class="v" style="background:#85D4E3">SNARE ONLY</span></td></tr><tr>
+<td class="num">412178</td>
+<td><b>Inca Roads</b></td>
+<td class="num">165</td>
+<td class="num">134</td>
+<td class="num">31</td>
+<td><span class="bar" style="width:20px;background:#85D4E3"></span><span class="bar" style="width:5px;background:#F4B5BD"></span></td>
+<td class="lm">Snare 134, Crash 14, Kick 7</td>
+<td class="lm">analysis</td>
+<td><span class="v" style="background:#FAD77B">MIXED LANES</span></td></tr><tr>
+<td class="num">68248</td>
+<td><b>Carolina Hard-Core Ecstasy</b></td>
+<td class="num">144</td>
+<td class="num">0</td>
+<td class="num">144</td>
+<td><span class="bar" style="width:0px;background:#85D4E3"></span><span class="bar" style="width:21px;background:#F4B5BD"></span></td>
+<td class="lm">Tambourine 144. Zero snare.</td>
+<td class="lm"><b>none on disk</b></td>
+<td><span class="v" style="background:#F4B5BD">NO SNARE AT ALL</span></td></tr><tr>
+<td class="num">35884</td>
+<td><b>Oh No</b></td>
+<td class="num">141</td>
+<td class="num">0</td>
+<td class="num">141</td>
+<td><span class="bar" style="width:0px;background:#85D4E3"></span><span class="bar" style="width:21px;background:#F4B5BD"></span></td>
+<td class="lm">HatClosed 141. Zero snare.</td>
+<td class="lm">drumnet</td>
+<td><span class="v" style="background:#F4B5BD">NO SNARE AT ALL</span></td></tr><tr>
+<td class="num">68246</td>
+<td><b>Alien Orifice</b></td>
+<td class="num">86</td>
+<td class="num">33</td>
+<td class="num">53</td>
+<td><span class="bar" style="width:4px;background:#85D4E3"></span><span class="bar" style="width:9px;background:#F4B5BD"></span></td>
+<td class="lm">Snare 33, Crash 33, Crash2 14</td>
+<td class="lm">analysis</td>
+<td><span class="v" style="background:#FAD77B">MIXED LANES</span></td></tr><tr>
+<td class="num">35887</td>
+<td><b>What&#x27;s New In Baltimore?</b></td>
+<td class="num">59</td>
+<td class="num">4</td>
+<td class="num">55</td>
+<td><span class="bar" style="width:0px;background:#85D4E3"></span><span class="bar" style="width:8px;background:#F4B5BD"></span></td>
+<td class="lm">Ride 48, Snare 4, Crash 4</td>
+<td class="lm">analysis</td>
+<td><span class="v" style="background:#FAD77B">MIXED LANES</span></td></tr><tr>
+<td class="num">748459</td>
+<td><b>Fembot In A Wet T-Shirt</b></td>
+<td class="num">57</td>
+<td class="num">53</td>
+<td class="num">4</td>
+<td><span class="bar" style="width:7px;background:#85D4E3"></span><span class="bar" style="width:1px;background:#F4B5BD"></span></td>
+<td class="lm">Snare 53, HatPedal 4</td>
+<td class="lm"><b>none on disk</b></td>
+<td><span class="v" style="background:#FAD77B">MIXED LANES</span></td></tr><tr>
+<td class="num">35883</td>
+<td><b>Zoot Allures</b></td>
+<td class="num">53</td>
+<td class="num">53</td>
+<td class="num">0</td>
+<td><span class="bar" style="width:8px;background:#85D4E3"></span><span class="bar" style="width:0px;background:#F4B5BD"></span></td>
+<td class="lm">Terry Bozio snare, never stripped live</td>
+<td class="lm">analysis</td>
+<td><span class="v" style="background:#85D4E3">SNARE ONLY</span></td></tr><tr>
+<td class="num">412162</td>
+<td><b>Zomby Woof</b><div class="vd"><b>DROP ALL 32, ADD 8 DIFFERENT</b> <span class="q">q-2026-09-05-51e686</span><br>The 32 automatic detections sit at bars 4, 13, 15, 40-43 with 22 on hi-hat lanes where ghost brackets are not valid notation. Drumnet prints genuine parenthesised snare pairs at bars 5-8 slots 6 and 7, which the transcriber missed entirely. Zero overlap.</div></td>
+<td class="num">32</td>
+<td class="num">0</td>
+<td class="num">32</td>
+<td><span class="bar" style="width:0px;background:#85D4E3"></span><span class="bar" style="width:4px;background:#F4B5BD"></span></td>
+<td class="lm">22 on hi-hat lanes, 10 elsewhere. ZERO on snare.</td>
+<td class="lm">cruiseshipdrummer, drummagazine, zappa-analysis, drumnet, analysis</td>
+<td><span class="v" style="background:#9C964A">SETTLED</span></td></tr><tr>
+<td class="num">20690</td>
+<td><b>Uncle Meat (YCDTOSA Vol. 2)</b></td>
+<td class="num">24</td>
+<td class="num">4</td>
+<td class="num">20</td>
+<td><span class="bar" style="width:0px;background:#85D4E3"></span><span class="bar" style="width:3px;background:#F4B5BD"></span></td>
+<td class="lm">spread across toms, snare 4, ride bell 4</td>
+<td class="lm">analysis</td>
+<td><span class="v" style="background:#FAD77B">MIXED LANES</span></td></tr><tr>
+<td class="num">749523</td>
+<td><b>Catholic Girls</b></td>
+<td class="num">16</td>
+<td class="num">16</td>
+<td class="num">0</td>
+<td><span class="bar" style="width:3px;background:#85D4E3"></span><span class="bar" style="width:0px;background:#F4B5BD"></span></td>
+<td class="lm">Snare 16</td>
+<td class="lm"><b>none on disk</b></td>
+<td><span class="v" style="background:#85D4E3">SNARE ONLY</span></td></tr><tr>
+<td class="num">35889</td>
+<td><b>Peaches En Regalia</b></td>
+<td class="num">14</td>
+<td class="num">?</td>
+<td class="num">?</td>
+<td><span class="bar" style="width:0px;background:#85D4E3"></span><span class="bar" style="width:3px;background:#F4B5BD"></span></td>
+<td class="lm"></td>
+<td class="lm">analysis</td>
+<td><span class="v" style="background:#CDC08C">LANES UNMEASURED</span></td></tr><tr>
+<td class="num">412170</td>
+<td><b>Trouble Every Day (Live)</b></td>
+<td class="num">9</td>
+<td class="num">?</td>
+<td class="num">?</td>
+<td><span class="bar" style="width:0px;background:#85D4E3"></span><span class="bar" style="width:3px;background:#F4B5BD"></span></td>
+<td class="lm"></td>
+<td class="lm">analysis</td>
+<td><span class="v" style="background:#CDC08C">LANES UNMEASURED</span></td></tr><tr>
+<td class="num">35875</td>
+<td><b>Packard Goose</b></td>
+<td class="num">3</td>
+<td class="num">?</td>
+<td class="num">?</td>
+<td><span class="bar" style="width:0px;background:#85D4E3"></span><span class="bar" style="width:3px;background:#F4B5BD"></span></td>
+<td class="lm"></td>
+<td class="lm">analysis</td>
+<td><span class="v" style="background:#CDC08C">LANES UNMEASURED</span></td></tr><tr>
+<td class="num">21495</td>
+<td><b>Andy</b></td>
+<td class="num">1</td>
+<td class="num">?</td>
+<td class="num">?</td>
+<td><span class="bar" style="width:0px;background:#85D4E3"></span><span class="bar" style="width:3px;background:#F4B5BD"></span></td>
+<td class="lm"></td>
+<td class="lm">drummagazine, analysis</td>
+<td><span class="v" style="background:#CDC08C">LANES UNMEASURED</span></td></tr><tr>
+<td class="num">59089</td>
+<td><b>Black Napkins</b></td>
+<td class="num">1</td>
+<td class="num">?</td>
+<td class="num">?</td>
+<td><span class="bar" style="width:0px;background:#85D4E3"></span><span class="bar" style="width:3px;background:#F4B5BD"></span></td>
+<td class="lm"></td>
+<td class="lm">analysis</td>
+<td><span class="v" style="background:#CDC08C">LANES UNMEASURED</span></td></tr>
+</table></div>
+
+<h2><span class="n">03</span>What each class needs next</h2>
+
+<div class="card">
+<div class="t">Snare only, no chart needed to proceed</div>
+<p>Nanook Suite 168, Nanook Rubs It 168, Catholic Girls 16, Zoot Allures 53, Keep It Greasey
+629. Every flag is on snare, where ghost notation carries its ordinary meaning. These can be
+restored on the notation standard rather than on a chart, and Zoot Allures plus Keep It
+Greasey are already safe because moderators rejected their strip revisions.</p>
+</div>
+
+<div class="card b">
+<div class="t">No snare at all, chart required</div>
+<p>Watermelon 1,317 is settled as genuine. <b>Carolina Hard-Core Ecstasy 144 on tambourine
+and Oh No 141 on closed hat are not settled, and Carolina has no chart on this Mac at
+all.</b> Those two are where a wrong blanket restore would do the most damage.</p>
+</div>
+
+<div class="card c">
+<div class="t">Mixed lanes, split the decision</div>
+<p>Muffin Man 504 snare against 74 other, Drowning Witch 101 against 318, Inca Roads 134
+against 31, Alien Orifice 33 against 53, What's New In Baltimore 4 against 55, The Black
+Page 170 against 3, Fembot 53 against 4. The snare half restores on the standard. The
+remainder needs the chart, and Ryan Brown covers Drowning Witch and Muffin Man while Drumnet
+covers Muffin Man and Oh No.</p>
+</div>
+
+<div class="card">
+<div class="t">Five songs have no chart on this Mac</div>
+<p>Nanook Rubs It, Nanook Suite, Carolina Hard-Core Ecstasy, Fembot In A Wet T-Shirt,
+Catholic Girls. Four of the five are pure snare so they proceed anyway. <b>Carolina is the
+one genuine blocker</b>, since 144 tambourine ghosts cannot be judged without a printed
+source.</p>
+</div>
+
+<footer>
+Palette: Moonrise Kingdom (Wes Anderson)<br>
+Ghost counts from the damage ledger <code>_defects.json</code>. Lane splits measured
+2026-09-05 off each tab's pre-sweep revision, recorded in
+<code>reference_zappa_ghost_lanes_not_all_snare</code>. Chart availability measured here by
+filename match across the 12 publisher folders in
+<code>~/Projects/_outputs/zappa-drum-sources/</code>. Read-only, no writes.<br>
+2,211 + 2,335 + 28 unmeasured = 4,574, reconciling to the ledger total.<br>
+Data: <a href="adjudication.json">adjudication.json</a> &middot;
+<a href="https://7onething1.github.io/zappa-repair-state/">live repair state</a> &middot;
+<a href="https://7onething1.github.io/zappa-ghost-note-audit/">ghost note audit</a>
+</footer>
+</div></body></html>

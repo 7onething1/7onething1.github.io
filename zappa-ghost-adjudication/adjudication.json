@@ -1,0 +1,313 @@
+[
+  {
+    "songId": "20690",
+    "title": "Uncle Meat (YCDTOSA Vol. 2)",
+    "removed": 24,
+    "snare": 4,
+    "other": 20,
+    "laneDesc": "spread across toms, snare 4, ride bell 4",
+    "chartFiles": 18,
+    "publishers": [
+      "08-analysis"
+    ],
+    "verdict": null
+  },
+  {
+    "songId": "21495",
+    "title": "Andy",
+    "removed": 1,
+    "snare": null,
+    "other": null,
+    "laneDesc": "",
+    "chartFiles": 15,
+    "publishers": [
+      "02-drummagazine",
+      "08-analysis"
+    ],
+    "verdict": null
+  },
+  {
+    "songId": "35865",
+    "title": "Nanook Rubs It",
+    "removed": 168,
+    "snare": 168,
+    "other": 0,
+    "laneDesc": "Snare 168",
+    "chartFiles": 0,
+    "publishers": [],
+    "verdict": null
+  },
+  {
+    "songId": "35870",
+    "title": "Montana",
+    "removed": 317,
+    "snare": 174,
+    "other": 143,
+    "laneDesc": "Snare 95, Tambourine 83, Snare2 79, Kick 24",
+    "chartFiles": 13,
+    "publishers": [
+      "08-analysis"
+    ],
+    "verdict": [
+      "RESTORE 317 AND REMOVE THE DOTS",
+      "q-2026-09-05-6845bf",
+      "r8787106 converted all 317 ghosts into staccato dots. A dot is a duration mark and a ghost is a dynamic, so the substitution is wrong regardless of which ghosts are genuine."
+    ]
+  },
+  {
+    "songId": "35875",
+    "title": "Packard Goose",
+    "removed": 3,
+    "snare": null,
+    "other": null,
+    "laneDesc": "",
+    "chartFiles": 1,
+    "publishers": [
+      "08-analysis"
+    ],
+    "verdict": null
+  },
+  {
+    "songId": "35878",
+    "title": "Nanook Suite",
+    "removed": 168,
+    "snare": 168,
+    "other": 0,
+    "laneDesc": "Snare 168",
+    "chartFiles": 0,
+    "publishers": [],
+    "verdict": null
+  },
+  {
+    "songId": "35881",
+    "title": "Watermelon In Easter Hay",
+    "removed": 1317,
+    "snare": 0,
+    "other": 1317,
+    "laneDesc": "Ride 1,316, Crash 1. Zero snare.",
+    "chartFiles": 8,
+    "publishers": [
+      "06-drumnet",
+      "08-analysis"
+    ],
+    "verdict": [
+      "KEEP ALL 1317",
+      "q-2026-09-05-2f7aec",
+      "Ride ghosts encode an accent grid: slots 0/4/8/12 are 407 plain vs 2 ghosted, every other 16th is 1 plain vs 1,314 ghosted. Ghosted ride alone in its beat 99.4%. dynamic:null throughout, so the strip revision's 'at forte' claim was invented."
+    ]
+  },
+  {
+    "songId": "35883",
+    "title": "Zoot Allures",
+    "removed": 53,
+    "snare": 53,
+    "other": 0,
+    "laneDesc": "Terry Bozio snare, never stripped live",
+    "chartFiles": 6,
+    "publishers": [
+      "08-analysis"
+    ],
+    "verdict": null
+  },
+  {
+    "songId": "35884",
+    "title": "Oh No",
+    "removed": 141,
+    "snare": 0,
+    "other": 141,
+    "laneDesc": "HatClosed 141. Zero snare.",
+    "chartFiles": 3,
+    "publishers": [
+      "06-drumnet"
+    ],
+    "verdict": null
+  },
+  {
+    "songId": "35886",
+    "title": "Muffin Man",
+    "removed": 578,
+    "snare": 504,
+    "other": 74,
+    "laneDesc": "Snare 481, Snare2 23, then hats, crashes, toms",
+    "chartFiles": 6,
+    "publishers": [
+      "02-drummagazine",
+      "06-drumnet"
+    ],
+    "verdict": null
+  },
+  {
+    "songId": "35887",
+    "title": "What's New In Baltimore?",
+    "removed": 59,
+    "snare": 4,
+    "other": 55,
+    "laneDesc": "Ride 48, Snare 4, Crash 4",
+    "chartFiles": 1,
+    "publishers": [
+      "08-analysis"
+    ],
+    "verdict": null
+  },
+  {
+    "songId": "35889",
+    "title": "Peaches En Regalia",
+    "removed": 14,
+    "snare": null,
+    "other": null,
+    "laneDesc": "",
+    "chartFiles": 1,
+    "publishers": [
+      "08-analysis"
+    ],
+    "verdict": null
+  },
+  {
+    "songId": "59089",
+    "title": "Black Napkins",
+    "removed": 1,
+    "snare": null,
+    "other": null,
+    "laneDesc": "",
+    "chartFiles": 5,
+    "publishers": [
+      "08-analysis"
+    ],
+    "verdict": null
+  },
+  {
+    "songId": "68246",
+    "title": "Alien Orifice",
+    "removed": 86,
+    "snare": 33,
+    "other": 53,
+    "laneDesc": "Snare 33, Crash 33, Crash2 14",
+    "chartFiles": 2,
+    "publishers": [
+      "08-analysis"
+    ],
+    "verdict": null
+  },
+  {
+    "songId": "68248",
+    "title": "Carolina Hard-Core Ecstasy",
+    "removed": 144,
+    "snare": 0,
+    "other": 144,
+    "laneDesc": "Tambourine 144. Zero snare.",
+    "chartFiles": 0,
+    "publishers": [],
+    "verdict": null
+  },
+  {
+    "songId": "412162",
+    "title": "Zomby Woof",
+    "removed": 32,
+    "snare": 0,
+    "other": 32,
+    "laneDesc": "22 on hi-hat lanes, 10 elsewhere. ZERO on snare.",
+    "chartFiles": 27,
+    "publishers": [
+      "01-cruiseshipdrummer",
+      "02-drummagazine",
+      "05-zappa-analysis",
+      "06-drumnet",
+      "08-analysis"
+    ],
+    "verdict": [
+      "DROP ALL 32, ADD 8 DIFFERENT",
+      "q-2026-09-05-51e686",
+      "The 32 automatic detections sit at bars 4, 13, 15, 40-43 with 22 on hi-hat lanes where ghost brackets are not valid notation. Drumnet prints genuine parenthesised snare pairs at bars 5-8 slots 6 and 7, which the transcriber missed entirely. Zero overlap."
+    ]
+  },
+  {
+    "songId": "412170",
+    "title": "Trouble Every Day (Live)",
+    "removed": 9,
+    "snare": null,
+    "other": null,
+    "laneDesc": "",
+    "chartFiles": 10,
+    "publishers": [
+      "08-analysis"
+    ],
+    "verdict": null
+  },
+  {
+    "songId": "412178",
+    "title": "Inca Roads",
+    "removed": 165,
+    "snare": 134,
+    "other": 31,
+    "laneDesc": "Snare 134, Crash 14, Kick 7",
+    "chartFiles": 4,
+    "publishers": [
+      "08-analysis"
+    ],
+    "verdict": null
+  },
+  {
+    "songId": "604777",
+    "title": "Keep It Greasey",
+    "removed": 629,
+    "snare": 629,
+    "other": 0,
+    "laneDesc": "never stripped live, revision rejected",
+    "chartFiles": 8,
+    "publishers": [
+      "02-drummagazine",
+      "03-petesweeney",
+      "08-analysis"
+    ],
+    "verdict": null
+  },
+  {
+    "songId": "620961",
+    "title": "Drowning Witch",
+    "removed": 419,
+    "snare": 101,
+    "other": 318,
+    "laneDesc": "Ride 128, Snare 101, HatClosed 61, Kick 41, TomLow 33",
+    "chartFiles": 5,
+    "publishers": [
+      "02-drummagazine",
+      "08-analysis"
+    ],
+    "verdict": null
+  },
+  {
+    "songId": "748459",
+    "title": "Fembot In A Wet T-Shirt",
+    "removed": 57,
+    "snare": 53,
+    "other": 4,
+    "laneDesc": "Snare 53, HatPedal 4",
+    "chartFiles": 0,
+    "publishers": [],
+    "verdict": null
+  },
+  {
+    "songId": "749523",
+    "title": "Catholic Girls",
+    "removed": 16,
+    "snare": 16,
+    "other": 0,
+    "laneDesc": "Snare 16",
+    "chartFiles": 0,
+    "publishers": [],
+    "verdict": null
+  },
+  {
+    "songId": "1105085",
+    "title": "The Black Page",
+    "removed": 173,
+    "snare": 170,
+    "other": 3,
+    "laneDesc": "Snare 170, HatPedal 3",
+    "chartFiles": 16,
+    "publishers": [
+      "08-analysis"
+    ],
+    "verdict": null
+  }
+]
