@@ -162,3 +162,21 @@ the pulses. **All 1,317 are genuine and must be restored.**
 
 Same revision also claimed all nine tracks were unchanged. The Frank Zappa staff went
 1,056 notes to 1,061 across that edit.
+
+### Independent verification of the Watermelon restore file
+
+`RESTORED-s35881-v2.gp`, built by a parallel session on the current live export, checked
+at render level rather than by element count (GPIF Notes are shared, so a raw count hides
+position errors):
+
+| Check | Result |
+|---|---|
+| Drum-staff note slots, pre-sweep vs restored | 2,091 vs 2,091, sets identical |
+| Ghost positions, pre-sweep vs restored | identical set, 0 missing, 0 extra |
+| Lanes restored | 1,316 ride (51), 1 crash (49) |
+| Other eight staves | note and ghost counts unchanged |
+| letRing on the drum staff | 0 (the 25 in the file sit on two guitar staves) |
+| Bars and tracks | 105 and 9, unchanged |
+
+The file is correct and ready to submit. Its 1,332 `AntiAccent` elements are 15
+pre-existing plus 1,317 written copy-on-write.

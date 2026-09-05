@@ -314,6 +314,21 @@ footer{margin-top:60px;padding-top:20px;border-top:1px solid var(--line);color:v
 
 <div class="box a"><p><strong>Scope note on the same revision.</strong> It also stated that all nine tracks were unchanged. The Frank Zappa staff went from 1,056 notes to 1,061 across the same edit, so the round trip altered a track the description said it had not touched.</p></div>
 
+
+<div class="box g"><h3>Independent verification of the Watermelon restore file</h3>
+<p>A parallel session built <code>RESTORED-s35881-v2.gp</code> on the current live export. Checked here against both the pre-sweep revision and the live one, at render level rather than by element count, since GPIF Notes are shared objects and a raw count hides position errors.</p>
+<div class="tw"><table>
+<thead><tr><th>Check</th><th>Result</th></tr></thead>
+<tbody>
+<tr><td class='ttl'>Drum-staff note slots, pre-sweep vs restored</td><td class='st'>2,091 vs 2,091, sets identical</td></tr>
+<tr><td class='ttl'>Ghost positions, pre-sweep vs restored</td><td class='st'>identical set, 0 missing, 0 extra</td></tr>
+<tr><td class='ttl'>Lanes restored</td><td class='st'>1,316 ride (51), 1 crash (49)</td></tr>
+<tr><td class='ttl'>Other eight staves</td><td class='st'>note and ghost counts unchanged</td></tr>
+<tr><td class='ttl'>letRing on the drum staff</td><td class='st'>0 (the 25 in the file sit on two guitar staves)</td></tr>
+<tr><td class='ttl'>Bars and tracks</td><td class='st'>105 and 9, unchanged</td></tr>
+</tbody></table></div>
+<p><strong>The file is correct and ready to submit.</strong> Its 1,332 <code>AntiAccent</code> elements are 15 pre-existing plus 1,317 written copy-on-write, which is why an element count reads higher than the rendered 1,317.</p></div>
+
 <footer>
 <p>Ghost counts come from the drum-staff census in <code>_defects.json</code>. Revision state was read from <code>songsterr.com/api/meta/&lt;songId&gt;/revisions</code> on 2026-09-05, using the fields <code>isBlocked</code>, <code>isOnModeration</code> and <code>reviewed</code>. Source data: <code>~/Library/Mobile Documents/com~apple~CloudDocs/sfg/zappa-drum-repair-2026-08-31/</code>, <code>~/Projects/_outputs/songsterr-zappa-paren-fix/</code> and <code>~/Projects/_outputs/zappa-drum-sources/</code>.</p>
 <p>Zomby Woof2 (s6685613) is a private tab and did not resolve through the public API. It is the only gap in the sweep.</p>
