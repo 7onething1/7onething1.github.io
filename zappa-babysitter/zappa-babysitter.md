@@ -7,16 +7,28 @@ Transcript read: `c1e4ffee-9289-4640-8291-44d886f30a2f.jsonl`, 8,529 rows, on 20
 
 ## The verdict
 
-Two separate things stop this chat, and the single-song focus limitation is the worse one.
+The **single-song focus limitation** is what stops this chat. Twice the session declared
+itself finished and ended, naming that gate as the reason, because Zomby Woof was exhausted
+and every other song needed a new chat. Those are the only stops that end a session rather
+than cost a turn.
 
-The loud cause is mechanical. Across 112 hours the transcript records 47 restarts caused by
-Brandon's own Stop hooks against 30 turns Brandon actually typed, and `chat_donelink_gate`
-produced 27 of the 47.
+### Correction, 2026-09-05 17:0x
 
-The damaging cause is the **single-song gate**. Twice the session declared itself finished
-and ended, naming that gate as the reason, because Zomby Woof was exhausted and every other
-song needed a new chat. A hook bounce costs one turn. The one-song dead end ends the
-session.
+An earlier version of this page said `chat_donelink_gate` caused 27 of 47 stops. That was
+wrong, a peer session challenged it, and the challenge holds.
+
+Those 27 lines read `[python3 .../chat_donelink_gate.py]: No stderr output`, which is not a
+refusal. Across 18 transcripts that gate produces **178 such lines and zero** carrying its
+own `chat_donelink_gate BLOCK:` text, while `ask_drift_gate` produces 31 blocks and zero of
+the other form. The split is clean per gate and never mixes, so the two forms are two
+different events.
+
+Every one of these gates writes to stdout and none writes to stderr, so the stream is not
+the difference. A direct probe confirms `chat_donelink_gate` exits 2 and prints its BLOCK
+text when it genuinely refuses. It never appears that way in any transcript.
+**chat_donelink_gate blocked nothing.** No hook was patched, and none should be.
+
+Real gate blocks in this transcript number **18**, led by `ask_drift_gate` at 6.
 
 The session has also been context-compacted twice today, and it has run 4.7 days against a
 standing rule that caps a chat at one day.
@@ -36,41 +48,43 @@ standing rule that caps a chat at one day.
 
 | Origin | Turns | What it is |
 |---|---|---|
-| Stop-hook bounce | 47 | A gate rejected the reply and forced a rewrite |
+| Hook feedback, no-stderr form | 32 | **Not a refusal.** donelink 28, next_action 4 |
 | Image paste | 31 | Brandon dropping chart scans in for reading |
 | Brandon typed | 30 | Actual instructions |
+| Real gate blocks | 18 | Carry explicit BLOCK text and force a rewrite |
 | /loop tick | 14 | Autonomous timer waking the session |
-| Peer-session message | 6 | The sibling Zappa chat relaying findings |
+| Peer-session message | 6 | A sibling chat relaying findings |
 | Skill injection | 2 | songsterr-upload and ship loading in |
 | Context compaction | 2 | Ran out of context and resumed from a summary |
 
 ## Which gate does the stopping
 
-| Stop hook | Bounces |
-|---|---|
-| `chat_donelink_gate` | 27 |
-| `ask_drift_gate` | 6 |
-| `next_action_gate` | 4 |
-| `chat_color_gate` | 3 |
-| `search_before_blocked_gate` | 3 |
-| `no_permission_questions_gate` | 3 |
-| unparsed | 1 |
+Counted by the presence of the gate's own BLOCK text, across 18 transcripts covering three
+days.
 
-### The defect in chat_donelink_gate
+| Stop hook | Real blocks | In this chat |
+|---|---|---|
+| `ask_drift_gate` | 31 | 6 |
+| `search_before_blocked_gate` | 25 | 4 |
+| `chat_color_gate` | 17 | 3 |
+| `no_permission_questions_gate` | 13 | 4 |
+| `done_claim_gate` | 9 | 1 |
+| `source_grounding_gate` | 6 | 0 |
+| `chat_donelink_gate` | **0** | 0 |
+| `next_action_gate` | **0** | 0 |
 
-The gate blocks any reply carrying a completion word unless the reply also has a markdown
-link whose target starts with `http`. Its word list includes **verified**.
+### Why the earlier reading was wrong
 
-A forensic audit session says "verified" in almost every reply, because verifying is the
-entire job. Its work products are local files such as `rev5-Zomby-Woof-GHOSTS-RESTORED.gp`,
-which have no public URL. The session did link its work product, as a relative markdown
-link:
+The first pass counted every `Stop hook feedback:` turn as a refusal. Two gates use a
+different, non-blocking form and were miscounted. The gate's word list does include
+`verified`, and its `MD_LINK` pattern does reject a relative link such as
+`[name](s412162/name.gp)`, so the reply text looked unsatisfiable. The gate simply was not
+firing on those turns.
 
-    [rev5-Zomby-Woof-GHOSTS-RESTORED.gp](s412162/rev5-Zomby-Woof-GHOSTS-RESTORED.gp)
-
-The gate's pattern is `\[[^\]]+\]\((https?://[^\s)]+)\)`, so a relative target fails to
-match and the reply is rejected. The session complied with the rule as Brandon wrote it and
-was bounced anyway. That happened 27 times.
+One more thing the proposed patch got wrong: `chat_donelink_gate.py` computes `md_outside`
+once and uses it for two separate checks. Widening that one pattern would loosen the
+URL-mention rule as well as the done-claim rule, so the claim that the http rule would stay
+untouched was inaccurate. Moot now, since the gate blocked nothing.
 
 ## The single-song limitation, in its own words
 
@@ -147,8 +161,8 @@ Sources: songsterr.com/help and songsterr.com/a/wsa/delete-tabs-a17600
    8903886, 8904052, 8905411, 8905491. Only r8905491 should be taken. If the trash can
    control peels them newest-first, the stack reduces to that one. Deletion is permanent,
    so this is Brandon's call.
-3. Fix `chat_donelink_gate` or leave it strict. Accepting a markdown link to a local path
-   ends 27 of the 47 bounces.
+3. Nothing. The third item here was the link-gate patch and it is withdrawn as a miscount.
+   No hook needs changing.
 
 ## Recommendation
 
@@ -160,8 +174,8 @@ Give the one-song gate a third branch. Amend it so an exhausted-and-blocked song
 evidence work on that same song rather than to ending the chat. Two of the hard stops
 measured here came from the gate offering only finish or open a new chat.
 
-Patch the link gate before the next long session. Twenty-seven bounces on one gate is the
-largest tax measured here, and every bounce spends a full turn on formatting.
+Leave every hook alone. The link-gate patch this page first recommended rested on a
+miscount and is withdrawn. No hook was edited.
 
 ---
 

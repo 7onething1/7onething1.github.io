@@ -62,13 +62,24 @@ footer{margin-top:60px;border-top:1px solid var(--rule);padding-top:18px;
 <p class="stamp">Target: local_c3404683 &nbsp;&middot;&nbsp; "Zappa chat single-song focus limitation"</p>
 
 <div class="verdict">
-  <b>Two separate things stop this chat, and the single-song gate is the worse one.</b>
-  The loud cause is mechanical: 47 restarts came from Brandon's own Stop hooks against
-  30 turns Brandon actually typed, and <code>chat_donelink_gate</code> alone caused 27.
-  The damaging cause is the <b>single-song focus limitation</b>. Twice the session
-  declared itself finished and ended, naming that gate as the reason, because Zomby Woof
-  was exhausted and every other song needed a new chat. A bounce costs one turn. The
-  one-song dead end ends the session.
+  <b>The single-song focus limitation is what stops this chat.</b>
+  Twice the session declared itself finished and ended, naming that gate as the reason,
+  because Zomby Woof was exhausted and every other song needed a new chat. Those are the
+  only stops that end a session rather than cost a turn. Real gate blocks in this
+  transcript number <b>18</b>, led by <code>ask_drift_gate</code> at 6.
+</div>
+
+<div class="verdict" style="border-left-color:var(--c4)">
+  <b>Correction, 2026-09-05 17:0x. An earlier version of this page said
+  <code>chat_donelink_gate</code> caused 27 of 47 stops. That was wrong.</b>
+  A peer session challenged the count and the challenge holds. Those 27 lines read
+  "[python3 .../chat_donelink_gate.py]: No stderr output", which is not a refusal.
+  Across 18 transcripts that gate produces <b>178 such lines and zero</b> carrying its own
+  <code>chat_donelink_gate BLOCK:</code> text, while <code>ask_drift_gate</code> produces
+  31 blocks and zero of the other form. The split is clean per gate, so the two forms are
+  two different events. The gate demonstrably emits its BLOCK text on stdout when it
+  refuses, probed directly at exit 2 with 404 bytes. It never appears that way here.
+  <b>chat_donelink_gate blocked nothing.</b> No hook was patched, and none should be.
 </div>
 
 <div class="verdict" style="border-left-color:var(--c1)">
@@ -82,7 +93,7 @@ footer{margin-top:60px;border-top:1px solid var(--rule);padding-top:18px;
 <div class="grid">
   <div class="stat"><div class="k">Session age</div><div class="v">112 h</div><div class="d">08-31 23:59 to 09-05 16:07</div></div>
   <div class="stat"><div class="k">Assistant turns</div><div class="v">2,950</div><div class="d">8,529 transcript rows</div></div>
-  <div class="stat"><div class="k">Stop-hook bounces</div><div class="v">47</div><div class="d">each one costs a turn</div></div>
+  <div class="stat"><div class="k">Real gate blocks</div><div class="v">18</div><div class="d">ask_drift_gate leads at 6</div></div>
   <div class="stat"><div class="k">Brandon typed</div><div class="v">30</div><div class="d">the real instructions</div></div>
   <div class="stat"><div class="k">Context compactions</div><div class="v">2</div><div class="d">both on 09-05</div></div>
 </div>
@@ -90,28 +101,31 @@ footer{margin-top:60px;border-top:1px solid var(--rule);padding-top:18px;
 <hr>
 
 <h2><span class="n">01</span>What actually restarts this chat</h2>
-<p class="lede">Every user-role turn in the transcript, classified by origin. Only 30 of the
-130 came from Brandon's keyboard. The largest single source is the harness bouncing a reply
-back for a gate violation.</p>
+<p class="lede">Every user-role turn in this transcript, classified by origin. Only 30 of
+the 130 came from Brandon's keyboard. The harness-feedback turns split into two kinds, and
+only one kind is a refusal.</p>
 
 <div class="scroll">
 <table>
 <tr><th>Origin</th><th>Turns</th><th>Share</th><th>What it is</th></tr>
-<tr><td><b>Stop-hook bounce</b></td><td class="num">47</td>
-    <td><span class="bar" style="width:235px;background:#F21A00"></span></td>
-    <td>A gate rejected the reply and forced a rewrite</td></tr>
+<tr><td>Hook feedback, <b>no-stderr form</b></td><td class="num">32</td>
+    <td><span class="bar" style="width:160px;background:#D8CEB8"></span></td>
+    <td><b>Not a refusal.</b> donelink 28, next_action 4</td></tr>
 <tr><td>Image paste</td><td class="num">31</td>
     <td><span class="bar" style="width:155px;background:#78B7C5"></span></td>
     <td>Brandon dropping chart scans in for reading</td></tr>
 <tr><td><b>Brandon typed</b></td><td class="num">30</td>
     <td><span class="bar" style="width:150px;background:#3B9AB2"></span></td>
     <td>Actual instructions, listed in section 03</td></tr>
+<tr><td><b>Real gate blocks</b></td><td class="num">18</td>
+    <td><span class="bar" style="width:90px;background:#F21A00"></span></td>
+    <td>Carry explicit BLOCK text and force a rewrite</td></tr>
 <tr><td>/loop tick</td><td class="num">14</td>
     <td><span class="bar" style="width:70px;background:#EBCC2A"></span></td>
     <td>Autonomous timer waking the session</td></tr>
 <tr><td>Peer-session message</td><td class="num">6</td>
     <td><span class="bar" style="width:30px;background:#E1AF00"></span></td>
-    <td>The sibling Zappa chat relaying findings</td></tr>
+    <td>A sibling chat relaying findings</td></tr>
 <tr><td>Skill injection</td><td class="num">2</td>
     <td><span class="bar" style="width:10px;background:#78B7C5"></span></td>
     <td>songsterr-upload and ship loading in</td></tr>
@@ -121,46 +135,44 @@ back for a gate violation.</p>
 </table>
 </div>
 
-<h2><span class="n">02</span>Which gate does the stopping</h2>
-<p class="lede">The 47 bounces are not spread evenly. One gate produced more than half of
-them on its own.</p>
+<h2><span class="n">02</span>Which gate actually blocks</h2>
+<p class="lede">Counted by the presence of the gate's own BLOCK text, across 18 transcripts
+covering three days. A gate that refuses says so in the turn it injects.</p>
 
 <div class="scroll">
 <table>
-<tr><th>Stop hook</th><th>Bounces</th><th>Share</th></tr>
-<tr><td><code>chat_donelink_gate</code></td><td class="num">27</td>
-    <td><span class="bar" style="width:270px;background:#F21A00"></span></td></tr>
-<tr><td><code>ask_drift_gate</code></td><td class="num">6</td>
-    <td><span class="bar" style="width:60px;background:#E1AF00"></span></td></tr>
-<tr><td><code>next_action_gate</code></td><td class="num">4</td>
-    <td><span class="bar" style="width:40px;background:#EBCC2A"></span></td></tr>
-<tr><td><code>chat_color_gate</code></td><td class="num">3</td>
-    <td><span class="bar" style="width:30px;background:#3B9AB2"></span></td></tr>
-<tr><td><code>search_before_blocked_gate</code></td><td class="num">3</td>
-    <td><span class="bar" style="width:30px;background:#78B7C5"></span></td></tr>
-<tr><td><code>no_permission_questions_gate</code></td><td class="num">3</td>
-    <td><span class="bar" style="width:30px;background:#3B9AB2"></span></td></tr>
-<tr><td>unparsed</td><td class="num">1</td>
-    <td><span class="bar" style="width:10px;background:#D8CEB8"></span></td></tr>
+<tr><th>Stop hook</th><th>Real blocks</th><th>Share</th><th>In this chat</th></tr>
+<tr><td><code>ask_drift_gate</code></td><td class="num">31</td>
+    <td><span class="bar" style="width:248px;background:#F21A00"></span></td><td class="num">6</td></tr>
+<tr><td><code>search_before_blocked_gate</code></td><td class="num">25</td>
+    <td><span class="bar" style="width:200px;background:#E1AF00"></span></td><td class="num">4</td></tr>
+<tr><td><code>chat_color_gate</code></td><td class="num">17</td>
+    <td><span class="bar" style="width:136px;background:#EBCC2A"></span></td><td class="num">3</td></tr>
+<tr><td><code>no_permission_questions_gate</code></td><td class="num">13</td>
+    <td><span class="bar" style="width:104px;background:#3B9AB2"></span></td><td class="num">4</td></tr>
+<tr><td><code>done_claim_gate</code></td><td class="num">9</td>
+    <td><span class="bar" style="width:72px;background:#78B7C5"></span></td><td class="num">1</td></tr>
+<tr><td><code>source_grounding_gate</code></td><td class="num">6</td>
+    <td><span class="bar" style="width:48px;background:#78B7C5"></span></td><td class="num">0</td></tr>
+<tr><td><code>chat_donelink_gate</code></td><td class="num">0</td>
+    <td><span class="bar" style="width:4px;background:#D8CEB8"></span></td><td class="num">0</td></tr>
+<tr><td><code>next_action_gate</code></td><td class="num">0</td>
+    <td><span class="bar" style="width:4px;background:#D8CEB8"></span></td><td class="num">0</td></tr>
 </table>
 </div>
 
-<div class="card c">
-<div class="t">The defect in <code>chat_donelink_gate</code></div>
-<p>The gate blocks any reply carrying a completion word unless the reply also has a markdown
-link whose target starts with <code>http</code>. Its word list includes <b>verified</b>.</p>
-<p>A forensic audit session says "verified" in almost every reply, because verifying is the
-entire job. Its work products are local files such as
-<code>rev5-Zomby-Woof-GHOSTS-RESTORED.gp</code>, which have no public URL. The session did
-link its work product, as a relative markdown link:</p>
-<pre><code>[rev5-Zomby-Woof-GHOSTS-RESTORED.gp](s412162/rev5-Zomby-Woof-GHOSTS-RESTORED.gp)</code></pre>
-<p>The gate's pattern is <code>\[[^\]]+\]\((https?://[^\s)]+)\)</code>, so a relative target
-fails to match and the reply is rejected. The session complied with the rule as Brandon
-wrote it and was bounced anyway. That happened 27 times.</p>
+<div class="card">
+<div class="t">How the two forms were told apart</div>
+<p>Every one of these gates writes to stdout and none writes to stderr, so the stream is
+not the difference. The difference is per gate and it never mixes.
+<code>chat_donelink_gate</code> shows 178 no-stderr turns and 0 explicit blocks.
+<code>ask_drift_gate</code> shows 0 and 31. A direct probe confirms
+<code>chat_donelink_gate</code> exits 2 and prints its BLOCK text when it genuinely
+refuses, so if those 178 were refusals the text would be there.</p>
 </div>
 
 <h2><span class="n">03</span>Brandon's 30 typed turns</h2>
-<p class="lede">Six of them are some version of the same sentence. That repetition is the
+<p class="lede">Seven of them are some version of the same sentence. That repetition is the
 complaint this page exists to answer.</p>
 
 <div class="scroll">
@@ -306,10 +318,12 @@ keeps throwing away.</p>
 rather than to ending the chat. Two of the hard stops measured here came from the gate
 offering only finish or open a new chat.</p>
 </div>
-<div class="card c">
-<div class="t">Patch the link gate before the next long session</div>
-<p>Twenty-seven bounces on one gate is the single largest tax measured here. Every bounce
-spends a full turn on formatting rather than on Zappa.</p>
+<div class="card b">
+<div class="t">Leave every hook alone</div>
+<p>The link-gate patch this page first recommended rested on a miscount and is withdrawn.
+No hook was edited. If a gate is ever worth attention it is
+<code>ask_drift_gate</code> at 31 blocks across three days, and that gate is mostly
+catching a real drift rather than misfiring.</p>
 </div>
 
 <footer>
