@@ -52,7 +52,7 @@ footer{margin-top:60px;padding-top:20px;border-top:1px solid var(--line);color:v
 <p class="sub">A sweep across Frank Zappa drum tabs on Songsterr read genuine ghost notes as a notation defect and stripped them. This is the verified record of what was changed, what moderators caught, and what is still live.</p>
 <p class="stamp">Audited 2026-08-30, moderation status re-read 2026-09-05 &middot; every revision below checked against <code>api/meta/&lt;songId&gt;/revisions</code></p>
 
-<p class="tocn"><a href="#what">1. What happened</a><a href="#live">2. Live now</a><a href="#blocked">3. Rejected</a><a href="#super">4. Superseded</a><a href="#clean">5. Never submitted</a><a href="#why">6. Root cause</a><a href="#charts">7. Checked against the charts</a><a href="#evidence">8. Evidence</a><a href="#next">9. Status and what is left</a></p>
+<p class="tocn"><a href="#what">1. What happened</a><a href="#live">2. Live now</a><a href="#blocked">3. Rejected</a><a href="#super">4. Superseded</a><a href="#clean">5. Never submitted</a><a href="#why">6. Root cause</a><a href="#lanes">7. Which lane</a><a href="#charts">7. Checked against the charts</a><a href="#evidence">8. Evidence</a><a href="#next">9. Status and what is left</a></p>
 
 <div class="grid">
 <div class="kpi r"><div class="n">16</div><div class="l">tabs damaged and public</div></div>
@@ -121,6 +121,36 @@ footer{margin-top:60px;padding-top:20px;border-top:1px solid var(--line);color:v
 </ol>
 
 <div class="box g"><p><strong>The rule itself was withdrawn on 2026-09-05, in the pipeline as well as here.</strong> It had survived as advice while this page described its damage. Measured on Songsterr that day: a GPIF ghost arrives as its own <code>ghost</code> field and draws as a parenthesised notehead, and a GPIF <code>&lt;Accent&gt;</code> arrives as <code>staccato</code> and draws as a dot. So the parentheses are the platform's ghost notation, and the dot is a duration mark standing in for a dynamic one. <code>sd_writegp.py</code> now writes the native ghost flag, and <code>sd_verify.py</code> now fails any file that writes a ghost as a dot. Brandon's dislike of parentheses stands as a display preference for his own files.</p></div>
+
+
+<h2 id="lanes"><span class="dot" style="background:var(--amb)"></span>Which lane each flag actually sat on</h2>
+<p class="lede">The count above says 3,842 ghost notes. Counting them by MIDI lane in each tab's pre-sweep revision says something narrower. A ghost note is a quiet snare stroke between the loud ones. A ghost flag on a ride cymbal is a different thing and needs a different decision.</p>
+<div class="grid">
+<div class="kpi r"><div class="n">1,549</div><div class="l">on snare, unambiguous ghosts</div></div>
+<div class="kpi a"><div class="n">2,293</div><div class="l">on cymbals, hats, kick, toms, tambourine</div></div>
+<div class="kpi b"><div class="n">16</div><div class="l">tabs measured lane by lane</div></div>
+</div>
+<div class="tw"><table>
+<tr><th></th><th>Song ID</th><th>Title</th><th>Removed</th><th>Of those, snare</th><th>Top lanes</th><th>Whose revision we overwrote</th></tr>
+<tr><td class='num'>1</td><td class='sid'>s35881</td><td class='ttl'>Watermelon In Easter Hay</td><td class='gh'>1,317</td><td class='gh' style='color:var(--red)'>0</td><td class='st'>ride 1316, crash 1</td><td class='st'>Ben Dibden1</td></tr>
+<tr><td class='num'>2</td><td class='sid'>s35886</td><td class='ttl'>Muffin Man</td><td class='gh'>578</td><td class='gh' style='color:var(--red)'>504</td><td class='st'>snare 481, snare 23, open hat 13, crash 12, kick 10</td><td class='st'>Ben Dibden1</td></tr>
+<tr><td class='num'>3</td><td class='sid'>s620961</td><td class='ttl'>Drowning Witch</td><td class='gh'>419</td><td class='gh' style='color:var(--red)'>111</td><td class='st'>ride 128, snare 101, closed hat 61, kick 41, low tom 33</td><td class='st'>Khashoggi</td></tr>
+<tr><td class='num'>4</td><td class='sid'>s35870</td><td class='ttl'>Montana</td><td class='gh'>317</td><td class='gh' style='color:var(--red)'>174</td><td class='st'>snare 95, tambourine 83, snare 79, kick 24, MIDI 87 22</td><td class='st'>Brandon chavez</td></tr>
+<tr><td class='num'>5</td><td class='sid'>s1105085</td><td class='ttl'>The Black Page</td><td class='gh'>173</td><td class='gh' style='color:var(--red)'>170</td><td class='st'>snare 170, pedal hat 3</td><td class='st'>Achille</td></tr>
+<tr><td class='num'>6</td><td class='sid'>s35878</td><td class='ttl'>Nanook Suite</td><td class='gh'>168</td><td class='gh' style='color:var(--red)'>168</td><td class='st'>snare 168</td><td class='st'>Kirill</td></tr>
+<tr><td class='num'>7</td><td class='sid'>s35865</td><td class='ttl'>Nanook Rubs It</td><td class='gh'>168</td><td class='gh' style='color:var(--red)'>168</td><td class='st'>snare 168</td><td class='st'>Taburet</td></tr>
+<tr><td class='num'>8</td><td class='sid'>s412178</td><td class='ttl'>Inca Roads</td><td class='gh'>165</td><td class='gh' style='color:var(--red)'>134</td><td class='st'>snare 134, crash 14, kick 7, crash 6, closed hat 3</td><td class='st'>Darr</td></tr>
+<tr><td class='num'>9</td><td class='sid'>s68248</td><td class='ttl'>Carolina Hard-Core Ecstasy</td><td class='gh'>144</td><td class='gh' style='color:var(--red)'>0</td><td class='st'>tambourine 144</td><td class='st'>Darr</td></tr>
+<tr><td class='num'>10</td><td class='sid'>s35884</td><td class='ttl'>Oh No</td><td class='gh'>141</td><td class='gh' style='color:var(--red)'>0</td><td class='st'>closed hat 141</td><td class='st'>Ben Dibden1</td></tr>
+<tr><td class='num'>11</td><td class='sid'>s68246</td><td class='ttl'>Alien Orifice</td><td class='gh'>86</td><td class='gh' style='color:var(--red)'>33</td><td class='st'>snare 33, crash 33, crash 14, ride 3, pedal hat 2</td><td class='st'>Ben Dibden1</td></tr>
+<tr><td class='num'>12</td><td class='sid'>s35887</td><td class='ttl'>What&amp;#x27;s New In Baltimore?</td><td class='gh'>59</td><td class='gh' style='color:var(--red)'>4</td><td class='st'>ride 48, snare 4, crash 4, crash 3</td><td class='st'>e</td></tr>
+<tr><td class='num'>13</td><td class='sid'>s748459</td><td class='ttl'>Fembot In A Wet T-Shirt</td><td class='gh'>57</td><td class='gh' style='color:var(--red)'>53</td><td class='st'>snare 53, pedal hat 4</td><td class='st'>Kevin Sheppard</td></tr>
+<tr><td class='num'>14</td><td class='sid'>s20690</td><td class='ttl'>Uncle Meat (YCDTOSA Vol. 2)</td><td class='gh'>24</td><td class='gh' style='color:var(--red)'>4</td><td class='st'>mid tom 6, snare 4, high tom 4, low tom 4, ride bell 4</td><td class='st'>Leonard</td></tr>
+<tr><td class='num'>15</td><td class='sid'>s749523</td><td class='ttl'>Catholic Girls</td><td class='gh'>16</td><td class='gh' style='color:var(--red)'>16</td><td class='st'>snare 16</td><td class='st'>Kevin Sheppard</td></tr>
+<tr><td class='num'>16</td><td class='sid'>s5820647</td><td class='ttl'>Frank Zappa, The Mothers of Invention - Zomby Woof</td><td class='gh'>10</td><td class='gh' style='color:var(--red)'>10</td><td class='st'>snare 10</td><td class='st'>CoolDude</td></tr>
+</table></div>
+<div class="box r"><p><strong>The largest single entry is the weakest case for restoration.</strong> Watermelon In Easter Hay's 1,317 are <strong>1,316 ride and 1 crash, with no snare at all</strong>. The stripping revision claimed exactly that, and the claim holds. Carolina Hard-Core Ecstasy's 144 are all tambourine and Oh No's 141 are all closed hat. Restoration should run snare first, where the meaning is not in question.</p></div>
+<div class="box r"><p><strong>Montana already carries the wrong repair.</strong> Ben Dibden1's r7294223 held 317 ghost flags. My r8764165 wiped them, and my r8787106, live today, converted all 317 into staccato dots. That is the substitution measured wrong on the same day: a dot is a duration mark and a ghost is a dynamic. Montana needs the ghost flag back and the dot removed, and 174 of its 317 are on snare.</p></div>
 
 <h2 id="charts"><span class="dot" style="background:var(--amb)"></span>Checked against the printed charts</h2>
 <p class="lede">The Zomby Woof repair was re-checked against the four transcriptions held on disk. Every figure below was measured off the scan rather than read by eye.</p>

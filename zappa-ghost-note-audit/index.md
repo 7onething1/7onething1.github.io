@@ -26,6 +26,29 @@ during the window before review is a separate question this page does not answer
 needs further action now, and the
 corrected Zoot Allures file built on 2026-09-05 should not be sent.
 
+## Which lane each flag actually sat on
+
+Counted by MIDI lane in each tab's pre-sweep revision, 2026-09-05. A ghost note is a quiet
+snare stroke between the loud ones; a ghost flag on a ride cymbal is a different thing.
+
+| | Count |
+|---|---|
+| On snare, unambiguous ghosts | 1,549 |
+| On cymbals, hats, kick, toms, tambourine | 2,293 |
+
+**The largest single entry is the weakest case for restoration.** Watermelon In Easter Hay's
+1,317 are 1,316 ride and 1 crash, with no snare at all, and the stripping revision claimed
+exactly that. Carolina Hard-Core Ecstasy's 144 are all tambourine. Oh No's 141 are all
+closed hat. Restoration runs snare first.
+
+**Montana already carries the wrong repair.** Ben Dibden1's r7294223 held 317 ghost flags.
+My r8764165 wiped them and my r8787106, live today, converted all 317 into staccato dots,
+the substitution measured wrong the same day. 174 of its 317 are on snare.
+
+**Whose work we overwrote:** 15 of the 16 damaged tabs overwrote other people's revisions,
+3,525 flags. Named: Ben Dibden1 (4 tabs), Kevin Sheppard (2), Darr (2), Khashoggi, Achille,
+Kirill, Taburet, Leonard, CoolDude and one more. Montana overwrote my own earlier work.
+
 ## Root cause, three layers
 
 1. **A house rule applied outside its scope.** The staccato-dot-at-velocity-31 rule comes
