@@ -1,12 +1,12 @@
 # 8/14 Drum Levels
 
-Generated 2026-09-05 07:47 CDT from `work/_chain_8_14.jsonl`.
+Generated 2026-09-05 10:03 CDT from `work/_chain_8_14.jsonl`.
 
-- Takes with drums: **8**
+- Takes with drums: **9**
 - Drum-light: **9**
-- Not measured: **5**
-- Usable kit splits: **8**
-- Kit folders on disk: **9** (the extra is `18_take80`, split before the gate existed, six near-silent stems)
+- Not measured: **4**
+- Usable kit splits: **9**
+- Kit folders on disk: **10** (the extra is `18_take80`, split before the gate existed, six near-silent stems)
 
 | Take | Verdict | Peak dBFS | RMS dBFS | Kit wavs |
 |---|---|---:|---:|---:|
@@ -26,7 +26,7 @@ Generated 2026-09-05 07:47 CDT from `work/_chain_8_14.jsonl`.
 | `14_take67` | drum-light | -39.3 | -58.3 |  |
 | `15_take72` | drum-light | -11.7 | -57.8 |  |
 | `16_take74` | drums | -3.0 | -33.8 | 6 |
-| `16b` | not measured |  |  |  |
+| `16b` | drums | -2.8 | -31.5 | 6 |
 | `16c` | not measured |  |  |  |
 | `16e` | not measured |  |  |  |
 | `17_take77` | not measured |  |  |  |
