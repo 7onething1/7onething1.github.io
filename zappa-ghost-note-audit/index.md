@@ -65,14 +65,25 @@ hi-hat within 2px of each of the three snares.
 across bars 6, 7, 8, 9, 15, 17, 18, 41, 42, 43, 44, 99, 100 and 102. Bar 1 is the omission.
 
 **Bar 5 accents belong on notes one and three** of each quintuplet, ten in all. The tab
-accented note two, five in all. Bar 16 is the same figure and was kept consistent.
+marks note two, five in all. I shipped that move as r8905411 and then took it back out.
+Reading the revision back from Songsterr showed why: a Guitar Pro `<Accent>` arrives as
+`staccato`, and the note schema holds no accent field at all. The rendered bar shows ten
+round dots and no wedges. A staccato dot says short and Brown's wedge says loud, so the
+edit swapped one articulation for another. r8905491 restores bars 5 and 16.
+
+**Accents cannot be expressed on a Songsterr drum staff through a Guitar Pro import.**
+Loudness lives on the beat as `ff`, `pp`, `mf` and `mp`. Bar 5 already carries an
+alternating `pp` and `ff` shape. Future accent work has to go through beat dynamics.
 
 **The barring source count was wrong.** Kasper Sloots' 10/16 sits at 1:39 to 2:10, framed by
-7/8 and 5/4. Brown's page is headed at 0:00. Zappa Analysis never voted on the opening bar.
+7/8 and 5/4. Brown's page is headed at 0:00. Zappa Analysis never voted on the opening bar. Both the
+split and the single bar are structural readings, so the rebar is a source based editorial
+adjudication rather than an objective correction.
 
-Build `Zomby-Woof-BROWN-rev3.gp`: 115 master bars unchanged, time signatures identical,
-rhythm and tuplet census identical, master bars 1, 5 and 16 touched, no string collisions,
-ghosts held at 8, let-ring at 0, all 10 tracks named.
+Shipped as `r8905491` from `Zomby-Woof-PEDAL-rev4.gp`: 115 master bars unchanged, time
+signatures identical, rhythm and tuplet census identical, master bar 1 touched, no string
+collisions, ghosts held at 8, let-ring at 0, all 10 tracks named. On the live revision:
+26 pedal hi-hat strokes with 3 of them in bar 1, and 32 staccato, the tab's own count.
 
 ## Sources
 

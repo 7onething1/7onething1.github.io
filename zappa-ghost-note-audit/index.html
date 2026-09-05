@@ -173,23 +173,30 @@ footer{margin-top:60px;padding-top:20px;border-top:1px solid var(--line);color:v
 
 <div class="box r"><p><strong>A claim of mine was wrong.</strong> I reported that the tab holds no pedal hi-hat events anywhere. The tab holds <strong>23 of them</strong>, across bars 6, 7, 8, 9, 15, 17, 18, 41, 42, 43, 44, 99, 100 and 102. Bar 1 is the single omission. The lane already belongs to the tab's own vocabulary, which makes the bar 1 addition a gap fill.</p></div>
 
-<h3>Bar 5 accents sit on notes one and three</h3>
-<p>Brown beams bar 5 as five quintuplet groups of five. The measured accent glyphs, width 18 and ink 65, sit above notes one and three of every group. The tab accented note two and nothing else. Bar 16 is the same figure built from the same shared note elements, so it was kept consistent.</p>
+<h3>Bar 5 accents sit on notes one and three, and Songsterr cannot draw them</h3>
+<p>Brown beams bar 5 as five quintuplet groups of five. The measured accent glyphs, width 18 and ink 65, sit above notes one and three of every group. The tab marks note two and nothing else.</p>
 <div class="two">
-<div class="pane wrong"><h4>Tab as submitted</h4><p class="sid">slots 1, 6, 11, 16, 21</p><p class="st">five accents, each on note two of its group</p></div>
-<div class="pane right"><h4>Brown's reading</h4><p class="sid">slots 0, 2, 5, 7, 10, 12, 15, 17, 20, 22</p><p class="st">ten accents, notes one and three of every group</p></div>
+<div class="pane wrong"><h4>What the tab marks</h4><p class="sid">slots 1, 6, 11, 16, 21</p><p class="st">five marks, each on note two of its group</p></div>
+<div class="pane right"><h4>What Brown prints</h4><p class="sid">slots 0, 2, 5, 7, 10, 12, 15, 17, 20, 22</p><p class="st">ten accents, notes one and three of every group</p></div>
 </div>
 
-<div class="box a"><p><strong>The barring source count was wrong too.</strong> Kasper Sloots' single 10/16 belongs to a passage he transcribed from <strong>1:39 to 2:10</strong>, framed by 7/8 and 5/4 and repeated three times against two keyboards. Brown's page is headed <code>@ 0:00</code>. The two describe separate music, so Zappa Analysis never voted on the opening bar at all. For the opening the split is Brown and Bedard on 5/16 plus 5/16 against Drumnet and the tab as published on 10/16. Brown's interior barline is solid and full height, and he beams the two groups apart, so the disagreement reaches beat grouping rather than stopping at the printed barline.</p></div>
+<div class="box r"><p><strong>I shipped that change and then took it back out.</strong> Revision <code>r8905411</code> moved the marks to Brown's positions and doubled them to ten. Reading the revision back from Songsterr's own JSON showed why that was wrong: <strong>a Guitar Pro <code>&lt;Accent&gt;</code> arrives in Songsterr as <code>staccato</code>.</strong> The note schema for this part holds only <code>fret</code>, <code>string</code>, <code>staccato</code>, <code>rest</code>, <code>ghost</code> and <code>tie</code>. There is no accent field. Zooming the rendered bar confirms it: ten small round dots, no wedges. A staccato dot says short, and Brown's wedge says loud, so the edit swapped one articulation for another. Revision <code>r8905491</code> puts bars 5 and 16 back to exactly what the tab held.</p></div>
 
-<h3>What the new build changed, and what it left alone</h3>
+<div class="box b"><p><strong>What that means beyond this bar.</strong> Accents cannot be expressed on a Songsterr drum staff through a Guitar Pro import at all. Loudness lives on the beat instead, as <code>ff</code>, <code>pp</code>, <code>mf</code> and <code>mp</code>, and bar 5 already carries an alternating <code>pp</code> and <code>ff</code> shape the transcriber put there. Any future accent work on these tabs has to go through beat dynamics, and that is a larger change than this pass covers.</p></div>
+
+<div class="box a"><p><strong>The barring source count was wrong too.</strong> Kasper Sloots' single 10/16 belongs to a passage he transcribed from <strong>1:39 to 2:10</strong>, framed by 7/8 and 5/4 and repeated three times against two keyboards. Brown's page is headed <code>@ 0:00</code>. The two describe separate music, so Zappa Analysis never voted on the opening bar at all. For the opening the split is Brown and Bedard on 5/16 plus 5/16 against Drumnet and the tab as published on 10/16. Brown's interior barline is solid and full height, and he beams the two groups apart. Drumnet beams the passage unbroken and numbers its next system from bar 4. Both readings are structural, so this is a <strong>source based editorial adjudication, not an objective correction</strong>, and the page labels it that way.</p></div>
+
+<h3>What the shipped build changed, and what it left alone</h3>
 <div class="tw"><table>
 <tr><th>Check</th><th>Result</th></tr>
 <tr><td>Master bars</td><td class="gh">115 to 115</td></tr>
 <tr><td>Time signatures</td><td>identical across all 115</td></tr>
 <tr><td>Rhythm and tuplet census</td><td>identical, so the polyrhythms hold</td></tr>
 <tr><td>Cells with changed note content</td><td class="sid">masterbar 1, track 9 only</td></tr>
-<tr><td>Master bars touched at all</td><td class="sid">1, 5, 16</td></tr>
+<tr><td>Master bars touched at all</td><td class="sid">1</td></tr>
+<tr><td>Submitted as</td><td class="sid">r8905491, 10 tracks</td></tr>
+<tr><td>Pedal hi-hat on the live revision</td><td class="gh">26 total, 3 of them in bar 1</td></tr>
+<tr><td>Staccato on the live revision</td><td class="gh">32, the tab's own count</td></tr>
 <tr><td>Intra-beat string collisions</td><td>none</td></tr>
 <tr><td>Ghost renderings</td><td class="gh">8, bars 6 to 9, unchanged</td></tr>
 <tr><td>Let-ring</td><td class="gh">0, unchanged</td></tr>
