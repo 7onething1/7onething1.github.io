@@ -158,6 +158,30 @@ across thresholds from 0.04 to 0.30.
 The claim fails at every threshold tested. At the most permissive setting the isolated snare still
 gives 3.02 hits per second against the tab's 7.36.
 
+### New: the tab puts the drummer on the ride where the hi-hat is playing
+
+With `hh.wav` and `ride.wav` separated, the tab's lane call is checkable against which cymbal is
+actually sounding. The tab marks 7 stretches as ride and 14 as hat.
+
+| Tab says | audio window | hh rms | ride rms | hh/ride | verdict |
+|---|---|---|---|---|---|
+| HAT | 11.6-36.2s | 0.02734 | 0.00739 | 3.70 | correct |
+| **RIDE** | 36.2-41.0s | 0.02914 | 0.00215 | 13.58 | wrong, hat dominates |
+| HAT | 45.7-55.2s | 0.02739 | 0.00463 | 5.91 | correct |
+| **RIDE** | 55.2-63.2s | 0.02191 | 0.00655 | 3.35 | wrong, hat dominates |
+| HAT | 63.2-72.7s | 0.02726 | 0.00172 | 15.84 | correct |
+| HAT | 82.2-104.4s | 0.02755 | 0.00742 | 3.71 | correct |
+| HAT | 107.5-117.1s | 0.02465 | 0.00503 | 4.90 | correct |
+| **RIDE** | 126.6-129.7s | 0.03288 | 0.00064 | 51.36 | wrong, ride lane near silent |
+
+**Hat calls 5 of 5 correct. Ride calls 0 of 3.** Where the tab writes ride, the isolated ride lane is
+quiet and the hi-hat lane is loud, by ratios of 13.6, 3.4 and 51.4 against a baseline of 5.4. The
+ride is also louder inside the tab's hat sections than inside its ride sections, a straight
+inversion.
+
+Scope, stated plainly: three of seven ride stretches measured. The remaining four include the
+largest, 348 to 377 seconds carrying 109 ride notes.
+
 ### Corrected: the hat line is not thin
 
 This page earlier reported a median ratio of **0.60** tab hat notes per detected cymbal event and

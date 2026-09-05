@@ -256,6 +256,31 @@ much the answer depends on the knob.</p>
 <p>The claim fails at <b>every</b> threshold tested. At the most permissive setting the isolated
 snare still gives 3.02 hits per second against the tab's 7.36.</p>
 
+<h3>New: the tab puts the drummer on the ride where the hi-hat is playing</h3>
+<p>This is the test the mixed stem could never run. With <span class="mono">hh.wav</span> and
+<span class="mono">ride.wav</span> separated, the tab's own lane call can be checked directly against
+which cymbal is actually sounding. The tab marks 7 stretches as ride and 14 as hat. Three ride
+stretches and five hat stretches fall inside the audio analysed so far.</p>
+<table><thead><tr><th>Tab says</th><th>audio window</th><th class="num">hh rms</th>
+<th class="num">ride rms</th><th class="num">hh/ride</th><th>verdict</th></tr></thead><tbody>
+<tr><td>HAT</td><td class="mono">11.6&ndash;36.2s</td><td class="num">0.02734</td><td class="num">0.00739</td><td class="num">3.70</td><td class="ok">correct</td></tr>
+<tr><td><b>RIDE</b></td><td class="mono">36.2&ndash;41.0s</td><td class="num">0.02914</td><td class="num">0.00215</td><td class="num">13.58</td><td class="bad">wrong, hat dominates</td></tr>
+<tr><td>HAT</td><td class="mono">45.7&ndash;55.2s</td><td class="num">0.02739</td><td class="num">0.00463</td><td class="num">5.91</td><td class="ok">correct</td></tr>
+<tr><td><b>RIDE</b></td><td class="mono">55.2&ndash;63.2s</td><td class="num">0.02191</td><td class="num">0.00655</td><td class="num">3.35</td><td class="bad">wrong, hat dominates</td></tr>
+<tr><td>HAT</td><td class="mono">63.2&ndash;72.7s</td><td class="num">0.02726</td><td class="num">0.00172</td><td class="num">15.84</td><td class="ok">correct</td></tr>
+<tr><td>HAT</td><td class="mono">82.2&ndash;104.4s</td><td class="num">0.02755</td><td class="num">0.00742</td><td class="num">3.71</td><td class="ok">correct</td></tr>
+<tr><td>HAT</td><td class="mono">107.5&ndash;117.1s</td><td class="num">0.02465</td><td class="num">0.00503</td><td class="num">4.90</td><td class="ok">correct</td></tr>
+<tr><td><b>RIDE</b></td><td class="mono">126.6&ndash;129.7s</td><td class="num">0.03288</td><td class="num">0.00064</td><td class="num">51.36</td><td class="bad">wrong, ride lane near silent</td></tr>
+</tbody></table>
+<div class="note warn"><b>Hat calls 5 of 5 correct. Ride calls 0 of 3.</b> Where the tab writes ride,
+the isolated ride lane is quiet and the hi-hat lane is loud, by ratios of 13.6, 3.4 and 51.4 against
+a whole-window baseline of 5.4. The last of those has a ride lane at RMS 0.00064, close to silence,
+under 11 written ride notes. The ride is also louder inside the tab's hat sections than inside its
+ride sections, which is a straight inversion.</div>
+<p><b>Scope, stated plainly.</b> Three of the tab's seven ride stretches have been measured. The
+remaining four include the largest, 348 to 377 seconds carrying 109 ride notes. This finding is
+reported on what has been measured and will be completed when the separation finishes.</p>
+
 <h3>Corrected: the hat line is not thin</h3>
 <div class="note win">This page earlier reported a median ratio of <b>0.60</b> tab hat notes per
 detected cymbal event, and called the hat line thin. That ratio came from a detector over-triggering
