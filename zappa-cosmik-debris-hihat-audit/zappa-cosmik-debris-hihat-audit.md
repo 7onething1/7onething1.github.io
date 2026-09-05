@@ -109,12 +109,32 @@ live performance on the site.
 The studio tab computes to 4:19.5 against a 4:14 album track, so its tempo map is sound. Its
 open hats are 2.0 percent of the hat family. The live tab's are 7.0 percent.
 
-A German musicological analysis of *Apostrophe (')* in the local Zappa drum-source archive
-gives Cosmik Debris a duration of 4:16 and states its meter as **6/8 and 4/4**, with the
-blues schema behind the guitar solo and the strophe-refrain form. Its 6/8 is compatible with
-12/8, since one 12/8 bar is two of 6/8. Nothing in it supports 9/8 or 11/8.
-Source: `08-analysis/zappa-analysis/cosmic-debris7.jpg` in `~/Projects/_outputs/zappa-drum-sources/`,
-a copyrighted scan, described and not reproduced.
+### What exists anywhere else, checked by search
+
+A web search for a Cosmik Debris drum transcription returns commercial sheet music from Hal
+Leonard's *Apostrophe (')* book, Virtual Sheet Music, Sheet Music Plus, Sheet Music Direct and
+Stanton's. Every one is **guitar tablature**. The only dedicated drum transcription any search
+surfaced is Songsterr's own s412177. The absence of a second drum transcription of this live
+performance is therefore a fact about the world, checked beyond Songsterr's catalogue.
+
+The search also settled the drum chair. Ralph Humphrey was in the band from 1973 and played the
+Cosmik Debris session at Bolic Sound on 1973-05-29. Chester Thompson joined as a second drummer
+in 1974, so a 1974 live Cosmik Debris can carry two drummers at once. A dual-drummer stage mix
+will not reduce to one hi-hat lane, which matters for any future transcription attempt.
+
+### An unattributed source on the meter
+
+A German musicological analysis in the local Zappa drum-source archive gives Cosmik Debris a
+duration of 4:16 and states its meter as **6/8 and 4/4**, with the blues schema behind the guitar
+solo and the strophe-refrain form. Its 6/8 is compatible with 12/8, since one 12/8 bar is two of
+6/8. Nothing in it supports 9/8 or 11/8.
+
+Provenance, stated carefully: the scan is `08-analysis/zappa-analysis/cosmic-debris7.jpg` in
+`~/Projects/_outputs/zappa-drum-sources/`. No page in that archive folder references it, and the
+live zappa-analysis.com Cosmik Debris pages carry guitar-tab samples credited to KS with material
+by Andy Aledort. This German-language scan comes from a separate source the archive did not
+record, so it is treated as an unattributed secondary reading. It is copyrighted, described and
+not reproduced.
 
 ## A correction to our own earlier page
 
