@@ -49,97 +49,78 @@ footer{margin-top:60px;padding-top:20px;border-top:1px solid var(--line);color:v
 <link href="https://fonts.googleapis.com/css2?family=Cormorant:wght@600;700&family=Inter:wght@400;500;600;700&family=JetBrains+Mono:wght@400;700&display=swap" rel="stylesheet">
 <div class="wrap">
 <h1>The Zappa ghost note debacle</h1>
-<p class="sub">A sweep across Frank Zappa drum tabs on Songsterr read genuine ghost notes as a notation defect and stripped them. This is the verified record of what was changed and what is still live.</p>
-<p class="stamp">Audited 2026-09-05 &middot; all 105 Zappa tabs queried against Songsterr's live API &middot; 104 clean reads, 1 private tab unresolved</p>
+<p class="sub">A sweep across Frank Zappa drum tabs on Songsterr read genuine ghost notes as a notation defect and stripped them. This is the verified record of what was changed, what moderators caught, and what is still live.</p>
+<p class="stamp">Audited 2026-08-30, moderation status re-read 2026-09-05 &middot; every revision below checked against <code>api/meta/&lt;songId&gt;/revisions</code></p>
 
-<p class="tocn"><a href="#what">1. What happened</a><a href="#live">2. Live now</a><a href="#pending">3. Pending</a><a href="#clean">4. Never submitted</a><a href="#why">5. Root cause</a><a href="#next">6. What is left</a><a href="#charts">7. Checked against the charts</a></p>
+<p class="tocn"><a href="#what">1. What happened</a><a href="#live">2. Live now</a><a href="#blocked">3. Rejected</a><a href="#super">4. Superseded</a><a href="#clean">5. Never submitted</a><a href="#why">6. Root cause</a><a href="#charts">7. Checked against the charts</a><a href="#evidence">8. Evidence</a><a href="#next">9. Status and what is left</a></p>
 
 <div class="grid">
 <div class="kpi r"><div class="n">16</div><div class="l">tabs damaged and public</div></div>
 <div class="kpi r"><div class="n">3,842</div><div class="l">ghost notes stripped live</div></div>
-<div class="kpi a"><div class="n">4</div><div class="l">submitted, not current</div></div>
-<div class="kpi a"><div class="n">723</div><div class="l">ghost notes still at risk</div></div>
-<div class="kpi g"><div class="n">4</div><div class="l">flagged, never submitted</div></div>
-<div class="kpi b"><div class="n">20</div><div class="l">tabs touched in total</div></div>
+<div class="kpi g"><div class="n">682</div><div class="l">caught by moderators</div></div>
+<div class="kpi a"><div class="n">41</div><div class="l">superseded, never public</div></div>
+<div class="kpi b"><div class="n">19</div><div class="l">flagged, never sent</div></div>
 </div>
 
 <h2 id="what"><span class="dot" style="background:var(--red)"></span>What happened</h2>
-<p class="lede">Songsterr draws a ghost note as a notehead inside round brackets. That is the standard rendering and it carries real musical information, the quiet stroke a drummer plays between the accented ones. A sweep run on 2026-08-29 and 2026-08-30 treated those brackets as a defect and removed them across twenty Zappa tabs.</p>
+<p class="lede">Songsterr draws a ghost note as a notehead inside round brackets. That is the platform's own ghost notation and it carries real musical information, the quiet stroke a drummer plays between the loud ones. A sweep run on 2026-08-29 and 2026-08-30 read those brackets as a defect and removed them across twenty Zappa tabs.</p>
+<div class="box r"><p><strong>Sixteen of those revisions are the current public revision today.</strong> 3,842 ghost note flags are missing from tabs the public reads right now. Two more were rejected by Songsterr moderators before they could publish, and two were overtaken by other people's later revisions.</p></div>
 
-<div class="two">
-<div class="pane wrong"><h4>What the sweep believed</h4>
-<p>Parentheses read as a let-ring marking to a player, so a ghost should carry the staccato dot at velocity 31 instead. Every bracketed notehead on a drum staff is therefore wrong and should be converted.</p></div>
-<div class="pane right"><h4>What the record shows</h4>
-<p>The bracket is Songsterr's own ghost glyph, and the tabs were already correct. The house rule about staccato dots governs tabs generated from stems in Brandon's pipeline. It does not govern published community transcriptions.</p></div>
-</div>
-
-<div class="box r"><p><strong>The complaint that surfaced it.</strong> Songsterr users reported that 53 ghost notes had been removed from the Terry Bozzio track on Zoot Allures. Revision <code>r8769199</code> is real, its description says exactly that, and it is still sitting in the queue on that tab.</p></div>
-
-<h2 id="live"><span class="dot" style="background:var(--red)"></span>Damaged and live right now</h2>
-<p class="lede">On these sixteen tabs the stripping revision is the current published revision. Anyone opening the tab today sees drum notation with the ghost strokes flattened into ordinary hits.</p>
+<h2 id="live"><span class="dot" style="background:var(--red)"></span>Live now: 16 tabs, 3,842 ghost notes</h2>
+<p class="lede">Each revision below was confirmed as the current public revision by reading <code>api/meta/&lt;songId&gt;</code> on 2026-09-05.</p>
 <div class="tw"><table>
-<thead><tr><th>#</th><th>Song ID</th><th>Title</th><th style="text-align:right">Ghosts</th><th>Revision</th><th>Staff</th></tr></thead>
-<tbody>
-<tr><td class='num'>1</td><td class='sid'><a href='https://www.songsterr.com/a/wsa/x-tab-s35881' target='_blank' rel='noopener'>s35881</a></td><td class='ttl'>Watermelon In Easter Hay</td><td class='gh'>1,317</td><td class='rev'><a href='https://www.songsterr.com/a/wsa/x-tab-s35881' target='_blank' rel='noopener'>r8768414</a></td><td class='st'>Vinnie Colaiuta (1317)</td></tr>
-<tr><td class='num'>2</td><td class='sid'><a href='https://www.songsterr.com/a/wsa/x-tab-s35886' target='_blank' rel='noopener'>s35886</a></td><td class='ttl'>Muffin Man</td><td class='gh'>578</td><td class='rev'><a href='https://www.songsterr.com/a/wsa/x-tab-s35886' target='_blank' rel='noopener'>r8768517</a></td><td class='st'>Terry Bozio (578)</td></tr>
-<tr><td class='num'>3</td><td class='sid'><a href='https://www.songsterr.com/a/wsa/x-tab-s620961' target='_blank' rel='noopener'>s620961</a></td><td class='ttl'>Drowning Witch</td><td class='gh'>419</td><td class='rev'><a href='https://www.songsterr.com/a/wsa/x-tab-s620961' target='_blank' rel='noopener'>r8768566</a></td><td class='st'>Drums (419)</td></tr>
-<tr><td class='num'>4</td><td class='sid'><a href='https://www.songsterr.com/a/wsa/x-tab-s35870' target='_blank' rel='noopener'>s35870</a></td><td class='ttl'>Montana</td><td class='gh'>317</td><td class='rev'><a href='https://www.songsterr.com/a/wsa/x-tab-s35870' target='_blank' rel='noopener'>r8787106</a></td><td class='st'>1 Ralph Humphrey (212), Percussion (105)</td></tr>
-<tr><td class='num'>5</td><td class='sid'><a href='https://www.songsterr.com/a/wsa/x-tab-s1105085' target='_blank' rel='noopener'>s1105085</a></td><td class='ttl'>The Black Page</td><td class='gh'>173</td><td class='rev'><a href='https://www.songsterr.com/a/wsa/x-tab-s1105085' target='_blank' rel='noopener'>r8768613</a></td><td class='st'>Drums (173)</td></tr>
-<tr><td class='num'>6</td><td class='sid'><a href='https://www.songsterr.com/a/wsa/x-tab-s35878' target='_blank' rel='noopener'>s35878</a></td><td class='ttl'>Nanook Suite</td><td class='gh'>168</td><td class='rev'><a href='https://www.songsterr.com/a/wsa/x-tab-s35878' target='_blank' rel='noopener'>r8769001</a></td><td class='st'>Drums (168)</td></tr>
-<tr><td class='num'>7</td><td class='sid'><a href='https://www.songsterr.com/a/wsa/x-tab-s35865' target='_blank' rel='noopener'>s35865</a></td><td class='ttl'>Nanook Rubs It</td><td class='gh'>168</td><td class='rev'><a href='https://www.songsterr.com/a/wsa/x-tab-s35865' target='_blank' rel='noopener'>r8768967</a></td><td class='st'>Drums (168)</td></tr>
-<tr><td class='num'>8</td><td class='sid'><a href='https://www.songsterr.com/a/wsa/x-tab-s412178' target='_blank' rel='noopener'>s412178</a></td><td class='ttl'>Inca Roads</td><td class='gh'>165</td><td class='rev'><a href='https://www.songsterr.com/a/wsa/x-tab-s412178' target='_blank' rel='noopener'>r8769026</a></td><td class='st'>Chester Thompson (165)</td></tr>
-<tr><td class='num'>9</td><td class='sid'><a href='https://www.songsterr.com/a/wsa/x-tab-s68248' target='_blank' rel='noopener'>s68248</a></td><td class='ttl'>Carolina Hard-Core Ecstasy</td><td class='gh'>144</td><td class='rev'><a href='https://www.songsterr.com/a/wsa/x-tab-s68248' target='_blank' rel='noopener'>r8769058</a></td><td class='st'>Drums (144)</td></tr>
-<tr><td class='num'>10</td><td class='sid'><a href='https://www.songsterr.com/a/wsa/x-tab-s35884' target='_blank' rel='noopener'>s35884</a></td><td class='ttl'>Oh No</td><td class='gh'>141</td><td class='rev'><a href='https://www.songsterr.com/a/wsa/x-tab-s35884' target='_blank' rel='noopener'>r8769089</a></td><td class='st'>Drums (141)</td></tr>
-<tr><td class='num'>11</td><td class='sid'><a href='https://www.songsterr.com/a/wsa/x-tab-s68246' target='_blank' rel='noopener'>s68246</a></td><td class='ttl'>Alien Orifice</td><td class='gh'>86</td><td class='rev'><a href='https://www.songsterr.com/a/wsa/x-tab-s68246' target='_blank' rel='noopener'>r8769118</a></td><td class='st'>Chad Wackerman (86)</td></tr>
-<tr><td class='num'>12</td><td class='sid'><a href='https://www.songsterr.com/a/wsa/x-tab-s35887' target='_blank' rel='noopener'>s35887</a></td><td class='ttl'>What&#x27;s New In Baltimore?</td><td class='gh'>59</td><td class='rev'><a href='https://www.songsterr.com/a/wsa/x-tab-s35887' target='_blank' rel='noopener'>r8769141</a></td><td class='st'>Chad Wackerman (59)</td></tr>
-<tr><td class='num'>13</td><td class='sid'><a href='https://www.songsterr.com/a/wsa/x-tab-s748459' target='_blank' rel='noopener'>s748459</a></td><td class='ttl'>Fembot In A Wet T-Shirt</td><td class='gh'>57</td><td class='rev'><a href='https://www.songsterr.com/a/wsa/x-tab-s748459' target='_blank' rel='noopener'>r8769165</a></td><td class='st'>Vinnie Colaiuta (57)</td></tr>
-<tr><td class='num'>14</td><td class='sid'><a href='https://www.songsterr.com/a/wsa/x-tab-s20690' target='_blank' rel='noopener'>s20690</a></td><td class='ttl'>Uncle Meat (YCDTOSA Vol. 2)</td><td class='gh'>24</td><td class='rev'><a href='https://www.songsterr.com/a/wsa/x-tab-s20690' target='_blank' rel='noopener'>r8788757</a></td><td class='st'>Percussions (24)</td></tr>
-<tr><td class='num'>15</td><td class='sid'><a href='https://www.songsterr.com/a/wsa/x-tab-s749523' target='_blank' rel='noopener'>s749523</a></td><td class='ttl'>Catholic Girls</td><td class='gh'>16</td><td class='rev'><a href='https://www.songsterr.com/a/wsa/x-tab-s749523' target='_blank' rel='noopener'>r8788801</a></td><td class='st'>Drums (16)</td></tr>
-<tr><td class='num'>16</td><td class='sid'><a href='https://www.songsterr.com/a/wsa/x-tab-s5820647' target='_blank' rel='noopener'>s5820647</a></td><td class='ttl'>Frank Zappa, The Mothers of Invention - Zomby Woof</td><td class='gh'>10</td><td class='rev'><a href='https://www.songsterr.com/a/wsa/x-tab-s5820647' target='_blank' rel='noopener'>r8766178</a></td><td class='st'>Drums</td></tr>
-</tbody></table></div>
+<tr><th></th><th>Song ID</th><th>Title</th><th>Ghosts</th><th>Our revision</th><th>State</th></tr>
+<tr><td class='num'>1</td><td class='sid'>s35881</td><td class='ttl'>Watermelon In Easter Hay</td><td class='gh'>1,317</td><td class='rev'>r8768414</td><td class='st'>is the current public revision</td></tr>
+<tr><td class='num'>2</td><td class='sid'>s35886</td><td class='ttl'>Muffin Man</td><td class='gh'>578</td><td class='rev'>r8768517</td><td class='st'>is the current public revision</td></tr>
+<tr><td class='num'>3</td><td class='sid'>s620961</td><td class='ttl'>Drowning Witch</td><td class='gh'>419</td><td class='rev'>r8768566</td><td class='st'>is the current public revision</td></tr>
+<tr><td class='num'>4</td><td class='sid'>s35870</td><td class='ttl'>Montana</td><td class='gh'>317</td><td class='rev'>r8787106</td><td class='st'>is the current public revision</td></tr>
+<tr><td class='num'>5</td><td class='sid'>s1105085</td><td class='ttl'>The Black Page</td><td class='gh'>173</td><td class='rev'>r8768613</td><td class='st'>is the current public revision</td></tr>
+<tr><td class='num'>6</td><td class='sid'>s35878</td><td class='ttl'>Nanook Suite</td><td class='gh'>168</td><td class='rev'>r8769001</td><td class='st'>is the current public revision</td></tr>
+<tr><td class='num'>7</td><td class='sid'>s35865</td><td class='ttl'>Nanook Rubs It</td><td class='gh'>168</td><td class='rev'>r8768967</td><td class='st'>is the current public revision</td></tr>
+<tr><td class='num'>8</td><td class='sid'>s412178</td><td class='ttl'>Inca Roads</td><td class='gh'>165</td><td class='rev'>r8769026</td><td class='st'>is the current public revision</td></tr>
+<tr><td class='num'>9</td><td class='sid'>s68248</td><td class='ttl'>Carolina Hard-Core Ecstasy</td><td class='gh'>144</td><td class='rev'>r8769058</td><td class='st'>is the current public revision</td></tr>
+<tr><td class='num'>10</td><td class='sid'>s35884</td><td class='ttl'>Oh No</td><td class='gh'>141</td><td class='rev'>r8769089</td><td class='st'>is the current public revision</td></tr>
+<tr><td class='num'>11</td><td class='sid'>s68246</td><td class='ttl'>Alien Orifice</td><td class='gh'>86</td><td class='rev'>r8769118</td><td class='st'>is the current public revision</td></tr>
+<tr><td class='num'>12</td><td class='sid'>s35887</td><td class='ttl'>What&amp;#x27;s New In Baltimore?</td><td class='gh'>59</td><td class='rev'>r8769141</td><td class='st'>is the current public revision</td></tr>
+<tr><td class='num'>13</td><td class='sid'>s748459</td><td class='ttl'>Fembot In A Wet T-Shirt</td><td class='gh'>57</td><td class='rev'>r8769165</td><td class='st'>is the current public revision</td></tr>
+<tr><td class='num'>14</td><td class='sid'>s20690</td><td class='ttl'>Uncle Meat (YCDTOSA Vol. 2)</td><td class='gh'>24</td><td class='rev'>r8788757</td><td class='st'>is the current public revision</td></tr>
+<tr><td class='num'>15</td><td class='sid'>s749523</td><td class='ttl'>Catholic Girls</td><td class='gh'>16</td><td class='rev'>r8788801</td><td class='st'>is the current public revision</td></tr>
+<tr><td class='num'>16</td><td class='sid'>s5820647</td><td class='ttl'>Frank Zappa, The Mothers of Invention - Zomby Woof</td><td class='gh'>10</td><td class='rev'>r8766178</td><td class='st'>is the current public revision</td></tr>
+</table></div>
 
-<h2 id="pending"><span class="dot" style="background:var(--amb)"></span>Submitted, not the current revision</h2>
-<p class="lede">These four carry a stripping revision that has not been promoted. Two were overtaken by other editors, and the Zoot Allures one is still queued and would delete the ghosts if a moderator approved it.</p>
+<h2 id="blocked"><span class="dot" style="background:var(--grn)"></span>Rejected by moderators: 2 tabs, 682 ghost notes</h2>
+<div class="box g"><p><strong>An earlier draft of this page called these "still at risk". That was wrong.</strong> Reading <code>isBlocked</code> and <code>reviewed</code> off each revision record shows both were rejected by a human moderator and are blocked from publishing. Songsterr's review process caught what the sweep did. No action is needed on either tab, and the corrected Zoot Allures file that was built on 2026-09-05 should not be sent.</p></div>
 <div class="tw"><table>
-<thead><tr><th>#</th><th>Song ID</th><th>Title</th><th style="text-align:right">Ghosts</th><th>Our revision</th><th>Current state</th></tr></thead>
-<tbody>
-<tr><td class='num'>1</td><td class='sid'><a href='https://www.songsterr.com/a/wsa/x-tab-s604777' target='_blank' rel='noopener'>s604777</a></td><td class='ttl'>Keep It Greasey</td><td class='gh'>629</td><td class='rev'>r8768457</td><td class='st'>now r8852151 by Ben Dibden1</td></tr>
-<tr><td class='num'>2</td><td class='sid'><a href='https://www.songsterr.com/a/wsa/x-tab-s35883' target='_blank' rel='noopener'>s35883</a></td><td class='ttl'>Zoot Allures</td><td class='gh'>53</td><td class='rev'>r8769199</td><td class='st'>now r7179991 by Ben Dibden1</td></tr>
-<tr><td class='num'>3</td><td class='sid'><a href='https://www.songsterr.com/a/wsa/x-tab-s412162' target='_blank' rel='noopener'>s412162</a></td><td class='ttl'>Zomby Woof</td><td class='gh'>32</td><td class='rev'>r8766102</td><td class='st'>now r8814965 by Kirill</td></tr>
-<tr><td class='num'>4</td><td class='sid'><a href='https://www.songsterr.com/a/wsa/x-tab-s412170' target='_blank' rel='noopener'>s412170</a></td><td class='ttl'>Trouble Every Day (Live)</td><td class='gh'>9</td><td class='rev'>r8766285</td><td class='st'>now r8815000 by Kirill</td></tr>
-</tbody></table></div>
+<tr><th></th><th>Song ID</th><th>Title</th><th>Ghosts</th><th>Our revision</th><th>Moderator decision</th><th>Public now</th></tr>
+<tr><td class='num'>1</td><td class='sid'>s604777</td><td class='ttl'>Keep It Greasey</td><td class='gh'>629</td><td class='rev'>r8768457</td><td class='st'>rejected by Kirill527 on 2026-09-01, blocked</td><td class='rev'>r8852151</td></tr>
+<tr><td class='num'>2</td><td class='sid'>s35883</td><td class='ttl'>Zoot Allures</td><td class='gh'>53</td><td class='rev'>r8769199</td><td class='st'>rejected by Darr on 2026-09-01, blocked</td><td class='rev'>r7179991</td></tr>
+</table></div>
 
-<h2 id="clean"><span class="dot" style="background:var(--grn)"></span>Flagged, never submitted</h2>
-<p class="lede">The scan flagged these four and no revision ever went up. They are untouched and need nothing.</p>
+<h2 id="super"><span class="dot" style="background:var(--amb)"></span>Superseded: 2 tabs, 41 ghost notes</h2>
+<p class="lede">Reviewed and not blocked, and another author's revision became public first. The stripping never reached a reader.</p>
 <div class="tw"><table>
-<thead><tr><th>#</th><th>Song ID</th><th>Title</th><th style="text-align:right">Ghosts</th><th>Revision</th><th>Staff</th></tr></thead>
-<tbody>
-<tr><td class='num'>1</td><td class='sid'><a href='https://www.songsterr.com/a/wsa/x-tab-s35889' target='_blank' rel='noopener'>s35889</a></td><td class='ttl'>Peaches En Regalia</td><td class='gh'>14</td><td class="rev">none</td><td class='st'>Drums (14)</td></tr>
-<tr><td class='num'>2</td><td class='sid'><a href='https://www.songsterr.com/a/wsa/x-tab-s35875' target='_blank' rel='noopener'>s35875</a></td><td class='ttl'>Packard Goose</td><td class='gh'>3</td><td class="rev">none</td><td class='st'>Drums (3)</td></tr>
-<tr><td class='num'>3</td><td class='sid'><a href='https://www.songsterr.com/a/wsa/x-tab-s21495' target='_blank' rel='noopener'>s21495</a></td><td class='ttl'>Andy</td><td class='gh'>1</td><td class="rev">none</td><td class='st'>Drums (1)</td></tr>
-<tr><td class='num'>4</td><td class='sid'><a href='https://www.songsterr.com/a/wsa/x-tab-s59089' target='_blank' rel='noopener'>s59089</a></td><td class='ttl'>Black Napkins</td><td class='gh'>1</td><td class="rev">none</td><td class='st'>Terry Bozio (1)</td></tr>
-</tbody></table></div>
+<tr><th></th><th>Song ID</th><th>Title</th><th>Ghosts</th><th>Our revision</th><th>Outcome</th><th>Public now</th></tr>
+<tr><td class='num'>1</td><td class='sid'>s412162</td><td class='ttl'>Zomby Woof</td><td class='gh'>32</td><td class='rev'>r8766102</td><td class='st'>reviewed fair, never became public</td><td class='rev'>r8814965</td></tr>
+<tr><td class='num'>2</td><td class='sid'>s412170</td><td class='ttl'>Trouble Every Day (Live)</td><td class='gh'>9</td><td class='rev'>r8766285</td><td class='st'>reviewed fair, never became public</td><td class='rev'>r8815000</td></tr>
+</table></div>
+
+<h2 id="clean"><span class="dot" style="background:var(--blu)"></span>Flagged, never submitted: 4 tabs, 19 ghost notes</h2>
+<div class="tw"><table>
+<tr><th></th><th>Song ID</th><th>Title</th><th>Ghosts</th><th>State</th></tr>
+<tr><td class='num'>1</td><td class='sid'>s35889</td><td class='ttl'>Peaches En Regalia</td><td class='gh'>14</td><td class='st'>flagged by the sweep, no revision was ever sent</td></tr>
+<tr><td class='num'>2</td><td class='sid'>s35875</td><td class='ttl'>Packard Goose</td><td class='gh'>3</td><td class='st'>flagged by the sweep, no revision was ever sent</td></tr>
+<tr><td class='num'>3</td><td class='sid'>s21495</td><td class='ttl'>Andy</td><td class='gh'>1</td><td class='st'>flagged by the sweep, no revision was ever sent</td></tr>
+<tr><td class='num'>4</td><td class='sid'>s59089</td><td class='ttl'>Black Napkins</td><td class='gh'>1</td><td class='st'>flagged by the sweep, no revision was ever sent</td></tr>
+</table></div>
 
 <h2 id="why"><span class="dot" style="background:var(--blu)"></span>Root cause, three layers</h2>
-<div class="box b"><h3>1. A house rule applied outside its scope</h3>
-<p>The rule came from <code>stems-to-guitar-pro-drums</code>, which builds a tab from an isolated drum stem. In that context Brandon specified the staccato dot at velocity 31 for a ghost. The sweep carried that rule onto existing community tabs written by other people, where it had no standing.</p></div>
+<ol>
+<li><strong>A house rule applied outside its scope.</strong> The staccato-dot-at-velocity-31 rule comes from <code>stems-to-guitar-pro-drums</code>, which builds a tab from an isolated drum stem. The sweep carried it onto community tabs written by other people.</li>
+<li><strong>The wrong element name hid the evidence.</strong> GPIF spells a ghost <code>&lt;AntiAccent&gt;Normal&lt;/AntiAccent&gt;</code>. A search for <code>&lt;Ghost&gt;</code> returns zero in every file, and that zero was read as proof the ghosts were absent.</li>
+<li><strong>The audit measured note counts and missed the loss.</strong> The preservation check compared pitch, rhythm and position across 120,579 beat events and found zero differences. Articulation sat outside what it measured.</li>
+</ol>
 
-<div class="box b"><h3>2. The wrong element name hid the evidence</h3>
-<p>Guitar Pro's GPIF format spells a ghost note <code>&lt;AntiAccent&gt;Normal&lt;/AntiAccent&gt;</code>. A search for <code>&lt;Ghost&gt;</code> returns zero matches in every file. That zero was read as proof that ghosts were absent from the file layer, when the files carried them the whole time.</p></div>
-
-<div class="box b"><h3>3. The audit measured note counts and missed the loss</h3>
-<p>The preservation check compared pitch, rhythm and position across 120,579 beat events and found zero differences, which is correct. Articulation was outside what it measured, so the audit reported a clean sweep while the ghost flags were being dropped.</p></div>
-
-<div class="box a"><p><strong>It was already called wrong on 2026-08-31.</strong> The handoff document states that the parentheses sweep was the wrong unit of work and says not to resume it. No revision was withdrawn after that, and Songsterr offers no withdraw control, so sixteen of them went on to publish.</p></div>
-
-<h2 id="next"><span class="dot" style="background:var(--grn)"></span>What is already fixed and what is left</h2>
-<div class="box g"><p><strong>Zomby Woof s412162 is repaired.</strong> Revision <code>r8904052</code> restored eight ghost notes on snare across bars 6 to 9, with let-ring at zero and every other lane unchanged. The method is proven and the tooling now works.</p></div>
-<ul>
-<li><strong>Sixteen live tabs need a restoring revision</strong> that puts the <code>AntiAccent</code> flags back, one tab per pass, each verified against Songsterr's own data.</li>
-<li><strong>Zoot Allures needs its queued revision neutralised</strong> by a corrected one, since the live tab still holds all 53 ghosts today.</li>
-<li><strong>Watermelon In Easter Hay is the largest single loss</strong> at 1,317 flags on the Vinnie Colaiuta staff, and its revision claimed they were ride and crash rather than ghosts, so that reading needs checking against the audio before restoring.</li>
-<li><strong>The four never-submitted tabs need nothing.</strong></li>
-</ul>
+<div class="box g"><p><strong>The rule itself was withdrawn on 2026-09-05, in the pipeline as well as here.</strong> It had survived as advice while this page described its damage. Measured on Songsterr that day: a GPIF ghost arrives as its own <code>ghost</code> field and draws as a parenthesised notehead, and a GPIF <code>&lt;Accent&gt;</code> arrives as <code>staccato</code> and draws as a dot. So the parentheses are the platform's ghost notation, and the dot is a duration mark standing in for a dynamic one. <code>sd_writegp.py</code> now writes the native ghost flag, and <code>sd_verify.py</code> now fails any file that writes a ghost as a dot. Brandon's dislike of parentheses stands as a display preference for his own files.</p></div>
 
 <h2 id="charts"><span class="dot" style="background:var(--amb)"></span>Checked against the printed charts</h2>
 <p class="lede">The Zomby Woof repair was re-checked against the four transcriptions held on disk. Every figure below was measured off the scan rather than read by eye.</p>
@@ -203,8 +184,40 @@ footer{margin-top:60px;padding-top:20px;border-top:1px solid var(--line);color:v
 <tr><td>Tracks</td><td class="gh">10, every name intact</td></tr>
 </table></div>
 
+
+<h2 id="evidence"><span class="dot" style="background:var(--blu)"></span>Evidence, and how to reproduce each claim</h2>
+<p class="lede">Two statements on an earlier version of this page ran ahead of what had actually been measured. Both were re-run properly, and both held.</p>
+<div class="tw"><table>
+<tr><th>Claim</th><th>What was originally shown</th><th>What settles it</th><th>Result</th></tr>
+<tr><td>The eight marks under Brown's staff are one glyph</td><td class="st">equal width and equal ink count, which is consistent with identity without establishing it</td><td class="sid">bitwise compare of a 14&times;17 window at each mark, all 28 pairs</td><td class="gh">0 differing pixels</td></tr>
+<tr><td>Rhythmic placement was preserved</td><td class="st">a matching tuplet census, which cannot see a moved onset</td><td class="sid">onset and duration sequence per voice, as exact fractions</td><td class="gh">1,156 voices, 0 changed</td></tr>
+<tr><td>Only the drum track moved</td><td class="st">note counts per track</td><td class="sid"><code>gpif/diff_gpif_tracks.py A B "Ralph Humphrey"</code>, which exits 1 on any other track</td><td class="gh">9 tracks identical</td></tr>
+<tr><td>The revisions are where the page says</td><td class="st">a description of the state</td><td class="sid"><code>api/meta/&lt;songId&gt;/revisions</code>, fields <code>isBlocked</code>, <code>isOnModeration</code>, <code>reviewed</code></td><td class="gh">20 of 20 read</td></tr>
+</table></div>
+<p>Source scans are in <code>~/Projects/_outputs/zappa-drum-sources/</code>, one folder per publisher, each with a <code>SOURCE.md</code> giving the URL, pixel size, byte count and decode check. The measurement crops are in <code>s412162/audit/</code>. Revision hashes come from the <code>image</code> field of each revision record, which is what addresses that revision's part JSON on CloudFront.</p>
+
+<h2 id="next"><span class="dot" style="background:var(--grn)"></span>Status, in three separate kinds</h2>
+<p class="lede">An earlier version of this page said Zomby Woof "is repaired". That collapsed three states into one. They are kept apart here.</p>
+<div class="tw"><table>
+<tr><th>Kind of status</th><th>Zomby Woof s412162</th><th>What it does and does not prove</th></tr>
+<tr><td><strong>Locally verified build</strong></td><td class="sid">r8905491-Zomby-Woof-PEDAL-rev4.gp</td><td class="st">The file on disk passes every gate. It proves nothing about Songsterr.</td></tr>
+<tr><td><strong>Submitted revision</strong></td><td class="sid">r8905491, queued, <code>isOnModeration=true</code></td><td class="st">Songsterr holds it and its part JSON reads back correct. A moderator has not reviewed it.</td></tr>
+<tr><td><strong>Confirmed public revision</strong></td><td class="sid">still r8814965 by Kirill</td><td class="st">This is what a reader sees today. The eight ghost notes are still missing from it.</td></tr>
+</table></div>
+<div class="box a"><p><strong>So Zomby Woof is not repaired in public.</strong> Six revisions from this work sit in the queue on that tab: 8902998, 8903141, 8903886, 8904052, 8905411 and 8905491. Only the last is meant to be taken. Songsterr offers no withdraw control, so the earlier five stay in the queue and the revision description asks the moderator to take the newest.</p></div>
+
+<h3>What is left</h3>
+<ul>
+<li><strong>Sixteen live tabs need a restoring revision</strong>, one tab per pass, each verified against the pre-sweep revision rather than against the stripped one.</li>
+<li><strong>Restore every attribute the sweep touched, not the ghost flag alone.</strong> The sweep wrote a staccato dot and set velocity to 31 as it cleared each ghost, so a restoring pass has to put back the ghost flag, remove the substituted dot, and return the velocity, all measured against the pre-sweep baseline.</li>
+<li><strong>Keep other people's later edits.</strong> Several of these tabs have had legitimate revisions since. A restoring pass rebases onto the current public revision and changes only the articulation fields.</li>
+<li><strong>Watermelon In Easter Hay is the largest single loss</strong> at 1,317 flags on the Vinnie Colaiuta staff, and its revision claimed they were ride and crash rather than ghosts, so that reading needs checking against the audio before anything is restored.</li>
+<li><strong>Verify the revision that actually becomes public</strong>, per tab, after moderation. A submission is not a repair.</li>
+<li><strong>Keep It Greasey and Zoot Allures need nothing.</strong> Both stripping revisions were rejected and are blocked.</li>
+</ul>
+
 <footer>
-<p>Every figure on this page was read from <code>songsterr.com/api/meta/&lt;songId&gt;</code> on 2026-09-05. Ghost counts come from the drum-staff census in <code>_defects.json</code>. Source data: <code>~/Library/Mobile Documents/com~apple~CloudDocs/sfg/zappa-drum-repair-2026-08-31/</code> and <code>~/Projects/_outputs/songsterr-zappa-paren-fix/</code>.</p>
+<p>Ghost counts come from the drum-staff census in <code>_defects.json</code>. Revision state was read from <code>songsterr.com/api/meta/&lt;songId&gt;/revisions</code> on 2026-09-05, using the fields <code>isBlocked</code>, <code>isOnModeration</code> and <code>reviewed</code>. Source data: <code>~/Library/Mobile Documents/com~apple~CloudDocs/sfg/zappa-drum-repair-2026-08-31/</code>, <code>~/Projects/_outputs/songsterr-zappa-paren-fix/</code> and <code>~/Projects/_outputs/zappa-drum-sources/</code>.</p>
 <p>Zomby Woof2 (s6685613) is a private tab and did not resolve through the public API. It is the only gap in the sweep.</p>
 </footer>
 </div>

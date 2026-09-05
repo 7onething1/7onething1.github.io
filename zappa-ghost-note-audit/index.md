@@ -1,26 +1,28 @@
 # The Zappa ghost note debacle
 
-Audited 2026-09-05. All 105 Frank Zappa tabs on Songsterr were queried against the live
-API. 104 returned clean reads. One private tab, Zomby Woof2 (s6685613), did not resolve.
+Audited 2026-08-30. Moderation status re-read 2026-09-05 against
+`api/meta/<songId>/revisions`, fields `isBlocked`, `isOnModeration` and `reviewed`.
 
 ## What happened
 
-Songsterr draws a ghost note as a notehead inside round brackets. That is the standard
-rendering and it carries real musical information, the quiet stroke a drummer plays
-between the accented ones. A sweep run on 2026-08-29 and 2026-08-30 treated those
-brackets as a defect and removed them across twenty Zappa tabs.
+Songsterr draws a ghost note as a notehead inside round brackets. That is the platform's
+own ghost notation and it carries real musical information, the quiet stroke a drummer
+plays between the loud ones. A sweep run on 2026-08-29 and 2026-08-30 read those brackets
+as a defect and removed them across twenty Zappa tabs.
 
-Sixteen of those revisions are now the current published revision. 3,842 ghost note
-flags were dropped on tabs the public sees today.
+## The numbers, by verified state
 
-## The numbers
-
-| Category | Tabs | Ghost notes |
+| State | Tabs | Ghost notes |
 |---|---|---|
-| Stripping revision is live and public | 16 | 3,842 |
-| Submitted, not the current revision | 4 | 723 |
+| Current public revision | 16 | 3,842 |
+| Rejected by a moderator, blocked | 2 | 682 |
+| Superseded, never public | 2 | 41 |
 | Flagged, never submitted | 4 | 19 |
-| Total tabs touched | 20 | |
+
+An earlier version called the 723 non-current flags "still at
+risk". That was wrong. Keep It Greasey (rejected by Kirill527) and Zoot Allures (rejected
+by Darr) are blocked and cannot publish. Neither needs any further action, and the
+corrected Zoot Allures file built on 2026-09-05 should not be sent.
 
 ## Root cause, three layers
 
@@ -28,65 +30,65 @@ flags were dropped on tabs the public sees today.
    from `stems-to-guitar-pro-drums`, which builds a tab from an isolated drum stem. The
    sweep carried it onto community tabs written by other people.
 2. **The wrong element name hid the evidence.** GPIF spells a ghost
-   `<AntiAccent>Normal</AntiAccent>`. A search for `<Ghost>` returns zero in every file,
-   and that zero was read as proof the ghosts were absent.
-3. **The audit measured note counts and missed the loss.** The preservation check compared
-   pitch, rhythm and position across 120,579 beat events and found zero differences.
-   Articulation sat outside what it measured.
+   `<AntiAccent>Normal</AntiAccent>`. A search for `<Ghost>` returns zero in every file.
+3. **The audit measured note counts and missed the loss.** It compared pitch, rhythm and
+   position across 120,579 beat events and found zero differences. Articulation sat
+   outside what it measured.
 
-The 2026-08-31 handoff already recorded that the sweep was the wrong unit of work and said
-not to resume it. No revision was withdrawn, and Songsterr offers no withdraw control.
-
-## Fixed so far
-
-Zomby Woof s412162, revision r8904052. Eight ghost notes restored on snare across bars 6
-to 9, let-ring at zero, every other lane unchanged.
-
-## Still open
-
-- Sixteen live tabs need a restoring revision, one tab per pass.
-- Zoot Allures s35883 needs its queued r8769199 neutralised. The live tab still holds all
-  53 ghosts today.
-- Watermelon In Easter Hay s35881 is the largest single loss at 1,317 flags. Its revision
-  claimed those were ride and crash rather than ghosts, so that reading needs checking
-  against the audio before anything is restored.
+**The rule was withdrawn on 2026-09-05, in the pipeline as well as here.** A GPIF ghost
+arrives on Songsterr as its own `ghost` field and draws parenthesised; a GPIF `<Accent>`
+arrives as `staccato` and draws as a dot. `sd_writegp.py` now writes the native ghost
+flag, and `sd_verify.py` fails any file that writes a ghost as a dot.
 
 ## Checked against the printed charts
 
-Re-checked 2026-09-05 against the four transcriptions on disk, measured off the scans.
+Ryan Brown's DRUM Magazine page carries eight pedal hi-hat marks one full space below the
+bottom staff line. A bitwise compare of a 14x17 window at each mark returns 0 differing
+pixels across all 28 pairs. Drumnet's bar 1 carries the same three marks at the same
+height in its own dialect.
 
-**Ryan Brown's page carries eight pedal hi-hat marks**, one full space below the bottom
-staff line, pixel-identical at width 13 and ink 33, spread over three of his four systems.
-Drumnet's bar 1 carries the same three marks at the same height in its own dialect. Bar 1
-of Brown's page puts an accent within 2px of each of the three open hi-hats and a pedal
-hi-hat within 2px of each of the three snares.
+**A claim of mine was wrong.** I reported the tab holds no pedal hi-hat events. It holds
+23, across bars 6, 7, 8, 9, 15, 17, 18, 41, 42, 43, 44, 99, 100 and 102. Bar 1 was the
+omission, and r8905491 fills it with three strokes.
 
-**A claim of mine was wrong.** I reported the tab holds no pedal hi-hat events. It holds 23,
-across bars 6, 7, 8, 9, 15, 17, 18, 41, 42, 43, 44, 99, 100 and 102. Bar 1 is the omission.
+**Accents cannot be expressed on a Songsterr drum staff through a Guitar Pro import.** The
+note schema holds `fret`, `string`, `staccato`, `rest`, `ghost` and `tie`, with no accent
+field. Revision r8905411 moved the bar 5 marks to Brown's positions and doubled them; the
+rendered bar showed ten round dots and no wedges, so r8905491 put bars 5 and 16 back.
 
-**Bar 5 accents belong on notes one and three** of each quintuplet, ten in all. The tab
-marks note two, five in all. I shipped that move as r8905411 and then took it back out.
-Reading the revision back from Songsterr showed why: a Guitar Pro `<Accent>` arrives as
-`staccato`, and the note schema holds no accent field at all. The rendered bar shows ten
-round dots and no wedges. A staccato dot says short and Brown's wedge says loud, so the
-edit swapped one articulation for another. r8905491 restores bars 5 and 16.
+**The barring source count was wrong.** Kasper Sloots' 10/16 sits at 1:39 to 2:10, framed
+by 7/8 and 5/4. Brown's page is headed at 0:00, so Zappa Analysis never voted on the
+opening bar. Both the split and the single bar are structural readings, which makes the
+rebar a source based editorial adjudication rather than an objective correction.
 
-**Accents cannot be expressed on a Songsterr drum staff through a Guitar Pro import.**
-Loudness lives on the beat as `ff`, `pp`, `mf` and `mp`. Bar 5 already carries an
-alternating `pp` and `ff` shape. Future accent work has to go through beat dynamics.
+## Status, in three separate kinds
 
-**The barring source count was wrong.** Kasper Sloots' 10/16 sits at 1:39 to 2:10, framed by
-7/8 and 5/4. Brown's page is headed at 0:00. Zappa Analysis never voted on the opening bar. Both the
-split and the single bar are structural readings, so the rebar is a source based editorial
-adjudication rather than an objective correction.
+| Kind | Zomby Woof s412162 |
+|---|---|
+| Locally verified build | `r8905491-Zomby-Woof-PEDAL-rev4.gp`, every gate green |
+| Submitted revision | r8905491, `isOnModeration=true`, part JSON reads back correct |
+| Confirmed public revision | still r8814965 by Kirill, eight ghosts still missing |
 
-Shipped as `r8905491` from `Zomby-Woof-PEDAL-rev4.gp`: 115 master bars unchanged, time
-signatures identical, rhythm and tuplet census identical, master bar 1 touched, no string
-collisions, ghosts held at 8, let-ring at 0, all 10 tracks named. On the live revision:
-26 pedal hi-hat strokes with 3 of them in bar 1, and 32 staccato, the tab's own count.
+Zomby Woof is not repaired in public. Six revisions from this work sit in that tab's
+queue. Songsterr offers no withdraw control, so the description asks the moderator to take
+the newest.
+
+## What is left
+
+- Sixteen live tabs need a restoring revision, one per pass, verified against the pre-sweep
+  revision rather than the stripped one.
+- Restore every attribute the sweep touched. It wrote a staccato dot and set velocity to 31
+  as it cleared each ghost, so a restoring pass returns the ghost flag, removes the dot and
+  returns the velocity, measured against the pre-sweep baseline.
+- Rebase onto the current public revision so other people's later edits survive.
+- Watermelon In Easter Hay is the largest single loss at 1,317 flags, and its revision
+  claimed they were ride and crash, so that reading needs checking against the audio first.
+- Verify the revision that actually becomes public, per tab, after moderation.
+- Keep It Greasey and Zoot Allures need nothing. Both stripping revisions are blocked.
 
 ## Sources
 
 - `~/Library/Mobile Documents/com~apple~CloudDocs/sfg/zappa-drum-repair-2026-08-31/`
 - `~/Projects/_outputs/songsterr-zappa-paren-fix/`
-- `songsterr.com/api/meta/<songId>` read 2026-09-05
+- `~/Projects/_outputs/zappa-drum-sources/` (one folder per publisher, each with SOURCE.md)
+- `songsterr.com/api/meta/<songId>/revisions` read 2026-09-05
