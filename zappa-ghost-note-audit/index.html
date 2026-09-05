@@ -390,6 +390,21 @@ footer{margin-top:60px;padding-top:20px;border-top:1px solid var(--line);color:v
 <p>The beat is worth seeing on its own terms. It is the only crash ghost on the staff and it reads <code>{fret 49, ghost true, velocity f, gradualVelocity crescendo, tremolo [1,32]}</code>: a cymbal swell, not a quiet stroke. That one ghost means something different from the 1,316 on the ride. Velocity is identical in both revisions, so the sweep did not change any dynamic, which its description got right.</p>
 <p>Both errors share a root: <strong>I searched for a field name I assumed and read its absence as evidence.</strong> Same as grepping <code>&lt;Ghost&gt;</code> in GPIF and concluding the file had no ghosts.</p></div>
 
+
+<h2 id="challenge"><span class="dot" style="background:var(--grn)"></span>A challenge to these numbers, resolved</h2>
+<p class="lede">Another session queued a finding that this page's per-song counts disagree with the local <code>ORIGINAL</code> files, reporting a total of 5,322 rendered ghosts across 22 files against the 3,832 counted here. Measured properly, every number on this page holds. The gap is scope.</p>
+<div class="tw"><table>
+<thead><tr><th>Song</th><th style="text-align:right">This page</th><th style="text-align:right">File, all staves</th><th style="text-align:right">Drum staves</th><th style="text-align:right">Other staves</th></tr></thead>
+<tbody>
+<tr><td class='ttl'>Watermelon In Easter Hay</td><td class='gh'>1,317</td><td class='gh'>1,333</td><td class='gh'>1,317</td><td class='gh'>16</td></tr>
+<tr><td class='ttl'>Muffin Man</td><td class='gh'>578</td><td class='gh'>613</td><td class='gh'>578</td><td class='gh'>35</td></tr>
+<tr><td class='ttl'>Drowning Witch</td><td class='gh'>419</td><td class='gh'>496</td><td class='gh'>419</td><td class='gh'>77</td></tr>
+<tr><td class='ttl'>Montana</td><td class='gh'>317</td><td class='gh'>574</td><td class='gh'>317</td><td class='gh'>257</td></tr>
+<tr><td class='ttl'>Zoot Allures</td><td class='gh'>53</td><td class='gh'>53</td><td class='gh'>53</td><td class='gh'>0</td></tr>
+</tbody></table></div>
+<p>The drum-staff column matches this page on every row. The larger file totals count ghost noteheads on vocal, guitar, keyboard and mallet staves, which the sweep never touched and correctly left alone. Montana's 257 non-drum ghosts break down as Vocal 1/2/3 102, Frank Zappa Lead 112, George Duke 23, Ruth Underwood Bridge 14 and Tom Fowler 6, matching the 2026-08-30 audit record exactly.</p>
+<p><strong>Zoot Allures looked like the one row that agreed for a reason worth stating.</strong> It carries zero non-drum ghosts, so its two totals coincide. That coincidence is what made the other four look wrong.</p>
+
 <footer>
 <p>Ghost counts come from the drum-staff census in <code>_defects.json</code>. Revision state was read from <code>songsterr.com/api/meta/&lt;songId&gt;/revisions</code> on 2026-09-05, using the fields <code>isBlocked</code>, <code>isOnModeration</code> and <code>reviewed</code>. Source data: <code>~/Library/Mobile Documents/com~apple~CloudDocs/sfg/zappa-drum-repair-2026-08-31/</code>, <code>~/Projects/_outputs/songsterr-zappa-paren-fix/</code> and <code>~/Projects/_outputs/zappa-drum-sources/</code>.</p>
 <p>Zomby Woof2 (s6685613) is a private tab and did not resolve through the public API. It is the only gap in the sweep.</p>

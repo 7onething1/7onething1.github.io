@@ -234,3 +234,25 @@ on ride and 1 on crash, matching the pre-sweep revision.
 Keep It Greasey `r8768457` was rejected by Kirill527 and Zoot Allures `r8769199` by Darr,
 both on 2026-09-01. Montana counts 317 across two drum staves, 212 on track 15 and 105 on
 track 17, so a single-part read undercounts it.
+
+## A challenge to these numbers, resolved
+
+Another session reported that this page's counts disagree with the local `ORIGINAL` files,
+totalling 5,322 rendered ghosts across 22 files. Measured by staff type, every number here
+holds; the gap is scope.
+
+| Song | This page | File, all staves | Drum staves | Other staves |
+|---|---|---|---|---|
+| Watermelon In Easter Hay | 1,317 | 1,333 | 1,317 | 16 |
+| Muffin Man | 578 | 613 | 578 | 35 |
+| Drowning Witch | 419 | 496 | 419 | 77 |
+| Montana | 317 | 574 | 317 | 257 |
+| Zoot Allures | 53 | 53 | 53 | 0 |
+
+The drum column matches this page on every row. The larger totals count ghosts on vocal,
+guitar, keyboard and mallet staves that the sweep never touched. Montana's 257 non-drum
+ghosts are Vocal 1/2/3 102, Frank Zappa Lead 112, George Duke 23, Ruth Underwood Bridge 14,
+Tom Fowler 6, matching the 2026-08-30 audit record.
+
+Zoot Allures looked like the only agreeing row because it carries zero non-drum ghosts, so
+its two totals coincide.
