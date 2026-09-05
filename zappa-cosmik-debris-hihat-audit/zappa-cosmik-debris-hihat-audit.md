@@ -62,8 +62,7 @@ the recording as well as a finding about the tab.
 The densest 11 seconds anywhere in the performance holds 64. The audio opens with one onset
 at 0.023 s and then nothing until 2.171 s.
 
-**2. Every pedal hi-hat sits in one block.** All 24 fall inside bars 129 to 146. The other
-145 bars contain none.
+**2. Every pedal hi-hat sits in one block.** All 24 fall inside bars 129 to 146. The other 141 bars contain none.
 
 **3. The open-hat sections are all-or-nothing.** Bars 123 to 125 carry 23 open and zero
 closed. Bars 45 to 65 carry 225 closed and zero open.
