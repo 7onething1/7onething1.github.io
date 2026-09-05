@@ -1,11 +1,11 @@
 # 8/14 Drum Levels
 
-Generated 2026-09-04 14:38 CDT from `work/_chain_8_14.jsonl`.
+Generated 2026-09-05 07:44 CDT from `work/_chain_8_14.jsonl`.
 
-- Takes with drums: **7**
+- Takes with drums: **8**
 - Drum-light: **9**
-- Not measured: **6**
-- Kit splits on disk: **8**
+- Not measured: **5**
+- Kit splits on disk: **9**
 
 | Take | Verdict | Peak dBFS | RMS dBFS | Kit wavs |
 |---|---|---:|---:|---:|
@@ -24,7 +24,7 @@ Generated 2026-09-04 14:38 CDT from `work/_chain_8_14.jsonl`.
 | `13_take66` | drums | -0.1 | -46.9 | 6 |
 | `14_take67` | drum-light | -39.3 | -58.3 |  |
 | `15_take72` | drum-light | -11.7 | -57.8 |  |
-| `16_take74` | not measured |  |  |  |
+| `16_take74` | drums | -3.0 | -33.8 | 6 |
 | `16b` | not measured |  |  |  |
 | `16c` | not measured |  |  |  |
 | `16e` | not measured |  |  |  |
@@ -33,4 +33,4 @@ Generated 2026-09-04 14:38 CDT from `work/_chain_8_14.jsonl`.
 | `19_take81` | not measured |  |  |  |
 
 Gate: a take splits when drums peak reaches -25 dBFS and RMS reaches -50 dBFS.
-The thresholds reject silence rather than quiet playing.
+The thresholds reject silence. Quiet playing still passes.
