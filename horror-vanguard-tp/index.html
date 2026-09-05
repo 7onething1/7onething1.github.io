@@ -1,0 +1,295 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=5">
+<title>Horror Vanguard — Twin Peaks Retrospective (Full Transcripts)</title>
+<meta name="description" content="All 20 Horror Vanguard episodes covering Twin Peaks — Pilot through S2 Finale — as readable transcripts.">
+<meta property="og:title" content="Horror Vanguard — Twin Peaks Retrospective">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,500;0,600;1,400&family=Inter:wght@400;600;700&family=JetBrains+Mono:wght@400;500&display=swap">
+<style>
+:root {
+  --cream:    #f4eede;
+  --paper:    #faf6ec;
+  --ink:      #0a0806;
+  --ink-soft: #2b2418;
+  --red:      #8b1e1e;
+  --red-deep: #5a0f0f;
+  --gold:     #b08a3a;
+  --shadow:   rgba(26, 22, 18, 0.18);
+  --grain:    rgba(139, 30, 30, 0.04);
+}
+* { box-sizing: border-box; }
+html, body { margin: 0; padding: 0; }
+body {
+  font-family: 'Cormorant Garamond', 'Iowan Old Style', 'Palatino Linotype', Palatino, Georgia, serif;
+  background: var(--cream);
+  color: var(--ink);
+  line-height: 1.65;
+  font-size: 18px;
+  font-weight: 640;
+  -webkit-font-smoothing: auto;
+  background-image:
+    radial-gradient(var(--grain) 1px, transparent 1px),
+    radial-gradient(var(--grain) 1px, transparent 1px);
+  background-size: 8px 8px, 11px 11px;
+  background-position: 0 0, 4px 5px;
+}
+.wrap { max-width: 720px; margin: 0 auto; padding: 32px 24px 96px; }
+header.show-head {
+  border-bottom: 3px double var(--red);
+  margin-bottom: 32px;
+  padding-bottom: 24px;
+}
+header.show-head .super {
+  font-family: 'Inter', -apple-system, BlinkMacSystemFont, system-ui, sans-serif;
+  font-size: 11px;
+  font-weight: 700;
+  letter-spacing: 0.22em;
+  text-transform: uppercase;
+  color: var(--red);
+  margin-bottom: 8px;
+}
+header.show-head h1 {
+  font-family: 'Cormorant Garamond', Georgia, serif;
+  font-weight: 600;
+  font-size: 38px;
+  line-height: 1.1;
+  margin: 0 0 8px;
+  color: var(--ink);
+  letter-spacing: -0.01em;
+}
+header.show-head .sub {
+  font-style: italic;
+  color: var(--ink-soft);
+  font-size: 17px;
+}
+header.show-head .back {
+  display: inline-block;
+  margin-bottom: 16px;
+  font-family: 'Inter', system-ui, sans-serif;
+  font-size: 12px;
+  letter-spacing: 0.15em;
+  text-transform: uppercase;
+  color: var(--red);
+  text-decoration: none;
+  border-bottom: 1px solid var(--red);
+  padding-bottom: 2px;
+}
+header.show-head .back:hover { color: var(--red-deep); border-color: var(--red-deep); }
+
+.meta {
+  font-family: 'Inter', system-ui, sans-serif;
+  font-size: 13px;
+  color: var(--ink-soft);
+  margin-top: 8px;
+}
+.meta span { margin-right: 16px; }
+.meta strong { color: var(--ink); font-weight: 600; }
+
+p.para { margin: 0 0 1.05em; text-indent: 1.5em; font-weight: 600; }
+p.para:first-of-type { text-indent: 0; }
+p.para:first-of-type::first-letter {
+  font-family: 'Cormorant Garamond', Georgia, serif;
+  float: left;
+  font-size: 64px;
+  line-height: 0.85;
+  padding: 4px 8px 0 0;
+  font-weight: 600;
+  color: var(--red);
+}
+.ts {
+  font-family: 'JetBrains Mono', 'SF Mono', Menlo, monospace;
+  font-size: 11px;
+  color: var(--gold);
+  margin-right: 8px;
+  padding: 1px 5px;
+  border: 1px solid var(--gold);
+  border-radius: 2px;
+  vertical-align: 2px;
+  text-decoration: none;
+  letter-spacing: 0;
+  font-weight: 500;
+}
+.ts:hover { background: var(--gold); color: var(--paper); }
+.divider {
+  text-align: center;
+  margin: 48px 0;
+  color: var(--red);
+  font-size: 20px;
+  letter-spacing: 1em;
+}
+nav.foot {
+  margin-top: 64px;
+  padding-top: 24px;
+  border-top: 1px solid var(--ink-soft);
+  display: flex;
+  justify-content: space-between;
+  gap: 16px;
+  font-family: 'Inter', system-ui, sans-serif;
+  font-size: 13px;
+}
+nav.foot a {
+  color: var(--red);
+  text-decoration: none;
+  border-bottom: 1px solid transparent;
+  flex: 1;
+}
+nav.foot a:hover { border-bottom-color: var(--red); }
+nav.foot a.next { text-align: right; }
+nav.foot small {
+  display: block;
+  font-size: 10px;
+  letter-spacing: 0.2em;
+  text-transform: uppercase;
+  color: var(--ink-soft);
+  margin-bottom: 2px;
+}
+
+/* Index */
+.intro {
+  font-size: 19px;
+  font-style: italic;
+  color: var(--ink-soft);
+  margin: 0 0 32px;
+  padding: 16px 20px;
+  border-left: 3px solid var(--red);
+  background: rgba(176, 138, 58, 0.06);
+}
+.section-head {
+  font-family: 'Inter', system-ui, sans-serif;
+  font-size: 11px;
+  letter-spacing: 0.3em;
+  text-transform: uppercase;
+  color: var(--red);
+  margin: 40px 0 12px;
+  padding-bottom: 6px;
+  border-bottom: 1px solid var(--red);
+}
+.section-head:first-of-type { margin-top: 8px; }
+ol.eplist {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+ol.eplist li {
+  padding: 14px 0;
+  border-bottom: 1px dotted rgba(74, 63, 47, 0.4);
+}
+ol.eplist li:last-child { border-bottom: 0; }
+ol.eplist a {
+  display: block;
+  color: var(--ink);
+  text-decoration: none;
+}
+ol.eplist a:hover .ep-title { color: var(--red); }
+ol.eplist .ep-title {
+  font-size: 22px;
+  font-weight: 600;
+  line-height: 1.2;
+  margin-bottom: 4px;
+}
+ol.eplist .ep-meta {
+  font-family: 'Inter', system-ui, sans-serif;
+  font-size: 12px;
+  color: var(--ink-soft);
+  letter-spacing: 0.08em;
+}
+ol.eplist .ep-meta strong {
+  color: var(--red);
+  font-weight: 600;
+  letter-spacing: 0.15em;
+  margin-right: 12px;
+}
+
+footer.foot {
+  margin-top: 80px;
+  padding-top: 24px;
+  border-top: 3px double var(--red);
+  text-align: center;
+  font-family: 'Inter', system-ui, sans-serif;
+  font-size: 11px;
+  letter-spacing: 0.2em;
+  text-transform: uppercase;
+  color: var(--ink-soft);
+}
+
+@media (max-width: 540px) {
+  body { font-size: 17px; }
+  .wrap { padding: 20px 18px 64px; }
+  header.show-head h1 { font-size: 30px; }
+  p.para:first-of-type::first-letter { font-size: 52px; }
+}
+</style>
+<style id="kidmode-css">
+.mode-btn{position:fixed;top:12px;right:12px;z-index:9999;padding:9px 16px;border:none;border-radius:999px;background:#4E8079;color:#fff;font:600 14px/1 system-ui,-apple-system,sans-serif;cursor:pointer;box-shadow:0 2px 8px rgba(0,0,0,.22)}
+body.kids .mode-btn{background:#B4503E}
+body.kids .mode-btn::before{content:"🧒  "}
+#kidpanel{display:none}
+body.kids #kidpanel{display:block;max-width:760px;margin:62px auto 12px;background:#fff7e8;border:2px solid #4E8079;border-radius:18px;padding:20px 24px;font:18px/1.7 system-ui,-apple-system,sans-serif;color:#2b2820}
+body.kids #kidpanel h3{font-family:"Fredoka","Comic Sans MS",sans-serif;color:#4E8079;margin:0 0 8px;font-size:22px}
+body.kids #kidpanel b{color:#B4503E}
+body.kids{font-size:1.04em}
+</style>
+</head>
+<body>
+
+<div id="kidpanel"><h3>Kid mode 🧒</h3><p>This page is <b>Twin Peaks</b>. It is one of the projects Brandon built and put online. The grown-up details are below, tap Grown-up mode to read them the normal way.</p></div>
+<div class="wrap">
+<header class="show-head">
+<a class="back" href="/">↩ drwu-htmls</a>
+<div class="super">A Horror Vanguard Retrospective</div>
+<h1>Twin Peaks</h1>
+<div class="sub">Twenty episodes. Two hosts. A specter haunting the Douglas firs.</div>
+</header>
+<p class="intro">Hello creeps. Welcome back to beautifully forested Twin Peaks. Loglady Ash and John take the long way through every episode of Lynch and Frost's strangest network drama — pilot through Season 2 finale, plus a SAG-AFTRA aside. Whisper-transcribed from the original podcast audio.</p>
+<h2 class="section-head">Pilot</h2>
+<ol class="eplist">
+<li><a href="/horror-vanguard-tp/pilot"><div class="ep-meta"><strong>HV224</strong>2022-09-21</div><div class="ep-title">TV Pilot — Northwest Passage</div></a></li>
+</ol>
+<h2 class="section-head">Season 1</h2>
+<ol class="eplist">
+<li><a href="/horror-vanguard-tp/s1e1"><div class="ep-meta"><strong>HV226</strong>2022-09-27</div><div class="ep-title">S1E1 — Traces To Nowhere</div></a></li>
+<li><a href="/horror-vanguard-tp/s1e2"><div class="ep-meta"><strong>HV232</strong>2022-11-02</div><div class="ep-title">S1E2 — Zen, or the Skill to Catch a Killer</div></a></li>
+<li><a href="/horror-vanguard-tp/s1e3"><div class="ep-meta"><strong>HV236</strong>2022-11-17</div><div class="ep-title">S1E3 — Rest in Pain</div></a></li>
+<li><a href="/horror-vanguard-tp/s1e4"><div class="ep-meta"><strong>HV239</strong>2022-12-03</div><div class="ep-title">S1E4 — The One-Armed Man</div></a></li>
+<li><a href="/horror-vanguard-tp/s1e5"><div class="ep-meta"><strong>HV242</strong>2022-12-17</div><div class="ep-title">S1E5 — Cooper&#x27;s Dream</div></a></li>
+<li><a href="/horror-vanguard-tp/s1e6"><div class="ep-meta"><strong>HV244</strong>2023-01-01</div><div class="ep-title">S1E6 — Realization Time</div></a></li>
+<li><a href="/horror-vanguard-tp/s1e7"><div class="ep-meta"><strong>HV247</strong>2023-01-14</div><div class="ep-title">S1E7 — The Last Evening (S1 Finale)</div></a></li>
+</ol>
+<h2 class="section-head">Season 2</h2>
+<ol class="eplist">
+<li><a href="/horror-vanguard-tp/s2e1"><div class="ep-meta"><strong>HV271</strong>2023-06-25</div><div class="ep-title">S2E1 — May The Giant Be With You</div></a></li>
+<li><a href="/horror-vanguard-tp/s2e2"><div class="ep-meta"><strong>HV274</strong>2023-07-02</div><div class="ep-title">S2E2 — Coma</div></a></li>
+<li><a href="/horror-vanguard-tp/s2e3"><div class="ep-meta"><strong>HV275</strong>2023-07-09</div><div class="ep-title">S2E3 — The Man Behind The Glass</div></a></li>
+<li><a href="/horror-vanguard-tp/s2e4"><div class="ep-meta"><strong>HV277</strong>2023-07-16</div><div class="ep-title">S2E4 — Laura&#x27;s Secret Diary</div></a></li>
+<li><a href="/horror-vanguard-tp/s2e5"><div class="ep-meta"><strong>HV279</strong>2023-07-23</div><div class="ep-title">S2E5 — The Orchid&#x27;s Curse</div></a></li>
+<li><a href="/horror-vanguard-tp/s2-13-15"><div class="ep-meta"><strong>HV318</strong>2024-04-21</div><div class="ep-title">S2 — Episodes 13, 14, 15</div></a></li>
+<li><a href="/horror-vanguard-tp/s2-16-18"><div class="ep-meta"><strong>HV322</strong>2024-05-12</div><div class="ep-title">S2 — Episodes 16, 17, 18</div></a></li>
+<li><a href="/horror-vanguard-tp/s2-19-21"><div class="ep-meta"><strong>HV326</strong>2024-06-09</div><div class="ep-title">S2 — Episodes 19, 20, 21</div></a></li>
+<li><a href="/horror-vanguard-tp/s2-22-24"><div class="ep-meta"><strong>HV328</strong>2024-06-16</div><div class="ep-title">S2 — Episodes 22, 23, 24</div></a></li>
+<li><a href="/horror-vanguard-tp/s2-25-27"><div class="ep-meta"><strong>HV330</strong>2024-06-23</div><div class="ep-title">S2 — Episodes 25, 26, 27</div></a></li>
+<li><a href="/horror-vanguard-tp/s2-finale"><div class="ep-meta"><strong>HV331</strong>2024-07-07</div><div class="ep-title">S2 Finale</div></a></li>
+</ol>
+<h2 class="section-head">Updates</h2>
+<ol class="eplist">
+<li><a href="/horror-vanguard-tp/update-sag"><div class="ep-meta"><strong>HV284</strong>2023-08-12</div><div class="ep-title">Retro Update — SAG-AFTRA Strike</div></a></li>
+</ol>
+<footer class="foot">A Specter Haunting Twin Peaks · 20 Episodes · Updated 2026-06-02</footer>
+</div>
+
+<!-- ===== DONATE BUTTON (drwu) — injected, idempotent ===== -->
+<a class="donate-fab" href="https://www.paypal.com/donate/?hosted_button_id=P2P6NCHSZ2E3C" target="_blank" rel="noopener" onclick="event.preventDefault();var w=window.open(this.href,&quot;_blank&quot;,&quot;noopener&quot;);if(!w){location.href=this.href;}" title="Support this work — donate">💛 Donate</a>
+<style>
+.donate-fab{position:fixed;left:18px;bottom:18px;z-index:99999;display:inline-flex;align-items:center;gap:.4em;font-family:'Inter',-apple-system,BlinkMacSystemFont,system-ui,sans-serif;font-size:15px;font-weight:700;line-height:1;text-decoration:none;padding:11px 16px;border-radius:999px;background:#DDA63A;color:#2a2018;border:2px solid #2a2018;box-shadow:3px 3px 0 #2a2018;transition:transform .08s ease,background .15s ease;cursor:pointer;}
+.donate-fab:hover{transform:translate(1px,1px);box-shadow:2px 2px 0 #2a2018;background:#E8B95A;}
+.donate-fab:active{transform:translate(3px,3px);box-shadow:0 0 0 #2a2018;}
+body.kids .donate-fab{background:#74A089;color:#0f2018;}
+@media print{.donate-fab{display:none !important;}}
+@media (max-width:480px){.donate-fab{font-size:13px;padding:9px 13px;left:12px;bottom:12px;}}
+</style>
+<!-- ===== END DONATE BUTTON ===== -->
+</body>
+</html>

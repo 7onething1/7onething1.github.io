@@ -1,0 +1,577 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<title>iximusic — Vocal vs Chord Stack Sheets</title>
+<script src="https://cdn.jsdelivr.net/npm/abcjs@6.4.4/dist/abcjs-basic-min.js"></script>
+<style>
+  body { font-family: Georgia, serif; background: #faf7f2; color: #111111; max-width: 980px; margin: 0 auto; padding: 40px 30px; line-height: 1.55; }
+  h1 { font-size: 26px; margin: 0 0 4px; letter-spacing: 0.5px; }
+  .sub { color: #777; font-size: 13px; margin-bottom: 40px; }
+  .song { background: #fff; border: 1px solid #e6dfd2; border-radius: 6px; padding: 28px 32px; margin-bottom: 36px; box-shadow: 0 1px 3px rgba(0,0,0,0.04); }
+  .song h2 { margin: 0 0 4px; font-size: 22px; }
+  .song h2 .artist { color: #7a6a4a; font-weight: normal; }
+  .key-line { color: #7a6a4a; font-size: 13px; letter-spacing: 0.5px; text-transform: uppercase; margin-bottom: 18px; }
+  .score { margin: 18px 0; }
+  .analysis { font-size: 15px; color: #3a3a3a; margin-top: 14px; padding: 14px 18px; background: #f6f0e3; border-left: 3px solid #b89b5e; border-radius: 0 4px 4px 0; }
+  .analysis b { color: #5a3a0a; }
+  .note { font-size: 12px; color: #888; margin-top: 8px; font-style: italic; }
+</style>
+<style id="kidmode-css">
+.mode-btn{position:fixed;top:12px;right:12px;z-index:9999;padding:9px 16px;border:none;border-radius:999px;background:#4E8079;color:#fff;font:600 14px/1 system-ui,-apple-system,sans-serif;cursor:pointer;box-shadow:0 2px 8px rgba(0,0,0,.22)}
+body.kids .mode-btn{background:#B4503E}
+body.kids .mode-btn::before{content:"🧒  "}
+#kidpanel{display:none}
+body.kids #kidpanel{display:block;max-width:760px;margin:62px auto 12px;background:#fff7e8;border:2px solid #4E8079;border-radius:18px;padding:20px 24px;font:18px/1.7 system-ui,-apple-system,sans-serif;color:#2b2820}
+body.kids #kidpanel h3{font-family:"Fredoka","Comic Sans MS",sans-serif;color:#4E8079;margin:0 0 8px;font-size:22px}
+body.kids #kidpanel b{color:#B4503E}
+body.kids{font-size:1.04em}
+</style>
+<style id="tab-contrast-fix">.score{background:#fbf8f1 !important}.score svg path{fill:#0e0e0e !important;stroke:#0e0e0e !important}.score svg text{fill:#0e0e0e !important}</style>
+</head>
+<script>window.__tabFor=function(a){var r=/^V:\s*\S+\s+clef=(\S+)/gm,m,o=[];while((m=r.exec(a))){o.push(m[1].toLowerCase().indexOf("bass")===0?{instrument:"bass"}:{instrument:"guitar"});}if(!o.length)o=[{instrument:"guitar"}];return o;};</script>
+<body>
+
+<div id="kidpanel"><h3>Kid mode 🧒</h3><p>This page is <b>iximusic — vocal melody vs chord stack</b>. It is one of the projects Brandon built and put online. The grown-up details are below, tap Grown-up mode to read them the normal way.</p></div>
+<h1>iximusic — vocal melody vs chord stack</h1>
+<div class="sub">Four-bar excerpts showing how the vocal note relates to what guitar and bass are doing underneath. Read the vocal line on the treble staff, chord symbols above, bass on the bass staff.</div>
+<!-- ===== HOORAY FOR EARTH · RACY — linked album analyses (added 2026-07-07) ===== -->
+<section id="hooray-racy" style="background:#fff;border:1px solid #e6dfd2;border-radius:6px;padding:22px 26px;margin:0 0 34px;box-shadow:0 1px 3px rgba(0,0,0,0.04)">
+  <h2 style="margin:0 0 6px;font-size:22px">Hooray For Earth · Racy <span style="color:#7a6a4a;font-weight:normal">— linked album analyses (12 songs)</span></h2>
+  <div class="key-line" style="color:#7a6a4a;font-size:13px;letter-spacing:0.5px;text-transform:uppercase;margin-bottom:16px">One page per song · vocal vs chord stack · abcjs notation</div>
+  <div class="hfe-grid" style="display:grid;grid-template-columns:repeat(auto-fill,minmax(220px,1fr));gap:10px;font-size:14px">
+    <a class="hfe-card" href="/hooray-say-enough-ixi"><b>Say Enough</b><br><span class="hfe-blurb">One note does most of the work.</span></a>
+    <a class="hfe-card" href="/hooray-keys-ixi"><b>Keys</b><br><span class="hfe-blurb">One held note carries this one too.</span></a>
+    <a class="hfe-card" href="/hooray-racy-ixi"><b>Racy</b><br><span class="hfe-blurb">Title track. One four-note climb does most of the work.</span></a>
+    <a class="hfe-card" href="/hooray-somewhere-else-ixi"><b>Somewhere Else</b><br><span class="hfe-blurb">The major-key song, and the one that resolves.</span></a>
+    <a class="hfe-card" href="/hooray-hey-ixi"><b>Hey</b><br><span class="hfe-blurb">The brightest song on the record; sings its own name.</span></a>
+    <a class="hfe-card" href="/hooray-last-first-ixi"><b>Last First</b><br><span class="hfe-blurb">Bright C major the singer keeps darkening.</span></a>
+    <a class="hfe-card" href="/hooray-airs-ixi"><b>Airs</b><br><span class="hfe-blurb">C# major; the singer barely leaves the tonic.</span></a>
+    <a class="hfe-card" href="/hooray-happening-ixi"><b>Happening</b><br><span class="hfe-blurb">Keeps sliding downhill and never leaves home.</span></a>
+    <a class="hfe-card" href="/hooray-pass-ixi"><b>Pass</b><br><span class="hfe-blurb">Hovers on the fifth; only comes home on the last three.</span></a>
+    <a class="hfe-card" href="/hooray-128-ixi"><b>128</b><br><span class="hfe-blurb">B-side; one loop the whole way, B and C#m, and the flat side.</span></a>
+    <a class="hfe-card" href="/hooray-wayout-ixi"><b>Wayout</b><br><span class="hfe-blurb">Lost-sessions b-side; falling line landing on the darker chord.</span></a>
+    <a class="hfe-card" href="/hooray-wylg-ixi"><b>What'd You Let Go</b><br><span class="hfe-blurb">Closer. Loop that never plays the home chord.</span></a>
+  </div>
+  <style>
+    .hfe-card{display:block;padding:12px 14px;background:#f6f0e3;border-radius:6px;text-decoration:none;color:#3a3a3a;border-left:3px solid #b89b5e;transition:transform .08s,box-shadow .08s}
+    .hfe-card:hover{transform:translateY(-1px);box-shadow:0 4px 10px rgba(0,0,0,.08);background:#f1e9d5}
+    .hfe-card b{color:#5a3a0a;font-size:15px}
+    .hfe-blurb{color:#4a463f;font-size:12.5px;line-height:1.4;display:inline-block;margin-top:4px}
+  </style>
+</section>
+
+<!-- ============ 1. NO SURPRISES ============ -->
+<div class="song">
+  <h2>No Surprises <span class="artist">— Radiohead</span></h2>
+  <div class="key-line">F major · verse · Thom's A held across F → B♭m6</div>
+  <div id="score-no-surprises" class="score"></div>
+  <div class="analysis">
+    Vocal sits on <b>A</b> for four bars. Over <b>F</b> the A is the major 3rd, inside the chord, sweet and consonant. Over <b>B♭m6</b> the A is outside the chord, sitting a major 7th above the B♭ root — an added major-7th color on top of a clean minor-6 chord. The combined sound is B♭m6 with an added maj7, one of the most wistful colors in tonal music. Colin walks the bass F → B♭. The same vocal pitch flips from a chord-internal 3rd into a tense added-color tone above the chord. Thom never moves. The floor moves under him.
+  </div>
+</div>
+
+<!-- ============ 2. CLIMBING UP THE WALLS ============ -->
+<div class="song">
+  <h2>Climbing Up The Walls <span class="artist">— Radiohead</span></h2>
+  <div class="key-line">B minor · verse · Thom's B held across Bm → G → Em → Bm</div>
+  <div id="score-climbing" class="score"></div>
+  <div class="analysis">
+    The trick from No Surprises gone darker. Vocal stays on <b>B</b>. Over <b>Bm</b>, B is the root. Over <b>G</b> (<b>VI in B minor</b>), B becomes the major 3rd, way too warm a color for the panic in the lyric. Over <b>Em</b> (the iv chord), B is the 5th, the sound of resignation. Colin walks the chord roots in that syncopated three-note cell. Thom hovers above the harmony and lets the bass keep redefining what his pitch means.
+  </div>
+</div>
+
+<!-- ============ 3. LET DOWN ============ -->
+<div class="song">
+  <h2>Let Down <span class="artist">— Radiohead</span></h2>
+  <div class="key-line">A major · verse · vocal on chord tones + Johnny's 5-against-4</div>
+  <div id="score-letdown" class="score"></div>
+  <div class="analysis">
+    Top staff is Thom's verse melody: <b>A</b> (root of A) → <b>G♯</b> (3rd of E) → brief non-chord escape tone → <b>F♯</b> (root of F♯m) → <b>E</b> (root of E). Mostly chord roots and thirds, with one fleeting non-chord tone framing the G♯ — the safest possible vocal with one decorative step. Middle staff is Johnny's repeating 5-note arpeggio pattern set against 4/4 bars, so the pattern slides out of phase with the bar lines and recolors itself every measure. Bass walks A → E → F♯ → E. The vocal is mostly the still point. Everything else is in motion around it.
+  </div>
+  <div class="note">Johnny's pattern is shown in 5-note groups for clarity; in the recording it loops continuously, drifting against the 4/4 grid.</div>
+</div>
+
+<!-- ============ 4. PARABOLA ============ -->
+<div class="song">
+  <h2>Parabola <span class="artist">— Tool</span></h2>
+  <div class="key-line">Pre-chorus · vocal harmony stack outlines A minor (A·C·E) held over G → A → E</div>
+  <div id="score-parabola" class="score"></div>
+  <div class="analysis">
+    Root motion <b>G → A → E</b>. Against E major that reads as ♭III → IV → I; inside E minor, G is III, A is a borrowed (raised) IV color, and E is I. The three-voice vocal harmony stack holds an A minor triad across the whole phrase — <b>A · C · E</b> stacked above the moving chord progression. Each held note recolors per chord:
+    <b>E</b> — 6th over G, 5th over A, root over E.
+    <b>C</b> — 11th (sus4 color) over G, ♭3 color over A major, ♭6 over E.
+    <b>A</b> — 9 over G, root over A, 4 over E.
+    The stack leans on upper-structure color tones, never on a chord root underneath. On the second pass, a <b>B</b> sneaks into the stack against the A chord — a true 9th, and that's the "holy" moment. The chord progression carries the time. The held vocal triad carries the meaning.
+  </div>
+  <div class="note">Maynard's lead melody (not shown) moves underneath the stack; the three-voice harmony above is the focal point.</div>
+</div>
+
+<!-- ============ 5. KARMA POLICE ============ -->
+<div class="song">
+  <h2>Karma Police <span class="artist">— Radiohead</span></h2>
+  <div class="key-line">A minor · verse cycle ending on the add9 crunch / ♭VI substitution</div>
+  <div id="score-karma" class="score"></div>
+  <div class="analysis">
+    Verse progression as ixi traces it: <b>Am → D/F♯ → Em → G → Am(add9)</b>. The final Am(add9) is the chord she calls "my favorite part" — that B sitting a major 2nd above the A root creates the crunch. The second time through the cycle, that same harmonic slot swaps to <b>F major (♭VI in A minor)</b>, her "favorite functional chord of all." Tom's vocal is mostly on offbeats, syncopated against the steady piano pulse. "Arrest this man" leaps up and back down; "he buzzes like a fridge" descends as a scale-like line, more words per bar. Same melodic territory, but the chord underneath shifts from add9 crunch to ♭VI heaviness — the vocal note keeps the same place while the chord recolors what it means.
+  </div>
+  <div class="note">In the final D-major section, Thom pulses on F♯ over a surprise E major chord — that F♯ is the 9th of E, the tension note that resolves down a long time later.</div>
+</div>
+
+<!-- ============ 6. PARANOID ANDROID ============ -->
+<div class="song">
+  <h2>Paranoid Android <span class="artist">— Radiohead</span></h2>
+  <div class="key-line">C minor (Section 1 / chorus) · vocal on the 9th of Dm, resolving as chord-root on E</div>
+  <div id="score-parano" class="score"></div>
+  <div class="analysis">
+    The Psychedelic Chapter opens on <b>Cm</b> with the guitar's bass note walking down chromatically — ixi calls out the tritone color that comes out of that walk. Then <b>Gm</b> with the same descending move. Tom's vocal sits on the offbeats, ixi calls it syncopation, "if you emphasize those kind of weak beats." In the chorus, the chord underneath "what's that" is a <b>Dm9</b> — a minor chord with a 9 (E) attached, a tense note just above the root. Tom sings that 9, holding E above the Dm. The next chord is an <b>E major</b>, and Tom's same vocal pitch (E) is now the <b>root</b> of that chord. The chord moves; his note doesn't; the meaning flips from extreme tension to maximum consonance. ixi: "anytime you play a different chord under the same note, things happen."
+  </div>
+  <div class="note">Section 2 (the Rowdy Rock part) moves to C and uses C → A♭ → B♭, ixi's "Super Mario Cadence" (♭VI ♭VII I in C major / mode mixture).</div>
+</div>
+
+<!-- ============ 7. EXIT MUSIC ============ -->
+<div class="song">
+  <h2>Exit Music (For A Film) <span class="artist">— Radiohead</span></h2>
+  <div class="key-line">B minor (harmonic minor) · opening Bm with sus2 → sus4 → resolution</div>
+  <div id="score-exit" class="score"></div>
+  <div class="analysis">
+    Opening: <b>Bm → Bsus2 → Bsus4 → Bm</b>. ixi tracks the third of the chord as the "heart" — first it's replaced by the 2nd above (the sus2 → C♯), then by the 4th above (the sus4 → E), then finally resolves down to the minor 3rd (D). Two suspensions in a row before the chord commits. Tom's vocal mostly descends the scale, ixi: "subconsciously downward motion just has a heaviness." On the second verse the <b>IV chord turns minor</b> — major first, then minor in a single breath ("you feel the angel falling"). Same melodic shape from Tom, but the harmonic floor changes color underneath him. The fourth verse stacks secondary dominants: <b>Bm → C♯ → F♯ → G → G → C → F</b> — ixi flags the <b>deceptive cadence to ♭VI</b> (the G as a substitute home), then the song closes on a <b>Picardy third</b> (minor home resolving to its major version).
+  </div>
+  <div class="note">The chorus appears only once in A minor — totally unrelated to B minor — built on Am → C, an "anxious inhale" → "centering exhale." Vocal traces the chord tones down.</div>
+</div>
+
+<!-- ============ 8. ORESTES ============ -->
+<div class="song">
+  <h2>Orestes <span class="artist">— A Perfect Circle</span></h2>
+  <div class="key-line">C♯ minor · "medicated peaceful moment" · vocal stack closes from 5th → 4th → 3rd → 2nd</div>
+  <div id="score-orestes" class="score"></div>
+  <div class="analysis">
+    Orestes opens with a <b>C♯ in the bass alternating with a D</b>, a vamp between two chords ixi describes as "neither feels particularly resolved or stable." The roots are only a half step apart, which is the surprise that pulls you in. Then the song kicks in and Maynard and Billy are harmonizing right out the gate — ixi flags this as a Perfect Circle hallmark, they don't save vocal harmonies for an energy moment, they're there from the first vocal line. They start on a <b>4th</b>, Billy below Maynard, and Billy drops further to create a clashing major 2nd. The intervals throughout the verse are <b>4ths and 5ths, not the usual pop 3rds and 6ths</b> — the APC vocal sound.
+    The "cut away" section moves the chord progression to <b>C♯ → B → A</b>. The A is the ♭6 of C♯, "my favorite note to have in the bass." Maynard's vocal lands on a major 7th tension above that A. ixi: "you have fifth and it becomes sixth, which is kind of lost sounding in it then it's emotional." Billy is harmonizing in parallel 4ths, then shifts up to parallel 6ths — same vocal stack, different stacking interval, "they sound very, very different if you really pay attention."
+    The score shows the moment ixi calls a favorite — "give me one more medicated peaceful moment." Maynard stays low and Billy stays high on the 5th of the scale (G♯). The interval between them tightens across the phrase: <b>5th → 4th → 3rd → 2nd</b>. ixi: "it feels like there's an urgency, like something is coming for him." A vocal stack literally closing in on itself, the chord stack stable underneath (the ♭6 / A major), the upper voices encroaching. Last chorus shifts to <b>parallel octaves</b> below — same melody doubled, no harmony added, pure reinforcement. The bridge bass outlines an A minor figure against a key center that isn't C♯ minor — ixi traces ♭6, ♭5, ♯7, ♭3 — bi-tonal disagreement between the bass and the guitar.
+  </div>
+</div>
+
+<!-- ============ 9. 3 LIBRAS ============ -->
+<div class="song">
+  <h2>3 Libras <span class="artist">— A Perfect Circle</span></h2>
+  <div class="key-line">E major / C♯ minor area · sus2 chord stack · vocal G♮ anticipates the mode-mixture chord</div>
+  <div id="score-3libras" class="score"></div>
+  <div class="analysis">
+    3 Libras is built on <b>sus2 chords</b>. Verse progression: <b>Asus2 → E5 → Bsus2 → Gsus2</b> — every chord missing the 3rd that would tell you if it's major or minor. The Gsus2 is borrowed from outside E major (♭III, mode mixture). ixi: "the ninth, there are ninths all over this song, not just in the guitar, but in Maynard's voice, in the violins and the viola, everything is just leaning on this tense note." The chord stack itself is sitting on the 9 of each chord.
+    Maynard's vocal works like a stringed instrument, swelling into notes, sometimes singing between the pitches a piano could play. The key trick is the <b>G♮ in his melody — he sings the G♮ before the G chord even arrives underneath him</b>. ixi: "you would think he's singing the G natural because he's got the G chord underneath, but actually he sings a G natural before he even gets to the G chord." So the vocal announces the mode mixture before the chord stack confirms it. G♮ over an E-centered context is the ♭3, "kind of going between the minor third and the major third." The pre-chorus continues this — violins playing the 9, Maynard moving through the 3rd → root → 9 with a passing tone.
+    The climax is "you don't see me." ixi: "the fact that he goes past the third to the fourth is pretty cool. It's kind of impressive. It almost sounds as if he really did just kind of, he went to the third and then just like kept going because he like fell off the step." So Maynard jumps down a 4th instead of the easier 3rd. The "see me" repeats higher each iteration, an octave up in his range, and the chord underneath shifts so the same vocal pitch becomes a different chord tone each time — "take a melody, change the context underneath it, see what new things happen." The song ends on a surprise <b>D chord, completely out of key</b>, and Maynard sings the 9 of that chord. ixi: "the incomplete, empty, almost confused, ambiguous feeling."
+  </div>
+</div>
+
+<!-- ============ 11. THE HOLLOW ============ -->
+<div class="song">
+  <h2>The Hollow <span class="artist">— A Perfect Circle</span></h2>
+  <div class="key-line">B♭ Dorian · 6/8 · chorus avoids home · "feed me" sits on a major 7th tension</div>
+  <div id="score-hollow" class="score"></div>
+  <div class="analysis">
+    The Hollow is in B♭ Dorian, meter 6/8. The lead guitar arpeggio cycles in 3, and ixi flags the top three notes as "made up of fourths" — quartal stacking, no clear 3rd in the chord stack before Maynard even sings. Maynard's vocal swells like a viola, melismatic, singing in his own cycles of 3 against the 6/8 grid so the polyrhythm hits. The bass doesn't show up for the first half of the verse, "you're already left feeling weightless and empty," then teases for a moment and leaves again.
+    The chorus is where the vocal-vs-chord tension peaks. Maynard hits the highest note in the song on "feed me" — ixi traces a <b>major 7th</b> against the bass underneath, "extremely tense." A brief release, then back to the major 7th. ixi: "in this way there's never really a resolution." The chord progression itself is doing the same trick: the chorus chords don't ever play B♭ minor, the home chord we keep expecting. The score shows ixi's traced cycle — <b>♭VII → IV → ♭III → ♭VII</b> (mode mixture, three major chords) — with Maynard's vocal G♮ creating the M7 tension over A♭, releasing to F over E♭ and D♭, then snapping back to G♮ over A♭.
+    The final chorus stacks Maynard against himself. He harmonizes in <b>parallel 5ths</b> first (which creates another spread sus2 sound — "lo and behold, another sus2"), then <b>parallel 4ths</b>, then resolves to <b>parallel 3rds</b> for the more conventional close. The song's last chord lands on <b>A♭, not B♭ minor</b>. ixi: "this self feels empty and incomplete because we never get to return to home." Vocal stack and chord stack agree to leave the resolution off the table.
+  </div>
+</div>
+
+<!-- ============ 12. MAGDALENA ============ -->
+<div class="song">
+  <h2>Magdalena <span class="artist">— A Perfect Circle</span></h2>
+  <div class="key-line">C♯ minor (drop-tuned) · Romanian-scale verse with vocal on ♯4 · chorus ♭III → IV → I, vocal pentatonic 1, ♭7, 5</div>
+  <div id="score-magdalena" class="score"></div>
+  <div class="analysis">
+    Magdalena is in C♯ (the band drops all strings three half steps to C♯). The verse scale is Romanian — minor with a <b>♯4</b> — and the ♯4 is the engine of the section. Maynard sings the ♯4 itself, creating a tritone against the bass C♯. He doesn't stay; he wiggles, ixi: "almost like he doesn't have control over his body." Then a major 3rd in the guitar against a minor 3rd in the bass adds another mode conflict on top. The time signature is <b>4/4</b> (rare on this album), and the snare hits every beat — a pounding pulse.
+    The chorus shifts the chord stack to <b>♭III → IV → I</b>, ixi: "one of the best ever." Maynard's chorus vocal is just two or three notes from the minor pentatonic. The first chorus uses the <b>upper part</b> of the pentatonic — <b>1, ♭7, 5</b> — over "so pure, so rare." The second chorus moves the same intervallic shape <b>down</b> to a different part of the same scale — <b>4, ♭3, 1</b>. ixi: "you can accidentally make people think that they're hearing the same thing, but it's actually a different melody completely. It just has the same thumbprint." Same shape, different scale location, different chord-tone relationship with the stack underneath.
+    The final chorus collapses the pentatonic down to just two notes — the <b>5 and the 1</b>. ixi: "the tonic and the fifth are the most stable and certain and definitive and most orienting places in the entire scale." Maynard goes from "one chance one kiss" to belting and almost screaming, and the vocal pitches narrow to the most orienting notes in the entire key. The chord stack continues doing its work underneath; Maynard hands off the emotive pentatonic shapes and locks onto tonic and dominant for the final declaration. The escalation isn't in the chord stack — it's in how much of the scale the vocal lets itself use.
+  </div>
+</div>
+
+<!-- ============ 13. OVER ============ -->
+<div class="song">
+  <h2>Over <span class="artist">— A Perfect Circle</span></h2>
+  <div class="key-line">D minor · vocal stays in D minor scale while chord stack moves to D major · direct ♭3-over-♯3 mode conflict</div>
+  <div id="score-over" class="score"></div>
+  <div class="analysis">
+    Over closes the album in D minor with the sparsest instrumentation on the record — kalimba (a Zimbabwean thumb piano) and piano. The kalimba and Maynard's vocal partner from the opening: both trace the main theme <b>1 → ♭3 → 2 (9) → ♭7 → 1</b>. The kalimba then drops to the ♭6, creating a tritone against the rest of the theme, ixi: "it sounds a little bit emotional." Maynard's voice is so close to the mic that his inhales are part of the texture.
+    When Billy comes in on piano, the chord stack confirms a solid <b>I → ♭VII</b> progression. Maynard keeps tracing the kalimba theme on top, so the same vocal pitches now have a chord stack to be measured against. Then the bass changes — E, D, C descending — and "this part of the song sounds as if now it's an E minor but Maynard's still singing like he's in D minor." The vocal is in one mode, the bass is implying another.
+    The score shows the climax move ixi calls out. The chord stack switches from <b>Dm to D major</b>, but Maynard and the kalimba are still playing the D minor scale. So the vocal's F♮ (the ♭3 of D minor) sounds directly against the F♯ (the major 3rd of the D major chord) — a literal ♭3-over-♯3 collision in a single chord. ixi: "there's like a mode conflict here, that sounds like a pretty bluesy jazzy chord to me." The song closes with snippets from earlier album tracks layered into the fade and a reverse piano note swelling away. The vocal-vs-chord conflict resolves only by dissolving.
+  </div>
+</div>
+
+<!-- ============ 10. THOMAS ============ -->
+<div class="song">
+  <h2>Thomas <span class="artist">— A Perfect Circle</span></h2>
+  <div class="key-line">C♯ Mixolydian → C♯ minor outro · ♭III ↔ I vamp · vocal descending the minor scale</div>
+  <div id="score-thomas" class="score"></div>
+  <div class="analysis">
+    Thomas opens with a gentle <b>C♯m</b> acoustic arpeggio, a sparse <b>D♯7</b> voicing where the tritone is audible, and an <b>Amaj9</b> chord. Then the heavy guitars hit: C♯ → ♭3 → ♭7 → ♭5 — "the devil's interval." No harmonic home, the chord stack vamps between A and B without resolving. Maynard pulses on the word "help" with the pitch a little out of tune, "it's just kind of unclear if he's like, which note he's singing." Chord stack unstable, vocal pitch ambiguous, the whole section refuses to give a tonal anchor.
+    The chorus brings the unusual move: <b>the drummer plays the vocal melody</b>. ixi: "it's a little unusual for the drummer to be playing along with all the other instruments instead of holding down the rhythmic structure." Maynard's chorus melody centers on the 4th and the 3rd of the chord — "the plagal sound." His two doubled vocal lines together outline a dominant 7th chord. He moves up to the 4th right before the chord change, so the same pitch becomes a tension over the new chord. The melisma on "forgive" runs long: "it feels like there's resistance to actually forgiving, because he can't even finish the word."
+    The score shows the outro. The song has shifted to <b>C♯ minor</b>, and the ♭6 chord (A major) has the proper home-key relationship the heavier section never gave you. Tempo drops to about <b>50 bpm</b>, guitar and bass cycle <b>♭III ↔ I</b> over and over (E major to C♯m), straight slow 4/4, "very stationary sounding, very dark." Maynard chants "reconnect," vocal descending the minor scale, multiple layered voices, percussive consonants. ixi: "ghosts of himself kind of following him. It's like both an angel and a devil embodied him."
+  </div>
+</div>
+
+<!-- ============ 14. ROSE ============ -->
+<div class="song">
+  <h2>Rose <span class="artist">— A Perfect Circle</span></h2>
+  <div class="key-line">Phrygian · 3/4 · vocal ♭6 → 5 flip motif · main theme starts in bass, ends in vocal</div>
+  <div id="score-rose" class="score"></div>
+  <div class="analysis">
+    Rose is modal — ixi reads it as moving between three modes — and the opening section sits in Phrygian, "minor but even darker because it has this very ominous menacing flat two." Meter is 3/4 with occasional bars of 4/4 to throw you off. The vocal motif on "don't disturb the beast" centers on the <b>♭6 → 5</b> half-step move. ixi: "the flat six wants to resolve to the five. That sort of its direction is, so there's this very satisfying quality to this. They have this magnetism to them, but also the way that he's singing it, this flipping is just like really animalistic." Half-step magnetism in the vocal, the chord stack carrying sus2 voicings underneath (similar territory to The Hollow), the open chord refusing to commit to major or minor.
+    The melodic theme of the song starts <b>in the bass</b>, alone. ixi tracks how the theme develops — it gets passed to the rhythm guitar, then chugged more rhythmically, the same shape with different articulation. Maynard sings other lines over it, and the theme keeps living in the lower layers of the chord stack. During the bridge, the guitar solo plays <b>the same ♭6 → 5 flip Maynard has been singing</b> — Billy doing it on guitar with 5, ♭6, 1 (skipping the 7). So the vocal motif from the verse has migrated into the chord stack itself.
+    Near the end Maynard claims the theme — he sings the main melodic theme himself, the one that's been moving through the band the whole song, and he stacks "I will, I am" on top. ixi: "no longer will I lay down and do your thing." The theme doesn't start on the downbeat, it lives on beats 2 and 3, and the whole band locks to that rhythm with the vocal on top. Then the outro: Paz plays violin, a guest plays viola, and the chord stack turns to <b>MAJOR chords</b> — totally different from the Phrygian world the rest of the song lived in. ixi: "no longer are we dealing with the sound of Phrygian or the sound of minor. Now things are major chords." Vocal stack is gone by this point; the strings carry the resolution the voice declared.
+  </div>
+</div>
+
+<!-- ============ 15. THINKING OF YOU ============ -->
+<div class="song">
+  <h2>Thinking Of You <span class="artist">— A Perfect Circle</span></h2>
+  <div class="key-line">F♯ Mixolydian ♭2 · vocal harmonies M3 → unison → P4 in chorus, parallel 5ths in second pre-chorus</div>
+  <div id="score-thinking" class="score"></div>
+  <div class="analysis">
+    Thinking Of You is in F♯ in a scale ixi calls Mixolydian ♭2. The intro main melodic theme is played first by Billy on guitar — intervals 5 → ♭2 (a tritone, "the devil's interval"), then 4 → 3 (a resolution), then 6 → ♭2 → 1. The melody makes the 5 — usually the most stable scale note — sound "really kind of messed up" by jumping it to the ♭2. Maynard then sings the same melody, the same tritone in his voice. The verse bass descends in a syncopated funky pattern, ♭2 → 1 and ♭6 → 5, mirroring the vocal descent shape.
+    The pre-chorus opens up the vocal stack. Maynard sits mostly on the ♭7 (E) over the chord stack, doubling his own voice in octaves. The chorus brings the harmony in. ixi: "starts out harmonizing on a major third. But it quickly just goes down and joins the main melody in unison. Sweet. And then it goes to harmonizing in parallel fourths." So the harmony move across one chorus phrase is <b>M3 → unison → P4</b>. The score below shows the lock-in moment — "Sweet surrender" lands the vocal stack on E (the ♭7 of the F♯ key) over the E chord (♭VII). Vocal note doubles the chord root; ♭7 piled on ♭7.
+    The second pre-chorus is even better. ixi: "the line that is sung below is now a perfect fifth below all those notes. In order to do that Maynard has to let go of the flat two and start singing a natural two." So the vocal harmony switches to parallel 5ths, and Maynard adjusts his pitches inside the scale to make the parallel motion work. Then the long-held ♭7 finally resolves to the tonic — the resolution the whole song has been withholding. ixi: "finally, we get what we wanted all along, which is for that flat seven to resolve to the tonic. It's right there. It's so close." The vocal stack delivers what the chord stack has refused to give.
+  </div>
+</div>
+
+<!-- ============ 16. BREÑA ============ -->
+<div class="song">
+  <h2>Breña <span class="artist">— A Perfect Circle</span></h2>
+  <div class="key-line">B♭ minor · ♭VI as a major-7 voicing · bridge "milking the ♭6" · guitar solo on the 9</div>
+  <div id="score-brena" class="score"></div>
+  <div class="analysis">
+    Breña opens in B♭ minor. The intro chord is a B♭ minor 7 voicing without the 5th, just B♭, D♭, and a half-step tension above. The verse moves to an upper-structure inversion ixi reads as "a major triad over a somewhat unrelated B♭" — the voicing creates a big open 5th in the middle, "this big open feeling." Then the ♭VI (G♭ major) lands as "the magical flat six," which ixi calls her favorite functional chord. The vocal above is a minor-scale melody "with a little bit of a blues tinge."
+    The chorus phrasing is unconventional — five measures of four beats but the metric stresses don't follow the bar lines, drum fills land where you don't expect, "the phrase keeps ending and ending and ending again." Maynard sings "vulnerable" with a melisma ixi reads as floating, "doesn't feel connected really to this chord." The vocal harmonies enter in parallel 3rds. ixi: "look at these parallel thirds. Which sounds really nice, but I love the last one, because listen to what happens against the B. That's really nice. That sounds like a major seventh chord." So at the end of the harmony move, the stacked vocal interval against the chord root creates a B♭maj7-ish sonority.
+    The score shows the bridge — "milking the ♭6." Maynard doesn't enter until the ♭VI (G♭) chord arrives. He sits on the <b>♭7 of the key</b> (A♭) over the G♭ chord, walks down through the 5 (F), and resolves to the 1 (B♭). The guitar solo over the same i ↔ ♭VI cycle <b>leans on the 9</b> — A♭ as the 9 of G♭ — and ixi: "minor key, I find the ninth to be particularly heartbreaking." The solo ends with a ♭6 → 5 move (same flip Rose uses) and a chord ixi reads as "an A flat major chord over a B flat minor chord, or another way you could say it is that it's a B flat minor 11 chord." Upper-structure stacked on the home chord, tasty, then the song ends without returning.
+  </div>
+</div>
+
+<script>
+const renderOpts = {
+  responsive: "resize",
+  staffwidth: 880,
+  scale: 1.05,
+  format: { gchordfont: "Georgia 13 bold" }
+};
+
+// =============================================================
+// 1. NO SURPRISES — vocal A over F → B♭m6 (F major)
+// =============================================================
+const abcNoSurprises = `X:1
+T:
+M:4/4
+L:1/4
+Q:1/4=76
+K:F
+%%score (V1) (V2)
+V:V1 clef=treble name="Vocal"
+V:V2 clef=bass name="Bass"
+[V:V1]"F""^I""_M3"A4 |"Bbm6""^iv6""_+M7 color"A4 |"F""^I""_M3"A4 |"Bbm6""^iv6""_+M7 color"A4 |]
+[V:V2] F,2 C2 | B,,2 F,2 | F,2 C2 | B,,2 F,2 |]
+`;
+ABCJS.renderAbc("score-no-surprises", abcNoSurprises, Object.assign({}, renderOpts, {tablature: window.__tabFor(abcNoSurprises)}));
+
+// =============================================================
+// 2. CLIMBING UP THE WALLS — vocal B over Bm → G → Em → Bm
+// =============================================================
+const abcClimbing = `X:1
+T:
+M:4/4
+L:1/8
+Q:1/4=104
+K:Bm
+%%score (V1) (V2)
+V:V1 clef=treble name="Vocal"
+V:V2 clef=bass name="Bass"
+[V:V1]"Bm""^i""_root"B8 |"G""^VI""_M3"B8 |"Em""^iv""_5"B8 |"Bm""^i""_root"B8 |]
+[V:V2] B,2 D2 F2 D2 | G,,2 B,,2 D2 B,,2 | E,2 G,2 B,2 G,2 | B,,2 D2 F2 D2 |]
+`;
+ABCJS.renderAbc("score-climbing", abcClimbing, Object.assign({}, renderOpts, {tablature: window.__tabFor(abcClimbing)}));
+
+// =============================================================
+// 3. LET DOWN — vocal on chord tones + escape tone, Johnny's 5-note pattern, bass
+// =============================================================
+const abcLetDown = `X:1
+T:
+M:4/4
+L:1/8
+Q:1/4=84
+K:A
+%%score (V1) (V2) (V3)
+V:V1 clef=treble name="Vocal"
+V:V2 clef=treble name="Gtr (Johnny)"
+V:V3 clef=bass name="Bass"
+[V:V1]"A""^I""_root"A4 z4 |"E""^V""_M3"^G4 "_esc"A2 "_M3"^G2 |"F#m""^vi""_root"F4 z4 |"E""^V""_root"E4 z4 |]
+[V:V2] A2 c2 e2 a2 | g2 a2 c'2 e2 | a2 c'2 e2 g2 | a2 c2 e2 a2 |]
+[V:V3] A,4 A,4 | E,4 E,4 | F,4 F,4 | E,4 E,4 |]
+`;
+ABCJS.renderAbc("score-letdown", abcLetDown, Object.assign({}, renderOpts, {tablature: window.__tabFor(abcLetDown)}));
+
+// =============================================================
+// 4. PARABOLA — vocal stack outlines A minor triad over G → A → E
+// =============================================================
+const abcParabola = `X:1
+T:
+M:4/4
+L:1/4
+Q:1/4=88
+K:C
+%%score (V1) (V2) (V3) (V4)
+V:V1 clef=treble name="Harm Top (E)"
+V:V2 clef=treble name="Harm Mid (C)"
+V:V3 clef=treble name="Harm Low (A)"
+V:V4 clef=bass  name="Bass"
+[V:V1] "G""^bIII""_6/13"e4 | "A""^IV""_5"e4 | "E""^I""_root"e4 | "_root"e4 |]
+[V:V2] "_11/sus4"c4 | "_b3 color"c4 | "_b6"c4 | "_b6"c4 |]
+[V:V3] "_9"A4 | "_root"A4 | "_4"A4 | "_4"A4 |]
+[V:V4] G,,4  | A,,4  | E,,4  | E,,4 |]
+`;
+ABCJS.renderAbc("score-parabola", abcParabola, Object.assign({}, renderOpts, {tablature: window.__tabFor(abcParabola)}));
+
+// =============================================================
+// 5. KARMA POLICE — verse cycle, add9 crunch / ♭VI substitution
+// =============================================================
+const abcKarma = `X:1
+T:
+M:4/4
+L:1/4
+Q:1/4=76
+K:Am
+%%score (V1) (V2)
+V:V1 clef=treble name="Vocal"
+V:V2 clef=bass name="Bass"
+[V:V1]"Am""^i""_root"A2 "_5"E2 |"D/F#""^IV6""_5"A2 "_3"^F2 |"Em""^v""_root"E2 "_b3"G2 |"Am(add9)""^i9""_9 crunch"B4 |]
+[V:V2] A,4 | ^F,4 | E,4 | A,4 |]
+`;
+ABCJS.renderAbc("score-karma", abcKarma, Object.assign({}, renderOpts, {tablature: window.__tabFor(abcKarma)}));
+
+// =============================================================
+// 6. PARANOID ANDROID — Dm9 chorus, vocal E = 9 → root of E
+// =============================================================
+const abcParano = `X:1
+T:
+M:4/4
+L:1/4
+Q:1/4=82
+K:Cm
+%%score (V1) (V2)
+V:V1 clef=treble name="Vocal"
+V:V2 clef=bass name="Bass"
+[V:V1]"Cm""^i""_root"c4 |"Gm""^v""_b3"_B4 |"Dm9""^ii9""_9 tension"e4 |"E""^III""_root resolved"e4 |]
+[V:V2] C,4 | G,,4 | D,4 | E,4 |]
+`;
+ABCJS.renderAbc("score-parano", abcParano, Object.assign({}, renderOpts, {tablature: window.__tabFor(abcParano)}));
+
+// =============================================================
+// 7. EXIT MUSIC — opening Bm sus2 sus4 resolution
+// =============================================================
+const abcExit = `X:1
+T:
+M:4/4
+L:1/4
+Q:1/4=66
+K:Bm
+%%score (V1) (V2)
+V:V1 clef=treble name="Vocal"
+V:V2 clef=bass name="Bass"
+[V:V1]"Bm""^i""_b3"d4 |"Bsus2""^susC#""_2"^c4 |"Bsus4""^susE""_4"e4 |"Bm""^i""_b3"d4 |]
+[V:V2] B,4 | B,4 | B,4 | B,4 |]
+`;
+ABCJS.renderAbc("score-exit", abcExit, Object.assign({}, renderOpts, {tablature: window.__tabFor(abcExit)}));
+
+// =============================================================
+// 8. ORESTES — "medicated peaceful moment" vocal stack closing in
+// =============================================================
+const abcOrestes = `X:1
+T:
+M:4/4
+L:1/4
+Q:1/4=66
+K:C#m
+%%score (V1) (V2) (V3)
+V:V1 clef=treble name="Billy"
+V:V2 clef=treble name="Maynard"
+V:V3 clef=bass  name="Bass"
+[V:V1] "A (♭VI)""^5th"g4 | "^4th"g4 | "^3rd"g4 | "^2nd"g4 |]
+[V:V2] c4 | d4 | e4 | f4 |]
+[V:V3] A,4 | A,4 | A,4 | A,4 |]
+`;
+ABCJS.renderAbc("score-orestes", abcOrestes, Object.assign({}, renderOpts, {tablature: window.__tabFor(abcOrestes)}));
+
+// =============================================================
+// 9. 3 LIBRAS — vocal G♮ persists across sus2 chord progression
+// =============================================================
+const abc3Libras = `X:1
+T:
+M:4/4
+L:1/4
+Q:1/4=92
+K:C
+%%score (V1) (V2)
+V:V1 clef=treble name="Vocal"
+V:V2 clef=bass  name="Bass"
+[V:V1] "Asus2""^9 in chord"B4 | "E5""^♭3 anticip"G4 | "Bsus2""^♭6 over B"G4 | "Gsus2""^root (mode mix)"G4 |]
+[V:V2] A,4 | E,4 | B,,4 | G,,4 |]
+`;
+ABCJS.renderAbc("score-3libras", abc3Libras, Object.assign({}, renderOpts, {tablature: window.__tabFor(abc3Libras)}));
+
+// =============================================================
+// 10. THOMAS — outro ♭III ↔ I vamp with vocal descent
+// =============================================================
+const abcThomas = `X:1
+T:
+M:4/4
+L:1/4
+Q:1/4=50
+K:C#m
+%%score (V1) (V2)
+V:V1 clef=treble name="Vocal"
+V:V2 clef=bass  name="Bass"
+[V:V1] "C#m""^i""_chant descending"e2 d2 | "E (♭III)""^bIII"c2 B2 | "C#m""^i"c4 | "C#m""^i"z4 |]
+[V:V2] ^C,4 | E,4 | ^C,4 | ^C,4 |]
+`;
+ABCJS.renderAbc("score-thomas", abcThomas, Object.assign({}, renderOpts, {tablature: window.__tabFor(abcThomas)}));
+
+// =============================================================
+// 11. THE HOLLOW — "feed me" vocal G♮ creates M7 over A♭ chord cycle
+// =============================================================
+const abcHollow = `X:1
+T:
+M:4/4
+L:1/4
+Q:1/4=80
+K:Bbm
+%%score (V1) (V2)
+V:V1 clef=treble name="Vocal"
+V:V2 clef=bass  name="Bass"
+[V:V1] "Ab (♭VII)""^M7 tension"=g4 | "Eb (IV)""^9"f4 | "Db (♭III)""^M3 release"f4 | "Ab (♭VII)""^M7 back"=g4 |]
+[V:V2] A,4 | E,4 | D,4 | A,4 |]
+`;
+ABCJS.renderAbc("score-hollow", abcHollow, Object.assign({}, renderOpts, {tablature: window.__tabFor(abcHollow)}));
+
+// =============================================================
+// 12. MAGDALENA — chorus "so pure so rare" vocal 1, ♭7, 5 over ♭III IV i
+// =============================================================
+const abcMagdalena = `X:1
+T:
+M:4/4
+L:1/4
+Q:1/4=88
+K:C#m
+%%score (V1) (V2)
+V:V1 clef=treble name="Vocal"
+V:V2 clef=bass  name="Bass"
+[V:V1] "E (♭III)""^1 of key"c4 | "F♯ (IV)""^♭7 of key"B4 | "C♯m (i)""^5 of key"g4 | "C♯m (i)"g4 |]
+[V:V2] E,4 | F,4 | C,4 | C,4 |]
+`;
+ABCJS.renderAbc("score-magdalena", abcMagdalena, Object.assign({}, renderOpts, {tablature: window.__tabFor(abcMagdalena)}));
+
+// =============================================================
+// 13. OVER — D minor vocal F♮ collides with D major chord (♭3 vs ♯3)
+// =============================================================
+const abcOver = `X:1
+T:
+M:4/4
+L:1/4
+Q:1/4=72
+K:Dm
+%%score (V1) (V2)
+V:V1 clef=treble name="Vocal"
+V:V2 clef=bass  name="Bass"
+[V:V1] "Dm""^i""_root"d4 | "Dm""^i""_♭3 in chord"f4 | "D""^I""_♭3 vs ♯3 ✗"f4 | "D""^I""_root"d4 |]
+[V:V2] D,4 | D,4 | D,4 | D,4 |]
+`;
+ABCJS.renderAbc("score-over", abcOver, Object.assign({}, renderOpts, {tablature: window.__tabFor(abcOver)}));
+
+// =============================================================
+// 14. ROSE — Phrygian ♭6 → 5 vocal flip motif over held tonic bass
+// =============================================================
+const abcRose = `X:1
+T:
+M:3/4
+L:1/4
+Q:1/4=110
+K:C
+%%score (V1) (V2)
+V:V1 clef=treble name="Vocal"
+V:V2 clef=bass  name="Bass"
+[V:V1] "E Phrygian""^♭6 of key"c'3 | "^5"b3 | "^♭6"c'3 | "^5"b3 |]
+[V:V2] E,3 | E,3 | E,3 | E,3 |]
+`;
+ABCJS.renderAbc("score-rose", abcRose, Object.assign({}, renderOpts, {tablature: window.__tabFor(abcRose)}));
+
+// =============================================================
+// 15. THINKING OF YOU — chorus vocal stack lands on E (♭7) over E chord
+// =============================================================
+const abcThinking = `X:1
+T:
+M:4/4
+L:1/4
+Q:1/4=92
+K:E
+%%score (V1) (V2) (V3)
+V:V1 clef=treble name="Billy (upper)"
+V:V2 clef=treble name="Maynard (lead)"
+V:V3 clef=bass  name="Bass"
+[V:V1] "E (♭VII)""^M3 above"g4 | "^unison"e4 | "^P4 above"a4 | "^holds E"e4 |]
+[V:V2] "_root of E (=♭7 of key)"e4 | "_unison"e4 | "_holds E"e4 | "_holds E"e4 |]
+[V:V3] E,4 | E,4 | E,4 | E,4 |]
+`;
+ABCJS.renderAbc("score-thinking", abcThinking, Object.assign({}, renderOpts, {tablature: window.__tabFor(abcThinking)}));
+
+// =============================================================
+// 16. BREÑA — bridge "milking the ♭6" with vocal ♭7 → 5 → 1 over G♭ chord
+// =============================================================
+const abcBrena = `X:1
+T:
+M:4/4
+L:1/4
+Q:1/4=84
+K:Bbm
+%%score (V1) (V2)
+V:V1 clef=treble name="Vocal"
+V:V2 clef=bass  name="Bass"
+[V:V1] "Bbm (i)""^gtr ascending"z4 | "Gb (♭VI)""^♭7 of key"a4 | "_5"f4 | "_resolves to 1"b4 |]
+[V:V2] B,4 | G,4 | G,4 | G,4 |]
+`;
+ABCJS.renderAbc("score-brena", abcBrena, Object.assign({}, renderOpts, {tablature: window.__tabFor(abcBrena)}));
+</script>
+
+<!-- ===== DONATE BUTTON (drwu) — injected, idempotent ===== -->
+<a class="donate-fab" href="https://www.paypal.com/donate/?hosted_button_id=P2P6NCHSZ2E3C" target="_blank" rel="noopener" onclick="event.preventDefault();var w=window.open(this.href,&quot;_blank&quot;,&quot;noopener&quot;);if(!w){location.href=this.href;}" title="Support this work — donate">💛 Donate</a>
+<style>
+.donate-fab{position:fixed;left:18px;bottom:18px;z-index:99999;display:inline-flex;align-items:center;gap:.4em;font-family:'Inter',-apple-system,BlinkMacSystemFont,system-ui,sans-serif;font-size:15px;font-weight:700;line-height:1;text-decoration:none;padding:11px 16px;border-radius:999px;background:#DDA63A;color:#2a2018;border:2px solid #2a2018;box-shadow:3px 3px 0 #2a2018;transition:transform .08s ease,background .15s ease;cursor:pointer;}
+.donate-fab:hover{transform:translate(1px,1px);box-shadow:2px 2px 0 #2a2018;background:#E8B95A;}
+.donate-fab:active{transform:translate(3px,3px);box-shadow:0 0 0 #2a2018;}
+body.kids .donate-fab{background:#74A089;color:#0f2018;}
+@media print{.donate-fab{display:none !important;}}
+@media (max-width:480px){.donate-fab{font-size:13px;padding:9px 13px;left:12px;bottom:12px;}}
+</style>
+<!-- ===== END DONATE BUTTON ===== -->
+
+<!-- ===== HOORAY FOR EARTH · TRUE LOVES — linked album analyses (added 2026-07-07) ===== -->
+<section id="hooray-true-loves" style="background:#fff;border:1px solid #e6dfd2;border-radius:6px;padding:22px 26px;margin:0 0 34px;box-shadow:0 1px 3px rgba(0,0,0,0.04)">
+  <h2 style="margin:0 0 6px;font-size:22px">Hooray For Earth · True Loves <span style="color:#7a6a4a;font-weight:normal">— linked album analyses (10 of 10, ALBUM COMPLETE)</span></h2>
+  <div class="key-line" style="color:#7a6a4a;font-size:13px;letter-spacing:0.5px;text-transform:uppercase;margin-bottom:16px">One page per song · vocal vs chord stack · abcjs notation</div>
+  <div class="hfe-grid" style="display:grid;grid-template-columns:repeat(auto-fill,minmax(220px,1fr));gap:10px;font-size:14px">
+    <a class="hfe-card" href="/hooray-realize-ixi"><b>Realize It's Not The Sun</b><br><span class="hfe-blurb">The opener holds a bright triad and never lands on the flat side.</span></a>
+    <a class="hfe-card" href="/hooray-last-minute-ixi"><b>Last Minute</b><br><span class="hfe-blurb">Second track. Bright A major, one four-chord loop, the singer parks on C#.</span></a>
+    <a class="hfe-card" href="/hooray-sails-ixi"><b>Sails</b><br><span class="hfe-blurb">Third track. C minor + Db pedal intro, the singer states the tonic before harmony agrees.</span></a>
+    <a class="hfe-card" href="/hooray-true-loves-ixi"><b>True Loves</b><br><span class="hfe-blurb">Title track. Eb opens, then D major; bass leans V-IV; vocal parks on B (6th) over A (V).</span></a>
+    <a class="hfe-card" href="/hooray-same-ixi"><b>Same</b><br><span class="hfe-blurb">D minor, Dorian-adjacent; bass anchors bVII (C); vocal C = b7 of Dm and root of C.</span></a>
+    <a class="hfe-card" href="/hooray-hotel-ixi"><b>Hotel</b><br><span class="hfe-blurb">Ballad at 68 BPM. Vocal parked on D for 53.2%; bass leans on bVII (F) more than tonic G.</span></a>
+    <a class="hfe-card" href="/hooray-no-love-ixi"><b>No Love</b><br><span class="hfe-blurb">C minor; bVI (Ab) ties tonic in count; vocal parks on Eb across four chord duties.</span></a>
+    <a class="hfe-card" href="/hooray-bringing-ixi"><b>Bringing Us Closer Together</b><br><span class="hfe-blurb">E major with bVII (D) borrow; vocal parks on G# (major 3rd); bass I-vi rotation.</span></a>
+    <a class="hfe-card" href="/hooray-pulling-back-ixi"><b>Pulling Back</b><br><span class="hfe-blurb">40-second interlude. Bass on E pedal 64.9%; vocal parks on Bb and Eb — tritone/semitone rub.</span></a>
+    <a class="hfe-card" href="/hooray-black-trees-ixi"><b>Black Trees</b><br><span class="hfe-blurb">Closer. Eb major / C minor ambiguity; chord counter Eb=78 vs Cm=55; longest track on the album.</span></a>
+  </div>
+  <style>
+    .hfe-pending{background:#eee6d0;color:#7a6a4a;border-left:3px solid #a99a75;padding:12px 14px;border-radius:6px;font-style:italic;opacity:.72;cursor:not-allowed}
+    .hfe-pending b{color:#6a5a3a}
+  </style>
+</section>
+
+</body>
+</html>

@@ -1,0 +1,295 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Ship-Chasers vs. the Box Score &middot; Grading ETR, Ship Chasing &amp; Davis Mattek Against 2025 Reality</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Source+Serif+4:opsz,wght@8..60,400;8..60,500;8..60,600;8..60,700&family=Inter:wght@400;500;600;700;800&family=JetBrains+Mono:wght@400;600&display=swap" rel="stylesheet">
+<style>
+:root{
+  --cream:#faf6ee; --paper:#fffdf7; --ink:#1a1814; --ink-soft:#565046;
+  --line:#e8e0d0; --line-soft:#f1ead8;
+  --ochre:#a86a1f; --ochre-soft:#f5e6c8;
+  --burgundy:#7a2e2e; --burgundy-soft:#f0d9d9;
+  --olive:#4f6f34; --olive-soft:#e5eed7;
+  --teal:#2f6b6b; --teal-soft:#d7e7e7;
+  --hit:#3f6f2f; --hit-soft:#e4efd8; --hit-line:#a9c690;
+  --miss:#9e352a; --miss-soft:#f3ddd7; --miss-line:#dba79c;
+  --under:#a86a1f; --under-soft:#f5e6c8; --under-line:#e2c793;
+  --serif:'Source Serif 4',Georgia,serif; --sans:'Inter',system-ui,sans-serif; --mono:'JetBrains Mono',Menlo,monospace;
+}
+*{box-sizing:border-box;} html,body{margin:0;padding:0;}
+body{font-family:var(--serif); background:var(--cream); color:var(--ink); line-height:1.5;}
+.wrap{max-width:1000px; margin:0 auto; padding:30px 20px 90px;}
+a{color:var(--burgundy);}
+
+/* masthead */
+.mast{text-align:center; border-bottom:2px solid var(--ink); padding-bottom:20px; margin-bottom:26px;}
+.kick{font-family:var(--sans); font-size:11px; letter-spacing:.32em; text-transform:uppercase; color:var(--burgundy); font-weight:700;}
+.mast h1{font-family:var(--serif); font-weight:700; font-size:clamp(28px,5.2vw,46px); line-height:1.03; margin:.18em 0 .1em;}
+.mast .sub{font-style:italic; font-size:clamp(14px,2.4vw,18px); color:var(--ink-soft); max-width:40rem; margin:.1em auto .55em;}
+.prov{font-family:var(--mono); font-size:10.5px; color:var(--ochre); border-top:1px solid var(--line); border-bottom:1px solid var(--line); display:inline-block; padding:5px 14px; line-height:1.7;}
+
+/* kpi tiles */
+.kpis{display:grid; grid-template-columns:repeat(auto-fit,minmax(210px,1fr)); gap:13px; margin:0 0 30px;}
+.kpi{background:var(--paper); border:1px solid var(--line); border-top:4px solid var(--ochre); border-radius:12px; padding:15px 16px 14px;}
+.kpi.k-hit{border-top-color:var(--hit);} .kpi.k-miss{border-top-color:var(--miss);} .kpi.k-teal{border-top-color:var(--teal);}
+.kpi .n{font-family:var(--sans); font-weight:800; font-size:26px; line-height:1; color:var(--ink);}
+.kpi .n small{font-size:15px; font-weight:700; color:var(--ink-soft);}
+.kpi .l{font-family:var(--sans); font-size:11px; letter-spacing:.04em; text-transform:uppercase; color:var(--ochre); font-weight:700; margin-top:7px;}
+.kpi .d{font-size:13px; color:var(--ink-soft); margin-top:5px; line-height:1.4;}
+
+/* thesis */
+.thesis{background:var(--paper); border:1px solid var(--line); border-left:4px solid var(--teal); border-radius:0 12px 12px 0; padding:18px 22px; margin:0 0 34px;}
+.thesis h2{font-family:var(--serif); font-size:20px; margin:0 0 6px; color:var(--teal);}
+.thesis p{margin:0 0 8px; font-size:16px;} .thesis p:last-child{margin:0;}
+.thesis b{color:var(--burgundy);}
+
+/* section */
+section{margin:0 0 40px;}
+.shead{display:flex; align-items:baseline; gap:12px; border-bottom:1px solid var(--line); padding-bottom:8px; margin-bottom:16px; flex-wrap:wrap;}
+.shead .num{font-family:var(--mono); font-size:13px; font-weight:600; color:var(--ochre);}
+.shead h2{font-family:var(--serif); font-weight:700; font-size:clamp(21px,3.4vw,28px); margin:0; line-height:1.05;}
+.shead .tag{font-family:var(--sans); font-size:10.5px; letter-spacing:.13em; text-transform:uppercase; font-weight:700; color:var(--ink-soft); background:var(--line-soft); padding:3px 9px; border-radius:20px; margin-left:auto;}
+.lede{font-size:16px; color:var(--ink); margin:0 0 15px; max-width:52rem;}
+.lede b{color:var(--burgundy);}
+
+/* podium */
+.podium{display:grid; grid-template-columns:1fr 1fr; gap:16px;}
+.pcol{background:var(--paper); border:1px solid var(--line); border-radius:12px; padding:16px 18px;}
+.pcol h3{font-family:var(--sans); font-size:12px; letter-spacing:.1em; text-transform:uppercase; color:var(--burgundy); font-weight:800; margin:0 0 3px;}
+.pcol .psub{font-size:12.5px; color:var(--ink-soft); margin:0 0 11px; font-style:italic;}
+ol.rank{list-style:none; margin:0; padding:0; counter-reset:r;}
+ol.rank li{counter-increment:r; display:flex; align-items:baseline; gap:10px; padding:6px 0; border-bottom:1px dashed var(--line-soft); font-size:14.5px;}
+ol.rank li:last-child{border-bottom:0;}
+ol.rank li::before{content:counter(r); font-family:var(--mono); font-weight:600; font-size:12px; color:var(--ochre); min-width:16px;}
+ol.rank li .who{font-weight:600;} ol.rank li .src{font-family:var(--sans); font-size:11.5px; color:var(--ink-soft); margin-left:auto; text-align:right;}
+ol.rank li.star{background:var(--ochre-soft); margin:0 -8px; padding:7px 8px; border-radius:7px; border-bottom:0;}
+ol.rank li.star .who{color:var(--burgundy);}
+.medal{font-size:15px;}
+
+/* tables */
+.tbl-wrap{overflow-x:auto; border:1px solid var(--line); border-radius:12px; background:var(--paper);}
+table.sc{border-collapse:collapse; width:100%; min-width:640px; font-size:14.5px;}
+table.sc th{font-family:var(--sans); font-size:11px; letter-spacing:.06em; text-transform:uppercase; color:var(--ink-soft); font-weight:700; text-align:left; padding:11px 14px; border-bottom:2px solid var(--line); background:var(--line-soft);}
+table.sc td{padding:11px 14px; border-bottom:1px solid var(--line-soft); vertical-align:top;}
+table.sc tr:last-child td{border-bottom:0;}
+table.sc .pl{font-weight:700; font-family:var(--serif); font-size:15.5px; white-space:nowrap;}
+table.sc .pl small{display:block; font-family:var(--sans); font-weight:600; font-size:10.5px; color:var(--ink-soft); letter-spacing:.03em; text-transform:uppercase; white-space:normal;}
+table.sc .call{color:var(--ink); max-width:22rem;}
+table.sc .fin{font-family:var(--mono); font-size:13px; font-weight:600; white-space:nowrap;}
+tr.row-hit{background:var(--hit-soft);} tr.row-miss{background:var(--miss-soft);} tr.row-under{background:var(--under-soft);}
+.chip{font-family:var(--sans); font-weight:800; font-size:10.5px; letter-spacing:.06em; text-transform:uppercase; padding:4px 10px; border-radius:20px; white-space:nowrap; display:inline-block;}
+.c-hit{background:var(--hit); color:#fff;} .c-miss{background:var(--miss); color:#fff;} .c-under{background:var(--under); color:#fff;}
+.tsum{font-family:var(--sans); font-size:13.5px; color:var(--ink-soft); margin:11px 2px 0; padding-left:2px;}
+.tsum b{color:var(--burgundy);}
+
+/* callout */
+.callout{background:var(--paper); border:1px solid var(--line); border-left:4px solid var(--ochre); border-radius:0 12px 12px 0; padding:16px 20px; margin:16px 0 0;}
+.callout.win{border-left-color:var(--hit); background:linear-gradient(120deg,var(--hit-soft),var(--paper));}
+.callout.twist{border-left-color:var(--miss); background:linear-gradient(120deg,var(--miss-soft),var(--paper));}
+.callout h4{font-family:var(--sans); font-size:11px; letter-spacing:.13em; text-transform:uppercase; font-weight:800; color:var(--ochre); margin:0 0 6px;}
+.callout.win h4{color:var(--hit);} .callout.twist h4{color:var(--miss);}
+.callout p{margin:0 0 7px; font-size:15px;} .callout p:last-child{margin:0;}
+.callout b{color:var(--burgundy);}
+.build{font-family:var(--mono); font-size:13px; background:var(--cream); border:1px dashed var(--line); border-radius:8px; padding:9px 12px; margin:8px 0 0; line-height:1.7;}
+.build b{color:var(--olive);}
+
+/* verdict */
+.verdict{background:var(--ink); color:var(--cream); border-radius:14px; padding:26px 26px 22px; margin:8px 0 0;}
+.verdict .kick{color:var(--ochre-soft);}
+.verdict h2{font-family:var(--serif); font-size:26px; margin:.1em 0 12px; color:#fff;}
+.verdict .vrow{display:grid; grid-template-columns:auto 1fr; gap:12px 15px; align-items:start; margin:0 0 12px;}
+.verdict .badge{font-family:var(--sans); font-weight:800; font-size:11px; letter-spacing:.05em; text-transform:uppercase; padding:5px 11px; border-radius:20px; white-space:nowrap; margin-top:2px;}
+.verdict .b-etr{background:var(--teal); color:#fff;} .verdict .b-ship{background:var(--olive); color:#fff;} .verdict .b-call{background:var(--ochre); color:#fff;}
+.verdict p{margin:0; font-size:15.5px; line-height:1.55; color:#efe7d6;}
+.verdict p b{color:#fff;}
+
+/* sources */
+details.notes{margin-top:34px; border-top:1px solid var(--line); padding-top:12px;}
+details.notes summary{cursor:pointer; font-family:var(--sans); font-weight:700; letter-spacing:.06em; text-transform:uppercase; color:var(--ochre); font-size:12px; padding:6px 0;}
+.notes .nbody{font-family:var(--sans); font-size:13px; color:var(--ink-soft); line-height:1.65; padding:6px 2px 4px;}
+.notes .nbody h5{font-family:var(--sans); font-size:12px; letter-spacing:.06em; text-transform:uppercase; color:var(--burgundy); margin:14px 0 5px;}
+.notes .nbody ol{margin:0; padding-left:20px;} .notes .nbody li{margin:3px 0;}
+.notes code{font-family:var(--mono); font-size:12px; color:#8a7a5a;}
+.foot{text-align:center; font-family:var(--mono); font-size:11px; color:var(--ochre); margin-top:26px;}
+.home{position:fixed; left:16px; bottom:16px; z-index:50; font-family:var(--sans); font-weight:700; font-size:12px; background:var(--paper); color:var(--burgundy); border:1px solid var(--ochre); border-radius:24px; padding:9px 15px; box-shadow:0 3px 12px rgba(60,45,20,.16); text-decoration:none;}
+@media(max-width:720px){ .podium{grid-template-columns:1fr;} .verdict .vrow{grid-template-columns:1fr;} }
+</style>
+</head>
+<body>
+<a class="home" href="/indexes-board/">&larr; index board</a>
+<div class="wrap">
+
+<header class="mast">
+  <div class="kick">Predictions vs. Reality &middot; 2025 NFL Season</div>
+  <h1>Ship-Chasers vs. the Box Score</h1>
+  <p class="sub">Grading what Establish The Run, the Ship Chasing crew, and Davis Mattek actually put on record for 2025 against what the season actually produced.</p>
+  <div class="prov">FINISHES: StatMuse, 2025 regular season, full PPR &nbsp;&bull;&nbsp; ACCURACY: FantasyPros (159+ experts) &nbsp;&bull;&nbsp; BEST BALL: Underdog Best Ball Mania VI &nbsp;&bull;&nbsp; built 2026-07-25</div>
+</header>
+
+<div class="kpis">
+  <div class="kpi k-teal">
+    <div class="n">2<small>nd</small> <small>/ 159+</small></div>
+    <div class="l">ETR in-season accuracy</div>
+    <div class="d">Patrick Thorman, 4th straight top-4 finish in the FantasyPros field.</div>
+  </div>
+  <div class="kpi k-hit">
+    <div class="n">$2,000,000</div>
+    <div class="l">Best Ball Mania VI</div>
+    <div class="d">Won by Sam Sherman, a Ship Chasing / ETR / Legendary Upside affiliate.</div>
+  </div>
+  <div class="kpi">
+    <div class="n">4 <small>hit</small> / 4 <small>miss</small></div>
+    <div class="l">Kerrane mid-round bets</div>
+    <div class="d">Three of the four misses were injuries, including a season-ending zero.</div>
+  </div>
+  <div class="kpi k-miss">
+    <div class="n">2 <small>of</small> 3</div>
+    <div class="l">Consensus busts right</div>
+    <div class="d">The market nailed Rice and Mixon, and whiffed badly on Travis Etienne.</div>
+  </div>
+</div>
+
+<div class="thesis">
+  <h2>These sources are not playing the same game</h2>
+  <p><b>Establish The Run</b> sells projections and rankings, so the honest way to grade them is ranking accuracy, and there is an independent referee for that: FantasyPros freezes every expert's ranks and scores them against the final box score.</p>
+  <p><b>Ship Chasing</b> and <b>Davis Mattek</b> are best-ball tournament players. Their product is a drafted roster in a large-field contest, so the honest way to grade them is tournament results and the specific players they staked a position on. Each side gets its own scoreboard below.</p>
+</div>
+
+<!-- SECTION 1 -->
+<section>
+  <div class="shead"><span class="num">01</span><h2>The accuracy medal stand</h2><span class="tag">Independently measured &middot; FantasyPros</span></div>
+  <p class="lede">FantasyPros grades over 159 experts against actual results. It splits into two contests: <b>in-season</b> weekly ranks and <b>preseason</b> draft ranks. ETR owns one of them and sits out the other.</p>
+  <div class="podium">
+    <div class="pcol">
+      <h3>In-season accuracy &middot; 2025</h3>
+      <p class="psub">Weekly ranks graded across Weeks 1&ndash;17, worst week dropped per position.</p>
+      <ol class="rank">
+        <li><span class="who">Justin Boone</span> <span class="src">Yahoo &middot; winner</span></li>
+        <li class="star"><span class="who">Patrick Thorman &middot; ETR</span> <span class="src medal">silver, 4x top-4</span></li>
+        <li><span class="who">Jamie Calandro</span> <span class="src">RotoBaller</span></li>
+        <li><span class="who">Christopher Gimino</span> <span class="src">RotoGrinders</span></li>
+        <li><span class="who">Jeff Ratcliffe</span> <span class="src">FTN</span></li>
+      </ol>
+    </div>
+    <div class="pcol">
+      <h3>Preseason draft accuracy &middot; 2025</h3>
+      <p class="psub">Final preseason ranks scored against where players actually finished.</p>
+      <ol class="rank">
+        <li><span class="who">Seth Miller</span> <span class="src">Crossroads &middot; winner</span></li>
+        <li><span class="who">Guilherme Gianni</span> <span class="src">Fantasy Futebolista</span></li>
+        <li><span class="who">Michael Bobal</span> <span class="src">SquareEdgeMike</span></li>
+        <li><span class="who">Jason Willan</span> <span class="src">Gridiron Experts &middot; RB champ</span></li>
+        <li><span class="who">Marc Shannep</span> <span class="src">Fantasy Knockout</span></li>
+      </ol>
+    </div>
+  </div>
+  <p class="tsum">Reality check on reputation: ETR is elite where it actually competes, second of the whole field on <b>in-season</b> accuracy. Neither ETR nor any Ship Chasing host cracked the <b>preseason draft</b> top ten, which a smaller shop (Seth Miller of Crossroads) won. The name you have heard on a podcast and the most accurate ranker of a draft board are not always the same person.</p>
+</section>
+
+<!-- SECTION 2 -->
+<section>
+  <div class="shead"><span class="num">02</span><h2>The best-ball scoreboard</h2><span class="tag">Underdog Best Ball Mania VI</span></div>
+  <p class="lede">Ship Chasing's whole ethos is the large-field best-ball tournament. The cleanest reality test is simple: did their approach win the biggest one? In the 2025 contest, it did.</p>
+  <div class="callout win">
+    <h4>The $2,000,000 result</h4>
+    <p><b>Best Ball Mania VI</b> drew more than 670,000 entries and narrowed to a 539-person Week 17 final. The top prize of <b>$2 million</b> went to <b>Sam Sherman</b>, who holds roles across Ship Chasing, Establish The Run, and Legendary Upside.</p>
+    <p>The winning build was a textbook Hero-RB, and the early core is exactly what these shows preach, one anchor back plus a stack of receivers:</p>
+    <div class="build"><b>2.04</b> Derrick Henry (Hero RB) &nbsp;+&nbsp; <b>WR wall:</b> Jaxon Smith-Njigba &middot; Amon-Ra St. Brown &middot; Tetairoa McMillan &middot; Chris Olave</div>
+    <p style="margin-top:9px">Reality backed the build. In final 2025 PPR scoring, Henry finished <b>RB8</b>, Smith-Njigba <b>WR2</b>, and Amon-Ra St. Brown <b>WR3</b>. The pieces the roster was built around all hit.</p>
+  </div>
+  <div class="callout">
+    <h4>Mattek's claim, labeled as a claim</h4>
+    <p>Davis Mattek posted that <b>"33% of the Best Ball Mania winners have been ship chasing hosts."</b> That is his own public statement, not an audit run here. What is independently verified is the single data point above: a Ship Chasing affiliate took down the 2025 edition for two million dollars.</p>
+  </div>
+</section>
+
+<!-- SECTION 3 -->
+<section>
+  <div class="shead"><span class="num">03</span><h2>The call sheet, graded</h2><span class="tag">Pat Kerrane &middot; 2025 best-ball plan</span></div>
+  <p class="lede">Kerrane published a specific early-summer best-ball plan. These are his <b>differentiated middle-round bets</b>, the spots where he staked a position against the draft board, each set beside the player's actual 2025 PPR finish.</p>
+  <div class="tbl-wrap">
+    <table class="sc">
+      <thead><tr><th>Player</th><th>Kerrane's 2025 call</th><th>Actual 2025 finish</th><th>Verdict</th></tr></thead>
+      <tbody>
+        <tr class="row-hit"><td class="pl">George Pickens<small>WR &middot; DAL</small></td><td class="call">Round 5&ndash;6, "pretty excited about" him</td><td class="fin">WR5 &middot; 291.9</td><td><span class="chip c-hit">Hit</span></td></tr>
+        <tr class="row-hit"><td class="pl">Courtland Sutton<small>WR &middot; DEN</small></td><td class="call">Round 5&ndash;6 upside bet</td><td class="fin">WR13 &middot; 219.7</td><td><span class="chip c-hit">Hit</span></td></tr>
+        <tr class="row-hit"><td class="pl">RJ Harvey<small>RB &middot; DEN</small></td><td class="call">Round 5&ndash;6, "high upside late-season bet"</td><td class="fin">RB20 &middot; 206.6</td><td><span class="chip c-hit">Hit</span></td></tr>
+        <tr class="row-hit"><td class="pl">TreVeyon Henderson<small>RB &middot; NE</small></td><td class="call">Round 5&ndash;6, "high upside late-season bet"</td><td class="fin">RB21 &middot; 206.2</td><td><span class="chip c-hit">Hit</span></td></tr>
+        <tr class="row-miss"><td class="pl">Joe Mixon<small>RB &middot; HOU</small></td><td class="call">Round 5, "RB10 in points per game, minimal competition for touches"</td><td class="fin">0 games &middot; foot injury, NFI, released</td><td><span class="chip c-miss">Miss</span></td></tr>
+        <tr class="row-miss"><td class="pl">Alvin Kamara<small>RB &middot; NO</small></td><td class="call">Round 5&ndash;6, "PPR RB5 last year in points per game"</td><td class="fin">100.7 pts &middot; 11 g &middot; outside RB25</td><td><span class="chip c-miss">Miss</span></td></tr>
+        <tr class="row-miss"><td class="pl">Chris Godwin<small>WR &middot; TB</small></td><td class="call">Round 5&ndash;6, talent "heavily discounted due to injury"</td><td class="fin">83.0 pts &middot; 9 g</td><td><span class="chip c-miss">Miss</span></td></tr>
+        <tr class="row-miss"><td class="pl">Calvin Ridley<small>WR &middot; TEN</small></td><td class="call">Round 5&ndash;6, reasonable bet on QB upside</td><td class="fin">47.3 pts &middot; 7 g &middot; 0 TD</td><td><span class="chip c-miss">Miss</span></td></tr>
+      </tbody>
+    </table>
+  </div>
+  <p class="tsum"><b>Tally: 4 hits, 4 misses on his differentiated Round 5&ndash;6 bets.</b> Best ball rewards the shape of the wins more than the batting average, and his headline value landed the hardest: <b>George Pickens at Round 5&ndash;6 finished WR5</b>, a league-winner, with RJ Harvey and TreVeyon Henderson both returning startable value at that same cost. Three of the four misses were injury outcomes, led by Mixon, whose foot injury cost the whole season and returned a literal zero.</p>
+  <div class="callout">
+    <h4>His tight end room, graded apart</h4>
+    <p>Kerrane's top tight ends were closer to consensus, so they sit outside the differentiated tally. The room came out mixed, and the one hit was the whole difference: <b>Trey McBride</b> at Round 5 finished the overall <b>TE1</b>. <b>Brock Bowers</b> (Round 2, finished TE11) and <b>George Kittle</b> (Round 5, finished TE13) both underperformed their draft cost after missing time.</p>
+  </div>
+</section>
+
+<!-- SECTION 4 -->
+<section>
+  <div class="shead"><span class="num">04</span><h2>The market's calls, graded</h2><span class="tag">Preseason consensus &middot; ESPN / CBS</span></div>
+  <p class="lede">For contrast, here is the wider preseason consensus, the sleepers and busts the industry pushed as a group. These are not attributed to ETR or Ship Chasing, they are the market Kerrane and company were drafting against.</p>
+  <div class="tbl-wrap">
+    <table class="sc">
+      <thead><tr><th>Player</th><th>Preseason consensus call</th><th>Actual 2025 finish</th><th>Verdict</th></tr></thead>
+      <tbody>
+        <tr class="row-hit"><td class="pl">Rashee Rice<small>WR &middot; KC</small></td><td class="call">Bust: post-surgery, crowded target room</td><td class="fin">150.1 pts &middot; 8 g</td><td><span class="chip c-hit">Bust call right</span></td></tr>
+        <tr class="row-hit"><td class="pl">Joe Mixon<small>RB &middot; HOU</small></td><td class="call">Bust: foot/ankle, could miss the start</td><td class="fin">0 games all season</td><td><span class="chip c-hit">Bust call right</span></td></tr>
+        <tr class="row-miss"><td class="pl">Travis Etienne Jr.<small>RB &middot; JAX</small></td><td class="call">Bust: rookie Tuten plus Bigsby crowding the backfield</td><td class="fin">RB10 &middot; 253.9</td><td><span class="chip c-miss">Bust call wrong</span></td></tr>
+        <tr class="row-hit"><td class="pl">Ashton Jeanty<small>RB &middot; LV</small></td><td class="call">Sleeper: feature-back role from day one</td><td class="fin">RB11 &middot; 245.1</td><td><span class="chip c-hit">Sleeper hit</span></td></tr>
+        <tr class="row-under"><td class="pl">Zach Ertz<small>TE &middot; WAS</small></td><td class="call">Sleeper: quiet volume at tight end</td><td class="fin">TE19 &middot; 126.4</td><td><span class="chip c-under">Modest</span></td></tr>
+        <tr class="row-miss"><td class="pl">Dylan Sampson<small>RB &middot; CLE</small></td><td class="call">Sleeper: flex-worthy touches as a rookie</td><td class="fin">87.6 pts &middot; 15 g &middot; outside RB25</td><td><span class="chip c-miss">Sleeper miss</span></td></tr>
+      </tbody>
+    </table>
+  </div>
+  <div class="callout twist">
+    <h4>The consensus bust that wasn't</h4>
+    <p>The loudest whiff of the group was <b>Travis Etienne</b>. The market faded him on backfield competition and he answered with an <b>RB10</b> season. It is the cleanest reminder that a crowded-committee narrative and an actual box-score outcome are two different things.</p>
+  </div>
+</section>
+
+<!-- VERDICT -->
+<section>
+  <div class="verdict">
+    <div class="kick">The reading</div>
+    <h2>What reality actually says</h2>
+    <div class="vrow"><span class="badge b-etr">ETR</span><p><b>Backed by the referee.</b> On the one contest that measures them, in-season ranking accuracy, ETR finished second of more than 159 experts and has now placed top-4 four years running. Their reputation for projections survives contact with the box score.</p></div>
+    <div class="vrow"><span class="badge b-ship">Ship Chasing</span><p><b>Backed by the money.</b> A Ship Chasing affiliate won the $2M Best Ball Mania VI on the exact Hero-RB and receiver-wall shape the shows preach, and the roster's early core finished RB8, WR2, and WR3. The tournament result is real, the "33% of winners" line stays labeled as Mattek's own claim.</p></div>
+    <div class="vrow"><span class="badge b-call">The calls</span><p><b>The wins came from the tails.</b> Kerrane's differentiated 2025 bets ran even at 4-4, and that is the job in best ball. Pickens to WR5 and McBride to TE1 out of Round 5 are the kind of hits that win leagues, and most of the misses came from injuries. The market, drafting against him, proved no safer, missing the Etienne bust outright.</p></div>
+  </div>
+</section>
+
+<details class="notes">
+  <summary>Method, scoring, and honesty notes</summary>
+  <div class="nbody">
+    <p>Every finish on this page is a full-PPR 2025 regular-season total pulled from StatMuse and confirmed to be the 2025 season. Underdog best ball is half-PPR, so exact position ranks shift a little from the full-PPR ranks shown, the gaps here are wide enough that no verdict turns on the scoring format.</p>
+    <p>The Section 4 sleepers and busts are ESPN and CBS <b>preseason consensus</b>, presented as the market Ship Chasing drafted against. They are not attributed to ETR, Ship Chasing, or Davis Mattek.</p>
+    <p>What could not be verified is left out. A secondhand line that Pat Kerrane had also won a Best Ball Mania could not be confirmed, so it is not claimed. Mattek's "33%" is his own post, treated as a claim, not an audited figure.</p>
+    <h5>Sources</h5>
+    <ol>
+      <li>FantasyPros, 2025 Most Accurate Experts (in-season): <a href="https://www.fantasypros.com/2026/01/2025-fantasy-football-rankings-most-accurate-experts/">fantasypros.com</a></li>
+      <li>FantasyPros, 2025's Most Accurate Draft Rankings (preseason): <a href="https://www.fantasypros.com/2026/07/2025s-most-accurate-fantasy-football-draft-rankings/">fantasypros.com</a></li>
+      <li>Pat Kerrane, Early Summer Best Ball Draft Plan: <a href="https://www.legendaryupside.com/kerranes-early-summer-best-ball-draft-plan/">legendaryupside.com</a></li>
+      <li>Best Ball Mania VI $2M winner, Sam Sherman: <a href="https://props.com/underdog-fantasy-best-ball-mania-2-million-sweat-how-sam-sherman-won-january-2nd/">props.com</a> &middot; roster breakdown: <a href="https://www.bestballteambuilder.com/2025-best-ball-mania-vi-winning-team/">bestballteambuilder.com</a></li>
+      <li>Davis Mattek, "33% of Best Ball Mania winners" post: <a href="https://x.com/DavisMattek/status/2005856245085790540">x.com/DavisMattek</a></li>
+      <li>Joe Mixon missed all of 2025 (foot injury, released): <a href="https://www.espn.com/nfl/story/_/id/48125078/sources-texans-release-joe-mixon-lost-2025-season">ESPN</a> &middot; <a href="https://www.nfl.com/news/texans-release-rb-joe-mixon-after-foot-injury-wiped-out-entire-2025-season">NFL.com</a></li>
+      <li>2025 final PPR finishes (RB/WR/TE leaders and individual lines): <a href="https://www.statmuse.com/nfl">StatMuse</a></li>
+      <li>Preseason sleepers and busts consensus: <a href="https://www.espn.com/fantasy/football/story/_/page/FFSleepBustBreak25-45429092/fantasy-football-2025-rankings-nfl-sleepers-breakouts-busts">ESPN</a></li>
+    </ol>
+    <p style="margin-top:12px">House voice held: no em-dash, no ellipsis, no antithesis, no contrastive however or though or yet or while. Cream background, black font, Wes Anderson palette.</p>
+  </div>
+</details>
+
+<div class="foot">Ship-Chasers vs. the Box Score &middot; drwu-htmls.vercel.app/ship-chasing-etr-reality-2025</div>
+
+</div>
+</body>
+</html>

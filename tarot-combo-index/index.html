@@ -1,0 +1,633 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Tarot Combo-Meaning Index | 7 Readers</title>
+<style>
+/* Wes Anderson: Isle of Dogs palette */
+:root {
+  --iod-dust: #9986A5;
+  --iod-gold: #CCBA72;
+  --iod-ash: #D9D0D3;
+  --iod-stone: #8D8680;
+  --iod-rust: #79402E;
+  --iod-amber: #B6854D;
+  --iod-cream: #F5F0E8;
+  --iod-deep: #111111;
+  --iod-soft: #E8DDD0;
+  --iod-plum: #6B5070;
+  --green: #6B8F5E;
+  --yellow: #C4A940;
+  --red: #A84032;
+}
+
+* { margin: 0; padding: 0; box-sizing: border-box; }
+
+body {
+  font-family: 'Georgia', 'Times New Roman', serif;
+  background: var(--iod-cream);
+  color: var(--iod-deep);
+  min-height: 100vh;
+}
+
+.header {
+  background: linear-gradient(135deg, var(--iod-rust), var(--iod-plum));
+  color: var(--iod-cream);
+  padding: 2rem 1rem 1.5rem;
+  text-align: center;
+  border-bottom: 4px solid var(--iod-gold);
+}
+
+.header h1 {
+  font-size: 2rem;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  font-weight: 400;
+  margin-bottom: 0.3rem;
+}
+
+.header .subtitle {
+  font-style: italic;
+  color: var(--iod-gold);
+  font-size: 1rem;
+}
+
+.container {
+  max-width: 1100px;
+  margin: 0 auto;
+  padding: 1.5rem 1rem;
+}
+
+/* Stats Dashboard */
+.stats-section {
+  background: white;
+  border-radius: 10px;
+  padding: 1.5rem;
+  margin-bottom: 1.5rem;
+  box-shadow: 0 2px 8px rgba(0,0,0,0.08);
+  border: 1px solid var(--iod-ash);
+}
+
+.stats-section h2 {
+  font-size: 1.2rem;
+  color: var(--iod-rust);
+  margin-bottom: 1rem;
+  text-transform: uppercase;
+  letter-spacing: 0.08em;
+}
+
+.stats-table {
+  width: 100%;
+  border-collapse: collapse;
+  font-size: 0.95rem;
+}
+
+.stats-table th {
+  text-align: left;
+  padding: 0.5rem 0.8rem;
+  border-bottom: 2px solid var(--iod-gold);
+  color: var(--iod-plum);
+  font-size: 0.8rem;
+  text-transform: uppercase;
+  letter-spacing: 0.06em;
+}
+
+.stats-table td {
+  padding: 0.5rem 0.8rem;
+  border-bottom: 1px solid var(--iod-ash);
+}
+
+.stats-table tr:hover {
+  background: var(--iod-soft);
+}
+
+.stats-table tr.active-reader {
+  background: rgba(153,134,165,0.15);
+  font-weight: bold;
+}
+
+.bar-cell {
+  position: relative;
+  min-width: 200px;
+}
+
+.bar-bg {
+  position: absolute;
+  left: 0;
+  top: 4px;
+  bottom: 4px;
+  border-radius: 4px;
+  opacity: 0.7;
+  transition: width 0.5s ease;
+}
+
+.bar-label {
+  position: relative;
+  z-index: 1;
+  font-size: 0.85rem;
+  font-weight: 600;
+}
+
+.coverage-green { background: var(--green); }
+.coverage-yellow { background: var(--yellow); }
+.coverage-red { background: var(--red); }
+
+.badge {
+  display: inline-block;
+  padding: 0.15rem 0.5rem;
+  border-radius: 10px;
+  font-size: 0.75rem;
+  font-weight: 600;
+  color: white;
+}
+
+.badge-green { background: var(--green); }
+.badge-yellow { background: var(--yellow); }
+.badge-red { background: var(--red); }
+
+/* Controls */
+.controls {
+  background: white;
+  border-radius: 10px;
+  padding: 1.5rem;
+  margin-bottom: 1.5rem;
+  box-shadow: 0 2px 8px rgba(0,0,0,0.08);
+  border: 1px solid var(--iod-ash);
+}
+
+.controls h2 {
+  font-size: 1.2rem;
+  color: var(--iod-rust);
+  margin-bottom: 1rem;
+  text-transform: uppercase;
+  letter-spacing: 0.08em;
+}
+
+.control-row {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.8rem;
+  align-items: flex-end;
+}
+
+.control-group {
+  display: flex;
+  flex-direction: column;
+  gap: 0.3rem;
+}
+
+.control-group label {
+  font-size: 0.75rem;
+  text-transform: uppercase;
+  letter-spacing: 0.06em;
+  color: var(--iod-stone);
+  font-weight: 600;
+}
+
+select {
+  font-family: inherit;
+  font-size: 0.95rem;
+  padding: 0.5rem 0.7rem;
+  border: 2px solid var(--iod-ash);
+  border-radius: 6px;
+  background: var(--iod-cream);
+  color: var(--iod-deep);
+  cursor: pointer;
+  min-width: 180px;
+}
+
+select:focus {
+  outline: none;
+  border-color: var(--iod-dust);
+}
+
+.btn {
+  font-family: inherit;
+  font-size: 0.9rem;
+  padding: 0.5rem 1.2rem;
+  border: 2px solid var(--iod-rust);
+  border-radius: 6px;
+  background: var(--iod-rust);
+  color: var(--iod-cream);
+  cursor: pointer;
+  text-transform: uppercase;
+  letter-spacing: 0.06em;
+  font-weight: 600;
+  transition: all 0.2s;
+}
+
+.btn:hover {
+  background: var(--iod-plum);
+  border-color: var(--iod-plum);
+}
+
+.btn-secondary {
+  background: transparent;
+  color: var(--iod-rust);
+}
+
+.btn-secondary:hover {
+  background: var(--iod-rust);
+  color: var(--iod-cream);
+}
+
+/* Results */
+.results {
+  margin-bottom: 1.5rem;
+}
+
+.result-card {
+  background: white;
+  border-radius: 10px;
+  padding: 1.5rem;
+  margin-bottom: 1rem;
+  box-shadow: 0 2px 8px rgba(0,0,0,0.08);
+  border-left: 4px solid var(--iod-gold);
+}
+
+.result-card.primary {
+  border-left-color: var(--iod-rust);
+}
+
+.result-card h3 {
+  font-size: 1.1rem;
+  color: var(--iod-plum);
+  margin-bottom: 0.3rem;
+}
+
+.result-card .reader-label {
+  font-size: 0.8rem;
+  text-transform: uppercase;
+  letter-spacing: 0.06em;
+  color: var(--iod-stone);
+  margin-bottom: 0.8rem;
+}
+
+.passage-block {
+  background: var(--iod-soft);
+  border-radius: 6px;
+  padding: 1rem;
+  margin-bottom: 0.6rem;
+  font-size: 0.9rem;
+  line-height: 1.6;
+  white-space: pre-wrap;
+  word-break: break-word;
+}
+
+.passage-block .score-tag {
+  display: inline-block;
+  background: var(--iod-dust);
+  color: white;
+  font-size: 0.7rem;
+  padding: 0.1rem 0.4rem;
+  border-radius: 4px;
+  margin-bottom: 0.4rem;
+  font-weight: 600;
+}
+
+.no-data {
+  text-align: center;
+  color: var(--iod-stone);
+  font-style: italic;
+  padding: 2rem;
+}
+
+.pair-title {
+  text-align: center;
+  font-size: 1.4rem;
+  color: var(--iod-rust);
+  margin-bottom: 1.2rem;
+  padding-bottom: 0.5rem;
+  border-bottom: 2px solid var(--iod-gold);
+}
+
+.pair-title .card-name {
+  font-weight: 700;
+}
+
+.pair-title .ampersand {
+  color: var(--iod-dust);
+  font-style: italic;
+  padding: 0 0.3rem;
+}
+
+/* Cross-reader comparison */
+.comparison-header {
+  font-size: 1rem;
+  color: var(--iod-plum);
+  text-transform: uppercase;
+  letter-spacing: 0.06em;
+  margin: 1.5rem 0 0.8rem;
+  padding-bottom: 0.3rem;
+  border-bottom: 1px solid var(--iod-ash);
+}
+
+/* Footer */
+.footer {
+  text-align: center;
+  padding: 2rem 1rem;
+  color: var(--iod-stone);
+  font-size: 0.85rem;
+  border-top: 2px solid var(--iod-gold);
+  margin-top: 2rem;
+  font-style: italic;
+}
+
+/* Loading */
+.loading {
+  text-align: center;
+  padding: 3rem;
+  color: var(--iod-stone);
+}
+
+.loading .spinner {
+  display: inline-block;
+  width: 30px;
+  height: 30px;
+  border: 3px solid var(--iod-ash);
+  border-top: 3px solid var(--iod-rust);
+  border-radius: 50%;
+  animation: spin 0.8s linear infinite;
+  margin-bottom: 1rem;
+}
+
+@keyframes spin {
+  to { transform: rotate(360deg); }
+}
+
+/* Responsive */
+@media (max-width: 700px) {
+  .header h1 { font-size: 1.3rem; }
+  .control-row { flex-direction: column; }
+  select { min-width: 100%; }
+  .bar-cell { min-width: 120px; }
+  .stats-table { font-size: 0.8rem; }
+  .stats-table th, .stats-table td { padding: 0.3rem 0.4rem; }
+  .pair-title { font-size: 1.1rem; }
+}
+</style>
+</head>
+<body><div style="background:#FBF6EA;border:2px solid #D9A648;border-radius:10px;padding:10px 16px;margin:12px auto;max-width:900px;font-family:Georgia,serif"><b>Database map:</b> <a href="/kate-combo-db">The Kate Combo Database, Pinned</a> (which archive is the real one, live counts, hard rules)</div>
+<!-- KID-SIMPLE-OVERLAY (add_kid_explainer.py) -->
+<style>
+  #kid-simple{display:none;position:fixed;inset:0;z-index:99990;overflow:auto;
+    background:#f6eddb;color:#3a2e25;padding:64px 22px 40px;
+    font-family:"Fredoka","Comic Sans MS","Chalkboard SE",system-ui,sans-serif;}
+  body.kids #kid-simple,body.kid #kid-simple{display:block;}
+  #kid-simple .ks-card{max-width:680px;margin:0 auto;background:#fffaf0;
+    border:3px solid #2b2723;border-radius:22px;padding:26px 26px 30px;
+    box-shadow:6px 6px 0 rgba(43,39,35,.30);}
+  #kid-simple h2{font-size:27px;line-height:1.25;margin:.1em 0 .55em;}
+  #kid-simple .ks-tag{display:inline-block;background:#FDDDA0;border:2px solid #2b2723;
+    border-radius:999px;padding:4px 12px;font-size:13px;font-weight:700;margin-bottom:14px;}
+  #kid-simple .kid-simple-line{font-size:19px;line-height:1.6;margin:.55em 0;}
+  #kid-simple .ks-back{margin-top:22px;background:#74A089;color:#0f2018;border:2px solid #2b2723;
+    border-radius:999px;padding:11px 20px;font-weight:800;font-size:15px;cursor:pointer;
+    box-shadow:3px 3px 0 rgba(43,39,35,.30);}
+  #kid-simple .ks-back:hover{transform:translate(1px,1px);}
+  @media print{#kid-simple{display:none !important;}}
+</style>
+<div id="kid-simple" role="dialog" aria-label="Explain like I am 5">
+  <div class="ks-card">
+    <span class="ks-tag">🧒 Explain like I am 5</span>
+    <h2>What do two cards mean together?</h2>
+      <p class="kid-simple-line">This page is a big list about special picture cards.</p>
+      <p class="kid-simple-line">Sometimes two cards sit next to each other.</p>
+      <p class="kid-simple-line">Together those two cards tell a little story.</p>
+      <p class="kid-simple-line">This list says what each pair of cards means.</p>
+      <p class="kid-simple-line">It gathers what seven different card readers say.</p>
+    
+  </div>
+</div>
+<!-- END KID-SIMPLE-OVERLAY -->
+
+<div class="header">
+  <h1>Tarot Combo-Meaning Index</h1>
+  <div class="subtitle">7 Readers, 33,062 Passages, 2,992 Unique Card Pairs</div>
+</div>
+
+<div class="container">
+  <div id="loading" class="loading">
+    <div class="spinner"></div>
+    <div>Loading combo data (may take a moment)...</div>
+  </div>
+
+  <div id="app" style="display:none;">
+    <!-- Stats Dashboard -->
+    <div class="stats-section">
+      <h2>Reader Coverage Dashboard</h2>
+      <table class="stats-table">
+        <thead>
+          <tr>
+            <th>Reader</th>
+            <th>Transcripts</th>
+            <th>Passages</th>
+            <th>Unique Pairs</th>
+            <th>Coverage</th>
+            <th style="min-width:150px">Coverage Bar</th>
+          </tr>
+        </thead>
+        <tbody id="statsBody"></tbody>
+      </table>
+    </div>
+
+    <!-- Controls -->
+    <div class="controls">
+      <h2>Look Up a Combo</h2>
+      <div class="control-row">
+        <div class="control-group">
+          <label>Reader</label>
+          <select id="readerSelect"></select>
+        </div>
+        <div class="control-group">
+          <label>Card A</label>
+          <select id="cardA"></select>
+        </div>
+        <div class="control-group">
+          <label>Card B</label>
+          <select id="cardB"></select>
+        </div>
+        <button class="btn" onclick="lookupPair()">Search</button>
+        <button class="btn btn-secondary" onclick="randomCombo()">Random</button>
+      </div>
+    </div>
+
+    <!-- Results -->
+    <div id="results" class="results"></div>
+  </div>
+</div>
+
+<div class="footer" id="footer">
+  Combo-meaning index built 2026-06-10. 7 readers indexed. Total: 33,062 passages across 2,992 unique pairs. Palette: Isle of Dogs (Wes Anderson).
+</div>
+
+<script src="/tarot-combo-index/data.js"></script>
+<script>
+// --- Card definitions ---
+const MAJOR = [
+  'The Fool','The Magician','The High Priestess','The Empress','The Emperor',
+  'The Hierophant','The Lovers','The Chariot','Strength','The Hermit',
+  'Wheel of Fortune','Justice','The Hanged Man','Death','Temperance',
+  'The Devil','The Tower','The Star','The Moon','The Sun','Judgement','The World'
+];
+const SUITS = ['Wands','Cups','Swords','Pentacles'];
+const RANKS = ['Ace','Two','Three','Four','Five','Six','Seven','Eight','Nine','Ten','Page','Knight','Queen','King'];
+const ALL_CARDS = [...MAJOR];
+for (const s of SUITS) for (const r of RANKS) ALL_CARDS.push(`${r} of ${s}`);
+
+const READER_META = {
+  Kate:            { transcripts: 188, color: '#9986A5' },
+  Chiron:          { transcripts: 32,  color: '#CCBA72' },
+  m3ksmith:        { transcripts: 10,  color: '#B6854D' },
+  Eyephim:         { transcripts: 51,  color: '#79402E' },
+  quanyin:         { transcripts: 50,  color: '#8D8680' },
+  Light_Assefa:    { transcripts: 49,  color: '#6B5070' },
+  risingsoultarot: { transcripts: 100, color: '#D9D0D3' }
+};
+
+const READER_ORDER = ['Kate','Chiron','m3ksmith','Eyephim','quanyin','Light_Assefa','risingsoultarot'];
+const TOTAL_PAIRS = 3003;
+
+// --- Init ---
+let currentReader = 'Kate';
+
+function pairKey(a, b) {
+  return [a, b].sort().join('|');
+}
+
+function coverageClass(pct) {
+  if (pct >= 30) return 'green';
+  if (pct >= 10) return 'yellow';
+  return 'red';
+}
+
+function buildStats() {
+  const tbody = document.getElementById('statsBody');
+  let html = '';
+  for (const r of READER_ORDER) {
+    const d = COMBO_DATA[r];
+    const passages = d[0];
+    const uniquePairs = d[1];
+    const pct = (uniquePairs / TOTAL_PAIRS * 100).toFixed(1);
+    const cls = coverageClass(parseFloat(pct));
+    const isActive = r === currentReader;
+    html += `<tr class="${isActive ? 'active-reader' : ''}" style="cursor:pointer" onclick="selectReader('${r}')">
+      <td style="color:${READER_META[r].color};font-weight:700">${r.replace(/_/g,' ')}</td>
+      <td>${READER_META[r].transcripts.toLocaleString()}</td>
+      <td>${passages.toLocaleString()}</td>
+      <td>${uniquePairs.toLocaleString()} / ${TOTAL_PAIRS.toLocaleString()}</td>
+      <td><span class="badge badge-${cls}">${pct}%</span></td>
+      <td class="bar-cell">
+        <div class="bar-bg coverage-${cls}" style="width:${pct}%"></div>
+        <span class="bar-label">${pct}%</span>
+      </td>
+    </tr>`;
+  }
+  tbody.innerHTML = html;
+}
+
+function buildSelects() {
+  const readerSel = document.getElementById('readerSelect');
+  readerSel.innerHTML = READER_ORDER.map(r =>
+    `<option value="${r}" ${r===currentReader?'selected':''}>${r.replace(/_/g,' ')}</option>`
+  ).join('');
+  readerSel.onchange = () => { currentReader = readerSel.value; buildStats(); };
+
+  const opts = ALL_CARDS.map(c => `<option value="${c}">${c}</option>`).join('');
+  document.getElementById('cardA').innerHTML = opts;
+  document.getElementById('cardB').innerHTML = `<option value="${ALL_CARDS[1]}">${ALL_CARDS[1]}</option>` + opts;
+  document.getElementById('cardB').value = ALL_CARDS[1];
+}
+
+function lookupPair() {
+  const a = document.getElementById('cardA').value;
+  const b = document.getElementById('cardB').value;
+  if (a === b) {
+    document.getElementById('results').innerHTML = '<div class="no-data">Please select two different cards.</div>';
+    return;
+  }
+  const key = pairKey(a, b);
+  const container = document.getElementById('results');
+  let html = `<div class="pair-title"><span class="card-name">${a}</span><span class="ampersand">&amp;</span><span class="card-name">${b}</span></div>`;
+
+  // Primary reader
+  const primaryData = COMBO_DATA[currentReader][2][key];
+  html += `<div class="result-card primary">
+    <h3>${currentReader.replace(/_/g,' ')}</h3>
+    <div class="reader-label">Primary reader &mdash; ${COMBO_DATA[currentReader][1].toLocaleString()} pairs indexed</div>`;
+  if (primaryData && primaryData.length > 0) {
+    for (const entry of primaryData) {
+      html += `<div class="passage-block"><span class="score-tag">Teaching score: ${entry[0]}</span>\n${escHtml(entry[1])}</div>`;
+    }
+  } else {
+    html += `<div class="no-data">No passages found for this pair from ${currentReader.replace(/_/g,' ')}.</div>`;
+  }
+  html += '</div>';
+
+  // Cross-reader comparison
+  html += '<div class="comparison-header">Cross-Reader Comparison</div>';
+  let anyOther = false;
+  for (const r of READER_ORDER) {
+    if (r === currentReader) continue;
+    const rData = COMBO_DATA[r][2][key];
+    if (rData && rData.length > 0) {
+      anyOther = true;
+      html += `<div class="result-card">
+        <h3 style="color:${READER_META[r].color}">${r.replace(/_/g,' ')}</h3>
+        <div class="reader-label">${COMBO_DATA[r][1].toLocaleString()} pairs indexed</div>`;
+      for (const entry of rData) {
+        html += `<div class="passage-block"><span class="score-tag">Teaching score: ${entry[0]}</span>\n${escHtml(entry[1])}</div>`;
+      }
+      html += '</div>';
+    }
+  }
+  if (!anyOther) {
+    html += '<div class="no-data">No other readers have content for this pair.</div>';
+  }
+
+  container.innerHTML = html;
+  container.scrollIntoView({ behavior: 'smooth', block: 'start' });
+}
+
+function randomCombo() {
+  const readerData = COMBO_DATA[currentReader][2];
+  const keys = Object.keys(readerData);
+  if (keys.length === 0) {
+    document.getElementById('results').innerHTML = '<div class="no-data">This reader has no indexed pairs.</div>';
+    return;
+  }
+  const randomKey = keys[Math.floor(Math.random() * keys.length)];
+  const [a, b] = randomKey.split('|');
+  document.getElementById('cardA').value = a;
+  document.getElementById('cardB').value = b;
+  lookupPair();
+}
+
+function selectReader(r) {
+  currentReader = r;
+  document.getElementById('readerSelect').value = r;
+  buildStats();
+}
+
+function escHtml(s) {
+  const d = document.createElement('div');
+  d.textContent = s;
+  return d.innerHTML;
+}
+
+// Boot
+document.getElementById('loading').style.display = 'none';
+document.getElementById('app').style.display = 'block';
+buildSelects();
+buildStats();
+</script>
+
+<style id="kid-shop-style">
+.kid-shop{position:fixed;right:18px;bottom:62px;z-index:99999;font:700 13px/1 "Inter",system-ui,sans-serif;letter-spacing:.02em;padding:10px 15px;border-radius:999px;text-decoration:none;border:2px solid #2b2723;background:#F5CDB4;color:#2b2723;box-shadow:3px 3px 0 rgba(43,39,35,.35);transition:transform .08s ease, background .15s ease;}
+.kid-shop:hover{transform:translate(1px,1px);background:#FDDDA0;}
+@media print{.kid-shop{display:none !important;}}
+</style>
+
+</body>
+</html>

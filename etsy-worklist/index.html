@@ -1,0 +1,124 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>OnethingNeededShop fulfillment method</title>
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@500;600;700&family=Inter:wght@400;500;600;700&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
+<style>
+:root{--g:#74A089;--gold:#9A8822;--orange:#DC863B;--pink:#F8AFA8;--ink:#1a1814;--paper:#FBF7EF;--card:#fff;--slate:#899DA4;}
+*{box-sizing:border-box}
+body{margin:0 auto;background:var(--paper);color:var(--ink);font:15px/1.6 "Inter",-apple-system,BlinkMacSystemFont,"Segoe UI",sans-serif;padding:24px 18px 90px;max-width:1180px}
+header.top{border:3px solid var(--ink);border-radius:14px;background:#FDE9C8;padding:22px 24px;margin-bottom:18px}
+header.top h1{font-family:"Cormorant Garamond",Georgia,serif;font-weight:700;font-size:38px;margin:0 0 6px;line-height:1.05}
+header.top .sub{font-size:15px;max-width:80ch}
+.stamp{font-family:"JetBrains Mono",monospace;font-size:11.5px;color:#5a5347;margin-top:10px}
+h2.sec{font-family:"Cormorant Garamond",serif;font-size:27px;margin:30px 0 12px;border-bottom:2px solid var(--ink);padding-bottom:5px}
+h3.item{font-family:"Cormorant Garamond",serif;font-size:21px;margin:0 0 3px}
+.kpis{display:grid;grid-template-columns:repeat(auto-fit,minmax(150px,1fr));gap:12px;margin:8px 0}
+.kpi{background:var(--card);border:2px solid var(--ink);border-radius:12px;padding:13px 14px;box-shadow:3px 3px 0 rgba(43,39,35,.08)}
+.kpi__n{font-size:27px;font-weight:700;font-family:"Cormorant Garamond",serif;line-height:1}
+.kpi__l{font-size:12px;color:#5a5347;margin-top:4px}
+.panel{background:var(--card);border:2px solid var(--ink);border-radius:12px;padding:16px 18px;box-shadow:3px 3px 0 rgba(43,39,35,.08);margin:12px 0}
+.limit{background:#fff3d6;border:2px dashed var(--orange);border-radius:11px;padding:13px 16px;margin:12px 0;font-size:14px}
+.limit b{font-family:"Cormorant Garamond",serif;font-size:16px}
+table{width:100%;border-collapse:collapse;font-size:13px;margin-top:8px}
+th,td{text-align:left;padding:8px;border-bottom:1px solid #e7ddc9;vertical-align:top}
+th{font-size:11.5px;text-transform:uppercase;letter-spacing:.03em;color:#5a5347;border-bottom:2px solid var(--ink)}
+.wrap{overflow-x:auto}
+.src{display:inline-block;font-size:10.5px;font-weight:700;padding:2px 7px;border-radius:9px;white-space:nowrap;margin-right:5px}
+.src-live{background:var(--g);color:#0f2018}
+.src-inbox{background:#FDE9C8;color:#3a2c08}
+.src-mac2{background:#3a4448;color:#fff}
+.src-shop{background:var(--gold);color:#fff}
+.src-hypo{background:var(--pink);color:#5a1410}
+.was{display:inline-block;font-size:10px;font-weight:700;padding:2px 7px;border-radius:9px;background:#b3402f;color:#fff;margin-bottom:4px}
+.tier{display:inline-block;font-size:11px;font-weight:700;padding:2px 8px;border-radius:9px;background:#eceff0;color:#3a4448}
+.rank{font-family:"Cormorant Garamond",serif;font-size:30px;font-weight:700;color:var(--orange);line-height:1;min-width:34px}
+.head{display:flex;gap:14px;align-items:baseline}
+.q{border-left:3px solid #ddd3bf;padding:2px 0 2px 12px;margin:7px 0;font-size:13.5px}
+.q .who{font-family:"JetBrains Mono",monospace;font-size:11px;color:#5a5347}
+ul.plan{margin:6px 0 0;padding-left:20px} ul.plan li{margin:5px 0}
+.ev{margin:5px 0;font-size:13.5px}
+.foot{margin-top:34px;font-size:12px;color:#5a5347;border-top:1px solid #ddd3bf;padding-top:12px}
+code{font-family:"JetBrains Mono",monospace;font-size:12.5px;background:#f0ead9;padding:1px 5px;border-radius:4px}
+</style>
+</head>
+<body>
+<header class="top">
+  <h1>OnethingNeededShop fulfillment method</h1>
+  <div class="sub">How the fulfillment queue is built and graded: what is counted, how each fact is sourced, which claims were demoted to hypotheses, and what the audio analysis does and does not establish. Customer detail is deliberately absent.</div>
+  <div class="stamp">Shop OnethingNeededShop (50156638) &middot; re-verified live Jul 18, 2026 &middot; 63 orders / 71 units / 3 reviews / 23 listings, unchanged from the Jul 16 pull &middot; no customer identity, no narratives</div>
+</header>
+<div class="limit"><b>Update Jul 19, 2026.</b> The shop now has <b>5 reviews</b>, both new ones from buyers who had been on the owed list: Linda Holmes (Jul 18) and Karen mackie (Jul 19). The figures below are the Jul 18 snapshot, when the count stood at 3. Where this page says "3 reviews" it is describing that snapshot, not the current total.</div>
+<h2 class="sec">Re-verified Jul 18: the join key was the bug</h2>
+<div class="limit"><b>A second order from a repeat buyer had no row of its own.</b> A live re-pull on Jul 18 returned the same 63 receipts, 71 units, 3 reviews and 23 listings as Jul 16. Zero receipts were new and zero changed status, so the gap was never about elapsed time. It was about how the queue was keyed.</div>
+<div class="panel"><p><span class="src src-live">Live API verified</span> <b>The queue grouped work by buyer.</b> A buyer who has a message thread and received one delivery link reads as finished. A second receipt from that same buyer inherits the finished state and never surfaces. One buyer holding two orders was covered by a single card, and the safety-net table built to catch exactly this listed nine buyers without listing them.</p>
+<p><span class="src src-live">Live API verified</span> <b>The fix is to key on receipt id and join the Etsy username.</b> Each paid receipt becomes its own row, so a delivered first order cannot absorb an undelivered second one. The username comes from the <code>convo_history-url</code> attribute on the Orders page and survives display-name changes, which is what defeated name matching when five different buyers all appeared as "Sign in with Apple user".</p>
+<p><span class="src src-live">Live API verified</span> <b>Nine buyers hold more than one receipt.</b> Three of them had no row before this pass. Coverage stated plainly: the username map resolves 47 of 63 receipts because it was read from three pages of Shop Manager, and the remaining 16 are joined on receipt name, which is the weaker test.</p></div>
+<div class="panel"><p><span class="src src-shop">Shop Manager observation</span> <b>Buyer intake also arrives on the receipt, not only in messages.</b> Etsy exposes a buyer note field at checkout. A queue built from message threads cannot see it. Two buyers wrote their full intake there and were treated downstream as having supplied nothing, so one card sent the seller to ask a customer for something he had already provided 33 days earlier.</p>
+<p><span class="src src-shop">Shop Manager observation</span> <b>Two documents generated the same day disagreed on six rows.</b> The later one had settled those rows by opening each buyer's own thread through the order, a test that returns either the thread or the string "0 conversations between you and X" and cannot be fooled by a display name. Acting on the earlier document alone would have meant redoing six deliveries that had already gone out. When two builds disagree, the one carrying per-order thread evidence wins.</p></div>
+<h2 class="sec">Counted separately</h2>
+<div class="limit"><b>Four different units, never interchanged.</b> The earlier report moved between orders, purchased items, recordings, and customers, which is how "3 reviews from 71 orders" happened. 71 is the unit count. 63 is the order count. Each figure below is computed on its own from the same pull.</div>
+<div class="kpis">
+<div class="kpi"><div class="kpi__n">63</div><div class="kpi__l">receipts (orders)</div></div>
+<div class="kpi"><div class="kpi__n">71</div><div class="kpi__l">purchased units (line items)</div></div>
+<div class="kpi"><div class="kpi__n">10</div><div class="kpi__l">recordings measured (Mac2)</div></div>
+<div class="kpi"><div class="kpi__n">5</div><div class="kpi__l">reviews (Jul 19; 3 at the Jul 18 snapshot)</div></div>
+<div class="kpi"><div class="kpi__n">23</div><div class="kpi__l">active listings</div></div>
+</div>
+<div class="panel"><p><span class="src src-live">Live API verified</span> 69 of 71 units sold at $1. The other two were one $13 and one $10 purchase. Merchandise revenue across all units is $92.00. Verified Jul 16, 2026 at 7:48 PM ET.</p>
+<p><span class="src src-live">Live API verified</span> 3 reviews across 63 orders, which carried 71 units. Stating it as "3 reviews from 71 orders" conflates two units and overstates the denominator.</p>
+<p><span class="src src-live">Live API verified</span> 7 receipts carry <code>is_shipped=false</code>. The flag records whether a button was pressed. One order reads Completed with 2 of 3 readings undelivered, and another reads unshipped after delivery by message, so the flag is used here only to decide which orders are worth opening.</p></div>
+<h2 class="sec">Open work by category</h2>
+<div class="limit"><b>No customer detail appears on this page.</b> The private queue names customers, quotes them, and records intimate intake. None of that is publishable, and truncating an order number to its last four digits does not anonymise a story that is recognisable from its narrative. This page carries counts, method, and corrections only.</div>
+<div class="wrap"><table><tr><th>Category</th><th>Open items</th><th>Basis for its rank</th></tr>
+<tr><td><span class="tier">Live complaint, never delivered</span></td><td><b>1</b></td><td></td></tr>
+<tr><td><span class="tier">Never delivered</span></td><td><b>13</b></td><td></td></tr>
+<tr><td><span class="tier">Paid, undelivered</span></td><td><b>4</b></td><td>Money taken, work outstanding. Ordered oldest first.</td></tr>
+<tr><td><span class="tier">Contacted, delivery unproven</span></td><td><b>4</b></td><td></td></tr>
+<tr><td><span class="tier">Admin close</span></td><td><b>1</b></td><td>Delivered, one artifact outstanding.</td></tr>
+<tr><td><span class="tier">Courtesy, unpaid</span></td><td><b>1</b></td><td>Goodwill, not an obligation.</td></tr>
+<tr><td><span class="tier">Awaiting buyer</span></td><td><b>1</b></td><td>The next move belongs to the buyer.</td></tr>
+<tr><td><span class="tier">Uncertain paid fulfillment</span></td><td><b>1</b></td><td>Money taken, delivery unproven. Outranks a known complaint.</td></tr>
+<tr><td><span class="tier">Open complaint</span></td><td><b>2</b></td><td>The failure is stated and unresolved.</td></tr>
+<tr><td><span class="tier">Evidence retrieval</span></td><td><b>1</b></td><td>Blocks the recoveries beneath it.</td></tr>
+<tr><td><span class="tier">Account enforcement</span></td><td><b>1</b></td><td>Consequences reach past one conversation, so it leads.</td></tr>
+</table></div>
+<div class="panel"><p><b>Ranking basis.</b> Account enforcement outranks everything because its consequences reach past one conversation. Uncertain paid fulfillment outranks visible complaints, because a complaint is already known and a silent unresolved order is not. Evidence retrieval outranks the recoveries that depend on it. There is no score: the data carries no fulfillment minutes, labour cost, or per-order profit, and a number would imply precision that does not exist.</p></div>
+<h2 class="sec">Corrections carried into this build</h2>
+<div class="panel"><p>Each row is the live value or the report's own arithmetic, not a re-reading of the report. Two of these correct the previous version of this page, not the PDF.</p>
+<div class="wrap"><table><tr><th>Earlier report said</th><th>Verified value</th><th>Consequence</th></tr>
+<tr><td><span class="was">Earlier report said, incorrect</span><br>a customer is owed a paid reading</td><td>Her paid order was <b>delivered Jul 14</b>. The a third party reading is <b>unpaid courtesy</b>, offered in exchange for a review.</td><td>Recategorised from Paid-undelivered to Courtesy-unpaid, and dropped from rank 4 to 12. The review condition is removed: a customer prohibits review manipulation.</td></tr>
+<tr><td><span class="was">Earlier report said, incorrect</span><br>Are They Watching You now sells at $16</td><td><b>$13.00</b>, verified Jul 16, 2026 at 7:48 PM ET</td><td>Prices were inherited rather than re-pulled. Every price on this page now carries a verification time, and historical paid price is a separate field from current listing price.</td></tr>
+<tr><td><span class="was">Earlier report said, incorrect</span><br>a customer: two orders at $1 each</td><td><b>Three purchased units</b> across two orders. She bought the same listing twice.</td><td>Her open Help Request may be literally true. Reconciliation outranks interpretation, so she moves to rank 3.</td></tr>
+<tr><td><span class="was">Earlier report said, incorrect</span><br>a customer older order dated Jul 12</td><td><b>Jul 10, 11:10 PM ET</b></td><td>Does not change the recovery, and it weakens trust in every hand-copied date. All timestamps here come from the live receipt.</td></tr>
+<tr><td><span class="was">Earlier report said, incorrect</span><br>Old API-open orders, all resolved in Shop Manager</td><td><b>7 receipts</b> carry is_shipped=false. A $10 order sits unshipped at 14 days.</td><td>The heading and its own 'Verify in inbox' row contradict each other. The $10 order moves from a footnote to rank 2.</td></tr>
+<tr><td><span class="was">Earlier report said, incorrect</span><br>Every corrected file normalised to -16 LUFS</td><td>The corrected exports measure <b>-16.5 to -19.1 LUFS</b></td><td>The report's own table contradicts its claim. The measured range replaces the asserted target.</td></tr>
+<tr><td><span class="was">Earlier report said, incorrect</span><br>Recordings run 12 to 19 dB below target</td><td><b>14 to 19 dB</b> below, computed from the same table</td><td>Arithmetic check against the report's own numbers.</td></tr>
+<tr><td><span class="was">Earlier report said, incorrect</span><br>Sharing permissions are fine, no Drive problem exists</td><td>10 of 10 links <b>passed anonymous access testing at the recorded verification time</b></td><td>The test proves present accessibility of those links. It cannot prove what a buyer met at delivery.</td></tr>
+</table></div></div>
+<h2 class="sec">Audio analysis produced on Mac2</h2>
+<div class="limit"><b>Attributed, not reproduced.</b> ffmpeg EBU R128 measurements of 10 delivered recordings, performed in another chat. The source directory ~/Desktop/etsy-truth-dashboard/leveled/ does NOT exist on this Mac (checked 2026-07-16; Desktop itself reads fine). Every loudness number below is Mac2 evidence, restated, not verified here. Every row below is an attributed finding from that analysis. Nothing on this machine has heard or measured these files. Retrieving them is its own task, and the two audio recoveries depend on it.</div>
+<div class="wrap"><table><tr><th>Recording</th><th>Length</th><th>Measured</th><th>Below the -16 LUFS spoken-word target</th><th>Corrected export</th><th>Buyer response on record</th></tr>
+<tr><td>a customer - a third party reading</td><td>7:23</td><td><code>-34.9 LUFS</code></td><td>18.9 dB</td><td><code>-17.9 LUFS</code></td><td>Quietest of the ten. She complained.</td></tr>
+<tr><td>a third party</td><td>5:39</td><td><code>-33.7 LUFS</code></td><td>17.7 dB</td><td><code>-16.5 LUFS</code></td><td>No complaint on record</td></tr>
+<tr><td>a customer - a third party</td><td>5:13</td><td><code>-33.1 LUFS</code></td><td>17.1 dB</td><td><code>-17.7 LUFS</code></td><td>No complaint on record</td></tr>
+<tr><td>a customer - original</td><td>2:34</td><td><code>-32.5 LUFS</code></td><td>16.5 dB</td><td><code>-19.1 LUFS</code></td><td>She complained.</td></tr>
+<tr><td>a customer - reading 1 of 3</td><td>12:25</td><td><code>-32.0 LUFS</code></td><td>16.0 dB</td><td><code>-18.2 LUFS</code></td><td>No complaint on record</td></tr>
+<tr><td>a third party</td><td>2:08</td><td><code>-31.8 LUFS</code></td><td>15.8 dB</td><td><code>-16.6 LUFS</code></td><td>No complaint on record</td></tr>
+<tr><td>a customer - REDO</td><td>11:11</td><td><code>-31.0 LUFS</code></td><td>15.0 dB</td><td><code>-16.8 LUFS</code></td><td>1.5 dB above the file she could not hear</td></tr>
+<tr><td>a customer - prior</td><td>9:47</td><td><code>-30.9 LUFS</code></td><td>14.9 dB</td><td><code>-17.0 LUFS</code></td><td>No complaint on record</td></tr>
+<tr><td>a customer</td><td>4:52</td><td><code>-30.0 LUFS</code></td><td>14.0 dB</td><td><code>-16.9 LUFS</code></td><td>No complaint on record</td></tr>
+<tr><td>a third party</td><td>5:04</td><td><code>-30.0 LUFS</code></td><td>14.0 dB</td><td><code>-16.7 LUFS</code></td><td>No complaint on record</td></tr>
+</table></div>
+<div class="panel">
+<p><span class="src src-mac2">Mac2 audio evidence</span> All 10 recordings measured between -34.9 and -30.0 LUFS, which is 14 to 19 dB below the -16 LUFS spoken-word delivery target. 2 of 10 buyers independently reported they could not hear the recording.</p>
+<p><span class="src src-mac2">Mac2 audio evidence</span> The corrected exports measure -16.5 to -19.1 LUFS. The earlier report describes them as normalised to -16 LUFS. Its own table does not support a single target, so the measured range is what this page reports. Every corrected file is substantially louder and more usable than its original, and none of them sits exactly at -16.</p>
+<p><span class="src src-hypo">Unverified hypothesis</span> That low volume explains the review rate. 3 reviews across 63 orders does not establish why other buyers declined to review. <b>To settle it:</b> repeat-purchase behaviour, buyer replies, how many buyers request their money back, and audio complaints, compared before and after corrected files reach buyers. With 3 reviews, this will likely stay unsettled.</p>
+<p><span class="src src-hypo">Unverified hypothesis</span> That silent buyers strained through it or quietly stopped returning. 8 of 10 said nothing about audio. Silence evidences neither strain nor satisfaction. <b>To settle it:</b> the corrected re-send is a natural test. A response from a previously silent buyer is signal. Nothing before that is.</p>
+<p><span class="src src-inbox">Inbox verified</span> All 10 Drive links passed anonymous access testing at the recorded verification time. That establishes present anonymous accessibility for those specific links. It does not establish what any buyer encountered at the moment of delivery.</p>
+<p><span class="src src-mac2">Mac2 audio evidence</span> A -31 LUFS export means recording at roughly a sixth of the intended level, so the gain staging is the defect and normalisation is the patch. Fix the source, then apply on every export:</p>
+<p><code>ffmpeg -i input.m4a -af loudnorm=I=-16:TP=-1.5:LRA=11 -c:a aac -b:a 160k output.m4a</code></p></div>
+<div class="foot">Public build. Customer names, order numbers, dates of birth, emails, verbatim questions, and relationship narratives are removed by a whole-page filter verified by a privacy scan. Generated by <code>build_v2.py</code>. Companion page: <a href="https://drwu-htmls.vercel.app/etsy-truth">drwu-htmls.vercel.app/etsy-truth</a>.</div>
+</body></html>

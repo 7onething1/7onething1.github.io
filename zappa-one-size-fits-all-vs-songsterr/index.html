@@ -1,0 +1,194 @@
+<!doctype html>
+<html lang="en"><head><meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>One Size Fits All vs the Songsterr GPs</title>
+<style>
+:root{--cream:#f4ead8;--paper:#fbf5e9;--ink:#1c1a17;--rust:#b5462f;--mustard:#d9a441;
+--teal:#3f6b6b;--dusty:#8f6f5a;--line:#ddcdb2;--shade:#efe2cb;--green:#4a7c59;}
+*{box-sizing:border-box}
+body{margin:0;background:var(--cream);color:var(--ink);
+font:16px/1.6 "Futura","Avenir Next","Helvetica Neue",Helvetica,Arial,sans-serif}
+.wrap{max-width:1100px;margin:0 auto;padding:34px 22px 80px}
+header{border:3px solid var(--ink);background:var(--paper);padding:26px 28px;margin-bottom:24px}
+h1{margin:0;font-size:30px;letter-spacing:.05em;text-transform:uppercase}
+.sub{margin-top:8px;color:var(--dusty);font-size:14px;letter-spacing:.12em;text-transform:uppercase}
+.stats{display:flex;flex-wrap:wrap;gap:10px;margin-top:20px}
+.stat{border:2px solid var(--ink);background:var(--cream);padding:9px 15px;font-size:13px}
+.stat b{display:block;font-size:21px;color:var(--rust)}
+h2{margin:40px 0 6px;font-size:19px;letter-spacing:.05em;text-transform:uppercase;
+border-bottom:3px solid var(--ink);padding-bottom:7px}
+h3{margin:24px 0 8px;font-size:14px;letter-spacing:.08em;text-transform:uppercase;color:var(--teal)}
+nav{background:var(--paper);border:2px solid var(--line);padding:15px 19px;margin-bottom:10px}
+nav a{display:inline-block;margin:4px 16px 4px 0;color:var(--teal);font-size:14px}
+a{color:var(--rust);text-decoration:none;border-bottom:1px solid rgba(181,70,47,.35)}
+a:hover{border-bottom-color:var(--rust)}
+table{width:100%;border-collapse:collapse;margin:14px 0;background:var(--paper);font-size:14px}
+th{background:var(--shade);text-align:left;padding:9px 11px;border:1px solid var(--line);
+font-size:11px;letter-spacing:.1em;text-transform:uppercase}
+td{padding:8px 11px;border:1px solid var(--line);vertical-align:top}
+tr:nth-child(even) td{background:rgba(239,226,203,.42)}
+.num{text-align:right;white-space:nowrap;font-variant-numeric:tabular-nums}
+.mono{font-family:"SF Mono",Menlo,monospace;font-size:12px}
+.path{font-family:"SF Mono",Menlo,monospace;font-size:11px;color:var(--dusty)}
+.ok{color:var(--green);font-weight:700} .bad{color:var(--rust);font-weight:700}
+.mid{color:#a9761f;font-weight:700}
+.note{border-left:5px solid var(--mustard);background:var(--paper);padding:13px 17px;margin:16px 0;font-size:14px}
+.win{border-left-color:var(--green)} .warn{border-left-color:var(--rust)}
+.keep{background:rgba(74,124,89,.13)!important}
+.scroll{overflow-x:auto}
+.tag{display:inline-block;border:1px solid var(--line);background:var(--cream);padding:1px 7px;
+font-size:10px;letter-spacing:.08em;text-transform:uppercase;color:var(--dusty);margin-left:5px}
+footer{margin-top:50px;padding-top:18px;border-top:2px solid var(--line);font-size:12px;color:var(--dusty)}
+</style></head><body><div class="wrap">
+
+<header>
+<h1>One Size Fits All vs the Songsterr GPs</h1>
+<div class="sub">Album take &middot; full-song &middot; AI transcription &middot; drums present &middot; measured 2026-09-05</div>
+<div class="stats">
+<div class="stat"><b>13</b>tabs measured</div>
+<div class="stat"><b>6</b>AI transcriptions</div>
+<div class="stat"><b>3</b>pass all four filters</div>
+<div class="stat"><b>3</b>songs covered</div>
+<div class="stat"><b>5,755</b>drum notes in the keepers</div>
+</div>
+</header>
+
+<nav><a href="#q">The question</a><a href="#filter">The four filters</a><a href="#keep">What passed</a>
+<a href="#song">Song by song</a><a href="#all">Every tab measured</a><a href="#method">Method</a>
+<a href="#limits">Honest limits</a></nav>
+
+<h2 id="q">The question</h2>
+<p>Nine tracks, the last studio record billed to the Mothers Of Invention. This page asks one narrow question of Songsterr's One Size Fits All tabs: which of them
+is a <b>full-song AI transcription that carries a drum part</b>. Those three conditions are the
+filter, and every tab on the record is measured against them from Songsterr's own notation JSON.</p>
+<p>This is the same measurement pipeline as the
+<a href="https://7onething1.github.io/zappa-onsroxy-vs-songsterr/">Over-Nite Sensation and Roxy
+&amp; Elsewhere page</a>, pointed at a different record. The duration arithmetic there was checked
+against two published tabs and reproduced both to the hundredth of a second, so the numbers below
+rest on a validated method.</p>
+
+<h2 id="filter">The four filters, stated before the results</h2>
+<div class="scroll"><table>
+<tr><th>Filter</th><th>How it is measured</th><th>Why it can fail</th></tr>
+<tr><td><b>Full song</b></td>
+<td>The tab's own duration, computed from its signatures and tempo automation, against the album
+track length from MusicBrainz. Inside &plusmn;20 percent counts as full-song coverage.</td>
+<td>A tab can be an excerpt, a bass intro, a solo lift, or a single verse looped.</td></tr>
+<tr><td><b>AI transcription</b></td>
+<td>Songsterr's own <span class="mono">aiGenerated</span> flag on the meta API, plus its
+<span class="mono">createdVia</span> field reading <span class="mono">AI</span>.</td>
+<td>The two fields disagree on some tabs. Both are reported below rather than merged silently.</td></tr>
+<tr><td><b>The album take</b></td>
+<td>The tab must transcribe the studio performance. A tab that titles itself a live take is excluded
+whatever its duration, and a studio-titled tab whose length falls outside the band is recorded as
+unmatched.</td>
+<td>A live tab can sit close to the album length and still be a different performance, with its own
+meters, tempos and arrangement.</td></tr>
+<tr><td><b>Has drums</b></td>
+<td>A drum staff carrying real notes. Counts are rest-excluded, since Songsterr emits a
+<span class="mono">{"rest": true}</span> object inside each beat's note list.</td>
+<td>A staff can exist and hold nothing but rests, which reads as a drum part and plays as silence.</td></tr>
+</table></div>
+<p class="path">Album reference release: One Size Fits All / 1975 / 0836aef5-1e2c-4d75-8440-675053311e99</p>
+
+<h2 id="keep">The tabs that pass all four</h2>
+<div class="scroll"><table>
+<tr><th>Song</th><th>Tab</th><th>Bars</th><th>Tab length</th><th>Album</th><th>Delta</th><th>Drum notes</th><th>All staves</th><th>Meters written</th></tr>
+<tr class="keep"><td><b>Po-Jama People</b></td><td><a href="https://www.songsterr.com/a/wsa/frank-zappa-tab-s5469788">s5469788</a><div class="path">AI &middot; gentle sadist</div></td><td class="num">197</td><td class="num">7:51</td><td class="num">7:38</td><td class="num"><span class="ok">+2.9%</span></td><td class="num">3,082</td><td class="num">7,663</td><td class="mono">4/4&times;185, 5/4&times;10, 7/8, 3/4</td></tr>
+<tr class="keep"><td><b>Florentine Pogen</b></td><td><a href="https://www.songsterr.com/a/wsa/frank-zappa-tab-s2891451">s2891451</a><div class="path">AI &middot; Frank</div></td><td class="num">131</td><td class="num">5:38</td><td class="num">5:23</td><td class="num"><span class="ok">+4.9%</span></td><td class="num">1,628</td><td class="num">3,866</td><td class="mono">4/4&times;126, 2/4&times;5</td></tr>
+<tr class="keep"><td><b>Can&#x27;t Afford No Shoes</b></td><td><a href="https://www.songsterr.com/a/wsa/frank-zappa-tab-s2857465">s2857465</a><div class="path">AI &middot; Aaron Albrecht</div></td><td class="num">89</td><td class="num">2:38</td><td class="num">2:37</td><td class="num"><span class="ok">+0.8%</span></td><td class="num">1,045</td><td class="num">3,927</td><td class="mono">4/4&times;89</td></tr>
+</table></div>
+<div class="note warn"><b>AI drum tabs excluded as live takes.</b> These carry drums and would pass on duration alone, and they transcribe a different performance, so they are not counted as coverage of the album take:</div>
+<div class="scroll"><table>
+<tr><th>Song</th><th>Tab</th><th>Bars</th><th>Length</th><th>vs album</th><th>Drum notes</th></tr>
+<tr><td><b>Inca Roads</b><div class="path">Inca Roads (Helsinki)</div></td><td><a href="https://www.songsterr.com/a/wsa/frank-zappa-tab-s2824983">s2824983</a></td><td class="num">322</td><td class="num">9:48</td><td class="num"><span class="mid">+12.2%</span></td><td class="num">5,016</td></tr>
+<tr><td><b>Inca Roads</b><div class="path">Inca Roads (Helsinki really)</div></td><td><a href="https://www.songsterr.com/a/wsa/frank-zappa-tab-s2824994">s2824994</a></td><td class="num">331</td><td class="num">11:01</td><td class="num"><span class="bad">+26.0%</span></td><td class="num">4,599</td></tr>
+</table></div>
+<h2 id="song">Song by song, where more than one tab exists</h2>
+<h3>Florentine Pogen</h3>
+<div class="scroll"><table>
+<tr><th>Tab</th><th>Provenance</th><th>Bars</th><th>Length</th><th>Delta</th><th>Drum notes</th><th>Empty staves</th><th>Verdict</th></tr>
+<tr class=keep><td><a href="https://www.songsterr.com/a/wsa/frank-zappa-tab-s2891451">s2891451</a><div class="path">Florentine Pogen (full)</div></td><td class="mono">ai=True<br>via=AI</td><td class="num">131</td><td class="num">5:38</td><td class="num"><span class="ok">+4.9%</span></td><td class="num">1,628</td><td class="ok">none</td><td><span class="ok">passes all three</span></td></tr>
+<tr><td><a href="https://www.songsterr.com/a/wsa/frank-zappa-tab-s2024455">s2024455</a><div class="path">Florentine Pogen</div></td><td class="mono">ai=False<br>via=Editor</td><td class="num">132</td><td class="num">5:31</td><td class="num"><span class="ok">+2.6%</span></td><td class="num">112</td><td class="ok">none</td><td><span class="bad">not AI</span></td></tr>
+</table></div>
+<h3>Inca Roads</h3>
+<div class="scroll"><table>
+<tr><th>Tab</th><th>Provenance</th><th>Bars</th><th>Length</th><th>Delta</th><th>Drum notes</th><th>Empty staves</th><th>Verdict</th></tr>
+<tr><td><a href="https://www.songsterr.com/a/wsa/frank-zappa-tab-s2824983">s2824983</a><div class="path">Inca Roads (Helsinki)</div></td><td class="mono">ai=True<br>via=AI</td><td class="num">322</td><td class="num">9:48</td><td class="num"><span class="mid">+12.2%</span></td><td class="num">5,016</td><td class="ok">none</td><td><span class="bad">not full length</span></td></tr>
+<tr><td><a href="https://www.songsterr.com/a/wsa/frank-zappa-tab-s2824994">s2824994</a><div class="path">Inca Roads (Helsinki really)</div></td><td class="mono">ai=True<br>via=AI</td><td class="num">331</td><td class="num">11:01</td><td class="num"><span class="bad">+26.0%</span></td><td class="num">4,599</td><td class="ok">none</td><td><span class="bad">not full length</span></td></tr>
+<tr><td><a href="https://www.songsterr.com/a/wsa/frank-zappa-tab-s412178">s412178</a><div class="path">Inca Roads</div></td><td class="mono">ai=False<br>via=GP</td><td class="num">322</td><td class="num">8:53</td><td class="num"><span class="ok">+1.7%</span></td><td class="num">3,373</td><td class="ok">none</td><td><span class="bad">not AI</span></td></tr>
+<tr><td><a href="https://www.songsterr.com/a/wsa/frank-zappa-tab-s2440098">s2440098</a><div class="path">Inca Roads HL</div></td><td class="mono">ai=False<br>via=Editor</td><td class="num">32</td><td class="num">1:06</td><td class="num"><span class="bad">-87.4%</span></td><td class="num">0</td><td class="ok">none</td><td><span class="bad">not AI</span></td></tr>
+</table></div>
+<h3>Sofa No. 2</h3>
+<div class="scroll"><table>
+<tr><th>Tab</th><th>Provenance</th><th>Bars</th><th>Length</th><th>Delta</th><th>Drum notes</th><th>Empty staves</th><th>Verdict</th></tr>
+<tr><td><a href="https://www.songsterr.com/a/wsa/frank-zappa-tab-s412180">s412180</a><div class="path">Sofa No 2</div></td><td class="mono">ai=False<br>via=None</td><td class="num">93</td><td class="num">2:54</td><td class="num"><span class="mid">+10.4%</span></td><td class="num">0</td><td class="ok">none</td><td><span class="bad">not AI</span></td></tr>
+<tr><td><a href="https://www.songsterr.com/a/wsa/frank-zappa-tab-s187106">s187106</a><div class="path">Sofa No 2</div></td><td class="mono">ai=None<br>via=None</td><td class="num">0</td><td class="num">n/a</td><td class="num"><span class="path">n/a</span></td><td class="num">0</td><td class="ok">none</td><td><span class="bad">not AI</span></td></tr>
+</table></div>
+<h2 id="all">Every tab measured on this record</h2>
+<div class="scroll"><table>
+<tr><th>Song</th><th>Tab</th><th>AI</th><th>Bars</th><th>Length</th><th>Album</th><th>Delta</th><th>Drums</th><th>Total notes</th><th>Empty staves</th></tr>
+<tr><td>Andy</td><td><a href="https://www.songsterr.com/a/wsa/frank-zappa-tab-s21495">s21495</a></td><td class="path">no</td><td class="num">176</td><td class="num">5:29</td><td class="num">6:03</td><td class="num"><span class="ok">-9.3%</span></td><td class="num">2,461</td><td class="num">6,812</td><td class="path">&mdash;</td></tr>
+<tr class=keep><td>Can&#x27;t Afford No Shoes</td><td><a href="https://www.songsterr.com/a/wsa/frank-zappa-tab-s2857465">s2857465</a></td><td class="ok">AI</td><td class="num">89</td><td class="num">2:38</td><td class="num">2:37</td><td class="num"><span class="ok">+0.8%</span></td><td class="num">1,045</td><td class="num">3,927</td><td class="path">&mdash;</td></tr>
+<tr><td>Evelyn, A Modified Dog</td><td><a href="https://www.songsterr.com/a/wsa/frank-zappa-tab-s4430002">s4430002</a></td><td class="ok">AI</td><td class="num">33</td><td class="num">1:06</td><td class="num">1:05</td><td class="num"><span class="ok">+1.5%</span></td><td class="num">0</td><td class="num">145</td><td class="path">&mdash;</td></tr>
+<tr class=keep><td>Florentine Pogen</td><td><a href="https://www.songsterr.com/a/wsa/frank-zappa-tab-s2891451">s2891451</a></td><td class="ok">AI</td><td class="num">131</td><td class="num">5:38</td><td class="num">5:23</td><td class="num"><span class="ok">+4.9%</span></td><td class="num">1,628</td><td class="num">3,866</td><td class="path">&mdash;</td></tr>
+<tr><td>Florentine Pogen</td><td><a href="https://www.songsterr.com/a/wsa/frank-zappa-tab-s2024455">s2024455</a></td><td class="path">no</td><td class="num">132</td><td class="num">5:31</td><td class="num">5:23</td><td class="num"><span class="ok">+2.6%</span></td><td class="num">112</td><td class="num">278</td><td class="path">&mdash;</td></tr>
+<tr><td>Inca Roads</td><td><a href="https://www.songsterr.com/a/wsa/frank-zappa-tab-s2824983">s2824983</a></td><td class="ok">AI</td><td class="num">322</td><td class="num">9:48</td><td class="num">8:45</td><td class="num"><span class="mid">+12.2%</span></td><td class="num">5,016</td><td class="num">9,730</td><td class="path">&mdash;</td></tr>
+<tr><td>Inca Roads</td><td><a href="https://www.songsterr.com/a/wsa/frank-zappa-tab-s2824994">s2824994</a></td><td class="ok">AI</td><td class="num">331</td><td class="num">11:01</td><td class="num">8:45</td><td class="num"><span class="bad">+26.0%</span></td><td class="num">4,599</td><td class="num">9,024</td><td class="path">&mdash;</td></tr>
+<tr><td>Inca Roads</td><td><a href="https://www.songsterr.com/a/wsa/frank-zappa-tab-s412178">s412178</a></td><td class="path">no</td><td class="num">322</td><td class="num">8:53</td><td class="num">8:45</td><td class="num"><span class="ok">+1.7%</span></td><td class="num">3,373</td><td class="num">7,636</td><td class="path">&mdash;</td></tr>
+<tr><td>Inca Roads</td><td><a href="https://www.songsterr.com/a/wsa/frank-zappa-tab-s2440098">s2440098</a></td><td class="path">no</td><td class="num">32</td><td class="num">1:06</td><td class="num">8:45</td><td class="num"><span class="bad">-87.4%</span></td><td class="num">0</td><td class="num">209</td><td class="path">&mdash;</td></tr>
+<tr class=keep><td>Po-Jama People</td><td><a href="https://www.songsterr.com/a/wsa/frank-zappa-tab-s5469788">s5469788</a></td><td class="ok">AI</td><td class="num">197</td><td class="num">7:51</td><td class="num">7:38</td><td class="num"><span class="ok">+2.9%</span></td><td class="num">3,082</td><td class="num">7,663</td><td class="path">&mdash;</td></tr>
+<tr><td>San Ber&#x27;dino</td><td><a href="https://www.songsterr.com/a/wsa/frank-zappa-tab-s412171">s412171</a></td><td class="path">no</td><td class="num">85</td><td class="num">3:04</td><td class="num">5:51</td><td class="num"><span class="bad">-47.5%</span></td><td class="num">0</td><td class="num">2,777</td><td class="path">&mdash;</td></tr>
+<tr><td>Sofa No. 2</td><td><a href="https://www.songsterr.com/a/wsa/frank-zappa-tab-s412180">s412180</a></td><td class="path">no</td><td class="num">93</td><td class="num">2:54</td><td class="num">2:38</td><td class="num"><span class="mid">+10.4%</span></td><td class="num">0</td><td class="num">1,777</td><td class="path">&mdash;</td></tr>
+<tr><td>Sofa No. 2</td><td><a href="https://www.songsterr.com/a/wsa/frank-zappa-tab-s187106">s187106</a></td><td class="path">no</td><td class="num">0</td><td class="num">n/a</td><td class="num">2:38</td><td class="num"><span class="path">n/a</span></td><td class="num">0</td><td class="num">0</td><td class="path">&mdash;</td></tr>
+</table></div>
+
+<h2 id="method">Method</h2>
+<p>Every number here is read from Songsterr's own JSON, with no browser and no login, on the route
+recorded in the songsterr-tab-guide skill:</p>
+<p class="mono">https://www.songsterr.com/api/meta/{songId} &rarr; revisionId, image, tracks[]<br>
+https://dqsljvtekg760.cloudfront.net/{songId}/{revisionId}/{image}/{partId}.json</p>
+<p>Bars, meters, tempo automation and note counts come from that notation JSON directly. Nothing is
+read off a rendered screenshot. Note counts exclude rests. Tab duration is computed by walking each
+measure at its own signature and the tempo in force, including tempo marks that land mid-bar.</p>
+<div class="note win"><span class="ok">The duration arithmetic was validated before it was used
+here.</span> Run against the two public Zomby Woof tabs from the earlier page, it returned 114 bars
+at 88 bpm and 5:03.86, and 123 bars at 89 bpm and 5:30.84. Both match the published figures to the
+hundredth of a second, and the bar and tempo readings match exactly.</div>
+<p>Album track lengths come from MusicBrainz, from the release named at the top of this page, rather
+than from recall. That mattered: an earlier pass of this work carried remembered track times that
+were wrong by minutes on several Joe's Garage tracks, which flipped the full-song verdict on two
+tabs.</p>
+
+<h2 id="limits">Honest limits</h2>
+<div class="note warn"><b>A label match is not a verified transcription.</b> Every measurement here
+is structural: length, bar count, meter labels, note density, which staves carry notes. None of it
+establishes that the drums are accurate, that the cymbals are right, that the orchestration is
+playable, or that the attacks land where the recording puts them. Settling any of that needs the
+album master alongside the tab.</div>
+<div class="note warn"><b>The parenthesised-note count from the earlier page is not reproduced
+here.</b> On that page the figure came from a field this pass cannot confirm. Checked against the
+current revisions, one of the two source tabs carries the count in its
+<span class="mono">staccato</span> field and the other carries no note-level flags whatsoever, so the
+two cannot come from one field. Rather than publish a number whose source is uncertain, this page
+omits the column and says why.</div>
+<div class="note warn"><b>Correction, 5 September. The AI flag is two fields answering two
+questions.</b> Songsterr exposes <span class="mono">aiGenerated</span> and
+<span class="mono">createdVia</span>. A first version of this page counted a tab as AI when either one
+said so. Across 49 tabs that union changed exactly one row, and it changed it on the weaker signal:
+<span class="mono">s412177</span> Cosmik Debris reads <span class="mono">aiGenerated=false</span> with
+<span class="mono">createdVia=AI</span>, and carries <span class="mono">prevRevisionId 2010328</span>
+and 9,376 views. It is a long-standing tab whose latest revision was submitted through the AI route.
+<span class="mono">aiGenerated</span> records whether the tab originated as AI;
+<span class="mono">createdVia</span> records how the current revision was produced.
+<span class="mono">aiGenerated</span> is now the authority, and the revision route is reported beside
+it rather than merged into it. Both are printed per tab so the call stays checkable.</div>
+<div class="note"><b>The &plusmn;20 percent band is a choice.</b> It is wide enough to admit a tab that
+notates a fade or a count-in differently from the master, and narrow enough to exclude an excerpt. A
+tab sitting near the edge of the band is a coverage question rather than a settled verdict.</div>
+
+<footer>Built 2026-09-05 from Songsterr's meta API and CloudFront notation JSON, and MusicBrainz for
+album track lengths. Sibling notes: <span class="path">zappa-one-size-fits-all-vs-songsterr.md</span>. Companion page:
+<a href="https://7onething1.github.io/zappa-onsroxy-vs-songsterr/">Over-Nite Sensation and Roxy
+&amp; Elsewhere</a>.</footer>
+</div></body></html>

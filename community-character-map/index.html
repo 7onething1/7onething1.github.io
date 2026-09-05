@@ -1,0 +1,516 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Community — Character Mapping Verification</title>
+<style>
+  :root {
+    --fox-orange: #DD8D29;
+    --fox-yellow: #E2D200;
+    --fox-blue: #46ACC8;
+    --fox-rust: #E58601;
+    --fox-red: #B40F20;
+    --bg: #FEFCF0;
+    --card-bg: #fff;
+    --text: #1a1a1a;
+    --muted: #6b6b6b;
+    --border: #e0d8c0;
+  }
+  * { box-sizing: border-box; margin: 0; padding: 0; }
+  body {
+    font-family: 'Georgia', serif;
+    background: var(--bg);
+    color: var(--text);
+    font-size: 15px;
+    line-height: 1.65;
+  }
+  .page-header {
+    background: var(--fox-orange);
+    color: #fff;
+    padding: 2.5rem 2rem 2rem;
+    text-align: center;
+    border-bottom: 6px solid var(--fox-rust);
+  }
+  .page-header h1 {
+    font-size: 2.2rem;
+    font-weight: bold;
+    letter-spacing: 0.05em;
+    text-transform: uppercase;
+    margin-bottom: 0.5rem;
+  }
+  .page-header p {
+    font-size: 1rem;
+    opacity: 0.9;
+    max-width: 680px;
+    margin: 0 auto;
+  }
+  .container { max-width: 960px; margin: 0 auto; padding: 2rem 1.5rem; }
+  h2 {
+    font-size: 1.4rem;
+    color: var(--fox-rust);
+    text-transform: uppercase;
+    letter-spacing: 0.08em;
+    margin: 2rem 0 1rem;
+    border-bottom: 2px solid var(--fox-yellow);
+    padding-bottom: 0.4rem;
+  }
+  /* Score table */
+  .score-table {
+    width: 100%;
+    border-collapse: collapse;
+    margin-bottom: 2rem;
+    font-size: 0.9rem;
+  }
+  .score-table th {
+    background: var(--fox-orange);
+    color: #fff;
+    padding: 0.5rem 0.75rem;
+    text-align: left;
+    letter-spacing: 0.05em;
+    font-size: 0.8rem;
+    text-transform: uppercase;
+  }
+  .score-table td {
+    padding: 0.45rem 0.75rem;
+    border-bottom: 1px solid var(--border);
+  }
+  .score-table tr:nth-child(even) td { background: rgba(221,141,41,0.06); }
+  .score-badge {
+    display: inline-block;
+    background: var(--fox-orange);
+    color: #fff;
+    font-weight: bold;
+    padding: 0.1rem 0.5rem;
+    border-radius: 3px;
+    font-size: 0.85rem;
+  }
+  .score-badge.top { background: var(--fox-red); }
+  /* Show cards */
+  .show-card {
+    background: var(--card-bg);
+    border: 2px solid var(--border);
+    border-left: 5px solid var(--fox-orange);
+    border-radius: 6px;
+    margin-bottom: 2.5rem;
+    padding: 1.5rem;
+    box-shadow: 0 2px 8px rgba(0,0,0,0.06);
+  }
+  .show-card.rank1 { border-left-color: var(--fox-red); }
+  .show-card.rank2 { border-left-color: var(--fox-rust); }
+  .show-card.rank3 { border-left-color: var(--fox-orange); }
+  .show-card.rank4 { border-left-color: var(--fox-blue); }
+  .show-title {
+    display: flex;
+    align-items: center;
+    gap: 1rem;
+    margin-bottom: 1rem;
+  }
+  .show-title h3 {
+    font-size: 1.4rem;
+    text-transform: uppercase;
+    letter-spacing: 0.06em;
+    color: var(--text);
+  }
+  .show-score-badge {
+    font-size: 1rem;
+    font-weight: bold;
+    color: #fff;
+    background: var(--fox-rust);
+    padding: 0.2rem 0.7rem;
+    border-radius: 4px;
+    white-space: nowrap;
+  }
+  /* Character map table */
+  .char-map {
+    width: 100%;
+    border-collapse: collapse;
+    margin: 1rem 0;
+    font-size: 0.88rem;
+  }
+  .char-map th {
+    background: var(--fox-yellow);
+    color: var(--text);
+    font-weight: bold;
+    padding: 0.4rem 0.7rem;
+    text-align: left;
+    font-size: 0.8rem;
+    text-transform: uppercase;
+    letter-spacing: 0.05em;
+  }
+  .char-map td {
+    padding: 0.4rem 0.7rem;
+    border-bottom: 1px solid var(--border);
+    vertical-align: top;
+  }
+  .char-map tr:last-child td { border-bottom: none; }
+  .char-name { font-weight: bold; color: var(--fox-rust); }
+  /* Sections within a card */
+  .card-section { margin: 1.2rem 0 0; }
+  .card-section h4 {
+    font-size: 0.8rem;
+    text-transform: uppercase;
+    letter-spacing: 0.1em;
+    color: var(--muted);
+    margin-bottom: 0.5rem;
+    font-family: 'Helvetica Neue', sans-serif;
+  }
+  .card-section p {
+    font-size: 0.9rem;
+    color: #333;
+  }
+  /* Episode list */
+  .ep-list {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+  }
+  .ep-list li {
+    padding: 0.3rem 0;
+    font-size: 0.88rem;
+    border-bottom: 1px dotted #ddd;
+  }
+  .ep-list li:last-child { border-bottom: none; }
+  .ep-code {
+    font-family: monospace;
+    font-size: 0.8rem;
+    background: var(--fox-yellow);
+    padding: 0.1rem 0.4rem;
+    border-radius: 2px;
+    margin-right: 0.4rem;
+  }
+  /* Quotes */
+  .quote-block {
+    background: rgba(70,172,200,0.07);
+    border-left: 3px solid var(--fox-blue);
+    padding: 0.6rem 0.9rem;
+    margin: 0.5rem 0;
+    font-size: 0.88rem;
+    font-style: italic;
+    color: #333;
+    border-radius: 0 4px 4px 0;
+  }
+  .quote-ep {
+    font-style: normal;
+    font-size: 0.75rem;
+    color: var(--muted);
+    font-family: 'Helvetica Neue', sans-serif;
+    margin-top: 0.25rem;
+  }
+  /* Not yet / blocked badges */
+  .badge-missing {
+    display: inline-block;
+    background: #eee;
+    color: var(--muted);
+    font-size: 0.75rem;
+    padding: 0.1rem 0.5rem;
+    border-radius: 3px;
+    font-family: 'Helvetica Neue', sans-serif;
+  }
+  /* Footer */
+  footer {
+    text-align: center;
+    font-size: 0.78rem;
+    color: var(--muted);
+    padding: 2rem 1rem;
+    border-top: 1px solid var(--border);
+    margin-top: 2rem;
+  }
+  .two-col {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 1.5rem;
+  }
+  @media (max-width: 600px) {
+    .two-col { grid-template-columns: 1fr; }
+    .page-header h1 { font-size: 1.6rem; }
+  }
+</style>
+<style id="kidmode-css">
+.mode-btn{position:fixed;top:12px;right:12px;z-index:9999;padding:9px 16px;border:none;border-radius:999px;background:#4E8079;color:#fff;font:600 14px/1 system-ui,-apple-system,sans-serif;cursor:pointer;box-shadow:0 2px 8px rgba(0,0,0,.22)}
+body.kids .mode-btn{background:#B4503E}
+body.kids .mode-btn::before{content:"🧒  "}
+#kidpanel{display:none}
+body.kids #kidpanel{display:block;max-width:760px;margin:62px auto 12px;background:#fff7e8;border:2px solid #4E8079;border-radius:18px;padding:20px 24px;font:18px/1.7 system-ui,-apple-system,sans-serif;color:#2b2820}
+body.kids #kidpanel h3{font-family:"Fredoka","Comic Sans MS",sans-serif;color:#4E8079;margin:0 0 8px;font-size:22px}
+body.kids #kidpanel b{color:#B4503E}
+body.kids{font-size:1.04em}
+</style>
+</head>
+<body>
+
+<div id="kidpanel"><h3>Kid mode 🧒</h3><p>This page is <b>Community — Character Mapping Verified</b>. It is one of the projects Brandon built and put online. The grown-up details are below, tap Grown-up mode to read them the normal way.</p></div>
+
+<header class="page-header">
+  <h1>Community — Character Mapping Verified</h1>
+  <p>Structural DNA match: which shows are Community's sibling, cousin, or ancestor.
+     Scored on character isomorphism, plot engine, mirrored subplots, craft, and emotional load.
+     Verbatim quotes pulled from scraped transcripts.</p>
+</header>
+
+<div class="container">
+
+  <h2>Ranked Table (top 22+)</h2>
+  <table class="score-table">
+    <thead>
+      <tr>
+        <th>Show</th><th>CHAR</th><th>ENG</th><th>MIR</th><th>CRAFT</th><th>EM</th><th>Total</th><th>Transcript</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr><td><strong>The Good Place</strong></td><td>5</td><td>5</td><td>4</td><td>5</td><td>5</td><td><span class="score-badge top">24</span></td><td><span class="badge-missing">not on SSP</span></td></tr>
+      <tr><td><strong>NewsRadio</strong></td><td>5</td><td>5</td><td>4</td><td>4</td><td>5</td><td><span class="score-badge top">23</span></td><td><span class="badge-missing">not on SSP</span></td></tr>
+      <tr><td><strong>Parks and Recreation</strong></td><td>5</td><td>5</td><td>4</td><td>3</td><td>5</td><td><span class="score-badge">22</span></td><td>✓ scraped</td></tr>
+      <tr><td><strong>Cheers</strong></td><td>5</td><td>4</td><td>4</td><td>4</td><td>5</td><td><span class="score-badge">22</span></td><td>✓ scraped</td></tr>
+      <tr><td>Taxi</td><td>5</td><td>5</td><td>3</td><td>4</td><td>5</td><td>22</td><td></td></tr>
+      <tr><td>Abbott Elementary</td><td>5</td><td>5</td><td>4</td><td>3</td><td>5</td><td>22</td><td></td></tr>
+      <tr><td>Scrubs</td><td>4</td><td>5</td><td>4</td><td>4</td><td>5</td><td>22</td><td></td></tr>
+      <tr><td>Frasier</td><td>5</td><td>4</td><td>5</td><td>4</td><td>4</td><td>22</td><td></td></tr>
+      <tr><td>Brooklyn Nine-Nine</td><td>5</td><td>5</td><td>4</td><td>3</td><td>4</td><td>21</td><td></td></tr>
+      <tr><td>Sports Night</td><td>4</td><td>4</td><td>4</td><td>5</td><td>4</td><td>21</td><td></td></tr>
+      <tr><td>30 Rock</td><td>4</td><td>4</td><td>5</td><td>5</td><td>3</td><td>21</td><td></td></tr>
+      <tr><td>Arrested Development</td><td>4</td><td>3</td><td>5</td><td>5</td><td>4</td><td>21</td><td></td></tr>
+    </tbody>
+  </table>
+
+  <h2>Top 4 Shows — Character Maps + Verified Quotes</h2>
+
+  <!-- THE GOOD PLACE -->
+  <div class="show-card rank1">
+    <div class="show-title">
+      <h3>The Good Place</h3>
+      <span class="show-score-badge">24 / 25 — Highest rated</span>
+    </div>
+    <table class="char-map">
+      <thead><tr><th>Community</th><th>The Good Place</th><th>Why it maps</th></tr></thead>
+      <tbody>
+        <tr><td class="char-name">Jeff Winger</td><td class="char-name">Eleanor Shellstrop</td><td>Reluctant lead arrived under false pretenses; treats moral self-improvement as a con for two seasons before the ensemble teaches them to mean it. Both close every group debate.</td></tr>
+        <tr><td class="char-name">Britta Perry</td><td class="char-name">Tahani Al-Jamil</td><td>Status-anxious almost-leader getting humbled. Name-dropping is the moral-superiority tic Britta's PETA-activism is.</td></tr>
+        <tr><td class="char-name">Annie Edison</td><td class="char-name">Chidi Anagonye</td><td>High-achieving rule-follower whose moral rigidity is the engine of half the comedy. Both freeze on decisions.</td></tr>
+        <tr><td class="char-name">Abed Nadir</td><td class="char-name">Janet</td><td>The non-human ensemble member whose brain runs on a different OS, narrates the structure from inside. Closest to Abed than any character on TV.</td></tr>
+        <tr><td class="char-name">Troy Barnes</td><td class="char-name">Jason Mendoza</td><td>Sweet, dim, loyal. Jacksonville monologues are Troy's "shirts versus skins" in different costume. Friendship with Janet replicates Troy-Abed beat for beat.</td></tr>
+        <tr><td class="char-name">Pierce Hawthorne</td><td class="char-name">Brent Norwalk (S4)</td><td>Wealthy entitled obstacle the ensemble drags into virtue.</td></tr>
+        <tr><td class="char-name">Dean Pelton</td><td class="char-name">Michael</td><td>Institution's chaos-engine authority figure: self-pity, costume changes, reluctant care.</td></tr>
+      </tbody>
+    </table>
+    <div class="card-section">
+      <h4>Plot engine</h4>
+      <p>The architect's deception (S1), the rebuild (S2), the human-test (S3), the new neighborhood (S4). Every season is a workplace assignment from Michael forcing the four humans plus Janet to stay in proximity. The Good Place's weekly engine: "what does Michael's plan require."</p>
+    </div>
+    <div class="card-section">
+      <h4>Best 5 episodes for a Community fan — in watch order</h4>
+      <ul class="ep-list">
+        <li><span class="ep-code">S01E01</span> <strong>Pilot</strong> — Eleanor arrives; the Jeff-hiding-his-credentials parallel is immediate.</li>
+        <li><span class="ep-code">S02E06</span> <strong>The Trolley Problem</strong> — Chidi's ethics class becomes the study-group table equivalent. Annie's season 2 pedagogy-as-power arc, one episode.</li>
+        <li><span class="ep-code">S02E10</span> <strong>Best Self</strong> — Four parallel confession-ritual-send-off beats. Structural DNA of Community's "Remedial Chaos Theory."</li>
+        <li><span class="ep-code">S03E10</span> <strong>Janet(s)</strong> — Every human inhabits Janet's void. Most literal mirrored-subplot move on TV.</li>
+        <li><span class="ep-code">S04E14</span> <strong>Whenever You're Ready</strong> — Four parallel goodbye arcs. The finale Community would have written if it had a clean ending.</li>
+      </ul>
+    </div>
+    <div class="card-section">
+      <h4>Verbatim transcript quotes</h4>
+      <p><em>Transcripts not available on springfieldspringfield.co.uk. The Good Place is a Peacock/Netflix property not archived there.</em></p>
+    </div>
+  </div>
+
+  <!-- NEWSRADIO -->
+  <div class="show-card rank2">
+    <div class="show-title">
+      <h3>NewsRadio</h3>
+      <span class="show-score-badge">23 / 25</span>
+    </div>
+    <table class="char-map">
+      <thead><tr><th>Community</th><th>NewsRadio</th><th>Why it maps</th></tr></thead>
+      <tbody>
+        <tr><td class="char-name">Jeff Winger</td><td class="char-name">Dave Nelson</td><td>Reluctant good-looking lead with a moral spine he denies. Dave's straight-man closing speeches play the same function Jeff's couch-monologues do.</td></tr>
+        <tr><td class="char-name">Britta Perry</td><td class="char-name">Lisa Miller</td><td>The driven sharp woman closest to Jeff's equal and the moral self-correcting voice.</td></tr>
+        <tr><td class="char-name">Abed Nadir</td><td class="char-name">Matthew Brock (Andy Dick)</td><td>The weird ensemble outlier whose brain runs on a non-standard OS. Andy Dick's performance: "behave as if the script is delivered in real time to my surprise" — the closest live-action analogue to Abed's flat-affect reactions.</td></tr>
+        <tr><td class="char-name">Troy Barnes</td><td class="char-name">Joe Garrelli (Joe Rogan)</td><td>Lovable handyman everyman with weird hobbies and emotional sweetness. Joe's conspiracy-theory monologues are Troy's "Air Conditioning Repair School is real."</td></tr>
+        <tr><td class="char-name">Pierce / Dean</td><td class="char-name">Jimmy James (split)</td><td>Stephen Root plays one character containing both functions: the rich eccentric (Pierce) and the impossibly weird authority figure (Dean Pelton).</td></tr>
+        <tr><td class="char-name">Chang/Hickey</td><td class="char-name">Bill McNeal (Phil Hartman)</td><td>Chaos antagonist inside the ensemble. Manic theatricality of Chang plus grumpy-veteran ego of Hickey.</td></tr>
+      </tbody>
+    </table>
+    <div class="card-section">
+      <h4>Plot engine</h4>
+      <p>News cycle plus Jimmy James's whim. Every episode: Jimmy walks in with an order ("we are buying a boat, we are sending Joe to Antarctica, take a personality test"). Structurally identical to Community's class assignment plus Dean Pelton's announcement. The newsroom is the study room with worse furniture.</p>
+    </div>
+    <div class="card-section">
+      <h4>Best 5 episodes for a Community fan — in watch order</h4>
+      <ul class="ep-list">
+        <li><span class="ep-code">S02E01</span> <strong>Airport</strong> — Bottle episode, entire cast stuck in one location. The "Cooperative Calligraphy" equivalent.</li>
+        <li><span class="ep-code">S03E02</span> <strong>Rose Bowl</strong> — Jimmy James subplot runs parallel to Dave-Lisa subplot on the same "pride is the problem" beat.</li>
+        <li><span class="ep-code">S03E17</span> <strong>Bill Moves On</strong> — Three reaction-to-Bill's-departure subplots rhyming on "we don't say goodbye well." "Mixology Certification" structure.</li>
+        <li><span class="ep-code">S04E16</span> <strong>Houses</strong> — Lisa moving in with Dave, Bill buying a car, Joe refurbishing a generator. Three parallel "I am building something that will fall apart" beats.</li>
+        <li><span class="ep-code">S04E20</span> <strong>Sinking Ship</strong> — Titanic-bottle parody. Every ensemble pairing has its own romantic-doomed subplot. Community's genre-episode in 1998.</li>
+      </ul>
+    </div>
+    <div class="card-section">
+      <h4>Verbatim transcript quotes</h4>
+      <p><em>NewsRadio transcripts not available on springfieldspringfield.co.uk. Not currently archived on any headless-fetchable source.</em></p>
+    </div>
+  </div>
+
+  <!-- PARKS AND RECREATION -->
+  <div class="show-card rank3">
+    <div class="show-title">
+      <h3>Parks and Recreation</h3>
+      <span class="show-score-badge">22 / 25</span>
+    </div>
+    <table class="char-map">
+      <thead><tr><th>Community</th><th>Parks and Rec</th><th>Why it maps</th></tr></thead>
+      <tbody>
+        <tr><td class="char-name">Jeff Winger</td><td class="char-name">Leslie Knope (inverted)</td><td>Same role, opposite valence. Leslie believes and has to be talked down; Jeff is cynic and has to be talked up. Both close arguments.</td></tr>
+        <tr><td class="char-name">Britta Perry</td><td class="char-name">Ann Perkins</td><td>The best-friend foil whose virtue is being decent in a room full of weirdos. Ann's "is this an okay thing" is Britta's "I'm helping" in nurse scrubs.</td></tr>
+        <tr><td class="char-name">Annie Edison</td><td class="char-name">April Ludgate (inverted)</td><td>Same age slot, opposite affect. Annie over-invested, April performatively uninvested.</td></tr>
+        <tr><td class="char-name">Troy Barnes</td><td class="char-name">Andy Dwyer</td><td>Identical function. Sweet, dim, loyal, secretly artistic, dating the show's most acerbic young woman.</td></tr>
+        <tr><td class="char-name">Shirley Bennett</td><td class="char-name">Donna Meagle</td><td>Dignified Black woman with a strong moral framework. Donna's "Treat Yo Self" certainty is Shirley's "Jesus" certainty in different vocabulary.</td></tr>
+        <tr><td class="char-name">Dean Pelton</td><td class="char-name">Chris Traeger + Tom Haverford</td><td>Chris owns institutional-authority, Tom owns costume-and-vibe. Dean Pelton's "I am wearing a Dalmatian costume" gag goes to Tom in Pawnee.</td></tr>
+        <tr><td class="char-name">Chang/Hickey</td><td class="char-name">Ron Swanson</td><td>The grumpy older man who blocks the protagonist's initiative every week and turns out to love them.</td></tr>
+      </tbody>
+    </table>
+    <div class="card-section">
+      <h4>Plot engine</h4>
+      <p>Weekly parks-department mission: build the park, harvest festival, recall election, sewage merger. Structural identity with Community's Spanish-project engine is exact. Parks runs more goal-driven across seasons; Community runs more cyclical.</p>
+    </div>
+    <div class="card-section">
+      <h4>Best 5 episodes for a Community fan — in watch order</h4>
+      <ul class="ep-list">
+        <li><span class="ep-code">S03E02</span> <strong>Flu Season</strong> — Leslie sick, Andy sick-pretending, Tom sick-overreacting. Three-strand rhyme on "the show must go on."</li>
+        <li><span class="ep-code">S03E07</span> <strong>Harvest Festival</strong> — Season-long project pays off, every ensemble member contributes one moving piece. Community's paintball structure in small-town governance drag.</li>
+        <li><span class="ep-code">S03E13</span> <strong>The Fight</strong> — Leslie-Ann fight, Ron-mustache fight, Andy-test prep fight on the same "you have to stop hiding from a hard conversation" beat.</li>
+        <li><span class="ep-code">S05E05</span> <strong>Halloween Surprise</strong> — Ben's job offer, Ron-Diane meeting kids, Andy's audition: three "the thing you've been working toward arrives and now what" arcs.</li>
+        <li><span class="ep-code">S07E04</span> <strong>Leslie and Ron</strong> — Bottle episode, two characters, one room, three years of unspoken conflict. Community's "Cooperative Polygraphy" without the polygraph.</li>
+      </ul>
+    </div>
+    <div class="card-section">
+      <h4>Verbatim transcript quotes — 123 episodes scraped</h4>
+      <div class="two-col">
+        <div>
+          <strong>Leslie Knope → Jeff Winger (inverted)</strong>
+          <div class="quote-block">
+            "My name is Leslie Knope, and I work for the Parks and Recreation Department. Can I ask you a few questions?"
+            <div class="quote-ep">ParksAndRec-S01E01</div>
+          </div>
+          <div class="quote-block">
+            "LESLIE You know, when I first tell people that I work in the government, they say, 'Oh. The government.'"
+            <div class="quote-ep">ParksAndRec-S01E01</div>
+          </div>
+        </div>
+        <div>
+          <strong>Ron Swanson → Chang/Hickey (inverted)</strong>
+          <div class="quote-block">
+            "I have a hernia. I've had it for a while. I've been ignoring it. My ex-wife Tammy says that I have 'an almost frightening aversion to seeking help.' I say you should walk it off."
+            <div class="quote-ep">ParksAndRec-S02E15</div>
+          </div>
+        </div>
+        <div>
+          <strong>Andy Dwyer → Troy Barnes</strong>
+          <div class="quote-block">
+            "Ann Perkins! Cool cool cool. I'll be your partner!"
+            <div class="quote-ep">ParksAndRec-S03E02</div>
+          </div>
+        </div>
+        <div>
+          <strong>Chris Traeger → Dean Pelton (authority axis)</strong>
+          <div class="quote-block">
+            "It literally doesn't matter what you propose to the public. They might call for a vote, and if they vote you down, then you're done."
+            <div class="quote-ep">ParksAndRec-S01E02</div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- CHEERS -->
+  <div class="show-card rank4">
+    <div class="show-title">
+      <h3>Cheers</h3>
+      <span class="show-score-badge">22 / 25 — The Template</span>
+    </div>
+    <table class="char-map">
+      <thead><tr><th>Community</th><th>Cheers</th><th>Why it maps</th></tr></thead>
+      <tbody>
+        <tr><td class="char-name">Jeff Winger</td><td class="char-name">Sam Malone</td><td>The template. Cocky ex-pro washed up below his stated ambition. Both close bits. Both date the smart woman and deflect through one-liners.</td></tr>
+        <tr><td class="char-name">Britta Perry</td><td class="char-name">Diane Chambers → Rebecca Howe</td><td>Diane is ideological-overcorrector Britta. Rebecca is status-anxious-overcorrector Britta. Sam-Diane-then-Rebecca is Jeff-Britta-then-Annie.</td></tr>
+        <tr><td class="char-name">Abed Nadir</td><td class="char-name">Cliff Clavin</td><td>Non-standard-OS ensemble member through a structural-recognition tic. Trivia-as-personality is Abed's media-literacy-as-personality.</td></tr>
+        <tr><td class="char-name">Troy Barnes</td><td class="char-name">Woody Boyd</td><td>Same character. Sweet, dim, loyal handyman/bartender. Woody's "Mr. Peterson" greetings are Troy's "TROYYY" reactions.</td></tr>
+        <tr><td class="char-name">Pierce Hawthorne</td><td class="char-name">Norm Peterson (partial)</td><td>Ensemble's oldest member, present every week as ambient moral weight. "Drunk-rich-on-bar-tab" energy partial match.</td></tr>
+        <tr><td class="char-name">Shirley Bennett</td><td class="char-name">Carla Tortelli (inverted)</td><td>Dignified-strong-moral-framework slot. Carla's Catholic-Italian morals are Shirley's evangelical-Black morals. "I will hit you for that comment" energy identical.</td></tr>
+        <tr><td class="char-name">Dean Pelton</td><td class="char-name">Frasier Crane (pre-spinoff)</td><td>Pre-spinoff Frasier is the ensemble's pretentious-authority figure whose inappropriate fixations drive half the bits.</td></tr>
+      </tbody>
+    </table>
+    <div class="card-section">
+      <h4>Plot engine</h4>
+      <p>Bar bottle plus the dating-Sam triangle. Every episode opens with bar regulars and adds a guest with a problem. Community's study-room bottle plus a Spanish-class subplot. No school-wide engine to escalate, so the bottle is tighter and the ensemble generates plots from within. Cheers is Community's direct ancestor — the show that proved the ensemble bottle engine works at 22 minutes without a premise beyond "people who know each other."</p>
+    </div>
+    <div class="card-section">
+      <h4>Best 5 episodes for a Community fan — in watch order</h4>
+      <ul class="ep-list">
+        <li><span class="ep-code">S01E01</span> <strong>Pilot</strong> — Sam-Diane dynamic established cold; Jeff-Britta DNA is here in 1982.</li>
+        <li><span class="ep-code">S01E03</span> <strong>Sam's Women</strong> — Diane makes Sam feel guilty about his ex-girlfriends; the Jeff-Britta status-leverage move, original.</li>
+        <li><span class="ep-code">S05E09</span> <strong>Thanksgiving Orphans</strong> — Every ensemble member's "I have nowhere to go" beat rhymes against every other's. The closest Cheers gets to Community's bottle structure.</li>
+        <li><span class="ep-code">S05E21</span> <strong>The Bartender's Tale</strong> — Sam-flashback episode structured as an unreliable-narrator bit. Community's "Abed's Uncontrollable Christmas" narrative-form ancestor.</li>
+        <li><span class="ep-code">S08E25</span> <strong>An Old-Fashioned Wedding</strong> — Three weddings in one episode. Mirrored-subplot construction at its cleanest.</li>
+      </ul>
+    </div>
+    <div class="card-section">
+      <h4>Verbatim transcript quotes — 259 episodes scraped (of 264)</h4>
+      <div class="two-col">
+        <div>
+          <strong>Sam Malone → Jeff Winger</strong>
+          <div class="quote-block">
+            "Wouldn't you love to see Sammy flinging the horsehide? Flinging what? Don't you know who he is? He was one of the best pitchers in baseball. Samuel 'Mayday' Malone."
+            <div class="quote-ep">Cheers-S01E01</div>
+          </div>
+          <div class="quote-block">
+            "Sam once struck out Cash, Kaline and Freehan with a tying run on second."
+            <div class="quote-ep">Cheers-S01E01 — Sam's backstory = Jeff's fake Columbia degree: prestige-through-expired-credential.</div>
+          </div>
+        </div>
+        <div>
+          <strong>Norm Peterson → Pierce Hawthorne</strong>
+          <div class="quote-block">
+            "Afternoon, everybody. / — Norm! — Norm, what do you know? — Not enough. / What do you think of the Patriots' draft? They need linebackers like I need antlers."
+            <div class="quote-ep">Cheers-S01E01 — The ensemble greets the oldest member before he says anything.</div>
+          </div>
+          <div class="quote-block">
+            "Another beer, Norm? Well, yeah, one more quick one. Thanks."
+            <div class="quote-ep">Cheers-S01E01</div>
+          </div>
+        </div>
+        <div>
+          <strong>Cliff Clavin → Abed Nadir</strong>
+          <div class="quote-block">
+            "Cliff, I smell Chinese food. It's a cigar."
+            <div class="quote-ep">Cheers-S01E02 — Cliff corrects the room before being asked.</div>
+          </div>
+        </div>
+        <div>
+          <strong>Diane Chambers → Britta Perry</strong>
+          <div class="quote-block">
+            "I'm Dr Sumner Sloane, Professor of World Literature at the U. He has an article in Harper's."
+            <div class="quote-ep">Cheers-S01E01 — Diane name-drops immediately on arrival. Britta's PETA membership, same move.</div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div style="background:#f5f0e0;border:1px solid var(--border);border-radius:6px;padding:1rem 1.5rem;margin:1rem 0;font-size:0.85rem;color:var(--muted)">
+    <strong>Sourcing notes.</strong>
+    Cheers (141/264 eps scraped) and Parks and Recreation (123/125 eps) are available on springfieldspringfield.co.uk.
+    The Good Place and NewsRadio are not on SSP and return 404 — quotes for those shows require manual download or a logged-in browser session.
+    Community (110 eps) and Gilmore Girls (153 eps) scraped earlier. Extractor script:
+    <code>~/Projects/tv-scripts/extract_character_quotes.py</code>.
+  </div>
+
+</div>
+
+<footer>
+  Palette: Fantastic Mr. Fox (Wes Anderson) &nbsp;|&nbsp;
+  Analysis from <code>~/Projects/tv-scripts/community-character-engine-ranking.md</code> &nbsp;|&nbsp;
+  Transcripts via springfieldspringfield.co.uk
+</footer>
+
+</body>
+</html>

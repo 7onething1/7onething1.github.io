@@ -1,0 +1,146 @@
+<!doctype html><html lang="en"><head>
+<meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+<title>MIDI Dashboard: the files we created</title>
+<script src="https://cdn.jsdelivr.net/combine/npm/tone@14.7.77,npm/@magenta/music@1.23.1/es6/core.js,npm/focus-visible@5,npm/html-midi-player@1.5.0"></script>
+<style>
+:root{
+  --red:#FF0000;--teal:#00A08A;--gold:#F2AD00;--orange:#F98400;
+  --sky:#5BBCD6;--blue:#046C9A;--sand:#D69C4E;--olive:#74A089;
+  --bg:#f7f4ee;--card:#fff;--ink:#1c1a17;--mut:#6f6a5e;--line:#e6e0d4;
+  --pass:#00A08A;--fail:#FF0000;--pre:#D69C4E;
+}
+*{box-sizing:border-box}
+body{margin:0;background:var(--bg);color:var(--ink);
+  font:14px/1.55 -apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,sans-serif}
+a{color:var(--blue);text-decoration:none}
+header{background:linear-gradient(120deg,#046C9A,#00A08A);color:#fff;padding:26px 28px}
+header h1{margin:0 0 6px;font-size:23px;letter-spacing:.2px}
+header .sub{opacity:.93;font-size:13px;max-width:760px}
+.wrap{max-width:1180px;margin:0 auto;padding:22px 26px 110px}
+h2{font-size:13px;margin:34px 0 6px;letter-spacing:.5px;text-transform:uppercase;color:var(--mut)}
+h2 .sub2{text-transform:none;letter-spacing:0;color:var(--mut);font-weight:400;font-size:12.5px}
+.stats{display:grid;grid-template-columns:repeat(auto-fit,minmax(140px,1fr));gap:12px;margin-top:8px}
+.stat{background:var(--card);border:1px solid var(--line);border-radius:12px;padding:15px 17px}
+.stat .n{font-size:30px;font-weight:800;line-height:1}
+.stat .l{font-size:11px;color:var(--mut);margin-top:6px;text-transform:uppercase;letter-spacing:.4px}
+.stat.green{border-top:4px solid var(--pass)}.stat.red{border-top:4px solid var(--fail)}
+.stat.pre{border-top:4px solid var(--pre)}.stat.blue{border-top:4px solid var(--blue)}
+.grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(320px,1fr));gap:14px;margin-top:6px}
+.card{background:var(--card);border:1px solid var(--line);border-radius:14px;padding:14px 15px 13px;
+  display:flex;flex-direction:column;gap:9px}
+.card.pass{border-left:5px solid var(--pass)}
+.card.fail{border-left:5px solid var(--fail)}
+.card.pre{border-left:5px solid var(--pre);opacity:.92}
+.card.bym{border-left:5px solid var(--sky)}
+.ch{display:flex;align-items:center;justify-content:space-between;gap:8px}
+.run{font-weight:800;font-size:15px}
+.pill{font-size:10px;font-weight:800;padding:2px 9px;border-radius:20px;color:#fff;
+  text-transform:uppercase;letter-spacing:.3px}
+.pill.pass{background:var(--pass)}.pill.fail{background:var(--fail)}.pill.pre{background:var(--pre)}
+.gates{display:flex;flex-wrap:wrap;gap:4px;min-height:18px}
+.g{font-family:ui-monospace,Menlo,monospace;font-size:10.5px;font-weight:700;
+  background:#ffe3e0;color:#b3261e;border:1px solid #ffc9c4;border-radius:6px;padding:1px 6px;cursor:help}
+.ok{font-size:11px;color:var(--pass);font-weight:700}
+.note{font-size:12px;color:var(--mut);line-height:1.5}
+midi-player{width:100%;--mdc-theme-primary:#046C9A;--mdc-theme-on-primary:#fff}
+midi-visualizer{display:block;width:100%;height:64px;border:1px solid var(--line);
+  border-radius:8px;overflow:hidden;background:#faf7f0}
+midi-visualizer svg .note{fill:#F98400}
+midi-visualizer svg .note.active{fill:#FF0000}
+.row{display:flex;align-items:center;justify-content:space-between;margin-top:2px}
+.dl{font-size:12px;font-weight:700;color:var(--blue)}
+.sz{font-size:11px;color:var(--mut);font-family:ui-monospace,Menlo,monospace}
+.missing{font-size:12px;color:var(--mut);font-style:italic;padding:8px 0}
+.legend{font-size:12px;color:var(--mut);margin-top:14px;line-height:1.9}
+.legend .g{cursor:default}
+.intro{background:#fff;border:1px solid var(--line);border-left:6px solid var(--gold);
+  border-radius:12px;padding:15px 18px;margin-top:10px;font-size:13px;line-height:1.6}
+footer{max-width:1180px;margin:0 auto;padding:0 26px 60px;color:var(--mut);font-size:11.5px}
+.kid-only.kidlede{background:#fff7e8;border:2px solid var(--olive);border-radius:16px;
+  padding:16px 20px;margin:10px 0 0;font-size:16px;line-height:1.6}
+</style></head><body>
+
+<header>
+  <h1>MIDI Dashboard: the files we created</h1>
+  <div class="sub">Every composed MIDI in one place. Press play to hear it in the browser, or download the <span style="font-family:ui-monospace,Menlo,monospace">.mid</span> to drop into Ableton. Two banks: the substantial Shiner 16-run pack (full 2 to 3 minute runs) and the BELIEVEYOUME "Asleep In The Trunk" sketch fragments (short 4 to 7 second motif drafts). Generated MIDI only, transcription-evidence stems are excluded.</div>
+</header>
+
+<div class="wrap">
+
+  <div class="kid-only kidlede">
+    <h3 style="margin:0 0 6px">What is this? 🧒</h3>
+    This is a board of <b>computer music notes</b> we made. Each little card has a
+    <b>play</b> button so you can hear the song idea, and a <b>download</b> link to
+    keep the file. The green ones passed all the music rules. The red ones still
+    have something to fix. Tap <b>Grown-up mode</b> to read the real details.
+  </div>
+
+  <div class="stats">
+    <div class="stat blue"><div class="n">20</div><div class="l">Playable MIDI files</div></div>
+    <div class="stat green"><div class="n" style="color:var(--pass)">8</div><div class="l">Shiner runs gate-green</div></div>
+    <div class="stat red"><div class="n" style="color:var(--fail)">3</div><div class="l">Shiner runs failing</div></div>
+    <div class="stat pre"><div class="n" style="color:var(--pre)">5</div><div class="l">Shiner pre-gate (regenerate)</div></div>
+  </div>
+
+  <div class="intro">
+    <b>How to use:</b> hit <b>play</b> on any card to hear it (a soundfont loads on first play).
+    The piano-roll underneath lights up as it plays. <b>Download</b> grabs the raw
+    <span style="font-family:ui-monospace,Menlo,monospace">.mid</span>. Shiner cards carry their
+    hard-gate status from the validator and are full 2 to 3 minute runs. The BELIEVEYOUME
+    cards are short motif sketches of "Asleep In The Trunk", a few seconds each, kept here as
+    early drafts rather than finished arrangements.
+  </div>
+
+  <h2>Shiner 16-run pack <span class="sub2">· midi-16-runs flagship · validated against <span style="font-family:ui-monospace,Menlo,monospace">midi_hardfail_gates.py --band shiner</span> (2026-06-09)</span></h2>
+  <div class="grid">
+<div class="card fail"><div class="ch"><span class="run">Run 01</span><span class="pill fail">failing</span></div><div class="gates"><span class="g" title="displaced-16th kick density">W</span><span class="g" title="bass span &gt;18 semis / too chromatic">Y</span></div><div class="note">displaced-16th kick density + bass span too wide</div><midi-player src="/midi-dashboard/files/shiner/Run01.mid" sound-font class="mp"></midi-player><div class="row"><a class="dl" href="/midi-dashboard/files/shiner/Run01.mid" download>⬇ download .mid</a><span class="sz">9.8 KB</span></div></div>
+<div class="card pass"><div class="ch"><span class="run">Run 02</span><span class="pill pass">gate-green</span></div><div class="gates"><span class="ok">0 hard fails</span></div><div class="note">fixed 2026-06-09, Y and AO cleared in one pass</div><midi-player src="/midi-dashboard/files/shiner/Run02.mid" sound-font class="mp"></midi-player><div class="row"><a class="dl" href="/midi-dashboard/files/shiner/Run02.mid" download>⬇ download .mid</a><span class="sz">10.5 KB</span></div></div>
+<div class="card pass"><div class="ch"><span class="run">Run 03</span><span class="pill pass">gate-green</span></div><div class="gates"><span class="ok">0 hard fails</span></div><div class="note">fixed 2026-06-09 by octave-folding outliers (Gate Y)</div><midi-player src="/midi-dashboard/files/shiner/Run03.mid" sound-font class="mp"></midi-player><div class="row"><a class="dl" href="/midi-dashboard/files/shiner/Run03.mid" download>⬇ download .mid</a><span class="sz">10.7 KB</span></div></div>
+<div class="card fail"><div class="ch"><span class="run">Run 04</span><span class="pill fail">failing</span></div><div class="gates"><span class="g" title="&gt;7 simultaneous pitch classes (harmonic mud)">X</span><span class="g" title="bass span &gt;18 semis / too chromatic">Y</span><span class="g" title="top bass cell recurs &lt;4× (no hook)">AO</span></div><div class="note">harmonic mud, wide bass span, no recurring bass hook</div><midi-player src="/midi-dashboard/files/shiner/Run04.mid" sound-font class="mp"></midi-player><div class="row"><a class="dl" href="/midi-dashboard/files/shiner/Run04.mid" download>⬇ download .mid</a><span class="sz">9.4 KB</span></div></div>
+<div class="card pass"><div class="ch"><span class="run">Run 05</span><span class="pill pass">gate-green</span></div><div class="gates"><span class="ok">0 hard fails</span></div><div class="note">fixed 2026-06-09, AO exact-hook taken to 4 recurrences</div><midi-player src="/midi-dashboard/files/shiner/Run05.mid" sound-font class="mp"></midi-player><div class="row"><a class="dl" href="/midi-dashboard/files/shiner/Run05.mid" download>⬇ download .mid</a><span class="sz">11.0 KB</span></div></div>
+<div class="card fail"><div class="ch"><span class="run">Run 06</span><span class="pill fail">failing</span></div><div class="gates"><span class="g" title="bass span &gt;18 semis / too chromatic">Y</span><span class="g" title="top bass cell recurs &lt;4× (no hook)">AO</span></div><div class="note">wide bass span and no recurring bass hook</div><midi-player src="/midi-dashboard/files/shiner/Run06.mid" sound-font class="mp"></midi-player><div class="row"><a class="dl" href="/midi-dashboard/files/shiner/Run06.mid" download>⬇ download .mid</a><span class="sz">11.7 KB</span></div></div>
+<div class="card pass"><div class="ch"><span class="run">Run 07</span><span class="pill pass">gate-green</span></div><div class="gates"><span class="ok">0 hard fails</span></div><div class="note">Run7-v3, the house-rule reference model</div><midi-player src="/midi-dashboard/files/shiner/Run07.mid" sound-font class="mp"></midi-player><div class="row"><a class="dl" href="/midi-dashboard/files/shiner/Run07.mid" download>⬇ download .mid</a><span class="sz">14.8 KB</span></div></div>
+<div class="card pass"><div class="ch"><span class="run">Run 08</span><span class="pill pass">gate-green</span></div><div class="gates"><span class="ok">0 hard fails</span></div><div class="note">origin of the AO exact-hook technique</div><midi-player src="/midi-dashboard/files/shiner/Run08.mid" sound-font class="mp"></midi-player><div class="row"><a class="dl" href="/midi-dashboard/files/shiner/Run08.mid" download>⬇ download .mid</a><span class="sz">11.5 KB</span></div></div>
+<div class="card pass"><div class="ch"><span class="run">Run 09</span><span class="pill pass">gate-green</span></div><div class="gates"><span class="ok">0 hard fails</span></div><div class="note">clean, 0 hard fails</div><midi-player src="/midi-dashboard/files/shiner/Run09.mid" sound-font class="mp"></midi-player><div class="row"><a class="dl" href="/midi-dashboard/files/shiner/Run09.mid" download>⬇ download .mid</a><span class="sz">14.6 KB</span></div></div>
+<div class="card pass"><div class="ch"><span class="run">Run 10</span><span class="pill pass">gate-green</span></div><div class="gates"><span class="ok">0 hard fails</span></div><div class="note">clean, 0 hard fails</div><midi-player src="/midi-dashboard/files/shiner/Run10.mid" sound-font class="mp"></midi-player><div class="row"><a class="dl" href="/midi-dashboard/files/shiner/Run10.mid" download>⬇ download .mid</a><span class="sz">11.5 KB</span></div></div>
+<div class="card pass"><div class="ch"><span class="run">Run 11</span><span class="pill pass">gate-green</span></div><div class="gates"><span class="ok">0 hard fails</span></div><div class="note">clean, 0 hard fails</div><midi-player src="/midi-dashboard/files/shiner/Run11.mid" sound-font class="mp"></midi-player><div class="row"><a class="dl" href="/midi-dashboard/files/shiner/Run11.mid" download>⬇ download .mid</a><span class="sz">12.4 KB</span></div></div>
+<div class="card pre"><div class="ch"><span class="run">Run 12</span><span class="pill pre">pre-gate</span></div><div class="gates"><span class="g" title="does not end on the bar grid">AA</span><span class="g" title="endpoint exact / loop integrity">AS</span></div><div class="note">pre-gate, regenerate under current gates</div><div class="missing">file not generated yet, regenerate under current gates</div></div>
+<div class="card pre"><div class="ch"><span class="run">Run 13</span><span class="pill pre">pre-gate</span></div><div class="gates"><span class="g" title="does not end on the bar grid">AA</span><span class="g" title="endpoint discipline">AE</span><span class="g" title="endpoint exact / loop integrity">AS</span></div><div class="note">pre-gate, regenerate under current gates</div><div class="missing">file not generated yet, regenerate under current gates</div></div>
+<div class="card pre"><div class="ch"><span class="run">Run 14</span><span class="pill pre">pre-gate</span></div><div class="gates"><span class="g" title="does not end on the bar grid">AA</span><span class="g" title="endpoint discipline">AE</span><span class="g" title="endpoint exact / loop integrity">AS</span></div><div class="note">pre-gate, regenerate under current gates</div><div class="missing">file not generated yet, regenerate under current gates</div></div>
+<div class="card pre"><div class="ch"><span class="run">Run 15</span><span class="pill pre">pre-gate</span></div><div class="gates"><span class="g" title="does not end on the bar grid">AA</span><span class="g" title="endpoint exact / loop integrity">AS</span></div><div class="note">pre-gate, regenerate under current gates</div><div class="missing">file not generated yet, regenerate under current gates</div></div>
+<div class="card pre"><div class="ch"><span class="run">Run 16</span><span class="pill pre">pre-gate</span></div><div class="gates"><span class="g" title="does not end on the bar grid">AA</span><span class="g" title="endpoint exact / loop integrity">AS</span></div><div class="note">pre-gate, regenerate under current gates</div><div class="missing">file not generated yet, regenerate under current gates</div></div>
+  </div>
+  <div class="legend">
+    <b>Gate key:</b>
+    <span class="g">W</span> displaced-16th kick density ·
+    <span class="g">X</span> >7 simultaneous pitch classes (harmonic mud) ·
+    <span class="g">Y</span> bass span >18 semis / too chromatic ·
+    <span class="g">AO</span> top bass cell recurs <4× (no hook) ·
+    <span class="g">AA</span> does not end on the bar grid ·
+    <span class="g">AE</span> endpoint discipline ·
+    <span class="g">AS</span> endpoint exact / loop integrity
+  </div>
+
+  <h2>BELIEVEYOUME · "Asleep In The Trunk" sketches <span class="sub2">· A natural minor · short 4 to 7 second motif fragments, the harmonic skeleton, not a finished arrangement</span></h2>
+  <div class="grid">
+<div class="card bym"><div class="ch"><span class="run">Assembled draft (56s)</span></div><div class="note">all sketch sections stitched into a 56-second skeleton, 174 notes, a draft not a finished mix</div><midi-player src="/midi-dashboard/files/believeyoume/00_Full_Asleep_In_The_Trunk.mid" sound-font class="mp"></midi-player><div class="row"><a class="dl" href="/midi-dashboard/files/believeyoume/00_Full_Asleep_In_The_Trunk.mid" download>⬇ download .mid</a><span class="sz">1.8 KB</span></div></div>
+<div class="card bym"><div class="ch"><span class="run">01 · Intro sketch</span></div><div class="note">bass ostinato setting the A-minor floor, a 6-second fragment</div><midi-player src="/midi-dashboard/files/believeyoume/01_Intro_bass_ostinato.mid" sound-font class="mp"></midi-player><div class="row"><a class="dl" href="/midi-dashboard/files/believeyoume/01_Intro_bass_ostinato.mid" download>⬇ download .mid</a><span class="sz">0.2 KB</span></div></div>
+<div class="card bym"><div class="ch"><span class="run">02 · Verse one sketch</span></div><div class="note">the A-natural over an F pedal, the signature color, a 6-second fragment</div><midi-player src="/midi-dashboard/files/believeyoume/02_Verse_one_A_natural_over_F.mid" sound-font class="mp"></midi-player><div class="row"><a class="dl" href="/midi-dashboard/files/believeyoume/02_Verse_one_A_natural_over_F.mid" download>⬇ download .mid</a><span class="sz">0.4 KB</span></div></div>
+<div class="card bym"><div class="ch"><span class="run">03 · Verse sketch</span></div><div class="note">second verse on the same harmonic bed, a 7-second fragment</div><midi-player src="/midi-dashboard/files/believeyoume/03_Verse.mid" sound-font class="mp"></midi-player><div class="row"><a class="dl" href="/midi-dashboard/files/believeyoume/03_Verse.mid" download>⬇ download .mid</a><span class="sz">0.3 KB</span></div></div>
+<div class="card bym"><div class="ch"><span class="run">04 · Prechorus sketch</span></div><div class="note">tension on the held F pedal, a 6-second fragment</div><midi-player src="/midi-dashboard/files/believeyoume/04_Prechorus_F_pedal.mid" sound-font class="mp"></midi-player><div class="row"><a class="dl" href="/midi-dashboard/files/believeyoume/04_Prechorus_F_pedal.mid" download>⬇ download .mid</a><span class="sz">0.3 KB</span></div></div>
+<div class="card bym"><div class="ch"><span class="run">05 · Chorus sketch</span></div><div class="note">first half of the chorus lift, a 6-second fragment</div><midi-player src="/midi-dashboard/files/believeyoume/05_Chorus_first_half.mid" sound-font class="mp"></midi-player><div class="row"><a class="dl" href="/midi-dashboard/files/believeyoume/05_Chorus_first_half.mid" download>⬇ download .mid</a><span class="sz">0.3 KB</span></div></div>
+<div class="card bym"><div class="ch"><span class="run">06 · Bridge sketch</span></div><div class="note">the long sit on F, captured as a 6-second fragment</div><midi-player src="/midi-dashboard/files/believeyoume/06_Bridge_35_bars_on_F.mid" sound-font class="mp"></midi-player><div class="row"><a class="dl" href="/midi-dashboard/files/believeyoume/06_Bridge_35_bars_on_F.mid" download>⬇ download .mid</a><span class="sz">0.4 KB</span></div></div>
+<div class="card bym"><div class="ch"><span class="run">07 · Final chorus sketch</span></div><div class="note">the full-weight return, a 6-second fragment</div><midi-player src="/midi-dashboard/files/believeyoume/07_Final_chorus.mid" sound-font class="mp"></midi-player><div class="row"><a class="dl" href="/midi-dashboard/files/believeyoume/07_Final_chorus.mid" download>⬇ download .mid</a><span class="sz">0.3 KB</span></div></div>
+<div class="card bym"><div class="ch"><span class="run">08 · Outro sketch</span></div><div class="note">the V to i that resolves home, a 4-second fragment</div><midi-player src="/midi-dashboard/files/believeyoume/08_Outro_V_to_i_resolves.mid" sound-font class="mp"></midi-player><div class="row"><a class="dl" href="/midi-dashboard/files/believeyoume/08_Outro_V_to_i_resolves.mid" download>⬇ download .mid</a><span class="sz">0.3 KB</span></div></div>
+  </div>
+
+</div>
+
+<footer>
+  Built by <span style="color:var(--orange);font-weight:600">build_midi_dashboard.py</span> ·
+  composed MIDI only (Shiner runs + BELIEVEYOUME sections) ·
+  companion gate scoreboard at <a href="../shiner-midi-runs/">/shiner-midi-runs</a> ·
+  drwu-htmls.vercel.app
+</footer>
+
+</body></html>

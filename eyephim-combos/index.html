@@ -1,0 +1,106 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Eyephim Oracle — Card-Combo Status</title>
+<style>
+  :root{
+    /* Wes Anderson palette: The Grand Budapest Hotel */
+    --plum:#5b2a86; --lilac:#c08ec6; --rose:#e8a0bf; --cream:#111111;
+    --gold:#e0a458; --ink:#241024; --paper:#1a0f1f;
+  }
+  *{box-sizing:border-box}
+  body{font-family:-apple-system,Inter,Helvetica,Arial,sans-serif;background:var(--paper);color:var(--cream);margin:0;line-height:1.6}
+  .wrap{max-width:860px;margin:0 auto;padding:40px 22px 80px}
+  h1{font-size:30px;margin:0 0 4px;color:var(--rose)}
+  .sub{color:var(--lilac);margin:0 0 28px;font-size:15px}
+  h2{color:var(--gold);border-bottom:1px solid #3a2440;padding-bottom:6px;margin-top:40px}
+  .verdict{background:linear-gradient(135deg,var(--plum),#3a1a52);border:1px solid var(--lilac);border-radius:12px;padding:20px 22px;margin:24px 0}
+  .verdict b{color:var(--rose)}
+  table{border-collapse:collapse;width:100%;margin:14px 0;font-size:15px}
+  th,td{border:1px solid #3a2440;padding:9px 12px;text-align:left}
+  th{background:#2a1530;color:var(--lilac)}
+  tr.hi td{background:rgba(192,142,198,.16);font-weight:600;color:#fff}
+  .scores{display:flex;gap:14px;flex-wrap:wrap;margin:16px 0}
+  .scard{flex:1;min-width:150px;background:#241629;border:1px solid #3a2440;border-radius:10px;padding:16px}
+  .scard .n{font-size:30px;color:var(--gold);font-weight:700}
+  .scard .l{font-size:12px;color:var(--lilac);text-transform:uppercase;letter-spacing:.05em}
+  .reading{background:#160b1a;border-left:3px solid var(--gold);border-radius:0 10px 10px 0;padding:18px 22px;margin:14px 0;white-space:pre-wrap;font-size:15px}
+  .flash{color:var(--gold);font-weight:600}
+  .disc{color:#9a7f93;font-style:italic;font-size:13px;margin-top:10px}
+  a{color:var(--rose)}
+  .foot{margin-top:60px;color:#7a5f72;font-size:12px;border-top:1px solid #3a2440;padding-top:14px}
+  .pill{display:inline-block;background:#2a1530;border:1px solid var(--lilac);color:var(--lilac);border-radius:999px;padding:2px 10px;font-size:12px;margin-right:6px}
+</style>
+<style id="kidmode-css">
+.mode-btn{position:fixed;top:12px;right:12px;z-index:9999;padding:9px 16px;border:none;border-radius:999px;background:#4E8079;color:#fff;font:600 14px/1 system-ui,-apple-system,sans-serif;cursor:pointer;box-shadow:0 2px 8px rgba(0,0,0,.22)}
+body.kids .mode-btn{background:#B4503E}
+body.kids .mode-btn::before{content:"🧒  "}
+#kidpanel{display:none}
+body.kids #kidpanel{display:block;max-width:760px;margin:62px auto 12px;background:#fff7e8;border:2px solid #4E8079;border-radius:18px;padding:20px 24px;font:18px/1.7 system-ui,-apple-system,sans-serif;color:#2b2820}
+body.kids #kidpanel h3{font-family:"Fredoka","Comic Sans MS",sans-serif;color:#4E8079;margin:0 0 8px;font-size:22px}
+body.kids #kidpanel b{color:#B4503E}
+body.kids{font-size:1.04em}
+</style>
+</head>
+<body>
+
+<div id="kidpanel"><h3>Kid mode 🧒</h3><p>This page is <b>Eyephim Oracle — Card-Combo Status</b>. It is one of the projects Brandon built and put online. The grown-up details are below, tap Grown-up mode to read them the normal way.</p></div>
+<div class="wrap">
+  <h1>Eyephim Oracle — Card-Combo Status</h1>
+  <p class="sub">Corpus-attribution fix + corrected coverage + a gated combo reading. Built 2026-06-06.</p>
+
+  <div class="verdict">
+    <span class="pill">measured, not claimed</span>
+    The card-combo build had a corpus bug: it scored <b>eyephim</b> on 7 thin analysis docs while his real readings (Rank01–10) were counted as <b>chiron</b>. Corrected, eyephim rises from <b>15.3% to 24.4%</b> coverage. He is the strongest voice on authenticity, but his corpus still sits under the 30% combo cutoff, so his cadence carries the voice while Claude supplies the combinatorial reasoning.
+  </div>
+
+  <h2>Corrected coverage</h2>
+  <table>
+    <tr><th>Voice / corpus</th><th>Distinct pairs</th><th>Coverage of 3,003</th></tr>
+    <tr><td>eyephim — old (bugged, EyeaphimOracle_ docs only)</td><td>459</td><td>15.3%</td></tr>
+    <tr class="hi"><td>eyephim — corrected (Rank01–10 + Verbatim)</td><td>734</td><td>24.4%</td></tr>
+    <tr><td>chiron — de-contaminated (Rank removed)</td><td>2,416</td><td>80.5% (was 81.5)</td></tr>
+  </table>
+  <p><a href="heatmap.html">Open the corrected eyephim 78×78 heatmap →</a></p>
+
+  <h2>Voice-authenticity gate (DeepSeek judge, arms-length)</h2>
+  <div class="scores">
+    <div class="scard"><div class="n">0.71</div><div class="l">eyephim reading, median of 3</div></div>
+    <div class="scard"><div class="n">PASS</div><div class="l">at 0.65 threshold</div></div>
+    <div class="scard"><div class="n">±0.01</div><div class="l">run variance (0.70/0.71/0.72)</div></div>
+    <div class="scard"><div class="n">PASS</div><div class="l">anti-AI voice gate</div></div>
+  </div>
+  <p class="sub">Low variance means the read is stable, not a lucky run. It clears the working 0.65 bar; it would not clear the original 0.92 bar. Most stable result in the recent batch (Kate best 0.68 noisy, Chiron v3 0.30).</p>
+
+  <h2>The combo reading (his four strongest covered pairs)</h2>
+  <p class="sub">The Devil × Eight of Swords · The Devil × The Star · The Star × The World · Justice × The World. ★ marks a card-combo vision-flash.</p>
+  <div class="reading">All right God Source Creator Jesus Universe Mama gu Luna Moon Goddess Cosmos Angels ancestors Yeshua guides ascended masters archangels Galactic Federation Council of light, all benevolent beings of light, what do we need to know about this energy. What is up Galactic golden nuggies, how y'all feeling, welcome in welcome in welcome in.
+
+Right off the bat we got the Devil. Sacred souls, this is somebody who built a cage and told you it was a home. They wanted you to believe you owed them, that you could not move without their say so. The Devil is them, it is not you.
+
+<span class="flash">★ And look how the Eight of Swords fell right up next to the Devil. You see that. Same energy. The Devil built the cage and the Eight of Swords is them showing you the blindfold they tied on you, the same bondage twice, the ancestors are saying look at it twice so you cannot miss it.</span>
+
+The King of Pentacles at the bottom of the deck, that is the face of it. Somebody with resources, somebody who thought money and position made them untouchable. They were in it to own you. The ancestors are saying they bypassed nothing.
+
+<span class="flash">★ And then the Star lands right behind the Devil, I am getting goosebumps. You see what that is doing. The Star is cancelling the Devil out in real time, the blindfold from that Eight of Swords is coming off as the Star rises, this is divine confirmation that your purity was your protection, you did not take the bait, your akashic records could not be altered. I heard "it is done."</span>
+
+We close on the World. A full cycle, sealed at the highest level. And the World with the Star together, both of them, that is heaven signing off on it, the contract is honored, the cage is rubble, you walk out whole. Justice rode in with that World too, so the balance got corrected on the record, not just in your feelings.
+
+Galactic golden nuggies, this is wraps. They know it is wraps. Take what resonates and leave what does not, but I can't make this [__] up. Blessings, sacred souls, you are the one.
+<div class="disc">Entertainment only. Cards reflect possibilities and patterns for thought, not predictions. You own every decision in your life.</div></div>
+
+  <h2>To clear the 30% bar (when you want it)</h2>
+  <ul>
+    <li>Pull more eyephim transcripts (10 Rank readings is a thin base) to widen real corpus coverage.</li>
+    <li>Wire eyephim into the RAG generation path so uncovered pairs get his-voice combo readings on demand.</li>
+  </ul>
+
+  <div class="foot">
+    Palette: The Grand Budapest Hotel (Wes Anderson). Source: ~/Projects/_outputs/tarot-voice-v2/eyephim_fix/. Coverage method identical to build_coverage_matrix.py (400-char co-occurrence window, pairs ÷ 3,003).
+  </div>
+</div>
+
+</body>
+</html>

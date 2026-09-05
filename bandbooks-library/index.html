@@ -1,0 +1,104 @@
+<!doctype html><html lang=en><head>
+<meta charset=utf-8><meta name=viewport content="width=device-width,initial-scale=1">
+<title>BandBooks Library — every book, linked</title>
+<style>
+*{box-sizing:border-box}html,body{margin:0;padding:0}
+body{font-family:'Inter',-apple-system,system-ui,sans-serif;background:#1c1611;color:#f4eede;line-height:1.55;font-size:14px;
+     background-image:radial-gradient(at 0% 0%,#2a1d0e 0,transparent 60%)}
+.wrap{max-width:1180px;margin:0 auto;padding:32px 20px 80px}
+h1{font-family:'Cormorant Garamond',Georgia,serif;font-size:40px;font-weight:600;margin:0 0 4px;color:#e8d9b3}
+.sub{color:#a89878;margin:0 0 28px;font-size:14px}
+.tier{margin:26px 0}
+.tier h2{font-size:13px;letter-spacing:.16em;text-transform:uppercase;color:#b08a3a;margin:0 0 4px;font-weight:700}
+.tier .blurb{color:#a89878;margin:0 0 12px;font-size:12px}
+.grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(250px,1fr));gap:12px}
+.card{background:#241a10;border:1px solid #3d2e1c;border-radius:10px;padding:14px;display:flex;flex-direction:column;gap:6px}
+.card h3{font-family:'Cormorant Garamond',Georgia,serif;font-size:19px;margin:0;font-weight:600;color:#f4eede}
+.card .meta{font-size:11px;color:#8c7d5d;font-family:'JetBrains Mono',monospace}
+.links a{display:inline-block;font-size:12px;font-weight:600;margin:4px 8px 0 0;color:#e8d9b3;background:#15100a;border:1px solid #4d3a22;border-radius:6px;padding:4px 10px;text-decoration:none}
+.links a:hover{border-color:#b08a3a;color:#fff}
+.links a.pdf{background:#2a3d2a;border-color:#3a5a3a}
+.badge{align-self:flex-start;font-size:10px;font-weight:700;letter-spacing:.06em;text-transform:uppercase;padding:3px 8px;border-radius:4px;border:1px solid}
+.b-ship{color:#22c55e;border-color:#22c55e55}
+.b-render{color:#f59e0b;border-color:#f59e0b55}
+.b-density{color:#eab308;border-color:#eab30855}
+.b-stub{color:#94a3b8;border-color:#94a3b855}
+.nolink{font-size:11px;color:#6e6453;font-style:italic}
+footer{margin-top:48px;padding-top:24px;border-top:1px solid #3d2e1c;color:#8c7d5d;font-size:12px}
+footer a{color:#b08a3a;text-decoration:none;margin-right:14px}
+.mode-btn{position:fixed;top:12px;right:12px;z-index:9999;padding:9px 16px;border:none;border-radius:999px;background:#4E8079;color:#fff;font:600 14px/1 system-ui,sans-serif;cursor:pointer;box-shadow:0 2px 8px rgba(0,0,0,.22)}
+body.kids .mode-btn{background:#B4503E}
+body.kids .mode-btn::before{content:"🧒  "}
+#kidpanel{display:none}
+body.kids #kidpanel{display:block;max-width:760px;margin:62px auto 12px;background:#fff7e8;border:2px solid #4E8079;border-radius:18px;padding:20px 24px;font:18px/1.7 system-ui,sans-serif;color:#2b2820}
+body.kids #kidpanel h3{font-family:"Fredoka","Comic Sans MS",sans-serif;color:#4E8079;margin:0 0 8px;font-size:22px}
+body.kids #kidpanel b{color:#B4503E}
+</style>
+</head><body>
+
+<div id="kidpanel"><h3>Kid mode 🧒</h3><p>This is the <b>shelf of music books</b> Brandon wrote. Each book takes one album apart song by song and explains how the music works. The <b>green books are finished</b> and you can read the whole PDF. The other colors are books still being built.</p></div>
+<div class=wrap>
+<h1>BandBooks Library</h1>
+<p class=sub>Every band book and where to read it. 9 finished (green) link to the full designed PDF. Status mirrors the <a href="/bandbooks-finish-plan" style="color:#b08a3a">10-phase finish plan</a>. Built 2026-06-25.</p>
+
+<section class=tier>
+  <h2>Finished — read the full PDF</h2>
+  <p class=blurb>Full manuscript, designed PDF rendered, 0.0% unattributed claims (reality-check passed).</p>
+  <div class=grid>
+    <article class=card><span class="badge b-ship">● shippable</span><h3>BELIEVEYOUME</h3><div class=meta>Shiner · 2,038 lines · 80p</div><div class=links><a class=pdf href="/bandbooks-library/believeyoume.pdf">Read PDF</a><a href="/believeyoume">Hub page</a><a href="/believeyoume-charts">Charts</a></div></article>
+    <article class=card><span class="badge b-ship">● shippable</span><h3>Racy</h3><div class=meta>Hooray for Earth · 2,558 lines · 107p</div><div class=links><a class=pdf href="/bandbooks-library/hoorayforearth-racy.pdf">Read PDF</a></div></article>
+    <article class=card><span class="badge b-ship">● shippable</span><h3>The Slow Rush</h3><div class=meta>Tame Impala · 2,091 lines · 165p</div><div class=links><a class=pdf href="/bandbooks-library/tameimpala-slowrush.pdf">Read PDF</a></div></article>
+    <article class=card><span class="badge b-ship">● shippable</span><h3>In Rainbows</h3><div class=meta>Radiohead · 941 lines · 56p</div><div class=links><a class=pdf href="/bandbooks-library/inrainbows.pdf">Read PDF</a></div></article>
+    <article class=card><span class="badge b-ship">● shippable</span><h3>Thirteenth Step</h3><div class=meta>A Perfect Circle · 782 lines · 61p</div><div class=links><a class=pdf href="/bandbooks-library/thirteenthstep.pdf">Read PDF</a></div></article>
+    <article class=card><span class="badge b-ship">● shippable</span><h3>Mer de Noms</h3><div class=meta>A Perfect Circle · 579 lines · 50p</div><div class=links><a class=pdf href="/bandbooks-library/merdenoms.pdf">Read PDF</a></div></article>
+    <article class=card><span class="badge b-ship">● shippable</span><h3>Siamese Dream</h3><div class=meta>Smashing Pumpkins · 543 lines · 42p</div><div class=links><a class=pdf href="/bandbooks-library/siamesedream.pdf">Read PDF</a></div></article>
+    <article class=card><span class="badge b-ship">● shippable</span><h3>Farewell</h3><div class=meta>Rush · 829 lines · 78p</div><div class=links><a class=pdf href="/bandbooks-library/rush-farewell.pdf">Read PDF</a></div></article>
+    <article class=card><span class="badge b-ship">● shippable</span><h3>Over-Nite Sensation</h3><div class=meta>Frank Zappa · 1,069 lines · 31p</div><div class=links><a class=pdf href="/bandbooks-library/zappa-overnite.pdf">Read PDF</a></div></article>
+  </div>
+</section>
+
+<section class=tier>
+  <h2>Manuscript done — needs a PDF render</h2>
+  <p class=blurb>Full text written. Fix unattributed claims where flagged, then render. No PDF link yet.</p>
+  <div class=grid>
+    <article class=card><span class="badge b-render">◐ needs render</span><h3>Failure (modal v2)</h3><div class=meta>2,595 lines · 28% unattributed — fix first</div><span class=nolink>PDF not built yet</span></article>
+    <article class=card><span class="badge b-render">◐ needs render</span><h3>Shiner (Ground...)</h3><div class=meta>1,587 lines · 10% unattributed</div><span class=nolink>PDF not built yet</span></article>
+    <article class=card><span class="badge b-render">◐ needs render</span><h3>Life and Times</h3><div class=meta>1,813 lines · 9% unattributed</div><span class=nolink>PDF not built yet</span></article>
+  </div>
+</section>
+
+<section class=tier>
+  <h2>Has content — density gap</h2>
+  <div class=grid>
+    <article class=card><span class="badge b-density">◑ needs density</span><h3>Beach House — Book 2</h3><div class=meta>2,710 lines · 49 pages under 2-visual bar</div><span class=nolink>PDF draft only</span></article>
+  </div>
+</section>
+
+<section class=tier>
+  <h2>Lyric-only stubs — need a real manuscript</h2>
+  <p class=blurb>Lyric folders plus thin analysis (~700 lines). Full manuscript generation from stems is the next lift.</p>
+  <div class=grid>
+    <article class=card><span class="badge b-stub">○ stub</span><h3>True Loves</h3><div class=meta>Hooray for Earth · 706 lines</div><span class=nolink>not yet</span></article>
+    <article class=card><span class="badge b-stub">○ stub</span><h3>RHCP</h3><div class=meta>708 lines</div><span class=nolink>not yet</span></article>
+    <article class=card><span class="badge b-stub">○ stub</span><h3>A Moon Shaped Pool</h3><div class=meta>Radiohead · 775 lines</div><span class=nolink>not yet</span></article>
+    <article class=card><span class="badge b-stub">○ stub</span><h3>Dummy</h3><div class=meta>Portishead · 764 lines</div><span class=nolink>not yet</span></article>
+    <article class=card><span class="badge b-stub">○ stub</span><h3>Beach House (Book 1)</h3><div class=meta>698 lines</div><span class=nolink>not yet</span></article>
+    <article class=card><span class="badge b-stub">○ stub</span><h3>Seventh Tree</h3><div class=meta>Goldfrapp · 708 lines</div><span class=nolink>not yet</span></article>
+    <article class=card><span class="badge b-stub">○ stub</span><h3>Mare Vitalis</h3><div class=meta>Appleseed Cast · 707 lines</div><span class=nolink>not yet</span></article>
+    <article class=card><span class="badge b-stub">○ stub</span><h3>Toe (primer)</h3><div class=meta>680 lines</div><span class=nolink>not yet</span></article>
+    <article class=card><span class="badge b-stub">○ stub</span><h3>Laurel Canyon Vol 1</h3><div class=meta>92 lines — stub only</div><span class=nolink>not yet</span></article>
+  </div>
+</section>
+
+<footer>
+  22 books · 9 finished and linked · 3 a render away · 1 density gap · 9 lyric stubs.
+  <br><br>
+  Sister dashboards:
+  <a href="/bandbooks-finish-plan">finish plan</a>
+  <a href="/believeyoume">believeyoume hub</a>
+  <a href="/bandbook-charts">bandbook charts</a>
+  <a href="/">all dashboards</a>
+</footer>
+</div>
+
+</body></html>

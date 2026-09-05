@@ -1,0 +1,696 @@
+<!doctype html>
+<html lang="en"><head><meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Salubrious Snail&#x27;s Principles Applied to Marvel Commander</title>
+<meta name="description" content="Salubrious Snail&#x27;s 2025 MTG Commander deckbuilding principles applied to the four Marvel Super Heroes Commander precons, with the real cards to cut and add for each deck.">
+<meta name="keywords" content="MTG Commander deckbuilding, EDH deck upgrades, Salubrious Snail, Marvel Super Heroes Commander, Doctor Doom Commander deck, Fantastic Four EDH, Avengers Commander precon, Wakanda Forever deck, Captain America Team Leader, Mister Fantastic EDH, T&#x27;Challa Black Panther Commander, commander precon upgrades, cards to cut and add, deckbuilding principles, mana base consistency, reducing dead draws, synergy deckbuilding, casual Commander, counterweight commander, MTG precon rankings">
+<meta property="og:title" content="Salubrious Snail&#x27;s Principles Applied to Marvel Commander">
+<meta property="og:description" content="Salubrious Snail&#x27;s 2025 MTG Commander deckbuilding principles applied to the four Marvel Super Heroes Commander precons, with the real cards to cut and add for each deck.">
+<style>
+  :root{--cream:#f4ecd8;--ink:#1c1a17;--rust:#b5533b;--teal:#3f7c78;--gold:#c98a2b;--olive:#7d7a3a;--line:#d9cdb0;}
+  *{box-sizing:border-box}
+  body{margin:0;background:var(--cream);color:var(--ink);font-family:'Inter',system-ui,-apple-system,Segoe UI,Roboto,sans-serif;line-height:1.55}
+  header{padding:44px 24px 12px;max-width:900px;margin:0 auto;text-align:center}
+  h1{font-family:'Cormorant Garamond',Georgia,serif;font-size:2.7rem;margin:.2em 0;color:var(--ink)}
+  .sub{color:var(--olive);font-weight:600}
+  .intro{max-width:800px;margin:14px auto 0;padding:14px 18px;background:#efe4c8;border:1px solid var(--line);border-radius:10px;font-size:.96rem}
+  .back{display:inline-block;margin:12px auto 0;color:var(--teal);font-weight:700;text-decoration:none}
+  main{max-width:900px;margin:0 auto;padding:16px 20px 90px;display:grid;gap:18px}
+  .deck{background:#fbf5e6;border:1px solid var(--line);border-radius:14px;padding:22px 24px}
+  .marvelsketch{border-left:4px solid var(--gold)}
+  .deck h2{font-family:'Cormorant Garamond',serif;font-size:1.85rem;margin:0 0 4px;color:var(--rust)}
+  .meta{display:flex;flex-wrap:wrap;gap:10px;align-items:center;margin:2px 0 12px;font-size:.86rem;color:var(--olive)}
+  .cmd{font-weight:700;color:var(--teal)}
+  .pip{display:inline-block;width:16px;height:16px;border-radius:50%;border:1px solid rgba(0,0,0,.25);font-size:.62rem;font-weight:800;text-align:center;line-height:15px}
+  .src a{color:var(--olive);font-weight:600}
+  .principle{background:#efe4c8;border-left:4px solid var(--gold);padding:10px 14px;border-radius:6px;margin:0 0 12px;font-weight:600}
+  .deck p{margin:0 0 10px}
+  .proves{margin:12px 0 0;padding-top:10px;border-top:1px solid var(--line);font-style:italic;color:var(--rust);font-weight:600}
+  .grouphead{max-width:900px;margin:26px auto 2px;padding:0 20px}
+  .grouphead h2{font-family:'Cormorant Garamond',serif;font-size:2rem;color:var(--teal);margin:0 0 2px}
+  .grouphead p{margin:0;color:var(--olive);font-size:.92rem}
+  .deckhead{display:flex;gap:18px;align-items:flex-start;margin:0 0 10px}
+  .deckhead-body{flex:1;min-width:0}
+  .cmdimg{width:150px;max-width:32vw;border-radius:9px;box-shadow:0 3px 10px rgba(0,0,0,.22);flex:none}
+  .swap{display:flex;gap:14px;align-items:flex-start;margin:10px 0;padding:11px 13px;background:#f2ead6;border-radius:10px;font-size:.92rem}
+  .swapcards{display:flex;gap:6px;align-items:center;flex:none}
+  .swapimg{width:66px;border-radius:5px;box-shadow:0 2px 6px rgba(0,0,0,.18)}
+  .swapimg.out{filter:grayscale(.5) opacity(.85)}
+  .swap .arrow{color:var(--teal);font-weight:800}
+  .swaptxt b{color:var(--rust)}
+  .swaphdr{margin:0 0 6px;line-height:1.5}
+  .swaphdr .cut,.swaphdr .add{font-weight:800;font-size:.64rem;text-transform:uppercase;letter-spacing:.05em;padding:2px 6px;border-radius:5px;margin-right:5px}
+  .swaphdr .cut{background:#f0d6cd;color:#9c3f2b}
+  .swaphdr .add{background:#d8e6df;color:#2f6b60;margin-left:7px}
+  .swapline{font-size:.9rem;margin:4px 0}
+  .swapline .lbl{display:inline-block;min-width:84px;font-weight:800;color:var(--olive);font-size:.66rem;text-transform:uppercase;letter-spacing:.04em}
+  .fit{display:inline-block;font-size:.62rem;font-weight:800;text-transform:uppercase;letter-spacing:.04em;padding:2px 8px;border-radius:10px;margin-left:5px;vertical-align:middle}
+  .fit-strong{background:#d7e8d0;color:#2f6b3a;border:1px solid #a9c99b}
+  .fit-partial{background:#f0e2c2;color:#8a6a1e;border:1px solid #d8c48c}
+  .fit-general{background:#e6ddcf;color:#6a5f4a;border:1px solid #cbbfa8}
+  .fitscore{background:#efe4c8;border:1px solid var(--line);border-radius:8px;padding:9px 13px;margin:0 0 13px;font-size:.9rem}
+  .fitscore b{color:var(--rust)}
+  .fitscore .num{font-family:'Cormorant Garamond',serif;font-size:1.18rem;font-weight:700;color:var(--rust)}
+  .toc{max-width:900px;margin:8px auto 0;padding:8px 20px 0;text-align:center;font-size:.9rem;border-top:1px solid var(--line)}
+  .toc .lead{color:var(--olive);font-weight:700;margin-right:5px}
+  .toc a{color:var(--teal);font-weight:700;text-decoration:none;margin:0 5px}
+  @media(max-width:640px){.deckhead{flex-direction:column}.cmdimg{width:130px;max-width:46vw}.swap{flex-direction:column;align-items:flex-start}}
+  .applied{font-size:.8rem;color:var(--olive);font-weight:700;text-transform:uppercase;letter-spacing:.04em;margin:0 0 6px}
+  .edhrec{margin:10px 0 0;padding:8px 12px;background:#e7efe0;border:1px solid var(--line);border-radius:8px;font-size:.85rem}
+  .edhrec a{color:var(--teal);font-weight:700}
+  .fullart{margin:12px 0 0}
+  .fullart a{display:inline-block;background:var(--rust);color:#fff;font-weight:800;font-size:.9rem;padding:9px 16px;border-radius:22px;text-decoration:none}
+  .seo{max-width:900px;margin:10px auto 0;padding:18px 22px 30px;border-top:2px solid var(--line);color:#5b5638}
+  .seo h2{font-family:'Cormorant Garamond',serif;font-size:1.5rem;color:var(--olive);margin:0 0 8px}
+  .seo .kw{display:flex;flex-wrap:wrap;gap:6px;margin:8px 0}
+  .seo .kw span{background:#efe4c8;border:1px solid var(--line);border-radius:14px;padding:3px 10px;font-size:.78rem;font-weight:600}
+  .seo p{font-size:.86rem;line-height:1.6}
+.kid-only{display:none}
+#kidfab{position:fixed;right:18px;bottom:18px;z-index:50;background:#b5533b;color:#fff;border:none;border-radius:40px;padding:14px 21px;font-size:1rem;font-weight:800;box-shadow:0 4px 14px rgba(0,0,0,.25);cursor:pointer}
+body.kid{font-size:1.08rem}
+body.kid .kid-only{display:block}
+</style></head>
+<body>
+<header>
+  <h1>Salubrious Snail&#x27;s Principles Applied to Marvel Commander</h1>
+  <div class="sub">An applied-theory reading of his published deckbuilding principles across the four Marvel Commander precons</div>
+  <div class="sub kid-only">This page borrows tips from a Magic player named Salubrious Snail and uses them to make the four Marvel decks better. Each card shows one deck, one tip, and the cards to swap. Click a deck to read its full breakdown.</div>
+  <div class="intro">It takes the 2025 deckbuilding videos and turns each principle into a build sketch, grounded in the exact concept and the cards that video discusses. These are editorial applications of Salubrious Snail&#x27;s published principles, focused on the key choices rather than a full ninety-nine. Radha and Malfegor are his own cited examples; the rest are original. The full set of 2025 principles.</div>
+  <div class="back"><a href="/salubrioussnail-points/#v-how-to-use-edhrec-to-improve-commander-decks">10 points per video</a> &middot; <a href="/salubrioussnail-2026-principles/">2026 principles</a> &middot; <a href="/marvel-commander-rankings/#decks">Marvel rankings</a></div>
+  <nav class="toc"><span class="lead">The four precons:</span><a href="#snaildeck-doom">Doom</a>&middot;<a href="#snaildeck-ff">Fantastic Four</a>&middot;<a href="#snaildeck-avengers">Avengers</a>&middot;<a href="#snaildeck-wakanda">Wakanda</a><span class="lead" style="margin:0 7px">|</span><a href="#sketches">Principle build-sketch library</a></nav>
+</header>
+<div class="grouphead" id="marvelfour"><h2>The four Marvel precons, deck by deck</h2><p>Each precon is matched to one published Salubrious Snail principle, carries a principle-fit score, and lists the real cuts and adds read through that idea. Every swap is labeled Cut, Add, its mechanical reason, and its principle connection, so the card facts stay separate from the editorial read. All card text is verified against Scryfall.</p></div>
+<main>
+<article class="deck marveldeck" id="snaildeck-doom">
+  <div class="deckhead">
+    <img class="cmdimg" src="https://cards.scryfall.io/normal/front/0/9/099ed408-9178-4403-8b2d-479ca3cbda9b.jpg?1782682664" alt="Doctor Doom, King of Latveria" title="Doctor Doom, King of Latveria">
+    <div class="deckhead-body">
+      <h2>Doom Prevails</h2>
+      <div class="applied">Snail principle applied: Reducing Dead Draws Through Synergy</div>
+      <div class="meta"><span class="cmd">Commander: Doctor Doom, King of Latveria (build around Loki, the Deceiver)</span><span class="pip" style="background:#cfe0f2;color:#2a5b8a">U</span><span class="pip" style="background:#d9d2cc;color:#4a4038">B</span><span class="pip" style="background:#f2d0c8;color:#a5432f">R</span>
+        <span class="src"><a href="/marvel-commander-rankings/#decks">deck on the Marvel rankings</a> &middot; <a href="/salubrioussnail-points/#v-reducing-dead-draws-through-synergy-in-deckbuilding">Snail's 10 points per video</a></span></div>
+    </div>
+  </div>
+  <div class="fitscore"><span class="num">Principle fit 8.5 / 10</span> &middot; <b>Strong.</b> The discard and copy engines make the dead-draw category audit literal, so every cut is a card outside both engines.</div>
+  <p>Snail&#x27;s dead-draw video says a card goes dead when the deck lacks the pieces that make it work, so you audit by category and cut anything the engine does not feed. The Doom precon is a clean test case. Its two engines are land discard from Doctor Doom and non-legendary Villain copies from Loki, and the upgrade path is almost entirely about replacing cards outside both engines.</p>
+  <div class="swap"><div class="swapcards"><img class="swapimg out" src="https://cards.scryfall.io/normal/front/b/b/bb759a0b-df7b-43c8-8e8e-bd52535cdbc0.jpg?1782682526" alt="Superior Foes of Spider-Man" title="Superior Foes of Spider-Man" loading="lazy"><span class="arrow">&rarr;</span><img class="swapimg in" src="https://cards.scryfall.io/normal/front/2/1/218ef931-46f5-4a4d-9f26-898a1ff8f70f.jpg?1782684816" alt="Green Goblin, Revenant" title="Green Goblin, Revenant" loading="lazy"></div><div class="swaptxt"><div class="swaphdr"><span class="cut">Cut</span><b>Superior Foes of Spider-Man</b><span class="add">Add</span><b>Green Goblin, Revenant</b><span class="fit fit-strong">Strong fit</span></div><div class="swapline"><span class="lbl">Mechanical</span> A low-payoff card with no home in either engine leaves for a 3/3 flying deathtouch Villain.</div><div class="swapline"><span class="lbl">Principle</span> Green Goblin discards a card on every attack, a repeatable outlet for Doom's land-discard drain, and it is a strong Villain for Loki to copy, so it belongs to both of the deck's engines.</div></div></div>
+  <div class="swap"><div class="swapcards"><img class="swapimg out" src="https://cards.scryfall.io/normal/front/e/e/ee64d0dd-e3d8-4abc-b9d6-b19c505fbfa1.jpg?1782682662" alt="Molecule Man" title="Molecule Man" loading="lazy"><span class="arrow">&rarr;</span><img class="swapimg in" src="https://cards.scryfall.io/normal/front/f/4/f4f16314-d2eb-4117-8b28-4404c82e7343.jpg?1782682101" alt="Kingpin, Wilson Fisk" title="Kingpin, Wilson Fisk" loading="lazy"></div><div class="swaptxt"><div class="swaphdr"><span class="cut">Cut</span><b>Molecule Man</b><span class="add">Add</span><b>Kingpin, Wilson Fisk</b><span class="fit fit-strong">Strong fit</span></div><div class="swapline"><span class="lbl">Mechanical</span> A vanilla five-drop does nothing in either category. Kingpin turns creatures you sacrifice, including Loki's copies, into two Treasures.</div><div class="swapline"><span class="lbl">Principle</span> A slot that was dead now joins the copy loop, which is the dead-draw audit doing its job.</div></div></div>
+  <div class="swap"><div class="swapcards"><img class="swapimg out" src="https://cards.scryfall.io/normal/front/8/9/89936964-7131-4ebf-b956-9692659866c1.jpg?1782682634" alt="Damocles Base, Sword of Kang" title="Damocles Base, Sword of Kang" loading="lazy"><span class="arrow">&rarr;</span><img class="swapimg in" src="https://cards.scryfall.io/normal/front/3/6/36d3da9c-cb7a-4cea-b6e6-6722bd16c73c.jpg?1782714851" alt="Sundial of the Infinite" title="Sundial of the Infinite" loading="lazy"></div><div class="swaptxt"><div class="swaphdr"><span class="cut">Cut</span><b>Damocles Base, Sword of Kang</b><span class="add">Add</span><b>Sundial of the Infinite</b><span class="fit fit-strong">Strong fit</span></div><div class="swapline"><span class="lbl">Mechanical</span> An off-theme vehicle leaves for a piece that lets Loki's attacking copies survive past end of turn.</div><div class="swapline"><span class="lbl">Principle</span> Sundial protects the token engine, so the slot pulls real weight.</div></div></div>
+  <p>Taken as a group, the swaps are the video&#x27;s category audit in action. Nothing generically weak comes out. What comes out is whatever the discard and copy engines cannot use. This is the cleanest fit of the four for this audit.</p>
+  <p class="fullart">Full worked deck techs: <a href="/doom-prevails-deck-tech/">Doom, card by card</a> &middot; <a href="/loki-deceiver-deck-tech/">Loki, the copy engine</a> &middot; <a href="/kang-temporal-tyrant-deck-tech/">Kang, the second-draw machine</a> &rarr;</p>
+  <div class="edhrec">Community decks on EDHREC: <a href="https://edhrec.com/commanders/doctor-doom-king-of-latveria" target="_blank" rel="noopener">Doctor Doom, King of Latveria</a> &middot; <a href="https://edhrec.com/commanders/loki-the-deceiver" target="_blank" rel="noopener">Loki, the Deceiver</a></div>
+</article>
+<article class="deck marveldeck" id="snaildeck-ff">
+  <div class="deckhead">
+    <img class="cmdimg" src="https://cards.scryfall.io/normal/front/f/1/f1d80509-ece1-4b6d-bfe5-c6d003f581cf.jpg?1782682668" alt="Mister Fantastic" title="Mister Fantastic">
+    <div class="deckhead-body">
+      <h2>The Fantastic Four</h2>
+      <div class="applied">Snail principle applied: Mana Fixing and Color Consistency</div>
+      <div class="meta"><span class="cmd">Commander: Mister Fantastic</span><span class="pip" style="background:#f7f3d8;color:#8a7a2a">W</span><span class="pip" style="background:#cfe0f2;color:#2a5b8a">U</span><span class="pip" style="background:#f2d0c8;color:#a5432f">R</span><span class="pip" style="background:#cfe6cf;color:#2f7a44">G</span>
+        <span class="src"><a href="/marvel-commander-rankings/#decks">deck on the Marvel rankings</a> &middot; <a href="/salubrioussnail-points/#v-how-to-determine-your-edh-deck-s-land-count">Snail's 10 points per video</a></span></div>
+    </div>
+  </div>
+  <div class="fitscore"><span class="num">Principle fit 6.5 / 10</span> &middot; <b>Partial.</b> Two swaps add real color fixing. The third works the draw-and-mana-sink side of Snail&#x27;s whole-mana-base method, so it supports consistency without adding a color source.</div>
+  <p>Snail&#x27;s mana video treats consistency as a whole-mana-base question, curve, fixing, draw access, mana sinks, and testing together. The Fantastic Four deck runs four colors with a high ceiling and awkward sequencing, so the swaps target its biggest tax, color access, and the way it turns mana into cards.</p>
+  <div class="swap"><div class="swapcards"><img class="swapimg out" src="https://cards.scryfall.io/normal/front/2/0/2021033b-ccad-4cb0-9528-357a3c726008.jpg?1782682583" alt="Willie Lumpkin, Postman" title="Willie Lumpkin, Postman" loading="lazy"><span class="arrow">&rarr;</span><img class="swapimg in" src="https://cards.scryfall.io/normal/front/3/e/3ed13229-bbbb-41a7-933e-8975a6b64226.jpg?1782682488" alt="Talisman of Creativity" title="Talisman of Creativity" loading="lazy"></div><div class="swaptxt"><div class="swaphdr"><span class="cut">Cut</span><b>Willie Lumpkin, Postman</b><span class="add">Add</span><b>Talisman of Creativity</b><span class="fit fit-strong">Strong fit</span></div><div class="swapline"><span class="lbl">Mechanical</span> Flavor filler leaves for a two-mana rock that taps for blue or red, two of the deck's four colors.</div><div class="swapline"><span class="lbl">Principle</span> A fixing rock on curve does more for a greedy four-color hand than the flavor legend, so it is a direct color-consistency add.</div></div></div>
+  <div class="swap"><div class="swapcards"><img class="swapimg out" src="https://cards.scryfall.io/normal/front/e/5/e516bc14-749c-4da6-b5d3-cb5c16316e0c.jpg?1782682495" alt="Mirage Mirror" title="Mirage Mirror" loading="lazy"><span class="arrow">&rarr;</span><img class="swapimg in" src="https://cards.scryfall.io/normal/front/a/3/a365885c-f7d9-4ea1-9125-5265055e5570.jpg?1782682488" alt="Talisman of Conviction" title="Talisman of Conviction" loading="lazy"></div><div class="swaptxt"><div class="swaphdr"><span class="cut">Cut</span><b>Mirage Mirror</b><span class="add">Add</span><b>Talisman of Conviction</b><span class="fit fit-strong">Strong fit</span></div><div class="swapline"><span class="lbl">Mechanical</span> A slow toolbox leaves for a second fixing rock, this one tapping for red or white.</div><div class="swapline"><span class="lbl">Principle</span> Two Talismans smooth the exact turns a four-color deck wants to break open, which is color access where the deck feels it most.</div></div></div>
+  <div class="swap"><div class="swapcards"><img class="swapimg out" src="https://cards.scryfall.io/normal/front/9/c/9c1763b6-c83b-4a76-af58-64c0a6418326.jpg?1782682531" alt="Into the Time Vortex" title="Into the Time Vortex" loading="lazy"><span class="arrow">&rarr;</span><img class="swapimg in" src="https://cards.scryfall.io/normal/front/4/1/41533f78-4a4e-424a-9612-a8bdb2a14b4b.jpg?1782682635" alt="West Coast Expansion" title="West Coast Expansion" loading="lazy"></div><div class="swaptxt"><div class="swaphdr"><span class="cut">Cut</span><b>Into the Time Vortex</b><span class="add">Add</span><b>West Coast Expansion</b><span class="fit fit-partial">Partial fit</span></div><div class="swapline"><span class="lbl">Mechanical</span> Into the Time Vortex is a five-mana cascade and rebound sorcery that casts random free spells and does nothing for color access. West Coast Expansion is an X-cost sorcery that draws X cards, with a free Hero spell when X reaches five.</div><div class="swapline"><span class="lbl">Principle</span> This is the draw-access and mana-sink leg of Snail's whole-mana-base method. It turns surplus mana into cards without adding a color source, so it earns a partial fit for consistency.</div></div></div>
+  <p>The core fix is color access, the first thing a four-color deck feels when its mana stumbles, and the two Talismans do that job. The West Coast Expansion add works the other side of Snail's mana checklist, turning a flooded hand into cards.</p>
+  
+  <p class="fullart"><a href="/mister-fantastic-deck-tech/">Read the full worked deck tech, card by card &rarr;</a></p>
+  <div class="edhrec">Community decks on EDHREC: <a href="https://edhrec.com/commanders/mister-fantastic" target="_blank" rel="noopener">Mister Fantastic</a></div>
+</article>
+<article class="deck marveldeck" id="snaildeck-avengers">
+  <div class="deckhead">
+    <img class="cmdimg" src="https://cards.scryfall.io/normal/front/6/1/61a51b67-d941-4e07-9c12-ffe583cb65d4.jpg?1782682664" alt="Captain America, Team Leader" title="Captain America, Team Leader">
+    <div class="deckhead-body">
+      <h2>Avengers Assemble</h2>
+      <div class="applied">Snail principle applied: The Case for Simpler Decks</div>
+      <div class="meta"><span class="cmd">Commander: Captain America, Team Leader</span><span class="pip" style="background:#cfe0f2;color:#2a5b8a">U</span><span class="pip" style="background:#f2d0c8;color:#a5432f">R</span><span class="pip" style="background:#f7f3d8;color:#8a7a2a">W</span>
+        <span class="src"><a href="/marvel-commander-rankings/#decks">deck on the Marvel rankings</a> &middot; <a href="/salubrioussnail-points/#v-the-case-for-simpler-decks-in-commander">Snail's 10 points per video</a></span></div>
+    </div>
+  </div>
+  <div class="fitscore"><span class="num">Principle fit 6.5 / 10</span> &middot; <b>Partial.</b> These are real on-theme upgrades, and one of them clearly lowers the table&#x27;s ongoing tracking. The other two read as cohesion picks more than pure simplicity.</div>
+  <p>Snail&#x27;s simpler-decks video is about information load, how many unfamiliar cards and triggers a table has to track, and how that shuts newer players out of a pickup game. Avengers is the set&#x27;s clean go-wide counters deck, the one a newer pilot can follow. Read through that lens, the best upgrades keep the board readable and make it more consistent.</p>
+  <div class="swap"><div class="swapcards"><img class="swapimg out" src="https://cards.scryfall.io/normal/front/3/f/3f2e65ff-27ae-4dfc-bf17-66f0c4949699.jpg?1782682595" alt="Love on the Battlefield" title="Love on the Battlefield" loading="lazy"><span class="arrow">&rarr;</span><img class="swapimg in" src="https://cards.scryfall.io/normal/front/d/1/d1031ce5-063f-4c38-a6a9-abc15d254dfc.jpg?1782686048" alt="Champions from Beyond" title="Champions from Beyond" loading="lazy"></div><div class="swaptxt"><div class="swaphdr"><span class="cut">Cut</span><b>Love on the Battlefield</b><span class="add">Add</span><b>Champions from Beyond</b><span class="fit fit-general">General upgrade</span></div><div class="swapline"><span class="lbl">Mechanical</span> Love on the Battlefield triggers only when you attack with exactly two creatures. Champions from Beyond enters making X Hero tokens and carries two attack thresholds, Light Party at four attackers and Full Party at eight.</div><div class="swapline"><span class="lbl">Principle</span> Every Hero token that enters triggers Captain America to add counters, so the plan reads clearly on the board. The card itself adds two thresholds to track, so it does not lower information load the way the simpler-decks idea asks.</div></div></div>
+  <div class="swap"><div class="swapcards"><img class="swapimg out" src="https://cards.scryfall.io/normal/front/8/b/8b385779-bc6b-4f67-8724-d8ae136d1436.jpg?1782682661" alt="Avenge" title="Avenge" loading="lazy"><span class="arrow">&rarr;</span><img class="swapimg in" src="https://cards.scryfall.io/normal/front/5/b/5be40c34-6df0-4471-b99b-850ae2be9923.jpg?1782701948" alt="Damning Verdict" title="Damning Verdict" loading="lazy"></div><div class="swaptxt"><div class="swaphdr"><span class="cut">Cut</span><b>Avenge</b><span class="add">Add</span><b>Damning Verdict</b><span class="fit fit-partial">Partial fit</span></div><div class="swapline"><span class="lbl">Mechanical</span> Avenge is a symmetric wipe with a cost reduction and a lifegain count. Damning Verdict destroys only creatures with no counters on them, so it spares a counters team.</div><div class="swapline"><span class="lbl">Principle</span> The one-sided wipe clears the table and leaves your board standing, a clean fit for the counters plan. It still asks opponents to read which creatures carry counters, so partial fit.</div></div></div>
+  <div class="swap"><div class="swapcards"><img class="swapimg out" src="https://cards.scryfall.io/normal/front/4/a/4ae22015-073a-4666-9e3b-15dcf61f50ce.jpg?1782682554" alt="Gift of Immortality" title="Gift of Immortality" loading="lazy"><span class="arrow">&rarr;</span><img class="swapimg in" src="https://cards.scryfall.io/normal/front/8/f/8fb141d9-addd-47ad-bfc1-b5b376d4c950.jpg?1782723694" alt="Wave Goodbye" title="Wave Goodbye" loading="lazy"></div><div class="swaptxt"><div class="swaphdr"><span class="cut">Cut</span><b>Gift of Immortality</b><span class="add">Add</span><b>Wave Goodbye</b><span class="fit fit-strong">Strong fit</span></div><div class="swapline"><span class="lbl">Mechanical</span> Gift of Immortality is a recurring aura loop, the creature dies, returns, then the aura reattaches at the next end step. Wave Goodbye is a one-shot bounce that returns every creature without a +1/+1 counter.</div><div class="swapline"><span class="lbl">Principle</span> Trading a persistent multi-turn loop for a one-shot effect is the cleanest cut to the deck's ongoing information load, which is the simpler-decks principle exactly.</div></div></div>
+  <p>The Gift of Immortality swap is the clearest cut to information load. The other two are on-theme cohesion picks that keep Captain America's plan easy to read, even where the new card carries more text. The deck grows stronger and stays legible enough for a newer pilot.</p>
+  
+  <p class="fullart"><a href="/captain-america-team-leader-deck-tech/">Read the full worked deck tech, card by card &rarr;</a></p>
+  <div class="edhrec">Community decks on EDHREC: <a href="https://edhrec.com/commanders/captain-america-team-leader" target="_blank" rel="noopener">Captain America, Team Leader</a></div>
+</article>
+<article class="deck marveldeck" id="snaildeck-wakanda">
+  <div class="deckhead">
+    <img class="cmdimg" src="https://cards.scryfall.io/normal/front/c/1/c1c8ad61-b7e1-446c-8b74-6e29371ea1d5.jpg?1782682663" alt="T&#x27;Challa, the Black Panther" title="T&#x27;Challa, the Black Panther">
+    <div class="deckhead-body">
+      <h2>Wakanda Forever</h2>
+      <div class="applied">Snail principle applied: When Good Cards Are the Wrong Choice</div>
+      <div class="meta"><span class="cmd">Commander: T&#x27;Challa, the Black Panther</span><span class="pip" style="background:#cfe6cf;color:#2f7a44">G</span><span class="pip" style="background:#f7f3d8;color:#8a7a2a">W</span>
+        <span class="src"><a href="/marvel-commander-rankings/#decks">deck on the Marvel rankings</a> &middot; <a href="/salubrioussnail-points/#v-when-good-cards-are-the-wrong-choice">Snail's 10 points per video</a></span></div>
+    </div>
+  </div>
+  <div class="fitscore"><span class="num">Principle fit 6.0 / 10</span> &middot; <b>Partial.</b> Coveted Jewel is a textbook &ldquo;good card, wrong choice.&rdquo; The other two are ordinary efficiency and power picks with only a loose tie to the principle.</div>
+  <p>Snail&#x27;s video says raw power is not the only test for a card, and his sharpest cases are powerful cards that remove an enjoyable decision or bypass the deck&#x27;s preferred way of building resources. The Wakanda upgrades run on that same judgment, cutting powerful cards that fight the Vibranium and counters plan or cost the pilot at the table.</p>
+  <div class="swap"><div class="swapcards"><img class="swapimg out" src="https://cards.scryfall.io/normal/front/0/6/06a7ad3b-87d4-47f0-9450-facac00dfe97.jpg?1782682502" alt="Coveted Jewel" title="Coveted Jewel" loading="lazy"><span class="arrow">&rarr;</span><img class="swapimg in" src="https://cards.scryfall.io/normal/front/b/7/b7f16fdf-a3f5-462d-a64a-789d893b6ef5.jpg?1782743884" alt="Batterskull" title="Batterskull" loading="lazy"></div><div class="swaptxt"><div class="swaphdr"><span class="cut">Cut</span><b>Coveted Jewel</b><span class="add">Add</span><b>Batterskull</b><span class="fit fit-strong">Strong fit</span></div><div class="swapline"><span class="lbl">Mechanical</span> Coveted Jewel draws three on entry and taps for three mana, then hands itself, plus three more cards, to any opponent who attacks you unblocked. Batterskull is a resilient lifelink threat that can bounce back to hand.</div><div class="swapline"><span class="lbl">Principle</span> Coveted Jewel is powerful by raw rate and a table liability, since it gives an opponent your cards and a reason to swing at you. The real cost is off its stat line, the exact good-card-wrong-choice case.</div></div></div>
+  <div class="swap"><div class="swapcards"><img class="swapimg out" src="https://cards.scryfall.io/normal/front/2/8/28e619e6-ecc1-49c3-8fa9-ce42becdb9ba.jpg?1782682501" alt="Gilded Lotus" title="Gilded Lotus" loading="lazy"><span class="arrow">&rarr;</span><img class="swapimg in" src="https://cards.scryfall.io/normal/front/1/b/1bd3fa8a-6c50-4f7f-9ae3-0810eec5e3db.jpg?1782697238" alt="Reprieve" title="Reprieve" loading="lazy"></div><div class="swaptxt"><div class="swaphdr"><span class="cut">Cut</span><b>Gilded Lotus</b><span class="add">Add</span><b>Reprieve</b><span class="fit fit-general">General upgrade</span></div><div class="swapline"><span class="lbl">Mechanical</span> A five-mana rock leaves for a two-mana protection spell.</div><div class="swapline"><span class="lbl">Principle</span> This is a clean efficiency upgrade that guards the plan. It reads closer to the good-card-wrong-choice idea than a case of it, so general upgrade.</div></div></div>
+  <div class="swap"><div class="swapcards"><img class="swapimg out" src="https://cards.scryfall.io/normal/front/6/4/64401acc-d080-4763-b67a-95164c11c69e.jpg?1782733024" alt="Sword of the Animist" title="Sword of the Animist" loading="lazy"><span class="arrow">&rarr;</span><img class="swapimg in" src="https://cards.scryfall.io/normal/front/3/f/3f3eb5d0-7a99-4f66-b0b8-a0d8acc3bc9e.jpg?1782703359" alt="Verdurous Gearhulk" title="Verdurous Gearhulk" loading="lazy"></div><div class="swaptxt"><div class="swaphdr"><span class="cut">Cut</span><b>Sword of the Animist</b><span class="add">Add</span><b>Verdurous Gearhulk</b><span class="fit fit-partial">Partial fit</span></div><div class="swapline"><span class="lbl">Mechanical</span> Slow ramp equipment leaves for a 4/4 trample artifact creature that enters distributing four +1/+1 counters among your creatures.</div><div class="swapline"><span class="lbl">Principle</span> It pushes the counters plan twice, four counters on entry plus two on T'Challa when you cast it, since it is an artifact spell at mana value five and Vibranium mana helps pay for it. That is a power and cohesion add more than a wrong-choice example, so partial fit.</div></div></div>
+  <p>Coveted Jewel is the headline call, a strong card whose real cost is the target it paints on you. The other two tighten the deck around its Vibranium and counters plan, which is where a T&#x27;Challa build wants its slots.</p>
+  
+  <p class="fullart"><a href="/tchalla-black-panther-deck-tech/">Read the full worked deck tech, card by card &rarr;</a></p>
+  <div class="edhrec">Community decks on EDHREC: <a href="https://edhrec.com/commanders/tchalla-the-black-panther" target="_blank" rel="noopener">T&#x27;Challa, the Black Panther</a></div>
+</article>
+</main>
+<main>
+<div class="grouphead" id="sketches"><h2>Principle build-sketch library</h2><p>A separate reference below the four precons. Each of Snail&#x27;s 2025 videos is one short build sketch. Where a real Marvel Super Heroes Commander teaches the principle, the sketch is built on that commander and cites its verified Scryfall text. Radha, Malfegor, and the other named legends are Snail&#x27;s own cited examples. A few social and meta principles stay commander-agnostic, so they use an archetype label.</p></div>
+<article class="deck">
+  <div class="deckhead">
+    <img class="cmdimg" src="https://cards.scryfall.io/normal/front/e/c/ecb7c19a-b4af-405d-b016-a546ed12a99d.jpg?1782735192" alt="Radha, Heir to Keld" title="Radha, Heir to Keld">
+    <div class="deckhead-body">
+      <h2>The Counterweight Build: Radha Big-Mana Gruul</h2>
+      <div class="applied">Snail&#x27;s own cited example</div>
+      <div class="meta"><span class="cmd">Commander: Radha, Heir to Keld</span><span class="pip" style="background:#f2d0c8;color:#a5432f">R</span><span class="pip" style="background:#cfe6cf;color:#2f7a44">G</span>
+        <span class="src">principle from &ldquo;The Counterweight Commander Deckbuilding Method&rdquo; &middot; <a href="/salubrioussnail-points/#v-the-counterweight-commander-deckbuilding-method">Snail's 10 points per video</a> &middot; <a href="/marvel-commander-rankings/#decks">Marvel rankings</a></span></div>
+    </div>
+  </div>
+  <div class="principle">Pick a commander that supplies the exact resource the deck is short on, instead of one that repeats a theme the 99 already handles.</div>
+  <p>Start with a Gruul deck built to attack. The counterweight idea from the video is to let the command zone supply what the 99 lacks. Radha, Heir to Keld is the cited example: she has first strike and adds one red and one green mana each time she attacks, a burst of mana on the turns you are already swinging.</p>
+  <p>That mana empties at the end of combat, so it is not casting your seven-drops after the fact. What it does is pay for combat tricks, activated abilities, and instants during the swing without costing you a card. The 99 still runs a real ramp package like Cultivate and Kodama&#x27;s Reach to reach the top end, so the commander adds to the plan instead of replacing the mana base.</p>
+  <p>Here is the test. Swap Radha for a generic Gruul beater and the deck loses that repeatable attack-step mana, the exact resource it was built around. That is the counterweight at work, the command zone covering a gap the deck could not fill on its own.</p>
+  <div class="edhrec">Community decks on EDHREC: <a href="https://edhrec.com/commanders/radha-heir-to-keld" target="_blank" rel="noopener">Radha, Heir to Keld</a></div>
+</article>
+<article class="deck">
+  <div class="deckhead">
+    <img class="cmdimg" src="https://cards.scryfall.io/normal/front/0/1/010a4b07-c2d5-433e-9898-6e148104e9e0.jpg?1782748392" alt="Malfegor" title="Malfegor">
+    <div class="deckhead-body">
+      <h2>Hellbent Cagefight: Malfegor Symmetrical Discard</h2>
+      <div class="applied">Snail&#x27;s own cited example</div>
+      <div class="meta"><span class="cmd">Commander: Malfegor</span><span class="pip" style="background:#d9d2cc;color:#4a4038">B</span><span class="pip" style="background:#f2d0c8;color:#a5432f">R</span>
+        <span class="src">principle from &ldquo;Discard Deck That Creates Hellbent Cagefights in EDH&rdquo; &middot; <a href="/salubrioussnail-points/#v-discard-deck-that-creates-hellbent-cagefights-in-edh">Snail's 10 points per video</a> &middot; <a href="/marvel-commander-rankings/#decks">Marvel rankings</a></span></div>
+    </div>
+  </div>
+  <div class="principle">Build every card to pull double duty so a low-resource grind favors you, and use the commander to empty your own hand into a board-thinning drain.</div>
+  <p>Malfegor comes down and you discard your own hand, then each opponent sacrifices a creature for every card you pitched. That is a brutal swing if the deck is built to operate from an empty hand, which is the whole plan here.</p>
+  <p>The table-wide hand-emptying comes from the deck itself. Malfegor only empties your own hand. Run roughly twenty discard effects and weight them toward symmetrical pieces like Bottomless Pit that strip everyone at upkeep. Support them with payoffs such as Liliana&#x27;s Caress and Waste Not, so opponents bleed value while stuck in topdeck mode. The creature base stays cheap and aggressive, and many bodies come with a second ability such as card advantage or removal, so a bare hand still applies pressure.</p>
+  <p>Resilience is the quiet engine. The deck recovers from its own opening discard faster than opponents recover from the creatures they lost, because its threats cost one and two mana. Over a long game it has more castable cards from an empty hand than the rest of the table, and that gap is where the wins come from.</p>
+  <div class="edhrec">Community decks on EDHREC: <a href="https://edhrec.com/commanders/malfegor" target="_blank" rel="noopener">Malfegor</a></div>
+</article>
+<article class="deck marvelsketch" id="sk-thing">
+  <div class="deckhead">
+    <img class="cmdimg" src="https://cards.scryfall.io/normal/front/b/a/ba5167e4-27b1-4f55-8282-7b5bd6de611a.jpg?1783903304" alt="The Thing" title="The Thing">
+    <div class="deckhead-body">
+      <h2>Land Count by Math: The Thing, High-Curve Four-Color</h2>
+      <div class="applied">Marvel build sketch, Scryfall-verified</div>
+      <div class="meta"><span class="cmd">Commander: The Thing</span><span class="pip" style="background:#cfe6cf;color:#2f7a44">G</span><span class="pip" style="background:#f2d0c8;color:#a5432f">R</span><span class="pip" style="background:#f7f3d8;color:#8a7a2a">W</span><span class="pip" style="background:#cfe0f2;color:#2a5b8a">U</span><span class="fit fit-strong">Strong fit</span>
+        <span class="src">principle from &ldquo;How to Determine Your EDH Deck&#x27;s Land Count&rdquo; &middot; <a href="/salubrioussnail-points/#v-how-to-determine-your-edh-deck-s-land-count">Snail's 10 points per video</a> &middot; <a href="/marvel-commander-rankings/#decks">Marvel rankings</a></span></div>
+    </div>
+  </div>
+  <div class="principle">Set land count from the deck&#x27;s curve, its draw, and its mana sinks, then confirm the number by playtesting.</div>
+  <p>The Thing is a six-mana 5/5 with trample. It rewards a noncreature spell each turn with four +1/+1 counters, then asks for one red, one green, one white, and one blue on the attack to double the counters across your board. That is a genuinely high curve on a four-color base, the exact deck Snail&#x27;s land-count video is built for.</p>
+  <p>So the math points high. This shell runs thirty-eight to forty lands and about ten mana sources like Cultivate, Rampant Growth, and Burnished Hart, because a curve topping out on The Thing punishes every missed land drop. The commander&#x27;s own {R}{G}{W}{U} attack answers flooding, since surplus mana doubles counters rather than going to waste.</p>
+  <p>Here is the swap-out test. Trade The Thing for a cheap green beater and the land count drops with the curve, back toward thirty-five. The commander sets the number, which is the point of counting by math instead of habit.</p>
+  <div class="edhrec">Community decks on EDHREC: <a href="https://edhrec.com/commanders/the-thing" target="_blank" rel="noopener">The Thing</a></div>
+</article>
+<article class="deck">
+  <div class="deckhead">
+    
+    <div class="deckhead-body">
+      <h2>The Deliberately Suboptimal Engine Deck</h2>
+      <div class="applied">Original editorial build</div>
+      <div class="meta"><span class="cmd">Commander: General (casual value shell)</span><span class="pip" style="background:#d9d2cc;color:#4a4038">B</span>
+        <span class="src">principle from &ldquo;When Good Cards Are the Wrong Choice&rdquo; &middot; <a href="/salubrioussnail-points/#v-when-good-cards-are-the-wrong-choice">Snail's 10 points per video</a> &middot; <a href="/marvel-commander-rankings/#decks">Marvel rankings</a></span></div>
+    </div>
+  </div>
+  <div class="principle">Leave out the card that is too efficient when it would erase the very decisions that make the deck fun to pilot.</div>
+  <p>Picture a discard-and-value deck that wants you to assemble advantage from several moving parts across a game. A single card like Waste Not or Monument to Endurance would hand you that advantage in one slot, and the deck would get stronger and duller at the same time.</p>
+  <p>This build keeps the multi-card engines. You draw and grind through pieces that only pay off once you line them up, so the interesting turns stay in the deck. The cut is intentional. You are protecting the play pattern you enjoy, and you are doing it as a deliberate choice.</p>
+  <p>The check before any include is one question. Does this card shortcut a decision I like making? If the honest answer is yes, the powerful card is the wrong card for this deck, and a slightly weaker piece that keeps the game interactive earns the slot.</p>
+  
+</article>
+<article class="deck marvelsketch" id="sk-ironman">
+  <div class="deckhead">
+    <img class="cmdimg" src="https://cards.scryfall.io/normal/front/3/2/32df31b8-21cd-4872-a775-2144074e6a73.jpg?1783903000" alt="Iron Man, Modern Marvel" title="Iron Man, Modern Marvel">
+    <div class="deckhead-body">
+      <h2>Reducing Dead Draws: Iron Man, Modern Marvel Artifacts</h2>
+      <div class="applied">Marvel build sketch, Scryfall-verified</div>
+      <div class="meta"><span class="cmd">Commander: Iron Man, Modern Marvel</span><span class="pip" style="background:#cfe0f2;color:#2a5b8a">U</span><span class="fit fit-strong">Strong fit</span>
+        <span class="src">principle from &ldquo;Reducing Dead Draws Through Synergy in Deckbuilding&rdquo; &middot; <a href="/salubrioussnail-points/#v-reducing-dead-draws-through-synergy-in-deckbuilding">Snail's 10 points per video</a> &middot; <a href="/marvel-commander-rankings/#decks">Marvel rankings</a></span></div>
+    </div>
+  </div>
+  <div class="principle">Cut dead non-land draws by giving every card enough supporting pieces that it is rarely stranded.</div>
+  <p>Iron Man reads like the principle in one card. He gives your other artifact creatures +1/+1, and he draws you a card on attack only if you control another artifact creature. Miss on artifact density and the draw trigger goes blank, a dead payoff by Snail&#x27;s exact definition.</p>
+  <p>So the build front-loads enablers. Run thirty or more cheap artifacts and artifact creatures, Servos, Thopters, Treasure makers, before you count the payoffs, then audit by role the way Snail suggests. Every card that turns on Iron Man also turns on the rest of the shell, so one density target clears several would-be dead slots at once.</p>
+  <p>Here is the swap-out test. Drop Iron Man for a generic blue flyer and the anthem and the attack draw both vanish, and the artifacts go back to loose parts. The commander is the payoff that the density was built to feed.</p>
+  <div class="edhrec">Community decks on EDHREC: <a href="https://edhrec.com/commanders/iron-man-modern-marvel" target="_blank" rel="noopener">Iron Man, Modern Marvel</a></div>
+</article>
+<article class="deck marvelsketch" id="sk-blackpanther">
+  <div class="deckhead">
+    <img class="cmdimg" src="https://cards.scryfall.io/normal/front/4/c/4cb5a5ad-35fb-4e90-bc8b-d70a9d3bfba7.jpg?1783903001" alt="Black Panther, Claws of Bast" title="Black Panther, Claws of Bast">
+    <div class="deckhead-body">
+      <h2>The Legible Pickup Deck: Black Panther, Claws of Bast</h2>
+      <div class="applied">Marvel build sketch, Scryfall-verified</div>
+      <div class="meta"><span class="cmd">Commander: Black Panther, Claws of Bast</span><span class="pip" style="background:#f7f3d8;color:#8a7a2a">W</span><span class="fit fit-strong">Strong fit</span>
+        <span class="src">principle from &ldquo;The Case for Simpler Decks in Commander&rdquo; &middot; <a href="/salubrioussnail-points/#v-the-case-for-simpler-decks-in-commander">Snail's 10 points per video</a> &middot; <a href="/marvel-commander-rankings/#decks">Marvel rankings</a></span></div>
+    </div>
+  </div>
+  <div class="principle">For games with strangers, a readable deck built from familiar cards lowers the table&#x27;s information load and helps new players keep up.</div>
+  <p>Black Panther, Claws of Bast has two lines of text. He has lifelink, and whenever a creature you control attacks alone it gets a +1/+1 counter. Mono-white, one attacker, one counter. A newer player at the table can read the whole plan in a sentence.</p>
+  <p>So the build stays legible on purpose. It runs recognizable white staples, protection like Swords to Plowshares, equipment the whole table knows, and a clean voltron line that grows one creature. Opponents can predict the shape of every turn, which keeps the game moving and keeps a first-timer in it.</p>
+  <p>Here is the swap-out test. Trade Black Panther for a five-ability white legend and the reading load jumps on the same number of cards. The simpler commander is the one a stranger can follow, which is the case the video argues.</p>
+  <div class="edhrec">Community decks on EDHREC: <a href="https://edhrec.com/commanders/black-panther-claws-of-bast" target="_blank" rel="noopener">Black Panther, Claws of Bast</a></div>
+</article>
+<article class="deck">
+  <div class="deckhead">
+    
+    <div class="deckhead-body">
+      <h2>The Cross-Format Skills Deck</h2>
+      <div class="applied">Original editorial build</div>
+      <div class="meta"><span class="cmd">Commander: General (any deck)</span>
+        <span class="src">principle from &ldquo;Key Skills EDH Players Lack from Other Formats&rdquo; &middot; <a href="/salubrioussnail-points/#v-key-skills-edh-players-lack-from-other-formats">Snail's 10 points per video</a> &middot; <a href="/marvel-commander-rankings/#decks">Marvel rankings</a></span></div>
+    </div>
+  </div>
+  <div class="principle">Borrow the habits that 20-life and limited formats teach, life as a resource, tight sequencing, and flexible cards, and build them into your Commander deck.</div>
+  <p>Commander&#x27;s forty life and singleton pool let players get loose with sequencing and card choices. The video&#x27;s point is that sixty-card and limited formats drill skills the format lets you skip, spending life on purpose, mulligan discipline, and picking cards that do a job in many spots.</p>
+  <p>In practice that means favoring flexible, always-useful cards over narrow all-stars, and treating your life total as something you spend rather than hoard. A deck built this way holds up when the game goes off script.</p>
+  <p>The build test is simple. Look at each card and ask whether a Limited player would first-pick it for flexibility. The more of your deck that passes, the more resilient it plays.</p>
+  
+</article>
+<article class="deck marvelsketch" id="sk-spiderman">
+  <div class="deckhead">
+    <img class="cmdimg" src="https://cards.scryfall.io/normal/front/a/c/acf20da5-e460-4191-ad68-eae398bb7c5d.jpg?1783902999" alt="Spider-Man, Web-Spinner" title="Spider-Man, Web-Spinner">
+    <div class="deckhead-body">
+      <h2>The Deliberately Aggressive Deck: Spider-Man, Web-Spinner</h2>
+      <div class="applied">Marvel build sketch, Scryfall-verified</div>
+      <div class="meta"><span class="cmd">Commander: Spider-Man, Web-Spinner</span><span class="pip" style="background:#f2d0c8;color:#a5432f">R</span><span class="fit fit-strong">Strong fit</span>
+        <span class="src">principle from &ldquo;How Social Pressure and High Life Totals Homogenize Commander&rdquo; &middot; <a href="/salubrioussnail-points/#v-how-social-pressure-and-high-life-totals-homogenize-commander">Snail's 10 points per video</a> &middot; <a href="/marvel-commander-rankings/#decks">Marvel rankings</a></span></div>
+    </div>
+  </div>
+  <div class="principle">Notice the social pull toward samey value piles, then build the aggressive or interactive deck the table quietly discourages.</div>
+  <p>Spider-Man, Web-Spinner is a four-mana red commander with double strike and haste, and his attack stops a chosen creature from blocking that turn. He comes down and hits for real the same turn, the aggression the video says a value-pile table quietly discourages.</p>
+  <p>Building against that pull means a red deck with a real clock and no apology. Cheap haste threats, burn to the face, and one-mana equipment push Spider-Man past forty life fast, and his double strike turns a small pump into a big swing. You commit to the beatdown in the ninety-nine before the game starts.</p>
+  <p>Here is the swap-out test. Swap Spider-Man for a slow red value commander and the deck drifts back into the same durdle everyone else brought. The aggressive commander is what forces the different game.</p>
+  <div class="edhrec">Community decks on EDHREC: <a href="https://edhrec.com/commanders/spider-man-web-spinner" target="_blank" rel="noopener">Spider-Man, Web-Spinner</a></div>
+</article>
+<article class="deck">
+  <div class="deckhead">
+    
+    <div class="deckhead-body">
+      <h2>The Soft-Stax Agency Deck</h2>
+      <div class="applied">Original editorial build</div>
+      <div class="meta"><span class="cmd">Commander: General (stax or tax shell)</span><span class="pip" style="background:#f7f3d8;color:#8a7a2a">W</span>
+        <span class="src">principle from &ldquo;Player Agency and the Stax Stigma in EDH&rdquo; &middot; <a href="/salubrioussnail-points/#v-player-agency-and-the-stax-stigma-in-edh">Snail's 10 points per video</a> &middot; <a href="/marvel-commander-rankings/#decks">Marvel rankings</a></span></div>
+    </div>
+  </div>
+  <div class="principle">Resource denial gets judged by social norm more than by power level, so build the taxing effects deliberately and give the deck a clear, fast finish.</div>
+  <p>The video points out that a board wipe is accepted while mass land destruction and stax get treated as taboo, even though both deny resources. The difference is social.</p>
+  <p>A deck that wants that space should lean on soft, telegraphed taxes and a visible win condition, so the table can follow the plan and the game keeps moving. Lock pieces with no way to close are what earn the stigma.</p>
+  <p>Build the closer first, then the denial. Stax with a fast finish is agency. Stax with no end is the game players remember badly.</p>
+  
+</article>
+<article class="deck">
+  <div class="deckhead">
+    
+    <div class="deckhead-body">
+      <h2>The Resilient Alternative to a Glass Cannon</h2>
+      <div class="applied">Snail&#x27;s own cited examples</div>
+      <div class="meta"><span class="cmd">Commander: Kaalia of the Vast and Animar, Soul of Elements (the video&#x27;s examples)</span>
+        <span class="src">principle from &ldquo;Glass Cannon Commanders Are Fragile and Misleading&rdquo; &middot; <a href="/salubrioussnail-points/#v-glass-cannon-commanders-are-fragile-and-misleading">Snail's 10 points per video</a> &middot; <a href="/marvel-commander-rankings/#decks">Marvel rankings</a></span></div>
+    </div>
+  </div>
+  <div class="principle">Powerful commander-reliant enablers look strong and play brittle, so build redundancy and protection or a plan that survives without the commander.</div>
+  <p>The video uses Kaalia of the Vast and Animar, Soul of Elements as glass cannons, commanders whose whole plan runs through one legendary body. Remove the commander and the deck stalls.</p>
+  <p>The fix is redundancy and insurance. Run protection for the commander, ways to deploy your payoffs without it, and a midrange backup plan for the turns it is stuck in the command zone. The deck should still function at half power on its own.</p>
+  <p>Before sleeving a glass cannon, ask what the deck does on a turn the commander is dead. If the answer is nothing, that hole is what you build around first.</p>
+  <div class="edhrec">Community decks on EDHREC: <a href="https://edhrec.com/commanders/kaalia-of-the-vast" target="_blank" rel="noopener">Kaalia of the Vast</a> &middot; <a href="https://edhrec.com/commanders/animar-soul-of-elements" target="_blank" rel="noopener">Animar, Soul of Elements</a></div>
+</article>
+<article class="deck">
+  <div class="deckhead">
+    <img class="cmdimg" src="https://cards.scryfall.io/normal/front/d/4/d45ec78e-6190-46af-8057-834f5ca41ec8.jpg?1782700616" alt="Archelos, Lagoon Mystic" title="Archelos, Lagoon Mystic">
+    <div class="deckhead-body">
+      <h2>Building for the Table, Not the Novelty</h2>
+      <div class="applied">Snail&#x27;s own build</div>
+      <div class="meta"><span class="cmd">Commander: Archelos, Lagoon Mystic (Maze&#x27;s End combo)</span><span class="pip" style="background:#cfe6cf;color:#2f7a44">G</span><span class="pip" style="background:#cfe0f2;color:#2a5b8a">U</span><span class="pip" style="background:#d9d2cc;color:#4a4038">B</span>
+        <span class="src">principle from &ldquo;Creative Deckbuilding Does Not Guarantee Fun Games&rdquo; &middot; <a href="/salubrioussnail-points/#v-creative-deckbuilding-does-not-guarantee-fun-games">Snail's 10 points per video</a> &middot; <a href="/marvel-commander-rankings/#decks">Marvel rankings</a></span></div>
+    </div>
+  </div>
+  <div class="principle">A novel deck does not make a fun one on its own, so build toward the games you want at the table, not toward uniqueness for its own sake.</div>
+  <p>The creator built an optimized Maze&#x27;s End combo around Archelos and expected a fresh experience. The table treated it like any other combo deck, and the novelty did not carry the game.</p>
+  <p>The lesson for building is to design toward real interaction, real decisions, and a pace the table enjoys. A weird deck that plays like a solitaire combo is still a solitaire combo.</p>
+  <p>Judge a brew by the game it produces, not by how few other people run it. If the unique version plays worse for everyone, the ordinary version is the better call.</p>
+  <div class="edhrec">Community decks on EDHREC: <a href="https://edhrec.com/commanders/archelos-lagoon-mystic" target="_blank" rel="noopener">Archelos, Lagoon Mystic</a></div>
+</article>
+<article class="deck">
+  <div class="deckhead">
+    
+    <div class="deckhead-body">
+      <h2>The Function-First Categorized Deck</h2>
+      <div class="applied">Original editorial build</div>
+      <div class="meta"><span class="cmd">Commander: General (any deck)</span>
+        <span class="src">principle from &ldquo;Effective Card Categorization in Commander Deck Building&rdquo; &middot; <a href="/salubrioussnail-points/#v-effective-card-categorization-in-commander-deck-building">Snail's 10 points per video</a> &middot; <a href="/marvel-commander-rankings/#decks">Marvel rankings</a></span></div>
+    </div>
+  </div>
+  <div class="principle">Sort every card by its core job, ramp, draw, removal, threat, and skip a separate theme bucket, since most theme cards already fill a core role.</div>
+  <p>The video argues that a functional deck comes from categorizing cards by what they actually do. A common mistake is a separate theme category, which hides that many of those theme cards already count as ramp, draw, or removal.</p>
+  <p>Working this way, you tally the real counts and the gaps show up. A deck short on interaction or card advantage reveals it the moment the theme cards are filed under their true jobs.</p>
+  <p>Build the category counts first, and let the theme come from the cards that serve both jobs. The theme is a result of good roles, and it does not need a protected slot of its own.</p>
+  
+</article>
+<article class="deck">
+  <div class="deckhead">
+    
+    <div class="deckhead-body">
+      <h2>The Overlapping-Answers Interaction Suite</h2>
+      <div class="applied">Original editorial build</div>
+      <div class="meta"><span class="cmd">Commander: General (any deck)</span>
+        <span class="src">principle from &ldquo;How to Build Better Interaction Suites in EDH&rdquo; &middot; <a href="/salubrioussnail-points/#v-how-to-build-better-interaction-suites-in-edh">Snail's 10 points per video</a> &middot; <a href="/marvel-commander-rankings/#decks">Marvel rankings</a></span></div>
+    </div>
+  </div>
+  <div class="principle">Build interaction as overlapping answers to real game states, rather than a checklist of one removal type per slot.</div>
+  <p>Many players treat interaction as a list, one spot removal, one board wipe, one counter, and call it done. The video reframes it as coverage of the situations you will actually face, a resolved threat, a wide board, a graveyard engine, a combo on the stack.</p>
+  <p>Built that way, you count answers per problem instead of per card type. A deck can run ten pieces of removal and still fold to a graveyard deck if none of them touch the yard. The goal is overlap, several cards that each solve more than one state.</p>
+  <p>Audit by threat. List the game states that beat you, then check that two or three cards in the deck answer each one.</p>
+  
+</article>
+<article class="deck">
+  <div class="deckhead">
+    
+    <div class="deckhead-body">
+      <h2>The Tutor-Aware Power Curve</h2>
+      <div class="applied">Original editorial build</div>
+      <div class="meta"><span class="cmd">Commander: General (any deck)</span><span class="pip" style="background:#d9d2cc;color:#4a4038">B</span>
+        <span class="src">principle from &ldquo;How Tutors Affect Variance and Power in Commander&rdquo; &middot; <a href="/salubrioussnail-points/#v-how-tutors-affect-variance-and-power-in-commander">Snail's 10 points per video</a> &middot; <a href="/marvel-commander-rankings/#decks">Marvel rankings</a></span></div>
+    </div>
+  </div>
+  <div class="principle">Tutors raise a deck&#x27;s average power and consistency without adding variety, so add them as a power dial with that trade in mind.</div>
+  <p>The video separates two things people blur together, how varied your games feel and how powerful they are. Tutors do little for variety, since they find the same few best cards, and they raise the deck&#x27;s floor by finding them more often.</p>
+  <p>That makes tutors a power dial. A deck that wants a higher, steadier ceiling runs more of them. A deck that wants swingy, varied games runs fewer and leans on natural draws.</p>
+  <p>Decide which game you want first, then set the tutor count to match. Adding tutors to a casual deck raises its power more quietly than one flashy card would.</p>
+  
+</article>
+<article class="deck">
+  <div class="deckhead">
+    
+    <div class="deckhead-body">
+      <h2>The Probability-Checked Manabase</h2>
+      <div class="applied">Original editorial build</div>
+      <div class="meta"><span class="cmd">Commander: General (any multicolor deck)</span>
+        <span class="src">principle from &ldquo;Diagnosing EDH Manabase Issues with a New Tool&rdquo; &middot; <a href="/salubrioussnail-points/#v-diagnosing-edh-manabase-issues-with-a-new-tool">Snail's 10 points per video</a> &middot; <a href="/marvel-commander-rankings/#decks">Marvel rankings</a></span></div>
+    </div>
+  </div>
+  <div class="principle">Treat your manabase as a probability problem, colors, sources, and land count together, and check it with a model instead of guessing.</div>
+  <p>A Commander manabase balances color requirements against land count, and the video&#x27;s point is that intuition handles it poorly. Free probability tools now model how often you can cast your curve on time and flag the colors you are short on.</p>
+  <p>In practice you feed the deck in, read where the model says a color source is thin or a drop is unreliable, and add or swap sources until the math holds up. This catches the double-pip three-drop you can never cast on turn three.</p>
+  <p>Run the check before you blame variance. Most manabase pain is a fixable source-count problem, and the model tells you which color to shore up.</p>
+  
+</article>
+<article class="deck">
+  <div class="deckhead">
+    
+    <div class="deckhead-body">
+      <h2>The High-Requirement Cycling Deck</h2>
+      <div class="applied">Snail&#x27;s own build</div>
+      <div class="meta"><span class="cmd">Commander: General (Esper cycling shell)</span><span class="pip" style="background:#f7f3d8;color:#8a7a2a">W</span><span class="pip" style="background:#cfe0f2;color:#2a5b8a">U</span><span class="pip" style="background:#d9d2cc;color:#4a4038">B</span>
+        <span class="src">principle from &ldquo;My Hardest Deck Build: Astral Slide Cycling EDH&rdquo; &middot; <a href="/salubrioussnail-points/#v-my-hardest-deck-build-astral-slide-cycling-edh">Snail's 10 points per video</a> &middot; <a href="/marvel-commander-rankings/#decks">Marvel rankings</a></span></div>
+    </div>
+  </div>
+  <div class="principle">When a payoff needs a critical mass to work, count backward from that requirement and build the enablers first, even when it forces hard cuts.</div>
+  <p>The video walks through an Esper deck built around Astral Slide and Oversold Cemetery, engines that only turn on with a high density of cycling cards and creatures. The payoff sets a hard floor on how many enablers the deck must run.</p>
+  <p>Building it meant counting backward from that requirement. The engine needs its critical mass first, which forces cuts to cards that would be fine in a looser deck. This is the hardest kind of build, since the theme dictates the slots.</p>
+  <p>For any deck with a threshold payoff, decide the required enabler count before anything else. If you cannot hit it, the payoff belongs in a different deck.</p>
+  
+</article>
+<article class="deck">
+  <div class="deckhead">
+    
+    <div class="deckhead-body">
+      <h2>Judging a Mechanic by Its Best Printings</h2>
+      <div class="applied">Snail&#x27;s own cited examples</div>
+      <div class="meta"><span class="cmd">Commander: General (Edgar Markov and The Ur-Dragon as examples)</span>
+        <span class="src">principle from &ldquo;Why Eminence Is a Reasonable Commander Mechanic&rdquo; &middot; <a href="/salubrioussnail-points/#v-why-eminence-is-a-reasonable-commander-mechanic">Snail's 10 points per video</a> &middot; <a href="/marvel-commander-rankings/#decks">Marvel rankings</a></span></div>
+    </div>
+  </div>
+  <div class="principle">Judge a commander mechanic by its healthy printings, since a few early mistakes can give a fine mechanic a lasting bad name.</div>
+  <p>Eminence, the command-zone ability that works before the commander is cast, carries a poor reputation. The video traces that to early cards like Edgar Markov and The Ur-Dragon, whose five-color reach and strong zone abilities set the tone.</p>
+  <p>The mechanic itself is mostly reasonable. Later Eminence cards are fair, so a few overtuned designs earned the whole mechanic its stigma. For deckbuilding, that means judging your options by the balanced printings.</p>
+  <p>When a mechanic feels oppressive, check whether it is the mechanic or two specific cards. Building around the fair versions gives you the flavor without the baggage.</p>
+  
+</article>
+<article class="deck">
+  <div class="deckhead">
+    
+    <div class="deckhead-body">
+      <h2>Constraint-Driven Deckbuilding</h2>
+      <div class="applied">Snail&#x27;s own challenge</div>
+      <div class="meta"><span class="cmd">Commander: Senator Peacock and Shizuko, Caller of Autumn (challenge winners)</span>
+        <span class="src">principle from &ldquo;Winners of the Least Popular Commanders Challenge&rdquo; &middot; <a href="/salubrioussnail-points/#v-winners-of-the-least-popular-commanders-challenge">Snail's 10 points per video</a> &middot; <a href="/marvel-commander-rankings/#decks">Marvel rankings</a></span></div>
+    </div>
+  </div>
+  <div class="principle">A tight constraint, like an underused commander, forces the creative deckbuilding that a free choice rarely produces.</div>
+  <p>The video reviews the winning decks from a challenge to build around five of the least-built commanders, including Senator Peacock and Shizuko, Caller of Autumn. The limitation is the point.</p>
+  <p>Handed a weak or narrow commander, the winners found the one line it does well and built the whole deck to serve it. That focus is what an open choice tends to skip, since a strong commander lets you get away with a pile of good cards.</p>
+  <p>Set yourself a constraint on purpose. An underused commander, a color pair you avoid, or a theme with thin support all push you into decisions a top-tier pick would let you dodge.</p>
+  
+</article>
+<article class="deck">
+  <div class="deckhead">
+    
+    <div class="deckhead-body">
+      <h2>Reading a Precon by What It Actually Does</h2>
+      <div class="applied">From Snail&#x27;s precon review</div>
+      <div class="meta"><span class="cmd">Commander: Ms. Bumbleflower (Peace Offering precon)</span>
+        <span class="src">principle from &ldquo;Peace Offering Precon Review: Group Hug or Beatdown?&rdquo; &middot; <a href="/salubrioussnail-points/#v-peace-offering-precon-review-group-hug-or-beatdown">Snail's 10 points per video</a> &middot; <a href="/marvel-commander-rankings/#decks">Marvel rankings</a></span></div>
+    </div>
+  </div>
+  <div class="principle">Judge a deck by how it actually plays, and set the box label aside, then cut the includes that fight the real plan.</div>
+  <p>The video reviews the Peace Offering precon and finds it plays as a beatdown deck more than the group hug its packaging promises. Its mana base is consistent and its creature plan is focused, which is the strong core.</p>
+  <p>The weak spots are the cards that serve the group hug label instead of the beatdown the deck really wants. Those are the first cuts, since they pull resources away from the plan that wins.</p>
+  <p>Before upgrading any precon, watch a few games and pin down how it truly plays. Build toward that, and trim whatever only supports the theme on the wrapper.</p>
+  
+</article>
+<article class="deck">
+  <div class="deckhead">
+    
+    <div class="deckhead-body">
+      <h2>Giving a Theme Enough Support to Function</h2>
+      <div class="applied">From Snail&#x27;s precon review</div>
+      <div class="meta"><span class="cmd">Commander: Temmet (Eternal Might precon)</span>
+        <span class="src">principle from &ldquo;Eternal Might Precon Review: Flaws and Upgrade Advice&rdquo; &middot; <a href="/salubrioussnail-points/#v-eternal-might-precon-review-flaws-and-upgrade-advice">Snail's 10 points per video</a> &middot; <a href="/marvel-commander-rankings/#decks">Marvel rankings</a></span></div>
+    </div>
+  </div>
+  <div class="principle">A theme only works when the deck runs enough of the pieces that feed it, so cut the conflicting plan and add the missing support.</div>
+  <p>The video critiques Eternal Might for conflicting strategies and thin support for its own commanders. The zombie theme is underdeveloped, missing small tokens, burst draw, and sacrifice outlets.</p>
+  <p>The fix is to pick one of the competing plans and feed it properly. Add the token makers, the draw, and the sac outlets the zombie engine needs, and drop the cards pulling toward the other strategy.</p>
+  <p>The lesson holds for any brew. Count the support for your central theme before you trust it, and a deck trying to do two things usually does neither well.</p>
+  
+</article>
+<article class="deck">
+  <div class="deckhead">
+    
+    <div class="deckhead-body">
+      <h2>Building a Sacrifice-and-Recur Value Engine</h2>
+      <div class="applied">From Snail&#x27;s precon review</div>
+      <div class="meta"><span class="cmd">Commander: Hearthhole, the World Seed (World Shaper precon)</span>
+        <span class="src">principle from &ldquo;World Shaper Precon Review: Land Sacrifice Value Engine&rdquo; &middot; <a href="/salubrioussnail-points/#v-world-shaper-precon-review-land-sacrifice-value-engine">Snail's 10 points per video</a> &middot; <a href="/marvel-commander-rankings/#decks">Marvel rankings</a></span></div>
+    </div>
+  </div>
+  <div class="principle">An engine deck needs its enablers at real density, so build the sacrifice outlets and the recursion before the payoffs.</div>
+  <p>The video reviews the World Shaper precon, a Jund lands deck that sacrifices lands for value and recurs them for explosive mana and payoff triggers. Its mana base is strong, which the engine depends on.</p>
+  <p>For the loop to run, the deck needs enough sacrifice outlets and enough recursion that the pieces meet in most games. Payoffs without that density are dead cards waiting on a combination that rarely shows up.</p>
+  <p>Build the engine parts to a count that makes them reliable, then add payoffs on top. A value loop is only as good as how often its halves appear together.</p>
+  
+</article>
+<article class="deck">
+  <div class="deckhead">
+    
+    <div class="deckhead-body">
+      <h2>Turning Opponents&#x27; Turns into Your Resources</h2>
+      <div class="applied">From Snail&#x27;s precon review</div>
+      <div class="meta"><span class="cmd">Commander: Valgavoth, Harrower of Souls (Endless Punishment precon)</span>
+        <span class="src">principle from &ldquo;Endless Punishment Precon Review and Upgrade Suggestions&rdquo; &middot; <a href="/salubrioussnail-points/#v-endless-punishment-precon-review-and-upgrade-suggestions">Snail's 10 points per video</a> &middot; <a href="/marvel-commander-rankings/#decks">Marvel rankings</a></span></div>
+    </div>
+  </div>
+  <div class="principle">A punisher deck converts what opponents do into your card advantage, so build the triggers that pay you on their turns.</div>
+  <p>The video reviews Endless Punishment, a group slug deck led by Valgavoth, built on cards that trigger life loss on opponents&#x27; turns to draw you cards. The plan pays you while the table plays normally.</p>
+  <p>Upgrading it means adding more of those trigger effects and the payoffs that reward them, so the deck keeps drawing and draining without spending its own turns. The engine runs on the table&#x27;s actions.</p>
+  <p>For any punisher build, count how many cards actually turn opponents&#x27; choices into your resources. That density is the difference between a real engine and a few cute effects.</p>
+  
+</article>
+<article class="deck">
+  <div class="deckhead">
+    
+    <div class="deckhead-body">
+      <h2>Watching How a Staple Skews Your Evaluation</h2>
+      <div class="applied">Original editorial build</div>
+      <div class="meta"><span class="cmd">Commander: General (any deck)</span>
+        <span class="src">principle from &ldquo;Are Cheap Powerful Cards Harming Commander?&rdquo; &middot; <a href="/salubrioussnail-points/#v-are-cheap-powerful-cards-harming-commander">Snail's 10 points per video</a> &middot; <a href="/marvel-commander-rankings/#decks">Marvel rankings</a></span></div>
+    </div>
+  </div>
+  <div class="principle">A ubiquitous cheap card like Sol Ring can skew how you value every other slot, so evaluate with that pull in mind.</div>
+  <p>The creator revisits his argument that cheap, powerful cards warp deckbuilding. When a card like Sol Ring is a default, players overvalue synergy pieces and undervalue plain interaction.</p>
+  <p>The fix is awareness. When a staple lets you get away with a greedier build, check that you still run enough basic interaction and answers, since the free power hides the gaps.</p>
+  <p>Ask what your auto-includes let you skip. The cards you never think about are the ones quietly shaping the rest of the deck.</p>
+  
+</article>
+<article class="deck">
+  <div class="deckhead">
+    
+    <div class="deckhead-body">
+      <h2>Letting Your Tutor Targets Define the Deck</h2>
+      <div class="applied">Original editorial build</div>
+      <div class="meta"><span class="cmd">Commander: General (any deck)</span>
+        <span class="src">principle from &ldquo;How Tutoring Choices Reveal Your EDH Player Type&rdquo; &middot; <a href="/salubrioussnail-points/#v-how-tutoring-choices-reveal-your-edh-player-type">Snail's 10 points per video</a> &middot; <a href="/marvel-commander-rankings/#decks">Marvel rankings</a></span></div>
+    </div>
+  </div>
+  <div class="principle">What you fetch with a tutor reveals whether you build for raw power or for flexibility, so build to the type you actually enjoy.</div>
+  <p>The video runs a tutoring thought experiment to sort players into mindsets, starting with power-oriented players who always fetch the best card and flexible players who adapt the fetch to the game state.</p>
+  <p>The point for building is that these two types want different decks. A power player wants tutors pointed at a few bombs. A flexible player wants toolbox targets that answer many situations.</p>
+  <p>Notice which fetch feels right to you, then build the tutor package to match. A deck aimed at the wrong type of player fights its pilot every game.</p>
+  
+</article>
+<article class="deck">
+  <div class="deckhead">
+    
+    <div class="deckhead-body">
+      <h2>Using EDHREC as a Checkpoint, Not a Template</h2>
+      <div class="applied">Original editorial build</div>
+      <div class="meta"><span class="cmd">Commander: General (any deck)</span>
+        <span class="src">principle from &ldquo;How to Use EDHREC to Improve Commander Decks&rdquo; &middot; <a href="/salubrioussnail-points/#v-how-to-use-edhrec-to-improve-commander-decks">Snail's 10 points per video</a> &middot; <a href="/marvel-commander-rankings/#decks">Marvel rankings</a></span></div>
+    </div>
+  </div>
+  <div class="principle">EDHREC helps most as a checkpoint at the right moments, so read it for orientation early and for gaps later, then build your own list.</div>
+  <p>The video treats EDHREC as a tool with good and bad moments. Early on it gives an overview of popular builds, and the move is to take the orientation and then click away to develop your own ideas.</p>
+  <p>Later, its filters and indicators help you spot the staples your list is missing for a given theme. Used that way, it catches gaps instead of handing you an average deck.</p>
+  <p>Check it twice and copy it never. The site is best as a second opinion on a deck you already have a vision for.</p>
+  
+</article>
+<article class="deck">
+  <div class="deckhead">
+    
+    <div class="deckhead-body">
+      <h2>Reading Your Pod Before You Reveal</h2>
+      <div class="applied">Original editorial build</div>
+      <div class="meta"><span class="cmd">Commander: General (any pod)</span>
+        <span class="src">principle from &ldquo;Why Some Commander Players Reject Rule Zero Deck Pitches&rdquo; &middot; <a href="/salubrioussnail-points/#v-why-some-commander-players-reject-rule-zero-deck-pitches">Snail's 10 points per video</a> &middot; <a href="/marvel-commander-rankings/#decks">Marvel rankings</a></span></div>
+    </div>
+  </div>
+  <div class="principle">Some players would rather deduce a deck through play than hear a pregame pitch, so read your table&#x27;s preference before you lean on Rule Zero.</div>
+  <p>The video examines why a faction of Commander players opposes pregame deck reveals. Without competitive optimization to anchor a conversation, they prefer to work out strategies during the game.</p>
+  <p>For a builder, this is about knowing the room. A deck that depends on a detailed pregame pitch to feel fair may go over badly at a table that wants to discover it in play.</p>
+  <p>Match your pitch to the pod. Some tables want the plan up front, and others want the surprise, and the same deck plays differently at each.</p>
+  
+</article>
+<article class="deck">
+  <div class="deckhead">
+    
+    <div class="deckhead-body">
+      <h2>Building Cohesion Around a Flexible Commander</h2>
+      <div class="applied">From Snail&#x27;s community challenge</div>
+      <div class="meta"><span class="cmd">Commander: General (Choose a Background commanders)</span>
+        <span class="src">principle from &ldquo;Winning Deck Techs from a Baldur&#x27;s Gate Commander Challenge&rdquo; &middot; <a href="/salubrioussnail-points/#v-winning-deck-techs-from-a-baldur-s-gate-commander-challenge">Snail's 10 points per video</a> &middot; <a href="/marvel-commander-rankings/#decks">Marvel rankings</a></span></div>
+    </div>
+  </div>
+  <div class="principle">A flexible commander pairing, like a Choose a Background legend, rewards a deck built for cohesion over raw card quality.</div>
+  <p>The video showcases the winning decks from a challenge using Baldur&#x27;s Gate Choose a Background commanders. Judging rewarded creativity, cohesion, and dynamic gameplay rather than a pile of strong cards.</p>
+  <p>The lesson is that a flexible commander lets you tune the deck&#x27;s identity precisely, and the winners used that freedom to make every card pull toward one clear idea.</p>
+  <p>When your commander gives you options, spend them on cohesion. A focused ninety-nine beats a stronger but scattered one at this kind of table.</p>
+  
+</article>
+<article class="deck">
+  <div class="deckhead">
+    
+    <div class="deckhead-body">
+      <h2>Accounting for a Commander That Dodges the Tax</h2>
+      <div class="applied">Snail&#x27;s own cited example</div>
+      <div class="meta"><span class="cmd">Commander: Yuriko, the Tiger&#x27;s Shadow</span>
+        <span class="src">principle from &ldquo;Why Yuriko&#x27;s Tax Evasion Makes Her Infuriating&rdquo; &middot; <a href="/salubrioussnail-points/#v-why-yuriko-s-tax-evasion-makes-her-infuriating">Snail's 10 points per video</a> &middot; <a href="/marvel-commander-rankings/#decks">Marvel rankings</a></span></div>
+    </div>
+  </div>
+  <div class="principle">A commander that sidesteps the command tax sets a higher baseline than her cost suggests, so weigh that when you build with or against her.</div>
+  <p>The video explains that Yuriko is frustrating because she avoids paying commander tax through her ninjutsu return, and her low cost paired with a strong ability makes for an oppressive experience.</p>
+  <p>For a builder, the takeaway is that a commander who keeps coming back cheaply changes the math. She anchors a deck that can rebuild fast, which is a real advantage to lean into when you pilot her.</p>
+  <p>When you meet a tax-dodging commander, price her by what she actually costs to recast. Her printed mana value understates her, and that gap is where the frustration lives.</p>
+  
+</article>
+<article class="deck">
+  <div class="deckhead">
+    
+    <div class="deckhead-body">
+      <h2>Letting a Constraint Force Discovery</h2>
+      <div class="applied">From Snail&#x27;s community challenge</div>
+      <div class="meta"><span class="cmd">Commander: General (constraint challenge)</span>
+        <span class="src">principle from &ldquo;No E Deckbuilding Challenge Highlights&rdquo; &middot; <a href="/salubrioussnail-points/#v-no-e-deckbuilding-challenge-highlights">Snail's 10 points per video</a> &middot; <a href="/marvel-commander-rankings/#decks">Marvel rankings</a></span></div>
+    </div>
+  </div>
+  <div class="principle">An arbitrary constraint pushes you into cards and lines you would never find with a free choice, so use limits as a discovery tool.</div>
+  <p>The video showcases a challenge where every card must exclude the letter E. The restriction produced creative decks like an Arcanum Wanderer station combo and a Momir Vig line, cards a normal build would skip.</p>
+  <p>The point is that a hard limit removes the safe defaults and forces you to search the deeper card pool. What looks like a handicap becomes a map to overlooked pieces.</p>
+  <p>Set an odd constraint on purpose when a deck feels stale. The rule you cannot break is the thing that shows you cards you had stopped seeing.</p>
+  
+</article>
+<article class="deck">
+  <div class="deckhead">
+    
+    <div class="deckhead-body">
+      <h2>Over-Including, Then Cutting to Cohesion</h2>
+      <div class="applied">Snail&#x27;s own cited example</div>
+      <div class="meta"><span class="cmd">Commander: Glissa, Herald of Predation</span>
+        <span class="src">principle from &ldquo;Building a Subtheme Soup Bracket 2 Commander Deck&rdquo; &middot; <a href="/salubrioussnail-points/#v-building-a-subtheme-soup-bracket-2-commander-deck">Snail's 10 points per video</a> &middot; <a href="/marvel-commander-rankings/#decks">Marvel rankings</a></span></div>
+    </div>
+  </div>
+  <div class="principle">To reach a bracket 2 deck, start with too many subthemes on purpose, then optimize the list down to the ones that hold together.</div>
+  <p>The video builds a bracket 2 deck by intentionally packing in more subthemes than it needs, using Glissa, Herald of Predation as a flexible commander that generates value across them.</p>
+  <p>The method is to start wide and then cut for cohesion. You keep the subthemes that share support and drop the ones that stand alone, which pulls the power to the bracket 2 range without a single dominant combo.</p>
+  <p>Build loose first, then tighten. A deck that starts with options and trims to the overlaps ends up focused without becoming a linear machine.</p>
+  
+</article>
+<article class="deck">
+  <div class="deckhead">
+    
+    <div class="deckhead-body">
+      <h2>Turning a Card&#x27;s Downside into an Engine</h2>
+      <div class="applied">Snail&#x27;s own cited example</div>
+      <div class="meta"><span class="cmd">Commander: Iname as One</span>
+        <span class="src">principle from &ldquo;Deck Build Challenge: Sixth Ceremony, Aether Vial, Birthing Ritual&rdquo; &middot; <a href="/salubrioussnail-points/#v-deck-build-challenge-sixth-ceremony-aether-vile-birthing-ritual">Snail's 10 points per video</a> &middot; <a href="/marvel-commander-rankings/#decks">Marvel rankings</a></span></div>
+    </div>
+  </div>
+  <div class="principle">Some hard build-around cards only shine when the deck turns their downside into an engine, so pick a commander that flips the drawback.</div>
+  <p>The video builds around three awkward cards, The Sixth Ceremony, Aether Vial, and Birthing Ritual. The key is Iname as One, which turns The Sixth Ceremony&#x27;s destruction clause into graveyard recursion value.</p>
+  <p>The lesson is that a card&#x27;s downside is only a downside without the right shell. The commander here converts a drawback into a resource, which makes the whole build-around function.</p>
+  <p>When a card looks unplayable, ask what would make its worst clause a benefit. The answer is often the commander the deck should be built around.</p>
+  
+</article>
+<article class="deck">
+  <div class="deckhead">
+    
+    <div class="deckhead-body">
+      <h2>Reading Rules Change Backlash in Context</h2>
+      <div class="applied">Original editorial build</div>
+      <div class="meta"><span class="cmd">Commander: General (format context)</span>
+        <span class="src">principle from &ldquo;Why the Hybrid Mana Rule Change Caused Uproar&rdquo; &middot; <a href="/salubrioussnail-points/#v-why-the-hybrid-mana-rule-change-caused-uproar">Snail's 10 points per video</a> &middot; <a href="/marvel-commander-rankings/#decks">Marvel rankings</a></span></div>
+    </div>
+  </div>
+  <div class="principle">A small rules change can draw outsized backlash when trust is already low, so weigh the reaction against the context around it as much as the change.</div>
+  <p>The video examines why a minor hybrid mana rule change sparked disproportionate anger. It attributes the reaction to recent community frustration and eroded trust in the rules stewards rather than to the change itself.</p>
+  <p>For a player, the takeaway is to separate the mechanical impact from the mood around it. The actual effect on decks was small, even as the response was large.</p>
+  <p>When a change arrives loudly, check whether the noise is about the rule or about the history behind it. The two often move independently.</p>
+  
+</article>
+<article class="deck marvelsketch" id="sk-doomunrivaled">
+  <div class="deckhead">
+    <img class="cmdimg" src="https://cards.scryfall.io/normal/front/2/9/2973e855-fe93-41a1-a62e-4699ef2c3d1d.jpg?1783903062" alt="Doctor Doom, Unrivaled" title="Doctor Doom, Unrivaled">
+    <div class="deckhead-body">
+      <h2>Matching Card Draw to Its Job: Doctor Doom, Unrivaled</h2>
+      <div class="applied">Marvel build sketch, Scryfall-verified</div>
+      <div class="meta"><span class="cmd">Commander: Doctor Doom, Unrivaled</span><span class="pip" style="background:#d9d2cc;color:#4a4038">B</span><span class="fit fit-strong">Strong fit</span>
+        <span class="src">principle from &ldquo;Card Draw Alternatives in Commander&rdquo; &middot; <a href="/salubrioussnail-points/#v-card-draw-alternatives-in-commander">Snail's 10 points per video</a> &middot; <a href="/marvel-commander-rankings/#decks">Marvel rankings</a></span></div>
+    </div>
+  </div>
+  <div class="principle">Card draw is really several different jobs, so match the type of draw you run to your actual goal.</div>
+  <p>Doctor Doom, Unrivaled makes the point sharp. His tap ability draws a card and loses you 1 life, and once your library runs out you win the game. Here the draw does two jobs at once, refilling your hand and closing the game, so the whole deck is built around one draw type.</p>
+  <p>That job picks the support. This mono-black shell runs lifegain and life payoffs to survive the self-drain, wheels and extra draw to empty the library faster, and protection for the turn you go off. Snail&#x27;s point is that draw is many jobs, and Doctor Doom shows what one focused choice does to every slot around it.</p>
+  <p>Here is the swap-out test. Swap Doctor Doom for a plain card-advantage engine and the draw goes back to refilling your hand only, and the win condition leaves the command zone. The commander is the reason the whole draw suite points at one job.</p>
+  <div class="edhrec">Community decks on EDHREC: <a href="https://edhrec.com/commanders/doctor-doom-unrivaled" target="_blank" rel="noopener">Doctor Doom, Unrivaled</a></div>
+</article>
+</main>
+
+</body></html>

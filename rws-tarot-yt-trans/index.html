@@ -1,0 +1,189 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>yt_trans · RWS Tarot Card-Meaning Corpus</title>
+<style>
+  :root{
+    --cream:#f4ecd8; --paper:#fbf6ea; --ink:#111111;
+    --pink:#d98c8c; --rose:#c66b6b; --mustard:#d8a534;
+    --teal:#5b8a8a; --teal-deep:#3f6a6a; --plum:#7d5a73;
+    --line:#e0d4ba; --shadow:rgba(58,48,38,.12);
+  }
+  *{box-sizing:border-box}
+  body{margin:0;background:var(--cream);color:var(--ink);
+    font-family:"Iowan Old Style","Palatino Linotype",Palatino,Georgia,serif;
+    line-height:1.6;-webkit-font-smoothing:antialiased}
+  .wrap{max-width:980px;margin:0 auto;padding:0 22px 80px}
+  header.hero{background:linear-gradient(160deg,var(--teal) 0%,var(--teal-deep) 100%);
+    color:var(--paper);padding:46px 22px 40px;border-bottom:6px solid var(--mustard)}
+  .hero-in{max-width:980px;margin:0 auto;display:flex;justify-content:space-between;
+    align-items:flex-start;gap:18px;flex-wrap:wrap}
+  .eyebrow{letter-spacing:.32em;text-transform:uppercase;font-size:.72rem;
+    color:var(--mustard);font-family:ui-monospace,"SF Mono",Menlo,monospace;margin:0 0 8px}
+  h1{margin:0;font-size:2.1rem;line-height:1.15}
+  .sub{margin:12px 0 0;max-width:60ch;color:#e9e0c8}
+  .mode-btn{background:var(--mustard);color:var(--ink);border:none;border-radius:999px;
+    padding:10px 18px;font-size:.86rem;font-weight:700;cursor:pointer;
+    font-family:ui-monospace,Menlo,monospace;box-shadow:0 2px 0 #b88a23;white-space:nowrap}
+  .mode-btn:hover{filter:brightness(1.05)}
+  .stats{display:grid;grid-template-columns:repeat(4,1fr);gap:14px;margin:30px 0 8px}
+  .stat{background:var(--paper);border:1px solid var(--line);border-radius:12px;
+    padding:16px 14px;text-align:center;box-shadow:0 1px 0 var(--shadow)}
+  .stat b{display:block;font-size:1.7rem;color:var(--rose);font-family:ui-monospace,Menlo,monospace}
+  .stat span{font-size:.74rem;letter-spacing:.06em;text-transform:uppercase;color:#7a6f5e}
+  h2{font-size:1.35rem;margin:42px 0 6px;color:var(--teal-deep);
+    border-bottom:2px solid var(--line);padding-bottom:6px}
+  .lead{color:#6b6051;margin:4px 0 18px}
+  .cards{display:grid;grid-template-columns:repeat(auto-fill,minmax(220px,1fr));gap:14px}
+  .card{background:var(--paper);border:1px solid var(--line);border-radius:12px;
+    padding:14px 15px;box-shadow:0 1px 0 var(--shadow);transition:transform .12s}
+  .card:hover{transform:translateY(-2px)}
+  .card .suit{font-size:.68rem;letter-spacing:.14em;text-transform:uppercase;color:var(--mustard);
+    font-family:ui-monospace,Menlo,monospace}
+  .card h3{margin:4px 0 8px;font-size:1.05rem}
+  .card .seg{font-family:ui-monospace,Menlo,monospace;font-size:.8rem;color:var(--teal-deep)}
+  .card a{color:var(--rose);text-decoration:none;font-size:.82rem;font-weight:600}
+  .card a:hover{text-decoration:underline}
+  table{width:100%;border-collapse:collapse;background:var(--paper);border:1px solid var(--line);
+    border-radius:12px;overflow:hidden;margin-top:6px}
+  th,td{text-align:left;padding:11px 14px;border-bottom:1px solid var(--line);font-size:.92rem}
+  th{background:#efe6cf;font-family:ui-monospace,Menlo,monospace;font-size:.74rem;
+    letter-spacing:.08em;text-transform:uppercase;color:#6b6051}
+  tr:last-child td{border-bottom:none}
+  .freq{font-family:ui-monospace,Menlo,monospace;color:var(--rose);font-weight:700}
+  .new{background:var(--mustard);color:var(--ink);border-radius:6px;padding:1px 8px;
+    font-size:.72rem;font-weight:700;font-family:ui-monospace,Menlo,monospace}
+  .exist{color:#7a6f5e;font-size:.82rem}
+  .tool{background:linear-gradient(160deg,var(--plum),#6a4c62);color:var(--paper);
+    border-radius:14px;padding:22px 24px;margin-top:8px}
+  .tool code{background:rgba(255,255,255,.16);padding:2px 7px;border-radius:5px;
+    font-family:ui-monospace,Menlo,monospace;font-size:.85rem}
+  .pipe{display:flex;flex-wrap:wrap;gap:8px;align-items:center;margin:10px 0 0;
+    font-family:ui-monospace,Menlo,monospace;font-size:.8rem;color:#6b6051}
+  .pipe span{background:var(--paper);border:1px solid var(--line);border-radius:7px;padding:5px 11px}
+  .pipe i{color:var(--mustard);font-style:normal}
+  .note{background:#fdf3e0;border-left:4px solid var(--mustard);border-radius:0 10px 10px 0;
+    padding:13px 16px;margin-top:18px;font-size:.9rem;color:#6b6051}
+  footer{margin-top:50px;padding-top:20px;border-top:2px solid var(--line);
+    font-size:.82rem;color:#7a6f5e;font-family:ui-monospace,Menlo,monospace;line-height:2}
+  /* kid mode */
+  .kid-only{display:none}
+  body.kid .kid-only{display:block}
+  body.kid .grown-only{display:none}
+  .kid-card{background:var(--paper);border:2px dashed var(--mustard);border-radius:14px;
+    padding:20px 22px;margin:18px 0;font-size:1.08rem;line-height:1.7}
+  .kid-card h2{border:none;color:var(--rose);margin-top:0}
+  .kid-card ul{margin:10px 0}
+  .kid-card li{margin:8px 0}
+</style>
+</head>
+<body>
+<header class="hero">
+  <div class="hero-in">
+    <div>
+      <p class="eyebrow">yt_trans · community-agentic-os</p>
+      <h1>Reading the Reader</h1>
+      <p class="sub">A YouTube playlist of tarot card-meaning videos, pulled into a searchable
+        transcript corpus, then mined for the repeatable moves the teacher uses every time.</p>
+    </div>
+    
+  </div>
+</header>
+
+<div class="wrap">
+
+  <!-- KID MODE -->
+  <div class="kid-only">
+    <div class="kid-card">
+      <h2>What is this page? 🔮</h2>
+      <p>A lady named <b>Kate</b> makes videos that explain what each tarot card means.
+        We took <b>8 of her videos</b> and turned all her talking into <b>words you can read and search</b>.</p>
+      <ul>
+        <li>📼 A computer listened to every video and wrote down every word.</li>
+        <li>🔁 Then it looked for things she <b>does in every single video</b>, like telling a little story or naming a picture on the card.</li>
+        <li>🛠️ When it found a move she does a lot, it built a little <b>helper tool</b> that can spot that same move in any new video.</li>
+      </ul>
+      <p>So now, instead of watching for hours, you can read it fast and the computer remembers her tricks. 🎉</p>
+    </div>
+  </div>
+
+  <!-- GROWN MODE -->
+  <div class="grown-only">
+
+  <div class="stats">
+    <div class="stat"><b>8/9</b><span>Videos transcribed</span></div>
+    <div class="stat"><b>2,431</b><span>Cited segments</span></div>
+    <div class="stat"><b>5</b><span>Recurring workflows</span></div>
+    <div class="stat"><b>1</b><span>New OS tool built</span></div>
+  </div>
+  <p class="lead">Seed playlist: Kate, <i>"the daily tarot girl."</i> Channel <code>UCMMLTMTE90iVFwKHe9PAlXw</code>.
+    Every transcript ships as verbatim <code>.txt</code> plus a line-indexed, timestamped <code>.jsonl</code>
+    so any downstream claim can cite the exact second it came from.</p>
+
+  <div class="pipe">
+    <span>seed playlist</span><i>→</i><span>9 card videos</span><i>→</i><span>transcripts .txt + .jsonl</span>
+    <i>→</i><span>summaries</span><i>→</i><span>workflows</span><i>→</i><span>OS tools</span>
+  </div>
+
+  <h2>The eight transcripts</h2>
+  <p class="lead">Aces and Twos of the Rider-Waite-Smith minor arcana, plus the Three of Pentacles.
+    Segment count is the number of timestamped, individually citable caption lines.</p>
+  <div class="cards">
+    <div class="card"><span class="suit">Pentacles</span><h3>Ace of Pentacles</h3><div class="seg">349 segments</div><a href="https://youtu.be/mCLiUl2dC64" target="_blank" rel="noopener">watch ↗</a></div>
+    <div class="card"><span class="suit">Swords</span><h3>Ace of Swords</h3><div class="seg">290 segments</div><a href="https://youtu.be/wobCiRwxs9s" target="_blank" rel="noopener">watch ↗</a></div>
+    <div class="card"><span class="suit">Cups</span><h3>Ace of Cups</h3><div class="seg">260 segments</div><a href="https://youtu.be/2GCBdkfrp1c" target="_blank" rel="noopener">watch ↗</a></div>
+    <div class="card"><span class="suit">Wands</span><h3>Ace of Wands</h3><div class="seg">193 segments</div><a href="https://youtu.be/TE5RoxDlJlI" target="_blank" rel="noopener">watch ↗</a></div>
+    <div class="card"><span class="suit">Pentacles</span><h3>Two of Pentacles</h3><div class="seg">329 segments</div><a href="https://youtu.be/5resM5qlnlo" target="_blank" rel="noopener">watch ↗</a></div>
+    <div class="card"><span class="suit">Swords</span><h3>Two of Swords</h3><div class="seg">337 segments</div><a href="https://youtu.be/Pww4SIdaHvo" target="_blank" rel="noopener">watch ↗</a></div>
+    <div class="card"><span class="suit">Cups</span><h3>Two of Cups</h3><div class="seg">363 segments</div><a href="https://youtu.be/NOOgSJ_7OIg" target="_blank" rel="noopener">watch ↗</a></div>
+    <div class="card"><span class="suit">Wands</span><h3>Two of Wands</h3><div class="seg">310 segments</div><a href="https://youtu.be/8rWaR4QVI1A" target="_blank" rel="noopener">watch ↗</a></div>
+  </div>
+  <div class="note">🚫 The ninth video, <b>Three of Pentacles</b> (<code>9r-gFvBYbxc</code>), is held out as
+    <b>final at 8/9</b>. YouTube IP-throttled its caption endpoint and the block did not clear across three
+    retry passes over roughly 75 minutes: <code>youtube-transcript-api</code> returned <code>IpBlocked</code>
+    and <code>yt-dlp</code> captions returned <code>HTTP 429</code> on all four player clients
+    (web_safari, tv_embedded, android, mweb). The other eight stand as the corpus.</div>
+
+  <h2>The recurring workflows</h2>
+  <p class="lead">Across the eight transcripts the pipeline counted how often each analytical move
+    shows up. A move present in two or more videos becomes a registered workflow. Four map onto
+    tools the Community OS already had. One had no home, so it became a new tool.</p>
+  <table>
+    <thead><tr><th>Move</th><th>Frequency</th><th>Routes to</th></tr></thead>
+    <tbody>
+      <tr><td>Quotable merch hook</td><td class="freq">8 / 8</td><td class="exist">etsy_products (reinforced)</td></tr>
+      <tr><td>Symbol &amp; archetype</td><td class="freq">8 / 8</td><td class="exist">tarot_map (reinforced)</td></tr>
+      <tr><td>Critical argument</td><td class="freq">7 / 8</td><td class="exist">essay_draft (reinforced)</td></tr>
+      <tr><td>Scene-by-scene structure</td><td class="freq">7 / 8</td><td class="exist">scene_map (reinforced)</td></tr>
+      <tr><td>Emotional turn</td><td class="freq">7 / 8</td><td><span class="new">NEW TOOL</span></td></tr>
+    </tbody>
+  </table>
+
+  <h2>The tool that got built</h2>
+  <div class="tool">
+    <h3 style="margin:0 0 6px">emotional_turn.py</h3>
+    <p style="margin:0 0 10px">Kate pivots a card's meaning on an emotional beat in 7 of 8 videos, and no
+      existing OS tool watched for it. The pipeline generated <code>emotional_turn.py</code> into
+      <code>community-agentic-os/tools/_generated/</code> and registered it. The tool scans an episode's
+      evidence for emotional-turn signal words and <b>cites the exact line of every hit</b>, so it is
+      gate-clean by construction: it cannot make an uncited claim.</p>
+    <p style="margin:0"><code>python3 os.py analyze --ep &lt;EP&gt;</code></p>
+  </div>
+
+  <div class="note">Transcribe-not-summarize rule honored: the verbatim <code>.txt</code> is the primary
+    deliverable. Summaries run only because they feed a named downstream stage (workflow extraction),
+    where structured JSON beats raw captions.</div>
+
+  </div><!-- /grown-only -->
+
+  <footer>
+    corpus &nbsp;~/Projects/_outputs/yt_trans/rws-tarot-meanings/<br>
+    new tool &nbsp;~/New&nbsp;Desktop/community-agentic-os/tools/_generated/emotional_turn.py<br>
+    built by &nbsp;/yt_trans on the seed playlist · final at 8/9 · ninth IP-blocked by YouTube
+  </footer>
+</div>
+
+</body>
+</html>
