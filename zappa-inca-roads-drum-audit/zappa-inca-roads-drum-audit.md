@@ -91,6 +91,30 @@ vote on nothing here.
 The Songsterr revision chain is the only valid comparator, which is why every finding is a
 revision-to-revision measurement.
 
+## Is the queued repair correct
+
+Checked at placement level rather than by counting, because a total cannot see where a mark
+landed. On Zomby Woof a queued repair of mine held 8 ghosts against the author's 32 and not
+one sat on a bar and drum the author had marked.
+
+| Check | Darr r7750859 | Repair r8907511 | Difference | Verdict |
+|---|---|---|---|---|
+| Bar count | 322 | 322 | 0 | match |
+| Ghosts on staff 11 | 165 | 165 | 0 | match |
+| Ghosts in the author's exact slots | 165 | 165 | 0 missing, 0 extra | match |
+| Dynamic marks on staff 11 | 1 | 1 | 0 | the 166 are gone |
+| Staccato flags | 1 | 1 | 0 | match |
+| Beats on staff 10 | 1,475 | 1,501 | +26 | still off |
+
+The ghost restoration is correct. All 165 land on the exact bar, voice, beat, string and lane
+that Darr marked, with zero missing and zero invented, and the 166 fabricated dynamics are
+reverted.
+
+One claim in the repair is overstated. Its description says it "returns the tab to revision
+r7750859 exactly." Staff 10 still carries 1,501 beats against the author's 1,475, so the 26
+rest beats were never rolled back. Note count holds at 1,844 on both, so no playing is
+affected. The wording needs correcting while the revision still sits in moderation.
+
 ## The baseline on disk cannot be trusted
 
 `ORIGINAL-Frank Zappa-Inca Roads-07-06-2026.gp` and `RESTORE-r7750859.gp` are byte-identical,

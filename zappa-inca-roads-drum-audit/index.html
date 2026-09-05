@@ -64,6 +64,7 @@ code{background:var(--shade);padding:1px 5px;font-family:"SF Mono",Menlo,monospa
 <div class=stat><b>8</b>bars carry no drums on either staff</div>
 <div class=stat><b>0</b>professional drum charts of this song on the drive</div>
 <div class=stat><b>1</b>bar where the two drum staves overlap</div>
+<div class=stat><b>165/165</b>repair ghosts land in the author&rsquo;s exact slots</div>
 </header>
 
 <nav><b style="letter-spacing:.1em;font-size:11px;text-transform:uppercase;color:#8f6f5a">Contents</b><br>
@@ -71,7 +72,7 @@ code{background:var(--shade);padding:1px 5px;font-family:"SF Mono",Menlo,monospa
 <a href="#dyn">Wrong: 166 invented dynamics</a><a href="#split">The two staves split the song</a>
 <a href="#hole">Missing: the Interlude 3 hole</a><a href="#rests">Wrong: the AI staff was touched</a>
 <a href="#odd">The note outside the kit</a><a href="#sources">What we actually hold on the drive</a>
-<a href="#stale">The baseline that cannot be trusted</a><a href="#open">What is not proven</a></nav>
+<a href="#restore">Is the queued repair correct</a><a href="#stale">The baseline that cannot be trusted</a><a href="#open">What is not proven</a></nav>
 
 <h2 id=ask>The ask</h2>
 <p>Compare the live Inca Roads drum tab against every transcription we hold on this Mac and
@@ -84,7 +85,8 @@ part JSON that a reader actually receives from CloudFront.</p>
 r8769026, published under Brandon&rsquo;s account on 2026-08-30, stripped 165 ghost notes from
 the Chester Thompson staff and added 166 dynamic marks that the previous author never wrote.
 The repair revision r8907511 is sitting in the moderation queue and has not gone public, so
-the tab a reader opens today is still the damaged one.</p></div>
+the tab a reader opens today is still the damaged one. That repair was verified at placement
+level for this page and its ghost restoration is correct.</p></div>
 
 <h2 id=tab>What this tab is</h2>
 <div class=grid>
@@ -220,6 +222,31 @@ a separate arrangement of a separate take. Under the rule that a source votes on
 passage it transcribes, they vote on nothing here.</div>
 <p>That leaves the Songsterr revision chain as the only valid comparator, which is why every
 finding above is a revision-to-revision measurement rather than a chart reading.</p>
+
+<h2 id=restore>Is the queued repair correct</h2>
+<p>The repair revision r8907511 was checked at placement level rather than by counting, because
+a total cannot see where a mark landed. On Zomby Woof a queued repair of mine held 8 ghosts
+against the author&rsquo;s 32 and not one of the 8 sat on a bar and drum the author had marked.
+The same check was run here, building the set of bar, voice, beat, string and lane tuples on
+both sides and taking the difference.</p>
+<div class=scroll><table>
+<tr><th>Check</th><th>Darr r7750859</th><th>Repair r8907511</th><th>Difference</th><th>Verdict</th></tr>
+<tr><td>Bar count</td><td class=num>322</td><td class=num>322</td><td class=num>0</td><td class=ok>match</td></tr>
+<tr><td>Ghosts on staff 11</td><td class=num>165</td><td class=num>165</td><td class=num>0</td><td class=ok>match</td></tr>
+<tr><td>Ghosts in the author&rsquo;s exact slots</td><td class=num>165</td><td class=num>165</td><td class=num>0 missing, 0 extra</td><td class=ok>match</td></tr>
+<tr><td>Dynamic marks on staff 11</td><td class=num>1</td><td class=num>1</td><td class=num>0</td><td class=ok>the 166 are gone</td></tr>
+<tr><td>Staccato flags</td><td class=num>1</td><td class=num>1</td><td class=num>0</td><td class=ok>match</td></tr>
+<tr class=hot><td>Beats on staff 10</td><td class=num>1,475</td><td class=num>1,501</td><td class=num>+26</td><td class=bad>still off</td></tr>
+</table></div>
+<div class="note win"><b>The ghost restoration itself is correct.</b> All 165 land on the exact
+bar, voice, beat, string and lane that Darr marked. Zero are missing and zero are invented. The
+166 fabricated dynamics are reverted. The Zomby Woof check failed to produce this outcome, and the result here was measured rather
+than taken from the revision description.</div>
+<div class="note warn"><b>One claim in the repair is overstated.</b> Its description says the
+revision <em>&ldquo;returns the tab to revision r7750859 exactly.&rdquo;</em> Staff 10 still carries
+1,501 beats against the author&rsquo;s 1,475, so the 26 rest beats were never rolled back. Note
+count holds at 1,844 on both, so no playing is affected. The wording needs correcting while
+this revision still sits in moderation.</div>
 
 <h2 id=stale>The baseline on disk cannot be trusted</h2>
 <p>Two files sit in the Inca Roads work folder. They are byte-identical, sha256
