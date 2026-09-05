@@ -11,11 +11,10 @@ Album reference release: One Size Fits All / 1975 / 0836aef5-1e2c-4d75-8440-6750
 - **AI transcription**: Songsterr's `aiGenerated` flag or `createdVia` reading `AI`.
 - **Has drums**: a drum staff carrying real notes, rests excluded.
 
-## What passed (4 of 13 tabs)
+## What passed (3 of 13 tabs)
 
 | Song | Tab | Bars | Tab length | Album | Delta | Drum notes | All staves |
 |---|---|---|---|---|---|---|---|
-| Inca Roads (live) | s2824983 | 322 | 9:48 | 8:45 | +12.2% | 5,016 | 9,730 |
 | Po-Jama People | s5469788 | 197 | 7:51 | 7:38 | +2.9% | 3,082 | 7,663 |
 | Florentine Pogen | s2891451 | 131 | 5:38 | 5:23 | +4.9% | 1,628 | 3,866 |
 | Can't Afford No Shoes | s2857465 | 89 | 2:38 | 2:37 | +0.8% | 1,045 | 3,927 |

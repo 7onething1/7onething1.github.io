@@ -11,11 +11,9 @@ Album reference release: Apostrophe (’) / 1974 / 6933009f-2a2d-4c9b-aa1a-274b7
 - **AI transcription**: Songsterr's `aiGenerated` flag or `createdVia` reading `AI`.
 - **Has drums**: a drum staff carrying real notes, rests excluded.
 
-## What passed (1 of 14 tabs)
+## What passed (0 of 14 tabs)
 
-| Song | Tab | Bars | Tab length | Album | Delta | Drum notes | All staves |
-|---|---|---|---|---|---|---|---|
-| Apostrophe' (live) | s6035435 | 152 | 6:36 | 5:53 | +12.3% | 2,855 | 7,369 |
+Nothing on this record passes all three filters.
 
 ## Every tab measured
 

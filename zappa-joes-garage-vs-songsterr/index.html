@@ -43,17 +43,17 @@ footer{margin-top:50px;padding-top:18px;border-top:2px solid var(--line);font-si
 
 <header>
 <h1>Joe’s Garage vs the Songsterr GPs</h1>
-<div class="sub">Full-song &middot; AI transcription &middot; drums present &middot; measured 2026-09-05</div>
+<div class="sub">Album take &middot; full-song &middot; AI transcription &middot; drums present &middot; measured 2026-09-05</div>
 <div class="stats">
 <div class="stat"><b>22</b>tabs measured</div>
 <div class="stat"><b>7</b>AI transcriptions</div>
-<div class="stat"><b>7</b>pass all three filters</div>
+<div class="stat"><b>7</b>pass all four filters</div>
 <div class="stat"><b>7</b>songs covered</div>
 <div class="stat"><b>11,412</b>drum notes in the keepers</div>
 </div>
 </header>
 
-<nav><a href="#q">The question</a><a href="#filter">The three filters</a><a href="#keep">What passed</a>
+<nav><a href="#q">The question</a><a href="#filter">The four filters</a><a href="#keep">What passed</a>
 <a href="#song">Song by song</a><a href="#all">Every tab measured</a><a href="#method">Method</a>
 <a href="#limits">Honest limits</a></nav>
 
@@ -67,7 +67,7 @@ filter, and every tab on the record is measured against them from Songsterr's ow
 against two published tabs and reproduced both to the hundredth of a second, so the numbers below
 rest on a validated method.</p>
 
-<h2 id="filter">The three filters, stated before the results</h2>
+<h2 id="filter">The four filters, stated before the results</h2>
 <div class="scroll"><table>
 <tr><th>Filter</th><th>How it is measured</th><th>Why it can fail</th></tr>
 <tr><td><b>Full song</b></td>
@@ -78,6 +78,12 @@ track length from MusicBrainz. Inside &plusmn;20 percent counts as full-song cov
 <td>Songsterr's own <span class="mono">aiGenerated</span> flag on the meta API, plus its
 <span class="mono">createdVia</span> field reading <span class="mono">AI</span>.</td>
 <td>The two fields disagree on some tabs. Both are reported below rather than merged silently.</td></tr>
+<tr><td><b>The album take</b></td>
+<td>The tab must transcribe the studio performance. A tab that titles itself a live take is excluded
+whatever its duration, and a studio-titled tab whose length falls outside the band is recorded as
+unmatched.</td>
+<td>A live tab can sit close to the album length and still be a different performance, with its own
+meters, tempos and arrangement.</td></tr>
 <tr><td><b>Has drums</b></td>
 <td>A drum staff carrying real notes. Counts are rest-excluded, since Songsterr emits a
 <span class="mono">{"rest": true}</span> object inside each beat's note list.</td>
@@ -85,7 +91,7 @@ track length from MusicBrainz. Inside &plusmn;20 percent counts as full-song cov
 </table></div>
 <p class="path">Album reference release: Joe’s Garage: Acts I, II &amp; III / 1987 / 2e620afe-b861-442a-8f85-df5ad7fac350</p>
 
-<h2 id="keep">The tabs that pass all three</h2>
+<h2 id="keep">The tabs that pass all four</h2>
 <div class="scroll"><table>
 <tr><th>Song</th><th>Tab</th><th>Bars</th><th>Tab length</th><th>Album</th><th>Delta</th><th>Drum notes</th><th>All staves</th><th>Meters written</th></tr>
 <tr class="keep"><td><b>Crew Slut</b></td><td><a href="https://www.songsterr.com/a/wsa/frank-zappa-tab-s4982983">s4982983</a><div class="path">AI &middot; John Strandberg</div></td><td class="num">194</td><td class="num">6:26</td><td class="num">6:32</td><td class="num"><span class="ok">-1.5%</span></td><td class="num">2,723</td><td class="num">6,277</td><td class="mono">4/4&times;192, 2/4&times;2</td></tr>
