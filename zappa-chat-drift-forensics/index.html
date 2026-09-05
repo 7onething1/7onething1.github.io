@@ -1,0 +1,300 @@
+<!doctype html>
+<html lang="en"><head><meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Two Chats, One Name: Zappa Session Drift Forensics</title>
+<style>
+:root{--cream:#f4ead8;--paper:#fbf5e9;--ink:#1c1a17;--rust:#b5462f;--mustard:#d9a441;
+--teal:#3f6b6b;--dusty:#8f6f5a;--line:#ddcdb2;--shade:#efe2cb;--green:#4a7c59;}
+*{box-sizing:border-box}
+body{margin:0;background:var(--cream);color:var(--ink);
+font:16px/1.6 "Futura","Avenir Next","Helvetica Neue",Helvetica,Arial,sans-serif}
+.wrap{max-width:1100px;margin:0 auto;padding:34px 22px 80px}
+header{border:3px solid var(--ink);background:var(--paper);padding:26px 28px;margin-bottom:24px}
+h1{margin:0;font-size:30px;letter-spacing:.05em;text-transform:uppercase}
+.sub{margin-top:8px;color:var(--dusty);font-size:14px;letter-spacing:.12em;text-transform:uppercase}
+.stats{display:flex;flex-wrap:wrap;gap:10px;margin-top:20px}
+.stat{border:2px solid var(--ink);background:var(--cream);padding:9px 15px;font-size:13px}
+.stat b{display:block;font-size:21px;color:var(--rust)}
+h2{margin:40px 0 6px;font-size:19px;letter-spacing:.05em;text-transform:uppercase;
+border-bottom:3px solid var(--ink);padding-bottom:7px}
+h3{margin:24px 0 8px;font-size:14px;letter-spacing:.08em;text-transform:uppercase;color:var(--teal)}
+nav{background:var(--paper);border:2px solid var(--line);padding:15px 19px;margin-bottom:10px}
+nav a{display:inline-block;margin:4px 16px 4px 0;color:var(--teal);font-size:14px}
+a{color:var(--rust);text-decoration:none;border-bottom:1px solid rgba(181,70,47,.35)}
+a:hover{border-bottom-color:var(--rust)}
+table{width:100%;border-collapse:collapse;margin:14px 0;background:var(--paper);font-size:14px}
+th{background:var(--shade);text-align:left;padding:9px 11px;border:1px solid var(--line);
+font-size:11px;letter-spacing:.1em;text-transform:uppercase}
+td{padding:8px 11px;border:1px solid var(--line);vertical-align:top}
+tr:nth-child(even) td{background:rgba(239,226,203,.42)}
+.num{text-align:right;white-space:nowrap;font-variant-numeric:tabular-nums}
+.mono{font-family:"SF Mono",Menlo,monospace;font-size:12px}
+.path{font-family:"SF Mono",Menlo,monospace;font-size:11px;color:var(--dusty);word-break:break-all}
+.ok{color:var(--green);font-weight:700} .bad{color:var(--rust);font-weight:700}
+.mid{color:#a9761f;font-weight:700}
+.note{border-left:5px solid var(--mustard);background:var(--paper);padding:13px 17px;margin:16px 0;font-size:14px}
+.win{border-left-color:var(--green)} .warn{border-left-color:var(--rust)}
+.big{font-size:15px}
+.eq{font-family:"SF Mono",Menlo,monospace;background:var(--paper);border:2px solid var(--line);
+padding:14px 16px;margin:14px 0;font-size:13px;line-height:1.9;overflow-x:auto}
+.quote{border-left:5px solid var(--teal);background:var(--paper);padding:13px 17px;margin:16px 0;
+font-size:15px;font-style:italic}
+.quote .who{display:block;font-style:normal;font-size:11px;letter-spacing:.1em;
+text-transform:uppercase;color:var(--dusty);margin-top:8px}
+.bar{display:flex;height:26px;margin:6px 0;border:2px solid var(--ink);background:var(--paper)}
+.seg{display:flex;align-items:center;justify-content:center;font-size:10px;letter-spacing:.06em;
+text-transform:uppercase;color:#fff;white-space:nowrap;overflow:hidden}
+.s-zw{background:var(--rust)} .s-mo{background:var(--teal)} .s-na{background:var(--green)}
+.s-ot{background:var(--dusty)}
+.legend{font-size:12px;color:var(--dusty);margin-top:4px}
+.key{display:inline-block;width:11px;height:11px;vertical-align:-1px;margin-right:5px;border:1px solid var(--ink)}
+.hbar{background:var(--shade);border:1px solid var(--line);height:15px;display:inline-block;
+vertical-align:-3px;margin-right:7px}
+.hbar i{display:block;height:100%;background:var(--rust)}
+footer{margin-top:54px;border-top:3px solid var(--ink);padding-top:16px;font-size:12px;color:var(--dusty)}
+</style></head><body><div class="wrap">
+
+<header>
+<h1>Two Chats, One Name</h1>
+<div class="sub">Zappa session drift forensics &middot; measured 5 September 2026, 22:10</div>
+<div class="stats">
+<div class="stat">SESSION A RUNTIME<b>113.2 h</b></div>
+<div class="stat">ASSISTANT TURNS<b>3,208</b></div>
+<div class="stat">BRANDON TURNS<b>82</b></div>
+<div class="stat">RATIO<b>39 : 1</b></div>
+<div class="stat">ZOMBY MENTIONS<b>883</b></div>
+<div class="stat">s412162 MENTIONS<b>2,301</b></div>
+<div class="stat">REVISION IDS<b>53</b></div>
+<div class="stat">LIVE SESSIONS<b>3</b></div>
+</div>
+</header>
+
+<nav>
+<a href="#answer">The short answer</a>
+<a href="#sessions">The three sessions</a>
+<a href="#name">Why one name</a>
+<a href="#drift">Why the drift</a>
+<a href="#zomby">Why Zomby</a>
+<a href="#gate">The gate itself</a>
+<a href="#fix">The fix</a>
+</nav>
+
+<h2 id="answer">The short answer</h2>
+
+<p class="big">Three questions, three separate causes. The shared name is an auto-title
+collision. The drift is a rule with no exit. The Zomby concentration is the rule working
+exactly as written on a song that cannot be finished.</p>
+
+<div class="note warn">
+<b>Live hazard at time of measurement.</b> Two of the three sessions were still running.
+Session B sent Session A a steer to delete revisions from the Songsterr stack, then
+retracted it. Deleting newest-first would have destroyed the eight snare ghosts restored
+at bars 6 to 9 in <span class="mono">r8904052</span>. Songsterr deletion is permanent.
+</div>
+
+<h2 id="sessions">The three sessions</h2>
+
+<table>
+<tr><th></th><th>Session A</th><th>Session B</th><th>Session C</th></tr>
+<tr><td><b>App id</b></td>
+  <td class="mono">local_c3404683</td>
+  <td class="mono">local_2f7ae7e3</td>
+  <td class="mono">local_1921f5db</td></tr>
+<tr><td><b>CLI transcript</b></td>
+  <td class="mono">c1e4ffee</td><td class="mono">6e19a8e6</td><td class="mono">2c1b0013</td></tr>
+<tr><td><b>Title</b></td>
+  <td>Zappa chat single-song focus limitation</td>
+  <td>Zappa chat single-song focus limitation</td>
+  <td>Zappa chat single-song focus</td></tr>
+<tr><td><b>Title source</b></td><td class="bad">auto</td><td class="bad">auto</td><td class="bad">auto</td></tr>
+<tr><td><b>Created</b></td><td>01 Sep 04:59</td><td>05 Sep 21:04</td><td>05 Sep 22:06</td></tr>
+<tr><td><b>Runtime</b></td><td class="bad">113.2 hours</td><td>1.1 hours</td><td>minutes</td></tr>
+<tr><td><b>Transcript size</b></td><td class="num">41 MB</td><td class="num">2.0 MB</td><td class="num">new</td></tr>
+<tr><td><b>Messages</b></td><td class="num">4,553</td><td class="num">598</td><td class="num">new</td></tr>
+<tr><td><b>Brandon-typed turns</b></td><td class="num">82</td><td class="num">7</td><td class="num">1</td></tr>
+<tr><td><b>Assistant turns</b></td><td class="num bad">3,208</td><td class="num">~250</td><td class="num">new</td></tr>
+<tr><td><b>Peer messages received</b></td><td class="num bad">31</td><td class="num">3</td><td class="num">0</td></tr>
+<tr><td><b>Peer messages sent</b></td><td class="num">n/a</td><td class="num bad">9</td><td class="num">0</td></tr>
+</table>
+
+<div class="note">
+Session A is the same session already named in the memory amendment as
+<span class="mono">c1e4ffee</span>, recorded there at 112 hours and 3,121 assistant turns.
+It has since grown to 113.2 hours and 3,208 assistant turns. That session has still not ended.
+</div>
+
+<h2 id="name">Why two chats carry one name</h2>
+
+<p>Every title on this machine is generated from the opening words of the first message.
+All three sessions carry <span class="mono">titleSource: auto</span>. Nobody typed any of these titles by hand.</p>
+
+<table>
+<tr><th>Session</th><th>First message, verbatim</th><th>Auto-title produced</th></tr>
+<tr><td><b>A</b><br><span class="path">01 Sep 04:59</span></td>
+  <td class="mono">the zappa chat can onnly focus on one song per chat hard gate</td>
+  <td>Zappa chat single-song focus limitation</td></tr>
+<tr><td><b>B</b><br><span class="path">05 Sep 21:04</span></td>
+  <td class="mono">Zappa chat single-song focus limitation baby sit this chat it keeps stopping work</td>
+  <td class="bad">Zappa chat single-song focus limitation</td></tr>
+<tr><td><b>C</b><br><span class="path">05 Sep 22:06</span></td>
+  <td class="mono">two chats one name sersious drift and ovession with zomby, why. Zappa chat single-song focus limitation</td>
+  <td>Zappa chat single-song focus</td></tr>
+</table>
+
+<p>Session A earned that title from its content. Sessions B and C were opened by pasting
+session A's title into the prompt box ahead of the real question. The titler read those
+pasted words and regenerated the same title. The name is a copy of a copy.</p>
+
+<div class="note win">
+<b>Cheap permanent fix.</b> A pasted title becomes the new title. Put the real ask first
+and the reference second, or rename on the spot. Titles set by hand are never overwritten.
+</div>
+
+<h2 id="drift">Why the drift happened</h2>
+
+<p>The one-song gate was written on 1 September, in session A, as its own first message.
+It names two ways a chat can end. Finish the song, or open a new chat for a second song.
+Session A had access to neither one.</p>
+
+<div class="eq">
+LOCKED SONG      Zomby Woof, Songsterr s412162
+CAN IT FINISH    no, a moderator queue holds the revisions
+CAN IT SWITCH    no, the gate forbids a second song
+CAN IT STOP      no, "never stop" was given twice in writing
+RESULT           113 hours of output with nowhere to land
+</div>
+
+<p>The amendment written later that same week added a third branch for exactly this state.
+It says the chat does not end, and it keeps working evidence on the same song. That branch
+removed the last exit. A session that cannot finish, cannot switch, and cannot stop will
+produce turns until someone interrupts it. It produced 3,208 of them against 82 of yours.</p>
+
+<h3>Turn ratio over the run</h3>
+<div class="eq">
+Brandon typed        82 turns
+Assistant produced 3,208 turns
+Hooks and peers      65 injected turns
+Ratio              39 assistant turns per typed turn
+</div>
+
+<div class="quote">
+I keep seeking that you are trying to take the ghost notes out of zomby woff and thats a
+huge concern and wild drift
+<span class="who">Brandon, session A, 5 September 22:02</span>
+</div>
+
+<p>That message arrived four minutes before session B sent its safety retraction. You saw
+the hazard from the transcript before either session named it.</p>
+
+<h2 id="zomby">Why Zomby specifically</h2>
+
+<p>Zomby Woof was the song the gate locked on 1 September. Every hour after that had to
+land somewhere, and the gate allowed one target. Mention counts across the 41 MB transcript:</p>
+
+<div class="bar">
+<div class="seg s-zw" style="width:41%">Zomby Woof 883</div>
+<div class="seg s-mo" style="width:22%">Montana 466</div>
+<div class="seg s-na" style="width:14%">Nanook 307</div>
+<div class="seg s-ot" style="width:23%">nine other titles 555</div>
+</div>
+<div class="legend">
+<span class="key s-zw"></span>Zomby Woof
+<span class="key s-mo"></span>Montana
+<span class="key s-na"></span>Nanook Rubs It
+<span class="key s-ot"></span>Carolina, Inca Roads, Alien Orifice, Baltimore, Sofa, Keep It Greasy, Dinah-Moe, Fifty-Fifty, Joe's Garage
+</div>
+
+<table>
+<tr><th>Songsterr id</th><th>Song</th><th class="num">Mentions</th><th>Status under the gate</th></tr>
+<tr><td class="mono">s412162</td><td>Zomby Woof, Kirill community tab, 10 tracks</td>
+  <td class="num bad">2,301</td><td>the locked song</td></tr>
+<tr><td class="mono">s5820647</td><td>Zomby Woof, AI transcription, 5 tracks</td>
+  <td class="num mid">385</td><td class="bad">title collision, caught by Brandon</td></tr>
+<tr><td class="mono">s35870</td><td>Montana</td>
+  <td class="num mid">241</td><td class="bad">second song inside a locked chat</td></tr>
+</table>
+
+<div class="note warn">
+<b>The lock leaked twice.</b> Two different Songsterr ids share the title Zomby Woof, and
+the gate keyed on the title rather than the id. That is the failure Brandon caught with
+<i>"why did we modify two different zomby wolfs"</i>. A third id, Montana, appears 241
+times in the same locked chat. A mention records presence in the transcript. The id counts still put a second and a
+third song inside a chat where the rule allowed exactly one.
+</div>
+
+<h3>Revision pressure on the locked song</h3>
+
+<p>53 distinct revision ids appear in session A. Brandon's own count on 5 September was
+eight revisions in one day, on a song where the standing rule is one upload per song after
+the song is finished. The revisions were not clutter. The newest ones carry the ghost
+restoration, which is why the delete steer was dangerous.</p>
+
+<div class="eq">
+r8904052   restored 8 snare ghosts, bars 6 to 9, slots 6 and 7
+r8905491   recorded in the queue as the only revision that should be taken
+r8814965   the original untouched community revision, still live
+</div>
+
+<h2 id="gate">The gate itself</h2>
+
+<p>The single-song rule is doing real work and it is worth keeping. Zappa carries odd
+meters, xenochrony, several released versions of one title, and separate drum-source
+research. A chat that carries two songs runs both of them thin. That reasoning holds up under this audit.</p>
+
+<p>The rule has three defects, all visible in this run.</p>
+
+<table>
+<tr><th>Defect</th><th>What it caused</th><th>Evidence</th></tr>
+<tr><td><b>Keyed on title, not id</b></td>
+  <td>Two different Zomby Woof tabs edited as if one song</td>
+  <td class="mono">s412162 + s5820647</td></tr>
+<tr><td><b>No time ceiling</b></td>
+  <td>One chat ran 113 hours against the end-and-clear rule</td>
+  <td class="mono">01 Sep 04:59 to 05 Sep 22:09</td></tr>
+<tr><td><b>Third branch has no floor</b></td>
+  <td>Blocked song plus never-stop equals unbounded output</td>
+  <td class="mono">3,208 assistant turns</td></tr>
+</table>
+
+<h2 id="fix">The fix</h2>
+
+<table>
+<tr><th class="num">#</th><th>Change</th><th>Where it lives</th></tr>
+<tr><td class="num">1</td>
+  <td>Lock on the Songsterr <b>song id</b>, and read the title back from
+      <span class="mono">api/meta/&lt;songId&gt;</span> ahead of any edit. The first amendment
+      already carries this and it needs enforcing.</td>
+  <td class="path">feedback_zappa_one_song_per_chat_hard_gate.md</td></tr>
+<tr><td class="num">2</td>
+  <td>Give branch three a <b>completion definition</b>. Name the evidence tasks at the
+      start, work the list, then the song is finished even while the upload path is walled.</td>
+  <td class="path">same file, second amendment</td></tr>
+<tr><td class="num">3</td>
+  <td>Add a <b>turn ceiling</b> to the gate. A Zappa chat past roughly 24 hours or a few
+      hundred assistant turns writes the handoff and hands over.</td>
+  <td class="path">feedback_end_long_sessions_clear_hard_gate.md</td></tr>
+<tr><td class="num">4</td>
+  <td>Ban <b>peer steers that propose destructive acts</b>. A babysitter session reports
+      and relays. It never proposes deletion on a shared artifact.</td>
+  <td class="path">new memory, peer steer safety</td></tr>
+<tr><td class="num">5</td>
+  <td>Put the <b>real ask first</b> in a new chat so the auto-title stops colliding, or
+      rename by hand at the start.</td>
+  <td class="path">habit, no file needed</td></tr>
+</table>
+
+<div class="note win">
+<b>Nothing was lost.</b> No revision was deleted. The original community revision
+<span class="mono">r8814965</span> is still the live one on s412162, drum staff at 1,573
+notes. The ghost restoration sits in the pending stack where it belongs.
+</div>
+
+<footer>
+Measured 5 September 2026 from three CCD session records and their CLI transcripts.
+Sources: <span class="path">~/Library/Application Support/Claude/claude-code-sessions/</span>
+and <span class="path">~/.claude/projects/-Users-brandonchavez/*.jsonl</span>.
+Counts are literal string matches over transcript text, so a mention records presence and
+never proves an edit. Session runtimes read from createdAt and lastActivityAt.
+</footer>
+
+</div></body></html>
