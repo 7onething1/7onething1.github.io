@@ -1,4 +1,4 @@
-# Nanook Rubs It — drum tab sync forensics
+# Nanook Rubs It: drum tab sync forensics
 
 Songsterr s35865, Frank Zappa, Apostrophe ('). Measured 5 September 2026 on MacBookPro.
 
@@ -34,7 +34,7 @@ Four independent measurements of the record, none of them 69.
 | Eighth-period autocorrelation | full mix | 70.58 |
 | Normalised cross-correlation of the notated pattern | Demucs drum stem | 70.20 |
 | Kick and snare onset matching | Demucs drum stem | 70.22 |
-| Written in the tab | — | 69.00 |
+| Written in the tab | none | 69.00 |
 
 The tempo holds steady across the track. In twenty-second windows the bar period
 stays between 2.543 s and 2.601 s. The record's 6/8 bar measures 2.574 s and the
@@ -51,10 +51,10 @@ next-best offset. Zero bars differ on position and drum MIDI.
 |---|---|---|---|---|
 | 1, silent pickup | 3/4 | 2/8 | 6 vs 2 | +4 eighths |
 | 2 to 5 | 3/4 | 6/8 | 6 vs 6 | none |
-| 6 to 108 | identical meters | identical meters | — | none |
+| 6 to 108 | identical meters | identical meters | 0 | none |
 | 109, tail | 4/4 | 1/8 | 8 vs 1 | +7 eighths |
 
-Bars 2 to 5 only look different. A 3/4 bar and a 6/8 bar both hold six eighths.
+Bars 2 to 5 only look longer than the suite writes them. A 3/4 bar and a 6/8 bar both hold six eighths.
 The padding is 5.5 quarter beats, 4.78 s at 69 BPM.
 
 The suite's partial bars belong there, joining the sections on either side. Lifting
@@ -88,8 +88,8 @@ Change bar 1 from 3/4 to 2/8 and bar 109 from 4/4 to 1/8. Grid error drops from
 ## What stayed unresolved
 
 The exact bar-level start offset is ambiguous. A 6/8 groove this uniform
-autocorrelates at the bar, so alignments separated by about 2.56 s score almost
-equally, and different fitting passes returned offsets differing by roughly two
+autocorrelates at the bar, so alignments separated by about 2.56 s score nearly
+equally, and separate fitting passes returned offsets differing by roughly two
 bars. Duration and tempo do not depend on that, since both come from the record's
 own period and total length. Check the start point against a structural landmark
 such as the two 4/4 bars at 6 and 7.

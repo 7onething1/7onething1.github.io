@@ -1,7 +1,7 @@
 <!doctype html>
 <html lang="en"><head><meta charset="utf-8">
 <meta name="viewport" content="width=device-width,initial-scale=1">
-<title>Nanook Rubs It — Drum Tab Sync Forensics</title>
+<title>Nanook Rubs It: Drum Tab Sync Forensics</title>
 <style>
 :root{--cream:#f4ead8;--paper:#fbf5e9;--ink:#1c1a17;--rust:#b5462f;--mustard:#d9a441;
 --teal:#3f6b6b;--dusty:#8f6f5a;--line:#ddcdb2;--shade:#efe2cb;--green:#4a7c59;}
@@ -47,7 +47,7 @@ footer{margin-top:54px;border-top:3px solid var(--ink);padding-top:16px;font-siz
 </style></head><body><div class="wrap">
 
 <header>
-<h1>Nanook Rubs It — Drum Tab Sync Forensics</h1>
+<h1>Nanook Rubs It: Drum Tab Sync Forensics</h1>
 <div class="sub">Songsterr s35865 &middot; Frank Zappa, Apostrophe (') &middot; measured 5 September 2026</div>
 <div class="stats">
 <div class="stat">RECORD<b>277.23 s</b></div>
@@ -104,7 +104,7 @@ drum staff and nothing else. Its predecessor 4719269 carries the same 109 bars, 
 same 4238 total notes and the same meters, so the sync problem predates that edit and
 was inherited from the original transcription.</div>
 
-<h2 id="err1">Error 1 — the tempo is 69, the record is about 70.2</h2>
+<h2 id="err1">Error 1. The tempo is 69, the record is about 70.2</h2>
 <p>The tab carries exactly one tempo event: 69 quarter notes per minute at bar 0,
 marked invisible, holding for all 109 bars. I measured the record four independent
 ways and none of them returned 69.</p>
@@ -114,7 +114,7 @@ ways and none of them returned 69.</p>
 <tr><td>Autocorrelation of the eighth-note period</td><td>full mix</td><td class="num">70.58</td></tr>
 <tr><td>Normalised cross-correlation of the notated pattern</td><td>Demucs drum stem</td><td class="num">70.20</td></tr>
 <tr><td>Kick and snare onset matching, offset swept</td><td>Demucs drum stem</td><td class="num">70.22</td></tr>
-<tr><td><b>Written in the tab</b></td><td>&mdash;</td><td class="num bad">69.00</td></tr>
+<tr><td><b>Written in the tab</b></td><td>0</td><td class="num bad">69.00</td></tr>
 </table>
 <p>The record holds that tempo steadily. Measured in twenty-second windows across
 the track, the bar period stays between 2.543 s and 2.601 s, which is 69.2 to 70.8
@@ -124,7 +124,7 @@ whole song, and the value in the tab is simply about 1.2 BPM under it.</p>
 <b>2.574 s</b>. The tab notates it at <b>2.609 s</b> under 69 BPM. Every bar is
 35 milliseconds too long, and there are 101 of them.</div>
 
-<h2 id="err2">Error 2 — bar 1 and bar 109 carry padding</h2>
+<h2 id="err2">Error 2. Bar 1 and bar 109 carry padding</h2>
 <p>Nanook Rubs It also exists inside the Nanook Suite, tab s35878, as bars 38 to 146.
 I aligned the two by drum content rather than by trusting the tempo marks, sliding the
 109-bar staff across all 292 bars of the suite and scoring each position.</p>
@@ -140,10 +140,10 @@ exactly two bars.</p>
 <tr><th>Bar</th><th>Standalone s35865</th><th>Suite s35878</th><th class="num">Eighths</th><th class="num">Difference</th></tr>
 <tr><td>1 (silent pickup)</td><td>3/4</td><td>2/8</td><td class="num">6 vs 2</td><td class="num bad">+4 eighths</td></tr>
 <tr><td>2 to 5</td><td>3/4</td><td>6/8</td><td class="num">6 vs 6</td><td class="num ok">none</td></tr>
-<tr><td>6 to 108</td><td colspan="2">identical meters, bar for bar</td><td class="num">&mdash;</td><td class="num ok">none</td></tr>
+<tr><td>6 to 108</td><td colspan="2">identical meters, bar for bar</td><td class="num">0</td><td class="num ok">none</td></tr>
 <tr><td>109 (tail)</td><td>4/4</td><td>1/8</td><td class="num">8 vs 1</td><td class="num bad">+7 eighths</td></tr>
 </table>
-<div class="note">Bars 2 to 5 look different and are not. A 3/4 bar and a 6/8 bar both
+<div class="note">Bars 2 to 5 only look longer than the suite writes them. A 3/4 bar and a 6/8 bar both
 hold six eighth notes, so they occupy the same time. The only real padding is bar 1
 and bar 109, and it totals <b>5.5 quarter beats, 4.78 seconds</b> at 69 BPM.</div>
 
