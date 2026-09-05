@@ -105,13 +105,18 @@ footer{margin-top:64px;padding-top:22px;border-top:3px double var(--rule);
   <span class="k">The short answer</span>
   <p><b>No BELIEVEYOUME stem folder holds a second vocal file.</b> All six separated songs are Demucs 6-stem output, so each one ships exactly one <span class="mono">vocals.wav</span> beside bass, drums, guitar, other and piano.</p>
   <p>Measuring inside those single files, <b>three songs carry audible layering</b> that survives a guitar-bleed control: <b>My Mirror Hates Me</b>, <b>Asleep In The Trunk</b>, and <b>So Far So</b>.</p>
+  <p>The T7 Shield copy is covered in Section 04 from stored indexes. Section 05 lists the four T7 roots that no sweep has reached.</p>
 </div>
 
 <div class="grid">
   <div class="card c-olive"><div class="cap">Songs on album</div><div class="big">10</div><div class="note">Full BELIEVEYOUME track list</div></div>
   <div class="card c-gold"><div class="cap">Separated locally</div><div class="big">6</div><div class="note">Five in one folder, Jackie in another</div></div>
-  <div class="card c-rust"><div class="cap">Missing stems</div><div class="big">4</div><div class="note">Tracks 06, 07, 08, 09</div></div>
+  <div class="card c-rust"><div class="cap">Missing locally</div><div class="big">4</div><div class="note">Tracks 06, 07, 08, 09. All four live on the T7.</div></div>
   <div class="card c-teal"><div class="cap">Layered vocals</div><div class="big">3</div><div class="note">Confirmed after the bleed control</div></div>
+</div>
+
+<div class="caveat" style="border-left-color:#B5502A">
+  <b>Open conflict, 2026-09-05.</b> Brandon reports seeing multiple vocal tracks on the T7 Shield right now. The drive is not attached to this MacBook, so this audit could not read it live and the finding below rests on two stored indexes. His live look outranks a stored index. Section 05 states exactly what was swept and what was skipped.
 </div>
 
 <h2><span class="num">Section 01</span>Track list against what is on disk</h2>
@@ -215,10 +220,39 @@ footer{margin-top:64px;padding-top:22px;border-top:3px double var(--rule);
 ~/Desktop/BELIEVEYOUME/&nbsp;&nbsp;<span class="dim">mp3</span>
 </div>
 
-<h2><span class="num">Section 04</span>What is not covered</h2>
+<h2><span class="num">Section 04</span>The T7 Shield copy, from stored indexes</h2>
+<p class="lede">The full album does exist on the T7, with richer per-role stems than the local copies. Two stored indexes describe that folder. Neither was read live today.</p>
+
+<div class="pathbox">
+<span class="lbl">Root</span> /Volumes/T7 Shield/Moises_Stems/BelieveYouMeStems/<br>
+<span class="dim">10 songs &middot; 101 files &middot; Moises role labels, not plain demucs names</span>
+</div>
+
+<div class="tablewrap">
+<table>
+<thead><tr><th>#</th><th>Song</th><th>Files</th><th>Guitar stems</th><th>Vocal stems</th></tr></thead>
+<tbody>
+<tr><td class="n">01</td><td class="song">Asleep in the Trunk</td><td class="mono">9</td><td class="mono">0, inside <span class="mono">other</span></td><td class="mono">1</td></tr>
+<tr><td class="n">02</td><td class="song">The Alligator</td><td class="mono">7</td><td class="mono">2 &middot; lead, rhythm</td><td class="mono">1</td></tr>
+<tr><td class="n">03</td><td class="song">The Mutiny</td><td class="mono">14</td><td class="mono">4 &middot; Rhythm, L, R, Solo</td><td class="mono">1</td></tr>
+<tr><td class="n">04</td><td class="song">So Far So</td><td class="mono">12</td><td class="mono">3 &middot; Rhythm, Solo, Other</td><td class="mono">1</td></tr>
+<tr><td class="n">05</td><td class="song">My Mirror Hates Me</td><td class="mono">14</td><td class="mono">3 &middot; Rhythm, Solo, Other</td><td class="mono">1</td></tr>
+<tr><td class="n">06</td><td class="song">Endless Summer</td><td class="mono">7</td><td class="mono">2 &middot; lead, rhythm</td><td class="mono">1</td></tr>
+<tr><td class="n">07</td><td class="song">Lazarus</td><td class="mono">7</td><td class="mono">2 &middot; lead, rhythm</td><td class="mono">1</td></tr>
+<tr><td class="n">08</td><td class="song">Not Too Much</td><td class="mono">14</td><td class="mono">3 &middot; Rhythm, Solo, Other</td><td class="mono">1</td></tr>
+<tr><td class="n">09</td><td class="song">Broken Satellites</td><td class="mono">13</td><td class="mono">3 &middot; Rhythm, Solo, Other</td><td class="mono">1</td></tr>
+<tr><td class="n">10</td><td class="song">Jackie</td><td class="mono">4</td><td class="mono">0, inside <span class="mono">other</span></td><td class="mono">1</td></tr>
+</tbody>
+</table>
+</div>
+
+<p class="lede">Source: the 2026-08-17 sweep at <span class="mono">/shiner-bym-stem-contrast</span>, which swept five roots and recorded one vocal stem per song as the maximum. A second index at <span class="mono">/stems-map</span> was rebuilt today and lists the same folder with the same single vocal per song, in an abbreviated file list.</p>
+
+<h2><span class="num">Section 05</span>What is not covered</h2>
 <ul class="tight">
-  <li><b>The T7 Shield is unplugged.</b> No external volume was mounted during this audit, and the curated stem library lives on that drive. Any BELIEVEYOUME folder there stayed invisible to this scan.</li>
-  <li><b>Four songs have no stems anywhere local.</b> Endless Summer, Lazarus, Not Too Much and Broken Satellites each need their own separation run first.</li>
+  <li><b>The T7 was not readable from this session.</b> Hard evidence on this MacBook: <span class="mono">/Volumes/</span> holds only Macintosh HD, <span class="mono">diskutil list</span> shows one internal disk, every Thunderbolt port reports no device connected, and the USB tree is empty. Jacks-iMac answers on the LAN at 192.168.12.113 and refuses an SMB connection, so the network route is closed too.</li>
+  <li><b>Both T7 findings are stored, never live.</b> The sweep behind Section 04 ran on 2026-08-17, nineteen days before this audit. Anything separated since then is invisible to it.</li>
+  <li><b>Four T7 roots were never swept for this album.</b> <span class="mono">Stems/</span>, <span class="mono">Music to Stem/</span>, <span class="mono">Big music/</span> and <span class="mono">33 &#8531;/</span> hold audio and were outside the 2026-08-17 sweep. A second vocal stem sitting in one of those would not appear in any index here.</li>
   <li><b>Layering is measured, never separated.</b> Nothing here splits a lead from a harmony into two files. Producing genuine lead and backing stems calls for a second pass with a model that outputs both.</li>
 </ul>
 

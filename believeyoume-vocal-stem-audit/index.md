@@ -66,11 +66,38 @@ Sources for the four missing songs:
     ~/Downloads/complete/complete/complete/BELIEVEYOUME (2025)/   flac
     ~/Desktop/BELIEVEYOUME/                                       mp3
 
+## The T7 Shield copy, from stored indexes
+
+The full album does exist on the T7, with richer per-role stems than the local copies. Two stored indexes describe that folder. Neither was read live today.
+
+Root: `/Volumes/T7 Shield/Moises_Stems/BelieveYouMeStems/` holds 10 songs and 101 files under Moises role labels.
+
+| # | Song | Files | Guitar stems | Vocal stems |
+|---|---|---|---|---|
+| 01 | Asleep in the Trunk | 9 | 0, inside `other` | 1 |
+| 02 | The Alligator | 7 | 2 lead, rhythm | 1 |
+| 03 | The Mutiny | 14 | 4 Rhythm, L, R, Solo | 1 |
+| 04 | So Far So | 12 | 3 Rhythm, Solo, Other | 1 |
+| 05 | My Mirror Hates Me | 14 | 3 Rhythm, Solo, Other | 1 |
+| 06 | Endless Summer | 7 | 2 lead, rhythm | 1 |
+| 07 | Lazarus | 7 | 2 lead, rhythm | 1 |
+| 08 | Not Too Much | 14 | 3 Rhythm, Solo, Other | 1 |
+| 09 | Broken Satellites | 13 | 3 Rhythm, Solo, Other | 1 |
+| 10 | Jackie | 4 | 0, inside `other` | 1 |
+
+Source: the 2026-08-17 sweep at `/shiner-bym-stem-contrast`, which swept five roots and recorded one vocal stem per song as the maximum. A second index at `/stems-map` was rebuilt today and lists the same folder with the same single vocal per song.
+
+## Open conflict, 2026-09-05
+
+Brandon reports seeing multiple vocal tracks on the T7 Shield right now. The drive is not attached to this MacBook, so this audit could not read it live. His live look outranks a stored index.
+
 ## What is not covered
 
-The T7 Shield is unplugged. No external volume was mounted during this audit, and the curated stem library lives on that drive. Any BELIEVEYOUME folder there stayed invisible to this scan.
+The T7 was not readable from this session. Hard evidence on this MacBook: `/Volumes/` holds only Macintosh HD, `diskutil list` shows one internal disk, every Thunderbolt port reports no device connected, and the USB tree is empty. Jacks-iMac answers on the LAN at 192.168.12.113 and refuses an SMB connection, so the network route is closed too.
 
-Four songs have no stems anywhere local. Endless Summer, Lazarus, Not Too Much and Broken Satellites each need their own separation run first.
+Both T7 findings are stored, never live. The sweep behind the table above ran on 2026-08-17, nineteen days before this audit. Anything separated since then is invisible to it.
+
+Four T7 roots were never swept for this album. `Stems/`, `Music to Stem/`, `Big music/` and `33 1/3/` hold audio and were outside the 2026-08-17 sweep. A second vocal stem sitting in one of those would not appear in any index here.
 
 Layering is measured, never separated. Nothing here splits a lead from a harmony into two files. Producing genuine lead and backing stems calls for a second pass with a model that outputs both.
 
