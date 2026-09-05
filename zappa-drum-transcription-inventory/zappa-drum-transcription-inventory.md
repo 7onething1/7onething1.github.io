@@ -14,7 +14,7 @@ coverage of the studio recording.
 
 | # | Song | Album length | AI drum tab (album take)? | Any drum tab (album take)? | Linked tab | Live-take tabs | Drums on recording |
 |---|---|---|---|---|---|---|---|
-| 1 | Don’t Eat the Yellow Snow | 2:06 | No (AI tab exists, not the album take) | Yes | [s35866](https://www.songsterr.com/a/wsa/frank-zappa-tab-s35866) (human, 560 drum notes) | - | n/a, transcription exists |
+| 1 | Don’t Eat the Yellow Snow | 2:06 | Yes | Yes | [s1459839](https://www.songsterr.com/a/wsa/frank-zappa-tab-s1459839) (AI, 674 drum notes) | - | n/a, transcription exists |
 | 2 | Nanook Rubs It | 4:37 | No | Yes | [s35865](https://www.songsterr.com/a/wsa/frank-zappa-tab-s35865) (human, 1,309 drum notes) | - | n/a, transcription exists |
 | 3 | St. Alfonzo’s Pancake Breakfast | 1:52 | No | Yes | [s35892](https://www.songsterr.com/a/wsa/frank-zappa-tab-s35892) (human, 851 drum notes) | - | n/a, transcription exists |
 | 4 | Father O’Blivion | 2:18 | No | Yes | [s35864](https://www.songsterr.com/a/wsa/frank-zappa-tab-s35864) (human, 1,339 drum notes) | - | n/a, transcription exists |
@@ -22,7 +22,7 @@ coverage of the studio recording.
 | 6 | Excentrifugal Forz | 1:31 | No | No | none found | - | n/a, transcription exists |
 | 7 | Apostrophe’ | 5:53 | No (AI tab exists, not the album take) | No | none found | [s6035435](https://www.songsterr.com/a/wsa/frank-zappa-tab-s6035435) (+12%) | n/a, transcription exists |
 | 8 | Uncle Remus | 2:54 | No | Yes | [s35894](https://www.songsterr.com/a/wsa/frank-zappa-tab-s35894) (human, 834 drum notes) | - | n/a, transcription exists |
-| 9 | Stink‐foot | 6:35 | No | Yes | [s2382928](https://www.songsterr.com/a/wsa/frank-zappa-tab-s2382928) (human, 2,599 drum notes) | - | n/a, transcription exists |
+| 9 | Stink‐foot | 6:35 | No (AI tab exists, not the album take) | Yes | [s2382928](https://www.songsterr.com/a/wsa/frank-zappa-tab-s2382928) (human, 2,599 drum notes) | - | n/a, transcription exists |
 
 ### One Size Fits All
 
@@ -61,7 +61,7 @@ coverage of the studio recording.
 | 11 | Stick It Out | 4:34 | No | No | none found | - | Yes ([evidence](https://musicbrainz.org/recording/5c8dc711-b5fe-495f-b429-152e9087f7ec)) |
 | 12 | Sy Borg | 8:56 | Yes | Yes | [s3362954](https://www.songsterr.com/a/wsa/frank-zappa-tab-s3362954) (AI, 2,376 drum notes) | - | n/a, transcription exists |
 | 13 | Dong Work for Yuda | 5:03 | Yes | Yes | [s768189](https://www.songsterr.com/a/wsa/frank-zappa-tab-s768189) (AI, 1,606 drum notes) | - | n/a, transcription exists |
-| 14 | Keep It Greasey | 8:22 | No | Yes | [s604777](https://www.songsterr.com/a/wsa/frank-zappa-tab-s604777) (human, 4,948 drum notes) | - | n/a, transcription exists |
+| 14 | Keep It Greasey | 8:22 | No (AI tab exists, not the album take) | Yes | [s604777](https://www.songsterr.com/a/wsa/frank-zappa-tab-s604777) (human, 4,948 drum notes) | - | n/a, transcription exists |
 | 15 | Outside Now | 5:50 | Yes | Yes | [s1200335](https://www.songsterr.com/a/wsa/frank-zappa-tab-s1200335) (AI, 1,537 drum notes) | - | n/a, transcription exists |
 | 16 | He Used to Cut the Grass | 8:35 | No | No | none found | - | Yes ([evidence](https://musicbrainz.org/recording/e30a251a-8264-406d-810e-cfbdb95a1535)) |
 | 17 | Packard Goose | 11:34 | No | Yes | [s35875](https://www.songsterr.com/a/wsa/frank-zappa-tab-s35875) (human, 4,768 drum notes) | - | n/a, transcription exists |
@@ -75,7 +75,7 @@ Listed whether or not an AI version exists. These are the material for checking 
 | Song | Album | Tab | Via | Author | Drum notes | Bars | Length | vs album | AI also exists? |
 |---|---|---|---|---|---|---|---|---|---|
 | Cosmik Debris | Apostrophe (') | [s412177](https://www.songsterr.com/a/wsa/frank-zappa-tab-s412177) | AI | femboy.gardevoir | 1,581 | 80 | 4:19 | +3.8% | no |
-| Don’t Eat the Yellow Snow | Apostrophe (') | [s35866](https://www.songsterr.com/a/wsa/frank-zappa-tab-s35866) | Editor | MarkDubya | 560 | 38 | 1:50 | -12.4% | no |
+| Don’t Eat the Yellow Snow | Apostrophe (') | [s35866](https://www.songsterr.com/a/wsa/frank-zappa-tab-s35866) | Editor | MarkDubya | 560 | 38 | 1:50 | -12.4% | yes |
 | Excentrifugal Forz | Apostrophe (') | [s1014276](https://www.songsterr.com/a/wsa/frank-zappa-tab-s1014276) | GP | Kevin Sheppard | 143 | 9 | 0:18 | -79.9% | no |
 | Father O’Blivion | Apostrophe (') | [s35864](https://www.songsterr.com/a/wsa/frank-zappa-tab-s35864) | Editor | femboy.gardevoir | 1,339 | 83 | 2:16 | -1.2% | no |
 | Nanook Rubs It | Apostrophe (') | [s35865](https://www.songsterr.com/a/wsa/frank-zappa-tab-s35865) | GP | Brandon chavez | 1,309 | 109 | 4:46 | +3.6% | no |

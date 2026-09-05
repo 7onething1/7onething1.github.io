@@ -11,7 +11,7 @@ Album reference release: Joe’s Garage: Acts I, II & III / 1987 / 2e620afe-b861
 - **AI transcription**: Songsterr's `aiGenerated` flag or `createdVia` reading `AI`.
 - **Has drums**: a drum staff carrying real notes, rests excluded.
 
-## What passed (7 of 22 tabs)
+## What passed (7 of 23 tabs)
 
 | Song | Tab | Bars | Tab length | Album | Delta | Drum notes | All staves |
 |---|---|---|---|---|---|---|---|
@@ -37,6 +37,7 @@ Album reference release: Joe’s Garage: Acts I, II & III / 1987 / 2e620afe-b861
 | Joe's Garage | s187096 | no | 137 | 6:24 | 6:15 | +2.6% | 2,027 | 5,232 | - |
 | Joe's Garage | s615252 | AI | 171 | 6:12 | 6:15 | -0.8% | 1,949 | 2,861 | - |
 | Keep It Greasey | s604777 | no | 248 | 8:18 | 8:22 | -0.7% | 4,948 | 14,444 | - |
+| Keep It Greasey | s2832032 | AI | 123 | 2:54 | 8:22 | -65.1% | 1,863 | 3,690 | - |
 | Keep It Greasey | s754950 | no | 121 | 2:54 | 8:22 | -65.2% | 0 | 406 | - |
 | Lucille Has Messed My Mind Up | s187088 | AI | 175 | 5:50 | 5:43 | +2.0% | 1,049 | 4,896 | - |
 | On The Bus | s1309087 | no | 119 | 4:39 | 4:18 | +8.5% | 0 | 979 | - |
