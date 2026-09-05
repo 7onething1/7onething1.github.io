@@ -1,0 +1,233 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>BELIEVEYOUME vocal stem audit</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,600;0,700;1,400&family=Inter:wght@400;500;600;700&family=JetBrains+Mono:wght@400;600&display=swap" rel="stylesheet">
+<style>
+:root{
+  --cream:#F4EEE2; --cream-2:#EDE4D3; --ink:#1C1A17; --ink-soft:#4A443B;
+  --rule:#D6C9AF; --card:#FBF7EE;
+  --mustard:#D8A427; --rust:#B5502A; --olive:#6E7A4B;
+  --teal:#3E6B6B; --plum:#7A4B63; --sky:#8FA9BE;
+}
+*{box-sizing:border-box}
+body{margin:0;background:var(--cream);color:var(--ink);
+  font-family:Inter,-apple-system,BlinkMacSystemFont,"Segoe UI",sans-serif;
+  font-size:16px;line-height:1.62;-webkit-font-smoothing:antialiased}
+.wrap{max-width:1080px;margin:0 auto;padding:48px 26px 90px}
+header.top{border-bottom:3px double var(--rule);padding-bottom:26px;margin-bottom:34px}
+.eyebrow{font-family:"JetBrains Mono",monospace;font-size:11.5px;letter-spacing:.20em;
+  text-transform:uppercase;color:var(--rust);font-weight:600}
+h1{font-family:"Cormorant Garamond",Georgia,serif;font-weight:700;
+  font-size:clamp(34px,5.4vw,54px);line-height:1.05;margin:.24em 0 .18em}
+.sub{font-size:17px;color:var(--ink-soft);max-width:66ch;margin:0}
+.meta{font-family:"JetBrains Mono",monospace;font-size:11.5px;color:var(--ink-soft);
+  margin-top:16px;letter-spacing:.04em}
+
+h2{font-family:"Cormorant Garamond",Georgia,serif;font-weight:700;
+  font-size:clamp(25px,3.3vw,34px);margin:52px 0 6px;line-height:1.14}
+h2 .num{font-family:"JetBrains Mono",monospace;font-size:12px;color:var(--rust);
+  display:block;letter-spacing:.18em;margin-bottom:5px;font-weight:600}
+.lede{color:var(--ink-soft);max-width:70ch;margin:0 0 20px}
+
+.answer{background:var(--card);border:1px solid var(--rule);
+  border-left:7px solid var(--mustard);border-radius:3px;padding:22px 26px;margin:26px 0 8px}
+.answer .k{font-family:"JetBrains Mono",monospace;font-size:11px;letter-spacing:.16em;
+  text-transform:uppercase;color:var(--rust);font-weight:600;display:block;margin-bottom:8px}
+.answer p{margin:0 0 10px;font-size:17px}
+.answer p:last-child{margin-bottom:0}
+
+.tablewrap{overflow-x:auto;border:1px solid var(--rule);border-radius:3px;background:var(--card);margin:20px 0}
+table{border-collapse:collapse;width:100%;min-width:660px;font-size:14.5px}
+th{background:var(--cream-2);font-family:"JetBrains Mono",monospace;font-size:10.5px;
+  letter-spacing:.1em;text-transform:uppercase;text-align:left;padding:11px 13px;
+  border-bottom:2px solid var(--rule);white-space:nowrap;font-weight:600}
+td{padding:10px 13px;border-bottom:1px solid #E6DCC6;vertical-align:top}
+tr:last-child td{border-bottom:none}
+td.n{font-family:"JetBrains Mono",monospace;color:var(--ink-soft);font-size:13px}
+td.song{font-weight:600}
+.mono{font-family:"JetBrains Mono",monospace;font-size:13px}
+
+.pill{display:inline-block;font-family:"JetBrains Mono",monospace;font-size:10.5px;
+  font-weight:600;letter-spacing:.07em;padding:3px 9px;border-radius:11px;white-space:nowrap}
+.p-have{background:#E3EAD9;color:#44532C;border:1px solid #BFCFA8}
+.p-none{background:#F0DDD6;color:#8A3A1C;border:1px solid #DFBCAC}
+.p-strong{background:#F3E2BA;color:#7A5A0B;border:1px solid #E0C782}
+.p-mod{background:#E4E8EE;color:#3C5670;border:1px solid #C3CEDC}
+.p-single{background:#E9E3DA;color:#5D544A;border:1px solid #D2C7B6}
+.p-bleed{background:#EFD9E4;color:#6E3550;border:1px solid #DCBACB}
+
+.grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(232px,1fr));gap:15px;margin:22px 0}
+.card{background:var(--card);border:1px solid var(--rule);border-radius:3px;padding:17px 19px}
+.card .cap{font-family:"JetBrains Mono",monospace;font-size:10.5px;letter-spacing:.13em;
+  text-transform:uppercase;color:var(--ink-soft);font-weight:600}
+.card .big{font-family:"Cormorant Garamond",Georgia,serif;font-size:37px;font-weight:700;
+  line-height:1.06;margin:5px 0 3px}
+.card .note{font-size:13.5px;color:var(--ink-soft);line-height:1.5}
+.c-gold{border-top:4px solid var(--mustard)}
+.c-rust{border-top:4px solid var(--rust)}
+.c-olive{border-top:4px solid var(--olive)}
+.c-teal{border-top:4px solid var(--teal)}
+
+.pathbox{background:#2A2721;color:#EDE4D3;border-radius:3px;padding:15px 18px;margin:14px 0;
+  font-family:"JetBrains Mono",monospace;font-size:12.5px;line-height:1.85;overflow-x:auto}
+.pathbox .lbl{color:var(--mustard);font-weight:600}
+.pathbox .dim{color:#9C9280}
+
+.caveat{border-left:5px solid var(--plum);background:#F7F1E6;padding:16px 20px;
+  border-radius:3px;margin:20px 0;font-size:15px}
+.caveat b{color:var(--plum)}
+
+ul.tight{margin:12px 0 0;padding-left:20px}
+ul.tight li{margin-bottom:8px;max-width:74ch}
+.bar{height:8px;background:#E2D8C4;border-radius:5px;overflow:hidden;min-width:74px;margin-top:5px}
+.bar > i{display:block;height:100%;border-radius:5px}
+footer{margin-top:64px;padding-top:22px;border-top:3px double var(--rule);
+  font-family:"JetBrains Mono",monospace;font-size:11.5px;color:var(--ink-soft);line-height:1.9}
+@media(max-width:640px){.wrap{padding:32px 17px 62px}}
+</style>
+</head>
+<body>
+<div class="wrap">
+
+<header class="top">
+  <div class="eyebrow">Shiner &middot; BELIEVEYOUME (2025) &middot; stem inventory</div>
+  <h1>Which BELIEVEYOUME stems<br>carry more than one voice</h1>
+  <p class="sub">Every song on the track list, checked against the stem folders on this MacBook, then measured for vocal layering with a bleed control.</p>
+  <div class="meta">Audited 2026-09-05 &middot; MacBookPro &middot; 6 of 10 songs separated &middot; external drives offline</div>
+</header>
+
+<div class="answer">
+  <span class="k">The short answer</span>
+  <p><b>No BELIEVEYOUME stem folder holds a second vocal file.</b> All six separated songs are Demucs 6-stem output, so each one ships exactly one <span class="mono">vocals.wav</span> beside bass, drums, guitar, other and piano.</p>
+  <p>Measuring inside those single files, <b>three songs carry audible layering</b> that survives a guitar-bleed control: <b>My Mirror Hates Me</b>, <b>Asleep In The Trunk</b>, and <b>So Far So</b>.</p>
+</div>
+
+<div class="grid">
+  <div class="card c-olive"><div class="cap">Songs on album</div><div class="big">10</div><div class="note">Full BELIEVEYOUME track list</div></div>
+  <div class="card c-gold"><div class="cap">Separated locally</div><div class="big">6</div><div class="note">Five in one folder, Jackie in another</div></div>
+  <div class="card c-rust"><div class="cap">Missing stems</div><div class="big">4</div><div class="note">Tracks 06, 07, 08, 09</div></div>
+  <div class="card c-teal"><div class="cap">Layered vocals</div><div class="big">3</div><div class="note">Confirmed after the bleed control</div></div>
+</div>
+
+<h2><span class="num">Section 01</span>Track list against what is on disk</h2>
+<p class="lede">Searched by song name across the local disk. Four songs have never been separated on this machine.</p>
+
+<div class="tablewrap">
+<table>
+<thead><tr><th>#</th><th>Song</th><th>Stems</th><th>Vocal files</th><th>Where</th></tr></thead>
+<tbody>
+<tr><td class="n">01</td><td class="song">Asleep In The Trunk</td><td><span class="pill p-have">6-stem</span></td><td class="mono">1</td><td class="mono">Stems/shiner-believeyoume/stems/</td></tr>
+<tr><td class="n">02</td><td class="song">The Alligator</td><td><span class="pill p-have">6-stem</span></td><td class="mono">1</td><td class="mono">Stems/shiner-believeyoume/stems/</td></tr>
+<tr><td class="n">03</td><td class="song">The Mutiny</td><td><span class="pill p-have">6-stem</span></td><td class="mono">1</td><td class="mono">Stems/shiner-believeyoume/stems/</td></tr>
+<tr><td class="n">04</td><td class="song">So Far So</td><td><span class="pill p-have">6-stem</span></td><td class="mono">1</td><td class="mono">Stems/shiner-believeyoume/stems/</td></tr>
+<tr><td class="n">05</td><td class="song">My Mirror Hates Me</td><td><span class="pill p-have">6-stem</span></td><td class="mono">1</td><td class="mono">Stems/shiner-believeyoume/stems/</td></tr>
+<tr><td class="n">06</td><td class="song">Endless Summer</td><td><span class="pill p-none">none</span></td><td class="mono">0</td><td class="mono">source flac + mp3 only</td></tr>
+<tr><td class="n">07</td><td class="song">Lazarus</td><td><span class="pill p-none">failed</span></td><td class="mono">0</td><td class="mono">Stems/shiner-lazarus/job.log</td></tr>
+<tr><td class="n">08</td><td class="song">Not Too Much</td><td><span class="pill p-none">none</span></td><td class="mono">0</td><td class="mono">source flac + mp3 only</td></tr>
+<tr><td class="n">09</td><td class="song">Broken Satellites</td><td><span class="pill p-none">none</span></td><td class="mono">0</td><td class="mono">source flac + mp3 only</td></tr>
+<tr><td class="n">10</td><td class="song">Jackie</td><td><span class="pill p-have">6-stem</span></td><td class="mono">1</td><td class="mono">Moises_Input/stems/htdemucs_6s/</td></tr>
+</tbody>
+</table>
+</div>
+
+<p class="lede"><b>Lazarus is the one to fix first.</b> Its folder exists and holds only a job log, so a separation run was started and never produced audio.</p>
+
+<h2><span class="num">Section 02</span>Layering inside the single vocal file</h2>
+<p class="lede">A double-tracked or harmonised vocal spreads across the stereo field. A single centred lead stays near mono. Side energy and left-right correlation measure that directly.</p>
+
+<div class="tablewrap">
+<table>
+<thead><tr><th>Song</th><th>Stereo width</th><th>L/R corr</th><th>Mean voices</th><th>Guitar bleed</th><th>Verdict</th></tr></thead>
+<tbody>
+<tr>
+  <td class="song">05 My Mirror Hates Me</td>
+  <td class="mono">&minus;6.11 dB<div class="bar"><i style="width:96%;background:#D8A427"></i></div></td>
+  <td class="mono">0.649</td><td class="mono">2.23</td>
+  <td class="mono">&minus;0.06 <span class="pill p-single">clean</span></td>
+  <td><span class="pill p-strong">layered</span></td>
+</tr>
+<tr>
+  <td class="song">01 Asleep In The Trunk</td>
+  <td class="mono">&minus;6.44 dB<div class="bar"><i style="width:92%;background:#D8A427"></i></div></td>
+  <td class="mono">0.688</td><td class="mono">2.51</td>
+  <td class="mono">0.15 <span class="pill p-single">clean</span></td>
+  <td><span class="pill p-strong">layered</span></td>
+</tr>
+<tr>
+  <td class="song">04 So Far So</td>
+  <td class="mono">&minus;8.54 dB<div class="bar"><i style="width:70%;background:#8FA9BE"></i></div></td>
+  <td class="mono">0.793</td><td class="mono">2.59</td>
+  <td class="mono">0.32 <span class="pill p-mod">partial</span></td>
+  <td><span class="pill p-mod">some layering</span></td>
+</tr>
+<tr>
+  <td class="song">02 The Alligator</td>
+  <td class="mono">&minus;11.16 dB<div class="bar"><i style="width:38%;background:#B0A692"></i></div></td>
+  <td class="mono">0.882</td><td class="mono">1.82</td>
+  <td class="mono">0.05 <span class="pill p-single">clean</span></td>
+  <td><span class="pill p-single">one voice</span></td>
+</tr>
+<tr>
+  <td class="song">03 The Mutiny</td>
+  <td class="mono">&minus;13.96 dB<div class="bar"><i style="width:12%;background:#B0A692"></i></div></td>
+  <td class="mono">0.932</td><td class="mono">2.13</td>
+  <td class="mono">0.61 <span class="pill p-bleed">bleed</span></td>
+  <td><span class="pill p-single">one voice</span></td>
+</tr>
+<tr>
+  <td class="song">10 Jackie</td>
+  <td class="mono">&minus;14.06 dB<div class="bar"><i style="width:10%;background:#B0A692"></i></div></td>
+  <td class="mono">0.933</td><td class="mono">2.24</td>
+  <td class="mono">&minus;0.23 <span class="pill p-single">clean</span></td>
+  <td><span class="pill p-single">one voice</span></td>
+</tr>
+</tbody>
+</table>
+</div>
+
+<div class="caveat">
+  <b>Why the bleed column decides it.</b> Counting simultaneous pitches inside a vocal stem returned two or more voices on every song, including the narrow ones. Demucs leaks guitar into the vocal stem, and that leakage produces the same pitch count a harmony would. The Mutiny reads 0.61 correlation between its vocal side channel and its guitar stem, so its width belongs to the guitar. A pitch found in one stem never proves which instrument played it.
+</div>
+
+<h2><span class="num">Section 03</span>Exact paths</h2>
+
+<div class="pathbox">
+<span class="lbl">Five songs, one folder</span><br>
+~/Desktop/Stems/shiner-believeyoume/stems/<br>
+<span class="dim">&nbsp;&nbsp;1-01 Asleep In The Trunk/&nbsp;&nbsp;bass drums guitar other piano vocals</span><br>
+<span class="dim">&nbsp;&nbsp;1-02 The Alligator/&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;bass drums guitar other piano vocals</span><br>
+<span class="dim">&nbsp;&nbsp;1-03 The Mutiny/&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;bass drums guitar other piano vocals</span><br>
+<span class="dim">&nbsp;&nbsp;1-04 So Far So/&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;bass drums guitar other piano vocals</span><br>
+<span class="dim">&nbsp;&nbsp;1-05 My Mirror Hates Me/&nbsp;&nbsp;&nbsp;bass drums guitar other piano vocals</span><br><br>
+<span class="lbl">Jackie, separate folder</span><br>
+~/Desktop/Moises_Input/stems/htdemucs_6s/<br>
+<span class="dim">&nbsp;&nbsp;Shiner - BELIEVEYOUME - 10 - Jackie/&nbsp;&nbsp;bass drums guitar other piano vocals</span><br><br>
+<span class="lbl">Vocal loops already cut</span><br>
+~/Desktop/Stems/shiner-believeyoume/loops/<br>
+<span class="dim">&nbsp;&nbsp;The Alligator, The Mutiny, So Far So, My Mirror Hates Me&nbsp;&nbsp;(4 bar)</span><br><br>
+<span class="lbl">Sources for the four missing songs</span><br>
+~/Downloads/complete/complete/complete/BELIEVEYOUME (2025)/&nbsp;&nbsp;<span class="dim">flac</span><br>
+~/Desktop/BELIEVEYOUME/&nbsp;&nbsp;<span class="dim">mp3</span>
+</div>
+
+<h2><span class="num">Section 04</span>What is not covered</h2>
+<ul class="tight">
+  <li><b>The T7 Shield is unplugged.</b> No external volume was mounted during this audit, and the curated stem library lives on that drive. Any BELIEVEYOUME folder there stayed invisible to this scan.</li>
+  <li><b>Four songs have no stems anywhere local.</b> Endless Summer, Lazarus, Not Too Much and Broken Satellites each need their own separation run first.</li>
+  <li><b>Layering is measured, never separated.</b> Nothing here splits a lead from a harmony into two files. Producing genuine lead and backing stems calls for a second pass with a model that outputs both.</li>
+</ul>
+
+<footer>
+  Shiner &middot; BELIEVEYOUME (2025) &middot; vocal stem audit<br>
+  Method: soundfile + scipy STFT, harmonic salience over an 80 to 800 Hz quarter-tone grid, mid/side energy, envelope correlation against the guitar stem.<br>
+  Built 2026-09-05 on MacBookPro. External drives offline at audit time.
+</footer>
+
+</div>
+</body>
+</html>
