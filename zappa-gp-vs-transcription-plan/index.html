@@ -1,0 +1,185 @@
+<!DOCTYPE html><html lang="en"><head><meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Zappa: .gp against transcription, repair plan</title>
+<style>
+:root{--bg:#f4f1e8;--ink:#2b2a26;--mut:#6f6a5d;--line:#d8d2c0;--card:#fffdf6;
+--red:#b23a2e;--amber:#c98a2b;--green:#4d7c4a;--blue:#3c5f7a}
+*{box-sizing:border-box}
+body{margin:0;background:var(--bg);color:var(--ink);
+font:16px/1.6 "Iowan Old Style",Palatino,Georgia,serif;padding:0 0 80px}
+header{background:#2b2a26;color:#f4f1e8;padding:34px 24px 26px}
+.wrap{max-width:1120px;margin:0 auto;padding:0 24px}
+h1{margin:0 0 6px;font-size:30px;letter-spacing:-.01em}
+header p{margin:4px 0 0;color:#c9c2ad;font-size:15px}
+h2{margin:44px 0 10px;font-size:22px;border-bottom:2px solid var(--line);padding-bottom:6px}
+h3{margin:26px 0 8px;font-size:18px}
+.tag{display:inline-block;font:600 11px/1 -apple-system,system-ui,sans-serif;
+letter-spacing:.06em;text-transform:uppercase;padding:5px 9px;border-radius:3px;color:#fff;vertical-align:2px}
+.t-red{background:var(--red)}.t-amber{background:var(--amber)}.t-green{background:var(--green)}.t-blue{background:var(--blue)}
+table{width:100%;border-collapse:collapse;margin:14px 0;background:var(--card);font-size:14.5px}
+th,td{border:1px solid var(--line);padding:9px 11px;text-align:left;vertical-align:top}
+th{background:#ebe6d6;font:600 13px/1.3 -apple-system,system-ui,sans-serif;letter-spacing:.02em}
+td code,p code,li code{background:#ebe6d6;padding:1px 5px;border-radius:3px;
+font:13px/1.4 ui-monospace,Menlo,monospace}
+.card{background:var(--card);border:1px solid var(--line);border-left:5px solid var(--blue);
+padding:16px 20px;margin:16px 0;border-radius:2px}
+.card.red{border-left-color:var(--red)}.card.amber{border-left-color:var(--amber)}
+.card.green{border-left-color:var(--green)}
+.k{font-weight:700}
+.mut{color:var(--mut)}
+ul{margin:8px 0 8px 20px;padding:0}li{margin:5px 0}
+.scroll{overflow-x:auto}
+.big{font:700 34px/1 -apple-system,system-ui,sans-serif;color:var(--red)}
+.stat{display:inline-block;margin:0 26px 10px 0}
+.stat span{display:block;font:600 12px/1.5 -apple-system,system-ui,sans-serif;
+letter-spacing:.05em;text-transform:uppercase;color:var(--mut)}
+a{color:var(--blue)}
+footer{margin-top:50px;padding-top:18px;border-top:1px solid var(--line);
+color:var(--mut);font-size:13.5px}
+</style></head><body>
+<header><div class="wrap">
+<h1>Zappa tabs against the printed transcriptions</h1>
+<p>A repair plan for every song on Over-Nite Sensation, One Size Fits All and Roxy &amp; Elsewhere. Measured 2026-09-05. Plan only, nothing repaired here.</p>
+</div></header>
+<div class="wrap">
+
+<h2>What the numbers say before any song row</h2>
+<div class="card red">
+<p><span class="stat"><span>songs on the three albums</span><b class="big">26</b></span>
+<span class="stat"><span>with a drum transcription on disk</span><b class="big">2</b></span>
+<span class="stat"><span>with pitched score only</span><b class="big">18</b></span>
+<span class="stat"><span>with nothing</span><b class="big">6</b></span></p>
+<p class="k">The blocker on this plan is source coverage, not tab quality.</p>
+<p>Twenty-four of twenty-six songs cannot be checked today, because no professional drum
+chart for them exists in the archive. Any row claiming a mismatch on those songs would be
+invented, so every one of them reads <b>not yet measured</b>.</p>
+</div>
+
+<div class="card amber">
+<p class="k">Zappa Analysis cannot vote on drums, and this corrects an assumption in the
+archive's own coverage file.</p>
+<p><code>_raw/coverage.json</code> credits 18 of these songs with 2 to 11 notation images
+from Kasper Sloots' Zappa Analysis. I opened
+<code>05-zappa-analysis/zomby-woof2.jpg</code> and it is a pitched score: treble and bass
+clefs, vocal line with lyrics, two keyboard staves, bass in 8vb. <b>There is no drum staff
+on the page.</b> Those pages settle meter and barring, and nothing about a drum lane.</p>
+</div>
+
+<h2>How each row was decided</h2>
+<p>Songsterr ids come from the live search API, filtered to Frank Zappa, with the drum track
+counted by <code>instrumentId 1024</code>. Transcription coverage comes from a directory
+listing of the archive, not from its index file, because those files are iCloud dataless
+placeholders that <code>find</code> and <code>mdfind</code> under-report.</p>
+<p><b>One professional transcription is enough to correct a tab.</b> The Songsterr side is a
+machine guess with a documented failure mode, so a printed chart is not held to a
+two-of-three vote against it. Two charts are needed only when they disagree with each other.</p>
+
+<h2>1. Over-Nite Sensation (1973)</h2>
+<div class="scroll"><table>
+<tr><th>Song</th><th>Tab</th><th>Drum chart on disk</th><th>Named mismatch</th><th>Evidence</th><th>Route</th><th>Effort</th><th>Risk</th></tr>
+<tr><td class="k">Zomby Woof</td><td><a href="https://www.songsterr.com/a/wsa/frank-zappa-zomby-woof-drum-tab-s412162">s412162</a>, 10 tracks<br><span class="mut">also s5820647, 5 tracks, AI</span></td>
+<td>DRUM Magazine, Drumnet, Bedard, three</td>
+<td><span class="tag t-red">measured</span> 32 ghost marks now render as staccato dots in bars 4, 13, 15, 40 to 43. Opening rebarred from one 10/16 to 5/16 plus 5/16. Two toms collapsed onto one drum at bar 4 and 15, slot 16.</td>
+<td><code>s412162/GHOST-RESTORE-SHORTFALL-2026-09-05.md</code>, <code>REV5-BUILD-2026-09-05.md</code>, <code>PHASE2-LANE-AUDIT.md</code></td>
+<td>Revision. <b>File already built and verified</b>: <code>rev5-Zomby-Woof-GHOSTS-RESTORED.gp</code>, preflight PASS.</td><td>done, pending submit</td>
+<td><span class="tag t-red">high</span> 7 of my revisions already queued unreviewed. Adding an eighth is worse than waiting.</td></tr>
+<tr><td class="k">Montana</td><td><a href="https://www.songsterr.com/a/wsa/frank-zappa-montana-drum-tab-s35870">s35870</a>, 18 tracks, 5 drum</td><td>none</td>
+<td><span class="tag t-amber">partly measured</span> 21 impossible hi-hat simultaneities across 12 bars: 17, 18, 20, 21, 26, 33, 100, 101, 114, 115, 116, 135. Eight read from context, four cannot.</td>
+<td><code>MONTANA-HIHAT-COLLISIONS.md</code>, <code>MONTANA-TREMOLO-NUMBERS.md</code></td>
+<td>Revision. Eight bars are decidable now; bars 20, 21, 33 and 135 need a chart or the record.</td><td>medium</td>
+<td><span class="tag t-amber">medium</span> 317 ghost marks already restored by r8907028.</td></tr>
+<tr><td>Camarillo Brillo</td><td>s412176, s187082</td><td>none</td><td><span class="tag t-blue">not yet measured</span></td><td>pitched score only, 5 images</td><td>unknown until a chart exists</td><td>blocked</td><td>unknown</td></tr>
+<tr><td>I'm The Slime</td><td>s642618 and 4 others</td><td>none</td><td><span class="tag t-blue">not yet measured</span></td><td>pitched score only, 3 images</td><td>unknown until a chart exists</td><td>blocked</td><td>unknown</td></tr>
+<tr><td>Dirty Love</td><td>s35862</td><td>none</td><td><span class="tag t-blue">not yet measured</span></td><td>pitched score only, 5 images</td><td>unknown until a chart exists</td><td>blocked</td><td>unknown</td></tr>
+<tr><td>Fifty-Fifty</td><td>s5469260, s4861438</td><td>none</td><td><span class="tag t-blue">not yet measured</span></td><td>pitched score only, 6 images</td><td>unknown until a chart exists</td><td>blocked</td><td>unknown</td></tr>
+<tr><td>Dinah-Moe Humm</td><td>s6820405 and 2 others</td><td>none</td><td><span class="tag t-blue">not yet measured</span></td><td>pitched score only, 7 images</td><td>unknown until a chart exists</td><td>blocked</td><td>unknown</td></tr>
+</table></div>
+
+<h2>2. One Size Fits All (1975)</h2>
+<div class="scroll"><table>
+<tr><th>Song</th><th>Tab</th><th>Drum chart on disk</th><th>Named mismatch</th><th>Evidence</th><th>Route</th><th>Effort</th><th>Risk</th></tr>
+<tr><td class="k">Andy</td><td><a href="https://www.songsterr.com/a/wsa/frank-zappa-andy-drum-tab-s21495">s21495</a>, 9 tracks<br><span class="mut">also s4691455</span></td>
+<td class="k">DRUM Magazine Groove Analysis</td>
+<td><span class="tag t-green">measurable now</span> not yet compared. This is the only song on all three albums that has a chart and no comparison run against it.</td>
+<td><code>02-drummagazine/GrooveAnalysis_andy.png</code></td>
+<td>Compare first, then decide. Almost certainly a revision.</td><td>one session</td>
+<td><span class="tag t-amber">medium</span> community tab, 9 tracks</td></tr>
+<tr><td class="k">Inca Roads</td><td><a href="https://www.songsterr.com/a/wsa/frank-zappa-inca-roads-drum-tab-s412178">s412178</a>, 12 tracks, 2 drum</td><td>none</td>
+<td><span class="tag t-amber">partly measured</span> 165 ghost marks were stripped by the 2026-08-29 sweep and restored by r8907511. No lane-level check has been run.</td>
+<td>skill <code>reference/damage-log.md</code></td>
+<td>Revision, already submitted. Lane check waits on a chart.</td><td>blocked</td>
+<td><span class="tag t-amber">medium</span> the restore is in the moderation queue</td></tr>
+<tr><td>Can't Afford No Shoes</td><td>s2857465</td><td>none</td><td><span class="tag t-blue">not yet measured</span></td><td>no source at all</td><td>unknown until a chart exists</td><td>blocked</td><td>unknown</td></tr>
+<tr><td>Sofa No. 1</td><td>s6822181</td><td>none</td><td><span class="tag t-blue">not yet measured</span></td><td>no source at all</td><td>unknown until a chart exists</td><td>blocked</td><td>unknown</td></tr>
+<tr><td>Po-Jama People</td><td>s5469788</td><td>none</td><td><span class="tag t-blue">not yet measured</span></td><td>no source at all</td><td>unknown until a chart exists</td><td>blocked</td><td>unknown</td></tr>
+<tr><td>Florentine Pogen</td><td>s2891451, s2024455</td><td>none</td><td><span class="tag t-blue">not yet measured</span></td><td>no source at all</td><td>unknown until a chart exists</td><td>blocked</td><td>unknown</td></tr>
+<tr><td>Evelyn, A Modified Dog</td><td>s4430002, 1 track, no drums</td><td>none</td><td><span class="tag t-blue">no drum staff to check</span></td><td>tab has no drum track</td><td>out of scope</td><td>none</td><td>none</td></tr>
+<tr><td>San Ber'dino</td><td>s412171, 5 tracks, no drums</td><td>none</td><td><span class="tag t-blue">no drum staff to check</span></td><td>tab has no drum track</td><td>out of scope</td><td>none</td><td>none</td></tr>
+<tr><td>Sofa No. 2</td><td>s412180, 7 tracks, no drums</td><td>none</td><td><span class="tag t-blue">no drum staff to check</span></td><td>tab has no drum track</td><td>out of scope</td><td>none</td><td>none</td></tr>
+</table></div>
+
+<h2>3. Roxy &amp; Elsewhere (1974)</h2>
+<div class="card amber"><p class="k">Not one song on this album has a drum transcription in the archive.</p>
+<p>All ten rows below are <b>not yet measured</b>, and none of them can move until a chart is
+acquired. Zappa Analysis covers eight of them for meter and barring only.</p></div>
+<div class="scroll"><table>
+<tr><th>Song</th><th>Tab</th><th>Drum track</th><th>Status</th><th>Pitched-score pages held</th></tr>
+<tr><td>Penguin In Bondage</td><td>s5469710</td><td>yes</td><td><span class="tag t-blue">not yet measured</span></td><td>11 images, 4 pages</td></tr>
+<tr><td>Pygmy Twylyte</td><td>s627774, s2847936, s1473002</td><td>yes</td><td><span class="tag t-blue">not yet measured</span></td><td>6 images, 2 pages</td></tr>
+<tr><td>Dummy Up</td><td>s5469676</td><td>yes</td><td><span class="tag t-blue">not yet measured</span></td><td>none</td></tr>
+<tr><td>Village Of The Sun</td><td>s412175, s6109180, s6628550</td><td>yes</td><td><span class="tag t-blue">not yet measured</span></td><td>8 images, 3 pages</td></tr>
+<tr><td>Echidna's Arf (Of You)</td><td>s35891, s2825336, s3387460</td><td>yes</td><td><span class="tag t-blue">not yet measured</span></td><td>4 images, 2 pages</td></tr>
+<tr><td>Don't You Ever Wash That Thing?</td><td>s2829238, s5469773</td><td>yes</td><td><span class="tag t-blue">not yet measured</span></td><td>2 images, 2 pages</td></tr>
+<tr><td>Cheepnis</td><td>s5469732</td><td>yes</td><td><span class="tag t-blue">not yet measured</span></td><td>7 images, 1 page</td></tr>
+<tr><td>Son Of Orange County</td><td>s5469750, s187084</td><td>yes on s5469750</td><td><span class="tag t-blue">not yet measured</span></td><td>5 images, 3 pages</td></tr>
+<tr><td>More Trouble Every Day</td><td>s187105, s1381481</td><td>yes</td><td><span class="tag t-blue">not yet measured</span></td><td>3 images, 1 page</td></tr>
+<tr><td>Be-Bop Tango</td><td>s5469948</td><td>yes</td><td><span class="tag t-blue">not yet measured</span></td><td>5 images, 3 pages</td></tr>
+</table></div>
+
+<h2>Execution order</h2>
+<div class="card green">
+<p class="k">Each song's execution goes in its OWN chat. The one-Zappa-song-per-chat gate keys
+on the song id, so a chat that opens on s21495 does not touch s412162.</p>
+<ol>
+<li><b>Andy s21495.</b> The only song here with a chart and no comparison run. Highest value,
+lowest ambiguity, needs nothing acquired.</li>
+<li><b>Zomby Woof s412162.</b> The repair file is built and passes preflight. The work left
+is not technical: seven of my revisions sit unreviewed, and the honest move is to wait for a
+moderator rather than queue an eighth.</li>
+<li><b>Montana s35870.</b> Eight of the twelve collision bars are decidable from the tab's own
+context. The other four need a source.</li>
+<li><b>Acquisition, before any Roxy work.</b> Nothing on that album is checkable today.</li>
+</ol>
+</div>
+
+<h2>What to acquire, and where</h2>
+<table>
+<tr><th>Source</th><th>Holds for Zappa</th><th>Covers these three albums?</th><th>How</th></tr>
+<tr><td>drumnet.ru</td><td>Oh No, Shut Up And Play Yer Guitar, Whipping Post, Muffin Man, Watermelon In Easter Hay, Zomby Woof</td><td>Zomby Woof only</td><td><code>https://drumnet.ru/fls/sheets/&lt;id&gt;_1.jpg</code>. A short read there is a truncated transfer, not a dead source: re-fetch with <code>Accept-Encoding: identity</code> and a 90 s timeout, then check bytes against the HEAD <code>Content-Length</code>.</td></tr>
+<tr><td>DRUM Magazine Groove Analysis</td><td>Drowning Witch, Keep It Greasey, Andy, Brain Police, Grand Wazoo, Muffin Man, Zomby Woof</td><td>Zomby Woof, Andy</td><td>already downloaded, 10 files</td></tr>
+<tr><td>Cruise Ship Drummer</td><td>Central Scrutinizer, Beat It With Your Fist, Rubber Shirt, Dancin' Fool, Apostrophe, Don't Eat The Yellow Snow, Flower Punk, I'm A Beautiful Guy, plus Bedard's charts</td><td>none</td><td>already downloaded, 22 files</td></tr>
+<tr><td>Modern Drummer, Drumset Sheet Music</td><td>unknown, both folders hold only a <code>NOTE.md</code></td><td>unknown</td><td>never fetched. Worth a pass, since Roxy is entirely uncovered.</td></tr>
+</table>
+
+<h2>Method each execution chat follows</h2>
+<ol>
+<li><b>Identify the passage on three measures</b> before comparing anything: meter, tempo and
+event count. Tempo can be measured off the record with <code>librosa.beat.beat_track</code>
+even where the record cannot settle a single note.</li>
+<li><b>Measure lanes, do not read them.</b> Counting the bottom staff line as lane 0, kick is
+lane 0.5 and snare lane 2.5. <code>tools/chart_heads.py</code> isolates heads by erosion.</li>
+<li><b>Build the subdivision grid from the hi-hat positions</b>, never by dividing the bar
+width, which misassigns notes at the ends.</li>
+<li><b>Compare slot by slot.</b> A high agreement rate validates the alignment. A low one
+means the passages do not correspond and the comparison is void.</li>
+<li><b>Verify against the author's own pre-damage revision</b> as a set difference on
+<code>(bar, slot, drum, flag)</code>, not as a count. A count going up proves nothing.</li>
+</ol>
+
+<footer>
+<p>Full method and archive index: <code>~/.claude/skills/songsterr-drum-repair/</code>, and
+<code>reference/transcription-sources.md</code> inside it.</p>
+<p>Plan built 2026-09-05. Songsterr ids read live from the search API that day. No song was
+repaired in the pass that produced this page.</p>
+</footer>
+</div></body></html>
