@@ -294,3 +294,33 @@ This is the fourth instance of one root cause in this audit and the most costly:
 `<Ghost>`, searching the articulation table, reading a missing `fret` as a rest, reading a
 missing `dynamic` key as an absent marking, and a hardcoded allowlist hiding a real loss.
 Every one enumerated what was expected and treated absence as evidence.
+
+## The sixth instance, caught by Brandon
+
+Two sessions agreed the drum note schema has no accent field, so accents could not be
+notated. Brandon opened the editor, saw the accent option, and was right.
+
+The field is **`accentuated`**. The wrong claim came from a key inventory of one part of
+one tab that contained no accents. Scanning 106 parts across 11 tabs gives the real
+schema: `string, fret, rest, tie, staccato, dead, hp, slide, ghost, bend,
+leftHandVibrato, accentuated, harmonic, harmonicFret, trill, tremolo`.
+
+`accentuated: 1` is an accent, `accentuated: 2` a marcato, and both appear on drum staves.
+Keep It Greasey s604777 carries 60 marcatos on the Vinnie Colaiuta staff; Drowning Witch
+s620961 carries 7 accents and 2 marcatos on drums.
+
+**GPIF `<Accent>` is a bitfield, not an enum:**
+
+| Value | Bit | Marking |
+|---|---|---|
+| 1 | bit 0 | staccato |
+| 4 | bit 2 | accent > |
+| 8 | bit 3 | marcato ^ |
+| 9 | 8\|1 | marcato plus staccato |
+
+Confirmed against Drowning Witch's GPIF: `Accent` {1: 246, 4: 4, 9: 4, 8: 3}, serving
+staccato alongside `accentuated` 1 and 2. Writing `<Accent>1</Accent>` requests a staccato
+and returns one. An accent IS writable from a `.gp`: use 4, or 8 for marcato.
+
+This is the sixth instance of the same root cause, committed inside the work documenting
+it. Absence in a sample is not absence from a schema.

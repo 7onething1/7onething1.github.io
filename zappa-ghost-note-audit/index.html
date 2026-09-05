@@ -435,6 +435,29 @@ footer{margin-top:60px;padding-top:20px;border-top:1px solid var(--line);color:v
 <div class="box b"><p><strong>Fixed.</strong> The fingerprint now enumerates every child element of a note except the two structural ones, so a marking nobody anticipated still shows up. Verified: ghost, accent, letRing and tie now each produce a distinct fingerprint. Backup at <code>noteloss_audit.py.bak-pre-antiaccent-blindness-2026-09-05</code>.</p>
 <p>This is the fourth instance of one root cause in this audit, and the most costly. <code>&lt;Ghost&gt;</code> returning zero started the sweep. An articulation-table search concluded the flags were not in the file. A missing <code>fret</code> read as a rest invented five notes. A missing <code>dynamic</code> key read as an absent marking. Here a hardcoded allowlist made a real loss invisible. <strong>Every one of them enumerated what was expected and treated what was absent as evidence.</strong></p></div>
 
+
+<h2 id="accents"><span class="dot" style="background:var(--red)"></span>The sixth instance, caught by Brandon</h2>
+<p class="lede">Two sessions agreed that Songsterr's drum note schema has no accent field, so a drummer's accents could not be notated. Brandon opened the editor and said he could see the accent option. He was right, and both of us had made the same error this page spends its length documenting.</p>
+
+<div class="box r"><h3>The field is <code>accentuated</code></h3>
+<p>The original claim came from a key inventory of <strong>one part of one tab</strong> that happened to contain no accents. Scanning 106 parts across 11 tabs gives the schema actually in use:</p>
+<p><code>string, fret, rest, tie, staccato, dead, hp, slide, ghost, bend, leftHandVibrato, <strong>accentuated</strong>, harmonic, harmonicFret, trill, tremolo</code></p>
+<p><code>accentuated: 1</code> is an accent, <code>accentuated: 2</code> is a marcato, and they appear on drum staves. Keep It Greasey <code>s604777</code> carries 60 at marcato on the Vinnie Colaiuta staff; Drowning Witch <code>s620961</code> carries 7 accents and 2 marcatos on its drum staff.</p></div>
+
+<div class="box b"><h3>Why an accent kept arriving as a staccato dot</h3>
+<p>GPIF <code>&lt;Accent&gt;</code> is a <strong>bitfield, not an enum</strong>:</p>
+<div class="tw"><table>
+<thead><tr><th>Value</th><th>Bit</th><th>Marking</th></tr></thead>
+<tbody>
+<tr><td class='rev'>1</td><td class='st'>bit 0</td><td class='ttl'>staccato</td></tr>
+<tr><td class='rev'>4</td><td class='st'>bit 2</td><td class='ttl'>accent &gt;</td></tr>
+<tr><td class='rev'>8</td><td class='st'>bit 3</td><td class='ttl'>marcato ^</td></tr>
+<tr><td class='rev'>9</td><td class='st'>8 | 1</td><td class='ttl'>marcato plus staccato</td></tr>
+</tbody></table></div>
+<p>Confirmed against Drowning Witch's GPIF, which holds <code>Accent</code> values {1: 246, 4: 4, 9: 4, 8: 3} and serves staccato alongside <code>accentuated</code> 1 and 2. Writing <code>&lt;Accent&gt;1&lt;/Accent&gt;</code> requests a staccato and returns one. The element was right and the value was wrong. <strong>An accent is writable from a <code>.gp</code>: use 4, or 8 for a marcato.</strong></p></div>
+
+<div class="box a"><p><strong>This is the sixth instance of the same root cause, and it happened inside the work documenting that root cause.</strong> Absence in a sample is not absence from a schema. Inventorying one file and generalising is the same move as grepping <code>&lt;Ghost&gt;</code> once. The rule needs its scaled-up form: sweep many files before declaring a field does not exist, and a checker must enumerate what is present rather than a list of what you expect.</p></div>
+
 <footer>
 <p>Ghost counts come from the drum-staff census in <code>_defects.json</code>. Revision state was read from <code>songsterr.com/api/meta/&lt;songId&gt;/revisions</code> on 2026-09-05, using the fields <code>isBlocked</code>, <code>isOnModeration</code> and <code>reviewed</code>. Source data: <code>~/Library/Mobile Documents/com~apple~CloudDocs/sfg/zappa-drum-repair-2026-08-31/</code>, <code>~/Projects/_outputs/songsterr-zappa-paren-fix/</code> and <code>~/Projects/_outputs/zappa-drum-sources/</code>.</p>
 <p>Zomby Woof2 (s6685613) is a private tab and did not resolve through the public API. It is the only gap in the sweep.</p>
