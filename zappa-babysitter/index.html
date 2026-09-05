@@ -1,0 +1,257 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Zappa Babysitter</title>
+<style>
+:root{
+  --cream:#F6F1E4; --ink:#141210; --rule:#D8CEB8;
+  --c1:#3B9AB2; --c2:#78B7C5; --c3:#EBCC2A; --c4:#E1AF00; --c5:#F21A00;
+}
+*{box-sizing:border-box}
+body{margin:0;background:var(--cream);color:var(--ink);
+  font:16px/1.65 "Inter","Helvetica Neue",Helvetica,Arial,sans-serif;}
+.wrap{max-width:1080px;margin:0 auto;padding:40px 24px 80px}
+h1{font-family:Cormorant Garamond,Georgia,serif;font-size:52px;line-height:1.05;margin:0 0 6px;letter-spacing:-.02em}
+.sub{font-size:17px;color:#5C5346;margin:0 0 6px}
+.stamp{font:12px/1.5 "JetBrains Mono",ui-monospace,Menlo,monospace;color:#7A7060;letter-spacing:.04em;text-transform:uppercase}
+h2{font-family:Cormorant Garamond,Georgia,serif;font-size:31px;margin:52px 0 4px;letter-spacing:-.01em}
+h2 .n{font:11px/1 "JetBrains Mono",ui-monospace,monospace;vertical-align:super;color:#9A907E;margin-right:9px}
+.lede{color:#5C5346;margin:0 0 20px;max-width:74ch}
+hr{border:0;border-top:1px solid var(--rule);margin:34px 0}
+.verdict{border:2px solid var(--ink);border-left-width:12px;border-left-color:var(--c5);
+  background:#FFFDF7;padding:22px 26px;margin:30px 0 10px}
+.verdict b{display:block;font-size:20px;margin-bottom:8px;font-family:Cormorant Garamond,Georgia,serif}
+.grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(216px,1fr));gap:14px;margin:22px 0}
+.stat{border:1px solid var(--rule);background:#FFFDF7;padding:16px 18px;border-top:5px solid var(--c1)}
+.stat:nth-child(2){border-top-color:var(--c2)} .stat:nth-child(3){border-top-color:var(--c3)}
+.stat:nth-child(4){border-top-color:var(--c4)} .stat:nth-child(5){border-top-color:var(--c5)}
+.stat .k{font:11px/1.4 "JetBrains Mono",ui-monospace,monospace;text-transform:uppercase;letter-spacing:.07em;color:#7A7060}
+.stat .v{font-family:Cormorant Garamond,Georgia,serif;font-size:40px;line-height:1.05;margin:4px 0 2px}
+.stat .d{font-size:13px;color:#5C5346}
+table{border-collapse:collapse;width:100%;margin:18px 0;font-size:14.5px;background:#FFFDF7}
+th,td{border:1px solid var(--rule);padding:9px 12px;text-align:left;vertical-align:top}
+th{background:#EFE7D4;font:12px/1.4 "JetBrains Mono",ui-monospace,monospace;text-transform:uppercase;letter-spacing:.05em}
+td.num{font-family:"JetBrains Mono",ui-monospace,monospace;text-align:right;white-space:nowrap}
+.bar{height:20px;border:1px solid rgba(0,0,0,.22);display:inline-block;vertical-align:middle}
+.scroll{overflow-x:auto}
+.card{border:1px solid var(--rule);background:#FFFDF7;padding:18px 20px;margin:13px 0;border-left:8px solid var(--c1)}
+.card.b{border-left-color:var(--c4)} .card.c{border-left-color:var(--c5)} .card.d{border-left-color:var(--c2)}
+.card .t{font-weight:700;margin-bottom:5px}
+.card .id{font:11px/1.4 "JetBrains Mono",ui-monospace,monospace;color:#7A7060;letter-spacing:.04em}
+pre{background:#1C1A17;color:#F0EADC;padding:15px 17px;overflow-x:auto;
+  font:12.5px/1.6 "JetBrains Mono",ui-monospace,Menlo,monospace;border-left:6px solid var(--c3)}
+code{font:13px/1.5 "JetBrains Mono",ui-monospace,Menlo,monospace;background:#EFE7D4;padding:1px 5px}
+pre code{background:none;padding:0;color:inherit}
+a{color:#1F6E82;text-underline-offset:3px}
+.tag{display:inline-block;font:11px/1 "JetBrains Mono",ui-monospace,monospace;padding:4px 8px;
+  border:1px solid var(--ink);text-transform:uppercase;letter-spacing:.06em;margin-right:6px}
+.tag.red{background:var(--c5);color:#fff;border-color:var(--c5)}
+.tag.gold{background:var(--c4)} .tag.blue{background:var(--c1);color:#fff;border-color:var(--c1)}
+footer{margin-top:60px;border-top:1px solid var(--rule);padding-top:18px;
+  font:12px/1.7 "JetBrains Mono",ui-monospace,monospace;color:#7A7060}
+</style>
+</head>
+<body>
+<div class="wrap">
+
+<p class="stamp">Session watch &middot; 2026-09-05</p>
+<h1>Zappa Babysitter</h1>
+<p class="sub">Why the Zappa chat keeps stopping, measured from its own transcript.</p>
+<p class="stamp">Target: local_c3404683 &nbsp;&middot;&nbsp; "Zappa chat single-song focus limitation"</p>
+
+<div class="verdict">
+  <b>The chat is not quitting on you. It is being bounced by its own Stop hooks.</b>
+  Across 112 hours the transcript records 47 restarts caused by Brandon's own gates
+  against 30 turns Brandon actually typed. One gate, <code>chat_donelink_gate</code>,
+  accounts for 27 of the 47. The session has also been context-compacted twice today,
+  and it is running 4.7 days against a standing rule that caps a chat at one day.
+</div>
+
+<div class="grid">
+  <div class="stat"><div class="k">Session age</div><div class="v">112 h</div><div class="d">08-31 23:59 to 09-05 16:07</div></div>
+  <div class="stat"><div class="k">Assistant turns</div><div class="v">2,950</div><div class="d">8,529 transcript rows</div></div>
+  <div class="stat"><div class="k">Stop-hook bounces</div><div class="v">47</div><div class="d">each one costs a turn</div></div>
+  <div class="stat"><div class="k">Brandon typed</div><div class="v">30</div><div class="d">the real instructions</div></div>
+  <div class="stat"><div class="k">Context compactions</div><div class="v">2</div><div class="d">both on 09-05</div></div>
+</div>
+
+<hr>
+
+<h2><span class="n">01</span>What actually restarts this chat</h2>
+<p class="lede">Every user-role turn in the transcript, classified by origin. Only 30 of the
+130 came from Brandon's keyboard. The largest single source is the harness bouncing a reply
+back for a gate violation.</p>
+
+<div class="scroll">
+<table>
+<tr><th>Origin</th><th>Turns</th><th>Share</th><th>What it is</th></tr>
+<tr><td><b>Stop-hook bounce</b></td><td class="num">47</td>
+    <td><span class="bar" style="width:235px;background:#F21A00"></span></td>
+    <td>A gate rejected the reply and forced a rewrite</td></tr>
+<tr><td>Image paste</td><td class="num">31</td>
+    <td><span class="bar" style="width:155px;background:#78B7C5"></span></td>
+    <td>Brandon dropping chart scans in for reading</td></tr>
+<tr><td><b>Brandon typed</b></td><td class="num">30</td>
+    <td><span class="bar" style="width:150px;background:#3B9AB2"></span></td>
+    <td>Actual instructions, listed in section 03</td></tr>
+<tr><td>/loop tick</td><td class="num">14</td>
+    <td><span class="bar" style="width:70px;background:#EBCC2A"></span></td>
+    <td>Autonomous timer waking the session</td></tr>
+<tr><td>Peer-session message</td><td class="num">6</td>
+    <td><span class="bar" style="width:30px;background:#E1AF00"></span></td>
+    <td>The sibling Zappa chat relaying findings</td></tr>
+<tr><td>Skill injection</td><td class="num">2</td>
+    <td><span class="bar" style="width:10px;background:#78B7C5"></span></td>
+    <td>songsterr-upload and ship loading in</td></tr>
+<tr><td>Context compaction</td><td class="num">2</td>
+    <td><span class="bar" style="width:10px;background:#F21A00"></span></td>
+    <td>Ran out of context and resumed from a summary</td></tr>
+</table>
+</div>
+
+<h2><span class="n">02</span>Which gate does the stopping</h2>
+<p class="lede">The 47 bounces are not spread evenly. One gate produced more than half of
+them on its own.</p>
+
+<div class="scroll">
+<table>
+<tr><th>Stop hook</th><th>Bounces</th><th>Share</th></tr>
+<tr><td><code>chat_donelink_gate</code></td><td class="num">27</td>
+    <td><span class="bar" style="width:270px;background:#F21A00"></span></td></tr>
+<tr><td><code>ask_drift_gate</code></td><td class="num">6</td>
+    <td><span class="bar" style="width:60px;background:#E1AF00"></span></td></tr>
+<tr><td><code>next_action_gate</code></td><td class="num">4</td>
+    <td><span class="bar" style="width:40px;background:#EBCC2A"></span></td></tr>
+<tr><td><code>chat_color_gate</code></td><td class="num">3</td>
+    <td><span class="bar" style="width:30px;background:#3B9AB2"></span></td></tr>
+<tr><td><code>search_before_blocked_gate</code></td><td class="num">3</td>
+    <td><span class="bar" style="width:30px;background:#78B7C5"></span></td></tr>
+<tr><td><code>no_permission_questions_gate</code></td><td class="num">3</td>
+    <td><span class="bar" style="width:30px;background:#3B9AB2"></span></td></tr>
+<tr><td>unparsed</td><td class="num">1</td>
+    <td><span class="bar" style="width:10px;background:#D8CEB8"></span></td></tr>
+</table>
+</div>
+
+<div class="card c">
+<div class="t">The defect in <code>chat_donelink_gate</code></div>
+<p>The gate blocks any reply carrying a completion word unless the reply also has a markdown
+link whose target starts with <code>http</code>. Its word list includes <b>verified</b>.</p>
+<p>A forensic audit session says "verified" in almost every reply, because verifying is the
+entire job. Its work products are local files such as
+<code>rev5-Zomby-Woof-GHOSTS-RESTORED.gp</code>, which have no public URL. The session did
+link its work product, as a relative markdown link:</p>
+<pre><code>[rev5-Zomby-Woof-GHOSTS-RESTORED.gp](s412162/rev5-Zomby-Woof-GHOSTS-RESTORED.gp)</code></pre>
+<p>The gate's pattern is <code>\[[^\]]+\]\((https?://[^\s)]+)\)</code>, so a relative target
+fails to match and the reply is rejected. The session complied with the rule as Brandon
+wrote it and was bounced anyway. That happened 27 times.</p>
+</div>
+
+<h2><span class="n">03</span>Brandon's 30 typed turns</h2>
+<p class="lede">Six of them are some version of the same sentence. That repetition is the
+complaint this page exists to answer.</p>
+
+<div class="scroll">
+<table>
+<tr><th>When</th><th>What Brandon typed</th></tr>
+<tr><td class="num">09-04 00:29</td><td>is this done. you stopped so its done?</td></tr>
+<tr><td class="num">09-04 17:47</td><td>its been 3 days are you seriously not done? never stop</td></tr>
+<tr><td class="num">09-05 12:17</td><td>very confused why you stopped putting removed ghosts notes back in</td></tr>
+<tr><td class="num">09-05 13:14</td><td>stop stopping</td></tr>
+<tr><td class="num">09-05 15:01</td><td>check drummerworld in the browser /loop stop stopping!</td></tr>
+<tr><td class="num">09-05 15:25</td><td>finish</td></tr>
+<tr><td class="num">09-05 16:07</td><td>why on earth would you stop</td></tr>
+</table>
+</div>
+
+<h2><span class="n">04</span>The locked song</h2>
+<p class="lede">The one-song-per-chat gate keys on song ID rather than title, because two
+Zappa tabs share the title Zomby Woof.</p>
+
+<div class="card">
+<div class="t">Zomby Woof &nbsp;<span class="tag blue">s412162</span></div>
+<div class="id">10-track community tab by Kirill &middot; live revision r8814965 &middot; 114 bars</div>
+<p>This chat owns s412162 and the Songsterr upload pipeline. The other Zomby Woof,
+<code>s5820647</code>, is a separate 5-track AI transcription and belongs to a different
+chat. Reading the title alone caused a cross-song edit earlier today.</p>
+</div>
+
+<h2><span class="n">05</span>Why the upload path is walled</h2>
+<p class="lede">The session stopped in the right place. Its last preflight refused for a
+reason no amount of nudging clears.</p>
+<pre>FAIL  STACKED  7 revision(s) are already queued unreviewed on song 412162</pre>
+<p>Six revisions sit pending moderation on s412162 and Songsterr publishes no withdraw
+control. Every further upload asks a moderator to read a diff that a later upload replaces.
+The route forward on this song runs through a moderator or through Brandon, so the session
+should stop reaching for an upload and work the evidence instead.</p>
+
+<h2><span class="n">06</span>Unblocked right now, zero uploads</h2>
+
+<div class="card d">
+<div class="t">Lane-resolve the Phase 2 count gap, bars 2 to 9</div>
+<div class="id">q-2026-09-05-40f052 &middot; s412162/PHASE2-LANE-AUDIT.md</div>
+<p>The audit already reads Ryan Brown 137 events against tab 127 across bars 1 to 9, so the
+tab runs 10 short. The file's own caveat says those are shape-filtered notehead counts
+rather than lane-resolved readings. Resolving them per lane says which drum each missing
+event belongs to, and separates genuine omissions from counting artifacts.</p>
+</div>
+
+<div class="card d">
+<div class="t">Settle two tom disagreements</div>
+<div class="id">bar 4 slot 16 and bar 15 slot 16</div>
+<p>Both read low tom in the author's file and high floor tom in the rebuilt one. That
+changes which drum sounds, so it gets decided from the charts on disk.</p>
+</div>
+
+<h2><span class="n">07</span>Waiting on Brandon</h2>
+<p class="lede">Three decisions block the s412162 pipeline. None can be settled inside the chat.</p>
+
+<div class="card b">
+<div class="t">1. Keep the bar 2 rebar, or revert it</div>
+<p>Bar 2 was rebarred from 10/16 into 5/16 plus 5/16, and it is already submitted. The
+sources split two against two. Ryan Brown and Daniel Bedard write two bars of 5/16. Drumnet
+and Zappa Analysis write a single 10/16, which is what the tab originally had.</p>
+</div>
+
+<div class="card b">
+<div class="t">2. Supersede the revision stack, or wait for moderation</div>
+<p>Six revisions are queued: 8902998, 8903141, 8903886, 8904052, 8905411, 8905491. Only
+r8905491 should be taken. The rest are superseded and now redundant.</p>
+</div>
+
+<div class="card b">
+<div class="t">3. Fix chat_donelink_gate, or leave it strict</div>
+<p>Accepting a markdown link to a local path would end 27 of the 47 bounces. The gate was
+written from a direct quote and it is Brandon's call whether to loosen it. A one-line change
+to the link pattern covers the local-artifact case without touching the http rule.</p>
+</div>
+
+<h2><span class="n">08</span>The recommendation</h2>
+<p class="lede">Two changes end most of the stopping.</p>
+<div class="card c">
+<div class="t">Retire the 112-hour session and open a fresh one on s412162</div>
+<p>The standing rule caps a chat at one day. This one has run 4.7 days and compacted twice
+today, so every restart resumes from a summary and re-derives ground already covered. A
+handoff into a clean chat locked to s412162 recovers the working context that compaction
+keeps throwing away.</p>
+</div>
+<div class="card c">
+<div class="t">Patch the link gate before the next long session</div>
+<p>Twenty-seven bounces on one gate is the single largest tax measured here. Every bounce
+spends a full turn on formatting rather than on Zappa.</p>
+</div>
+
+<footer>
+Palette: The Life Aquatic (Wes Anderson)<br>
+Source: transcript <code>c1e4ffee-9289-4640-8291-44d886f30a2f.jsonl</code>, 8,529 rows, read 2026-09-05 16:1x CDT.<br>
+Counts produced by classifying every user-role turn by origin. Gate names parsed from the Stop-hook feedback text.<br>
+Related: <a href="https://7onething1.github.io/zappa-ghost-note-audit/">zappa-ghost-note-audit</a> &middot;
+<a href="https://7onething1.github.io/zappa-drum-transcription-inventory/">zappa-drum-transcription-inventory</a> &middot;
+<a href="https://7onething1.github.io/zappa-handoff-lie-audit/">zappa-handoff-lie-audit</a>
+</footer>
+
+</div>
+</body>
+</html>
