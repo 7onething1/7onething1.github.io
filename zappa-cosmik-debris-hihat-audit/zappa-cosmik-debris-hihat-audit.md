@@ -37,7 +37,12 @@ A first decay measure was discarded. Time to fall to 35 percent of peak pinned 1
 4,564 events at the 500 ms ceiling, because in a shuffle the next hat arrives before the
 previous one decays.
 
-## The hi-hat verdict
+## The hi-hat verdict on the mixed stem (SUPERSEDED)
+
+Read "The answer, from the isolated hat lane" first. Everything in this section was measured on a
+Demucs drum stem carrying the whole kit at once and reached a non-result. The isolated hat lane later
+resolved the same question with a sign on it. This section stands as the record of what the mixed
+stem could and could not see.
 
 | Tab section | What the tab writes | events | mean ring |
 |---|---|---|---|
@@ -201,8 +206,8 @@ With `hh.wav` and `ride.wav` separated, the tab's lane call is checkable against
 | HAT | 107.5-117.1s | 0.02465 | 0.00503 | 4.90 | correct |
 | **RIDE** | 126.6-129.7s | 0.03288 | 0.00064 | 51.36 | wrong, ride lane near silent |
 
-**Hat calls 5 of 5 correct. Ride calls 0 of 3.** Where the tab writes ride, the isolated ride lane is
-quiet and the hi-hat lane is loud, by ratios of 13.6, 3.4 and 51.4 against a baseline of 5.4. The
+**Hat calls 12 of 12 correct. Ride calls 0 of 7.** Where the tab writes ride, the isolated ride lane is
+quiet and the hi-hat lane is loud, with a median hh/ride of 3.92 across the seven, against a baseline of 4.92. The
 ride is also louder inside the tab's hat sections than inside its ride sections, a straight
 inversion.
 
@@ -213,8 +218,7 @@ the hat in **2 of 297**, 0.7 percent, and the median hh/ride across all 297 is *
 exceptions are the same short three-second section at one hand-picked offset. No alignment rescues
 the ride calls.
 
-Scope, stated plainly: three of seven ride stretches measured. The remaining four include the
-largest, 348 to 377 seconds carrying 109 ride notes.
+Scope: all seven ride stretches and all twelve hat stretches measured on the isolated lanes.
 
 ### Corrected: the hat line is not thin
 
