@@ -445,16 +445,19 @@ footer{margin-top:60px;padding-top:20px;border-top:1px solid var(--line);color:v
 <p><code>accentuated: 1</code> is an accent, <code>accentuated: 2</code> is a marcato, and they appear on drum staves. Keep It Greasey <code>s604777</code> carries 60 at marcato on the Vinnie Colaiuta staff; Drowning Witch <code>s620961</code> carries 7 accents and 2 marcatos on its drum staff.</p></div>
 
 <div class="box b"><h3>Why an accent kept arriving as a staccato dot</h3>
-<p>GPIF <code>&lt;Accent&gt;</code> is a <strong>bitfield, not an enum</strong>:</p>
+<p>GPIF <code>&lt;Accent&gt;</code> is a <strong>bitfield, not an enum</strong>. This page first published the bit meanings from an assumed specification. That was wrong and it is corrected below from measurement.</p>
 <div class="tw"><table>
-<thead><tr><th>Value</th><th>Bit</th><th>Marking</th></tr></thead>
+<thead><tr><th>GPIF value</th><th>Served as</th><th>Marking</th><th>How this is known</th></tr></thead>
 <tbody>
-<tr><td class='rev'>1</td><td class='st'>bit 0</td><td class='ttl'>staccato</td></tr>
-<tr><td class='rev'>4</td><td class='st'>bit 2</td><td class='ttl'>accent &gt;</td></tr>
-<tr><td class='rev'>8</td><td class='st'>bit 3</td><td class='ttl'>marcato ^</td></tr>
-<tr><td class='rev'>9</td><td class='st'>8 | 1</td><td class='ttl'>marcato plus staccato</td></tr>
+<tr><td class='rev'>1</td><td class='st'>staccato</td><td class='ttl'>staccato dot</td><td class='st'>measured, bars 300/302/304</td></tr>
+<tr><td class='rev'>4</td><td class='st'>accentuated 2</td><td class='ttl'>marcato ^</td><td class='st'><strong>measured, glyph seen at bar 3</strong></td></tr>
+<tr><td class='rev'>8</td><td class='st'>accentuated 1</td><td class='ttl'>accent &gt;</td><td class='st'>inferred, see below</td></tr>
+<tr><td class='rev'>9</td><td class='st'>accentuated 1 + staccato</td><td class='ttl'>accent plus dot</td><td class='st'>8 | 1</td></tr>
 </tbody></table></div>
-<p>Confirmed against Drowning Witch's GPIF, which holds <code>Accent</code> values {1: 246, 4: 4, 9: 4, 8: 3} and serves staccato alongside <code>accentuated</code> 1 and 2. Writing <code>&lt;Accent&gt;1&lt;/Accent&gt;</code> requests a staccato and returns one. The element was right and the value was wrong. <strong>An accent is writable from a <code>.gp</code>: use 4, or 8 for a marcato.</strong></p></div>
+<p><strong>The correspondence is measured in both directions.</strong> On Drowning Witch's drum staff, GPIF <code>Accent=4</code> renders twice, at bars 3 and 101, and the served JSON carries exactly two <code>accentuated: 2</code> notes at bars 3 and 101. <code>Accent=8</code> renders seven times at bars 128 and 173, and the JSON carries exactly seven <code>accentuated: 1</code> notes at bars 128 and 173. Counts and bars agree both ways.</p>
+<p><strong>The glyph pins one end.</strong> Rendering bar 3 at 6x shows a caret above the accented tom, an inverted V with a clean apex. That is a marcato, so <code>Accent=4</code> is the heavy accent and <code>accentuated: 2</code> is marcato.</p>
+<p><strong>The other end is inference, and it is stated as inference.</strong> Guitar Pro carries exactly two accent flags, <code>accentuatedNote</code> and <code>heavyAccentuatedNote</code>, and <code>accentuated</code> carries exactly two values. With 4 pinned to marcato by the glyph, 8 follows as the plain accent. The glyph at bar 128 would close it outright; Songsterr's notation is virtualised and would not render at that scroll depth here.</p>
+<p><strong>So writing <code>&lt;Accent&gt;8&lt;/Accent&gt;</code> gives an accent, and <code>4</code> gives a marcato.</strong> An earlier version of this page had those two swapped. Acting on it would have printed marcatos where accents belong, on someone else's transcription, which is the parentheses mistake in a new costume.</p></div>
 
 <div class="box a"><p><strong>This is the sixth instance of the same root cause, and it happened inside the work documenting that root cause.</strong> Absence in a sample is not absence from a schema. Inventorying one file and generalising is the same move as grepping <code>&lt;Ghost&gt;</code> once. The rule needs its scaled-up form: sweep many files before declaring a field does not exist, and a checker must enumerate what is present rather than a list of what you expect.</p></div>
 

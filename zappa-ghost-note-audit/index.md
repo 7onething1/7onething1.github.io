@@ -309,18 +309,29 @@ leftHandVibrato, accentuated, harmonic, harmonicFret, trill, tremolo`.
 Keep It Greasey s604777 carries 60 marcatos on the Vinnie Colaiuta staff; Drowning Witch
 s620961 carries 7 accents and 2 marcatos on drums.
 
-**GPIF `<Accent>` is a bitfield, not an enum:**
+**GPIF `<Accent>` is a bitfield, not an enum.** The first version of this note published
+the bit meanings from an assumed spec and had 4 and 8 SWAPPED. Corrected from measurement:
 
-| Value | Bit | Marking |
-|---|---|---|
-| 1 | bit 0 | staccato |
-| 4 | bit 2 | accent > |
-| 8 | bit 3 | marcato ^ |
-| 9 | 8\|1 | marcato plus staccato |
+| GPIF value | Served as | Marking | How known |
+|---|---|---|---|
+| 1 | staccato | staccato dot | measured, bars 300/302/304 |
+| 4 | accentuated 2 | marcato ^ | **measured, glyph seen at bar 3** |
+| 8 | accentuated 1 | accent > | inferred |
+| 9 | accentuated 1 + staccato | accent plus dot | 8\|1 |
 
-Confirmed against Drowning Witch's GPIF: `Accent` {1: 246, 4: 4, 9: 4, 8: 3}, serving
-staccato alongside `accentuated` 1 and 2. Writing `<Accent>1</Accent>` requests a staccato
-and returns one. An accent IS writable from a `.gp`: use 4, or 8 for marcato.
+Correspondence measured both ways on Drowning Witch's drum staff: `Accent=4` renders twice
+at bars 3 and 101 and the JSON holds exactly two `accentuated: 2` at bars 3 and 101;
+`Accent=8` renders seven times at bars 128 and 173 and the JSON holds exactly seven
+`accentuated: 1` at those bars.
+
+Rendering bar 3 at 6x shows a caret above the accented tom, so `Accent=4` is the marcato.
+The other end is inference: Guitar Pro carries exactly two accent flags
+(`accentuatedNote`, `heavyAccentuatedNote`) and `accentuated` carries exactly two values,
+so with 4 pinned, 8 is the plain accent. The glyph at bar 128 would close it outright;
+Songsterr's notation is virtualised and would not render at that depth here.
+
+**Write `<Accent>8</Accent>` for an accent, `4` for a marcato.** Acting on the swapped
+version would have printed marcatos where accents belong.
 
 This is the sixth instance of the same root cause, committed inside the work documenting
 it. Absence in a sample is not absence from a schema.
