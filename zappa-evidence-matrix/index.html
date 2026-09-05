@@ -1,0 +1,309 @@
+<!doctype html><html lang="en"><head><meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Zappa Evidence Matrix</title>
+<style>
+:root{--cream:#F6F1E4;--ink:#141210;--rule:#D8CEB8;
+--r:#FF0000;--t:#00A08A;--y:#F2AD00;--o:#F98400;--lb:#5BBCD6;--db:#046C9A;--tan:#D69C4E}
+*{box-sizing:border-box}
+body{margin:0;background:var(--cream);color:var(--ink);font:16px/1.65 "Inter",Helvetica,Arial,sans-serif}
+.wrap{max-width:1280px;margin:0 auto;padding:40px 20px 80px}
+h1{font-family:Cormorant Garamond,Georgia,serif;font-size:54px;line-height:1.03;margin:0 0 6px;letter-spacing:-.02em}
+.sub{font-size:17px;color:#5C5346;margin:0 0 4px;max-width:76ch}
+.stamp{font:12px/1.5 "JetBrains Mono",ui-monospace,monospace;color:#7A7060;letter-spacing:.05em;text-transform:uppercase}
+h2{font-family:Cormorant Garamond,Georgia,serif;font-size:32px;margin:50px 0 4px}
+h2 .n{font:11px/1 "JetBrains Mono",ui-monospace,monospace;vertical-align:super;color:#9A907E;margin-right:9px}
+.lede{color:#5C5346;margin:0 0 18px;max-width:80ch}
+.corr{border:2px solid var(--ink);border-left-width:13px;border-left-color:var(--r);background:#FFFDF7;padding:20px 24px;margin:26px 0}
+.corr b{display:block;font-family:Cormorant Garamond,Georgia,serif;font-size:25px;margin-bottom:7px}
+.rule{border:2px solid var(--ink);border-left-width:13px;border-left-color:var(--db);background:#FFFDF7;padding:20px 24px;margin:26px 0}
+.rule b{display:block;font-family:Cormorant Garamond,Georgia,serif;font-size:25px;margin-bottom:7px}
+.grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(178px,1fr));gap:13px;margin:22px 0}
+.stat{border:1px solid var(--rule);background:#FFFDF7;padding:15px 16px;border-top:6px solid var(--t)}
+.stat:nth-child(2){border-top-color:var(--y)}.stat:nth-child(3){border-top-color:var(--r)}
+.stat:nth-child(4){border-top-color:var(--db)}.stat:nth-child(5){border-top-color:var(--tan)}
+.stat .k{font:11px/1.4 "JetBrains Mono",ui-monospace,monospace;text-transform:uppercase;letter-spacing:.06em;color:#7A7060}
+.stat .v{font-family:Cormorant Garamond,Georgia,serif;font-size:40px;line-height:1.05;margin:4px 0 2px}
+.stat .d{font-size:13px;color:#5C5346}
+table{border-collapse:collapse;width:100%;margin:16px 0;font-size:13px;background:#FFFDF7}
+th,td{border:1px solid var(--rule);padding:7px 8px;text-align:left;vertical-align:middle}
+th{background:#EFE7D4;font:10px/1.3 "JetBrains Mono",ui-monospace,monospace;text-transform:uppercase;letter-spacing:.03em;vertical-align:bottom}
+td.c{text-align:center;font:10px/1 "JetBrains Mono",ui-monospace,monospace;width:74px;background:#EDE7D8;color:#8A8070}
+td.c.hv{background:var(--t);color:#fff;font-weight:700}
+td.c.bu{background:var(--y);color:#241C00;font-weight:700}
+td.num{font-family:"JetBrains Mono",ui-monospace,monospace;text-align:right}
+td.act{font-size:12px;color:#40382C}
+tr.alb td{background:#141210;color:var(--cream);font-family:Cormorant Garamond,Georgia,serif;font-size:20px;padding:8px 10px}
+.sid{font:10px/1 "JetBrains Mono",ui-monospace,monospace;color:#7A7060;margin-left:7px}
+.scroll{overflow-x:auto}
+.card{border:1px solid var(--rule);background:#FFFDF7;padding:16px 19px;margin:12px 0;border-left:8px solid var(--lb)}
+.card.r{border-left-color:var(--r)}.card.y{border-left-color:var(--y)}.card.t{border-left-color:var(--t)}
+.card .t2{font-weight:700;margin-bottom:5px}
+ol.wo{counter-reset:w;list-style:none;padding-left:0}
+ol.wo li{border:1px solid var(--rule);background:#FFFDF7;padding:13px 16px 13px 54px;margin:9px 0;position:relative}
+ol.wo li:before{counter-increment:w;content:counter(w);position:absolute;left:0;top:0;bottom:0;width:40px;
+background:var(--db);color:#fff;font-family:Cormorant Garamond,Georgia,serif;font-size:22px;display:flex;align-items:center;justify-content:center}
+code{font:12px/1.5 "JetBrains Mono",ui-monospace,monospace;background:#EFE7D4;padding:1px 5px}
+a{color:#046C9A;text-underline-offset:3px}
+.legend span{display:inline-block;font:10px/1 "JetBrains Mono",ui-monospace,monospace;padding:5px 8px;margin:0 6px 6px 0;border:1px solid rgba(0,0,0,.3)}
+footer{margin-top:56px;border-top:1px solid var(--rule);padding-top:17px;font:12px/1.7 "JetBrains Mono",ui-monospace,monospace;color:#7A7060}
+</style></head><body><div class="wrap">
+
+<p class="stamp">Source hunt 2026-09-05</p>
+<h1>Zappa Evidence Matrix</h1>
+<p class="sub">Twenty six tracks across three albums, with direct drum evidence separated
+from structural score evidence, so meter information is never mistaken for kit
+orchestration.</p>
+
+<div class="corr">
+<b>The correction that reshapes the plan</b>
+The 1982 Frank Zappa Guitar Book carries the Steve Vai transcriptions from Shut Up &#x27;n Play Yer Guitar, Joe&#x27;s Garage and Sheik Yerbouti. None of these 26 tracks appear in it. It is a reference for Zappa&#x27;s rhythmic notation language and tuplet practice, never a source for these songs.
+</div>
+
+<div class="grid">
+<div class="stat"><div class="k">Tracks</div><div class="v">26</div><div class="d">7 + 9 + 10 across three albums</div></div>
+<div class="stat"><div class="k">Full drum obtainable</div><div class="v">6</div><div class="d">1 in hand, 5 to acquire</div></div>
+<div class="stat"><div class="k">Critical red zones</div><div class="v">3</div><div class="d">no automated repair permitted</div></div>
+<div class="stat"><div class="k">Need the album book</div><div class="v">16</div><div class="d">bar skeleton source</div></div>
+<div class="stat"><div class="k">Performer source</div><div class="v">1</div><div class="d">Ralph Humphrey on Be-Bop Tango</div></div>
+</div>
+
+<div class="rule">
+<b>The rhythm red zone rule</b>
+Every passage carrying quintuplets, sextuplets, septuplets, octuplets, nonuplets, ten-note
+groupings, simultaneous meters, nested tuplets or rapidly changing odd meters is marked
+before any hit-level comparison. The same marking applies wherever the structural
+transcription shows drums reinforcing a melody accent or an ensemble attack.
+<b style="font-size:17px;margin:10px 0 0">No automated repair inside a red zone from neighbouring drum context alone.</b>
+Establish the exact bar duration from the album book or academic score, then the fractional
+attack grid from the written ensemble parts including documented ratios such as seven
+against six, then the kit assignment from a direct drum transcription, performance footage
+or drummer source. Compare Songsterr against that using rational beat positions rather than
+a fixed sixteenth grid.
+</div>
+
+<h2><span class="n">01</span>The seven evidence fields</h2>
+<p class="lede">Chart found or chart missing was the wrong axis. These are the fields that
+tell the repair pipeline what kind of correction each song can actually support.</p>
+<div class="scroll"><table>
+<tr><th>field</th><th>what it licenses</th></tr>
+<tr><td><b>FULL DRUM</b></td><td>A complete independent drum-kit transcription of the track</td></tr><tr><td><b>PARTIAL DRUM</b></td><td>A drum staff covering part of the track only</td></tr><tr><td><b>OFFICIAL STRUCTURAL SCORE</b></td><td>Album book, note-for-note. Gives bar geometry and ensemble attacks, never kit orchestration</td></tr><tr><td><b>ACADEMIC SCORE</b></td><td>Thesis or dissertation score, sometimes carrying a real drum staff</td></tr><tr><td><b>PERFORMER SOURCE</b></td><td>Written by the drummer who played it</td></tr><tr><td><b>MATCHED PERFORMANCE AUDIO</b></td><td>A specific recording or film the tab can be aligned against</td></tr><tr><td><b>RED ZONE RHYTHM</b></td><td>Tuplets, simultaneous subdivisions, nested tuplets or rapidly changing odd meters. No automated repair permitted inside these ranges</td></tr>
+</table></div>
+<p class="legend"><span style="background:#00A08A;color:#fff">HAVE = on this Mac now</span>
+<span style="background:#F2AD00">GET = exists, must be acquired</span>
+<span style="background:#EDE7D8;color:#8A8070">blank = none found</span>
+<span style="background:#FF0000;color:#fff">CRIT red zone</span>
+<span style="background:#F98400;color:#fff">HIGH red zone</span></p>
+
+<h2><span class="n">02</span>The matrix</h2>
+<p class="lede">Hover any cell for the specific source. The on-disk column counts
+zappa-analysis and publisher assets already present at
+<code>~/Projects/_outputs/zappa-drum-sources/</code>, measured on this Mac.</p>
+<div class="scroll"><table>
+<tr><th>track</th><th>full<br>drum</th><th>partial<br>drum</th><th>official<br>score</th>
+<th>academic<br>score</th><th>performer<br>source</th><th>matched<br>audio</th>
+<th>red zone<br>rhythm</th><th>on<br>disk</th><th>action</th></tr>
+<tr class="alb"><td colspan="10">Over-Nite Sensation</td></tr><tr>
+<td><b>Zomby Woof</b><span class="sid">s412162</span></td>
+<td class="c hv" title="Drumeo full transcription; DRUM Magazine (Ryan Brown), Drumnet, Bedard already on disk">HAVE</td><td class="c"></td><td class="c bu" title="Over-Nite Sensation book">GET</td><td class="c bu" title="Costa analysis">GET</td>
+<td class="c"></td><td class="c hv" title="album take, synced video in api/meta">HAVE</td><td class="c" style="background:#F98400;color:#fff;font-weight:700" title="bar 2 barred 10/16 or 5/16+5/16 depending on source; 15/16 x4; 5/4 quintuplet fill">HIGH</td>
+<td class="num">27</td>
+<td class="act">Four-source comparison</td></tr><tr>
+<td><b>Montana</b><span class="sid">s35870</span></td>
+<td class="c bu" title="Percunerds full drum transcription of Ralph Humphrey, $7.99, DrumSetSheetMusic">GET</td><td class="c"></td><td class="c bu" title="Over-Nite Sensation book">GET</td><td class="c bu" title="Costa analysis">GET</td>
+<td class="c"></td><td class="c hv" title="album take">HAVE</td><td class="c" style="background:#F98400;color:#fff;font-weight:700" title="intro rolls measured as 64th notes, not 32nds; rolls start on the offbeat and run 2.5 and 3.5 beats">HIGH</td>
+<td class="num">13</td>
+<td class="act">Acquire immediately, $7.99</td></tr><tr>
+<td><b>Camarillo Brillo</b><span class="sid">s187082</span></td>
+<td class="c bu" title="MayMusicStudio full chart $12; Drumeo full chart $20">GET</td><td class="c"></td><td class="c bu" title="Over-Nite Sensation book">GET</td><td class="c"></td>
+<td class="c"></td><td class="c hv" title="album take">HAVE</td><td class="c"></td>
+<td class="num">7</td>
+<td class="act">Acquire MayMusic first, $12</td></tr><tr>
+<td><b>I&#x27;m The Slime</b></td>
+<td class="c"></td><td class="c"></td><td class="c bu" title="Over-Nite Sensation book">GET</td><td class="c hv" title="detailed Zappa Analysis material">HAVE</td>
+<td class="c"></td><td class="c hv" title="album take">HAVE</td><td class="c"></td>
+<td class="num">4</td>
+<td class="act">Structural audit first</td></tr><tr>
+<td><b>Dirty Love</b></td>
+<td class="c bu" title="DrumScore full transcription, $3.99">GET</td><td class="c"></td><td class="c bu" title="Over-Nite Sensation book">GET</td><td class="c"></td>
+<td class="c"></td><td class="c hv" title="album take">HAVE</td><td class="c"></td>
+<td class="num">7</td>
+<td class="act">Acquire immediately, $3.99</td></tr><tr>
+<td><b>Fifty-Fifty</b></td>
+<td class="c"></td><td class="c"></td><td class="c bu" title="Over-Nite Sensation book">GET</td><td class="c hv" title="Zappa Analysis transcriptions">HAVE</td>
+<td class="c"></td><td class="c hv" title="album take">HAVE</td><td class="c"></td>
+<td class="num">13</td>
+<td class="act">Structural audit</td></tr><tr>
+<td><b>Dinah-Moe Humm</b></td>
+<td class="c"></td><td class="c"></td><td class="c bu" title="Over-Nite Sensation book">GET</td><td class="c hv" title="Zappa Analysis, session material">HAVE</td>
+<td class="c"></td><td class="c hv" title="album take">HAVE</td><td class="c"></td>
+<td class="num">10</td>
+<td class="act">Structural plus audio</td></tr><tr class="alb"><td colspan="10">One Size Fits All</td></tr><tr>
+<td><b>Andy</b><span class="sid">s21495</span></td>
+<td class="c"></td><td class="c hv" title="DRUM Magazine analysis, already on disk">HAVE</td><td class="c bu" title="One Size Fits All book">GET</td><td class="c hv" title="published rhythmic analysis">HAVE</td>
+<td class="c"></td><td class="c hv" title="album take">HAVE</td><td class="c"></td>
+<td class="num">13</td>
+<td class="act">Compare immediately, sources in hand</td></tr><tr>
+<td><b>Inca Roads</b><span class="sid">s412178</span></td>
+<td class="c bu" title="Benjamin Wall complete drum-kit score in thesis appendix, FREE; Drumeo full chart; PaidTabs 0:00-5:25 with drums">GET</td><td class="c"></td><td class="c bu" title="One Size Fits All book, meters 11/16, 8/16, 7/16, 5/4, 2/4, 4/4 through the interlude">GET</td><td class="c bu" title="Wall thesis, complete study score with drum kit, percussion, timpani, bass, marimba, keyboards, guitar, vocals">GET</td>
+<td class="c"></td><td class="c hv" title="album take">HAVE</td><td class="c" style="background:#FF0000;color:#fff;font-weight:700" title="drums play SEPTUPLETS against bass sextuplets, then a QUINTUPLET against marimba sextuplets, in the same bar, over a sustained 4/4 pulse">CRIT</td>
+<td class="num">4</td>
+<td class="act">START HERE. Highest confidence calibration target</td></tr><tr>
+<td><b>Can&#x27;t Afford No Shoes</b></td>
+<td class="c"></td><td class="c"></td><td class="c bu" title="One Size Fits All book">GET</td><td class="c hv" title="Zappa Analysis">HAVE</td>
+<td class="c"></td><td class="c hv" title="album take">HAVE</td><td class="c"></td>
+<td class="num">2</td>
+<td class="act">Structural audit</td></tr><tr>
+<td><b>Sofa No. 1</b><span class="sid">s6822181</span></td>
+<td class="c"></td><td class="c"></td><td class="c bu" title="One Size Fits All book">GET</td><td class="c hv" title="Kasper Sloots section letters A-E with timestamps and bar ranges">HAVE</td>
+<td class="c"></td><td class="c hv" title="source pulled, Demucs drums stem built">HAVE</td><td class="c"></td>
+<td class="num">1</td>
+<td class="act">Structural audit, cymbal audit half done</td></tr><tr>
+<td><b>Po-Jama People</b></td>
+<td class="c"></td><td class="c"></td><td class="c bu" title="One Size Fits All book">GET</td><td class="c hv" title="Zappa Analysis">HAVE</td>
+<td class="c"></td><td class="c hv" title="album take">HAVE</td><td class="c"></td>
+<td class="num">0</td>
+<td class="act">Structural audit</td></tr><tr>
+<td><b>Florentine Pogen</b></td>
+<td class="c bu" title="PaidTabs complete 7:12 Guitar Pro and PDF with drums and percussion, $13">GET</td><td class="c"></td><td class="c bu" title="One Size Fits All book">GET</td><td class="c hv" title="Zappa Analysis">HAVE</td>
+<td class="c"></td><td class="c hv" title="album take">HAVE</td><td class="c"></td>
+<td class="num">2</td>
+<td class="act">Acquire and calibrate, $13</td></tr><tr>
+<td><b>Evelyn, A Modified Dog</b></td>
+<td class="c"></td><td class="c"></td><td class="c bu" title="One Size Fits All book">GET</td><td class="c"></td>
+<td class="c"></td><td class="c hv" title="album take">HAVE</td><td class="c"></td>
+<td class="num">0</td>
+<td class="act">Current tab lacks drums</td></tr><tr>
+<td><b>San Ber&#x27;dino</b></td>
+<td class="c"></td><td class="c"></td><td class="c bu" title="One Size Fits All book">GET</td><td class="c"></td>
+<td class="c"></td><td class="c hv" title="album take">HAVE</td><td class="c"></td>
+<td class="num">0</td>
+<td class="act">Current tab lacks drums</td></tr><tr>
+<td><b>Sofa No. 2</b></td>
+<td class="c"></td><td class="c"></td><td class="c bu" title="One Size Fits All book">GET</td><td class="c"></td>
+<td class="c"></td><td class="c hv" title="album take">HAVE</td><td class="c"></td>
+<td class="num">0</td>
+<td class="act">Current tab lacks drums</td></tr><tr class="alb"><td colspan="10">Roxy &amp; Elsewhere</td></tr><tr>
+<td><b>Penguin In Bondage</b></td>
+<td class="c"></td><td class="c bu" title="PaidTabs 37-page score, 2:06 to 5:30, drums, percussion, bass, marimba, brass reduction, $14.99">GET</td><td class="c"></td><td class="c hv" title="Zappa Analysis">HAVE</td>
+<td class="c"></td><td class="c hv" title="Roxy recordings and film">HAVE</td><td class="c"></td>
+<td class="num">15</td>
+<td class="act">Check coverage intersects the suspicious bars BEFORE buying</td></tr><tr>
+<td><b>Pygmy Twylyte</b><span class="sid">s627774</span></td>
+<td class="c"></td><td class="c"></td><td class="c"></td><td class="c hv" title="Zappa Analysis transcription">HAVE</td>
+<td class="c"></td><td class="c hv" title="Roxy recordings">HAVE</td><td class="c"></td>
+<td class="num">9</td>
+<td class="act">Structural audit</td></tr><tr>
+<td><b>Dummy Up</b></td>
+<td class="c"></td><td class="c"></td><td class="c"></td><td class="c hv" title="Zappa Analysis opening transcription">HAVE</td>
+<td class="c"></td><td class="c hv" title="Roxy recordings and film">HAVE</td><td class="c"></td>
+<td class="num">0</td>
+<td class="act">Structural audit</td></tr><tr>
+<td><b>Village Of The Sun</b></td>
+<td class="c"></td><td class="c"></td><td class="c"></td><td class="c hv" title="Zappa Analysis with meter information">HAVE</td>
+<td class="c"></td><td class="c hv" title="Roxy recordings">HAVE</td><td class="c"></td>
+<td class="num">12</td>
+<td class="act">Structural audit</td></tr><tr>
+<td><b>Echidna&#x27;s Arf (Of You)</b></td>
+<td class="c"></td><td class="c bu" title="Costa doctoral thesis carries a SCORED transcription of the opening INCLUDING A DRUM STAFF">GET</td><td class="c"></td><td class="c hv" title="Costa thesis, Zappa Analysis">HAVE</td>
+<td class="c"></td><td class="c hv" title="Roxy film">HAVE</td><td class="c" style="background:#F98400;color:#fff;font-weight:700" title="melody accents against a 4/4 accompaniment, accents reinforced by bells and later by BASS DRUM. Ensemble doubling polices kick placement.">HIGH</td>
+<td class="num">6</td>
+<td class="act">Direct partial audit, moves out of the no-drum bucket</td></tr><tr>
+<td><b>Don&#x27;t You Ever Wash That Thing?</b></td>
+<td class="c"></td><td class="c"></td><td class="c"></td><td class="c hv" title="Zappa Analysis meter transcription; historic drum PDF lead">HAVE</td>
+<td class="c"></td><td class="c hv" title="Roxy film">HAVE</td><td class="c" style="background:#FF0000;color:#fff;font-weight:700" title="opening figures 4/16, 5/16, 9/16, 11/16 with equal 5/8 percussion passages between. 11/16 groups as 3+3+5, 9/16 as 4+5.">CRIT</td>
+<td class="num">4</td>
+<td class="act">High value structural audit, move UP the queue</td></tr><tr>
+<td><b>Cheepnis</b></td>
+<td class="c"></td><td class="c"></td><td class="c"></td><td class="c hv" title="Zappa Analysis opening">HAVE</td>
+<td class="c"></td><td class="c hv" title="Roxy film">HAVE</td><td class="c"></td>
+<td class="num">10</td>
+<td class="act">Structural audit</td></tr><tr>
+<td><b>Son Of Orange County</b></td>
+<td class="c"></td><td class="c"></td><td class="c"></td><td class="c hv" title="Zappa Analysis">HAVE</td>
+<td class="c"></td><td class="c bu" title="complete Edinboro source performance">GET</td><td class="c"></td>
+<td class="num">9</td>
+<td class="act">Audio alignment first</td></tr><tr>
+<td><b>More Trouble Every Day</b><span class="sid">s412170</span></td>
+<td class="c"></td><td class="c"></td><td class="c"></td><td class="c hv" title="Zappa Analysis">HAVE</td>
+<td class="c"></td><td class="c bu" title="complete Edinboro source performance">GET</td><td class="c"></td>
+<td class="num">11</td>
+<td class="act">Audio alignment first</td></tr><tr>
+<td><b>Be-Bop Tango</b></td>
+<td class="c"></td><td class="c"></td><td class="c"></td><td class="c hv" title="Costa thesis treats it as rhythmic dissonance, analysis begins from the opening theme">HAVE</td>
+<td class="c bu" title="RALPH HUMPHREY, &#x27;Inside the Be-Bop Tango&#x27;, Musician, 1979. The drummer who played it, examples explicitly from the Roxy take.">GET</td><td class="c hv" title="Roxy film">HAVE</td><td class="c" style="background:#FF0000;color:#fff;font-weight:700" title="beat 1 a QUINTUPLET, beat 3 a SEPTUPLET subdivided 2+2+3, both against the continuing pulse">CRIT</td>
+<td class="num">0</td>
+<td class="act">Dedicated high-complexity test, NOT the generic no-chart bucket</td></tr>
+</table></div>
+
+<h2><span class="n">03</span>The three critical red zones</h2>
+<p class="lede">These are the passages where an ordinary sixteenth-note comparison would
+convert a legitimate drum attack into an apparent error.</p>
+<div class="card r"><div class="t2">Inca Roads</div>
+<p>drums play SEPTUPLETS against bass sextuplets, then a QUINTUPLET against marimba sextuplets, in the same bar, over a sustained 4/4 pulse</p></div><div class="card r"><div class="t2">Don&#x27;t You Ever Wash That Thing?</div>
+<p>opening figures 4/16, 5/16, 9/16, 11/16 with equal 5/8 percussion passages between. 11/16 groups as 3+3+5, 9/16 as 4+5.</p></div><div class="card r"><div class="t2">Be-Bop Tango</div>
+<p>beat 1 a QUINTUPLET, beat 3 a SEPTUPLET subdivided 2+2+3, both against the continuing pulse</p></div>
+<div class="card y"><div class="t2">Zomby Woof &mdash; high</div>
+<p>bar 2 barred 10/16 or 5/16+5/16 depending on source; 15/16 x4; 5/4 quintuplet fill</p></div><div class="card y"><div class="t2">Montana &mdash; high</div>
+<p>intro rolls measured as 64th notes, not 32nds; rolls start on the offbeat and run 2.5 and 3.5 beats</p></div><div class="card y"><div class="t2">Echidna&#x27;s Arf (Of You) &mdash; high</div>
+<p>melody accents against a 4/4 accompaniment, accents reinforced by bells and later by BASS DRUM. Ensemble doubling polices kick placement.</p></div>
+
+<h2><span class="n">04</span>Inca Roads is the calibration target</h2>
+<div class="card t">
+<div class="t2">Why it beats every other candidate</div>
+<p>Benjamin Wall's thesis carries a <b>complete study score transcribed from the record</b>,
+explicitly including drum kit, percussion, timpani, bass, marimba, keyboards, guitar and
+vocals, written because no suitable complete score existed. That gives real drum-lane
+evidence <b>alongside the surrounding ensemble parts</b>, so a suspicious drum event can be
+tested for whether it independently follows the groove or copies a composed ensemble attack.
+It is free.</p>
+<p>The difficult material is exactly what the validator has to survive: drums playing
+<b>septuplets against bass sextuplets</b>, then a <b>quintuplet against marimba
+sextuplets</b>, in the same bar, over a sustained 4/4 pulse. The One Size Fits All book
+independently supplies the interlude meters, 11/16, 8/16, 7/16, 5/4, 2/4 and 4/4. Meter,
+ensemble rhythm and drum orchestration can all be triangulated rather than trusting one
+Guitar Pro file.</p>
+</div>
+
+<h2><span class="n">05</span>Revised work order</h2>
+<ol class="wo">
+<li><b>Inca Roads.</b> Free academic score with a real drum staff, plus the hardest rhythmic
+relationships. Build the validator against this one.</li>
+<li><b>Andy.</b> DRUM Magazine material already on disk plus the One Size Fits All book. No
+purchase needed.</li>
+<li><b>Zomby Woof.</b> Four independent sources already on disk, 27 assets. The ghost verdict
+is already settled as drop 32 and add 8.</li>
+<li><b>Acquire four full drum charts, $36.98 total.</b> Dirty Love $3.99, Montana $7.99,
+Camarillo Brillo $12 via MayMusicStudio, Florentine Pogen $13.</li>
+<li><b>Roxy pass.</b> Echidna's Arf, Don't You Ever Wash That Thing, Be-Bop Tango, Penguin In
+Bondage. Richest combination of partial notation, explicit meter, drummer-authored material
+or purchasable score. <b>Check Penguin's 2:06 to 5:30 coverage intersects the suspicious bars
+before spending $14.99.</b></li>
+<li><b>Son Of Orange County and More Trouble Every Day.</b> Align against the complete
+Edinboro source performance before any event-level comparison.</li>
+</ol>
+
+<h2><span class="n">06</span>What each book is for</h2>
+<div class="card">
+<div class="t2">Over-Nite Sensation and One Size Fits All &mdash; the bar skeleton source</div>
+<p>Note-for-note across every track on their albums. They supply section boundaries, time
+signatures, bar lengths, tempo changes, written tuplets, rests and exact attack positions
+wherever the kit clearly doubles an ensemble figure. Extract that into a machine-readable
+rhythm map <b>before</b> the next large correction pass.</p>
+</div>
+<div class="card r">
+<div class="t2">The 1982 Vai guitar book &mdash; notation language only</div>
+<p>None of these 26 tracks are in it. It carries Zappa's high-complexity rhythmic vocabulary
+and transcription conventions, so it is precedent for how sixes, sevens, nines and conflicting
+subdivisions get represented rather than flattened into ordinary sixteenths. It is never a
+source for these songs.</p>
+</div>
+
+<footer>
+Palette: The Darjeeling Limited (Wes Anderson)<br>
+Research: Brandon&#x27;s source hunt, 2026-09-05, across commercial drum libraries, academic work, Zappa score resources and performance material.<br>
+<b>Commercial listings and prices are Brandon&#x27;s findings and are NOT independently re-verified here. On-disk columns ARE measured on this Mac.</b><br>
+Data: <a href="evidence.json">evidence.json</a> &middot;
+<a href="https://7onething1.github.io/zappa-ghost-adjudication/">ghost adjudication</a> &middot;
+<a href="https://7onething1.github.io/zappa-repair-state/">repair state</a>
+</footer>
+</div></body></html>
