@@ -312,7 +312,9 @@ footer{margin-top:60px;padding-top:20px;border-top:1px solid var(--line);color:v
 <p>The ride is struck plainly on each quarter and ghosted on every sixteenth between. A ghosted ride note is alone in its beat <strong>99.4%</strong> of the time; a plain one shares its beat with kick or snare <strong>60.8%</strong> of the time. That is the notation telling a drummer to keep the ride quiet except where it lines up with the backbeat.</p>
 <p><strong>Verdict: all 1,317 are genuine and must be restored.</strong> The caveat is cleared.</p></div>
 
-<div class="box a"><p><strong>Scope note on the same revision.</strong> It also stated that all nine tracks were unchanged. The Frank Zappa staff went from 1,056 notes to 1,061 across the same edit, so the round trip altered a track the description said it had not touched.</p></div>
+<div class="box a"><p><strong>Correction, and it cuts against my own earlier figure.</strong> I first reported the Frank Zappa staff going 1,056 notes to 1,061 across that edit. That was a measuring artifact. The reading tool called any entry without a <code>fret</code> key a rest, and a dead-string note also has no fret. Five dead notes on that staff carry no fret in the pre-sweep revision and carry <code>fret 0</code> in the live one, so the tool scored them as rests in one and as notes in the other.</p>
+<p>Measured on the <code>rest</code> field the data actually carries: <strong>1,061 sounding notes before and 1,061 after, a delta of zero.</strong> The staff gained 4 quarter rests at bars 3, 5, 7 and 9. Tool patched, backup at <code>songsterr_live_read.py.bak-pre-restfix-2026-09-05</code>.</p>
+<p>A parallel session ran the same trail and found what the round trip actually cost: <strong>one chord symbol, E7Msus2 at bar 3.</strong> Everything else is encoding, 91 bend points gaining a <code>precisePosition</code>, 136 vibrato flags re-encoded, and 21 apparent fret differences that are the same notes in a different array order. The description was inaccurate; the practical loss is one chord label.</p></div>
 
 
 <div class="box g"><h3>Independent verification of the Watermelon restore file</h3>
@@ -328,6 +330,58 @@ footer{margin-top:60px;padding-top:20px;border-top:1px solid var(--line);color:v
 <tr><td class='ttl'>Bars and tracks</td><td class='st'>105 and 9, unchanged</td></tr>
 </tbody></table></div>
 <p><strong>The file is correct and ready to submit.</strong> Its 1,332 <code>AntiAccent</code> elements are 15 pre-existing plus 1,317 written copy-on-write, which is why an element count reads higher than the rendered 1,317.</p></div>
+
+
+<h2 id="slots"><span class="dot" style="background:var(--blu)"></span>The Watermelon accent grid, every slot</h2>
+<p class="lede">Every ride note on the Vinnie Colaiuta staff, counted by its sixteenth-note position within the bar. The quarter pulse is plain, everything between it is ghosted, and the split is close to absolute.</p>
+<div class="tw"><table>
+<thead><tr><th>16th slot</th><th>Position</th><th style="text-align:right">Plain</th><th style="text-align:right">Ghosted</th></tr></thead>
+<tbody>
+<tr><td class='num'>0</td><td class='ttl'>quarter pulse</td><td class='gh'>103</td><td class='gh'>0</td></tr>
+<tr><td class='num'>1</td><td class='ttl'></td><td class='gh'>0</td><td class='gh'>102</td></tr>
+<tr><td class='num'>2</td><td class='ttl'></td><td class='gh'>1</td><td class='gh'>151</td></tr>
+<tr><td class='num'>3</td><td class='ttl'></td><td class='gh'>0</td><td class='gh'>150</td></tr>
+<tr><td class='num'>4</td><td class='ttl'>quarter pulse</td><td class='gh'>101</td><td class='gh'>1</td></tr>
+<tr><td class='num'>5</td><td class='ttl'></td><td class='gh'>0</td><td class='gh'>101</td></tr>
+<tr><td class='num'>6</td><td class='ttl'></td><td class='gh'>0</td><td class='gh'>102</td></tr>
+<tr><td class='num'>7</td><td class='ttl'></td><td class='gh'>0</td><td class='gh'>101</td></tr>
+<tr><td class='num'>8</td><td class='ttl'>quarter pulse</td><td class='gh'>102</td><td class='gh'>0</td></tr>
+<tr><td class='num'>9</td><td class='ttl'></td><td class='gh'>0</td><td class='gh'>101</td></tr>
+<tr><td class='num'>10</td><td class='ttl'></td><td class='gh'>0</td><td class='gh'>102</td></tr>
+<tr><td class='num'>11</td><td class='ttl'></td><td class='gh'>0</td><td class='gh'>101</td></tr>
+<tr><td class='num'>12</td><td class='ttl'>quarter pulse</td><td class='gh'>101</td><td class='gh'>1</td></tr>
+<tr><td class='num'>13</td><td class='ttl'></td><td class='gh'>0</td><td class='gh'>101</td></tr>
+<tr><td class='num'>14</td><td class='ttl'></td><td class='gh'>0</td><td class='gh'>101</td></tr>
+<tr><td class='num'>15</td><td class='ttl'></td><td class='gh'>0</td><td class='gh'>101</td></tr>
+<tr><td class='num'></td><td class='ttl'><strong>quarter pulse (0,4,8,12)</strong></td><td class='gh'><strong>407</strong></td><td class='gh'><strong>2</strong></td></tr>
+<tr><td class='num'></td><td class='ttl'><strong>every other sixteenth</strong></td><td class='gh'><strong>1</strong></td><td class='gh'><strong>1,314</strong></td></tr>
+</tbody></table></div>
+<p>Slots 2 and 3 carry more notes than their neighbours because some bars subdivide further. The pattern holds regardless: a ride note on the pulse is written plain 407 times against 2 exceptions, and a ride note off the pulse is written ghosted 1,314 times against 1.</p>
+
+<h2 id="closed"><span class="dot" style="background:var(--grn)"></span>All sixteen restores are submitted</h2>
+<p class="lede">A parallel session uploaded every damaged tab. Watermelon went up as <code>r8908034</code> and reads back from CloudFront with 1,317 ghosts, 1,316 on ride and 1 on crash, matching the pre-sweep revision exactly.</p>
+<div class="tw"><table>
+<thead><tr><th>Tab</th><th>Restore revision</th><th style="text-align:right">Ghosts</th></tr></thead>
+<tbody>
+<tr><td class='ttl'>Watermelon In Easter Hay</td><td class='rev'>r8908034</td><td class='gh'>1,317</td></tr>
+<tr><td class='ttl'>Muffin Man</td><td class='rev'>r8906880</td><td class='gh'>578</td></tr>
+<tr><td class='ttl'>Drowning Witch</td><td class='rev'>r8908109</td><td class='gh'>419</td></tr>
+<tr><td class='ttl'>Montana</td><td class='rev'>r8907028</td><td class='gh'>317</td></tr>
+<tr><td class='ttl'>The Black Page</td><td class='rev'>r8907247</td><td class='gh'>173</td></tr>
+<tr><td class='ttl'>Nanook Suite</td><td class='rev'>r8907360</td><td class='gh'>168</td></tr>
+<tr><td class='ttl'>Nanook Rubs It</td><td class='rev'>r8907423</td><td class='gh'>168</td></tr>
+<tr><td class='ttl'>Inca Roads</td><td class='rev'>r8907511</td><td class='gh'>165</td></tr>
+<tr><td class='ttl'>Carolina Hard-Core Ecstasy</td><td class='rev'>r8908182</td><td class='gh'>144</td></tr>
+<tr><td class='ttl'>Oh No</td><td class='rev'>r8908239</td><td class='gh'>141</td></tr>
+<tr><td class='ttl'>Alien Orifice</td><td class='rev'>r8907689</td><td class='gh'>86</td></tr>
+<tr><td class='ttl'>What's New In Baltimore?</td><td class='rev'>r8908276</td><td class='gh'>59</td></tr>
+<tr><td class='ttl'>Fembot In A Wet T-Shirt</td><td class='rev'>r8907601</td><td class='gh'>57</td></tr>
+<tr><td class='ttl'>Uncle Meat</td><td class='rev'>r8907952</td><td class='gh'>24</td></tr>
+<tr><td class='ttl'>Catholic Girls</td><td class='rev'>r8907778</td><td class='gh'>16</td></tr>
+<tr><td class='ttl'>Zomby Woof (AI)</td><td class='rev'>r8906157 (live)</td><td class='gh'>10</td></tr>
+</tbody></table></div>
+<div class="box g"><p><strong>Who blocked the two dead revisions.</strong> Keep It Greasey <code>r8768457</code> was rejected by Kirill527 and Zoot Allures <code>r8769199</code> by Darr, both on 2026-09-01. Live Zoot Allures keeps all 53 ghosts: 18 snare, 13 crash, 12 closed hat, 8 pedal hat, 1 kick, 1 low tom, letRing 0.</p></div>
+<div class="box a"><p><strong>Montana is counted across two drum staves</strong>, 212 on track 15 and 105 on track 17. A single-part read returns 212 and undercounts the tab.</p></div>
 
 <footer>
 <p>Ghost counts come from the drum-staff census in <code>_defects.json</code>. Revision state was read from <code>songsterr.com/api/meta/&lt;songId&gt;/revisions</code> on 2026-09-05, using the fields <code>isBlocked</code>, <code>isOnModeration</code> and <code>reviewed</code>. Source data: <code>~/Library/Mobile Documents/com~apple~CloudDocs/sfg/zappa-drum-repair-2026-08-31/</code>, <code>~/Projects/_outputs/songsterr-zappa-paren-fix/</code> and <code>~/Projects/_outputs/zappa-drum-sources/</code>.</p>

@@ -160,8 +160,21 @@ A ghosted ride is alone in its beat 99.4% of the time. A plain ride shares its b
 kick or snare 60.8% of the time. This is a standard accented ride ostinato, quiet between
 the pulses. **All 1,317 are genuine and must be restored.**
 
-Same revision also claimed all nine tracks were unchanged. The Frank Zappa staff went
-1,056 notes to 1,061 across that edit.
+### Correction to my own part-0 figure
+
+I first reported the Frank Zappa staff going 1,056 notes to 1,061 across that edit. That
+was a measuring artifact. `songsterr_live_read.py` called any entry without a `fret` key
+a rest, and a dead-string note also has no fret. Five dead notes on that staff carry no
+fret in the pre-sweep revision and `fret 0` in the live one, so the tool scored them as
+rests in one and notes in the other.
+
+Measured on the `rest` field the data carries: **1,061 sounding notes before and after,
+delta zero.** The staff gained 4 quarter rests at bars 3, 5, 7, 9. Tool patched, backup
+at `songsterr_live_read.py.bak-pre-restfix-2026-09-05`.
+
+A parallel session found what the round trip actually cost: **one chord symbol, E7Msus2
+at bar 3.** The rest is encoding (91 bend points gaining `precisePosition`, 136 vibrato
+flags re-encoded, 21 apparent fret diffs that are the same notes reordered in the array).
 
 ### Independent verification of the Watermelon restore file
 
@@ -180,3 +193,32 @@ position errors):
 
 The file is correct and ready to submit. Its 1,332 `AntiAccent` elements are 15
 pre-existing plus 1,317 written copy-on-write.
+
+
+## All sixteen restores submitted
+
+Watermelon went up as `r8908034`, reading back from CloudFront with 1,317 ghosts, 1,316
+on ride and 1 on crash, matching the pre-sweep revision.
+
+| Tab | Revision | Ghosts |
+|---|---|---|
+| Watermelon In Easter Hay | r8908034 | 1,317 |
+| Muffin Man | r8906880 | 578 |
+| Drowning Witch | r8908109 | 419 |
+| Montana | r8907028 | 317 |
+| The Black Page | r8907247 | 173 |
+| Nanook Suite | r8907360 | 168 |
+| Nanook Rubs It | r8907423 | 168 |
+| Inca Roads | r8907511 | 165 |
+| Carolina Hard-Core Ecstasy | r8908182 | 144 |
+| Oh No | r8908239 | 141 |
+| Alien Orifice | r8907689 | 86 |
+| What's New In Baltimore? | r8908276 | 59 |
+| Fembot In A Wet T-Shirt | r8907601 | 57 |
+| Uncle Meat | r8907952 | 24 |
+| Catholic Girls | r8907778 | 16 |
+| Zomby Woof (AI) | r8906157 (live) | 10 |
+
+Keep It Greasey `r8768457` was rejected by Kirill527 and Zoot Allures `r8769199` by Darr,
+both on 2026-09-01. Montana counts 317 across two drum staves, 212 on track 15 and 105 on
+track 17, so a single-part read undercounts it.
