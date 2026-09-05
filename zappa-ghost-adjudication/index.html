@@ -2,358 +2,401 @@
 <meta name="viewport" content="width=device-width,initial-scale=1">
 <title>Zappa Ghost Adjudication</title>
 <style>
-:root{--cream:#F6F1E4;--ink:#141210;--rule:#D8CEB8;
---c1:#85D4E3;--c2:#F4B5BD;--c3:#9C964A;--c4:#CDC08C;--c5:#FAD77B;--c6:#F3DF6C}
+:root{--cream:#F6F1E4;--ink:#141210;--rule:#D8CEB8;--red:#8C3A2B;--grn:#2E7D5B;--blu:#3D6B8C;--gld:#B08948}
 *{box-sizing:border-box}
 body{margin:0;background:var(--cream);color:var(--ink);font:16px/1.65 "Inter",Helvetica,Arial,sans-serif}
-.wrap{max-width:1240px;margin:0 auto;padding:40px 22px 80px}
+.wrap{max-width:1340px;margin:0 auto;padding:40px 20px 80px}
 h1{font-family:Cormorant Garamond,Georgia,serif;font-size:54px;line-height:1.03;margin:0 0 6px;letter-spacing:-.02em}
-.sub{font-size:17px;color:#5C5346;margin:0 0 4px;max-width:74ch}
+.sub{font-size:17px;color:#5C5346;margin:0 0 4px;max-width:78ch}
 .stamp{font:12px/1.5 "JetBrains Mono",ui-monospace,monospace;color:#7A7060;letter-spacing:.05em;text-transform:uppercase}
 h2{font-family:Cormorant Garamond,Georgia,serif;font-size:32px;margin:50px 0 4px}
 h2 .n{font:11px/1 "JetBrains Mono",ui-monospace,monospace;vertical-align:super;color:#9A907E;margin-right:9px}
-.lede{color:#5C5346;margin:0 0 18px;max-width:78ch}
-.key{border:2px solid var(--ink);border-left-width:13px;border-left-color:var(--c3);background:#FFFDF7;padding:20px 24px;margin:26px 0}
-.key b{display:block;font-family:Cormorant Garamond,Georgia,serif;font-size:25px;margin-bottom:7px}
-.grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(196px,1fr));gap:14px;margin:22px 0}
-.stat{border:1px solid var(--rule);background:#FFFDF7;padding:15px 17px;border-top:6px solid var(--c1)}
-.stat:nth-child(2){border-top-color:var(--c2)}.stat:nth-child(3){border-top-color:var(--c3)}
-.stat:nth-child(4){border-top-color:var(--c5)}.stat:nth-child(5){border-top-color:var(--c4)}
+.lede{color:#5C5346;margin:0 0 18px;max-width:80ch}
+.alert{border:2px solid var(--ink);border-left-width:13px;border-left-color:var(--red);background:#FFFDF7;padding:20px 24px;margin:26px 0}
+.alert b{display:block;font-family:Cormorant Garamond,Georgia,serif;font-size:25px;margin-bottom:7px}
+.alert.g{border-left-color:var(--grn)}.alert.b{border-left-color:var(--blu)}
+.grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(186px,1fr));gap:13px;margin:22px 0}
+.stat{border:1px solid var(--rule);background:#FFFDF7;padding:15px 16px;border-top:6px solid var(--blu)}
+.stat:nth-child(2){border-top-color:var(--gld)}.stat:nth-child(3){border-top-color:var(--grn)}
+.stat:nth-child(4){border-top-color:var(--red)}
 .stat .k{font:11px/1.4 "JetBrains Mono",ui-monospace,monospace;text-transform:uppercase;letter-spacing:.06em;color:#7A7060}
-.stat .v{font-family:Cormorant Garamond,Georgia,serif;font-size:40px;line-height:1.05;margin:4px 0 2px}
+.stat .v2{font-family:Cormorant Garamond,Georgia,serif;font-size:40px;line-height:1.05;margin:4px 0 2px}
 .stat .d{font-size:13px;color:#5C5346}
-table{border-collapse:collapse;width:100%;margin:16px 0;font-size:13.5px;background:#FFFDF7}
+table{border-collapse:collapse;width:100%;margin:16px 0;font-size:13px;background:#FFFDF7}
 th,td{border:1px solid var(--rule);padding:8px 9px;text-align:left;vertical-align:top}
-th{background:#EFE7D4;font:11px/1.4 "JetBrains Mono",ui-monospace,monospace;text-transform:uppercase;letter-spacing:.04em}
+th{background:#EFE7D4;font:10px/1.3 "JetBrains Mono",ui-monospace,monospace;text-transform:uppercase;letter-spacing:.04em}
 td.num{font-family:"JetBrains Mono",ui-monospace,monospace;text-align:right;white-space:nowrap}
-td.lm{font-size:12px;color:#5C5346}
-.bar{height:13px;display:inline-block;vertical-align:middle}
-.v{font:9.5px/1 "JetBrains Mono",ui-monospace,monospace;padding:4px 5px;border:1px solid rgba(0,0,0,.32);text-transform:uppercase;white-space:nowrap}
-.vd{margin-top:6px;padding:7px 9px;background:#EFE7D4;border-left:4px solid var(--c3);font-size:12px;line-height:1.5}
-.vd .q{font:10px/1 "JetBrains Mono",ui-monospace,monospace;color:#7A7060}
+td.nt{font-size:12px;color:#40382C;max-width:330px}
+td.st{width:150px}
+.was{font:10px/1.4 "JetBrains Mono",ui-monospace,monospace;color:#9A907E;margin-top:3px;text-decoration:line-through}
+.dim{color:#7A7060;font-size:11px}
+.v{display:inline-block;font:9px/1.25 "JetBrains Mono",ui-monospace,monospace;padding:3px 5px;margin:0 3px 3px 0;color:#fff;border:1px solid rgba(0,0,0,.25)}
 .scroll{overflow-x:auto}
-.card{border:1px solid var(--rule);background:#FFFDF7;padding:16px 19px;margin:12px 0;border-left:8px solid var(--c1)}
-.card.b{border-left-color:var(--c2)}.card.c{border-left-color:var(--c5)}
-.card .t{font-weight:700;margin-bottom:5px}
-code{font:12.5px/1.5 "JetBrains Mono",ui-monospace,monospace;background:#EFE7D4;padding:1px 5px}
-a{color:#3D7C8A;text-underline-offset:3px}
+.card{border:1px solid var(--rule);background:#FFFDF7;padding:16px 19px;margin:12px 0;border-left:8px solid var(--blu)}
+.card.r{border-left-color:var(--red)}.card.g{border-left-color:var(--grn)}.card.y{border-left-color:var(--gld)}
+.card .t2{font-weight:700;margin-bottom:5px}
+ol.wo{counter-reset:w;list-style:none;padding-left:0}
+ol.wo li{border:1px solid var(--rule);background:#FFFDF7;padding:13px 16px 13px 56px;margin:9px 0;position:relative}
+ol.wo li:before{counter-increment:w;content:counter(w);position:absolute;left:0;top:0;bottom:0;width:42px;
+background:var(--blu);color:#fff;font-family:Cormorant Garamond,Georgia,serif;font-size:22px;display:flex;align-items:center;justify-content:center}
+ol.wo li.blocked:before{background:var(--red)}
+ol.wo li.go:before{background:var(--grn)}
+code{font:12px/1.5 "JetBrains Mono",ui-monospace,monospace;background:#EFE7D4;padding:1px 5px}
+a{color:#3D6B8C;text-underline-offset:3px}
 footer{margin-top:56px;border-top:1px solid var(--rule);padding-top:17px;font:12px/1.7 "JetBrains Mono",ui-monospace,monospace;color:#7A7060}
 </style></head><body><div class="wrap">
 
-<p class="stamp">Measured 2026-09-05</p>
+<p class="stamp">Rebuilt 2026-09-05 under the corrected evidence model</p>
 <h1>Zappa Ghost Adjudication</h1>
-<p class="sub">Not "put all the ghosts back". Which ghosts the printed transcriptions
-support, song by song and lane by lane, so the genuine ones return and the invented ones
-stay gone.</p>
+<p class="sub">Per-ghost adjudication against sources. No restore executes from this page.</p>
 
-<div class="key">
-<b>The rule that decides it</b>
-A ghost notehead is standard notation for <b>a quiet snare stroke between the loud ones</b>.
-On a snare lane a ghost flag carries its ordinary meaning and is presumptively genuine. On
-ride, hi-hat, tambourine, kick or crash it means something else, so it needs a printed chart
-to justify keeping. That single test splits the 4,574 removed flags almost in half.
+<div class="alert">
+<b>NO WRITE. The queued restore is held.</b>
+Nothing on this page authorises an edit. Every song below carries an evidence status, and
+only <code>DIRECT CHART MATCH</code> permits a restore.
+</div>
+
+<div class="alert b">
+<b>The notation rule, corrected</b>
+A ghost note is an <b>anti-accent</b>, meaning a substantially softer percussion event. Snare
+is its most common drumset application rather than its only valid one. Dorico allows ghost
+notation on unpitched percussion generally and Avid allows parentheses around any notehead,
+so <b>lane identity cannot prove a ghost marking invalid</b>.
+<br><br>
+Snare therefore means <b>strong prior evidence</b>, never "restore". A hi-hat, ride, kick,
+tambourine or crash ghost earns greater suspicion because that notation appears less often in
+ordinary drum charts, and its lane still cannot decide the case alone.
+</div>
+
+<div class="alert g">
+<b>The contradiction this fixes</b>
+The previous version stated the goal as per-ghost adjudication, then said snare-only songs
+need no chart and can simply restore. Those are two different standards. The stronger one
+governs, so <b>2,211 snare flags are "awaiting adjudication", not "2,211 restore".</b>
 </div>
 
 <div class="grid">
-<div class="stat"><div class="k">Snare ghosts</div><div class="v">2,211</div><div class="d">presumptively genuine, restore</div></div>
-<div class="stat"><div class="k">Non-snare ghosts</div><div class="v">2,335</div><div class="d">need a chart to justify</div></div>
-<div class="stat"><div class="k">Already adjudicated</div><div class="v">3</div><div class="d">of 23 songs</div></div>
-<div class="stat"><div class="k">Lanes unmeasured</div><div class="v">28</div><div class="d">flags across 5 small songs</div></div>
-<div class="stat"><div class="k">No chart on disk</div><div class="v">5</div><div class="d">songs, cannot be judged yet</div></div>
+<div class="stat"><div class="k">Flags in scope</div><div class="v2">4,574</div><div class="d">across 23 damaged tabs</div></div>
+<div class="stat"><div class="k">Snare, awaiting adjudication</div><div class="v2">2,211</div><div class="d">strong prior, not a verdict</div></div>
+<div class="stat"><div class="k">Actionable now</div><div class="v2">4</div><div class="d">sources already on this Mac</div></div>
+<div class="stat"><div class="k">Blocked on acquisition</div><div class="v2">3</div><div class="d">Vai book or a purchase</div></div>
 </div>
 
-<h2><span class="n">01</span>The three songs already settled show the whole spread</h2>
-<p class="lede">Each landed differently, which is exactly why a blanket restore would be
-wrong.</p>
-
-<div class="card">
-<div class="t">Watermelon In Easter Hay <code>s35881</code> &mdash; KEEP ALL 1,317, on the ride</div>
-<p>Zero snare ghosts. Every flag sits on ride, which normally reads as the wrong lane. The
-placement settles it: slots 0, 4, 8 and 12 are 407 plain against 2 ghosted, and every other
-sixteenth is 1 plain against 1,314 ghosted. That is <b>an accent grid</b>, the soft rides
-between the accented ones. A ghosted ride is alone in its beat 99.4% of the time, and every
-note reads <code>dynamic:null</code>, so the strip revision's "at forte" justification was
-invented.</p>
-</div>
-
-<div class="card b">
-<div class="t">Zomby Woof <code>s412162</code> &mdash; DROP ALL 32, ADD 8 THAT WERE NEVER THERE</div>
-<p>The 32 automatic detections sit at bars 4, 13, 15 and 40 to 43, with <b>22 of them on
-hi-hat lanes</b> where ghost brackets are not valid notation. Drumnet prints genuine
-parenthesised snare pairs at bars 5 to 8, slots 6 and 7, right after the open hi-hat, and
-the transcriber missed every one. <b>Zero overlap between what was flagged and what is
-printed.</b> This song has the richest chart coverage of all 23, and its ghosts turned out
-to be the wrong ones.</p>
-</div>
-
-<div class="card c">
-<div class="t">Montana <code>s35870</code> &mdash; RESTORE 317 AND REMOVE THE DOTS</div>
-<p>A later revision converted all 317 ghosts into staccato dots. A dot marks duration and a
-ghost marks dynamic, so the substitution is wrong whichever ghosts prove genuine. The dots
-come off in the same pass.</p>
-</div>
-
-<h2><span class="n">02</span>Every song, lane split against chart availability</h2>
-<p class="lede">Blue is snare, pink is every other lane. The publishers column is what
-exists on this Mac at <code>~/Projects/_outputs/zappa-drum-sources/</code>.</p>
-
+<h2><span class="n">01</span>The evidence model</h2>
+<p class="lede">Publication state and notation truth are separate axes. A song can be
+<code>MODERATION SAFE</code> and <code>UNRESOLVED</code> at the same time.</p>
 <div class="scroll"><table>
-<tr><th>song</th><th>title and verdict</th><th>removed</th><th>snare</th><th>other</th>
-<th>lane split</th><th>where they sat</th><th>charts on disk</th><th>class</th></tr>
+<tr><th>status</th><th>meaning</th><th>permitted action</th></tr>
+<tr><td><span class="v" style="background:#2E7D5B">DIRECT CHART MATCH</span></td><td>Independent drum chart shows the exact ghost</td><td><b>Restore</b></td></tr><tr><td><span class="v" style="background:#8C3A2B">DIRECT CHART REJECT</span></td><td>Chart shows an ordinary stroke or no stroke there</td><td><b>Keep removed</b></td></tr><tr><td><span class="v" style="background:#3D6B8C">STRUCTURAL SCORE SUPPORT</span></td><td>Official score confirms rhythm, meter or ensemble attack</td><td><b>Preserve timing, continue dynamic check</b></td></tr><tr><td><span class="v" style="background:#5B7C99">REPEATED PATTERN SUPPORT</span></td><td>Strong repeated pattern indicates deliberate encoding</td><td><b>Hold as probable, seek written confirmation</b></td></tr><tr><td><span class="v" style="background:#7A9B6E">SNARE PRIOR</span></td><td>Ghost is on snare with plausible placement</td><td><b>Hold as likely, adjudicate further</b></td></tr><tr><td><span class="v" style="background:#B08948">NON-SNARE PRIOR</span></td><td>Ghost is on another percussion lane</td><td><b>Hold for evidence</b></td></tr><tr><td><span class="v" style="background:#9B5B8C">REVISION SEMANTIC ERROR</span></td><td>Later edit changed ghost into another articulation</td><td><b>Undo wrong articulation only</b></td></tr><tr><td><span class="v" style="background:#6E8CA0">MODERATION SAFE</span></td><td>Destructive revision did not become current</td><td><b>No immediate repair required</b></td></tr><tr><td><span class="v" style="background:#7A7060">UNRESOLVED</span></td><td>Evidence does not decide the individual flag</td><td><b>Make no musical edit</b></td></tr>
+</table></div>
+
+<h2><span class="n">02</span>Every song under the new model</h2>
+<div class="scroll"><table>
+<tr><th>song</th><th>title</th><th>flags</th><th>snare</th><th>other</th><th>status</th>
+<th>reasoning</th><th>action, and what it needs</th></tr>
 <tr>
 <td class="num">35881</td>
-<td><b>Watermelon In Easter Hay</b><div class="vd"><b>KEEP ALL 1317</b> <span class="q">q-2026-09-05-2f7aec</span><br>Ride ghosts encode an accent grid: slots 0/4/8/12 are 407 plain vs 2 ghosted, every other 16th is 1 plain vs 1,314 ghosted. Ghosted ride alone in its beat 99.4%. dynamic:null throughout, so the strip revision&#x27;s &#x27;at forte&#x27; claim was invented.</div></td>
+<td><b>Watermelon In Easter Hay</b><div class="was">was: SETTLED, keep all 1317</div></td>
 <td class="num">1317</td>
 <td class="num">0</td>
 <td class="num">1317</td>
-<td><span class="bar" style="width:0px;background:#85D4E3"></span><span class="bar" style="width:200px;background:#F4B5BD"></span></td>
-<td class="lm">Ride 1,316, Crash 1. Zero snare.</td>
-<td class="lm">drumnet, analysis</td>
-<td><span class="v" style="background:#9C964A">SETTLED</span></td></tr><tr>
+<td class="st"><span class="v" style="background:#5B7C99">REPEATED PATTERN SUPPORT</span><span class="v" style="background:#B08948">NON-SNARE PRIOR</span></td>
+<td class="nt">Ride ghosts form an accent grid: slots 0/4/8/12 read 407 plain against 2 ghosted, every other sixteenth 1 plain against 1,314 ghosted, ghosted ride alone in its beat 99.4%, dynamic:null throughout. That is strong evidence of deliberate encoding and it is not a written confirmation. The Frank Zappa Guitar Book carries this track and an independent analysis states Vai&#x27;s transcription includes the drum part in detail. The verdict comes from matching the ostinato bar-for-bar against Vai.</td>
+<td class="nt"><b>BLOCKED on the Vai book</b><br><span class="dim">have: Drumnet p1-p5 on disk, 5 pages</span><br><span class="dim">need: Vai Guitar Book</span></td>
+</tr><tr>
 <td class="num">604777</td>
-<td><b>Keep It Greasey</b></td>
+<td><b>Keep It Greasey</b><div class="was">was: RESTORED</div></td>
 <td class="num">629</td>
 <td class="num">629</td>
 <td class="num">0</td>
-<td><span class="bar" style="width:95px;background:#85D4E3"></span><span class="bar" style="width:0px;background:#F4B5BD"></span></td>
-<td class="lm">never stripped live, revision rejected</td>
-<td class="lm">drummagazine, petesweeney, analysis</td>
-<td><span class="v" style="background:#85D4E3">SNARE ONLY</span></td></tr><tr>
+<td class="st"><span class="v" style="background:#6E8CA0">MODERATION SAFE</span><span class="v" style="background:#7A9B6E">SNARE PRIOR</span><span class="v" style="background:#7A7060">UNRESOLVED</span></td>
+<td class="nt">Moderator rejected the stripping revision, so the live tab keeps all 629 flags. That protects the publication state and settles nothing about whether each flag is musically authentic.</td>
+<td class="nt"><b>Live state safe, musically unadjudicated</b><br><span class="dim">have: Brown chart, Pete Sweeney PDF, Colaiuta DRUM lesson on disk</span><br><span class="dim">need: chart or audio per flag</span></td>
+</tr><tr>
 <td class="num">35886</td>
-<td><b>Muffin Man</b></td>
+<td><b>Muffin Man</b><div class="was">was: MIXED LANES</div></td>
 <td class="num">578</td>
 <td class="num">504</td>
 <td class="num">74</td>
-<td><span class="bar" style="width:75px;background:#85D4E3"></span><span class="bar" style="width:12px;background:#F4B5BD"></span></td>
-<td class="lm">Snare 481, Snare2 23, then hats, crashes, toms</td>
-<td class="lm">drummagazine, drumnet</td>
-<td><span class="v" style="background:#FAD77B">MIXED LANES</span></td></tr><tr>
+<td class="st"><span class="v" style="background:#7A9B6E">SNARE PRIOR</span><span class="v" style="background:#B08948">NON-SNARE PRIOR</span></td>
+<td class="nt">504 on snare and 74 elsewhere. Both halves await per-event adjudication.</td>
+<td class="nt"><b>Actionable after calibration</b><br><span class="dim">have: Brown muffin-man-1.png, Drumnet p1-p4</span><br><span class="dim">need: none, sources in hand</span></td>
+</tr><tr>
 <td class="num">620961</td>
-<td><b>Drowning Witch</b></td>
+<td><b>Drowning Witch</b><div class="was">was: MIXED LANES</div></td>
 <td class="num">419</td>
 <td class="num">101</td>
 <td class="num">318</td>
-<td><span class="bar" style="width:15px;background:#85D4E3"></span><span class="bar" style="width:48px;background:#F4B5BD"></span></td>
-<td class="lm">Ride 128, Snare 101, HatClosed 61, Kick 41, TomLow 33</td>
-<td class="lm">drummagazine, analysis</td>
-<td><span class="v" style="background:#FAD77B">MIXED LANES</span></td></tr><tr>
+<td class="st"><span class="v" style="background:#3D6B8C">STRUCTURAL SCORE SUPPORT</span><span class="v" style="background:#B08948">NON-SNARE PRIOR</span><span class="v" style="background:#7A9B6E">SNARE PRIOR</span></td>
+<td class="nt">Ryan Brown documents that an actual Zappa drum part exists for the Interlude, with exactly notated material beside sections where instrumentation is unspecified, and identifies the 9/8 and 4/4 changes. Broader analysis documents sextuplets and 27/16. Split the song by chart coverage first, then let every ghost inherit the evidence level of its own section.</td>
+<td class="nt"><b>ACTIONABLE NOW</b><br><span class="dim">have: Brown Drowning-Witch.png + GrooveAnalysis on disk</span><br><span class="dim">need: none, sources in hand</span></td>
+</tr><tr>
 <td class="num">35870</td>
-<td><b>Montana</b><div class="vd"><b>RESTORE 317 AND REMOVE THE DOTS</b> <span class="q">q-2026-09-05-6845bf</span><br>r8787106 converted all 317 ghosts into staccato dots. A dot is a duration mark and a ghost is a dynamic, so the substitution is wrong regardless of which ghosts are genuine.</div></td>
+<td><b>Montana</b><div class="was">was: SETTLED, restore 317</div></td>
 <td class="num">317</td>
 <td class="num">174</td>
 <td class="num">143</td>
-<td><span class="bar" style="width:26px;background:#85D4E3"></span><span class="bar" style="width:22px;background:#F4B5BD"></span></td>
-<td class="lm">Snare 95, Tambourine 83, Snare2 79, Kick 24</td>
-<td class="lm">analysis</td>
-<td><span class="v" style="background:#9C964A">SETTLED</span></td></tr><tr>
+<td class="st"><span class="v" style="background:#9B5B8C">REVISION SEMANTIC ERROR</span><span class="v" style="background:#7A7060">UNRESOLVED</span></td>
+<td class="nt">LOSES ITS SETTLED LABEL. The evidence proves only that replacing ghost markings with staccato dots was semantically wrong, since duration and dynamic are separate properties. It never proved the 317 original flags were musically correct. Undo the wrong articulation, then adjudicate the 174 snare and 143 non-snare cases separately.</td>
+<td class="nt"><b>BLOCKED on $7.99 purchase</b><br><span class="dim">have: zappa-analysis only, no drum chart</span><br><span class="dim">need: Percunerds full chart, $7.99</span></td>
+</tr><tr>
 <td class="num">1105085</td>
-<td><b>The Black Page</b></td>
+<td><b>The Black Page</b><div class="was">was: SNARE ONLY, restore</div></td>
 <td class="num">173</td>
 <td class="num">170</td>
 <td class="num">3</td>
-<td><span class="bar" style="width:25px;background:#85D4E3"></span><span class="bar" style="width:1px;background:#F4B5BD"></span></td>
-<td class="lm">Snare 170, HatPedal 3</td>
-<td class="lm">analysis</td>
-<td><span class="v" style="background:#FAD77B">MIXED LANES</span></td></tr><tr>
+<td class="st"><span class="v" style="background:#3D6B8C">STRUCTURAL SCORE SUPPORT</span><span class="v" style="background:#7A9B6E">SNARE PRIOR</span></td>
+<td class="nt">ITS OWN EVIDENCE CLASS. Zappa wrote the piece as a drum solo, so the published material preserves the exact composed rhythm including nested tuplets and irregular subdivisions. Analysis notes Bozzio added hi-hat ticks that were not prescribed, which separates composed attacks from performance additions. Compare all 173 against the written drum score before any decision.</td>
+<td class="nt"><b>ACTIONABLE NOW</b><br><span class="dim">have: the-black-page-drum-solo.htm plus drum-solo3.jpg on disk</span><br><span class="dim">need: none, drum-solo material on disk</span></td>
+</tr><tr>
 <td class="num">35865</td>
-<td><b>Nanook Rubs It</b></td>
+<td><b>Nanook Rubs It</b><div class="was">was: SNARE ONLY, restore</div></td>
 <td class="num">168</td>
 <td class="num">168</td>
 <td class="num">0</td>
-<td><span class="bar" style="width:25px;background:#85D4E3"></span><span class="bar" style="width:0px;background:#F4B5BD"></span></td>
-<td class="lm">Snare 168</td>
-<td class="lm"><b>none on disk</b></td>
-<td><span class="v" style="background:#85D4E3">SNARE ONLY</span></td></tr><tr>
+<td class="st"><span class="v" style="background:#7A9B6E">SNARE PRIOR</span><span class="v" style="background:#7A7060">UNRESOLVED</span></td>
+<td class="nt">Pure snare, which is a strong prior and not a verdict.</td>
+<td class="nt"><b>Awaiting adjudication</b><br><span class="dim">have: nothing on disk</span><br><span class="dim">need: a chart, none found</span></td>
+</tr><tr>
 <td class="num">35878</td>
-<td><b>Nanook Suite</b></td>
+<td><b>Nanook Suite</b><div class="was">was: SNARE ONLY, restore</div></td>
 <td class="num">168</td>
 <td class="num">168</td>
 <td class="num">0</td>
-<td><span class="bar" style="width:25px;background:#85D4E3"></span><span class="bar" style="width:0px;background:#F4B5BD"></span></td>
-<td class="lm">Snare 168</td>
-<td class="lm"><b>none on disk</b></td>
-<td><span class="v" style="background:#85D4E3">SNARE ONLY</span></td></tr><tr>
+<td class="st"><span class="v" style="background:#7A9B6E">SNARE PRIOR</span><span class="v" style="background:#7A7060">UNRESOLVED</span></td>
+<td class="nt">Pure snare, strong prior only.</td>
+<td class="nt"><b>Awaiting adjudication</b><br><span class="dim">have: nothing on disk</span><br><span class="dim">need: a chart, none found</span></td>
+</tr><tr>
 <td class="num">412178</td>
-<td><b>Inca Roads</b></td>
+<td><b>Inca Roads</b><div class="was">was: MIXED LANES</div></td>
 <td class="num">165</td>
 <td class="num">134</td>
 <td class="num">31</td>
-<td><span class="bar" style="width:20px;background:#85D4E3"></span><span class="bar" style="width:5px;background:#F4B5BD"></span></td>
-<td class="lm">Snare 134, Crash 14, Kick 7</td>
-<td class="lm">analysis</td>
-<td><span class="v" style="background:#FAD77B">MIXED LANES</span></td></tr><tr>
+<td class="st"><span class="v" style="background:#3D6B8C">STRUCTURAL SCORE SUPPORT</span><span class="v" style="background:#7A9B6E">SNARE PRIOR</span><span class="v" style="background:#B08948">NON-SNARE PRIOR</span></td>
+<td class="nt">Ben Wall&#x27;s 2011 Huddersfield thesis is ON THIS MAC and its Appendix C is a full study score, pages 98 to 132, with a Drum Kit staff. Only the improvised guitar and keyboard solos were omitted. Bar 29 at the head of section [C] carries 7 against 6: drums septuplets against bass sextuplets in the first half, unison semiquavers on beat 3, drums quintuplet against marimba sextuplets on beat 4, under a conducted steady 4/4.</td>
+<td class="nt"><b>ACTIONABLE NOW, best calibration target</b><br><span class="dim">have: Wall thesis pp98-132 on disk, drum staff present</span><br><span class="dim">need: none</span></td>
+</tr><tr>
 <td class="num">68248</td>
-<td><b>Carolina Hard-Core Ecstasy</b></td>
+<td><b>Carolina Hard-Core Ecstasy</b><div class="was">was: NO SNARE, chart required</div></td>
 <td class="num">144</td>
 <td class="num">0</td>
 <td class="num">144</td>
-<td><span class="bar" style="width:0px;background:#85D4E3"></span><span class="bar" style="width:21px;background:#F4B5BD"></span></td>
-<td class="lm">Tambourine 144. Zero snare.</td>
-<td class="lm"><b>none on disk</b></td>
-<td><span class="v" style="background:#F4B5BD">NO SNARE AT ALL</span></td></tr><tr>
+<td class="st"><span class="v" style="background:#B08948">NON-SNARE PRIOR</span><span class="v" style="background:#7A7060">UNRESOLVED</span></td>
+<td class="nt">144 on tambourine. No independent full drum chart found. Bongo Fury anniversary material carries complete Armadillo performances and a longer Carolina, which becomes useful audio evidence once the album source relationship is pinned down.</td>
+<td class="nt"><b>Hardest case, audio route only</b><br><span class="dim">have: nothing on disk</span><br><span class="dim">need: a drum chart, none found anywhere</span></td>
+</tr><tr>
 <td class="num">35884</td>
-<td><b>Oh No</b></td>
+<td><b>Oh No</b><div class="was">was: NO SNARE, chart required</div></td>
 <td class="num">141</td>
 <td class="num">0</td>
 <td class="num">141</td>
-<td><span class="bar" style="width:0px;background:#85D4E3"></span><span class="bar" style="width:21px;background:#F4B5BD"></span></td>
-<td class="lm">HatClosed 141. Zero snare.</td>
-<td class="lm">drumnet</td>
-<td><span class="v" style="background:#F4B5BD">NO SNARE AT ALL</span></td></tr><tr>
+<td class="st"><span class="v" style="background:#B08948">NON-SNARE PRIOR</span><span class="v" style="background:#7A7060">UNRESOLVED</span></td>
+<td class="nt">141 on closed hat. Greater suspicion because hat ghosts appear less often in ordinary charts, and the lane still cannot decide it.</td>
+<td class="nt"><b>Actionable after calibration</b><br><span class="dim">have: Drumnet material on disk</span><br><span class="dim">need: Drumnet coverage check</span></td>
+</tr><tr>
 <td class="num">68246</td>
-<td><b>Alien Orifice</b></td>
+<td><b>Alien Orifice</b><div class="was">was: MIXED LANES</div></td>
 <td class="num">86</td>
 <td class="num">33</td>
 <td class="num">53</td>
-<td><span class="bar" style="width:4px;background:#85D4E3"></span><span class="bar" style="width:9px;background:#F4B5BD"></span></td>
-<td class="lm">Snare 33, Crash 33, Crash2 14</td>
-<td class="lm">analysis</td>
-<td><span class="v" style="background:#FAD77B">MIXED LANES</span></td></tr><tr>
+<td class="st"><span class="v" style="background:#7A9B6E">SNARE PRIOR</span><span class="v" style="background:#B08948">NON-SNARE PRIOR</span></td>
+<td class="nt">33 snare, 33 crash, 14 crash 2.</td>
+<td class="nt"><b>Awaiting adjudication</b><br><span class="dim">have: zappa-analysis only</span><br><span class="dim">need: a chart</span></td>
+</tr><tr>
 <td class="num">35887</td>
-<td><b>What&#x27;s New In Baltimore?</b></td>
+<td><b>What&#x27;s New In Baltimore?</b><div class="was">was: MIXED LANES</div></td>
 <td class="num">59</td>
 <td class="num">4</td>
 <td class="num">55</td>
-<td><span class="bar" style="width:0px;background:#85D4E3"></span><span class="bar" style="width:8px;background:#F4B5BD"></span></td>
-<td class="lm">Ride 48, Snare 4, Crash 4</td>
-<td class="lm">analysis</td>
-<td><span class="v" style="background:#FAD77B">MIXED LANES</span></td></tr><tr>
+<td class="st"><span class="v" style="background:#B08948">NON-SNARE PRIOR</span><span class="v" style="background:#7A7060">UNRESOLVED</span></td>
+<td class="nt">Ride 48, snare 4, crash 4.</td>
+<td class="nt"><b>Awaiting adjudication</b><br><span class="dim">have: zappa-analysis only</span><br><span class="dim">need: a chart</span></td>
+</tr><tr>
 <td class="num">748459</td>
-<td><b>Fembot In A Wet T-Shirt</b></td>
+<td><b>Fembot In A Wet T-Shirt</b><div class="was">was: MIXED LANES</div></td>
 <td class="num">57</td>
 <td class="num">53</td>
 <td class="num">4</td>
-<td><span class="bar" style="width:7px;background:#85D4E3"></span><span class="bar" style="width:1px;background:#F4B5BD"></span></td>
-<td class="lm">Snare 53, HatPedal 4</td>
-<td class="lm"><b>none on disk</b></td>
-<td><span class="v" style="background:#FAD77B">MIXED LANES</span></td></tr><tr>
+<td class="st"><span class="v" style="background:#7A9B6E">SNARE PRIOR</span><span class="v" style="background:#7A7060">UNRESOLVED</span></td>
+<td class="nt">Snare 53, hat pedal 4.</td>
+<td class="nt"><b>Awaiting adjudication</b><br><span class="dim">have: nothing on disk</span><br><span class="dim">need: a chart, none found</span></td>
+</tr><tr>
 <td class="num">35883</td>
-<td><b>Zoot Allures</b></td>
+<td><b>Zoot Allures</b><div class="was">was: RESTORED</div></td>
 <td class="num">53</td>
 <td class="num">53</td>
 <td class="num">0</td>
-<td><span class="bar" style="width:8px;background:#85D4E3"></span><span class="bar" style="width:0px;background:#F4B5BD"></span></td>
-<td class="lm">Terry Bozio snare, never stripped live</td>
-<td class="lm">analysis</td>
-<td><span class="v" style="background:#85D4E3">SNARE ONLY</span></td></tr><tr>
+<td class="st"><span class="v" style="background:#6E8CA0">MODERATION SAFE</span><span class="v" style="background:#7A9B6E">SNARE PRIOR</span><span class="v" style="background:#7A7060">UNRESOLVED</span></td>
+<td class="nt">Moderator rejected the stripping revision, isBlocked true, so the live tab keeps all 53. Publication state is safe. Notation truth is untested.</td>
+<td class="nt"><b>Live state safe, musically unadjudicated</b><br><span class="dim">have: zappa-analysis only</span><br><span class="dim">need: chart or audio per flag</span></td>
+</tr><tr>
 <td class="num">412162</td>
-<td><b>Zomby Woof</b><div class="vd"><b>DROP ALL 32, ADD 8 DIFFERENT</b> <span class="q">q-2026-09-05-51e686</span><br>The 32 automatic detections sit at bars 4, 13, 15, 40-43 with 22 on hi-hat lanes where ghost brackets are not valid notation. Drumnet prints genuine parenthesised snare pairs at bars 5-8 slots 6 and 7, which the transcriber missed entirely. Zero overlap.</div></td>
+<td><b>Zomby Woof</b><div class="was">was: DROP 32, ADD 8</div></td>
 <td class="num">32</td>
 <td class="num">0</td>
 <td class="num">32</td>
-<td><span class="bar" style="width:0px;background:#85D4E3"></span><span class="bar" style="width:4px;background:#F4B5BD"></span></td>
-<td class="lm">22 on hi-hat lanes, 10 elsewhere. ZERO on snare.</td>
-<td class="lm">cruiseshipdrummer, drummagazine, zappa-analysis, drumnet, analysis</td>
-<td><span class="v" style="background:#9C964A">SETTLED</span></td></tr><tr>
+<td class="st"><span class="v" style="background:#8C3A2B">DIRECT CHART REJECT</span><span class="v" style="background:#2E7D5B">DIRECT CHART MATCH</span></td>
+<td class="nt">RATIONALE CORRECTED. The 22 hi-hat flags are rejected because DRUMNET DISAGREES WITH THEIR LOCATIONS, never because hi-hat ghost notation is invalid in itself. Drumnet prints parenthesised snare pairs at bars 5 to 8 slots 6 and 7 that the transcriber missed, giving 8 DIRECT CHART MATCH events at positions with zero overlap against the 32 flagged.</td>
+<td class="nt"><b>ACTIONABLE NOW</b><br><span class="dim">have: 27 assets, 5 publishers</span><br><span class="dim">need: none</span></td>
+</tr><tr>
 <td class="num">20690</td>
-<td><b>Uncle Meat (YCDTOSA Vol. 2)</b></td>
+<td><b>Uncle Meat (YCDTOSA Vol. 2)</b><div class="was">was: STILL STRIPPED</div></td>
 <td class="num">24</td>
 <td class="num">4</td>
 <td class="num">20</td>
-<td><span class="bar" style="width:0px;background:#85D4E3"></span><span class="bar" style="width:3px;background:#F4B5BD"></span></td>
-<td class="lm">spread across toms, snare 4, ride bell 4</td>
-<td class="lm">analysis</td>
-<td><span class="v" style="background:#FAD77B">MIXED LANES</span></td></tr><tr>
+<td class="st"><span class="v" style="background:#B08948">NON-SNARE PRIOR</span><span class="v" style="background:#7A7060">UNRESOLVED</span></td>
+<td class="nt">Spread across toms, snare 4, ride bell 4.</td>
+<td class="nt"><b>Awaiting adjudication</b><br><span class="dim">have: zappa-analysis only</span><br><span class="dim">need: a chart</span></td>
+</tr><tr>
 <td class="num">749523</td>
-<td><b>Catholic Girls</b></td>
+<td><b>Catholic Girls</b><div class="was">was: SNARE ONLY, restore</div></td>
 <td class="num">16</td>
 <td class="num">16</td>
 <td class="num">0</td>
-<td><span class="bar" style="width:3px;background:#85D4E3"></span><span class="bar" style="width:0px;background:#F4B5BD"></span></td>
-<td class="lm">Snare 16</td>
-<td class="lm"><b>none on disk</b></td>
-<td><span class="v" style="background:#85D4E3">SNARE ONLY</span></td></tr><tr>
+<td class="st"><span class="v" style="background:#7A9B6E">SNARE PRIOR</span><span class="v" style="background:#7A7060">UNRESOLVED</span></td>
+<td class="nt">Pure snare, strong prior only.</td>
+<td class="nt"><b>Awaiting adjudication</b><br><span class="dim">have: nothing on disk</span><br><span class="dim">need: a chart, none found</span></td>
+</tr><tr>
 <td class="num">35889</td>
-<td><b>Peaches En Regalia</b></td>
+<td><b>Peaches En Regalia</b><div class="was">was: RESTORED</div></td>
 <td class="num">14</td>
 <td class="num">?</td>
 <td class="num">?</td>
-<td><span class="bar" style="width:0px;background:#85D4E3"></span><span class="bar" style="width:3px;background:#F4B5BD"></span></td>
-<td class="lm"></td>
-<td class="lm">analysis</td>
-<td><span class="v" style="background:#CDC08C">LANES UNMEASURED</span></td></tr><tr>
+<td class="st"><span class="v" style="background:#7A7060">UNRESOLVED</span></td>
+<td class="nt">Lanes never measured. Sweep appears not to have landed.</td>
+<td class="nt"><b>Measure lanes first</b><br><span class="dim">have: zappa-analysis only</span><br><span class="dim">need: lane measurement</span></td>
+</tr><tr>
 <td class="num">412170</td>
-<td><b>Trouble Every Day (Live)</b></td>
+<td><b>Trouble Every Day (Live)</b><div class="was">was: PARTIAL 3/9</div></td>
 <td class="num">9</td>
 <td class="num">?</td>
 <td class="num">?</td>
-<td><span class="bar" style="width:0px;background:#85D4E3"></span><span class="bar" style="width:3px;background:#F4B5BD"></span></td>
-<td class="lm"></td>
-<td class="lm">analysis</td>
-<td><span class="v" style="background:#CDC08C">LANES UNMEASURED</span></td></tr><tr>
+<td class="st"><span class="v" style="background:#7A7060">UNRESOLVED</span></td>
+<td class="nt">Lanes never measured.</td>
+<td class="nt"><b>Measure lanes first</b><br><span class="dim">have: zappa-analysis only</span><br><span class="dim">need: lane measurement</span></td>
+</tr><tr>
 <td class="num">35875</td>
-<td><b>Packard Goose</b></td>
+<td><b>Packard Goose</b><div class="was">was: RESTORED</div></td>
 <td class="num">3</td>
 <td class="num">?</td>
 <td class="num">?</td>
-<td><span class="bar" style="width:0px;background:#85D4E3"></span><span class="bar" style="width:3px;background:#F4B5BD"></span></td>
-<td class="lm"></td>
-<td class="lm">analysis</td>
-<td><span class="v" style="background:#CDC08C">LANES UNMEASURED</span></td></tr><tr>
-<td class="num">21495</td>
-<td><b>Andy</b></td>
-<td class="num">1</td>
-<td class="num">?</td>
-<td class="num">?</td>
-<td><span class="bar" style="width:0px;background:#85D4E3"></span><span class="bar" style="width:3px;background:#F4B5BD"></span></td>
-<td class="lm"></td>
-<td class="lm">drummagazine, analysis</td>
-<td><span class="v" style="background:#CDC08C">LANES UNMEASURED</span></td></tr><tr>
+<td class="st"><span class="v" style="background:#7A7060">UNRESOLVED</span></td>
+<td class="nt">Upgraded by the Guitar Book. Vai transcribed the entire long solo block including Colaiuta&#x27;s drum solo, and Todd Bishop published an independent Packard Goose drum transcription covering the guitar solo. Two sources for any removed ghost inside their coverage. NEITHER IS ON THIS MAC.</td>
+<td class="nt"><b>BLOCKED, neither source on disk</b><br><span class="dim">have: one zappa-analysis jpg</span><br><span class="dim">need: Vai Guitar Book AND Bishop&#x27;s chart</span></td>
+</tr><tr>
 <td class="num">59089</td>
-<td><b>Black Napkins</b></td>
+<td><b>Black Napkins</b><div class="was">was: RESTORED</div></td>
 <td class="num">1</td>
 <td class="num">?</td>
 <td class="num">?</td>
-<td><span class="bar" style="width:0px;background:#85D4E3"></span><span class="bar" style="width:3px;background:#F4B5BD"></span></td>
-<td class="lm"></td>
-<td class="lm">analysis</td>
-<td><span class="v" style="background:#CDC08C">LANES UNMEASURED</span></td></tr>
+<td class="st"><span class="v" style="background:#7A7060">UNRESOLVED</span></td>
+<td class="nt">Appears in the Guitar Book. Vai&#x27;s transcription is confirmed, and nothing yet proves those pages carry a complete drum staff. Inspect before granting drum authority.</td>
+<td class="nt"><b>Inspect before trusting</b><br><span class="dim">have: zappa-analysis jpgs</span><br><span class="dim">need: Vai Guitar Book, then inspect for a drum staff</span></td>
+</tr><tr>
+<td class="num">21495</td>
+<td><b>Andy</b><div class="was">was: RESTORED</div></td>
+<td class="num">1</td>
+<td class="num">?</td>
+<td class="num">?</td>
+<td class="st"><span class="v" style="background:#7A7060">UNRESOLVED</span></td>
+<td class="nt">Lanes never measured, one flag.</td>
+<td class="nt"><b>Measure lanes first</b><br><span class="dim">have: DRUM Magazine analysis on disk</span><br><span class="dim">need: lane measurement</span></td>
+</tr>
 </table></div>
 
-<h2><span class="n">03</span>What each class needs next</h2>
+<h2><span class="n">03</span>Provenance, two measurements at different scopes</h2>
+<div class="card y">
+<div class="t2">1,549 + 2,293 = 3,842 against 2,211 + 2,335 + 28 = 4,574</div>
+<p>Both are valid and they describe different scopes. <b>3,842</b> is the earlier count of
+flags removed by revisions that <b>became the current published one</b>, across 16 tabs.
+<b>4,574</b> is the full damage ledger across <b>23 tabs</b>, including revisions that were
+submitted without publishing and four that were flagged and never submitted. The pair is
+recorded here with its scope attached so nobody later reads two correct measurements as a
+contradiction.</p>
+</div>
 
+<h2><span class="n">04</span>What changed on specific songs</h2>
+<div class="card r">
+<div class="t2">Zomby Woof, rationale corrected</div>
+<p>The 22 hi-hat flags are rejected because <b>Drumnet disagrees with their locations</b>,
+never because hi-hat ghost notation is invalid in itself. That distinction matters, since the
+invalid-notation claim would have wrongly generalised to every hat, ride and tambourine ghost
+in the set.</p>
+</div>
+<div class="card y">
+<div class="t2">Montana loses SETTLED</div>
+<p>What is proven: converting ghosts into staccato dots was semantically wrong, because
+duration and dynamic are separate properties. What is not proven: that all 317 original flags
+were musically correct. Undo the articulation error, then adjudicate 174 snare and 143
+non-snare separately against the Percunerds chart.</p>
+</div>
 <div class="card">
-<div class="t">Snare only, no chart needed to proceed</div>
-<p>Nanook Suite 168, Nanook Rubs It 168, Catholic Girls 16, Zoot Allures 53, Keep It Greasey
-629. Every flag is on snare, where ghost notation carries its ordinary meaning. These can be
-restored on the notation standard rather than on a chart, and Zoot Allures plus Keep It
-Greasey are already safe because moderators rejected their strip revisions.</p>
+<div class="t2">The Black Page becomes its own evidence class</div>
+<p>Zappa wrote it as a drum solo, so the published material preserves the composed rhythm
+including nested tuplets. Analysis notes Bozzio added hi-hat ticks that were not prescribed,
+which separates composed attacks from performance additions. The drum-solo material is
+already on this Mac.</p>
 </div>
-
-<div class="card b">
-<div class="t">No snare at all, chart required</div>
-<p>Watermelon 1,317 is settled as genuine. <b>Carolina Hard-Core Ecstasy 144 on tambourine
-and Oh No 141 on closed hat are not settled, and Carolina has no chart on this Mac at
-all.</b> Those two are where a wrong blanket restore would do the most damage.</p>
-</div>
-
-<div class="card c">
-<div class="t">Mixed lanes, split the decision</div>
-<p>Muffin Man 504 snare against 74 other, Drowning Witch 101 against 318, Inca Roads 134
-against 31, Alien Orifice 33 against 53, What's New In Baltimore 4 against 55, The Black
-Page 170 against 3, Fembot 53 against 4. The snare half restores on the standard. The
-remainder needs the chart, and Ryan Brown covers Drowning Witch and Muffin Man while Drumnet
-covers Muffin Man and Oh No.</p>
-</div>
-
 <div class="card">
-<div class="t">Five songs have no chart on this Mac</div>
-<p>Nanook Rubs It, Nanook Suite, Carolina Hard-Core Ecstasy, Fembot In A Wet T-Shirt,
-Catholic Girls. Four of the five are pure snare so they proceed anyway. <b>Carolina is the
-one genuine blocker</b>, since 144 tambourine ghosts cannot be judged without a printed
-source.</p>
+<div class="t2">Zoot Allures and Keep It Greasey, wording fixed</div>
+<p>A rejected stripping revision means <code>MODERATION SAFE</code>. It does not establish
+that every original flag is authentic, so both stay <code>UNRESOLVED</code> musically.</p>
+</div>
+
+<h2><span class="n">05</span>Work order, against what is actually on this Mac</h2>
+<p class="lede">Your order, annotated with a disk check. Three of the six depend on material
+that is not here.</p>
+<ol class="wo">
+<li class="blocked"><b>Watermelon against Vai.</b> The Frank Zappa Guitar Book is <b>NOT on
+this Mac</b>. Only Over-Nite Sensation is, at
+<code>~/Desktop/Guitar books/Guitar music theory etc/Music Book 2/</code>. Drumnet pages 1 to
+5 for Watermelon <b>are</b> on disk and can carry a first pass.</li>
+<li class="blocked"><b>Montana against Percunerds.</b> Needs the $7.99 purchase. Only
+zappa-analysis material is here, with no drum chart.</li>
+<li class="blocked"><b>Packard Goose against Vai plus Bishop.</b> <b>Neither is on this
+Mac.</b> The cruiseshipdrummer folder holds Apostrophe, Yellow Snow, Dancin' Fool, Rubber
+Shirt, Flower Punk, Beautiful Guy, Central Scrutinizer and Beat It With Your Fist, and no
+Packard Goose.</li>
+<li class="go"><b>Black Page against the written drum score.</b> ACTIONABLE.
+<code>the-black-page-drum-solo.htm</code> and <code>the-black-page-drum-solo3.jpg</code> are
+on disk.</li>
+<li class="go"><b>Drowning Witch against Brown's section coverage.</b> ACTIONABLE.
+<code>Drowning-Witch.png</code> and <code>GrooveAnalysis_Drowning-Witch.png</code> are on
+disk.</li>
+<li class="go"><b>Zomby Woof against its existing sources.</b> ACTIONABLE. 27 assets across 5
+publishers.</li>
+</ol>
+
+<h2><span class="n">06</span>Inca Roads, verified on disk this pass</h2>
+<div class="card g">
+<div class="t2">Ben Wall's thesis is already here, and it carries a Drum Kit staff</div>
+<p>The file named <code>BarryWall_The-Musical-Worlds-of-Frank-Zappa_thesis.pdf</code> is
+mislabelled. It is <b>Wall, Ben (2011), 'Inca Roads' - The Musical Worlds of Frank Zappa,
+Masters thesis, University of Huddersfield</b>, 132 pages.</p>
+<p><b>Appendix C, pages 98 to 132</b>, is the full study score. Page 98 lists Lead Vocals,
+Backing Vocals, Flute, Marimba, Vibraphone, Rhodes Piano, Synthesizer 1, Synthesizer 2,
+Electric Guitar, Bass Guitar, Timpani, Percussion and <b>Drum Kit</b>, marked "Transcribed by
+Benjamin Wall", quarter note = 120 approx.</p>
+<p><b>The only omission is the improvised guitar and keyboard solos</b>, because they differed
+in every recording. The drums are present throughout.</p>
+<p><b>The red zone is BAR 29</b>, at the head of section [C], the first occurrence of
+polyrhythm in the piece. Zappa conducts a steady 4/4 across the whole section, as marked on
+the score. First half of the bar the drums play septuplets against the bass playing normal
+sextuplets. Beat 3 drops into unison semiquavers. Beat 4 puts the drums on a quintuplet
+against the marimba's sextuplets. Wall sets it out as a 7-against-6 Time Unit Box System in
+figure 5.</p>
+<p><b>The Songsterr tab has TWO drum staves:</b> track 10 named "AI" and track 11 named
+"Chester Thompson", both instrument 1024. Live revision 8769026. Any comparison has to say
+which staff it is judging.</p>
 </div>
 
 <footer>
-Palette: Moonrise Kingdom (Wes Anderson)<br>
-Ghost counts from the damage ledger <code>_defects.json</code>. Lane splits measured
-2026-09-05 off each tab's pre-sweep revision, recorded in
-<code>reference_zappa_ghost_lanes_not_all_snare</code>. Chart availability measured here by
-filename match across the 12 publisher folders in
-<code>~/Projects/_outputs/zappa-drum-sources/</code>. Read-only, no writes.<br>
-2,211 + 2,335 + 28 unmeasured = 4,574, reconciling to the ledger total.<br>
-Data: <a href="adjudication.json">adjudication.json</a> &middot;
-<a href="https://7onething1.github.io/zappa-repair-state/">live repair state</a> &middot;
-<a href="https://7onething1.github.io/zappa-ghost-note-audit/">ghost note audit</a>
+Ghost counts from the damage ledger <code>_defects.json</code>. Lane splits measured off each
+tab's pre-sweep revision. Notation rule, evidence model and work order from Brandon's source
+hunt, 2026-09-05. Disk availability measured on this Mac the same day.<br>
+<b>No restore has been executed. No hook, tab or revision was written.</b><br>
+<a href="adjudication.json">adjudication.json</a> &middot;
+<a href="https://7onething1.github.io/zappa-evidence-matrix/">evidence matrix</a> &middot;
+<a href="https://7onething1.github.io/zappa-repair-state/">repair state</a>
 </footer>
 </div></body></html>

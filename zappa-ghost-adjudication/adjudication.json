@@ -1,313 +1,425 @@
-[
-  {
-    "songId": "20690",
-    "title": "Uncle Meat (YCDTOSA Vol. 2)",
-    "removed": 24,
-    "snare": 4,
-    "other": 20,
-    "laneDesc": "spread across toms, snare 4, ride bell 4",
-    "chartFiles": 18,
-    "publishers": [
-      "08-analysis"
-    ],
-    "verdict": null
+{
+  "model": [
+    {
+      "status": "DIRECT CHART MATCH",
+      "meaning": "Independent drum chart shows the exact ghost",
+      "action": "Restore"
+    },
+    {
+      "status": "DIRECT CHART REJECT",
+      "meaning": "Chart shows an ordinary stroke or no stroke there",
+      "action": "Keep removed"
+    },
+    {
+      "status": "STRUCTURAL SCORE SUPPORT",
+      "meaning": "Official score confirms rhythm, meter or ensemble attack",
+      "action": "Preserve timing, continue dynamic check"
+    },
+    {
+      "status": "REPEATED PATTERN SUPPORT",
+      "meaning": "Strong repeated pattern indicates deliberate encoding",
+      "action": "Hold as probable, seek written confirmation"
+    },
+    {
+      "status": "SNARE PRIOR",
+      "meaning": "Ghost is on snare with plausible placement",
+      "action": "Hold as likely, adjudicate further"
+    },
+    {
+      "status": "NON-SNARE PRIOR",
+      "meaning": "Ghost is on another percussion lane",
+      "action": "Hold for evidence"
+    },
+    {
+      "status": "REVISION SEMANTIC ERROR",
+      "meaning": "Later edit changed ghost into another articulation",
+      "action": "Undo wrong articulation only"
+    },
+    {
+      "status": "MODERATION SAFE",
+      "meaning": "Destructive revision did not become current",
+      "action": "No immediate repair required"
+    },
+    {
+      "status": "UNRESOLVED",
+      "meaning": "Evidence does not decide the individual flag",
+      "action": "Make no musical edit"
+    }
+  ],
+  "songs": [
+    {
+      "sid": "35881",
+      "t": "Watermelon In Easter Hay",
+      "n": 1317,
+      "sn": 0,
+      "ot": 1317,
+      "st": [
+        "REPEATED PATTERN SUPPORT",
+        "NON-SNARE PRIOR"
+      ],
+      "was": "SETTLED, keep all 1317",
+      "note": "Ride ghosts form an accent grid: slots 0/4/8/12 read 407 plain against 2 ghosted, every other sixteenth 1 plain against 1,314 ghosted, ghosted ride alone in its beat 99.4%, dynamic:null throughout. That is strong evidence of deliberate encoding and it is not a written confirmation. The Frank Zappa Guitar Book carries this track and an independent analysis states Vai's transcription includes the drum part in detail. The verdict comes from matching the ostinato bar-for-bar against Vai.",
+      "need": "Vai Guitar Book",
+      "have": "Drumnet p1-p5 on disk, 5 pages",
+      "act": "BLOCKED on the Vai book"
+    },
+    {
+      "sid": "604777",
+      "t": "Keep It Greasey",
+      "n": 629,
+      "sn": 629,
+      "ot": 0,
+      "st": [
+        "MODERATION SAFE",
+        "SNARE PRIOR",
+        "UNRESOLVED"
+      ],
+      "was": "RESTORED",
+      "note": "Moderator rejected the stripping revision, so the live tab keeps all 629 flags. That protects the publication state and settles nothing about whether each flag is musically authentic.",
+      "need": "chart or audio per flag",
+      "have": "Brown chart, Pete Sweeney PDF, Colaiuta DRUM lesson on disk",
+      "act": "Live state safe, musically unadjudicated"
+    },
+    {
+      "sid": "620961",
+      "t": "Drowning Witch",
+      "n": 419,
+      "sn": 101,
+      "ot": 318,
+      "st": [
+        "STRUCTURAL SCORE SUPPORT",
+        "NON-SNARE PRIOR",
+        "SNARE PRIOR"
+      ],
+      "was": "MIXED LANES",
+      "note": "Ryan Brown documents that an actual Zappa drum part exists for the Interlude, with exactly notated material beside sections where instrumentation is unspecified, and identifies the 9/8 and 4/4 changes. Broader analysis documents sextuplets and 27/16. Split the song by chart coverage first, then let every ghost inherit the evidence level of its own section.",
+      "need": "none, sources in hand",
+      "have": "Brown Drowning-Witch.png + GrooveAnalysis on disk",
+      "act": "ACTIONABLE NOW"
+    },
+    {
+      "sid": "35886",
+      "t": "Muffin Man",
+      "n": 578,
+      "sn": 504,
+      "ot": 74,
+      "st": [
+        "SNARE PRIOR",
+        "NON-SNARE PRIOR"
+      ],
+      "was": "MIXED LANES",
+      "note": "504 on snare and 74 elsewhere. Both halves await per-event adjudication.",
+      "need": "none, sources in hand",
+      "have": "Brown muffin-man-1.png, Drumnet p1-p4",
+      "act": "Actionable after calibration"
+    },
+    {
+      "sid": "35870",
+      "t": "Montana",
+      "n": 317,
+      "sn": 174,
+      "ot": 143,
+      "st": [
+        "REVISION SEMANTIC ERROR",
+        "UNRESOLVED"
+      ],
+      "was": "SETTLED, restore 317",
+      "note": "LOSES ITS SETTLED LABEL. The evidence proves only that replacing ghost markings with staccato dots was semantically wrong, since duration and dynamic are separate properties. It never proved the 317 original flags were musically correct. Undo the wrong articulation, then adjudicate the 174 snare and 143 non-snare cases separately.",
+      "need": "Percunerds full chart, $7.99",
+      "have": "zappa-analysis only, no drum chart",
+      "act": "BLOCKED on $7.99 purchase"
+    },
+    {
+      "sid": "1105085",
+      "t": "The Black Page",
+      "n": 173,
+      "sn": 170,
+      "ot": 3,
+      "st": [
+        "STRUCTURAL SCORE SUPPORT",
+        "SNARE PRIOR"
+      ],
+      "was": "SNARE ONLY, restore",
+      "note": "ITS OWN EVIDENCE CLASS. Zappa wrote the piece as a drum solo, so the published material preserves the exact composed rhythm including nested tuplets and irregular subdivisions. Analysis notes Bozzio added hi-hat ticks that were not prescribed, which separates composed attacks from performance additions. Compare all 173 against the written drum score before any decision.",
+      "need": "none, drum-solo material on disk",
+      "have": "the-black-page-drum-solo.htm plus drum-solo3.jpg on disk",
+      "act": "ACTIONABLE NOW"
+    },
+    {
+      "sid": "35865",
+      "t": "Nanook Rubs It",
+      "n": 168,
+      "sn": 168,
+      "ot": 0,
+      "st": [
+        "SNARE PRIOR",
+        "UNRESOLVED"
+      ],
+      "was": "SNARE ONLY, restore",
+      "note": "Pure snare, which is a strong prior and not a verdict.",
+      "need": "a chart, none found",
+      "have": "nothing on disk",
+      "act": "Awaiting adjudication"
+    },
+    {
+      "sid": "35878",
+      "t": "Nanook Suite",
+      "n": 168,
+      "sn": 168,
+      "ot": 0,
+      "st": [
+        "SNARE PRIOR",
+        "UNRESOLVED"
+      ],
+      "was": "SNARE ONLY, restore",
+      "note": "Pure snare, strong prior only.",
+      "need": "a chart, none found",
+      "have": "nothing on disk",
+      "act": "Awaiting adjudication"
+    },
+    {
+      "sid": "412178",
+      "t": "Inca Roads",
+      "n": 165,
+      "sn": 134,
+      "ot": 31,
+      "st": [
+        "STRUCTURAL SCORE SUPPORT",
+        "SNARE PRIOR",
+        "NON-SNARE PRIOR"
+      ],
+      "was": "MIXED LANES",
+      "note": "Ben Wall's 2011 Huddersfield thesis is ON THIS MAC and its Appendix C is a full study score, pages 98 to 132, with a Drum Kit staff. Only the improvised guitar and keyboard solos were omitted. Bar 29 at the head of section [C] carries 7 against 6: drums septuplets against bass sextuplets in the first half, unison semiquavers on beat 3, drums quintuplet against marimba sextuplets on beat 4, under a conducted steady 4/4.",
+      "need": "none",
+      "have": "Wall thesis pp98-132 on disk, drum staff present",
+      "act": "ACTIONABLE NOW, best calibration target"
+    },
+    {
+      "sid": "68248",
+      "t": "Carolina Hard-Core Ecstasy",
+      "n": 144,
+      "sn": 0,
+      "ot": 144,
+      "st": [
+        "NON-SNARE PRIOR",
+        "UNRESOLVED"
+      ],
+      "was": "NO SNARE, chart required",
+      "note": "144 on tambourine. No independent full drum chart found. Bongo Fury anniversary material carries complete Armadillo performances and a longer Carolina, which becomes useful audio evidence once the album source relationship is pinned down.",
+      "need": "a drum chart, none found anywhere",
+      "have": "nothing on disk",
+      "act": "Hardest case, audio route only"
+    },
+    {
+      "sid": "35884",
+      "t": "Oh No",
+      "n": 141,
+      "sn": 0,
+      "ot": 141,
+      "st": [
+        "NON-SNARE PRIOR",
+        "UNRESOLVED"
+      ],
+      "was": "NO SNARE, chart required",
+      "note": "141 on closed hat. Greater suspicion because hat ghosts appear less often in ordinary charts, and the lane still cannot decide it.",
+      "need": "Drumnet coverage check",
+      "have": "Drumnet material on disk",
+      "act": "Actionable after calibration"
+    },
+    {
+      "sid": "68246",
+      "t": "Alien Orifice",
+      "n": 86,
+      "sn": 33,
+      "ot": 53,
+      "st": [
+        "SNARE PRIOR",
+        "NON-SNARE PRIOR"
+      ],
+      "was": "MIXED LANES",
+      "note": "33 snare, 33 crash, 14 crash 2.",
+      "need": "a chart",
+      "have": "zappa-analysis only",
+      "act": "Awaiting adjudication"
+    },
+    {
+      "sid": "35887",
+      "t": "What's New In Baltimore?",
+      "n": 59,
+      "sn": 4,
+      "ot": 55,
+      "st": [
+        "NON-SNARE PRIOR",
+        "UNRESOLVED"
+      ],
+      "was": "MIXED LANES",
+      "note": "Ride 48, snare 4, crash 4.",
+      "need": "a chart",
+      "have": "zappa-analysis only",
+      "act": "Awaiting adjudication"
+    },
+    {
+      "sid": "748459",
+      "t": "Fembot In A Wet T-Shirt",
+      "n": 57,
+      "sn": 53,
+      "ot": 4,
+      "st": [
+        "SNARE PRIOR",
+        "UNRESOLVED"
+      ],
+      "was": "MIXED LANES",
+      "note": "Snare 53, hat pedal 4.",
+      "need": "a chart, none found",
+      "have": "nothing on disk",
+      "act": "Awaiting adjudication"
+    },
+    {
+      "sid": "35883",
+      "t": "Zoot Allures",
+      "n": 53,
+      "sn": 53,
+      "ot": 0,
+      "st": [
+        "MODERATION SAFE",
+        "SNARE PRIOR",
+        "UNRESOLVED"
+      ],
+      "was": "RESTORED",
+      "note": "Moderator rejected the stripping revision, isBlocked true, so the live tab keeps all 53. Publication state is safe. Notation truth is untested.",
+      "need": "chart or audio per flag",
+      "have": "zappa-analysis only",
+      "act": "Live state safe, musically unadjudicated"
+    },
+    {
+      "sid": "412162",
+      "t": "Zomby Woof",
+      "n": 32,
+      "sn": 0,
+      "ot": 32,
+      "st": [
+        "DIRECT CHART REJECT",
+        "DIRECT CHART MATCH"
+      ],
+      "was": "DROP 32, ADD 8",
+      "note": "RATIONALE CORRECTED. The 22 hi-hat flags are rejected because DRUMNET DISAGREES WITH THEIR LOCATIONS, never because hi-hat ghost notation is invalid in itself. Drumnet prints parenthesised snare pairs at bars 5 to 8 slots 6 and 7 that the transcriber missed, giving 8 DIRECT CHART MATCH events at positions with zero overlap against the 32 flagged.",
+      "need": "none",
+      "have": "27 assets, 5 publishers",
+      "act": "ACTIONABLE NOW"
+    },
+    {
+      "sid": "20690",
+      "t": "Uncle Meat (YCDTOSA Vol. 2)",
+      "n": 24,
+      "sn": 4,
+      "ot": 20,
+      "st": [
+        "NON-SNARE PRIOR",
+        "UNRESOLVED"
+      ],
+      "was": "STILL STRIPPED",
+      "note": "Spread across toms, snare 4, ride bell 4.",
+      "need": "a chart",
+      "have": "zappa-analysis only",
+      "act": "Awaiting adjudication"
+    },
+    {
+      "sid": "749523",
+      "t": "Catholic Girls",
+      "n": 16,
+      "sn": 16,
+      "ot": 0,
+      "st": [
+        "SNARE PRIOR",
+        "UNRESOLVED"
+      ],
+      "was": "SNARE ONLY, restore",
+      "note": "Pure snare, strong prior only.",
+      "need": "a chart, none found",
+      "have": "nothing on disk",
+      "act": "Awaiting adjudication"
+    },
+    {
+      "sid": "35889",
+      "t": "Peaches En Regalia",
+      "n": 14,
+      "sn": null,
+      "ot": null,
+      "st": [
+        "UNRESOLVED"
+      ],
+      "was": "RESTORED",
+      "note": "Lanes never measured. Sweep appears not to have landed.",
+      "need": "lane measurement",
+      "have": "zappa-analysis only",
+      "act": "Measure lanes first"
+    },
+    {
+      "sid": "412170",
+      "t": "Trouble Every Day (Live)",
+      "n": 9,
+      "sn": null,
+      "ot": null,
+      "st": [
+        "UNRESOLVED"
+      ],
+      "was": "PARTIAL 3/9",
+      "note": "Lanes never measured.",
+      "need": "lane measurement",
+      "have": "zappa-analysis only",
+      "act": "Measure lanes first"
+    },
+    {
+      "sid": "35875",
+      "t": "Packard Goose",
+      "n": 3,
+      "sn": null,
+      "ot": null,
+      "st": [
+        "UNRESOLVED"
+      ],
+      "was": "RESTORED",
+      "note": "Upgraded by the Guitar Book. Vai transcribed the entire long solo block including Colaiuta's drum solo, and Todd Bishop published an independent Packard Goose drum transcription covering the guitar solo. Two sources for any removed ghost inside their coverage. NEITHER IS ON THIS MAC.",
+      "need": "Vai Guitar Book AND Bishop's chart",
+      "have": "one zappa-analysis jpg",
+      "act": "BLOCKED, neither source on disk"
+    },
+    {
+      "sid": "59089",
+      "t": "Black Napkins",
+      "n": 1,
+      "sn": null,
+      "ot": null,
+      "st": [
+        "UNRESOLVED"
+      ],
+      "was": "RESTORED",
+      "note": "Appears in the Guitar Book. Vai's transcription is confirmed, and nothing yet proves those pages carry a complete drum staff. Inspect before granting drum authority.",
+      "need": "Vai Guitar Book, then inspect for a drum staff",
+      "have": "zappa-analysis jpgs",
+      "act": "Inspect before trusting"
+    },
+    {
+      "sid": "21495",
+      "t": "Andy",
+      "n": 1,
+      "sn": null,
+      "ot": null,
+      "st": [
+        "UNRESOLVED"
+      ],
+      "was": "RESTORED",
+      "note": "Lanes never measured, one flag.",
+      "need": "lane measurement",
+      "have": "DRUM Magazine analysis on disk",
+      "act": "Measure lanes first"
+    }
+  ],
+  "totals": {
+    "flags": 4574,
+    "snare": 2211,
+    "other": 2335,
+    "unmeasured": 28
   },
-  {
-    "songId": "21495",
-    "title": "Andy",
-    "removed": 1,
-    "snare": null,
-    "other": null,
-    "laneDesc": "",
-    "chartFiles": 15,
-    "publishers": [
-      "02-drummagazine",
-      "08-analysis"
-    ],
-    "verdict": null
-  },
-  {
-    "songId": "35865",
-    "title": "Nanook Rubs It",
-    "removed": 168,
-    "snare": 168,
-    "other": 0,
-    "laneDesc": "Snare 168",
-    "chartFiles": 0,
-    "publishers": [],
-    "verdict": null
-  },
-  {
-    "songId": "35870",
-    "title": "Montana",
-    "removed": 317,
-    "snare": 174,
-    "other": 143,
-    "laneDesc": "Snare 95, Tambourine 83, Snare2 79, Kick 24",
-    "chartFiles": 13,
-    "publishers": [
-      "08-analysis"
-    ],
-    "verdict": [
-      "RESTORE 317 AND REMOVE THE DOTS",
-      "q-2026-09-05-6845bf",
-      "r8787106 converted all 317 ghosts into staccato dots. A dot is a duration mark and a ghost is a dynamic, so the substitution is wrong regardless of which ghosts are genuine."
-    ]
-  },
-  {
-    "songId": "35875",
-    "title": "Packard Goose",
-    "removed": 3,
-    "snare": null,
-    "other": null,
-    "laneDesc": "",
-    "chartFiles": 1,
-    "publishers": [
-      "08-analysis"
-    ],
-    "verdict": null
-  },
-  {
-    "songId": "35878",
-    "title": "Nanook Suite",
-    "removed": 168,
-    "snare": 168,
-    "other": 0,
-    "laneDesc": "Snare 168",
-    "chartFiles": 0,
-    "publishers": [],
-    "verdict": null
-  },
-  {
-    "songId": "35881",
-    "title": "Watermelon In Easter Hay",
-    "removed": 1317,
-    "snare": 0,
-    "other": 1317,
-    "laneDesc": "Ride 1,316, Crash 1. Zero snare.",
-    "chartFiles": 8,
-    "publishers": [
-      "06-drumnet",
-      "08-analysis"
-    ],
-    "verdict": [
-      "KEEP ALL 1317",
-      "q-2026-09-05-2f7aec",
-      "Ride ghosts encode an accent grid: slots 0/4/8/12 are 407 plain vs 2 ghosted, every other 16th is 1 plain vs 1,314 ghosted. Ghosted ride alone in its beat 99.4%. dynamic:null throughout, so the strip revision's 'at forte' claim was invented."
-    ]
-  },
-  {
-    "songId": "35883",
-    "title": "Zoot Allures",
-    "removed": 53,
-    "snare": 53,
-    "other": 0,
-    "laneDesc": "Terry Bozio snare, never stripped live",
-    "chartFiles": 6,
-    "publishers": [
-      "08-analysis"
-    ],
-    "verdict": null
-  },
-  {
-    "songId": "35884",
-    "title": "Oh No",
-    "removed": 141,
-    "snare": 0,
-    "other": 141,
-    "laneDesc": "HatClosed 141. Zero snare.",
-    "chartFiles": 3,
-    "publishers": [
-      "06-drumnet"
-    ],
-    "verdict": null
-  },
-  {
-    "songId": "35886",
-    "title": "Muffin Man",
-    "removed": 578,
-    "snare": 504,
-    "other": 74,
-    "laneDesc": "Snare 481, Snare2 23, then hats, crashes, toms",
-    "chartFiles": 6,
-    "publishers": [
-      "02-drummagazine",
-      "06-drumnet"
-    ],
-    "verdict": null
-  },
-  {
-    "songId": "35887",
-    "title": "What's New In Baltimore?",
-    "removed": 59,
-    "snare": 4,
-    "other": 55,
-    "laneDesc": "Ride 48, Snare 4, Crash 4",
-    "chartFiles": 1,
-    "publishers": [
-      "08-analysis"
-    ],
-    "verdict": null
-  },
-  {
-    "songId": "35889",
-    "title": "Peaches En Regalia",
-    "removed": 14,
-    "snare": null,
-    "other": null,
-    "laneDesc": "",
-    "chartFiles": 1,
-    "publishers": [
-      "08-analysis"
-    ],
-    "verdict": null
-  },
-  {
-    "songId": "59089",
-    "title": "Black Napkins",
-    "removed": 1,
-    "snare": null,
-    "other": null,
-    "laneDesc": "",
-    "chartFiles": 5,
-    "publishers": [
-      "08-analysis"
-    ],
-    "verdict": null
-  },
-  {
-    "songId": "68246",
-    "title": "Alien Orifice",
-    "removed": 86,
-    "snare": 33,
-    "other": 53,
-    "laneDesc": "Snare 33, Crash 33, Crash2 14",
-    "chartFiles": 2,
-    "publishers": [
-      "08-analysis"
-    ],
-    "verdict": null
-  },
-  {
-    "songId": "68248",
-    "title": "Carolina Hard-Core Ecstasy",
-    "removed": 144,
-    "snare": 0,
-    "other": 144,
-    "laneDesc": "Tambourine 144. Zero snare.",
-    "chartFiles": 0,
-    "publishers": [],
-    "verdict": null
-  },
-  {
-    "songId": "412162",
-    "title": "Zomby Woof",
-    "removed": 32,
-    "snare": 0,
-    "other": 32,
-    "laneDesc": "22 on hi-hat lanes, 10 elsewhere. ZERO on snare.",
-    "chartFiles": 27,
-    "publishers": [
-      "01-cruiseshipdrummer",
-      "02-drummagazine",
-      "05-zappa-analysis",
-      "06-drumnet",
-      "08-analysis"
-    ],
-    "verdict": [
-      "DROP ALL 32, ADD 8 DIFFERENT",
-      "q-2026-09-05-51e686",
-      "The 32 automatic detections sit at bars 4, 13, 15, 40-43 with 22 on hi-hat lanes where ghost brackets are not valid notation. Drumnet prints genuine parenthesised snare pairs at bars 5-8 slots 6 and 7, which the transcriber missed entirely. Zero overlap."
-    ]
-  },
-  {
-    "songId": "412170",
-    "title": "Trouble Every Day (Live)",
-    "removed": 9,
-    "snare": null,
-    "other": null,
-    "laneDesc": "",
-    "chartFiles": 10,
-    "publishers": [
-      "08-analysis"
-    ],
-    "verdict": null
-  },
-  {
-    "songId": "412178",
-    "title": "Inca Roads",
-    "removed": 165,
-    "snare": 134,
-    "other": 31,
-    "laneDesc": "Snare 134, Crash 14, Kick 7",
-    "chartFiles": 4,
-    "publishers": [
-      "08-analysis"
-    ],
-    "verdict": null
-  },
-  {
-    "songId": "604777",
-    "title": "Keep It Greasey",
-    "removed": 629,
-    "snare": 629,
-    "other": 0,
-    "laneDesc": "never stripped live, revision rejected",
-    "chartFiles": 8,
-    "publishers": [
-      "02-drummagazine",
-      "03-petesweeney",
-      "08-analysis"
-    ],
-    "verdict": null
-  },
-  {
-    "songId": "620961",
-    "title": "Drowning Witch",
-    "removed": 419,
-    "snare": 101,
-    "other": 318,
-    "laneDesc": "Ride 128, Snare 101, HatClosed 61, Kick 41, TomLow 33",
-    "chartFiles": 5,
-    "publishers": [
-      "02-drummagazine",
-      "08-analysis"
-    ],
-    "verdict": null
-  },
-  {
-    "songId": "748459",
-    "title": "Fembot In A Wet T-Shirt",
-    "removed": 57,
-    "snare": 53,
-    "other": 4,
-    "laneDesc": "Snare 53, HatPedal 4",
-    "chartFiles": 0,
-    "publishers": [],
-    "verdict": null
-  },
-  {
-    "songId": "749523",
-    "title": "Catholic Girls",
-    "removed": 16,
-    "snare": 16,
-    "other": 0,
-    "laneDesc": "Snare 16",
-    "chartFiles": 0,
-    "publishers": [],
-    "verdict": null
-  },
-  {
-    "songId": "1105085",
-    "title": "The Black Page",
-    "removed": 173,
-    "snare": 170,
-    "other": 3,
-    "laneDesc": "Snare 170, HatPedal 3",
-    "chartFiles": 16,
-    "publishers": [
-      "08-analysis"
-    ],
-    "verdict": null
-  }
-]
+  "provenance": "3842 = flags removed by revisions that BECAME CURRENT across 16 tabs. 4574 = full damage ledger across 23 tabs including submitted-not-current and flagged-never-submitted. Different scopes, both correct."
+}

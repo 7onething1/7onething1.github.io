@@ -1,103 +1,165 @@
 # Zappa Ghost Adjudication
 
-Not "put all the ghosts back". Which ghosts the printed transcriptions support, song by song
-and lane by lane, so the genuine ones return and the invented ones stay gone.
+Per-ghost adjudication against sources. Rebuilt 2026-09-05 under the corrected evidence
+model.
 
-Measured 2026-09-05.
+## NO WRITE
 
-## The rule that decides it
+Nothing on this page authorises an edit. The queued restore is held. Every song carries an
+evidence status, and only `DIRECT CHART MATCH` permits a restore.
 
-A ghost notehead is standard notation for **a quiet snare stroke between the loud ones**. On
-a snare lane a ghost flag carries its ordinary meaning and is presumptively genuine. On ride,
-hi-hat, tambourine, kick or crash it means something else, so it needs a printed chart to
-justify keeping. That single test splits the 4,574 removed flags almost in half.
+## The notation rule, corrected
+
+A ghost note is an **anti-accent**, meaning a substantially softer percussion event. Snare is
+its most common drumset application rather than its only valid one. Dorico allows ghost
+notation on unpitched percussion generally and Avid allows parentheses around any notehead,
+so **lane identity cannot prove a ghost marking invalid**.
+
+Snare therefore means **strong prior evidence**, never "restore". A hi-hat, ride, kick,
+tambourine or crash ghost earns greater suspicion because that notation appears less often in
+ordinary drum charts, and its lane still cannot decide the case alone.
+
+## The contradiction this fixes
+
+The previous version stated the goal as per-ghost adjudication, then said snare-only songs
+need no chart and can simply restore. Those are two different standards. The stronger one
+governs, so **2,211 snare flags are "awaiting adjudication", not "2,211 restore"**.
+
+## Headline
 
 | Measure | Value |
 |---|---|
-| Snare ghosts, presumptively genuine | **2,211** |
-| Non-snare ghosts, need a chart | **2,335** |
-| Songs already adjudicated | 3 of 23 |
-| Flags whose lanes are unmeasured | 28 across 5 small songs |
-| Songs with no chart on this Mac | 5 |
+| Flags in scope | 4,574 across 23 damaged tabs |
+| Snare, awaiting adjudication | 2,211 |
+| Actionable now, sources on this Mac | 4 |
+| Blocked on acquisition | 3 |
 
-## The three songs already settled show the whole spread
+## The evidence model
 
-**Watermelon In Easter Hay `s35881`, KEEP ALL 1,317, on the ride.** Zero snare ghosts. Every
-flag sits on ride, which normally reads as the wrong lane. The placement settles it: slots 0,
-4, 8 and 12 are 407 plain against 2 ghosted, every other sixteenth is 1 plain against 1,314
-ghosted. That is an accent grid, the soft rides between the accented ones. A ghosted ride is
-alone in its beat 99.4% of the time and every note reads `dynamic:null`, so the strip
-revision's "at forte" justification was invented.
+| status | meaning | permitted action |
+|---|---|---|
+| `DIRECT CHART MATCH` | Independent drum chart shows the exact ghost | Restore |
+| `DIRECT CHART REJECT` | Chart shows an ordinary stroke or no stroke there | Keep removed |
+| `STRUCTURAL SCORE SUPPORT` | Official score confirms rhythm, meter or ensemble attack | Preserve timing, continue dynamic check |
+| `REPEATED PATTERN SUPPORT` | Strong repeated pattern indicates deliberate encoding | Hold as probable, seek written confirmation |
+| `SNARE PRIOR` | Ghost is on snare with plausible placement | Hold as likely, adjudicate further |
+| `NON-SNARE PRIOR` | Ghost is on another percussion lane | Hold for evidence |
+| `REVISION SEMANTIC ERROR` | Later edit changed ghost into another articulation | Undo wrong articulation only |
+| `MODERATION SAFE` | Destructive revision did not become current | No immediate repair required |
+| `UNRESOLVED` | Evidence does not decide the individual flag | Make no musical edit |
 
-**Zomby Woof `s412162`, DROP ALL 32, ADD 8 THAT WERE NEVER THERE.** The 32 automatic
-detections sit at bars 4, 13, 15 and 40 to 43, with 22 of them on hi-hat lanes where ghost
-brackets are not valid notation. Drumnet prints genuine parenthesised snare pairs at bars 5
-to 8, slots 6 and 7, right after the open hi-hat, and the transcriber missed every one. Zero
-overlap between what was flagged and what is printed. This song has the richest chart
-coverage of all 23, and its ghosts turned out to be the wrong ones.
+Publication state and notation truth are separate axes. A song can be `MODERATION SAFE` and
+`UNRESOLVED` at the same time.
 
-**Montana `s35870`, RESTORE 317 AND REMOVE THE DOTS.** A later revision converted all 317
-ghosts into staccato dots. A dot marks duration and a ghost marks dynamic, so the
-substitution is wrong whichever ghosts prove genuine.
+## Every song under the new model
 
-## Every song, lane split against chart availability
+| song | title | flags | snare | other | status | action |
+|---|---|---|---|---|---|---|
+| 35881 | **Watermelon In Easter Hay** | 1317 | 0 | 1317 | `REPEATED PATTERN SUPPORT`, `NON-SNARE PRIOR` | BLOCKED on the Vai book |
+| 604777 | **Keep It Greasey** | 629 | 629 | 0 | `MODERATION SAFE`, `SNARE PRIOR`, `UNRESOLVED` | Live state safe, musically unadjudicated |
+| 35886 | **Muffin Man** | 578 | 504 | 74 | `SNARE PRIOR`, `NON-SNARE PRIOR` | Actionable after calibration |
+| 620961 | **Drowning Witch** | 419 | 101 | 318 | `STRUCTURAL SCORE SUPPORT`, `NON-SNARE PRIOR`, `SNARE PRIOR` | ACTIONABLE NOW |
+| 35870 | **Montana** | 317 | 174 | 143 | `REVISION SEMANTIC ERROR`, `UNRESOLVED` | BLOCKED on $7.99 purchase |
+| 1105085 | **The Black Page** | 173 | 170 | 3 | `STRUCTURAL SCORE SUPPORT`, `SNARE PRIOR` | ACTIONABLE NOW |
+| 35865 | **Nanook Rubs It** | 168 | 168 | 0 | `SNARE PRIOR`, `UNRESOLVED` | Awaiting adjudication |
+| 35878 | **Nanook Suite** | 168 | 168 | 0 | `SNARE PRIOR`, `UNRESOLVED` | Awaiting adjudication |
+| 412178 | **Inca Roads** | 165 | 134 | 31 | `STRUCTURAL SCORE SUPPORT`, `SNARE PRIOR`, `NON-SNARE PRIOR` | ACTIONABLE NOW, best calibration target |
+| 68248 | **Carolina Hard-Core Ecstasy** | 144 | 0 | 144 | `NON-SNARE PRIOR`, `UNRESOLVED` | Hardest case, audio route only |
+| 35884 | **Oh No** | 141 | 0 | 141 | `NON-SNARE PRIOR`, `UNRESOLVED` | Actionable after calibration |
+| 68246 | **Alien Orifice** | 86 | 33 | 53 | `SNARE PRIOR`, `NON-SNARE PRIOR` | Awaiting adjudication |
+| 35887 | **What's New In Baltimore?** | 59 | 4 | 55 | `NON-SNARE PRIOR`, `UNRESOLVED` | Awaiting adjudication |
+| 748459 | **Fembot In A Wet T-Shirt** | 57 | 53 | 4 | `SNARE PRIOR`, `UNRESOLVED` | Awaiting adjudication |
+| 35883 | **Zoot Allures** | 53 | 53 | 0 | `MODERATION SAFE`, `SNARE PRIOR`, `UNRESOLVED` | Live state safe, musically unadjudicated |
+| 412162 | **Zomby Woof** | 32 | 0 | 32 | `DIRECT CHART REJECT`, `DIRECT CHART MATCH` | ACTIONABLE NOW |
+| 20690 | **Uncle Meat (YCDTOSA Vol. 2)** | 24 | 4 | 20 | `NON-SNARE PRIOR`, `UNRESOLVED` | Awaiting adjudication |
+| 749523 | **Catholic Girls** | 16 | 16 | 0 | `SNARE PRIOR`, `UNRESOLVED` | Awaiting adjudication |
+| 35889 | **Peaches En Regalia** | 14 | ? | ? | `UNRESOLVED` | Measure lanes first |
+| 412170 | **Trouble Every Day (Live)** | 9 | ? | ? | `UNRESOLVED` | Measure lanes first |
+| 35875 | **Packard Goose** | 3 | ? | ? | `UNRESOLVED` | BLOCKED, neither source on disk |
+| 59089 | **Black Napkins** | 1 | ? | ? | `UNRESOLVED` | Inspect before trusting |
+| 21495 | **Andy** | 1 | ? | ? | `UNRESOLVED` | Measure lanes first |
 
-| song | title | removed | snare | other | where they sat | charts on disk | class |
-|---|---|---|---|---|---|---|---|
-| 35881 | Watermelon In Easter Hay | 1317 | 0 | 1317 | Ride 1,316, Crash 1. Zero snare. | drumnet, analysis | SETTLED |
-| 604777 | Keep It Greasey | 629 | 629 | 0 | never stripped live, revision rejected | drummagazine, petesweeney, analysis | SNARE ONLY |
-| 35886 | Muffin Man | 578 | 504 | 74 | Snare 481, Snare2 23, then hats, crashes, toms | drummagazine, drumnet | MIXED LANES |
-| 620961 | Drowning Witch | 419 | 101 | 318 | Ride 128, Snare 101, HatClosed 61, Kick 41, TomLow 33 | drummagazine, analysis | MIXED LANES |
-| 35870 | Montana | 317 | 174 | 143 | Snare 95, Tambourine 83, Snare2 79, Kick 24 | analysis | SETTLED |
-| 1105085 | The Black Page | 173 | 170 | 3 | Snare 170, HatPedal 3 | analysis | MIXED LANES |
-| 35865 | Nanook Rubs It | 168 | 168 | 0 | Snare 168 | **none** | SNARE ONLY |
-| 35878 | Nanook Suite | 168 | 168 | 0 | Snare 168 | **none** | SNARE ONLY |
-| 412178 | Inca Roads | 165 | 134 | 31 | Snare 134, Crash 14, Kick 7 | analysis | MIXED LANES |
-| 68248 | Carolina Hard-Core Ecstasy | 144 | 0 | 144 | Tambourine 144. Zero snare. | **none** | NO SNARE AT ALL |
-| 35884 | Oh No | 141 | 0 | 141 | HatClosed 141. Zero snare. | drumnet | NO SNARE AT ALL |
-| 68246 | Alien Orifice | 86 | 33 | 53 | Snare 33, Crash 33, Crash2 14 | analysis | MIXED LANES |
-| 35887 | What's New In Baltimore? | 59 | 4 | 55 | Ride 48, Snare 4, Crash 4 | analysis | MIXED LANES |
-| 748459 | Fembot In A Wet T-Shirt | 57 | 53 | 4 | Snare 53, HatPedal 4 | **none** | MIXED LANES |
-| 35883 | Zoot Allures | 53 | 53 | 0 | Terry Bozio snare, never stripped live | analysis | SNARE ONLY |
-| 412162 | Zomby Woof | 32 | 0 | 32 | 22 on hi-hat lanes, 10 elsewhere. ZERO on snare. | cruiseshipdrummer, drummagazine, zappa-analysis, drumnet, analysis | SETTLED |
-| 20690 | Uncle Meat (YCDTOSA Vol. 2) | 24 | 4 | 20 | spread across toms, snare 4, ride bell 4 | analysis | MIXED LANES |
-| 749523 | Catholic Girls | 16 | 16 | 0 | Snare 16 | **none** | SNARE ONLY |
-| 35889 | Peaches En Regalia | 14 | ? | ? |  | analysis | LANES UNMEASURED |
-| 412170 | Trouble Every Day (Live) | 9 | ? | ? |  | analysis | LANES UNMEASURED |
-| 35875 | Packard Goose | 3 | ? | ? |  | analysis | LANES UNMEASURED |
-| 21495 | Andy | 1 | ? | ? |  | drummagazine, analysis | LANES UNMEASURED |
-| 59089 | Black Napkins | 1 | ? | ? |  | analysis | LANES UNMEASURED |
+## Provenance, two measurements at different scopes
 
-## What each class needs next
+1,549 + 2,293 = 3,842 against 2,211 + 2,335 + 28 = 4,574. Both are valid and they describe
+different scopes.
 
-**Snare only, no chart needed to proceed.** Nanook Suite 168, Nanook Rubs It 168, Catholic
-Girls 16, Zoot Allures 53, Keep It Greasey 629. Every flag is on snare, where ghost notation
-carries its ordinary meaning. Zoot Allures and Keep It Greasey are already safe because
-moderators rejected their strip revisions.
+**3,842** is the earlier count of flags removed by revisions that **became the current
+published one**, across 16 tabs. **4,574** is the full damage ledger across **23 tabs**,
+including revisions submitted without publishing and four that were flagged and never
+submitted. The pair is recorded with its scope attached so nobody later reads two correct
+measurements as a contradiction.
 
-**No snare at all, chart required.** Watermelon 1,317 is settled as genuine. Carolina
-Hard-Core Ecstasy 144 on tambourine and Oh No 141 on closed hat are not settled, and Carolina
-has no chart on this Mac at all. Those two are where a wrong blanket restore would do the
-most damage.
+## What changed on specific songs
 
-**Mixed lanes, split the decision.** Muffin Man 504 snare against 74 other, Drowning Witch
-101 against 318, Inca Roads 134 against 31, Alien Orifice 33 against 53, What's New In
-Baltimore 4 against 55, The Black Page 170 against 3, Fembot 53 against 4. Ryan Brown covers
-Drowning Witch and Muffin Man, Drumnet covers Muffin Man and Oh No.
+**Zomby Woof, rationale corrected.** The 22 hi-hat flags are rejected because Drumnet
+disagrees with their locations, never because hi-hat ghost notation is invalid in itself. That
+distinction matters, since the invalid-notation claim would have wrongly generalised to every
+hat, ride and tambourine ghost in the set.
 
-**Five songs have no chart on this Mac.** Nanook Rubs It, Nanook Suite, Carolina Hard-Core
-Ecstasy, Fembot In A Wet T-Shirt, Catholic Girls. Four of the five are pure snare so they
-proceed anyway. Carolina is the one genuine blocker.
+**Montana loses SETTLED.** Proven: converting ghosts into staccato dots was semantically
+wrong, because duration and dynamic are separate properties. Not proven: that all 317 original
+flags were musically correct. Undo the articulation error, then adjudicate 174 snare and 143
+non-snare separately against the Percunerds chart.
 
-## Method
+**The Black Page becomes its own evidence class.** Zappa wrote it as a drum solo, so the
+published material preserves the composed rhythm including nested tuplets. Analysis notes
+Bozzio added hi-hat ticks that were not prescribed, which separates composed attacks from
+performance additions.
 
-Ghost counts from the damage ledger `_defects.json`. Lane splits measured 2026-09-05 off each
-tab's pre-sweep revision, recorded in `reference_zappa_ghost_lanes_not_all_snare`. Chart
-availability measured here by filename match across the 12 publisher folders in
-`~/Projects/_outputs/zappa-drum-sources/`. Read-only, no writes.
+**Zoot Allures and Keep It Greasey, wording fixed.** A rejected stripping revision means
+`MODERATION SAFE`. It does not establish that every original flag is authentic, so both stay
+`UNRESOLVED` musically.
 
-2,211 + 2,335 + 28 unmeasured = 4,574, reconciling to the ledger total.
+**Watermelon.** The ride pattern stays strong evidence of deliberate encoding, and it is not a
+written confirmation. The Frank Zappa Guitar Book carries the track and an independent
+analysis states Vai's transcription includes the drum part in detail. The verdict comes from
+matching the ostinato bar-for-bar against Vai.
 
----
+## Work order, against what is actually on this Mac
 
-Palette: Moonrise Kingdom (Wes Anderson)
+1. **Watermelon against Vai. BLOCKED.** The Frank Zappa Guitar Book is NOT on this Mac. Only
+   Over-Nite Sensation is. Drumnet pages 1 to 5 for Watermelon ARE on disk and can carry a
+   first pass.
+2. **Montana against Percunerds. BLOCKED.** Needs the $7.99 purchase. Only zappa-analysis
+   material is here, with no drum chart.
+3. **Packard Goose against Vai plus Bishop. BLOCKED.** Neither is on this Mac. The
+   cruiseshipdrummer folder holds Apostrophe, Yellow Snow, Dancin' Fool, Rubber Shirt, Flower
+   Punk, Beautiful Guy, Central Scrutinizer and Beat It With Your Fist, and no Packard Goose.
+4. **Black Page against the written drum score. ACTIONABLE.**
+   `the-black-page-drum-solo.htm` and `the-black-page-drum-solo3.jpg` are on disk.
+5. **Drowning Witch against Brown's section coverage. ACTIONABLE.** `Drowning-Witch.png` and
+   `GrooveAnalysis_Drowning-Witch.png` are on disk.
+6. **Zomby Woof against its existing sources. ACTIONABLE.** 27 assets across 5 publishers.
+
+## Inca Roads, verified on disk this pass
+
+The file named `BarryWall_The-Musical-Worlds-of-Frank-Zappa_thesis.pdf` is mislabelled. It is
+**Wall, Ben (2011), 'Inca Roads' - The Musical Worlds of Frank Zappa, Masters thesis,
+University of Huddersfield**, 132 pages.
+
+**Appendix C, pages 98 to 132**, is the full study score. Page 98 lists Lead Vocals, Backing
+Vocals, Flute, Marimba, Vibraphone, Rhodes Piano, Synthesizer 1, Synthesizer 2, Electric
+Guitar, Bass Guitar, Timpani, Percussion and **Drum Kit**, marked "Transcribed by Benjamin
+Wall", quarter note = 120 approx.
+
+**The only omission is the improvised guitar and keyboard solos**, because they differed in
+every recording. The drums are present throughout.
+
+**The red zone is BAR 29**, at the head of section [C], the first occurrence of polyrhythm in
+the piece. Zappa conducts a steady 4/4 across the whole section, as marked on the score. First
+half of the bar the drums play septuplets against the bass playing normal sextuplets. Beat 3
+drops into unison semiquavers. Beat 4 puts the drums on a quintuplet against the marimba's
+sextuplets. Wall sets it out as a 7-against-6 Time Unit Box System in figure 5.
+
+**The Songsterr tab has TWO drum staves:** track 10 named "AI" and track 11 named "Chester
+Thompson", both instrument 1024. Live revision 8769026. Any comparison has to say which staff
+it is judging.
+
+## Provenance and safety
+
+Ghost counts from the damage ledger `_defects.json`. Lane splits measured off each tab's
+pre-sweep revision. Notation rule, evidence model and work order from Brandon's source hunt,
+2026-09-05. Disk availability measured on this Mac the same day.
+
+**No restore has been executed. No hook, tab or revision was written.**
