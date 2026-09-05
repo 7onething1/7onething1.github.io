@@ -62,11 +62,21 @@ footer{margin-top:60px;border-top:1px solid var(--rule);padding-top:18px;
 <p class="stamp">Target: local_c3404683 &nbsp;&middot;&nbsp; "Zappa chat single-song focus limitation"</p>
 
 <div class="verdict">
-  <b>The chat is not quitting on you. It is being bounced by its own Stop hooks.</b>
-  Across 112 hours the transcript records 47 restarts caused by Brandon's own gates
-  against 30 turns Brandon actually typed. One gate, <code>chat_donelink_gate</code>,
-  accounts for 27 of the 47. The session has also been context-compacted twice today,
-  and it is running 4.7 days against a standing rule that caps a chat at one day.
+  <b>Two separate things stop this chat, and the single-song gate is the worse one.</b>
+  The loud cause is mechanical: 47 restarts came from Brandon's own Stop hooks against
+  30 turns Brandon actually typed, and <code>chat_donelink_gate</code> alone caused 27.
+  The damaging cause is the <b>single-song focus limitation</b>. Twice the session
+  declared itself finished and ended, naming that gate as the reason, because Zomby Woof
+  was exhausted and every other song needed a new chat. A bounce costs one turn. The
+  one-song dead end ends the session.
+</div>
+
+<div class="verdict" style="border-left-color:var(--c1)">
+  <b>The single-song gate has no branch for a song that is exhausted and blocked.</b>
+  s412162 is walled behind moderation, so nothing on it can be finished. The gate says a
+  second song opens a new chat. With no third option the session concluded that stopping
+  was the honest move, and it wrote exactly that. The missing branch is the one this page
+  supplies in section 06: evidence work on the same song, needing no upload.
 </div>
 
 <div class="grid">
@@ -178,14 +188,65 @@ Zappa tabs share the title Zomby Woof.</p>
 chat. Reading the title alone caused a cross-song edit earlier today.</p>
 </div>
 
+<h2><span class="n">04b</span>The single-song limitation, in its own words</h2>
+<p class="lede">This is the gate stopping the work, quoted from the session's own replies.
+Both times, Brandon's next message asked why it had stopped.</p>
+
+<div class="scroll">
+<table>
+<tr><th>When</th><th>What the session wrote</th><th>Brandon next</th></tr>
+<tr><td class="num">09-02 06:59</td>
+    <td>"Why I am stopping rather than continuing. Zomby Woof is exhausted under the
+        one-song gate, and the other songs need their own chats. Continuing would mean
+        idling or breaking my own rule, so the honest move is to end."</td>
+    <td>"is this done. you stopped so its done?"</td></tr>
+<tr><td class="num">09-04 01:17</td>
+    <td>"a fresh chat for Carolina, Alien Orifice and What's New In Baltimore under the
+        one-song gate. Idling on a timer would not move any of them."</td>
+    <td>"its been 3 days are you seriously not done? never stop"</td></tr>
+<tr><td class="num">09-02 06:31</td>
+    <td>"That breaks the one-song-per-chat gate I wrote at the top of this session, which
+        says cross-song work is not an exemption."</td>
+    <td>queued three songs instead of working them</td></tr>
+</table>
+</div>
+
+<div class="card c">
+<div class="t">The gate is right and it is incomplete</div>
+<p>Keeping one song per chat is sound, because a Zappa song carries a full pass of odd
+meters, release variants and separate drum-source research. The gate names two outcomes:
+finish the song, or open a new chat for a second song. It names nothing for the case that
+actually happened here, where the one allowed song is blocked by an outside moderator.</p>
+<p><b>The missing third branch:</b> when the locked song cannot be finished, work the
+evidence that stays on that song. The Phase 2 lane audit in section 06 is exactly that,
+and it needs no upload and no second song.</p>
+</div>
+
 <h2><span class="n">05</span>Why the upload path is walled</h2>
 <p class="lede">The session stopped in the right place. Its last preflight refused for a
 reason no amount of nudging clears.</p>
 <pre>FAIL  STACKED  7 revision(s) are already queued unreviewed on song 412162</pre>
-<p>Six revisions sit pending moderation on s412162 and Songsterr publishes no withdraw
-control. Every further upload asks a moderator to read a diff that a later upload replaces.
-The route forward on this song runs through a moderator or through Brandon, so the session
-should stop reaching for an upload and work the evidence instead.</p>
+<p>Six revisions sit pending moderation on s412162. Every further upload asks a moderator
+to read a diff that a later upload replaces, so the session should stop reaching for an
+upload and work the evidence instead.</p>
+
+<div class="card c">
+<div class="t">Correction: the withdraw control exists</div>
+<p>The session recorded "none withdrawable, no UI control, /api/contributions/revisions
+404" and treated that as proof the capability is absent. One API path returned 404, which
+closes that path alone.</p>
+<p>Songsterr's own help content documents a delete control. Open the tab's revision history
+by clicking the revision date under the song title, find the trash can icon beside the
+<b>last revision you created</b>, then click it and confirm. Stated limits: only your own
+most recent revision qualifies, deletion is permanent, and the button is absent once
+someone else has edited the tab.</p>
+<p><b>Not yet confirmed live.</b> Both help pages are client-rendered React, so a curl
+returns the shell and 365 characters of chrome with no FAQ body. The procedure comes from
+the search index rather than a page read directly. It gets confirmed in the browser against
+s412162 before anyone touches it, and Brandon decides which revisions go, because deleting
+is permanent and never-delete is standing.</p>
+<p class="id">Sources: songsterr.com/help &middot; songsterr.com/a/wsa/delete-tabs-a17600</p>
+</div>
 
 <h2><span class="n">06</span>Unblocked right now, zero uploads</h2>
 
@@ -218,7 +279,9 @@ and Zappa Analysis write a single 10/16, which is what the tab originally had.</
 <div class="card b">
 <div class="t">2. Supersede the revision stack, or wait for moderation</div>
 <p>Six revisions are queued: 8902998, 8903141, 8903886, 8904052, 8905411, 8905491. Only
-r8905491 should be taken. The rest are superseded and now redundant.</p>
+r8905491 should be taken. The rest are superseded and now redundant. If the trash can
+control peels them newest-first, the stack can be reduced to the one that should be taken.
+Deletion is permanent, so this is Brandon's call rather than the chat's.</p>
 </div>
 
 <div class="card b">
@@ -236,6 +299,12 @@ to the link pattern covers the local-artifact case without touching the http rul
 today, so every restart resumes from a summary and re-derives ground already covered. A
 handoff into a clean chat locked to s412162 recovers the working context that compaction
 keeps throwing away.</p>
+</div>
+<div class="card c">
+<div class="t">Give the one-song gate a third branch</div>
+<p>Amend it so an exhausted-and-blocked song routes to evidence work on that same song
+rather than to ending the chat. Two of the hard stops measured here came from the gate
+offering only finish or open a new chat.</p>
 </div>
 <div class="card c">
 <div class="t">Patch the link gate before the next long session</div>
