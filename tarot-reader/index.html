@@ -1,0 +1,205 @@
+<!DOCTYPE html>
+<html lang="en"><head>
+<meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Kate + Chiron — read the cards</title>
+<style>
+  :root{
+    --c0:#446455; --c1:#FDD262; --c2:#D3DDDC; --c3:#C7B19C; --c4:#446455; --c5:#FDD262; --c6:#D3DDDC;
+    --ink:#111111; --paper:#fbf4e6; --card:#fffdf7; --muted:#333333;
+  }
+  *{box-sizing:border-box;}
+  body{margin:0;background:var(--paper);color:var(--ink);
+    font-family:-apple-system,Inter,"Segoe UI",system-ui,sans-serif;line-height:1.55;}
+  .wrap{max-width:880px;margin:0 auto;padding:34px 20px 80px;}
+  header h1{font-size:1.7rem;margin:0 0 4px;letter-spacing:-.01em;}
+  header .sub{color:#6b5d49;font-size:.95rem;}
+  .cov{font-size:.78rem;color:var(--muted);margin-top:6px;}
+  .legend{margin:14px 0 4px;font-size:.82rem;color:#6b5d49;}
+  .legend b{background:var(--c3);color:#241c12;padding:1px 6px;border-radius:4px;}
+  h2.sec{font-size:.74rem;text-transform:uppercase;letter-spacing:.08em;color:var(--muted);
+    margin:22px 0 8px;border-bottom:1px solid #e6dcc6;padding-bottom:5px;}
+  /* picker */
+  .suit{margin:6px 0 12px;}
+  .suit .name{font-size:.7rem;text-transform:uppercase;letter-spacing:.06em;color:var(--muted);margin:8px 0 5px;}
+  .palette{display:flex;flex-wrap:wrap;gap:5px;}
+  .pick{background:var(--card);border:1px solid #e6dcc6;border-radius:6px;padding:4px 9px;
+    font-size:.78rem;cursor:pointer;user-select:none;transition:.12s;}
+  .pick:hover{border-color:var(--c0);background:#fff;}
+  .pick.used{opacity:.34;pointer-events:none;text-decoration:line-through;}
+  /* tray */
+  .tray{display:flex;flex-wrap:wrap;gap:6px;min-height:42px;background:#fff;border:1px dashed #d8ccb0;
+    border-radius:9px;padding:9px;margin:8px 0;align-items:center;}
+  .tray .empty{color:var(--muted);font-size:.84rem;padding:2px 6px;}
+  .chip{display:flex;align-items:center;gap:7px;background:var(--card);border:1px solid #e6dcc6;
+    border-left:4px solid var(--c4);border-radius:7px;padding:4px 6px 4px 10px;font-size:.82rem;font-weight:600;}
+  .chip .ord{font-size:.62rem;color:#fff;background:var(--c0);border-radius:9px;padding:1px 6px;}
+  .chip .x{cursor:pointer;color:#b04a2f;font-weight:700;padding:0 3px;}
+  .chip.base{border-left-color:var(--c0);}
+  .chip .basetag{font-size:.56rem;text-transform:uppercase;letter-spacing:.04em;background:var(--c0);
+    color:#fff;border-radius:8px;padding:1px 5px;}
+  .controls{display:flex;gap:9px;margin:6px 0 2px;flex-wrap:wrap;}
+  button.act{background:var(--c0);color:#fff;border:0;border-radius:7px;padding:7px 14px;
+    font-size:.82rem;font-weight:600;cursor:pointer;}
+  button.ghost{background:transparent;color:#6b5d49;border:1px solid #d8ccb0;}
+  /* reading */
+  .step{display:flex;gap:14px;background:var(--card);border:1px solid #e9e0cc;border-radius:10px;
+    padding:15px 17px;margin:11px 0;box-shadow:0 1px 0 #ece3cf;}
+  .num{font-size:1.02rem;font-weight:700;min-width:30px;color:var(--c0);}
+  .body{flex:1;min-width:0;}
+  .head{font-size:1.0rem;margin-bottom:7px;}
+  .head b{color:#241c12;}
+  .voice{font-size:.64rem;text-transform:uppercase;letter-spacing:.05em;padding:2px 7px;
+    border-radius:9px;margin-left:7px;vertical-align:middle;color:#fff;}
+  .voice.kate{background:var(--c5);} .voice.chiron{background:var(--c0);}
+  .kind{font-size:.68rem;color:var(--muted);margin-left:6px;}
+  blockquote{margin:0;padding:9px 13px;border-left:3px solid var(--c4);background:#fcf7ea;
+    border-radius:0 6px 6px 0;font-size:.96rem;color:#3a2f20;}
+  .alt{margin-top:7px;font-size:.82rem;color:#6b5d49;}
+  .alt summary{cursor:pointer;color:var(--c5);}
+  .alt blockquote{margin-top:6px;font-size:.9rem;}
+  .cite{font-family:ui-monospace,SFMono-Regular,Menlo,monospace;font-size:.72rem;color:#9a8a6e;margin-top:7px;}
+  .miss{background:#fff;border:1px dashed #d8ccb0;border-radius:9px;padding:12px 15px;margin:11px 0;
+    font-size:.86rem;color:#7a6a50;}
+  footer{margin-top:34px;font-size:.72rem;color:#9a8a6e;text-align:center;}
+  a{color:var(--c5);}
+</style><style id="kidmode-css">
+.mode-btn{position:fixed;top:12px;right:12px;z-index:9999;padding:9px 16px;border:none;border-radius:999px;background:#4E8079;color:#fff;font:600 14px/1 system-ui,-apple-system,sans-serif;cursor:pointer;box-shadow:0 2px 8px rgba(0,0,0,.22)}
+body.kids .mode-btn{background:#B4503E}
+body.kids .mode-btn::before{content:"🧒  "}
+#kidpanel{display:none}
+body.kids #kidpanel{display:block;max-width:760px;margin:62px auto 12px;background:#fff7e8;border:2px solid #4E8079;border-radius:18px;padding:20px 24px;font:18px/1.7 system-ui,-apple-system,sans-serif;color:#2b2820}
+body.kids #kidpanel h3{font-family:"Fredoka","Comic Sans MS",sans-serif;color:#4E8079;margin:0 0 8px;font-size:22px}
+body.kids #kidpanel b{color:#B4503E}
+body.kids{font-size:1.04em}
+</style>
+</head>
+<body>
+
+<div id="kidpanel"><h3>Kid mode 🧒</h3><p>This page is <b>Read the cards — Kate + Chiron</b>. It is one of the projects Brandon built and put online. The grown-up details are below, tap Grown-up mode to read them the normal way.</p></div><div class="wrap">
+  <header>
+    <h1>Read the cards — Kate + Chiron</h1>
+    <div class="sub">Deal a spread in order. Each adjacent pair returns a real combo window pulled verbatim from the reader transcripts.</div>
+    <div class="cov">2351 of 3003 card pairs covered (477 in both voices) · source: <code>meaning_db/&lt;voice&gt;/</code> · pulled, never rebuilt</div>
+  </header>
+
+  <div class="legend"><b>Bold</b> = my words (card label / flag). Plain quotes = the reader, verbatim, with <code>file:line</code>. Combos first, in dealt order, mixed across Kate &amp; Chiron. Upright spreads. No added interpretation.</div>
+
+  <h2 class="sec">1 · Your spread (click to add, in dealt order)</h2>
+  <div class="tray" id="tray"></div>
+  <div class="controls">
+    <button class="act" id="loadSample">Load sample spread</button>
+    <button class="act ghost" id="clear">Clear</button>
+  </div>
+
+  <h2 class="sec">2 · Pick cards</h2>
+  <div id="picker"></div>
+
+  <h2 class="sec">3 · The reading</h2>
+  <div id="reading"></div>
+
+  <footer>Palette: Hotel Chevalier (Wes Anderson) · data: tarot-voice-v2 meaning_db (kate + chiron)</footer>
+</div>
+
+<script>
+const MAJORS=["The Fool","The Magician","The High Priestess","The Empress","The Emperor","The Hierophant","The Lovers","The Chariot","Strength","The Hermit","Wheel of Fortune","Justice","The Hanged Man","Death","Temperance","The Devil","The Tower","The Star","The Moon","The Sun","Judgement","The World"];
+const RANKS=["Ace","Two","Three","Four","Five","Six","Seven","Eight","Nine","Ten","Page","Knight","Queen","King"];
+const SUITS=["Wands","Cups","Swords","Pentacles"];
+const SAMPLE=["Temperance","Three of Swords","The Hermit","Page of Wands","Knight of Wands","Four of Wands","Seven of Pentacles","The Star"];
+
+let IDX=null, spread=[];
+
+function keyOf(a,b){return [a,b].sort().join("|");}
+function esc(s){return s.replace(/&/g,"&amp;").replace(/</g,"&lt;").replace(/>/g,"&gt;");}
+// strip chiron markdown + apply voice gate (no em-dash, no ellipsis), then escape
+function clean(t){
+  t=t.replace(/\*\*/g,"").replace(/\*/g,"");
+  t=t.replace(/\s*[—–]\s*/g,", ");      // em/en dash -> comma
+  t=t.replace(/…/g,", ").replace(/\.\.\./g,", ");
+  t=t.replace(/\s+/g," ").replace(/\s+,/g,",").trim();
+  return esc(t);
+}
+
+function bestFor(a,b){
+  const rec=IDX.pairs[keyOf(a,b)];
+  if(rec){
+    const opts=Object.values(rec).sort((x,y)=>y.score-x.score);
+    return {type:"combo", primary:opts[0], alt:opts[1]||null};
+  }
+  // single-card fallback: whichever card has the stronger single window
+  const sa=IDX.singles[a], sb=IDX.singles[b];
+  let s=null;
+  if(sa&&sb) s=(sa.score>=sb.score)?{card:a,e:sa}:{card:b,e:sb};
+  else if(sa) s={card:a,e:sa}; else if(sb) s={card:b,e:sb};
+  return s?{type:"single", card:s.card, primary:s.e}:{type:"none"};
+}
+
+function renderReading(){
+  const el=document.getElementById("reading");
+  if(spread.length<1){el.innerHTML='<div class="miss">Add cards to your spread above to begin.</div>';return;}
+  if(spread.length===1){el.innerHTML='<div class="miss">Add one more card. Combos read between adjacent cards, so a spread needs at least two.</div>';return;}
+  let html="";
+  for(let i=0;i<spread.length-1;i++){
+    const a=spread[i], b=spread[i+1], n=i+1;
+    const r=bestFor(a,b);
+    if(r.type==="combo"){
+      const p=r.primary;
+      let alt="";
+      if(r.alt){alt=`<details class="alt"><summary>also: ${esc(r.alt.voice)}</summary>
+        <blockquote>${clean(r.alt.text)}</blockquote>
+        <div class="cite">${esc(r.alt.voice)} · ${esc(r.alt.file)} : line ${r.alt.line}</div></details>`;}
+      html+=`<div class="step"><div class="num">${n}</div><div class="body">
+        <div class="head"><b>${esc(a)} + ${esc(b)}</b>
+          <span class="voice ${p.voice}">${esc(p.voice)}</span><span class="kind">combo</span></div>
+        <blockquote>${clean(p.text)}</blockquote>
+        <div class="cite">${esc(p.voice)} · ${esc(p.file)} : line ${p.line}</div>${alt}</div></div>`;
+    } else if(r.type==="single"){
+      const p=r.primary;
+      html+=`<div class="step"><div class="num">${n}</div><div class="body">
+        <div class="head"><b>${esc(a)} + ${esc(b)}</b>
+          <span class="voice ${p.voice}">${esc(p.voice)}</span>
+          <span class="kind">single card · no upright combo in either reader</span></div>
+        <blockquote>${clean(p.text)}</blockquote>
+        <div class="cite">${esc(p.voice)} · ${esc(p.file)} : line ${p.line} · spoken on <b>${esc(r.card)}</b> (with ${esc(p.partner)})</div>
+        </div></div>`;
+    } else {
+      html+=`<div class="miss"><b>${esc(a)} + ${esc(b)}</b> — no upright window for either card in Kate or Chiron. Nothing to read here without inventing it.</div>`;
+    }
+  }
+  // base note
+  const base=spread[spread.length-1];
+  html+=`<div class="miss"><b>${esc(base)}</b> sits at the base of the spread (read last). Every quote above is verbatim from <code>meaning_db</code>; pairs with no real window are flagged, not filled.</div>`;
+  el.innerHTML=html;
+}
+
+function renderTray(){
+  const t=document.getElementById("tray");
+  if(!spread.length){t.innerHTML='<span class="empty">No cards yet. Pick from the deck below — click order is the dealt order.</span>';}
+  else{
+    t.innerHTML=spread.map((c,i)=>{
+      const isBase=i===spread.length-1;
+      return `<span class="chip${isBase?' base':''}"><span class="ord">${i+1}</span>${esc(c)}`+
+        (isBase?'<span class="basetag">base</span>':'')+
+        `<span class="x" data-i="${i}">×</span></span>`;
+    }).join("");
+    t.querySelectorAll(".x").forEach(x=>x.onclick=()=>{spread.splice(+x.dataset.i,1);refresh();});
+  }
+}
+function renderPicker(){
+  const p=document.getElementById("picker");
+  const grp=(name,cards)=>`<div class="suit"><div class="name">${name}</div><div class="palette">`+
+    cards.map(c=>`<span class="pick${spread.includes(c)?' used':''}" data-c="${esc(c)}">${esc(c.replace(/^The /,''))}</span>`).join("")+`</div></div>`;
+  let html=grp("Major Arcana",MAJORS);
+  SUITS.forEach(s=>html+=grp(s,RANKS.map(r=>r+" of "+s)));
+  p.innerHTML=html;
+  p.querySelectorAll(".pick").forEach(el=>el.onclick=()=>{const c=el.dataset.c;if(!spread.includes(c)){spread.push(c);refresh();}});
+}
+function refresh(){renderTray();renderPicker();renderReading();}
+
+document.getElementById("loadSample").onclick=()=>{spread=SAMPLE.slice();refresh();};
+document.getElementById("clear").onclick=()=>{spread=[];refresh();};
+
+fetch("/tarot-reader/pairs_index.json").then(r=>r.json()).then(d=>{IDX=d;spread=SAMPLE.slice();refresh();})
+  .catch(e=>{document.getElementById("reading").innerHTML='<div class="miss">Could not load pairs_index.json — '+e+'</div>';});
+</script>
+
+</body></html>

@@ -1,0 +1,1169 @@
+<!doctype html><html lang="en"><head>
+<meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Cloud Code — Chat Status Board</title>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/icon?family=Material+Icons+Outlined" rel="stylesheet">
+<style>
+  :root { --cream:#faf9f6; --amber:#c98a4a; --ink:#111111; --muted:#333333; --line:#e7e3da; }
+  * { box-sizing:border-box; }
+  body { margin:0; font-family:Inter,system-ui,sans-serif; background:var(--cream); color:var(--ink); }
+  .topbar { position:sticky; top:0; z-index:10; background:rgba(250,249,246,.92);
+    backdrop-filter:blur(8px); border-bottom:1px solid var(--line); padding:18px 28px 12px; }
+  h1 { margin:0; font-size:20px; font-weight:700; letter-spacing:-.01em; }
+  .sub { color:var(--muted); font-size:12.5px; margin-top:3px; }
+  .stats { display:flex; gap:10px; flex-wrap:wrap; margin-top:12px; align-items:center; }
+  .stat { font-size:12.5px; color:var(--muted); background:#fff; border:1px solid var(--line);
+    border-radius:999px; padding:5px 12px; display:flex; gap:6px; align-items:center; }
+  .stat b { font-size:13.5px; }
+  #q { margin-left:auto; font-family:inherit; font-size:13px; padding:7px 13px; border-radius:999px;
+    border:1px solid var(--line); background:#fff; min-width:210px; outline:none; }
+  #q:focus { border-color:var(--amber); }
+  .grid { display:grid; grid-template-columns:repeat(auto-fill,minmax(248px,1fr));
+    gap:14px; padding:22px 28px 60px; }
+  .card { display:flex; text-decoration:none; color:inherit; background:#fff;
+    border:1px solid var(--line); border-radius:14px; overflow:hidden;
+    transition:transform .12s ease, box-shadow .12s ease; }
+  .card:hover { transform:translateY(-2px); box-shadow:0 8px 22px rgba(0,0,0,.07); }
+  .bar { width:5px; flex:0 0 5px; }
+  .body { padding:13px 15px; min-width:0; }
+  .pill { display:inline-flex; align-items:center; gap:5px; font-size:11px; font-weight:600;
+    border:1px solid; border-radius:999px; padding:3px 9px 3px 7px; margin-bottom:9px; }
+  .pill .material-icons-outlined { font-size:14px; }
+  .title { font-size:14px; font-weight:600; line-height:1.32; word-break:break-word; }
+  .sid { font-size:11px; color:var(--muted); margin-top:8px; font-variant-numeric:tabular-nums;
+    font-family:ui-monospace,SFMono-Regular,Menlo,monospace; }
+  .foot { color:var(--muted); font-size:11.5px; padding:0 28px 40px; }
+  .empty { color:var(--muted); padding:40px 28px; font-size:14px; }
+  .ctl { display:flex; flex-wrap:wrap; gap:8px; align-items:center; margin-top:12px; padding-top:10px; border-top:1px dashed var(--line); }
+  .ctl .lbl { font-size:11px; color:var(--muted); text-transform:uppercase; letter-spacing:.06em; margin-right:4px; }
+  .btn { font-family:inherit; font-size:12.5px; font-weight:600; padding:7px 14px; border-radius:999px; border:1px solid var(--line); background:#fff; color:var(--ink); cursor:pointer; transition:all .12s ease; display:inline-flex; align-items:center; gap:5px; }
+  .btn:hover { border-color:var(--amber); color:var(--amber); }
+  .btn.primary { background:var(--amber); color:#fff; border-color:var(--amber); }
+  .btn.primary:hover { background:#b6783a; border-color:#b6783a; color:#fff; }
+  .btn.warn { color:#d9534f; border-color:#d9534f33; }
+  .btn.warn:hover { background:#d9534f; color:#fff; border-color:#d9534f; }
+  .btn:disabled { opacity:.5; cursor:wait; }
+  #prompt { font-family:inherit; font-size:13px; padding:7px 12px; border-radius:999px; border:1px solid var(--line); background:#fff; min-width:220px; outline:none; }
+  #prompt:focus { border-color:var(--amber); }
+  #toast { position:fixed; bottom:24px; left:50%; transform:translateX(-50%); background:#2b2a28; color:#fff; padding:10px 18px; border-radius:999px; font-size:13px; opacity:0; transition:opacity .2s; pointer-events:none; z-index:100; max-width:80vw; }
+  #toast.on { opacity:1; }
+</style><style id="kidmode-css">
+.mode-btn{position:fixed;top:12px;right:12px;z-index:9999;padding:9px 16px;border:none;border-radius:999px;background:#4E8079;color:#fff;font:600 14px/1 system-ui,-apple-system,sans-serif;cursor:pointer;box-shadow:0 2px 8px rgba(0,0,0,.22)}
+body.kids .mode-btn{background:#B4503E}
+body.kids .mode-btn::before{content:"🧒  "}
+#kidpanel{display:none}
+body.kids #kidpanel{display:block;max-width:760px;margin:62px auto 12px;background:#fff7e8;border:2px solid #4E8079;border-radius:18px;padding:20px 24px;font:18px/1.7 system-ui,-apple-system,sans-serif;color:#2b2820}
+body.kids #kidpanel h3{font-family:"Fredoka","Comic Sans MS",sans-serif;color:#4E8079;margin:0 0 8px;font-size:22px}
+body.kids #kidpanel b{color:#B4503E}
+body.kids{font-size:1.04em}
+</style>
+</head><body>
+
+<div id="kidpanel"><h3>Kid mode 🧒</h3><p>This page is <b>Cloud Code — Chat Status Board</b>. It is one of the projects Brandon built and put online. The grown-up details are below, tap Grown-up mode to read them the normal way.</p></div>
+  <div class="topbar">
+    <h1>Cloud Code — Chat Status Board</h1>
+    <div class="sub">104 chats · claude.ai/code (cloud Code sessions synced to the Claude app) · snapshot 2026-05-24T12:55:00-07:00</div>
+    <div class="stats"><span class="stat"><b style="color:#d9534f">4</b>Awaiting input</span><span class="stat"><b style="color:#c98a4a">1</b>Ready</span><span class="stat"><b style="color:#3a8f5a">2</b>Running</span><span class="stat"><b style="color:#9a958c">97</b>Idle</span>
+      <input id="q" type="search" placeholder="Filter chats…" autocomplete="off">
+    </div>
+    <div class="ctl">
+      <span class="lbl">Control</span>
+      <input id="prompt" type="text" placeholder="check inbox" value="check inbox" autocomplete="off">
+      <button class="btn primary" data-act="send" title="Send the prompt to every running Claude tab">▶ Send to all chats</button>
+      <button class="btn" data-act="wake-all" title="Submit 'check inbox' in every Claude tab">⏰ Wake all (check inbox)</button>
+      <button class="btn" data-act="refresh-status" title="Re-render the board from the latest sessions.json">↻ Refresh board</button>
+      <span class="lbl" style="margin-left:auto">Server</span>
+      <span id="srv" class="btn" style="cursor:default" title="ingest server health">…checking</span>
+    </div>
+  </div>
+  <div class="grid" id="grid">
+  <a class="card" href="https://claude.ai/code/session_013ye59mgzxM7eiT99QUCDgf" target="_blank" data-status="Awaiting input" data-title="jacks-imac-lan-purrfect-breeze">
+      <div class="bar" style="background:#d9534f"></div>
+      <div class="body">
+        <div class="pill" style="color:#d9534f;border-color:#d9534f33;background:#d9534f14">
+          <span class="material-icons-outlined">pending_actions</span>Awaiting input
+        </div>
+        <div class="title">jacks-imac-lan-purrfect-breeze</div>
+        <div class="sid">013ye59mgz…</div>
+      </div>
+    </a>
+<a class="card" href="https://claude.ai/code/session_01S2Typ9R8r9jwbzMD39avN4" target="_blank" data-status="Awaiting input" data-title="narration to do list plan ii;">
+      <div class="bar" style="background:#d9534f"></div>
+      <div class="body">
+        <div class="pill" style="color:#d9534f;border-color:#d9534f33;background:#d9534f14">
+          <span class="material-icons-outlined">pending_actions</span>Awaiting input
+        </div>
+        <div class="title">Narration to do list plan ii;</div>
+        <div class="sid">01S2Typ9R8…</div>
+      </div>
+    </a>
+<a class="card" href="https://claude.ai/code/session_01Aez2rZi1tut2Fj1QxHnExV" target="_blank" data-status="Awaiting input" data-title="archive old desktop files and change save location">
+      <div class="bar" style="background:#d9534f"></div>
+      <div class="body">
+        <div class="pill" style="color:#d9534f;border-color:#d9534f33;background:#d9534f14">
+          <span class="material-icons-outlined">pending_actions</span>Awaiting input
+        </div>
+        <div class="title">Archive old desktop files and change save location</div>
+        <div class="sid">01Aez2rZi1…</div>
+      </div>
+    </a>
+<a class="card" href="https://claude.ai/code/session_01KKARY81SToC4YnTuuFqZ6w" target="_blank" data-status="Awaiting input" data-title="build destiny-book-forge skill and draft 10 books">
+      <div class="bar" style="background:#d9534f"></div>
+      <div class="body">
+        <div class="pill" style="color:#d9534f;border-color:#d9534f33;background:#d9534f14">
+          <span class="material-icons-outlined">pending_actions</span>Awaiting input
+        </div>
+        <div class="title">Build destiny-book-forge skill and draft 10 books</div>
+        <div class="sid">01KKARY81S…</div>
+      </div>
+    </a>
+<a class="card" href="https://claude.ai/code/session_01YMFu2aCUcNFuXE1iQMnWaL" target="_blank" data-status="Ready" data-title="jacks-imac-lan-snappy-gosling">
+      <div class="bar" style="background:#c98a4a"></div>
+      <div class="body">
+        <div class="pill" style="color:#c98a4a;border-color:#c98a4a33;background:#c98a4a14">
+          <span class="material-icons-outlined">check_circle</span>Ready
+        </div>
+        <div class="title">jacks-imac-lan-snappy-gosling</div>
+        <div class="sid">01YMFu2aCU…</div>
+      </div>
+    </a>
+<a class="card" href="https://claude.ai/code/session_018XDRFtJ2n3MqyPVVpCNFAy" target="_blank" data-status="Running" data-title="jacks-imac-lan-indexed-hamming">
+      <div class="bar" style="background:#3a8f5a"></div>
+      <div class="body">
+        <div class="pill" style="color:#3a8f5a;border-color:#3a8f5a33;background:#3a8f5a14">
+          <span class="material-icons-outlined">autorenew</span>Running
+        </div>
+        <div class="title">jacks-imac-lan-indexed-hamming</div>
+        <div class="sid">018XDRFtJ2…</div>
+      </div>
+    </a>
+<a class="card" href="https://claude.ai/code/session_011GPfJVX5GQD8JAHgCYJeVi" target="_blank" data-status="Running" data-title="optimize file testing performance">
+      <div class="bar" style="background:#3a8f5a"></div>
+      <div class="body">
+        <div class="pill" style="color:#3a8f5a;border-color:#3a8f5a33;background:#3a8f5a14">
+          <span class="material-icons-outlined">autorenew</span>Running
+        </div>
+        <div class="title">Optimize file testing performance</div>
+        <div class="sid">011GPfJVX5…</div>
+      </div>
+    </a>
+<a class="card" href="https://claude.ai/code/session_01KMs7Dfs7oMcpx7sYcP31qe" target="_blank" data-status="Idle" data-title="improve pitch and vocal quality for memorial day sales">
+      <div class="bar" style="background:#9a958c"></div>
+      <div class="body">
+        <div class="pill" style="color:#9a958c;border-color:#9a958c33;background:#9a958c14">
+          <span class="material-icons-outlined">schedule</span>Idle
+        </div>
+        <div class="title">Improve pitch and vocal quality for memorial day sales</div>
+        <div class="sid">01KMs7Dfs7…</div>
+      </div>
+    </a>
+<a class="card" href="https://claude.ai/code/session_015L3QXEbDYdyR7a99aA4pPD" target="_blank" data-status="Idle" data-title="fix librosa and numba environment issues">
+      <div class="bar" style="background:#9a958c"></div>
+      <div class="body">
+        <div class="pill" style="color:#9a958c;border-color:#9a958c33;background:#9a958c14">
+          <span class="material-icons-outlined">schedule</span>Idle
+        </div>
+        <div class="title">Fix librosa and numba environment issues</div>
+        <div class="sid">015L3QXEbD…</div>
+      </div>
+    </a>
+<a class="card" href="https://claude.ai/code/session_01KutgaWTukfZbRhCErqDztV" target="_blank" data-status="Idle" data-title="jacks-imac-lan-velvet-lampson">
+      <div class="bar" style="background:#9a958c"></div>
+      <div class="body">
+        <div class="pill" style="color:#9a958c;border-color:#9a958c33;background:#9a958c14">
+          <span class="material-icons-outlined">schedule</span>Idle
+        </div>
+        <div class="title">jacks-imac-lan-velvet-lampson</div>
+        <div class="sid">01KutgaWTu…</div>
+      </div>
+    </a>
+<a class="card" href="https://claude.ai/code/session_01JeGXtrKefHtdw4G8vhb4ou" target="_blank" data-status="Idle" data-title="develop profitability plan for claude code services">
+      <div class="bar" style="background:#9a958c"></div>
+      <div class="body">
+        <div class="pill" style="color:#9a958c;border-color:#9a958c33;background:#9a958c14">
+          <span class="material-icons-outlined">schedule</span>Idle
+        </div>
+        <div class="title">Develop profitability plan for Claude code services</div>
+        <div class="sid">01JeGXtrKe…</div>
+      </div>
+    </a>
+<a class="card" href="https://claude.ai/code/session_017CR9UjMmqMZpnpLyHnGzpa" target="_blank" data-status="Idle" data-title="find moises stems issue and credit letter">
+      <div class="bar" style="background:#9a958c"></div>
+      <div class="body">
+        <div class="pill" style="color:#9a958c;border-color:#9a958c33;background:#9a958c14">
+          <span class="material-icons-outlined">schedule</span>Idle
+        </div>
+        <div class="title">Find Moises stems issue and credit letter</div>
+        <div class="sid">017CR9UjMm…</div>
+      </div>
+    </a>
+<a class="card" href="https://claude.ai/code/session_015T1aw2JnESdQik5abhX1fT" target="_blank" data-status="Idle" data-title="voice to do list">
+      <div class="bar" style="background:#9a958c"></div>
+      <div class="body">
+        <div class="pill" style="color:#9a958c;border-color:#9a958c33;background:#9a958c14">
+          <span class="material-icons-outlined">schedule</span>Idle
+        </div>
+        <div class="title">VOICE TO DO LIST</div>
+        <div class="sid">015T1aw2Jn…</div>
+      </div>
+    </a>
+<a class="card" href="https://claude.ai/code/session_01Y6U3wLcff2mnWNTweS73zs" target="_blank" data-status="Idle" data-title="close multiple quicktime and text editor windows">
+      <div class="bar" style="background:#9a958c"></div>
+      <div class="body">
+        <div class="pill" style="color:#9a958c;border-color:#9a958c33;background:#9a958c14">
+          <span class="material-icons-outlined">schedule</span>Idle
+        </div>
+        <div class="title">Close multiple QuickTime and text editor windows</div>
+        <div class="sid">01Y6U3wLcf…</div>
+      </div>
+    </a>
+<a class="card" href="https://claude.ai/code/session_01L3sV2CKjF8vNymb3LvyyKC" target="_blank" data-status="Idle" data-title="plan day and run plugins">
+      <div class="bar" style="background:#9a958c"></div>
+      <div class="body">
+        <div class="pill" style="color:#9a958c;border-color:#9a958c33;background:#9a958c14">
+          <span class="material-icons-outlined">schedule</span>Idle
+        </div>
+        <div class="title">Plan day and run plugins</div>
+        <div class="sid">01L3sV2CKj…</div>
+      </div>
+    </a>
+<a class="card" href="https://claude.ai/code/session_01WmrUVxSJxE46VpNy8U65z5" target="_blank" data-status="Idle" data-title="organize external hard drive folder structure">
+      <div class="bar" style="background:#9a958c"></div>
+      <div class="body">
+        <div class="pill" style="color:#9a958c;border-color:#9a958c33;background:#9a958c14">
+          <span class="material-icons-outlined">schedule</span>Idle
+        </div>
+        <div class="title">Organize external hard drive folder structure</div>
+        <div class="sid">01WmrUVxSJ…</div>
+      </div>
+    </a>
+<a class="card" href="https://claude.ai/code/session_018H4U7cBCUrBD4rVMGRs2bg" target="_blank" data-status="Idle" data-title="jacks-imac-lan-dreamy-karp">
+      <div class="bar" style="background:#9a958c"></div>
+      <div class="body">
+        <div class="pill" style="color:#9a958c;border-color:#9a958c33;background:#9a958c14">
+          <span class="material-icons-outlined">schedule</span>Idle
+        </div>
+        <div class="title">jacks-imac-lan-dreamy-karp</div>
+        <div class="sid">018H4U7cBC…</div>
+      </div>
+    </a>
+<a class="card" href="https://claude.ai/code/session_01PkZUnF3KLboHtpwJQvtgsV" target="_blank" data-status="Idle" data-title="consolidate final midi 16 run sessions by band">
+      <div class="bar" style="background:#9a958c"></div>
+      <div class="body">
+        <div class="pill" style="color:#9a958c;border-color:#9a958c33;background:#9a958c14">
+          <span class="material-icons-outlined">schedule</span>Idle
+        </div>
+        <div class="title">Consolidate final midi 16 run sessions by band</div>
+        <div class="sid">01PkZUnF3K…</div>
+      </div>
+    </a>
+<a class="card" href="https://claude.ai/code/session_01EXPFXPNMGKXPVCKhQZ4oUq" target="_blank" data-status="Idle" data-title="build slant rhyme reference skill with elijah flow">
+      <div class="bar" style="background:#9a958c"></div>
+      <div class="body">
+        <div class="pill" style="color:#9a958c;border-color:#9a958c33;background:#9a958c14">
+          <span class="material-icons-outlined">schedule</span>Idle
+        </div>
+        <div class="title">Build slant rhyme reference skill with Elijah Flow</div>
+        <div class="sid">01EXPFXPNM…</div>
+      </div>
+    </a>
+<a class="card" href="https://claude.ai/code/session_01VQ3g1dsn2SBqBMwoKDdM5L" target="_blank" data-status="Idle" data-title="jacks-imac-lan-immutable-corbato">
+      <div class="bar" style="background:#9a958c"></div>
+      <div class="body">
+        <div class="pill" style="color:#9a958c;border-color:#9a958c33;background:#9a958c14">
+          <span class="material-icons-outlined">schedule</span>Idle
+        </div>
+        <div class="title">jacks-imac-lan-immutable-corbato</div>
+        <div class="sid">01VQ3g1dsn…</div>
+      </div>
+    </a>
+<a class="card" href="https://claude.ai/code/session_01JtgcJyidFZxs7f28zb5Wv2" target="_blank" data-status="Idle" data-title="do the work">
+      <div class="bar" style="background:#9a958c"></div>
+      <div class="body">
+        <div class="pill" style="color:#9a958c;border-color:#9a958c33;background:#9a958c14">
+          <span class="material-icons-outlined">schedule</span>Idle
+        </div>
+        <div class="title">Do the work</div>
+        <div class="sid">01JtgcJyid…</div>
+      </div>
+    </a>
+<a class="card" href="https://claude.ai/code/session_012EsFBHHjkNiPus8Aw95Sat" target="_blank" data-status="Idle" data-title="organize tarot resources and materials">
+      <div class="bar" style="background:#9a958c"></div>
+      <div class="body">
+        <div class="pill" style="color:#9a958c;border-color:#9a958c33;background:#9a958c14">
+          <span class="material-icons-outlined">schedule</span>Idle
+        </div>
+        <div class="title">Organize tarot resources and materials</div>
+        <div class="sid">012EsFBHHj…</div>
+      </div>
+    </a>
+<a class="card" href="https://claude.ai/code/session_01Vj3B1NBmSuwupNCf6JwAak" target="_blank" data-status="Idle" data-title="integrate google api and prepare etsy product upload">
+      <div class="bar" style="background:#9a958c"></div>
+      <div class="body">
+        <div class="pill" style="color:#9a958c;border-color:#9a958c33;background:#9a958c14">
+          <span class="material-icons-outlined">schedule</span>Idle
+        </div>
+        <div class="title">Integrate Google API and prepare Etsy product upload</div>
+        <div class="sid">01Vj3B1NBm…</div>
+      </div>
+    </a>
+<a class="card" href="https://claude.ai/code/session_01FbEhjnqU9ZbyZxuDFkrWax" target="_blank" data-status="Idle" data-title="upgrade etsy via api overhaul">
+      <div class="bar" style="background:#9a958c"></div>
+      <div class="body">
+        <div class="pill" style="color:#9a958c;border-color:#9a958c33;background:#9a958c14">
+          <span class="material-icons-outlined">schedule</span>Idle
+        </div>
+        <div class="title">Upgrade Etsy via API overhaul</div>
+        <div class="sid">01FbEhjnqU…</div>
+      </div>
+    </a>
+<a class="card" href="https://claude.ai/code/session_01MGzWHtJQE65y1qrueTwea7" target="_blank" data-status="Idle" data-title="jacks-imac-lan-parsed-rose">
+      <div class="bar" style="background:#9a958c"></div>
+      <div class="body">
+        <div class="pill" style="color:#9a958c;border-color:#9a958c33;background:#9a958c14">
+          <span class="material-icons-outlined">schedule</span>Idle
+        </div>
+        <div class="title">jacks-imac-lan-parsed-rose</div>
+        <div class="sid">01MGzWHtJQ…</div>
+      </div>
+    </a>
+<a class="card" href="https://claude.ai/code/session_01C7D7TeuW9Koq8VY67e1M8A" target="_blank" data-status="Idle" data-title="jacks-imac-lan-dazzling-koala">
+      <div class="bar" style="background:#9a958c"></div>
+      <div class="body">
+        <div class="pill" style="color:#9a958c;border-color:#9a958c33;background:#9a958c14">
+          <span class="material-icons-outlined">schedule</span>Idle
+        </div>
+        <div class="title">jacks-imac-lan-dazzling-koala</div>
+        <div class="sid">01C7D7TeuW…</div>
+      </div>
+    </a>
+<a class="card" href="https://claude.ai/code/session_011N99qNSTzsS2JHBtvQ6rPi" target="_blank" data-status="Idle" data-title="find chat about making videos free">
+      <div class="bar" style="background:#9a958c"></div>
+      <div class="body">
+        <div class="pill" style="color:#9a958c;border-color:#9a958c33;background:#9a958c14">
+          <span class="material-icons-outlined">schedule</span>Idle
+        </div>
+        <div class="title">Find chat about making videos free</div>
+        <div class="sid">011N99qNST…</div>
+      </div>
+    </a>
+<a class="card" href="https://claude.ai/code/session_01XBHcPW2BoM4Jxe27yxNjm4" target="_blank" data-status="Idle" data-title="mars volts">
+      <div class="bar" style="background:#9a958c"></div>
+      <div class="body">
+        <div class="pill" style="color:#9a958c;border-color:#9a958c33;background:#9a958c14">
+          <span class="material-icons-outlined">schedule</span>Idle
+        </div>
+        <div class="title">Mars VOlts</div>
+        <div class="sid">01XBHcPW2B…</div>
+      </div>
+    </a>
+<a class="card" href="https://claude.ai/code/session_01QReAq3RSfj3W3YaugDxdkn" target="_blank" data-status="Idle" data-title="zadok book plan markdown">
+      <div class="bar" style="background:#9a958c"></div>
+      <div class="body">
+        <div class="pill" style="color:#9a958c;border-color:#9a958c33;background:#9a958c14">
+          <span class="material-icons-outlined">schedule</span>Idle
+        </div>
+        <div class="title">Zadok Book Plan markdown</div>
+        <div class="sid">01QReAq3RS…</div>
+      </div>
+    </a>
+<a class="card" href="https://claude.ai/code/session_01Xc4vbYS8CCV6wb2qyNyi9L" target="_blank" data-status="Idle" data-title="run midi orchestration tests with skill feedback loop">
+      <div class="bar" style="background:#9a958c"></div>
+      <div class="body">
+        <div class="pill" style="color:#9a958c;border-color:#9a958c33;background:#9a958c14">
+          <span class="material-icons-outlined">schedule</span>Idle
+        </div>
+        <div class="title">Run MIDI orchestration tests with skill feedback loop</div>
+        <div class="sid">01Xc4vbYS8…</div>
+      </div>
+    </a>
+<a class="card" href="https://claude.ai/code/session_01EjuMdzEnJvhwFLQLuHKQzq" target="_blank" data-status="Idle" data-title="automate beach house midi evaluation workflow">
+      <div class="bar" style="background:#9a958c"></div>
+      <div class="body">
+        <div class="pill" style="color:#9a958c;border-color:#9a958c33;background:#9a958c14">
+          <span class="material-icons-outlined">schedule</span>Idle
+        </div>
+        <div class="title">Automate beach house MIDI evaluation workflow</div>
+        <div class="sid">01EjuMdzEn…</div>
+      </div>
+    </a>
+<a class="card" href="https://claude.ai/code/session_01HjcFWe8ooCx6fofLoSbsWH" target="_blank" data-status="Idle" data-title="jacks-imac-lan-fuzzy-aurora">
+      <div class="bar" style="background:#9a958c"></div>
+      <div class="body">
+        <div class="pill" style="color:#9a958c;border-color:#9a958c33;background:#9a958c14">
+          <span class="material-icons-outlined">schedule</span>Idle
+        </div>
+        <div class="title">jacks-imac-lan-fuzzy-aurora</div>
+        <div class="sid">01HjcFWe8o…</div>
+      </div>
+    </a>
+<a class="card" href="https://claude.ai/code/session_01SjvdarUK1nTW8bJeL5JJv7" target="_blank" data-status="Idle" data-title="jacks-imac-lan-elegant-gosling">
+      <div class="bar" style="background:#9a958c"></div>
+      <div class="body">
+        <div class="pill" style="color:#9a958c;border-color:#9a958c33;background:#9a958c14">
+          <span class="material-icons-outlined">schedule</span>Idle
+        </div>
+        <div class="title">jacks-imac-lan-elegant-gosling</div>
+        <div class="sid">01SjvdarUK…</div>
+      </div>
+    </a>
+<a class="card" href="https://claude.ai/code/session_017aL6C88zEKLAJaJT9Dqejc" target="_blank" data-status="Idle" data-title="jacks-imac-lan-vectorized-goose">
+      <div class="bar" style="background:#9a958c"></div>
+      <div class="body">
+        <div class="pill" style="color:#9a958c;border-color:#9a958c33;background:#9a958c14">
+          <span class="material-icons-outlined">schedule</span>Idle
+        </div>
+        <div class="title">jacks-imac-lan-vectorized-goose</div>
+        <div class="sid">017aL6C88z…</div>
+      </div>
+    </a>
+<a class="card" href="https://claude.ai/code/session_019MV3Su7dL2j68Vt3SXDMmb" target="_blank" data-status="Idle" data-title="revise and iterate book files in chatgpt">
+      <div class="bar" style="background:#9a958c"></div>
+      <div class="body">
+        <div class="pill" style="color:#9a958c;border-color:#9a958c33;background:#9a958c14">
+          <span class="material-icons-outlined">schedule</span>Idle
+        </div>
+        <div class="title">Revise and iterate book files in ChatGPT</div>
+        <div class="sid">019MV3Su7d…</div>
+      </div>
+    </a>
+<a class="card" href="https://claude.ai/code/session_01TLrF8p7qsaT4DTT8hnTPRH" target="_blank" data-status="Idle" data-title="jacks-imac-lan-scalable-swing">
+      <div class="bar" style="background:#9a958c"></div>
+      <div class="body">
+        <div class="pill" style="color:#9a958c;border-color:#9a958c33;background:#9a958c14">
+          <span class="material-icons-outlined">schedule</span>Idle
+        </div>
+        <div class="title">jacks-imac-lan-scalable-swing</div>
+        <div class="sid">01TLrF8p7q…</div>
+      </div>
+    </a>
+<a class="card" href="https://claude.ai/code/session_01DfgfqBjcdNMv7YChZfMWzt" target="_blank" data-status="Idle" data-title="jacks-imac-lan-purrfect-sundae">
+      <div class="bar" style="background:#9a958c"></div>
+      <div class="body">
+        <div class="pill" style="color:#9a958c;border-color:#9a958c33;background:#9a958c14">
+          <span class="material-icons-outlined">schedule</span>Idle
+        </div>
+        <div class="title">jacks-imac-lan-purrfect-sundae</div>
+        <div class="sid">01DfgfqBjc…</div>
+      </div>
+    </a>
+<a class="card" href="https://claude.ai/code/session_01GK5R6U529YRHA9RfHXafq3" target="_blank" data-status="Idle" data-title="jacks-imac-lan-zippy-manatee">
+      <div class="bar" style="background:#9a958c"></div>
+      <div class="body">
+        <div class="pill" style="color:#9a958c;border-color:#9a958c33;background:#9a958c14">
+          <span class="material-icons-outlined">schedule</span>Idle
+        </div>
+        <div class="title">jacks-imac-lan-zippy-manatee</div>
+        <div class="sid">01GK5R6U52…</div>
+      </div>
+    </a>
+<a class="card" href="https://claude.ai/code/session_01VZMuzYiFfJ77oXoGSRMbHA" target="_blank" data-status="Idle" data-title="verify audio stems collection and track status">
+      <div class="bar" style="background:#9a958c"></div>
+      <div class="body">
+        <div class="pill" style="color:#9a958c;border-color:#9a958c33;background:#9a958c14">
+          <span class="material-icons-outlined">schedule</span>Idle
+        </div>
+        <div class="title">Verify audio stems collection and track status</div>
+        <div class="sid">01VZMuzYiF…</div>
+      </div>
+    </a>
+<a class="card" href="https://claude.ai/code/session_019gS6fKVMxBVvusSKSor9D8" target="_blank" data-status="Idle" data-title="jacks-imac-lan-buzzing-salamander">
+      <div class="bar" style="background:#9a958c"></div>
+      <div class="body">
+        <div class="pill" style="color:#9a958c;border-color:#9a958c33;background:#9a958c14">
+          <span class="material-icons-outlined">schedule</span>Idle
+        </div>
+        <div class="title">jacks-imac-lan-buzzing-salamander</div>
+        <div class="sid">019gS6fKVM…</div>
+      </div>
+    </a>
+<a class="card" href="https://claude.ai/code/session_0177X5R1hetPYnttDryJStVU" target="_blank" data-status="Idle" data-title="design chord progression dashboard">
+      <div class="bar" style="background:#9a958c"></div>
+      <div class="body">
+        <div class="pill" style="color:#9a958c;border-color:#9a958c33;background:#9a958c14">
+          <span class="material-icons-outlined">schedule</span>Idle
+        </div>
+        <div class="title">Design chord progression dashboard</div>
+        <div class="sid">0177X5R1he…</div>
+      </div>
+    </a>
+<a class="card" href="https://claude.ai/code/session_017azHDpWYttZiac5Kq1mcR2" target="_blank" data-status="Idle" data-title="evaluate 30 midi file analysis sessions">
+      <div class="bar" style="background:#9a958c"></div>
+      <div class="body">
+        <div class="pill" style="color:#9a958c;border-color:#9a958c33;background:#9a958c14">
+          <span class="material-icons-outlined">schedule</span>Idle
+        </div>
+        <div class="title">Evaluate 30 MIDI file analysis sessions</div>
+        <div class="sid">017azHDpWY…</div>
+      </div>
+    </a>
+<a class="card" href="https://claude.ai/code/session_01QUTHgu5eYjiziiHkd4xs2h" target="_blank" data-status="Idle" data-title="create skill audit website">
+      <div class="bar" style="background:#9a958c"></div>
+      <div class="body">
+        <div class="pill" style="color:#9a958c;border-color:#9a958c33;background:#9a958c14">
+          <span class="material-icons-outlined">schedule</span>Idle
+        </div>
+        <div class="title">Create skill audit website</div>
+        <div class="sid">01QUTHgu5e…</div>
+      </div>
+    </a>
+<a class="card" href="https://claude.ai/code/session_01LB73rtgf8339FWY8dj5vsZ" target="_blank" data-status="Idle" data-title="evaluate and optimize 30 high-answer sessions">
+      <div class="bar" style="background:#9a958c"></div>
+      <div class="body">
+        <div class="pill" style="color:#9a958c;border-color:#9a958c33;background:#9a958c14">
+          <span class="material-icons-outlined">schedule</span>Idle
+        </div>
+        <div class="title">Evaluate and optimize 30 high-answer sessions</div>
+        <div class="sid">01LB73rtgf…</div>
+      </div>
+    </a>
+<a class="card" href="https://claude.ai/code/session_01EMQRqrVGU76wccp5DWnoak" target="_blank" data-status="Idle" data-title="evaluate best-selling pdf sessions">
+      <div class="bar" style="background:#9a958c"></div>
+      <div class="body">
+        <div class="pill" style="color:#9a958c;border-color:#9a958c33;background:#9a958c14">
+          <span class="material-icons-outlined">schedule</span>Idle
+        </div>
+        <div class="title">Evaluate best-selling PDF sessions</div>
+        <div class="sid">01EMQRqrVG…</div>
+      </div>
+    </a>
+<a class="card" href="https://claude.ai/code/session_01MWxmH5HxR1M7AYqJAjKV7J" target="_blank" data-status="Idle" data-title="jacks-imac-lan-tingly-candy">
+      <div class="bar" style="background:#9a958c"></div>
+      <div class="body">
+        <div class="pill" style="color:#9a958c;border-color:#9a958c33;background:#9a958c14">
+          <span class="material-icons-outlined">schedule</span>Idle
+        </div>
+        <div class="title">jacks-imac-lan-tingly-candy</div>
+        <div class="sid">01MWxmH5Hx…</div>
+      </div>
+    </a>
+<a class="card" href="https://claude.ai/code/session_01Av3yFKk7zoXct6TLh3GHFL" target="_blank" data-status="Idle" data-title="very nice ii">
+      <div class="bar" style="background:#9a958c"></div>
+      <div class="body">
+        <div class="pill" style="color:#9a958c;border-color:#9a958c33;background:#9a958c14">
+          <span class="material-icons-outlined">schedule</span>Idle
+        </div>
+        <div class="title">Very Nice II</div>
+        <div class="sid">01Av3yFKk7…</div>
+      </div>
+    </a>
+<a class="card" href="https://claude.ai/code/session_0181VZAcA1hkSdLJfA76EFKU" target="_blank" data-status="Idle" data-title="evaluate recent adg performance metrics">
+      <div class="bar" style="background:#9a958c"></div>
+      <div class="body">
+        <div class="pill" style="color:#9a958c;border-color:#9a958c33;background:#9a958c14">
+          <span class="material-icons-outlined">schedule</span>Idle
+        </div>
+        <div class="title">Evaluate recent ADG performance metrics</div>
+        <div class="sid">0181VZAcA1…</div>
+      </div>
+    </a>
+<a class="card" href="https://claude.ai/code/session_01AyoAWKPJeFqFryZPKjzqHP" target="_blank" data-status="Idle" data-title="evaluate drum ii">
+      <div class="bar" style="background:#9a958c"></div>
+      <div class="body">
+        <div class="pill" style="color:#9a958c;border-color:#9a958c33;background:#9a958c14">
+          <span class="material-icons-outlined">schedule</span>Idle
+        </div>
+        <div class="title">Evaluate drum II</div>
+        <div class="sid">01AyoAWKPJ…</div>
+      </div>
+    </a>
+<a class="card" href="https://claude.ai/code/session_01EssrAdp8oYD7TDExbVZKwW" target="_blank" data-status="Idle" data-title="jacks-imac-local-distributed-island">
+      <div class="bar" style="background:#9a958c"></div>
+      <div class="body">
+        <div class="pill" style="color:#9a958c;border-color:#9a958c33;background:#9a958c14">
+          <span class="material-icons-outlined">schedule</span>Idle
+        </div>
+        <div class="title">jacks-imac-local-distributed-island</div>
+        <div class="sid">01EssrAdp8…</div>
+      </div>
+    </a>
+<a class="card" href="https://claude.ai/code/session_01NTuWj6vzhC6wV8uVDeJH6k" target="_blank" data-status="Idle" data-title="huge etsy image update">
+      <div class="bar" style="background:#9a958c"></div>
+      <div class="body">
+        <div class="pill" style="color:#9a958c;border-color:#9a958c33;background:#9a958c14">
+          <span class="material-icons-outlined">schedule</span>Idle
+        </div>
+        <div class="title">HUGE ETSY IMAGE UPDATE</div>
+        <div class="sid">01NTuWj6vz…</div>
+      </div>
+    </a>
+<a class="card" href="https://claude.ai/code/session_013Y1JXAuxULXEBSEK5uywU4" target="_blank" data-status="Idle" data-title="evaluate stem analysis and music theory sessions">
+      <div class="bar" style="background:#9a958c"></div>
+      <div class="body">
+        <div class="pill" style="color:#9a958c;border-color:#9a958c33;background:#9a958c14">
+          <span class="material-icons-outlined">schedule</span>Idle
+        </div>
+        <div class="title">Evaluate stem analysis and music theory sessions</div>
+        <div class="sid">013Y1JXAux…</div>
+      </div>
+    </a>
+<a class="card" href="https://claude.ai/code/session_015gfWv6BaQQJcoWBYfhLCLn" target="_blank" data-status="Idle" data-title="debug drum classifier, abort .adg iteration loop">
+      <div class="bar" style="background:#9a958c"></div>
+      <div class="body">
+        <div class="pill" style="color:#9a958c;border-color:#9a958c33;background:#9a958c14">
+          <span class="material-icons-outlined">schedule</span>Idle
+        </div>
+        <div class="title">Debug drum classifier, abort .adg iteration loop</div>
+        <div class="sid">015gfWv6Ba…</div>
+      </div>
+    </a>
+<a class="card" href="https://claude.ai/code/session_01UaaieXkkBqPkj6eFRT18BH" target="_blank" data-status="Idle" data-title="resume corpus upskill: cross-pollination sweep">
+      <div class="bar" style="background:#9a958c"></div>
+      <div class="body">
+        <div class="pill" style="color:#9a958c;border-color:#9a958c33;background:#9a958c14">
+          <span class="material-icons-outlined">schedule</span>Idle
+        </div>
+        <div class="title">Resume corpus upskill: cross-pollination sweep</div>
+        <div class="sid">01UaaieXkk…</div>
+      </div>
+    </a>
+<a class="card" href="https://claude.ai/code/session_01K4Jqxw4r6Y4iKybHuniQkH" target="_blank" data-status="Idle" data-title="review recent midi files and comments">
+      <div class="bar" style="background:#9a958c"></div>
+      <div class="body">
+        <div class="pill" style="color:#9a958c;border-color:#9a958c33;background:#9a958c14">
+          <span class="material-icons-outlined">schedule</span>Idle
+        </div>
+        <div class="title">Review recent MIDI files and comments</div>
+        <div class="sid">01K4Jqxw4r…</div>
+      </div>
+    </a>
+<a class="card" href="https://claude.ai/code/session_016vd4KFmDZ1oULHddaNAV8f" target="_blank" data-status="Idle" data-title="evaluate and iterate synth session workflow">
+      <div class="bar" style="background:#9a958c"></div>
+      <div class="body">
+        <div class="pill" style="color:#9a958c;border-color:#9a958c33;background:#9a958c14">
+          <span class="material-icons-outlined">schedule</span>Idle
+        </div>
+        <div class="title">Evaluate and iterate synth session workflow</div>
+        <div class="sid">016vd4KFmD…</div>
+      </div>
+    </a>
+<a class="card" href="https://claude.ai/code/session_01JnJtBwdG3ymAT6Ury4TWLv" target="_blank" data-status="Idle" data-title="evaluate and improve past midi writing sessions">
+      <div class="bar" style="background:#9a958c"></div>
+      <div class="body">
+        <div class="pill" style="color:#9a958c;border-color:#9a958c33;background:#9a958c14">
+          <span class="material-icons-outlined">schedule</span>Idle
+        </div>
+        <div class="title">Evaluate and improve past MIDI writing sessions</div>
+        <div class="sid">01JnJtBwdG…</div>
+      </div>
+    </a>
+<a class="card" href="https://claude.ai/code/session_01BVthKLCZazMedN1Mx6Vh9g" target="_blank" data-status="Idle" data-title="jacks-imac-local-dapper-island">
+      <div class="bar" style="background:#9a958c"></div>
+      <div class="body">
+        <div class="pill" style="color:#9a958c;border-color:#9a958c33;background:#9a958c14">
+          <span class="material-icons-outlined">schedule</span>Idle
+        </div>
+        <div class="title">jacks-imac-local-dapper-island</div>
+        <div class="sid">01BVthKLCZ…</div>
+      </div>
+    </a>
+<a class="card" href="https://claude.ai/code/session_01SrbYh6tzZAdKij82rEgNYD" target="_blank" data-status="Idle" data-title="build adg ableton template for let it happen">
+      <div class="bar" style="background:#9a958c"></div>
+      <div class="body">
+        <div class="pill" style="color:#9a958c;border-color:#9a958c33;background:#9a958c14">
+          <span class="material-icons-outlined">schedule</span>Idle
+        </div>
+        <div class="title">Build ADG Ableton template for Let It Happen</div>
+        <div class="sid">01SrbYh6tz…</div>
+      </div>
+    </a>
+<a class="card" href="https://claude.ai/code/session_01ACfXWk6rcXp4yj6qQu53iY" target="_blank" data-status="Idle" data-title="create dashboard for last 20 touched chats">
+      <div class="bar" style="background:#9a958c"></div>
+      <div class="body">
+        <div class="pill" style="color:#9a958c;border-color:#9a958c33;background:#9a958c14">
+          <span class="material-icons-outlined">schedule</span>Idle
+        </div>
+        <div class="title">Create dashboard for last 20 touched chats</div>
+        <div class="sid">01ACfXWk6r…</div>
+      </div>
+    </a>
+<a class="card" href="https://claude.ai/code/session_01Gpqx5zQwsFxXVBeLExAa2A" target="_blank" data-status="Idle" data-title="index new christian devotional book">
+      <div class="bar" style="background:#9a958c"></div>
+      <div class="body">
+        <div class="pill" style="color:#9a958c;border-color:#9a958c33;background:#9a958c14">
+          <span class="material-icons-outlined">schedule</span>Idle
+        </div>
+        <div class="title">Index new Christian devotional book</div>
+        <div class="sid">01Gpqx5zQw…</div>
+      </div>
+    </a>
+<a class="card" href="https://claude.ai/code/session_01VTWMBEBoP5ghv6WyXfgWXs" target="_blank" data-status="Idle" data-title="very nice 2000 sample improvement">
+      <div class="bar" style="background:#9a958c"></div>
+      <div class="body">
+        <div class="pill" style="color:#9a958c;border-color:#9a958c33;background:#9a958c14">
+          <span class="material-icons-outlined">schedule</span>Idle
+        </div>
+        <div class="title">Very Nice 2000 Sample Improvement</div>
+        <div class="sid">01VTWMBEBo…</div>
+      </div>
+    </a>
+<a class="card" href="https://claude.ai/code/session_019n2dDBG9NhmdMepshyzMjb" target="_blank" data-status="Idle" data-title="design world-class drum processing plan with max4live">
+      <div class="bar" style="background:#9a958c"></div>
+      <div class="body">
+        <div class="pill" style="color:#9a958c;border-color:#9a958c33;background:#9a958c14">
+          <span class="material-icons-outlined">schedule</span>Idle
+        </div>
+        <div class="title">Design world-class drum processing plan with Max4Live</div>
+        <div class="sid">019n2dDBG9…</div>
+      </div>
+    </a>
+<a class="card" href="https://claude.ai/code/session_01M4jVCNPMzQUguVvgnNdkTE" target="_blank" data-status="Idle" data-title="review drum hit adg creation process">
+      <div class="bar" style="background:#9a958c"></div>
+      <div class="body">
+        <div class="pill" style="color:#9a958c;border-color:#9a958c33;background:#9a958c14">
+          <span class="material-icons-outlined">schedule</span>Idle
+        </div>
+        <div class="title">Review drum hit ADG creation process</div>
+        <div class="sid">01M4jVCNPM…</div>
+      </div>
+    </a>
+<a class="card" href="https://claude.ai/code/session_016sbTXsoXyAgxK1m6xY65Ki" target="_blank" data-status="Idle" data-title="remote control system implementation">
+      <div class="bar" style="background:#9a958c"></div>
+      <div class="body">
+        <div class="pill" style="color:#9a958c;border-color:#9a958c33;background:#9a958c14">
+          <span class="material-icons-outlined">schedule</span>Idle
+        </div>
+        <div class="title">Remote control system implementation</div>
+        <div class="sid">016sbTXsoX…</div>
+      </div>
+    </a>
+<a class="card" href="https://claude.ai/code/session_01Td4pHh8pVRxyJNmeFNwZq8" target="_blank" data-status="Idle" data-title="etsy">
+      <div class="bar" style="background:#9a958c"></div>
+      <div class="body">
+        <div class="pill" style="color:#9a958c;border-color:#9a958c33;background:#9a958c14">
+          <span class="material-icons-outlined">schedule</span>Idle
+        </div>
+        <div class="title">Etsy</div>
+        <div class="sid">01Td4pHh8p…</div>
+      </div>
+    </a>
+<a class="card" href="https://claude.ai/code/session_01Jc9LsGAXJWZ8Q9ZqwsELCZ" target="_blank" data-status="Idle" data-title="project rc">
+      <div class="bar" style="background:#9a958c"></div>
+      <div class="body">
+        <div class="pill" style="color:#9a958c;border-color:#9a958c33;background:#9a958c14">
+          <span class="material-icons-outlined">schedule</span>Idle
+        </div>
+        <div class="title">PROJECT RC</div>
+        <div class="sid">01Jc9LsGAX…</div>
+      </div>
+    </a>
+<a class="card" href="https://claude.ai/code/session_01A7uh4QBAXeDxULf771jMRZ" target="_blank" data-status="Idle" data-title="build genius.com style song meanings platform">
+      <div class="bar" style="background:#9a958c"></div>
+      <div class="body">
+        <div class="pill" style="color:#9a958c;border-color:#9a958c33;background:#9a958c14">
+          <span class="material-icons-outlined">schedule</span>Idle
+        </div>
+        <div class="title">Build genius.com style song meanings platform</div>
+        <div class="sid">01A7uh4QBA…</div>
+      </div>
+    </a>
+<a class="card" href="https://claude.ai/code/session_01KMxsC5dGKKr87NeteLp5Ys" target="_blank" data-status="Idle" data-title="laurel canyon book">
+      <div class="bar" style="background:#9a958c"></div>
+      <div class="body">
+        <div class="pill" style="color:#9a958c;border-color:#9a958c33;background:#9a958c14">
+          <span class="material-icons-outlined">schedule</span>Idle
+        </div>
+        <div class="title">Laurel Canyon Book</div>
+        <div class="sid">01KMxsC5dG…</div>
+      </div>
+    </a>
+<a class="card" href="https://claude.ai/code/session_01FvYXo5YujVsncByFsCYANs" target="_blank" data-status="Idle" data-title="refresh index and dashboard build">
+      <div class="bar" style="background:#9a958c"></div>
+      <div class="body">
+        <div class="pill" style="color:#9a958c;border-color:#9a958c33;background:#9a958c14">
+          <span class="material-icons-outlined">schedule</span>Idle
+        </div>
+        <div class="title">Refresh index and dashboard build</div>
+        <div class="sid">01FvYXo5Yu…</div>
+      </div>
+    </a>
+<a class="card" href="https://claude.ai/code/session_01HDV9s3PAG3yRarnyJAz9dh" target="_blank" data-status="Idle" data-title="audit ableton files for compatibility and upgrade">
+      <div class="bar" style="background:#9a958c"></div>
+      <div class="body">
+        <div class="pill" style="color:#9a958c;border-color:#9a958c33;background:#9a958c14">
+          <span class="material-icons-outlined">schedule</span>Idle
+        </div>
+        <div class="title">Audit Ableton files for compatibility and upgrade</div>
+        <div class="sid">01HDV9s3PA…</div>
+      </div>
+    </a>
+<a class="card" href="https://claude.ai/code/session_01JF8tZttFq2iB1oxGAWGFBk" target="_blank" data-status="Idle" data-title="update dashboard v3 with chat summaries">
+      <div class="bar" style="background:#9a958c"></div>
+      <div class="body">
+        <div class="pill" style="color:#9a958c;border-color:#9a958c33;background:#9a958c14">
+          <span class="material-icons-outlined">schedule</span>Idle
+        </div>
+        <div class="title">Update dashboard v3 with chat summaries</div>
+        <div class="sid">01JF8tZttF…</div>
+      </div>
+    </a>
+<a class="card" href="https://claude.ai/code/session_01J6pdaCx3uzd2e33fQ3n2R1" target="_blank" data-status="Idle" data-title="organize ebook files and create templates">
+      <div class="bar" style="background:#9a958c"></div>
+      <div class="body">
+        <div class="pill" style="color:#9a958c;border-color:#9a958c33;background:#9a958c14">
+          <span class="material-icons-outlined">schedule</span>Idle
+        </div>
+        <div class="title">Organize ebook files and create templates</div>
+        <div class="sid">01J6pdaCx3…</div>
+      </div>
+    </a>
+<a class="card" href="https://claude.ai/code/session_01EH7pFqN6fna6Pj2AGEbjkZ" target="_blank" data-status="Idle" data-title="ihopu project">
+      <div class="bar" style="background:#9a958c"></div>
+      <div class="body">
+        <div class="pill" style="color:#9a958c;border-color:#9a958c33;background:#9a958c14">
+          <span class="material-icons-outlined">schedule</span>Idle
+        </div>
+        <div class="title">IHOPU PROJECT</div>
+        <div class="sid">01EH7pFqN6…</div>
+      </div>
+    </a>
+<a class="card" href="https://claude.ai/code/session_01BgW9G5VdgAjUTP6t5Lw89S" target="_blank" data-status="Idle" data-title="fugazi">
+      <div class="bar" style="background:#9a958c"></div>
+      <div class="body">
+        <div class="pill" style="color:#9a958c;border-color:#9a958c33;background:#9a958c14">
+          <span class="material-icons-outlined">schedule</span>Idle
+        </div>
+        <div class="title">FUGAZI</div>
+        <div class="sid">01BgW9G5Vd…</div>
+      </div>
+    </a>
+<a class="card" href="https://claude.ai/code/session_01466y67wwxUMZMEju1YDMZ6" target="_blank" data-status="Idle" data-title="extract and analyze music stems">
+      <div class="bar" style="background:#9a958c"></div>
+      <div class="body">
+        <div class="pill" style="color:#9a958c;border-color:#9a958c33;background:#9a958c14">
+          <span class="material-icons-outlined">schedule</span>Idle
+        </div>
+        <div class="title">Extract and analyze music stems</div>
+        <div class="sid">01466y67ww…</div>
+      </div>
+    </a>
+<a class="card" href="https://claude.ai/code/session_014NxJHgPy8b1sfpLSWEznpC" target="_blank" data-status="Idle" data-title="music book writing skill guide">
+      <div class="bar" style="background:#9a958c"></div>
+      <div class="body">
+        <div class="pill" style="color:#9a958c;border-color:#9a958c33;background:#9a958c14">
+          <span class="material-icons-outlined">schedule</span>Idle
+        </div>
+        <div class="title">Music book writing skill guide</div>
+        <div class="sid">014NxJHgPy…</div>
+      </div>
+    </a>
+<a class="card" href="https://claude.ai/code/session_01PKTCpcXzNsYbgwxrwUYiXa" target="_blank" data-status="Idle" data-title="install libprojectm library from zip">
+      <div class="bar" style="background:#9a958c"></div>
+      <div class="body">
+        <div class="pill" style="color:#9a958c;border-color:#9a958c33;background:#9a958c14">
+          <span class="material-icons-outlined">schedule</span>Idle
+        </div>
+        <div class="title">Install libprojectM library from zip</div>
+        <div class="sid">01PKTCpcXz…</div>
+      </div>
+    </a>
+<a class="card" href="https://claude.ai/code/session_01W6RKsCroeQhyzX15NPdUjz" target="_blank" data-status="Idle" data-title="youtube playlists by corey russell 2005-2024">
+      <div class="bar" style="background:#9a958c"></div>
+      <div class="body">
+        <div class="pill" style="color:#9a958c;border-color:#9a958c33;background:#9a958c14">
+          <span class="material-icons-outlined">schedule</span>Idle
+        </div>
+        <div class="title">YouTube playlists by Corey Russell 2005-2024</div>
+        <div class="sid">01W6RKsCro…</div>
+      </div>
+    </a>
+<a class="card" href="https://claude.ai/code/session_0117LmLnRVs9ZVyzHbeNErQx" target="_blank" data-status="Idle" data-title="install local n8n on macos">
+      <div class="bar" style="background:#9a958c"></div>
+      <div class="body">
+        <div class="pill" style="color:#9a958c;border-color:#9a958c33;background:#9a958c14">
+          <span class="material-icons-outlined">schedule</span>Idle
+        </div>
+        <div class="title">Install local n8n on macOS</div>
+        <div class="sid">0117LmLnRV…</div>
+      </div>
+    </a>
+<a class="card" href="https://claude.ai/code/session_014eGAxJD5bRk49vxLuCRem2" target="_blank" data-status="Idle" data-title="query vault notes">
+      <div class="bar" style="background:#9a958c"></div>
+      <div class="body">
+        <div class="pill" style="color:#9a958c;border-color:#9a958c33;background:#9a958c14">
+          <span class="material-icons-outlined">schedule</span>Idle
+        </div>
+        <div class="title">Query vault notes</div>
+        <div class="sid">014eGAxJD5…</div>
+      </div>
+    </a>
+<a class="card" href="https://claude.ai/code/session_017vFr1LfWPu5adjpA4ZBsrU" target="_blank" data-status="Idle" data-title="chiron dashboard">
+      <div class="bar" style="background:#9a958c"></div>
+      <div class="body">
+        <div class="pill" style="color:#9a958c;border-color:#9a958c33;background:#9a958c14">
+          <span class="material-icons-outlined">schedule</span>Idle
+        </div>
+        <div class="title">CHIRON DASHBOARD</div>
+        <div class="sid">017vFr1LfW…</div>
+      </div>
+    </a>
+<a class="card" href="https://claude.ai/code/session_01L1fAzYder8diJcpVtoV7h6" target="_blank" data-status="Idle" data-title="mer de noms song write">
+      <div class="bar" style="background:#9a958c"></div>
+      <div class="body">
+        <div class="pill" style="color:#9a958c;border-color:#9a958c33;background:#9a958c14">
+          <span class="material-icons-outlined">schedule</span>Idle
+        </div>
+        <div class="title">Mer De Noms Song Write</div>
+        <div class="sid">01L1fAzYde…</div>
+      </div>
+    </a>
+<a class="card" href="https://claude.ai/code/session_01JbTLkUw2wycEaAU6GtWy27" target="_blank" data-status="Idle" data-title="extract youtube playlist transcripts analysis">
+      <div class="bar" style="background:#9a958c"></div>
+      <div class="body">
+        <div class="pill" style="color:#9a958c;border-color:#9a958c33;background:#9a958c14">
+          <span class="material-icons-outlined">schedule</span>Idle
+        </div>
+        <div class="title">Extract YouTube playlist transcripts analysis</div>
+        <div class="sid">01JbTLkUw2…</div>
+      </div>
+    </a>
+<a class="card" href="https://claude.ai/code/session_013A7HzWutV65UmmVreer5ZM" target="_blank" data-status="Idle" data-title="corey book style">
+      <div class="bar" style="background:#9a958c"></div>
+      <div class="body">
+        <div class="pill" style="color:#9a958c;border-color:#9a958c33;background:#9a958c14">
+          <span class="material-icons-outlined">schedule</span>Idle
+        </div>
+        <div class="title">Corey Book Style</div>
+        <div class="sid">013A7HzWut…</div>
+      </div>
+    </a>
+<a class="card" href="https://claude.ai/code/session_01NL65i12X1Rnhfdryed5xZi" target="_blank" data-status="Idle" data-title="midi-16 runs copy in rainbows">
+      <div class="bar" style="background:#9a958c"></div>
+      <div class="body">
+        <div class="pill" style="color:#9a958c;border-color:#9a958c33;background:#9a958c14">
+          <span class="material-icons-outlined">schedule</span>Idle
+        </div>
+        <div class="title">MIDI-16 runs copy in rainbows</div>
+        <div class="sid">01NL65i12X…</div>
+      </div>
+    </a>
+<a class="card" href="https://claude.ai/code/session_01H2xK4iAm5wNcaAbq79VrHq" target="_blank" data-status="Idle" data-title="compare midi runs and process artist files">
+      <div class="bar" style="background:#9a958c"></div>
+      <div class="body">
+        <div class="pill" style="color:#9a958c;border-color:#9a958c33;background:#9a958c14">
+          <span class="material-icons-outlined">schedule</span>Idle
+        </div>
+        <div class="title">Compare MIDI runs and process artist files</div>
+        <div class="sid">01H2xK4iAm…</div>
+      </div>
+    </a>
+<a class="card" href="https://claude.ai/code/session_01Mt1L9F74mYgHD3Gn7orucF" target="_blank" data-status="Idle" data-title="life of christ">
+      <div class="bar" style="background:#9a958c"></div>
+      <div class="body">
+        <div class="pill" style="color:#9a958c;border-color:#9a958c33;background:#9a958c14">
+          <span class="material-icons-outlined">schedule</span>Idle
+        </div>
+        <div class="title">LIFE OF CHRIST</div>
+        <div class="sid">01Mt1L9F74…</div>
+      </div>
+    </a>
+<a class="card" href="https://claude.ai/code/session_01QVjkC7JZ2JrpByALx2hDvU" target="_blank" data-status="Idle" data-title="jacks-imac-lan-fuzzy-lerdorf">
+      <div class="bar" style="background:#9a958c"></div>
+      <div class="body">
+        <div class="pill" style="color:#9a958c;border-color:#9a958c33;background:#9a958c14">
+          <span class="material-icons-outlined">schedule</span>Idle
+        </div>
+        <div class="title">jacks-imac-lan-fuzzy-lerdorf</div>
+        <div class="sid">01QVjkC7JZ…</div>
+      </div>
+    </a>
+<a class="card" href="https://claude.ai/code/session_01U9C6S3tx5ADZzHrimpWCss" target="_blank" data-status="Idle" data-title="design portfolio website like floema">
+      <div class="bar" style="background:#9a958c"></div>
+      <div class="body">
+        <div class="pill" style="color:#9a958c;border-color:#9a958c33;background:#9a958c14">
+          <span class="material-icons-outlined">schedule</span>Idle
+        </div>
+        <div class="title">Design portfolio website like Floema</div>
+        <div class="sid">01U9C6S3tx…</div>
+      </div>
+    </a>
+<a class="card" href="https://claude.ai/code/session_01Vfr4ctNkuwDfswEapse3pd" target="_blank" data-status="Idle" data-title="apply learning to dashboard html">
+      <div class="bar" style="background:#9a958c"></div>
+      <div class="body">
+        <div class="pill" style="color:#9a958c;border-color:#9a958c33;background:#9a958c14">
+          <span class="material-icons-outlined">schedule</span>Idle
+        </div>
+        <div class="title">Apply learning to dashboard HTML</div>
+        <div class="sid">01Vfr4ctNk…</div>
+      </div>
+    </a>
+<a class="card" href="https://claude.ai/code/session_012Vgtfn1pGpjVDRPgEfXjTX" target="_blank" data-status="Idle" data-title="build worship guitarist rig with midi and space effects">
+      <div class="bar" style="background:#9a958c"></div>
+      <div class="body">
+        <div class="pill" style="color:#9a958c;border-color:#9a958c33;background:#9a958c14">
+          <span class="material-icons-outlined">schedule</span>Idle
+        </div>
+        <div class="title">Build worship guitarist rig with MIDI and space effects</div>
+        <div class="sid">012Vgtfn1p…</div>
+      </div>
+    </a>
+<a class="card" href="https://claude.ai/code/session_01BztfEPA2fLeyXhfwhMMED1" target="_blank" data-status="Idle" data-title="fix pdf format and revise flat 6s content">
+      <div class="bar" style="background:#9a958c"></div>
+      <div class="body">
+        <div class="pill" style="color:#9a958c;border-color:#9a958c33;background:#9a958c14">
+          <span class="material-icons-outlined">schedule</span>Idle
+        </div>
+        <div class="title">Fix PDF format and revise flat 6s content</div>
+        <div class="sid">01BztfEPA2…</div>
+      </div>
+    </a>
+<a class="card" href="https://claude.ai/code/session_019jFT8eoh8ommQLRbNHYsGo" target="_blank" data-status="Idle" data-title="copy chats with work product labels">
+      <div class="bar" style="background:#9a958c"></div>
+      <div class="body">
+        <div class="pill" style="color:#9a958c;border-color:#9a958c33;background:#9a958c14">
+          <span class="material-icons-outlined">schedule</span>Idle
+        </div>
+        <div class="title">Copy chats with work product labels</div>
+        <div class="sid">019jFT8eoh…</div>
+      </div>
+    </a>
+<a class="card" href="https://claude.ai/code/session_01S2b2zaL2C2BcE4HRKLZbpN" target="_blank" data-status="Idle" data-title="learn midi composition skills from bands">
+      <div class="bar" style="background:#9a958c"></div>
+      <div class="body">
+        <div class="pill" style="color:#9a958c;border-color:#9a958c33;background:#9a958c14">
+          <span class="material-icons-outlined">schedule</span>Idle
+        </div>
+        <div class="title">Learn MIDI composition skills from bands</div>
+        <div class="sid">01S2b2zaL2…</div>
+      </div>
+    </a>
+<a class="card" href="https://claude.ai/code/session_01JefvEZ9aw4uqdFV2hWnEFy" target="_blank" data-status="Idle" data-title="apply feedback to skills v2 and update memory">
+      <div class="bar" style="background:#9a958c"></div>
+      <div class="body">
+        <div class="pill" style="color:#9a958c;border-color:#9a958c33;background:#9a958c14">
+          <span class="material-icons-outlined">schedule</span>Idle
+        </div>
+        <div class="title">Apply feedback to skills v2 and update memory</div>
+        <div class="sid">01JefvEZ9a…</div>
+      </div>
+    </a>
+<a class="card" href="https://claude.ai/code/session_01594aTZ5TKRJZb7aW8YtthA" target="_blank" data-status="Idle" data-title="jacks-imac-lan-playful-sloth">
+      <div class="bar" style="background:#9a958c"></div>
+      <div class="body">
+        <div class="pill" style="color:#9a958c;border-color:#9a958c33;background:#9a958c14">
+          <span class="material-icons-outlined">schedule</span>Idle
+        </div>
+        <div class="title">jacks-imac-lan-playful-sloth</div>
+        <div class="sid">01594aTZ5T…</div>
+      </div>
+    </a>
+<a class="card" href="https://claude.ai/code/session_01Wp34FaJcxVYxxkGjpn7HGj" target="_blank" data-status="Idle" data-title="jacks-imac-lan-valiant-kazoo">
+      <div class="bar" style="background:#9a958c"></div>
+      <div class="body">
+        <div class="pill" style="color:#9a958c;border-color:#9a958c33;background:#9a958c14">
+          <span class="material-icons-outlined">schedule</span>Idle
+        </div>
+        <div class="title">jacks-imac-lan-valiant-kazoo</div>
+        <div class="sid">01Wp34FaJc…</div>
+      </div>
+    </a>
+<a class="card" href="https://claude.ai/code/session_01QeW38cnL4kTwGio9EVLDES" target="_blank" data-status="Idle" data-title="jacks-imac-lan-zazzy-manatee">
+      <div class="bar" style="background:#9a958c"></div>
+      <div class="body">
+        <div class="pill" style="color:#9a958c;border-color:#9a958c33;background:#9a958c14">
+          <span class="material-icons-outlined">schedule</span>Idle
+        </div>
+        <div class="title">jacks-imac-lan-zazzy-manatee</div>
+        <div class="sid">01QeW38cnL…</div>
+      </div>
+    </a>
+<a class="card" href="https://claude.ai/code/session_01MvaZbVkoe83kTjMQBED9q9" target="_blank" data-status="Idle" data-title="review recent claude code chat sessions">
+      <div class="bar" style="background:#9a958c"></div>
+      <div class="body">
+        <div class="pill" style="color:#9a958c;border-color:#9a958c33;background:#9a958c14">
+          <span class="material-icons-outlined">schedule</span>Idle
+        </div>
+        <div class="title">Review recent Claude code chat sessions</div>
+        <div class="sid">01MvaZbVko…</div>
+      </div>
+    </a>
+<a class="card" href="https://claude.ai/code/session_016bnfqGinqdFzoqbkJzWi1t" target="_blank" data-status="Idle" data-title="vision and revelation prophecy dialogue transcript">
+      <div class="bar" style="background:#9a958c"></div>
+      <div class="body">
+        <div class="pill" style="color:#9a958c;border-color:#9a958c33;background:#9a958c14">
+          <span class="material-icons-outlined">schedule</span>Idle
+        </div>
+        <div class="title">Vision and Revelation prophecy dialogue transcript</div>
+        <div class="sid">016bnfqGin…</div>
+      </div>
+    </a>
+<a class="card" href="https://claude.ai/code/session_01W4yYQ57hnhDEkV7Ry1PCS2" target="_blank" data-status="Idle" data-title="create silent black screen mp4 video">
+      <div class="bar" style="background:#9a958c"></div>
+      <div class="body">
+        <div class="pill" style="color:#9a958c;border-color:#9a958c33;background:#9a958c14">
+          <span class="material-icons-outlined">schedule</span>Idle
+        </div>
+        <div class="title">Create silent black screen MP4 video</div>
+        <div class="sid">01W4yYQ57h…</div>
+      </div>
+    </a>
+<a class="card" href="https://claude.ai/code/session_01F4xwdK4QBBExVzkpxvwFKW" target="_blank" data-status="Idle" data-title="maximize moises api with limited credits">
+      <div class="bar" style="background:#9a958c"></div>
+      <div class="body">
+        <div class="pill" style="color:#9a958c;border-color:#9a958c33;background:#9a958c14">
+          <span class="material-icons-outlined">schedule</span>Idle
+        </div>
+        <div class="title">Maximize Moises API with limited credits</div>
+        <div class="sid">01F4xwdK4Q…</div>
+      </div>
+    </a>
+<a class="card" href="https://claude.ai/code/session_01WYjWZLmZbT8nF9ehWjhftV" target="_blank" data-status="Idle" data-title="jacks-imac-lan-generic-rocket">
+      <div class="bar" style="background:#9a958c"></div>
+      <div class="body">
+        <div class="pill" style="color:#9a958c;border-color:#9a958c33;background:#9a958c14">
+          <span class="material-icons-outlined">schedule</span>Idle
+        </div>
+        <div class="title">jacks-imac-lan-generic-rocket</div>
+        <div class="sid">01WYjWZLmZ…</div>
+      </div>
+    </a>
+  </div>
+  <div class="empty" id="nohit" style="display:none">No chats match that filter.</div>
+  <div class="foot">Board generated 2026-06-04 00:19 by <code>~/scripts/chat_status_board.py</code>.
+    Status reflects the last snapshot, not live state — hit ↻ Refresh or run the bookmarklet on claude.ai/code.</div>
+  <div id="toast"></div>
+<script>
+  const SRV = "http://127.0.0.1:8771";
+  const q=document.getElementById('q'), cards=[...document.querySelectorAll('.card')],
+        nohit=document.getElementById('nohit'), toast=document.getElementById('toast'),
+        srvPill=document.getElementById('srv'), promptEl=document.getElementById('prompt');
+  q.addEventListener('input',()=>{ const v=q.value.trim().toLowerCase(); let n=0;
+    cards.forEach(c=>{ const hit=!v||c.dataset.title.includes(v)||c.dataset.status.toLowerCase().includes(v);
+      c.style.display=hit?'':'none'; if(hit)n++; });
+    nohit.style.display=n?'none':'block'; });
+
+  function tell(msg, isErr) {
+    toast.textContent=msg;
+    toast.style.background = isErr ? "#d9534f" : "#2b2a28";
+    toast.classList.add("on");
+    setTimeout(()=>toast.classList.remove("on"), 3200);
+  }
+
+  // Health check
+  fetch(SRV+"/", {cache:"no-store"}).then(r=>r.text()).then(t=>{
+    srvPill.textContent = "● up"; srvPill.style.color="#3a8f5a"; srvPill.style.borderColor="#3a8f5a55";
+  }).catch(()=>{
+    srvPill.textContent = "✕ down"; srvPill.style.color="#d9534f"; srvPill.style.borderColor="#d9534f55";
+  });
+
+  document.querySelectorAll(".btn[data-act]").forEach(btn => btn.addEventListener("click", async () => {
+    const act = btn.dataset.act;
+    const prompt = promptEl.value.trim() || "check inbox";
+    btn.disabled = true; const old = btn.textContent; btn.textContent = "…";
+    try {
+      const r = await fetch(SRV+"/action", {
+        method:"POST", headers:{"Content-Type":"application/json"},
+        body: JSON.stringify({action: act, prompt})
+      });
+      const t = await r.text();
+      tell(t, !r.ok);
+      if (act === "refresh-status") setTimeout(()=>location.reload(), 800);
+    } catch (e) {
+      tell("error: " + e.message, true);
+    } finally {
+      btn.disabled = false; btn.textContent = old;
+    }
+  }));
+</script>
+
+</body></html>

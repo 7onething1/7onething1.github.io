@@ -1,0 +1,361 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>MTG Portfolio · CEO Pitch · What to Build Next</title>
+<meta name="description" content="A grounded CEO pitch: review of the five shipped Magic: The Gathering assets, then a ranked slate of the highest-value next builds.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,500;0,600;0,700;1,500&family=Inter:wght@400;500;600;700&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
+<style>
+  :root{
+    --bg:#F1E6D2; --ink:#111111; --card:#FFF7E6; --line:#caa97a;
+    --gold:#C7A458; --salmon:#E6A88A; --teal:#5B8C8A; --olive:#8A8F4F;
+    --plum:#7A5A6E; --dim:#766852; --hot:#B85450;
+  }
+  *{box-sizing:border-box;}
+  html{scroll-behavior:smooth;}
+  body{margin:0;background:var(--bg);color:var(--ink);
+    font-family:"Inter",system-ui,sans-serif;line-height:1.6;
+    -webkit-font-smoothing:antialiased;}
+  .wrap{max-width:1000px;margin:0 auto;padding:48px 22px 120px;}
+  header.hero{border-bottom:3px solid var(--ink);padding-bottom:26px;margin-bottom:34px;}
+  .eyebrow{font:600 12px/1 "JetBrains Mono",monospace;letter-spacing:.22em;
+    text-transform:uppercase;color:var(--plum);}
+  h1{font-family:"Cormorant Garamond",serif;font-weight:700;
+    font-size:clamp(34px,6vw,58px);line-height:1.03;margin:.28em 0 .12em;}
+  .sub{font-size:clamp(16px,2.2vw,20px);color:var(--dim);max-width:60ch;}
+  .memo{font:500 13px/1.5 "JetBrains Mono",monospace;color:var(--dim);
+    margin-top:18px;padding:12px 16px;background:var(--card);
+    border:1px solid var(--line);border-radius:10px;}
+  h2{font-family:"Cormorant Garamond",serif;font-weight:700;
+    font-size:clamp(26px,4vw,38px);margin:52px 0 6px;
+    border-bottom:2px solid var(--line);padding-bottom:8px;}
+  .lede{color:var(--dim);margin:0 0 18px;max-width:66ch;}
+  /* portfolio strip */
+  .grid{display:grid;gap:16px;grid-template-columns:repeat(auto-fit,minmax(240px,1fr));}
+  .asset{background:var(--card);border:1px solid var(--line);border-radius:12px;
+    padding:16px 18px;box-shadow:3px 3px 0 rgba(43,39,35,.10);}
+  .asset h3{margin:0 0 4px;font-family:"Cormorant Garamond",serif;font-size:22px;}
+  .asset p{margin:0 0 10px;font-size:14px;color:var(--dim);}
+  .asset a{font:600 13px/1 "Inter";color:var(--teal);text-decoration:none;}
+  .asset a:hover{text-decoration:underline;}
+  .tagm{display:inline-block;font:600 10px/1 "JetBrains Mono",monospace;
+    letter-spacing:.1em;text-transform:uppercase;padding:3px 7px;border-radius:5px;
+    background:var(--bg);border:1px solid var(--line);color:var(--dim);margin-bottom:8px;}
+  /* pitch cards */
+  .pitch{background:var(--card);border:1px solid var(--line);border-left:6px solid var(--gold);
+    border-radius:12px;padding:20px 22px;margin:18px 0;
+    box-shadow:4px 4px 0 rgba(43,39,35,.12);}
+  .pitch.p1{border-left-color:var(--hot);}
+  .pitch.p2{border-left-color:var(--teal);}
+  .pitch.p3{border-left-color:var(--olive);}
+  .rank{font:700 13px/1 "JetBrains Mono",monospace;color:var(--plum);letter-spacing:.06em;}
+  .pitch h3{font-family:"Cormorant Garamond",serif;font-weight:700;
+    font-size:clamp(22px,3vw,28px);margin:4px 0 8px;}
+  .pitch .built{font:500 12px/1.4 "JetBrains Mono",monospace;color:var(--dim);
+    margin:0 0 12px;}
+  .pitch p{margin:0 0 10px;}
+  .why{font-weight:600;}
+  .meta{display:flex;flex-wrap:wrap;gap:8px;margin-top:12px;}
+  .chip{font:600 12px/1 "Inter";padding:6px 11px;border-radius:999px;
+    border:1px solid var(--line);background:var(--bg);}
+  .chip b{color:var(--ink);}
+  .val-hi{background:#EbF3E8;border-color:var(--olive);}
+  .eff-lo{background:#EAF2F1;border-color:var(--teal);}
+  .ask{margin-top:12px;padding:10px 14px;background:var(--bg);border-radius:8px;
+    border:1px dashed var(--line);font-size:14px;}
+  .ask b{color:var(--hot);}
+  /* sequence */
+  ol.seq{counter-reset:s;list-style:none;padding:0;max-width:72ch;}
+  ol.seq li{position:relative;padding:12px 12px 12px 52px;margin:10px 0;
+    background:var(--card);border:1px solid var(--line);border-radius:10px;}
+  ol.seq li::before{counter-increment:s;content:counter(s);
+    position:absolute;left:12px;top:50%;transform:translateY(-50%);
+    width:28px;height:28px;border-radius:50%;background:var(--plum);color:#fff;
+    display:grid;place-items:center;font:700 14px "JetBrains Mono",monospace;}
+  footer{margin-top:60px;padding-top:20px;border-top:2px solid var(--line);
+    font:500 13px/1.6 "JetBrains Mono",monospace;color:var(--dim);}
+  a.tlink{color:var(--teal);}
+  /* status revision 2026-07-18 */
+  .pitch.shipped{border-left-color:var(--olive);opacity:.97;}
+  .pitch.shipped h3{text-decoration:line-through;text-decoration-thickness:2px;
+    text-decoration-color:var(--olive);}
+  .ship{display:inline-block;font:700 11px/1 "JetBrains Mono",monospace;letter-spacing:.1em;
+    text-transform:uppercase;padding:4px 9px;border-radius:5px;background:var(--olive);
+    color:#fff;margin-left:8px;vertical-align:middle;}
+  .delivered{margin-top:12px;padding:12px 15px;background:#EbF3E8;border:1px solid var(--olive);
+    border-radius:9px;font-size:14px;}
+  .delivered b{color:#4a5020;}
+  .finding{margin-top:12px;padding:12px 15px;background:#F6E4E1;border:1px solid var(--hot);
+    border-radius:9px;font-size:14px;}
+  .finding b{color:var(--hot);}
+  .revbox{background:var(--card);border:2px solid var(--olive);border-radius:12px;
+    padding:20px 22px;margin:26px 0 10px;box-shadow:4px 4px 0 rgba(138,143,79,.22);}
+  .revbox h3{font-family:"Cormorant Garamond",serif;font-size:26px;margin:0 0 10px;}
+  table.st{width:100%;border-collapse:collapse;margin:12px 0 4px;font-size:14px;}
+  table.st th,table.st td{text-align:left;padding:8px 10px;border-bottom:1px solid var(--line);}
+  table.st th{font:700 11px/1 "JetBrains Mono",monospace;letter-spacing:.08em;
+    text-transform:uppercase;color:var(--dim);}
+  table.st td.n{font-family:"JetBrains Mono",monospace;}
+  .ok{color:#4a5020;font-weight:700;} .bad{color:var(--hot);font-weight:700;}
+  @media (max-width:560px){ .wrap{padding:32px 16px 120px;} table.st{font-size:12.5px;} }
+</style>
+</head>
+<body>
+<div class="wrap">
+
+<header class="hero">
+  <div class="eyebrow">Board of Advisers · Product Pitch</div>
+  <h1>The MTG Portfolio, and what to fund next</h1>
+  <p class="sub">Nineteen Magic: The Gathering assets already ship. Here is the honest read on each, then a ranked slate of the next builds that would actually move the needle. Two of the eight pitches have since been funded and delivered, and one of them came back with a finding that changes its own ceiling.</p>
+  <div class="memo">TO: The CEO &nbsp;·&nbsp; FROM: Product &nbsp;·&nbsp; RE: turning one-offs into one compounding line &nbsp;·&nbsp; original 2026-07-08 &nbsp;·&nbsp; <b>status revision 2026-07-18</b></div>
+</header>
+
+<div class="revbox">
+  <h3>Status revision · 2026-07-18</h3>
+  <p style="margin:0 0 10px">Ten days on, two pitches are delivered and live. Every route below was checked this morning and returned <b>HTTP 200</b>.</p>
+  <table class="st">
+    <tr><th>Pitch</th><th>Status</th><th>What shipped</th></tr>
+    <tr>
+      <td class="n">03</td><td class="ok">SHIPPED</td>
+      <td>Craft ranker unpinned from Mardu. <a class="tlink" href="https://drwu-htmls.vercel.app/mtga-craft-planner/" target="_blank" rel="noopener">MTGA Craft Planner</a> takes any color combo, ranks 25 archetypes by mythic win rate, and walks a collection-aware craft path over 60 staples.</td>
+    </tr>
+    <tr>
+      <td class="n">08</td><td class="ok">SHIPPED</td>
+      <td>Creator database live at <a class="tlink" href="https://drwu-htmls.vercel.app/mtg-creator-decks" target="_blank" rel="noopener">Creator Standard Decks</a>: <b>83 decks, 13 creators</b>, each with decklist link, colors and archetype. Today it also sorts by <b>price to build</b> and <b>wildcards to build</b>.</td>
+    </tr>
+    <tr><td class="n">01, 02, 04, 05, 06, 07</td><td>open</td><td>Unchanged. Pitch 01 is still the recommendation.</td></tr>
+  </table>
+  <div class="finding" style="margin-top:14px">
+    <b>The finding that matters:</b> Pitch 08 asked for "a slow polite Moxfield harvester." Politeness turns out not to be the obstacle. <b>Moxfield answers 403 behind Cloudflare</b> on both its API host and its public deck page after the 301, and <b>Aetherhub answers 403</b> the same way. Rate limiting does not change that. Of 83 decks, only the <b>7</b> on MTGGoldfish expose a machine-readable list, so <b>76 read "list walled"</b> rather than carry a fabricated price. The remaining decklists need a signed-in browser pass, which is a different and more expensive ask than the one this memo originally made.
+  </div>
+</div>
+
+<h2>What we already have</h2>
+<p class="lede">Corrected inventory: roughly nineteen live MTG routes, not the six I first showed. The earlier count missed every "marvel", "commander", and codenamed page. Grouped below, each link verified live.</p>
+<div class="grid">
+  <div class="asset">
+    <span class="tagm">Data pipeline · 10 pages</span>
+    <h3>Marvel set suite</h3>
+    <p>Real Scryfall cards joined to LLM set-review grades and dated market signals, the crown jewel.</p>
+    <a href="https://drwu-htmls.vercel.app/marvel-what-this-is/" target="_blank" rel="noopener">Dossier</a> ·
+    <a href="https://drwu-htmls.vercel.app/marvel-standard-feedback/" target="_blank" rel="noopener">Standard review</a> ·
+    <a href="https://drwu-htmls.vercel.app/marvel-commander-feedback/" target="_blank" rel="noopener">Commander review</a> ·
+    <a href="https://drwu-htmls.vercel.app/marvel-spec-targets/" target="_blank" rel="noopener">Spec targets</a> ·
+    <a href="https://drwu-htmls.vercel.app/marvel-dashboard-spotcheck/" target="_blank" rel="noopener">Spot-check audit</a> ·
+    <a href="https://drwu-htmls.vercel.app/marvel-limited-deckbuilder/" target="_blank" rel="noopener">Sealed builder</a> ·
+    <a href="https://drwu-htmls.vercel.app/marvel-draft-targets/" target="_blank" rel="noopener">Draft targets</a> ·
+    <a href="https://drwu-htmls.vercel.app/marvel-jumpstart-rankings/" target="_blank" rel="noopener">Jumpstart pair ranker</a> ·
+    <a href="https://drwu-htmls.vercel.app/marvel15-standard/" target="_blank" rel="noopener">Best-cards for Standard</a> ·
+    <a href="https://drwu-htmls.vercel.app/marvel-thanos-deck/" target="_blank" rel="noopener">Mardu Thanos sealed</a>
+  </div>
+  <div class="asset">
+    <span class="tagm">Arena rankers · 2 pages</span>
+    <h3>MTGA craft planners</h3>
+    <p>Wildcard crafting priority for Arena, ranked by winning-deck count, read against your collection. The planner takes any color combo; the original is pinned to Mardu.</p>
+    <a href="https://drwu-htmls.vercel.app/mtga-craft-planner/" target="_blank" rel="noopener">Craft Planner (any colors)</a> ·
+    <a href="https://drwu-htmls.vercel.app/mtga-mardu-craft/" target="_blank" rel="noopener">Mardu ranker</a>
+  </div>
+  <div class="asset">
+    <span class="tagm">Creator database</span>
+    <h3>Creator Standard Decks</h3>
+    <p>83 recent Standard decks from 13 tracked creators, filterable by color and by spike-or-brew, sortable by paper price to build and by Arena wildcards to build.</p>
+    <a href="https://drwu-htmls.vercel.app/mtg-creator-decks" target="_blank" rel="noopener">Open the database →</a>
+  </div>
+  <div class="asset">
+    <span class="tagm">Table trackers · 5 pages</span>
+    <h3>Life & game-state trackers</h3>
+    <p>In-game companions for the table, multiplayer life and score.</p>
+    <a href="https://drwu-htmls.vercel.app/marvel-life-tracker/" target="_blank" rel="noopener">Life Station (4P)</a> ·
+    <a href="https://drwu-htmls.vercel.app/marvel-life-tracker-v3/" target="_blank" rel="noopener">Life Station v3 (3P)</a> ·
+    <a href="https://drwu-htmls.vercel.app/marvel-2hg-tracker/" target="_blank" rel="noopener">Two-Headed Giant</a> ·
+    <a href="https://drwu-htmls.vercel.app/commander-toolbox" target="_blank" rel="noopener">Commander Life Toolbox</a> ·
+    <a href="https://drwu-htmls.vercel.app/magic-the-badgering-scorecard/" target="_blank" rel="noopener">Write It Down</a>
+  </div>
+  <div class="asset">
+    <span class="tagm">Commander decks · 2 pages</span>
+    <h3>Commander deck trackers</h3>
+    <p>Per-deck tracker pages built for specific Commander archetypes.</p>
+    <a href="https://drwu-htmls.vercel.app/commander-faerie" target="_blank" rel="noopener">Gossamer (Faerie)</a> ·
+    <a href="https://drwu-htmls.vercel.app/commander-zombie" target="_blank" rel="noopener">Gravecrawl (Zombie)</a>
+  </div>
+  <div class="asset">
+    <span class="tagm">Local & community</span>
+    <h3>Events & community</h3>
+    <p>Local play discovery and a community-deck status page.</p>
+    <a href="https://drwu-htmls.vercel.app/kc-mtg-events/" target="_blank" rel="noopener">KC MTG Events</a> ·
+    <a href="https://drwu-htmls.vercel.app/community-deck-status-2026-06-20/" target="_blank" rel="noopener">Community Deck status</a>
+  </div>
+  <div class="asset">
+    <span class="tagm">Creative asset</span>
+    <h3>Magic: The Badgering</h3>
+    <p>Thirty movie-quote comeback cards, a finished party game. Sellable as-is.</p>
+    <a href="https://drwu-htmls.vercel.app/magic-the-badgering/" target="_blank" rel="noopener">See the deck →</a>
+  </div>
+</div>
+
+<h2>The pitch, ranked</h2>
+<p class="lede">Ordered by value-to-effort. The top three are the ones I would fund this quarter.</p>
+
+<div class="pitch p1">
+  <div class="rank">PITCH 01 · fund first</div>
+  <h3>Grade the graders: the post-release accuracy backtest</h3>
+  <p class="built">Builds on: Marvel suite · the dossier admits it does NOT validate card-eval accuracy or market outcome.</p>
+  <p>The Marvel set has now released. Re-pull real market prices and score every LLM grade and every spec pick against what actually happened. Output one page: "our A-tier called X, the market did Y, our hit rate was Z%."</p>
+  <p class="why">Why fund it: this is the single credibility unlock. Right now the whole suite is a schema-validated opinion. A proven track record turns it into a reason to trust the next set review, and it is the only pitch here that makes every other MTG product more valuable at once.</p>
+  <div class="meta">
+    <span class="chip val-hi">Value <b>very high</b></span>
+    <span class="chip eff-lo">Effort <b>low</b> · data + one join already exist</span>
+    <span class="chip">Reuses <b>fetch_signals.py</b></span>
+  </div>
+  <div class="ask"><b>The ask:</b> one build pass to re-pull prices and publish the scorecard.</div>
+</div>
+
+<div class="pitch p1">
+  <div class="rank">PITCH 02 · fund first</div>
+  <h3>Turn the Marvel pipeline into a reusable Set Review Engine</h3>
+  <p class="built">Builds on: Marvel suite · the pipeline (fetch → grade → join signals → dashboards → spec targets → deckbuilder) is already set-agnostic.</p>
+  <p>Parametrize the pipeline by set code. Point it at the next Standard or Commander set during spoiler season and it produces the same five artifacts automatically. Four to six sets ship per year.</p>
+  <p class="why">Why fund it: this is the productization move. We built the hard part once for Marvel. Every future set becomes a repeatable, timely drop instead of a from-scratch project, and paired with Pitch 01 each drop carries a track record.</p>
+  <div class="meta">
+    <span class="chip val-hi">Value <b>high</b> · recurring</span>
+    <span class="chip">Effort <b>medium</b> · refactor, not rebuild</span>
+    <span class="chip">Reuses <b>generate_workflow.py</b>, <b>build_dashboards.py</b></span>
+  </div>
+  <div class="ask"><b>The ask:</b> lift the set code into config, run it on the next spoiled set as the pilot.</div>
+</div>
+
+<div class="pitch shipped">
+  <div class="rank">PITCH 03 · delivered 2026-07-08</div>
+  <h3>Generalize the craft ranker beyond Mardu<span class="ship">shipped</span></h3>
+  <p class="built">Builds on: MTGA Mardu Craft · the engine already ranks by deck-count, it is just pinned to three colors.</p>
+  <p>Let the user pick any colors or archetype and get the same wildcard priority list off live metagame decklists. Then add the collection-aware step it already has the data for: "given your wildcards, here is the cheapest path to a Tier-1 deck."</p>
+  <p class="why">Why fund it: the Mardu page proves the format works and people use it. Unpinning the colors turns one deck's tool into every Arena player's tool with almost no new logic.</p>
+  <div class="meta">
+    <span class="chip val-hi">Value <b>high</b></span>
+    <span class="chip eff-lo">Effort <b>low</b> · parametrize existing ranker</span>
+    <span class="chip">Reuses <b>update_mtga_mardu.py</b>, <b>collection.json</b></span>
+  </div>
+  <div class="ask"><b>The ask:</b> add a color/archetype selector and the shortest-craft-path planner.</div>
+  <div class="delivered"><b>Delivered.</b> Both halves of the ask are live in the <a class="tlink" href="https://drwu-htmls.vercel.app/mtga-craft-planner/" target="_blank" rel="noopener">MTGA Craft Planner</a>: pick any color combo, get every archetype that fits inside it ranked by mythic win rate, then a collection-aware craft path ordered by how many top archetypes run each card, with a running wildcard cost. Built from the Untapped pull over 25 archetypes and 60 staples. The honest limit the page states itself: the staple list skews colorless, so colors drive the archetype ranking harder than they drive the craft list.</div>
+</div>
+
+<div class="pitch p2">
+  <div class="rank">PITCH 04 · next up</div>
+  <h3>Make KC Events live, with a "today" button and calendar subscribe</h3>
+  <p class="built">Builds on: KC MTG Events · the "today" button was already requested in a prior session.</p>
+  <p>Wire real store event feeds, add the "today" filter, and ship an ICS export so events land on the user's phone calendar. Then the cross-sell: flag which nearby stores stock current spec targets under market.</p>
+  <p class="why">Why fund it: it is the one asset with a concrete unmet request already on record, and it is the natural bridge that connects the events data to the spec-target data.</p>
+  <div class="meta">
+    <span class="chip">Value <b>medium-high</b> · local, sticky</span>
+    <span class="chip">Effort <b>medium</b> · needs a feed source</span>
+  </div>
+  <div class="ask"><b>The ask:</b> pick a store feed, add today + ICS, then link spec targets to inventory.</div>
+</div>
+
+<div class="pitch p2">
+  <div class="rank">PITCH 05 · next up</div>
+  <h3>Spec-target price alerts</h3>
+  <p class="built">Builds on: Marvel spec-target sheet · today it is a static snapshot.</p>
+  <p>Re-pull signals on a schedule and fire a phone alert when a spec target crosses a buy or sell threshold. The daily-pull machinery already exists elsewhere in the toolchain.</p>
+  <p class="why">Why fund it: a snapshot is a guess, an alert is a reason to open the app. It converts a one-time page view into a standing utility.</p>
+  <div class="meta">
+    <span class="chip">Value <b>medium</b></span>
+    <span class="chip eff-lo">Effort <b>low</b> · scheduler + threshold</span>
+  </div>
+  <div class="ask"><b>The ask:</b> a daily signal re-pull plus a threshold-crossing notifier.</div>
+</div>
+
+<div class="pitch p3">
+  <div class="rank">PITCH 06 · easy money</div>
+  <h3>Package Magic: The Badgering as a print-and-play product</h3>
+  <p class="built">Builds on: Magic: The Badgering · thirty cards, already designed.</p>
+  <p>Export the deck as a print-ready PDF and list it on the existing shop lane. The thirty cards already exist, so this is only layout and a listing.</p>
+  <p class="why">Why fund it: it is the lowest-effort item on the board and the only one that can return money directly. A built asset, sitting idle.</p>
+  <div class="meta">
+    <span class="chip val-hi">Value <b>medium</b> · direct revenue</span>
+    <span class="chip eff-lo">Effort <b>very low</b></span>
+  </div>
+  <div class="ask"><b>The ask:</b> a print PDF and one shop listing.</div>
+</div>
+
+<div class="pitch p3">
+  <div class="rank">PITCH 07 · the tie-together</div>
+  <h3>One MTG hub, wired into the canonical board</h3>
+  <p class="built">Builds on: all five assets, which currently live as scattered routes.</p>
+  <p>A single launcher tile linking every MTG page, added into the existing indexes-board rather than a new board.</p>
+  <p class="why">Why fund it: five good pages nobody can find is worth less than five good pages behind one door. It also makes the portfolio legible for exactly this kind of review next time.</p>
+  <div class="meta">
+    <span class="chip">Value <b>medium</b> · discoverability</span>
+    <span class="chip eff-lo">Effort <b>very low</b></span>
+  </div>
+  <div class="ask"><b>The ask:</b> one hub tile, folded into /indexes-board.</div>
+</div>
+
+<div class="pitch shipped">
+  <div class="rank">PITCH 08 · delivered 2026-07-11, extended 2026-07-18</div>
+  <h3>The creator-sourced winrate database<span class="ship">shipped, with a caveat</span></h3>
+  <p class="built">Builds on: the yt_trans skill (already pulled an mtg-mono-black transcript corpus) + the Marvel/Mardu data layer + the YouTube politeness rule (slow, randomized pulls).</p>
+  <p>Comb the latest content from named MTG creators. For each video, grab the linked Moxfield decklist slowly and politely, one at a time. Aggregate a database keyed on win rate, color identity, and archetype, then mine the transcript for what the creator actually claims about the deck. Match the spoken claims to the list and attach a confidence score to each entry.</p>
+  <p class="why">Why fund it: our current grades and craft ranks lean on preorder prices and raw deck counts. Creator winrate plus a decklist plus the creator's own words is a richer, opinion-weighted signal, and the confidence score keeps a hype video from outvoting a tested list. It feeds Pitch 01, Pitch 03, and Pitch 05 at once.</p>
+  <div class="meta">
+    <span class="chip">Value <b>high</b> · new signal source</span>
+    <span class="chip">Effort <b>high</b> · scraper + join + confidence model</span>
+    <span class="chip">Reuses <b>yt_trans</b>, Moxfield lists</span>
+  </div>
+  <div class="ask"><b>The ask:</b> a slow polite Moxfield harvester, a winrate/color/archetype DB, and a transcript-claim confidence match.</div>
+  <div class="delivered"><b>Delivered.</b> <a class="tlink" href="https://drwu-htmls.vercel.app/mtg-creator-decks" target="_blank" rel="noopener">Creator Standard Decks</a> is live: 13 creators, 83 decks, each with its decklist link, colors, archetype, and a spike-or-brew read. The 2026-07-18 pass added the two build-cost sorts the craft planner implied. <b>Price to build</b> is paper USD for the full list from the cheapest Scryfall printing of every card. <b>Wildcards to build</b> is what Arena charges after subtracting the 8,795 owned card names resolved out of the collection export, bucketed by rarity and sorted on rare-plus-mythic, which is the number that actually gates a build. Range across the seven priced decks runs $90 to $575, and 4 to 30 rare-plus-mythic.</div>
+  <div class="finding"><b>Two caveats the CEO should hear.</b> First, the harvester premise failed: Moxfield and Aetherhub both return <b>403 behind Cloudflare</b>, so 76 of 83 decks show "list walled" instead of a price. Politeness was never the blocker, and unwalling them means a signed-in browser pass. Second, the transcript-claim confidence model in the original ask was <b>never built</b>. YouTube's transcript API returned RequestBlocked, so colors and archetype come from video descriptions, not spoken claims. The opinion-weighted signal this pitch was really about is still open.</div>
+</div>
+
+<h2>If you fund one thing</h2>
+<p class="lede">The recommendation has not moved. <b>Fund Pitch 01.</b> It is still low effort, still the credibility unlock, and now that 03 and 08 have shipped it is the only remaining item that raises the value of everything else at once. Revised sequence, with the two delivered items struck:</p>
+<ol class="seq">
+  <li><b>Backtest the Marvel grades</b> against real post-release prices, publish the scorecard. <b>Still the one to fund.</b></li>
+  <li><b>Parametrize the pipeline</b> and pilot it on the next spoiled set.</li>
+  <li><s>Unpin the craft ranker from Mardu, add the shortest-craft-path planner.</s> <b class="ok">Shipped 2026-07-08.</b></li>
+  <li><b>Ship the KC Events "today" button</b> and ICS subscribe.</li>
+  <li><b>Package Badgering</b> as a print-and-play while the above build, then wire the MTG hub.</li>
+</ol>
+
+<h2>What the two shipped pitches taught us</h2>
+<p class="lede">Both delivered items came back with a constraint worth carrying into the next funding round.</p>
+<div class="revbox" style="border-color:var(--hot);box-shadow:4px 4px 0 rgba(184,84,80,.18)">
+  <h3>Three constraints, priced</h3>
+  <table class="st">
+    <tr><th>Constraint</th><th>Evidence</th><th>What it costs us</th></tr>
+    <tr>
+      <td><b>Decklist hosts are walled</b></td>
+      <td class="n"><span class="bad">403</span> Moxfield · <span class="bad">403</span> Aetherhub · <span class="ok">200</span> MTGGoldfish</td>
+      <td>Only 7 of 83 decks can be priced. Any pitch that assumes bulk decklist access needs a signed-in browser budget, not a politeness delay.</td>
+    </tr>
+    <tr>
+      <td><b>Transcripts are blocked</b></td>
+      <td class="n">RequestBlocked</td>
+      <td>The confidence model that made Pitch 08 interesting is unbuilt. Descriptions carry colors and archetype; they do not carry what the creator claims about win rate.</td>
+    </tr>
+    <tr>
+      <td><b>The collection snapshot ages</b></td>
+      <td class="n">stamped 2026-04-22</td>
+      <td>Wildcard math drifts the moment you craft anything. Mitigated for now with an editable budget field on the page rather than a rebuild.</td>
+    </tr>
+  </table>
+  <p style="margin:12px 0 0">The honest read: the data layer we own outright is <b>Scryfall</b>, which is why price-to-build works for every deck whose list we can see, while win rate and creator opinion stay out of reach. A pitch to fix decklist access would unlock Pitch 08's real value and is not on this slate yet.</p>
+</div>
+
+<footer>
+  Original memo 2026-07-08 · status revision 2026-07-18. Grounded in files under <b>~/Projects/drwu-htmls/public/</b>, <b>~/Projects/_outputs/mtg-marvel-feedback/</b>, and <b>~/Projects/_outputs/creator-winrate-db/</b>. Every route linked here returned HTTP 200 on 2026-07-18.<br>
+  Portfolio: <a class="tlink" href="https://drwu-htmls.vercel.app/marvel-what-this-is/" target="_blank" rel="noopener">Marvel dossier</a> ·
+  <a class="tlink" href="https://drwu-htmls.vercel.app/mtga-craft-planner/" target="_blank" rel="noopener">Craft planner</a> ·
+  <a class="tlink" href="https://drwu-htmls.vercel.app/mtga-mardu-craft/" target="_blank" rel="noopener">Mardu craft</a> ·
+  <a class="tlink" href="https://drwu-htmls.vercel.app/mtg-creator-decks" target="_blank" rel="noopener">Creator decks</a> ·
+  <a class="tlink" href="https://drwu-htmls.vercel.app/kc-mtg-events/" target="_blank" rel="noopener">KC events</a> ·
+  <a class="tlink" href="https://drwu-htmls.vercel.app/magic-the-badgering/" target="_blank" rel="noopener">Badgering</a>
+</footer>
+
+</div>
+
+</body>
+</html>

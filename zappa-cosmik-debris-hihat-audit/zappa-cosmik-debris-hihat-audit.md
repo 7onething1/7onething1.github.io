@@ -136,6 +136,55 @@ by Andy Aledort. This German-language scan comes from a separate source the arch
 record, so it is treated as an unattributed secondary reading. It is copyrighted, described and
 not reproduced.
 
+## The tab against the transcript on the drive
+
+The archive scan is a real second opinion, so every error claimed above was put back against it. It
+analyses the studio recording, which makes it corroborating evidence rather than proof. It changed
+two of the findings.
+
+### Meter: the tab is far better than first reported
+
+The scan gives **Metrum: 6/8 ; 4/4**. The tab's 159 bars against that:
+
+| Meter in the tab | bars | Against the scan |
+|---|---|---|
+| 12/8 | 124 | Compatible. One 12/8 bar is two of 6/8. |
+| 4/4 | 20 | Named in the scan's Metrum. |
+| 6/8 | 6 | Named in the scan's Metrum. |
+| 2/4 | 4 | Short bar. The scan's form has partial phrases, ½a and ¾a. |
+| 11/8 | 4 | Not supported. |
+| 9/8 | 1 | Not supported. |
+
+**Correction to this page's own first reading.** An earlier pass called the meter map the signature
+of a beat-tracker losing the shuffle, and called the 4/4 switch at bar 136 a re-grid into straight
+time. The scan says 4/4 belongs to the song. The switch lands 86 percent of the way through the tab,
+which is where the scan's form puts the fourth Strophe, the final Refrain and the Schluss.
+**154 of 159 bars carry a meter the scan supports.** Only **5 bars, 3.1 percent**, do not.
+
+**Those five bars are not scattered.** They are bar 2 in 9/8 and bars 4, 5, 7 and 9 in 11/8. Every
+one sits inside bars 2 to 9, the same opening stretch that carries the impossible snare storm. The
+meter defect and the note defect are one defect in one place, roughly the first 25 seconds. From bar
+10 to the end the meter is clean.
+
+### Ghost notes: both tabs miss what the scan writes
+
+The scan's 4/4 Grundrhythmus carries a **parenthesised note in every bar**, and a parenthesised
+notehead is a ghost. Measured across the notation, the live tab holds **3,139 notes and zero
+articulation flags**. The studio tab holds 1,582 notes and zero. Neither encodes a ghost, an accent
+or a staccato anywhere.
+
+Stated fairly, this is not a mark against s1154774 alone. The human-revised studio tab omits the
+ghost layer just as completely. A shuffle without ghost notes on the snare is a thinner document of
+the part than the scan is, and both Songsterr tabs are that.
+
+### What the scan leaves standing
+
+The scan says nothing that softens the four structural failures. Its duration of 4:16 for the studio
+track sits beside the studio tab's computed 4:19.5, another check that the measurement pipeline is
+sound. Its short intro, its blues schema and its strophe-refrain form describe an orderly blues
+shuffle, which is the opposite of a bar carrying 24 sixteenth-note snare hits under a crash on every
+dotted quarter.
+
 ## A correction to our own earlier page
 
 The Apostrophe (') page scores s1154774 at **+84.1 percent** over length, comparing 7:40

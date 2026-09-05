@@ -1,0 +1,162 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>BELIEVEYOUME · Chord-rail LEFT frozen, v6 book PDF RIGHT · Frozen-board-scroller</title>
+<style>
+  :root{
+    --olive:#9A8822; --peach:#F5CDB4; --pink:#F8AFA8; --gold:#FDDDA0;
+    --sage:#74A089; --slate:#899DA4; --orange:#DC863B;
+    --ink:#111; --paper:#FBF7EE; --card:#fff; --line:#e7ddc9; --mut:#6b6354;
+  }
+  *{box-sizing:border-box}
+  html,body{margin:0;height:100vh;background:var(--paper);color:var(--ink);font-family:Inter,-apple-system,BlinkMacSystemFont,"Segoe UI",Helvetica,Arial,sans-serif;line-height:1.5}
+  body{display:flex;flex-direction:column;overflow:hidden}
+  header.top{flex:0 0 auto;padding:10px 16px 8px;border-bottom:2px solid var(--olive);background:var(--paper);z-index:5}
+  .kicker{font-size:11px;letter-spacing:.16em;text-transform:uppercase;color:var(--orange);font-weight:700}
+  h1{font-size:20px;margin:2px 0 4px;line-height:1.15}
+  h1 .sub{color:var(--mut);font-weight:400;font-size:15px;margin-left:8px}
+  .toplinks{margin:2px 0 6px;font-size:12px}
+  .toplinks a{display:inline-block;background:#e7ddc9;color:#3a3223;text-decoration:none;padding:3px 10px;border-radius:999px;margin-right:6px;font-weight:600}
+  .toplinks a.g{background:var(--gold);color:#5b4a13}
+  .toplinks a.s{background:var(--sage);color:#0f2b22}
+  .toplinks a.k{background:#7a6d3f;color:#fff}
+  .switch{display:flex;flex-wrap:wrap;gap:5px;margin:2px 0 0}
+  .pill{cursor:pointer;font:600 12.5px/1.15 Inter,sans-serif;padding:6px 11px;border:1.5px solid var(--olive);background:transparent;color:var(--ink);border-radius:999px;letter-spacing:.01em}
+  .pill:hover{background:#f3ecd8}
+  .pill.active{background:var(--orange);color:#fff;border-color:var(--orange);box-shadow:0 2px 6px rgba(220,134,59,.35)}
+  .pill .n{opacity:.75;margin-right:5px;font-weight:700}
+  main.split{flex:1 1 auto;display:grid;grid-template-columns:48% 52%;gap:0;min-height:0}
+  .col{position:relative;height:100%;min-height:0;background:var(--paper);display:flex;flex-direction:column;overflow:hidden}
+  .col.left{border-right:3px solid var(--olive)}
+  .colbar{flex:0 0 auto;background:#f3ecd8;border-bottom:1px solid var(--line);padding:6px 12px;font-size:11px;letter-spacing:.12em;text-transform:uppercase;color:var(--mut);display:flex;justify-content:space-between;align-items:center}
+  .colbar b{color:var(--olive);letter-spacing:.06em;text-transform:none;font-size:13px}
+  .colbar a{color:var(--orange);text-decoration:none;font-weight:700;font-size:11px}
+  .frame{flex:1 1 auto;min-height:0;position:relative;background:#0d1a14}
+  iframe.chord,embed.pdf{width:100%;height:100%;border:none;display:block;background:var(--paper)}
+  embed.pdf{background:#1e1a12}
+  @media (max-width:1000px){
+    main.split{grid-template-columns:1fr;grid-template-rows:50vh 50vh}
+    .col.left{border-right:none;border-bottom:3px solid var(--olive)}
+  }
+</style>
+<style id="kidmode-css">
+  .mode-btn{position:fixed;top:10px;right:12px;z-index:9999;padding:8px 14px;border:none;border-radius:999px;background:#4E8079;color:#fff;font:600 13px/1 system-ui,-apple-system,sans-serif;cursor:pointer;box-shadow:0 2px 8px rgba(0,0,0,.22)}
+  body.kids .mode-btn{background:#B4503E}
+  body.kids .mode-btn::before{content:"\1F9D2  "}
+  #kidpanel{display:none}
+  body.kids #kidpanel{display:block;background:#fff7e8;border:2px solid #4E8079;border-radius:14px;padding:10px 14px;font:15px/1.55 system-ui,-apple-system,sans-serif;color:#2b2820;margin:6px 12px 4px}
+  body.kids #kidpanel h3{font-family:"Fredoka","Comic Sans MS",sans-serif;color:#4E8079;margin:0 0 4px;font-size:17px}
+  body.kids #kidpanel b{color:#B4503E}
+  body.kids .pill{font-size:14.5px;padding:8px 14px}
+  body.kids .colbar{font-size:13px}
+</style>
+</head>
+<body>
+
+<header class="top">
+  <div id="kidpanel"><h3>Kid mode</h3>
+    <p>The <b>left frame</b> is the <b>lyrics-plus-chords page</b> for all 10 BELIEVEYOUME songs. It stays put while you read. The <b>right frame</b> is the <b>whole v6 book PDF</b>. Tap a song button up top and both frames jump to that song at the same time. Tap Grown-up mode to switch back.</p></div>
+  <div class="kicker">Shiner · 2025 · Frozen-board-scroller</div>
+  <h1>BELIEVEYOUME · lyrics + chords LEFT (chord-rail) · v6 book PDF RIGHT<span class="sub">click a song, both frames jump</span></h1>
+  <div class="toplinks">
+    <a class="s" href="/believeyoume-chord-rail" target="_blank" rel="noopener">Open chord-rail</a>
+    <a class="g" href="/believeyoume-book-v6/BELIEVEYOUME_v6.pdf" target="_blank" rel="noopener">Open v6 PDF</a>
+    <a class="k" href="/believeyoume-song-pdfs/" target="_blank" rel="noopener">Per-song PDFs</a>
+    <a class="k" href="/indexes-board" target="_blank" rel="noopener">THE board</a>
+  </div>
+  <nav class="switch" id="switch" aria-label="Song picker"></nav>
+</header>
+
+<main class="split">
+  <section class="col left" aria-label="Lyrics and chords (chord-rail) frozen">
+    <div class="colbar"><span>Left · <b id="left-label">lyrics + chords · chord-rail</b></span><a id="left-open" href="/believeyoume-chord-rail" target="_blank" rel="noopener">open ↗</a></div>
+    <div class="frame"><iframe id="chordFrame" class="chord" src="/believeyoume-chord-rail#pane-asleep_in_the_trunk" title="BELIEVEYOUME chord-rail"></iframe></div>
+  </section>
+  <section class="col right" aria-label="Book v6 PDF">
+    <div class="colbar"><span>Right · <b id="right-label">v6 book PDF · Ch 1</b></span><a id="right-open" href="/believeyoume-book-v6/BELIEVEYOUME_v6.pdf#page=3" target="_blank" rel="noopener">open ↗</a></div>
+    <div class="frame"><embed id="pdfFrame" class="pdf" src="/believeyoume-book-v6/BELIEVEYOUME_v6.pdf#page=3&view=FitH" type="application/pdf"></div>
+  </section>
+</main>
+
+<script id="kidmode-js">
+
+(function(){try{var p=new URLSearchParams(location.search);}catch(e){}})();
+</script>
+
+<script>
+const SONGS = [
+  {n: 1, name:"Asleep In The Trunk",  slug:"asleep_in_the_trunk", page:3,  key:"Fm"},
+  {n: 2, name:"The Alligator",        slug:"the_alligator",       page:12, key:"Gm"},
+  {n: 3, name:"The Mutiny",           slug:"the_mutiny",          page:20, key:"F#"},
+  {n: 4, name:"So Far, So",           slug:"so_far_so",           page:28, key:"D"},
+  {n: 5, name:"My Mirror Hates Me",   slug:"my_mirror_hates_me",  page:35, key:"Em"},
+  {n: 6, name:"Endless Summer",       slug:"endless_summer",      page:43, key:"Bb"},
+  {n: 7, name:"Lazarus",              slug:"lazarus",             page:48, key:"Cm"},
+  {n: 8, name:"Not Too Much",         slug:"not_too_much",        page:53, key:"Ab"},
+  {n: 9, name:"Broken Satellites",    slug:"broken_satellites",   page:61, key:"Eb"},
+  {n:10, name:"Jackie",               slug:"jackie",              page:68, key:"F"},
+];
+
+const PDF   = "/believeyoume-book-v6/BELIEVEYOUME_v6.pdf";
+const CHORD = "/believeyoume-chord-rail";
+
+const switchEl  = document.getElementById('switch');
+const chordFrm  = document.getElementById('chordFrame');
+const pdfFrm    = document.getElementById('pdfFrame');
+const leftLbl   = document.getElementById('left-label');
+const rightLbl  = document.getElementById('right-label');
+const leftOpen  = document.getElementById('left-open');
+const rightOpen = document.getElementById('right-open');
+
+let active = 1;
+
+function renderPills(){
+  switchEl.innerHTML = '';
+  SONGS.forEach(s => {
+    const b = document.createElement('button');
+    b.className = 'pill' + (s.n === active ? ' active' : '');
+    b.innerHTML = `<span class="n">${String(s.n).padStart(2,'0')}</span>${s.name} <span class="n">· ${s.key}</span>`;
+    b.addEventListener('click', () => activate(s.n));
+    switchEl.appendChild(b);
+  });
+}
+
+function activateChordTab(slug){
+  try {
+    const d = chordFrm.contentDocument;
+    if (!d) return false;
+    const btn = d.querySelector('.tab[data-pane="' + slug + '"]');
+    if (btn) { btn.click(); return true; }
+  } catch(e) {}
+  return false;
+}
+
+function activate(n){
+  const s = SONGS.find(x => x.n === n);
+  if (!s) return;
+  active = n;
+  document.querySelectorAll('.pill').forEach((p,i) => p.classList.toggle('active', i === (n-1)));
+  leftLbl.textContent  = `lyrics + chords · ${s.name}`;
+  rightLbl.textContent = `v6 book PDF · Ch ${s.n} · ${s.name}`;
+  leftOpen.href  = `${CHORD}#pane-${s.slug}`;
+  rightOpen.href = `${PDF}#page=${s.page}`;
+  const ok = activateChordTab(s.slug);
+  if (!ok){
+    chordFrm.src = `${CHORD}#pane-${s.slug}`;
+    chordFrm.addEventListener('load', () => activateChordTab(s.slug), {once:true});
+  }
+  const t = Date.now();
+  pdfFrm.src = `${PDF}?t=${t}#page=${s.page}&view=FitH`;
+}
+
+renderPills();
+
+chordFrm.addEventListener('load', () => {
+  const s = SONGS.find(x => x.n === active);
+  if (s) activateChordTab(s.slug);
+});
+</script>
+</body>
+</html>

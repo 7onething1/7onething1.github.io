@@ -1,0 +1,474 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Chiron Tarot Cheatsheet, Card Meanings + Clarifier/Combo</title>
+<style>
+  :root {
+    --dog-purple:#9986A5; --dog-gold:#CCBA72; --dog-grey:#D9D0D3;
+    --dog-taupe:#8D8680; --dog-rust:#79402E; --dog-bronze:#B6854D;
+    --bg:#F4F1EC; --card:#FFFFFF; --ink:#111111; --muted:#333333;
+    --line:#E3DDD4;
+  }
+  @media (prefers-color-scheme: dark) {
+    :root { --bg:#1C1916; --card:#26221E; --ink:#ECE5DC; --muted:#333333; --line:#3A342E; }
+  }
+  *{box-sizing:border-box;margin:0;padding:0}
+  body{font-family:"Georgia","Iowan Old Style",serif;background:var(--bg);color:var(--ink);line-height:1.5;padding:2rem 1.4rem;max-width:1500px;margin:0 auto}
+  header{text-align:center;margin-bottom:1.6rem;border-bottom:3px double var(--dog-bronze);padding-bottom:1rem}
+  h1{font-size:1.7rem;letter-spacing:.02em;color:var(--dog-rust)}
+  .sub{color:var(--muted);font-style:italic;margin-top:.4rem;font-size:.98rem}
+  .suit{margin:1.8rem 0}
+  .suit h2{font-size:1.15rem;text-transform:uppercase;letter-spacing:.14em;color:var(--suit);border-left:5px solid var(--suit);padding-left:.6rem;margin-bottom:.9rem}
+  .grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(330px,1fr));gap:.9rem}
+  .card{background:var(--card);border:1px solid var(--line);border-top:3px solid var(--suit);border-radius:8px;padding:.8rem .9rem;box-shadow:0 1px 3px rgba(0,0,0,.05)}
+  .cname{font-weight:700;font-size:1.02rem;color:var(--ink)}
+  .kw{font-style:italic;color:var(--muted);font-size:.82rem;margin:.1rem 0 .5rem}
+  ul{list-style:none}
+  li{font-size:.86rem;margin-bottom:.45rem;padding-left:.85rem;position:relative}
+  li::before{content:"";position:absolute;left:0;top:.5em;width:.32rem;height:.32rem;border-radius:50%;background:var(--suit)}
+  li.combo{background:color-mix(in srgb, var(--suit) 10%, transparent);border-radius:6px;padding:.5rem .6rem .5rem .85rem;margin-top:.4rem}
+  li.combo::before{top:.85em;left:.35rem}
+  strong{color:var(--dog-rust);font-weight:700}
+  @media (prefers-color-scheme: dark){strong{color:var(--dog-gold)}}
+  .ctag{display:inline-block;font-size:.62rem;text-transform:uppercase;letter-spacing:.1em;font-weight:700;color:#fff;background:var(--suit);padding:.08rem .4rem;border-radius:4px;margin-right:.3rem;vertical-align:middle;font-family:system-ui,sans-serif}
+  footer{text-align:center;color:var(--muted);font-size:.78rem;margin-top:2rem;padding-top:1rem;border-top:1px solid var(--line)}
+</style>
+<style id="kidmode-css">
+.mode-btn{position:fixed;top:12px;right:12px;z-index:9999;padding:9px 16px;border:none;border-radius:999px;background:#4E8079;color:#fff;font:600 14px/1 system-ui,-apple-system,sans-serif;cursor:pointer;box-shadow:0 2px 8px rgba(0,0,0,.22)}
+body.kids .mode-btn{background:#B4503E}
+body.kids .mode-btn::before{content:"🧒  "}
+#kidpanel{display:none}
+body.kids #kidpanel{display:block;max-width:760px;margin:62px auto 12px;background:#fff7e8;border:2px solid #4E8079;border-radius:18px;padding:20px 24px;font:18px/1.7 system-ui,-apple-system,sans-serif;color:#2b2820}
+body.kids #kidpanel h3{font-family:"Fredoka","Comic Sans MS",sans-serif;color:#4E8079;margin:0 0 8px;font-size:22px}
+body.kids #kidpanel b{color:#B4503E}
+body.kids{font-size:1.04em}
+</style>
+</head>
+<body>
+
+<div id="kidpanel"><h3>Kid mode 🧒</h3><p>This page is <b>Chiron Tarot Cheatsheet</b>. It is one of the projects Brandon built and put online. The grown-up details are below, tap Grown-up mode to read them the normal way.</p></div>
+<div style="background:#2f4a3d;border-bottom:2px solid #E9C046;padding:.5rem .8rem;text-align:center;font-family:system-ui,sans-serif;font-size:.78rem">
+<span style="color:#E9C046;font-weight:700;margin-right:.3rem">Chiron Tarot:</span>
+<a href="/chiron-tarot-hub/" style="color:#fff;text-decoration:none;margin:0 .35rem;font-weight:700">All versions</a><span style="color:#7c8b80">·</span>
+<a href="/chiron-secret-thoughts/" style="color:#D3DDDC;text-decoration:none;margin:0 .35rem">Web sheet</a><span style="color:#7c8b80">·</span>
+<a href="/chiron-tarot-hub/one-page-cheatsheet.pdf" style="color:#D3DDDC;text-decoration:none;margin:0 .35rem">1-page PDF</a><span style="color:#7c8b80">·</span>
+<a href="/chiron-tarot-meanings/" style="color:#D3DDDC;text-decoration:none;margin:0 .35rem">Meanings + combo</a><span style="color:#7c8b80">·</span>
+<a href="/chiron-tarot-cards/" style="color:#D3DDDC;text-decoration:none;margin:0 .35rem">Print cards</a><span style="color:#7c8b80">·</span>
+<a href="/chiron-tarot-etsy/" style="color:#D3DDDC;text-decoration:none;margin:0 .35rem">Etsy bundle</a>
+</div>
+<header>
+  <h1>Chiron Tarot Cheatsheet</h1>
+  <div class="sub">Card meanings in two lines, then what each card adds as a clarifier or combo. Corpus-grounded Chiron voice.</div>
+</header>
+<section class="suit" style="--suit:#9986A5">
+  <h2>Cups</h2>
+  <div class="grid"><div class="card">
+  <div class="cname">Ace of Cups</div>
+  <div class="kw">new love, healing, emotional gift, fresh feeling</div>
+  <ul><li>Look, the Ace of Cups is a <strong>brand new beginning</strong> somebody wants to offer, but they&#x27;re stuck in their feelings about it, sad and overthinking it when they don&#x27;t have to. You can just go and do the thing instead of analyzing it to death.</li>
+<li>Deeper, this card is <strong>about healing something</strong>, somebody knowing how they feel and a real gift lined up for them. Watch the shadow, because sometimes it&#x27;s somebody trying to come in and take that gift before you ever get to drink from it.</li><li class="combo"><span class="ctag">Clarifier / Combo</span> As a clarifier this card says somebody is <strong>emotionally available and expecting something</strong> to arrive. Next to the Three of Wands it reads as someone ready to shoot their shot, next to Justice it means that fresh feeling is tied to real accountability, court and karma coming back around.</li></ul>
+</div><div class="card">
+  <div class="cname">Two of Cups</div>
+  <div class="kw">partnership, mutual bond, protect your peace, no fantasy</div>
+  <ul><li>The Two of Cups is <strong>somebody that wants to move toward this relationship</strong>, real partnership energy, but you&#x27;re done falling for fantasy. You&#x27;re falling for facts, you got logical over the years and you can&#x27;t be future-faked anymore.</li>
+<li>The deeper read is karma. People thought they could come in with <strong>some sort of illusion</strong> and mass-fake a future, and they can&#x27;t, so they realize a little too late that you protect your peace at all costs. The karma is hitting them mid-storm.</li><li class="combo"><span class="ctag">Clarifier / Combo</span> As a combo card it points straight at <strong>a truth about a partnership</strong>. Next to the Three of Swords somebody has to say the painful thing out loud, next to the Knight of Cups it&#x27;s a passionate person going crazy trying to move this bond forward.</li></ul>
+</div><div class="card">
+  <div class="cname">Three of Cups</div>
+  <div class="kw">celebration, community, third party, reconciliation</div>
+  <ul><li>The Three of Cups is celebration and community, but Chiron reads it as <strong>something about a third party</strong> here. It could be cheating, could be a divorce because somebody stepped out, never as simple as that but that&#x27;s the flavor.</li>
+<li>The other layer is somebody wanting to <strong>reconcile and mend something</strong> they broke in a past cycle, scared because of everything they&#x27;ve done. They think you&#x27;ll be defensive and won&#x27;t hear it, so they hesitate.</li><li class="combo"><span class="ctag">Clarifier / Combo</span> As a clarifier this card adds <strong>others involved, a whole network</strong>. Next to the Lovers it&#x27;s a web of partnerships and soul-tribe connection, next to the Devil that loose celebration energy curdles into temptation and a fork in the road you&#x27;ll have to cleanse from.</li></ul>
+</div><div class="card">
+  <div class="cname">Four of Cups</div>
+  <div class="kw">apathy, rejection, stuck in their ways, incoming offer</div>
+  <ul><li>The Four of Cups is somebody <strong>stuck in their ways</strong>, acting content when nobody really wants to just be content. People want to live, want love, want passion, and this person stays bored at the cup being offered.</li>
+<li>Reversed it flips on them, because <strong>you ain&#x27;t afraid of rejection</strong> anymore and people are noticing you&#x27;ll stay in the uncomfortable feelings. The shadow side is the beginning of rejection itself, somebody cut off, stalled, alone and quiet.</li><li class="combo"><span class="ctag">Clarifier / Combo</span> As a combo card it reads as <strong>a lot of words with no meaning</strong>. Next to the Six of Wands somebody&#x27;s saying plenty but it&#x27;s empty noise, next to the Eight of Pentacles it&#x27;s you grinding away waiting as good news is incoming.</li></ul>
+</div><div class="card">
+  <div class="cname">Five of Cups</div>
+  <div class="kw">grief, loss, mourning, trapped in sadness</div>
+  <ul><li>The Five of Cups is <strong>grief over what is lost</strong>, lamenting what got spilled. Chiron says it plain, somebody going through it and mourning a choice that didn&#x27;t have to be marriage on paper, just an oath to somebody.</li>
+<li>The shadow is darker, because <strong>they want to trap you in sadness</strong>, take your light, take your shine, make you feel backed into a corner with no options left. That&#x27;s the manipulation, convincing you you have no other choice but to give up.</li><li class="combo"><span class="ctag">Clarifier / Combo</span> As a clarifier next to Justice it means <strong>the walking away is deserved</strong>, the loss is proportional and fair, competitors leaving having lost something real. Next to the World it&#x27;s old past grief somebody finally needs to let go of.</li></ul>
+</div><div class="card">
+  <div class="cname">Six of Cups</div>
+  <div class="kw">nostalgia, inner child, familiar past, deep bonds</div>
+  <ul><li>The Six of Cups is that <strong>healed inner child spark</strong>, that light people can feel and want a piece of. The more they hate, the more you turn it into love, and that nostalgic glow is exactly what they&#x27;re noticing.</li>
+<li>Deeper it&#x27;s the <strong>deep emotional bonds</strong>, Scorpio-level undercurrent where you know somebody very well and they know you. Watch the shadow, because something familiar can be a doorway something predatory uses to slip in by impersonating what felt safe.</li><li class="combo"><span class="ctag">Clarifier / Combo</span> As a combo card it warns that <strong>someone&#x27;s trying to recreate an old bond</strong> for use. Next to the Seven of Swords that sweet familiar warmth becomes a tactic, next to Judgement it&#x27;s somebody closing out a past cycle as they watch you from the outside.</li></ul>
+</div><div class="card">
+  <div class="cname">Seven of Cups</div>
+  <div class="kw">illusion, clouded vision, fantasy, can&#x27;t see clearly</div>
+  <ul><li>The Seven of Cups is when <strong>you can&#x27;t see clearly</strong>, clouded vision and fantasy dressed up to look appealing. Chiron flips it for the querent, you&#x27;re good, you&#x27;re healed, you know who you are on the inside and you don&#x27;t need any of it.</li>
+<li>The deeper read is you calling it how it is now, because <strong>you ain&#x27;t afraid to tell the truth</strong>. Before you&#x27;d give people a million chances and believe the fantasy you built in your head about them, and you&#x27;re done doing that.</li><li class="combo"><span class="ctag">Clarifier / Combo</span> As a clarifier it shows the other side <strong>fighting shadows</strong>, defensive against nothing and you pay them no mind. Under the Devil it&#x27;s their binding and blindness, next to the Nine of Wands it&#x27;s your own guarded wisdom seeing straight through the illusion.</li></ul>
+</div><div class="card">
+  <div class="cname">Eight of Cups</div>
+  <div class="kw">walking away, intentional departure, going deeper, leaving what binds</div>
+  <ul><li>The Eight of Cups is <strong>walking away from what no longer serves</strong>, the intentional departure toward something deeper. You&#x27;re listening to your intuition with that water energy, no more staying in a pity party for somebody who can&#x27;t get it together.</li>
+<li>The deeper layer is choosing yourself on purpose, because <strong>you walked away</strong> and felt the collective pulling on your energy but went anyway. It&#x27;s a deliberate decision to go inward on purpose or go further into what&#x27;s real.</li><li class="combo"><span class="ctag">Clarifier / Combo</span> As a combo card it sets up an ending. Next to the Ten of Swords it&#x27;s <strong>a connection completely cut off</strong>, somebody who didn&#x27;t shoot their shot or got severed with finality. Next to the Three of Wands that closing cycle was you escaping someone controlling and binding.</li></ul>
+</div><div class="card">
+  <div class="cname">Nine of Cups</div>
+  <div class="kw">wish fulfilled, contentment, satisfaction, fighting the feeling</div>
+  <ul><li>The Nine of Cups is <strong>the wish fulfilled</strong>, personal contentment and knowing exactly what you truly want. It&#x27;s about being happy with yourself and aligned, having power over something instead of repressing it.</li>
+<li>The deeper read is somebody fighting that contentment, because <strong>they&#x27;re scared to open up</strong> even when it would change everything for the good. Clarity arrives, the mind panics about it, but underneath is the fulfilled desire of someone in love resisting it.</li><li class="combo"><span class="ctag">Clarifier / Combo</span> As a clarifier next to the High Priestess it means people feel <strong>safe around you, you take away their fears</strong>. Next to the Seven of Swords that satisfaction sours into somebody trying to get away with something on the slide, sneaking what they want.</li></ul>
+</div><div class="card">
+  <div class="cname">Ten of Cups</div>
+  <div class="kw">complete connection, soul connection, love wins, fulfillment</div>
+  <ul><li>The Ten of Cups is <strong>from A to Z when it comes to connections</strong>, the whole world, love winning here. That&#x27;s a complete soul connection, everything connected, and that&#x27;s exactly what it deserved.</li>
+<li>The deeper layer is the read where <strong>spirit is telling you yes</strong>, no flaw in it, complete connection straight through. People get floored by your ability to manifest this and reveal hard truths, because you&#x27;re the contradiction of everything they assumed.</li><li class="combo"><span class="ctag">Clarifier / Combo</span> As a combo card with the Ace of Cups it completes the arc, <strong>the seed of love grown into lasting wholeness</strong>, generational and full. Next to the Page of Swords it shows somebody mad you attract your soul&#x27;s purpose so easily as they try to make waves in your happiness.</li></ul>
+</div><div class="card">
+  <div class="cname">Page of Cups</div>
+  <div class="kw">intuition, apology, soft gesture, emotional reach-out</div>
+  <ul><li>The Page of Cups says <strong>your intuition is never wrong</strong>, never. You picked up the information on the person trying to bind you, and you said not today Satan, you saw it coming.</li>
+<li>The softer layer is <strong>somebody wanting to reach out</strong>, even a small gesture, hungry for some kind of emotional breakthrough with you despite all the heaviness. It&#x27;s an apology card, the urge to mend showing up gentle.</li><li class="combo"><span class="ctag">Clarifier / Combo</span> As a clarifier next to the High Priestess it reads as <strong>being kind and not reacting</strong> as somebody, often a Queen of Swords, comes in purposely to put claws in. Next to the Moon it darkens, somebody trying to use those intuitive gifts for dark intentions and destruction.</li></ul>
+</div><div class="card">
+  <div class="cname">Knight of Cups</div>
+  <div class="kw">passionate pursuit, shooting their shot, boundary, can&#x27;t stop thinking</div>
+  <ul><li>The Knight of Cups is somebody <strong>passionate and going crazy</strong>, can&#x27;t think of nothing else, ready to come out of acting like they don&#x27;t want something. When&#x27;s the last time you saw a hand come out of a cloud offering a blessing like this.</li>
+<li>The deeper read is love that heals, because <strong>somebody takes them away from their own sabotage</strong> and that&#x27;s why a person is in love. But this Knight also knows where the line is, dead serious, that boundary is off limits and they know not to cross it.</li><li class="combo"><span class="ctag">Clarifier / Combo</span> As a combo card it&#x27;s <strong>the bold romantic advance</strong>. Next to the Two of Cups it&#x27;s somebody who wants to shoot their shot at this relationship, next to the Nine of Cups and Seven of Swords it turns sketchy, somebody passionate but trying to get away with something on the slide.</li></ul>
+</div><div class="card">
+  <div class="cname">Queen of Cups</div>
+  <div class="kw">emotional wisdom, acceptance, honesty, grace</div>
+  <ul><li>The Queen of Cups is the one who <strong>accepts somebody</strong>, so whatever it is might not be that bad, because everyone has different gauges of what they can and can&#x27;t accept. She brings grace into situations and people are noticing that and the confidence under it.</li>
+<li>The deeper layer is honesty and earned wisdom, because <strong>she needs to be honest about</strong> what she&#x27;s holding on to. When she&#x27;s got the wisdom now, that&#x27;s the tea, and sometimes she serves justice on a gold platter for everybody who pushed her there.</li><li class="combo"><span class="ctag">Clarifier / Combo</span> As a clarifier next to the Page of Cups it&#x27;s <strong>intuition that refuses to be tricked</strong>, calling out the love spell and the binder. Next to the Page of Pentacles it&#x27;s somebody planting new seeds with a water sign or handing them a gift, a new relationship taking root.</li></ul>
+</div><div class="card">
+  <div class="cname">King of Cups</div>
+  <div class="kw">emotional mastery, old ways to new, honesty, willpower</div>
+  <ul><li>The King of Cups is somebody going <strong>from their old ways to a new way</strong>, because something got put out into the open and somebody was honest. Sometimes that&#x27;s all it takes, one conversation that needed to be had.</li>
+<li>The deeper read is emotional mastery and strong willpower, because <strong>if nobody comes out and says something</strong> there&#x27;s no chance of it surviving. This is the subconscious mind too, and when this card doubles up it tells you the pursuit of love and the mastery of feeling is the whole undeniable theme.</li><li class="combo"><span class="ctag">Clarifier / Combo</span> As a combo card it carries <strong>strong mental willpower and a cut-off game</strong>. Next to the Moon things speed up and old past energy surfaces, next to the Queen of Swords and the Tower it can&#x27;t coexist with the suffering cards, the field splits into two incompatible energies.</li></ul>
+</div></div>
+</section><section class="suit" style="--suit:#79402E">
+  <h2>Swords</h2>
+  <div class="grid"><div class="card">
+  <div class="cname">Ace of Swords</div>
+  <div class="kw">clarity, truth, breakthrough, cutting through ambiguity, mental power</div>
+  <ul><li>Look, the Ace of Swords is the sword of clarity, it <strong>cuts through ambiguity</strong> to hand you the truth straight, no fog, no room for self-deception. When this hits the tea is out and it ain&#x27;t getting put back.</li>
+<li>The deeper read is the shock that comes with it. People were dead set they had you pinned, they had you fooled, and then the truth rips that fantasy right from under them, <strong>they realize too late</strong> the whole thing never worked in their favor.</li><li class="combo"><span class="ctag">Clarifier / Combo</span> As a clarifier this card confirms you have the information you need, the sword has arrived. Next to the Sun it doubles down, <strong>somebody has to be clear</strong> about what they want and who they are, no more hiding behind the fog.</li></ul>
+</div><div class="card">
+  <div class="cname">Two of Swords</div>
+  <div class="kw">indecision, stalemate, standoff, blocked, weighing the choice</div>
+  <ul><li>The Two of Swords is the standoff, that place where you allow a level of confusion and just stay with it. You see the potential in <strong>staying in the shadow</strong>, holding the difficult perspective instead of forcing a move you ain&#x27;t ready for.</li>
+<li>Deeper down this is a choice not made yet, you genuinely don&#x27;t know, and the truth is that&#x27;s allowed. You&#x27;re able, building your own foundation, and <strong>you don&#x27;t owe anybody</strong> a fast answer just because they want one.</li><li class="combo"><span class="ctag">Clarifier / Combo</span> As a combo card it splits confusion onto two planes, emotional and mental, when it is with a Cups card. Next to the Five of Swords somebody knows they&#x27;re crossing a line, they want the thing but <strong>they know it&#x27;s wrong</strong>, and pushing past that door costs everything.</li></ul>
+</div><div class="card">
+  <div class="cname">Three of Swords</div>
+  <div class="kw">heartbreak, painful truth, the wound, a truth about a partnership</div>
+  <ul><li>The Three of Swords is heartbreak, that painful piercing of what was being held, and most times it&#x27;s some kind of <strong>truth about a partnership</strong>. Somebody has to say the thing knowing it&#x27;s going to hurt.</li>
+<li>The deeper layer is the silence around it. Something&#x27;s hidden, a person could be repressing it, and the truth is you can&#x27;t stay quiet, <strong>you got to act on it</strong> so somebody finally sees what&#x27;s real.</li><li class="combo"><span class="ctag">Clarifier / Combo</span> As a clarifier this card spells out the painful information that needs delivering. Next to the Two of Cups it&#x27;s the wound inside the bond, and next to the Page of Swords the message has a messenger, <strong>somebody must speak</strong> so the truth gets known.</li></ul>
+</div><div class="card">
+  <div class="cname">Four of Swords</div>
+  <div class="kw">rest, stillness, withdrawal, maintaining the vibration, not getting distracted</div>
+  <ul><li>The Four of Swords is stillness, you sit between the swords in your own element and you <strong>maintain the vibration</strong> of surrender. There&#x27;s a crow, a raven, somebody waving distraction at you, but you don&#x27;t chase it.</li>
+<li>The shadow read is when stillness turns tactical. This ain&#x27;t always healthy rest, sometimes a person goes quiet on purpose, staying still so they <strong>don&#x27;t get detected</strong>, covering something up as they wait you out.</li><li class="combo"><span class="ctag">Clarifier / Combo</span> As a combo card it deepens whatever hidden energy is beside it. Next to the Moon and the Devil it reads as concealment, somebody <strong>doesn&#x27;t want to be detected</strong>, behind the scenes, holding their hand close and playing the patient game.</li></ul>
+</div><div class="card">
+  <div class="cname">Five of Swords</div>
+  <div class="kw">conflict, winning at a cost, envy, jealousy, the stab in the back</div>
+  <ul><li>The Five of Swords is conflict where one person wins and the rest get left humiliated. Watch the energy, this is the one walking over with <strong>a knife behind their back</strong>, ready to run up and stab somebody the moment they turn.</li>
+<li>The deeper read is the spirit of envy and jealousy on them. People are noticing those spiritual attachments, and because their stories and their actions don&#x27;t add up, <strong>none of it works</strong>, they got to start over at square one.</li><li class="combo"><span class="ctag">Clarifier / Combo</span> As a clarifier it shows who gets bothered when you disrupt something. Under the Tower it&#x27;s the sting felt by the witnesses, you shatter something and <strong>it bothers people</strong>, the ones who counted on the old order being left in the dust.</li></ul>
+</div><div class="card">
+  <div class="cname">Six of Swords</div>
+  <div class="kw">moving forward, transition, the way out, moving away from toxicity, grace</div>
+  <ul><li>The Six of Swords is the way forward, plain and simple, <strong>moving away from toxicity</strong> and the things that don&#x27;t serve you. You move on toward your goals peacefully, with an element of grace, not worried about the competition.</li>
+<li>The deeper read is the exile that becomes the crown. Exiled and pushed out only to come back king and queen, and what they realize too little too late is that <strong>you walk alone</strong> unafraid, you were never as attached as they thought.</li><li class="combo"><span class="ctag">Clarifier / Combo</span> As a combo card it points the spread toward the destination. Next to the Three of Cups and the Lovers it&#x27;s a soul tribe, <strong>this is the way forward</strong>, and next to the Two of Swords your cut-off game is strong even when you&#x27;re unsure how to move.</li></ul>
+</div><div class="card">
+  <div class="cname">Seven of Swords</div>
+  <div class="kw">deception, sneaking, scheming, doing it on the slide, lies</div>
+  <ul><li>The Seven of Swords is the one who takes what ain&#x27;t theirs and moves in secret, believing they can dodge the consequences. They&#x27;re <strong>trying to do it on the slide</strong>, sliding past you as they think nobody clocked it.</li>
+<li>The deeper read is lies and negative judgments placed on you, illusions somebody&#x27;s trying to make stick. The truth is you ain&#x27;t afraid to call it, <strong>go ahead and lie</strong>, your energy brings all that crawling deception to light.</li><li class="combo"><span class="ctag">Clarifier / Combo</span> As a clarifier this card exposes the schemer in the spread. Next to the Nine of Swords obsession turns into stalking, and next to the Knight of Swords <strong>the mask comes off</strong>, somebody who watches and mimics, doing it all on the slide.</li></ul>
+</div><div class="card">
+  <div class="cname">Eight of Swords</div>
+  <div class="kw">feeling trapped, self-imposed limitation, mental bondage, stuck, repressed truth</div>
+  <ul><li>The Eight of Swords is self-imposed limitation, that feeling of being <strong>trapped in a situation</strong> that&#x27;s got more exits than the person can see. The bindings are mental, the door&#x27;s open, they just can&#x27;t look at it yet.</li>
+<li>The deeper read is repression and the silence it breeds. They&#x27;re scared of what their truth is going to do, so they stay quiet, but <strong>you have to be your truth</strong>, because all that bottled energy has to find a channel somewhere.</li><li class="combo"><span class="ctag">Clarifier / Combo</span> As a combo card it spells out the cage somebody&#x27;s standing in. Next to Strength the way out is inner courage, not force, and next to the Moon and the Devil it&#x27;s <strong>repressed energy</strong> that&#x27;s been hidden so long it has to break loose.</li></ul>
+</div><div class="card">
+  <div class="cname">Nine of Swords</div>
+  <div class="kw">anxiety, worry, looping thought, sleepless dread, overthinking</div>
+  <ul><li>The Nine of Swords is worry, that looping sleepless thought, somebody scared or <strong>really thinking hard</strong> about a move. It&#x27;s the 3am mind that won&#x27;t shut off, turning the same fear over and over.</li>
+<li>The deeper read is who the worry belongs to. Maybe a person&#x27;s worried about the action you&#x27;re taking, maybe about their own, or maybe <strong>you&#x27;re worried about your own action</strong>, and the healing is releasing the lie that things have to be perfect.</li><li class="combo"><span class="ctag">Clarifier / Combo</span> As a clarifier it marks mental preoccupation, usually about a move somebody&#x27;s afraid to make. Next to the Ace of Wands the desire is there but the <strong>fear stalls the action</strong>, next to the Emperor that loop is somebody scheming to bind you down.</li></ul>
+</div><div class="card">
+  <div class="cname">Ten of Swords</div>
+  <div class="kw">definitive ending, the final blow, betrayal, words that wound, total cutoff</div>
+  <ul><li>The Ten of Swords is the definitive ending, the final blow, <strong>something completely cut off</strong>. Communication severed, somebody having to walk away, the door shut with finality and no half-measure to it.</li>
+<li>The deeper read is the wound that words can do. There&#x27;s certain things you can say to make people not want to deal with somebody, gossip and harm aimed to ruin, but once that softness gets betrayed <strong>you detach like that</strong>, retracted and gone.</li><li class="combo"><span class="ctag">Clarifier / Combo</span> As a combo card it closes the story out for good. After the Eight of Cups it&#x27;s the walk-away made final, and next to the Hermit it confirms this energy is blocked off, it <strong>should never be unblocked</strong>, the Devil knocking gets a permanent no.</li></ul>
+</div><div class="card">
+  <div class="cname">Page of Swords</div>
+  <div class="kw">new information, fresh perspective, the messenger, watching, crossroads</div>
+  <ul><li>The Page of Swords is the watcher and the bearer of news, the one bringing information you didn&#x27;t have. People <strong>gain a new perspective</strong>, there&#x27;s learning here, a crossroads with real potential for growth.</li>
+<li>The deeper read is the envy that trails an easy-flowing destiny. Somebody wanted to create waves in your happiness because things come to you so easy, and <strong>that mess they threw</strong> at your feet, you walked right over it onto your soul&#x27;s purpose.</li><li class="combo"><span class="ctag">Clarifier / Combo</span> As a clarifier it points to information or a perceived label in the spread. Next to the Hierophant a title becomes a barrier in somebody&#x27;s head, <strong>a title gets in their way</strong>, when the truth is it was never the obstacle they made it.</li></ul>
+</div><div class="card">
+  <div class="cname">Knight of Swords</div>
+  <div class="kw">talking but not honest, hiding the truth, communicating, avoiding shadow work</div>
+  <ul><li>The Knight of Swords is somebody talking, asserting their thoughts through their words, but <strong>not saying the truth</strong>. They&#x27;ve got a lot to say, plenty of it, and none of it is what they actually feel.</li>
+<li>The deeper read is the hiding underneath the noise. They&#x27;re going through their own process over something they wanted, <strong>not being completely honest</strong>, and what they really need is the shadow work they keep trying to move past.</li><li class="combo"><span class="ctag">Clarifier / Combo</span> As a combo card it flags a story with a crack in it. Next to the Seven of Swords the mask is off and people catch the stalking, and next to the Four of Pentacles <strong>somebody needs to speak</strong> and make the communication solid.</li></ul>
+</div><div class="card">
+  <div class="cname">Queen of Swords</div>
+  <div class="kw">sharp, strategic, calculated, intelligent, sees right through you</div>
+  <ul><li>The Queen of Swords is sharp, honest, clear-spoken, the one who <strong>sees right through</strong> people. They feel like you can read their mind, that you can&#x27;t be manipulated, and that you&#x27;ll cut them off with no tomorrow.</li>
+<li>The deeper read flips that directness when the energy goes covert. Placed in shadow her intelligence gets deployed undercover, <strong>she still has a motive</strong>, it&#x27;s just hidden, dropping hints instead of saying what she means.</li><li class="combo"><span class="ctag">Clarifier / Combo</span> As a clarifier next to the Moon she becomes a calculated, strategic communicator, the <strong>motive stays hidden</strong> as the moves run undercover. It&#x27;s a red flag combo, strategic intelligence plus deception equals somebody playing it covert.</li></ul>
+</div><div class="card">
+  <div class="cname">King of Swords</div>
+  <div class="kw">authority through words, the communicator, intelligence, clear and precise speech</div>
+  <ul><li>The King of Swords is the communicator who <strong>uses words with authority</strong>, clarity, and precision. Could be a Libra, Gemini, or Aquarius, an air sign, somebody whose intelligence is the weapon and the gift both.</li>
+<li>The shadow read is intelligence weaponized for drama. This one loves it when people are in disarray, stirring the pot, pinning folks against each other, but at his best he says <strong>nah, I&#x27;m at peace</strong>, closing out a cycle that no longer changes.</li><li class="combo"><span class="ctag">Clarifier / Combo</span> As a combo card he marks the moment something gets said with power. Next to the Six of Wands the message hits and <strong>somebody succeeds</strong>, next to the Ace of Pentacles that clear word becomes a real opportunity, something materialized and acted on.</li></ul>
+</div></div>
+</section><section class="suit" style="--suit:#B6854D">
+  <h2>Wands</h2>
+  <div class="grid"><div class="card">
+  <div class="cname">Ace of Wands</div>
+  <div class="kw">activation, raw impulse, the spark to act, starting energy</div>
+  <ul><li>The Ace of Wands is that <strong>raw activation</strong> that comes over you, the desire to act on something you can&#x27;t even explain. You just got to move on it.</li>
+<li>Look, this is the starting impulse before the structure exists, so the truth is you have to go forward, you <strong>cannot think your way out of it</strong>. The energy started gathering force.</li><li class="combo"><span class="ctag">Clarifier / Combo</span> As a clarifier this card tells you the whole reading is about somebody at the beginning of a cycle, ready to make their move. Next to the Nine of Swords it&#x27;s somebody <strong>scared to shoot their shot</strong>, next to the Knight of Cups it&#x27;s the bold romantic advance finally going for it.</li></ul>
+</div><div class="card">
+  <div class="cname">Two of Wands</div>
+  <div class="kw">planning, the threshold, ready to move forward, the barrier</div>
+  <ul><li>The Two of Wands is somebody at the threshold who <strong>knows they&#x27;re ready to move forward</strong>, even if they don&#x27;t know exactly where they&#x27;re going. They see it in front of them and they can&#x27;t deny it.</li>
+<li>The shadow here is the plans and the manipulation, the smile-in-your-face-with-a-knife-behind-your-back energy. People are noticing the <strong>jealousy and envy</strong> because that contradiction in their character shows.</li><li class="combo"><span class="ctag">Clarifier / Combo</span> As a combo card this is the decision made but not acted on, the barrier turning into a starting point. Next to the Nine of Wands it&#x27;s somebody <strong>planning to test your perimeter</strong>, next to the King of Cups it&#x27;s a person with clarity who knows they want to move forward.</li></ul>
+</div><div class="card">
+  <div class="cname">Three of Wands</div>
+  <div class="kw">watching for it, forward anticipation, moving forward, the wait</div>
+  <ul><li>The Three of Wands is somebody who <strong>wants to move forward</strong> and they&#x27;re watching for it to come in. They don&#x27;t just want to hang around for years, they&#x27;re looking down the road.</li>
+<li>The deeper read is this should not be repressed, the truth is if you don&#x27;t hold it in, <strong>it changes everything</strong>. Somebody just has to stop being scared to open up and take the action.</li><li class="combo"><span class="ctag">Clarifier / Combo</span> As a clarifier this card adds physical desire and forward pull to whatever it is next to. Paired with the Ace of Cups or the High Priestess it&#x27;s fire and water together, and the tea is <strong>the relationship is sexual, ain&#x27;t it</strong>, they want to shoot their shot.</li></ul>
+</div><div class="card">
+  <div class="cname">Four of Wands</div>
+  <div class="kw">celebration, empowerment, arriving at a stable place, joining energy</div>
+  <ul><li>The Four of Wands is <strong>celebration and homecoming</strong>, somebody making it to a higher place after the work. Somebody wants to join their energy with yours and build a strong foundation.</li>
+<li>The other layer is mastery and discernment, you&#x27;ve mastered something so they <strong>can&#x27;t sell you a story</strong>. People are noticing they can&#x27;t come at you sideways because you&#x27;re a sharp judge of character.</li><li class="combo"><span class="ctag">Clarifier / Combo</span> As a combo card this hits as the reward, the outcome you arrive at when you don&#x27;t repress your truth. Next to the Ace of Pentacles it&#x27;s <strong>arriving somewhere real and celebratory</strong>, next to the Knight of Pentacles it&#x27;s somebody trying to slow your roots from getting there.</li></ul>
+</div><div class="card">
+  <div class="cname">Five of Wands</div>
+  <div class="kw">competition, conflict, one-sided rivalry, the choice to compete</div>
+  <ul><li>The Five of Wands is competition and conflict, and baby <strong>you are the competition</strong>. Somebody&#x27;s mad, they want to fight, they put themselves in your arena.</li>
+<li>The truth is this is one-sided competition, people who put themselves against you, that&#x27;s their first problem. They dislike how you <strong>make it look effortless</strong> and they push your boundaries.</li><li class="combo"><span class="ctag">Clarifier / Combo</span> As a clarifier this card means competitive friction, multiple players grinding in the same space. Next to the Eight of Pentacles it&#x27;s <strong>building your craft as others strive</strong>, and when the Ace came before it, it reads as a choice, definitely a choice.</li></ul>
+</div><div class="card">
+  <div class="cname">Six of Wands</div>
+  <div class="kw">victory, recognition, successfully overcome, public win</div>
+  <ul><li>The Six of Wands is <strong>victory and recognition</strong>, you have successfully overcome and it looks good on you. That confidence, that blunt communication style, that&#x27;s the win showing.</li>
+<li>The deeper karma here is you matured emotionally and you don&#x27;t hand out chances anymore. They show you who they are once, twice, and <strong>that&#x27;s enough</strong>, you&#x27;re not giving them six, seven, eight more.</li><li class="combo"><span class="ctag">Clarifier / Combo</span> As a combo card this is the payoff at the end of a Wands run, Ace to Three to Six mapping the whole trajectory. But watch the shadow, next to the Seven of Swords or the Devil it flips into somebody who <strong>views you as having power</strong> and tries to sponge it off you.</li></ul>
+</div><div class="card">
+  <div class="cname">Seven of Wands</div>
+  <div class="kw">defending your ground, holding position, fighting challengers, protect before depleted</div>
+  <ul><li>The Seven of Wands is <strong>holding your ground</strong> against multiple challengers from the high position. It&#x27;s about protecting something before it gets depleted or damaged.</li>
+<li>Listen, the shadow is somebody who wants everybody coming after you because they couldn&#x27;t do it alone. They&#x27;ll <strong>pin everyone against you</strong> and sit back relishing the conflict they created.</li><li class="combo"><span class="ctag">Clarifier / Combo</span> As a clarifier this card stacks defensive power onto whatever it touches. Next to the Nine of Wands it&#x27;s the <strong>battle-worn warrior still standing</strong>, but next to the Seven of Cups under the Devil it&#x27;s the adversary fighting shadows they made up themselves.</li></ul>
+</div><div class="card">
+  <div class="cname">Eight of Wands</div>
+  <div class="kw">rapid movement, focused energy, coming right at a target, swift action</div>
+  <ul><li>The Eight of Wands is when the energy is <strong>coming right at a target</strong>, somebody focused and moving fast on something they decided to pursue. If a person can&#x27;t aim like that, they&#x27;re not living their truth.</li>
+<li>The other read is somebody all up in their head, having a hard time expressing the emotions, and the messages are speeding in. Sometimes it&#x27;s people in secret on fake pages who are sad and <strong>secretly want to talk to you</strong>.</li><li class="combo"><span class="ctag">Clarifier / Combo</span> As a combo card this is speed and focus on a court card&#x27;s action, it tells you what somebody is doing right now. Next to the Queen of Swords she&#x27;s <strong>acting smart and moving quick</strong>, next to the Page of Wands and the Devil it&#x27;s somebody taking their last shots.</li></ul>
+</div><div class="card">
+  <div class="cname">Nine of Wands</div>
+  <div class="kw">guard up, still standing, protecting the doorway, weary defender</div>
+  <ul><li>The Nine of Wands is somebody <strong>protecting their doorway</strong>, guarding the entryway with their guard all the way up. Their energy is felt, you know they&#x27;re going to make a move or they done it already.</li>
+<li>The deeper layer is the battle-worn warrior who is <strong>still standing</strong> after the fight. They&#x27;ve been tested once, twice, three times and they&#x27;re still holding the hill.</li><li class="combo"><span class="ctag">Clarifier / Combo</span> As a clarifier this card means somebody holding the line against repeated challenge. Next to the Two of Wands it&#x27;s <strong>standing your ground as they test the perimeter</strong>, next to the Seven of Wands it stacks into pure defensive and offensive power, where it&#x27;s not even going to be a fight.</li></ul>
+</div><div class="card">
+  <div class="cname">Ten of Wands</div>
+  <div class="kw">burden, carrying too much, toxic choice, destructive weight</div>
+  <ul><li>The Ten of Wands is <strong>overburdening</strong>, getting crushed under the weight of something you picked up yourself. And the tea is, that&#x27;s not going to work.</li>
+<li>The shadow here feels like an unhealthy pull, somebody really attracted to someone else and it&#x27;s destructive. It feels like <strong>a choice here</strong>, somebody can choose this toxicity if they want it, but this reading is to help you see it.</li><li class="combo"><span class="ctag">Clarifier / Combo</span> As a combo card this is the outcome of the wrong choice, what carrying it looks like indefinitely. Next to the Knight of Wands the energy gets weird and <strong>something ain&#x27;t right here</strong>, next to the Page of Wands somebody&#x27;s being over-analytical on a thing that&#x27;s closed out.</li></ul>
+</div><div class="card">
+  <div class="cname">Page of Wands</div>
+  <div class="kw">preparing for something new, creative passionate ideas, reaching the summit, immature energy</div>
+  <ul><li>The Page of Wands is <strong>someone preparing for something new</strong>, like they&#x27;ve gotten to the top of the mountain. It&#x27;s all about creative, passionate ideas about to take off.</li>
+<li>The other side of this card can read immature, like somebody who love-bombed or strung you along. But you&#x27;ve healed that, you <strong>surrendered something</strong>, cried the tears, and now you say it straight instead of swallowing it.</li><li class="combo"><span class="ctag">Clarifier / Combo</span> As a clarifier this card sets up a beginning or a new phase. Next to the World and Four of Swords it&#x27;s <strong>somebody at peace, preparing for the next cycle</strong>, next to the Moon and Devil it flips to somebody trying to track and trace your moves you can&#x27;t see.</li></ul>
+</div><div class="card">
+  <div class="cname">Knight of Wands</div>
+  <div class="kw">in and out player, flighty, stab you in the back, lusty obsessive energy</div>
+  <ul><li>The Knight of Wands is <strong>in-and-out player energy</strong>, flighty, the type that gets somebody to fall in love and then dips. They want the attachment, then they hurt you and run.</li>
+<li>The shadow runs lusty and low-vibrational, Devil-adjacent, obsessive primal energy using rotten pitter-patter magic. The truth is something ain&#x27;t right, this person is an <strong>energetic sponge</strong> drawing off you.</li><li class="combo"><span class="ctag">Clarifier / Combo</span> As a combo card this often means action that can&#x27;t actually hit, a no. Next to the Two of Swords it&#x27;s somebody who wants to hate on your move but <strong>they can&#x27;t take action against this</strong>, they&#x27;re not invited, they don&#x27;t have access.</li></ul>
+</div><div class="card">
+  <div class="cname">Queen of Wands</div>
+  <div class="kw">confident, radiant, they love you, fiery independent power</div>
+  <ul><li>The Queen of Wands is <strong>confident and radiant</strong>, and the tea is they love you. Not only are you fine, you&#x27;re stable, and people cannot manipulate you, which intimidates them.</li>
+<li>The deeper read is people secretly want to rush the process with you, rush getting close, and you don&#x27;t let them. The shadow flips to somebody <strong>begging spirit</strong> to change an outcome, willing to lie and hide the truth so they don&#x27;t have to face it.</li><li class="combo"><span class="ctag">Clarifier / Combo</span> As a clarifier this card confirms genuine love and magnetism in the reading. Next to the Queen of Pentacles or Ace of Cups it doubles down, somebody loves you so much <strong>it is sickening how much</strong>, next to the Five of Pentacles it&#x27;s people trying to manifest you and they can&#x27;t.</li></ul>
+</div><div class="card">
+  <div class="cname">King of Wands</div>
+  <div class="kw">fire sign, taking the lead, ownership, choosing each other</div>
+  <ul><li>The King of Wands is a fire sign <strong>taking the lead</strong>, setting the record straight, not afraid to stand up. You&#x27;re taking ownership of your own life with your own thinking and communication.</li>
+<li>The deeper layer is you take people at face value, looking at their actions not their words, so there&#x27;s <strong>no tricking you</strong> like a trickster spirit. It can also read as the scary depth, like going deeper in a pool when the floor drops away.</li><li class="combo"><span class="ctag">Clarifier / Combo</span> As a combo card this is leadership and you going after what you want. Next to the Six of Wands you&#x27;ve <strong>matured emotionally and overcome</strong>, next to the Empress they want the wand but you hold it, next to the Two of Cups you&#x27;re falling for facts, not fantasy, so don&#x27;t get tricked.</li></ul>
+</div></div>
+</section><section class="suit" style="--suit:#CCBA72">
+  <h2>Pentacles</h2>
+  <div class="grid"><div class="card">
+  <div class="cname">Ace of Pentacles</div>
+  <div class="kw">new opportunity, material seed, manifestation, something real</div>
+  <ul><li>Look, the Ace of Pentacles is a <strong>seed of something real</strong> getting planted, a fresh material or practical beginning, an offer, an opportunity that can actually be built into something you can touch.</li>
+<li>The tea is this seed does nothing in your hand. We are creators, and <strong>if you don&#x27;t act on it, it never manifests</strong>, so taking the action is what makes it real.</li><li class="combo"><span class="ctag">Clarifier / Combo</span> As a clarifier it tells you the opportunity is <strong>going to change everything</strong>, especially arriving next to the Tower, where the shakeup or the truth you speak clears the false thing out so the new thing can come in.</li></ul>
+</div><div class="card">
+  <div class="cname">Two of Pentacles</div>
+  <div class="kw">balance, juggling, keep building, growth</div>
+  <ul><li>The Two of Pentacles is <strong>active juggling</strong>, keeping more than one thing in motion and finding the balance between them, robbing Peter to pay Paul until it steadies.</li>
+<li>Listen, when this is a partnership the message is just keep building, keep healing, keep going forward, and <strong>don&#x27;t let the worry stop you</strong> from growing it.</li><li class="combo"><span class="ctag">Clarifier / Combo</span> As a combo card it confirms <strong>something&#x27;s going to grow</strong>, and next to the King of Pentacles, that earth-sign master of resources, it reads as a material partnership that gets built and lasts.</li></ul>
+</div><div class="card">
+  <div class="cname">Three of Pentacles</div>
+  <div class="kw">collaboration, teamwork, building together, triangulation</div>
+  <ul><li>The Three of Pentacles is <strong>accomplished teamwork</strong>, something real that people built together, energy poured into a job, a business, a kingdom.</li>
+<li>But the shadow here is triangulation. People pinning each other against each other, <strong>trying to destroy what somebody built</strong>, leaving you out in the cold from something you helped make.</li><li class="combo"><span class="ctag">Clarifier / Combo</span> As a clarifier it flags the collaboration under attack, and beside the Seven of Wands it reads as <strong>everybody coming after you at once</strong> because they couldn&#x27;t take you down alone, so they recruit a crowd and sit back to watch.</li></ul>
+</div><div class="card">
+  <div class="cname">Four of Pentacles</div>
+  <div class="kw">holding on, security, stability, control</div>
+  <ul><li>The Four of Pentacles is <strong>holding tight</strong>, security, guarding your energy, keeping what you built on lockdown so nobody can pry it loose.</li>
+<li>The shadow is holding on to a fantasy and future-faking. People realize too late they <strong>can&#x27;t sell you a version of themselves</strong>, they actually have to present the real thing or you&#x27;re not buying.</li><li class="combo"><span class="ctag">Clarifier / Combo</span> As a combo card it marks the stable foundation waiting for you, and next to Strength it reads as the reward you reach <strong>once you stop leaking energy</strong> through fear and finally let the hidden thing be seen.</li></ul>
+</div><div class="card">
+  <div class="cname">Five of Pentacles</div>
+  <div class="kw">lack, loss, detachment, leaving</div>
+  <ul><li>The Five of Pentacles is somebody <strong>trying to throw lack your way</strong>, trying to make you feel like you&#x27;re missing something or left out in the cold.</li>
+<li>But the truth is you lack nothing. You matured past caring what people think, and people are noticing you&#x27;re <strong>okay staying in that lack energy</strong> with patience and delayed gratification, not chasing a gosh dang thing.</li><li class="combo"><span class="ctag">Clarifier / Combo</span> As a clarifier it exposes who comes in with ill intent, and next to the Empress it reads as <strong>they got to leave the moment she walks in</strong>, because that abundant energy makes the lack-thrower&#x27;s whole act fall apart.</li></ul>
+</div><div class="card">
+  <div class="cname">Six of Pentacles</div>
+  <div class="kw">giving and receiving, fair exchange, reciprocity, getting what you deserve</div>
+  <ul><li>The Six of Pentacles is <strong>fair exchange</strong>, giving and receiving in balance, getting back what&#x27;s proportional to what you put in.</li>
+<li>The deeper read is reciprocity tied to honesty. If you can&#x27;t be honest about what you want, <strong>then how can you get it</strong>, because what&#x27;s yours only comes when you speak it.</li><li class="combo"><span class="ctag">Clarifier / Combo</span> As a combo card it promises you receive what you&#x27;re meant to receive, and next to the Nine of Wands it reads as <strong>the matchup that isn&#x27;t even a fight</strong>, somebody arriving with everything and it just being over, fair and settled.</li></ul>
+</div><div class="card">
+  <div class="cname">Seven of Pentacles</div>
+  <div class="kw">investment, patience, reaping what you sow, karma</div>
+  <ul><li>The Seven of Pentacles is <strong>investment over time</strong>, as you reap you will sow, the work you put into yourself and your projects coming back around with Saturn karma attached.</li>
+<li>People are noticing you&#x27;re patient and you ain&#x27;t afraid of hard work, and the deeper truth is you&#x27;re <strong>always one step ahead</strong>, not somebody who goes out and gets played.</li><li class="combo"><span class="ctag">Clarifier / Combo</span> As a clarifier it tells you somebody&#x27;s been working a long time, and beside the Queen of Swords it reads as <strong>cold, calculated intelligence that built its predatory game</strong> through sustained effort, so you clock that it&#x27;s been a long con.</li></ul>
+</div><div class="card">
+  <div class="cname">Eight of Pentacles</div>
+  <div class="kw">mastery, skill, dedication, putting in the work</div>
+  <ul><li>The Eight of Pentacles is <strong>dedicated mastery</strong>, working on a craft, putting in the work and practicing until you&#x27;re genuinely skilled at it.</li>
+<li>The deeper read is what you mastered. You learned to <strong>analyze people&#x27;s communication and read their true character</strong> over time, and toxic people hate that you&#x27;re that skilled and still won&#x27;t chase them.</li><li class="combo"><span class="ctag">Clarifier / Combo</span> As a combo card it shows someone investing at a craft level, and next to the Five of Wands it reads as <strong>sharpening your skill inside a competitive arena</strong> where others are striving too, so you build as they scrap.</li></ul>
+</div><div class="card">
+  <div class="cname">Nine of Pentacles</div>
+  <div class="kw">abundance, independence, self-sufficiency, earned freedom</div>
+  <ul><li>The Nine of Pentacles is <strong>abundance and independence</strong>, harvesting what you built by yourself, your freedom that you worked your ass off for as people think it came easy.</li>
+<li>The deeper truth is you got God in your corner, and <strong>that beats out anything</strong>, plus you&#x27;re good at closing out cycles, emotionally and intellectually aware, the kind of skill people start looking you up over.</li><li class="combo"><span class="ctag">Clarifier / Combo</span> As a clarifier it can flip to expose envy, and next to the Tower it reads as somebody who <strong>just wants the fruits of what you grew</strong>, a carnal craving for your harvest that they didn&#x27;t earn and can&#x27;t sustain.</li></ul>
+</div><div class="card">
+  <div class="cname">Ten of Pentacles</div>
+  <div class="kw">legacy, generational wealth, lasting success, family</div>
+  <ul><li>The Ten of Pentacles is <strong>generational wealth and legacy</strong>, lasting success, the kind of abundance that builds a family and breaks generational curses.</li>
+<li>The shadow is what it draws. People who can&#x27;t break free want your money, your mentality, your perception, your relationships. They <strong>want what you have</strong> because they couldn&#x27;t build it themselves.</li><li class="combo"><span class="ctag">Clarifier / Combo</span> As a combo card it&#x27;s the abundance outcome arriving, and next to the World it reads as <strong>the cycle closing on completed success</strong>, as anybody still in pain is just watching someone else&#x27;s full harvest materialize.</li></ul>
+</div><div class="card">
+  <div class="cname">Page of Pentacles</div>
+  <div class="kw">new opportunity, planting seeds, physical evidence, incoming news</div>
+  <ul><li>The Page of Pentacles is <strong>the student of material reality</strong>, learning to plant and grow, an opportunity, an offer, incoming good news, something physical and real on the way.</li>
+<li>The deeper read is you don&#x27;t have to defend yourself, your character speaks volumes, but watch the shadow where somebody <strong>tries to recreate you or plant a seed</strong> in your head with dirt magic to break your mind.</li><li class="combo"><span class="ctag">Clarifier / Combo</span> As a clarifier it points to evidence or a gift being handed over, and next to the Queen of Cups it reads as <strong>something of material value offered to a water sign</strong>, a gift exchange or fresh seeds planted with somebody emotionally deep.</li></ul>
+</div><div class="card">
+  <div class="cname">Knight of Pentacles</div>
+  <div class="kw">endurance, determination, long-term, steady commitment</div>
+  <ul><li>The Knight of Pentacles is <strong>endurance and determination</strong>, somebody who wants something long-term or wants to offer something long-term, no matter how long it takes.</li>
+<li>The deeper move is don&#x27;t stay sad about it, do something, and the truth is the <strong>competition is an illusion</strong>. You don&#x27;t have to run in it, because they&#x27;re really only competing with themselves.</li><li class="combo"><span class="ctag">Clarifier / Combo</span> As a combo card it can flag somebody slowing you down, and next to the Five of Wands it reads as <strong>unnecessary competition you don&#x27;t have to enter</strong>, friction that&#x27;s fake, so you keep your steady pace and let them tire themselves out.</li></ul>
+</div><div class="card">
+  <div class="cname">Queen of Pentacles</div>
+  <div class="kw">manifestation, earth sign, self-nurture, going deeper</div>
+  <ul><li>The Queen of Pentacles is <strong>the actual manifestation</strong>, the moment it gets real, that grounded earth-sign energy that makes a thing solid and tangible.</li>
+<li>The deeper read is she&#x27;s <strong>choosing herself and going deeper</strong>, not staying in the same spot, willing to drop into the next emotional layer even when it&#x27;s the only way through.</li><li class="combo"><span class="ctag">Clarifier / Combo</span> As a clarifier it marks where the thing becomes real, and next to the Eight of Pentacles it reads as <strong>mastery that hardened into manifestation</strong>, the skill you practiced for years finally showing up as something built and standing.</li></ul>
+</div><div class="card">
+  <div class="cname">King of Pentacles</div>
+  <div class="kw">earth sign, resources, mastery of the material, building wealth</div>
+  <ul><li>The King of Pentacles is <strong>the master of material reality</strong>, an earth sign with the resources, somebody who has built, who is stable, who knows how to grow things.</li>
+<li>The deeper read is this King is aligned and knows exactly how he feels, <strong>he knows that Devil ain&#x27;t no good</strong> even when it isn&#x27;t written across anybody&#x27;s forehead, so he reads the snake before it coils.</li><li class="combo"><span class="ctag">Clarifier / Combo</span> As a combo card it confirms growth is coming through somebody solid, and next to the Two of Pentacles it reads as <strong>a material partnership that will grow and last</strong>, resources in steady hands finding their balance.</li></ul>
+</div></div>
+</section><section class="suit" style="--suit:#8D8680">
+  <h2>Major Arcana</h2>
+  <div class="grid"><div class="card">
+  <div class="cname">The Fool</div>
+  <div class="kw">new beginning, fresh start, leap of faith, reset, divine timing</div>
+  <ul><li>Look, the Fool is a <strong>brand new story</strong> opening up, a leap of faith and a clean reset, and when he arrives at the bottom of a spread he is the whole foundation the reading is standing on.</li>
+<li>The tea is somebody is fighting this new energy, fighting how they truly feel or what they really want, but it is going to manifest whether they like it or not because <strong>divine timing</strong> is moving.</li><li class="combo"><span class="ctag">Clarifier / Combo</span> As a clarifier the Fool tells you you are <strong>creating newness out of stagnancy</strong>, so when he is next to the Hanged Man or the Tower the pause and the collapse become the seam where the fresh chapter starts.</li></ul>
+</div><div class="card">
+  <div class="cname">The Magician</div>
+  <div class="kw">manifestation, willpower, resourcefulness, manipulation, intention</div>
+  <ul><li>The Magician is <strong>raw manifesting power</strong>, self-assured and magnetic, the one who is organized and quick-witted and brings what they want into being on purpose.</li>
+<li>Listen, that same power has a shadow, because a Magician can be a sweet Swift talker who won&#x27;t stop, <strong>manipulate you</strong> little by little until you wake up wondering how you got here, so know why you open the door before you open it.</li><li class="combo"><span class="ctag">Clarifier / Combo</span> As a combo card the Magician means <strong>it was intentional, not accidental</strong>, so when it is under the Devil somebody is aiming their manifesting straight at a predatory end, and when it is with the Empress something is beginning at the most foundational level.</li></ul>
+</div><div class="card">
+  <div class="cname">The High Priestess</div>
+  <div class="kw">intuition, psychic knowing, the unseen, inner truth, confirmation</div>
+  <ul><li>The High Priestess is <strong>psychic abilities through the roof</strong>, the witch or warlock energy that walks with God and just knows, no question asked, only affirmation of what you sense.</li>
+<li>When she shows up twice she is the deck underlining the message, so if you are catching a red flag or something weird, that is the <strong>confirmation you needed</strong>, trust what is wrong even when you cannot pin it down.</li><li class="combo"><span class="ctag">Clarifier / Combo</span> As a clarifier the Priestess is somebody&#x27;s <strong>worst nightmare</strong>, so next to the Devil it means they thought they could spell you and they can&#x27;t, and next to a Knight of Cups it confirms the wanting is real and passionate and no mistaking it.</li></ul>
+</div><div class="card">
+  <div class="cname">The Empress</div>
+  <div class="kw">abundance, attraction, not chasing, someone&#x27;s partner wants you, don&#x27;t stop</div>
+  <ul><li>The Empress doesn&#x27;t chase, she <strong>attracts everything to her</strong>, making the moves she wants, succeeding, knowing what she allows and what she don&#x27;t, holding the wheel as others scramble.</li>
+<li>Here is the tea, someone&#x27;s partner wants you and they don&#x27;t stop, they keep coming and coming and racking up Karma, so you keep cord cutting, keep cleansing, keep declining the offer and <strong>don&#x27;t entertain it</strong>.</li><li class="combo"><span class="ctag">Clarifier / Combo</span> As a combo card the Empress is <strong>the one who holds it</strong> as others want it, so next to Wheel of Fortune you are pulling good luck toward you and they are beside themselves, and next to the Devil you recognize the same energy in a different meat suit.</li></ul>
+</div><div class="card">
+  <div class="cname">The Emperor</div>
+  <div class="kw">authority, structure, responsibility, Aries energy, foundations</div>
+  <ul><li>The Emperor is Aries fire, <strong>serious authoritative ambitious</strong> energy, structured and traditional and down to earth, the divine masculine that builds strong foundations and carries real responsibility.</li>
+<li>Watch this, when somebody tries to put a spell on this Emperor it backfires right in their face, because the moment they cross the line <strong>Lilith comes out</strong> and shows them they are not winning this, unapologetic, set on fire.</li><li class="combo"><span class="ctag">Clarifier / Combo</span> As a clarifier the Emperor means <strong>they want to bind you</strong>, a soul tie and a tying down, so next to Nine of Swords somebody is scared and overthinking how to trap you, and next to Four of Swords it reads like responsibility reaching its culmination point.</li></ul>
+</div><div class="card">
+  <div class="cname">The Hierophant</div>
+  <div class="kw">tradition, mastery, skill, belief system, don&#x27;t chase</div>
+  <ul><li>The Hierophant is <strong>tradition and skill</strong>, somebody insanely good at what they do, working toward something and going to make it, wise as anything and aligned in their power.</li>
+<li>The shadow read is a belief system that boxes you in, like a title or a social role somebody thinks holds them back, so when something tries to <strong>hold you from speaking</strong>, don&#x27;t let them and don&#x27;t do it to yourself.</li><li class="combo"><span class="ctag">Clarifier / Combo</span> As a combo card the Hierophant says <strong>don&#x27;t chase, attract</strong>, so next to Judgement it means people try to do one over on you and it only creates opportunity, and next to the Page of Swords a title becomes the barrier somebody invents.</li></ul>
+</div><div class="card">
+  <div class="cname">The Lovers</div>
+  <div class="kw">union, choice, partnership, alignment, the shadow of wanting</div>
+  <ul><li>The Lovers is <strong>sacred choice and alignment</strong>, taking the oath, choosing somebody, two souls in agreement, and it doesn&#x27;t have to be marriage on paper to be a real binding.</li>
+<li>But the Lovers has a dark side, <strong>obsession disguised as love</strong>, where the wanting turns toxic and somebody wanted you or wanted what you had and that wanting got destructive.</li><li class="combo"><span class="ctag">Clarifier / Combo</span> As a clarifier the Lovers shows <strong>a network or a soul tribe</strong>, so next to Three of Cups it is a whole community that loves what you do, but next to the Devil it flips into a corrupted mirror, the offer of connection used as a trap.</li></ul>
+</div><div class="card">
+  <div class="cname">The Chariot</div>
+  <div class="kw">willpower, momentum, leading by example, bravery, the plan finds you</div>
+  <ul><li>The Chariot can be you going out and getting it, but the truth is <strong>it is coming toward you</strong>, the plan finds you because you don&#x27;t chase, you move quick and you don&#x27;t have time to entertain nonsense.</li>
+<li>This is <strong>bravery and resilience</strong> that shocks people, because they expect the same energy back that they gave you and they don&#x27;t get it, you lead by example instead, with strength and power.</li><li class="combo"><span class="ctag">Clarifier / Combo</span> As a combo card the Chariot brings <strong>masculine drive and a fertile mind</strong>, so next to Strength it is leading with power not retaliation, and next to the High Priestess it reads as people trying to go toe to toe with you spiritually.</li></ul>
+</div><div class="card">
+  <div class="cname">Strength</div>
+  <div class="kw">courage, overcoming, inner power, walking away, breaking out</div>
+  <ul><li>Strength is <strong>courage and overcoming</strong>, walking away and moving away, breaking out of an old perspective or an old way of thinking that no longer holds you.</li>
+<li>Here is the deeper layer, sometimes you keep <strong>falling in and out</strong> of your own strength because somebody is trying to attach their energy to you, and there may be a fear a person feels they have to keep hidden.</li><li class="combo"><span class="ctag">Clarifier / Combo</span> As a clarifier Strength shows the way out is <strong>through inner courage, not external force</strong>, so next to Eight of Swords the exit was there all along, and next to the Devil they wish you would entertain it but you don&#x27;t got to.</li></ul>
+</div><div class="card">
+  <div class="cname">The Hermit</div>
+  <div class="kw">wisdom, solitude, Virgo energy, psychic sight, seeking the truth</div>
+  <ul><li>The Hermit is a <strong>wise Elder</strong>, Virgo energy, insanely psychic, the witch in you strong enough to see people acting funny so you detach before they can stab you in the back.</li>
+<li>Even if you are not old you hold the energy of a wise Elder, <strong>glowing in the dark</strong>, seeking the evidence and the truth, calculated and careful and thorough, never impulsive.</li><li class="combo"><span class="ctag">Clarifier / Combo</span> As a combo card the Hermit means <strong>you see things through the dark</strong>, so next to the Moon your intuition gets scary accurate and ominous, and next to the Star it reads as a particular set of skills nobody can hide from.</li></ul>
+</div><div class="card">
+  <div class="cname">Wheel of Fortune</div>
+  <div class="kw">fate, the turn, luck, karmic shift, what goes around</div>
+  <ul><li>The Wheel of Fortune is <strong>good luck and fortune</strong> turning toward you, fate pivoting in your favor as the person watching is beside themselves trying to understand why it keeps working out for you.</li>
+<li>The tea is anybody can sabotage their own blessing, anybody can turn something positive into negative, so people who screw you over watch their <strong>new beginnings get taken away</strong>, their opportunities gone.</li><li class="combo"><span class="ctag">Clarifier / Combo</span> As a clarifier the Wheel is <strong>the turn that changes everything</strong>, neutral but heavy, so next to the Devil or Two of Swords it warns that if somebody crosses your boundary their whole life is going to shift, not in their favor.</li></ul>
+</div><div class="card">
+  <div class="cname">Justice</div>
+  <div class="kw">accountability, karma, legal matters, truth, proportional consequence</div>
+  <ul><li>Justice is <strong>karmic accountability and proportional consequence</strong>, and sometimes it is literal, somebody will be in court, somebody will be in jail, whatever they are doing is coming back around.</li>
+<li>This card is <strong>truth that demands action</strong>, the clarity that forces a decision, and it can also be you serving justice by withdrawing your energy, loving yourself more and getting sterner about who gets access.</li><li class="combo"><span class="ctag">Clarifier / Combo</span> As a combo card Justice confirms <strong>the consequence is institutional and real</strong>, so next to the Ace of Swords the truth has arrived and cannot be ignored, and next to the Lovers it looks like somebody finally getting the partnership they are supposed to get, in the spotlight.</li></ul>
+</div><div class="card">
+  <div class="cname">The Hanged Man</div>
+  <div class="kw">surrender, pause, new perspective, suspension, seeing differently</div>
+  <ul><li>The Hanged Man is <strong>surrender and a shift in perspective</strong>, standing in one spot, hanging upside down so you finally see the thing differently and come out of the silence with a realization.</li>
+<li>Somebody is trying to delay you or pause you, but the deeper read is <strong>a confirmation that makes you realize something</strong>, so the stillness is creating stability before the move.</li><li class="combo"><span class="ctag">Clarifier / Combo</span> As a clarifier the Hanged Man says <strong>let go of resistance and accept what is</strong>, so next to the Fool you turn the standstill into newness, and next to the World it is the surrendering that follows a cycle completing.</li></ul>
+</div><div class="card">
+  <div class="cname">Death</div>
+  <div class="kw">transformation, ending, transition, regeneration, rebirth</div>
+  <ul><li>Death is an <strong>ending and a transition</strong>, not the literal kind, the rot that clears the ground, and the truth is you never really die, you transform and you come back.</li>
+<li>People are <strong>shocked at your regeneration rate</strong> because of the light you hold and the way you speak, and there is a Lilith energy here too, death and sexuality and joy braided together so folks secretly want a bite.</li><li class="combo"><span class="ctag">Clarifier / Combo</span> As a combo card Death means <strong>you come back ten times stronger</strong>, so next to the Sun it is a regenerating forest blooming after the burn, and next to Ten of Cups people are floored at your ability to manifest after everything they believed got revealed as a lie.</li></ul>
+</div><div class="card">
+  <div class="cname">Temperance</div>
+  <div class="kw">alchemy, balance, staying on your path, Sagittarius energy, patience</div>
+  <ul><li>Temperance is the <strong>card of alchemy</strong>, Sagittarius energy, knowing how to temper yourself and turn whatever somebody sends at you into opportunity as they sit there scratching their head wondering why it isn&#x27;t working.</li>
+<li>This is <strong>staying on your path</strong> and not letting the demons trick you, sway you or tempt you, because it don&#x27;t matter what they got to say, you are the master of alchemy and you don&#x27;t stop.</li><li class="combo"><span class="ctag">Clarifier / Combo</span> As a clarifier Temperance means <strong>you keep going as they spin out</strong>, so next to the Empress it explains why you feel dizzy from someone&#x27;s relentless energy and stay balanced, and next to the Page of Swords it brings a new perspective, atonement of errors, never a lost cause.</li></ul>
+</div><div class="card">
+  <div class="cname">The Devil</div>
+  <div class="kw">taboo, toxicity, bondage, temptation, the forbidden</div>
+  <ul><li>The Devil is <strong>something too damn toxic</strong>, forbidden, taboo, the thing a person is not supposed to do, the energy that would poison something or bind you if you let it close.</li>
+<li>Listen, the dark energies get a bad rep but you don&#x27;t want to cross them, because you are ancient and you get Divine messages, so somebody <strong>playing with fire</strong> with you is going to get burned, they need to chill with that.</li><li class="combo"><span class="ctag">Clarifier / Combo</span> As a combo card the Devil reads as the <strong>corrupted offer</strong>, so next to the Lovers it is connection used as a bait and trap, and next to the High Priestess it becomes their own worst nightmare because you roll with the big guy upstairs.</li></ul>
+</div><div class="card">
+  <div class="cname">The Tower</div>
+  <div class="kw">sudden change, disruption, collapse, manifestation, the shift</div>
+  <ul><li>The Tower is <strong>sudden change that rearranges everything</strong>, an action or a word that manifests something real, that shifts the direction and the outcome and surprises you when it hits.</li>
+<li>The tea is this is going to be a show, and the people who set it off <strong>can&#x27;t stop a thing</strong>, the only move they got left is to talk, and talk ain&#x27;t nothing against what is coming down.</li><li class="combo"><span class="ctag">Clarifier / Combo</span> As a clarifier the Tower means <strong>the opportunity that breaks what was false</strong>, so next to the Ace of Pentacles a new seed changes everything once you speak it, and next to Nine of Pentacles it reads as carnal wanting that could blow your life up if you let it in.</li></ul>
+</div><div class="card">
+  <div class="cname">The Star</div>
+  <div class="kw">healing, hope, unique gifts, out of this world, clarity</div>
+  <ul><li>The Star is a <strong>healing vibe</strong>, the motherly energy that eases racing minds and takes worries away just by being near, the one people secretly tell themselves calms their troubles.</li>
+<li>This is Aquarius energy, you do something <strong>different and out of this world</strong>, you see exactly what is real as they stay blind, and that particular set of skills means there is no mistaking any of it.</li><li class="combo"><span class="ctag">Clarifier / Combo</span> As a combo card the Star confirms <strong>psychic skill they can&#x27;t touch</strong>, so next to the High Priestess it means they thought they could love-spell a witch and got people scared, and next to the Hierophant it is tradition plus skill that is a narcissist&#x27;s worst nightmare.</li></ul>
+</div><div class="card">
+  <div class="cname">The Moon</div>
+  <div class="kw">the subconscious, hidden things, psychic sight, illusion, the unseen</div>
+  <ul><li>The Moon is <strong>seeing through the dark</strong>, perceiving the lies under the truths and the truth under the lies, reading people&#x27;s words and body language because you catch the Unseen.</li>
+<li>The deeper layer is the subconscious surfacing, the <strong>clarity that comes from going your own way</strong>, and watch it, somebody could be a distraction working something hidden, trying not to be detected.</li><li class="combo"><span class="ctag">Clarifier / Combo</span> As a clarifier the Moon brings <strong>what is hidden into focus</strong>, so next to the Hermit your intuition turns scary accurate and ominous, and next to Four of Swords it reads as a person doing something in the shadows who does not want to be caught.</li></ul>
+</div><div class="card">
+  <div class="cname">The Sun</div>
+  <div class="kw">spotlight, truth to light, all eyes on you, vitality, success</div>
+  <ul><li>The Sun is <strong>all eyes on you</strong>, the spotlight, the one people secretly think holds the keys and always gets what they want, bringing the heat and the fire chemistry wherever you go.</li>
+<li>When the Sun comes out twice the deck is repeating itself so you hear it, somebody has to <strong>bring this to the light</strong>, stop repressing it and make it to that higher place where the truth gets spoken.</li><li class="combo"><span class="ctag">Clarifier / Combo</span> As a combo card the Sun means <strong>God is in your corner and it beats everything</strong>, so next to Nine of Pentacles it says do not entertain the offer because no dark deity outranks that, and next to the Devil it is light burning their worst nightmare into view.</li></ul>
+</div><div class="card">
+  <div class="cname">Judgement</div>
+  <div class="kw">reckoning, awakening, calling it, putting somebody in their place, rebirth</div>
+  <ul><li>Judgement is a <strong>reckoning</strong>, the trumpet from heaven, somebody pissed and somebody getting called out, the moment a controlling manipulative energy gets put exactly where it belongs.</li>
+<li>This card is also you calling judgement by <strong>putting yourself first</strong>, closing out a past cycle without unnecessary competition or triangulation, because you got a strong mind and better things to do than worry who is competing with you.</li><li class="combo"><span class="ctag">Clarifier / Combo</span> As a clarifier Judgement says <strong>you are persistent and you close out cycles</strong>, so next to Nine of Pentacles it confirms near misses where people look you up and view you differently, and next to the Tower it is the reckoning that hits when the controlling one gets exposed.</li></ul>
+</div><div class="card">
+  <div class="cname">The World</div>
+  <div class="kw">completion, closing the cycle, mastery, done, full circle</div>
+  <ul><li>The World is <strong>the closing of the cycle</strong>, complete, finished, done, nothing can be done about this, the final card that reads as absolute and not just one possible outcome.</li>
+<li>The World is <strong>almost there</strong>, a cycle ending and not re-begun, the near-complete close rather than the Fool&#x27;s fresh start, getting into your masculine energy and that intellectual richness people underestimate until it is too late.</li><li class="combo"><span class="ctag">Clarifier / Combo</span> As a combo card the World means <strong>the proof that ends it for good</strong>, so next to Justice somebody viewing you online is shook and the matter is settled, and next to the Hanged Man it is completion followed by somebody surrendering to what is finally undeniable.</li></ul>
+</div></div>
+</section>
+<footer>Chiron voice, corpus-grounded across 78 cards. Palette: Isle of Dogs (Wes Anderson).</footer>
+
+</body>
+</html>

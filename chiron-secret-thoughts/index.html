@@ -1,0 +1,1031 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Their Secret Thoughts Cheatsheet, Chiron Voice</title>
+<style>
+  /* ── Fantastic Mr. Fox (Wes Anderson) ── */
+  :root {
+    --fox-amber:   #DD8D29;
+    --fox-gold:    #E2D200;
+    --fox-teal:    #46ACC8;
+    --fox-orange:  #E58601;
+    --fox-crimson: #B40F20;
+
+    --bg:          #FDF6EC;
+    --bg-card:     #FFFCF5;
+    --text:        #111111;
+    --text-muted:  #6B4C3B;
+    --border:      #E8D5C0;
+    --border-card: #D4B896;
+    --shadow:      rgba(44, 24, 16, 0.08);
+
+    --suit-cups:      #46ACC8;
+    --suit-swords:    #B40F20;
+    --suit-wands:     #E58601;
+    --suit-pentacles: #DD8D29;
+    --suit-major:     #6B4C3B;
+  }
+
+  @media (prefers-color-scheme: dark) {
+    :root {
+      --bg:          #1A1310;
+      --bg-card:     #2A211B;
+      --text:        #F0E6DA;
+      --text-muted:  #B8A08A;
+      --border:      #3D302A;
+      --border-card: #4D3D33;
+      --shadow:      rgba(0, 0, 0, 0.3);
+
+      --suit-cups:      #5BC4E0;
+      --suit-swords:    #E04858;
+      --suit-wands:     #F09818;
+      --suit-pentacles: #EDA040;
+      --suit-major:     #C8A888;
+    }
+  }
+
+  *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+  body {
+    font-family: "Georgia", "Times New Roman", serif;
+    background: var(--bg);
+    color: var(--text);
+    line-height: 1.5;
+    padding: 2rem 1.5rem;
+    max-width: 1400px;
+    margin: 0 auto;
+  }
+
+  /* ── Header ── */
+  .header {
+    text-align: center;
+    margin-bottom: 2.5rem;
+    padding-bottom: 1.5rem;
+    border-bottom: 3px solid var(--fox-amber);
+  }
+  .header h1 {
+    font-size: 2rem;
+    font-weight: 700;
+    color: var(--fox-crimson);
+    letter-spacing: 0.03em;
+    margin-bottom: 0.4rem;
+  }
+  .header .subtitle {
+    font-style: italic;
+    color: var(--text-muted);
+    font-size: 1rem;
+  }
+
+  /* ── Section headings ── */
+  .suit-section { margin-bottom: 2.5rem; }
+  .suit-heading {
+    font-size: 1.35rem;
+    font-weight: 700;
+    padding: 0.5rem 1rem;
+    border-radius: 6px;
+    margin-bottom: 1rem;
+    color: #fff;
+    letter-spacing: 0.04em;
+    text-transform: uppercase;
+  }
+  .suit-heading--cups      { background: var(--suit-cups); }
+  .suit-heading--swords    { background: var(--suit-swords); }
+  .suit-heading--wands     { background: var(--suit-wands); }
+  .suit-heading--pentacles { background: var(--suit-pentacles); }
+  .suit-heading--major     { background: var(--suit-major); }
+
+  /* ── Grid layouts ── */
+  .card-grid {
+    display: grid;
+    gap: 1rem;
+    grid-template-columns: repeat(4, 1fr);
+  }
+  .card-grid--major {
+    grid-template-columns: repeat(3, 1fr);
+  }
+
+  /* ── Card ── */
+  .card {
+    background: var(--bg-card);
+    border: 1px solid var(--border-card);
+    border-radius: 8px;
+    padding: 0.9rem 1rem;
+    box-shadow: 0 2px 6px var(--shadow);
+    transition: box-shadow 0.2s;
+    break-inside: avoid;
+  }
+  .card:hover { box-shadow: 0 4px 14px var(--shadow); }
+
+  .card-name {
+    font-weight: 700;
+    font-size: 0.95rem;
+    margin-bottom: 0.15rem;
+  }
+  .card-name--cups      { color: var(--suit-cups); }
+  .card-name--swords    { color: var(--suit-swords); }
+  .card-name--wands     { color: var(--suit-wands); }
+  .card-name--pentacles { color: var(--suit-pentacles); }
+  .card-name--major     { color: var(--suit-major); }
+
+  .card-keywords {
+    font-style: italic;
+    font-size: 0.78rem;
+    color: var(--text-muted);
+    margin-bottom: 0.45rem;
+    line-height: 1.35;
+  }
+
+  .card-bullets {
+    list-style: none;
+    padding: 0;
+  }
+  .card-bullets li {
+    font-size: 0.78rem;
+    line-height: 1.4;
+    margin-bottom: 0.35rem;
+    padding-left: 0.85rem;
+    position: relative;
+    color: var(--text);
+  }
+  .card-bullets li::before {
+    content: "\2022";
+    position: absolute;
+    left: 0;
+    font-weight: 700;
+  }
+  .card-bullets li:first-child::before { color: var(--fox-amber); }
+  .card-bullets li:last-child::before  { color: var(--fox-teal); }
+
+  .card-bullets strong {
+    font-weight: 700;
+  }
+
+  /* ── Footer ── */
+  .footer {
+    text-align: center;
+    margin-top: 2.5rem;
+    padding-top: 1rem;
+    border-top: 2px solid var(--border);
+    font-size: 0.82rem;
+    color: var(--text-muted);
+    font-style: italic;
+  }
+
+  /* ── Responsive ── */
+  @media (max-width: 1100px) {
+    .card-grid { grid-template-columns: repeat(3, 1fr); }
+    .card-grid--major { grid-template-columns: repeat(3, 1fr); }
+  }
+  @media (max-width: 800px) {
+    .card-grid { grid-template-columns: repeat(2, 1fr); }
+    .card-grid--major { grid-template-columns: repeat(2, 1fr); }
+  }
+  @media (max-width: 520px) {
+    body { padding: 1rem 0.75rem; }
+    .header h1 { font-size: 1.4rem; }
+    .card-grid,
+    .card-grid--major { grid-template-columns: 1fr; }
+  }
+
+  /* ── Print ── */
+  @media print {
+    @page {
+      size: letter;
+      margin: 0.4in;
+    }
+    body {
+      padding: 0;
+      font-size: 6.5pt;
+      line-height: 1.25;
+      color: #1a1a1a;
+      background: #fff;
+      max-width: none;
+    }
+    .header {
+      margin-bottom: 0.3rem;
+      padding-bottom: 0.25rem;
+      border-bottom-width: 1.5px;
+    }
+    .header h1 { font-size: 11pt; }
+    .header .subtitle { font-size: 7pt; }
+
+    .suit-section { margin-bottom: 0.4rem; }
+    .suit-heading {
+      font-size: 7.5pt;
+      padding: 2px 6px;
+      margin-bottom: 0.25rem;
+      -webkit-print-color-adjust: exact;
+      print-color-adjust: exact;
+    }
+
+    .card-grid {
+      grid-template-columns: repeat(4, 1fr);
+      gap: 0.25rem;
+    }
+    .card-grid--major {
+      grid-template-columns: repeat(4, 1fr);
+      gap: 0.25rem;
+    }
+
+    .card {
+      padding: 0.2rem 0.3rem;
+      border-radius: 3px;
+      box-shadow: none;
+      border-width: 0.5px;
+      page-break-inside: avoid;
+    }
+    .card-name { font-size: 6.5pt; margin-bottom: 1px; }
+    .card-keywords { font-size: 5.5pt; margin-bottom: 2px; }
+    .card-bullets li {
+      font-size: 5.5pt;
+      line-height: 1.2;
+      margin-bottom: 1px;
+      padding-left: 0.5rem;
+    }
+
+    .footer {
+      margin-top: 0.3rem;
+      padding-top: 0.15rem;
+      font-size: 6pt;
+    }
+  }
+</style>
+<style id="kidmode-css">
+.mode-btn{position:fixed;top:12px;right:12px;z-index:9999;padding:9px 16px;border:none;border-radius:999px;background:#4E8079;color:#fff;font:600 14px/1 system-ui,-apple-system,sans-serif;cursor:pointer;box-shadow:0 2px 8px rgba(0,0,0,.22)}
+body.kids .mode-btn{background:#B4503E}
+body.kids .mode-btn::before{content:"🧒  "}
+#kidpanel{display:none}
+body.kids #kidpanel{display:block;max-width:760px;margin:62px auto 12px;background:#fff7e8;border:2px solid #4E8079;border-radius:18px;padding:20px 24px;font:18px/1.7 system-ui,-apple-system,sans-serif;color:#2b2820}
+body.kids #kidpanel h3{font-family:"Fredoka","Comic Sans MS",sans-serif;color:#4E8079;margin:0 0 8px;font-size:22px}
+body.kids #kidpanel b{color:#B4503E}
+body.kids{font-size:1.04em}
+</style>
+</head>
+<body>
+
+<div id="kidpanel"><h3>Kid mode 🧒</h3><p>This page is <b>Their Secret Thoughts Cheatsheet, Chiron Voice</b>. It is one of the projects Brandon built and put online. The grown-up details are below, tap Grown-up mode to read them the normal way.</p></div>
+<div style="background:#2f4a3d;border-bottom:2px solid #E9C046;padding:.5rem .8rem;text-align:center;font-family:system-ui,sans-serif;font-size:.78rem">
+<span style="color:#E9C046;font-weight:700;margin-right:.3rem">Chiron Tarot:</span>
+<a href="/chiron-tarot-hub/" style="color:#fff;text-decoration:none;margin:0 .35rem;font-weight:700">All versions</a><span style="color:#7c8b80">·</span>
+<a href="/chiron-secret-thoughts/" style="color:#D3DDDC;text-decoration:none;margin:0 .35rem">Web sheet</a><span style="color:#7c8b80">·</span>
+<a href="/chiron-tarot-hub/one-page-cheatsheet.pdf" style="color:#D3DDDC;text-decoration:none;margin:0 .35rem">1-page PDF</a><span style="color:#7c8b80">·</span>
+<a href="/chiron-tarot-meanings/" style="color:#D3DDDC;text-decoration:none;margin:0 .35rem">Meanings + combo</a><span style="color:#7c8b80">·</span>
+<a href="/chiron-tarot-cards/" style="color:#D3DDDC;text-decoration:none;margin:0 .35rem">Print cards</a><span style="color:#7c8b80">·</span>
+<a href="/chiron-tarot-etsy/" style="color:#D3DDDC;text-decoration:none;margin:0 .35rem">Etsy bundle</a>
+</div>
+
+<div class="header">
+  <h1>Their Secret Thoughts Cheatsheet, Chiron Voice</h1>
+  <p class="subtitle">Each card keeps two lines: the real thought, then what is driving it underneath.</p>
+</div>
+
+<!-- ═══════════════ CUPS ═══════════════ -->
+<section class="suit-section">
+  <h2 class="suit-heading suit-heading--cups">Cups</h2>
+  <div class="card-grid">
+
+    <div class="card">
+      <div class="card-name card-name--cups">Ace of Cups</div>
+      <div class="card-keywords">new offering, healing, test, gift</div>
+      <ul class="card-bullets">
+        <li>They want to offer you something brand new but fear rejection. <strong>They see you as the blessing that showed up right after the worst thing happened to them.</strong></li>
+        <li>They're testing you before putting their whole heart on the table. <strong>They know you're the healing they need</strong>, just not ready to admit it out loud.</li>
+      </ul>
+    </div>
+
+    <div class="card">
+      <div class="card-name card-name--cups">Two of Cups</div>
+      <div class="card-keywords">options, karma, mutual connection, truth</div>
+      <ul class="card-bullets">
+        <li>They realize too late that <strong>you got options</strong>. They had a false sense of superiority thinking you'd just wait, and now the truth is coming out.</li>
+        <li>Karma is hitting right now. They tried to sell you a fantasy, but <strong>you stopped falling for fantasy and started falling for facts.</strong></li>
+      </ul>
+    </div>
+
+    <div class="card">
+      <div class="card-name card-name--cups">Three of Cups</div>
+      <div class="card-keywords">reconciliation, scared, third party, mending</div>
+      <ul class="card-bullets">
+        <li>They want to reconcile but they're scared because of everything they pulled. <strong>They think you're going to be defensive and won't even hear them out.</strong></li>
+        <li>Too many people influencing this connection. <strong>A third party energy has been all up in your business</strong>, and they know that's why things fell apart.</li>
+      </ul>
+    </div>
+
+    <div class="card">
+      <div class="card-name card-name--cups">Four of Cups</div>
+      <div class="card-keywords">rejection, stuck, unbothered, soul tribe</div>
+      <ul class="card-bullets">
+        <li><strong>You ain't afraid of rejection.</strong> They can't rattle you and it's messing with their head.</li>
+        <li>They're stuck acting content when they're not. <strong>They want to act like they don't see the blessing being handed to them.</strong></li>
+      </ul>
+    </div>
+
+    <div class="card">
+      <div class="card-name card-name--cups">Five of Cups</div>
+      <div class="card-keywords">sadness, trapped, light-stealing, grief</div>
+      <ul class="card-bullets">
+        <li>They want to trap you in sadness, <strong>take away your choices so you feel like you got no option but to give up.</strong></li>
+        <li>They never dealt with their own grief, so <strong>they need you mourning right alongside them</strong> because your healing makes their stagnation look worse.</li>
+      </ul>
+    </div>
+
+    <div class="card">
+      <div class="card-name card-name--cups">Six of Cups</div>
+      <div class="card-keywords">nostalgia, inner child, past connections, deep bonds</div>
+      <ul class="card-bullets">
+        <li>They feel that nostalgic pull. <strong>The more people tried to hate on your connection, the more you turned it into love.</strong></li>
+        <li>They want your healed inner child spark. <strong>You're tapped into something deep and familiar that they recognize from a past chapter.</strong></li>
+      </ul>
+    </div>
+
+    <div class="card">
+      <div class="card-name card-name--cups">Seven of Cups</div>
+      <div class="card-keywords">illusion, fantasy, clarity, clouded vision</div>
+      <ul class="card-bullets">
+        <li>Their vision is completely clouded. They believed in the fantasy they created, but <strong>you ain't afraid to tell it how it is now.</strong></li>
+        <li>They didn't see clearly and that ain't your problem. <strong>They're learning the path of forgiving themselves for being a big old dummy.</strong></li>
+      </ul>
+    </div>
+
+    <div class="card">
+      <div class="card-name card-name--cups">Eight of Cups</div>
+      <div class="card-keywords">walking away, intuition, cut off, moving on</div>
+      <ul class="card-bullets">
+        <li>You walked away and it's haunting them. <strong>I ain't going to sit here all day in a pity party because you can't get it together.</strong></li>
+        <li>Something got completely cut off. <strong>They didn't shoot their shot when they had the chance</strong>, and that window closed.</li>
+      </ul>
+    </div>
+
+    <div class="card">
+      <div class="card-name card-name--cups">Nine of Cups</div>
+      <div class="card-keywords">wish fulfillment, fighting feelings, manifestation, contentment</div>
+      <ul class="card-bullets">
+        <li>You got exactly what you wanted and they can't figure out how. <strong>They see you revealing harsh truths about people and they're absolutely floored.</strong></li>
+        <li>They're fighting how they truly feel. <strong>Somebody's got to face it</strong>, and they know it's them. You are the wish fulfilled, not the obstacle.</li>
+      </ul>
+    </div>
+
+    <div class="card">
+      <div class="card-name card-name--cups">Ten of Cups</div>
+      <div class="card-keywords">complete connection, soul bond, manifestation, spirit confirmation</div>
+      <ul class="card-bullets">
+        <li>They're thinking about you from A to Z. <strong>They see this as a complete soul connection where love wins.</strong></li>
+        <li>They are floored by what you can manifest together. <strong>Spirit is confirming this connection and they can feel it in their bones.</strong></li>
+      </ul>
+    </div>
+
+    <div class="card">
+      <div class="card-name card-name--cups">Page of Cups</div>
+      <div class="card-keywords">apology, reaching out, intuition, emotional breakthrough</div>
+      <ul class="card-bullets">
+        <li>They want to reach out, have an emotional breakthrough. <strong>Your intuition about them was never wrong, never.</strong></li>
+        <li>This is an apology card. They realized <strong>you were sitting there loyal the whole time</strong> while anxiety had them tripping.</li>
+      </ul>
+    </div>
+
+    <div class="card">
+      <div class="card-name card-name--cups">Knight of Cups</div>
+      <div class="card-keywords">protection, too late, divine protection, options</div>
+      <ul class="card-bullets">
+        <li>They realize too late that you are very protected. <strong>Spirit really does love you and will bring in new love just to prove it.</strong></li>
+        <li><strong>They realize a little too late that your emotions are protected</strong> and the fake love they showed got exposed the moment real ones stepped up.</li>
+      </ul>
+    </div>
+
+    <div class="card">
+      <div class="card-name card-name--cups">Queen of Cups</div>
+      <div class="card-keywords">grace, gift, acceptance, honesty</div>
+      <ul class="card-bullets">
+        <li><strong>Something about you is a gift and they're mad about it.</strong> They can feel something is about to blow up in the open.</li>
+        <li>They need to be honest. <strong>They know you could handle the truth if they just told it</strong>, and your grace is what wrecks them the most.</li>
+      </ul>
+    </div>
+
+    <div class="card">
+      <div class="card-name card-name--cups">King of Cups</div>
+      <div class="card-keywords">emotional mastery, old ways, manipulation exposed, fear</div>
+      <ul class="card-bullets">
+        <li>They thought you were naive. <strong>They're realizing you can see right through the emotional manipulation</strong>, and wisdom without love is just a beautiful corpse.</li>
+        <li>Fear and anxiety causing them to act a fool. <strong>They're going from their old ways to a new way because something got put out into the open.</strong></li>
+      </ul>
+    </div>
+
+  </div>
+</section>
+
+<!-- ═══════════════ SWORDS ═══════════════ -->
+<section class="suit-section">
+  <h2 class="suit-heading suit-heading--swords">Swords</h2>
+  <div class="card-grid">
+
+    <div class="card">
+      <div class="card-name card-name--swords">Ace of Swords</div>
+      <div class="card-keywords">clarity, cutting through, shock, truth arriving</div>
+      <ul class="card-bullets">
+        <li>The truth just <strong>cut through every lie they built</strong> and now they're in shock because that fantasy got ripped right from under them.</li>
+        <li>Total clarity arriving, no more fog. <strong>They can't hide from what they know about you.</strong></li>
+      </ul>
+    </div>
+
+    <div class="card">
+      <div class="card-name card-name--swords">Two of Swords</div>
+      <div class="card-keywords">indecision, standoff, wanting, protecting the door</div>
+      <ul class="card-bullets">
+        <li>They see something they want in you but <strong>they know they'd be crossing a line.</strong> A real standoff in their mind.</li>
+        <li>Confusion on two levels. <strong>They're stuck between what they feel and what they think is safe.</strong></li>
+      </ul>
+    </div>
+
+    <div class="card">
+      <div class="card-name card-name--swords">Three of Swords</div>
+      <div class="card-keywords">truth about a partnership, can't stay quiet, heartbreak, hidden</div>
+      <ul class="card-bullets">
+        <li>There's a truth about your connection that <strong>they can't stay quiet about anymore.</strong> Something hidden is pushing to the surface.</li>
+        <li>They're repressing something painful. <strong>They know the truth and it cuts</strong>, but they've been sitting on it hoping it would just go away.</li>
+      </ul>
+    </div>
+
+    <div class="card">
+      <div class="card-name card-name--swords">Four of Swords</div>
+      <div class="card-keywords">peace, maintaining vibration, stillness, surrender</div>
+      <ul class="card-bullets">
+        <li>You <strong>maintain your vibration no matter what they throw at you.</strong> They had a whole emotional outburst and you didn't flinch.</li>
+        <li><strong>They can't figure out how you stay at peace</strong> when they're losing their composure. That empowerment drives them up the wall.</li>
+      </ul>
+    </div>
+
+    <div class="card">
+      <div class="card-name card-name--swords">Five of Swords</div>
+      <div class="card-keywords">envy, jealousy, attachments failing, starting over</div>
+      <ul class="card-bullets">
+        <li>Spirit of envy and jealousy on this person, <strong>their stories and their actions don't add up.</strong> They threw every bit of negativity at you and none of it worked.</li>
+        <li>They got to start over, square one. <strong>Your energy brings all their hidden envy right to the surface.</strong></li>
+      </ul>
+    </div>
+
+    <div class="card">
+      <div class="card-name card-name--swords">Six of Swords</div>
+      <div class="card-keywords">moving on, walking away, realized too late, exiled</div>
+      <ul class="card-bullets">
+        <li>They realized too late that <strong>they never actually had you.</strong> They're watching you move on peacefully toward your goals.</li>
+        <li>You ain't afraid to walk alone. <strong>You got exiled and pushed out only to become the king or the queen.</strong></li>
+      </ul>
+    </div>
+
+    <div class="card">
+      <div class="card-name card-name--swords">Seven of Swords</div>
+      <div class="card-keywords">stalking, sneaking, caught looking, healing vibe</div>
+      <ul class="card-bullets">
+        <li>They don't want to get caught looking, but <strong>other people are noticing them stalking your pages and socials.</strong></li>
+        <li><strong>You stomped on their neck and they know it</strong>, and your healing vibe pulls them back every single time.</li>
+      </ul>
+    </div>
+
+    <div class="card">
+      <div class="card-name card-name--swords">Eight of Swords</div>
+      <div class="card-keywords">trapped, mental prison, can't move, elevated perspective</div>
+      <ul class="card-bullets">
+        <li>Something is eating them up and <strong>they are stuck and they don't know why.</strong> Wounds from the past keep them bound.</li>
+        <li><strong>You look at things from a higher perspective.</strong> They're trapped in a self-imposed mental prison watching you rise above it.</li>
+      </ul>
+    </div>
+
+    <div class="card">
+      <div class="card-name card-name--swords">Nine of Swords</div>
+      <div class="card-keywords">worried, anxiety, looping thoughts, options</div>
+      <ul class="card-bullets">
+        <li>You got options and it's giving them a headache. <strong>Worried about all the places you could go and all the things you could do.</strong></li>
+        <li><strong>Their jealousy runs so deep it's keeping them up at night.</strong> They can see the passion they still carry for you and it scares them.</li>
+      </ul>
+    </div>
+
+    <div class="card">
+      <div class="card-name card-name--swords">Ten of Swords</div>
+      <div class="card-keywords">cut off, betrayal, detachment, no celebration</div>
+      <ul class="card-bullets">
+        <li>You can detach like nobody's business. Once they betrayed that emotional softness, <strong>you retracted everything and it was done.</strong></li>
+        <li><strong>They're not lying to nobody anymore, not even themselves</strong>, because that communication got cut completely.</li>
+      </ul>
+    </div>
+
+    <div class="card">
+      <div class="card-name card-name--swords">Page of Swords</div>
+      <div class="card-keywords">new perspective, loyalty doubted, potential, waves in happiness</div>
+      <ul class="card-bullets">
+        <li>They doubted your loyalty from their own wounds. Now <strong>they're gaining a new perspective and seeing the truth</strong> about who you are.</li>
+        <li>They wanted to create waves in your happiness because <strong>things just come to you so easily and it makes them sick.</strong></li>
+      </ul>
+    </div>
+
+    <div class="card">
+      <div class="card-name card-name--swords">Knight of Swords</div>
+      <div class="card-keywords">hiding something, not completely honest, rushing, eating them up</div>
+      <ul class="card-bullets">
+        <li>This person is <strong>not being completely honest about something</strong> and it's eating them alive. Something needs to come out.</li>
+        <li>They're not getting away with anything. <strong>You're going to keep rising no matter what they hide.</strong></li>
+      </ul>
+    </div>
+
+    <div class="card">
+      <div class="card-name card-name--swords">Queen of Swords</div>
+      <div class="card-keywords">cannot be manipulated, cut them off, see right through, boss</div>
+      <ul class="card-bullets">
+        <li><strong>You cannot be manipulated, period.</strong> You see right through them, and you will cut them off like no tomorrow.</li>
+        <li><strong>They think you're naive and dumb but you clock every single move.</strong> Those who ostracized you are watching you thrive.</li>
+      </ul>
+    </div>
+
+    <div class="card">
+      <div class="card-name card-name--swords">King of Swords</div>
+      <div class="card-keywords">too intelligent, reverse Uno, cold, trying to get in your head</div>
+      <ul class="card-bullets">
+        <li>They're trying to break your mind, telling people you're cold, <strong>but the reverse Uno is that you're way too intelligent for their games.</strong></li>
+        <li>They love creating drama and pinning people against each other. <strong>They love that they caused chaos and can't stand that it didn't work on you.</strong></li>
+      </ul>
+    </div>
+
+  </div>
+</section>
+
+<!-- ═══════════════ WANDS ═══════════════ -->
+<section class="suit-section">
+  <h2 class="suit-heading suit-heading--wands">Wands</h2>
+  <div class="card-grid">
+
+    <div class="card">
+      <div class="card-name card-name--wands">Ace of Wands</div>
+      <div class="card-keywords">activation, impulse, can't even explain it, something got activated</div>
+      <ul class="card-bullets">
+        <li>They can't explain what's been activated in them about you. <strong>They can't stop thinking about you.</strong> A fire got lit and they can't put it out.</li>
+        <li>This activation is bigger than attraction. <strong>Something in your energy changed the whole direction</strong> of what they thought they wanted.</li>
+      </ul>
+    </div>
+
+    <div class="card">
+      <div class="card-name card-name--wands">Two of Wands</div>
+      <div class="card-keywords">planning, barrier, moving forward, two people attracted</div>
+      <ul class="card-bullets">
+        <li>They're at the threshold, planning their next move. <strong>They're planning to move forward</strong>, they just don't know where they want to land.</li>
+        <li>Manipulation energy, smile in your face with a knife behind the back. <strong>People are noticing the spiritual attachments of jealousy and envy.</strong></li>
+      </ul>
+    </div>
+
+    <div class="card">
+      <div class="card-name card-name--wands">Three of Wands</div>
+      <div class="card-keywords">watching from a distance, leaving, exploring, anticipating a shift</div>
+      <ul class="card-bullets">
+        <li>They're watching you from a distance, anticipating a shift. <strong>They're waiting for the right moment</strong> to make their move. They are locked in.</li>
+        <li>Something has been chaining them up. <strong>They're leaving an old cycle</strong> that kept them controlled, and you represent the next level.</li>
+      </ul>
+    </div>
+
+    <div class="card">
+      <div class="card-name card-name--wands">Four of Wands</div>
+      <div class="card-keywords">foundation, joining energies, celebration, loyalty</div>
+      <ul class="card-bullets">
+        <li>They think your energies would work well together. They want a <strong>strong foundation with you</strong>, and things are speeding up in their mind.</li>
+        <li>They can't sell you a story and they know it. <strong>They can't come at you sideways</strong> because you're a very good judge of character.</li>
+      </ul>
+    </div>
+
+    <div class="card">
+      <div class="card-name card-name--wands">Five of Wands</div>
+      <div class="card-keywords">competition, conflict, one-sided rivalry, blocking out drama</div>
+      <ul class="card-bullets">
+        <li>You are very good at <strong>blocking out conflict, drama, gossip, and negativity.</strong> You make things look effortless and it drives them crazy.</li>
+        <li>Their anxiety has them behaving stupid. <strong>This is one-sided competition</strong>, they put themselves in it, not you.</li>
+      </ul>
+    </div>
+
+    <div class="card">
+      <div class="card-name card-name--wands">Six of Wands</div>
+      <div class="card-keywords">victory, confidence, magnetism, successfully overcome</div>
+      <ul class="card-bullets">
+        <li>You've successfully overcome and matured. <strong>They want what you have</strong>, your aura, your light, your magnetism.</li>
+        <li>Nobody is around to celebrate with you. <strong>You came out victorious but tired</strong>, and even exhausted you carry more authority than they do at their best.</li>
+      </ul>
+    </div>
+
+    <div class="card">
+      <div class="card-name card-name--wands">Seven of Wands</div>
+      <div class="card-keywords">defending, protecting, holding your ground, fighting against challengers</div>
+      <ul class="card-bullets">
+        <li>They want to get past your defenses because <strong>you're protecting something before it's depleted or damaged.</strong> They play the repair person on your life.</li>
+        <li>They want everybody coming after you because <strong>they couldn't do it alone.</strong> They want to pin everybody against you then sit back laughing.</li>
+      </ul>
+    </div>
+
+    <div class="card">
+      <div class="card-name card-name--wands">Eight of Wands</div>
+      <div class="card-keywords">focused on a target, rapid movement, sparking conversation, looking you up</div>
+      <ul class="card-bullets">
+        <li>Their energy is <strong>coming right at you like a target.</strong> They're looking you up in secret, wanting to spark a conversation.</li>
+        <li>They're taking last shots because this cycle is almost closed. <strong>They know if they don't act now, the window shuts.</strong></li>
+      </ul>
+    </div>
+
+    <div class="card">
+      <div class="card-name card-name--wands">Nine of Wands</div>
+      <div class="card-keywords">guard up, still standing, protecting the doorway, perseverance</div>
+      <ul class="card-bullets">
+        <li><strong>You are still standing</strong> no matter what they throw. Something about you rubs them the wrong way and they go a little psycho about it.</li>
+        <li>Your energy protects your doorway. <strong>They know you know they're going to make a move</strong>, and you see it coming every time.</li>
+      </ul>
+    </div>
+
+    <div class="card">
+      <div class="card-name card-name--wands">Ten of Wands</div>
+      <div class="card-keywords">burden, carrying silently, destructive attraction, toxicity</div>
+      <ul class="card-bullets">
+        <li>They've been <strong>carrying whatever's been on their mind about you</strong> silently. They can't bring themselves to just come back or just walk away.</li>
+        <li>Something got set on fire in a spiritual way. <strong>They can choose this toxicity if they want it</strong>, but the attraction is almost unhealthy.</li>
+      </ul>
+    </div>
+
+    <div class="card">
+      <div class="card-name card-name--wands">Page of Wands</div>
+      <div class="card-keywords">preparing, going a different direction, immature energy, holding on</div>
+      <ul class="card-bullets">
+        <li>They're thinking about going a different direction for you. <strong>They would never normally make a decision based on a relationship.</strong></li>
+        <li>Past immaturity they're sitting with. <strong>They're holding on to something</strong> they should have let go of a long time ago.</li>
+      </ul>
+    </div>
+
+    <div class="card">
+      <div class="card-name card-name--wands">Knight of Wands</div>
+      <div class="card-keywords">something ain't right, charging forward, lusty energy, can't hold back</div>
+      <ul class="card-bullets">
+        <li>They can't hold it in any longer. If they don't act soon <strong>they will blow up.</strong> They want to explore your shadow side.</li>
+        <li><strong>Something ain't right</strong> with how they're moving. Lusty, obsessive, low vibrational energy driving them with rotten tactics.</li>
+      </ul>
+    </div>
+
+    <div class="card">
+      <div class="card-name card-name--wands">Queen of Wands</div>
+      <div class="card-keywords">confident, intimidating, can't manipulate, rushing the process</div>
+      <ul class="card-bullets">
+        <li>They want to rush the process with you, but <strong>they cannot manipulate you in any sort of way</strong> and that is intimidating to them.</li>
+        <li>Someone is begging spirit for something not to be their outcome. <strong>They're willing to lie and hide the truth</strong>, but your fire burns through it.</li>
+      </ul>
+    </div>
+
+    <div class="card">
+      <div class="card-name card-name--wands">King of Wands</div>
+      <div class="card-keywords">fire sign, taking the lead, face value, truth and evidence</div>
+      <ul class="card-bullets">
+        <li><strong>You are taking people at face value</strong> now, looking at their actions not their words, and it terrifies them. Old tricks don't work.</li>
+        <li>They can see the truth and evidence but accepting it ain't simple. <strong>They don't take this lightly</strong>, and that King of Wands fire in you makes the depth feel real.</li>
+      </ul>
+    </div>
+
+  </div>
+</section>
+
+<!-- ═══════════════ PENTACLES ═══════════════ -->
+<section class="suit-section">
+  <h2 class="suit-heading suit-heading--pentacles">Pentacles</h2>
+  <div class="card-grid">
+
+    <div class="card">
+      <div class="card-name card-name--pentacles">Ace of Pentacles</div>
+      <div class="card-keywords">new opportunity, contract, manifestation, seed planted</div>
+      <ul class="card-bullets">
+        <li>They're thinking about <strong>making something real with you.</strong> Something binding that could manifest into a contract or commitment.</li>
+        <li><strong>They're scared that speaking it into existence means they can't take it back.</strong> That pressure sits heavy.</li>
+      </ul>
+    </div>
+
+    <div class="card">
+      <div class="card-name card-name--pentacles">Two of Pentacles</div>
+      <div class="card-keywords">balance, juggling, building, finding equilibrium</div>
+      <ul class="card-bullets">
+        <li>They're thinking about <strong>how to keep their balance around you</strong>, juggling feelings and their whole situation.</li>
+        <li>They see something that could grow. <strong>They want to keep building with you</strong>, but one wrong move tips the whole thing over.</li>
+      </ul>
+    </div>
+
+    <div class="card">
+      <div class="card-name card-name--pentacles">Three of Pentacles</div>
+      <div class="card-keywords">triangulation, collaboration destroyed, left out, choosing yourself</div>
+      <ul class="card-bullets">
+        <li>They're thinking about <strong>how to triangulate your situation.</strong> They want information you ain't giving them.</li>
+        <li><strong>They can't accept that you chose yourself over their little scheme.</strong> It's eating them alive.</li>
+      </ul>
+    </div>
+
+    <div class="card">
+      <div class="card-name card-name--pentacles">Four of Pentacles</div>
+      <div class="card-keywords">holding on, can't let go, future faking, protecting energy</div>
+      <ul class="card-bullets">
+        <li>Secretly <strong>holding on tight to a version of you that doesn't exist.</strong> The real you, the one with boundaries, scares them.</li>
+        <li><strong>They realize a little too late that they can't future fake you.</strong> They're scrambling to protect whatever control they think they have.</li>
+      </ul>
+    </div>
+
+    <div class="card">
+      <div class="card-name card-name--pentacles">Five of Pentacles</div>
+      <div class="card-keywords">lack, patience, delayed gratification, unbothered</div>
+      <ul class="card-bullets">
+        <li><strong>You don't care anymore and it's driving them crazy.</strong> That delayed gratification energy you carry, they can't figure it out.</li>
+        <li>They came in with ill intent, pretending to have your best interest. <strong>You lack nothing, and that's the tea.</strong></li>
+      </ul>
+    </div>
+
+    <div class="card">
+      <div class="card-name card-name--pentacles">Six of Pentacles</div>
+      <div class="card-keywords">fair exchange, honesty, getting what you deserve, reciprocity</div>
+      <ul class="card-bullets">
+        <li>Thinking about <strong>whether they can knock you off balance.</strong> It ain't working because you see right through them.</li>
+        <li>They can't be honest about what they want. <strong>Whatever is hidden got to come to light.</strong> That imbalance keeps them up at night.</li>
+      </ul>
+    </div>
+
+    <div class="card">
+      <div class="card-name card-name--pentacles">Seven of Pentacles</div>
+      <div class="card-keywords">patience, reaping what you sow, karma, one step ahead</div>
+      <ul class="card-bullets">
+        <li><strong>You're always one step ahead</strong> and they cannot figure out how. They're watching the harvest come in while still planting weeds.</li>
+        <li>Karma is here and they feel it. <strong>As you reap, you will sow.</strong> The masks fall off when they're around you.</li>
+      </ul>
+    </div>
+
+    <div class="card">
+      <div class="card-name card-name--pentacles">Eight of Pentacles</div>
+      <div class="card-keywords">mastery, skilled, boundaries, not chasing</div>
+      <ul class="card-bullets">
+        <li>They view you as <strong>very skilled and not chasing, and they hate it.</strong> You can tell their true character and they know it.</li>
+        <li><strong>People are noticing that you've learned, grown, and evolved through every relationship.</strong> That mastery is what haunts them.</li>
+      </ul>
+    </div>
+
+    <div class="card">
+      <div class="card-name card-name--pentacles">Nine of Pentacles</div>
+      <div class="card-keywords">independence, abundance, God's in your corner, holding your own</div>
+      <ul class="card-bullets">
+        <li><strong>You're doing just fine without them and it's making them upset.</strong> Your independence is louder than anything they could say.</li>
+        <li>God's in your corner and it beats out anything. <strong>You worked your ass off for that freedom</strong>, and they thought it was easy.</li>
+      </ul>
+    </div>
+
+    <div class="card">
+      <div class="card-name card-name--pentacles">Ten of Pentacles</div>
+      <div class="card-keywords">legacy, generational curses broken, wanting what you have, protecting peace</div>
+      <ul class="card-bullets">
+        <li>They want what you have. <strong>They want your mentality, your perception, your resilience.</strong> You broke generational curses and they can't break free.</li>
+        <li>You're protecting your peace and redirecting your energy. <strong>They couldn't see a thing, they are blind.</strong></li>
+      </ul>
+    </div>
+
+    <div class="card">
+      <div class="card-name card-name--pentacles">Page of Pentacles</div>
+      <div class="card-keywords">planting seeds, wanting to make it real, character speaks, practical action</div>
+      <ul class="card-bullets">
+        <li>Thinking about <strong>how to get inside your head.</strong> But your character, your integrity, your communication speaks volumes.</li>
+        <li><strong>They want to take practical action but they don't know where to start.</strong> That confusion turns their energy dark.</li>
+      </ul>
+    </div>
+
+    <div class="card">
+      <div class="card-name card-name--pentacles">Knight of Pentacles</div>
+      <div class="card-keywords">endurance, long-term, determination, do something about it</div>
+      <ul class="card-bullets">
+        <li>They want something long-term, offering <strong>endurance and determination no matter how long it takes.</strong></li>
+        <li>They may have caused you grief. <strong>They're done competing with themselves</strong>, trying to prove they can show up with slow, steady energy.</li>
+      </ul>
+    </div>
+
+    <div class="card">
+      <div class="card-name card-name--pentacles">Queen of Pentacles</div>
+      <div class="card-keywords">going deeper, choosing themselves, scared it's real, manifestation</div>
+      <ul class="card-bullets">
+        <li><strong>Choosing to go deeper into something with you.</strong> Your materialistic world drew them in and now they're stuck.</li>
+        <li><strong>They're scared about whether this is going to be real</strong> because of things that happened before. Their past might blow everything up.</li>
+      </ul>
+    </div>
+
+    <div class="card">
+      <div class="card-name card-name--pentacles">King of Pentacles</div>
+      <div class="card-keywords">aligned, knows what they want, resources, leader energy</div>
+      <ul class="card-bullets">
+        <li>They see you in a leader role, <strong>not following anyone, setting up your own thing.</strong> That confidence and resources can't be ignored.</li>
+        <li><strong>They know this devil ain't no good</strong>, whatever situation has been whispering in their ear. Your King energy exposes it without trying.</li>
+      </ul>
+    </div>
+
+  </div>
+</section>
+
+<!-- ═══════════════ MAJOR ARCANA ═══════════════ -->
+<section class="suit-section">
+  <h2 class="suit-heading suit-heading--major">Major Arcana</h2>
+  <div class="card-grid card-grid--major">
+
+    <div class="card">
+      <div class="card-name card-name--major">The Fool</div>
+      <div class="card-keywords">new beginning, divine timing, energy can't be destroyed, confirmations</div>
+      <ul class="card-bullets">
+        <li>You're about to start something brand new and <strong>they can't predict your next move.</strong> You just leap and the net appears.</li>
+        <li>They sense divine timing around you. <strong>Energy can't be created or destroyed</strong>, and that pull makes them question every safe choice they ever made.</li>
+      </ul>
+    </div>
+
+    <div class="card">
+      <div class="card-name card-name--major">The Magician</div>
+      <div class="card-keywords">manifestation, self-assured, magnetic, organized, quick-witted</div>
+      <ul class="card-bullets">
+        <li>You're <strong>self-assured in a way that ain't normal.</strong> Quick-witted, organized, and if someone came at you in a battle of words you'd win every time.</li>
+        <li>They've watched you <strong>speak things into existence</strong> and act like it was nothing. That power makes people uneasy.</li>
+      </ul>
+    </div>
+
+    <div class="card">
+      <div class="card-name card-name--major">The High Priestess</div>
+      <div class="card-keywords">psychic, intuition, confirmation, red flags, spiritual knowing</div>
+      <ul class="card-bullets">
+        <li>They think you <strong>know something you shouldn't know.</strong> You're sitting quiet with all the receipts.</li>
+        <li>They're trying to trigger your abandonment wounds, <strong>set you up for failure</strong>, and you ain't biting. Your intuition told you before they even did it.</li>
+      </ul>
+    </div>
+
+    <div class="card">
+      <div class="card-name card-name--major">The Empress</div>
+      <div class="card-keywords">magnetic, secret admirers, winning energy, unstoppable</div>
+      <ul class="card-bullets">
+        <li>They're thinking <strong>how can I become like them.</strong> People are taking bits of who you are and trying to incorporate it without being obvious.</li>
+        <li>You just <strong>make people's minds race.</strong> You got a lot of secret admirers. They can't figure out how you do it.</li>
+      </ul>
+    </div>
+
+    <div class="card">
+      <div class="card-name card-name--major">The Emperor</div>
+      <div class="card-keywords">initiative, authority, spells backfiring, defamation failing</div>
+      <ul class="card-bullets">
+        <li>They tried to put some sort of control on you and <strong>their spells are backfiring right in their face.</strong> They thought they had authority and they were dead wrong.</li>
+        <li>They're trying defamation of character. But <strong>they ain't got no proof.</strong> Your intuition confirmed everything.</li>
+      </ul>
+    </div>
+
+    <div class="card">
+      <div class="card-name card-name--major">The Hierophant</div>
+      <div class="card-keywords">tradition, belief systems, skilled, competition, rebelling</div>
+      <ul class="card-bullets">
+        <li>They think <strong>you're very skilled at what you do</strong> and you're going to make it. They're in competition but don't want people to know.</li>
+        <li>They're rebelling against everything conventional because of you. <strong>They don't want to follow the status quo anymore.</strong></li>
+      </ul>
+    </div>
+
+    <div class="card">
+      <div class="card-name card-name--major">The Lovers</div>
+      <div class="card-keywords">choice, duality, oath, fear of choosing, obsession disguised as love</div>
+      <ul class="card-bullets">
+        <li>They're thinking about <strong>taking some kind of oath with you</strong> and it terrifies them. Choosing somebody feels like a sacred commitment.</li>
+        <li>What started as attraction crossed into <strong>obsession disguised as love.</strong> Somebody's going to have to face it.</li>
+      </ul>
+    </div>
+
+    <div class="card">
+      <div class="card-name card-name--major">The Chariot</div>
+      <div class="card-keywords">destiny, moving forward, blocking quickly, no time for nonsense</div>
+      <ul class="card-bullets">
+        <li><strong>You block people real quick</strong> and have zero time for what they got to say. You cut the cord and kept driving.</li>
+        <li><strong>You don't have to chase anything, the plan will find you.</strong> That destiny energy is undeniable and they can't stop what's in motion.</li>
+      </ul>
+    </div>
+
+    <div class="card">
+      <div class="card-name card-name--major">Strength</div>
+      <div class="card-keywords">courage, overcoming, prioritizing self, inner strength</div>
+      <ul class="card-bullets">
+        <li><strong>You prioritize yourself in difficult times</strong> and it makes them lose their composure. You keep shaking off their energy.</li>
+        <li>They've watched you break out of trauma. <strong>They can't get their way no matter what they try.</strong> Your inner courage ain't something they can match.</li>
+      </ul>
+    </div>
+
+    <div class="card">
+      <div class="card-name card-name--major">The Hermit</div>
+      <div class="card-keywords">Virgo energy, wisdom, psychic knowing, solitude, detachment</div>
+      <ul class="card-bullets">
+        <li>You're <strong>wise as hell</strong> and can see when people are acting funny before they even make their move. You walk away before they get the chance.</li>
+        <li><strong>You don't remain stuck for long.</strong> You allow confusion to bring clarity, and they're still standing there wondering how you found the answer.</li>
+      </ul>
+    </div>
+
+    <div class="card">
+      <div class="card-name card-name--major">Wheel of Fortune</div>
+      <div class="card-keywords">turning in your favor, luck, good fortune, lessons learned</div>
+      <ul class="card-bullets">
+        <li><strong>You're attracting good luck and fortune</strong> and they're beside themselves about it. Things are turning in your favor and they can't stand it.</li>
+        <li><strong>Anybody can sabotage their own situation</strong>, but you chose not to. They gave in to sabotage while you gave in to your soul.</li>
+      </ul>
+    </div>
+
+    <div class="card">
+      <div class="card-name card-name--major">Justice</div>
+      <div class="card-keywords">balance, truth revealed, toxic situations, ease and flow</div>
+      <ul class="card-bullets">
+        <li><strong>You move out of toxic situations with ease and flow</strong> and it don't make sense to them. Your inner child healing, people want that.</li>
+        <li>Everything hidden gets drawn to light. <strong>Third parties are getting exposed</strong> and the truth is coming out. Justice don't miss.</li>
+      </ul>
+    </div>
+
+    <div class="card">
+      <div class="card-name card-name--major">The Hanged Man</div>
+      <div class="card-keywords">perspective, surrender, seeing differently, talking behind your back</div>
+      <ul class="card-bullets">
+        <li>Their whole perspective shifted and they can't go back. <strong>You can see the words that have not been spoken.</strong></li>
+        <li>They've been stuck and silent, now <strong>done waiting, caps lock done.</strong> They surrendered old beliefs because of you.</li>
+      </ul>
+    </div>
+
+    <div class="card">
+      <div class="card-name card-name--major">Death</div>
+      <div class="card-keywords">regeneration, shocked, rebirth, shedding, lotus flower</div>
+      <ul class="card-bullets">
+        <li><strong>People are shocked at your regeneration rate.</strong> You never die. They can't believe you keep coming back stronger every time.</li>
+        <li>You grow and manifest off death and decay like a lotus flower. <strong>People are shocked at your ability to cut through lies and deception.</strong></li>
+      </ul>
+    </div>
+
+    <div class="card">
+      <div class="card-name card-name--major">Temperance</div>
+      <div class="card-keywords">alchemy, Sagittarius, balance, alchemizing energy, creating opportunities</div>
+      <ul class="card-bullets">
+        <li><strong>You alchemize everything they send at you</strong> and turn it into opportunities. They're scratching their head wondering why none of it works.</li>
+        <li>Sagittarius energy, staying on your path. <strong>Ain't nobody care what they got to say.</strong> You are the master of alchemy and they know it.</li>
+      </ul>
+    </div>
+
+    <div class="card">
+      <div class="card-name card-name--major">The Devil</div>
+      <div class="card-keywords">lust, attachment, energy siphoning, playing with fire, ancient energy</div>
+      <ul class="card-bullets">
+        <li>They're thinking about that <strong>attachment, that chase, that energy siphoning</strong> they want from you. Playing with fire they don't even understand.</li>
+        <li>You recognize the Devil in a different meat suit. <strong>Same energy, different person</strong>, and you see right through every last one of them.</li>
+      </ul>
+    </div>
+
+    <div class="card">
+      <div class="card-name card-name--major">The Tower</div>
+      <div class="card-keywords">sudden change, manifestation, humiliation backfiring, unexpected miracles</div>
+      <ul class="card-bullets">
+        <li><strong>One action is about to change everything</strong> in your situation. Something unexpected is always promised, and you are entering that window.</li>
+        <li>Humiliation ritual vibes, but <strong>you're not worried about it.</strong> Whatever they tried to do always ends in backfire for the one who attempted it.</li>
+      </ul>
+    </div>
+
+    <div class="card">
+      <div class="card-name card-name--major">The Star</div>
+      <div class="card-keywords">purpose, divine mission, sacred sight, specific skills, healing</div>
+      <ul class="card-bullets">
+        <li>Spirit sends you on <strong>specific purposes for specific missions</strong> and they can't figure out how you always know where to go.</li>
+        <li>They couldn't see anything. They are blind. <strong>You are so out of this world that you can see exactly what's happening.</strong></li>
+      </ul>
+    </div>
+
+    <div class="card">
+      <div class="card-name card-name--major">The Moon</div>
+      <div class="card-keywords">psychic sight, seeing through the dark, subconscious fears, navigating deception</div>
+      <ul class="card-bullets">
+        <li>You're <strong>insanely psychic because you can see through the dark.</strong> You perceive lies underneath truths. They can't hide anything from you.</li>
+        <li>Their subconscious fears are speeding up. <strong>Things are moving faster than they anticipated.</strong> Someone might be leaving for real this time.</li>
+      </ul>
+    </div>
+
+    <div class="card">
+      <div class="card-name card-name--major">The Sun</div>
+      <div class="card-keywords">spotlight, all eyes on you, undeniable, keys, always winning</div>
+      <ul class="card-bullets">
+        <li><strong>You get what you want all the time</strong>, every single time. All eyes on you, and somebody's about to bring something to light.</li>
+        <li>Your talent is undeniable. Like a singer <strong>you're not going to sit there and say they can't sing.</strong> The Sun coming out twice is maximum spirit confirmation.</li>
+      </ul>
+    </div>
+
+    <div class="card">
+      <div class="card-name card-name--major">Judgement</div>
+      <div class="card-keywords">reckoning, accountability, manipulation failing, too little too late, karma</div>
+      <ul class="card-bullets">
+        <li>Their manipulation game was going to work on you, and <strong>they're realizing a little too late that the fantasy is over.</strong></li>
+        <li>A reckoning. Two people being held accountable. <strong>Whatever they said, whatever they've done, it's coming back around.</strong></li>
+      </ul>
+    </div>
+
+    <div class="card">
+      <div class="card-name card-name--major">The World</div>
+      <div class="card-keywords">completion, closing the cycle, Saturn, intellectual richness</div>
+      <ul class="card-bullets">
+        <li><strong>People saw you online and they are just shook.</strong> The World card is closing that cycle, something is complete, finished.</li>
+        <li>You carry intellectual richness they never expected. <strong>They get into your energy and realize you're not what they assumed at all.</strong></li>
+      </ul>
+    </div>
+
+  </div>
+</section>
+
+<footer class="footer">
+  Chiron voice, corpus-grounded. Film: Fantastic Mr. Fox (Wes Anderson)
+</footer>
+
+</body>
+</html>

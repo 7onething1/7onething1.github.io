@@ -1,0 +1,395 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>All Chats · Claude Code · newest → oldest</title>
+<link rel="preconnect" href="https://rsms.me/" />
+<link rel="stylesheet" href="https://rsms.me/inter/inter.css" />
+<link rel="stylesheet" href="/all-chats/styles.css" />
+<meta name="description" content="Every Claude Code chat session on this Mac, sorted newest to oldest. Filter by project, search by topic, click for full first prompt + jsonl path." />
+<style id="kidmode-css">
+.mode-btn{position:fixed;top:12px;right:12px;z-index:9999;padding:9px 16px;border:none;border-radius:999px;background:#4E8079;color:#fff;font:600 14px/1 system-ui,-apple-system,sans-serif;cursor:pointer;box-shadow:0 2px 8px rgba(0,0,0,.22)}
+body.kids .mode-btn{background:#B4503E}
+body.kids .mode-btn::before{content:"🧒  "}
+#kidpanel{display:none}
+body.kids #kidpanel{display:block;max-width:760px;margin:62px auto 12px;background:#fff7e8;border:2px solid #4E8079;border-radius:18px;padding:20px 24px;font:18px/1.7 system-ui,-apple-system,sans-serif;color:#2b2820}
+body.kids #kidpanel h3{font-family:"Fredoka","Comic Sans MS",sans-serif;color:#4E8079;margin:0 0 8px;font-size:22px}
+body.kids #kidpanel b{color:#B4503E}
+body.kids{font-size:1.04em}
+</style>
+</head>
+<body>
+
+<div id="kidpanel"><h3>Kid mode 🧒</h3><p>This page is <b>All Chats · Claude Code</b>. It is one of the projects Brandon built and put online. The grown-up details are below, tap Grown-up mode to read them the normal way.</p></div>
+
+<header class="top">
+  <h1>All Chats · Claude Code</h1>
+  <div class="sub">
+    <span><strong id="count-total">0</strong> chats</span><span class="dot">·</span>
+    <span><strong id="count-cats">0</strong> projects</span><span class="dot">·</span>
+    <span>sorted <strong>newest → oldest</strong></span><span class="dot">·</span>
+    <span>built <strong id="build-at">—</strong></span>
+    <div class="view-toggle" role="tablist" aria-label="View">
+      <button id="view-timeline" class="on" onclick="setView('timeline')">Timeline</button>
+      <button id="view-projects" onclick="setView('projects')">By domain</button>
+    </div>
+  </div>
+  <div class="search-row">
+    <input id="q" type="search" placeholder="Search prompts… (case-insensitive, matches any word)" oninput="onSearch()" />
+    <span class="hits" id="hits"></span>
+  </div>
+  <div class="filter-strip" id="status-filter"></div>
+  <nav class="nav" id="nav-cats"></nav>
+</header>
+
+<div class="gate-banner" id="gate-banner"></div>
+
+<main id="app"></main>
+
+<div class="palette-credit" id="palette-credit"></div>
+
+<footer class="approval-gate">
+  <div class="label">
+    <strong id="reviewed-count">0</strong>/<strong id="total-count">0</strong> reviewed
+    <span class="dot">·</span>
+    state persists per device · <span style="color: var(--text-mute)">localStorage.all-chats-v1</span>
+  </div>
+  <div class="actions">
+    <button class="reviewed" onclick="markAllReviewed()">Mark All Reviewed</button>
+    <button class="hold" onclick="approve('hold')">HOLD</button>
+    <button class="go" onclick="approve('go')">GO ALL</button>
+  </div>
+</footer>
+
+<script src="/all-chats/data.js"></script>
+<script>
+// Inline SVG library — one per icon name returned by the enrichment.
+// 24x24 viewBox, 1.6 stroke, no fill (or accent fill for emphasis).
+const ICON_SVG = {
+  book:      `<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><path d="M4 4h12a3 3 0 0 1 3 3v13H7a3 3 0 0 1-3-3z"/><path d="M4 17a3 3 0 0 1 3-3h12"/><path d="M9 8h7M9 12h5"/></svg>`,
+  music:     `<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><path d="M9 18V6l11-2v12"/><circle cx="6" cy="18" r="3"/><circle cx="17" cy="16" r="3"/></svg>`,
+  video:     `<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="5" width="14" height="14" rx="2"/><path d="m17 9 4-2v10l-4-2z"/></svg>`,
+  tarot:     `<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><rect x="6" y="3" width="12" height="18" rx="1.5"/><circle cx="12" cy="9" r="2"/><path d="M9 14h6M9 17h4"/><path d="M12 5v1M10 6l2 1 2-1"/></svg>`,
+  dashboard: `<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="3" width="8" height="10" rx="1"/><rect x="13" y="3" width="8" height="6" rx="1"/><rect x="13" y="11" width="8" height="10" rx="1"/><rect x="3" y="15" width="8" height="6" rx="1"/></svg>`,
+  code:      `<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><path d="m8 8-5 4 5 4"/><path d="m16 8 5 4-5 4"/><path d="M14 4 10 20"/></svg>`,
+  file:      `<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><path d="M14 3H6a2 2 0 0 0-2 2v14a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V9z"/><path d="M14 3v6h6"/><path d="M8 14h8M8 17h5"/></svg>`,
+  voice:     `<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><rect x="9" y="3" width="6" height="12" rx="3"/><path d="M5 11a7 7 0 0 0 14 0"/><path d="M12 18v3M8 21h8"/></svg>`,
+  ai:        `<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><rect x="4" y="7" width="16" height="12" rx="2"/><circle cx="9" cy="13" r="1.2"/><circle cx="15" cy="13" r="1.2"/><path d="M12 7V4M9 4h6"/><path d="M4 13H2M22 13h-2"/></svg>`,
+  bible:     `<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><path d="M5 4h12a2 2 0 0 1 2 2v13H7a2 2 0 0 1-2-2z"/><path d="M12 9v6M9.5 12h5"/></svg>`,
+  design:    `<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><circle cx="13.5" cy="6.5" r="2"/><circle cx="17.5" cy="11.5" r="2"/><circle cx="8.5" cy="6.5" r="2"/><circle cx="6.5" cy="11.5" r="2"/><path d="M12 22a10 10 0 0 1 0-20 8 8 0 0 1 8 8c0 4-4 4-4 6s2 2 2 4-3 2-6 2z"/></svg>`,
+  chat:      `<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><path d="M21 11a8 8 0 0 1-8 8H8l-5 3 1-5a8 8 0 1 1 17-6z"/></svg>`,
+};
+const ICON_COLOR = {
+  book:"#fbbf24", music:"#5eead4", video:"#fb7185", tarot:"#c084fc",
+  dashboard:"#818cf8", code:"#34d399", file:"#a3adc2", voice:"#f472b6",
+  ai:"#a78bfa", bible:"#fcd34d", design:"#fb923c", chat:"#94a3b8",
+};
+function iconSvg(name, sizePx) {
+  const svg = ICON_SVG[name] || ICON_SVG.chat;
+  const color = ICON_COLOR[name] || ICON_COLOR.chat;
+  return `<span class="ico" style="color:${color};width:${sizePx}px;height:${sizePx}px">${svg}</span>`;
+}
+
+const STORAGE_KEY = "all-chats-v1";
+const state = JSON.parse(localStorage.getItem(STORAGE_KEY) || '{"reviewed":{},"approval":null,"view":"timeline","query":"","lifeFilter":"all"}');
+if (!state.lifeFilter) state.lifeFilter = "all";
+
+const $ = (sel) => document.querySelector(sel);
+const $$ = (sel) => Array.from(document.querySelectorAll(sel));
+const escHtml = (s) => (s||"").replace(/[&<>"']/g, c => ({ "&":"&amp;","<":"&lt;",">":"&gt;",'"':"&quot;","'":"&#39;" }[c]));
+
+function save() { localStorage.setItem(STORAGE_KEY, JSON.stringify(state)); refreshGate(); }
+
+function refreshGate() {
+  const visible = filteredChats();
+  const n = visible.filter(c => state.reviewed[c.id]).length;
+  $("#reviewed-count").textContent = n;
+  $("#total-count").textContent = visible.length;
+  const b = $("#gate-banner");
+  if (state.approval === "go") {
+    b.className = "gate-banner show";
+    b.innerHTML = "✅ <strong>GO ALL</strong> — top 5 newest chats ready for triage. Open the top card, copy its jsonl path, resume in Claude Code with <code>claude --resume &lt;id&gt;</code>.";
+  } else if (state.approval === "hold") {
+    b.className = "gate-banner show hold";
+    b.innerHTML = "⏸ <strong>HOLD</strong> — review state preserved. Re-open this page to resume.";
+  } else {
+    b.className = "gate-banner";
+  }
+}
+
+function markAllReviewed() { filteredChats().forEach(c => state.reviewed[c.id] = true); save(); render(); }
+function approve(kind) { state.approval = kind; save(); }
+
+function setView(v) {
+  state.view = v; save();
+  $("#view-timeline").classList.toggle("on", v === "timeline");
+  $("#view-projects").classList.toggle("on", v === "projects");
+  back();
+}
+
+function onSearch() {
+  state.query = ($("#q").value || "").trim();
+  save();
+  render();
+}
+
+function filteredChats() {
+  const q = (state.query || "").toLowerCase();
+  const lf = state.lifeFilter || "all";
+  const terms = q ? q.split(/\s+/).filter(Boolean) : [];
+  return CHATS.filter(c => {
+    if (lf === "open") { if (!c.isOpen) return false; }
+    else if (lf === "open-unfinished") { if (!c.isOpen || c.lifeStatus === "shipped") return false; }
+    else if (lf !== "all" && c.lifeStatus !== lf) return false;
+    if (terms.length) {
+      const hay = (c.title + " " + c.rawFirstLine + " " + c.blurb + " " + c.projectLabel + " " + (c.lifeStatusWhy||"")).toLowerCase();
+      if (!terms.every(t => hay.includes(t))) return false;
+    }
+    return true;
+  });
+}
+
+function lifeCounts() {
+  const out = {all: CHATS.length, open:0, "open-unfinished":0, active:0, shipped:0, blocked:0, abandoned:0, unenriched:0};
+  CHATS.forEach(c => {
+    if (c.lifeStatus && out[c.lifeStatus] !== undefined) out[c.lifeStatus]++;
+    if (c.isOpen) { out.open++; if (c.lifeStatus !== "shipped") out["open-unfinished"]++; }
+    if (!c.enriched) out.unenriched++;
+  });
+  return out;
+}
+
+function setLifeFilter(v) { state.lifeFilter = v; save(); render(); }
+
+function dayLabel(iso) {
+  const d = new Date(iso);
+  const today = new Date();
+  const y = new Date(); y.setDate(y.getDate() - 1);
+  const isSameDay = (a,b) => a.toDateString() === b.toDateString();
+  if (isSameDay(d, today)) return "Today";
+  if (isSameDay(d, y)) return "Yesterday";
+  return d.toLocaleDateString(undefined, { weekday: "short", year: "numeric", month: "short", day: "numeric" });
+}
+
+function chatCardHtml(c, includeProjectTag) {
+  const cat = CATEGORIES.find(x => x.id === c.category) || {color:"#a78bfa", colorSoft:"rgba(167,139,250,0.15)", colorBorder:"rgba(167,139,250,0.55)"};
+  const lifeBadge = c.lifeStatus
+    ? `<span class="life-pill ${c.lifeStatus}">${c.lifeStatus}</span>`
+    : "";
+  const icon = c.icon || "chat";
+  const description = c.description ? `<div class="description">${escHtml(c.description)}</div>` : "";
+  const openPill = c.isOpen
+    ? `<span class="life-pill ${c.lifeStatus}" title="${escHtml(c.lifeStatusWhy||"")}">OPEN · ${escHtml(c.lifeStatus||"")}</span>`
+    : "";
+  const askLine = (c.isOpen && c.lastAsk)
+    ? `<div class="description" style="opacity:.85"><strong>last ask:</strong> ${escHtml(c.lastAsk.slice(0,180))}</div>` : "";
+  return `
+    <div class="card ${state.reviewed[c.id]?"reviewed":""}" data-id="${c.id}" onclick="goTo('${c.id}')"
+         style="--cat-color:${cat.color};--cat-soft:${cat.colorSoft};--cat-border:${cat.colorBorder}">
+      <div class="title-row">
+        ${iconSvg(icon, 36)}
+        <div class="title-stack">
+          <h3>${escHtml(c.title)}</h3>
+          <div class="sub">${escHtml(c.subtitle)}</div>
+        </div>
+      </div>
+      ${description}
+      ${askLine}
+      ${openPill}<span class="status-pill ${c.statusKind}">${escHtml(c.status)}</span><span class="domain-tag">${escHtml(c.domain||c.category||"")}</span>${c.runCount?`<span class="run-badge">↻ ${c.runCount} runs</span>`:""}${lifeBadge}
+    </div>
+  `;
+}
+
+function renderStatusFilter() {
+  const counts = lifeCounts();
+  const opts = [
+    ["all",              "All"],
+    ["open",             "🟢 Open now"],
+    ["open-unfinished",  "🔴 Open + unfinished"],
+    ["active",    "Active"],
+    ["shipped",   "Shipped"],
+    ["blocked",   "Blocked"],
+    ["abandoned", "Abandoned"],
+  ];
+  $("#status-filter").innerHTML = opts.map(([k, label]) =>
+    `<button class="${state.lifeFilter===k?"on":""}" onclick="setLifeFilter('${k}')">${label} <span class="count">${counts[k]||0}</span></button>`
+  ).join("") + (counts.unenriched ? ` <span style="font-size:11px;color:var(--text-mute);align-self:center">${counts.unenriched} not yet enriched</span>` : "");
+}
+
+function renderTimeline() {
+  const app = $("#app");
+  const chats = filteredChats();
+  // group by day (already newest-first)
+  const groups = [];
+  let cur = null;
+  chats.forEach(c => {
+    const label = dayLabel(c.lastTs);
+    if (!cur || cur.label !== label) {
+      cur = { label, items: [] };
+      groups.push(cur);
+    }
+    cur.items.push(c);
+  });
+  app.innerHTML = `
+    <div class="timeline">
+      <div class="stats">
+        <div class="stat"><div class="k">Total chats</div><div class="v">${CHATS.length}</div></div>
+        <div class="stat"><div class="k">In view</div><div class="v">${chats.length}</div></div>
+        <div class="stat"><div class="k">Domains</div><div class="v">${CATEGORIES.length}</div></div>
+        <div class="stat"><div class="k">Newest</div><div class="v" style="font-size:14px">${chats[0]?.lastTsHuman || "—"}</div></div>
+        <div class="stat"><div class="k">Oldest in view</div><div class="v" style="font-size:14px">${chats[chats.length-1]?.lastTsHuman || "—"}</div></div>
+      </div>
+      <div style="height:24px"></div>
+      ${groups.map(g => `
+        <div class="day-group">
+          <div class="day-head">${escHtml(g.label)} <span class="day-count">${g.items.length} ${g.items.length===1?"chat":"chats"}</span></div>
+          <div class="cards">${g.items.map(c => chatCardHtml(c, true)).join("")}</div>
+        </div>
+      `).join("")}
+    </div>
+  `;
+}
+
+function renderProjects() {
+  const app = $("#app");
+  const chats = filteredChats();
+  app.innerHTML = `
+    <div class="dash">
+      <div class="stats">
+        <div class="stat"><div class="k">Total chats</div><div class="v">${CHATS.length}</div></div>
+        <div class="stat"><div class="k">In view</div><div class="v">${chats.length}</div></div>
+        <div class="stat"><div class="k">Domains</div><div class="v">${CATEGORIES.length}</div></div>
+        <div class="stat"><div class="k">Newest</div><div class="v" style="font-size:14px">${chats[0]?.lastTsHuman || "—"}</div></div>
+      </div>
+      <div style="height:24px"></div>
+      <div class="category-grid">
+        ${CATEGORIES.map(cat => {
+          const items = chats.filter(c => c.category === cat.id);
+          if (!items.length) return "";
+          return `
+          <div class="category-box" id="cat-${cat.id}" style="--cat-color:${cat.color};--cat-soft:${cat.colorSoft};--cat-border:${cat.colorBorder}">
+            <h2>${escHtml(cat.label)}<span class="count">${items.length} ${items.length===1?"chat":"chats"}</span></h2>
+            <div class="desc">${escHtml(cat.desc)}</div>
+            <div class="cards">${items.map(c => chatCardHtml(c, false)).join("")}</div>
+          </div>`;
+        }).join("")}
+      </div>
+    </div>
+  `;
+}
+
+function renderDashboard() {
+  if (state.view === "projects") renderProjects(); else renderTimeline();
+  $("#count-total").textContent = CHATS.length;
+  $("#count-cats").textContent = CATEGORIES.length;
+  $("#build-at").textContent = BUILD_AT;
+  if (typeof PALETTE !== "undefined") {
+    const sw = Object.values(PALETTE.domains || {}).map(c => `<span class="sw" style="background:${c}"></span>`).join("");
+    const col = (typeof COLLAPSE !== "undefined" && COLLAPSE.cards)
+      ? ` · <strong>${COLLAPSE.cards}</strong> automations collapsed from <strong>${COLLAPSE.runs}</strong> firings` : "";
+    const pc = $("#palette-credit");
+    if (pc) pc.innerHTML = `Color palette: <strong>${escHtml(PALETTE.name)}</strong> (Wes Anderson) ${sw}${col}`;
+  }
+  $("#hits").textContent = (state.query || state.lifeFilter !== "all")
+    ? `${filteredChats().length} match${filteredChats().length===1?"":"es"}` : "";
+  $("#q").value = state.query || "";
+  renderStatusFilter();
+  if (state.view === "projects") {
+    $("#nav-cats").innerHTML = CATEGORIES.map(c => `<a onclick="scrollToCat('${c.id}')" style="color:${c.color}">${escHtml(c.label)}</a>`).join("");
+  } else {
+    $("#nav-cats").innerHTML = "";
+  }
+  refreshGate();
+}
+
+function scrollToCat(id) {
+  if (location.hash) { location.hash = ""; }
+  setTimeout(() => document.getElementById("cat-"+id)?.scrollIntoView({behavior:"smooth", block:"start"}), 40);
+}
+
+function goTo(id) { location.hash = "#/"+id; }
+function back() { location.hash = ""; }
+
+function copyToClipboard(text, btn) {
+  navigator.clipboard.writeText(text).then(() => {
+    const orig = btn.textContent;
+    btn.textContent = "✓ copied";
+    setTimeout(() => btn.textContent = orig, 1400);
+  });
+}
+
+function renderDetail(id) {
+  const c = CHATS.find(x => x.id === id);
+  if (!c) { renderDashboard(); return; }
+  const cat = CATEGORIES.find(x => x.id === c.category) || {color:"#a78bfa", colorSoft:"rgba(167,139,250,0.15)", colorBorder:"rgba(167,139,250,0.55)", label: c.projectLabel};
+  const app = $("#app");
+  const resumeCmd = `cd "${c.path.replace(/\/[^/]+$/, '')}" && claude --resume ${c.id}`;
+  app.innerHTML = `
+    <div class="detail" style="--cat-color:${cat.color};--cat-soft:${cat.colorSoft};--cat-border:${cat.colorBorder}">
+      <a class="back" onclick="back()">← all chats</a>
+      <div class="head">
+        <div class="head-icon-row">
+          ${iconSvg(c.icon || "chat", 56)}
+          <div>
+            <div class="crumb">${escHtml(cat.label)} · ${c.lastTsHuman}</div>
+            <h1>${escHtml(c.title)}</h1>
+          </div>
+        </div>
+        <div class="sub">${escHtml(c.subtitle)}</div>
+        ${c.description ? `<div class="description" style="font-size:15px;margin:14px 0">${escHtml(c.description)}</div>` : ""}
+        <div class="blurb"><strong style="display:block;font-size:11px;color:var(--text-mute);text-transform:uppercase;letter-spacing:0.06em;margin-bottom:6px">First prompt verbatim</strong>${escHtml(c.blurb)}</div>
+      </div>
+
+      <div class="nba-bar">
+        <button class="nba-btn primary" onclick="copyToClipboard(${JSON.stringify(resumeCmd)}, this)">▶ Copy resume command</button>
+        <button class="nba-btn" onclick="copyToClipboard(${JSON.stringify(c.path)}, this)">📂 Copy jsonl path</button>
+        <button class="nba-btn" onclick="copyToClipboard(${JSON.stringify(c.id)}, this)">🔑 Copy session ID</button>
+        <button class="nba-btn" onclick="copyToClipboard(${JSON.stringify('open ' + JSON.stringify(c.path.replace(/\/[^/]+$/, '')))}, this)">📁 Copy open-folder cmd</button>
+        <button class="nba-btn" onclick="toggleReviewed('${c.id}')">${state.reviewed[c.id]?"✓ reviewed (click to unmark)":"Mark reviewed"}</button>
+      </div>
+
+      <section>
+        <h2>Metadata</h2>
+        <div class="kv">
+          <div class="k">Project</div><div class="v">${escHtml(c.projectLabel)} <code>${escHtml(c.project)}</code></div>
+          <div class="k">Last activity</div><div class="v">${escHtml(c.lastTsHuman)} <span style="color:var(--text-mute)">(${escHtml(c.subtitle.split(' · ')[0])})</span></div>
+          <div class="k">User messages</div><div class="v">${c.userCount}</div>
+          ${c.lifeStatus ? `<div class="k">Life status</div><div class="v"><span class="life-pill ${c.lifeStatus}" style="margin-left:0">${c.lifeStatus}</span> <span style="color:var(--text-soft)">${escHtml(c.lifeStatusWhy||"")}</span></div>` : ""}
+          ${c.enriched && c.rawFirstLine && c.rawFirstLine !== c.title ? `<div class="k">Original first prompt</div><div class="v"><code style="white-space:normal">${escHtml(c.rawFirstLine)}</code></div>` : ""}
+          <div class="k">Session ID</div><div class="v"><code>${escHtml(c.id)}</code></div>
+          <div class="k">Transcript path</div><div class="v"><code>${escHtml(c.path)}</code></div>
+        </div>
+      </section>
+
+      <section>
+        <h2>How to resume</h2>
+        <ol class="kv" style="grid-template-columns:24px 1fr;font-size:14px;line-height:1.55">
+          <div class="k">1.</div><div class="v">In a terminal, <code>cd</code> to the project root (button above copies the right command).</div>
+          <div class="k">2.</div><div class="v">Run <code>claude --resume ${escHtml(c.id)}</code>.</div>
+          <div class="k">3.</div><div class="v">If Claude Code says "session not found", the jsonl may have been auto-archived after 5 days — read directly with <code>jq</code> or copy the chat into a fresh session.</div>
+        </ol>
+      </section>
+    </div>
+  `;
+  refreshGate();
+  window.scrollTo({top:0});
+}
+
+function toggleReviewed(id) { state.reviewed[id] = !state.reviewed[id]; save(); render(); }
+
+function render() {
+  // Sync view toggle UI in case we landed here from a hash
+  $("#view-timeline").classList.toggle("on", state.view !== "projects");
+  $("#view-projects").classList.toggle("on", state.view === "projects");
+  const m = location.hash.match(/^#\/(.+)$/);
+  if (m) renderDetail(m[1]);
+  else renderDashboard();
+}
+
+window.addEventListener("hashchange", render);
+render();
+</script>
+
+</body>
+</html>

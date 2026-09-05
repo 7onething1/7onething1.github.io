@@ -1,0 +1,60 @@
+<style>
+:root{--bg:#F3ECD6;--card:#FBF6E7;--ink:#111111;--mut:#6f6752;--gold:#9A6C12;--rust:#9A4420;--sage:#3F6B47;--amber:#8F6417;--accent:#3F6B47;--rule:#d9cdaf;}
+*{box-sizing:border-box}body{margin:0;background:var(--bg);color:var(--ink);font:16px/1.6 -apple-system,Inter,Segoe UI,sans-serif}
+a{color:var(--gold);text-decoration:none}a:hover{text-decoration:underline}
+.wrap{max-width:1000px;margin:0 auto;padding:60px 22px 80px}
+.kick{color:var(--gold);font-weight:800;letter-spacing:2.5px;font-size:13px;text-transform:uppercase;margin:0 0 6px}
+h1{font-size:33px;margin:0 0 6px;line-height:1.15}
+.v3{display:inline-block;font-size:12px;font-weight:800;letter-spacing:1px;background:var(--gold);color:#141a14;padding:3px 11px;border-radius:6px;margin-left:12px;vertical-align:middle}
+.sub{color:var(--mut);font-size:16px;margin:6px 0 26px;max-width:70ch}
+.stat{display:inline-block;background:var(--card);border:1px solid var(--rule);border-radius:10px;padding:10px 16px;margin:0 10px 10px 0;font-size:14px}
+.stat b{color:var(--gold);font-size:19px;display:block}
+h2{font-size:15px;letter-spacing:1px;text-transform:uppercase;color:var(--gold);margin:38px 0 12px;border-bottom:1px solid var(--rule);padding-bottom:6px}
+.tw{overflow-x:auto}
+table{border-collapse:collapse;width:100%;font-size:14px;min-width:520px}
+th{text-align:left;color:var(--mut);font-size:11.5px;letter-spacing:1px;text-transform:uppercase;padding:6px 10px;border-bottom:1px solid var(--rule)}
+td{padding:7px 10px;border-bottom:1px solid var(--rule);vertical-align:top}
+tr:hover td{background:var(--card)}
+.ok{color:var(--sage);font-weight:700}
+.mut{color:var(--mut)}
+.note{background:var(--card);border:1px solid var(--rule);border-left:4px solid var(--gold);border-radius:10px;padding:16px 20px;margin:16px 0;font-size:14.5px}
+.note b{color:var(--gold)}
+.pipe{font-size:14px;color:var(--ink)}
+.pipe code{background:#efe6cc;padding:2px 7px;border-radius:5px;color:var(--rust);font-size:13px}
+.foot{color:var(--mut);font-size:13px;margin-top:34px;border-top:1px solid var(--rule);padding-top:14px}
+.mode-btn{position:fixed;top:12px;right:12px;z-index:9999;padding:9px 16px;border:none;border-radius:999px;background:#4E8079;color:#fff;font:600 14px/1 system-ui,-apple-system,sans-serif;cursor:pointer;box-shadow:0 2px 8px rgba(0,0,0,.22)}
+body.kids .mode-btn{background:#B4503E}
+body.kids .mode-btn::before{content:"🧒  "}
+#kidpanel{display:none}
+body.kids #kidpanel{display:block;max-width:760px;margin:62px auto 12px;background:#fff7e8;border:2px solid #4E8079;border-radius:18px;padding:20px 24px;font:18px/1.7 system-ui,-apple-system,sans-serif;color:#2b2820}
+body.kids #kidpanel h3{font-family:"Fredoka","Comic Sans MS",sans-serif;color:#4E8079;margin:0 0 8px;font-size:22px}
+body.kids #kidpanel b{color:#B4503E}
+body.kids{font-size:1.04em}
+body.kids #kidpanel{margin:12px auto 20px}
+</style>
+
+<div class="wrap">
+<p class="kick">Community-format season hub</p>
+<h1>It's Always Sunny in Philadelphia: Season 1 Index <span class="v3">S1</span></h1>
+<p class="sub">Every Season 1 episode of It's Always Sunny in Philadelphia as a row: title, structural breakdown link, and the analysis confidence. Built from the full transcripts on disk. Modeled on the Parks and Recreation index.</p>
+<div id="kidpanel"><h3>Kid mode 🧒</h3><p>This page is a list of the <b>7 episodes</b> in <b>Season 1</b> of the show <b>It's Always Sunny in Philadelphia</b>. Each row tells you the episode name and gives a link to a page that explains the tricks the writers used. The lesson is that a tidy list helps you find any episode fast.</p></div>
+<div>
+<div class="stat">S1 episodes<b>7/7</b>scripts on disk</div>
+<div class="stat">Trope breakdowns<b>7/7</b>grounded in transcript</div>
+<div class="stat">Speaker layer<b>inferred</b>DeepSeek best-guess</div>
+</div>
+<div class="note"><b>Provenance.</b> Episode scripts pulled from springfieldspringfield (dialogue-only) into <code>~/Projects/tv-scripts/text/</code>. Speaker names are INFERRED (DeepSeek), not a cited source; the authoritative speaker-tagged pull from Forever Dreaming is queued. Trope breakdowns are grounded in the transcripts with a confidence flag per episode.</div>
+<h2>Season 1 &middot; episodes</h2>
+<div class="tw"><table><tr><th>#</th><th>episode</th><th>breakdown</th><th>http</th><th>confidence</th><th>tropes</th></tr>
+<tr><td>01</td><td>The Gang Gets Racist</td><td><a href="https://drwu-htmls.vercel.app/alwayssunny-s1-trope-index/#S01E01">S01E01 breakdown</a></td><td><span class="ok">200</span></td><td class="ok">high</td><td>4</td></tr>
+<tr><td>02</td><td>Charlie Wants an Abortion</td><td><a href="https://drwu-htmls.vercel.app/alwayssunny-s1-trope-index/#S01E02">S01E02 breakdown</a></td><td><span class="ok">200</span></td><td class="ok">high</td><td>4</td></tr>
+<tr><td>03</td><td>Underage Drinking: A National Concern</td><td><a href="https://drwu-htmls.vercel.app/alwayssunny-s1-trope-index/#S01E03">S01E03 breakdown</a></td><td><span class="ok">200</span></td><td class="ok">high</td><td>4</td></tr>
+<tr><td>04</td><td>Charlie Has Cancer</td><td><a href="https://drwu-htmls.vercel.app/alwayssunny-s1-trope-index/#S01E04">S01E04 breakdown</a></td><td><span class="ok">200</span></td><td class="ok">high</td><td>4</td></tr>
+<tr><td>05</td><td>Gun Fever</td><td><a href="https://drwu-htmls.vercel.app/alwayssunny-s1-trope-index/#S01E05">S01E05 breakdown</a></td><td><span class="ok">200</span></td><td class="ok">high</td><td>4</td></tr>
+<tr><td>06</td><td>The Gang Finds a Dead Guy</td><td><a href="https://drwu-htmls.vercel.app/alwayssunny-s1-trope-index/#S01E06">S01E06 breakdown</a></td><td><span class="ok">200</span></td><td class="ok">high</td><td>4</td></tr>
+<tr><td>07</td><td>Charlie Got Molested</td><td><a href="https://drwu-htmls.vercel.app/alwayssunny-s1-trope-index/#S01E07">S01E07 breakdown</a></td><td><span class="ok">200</span></td><td class="ok">high</td><td>4</td></tr>
+</table></div>
+<h2>Pipeline</h2>
+<p class="pipe">Scripts scraped by <code>scrape_scripts.py alwayssunny</code> (177/177 episodes). Speaker attribution stopgap by <code>infer_speakers_alwayssunny.py</code>. Season 1 breakdowns and this hub built by <code>build_alwayssunny_s1_pages.py</code> against the transcripts, then shipped by <code>ship.py</code>. Full analytical index at <a href="https://drwu-htmls.vercel.app/alwayssunny-s1-trope-index/">alwayssunny-s1-trope-index</a>.</p>
+<p class="foot">Frank Reynolds joins in Season 2; the Season 1 Gang is Dennis, Dee, Mac, and Charlie. Every breakdown link resolves to an anchor on the trope-index page. Built 2026-07-09.</p>
+</div>

@@ -1,0 +1,4917 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<title>Stems Map (all Macs)</title>
+<style>
+  :root {
+    --bg: #0f1115; --panel: #161922; --text: #e6e9ef; --muted: #8a93a5;
+    --accent: #7aa2f7; --border: #262a36; --row-alt: #1a1e29;
+    --pill: #2a3142; --selected: #2a3a5a;
+    --warn: #d7785e;
+  }
+  * { box-sizing: border-box; }
+  body {
+    margin: 0; padding: 0; background: var(--bg); color: var(--text);
+    font-family: -apple-system, BlinkMacSystemFont, "SF Pro Text", system-ui, sans-serif;
+    font-size: 14px; line-height: 1.5; height: 100vh; overflow: hidden;
+    display: flex; flex-direction: column;
+  }
+  header {
+    padding: 12px 22px; border-bottom: 1px solid var(--border);
+    background: var(--panel); flex: 0 0 auto;
+    display: flex; align-items: center; gap: 16px; flex-wrap: wrap;
+  }
+  header h1 { margin: 0; font-size: 18px; font-weight: 600; }
+  header .meta { color: var(--muted); font-size: 12px; }
+  .mac-picker { display: flex; gap: 6px; flex-wrap: wrap; }
+  .mac-pill {
+    background: var(--pill); color: var(--text);
+    padding: 6px 12px; border-radius: 12px; font-size: 12px;
+    cursor: pointer; border: 1px solid transparent; user-select: none;
+  }
+  .mac-pill.active { border-color: var(--accent); color: var(--accent); }
+  .mac-pill .scan-time { color: var(--muted); font-size: 10px; margin-left: 6px; }
+  main {
+    flex: 1; display: grid; grid-template-columns: 340px 1fr; overflow: hidden;
+  }
+  .left {
+    border-right: 1px solid var(--border); overflow-y: auto; background: var(--bg);
+  }
+  .right {
+    overflow-y: auto; padding: 18px 22px; background: var(--bg);
+  }
+  table { width: 100%; border-collapse: collapse; }
+  .left th {
+    background: #1c2030; text-transform: uppercase; font-size: 11px;
+    letter-spacing: 0.5px; color: var(--muted); padding: 8px 14px;
+    text-align: left; border-bottom: 1px solid var(--border);
+    position: sticky; top: 0;
+  }
+  .left td {
+    padding: 10px 14px; border-bottom: 1px solid var(--border);
+    cursor: pointer; font-size: 13px;
+  }
+  .left tr:hover td { background: var(--row-alt); }
+  .left tr.selected td {
+    background: var(--selected); color: var(--accent); font-weight: 600;
+  }
+  .count {
+    color: var(--muted); font-size: 11px; background: var(--pill);
+    padding: 2px 8px; border-radius: 10px; margin-left: 6px; display: inline-block;
+  }
+  .left tr.selected .count { background: var(--accent); color: var(--bg); }
+  .only-here {
+    font-size: 10px; background: #4a3a26; color: #ffd28a;
+    padding: 1px 6px; border-radius: 8px; margin-left: 4px;
+  }
+  .only-there {
+    font-size: 10px; background: #2a4a3a; color: #8affb4;
+    padding: 1px 6px; border-radius: 8px; margin-left: 4px;
+  }
+  .both {
+    font-size: 10px; background: #263a5a; color: #7aa2f7;
+    padding: 1px 6px; border-radius: 8px; margin-left: 4px;
+  }
+  .right h2 { margin: 0 0 4px; font-size: 22px; }
+  .album-line { color: var(--muted); font-size: 13px; margin-bottom: 14px; }
+  .album-block { margin-bottom: 24px; }
+  .album-header {
+    color: var(--accent); font-size: 15px; font-weight: 600;
+    padding-bottom: 6px; margin-bottom: 8px; border-bottom: 1px solid var(--border);
+  }
+  .right table {
+    background: var(--panel); border: 1px solid var(--border);
+    border-radius: 8px; overflow: hidden;
+  }
+  .right th {
+    background: #1c2030; text-transform: uppercase; font-size: 11px;
+    letter-spacing: 0.5px; color: var(--muted); padding: 8px 12px; text-align: left;
+  }
+  .right td {
+    padding: 8px 12px; border-bottom: 1px solid var(--border); vertical-align: top;
+  }
+  .right tr:nth-child(even) td { background: var(--row-alt); }
+  .right tr:last-child td { border-bottom: none; }
+  td.stems span {
+    display: inline-block; background: var(--pill); padding: 2px 6px;
+    border-radius: 4px; font-size: 11px; margin-right: 3px; margin-bottom: 2px;
+  }
+  td.path {
+    font-family: ui-monospace, "SF Mono", Menlo, monospace;
+    font-size: 11px; color: var(--muted); cursor: pointer;
+    max-width: 420px; word-break: break-all;
+  }
+  td.path:hover { color: var(--accent); }
+  td.fmt { color: var(--muted); font-size: 12px; white-space: nowrap; }
+  td.host-tag { font-size: 11px; color: var(--muted); }
+  .placeholder-tag {
+    display: inline-block; font-size: 11px; background: #4a2a26;
+    color: #ffb4a2; padding: 2px 8px; border-radius: 10px; margin-left: 8px;
+  }
+  .copy-hint { color: var(--muted); font-size: 11px; margin-top: 12px; }
+  .empty-state { color: var(--muted); text-align: center; margin-top: 60px; }
+</style>
+<style id="kidmode-css">
+.mode-btn{position:fixed;top:12px;right:12px;z-index:9999;padding:9px 16px;border:none;border-radius:999px;background:#4E8079;color:#fff;font:600 14px/1 system-ui,-apple-system,sans-serif;cursor:pointer;box-shadow:0 2px 8px rgba(0,0,0,.22)}
+body.kids .mode-btn{background:#B4503E}
+body.kids .mode-btn::before{content:"🧒  "}
+#kidpanel{display:none}
+body.kids #kidpanel{display:block;max-width:760px;margin:62px auto 12px;background:#fff7e8;border:2px solid #4E8079;border-radius:18px;padding:20px 24px;font:18px/1.7 system-ui,-apple-system,sans-serif;color:#2b2820}
+body.kids #kidpanel h3{font-family:"Fredoka","Comic Sans MS",sans-serif;color:#4E8079;margin:0 0 8px;font-size:22px}
+body.kids #kidpanel b{color:#B4503E}
+body.kids{font-size:1.04em}
+</style>
+</head>
+<body>
+
+<div id="kidpanel"><h3>Kid mode 🧒</h3><p>This page is <b>Stems Map</b>. It is one of the projects Brandon built and put online. The grown-up details are below, tap Grown-up mode to read them the normal way.</p></div>
+
+<header>
+  <h1>Stems Map</h1>
+  <span class="meta" id="meta"></span>
+  <div class="mac-picker" id="macPicker"></div>
+</header>
+
+<main>
+  <div class="left">
+    <table>
+      <thead><tr><th>Band</th></tr></thead>
+      <tbody id="bandList"></tbody>
+    </table>
+  </div>
+  <div class="right" id="detail">
+    <div class="empty-state">Select a band on the left.</div>
+  </div>
+</main>
+
+<script>
+const ALL_INVENTORIES = {
+  "Brandon\u2019s MacBook Pro": {
+    "hostname": "Brandon\u2019s MacBook Pro",
+    "scanned_at": "2026-06-01T17:48:36",
+    "home": "/Users/brandonchavez",
+    "bands": {
+      "Smashing Pumpkins": {
+        "Siamese Dream (1993 / 2011 remaster)": {
+          "songs": [
+            {
+              "song": "1. Cherub Rock - 2011 Remaster",
+              "path": "/Users/brandonchavez/Desktop/Anatomy-Jams/Moises_Input/stems/htdemucs_6s/Smashing P/1. Cherub Rock - 2011 Remaster",
+              "stems": [
+                "bass.mp3",
+                "drums.mp3",
+                "guitar.mp3",
+                "other.mp3",
+                "piano.mp3",
+                "vocals.mp3"
+              ],
+              "format": "MP3"
+            },
+            {
+              "song": "2. Quiet - 2011 Remaster",
+              "path": "/Users/brandonchavez/Desktop/Anatomy-Jams/Moises_Input/stems/htdemucs_6s/Smashing P/2. Quiet - 2011 Remaster",
+              "stems": [
+                "bass.mp3",
+                "drums.mp3",
+                "guitar.mp3",
+                "other.mp3",
+                "piano.mp3",
+                "vocals.mp3"
+              ],
+              "format": "MP3"
+            },
+            {
+              "song": "3. Today - 2011 Remaster",
+              "path": "/Users/brandonchavez/Desktop/Anatomy-Jams/Moises_Input/stems/htdemucs_6s/Smashing P/3. Today - 2011 Remaster",
+              "stems": [
+                "bass.mp3",
+                "drums.mp3",
+                "guitar.mp3",
+                "other.mp3",
+                "piano.mp3",
+                "vocals.mp3"
+              ],
+              "format": "MP3"
+            },
+            {
+              "song": "4. Hummer - 2011 Remaster",
+              "path": "/Users/brandonchavez/Desktop/Anatomy-Jams/Moises_Input/stems/htdemucs_6s/Smashing P/4. Hummer - 2011 Remaster",
+              "stems": [
+                "bass.mp3",
+                "drums.mp3",
+                "guitar.mp3",
+                "other.mp3",
+                "piano.mp3",
+                "vocals.mp3"
+              ],
+              "format": "MP3"
+            },
+            {
+              "song": "5. Rocket - 2011 Remaster",
+              "path": "/Users/brandonchavez/Desktop/Anatomy-Jams/Moises_Input/stems/htdemucs_6s/Smashing P/5. Rocket - 2011 Remaster",
+              "stems": [
+                "bass.mp3",
+                "drums.mp3",
+                "guitar.mp3",
+                "other.mp3",
+                "piano.mp3",
+                "vocals.mp3"
+              ],
+              "format": "MP3"
+            },
+            {
+              "song": "6. Disarm - 2011 Remaster",
+              "path": "/Users/brandonchavez/Desktop/Anatomy-Jams/Moises_Input/stems/htdemucs_6s/Smashing P/6. Disarm - 2011 Remaster",
+              "stems": [
+                "bass.mp3",
+                "drums.mp3",
+                "guitar.mp3",
+                "other.mp3",
+                "piano.mp3",
+                "vocals.mp3"
+              ],
+              "format": "MP3"
+            },
+            {
+              "song": "7. Soma - 2011 Remaster",
+              "path": "/Users/brandonchavez/Desktop/Anatomy-Jams/Moises_Input/stems/htdemucs_6s/Smashing P/7. Soma - 2011 Remaster",
+              "stems": [
+                "bass.mp3",
+                "drums.mp3",
+                "guitar.mp3",
+                "other.mp3",
+                "piano.mp3",
+                "vocals.mp3"
+              ],
+              "format": "MP3"
+            }
+          ]
+        }
+      },
+      "Failure (likely)": {
+        "Loose tracks at htdemucs_6s top level": {
+          "songs": [
+            {
+              "song": "08 - Crimes",
+              "path": "/Users/brandonchavez/Desktop/Anatomy-Jams/Moises_Input/stems/htdemucs_6s/08 - Crimes",
+              "stems": [
+                "bass.mp3",
+                "drums.mp3",
+                "guitar.mp3",
+                "other.mp3",
+                "piano.mp3",
+                "vocals.mp3"
+              ],
+              "format": "MP3"
+            },
+            {
+              "song": "09 - The Nurse Who Loved Me",
+              "path": "/Users/brandonchavez/Desktop/Anatomy-Jams/Moises_Input/stems/htdemucs_6s/09 - The Nurse Who Loved Me",
+              "stems": [
+                "bass.mp3",
+                "drums.mp3",
+                "guitar.mp3",
+                "other.mp3",
+                "piano.mp3",
+                "vocals.mp3"
+              ],
+              "format": "MP3"
+            },
+            {
+              "song": "11 Another Go Around",
+              "path": "/Users/brandonchavez/Desktop/Anatomy-Jams/Moises_Input/stems/htdemucs_6s/11 Another Go Around",
+              "stems": [
+                "bass.mp3",
+                "drums.mp3",
+                "guitar.mp3",
+                "other.mp3",
+                "piano.mp3",
+                "vocals.mp3"
+              ],
+              "format": "MP3"
+            },
+            {
+              "song": "13 Illusion of Forever",
+              "path": "/Users/brandonchavez/Desktop/Anatomy-Jams/Moises_Input/stems/htdemucs_6s/13 Illusion of Forever",
+              "stems": [
+                "bass.mp3",
+                "drums.mp3",
+                "guitar.mp3",
+                "other.mp3",
+                "piano.mp3",
+                "vocals.mp3"
+              ],
+              "format": "MP3"
+            }
+          ]
+        }
+      },
+      "Radiohead": {
+        "In Rainbows (2007)": {
+          "songs": [
+            {
+              "song": "02 - Bodysnatchers",
+              "path": "/Users/brandonchavez/Desktop/Anatomy-Jams/Moises_Input/stems/htdemucs_6s/in radinvbows/02 - Bodysnatchers",
+              "stems": [
+                "bass.mp3",
+                "drums.mp3",
+                "guitar.mp3",
+                "other.mp3",
+                "piano.mp3",
+                "vocals.mp3"
+              ],
+              "format": "MP3"
+            },
+            {
+              "song": "03 - Nude",
+              "path": "/Users/brandonchavez/Desktop/Anatomy-Jams/Moises_Input/stems/htdemucs_6s/in radinvbows/03 - Nude",
+              "stems": [
+                "bass.mp3",
+                "drums.mp3",
+                "guitar.mp3",
+                "other.mp3",
+                "piano.mp3",
+                "vocals.mp3"
+              ],
+              "format": "MP3"
+            },
+            {
+              "song": "04 - Weird Fishes-Arpeggi",
+              "path": "/Users/brandonchavez/Desktop/Anatomy-Jams/Moises_Input/stems/htdemucs_6s/in radinvbows/04 - Weird Fishes-Arpeggi",
+              "stems": [
+                "bass.mp3",
+                "drums.mp3",
+                "guitar.mp3",
+                "other.mp3",
+                "piano.mp3",
+                "vocals.mp3"
+              ],
+              "format": "MP3"
+            },
+            {
+              "song": "05 - All I Need",
+              "path": "/Users/brandonchavez/Desktop/Anatomy-Jams/Moises_Input/stems/htdemucs_6s/in radinvbows/05 - All I Need",
+              "stems": [
+                "bass.mp3",
+                "drums.mp3",
+                "guitar.mp3",
+                "other.mp3",
+                "piano.mp3",
+                "vocals.mp3"
+              ],
+              "format": "MP3"
+            },
+            {
+              "song": "06 - Faust Arp",
+              "path": "/Users/brandonchavez/Desktop/Anatomy-Jams/Moises_Input/stems/htdemucs_6s/in radinvbows/06 - Faust Arp",
+              "stems": [
+                "bass.mp3",
+                "drums.mp3",
+                "guitar.mp3",
+                "other.mp3",
+                "piano.mp3",
+                "vocals.mp3"
+              ],
+              "format": "MP3"
+            },
+            {
+              "song": "07 - Reckoner",
+              "path": "/Users/brandonchavez/Desktop/Anatomy-Jams/Moises_Input/stems/htdemucs_6s/in radinvbows/07 - Reckoner",
+              "stems": [
+                "bass.mp3",
+                "drums.mp3",
+                "guitar.mp3",
+                "other.mp3",
+                "piano.mp3",
+                "vocals.mp3"
+              ],
+              "format": "MP3"
+            },
+            {
+              "song": "08 - House of Cards",
+              "path": "/Users/brandonchavez/Desktop/Anatomy-Jams/Moises_Input/stems/htdemucs_6s/in radinvbows/08 - House of Cards",
+              "stems": [
+                "bass.mp3",
+                "drums.mp3",
+                "guitar.mp3",
+                "other.mp3",
+                "piano.mp3",
+                "vocals.mp3"
+              ],
+              "format": "MP3"
+            },
+            {
+              "song": "09 - Jigsaw Falling Into Place",
+              "path": "/Users/brandonchavez/Desktop/Anatomy-Jams/Moises_Input/stems/htdemucs_6s/in radinvbows/09 - Jigsaw Falling Into Place",
+              "stems": [
+                "bass.mp3",
+                "drums.mp3",
+                "guitar.mp3",
+                "other.mp3",
+                "piano.mp3",
+                "vocals.mp3"
+              ],
+              "format": "MP3"
+            },
+            {
+              "song": "10 - Videotape",
+              "path": "/Users/brandonchavez/Desktop/Anatomy-Jams/Moises_Input/stems/htdemucs_6s/in radinvbows/10 - Videotape",
+              "stems": [
+                "bass.mp3",
+                "drums.mp3",
+                "guitar.mp3",
+                "other.mp3",
+                "piano.mp3",
+                "vocals.mp3"
+              ],
+              "format": "MP3"
+            }
+          ]
+        }
+      },
+      "Beach House": {
+        "Once Twice Melody (2022)": {
+          "songs": [
+            {
+              "song": "04 Through Me",
+              "path": "/Users/brandonchavez/Desktop/Anatomy-Jams/Moises_Input/stems/htdemucs_6s/Beach House Once Twice Melody/04 Through Me",
+              "stems": [
+                "bass.mp3",
+                "drums.mp3",
+                "guitar.mp3",
+                "other.mp3",
+                "piano.mp3",
+                "vocals.mp3"
+              ],
+              "format": "MP3"
+            },
+            {
+              "song": "05 Runaway",
+              "path": "/Users/brandonchavez/Desktop/Anatomy-Jams/Moises_Input/stems/htdemucs_6s/Beach House Once Twice Melody/05 Runaway",
+              "stems": [
+                "bass.mp3",
+                "drums.mp3",
+                "guitar.mp3",
+                "other.mp3",
+                "piano.mp3",
+                "vocals.mp3"
+              ],
+              "format": "MP3"
+            },
+            {
+              "song": "06 ESP",
+              "path": "/Users/brandonchavez/Desktop/Anatomy-Jams/Moises_Input/stems/htdemucs_6s/Beach House Once Twice Melody/06 ESP",
+              "stems": [
+                "bass.mp3",
+                "drums.mp3",
+                "guitar.mp3",
+                "other.mp3",
+                "piano.mp3",
+                "vocals.mp3"
+              ],
+              "format": "MP3"
+            },
+            {
+              "song": "07 New Romance",
+              "path": "/Users/brandonchavez/Desktop/Anatomy-Jams/Moises_Input/stems/htdemucs_6s/Beach House Once Twice Melody/07 New Romance",
+              "stems": [
+                "bass.mp3",
+                "drums.mp3",
+                "guitar.mp3",
+                "other.mp3",
+                "piano.mp3",
+                "vocals.mp3"
+              ],
+              "format": "MP3"
+            },
+            {
+              "song": "08 Over and Over",
+              "path": "/Users/brandonchavez/Desktop/Anatomy-Jams/Moises_Input/stems/htdemucs_6s/Beach House Once Twice Melody/08 Over and Over",
+              "stems": [
+                "bass.mp3",
+                "drums.mp3",
+                "guitar.mp3",
+                "other.mp3",
+                "piano.mp3",
+                "vocals.mp3"
+              ],
+              "format": "MP3"
+            },
+            {
+              "song": "09 Sunset",
+              "path": "/Users/brandonchavez/Desktop/Anatomy-Jams/Moises_Input/stems/htdemucs_6s/Beach House Once Twice Melody/09 Sunset",
+              "stems": [
+                "bass.mp3",
+                "drums.mp3",
+                "guitar.mp3",
+                "other.mp3",
+                "piano.mp3",
+                "vocals.mp3"
+              ],
+              "format": "MP3"
+            },
+            {
+              "song": "10 Only You Know",
+              "path": "/Users/brandonchavez/Desktop/Anatomy-Jams/Moises_Input/stems/htdemucs_6s/Beach House Once Twice Melody/10 Only You Know",
+              "stems": [
+                "bass.mp3",
+                "drums.mp3",
+                "guitar.mp3",
+                "other.mp3",
+                "piano.mp3",
+                "vocals.mp3"
+              ],
+              "format": "MP3"
+            },
+            {
+              "song": "12 Masquerade",
+              "path": "/Users/brandonchavez/Desktop/Anatomy-Jams/Moises_Input/stems/htdemucs_6s/Beach House Once Twice Melody/12 Masquerade",
+              "stems": [
+                "bass.mp3",
+                "drums.mp3",
+                "guitar.mp3",
+                "other.mp3",
+                "piano.mp3",
+                "vocals.mp3"
+              ],
+              "format": "MP3"
+            },
+            {
+              "song": "14 Finale",
+              "path": "/Users/brandonchavez/Desktop/Anatomy-Jams/Moises_Input/stems/htdemucs_6s/Beach House Once Twice Melody/14 Finale",
+              "stems": [
+                "bass.mp3",
+                "drums.mp3",
+                "guitar.mp3",
+                "other.mp3",
+                "piano.mp3",
+                "vocals.mp3"
+              ],
+              "format": "MP3"
+            }
+          ]
+        },
+        "placeholder (beach-house-once-twice-melody)": {
+          "songs": [
+            {
+              "song": "beach-house-once-twice-melody",
+              "path": "/Users/brandonchavez/Desktop/Stems/beach-house-once-twice-melody",
+              "stems": [],
+              "format": "job.log only"
+            }
+          ],
+          "placeholder": true,
+          "note": "Moises job.log present, no stems on disk"
+        }
+      },
+      "The Life and Times": {
+        "Tragic Boogie (2009)": {
+          "songs": [
+            {
+              "song": "02 Fall of the Angry Clowns",
+              "path": "/Users/brandonchavez/Desktop/Anatomy-Jams/Moises_Input/stems/htdemucs_6s/Life and times/02 Fall of the Angry Clowns",
+              "stems": [
+                "bass.mp3",
+                "drums.mp3",
+                "guitar.mp3",
+                "other.mp3",
+                "piano.mp3",
+                "vocals.mp3"
+              ],
+              "format": "MP3"
+            },
+            {
+              "song": "03 Let It Eat",
+              "path": "/Users/brandonchavez/Desktop/Anatomy-Jams/Moises_Input/stems/htdemucs_6s/Life and times/03 Let It Eat",
+              "stems": [
+                "bass.mp3",
+                "drums.mp3",
+                "guitar.mp3",
+                "other.mp3",
+                "piano.mp3",
+                "vocals.mp3"
+              ],
+              "format": "MP3"
+            },
+            {
+              "song": "04 Old Souls",
+              "path": "/Users/brandonchavez/Desktop/Anatomy-Jams/Moises_Input/stems/htdemucs_6s/Life and times/04 Old Souls",
+              "stems": [
+                "bass.mp3",
+                "drums.mp3",
+                "guitar.mp3",
+                "other.mp3",
+                "piano.mp3",
+                "vocals.mp3"
+              ],
+              "format": "MP3"
+            },
+            {
+              "song": "05 Dull Knives",
+              "path": "/Users/brandonchavez/Desktop/Anatomy-Jams/Moises_Input/stems/htdemucs_6s/Life and times/05 Dull Knives",
+              "stems": [
+                "bass.mp3",
+                "drums.mp3",
+                "guitar.mp3",
+                "other.mp3",
+                "piano.mp3",
+                "vocals.mp3"
+              ],
+              "format": "MP3"
+            },
+            {
+              "song": "06 Pain Don\u2019t Hurt",
+              "path": "/Users/brandonchavez/Desktop/Anatomy-Jams/Moises_Input/stems/htdemucs_6s/Life and times/06 Pain Don\u2019t Hurt",
+              "stems": [
+                "bass.mp3",
+                "drums.mp3",
+                "guitar.mp3",
+                "other.mp3",
+                "piano.mp3",
+                "vocals.mp3"
+              ],
+              "format": "MP3"
+            },
+            {
+              "song": "07 Confetti",
+              "path": "/Users/brandonchavez/Desktop/Anatomy-Jams/Moises_Input/stems/htdemucs_6s/Life and times/07 Confetti",
+              "stems": [
+                "bass.mp3",
+                "drums.mp3",
+                "guitar.mp3",
+                "other.mp3",
+                "piano.mp3",
+                "vocals.mp3"
+              ],
+              "format": "MP3"
+            },
+            {
+              "song": "08 The Lucid Dream",
+              "path": "/Users/brandonchavez/Desktop/Anatomy-Jams/Moises_Input/stems/htdemucs_6s/Life and times/08 The Lucid Dream",
+              "stems": [
+                "bass.mp3",
+                "drums.mp3",
+                "guitar.mp3",
+                "other.mp3",
+                "piano.mp3",
+                "vocals.mp3"
+              ],
+              "format": "MP3"
+            },
+            {
+              "song": "09 Tragic Boogie",
+              "path": "/Users/brandonchavez/Desktop/Anatomy-Jams/Moises_Input/stems/htdemucs_6s/Life and times/09 Tragic Boogie",
+              "stems": [
+                "bass.mp3",
+                "drums.mp3",
+                "guitar.mp3",
+                "other.mp3",
+                "piano.mp3",
+                "vocals.mp3"
+              ],
+              "format": "MP3"
+            },
+            {
+              "song": "10 The Politics of Driving",
+              "path": "/Users/brandonchavez/Desktop/Anatomy-Jams/Moises_Input/stems/htdemucs_6s/Life and times/10 The Politics of Driving",
+              "stems": [
+                "bass.mp3",
+                "drums.mp3",
+                "guitar.mp3",
+                "other.mp3",
+                "piano.mp3",
+                "vocals.mp3"
+              ],
+              "format": "MP3"
+            },
+            {
+              "song": "11 Catching Crumbs",
+              "path": "/Users/brandonchavez/Desktop/Anatomy-Jams/Moises_Input/stems/htdemucs_6s/Life and times/11 Catching Crumbs",
+              "stems": [
+                "bass.mp3",
+                "drums.mp3",
+                "guitar.mp3",
+                "other.mp3",
+                "piano.mp3",
+                "vocals.mp3"
+              ],
+              "format": "MP3"
+            },
+            {
+              "song": "12 Little 4Notes",
+              "path": "/Users/brandonchavez/Desktop/Anatomy-Jams/Moises_Input/stems/htdemucs_6s/Life and times/12 Little 4Notes",
+              "stems": [
+                "bass.mp3",
+                "drums.mp3",
+                "guitar.mp3",
+                "other.mp3",
+                "piano.mp3",
+                "vocals.mp3"
+              ],
+              "format": "MP3"
+            }
+          ]
+        },
+        "Suburban Hymns (2005)": {
+          "songs": [
+            {
+              "song": "02 - Coat of Arms",
+              "path": "/Users/brandonchavez/Desktop/Anatomy-Jams/Moises_Input/stems/htdemucs_6s/Life and Times LP/02 - Coat of Arms",
+              "stems": [
+                "bass.mp3",
+                "drums.mp3",
+                "guitar.mp3",
+                "other.mp3",
+                "piano.mp3",
+                "vocals.mp3"
+              ],
+              "format": "MP3"
+            },
+            {
+              "song": "03 - Charlotte St.",
+              "path": "/Users/brandonchavez/Desktop/Anatomy-Jams/Moises_Input/stems/htdemucs_6s/Life and Times LP/03 - Charlotte St.",
+              "stems": [
+                "bass.mp3",
+                "drums.mp3",
+                "guitar.mp3",
+                "other.mp3",
+                "piano.mp3",
+                "vocals.mp3"
+              ],
+              "format": "MP3"
+            },
+            {
+              "song": "04 - Muscle Cars",
+              "path": "/Users/brandonchavez/Desktop/Anatomy-Jams/Moises_Input/stems/htdemucs_6s/Life and Times LP/04 - Muscle Cars",
+              "stems": [
+                "bass.mp3",
+                "drums.mp3",
+                "guitar.mp3",
+                "other.mp3",
+                "piano.mp3",
+                "vocals.mp3"
+              ],
+              "format": "MP3"
+            },
+            {
+              "song": "05 - Skateland",
+              "path": "/Users/brandonchavez/Desktop/Anatomy-Jams/Moises_Input/stems/htdemucs_6s/Life and Times LP/05 - Skateland",
+              "stems": [
+                "bass.mp3",
+                "drums.mp3",
+                "guitar.mp3",
+                "other.mp3",
+                "piano.mp3",
+                "vocals.mp3"
+              ],
+              "format": "MP3"
+            },
+            {
+              "song": "06 - Thrill Ride",
+              "path": "/Users/brandonchavez/Desktop/Anatomy-Jams/Moises_Input/stems/htdemucs_6s/Life and Times LP/06 - Thrill Ride",
+              "stems": [
+                "bass.mp3",
+                "drums.mp3",
+                "guitar.mp3",
+                "other.mp3",
+                "piano.mp3",
+                "vocals.mp3"
+              ],
+              "format": "MP3"
+            },
+            {
+              "song": "07 - Running Redlights",
+              "path": "/Users/brandonchavez/Desktop/Anatomy-Jams/Moises_Input/stems/htdemucs_6s/Life and Times LP/07 - Running Redlights",
+              "stems": [
+                "bass.mp3",
+                "drums.mp3",
+                "guitar.mp3",
+                "other.mp3",
+                "piano.mp3",
+                "vocals.mp3"
+              ],
+              "format": "MP3"
+            },
+            {
+              "song": "08 - Shift Your Gaze",
+              "path": "/Users/brandonchavez/Desktop/Anatomy-Jams/Moises_Input/stems/htdemucs_6s/Life and Times LP/08 - Shift Your Gaze",
+              "stems": [
+                "bass.mp3",
+                "drums.mp3",
+                "guitar.mp3",
+                "other.mp3",
+                "piano.mp3",
+                "vocals.mp3"
+              ],
+              "format": "MP3"
+            },
+            {
+              "song": "09 - Mea Culpa",
+              "path": "/Users/brandonchavez/Desktop/Anatomy-Jams/Moises_Input/stems/htdemucs_6s/Life and Times LP/09 - Mea Culpa",
+              "stems": [
+                "bass.mp3",
+                "drums.mp3",
+                "guitar.mp3",
+                "other.mp3",
+                "piano.mp3",
+                "vocals.mp3"
+              ],
+              "format": "MP3"
+            },
+            {
+              "song": "10 - A Chorus of Crickets",
+              "path": "/Users/brandonchavez/Desktop/Anatomy-Jams/Moises_Input/stems/htdemucs_6s/Life and Times LP/10 - A Chorus of Crickets",
+              "stems": [
+                "bass.mp3",
+                "drums.mp3",
+                "guitar.mp3",
+                "other.mp3",
+                "piano.mp3",
+                "vocals.mp3"
+              ],
+              "format": "MP3"
+            },
+            {
+              "song": "11 - Coda",
+              "path": "/Users/brandonchavez/Desktop/Anatomy-Jams/Moises_Input/stems/htdemucs_6s/Life and Times LP/11 - Coda",
+              "stems": [
+                "bass.mp3",
+                "drums.mp3",
+                "guitar.mp3",
+                "other.mp3",
+                "piano.mp3",
+                "vocals.mp3"
+              ],
+              "format": "MP3"
+            }
+          ]
+        },
+        "placeholder (life-and-times-que-sera-sera)": {
+          "songs": [
+            {
+              "song": "life-and-times-que-sera-sera",
+              "path": "/Users/brandonchavez/Desktop/Stems/life-and-times-que-sera-sera",
+              "stems": [],
+              "format": "job.log only"
+            }
+          ],
+          "placeholder": true,
+          "note": "Moises job.log present, no stems on disk"
+        }
+      },
+      "A Perfect Circle": {
+        "Thirteenth Step (2003)": {
+          "songs": [
+            {
+              "song": "02 - Weak And Powerless",
+              "path": "/Users/brandonchavez/Desktop/Anatomy-Jams/Moises_Input/stems/htdemucs_6s/13th step apc/02 - Weak And Powerless",
+              "stems": [
+                "bass.mp3",
+                "drums.mp3",
+                "guitar.mp3",
+                "other.mp3",
+                "piano.mp3",
+                "vocals.mp3"
+              ],
+              "format": "MP3"
+            },
+            {
+              "song": "03 - The Noose",
+              "path": "/Users/brandonchavez/Desktop/Anatomy-Jams/Moises_Input/stems/htdemucs_6s/13th step apc/03 - The Noose",
+              "stems": [
+                "bass.mp3",
+                "drums.mp3",
+                "guitar.mp3",
+                "other.mp3",
+                "piano.mp3",
+                "vocals.mp3"
+              ],
+              "format": "MP3"
+            },
+            {
+              "song": "04 - Blue",
+              "path": "/Users/brandonchavez/Desktop/Anatomy-Jams/Moises_Input/stems/htdemucs_6s/13th step apc/04 - Blue",
+              "stems": [
+                "bass.mp3",
+                "drums.mp3",
+                "guitar.mp3",
+                "other.mp3",
+                "piano.mp3",
+                "vocals.mp3"
+              ],
+              "format": "MP3"
+            },
+            {
+              "song": "05 - Vanishing",
+              "path": "/Users/brandonchavez/Desktop/Anatomy-Jams/Moises_Input/stems/htdemucs_6s/13th step apc/05 - Vanishing",
+              "stems": [
+                "bass.mp3",
+                "drums.mp3",
+                "guitar.mp3",
+                "other.mp3",
+                "piano.mp3",
+                "vocals.mp3"
+              ],
+              "format": "MP3"
+            },
+            {
+              "song": "06 - A Stranger",
+              "path": "/Users/brandonchavez/Desktop/Anatomy-Jams/Moises_Input/stems/htdemucs_6s/13th step apc/06 - A Stranger",
+              "stems": [
+                "bass.mp3",
+                "drums.mp3",
+                "guitar.mp3",
+                "other.mp3",
+                "piano.mp3",
+                "vocals.mp3"
+              ],
+              "format": "MP3"
+            },
+            {
+              "song": "07 - The Outsider",
+              "path": "/Users/brandonchavez/Desktop/Anatomy-Jams/Moises_Input/stems/htdemucs_6s/13th step apc/07 - The Outsider",
+              "stems": [
+                "bass.mp3",
+                "drums.mp3",
+                "guitar.mp3",
+                "other.mp3",
+                "piano.mp3",
+                "vocals.mp3"
+              ],
+              "format": "MP3"
+            },
+            {
+              "song": "10 - Pet",
+              "path": "/Users/brandonchavez/Desktop/Anatomy-Jams/Moises_Input/stems/htdemucs_6s/13th step apc/10 - Pet",
+              "stems": [
+                "bass.mp3",
+                "drums.mp3",
+                "guitar.mp3",
+                "other.mp3",
+                "piano.mp3",
+                "vocals.mp3"
+              ],
+              "format": "MP3"
+            },
+            {
+              "song": "11 - Lullaby",
+              "path": "/Users/brandonchavez/Desktop/Anatomy-Jams/Moises_Input/stems/htdemucs_6s/13th step apc/11 - Lullaby",
+              "stems": [
+                "bass.mp3",
+                "drums.mp3",
+                "guitar.mp3",
+                "other.mp3",
+                "piano.mp3",
+                "vocals.mp3"
+              ],
+              "format": "MP3"
+            },
+            {
+              "song": "12 - Gravity",
+              "path": "/Users/brandonchavez/Desktop/Anatomy-Jams/Moises_Input/stems/htdemucs_6s/13th step apc/12 - Gravity",
+              "stems": [
+                "bass.mp3",
+                "drums.mp3",
+                "guitar.mp3",
+                "other.mp3",
+                "piano.mp3",
+                "vocals.mp3"
+              ],
+              "format": "MP3"
+            }
+          ]
+        },
+        "Mer de Noms (2000)": {
+          "songs": [
+            {
+              "song": "01-05 - Orestes",
+              "path": "/Users/brandonchavez/Desktop/Anatomy-Jams/Moises_Input/stems/htdemucs_6s/APC Mercs/01-05 - Orestes",
+              "stems": [
+                "bass.mp3",
+                "drums.mp3",
+                "guitar.mp3",
+                "other.mp3",
+                "piano.mp3",
+                "vocals.mp3"
+              ],
+              "format": "MP3"
+            },
+            {
+              "song": "01-06 - 3 Libras",
+              "path": "/Users/brandonchavez/Desktop/Anatomy-Jams/Moises_Input/stems/htdemucs_6s/APC Mercs/01-06 - 3 Libras",
+              "stems": [
+                "bass.mp3",
+                "drums.mp3",
+                "guitar.mp3",
+                "other.mp3",
+                "piano.mp3",
+                "vocals.mp3"
+              ],
+              "format": "MP3"
+            },
+            {
+              "song": "01-07 - Sleeping Beauty",
+              "path": "/Users/brandonchavez/Desktop/Anatomy-Jams/Moises_Input/stems/htdemucs_6s/APC Mercs/01-07 - Sleeping Beauty",
+              "stems": [
+                "bass.mp3",
+                "drums.mp3",
+                "guitar.mp3",
+                "other.mp3",
+                "piano.mp3",
+                "vocals.mp3"
+              ],
+              "format": "MP3"
+            },
+            {
+              "song": "01-08 - Thomas",
+              "path": "/Users/brandonchavez/Desktop/Anatomy-Jams/Moises_Input/stems/htdemucs_6s/APC Mercs/01-08 - Thomas",
+              "stems": [
+                "bass.mp3",
+                "drums.mp3",
+                "guitar.mp3",
+                "other.mp3",
+                "piano.mp3",
+                "vocals.mp3"
+              ],
+              "format": "MP3"
+            },
+            {
+              "song": "01-09 - Renholde\u0308r",
+              "path": "/Users/brandonchavez/Desktop/Anatomy-Jams/Moises_Input/stems/htdemucs_6s/APC Mercs/01-09 - Renholde\u0308r",
+              "stems": [
+                "bass.mp3",
+                "drums.mp3",
+                "guitar.mp3",
+                "other.mp3",
+                "piano.mp3",
+                "vocals.mp3"
+              ],
+              "format": "MP3"
+            },
+            {
+              "song": "01-10 - Thinking of You",
+              "path": "/Users/brandonchavez/Desktop/Anatomy-Jams/Moises_Input/stems/htdemucs_6s/APC Mercs/01-10 - Thinking of You",
+              "stems": [
+                "bass.mp3",
+                "drums.mp3",
+                "guitar.mp3",
+                "other.mp3",
+                "piano.mp3",
+                "vocals.mp3"
+              ],
+              "format": "MP3"
+            },
+            {
+              "song": "01-11 - Bren\u0303a",
+              "path": "/Users/brandonchavez/Desktop/Anatomy-Jams/Moises_Input/stems/htdemucs_6s/APC Mercs/01-11 - Bren\u0303a",
+              "stems": [
+                "bass.mp3",
+                "drums.mp3",
+                "guitar.mp3",
+                "other.mp3",
+                "piano.mp3",
+                "vocals.mp3"
+              ],
+              "format": "MP3"
+            },
+            {
+              "song": "01-12 - Over",
+              "path": "/Users/brandonchavez/Desktop/Anatomy-Jams/Moises_Input/stems/htdemucs_6s/APC Mercs/01-12 - Over",
+              "stems": [
+                "bass.mp3",
+                "drums.mp3",
+                "guitar.mp3",
+                "other.mp3",
+                "piano.mp3",
+                "vocals.mp3"
+              ],
+              "format": "MP3"
+            }
+          ]
+        },
+        "placeholder (apc-weak-and-powerless)": {
+          "songs": [
+            {
+              "song": "apc-weak-and-powerless",
+              "path": "/Users/brandonchavez/Desktop/Stems/apc-weak-and-powerless",
+              "stems": [],
+              "format": "job.log only"
+            }
+          ],
+          "placeholder": true,
+          "note": "Moises job.log present, no stems on disk"
+        }
+      },
+      "Shiner": {
+        "BELIEVEYOUME (2025)": {
+          "songs": [
+            {
+              "song": "1-01 Asleep In The Trunk",
+              "path": "/Users/brandonchavez/Desktop/Stems/shiner-believeyoume/stems/1-01 Asleep In The Trunk",
+              "stems": [
+                "bass.wav",
+                "drums.wav",
+                "guitar.wav",
+                "other.wav",
+                "piano.wav",
+                "vocals.wav"
+              ],
+              "format": "WAV"
+            },
+            {
+              "song": "1-02 The Alligator",
+              "path": "/Users/brandonchavez/Desktop/Stems/shiner-believeyoume/stems/1-02 The Alligator",
+              "stems": [
+                "bass.wav",
+                "drums.wav",
+                "guitar.wav",
+                "other.wav",
+                "piano.wav",
+                "vocals.wav"
+              ],
+              "format": "WAV"
+            },
+            {
+              "song": "1-03 The Mutiny",
+              "path": "/Users/brandonchavez/Desktop/Stems/shiner-believeyoume/stems/1-03 The Mutiny",
+              "stems": [
+                "bass.wav",
+                "drums.wav",
+                "guitar.wav",
+                "other.wav",
+                "piano.wav",
+                "vocals.wav"
+              ],
+              "format": "WAV"
+            },
+            {
+              "song": "1-04 So Far So",
+              "path": "/Users/brandonchavez/Desktop/Stems/shiner-believeyoume/stems/1-04 So Far So",
+              "stems": [
+                "bass.wav",
+                "drums.wav",
+                "guitar.wav",
+                "other.wav",
+                "piano.wav",
+                "vocals.wav"
+              ],
+              "format": "WAV"
+            },
+            {
+              "song": "1-05 My Mirror Hates Me",
+              "path": "/Users/brandonchavez/Desktop/Stems/shiner-believeyoume/stems/1-05 My Mirror Hates Me",
+              "stems": [
+                "bass.wav",
+                "drums.wav",
+                "guitar.wav",
+                "other.wav",
+                "piano.wav",
+                "vocals.wav"
+              ],
+              "format": "WAV"
+            }
+          ]
+        },
+        "placeholder (shiner-lazarus)": {
+          "songs": [
+            {
+              "song": "shiner-lazarus",
+              "path": "/Users/brandonchavez/Desktop/Stems/shiner-lazarus",
+              "stems": [],
+              "format": "job.log only"
+            }
+          ],
+          "placeholder": true,
+          "note": "Moises job.log present, no stems on disk"
+        },
+        "placeholder (shiner-andalusia)": {
+          "songs": [
+            {
+              "song": "shiner-andalusia",
+              "path": "/Users/brandonchavez/Desktop/Stems/shiner-andalusia",
+              "stems": [],
+              "format": "job.log only"
+            }
+          ],
+          "placeholder": true,
+          "note": "Moises job.log present, no stems on disk"
+        }
+      },
+      "Brandon": {
+        "Own jam segments": {
+          "songs": [
+            {
+              "song": "seg_01_162m16s",
+              "path": "/Users/brandonchavez/Desktop/Stems/5.8.26-jam/stems/seg_01_162m16s",
+              "stems": [
+                "bass.wav",
+                "drums.wav",
+                "guitar.wav",
+                "other.wav",
+                "piano.wav",
+                "vocals.wav"
+              ],
+              "format": "WAV"
+            },
+            {
+              "song": "seg_02_168m24s",
+              "path": "/Users/brandonchavez/Desktop/Stems/5.8.26-jam/stems/seg_02_168m24s",
+              "stems": [
+                "bass.wav",
+                "drums.wav",
+                "guitar.wav",
+                "other.wav",
+                "piano.wav",
+                "vocals.wav"
+              ],
+              "format": "WAV"
+            },
+            {
+              "song": "seg_03_134m16s",
+              "path": "/Users/brandonchavez/Desktop/Stems/5.8.26-jam/stems/seg_03_134m16s",
+              "stems": [
+                "bass.wav",
+                "drums.wav",
+                "guitar.wav",
+                "other.wav",
+                "piano.wav",
+                "vocals.wav"
+              ],
+              "format": "WAV"
+            },
+            {
+              "song": "seg_04_166m48s",
+              "path": "/Users/brandonchavez/Desktop/Stems/5.8.26-jam/stems/seg_04_166m48s",
+              "stems": [
+                "bass.wav",
+                "drums.wav",
+                "guitar.wav",
+                "other.wav",
+                "piano.wav",
+                "vocals.wav"
+              ],
+              "format": "WAV"
+            },
+            {
+              "song": "seg_05_097m04s",
+              "path": "/Users/brandonchavez/Desktop/Stems/5.8.26-jam/stems/seg_05_097m04s",
+              "stems": [
+                "bass.wav",
+                "drums.wav",
+                "guitar.wav",
+                "other.wav",
+                "piano.wav",
+                "vocals.wav"
+              ],
+              "format": "WAV"
+            },
+            {
+              "song": "seg_06_054m08s",
+              "path": "/Users/brandonchavez/Desktop/Stems/5.8.26-jam/stems/seg_06_054m08s",
+              "stems": [
+                "bass.wav",
+                "drums.wav",
+                "guitar.wav",
+                "other.wav",
+                "piano.wav",
+                "vocals.wav"
+              ],
+              "format": "WAV"
+            },
+            {
+              "song": "seg_07_171m52s",
+              "path": "/Users/brandonchavez/Desktop/Stems/5.8.26-jam/stems/seg_07_171m52s",
+              "stems": [
+                "bass.wav",
+                "drums.wav",
+                "guitar.wav",
+                "other.wav",
+                "piano.wav",
+                "vocals.wav"
+              ],
+              "format": "WAV"
+            },
+            {
+              "song": "seg_08_160m16s",
+              "path": "/Users/brandonchavez/Desktop/Stems/5.8.26-jam/stems/seg_08_160m16s",
+              "stems": [
+                "bass.wav",
+                "drums.wav",
+                "guitar.wav",
+                "other.wav",
+                "piano.wav",
+                "vocals.wav"
+              ],
+              "format": "WAV"
+            },
+            {
+              "song": "seg_09_051m36s",
+              "path": "/Users/brandonchavez/Desktop/Stems/5.8.26-jam/stems/seg_09_051m36s",
+              "stems": [
+                "bass.wav",
+                "drums.wav",
+                "guitar.wav",
+                "other.wav",
+                "piano.wav",
+                "vocals.wav"
+              ],
+              "format": "WAV"
+            }
+          ]
+        }
+      },
+      "Phish (2025 jams)": {
+        "2025-04 IT-style jam run": {
+          "songs": [
+            {
+              "song": "2025-04-18-back-on-the-train",
+              "path": "/Users/brandonchavez/Desktop/Anatomy-Jams/2025-04-18-back-on-the-train/stems_raw/htdemucs_6s/jam",
+              "stems": [
+                "bass.wav",
+                "drums.wav",
+                "vocals.wav"
+              ],
+              "format": "WAV"
+            },
+            {
+              "song": "2025-04-18-golden-age",
+              "path": "/Users/brandonchavez/Desktop/Anatomy-Jams/2025-04-18-golden-age/stems_raw/htdemucs_6s/jam",
+              "stems": [
+                "bass.wav",
+                "drums.wav",
+                "guitar.wav",
+                "other.wav",
+                "piano.wav",
+                "vocals.wav"
+              ],
+              "format": "WAV"
+            },
+            {
+              "song": "2025-04-18-wgtym",
+              "path": "/Users/brandonchavez/Desktop/Anatomy-Jams/2025-04-18-wgtym/stems_raw/htdemucs_6s/jam",
+              "stems": [
+                "bass.wav",
+                "guitar.wav",
+                "piano.wav",
+                "vocals.wav"
+              ],
+              "format": "WAV"
+            },
+            {
+              "song": "2025-04-19-chalk-dust-torture-2",
+              "path": "/Users/brandonchavez/Desktop/Anatomy-Jams/2025-04-19-chalk-dust-torture-2/stems_raw/htdemucs_6s/jam",
+              "stems": [
+                "bass.wav",
+                "drums.wav",
+                "guitar.wav",
+                "other.wav",
+                "piano.wav",
+                "vocals.wav"
+              ],
+              "format": "WAV"
+            },
+            {
+              "song": "2025-04-20-awoh",
+              "path": "/Users/brandonchavez/Desktop/Anatomy-Jams/2025-04-20-awoh/stems_raw/htdemucs_6s/jam",
+              "stems": [
+                "drums.wav",
+                "guitar.wav",
+                "piano.wav",
+                "vocals.wav"
+              ],
+              "format": "WAV"
+            },
+            {
+              "song": "2025-04-20-plasma",
+              "path": "/Users/brandonchavez/Desktop/Anatomy-Jams/Phish jams/2025-04-20-plasma/stems_raw/htdemucs_6s/jam",
+              "stems": [
+                "bass.wav",
+                "drums.wav",
+                "guitar.wav"
+              ],
+              "format": "WAV"
+            },
+            {
+              "song": "2025-04-20-sigma-oasis",
+              "path": "/Users/brandonchavez/Desktop/Anatomy-Jams/2025-04-20-sigma-oasis/stems_raw/htdemucs_6s/jam",
+              "stems": [
+                "bass.wav",
+                "drums.wav",
+                "guitar.wav",
+                "other.wav",
+                "piano.wav"
+              ],
+              "format": "WAV"
+            },
+            {
+              "song": "2025-04-22-carini",
+              "path": "/Users/brandonchavez/Desktop/Anatomy-Jams/Phish jams/2025-04-22-carini/stems_raw/htdemucs_6s/jam",
+              "stems": [
+                "drums.wav",
+                "other.wav",
+                "piano.wav"
+              ],
+              "format": "WAV"
+            },
+            {
+              "song": "2025-04-22-halleys-comet",
+              "path": "/Users/brandonchavez/Desktop/Anatomy-Jams/2025-04-22-halleys-comet/stems_raw/htdemucs_6s/jam",
+              "stems": [
+                "bass.wav",
+                "drums.wav",
+                "guitar.wav",
+                "other.wav",
+                "piano.wav"
+              ],
+              "format": "WAV"
+            },
+            {
+              "song": "2025-04-22-ruby-waves",
+              "path": "/Users/brandonchavez/Desktop/Anatomy-Jams/2025-04-22-ruby-waves/stems_raw/htdemucs_6s/jam",
+              "stems": [
+                "bass.wav",
+                "guitar.wav",
+                "other.wav",
+                "piano.wav"
+              ],
+              "format": "WAV"
+            },
+            {
+              "song": "2025-04-23-gumbo",
+              "path": "/Users/brandonchavez/Desktop/Anatomy-Jams/2025-04-23-gumbo/stems_raw/htdemucs_6s/jam",
+              "stems": [
+                "bass.wav",
+                "guitar.wav",
+                "piano.wav",
+                "vocals.wav"
+              ],
+              "format": "WAV"
+            },
+            {
+              "song": "2025-04-23-tweezer",
+              "path": "/Users/brandonchavez/Desktop/Anatomy-Jams/2025-04-23-tweezer/stems_raw/htdemucs_6s/jam",
+              "stems": [
+                "bass.wav",
+                "drums.wav",
+                "guitar.wav",
+                "other.wav",
+                "piano.wav",
+                "vocals.wav"
+              ],
+              "format": "WAV"
+            },
+            {
+              "song": "2025-04-25-chalk-dust-torture-1",
+              "path": "/Users/brandonchavez/Desktop/Anatomy-Jams/2025-04-25-chalk-dust-torture-1/stems_raw/htdemucs_6s/jam",
+              "stems": [
+                "bass.wav",
+                "drums.wav",
+                "guitar.wav",
+                "other.wav",
+                "vocals.wav"
+              ],
+              "format": "WAV"
+            },
+            {
+              "song": "2025-04-25-light",
+              "path": "/Users/brandonchavez/Desktop/Anatomy-Jams/2025-04-25-light/stems_raw/htdemucs_6s/jam",
+              "stems": [
+                "bass.wav",
+                "guitar.wav",
+                "other.wav",
+                "piano.wav",
+                "vocals.wav"
+              ],
+              "format": "WAV"
+            },
+            {
+              "song": "2025-04-26-everythings-right",
+              "path": "/Users/brandonchavez/Desktop/Anatomy-Jams/2025-04-26-everythings-right/stems_raw/htdemucs_6s/jam",
+              "stems": [
+                "bass.wav",
+                "guitar.wav",
+                "piano.wav",
+                "vocals.wav"
+              ],
+              "format": "WAV"
+            },
+            {
+              "song": "2025-04-27-timber",
+              "path": "/Users/brandonchavez/Desktop/Anatomy-Jams/2025-04-27-timber/stems_raw/htdemucs_6s/jam",
+              "stems": [
+                "bass.wav",
+                "drums.wav",
+                "guitar.wav",
+                "other.wav",
+                "piano.wav",
+                "vocals.wav"
+              ],
+              "format": "WAV"
+            },
+            {
+              "song": "2025-04-27-twist",
+              "path": "/Users/brandonchavez/Desktop/Anatomy-Jams/2025-04-27-twist/stems_raw/htdemucs_6s/jam",
+              "stems": [
+                "bass.wav",
+                "drums.wav",
+                "guitar.wav",
+                "other.wav",
+                "piano.wav",
+                "vocals.wav"
+              ],
+              "format": "WAV"
+            }
+          ]
+        }
+      },
+      "Phish (loaded-pony source)": {
+        "Loaded-pony source jams": {
+          "songs": [
+            {
+              "song": "lp11-denver-jam",
+              "path": "/Users/brandonchavez/Desktop/Anatomy-Jams/lp11-denver-jam/stems_raw/htdemucs/jam",
+              "stems": [
+                "bass.wav",
+                "drums.wav",
+                "other.wav",
+                "vocals.wav"
+              ],
+              "format": "WAV"
+            },
+            {
+              "song": "lp17-portland-jam",
+              "path": "/Users/brandonchavez/Desktop/Anatomy-Jams/lp17-portland-jam/stems",
+              "stems": [
+                "bass.wav",
+                "drums.wav",
+                "guitar.wav"
+              ],
+              "format": "WAV"
+            },
+            {
+              "song": "lp18-dallas-jam",
+              "path": "/Users/brandonchavez/Desktop/Anatomy-Jams/lp18-dallas-jam/stems_raw/htdemucs/jam",
+              "stems": [
+                "bass.wav",
+                "drums.wav",
+                "other.wav",
+                "vocals.wav"
+              ],
+              "format": "WAV"
+            }
+          ]
+        }
+      },
+      "Phish (vintage jams)": {
+        "Vintage live jams": {
+          "songs": [
+            {
+              "song": "2004-06-26-alpine-valley-jam",
+              "path": "/Users/brandonchavez/Desktop/Anatomy-Jams/Phish jams/2004-06-26-alpine-valley-jam/stems_raw/htdemucs/jam",
+              "stems": [
+                "bass.wav",
+                "drums.wav",
+                "other.wav",
+                "vocals.wav"
+              ],
+              "format": "WAV"
+            }
+          ]
+        }
+      },
+      "True Loves": {
+        "placeholder (true-loves-true-loves)": {
+          "songs": [
+            {
+              "song": "true-loves-true-loves",
+              "path": "/Users/brandonchavez/Desktop/Stems/true-loves-true-loves",
+              "stems": [],
+              "format": "job.log only"
+            }
+          ],
+          "placeholder": true,
+          "note": "Moises job.log present, no stems on disk"
+        }
+      },
+      "Hear You (2015 Bandcamp)": {
+        "placeholder (10-g-o-o-d-l-u-c-k-)": {
+          "songs": [
+            {
+              "song": "10-g-o-o-d-l-u-c-k-",
+              "path": "/Users/brandonchavez/Desktop/Hear-You-Stems/10-g-o-o-d-l-u-c-k-",
+              "stems": [],
+              "format": "job.log only"
+            }
+          ],
+          "placeholder": true,
+          "note": "Moises job.log present, no stems on disk"
+        },
+        "placeholder (04-the-world-according-to)": {
+          "songs": [
+            {
+              "song": "04-the-world-according-to",
+              "path": "/Users/brandonchavez/Desktop/Hear-You-Stems/04-the-world-according-to",
+              "stems": [],
+              "format": "job.log only"
+            }
+          ],
+          "placeholder": true,
+          "note": "Moises job.log present, no stems on disk"
+        },
+        "placeholder (02-a-desert-of-human)": {
+          "songs": [
+            {
+              "song": "02-a-desert-of-human",
+              "path": "/Users/brandonchavez/Desktop/Hear-You-Stems/02-a-desert-of-human",
+              "stems": [],
+              "format": "job.log only"
+            }
+          ],
+          "placeholder": true,
+          "note": "Moises job.log present, no stems on disk"
+        },
+        "placeholder (09-)": {
+          "songs": [
+            {
+              "song": "09-",
+              "path": "/Users/brandonchavez/Desktop/Hear-You-Stems/09-",
+              "stems": [],
+              "format": "job.log only"
+            }
+          ],
+          "placeholder": true,
+          "note": "Moises job.log present, no stems on disk"
+        },
+        "placeholder (05-my-little-wish)": {
+          "songs": [
+            {
+              "song": "05-my-little-wish",
+              "path": "/Users/brandonchavez/Desktop/Hear-You-Stems/05-my-little-wish",
+              "stems": [],
+              "format": "job.log only"
+            }
+          ],
+          "placeholder": true,
+          "note": "Moises job.log present, no stems on disk"
+        },
+        "placeholder (03-commit-ballad)": {
+          "songs": [
+            {
+              "song": "03-commit-ballad",
+              "path": "/Users/brandonchavez/Desktop/Hear-You-Stems/03-commit-ballad",
+              "stems": [],
+              "format": "job.log only"
+            }
+          ],
+          "placeholder": true,
+          "note": "Moises job.log present, no stems on disk"
+        },
+        "placeholder (11-because-i-hear-you)": {
+          "songs": [
+            {
+              "song": "11-because-i-hear-you",
+              "path": "/Users/brandonchavez/Desktop/Hear-You-Stems/11-because-i-hear-you",
+              "stems": [],
+              "format": "job.log only"
+            }
+          ],
+          "placeholder": true,
+          "note": "Moises job.log present, no stems on disk"
+        },
+        "placeholder (07-boyo)": {
+          "songs": [
+            {
+              "song": "07-boyo",
+              "path": "/Users/brandonchavez/Desktop/Hear-You-Stems/07-boyo",
+              "stems": [],
+              "format": "job.log only"
+            }
+          ],
+          "placeholder": true,
+          "note": "Moises job.log present, no stems on disk"
+        },
+        "placeholder (08-time-goes)": {
+          "songs": [
+            {
+              "song": "08-time-goes",
+              "path": "/Users/brandonchavez/Desktop/Hear-You-Stems/08-time-goes",
+              "stems": [],
+              "format": "job.log only"
+            }
+          ],
+          "placeholder": true,
+          "note": "Moises job.log present, no stems on disk"
+        },
+        "placeholder (06-song-silly)": {
+          "songs": [
+            {
+              "song": "06-song-silly",
+              "path": "/Users/brandonchavez/Desktop/Hear-You-Stems/06-song-silly",
+              "stems": [],
+              "format": "job.log only"
+            }
+          ],
+          "placeholder": true,
+          "note": "Moises job.log present, no stems on disk"
+        }
+      }
+    }
+  },
+  "Jack\u2019s iMac": {
+    "hostname": "Jack\u2019s iMac",
+    "scanned_at": "2026-06-03T08:20:14",
+    "home": "/Users/drwu",
+    "bands": {
+      "Toe": {
+        "Other": {
+          "songs": [
+            {
+              "song": "best-sections-wav",
+              "path": "/Users/drwu/Music/STEMS_LIBRARY/Toe/Other/best-sections-wav",
+              "stems": [
+                "bass__bass_Toe_bars47-50.wav",
+                "drums__drum_Toe_bars13-16.wav"
+              ],
+              "format": "WAV"
+            }
+          ]
+        }
+      },
+      "The Appleseed Cast": {
+        "Other": {
+          "songs": [
+            {
+              "song": "Latest Stems Loops",
+              "path": "/Users/drwu/Music/STEMS_LIBRARY/The_Appleseed_Cast/Other/Latest_Stems_Loops",
+              "stems": [
+                "bass__155_AppleseedCast_CathedralRings_bass_AMaj_16bar.wav",
+                "guitar__145_AppleseedCast_IlluminationRitual_guitars_DMaj_16bar.wav",
+                "keys__154_AppleseedCast_ClearingLife_keys_AMaj_16bar.wav"
+              ],
+              "format": "WAV"
+            }
+          ]
+        }
+      },
+      "Shiner": {
+        "Other": {
+          "songs": [
+            {
+              "song": "Bass",
+              "path": "/Users/drwu/Music/STEMS_LIBRARY/Shiner/Other/Bass",
+              "stems": [
+                "bass__Shiner - The Egg-bass-D major-102bpm-441hz.wav",
+                "drums__Christ Sized Shoes - Shiner - Drum cover - YouTube-bass-D major-135bpm-441hz.wav"
+              ],
+              "format": "WAV"
+            },
+            {
+              "song": "bass-loops-v4",
+              "path": "/Users/drwu/Music/STEMS_LIBRARY/Shiner/Other/bass-loops-v4",
+              "stems": [
+                "bass__bass_Shiner___The_Egg_bass_D_major_102bpm_441_bars167-170_4bars.wav",
+                "drums__drum_Christ_Sized_Shoes___Shiner___Drum_cover_bars89-90_2bars.wav"
+              ],
+              "format": "WAV"
+            },
+            {
+              "song": "best-sections-wav",
+              "path": "/Users/drwu/Music/STEMS_LIBRARY/Shiner/Other/best-sections-wav",
+              "stems": [
+                "bass__bass_new_TheAlligator_bars99-102.wav",
+                "drums__drum_new_TheAlligator_bars67-70.wav"
+              ],
+              "format": "WAV"
+            },
+            {
+              "song": "highlight",
+              "path": "/Users/drwu/Music/STEMS_LIBRARY/Shiner/Other/highlight",
+              "stems": [
+                "bass__Shiner - The Egg-bass-D major-102bpm-441hz_highlight.wav",
+                "drums__Christ Sized Shoes - Shiner - Drum cover - YouTube-bass-D major-135bpm-441hz_highlight.wav"
+              ],
+              "format": "WAV"
+            }
+          ]
+        },
+        "TheEgg": {
+          "songs": [
+            {
+              "song": "Shiner - The Egg",
+              "path": "/Users/drwu/Desktop/MIDI-Sessions Shiner/_audio_analysis/TheEgg/demucs_output/htdemucs/Shiner - The Egg",
+              "stems": [
+                "bass.wav",
+                "drums.wav",
+                "other.wav",
+                "vocals.wav"
+              ],
+              "format": "WAV"
+            }
+          ]
+        },
+        "BelieveYouMeStems": {
+          "songs": [
+            {
+              "song": "01 - Asleep in the Trunk",
+              "path": "/Volumes/T7 Shield/Moises_Stems/BelieveYouMeStems/01 - Asleep in the Trunk",
+              "stems": [
+                "bass.flac",
+                "drums.flac",
+                "other.flac",
+                "vocals.flac"
+              ],
+              "format": "FLAC"
+            },
+            {
+              "song": "03 - The Mutiny",
+              "path": "/Volumes/T7 Shield/Moises_Stems/BelieveYouMeStems/03 - The Mutiny",
+              "stems": [
+                "03 - The Mutiny-Solo Guitars.wav",
+                "03 - The Mutiny-bass.wav",
+                "03 - The Mutiny-other.wav",
+                "03 - The Mutiny-vocals.wav"
+              ],
+              "format": "WAV"
+            },
+            {
+              "song": "04 - So Far So",
+              "path": "/Volumes/T7 Shield/Moises_Stems/BelieveYouMeStems/04 - So Far So",
+              "stems": [
+                "04 - So Far So-Solo Guitars.wav",
+                "04 - So Far So-bass.wav",
+                "04 - So Far So-other drum.wav",
+                "04 - So Far So-other.wav",
+                "04 - So Far So-vocals.wav"
+              ],
+              "format": "WAV"
+            },
+            {
+              "song": "05 - My Mirror Hates Me",
+              "path": "/Volumes/T7 Shield/Moises_Stems/BelieveYouMeStems/05 - My Mirror Hates Me",
+              "stems": [
+                "05 - My Mirror Hates Me-Solo Guitars.wav",
+                "05 - My Mirror Hates Me-bass.wav",
+                "05 - My Mirror Hates Me-keys.wav",
+                "05 - My Mirror Hates Me-other drum.wav",
+                "05 - My Mirror Hates Me-other.wav",
+                "05 - My Mirror Hates Me-piano.wav",
+                "05 - My Mirror Hates Me-vocals.wav"
+              ],
+              "format": "WAV"
+            },
+            {
+              "song": "08 - Not Too Much",
+              "path": "/Volumes/T7 Shield/Moises_Stems/BelieveYouMeStems/08 - Not Too Much",
+              "stems": [
+                "08 - Not Too Much-Rhythm Guitars.wav",
+                "08 - Not Too Much-bass.wav",
+                "08 - Not Too Much-keys.wav",
+                "08 - Not Too Much-other drum.wav",
+                "08 - Not Too Much-other.wav",
+                "08 - Not Too Much-vocals.wav"
+              ],
+              "format": "WAV"
+            },
+            {
+              "song": "09 - Broken Satellites",
+              "path": "/Volumes/T7 Shield/Moises_Stems/BelieveYouMeStems/09 - Broken Satellites",
+              "stems": [
+                "09 - Broken Satellites-Other Guitar.wav",
+                "09 - Broken Satellites-bass.wav",
+                "09 - Broken Satellites-keys.wav",
+                "09 - Broken Satellites-other drum.wav",
+                "09 - Broken Satellites-other.wav",
+                "09 - Broken Satellites-vocals.wav"
+              ],
+              "format": "WAV"
+            },
+            {
+              "song": "10 - Jackie",
+              "path": "/Volumes/T7 Shield/Moises_Stems/BelieveYouMeStems/10 - Jackie",
+              "stems": [
+                "bass.flac",
+                "drums.flac",
+                "other.flac",
+                "vocals.flac"
+              ],
+              "format": "FLAC"
+            }
+          ]
+        }
+      },
+      "John Frusciante": {
+        "Various": {
+          "songs": [
+            {
+              "song": "Frusciante Mashups",
+              "path": "/Users/drwu/Music/STEMS_LIBRARY/John_Frusciante/Various/Frusciante_Mashups",
+              "stems": [
+                "drums__M08_Frusciante_EMinor_x_22 Radiohead Drum Patterns _129bpm.wav",
+                "guitar__M09_Frusciante_CMajor_x_D17_108bpm.wav"
+              ],
+              "format": "WAV"
+            }
+          ]
+        }
+      },
+      "Tame Impala": {
+        "Other": {
+          "songs": [
+            {
+              "song": "Borderline",
+              "path": "/Users/drwu/Music/STEMS_LIBRARY/Tame_Impala/Other/Borderline",
+              "stems": [
+                "drums__03 Borderline-drums-C minor-98bpm-441hz.wav",
+                "guitar__03 Borderline-guitars-C minor-98bpm-441hz.wav",
+                "keys__03 Borderline-keys-C minor-98bpm-441hz.wav",
+                "other__03 Borderline-other-C minor-98bpm-441hz.wav"
+              ],
+              "format": "WAV"
+            }
+          ]
+        }
+      },
+      "A Perfect Circle": {
+        "Other": {
+          "songs": [
+            {
+              "song": "Stem Loops v2",
+              "path": "/Users/drwu/Music/STEMS_LIBRARY/A_Perfect_Circle/Other/Stem_Loops_v2",
+              "stems": [
+                "bass__B5_120bpm_Rose_bass_G#Min_16bar.wav",
+                "drums__D5_120bpm_Rose_drums_G#Min_16bar.wav",
+                "guitar__G3_102bpm_Magdalena_guitars_C#Min_16bar.wav",
+                "keys__K5_120bpm_Rose_keys_G#Min_16bar.wav"
+              ],
+              "format": "WAV"
+            }
+          ]
+        },
+        "13th step apc": {
+          "songs": [
+            {
+              "song": "02 - Weak And Powerless",
+              "path": "/Users/drwu/Desktop/IF YOU CAN'T FIND SOMETHING ITS HERE/Moises_Input/stems/htdemucs_6s/13th step apc/02 - Weak And Powerless",
+              "stems": [
+                "bass.mp3",
+                "drums.mp3",
+                "guitar.mp3",
+                "other.mp3",
+                "piano.mp3",
+                "vocals.mp3"
+              ],
+              "format": "MP3"
+            },
+            {
+              "song": "03 - The Noose",
+              "path": "/Users/drwu/Desktop/IF YOU CAN'T FIND SOMETHING ITS HERE/Moises_Input/stems/htdemucs_6s/13th step apc/03 - The Noose",
+              "stems": [
+                "bass.mp3",
+                "drums.mp3",
+                "guitar.mp3",
+                "other.mp3",
+                "piano.mp3",
+                "vocals.mp3"
+              ],
+              "format": "MP3"
+            },
+            {
+              "song": "04 - Blue",
+              "path": "/Users/drwu/Desktop/IF YOU CAN'T FIND SOMETHING ITS HERE/Moises_Input/stems/htdemucs_6s/13th step apc/04 - Blue",
+              "stems": [
+                "bass.mp3",
+                "drums.mp3",
+                "guitar.mp3",
+                "other.mp3",
+                "piano.mp3",
+                "vocals.mp3"
+              ],
+              "format": "MP3"
+            },
+            {
+              "song": "05 - Vanishing",
+              "path": "/Users/drwu/Desktop/IF YOU CAN'T FIND SOMETHING ITS HERE/Moises_Input/stems/htdemucs_6s/13th step apc/05 - Vanishing",
+              "stems": [
+                "bass.mp3",
+                "drums.mp3",
+                "guitar.mp3",
+                "other.mp3",
+                "piano.mp3",
+                "vocals.mp3"
+              ],
+              "format": "MP3"
+            },
+            {
+              "song": "06 - A Stranger",
+              "path": "/Users/drwu/Desktop/IF YOU CAN'T FIND SOMETHING ITS HERE/Moises_Input/stems/htdemucs_6s/13th step apc/06 - A Stranger",
+              "stems": [
+                "bass.mp3",
+                "drums.mp3",
+                "guitar.mp3",
+                "other.mp3",
+                "piano.mp3",
+                "vocals.mp3"
+              ],
+              "format": "MP3"
+            },
+            {
+              "song": "07 - The Outsider",
+              "path": "/Users/drwu/Desktop/IF YOU CAN'T FIND SOMETHING ITS HERE/Moises_Input/stems/htdemucs_6s/13th step apc/07 - The Outsider",
+              "stems": [
+                "bass.mp3",
+                "drums.mp3",
+                "guitar.mp3",
+                "other.mp3",
+                "piano.mp3",
+                "vocals.mp3"
+              ],
+              "format": "MP3"
+            },
+            {
+              "song": "08 - Crimes",
+              "path": "/Users/drwu/Desktop/IF YOU CAN'T FIND SOMETHING ITS HERE/Moises_Input/stems/htdemucs_6s/13th step apc/08 - Crimes",
+              "stems": [
+                "bass.mp3",
+                "drums.mp3",
+                "guitar.mp3",
+                "other.mp3",
+                "piano.mp3",
+                "vocals.mp3"
+              ],
+              "format": "MP3"
+            },
+            {
+              "song": "09 - The Nurse Who Loved Me",
+              "path": "/Users/drwu/Desktop/IF YOU CAN'T FIND SOMETHING ITS HERE/Moises_Input/stems/htdemucs_6s/13th step apc/09 - The Nurse Who Loved Me",
+              "stems": [
+                "bass.mp3",
+                "drums.mp3",
+                "guitar.mp3",
+                "other.mp3",
+                "piano.mp3",
+                "vocals.mp3"
+              ],
+              "format": "MP3"
+            },
+            {
+              "song": "10 - Pet",
+              "path": "/Users/drwu/Desktop/IF YOU CAN'T FIND SOMETHING ITS HERE/Moises_Input/stems/htdemucs_6s/13th step apc/10 - Pet",
+              "stems": [
+                "bass.mp3",
+                "drums.mp3",
+                "guitar.mp3",
+                "other.mp3",
+                "piano.mp3",
+                "vocals.mp3"
+              ],
+              "format": "MP3"
+            },
+            {
+              "song": "11 - Lullaby",
+              "path": "/Users/drwu/Desktop/IF YOU CAN'T FIND SOMETHING ITS HERE/Moises_Input/stems/htdemucs_6s/13th step apc/11 - Lullaby",
+              "stems": [
+                "bass.mp3",
+                "drums.mp3",
+                "guitar.mp3",
+                "other.mp3",
+                "piano.mp3",
+                "vocals.mp3"
+              ],
+              "format": "MP3"
+            },
+            {
+              "song": "12 - Gravity",
+              "path": "/Users/drwu/Desktop/IF YOU CAN'T FIND SOMETHING ITS HERE/Moises_Input/stems/htdemucs_6s/13th step apc/12 - Gravity",
+              "stems": [
+                "bass.mp3",
+                "drums.mp3",
+                "guitar.mp3",
+                "other.mp3",
+                "piano.mp3",
+                "vocals.mp3"
+              ],
+              "format": "MP3"
+            }
+          ]
+        },
+        "APC Mercs": {
+          "songs": [
+            {
+              "song": "01-05 - Orestes",
+              "path": "/Users/drwu/Desktop/IF YOU CAN'T FIND SOMETHING ITS HERE/Moises_Input/stems/htdemucs_6s/APC Mercs/01-05 - Orestes",
+              "stems": [
+                "bass.mp3",
+                "drums.mp3",
+                "guitar.mp3",
+                "other.mp3",
+                "piano.mp3",
+                "vocals.mp3"
+              ],
+              "format": "MP3"
+            },
+            {
+              "song": "01-06 - 3 Libras",
+              "path": "/Users/drwu/Desktop/IF YOU CAN'T FIND SOMETHING ITS HERE/Moises_Input/stems/htdemucs_6s/APC Mercs/01-06 - 3 Libras",
+              "stems": [
+                "bass.mp3",
+                "drums.mp3",
+                "guitar.mp3",
+                "other.mp3",
+                "piano.mp3",
+                "vocals.mp3"
+              ],
+              "format": "MP3"
+            },
+            {
+              "song": "01-07 - Sleeping Beauty",
+              "path": "/Users/drwu/Desktop/IF YOU CAN'T FIND SOMETHING ITS HERE/Moises_Input/stems/htdemucs_6s/APC Mercs/01-07 - Sleeping Beauty",
+              "stems": [
+                "bass.mp3",
+                "drums.mp3",
+                "guitar.mp3",
+                "other.mp3",
+                "piano.mp3",
+                "vocals.mp3"
+              ],
+              "format": "MP3"
+            },
+            {
+              "song": "01-08 - Thomas",
+              "path": "/Users/drwu/Desktop/IF YOU CAN'T FIND SOMETHING ITS HERE/Moises_Input/stems/htdemucs_6s/APC Mercs/01-08 - Thomas",
+              "stems": [
+                "bass.mp3",
+                "drums.mp3",
+                "guitar.mp3",
+                "other.mp3",
+                "piano.mp3",
+                "vocals.mp3"
+              ],
+              "format": "MP3"
+            },
+            {
+              "song": "01-09 - Renholde\u0308r",
+              "path": "/Users/drwu/Desktop/IF YOU CAN'T FIND SOMETHING ITS HERE/Moises_Input/stems/htdemucs_6s/APC Mercs/01-09 - Renholde\u0308r",
+              "stems": [
+                "bass.mp3",
+                "drums.mp3",
+                "guitar.mp3",
+                "other.mp3",
+                "piano.mp3",
+                "vocals.mp3"
+              ],
+              "format": "MP3"
+            },
+            {
+              "song": "01-10 - Thinking of You",
+              "path": "/Users/drwu/Desktop/IF YOU CAN'T FIND SOMETHING ITS HERE/Moises_Input/stems/htdemucs_6s/APC Mercs/01-10 - Thinking of You",
+              "stems": [
+                "bass.mp3",
+                "drums.mp3",
+                "guitar.mp3",
+                "other.mp3",
+                "piano.mp3",
+                "vocals.mp3"
+              ],
+              "format": "MP3"
+            },
+            {
+              "song": "01-11 - Bren\u0303a",
+              "path": "/Users/drwu/Desktop/IF YOU CAN'T FIND SOMETHING ITS HERE/Moises_Input/stems/htdemucs_6s/APC Mercs/01-11 - Bren\u0303a",
+              "stems": [
+                "bass.mp3",
+                "drums.mp3",
+                "guitar.mp3",
+                "other.mp3",
+                "piano.mp3",
+                "vocals.mp3"
+              ],
+              "format": "MP3"
+            },
+            {
+              "song": "01-12 - Over",
+              "path": "/Users/drwu/Desktop/IF YOU CAN'T FIND SOMETHING ITS HERE/Moises_Input/stems/htdemucs_6s/APC Mercs/01-12 - Over",
+              "stems": [
+                "bass.mp3",
+                "drums.mp3",
+                "guitar.mp3",
+                "other.mp3",
+                "piano.mp3",
+                "vocals.mp3"
+              ],
+              "format": "MP3"
+            }
+          ]
+        },
+        "2003 - Thirteenth Step": {
+          "songs": [
+            {
+              "song": "01 - The Package",
+              "path": "/Users/drwu/Desktop/IF YOU CAN'T FIND SOMETHING ITS HERE/Flac version/2003 - Thirteenth Step/stems/htdemucs_6s/01 - The Package",
+              "stems": [
+                "bass.mp3",
+                "drums.mp3",
+                "guitar.mp3",
+                "other.mp3",
+                "piano.mp3",
+                "vocals.mp3"
+              ],
+              "format": "MP3"
+            },
+            {
+              "song": "02 - Weak And Powerless",
+              "path": "/Users/drwu/Desktop/IF YOU CAN'T FIND SOMETHING ITS HERE/Flac version/2003 - Thirteenth Step/stems/htdemucs_6s/02 - Weak And Powerless",
+              "stems": [
+                "bass.mp3",
+                "drums.mp3",
+                "guitar.mp3",
+                "other.mp3",
+                "piano.mp3",
+                "vocals.mp3"
+              ],
+              "format": "MP3"
+            },
+            {
+              "song": "03 - The Noose",
+              "path": "/Users/drwu/Desktop/IF YOU CAN'T FIND SOMETHING ITS HERE/Flac version/2003 - Thirteenth Step/stems/htdemucs_6s/03 - The Noose",
+              "stems": [
+                "bass.mp3",
+                "drums.mp3",
+                "guitar.mp3",
+                "other.mp3",
+                "piano.mp3",
+                "vocals.mp3"
+              ],
+              "format": "MP3"
+            }
+          ]
+        }
+      },
+      "Beach House": {
+        "Other": {
+          "songs": [
+            {
+              "song": "BeachHouse melodic",
+              "path": "/Users/drwu/Music/STEMS_LIBRARY/Beach_House/Other/BeachHouse_melodic",
+              "stems": [
+                "guitar__78_BeachHouse_Superstar_Guitar_AbMaj_2bar.wav",
+                "keys__79_BeachHouse_OnceTwiceMelody_Keys_CMaj_4bar.wav"
+              ],
+              "format": "WAV"
+            },
+            {
+              "song": "Stem Loops v2",
+              "path": "/Users/drwu/Music/STEMS_LIBRARY/Beach_House/Other/Stem_Loops_v2",
+              "stems": [
+                "bass__B4_84bpm_OnceTwiceMelody_bass_FMaj_16bar.wav",
+                "drums__D4_84bpm_OnceTwiceMelody_drums_FMaj_16bar.wav",
+                "guitar__G4_84bpm_OnceTwiceMelody_guitars_FMaj_16bar.wav",
+                "keys__K4_84bpm_OnceTwiceMelody_keys_FMaj_16bar.wav"
+              ],
+              "format": "WAV"
+            }
+          ]
+        },
+        "Beach House Once Twice Melody": {
+          "songs": [
+            {
+              "song": "04 Through Me",
+              "path": "/Users/drwu/Desktop/IF YOU CAN'T FIND SOMETHING ITS HERE/Moises_Input/stems/htdemucs_6s/Beach House Once Twice Melody/04 Through Me",
+              "stems": [
+                "bass.mp3",
+                "drums.mp3",
+                "guitar.mp3",
+                "other.mp3",
+                "piano.mp3",
+                "vocals.mp3"
+              ],
+              "format": "MP3"
+            },
+            {
+              "song": "05 Runaway",
+              "path": "/Users/drwu/Desktop/IF YOU CAN'T FIND SOMETHING ITS HERE/Moises_Input/stems/htdemucs_6s/Beach House Once Twice Melody/05 Runaway",
+              "stems": [
+                "bass.mp3",
+                "drums.mp3",
+                "guitar.mp3",
+                "other.mp3",
+                "piano.mp3",
+                "vocals.mp3"
+              ],
+              "format": "MP3"
+            },
+            {
+              "song": "06 ESP",
+              "path": "/Users/drwu/Desktop/IF YOU CAN'T FIND SOMETHING ITS HERE/Moises_Input/stems/htdemucs_6s/Beach House Once Twice Melody/06 ESP",
+              "stems": [
+                "bass.mp3",
+                "drums.mp3",
+                "guitar.mp3",
+                "other.mp3",
+                "piano.mp3",
+                "vocals.mp3"
+              ],
+              "format": "MP3"
+            },
+            {
+              "song": "07 New Romance",
+              "path": "/Users/drwu/Desktop/IF YOU CAN'T FIND SOMETHING ITS HERE/Moises_Input/stems/htdemucs_6s/Beach House Once Twice Melody/07 New Romance",
+              "stems": [
+                "bass.mp3",
+                "drums.mp3",
+                "guitar.mp3",
+                "other.mp3",
+                "piano.mp3",
+                "vocals.mp3"
+              ],
+              "format": "MP3"
+            },
+            {
+              "song": "08 Over and Over",
+              "path": "/Users/drwu/Desktop/IF YOU CAN'T FIND SOMETHING ITS HERE/Moises_Input/stems/htdemucs_6s/Beach House Once Twice Melody/08 Over and Over",
+              "stems": [
+                "bass.mp3",
+                "drums.mp3",
+                "guitar.mp3",
+                "other.mp3",
+                "piano.mp3",
+                "vocals.mp3"
+              ],
+              "format": "MP3"
+            },
+            {
+              "song": "09 Sunset",
+              "path": "/Users/drwu/Desktop/IF YOU CAN'T FIND SOMETHING ITS HERE/Moises_Input/stems/htdemucs_6s/Beach House Once Twice Melody/09 Sunset",
+              "stems": [
+                "bass.mp3",
+                "drums.mp3",
+                "guitar.mp3",
+                "other.mp3",
+                "piano.mp3",
+                "vocals.mp3"
+              ],
+              "format": "MP3"
+            },
+            {
+              "song": "10 Only You Know",
+              "path": "/Users/drwu/Desktop/IF YOU CAN'T FIND SOMETHING ITS HERE/Moises_Input/stems/htdemucs_6s/Beach House Once Twice Melody/10 Only You Know",
+              "stems": [
+                "bass.mp3",
+                "drums.mp3",
+                "guitar.mp3",
+                "other.mp3",
+                "piano.mp3",
+                "vocals.mp3"
+              ],
+              "format": "MP3"
+            },
+            {
+              "song": "12 Masquerade",
+              "path": "/Users/drwu/Desktop/IF YOU CAN'T FIND SOMETHING ITS HERE/Moises_Input/stems/htdemucs_6s/Beach House Once Twice Melody/12 Masquerade",
+              "stems": [
+                "bass.mp3",
+                "drums.mp3",
+                "guitar.mp3",
+                "other.mp3",
+                "piano.mp3",
+                "vocals.mp3"
+              ],
+              "format": "MP3"
+            },
+            {
+              "song": "14 Finale",
+              "path": "/Users/drwu/Desktop/IF YOU CAN'T FIND SOMETHING ITS HERE/Moises_Input/stems/htdemucs_6s/Beach House Once Twice Melody/14 Finale",
+              "stems": [
+                "bass.mp3",
+                "drums.mp3",
+                "guitar.mp3",
+                "other.mp3",
+                "piano.mp3",
+                "vocals.mp3"
+              ],
+              "format": "MP3"
+            }
+          ]
+        },
+        "Stems": {
+          "songs": [
+            {
+              "song": "01 Once Twice Melody",
+              "path": "/Volumes/T7 Shield/Stems/01 Once Twice Melody",
+              "stems": [
+                "bass.flac",
+                "drums.flac",
+                "other.flac",
+                "vocals.flac"
+              ],
+              "format": "FLAC"
+            }
+          ]
+        }
+      },
+      " unknown or reference": {
+        "\u2014": {
+          "songs": [
+            {
+              "song": "best-sections-wav",
+              "path": "/Users/drwu/Music/STEMS_LIBRARY/_unknown_or_reference/\u2014/best-sections-wav",
+              "stems": [
+                "bass__bass_Failure_bars3-6.wav",
+                "drums__drum_04_Failure_bars63-66.wav"
+              ],
+              "format": "WAV"
+            }
+          ]
+        }
+      },
+      "Failure": {
+        "The Heart Is a Monster": {
+          "songs": [
+            {
+              "song": "Instant Destiny",
+              "path": "/Users/drwu/Music/STEMS_LIBRARY/Failure/The_Heart_Is_a_Monster/Instant_Destiny",
+              "stems": [
+                "drums__02 Instant Destiny-drums-Bb major-83bpm-440hz.wav",
+                "guitar__02 Instant Destiny-guitars-Bb major-83bpm-440hz.wav",
+                "keys__02 Instant Destiny-keys-Bb major-83bpm-440hz.wav",
+                "other__02 Instant Destiny-other-Bb major-83bpm-440hz.wav",
+                "vocals__02 Instant Destiny-vocals-Bb major-83bpm-440hz.wav"
+              ],
+              "format": "WAV"
+            }
+          ]
+        }
+      },
+      "Broken Social Scene": {
+        "Broken Social Scene": {
+          "songs": [
+            {
+              "song": "- Ibi Dreams of Pavement (A Better Day)",
+              "path": "/Users/drwu/Music/STEMS_LIBRARY/Broken_Social_Scene/Broken_Social_Scene/-_Ibi_Dreams_of_Pavement_(A_Better_Day)",
+              "stems": [
+                "drums__02 - Ibi Dreams of Pavement (A Better Day)-drums-G major-89bpm-440hz.wav",
+                "guitar__02 - Ibi Dreams of Pavement (A Better Day)-guitars-G major-89bpm-440hz.wav",
+                "keys__02 - Ibi Dreams of Pavement (A Better Day)-keys-G major-89bpm-440hz.wav",
+                "other__02 - Ibi Dreams of Pavement (A Better Day)-other-G major-89bpm-440hz.wav",
+                "vocals__02 - Ibi Dreams of Pavement (A Better Day)-vocals-G major-89bpm-440hz.wav"
+              ],
+              "format": "WAV"
+            }
+          ]
+        }
+      },
+      "Dream Theater": {
+        "Six Degrees of Inner Turbulence": {
+          "songs": [
+            {
+              "song": "1-01 The Glass Prison",
+              "path": "/Users/drwu/Desktop/IF YOU CAN'T FIND SOMETHING ITS HERE/Moises_Input/stems/htdemucs_6s/Six Degrees of Inner Turbulence/1-01 The Glass Prison",
+              "stems": [
+                "bass.wav",
+                "drums.wav",
+                "guitar.wav",
+                "other.wav",
+                "piano.wav",
+                "vocals.wav"
+              ],
+              "format": "WAV"
+            },
+            {
+              "song": "1-02 Blind Faith",
+              "path": "/Users/drwu/Desktop/IF YOU CAN'T FIND SOMETHING ITS HERE/Moises_Input/stems/htdemucs_6s/Six Degrees of Inner Turbulence/1-02 Blind Faith",
+              "stems": [
+                "bass.wav",
+                "drums.wav",
+                "guitar.wav",
+                "other.wav",
+                "piano.wav",
+                "vocals.wav"
+              ],
+              "format": "WAV"
+            },
+            {
+              "song": "1-03 Misunderstood",
+              "path": "/Users/drwu/Desktop/IF YOU CAN'T FIND SOMETHING ITS HERE/Moises_Input/stems/htdemucs_6s/Six Degrees of Inner Turbulence/1-03 Misunderstood",
+              "stems": [
+                "bass.wav",
+                "drums.wav",
+                "guitar.wav",
+                "other.wav",
+                "piano.wav",
+                "vocals.wav"
+              ],
+              "format": "WAV"
+            },
+            {
+              "song": "1-05 Disappear",
+              "path": "/Users/drwu/Desktop/IF YOU CAN'T FIND SOMETHING ITS HERE/Moises_Input/stems/htdemucs_6s/Six Degrees of Inner Turbulence/1-05 Disappear",
+              "stems": [
+                "bass.wav",
+                "drums.wav",
+                "guitar.wav",
+                "other.wav",
+                "piano.wav",
+                "vocals.wav"
+              ],
+              "format": "WAV"
+            },
+            {
+              "song": "2-01 Six Degrees of Inner Turbulence_ I. Overture",
+              "path": "/Users/drwu/Desktop/IF YOU CAN'T FIND SOMETHING ITS HERE/Moises_Input/stems/htdemucs_6s/Six Degrees of Inner Turbulence/2-01 Six Degrees of Inner Turbulence_ I. Overture",
+              "stems": [
+                "bass.wav",
+                "drums.wav",
+                "guitar.wav",
+                "other.wav",
+                "piano.wav",
+                "vocals.wav"
+              ],
+              "format": "WAV"
+            },
+            {
+              "song": "2-02 Six Degrees of Inner Turbulence_ II. About to Crash",
+              "path": "/Users/drwu/Desktop/IF YOU CAN'T FIND SOMETHING ITS HERE/Moises_Input/stems/htdemucs_6s/Six Degrees of Inner Turbulence/2-02 Six Degrees of Inner Turbulence_ II. About to Crash",
+              "stems": [
+                "bass.wav",
+                "drums.wav",
+                "guitar.wav",
+                "other.wav",
+                "piano.wav",
+                "vocals.wav"
+              ],
+              "format": "WAV"
+            },
+            {
+              "song": "2-03 Six Degrees of Inner Turbulence_ III. War Inside My Head",
+              "path": "/Users/drwu/Desktop/IF YOU CAN'T FIND SOMETHING ITS HERE/Moises_Input/stems/htdemucs_6s/Six Degrees of Inner Turbulence/2-03 Six Degrees of Inner Turbulence_ III. War Inside My Head",
+              "stems": [
+                "bass.wav",
+                "drums.wav",
+                "guitar.wav",
+                "other.wav",
+                "piano.wav",
+                "vocals.wav"
+              ],
+              "format": "WAV"
+            },
+            {
+              "song": "2-04 Six Degrees of Inner Turbulence_ IV. The Test That Stumped Them All",
+              "path": "/Users/drwu/Desktop/IF YOU CAN'T FIND SOMETHING ITS HERE/Moises_Input/stems/htdemucs_6s/Six Degrees of Inner Turbulence/2-04 Six Degrees of Inner Turbulence_ IV. The Test That Stumped Them All",
+              "stems": [
+                "bass.wav",
+                "drums.wav",
+                "guitar.wav",
+                "other.wav",
+                "piano.wav",
+                "vocals.wav"
+              ],
+              "format": "WAV"
+            },
+            {
+              "song": "2-05 Six Degrees of Inner Turbulence_ V. Goodnight Kiss",
+              "path": "/Users/drwu/Desktop/IF YOU CAN'T FIND SOMETHING ITS HERE/Moises_Input/stems/htdemucs_6s/Six Degrees of Inner Turbulence/2-05 Six Degrees of Inner Turbulence_ V. Goodnight Kiss",
+              "stems": [
+                "bass.wav",
+                "drums.wav",
+                "guitar.wav",
+                "other.wav",
+                "piano.wav",
+                "vocals.wav"
+              ],
+              "format": "WAV"
+            },
+            {
+              "song": "2-06 Six Degrees of Inner Turbulence_ VI. Solitary Shell",
+              "path": "/Users/drwu/Desktop/IF YOU CAN'T FIND SOMETHING ITS HERE/Moises_Input/stems/htdemucs_6s/Six Degrees of Inner Turbulence/2-06 Six Degrees of Inner Turbulence_ VI. Solitary Shell",
+              "stems": [
+                "bass.wav",
+                "drums.wav",
+                "guitar.wav",
+                "other.wav",
+                "piano.wav",
+                "vocals.wav"
+              ],
+              "format": "WAV"
+            },
+            {
+              "song": "2-07 Six Degrees of Inner Turbulence_ VII. About to Crash (reprise)",
+              "path": "/Users/drwu/Desktop/IF YOU CAN'T FIND SOMETHING ITS HERE/Moises_Input/stems/htdemucs_6s/Six Degrees of Inner Turbulence/2-07 Six Degrees of Inner Turbulence_ VII. About to Crash (reprise)",
+              "stems": [
+                "bass.wav",
+                "drums.wav",
+                "guitar.wav",
+                "other.wav",
+                "piano.wav",
+                "vocals.wav"
+              ],
+              "format": "WAV"
+            },
+            {
+              "song": "2-08 Six Degrees of Inner Turbulence_ VIII. Losing Time _ Grand Finale",
+              "path": "/Users/drwu/Desktop/IF YOU CAN'T FIND SOMETHING ITS HERE/Moises_Input/stems/htdemucs_6s/Six Degrees of Inner Turbulence/2-08 Six Degrees of Inner Turbulence_ VIII. Losing Time _ Grand Finale",
+              "stems": [
+                "bass.wav",
+                "drums.wav",
+                "guitar.wav",
+                "other.wav",
+                "piano.wav",
+                "vocals.wav"
+              ],
+              "format": "WAV"
+            }
+          ]
+        },
+        "MIDI-Sessions Dream Theater": {
+          "songs": [
+            {
+              "song": "The Dance of Eternity/_five_stem_stage",
+              "path": "/Users/drwu/Desktop/IF YOU CAN'T FIND SOMETHING ITS HERE/MIDI-Sessions Dream Theater/The Dance of Eternity/_five_stem_stage",
+              "stems": [
+                "bass.wav",
+                "drums.wav",
+                "guitar.wav",
+                "keys.wav"
+              ],
+              "format": "WAV"
+            }
+          ]
+        }
+      },
+      "Smashing Pumpkins": {
+        "Smashing P": {
+          "songs": [
+            {
+              "song": "1. Cherub Rock - 2011 Remaster",
+              "path": "/Users/drwu/Desktop/IF YOU CAN'T FIND SOMETHING ITS HERE/Moises_Input/stems/htdemucs_6s/Smashing P/1. Cherub Rock - 2011 Remaster",
+              "stems": [
+                "bass.mp3",
+                "drums.mp3",
+                "guitar.mp3",
+                "other.mp3",
+                "piano.mp3",
+                "vocals.mp3"
+              ],
+              "format": "MP3"
+            },
+            {
+              "song": "2. Quiet - 2011 Remaster",
+              "path": "/Users/drwu/Desktop/IF YOU CAN'T FIND SOMETHING ITS HERE/Moises_Input/stems/htdemucs_6s/Smashing P/2. Quiet - 2011 Remaster",
+              "stems": [
+                "bass.mp3",
+                "drums.mp3",
+                "guitar.mp3",
+                "other.mp3",
+                "piano.mp3",
+                "vocals.mp3"
+              ],
+              "format": "MP3"
+            },
+            {
+              "song": "3. Today - 2011 Remaster",
+              "path": "/Users/drwu/Desktop/IF YOU CAN'T FIND SOMETHING ITS HERE/Moises_Input/stems/htdemucs_6s/Smashing P/3. Today - 2011 Remaster",
+              "stems": [
+                "bass.mp3",
+                "drums.mp3",
+                "guitar.mp3",
+                "other.mp3",
+                "piano.mp3",
+                "vocals.mp3"
+              ],
+              "format": "MP3"
+            },
+            {
+              "song": "4. Hummer - 2011 Remaster",
+              "path": "/Users/drwu/Desktop/IF YOU CAN'T FIND SOMETHING ITS HERE/Moises_Input/stems/htdemucs_6s/Smashing P/4. Hummer - 2011 Remaster",
+              "stems": [
+                "bass.mp3",
+                "drums.mp3",
+                "guitar.mp3",
+                "other.mp3",
+                "piano.mp3",
+                "vocals.mp3"
+              ],
+              "format": "MP3"
+            },
+            {
+              "song": "5. Rocket - 2011 Remaster",
+              "path": "/Users/drwu/Desktop/IF YOU CAN'T FIND SOMETHING ITS HERE/Moises_Input/stems/htdemucs_6s/Smashing P/5. Rocket - 2011 Remaster",
+              "stems": [
+                "bass.mp3",
+                "drums.mp3",
+                "guitar.mp3",
+                "other.mp3",
+                "piano.mp3",
+                "vocals.mp3"
+              ],
+              "format": "MP3"
+            },
+            {
+              "song": "6. Disarm - 2011 Remaster",
+              "path": "/Users/drwu/Desktop/IF YOU CAN'T FIND SOMETHING ITS HERE/Moises_Input/stems/htdemucs_6s/Smashing P/6. Disarm - 2011 Remaster",
+              "stems": [
+                "bass.mp3",
+                "drums.mp3",
+                "guitar.mp3",
+                "other.mp3",
+                "piano.mp3",
+                "vocals.mp3"
+              ],
+              "format": "MP3"
+            },
+            {
+              "song": "7. Soma - 2011 Remaster",
+              "path": "/Users/drwu/Desktop/IF YOU CAN'T FIND SOMETHING ITS HERE/Moises_Input/stems/htdemucs_6s/Smashing P/7. Soma - 2011 Remaster",
+              "stems": [
+                "bass.mp3",
+                "drums.mp3",
+                "guitar.mp3",
+                "other.mp3",
+                "piano.mp3",
+                "vocals.mp3"
+              ],
+              "format": "MP3"
+            }
+          ]
+        }
+      },
+      "(Unknown)": {
+        "IF YOU CAN'T FIND SOMETHING ITS HERE": {
+          "songs": [
+            {
+              "song": "11 Another Go Around",
+              "path": "/Users/drwu/Desktop/IF YOU CAN'T FIND SOMETHING ITS HERE/Moises_Input/stems/htdemucs_6s/11 Another Go Around",
+              "stems": [
+                "bass.mp3",
+                "drums.mp3",
+                "guitar.mp3",
+                "other.mp3",
+                "piano.mp3",
+                "vocals.mp3"
+              ],
+              "format": "MP3"
+            },
+            {
+              "song": "13 Illusion of Forever",
+              "path": "/Users/drwu/Desktop/IF YOU CAN'T FIND SOMETHING ITS HERE/Moises_Input/stems/htdemucs_6s/13 Illusion of Forever",
+              "stems": [
+                "bass.mp3",
+                "drums.mp3",
+                "guitar.mp3",
+                "other.mp3",
+                "piano.mp3",
+                "vocals.mp3"
+              ],
+              "format": "MP3"
+            }
+          ]
+        },
+        "Moises_Output": {
+          "songs": [
+            {
+              "song": "01 - The Package",
+              "path": "/Users/drwu/Desktop/IF YOU CAN'T FIND SOMETHING ITS HERE/Moises_Output/01 - The Package",
+              "stems": [
+                "01 - The Package-bass.wav",
+                "01 - The Package-drums.wav",
+                "01 - The Package-other.wav",
+                "01 - The Package-vocals.wav"
+              ],
+              "format": "WAV"
+            }
+          ]
+        },
+        "demucs_6s_output": {
+          "songs": [
+            {
+              "song": "Shiner - The Egg",
+              "path": "/Users/drwu/Desktop/MIDI-Sessions Shiner/_audio_analysis/TheEgg/new_pipeline/demucs_6s_output/htdemucs_6s/Shiner - The Egg",
+              "stems": [
+                "bass.wav",
+                "drums.wav",
+                "guitar.wav",
+                "other.wav",
+                "piano.wav",
+                "vocals.wav"
+              ],
+              "format": "WAV"
+            }
+          ]
+        }
+      },
+      "Yes": {
+        "Close to the Edge": {
+          "songs": [
+            {
+              "song": "01 Close to the Edge (I. The Solid Time of Change, II. Total Mass Retain, III. I Get Up I Get Down, IV. Seasons of Man)",
+              "path": "/Users/drwu/Desktop/IF YOU CAN'T FIND SOMETHING ITS HERE/Moises_Input/stems/htdemucs_6s/Close to the Edge/01 Close to the Edge (I. The Solid Time of Change, II. Total Mass Retain, III. I Get Up I Get Down, IV. Seasons of Man)",
+              "stems": [
+                "bass.wav",
+                "drums.wav",
+                "guitar.wav",
+                "other.wav",
+                "piano.wav",
+                "vocals.wav"
+              ],
+              "format": "WAV"
+            },
+            {
+              "song": "03 Siberian Khatru",
+              "path": "/Users/drwu/Desktop/IF YOU CAN'T FIND SOMETHING ITS HERE/Moises_Input/stems/htdemucs_6s/Close to the Edge/03 Siberian Khatru",
+              "stems": [
+                "bass.wav",
+                "drums.wav",
+                "guitar.wav",
+                "other.wav",
+                "piano.wav",
+                "vocals.wav"
+              ],
+              "format": "WAV"
+            }
+          ]
+        }
+      },
+      "Radiohead": {
+        "in radinvbows": {
+          "songs": [
+            {
+              "song": "02 - Bodysnatchers",
+              "path": "/Users/drwu/Desktop/IF YOU CAN'T FIND SOMETHING ITS HERE/Moises_Input/stems/htdemucs_6s/in radinvbows/02 - Bodysnatchers",
+              "stems": [
+                "bass.mp3",
+                "drums.mp3",
+                "guitar.mp3",
+                "other.mp3",
+                "piano.mp3",
+                "vocals.mp3"
+              ],
+              "format": "MP3"
+            },
+            {
+              "song": "03 - Nude",
+              "path": "/Users/drwu/Desktop/IF YOU CAN'T FIND SOMETHING ITS HERE/Moises_Input/stems/htdemucs_6s/in radinvbows/03 - Nude",
+              "stems": [
+                "bass.mp3",
+                "drums.mp3",
+                "guitar.mp3",
+                "other.mp3",
+                "piano.mp3",
+                "vocals.mp3"
+              ],
+              "format": "MP3"
+            },
+            {
+              "song": "04 - Weird Fishes-Arpeggi",
+              "path": "/Users/drwu/Desktop/IF YOU CAN'T FIND SOMETHING ITS HERE/Moises_Input/stems/htdemucs_6s/in radinvbows/04 - Weird Fishes-Arpeggi",
+              "stems": [
+                "bass.mp3",
+                "drums.mp3",
+                "guitar.mp3",
+                "other.mp3",
+                "piano.mp3",
+                "vocals.mp3"
+              ],
+              "format": "MP3"
+            },
+            {
+              "song": "05 - All I Need",
+              "path": "/Users/drwu/Desktop/IF YOU CAN'T FIND SOMETHING ITS HERE/Moises_Input/stems/htdemucs_6s/in radinvbows/05 - All I Need",
+              "stems": [
+                "bass.mp3",
+                "drums.mp3",
+                "guitar.mp3",
+                "other.mp3",
+                "piano.mp3",
+                "vocals.mp3"
+              ],
+              "format": "MP3"
+            },
+            {
+              "song": "06 - Faust Arp",
+              "path": "/Users/drwu/Desktop/IF YOU CAN'T FIND SOMETHING ITS HERE/Moises_Input/stems/htdemucs_6s/in radinvbows/06 - Faust Arp",
+              "stems": [
+                "bass.mp3",
+                "drums.mp3",
+                "guitar.mp3",
+                "other.mp3",
+                "piano.mp3",
+                "vocals.mp3"
+              ],
+              "format": "MP3"
+            },
+            {
+              "song": "07 - Reckoner",
+              "path": "/Users/drwu/Desktop/IF YOU CAN'T FIND SOMETHING ITS HERE/Moises_Input/stems/htdemucs_6s/in radinvbows/07 - Reckoner",
+              "stems": [
+                "bass.mp3",
+                "drums.mp3",
+                "guitar.mp3",
+                "other.mp3",
+                "piano.mp3",
+                "vocals.mp3"
+              ],
+              "format": "MP3"
+            },
+            {
+              "song": "08 - House of Cards",
+              "path": "/Users/drwu/Desktop/IF YOU CAN'T FIND SOMETHING ITS HERE/Moises_Input/stems/htdemucs_6s/in radinvbows/08 - House of Cards",
+              "stems": [
+                "bass.mp3",
+                "drums.mp3",
+                "guitar.mp3",
+                "other.mp3",
+                "piano.mp3",
+                "vocals.mp3"
+              ],
+              "format": "MP3"
+            },
+            {
+              "song": "09 - Jigsaw Falling Into Place",
+              "path": "/Users/drwu/Desktop/IF YOU CAN'T FIND SOMETHING ITS HERE/Moises_Input/stems/htdemucs_6s/in radinvbows/09 - Jigsaw Falling Into Place",
+              "stems": [
+                "bass.mp3",
+                "drums.mp3",
+                "guitar.mp3",
+                "other.mp3",
+                "piano.mp3",
+                "vocals.mp3"
+              ],
+              "format": "MP3"
+            },
+            {
+              "song": "10 - Videotape",
+              "path": "/Users/drwu/Desktop/IF YOU CAN'T FIND SOMETHING ITS HERE/Moises_Input/stems/htdemucs_6s/in radinvbows/10 - Videotape",
+              "stems": [
+                "bass.mp3",
+                "drums.mp3",
+                "guitar.mp3",
+                "other.mp3",
+                "piano.mp3",
+                "vocals.mp3"
+              ],
+              "format": "MP3"
+            }
+          ]
+        },
+        "Radiohead-MoonShapedPool": {
+          "songs": [
+            {
+              "song": "01 - Burn The Witch",
+              "path": "/Volumes/T7 Shield/Moises_Stems/Radiohead-MoonShapedPool/01 - Burn The Witch",
+              "stems": [
+                "01 - Burn The Witch-bass.wav",
+                "01 - Burn The Witch-drums.wav",
+                "01 - Burn The Witch-guitar.wav",
+                "01 - Burn The Witch-other.wav",
+                "01 - Burn The Witch-piano.wav",
+                "01 - Burn The Witch-vocals.wav"
+              ],
+              "format": "WAV"
+            },
+            {
+              "song": "02 - Daydreaming",
+              "path": "/Volumes/T7 Shield/Moises_Stems/Radiohead-MoonShapedPool/02 - Daydreaming",
+              "stems": [
+                "02 - Daydreaming-bass.wav",
+                "02 - Daydreaming-drums.wav",
+                "02 - Daydreaming-guitar.wav",
+                "02 - Daydreaming-other.wav",
+                "02 - Daydreaming-piano.wav",
+                "02 - Daydreaming-vocals.wav"
+              ],
+              "format": "WAV"
+            },
+            {
+              "song": "03 - Decks Dark",
+              "path": "/Volumes/T7 Shield/Moises_Stems/Radiohead-MoonShapedPool/03 - Decks Dark",
+              "stems": [
+                "03 - Decks Dark-bass.wav",
+                "03 - Decks Dark-drums.wav",
+                "03 - Decks Dark-guitar.wav",
+                "03 - Decks Dark-other.wav",
+                "03 - Decks Dark-piano.wav",
+                "03 - Decks Dark-vocals.wav"
+              ],
+              "format": "WAV"
+            },
+            {
+              "song": "04 - Desert Island Disk",
+              "path": "/Volumes/T7 Shield/Moises_Stems/Radiohead-MoonShapedPool/04 - Desert Island Disk",
+              "stems": [
+                "04 - Desert Island Disk-bass.wav",
+                "04 - Desert Island Disk-drums.wav",
+                "04 - Desert Island Disk-guitar.wav",
+                "04 - Desert Island Disk-other.wav",
+                "04 - Desert Island Disk-piano.wav",
+                "04 - Desert Island Disk-vocals.wav"
+              ],
+              "format": "WAV"
+            },
+            {
+              "song": "05 - Ful Stop",
+              "path": "/Volumes/T7 Shield/Moises_Stems/Radiohead-MoonShapedPool/05 - Ful Stop",
+              "stems": [
+                "05 - Ful Stop-bass.wav",
+                "05 - Ful Stop-drums.wav",
+                "05 - Ful Stop-guitar.wav",
+                "05 - Ful Stop-other.wav",
+                "05 - Ful Stop-piano.wav",
+                "05 - Ful Stop-vocals.wav"
+              ],
+              "format": "WAV"
+            },
+            {
+              "song": "06 - Glass Eyes",
+              "path": "/Volumes/T7 Shield/Moises_Stems/Radiohead-MoonShapedPool/06 - Glass Eyes",
+              "stems": [
+                "06 - Glass Eyes-bass.wav",
+                "06 - Glass Eyes-drums.wav",
+                "06 - Glass Eyes-guitar.wav",
+                "06 - Glass Eyes-other.wav",
+                "06 - Glass Eyes-piano.wav",
+                "06 - Glass Eyes-vocals.wav"
+              ],
+              "format": "WAV"
+            },
+            {
+              "song": "07 - Identikit",
+              "path": "/Volumes/T7 Shield/Moises_Stems/Radiohead-MoonShapedPool/07 - Identikit",
+              "stems": [
+                "07 - Identikit-bass.wav",
+                "07 - Identikit-drums.wav",
+                "07 - Identikit-guitar.wav",
+                "07 - Identikit-other.wav",
+                "07 - Identikit-piano.wav",
+                "07 - Identikit-vocals.wav"
+              ],
+              "format": "WAV"
+            },
+            {
+              "song": "08 - The Numbers",
+              "path": "/Volumes/T7 Shield/Moises_Stems/Radiohead-MoonShapedPool/08 - The Numbers",
+              "stems": [
+                "08 - The Numbers-bass.wav",
+                "08 - The Numbers-drums.wav",
+                "08 - The Numbers-guitar.wav",
+                "08 - The Numbers-other.wav",
+                "08 - The Numbers-piano.wav",
+                "08 - The Numbers-vocals.wav"
+              ],
+              "format": "WAV"
+            },
+            {
+              "song": "09 - Present Tense",
+              "path": "/Volumes/T7 Shield/Moises_Stems/Radiohead-MoonShapedPool/09 - Present Tense",
+              "stems": [
+                "09 - Present Tense-bass.wav",
+                "09 - Present Tense-drums.wav",
+                "09 - Present Tense-guitar.wav",
+                "09 - Present Tense-other.wav",
+                "09 - Present Tense-piano.wav",
+                "09 - Present Tense-vocals.wav"
+              ],
+              "format": "WAV"
+            },
+            {
+              "song": "10 - Tinker Tailor Soldier Sailor Rich Man Poor Man Beggar Man Thief",
+              "path": "/Volumes/T7 Shield/Moises_Stems/Radiohead-MoonShapedPool/10 - Tinker Tailor Soldier Sailor Rich Man Poor Man Beggar Man Thief",
+              "stems": [
+                "10 - Tinker Tailor Soldier Sailor Rich Man Poor Man Beggar Man Thief-bass.wav",
+                "10 - Tinker Tailor Soldier Sailor Rich Man Poor Man Beggar Man Thief-drums.wav",
+                "10 - Tinker Tailor Soldier Sailor Rich Man Poor Man Beggar Man Thief-guitar.wav",
+                "10 - Tinker Tailor Soldier Sailor Rich Man Poor Man Beggar Man Thief-other.wav",
+                "10 - Tinker Tailor Soldier Sailor Rich Man Poor Man Beggar Man Thief-piano.wav",
+                "10 - Tinker Tailor Soldier Sailor Rich Man Poor Man Beggar Man Thief-vocals.wav"
+              ],
+              "format": "WAV"
+            },
+            {
+              "song": "11 - True Love Waits",
+              "path": "/Volumes/T7 Shield/Moises_Stems/Radiohead-MoonShapedPool/11 - True Love Waits",
+              "stems": [
+                "11 - True Love Waits-bass.wav",
+                "11 - True Love Waits-drums.wav",
+                "11 - True Love Waits-guitar.wav",
+                "11 - True Love Waits-other.wav",
+                "11 - True Love Waits-piano.wav",
+                "11 - True Love Waits-vocals.wav"
+              ],
+              "format": "WAV"
+            }
+          ]
+        }
+      },
+      "The Mars Volta": {
+        "The Mars Volta - Deloused in the Comatorium": {
+          "songs": [
+            {
+              "song": "01 - Son et Lumiere",
+              "path": "/Users/drwu/Desktop/IF YOU CAN'T FIND SOMETHING ITS HERE/Moises_Input/stems/htdemucs_6s/The Mars Volta - Deloused in the Comatorium/01 - Son et Lumiere",
+              "stems": [
+                "bass.wav",
+                "drums.wav",
+                "guitar.wav",
+                "other.wav",
+                "piano.wav",
+                "vocals.wav"
+              ],
+              "format": "WAV"
+            },
+            {
+              "song": "02 - Inertiatic Esp",
+              "path": "/Users/drwu/Desktop/IF YOU CAN'T FIND SOMETHING ITS HERE/Moises_Input/stems/htdemucs_6s/The Mars Volta - Deloused in the Comatorium/02 - Inertiatic Esp",
+              "stems": [
+                "bass.wav",
+                "drums.wav",
+                "guitar.wav",
+                "other.wav",
+                "piano.wav",
+                "vocals.wav"
+              ],
+              "format": "WAV"
+            },
+            {
+              "song": "03 - Roulette Dares (The Haunt Of)",
+              "path": "/Users/drwu/Desktop/IF YOU CAN'T FIND SOMETHING ITS HERE/Moises_Input/stems/htdemucs_6s/The Mars Volta - Deloused in the Comatorium/03 - Roulette Dares (The Haunt Of)",
+              "stems": [
+                "bass.wav",
+                "drums.wav",
+                "guitar.wav",
+                "other.wav",
+                "piano.wav",
+                "vocals.wav"
+              ],
+              "format": "WAV"
+            },
+            {
+              "song": "04 - Tira Me a Las Aranas",
+              "path": "/Users/drwu/Desktop/IF YOU CAN'T FIND SOMETHING ITS HERE/Moises_Input/stems/htdemucs_6s/The Mars Volta - Deloused in the Comatorium/04 - Tira Me a Las Aranas",
+              "stems": [
+                "bass.wav",
+                "drums.wav",
+                "guitar.wav",
+                "other.wav",
+                "piano.wav",
+                "vocals.wav"
+              ],
+              "format": "WAV"
+            },
+            {
+              "song": "05 - Drunkship Of Lanterns",
+              "path": "/Users/drwu/Desktop/IF YOU CAN'T FIND SOMETHING ITS HERE/Moises_Input/stems/htdemucs_6s/The Mars Volta - Deloused in the Comatorium/05 - Drunkship Of Lanterns",
+              "stems": [
+                "bass.wav",
+                "drums.wav",
+                "guitar.wav",
+                "other.wav",
+                "piano.wav",
+                "vocals.wav"
+              ],
+              "format": "WAV"
+            },
+            {
+              "song": "06 - Eriatarka",
+              "path": "/Users/drwu/Desktop/IF YOU CAN'T FIND SOMETHING ITS HERE/Moises_Input/stems/htdemucs_6s/The Mars Volta - Deloused in the Comatorium/06 - Eriatarka",
+              "stems": [
+                "bass.wav",
+                "drums.wav",
+                "guitar.wav",
+                "other.wav",
+                "piano.wav",
+                "vocals.wav"
+              ],
+              "format": "WAV"
+            },
+            {
+              "song": "07 - Cicatriz Esp",
+              "path": "/Users/drwu/Desktop/IF YOU CAN'T FIND SOMETHING ITS HERE/Moises_Input/stems/htdemucs_6s/The Mars Volta - Deloused in the Comatorium/07 - Cicatriz Esp",
+              "stems": [
+                "bass.wav",
+                "drums.wav",
+                "guitar.wav",
+                "other.wav",
+                "piano.wav",
+                "vocals.wav"
+              ],
+              "format": "WAV"
+            },
+            {
+              "song": "08 - This Apparatus Must Be Unearthed",
+              "path": "/Users/drwu/Desktop/IF YOU CAN'T FIND SOMETHING ITS HERE/Moises_Input/stems/htdemucs_6s/The Mars Volta - Deloused in the Comatorium/08 - This Apparatus Must Be Unearthed",
+              "stems": [
+                "bass.wav",
+                "drums.wav",
+                "guitar.wav",
+                "other.wav",
+                "piano.wav",
+                "vocals.wav"
+              ],
+              "format": "WAV"
+            },
+            {
+              "song": "09 - Televators",
+              "path": "/Users/drwu/Desktop/IF YOU CAN'T FIND SOMETHING ITS HERE/Moises_Input/stems/htdemucs_6s/The Mars Volta - Deloused in the Comatorium/09 - Televators",
+              "stems": [
+                "bass.wav",
+                "drums.wav",
+                "guitar.wav",
+                "other.wav",
+                "piano.wav",
+                "vocals.wav"
+              ],
+              "format": "WAV"
+            },
+            {
+              "song": "10 - Take The Veil Cerpin Taxt",
+              "path": "/Users/drwu/Desktop/IF YOU CAN'T FIND SOMETHING ITS HERE/Moises_Input/stems/htdemucs_6s/The Mars Volta - Deloused in the Comatorium/10 - Take The Veil Cerpin Taxt",
+              "stems": [
+                "bass.wav",
+                "drums.wav",
+                "guitar.wav",
+                "other.wav",
+                "piano.wav",
+                "vocals.wav"
+              ],
+              "format": "WAV"
+            }
+          ]
+        }
+      },
+      "The Life and Times": {
+        "Life and times": {
+          "songs": [
+            {
+              "song": "02 Fall of the Angry Clowns",
+              "path": "/Users/drwu/Desktop/IF YOU CAN'T FIND SOMETHING ITS HERE/Moises_Input/stems/htdemucs_6s/Life and times/02 Fall of the Angry Clowns",
+              "stems": [
+                "bass.mp3",
+                "drums.mp3",
+                "guitar.mp3",
+                "other.mp3",
+                "piano.mp3",
+                "vocals.mp3"
+              ],
+              "format": "MP3"
+            },
+            {
+              "song": "03 Let It Eat",
+              "path": "/Users/drwu/Desktop/IF YOU CAN'T FIND SOMETHING ITS HERE/Moises_Input/stems/htdemucs_6s/Life and times/03 Let It Eat",
+              "stems": [
+                "bass.mp3",
+                "drums.mp3",
+                "guitar.mp3",
+                "other.mp3",
+                "piano.mp3",
+                "vocals.mp3"
+              ],
+              "format": "MP3"
+            },
+            {
+              "song": "04 Old Souls",
+              "path": "/Users/drwu/Desktop/IF YOU CAN'T FIND SOMETHING ITS HERE/Moises_Input/stems/htdemucs_6s/Life and times/04 Old Souls",
+              "stems": [
+                "bass.mp3",
+                "drums.mp3",
+                "guitar.mp3",
+                "other.mp3",
+                "piano.mp3",
+                "vocals.mp3"
+              ],
+              "format": "MP3"
+            },
+            {
+              "song": "05 Dull Knives",
+              "path": "/Users/drwu/Desktop/IF YOU CAN'T FIND SOMETHING ITS HERE/Moises_Input/stems/htdemucs_6s/Life and times/05 Dull Knives",
+              "stems": [
+                "bass.mp3",
+                "drums.mp3",
+                "guitar.mp3",
+                "other.mp3",
+                "piano.mp3",
+                "vocals.mp3"
+              ],
+              "format": "MP3"
+            },
+            {
+              "song": "06 Pain Don\u2019t Hurt",
+              "path": "/Users/drwu/Desktop/IF YOU CAN'T FIND SOMETHING ITS HERE/Moises_Input/stems/htdemucs_6s/Life and times/06 Pain Don\u2019t Hurt",
+              "stems": [
+                "bass.mp3",
+                "drums.mp3",
+                "guitar.mp3",
+                "other.mp3",
+                "piano.mp3",
+                "vocals.mp3"
+              ],
+              "format": "MP3"
+            },
+            {
+              "song": "07 Confetti",
+              "path": "/Users/drwu/Desktop/IF YOU CAN'T FIND SOMETHING ITS HERE/Moises_Input/stems/htdemucs_6s/Life and times/07 Confetti",
+              "stems": [
+                "bass.mp3",
+                "drums.mp3",
+                "guitar.mp3",
+                "other.mp3",
+                "piano.mp3",
+                "vocals.mp3"
+              ],
+              "format": "MP3"
+            },
+            {
+              "song": "08 The Lucid Dream",
+              "path": "/Users/drwu/Desktop/IF YOU CAN'T FIND SOMETHING ITS HERE/Moises_Input/stems/htdemucs_6s/Life and times/08 The Lucid Dream",
+              "stems": [
+                "bass.mp3",
+                "drums.mp3",
+                "guitar.mp3",
+                "other.mp3",
+                "piano.mp3",
+                "vocals.mp3"
+              ],
+              "format": "MP3"
+            },
+            {
+              "song": "09 Tragic Boogie",
+              "path": "/Users/drwu/Desktop/IF YOU CAN'T FIND SOMETHING ITS HERE/Moises_Input/stems/htdemucs_6s/Life and times/09 Tragic Boogie",
+              "stems": [
+                "bass.mp3",
+                "drums.mp3",
+                "guitar.mp3",
+                "other.mp3",
+                "piano.mp3",
+                "vocals.mp3"
+              ],
+              "format": "MP3"
+            },
+            {
+              "song": "10 The Politics of Driving",
+              "path": "/Users/drwu/Desktop/IF YOU CAN'T FIND SOMETHING ITS HERE/Moises_Input/stems/htdemucs_6s/Life and times/10 The Politics of Driving",
+              "stems": [
+                "bass.mp3",
+                "drums.mp3",
+                "guitar.mp3",
+                "other.mp3",
+                "piano.mp3",
+                "vocals.mp3"
+              ],
+              "format": "MP3"
+            },
+            {
+              "song": "11 Catching Crumbs",
+              "path": "/Users/drwu/Desktop/IF YOU CAN'T FIND SOMETHING ITS HERE/Moises_Input/stems/htdemucs_6s/Life and times/11 Catching Crumbs",
+              "stems": [
+                "bass.mp3",
+                "drums.mp3",
+                "guitar.mp3",
+                "other.mp3",
+                "piano.mp3",
+                "vocals.mp3"
+              ],
+              "format": "MP3"
+            },
+            {
+              "song": "12 Little 4Notes",
+              "path": "/Users/drwu/Desktop/IF YOU CAN'T FIND SOMETHING ITS HERE/Moises_Input/stems/htdemucs_6s/Life and times/12 Little 4Notes",
+              "stems": [
+                "bass.mp3",
+                "drums.mp3",
+                "guitar.mp3",
+                "other.mp3",
+                "piano.mp3",
+                "vocals.mp3"
+              ],
+              "format": "MP3"
+            },
+            {
+              "song": "Life and Times LP/02 - Coat of Arms",
+              "path": "/Users/drwu/Desktop/IF YOU CAN'T FIND SOMETHING ITS HERE/Moises_Input/stems/htdemucs_6s/Life and times/Life and Times LP/02 - Coat of Arms",
+              "stems": [
+                "bass.mp3",
+                "drums.mp3",
+                "guitar.mp3",
+                "other.mp3",
+                "piano.mp3",
+                "vocals.mp3"
+              ],
+              "format": "MP3"
+            },
+            {
+              "song": "Life and Times LP/03 - Charlotte St.",
+              "path": "/Users/drwu/Desktop/IF YOU CAN'T FIND SOMETHING ITS HERE/Moises_Input/stems/htdemucs_6s/Life and times/Life and Times LP/03 - Charlotte St.",
+              "stems": [
+                "bass.mp3",
+                "drums.mp3",
+                "guitar.mp3",
+                "other.mp3",
+                "piano.mp3",
+                "vocals.mp3"
+              ],
+              "format": "MP3"
+            },
+            {
+              "song": "Life and Times LP/04 - Muscle Cars",
+              "path": "/Users/drwu/Desktop/IF YOU CAN'T FIND SOMETHING ITS HERE/Moises_Input/stems/htdemucs_6s/Life and times/Life and Times LP/04 - Muscle Cars",
+              "stems": [
+                "bass.mp3",
+                "drums.mp3",
+                "guitar.mp3",
+                "other.mp3",
+                "piano.mp3",
+                "vocals.mp3"
+              ],
+              "format": "MP3"
+            },
+            {
+              "song": "Life and Times LP/05 - Skateland",
+              "path": "/Users/drwu/Desktop/IF YOU CAN'T FIND SOMETHING ITS HERE/Moises_Input/stems/htdemucs_6s/Life and times/Life and Times LP/05 - Skateland",
+              "stems": [
+                "bass.mp3",
+                "drums.mp3",
+                "guitar.mp3",
+                "other.mp3",
+                "piano.mp3",
+                "vocals.mp3"
+              ],
+              "format": "MP3"
+            },
+            {
+              "song": "Life and Times LP/06 - Thrill Ride",
+              "path": "/Users/drwu/Desktop/IF YOU CAN'T FIND SOMETHING ITS HERE/Moises_Input/stems/htdemucs_6s/Life and times/Life and Times LP/06 - Thrill Ride",
+              "stems": [
+                "bass.mp3",
+                "drums.mp3",
+                "guitar.mp3",
+                "other.mp3",
+                "piano.mp3",
+                "vocals.mp3"
+              ],
+              "format": "MP3"
+            },
+            {
+              "song": "Life and Times LP/07 - Running Redlights",
+              "path": "/Users/drwu/Desktop/IF YOU CAN'T FIND SOMETHING ITS HERE/Moises_Input/stems/htdemucs_6s/Life and times/Life and Times LP/07 - Running Redlights",
+              "stems": [
+                "bass.mp3",
+                "drums.mp3",
+                "guitar.mp3",
+                "other.mp3",
+                "piano.mp3",
+                "vocals.mp3"
+              ],
+              "format": "MP3"
+            },
+            {
+              "song": "Life and Times LP/08 - Shift Your Gaze",
+              "path": "/Users/drwu/Desktop/IF YOU CAN'T FIND SOMETHING ITS HERE/Moises_Input/stems/htdemucs_6s/Life and times/Life and Times LP/08 - Shift Your Gaze",
+              "stems": [
+                "bass.mp3",
+                "drums.mp3",
+                "guitar.mp3",
+                "other.mp3",
+                "piano.mp3",
+                "vocals.mp3"
+              ],
+              "format": "MP3"
+            },
+            {
+              "song": "Life and Times LP/09 - Mea Culpa",
+              "path": "/Users/drwu/Desktop/IF YOU CAN'T FIND SOMETHING ITS HERE/Moises_Input/stems/htdemucs_6s/Life and times/Life and Times LP/09 - Mea Culpa",
+              "stems": [
+                "bass.mp3",
+                "drums.mp3",
+                "guitar.mp3",
+                "other.mp3",
+                "piano.mp3",
+                "vocals.mp3"
+              ],
+              "format": "MP3"
+            },
+            {
+              "song": "Life and Times LP/10 - A Chorus of Crickets",
+              "path": "/Users/drwu/Desktop/IF YOU CAN'T FIND SOMETHING ITS HERE/Moises_Input/stems/htdemucs_6s/Life and times/Life and Times LP/10 - A Chorus of Crickets",
+              "stems": [
+                "bass.mp3",
+                "drums.mp3",
+                "guitar.mp3",
+                "other.mp3",
+                "piano.mp3",
+                "vocals.mp3"
+              ],
+              "format": "MP3"
+            },
+            {
+              "song": "Life and Times LP/11 - Coda",
+              "path": "/Users/drwu/Desktop/IF YOU CAN'T FIND SOMETHING ITS HERE/Moises_Input/stems/htdemucs_6s/Life and times/Life and Times LP/11 - Coda",
+              "stems": [
+                "bass.mp3",
+                "drums.mp3",
+                "guitar.mp3",
+                "other.mp3",
+                "piano.mp3",
+                "vocals.mp3"
+              ],
+              "format": "MP3"
+            }
+          ]
+        },
+        "Life_and_Times_Tragic_Boogie": {
+          "songs": [
+            {
+              "song": "stems/htdemucs_6s/01 - Asleep in the Trunk",
+              "path": "/Volumes/T7 Shield/Music to Stem/Life_and_Times_Tragic_Boogie/stems/htdemucs_6s/01 - Asleep in the Trunk",
+              "stems": [
+                "bass.mp3",
+                "drums.mp3",
+                "guitar.mp3",
+                "other.mp3",
+                "piano.mp3",
+                "vocals.mp3"
+              ],
+              "format": "MP3"
+            },
+            {
+              "song": "stems/htdemucs_6s/02 - The Alligator",
+              "path": "/Volumes/T7 Shield/Music to Stem/Life_and_Times_Tragic_Boogie/stems/htdemucs_6s/02 - The Alligator",
+              "stems": [
+                "bass.mp3",
+                "drums.mp3",
+                "guitar.mp3",
+                "other.mp3",
+                "piano.mp3",
+                "vocals.mp3"
+              ],
+              "format": "MP3"
+            },
+            {
+              "song": "stems/htdemucs_6s/03 - The Mutiny",
+              "path": "/Volumes/T7 Shield/Music to Stem/Life_and_Times_Tragic_Boogie/stems/htdemucs_6s/03 - The Mutiny",
+              "stems": [
+                "bass.mp3",
+                "drums.mp3",
+                "guitar.mp3",
+                "other.mp3",
+                "piano.mp3",
+                "vocals.mp3"
+              ],
+              "format": "MP3"
+            },
+            {
+              "song": "stems/htdemucs_6s/04 - So Far So",
+              "path": "/Volumes/T7 Shield/Music to Stem/Life_and_Times_Tragic_Boogie/stems/htdemucs_6s/04 - So Far So",
+              "stems": [
+                "bass.mp3",
+                "drums.mp3",
+                "guitar.mp3",
+                "other.mp3",
+                "piano.mp3",
+                "vocals.mp3"
+              ],
+              "format": "MP3"
+            },
+            {
+              "song": "stems/htdemucs_6s/05 - My Mirror Hates Me",
+              "path": "/Volumes/T7 Shield/Music to Stem/Life_and_Times_Tragic_Boogie/stems/htdemucs_6s/05 - My Mirror Hates Me",
+              "stems": [
+                "bass.mp3",
+                "drums.mp3",
+                "guitar.mp3",
+                "other.mp3",
+                "piano.mp3",
+                "vocals.mp3"
+              ],
+              "format": "MP3"
+            },
+            {
+              "song": "stems/htdemucs_6s/06 - Endless Summer",
+              "path": "/Volumes/T7 Shield/Music to Stem/Life_and_Times_Tragic_Boogie/stems/htdemucs_6s/06 - Endless Summer",
+              "stems": [
+                "bass.mp3",
+                "drums.mp3",
+                "guitar.mp3",
+                "other.mp3",
+                "piano.mp3",
+                "vocals.mp3"
+              ],
+              "format": "MP3"
+            },
+            {
+              "song": "stems/htdemucs_6s/07 - Lazarus",
+              "path": "/Volumes/T7 Shield/Music to Stem/Life_and_Times_Tragic_Boogie/stems/htdemucs_6s/07 - Lazarus",
+              "stems": [
+                "bass.mp3",
+                "drums.mp3",
+                "guitar.mp3",
+                "other.mp3",
+                "piano.mp3",
+                "vocals.mp3"
+              ],
+              "format": "MP3"
+            },
+            {
+              "song": "stems/htdemucs_6s/08 - Not Too Much",
+              "path": "/Volumes/T7 Shield/Music to Stem/Life_and_Times_Tragic_Boogie/stems/htdemucs_6s/08 - Not Too Much",
+              "stems": [
+                "bass.mp3",
+                "drums.mp3",
+                "guitar.mp3",
+                "other.mp3",
+                "piano.mp3",
+                "vocals.mp3"
+              ],
+              "format": "MP3"
+            },
+            {
+              "song": "stems/htdemucs_6s/09 - Broken Satellites",
+              "path": "/Volumes/T7 Shield/Music to Stem/Life_and_Times_Tragic_Boogie/stems/htdemucs_6s/09 - Broken Satellites",
+              "stems": [
+                "bass.mp3",
+                "drums.mp3",
+                "guitar.mp3",
+                "other.mp3",
+                "piano.mp3",
+                "vocals.mp3"
+              ],
+              "format": "MP3"
+            },
+            {
+              "song": "stems/htdemucs_6s/10 - Jackie",
+              "path": "/Volumes/T7 Shield/Music to Stem/Life_and_Times_Tragic_Boogie/stems/htdemucs_6s/10 - Jackie",
+              "stems": [
+                "bass.mp3",
+                "drums.mp3",
+                "guitar.mp3",
+                "other.mp3",
+                "piano.mp3",
+                "vocals.mp3"
+              ],
+              "format": "MP3"
+            }
+          ]
+        }
+      },
+      "Rush": {
+        "A Farewell To Kings": {
+          "songs": [
+            {
+              "song": "01 A Farewell To Kings",
+              "path": "/Users/drwu/Desktop/IF YOU CAN'T FIND SOMETHING ITS HERE/Moises_Input/stems/htdemucs_6s/A Farewell To Kings/01 A Farewell To Kings",
+              "stems": [
+                "bass.wav",
+                "drums.wav",
+                "guitar.wav",
+                "other.wav",
+                "piano.wav",
+                "vocals.wav"
+              ],
+              "format": "WAV"
+            },
+            {
+              "song": "02 Xanadu",
+              "path": "/Users/drwu/Desktop/IF YOU CAN'T FIND SOMETHING ITS HERE/Moises_Input/stems/htdemucs_6s/A Farewell To Kings/02 Xanadu",
+              "stems": [
+                "bass.wav",
+                "drums.wav",
+                "guitar.wav",
+                "other.wav",
+                "piano.wav",
+                "vocals.wav"
+              ],
+              "format": "WAV"
+            },
+            {
+              "song": "03 Closer To The Heart",
+              "path": "/Users/drwu/Desktop/IF YOU CAN'T FIND SOMETHING ITS HERE/Moises_Input/stems/htdemucs_6s/A Farewell To Kings/03 Closer To The Heart",
+              "stems": [
+                "bass.wav",
+                "drums.wav",
+                "guitar.wav",
+                "other.wav",
+                "piano.wav",
+                "vocals.wav"
+              ],
+              "format": "WAV"
+            },
+            {
+              "song": "04 Cinderella Man",
+              "path": "/Users/drwu/Desktop/IF YOU CAN'T FIND SOMETHING ITS HERE/Moises_Input/stems/htdemucs_6s/A Farewell To Kings/04 Cinderella Man",
+              "stems": [
+                "bass.wav",
+                "drums.wav",
+                "guitar.wav",
+                "other.wav",
+                "piano.wav",
+                "vocals.wav"
+              ],
+              "format": "WAV"
+            },
+            {
+              "song": "05 Madrigal",
+              "path": "/Users/drwu/Desktop/IF YOU CAN'T FIND SOMETHING ITS HERE/Moises_Input/stems/htdemucs_6s/A Farewell To Kings/05 Madrigal",
+              "stems": [
+                "bass.wav",
+                "drums.wav",
+                "guitar.wav",
+                "other.wav",
+                "piano.wav",
+                "vocals.wav"
+              ],
+              "format": "WAV"
+            },
+            {
+              "song": "06 Cygnus X-1",
+              "path": "/Users/drwu/Desktop/IF YOU CAN'T FIND SOMETHING ITS HERE/Moises_Input/stems/htdemucs_6s/A Farewell To Kings/06 Cygnus X-1",
+              "stems": [
+                "bass.wav",
+                "drums.wav",
+                "guitar.wav",
+                "other.wav",
+                "piano.wav",
+                "vocals.wav"
+              ],
+              "format": "WAV"
+            }
+          ]
+        }
+      },
+      "Nine Inch Nails": {
+        "nin-flat6-analysis": {
+          "songs": [
+            {
+              "song": "discipline_raw/Discipline Multi-Tracks/Audio Files",
+              "path": "/Users/drwu/Desktop/IF YOU CAN'T FIND SOMETHING ITS HERE/nin-flat6-analysis/discipline_raw/Discipline Multi-Tracks/Audio Files",
+              "stems": [
+                "Discipline Bass.flac",
+                "Discipline Drums.flac",
+                "Discipline Piano.flac"
+              ],
+              "format": "FLAC"
+            },
+            {
+              "song": "songs/discipline",
+              "path": "/Users/drwu/Desktop/IF YOU CAN'T FIND SOMETHING ITS HERE/nin-flat6-analysis/songs/discipline",
+              "stems": [
+                "bass.flac",
+                "drums.flac",
+                "guitar.flac",
+                "piano.flac",
+                "vocals.flac"
+              ],
+              "format": "FLAC"
+            }
+          ]
+        }
+      },
+      "Music Production": {
+        "ALL MY WAV": {
+          "songs": [
+            {
+              "song": "Drums",
+              "path": "/Users/drwu/Music/Music Production/ALL MY WAV/Drums",
+              "stems": [
+                "02 - Keys-drums-E minor-88bpm-441hz.wav",
+                "Guitar And Video Games - Sunny Day Real Estate - Drum cover - Yo-drums-F major-143bpm-443hz.wav"
+              ],
+              "format": "WAV"
+            }
+          ]
+        }
+      },
+      "Phish": {
+        "Anatomy-Jams": {
+          "songs": [
+            {
+              "song": "1994-07-08-reba",
+              "path": "/Users/drwu/Desktop/Anatomy-Jams/1994-07-08-reba/stems",
+              "stems": [
+                "bass.mp3",
+                "drums.mp3",
+                "guitar.mp3",
+                "keys.mp3"
+              ],
+              "format": "MP3"
+            },
+            {
+              "song": "1994-07-08-reba / jam",
+              "path": "/Users/drwu/Desktop/Anatomy-Jams/1994-07-08-reba/stems_jam/htdemucs_6s/jam",
+              "stems": [
+                "bass.mp3",
+                "bass.wav",
+                "drums.mp3",
+                "drums.wav",
+                "guitar.mp3",
+                "guitar.wav",
+                "other.mp3",
+                "other.wav",
+                "piano.mp3",
+                "piano.wav",
+                "vocals.mp3",
+                "vocals.wav"
+              ],
+              "format": "WAV"
+            },
+            {
+              "song": "1994-11-26-bowie",
+              "path": "/Users/drwu/Desktop/Anatomy-Jams/1994-11-26-bowie/stems",
+              "stems": [
+                "bass.mp3",
+                "drums.mp3",
+                "guitar.mp3",
+                "other.mp3",
+                "piano.mp3",
+                "vocals.mp3"
+              ],
+              "format": "MP3"
+            },
+            {
+              "song": "1994-11-26-bowie / _orig",
+              "path": "/Users/drwu/Desktop/Anatomy-Jams/1994-11-26-bowie/stems/_orig",
+              "stems": [
+                "bass.mp3",
+                "drums.mp3",
+                "guitar.mp3",
+                "other.mp3",
+                "piano.mp3",
+                "vocals.mp3"
+              ],
+              "format": "MP3"
+            },
+            {
+              "song": "1994-11-26-bowie / jam",
+              "path": "/Users/drwu/Desktop/Anatomy-Jams/1994-11-26-bowie/stems_raw/htdemucs_6s/jam",
+              "stems": [
+                "bass.mp3",
+                "drums.mp3",
+                "guitar.mp3",
+                "other.mp3",
+                "piano.mp3",
+                "vocals.mp3"
+              ],
+              "format": "MP3"
+            }
+          ]
+        },
+        "lp18-dallas-jam": {
+          "songs": [
+            {
+              "song": "(jam)",
+              "path": "/Users/drwu/Desktop/_Archive/Phish Media/lp18-dallas-jam/stems",
+              "stems": [
+                "bass.wav",
+                "drums.wav",
+                "guitar.wav",
+                "keys.wav"
+              ],
+              "format": "WAV"
+            },
+            {
+              "song": "jam",
+              "path": "/Users/drwu/Desktop/_Archive/Phish Media/lp18-dallas-jam/stems_raw/htdemucs/jam",
+              "stems": [
+                "bass.wav",
+                "drums.wav",
+                "other.wav",
+                "vocals.wav"
+              ],
+              "format": "WAV"
+            },
+            {
+              "song": "stems",
+              "path": "/Volumes/T7 Shield/Phish Media/lp18-dallas-jam/stems",
+              "stems": [
+                "bass.wav",
+                "drums.wav",
+                "guitar.wav",
+                "keys.wav"
+              ],
+              "format": "WAV"
+            },
+            {
+              "song": "stems_raw/htdemucs/jam",
+              "path": "/Volumes/T7 Shield/Phish Media/lp18-dallas-jam/stems_raw/htdemucs/jam",
+              "stems": [
+                "bass.wav",
+                "drums.wav",
+                "other.wav",
+                "vocals.wav"
+              ],
+              "format": "WAV"
+            }
+          ]
+        },
+        "Phish jams": {
+          "songs": [
+            {
+              "song": "2004-06-26-alpine-valley-jam",
+              "path": "/Users/drwu/Desktop/_Archive/Phish Media/Phish jams/2004-06-26-alpine-valley-jam/stems",
+              "stems": [
+                "bass.wav",
+                "drums.wav",
+                "guitar.wav",
+                "keys.wav"
+              ],
+              "format": "WAV"
+            },
+            {
+              "song": "2004-06-26-alpine-valley-jam / jam",
+              "path": "/Users/drwu/Desktop/_Archive/Phish Media/Phish jams/2004-06-26-alpine-valley-jam/stems_raw/htdemucs/jam",
+              "stems": [
+                "bass.wav",
+                "drums.wav",
+                "other.wav",
+                "vocals.wav"
+              ],
+              "format": "WAV"
+            },
+            {
+              "song": "2025-04-18-back-on-the-train / jam",
+              "path": "/Users/drwu/Desktop/_Archive/Phish Media/Phish jams/2025-04-18-back-on-the-train/stems_raw/htdemucs_6s/jam",
+              "stems": [
+                "guitar.wav",
+                "other.wav",
+                "piano.wav"
+              ],
+              "format": "WAV"
+            },
+            {
+              "song": "2025-04-18-back-on-the-train/stems_raw/htdemucs_6s/jam",
+              "path": "/Volumes/T7 Shield/Phish Media/Phish jams/2025-04-18-back-on-the-train/stems_raw/htdemucs_6s/jam",
+              "stems": [
+                "guitar.wav",
+                "other.wav",
+                "piano.wav"
+              ],
+              "format": "WAV"
+            },
+            {
+              "song": "2025-04-18-wgtym / jam",
+              "path": "/Users/drwu/Desktop/_Archive/Phish Media/Phish jams/2025-04-18-wgtym/stems_raw/htdemucs_6s/jam",
+              "stems": [
+                "drums.wav",
+                "other.wav"
+              ],
+              "format": "WAV"
+            },
+            {
+              "song": "2025-04-20-awoh / jam",
+              "path": "/Users/drwu/Desktop/_Archive/Phish Media/Phish jams/2025-04-20-awoh/stems_raw/htdemucs_6s/jam",
+              "stems": [
+                "bass.wav",
+                "other.wav"
+              ],
+              "format": "WAV"
+            },
+            {
+              "song": "2025-04-20-awoh/stems_raw/htdemucs_6s/jam",
+              "path": "/Volumes/T7 Shield/Phish Media/Phish jams/2025-04-20-awoh/stems_raw/htdemucs_6s/jam",
+              "stems": [
+                "bass.wav",
+                "other.wav"
+              ],
+              "format": "WAV"
+            },
+            {
+              "song": "2025-04-20-plasma / jam",
+              "path": "/Users/drwu/Desktop/_Archive/Phish Media/Phish jams/2025-04-20-plasma/stems_raw/htdemucs_6s/jam",
+              "stems": [
+                "bass.wav",
+                "drums.wav",
+                "guitar.wav"
+              ],
+              "format": "WAV"
+            },
+            {
+              "song": "2025-04-22-carini / jam",
+              "path": "/Users/drwu/Desktop/_Archive/Phish Media/Phish jams/2025-04-22-carini/stems_raw/htdemucs_6s/jam",
+              "stems": [
+                "drums.wav",
+                "other.wav",
+                "piano.wav"
+              ],
+              "format": "WAV"
+            },
+            {
+              "song": "2025-04-22-ruby-waves / jam",
+              "path": "/Users/drwu/Desktop/_Archive/Phish Media/Phish jams/2025-04-22-ruby-waves/stems_raw/htdemucs_6s/jam",
+              "stems": [
+                "drums.wav",
+                "vocals.wav"
+              ],
+              "format": "WAV"
+            },
+            {
+              "song": "2025-04-22-ruby-waves/stems_raw/htdemucs_6s/jam",
+              "path": "/Volumes/T7 Shield/Phish Media/Phish jams/2025-04-22-ruby-waves/stems_raw/htdemucs_6s/jam",
+              "stems": [
+                "drums.wav",
+                "vocals.wav"
+              ],
+              "format": "WAV"
+            },
+            {
+              "song": "2025-04-23-gumbo / jam",
+              "path": "/Users/drwu/Desktop/_Archive/Phish Media/Phish jams/2025-04-23-gumbo/stems_raw/htdemucs_6s/jam",
+              "stems": [
+                "drums.wav",
+                "other.wav"
+              ],
+              "format": "WAV"
+            },
+            {
+              "song": "2025-04-26-everythings-right / jam",
+              "path": "/Users/drwu/Desktop/_Archive/Phish Media/Phish jams/2025-04-26-everythings-right/stems_raw/htdemucs_6s/jam",
+              "stems": [
+                "drums.wav",
+                "other.wav"
+              ],
+              "format": "WAV"
+            },
+            {
+              "song": "2025-04-26-everythings-right/stems_raw/htdemucs_6s/jam",
+              "path": "/Volumes/T7 Shield/Phish Media/Phish jams/2025-04-26-everythings-right/stems_raw/htdemucs_6s/jam",
+              "stems": [
+                "drums.wav",
+                "other.wav"
+              ],
+              "format": "WAV"
+            }
+          ]
+        },
+        "lp11-denver-jam": {
+          "songs": [
+            {
+              "song": "(jam)",
+              "path": "/Users/drwu/Desktop/_Archive/Phish Media/lp11-denver-jam/stems",
+              "stems": [
+                "bass.wav",
+                "drums.wav",
+                "guitar.wav",
+                "keys.wav"
+              ],
+              "format": "WAV"
+            },
+            {
+              "song": "jam",
+              "path": "/Users/drwu/Desktop/_Archive/Phish Media/lp11-denver-jam/stems_raw/htdemucs/jam",
+              "stems": [
+                "bass.wav",
+                "drums.wav",
+                "other.wav",
+                "vocals.wav"
+              ],
+              "format": "WAV"
+            }
+          ]
+        },
+        "lp17-portland-jam": {
+          "songs": [
+            {
+              "song": "(jam)",
+              "path": "/Users/drwu/Desktop/_Archive/Phish Media/lp17-portland-jam/stems",
+              "stems": [
+                "bass.wav",
+                "drums.wav",
+                "guitar.wav",
+                "keys.wav"
+              ],
+              "format": "WAV"
+            },
+            {
+              "song": "jam",
+              "path": "/Users/drwu/Desktop/_Archive/Phish Media/lp17-portland-jam/stems_raw/htdemucs/jam",
+              "stems": [
+                "bass.wav",
+                "drums.wav",
+                "other.wav"
+              ],
+              "format": "WAV"
+            }
+          ]
+        },
+        "phsih jams": {
+          "songs": [
+            {
+              "song": "2025-04-18-back-on-the-train / jam",
+              "path": "/Users/drwu/Desktop/_Archive/Phish Media/phsih jams/2025-04-18-back-on-the-train/stems_raw/htdemucs_6s/jam",
+              "stems": [
+                "bass.wav",
+                "drums.wav",
+                "vocals.wav"
+              ],
+              "format": "WAV"
+            },
+            {
+              "song": "2025-04-18-golden-age / jam",
+              "path": "/Users/drwu/Desktop/_Archive/Phish Media/phsih jams/2025-04-18-golden-age/stems_raw/htdemucs_6s/jam",
+              "stems": [
+                "bass.wav",
+                "drums.wav",
+                "guitar.wav",
+                "other.wav",
+                "piano.wav",
+                "vocals.wav"
+              ],
+              "format": "WAV"
+            },
+            {
+              "song": "2025-04-18-wgtym / jam",
+              "path": "/Users/drwu/Desktop/_Archive/Phish Media/phsih jams/2025-04-18-wgtym/stems_raw/htdemucs_6s/jam",
+              "stems": [
+                "bass.wav",
+                "guitar.wav",
+                "piano.wav",
+                "vocals.wav"
+              ],
+              "format": "WAV"
+            },
+            {
+              "song": "2025-04-19-chalk-dust-torture-2 / jam",
+              "path": "/Users/drwu/Desktop/_Archive/Phish Media/phsih jams/2025-04-19-chalk-dust-torture-2/stems_raw/htdemucs_6s/jam",
+              "stems": [
+                "bass.wav",
+                "drums.wav",
+                "guitar.wav",
+                "other.wav",
+                "piano.wav",
+                "vocals.wav"
+              ],
+              "format": "WAV"
+            },
+            {
+              "song": "2025-04-20-awoh / jam",
+              "path": "/Users/drwu/Desktop/_Archive/Phish Media/phsih jams/2025-04-20-awoh/stems_raw/htdemucs_6s/jam",
+              "stems": [
+                "drums.wav",
+                "guitar.wav",
+                "piano.wav",
+                "vocals.wav"
+              ],
+              "format": "WAV"
+            },
+            {
+              "song": "2025-04-20-plasma / jam",
+              "path": "/Users/drwu/Desktop/_Archive/Phish Media/phsih jams/2025-04-20-plasma/stems_raw/htdemucs_6s/jam",
+              "stems": [
+                "other.wav",
+                "piano.wav",
+                "vocals.wav"
+              ],
+              "format": "WAV"
+            },
+            {
+              "song": "2025-04-20-sigma-oasis / jam",
+              "path": "/Users/drwu/Desktop/_Archive/Phish Media/phsih jams/2025-04-20-sigma-oasis/stems_raw/htdemucs_6s/jam",
+              "stems": [
+                "bass.wav",
+                "drums.wav",
+                "guitar.wav",
+                "other.wav",
+                "piano.wav"
+              ],
+              "format": "WAV"
+            },
+            {
+              "song": "2025-04-22-carini / jam",
+              "path": "/Users/drwu/Desktop/_Archive/Phish Media/phsih jams/2025-04-22-carini/stems_raw/htdemucs_6s/jam",
+              "stems": [
+                "bass.wav",
+                "guitar.wav",
+                "vocals.wav"
+              ],
+              "format": "WAV"
+            },
+            {
+              "song": "2025-04-22-halleys-comet / jam",
+              "path": "/Users/drwu/Desktop/_Archive/Phish Media/phsih jams/2025-04-22-halleys-comet/stems_raw/htdemucs_6s/jam",
+              "stems": [
+                "bass.wav",
+                "drums.wav",
+                "guitar.wav",
+                "other.wav",
+                "piano.wav"
+              ],
+              "format": "WAV"
+            },
+            {
+              "song": "2025-04-22-ruby-waves / jam",
+              "path": "/Users/drwu/Desktop/_Archive/Phish Media/phsih jams/2025-04-22-ruby-waves/stems_raw/htdemucs_6s/jam",
+              "stems": [
+                "bass.wav",
+                "guitar.wav",
+                "other.wav",
+                "piano.wav"
+              ],
+              "format": "WAV"
+            },
+            {
+              "song": "2025-04-23-gumbo / jam",
+              "path": "/Users/drwu/Desktop/_Archive/Phish Media/phsih jams/2025-04-23-gumbo/stems_raw/htdemucs_6s/jam",
+              "stems": [
+                "bass.wav",
+                "guitar.wav",
+                "piano.wav",
+                "vocals.wav"
+              ],
+              "format": "WAV"
+            },
+            {
+              "song": "2025-04-23-tweezer / jam",
+              "path": "/Users/drwu/Desktop/_Archive/Phish Media/phsih jams/2025-04-23-tweezer/stems_raw/htdemucs_6s/jam",
+              "stems": [
+                "bass.wav",
+                "drums.wav",
+                "guitar.wav",
+                "other.wav",
+                "piano.wav",
+                "vocals.wav"
+              ],
+              "format": "WAV"
+            },
+            {
+              "song": "2025-04-25-chalk-dust-torture-1 / jam",
+              "path": "/Users/drwu/Desktop/_Archive/Phish Media/phsih jams/2025-04-25-chalk-dust-torture-1/stems_raw/htdemucs_6s/jam",
+              "stems": [
+                "bass.wav",
+                "drums.wav",
+                "guitar.wav",
+                "other.wav",
+                "vocals.wav"
+              ],
+              "format": "WAV"
+            },
+            {
+              "song": "2025-04-25-light / jam",
+              "path": "/Users/drwu/Desktop/_Archive/Phish Media/phsih jams/2025-04-25-light/stems_raw/htdemucs_6s/jam",
+              "stems": [
+                "bass.wav",
+                "guitar.wav",
+                "other.wav",
+                "piano.wav",
+                "vocals.wav"
+              ],
+              "format": "WAV"
+            },
+            {
+              "song": "2025-04-26-everythings-right / jam",
+              "path": "/Users/drwu/Desktop/_Archive/Phish Media/phsih jams/2025-04-26-everythings-right/stems_raw/htdemucs_6s/jam",
+              "stems": [
+                "bass.wav",
+                "guitar.wav",
+                "piano.wav",
+                "vocals.wav"
+              ],
+              "format": "WAV"
+            },
+            {
+              "song": "2025-04-27-timber / jam",
+              "path": "/Users/drwu/Desktop/_Archive/Phish Media/phsih jams/2025-04-27-timber/stems_raw/htdemucs_6s/jam",
+              "stems": [
+                "bass.wav",
+                "drums.wav",
+                "guitar.wav",
+                "other.wav",
+                "piano.wav",
+                "vocals.wav"
+              ],
+              "format": "WAV"
+            },
+            {
+              "song": "2025-04-27-twist / jam",
+              "path": "/Users/drwu/Desktop/_Archive/Phish Media/phsih jams/2025-04-27-twist/stems_raw/htdemucs_6s/jam",
+              "stems": [
+                "bass.wav",
+                "drums.wav",
+                "guitar.wav",
+                "other.wav",
+                "piano.wav",
+                "vocals.wav"
+              ],
+              "format": "WAV"
+            }
+          ]
+        }
+      },
+      "(Black drive)": {
+        "more": {
+          "songs": [
+            {
+              "song": "(song)",
+              "path": "/Volumes/Black/_Music-Production/more",
+              "stems": [
+                "Bass 0022 [2021-05-29 201653].aif",
+                "Guitar 0001 [2024-05-29 220715].wav"
+              ],
+              "format": "WAV"
+            }
+          ]
+        },
+        "My-Library-drum-samples": {
+          "songs": [
+            {
+              "song": "drum loops/48 kHz WAV Stereo Loops/60bpm_Amin_SlowPocket/60_Break1",
+              "path": "/Volumes/Black/_Music-Production/My-Library-drum-samples/drum loops/48 kHz WAV Stereo Loops/60bpm_Amin_SlowPocket/60_Break1",
+              "stems": [
+                "60_Break1_Drums.wav",
+                "60_Break1_Guitar_Bass.wav"
+              ],
+              "format": "WAV"
+            },
+            {
+              "song": "drum loops/48 kHz WAV Stereo Loops/60bpm_Amin_SlowPocket/60_Break2",
+              "path": "/Volumes/Black/_Music-Production/My-Library-drum-samples/drum loops/48 kHz WAV Stereo Loops/60bpm_Amin_SlowPocket/60_Break2",
+              "stems": [
+                "60_Break2_Drums.wav",
+                "60_Break2_Guitar_Bass.wav"
+              ],
+              "format": "WAV"
+            },
+            {
+              "song": "drum loops/48 kHz WAV Stereo Loops/60bpm_Amin_SlowPocket/60_Break3",
+              "path": "/Volumes/Black/_Music-Production/My-Library-drum-samples/drum loops/48 kHz WAV Stereo Loops/60bpm_Amin_SlowPocket/60_Break3",
+              "stems": [
+                "60_Break3_Drums.wav",
+                "60_Break3_Guitar_Bass.wav"
+              ],
+              "format": "WAV"
+            },
+            {
+              "song": "drum loops/48 kHz WAV Stereo Loops/60bpm_Amin_SlowPocket/60_Break4",
+              "path": "/Volumes/Black/_Music-Production/My-Library-drum-samples/drum loops/48 kHz WAV Stereo Loops/60bpm_Amin_SlowPocket/60_Break4",
+              "stems": [
+                "60_Break4_Drums.wav",
+                "60_Break4_Guitar_Bass.wav"
+              ],
+              "format": "WAV"
+            },
+            {
+              "song": "drum loops/48 kHz WAV Stereo Loops/60bpm_Amin_SlowPocket/60_End1",
+              "path": "/Volumes/Black/_Music-Production/My-Library-drum-samples/drum loops/48 kHz WAV Stereo Loops/60bpm_Amin_SlowPocket/60_End1",
+              "stems": [
+                "60_End1_Drums.wav",
+                "60_End1_Guitar_Bass.wav"
+              ],
+              "format": "WAV"
+            },
+            {
+              "song": "drum loops/48 kHz WAV Stereo Loops/60bpm_Amin_SlowPocket/60_Intro1",
+              "path": "/Volumes/Black/_Music-Production/My-Library-drum-samples/drum loops/48 kHz WAV Stereo Loops/60bpm_Amin_SlowPocket/60_Intro1",
+              "stems": [
+                "60_Intro1_Drums.wav",
+                "60_Intro1_Guitar_Bass.wav"
+              ],
+              "format": "WAV"
+            },
+            {
+              "song": "drum loops/48 kHz WAV Stereo Loops/60bpm_Amin_SlowPocket/60_Intro2",
+              "path": "/Volumes/Black/_Music-Production/My-Library-drum-samples/drum loops/48 kHz WAV Stereo Loops/60bpm_Amin_SlowPocket/60_Intro2",
+              "stems": [
+                "60_Intro2_Drums.wav",
+                "60_Intro2_Guitar_Bass.wav"
+              ],
+              "format": "WAV"
+            },
+            {
+              "song": "drum loops/48 kHz WAV Stereo Loops/60bpm_Amin_SlowPocket/60_Intro3",
+              "path": "/Volumes/Black/_Music-Production/My-Library-drum-samples/drum loops/48 kHz WAV Stereo Loops/60bpm_Amin_SlowPocket/60_Intro3",
+              "stems": [
+                "60_Intro3_Drums.wav",
+                "60_Intro3_Guitar_Bass.wav"
+              ],
+              "format": "WAV"
+            },
+            {
+              "song": "drum loops/48 kHz WAV Stereo Loops/60bpm_Amin_SlowPocket/60_Intro4",
+              "path": "/Volumes/Black/_Music-Production/My-Library-drum-samples/drum loops/48 kHz WAV Stereo Loops/60bpm_Amin_SlowPocket/60_Intro4",
+              "stems": [
+                "60_Intro4_Drums.wav",
+                "60_Intro4_Guitar_Bass.wav"
+              ],
+              "format": "WAV"
+            },
+            {
+              "song": "drum loops/48 kHz WAV Stereo Loops/60bpm_Amin_SlowPocket/60_Intro5",
+              "path": "/Volumes/Black/_Music-Production/My-Library-drum-samples/drum loops/48 kHz WAV Stereo Loops/60bpm_Amin_SlowPocket/60_Intro5",
+              "stems": [
+                "60_Intro5_Drums.wav",
+                "60_Intro5_Guitar_Bass.wav"
+              ],
+              "format": "WAV"
+            },
+            {
+              "song": "drum loops/48 kHz WAV Stereo Loops/60bpm_Amin_SlowPocket/60_Outro1",
+              "path": "/Volumes/Black/_Music-Production/My-Library-drum-samples/drum loops/48 kHz WAV Stereo Loops/60bpm_Amin_SlowPocket/60_Outro1",
+              "stems": [
+                "60_Outro1_Drums.wav",
+                "60_Outro1_Guitar_Bass.wav"
+              ],
+              "format": "WAV"
+            },
+            {
+              "song": "drum loops/48 kHz WAV Stereo Loops/60bpm_Amin_SlowPocket/60_Outro3Fill",
+              "path": "/Volumes/Black/_Music-Production/My-Library-drum-samples/drum loops/48 kHz WAV Stereo Loops/60bpm_Amin_SlowPocket/60_Outro3Fill",
+              "stems": [
+                "60_Outro3Fill_Drums.wav",
+                "60_Outro3Fill_Guitar_Bass.wav"
+              ],
+              "format": "WAV"
+            },
+            {
+              "song": "drum loops/48 kHz WAV Stereo Loops/60bpm_Amin_SlowPocket/60_Outro4",
+              "path": "/Volumes/Black/_Music-Production/My-Library-drum-samples/drum loops/48 kHz WAV Stereo Loops/60bpm_Amin_SlowPocket/60_Outro4",
+              "stems": [
+                "60_Outro4_Drums.wav",
+                "60_Outro4_Guitar_Bass.wav"
+              ],
+              "format": "WAV"
+            },
+            {
+              "song": "drum loops/48 kHz WAV Stereo Loops/60bpm_Amin_SlowPocket/60_Outro5",
+              "path": "/Volumes/Black/_Music-Production/My-Library-drum-samples/drum loops/48 kHz WAV Stereo Loops/60bpm_Amin_SlowPocket/60_Outro5",
+              "stems": [
+                "60_Outro5_Drums.wav",
+                "60_Outro5_Guitar_Bass.wav"
+              ],
+              "format": "WAV"
+            },
+            {
+              "song": "drum loops/48 kHz WAV Stereo Loops/60bpm_Amin_SlowPocket/60_Solo1",
+              "path": "/Volumes/Black/_Music-Production/My-Library-drum-samples/drum loops/48 kHz WAV Stereo Loops/60bpm_Amin_SlowPocket/60_Solo1",
+              "stems": [
+                "60_Solo1_Drums.wav",
+                "60_Solo1_Guitar_Bass.wav"
+              ],
+              "format": "WAV"
+            },
+            {
+              "song": "drum loops/48 kHz WAV Stereo Loops/60bpm_Amin_SlowPocket/60_Solo2",
+              "path": "/Volumes/Black/_Music-Production/My-Library-drum-samples/drum loops/48 kHz WAV Stereo Loops/60bpm_Amin_SlowPocket/60_Solo2",
+              "stems": [
+                "60_Solo2_Drums.wav",
+                "60_Solo2_Guitar_Bass.wav"
+              ],
+              "format": "WAV"
+            },
+            {
+              "song": "drum loops/48 kHz WAV Stereo Loops/60bpm_Amin_SlowPocket/60_Verse1",
+              "path": "/Volumes/Black/_Music-Production/My-Library-drum-samples/drum loops/48 kHz WAV Stereo Loops/60bpm_Amin_SlowPocket/60_Verse1",
+              "stems": [
+                "60_Verse1_Drums.wav",
+                "60_Verse1_Guitar_Bass.wav"
+              ],
+              "format": "WAV"
+            },
+            {
+              "song": "drum loops/48 kHz WAV Stereo Loops/60bpm_Amin_SlowPocket/60_Verse2",
+              "path": "/Volumes/Black/_Music-Production/My-Library-drum-samples/drum loops/48 kHz WAV Stereo Loops/60bpm_Amin_SlowPocket/60_Verse2",
+              "stems": [
+                "60_Verse2_Drums.wav",
+                "60_Verse2_Guitar_Bass.wav"
+              ],
+              "format": "WAV"
+            },
+            {
+              "song": "drum loops/48 kHz WAV Stereo Loops/60bpm_Amin_SlowPocket/60_Verse3",
+              "path": "/Volumes/Black/_Music-Production/My-Library-drum-samples/drum loops/48 kHz WAV Stereo Loops/60bpm_Amin_SlowPocket/60_Verse3",
+              "stems": [
+                "60_Verse3_Drums.wav",
+                "60_Verse3_Guitar_Bass.wav"
+              ],
+              "format": "WAV"
+            },
+            {
+              "song": "drum loops/48 kHz WAV Stereo Loops/60bpm_Amin_SlowPocket/60_Verse4",
+              "path": "/Volumes/Black/_Music-Production/My-Library-drum-samples/drum loops/48 kHz WAV Stereo Loops/60bpm_Amin_SlowPocket/60_Verse4",
+              "stems": [
+                "60_Verse4_Drums.wav",
+                "60_Verse4_Guitar_Bass.wav"
+              ],
+              "format": "WAV"
+            },
+            {
+              "song": "drum loops/48 kHz WAV Stereo Loops/77bpm_Bb_16thFunk/77_Break1",
+              "path": "/Volumes/Black/_Music-Production/My-Library-drum-samples/drum loops/48 kHz WAV Stereo Loops/77bpm_Bb_16thFunk/77_Break1",
+              "stems": [
+                "77_Break1_Drums.wav",
+                "77_Break1_Guitar_Bass.wav"
+              ],
+              "format": "WAV"
+            },
+            {
+              "song": "drum loops/48 kHz WAV Stereo Loops/77bpm_Bb_16thFunk/77_Break2Crash",
+              "path": "/Volumes/Black/_Music-Production/My-Library-drum-samples/drum loops/48 kHz WAV Stereo Loops/77bpm_Bb_16thFunk/77_Break2Crash",
+              "stems": [
+                "77_Break2Crash_Drums.wav",
+                "77_Break2Crash_Guitar_Bass.wav"
+              ],
+              "format": "WAV"
+            },
+            {
+              "song": "drum loops/48 kHz WAV Stereo Loops/77bpm_Bb_16thFunk/77_Break3",
+              "path": "/Volumes/Black/_Music-Production/My-Library-drum-samples/drum loops/48 kHz WAV Stereo Loops/77bpm_Bb_16thFunk/77_Break3",
+              "stems": [
+                "77_Break3_Drums.wav",
+                "77_Break3_Guitar_Bass.wav"
+              ],
+              "format": "WAV"
+            },
+            {
+              "song": "drum loops/48 kHz WAV Stereo Loops/77bpm_Bb_16thFunk/77_Break4Fill",
+              "path": "/Volumes/Black/_Music-Production/My-Library-drum-samples/drum loops/48 kHz WAV Stereo Loops/77bpm_Bb_16thFunk/77_Break4Fill",
+              "stems": [
+                "77_Break4Fill_Drums.wav",
+                "77_Break4Fill_Guitar_Bass.wav"
+              ],
+              "format": "WAV"
+            },
+            {
+              "song": "drum loops/48 kHz WAV Stereo Loops/77bpm_Bb_16thFunk/77_Bridge1",
+              "path": "/Volumes/Black/_Music-Production/My-Library-drum-samples/drum loops/48 kHz WAV Stereo Loops/77bpm_Bb_16thFunk/77_Bridge1",
+              "stems": [
+                "77_Bridge1_Drums.wav",
+                "77_Bridge1_Guitar_Bass.wav"
+              ],
+              "format": "WAV"
+            },
+            {
+              "song": "drum loops/48 kHz WAV Stereo Loops/77bpm_Bb_16thFunk/77_Bridge2Fill",
+              "path": "/Volumes/Black/_Music-Production/My-Library-drum-samples/drum loops/48 kHz WAV Stereo Loops/77bpm_Bb_16thFunk/77_Bridge2Fill",
+              "stems": [
+                "77_Bridge2Fill_Drums.wav",
+                "77_Bridge2Fill_Guitar_Bass.wav"
+              ],
+              "format": "WAV"
+            },
+            {
+              "song": "drum loops/48 kHz WAV Stereo Loops/77bpm_Bb_16thFunk/77_Bridge3",
+              "path": "/Volumes/Black/_Music-Production/My-Library-drum-samples/drum loops/48 kHz WAV Stereo Loops/77bpm_Bb_16thFunk/77_Bridge3",
+              "stems": [
+                "77_Bridge3_Drums.wav",
+                "77_Bridge3_Guitar_Bass.wav"
+              ],
+              "format": "WAV"
+            },
+            {
+              "song": "drum loops/48 kHz WAV Stereo Loops/77bpm_Bb_16thFunk/77_Bridge4",
+              "path": "/Volumes/Black/_Music-Production/My-Library-drum-samples/drum loops/48 kHz WAV Stereo Loops/77bpm_Bb_16thFunk/77_Bridge4",
+              "stems": [
+                "77_Bridge4_Drums.wav",
+                "77_Bridge4_Guitar_Bass.wav"
+              ],
+              "format": "WAV"
+            },
+            {
+              "song": "drum loops/48 kHz WAV Stereo Loops/77bpm_Bb_16thFunk/77_Chill1",
+              "path": "/Volumes/Black/_Music-Production/My-Library-drum-samples/drum loops/48 kHz WAV Stereo Loops/77bpm_Bb_16thFunk/77_Chill1",
+              "stems": [
+                "77_Chill1_Drums.wav",
+                "77_Chill1_Guitar_Bass.wav"
+              ],
+              "format": "WAV"
+            },
+            {
+              "song": "drum loops/48 kHz WAV Stereo Loops/77bpm_Bb_16thFunk/77_Chill3",
+              "path": "/Volumes/Black/_Music-Production/My-Library-drum-samples/drum loops/48 kHz WAV Stereo Loops/77bpm_Bb_16thFunk/77_Chill3",
+              "stems": [
+                "77_Chill3_Drums.wav",
+                "77_Chill3_Guitar_Bass.wav"
+              ],
+              "format": "WAV"
+            },
+            {
+              "song": "drum loops/48 kHz WAV Stereo Loops/77bpm_Bb_16thFunk/77_Chill4",
+              "path": "/Volumes/Black/_Music-Production/My-Library-drum-samples/drum loops/48 kHz WAV Stereo Loops/77bpm_Bb_16thFunk/77_Chill4",
+              "stems": [
+                "77_Chill4_Drums.wav",
+                "77_Chill4_Guitar_Bass.wav"
+              ],
+              "format": "WAV"
+            },
+            {
+              "song": "drum loops/48 kHz WAV Stereo Loops/77bpm_Bb_16thFunk/77_DoubleTime1",
+              "path": "/Volumes/Black/_Music-Production/My-Library-drum-samples/drum loops/48 kHz WAV Stereo Loops/77bpm_Bb_16thFunk/77_DoubleTime1",
+              "stems": [
+                "77_DoubleT1_Drums.wav",
+                "77_DoubleT1_Guitar_Bass.wav"
+              ],
+              "format": "WAV"
+            },
+            {
+              "song": "drum loops/48 kHz WAV Stereo Loops/77bpm_Bb_16thFunk/77_DoubleTime2",
+              "path": "/Volumes/Black/_Music-Production/My-Library-drum-samples/drum loops/48 kHz WAV Stereo Loops/77bpm_Bb_16thFunk/77_DoubleTime2",
+              "stems": [
+                "77_DoubleT2_Drums.wav",
+                "77_DoubleT2_Guitar_Bass.wav"
+              ],
+              "format": "WAV"
+            },
+            {
+              "song": "drum loops/48 kHz WAV Stereo Loops/77bpm_Bb_16thFunk/77_Intro1",
+              "path": "/Volumes/Black/_Music-Production/My-Library-drum-samples/drum loops/48 kHz WAV Stereo Loops/77bpm_Bb_16thFunk/77_Intro1",
+              "stems": [
+                "77_Intro1_Drums.wav",
+                "77_Intro1_Guitar_Bass.wav"
+              ],
+              "format": "WAV"
+            },
+            {
+              "song": "drum loops/48 kHz WAV Stereo Loops/77bpm_Bb_16thFunk/77_Intro2",
+              "path": "/Volumes/Black/_Music-Production/My-Library-drum-samples/drum loops/48 kHz WAV Stereo Loops/77bpm_Bb_16thFunk/77_Intro2",
+              "stems": [
+                "77_Intro2_Drums.wav",
+                "77_Intro2_Guitar_Bass.wav"
+              ],
+              "format": "WAV"
+            },
+            {
+              "song": "drum loops/48 kHz WAV Stereo Loops/77bpm_Bb_16thFunk/77_TakeItToBridge",
+              "path": "/Volumes/Black/_Music-Production/My-Library-drum-samples/drum loops/48 kHz WAV Stereo Loops/77bpm_Bb_16thFunk/77_TakeItToBridge",
+              "stems": [
+                "77_ToBridge_Drums.wav",
+                "77_ToBridge_Guitar_Bass.wav"
+              ],
+              "format": "WAV"
+            },
+            {
+              "song": "drum loops/48 kHz WAV Stereo Loops/77bpm_Bb_16thFunk/77_Verse1",
+              "path": "/Volumes/Black/_Music-Production/My-Library-drum-samples/drum loops/48 kHz WAV Stereo Loops/77bpm_Bb_16thFunk/77_Verse1",
+              "stems": [
+                "77_Verse1_Drums.wav",
+                "77_Verse1_Guitar_Bass.wav"
+              ],
+              "format": "WAV"
+            },
+            {
+              "song": "drum loops/48 kHz WAV Stereo Loops/77bpm_Bb_16thFunk/77_Verse2",
+              "path": "/Volumes/Black/_Music-Production/My-Library-drum-samples/drum loops/48 kHz WAV Stereo Loops/77bpm_Bb_16thFunk/77_Verse2",
+              "stems": [
+                "77_Verse2_Drums.wav",
+                "77_Verse2_Guitar_Bass.wav"
+              ],
+              "format": "WAV"
+            },
+            {
+              "song": "drum loops/48 kHz WAV Stereo Loops/77bpm_Bb_16thFunk/77_Verse3",
+              "path": "/Volumes/Black/_Music-Production/My-Library-drum-samples/drum loops/48 kHz WAV Stereo Loops/77bpm_Bb_16thFunk/77_Verse3",
+              "stems": [
+                "77_Verse3_Drums.wav",
+                "77_Verse3_Guitar_Bass.wav"
+              ],
+              "format": "WAV"
+            },
+            {
+              "song": "drum loops/48 kHz WAV Stereo Loops/77bpm_Bb_16thFunk/77_Verse4",
+              "path": "/Volumes/Black/_Music-Production/My-Library-drum-samples/drum loops/48 kHz WAV Stereo Loops/77bpm_Bb_16thFunk/77_Verse4",
+              "stems": [
+                "77_Verse4_Drums.wav",
+                "77_Verse4_Guitar_Bass.wav"
+              ],
+              "format": "WAV"
+            }
+          ]
+        }
+      },
+      "Bands": {
+        "BACK_TO_THE_80S": {
+          "songs": [
+            {
+              "song": "TL3_ONE_HITS",
+              "path": "/Volumes/Black/_Music-Video-Library/Bands/BACK_TO_THE_80S/TL3_ONE_HITS",
+              "stems": [
+                "TL3_C_Boogie_Bass.wav",
+                "TL3_C_The_Ways_Synth.wav"
+              ],
+              "format": "WAV"
+            }
+          ]
+        }
+      },
+      "Goldfrapp": {
+        "Goldfrapp-Seventh-Tree": {
+          "songs": [
+            {
+              "song": "Goldfrapp-Seventh-Tree-02-Little-Bird",
+              "path": "/Volumes/T7 Shield/Stems/Goldfrapp-Seventh-Tree/Goldfrapp-Seventh-Tree-02-Little-Bird",
+              "stems": [
+                "bass.flac",
+                "drums.flac",
+                "guitar.flac",
+                "other.flac",
+                "piano.flac",
+                "vocals.flac"
+              ],
+              "format": "FLAC"
+            }
+          ]
+        },
+        "Moises_Stems": {
+          "songs": [
+            {
+              "song": "Goldfrapp-Seventh-Tree-01-Clowns",
+              "path": "/Volumes/T7 Shield/Moises_Stems/Goldfrapp-Seventh-Tree-01-Clowns",
+              "stems": [
+                "Goldfrapp-Seventh-Tree-01-Clowns-Other Guitar.wav",
+                "Goldfrapp-Seventh-Tree-01-Clowns-bass.wav",
+                "Goldfrapp-Seventh-Tree-01-Clowns-keys.wav",
+                "Goldfrapp-Seventh-Tree-01-Clowns-other drum.wav",
+                "Goldfrapp-Seventh-Tree-01-Clowns-other.wav",
+                "Goldfrapp-Seventh-Tree-01-Clowns-vocals.wav"
+              ],
+              "format": "WAV"
+            }
+          ]
+        }
+      },
+      "09 - Broken Satellites": {
+        "Music to Stem": {
+          "songs": [
+            {
+              "song": "09 - Broken Satellites",
+              "path": "/Volumes/T7 Shield/Music to Stem/09 - Broken Satellites",
+              "stems": [
+                "09 - Broken Satellites-Solo Guitars.wav",
+                "09 - Broken Satellites-bass.wav",
+                "09 - Broken Satellites-keys.wav",
+                "09 - Broken Satellites-other drum.wav",
+                "09 - Broken Satellites-other.wav",
+                "09 - Broken Satellites-vocals.wav"
+              ],
+              "format": "WAV"
+            }
+          ]
+        }
+      }
+    }
+  }
+};
+
+let activeMac = "__ALL__";   // "__ALL__" means combined view
+
+function allHostnames() { return Object.keys(ALL_INVENTORIES); }
+
+function combinedBands() {
+  // bands -> { albums: {alb: {songs: [{...song, host}]}} }
+  const out = {};
+  for (const host of allHostnames()) {
+    const inv = ALL_INVENTORIES[host];
+    for (const [band, albums] of Object.entries(inv.bands || {})) {
+      const b = out[band] = out[band] || {};
+      for (const [alb, info] of Object.entries(albums)) {
+        const a = b[alb] = b[alb] || { songs: [], placeholder: info.placeholder, note: info.note };
+        for (const s of info.songs) {
+          a.songs.push({ ...s, host });
+        }
+      }
+    }
+  }
+  return out;
+}
+
+function bandsForActiveMac() {
+  if (activeMac === "__ALL__") return combinedBands();
+  const inv = ALL_INVENTORIES[activeMac];
+  if (!inv) return {};
+  // Tag every song with its host
+  const out = {};
+  for (const [band, albums] of Object.entries(inv.bands || {})) {
+    const b = out[band] = {};
+    for (const [alb, info] of Object.entries(albums)) {
+      b[alb] = { ...info, songs: info.songs.map(s => ({ ...s, host: activeMac })) };
+    }
+  }
+  return out;
+}
+
+function songCount(albums) {
+  return Object.values(albums).reduce((n, alb) => n + (alb.placeholder ? 0 : alb.songs.length), 0);
+}
+
+function hostsForBand(band) {
+  const hosts = new Set();
+  for (const host of allHostnames()) {
+    if (ALL_INVENTORIES[host].bands && ALL_INVENTORIES[host].bands[band]) {
+      hosts.add(host);
+    }
+  }
+  return hosts;
+}
+
+// Pop the Mac picker
+function renderMacPicker() {
+  const wrap = document.getElementById('macPicker');
+  wrap.innerHTML = '';
+  const hosts = allHostnames();
+  const all = document.createElement('div');
+  all.className = 'mac-pill' + (activeMac === '__ALL__' ? ' active' : '');
+  all.textContent = `All Macs (${hosts.length})`;
+  all.addEventListener('click', () => { activeMac = '__ALL__'; render(); });
+  wrap.appendChild(all);
+  hosts.forEach(h => {
+    const pill = document.createElement('div');
+    pill.className = 'mac-pill' + (activeMac === h ? ' active' : '');
+    const inv = ALL_INVENTORIES[h];
+    pill.innerHTML = `${h}<span class="scan-time">${inv.scanned_at || ''}</span>`;
+    pill.addEventListener('click', () => { activeMac = h; render(); });
+    wrap.appendChild(pill);
+  });
+
+  const meta = document.getElementById('meta');
+  const totalSongs = hosts.reduce((sum, h) => {
+    return sum + Object.values(ALL_INVENTORIES[h].bands || {}).reduce((n, albs) =>
+      n + Object.values(albs).reduce((m, a) => m + (a.placeholder ? 0 : a.songs.length), 0), 0);
+  }, 0);
+  meta.textContent = `${hosts.length} Mac${hosts.length === 1 ? '' : 's'} indexed · ${totalSongs} stem-sets total`;
+}
+
+function renderBandList() {
+  const bl = document.getElementById('bandList');
+  bl.innerHTML = '';
+  const bands = bandsForActiveMac();
+  const allHosts = allHostnames();
+  const ordered = Object.keys(bands).sort((a, b) => a.localeCompare(b));
+  ordered.forEach(name => {
+    const count = songCount(bands[name]);
+    const tr = document.createElement('tr');
+    tr.dataset.band = name;
+    let tag = '';
+    if (activeMac === '__ALL__' && allHosts.length > 1) {
+      const hosts = hostsForBand(name);
+      if (hosts.size === allHosts.length) {
+        tag = ' <span class="both">both</span>';
+      } else if (hosts.size === 1) {
+        const only = Array.from(hosts)[0];
+        tag = ` <span class="only-here">only ${only}</span>`;
+      }
+    }
+    tr.innerHTML = `<td>${name}<span class="count">${count}</span>${tag}</td>`;
+    tr.addEventListener('click', () => selectBand(name));
+    bl.appendChild(tr);
+  });
+}
+
+let selectedBand = null;
+function selectBand(name) {
+  selectedBand = name;
+  document.querySelectorAll('#bandList tr').forEach(r =>
+    r.classList.toggle('selected', r.dataset.band === name));
+  renderDetail(name);
+}
+
+function renderDetail(name) {
+  const detail = document.getElementById('detail');
+  const bands = bandsForActiveMac();
+  const band = bands[name];
+  if (!band) { detail.innerHTML = '<div class="empty-state">No data for that band on this Mac.</div>'; return; }
+  let html = `<h2>${name}</h2>`;
+  const totalSongs = songCount(band);
+  html += `<div class="album-line">${Object.keys(band).length} album block${Object.keys(band).length === 1 ? '' : 's'} · ${totalSongs} stem set${totalSongs === 1 ? '' : 's'}</div>`;
+
+  Object.entries(band).forEach(([albumName, album]) => {
+    const isPlaceholder = !!album.placeholder;
+    html += `<div class="album-block">`;
+    html += `<div class="album-header">${albumName}${isPlaceholder ? ' <span class="placeholder-tag">placeholder</span>' : ''}</div>`;
+    if (album.note) html += `<div class="album-line" style="margin: -4px 0 10px">${album.note}</div>`;
+    const showHost = activeMac === '__ALL__';
+    html += `<table><thead><tr>`;
+    html += `<th style="width: 36%">Song</th><th>Stems</th><th>Format</th>`;
+    if (showHost) html += `<th>Mac</th>`;
+    html += `<th>Path</th></tr></thead><tbody>`;
+    album.songs.forEach(song => {
+      const stemsCell = isPlaceholder
+        ? '—'
+        : (song.stems || []).map(s => `<span>${s.replace(/\.[^.]+$/, '')}</span>`).join('');
+      const hostCell = showHost ? `<td class="host-tag">${song.host}</td>` : '';
+      html += `<tr><td>${song.song}</td><td class="stems">${stemsCell}</td><td class="fmt">${song.format || ''}</td>${hostCell}<td class="path">${song.path}</td></tr>`;
+    });
+    html += `</tbody></table></div>`;
+  });
+
+  html += `<div class="copy-hint">Click any path cell to copy it.</div>`;
+  detail.innerHTML = html;
+
+  detail.querySelectorAll('td.path').forEach(td => {
+    td.addEventListener('click', () => {
+      navigator.clipboard.writeText(td.textContent.trim());
+      const orig = td.style.color;
+      td.style.color = 'var(--accent)';
+      setTimeout(() => td.style.color = orig, 400);
+    });
+  });
+}
+
+function render() {
+  renderMacPicker();
+  renderBandList();
+  if (selectedBand) {
+    const tr = document.querySelector(`#bandList tr[data-band="${CSS.escape(selectedBand)}"]`);
+    if (tr) { tr.classList.add('selected'); renderDetail(selectedBand); }
+    else { document.getElementById('detail').innerHTML = '<div class="empty-state">Select a band on the left.</div>'; }
+  } else {
+    const first = document.querySelector('#bandList tr');
+    if (first) selectBand(first.dataset.band);
+  }
+}
+
+render();
+</script>
+
+</body>
+</html>

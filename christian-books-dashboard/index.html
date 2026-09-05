@@ -1,0 +1,319 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Christian Books — Rollout Dashboard</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Fraunces:opsz,wght@9..144,500;9..144,600&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/icon?family=Material+Icons+Round" rel="stylesheet">
+<style>
+  :root {
+    --bg: #faf9f6;
+    --bg-elev: #ffffff;
+    --ink: #111111;
+    --muted: #333333;
+    --amber: #c98a4a;
+    --amber-soft: #f3e4cf;
+    --rule: #ece5d8;
+    --ok: #4a7c3c;
+    --warn: #c98a4a;
+    --gate: #a14a3c;
+  }
+  * { box-sizing: border-box; }
+  body { margin:0; background:var(--bg); color:var(--ink); font-family:'Inter',-apple-system,sans-serif; font-size:14px; line-height:1.5; }
+  a { color:var(--amber); text-decoration:none; border-bottom:1px solid transparent; }
+  a:hover { border-bottom-color:var(--amber); }
+  .topbar { position:sticky; top:0; background:var(--bg); border-bottom:1px solid var(--rule); padding:18px 28px 14px; z-index:10; }
+  .topbar h1 { font-family:'Fraunces',Georgia,serif; font-weight:600; font-size:22px; margin:0; letter-spacing:-0.01em; }
+  .topbar .sub { color:var(--muted); font-size:12px; margin-top:3px; }
+  .stats { display:flex; gap:32px; padding:14px 28px; background:var(--bg-elev); border-bottom:1px solid var(--rule); }
+  .stat { display:flex; flex-direction:column; }
+  .stat .n { font-family:'Fraunces',serif; font-size:24px; font-weight:600; color:var(--ink); }
+  .stat .l { font-size:10px; letter-spacing:0.2em; text-transform:uppercase; color:var(--muted); margin-top:2px; }
+  .grid { display:grid; grid-template-columns:repeat(auto-fill, minmax(360px, 1fr)); gap:24px; padding:28px; }
+  .card { background:var(--bg-elev); border:1px solid var(--rule); border-radius:10px; overflow:hidden; display:flex; flex-direction:column; }
+  .cover-wrap { display:flex; gap:18px; padding:20px; border-bottom:1px solid var(--rule); align-items:flex-start; }
+  .cover-wrap img { width:120px; height:180px; object-fit:cover; border:1px solid var(--rule); box-shadow:0 2px 8px rgba(0,0,0,0.06); }
+  .card-meta { flex:1; min-width:0; }
+  .card-meta .title { font-family:'Fraunces',serif; font-weight:600; font-size:17px; line-height:1.25; margin:0 0 4px; }
+  .card-meta .subtitle { color:var(--muted); font-size:12px; font-style:italic; margin-bottom:10px; }
+  .pillrow { display:flex; gap:6px; flex-wrap:wrap; }
+  .pill { display:inline-flex; align-items:center; padding:3px 9px; border-radius:99px; font-size:10.5px; letter-spacing:0.05em; font-weight:500; background:var(--amber-soft); color:var(--ink); }
+  .pill.muted { background:var(--rule); color:var(--muted); }
+  .pill.ok { background:#dcebd2; color:var(--ok); }
+  .pill.warn { background:#f8e4c8; color:#7a5a2a; }
+  .pill.gate { background:#f1d5cf; color:var(--gate); }
+  .file-section { padding:16px 20px; border-bottom:1px solid var(--rule); }
+  .file-section h3 { font-family:'Inter',sans-serif; font-size:10px; letter-spacing:0.22em; text-transform:uppercase; color:var(--amber); margin:0 0 10px; font-weight:600; }
+  .file-list { list-style:none; padding:0; margin:0; }
+  .file-list li { display:flex; align-items:center; justify-content:space-between; padding:5px 0; font-size:12.5px; gap:10px; }
+  .file-list .name { display:flex; align-items:center; gap:8px; min-width:0; }
+  .file-list .name .material-icons-round { font-size:16px; color:var(--muted); }
+  .file-list .actions { display:flex; gap:6px; flex-shrink:0; }
+  .file-list .actions a { font-size:11px; color:var(--muted); }
+  .file-list .actions a:hover { color:var(--amber); }
+  .platform-section { padding:16px 20px; }
+  .platform-section h3 { font-family:'Inter',sans-serif; font-size:10px; letter-spacing:0.22em; text-transform:uppercase; color:var(--amber); margin:0 0 10px; font-weight:600; }
+  .platform-row { display:grid; grid-template-columns:90px 1fr 110px; align-items:center; gap:10px; padding:6px 0; font-size:12.5px; border-top:1px solid var(--rule); }
+  .platform-row:first-of-type { border-top:none; }
+  .platform-row .name { font-weight:500; }
+  .platform-row .url a { font-size:11.5px; }
+  .footer { padding:24px 28px 60px; color:var(--muted); font-size:11.5px; text-align:center; border-top:1px solid var(--rule); margin-top:20px; }
+  .gates-banner { margin:0 28px 8px; padding:14px 18px; background:#fdf2ec; border:1px solid #ecd2c2; border-radius:8px; }
+  .gates-banner h2 { font-family:'Fraunces',serif; font-size:14px; margin:0 0 8px; color:var(--gate); }
+  .gates-banner ul { margin:6px 0 0; padding-left:20px; font-size:12.5px; }
+  .gates-banner li { margin-bottom:4px; }
+  .gates-banner code { background:var(--bg); padding:1px 6px; border-radius:3px; font-size:11.5px; }
+</style>
+<style id="kidmode-css">
+.mode-btn{position:fixed;top:12px;right:12px;z-index:9999;padding:9px 16px;border:none;border-radius:999px;background:#4E8079;color:#fff;font:600 14px/1 system-ui,-apple-system,sans-serif;cursor:pointer;box-shadow:0 2px 8px rgba(0,0,0,.22)}
+body.kids .mode-btn{background:#B4503E}
+body.kids .mode-btn::before{content:"🧒  "}
+#kidpanel{display:none}
+body.kids #kidpanel{display:block;max-width:760px;margin:62px auto 12px;background:#fff7e8;border:2px solid #4E8079;border-radius:18px;padding:20px 24px;font:18px/1.7 system-ui,-apple-system,sans-serif;color:#2b2820}
+body.kids #kidpanel h3{font-family:"Fredoka","Comic Sans MS",sans-serif;color:#4E8079;margin:0 0 8px;font-size:22px}
+body.kids #kidpanel b{color:#B4503E}
+body.kids{font-size:1.04em}
+</style>
+</head>
+<body>
+
+<div id="kidpanel"><h3>Kid mode 🧒</h3><p>This page is <b>Christian Books — Rollout</b>. It is one of the projects Brandon built and put online. The grown-up details are below, tap Grown-up mode to read them the normal way.</p></div>
+
+<div class="topbar">
+  <h1>Christian Books — Rollout</h1>
+  <div class="sub">Four devotional books by Brandon Page (pen name). Anonymized, voice-cleaned, designed for free distribution.</div>
+</div>
+
+<div class="stats">
+  <div class="stat"><div class="n">4</div><div class="l">Books</div></div>
+  <div class="stat"><div class="n">185,828</div><div class="l">Total words</div></div>
+  <div class="stat"><div class="n">653</div><div class="l">Total pages</div></div>
+  <div class="stat"><div class="n">PDF · DOCX · EPUB</div><div class="l">Formats per book</div></div>
+  <div class="stat"><div class="n">12 / 12</div><div class="l">Live on Ghost + Etsy + Gumroad</div></div>
+</div>
+
+<div class="gates-banner" style="background:#eef4e8;border-color:#cfddbc;">
+  <h2 style="color:#4a7c3c;"><span class="material-icons-round" style="font-size:15px;vertical-align:middle;">check_circle</span> Live now on Ghost + Etsy</h2>
+  <ul>
+    <li><strong>Ghost</strong> — all 4 posts <em>published</em> on the-key-of-david.com. PDF + EPUB + DOCX hosted as Ghost media. Free downloads. Links below.</li>
+    <li><strong>Etsy</strong> — all 4 listings <em>active</em> at $1.00 each. Cover + 3 digital files attached. Activated via API.</li>
+    <li><strong>Gumroad</strong> — all 4 products <em>published</em> at pay-what-you-like on pagesofbrandon.gumroad.com. PDF + EPUB + DOCX + cover attached per product.</li>
+    <li><strong>Internet Archive</strong> — still pending S3 keys at <a href="https://archive.org/account/s3.php">archive.org/account/s3.php</a>.</li>
+  </ul>
+</div>
+
+<div class="gates-banner" style="display:none;">
+  <h2><span class="material-icons-round" style="font-size:15px;vertical-align:middle;">lock</span> Credential gates blocking the upload step</h2>
+  <ul>
+    <li><strong>Ghost Admin API key is dead.</strong> Every write endpoint returns 401 (INVALID_JWT) even with fresh JWTs. Regenerate at <a href="https://on-brand.ghost.io/ghost/#/settings/integrations">on-brand.ghost.io/ghost/#/settings/integrations</a>, then replace <code>GHOST_ADMIN_API_KEY</code> in <code>~/Desktop/project-audit-dashboard/.env</code>.</li>
+    <li><strong>Gumroad API token missing.</strong> Generate at <a href="https://app.gumroad.com/settings/advanced">app.gumroad.com/settings/advanced</a> and add <code>GUMROAD_ACCESS_TOKEN=...</code> to the same .env.</li>
+    <li><strong>Internet Archive S3 keys missing.</strong> Get them at <a href="https://archive.org/account/s3.php">archive.org/account/s3.php</a> and add <code>IA_ACCESS_KEY=...</code> + <code>IA_SECRET_KEY=...</code> to the same .env. Also run <code>pip3 install --user internetarchive</code>.</li>
+    <li><strong>Substack has no public posting API.</strong> Browser-based path via Claude in Chrome MCP (the substack-transfer-operator skill). Token-heavy. Decide whether to do this manually or via the browser walk.</li>
+  </ul>
+</div>
+
+<div class="grid">
+
+  <!-- BOOK 1 -->
+  <div class="card">
+    <div class="cover-wrap">
+      <img src="covers/Before-His-Face.png" alt="Before His Face cover">
+      <div class="card-meta">
+        <div class="title">Before His Face</div>
+        <div class="subtitle">A Devotional on the Ministry to the Lord</div>
+        <div class="pillrow">
+          <span class="pill">10 chapters</span>
+          <span class="pill">~39,600 words</span>
+          <span class="pill">139 pages</span>
+          <span class="pill ok">Voice clean</span>
+          <span class="pill ok">Anonymized</span>
+        </div>
+      </div>
+    </div>
+    <div class="file-section">
+      <h3>Files</h3>
+      <ul class="file-list">
+        <li><span class="name"><span class="material-icons-round">picture_as_pdf</span> Before-His-Face.pdf</span><span class="actions"><span class="muted" title="stored on this Mac, not published">open (local)</span></span></li>
+        <li><span class="name"><span class="material-icons-round">description</span> Before-His-Face.docx</span><span class="actions"><span class="muted" title="stored on this Mac, not published">open (local)</span></span></li>
+        <li><span class="name"><span class="material-icons-round">menu_book</span> Before-His-Face.epub</span><span class="actions"><span class="muted" title="stored on this Mac, not published">open (local)</span></span></li>
+        <li><span class="name"><span class="material-icons-round">image</span> cover.png</span><span class="actions"><span class="muted" title="stored on this Mac, not published">open (local)</span></span></li>
+      </ul>
+    </div>
+    <div class="platform-section">
+      <h3>Upload status</h3>
+      <div class="platform-row"><span class="name">Ghost blog</span><span class="url"><a href="https://www.the-key-of-david.com/before-his-face/" target="_blank">the-key-of-david.com/before-his-face/</a></span><span class="pill ok">LIVE</span></div>
+      <div class="platform-row"><span class="name">Etsy</span><span class="url"><a href="https://www.etsy.com/listing/4506540667/before-his-face-devotional-on-the-inner" target="_blank">listing #4506540667</a></span><span class="pill ok">LIVE</span></div>
+      <div class="platform-row"><span class="name">Gumroad</span><span class="url"><a href="https://pagesofbrandon.gumroad.com/l/xaqhnm" target="_blank">/l/xaqhnm</a></span><span class="pill ok">LIVE</span></div>
+      <div class="platform-row"><span class="name">Internet Archive</span><span class="url"><span class="pill gate">cred gate</span></span><span></span></div>
+    </div>
+  </div>
+
+  <!-- BOOK 2 -->
+  <div class="card">
+    <div class="cover-wrap">
+      <img src="covers/Behold-Your-God.png" alt="Behold Your God cover">
+      <div class="card-meta">
+        <div class="title">Behold Your God</div>
+        <div class="subtitle">A Forerunner's Devotional Through Isaiah</div>
+        <div class="pillrow">
+          <span class="pill">16 chapters</span>
+          <span class="pill">~65,800 words</span>
+          <span class="pill">226 pages</span>
+          <span class="pill ok">Voice clean</span>
+          <span class="pill ok">Anonymized</span>
+        </div>
+      </div>
+    </div>
+    <div class="file-section">
+      <h3>Files</h3>
+      <ul class="file-list">
+        <li><span class="name"><span class="material-icons-round">picture_as_pdf</span> Behold-Your-God.pdf</span><span class="actions"><span class="muted" title="stored on this Mac, not published">open (local)</span></span></li>
+        <li><span class="name"><span class="material-icons-round">description</span> Behold-Your-God.docx</span><span class="actions"><span class="muted" title="stored on this Mac, not published">open (local)</span></span></li>
+        <li><span class="name"><span class="material-icons-round">menu_book</span> Behold-Your-God.epub</span><span class="actions"><span class="muted" title="stored on this Mac, not published">open (local)</span></span></li>
+        <li><span class="name"><span class="material-icons-round">image</span> cover.png</span><span class="actions"><span class="muted" title="stored on this Mac, not published">open (local)</span></span></li>
+      </ul>
+    </div>
+    <div class="platform-section">
+      <h3>Upload status</h3>
+      <div class="platform-row"><span class="name">Ghost blog</span><span class="url"><a href="https://www.the-key-of-david.com/behold-your-god/" target="_blank">the-key-of-david.com/behold-your-god/</a></span><span class="pill ok">LIVE</span></div>
+      <div class="platform-row"><span class="name">Etsy</span><span class="url"><a href="https://www.etsy.com/listing/4506546200/behold-your-god-forerunners-devotional" target="_blank">listing #4506546200</a></span><span class="pill ok">LIVE</span></div>
+      <div class="platform-row"><span class="name">Gumroad</span><span class="url"><a href="https://pagesofbrandon.gumroad.com/l/uolvjn" target="_blank">/l/uolvjn</a></span><span class="pill ok">LIVE</span></div>
+      <div class="platform-row"><span class="name">Internet Archive</span><span class="url"><span class="pill gate">cred gate</span></span><span></span></div>
+    </div>
+  </div>
+
+  <!-- BOOK 3 -->
+  <div class="card">
+    <div class="cover-wrap">
+      <img src="covers/Before-the-Veil.png" alt="Before the Veil cover">
+      <div class="card-meta">
+        <div class="title">Before the Veil</div>
+        <div class="subtitle">A Devotional on the Tabernacle and the Inner Priesthood</div>
+        <div class="pillrow">
+          <span class="pill">10 chapters</span>
+          <span class="pill">~23,200 words</span>
+          <span class="pill">108 pages</span>
+          <span class="pill ok">Voice clean</span>
+          <span class="pill ok">Anonymized</span>
+        </div>
+      </div>
+    </div>
+    <div class="file-section">
+      <h3>Files</h3>
+      <ul class="file-list">
+        <li><span class="name"><span class="material-icons-round">picture_as_pdf</span> Before-the-Veil.pdf</span><span class="actions"><span class="muted" title="stored on this Mac, not published">open (local)</span></span></li>
+        <li><span class="name"><span class="material-icons-round">description</span> Before-the-Veil.docx</span><span class="actions"><span class="muted" title="stored on this Mac, not published">open (local)</span></span></li>
+        <li><span class="name"><span class="material-icons-round">menu_book</span> Before-the-Veil.epub</span><span class="actions"><span class="muted" title="stored on this Mac, not published">open (local)</span></span></li>
+        <li><span class="name"><span class="material-icons-round">image</span> cover.png</span><span class="actions"><span class="muted" title="stored on this Mac, not published">open (local)</span></span></li>
+      </ul>
+    </div>
+    <div class="platform-section">
+      <h3>Upload status</h3>
+      <div class="platform-row"><span class="name">Ghost blog</span><span class="url"><a href="https://www.the-key-of-david.com/before-the-veil/" target="_blank">the-key-of-david.com/before-the-veil/</a></span><span class="pill ok">LIVE</span></div>
+      <div class="platform-row"><span class="name">Etsy</span><span class="url"><a href="https://www.etsy.com/listing/4506546228/before-the-veil-devotional-on-the" target="_blank">listing #4506546228</a></span><span class="pill ok">LIVE</span></div>
+      <div class="platform-row"><span class="name">Gumroad</span><span class="url"><a href="https://pagesofbrandon.gumroad.com/l/xxffq" target="_blank">/l/xxffq</a></span><span class="pill ok">LIVE</span></div>
+      <div class="platform-row"><span class="name">Internet Archive</span><span class="url"><span class="pill gate">cred gate</span></span><span></span></div>
+    </div>
+  </div>
+
+  <!-- BOOK 4 -->
+  <div class="card">
+    <div class="cover-wrap">
+      <img src="covers/A-House-That-Does-Not-Sleep.png" alt="A House That Does Not Sleep cover">
+      <div class="card-meta">
+        <div class="title">A House That Does Not Sleep</div>
+        <div class="subtitle">A Devotional on Prayer and the Knowledge of God</div>
+        <div class="pillrow">
+          <span class="pill">10 chapters</span>
+          <span class="pill">~57,300 words</span>
+          <span class="pill">180 pages</span>
+          <span class="pill ok">Voice clean</span>
+          <span class="pill ok">Anonymized</span>
+          <span class="pill ok">Fact-checked</span>
+        </div>
+      </div>
+    </div>
+    <div class="file-section">
+      <h3>Files</h3>
+      <ul class="file-list">
+        <li><span class="name"><span class="material-icons-round">picture_as_pdf</span> House-of-the-Lamp.pdf</span><span class="actions"><span class="muted" title="stored on this Mac, not published">open (local)</span></span></li>
+        <li><span class="name"><span class="material-icons-round">description</span> A-House-That-Does-Not-Sleep.docx</span><span class="actions"><span class="muted" title="stored on this Mac, not published">open (local)</span></span></li>
+        <li><span class="name"><span class="material-icons-round">menu_book</span> A-House-That-Does-Not-Sleep.epub</span><span class="actions"><span class="muted" title="stored on this Mac, not published">open (local)</span></span></li>
+        <li><span class="name"><span class="material-icons-round">image</span> cover.png</span><span class="actions"><span class="muted" title="stored on this Mac, not published">open (local)</span></span></li>
+      </ul>
+    </div>
+    <div class="platform-section">
+      <h3>Upload status</h3>
+      <div class="platform-row"><span class="name">Ghost blog</span><span class="url"><a href="https://www.the-key-of-david.com/a-house-that-does-not-sleep/" target="_blank">the-key-of-david.com/a-house-that-does-not-sleep/</a></span><span class="pill ok">LIVE</span></div>
+      <div class="platform-row"><span class="name">Etsy</span><span class="url"><a href="https://www.etsy.com/listing/4506546258/a-house-that-does-not-sleep-devotional" target="_blank">listing #4506546258</a></span><span class="pill ok">LIVE</span></div>
+      <div class="platform-row"><span class="name">Gumroad</span><span class="url"><a href="https://pagesofbrandon.gumroad.com/l/giucgb" target="_blank">/l/giucgb</a></span><span class="pill ok">LIVE</span></div>
+      <div class="platform-row"><span class="name">Internet Archive</span><span class="url"><span class="pill gate">cred gate</span></span><span></span></div>
+    </div>
+  </div>
+
+</div>
+
+<div class="footer">
+  Dashboard refreshed 2026-05-15. Updates as each platform comes online.
+</div>
+
+<!-- vault-n8n-widget v1 -->
+<link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons+Round">
+<style>
+#vn-widget{position:fixed;bottom:18px;right:18px;z-index:99999;font-family:'Inter',-apple-system,system-ui,sans-serif}
+#vn-widget .vn-btn{display:flex;align-items:center;gap:6px;background:#faf9f6;color:#3a2f24;border:1px solid #e0d4c1;border-radius:10px;padding:8px 14px;margin-top:6px;font-size:13px;font-weight:500;cursor:pointer;box-shadow:0 2px 8px rgba(0,0,0,.08);transition:all .15s}
+#vn-widget .vn-btn:hover{background:#c98a4a;color:#fff;border-color:#c98a4a}
+#vn-widget .vn-btn .material-icons-round{font-size:18px}
+#vn-widget .vn-toast{position:absolute;bottom:100%;right:0;background:#3a2f24;color:#faf9f6;padding:6px 10px;border-radius:6px;font-size:12px;margin-bottom:8px;opacity:0;transition:opacity .2s;pointer-events:none;white-space:nowrap}
+#vn-widget .vn-toast.on{opacity:1}
+</style>
+<div id="vn-widget">
+  <div class="vn-toast" id="vn-toast"></div>
+  <button class="vn-btn" id="vn-open-obs"><span class="material-icons-round">menu_book</span>Open in Obsidian</button>
+  <button class="vn-btn" id="vn-capture"><span class="material-icons-round">bolt</span>Capture to Inbox</button>
+</div>
+<script>
+(function(){
+  const DASH = "christian-books-dashboard";
+  const VAULT = "Claude";
+  const NOTE = "Dashboards/christian-books-dashboard.md";
+  const WEBHOOK = "http://localhost:5678/webhook/from-dashboard";
+  const $ = id => document.getElementById(id);
+  function toast(msg){
+    const t = $("vn-toast"); t.textContent = msg; t.classList.add("on");
+    setTimeout(()=>t.classList.remove("on"), 2500);
+  }
+  $("vn-open-obs").onclick = () => {
+    const url = "obsidian://open?vault=" + encodeURIComponent(VAULT) + "&file=" + encodeURIComponent(NOTE);
+    window.location.href = url;
+    toast("Opening in Obsidian…");
+  };
+  $("vn-capture").onclick = async () => {
+    try {
+      const note = "Captured from " + document.title + " on " + location.href;
+      const r = await fetch(WEBHOOK, {
+        method:"POST", headers:{"Content-Type":"application/json"},
+        body: JSON.stringify({dashboard:DASH, url:location.href, action:"capture", note})
+      });
+      toast(r.ok ? "Captured → vault Inbox" : "Capture failed (HTTP " + r.status + ")");
+    } catch(e){ toast("Capture failed: " + e.message); }
+  };
+})();
+</script>
+
+<!-- ===== DONATE BUTTON (drwu) — injected, idempotent ===== -->
+<a class="donate-fab" href="https://www.paypal.com/donate/?hosted_button_id=P2P6NCHSZ2E3C" target="_blank" rel="noopener" onclick="event.preventDefault();var w=window.open(this.href,&quot;_blank&quot;,&quot;noopener&quot;);if(!w){location.href=this.href;}" title="Support this work — donate">💛 Donate</a>
+<style>
+.donate-fab{position:fixed;left:18px;bottom:18px;z-index:99999;display:inline-flex;align-items:center;gap:.4em;font-family:'Inter',-apple-system,BlinkMacSystemFont,system-ui,sans-serif;font-size:15px;font-weight:700;line-height:1;text-decoration:none;padding:11px 16px;border-radius:999px;background:#DDA63A;color:#2a2018;border:2px solid #2a2018;box-shadow:3px 3px 0 #2a2018;transition:transform .08s ease,background .15s ease;cursor:pointer;}
+.donate-fab:hover{transform:translate(1px,1px);box-shadow:2px 2px 0 #2a2018;background:#E8B95A;}
+.donate-fab:active{transform:translate(3px,3px);box-shadow:0 0 0 #2a2018;}
+body.kids .donate-fab{background:#74A089;color:#0f2018;}
+@media print{.donate-fab{display:none !important;}}
+@media (max-width:480px){.donate-fab{font-size:13px;padding:9px 13px;left:12px;bottom:12px;}}
+</style>
+<!-- ===== END DONATE BUTTON ===== -->
+</body>
+</html>
