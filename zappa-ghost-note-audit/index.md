@@ -51,6 +51,29 @@ to 9, let-ring at zero, every other lane unchanged.
   claimed those were ride and crash rather than ghosts, so that reading needs checking
   against the audio before anything is restored.
 
+## Checked against the printed charts
+
+Re-checked 2026-09-05 against the four transcriptions on disk, measured off the scans.
+
+**Ryan Brown's page carries eight pedal hi-hat marks**, one full space below the bottom
+staff line, pixel-identical at width 13 and ink 33, spread over three of his four systems.
+Drumnet's bar 1 carries the same three marks at the same height in its own dialect. Bar 1
+of Brown's page puts an accent within 2px of each of the three open hi-hats and a pedal
+hi-hat within 2px of each of the three snares.
+
+**A claim of mine was wrong.** I reported the tab holds no pedal hi-hat events. It holds 23,
+across bars 6, 7, 8, 9, 15, 17, 18, 41, 42, 43, 44, 99, 100 and 102. Bar 1 is the omission.
+
+**Bar 5 accents belong on notes one and three** of each quintuplet, ten in all. The tab
+accented note two, five in all. Bar 16 is the same figure and was kept consistent.
+
+**The barring source count was wrong.** Kasper Sloots' 10/16 sits at 1:39 to 2:10, framed by
+7/8 and 5/4. Brown's page is headed at 0:00. Zappa Analysis never voted on the opening bar.
+
+Build `Zomby-Woof-BROWN-rev3.gp`: 115 master bars unchanged, time signatures identical,
+rhythm and tuplet census identical, master bars 1, 5 and 16 touched, no string collisions,
+ghosts held at 8, let-ring at 0, all 10 tracks named.
+
 ## Sources
 
 - `~/Library/Mobile Documents/com~apple~CloudDocs/sfg/zappa-drum-repair-2026-08-31/`

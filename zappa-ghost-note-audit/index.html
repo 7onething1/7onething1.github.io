@@ -52,7 +52,7 @@ footer{margin-top:60px;padding-top:20px;border-top:1px solid var(--line);color:v
 <p class="sub">A sweep across Frank Zappa drum tabs on Songsterr read genuine ghost notes as a notation defect and stripped them. This is the verified record of what was changed and what is still live.</p>
 <p class="stamp">Audited 2026-09-05 &middot; all 105 Zappa tabs queried against Songsterr's live API &middot; 104 clean reads, 1 private tab unresolved</p>
 
-<p class="tocn"><a href="#what">1. What happened</a><a href="#live">2. Live now</a><a href="#pending">3. Pending</a><a href="#clean">4. Never submitted</a><a href="#why">5. Root cause</a><a href="#next">6. What is left</a></p>
+<p class="tocn"><a href="#what">1. What happened</a><a href="#live">2. Live now</a><a href="#pending">3. Pending</a><a href="#clean">4. Never submitted</a><a href="#why">5. Root cause</a><a href="#next">6. What is left</a><a href="#charts">7. Checked against the charts</a></p>
 
 <div class="grid">
 <div class="kpi r"><div class="n">16</div><div class="l">tabs damaged and public</div></div>
@@ -140,6 +140,61 @@ footer{margin-top:60px;padding-top:20px;border-top:1px solid var(--line);color:v
 <li><strong>Watermelon In Easter Hay is the largest single loss</strong> at 1,317 flags on the Vinnie Colaiuta staff, and its revision claimed they were ride and crash rather than ghosts, so that reading needs checking against the audio before restoring.</li>
 <li><strong>The four never-submitted tabs need nothing.</strong></li>
 </ul>
+
+<h2 id="charts"><span class="dot" style="background:var(--amb)"></span>Checked against the printed charts</h2>
+<p class="lede">The Zomby Woof repair was re-checked against the four transcriptions held on disk. Every figure below was measured off the scan rather than read by eye.</p>
+
+<h3>The marks below Ryan Brown's staff are pedal hi-hat</h3>
+<p>Brown's DRUM Magazine page carries small crosses one full space below the bottom staff line. Staff lines were detected at a 12px spacing, then every mark sitting under the bottom line was measured.</p>
+<div class="tw"><table>
+<tr><th>System</th><th>Marks below the staff</th><th>Glyph</th></tr>
+<tr><td>1</td><td class="gh">3</td><td class="sid">w=13 ink=33</td></tr>
+<tr><td>2</td><td class="gh">0</td><td class="st">none</td></tr>
+<tr><td>3</td><td class="gh">3</td><td class="sid">w=13 ink=33</td></tr>
+<tr><td>4</td><td class="gh">2</td><td class="sid">w=13 ink=33</td></tr>
+</table></div>
+<p><strong>Eight marks, pixel-identical, across three of the four systems.</strong> A five-line drum staff puts the pedal hi-hat in exactly that position. Drumnet's bar 1 carries the same three marks at the same height, drawn in its own dialect with <code>o</code> and <code>+</code> above the staff for the hands. Two professional charts agree.</p>
+
+<h3>Brown's bar 1, glyph by glyph</h3>
+<p>Connected components with the staff lines erased, measured across x = 105 to 436.</p>
+<div class="tw"><table>
+<tr><th>x</th><th>Staff position</th><th>What it is</th></tr>
+<tr><td class="sid">132</td><td class="st">bottom space</td><td>kick</td></tr>
+<tr><td class="sid">170</td><td class="st">third space</td><td>snare</td></tr>
+<tr><td class="sid">199</td><td class="st">bottom space</td><td>kick, open hi-hat at 201, <strong>accent at 199</strong></td></tr>
+<tr><td class="sid">228</td><td class="st">spanning</td><td>sixteenth rest</td></tr>
+<tr><td class="sid">258</td><td class="st">third space</td><td>snare, <strong>pedal hi-hat at 260</strong></td></tr>
+<tr><td class="sid">287</td><td class="st">bottom space</td><td>kick, open hi-hat at 289, <strong>accent at 287</strong></td></tr>
+<tr><td class="sid">325</td><td class="st">third space</td><td>snare, <strong>pedal hi-hat at 327</strong></td></tr>
+<tr><td class="sid">358</td><td class="st">bottom space</td><td>kick, open hi-hat at 358, <strong>accent at 358</strong></td></tr>
+<tr><td class="sid">397</td><td class="st">third space</td><td>snare, <strong>pedal hi-hat at 398</strong></td></tr>
+</table></div>
+<p>The three accents land within 2px of the three open hi-hats. The three pedal hi-hats land within 2px of the three snares. The rest is the alignment anchor, since the tab also rests at slot 4 and then runs snare, hat, snare, hat, snare across slots 5 to 9.</p>
+
+<div class="box r"><p><strong>A claim of mine was wrong.</strong> I reported that the tab holds no pedal hi-hat events anywhere. The tab holds <strong>23 of them</strong>, across bars 6, 7, 8, 9, 15, 17, 18, 41, 42, 43, 44, 99, 100 and 102. Bar 1 is the single omission. The lane already belongs to the tab's own vocabulary, which makes the bar 1 addition a gap fill.</p></div>
+
+<h3>Bar 5 accents sit on notes one and three</h3>
+<p>Brown beams bar 5 as five quintuplet groups of five. The measured accent glyphs, width 18 and ink 65, sit above notes one and three of every group. The tab accented note two and nothing else. Bar 16 is the same figure built from the same shared note elements, so it was kept consistent.</p>
+<div class="two">
+<div class="pane wrong"><h4>Tab as submitted</h4><p class="sid">slots 1, 6, 11, 16, 21</p><p class="st">five accents, each on note two of its group</p></div>
+<div class="pane right"><h4>Brown's reading</h4><p class="sid">slots 0, 2, 5, 7, 10, 12, 15, 17, 20, 22</p><p class="st">ten accents, notes one and three of every group</p></div>
+</div>
+
+<div class="box a"><p><strong>The barring source count was wrong too.</strong> Kasper Sloots' single 10/16 belongs to a passage he transcribed from <strong>1:39 to 2:10</strong>, framed by 7/8 and 5/4 and repeated three times against two keyboards. Brown's page is headed <code>@ 0:00</code>. The two describe separate music, so Zappa Analysis never voted on the opening bar at all. For the opening the split is Brown and Bedard on 5/16 plus 5/16 against Drumnet and the tab as published on 10/16. Brown's interior barline is solid and full height, and he beams the two groups apart, so the disagreement reaches beat grouping rather than stopping at the printed barline.</p></div>
+
+<h3>What the new build changed, and what it left alone</h3>
+<div class="tw"><table>
+<tr><th>Check</th><th>Result</th></tr>
+<tr><td>Master bars</td><td class="gh">115 to 115</td></tr>
+<tr><td>Time signatures</td><td>identical across all 115</td></tr>
+<tr><td>Rhythm and tuplet census</td><td>identical, so the polyrhythms hold</td></tr>
+<tr><td>Cells with changed note content</td><td class="sid">masterbar 1, track 9 only</td></tr>
+<tr><td>Master bars touched at all</td><td class="sid">1, 5, 16</td></tr>
+<tr><td>Intra-beat string collisions</td><td>none</td></tr>
+<tr><td>Ghost renderings</td><td class="gh">8, bars 6 to 9, unchanged</td></tr>
+<tr><td>Let-ring</td><td class="gh">0, unchanged</td></tr>
+<tr><td>Tracks</td><td class="gh">10, every name intact</td></tr>
+</table></div>
 
 <footer>
 <p>Every figure on this page was read from <code>songsterr.com/api/meta/&lt;songId&gt;</code> on 2026-09-05. Ghost counts come from the drum-staff census in <code>_defects.json</code>. Source data: <code>~/Library/Mobile Documents/com~apple~CloudDocs/sfg/zappa-drum-repair-2026-08-31/</code> and <code>~/Projects/_outputs/songsterr-zappa-paren-fix/</code>.</p>
