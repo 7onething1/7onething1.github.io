@@ -256,3 +256,41 @@ Tom Fowler 6, matching the 2026-08-30 audit record.
 
 Zoot Allures looked like the only agreeing row because it carries zero non-drum ghosts, so
 its two totals coincide.
+
+## Why the sweep passed its own audit
+
+The 2026-08-31 handoff records no notes lost across 20 folders and 120,579 beat events,
+zero pitch, rhythm or position differences. True, and produced by an instrument blind to
+the thing being destroyed.
+
+`noteloss_audit.py` built its per-note fingerprint from a hardcoded list:
+
+    for tag in ("Tie", "Accent", "Vibrato", "LetRing", "Trill"):
+
+`AntiAccent` is not on it, and `AntiAccent` is how GPIF spells a ghost note.
+
+| Note | Fingerprint under the old rule |
+|---|---|
+| plain ride | `art=0;Midi=51` |
+| **ghosted ride** | **`art=0;Midi=51`** (identical) |
+| accented ride | `art=0;Midi=51;Accent=1` (visible) |
+
+Both versions against the real Watermelon pair:
+
+| Tool | Differing events | AntiAccent mentions |
+|---|---|---|
+| as it ran during the sweep | 15 | 0 |
+| enumerating effects structurally | **1,332** | 75 |
+
+1,332 accounts exactly: 1,317 ghost losses plus the 15 encoding differences the old
+version already found. On the one question that mattered it returned clean with full
+confidence.
+
+Fixed to enumerate every child element except the two structural ones. Ghost, accent,
+letRing and tie now each fingerprint distinctly. Backup at
+`noteloss_audit.py.bak-pre-antiaccent-blindness-2026-09-05`.
+
+This is the fourth instance of one root cause in this audit and the most costly: grepping
+`<Ghost>`, searching the articulation table, reading a missing `fret` as a rest, reading a
+missing `dynamic` key as an absent marking, and a hardcoded allowlist hiding a real loss.
+Every one enumerated what was expected and treated absence as evidence.

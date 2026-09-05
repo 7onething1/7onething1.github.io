@@ -405,6 +405,36 @@ footer{margin-top:60px;padding-top:20px;border-top:1px solid var(--line);color:v
 <p>The drum-staff column matches this page on every row. The larger file totals count ghost noteheads on vocal, guitar, keyboard and mallet staves, which the sweep never touched and correctly left alone. Montana's 257 non-drum ghosts break down as Vocal 1/2/3 102, Frank Zappa Lead 112, George Duke 23, Ruth Underwood Bridge 14 and Tom Fowler 6, matching the 2026-08-30 audit record exactly.</p>
 <p><strong>Zoot Allures looked like the one row that agreed for a reason worth stating.</strong> It carries zero non-drum ghosts, so its two totals coincide. That coincidence is what made the other four look wrong.</p>
 
+
+<h2 id="whyitpassed"><span class="dot" style="background:var(--red)"></span>Why the sweep passed its own audit</h2>
+<p class="lede">The 2026-08-31 handoff records that no notes were lost, measured across 20 folders and 120,579 beat events with zero pitch, rhythm or position differences. That statement is true. It was also produced by an instrument that could not see the thing being destroyed.</p>
+
+<div class="box r"><h3>One hardcoded line</h3>
+<p><code>noteloss_audit.py</code> built its per-note fingerprint from a fixed list of effect tags:</p>
+<div class="tw"><table><thead><tr><th>Line 80, as written</th></tr></thead><tbody>
+<tr><td class='rev'>for tag in ("Tie", "Accent", "Vibrato", "LetRing", "Trill"):</td></tr>
+</tbody></table></div>
+<p><strong><code>AntiAccent</code> is not on that list, and <code>AntiAccent</code> is how GPIF spells a ghost note.</strong> So a ghosted note and a plain note fingerprinted identically, and removing every ghost in a tab produced no difference at all.</p>
+<div class="tw"><table>
+<thead><tr><th>Note</th><th>Fingerprint under the old rule</th></tr></thead>
+<tbody>
+<tr><td class='ttl'>plain ride</td><td class='rev'>art=0;Midi=51</td></tr>
+<tr><td class='ttl'><strong>ghosted ride</strong></td><td class='rev'><strong>art=0;Midi=51</strong> (identical)</td></tr>
+<tr><td class='ttl'>accented ride</td><td class='rev'>art=0;Midi=51;Accent=1 (visible, it is on the list)</td></tr>
+</tbody></table></div></div>
+
+<div class="box a"><h3>Run both versions against the real Watermelon pair</h3>
+<div class="tw"><table>
+<thead><tr><th>Tool</th><th style="text-align:right">Differing events found</th><th style="text-align:right">AntiAccent mentions</th></tr></thead>
+<tbody>
+<tr><td class='ttl'>as it ran during the sweep</td><td class='gh'>15</td><td class='gh'>0</td></tr>
+<tr><td class='ttl'>enumerating effects structurally</td><td class='gh'><strong>1,332</strong></td><td class='gh'>75</td></tr>
+</tbody></table></div>
+<p>The 1,332 accounts exactly: <strong>1,317 ghost losses plus the same 15 encoding differences</strong> the old version already reported. The audit was not merely incomplete. On the one question that mattered it returned a clean result with full confidence.</p></div>
+
+<div class="box b"><p><strong>Fixed.</strong> The fingerprint now enumerates every child element of a note except the two structural ones, so a marking nobody anticipated still shows up. Verified: ghost, accent, letRing and tie now each produce a distinct fingerprint. Backup at <code>noteloss_audit.py.bak-pre-antiaccent-blindness-2026-09-05</code>.</p>
+<p>This is the fourth instance of one root cause in this audit, and the most costly. <code>&lt;Ghost&gt;</code> returning zero started the sweep. An articulation-table search concluded the flags were not in the file. A missing <code>fret</code> read as a rest invented five notes. A missing <code>dynamic</code> key read as an absent marking. Here a hardcoded allowlist made a real loss invisible. <strong>Every one of them enumerated what was expected and treated what was absent as evidence.</strong></p></div>
+
 <footer>
 <p>Ghost counts come from the drum-staff census in <code>_defects.json</code>. Revision state was read from <code>songsterr.com/api/meta/&lt;songId&gt;/revisions</code> on 2026-09-05, using the fields <code>isBlocked</code>, <code>isOnModeration</code> and <code>reviewed</code>. Source data: <code>~/Library/Mobile Documents/com~apple~CloudDocs/sfg/zappa-drum-repair-2026-08-31/</code>, <code>~/Projects/_outputs/songsterr-zappa-paren-fix/</code> and <code>~/Projects/_outputs/zappa-drum-sources/</code>.</p>
 <p>Zomby Woof2 (s6685613) is a private tab and did not resolve through the public API. It is the only gap in the sweep.</p>
