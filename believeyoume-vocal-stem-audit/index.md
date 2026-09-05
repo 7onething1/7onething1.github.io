@@ -95,7 +95,7 @@ Brandon reports seeing multiple vocal tracks on the T7 Shield right now. The dri
 
 The T7 was not readable from this session. Hard evidence on this MacBook: `/Volumes/` holds only Macintosh HD, `diskutil list` shows one internal disk, every Thunderbolt port reports no device connected, and the USB tree is empty. Jacks-iMac answers on the LAN at 192.168.12.113 and refuses an SMB connection, so the network route is closed too.
 
-Both T7 findings are stored, never live. The sweep behind the table above ran on 2026-08-17, nineteen days before this audit. Anything separated since then is invisible to it.
+Both T7 findings are stored, never live. The sweep behind the table above ran on 2026-08-17 and is nineteen days stale. Anything separated since then is invisible to it.
 
 Four T7 roots were never swept for this album. `Stems/`, `Music to Stem/`, `Big music/` and `33 1/3/` hold audio and were outside the 2026-08-17 sweep. A second vocal stem sitting in one of those would not appear in any index here.
 
