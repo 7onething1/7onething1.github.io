@@ -1,0 +1,123 @@
+<!doctype html>
+<html lang="en"><head><meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Apostrophe Drum Transcriptions Besides the AI Ones</title>
+<style>
+:root{--cream:#f4ead8;--paper:#fbf5e9;--ink:#1c1a17;--rust:#b5462f;--mustard:#d9a441;
+--teal:#3f6b6b;--dusty:#8f6f5a;--line:#ddcdb2;--shade:#efe2cb;--green:#4a7c59;--plum:#6b4a68;}
+*{box-sizing:border-box}
+body{margin:0;background:var(--cream);color:var(--ink);
+font:16px/1.6 "Futura","Avenir Next","Helvetica Neue",Helvetica,Arial,sans-serif}
+.wrap{max-width:1180px;margin:0 auto;padding:34px 22px 80px}
+header{border:3px solid var(--ink);background:var(--paper);padding:26px 28px;margin-bottom:24px}
+h1{margin:0;font-size:29px;letter-spacing:.05em;text-transform:uppercase}
+.sub{margin-top:8px;color:var(--dusty);font-size:14px;letter-spacing:.12em;text-transform:uppercase}
+.stats{display:flex;flex-wrap:wrap;gap:10px;margin-top:20px}
+.stat{border:2px solid var(--ink);background:var(--cream);padding:9px 15px;font-size:13px}
+.stat b{display:block;font-size:21px;color:var(--rust)}
+h2{margin:44px 0 6px;font-size:19px;letter-spacing:.05em;text-transform:uppercase;
+border-bottom:3px solid var(--ink);padding-bottom:7px}
+nav{background:var(--paper);border:2px solid var(--line);padding:15px 19px;margin-bottom:10px}
+nav a{display:inline-block;margin:4px 16px 4px 0;color:var(--teal);font-size:14px}
+a{color:var(--rust);text-decoration:none;border-bottom:1px solid rgba(181,70,47,.35)}
+a:hover{border-bottom-color:var(--rust)}
+table{width:100%;border-collapse:collapse;margin:14px 0;background:var(--paper);font-size:14px}
+th{background:var(--shade);text-align:left;padding:9px 11px;border:1px solid var(--line);
+font-size:11px;letter-spacing:.1em;text-transform:uppercase}
+td{padding:8px 11px;border:1px solid var(--line);vertical-align:top}
+tr:nth-child(even) td{background:rgba(239,226,203,.42)}
+.num{text-align:right;white-space:nowrap;font-variant-numeric:tabular-nums}
+.path{font-family:"SF Mono",Menlo,monospace;font-size:11px;color:var(--dusty);word-break:break-word}
+.ok{color:var(--green);font-weight:700} .bad{color:var(--rust);font-weight:700}
+.note{border-left:5px solid var(--mustard);background:var(--paper);padding:13px 17px;margin:16px 0;font-size:14px}
+.win{border-left-color:var(--green)} .warn{border-left-color:var(--rust)}
+.mine td{background:rgba(74,124,89,.13)!important}
+.dead td{background:rgba(181,70,47,.07)!important}
+.scroll{overflow-x:auto}
+.tag{display:inline-block;border:1px solid var(--line);background:var(--cream);padding:1px 7px;
+font-size:10px;letter-spacing:.08em;text-transform:uppercase;color:var(--dusty);margin-left:5px;white-space:nowrap}
+.tag.print{border-color:var(--plum);color:var(--plum)}
+.tag.gp{border-color:var(--teal);color:var(--teal)}
+.tag.mine{border-color:var(--green);color:var(--green)}
+.tag.ai{border-color:var(--rust);color:var(--rust)}
+footer{margin-top:50px;padding-top:18px;border-top:2px solid var(--line);font-size:12px;color:var(--dusty)}
+</style></head><body><div class="wrap">
+<header>
+<h1>Apostrophe: drum transcriptions besides the AI ones</h1>
+<div class="sub">Frank Zappa &middot; DiscReet 1974 &middot; measured 2026-09-05</div>
+<div class="stats">
+<div class="stat"><b>9</b>album tracks</div><div class="stat"><b>9</b>tracks with a non-AI source</div><div class="stat"><b>10</b>human Songsterr drum tabs</div><div class="stat"><b>2</b>printed charts</div><div class="stat"><b>5</b>Guitar Pro files of our own</div><div class="stat"><b>6</b>AI tabs, for contrast</div><div class="stat"><b>0</b>tracks with nothing at all</div></div></header>
+<nav><a href="#table">Track by track</a><a href="#print">The two printed charts</a>
+<a href="#mine">Our own work</a><a href="#notdrums">What does not count</a>
+<a href="#method">Method</a></nav>
+
+<div class="note win"><b>Apostrophe is the best-covered Zappa record on this Mac.</b>
+Eight of the nine tracks carry a human drum reading, and the ninth is the one with a
+printed chart. Compare Roxy &amp; Elsewhere, where two tracks of ten carry a human tab and
+no printed chart exists at all.</div>
+
+<div class="note"><b>What counts as a drum transcription here.</b> A drum staff has to hold
+real notes, rests excluded. Songsterr classifies its own uploads with an
+<span class="path">aiGenerated</span> flag, and every row reads that flag off the meta API
+rather than guessing from the author name. A printed chart counts when the page carries
+drum-kit notation, confirmed by opening the image.</div>
+<h2 id="table">Track by track</h2><p>Green rows are transcriptions Brandon authored. The AI column is here for contrast,
+so a track showing an AI tab and nothing else has no human reading of the drums.</p><div class="scroll"><table><tr><th>#</th><th>Track</th><th class="num">Length</th><th>Human Songsterr tab</th><th>Printed chart</th><th>Our own files</th><th>AI tab, for contrast</th></tr><tr><td class="num">1</td><td><b>Don't Eat the Yellow Snow</b></td><td class="num">2:07</td><td><a href="https://www.songsterr.com/a/wsa/frank-zappa-tab-s35866">s35866</a><div class="path">MarkDubya &middot; 560 drum notes &middot; 38 bars</div></td><td><b>Cruise Ship Drummer</b> <span class="tag print">print</span><div class="path">Todd Bishop on Ralph Humphrey</div><div class="path">~/Projects/_outputs/zappa-drum-sources/01-cruiseshipdrummer/transcription-ralph-humphrey-dont-eat-the-yellow-snow_p01.jpg</div><div class="path">1236x1600 JPEG beside a one-page PDF. Full page, legend reading crash, hihat, high tom, snare, low tom, bass and hihat/foot. Marked Transcription begins at 0:32, barred 7/8 against 7/4, bar numbers to 33, ends Segue to Nanook Rubs It. Copyright 2013 Todd Bishop.</div></td><td><span class="path">none</span></td><td><a href="https://www.songsterr.com/a/wsa/frank-zappa-tab-s2549677">s2549677</a> <span class="tag ai">ai</span><div class="path">Hodd Toward &middot; 599 notes &middot; 36 bars</div><a href="https://www.songsterr.com/a/wsa/frank-zappa-tab-s6075883">s6075883</a> <span class="tag ai">ai</span><div class="path">Shawn Rieder &middot; 934 notes &middot; 85 bars</div><div class="path">single version</div><a href="https://www.songsterr.com/a/wsa/frank-zappa-tab-s1459839">s1459839</a> <span class="tag ai">ai</span><div class="path">jean-robert chiasson &middot; 674 notes &middot; 72 bars</div><div class="path">listed as Yellow Snow</div></td></tr><tr class="mine"><td class="num">2</td><td><b>Nanook Rubs It</b></td><td class="num">4:38</td><td><a href="https://www.songsterr.com/a/wsa/frank-zappa-tab-s35865">s35865</a> <span class="tag mine">ours</span><div class="path">Brandon chavez &middot; 1,309 drum notes &middot; 109 bars</div><div class="path">ours</div><a href="https://www.songsterr.com/a/wsa/frank-zappa-tab-s35878">s35878</a> <span class="tag mine">ours</span><div class="path">Brandon chavez &middot; 4,059 drum notes &middot; 292 bars</div><div class="path">the Nanook Suite, four tracks in one tab, ours</div></td><td><span class="path">none</span></td><td><b>2</b> files <span class="tag gp">gp</span><div class="path">~/Projects/_outputs/songsterr-zappa-paren-fix/s35865-Nanook-Rubs-It/</div><div class="path">ORIGINAL pull plus RESTORE r4719269</div><b>2</b> files <span class="tag gp">gp</span><div class="path">~/Projects/_outputs/songsterr-zappa-paren-fix/s35878-Nanook-Suite/</div><div class="path">ORIGINAL pull plus RESTORE r7807785</div><b>1</b> file <span class="tag gp">gp</span><div class="path">~/Projects/_outputs/zappa-nanook-sync-forensics/</div><div class="path">FIXGRID rebuild of s35865 beside findings.json from the grid forensics</div></td><td><span class="path">none</span></td></tr><tr class="mine"><td class="num">3</td><td><b>St. Alfonzo's Pancake Breakfast</b></td><td class="num">1:50</td><td><a href="https://www.songsterr.com/a/wsa/frank-zappa-tab-s35892">s35892</a><div class="path">femboy.gardevoir &middot; 851 drum notes &middot; 63 bars</div><a href="https://www.songsterr.com/a/wsa/frank-zappa-tab-s35878">s35878</a> <span class="tag mine">ours</span><div class="path">Brandon chavez &middot; 4,059 drum notes &middot; 292 bars</div><div class="path">inside the Nanook Suite, ours</div></td><td><span class="path">none</span></td><td><span class="path">none</span></td><td><span class="path">none</span></td></tr><tr class="mine"><td class="num">4</td><td><b>Father O'Blivion</b></td><td class="num">2:18</td><td><a href="https://www.songsterr.com/a/wsa/frank-zappa-tab-s35864">s35864</a><div class="path">femboy.gardevoir &middot; 1,339 drum notes &middot; 83 bars</div><a href="https://www.songsterr.com/a/wsa/frank-zappa-tab-s35878">s35878</a> <span class="tag mine">ours</span><div class="path">Brandon chavez &middot; 4,059 drum notes &middot; 292 bars</div><div class="path">inside the Nanook Suite, ours</div></td><td><span class="path">none</span></td><td><span class="path">none</span></td><td><span class="path">none</span></td></tr><tr class="mine"><td class="num">5</td><td><b>Cosmik Debris</b></td><td class="num">4:14</td><td><a href="https://www.songsterr.com/a/wsa/frank-zappa-tab-s412177">s412177</a><div class="path">femboy.gardevoir &middot; 1,581 drum notes &middot; 80 bars</div></td><td><span class="path">none</span></td><td><span class="tag gp">stems</span><div class="path">~/Projects/_outputs/zappa-cosmik-debris-hihat-audit/</div><div class="path">1.9 GB of our own stem work on the LIVE take, not the album take. Source wav, Demucs drums stem, six DrumSep lanes as kick, snare, toms, hh, ride and crash, plus hat_analyze.py, hh_verdict.py and lane_verdict.py with both tab JSONs pulled for comparison.</div></td><td><a href="https://www.songsterr.com/a/wsa/frank-zappa-tab-s1154774">s1154774</a> <span class="tag ai">ai</span><div class="path">DavidxHanes &middot; 3,135 notes &middot; 159 bars</div><div class="path">live take</div></td></tr><tr><td class="num">6</td><td><b>Excentrifugal Forz</b></td><td class="num">1:33</td><td><a href="https://www.songsterr.com/a/wsa/frank-zappa-tab-s1014276">s1014276</a><div class="path">Kevin Sheppard &middot; 143 drum notes &middot; 9 bars</div><div class="path">nine bars, an excerpt</div></td><td><span class="path">none</span></td><td><span class="path">none</span></td><td><span class="path">none</span></td></tr><tr><td class="num">7</td><td><b>Apostrophe&rsquo;</b></td><td class="num">5:50</td><td><span class="bad">none</span><div class="path">s35873, the studio tab, carries zero drum tracks</div></td><td><b>Cruise Ship Drummer</b> <span class="tag print">print</span><div class="path">Todd Bishop on Jim Gordon</div><div class="path">~/Projects/_outputs/zappa-drum-sources/01-cruiseshipdrummer/transcription-jim-gordon-apostrophe_p01.jpg</div><div class="path">612x792 JPEG beside a one-page PDF. Headed Apostroph&eacute;, drum break, Drums by Jim Gordon. Marked Drum break begins at 3:22, two systems carrying (rim) and (china) marks. Copyright 2011 Todd Bishop. This is the only drum notation of the studio take anywhere on hand.</div></td><td><span class="path">none</span></td><td><a href="https://www.songsterr.com/a/wsa/frank-zappa-tab-s6035435">s6035435</a> <span class="tag ai">ai</span><div class="path">Chris &middot; 2,855 notes &middot; 152 bars</div><div class="path">Live in Los Angeles 1974</div></td></tr><tr><td class="num">8</td><td><b>Uncle Remus</b></td><td class="num">2:44</td><td><a href="https://www.songsterr.com/a/wsa/frank-zappa-tab-s35894">s35894</a><div class="path">femboy.gardevoir &middot; 834 drum notes &middot; 57 bars</div></td><td><span class="path">none</span></td><td><span class="path">none</span></td><td><span class="path">none</span></td></tr><tr><td class="num">9</td><td><b>Stink-Foot</b></td><td class="num">6:33</td><td><a href="https://www.songsterr.com/a/wsa/frank-zappa-tab-s2382928">s2382928</a><div class="path">mariedront &middot; 2,599 drum notes &middot; 226 bars</div><a href="https://www.songsterr.com/a/wsa/frank-zappa-tab-s6205368">s6205368</a><div class="path">femboy.gardevoir &middot; 2,524 drum notes &middot; 114 bars</div><div class="path">second upload, listed as Stink-Foot V2</div></td><td><span class="path">none</span></td><td><span class="path">none</span></td><td><a href="https://www.songsterr.com/a/wsa/frank-zappa-tab-s4428902">s4428902</a> <span class="tag ai">ai</span><div class="path">Alex Sorto &middot; 651 notes &middot; 64 bars</div><div class="path">solo excerpt, filed under Token of my extreme</div></td></tr></table></div><h2 id="print">The two printed charts</h2><p>Both come from Todd Bishop, published across cruiseshipdrummer.com and pdxdrummer.com,
+and both were confirmed by opening the image rather than by reading the filename. They cover
+opposite ends of the record: the track that already has the thinnest human tab, and the track
+that has no human tab at all.</p>
+<div class="scroll"><table>
+<tr><th>Track</th><th>Drummer</th><th>Files</th><th>What the page shows</th></tr>
+<tr><td><b>Don't Eat the Yellow Snow</b></td><td>Ralph Humphrey</td>
+<td class="path">transcription-ralph-humphrey-dont-eat-the-yellow-snow_p01.jpg, 261,313 bytes, 1236x1600<br>
+transcription-ralph-humphrey-dont-eat-the-yellow-snow__pdxdrummer.pdf, 27,156 bytes, 1 page<br>
+plus the source post as .html</td>
+<td>A full page with a seven-line legend: crash, hihat, high tom, snare, low tom, bass,
+hihat/foot. Headed Frank Zappa, Apostrophe (') DiscReet. Marked Transcription begins at 0:32.
+Barred 7/8 against 7/4 through the opening, dropping to common time at the close. Bar numbers
+run to 33 and the last system reads Segue to Nanook Rubs It. Copyright 2013 Todd Bishop.</td></tr>
+<tr><td><b>Apostrophe&rsquo;</b></td><td>Jim Gordon</td>
+<td class="path">transcription-jim-gordon-apostrophe_p01.jpg, 40,785 bytes, 612x792<br>
+transcription-jim-gordon-apostrophe__pdxdrummer.pdf, 18,624 bytes, 1 page</td>
+<td>Headed Apostroph&eacute;, drum break, with Drums by Jim Gordon on the right. Marked Drum
+break begins at 3:22. Two systems, carrying (rim) on the first and (china) on the second.
+Copyright 2011 Todd Bishop. It is an excerpt of the break, and it is the only drum notation
+of the studio take on hand.</td></tr>
+</table></div><h2 id="mine">Our own work</h2><div class="scroll"><table>
+<tr><th>Track</th><th class="num">Files</th><th>Folder</th><th>What is in it</th></tr><tr class="mine"><td><b>Nanook Rubs It</b></td><td class="num">2</td><td class="path">~/Projects/_outputs/songsterr-zappa-paren-fix/s35865-Nanook-Rubs-It/</td><td>ORIGINAL pull plus RESTORE r4719269</td></tr><tr class="mine"><td><b>Nanook Rubs It</b></td><td class="num">2</td><td class="path">~/Projects/_outputs/songsterr-zappa-paren-fix/s35878-Nanook-Suite/</td><td>ORIGINAL pull plus RESTORE r7807785</td></tr><tr class="mine"><td><b>Nanook Rubs It</b></td><td class="num">1</td><td class="path">~/Projects/_outputs/zappa-nanook-sync-forensics/</td><td>FIXGRID rebuild of s35865 beside findings.json from the grid forensics</td></tr><tr class="mine"><td><b>Cosmik Debris</b></td><td class="num">stems</td><td class="path">~/Projects/_outputs/zappa-cosmik-debris-hihat-audit/</td><td>1.9 GB of our own stem work on the LIVE take, not the album take. Source wav, Demucs drums stem, six DrumSep lanes as kick, snare, toms, hh, ride and crash, plus hat_analyze.py, hh_verdict.py and lane_verdict.py with both tab JSONs pulled for comparison.</td></tr></table></div><div class="note"><b>Two of the nine tracks are ours on Songsterr.</b> Nanook Rubs It
+s35865 carries 1,309 drum notes over 109 bars, and the Nanook Suite s35878 carries 4,059 over
+292 bars across four tracks, which also covers St. Alfonzo's Pancake Breakfast and Father
+O'Blivion. The Cosmik Debris folder is stem analysis of the LIVE take and holds no
+transcription, so it is listed here and excluded from the transcription counts.</div><h2 id="notdrums">What does not count, and why</h2><div class="scroll"><table>
+<tr><th>Material</th><th>Where</th><th>Why it is excluded</th></tr>
+<tr><td><b>Kasper Sloots, zappa-analysis</b><div class="path">apostrophe.htm plus apostrophe1 to 3,
+cosmic-debris7 and 8, dont-eat-the-yellow-snow6 and 7, farther-oblivion4 and 6,
+stinkfoot-1974-2 to 5</div></td>
+<td class="path">~/Projects/_outputs/zappa-drum-sources/08-analysis/zappa-analysis/</td>
+<td>Pitched score on treble and bass clefs with no drum staff, verified by opening the
+notation. It stays the best bar-and-meter map for the record and it is not a drum
+transcription.</td></tr>
+<tr><td><b>Uncle Meat (YCDTOSA Vol. 2), s20690</b><div class="path">1,330 drum notes, 96 bars,
+authored by Brandon chavez</div></td><td class="path">Songsterr</td>
+<td>A search false positive on the Uncle Remus query. The track belongs to You Can't Do That
+On Stage Anymore Vol. 2 and not to this record. Ours, and out of scope here.</td></tr>
+<tr><td><b>Don't Eat The Yellow Snow (Ukulele), s2561609</b></td><td class="path">Songsterr</td>
+<td>Carries no drum track.</td></tr>
+</table></div><h2 id="method">Method</h2><p>Every Songsterr figure comes from two public endpoints and no login:
+<span class="path">songsterr.com/api/meta/&lt;songId&gt;</span> for the
+<span class="path">aiGenerated</span> flag, author and revision id, then the CloudFront
+notation JSON per track for note counts. Notes exclude rests. Drum tracks carry
+<span class="path">instrumentId 1024</span>.</p>
+<p>Twelve search patterns were run at <span class="path">size=100</span>, covering the nine
+album titles plus the short forms Yellow Snow, Nanook and Stinkfoot, since a
+<span class="path">size=30</span> cap on an earlier sweep of another record hid a real tab
+behind ninety-nine unrelated results. Nineteen Zappa songIds came back and seventeen carry a
+drum track.</p>
+<p>All eighteen in-scope tabs were already in Brandon's Songsterr favorites when this was
+built, checked against <span class="path">/api/favorites</span> with nothing missing.</p><footer>Built 2026-09-05 on MacBookPro. Source data under
+<span class="path">~/Projects/_outputs/zappa-drum-sources/</span> and <span class="path">~/Projects/_outputs/songsterr-zappa-paren-fix/</span>.
+Companion pages:
+<a href="https://7onething1.github.io/zappa-non-ai-drum-transcriptions/">the other four albums</a>,
+<a href="https://7onething1.github.io/zappa-drum-transcription-inventory/">drum transcription inventory</a>,
+<a href="https://7onething1.github.io/zappa-apostrophe-vs-songsterr/">Apostrophe vs Songsterr</a>.
+</footer></div></body></html>
