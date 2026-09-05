@@ -1,0 +1,257 @@
+<!doctype html>
+<html lang="en"><head><meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Cosmik Debris Live: the hi-hat audit</title>
+<style>
+:root{--cream:#f4ead8;--paper:#fbf5e9;--ink:#1c1a17;--rust:#b5462f;--mustard:#d9a441;
+--teal:#3f6b6b;--dusty:#8f6f5a;--line:#ddcdb2;--shade:#efe2cb;--green:#4a7c59;}
+*{box-sizing:border-box}
+body{margin:0;background:var(--cream);color:var(--ink);
+font:16px/1.6 "Futura","Avenir Next","Helvetica Neue",Helvetica,Arial,sans-serif}
+.wrap{max-width:1100px;margin:0 auto;padding:34px 22px 80px}
+header{border:3px solid var(--ink);background:var(--paper);padding:26px 28px;margin-bottom:24px}
+h1{margin:0;font-size:30px;letter-spacing:.05em;text-transform:uppercase}
+.sub{margin-top:8px;color:var(--dusty);font-size:14px;letter-spacing:.12em;text-transform:uppercase}
+.stats{display:flex;flex-wrap:wrap;gap:10px;margin-top:20px}
+.stat{border:2px solid var(--ink);background:var(--cream);padding:9px 15px;font-size:13px}
+.stat b{display:block;font-size:21px;color:var(--rust)}
+h2{margin:40px 0 6px;font-size:19px;letter-spacing:.05em;text-transform:uppercase;
+border-bottom:3px solid var(--ink);padding-bottom:7px}
+h3{margin:24px 0 8px;font-size:14px;letter-spacing:.08em;text-transform:uppercase;color:var(--teal)}
+nav{background:var(--paper);border:2px solid var(--line);padding:15px 19px;margin-bottom:10px}
+nav a{display:inline-block;margin:4px 16px 4px 0;color:var(--teal);font-size:14px}
+a{color:var(--rust);text-decoration:none;border-bottom:1px solid rgba(181,70,47,.35)}
+a:hover{border-bottom-color:var(--rust)}
+table{width:100%;border-collapse:collapse;margin:14px 0;background:var(--paper);font-size:14px}
+th{background:var(--shade);text-align:left;padding:9px 11px;border:1px solid var(--line);
+font-size:11px;letter-spacing:.1em;text-transform:uppercase}
+td{padding:8px 11px;border:1px solid var(--line);vertical-align:top}
+tr:nth-child(even) td{background:rgba(239,226,203,.42)}
+.num{text-align:right;white-space:nowrap;font-variant-numeric:tabular-nums}
+.mono{font-family:"SF Mono",Menlo,monospace;font-size:12px}
+.ok{color:var(--green);font-weight:700} .bad{color:var(--rust);font-weight:700}
+.mid{color:#a9761f;font-weight:700}
+.note{border-left:5px solid var(--mustard);background:var(--paper);padding:13px 17px;margin:16px 0;font-size:14px}
+.win{border-left-color:var(--green)} .warn{border-left-color:var(--rust)}
+.scroll{overflow-x:auto}
+.grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(250px,1fr));gap:14px;margin:16px 0}
+.card{border:2px solid var(--line);background:var(--paper);padding:15px 17px}
+.card b{display:block;font-size:12px;letter-spacing:.1em;text-transform:uppercase;color:var(--teal);margin-bottom:6px}
+.big{font-size:26px;color:var(--rust);font-weight:700;font-variant-numeric:tabular-nums}
+pre{background:var(--paper);border:1px solid var(--line);padding:12px 14px;overflow-x:auto;
+font-family:"SF Mono",Menlo,monospace;font-size:12px;line-height:1.5}
+footer{margin-top:50px;padding-top:18px;border-top:2px solid var(--line);font-size:12px;color:var(--dusty)}
+</style></head><body><div class="wrap">
+
+<header>
+<h1>Cosmik Debris Live: the hi-hat audit</h1>
+<div class="sub">Songsterr s1154774 &middot; measured against the audio it is synced to &middot; 2026-09-05</div>
+<div class="stats">
+<div class="stat"><b>1,053</b>closed hats written</div>
+<div class="stat"><b>81</b>open hats written</div>
+<div class="stat"><b>24</b>pedal hats, all in one block</div>
+<div class="stat"><b>8:06</b>audio pulled and analysed</div>
+<div class="stat"><b>p=0.80</b>open blocks vs closed blocks</div>
+</div>
+</header>
+
+<nav><a href="#ask">The question</a><a href="#audio">The audio</a><a href="#method">Method</a>
+<a href="#verdict">The hi-hat verdict</a><a href="#struct">Four structural failures</a>
+<a href="#align">The alignment test</a><a href="#second">The second transcription</a>
+<a href="#correct">A correction to our own page</a><a href="#limits">Honest limits</a></nav>
+
+<h2 id="ask">The question</h2>
+<p>One Songsterr tab, one narrow question. Tab <b>s1154774</b>, titled <i>Cosmik Debris Live</i>,
+is an AI-generated transcription uploaded by <span class="mono">DavidxHanes</span> in March 2025.
+Its drum track writes <b>1,053 closed hi-hats, 81 open hi-hats and 24 pedal hi-hats</b>. This page
+asks whether that hi-hat writing describes what the drummer played.</p>
+<p>The tab carries its own answer key. Songsterr stores the video each tab is synced to, and
+s1154774 names three. The first is the reference recording, so the audio was pulled and measured
+against the notation.</p>
+
+<h2 id="audio">The audio, and which performance this is</h2>
+<div class="grid">
+<div class="card"><b>Source</b><span class="mono">YouTube Dp6LT2MdaPI</span><br>
+"FRANK ZAPPA COSMIK DEBRIS", uploaded 2010-03-09.</div>
+<div class="card"><b>Duration</b><div class="big">8:06.4</div>486.4 seconds. The studio cut on
+<i>Apostrophe (')</i> runs 4:14, so this is a live performance.</div>
+<div class="card"><b>Felt tempo</b><div class="big">76.1 BPM</div>Median across 24 windows, each
+independently significant. An HF autocorrelation put it at 76.6 independently.</div>
+<div class="card"><b>Tempo drift</b><div class="big">72.6&ndash;82.4</div>The band moves through
+the performance. The tab holds one flat value throughout.</div>
+</div>
+<p>The recording carries usable high-frequency content. Averaged across the whole track the
+6&ndash;14&nbsp;kHz band sits 29 to 34&nbsp;dB below peak, and the hi-hat lives there. A hat verdict
+is physically possible on this source, which is why the question was worth asking.</p>
+
+<h2 id="method">Method, stated before the results</h2>
+<ol>
+<li>Read the tab's notation from Songsterr's own JSON, unauthenticated, at
+<span class="mono">dqsljvtekg760.cloudfront.net/1154774/1540143/&lt;hash&gt;/3.json</span>.</li>
+<li>Pull the synced video's audio to WAV, 44.1&nbsp;kHz.</li>
+<li>Separate the drum stem with Demucs htdemucs, so guitar and vocal sibilance stop contaminating
+the hat band. On the raw mix a hat detector returns 840 onsets in 60 seconds, which is nonsense.</li>
+<li>Detect cymbal events from spectral flux in 7&ndash;14&nbsp;kHz on the stem alone.</li>
+<li>Separate open from closed by <b>gap-ring ratio</b>: the high-frequency energy still present just
+before the next hit, divided by this hit's peak. A closed hat is choked by the pedal and dies. An
+open hat rings into the gap.</li>
+<li>Validate every detector against a null before trusting it.</li>
+</ol>
+<div class="note warn"><b>One method was thrown away mid-audit.</b> The first decay measure, time to
+fall to 35&nbsp;percent of peak, produced 1,802 of 4,564 events pinned at the 500&nbsp;ms ceiling.
+In a shuffle the next hat lands before the previous one has decayed, so that measure was reading the
+following note. The gap-ring ratio replaced it.</div>
+
+<h2 id="verdict">The hi-hat verdict</h2>
+<p>The tab marks certain blocks as entirely open and others as entirely closed. If those calls carry
+information, the blocks must differ in the audio. They do not.</p>
+<table><thead><tr><th>Tab section</th><th>What the tab writes</th><th class="num">events</th>
+<th class="num">mean ring</th></tr></thead><tbody>
+<tr><td class="mono">bars 45&ndash;65</td><td>225 closed, 0 open</td><td class="num">323</td><td class="num">0.654</td></tr>
+<tr><td class="mono">bars 92&ndash;113</td><td>240 closed, 9 open</td><td class="num">358</td><td class="num">0.699</td></tr>
+<tr><td class="mono">bars 129&ndash;146</td><td>143 closed, 0 open, 24 pedal</td><td class="num">205</td><td class="num">0.239</td></tr>
+<tr><td class="mono">bars 123&ndash;125</td><td>0 closed, <b>23 open</b></td><td class="num">52</td><td class="num">0.719</td></tr>
+<tr><td class="mono">bars 150&ndash;154</td><td>19 closed, <b>25 open</b></td><td class="num">49</td><td class="num">0.402</td></tr>
+</tbody></table>
+<div class="note warn"><b>Pooled result.</b> The blocks the tab calls closed average a ring ratio of
+<b>0.576</b>. The blocks it calls open average <b>0.565</b>, which is fractionally lower. A
+Mann-Whitney test for open exceeding closed returns <b>p&nbsp;=&nbsp;0.80</b>. The open markings do
+not track anything measurable in the recording. Sweeping the sync offset across sixteen seconds
+never produced a stable rescue.</div>
+<p>The distribution behind that test is worth stating plainly. Ring ratio across 2,081 hat events is
+<b>unimodal</b>. It does not split into a choked cluster and a ringing cluster. On this source, after
+separation, closed and open hi-hat are not cleanly separable by any threshold. That is a limit of the
+recording as much as a finding about the tab, and it is reported here rather than hidden.</p>
+
+<h2 id="struct">Four structural failures that need no alignment</h2>
+<h3>1. The opening is impossible</h3>
+<p>Bars 1 to 4 write <b>81 snare hits, 14 crashes and 4 kicks in 11 seconds</b>, with zero hi-hat.
+The pattern is kick, snare and crash together, then five bare snares, repeated. That is 99 drum notes
+in 11 seconds.</p>
+<pre>TAB bars 1-4, claimed:            99 notes in 11.0 s
+AUDIO, actual first 11 s:         26 onsets of any kind
+AUDIO, densest 11 s anywhere:     64 onsets  (begins t=239 s)</pre>
+<p>The claim exceeds the densest eleven seconds in the entire performance. No sync offset repairs
+this, because no such window exists anywhere in the recording. The audio's opening is quieter still:
+one onset at 0.023&nbsp;s, then nothing until 2.171&nbsp;s.</p>
+
+<h3>2. Every pedal hi-hat sits in one block</h3>
+<p>All <b>24</b> pedal-hat notes in the tab fall inside bars 129 to 146. The other 145 bars contain
+none. A drummer's left foot does not switch on for eighteen bars and off for the rest of a song.</p>
+
+<h3>3. The open-hat sections are all-or-nothing</h3>
+<p>Bars 123 to 125 carry 23 open hats and <b>zero</b> closed. Bars 45 to 65 carry 225 closed and
+<b>zero</b> open. Real shuffle playing mixes them continuously. Blocks this pure are a classifier
+holding a state.</p>
+
+<h3>4. The hat line is thin, and in one place it vanishes</h3>
+<p>Across 30-second windows the tab writes a median of <b>0.60</b> hat notes for every cymbal event
+detected in the audio. Between 349 and 380 seconds it writes five, all of them open, against 176
+detected events.</p>
+<div class="scroll"><table><thead><tr><th>audio window</th><th class="num">tab hat notes</th>
+<th class="num">of which open</th><th class="num">audio hat events</th><th class="num">ratio</th>
+</tr></thead><tbody>
+<tr><td class="mono">0&ndash;30s</td><td class="num">72</td><td class="num">4</td><td class="num">92</td><td class="num ok">0.78</td></tr>
+<tr><td class="mono">30&ndash;60s</td><td class="num">37</td><td class="num">0</td><td class="num">126</td><td class="num bad">0.29</td></tr>
+<tr><td class="mono">60&ndash;90s</td><td class="num">79</td><td class="num">1</td><td class="num">115</td><td class="num ok">0.69</td></tr>
+<tr><td class="mono">90&ndash;120s</td><td class="num">58</td><td class="num">9</td><td class="num">128</td><td class="num mid">0.45</td></tr>
+<tr><td class="mono">120&ndash;150s</td><td class="num">107</td><td class="num">0</td><td class="num">153</td><td class="num ok">0.70</td></tr>
+<tr><td class="mono">150&ndash;180s</td><td class="num">104</td><td class="num">0</td><td class="num">154</td><td class="num ok">0.68</td></tr>
+<tr><td class="mono">180&ndash;210s</td><td class="num">74</td><td class="num">2</td><td class="num">137</td><td class="num mid">0.54</td></tr>
+<tr><td class="mono">210&ndash;240s</td><td class="num">103</td><td class="num">6</td><td class="num">141</td><td class="num ok">0.73</td></tr>
+<tr><td class="mono">240&ndash;270s</td><td class="num">65</td><td class="num">5</td><td class="num">144</td><td class="num mid">0.45</td></tr>
+<tr><td class="mono">270&ndash;300s</td><td class="num">119</td><td class="num">5</td><td class="num">163</td><td class="num ok">0.73</td></tr>
+<tr><td class="mono">300&ndash;330s</td><td class="num">106</td><td class="num">1</td><td class="num">168</td><td class="num ok">0.63</td></tr>
+<tr><td class="mono">330&ndash;360s</td><td class="num">5</td><td class="num">5</td><td class="num">176</td><td class="num bad">0.03</td></tr>
+<tr><td class="mono">360&ndash;390s</td><td class="num">85</td><td class="num">18</td><td class="num">104</td><td class="num ok">0.82</td></tr>
+<tr><td class="mono">390&ndash;420s</td><td class="num">85</td><td class="num">0</td><td class="num">147</td><td class="num mid">0.58</td></tr>
+<tr><td class="mono">420&ndash;450s</td><td class="num">59</td><td class="num">25</td><td class="num">108</td><td class="num mid">0.55</td></tr>
+<tr><td class="mono">450&ndash;480s</td><td class="num">0</td><td class="num">0</td><td class="num">25</td><td class="num bad">0.00</td></tr>
+</tbody></table></div>
+
+<h2 id="align">The alignment test, with its nulls</h2>
+<p>Before any of the above can be called a transcription error, one question has to be settled. Does
+this tab track this performance at all. The kick was used to answer it, because the kick is the
+easiest drum to detect and it is independent of the hat question.</p>
+<p>The kick detector was validated first. Across 24 windows of 20 seconds, <b>all 24</b> show a
+statistically significant kick period, and the median local period of 788&nbsp;ms agrees with the
+independent high-frequency autocorrelation estimate of 784&nbsp;ms. The detector works.</p>
+<table><thead><tr><th>Test</th><th class="num">global match</th><th class="num">local match</th>
+</tr></thead><tbody>
+<tr><td>Tab kicks vs the real audio</td><td class="num">45.5%</td><td class="num">73.3%</td></tr>
+<tr><td>Tab kicks vs the same audio <b>reversed</b></td><td class="num">43.4%</td><td class="num">68.9%</td></tr>
+<tr><td>Tab kicks vs random onsets, same count</td><td class="num">35.5%</td><td class="num">55.3%</td></tr>
+</tbody></table>
+<div class="note warn"><b>The tab beats its own null by 4.4 points, and that margin is not
+significant</b> (p&nbsp;=&nbsp;0.11). Its kick pattern matches the performance about as well as it
+matches the performance played backwards. A shuffle in reverse is still a shuffle, which is why both
+score near 70&nbsp;percent once the clock is forgiven. The tab has the density and the idiom of the
+music. It does not carry this performance's events.</div>
+<p>The global test was run first and was unfair, so it was rerun. The tab holds a flat tempo. The band drifts from 72.6 to 82.4&nbsp;BPM, and any transcription with a flat clock slides out of a
+live performance within a minute. The local test lets the offset float freely by up to eight seconds
+in each fifteen-second window. That is the most generous test available, and the verdict survives it.</p>
+<h3>The clock, precisely</h3>
+<p>The tab writes 120&nbsp;BPM in 12/8 for 135 bars, which is a felt beat of 80&nbsp;BPM. The
+performance sits at 76.1. The tab therefore runs about <b>5&nbsp;percent fast</b>, and it computes to
+460.2 seconds against 486.4 of audio, a 5.4&nbsp;percent shortfall. Those two figures agree, which is
+how the scattered short bars are explained: the 9/8 and the three 11/8 bars are dropped beats
+absorbing accumulated drift. They are not meter.</p>
+
+<h2 id="second">The second transcription</h2>
+<p>Songsterr holds exactly <b>two</b> Cosmik Debris tabs. There is no independent transcription of
+this live performance on the site.</p>
+<table><thead><tr><th>Tab</th><th>Kind</th><th class="num">bars</th><th class="num">computed</th>
+<th>meter</th><th class="num">closed</th><th class="num">open</th><th class="num">pedal</th></tr></thead><tbody>
+<tr><td class="mono">s1154774 Cosmik Debris Live</td><td>AI, DavidxHanes</td><td class="num">159</td>
+<td class="num">7:40</td><td>12/8 with 9/8 and 11/8</td><td class="num">1,053</td><td class="num">81</td><td class="num">24</td></tr>
+<tr><td class="mono">s412177 Cosmik Debris</td><td>human-revised, 398 favourites</td><td class="num">80</td>
+<td class="num">4:19</td><td>4/4 throughout</td><td class="num">501</td><td class="num">10</td><td class="num">1</td></tr>
+</tbody></table>
+<p>The studio tab is a control worth having. It computes to 4:19.5 against a 4:14 album track, so its
+tempo map is sound, and its opening bar is a playable ride shuffle. Its open hats are
+<b>2.0&nbsp;percent</b> of the hat family. The live tab's are <b>7.0&nbsp;percent</b>.</p>
+<h3>An independent source on the meter</h3>
+<p>A German musicological analysis of <i>Apostrophe (')</i> held in the local Zappa drum-source
+archive gives Cosmik Debris a duration of 4:16 and states its meter as <b>6/8 and 4/4</b>. It sets
+out the basic rhythms, the blues schema behind the guitar solo and the strophe-refrain form. Its 6/8
+is compatible with notating the shuffle in 12/8, since one 12/8 bar is two of 6/8. Nothing in it
+supports 9/8 or 11/8 bars.</p>
+<div class="note">Source: <span class="mono">08-analysis/zappa-analysis/cosmic-debris7.jpg</span> in
+<span class="mono">~/Projects/_outputs/zappa-drum-sources/</span>. It is a copyrighted scan, described
+here and not reproduced.</div>
+
+<h2 id="correct">A correction to our own earlier page</h2>
+<div class="note warn">The <a href="https://7onething1.github.io/zappa-apostrophe-vs-songsterr/">Apostrophe
+(') page</a> scores s1154774 at <b>+84.1&nbsp;percent</b> over length, by comparing its 7:40 against
+the 4:10 studio runtime. The tab is a <b>live</b> tab synced to an 8:06 live video. Measured against
+the recording it transcribes, 7:40 is 5.4&nbsp;percent <b>short</b>. The 84&nbsp;percent figure came from measuring against the wrong recording. The note counts on that page, 3,135 and 1,581, were reproduced exactly here, so the counting pipeline was sound throughout.</div>
+
+<h2 id="limits">Honest limits</h2>
+<ul>
+<li><b>Open versus closed is not cleanly separable on this source.</b> The ring-ratio distribution is
+unimodal. The verdict above is that the tab's open markings carry no measurable signal, which is a
+weaker and different claim than a note-by-note correction.</li>
+<li><b>Onset detection undercounts simultaneous notes.</b> A kick struck with a hat is one onset. The
+density ratios should be read as indicative rather than exact.</li>
+<li><b>Demucs leaves artefacts.</b> The stem is far cleaner than the mix, and it is not a close-miked
+multitrack.</li>
+<li><b>Which live performance this is remains unnamed.</b> The upload gives no date or venue, and the
+tab's description says only "Initial revision". The analysis holds regardless, because the tab is
+measured against the recording Songsterr itself synced it to.</li>
+<li><b>The two alternate synced videos were not pulled.</b> One fetch was made, on the primary video,
+under the YouTube politeness gate.</li>
+</ul>
+
+<h2>What this means for using the tab</h2>
+<p>For playing along, s1154774 gives a broadly correct shuffle idiom at roughly the right density and
+close to the right length. For learning what this drummer played, the hi-hat detail should be
+ignored, the opening four bars discarded outright, and the meter read as 12/8 throughout. The
+human-revised studio tab s412177 is the better document of the part, at the cost of being a different
+performance.</p>
+
+<footer>
+Measured 2026-09-05 on this MacBook. Notation from Songsterr's public JSON. Audio via one gated fetch
+of the primary synced video. Separation: Demucs htdemucs. Analysis: librosa 0.11.0, scipy 1.17.1.
+Every figure on this page came from a command run in this session.
+</footer>
+</div></body></html>
