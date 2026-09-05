@@ -57,9 +57,51 @@ next-best offset. Zero bars differ on position and drum MIDI.
 Bars 2 to 5 only look longer than the suite writes them. A 3/4 bar and a 6/8 bar both hold six eighths.
 The padding is 5.5 quarter beats, 4.78 s at 69 BPM.
 
-The suite's partial bars belong there, joining the sections on either side. Lifting
-the 109 bars out to stand alone exposed those joints, and they were rounded up into
-full 3/4 and 4/4 bars carrying grid time with no audio underneath.
+### The mechanism: under-filled bars
+
+Neither bar holds extra notes. Both declare more time than they contain, and Guitar
+Pro plays an incomplete bar for its full declared length. Bar 1 declares 3/4 and all
+nine staves fill one quarter note. Bar 109 declares 4/4 and all nine fill one eighth.
+The content already matches the suite, so fixing the two meter fields moves no notes.
+
+| Bar | Declared | Declared length | Content filled | Dead grid |
+|---|---|---|---|---|
+| 1 | 3/4 | 3 quarter beats | 1 quarter beat | 2 beats |
+| 109 | 4/4 | 4 quarter beats | 0.5 quarter beat | 3.5 beats |
+
+### Where it entered the tab
+
+| Revision | Date | Author | Bar 1 | Bar 109 | Quarter beats | Grid error |
+|---|---|---|---|---|---|---|
+| 3723195 | 2025-11-06 | femboy.gardevoir | 6/8 | 1/8 | 326.5 | +2.41% |
+| 4181966 | 2025-12-09 | femboy.gardevoir | 3/4 | 4/4 | 330.0 | +3.51% |
+| 4181973 | 2025-12-09 | femboy.gardevoir | 3/4 | 4/4 | 330.0 | +3.51% |
+| 8768967 | 2026-08-30 | Brandon chavez | 3/4 | 4/4 | 330.0 | +3.51% |
+
+Revision 4181966 is described as "General: changed time signature" with an anacrusis
+change on every staff. It expanded bar 109 from 1/8 to 4/4 and added 3.5 quarter
+beats. Bar 1 was already over-declared ahead of that edit, so the two faults carry
+separate authors and separate dates.
+
+### The corrected file
+
+Three fields changed, one zip entry touched, gpif byte delta +2.
+
+```
+- <Value>69 2</Value>       ->  + <Value>70.2 2</Value>
+- <Time>3/4</Time>  bar 1   ->  + <Time>2/8</Time>
+- <Time>4/4</Time>  bar 109 ->  + <Time>1/8</Time>
+
+grid       330.0 -> 324.5 quarter beats
+notated    286.96 s -> 277.35 s   against a 277.23 s record
+grid error +3.51 % -> +0.04 %
+```
+
+`preflight_import.py` clears the grid check: `grid 277.4s notated vs 277.2s record,
+0.04% off`. It refuses the upload on two unrelated policy faults. STACKED, revision
+r8907423 is queued unreviewed on this song since 5 September 2026. NAMEDROP, the
+importer clears all seven custom track names. Publishing is outward facing, so the
+corrected file sits on disk and nothing was sent.
 
 ## The arithmetic closes
 

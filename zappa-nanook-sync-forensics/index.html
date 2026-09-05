@@ -147,11 +147,35 @@ exactly two bars.</p>
 hold six eighth notes, so they occupy the same time. The only real padding is bar 1
 and bar 109, and it totals <b>5.5 quarter beats, 4.78 seconds</b> at 69 BPM.</div>
 
-<h3>Where the padding comes from</h3>
-<p>The suite's partial bars make sense in place. A 2/8 bar joins the previous section
-and a 1/8 bar hands off to the next one. Lifting the 109 bars out of the suite to stand
-alone left those two joints exposed, and they were rounded up into full 3/4 and 4/4
-bars. That rounding added grid time with no audio underneath it.</p>
+<h3>The mechanism: the bars are under-filled</h3>
+<p>Neither bar holds extra notes. Both declare more time than they contain, and Guitar
+Pro plays an incomplete bar for its full declared length with the remainder as implied
+rest. Bar 1 declares 3/4 and every one of the nine staves fills only a quarter note.
+Bar 109 declares 4/4 and every stave fills only an eighth. The written content already
+matches the suite exactly, so correcting the two time signature fields moves no notes
+at all.</p>
+<table>
+<tr><th>Bar</th><th>Declared meter</th><th class="num">Declared length</th><th class="num">Content actually filled</th><th class="num">Dead grid</th></tr>
+<tr><td>1</td><td>3/4</td><td class="num">3 quarter beats</td><td class="num">1 quarter beat</td><td class="num bad">2 beats</td></tr>
+<tr><td>109</td><td>4/4</td><td class="num">4 quarter beats</td><td class="num">0.5 quarter beat</td><td class="num bad">3.5 beats</td></tr>
+</table>
+
+<h3>Where it entered the tab</h3>
+<p>Songsterr keeps the revision history, so I read the grid out of each historical
+revision rather than guessing.</p>
+<table>
+<tr><th>Revision</th><th>Date</th><th>Author</th><th>Bar 1</th><th>Bar 109</th><th class="num">Quarter beats</th><th class="num">Grid error</th></tr>
+<tr><td class="mono">3723195</td><td>2025-11-06</td><td>femboy.gardevoir</td><td>6/8</td><td>1/8</td><td class="num">326.5</td><td class="num mid">+2.41%</td></tr>
+<tr><td class="mono">4181966</td><td>2025-12-09</td><td>femboy.gardevoir</td><td>3/4</td><td class="num bad">4/4</td><td class="num bad">330.0</td><td class="num bad">+3.51%</td></tr>
+<tr><td class="mono">4181973</td><td>2025-12-09</td><td>femboy.gardevoir</td><td>3/4</td><td>4/4</td><td class="num">330.0</td><td class="num bad">+3.51%</td></tr>
+<tr><td class="mono">8768967</td><td>2026-08-30</td><td>Brandon chavez</td><td>3/4</td><td>4/4</td><td class="num">330.0</td><td class="num bad">+3.51%</td></tr>
+</table>
+<div class="note warn">Revision <span class="mono">4181966</span> carries the description
+<i>"General: changed time signature"</i> with an anacrusis change on every staff. That
+edit expanded bar 109 from 1/8 to 4/4 and added <b>3.5 quarter beats</b>, taking the
+grid from +2.41% to +3.51%. Bar 1 was already over-declared ahead of that edit, holding 3
+quarter beats of meter against 1 quarter beat of content, so the two faults carry
+separate authors and separate dates.</div>
 
 <h3>What the padding looks like against the record</h3>
 <div class="bar">
@@ -194,6 +218,35 @@ Set the single tempo automation from 69 to 70.2, and change bar 1 from 3/4 to 2/
 bar 109 from 4/4 to 1/8. That takes the grid error from +3.51% to +0.04%, well inside
 the 2% tolerance that <span class="mono">preflight_import.py</span> already enforces,
 and it more than doubles the share of the record's kick hits the tab lands on.</div>
+
+<h2 id="built">The corrected file, built and checked</h2>
+<p>I wrote a corrected copy rather than touching the original. Three fields changed
+and nothing else in the archive moved.</p>
+<div class="eq">
+&minus; &lt;Value&gt;69 2&lt;/Value&gt;        &rarr;  + &lt;Value&gt;70.2 2&lt;/Value&gt;
+&minus; &lt;Time&gt;3/4&lt;/Time&gt;   (bar 1)   &rarr;  + &lt;Time&gt;2/8&lt;/Time&gt;
+&minus; &lt;Time&gt;4/4&lt;/Time&gt;   (bar 109) &rarr;  + &lt;Time&gt;1/8&lt;/Time&gt;
+
+zip entries changed : Content/score.gpif only
+gpif byte delta     : +2
+changed lines       : 6   (3 removed, 3 added)
+grid                : 330.0 &rarr; 324.5 quarter beats
+notated             : 286.96 s &rarr; 277.35 s   against a 277.23 s record
+grid error          : +3.51 % &rarr; <b>+0.04 %</b>
+</div>
+<p>Run through the project's own import gate, the grid check clears:
+<span class="mono">grid 277.4s notated vs 277.2s record, 0.04% off</span>. The gate
+still refuses the upload on two unrelated policy faults.</p>
+<div class="note warn"><b>STACKED.</b> Revision <span class="mono">r8907423</span> was
+submitted on 5 September 2026 and is sitting unreviewed on this song, restoring the 168
+ghost notes that <span class="mono">r8768967</span> removed. A grid fix sent now would
+replace a diff a moderator has not read yet.<br><br>
+<b>NAMEDROP.</b> The tab carries seven custom track names and Songsterr's importer
+clears every one of them on import. That happens inside the importer and no uploaded
+file can prevent it.</div>
+<p>Both are upload-workflow faults rather than problems with the correction. Publishing
+to Songsterr is outward facing, so the corrected file is built and verified on disk and
+nothing has been sent.</p>
 
 <h2 id="method">Method, and what I could not settle</h2>
 <p>The record used as the ruler is the video Songsterr syncs this tab to, YouTube
