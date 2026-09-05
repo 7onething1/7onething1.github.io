@@ -1,0 +1,206 @@
+<!doctype html>
+<html lang="en"><head><meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Zappa Drum Transcription Inventory</title>
+<style>
+:root{--cream:#f4ead8;--paper:#fbf5e9;--ink:#1c1a17;--rust:#b5462f;--mustard:#d9a441;
+--teal:#3f6b6b;--dusty:#8f6f5a;--line:#ddcdb2;--shade:#efe2cb;--green:#4a7c59;}
+*{box-sizing:border-box}
+body{margin:0;background:var(--cream);color:var(--ink);
+font:16px/1.6 "Futura","Avenir Next","Helvetica Neue",Helvetica,Arial,sans-serif}
+.wrap{max-width:1100px;margin:0 auto;padding:34px 22px 80px}
+header{border:3px solid var(--ink);background:var(--paper);padding:26px 28px;margin-bottom:24px}
+h1{margin:0;font-size:30px;letter-spacing:.05em;text-transform:uppercase}
+.sub{margin-top:8px;color:var(--dusty);font-size:14px;letter-spacing:.12em;text-transform:uppercase}
+.stats{display:flex;flex-wrap:wrap;gap:10px;margin-top:20px}
+.stat{border:2px solid var(--ink);background:var(--cream);padding:9px 15px;font-size:13px}
+.stat b{display:block;font-size:21px;color:var(--rust)}
+h2{margin:40px 0 6px;font-size:19px;letter-spacing:.05em;text-transform:uppercase;
+border-bottom:3px solid var(--ink);padding-bottom:7px}
+h3{margin:24px 0 8px;font-size:14px;letter-spacing:.08em;text-transform:uppercase;color:var(--teal)}
+nav{background:var(--paper);border:2px solid var(--line);padding:15px 19px;margin-bottom:10px}
+nav a{display:inline-block;margin:4px 16px 4px 0;color:var(--teal);font-size:14px}
+a{color:var(--rust);text-decoration:none;border-bottom:1px solid rgba(181,70,47,.35)}
+a:hover{border-bottom-color:var(--rust)}
+table{width:100%;border-collapse:collapse;margin:14px 0;background:var(--paper);font-size:14px}
+th{background:var(--shade);text-align:left;padding:9px 11px;border:1px solid var(--line);
+font-size:11px;letter-spacing:.1em;text-transform:uppercase}
+td{padding:8px 11px;border:1px solid var(--line);vertical-align:top}
+tr:nth-child(even) td{background:rgba(239,226,203,.42)}
+.num{text-align:right;white-space:nowrap;font-variant-numeric:tabular-nums}
+.mono{font-family:"SF Mono",Menlo,monospace;font-size:12px}
+.path{font-family:"SF Mono",Menlo,monospace;font-size:11px;color:var(--dusty)}
+.ok{color:var(--green);font-weight:700} .bad{color:var(--rust);font-weight:700}
+.mid{color:#a9761f;font-weight:700}
+.note{border-left:5px solid var(--mustard);background:var(--paper);padding:13px 17px;margin:16px 0;font-size:14px}
+.win{border-left-color:var(--green)} .warn{border-left-color:var(--rust)}
+.keep{background:rgba(74,124,89,.13)!important}
+.scroll{overflow-x:auto}
+.tag{display:inline-block;border:1px solid var(--line);background:var(--cream);padding:1px 7px;
+font-size:10px;letter-spacing:.08em;text-transform:uppercase;color:var(--dusty);margin-left:5px}
+footer{margin-top:50px;padding-top:18px;border-top:2px solid var(--line);font-size:12px;color:var(--dusty)}
+</style></head><body><div class="wrap">
+<header>
+<h1>Zappa Drum Transcription Inventory</h1>
+<div class="sub">Apostrophe (’) &middot; One Size Fits All &middot; Joe’s Garage &middot; built 2026-09-05</div>
+<div class="stats">
+<div class="stat"><b>37</b>songs inventoried</div>
+<div class="stat"><b>14</b>have an AI drum tab</div>
+<div class="stat"><b>28</b>have any drum tab</div>
+<div class="stat"><b>21</b>human drum tabs kept as reference</div>
+<div class="stat"><b>2</b>drum presence unconfirmed</div>
+</div>
+</header>
+<nav><a href="#main">Main inventory</a><a href="#ref">Human-made reference tabs</a>
+<a href="#research">Drum-presence research</a><a href="#gaps">Search gaps</a><a href="#method">Method</a></nav>
+
+<h2 id="main">Main inventory, one row per song</h2>
+<p>Three albums, 37 tracks, taken in album order from the MusicBrainz release for each record. The
+AI transcription is linked whenever one exists and carries a drum part. A human-made tab is linked in
+this table only when no AI drum transcription exists for that song. Every human tab stays available in
+the <a href="#ref">reference table</a> below.</p>
+<div class="note"><b>How a "no" is earned here.</b> A drum transcription counts only when a drum staff
+holds real notes, rests excluded. A tab whose drum staff exists and holds nothing but rests is recorded
+as an empty staff, never as a drum transcription. A tab that could not be read is recorded as
+unavailable in <a href="#gaps">search gaps</a>, never as a "no".</div>
+<h3>Apostrophe (’) <a href="https://7onething1.github.io/zappa-apostrophe-vs-songsterr/" style="font-size:11px">comparison page</a></h3>
+<div class="scroll"><table>
+<tr><th>#</th><th>Song</th><th>Album length</th><th>AI drum transcription?</th><th>Any drum transcription?</th><th>Linked tab</th><th>Drums on the recording</th></tr>
+<tr><td class="num">1</td><td><b>Don’t Eat the Yellow Snow</b></td><td class="num">2:06</td><td><span class="ok">Yes</span></td><td><span class="ok">Yes</span></td><td><a href="https://www.songsterr.com/a/wsa/frank-zappa-tab-s6075883">s6075883</a> <span class="tag">AI</span><div class="path">934 drum notes &middot; single version</div></td><td><span class="path">n/a, a transcription exists</span></td></tr>
+<tr><td class="num">2</td><td><b>Nanook Rubs It</b></td><td class="num">4:37</td><td><span class="bad">No</span></td><td><span class="ok">Yes</span></td><td><a href="https://www.songsterr.com/a/wsa/frank-zappa-tab-s35865">s35865</a> <span class="tag">human-made</span><div class="path">1,309 drum notes &middot; album take (length matches)</div></td><td><span class="path">n/a, a transcription exists</span></td></tr>
+<tr><td class="num">3</td><td><b>St. Alfonzo’s Pancake Breakfast</b></td><td class="num">1:52</td><td><span class="bad">No</span></td><td><span class="ok">Yes</span></td><td><a href="https://www.songsterr.com/a/wsa/frank-zappa-tab-s35892">s35892</a> <span class="tag">human-made</span><div class="path">851 drum notes &middot; album take (length matches)</div></td><td><span class="path">n/a, a transcription exists</span></td></tr>
+<tr><td class="num">4</td><td><b>Father O’Blivion</b></td><td class="num">2:18</td><td><span class="bad">No</span></td><td><span class="ok">Yes</span></td><td><a href="https://www.songsterr.com/a/wsa/frank-zappa-tab-s35864">s35864</a> <span class="tag">human-made</span><div class="path">1,339 drum notes &middot; album take (length matches)</div></td><td><span class="path">n/a, a transcription exists</span></td></tr>
+<tr><td class="num">5</td><td><b>Cosmik Debris</b></td><td class="num">4:10</td><td><span class="ok">Yes</span></td><td><span class="ok">Yes</span></td><td><a href="https://www.songsterr.com/a/wsa/frank-zappa-tab-s1154774">s1154774</a> <span class="tag">AI</span><div class="path">3,135 drum notes &middot; live take</div></td><td><span class="path">n/a, a transcription exists</span></td></tr>
+<tr><td class="num">6</td><td><b>Excentrifugal Forz</b></td><td class="num">1:31</td><td><span class="bad">No</span></td><td><span class="ok">Yes</span></td><td><a href="https://www.songsterr.com/a/wsa/frank-zappa-tab-s1014276">s1014276</a> <span class="tag">human-made</span><div class="path">143 drum notes &middot; unidentified, -80% vs album</div></td><td><span class="path">n/a, a transcription exists</span></td></tr>
+<tr><td class="num">7</td><td><b>Apostrophe’</b></td><td class="num">5:53</td><td><span class="ok">Yes</span></td><td><span class="ok">Yes</span></td><td><a href="https://www.songsterr.com/a/wsa/frank-zappa-tab-s6035435">s6035435</a> <span class="tag">AI</span><div class="path">2,855 drum notes &middot; Live, Los Angeles 1974</div></td><td><span class="path">n/a, a transcription exists</span></td></tr>
+<tr><td class="num">8</td><td><b>Uncle Remus</b></td><td class="num">2:54</td><td><span class="bad">No</span></td><td><span class="ok">Yes</span></td><td><a href="https://www.songsterr.com/a/wsa/frank-zappa-tab-s35894">s35894</a> <span class="tag">human-made</span><div class="path">834 drum notes &middot; album take (length matches)</div></td><td><span class="path">n/a, a transcription exists</span></td></tr>
+<tr><td class="num">9</td><td><b>Stink‐foot</b></td><td class="num">6:35</td><td><span class="bad">No</span></td><td><span class="ok">Yes</span></td><td><a href="https://www.songsterr.com/a/wsa/frank-zappa-tab-s2382928">s2382928</a> <span class="tag">human-made</span><div class="path">2,599 drum notes &middot; album take (length matches)</div></td><td><span class="path">n/a, a transcription exists</span></td></tr>
+</table></div>
+<h3>One Size Fits All <a href="https://7onething1.github.io/zappa-one-size-fits-all-vs-songsterr/" style="font-size:11px">comparison page</a></h3>
+<div class="scroll"><table>
+<tr><th>#</th><th>Song</th><th>Album length</th><th>AI drum transcription?</th><th>Any drum transcription?</th><th>Linked tab</th><th>Drums on the recording</th></tr>
+<tr><td class="num">1</td><td><b>Inca Roads</b></td><td class="num">8:45</td><td><span class="ok">Yes</span></td><td><span class="ok">Yes</span></td><td><a href="https://www.songsterr.com/a/wsa/frank-zappa-tab-s2824983">s2824983</a> <span class="tag">AI</span><div class="path">5,016 drum notes &middot; Helsinki live</div></td><td><span class="path">n/a, a transcription exists</span></td></tr>
+<tr><td class="num">2</td><td><b>Can&#x27;t Afford No Shoes</b></td><td class="num">2:37</td><td><span class="ok">Yes</span></td><td><span class="ok">Yes</span></td><td><a href="https://www.songsterr.com/a/wsa/frank-zappa-tab-s2857465">s2857465</a> <span class="tag">AI</span><div class="path">1,045 drum notes &middot; album take (length matches)</div></td><td><span class="path">n/a, a transcription exists</span></td></tr>
+<tr><td class="num">3</td><td><b>Sofa No. 1</b></td><td class="num">2:38</td><td><span class="bad">No</span></td><td><span class="bad">No</span></td><td><span class="path">none found</span></td><td><span class="ok">Yes</span> <a href="https://musicbrainz.org/recording/c541a734-bc6a-437d-a2cd-76525ad307b0" style="font-size:11px">evidence</a><div class="path">Chester Thompson credited on drums (drum set)</div></td></tr>
+<tr><td class="num">4</td><td><b>Po-Jama People</b></td><td class="num">7:38</td><td><span class="ok">Yes</span></td><td><span class="ok">Yes</span></td><td><a href="https://www.songsterr.com/a/wsa/frank-zappa-tab-s5469788">s5469788</a> <span class="tag">AI</span><div class="path">3,082 drum notes &middot; album take (length matches)</div></td><td><span class="path">n/a, a transcription exists</span></td></tr>
+<tr><td class="num">5</td><td><b>Florentine Pogen</b></td><td class="num">5:23</td><td><span class="ok">Yes</span></td><td><span class="ok">Yes</span></td><td><a href="https://www.songsterr.com/a/wsa/frank-zappa-tab-s2891451">s2891451</a> <span class="tag">AI</span><div class="path">1,628 drum notes &middot; full-length upload</div></td><td><span class="path">n/a, a transcription exists</span></td></tr>
+<tr><td class="num">6</td><td><b>Evelyn, a Modified Dog</b></td><td class="num">1:05</td><td><span class="bad">No</span></td><td><span class="bad">No</span></td><td><span class="path">none found</span></td><td><span class="mid">Unconfirmed</span> <a href="https://musicbrainz.org/recording/50f317bb-3d50-4580-b90d-f92d69e6947b" style="font-size:11px">evidence</a><div class="path">Three performer credits, none naming drums. The published transcription of the opening on </div></td></tr>
+<tr><td class="num">7</td><td><b>San Ber&#x27;dino</b></td><td class="num">5:51</td><td><span class="bad">No</span></td><td><span class="bad">No</span></td><td><span class="path">none found</span></td><td><span class="ok">Yes</span> <a href="https://musicbrainz.org/recording/f613eaef-7233-4d19-980f-22ed082f4cb9" style="font-size:11px">evidence</a><div class="path">Chester Thompson credited on drums (drum set)</div></td></tr>
+<tr><td class="num">8</td><td><b>Andy</b></td><td class="num">6:03</td><td><span class="bad">No</span></td><td><span class="ok">Yes</span></td><td><a href="https://www.songsterr.com/a/wsa/frank-zappa-tab-s21495">s21495</a> <span class="tag">human-made</span><div class="path">2,461 drum notes &middot; album take (length matches)</div></td><td><span class="path">n/a, a transcription exists</span></td></tr>
+<tr><td class="num">9</td><td><b>Sofa No. 2</b></td><td class="num">2:38</td><td><span class="bad">No</span></td><td><span class="bad">No</span></td><td><span class="path">none found</span></td><td><span class="ok">Yes</span> <a href="https://musicbrainz.org/recording/f5bd78f1-d86e-4f5a-a9ff-cb96e4e3f251" style="font-size:11px">evidence</a><div class="path">Chester Thompson credited on drums (drum set)</div></td></tr>
+</table></div>
+<h3>Joe’s Garage <a href="https://7onething1.github.io/zappa-joes-garage-vs-songsterr/" style="font-size:11px">comparison page</a></h3>
+<div class="scroll"><table>
+<tr><th>#</th><th>Song</th><th>Album length</th><th>AI drum transcription?</th><th>Any drum transcription?</th><th>Linked tab</th><th>Drums on the recording</th></tr>
+<tr><td class="num">1</td><td><b>The Central Scrutinizer</b></td><td class="num">3:23</td><td><span class="bad">No</span></td><td><span class="ok">Yes</span></td><td><a href="https://www.songsterr.com/a/wsa/frank-zappa-tab-s3554079">s3554079</a> <span class="tag">human-made</span><div class="path">1,465 drum notes &middot; album take (length matches)</div></td><td><span class="path">n/a, a transcription exists</span></td></tr>
+<tr><td class="num">2</td><td><b>Joe’s Garage</b></td><td class="num">6:15</td><td><span class="ok">Yes</span></td><td><span class="ok">Yes</span></td><td><a href="https://www.songsterr.com/a/wsa/frank-zappa-tab-s615252">s615252</a> <span class="tag">AI</span><div class="path">1,949 drum notes &middot; album take (length matches)</div></td><td><span class="path">n/a, a transcription exists</span></td></tr>
+<tr><td class="num">3</td><td><b>Catholic Girls</b></td><td class="num">4:26</td><td><span class="ok">Yes</span></td><td><span class="ok">Yes</span></td><td><a href="https://www.songsterr.com/a/wsa/frank-zappa-tab-s187085">s187085</a> <span class="tag">AI</span><div class="path">172 drum notes &middot; album take (length matches)</div></td><td><span class="path">n/a, a transcription exists</span></td></tr>
+<tr><td class="num">4</td><td><b>Crew Slut</b></td><td class="num">6:32</td><td><span class="ok">Yes</span></td><td><span class="ok">Yes</span></td><td><a href="https://www.songsterr.com/a/wsa/frank-zappa-tab-s4982983">s4982983</a> <span class="tag">AI</span><div class="path">2,723 drum notes &middot; album take (length matches)</div></td><td><span class="path">n/a, a transcription exists</span></td></tr>
+<tr><td class="num">5</td><td><b>Fembot in a Wet T‐Shirt</b></td><td class="num">4:45</td><td><span class="bad">No</span></td><td><span class="ok">Yes</span></td><td><a href="https://www.songsterr.com/a/wsa/frank-zappa-tab-s748459">s748459</a> <span class="tag">human-made</span><div class="path">1,197 drum notes &middot; unidentified, -44% vs album</div></td><td><span class="path">n/a, a transcription exists</span></td></tr>
+<tr><td class="num">6</td><td><b>On the Bus</b></td><td class="num">4:18</td><td><span class="bad">No</span></td><td><span class="bad">No</span></td><td><span class="path">none found</span></td><td><span class="ok">Yes</span> <a href="https://musicbrainz.org/recording/be6fc387-997d-477d-b51c-a60d9b24d07d" style="font-size:11px">evidence</a><div class="path">Vinnie Colaiuta on drums, Ed Mann on percussion</div></td></tr>
+<tr><td class="num">7</td><td><b>Why Does It Hurt When I Pee?</b></td><td class="num">2:36</td><td><span class="bad">No</span></td><td><span class="ok">Yes</span></td><td><a href="https://www.songsterr.com/a/wsa/frank-zappa-tab-s3098900">s3098900</a> <span class="tag">human-made</span><div class="path">527 drum notes &middot; album take (length matches)</div></td><td><span class="path">n/a, a transcription exists</span></td></tr>
+<tr><td class="num">8</td><td><b>Lucille Has Messed My Mind Up</b></td><td class="num">5:43</td><td><span class="ok">Yes</span></td><td><span class="ok">Yes</span></td><td><a href="https://www.songsterr.com/a/wsa/frank-zappa-tab-s187088">s187088</a> <span class="tag">AI</span><div class="path">1,049 drum notes &middot; album take (length matches)</div></td><td><span class="path">n/a, a transcription exists</span></td></tr>
+<tr><td class="num">9</td><td><b>Scrutinizer Postlude</b></td><td class="num">1:35</td><td><span class="bad">No</span></td><td><span class="bad">No</span></td><td><span class="path">none found</span></td><td><span class="mid">Unconfirmed</span> <a href="https://musicbrainz.org/recording/30507086-9f80-4e5a-a417-46decce73e1a" style="font-size:11px">evidence</a><div class="path">One performer credit, none naming drums. Reference sources describe the track as the Centr</div></td></tr>
+<tr><td class="num">10</td><td><b>A Token of My Extreme</b></td><td class="num">5:30</td><td><span class="bad">No</span></td><td><span class="ok">Yes</span></td><td><a href="https://www.songsterr.com/a/wsa/frank-zappa-tab-s817574">s817574</a> <span class="tag">human-made</span><div class="path">66 drum notes &middot; unidentified, -95% vs album</div></td><td><span class="path">n/a, a transcription exists</span></td></tr>
+<tr><td class="num">11</td><td><b>Stick It Out</b></td><td class="num">4:34</td><td><span class="bad">No</span></td><td><span class="bad">No</span></td><td><span class="path">none found</span></td><td><span class="ok">Yes</span> <a href="https://musicbrainz.org/recording/5c8dc711-b5fe-495f-b429-152e9087f7ec" style="font-size:11px">evidence</a><div class="path">Vinnie Colaiuta on drums, Ed Mann on percussion</div></td></tr>
+<tr><td class="num">12</td><td><b>Sy Borg</b></td><td class="num">8:56</td><td><span class="ok">Yes</span></td><td><span class="ok">Yes</span></td><td><a href="https://www.songsterr.com/a/wsa/frank-zappa-tab-s3362954">s3362954</a> <span class="tag">AI</span><div class="path">2,376 drum notes &middot; album take (length matches)</div></td><td><span class="path">n/a, a transcription exists</span></td></tr>
+<tr><td class="num">13</td><td><b>Dong Work for Yuda</b></td><td class="num">5:03</td><td><span class="ok">Yes</span></td><td><span class="ok">Yes</span></td><td><a href="https://www.songsterr.com/a/wsa/frank-zappa-tab-s768189">s768189</a> <span class="tag">AI</span><div class="path">1,606 drum notes &middot; album take (length matches)</div></td><td><span class="path">n/a, a transcription exists</span></td></tr>
+<tr><td class="num">14</td><td><b>Keep It Greasey</b></td><td class="num">8:22</td><td><span class="bad">No</span></td><td><span class="ok">Yes</span></td><td><a href="https://www.songsterr.com/a/wsa/frank-zappa-tab-s604777">s604777</a> <span class="tag">human-made</span><div class="path">4,948 drum notes &middot; album take (length matches)</div></td><td><span class="path">n/a, a transcription exists</span></td></tr>
+<tr><td class="num">15</td><td><b>Outside Now</b></td><td class="num">5:50</td><td><span class="ok">Yes</span></td><td><span class="ok">Yes</span></td><td><a href="https://www.songsterr.com/a/wsa/frank-zappa-tab-s1200335">s1200335</a> <span class="tag">AI</span><div class="path">1,537 drum notes &middot; solo excerpt</div></td><td><span class="path">n/a, a transcription exists</span></td></tr>
+<tr><td class="num">16</td><td><b>He Used to Cut the Grass</b></td><td class="num">8:35</td><td><span class="bad">No</span></td><td><span class="bad">No</span></td><td><span class="path">none found</span></td><td><span class="ok">Yes</span> <a href="https://musicbrainz.org/recording/e30a251a-8264-406d-810e-cfbdb95a1535" style="font-size:11px">evidence</a><div class="path">Vinnie Colaiuta on drums, Ed Mann on percussion</div></td></tr>
+<tr><td class="num">17</td><td><b>Packard Goose</b></td><td class="num">11:34</td><td><span class="bad">No</span></td><td><span class="ok">Yes</span></td><td><a href="https://www.songsterr.com/a/wsa/frank-zappa-tab-s35875">s35875</a> <span class="tag">human-made</span><div class="path">4,768 drum notes &middot; album take (length matches)</div></td><td><span class="path">n/a, a transcription exists</span></td></tr>
+<tr><td class="num">18</td><td><b>Watermelon in Easter Hay</b></td><td class="num">9:09</td><td><span class="bad">No</span></td><td><span class="ok">Yes</span></td><td><a href="https://www.songsterr.com/a/wsa/frank-zappa-tab-s35881">s35881</a> <span class="tag">human-made</span><div class="path">2,091 drum notes &middot; album take (length matches)</div></td><td><span class="path">n/a, a transcription exists</span></td></tr>
+<tr><td class="num">19</td><td><b>A Little Green Rosetta</b></td><td class="num">8:15</td><td><span class="bad">No</span></td><td><span class="bad">No</span></td><td><span class="path">none found</span></td><td><span class="ok">Yes</span> <a href="https://musicbrainz.org/recording/bf85a821-3c58-462a-af9e-84be8ae801c7" style="font-size:11px">evidence</a><div class="path">Vinnie Colaiuta on drums, Ed Mann on percussion</div></td></tr>
+</table></div>
+<h2 id="ref">Human-made drum transcriptions, kept as reference</h2>
+<p>These stay listed whether or not the song also has an AI transcription, because they are the
+material for checking and improving the AI versions. 21 human-made tabs across the three
+records carry a drum staff with real notes.</p>
+<div class="scroll"><table>
+<tr><th>Song</th><th>Album</th><th>Tab</th><th>Made via</th><th>Author</th><th>Recording version</th>
+<th>Drum notes</th><th>Bars</th><th>Tab length</th><th>vs album</th><th>AI version also exists?</th></tr>
+<tr><td><b>Don’t Eat the Yellow Snow</b></td><td class="path">Apostrophe (’)</td><td><a href="https://www.songsterr.com/a/wsa/frank-zappa-tab-s35866">s35866</a></td><td class="mono">Editor</td><td class="path">MarkDubya</td><td>album take (length matches)</td><td class="num">560</td><td class="num">38</td><td class="num">1:50</td><td class="num">-12.4%</td><td><span class="ok">yes</span></td></tr>
+<tr><td><b>Excentrifugal Forz</b></td><td class="path">Apostrophe (’)</td><td><a href="https://www.songsterr.com/a/wsa/frank-zappa-tab-s1014276">s1014276</a></td><td class="mono">GP</td><td class="path">Kevin Sheppard</td><td>unidentified, -80% vs album</td><td class="num">143</td><td class="num">9</td><td class="num">0:18</td><td class="num">-79.9%</td><td><span class="bad">no</span></td></tr>
+<tr><td><b>Father O’Blivion</b></td><td class="path">Apostrophe (’)</td><td><a href="https://www.songsterr.com/a/wsa/frank-zappa-tab-s35864">s35864</a></td><td class="mono">Editor</td><td class="path">femboy.gardevoir</td><td>album take (length matches)</td><td class="num">1,339</td><td class="num">83</td><td class="num">2:16</td><td class="num">-1.2%</td><td><span class="bad">no</span></td></tr>
+<tr><td><b>Nanook Rubs It</b></td><td class="path">Apostrophe (’)</td><td><a href="https://www.songsterr.com/a/wsa/frank-zappa-tab-s35865">s35865</a></td><td class="mono">GP</td><td class="path">Brandon chavez</td><td>album take (length matches)</td><td class="num">1,309</td><td class="num">109</td><td class="num">4:46</td><td class="num">+3.6%</td><td><span class="bad">no</span></td></tr>
+<tr><td><b>St. Alfonzo’s Pancake Breakfast</b></td><td class="path">Apostrophe (’)</td><td><a href="https://www.songsterr.com/a/wsa/frank-zappa-tab-s35892">s35892</a></td><td class="mono">Editor</td><td class="path">femboy.gardevoir</td><td>album take (length matches)</td><td class="num">851</td><td class="num">63</td><td class="num">1:51</td><td class="num">-0.5%</td><td><span class="bad">no</span></td></tr>
+<tr><td><b>Stink‐foot</b></td><td class="path">Apostrophe (’)</td><td><a href="https://www.songsterr.com/a/wsa/frank-zappa-tab-s2382928">s2382928</a></td><td class="mono">Editor</td><td class="path">mariedront</td><td>album take (length matches)</td><td class="num">2,599</td><td class="num">226</td><td class="num">6:57</td><td class="num">+5.6%</td><td><span class="bad">no</span></td></tr>
+<tr><td><b>Stink‐foot</b></td><td class="path">Apostrophe (’)</td><td><a href="https://www.songsterr.com/a/wsa/frank-zappa-tab-s6205368">s6205368</a></td><td class="mono">Editor</td><td class="path">femboy.gardevoir</td><td>second upload</td><td class="num">2,524</td><td class="num">114</td><td class="num">6:50</td><td class="num">+3.9%</td><td><span class="bad">no</span></td></tr>
+<tr><td><b>Uncle Remus</b></td><td class="path">Apostrophe (’)</td><td><a href="https://www.songsterr.com/a/wsa/frank-zappa-tab-s35894">s35894</a></td><td class="mono">Editor</td><td class="path">femboy.gardevoir</td><td>album take (length matches)</td><td class="num">834</td><td class="num">57</td><td class="num">2:55</td><td class="num">+0.8%</td><td><span class="bad">no</span></td></tr>
+<tr><td><b>A Token of My Extreme</b></td><td class="path">Joe’s Garage</td><td><a href="https://www.songsterr.com/a/wsa/frank-zappa-tab-s817574">s817574</a></td><td class="mono">GP</td><td class="path">Kevin Sheppard</td><td>unidentified, -95% vs album</td><td class="num">66</td><td class="num">5</td><td class="num">0:15</td><td class="num">-95.5%</td><td><span class="bad">no</span></td></tr>
+<tr><td><b>Catholic Girls</b></td><td class="path">Joe’s Garage</td><td><a href="https://www.songsterr.com/a/wsa/frank-zappa-tab-s749523">s749523</a></td><td class="mono">GP</td><td class="path">Brandon chavez</td><td>album take (length matches)</td><td class="num">1,847</td><td class="num">127</td><td class="num">4:03</td><td class="num">-8.5%</td><td><span class="ok">yes</span></td></tr>
+<tr><td><b>Fembot in a Wet T‐Shirt</b></td><td class="path">Joe’s Garage</td><td><a href="https://www.songsterr.com/a/wsa/frank-zappa-tab-s748459">s748459</a></td><td class="mono">Editor</td><td class="path">Brandon chavez</td><td>unidentified, -44% vs album</td><td class="num">1,197</td><td class="num">84</td><td class="num">2:40</td><td class="num">-43.7%</td><td><span class="bad">no</span></td></tr>
+<tr><td><b>Joe’s Garage</b></td><td class="path">Joe’s Garage</td><td><a href="https://www.songsterr.com/a/wsa/frank-zappa-tab-s187096">s187096</a></td><td class="mono">Editor</td><td class="path">Plonker</td><td>album take (length matches)</td><td class="num">2,027</td><td class="num">137</td><td class="num">6:24</td><td class="num">+2.6%</td><td><span class="ok">yes</span></td></tr>
+<tr><td><b>Keep It Greasey</b></td><td class="path">Joe’s Garage</td><td><a href="https://www.songsterr.com/a/wsa/frank-zappa-tab-s604777">s604777</a></td><td class="mono">Editor</td><td class="path">Ben Dibden1</td><td>album take (length matches)</td><td class="num">4,948</td><td class="num">248</td><td class="num">8:18</td><td class="num">-0.7%</td><td><span class="bad">no</span></td></tr>
+<tr><td><b>Outside Now</b></td><td class="path">Joe’s Garage</td><td><a href="https://www.songsterr.com/a/wsa/frank-zappa-tab-s4552353">s4552353</a></td><td class="mono">Editor</td><td class="path">Ben Dibden1</td><td>album take (length matches)</td><td class="num">567</td><td class="num">75</td><td class="num">5:57</td><td class="num">+2.1%</td><td><span class="ok">yes</span></td></tr>
+<tr><td><b>Packard Goose</b></td><td class="path">Joe’s Garage</td><td><a href="https://www.songsterr.com/a/wsa/frank-zappa-tab-s35875">s35875</a></td><td class="mono">Editor</td><td class="path">Kevin Sheppard</td><td>album take (length matches)</td><td class="num">4,768</td><td class="num">512</td><td class="num">11:54</td><td class="num">+2.9%</td><td><span class="bad">no</span></td></tr>
+<tr><td><b>The Central Scrutinizer</b></td><td class="path">Joe’s Garage</td><td><a href="https://www.songsterr.com/a/wsa/frank-zappa-tab-s3554079">s3554079</a></td><td class="mono">Editor</td><td class="path">femboy.gardevoir</td><td>album take (length matches)</td><td class="num">1,465</td><td class="num">92</td><td class="num">3:30</td><td class="num">+3.6%</td><td><span class="bad">no</span></td></tr>
+<tr><td><b>Watermelon in Easter Hay</b></td><td class="path">Joe’s Garage</td><td><a href="https://www.songsterr.com/a/wsa/frank-zappa-tab-s35881">s35881</a></td><td class="mono">GP</td><td class="path">Brandon chavez</td><td>album take (length matches)</td><td class="num">2,091</td><td class="num">105</td><td class="num">8:25</td><td class="num">-7.9%</td><td><span class="bad">no</span></td></tr>
+<tr><td><b>Why Does It Hurt When I Pee?</b></td><td class="path">Joe’s Garage</td><td><a href="https://www.songsterr.com/a/wsa/frank-zappa-tab-s3098900">s3098900</a></td><td class="mono">GP</td><td class="path">Kevin Sheppard</td><td>album take (length matches)</td><td class="num">527</td><td class="num">46</td><td class="num">2:19</td><td class="num">-10.4%</td><td><span class="bad">no</span></td></tr>
+<tr><td><b>Andy</b></td><td class="path">One Size Fits All</td><td><a href="https://www.songsterr.com/a/wsa/frank-zappa-tab-s21495">s21495</a></td><td class="mono">n/a</td><td class="path">Leonard</td><td>album take (length matches)</td><td class="num">2,461</td><td class="num">176</td><td class="num">5:29</td><td class="num">-9.3%</td><td><span class="bad">no</span></td></tr>
+<tr><td><b>Florentine Pogen</b></td><td class="path">One Size Fits All</td><td><a href="https://www.songsterr.com/a/wsa/frank-zappa-tab-s2024455">s2024455</a></td><td class="mono">Editor</td><td class="path">Shaia</td><td>album take (length matches)</td><td class="num">112</td><td class="num">132</td><td class="num">5:31</td><td class="num">+2.6%</td><td><span class="ok">yes</span></td></tr>
+<tr><td><b>Inca Roads</b></td><td class="path">One Size Fits All</td><td><a href="https://www.songsterr.com/a/wsa/frank-zappa-tab-s412178">s412178</a></td><td class="mono">GP</td><td class="path">Brandon chavez</td><td>album take (length matches)</td><td class="num">3,373</td><td class="num">322</td><td class="num">8:53</td><td class="num">+1.7%</td><td><span class="ok">yes</span></td></tr>
+</table></div>
+<div class="note"><b>Why the version column matters.</b> A human tab of a live take is not a check on an AI tab of the studio take. Where the tab titles itself as a live or excerpt upload, that is recorded. Where nothing in the tab identifies the take, the column says so rather than assuming the album version.</div>
+<h2 id="research">Drum-presence research, songs with no drum transcription</h2><p>For every song where no drum transcription was found, the question becomes whether the recording itself has drums. Per-track performer credits were read from MusicBrainz, which links to the exact recording rather than the album.</p><div class="scroll"><table>
+<tr><th>Song</th><th>Album</th><th>Drums on the recording</th><th>Credited players</th><th>Evidence</th><th>Reading</th></tr>
+<tr><td><b>Sofa No. 1</b></td><td class="path">One Size Fits All</td><td><span class="ok">Yes</span></td><td>Chester Thompson (drums (drum set))</td><td><a href="https://musicbrainz.org/recording/c541a734-bc6a-437d-a2cd-76525ad307b0">MusicBrainz recording</a><div class="path">4 performer credits</div></td><td style="font-size:13px">Chester Thompson credited on drums (drum set)</td></tr>
+<tr><td><b>Evelyn, a Modified Dog</b></td><td class="path">One Size Fits All</td><td><span class="mid">Unconfirmed</span></td><td><span class=path>none</span></td><td><a href="https://musicbrainz.org/recording/50f317bb-3d50-4580-b90d-f92d69e6947b">MusicBrainz recording</a><div class="path">3 performer credits</div></td><td style="font-size:13px">Three performer credits, none naming drums. The published transcription of the opening on zappa-analysis.com notates melody, harmony and rhythm with no drum staff. Neither source states that the recording has no drums.</td></tr>
+<tr><td><b>San Ber&#x27;dino</b></td><td class="path">One Size Fits All</td><td><span class="ok">Yes</span></td><td>Chester Thompson (drums (drum set))</td><td><a href="https://musicbrainz.org/recording/f613eaef-7233-4d19-980f-22ed082f4cb9">MusicBrainz recording</a><div class="path">6 performer credits</div></td><td style="font-size:13px">Chester Thompson credited on drums (drum set)</td></tr>
+<tr><td><b>Sofa No. 2</b></td><td class="path">One Size Fits All</td><td><span class="ok">Yes</span></td><td>Chester Thompson (drums (drum set))</td><td><a href="https://musicbrainz.org/recording/f5bd78f1-d86e-4f5a-a9ff-cb96e4e3f251">MusicBrainz recording</a><div class="path">6 performer credits</div></td><td style="font-size:13px">Chester Thompson credited on drums (drum set)</td></tr>
+<tr><td><b>On the Bus</b></td><td class="path">Joe’s Garage</td><td><span class="ok">Yes</span></td><td>Vinnie Colaiuta (drums (drum set)), Ed Mann (percussion)</td><td><a href="https://musicbrainz.org/recording/be6fc387-997d-477d-b51c-a60d9b24d07d">MusicBrainz recording</a><div class="path">16 performer credits</div></td><td style="font-size:13px">Vinnie Colaiuta on drums, Ed Mann on percussion</td></tr>
+<tr><td><b>Scrutinizer Postlude</b></td><td class="path">Joe’s Garage</td><td><span class="mid">Unconfirmed</span></td><td><span class=path>none</span></td><td><a href="https://musicbrainz.org/recording/30507086-9f80-4e5a-a417-46decce73e1a">MusicBrainz recording</a><div class="path">1 performer credits</div></td><td style="font-size:13px">One performer credit, none naming drums. Reference sources describe the track as the Central Scrutinizer character speaking. No source consulted states drum presence either way.</td></tr>
+<tr><td><b>Stick It Out</b></td><td class="path">Joe’s Garage</td><td><span class="ok">Yes</span></td><td>Vinnie Colaiuta (drums (drum set)), Ed Mann (percussion)</td><td><a href="https://musicbrainz.org/recording/5c8dc711-b5fe-495f-b429-152e9087f7ec">MusicBrainz recording</a><div class="path">10 performer credits</div></td><td style="font-size:13px">Vinnie Colaiuta on drums, Ed Mann on percussion</td></tr>
+<tr><td><b>He Used to Cut the Grass</b></td><td class="path">Joe’s Garage</td><td><span class="ok">Yes</span></td><td>Vinnie Colaiuta (drums (drum set)), Ed Mann (percussion)</td><td><a href="https://musicbrainz.org/recording/e30a251a-8264-406d-810e-cfbdb95a1535">MusicBrainz recording</a><div class="path">10 performer credits</div></td><td style="font-size:13px">Vinnie Colaiuta on drums, Ed Mann on percussion</td></tr>
+<tr><td><b>A Little Green Rosetta</b></td><td class="path">Joe’s Garage</td><td><span class="ok">Yes</span></td><td>Vinnie Colaiuta (drums (drum set)), Ed Mann (percussion)</td><td><a href="https://musicbrainz.org/recording/bf85a821-3c58-462a-af9e-84be8ae801c7">MusicBrainz recording</a><div class="path">10 performer credits</div></td><td style="font-size:13px">Vinnie Colaiuta on drums, Ed Mann on percussion</td></tr>
+</table></div>
+<div class="note warn"><b>Unconfirmed is not a quiet no.</b> Two tracks carry performer credits that name no drummer. A missing credit is not a statement that the recording has no drums, so both stay marked unconfirmed rather than being scored as drumless. Settling either one needs the audio or a source that addresses the track directly.</div>
+<h2 id="gaps">Search gaps, so an access failure cannot become a false no</h2>
+<div class="scroll"><table>
+<tr><th>Item</th><th>What happened</th><th>How it is recorded</th></tr>
+<tr><td><b>4 songs with no Songsterr tab</b>
+<div class="path">Sofa No. 1, Scrutinizer Postlude, He Used to Cut the Grass, A Little Green Rosetta</div></td>
+<td>Six search patterns were run against the Songsterr search API for these titles, including
+partial-title and single-keyword forms. Every one returned zero results on the Frank Zappa artist
+profile.</td><td>Recorded as no tab found, with the drum question answered from recording credits
+instead.</td></tr>
+<tr><td><b>1 tab id returns http 404</b><div class="path">s187106, listed under Sofa No. 2</div></td>
+<td>The Songsterr search API lists this song id, and the meta API returns
+<span class="mono">404 ERR_NOT_FOUND</span> for it. Its notation was never readable.</td>
+<td>Recorded as unavailable. It is not counted as a tab without drums, because nothing about its
+contents was ever read.</td></tr>
+<tr><td><b>2 tabs first read as empty, then recovered</b>
+<div class="path">s2440098 Inca Roads HL, s4430002 Evelyn, A Modified Dog</div></td>
+<td>Both returned an empty meta response inside a rate-limited batch. Re-fetched on their own, both
+returned http 200 with full data. <b>s4430002 is an AI tab</b>, which the failed first read would have
+hidden.</td><td>Both re-measured from the recovered data. Neither carries a drum staff, and that is now
+a read result rather than a fetch failure.</td></tr>
+<tr><td><b>0 drum staves holding only rests</b></td>
+<td>none found on these records</td>
+<td>Counted as no drum transcription, and named here so the distinction from a missing staff stays
+visible.</td></tr>
+</table></div>
+<div class="note warn"><span class="bad">The recovery above is the reason this section exists.</span>
+An empty API response and a tab with no drums look identical in a results table. One of the two
+recovered tabs turned out to be an AI transcription. Any inventory that treats a failed fetch as a
+finding will publish that kind of miss without noticing.</div>
+
+<h2 id="method">Method</h2>
+<p>Tab data comes from Songsterr's own JSON with no browser and no login: the meta API for provenance
+and revision, and the CloudFront notation path for the notes themselves. Note counts exclude rests,
+since Songsterr emits a <span class="mono">{"rest": true}</span> object inside each beat's note list.
+A song counts as having a drum transcription only when a drum staff holds real notes.</p>
+<p>Album track order, titles and lengths come from the MusicBrainz release for each record. Per-track
+drum credits come from MusicBrainz recording-level artist relationships, which is why the evidence
+links point at a recording rather than at an album page.</p>
+<p>The duration arithmetic behind the version column was validated against two published tabs and
+reproduced their figures to the hundredth of a second. Details are on the
+<a href="https://7onething1.github.io/zappa-joes-garage-vs-songsterr/">per-album comparison pages</a>.</p>
+<footer>Built 2026-09-05. Sources: Songsterr meta API and CloudFront notation JSON; MusicBrainz releases
+and recording relationships; zappa-analysis.com for the published Evelyn transcription. Companion
+pages: <a href="https://7onething1.github.io/zappa-apostrophe-vs-songsterr/">Apostrophe (’)</a>,
+<a href="https://7onething1.github.io/zappa-one-size-fits-all-vs-songsterr/">One Size Fits All</a>,
+<a href="https://7onething1.github.io/zappa-joes-garage-vs-songsterr/">Joe’s Garage</a>,
+<a href="https://7onething1.github.io/zappa-onsroxy-vs-songsterr/">Over-Nite Sensation and Roxy
+&amp; Elsewhere</a>.</footer>
+</div></body></html>
