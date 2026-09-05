@@ -51,13 +51,13 @@ footer{margin-top:50px;padding-top:18px;border-top:2px solid var(--line);font-si
 <div class="stat"><b>81</b>open hats written</div>
 <div class="stat"><b>24</b>pedal hats, all in one block</div>
 <div class="stat"><b>8:06</b>audio pulled and analysed</div>
-<div class="stat"><b>p=0.80</b>open blocks vs closed blocks</div>
+<div class="stat"><b>2.4&ndash;4.7&times;</b>snare over-write, bars 1&ndash;4</div><div class="stat"><b>154/159</b>bars on a supported meter</div>
 </div>
 </header>
 
 <nav><a href="#ask">The question</a><a href="#audio">The audio</a><a href="#method">Method</a>
 <a href="#verdict">The hi-hat verdict</a><a href="#struct">Four structural failures</a>
-<a href="#align">The alignment test</a><a href="#second">The second transcription</a><a href="#drive">Against the drive transcript</a>
+<a href="#align">The alignment test</a><a href="#second">The second transcription</a><a href="#isolated">The isolated kit</a><a href="#drive">Against the drive transcript</a>
 <a href="#correct">A correction to our own page</a><a href="#limits">Honest limits</a></nav>
 
 <h2 id="ask">The question</h2>
@@ -84,7 +84,7 @@ the performance. The tab holds one flat value throughout.</div>
 6&ndash;14&nbsp;kHz band sits 29 to 34&nbsp;dB below peak, and the hi-hat lives there. A hat verdict
 is physically possible on this source, which is why the question was worth asking.</p>
 
-<h2 id="method">Method, stated before the results</h2>
+<h2 id="method">Method, stated ahead of the results</h2>
 <ol>
 <li>Read the tab's notation from Songsterr's own JSON, unauthenticated, at
 <span class="mono">dqsljvtekg760.cloudfront.net/1154774/1540143/&lt;hash&gt;/3.json</span>.</li>
@@ -92,14 +92,13 @@ is physically possible on this source, which is why the question was worth askin
 <li>Separate the drum stem with Demucs htdemucs, so guitar and vocal sibilance stop contaminating
 the hat band. On the raw mix a hat detector returns 840 onsets in 60 seconds, which is nonsense.</li>
 <li>Detect cymbal events from spectral flux in 7&ndash;14&nbsp;kHz on the stem alone.</li>
-<li>Separate open from closed by <b>gap-ring ratio</b>: the high-frequency energy still present just
-before the next hit, divided by this hit's peak. A closed hat is choked by the pedal and dies. An
+<li>Separate open from closed by <b>gap-ring ratio</b>: the high-frequency energy still ringing at the end of the gap, divided by this hit's peak. A closed hat is choked by the pedal and dies. An
 open hat rings into the gap.</li>
-<li>Validate every detector against a null before trusting it.</li>
+<li>Validate every detector against a null, then trust it.</li>
 </ol>
 <div class="note warn"><b>One method was thrown away mid-audit.</b> The first decay measure, time to
 fall to 35&nbsp;percent of peak, produced 1,802 of 4,564 events pinned at the 500&nbsp;ms ceiling.
-In a shuffle the next hat lands before the previous one has decayed, so that measure was reading the
+In a shuffle the next hat arrives during the previous one's decay, so that measure was reading the
 following note. The gap-ring ratio replaced it.</div>
 
 <h2 id="verdict">The hi-hat verdict</h2>
@@ -144,7 +143,8 @@ none. A drummer's left foot does not switch on for eighteen bars and off for the
 <b>zero</b> open. Real shuffle playing mixes them continuously. Blocks this pure are a classifier
 holding a state.</p>
 
-<h3>4. The hat line is thin, and in one place it vanishes</h3>
+<h3>4. The hat line is thin, and in one place it vanishes <span class="tag" style="background:#b5462f;color:#fbf5e9;border-color:#b5462f">withdrawn</span></h3>
+<div class="note warn"><b>This finding is withdrawn.</b> It was measured on a mixed drum stem with an over-triggering detector. The isolated hat lane shows the tab's hat density is correct. See <a href="#isolated">The isolated kit</a>. The table is kept so the retraction can be checked.</div>
 <p>Across 30-second windows the tab writes a median of <b>0.60</b> hat notes for every cymbal event
 detected in the audio. Between 349 and 380 seconds it writes five, all of them open, against 176
 detected events.</p>
@@ -233,8 +233,51 @@ supports 9/8 or 11/8 bars.</p>
 <span class="mono">~/Projects/_outputs/zappa-drum-sources/</span>. No page in that archive folder
 references it, and the live <span class="mono">zappa-analysis.com</span> Cosmik Debris pages carry
 guitar-tab samples credited to KS with material by Andy Aledort, so this German-language scan comes
-from a separate source the archive did not record. It is treated here as an unattributed secondary
-reading of the meter. It is copyrighted, described here and not reproduced.</div>
+from a separate source the archive did not record. This scan reads here as an unattributed secondary
+account of the meter. The scan is copyrighted, described here and not reproduced.</div>
+
+<h2 id="isolated">The isolated kit, and what it corrects</h2>
+<p>The verdict above rests on a Demucs drum stem holding the whole kit at once. DrumSep MDX23C
+splits that into six lanes, <span class="mono">kick snare toms hh ride crash</span>, so the hi-hat
+can be measured on its own. The first 60-second block is analysed here. It covers the tab's bars 1
+to 20, which includes the opening this page called impossible.</p>
+<div class="note"><b>The detector was calibrated first, then trusted.</b> A threshold set from each
+stem's own distribution returned 340 kick onsets in 60 seconds, which is 5.7 per second and
+impossible at 76&nbsp;BPM. Every figure below uses an absolute threshold, a fixed fraction of that
+stem's peak, and is quoted as a range across thresholds from 0.04 to 0.30 so the reader can see how
+much the answer depends on the knob.</p>
+
+<h3>Confirmed: the opening is over-written</h3>
+<table><thead><tr><th>Measure</th><th class="num">tab s1154774</th><th class="num">isolated snare stem</th><th>verdict</th></tr></thead><tbody>
+<tr><td>snare rate, bars 1&ndash;4</td><td class="num">7.36 /s</td><td class="num">1.55 to 3.02 /s</td><td class="bad">tab over-writes by 2.4&times; to 4.7&times;</td></tr>
+<tr><td>median gap, bars 1&ndash;4</td><td class="num">125 ms</td><td class="num">351 ms</td><td class="bad">2.8&times; longer than claimed</td></tr>
+<tr><td>shortest gap anywhere in 60 s</td><td class="num">125 ms sustained</td><td class="num">102 ms, 13 of 87 gaps</td><td class="bad">nothing sustains that rate</td></tr>
+</tbody></table>
+<p>The claim fails at <b>every</b> threshold tested. At the most permissive setting the isolated
+snare still gives 3.02 hits per second against the tab's 7.36.</p>
+
+<h3>Corrected: the hat line is not thin</h3>
+<div class="note win">This page earlier reported a median ratio of <b>0.60</b> tab hat notes per
+detected cymbal event, and called the hat line thin. That ratio came from a detector over-triggering
+on a mixed stem. On the isolated hat lane the audio gives <b>0.80 to 2.62</b> hits per second and the
+tab writes <b>2.52</b>. At the measured felt beat of 76.6&nbsp;BPM a shuffle two-feel, hats on beats
+one and three of each triplet, is <b>2.56</b> per second. <b>The tab's hat density is right.</b>
+The earlier finding is withdrawn.</div>
+<p>The same holds for the snare overall. The tab writes 1.46 hits per second across the whole song
+and the isolated stem gives 1.18 to 2.03. Only the opening is wrong.</p>
+
+<h3>Corrected: the missing hat in bars 1 to 4 was not an error</h3>
+<div class="note win">This page listed "zero hi-hat" among the faults of the opening. On the isolated
+lane the hat in the first 11.6 seconds is genuinely sparse: RMS <b>0.010</b> against <b>0.026</b>
+for the rest of the block, a ratio of 0.39, and 3 detected onsets against 88 across the full 60
+seconds. <b>The drummer is barely playing the hat there, so writing none is close to right.</b>
+The fault in bars 1 to 4 is the snare count alone.</div>
+
+<h3>New: the opening under-writes the kick</h3>
+<p>Bars 1 to 4 give the kick <b>4</b> notes. The isolated kick lane carries roughly <b>27</b> onsets
+across the same 11.6 seconds. The opening is wrong in both directions at once, far too much snare
+and far too little kick, which is what a classifier does when it assigns broadband transient energy
+to a single lane.</p>
 
 <h2 id="drive">The tab against the transcript on the drive</h2>
 <p>The archive scan is a real second opinion, so every error claimed above was put back against it.
@@ -268,7 +311,7 @@ notehead is a ghost. Measured across the notation, the live tab holds <b>3,139 n
 articulation flags</b>. The studio tab holds 1,582 notes and zero. Neither encodes a ghost, an accent
 or a staccato anywhere.</p>
 <div class="note"><b>Stated fairly, this is not a mark against s1154774 alone.</b> The human-revised
-studio tab omits the ghost layer just as completely. A shuffle without ghost notes on the snare is a
+studio tab omits the ghost layer as completely. A shuffle without ghost notes on the snare is a
 thinner document of the part than the scan is, and both Songsterr tabs are that.</div>
 
 <h3>What the scan leaves standing</h3>
@@ -302,8 +345,7 @@ under the YouTube politeness gate.</li>
 
 <h2>What this means for using the tab</h2>
 <p>For playing along, s1154774 gives a broadly correct shuffle idiom at roughly the right density and
-close to the right length. For learning what this drummer played, the hi-hat detail should be
-ignored, the opening four bars discarded outright, and the meter read as 12/8 throughout. The
+close to the right length. For learning what this drummer played, the opening four bars should be discarded outright, and the meter read as 12/8 throughout. The
 human-revised studio tab s412177 is the better document of the part, at the cost of being a different
 performance.</p>
 

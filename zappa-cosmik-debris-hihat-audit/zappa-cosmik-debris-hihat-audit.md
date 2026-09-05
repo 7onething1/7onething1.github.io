@@ -67,7 +67,7 @@ at 0.023 s and then nothing until 2.171 s.
 **3. The open-hat sections are all-or-nothing.** Bars 123 to 125 carry 23 open and zero
 closed. Bars 45 to 65 carry 225 closed and zero open.
 
-**4. The hat line is thin.** Median 0.60 tab hat notes per detected cymbal event across
+**4. The hat line is thin. WITHDRAWN.** Measured on a mixed drum stem with an over-triggering detector; the isolated hat lane shows the tab's hat density is correct. Kept so the retraction can be checked. Original text: Median 0.60 tab hat notes per detected cymbal event across
 30-second windows. Between 349 and 380 seconds the tab writes five notes, all open, against
 176 detected events.
 
@@ -135,6 +135,54 @@ live zappa-analysis.com Cosmik Debris pages carry guitar-tab samples credited to
 by Andy Aledort. This German-language scan comes from a separate source the archive did not
 record, so it is treated as an unattributed secondary reading. It is copyrighted, described and
 not reproduced.
+
+## The isolated kit, and what it corrects
+
+The verdict above rests on a Demucs drum stem holding the whole kit at once. DrumSep MDX23C splits
+that into six lanes, `kick snare toms hh ride crash`, so the hi-hat can be measured on its own. The
+first 60-second block is analysed here, covering the tab's bars 1 to 20.
+
+**The detector was calibrated first, then trusted.** A threshold set from each stem's own
+distribution returned 340 kick onsets in 60 seconds, 5.7 per second, impossible at 76 BPM. Every
+figure below uses an absolute threshold, a fixed fraction of that stem's peak, quoted as a range
+across thresholds from 0.04 to 0.30.
+
+### Confirmed: the opening is over-written
+
+| Measure | tab s1154774 | isolated snare stem | verdict |
+|---|---|---|---|
+| snare rate, bars 1-4 | 7.36 /s | 1.55 to 3.02 /s | tab over-writes by 2.4x to 4.7x |
+| median gap, bars 1-4 | 125 ms | 351 ms | 2.8x longer than claimed |
+| shortest gap in 60 s | 125 ms sustained | 102 ms, 13 of 87 gaps | nothing sustains that rate |
+
+The claim fails at every threshold tested. At the most permissive setting the isolated snare still
+gives 3.02 hits per second against the tab's 7.36.
+
+### Corrected: the hat line is not thin
+
+This page earlier reported a median ratio of **0.60** tab hat notes per detected cymbal event and
+called the hat line thin. That ratio came from a detector over-triggering on a mixed stem. On the
+isolated hat lane the audio gives **0.80 to 2.62** hits per second and the tab writes **2.52**. At
+the measured felt beat of 76.6 BPM a shuffle two-feel, hats on beats one and three of each triplet,
+is **2.56** per second. **The tab's hat density is right.** The earlier finding is withdrawn.
+
+The same holds for the snare overall. The tab writes 1.46 hits per second across the whole song and
+the isolated stem gives 1.18 to 2.03. Only the opening is wrong.
+
+### Corrected: the missing hat in bars 1 to 4 was not an error
+
+This page listed "zero hi-hat" among the faults of the opening. On the isolated lane the hat in the
+first 11.6 seconds is genuinely sparse: RMS **0.010** against **0.026** for the rest of the block, a
+ratio of 0.39, and 3 detected onsets against 88 across the full 60 seconds. **The drummer is barely
+playing the hat there, so writing none is close to right.** The fault in bars 1 to 4 is the snare
+count alone.
+
+### New: the opening under-writes the kick
+
+Bars 1 to 4 give the kick **4** notes. The isolated kick lane carries roughly **27** onsets across
+the same 11.6 seconds. The opening is wrong in both directions at once, far too much snare and far
+too little kick, which is what a classifier does when it assigns broadband transient energy to a
+single lane.
 
 ## The tab against the transcript on the drive
 
