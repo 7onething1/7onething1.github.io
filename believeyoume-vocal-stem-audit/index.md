@@ -85,7 +85,29 @@ Root: `/Volumes/T7 Shield/Moises_Stems/BelieveYouMeStems/` holds 10 songs and 10
 | 09 | Broken Satellites | 13 | 3 Rhythm, Solo, Other | 1 |
 | 10 | Jackie | 4 | 0, inside `other` | 1 |
 
-Source: the 2026-08-17 sweep at `/shiner-bym-stem-contrast`, which swept five roots and recorded one vocal stem per song as the maximum. A second index at `/stems-map` was rebuilt today and lists the same folder with the same single vocal per song.
+Source: the 2026-08-17 sweep at `/shiner-bym-stem-contrast`. It matched any filename containing vocal, vox, backing, harmon, lead voc, choir, double, whisper or scream across five roots.
+
+| Root swept 2026-08-17 | Vocal-name hits | What they were |
+|---|---|---|
+| `T7 Shield/Moises_Stems/BelieveYouMeStems/` | 10 | all named exactly `vocals`, one per song |
+| `T7 Shield/Stems/BELIEVEYOUME/` | 0 | nothing |
+| `T7 Shield/BandBooks/BELIEVEYOUME/` | 2 | both `vocals.wav`, demucs re-separation |
+| `T7 Shield/Music to Stem/Beleiveyoume/` | 0 | source FLACs, never stemmed |
+| `Moises_Input/stems/htdemucs_6s/` | 0 | nothing |
+
+## Live probe of the mirror, 2026-09-05
+
+The T7 stems are mirrored to a web host that this session can reach. That host was probed today, so this evidence is live rather than stored.
+
+    audio host  https://drwu-stems.vercel.app/believeyoume-charts/stems/<stub>/<lane>.mp3
+    player      https://drwu-htmls.vercel.app/believeyoume-stems
+    lane keys   drums, bass, guitar, piano, vocals, midi
+
+The control discriminates. A ranged GET on `the_mutiny/vocals.mp3` returns `206`, and a bogus path in the same folder returns `404`, so a miss means a real absence.
+
+Twelve stubs by eleven vocal names returned nothing. Probed `vocals2, vocals_2, lead_vocals, backing_vocals, vocals_lead, vocals_backing, harmony, harmonies, vox2, doubles, choir` against all twelve player stubs. Zero hits.
+
+The mirror serves one vocal lane per song. That matches the stored disk sweep and was measured today.
 
 ## Open conflict, 2026-09-05
 
@@ -95,9 +117,9 @@ Brandon reports seeing multiple vocal tracks on the T7 Shield right now. The dri
 
 The T7 was not readable from this session. Hard evidence on this MacBook: `/Volumes/` holds only Macintosh HD, `diskutil list` shows one internal disk, every Thunderbolt port reports no device connected, and the USB tree is empty. Jacks-iMac answers on the LAN at 192.168.12.113 and refuses an SMB connection, so the network route is closed too.
 
-Both T7 findings are stored, never live. The sweep behind the table above ran on 2026-08-17 and is nineteen days stale. Anything separated since then is invisible to it.
+The disk sweep is stored, never live. It ran on 2026-08-17 and is nineteen days stale. Anything separated on the T7 since then is invisible to it.
 
-Four T7 roots were never swept for this album. `Stems/`, `Music to Stem/`, `Big music/` and `33 1/3/` hold audio and were outside the 2026-08-17 sweep. A second vocal stem sitting in one of those would not appear in any index here.
+Two T7 roots stayed outside every sweep. `Big music/` and `33 1/3/` hold audio and were never checked for this album. A second vocal stem sitting in one of those would appear in no index here.
 
 Layering is measured, never separated. Nothing here splits a lead from a harmony into two files. Producing genuine lead and backing stems calls for a second pass with a model that outputs both.
 

@@ -105,7 +105,7 @@ footer{margin-top:64px;padding-top:22px;border-top:3px double var(--rule);
   <span class="k">The short answer</span>
   <p><b>No BELIEVEYOUME stem folder holds a second vocal file.</b> All six separated songs are Demucs 6-stem output, so each one ships exactly one <span class="mono">vocals.wav</span> beside bass, drums, guitar, other and piano.</p>
   <p>Measuring inside those single files, <b>three songs carry audible layering</b> that survives a guitar-bleed control: <b>My Mirror Hates Me</b>, <b>Asleep In The Trunk</b>, and <b>So Far So</b>.</p>
-  <p>The T7 Shield copy is covered in Section 04 from stored indexes. Section 05 lists the four T7 roots that no sweep has reached.</p>
+  <p>The T7 Shield copy is covered in Section 04 from stored indexes. Section 05 is a live probe of the mirror host, run today.</p>
 </div>
 
 <div class="grid">
@@ -116,7 +116,7 @@ footer{margin-top:64px;padding-top:22px;border-top:3px double var(--rule);
 </div>
 
 <div class="caveat" style="border-left-color:#B5502A">
-  <b>Open conflict, 2026-09-05.</b> Brandon reports seeing multiple vocal tracks on the T7 Shield right now. The drive is not attached to this MacBook, so this audit could not read it live and the finding below rests on two stored indexes. His live look outranks a stored index. Section 05 states exactly what was swept and what was skipped.
+  <b>Open conflict, 2026-09-05.</b> Brandon reports seeing multiple vocal tracks on the T7 Shield right now. The drive is not attached to this MacBook, so this audit could not read it live and the finding below rests on two stored indexes. His live look outranks a stored index. Section 06 states exactly what was swept and what was skipped.
 </div>
 
 <h2><span class="num">Section 01</span>Track list against what is on disk</h2>
@@ -246,13 +246,43 @@ footer{margin-top:64px;padding-top:22px;border-top:3px double var(--rule);
 </table>
 </div>
 
-<p class="lede">Source: the 2026-08-17 sweep at <span class="mono">/shiner-bym-stem-contrast</span>, which swept five roots and recorded one vocal stem per song as the maximum. A second index at <span class="mono">/stems-map</span> was rebuilt today and lists the same folder with the same single vocal per song, in an abbreviated file list.</p>
+<p class="lede">Source: the 2026-08-17 sweep at <span class="mono">/shiner-bym-stem-contrast</span>. It matched any filename containing vocal, vox, backing, harmon, lead voc, choir, double, whisper or scream across five roots.</p>
 
-<h2><span class="num">Section 05</span>What is not covered</h2>
+<div class="tablewrap">
+<table>
+<thead><tr><th>Root swept 2026-08-17</th><th>Vocal-name hits</th><th>What they were</th></tr></thead>
+<tbody>
+<tr><td class="mono">T7 Shield/Moises_Stems/BelieveYouMeStems/</td><td class="mono">10</td><td>all named exactly <span class="mono">vocals</span>, one per song</td></tr>
+<tr><td class="mono">T7 Shield/Stems/BELIEVEYOUME/</td><td class="mono">0</td><td>nothing</td></tr>
+<tr><td class="mono">T7 Shield/BandBooks/BELIEVEYOUME/</td><td class="mono">2</td><td>both <span class="mono">vocals.wav</span>, demucs re-separation</td></tr>
+<tr><td class="mono">T7 Shield/Music to Stem/Beleiveyoume/</td><td class="mono">0</td><td>source FLACs, never stemmed</td></tr>
+<tr><td class="mono">Moises_Input/stems/htdemucs_6s/</td><td class="mono">0</td><td>nothing</td></tr>
+</tbody>
+</table>
+</div>
+
+<h2><span class="num">Section 05</span>Live probe of the mirror, 2026-09-05</h2>
+<p class="lede">The T7 stems are mirrored to a web host that this session can reach. That host was probed today, so this evidence is live rather than stored.</p>
+
+<div class="pathbox">
+<span class="lbl">Audio host</span> https://drwu-stems.vercel.app/believeyoume-charts/stems/&lt;stub&gt;/&lt;lane&gt;.mp3<br>
+<span class="lbl">Player</span> https://drwu-htmls.vercel.app/believeyoume-stems<br>
+<span class="dim">Lane keys served: drums, bass, guitar, piano, vocals, midi</span>
+</div>
+
+<ul class="tight">
+  <li><b>The control discriminates.</b> A ranged GET on <span class="mono">the_mutiny/vocals.mp3</span> returns <span class="mono">206</span>, and a bogus path in the same folder returns <span class="mono">404</span>, so a miss means a real absence.</li>
+  <li><b>Twelve stubs by eleven vocal names returned nothing.</b> Probed <span class="mono">vocals2, vocals_2, lead_vocals, backing_vocals, vocals_lead, vocals_backing, harmony, harmonies, vox2, doubles, choir</span> against all twelve player stubs. Zero hits.</li>
+  <li><b>The mirror serves one vocal lane per song.</b> That matches the stored disk sweep and was measured today.</li>
+</ul>
+
+<h2><span class="num">Section 06</span>What is not covered</h2>
+
+
 <ul class="tight">
   <li><b>The T7 was not readable from this session.</b> Hard evidence on this MacBook: <span class="mono">/Volumes/</span> holds only Macintosh HD, <span class="mono">diskutil list</span> shows one internal disk, every Thunderbolt port reports no device connected, and the USB tree is empty. Jacks-iMac answers on the LAN at 192.168.12.113 and refuses an SMB connection, so the network route is closed too.</li>
-  <li><b>Both T7 findings are stored, never live.</b> The sweep behind Section 04 ran on 2026-08-17 and is nineteen days stale. Anything separated since then is invisible to it.</li>
-  <li><b>Four T7 roots were never swept for this album.</b> <span class="mono">Stems/</span>, <span class="mono">Music to Stem/</span>, <span class="mono">Big music/</span> and <span class="mono">33 &#8531;/</span> hold audio and were outside the 2026-08-17 sweep. A second vocal stem sitting in one of those would not appear in any index here.</li>
+  <li><b>The disk sweep is stored, never live.</b> It ran on 2026-08-17 and is nineteen days stale. Anything separated on the T7 since then is invisible to it.</li>
+  <li><b>Two T7 roots stayed outside every sweep.</b> <span class="mono">Big music/</span> and <span class="mono">33 &#8531;/</span> hold audio and were never checked for this album. A second vocal stem sitting in one of those would appear in no index here.</li>
   <li><b>Layering is measured, never separated.</b> Nothing here splits a lead from a harmony into two files. Producing genuine lead and backing stems calls for a second pass with a model that outputs both.</li>
 </ul>
 
