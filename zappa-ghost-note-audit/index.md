@@ -21,7 +21,9 @@ as a defect and removed them across twenty Zappa tabs.
 
 An earlier version called the 723 non-current flags "still at
 risk". That was wrong. Keep It Greasey (rejected by Kirill527) and Zoot Allures (rejected
-by Darr) are blocked and cannot publish. Neither needs any further action, and the
+by Darr) are blocked and cannot publish as of those recorded decisions. Whether either was at risk
+during the window before review is a separate question this page does not answer. Neither
+needs further action now, and the
 corrected Zoot Allures file built on 2026-09-05 should not be sent.
 
 ## Root cause, three layers
@@ -37,23 +39,26 @@ corrected Zoot Allures file built on 2026-09-05 should not be sent.
 
 **The rule was withdrawn on 2026-09-05, in the pipeline as well as here.** A GPIF ghost
 arrives on Songsterr as its own `ghost` field and draws parenthesised; a GPIF `<Accent>`
-arrives as `staccato` and draws as a dot. `sd_writegp.py` now writes the native ghost
-flag, and `sd_verify.py` fails any file that writes a ghost as a dot.
+arrives as `staccato` and draws as a dot. `sd_writegp.py` now writes the native ghost flag, and `sd_verify.py` fails any file that
+writes a ghost as a dot. Exercised end to end on a 48-hit fixture: 20 passed and 0 failed
+on the new encoding, then 2 failed and exit 1 after the file was reverted to the old one.
 
 ## Checked against the printed charts
 
 Ryan Brown's DRUM Magazine page carries eight pedal hi-hat marks one full space below the
-bottom staff line. A bitwise compare of a 14x17 window at each mark returns 0 differing
-pixels across all 28 pairs. Drumnet's bar 1 carries the same three marks at the same
+bottom staff line. A bitwise compare of a 14x17 window centred on each mark returns 0 differing pixels across
+all 28 pairs, within those windows. Drumnet's bar 1 carries the same three marks at the same
 height in its own dialect.
 
 **A claim of mine was wrong.** I reported the tab holds no pedal hi-hat events. It holds
 23, across bars 6, 7, 8, 9, 15, 17, 18, 41, 42, 43, 44, 99, 100 and 102. Bar 1 was the
 omission, and r8905491 fills it with three strokes.
 
-**Accents cannot be expressed on a Songsterr drum staff through a Guitar Pro import.** The
-note schema holds `fret`, `string`, `staccato`, `rest`, `ghost` and `tie`, with no accent
-field. Revision r8905411 moved the bar 5 marks to Brown's positions and doubled them; the
+**What was tested.** One import path: a Guitar Pro 7 `.gp` pushed through the editor's
+`importRevisionInput` on tab s412162, read back as revision r8905411, part 9. On that path
+a GPIF `<Accent>` arrived as `staccato` and the note schema held `fret`, `string`,
+`staccato`, `rest`, `ghost` and `tie`, with no accent field. Whether another format, kit or
+Songsterr's own editor can express a drum accent is unconfirmed and was not tested. Revision r8905411 moved the bar 5 marks to Brown's positions and doubled them; the
 rendered bar showed ten round dots and no wedges, so r8905491 put bars 5 and 16 back.
 
 **The barring source count was wrong.** Kasper Sloots' 10/16 sits at 1:39 to 2:10, framed
