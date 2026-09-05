@@ -1,0 +1,238 @@
+<!doctype html>
+<html lang="en"><head><meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Nanook Rubs It — Drum Tab Sync Forensics</title>
+<style>
+:root{--cream:#f4ead8;--paper:#fbf5e9;--ink:#1c1a17;--rust:#b5462f;--mustard:#d9a441;
+--teal:#3f6b6b;--dusty:#8f6f5a;--line:#ddcdb2;--shade:#efe2cb;--green:#4a7c59;}
+*{box-sizing:border-box}
+body{margin:0;background:var(--cream);color:var(--ink);
+font:16px/1.6 "Futura","Avenir Next","Helvetica Neue",Helvetica,Arial,sans-serif}
+.wrap{max-width:1100px;margin:0 auto;padding:34px 22px 80px}
+header{border:3px solid var(--ink);background:var(--paper);padding:26px 28px;margin-bottom:24px}
+h1{margin:0;font-size:30px;letter-spacing:.05em;text-transform:uppercase}
+.sub{margin-top:8px;color:var(--dusty);font-size:14px;letter-spacing:.12em;text-transform:uppercase}
+.stats{display:flex;flex-wrap:wrap;gap:10px;margin-top:20px}
+.stat{border:2px solid var(--ink);background:var(--cream);padding:9px 15px;font-size:13px}
+.stat b{display:block;font-size:21px;color:var(--rust)}
+h2{margin:40px 0 6px;font-size:19px;letter-spacing:.05em;text-transform:uppercase;
+border-bottom:3px solid var(--ink);padding-bottom:7px}
+h3{margin:24px 0 8px;font-size:14px;letter-spacing:.08em;text-transform:uppercase;color:var(--teal)}
+nav{background:var(--paper);border:2px solid var(--line);padding:15px 19px;margin-bottom:10px}
+nav a{display:inline-block;margin:4px 16px 4px 0;color:var(--teal);font-size:14px}
+a{color:var(--rust);text-decoration:none;border-bottom:1px solid rgba(181,70,47,.35)}
+a:hover{border-bottom-color:var(--rust)}
+table{width:100%;border-collapse:collapse;margin:14px 0;background:var(--paper);font-size:14px}
+th{background:var(--shade);text-align:left;padding:9px 11px;border:1px solid var(--line);
+font-size:11px;letter-spacing:.1em;text-transform:uppercase}
+td{padding:8px 11px;border:1px solid var(--line);vertical-align:top}
+tr:nth-child(even) td{background:rgba(239,226,203,.42)}
+.num{text-align:right;white-space:nowrap;font-variant-numeric:tabular-nums}
+.mono{font-family:"SF Mono",Menlo,monospace;font-size:12px}
+.path{font-family:"SF Mono",Menlo,monospace;font-size:11px;color:var(--dusty);word-break:break-all}
+.ok{color:var(--green);font-weight:700} .bad{color:var(--rust);font-weight:700}
+.mid{color:#a9761f;font-weight:700}
+.note{border-left:5px solid var(--mustard);background:var(--paper);padding:13px 17px;margin:16px 0;font-size:14px}
+.win{border-left-color:var(--green)} .warn{border-left-color:var(--rust)}
+.big{font-size:15px}
+.eq{font-family:"SF Mono",Menlo,monospace;background:var(--paper);border:2px solid var(--line);
+padding:14px 16px;margin:14px 0;font-size:13px;line-height:1.9;overflow-x:auto}
+.bar{display:flex;height:26px;margin:6px 0;border:2px solid var(--ink);background:var(--paper)}
+.seg{display:flex;align-items:center;justify-content:center;font-size:10px;letter-spacing:.06em;
+text-transform:uppercase;color:#fff;white-space:nowrap;overflow:hidden}
+.s-pad{background:var(--rust)} .s-body{background:var(--teal)} .s-rec{background:var(--green)}
+.legend{font-size:12px;color:var(--dusty);margin-top:4px}
+.key{display:inline-block;width:11px;height:11px;vertical-align:-1px;margin-right:5px;border:1px solid var(--ink)}
+footer{margin-top:54px;border-top:3px solid var(--ink);padding-top:16px;font-size:12px;color:var(--dusty)}
+</style></head><body><div class="wrap">
+
+<header>
+<h1>Nanook Rubs It — Drum Tab Sync Forensics</h1>
+<div class="sub">Songsterr s35865 &middot; Frank Zappa, Apostrophe (') &middot; measured 5 September 2026</div>
+<div class="stats">
+<div class="stat">RECORD<b>277.23 s</b></div>
+<div class="stat">TAB NOTATES<b>286.96 s</b></div>
+<div class="stat">TOO LONG BY<b>9.72 s</b></div>
+<div class="stat">GRID ERROR<b>+3.51%</b></div>
+<div class="stat">TOLERANCE<b>2.00%</b></div>
+<div class="stat">KICKS MATCHED<b>26.1%</b></div>
+</div>
+</header>
+
+<nav>
+<a href="#verdict">Verdict</a><a href="#same">The file is the tab</a>
+<a href="#err1">Error 1: tempo</a><a href="#err2">Error 2: padded bars</a>
+<a href="#close">The arithmetic closes</a><a href="#fix">The fix</a>
+<a href="#method">Method and limits</a><a href="#files">Files</a>
+</nav>
+
+<h2 id="verdict">Verdict</h2>
+<div class="note warn big">
+<b>The notes are right. The grid is wrong.</b> Two separate errors sit in the time
+signature and tempo layer, and they add up. The tempo is written a beat and a fifth
+slow, and two bars carry padding that has no audio behind them. Together the tab
+notates 9.72 seconds more music than the record contains, so it drifts steadily
+away from the recording and finishes almost ten seconds after the track ends.
+</div>
+
+<table>
+<tr><th>Source of error</th><th class="num">Size</th><th>What it does to playback</th></tr>
+<tr><td><b>Tempo written 69, record runs 70.2</b></td><td class="num bad">+1.74%</td>
+<td>Progressive drift. The gap grows through the song and reaches about 4.8 s at the end.</td></tr>
+<tr><td><b>Bar 1 and bar 109 padded, 5.5 extra quarter beats</b></td><td class="num bad">+1.69%</td>
+<td>Dead grid. 4 extra eighths at the front displace every note immediately, 7 extra eighths run past the ending.</td></tr>
+<tr><td><b>Combined</b></td><td class="num bad">+3.51%</td>
+<td>9.72 s of accumulated error across a 4:37 track.</td></tr>
+</table>
+
+<h2 id="same">The file on the drive and the published tab are the same transcription</h2>
+<p>Before blaming either side I compared them note by note. The Guitar Pro file on
+the drive and the drum staff currently published on Songsterr carry identical
+content in every one of the 109 bars, comparing each note by its position in the
+bar and its drum MIDI number.</p>
+<table>
+<tr><th>Check</th><th>GP on the drive</th><th>Songsterr, published</th><th class="num">Agree</th></tr>
+<tr><td>Bars</td><td>109</td><td>109</td><td class="num ok">yes</td></tr>
+<tr><td>Drum notes</td><td>1309</td><td>1309</td><td class="num ok">yes</td></tr>
+<tr><td>Bars differing on (position, drum MIDI)</td><td colspan="2">none out of 109</td><td class="num ok">yes</td></tr>
+<tr><td>Bar 1 time signature</td><td>3/4, silent</td><td>3/4, silent</td><td class="num ok">yes</td></tr>
+<tr><td>Bar 109 time signature</td><td>4/4</td><td>4/4</td><td class="num ok">yes</td></tr>
+<tr><td>Tempo automations</td><td>1 event, 69 at bar 0, hidden</td><td>1 event, 69, type 4, hidden</td><td class="num ok">yes</td></tr>
+</table>
+<div class="note">The published revision 8768967 changed parenthesised noteheads on the
+drum staff and nothing else. Its predecessor 4719269 carries the same 109 bars, the
+same 4238 total notes and the same meters, so the sync problem predates that edit and
+was inherited from the original transcription.</div>
+
+<h2 id="err1">Error 1 — the tempo is 69, the record is about 70.2</h2>
+<p>The tab carries exactly one tempo event: 69 quarter notes per minute at bar 0,
+marked invisible, holding for all 109 bars. I measured the record four independent
+ways and none of them returned 69.</p>
+<table>
+<tr><th>Method</th><th>Signal</th><th class="num">Quarter BPM</th></tr>
+<tr><td>Autocorrelation of the bar period</td><td>full mix</td><td class="num">69.93</td></tr>
+<tr><td>Autocorrelation of the eighth-note period</td><td>full mix</td><td class="num">70.58</td></tr>
+<tr><td>Normalised cross-correlation of the notated pattern</td><td>Demucs drum stem</td><td class="num">70.20</td></tr>
+<tr><td>Kick and snare onset matching, offset swept</td><td>Demucs drum stem</td><td class="num">70.22</td></tr>
+<tr><td><b>Written in the tab</b></td><td>&mdash;</td><td class="num bad">69.00</td></tr>
+</table>
+<p>The record holds that tempo steadily. Measured in twenty-second windows across
+the track, the bar period stays between 2.543 s and 2.601 s, which is 69.2 to 70.8
+quarter BPM. There is no tempo map to reconstruct here, one steady value covers the
+whole song, and the value in the tab is simply about 1.2 BPM under it.</p>
+<div class="note">The 6/8 bar is the clearest ruler. The record's bar measures
+<b>2.574 s</b>. The tab notates it at <b>2.609 s</b> under 69 BPM. Every bar is
+35 milliseconds too long, and there are 101 of them.</div>
+
+<h2 id="err2">Error 2 — bar 1 and bar 109 carry padding</h2>
+<p>Nanook Rubs It also exists inside the Nanook Suite, tab s35878, as bars 38 to 146.
+I aligned the two by drum content rather than by trusting the tempo marks, sliding the
+109-bar staff across all 292 bars of the suite and scoring each position.</p>
+<div class="eq">
+alignment score, standalone bar 1 landing on suite bar 38 : <b>109.0 / 109</b>
+next best offset (suite bar 37)                            : 68.0 / 109
+next best offset (suite bar 39)                            : 67.0 / 109
+bars differing on (position, drum MIDI) at the best offset  : <b>0</b>
+</div>
+<p>So the same drummer's part is written twice, and the two writings disagree on
+exactly two bars.</p>
+<table>
+<tr><th>Bar</th><th>Standalone s35865</th><th>Suite s35878</th><th class="num">Eighths</th><th class="num">Difference</th></tr>
+<tr><td>1 (silent pickup)</td><td>3/4</td><td>2/8</td><td class="num">6 vs 2</td><td class="num bad">+4 eighths</td></tr>
+<tr><td>2 to 5</td><td>3/4</td><td>6/8</td><td class="num">6 vs 6</td><td class="num ok">none</td></tr>
+<tr><td>6 to 108</td><td colspan="2">identical meters, bar for bar</td><td class="num">&mdash;</td><td class="num ok">none</td></tr>
+<tr><td>109 (tail)</td><td>4/4</td><td>1/8</td><td class="num">8 vs 1</td><td class="num bad">+7 eighths</td></tr>
+</table>
+<div class="note">Bars 2 to 5 look different and are not. A 3/4 bar and a 6/8 bar both
+hold six eighth notes, so they occupy the same time. The only real padding is bar 1
+and bar 109, and it totals <b>5.5 quarter beats, 4.78 seconds</b> at 69 BPM.</div>
+
+<h3>Where the padding comes from</h3>
+<p>The suite's partial bars make sense in place. A 2/8 bar joins the previous section
+and a 1/8 bar hands off to the next one. Lifting the 109 bars out of the suite to stand
+alone left those two joints exposed, and they were rounded up into full 3/4 and 4/4
+bars. That rounding added grid time with no audio underneath it.</p>
+
+<h3>What the padding looks like against the record</h3>
+<div class="bar">
+<div class="seg s-pad" style="width:0.91%">1</div>
+<div class="seg s-body" style="width:97.88%">bars 2 to 108, correct length</div>
+<div class="seg s-pad" style="width:1.21%">109</div>
+</div>
+<div class="legend"><span class="key" style="background:var(--rust)"></span>padded bars
+&nbsp;&nbsp;<span class="key" style="background:var(--teal)"></span>correct bars</div>
+
+<h2 id="close">The arithmetic closes</h2>
+<p>Two independent errors, multiplied, should reproduce the measured overrun. They do.</p>
+<div class="eq">
+padding      330.0 / 324.5 quarter beats      = <b>+1.695 %</b>
+tempo        70.20 / 69.00 quarter BPM        = <b>+1.739 %</b>
+combined     1.01695 &times; 1.01739 &minus; 1          = <b>+3.464 %</b>
+
+measured     286.96 s notated / 277.23 s record = <b>+3.507 %</b>
+residual                                        =  0.04 percentage points
+</div>
+<div class="note win">A 0.04 point residual means these two errors account for the
+whole discrepancy. There is no third problem hiding underneath, and there is nothing
+wrong with the note content.</div>
+
+<h2 id="fix">The fix, and what it buys</h2>
+<p>I tested candidate grids by matching the tab's kick and snare positions against
+onsets detected in the Demucs drum stem, with the offset swept freely so each grid
+got its best possible showing.</p>
+<table>
+<tr><th>Grid</th><th class="num">Quarter beats</th><th class="num">Kicks matched</th><th class="num">Snares matched</th><th class="num">Duration error</th></tr>
+<tr><td><b>As published</b>, 69 BPM, no offset</td><td class="num">330.0</td>
+<td class="num bad">26.1%</td><td class="num bad">45.9%</td><td class="num bad">+3.51%</td></tr>
+<tr><td>Tempo corrected to 70.2 only</td><td class="num">330.0</td>
+<td class="num mid">45.1%</td><td class="num mid">52.3%</td><td class="num mid">+1.71%</td></tr>
+<tr><td><b>Tempo 70.2 and suite meters</b> (bar 1 = 2/8, bar 109 = 1/8)</td><td class="num">324.5</td>
+<td class="num ok">59.5%</td><td class="num ok">76.9%</td><td class="num ok">+0.04%</td></tr>
+</table>
+<div class="note win"><b>Two edits, nothing touched in the notes.</b>
+Set the single tempo automation from 69 to 70.2, and change bar 1 from 3/4 to 2/8 and
+bar 109 from 4/4 to 1/8. That takes the grid error from +3.51% to +0.04%, well inside
+the 2% tolerance that <span class="mono">preflight_import.py</span> already enforces,
+and it more than doubles the share of the record's kick hits the tab lands on.</div>
+
+<h2 id="method">Method, and what I could not settle</h2>
+<p>The record used as the ruler is the video Songsterr syncs this tab to, YouTube
+<span class="mono">8bXSsh3Z-xE</span>, the official FrankZappaVEVO visualizer, running
+277.235 seconds. Drums were isolated with Demucs htdemucs before onset detection,
+because the full mix has vocals, keyboard, marimba and horns firing into the same
+onset envelope and it made the pattern matching much noisier.</p>
+<div class="note warn"><b>One thing stayed unresolved.</b> The exact bar-level start
+offset is ambiguous. A 6/8 groove this uniform autocorrelates strongly at the bar, so
+alignments separated by a whole bar, about 2.56 seconds, score almost equally.
+Different fitting passes returned offsets that differ by roughly two bars. The
+duration and tempo results do not depend on that, since both are measured from the
+record's own period and total length. Anyone re-checking the start point should do it
+against a structural landmark such as the two 4/4 bars at 6 and 7, rather than by
+correlation.</div>
+<p>The onset detector also over-triggers on the drum stem, returning 551 kick-band
+onsets where the tab writes 333 kicks. Over-detection makes matching easier, never
+harder, so the 26.1% figure for the tab as published is a ceiling and the true match
+rate is lower.</p>
+
+<h2 id="files">Files and evidence</h2>
+<table>
+<tr><th>Item</th><th>Path</th></tr>
+<tr><td>Our transcription on the drive</td>
+<td class="path">~/Projects/_outputs/songsterr-zappa-paren-fix/s35865-Nanook-Rubs-It/ORIGINAL-Frank Zappa-Nanook Rubs It-01-14-2026.gp</td></tr>
+<tr><td>sha256 (identical to the iMac baseline copy)</td>
+<td class="path">d9c36bc393ba62df511d35972f8f48ccaa0b60af2e43852ecd7dac5ba6d943fc</td></tr>
+<tr><td>Nanook Suite, same part at bars 38 to 146</td>
+<td class="path">~/Projects/_outputs/songsterr-zappa-paren-fix/s35878-Nanook-Suite/ORIGINAL-Frank Zappa-Nanook Suite-07-09-2026.gp</td></tr>
+<tr><td>Measurements, machine readable</td>
+<td class="path">~/Projects/_outputs/zappa-nanook-sync-forensics/findings.json</td></tr>
+<tr><td>Live tab</td><td class="path"><a href="https://www.songsterr.com/a/wsa/frank-zappa-nanook-rubs-it-drum-tab-s35865">songsterr.com/a/wsa/frank-zappa-nanook-rubs-it-drum-tab-s35865</a></td></tr>
+<tr><td>Nanook Suite tab</td><td class="path"><a href="https://www.songsterr.com/a/wsa/frank-zappa-nanook-suite-drum-tab-s35878">songsterr.com/a/wsa/frank-zappa-nanook-suite-drum-tab-s35878</a></td></tr>
+</table>
+
+<footer>
+Measured on MacBookPro, 5 September 2026. Record duration and tempo taken from the
+synced video's audio after Demucs separation. Grid figures computed from the GPIF
+master bars and tempo automations in the Guitar Pro file, cross-checked against the
+CloudFront part JSON for revision 8768967.
+</footer>
+</div></body></html>
