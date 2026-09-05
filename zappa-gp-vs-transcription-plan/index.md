@@ -40,8 +40,20 @@ Each song's execution goes in its OWN chat. The one-Zappa-song-per-chat gate key
 3. Montana s35870, the eight decidable collision bars
 4. Acquisition, before any Roxy work, since nothing on that album is checkable today
 
-## Roxy & Elsewhere
+## Roxy & Elsewhere: the closed layer is publication, not access
 
-Not one of its ten songs has a drum transcription. All ten are not yet measured.
+Searched 2026-09-05. **No published drum transcription of any Roxy track appears to exist.**
+
+- zappa-analysis.com's catalogue of published Zappa scores names **no drum book at all**:
+  Barfko Swill full scores, Kai Schnell, Guitar Player solos, Wolfgang Ludwig's study, Paul
+  Pappas, ~300 pages of Steve Vai guitar transcriptions.
+- Cruise Ship Drummer's Chester Thompson page carries one transcription, Gibraltar, from
+  Weather Report. Thompson is the Roxy drummer and has not been transcribed on this album.
+- DRUM! Magazine Groove Analysis covers Brain Police, Grand Wazoo and Zomby Woof. No Roxy title.
+- zappa-analysis.com holds Pygmy Twylyte (Wolfgang Ludwig 1992) and Echidna's Arf, both
+  pitched score, which cannot vote on a drum lane.
+
+The route for Roxy is transcribing the drums from the record, which makes every Roxy row a
+transcription job rather than a comparison job.
 
 Full method and archive index: `~/.claude/skills/songsterr-drum-repair/`.
