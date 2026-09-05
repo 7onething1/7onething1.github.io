@@ -120,3 +120,45 @@ the newest.
 - `~/Projects/_outputs/songsterr-zappa-paren-fix/`
 - `~/Projects/_outputs/zappa-drum-sources/` (one folder per publisher, each with SOURCE.md)
 - `songsterr.com/api/meta/<songId>/revisions` read 2026-09-05
+
+---
+
+## Update, 2026-09-05 18:20 UTC
+
+Re-queried every tab. Two findings change the work list.
+
+### Zoot Allures and Keep It Greasey need no fix
+
+A moderator **blocked** both stripping revisions. `isBlocked=true` on `r8769199`
+(Zoot Allures) and `r8768457` (Keep It Greasey), and false on every other revision
+tested, including other authors' revisions on the same songs. A blocked revision cannot
+be promoted. Zoot Allures keeps all 53 ghosts live, Keep It Greasey keeps all 629.
+
+### Corrected counts
+
+| State | Tabs | Ghost flags |
+|---|---|---|
+| Still damaged and live | 15 | 3,832 |
+| No action needed (2 blocked, 2 superseded) | 4 | 723 |
+| Repaired and live | 1 | 10 |
+
+### Watermelon In Easter Hay, verdict
+
+Its stripping revision claimed the 1,317 marks were "all on ride and crash at forte, so
+they are not ghost notes." The lane half is right: 1,316 on ride (MIDI 51), 1 on crash
+(MIDI 49). The forte half is invented. All 2,091 notes on that staff carry
+`dynamic: null`, so no dynamic is written anywhere.
+
+The placement settles it. The ride runs a continuous sixteenth ostinato:
+
+| 16th slot in bar | Plain | Ghost |
+|---|---|---|
+| 0, 4, 8, 12 (quarter pulse) | 407 | 2 |
+| every other sixteenth | 1 | 1,314 |
+
+A ghosted ride is alone in its beat 99.4% of the time. A plain ride shares its beat with
+kick or snare 60.8% of the time. This is a standard accented ride ostinato, quiet between
+the pulses. **All 1,317 are genuine and must be restored.**
+
+Same revision also claimed all nine tracks were unchanged. The Frank Zappa staff went
+1,056 notes to 1,061 across that edit.
