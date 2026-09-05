@@ -51,13 +51,13 @@ footer{margin-top:50px;padding-top:18px;border-top:2px solid var(--line);font-si
 <div class="stat"><b>81</b>open hats written</div>
 <div class="stat"><b>24</b>pedal hats, all in one block</div>
 <div class="stat"><b>8:06</b>audio pulled and analysed</div>
-<div class="stat"><b>2.4&ndash;4.7&times;</b>snare over-write, bars 1&ndash;4</div><div class="stat"><b>154/159</b>bars on a supported meter</div>
+<div class="stat"><b>2.4&ndash;4.7&times;</b>snare over-write, bars 1&ndash;4</div><div class="stat"><b>154/159</b>bars on a supported meter</div><div class="stat"><b>0 of 7</b>ride sections correct</div>
 </div>
 </header>
 
 <nav><a href="#ask">The question</a><a href="#audio">The audio</a><a href="#method">Method</a>
 <a href="#verdict">The hi-hat verdict</a><a href="#struct">Four structural failures</a>
-<a href="#align">The alignment test</a><a href="#second">The second transcription</a><a href="#isolated">The isolated kit</a><a href="#drive">Against the drive transcript</a>
+<a href="#align">The alignment test</a><a href="#second">The second transcription</a><a href="#answer">The answer</a><a href="#isolated">The isolated kit</a><a href="#drive">Against the drive transcript</a>
 <a href="#correct">A correction to our own page</a><a href="#limits">Honest limits</a></nav>
 
 <h2 id="ask">The question</h2>
@@ -127,9 +127,9 @@ recording as much as a finding about the tab, and it is reported here rather tha
 <p>Bars 1 to 4 write <b>81 snare hits, 14 crashes and 4 kicks in 11 seconds</b>, with zero hi-hat.
 The pattern is kick, snare and crash together, then five bare snares, repeated. That is 99 drum notes
 in 11 seconds.</p>
-<pre>TAB bars 1-4, claimed:            99 notes in 11.0 s
-AUDIO, actual first 11 s:         26 onsets of any kind
-AUDIO, densest 11 s anywhere:     64 onsets  (begins t=239 s)</pre>
+<pre>TAB bars 1-4, claimed: 99 notes in 11.0 s
+AUDIO, actual first 11 s: 26 onsets of any kind
+AUDIO, densest 11 s anywhere: 64 onsets (begins t=239 s)</pre>
 <p>The claim exceeds the densest eleven seconds in the entire performance. No sync offset repairs
 this, because no such window exists anywhere in the recording. The audio's opening is quieter still:
 one onset at 0.023&nbsp;s, then nothing until 2.171&nbsp;s.</p>
@@ -144,7 +144,7 @@ none. A drummer's left foot does not switch on for eighteen bars and off for the
 holding a state.</p>
 
 <h3>4. The hat line is thin, and in one place it vanishes <span class="tag" style="background:#b5462f;color:#fbf5e9;border-color:#b5462f">withdrawn</span></h3>
-<div class="note warn"><b>This finding is withdrawn.</b> It was measured on a mixed drum stem with an over-triggering detector. The isolated hat lane shows the tab's hat density is correct. See <a href="#isolated">The isolated kit</a>. The table is kept so the retraction can be checked.</div>
+<div class="note warn"><b>This finding is withdrawn.</b> It was measured on a mixed drum stem with an over-triggering detector. The isolated hat lane shows the tab's hat density is correct. See <a href="#answer">The answer</a><a href="#isolated">The isolated kit</a>. The table is kept so the retraction can be checked.</div>
 <p>Across 30-second windows the tab writes a median of <b>0.60</b> hat notes for every cymbal event
 detected in the audio. Between 349 and 380 seconds it writes five, all of them open, against 176
 detected events.</p>
@@ -236,6 +236,32 @@ guitar-tab samples credited to KS with material by Andy Aledort, so this German-
 from a separate source the archive did not record. This scan reads here as an unattributed secondary
 account of the meter. The scan is copyrighted, described here and not reproduced.</div>
 
+<h2 id="answer">The answer, from the isolated hat lane</h2>
+<p>The original question was whether the hi-hat writing in this tab describes what the drummer
+played. On the mixed drum stem the honest reply was that the measurement could not resolve it,
+p&nbsp;=&nbsp;0.80 on a unimodal distribution. On the isolated hat lane it resolves, and the answer
+is stronger than a null.</p>
+<table><thead><tr><th>The tab's own showcase blocks</th><th class="num">hat events</th>
+<th class="num">median decay</th><th class="num">p90</th></tr></thead><tbody>
+<tr><td>bars 123&ndash;125 &nbsp; <b>0 closed, 23 OPEN</b></td><td class="num">23</td><td class="num bad">110.3 ms</td><td class="num">253.1 ms</td></tr>
+<tr><td>bars 45&ndash;65 &nbsp; 225 closed, 0 open</td><td class="num">165</td><td class="num">220.6 ms</td><td class="num">307.1 ms</td></tr>
+<tr><td>bars 92&ndash;113 &nbsp; 240 closed, 9 open</td><td class="num">185</td><td class="num">252.5 ms</td><td class="num">368.6 ms</td></tr>
+</tbody></table>
+<div class="note warn"><b>The open marks are inverted.</b> An open hi-hat rings and a closed one is
+choked by the pedal, so the tab's open block should decay slowest. It decays <b>fastest</b>, at
+110.3&nbsp;ms against 220.6 and 252.5. Testing the direction the tab implies, that open rings longer,
+returns <b>p&nbsp;=&nbsp;1</b>. Testing the inverse returns <b>p&nbsp;=&nbsp;2.1&times;10<sup>-5</sup></b>.
+Where this tab writes open, the hat is choked. Where it writes closed, the hat rings.</div>
+<p>The earlier p&nbsp;=&nbsp;0.80 was not wrong, it was blind. A drum stem carrying kick, snare,
+toms, ride and crash alongside the hat cannot answer a question about hi-hat articulation, and the
+unimodal ring-ratio was that blindness showing up as noise. Splitting the kit six ways turned a
+non-result into a signed one.</p>
+<h3>And the same lane settles the ride</h3>
+<div class="note warn"><b>All 7 ride sections wrong. All 12 hat sections right.</b> Where this tab
+writes ride, the isolated ride lane is quiet and the hat lane is loud, median hh/ride 3.92 against a
+4.92 baseline, holding across 295 of 297 alignment combinations. The tab knows there is a cymbal. It
+does not know which one.</p></div>
+
 <h2 id="isolated">The isolated kit, and what it corrects</h2>
 <p>The verdict above rests on a Demucs drum stem holding the whole kit at once. DrumSep MDX23C
 splits that into six lanes, <span class="mono">kick snare toms hh ride crash</span>, so the hi-hat
@@ -259,7 +285,7 @@ snare still gives 3.02 hits per second against the tab's 7.36.</p>
 <h3>New: the tab puts the drummer on the ride where the hi-hat is playing</h3>
 <p>This is the test the mixed stem could never run. With <span class="mono">hh.wav</span> and
 <span class="mono">ride.wav</span> separated, the tab's own lane call can be checked directly against
-which cymbal is actually sounding. The tab marks 7 stretches as ride and 14 as hat. Three ride
+which cymbal is sounding. The tab marks 7 stretches as ride and 14 as hat. Three ride
 stretches and five hat stretches fall inside the audio analysed so far.</p>
 <table><thead><tr><th>Tab says</th><th>audio window</th><th class="num">hh rms</th>
 <th class="num">ride rms</th><th class="num">hh/ride</th><th>verdict</th></tr></thead><tbody>

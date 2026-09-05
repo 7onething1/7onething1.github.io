@@ -136,6 +136,33 @@ by Andy Aledort. This German-language scan comes from a separate source the arch
 record, so it is treated as an unattributed secondary reading. It is copyrighted, described and
 not reproduced.
 
+## The answer, from the isolated hat lane
+
+On the mixed drum stem the honest reply was that the measurement could not resolve it, p = 0.80 on a
+unimodal distribution. On the isolated hat lane it resolves, and the answer is stronger than a null.
+
+| The tab's own showcase blocks | hat events | median decay | p90 |
+|---|---|---|---|
+| bars 123-125 **0 closed, 23 OPEN** | 23 | **110.3 ms** | 253.1 ms |
+| bars 45-65  225 closed, 0 open | 165 | 220.6 ms | 307.1 ms |
+| bars 92-113  240 closed, 9 open | 185 | 252.5 ms | 368.6 ms |
+
+**The open marks are inverted.** An open hi-hat rings and a closed one is choked by the pedal, so the
+tab's open block should decay slowest. It decays **fastest**, 110.3 ms against 220.6 and 252.5.
+Testing the direction the tab implies, that open rings longer, returns **p = 1**. Testing the inverse
+returns **p = 2.1e-05**. Where this tab writes open, the hat is choked. Where it writes closed, the
+hat rings.
+
+The earlier p = 0.80 was not wrong, it was blind. A drum stem carrying kick, snare, toms, ride and
+crash alongside the hat cannot answer a question about hi-hat articulation, and the unimodal
+ring-ratio was that blindness showing up as noise.
+
+### And the same lane settles the ride
+
+**All 7 ride sections wrong. All 12 hat sections right.** Where this tab writes ride, the isolated
+ride lane is quiet and the hat lane is loud, median hh/ride 3.92 against a 4.92 baseline, holding
+across 295 of 297 alignment combinations. The tab knows there is a cymbal. It does not know which one.
+
 ## The isolated kit, and what it corrects
 
 The verdict above rests on a Demucs drum stem holding the whole kit at once. DrumSep MDX23C splits
@@ -161,7 +188,7 @@ gives 3.02 hits per second against the tab's 7.36.
 ### New: the tab puts the drummer on the ride where the hi-hat is playing
 
 With `hh.wav` and `ride.wav` separated, the tab's lane call is checkable against which cymbal is
-actually sounding. The tab marks 7 stretches as ride and 14 as hat.
+ sounding. The tab marks 7 stretches as ride and 14 as hat.
 
 | Tab says | audio window | hh rms | ride rms | hh/ride | verdict |
 |---|---|---|---|---|---|
