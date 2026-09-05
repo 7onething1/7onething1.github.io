@@ -75,6 +75,7 @@ footer{margin-top:54px;border-top:3px solid var(--ink);padding-top:16px;font-siz
 <a href="#name">Why one name</a>
 <a href="#drift">Why the drift</a>
 <a href="#zomby">Why Zomby</a>
+<a href="#rev6">What the work found</a>
 <a href="#gate">The gate itself</a>
 <a href="#fix">The fix</a>
 </nav>
@@ -258,6 +259,59 @@ changed from a parenthesised ghost notehead to a staccato dot, which prints a di
 instruction. The eight ghost snares at bars 5 to 8 in the queued revisions were added by
 session A and match no printed source, so they come out. The live tab is Kirill's
 publication of session A's own staccato edit, so it is not an untouched original.
+</div>
+
+<h2 id="rev6">What finishing the work then found</h2>
+
+<p>Brandon's call, <b>"i already said brown wins"</b>, settled the opening barring. Ryan
+Brown's DRUM Magazine chart covers bars 1 to 9, so Brown decides the 10/16 split into 5/16
+plus 5/16 and casts no vote past bar 9. Applying that and then verifying the built file
+against the author's own surfaced a defect nobody had counted.</p>
+
+<div class="note warn">
+<b>The author writes a five-step descending tom run.</b> The built file had four steps with
+the bottom drum doubled. The earlier note called it "one slot" in each of two bars. It was
+<b>ten note slots</b>, five per bar, and the run had lost a step.
+</div>
+
+<table>
+<tr><th>File</th><th>Bars 4 and 15 (author numbering)</th></tr>
+<tr><td>author <span class="mono">r7115188</span></td>
+  <td>Snare 5, High Tom 5, Mid Tom 5, <b class="ok">Low Tom 5</b>, Very Low Tom 5</td></tr>
+<tr><td>rev5</td>
+  <td>Snare 5, High Tom 5, Mid Tom 5, <b class="bad">Very Low Tom 10</b></td></tr>
+<tr><td><b>rev6b</b></td>
+  <td>Snare 5, High Tom 5, Mid Tom 5, <b class="ok">Low Tom 5</b>, Very Low Tom 5</td></tr>
+</table>
+
+<h3>Read the kit's own names, never General MIDI</h3>
+
+<p>This file's drumKit table defines idx 12 as <span class="mono">Low Tom (hit)</span> at
+OutMidi 45 and idx 13 as <span class="mono">Very Low Tom (hit)</span> at OutMidi 43. General
+MIDI calls 43 "High Floor Tom", which is wrong for this kit and would have mislabelled the
+whole diagnosis. The articulation tables in the author file and the built file are
+identical, so the comparison holds.</p>
+
+<h3>The repair, measured</h3>
+
+<div class="eq">
+master bars        115 -> 115
+total note count  7481 -> 7481
+drum track notes  1576 -> 1576
+ghost notes         32 -> 32
+drum midi 43       112 -> 102
+drum midi 45         0 -> 10
+</div>
+
+<p>Exactly ten notes moved from Very Low Tom to Low Tom, five in each bar. Nothing was
+added, removed or reordered.</p>
+
+<div class="note">
+<b>Beats are shared definitions in GPIF.</b> Bars 5 and 16 share their Beat elements for the
+plain notes and carry their own for the ghosts, so repointing bar 5 fixed four of bar 16's
+five slots at once. The first run named both bars, hit the mismatch on the second, and
+<b>refused with exit 2 having written no file</b>. The tool now validates every named bar
+before it mutates anything.
 </div>
 
 <h2 id="gate">The gate itself</h2>
