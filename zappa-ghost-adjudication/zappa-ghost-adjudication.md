@@ -116,21 +116,33 @@ written confirmation. The Frank Zappa Guitar Book carries the track and an indep
 analysis states Vai's transcription includes the drum part in detail. The verdict comes from
 matching the ostinato bar-for-bar against Vai.
 
-## Work order, against what is actually on this Mac
+## Work order, disk layer against network layer
 
-1. **Watermelon against Vai. BLOCKED.** The Frank Zappa Guitar Book is NOT on this Mac. Only
-   Over-Nite Sensation is. Drumnet pages 1 to 5 for Watermelon ARE on disk and can carry a
-   first pass.
-2. **Montana against Percunerds. BLOCKED.** Needs the $7.99 purchase. Only zappa-analysis
-   material is here, with no drum chart.
-3. **Packard Goose against Vai plus Bishop. BLOCKED.** Neither is on this Mac. The
-   cruiseshipdrummer folder holds Apostrophe, Yellow Snow, Dancin' Fool, Rubber Shirt, Flower
-   Punk, Beautiful Guy, Central Scrutinizer and Beat It With Your Fist, and no Packard Goose.
-4. **Black Page against the written drum score. ACTIONABLE.**
-   `the-black-page-drum-solo.htm` and `the-black-page-drum-solo3.jpg` are on disk.
+A first pass called three of these blocked on a disk check alone. Not-on-disk closes one
+layer. A search reopened two of them and narrowed the third.
+
+1. **Packard Goose. NOT BLOCKED, disk layer only.** Todd Bishop's Vinnie Colaiuta
+   transcription of the Packard Goose guitar solo is a free blog post, and its PDF answers
+   HTTP 200, application/pdf, 85,768 bytes at pdxdrummer.com. Same channel as four PDFs
+   already in the corpus. Only the Vai half still needs the book.
+2. **Watermelon. PARTIALLY OPEN.** The Vai Guitar Book is not on this Mac and is not the only
+   route: an Alfred Music drum transcription of the track exists, credited to Vinnie Colaiuta
+   at 4/4 and 112 BPM. Drumnet pages 1 to 5 are already on disk and can carry a first pass.
+3. **Montana. NARROWED, not shut.** Percunerds at $7.99 is one route. OpenSheets lists a free
+   Montana carrying a drum-kit part, and whether that is a real transcription or an
+   auto-generated arrangement is unverified. Check before spending.
+4. **Black Page against the written drum score. ACTIONABLE.** `the-black-page-drum-solo.htm`
+   and `the-black-page-drum-solo3.jpg` are on disk.
 5. **Drowning Witch against Brown's section coverage. ACTIONABLE.** `Drowning-Witch.png` and
    `GrooveAnalysis_Drowning-Witch.png` are on disk.
 6. **Zomby Woof against its existing sources. ACTIONABLE.** 27 assets across 5 publishers.
+
+**The only thing genuinely absent** is the 1982 Vai Frank Zappa Guitar Book. No free copy was
+found. It is the single acquisition that unlocks the Watermelon and Packard Goose Vai
+comparisons, and Black Napkins cannot be judged for drum authority until its pages are
+inspected. Every other item has a route that does not need it.
+
+Nothing was downloaded. The Packard Goose PDF was checked with a HEAD request only.
 
 ## Inca Roads, verified on disk this pass
 
