@@ -246,6 +246,55 @@ part, with known lane-assignment limitations.
 4. Pedal hi-hat, roughly 172 events, against 6 notated.
 5. Snare rebound texture, against 193 snare events carrying zero flags.
 
+## 9b. THE EYE OVERRULES THE DETECTOR, and the chart corroborates the alignment
+
+Read 2026-09-06 from `~/Projects/_outputs/zappa-drum-sources/06-drumnet/Watermelon-In-Easter-Hay_p1.jpg`
+as a native-resolution crop of a 595x842 scan, upscaled only for viewing.
+
+**BartoRomeo, drumnet.ru, "Watermelon In a Easter Hay", From Joe's Garage Act III Record,
+As Played In Joe's Garage Record, for Solo Guitar & Drums.** Section marker `(1:20) A`.
+
+| the chart shows | this reconstruction measured | agreement |
+|---|---|---|
+| tempo mark **quarter = 55.47** | snare-anchored effective **55.33 BPM** | 0.25% |
+| alternating **4/4 and 5/4** within each system | 53x 4/4 and 52x 5/4 in the tab | exact |
+| ride as a **continuous beamed sixteenth stream** of X noteheads | 1,724 ride occupying ~94% of eighth positions | exact |
+| dynamic hierarchy written with **`>` accents** on selected notes | Dibden writes it with parentheses on offbeats | same content, two conventions |
+
+**Two independent human transcriptions agree the ride runs continuous sixteenths.** They differ
+only in how the dynamic hierarchy is marked. The detector says ghost positions match at the same
+rate as other grid positions, and the eye says every grid position is played, so those two
+statements agree rather than conflict. **The eye governs. The detector does not overturn either
+transcriber.**
+
+## 9c. PUBLISHED NOTATION AUTHORITY
+
+Norman Weinberg, "Guidelines for Drumset Notation", *Percussive Notes*, June 1994, **page 20**,
+section **Ghost Strokes**, plate **Ex. 11 "Parenthetical Notes for Ghost Strokes"**. Read at
+400 DPI from the image-only scan, which carries no text layer.
+
+> "It is recommended that parenthetical note heads be used to indicate ghost strokes... Ghost
+> strokes written as parenthetical notes allow the use of this performance technique on **any
+> type of instrument (drums, cymbals, cowbells, etc.)**"
+
+Ex. 11 draws three parenthesised noteheads and the third is a **parenthesised X notehead above
+the top staff line**, a ghosted cymbal. So the 1,316 ride ghosts in `PRESWEEP-r7715683.gp` are
+standard-sanctioned notation, and the sweep removed a convention rather than a defect.
+
+## 9d. GHOST AGAINST STACCATO, one predicate on both sides
+
+The Montana repair converted ghosts into staccato dots, which is a substitution a count check
+cannot see. Tested here with the same predicate applied to both flags in all three files.
+
+| file | AntiAccent | Staccato | both on one note |
+|---|---|---|---|
+| `PRESWEEP-r7715683.gp` | 1,317 | **0** | 0 |
+| `r8768414-LIVE-EXPORT.gp` | 0 | **0** | 0 |
+| `RESTORED-s35881.gp` | 1,317 | **0** | 0 |
+
+**No dot substitution happened on s35881.** The sweep deleted flags cleanly, so the restore is a
+flag restoration plus the definition split, with no dots to remove.
+
 ## 10. CURRENT DEFENSIBLE CONCLUSION
 
 The old Ride (middle) transcription is extraordinarily dense, filling about 94 percent of
