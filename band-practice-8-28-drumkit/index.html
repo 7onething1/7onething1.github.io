@@ -57,7 +57,7 @@ footer{margin-top:3rem;padding-top:1rem;border-top:3px solid var(--p4);font-size
 </style></head><body><main>
 
 <h1>Band practice 8.28, guitar and drum kit</h1>
-<p class="lede">Two takes from the 8.28 tape pulled apart twice over. First into six instrument
+<p class="lede">Eleven takes from the four 8.28 tapes, pulled apart twice over. First into six instrument
 stems, keeping guitar and drums. Then the drum track again into six separate kit pieces.</p>
 
 <div class="stats">
@@ -72,24 +72,25 @@ stems, keeping guitar and drums. Then the drum track again into six separate kit
 <li><a href="#ask">What was asked</a></li>
 <li><a href="#tilt">Why the mix was tilted first</a></li>
 <li><a href="#mono">One guitar stem, not two</a></li>
-<li><a href="#songs">The two songs</a></li>
+<li><a href="#songs">The eleven takes</a></li>
 <li><a href="#kit">The six-piece kit model</a></li>
 <li><a href="#files">Where the files are</a></li>
 </ol></nav>
 
 <h2 id="ask">What was asked</h2>
-<p>Separate both takes, keep one or two guitars and the drums, drop vocals, keys and bass.
+<p>Separate the takes, keep one or two guitars and the drums, drop vocals, keys and bass.
 Then run the drum track through a second separation so the kit arrives as individual pieces.</p>
-<div class="callout good"><b>The measurements agree with the request.</b> On both takes
+<div class="callout good"><b>The measurements agree with the request.</b> On every take
 the bass stem came back near empty and the vocal and piano stems were effectively silent.
-Nobody played bass or keys on either of these, so the lineup you asked for is the lineup
+Nobody played bass or keys on any of these, so the lineup you asked for is the lineup
 that was actually on the tape.</div>
 
 <h2 id="tilt">Why the mix was tilted first</h2>
-<p>Both source files carry almost all of their energy in the low end. Song 13 measures
-87.4% below 250 Hz and song 11 measures 92.6%. That is far outside the spectral balance
-Demucs was trained on, and the guitar head responds by claiming low frequency content
-instead of guitar.</p>
+<p>The source files carry almost all of their energy in the low end. Song 13 measures
+87.4% below 250 Hz and song 11 measures 92.6%, and every take on this page sits in the
+same range, from 82.7% up to 96.7%. Each take's own figure is on its card below. That is
+far outside the spectral balance Demucs was trained on, and the guitar head responds by
+claiming low frequency content instead of guitar.</p>
 <div class="callout"><b>The tilt belongs ahead of separation, and the stems keep it.</b> A 45 Hz high pass,
 cuts of 9 dB at 90 Hz and 5 dB at 200 Hz, then lifts of 5 dB at 2.5 kHz and 7 dB at 6 kHz.
 Separation then runs on the tilted audio.</div>
@@ -100,14 +101,14 @@ brighter than the room. Add your own low shelf in the DAW if you want the tape s
 15% means the pass failed. Song 13 came out at 44.1% and song 11 at 57.8%.</p>
 
 <h2 id="mono">The tape is mono, so both guitars share one stem</h2>
-<div class="callout stop"><b>Both tapes record to a single mono channel.</b> The usual
+<div class="callout stop"><b>Every tape records to a single mono channel.</b> The usual
 way to separate two guitarists takes Guitar 1 from the left channel and Guitar 2 from the
-right, which needs a stereo field. On both files the left channel minus the right channel
+right, which needs a stereo field. On every file the left channel minus the right channel
 measures exactly zero and the correlation reads 1.0. Both players sit inside one
 <code>guitar.wav</code>. Splitting them by pitch range would be a guess dressed as a
 measurement, so it was not done.</div>
 
-<h2 id="songs">The two songs</h2>
+<h2 id="songs">The eleven takes</h2>
 
   <section class="song" id="song10">
     <header><span class="num-badge">10</span>
@@ -373,17 +374,33 @@ at the source, so <code>ride.wav</code> and <code>crash.wav</code> arrive alread
 no heuristic has to guess which cymbal was struck.</div>
 
 <h2 id="files">Where the files are</h2>
-<p>Everything sits under <code>~/Projects/_outputs/band-practice-stems/8-28/</code>, one
-folder per song. <code>band/</code> holds the two stems you asked to keep.
-<code>drumkit/</code> holds the six kit pieces. <code>demucs/</code> keeps the full
-six-stem separation, including the near-silent bass, vocal and piano stems, since that
-silence is the evidence for who was playing.</p>
+<div class="callout stop"><b>These are MacBook Pro paths.</b> This work ran on the MacBook,
+and the paths below resolve there. On Jacks-iMac they resolve to nothing, so a session
+opening this page on the iMac will conclude the files are missing when they are not.
+Checked from Jacks-iMac on 2026-09-06: the only complete six-lane kit reachable from that
+machine is take 13, on the T7 Shield at
+<code>/Volumes/T7 Shield/New Folder With Items 3/New Folder With Items/song13/</code>.</div>
+<p>On the MacBook Pro, everything sits under
+<code>~/Projects/_outputs/band-practice-stems/8-28/</code>, one folder per song.
+<code>band/</code> holds the two stems you asked to keep. <code>drumkit/</code> holds the
+six kit pieces. <code>demucs/</code> keeps the full six-stem separation, including the
+near-silent bass, vocal and piano stems, since that silence is the evidence for who was
+playing.</p>
+<p>Google Drive, read on 2026-09-06: <code>gdrive:BandPractice/8-28-26-drumkit</code> holds
+<b>take 11 only</b>, 23 objects and 1.658 GiB, and roughly 635 MB of that is intermediate
+scratch (<code>_blocks/*.npy</code>, <code>.asd</code>, <code>.DS_Store</code>) that should
+not have shipped. The remaining ten takes have not been uploaded. A full audit of what is
+verified where is at
+<a href="https://drwu-htmls.vercel.app/band-practice-8-28-audit">drwu-htmls.vercel.app/band-practice-8-28-audit</a>.</p>
 
 <footer>
 Colours from <b>The Grand Budapest Hotel</b> (Wes Anderson, 2014).<br>
-Sources: <code>~/Music/Band-Practice/songs-8-28-LOSSLESS/13_tape2-21-16.wav</code> and
-<code>11_tape2-02-20.wav</code>. Separation by Demucs 4.0.1 <code>htdemucs_6s</code> and
-MDX23C DrumSep. Every figure on this page is generated from
-<code>measurements.json</code> and none of them are estimated.
+Sources: the eleven takes in <code>~/Music/Band-Practice/songs-8-28-LOSSLESS/</code> on the
+<b>MacBook Pro</b>, running <code>10_tape1-59-59</code> through <code>22_tape4-00-08</code>
+across four tapes. Separation by Demucs 4.0.1 <code>htdemucs_6s</code> and MDX23C DrumSep.
+Every figure on this page is generated from <code>measurements.json</code> and none of them
+are estimated.<br>
+Take 13's six peaks were independently re-measured from the wav files on Jacks-iMac on
+2026-09-06 and matched this page to within 0.05 dB.
 </footer>
 </main></body></html>
