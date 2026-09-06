@@ -1,0 +1,440 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Remote Control the iMac's Claude Desktop</title>
+<style>
+  :root{
+    --cream:#F6F0E2; --cream2:#FBF7EC; --ink:#171512; --ink2:#4A443B;
+    --rule:#D9CFB8;
+    --red:#C0453E; --mustard:#DFA13A; --teal:#6E9490; --terra:#B4694A;
+    --navy:#42627A; --olive:#8A9457; --plum:#7B5B70;
+  }
+  *{box-sizing:border-box}
+  body{margin:0;background:var(--cream);color:var(--ink);
+       font:16px/1.62 "Iowan Old Style","Palatino Linotype",Palatino,Georgia,serif;}
+  .wrap{max-width:1080px;margin:0 auto;padding:0 22px 90px}
+  header{border-bottom:3px double var(--rule);padding:44px 0 26px;margin-bottom:30px}
+  h1{font-size:clamp(30px,5vw,46px);margin:0 0 6px;letter-spacing:-.5px}
+  .sub{color:var(--ink2);font-size:15px}
+  .stamp{display:inline-block;font:600 11px/1 ui-monospace,SFMono-Regular,Menlo,monospace;
+         letter-spacing:.11em;text-transform:uppercase;padding:6px 11px;border:1.5px solid var(--ink);
+         border-radius:3px;margin-right:8px;margin-top:14px}
+  h2{font-size:24px;margin:52px 0 8px;padding-bottom:7px;border-bottom:2px solid var(--rule)}
+  h3{font-size:17px;margin:30px 0 8px}
+  h4{font-size:15px;margin:22px 0 6px;font-family:ui-monospace,SFMono-Regular,Menlo,monospace;
+     letter-spacing:.04em;text-transform:uppercase;color:var(--ink2)}
+  p{margin:.6em 0}
+  a{color:var(--navy)}
+  code,.mono{font:13px/1.5 ui-monospace,SFMono-Regular,Menlo,monospace;
+       background:#EDE5D2;padding:1px 5px;border-radius:3px}
+  nav.toc{background:var(--cream2);border:1.5px solid var(--rule);border-radius:5px;padding:18px 22px;margin:26px 0}
+  nav.toc ol{margin:8px 0 0;padding-left:20px;columns:2;column-gap:34px}
+  nav.toc li{margin:4px 0;break-inside:avoid}
+  nav.toc a{text-decoration:none;border-bottom:1px solid var(--rule)}
+  table{width:100%;border-collapse:collapse;margin:16px 0;font-size:14.5px;
+        display:block;overflow-x:auto;white-space:normal}
+  th{text-align:left;background:#EDE5D2;border-bottom:2px solid var(--rule);
+     padding:9px 11px;font:600 12px/1.3 ui-monospace,Menlo,monospace;letter-spacing:.06em;text-transform:uppercase}
+  td{padding:9px 11px;border-bottom:1px solid var(--rule);vertical-align:top}
+  tbody tr:nth-child(even){background:#F2EBDA}
+  .yes{color:var(--olive);font-weight:700}
+  .no{color:var(--red);font-weight:700}
+  .meh{color:var(--terra);font-weight:700}
+  .chip{display:inline-block;font:700 10.5px/1 ui-monospace,Menlo,monospace;letter-spacing:.07em;
+        padding:5px 8px;border-radius:3px;color:#fff;white-space:nowrap}
+  .c-1{background:var(--red)} .c-2{background:var(--terra)}
+  .c-3{background:var(--mustard);color:#2B2110} .c-4{background:var(--teal)}
+  .c-5{background:var(--plum)}
+  .card{background:var(--cream2);border:1.5px solid var(--rule);border-left:7px solid var(--teal);
+        border-radius:5px;padding:18px 22px;margin:18px 0}
+  .card.r1{border-left-color:var(--red)}
+  .card.r2{border-left-color:var(--terra)}
+  .card.r3{border-left-color:var(--mustard)}
+  .card.r4{border-left-color:var(--teal)}
+  .card.r5{border-left-color:var(--plum)}
+  .card h3{margin-top:0}
+  .evidence{background:#2B2620;color:#EDE5D2;border-radius:4px;padding:11px 14px;margin:11px 0 4px;
+            font:12.5px/1.6 ui-monospace,SFMono-Regular,Menlo,monospace;overflow-x:auto;white-space:pre}
+  .evidence .cmt{color:#9A9184}
+  .src{font:11px/1.4 ui-monospace,Menlo,monospace;color:var(--ink2);letter-spacing:.04em}
+  .grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(215px,1fr));gap:14px;margin:20px 0}
+  .tile{background:var(--cream2);border:1.5px solid var(--rule);border-radius:5px;padding:15px 17px}
+  .tile .n{font:700 21px/1.15 ui-monospace,Menlo,monospace;letter-spacing:-.6px}
+  .tile .l{font-size:12.5px;color:var(--ink2);margin-top:5px}
+  .tile.a .n{color:var(--red)} .tile.b .n{color:var(--terra)}
+  .tile.c .n{color:var(--navy)} .tile.d .n{color:var(--teal)} .tile.e .n{color:var(--plum)}
+  .callout{background:#EDE5D2;border:1.5px solid var(--rule);border-radius:5px;padding:14px 18px;margin:20px 0}
+  .callout strong{display:block;margin-bottom:4px}
+  ul,ol{margin:.6em 0;padding-left:22px}
+  li{margin:5px 0}
+  strong{font-weight:700}
+  footer{margin-top:64px;padding-top:20px;border-top:3px double var(--rule);font-size:13px;color:var(--ink2)}
+  footer a{color:var(--navy)}
+  @media (max-width:640px){nav.toc ol{columns:1}}
+</style>
+</head>
+<body>
+<div class="wrap">
+
+<header>
+  <h1>Remote Control the iMac's Claude Desktop</h1>
+  <div class="sub">Five routes that all get called the same thing, separated &middot; commands for each &middot; what has to be true on the iMac before any of them survive being left alone</div>
+  <span class="stamp">written from a cloud session &middot; nothing measured on your iMac</span>
+</header>
+
+<div class="callout">
+  <strong>Provenance</strong>
+  Written from a Claude Code cloud session with no access to either Mac. Every command and requirement below comes from Anthropic's Claude Code documentation or Apple's macOS documentation, cited at the foot of the page. Nothing here was measured on your iMac. The last section is the list of things only the iMac can answer, with the command that answers each.
+</div>
+
+<div class="grid">
+  <div class="tile c"><div class="n">Remote&nbsp;Control</div><div class="l">Steer a session on the iMac from a phone or any browser. One command. No inbound ports.</div></div>
+  <div class="tile b"><div class="n">Desktop&nbsp;SSH</div><div class="l">Sit at the MacBook, run Claude on the iMac's files, Desktop app as the interface.</div></div>
+  <div class="tile d"><div class="n">Dispatch</div><div class="l">Message a task from the phone, walk away, get a push when it lands. Pro or Max.</div></div>
+  <div class="tile a"><div class="n">Screen&nbsp;Sharing</div><div class="l">See and click the iMac's actual screen. Three extra failure modes, hence last.</div></div>
+  <div class="tile e"><div class="n">Computer&nbsp;use</div><div class="l">Not a transport. What Claude may touch once it is there. Off by default.</div></div>
+</div>
+
+<nav class="toc">
+  <strong>Contents</strong>
+  <ol>
+    <li><a href="#pick">Pick the route first</a></li>
+    <li><a href="#rc">1. Remote Control</a></li>
+    <li><a href="#ssh">2. Desktop SSH session</a></li>
+    <li><a href="#dispatch">3. Dispatch</a></li>
+    <li><a href="#screen">4. Screen Sharing</a></li>
+    <li><a href="#cu">5. Computer use</a></li>
+    <li><a href="#reachable">Keeping the iMac reachable</a></li>
+    <li><a href="#matrix">Capability matrix</a></li>
+    <li><a href="#talk">Making the two Macs talk</a></li>
+    <li><a href="#verify">What only the iMac can answer</a></li>
+    <li><a href="#sources">Sources</a></li>
+  </ol>
+</nav>
+
+<h2 id="pick">Pick the route first</h2>
+
+<p>Five different things get called &ldquo;remote control the iMac.&rdquo; They are not interchangeable, they cost different amounts to set up, and picking the wrong one is why this usually stalls.</p>
+
+<table>
+<thead><tr><th>You want to</th><th>Route</th><th>Claude runs on</th><th>Setup</th></tr></thead>
+<tbody>
+<tr><td>Steer a session on the iMac from your phone or any browser</td><td><span class="chip c-1">Remote Control</span></td><td>iMac</td><td>one command</td></tr>
+<tr><td>Sit at the MacBook, work the iMac's files in the Desktop app</td><td><span class="chip c-2">Desktop SSH</span></td><td>iMac</td><td>Remote Login + one dialog</td></tr>
+<tr><td>Throw a task at the iMac from your phone and walk away</td><td><span class="chip c-3">Dispatch</span></td><td>iMac (Desktop)</td><td>pair the phone once</td></tr>
+<tr><td>See and click the iMac's actual screen</td><td><span class="chip c-4">Screen Sharing</span></td><td>nothing, it is a window</td><td>one toggle</td></tr>
+<tr><td>Let Claude click the iMac's own GUI</td><td><span class="chip c-5">Computer use</span></td><td>iMac</td><td>toggle + 2 permissions</td></tr>
+</tbody>
+</table>
+
+<p>Computer use is not a transport. It is a capability you switch on once and then reach through any of the other four. The first four are how <em>you</em> get to the iMac; computer use is what <em>Claude</em> may touch once it is there.</p>
+
+<div class="callout">
+  <strong>The common mistake</strong>
+  Reaching for Screen Sharing when you wanted Remote Control. Screen Sharing gives you a laggy picture of a Mac and needs the iMac reachable, awake and unlocked. Remote Control gives you the session itself, over outbound HTTPS only, on a phone, with no inbound port open anywhere.
+</div>
+
+<h2 id="rc">1. Remote Control</h2>
+
+<div class="card r1">
+  <h3>The native path</h3>
+  <p>A Claude Code session runs on the iMac; <code>claude.ai/code</code> or the Claude phone app becomes a window into it. Files, MCP servers and project config stay on the iMac. Only the conversation crosses the wire.</p>
+</div>
+
+<h3>Requirements, in the order they usually bite</h3>
+
+<ul>
+  <li><strong>Pro, Max, Team or Enterprise.</strong> API keys are not supported. On Team and Enterprise an Owner must first enable the Remote Control toggle in Claude Code admin settings.</li>
+  <li><strong>Signed in through claude.ai.</strong> <code>claude auth login</code>, not <code>claude setup-token</code> &mdash; a long-lived token can only make model requests and is refused.</li>
+  <li><strong>Talking to <code>api.anthropic.com</code> directly.</strong> Amazon Bedrock, Google Cloud's Agent Platform, Microsoft Foundry, or an <code>ANTHROPIC_BASE_URL</code> pointed at a gateway all disqualify it.</li>
+  <li><strong>No telemetry kill-switches.</strong> <code>DISABLE_TELEMETRY</code>, <code>DO_NOT_TRACK</code>, <code>CLAUDE_CODE_DISABLE_NONESSENTIAL_TRAFFIC</code> and <code>DISABLE_GROWTHBOOK</code> each disable the feature-flag evaluation Remote Control depends on &mdash; in your shell <em>or</em> in the <code>env</code> block of a <code>settings.json</code>. This is the failure that looks like an account problem and is not.</li>
+  <li><strong>Workspace trust accepted.</strong> Run <code>claude</code> in the project directory once. Trust is never saved for the home directory, so start from a project directory, not <code>~</code>.</li>
+</ul>
+
+<h3>Start it</h3>
+
+<p>Three modes. On an iMac meant to sit there and be available, server mode is the right one.</p>
+
+<div class="evidence">cd ~/Projects/whatever
+claude remote-control                  <span class="cmt"># server mode, waits for connections</span>
+claude remote-control --name "iMac"    <span class="cmt"># give it a findable title</span></div>
+
+<p>The process stays in the terminal, prints a session URL, and shows a QR code when you press spacebar. Useful flags, all given <em>after</em> <code>remote-control</code>:</p>
+
+<table>
+<thead><tr><th>Flag</th><th>Does</th></tr></thead>
+<tbody>
+<tr><td><code>--name "iMac"</code></td><td>title in the session list at claude.ai/code</td></tr>
+<tr><td><code>--spawn worktree</code></td><td>each on-demand session gets its own git worktree</td></tr>
+<tr><td><code>--spawn session</code></td><td>serve exactly one session, reject the rest</td></tr>
+<tr><td><code>--capacity &lt;N&gt;</code></td><td>concurrent session cap, default 32</td></tr>
+<tr><td><code>--permission-mode acceptEdits</code></td><td>starting permission mode for the server's sessions</td></tr>
+<tr><td><code>--continue</code></td><td>bring back the session the last server here started with</td></tr>
+<tr><td><code>--session-id &lt;id&gt;</code></td><td>bring back one session by ID</td></tr>
+<tr><td><code>--verbose</code></td><td>connection and session logs</td></tr>
+</tbody>
+</table>
+
+<p>A global <code>claude</code> flag placed <em>before</em> <code>remote-control</code> is not carried into the sessions the server creates; Claude Code refuses to start and names the flag to remove.</p>
+
+<p>The other two modes:</p>
+
+<div class="evidence">claude --remote-control "iMac"   <span class="cmt"># normal interactive session, also remote</span>
+/remote-control                  <span class="cmt"># turn it on inside a running session</span></div>
+
+<p><code>/rc</code> is the short form of the slash command, <code>--rc</code> of the flag.</p>
+
+<h3>Connect to it</h3>
+
+<p>Open the session URL in any browser, scan the QR code with the Claude app, or open claude.ai/code and find it by name. In the phone app the session list is under <strong>Code</strong>; Remote Control sessions show a computer icon with a green dot when online. <code>/mobile</code> inside Claude Code prints a QR code to install the app.</p>
+
+<h3>Make it the default</h3>
+
+<p>So the iMac never needs a special invocation:</p>
+
+<ul>
+  <li>CLI: <code>/config</code> &rarr; <strong>Enable Remote Control for all sessions</strong></li>
+  <li>Desktop app: <strong>Settings &rarr; Claude Code &rarr; Enable remote control by default</strong></li>
+  <li>Settings file: <code>"remoteControlAtStartup": true</code> in <code>~/.claude/settings.json</code></li>
+</ul>
+
+<p>Each interactive process then registers its own remote session. To serve several sessions from one process, use server mode instead.</p>
+
+<h3>Push notifications</h3>
+
+<p>With Remote Control active, Claude pushes to your phone when a long task ends or it needs a decision. Turn them on with <code>/config</code> &rarr; <strong>Push when Claude decides</strong> and <strong>Push when actions required</strong>. If <code>/config</code> says <em>No mobile registered</em>, open the app on the phone once to refresh its token.</p>
+
+<p>Notifications are skipped while you are typing at the connected terminal. To extend that to &ldquo;any time I am physically at the iMac,&rdquo; point <code>CLAUDE_CLIENT_PRESENCE_FILE</code> at a marker file and have a screen-lock listener create it on unlock and delete it on lock.</p>
+
+<h3>When it drops</h3>
+
+<table>
+<thead><tr><th>Symptom</th><th>What it means</th><th>Fix</th></tr></thead>
+<tbody>
+<tr><td>Session offline seconds after you quit the terminal</td><td>The local process <em>is</em> the session</td><td><code>claude remote-control</code> again, or <code>--continue</code> within ~4 h</td></tr>
+<tr><td><code>Remote Control requires a claude.ai subscription</code></td><td>Not signed in, or <code>ANTHROPIC_API_KEY</code> is set</td><td>unset the key, <code>claude auth login</code></td></tr>
+<tr><td><code>requires a full-scope login token</code></td><td>Authenticated with <code>setup-token</code> or <code>CLAUDE_CODE_OAUTH_TOKEN</code></td><td><code>claude auth login</code></td></tr>
+<tr><td><code>isn't enabled for this account</code></td><td>Stale cached entitlements, usually after a plan change</td><td><code>claude auth logout</code>, <code>claude auth login</code>, then <code>claude doctor</code></td></tr>
+<tr><td><code>requires feature-flag evaluation</code></td><td>One of the four telemetry variables is set</td><td>unset it, shell <em>and</em> <code>settings.json</code></td></tr>
+<tr><td><code>only available when using Claude via api.anthropic.com</code></td><td>Bedrock, Foundry, Vertex, or a custom base URL</td><td>unset the named variable, restart the session</td></tr>
+<tr><td>Server mode exits after ~10 minutes</td><td>Network outage while the Mac stayed awake; server mode gives up</td><td>start it again</td></tr>
+<tr><td><code>could not reach the Remote Control server for about 30 minutes</code></td><td>Presence heartbeats failing behind a live connection</td><td><code>/remote-control</code> to reconnect</td></tr>
+</tbody>
+</table>
+
+<p><code>claude doctor</code> names which individual eligibility check failed. Read a disconnect reason before reconnecting: if it says another device took the session over, or that you ended it elsewhere, running <code>/remote-control</code> takes it <em>back</em> from there rather than repairing anything.</p>
+
+<h3>Resuming after you stop the server</h3>
+
+<p>Ctrl+C leaves the sessions un-archived. In the same directory, within about four hours:</p>
+
+<div class="evidence">claude remote-control                    <span class="cmt"># bring back all of them</span>
+claude remote-control --continue         <span class="cmt"># just the one it started with</span>
+claude remote-control --session-id &lt;id&gt;  <span class="cmt"># one by ID: the URL part after /code/</span></div>
+
+<p><code>--continue</code> and <code>--session-id</code> need Claude Code v2.1.200 or later. Past four hours, start fresh.</p>
+
+<h3>What it costs you</h3>
+
+<p>While connected, the transcript &mdash; your messages, Claude's replies, tool activity &mdash; is stored on Anthropic servers so the conversation stays in sync across devices and can survive a reconnect. Execution and filesystem access never leave the iMac. Organisations under Zero Data Retention cannot enable Remote Control at all. To disable it outright on a machine, set <code>disableRemoteControl</code>.</p>
+
+<h2 id="ssh">2. Desktop SSH session from the MacBook</h2>
+
+<div class="card r2">
+  <h3>The best answer to &ldquo;I am at the MacBook and I want to work on the iMac&rdquo;</h3>
+  <p>The Desktop app on the MacBook is the interface; Claude Code actually runs on the iMac, against the iMac's files and tools.</p>
+</div>
+
+<ol>
+  <li>On the iMac: <strong>System Settings &rarr; General &rarr; Sharing &rarr; Remote Login</strong> on.</li>
+  <li>On the MacBook, in Claude Desktop, click the environment dropdown before starting a session &rarr; <strong>+ Add SSH connection</strong>.</li>
+  <li>Fill in <strong>Name</strong>, <strong>SSH Host</strong> (<code>user@imac.local</code>, or an alias from <code>~/.ssh/config</code>), <strong>SSH Port</strong> (blank = 22), <strong>Identity File</strong> (blank = your default key or SSH config).</li>
+</ol>
+
+<p>Desktop installs Claude Code on the iMac automatically the first time you connect. Once connected, SSH sessions support permission modes, connectors, plugins and MCP servers. Connections added through the dialog are stored in <code>~/.claude/settings.json</code> under <code>sshConfigs</code>.</p>
+
+<p>This is a different animal from Remote Control. Remote Control shares <em>one running session</em> across devices. An SSH session is a fresh session that happens to execute on the other machine. Use SSH when you are starting work; use Remote Control when work is already underway and you are walking away from the desk.</p>
+
+<h2 id="dispatch">3. Dispatch</h2>
+
+<div class="card r3">
+  <h3>Delegation, not steering</h3>
+  <p>Dispatch is a persistent conversation in the Desktop app's <strong>Cowork</strong> tab. You message it a task from the phone; it decides how to handle it, and development work spawns a Code session on the iMac with a <strong>Dispatch</strong> badge in the sidebar. You get a push when it finishes or needs approval.</p>
+</div>
+
+<p>Requires Pro or Max. Not available on Team or Enterprise. Pairing the phone with Desktop is a one-time step.</p>
+
+<p>Dispatch-spawned sessions can use computer use if it is enabled, with one difference worth knowing: app approvals in them expire after 30 minutes instead of lasting the whole session.</p>
+
+<p>If you want to watch the work and interrupt it mid-flight, Dispatch is the wrong tool &mdash; that is Remote Control.</p>
+
+<h2 id="screen">4. Screen Sharing</h2>
+
+<div class="card r4">
+  <h3>The literal reading</h3>
+  <p>See the iMac's screen, click its actual Claude Desktop window. macOS ships this; nothing to install.</p>
+</div>
+
+<ol>
+  <li>On the iMac: <strong>System Settings &rarr; General &rarr; Sharing &rarr; Screen Sharing</strong> on.</li>
+  <li>On the MacBook: open the <strong>Screen Sharing</strong> app, enter the iMac's hostname <em>or the Apple ID it is signed into</em>, then Connect.</li>
+</ol>
+
+<p>Connecting by Apple ID is what makes this work off the local network without a VPN or a forwarded port. Do not port-forward VNC to the internet as the alternative.</p>
+
+<p>On Apple silicon running macOS 14 or later, the connection dialog offers <strong>Standard</strong> or <strong>High Performance</strong>. High Performance uses the media engine &mdash; fluid enough to scrub video or turn a 3D model &mdash; and is the only mode that offers <strong>virtual displays</strong>, one or two, chosen from the Display Type menu. A headless iMac driven that way gets a real working resolution instead of whatever the panel happens to be.</p>
+
+<p>Screen Sharing needs the iMac awake, on the network, and past the login window. That is three more failure modes than Remote Control has, which is why it is route 4 and not route 1.</p>
+
+<h2 id="cu">5. Computer use</h2>
+
+<div class="card r5">
+  <h3>What lets Claude drive the iMac's GUI itself</h3>
+  <p>Research preview, macOS and Windows, <strong>Pro or Max only</strong> &mdash; not Team, not Enterprise. The Claude Desktop app must be running. Off by default.</p>
+</div>
+
+<ol>
+  <li>Update Claude Desktop and restart it.</li>
+  <li><strong>Settings &rarr; General</strong> (under <strong>Desktop app</strong>) &rarr; turn on <strong>Computer use</strong>.</li>
+  <li>Grant two macOS permissions, whose status the Settings page shows: <strong>Accessibility</strong> (click, type, scroll) and <strong>Screen Recording</strong> (see the screen).</li>
+</ol>
+
+<p>Claude tries the precise tool before the broad one: a connector if one exists, then Bash, then Claude in Chrome for browser work, then the iOS Simulator pane, and only then computer use. The per-app tiers enforce that ordering:</p>
+
+<table>
+<thead><tr><th>Tier</th><th>Claude can</th><th>Applies to</th></tr></thead>
+<tbody>
+<tr><td>View only</td><td>see the app in screenshots</td><td>browsers, trading platforms</td></tr>
+<tr><td>Click only</td><td>click and scroll, no typing or keyboard shortcuts</td><td>terminals, IDEs</td></tr>
+<tr><td>Full control</td><td>click, type, drag, keyboard shortcuts</td><td>everything else</td></tr>
+</tbody>
+</table>
+
+<p>The tiers are fixed by app category and cannot be changed. First use of an app prompts <strong>Allow for this session</strong> or <strong>Deny</strong>; approvals last the session, or 30 minutes in Dispatch-spawned sessions. Terminals, Finder and System Settings show an extra warning in the prompt because of their reach.</p>
+
+<p>Two settings worth setting deliberately, both in <strong>Settings &rarr; General</strong>: <strong>Denied apps</strong> rejects named apps without prompting, and <strong>Unhide apps when Claude finishes</strong> controls whether your other windows come back after Claude hides them to work.</p>
+
+<div class="callout">
+  <strong>The trust boundary genuinely moved</strong>
+  This runs on the real desktop, not in the Bash sandbox. Claude checks each action and flags on-screen prompt-injection attempts, but anything visible on that iMac screen &mdash; open documents, Messages, a password manager left unlocked &mdash; is inside the boundary.
+</div>
+
+<h2 id="reachable">Keeping the iMac actually reachable</h2>
+
+<p>Every route above assumes the iMac is awake, unlocked and on the network. This is the part that fails at 2am, not the Claude configuration.</p>
+
+<h4>Sleep</h4>
+
+<p>An iMac has two structural advantages over the MacBook here: no lid to close, and always on AC. <code>caffeinate</code> only defeats <em>idle</em> sleep, so on a laptop it loses to the lid; on a desktop it is sufficient. The durable fix is <code>pmset</code> rather than a process that has to keep running:</p>
+
+<div class="evidence">pmset -g custom              <span class="cmt"># read the current policy first</span>
+sudo pmset -c sleep 0        <span class="cmt"># never system-sleep on AC</span>
+sudo pmset -c womp 1         <span class="cmt"># wake for network access</span>
+sudo pmset -c autorestart 1  <span class="cmt"># restart automatically after a power failure</span></div>
+
+<p>Per-session, without changing policy:</p>
+
+<div class="evidence">caffeinate -dims             <span class="cmt"># display, idle, disk, system — until Ctrl+C</span>
+caffeinate -dims claude      <span class="cmt"># scoped to one command, cleans itself up</span></div>
+
+<p>Flags: <code>-d</code> display, <code>-i</code> idle, <code>-m</code> disk, <code>-s</code> system sleep on AC, <code>-u</code> user activity, <code>-t</code> seconds, <code>-w</code> wait on a PID.</p>
+
+<h4>Login state</h4>
+
+<p>Screen Sharing and computer use both need a logged-in GUI session at the console, not merely a running machine. A locked screen or a sleeping display is a wall between Claude and everything on screen. Remote Control and SSH do not care.</p>
+
+<h4>FileVault after a reboot</h4>
+
+<p>The historical trap for an unattended Mac: with FileVault on, the data volume stays locked after a restart, and SSH's configuration lives on that volume &mdash; so SSH is unavailable until somebody types a password at the keyboard. Two ways out:</p>
+
+<ul>
+  <li><strong>macOS 26 (Tahoe)</strong> boots a minimal SSH daemon from the sealed system volume before login. You SSH in at the preboot stage, supply an administrator account's password, and the Mac finishes booting; SSH drops briefly while the data volume mounts. SSH <em>keys</em> do not work at that stage &mdash; password only &mdash; and Remote Login must already be on. Early reports had it working over Ethernet but not Wi-Fi, with Wi-Fi reported working as of 26.5. Treat the iMac's behaviour as untested until you reboot it once on purpose.</li>
+  <li><strong><code>sudo fdesetup authrestart</code></strong> supplies the FileVault password as part of the reboot, so the machine comes back up unlocked. Works on older macOS too. <code>-delayminutes 0</code> restarts immediately.</li>
+</ul>
+
+<p>Reboot the iMac deliberately once, from somewhere else, and find out which of these it does. Discovering it after a power cut is the expensive version.</p>
+
+<h4>Off the local network</h4>
+
+<p>Remote Control needs nothing here: the iMac makes outbound HTTPS requests only and never opens an inbound port. That is its structural advantage over every other route on this page.</p>
+
+<p>SSH and Screen Sharing need reachability. Screen Sharing over Apple ID handles that without configuration. For SSH, a mesh VPN such as Tailscale is the answer &mdash; not a forwarded port on the router.</p>
+
+<h2 id="matrix">Capability matrix</h2>
+
+<table>
+<thead><tr><th></th><th>Remote Control</th><th>Desktop SSH</th><th>Dispatch</th><th>Screen Sharing</th></tr></thead>
+<tbody>
+<tr><td>Drive it from a phone</td><td class="yes">yes</td><td class="no">no</td><td class="yes">yes</td><td class="meh">poorly</td></tr>
+<tr><td>Drive it from any browser</td><td class="yes">yes</td><td class="no">no</td><td class="no">no</td><td class="no">no</td></tr>
+<tr><td>Needs the iMac reachable inbound</td><td class="yes">no</td><td class="no">yes</td><td class="yes">no</td><td class="no">yes</td></tr>
+<tr><td>Needs the iMac unlocked at the console</td><td class="yes">no</td><td class="yes">no</td><td class="yes">no</td><td class="no">yes</td></tr>
+<tr><td>Survives you closing the client</td><td class="yes">yes</td><td class="yes">yes</td><td class="yes">yes</td><td>n/a</td></tr>
+<tr><td>Survives the <code>claude</code> process exiting</td><td class="no">no</td><td class="no">no</td><td class="no">no</td><td>n/a</td></tr>
+<tr><td>Uses the iMac's MCP servers and config</td><td class="yes">yes</td><td class="yes">yes</td><td class="yes">yes</td><td class="yes">yes</td></tr>
+<tr><td>Shares one live session across devices</td><td class="yes">yes</td><td class="no">no</td><td class="no">no</td><td class="yes">yes</td></tr>
+<tr><td>Transcript stored on Anthropic servers</td><td class="meh">yes</td><td class="yes">no</td><td class="meh">yes</td><td class="yes">no</td></tr>
+<tr><td>Plan floor</td><td>Pro</td><td>any</td><td>Pro / Max</td><td>none</td></tr>
+</tbody>
+</table>
+
+<h2 id="talk">Making the two Macs talk</h2>
+
+<p>Once both Macs run sessions connected to Remote Control, they can message each other. <code>/list-agents</code> (alias <code>/peers</code>) lists what the current session can reach: subagents, teammates, other local sessions, your cloud sessions, and your Remote Control sessions on other machines &mdash; the last labelled <code>Remote Control</code>, showing <code>offline</code> when that connection has dropped.</p>
+
+<p>Version floors: Claude Code v2.1.224 or later for messaging at all; v2.1.225 or later to <em>start</em> a conversation with a session on another machine rather than only reply to one. Cross-machine messages travel through Anthropic servers and arrive over that machine's Remote Control connection; same-machine messages go over a per-session socket and never leave the Mac.</p>
+
+<p>Two controls worth setting deliberately on a machine that sits unattended:</p>
+
+<table>
+<thead><tr><th>Setting</th><th>Effect</th></tr></thead>
+<tbody>
+<tr><td><code>crossSessionInbound</code></td><td><code>accept</code>, <code>hold</code> or <code>refuse</code> for arriving messages. Also in <code>/config</code> as <strong>Messages from your other sessions</strong>.</td></tr>
+<tr><td><code>isolatePeerMachines: true</code></td><td>Require your explicit approval before any message leaves the machine, even in bypass-permissions mode.</td></tr>
+</tbody>
+</table>
+
+<p>A message from another session can never approve a permission prompt, change configuration, or run a slash command. It arrives as plain text and is treated as such.</p>
+
+<h2 id="verify">What only the iMac can answer</h2>
+
+<p>Nothing above was checked against your hardware. These are the open questions and the command that closes each:</p>
+
+<table>
+<thead><tr><th>Question</th><th>Command, on the iMac</th></tr></thead>
+<tbody>
+<tr><td>macOS version, for the FileVault-over-SSH question</td><td><code>sw_vers</code></td></tr>
+<tr><td>Apple silicon, for Screen Sharing High Performance</td><td><code>uname -m</code></td></tr>
+<tr><td>Claude Code version, against the v2.1.2xx floors</td><td><code>claude --version</code></td></tr>
+<tr><td>Remote Control eligibility, and which check fails</td><td><code>claude doctor</code></td></tr>
+<tr><td>A telemetry variable silently blocking it</td><td><code>env | grep -E 'DISABLE_TELEMETRY|DO_NOT_TRACK|DISABLE_GROWTHBOOK|CLAUDE_CODE_DISABLE_NONESSENTIAL_TRAFFIC|ANTHROPIC_BASE_URL|ANTHROPIC_API_KEY'</code></td></tr>
+<tr><td>The same, hidden in settings</td><td><code>grep -RE 'DISABLE_TELEMETRY|DO_NOT_TRACK|ANTHROPIC_BASE_URL' ~/.claude/settings.json</code></td></tr>
+<tr><td>Is SSH on</td><td><code>sudo systemsetup -getremotelogin</code></td></tr>
+<tr><td>Current sleep policy</td><td><code>pmset -g custom</code></td></tr>
+<tr><td>Is FileVault on</td><td><code>fdesetup status</code></td></tr>
+<tr><td>Does the display sleeping break a computer-use run</td><td>untestable from here &mdash; watch one long run</td></tr>
+</tbody>
+</table>
+
+<p>That last row is the honest gap. Whether a sleeping display breaks a computer-use run on this particular machine is a thing to observe once, not to assume from a document.</p>
+
+<h2 id="sources">Sources</h2>
+
+<ul class="src" style="list-style:none;padding-left:0">
+  <li>Claude Code &mdash; Remote Control &middot; <a href="https://code.claude.com/docs/en/remote-control">code.claude.com/docs/en/remote-control</a></li>
+  <li>Claude Code &mdash; Desktop application &middot; <a href="https://code.claude.com/docs/en/desktop">code.claude.com/docs/en/desktop</a></li>
+  <li>Claude Code &mdash; Platforms and integrations &middot; <a href="https://code.claude.com/docs/en/platforms">code.claude.com/docs/en/platforms</a></li>
+  <li>Claude Code &mdash; Cross-session messaging &middot; <a href="https://code.claude.com/docs/en/cross-session-messaging">code.claude.com/docs/en/cross-session-messaging</a></li>
+  <li>Apple &mdash; Share the screen of another Mac &middot; <a href="https://support.apple.com/guide/mac-help/share-the-screen-of-another-mac-mh14066/mac">support.apple.com/guide/mac-help/mh14066</a></li>
+  <li>macOS 26 FileVault unlock over SSH &mdash; corroborated across Der Flounder, Jeff Geerling and Apple's macOS Tahoe 26 enterprise release notes</li>
+</ul>
+
+<footer>
+  Written 2026-09-04 from a Claude Code cloud session with no access to either Mac. Commands and requirements are quoted from the Anthropic and Apple documentation linked above; none of them were executed on the iMac. Everything in <a href="#verify">What only the iMac can answer</a> is still open.
+</footer>
+
+</div>
+</body>
+</html>
