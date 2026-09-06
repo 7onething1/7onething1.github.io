@@ -53,8 +53,21 @@ seriously not done? never stop".
 ## What it unblocks first
 
 `q-2026-08-31-41c892`, Carolina Hard-Core Ecstasy s68248. Three .gp files already built and
-verified in `~/Projects/_outputs/zappa-handoff-lie-audit/`. Blocked on `preflight_import.py`
-requiring `--record-seconds` or a `--stem`, plus the professional drum archive on the iMac.
+verified in `~/Projects/_outputs/zappa-handoff-lie-audit/`.
+
+**Both stated blockers were wrong, measured 2026-09-06.** `--record-seconds` was unmeasured
+rather than unavailable: `api/meta/68248` names the synced recording as YouTube `FBNLOWiQSvY`,
+measured at 360 s, matching the published 5:59 Bongo Fury live length. The iMac drum archive
+bears on source verification and never on preflight.
+
+Preflight now runs and reports a different pair of faults:
+
+- **STACKED** — revision `r8908182` is already queued unreviewed on s68248. This is the real
+  blocker, it is a moderator queue, and branch three governs it.
+- **NAMEDROP** — Songsterr's importer clears all 6 custom track names. Remedy is the revision
+  description or `--allow-name-drop`.
+- Noted: grid is 309.9 s notated against 360.0 s record, 13.92% off, GRID-INHERITED, so the
+  base tab carries the drift and the kickfix causes none of it.
 
 ## Files changed
 
