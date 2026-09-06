@@ -21,6 +21,23 @@ Everything below keeps its value as measurement. None of it is sanctioned repair
 
 ---
 
+## BRANDON'S DECISION, 2026-09-06
+
+> "let `r8908182` finish moderation because the event keyed comparison proves it restores exactly
+> the 144 ghost events our earlier revision removed, with zero missing and zero extra events. After
+> that restoration and uploading it, do nothing further to `s68248`, because Carolina was outside
+> the work you assigned and the remaining Carolina ideas came from queue drift."
+
+- **r8908182 stands.** It was submitted 2026-09-05 18:34:22 and is already on moderation, so no
+  upload action is needed or taken.
+- **Nothing further goes to s68248.** Four Carolina items stay blocked. The kickfix and crashfix
+  `.gp` files stay on disk unshipped.
+- **Over-blocked items restored to `queued`:** q-2026-09-02-8afd97, q-2026-09-05-a3a71c (Watermelon
+  In Easter Hay s35881, in scope), q-2026-09-05-019e5b.
+- **New standing rule:** `feedback_queue_next_is_not_authorization`.
+
+---
+
 Worked while revision `r8908182` sits on moderation. None of this needs an upload.
 
 ## 0. Two claims in the queue item were wrong on disk
