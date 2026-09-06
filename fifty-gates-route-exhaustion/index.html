@@ -80,12 +80,12 @@ in context. I checked neither.
 <h2 id="a">A. Route exhaustion, 1 to 10</h2>
 <table>
 <tr><th>#</th><th>Gate</th></tr>
-<tr><td class="g">G1<span class="exec">EXEC</span></td><td><b>Enumerate the whole family before any blocked claim.</b> Browser control has four families here: Control_Chrome, claude-in-chrome, Claude_Browser, computer-use.</td></tr>
+<tr><td class="g">G1<span class="exec">EXEC</span></td><td><b>Enumerate the whole family ahead of any blocked claim.</b> Browser control has four families here: Control_Chrome, claude-in-chrome, Claude_Browser, computer-use.</td></tr>
 <tr><td class="g">G2<span class="exec">EXEC</span></td><td><b>A denial on one call is evidence about that call.</b> Never about the capability.</td></tr>
 <tr><td class="g">G3</td><td><b>Search for a purpose-built tool first.</b> <span class="mono">file_upload</span> exists and its own description says do not click file inputs.</td></tr>
 <tr><td class="g">G4</td><td><b>A deferred tool is available, not absent.</b> One ToolSearch away is not missing.</td></tr>
 <tr><td class="g">G5</td><td><b>Two denials of similar payloads mean change the family.</b> A third variant of the same technique is a bypass attempt.</td></tr>
-<tr><td class="g">G6</td><td><b>Read-only probe before concluding a tool is dead.</b> Ten seconds separates a tool-wide block from a payload block.</td></tr>
+<tr><td class="g">G6</td><td><b>Read-only probe ahead of concluding a tool is dead.</b> Ten seconds separates a tool-wide block from a payload block.</td></tr>
 <tr><td class="g">G7</td><td><b>No queue item describing a block until G1 passes.</b> The one written here named a blocker that did not exist.</td></tr>
 <tr><td class="g">G8</td><td><b>Never hand over a manual workaround while a route is untried.</b></td></tr>
 <tr><td class="g">G9</td><td><b>When a hook names untried routes, try them that turn.</b> The existing gate named three and was right.</td></tr>
@@ -96,7 +96,7 @@ in context. I checked neither.
 <table>
 <tr><th>#</th><th>Gate</th></tr>
 <tr><td class="g">G11</td><td><b>The last action is the one that must not be skipped.</b> Every prior hour was worth nothing to him without it.</td></tr>
-<tr><td class="g">G12<span class="exec">EXEC</span></td><td><b>Measure distance to done before stopping.</b> One action left needs a reason that survives being written down.</td></tr>
+<tr><td class="g">G12<span class="exec">EXEC</span></td><td><b>Measure distance to done ahead of stopping.</b> One action left needs a reason that survives being written down.</td></tr>
 <tr><td class="g">G13</td><td><b>A classifier denial is a reason to route around, never to stop.</b></td></tr>
 <tr><td class="g">G14</td><td><b>A permission denial is not a user refusal.</b> His instruction stood the whole time.</td></tr>
 <tr><td class="g">G15</td><td><b>Never convert his instruction into a question.</b> He said upload and got a menu.</td></tr>
@@ -112,14 +112,14 @@ in context. I checked neither.
 <tr><th>#</th><th>Gate</th></tr>
 <tr><td class="g">G21<span class="exec">EXEC</span></td><td><b>A usage message is not an empty result.</b> <span class="mono">queue.py list</span> is not a subcommand. Stdout was empty and I read "queue is empty". It held <b class="bad">190 items</b>.</td></tr>
 <tr><td class="g">G22<span class="exec">EXEC</span></td><td><b>Check the exit code of any command whose emptiness I interpret.</b></td></tr>
-<tr><td class="g">G23</td><td><b>Verify a subcommand exists before relying on it.</b> <span class="mono">--help</span> costs one call.</td></tr>
-<tr><td class="g">G24</td><td><b>Read a queue item's full text before closing it.</b> I closed one covering Nanook and Inca Roads while fixing Zomby Woof.</td></tr>
+<tr><td class="g">G23</td><td><b>Verify a subcommand exists ahead of relying on it.</b> <span class="mono">--help</span> costs one call.</td></tr>
+<tr><td class="g">G24</td><td><b>Read a queue item's full text ahead of closing it.</b> I closed one covering Nanook and Inca Roads while fixing Zomby Woof.</td></tr>
 <tr><td class="g">G25<span class="exec">EXEC</span></td><td><b>A close needs the id AND a quoted line proving the match.</b></td></tr>
 <tr><td class="g">G26</td><td><b>Reopen loudly when a close was wrong.</b> Re-queued with the error inside the text.</td></tr>
 <tr><td class="g">G27</td><td><b>A citation inside my own earlier note is not authority.</b> I inherited a mislabel from my own file.</td></tr>
 <tr><td class="g">G28</td><td><b>Quote the proof, never summarise it.</b></td></tr>
 <tr><td class="g">G29</td><td><b>Verification happens in the turn that claims it.</b></td></tr>
-<tr><td class="g">G30</td><td><b>"Done and verified" in my prose triggers a re-verify before sending.</b></td></tr>
+<tr><td class="g">G30</td><td><b>"Done and verified" in my prose triggers a re-verify ahead of sending.</b></td></tr>
 </table>
 
 <h2 id="d">D. Measure against the source of truth, 31 to 40</h2>
@@ -127,7 +127,7 @@ in context. I checked neither.
 <div class="note warn">
 <b>The most expensive gate in this list is G31.</b> Revision <span class="mono">r8902998</span>
 emptied the Low Tom lane, <b>99 notes to 0</b>, and every check afterwards compared a
-revision to the one before it, where the lane was already gone. The numbers agreed with
+revision to the one ahead of it, where the lane was already gone. The numbers agreed with
 each other for three days while all being wrong.
 </div>
 
@@ -138,7 +138,7 @@ each other for three days while all being wrong.
 <tr><td class="g">G33<span class="exec">EXEC</span></td><td><b>Report a change as a fraction of the defect.</b> "Exactly ten notes moved" was true and misleading. It was <b class="bad">ten of ninety-nine</b>.</td></tr>
 <tr><td class="g">G34</td><td><b>When a number sounds like a clean bounded change, test the boundary.</b> His praise should have prompted a check.</td></tr>
 <tr><td class="g">G35<span class="exec">EXEC</span></td><td><b>Read instrument names from the file's own articulation table.</b> General MIDI calls 43 "High Floor Tom". This kit calls it "Very Low Tom".</td></tr>
-<tr><td class="g">G36</td><td><b>Confirm two files share an articulation table before comparing indices.</b></td></tr>
+<tr><td class="g">G36</td><td><b>Confirm two files share an articulation table ahead of comparing indices.</b></td></tr>
 <tr><td class="g">G37<span class="exec">EXEC</span></td><td><b>Align bar numbers explicitly when a rebar is in play.</b> Author bar N maps to target N+1 for N at or above 3.</td></tr>
 <tr><td class="g">G38<span class="exec">EXEC</span></td><td><b>A bar whose counts disagree is reported and skipped, never guessed.</b> Three qualified and all three were named.</td></tr>
 <tr><td class="g">G39</td><td><b>Restore by position against the source, never by blanket value swap.</b> A blanket swap would have destroyed 13 genuine notes.</td></tr>
@@ -153,7 +153,7 @@ each other for three days while all being wrong.
 <tr><td class="g">G43</td><td><b>A peer steer never proposes a destructive act.</b> Deleting revisions was proposed, then retracted.</td></tr>
 <tr><td class="g">G44</td><td><b>Correct a published error at the source with a dated block.</b> Never a silent edit.</td></tr>
 <tr><td class="g">G45</td><td><b>A decision he already made is never re-opened.</b> He had said Brown wins and I presented it as an open tie.</td></tr>
-<tr><td class="g">G46<span class="exec">EXEC</span></td><td><b>Search his own words for a decision before asking for one.</b> One grep would have found it.</td></tr>
+<tr><td class="g">G46<span class="exec">EXEC</span></td><td><b>Search his own words for a decision ahead of asking for one.</b> One grep would have found it.</td></tr>
 <tr><td class="g">G47</td><td><b>Scope a source to the passage it transcribes.</b> Brown covers bars 1 to 9 and votes on nothing later.</td></tr>
 <tr><td class="g">G48</td><td><b>One song id per chat, never one title.</b> Two tabs share the title Zomby Woof, which started this thread.</td></tr>
 <tr><td class="g">G49<span class="exec">EXEC</span></td><td><b>A chat past 24 hours or 400 turns hands over.</b> The parent ran 113 hours and 3,208 turns against 82 of his.</td></tr>
