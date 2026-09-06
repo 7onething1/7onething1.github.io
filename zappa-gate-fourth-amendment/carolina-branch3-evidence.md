@@ -92,6 +92,40 @@ unnotated**. Raising the tempo toward Sloots's 86.4 makes it worse: 102 bars at 
 4. **The 16.5 missing bars are a separate revision.** They are a GRID-INHERITED defect of the
    base tab, the kickfix keeps the exact grid, and fixing them means re-gridding the vocal too.
 
+
+## 6. Triplet disagreement, read at native resolution from scan b
+
+`carolina-hard-core-ecstasy-1975b.jpg` is 828x449 native. Two 1:1 bands were cut at full pixel
+resolution and upscaled only for viewing.
+
+**Band 1 (native 828x120)** carries a boxed rehearsal **5**, an **8va**, treble clef, a key
+signature of **one sharp**, and **no restated time signature**, so 4/4 continues. Triplet
+brackets marked **3** appear in the upper staff and twice in the staff below.
+
+**Band 2 (native 828x150)** carries triplet brackets marked **3** in both the treble and the bass
+staves, across three of the four visible bars. One sharp is confirmed in both clefs. **No
+metronome mark appears on either band.**
+
+### What the tab does in the same passage
+
+Census of every 3:2 tuplet in `carolina-BASE-8769058.gp`, all 9 tracks, all 102 bars:
+
+| Track | Triplet events | Bars |
+|---|---|---|
+| Drums | 6 | 42 |
+| Trombone | 17 | 68 |
+| Frank Zappa, Elec. Piano, Rythmn Gtr., Electric Bass, Vox 1, Vox 2, Frank Vox | **0** | none |
+
+**The whole tab carries 23 triplet events, and none of them are in the opening.** Bars 1-8 hold
+505 events across all 9 tracks and **0 of them are tuplets**.
+
+**So the tab writes the opening straight while Sloots writes it with triplets.** That is a
+lane-level disagreement on the passage his transcription actually covers.
+
+**Provisional on bar mapping.** Sloots numbers his systems with boxed rehearsal marks, 1 on scan
+a and 5 on scan b. Aligning those to the tab's bar 1 and bar 5 assumes a shared downbeat origin.
+Landmark anchoring against the recording is what would confirm it, and that work is not done here.
+
 ## Commands
 
 ```bash
