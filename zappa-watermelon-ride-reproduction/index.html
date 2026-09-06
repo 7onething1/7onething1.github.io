@@ -62,7 +62,7 @@ section is withdrawn. The headline ratio is unchanged.</p>
 <div class="stat"><b>2</b><span>ride note definitions</span></div>
 <div class="stat"><b>1</b><span>AntiAccent element behind 1,316 ghosts</span></div>
 <div class="stat"><b>99.9%</b><span>ghost predicted by metric position</span></div>
-<div class="stat"><b>0.95-0.99&times;</b><span>reproduced ratio</span></div>
+<div class="stat"><b>0.98&times;</b><span>reproduced ratio, principal config</span></div>
 <div class="stat"><b>80.01</b><span>percentile of 4.41, reconciled</span></div>
 <div class="stat"><b>1 / 1,479</b><span>excursions serving &gt;1 position</span></div>
 <div class="stat"><b>5,469</b><span>held-out alignment tests</span></div>
@@ -73,10 +73,17 @@ section is withdrawn. The headline ratio is unchanged.</p>
 <p><span class="tag t-green">REPRODUCED</span> The tab counts, the alignment constants, the
 published threshold <code>4.41</code> at percentile <b>80.01</b>, and the finding that no
 supra-threshold excursion serves more than one scored position.</p>
-<p><span class="tag t-red">NOT REPRODUCED</span> The 1.45&times; result. Under the reconciled
-detector the observed ghost rate is <b>61.2%</b> against a null of <b>62.2%</b>, a ratio of
-<span class="hl">0.98&times;</span>, holding across per-note and block-preserving nulls at
-blocks of 4, 8 and 16.</p>
+<p><span class="tag t-red">NOT REPRODUCED</span> The 1.45&times; result. Three ranges appear on
+this page and each names a different subset:</p>
+<ul>
+<li><b>0.98&times;</b> &mdash; the <b>principal configuration</b>: reconciled detector, threshold
+4.41, observed ghost 61.2% against null 62.2%. This is the authoritative single number.</li>
+<li><b>0.97&times; to 0.98&times;</b> &mdash; across the <b>six null procedures</b> tested at
+threshold 4.41 (per-note, collision-free, rigid, and blocks of 4, 8, 16).</li>
+<li><b>0.95&times; to 1.05&times;</b> &mdash; the <b>full tested range</b> across all 20
+threshold and band settings, which includes settings now known to use the wrong operator and
+extreme percentiles with few matches.</li>
+</ul>
 <p><span class="tag t-pur">RESTATED</span> The 1,316 ghost notations come from
 <span class="hl">one AntiAccent element on one shared note definition</span>, so the file records
 one labelling decision rather than 1,316 per-stroke judgements.</p>
@@ -94,6 +101,8 @@ one labelling decision rather than 1,316 per-stroke judgements.</p>
 <li><a href="#s9">Three scramble procedures</a></li>
 <li><a href="#s10">Double counting ruled out</a></li>
 <li><a href="#s11">Spectral identity of disputed positions</a></li>
+<li><a href="#s11b">Positive control</a></li>
+<li><a href="#s11c">The decay-prediction test</a></li>
 <li><a href="#s12">Withdrawn and historical</a></li>
 <li><a href="#s13">Inputs and scripts</a></li>
 </ol></div>
@@ -252,8 +261,10 @@ exploratory and a 10 s cutoff does not establish reliable performance across the
 <div class="card amber">
 <p class="k">Alignment cannot account for the gap</p>
 <p>A rigid offset sweep from -150 to +150 ms under the reconciled detector <b>peaks at exactly
-0 ms with 61.2 percent</b>. No shift improves it, so 61.2 percent is the ceiling this alignment
-and this detector reach on this audio. The reported 71.3 percent sits above that ceiling.</p>
+0 ms with 61.2 percent</b>. So <b>61.2 percent is the maximum obtained under the tested rigid
+global offsets, and the 71.3 percent discrepancy cannot be explained by a global timing
+shift.</b> It does not rule out local alignment differences, a different anchor selection, or
+the unresolved 97 against 137 anchor discrepancy.</p>
 <p><b>Two numbers reproduce exactly and two do not.</b> The threshold and the no-double-counting
 result reproduce. The observed rate and the null mean do not, and the residual difference is not
 yet located.</p>
@@ -296,8 +307,27 @@ apart.</p>
 <div class="card red">
 <p class="k">Withdrawn from the first version of this page</p>
 <p>That version reported 24.7 percent of ghost hits sharing an excursion against 71.0 percent
-scrambled. It was an artefact of operator A, whose excursions reached 1,741 ms. Under the
-published operator the concern does not arise.</p>
+scrambled, and a 1.47&times; distinct-excursion ratio which it attributed to scramble clustering
+by inference. The cause is now demonstrated rather than inferred.</p>
+</div>
+<h3>Crossing operator against null, so the cause is shown</h3>
+<p>Two candidates could produce the 1.47&times;: the <b>collision structure</b> of the per-note
+null, or the <b>operator</b> whose long excursions let one run serve several notes. Crossing
+both settles it.</p>
+<div class="scroll"><table>
+<tr><th>operator</th><th>null</th><th>collided</th><th>ratio, hit rate</th><th>ratio, distinct excursions</th></tr>
+<tr><td>A per-bin</td><td>RIGID</td><td>9.2%</td><td>0.98&times;</td><td><b>0.97&times;</b></td></tr>
+<tr><td>A per-bin</td><td>PER-NOTE</td><td>42.3%</td><td>0.98&times;</td><td><b>1.50&times;</b></td></tr>
+<tr><td>A per-bin</td><td>PER-NOTE collision-free</td><td>11.9%</td><td>0.98&times;</td><td><b>1.01&times;</b></td></tr>
+<tr><td><b>B band-sum</b></td><td>RIGID</td><td>9.2%</td><td>0.98&times;</td><td><b>0.97&times;</b></td></tr>
+<tr><td><b>B band-sum</b></td><td>PER-NOTE</td><td>42.3%</td><td>0.98&times;</td><td><b>1.54&times;</b></td></tr>
+<tr><td><b>B band-sum</b></td><td>PER-NOTE collision-free</td><td>11.9%</td><td>0.98&times;</td><td><b>1.01&times;</b></td></tr>
+</table></div>
+<div class="card green">
+<p class="k">The collision structure causes it, and the operator does not</p>
+<p>The distinct-excursion ratio reaches 1.50 to 1.54&times; <b>only under the colliding per-note
+null</b>, and it collapses to 0.97 to 1.01&times; under both the rigid and the collision-free
+nulls, <b>in both operators</b>. The hit-rate ratio stays at 0.98&times; in all six cells.</p>
 </div>
 
 <h2 id="s11">11. Spectral identity of disputed positions</h2>
@@ -330,6 +360,60 @@ cymbal highs shed fastest.</p>
 always the offbeats immediately after a plain strike, so decay sits there whether or not a soft
 stroke was also played. No classifier accuracy is claimed and no individual position is
 adjudicated.</p>
+</div>
+
+<h2 id="s11b">11b. Positive control, under the reconciled detector</h2>
+<p>An offset sweep from -200 to +200 ms. The snare control uses the snare stem with the same
+band-sum operator over 200 to 4000 Hz at its own 80th percentile.</p>
+<div class="scroll"><table>
+<tr><th>set</th><th>peak</th><th>floor</th><th>peak / floor</th></tr>
+<tr><td>notated snare in the snare stem</td><td>66.8% at -60 ms</td><td>20.7%</td><td><b>3.23&times;</b></td></tr>
+<tr><td>plain ride in the cymbals stem</td><td>65.9% at <b>0 ms</b></td><td>30.4%</td><td><b>2.17&times;</b></td></tr>
+<tr><td>ghost ride in the cymbals stem</td><td>61.2% at <b>0 ms</b></td><td>38.8%</td><td><b>1.58&times;</b></td></tr>
+</table></div>
+<p>The control recovers real temporal structure, so the method works. Both ride sets peak at
+0 ms, which the first version of this page did not show because it used the wrong operator.
+The ghost set has the shallowest peak-to-floor contrast of the three, consistent with sitting
+inside a continuously active cymbal texture.</p>
+
+<h2 id="s11c">11c. The decay-prediction test</h2>
+<p>The sharpest question this data can be asked: does a disputed ghost slot carry energy
+<b>beyond the predicted tail</b> of the preceding verified plain ride strike?</p>
+<p>For each strong plain on-beat exemplar at time T, a log-linear decay is fitted to the
+smoothed envelope over T+30 ms to T+250 ms. That window is clean, because the next notated ride
+sits at T+271 ms and nothing else is notated inside it. The fit is extrapolated to the
+<b>notated ghost slot</b> at T+271 ms and to an <b>off-grid control</b> at T+135 ms where the
+score notates nothing at all.</p>
+<p><b>188 usable exemplars</b> from 224 candidates. Median fitted decay time constant
+<b>304 ms</b>.</p>
+<div class="scroll"><table>
+<tr><th>quantity</th><th>median</th><th>mean</th><th>share above 1</th></tr>
+<tr><td>excess at the notated ghost slot</td><td>1.153</td><td>1.484</td><td>76.1%</td></tr>
+<tr><td>excess at the off-grid control slot</td><td>1.093</td><td>1.144</td><td>85.1%</td></tr>
+<tr><td><b>paired difference, ghost minus control</b></td><td><b>0.059</b></td><td>0.340</td><td><b>56.4%</b></td></tr>
+</table></div>
+<p>Sign test on the paired difference: <b>106 of 188 positive, one-sided p = 0.047, two-sided
+p = 0.093</b>. Both slots exceed the fitted tail, because real cymbal decay is not a single
+exponential. The notated slot exceeds it only marginally more than the off-grid control does.</p>
+<div class="card amber">
+<p class="k">What the flux comparison adds, and how it reconciles the 0.98&times;</p>
+<p>Flux at the notated ghost slot runs <b>3.11&times;</b> the flux at the off-grid control
+(median 9.878 against 3.179). <b>Grid positions carry substantially more transient activity than
+off-grid positions.</b></p>
+<p>That resolves an apparent tension. The scramble preserves position within the bar, so
+scrambled positions land on sixteenth-grid slots in <b>other</b> bars. The 0.98&times; therefore
+says a ghost slot is no different from <b>other grid slots</b>, and it never tested grid against
+off-grid. The grid itself is acoustically real. What the null cannot test is whether this
+particular slot carries a stroke, because every grid slot carries activity.</p>
+<p>Spectral centroid is <b>not</b> usable here as stated: the control at 135 ms sits earlier in
+the decay than the slot at 271 ms, so it retains more high frequency for reasons of elapsed time
+rather than of a new strike. Plain strike 8,219 Hz, ghost slot 8,486 Hz, control slot 9,016 Hz.</p>
+</div>
+<div class="card pur">
+<p class="k">Verdict of the decay test</p>
+<p>In the envelope domain the notated ghost slot carries only <b>marginally</b> more excess over
+the predicted tail than an off-grid control does, at two-sided p = 0.093. That is <b>weak and
+not significant</b>. It does not demonstrate added strokes, and it does not exclude them.</p>
 </div>
 
 <h2 id="s12">12. Withdrawn, and historical</h2>
