@@ -16,7 +16,7 @@ added or removed.
 | R at 134 in that window | **0.0167**, below its own null of 0.0518 |
 | Metronome intervals on a 20 ms lattice | **1,170 of 1,170** |
 | Estimator error at matched difficulty, end to end | **0.04 BPM** |
-| Anchor uncertainty for measure 102 | **1,928 ms, 0.91 of a bar** |
+| Cross-family offset range for measure 102 | **4.290 s, anchor unmeasured** |
 | Ghost flags touched | **0 of 629** |
 
 ## 0. Scope limit, read this first
@@ -26,7 +26,8 @@ the printed 3:18 marker by the lead stem, which sits at digital silence through 
 198.275 s against a printed 198.000 s.
 
 **It is not established that this window is measures 102 to 104.** That mapping comes from the tab's
-own score map, and testing it is queue item `q-2026-09-06-acaf55`. Any sentence here that names a
+own score map. Queue item `q-2026-09-06-acaf55` tested it and **failed to establish it**, and section
+12 carries that measurement. Any sentence here that names a
 measure number is carrying that assumption, and the blocker-2 row in section 11 is labelled a scale
 estimate for exactly this reason.
 
@@ -61,7 +62,7 @@ bit-identical copies of one click sample.
 A source separation cannot produce a stem shorter than its siblings, and it cannot produce 1,171
 bit-identical transients at full scale over digital silence.
 
-## 3. Nine tempi and no others
+## 3. Nine values per interval
 
 1,171 clicks give 1,170 intervals. **Every interval falls within one sample of a multiple of 882
 samples**, which is 20 ms at 44.1 kHz. Fraction inside two samples of that lattice: **1.0000**.
@@ -84,8 +85,10 @@ figures to the digit: 50 clicks, median 440.00 ms, p10 420.0, p90 480.0. The eig
 values there are 380, 400, 420, 440, 460, 480, 500 and 520 ms, every one a lattice step. The p10 to
 p90 spread read as evidence the click track is not a fixed grid is the quantizer.
 
-A quarter note at the printed 134 BPM is 447.76 ms, which this lattice cannot express at any step.
-**The stem could never have separated 134 from 136 from 142.**
+A quarter note at the printed 134 BPM is 447.76 ms, which no single interval can express. A run of
+alternating steps does encode an intermediate average, so the lattice constrains instantaneous values
+rather than long-window means. **No single interval in this stem can express 134, and its median can
+only land on a lattice step.**
 
 The folder name's `142bpm` is the same instrument talking. 142.857 is the 420 ms bin and the mean
 interval across the file is 428.15 ms, which is 140.14 BPM. **The filename and the metronome stem
@@ -106,8 +109,8 @@ tempo figure with it, so it was tested first, and the result gates every BPM fig
 
 The three stems with sustained pitched content agree: the audio sits **8 to 18 cents sharp of A440**,
 matching the folder's label. Taking A440 as the band's reference, that is a playback ratio between
-1.0046 and 1.0104, so **at most 1.0% of speed**. The 134 to 142 gap is 6%. **Speed cannot explain
-it.**
+1.0046 and 1.0104, so **about 1.0% of speed under that assumption**. The 134 to 142 gap is 6%, so speed does not
+account for it.
 
 Stated limit: this assumes the band tuned to A440, which is not established here. The bound holds as
 written and the conclusion does not depend on the exact value inside it.
@@ -201,13 +204,16 @@ Wide sweep, 40 to 900 ms, over the solo passage.
 | Period | Reading | R | vs null 0.0518 |
 |---|---|---|---|
 | **109.10 ms** | the fundamental | **0.4359** | 8.4x |
-| 54.60 ms | its subharmonic | 0.2461 | 4.8x |
+| 54.60 ms | half of 109.10, the same grid read at twice the rate | 0.2461 | 4.8x |
 | 218.24 ms | the eighth | 0.0465 | below |
 | 327.36 ms | dotted eighth | 0.0337 | below |
 | 436.48 ms | the quarter | 0.0299 | below |
-| 518.32 ms | one 19/16 bar | 0.0419 | below |
+| 518.32 ms | 4.75 sixteenths, a quarter of the 19/16 bar | 0.0419 | below |
+| 2073.28 ms | **one true 19/16 bar** | 0.0376 | below |
 
-One fundamental and its half. Every longer multiple sits at or below the null, which is what a
+One fundamental and its half. **A previous version of this table labelled 518.32 ms "one 19/16 bar",
+which was wrong: 518.32 ms is 4.75 sixteenths and the bar is 19 of them, 2073.28 ms. The bar period is
+now measured and listed at R = 0.0376.** Every longer multiple sits at or below the null, which is what a
 running sixteenth subdivision with no eighth-level accent looks like. Reading 109.12 ms as the
 sixteenth gives a 19/16 bar of **2.073 s**, against the tab's notated **2.111 s** for measure 102.
 **Two independent routes to the same bar length settle the level.**
@@ -239,25 +245,25 @@ near 0.15.
 | 135.72 | 135.89 | 135.89 | 136.86 | 137.87 | 136.46 | 137.84 | 137.44 |
 
 **WITHDRAWN: 137.46 as the headline figure.** Median **136.66**, range **135.72 to 137.87**, spread
-2.15 BPM. The passage accelerates gently and the 40-second single fit is weighted toward the later,
-denser windows. **136.7 with a 2.1 BPM spread is the honest figure.**
+2.15 BPM. The sub-window sequence rises overall and changes direction twice, and the 40-second single fit is
+weighted toward the later, denser windows. **136.7 with a 2.1 BPM spread is the honest figure.**
 
 Other windows. Bootstrap intervals measure onset sampling noise only. **They do not measure tempo
 drift inside a window**, and the table above shows drift is the larger term.
 
 | Window | Onsets | Best quarter BPM | R | Bootstrap CI 95% | p vs interval-shuffle null |
 |---|---|---|---|---|---|
-| 198-238 s, the solo | 293 | 137.46 | 0.438 | 137.19 to 137.54 | 0.000 |
-| 340-400 s | 517 | 140.58 | 0.342 | 139.53 to 140.66 | 0.000 |
+| 198-238 s, the solo | 293 | 137.46 | 0.438 | 137.19 to 137.54 | <0.005, 0 of 200 |
+| 340-400 s | 517 | 140.58 | 0.342 | 139.53 to 140.66 | <0.005, 0 of 200 |
 | 400-460 s | 512 | 135.33 | 0.262 | 133.57 to 137.82 | 0.015 |
-| whole song | 3456 | 137.87 | 0.107 | 137.09 to 138.53 | 0.000 |
+| whole song | 3456 | 137.87 | 0.107 | 137.09 to 138.53 | <0.005, 0 of 200 |
 
 **The song is not at one tempo**, which agrees with the tab carrying 19 tempo automations between
 64 and 139.
 
 ## 10. What this settles
 
-**REFUTED: the printed 134 is not what the recording plays at 3:18.** It scores 0.0167, below its
+**NOT SUPPORTED: the printed 134 does not match what the recording plays at 3:18.** It scores 0.0167, below its
 own null of 0.0518, in the same window two publishers print it. The measured value is 2 to 4 BPM
 higher. At most 1.0% of that gap can be playback speed. The estimator was validated to 0.03 BPM
 against synthetic ground truth including 134 itself.
@@ -282,61 +288,78 @@ property of the lattice spacing. In this range a 20 ms grid can emit only 130.43
 | **2. Tempo-map drift.** Notated 498.36 s against a 501.84 s stem, 0.7%, roughly one 19/16 bar of positional uncertainty at 198 s. | **REDUCED, AS A SCALE ESTIMATE.** The inherited figure applied a whole-song accumulation locally. Comparing the tab's notated 2.111 s for measure 102 against the audio's 19 x 110.52 ms = 2.100 s gives 11 ms per bar, 0.55%, about 35 ms over three bars. **That comparison presumes the 198-203 s window is measure 102**, which is `q-2026-09-06-acaf55`. Read it as the scale of tempo-map error, not as a measure-anchored result. |
 | **3. Detector reliability at low level.** Many quiet detections sit at -42 to -50 dBFS on a separated stem, where separation artifacts and bleed are not excluded. | **UNTOUCHED, STILL STANDS.** This pass sidestepped it by summing the whole kit rather than solving it. Any instance-level claim still has to face it. |
 
-## 12. The anchor, tested and not established
+## 12. The anchor, unmeasured
 
-Queue item `q-2026-09-06-acaf55`, the item the scope limit points at. It asks where measure 102
-actually begins in the audio. Script `tools/anchor_measure102.py`.
+Queue item `q-2026-09-06-acaf55`. It asks where measure 102 begins in the audio. It ran twice, and
+**the second run overturned the first.**
 
-**Index base, settled first.** The record's **measure 102 is 0-based index 101**. It starts at
-**196.8549 s**, is **19/16**, lasts **2.1111 s**, at bpm 135. That matches the previously recorded
-196.898 to 199.009 s to **43 ms** with an identical 2.111 s duration, so the identification is
-certain. Every figure here is labelled 1-based and indexed 0-based in code. The first run of this
-script labelled one bar late and that is corrected.
+**Index base, settled first.** The record's **measure 102 is 0-based index 101**: starts **196.8549
+s**, **19/16**, **2.1111 s**, bpm 135, read from the tab's `signature` and `automations.tempo` fields
+rather than from any image. That matches the previously recorded 196.898 to 199.009 s to **43 ms**
+with an identical duration. The first run labelled one bar late and that is corrected.
 
-Method. A score time map from the live tab's signatures and tempo automations. For each anchor source
-independently, notated onsets over measures 97 to 110 matched against detected onsets in the matching
-stem, scanning a global offset across plus or minus 1.5 s at 2 ms steps, 30 ms tolerance. **The
-+5.5 ms detector lateness from section 6 is subtracted from every detection.** A vote is kept when its
-score curve peaks at 1.35 times its own mean or better.
+**Run one, and why it does not stand.** It scanned a global offset across plus or minus 1.5 s and
+reported a cross-family range of 1,928 ms, with kick at +1.176 and hat at +1.174. **The cymbal peak
+sat at +1.490, ten milliseconds from the search boundary**, which is the tell that the window was too
+narrow.
 
-**Independence, applied.** Kick, cymbal and hat are three lanes of **one** notated part read from
-three stems of **one** separation. They are one source family and not three votes. Counting them
-separately would have shown a 0.32 s spread and a false convergence.
+**Run two: plus or minus 3.0 s, 3,001 offsets,** with a scan-aware permutation null that faces the
+same search, a bootstrap over notated events, and a sweep of the peak-over-mean cut.
 
-| Source | Family | Offset | Matched | Over chance | Peak/mean | Kept |
+| Source | Family | Run 1 | Run 2 | Peak/mean | Scan-aware p | Bootstrap 95% CI |
 |---|---|---|---|---|---|---|
-| part 4 Arthur Barrow, bass stem | bass | **+0.410 s** | 51/108 | 2.00x | 1.56 | yes |
-| part 7 Warren Cuccurullo, rhythm stem | guitar | +1.372 s | 45/162 | 1.44x | 1.33 | no, weak peak |
-| part 3 Warren Cuccurullo, rhythm stem | guitar | no data in window | | | | no |
-| part 6 Peter Wolf Wurlitzer, piano stem | keys | **-0.752 s** | 6/28 | 2.22x | 2.14 | yes |
-| part 8 frets 35, 36, kick stem | drums | +1.176 s | 24/58 | 3.45x | 2.28 | yes |
-| part 8 frets 49-57, cymbals stem | drums | +1.490 s | 9/11 | **9.57x** | 5.54 | yes |
-| part 8 frets 42, 44, 46, hat stem | drums | +1.174 s | 44/131 | 1.41x | 1.60 | yes |
+| part 4 Arthur Barrow, bass | bass | +0.410 | +0.412 | 1.56 | 0.165 | [-1.644, +1.876] |
+| part 7 Warren Cuccurullo, rhythm | guitar | +1.372 | **+2.012** | 1.40 | 0.560 | [-2.518, +2.988] |
+| part 6 Peter Wolf, piano | keys | -0.752 | **-2.278** | 3.19 | 1.000 | [-2.506, +0.028] |
+| part 8 frets 35,36, kick | within-part | +1.176 | +1.182 | 2.53 | **<0.005** | [+0.725, +1.504] |
+| part 8 frets 49-57, cymbals | within-part | +1.490 | +1.490 | 5.17 | 0.075 | [+0.700, +2.244] |
+| part 8 frets 42,44,46, hat | within-part | +1.174 | **+2.954**, at the boundary | 1.57 | 0.430 | [+0.622, +2.990] |
 
-| Independent family | Offset | Implied audio start of measure 102 |
+**Run one was an artifact of the narrow window.** The hat vote moved **1.78 s** once the scan widened,
+guitar moved 0.64 s and keys 1.53 s. Only kick and cymbal held. **The "kick and hat agree to 2 ms"
+line from run one is withdrawn.** That agreement was inside one detector frame of 2.902 ms to begin
+with, below what the hop can support, and it did not survive the wider search.
+
+**What the range is and is not.** Cross-family range at the published 1.35 cut is now **4.290 s**,
+more than two 19/16 bars. **This is the maximum minus the minimum of selected point estimates. It
+carries no confidence level and no coverage interpretation**, so calling it "anchor uncertainty" gave
+it more meaning than the calculation supports. The bootstrap intervals are the quantity that does
+carry coverage, and every one spans seconds.
+
+| Peak/mean cut | Sources kept | Cross-family range |
 |---|---|---|
-| drums | +1.176 s | **198.031 s** |
-| bass | +0.410 s | 197.265 s |
-| keys | -0.752 s | 196.103 s |
+| 1.20 to 1.35 | 6 | 4.290 s |
+| 1.40 and 1.50 | 5 | 3.768 s |
+| 2.00 | 3 | 3.614 s |
 
-**ANSWER: anchor uncertainty is 1,928 ms, which is 0.91 of measure 102 itself.** Three independent
-families disagree by nearly a whole 19/16 bar, so **the anchor is not established**. The whole-song
-0.7% drift over this 27.7 s window is about 0.19 s, an order of magnitude short of explaining it.
+No cut produces convergence, so the picture is not sensitive to the threshold.
 
-**The agreeing vote is the one that cannot be used.** The drums family is internally tight: kick and
-hat land **2 ms apart**, and the family median puts measure 102 at 198.031 s, which is **31 ms from
-the printed 3:18 marker** and 244 ms ahead of the lead-stem solo entry at 198.275 s. That is the most
-attractive number on this page. **Part 8 is the notated part carrying all 629 ghost flags.** Anchoring
-on part 8 and then judging part 8's flags against that anchor is circular. The two sources free of the
-dispute, bass and keys, sit 0.77 s and 1.93 s away from it and 1.16 s from each other.
+**The drum vote, correctly named.** Calling it circular was too strong. **Every disputed ghost label
+sits on the snare lane, and this anchor uses kick, cymbal and hat only**, so it reuses no ghost label
+and no snare detection. The right name is a **within-part target-excluded anchor**. What it lacks is
+external-source independence, since it still depends on the same transcribed part. Freeze it first and
+test snare outcomes afterwards, never fit and judge in one step. On that reading the kick vote is the
+only estimate that passes a scan-aware null, at **p < 0.005, 0 of 200 draws**, placing measure 102
+near **198.037 s**, with a bootstrap interval still 0.78 s wide.
+
+**The wording that survives.** `acaf55` did not establish a unique external anchor. Across the family
+point estimates selected at the published cut, offsets span **4.290 s**. Of six sources, **five fail a
+scan-aware permutation null**. A within-part target-excluded alignment from kick places measure 102
+near 198.037 s, pending held-out snare testing and an independent external landmark set.
 
 Nothing about the tempo measurement changes. That result covers the audio between 198 and 238 s and
-nothing wider. **No non-circular evidence on this machine places that window at measures 102 to 104.**
+nothing wider. **No external evidence on this machine places that window at measures 102 to 104.**
 
-## 13. What stays open
+**Carried limitation.** The +5.5 ms detector lateness subtracted here was measured on **modelled kit
+transients only**. Bass, piano and cymbal attacks may each carry their own latency. That is small beside a seconds-wide
+family spread and not small beside a 31 ms marker claim.
 
-- **A non-circular anchor.** Section 12 measures the uncertainty at 1,928 ms and does not close it.
-  Closing it needs an anchor source outside part 8 that beats the bass vote's 2.00x over chance.
+## 13. What stays open## 13. What stays open
+
+- **An external anchor.** Section 12 leaves the offsets spanning 4.290 s with five of six sources
+  failing a scan-aware null. Closing it needs several distinctive lead or vocal landmarks rather than
+  one entrance, a monotonic local map with a slope-change penalty, and landmarks held out for
+  verification.
 - **Blocker 3.** Low-level detector reliability on a separated stem, with a second separation method
   as the named remedy.
 - **Was 134 ever right?** A printed tempo can describe another pressing, another transfer, or the transcriber's rounding. This page measures the recording on disk and says nothing about which
@@ -357,7 +380,7 @@ event, and it is not a reason to touch r8852151.
 
 | Item | Value |
 |---|---|
-| Stem set | `/Users/Shared/202 Keep It Greasey-D minor-142bpm-442hz/`, 15 stems, 44.1 kHz, stereo, PCM_16 |
+| Stem set | 15-stem separation of the album track, `202 Keep It Greasey-D minor-142bpm-442hz`, 44.1 kHz, stereo, PCM_16 |
 | Length, 14 stems | 501.840 s |
 | Length, metronome stem | 501.660 s |
 | Metronome stem md5 | `9fbce87924d6cf8f20ee79bb1ec29d2e` |
@@ -365,7 +388,7 @@ event, and it is not a reason to touch r8852151.
 
 ### Scripts
 
-All under `~/Projects/_outputs/songsterr-zappa-paren-fix/s604777/tools/`.
+All under the session tool directory for s604777. Hashes identify the exact file that produced each section.
 
 | Script | md5 | What it produced |
 |---|---|---|
@@ -377,8 +400,7 @@ All under `~/Projects/_outputs/songsterr-zappa-paren-fix/s604777/tools/`.
 | `validate_matched_difficulty.py` | `3d12dd187446d5d77a9e37e334046d59` | section 6, matched difficulty |
 | `anchor_measure102.py` | `737e96a9b467579874bd6b839e87bbf9` | section 12 |
 
-Interpreter `~/venvs/audio_midi_311/bin/python3`, Python 3.11.15, librosa 0.11.0, numpy 1.26.4.
-Random seeds fixed at 7 and 11.
+Python 3.11.15, librosa 0.11.0, numpy 1.26.4. Random seeds fixed at 7, 11 and 17.
 
 ### Printed sources named on this page
 
@@ -392,7 +414,6 @@ Random seeds fixed at 7 and 11.
 
 ---
 
-Keep It Greasey, s604777. Session record at
-`~/Projects/_outputs/songsterr-zappa-paren-fix/s604777/KEEP-IT-GREASEY-vs-CHARTS-2026-09-05.md`.
+Keep It Greasey, s604777. Session record kept locally as `KEEP-IT-GREASEY-vs-CHARTS-2026-09-05.md`.
 Built 2026-09-06. Every figure came from a script in the provenance table, run on the audio named
 in it.
