@@ -283,6 +283,32 @@ comparison therefore rests on Sloots's MIDI realization alone, and it is not a d
 written tempo. One sharp is consistent with the C Lydian reading his prose gives for bars 5-8.</div>
 
 
+
+<h3>Restore verified by set difference, not by count</h3>
+<p>Both revision descriptions say &ldquo;144&rdquo;. A count is not proof, and element counts
+mislead here, so the check walks played events. <b>The flag is <span class="mono">&lt;AntiAccent&gt;</span>,
+a child of <span class="mono">&lt;Note&gt;</span></b>, never a Property, which is why a
+Properties-only audit reads zero ghosts on a tab that renders them.</p>
+<table>
+<tr><th>File</th><th class="num">AntiAccent ELEMENTS</th><th class="num">drum EVENTS</th><th class="num">AntiAccent EVENTS</th></tr>
+<tr><td>PRESWEEP r593836 (Darr)</td><td class="num">1</td><td class="num">1,567</td><td class="num ok">144</td></tr>
+<tr><td>DAMAGED r8769058 (ours)</td><td class="num">0</td><td class="num">1,567</td><td class="num bad">0</td></tr>
+<tr><td>RESTORE r8908182 (ours)</td><td class="num">144</td><td class="num">1,567</td><td class="num ok">144</td></tr>
+</table>
+<p>GPIF Notes are shared definitions, so one element carrying AntiAccent can serve 144 beats.
+Reading the element column literally would say the restore invented 143 ghosts.</p>
+<table>
+<tr><th>Set difference, same flag on every side</th><th class="num">Result</th></tr>
+<tr><td>removed by r8769058 (pre &minus; damaged)</td><td class="num bad">144</td></tr>
+<tr><td>added by r8769058 (damaged &minus; pre)</td><td class="num">0</td></tr>
+<tr><td>restored by r8908182 (restore &minus; damaged)</td><td class="num ok">144</td></tr>
+<tr><td>still missing (pre &minus; restore)</td><td class="num ok">0</td></tr>
+<tr><td>extra against baseline (restore &minus; pre)</td><td class="num ok">0</td></tr>
+</table>
+<div class="note win"><b><span class="mono">pre == restore</span> is exact.</b> r8908182 puts Darr's
+ghost set back position for position and lane for lane, adds nothing of ours, and holds the drum
+event total at 1,567 across all three revisions.</div>
+
 <h3>Triplet disagreement, read at native resolution from scan b</h3>
 <p><span class="mono">carolina-hard-core-ecstasy-1975b.jpg</span> is 828&times;449 native. Two 1:1
 bands were cut at full pixel resolution and upscaled only for viewing. Band 1 carries a boxed

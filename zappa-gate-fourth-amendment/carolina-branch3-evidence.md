@@ -147,6 +147,50 @@ lane-level disagreement on the passage his transcription actually covers.
 a and 5 on scan b. Aligning those to the tab's bar 1 and bar 5 assumes a shared downbeat origin.
 Landmark anchoring against the recording is what would confirm it, and that work is not done here.
 
+
+## 7. Restore verification by SET DIFFERENCE, not by count
+
+The revision descriptions both say "144". A count is not proof, and element counts are actively
+misleading here, so the check walks played events instead.
+
+**The flag is `<AntiAccent>`, a child element of `<Note>`.** It is not a Property, which is why a
+Properties-only audit reads zero ghosts on a tab that renders them.
+
+### The element-count trap
+
+| File | `<AntiAccent>` ELEMENTS | `<Note>` elements |
+|---|---|---|
+| PRESWEEP r593836 | **1** | 498 |
+| DAMAGED r8769058 | 0 | 492 |
+| RESTORE r8908182 | **144** | 636 |
+
+GPIF Notes are shared definitions, so one Note element carrying AntiAccent can be referenced by
+144 beats. Reading those columns literally would say the restore invented 143 ghosts.
+
+### Walking played events instead
+
+Every event keyed by `(bar, voice, beat index, articulation lane)` on the Drums track:
+
+| File | drum events | AntiAccent events |
+|---|---|---|
+| PRESWEEP r593836 | 1,567 | **144** |
+| DAMAGED r8769058 | 1,567 | **0** |
+| RESTORE r8908182 | 1,567 | **144** |
+
+### The set difference, same flag on every side
+
+| Comparison | Result |
+|---|---|
+| removed by r8769058 (pre − damaged) | **144** |
+| added by r8769058 (damaged − pre) | 0 |
+| restored by r8908182 (restore − damaged) | **144** |
+| still missing (pre − restore) | **0** |
+| extra against baseline (restore − pre) | **0** |
+
+**`pre == restore` is exact.** r8908182 puts Darr's ghost set back position for position and lane
+for lane, and it adds nothing that was not his. The drum event total holds at 1,567 across all
+three, so nothing else moved.
+
 ## Commands
 
 ```bash
