@@ -15,8 +15,19 @@ added or removed.
 | Printed by two publishers | 134 |
 | R at 134 in that window | **0.0167**, below its own null of 0.0518 |
 | Metronome intervals on a 20 ms lattice | **1,170 of 1,170** |
-| Estimator error on known ground truth | **0.03 BPM** |
+| Estimator error at matched difficulty, end to end | **0.04 BPM** |
 | Ghost flags touched | **0 of 629** |
+
+## 0. Scope limit, read this first
+
+Everything below establishes **the tempo of the audio between 198 and 238 s**. That window is tied to
+the printed 3:18 marker by the lead stem, which sits at digital silence through 197 s and enters at
+198.275 s against a printed 198.000 s.
+
+**It is not established that this window is measures 102 to 104.** That mapping comes from the tab's
+own score map, and testing it is queue item `q-2026-09-06-acaf55`. Any sentence here that names a
+measure number is carrying that assumption, and the blocker-2 row in section 11 is labelled a scale
+estimate for exactly this reason.
 
 ## 1. The lock, and what came in
 
@@ -122,19 +133,65 @@ with probability 2*tau/T. At tau = 25 ms that is **44.7%** for the 111.9 ms sixt
 134, and **47.8%** for the 104.5 ms sixteenth of quarter = 143.5. The three-point tilt toward 143.5
 is the tolerance. The earlier section's own quoted chance floor of 45.4% is that quantity.
 
-## 6. The estimator, validated
+## 6. The estimator, validated end to end
 
-Synthetic onset trains at three known tempi, matched to observed density, 12 ms of performance
-jitter, 30 trials each.
+**The first version was too easy and this replaces it.** The original validation generated onset
+*times* and handed them to the estimator, so it tested the statistic and never the pipeline. It also
+returned R = 0.81 where the real window returns **0.4377**, which means the synthetic was easier than
+the recording. Both faults are fixed here. Every run now synthesises **audio** and passes it through
+the same `onset_strength` then `onset_detect` chain at hop 128, 44.1 kHz, delta 0.03.
 
-| True BPM | Recovered median | p05 | p95 | Max absolute error |
+Signal built to the measured conditions of the 198-238 s window: onset density 7.3 per second, two
+amplitude populations 22 dB apart with a quiet share of 0.545, kit-like exponentially decaying
+broadband transients, and a -60 dBFS noise floor.
+
+### Clean condition, 12 ms jitter
+
+| True BPM | Recovered median | Max absolute error | R | Detector recall | Detector precision | Timing bias |
+|---|---|---|---|---|---|---|
+| 134.000 | 134.0004 | **0.024** | 0.811 | 0.997 | 0.997 | +5.45 ms |
+| 136.700 | 136.7116 | **0.013** | 0.805 | 0.993 | 0.997 | +5.51 ms |
+| 137.500 | 137.5011 | **0.014** | 0.799 | 0.993 | 0.997 | +5.53 ms |
+| 142.857 | 142.8571 | **0.027** | 0.785 | 0.987 | 0.997 | +5.70 ms |
+
+**The detector reports every onset about 5.5 ms late.** A constant shift leaves the period estimate
+untouched, because the statistic is phase-invariant. Anchoring is where it counts, and section 12 carries it forward.
+
+### Matched difficulty, route A: raise jitter until R meets the real 0.4377
+
+| Jitter sd | R | Recovered median, true 136.7 | Max absolute error | Matches the real R |
 |---|---|---|---|---|
-| 134.000 | 134.000 | 133.987 | 134.024 | **0.024** |
-| 137.500 | 137.489 | 137.489 | 137.514 | **0.014** |
-| 142.857 | 142.857 | 142.857 | 142.884 | **0.027** |
+| 12 ms | 0.798 | 136.687 | 0.013 | no, far easier |
+| 18 ms | 0.611 | 136.687 | 0.037 | no |
+| **24 ms** | **0.421** | **136.699** | **0.037** | **yes** |
+| 30 ms | 0.274 | 136.699 | 0.062 | no, harder |
+| 36 ms | 0.186 | 136.674 | **26.42** | no, past the cliff |
+| 42 ms | 0.168 | 127.904 | **27.58** | no, past the cliff |
 
-**The estimator recovers a known tempo to within 0.03 BPM at this onset density.** It would have
-found 134 had 134 been there.
+**The method has a cliff and the real data sits well above it.** Down to R near 0.27 the estimator
+holds to 0.06 BPM. Below R near 0.19 it breaks completely, missing by 26 BPM. The observed R of
+0.4377 is roughly 2.3 times the breakdown level.
+
+### Matched difficulty, route B: model the measured drift instead of raising jitter
+
+The 5-second table in section 9 shows the passage accelerating from 135.72 to 137.87. A linear ramp
+across exactly that range, with ordinary 12 ms jitter, was synthesised and run end to end.
+
+| Model | R produced | R observed on the real audio | Recovered median | True midpoint | Bias |
+|---|---|---|---|---|---|
+| linear ramp 135.72 to 137.87, 12 ms jitter | **0.4347** | **0.4377** | 136.44 | 136.795 | -0.357 BPM |
+
+**The low R is explained.** Modelling the passage as a tempo ramp across the measured range
+reproduces the observed R to **0.003**. The recording's R of 0.4377 is what ordinary drift over 40
+seconds looks like, and it is not detector failure and not a wrong metrical reading. Under that model
+the single-window estimator sits **0.36 BPM low** of the true midpoint, well inside the 2.15 BPM
+spread reported as the answer.
+
+**Where the model still differs from the recording.** The synthetic ramp carries **uniform onset
+density**. The real window does not: onsets thicken later, which is why the real 40-second single fit
+lands at 137.46, *above* its sub-window median of 136.66, in the opposite direction to the synthetic
+bias. Density weighting is an unmodelled term, and it is one reason the sub-window curve is reported
+as the answer rather than the single fit.
 
 ## 7. The metrical level, tested
 
@@ -156,8 +213,9 @@ sixteenth gives a 19/16 bar of **2.073 s**, against the tab's notated **2.111 s*
 
 ## 8. The result at 3:18
 
-Solo passage 198 to 238 s, the exact window Alfred page 64 and the DRUM Groove Analysis page both
-print. 293 kit onsets. Single best-fit period across the 40 seconds gives quarter = 137.46, R =
+Solo passage 198 to 238 s. Both Alfred page 64 and the DRUM Groove Analysis page mark this passage
+from 3:18, and the lead stem enters at 198.275 s against that printed 198.000 s, so the window is
+tied to the printed marker by audio. Nothing ties it to a measure number by audio. 293 kit onsets. Single best-fit period across the 40 seconds gives quarter = 137.46, R =
 0.4377 against a null expectation of 0.0518, Rayleigh p = 4.2e-25, and above all 200 draws of an
 interval-shuffle null whose max-R averaged 0.226.
 
@@ -220,7 +278,7 @@ property of the lattice spacing. In this range a 20 ms grid can emit only 130.43
 | Blocker as inherited | Status after this pass |
 |---|---|
 | **1. Onset timing precision.** 23 to 29 ms median absolute residual against a 111.9 ms sixteenth, 17 of 33 onsets inside 25 ms of the best grid. | **DISQUALIFIED AS STATED.** The best-scoring grid was anchored on the first metronome click. A beat time on a 20 ms lattice can sit anywhere within half a step of the true beat, so up to 10 ms of the residual was injected by the reference, which is up to 8.9% of a subdivision. True onset precision is now unknown rather than established at 23 ms. |
-| **2. Tempo-map drift.** Notated 498.36 s against a 501.84 s stem, 0.7%, roughly one 19/16 bar of positional uncertainty at 198 s. | **REDUCED BY TWO ORDERS OF MAGNITUDE.** That applied a whole-song accumulation locally. Measured locally, the tab notates measure 102 at 2.111 s and the audio measures 19 x 110.52 ms = 2.100 s. Local error is 11 ms per bar, 0.55%, accumulating to about 35 ms across measures 102 to 104. |
+| **2. Tempo-map drift.** Notated 498.36 s against a 501.84 s stem, 0.7%, roughly one 19/16 bar of positional uncertainty at 198 s. | **REDUCED, AS A SCALE ESTIMATE.** The inherited figure applied a whole-song accumulation locally. Comparing the tab's notated 2.111 s for measure 102 against the audio's 19 x 110.52 ms = 2.100 s gives 11 ms per bar, 0.55%, about 35 ms over three bars. **That comparison presumes the 198-203 s window is measure 102**, which is `q-2026-09-06-acaf55`. Read it as the scale of tempo-map error, not as a measure-anchored result. |
 | **3. Detector reliability at low level.** Many quiet detections sit at -42 to -50 dBFS on a separated stem, where separation artifacts and bleed are not excluded. | **UNTOUCHED, STILL STANDS.** This pass sidestepped it by summing the whole kit rather than solving it. Any instance-level claim still has to face it. |
 
 ## 12. What stays open

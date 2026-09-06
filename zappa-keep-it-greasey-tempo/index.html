@@ -66,8 +66,19 @@ Songsterr. No ghost flag has been moved, added or removed.</p>
 <div class="stat"><b>134</b><span>printed by two publishers</span></div>
 <div class="stat"><b>0.0167</b><span>R at 134, below its own null</span></div>
 <div class="stat"><b>1,170 / 1,170</b><span>metronome intervals on a 20 ms lattice</span></div>
-<div class="stat"><b>0.03</b><span>BPM estimator error on known truth</span></div>
+<div class="stat"><b>0.04</b><span>BPM error at matched difficulty, end to end</span></div>
 <div class="stat"><b>629</b><span>ghost flags, all untouched</span></div>
+</div>
+
+<div class="card red">
+<p class="k"><span class="tag t-red">scope limit, read this first</span> &nbsp; What is measured is an audio window</p>
+<p>Everything below establishes <b>the tempo of the audio between 198 and 238 s</b>. That window is
+tied to the printed 3:18 marker by the lead stem, which sits at digital silence through 197 s and
+enters at 198.275 s against a printed 198.000 s.</p>
+<p><b>It is not established that this window is measures 102 to 104.</b> That mapping comes from the
+tab's own score map, and testing it is queue item <code>q-2026-09-06-acaf55</code>. Any sentence here
+that names a measure number is carrying that assumption, and the blocker-2 row in section 11 is
+labelled a scale estimate for exactly this reason.</p>
 </div>
 
 <div class="toc">
@@ -218,20 +229,76 @@ construction.</b> A random gap lands within &tau; of a multiple of T with probab
 tolerance. The earlier section's own quoted chance floor of 45.4% <i>is</i> that quantity.</p>
 </div>
 
-<h2 id="validate">6. The estimator, validated</h2>
+<h2 id="validate">6. The estimator, validated end to end</h2>
 
-<p>Synthetic onset trains at three known tempi, matched to the observed onset density and given 12 ms
-of performance jitter, 30 trials each.</p>
+<div class="card amber">
+<p class="k"><span class="tag t-amber">first version was too easy, and this replaces it</span></p>
+<p>The original validation generated onset <i>times</i> and handed them to the estimator, so it tested
+the statistic and never the pipeline. It also returned R = 0.81 where the real window returns
+<b>0.4377</b>, which means the synthetic was easier than the recording. Both faults are fixed below.
+Every run now synthesises <b>audio</b> and passes it through the same
+<code>onset_strength</code> then <code>onset_detect</code> chain at hop 128, 44.1 kHz, delta 0.03.</p>
+</div>
 
+<p>Signal built to the measured conditions of the 198-238 s window: onset density 7.3 per second, two
+amplitude populations 22 dB apart with a quiet share of 0.545, kit-like exponentially decaying
+broadband transients, and a -60 dBFS noise floor.</p>
+
+<h3>Clean condition, 12 ms jitter</h3>
 <div class="scroll"><table>
-<tr><th>True BPM</th><th>Recovered median</th><th>p05</th><th>p95</th><th>Max absolute error</th></tr>
-<tr><td class="n">134.000</td><td class="n">134.000</td><td class="n">133.987</td><td class="n">134.024</td><td class="n"><b>0.024</b></td></tr>
-<tr><td class="n">137.500</td><td class="n">137.489</td><td class="n">137.489</td><td class="n">137.514</td><td class="n"><b>0.014</b></td></tr>
-<tr><td class="n">142.857</td><td class="n">142.857</td><td class="n">142.857</td><td class="n">142.884</td><td class="n"><b>0.027</b></td></tr>
+<tr><th>True BPM</th><th>Recovered median</th><th>Max absolute error</th><th>R</th><th>Detector recall</th><th>Detector precision</th><th>Timing bias</th></tr>
+<tr><td class="n">134.000</td><td class="n">134.0004</td><td class="n"><b>0.024</b></td><td class="n">0.811</td><td class="n">0.997</td><td class="n">0.997</td><td class="n">+5.45 ms</td></tr>
+<tr><td class="n">136.700</td><td class="n">136.7116</td><td class="n"><b>0.013</b></td><td class="n">0.805</td><td class="n">0.993</td><td class="n">0.997</td><td class="n">+5.51 ms</td></tr>
+<tr><td class="n">137.500</td><td class="n">137.5011</td><td class="n"><b>0.014</b></td><td class="n">0.799</td><td class="n">0.993</td><td class="n">0.997</td><td class="n">+5.53 ms</td></tr>
+<tr><td class="n">142.857</td><td class="n">142.8571</td><td class="n"><b>0.027</b></td><td class="n">0.785</td><td class="n">0.987</td><td class="n">0.997</td><td class="n">+5.70 ms</td></tr>
 </table></div>
 
-<p><b>The estimator recovers a known tempo to within 0.03 BPM at this onset density.</b> It would have
-found 134 had 134 been there.</p>
+<p><b>The detector reports every onset about 5.5 ms late.</b> A constant shift leaves the period
+estimate untouched, because the statistic is phase-invariant. It matters for anchoring, and it is
+carried forward to the anchor question in section 12.</p>
+
+<h3>Matched difficulty, route A: raise jitter until R meets the real 0.4377</h3>
+<div class="scroll"><table>
+<tr><th>Jitter sd</th><th>R</th><th>Recovered median, true 136.7</th><th>Max absolute error</th><th>Matches the real R</th></tr>
+<tr><td class="n">12 ms</td><td class="n">0.798</td><td class="n">136.687</td><td class="n">0.013</td><td class="mut">no, far easier</td></tr>
+<tr><td class="n">18 ms</td><td class="n">0.611</td><td class="n">136.687</td><td class="n">0.037</td><td class="mut">no</td></tr>
+<tr style="background:#f6edcd"><td class="n"><b>24 ms</b></td><td class="n"><b>0.421</b></td><td class="n"><b>136.699</b></td><td class="n"><b>0.037</b></td><td><span class="tag t-green">yes</span></td></tr>
+<tr><td class="n">30 ms</td><td class="n">0.274</td><td class="n">136.699</td><td class="n">0.062</td><td class="mut">no, harder</td></tr>
+<tr><td class="n">36 ms</td><td class="n">0.186</td><td class="n">136.674</td><td class="n"><b>26.42</b></td><td class="mut">no, past the cliff</td></tr>
+<tr><td class="n">42 ms</td><td class="n">0.168</td><td class="n">127.904</td><td class="n"><b>27.58</b></td><td class="mut">no, past the cliff</td></tr>
+</table></div>
+
+<p><b>The method has a cliff and the real data sits well above it.</b> Down to R near 0.27 the
+estimator holds to 0.06 BPM. Below R near 0.19 it breaks completely, missing by 26 BPM. The observed
+R of 0.4377 is roughly 2.3 times the breakdown level.</p>
+
+<h3>Matched difficulty, route B: model the measured drift instead of raising jitter</h3>
+
+<p>The 5-second table in section 9 shows the passage accelerating from 135.72 to 137.87. A linear
+ramp across exactly that range, with ordinary 12 ms jitter, was synthesised and run end to end.</p>
+
+<div class="scroll"><table>
+<tr><th>Model</th><th>R produced</th><th>R observed on the real audio</th><th>Recovered median</th><th>True midpoint</th><th>Bias</th></tr>
+<tr style="background:#f6edcd"><td>linear ramp 135.72 to 137.87, 12 ms jitter</td><td class="n"><b>0.4347</b></td><td class="n"><b>0.4377</b></td><td class="n">136.44</td><td class="n">136.795</td><td class="n">-0.357 BPM</td></tr>
+</table></div>
+
+<div class="card green">
+<p class="k"><span class="tag t-green">the low R is explained</span></p>
+<p>Modelling the passage as a tempo ramp across the measured range reproduces the observed R to
+<b>0.003</b>. The recording's R of 0.4377 is what ordinary drift over 40 seconds looks like, and it
+is not detector failure and not a wrong metrical reading. Under that model the single-window
+estimator sits <b>0.36 BPM low</b> of the true midpoint, which is well inside the 2.15 BPM spread
+reported as the answer.</p>
+</div>
+
+<div class="card amber">
+<p class="k"><span class="tag t-amber">where the model still differs from the recording</span></p>
+<p>The synthetic ramp carries <b>uniform onset density</b>. The real window does not: onsets thicken
+later, which is why the real 40-second single fit lands at 137.46, <i>above</i> its sub-window median
+of 136.66, in the opposite direction to the synthetic bias. Density weighting is therefore an
+unmodelled term, and it is one reason the sub-window curve is reported as the answer rather than the
+single fit.</p>
+</div>
 
 <h2 id="level">7. The metrical level, tested</h2>
 
@@ -255,8 +322,9 @@ sixteenth gives a 19/16 bar of <b>2.073 s</b>, against the tab's notated <b>2.11
 
 <h2 id="result">8. The result at 3:18</h2>
 
-<p>Solo passage 198 to 238 s, the exact window Alfred page 64 and the DRUM Groove Analysis page both
-print. 293 kit onsets. A single best-fit period across the whole 40 seconds gives quarter = 137.46,
+<p>Solo passage 198 to 238 s. Both Alfred page 64 and the DRUM Groove Analysis page mark this passage
+from 3:18, and the lead stem enters at 198.275 s against that printed 198.000 s, so the window is
+tied to the printed marker by audio. Nothing ties it to a measure number by audio. 293 kit onsets. A single best-fit period across the whole 40 seconds gives quarter = 137.46,
 R = 0.4377 against a null expectation of 0.0518, Rayleigh p = 4.2 &times; 10<sup>-25</sup>, and above
 all 200 draws of an interval-shuffle null whose max-R averaged 0.226.</p>
 
@@ -351,10 +419,12 @@ true beat, so <b>up to 10 ms of the residual was injected by the reference</b>, 
 of a subdivision. True onset precision is now unknown rather than established at 23 ms.</td></tr>
 <tr><td><b>2. Tempo-map drift.</b> Notated 498.36 s against a 501.84 s stem, 0.7%, roughly one 19/16
 bar of positional uncertainty at 198 s.</td>
-<td><span class="tag t-green">reduced by two orders of magnitude</span><br>That applied a whole-song
-accumulation locally. Measured locally, the tab notates measure 102 at 2.111 s and the audio measures
-19 &times; 110.52 ms = 2.100 s. Local error is <b>11 ms per bar, 0.55%</b>, accumulating to about
-<b>35 ms</b> across measures 102 to 104. Tens of milliseconds, not one bar.</td></tr>
+<td><span class="tag t-amber">reduced, as a scale estimate</span><br>The inherited figure applied a
+whole-song accumulation locally. Comparing the tab's notated 2.111 s for measure 102 against the
+audio's 19 &times; 110.52 ms = 2.100 s gives <b>11 ms per bar, 0.55%</b>, about <b>35 ms</b> over three
+bars. <b>That comparison presumes the 198-203 s window is measure 102</b>, which is
+<code>q-2026-09-06-acaf55</code>. Read it as the scale of tempo-map error, not as a measure-anchored
+result.</td></tr>
 <tr><td><b>3. Detector reliability at low level.</b> Many quiet detections sit at -42 to -50 dBFS on
 a separated stem, where separation artifacts and bleed are not excluded.</td>
 <td><span class="tag t-red">untouched, still stands</span><br>This pass sidestepped it by summing the
