@@ -8,8 +8,9 @@ Live page: https://7onething1.github.io/zappa-program-scope/
 
 ## 0. The plan, corrected 2026-09-06
 
-**Phase 1 as stated is already complete, and re-uploading would cause harm.** All sixteen damaged
-tabs already carry a restore revision, and every one has its pre-sweep baseline on disk. Fifteen
+**CORRECTED 2026-09-06.** Phase 1 was reported complete. An account-wide sweep then found a
+seventeenth affected song with no restore at all, `s412170` Trouble Every Day (Live). See section
+0e. For the sixteen the ledger covered, all already carry a restore revision, and every one has its pre-sweep baseline on disk. Fifteen
 restores sit in the moderator queue and one has published. Sending a second restore would stack a
 duplicate behind one a moderator has yet to read, which is the failure already visible on Uncle
 Meat.
@@ -104,6 +105,47 @@ Corrected 2026-09-06.
 **One limit.** This census reads markings attached to a Note. A staccato dot attaches to a Beat in
 GPIF, so the Montana claim that 317 ghosts were re-written as staccato dots is outside what this
 count can see.
+
+
+## 0e. The coverage gate: sweep the account, never the ledger
+
+Every earlier inventory was assembled from songs that already had a repair in flight, so a damaged
+tab with no repair was invisible. Sweeping all **328 tabs** under artistId 5912 for revisions
+authored by this account returned **19 songs and 45 revisions**, and one had never been counted.
+
+| song | revision | what it did | state |
+|---|---|---|---|
+| `s412170` Trouble Every Day (Live) | `r8766285` | removed 9 ghosts, altered 11 velocities | damage live, restore built and held |
+| `s604777` Keep It Greasey | `r8768457` | would have removed 629 | blocked, tab intact |
+| `s35883` Zoot Allures | `r8769199` | would have removed 53 | blocked, tab intact |
+
+**Authorship is not damage.** Zomby Woof `s412162` holds 9 of our revisions and none is an
+unrepaired strip. Each revision was classified by censusing ghosts against the revision preceding it.
+
+**Two open limits.** 22 tabs return an empty revision history and stay unresolved after a retry, all
+in the `s1870xx` range. The sweep covers artistId 5912 only, so `s5820647` and `s6822181` were
+checked directly.
+
+### s412170, and why totals could never have found it
+
+| revision | date | author | ghosts on the percussion staff |
+|---|---|---|---|
+| `r279371` | 2016-09-03 | enikey87 | 9 |
+| `r8766285` | 2026-08-29 | our strip | 0 |
+| `r8815000` | 2026-09-01 | Kirill, live today | 3 |
+
+Six ghosts are missing from the public tab now, all crash (fret 49) at bar 67 beats 4 to 9, and all
+six notes still exist. **The velocity damage is larger than the ghost damage.** Our strip changed 11
+beat velocities, Kirill repaired 5, and the remaining 6 govern **784 of 807 effective beat slots**,
+because the `f` at bar 1 slot 6 sets the running dynamic for the whole track.
+
+**Built and verified, upload held.** Built onto the live `r8815000` export with copy-on-write: Note
+225 has 31 placements across 26 bars and was cloned; Beat 443 sits at two slots wanting different
+dynamics and was cloned. Independent re-read shows 6 ghost false to true, 0 ghosts lost, 0 other
+note-signature changes anywhere, 0 changes on other tracks, 0 dynamic mismatches against the author
+across 807 slots. `preflight_import.py` refuses on `GRID notated 134.0s against a 141.0s record`.
+The unmodified live base fails identically and the build is timing-neutral, so the fault is
+inherited. There is no GRID override flag, so the upload waits on Brandon.
 
 
 ## 1. The program

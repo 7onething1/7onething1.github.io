@@ -52,9 +52,9 @@ song and the receiving chat inherited no outline. Every count below was read liv
 <div class="wrap">
 
 <div class="stats">
-<div class="stat"><b>34</b><span>Zappa song ids in play</span></div>
+<div class="stat"><b>35</b><span>Zappa song ids in play</span></div>
 <div class="stat"><b>3,842</b><span>ghost flags stripped</span></div>
-<div class="stat"><b>17</b><span>restores held on moderation</span></div>
+<div class="stat"><b>17</b><span>affected songs</span></div>
 <div class="stat"><b>15</b><span>songs awaiting a moderator</span></div>
 <div class="stat"><b>12</b><span>printed charts on disk</span></div>
 <div class="stat"><b>3</b><span>charts ever applied</span></div>
@@ -78,6 +78,7 @@ pages. This page is the outline that was missing.</p>
 <li><a href="#s0b">Phase 1 audit, per song</a></li>
 <li><a href="#s0c">What the moderators said</a></li>
 <li><a href="#s0d">Disk verification of the restores</a></li>
+<li><a href="#s0e">The coverage gate, and a 17th song</a></li>
 <li><a href="#s1">The program in one paragraph</a></li>
 <li><a href="#s2">Six workstreams</a></li>
 <li><a href="#s3">The ghost-note sweep and its damage</a></li>
@@ -240,6 +241,70 @@ Montana claim that 317 ghosts were re-written as staccato dots is outside what t
 The ghost side of that claim is confirmed and the dot side is not measured here.</p>
 </div>
 
+<h2 id="s0e">0e. The coverage gate: sweep the account, never the ledger</h2>
+<div class="card red">
+<p class="k">A seventeenth affected song, found only by sweeping</p>
+<p>Every earlier inventory was assembled from songs that already had a repair in flight, so a
+damaged tab with no repair was invisible to it. Sweeping all <b>328 tabs</b> under Songsterr
+artistId 5912 for revisions authored by this account returned <b>19 songs and 45 revisions</b>, and
+one of them had never been counted.</p>
+</div>
+<div class="scroll"><table>
+<tr><th>song</th><th>revision</th><th>what it did</th><th>state</th></tr>
+<tr><td><code>s412170</code> <b>Trouble Every Day (Live)</b></td><td><code>r8766285</code></td>
+<td>Removed 9 ghosts from the Chad Wakerman percussion staff and altered 11 beat velocities.</td>
+<td><span class="tag t-red">damage live, restore built and held</span></td></tr>
+<tr><td><code>s604777</code> Keep It Greasey</td><td><code>r8768457</code></td>
+<td>Would have removed 629 ghosts.</td><td><span class="tag t-green">blocked, tab intact</span></td></tr>
+<tr><td><code>s35883</code> Zoot Allures</td><td><code>r8769199</code></td>
+<td>Would have removed 53 ghosts.</td><td><span class="tag t-green">blocked, tab intact</span></td></tr>
+</table></div>
+<div class="card amber">
+<p class="k">Authorship is not damage, and the sweep says so</p>
+<p>Of 19 songs carrying our revisions, <b>Zomby Woof <code>s412162</code></b> holds 9 and none of
+them is a ghost strip beyond <code>r8766102</code>, which was superseded. A revision by this account
+proves nothing on its own. Each one was classified by censusing ghosts on its own drum staff against
+the revision that preceded it.</p>
+</div>
+<div class="card">
+<p class="k">Two limits that stay open, stated rather than papered over</p>
+<ul>
+<li><b>22 tabs return an empty revision history</b> and remain unresolved after a retry. All sit in
+the <code>s1870xx</code> range: Bobby Brown, Broken Hearts, Sofa No 2, Titties And Beer, Absolutely
+Free, Concentration Moon and sixteen more. Nothing can be concluded about them either way.</li>
+<li><b>The sweep covers artistId 5912 only.</b> Two tabs we have touched sit under other artist
+strings: <code>s5820647</code> "Frank Zappa, The Mothers of Invention" and <code>s6822181</code>
+under a lowercase "frank zappa". Both were checked directly.</li>
+</ul>
+</div>
+<h3>What s412170 needed, and why totals could never have found it</h3>
+<div class="scroll"><table>
+<tr><th>revision</th><th>date</th><th>author</th><th>ghosts on the percussion staff</th></tr>
+<tr><td><code>r279371</code></td><td>2016-09-03</td><td>enikey87</td><td><b>9</b></td></tr>
+<tr><td><code>r8766285</code></td><td>2026-08-29</td><td>our strip</td><td><b>0</b></td></tr>
+<tr><td><code>r8815000</code></td><td>2026-09-01</td><td>Kirill, live today</td><td><b>3</b></td></tr>
+</table></div>
+<p>Six ghosts are missing from the public tab right now, all crash (fret 49) at bar 67 beats 4 to 9,
+and all six notes still exist so only the flag is absent. <b>The velocity damage is larger than the
+ghost damage.</b> Our strip changed 11 beat velocities, Kirill repaired 5, and the remaining 6
+govern <b>784 of 807 effective beat slots</b>, because the <code>f</code> at bar 1 slot 6 sets the
+running dynamic for the whole track. The author's percussion reads <code>f</code> throughout and the
+live tab reads <code>mp</code>.</p>
+<div class="card green">
+<p class="k">The repair is built and verified, and the upload is held on a gate</p>
+<p>Built onto the live <code>r8815000</code> export so Kirill's work survives, with copy-on-write
+where it was needed: Note 225 is referenced at 31 placements across 26 bars and was cloned, and Beat
+443 sits at two slots wanting different dynamics and was cloned. Independent re-read of the
+generated file shows <b>6 ghost false to true, 0 ghosts lost, 0 other note-signature changes
+anywhere, 0 changes on any other track, and 0 dynamic mismatches against the author across all 807
+slots</b>.</p>
+<p><code>preflight_import.py</code> then refuses on <code>GRID notated 134.0s against a 141.0s
+record, 4.96% off</code>. <b>The unmodified live base fails that gate identically</b>, and the build
+is timing-neutral, so the fault is inherited rather than caused. There is no GRID override flag, and
+forcing a safety gate is not the same act as submitting a restoration, so the upload waits on
+Brandon: override for a timing-neutral repair, or fix the grid first.</p>
+</div>
+
 <h2 id="s1">1. The program in one paragraph</h2>
 <p>Frank Zappa drum transcriptions on Songsterr are being repaired against professional printed
 charts and against isolated drum stems. The work has four surfaces. A notation sweep run on
@@ -313,8 +378,16 @@ different question. Counted 2026-09-05 by fetching each tab's pre-sweep revision
 </table></div>
 
 <h2 id="s4">4. The restore fleet, live status</h2>
+<div class="card red">
+<p class="k">DISPROVEN 2026-09-06: this section's original claim was wrong</p>
+<p>This page first said every affected song carried a restore. An account-wide revision sweep
+across all 328 Zappa tabs then found <b>Trouble Every Day (Live) <code>s412170</code></b>, damaged
+by our strip <code>r8766285</code> and carrying no restore at all. The old 16-song ledger could not
+see it, because that ledger was built from the songs that already had a repair in flight. See
+section 0e.</p>
+</div>
 <div class="card green">
-<p class="k">Every stripped flag now has a restore built</p>
+<p class="k">For the sixteen songs the ledger did cover, every stripped flag has a restore built</p>
 <p>Read live from <code>api/meta/&lt;songId&gt;/revisions</code> on 2026-09-06.
 <b>3,832 flags across 15 songs sit in restore revisions held on moderation</b>,
 all submitted on 2026-09-05 between 17:22 and 19:43. The remaining 10 flags, on the Mothers
