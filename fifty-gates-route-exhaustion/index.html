@@ -1,0 +1,210 @@
+<!doctype html>
+<html lang="en"><head><meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Fifty Gates: The Blocked-Claim Session</title>
+<style>
+:root{--cream:#f4ead8;--paper:#fbf5e9;--ink:#1c1a17;--rust:#b5462f;--mustard:#d9a441;
+--teal:#3f6b6b;--dusty:#8f6f5a;--line:#ddcdb2;--shade:#efe2cb;--green:#4a7c59;}
+*{box-sizing:border-box}
+body{margin:0;background:var(--cream);color:var(--ink);
+font:16px/1.6 "Futura","Avenir Next","Helvetica Neue",Helvetica,Arial,sans-serif}
+.wrap{max-width:1080px;margin:0 auto;padding:34px 22px 80px}
+header{border:3px solid var(--ink);background:var(--paper);padding:26px 28px;margin-bottom:24px}
+h1{margin:0;font-size:29px;letter-spacing:.05em;text-transform:uppercase}
+.sub{margin-top:8px;color:var(--dusty);font-size:14px;letter-spacing:.12em;text-transform:uppercase}
+.stats{display:flex;flex-wrap:wrap;gap:10px;margin-top:20px}
+.stat{border:2px solid var(--ink);background:var(--cream);padding:9px 15px;font-size:13px}
+.stat b{display:block;font-size:21px;color:var(--rust)}
+h2{margin:40px 0 6px;font-size:18px;letter-spacing:.05em;text-transform:uppercase;
+border-bottom:3px solid var(--ink);padding-bottom:7px}
+nav{background:var(--paper);border:2px solid var(--line);padding:15px 19px;margin-bottom:10px}
+nav a{display:inline-block;margin:4px 16px 4px 0;color:var(--teal);font-size:14px}
+a{color:var(--rust);text-decoration:none;border-bottom:1px solid rgba(181,70,47,.35)}
+a:hover{border-bottom-color:var(--rust)}
+table{width:100%;border-collapse:collapse;margin:14px 0;background:var(--paper);font-size:14px}
+th{background:var(--shade);text-align:left;padding:9px 11px;border:1px solid var(--line);
+font-size:11px;letter-spacing:.1em;text-transform:uppercase}
+td{padding:8px 11px;border:1px solid var(--line);vertical-align:top}
+tr:nth-child(even) td{background:rgba(239,226,203,.42)}
+.g{white-space:nowrap;font-weight:700;color:var(--teal)}
+.exec{display:inline-block;background:var(--rust);color:#fff;font-size:10px;
+letter-spacing:.08em;padding:1px 6px;border-radius:2px;vertical-align:1px;margin-left:5px}
+.mono{font-family:"SF Mono",Menlo,monospace;font-size:12px}
+.path{font-family:"SF Mono",Menlo,monospace;font-size:11px;color:var(--dusty);word-break:break-all}
+.bad{color:var(--rust);font-weight:700} .ok{color:var(--green);font-weight:700}
+.note{border-left:5px solid var(--mustard);background:var(--paper);padding:13px 17px;margin:16px 0;font-size:14px}
+.win{border-left-color:var(--green)} .warn{border-left-color:var(--rust)}
+.eq{font-family:"SF Mono",Menlo,monospace;background:var(--paper);border:2px solid var(--line);
+padding:14px 16px;margin:14px 0;font-size:12.5px;line-height:1.75;overflow-x:auto;white-space:pre}
+footer{margin-top:54px;border-top:3px solid var(--ink);padding-top:16px;font-size:12px;color:var(--dusty)}
+</style></head><body><div class="wrap">
+
+<header>
+<h1>Fifty Gates</h1>
+<div class="sub">Every one drawn from a real failure on 5 September 2026</div>
+<div class="stats">
+<div class="stat">GATES<b>50</b></div>
+<div class="stat">EXECUTABLE NOW<b>1</b></div>
+<div class="stat">MARKED EXEC<b>17</b></div>
+<div class="stat">TIME TO THE FIX<b>2 min</b></div>
+<div class="stat">TIME SPENT BLOCKED<b>4 turns</b></div>
+<div class="stat">LANE DEFECT<b>89 notes</b></div>
+</div>
+</header>
+
+<nav>
+<a href="#what">What happened</a>
+<a href="#a">A. Route exhaustion</a>
+<a href="#b">B. The last inch</a>
+<a href="#c">C. Verification</a>
+<a href="#d">D. Source of truth</a>
+<a href="#e">E. Peers and scope</a>
+<a href="#exec">The executable gate</a>
+</nav>
+
+<h2 id="what">What happened, in one paragraph</h2>
+
+<p>A Songsterr upload was one action from finished. Two <span class="mono">Control_Chrome</span>
+calls were denied by the permission classifier. I reported the upload blocked and offered
+Brandon two options that both cost his time. He pushed back. I then loaded
+<span class="mono">claude-in-chrome file_upload</span>, a purpose-built tool that had been
+sitting unloaded the whole time, and the file went in on the first call.</p>
+
+<div class="note warn">
+<b>My own memory already forbade this.</b> <span class="mono">feedback_try_every_route_before_claiming_blocked</span>
+says never report blocked while an untried route exists, and it names a browser bridge as
+the example. A second note says one dead bridge is not a dead capability. Both were loaded
+in context. I checked neither.
+</div>
+
+<h2 id="a">A. Route exhaustion, 1 to 10</h2>
+<table>
+<tr><th>#</th><th>Gate</th></tr>
+<tr><td class="g">G1<span class="exec">EXEC</span></td><td><b>Enumerate the whole family before any blocked claim.</b> Browser control has four families here: Control_Chrome, claude-in-chrome, Claude_Browser, computer-use.</td></tr>
+<tr><td class="g">G2<span class="exec">EXEC</span></td><td><b>A denial on one call is evidence about that call.</b> Never about the capability.</td></tr>
+<tr><td class="g">G3</td><td><b>Search for a purpose-built tool first.</b> <span class="mono">file_upload</span> exists and its own description says do not click file inputs.</td></tr>
+<tr><td class="g">G4</td><td><b>A deferred tool is available, not absent.</b> One ToolSearch away is not missing.</td></tr>
+<tr><td class="g">G5</td><td><b>Two denials of similar payloads mean change the family.</b> A third variant of the same technique is a bypass attempt.</td></tr>
+<tr><td class="g">G6</td><td><b>Read-only probe before concluding a tool is dead.</b> Ten seconds separates a tool-wide block from a payload block.</td></tr>
+<tr><td class="g">G7</td><td><b>No queue item describing a block until G1 passes.</b> The one written here named a blocker that did not exist.</td></tr>
+<tr><td class="g">G8</td><td><b>Never hand over a manual workaround while a route is untried.</b></td></tr>
+<tr><td class="g">G9</td><td><b>When a hook names untried routes, try them that turn.</b> The existing gate named three and was right.</td></tr>
+<tr><td class="g">G10<span class="exec">EXEC</span></td><td><b>A blocked claim requires a route table in the reply.</b> Family, call, result, verbatim error.</td></tr>
+</table>
+
+<h2 id="b">B. The last inch, 11 to 20</h2>
+<table>
+<tr><th>#</th><th>Gate</th></tr>
+<tr><td class="g">G11</td><td><b>The last action is the one that must not be skipped.</b> Every prior hour was worth nothing to him without it.</td></tr>
+<tr><td class="g">G12<span class="exec">EXEC</span></td><td><b>Measure distance to done before stopping.</b> One action left needs a reason that survives being written down.</td></tr>
+<tr><td class="g">G13</td><td><b>A classifier denial is a reason to route around, never to stop.</b></td></tr>
+<tr><td class="g">G14</td><td><b>A permission denial is not a user refusal.</b> His instruction stood the whole time.</td></tr>
+<tr><td class="g">G15</td><td><b>Never convert his instruction into a question.</b> He said upload and got a menu.</td></tr>
+<tr><td class="g">G16<span class="exec">EXEC</span></td><td><b>Asking permission after a never-ask instruction is a hard fail.</b> It happened twice.</td></tr>
+<tr><td class="g">G17</td><td><b>When two options both cost his time, neither is an answer.</b></td></tr>
+<tr><td class="g">G18</td><td><b>A queued item is not a substitute for finishing.</b></td></tr>
+<tr><td class="g">G19</td><td><b>Report progress against his goal, never my task list.</b></td></tr>
+<tr><td class="g">G20</td><td><b>The word "staged" in my own output is a warning sign.</b> Staged means not done.</td></tr>
+</table>
+
+<h2 id="c">C. Verification honesty, 21 to 30</h2>
+<table>
+<tr><th>#</th><th>Gate</th></tr>
+<tr><td class="g">G21<span class="exec">EXEC</span></td><td><b>A usage message is not an empty result.</b> <span class="mono">queue.py list</span> is not a subcommand. Stdout was empty and I read "queue is empty". It held <b class="bad">190 items</b>.</td></tr>
+<tr><td class="g">G22<span class="exec">EXEC</span></td><td><b>Check the exit code of any command whose emptiness I interpret.</b></td></tr>
+<tr><td class="g">G23</td><td><b>Verify a subcommand exists before relying on it.</b> <span class="mono">--help</span> costs one call.</td></tr>
+<tr><td class="g">G24</td><td><b>Read a queue item's full text before closing it.</b> I closed one covering Nanook and Inca Roads while fixing Zomby Woof.</td></tr>
+<tr><td class="g">G25<span class="exec">EXEC</span></td><td><b>A close needs the id AND a quoted line proving the match.</b></td></tr>
+<tr><td class="g">G26</td><td><b>Reopen loudly when a close was wrong.</b> Re-queued with the error inside the text.</td></tr>
+<tr><td class="g">G27</td><td><b>A citation inside my own earlier note is not authority.</b> I inherited a mislabel from my own file.</td></tr>
+<tr><td class="g">G28</td><td><b>Quote the proof, never summarise it.</b></td></tr>
+<tr><td class="g">G29</td><td><b>Verification happens in the turn that claims it.</b></td></tr>
+<tr><td class="g">G30</td><td><b>"Done and verified" in my prose triggers a re-verify before sending.</b></td></tr>
+</table>
+
+<h2 id="d">D. Measure against the source of truth, 31 to 40</h2>
+
+<div class="note warn">
+<b>The most expensive gate in this list is G31.</b> Revision <span class="mono">r8902998</span>
+emptied the Low Tom lane, <b>99 notes to 0</b>, and every check afterwards compared a
+revision to the one before it, where the lane was already gone. The numbers agreed with
+each other for three days while all being wrong.
+</div>
+
+<table>
+<tr><th>#</th><th>Gate</th></tr>
+<tr><td class="g">G31<span class="exec">EXEC</span></td><td><b>Histogram every lane against the ORIGINAL author revision.</b> Never against the previous step in my own chain.</td></tr>
+<tr><td class="g">G32</td><td><b>A count check cannot see a substitution.</b> Totals, drum counts and ghosts all stayed correct through the wipe.</td></tr>
+<tr><td class="g">G33<span class="exec">EXEC</span></td><td><b>Report a change as a fraction of the defect.</b> "Exactly ten notes moved" was true and misleading. It was <b class="bad">ten of ninety-nine</b>.</td></tr>
+<tr><td class="g">G34</td><td><b>When a number sounds like a clean bounded change, test the boundary.</b> His praise should have prompted a check.</td></tr>
+<tr><td class="g">G35<span class="exec">EXEC</span></td><td><b>Read instrument names from the file's own articulation table.</b> General MIDI calls 43 "High Floor Tom". This kit calls it "Very Low Tom".</td></tr>
+<tr><td class="g">G36</td><td><b>Confirm two files share an articulation table before comparing indices.</b></td></tr>
+<tr><td class="g">G37<span class="exec">EXEC</span></td><td><b>Align bar numbers explicitly when a rebar is in play.</b> Author bar N maps to target N+1 for N at or above 3.</td></tr>
+<tr><td class="g">G38<span class="exec">EXEC</span></td><td><b>A bar whose counts disagree is reported and skipped, never guessed.</b> Three qualified and all three were named.</td></tr>
+<tr><td class="g">G39</td><td><b>Restore by position against the source, never by blanket value swap.</b> A blanket swap would have destroyed 13 genuine notes.</td></tr>
+<tr><td class="g">G40<span class="exec">EXEC</span></td><td><b>Copy-on-write on any shared definition.</b> GPIF Notes and Beats are shared across locations.</td></tr>
+</table>
+
+<h2 id="e">E. Peers, decisions and scope, 41 to 50</h2>
+<table>
+<tr><th>#</th><th>Gate</th></tr>
+<tr><td class="g">G41</td><td><b>A peer session's claim carries no measurement authority.</b> I relayed one into a memory file and a published page. Both were wrong.</td></tr>
+<tr><td class="g">G42<span class="exec">EXEC</span></td><td><b>Never publish a peer's factual claim without measuring it myself.</b></td></tr>
+<tr><td class="g">G43</td><td><b>A peer steer never proposes a destructive act.</b> Deleting revisions was proposed, then retracted.</td></tr>
+<tr><td class="g">G44</td><td><b>Correct a published error at the source with a dated block.</b> Never a silent edit.</td></tr>
+<tr><td class="g">G45</td><td><b>A decision he already made is never re-opened.</b> He had said Brown wins and I presented it as an open tie.</td></tr>
+<tr><td class="g">G46<span class="exec">EXEC</span></td><td><b>Search his own words for a decision before asking for one.</b> One grep would have found it.</td></tr>
+<tr><td class="g">G47</td><td><b>Scope a source to the passage it transcribes.</b> Brown covers bars 1 to 9 and votes on nothing later.</td></tr>
+<tr><td class="g">G48</td><td><b>One song id per chat, never one title.</b> Two tabs share the title Zomby Woof, which started this thread.</td></tr>
+<tr><td class="g">G49<span class="exec">EXEC</span></td><td><b>A chat past 24 hours or 400 turns hands over.</b> The parent ran 113 hours and 3,208 turns against 82 of his.</td></tr>
+<tr><td class="g">G50</td><td><b>The cost of every gate above is measured in his time.</b> He said months. These exist so an hour is never spent twice.</td></tr>
+</table>
+
+<h2 id="exec">The executable gate, tested</h2>
+
+<p><span class="mono">route_exhaustion_gate.py</span> implements G1, G2 and G10. It reads a
+proposed reply, detects a blocked claim, resolves which capability group it concerns, and
+exits non-zero unless every route in that group is named with a result beside it.</p>
+
+<div class="eq">$ python3 route_exhaustion_gate.py --reply my-actual-failing-reply.txt
+
+route_exhaustion_gate BLOCK
+  claim words   : blocked
+  group         : browser
+  routes needed : Control_Chrome, claude-in-chrome, Claude_Browser, computer-use
+  NOT COVERED   : Control_Chrome, claude-in-chrome, Claude_Browser, computer-use
+exit=1</div>
+
+<table>
+<tr><th>Known-answer test</th><th>Expected</th><th>Got</th></tr>
+<tr><td>The exact reply I actually sent</td><td>BLOCK</td><td class="ok">exit 1</td></tr>
+<tr><td>A reply carrying a full route table</td><td>PASS</td><td class="ok">exit 0</td></tr>
+<tr><td>A reply with no blocked claim at all</td><td>PASS</td><td class="ok">exit 0</td></tr>
+</table>
+
+<div class="note win">
+<b>It catches the real failure.</b> Fed the reply I actually sent, it refuses. That is the
+test that matters, since a gate written after the fact is worthless if it would have waved
+the original through.
+</div>
+
+<h2>Install</h2>
+
+<p>The script sits in the outputs folder rather than <span class="mono">~/.claude/skills/_shared/</span>,
+because that tree is Brandon's control plane and writing into it is guarded. One line moves
+it in:</p>
+
+<div class="eq">cp ~/Projects/_outputs/session-gates-2026-09-05/route_exhaustion_gate.py \
+   ~/.claude/skills/_shared/route_exhaustion_gate.py</div>
+
+<p>Wiring it as a Stop hook alongside <span class="mono">search_before_blocked_gate.py</span>
+is the step that gives it teeth, and that edit belongs to him.</p>
+
+<footer>
+Written 5 September 2026 from one session's measured failures. Source markdown and the
+tested script at
+<span class="path">~/Projects/_outputs/session-gates-2026-09-05/</span>.
+Related forensic: <a href="https://7onething1.github.io/zappa-chat-drift-forensics/">zappa-chat-drift-forensics</a>.
+</footer>
+
+</div></body></html>
