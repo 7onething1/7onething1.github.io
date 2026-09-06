@@ -74,6 +74,7 @@ footer{margin-top:54px;border-top:3px solid var(--ink);padding-top:16px;font-siz
 <a href="#carolina">The item at the front</a>
 <a href="#repairs">The four repairs</a>
 <a href="#order">Precedence, settled</a>
+<a href="#branch3">Branch three, worked</a>
 <a href="#verify">Verify it yourself</a>
 </nav>
 
@@ -220,6 +221,51 @@ breach never empties the queue.</p>
 3. The single-song lock underneath.    Attention for the current turn.</div>
 <div class="note win">The lock keeps doing the job it was written for. It loses the authority it was
 never given, which is the authority to end a working chat.</div>
+
+
+<h2 id="branch3">Branch three, worked rather than described</h2>
+<p>The new rule says a chat held by a moderator works evidence on the same song. That ran here,
+and it turned up two more errors in the queue item plus a measurable defect in the tab.</p>
+
+<table>
+<tr><th>The queue item said</th><th>Measured 6 September</th></tr>
+<tr><td>The professional drum archive is on the iMac</td>
+<td class="ok">It is on THIS MacBook: <span class="path">~/Projects/_outputs/zappa-drum-sources/</span>, 1,346 files across 12 source folders</td></tr>
+<tr><td>No professional transcription covers this song</td>
+<td class="mid">True for DRUMS alone. Kasper Sloots transcribes Carolina 3 times: 1975 Bongo Fury, 1976 FZ:OZ, 1984 YCDTOSA Vol. IV</td></tr>
+</table>
+
+<h3>A new independent source, fetched today</h3>
+<p>Sloots's 1975 transcription was missing from the local mirror and came back http 200 from
+<span class="mono">zappa-analysis.com</span>: the page, two notation scans at 875&times;362 and
+828&times;449, and a MIDI. Parsed from that MIDI: <b>4/4 throughout, 86.4 BPM, 8 bars, 399
+note-ons</b>. It carries keyboard, bass and melody, so <b>it votes on the opening 8 bars alone
+and says nothing about the kick lane</b>.</p>
+
+<table>
+<tr><th>Reading</th><th>Meter</th><th class="num">Opening tempo</th></tr>
+<tr><td>Sloots 1975, I-depot The Hague, spring 2017</td><td>4/4</td><td class="num">86.4 BPM</td></tr>
+<tr><td>Songsterr s68248, all 102 bars</td><td>4/4</td><td class="num">79 BPM</td></tr>
+</table>
+<p>The two agree on meter. <b>The tab runs 8.56% slow against Sloots on the opening</b>, which is
+7.4 BPM out of 86.4.</p>
+
+<h3>The 13.92% grid gap is missing material</h3>
+<table>
+<tr><th>Bars</th><th class="num">BPM</th><th class="num">Count</th><th class="num">Seconds</th></tr>
+<tr><td>0-97</td><td class="num">79</td><td class="num">98</td><td class="num">297.72</td></tr>
+<tr><td>98-99</td><td class="num">71</td><td class="num">2</td><td class="num">6.76</td></tr>
+<tr><td>100</td><td class="num">66</td><td class="num">1</td><td class="num">3.64</td></tr>
+<tr><td>101</td><td class="num">45</td><td class="num">1</td><td class="num">5.33</td></tr>
+<tr><td><b>total</b></td><td></td><td class="num"><b>102</b></td><td class="num"><b>313.45</b></td></tr>
+</table>
+<p>Against a 360.0 s record that is a <b>46.55 s shortfall, 12.93% of 360</b>. Filling 360 s at
+the tab's own 79 BPM needs <b>118.5 bars against the 102 it carries</b>, so about <b>16.5 bars of
+content are unnotated</b>. Raising the tempo toward 86.4 makes it worse, since 102 bars at 86.4
+runs 283.33 s and widens the gap by 30.12 s.</p>
+
+<div class="note win"><b>That is branch three items 1 through 5 closed for Carolina, with zero
+uploads.</b> Evidence file: <span class="path">~/Projects/_outputs/zappa-handoff-lie-audit/CAROLINA-BRANCH3-EVIDENCE-2026-09-06.md</span></div>
 
 <h2 id="verify">Verify it yourself</h2>
 <div class="eq">python3 ~/.claude/skills/no-quit-shift/queue.py next
