@@ -16,6 +16,7 @@ added or removed.
 | R at 134 in that window | **0.0167**, below its own null of 0.0518 |
 | Metronome intervals on a 20 ms lattice | **1,170 of 1,170** |
 | Estimator error at matched difficulty, end to end | **0.04 BPM** |
+| Anchor uncertainty for measure 102 | **1,928 ms, 0.91 of a bar** |
 | Ghost flags touched | **0 of 629** |
 
 ## 0. Scope limit, read this first
@@ -281,10 +282,61 @@ property of the lattice spacing. In this range a 20 ms grid can emit only 130.43
 | **2. Tempo-map drift.** Notated 498.36 s against a 501.84 s stem, 0.7%, roughly one 19/16 bar of positional uncertainty at 198 s. | **REDUCED, AS A SCALE ESTIMATE.** The inherited figure applied a whole-song accumulation locally. Comparing the tab's notated 2.111 s for measure 102 against the audio's 19 x 110.52 ms = 2.100 s gives 11 ms per bar, 0.55%, about 35 ms over three bars. **That comparison presumes the 198-203 s window is measure 102**, which is `q-2026-09-06-acaf55`. Read it as the scale of tempo-map error, not as a measure-anchored result. |
 | **3. Detector reliability at low level.** Many quiet detections sit at -42 to -50 dBFS on a separated stem, where separation artifacts and bleed are not excluded. | **UNTOUCHED, STILL STANDS.** This pass sidestepped it by summing the whole kit rather than solving it. Any instance-level claim still has to face it. |
 
-## 12. What stays open
+## 12. The anchor, tested and not established
 
-- **Anchor uncertainty.** Where measure 102 actually begins in the audio is a separate quantity from
-  tempo-map drift, and nothing here supplies it.
+Queue item `q-2026-09-06-acaf55`, the item the scope limit points at. It asks where measure 102
+actually begins in the audio. Script `tools/anchor_measure102.py`.
+
+**Index base, settled first.** The record's **measure 102 is 0-based index 101**. It starts at
+**196.8549 s**, is **19/16**, lasts **2.1111 s**, at bpm 135. That matches the previously recorded
+196.898 to 199.009 s to **43 ms** with an identical 2.111 s duration, so the identification is
+certain. Every figure here is labelled 1-based and indexed 0-based in code. The first run of this
+script labelled one bar late and that is corrected.
+
+Method. A score time map from the live tab's signatures and tempo automations. For each anchor source
+independently, notated onsets over measures 97 to 110 matched against detected onsets in the matching
+stem, scanning a global offset across plus or minus 1.5 s at 2 ms steps, 30 ms tolerance. **The
++5.5 ms detector lateness from section 6 is subtracted from every detection.** A vote is kept when its
+score curve peaks at 1.35 times its own mean or better.
+
+**Independence, applied.** Kick, cymbal and hat are three lanes of **one** notated part read from
+three stems of **one** separation. They are one source family and not three votes. Counting them
+separately would have shown a 0.32 s spread and a false convergence.
+
+| Source | Family | Offset | Matched | Over chance | Peak/mean | Kept |
+|---|---|---|---|---|---|---|
+| part 4 Arthur Barrow, bass stem | bass | **+0.410 s** | 51/108 | 2.00x | 1.56 | yes |
+| part 7 Warren Cuccurullo, rhythm stem | guitar | +1.372 s | 45/162 | 1.44x | 1.33 | no, weak peak |
+| part 3 Warren Cuccurullo, rhythm stem | guitar | no data in window | | | | no |
+| part 6 Peter Wolf Wurlitzer, piano stem | keys | **-0.752 s** | 6/28 | 2.22x | 2.14 | yes |
+| part 8 frets 35, 36, kick stem | drums | +1.176 s | 24/58 | 3.45x | 2.28 | yes |
+| part 8 frets 49-57, cymbals stem | drums | +1.490 s | 9/11 | **9.57x** | 5.54 | yes |
+| part 8 frets 42, 44, 46, hat stem | drums | +1.174 s | 44/131 | 1.41x | 1.60 | yes |
+
+| Independent family | Offset | Implied audio start of measure 102 |
+|---|---|---|
+| drums | +1.176 s | **198.031 s** |
+| bass | +0.410 s | 197.265 s |
+| keys | -0.752 s | 196.103 s |
+
+**ANSWER: anchor uncertainty is 1,928 ms, which is 0.91 of measure 102 itself.** Three independent
+families disagree by nearly a whole 19/16 bar, so **the anchor is not established**. The whole-song
+0.7% drift over this 27.7 s window is about 0.19 s, an order of magnitude short of explaining it.
+
+**The agreeing vote is the one that cannot be used.** The drums family is internally tight: kick and
+hat land **2 ms apart**, and the family median puts measure 102 at 198.031 s, which is **31 ms from
+the printed 3:18 marker** and 244 ms ahead of the lead-stem solo entry at 198.275 s. That is the most
+attractive number on this page. **Part 8 is the notated part carrying all 629 ghost flags.** Anchoring
+on part 8 and then judging part 8's flags against that anchor is circular. The two sources free of the
+dispute, bass and keys, sit 0.77 s and 1.93 s away from it and 1.16 s from each other.
+
+Nothing about the tempo measurement changes. That result covers the audio between 198 and 238 s and
+nothing wider. **No non-circular evidence on this machine places that window at measures 102 to 104.**
+
+## 13. What stays open
+
+- **A non-circular anchor.** Section 12 measures the uncertainty at 1,928 ms and does not close it.
+  Closing it needs an anchor source outside part 8 that beats the bass vote's 2.00x over chance.
 - **Blocker 3.** Low-level detector reliability on a separated stem, with a second separation method
   as the named remedy.
 - **Was 134 ever right?** A printed tempo can describe another pressing, another transfer, or the transcriber's rounding. This page measures the recording on disk and says nothing about which
@@ -299,7 +351,7 @@ property of the lattice spacing. In this range a 20 ms grid can emit only 130.43
 anything here. The tempo result describes a passage. It maps no recorded stroke to any notated
 event, and it is not a reason to touch r8852151.
 
-## 13. Provenance
+## 14. Provenance
 
 ### Audio
 
@@ -320,7 +372,10 @@ All under `~/Projects/_outputs/songsterr-zappa-paren-fix/s604777/tools/`.
 | `classify_metronome.py` | `64fa7ddc7b464d6afd223d470a91f16b` | sections 2 and 3 |
 | `tuning_and_tempo.py` | `b147a9db25260019107eff16f0a4c980` | section 4 |
 | `pulse_period.py` | `8c1cd5e086b848fd1ad7606f983c777b` | sections 8 and 9 |
-| `pulse_drift.py` | `919770ab2323a9afaeb422e841471017` | sections 6, 7 and 9 |
+| `pulse_drift.py` | `919770ab2323a9afaeb422e841471017` | sections 7 and 9 |
+| `validate_end_to_end.py` | `f5ab4e3566162e827e02a1e9e1c84307` | section 6, clean condition |
+| `validate_matched_difficulty.py` | `3d12dd187446d5d77a9e37e334046d59` | section 6, matched difficulty |
+| `anchor_measure102.py` | `737e96a9b467579874bd6b839e87bbf9` | section 12 |
 
 Interpreter `~/venvs/audio_midi_311/bin/python3`, Python 3.11.15, librosa 0.11.0, numpy 1.26.4.
 Random seeds fixed at 7 and 11.

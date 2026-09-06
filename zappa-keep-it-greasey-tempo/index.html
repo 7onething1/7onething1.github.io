@@ -67,6 +67,7 @@ Songsterr. No ghost flag has been moved, added or removed.</p>
 <div class="stat"><b>0.0167</b><span>R at 134, below its own null</span></div>
 <div class="stat"><b>1,170 / 1,170</b><span>metronome intervals on a 20 ms lattice</span></div>
 <div class="stat"><b>0.04</b><span>BPM error at matched difficulty, end to end</span></div>
+<div class="stat"><b>1,928 ms</b><span>anchor uncertainty, 0.91 of a bar</span></div>
 <div class="stat"><b>629</b><span>ghost flags, all untouched</span></div>
 </div>
 
@@ -255,7 +256,7 @@ broadband transients, and a -60 dBFS noise floor.</p>
 
 <p><b>The detector reports every onset about 5.5 ms late.</b> A constant shift leaves the period
 estimate untouched, because the statistic is phase-invariant. It matters for anchoring, and it is
-carried forward to the anchor question in section 12.</p>
+carried into section 12.</p>
 
 <h3>Matched difficulty, route A: raise jitter until R meets the real 0.4377</h3>
 <div class="scroll"><table>
@@ -431,11 +432,77 @@ a separated stem, where separation artifacts and bleed are not excluded.</td>
 whole kit rather than solving it. Any instance-level claim still has to face it.</td></tr>
 </table></div>
 
-<h2 id="open">12. What stays open</h2>
+<h2 id="anchor">12. The anchor, tested and not established</h2>
+
+<p>Queue item <code>q-2026-09-06-acaf55</code>, the item the scope limit above points at. It asks
+where measure 102 actually begins in the audio. Script <code>tools/anchor_measure102.py</code>.</p>
+
+<div class="card blue">
+<p class="k"><span class="tag t-blue">index base, settled first</span></p>
+<p>The record's <b>measure 102 is 0-based index 101</b>. It starts at <b>196.8549 s</b>, is
+<b>19/16</b>, lasts <b>2.1111 s</b>, at bpm 135. That matches the previously recorded 196.898 to
+199.009 s to <b>43 ms</b> with an identical 2.111 s duration, so the identification is certain. Every
+figure here is labelled 1-based and indexed 0-based in code. The first run of this script labelled one
+bar late and that is corrected.</p>
+</div>
+
+<p>Method. A score time map from the live tab's signatures and tempo automations. For each anchor
+source independently, notated onsets over measures 97 to 110 matched against detected onsets in the
+matching stem, scanning a global offset across plus or minus 1.5 s at 2 ms steps, 30 ms tolerance.
+<b>The +5.5 ms detector lateness from section 6 is subtracted from every detection.</b> A vote is kept
+when its score curve peaks at 1.35 times its own mean or better.</p>
+
+<div class="card amber">
+<p class="k"><span class="tag t-amber">independence, applied</span></p>
+<p>Kick, cymbal and hat are three lanes of <b>one</b> notated part read from three stems of
+<b>one</b> separation. They are one source family and not three votes. Counting them separately would
+have shown a 0.32 s spread and a false convergence.</p>
+</div>
+
+<div class="scroll"><table>
+<tr><th>Source</th><th>Family</th><th>Offset</th><th>Matched</th><th>Over chance</th><th>Peak/mean</th><th>Kept</th></tr>
+<tr><td>part 4 Arthur Barrow, bass stem</td><td>bass</td><td class="n"><b>+0.410 s</b></td><td class="n">51/108</td><td class="n">2.00x</td><td class="n">1.56</td><td>yes</td></tr>
+<tr><td>part 7 Warren Cuccurullo, rhythm stem</td><td>guitar</td><td class="n">+1.372 s</td><td class="n">45/162</td><td class="n">1.44x</td><td class="n">1.33</td><td class="mut">no, weak peak</td></tr>
+<tr><td>part 3 Warren Cuccurullo, rhythm stem</td><td>guitar</td><td class="mut">no data in window</td><td></td><td></td><td></td><td class="mut">no</td></tr>
+<tr><td>part 6 Peter Wolf Wurlitzer, piano stem</td><td>keys</td><td class="n"><b>-0.752 s</b></td><td class="n">6/28</td><td class="n">2.22x</td><td class="n">2.14</td><td>yes</td></tr>
+<tr><td>part 8 frets 35, 36, kick stem</td><td>drums</td><td class="n">+1.176 s</td><td class="n">24/58</td><td class="n">3.45x</td><td class="n">2.28</td><td>yes</td></tr>
+<tr><td>part 8 frets 49-57, cymbals stem</td><td>drums</td><td class="n">+1.490 s</td><td class="n">9/11</td><td class="n"><b>9.57x</b></td><td class="n">5.54</td><td>yes</td></tr>
+<tr><td>part 8 frets 42, 44, 46, hat stem</td><td>drums</td><td class="n">+1.174 s</td><td class="n">44/131</td><td class="n">1.41x</td><td class="n">1.60</td><td>yes</td></tr>
+</table></div>
+
+<div class="scroll"><table>
+<tr><th>Independent family</th><th>Offset</th><th>Implied audio start of measure 102</th></tr>
+<tr><td>drums</td><td class="n">+1.176 s</td><td class="n"><b>198.031 s</b></td></tr>
+<tr><td>bass</td><td class="n">+0.410 s</td><td class="n">197.265 s</td></tr>
+<tr><td>keys</td><td class="n">-0.752 s</td><td class="n">196.103 s</td></tr>
+</table></div>
+
+<div class="card red">
+<p class="k"><span class="tag t-red">answer</span> &nbsp; Anchor uncertainty is 1,928 ms, which is 0.91 of measure 102 itself</p>
+<p>Three independent families disagree by nearly a whole 19/16 bar. <b>The anchor is not
+established.</b> The whole-song 0.7% drift over this 27.7 s window is about 0.19 s, an order of
+magnitude short of explaining the spread.</p>
+</div>
+
+<div class="card amber">
+<p class="k"><span class="tag t-amber">the agreeing vote is the one that cannot be used</span></p>
+<p>The drums family is internally tight. Kick and hat land <b>2 ms apart</b>, and the family median
+puts measure 102 at 198.031 s, which is <b>31 ms from the printed 3:18 marker</b> and 244 ms ahead of
+the lead-stem solo entry at 198.275 s. That is the most attractive number on this page.</p>
+<p><b>Part 8 is the notated part carrying all 629 ghost flags.</b> Anchoring on part 8 and then
+judging part 8's flags against that anchor is circular. The two sources free of the dispute, bass and
+keys, sit 0.77 s and 1.93 s away from it and 1.16 s from each other.</p>
+</div>
+
+<p>Nothing about the tempo measurement changes. That result covers the audio between 198 and 238 s and
+nothing wider. <b>No non-circular evidence on this machine places that window at measures 102 to
+104.</b> The scope limit at the top of this page is now backed by a measurement.</p>
+
+<h2 id="open">13. What stays open</h2>
 
 <ul>
-<li><b>Anchor uncertainty.</b> Where measure 102 actually begins in the audio is a separate quantity
-from tempo-map drift, and nothing here supplies it.</li>
+<li><b>A non-circular anchor.</b> Section 12 measures the uncertainty at 1,928 ms and does not close
+it. Closing it needs an anchor source outside part 8 that beats the bass vote's 2.00x over chance.</li>
 <li><b>Blocker 3.</b> Low-level detector reliability on a separated stem, with a second separation
 method as the named remedy.</li>
 <li><b>Was 134 ever right?</b> A printed tempo can describe another pressing, another transfer, or the transcriber's rounding. This page measures the recording on disk and says nothing
@@ -454,7 +521,7 @@ describes a passage. <b>It maps no recorded stroke to any notated event</b>, and
 to touch r8852151.</p>
 </div>
 
-<h2 id="prov">13. Provenance</h2>
+<h2 id="prov">14. Provenance</h2>
 
 <h3>Audio</h3>
 <div class="scroll"><table>
@@ -473,7 +540,10 @@ to touch r8852151.</p>
 <tr><td><code>classify_metronome.py</code></td><td class="hash">64fa7ddc7b464d6afd223d470a91f16b</td><td>sections 2 and 3</td></tr>
 <tr><td><code>tuning_and_tempo.py</code></td><td class="hash">b147a9db25260019107eff16f0a4c980</td><td>section 4</td></tr>
 <tr><td><code>pulse_period.py</code></td><td class="hash">8c1cd5e086b848fd1ad7606f983c777b</td><td>sections 8 and 9</td></tr>
-<tr><td><code>pulse_drift.py</code></td><td class="hash">919770ab2323a9afaeb422e841471017</td><td>sections 6, 7 and 9</td></tr>
+<tr><td><code>pulse_drift.py</code></td><td class="hash">919770ab2323a9afaeb422e841471017</td><td>sections 7 and 9</td></tr>
+<tr><td><code>validate_end_to_end.py</code></td><td class="hash">f5ab4e3566162e827e02a1e9e1c84307</td><td>section 6, clean condition</td></tr>
+<tr><td><code>validate_matched_difficulty.py</code></td><td class="hash">3d12dd187446d5d77a9e37e334046d59</td><td>section 6, matched difficulty</td></tr>
+<tr><td><code>anchor_measure102.py</code></td><td class="hash">737e96a9b467579874bd6b839e87bbf9</td><td>section 12</td></tr>
 </table></div>
 <p class="mut">Interpreter <code>~/venvs/audio_midi_311/bin/python3</code>, Python 3.11.15, librosa
 0.11.0, numpy 1.26.4. Random seeds fixed at 7 and 11.</p>
