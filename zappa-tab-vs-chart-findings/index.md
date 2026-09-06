@@ -1,6 +1,6 @@
-# Tab against printed chart: four songs measured
+# Tab against printed chart: five songs measured
 
-Zomby Woof, Andy, Drowning Witch and Keep It Greasey compared bar by bar against professional drum
+Zomby Woof, Andy, Drowning Witch, Keep It Greasey and The Central Scrutinizer compared bar by bar against professional drum
 transcriptions. Ghost and staccato marks ignored. 2026-09-05. Nothing uploaded.
 
 ## Andy s21495, human tab by Leonard, tracks its chart
@@ -64,6 +64,20 @@ Correction to my own earlier reading: I called that segment two merged bars beca
 measured 386 px per beat against a 208 median. It is one dense bar. The earlier row claiming
 the tab ran 10 events long in Drumnet bar 13 is withdrawn too, because the watermark crosses
 that system and the detector returned 7 heads where the eye gives about 19 against the tab's 17.
+
+## The Central Scrutinizer s3554079, hi-hat at half density
+
+Chart: Todd Bishop's groove-of-the-day, one bar, and it **prints its own lane labels**
+(hihat, high/mid tom, snare, bass), so no lane inference is needed. Staff measured at
+y 76, 87, 98, 109, 119.
+
+**Chart 16 hi-hat strokes, tab 8.** Chart heads at x 170, 190, 213, 235, 257, 279, 301, 323,
+344, 378, 402, 424, 444, 466, 489, evenly spaced at ~22 px. The tab's groove bars read
+`hi-hat 8, kick 6, snare 1` with durations `8 16 16 16 16 8 8 16 16 8 8`, and across 92 bars
+it averages **8.2 hi-hat per bar**. Vinnie plays sixteenths, the tab writes eighths.
+
+The chart also marks accents plus **o** and **+** on the hi-hat line. The tab uses the open
+lane 17 times in 92 bars and never uses the pedal lane.
 
 ## What separates the two kinds of tab
 
