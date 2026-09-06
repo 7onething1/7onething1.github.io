@@ -1,6 +1,6 @@
 <!DOCTYPE html><html lang="en"><head><meta charset="utf-8">
 <meta name="viewport" content="width=device-width,initial-scale=1">
-<title>Tab against chart: three songs measured</title>
+<title>Tab against chart: four songs measured</title>
 <style>
 :root{--bg:#f4f1e8;--ink:#2b2a26;--mut:#6f6a5d;--line:#d8d2c0;--card:#fffdf6;
 --red:#b23a2e;--amber:#c98a2b;--green:#4d7c4a;--blue:#3c5f7a}
@@ -31,8 +31,8 @@ a{color:var(--blue)}
 footer{margin-top:46px;padding-top:18px;border-top:1px solid var(--line);color:var(--mut);font-size:13.5px}
 </style></head><body>
 <header><div class="wrap">
-<h1>Tab against printed chart: three songs measured</h1>
-<p>Zomby Woof, Andy and Drowning Witch, compared bar by bar against professional drum transcriptions. Ghost and staccato marks ignored throughout. 2026-09-05.</p>
+<h1>Tab against printed chart: four songs measured</h1>
+<p>Zomby Woof, Andy, Drowning Witch and Keep It Greasey, compared bar by bar against professional drum transcriptions. Ghost and staccato marks ignored throughout. 2026-09-05.</p>
 </div></header>
 <div class="wrap">
 
@@ -116,9 +116,57 @@ divided by beats should be roughly constant, and the median is 208 px per beat. 
 14 measures <b>386</b>, so that segment holds two bars and the barline between them was
 missed. Everything after it shifts.</p>
 
+<h2>4. Keep It Greasey s604777 <span class="tag t-amber">meter disagreement, 12 sixteenths</span></h2>
+<p>Tab: live revision <b>r8852151 by Ben Dibden1</b>, drum staff named "Vinnie Colaiuta",
+248 bars, 4948 notes. Three printed sources: the DRUM Magazine Groove Analysis, two Odd Meter
+Lesson pages, and a complete Modern Drummer transcription.</p>
+
+<div class="card green"><p class="k">This tab is rich, and it is the one the moderators saved.</p>
+<p><b>629 ghost notes, 29 grace beats, 17 distinct drum lanes</b>: snare 1423, kick 1311,
+closed hat 533, open hat 428, bell 282, pedal hat 195, crash 173, low-mid tom 170, floor tom
+112, hi-mid tom 109, ride 87, low tom 85, and four more. <b>My 2026-08-29 sweep revision
+r8768457 on this tab was blocked by a moderator</b>, so the 629 survived. It is the only tab
+in the set where the damage was stopped before it published.</p></div>
+
+<div class="card red"><p class="k">The lesson pages print the exact notation the sweep stripped.</p>
+<p>Both Odd Meter Lesson pages show 19/16 bars whose quiet strokes are drawn as
+<b>noteheads inside round brackets</b>, with accents above. Published professional practice
+for a ghost note, printed by DRUM Magazine, and it is what the sweep read as a defect.</p></div>
+
+<h3>Verse 1 agrees on three sources</h3>
+<p>The chart is headed <b>Verse 1 @ 0:35, quarter = 134, 19/16</b>. The tab's first 19/16 bar
+is <b>bar 22 at 37.1 s</b>, and 19/16 covers <b>161 of the tab's 248 bars</b>. Both lesson
+pages are also 19/16. Nothing to fix.</p>
+
+<h3>Verse 2 disagrees, and the location is certain</h3>
+<div class="scroll"><table>
+<tr><th>tab bar</th><th>meter</th><th>starts</th><th>events</th></tr>
+<tr><td>41</td><td>4/4</td><td>76.0 s</td><td>2</td></tr>
+<tr><td>42</td><td><b>21/16</b></td><td>77.8 s</td><td>26</td></tr>
+<tr><td>43</td><td><b>21/16</b></td><td>80.2 s</td><td>26</td></tr>
+<tr><td>44</td><td><b>21/16</b></td><td>82.6 s</td><td>24</td></tr>
+<tr><td>45</td><td><b>21/16</b></td><td>85.1 s</td><td>23</td></tr>
+<tr><td>46</td><td>9/16</td><td>87.5 s</td><td>9</td></tr>
+<tr><td>47</td><td>4/4</td><td>88.6 s</td><td>2</td></tr>
+</table></div>
+<p>The chart is headed <b>Verse 2 @ 1:16</b> and writes <b>24/16</b>, then 9/16, then 4/4. The
+tab has <b>zero bars of 24/16</b>. <b>The 9/16 followed by 4/4 appears in both</b>, which fixes
+the location beyond doubt, so the bars before that anchor differ by three sixteenths each. The
+tab holds 93 sixteenths across the block where the chart holds 105: one of the two has the
+passage three whole beats shorter. No audio for this song is on disk, so the record cannot
+arbitrate.</p>
+
+<div class="card amber"><p class="k">A correction to the source inventory.</p>
+<p>The inventory names this song's third source "Pete Sweeney". The file is a <b>Modern
+Drummer</b> collection carrying three transcriptions by three people: All Blues by Jeff Wald
+(April 1992), Dong Work For Yuda by Chris Brady, and <b>Keep It Greasy by Marc Atkinson,
+October 2000</b>. The Keep It Greasy chart runs several dense pages and is <b>complete, not an
+excerpt</b>. It is the richest printed source for this song, it has not been read, and reading
+its meter changes would settle 24/16 against 21/16 on paper.</p></div>
+
 <h2>What this says about the two kinds of tab</h2>
 <div class="card green">
-<p><b>Leonard's human Andy tab tracks its chart closely</b>: kick within one stroke across
+<p><b>The two human tabs track their charts.</b> Leonard's Andy tab closely: kick within one stroke across
 eight consecutive bars, and the same absence of hi-hat in the same place.</p>
 <p><b>The machine tabs fail in a shape.</b> Four byte-identical bars of tom and kick where the
 chart has snare and hat. Nine closed hi-hats where the chart has open and pedal. Zero grace

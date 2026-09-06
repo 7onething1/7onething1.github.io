@@ -1,6 +1,6 @@
-# Tab against printed chart: three songs measured
+# Tab against printed chart: four songs measured
 
-Zomby Woof, Andy and Drowning Witch compared bar by bar against professional drum
+Zomby Woof, Andy, Drowning Witch and Keep It Greasey compared bar by bar against professional drum
 transcriptions. Ghost and staccato marks ignored. 2026-09-05. Nothing uploaded.
 
 ## Andy s21495, human tab by Leonard, tracks its chart
@@ -28,9 +28,29 @@ hi-hat strokes and two grace notes. **The tab has zero grace notes across all 11
 Bars 14 onward are not compared: Drumnet's bar 14 measures 386 px per beat against a 208
 median, so a barline was missed and everything after shifts.
 
+## Keep It Greasey s604777, meter disagreement of 12 sixteenths
+
+Tab r8852151 by Ben Dibden1: 248 bars, 4948 notes, **629 ghost notes, 29 grace beats, 17 drum
+lanes**. My 2026-08-29 sweep revision on this tab was **blocked by a moderator**, so the ghosts
+survived. It is the only tab in the set where the damage was stopped before it published.
+
+Both Odd Meter Lesson pages print quiet strokes as **noteheads inside round brackets**, the
+exact notation the sweep read as a defect.
+
+Verse 1 agrees on three sources: chart 19/16 at 0:35, tab's first 19/16 at bar 22, 37.1 s,
+161 of 248 bars in 19/16.
+
+Verse 2 does not. The chart writes **24/16** at 1:16; the tab has **zero 24/16 bars** and uses
+**21/16** for bars 42 to 45. The 9/16 then 4/4 that follows appears in both, fixing the
+location, so the block differs by 12 sixteenths, three whole beats. No audio on disk.
+
+**Inventory correction:** the third source is not "Pete Sweeney". It is a Modern Drummer
+collection holding All Blues (Jeff Wald), Dong Work For Yuda (Chris Brady) and a **complete
+Keep It Greasy transcription by Marc Atkinson, October 2000**, unread.
+
 ## What separates the two kinds of tab
 
-Leonard's human tab tracks its chart. The machine tabs fail in a shape: identical bars
+Both human tabs track their charts. The machine tabs fail in a shape: identical bars
 repeated forward, hi-hat articulation collapsed to closed, no grace notes anywhere, kick and
 snare swapped on an off-beat.
 
