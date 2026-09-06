@@ -344,6 +344,30 @@ parameter set produces both at once**, because the window that lifts one lifts t
 Files: `tools/sampling_rule_sweep.py`, `out/sampling_rule_sweep.csv`,
 `tools/full_reconstruction.py`, `out/full_reconstruction.csv`.
 
+## 9f. THE 1.19x AGAINST 1.45x GAP, reconciled by measurement
+
+The reported pair is 71.3 percent observed and 49.0 percent null. Section 9e showed the
+observed figure needs a 65 ms half-window. So the question is what null reaches 49.0 percent
+at that same window.
+
+At 65 ms the observed ghost rate is 69.9 percent, so a 1.45x ratio requires a null of
+**48.2 percent**. Three grid-breaking procedures were run at both windows.
+
+| null procedure | null at 65 ms | ratio | null at 45 ms | ratio |
+|---|---|---|---|---|
+| shift by mean bar duration in time | 62.1% | 1.13x | 51.7% | 1.20x |
+| mean-bar shift plus +/-135 ms jitter | 62.6% | 1.12x | 51.8% | 1.19x |
+| **uniform random time in the span** | **62.6%** | 1.12x | **51.6%** | 1.20x |
+| required for 1.45x | **48.2%** | 1.45x | 47.9% | 1.45x |
+
+**Even a uniform random null, the most extreme grid-breaking possible, reaches only 62.6
+percent at a 65 ms window.** Nothing gets near 48.2 percent there.
+
+**The reconciliation.** The reported observed rate is reachable only near a 65 ms window. The
+reported null is reachable only near a 45 ms window. **The published pair requires two
+different window widths at once**, so the two figures cannot both come from one consistent
+procedure. That is the whole residual, stated as a measurement rather than as an open question.
+
 ## 9b. THE EYE OVERRULES THE DETECTOR, and the chart corroborates the alignment
 
 Read 2026-09-06 from `~/Projects/_outputs/zappa-drum-sources/06-drumnet/Watermelon-In-Easter-Hay_p1.jpg`
