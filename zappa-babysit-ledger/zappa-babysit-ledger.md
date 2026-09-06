@@ -43,6 +43,24 @@ Delivered to the running session. It orders no ending and proposes no deletion, 
 - **`q-2026-09-05-a6339f`**, the rev7 upload. `rev7-Zomby-Woof-LOWTOM-LANE-RESTORED.gp`, preflight cleared, ten tracks intact, blocked on permission to upload to Songsterr.
 - **The Todd Bishop Packard Goose PDF.** A free Vinnie Colaiuta transcription answering HTTP 200 at 85,768 bytes on pdxdrummer.com. Confirmed by HEAD request only. Downloading is yours to authorise.
 
+
+## What the steer changed, measured at 19:20
+
+| Window | Opened | Closed |
+|---|---|---|
+| Full day before the steer | 62 | 10 |
+| After the steer landed at 18:55 | 2 | 19 |
+
+Open total fell from 191 to 173. `q-2026-09-05-864510` is closed, so Zomby Woof bars 14 and beyond are compared. Eighteen finding-shaped entries were closed. Both harness proposals were blocked as outside its work. Two further songs landed with artifacts, Andy s21495 and Keep It Greasey s604777.
+
+### One correction it made to me
+
+My steer repeated the chat's own diagnosis that Drumnet bar 14 held two merged bars. It re-measured and found that false. The real Zomby Woof gap is a single 2/4 bar carrying twelve notes on the chart against two in the tab. A babysitter inherits the errors of the transcript it reads.
+
+## Why the babysit session stopped on its first pass
+
+It ended its report with a permission question about a timed watch. The word "babysit" already authorized the watching. It printed a NEXT line reading "confirm the steer landed" and did not confirm it. That is the same shape as the behaviour it was sent to police.
+
 ## Safety
 
 Nothing was deleted, nothing was uploaded, and no revision was withdrawn.
