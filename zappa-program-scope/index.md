@@ -139,13 +139,15 @@ six notes still exist. **The velocity damage is larger than the ghost damage.** 
 beat velocities, Kirill repaired 5, and the remaining 6 govern **784 of 807 effective beat slots**,
 because the `f` at bar 1 slot 6 sets the running dynamic for the whole track.
 
-**Built and verified, upload held.** Built onto the live `r8815000` export with copy-on-write: Note
+**Built, verified, and SUBMITTED as `r8932027`** (2026-09-06 21:00, tracksCount 6, createdVia GP, on moderation) under Brandon's documented grid exception. Built onto the live `r8815000` export with copy-on-write: Note
 225 has 31 placements across 26 bars and was cloned; Beat 443 sits at two slots wanting different
 dynamics and was cloned. Independent re-read shows 6 ghost false to true, 0 ghosts lost, 0 other
 note-signature changes anywhere, 0 changes on other tracks, 0 dynamic mismatches against the author
 across 807 slots. `preflight_import.py` refuses on `GRID notated 134.0s against a 141.0s record`.
 The unmodified live base fails identically and the build is timing-neutral, so the fault is
-inherited. There is no GRID override flag, so the upload waits on Brandon.
+inherited; the exception is stated in the revision text. A NAMEDROP regression was caught first:
+ElementTree drops CDATA, so the six custom track names vanished through Songsterr's converter. Fixed
+by serializing with lxml under `strip_cdata=False`, 92 of 92 CDATA blocks preserved.
 
 
 ## 1. The program

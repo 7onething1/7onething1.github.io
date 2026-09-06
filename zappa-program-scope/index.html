@@ -253,7 +253,7 @@ one of them had never been counted.</p>
 <tr><th>song</th><th>revision</th><th>what it did</th><th>state</th></tr>
 <tr><td><code>s412170</code> <b>Trouble Every Day (Live)</b></td><td><code>r8766285</code></td>
 <td>Removed 9 ghosts from the Chad Wakerman percussion staff and altered 11 beat velocities.</td>
-<td><span class="tag t-red">damage live, restore built and held</span></td></tr>
+<td><span class="tag t-green">restored, <code>r8932027</code> submitted</span></td></tr>
 <tr><td><code>s604777</code> Keep It Greasey</td><td><code>r8768457</code></td>
 <td>Would have removed 629 ghosts.</td><td><span class="tag t-green">blocked, tab intact</span></td></tr>
 <tr><td><code>s35883</code> Zoot Allures</td><td><code>r8769199</code></td>
@@ -298,11 +298,25 @@ where it was needed: Note 225 is referenced at 31 placements across 26 bars and 
 generated file shows <b>6 ghost false to true, 0 ghosts lost, 0 other note-signature changes
 anywhere, 0 changes on any other track, and 0 dynamic mismatches against the author across all 807
 slots</b>.</p>
-<p><code>preflight_import.py</code> then refuses on <code>GRID notated 134.0s against a 141.0s
-record, 4.96% off</code>. <b>The unmodified live base fails that gate identically</b>, and the build
-is timing-neutral, so the fault is inherited rather than caused. There is no GRID override flag, and
-forcing a safety gate is not the same act as submitting a restoration, so the upload waits on
-Brandon: override for a timing-neutral repair, or fix the grid first.</p>
+<p><code>preflight_import.py</code> refused on <code>GRID notated 134.0s against a 141.0s
+record, 4.96% off</code>. <b>The unmodified live base fails that gate identically</b> and the build
+is timing-neutral, so the fault is inherited rather than caused. Brandon authorised a
+<b>documented grid exception</b> on 2026-09-06, and the exception is stated in the revision text so
+a moderator sees the reasoning.</p>
+<p><b>Submitted as <code>r8932027</code></b>, 2026-09-06 21:00, <code>tracksCount 6</code>,
+<code>createdVia GP</code>, on moderation. The grid discrepancy stays open as separate work.</p>
+</div>
+<div class="card amber">
+<p class="k">A NAMEDROP regression caught during the upload</p>
+<p>The first build used <code>xml.etree.ElementTree</code>, which does not preserve CDATA. The base
+GPIF carries <b>92 CDATA blocks</b> and the six custom track names sit among them, so Songsterr's
+<code>/data/convert</code> read them as absent and fell back to Tenor Sax, Overdriven Guitar,
+Electric Bass (pick), Drums and Bag pipe. That is the exact failure every restore description in
+this campaign asks moderators to avoid. Blanket re-wrapping by tag is unsafe, since
+<code>&lt;Name&gt;</code> appears 220 times and only 18 are CDATA. <b>The fix is to serialize with
+<code>lxml</code> under <code>XMLParser(strip_cdata=False)</code></b>, which is on
+<code>/usr/bin/python3</code> here and not on the default <code>python3</code>. The rebuild kept 92
+of 92 blocks and convert returned all six names.</p>
 </div>
 
 <h2 id="s1">1. The program in one paragraph</h2>
