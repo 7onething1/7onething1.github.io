@@ -1,5 +1,26 @@
 # Carolina Hard-Core Ecstasy s68248 — branch-three evidence, 2026-09-06
 
+## CORRECTION, raised by Brandon 2026-09-06
+
+*"are we fixing caroline because we uploaded it wrong? its not one i asked us to do"*
+
+**Both halves are true.**
+
+1. **s68248 is somebody else's tab.** r85513 (2011) by Leonard, r593836 (2023) by **Darr, a site
+   moderator**. Our own `r8769058` stripped 144 parenthesised noteheads from Darr's drum staff on
+   2026-08-30, Darr reviewed it `fair` on 09-01, and the damage went live. `r8908182` is our
+   apology restore, still on moderation. **Carolina is on the repair list because we broke it.**
+2. **It is outside the defined scope.** The non-AI drum transcriptions page covers Over-Nite
+   Sensation, Roxy & Elsewhere, One Size Fits All and Joe's Garage. Carolina is on Bongo Fury and
+   appears on none of them.
+3. **The kickfix and crashfix files will not be uploaded.** They are further unrequested edits to
+   Darr's tab on top of damage we already caused. Every Carolina queue item is blocked pending
+   Brandon's call.
+
+Everything below keeps its value as measurement. None of it is sanctioned repair work.
+
+---
+
 Worked while revision `r8908182` sits on moderation. None of this needs an upload.
 
 ## 0. Two claims in the queue item were wrong on disk
