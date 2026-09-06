@@ -8,7 +8,8 @@
   "mb": 8.9,
   "rms": -18.6,
   "tp": -0.0,
-  "wav": "01_tape0-00-00.wav"
+  "wav": "01_tape0-00-00.wav",
+  "source": "3-mic blend, offset 0"
  },
  {
   "k": 2,
@@ -19,7 +20,8 @@
   "mb": 6.6,
   "rms": -17.2,
   "tp": -0.0,
-  "wav": "02_tape0-53-01.wav"
+  "wav": "02_tape0-53-01.wav",
+  "source": "3-mic blend, offset 0"
  },
  {
   "k": 3,
@@ -30,7 +32,8 @@
   "mb": 7.4,
   "rms": -10.8,
   "tp": -0.0,
-  "wav": "03_tape1-00-54.wav"
+  "wav": "03_tape1-00-54.wav",
+  "source": "3-mic blend, offset 0"
  },
  {
   "k": 4,
@@ -41,7 +44,8 @@
   "mb": 3.9,
   "rms": -7.3,
   "tp": -0.0,
-  "wav": "04_tape1-08-14.wav"
+  "wav": "04_tape1-08-14.wav",
+  "source": "3-mic blend, offset 0"
  },
  {
   "k": 5,
@@ -52,7 +56,8 @@
   "mb": 7.5,
   "rms": -15.2,
   "tp": -0.0,
-  "wav": "05_tape1-19-21.wav"
+  "wav": "05_tape1-19-21.wav",
+  "source": "3-mic blend, offset 0"
  },
  {
   "k": 6,
@@ -63,7 +68,8 @@
   "mb": 2.9,
   "rms": -17.1,
   "tp": -0.0,
-  "wav": "06_tape1-36-40.wav"
+  "wav": "06_tape1-36-40.wav",
+  "source": "3-mic blend, offset 0"
  },
  {
   "k": 7,
@@ -71,10 +77,11 @@
   "tape": "1:39:26",
   "L": "4:39",
   "dur": 279.0,
-  "mb": 5.3,
+  "mb": 5.4,
   "rms": -17.7,
   "tp": -0.0,
-  "wav": "07_tape1-39-26.wav"
+  "wav": "07_tape1-39-26.wav",
+  "source": "3-mic blend, offset 0"
  },
  {
   "k": 8,
@@ -85,7 +92,8 @@
   "mb": 1.8,
   "rms": -16.9,
   "tp": -0.0,
-  "wav": "08_tape1-44-28.wav"
+  "wav": "08_tape1-44-28.wav",
+  "source": "3-mic blend, offset 0"
  },
  {
   "k": 9,
@@ -96,7 +104,8 @@
   "mb": 2.7,
   "rms": -23.5,
   "tp": -0.02,
-  "wav": "09_tape1-51-29.wav"
+  "wav": "09_tape1-51-29.wav",
+  "source": "3-mic blend, offset 0"
  },
  {
   "k": 10,
@@ -107,7 +116,8 @@
   "mb": 2.4,
   "rms": -13.0,
   "tp": 0.0,
-  "wav": "10_tape1-59-59.wav"
+  "wav": "10_tape1-59-59.wav",
+  "source": "3-mic blend, offset 0"
  },
  {
   "k": 11,
@@ -118,7 +128,8 @@
   "mb": 10.3,
   "rms": -12.7,
   "tp": -0.0,
-  "wav": "11_tape2-02-20.wav"
+  "wav": "11_tape2-02-20.wav",
+  "source": "3-mic blend, offset 0"
  },
  {
   "k": 12,
@@ -129,7 +140,8 @@
   "mb": 2.3,
   "rms": -16.4,
   "tp": -0.0,
-  "wav": "12_tape2-12-33.wav"
+  "wav": "12_tape2-12-33.wav",
+  "source": "3-mic blend, offset 0"
  },
  {
   "k": 13,
@@ -140,7 +152,8 @@
   "mb": 12.2,
   "rms": -15.9,
   "tp": -0.0,
-  "wav": "13_tape2-21-16.wav"
+  "wav": "13_tape2-21-16.wav",
+  "source": "3-mic blend, offset 0"
  },
  {
   "k": 14,
@@ -151,7 +164,8 @@
   "mb": 3.1,
   "rms": -23.5,
   "tp": -0.0,
-  "wav": "14_tape2-46-42.wav"
+  "wav": "14_tape2-46-42.wav",
+  "source": "3-mic blend, offset 0"
  },
  {
   "k": 15,
@@ -162,7 +176,8 @@
   "mb": 9.3,
   "rms": -13.9,
   "tp": -0.0,
-  "wav": "15_tape2-52-01.wav"
+  "wav": "15_tape2-52-01.wav",
+  "source": "3-mic blend, offset 0"
  },
  {
   "k": 16,
@@ -173,7 +188,8 @@
   "mb": 7.8,
   "rms": -10.0,
   "tp": -0.0,
-  "wav": "16_tape3-01-21.wav"
+  "wav": "16_tape3-01-21.wav",
+  "source": "3-mic blend, offset 0"
  },
  {
   "k": 17,
@@ -184,7 +200,8 @@
   "mb": 14.5,
   "rms": -16.7,
   "tp": -0.0,
-  "wav": "17_tape3-10-51.wav"
+  "wav": "17_tape3-10-51.wav",
+  "source": "3-mic blend, offset 0"
  },
  {
   "k": 18,
@@ -195,7 +212,8 @@
   "mb": 7.1,
   "rms": -18.0,
   "tp": -0.0,
-  "wav": "18_tape3-23-56.wav"
+  "wav": "18_tape3-23-56.wav",
+  "source": "3-mic blend, offset 0"
  },
  {
   "k": 19,
@@ -206,7 +224,8 @@
   "mb": 11.0,
   "rms": -20.9,
   "tp": -0.0,
-  "wav": "19_tape3-35-51.wav"
+  "wav": "19_tape3-35-51.wav",
+  "source": "3-mic blend, offset 0"
  },
  {
   "k": 20,
@@ -214,10 +233,11 @@
   "tape": "3:47:38",
   "L": "3:15",
   "dur": 195.0,
-  "mb": 3.7,
+  "mb": 3.8,
   "rms": -17.1,
   "tp": -0.0,
-  "wav": "20_tape3-47-38.wav"
+  "wav": "20_tape3-47-38.wav",
+  "source": "3-mic blend, offset 0"
  },
  {
   "k": 21,
@@ -228,7 +248,8 @@
   "mb": 5.3,
   "rms": -19.2,
   "tp": 0.0,
-  "wav": "21_tape3-55-09.wav"
+  "wav": "21_tape3-55-09.wav",
+  "source": "3-mic blend, offset 0"
  },
  {
   "k": 22,
@@ -239,7 +260,8 @@
   "mb": 5.3,
   "rms": -18.5,
   "tp": -0.0,
-  "wav": "22_tape4-00-08.wav"
+  "wav": "22_tape4-00-08.wav",
+  "source": "3-mic blend, offset 0"
  },
  {
   "k": 23,
@@ -250,7 +272,8 @@
   "mb": 2.7,
   "rms": -20.0,
   "tp": -0.0,
-  "wav": "23_tape4-04-58.wav"
+  "wav": "23_tape4-04-58.wav",
+  "source": "3-mic blend, offset 0"
  },
  {
   "k": 24,
@@ -261,7 +284,8 @@
   "mb": 11.9,
   "rms": -15.5,
   "tp": -0.0,
-  "wav": "24_tape4-10-07.wav"
+  "wav": "24_tape4-10-07.wav",
+  "source": "3-mic blend, offset 0"
  },
  {
   "k": 25,
@@ -272,7 +296,8 @@
   "mb": 11.5,
   "rms": -16.7,
   "tp": -0.0,
-  "wav": "25_tape4-22-11.wav"
+  "wav": "25_tape4-22-11.wav",
+  "source": "3-mic blend, offset 0"
  },
  {
   "k": 26,
@@ -283,7 +308,8 @@
   "mb": 25.1,
   "rms": -8.2,
   "tp": 0.0,
-  "wav": "26_tape4-32-15.wav"
+  "wav": "26_tape4-32-15.wav",
+  "source": "3-mic blend, offset 0"
  },
  {
   "k": 27,
@@ -291,9 +317,10 @@
   "tape": "5:01:47",
   "L": "6:32",
   "dur": 392.0,
-  "mb": 7.5,
+  "mb": 7.6,
   "rms": -15.1,
   "tp": -0.0,
-  "wav": "27_tape5-01-47.wav"
+  "wav": "27_tape5-01-47.wav",
+  "source": "3-mic blend, offset 0"
  }
 ]
