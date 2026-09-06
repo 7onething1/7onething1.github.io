@@ -246,6 +246,68 @@ part, with known lane-assignment limitations.
 4. Pedal hi-hat, roughly 172 events, against 6 notated.
 5. Snare rebound texture, against 193 snare events carrying zero flags.
 
+## 8. THE TWO TRACKS, RECONSTRUCTED
+
+Run as two independent forensic problems. Nothing below uses the 97-anchor snare map to
+define a search neighbourhood.
+
+### 8.1 Numerator: five alignments built without the 97-anchor map
+
+`chart55.47` and `chart+scale` take the tempo from the Drumnet chart. `globalfit` is offset
+and scale only. `kickmap` anchors on the KICK lane against the kick stem. `crashmap` anchors
+on CRASH. 240 configurations across source stem, band, flux operator, window and threshold
+percentile: `out/numerator_reconstruction.csv`.
+
+**A clamping artefact was caught and removed before it was published.** `np.interp` clamps any
+event outside the anchor span onto the endpoints. The kick map spans 4.3 to 384.6 notation
+seconds, leaving **390 of 1,724 ride events outside**, all piling onto two timestamps. Those
+390 lifted the rate to 71.7 percent at the documented 45 ms window and briefly looked like a
+reconstruction at spec. Restricted to the 1,334 events genuinely inside the span the same
+configuration gives ghost 63.4 percent against a 64.7 percent null, ratio 0.98x. The crash map
+leaves 982 of 1,724 outside.
+
+**With span restriction enforced, every configuration reproducing both reported rates uses a
+65 ms window.** No 45 ms configuration survives.
+
+### 8.2 Denominator: eight nulls, detector and population frozen
+
+Frozen at 2000-12000 Hz, band-sum, threshold 4.407, 45 ms, 123-anchor map, all 1,724 events.
+Only the displacement varies. Full diagnostics in `out/denominator_reconstruction.csv`.
+
+| null procedure | 16th phase kept | meter kept | section kept | collision | null | ratio |
+|---|---|---|---|---|---|---|
+| shift by whole sixteenths | 100.0% | 0.0% | 77.9% | 37.6% | 63.7% | 0.97x |
+| shift by whole beats | 100.0% | 0.0% | 24.4% | 38.3% | 62.2% | 0.99x |
+| bar index, position-in-bar kept | 100.0% | 56.6% | 0.2% | 39.0% | 63.1% | 0.98x |
+| bar index, meter must match | 100.0% | 100.0% | 0.3% | 39.8% | 62.4% | 0.99x |
+| bar index, same section | 100.0% | 100.0% | 100.0% | 0.0% | 57.4% | 1.08x |
+| one offset per source bar | 100.0% | 54.5% | 0.2% | 26.5% | 63.1% | 0.98x |
+| **shift by k x mean bar duration in TIME** | **2.8%** | 0.0% | 0.2% | 0.0% | **49.1%** | 1.26x |
+| uniform random notation time | 3.9% | 0.0% | 8.4% | 0.0% | 51.5% | 1.20x |
+
+**The historical 49.0 percent is reproduced to 0.1 points** by a displacement measured in time,
+and its diagnostic signature is unambiguous: **sixteenth-phase preservation falls from 100
+percent to 2.8 percent**. Every phase-preserving procedure lands between 62.2 and 63.7 percent.
+Seed spread 0.38 points across three seeds, so the figure is stable rather than tuned.
+
+### 8.3 The two do not share a window, and that is the whole answer
+
+One frozen population and detector, only the window varying, with the time-shift null:
+
+| window | ghost observed | plain observed | time-shift null | ratio |
+|---|---|---|---|---|
+| **45 ms, the spec** | 61.9% | 67.2% | **49.0%** | 1.26x |
+| **65 ms** | **69.9%** | **74.0%** | 59.9% | 1.17x |
+| historical | 71.3% | 75.3% | 49.0% | 1.45x |
+
+The numerator matches at 65 ms. The denominator matches at 45 ms. **Taking the numerator from
+the 65 ms row and the denominator from the 45 ms row gives 1.43x against the historical
+1.45x.** Measured consistently at one window the ratio is 1.26x or 1.17x, never 1.45x.
+
+**The historical 1.45x is reconstructed as a cross-window combination on top of a
+phase-destroying null.** Both halves are now accounted for, and neither survives a single
+consistent procedure.
+
 ## 9. THE LEDGER, and three corrections to my own earlier statements
 
 ### Correction 1: the refined map is not independently validated

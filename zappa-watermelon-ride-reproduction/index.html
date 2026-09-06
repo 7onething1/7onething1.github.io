@@ -103,7 +103,7 @@ one labelling decision rather than 1,316 per-stroke judgements.</p>
 <li><a href="#s11">Spectral identity of disputed positions</a></li>
 <li><a href="#s11b">Positive control</a></li>
 <li><a href="#s11c">The decay-prediction test</a></li>
-<li><a href="#s11j">The ledger and three corrections</a></li>\n<li><a href="#s11g">The discrepancy is the null</a></li>\n<li><a href="#s11h">The observed-rate gap is the window</a></li>\n<li><a href="#s11i">The 1.19x vs 1.45x gap, reconciled</a></li>
+<li><a href="#s11k">Both tracks reconstructed</a></li>\n<li><a href="#s11j">The ledger and three corrections</a></li>\n<li><a href="#s11g">The discrepancy is the null</a></li>\n<li><a href="#s11h">The observed-rate gap is the window</a></li>\n<li><a href="#s11i">The 1.19x vs 1.45x gap, reconciled</a></li>
 <li><a href="#s11d">The eye overrules the detector</a></li>
 <li><a href="#s11e">Published notation authority</a></li>
 <li><a href="#s11f">Ghost against staccato</a></li>
@@ -418,6 +418,52 @@ rather than of a new strike. Plain strike 8,219 Hz, ghost slot 8,486 Hz, control
 <p>In the envelope domain the notated ghost slot carries only <b>marginally</b> more excess over
 the predicted tail than an off-grid control does, at two-sided p = 0.093. That is <b>weak and
 not significant</b>. It does not demonstrate added strokes, and it does not exclude them.</p>
+</div>
+
+<h2 id="s11k">11k. Both tracks reconstructed</h2>
+<h3>Numerator: five alignments built without the 97-anchor map</h3>
+<p>Chart tempo, global fit, kick-anchored and crash-anchored maps, across 240 configurations of
+source stem, band, operator, window and threshold percentile.</p>
+<div class="card red">
+<p class="k">A clamping artefact was caught before publication</p>
+<p><code>np.interp</code> clamps any event outside the anchor span onto the endpoints. The kick
+map spans 4.3 to 384.6 notation seconds, leaving <b>390 of 1,724 ride events outside</b>, piling
+onto two timestamps. Those 390 lifted the rate to 71.7 percent at the documented 45 ms window and
+briefly looked like a reconstruction at spec. Restricted to the 1,334 genuinely inside, the same
+configuration gives ghost 63.4 percent against a 64.7 percent null, ratio 0.98&times;.</p>
+<p><b>With span restriction enforced, every configuration reproducing both reported rates uses a
+65 ms window.</b> No 45 ms configuration survives.</p>
+</div>
+<h3>Denominator: eight nulls, detector and population frozen</h3>
+<div class="scroll"><table>
+<tr><th>null procedure</th><th>16th phase kept</th><th>meter kept</th><th>section kept</th><th>collision</th><th>null</th><th>ratio</th></tr>
+<tr><td>shift by whole sixteenths</td><td>100.0%</td><td>0.0%</td><td>77.9%</td><td>37.6%</td><td>63.7%</td><td>0.97&times;</td></tr>
+<tr><td>shift by whole beats</td><td>100.0%</td><td>0.0%</td><td>24.4%</td><td>38.3%</td><td>62.2%</td><td>0.99&times;</td></tr>
+<tr><td>bar index, position-in-bar kept</td><td>100.0%</td><td>56.6%</td><td>0.2%</td><td>39.0%</td><td>63.1%</td><td>0.98&times;</td></tr>
+<tr><td>bar index, meter must match</td><td>100.0%</td><td>100.0%</td><td>0.3%</td><td>39.8%</td><td>62.4%</td><td>0.99&times;</td></tr>
+<tr><td>bar index, same section</td><td>100.0%</td><td>100.0%</td><td>100.0%</td><td>0.0%</td><td>57.4%</td><td>1.08&times;</td></tr>
+<tr><td>one offset per source bar</td><td>100.0%</td><td>54.5%</td><td>0.2%</td><td>26.5%</td><td>63.1%</td><td>0.98&times;</td></tr>
+<tr><td><b>shift by k &times; mean bar duration in TIME</b></td><td><b>2.8%</b></td><td>0.0%</td><td>0.2%</td><td>0.0%</td><td><b>49.1%</b></td><td>1.26&times;</td></tr>
+<tr><td>uniform random notation time</td><td>3.9%</td><td>0.0%</td><td>8.4%</td><td>0.0%</td><td>51.5%</td><td>1.20&times;</td></tr>
+</table></div>
+<p><b>The historical 49.0 percent is reproduced to 0.1 points</b> by a displacement measured in
+time, with an unambiguous signature: <b>sixteenth-phase preservation falls from 100 percent to
+2.8 percent</b>. Every phase-preserving procedure lands between 62.2 and 63.7 percent. Seed
+spread 0.38 points across three seeds, so it is stable rather than tuned.</p>
+<h3>The two do not share a window</h3>
+<div class="scroll"><table>
+<tr><th>window</th><th>ghost observed</th><th>plain observed</th><th>time-shift null</th><th>ratio</th></tr>
+<tr><td><b>45 ms, the spec</b></td><td>61.9%</td><td>67.2%</td><td><b>49.0%</b></td><td>1.26&times;</td></tr>
+<tr><td><b>65 ms</b></td><td><b>69.9%</b></td><td><b>74.0%</b></td><td>59.9%</td><td>1.17&times;</td></tr>
+<tr><td>historical</td><td>71.3%</td><td>75.3%</td><td>49.0%</td><td>1.45&times;</td></tr>
+</table></div>
+<div class="card pur">
+<p class="k">The historical 1.45&times; is a cross-window combination on a phase-destroying null</p>
+<p>The numerator matches at 65 ms, the denominator at 45 ms. Taking the numerator from the 65 ms
+row and the denominator from the 45 ms row gives <b>1.43&times;</b> against the historical
+1.45&times;. Measured consistently at one window the ratio is <b>1.26&times; or 1.17&times;</b>,
+never 1.45&times;. Both halves are now accounted for and neither survives a single consistent
+procedure.</p>
 </div>
 
 <h2 id="s11j">11j. The ledger, and three corrections to my own earlier claims</h2>
