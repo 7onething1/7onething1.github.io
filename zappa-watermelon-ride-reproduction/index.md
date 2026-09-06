@@ -308,6 +308,59 @@ the 65 ms row and the denominator from the 45 ms row gives 1.43x against the his
 phase-destroying null.** Both halves are now accounted for, and neither survives a single
 consistent procedure.
 
+## 8.4 THE VERDICT GATE OVERRULES EVERY RATE ABOVE, and names why
+
+`/notation-evidence-gate` was run over this document and `verdict_gate.py` over its numbers.
+Both are the authority here and both were run before any done-claim.
+
+**Every rate in sections 8.1 to 8.3 is UNUSABLE, and not because of the cross-window finding.**
+`verdict_gate.py` rejects them all on density:
+
+| claim | observed | baseline | ratio | verdict |
+|---|---|---|---|---|
+| ghost ride vs grid-preserving null, 45 ms | 61.9% | 63.3% | 0.98x | **UNUSABLE**, baseline over the 35% ceiling |
+| plain ride vs grid-preserving null, 45 ms | 67.2% | 68.6% | 0.98x | **UNUSABLE**, baseline over the ceiling |
+| ghost ride, 65 ms window | 69.9% | 70.9% | 0.99x | **UNUSABLE**, baseline over the ceiling |
+| **ghost ride vs the TIME-SHIFT null, the historical construction** | 61.9% | **49.0%** | 1.26x | **UNUSABLE**, baseline over the ceiling |
+
+Above a 35 percent chance baseline a small excess goes significant while meaning nothing. The
+historical 49.0 percent null sits well above it, so **the 1.45x was unusable on density grounds
+before any question of which window it came from**.
+
+### The prescribed repair, run
+
+FMP 6.1.2, a sparser onset representation: log compression `Y = log(1 + 100|X|)`, positive
+first difference per subband across 2-4, 4-6, 6-9 and 9-12 kHz, summed, local average over
+300 ms subtracted, then peak-picked with a 50 ms refractory gap. `tools/sparse_novelty.py`.
+
+| picker | peaks | rate | tolerance | ghost | null | ratio | null under 35% |
+|---|---|---|---|---|---|---|---|
+| k=4 | 1,830 | 3.36/s | 30 ms | 33.7% | 31.1% | 1.08x | **yes** |
+| k=6 | 1,483 | 2.72/s | 30 ms | 29.7% | 26.4% | 1.13x | **yes** |
+| **k=8** | **1,322** | **2.42/s** | **30 ms** | **27.7%** | **24.2%** | **1.15x** | **yes** |
+
+Three configurations finally clear the density ceiling. Their formal verdicts:
+
+| claim | observed | baseline | ratio | binomial p | verdict |
+|---|---|---|---|---|---|
+| ghost ride, k=8, 30 ms | 27.7% | 24.2% | 1.15x | 0.00174 | **UNDETERMINED** |
+| ghost ride, k=6, 30 ms | 29.7% | 26.4% | 1.13x | 0.00385 | **UNDETERMINED** |
+| **plain ride, k=8, 30 ms** | **27.7%** | 24.2% | **1.14x** | 0.0574 | **UNDETERMINED** |
+
+**UNDETERMINED is the endpoint, and under the gate it is never evidence against a tab.** Ghost
+at 1.15x and plain at 1.14x are indistinguishable, which is the same conclusion the metric
+confound in section 3.1 predicts.
+
+### What the gate settles, and what it refuses to settle
+
+**Settled, symbol semantics and lane convention only.** Weinberg makes a parenthesised notehead
+a ghost stroke and extends it to cymbals, so the 1,316 marks on the **Ride (middle) lane** are
+well-formed notation. The burden of proof sits on any revision that deletes them.
+
+**Refused.** Weinberg does not establish that Vinnie played 1,316 quiet ride strokes on this
+take. That is performance evidence and the audio returns UNDETERMINED. Saying the standard
+settles the symbol and therefore settles the performance collapses two different questions.
+
 ## 9. THE LEDGER, and three corrections to my own earlier statements
 
 ### Correction 1: the refined map is not independently validated
@@ -486,7 +539,7 @@ As Played In Joe's Garage Record, for Solo Guitar & Drums.** Section marker `(1:
 
 | the chart shows | this reconstruction measured | agreement |
 |---|---|---|
-| tempo mark **quarter = 55.47** | snare-anchored effective **55.33 BPM** | 0.25% |
+| tempo mark **quarter = 55.47** | snare-anchored effective **55.33 BPM** (offset 37.590 s, scale 1.0122, tolerance 80 ms, 93 of 193 notated snare matched) | 0.25% |
 | alternating **4/4 and 5/4** within each system | 53x 4/4 and 52x 5/4 in the tab | exact |
 | ride as a **continuous beamed sixteenth stream** of X noteheads | 1,724 ride occupying ~94% of eighth positions | exact |
 | dynamic hierarchy written with **`>` accents** on selected notes | Dibden writes it with parentheses on offbeats | same content, two conventions |
@@ -507,14 +560,17 @@ section **Ghost Strokes**, plate **Ex. 11 "Parenthetical Notes for Ghost Strokes
 > strokes written as parenthetical notes allow the use of this performance technique on **any
 > type of instrument (drums, cymbals, cowbells, etc.)**"
 
-Ex. 11 draws three parenthesised noteheads and the third is a **parenthesised X notehead above
-the top staff line**, a ghosted cymbal. So the 1,316 ride ghosts in `PRESWEEP-r7715683.gp` are
+Ex. 11 draws three parenthesised noteheads. Two sit on drum lanes inside the staff. The third is a
+**parenthesised X notehead above the top staff line, which is the hand cymbal lane**, so the mark is
+a ghosted cymbal stroke. Lane matters: the same parenthesis on the snare lane and on the ride lane
+are two different strokes under Weinberg. So the 1,316 ride ghosts in `PRESWEEP-r7715683.gp` are
 standard-sanctioned notation, and the sweep removed a convention rather than a defect.
 
 ## 9d. GHOST AGAINST STACCATO, one predicate on both sides
 
-The Montana repair converted ghosts into staccato dots, which is a substitution a count check
-cannot see. Tested here with the same predicate applied to both flags in all three files.
+The Montana repair converted ghosts into staccato dots on the **snare lane**, which is a
+substitution a count check cannot see. The s35881 flags sit on the **Ride (middle) lane, MIDI 51,
+StaffLine 0**, and on one Crash high, so the two songs are being compared lane by lane. Tested here with the same predicate applied to both flags in all three files.
 
 | file | AntiAccent | Staccato | both on one note |
 |---|---|---|---|

@@ -103,7 +103,7 @@ one labelling decision rather than 1,316 per-stroke judgements.</p>
 <li><a href="#s11">Spectral identity of disputed positions</a></li>
 <li><a href="#s11b">Positive control</a></li>
 <li><a href="#s11c">The decay-prediction test</a></li>
-<li><a href="#s11k">Both tracks reconstructed</a></li>\n<li><a href="#s11j">The ledger and three corrections</a></li>\n<li><a href="#s11g">The discrepancy is the null</a></li>\n<li><a href="#s11h">The observed-rate gap is the window</a></li>\n<li><a href="#s11i">The 1.19x vs 1.45x gap, reconciled</a></li>
+<li><a href="#s11z">The notation-evidence gate verdict</a></li>\n<li><a href="#s11k">Both tracks reconstructed</a></li>\n<li><a href="#s11j">The ledger and three corrections</a></li>\n<li><a href="#s11g">The discrepancy is the null</a></li>\n<li><a href="#s11h">The observed-rate gap is the window</a></li>\n<li><a href="#s11i">The 1.19x vs 1.45x gap, reconciled</a></li>
 <li><a href="#s11d">The eye overrules the detector</a></li>
 <li><a href="#s11e">Published notation authority</a></li>
 <li><a href="#s11f">Ghost against staccato</a></li>
@@ -418,6 +418,44 @@ rather than of a new strike. Plain strike 8,219 Hz, ghost slot 8,486 Hz, control
 <p>In the envelope domain the notated ghost slot carries only <b>marginally</b> more excess over
 the predicted tail than an off-grid control does, at two-sided p = 0.093. That is <b>weak and
 not significant</b>. It does not demonstrate added strokes, and it does not exclude them.</p>
+</div>
+
+<h2 id="s11z">11z. The notation-evidence gate overrules every rate on this page</h2>
+<p><code>/notation-evidence-gate</code> and its <code>verdict_gate.py</code> were run before any
+done-claim. Both are the authority here, and they reject the rates on density grounds rather
+than on the cross-window finding.</p>
+<div class="scroll"><table>
+<tr><th>claim</th><th>observed</th><th>baseline</th><th>ratio</th><th>verdict</th></tr>
+<tr><td>ghost ride vs grid-preserving null, 45 ms</td><td>61.9%</td><td>63.3%</td><td>0.98&times;</td><td><b>UNUSABLE</b>, baseline over the 35% ceiling</td></tr>
+<tr><td>plain ride vs grid-preserving null, 45 ms</td><td>67.2%</td><td>68.6%</td><td>0.98&times;</td><td><b>UNUSABLE</b></td></tr>
+<tr><td>ghost ride, 65 ms window</td><td>69.9%</td><td>70.9%</td><td>0.99&times;</td><td><b>UNUSABLE</b></td></tr>
+<tr><td><b>ghost ride vs the TIME-SHIFT null, the historical construction</b></td><td>61.9%</td><td><b>49.0%</b></td><td>1.26&times;</td><td><b>UNUSABLE</b>, baseline over the ceiling</td></tr>
+</table></div>
+<div class="card red">
+<p class="k">The historical 1.45&times; was unusable on density before any window question</p>
+<p>Above a 35 percent chance baseline a small excess goes significant while meaning nothing. The
+historical 49.0 percent null sits well above that ceiling.</p>
+</div>
+<h3>The prescribed repair, run</h3>
+<p>FMP 6.1.2, a sparser onset representation: log compression <code>Y = log(1 + 100|X|)</code>,
+positive first difference per subband across 2-4, 4-6, 6-9 and 9-12 kHz, summed, local average
+over 300 ms subtracted, peak-picked with a 50 ms refractory gap.</p>
+<div class="scroll"><table>
+<tr><th>claim</th><th>observed</th><th>baseline</th><th>ratio</th><th>binomial p</th><th>verdict</th></tr>
+<tr><td>ghost ride, k=8, 30 ms</td><td>27.7%</td><td>24.2%</td><td>1.15&times;</td><td>0.00174</td><td><b>UNDETERMINED</b></td></tr>
+<tr><td>ghost ride, k=6, 30 ms</td><td>29.7%</td><td>26.4%</td><td>1.13&times;</td><td>0.00385</td><td><b>UNDETERMINED</b></td></tr>
+<tr><td><b>plain ride, k=8, 30 ms</b></td><td><b>27.7%</b></td><td>24.2%</td><td><b>1.14&times;</b></td><td>0.0574</td><td><b>UNDETERMINED</b></td></tr>
+</table></div>
+<div class="card pur">
+<p class="k">UNDETERMINED is the endpoint, and it is never evidence against a tab</p>
+<p>Ghost at 1.15&times; and plain at 1.14&times; are indistinguishable, which is what the 99.9
+percent metric confound predicts. Both sit below the 1.5&times; floor, so neither is carried as
+support.</p>
+<p><b>Settled, symbol semantics and lane convention only.</b> Weinberg makes a parenthesised
+notehead a ghost stroke and extends it to cymbals, so the 1,316 marks on the Ride (middle) lane
+are well-formed notation. <b>Refused.</b> He does not establish that Vinnie played 1,316 quiet
+ride strokes on this take. That is performance evidence, and the audio returns UNDETERMINED.</p>
+<p>The gated claim set, HARD 0 under the gate, is at <a href="claims.md">claims.md</a>.</p>
 </div>
 
 <h2 id="s11k">11k. Both tracks reconstructed</h2>
