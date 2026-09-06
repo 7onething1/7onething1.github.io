@@ -1,6 +1,6 @@
 # Printed charts we own and never applied
 
-Twelve printed charts sit on disk here, three of them have been applied to a tab, and nine have never been used at all. Measured 2026-09-06.
+Twelve printed charts sit on disk here, three of them have been applied to a tab, and nine have never been used at all. All figures were measured on 2026-09-06.
 
 **Every applied chart is on one song.** Ryan Brown, Daniel Bedard and Drumnet were all used
 on Zomby Woof, cited by name in revisions r8905411 and r8905491. Across every other song in
@@ -39,7 +39,7 @@ Charts on disk:
 
 - **Drumnet.ru**, BartoRomeo, Solo Guitar & Drums. `~/Projects/_outputs/zappa-drum-sources/06-drumnet/Watermelon-In-Easter-Hay_p1.jpg`. five A4 pages, marked (1:20) A, quarter = 55.47, bar numbers in the margin.
 
-**The gap.** Our own strip removed <b>1,317 parenthesised noteheads</b> and it is still the published state. The restore r8908034 sits pending. 1,724 of the surviving notes are ride cymbal.
+**The gap.** Our own strip removed <b>1,317 parenthesised noteheads</b> and it is still the published state. The restore revision r8908034 is still sitting in moderation. 1,724 of the surviving notes are ride cymbal.
 
 **What the chart supplies.** A five-page chart of this exact recording has sat unread beside a tab we damaged. It would settle the ghost question from a printed source instead of from our own reasoning.
 
@@ -95,7 +95,7 @@ Charts on disk:
 
 ## The three that were applied
 
-All on Zomby Woof s412162. Ryan Brown's Groove Analysis in DRUM Magazine, Daniel Bedard's
+All three of them landed on Zomby Woof s412162. Ryan Brown's Groove Analysis in DRUM Magazine, Daniel Bedard's
 handwritten chart and the Drumnet drumset sheet are each named in the descriptions of
 revisions r8905411 and r8905491. Both are pending moderation, so the corrections are queued
 and not published.
