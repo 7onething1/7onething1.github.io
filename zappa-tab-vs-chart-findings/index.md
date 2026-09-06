@@ -48,6 +48,17 @@ location, so the block differs by 12 sixteenths, three whole beats. No audio on 
 collection holding All Blues (Jeff Wald), Dong Work For Yuda (Chris Brady) and a **complete
 Keep It Greasy transcription by Marc Atkinson, October 2000**, unread.
 
+### The biggest single-bar gap: 12 notes against 2
+
+Drumnet's bar 14 and the tab's bar 15 are **both 2/4** between the same neighbours. Drumnet
+has **12** noteheads, two beamed groups of six, all on one staff position, drawn as downward
+triangles. The tab has **2**: snare with pedal hi-hat on beat one, then nothing.
+
+Correction to my own earlier reading: I called that segment two merged bars because it
+measured 386 px per beat against a 208 median. It is one dense bar. The earlier row claiming
+the tab ran 10 events long in Drumnet bar 13 is withdrawn too, because the watermark crosses
+that system and the detector returned 7 heads where the eye gives about 19 against the tab's 17.
+
 ## What separates the two kinds of tab
 
 Both human tabs track their charts. The machine tabs fail in a shape: identical bars
