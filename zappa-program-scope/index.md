@@ -62,6 +62,50 @@ Both tabs kept every ghost flag because the block landed before publication. Acr
 revisions this account holds on Zappa tabs, no restore has drawn a report and none has been
 rejected.
 
+## 0d. Disk verification: the restores carry the notation, not just the wording
+
+The revision description is self-reported and the submit box does not always get filled in, so a
+description claiming a restore proves nothing. Every `.gp` in the repair tree was re-counted on
+2026-09-06, walking `Beat -> Notes` references rather than the file's Notes pool.
+
+**The counting trap.** GPIF `<Note>` elements are shared definitions. Inca Roads holds 14 Note
+elements carrying `<AntiAccent>` and those 14 are referenced 174 times across beats. A grep of the
+raw XML returns 14 and reads as near-absence. That is how
+`reference_inca_roads_baseline_gp_is_post_sweep` came to declare a good pre-sweep baseline useless.
+Corrected 2026-09-06.
+
+| song id | title | baseline | after strip | restore file | removed | verdict |
+|---|---|---:|---:|---:|---:|---|
+| s35881 | Watermelon In Easter Hay | 1,333 | 16 | 1,333 | 1,317 | confirmed |
+| s35886 | Muffin Man | 613 | 35 | 613 | 578 | confirmed |
+| s620961 | Drowning Witch | 496 | 77 | 496 | 419 | confirmed |
+| s35870 | Montana | 574 | 257 | 574 | 317 | confirmed |
+| s1105085 | The Black Page | 173 | none on disk | 173 | 173 | restore matches baseline |
+| s35878 | Nanook Suite | 171 | none on disk | 171 | 168 | restore matches baseline |
+| s35865 | Nanook Rubs It | 168 | none on disk | 168 | 168 | restore matches baseline |
+| s412178 | Inca Roads | 174 | none on disk | 174 | 165 | confirmed vs live JSON |
+| s68248 | Carolina Hard-Core Ecstasy | 144 | 0 | 144 | 144 | confirmed |
+| s35884 | Oh No | 141 | 0 | 141 | 141 | confirmed |
+| s68246 | Alien Orifice | 97 | 11 | 97 | 86 | confirmed |
+| s35887 | What's New In Baltimore? | 59 | 0 | 59 | 59 | confirmed |
+| s748459 | Fembot In A Wet T-Shirt | 59 | 2 | 59 | 57 | confirmed |
+| s20690 | Uncle Meat (YCDTOSA Vol. 2) | 84 | 60 | 84 | 24 | confirmed |
+| s749523 | Catholic Girls | 16 | 0 | 16 | 16 | confirmed |
+| s5820647 | Zomby Woof (Mothers) | 10 | 0 | 10 | 10 | confirmed |
+
+- **Every restore file equals its own baseline exactly**, on all sixteen songs.
+- **Twelve songs keep a post-strip export on disk and all twelve confirm the damage number**
+  independently of any description.
+- **Montana's damage is lane-visible.** Baseline carries Ralph Humphrey 212 and Percussion 105,
+  together the claimed 317, and the published export carries zero on both staves.
+- **Four songs keep no post-strip export.** Inca Roads was settled against the live part JSON, which
+  returns Chester Thompson 165, Frank Zappa 6 and Ruth Underwood 3, matching the disk file exactly.
+
+**One limit.** This census reads markings attached to a Note. A staccato dot attaches to a Beat in
+GPIF, so the Montana claim that 317 ghosts were re-written as staccato dots is outside what this
+count can see.
+
+
 ## 1. The program
 
 Frank Zappa drum transcriptions on Songsterr are being repaired against professional printed charts

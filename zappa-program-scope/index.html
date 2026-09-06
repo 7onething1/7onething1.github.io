@@ -59,7 +59,7 @@ song and the receiving chat inherited no outline. Every count below was read liv
 <div class="stat"><b>12</b><span>printed charts on disk</span></div>
 <div class="stat"><b>3</b><span>charts ever applied</span></div>
 <div class="stat"><b>87</b><span>open queue items</span></div>
-<div class="stat"><b>16</b><span>baselines held on disk</span></div>
+<div class="stat"><b>16 / 16</b><span>restores verified in notation</span></div>
 <div class="stat"><b>32</b><span>published audit pages</span></div>
 </div>
 
@@ -77,6 +77,7 @@ pages. This page is the outline that was missing.</p>
 <li><a href="#s0">The plan, corrected</a></li>
 <li><a href="#s0b">Phase 1 audit, per song</a></li>
 <li><a href="#s0c">What the moderators said</a></li>
+<li><a href="#s0d">Disk verification of the restores</a></li>
 <li><a href="#s1">The program in one paragraph</a></li>
 <li><a href="#s2">Six workstreams</a></li>
 <li><a href="#s3">The ghost-note sweep and its damage</a></li>
@@ -174,6 +175,69 @@ wording. Blocked.</li>
 <p>Both tabs kept every ghost flag because the block landed before publication. Across all 48
 revisions this account has on Zappa tabs, no restore has drawn a report and none has been rejected.
 The pressure is real, and its measured source is the deletions rather than the repairs.</p>
+</div>
+
+<h2 id="s0d">0d. Disk verification: the restores carry the notation, not just the wording</h2>
+<div class="card red">
+<p class="k">The revision description is self-reported and is not evidence</p>
+<p>Brandon's correction, 2026-09-06: the submit box does not always get filled in, so a description
+claiming a restore proves nothing. The check that counts is the notation itself. Every
+<code>.gp</code> in the repair tree was re-counted on 2026-09-06, and the count walks
+<code>Beat &rarr; Notes</code> references rather than the file's Notes pool.</p>
+</div>
+<div class="card amber">
+<p class="k">The counting trap that has already produced one wrong verdict</p>
+<p>GPIF <code>&lt;Note&gt;</code> elements are shared definitions. Inca Roads holds
+<b>14</b> Note elements carrying <code>&lt;AntiAccent&gt;</code> and those 14 are referenced
+<b>174</b> times across beats. A grep of the raw XML returns 14 and reads as near-absence. That is
+how <code>reference_inca_roads_baseline_gp_is_post_sweep</code> came to declare a good pre-sweep
+baseline useless, and it was corrected on 2026-09-06. Never count a marking by grepping the pool.</p>
+</div>
+<p>Baseline is the author's pre-sweep file. After strip is our published export where one survives
+on disk. Restore file is the built repair. Removed is the damage the ledger claims.</p>
+<div class="scroll"><table>
+<tr><th>song id</th><th>title</th><th style="text-align:right">baseline</th>
+<th style="text-align:right">after strip</th><th style="text-align:right">restore file</th>
+<th style="text-align:right">removed</th><th>verdict</th></tr>
+<tr><td><code>s35881</code></td><td>Watermelon In Easter Hay</td><td style="text-align:right">1,333</td><td style="text-align:right">16</td><td style="text-align:right"><b>1,333</b></td><td style="text-align:right">1,317</td><td><span class="tag t-green">confirmed</span></td></tr>
+<tr><td><code>s35886</code></td><td>Muffin Man</td><td style="text-align:right">613</td><td style="text-align:right">35</td><td style="text-align:right"><b>613</b></td><td style="text-align:right">578</td><td><span class="tag t-green">confirmed</span></td></tr>
+<tr><td><code>s620961</code></td><td>Drowning Witch</td><td style="text-align:right">496</td><td style="text-align:right">77</td><td style="text-align:right"><b>496</b></td><td style="text-align:right">419</td><td><span class="tag t-green">confirmed</span></td></tr>
+<tr><td><code>s35870</code></td><td>Montana</td><td style="text-align:right">574</td><td style="text-align:right">257</td><td style="text-align:right"><b>574</b></td><td style="text-align:right">317</td><td><span class="tag t-green">confirmed</span></td></tr>
+<tr><td><code>s1105085</code></td><td>The Black Page</td><td style="text-align:right">173</td><td style="text-align:right"><span class=mut>none on disk</span></td><td style="text-align:right"><b>173</b></td><td style="text-align:right">173</td><td><span class="tag t-blue">restore matches baseline</span></td></tr>
+<tr><td><code>s35878</code></td><td>Nanook Suite</td><td style="text-align:right">171</td><td style="text-align:right"><span class=mut>none on disk</span></td><td style="text-align:right"><b>171</b></td><td style="text-align:right">168</td><td><span class="tag t-blue">restore matches baseline</span></td></tr>
+<tr><td><code>s35865</code></td><td>Nanook Rubs It</td><td style="text-align:right">168</td><td style="text-align:right"><span class=mut>none on disk</span></td><td style="text-align:right"><b>168</b></td><td style="text-align:right">168</td><td><span class="tag t-blue">restore matches baseline</span></td></tr>
+<tr><td><code>s412178</code></td><td>Inca Roads</td><td style="text-align:right">174</td><td style="text-align:right"><span class=mut>none on disk</span></td><td style="text-align:right"><b>174</b></td><td style="text-align:right">165</td><td><span class="tag t-green">confirmed vs live JSON</span></td></tr>
+<tr><td><code>s68248</code></td><td>Carolina Hard-Core Ecstasy</td><td style="text-align:right">144</td><td style="text-align:right">0</td><td style="text-align:right"><b>144</b></td><td style="text-align:right">144</td><td><span class="tag t-green">confirmed</span></td></tr>
+<tr><td><code>s35884</code></td><td>Oh No</td><td style="text-align:right">141</td><td style="text-align:right">0</td><td style="text-align:right"><b>141</b></td><td style="text-align:right">141</td><td><span class="tag t-green">confirmed</span></td></tr>
+<tr><td><code>s68246</code></td><td>Alien Orifice</td><td style="text-align:right">97</td><td style="text-align:right">11</td><td style="text-align:right"><b>97</b></td><td style="text-align:right">86</td><td><span class="tag t-green">confirmed</span></td></tr>
+<tr><td><code>s35887</code></td><td>What&#x27;s New In Baltimore?</td><td style="text-align:right">59</td><td style="text-align:right">0</td><td style="text-align:right"><b>59</b></td><td style="text-align:right">59</td><td><span class="tag t-green">confirmed</span></td></tr>
+<tr><td><code>s748459</code></td><td>Fembot In A Wet T-Shirt</td><td style="text-align:right">59</td><td style="text-align:right">2</td><td style="text-align:right"><b>59</b></td><td style="text-align:right">57</td><td><span class="tag t-green">confirmed</span></td></tr>
+<tr><td><code>s20690</code></td><td>Uncle Meat (YCDTOSA Vol. 2)</td><td style="text-align:right">84</td><td style="text-align:right">60</td><td style="text-align:right"><b>84</b></td><td style="text-align:right">24</td><td><span class="tag t-green">confirmed</span></td></tr>
+<tr><td><code>s749523</code></td><td>Catholic Girls</td><td style="text-align:right">16</td><td style="text-align:right">0</td><td style="text-align:right"><b>16</b></td><td style="text-align:right">16</td><td><span class="tag t-green">confirmed</span></td></tr>
+<tr><td><code>s5820647</code></td><td>Zomby Woof (Mothers)</td><td style="text-align:right">10</td><td style="text-align:right">0</td><td style="text-align:right"><b>10</b></td><td style="text-align:right">10</td><td><span class="tag t-green">confirmed</span></td></tr>
+</table></div>
+<div class="card green">
+<p class="k">What the notation shows</p>
+<ul>
+<li><b>Every restore file equals its own baseline exactly</b>, on all sixteen songs. No restore is
+partial and none is a re-export of a stripped tab.</li>
+<li><b>Twelve songs keep a post-strip export on disk, and all twelve confirm the damage number</b>
+independently of any description. Watermelon 1,333 down to 16 is the claimed 1,317. Carolina,
+Oh No, Baltimore, Catholic Girls and the Mothers Zomby Woof all fell to zero.</li>
+<li><b>Montana's damage is lane-visible.</b> The baseline carries Ralph Humphrey 212 and Percussion
+105, together the claimed 317, and the published export carries zero on both staves while every
+guitar and vocal staff is untouched.</li>
+<li><b>Four songs keep no post-strip export</b>, so the disk cannot show their damage. Inca Roads was
+settled against the live part JSON instead, which returns Chester Thompson 165, Frank Zappa 6 and
+Ruth Underwood 3, matching the disk file exactly. Black Page, Nanook Suite and Nanook Rubs It rest
+on baseline-equals-restore alone.</li>
+</ul>
+</div>
+<div class="card">
+<p class="k">One limit worth stating</p>
+<p>This census reads markings attached to a Note. A staccato dot attaches to a Beat in GPIF, so the
+Montana claim that 317 ghosts were re-written as staccato dots is outside what this count can see.
+The ghost side of that claim is confirmed and the dot side is not measured here.</p>
 </div>
 
 <h2 id="s1">1. The program in one paragraph</h2>
