@@ -16,7 +16,7 @@ added or removed.
 | R at 134 in that window | **0.0167**, below its own null of 0.0518 |
 | Metronome intervals on a 20 ms lattice | **1,170 of 1,170** |
 | Estimator error at matched difficulty, end to end | **0.04 BPM** |
-| Cross-family offset range for measure 102 | **4.290 s, anchor unmeasured** |
+| External sources beating chance on held-out landmarks | **1 of 7** |
 | Ghost flags touched | **0 of 629** |
 
 ## 0. Scope limit, read this first
@@ -347,8 +347,42 @@ point estimates selected at the published cut, offsets span **4.290 s**. Of six 
 scan-aware permutation null**. A within-part target-excluded alignment from kick places measure 102
 near 198.037 s, pending held-out snare testing and an independent external landmark set.
 
+
+### Run three: the external route, on the review's own design
+
+Queue item `q-2026-09-06-c1d6d3`, taken in the same pass. Several distinctive lead and vocal landmarks
+rather than one entrance, a **local map instead of one global offset**, monotonic with a slope-change
+penalty of 0.5 s per two-measure block, and **every landmark set split so the fit is scored only on
+held-out events**. No part 8 lane enters.
+
+| Source | Stem | Landmarks | Held out | Offset at m102 | Local drift | Held-out rate | Over chance | Residual |
+|---|---|---|---|---|---|---|---|---|
+| part 0 Ike Willis vocals | vocals | 26 | 13 | -2.726 | 0.08 s | 0.308 | **0.75x** | 50.6 ms |
+| part 5 harmonies | backing_vocals | 19 | skipped, too few landmarks | | | | | |
+| part 2 Frank Zappa solo | lead | 17 | skipped, too few landmarks | | | | | |
+| part 4 Arthur Barrow bass | bass | 183 | 91 | +1.704 | 1.83 s | 0.363 | **1.55x** | 42.5 ms |
+| part 6 Peter Wolf wurlitzer | piano | 35 | 17 | -1.154 | 2.52 s | 0.000 | **0.00x** | 255.5 ms |
+| part 7 Warren Cuccurullo | rhythm | 270 | 135 | +0.782 | **5.19 s** | 0.333 | 1.38x | 50.8 ms |
+| part 1 Warren Cuccurullo | rhythm | 6 | skipped, too few landmarks | | | | | |
+
+**VERDICT: one source of seven beats 1.5x on held-out landmarks.** Only the bass clears it, at 1.55x
+with a 42.5 ms median held-out residual. **One passing source cannot be cross-checked**, so no
+external anchor is established.
+
+Two further signs that vote is weak. The bass says **+1.704 s** under the local map and **+0.412 s**
+under the global scan, a **1.29 s swing between two fitting procedures on the same source**. Its local
+map absorbs 1.83 s of drift across 26 measures, which the penalty permits by design. The guitar map
+wanders **5.19 s** while still scoring 1.38x, which is what an over-free local map looks like and is
+why held-out scoring was used.
+
+**Why the lead and vocal route could not be run as designed.** In measures 90 to 116 the Zappa solo
+part carries **17** notated onsets and the harmony part **19**, too few to fit a local map across
+thirteen blocks. The vocal part has 26 and scores **below chance** on held-out events. The landmarks
+the design needs are not present in this passage of the score.
+
 Nothing about the tempo measurement changes. That result covers the audio between 198 and 238 s and
-nothing wider. **No external evidence on this machine places that window at measures 102 to 104.**
+nothing wider. **No external evidence on this machine places that window at measures 102 to 104**, and
+the external route is now measured rather than merely untried.
 
 **Carried limitation.** The +5.5 ms detector lateness subtracted here was measured on **modelled kit
 transients only**. Bass, piano and cymbal attacks may each carry their own latency. That is small beside a seconds-wide
