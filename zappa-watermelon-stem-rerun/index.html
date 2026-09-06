@@ -1,0 +1,242 @@
+<!DOCTYPE html><html lang="en"><head><meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Watermelon: the isolated-stem rerun</title>
+<style>
+:root{--bg:#f4f1e8;--ink:#2b2a26;--mut:#6f6a5d;--line:#d8d2c0;--card:#fffdf6;
+--red:#b23a2e;--amber:#c98a2b;--green:#4d7c4a;--blue:#3c5f7a;--pur:#6b4f7a}
+*{box-sizing:border-box}
+body{margin:0;background:var(--bg);color:var(--ink);
+font:16px/1.62 "Iowan Old Style",Palatino,Georgia,serif;padding:0 0 90px}
+header{background:#2b2a26;color:#f4f1e8;padding:38px 24px 30px}
+.wrap{max-width:1120px;margin:0 auto;padding:0 24px}
+h1{margin:0 0 8px;font-size:31px;letter-spacing:-.01em}
+header p{margin:5px 0 0;color:#c9c2ad;font-size:15px;max-width:82ch}
+h2{margin:46px 0 10px;font-size:22px;border-bottom:2px solid var(--line);padding-bottom:6px}
+h3{margin:26px 0 8px;font-size:17px}
+.tag{display:inline-block;font:600 10.5px/1 -apple-system,system-ui,sans-serif;
+letter-spacing:.05em;text-transform:uppercase;padding:4px 8px;border-radius:3px;color:#fff;white-space:nowrap}
+.t-red{background:var(--red)}.t-amber{background:var(--amber)}.t-green{background:var(--green)}
+.t-blue{background:var(--blue)}.t-pur{background:var(--pur)}
+table{width:100%;border-collapse:collapse;margin:14px 0;background:var(--card);font-size:14px}
+th,td{border:1px solid var(--line);padding:7px 10px;text-align:left;vertical-align:top}
+th{background:#ebe6d6;font:600 12.5px/1.3 -apple-system,system-ui,sans-serif}
+code{background:#ebe6d6;padding:1px 5px;border-radius:3px;font:12.5px/1.4 ui-monospace,Menlo,monospace}
+pre{background:#2b2a26;color:#f0ecdf;padding:14px 18px;border-radius:3px;overflow-x:auto;
+font:12.5px/1.55 ui-monospace,Menlo,monospace}
+pre code{background:none;color:inherit;padding:0}
+.hash{font:11px/1.4 ui-monospace,Menlo,monospace;word-break:break-all}
+.card{background:var(--card);border:1px solid var(--line);border-left:5px solid var(--blue);
+padding:15px 20px;margin:16px 0;border-radius:2px}
+.card.red{border-left-color:var(--red)}.card.amber{border-left-color:var(--amber)}
+.card.green{border-left-color:var(--green)}.card.pur{border-left-color:var(--pur)}
+.k{font-weight:700;margin:0 0 6px}
+.mut{color:var(--mut)}
+ul,ol{margin:8px 0 8px 20px;padding:0}li{margin:5px 0}
+.scroll{overflow-x:auto}
+a{color:var(--blue)}
+.stats{display:grid;grid-template-columns:repeat(auto-fit,minmax(148px,1fr));gap:12px;margin:22px 0}
+.stat{background:var(--card);border:1px solid var(--line);padding:14px 16px;border-radius:2px}
+.stat b{display:block;font-size:27px;line-height:1.1;letter-spacing:-.02em}
+.stat span{font:600 11px/1.35 -apple-system,system-ui,sans-serif;text-transform:uppercase;
+letter-spacing:.05em;color:var(--mut);display:block;margin-top:5px}
+.toc{background:var(--card);border:1px solid var(--line);padding:16px 22px;margin:24px 0;border-radius:2px;
+column-count:2;column-gap:34px}
+.toc ol{margin:0 0 0 18px}
+footer{margin-top:50px;padding-top:18px;border-top:1px solid var(--line);color:var(--mut);font-size:13.5px}
+.hl{background:#f6edcd;padding:0 3px}
+.neg{color:var(--red);font-weight:700}
+@media(max-width:720px){.toc{column-count:1}}
+</style></head><body>
+<header><div class="wrap">
+<h1>Watermelon In Easter Hay: the isolated-stem rerun</h1>
+<p>Songsterr <code>s35881</code>, drum track "Vinnie Colaiuta". Queue item
+<code>q-2026-09-06-855491</code>, run on MacBookPro 2026-09-06 against the 15 isolated stems at
+<code>/Users/Shared/206 Watermelon in Easter Hay-E major-112bpm-442hz/</code>.</p>
+<p style="margin-top:10px;color:#e6c98a">Jacks-iMac does not hold those stems, so every audio
+number in the incoming handoff came from the full mix after HPSS. The isolated stem was the
+named fix. This page is that fix, carried out.</p>
+</div></header>
+<div class="wrap">
+
+<div class="stats">
+<div class="stat"><b>2 / 4</b><span>hat-stem landmark hits</span></div>
+<div class="stat"><b>0.1995</b><span>p_perm, hat stem</span></div>
+<div class="stat"><b>0.202</b><span>p_perm, full mix</span></div>
+<div class="stat"><b>44.6%</b><span>snare-stem affine rate</span></div>
+<div class="stat"><b>42.5%</b><span>rate of a WRONG recording</span></div>
+<div class="stat"><b>&minus;49.4 ms</b><span>mean hat-stem lead</span></div>
+<div class="stat"><b>4 / 4</b><span>leave-one-out on the bias</span></div>
+<div class="stat"><b>545.27 s</b><span>stem and source agree</span></div>
+</div>
+
+<div class="card red">
+<p class="k">The short version</p>
+<p><span class="tag t-red">REPAIR 1 STAYS UNAUTHORISED</span> The isolated stem changes nothing
+about the landmark verdict. Full mix returned 2 of 4 at <code>p_perm 0.202</code>. The hat stem
+returns 2 of 4 at <code>p_perm 0.1995</code>.</p>
+<p><span class="tag t-red">AFFINE MEASURE FAILS ON A STEM TOO</span> The snare stem scores
+86 of 193 at offset <code>38.400 s</code>, against 79 of 193 at offset <code>&minus;1.750 s</code>
+on the mix. Two fits of one recording landing 40 seconds apart, and 44.6% barely clears the
+42.5% a recording the tab never transcribes already scored.</p>
+<p><span class="tag t-green">THE RESIDUAL IS DIAGNOSED</span> All four chick landmarks sit on
+hat-stem onsets that arrive <span class="neg">early</span>: mean &minus;49.4 ms, median
+&minus;52.7 ms, spread 25.1 ms. Leave-one-out holds 4 of 4. This is the open
+&minus;35 ms item, and it is a constant lead rather than scatter.</p>
+</div>
+
+<div class="toc"><b>On this page</b>
+<ol>
+<li><a href="#pre">Preconditions</a></li>
+<li><a href="#det">Detector settings</a></li>
+<li><a href="#n9">Gate N9, hat stem</a></li>
+<li><a href="#ctl">Snare control</a></li>
+<li><a href="#aff">Affine alignment</a></li>
+<li><a href="#res">The residual</a></li>
+<li><a href="#not">What this does not license</a></li>
+<li><a href="#corr">Correction to the skill</a></li>
+<li><a href="#repro">Reproduce</a></li>
+<li><a href="#queue">Queue</a></li>
+</ol></div>
+
+<h2 id="pre">1. Preconditions, verified before any measurement</h2>
+<div class="scroll"><table>
+<tr><th>Check</th><th>Result</th></tr>
+<tr><td>Stems present on this Mac</td><td>15 files, 96 MB each</td></tr>
+<tr><td>Stem duration</td><td>545.266667 s on every stem</td></tr>
+<tr><td>Source FLAC duration</td><td>545.27 s</td></tr>
+<tr><td>Time transfer</td><td>durations agree, so audio timestamps carry across unchanged</td></tr>
+<tr><td>Tab census reproduced here</td><td>193 snare, 1,724 ride, 107 kick, 6 pedal hi-hat, 2,091 total</td></tr>
+<tr><td>Weinberg reference authenticated</td><td class="hash">SHA256 7e9288210467177f565b367a3c6a3bd36a3e7bcbb75c6eab28325a82bf30ee12, 256,197 bytes, identical to the public article</td></tr>
+</table></div>
+<p>The <code>112bpm-442hz</code> in the folder name is detected metadata. Nothing was
+time-stretched, so the iMac's landmark times apply without correction.</p>
+
+<h2 id="det">2. Detector, pre-registered parameters, no retuning</h2>
+<p>HPSS-percussive, gamma 100, M 10, refractory 0.04 s, density target 2.0 per second,
+tolerance 0.05 s. Identical to <code>run_controls.sh</code>.</p>
+<div class="scroll"><table>
+<tr><th>Stem</th><th>Onsets</th><th>Threshold</th><th>Density</th><th>Duration</th></tr>
+<tr><td>snare</td><td>1,090</td><td>0.00370</td><td>1.999/s</td><td>545.27 s</td></tr>
+<tr><td>hat</td><td>1,091</td><td>0.00085</td><td>2.001/s</td><td>545.27 s</td></tr>
+</table></div>
+
+<h2 id="n9">3. Gate N9 landmark test, hat stem</h2>
+<p>Landmarks 181.93, 183.03, 184.10, 185.19 s.</p>
+<pre><code>hits               2 of 4  (50%)
+residuals (ms)     [-48.1, -33.5]
+median |residual|  40.8 ms
+FAILED landmarks   [184.1, 185.19]
+nearest onset (ms) [58.6, 57.3]
+pattern-rotation   p_perm = 0.1995 over 2000 rotations (mean 0.76 hits)
+coverage           p_cover = 0.1951, expected false 0.78 of 4
+binomial           p = 0.173  (advisory only)
+VERDICT            UNDETERMINED</code></pre>
+<p>Four reasons the gate refuses it: only 4 landmarks against a minimum of 8, hit coverage
+50% against a required 75%, <code>p_perm</code> 0.1995 over the 0.01 bar, and no stated
+selection rule.</p>
+
+<h2 id="ctl">4. Negative control, same landmarks against the snare stem</h2>
+<pre><code>hits               1 of 4  (25%)
+FAILED landmarks   [181.93, 183.03, 185.19]
+nearest onset (ms) [71.3, 683.7, 150.2]
+pattern-rotation   p_perm = 0.5105
+VERDICT            UNDETERMINED</code></pre>
+<p>The hat stem carries more of this pattern than the snare, and it still falls short.</p>
+
+<h2 id="aff">5. Affine alignment, snare stem against the 193-event notated snare lane</h2>
+<div class="scroll"><table>
+<tr><th>Source</th><th>Offset</th><th>Scale</th><th>Hits</th><th>Rate</th></tr>
+<tr><td>Snare stem, this Mac</td><td>38.400 s</td><td>1.0100</td><td>86 / 193</td><td><b>44.6%</b></td></tr>
+<tr><td>Full mix, Jacks-iMac</td><td>&minus;1.750 s</td><td>1.0140</td><td>79 / 193</td><td>40.9%</td></tr>
+<tr><td>Full mix, wide window</td><td>66.700 s</td><td>1.0140</td><td>81 / 193</td><td>42.0%</td></tr>
+<tr><td>102 Joe's Garage, a recording the tab does not transcribe</td><td>&minus;1.350 s</td><td>1.2680</td><td>82 / 193</td><td><b>42.5%</b></td></tr>
+<tr><td>Eight-control mean</td><td class="mut">&mdash;</td><td class="mut">&mdash;</td><td class="mut">&mdash;</td><td>26.1%</td></tr>
+</table></div>
+<p>Isolating the instrument raised the rate by 3.7 points and moved the winning offset 40
+seconds. A wrong recording still scores within 2.1 points of the right one. The measure has no
+discriminating power on this material, on a stem exactly as on a mix.</p>
+
+<h2 id="res">6. The residual, diagnosed</h2>
+<p>Signed nearest-onset distance, landmark to stem. Negative means the onset arrives early.</p>
+<div class="scroll"><table>
+<tr><th>Landmark</th><th>Hat stem</th><th>Snare stem</th></tr>
+<tr><td>181.93</td><td class="neg">&minus;48.1 ms</td><td>&minus;71.3 ms</td></tr>
+<tr><td>183.03</td><td class="neg">&minus;33.5 ms</td><td>&minus;683.7 ms</td></tr>
+<tr><td>184.10</td><td class="neg">&minus;58.6 ms</td><td>&minus;35.4 ms</td></tr>
+<tr><td>185.19</td><td class="neg">&minus;57.3 ms</td><td>&minus;150.2 ms</td></tr>
+</table></div>
+<p>Hat stem: mean &minus;49.4 ms, median &minus;52.7 ms, sd 11.6 ms, spread 25.1 ms, all four
+negative. Removing that constant bias, a fixed shift rather than a widened tolerance, puts
+4 of 4 inside 50 ms.</p>
+<div class="scroll"><table>
+<tr><th>Held out</th><th>Shift from the other three</th><th>Residual</th><th>Result</th></tr>
+<tr><td>181.93</td><td>&minus;57.3 ms</td><td>+9.2 ms</td><td><span class="tag t-green">hit</span></td></tr>
+<tr><td>183.03</td><td>&minus;57.3 ms</td><td>+23.8 ms</td><td><span class="tag t-green">hit</span></td></tr>
+<tr><td>184.10</td><td>&minus;48.1 ms</td><td>&minus;10.5 ms</td><td><span class="tag t-green">hit</span></td></tr>
+<tr><td>185.19</td><td>&minus;48.1 ms</td><td>&minus;9.2 ms</td><td><span class="tag t-green">hit</span></td></tr>
+</table></div>
+<p>Landmark spacing averages 1.0867 s against the GP quarter of 1.0714 s at 56 BPM, a ratio of
+1.0142 that matches both alignment scales found independently.</p>
+
+<h2 id="not">7. What this does not license</h2>
+<div class="card amber">
+<ol>
+<li><b>Gate N9 still fails.</b> Four landmarks, no selection rule. A repair needs eight and a
+reproducible rule for choosing them.</li>
+<li><b>The shift is fitted on the same four instants it then improves.</b> Leave-one-out is
+reassuring across those four and it is not an out-of-window test.</li>
+<li><b>The bias cannot be checked against the six pedal hi-hat events already in the tab.</b>
+Carrying score time to audio time needs the affine map, and that map is discredited. Mapped
+through either fit, those six give residuals scattered from &minus;242 ms to +980 ms, which
+measures the map rather than the texture.</li>
+<li><b>A detector never outranks a human reading.</b> The five Drumnet chart pages are the
+printed witness and they are still unread at high resolution.</li>
+</ol>
+</div>
+
+<h2 id="corr">8. Correction to the shipped skill</h2>
+<div class="card red">
+<p><code>SKILL.md</code> ruling 3 states that the four chicks appear in the hat stem at
+181.92, 183.00, 184.09 and 185.17 s, which reads as 4 of 4. Run through
+<code>verdict_gate.py</code> with the pre-registered parameters, the hat stem gives
+<b>2 of 4</b>, with the other two missing by 58.6 ms and 57.3 ms. The 4 of 4 reading is
+recoverable only after removing the constant &minus;52.7 ms lead, which the ruling never
+mentions.</p>
+</div>
+
+<h2 id="repro">9. Reproduce</h2>
+<pre><code>D=~/.claude/skills/notation-evidence-gate
+W=~/Projects/_outputs/notation-evidence-gate/watermelon-stem-rerun-2026-09-06
+PY=~/.venvs/notation-gate/bin/python
+S="/Users/Shared/206 Watermelon in Easter Hay-E major-112bpm-442hz"
+
+$PY $D/watermelon-evidence/novelty_onsets.py \
+    "$S/206 Watermelon in Easter Hay-hat-E major-112bpm-442hz.wav" \
+    --density 2.0 --out $W/ons_hat.txt
+
+$PY $D/verdict_gate.py --landmarks 181.93,183.03,184.10,185.19 \
+    --detected $W/ons_hat.txt --duration 545.27 --tolerance 0.05 \
+    --label "4 chicks vs HAT STEM"</code></pre>
+
+<h2 id="queue">10. Queue</h2>
+<ul>
+<li><code>q-2026-09-06-855491</code> closed by this page, with the answer UNDETERMINED on
+better data.</li>
+<li><code>q-2026-09-06-57b3e8</code> onset-based DP alignment, IRMM 5.3, open and now the
+priority, since the affine map is the binding constraint on every downstream test.</li>
+<li><code>q-2026-09-06-083302</code> log-compressed novelty against the snare stem, partly
+served here.</li>
+<li><code>q-2026-09-06-bcf816</code> score-informed NMF for per-note ride dynamics, open.</li>
+</ul>
+
+<footer>
+Run on MacBookPro, 2026-09-06. Skill <code>notation-evidence-gate</code>, bundle from
+Jacks-iMac via iCloud <code>sfg/</code>, installed as the union of
+<code>skill-sync-2026-09-06/</code> and
+<code>skill-sync-2026-09-06-notation-evidence-gate/</code>.
+Working files at
+<code>~/Projects/_outputs/notation-evidence-gate/watermelon-stem-rerun-2026-09-06/</code>.
+Notation authority: Norman Weinberg, "Guidelines for Drumset Notation", Percussive Notes,
+June 1994, <a href="https://www.drumnotes.com/docs/notation.pdf">drumnotes.com/docs/notation.pdf</a>.
+</footer>
+</div></body></html>
