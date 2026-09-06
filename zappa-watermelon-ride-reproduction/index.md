@@ -246,6 +246,52 @@ part, with known lane-assignment limitations.
 4. Pedal hi-hat, roughly 172 events, against 6 notated.
 5. Snare rebound texture, against 193 snare events carrying zero flags.
 
+## 9. THE LEDGER, and three corrections to my own earlier statements
+
+### Correction 1: the refined map is not independently validated
+
+**What I wrote:** that the 123-anchor refined map "agrees with the 97-anchor version at a median
+difference of 0.0 ms", offered as evidence the refinement is sound.
+
+**Why that was wrong:** the refinement searched a +/-120 to 150 ms window **centred on
+predictions from that same 97-anchor map**. Agreement with the map that defined every search
+neighbourhood is circular and cannot serve as independent validation. What the refinement does
+show is stability under denser anchoring, which is a weaker claim.
+
+### Correction 2: the observed-rate gap was called unlocated, and it is window width
+
+**What I wrote:** "the residual difference is not yet located" and "the observed-rate gap is
+not explained".
+
+**Why that was wrong:** it is the match window. A 65 ms half-window gives 69.9 and 74.0 percent
+against the reported 71.3 and 75.3. The documented window is 45 ms. Section 9e.
+
+### Correction 3: "not reproducible at any threshold" was too broad
+
+**What I wrote:** that the 1.45x "is not reproducible at any of 20 threshold and band settings".
+
+**Why that was wrong:** the detector reproduces exactly once the flux operator is right, and
+each reported figure is individually reachable. What does not reproduce is the two of them
+together. Section 9f.
+
+### The 14 unexplained anchors
+
+137 reported minus 123 reached leaves **14 anchors unaccounted for**. They are not noise to be
+rounded away. They could indicate another articulation category used as an anchor, a second
+stem, a looser tolerance rule, or manual intervention, and any of those would change how the
+historical map was built.
+
+### The ledger, kept deliberately simple
+
+| quantity | historical | reproduced | status |
+|---|---|---|---|
+| observed ghost rate | 71.3% | 61.9% at the 45 ms spec window | **mechanism identified** as window width; a 65 ms window gives 69.9%. Exact historical implementation unresolved. |
+| null rate | 49.0% | 63.3% grid-preserving | **mechanism demonstrated** as rhythmic phase destruction; off-grid gives 52.0%. Exact historical implementation unresolved. |
+| ratio | 1.45x | 0.98x | **not recovered.** The two figures need different window widths, so no single procedure yields both. |
+
+**The 1.45x enrichment is not treated as recovered.** Numerator and denominator are tracked as
+separate forensic problems, because they may come from two separate implementation choices.
+
 ## 9a. THE DISCREPANCY IS THE NULL, and its likely cause is measured
 
 Resumed 2026-09-06. Two questions were open: why 97 anchors against a reported 137, and where

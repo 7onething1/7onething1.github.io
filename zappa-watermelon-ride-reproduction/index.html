@@ -103,7 +103,7 @@ one labelling decision rather than 1,316 per-stroke judgements.</p>
 <li><a href="#s11">Spectral identity of disputed positions</a></li>
 <li><a href="#s11b">Positive control</a></li>
 <li><a href="#s11c">The decay-prediction test</a></li>
-<li><a href="#s11g">The discrepancy is the null</a></li>\n<li><a href="#s11h">The observed-rate gap is the window</a></li>\n<li><a href="#s11i">The 1.19x vs 1.45x gap, reconciled</a></li>
+<li><a href="#s11j">The ledger and three corrections</a></li>\n<li><a href="#s11g">The discrepancy is the null</a></li>\n<li><a href="#s11h">The observed-rate gap is the window</a></li>\n<li><a href="#s11i">The 1.19x vs 1.45x gap, reconciled</a></li>
 <li><a href="#s11d">The eye overrules the detector</a></li>
 <li><a href="#s11e">Published notation authority</a></li>
 <li><a href="#s11f">Ghost against staccato</a></li>
@@ -419,6 +419,44 @@ rather than of a new strike. Plain strike 8,219 Hz, ghost slot 8,486 Hz, control
 the predicted tail than an off-grid control does, at two-sided p = 0.093. That is <b>weak and
 not significant</b>. It does not demonstrate added strokes, and it does not exclude them.</p>
 </div>
+
+<h2 id="s11j">11j. The ledger, and three corrections to my own earlier claims</h2>
+<div class="card red">
+<p class="k">Correction 1: the refined map is NOT independently validated</p>
+<p><b>What I wrote:</b> that the 123-anchor map "agrees with the 97-anchor version at a median
+difference of 0.0 ms", offered as evidence the refinement is sound.</p>
+<p><b>Why that was wrong:</b> the refinement searched a &plusmn;120 to 150 ms window centred on
+predictions from that same 97-anchor map. Agreement with the map that defined every search
+neighbourhood is circular. What it does show is stability under denser anchoring, a weaker claim.</p>
+</div>
+<div class="card red">
+<p class="k">Correction 2: the observed-rate gap was called unlocated</p>
+<p><b>What I wrote:</b> "the residual difference is not yet located".
+<b>Why that was wrong:</b> it is the match window. A 65 ms half-window gives 69.9 and 74.0
+percent against the reported 71.3 and 75.3. The documented window is 45 ms.</p>
+</div>
+<div class="card red">
+<p class="k">Correction 3: "not reproducible at any threshold" was too broad</p>
+<p><b>What I wrote:</b> that the 1.45&times; is "not reproducible at any of 20 threshold and band
+settings". <b>Why that was wrong:</b> the detector reproduces exactly once the operator is right,
+and each reported figure is individually reachable. What does not reproduce is the two together.</p>
+</div>
+<div class="card amber">
+<p class="k">The 14 unexplained anchors</p>
+<p>137 reported minus 123 reached leaves <b>14 anchors unaccounted for</b>. They are not noise.
+They could indicate another articulation category used as an anchor, a second stem, a looser
+tolerance rule, or manual intervention, and any of those would change how the historical map was
+built.</p>
+</div>
+<div class="scroll"><table>
+<tr><th>quantity</th><th>historical</th><th>reproduced</th><th>status</th></tr>
+<tr><td>observed ghost rate</td><td>71.3%</td><td>61.9% at the 45 ms spec window</td><td><b>mechanism identified</b> as window width; 65 ms gives 69.9%. Exact historical implementation unresolved.</td></tr>
+<tr><td>null rate</td><td>49.0%</td><td>63.3% grid-preserving</td><td><b>mechanism demonstrated</b> as rhythmic phase destruction; off-grid gives 52.0%. Exact historical implementation unresolved.</td></tr>
+<tr><td>ratio</td><td>1.45&times;</td><td>0.98&times;</td><td><b>not recovered.</b> The two figures need different window widths, so no single procedure yields both.</td></tr>
+</table></div>
+<p><b>The 1.45&times; enrichment is not treated as recovered.</b> Numerator and denominator are
+tracked as separate forensic problems, because they may come from two separate implementation
+choices.</p>
 
 <h2 id="s11g">11g. The discrepancy is the NULL, and its cause is measured</h2>
 <h3>Anchors: 123 reachable by local-window refinement, and DTW failed</h3>
