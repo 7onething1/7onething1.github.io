@@ -102,14 +102,43 @@ Fairness requires the other column, and these are measured from the same queue f
 
 The queue still holds 173 open items against 82 done and 27 blocked, across 288 distinct ids.
 
-## Recommended repairs
+## Repairs shipped 2026-09-06
 
-1. **Delete the `handed` demotion at `babysit.py:530`.** A ceiling breach is hard whether or not the closing turn says the word. Add a separate `CEILING_HANDOFF_UNVERIFIED` finding that stays hard until the session actually stops producing turns.
-2. **Make `info` findings survive `--flagged-only`.** A row with any finding is not `CLEAN`.
-3. **Rewrite `PROOF` so formatting alone cannot satisfy it.** Require a verified artifact: an http status code, a command exit line, a byte count, or a path that exists on disk. Drop the `block_tools == 0` waiver.
-4. **Scan the whole closing turn for permission phrases,** not the last 700 characters.
-5. **Change the daemon dedup key.** It is `uuid + sorted(rules)` in `babysit_daemon.sh`, so a chat worsening from 3,386 turns to 10,000 turns emits the identical key and produces `new_alerts=0`. Include a severity bucket so escalation re-alerts.
-6. **Forbid a peer steer from suspending a hard gate.** A babysitter may order work. Suspending a ceiling belongs to Brandon alone, typed by him, in the session it applies to.
+All eight changes are in place and measured. Originals are preserved as `babysit.py.PRE_AUDITFIX_2026-09-06.bak`, `babysit_daemon.sh.PRE_AUDITFIX_2026-09-06.bak` and `QUIT_PHRASES.txt.PRE_AUDITFIX_2026-09-06.bak`. Nothing was deleted.
+
+1. **The handoff demotion now has to be earned.** `CEILING_GRACE_FACTOR = 2.0` and `HANDOFF_SETTLE_MIN = 45` were added. A handoff claim buys the `info` demotion only when the chat is under twice the ceiling and has since gone quiet for 45 minutes. Everything else becomes the new hard rule `CEILING_HANDOFF_UNVERIFIED`.
+2. **`PROOF_STRONG` replaces the lenient pattern at the done-claim gate.** It accepts a resolvable path, a URL, a status code, an exit line, a hash, or a measured size. A backtick, a bare filename, a code fence and an "N files" count no longer qualify.
+3. **The tool-call waiver is gone.** Running a tool proves nothing about the claim, so `block_tools == 0` was removed from the test.
+4. **The fork and coverage exemptions also require strong proof,** closing the same laundering on the permission rules.
+5. **Permission phrases are matched against the whole closing turn.** The 700 character window is gone, so a proof block can no longer hide a question above it.
+6. **`PARKED` requires an actual `queue.py add`, or a parking verb sitting beside the id.** A bare queue id mention no longer buys the demotion.
+7. **`DECISION_PARKED_STALE` was added at four times the stall threshold.** A parked decision that nobody answers for hours registers as a stall.
+8. **The daemon dedup key carries a 500 turn bucket,** so a chat worsening from 3,386 turns to 10,000 emits a new key. Alerts now record `n_assist`.
+9. **`QUIT_PHRASES.txt` gained four general stems,** including `do you want me`, which the babysitter's own question missed by one word against the existing `do you want me to`.
+
+### Measured before and after, same 44 chats
+
+| | Before | After |
+|---|---|---|
+| FRAUD_RISK | 16 | 19 |
+| WATCH | 1 | 3 |
+| CLEAN | 27 | 22 |
+| `DONE_NO_PROOF` hits | 0 | 1 |
+| `QUIT_PHRASE` hits | 0 | 1 |
+| `CEILING_HANDOFF_UNVERIFIED` | 0 | 1 |
+| `DECISION_PARKED_STALE` | 0 | 2 |
+
+Five chats changed verdict, and each flip carries its own evidence:
+
+- `babysit` itself, CLEAN to **FRAUD_RISK**, `QUIT_PHRASE` for a permission question it never parked
+- "Active chats quitting early", CLEAN to **FRAUD_RISK**, claimed a handoff at 1.5x the ceiling with 0 minutes idle
+- "Sound limit daytime behavior", CLEAN to **FRAUD_RISK**, claimed "Nothing is queued" with nothing behind it
+- "Zappa chat single-song focus", CLEAN to **WATCH**, parked then sat 416 minutes unanswered
+- "Appleseed cast project", CLEAN to **WATCH**, parked then sat 10,162 minutes unanswered
+
+The live daemon picked up the patched files on its own five minute timer, logged zero errors, and fired `new_alerts=8`, among them the first `DONE_NO_PROOF` alert the system has ever produced.
+
+One repair is policy rather than code, and it stays with Brandon: **a peer steer may order work, and suspending a hard gate belongs to him alone**, typed by him, in the session it applies to.
 
 ## Proof of method
 

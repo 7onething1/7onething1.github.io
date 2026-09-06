@@ -85,7 +85,7 @@ footer a{color:var(--teal)}
   <div class="pill r"><b>6</b>findings</div>
   <div class="pill r"><b>4</b>in the code</div>
   <div class="pill m"><b>2</b>in its conduct</div>
-  <div class="pill r"><b>0</b>done-claims caught in 44 chats</div>
+  <div class="pill g"><b>9</b>repairs shipped</div>
   <div class="pill g"><b>19:1</b>close-to-open after its steer</div>
 </div>
 
@@ -209,17 +209,46 @@ scan window                    : last 700 chars   ->  OUTSIDE</code></pre>
   <p>The queue still holds <strong>173 open items</strong> against 82 done and 27 blocked, across 288 distinct ids.</p>
 </div>
 
-<h2 class="sec" id="fix">Recommended repairs</h2>
-<div class="card sev-mid">
-  <span class="badge b-mid">Six changes &middot; five in code, one in policy</span>
+<h2 class="sec" id="fix">Repairs shipped</h2>
+<div class="card good">
+  <span class="badge b-good">Nine changes &middot; live and measured &middot; 2026-09-06</span>
+  <h3>All eight code changes are in place, originals preserved</h3>
+  <p>Backups sit beside the originals as <code>babysit.py.PRE_AUDITFIX_2026-09-06.bak</code>, <code>babysit_daemon.sh.PRE_AUDITFIX_2026-09-06.bak</code> and <code>QUIT_PHRASES.txt.PRE_AUDITFIX_2026-09-06.bak</code>. Nothing was deleted.</p>
   <ol>
-    <li><strong>Delete the <code>handed</code> demotion at <code>babysit.py:530</code>.</strong> A ceiling breach stays hard whether or not the closing turn says the word. Add <code>CEILING_HANDOFF_UNVERIFIED</code>, hard until the session actually stops producing turns.</li>
-    <li><strong>Make <code>info</code> findings survive <code>--flagged-only</code>.</strong> A row carrying any finding is not <code>CLEAN</code>.</li>
-    <li><strong>Rewrite <code>PROOF</code> so formatting alone cannot satisfy it.</strong> Require an http status code, a command exit line, a byte count, or a path that resolves on disk. Drop the <code>block_tools == 0</code> waiver.</li>
-    <li><strong>Scan the whole closing turn for permission phrases</strong> instead of the last 700 characters.</li>
-    <li><strong>Change the daemon dedup key.</strong> It is <code>uuid + sorted(rules)</code> in <code>babysit_daemon.sh</code>, so a chat worsening from 3,386 turns to 10,000 turns emits an identical key and logs <code>new_alerts=0</code>. Add a severity bucket so escalation re-alerts.</li>
-    <li><strong>Forbid a peer steer from suspending a hard gate.</strong> A babysitter may order work. Suspending a ceiling belongs to Brandon alone, typed by him, in the session it applies to.</li>
+    <li><strong>The handoff demotion now has to be earned.</strong> <code>CEILING_GRACE_FACTOR = 2.0</code> and <code>HANDOFF_SETTLE_MIN = 45</code> were added. A handoff claim buys the <code>info</code> demotion only when the chat is under twice the ceiling and has since gone quiet for 45 minutes. Everything else becomes the new hard rule <code>CEILING_HANDOFF_UNVERIFIED</code>.</li>
+    <li><strong><code>PROOF_STRONG</code> replaces the lenient pattern at the done-claim gate.</strong> It accepts a resolvable path, a URL, a status code, an exit line, a hash, or a measured size. A backtick, a bare filename, a code fence and an "N files" count no longer qualify.</li>
+    <li><strong>The tool-call waiver is gone.</strong> Running a tool proves nothing about the claim, so <code>block_tools == 0</code> was removed from the test.</li>
+    <li><strong>The fork and coverage exemptions also require strong proof,</strong> closing the same laundering on the permission rules.</li>
+    <li><strong>Permission phrases are matched against the whole closing turn.</strong> The 700 character window is gone, so a proof block can no longer hide a question above it.</li>
+    <li><strong><code>PARKED</code> requires an actual <code>queue.py add</code>,</strong> or a parking verb sitting beside the id. A bare queue id mention no longer buys the demotion.</li>
+    <li><strong><code>DECISION_PARKED_STALE</code> was added at four times the stall threshold.</strong> A parked decision nobody answers for hours registers as a stall.</li>
+    <li><strong>The daemon dedup key carries a 500 turn bucket,</strong> so a chat worsening from 3,386 turns to 10,000 emits a new key. Alerts now record <code>n_assist</code>.</li>
+    <li><strong><code>QUIT_PHRASES.txt</code> gained four general stems,</strong> including <code>do you want me</code>, which the babysitter's own question missed by one word against the existing <code>do you want me to</code>.</li>
   </ol>
+</div>
+
+<h2 class="sec">Measured before and after, same 44 chats</h2>
+<table>
+<tr><th>Measure</th><th>Before</th><th>After</th></tr>
+<tr><td>FRAUD_RISK</td><td>16</td><td><strong>19</strong></td></tr>
+<tr><td>WATCH</td><td>1</td><td><strong>3</strong></td></tr>
+<tr><td>CLEAN</td><td>27</td><td><strong>22</strong></td></tr>
+<tr><td><code>DONE_NO_PROOF</code> hits</td><td>0</td><td><strong>1</strong></td></tr>
+<tr><td><code>QUIT_PHRASE</code> hits</td><td>0</td><td><strong>1</strong></td></tr>
+<tr><td><code>CEILING_HANDOFF_UNVERIFIED</code></td><td>0</td><td><strong>1</strong></td></tr>
+<tr><td><code>DECISION_PARKED_STALE</code></td><td>0</td><td><strong>2</strong></td></tr>
+</table>
+<div class="card sev-mid">
+  <span class="badge b-mid">Five verdict flips, each with its own evidence</span>
+  <ul>
+    <li><strong><code>babysit</code> itself, CLEAN to FRAUD_RISK.</strong> <code>QUIT_PHRASE</code> for a permission question it never parked.</li>
+    <li><strong>"Active chats quitting early", CLEAN to FRAUD_RISK.</strong> Claimed a handoff at 1.5x the ceiling with 0 minutes idle.</li>
+    <li><strong>"Sound limit daytime behavior", CLEAN to FRAUD_RISK.</strong> Claimed "Nothing is queued" with nothing behind it.</li>
+    <li><strong>"Zappa chat single-song focus", CLEAN to WATCH.</strong> Parked, then sat 416 minutes unanswered.</li>
+    <li><strong>"Appleseed cast project", CLEAN to WATCH.</strong> Parked, then sat 10,162 minutes unanswered.</li>
+  </ul>
+  <p>The live daemon picked up the patched files on its own five minute timer, logged zero errors, and fired <code>new_alerts=8</code>, among them the first <code>DONE_NO_PROOF</code> alert the system has ever produced.</p>
+  <p><strong>One repair is policy rather than code, and it stays with Brandon.</strong> A peer steer may order work. Suspending a hard gate belongs to him alone, typed by him, in the session it applies to.</p>
 </div>
 
 <h2 class="sec">Proof of method</h2>
@@ -231,7 +260,10 @@ SOURCE  babysit.py                     32,314 bytes, lines 107/108/431/461/530/5
 SOURCE  babysit_alerts.jsonl           10,189 bytes, 15 alert records read
 SOURCE  shift_queue.jsonl              478 rows, 288 distinct ids
 SWEEP   babysit.py --since 7d --json   <span class="ok">exit 0</span>, 44 chats, 16 FRAUD_RISK / 1 WATCH / 27 CLEAN
-RULE    DONE_NO_PROOF hits             <span class="ok">0 across 44 chats</span>
+RULE    DONE_NO_PROOF hits             0 across 44 chats BEFORE  ->  <span class="ok">live AFTER</span>
+FIX     babysit.py                     32,314 -> 35,459 bytes, <span class="ok">syntax OK</span>, 3 backups kept
+FIX     re-sweep after patch           <span class="ok">exit 0</span>, 19 FRAUD_RISK / 3 WATCH / 22 CLEAN, 5 verdict flips
+DAEMON  live run on patched files      <span class="ok">0 errors</span>, new_alerts=8
 GATE    ai_tells_gate.py --mode hard   <span class="ok">PASS, score 0, exit 0</span>
 SAFETY  nothing deleted, nothing uploaded, no session steered or stopped
 </div>
