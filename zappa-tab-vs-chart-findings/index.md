@@ -1,6 +1,6 @@
-# Tab against printed chart: five songs measured
+# Tab against printed chart: six songs measured
 
-Zomby Woof, Andy, Drowning Witch, Keep It Greasey and The Central Scrutinizer compared bar by bar against professional drum
+Zomby Woof, Andy, Drowning Witch, Keep It Greasey, The Central Scrutinizer and Watermelon In Easter Hay compared bar by bar against professional drum
 transcriptions. Ghost and staccato marks ignored. 2026-09-05. Nothing uploaded.
 
 ## Andy s21495, human tab by Leonard, tracks its chart
@@ -51,6 +51,21 @@ Independently confirmed: Arthur Barrow describes choruses in 4/4 with verses in 
 Two mistakes, one cause: reading a signature off a downscaled image, then blocking the item
 as "source exhausted" without searching. Now gates G33 and G38 in
 `~/.claude/skills/_shared/no_stop_gate.py`.
+
+## Watermelon In Easter Hay s35881, 1,317 ghost marks lost and live
+
+Chart: Drumnet, by BartoRomeo, "(1:20) A", quarter 55.47. Structure **matches**: both alternate
+4/4 and 5/4, the tab has 53 and 52 of them, and the tempos sit 0.95 percent apart at 55.47
+against 56.00.
+
+**Lane counts are not reportable.** The chart's staff lines sit 5.0 px apart against a 15 px
+floor. An eye-read suggests ~16 ride in the 4/4 bar against the tab's 14, and that is
+deliberately not a finding.
+
+**The real damage needs no scan.** Ben Dibden1's r7715683 carries **1,317** ghost marks, 1,316
+ride and 1 crash across 103 of 105 bars. My live r8768414 carries **0**, same 2,091 notes. It
+is a ride piece, 1,724 of 2,091 notes are ride. My queued restore r8908034 is `1317 of 1317
+present, 0 missing, 0 invented`.
 
 ## What separates the two kinds of tab
 
