@@ -46,9 +46,14 @@ footer{margin-top:50px;padding-top:18px;border-top:1px solid var(--line);color:v
 <header><div class="wrap">
 <h1>Watermelon In Easter Hay: ride-ghost reproduction</h1>
 <p>Songsterr <code>s35881</code>, drum track "Vinnie Colaiuta", tab <code>PRESWEEP-r7715683.gp</code>.
-An earlier pass reported that ghost-marked ride positions matched a cymbal-attack criterion
+An earlier pass reported that ghost-marked ride positions matched a cymbal-flux criterion
 1.45 times as often as a randomised baseline. This page rebuilds that measurement from the
 hashed inputs with a saved script set, and reports what survives.</p>
+<p style="margin-top:10px;color:#e6c98a"><b>Revised 2026-09-06, later the same day.</b> The
+detector is now reconciled exactly. An earlier version of this page attributed the published
+threshold 4.41 to a 2000&ndash;5000 Hz band. That was wrong. The documented 2000&ndash;12000 Hz
+band was right, and the difference was the flux operator. That version's shared-excursion
+section is withdrawn. The headline ratio is unchanged.</p>
 </div></header>
 <div class="wrap">
 
@@ -58,18 +63,20 @@ hashed inputs with a saved script set, and reports what survives.</p>
 <div class="stat"><b>1</b><span>AntiAccent element behind 1,316 ghosts</span></div>
 <div class="stat"><b>99.9%</b><span>ghost predicted by metric position</span></div>
 <div class="stat"><b>0.95-0.99&times;</b><span>reproduced ratio</span></div>
-<div class="stat"><b>20</b><span>threshold/band settings tested</span></div>
-<div class="stat"><b>3</b><span>scramble procedures tested</span></div>
+<div class="stat"><b>80.01</b><span>percentile of 4.41, reconciled</span></div>
+<div class="stat"><b>1 / 1,479</b><span>excursions serving &gt;1 position</span></div>
 <div class="stat"><b>5,469</b><span>held-out alignment tests</span></div>
 </div>
 
 <div class="card red">
 <p class="k">The short version</p>
-<p><span class="tag t-green">REPRODUCED</span> The tab counts, the alignment constants and the
-published threshold <code>4.41</code> all regenerate exactly.</p>
-<p><span class="tag t-red">NOT REPRODUCED</span> The 1.45&times; coincidence result. Across 20
-threshold and band settings and 3 randomisation procedures, the ratio never leaves
-<span class="hl">0.95&times; to 1.05&times;</span>.</p>
+<p><span class="tag t-green">REPRODUCED</span> The tab counts, the alignment constants, the
+published threshold <code>4.41</code> at percentile <b>80.01</b>, and the finding that no
+supra-threshold excursion serves more than one scored position.</p>
+<p><span class="tag t-red">NOT REPRODUCED</span> The 1.45&times; result. Under the reconciled
+detector the observed ghost rate is <b>61.2%</b> against a null of <b>62.2%</b>, a ratio of
+<span class="hl">0.98&times;</span>, holding across per-note and block-preserving nulls at
+blocks of 4, 8 and 16.</p>
 <p><span class="tag t-pur">RESTATED</span> The 1,316 ghost notations come from
 <span class="hl">one AntiAccent element on one shared note definition</span>, so the file records
 one labelling decision rather than 1,316 per-stroke judgements.</p>
@@ -81,12 +88,12 @@ one labelling decision rather than 1,316 per-stroke judgements.</p>
 <li><a href="#s3">Ghost census reconciled</a></li>
 <li><a href="#s4">1,724 against 596</a></li>
 <li><a href="#s5">Detector specification</a></li>
-<li><a href="#s6">Where 4.41 came from</a></li>
+<li><a href="#s6">The detector, reconciled</a></li>
 <li><a href="#s7">Alignment, locked</a></li>
 <li><a href="#s8">The threshold sweep</a></li>
 <li><a href="#s9">Three scramble procedures</a></li>
-<li><a href="#s10">Shared excursions</a></li>
-<li><a href="#s11">Positive control and misses</a></li>
+<li><a href="#s10">Double counting ruled out</a></li>
+<li><a href="#s11">Spectral identity of disputed positions</a></li>
 <li><a href="#s12">Withdrawn and historical</a></li>
 <li><a href="#s13">Inputs and scripts</a></li>
 </ol></div>
@@ -186,16 +193,25 @@ renderings.</b> Deletion, rebar and flag stripping are all excluded.</p>
 onset. Consecutive frames from one excursion can support a match, and one broad excursion can
 serve more than one window. The correct description of a positive is "matched the flux criterion".</p>
 
-<h2 id="s6">6. Where 4.41 came from</h2>
-<p>17 processing variants were tested against the 3.51&times; gap: channel aggregation, integer
-against float scaling, three window normalisations, four magnitude scalings, L1 against L2
-aggregation, percentile population, resampling and five frequency bands. One variant lands on the
-published number.</p>
+<h2 id="s6">6. The detector, reconciled</h2>
+<p>The 3.51&times; threshold gap was an operator difference. The band in the written spec was
+correct.</p>
+<div class="scroll"><table>
+<tr><th>operator</th><th>definition</th><th>80th pct of positive flux, MP3, 2000-12000 Hz</th></tr>
+<tr><td><b>B, the published one</b></td><td>sum the band first, then take the positive first difference</td><td><b>4.407</b></td></tr>
+<tr><td>A, used in the first version of this page</td><td>difference each bin, rectify, then sum</td><td>14.303</td></tr>
+</table></div>
 <div class="card green">
-<p class="k">A 2000 to 5000 Hz band gives 4.389</p>
-<p>In that band <code>4.41</code> sits at the <b>80.1st percentile</b> of positive flux, agreeing
-with the written rule. In the documented 2000 to 12000 Hz band the same 4.41 sits at the
-<b>41.9th percentile</b>. The published threshold is real and the band printed beside it is wrong.</p>
+<p class="k">Operator B puts 4.41 at percentile 80.01</p>
+<p>Stereo MP3 read float32, unweighted channel mean to mono, no amplitude scaling,
+<code>np.hanning(1024)</code>, 256-sample hop, frame-start timestamps, summed rFFT magnitude
+over bins 2000 to 12000 Hz inclusive, positive first difference, threshold at the 80th
+percentile of strictly positive flux. Operator A rectifies before summing, so nothing cancels
+and it runs about 3.2 times larger. <b>Every result carrying threshold 15.487 came from
+operator A and is withdrawn.</b></p>
+<p>A match means the <b>maximum</b> positive flux inside a &plusmn;45 ms window exceeds 4.41.
+It identifies no instrument and no discrete onset, so the wording throughout is
+<b>"matched the flux criterion"</b>.</p>
 </div>
 
 <h2 id="s7">7. Alignment, locked and exposed</h2>
@@ -225,84 +241,96 @@ from a dense set never creates a large gap, so error at 10 to 20 s needs deliber
 half-window</b>, so alignment error contributes misses everywhere. The distance filter stays
 exploratory and a 10 s cutoff does not establish reliable performance across the region it keeps.</p>
 
-<h2 id="s8">8. The threshold sweep</h2>
-<p>20 threshold and band combinations from the 42nd to the 97th percentile. One shared pool of
-200 draws is reused across the curve, so movement along it is detector movement.</p>
+<h2 id="s8">8. The coincidence result under the correct detector</h2>
 <div class="scroll"><table>
-<tr><th>band (Hz)</th><th>threshold</th><th>percentile</th><th>ghost observed</th><th>ghost null</th><th>ratio</th></tr>
-<tr><td>2000-12000</td><td>4.410 <span class="mut">published</span></td><td>41.9</td><td>80.7%</td><td>82.0%</td><td><b>0.98&times;</b></td></tr>
-<tr><td>2000-12000</td><td>15.487 <span class="mut">its own 80th</span></td><td>80.0</td><td>53.6%</td><td>55.0%</td><td><b>0.97&times;</b></td></tr>
-<tr><td>2000-5000</td><td>4.410 <span class="mut">published</span></td><td>80.1</td><td>48.2%</td><td>48.5%</td><td><b>0.99&times;</b></td></tr>
-<tr><td>2000-5000</td><td>4.389 <span class="mut">its own 80th</span></td><td>80.0</td><td>48.3%</td><td>48.7%</td><td><b>0.99&times;</b></td></tr>
+<tr><th>quantity</th><th>this reconstruction</th><th>reported</th></tr>
+<tr><td>observed ghost</td><td><b>61.2%</b></td><td>71.3%</td></tr>
+<tr><td>observed plain</td><td><b>65.9%</b></td><td>75.3%</td></tr>
+<tr><td>per-note eligible-only null</td><td><b>62.2%</b> (sd 0.012, 95% 0.597-0.643)</td><td>49.0% (sd 0.013, 95% 0.465-0.517)</td></tr>
+<tr><td><b>ratio</b></td><td><b>0.98&times;</b> (95% 0.95-1.02)</td><td>1.45&times; (95% 1.38-1.53)</td></tr>
 </table></div>
-<p>The ghost ratio stays inside 0.97 to 1.05 at every one of the 20 settings. Recovering 4.41 in
-its consistent band does not raise it, so the threshold discrepancy is not the source of the
-1.45&times;. Full curve in <code>out/threshold_sweep.csv</code>.</p>
-
-<h2 id="s9">9. Three scramble procedures</h2>
-<p>The original 20-draw table applies <b>one</b> bar displacement per draw. The later procedure
-samples a displacement <b>per note</b>. Both were run, plus a collision-free per-note variant.</p>
-<div class="scroll"><table>
-<tr><th>procedure</th><th>eligible</th><th>null mean</th><th>sd</th><th>95% interval</th><th>ratio ghost</th></tr>
-<tr><td>RIGID, one shift per draw</td><td>69.8%</td><td>55.1%</td><td>5.70</td><td>47.6-63.7%</td><td><b>0.97&times;</b></td></tr>
-<tr><td>PER-NOTE</td><td>100.0%</td><td>55.0%</td><td>1.28</td><td>52.4-57.7%</td><td><b>0.97&times;</b></td></tr>
-<tr><td>PER-NOTE collision-free</td><td>99.6%</td><td>54.8%</td><td>0.31</td><td>54.2-55.4%</td><td><b>0.98&times;</b></td></tr>
-</table></div>
-<p>Band 2000 to 12000 Hz at its 80th percentile. The mean is stable across procedures and the
-spread is not, which is the dependence structure showing itself.</p>
 <div class="card amber">
-<p class="k">Two defects in the per-note procedure, and what the interval means</p>
-<p><b>Collisions.</b> Two notes can land in the same bar at the same position, sharing one
-timestamp and one verdict. <b>35.8 percent of scrambled notes collide</b>, stacks up to 7 deep,
-leaving about 1,100 effective positions. A rigid translation cannot collide.</p>
-<p><b>Meter eligibility.</b> A position at or beyond 4.0 quarter notes exists only in 5/4 bars.
-<b>200 of 1,724 ride notes (11.6 percent)</b> sit there and are ineligible for every 4/4
-destination. Across all 106 legal shifts, 64.2 percent of (note, shift) pairs land on an existing
-position.</p>
+<p class="k">Alignment cannot account for the gap</p>
+<p>A rigid offset sweep from -150 to +150 ms under the reconciled detector <b>peaks at exactly
+0 ms with 61.2 percent</b>. No shift improves it, so 61.2 percent is the ceiling this alignment
+and this detector reach on this audio. The reported 71.3 percent sits above that ceiling.</p>
+<p><b>Two numbers reproduce exactly and two do not.</b> The threshold and the no-double-counting
+result reproduce. The observed rate and the null mean do not, and the residual difference is not
+yet located.</p>
+</div>
+
+<h2 id="s9">9. Block-preserving nulls</h2>
+<p>Contiguous runs displaced together with within-block spacing preserved, alongside the
+per-note procedure. All under the reconciled detector at threshold 4.41.</p>
+<div class="scroll"><table>
+<tr><th>null procedure</th><th>eligible</th><th>null mean</th><th>sd</th><th>95% interval</th><th>ratio ghost</th></tr>
+<tr><td>per-note eligible-only</td><td>100.0%</td><td>0.622</td><td>0.012</td><td>0.597-0.643</td><td><b>0.98&times;</b></td></tr>
+<tr><td>block of 4</td><td>98.3%</td><td>0.623</td><td>0.019</td><td>0.586-0.660</td><td><b>0.98&times;</b></td></tr>
+<tr><td>block of 8</td><td>94.4%</td><td>0.627</td><td>0.026</td><td>0.576-0.674</td><td><b>0.98&times;</b></td></tr>
+<tr><td>block of 16</td><td>94.1%</td><td>0.623</td><td>0.031</td><td>0.566-0.678</td><td><b>0.98&times;</b></td></tr>
+</table></div>
+<p>The measured association is stable across the tested per-note and block-preserving
+randomisations. That is a narrow statement about the procedures tested, and it is not a claim
+of independence from every possible dependence structure.</p>
+<div class="card amber">
+<p class="k">Meter eligibility, and what the interval means</p>
+<p>A position at or beyond 4.0 quarter notes exists only in 5/4 bars. <b>200 of 1,724 ride notes
+(11.6 percent)</b> sit there and are ineligible for every 4/4 destination. Eligibility checks
+meter and the anchored span together. Instrumentation, arrangement and local cymbal activity
+stay uncontrolled.</p>
 <p><b>The 95 percent interval</b> is the 2.5th to 97.5th percentile of the null hit rate across
-randomisation draws. It describes variability under the randomisation only, and it carries no
+randomisation draws. It describes variability under the randomisation only, and carries no
 uncertainty from alignment, detector validity, extraction quality or recording identity.</p>
 </div>
 
-<h2 id="s10">10. Shared excursions</h2>
-<p>At the 2000 to 12000 Hz 80th percentile there are 2,559 supra-threshold excursions, median
-duration 12 ms, 90th percentile 52 ms, max 1,741 ms. One sixteenth is 271 ms, so an excursion
-longer than 181 ms can serve two consecutive ride windows. 143 excursions (5.6 percent) are that
-long.</p>
+<h2 id="s10">10. Double counting ruled out</h2>
+<p>Under the reconciled detector, supra-threshold excursions run median 6 ms, 90th percentile
+17 ms, max 81 ms, and <b>none exceeds 181 ms</b>, so none can span two windows spaced 271 ms
+apart.</p>
 <div class="scroll"><table>
-<tr><th>set</th><th>hits sharing an excursion, observed</th><th>same, scrambled</th></tr>
-<tr><td>ghost</td><td><b>24.7%</b></td><td><b>71.0%</b></td></tr>
-<tr><td>plain</td><td><b>11.3%</b></td><td><b>64.8%</b></td></tr>
+<tr><th>quantity</th><th>value</th></tr>
+<tr><td>scored positions, all occupying distinct (bar, position) slots</td><td>1,724</td></tr>
+<tr><td>excursions satisfying at least one scored position</td><td>1,479</td></tr>
+<tr><td><b>excursions satisfying more than one</b></td><td><b>1</b></td></tr>
 </table></div>
-<p>The naive hit rate is blind to this. Distinct excursions per note runs 0.432 observed against
-0.293 scrambled, a ratio of 1.47&times;, which reflects the scramble's clustering rather than an
-acoustic property of the notated positions.</p>
+<div class="card red">
+<p class="k">Withdrawn from the first version of this page</p>
+<p>That version reported 24.7 percent of ghost hits sharing an excursion against 71.0 percent
+scrambled. It was an artefact of operator A, whose excursions reached 1,741 ms. Under the
+published operator the concern does not arise.</p>
+</div>
 
-<h2 id="s11">11. Positive control, and the miss taxonomy</h2>
-<p>An offset sweep from -300 to +300 ms, with the snare as a positive control.</p>
+<h2 id="s11">11. Spectral identity of disputed positions</h2>
+<p>Reference exemplars are plain ride positions that matched the flux criterion with the nearest
+anchor inside 3 s, giving <b>171</b>. The disputed set is ghost positions at the same anchor
+quality, giving <b>770</b>. Features measured on the mono MP3 from 30 ms before to 180 ms after
+each position.</p>
 <div class="scroll"><table>
-<tr><th>set</th><th>peak</th><th>floor</th><th>shape</th></tr>
-<tr><td>notated snare against the snare stem</td><td>65.3% at -40 ms</td><td>15.0%</td><td>sharp, centred near zero</td></tr>
-<tr><td>plain ride against the cymbals stem</td><td>62.5% at -20 ms</td><td>24.0%</td><td>localised near zero</td></tr>
-<tr><td>ghost ride against the cymbals stem</td><td>56.2% at -20 ms</td><td>35.3% at -180 ms</td><td>periodic at about 271 ms</td></tr>
+<tr><th>feature</th><th>plain median</th><th>ghost median</th><th>ghost / plain</th></tr>
+<tr><td>transient peak</td><td>0.0254</td><td>0.0102</td><td><b>0.403</b></td></tr>
+<tr><td>attack-to-floor ratio</td><td>4.227</td><td>1.480</td><td><b>0.350</b></td></tr>
+<tr><td>post-peak RMS, 30 ms</td><td>0.0209</td><td>0.0072</td><td>0.346</td></tr>
+<tr><td><b>decay ratio, 100-180 ms over 0-30 ms</b></td><td>0.494</td><td>0.656</td><td><b>1.327</b></td></tr>
+<tr><td>pre-window RMS</td><td>0.0052</td><td>0.0055</td><td>1.049</td></tr>
+<tr><td>attack time</td><td>11.5 ms</td><td>11.1 ms</td><td>0.969</td></tr>
+<tr><td>spectral centroid</td><td>9,009 Hz</td><td>8,138 Hz</td><td>0.903</td></tr>
+<tr><td>share 9 to 16 kHz</td><td>0.389</td><td>0.345</td><td>0.886</td></tr>
+<tr><td>share 5 to 9 kHz</td><td>0.374</td><td>0.424</td><td>1.134</td></tr>
 </table></div>
-<p>The control rises more than fourfold and peaks where it should, so the method can detect a real
-signal. Plain ride positions show a real localised peak. Ghost ride positions rise again at plus
-and minus 271 ms, one sixteenth at the measured tempo, so their curve tracks the density of the
-sixteenth grid.</p>
-<h3>Miss taxonomy</h3>
-<p>One sixteenth measures 271.1 ms and half a sixteenth measures 135.6 ms. Beyond half a sixteenth
-the nearest attack belongs to a neighbouring grid slot.</p>
-<div class="scroll"><table>
-<tr><th>cause</th><th>ghost, 611 misses</th><th>plain, 161 misses</th></tr>
-<tr><td>timing error, 45 to 136 ms</td><td>269 (44.0%)</td><td>94 (58.4%)</td></tr>
-<tr><td>neighbouring slot, 136 to 271 ms</td><td>263 (43.0%)</td><td>47 (29.2%)</td></tr>
-<tr><td>no attack within one sixteenth</td><td>79 (12.9%)</td><td>20 (12.4%)</td></tr>
-<tr><td>median distance to nearest attack</td><td>166 ms</td><td>113 ms</td></tr>
-</table></div>
-<p><b>Correction.</b> 135.2 ms is half a sixteenth at this tempo rather than a whole one. A shift
-of that size lands a note maximally far from every grid position, so the original shifted null
-tested the worst case instead of a random one.</p>
+<p>Section-matched over 12 equal sections, 9 of which carry at least 5 of each:
+<b>transient peak lower at ghost positions in 9 of 9 sections</b>,
+<b>attack-to-floor lower in 9 of 9</b>, decay ratio higher in 7 of 9.</p>
+<div class="card pur">
+<p class="k">Reading it descriptively</p>
+<p>At ghost positions the cymbal band shows a much lower transient peak, a far weaker attack
+relative to the local floor, a flatter decay profile and a darker spectrum with less 9 to 16 kHz
+content. Those four together are what residual decay from a preceding strike looks like, since
+cymbal highs shed fastest.</p>
+<p><b>The design cannot separate decay from a genuinely soft stroke.</b> Ghost positions are
+always the offbeats immediately after a plain strike, so decay sits there whether or not a soft
+stroke was also played. No classifier accuracy is claimed and no individual position is
+adjudicated.</p>
+</div>
 
 <h2 id="s12">12. Withdrawn, and historical</h2>
 <div class="scroll"><table>
@@ -314,7 +342,10 @@ tested the worst case instead of a random one.</p>
 <tr><td>sign test 5 of 6 on-beat sections</td><td>evidence package s6</td><td>rests on that impossible partition</td></tr>
 <tr><td>sign test 12 of 12 sections</td><td>evidence package s6</td><td>recomputed as <b>9 of 12</b>, one-sided p = 0.073, two-sided p = 0.146</td></tr>
 <tr><td>slot table, 257 plain on the beat</td><td>ghost audit s2</td><td>notation gives 407 plain and 2 ghost</td></tr>
-<tr><td>band 2000-12000 Hz beside 4.41</td><td>evidence package s0</td><td>inconsistent; 4.41 is the 80th percentile of 2000 to 5000 Hz</td></tr>
+<tr><td>threshold 15.487 and every ratio resting on it</td><td><b>this page, first version</b></td><td>wrong flux operator, per-bin instead of band-sum</td></tr>
+<tr><td>"4.41 comes from a 2000-5000 Hz band"</td><td><b>this page, first version</b></td><td>the documented 2000-12000 Hz band was right; the operator differed</td></tr>
+<tr><td>"24.7% of ghost hits share an excursion"</td><td><b>this page, first version</b></td><td>operator A artefact; under the published operator, 1 of 1,479</td></tr>
+<tr><td>174 duplicate ride timestamps</td><td><b>this page, first version</b></td><td>rounding artefact; all 1,724 slots are distinct</td></tr>
 <tr><td>"1,316 separate editorial judgments"</td><td>carried in the brief</td><td>one AntiAccent element on definition 431</td></tr>
 </table></div>
 <h3>Historical, and not reproducible</h3>
@@ -344,14 +375,20 @@ live at <code>~/Projects/_outputs/zappa-watermelon-ride-analysis/tools/</code>:
 
 <h2>What this supports</h2>
 <div class="card pur">
-<p>Under the detector, alignment and null procedures documented above, <b>positions occupied by
-occurrences of AntiAccent-marked definition 431 matched the flux criterion at 0.95&times; to
-0.99&times; the rate of randomised eligible positions.</b> No configuration reaches 1.45&times;.</p>
-<p>The ghost flag is predicted by metric position at 99.9 percent, and its 1,316 occurrences
-inherit one AntiAccent element, so the file establishes neither independent per-stroke
-adjudication nor a dynamics contrast separable from the beat.</p>
-<p>No deletion revision follows. Ben Dibden1's notation remains a transcriber's reading of the
-record, and nothing measured here overturns it.</p>
+<p>The old Ride (middle) transcription is extraordinarily dense, filling about 94 percent of
+available eighth-note positions. Its 1,316 ghost occurrences originate from <b>one shared
+AntiAccent note definition</b> rather than 1,316 independent editorial decisions.</p>
+<p>Under the reconciled detector on this audio with this alignment, <b>ghost positions matched
+the flux criterion at 0.98&times; the rate of the tested null procedures</b>, holding across
+per-note and block-preserving randomisations. The residual gap against the reported 71.3 percent
+observed and 49.0 percent null is not located, and it is not the threshold and not a global
+alignment offset.</p>
+<p>Section-matched spectral measurement shows <b>lower transient peak and weaker attack-to-floor
+at ghost positions in 9 of 9 sections, with a flatter decay profile</b>. That is consistent with
+residual decay and does not exclude a soft stroke.</p>
+<p>Individual Ride (middle) strike validity remains unresolved. <b>No deletion revision follows.</b>
+Failing this detector does not prove Ben Dibden1's transcription wrong, and nothing measured here
+overturns a transcriber's reading of the record.</p>
 </div>
 
 <footer>Built 2026-09-06 from <code>~/Projects/_outputs/zappa-watermelon-ride-analysis/</code>.
