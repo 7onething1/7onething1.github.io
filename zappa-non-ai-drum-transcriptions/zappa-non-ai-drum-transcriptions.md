@@ -30,7 +30,7 @@ notation. A pitched score sitting in a drum research folder does not count.
 | 1 | **Penguin in Bondage** | none | none | none | [s5469710](https://www.songsterr.com/a/wsa/frank-zappa-tab-s5469710) gentle sadist, 1,547 notes, 251 bars |
 | 2 | **Pygmy Twylyte** | none | none | none | [s627774](https://www.songsterr.com/a/wsa/frank-zappa-tab-s627774) Deleted user, 986 notes, 61 bars; [s1473002](https://www.songsterr.com/a/wsa/frank-zappa-tab-s1473002) jean-robert chiasson, 913 notes, 63 bars |
 | 3 | **Dummy Up** | none | none | none | none |
-| 4 | **Village of the Sun** | [s412175](https://www.songsterr.com/a/wsa/frank-zappa-tab-s412175) enikey87, 402 notes, 43 bars | none | none | [s6109180](https://www.songsterr.com/a/wsa/frank-zappa-tab-s6109180) Leon Lloyd, 189 notes, 239 bars |
+| 4 | **Village of the Sun** | none | none | none | [s6109180](https://www.songsterr.com/a/wsa/frank-zappa-tab-s6109180) Leon Lloyd, 189 notes, 239 bars |
 | 5 | **Echidna's Arf (Of You)** | [s35891](https://www.songsterr.com/a/wsa/frank-zappa-tab-s35891) accurate_tabmaker, 1,671 notes, 100 bars | none | none | [s2825336](https://www.songsterr.com/a/wsa/frank-zappa-tab-s2825336) Aaron Albrecht, 1,928 notes, 135 bars; [s2825328](https://www.songsterr.com/a/wsa/frank-zappa-tab-s2825328) Aaron Albrecht, 1,740 notes, 120 bars; [s1473034](https://www.songsterr.com/a/wsa/frank-zappa-tab-s1473034) jean-robert chiasson, 1,702 notes, 155 bars |
 | 6 | **Don't You Ever Wash That Thing?** | none | none | none | [s2829238](https://www.songsterr.com/a/wsa/frank-zappa-tab-s2829238) Aaron Albrecht, 2,189 notes, 165 bars |
 | 7 | **Cheepnis** | none | none | none | [s5469732](https://www.songsterr.com/a/wsa/frank-zappa-tab-s5469732) gentle sadist, 2,266 notes, 200 bars |
@@ -112,6 +112,7 @@ editions and the two academic theses carry no drum charts either.
 | Penguin in Bondage | Roxy & Elsewhere | AI tab only, no human reading of the drums exists |
 | Pygmy Twylyte | Roxy & Elsewhere | AI tab only, no human reading of the drums exists |
 | Dummy Up | Roxy & Elsewhere | Nothing found, no drum staff on any tab and no printed chart |
+| Village of the Sun | Roxy & Elsewhere | AI tab only, no human reading of the drums exists |
 | Don't You Ever Wash That Thing? | Roxy & Elsewhere | AI tab only, no human reading of the drums exists |
 | Cheepnis | Roxy & Elsewhere | AI tab only, no human reading of the drums exists |
 | Son of Orange County | Roxy & Elsewhere | Nothing found, no drum staff on any tab and no printed chart |
