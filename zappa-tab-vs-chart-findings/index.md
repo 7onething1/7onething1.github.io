@@ -46,7 +46,13 @@ location, so the block differs by 12 sixteenths, three whole beats. No audio on 
 
 **Inventory correction:** the third source is not "Pete Sweeney". It is a Modern Drummer
 collection holding All Blues (Jeff Wald), Dong Work For Yuda (Chris Brady) and a **complete
-Keep It Greasy transcription by Marc Atkinson, October 2000**, unread.
+Keep It Greasy transcription by Marc Atkinson, October 2000**.
+
+**That chart cannot settle the meter, and the limit is the scan.** `pdfimages -list` shows
+every page as a single **180 ppi JPEG**, so rendering higher only upsamples. Two systems on
+page 7 start with an `x/16` signature; at native resolution enlarged 14x both denominators
+read 16 and **neither numerator resolves**. Do not retry this PDF. It does confirm the passage
+is counted in sixteenths, which both other sources agree on.
 
 ### The biggest single-bar gap: 12 notes against 2
 
