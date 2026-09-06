@@ -300,6 +300,50 @@ sampling quieter audio.
 52.0 against a reported 49.0. The observed-rate gap is not: 61.9 against a reported 71.3, with
 alignment ruled out as the cause. Files: `tools/null_grid_test.py`, `out/null_grid_test.csv`.
 
+## 9e. THE OBSERVED-RATE GAP IS THE WINDOW, and the two deviations do not compound
+
+The last open number. Detector frozen at 2000-12000 Hz, sum before differencing, threshold
+4.407, 123-anchor map. Only the rule for turning a mapped position into a scored sample varies,
+applied identically to observed and null.
+
+| sampling rule | ghost observed | plain observed | null | ratio |
+|---|---|---|---|---|
+| exact mapped timestamp, nearest frame | 8.0% | 10.0% | 8.1% | 0.99x |
+| local max within 1 frame, 5.8 ms | 13.1% | 13.7% | 13.3% | 0.98x |
+| local max within 2 frames, 11.6 ms | 22.3% | 24.8% | 23.2% | 0.96x |
+| local max within 10 ms | 19.7% | 19.6% | 20.3% | 0.97x |
+| **local max within 45 ms, the spec** | **61.9%** | **67.2%** | 63.3% | **0.98x** |
+| **local max within 65 ms** | **69.9%** | **74.0%** | 70.9% | **0.99x** |
+| local max within half a sixteenth, 135.6 ms | 91.7% | 94.4% | 91.4% | 1.00x |
+| local max within one sixteenth, 271.1 ms | 97.6% | 97.5% | 97.5% | 1.00x |
+
+**A 65 ms half-window reproduces both reported observed rates**, 69.9 against 71.3 and 74.0
+against 75.3, each inside 1.4 points. So the observed-rate gap is window width, and the
+documented window is 45 ms.
+
+**The ratio stays 0.96x to 1.01x at every window**, because widening the window lifts the null
+by as much as it lifts the observed rate.
+
+### Crossing the two deviations
+
+| window | null construction | ghost observed | null | ratio |
+|---|---|---|---|---|
+| 45 ms, spec | on grid | 61.9% | 63.3% | 0.98x |
+| 45 ms, spec | **off grid** | 61.9% | **52.0%** | **1.19x** |
+| 65 ms | on grid | 69.9% | 70.9% | 0.99x |
+| 65 ms | **off grid** | 69.9% | 62.5% | 1.12x |
+| reported | unstated | 71.3% | 49.0% | 1.45x |
+
+**They do not compound.** The wider window that reproduces the reported observed rate also
+lifts the off-grid null from 52.0 to 62.5 percent, so the ratio falls from 1.19x to 1.12x. The
+best reconstruction reached here is **1.19x**.
+
+**The settled statement.** Each reported figure is individually reachable: the observed rate
+under a 65 ms window, the null under an off-grid displacement at 45 ms. **No single consistent
+parameter set produces both at once**, because the window that lifts one lifts the other.
+Files: `tools/sampling_rule_sweep.py`, `out/sampling_rule_sweep.csv`,
+`tools/full_reconstruction.py`, `out/full_reconstruction.csv`.
+
 ## 9b. THE EYE OVERRULES THE DETECTOR, and the chart corroborates the alignment
 
 Read 2026-09-06 from `~/Projects/_outputs/zappa-drum-sources/06-drumnet/Watermelon-In-Easter-Hay_p1.jpg`

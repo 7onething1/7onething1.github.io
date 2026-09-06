@@ -103,7 +103,7 @@ one labelling decision rather than 1,316 per-stroke judgements.</p>
 <li><a href="#s11">Spectral identity of disputed positions</a></li>
 <li><a href="#s11b">Positive control</a></li>
 <li><a href="#s11c">The decay-prediction test</a></li>
-<li><a href="#s11g">The discrepancy is the null</a></li>
+<li><a href="#s11g">The discrepancy is the null</a></li>\n<li><a href="#s11h">The observed-rate gap is the window</a></li>
 <li><a href="#s11d">The eye overrules the detector</a></li>
 <li><a href="#s11e">Published notation authority</a></li>
 <li><a href="#s11f">Ghost against staccato</a></li>
@@ -459,6 +459,46 @@ between grid positions samples quieter audio.</p>
 <p><b>What this accounts for.</b> The null gap is largely explained, 63.3 to 52.0 against a
 reported 49.0. <b>What it does not.</b> The observed-rate gap, 61.9 against a reported 71.3,
 with alignment now ruled out as the cause.</p>
+</div>
+
+<h2 id="s11h">11h. The observed-rate gap is the WINDOW, and the deviations do not compound</h2>
+<p>Detector frozen at 2000-12000 Hz, sum before differencing, threshold 4.407, 123-anchor map.
+Only the rule turning a mapped position into a scored sample varies, applied identically to
+observed and null.</p>
+<div class="scroll"><table>
+<tr><th>sampling rule</th><th>ghost observed</th><th>plain observed</th><th>null</th><th>ratio</th></tr>
+<tr><td>exact mapped timestamp, nearest frame</td><td>8.0%</td><td>10.0%</td><td>8.1%</td><td>0.99&times;</td></tr>
+<tr><td>local max within 1 frame, 5.8 ms</td><td>13.1%</td><td>13.7%</td><td>13.3%</td><td>0.98&times;</td></tr>
+<tr><td>local max within 2 frames, 11.6 ms</td><td>22.3%</td><td>24.8%</td><td>23.2%</td><td>0.96&times;</td></tr>
+<tr><td>local max within 10 ms</td><td>19.7%</td><td>19.6%</td><td>20.3%</td><td>0.97&times;</td></tr>
+<tr><td><b>local max within 45 ms, the spec</b></td><td><b>61.9%</b></td><td><b>67.2%</b></td><td>63.3%</td><td><b>0.98&times;</b></td></tr>
+<tr><td><b>local max within 65 ms</b></td><td><b>69.9%</b></td><td><b>74.0%</b></td><td>70.9%</td><td><b>0.99&times;</b></td></tr>
+<tr><td>local max within half a sixteenth, 135.6 ms</td><td>91.7%</td><td>94.4%</td><td>91.4%</td><td>1.00&times;</td></tr>
+<tr><td>local max within one sixteenth, 271.1 ms</td><td>97.6%</td><td>97.5%</td><td>97.5%</td><td>1.00&times;</td></tr>
+</table></div>
+<div class="card green">
+<p class="k">A 65 ms half-window reproduces both reported observed rates</p>
+<p>69.9 against 71.3 and 74.0 against 75.3, each inside 1.4 points. The observed-rate gap is
+window width, and the documented window is 45 ms. <b>The ratio stays 0.96&times; to 1.01&times;
+at every window</b>, because widening it lifts the null as much as the observed rate.</p>
+</div>
+<h3>Crossing the two deviations</h3>
+<div class="scroll"><table>
+<tr><th>window</th><th>null construction</th><th>ghost observed</th><th>null</th><th>ratio</th></tr>
+<tr><td>45 ms, spec</td><td>on grid</td><td>61.9%</td><td>63.3%</td><td>0.98&times;</td></tr>
+<tr><td>45 ms, spec</td><td><b>off grid</b></td><td>61.9%</td><td><b>52.0%</b></td><td><b>1.19&times;</b></td></tr>
+<tr><td>65 ms</td><td>on grid</td><td>69.9%</td><td>70.9%</td><td>0.99&times;</td></tr>
+<tr><td>65 ms</td><td><b>off grid</b></td><td>69.9%</td><td>62.5%</td><td>1.12&times;</td></tr>
+<tr><td>reported</td><td>unstated</td><td>71.3%</td><td>49.0%</td><td>1.45&times;</td></tr>
+</table></div>
+<div class="card pur">
+<p class="k">They do not compound, and that is the settled statement</p>
+<p>The wider window that reproduces the reported observed rate also lifts the off-grid null from
+52.0 to 62.5 percent, so the ratio falls from 1.19&times; to 1.12&times;. The best reconstruction
+reached is <b>1.19&times;</b>.</p>
+<p>Each reported figure is individually reachable: the observed rate under a 65 ms window, the
+null under an off-grid displacement at 45 ms. <b>No single consistent parameter set produces
+both at once</b>, because the window that lifts one lifts the other.</p>
 </div>
 
 <h2 id="s11d">11d. The eye overrules the detector</h2>
