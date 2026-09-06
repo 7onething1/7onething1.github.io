@@ -69,6 +69,13 @@ Preflight now runs and reports a different pair of faults:
 - Noted: grid is 309.9 s notated against 360.0 s record, 13.92% off, GRID-INHERITED, so the
   base tab carries the drift and the kickfix causes none of it.
 
+**Moderation status read live 2026-09-06.** `api/meta/68248/revisions` returns 4 revisions and
+exactly 1 is held: `r8908182`, submitted 2026-09-05 18:34:22, `isOnModeration: true`,
+`isBlocked: false`, `reviewed: null`. Precedent `r8769058` was submitted 2026-08-30 00:31 and
+reviewed 2026-09-01 10:21 by Darr, conclusion `fair`, about 58 hours. Nothing on this song is
+blocked or rejected.
+
+
 ## Files changed
 
 - `memory/feedback_zappa_one_song_per_chat_hard_gate.md` (amendment, frontmatter, superseded marker)

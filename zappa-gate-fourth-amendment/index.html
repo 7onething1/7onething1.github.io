@@ -173,6 +173,16 @@ python3 ~/.claude/skills/songsterr-upload/preflight_import.py   --import-file ca
 flagged GRID-INHERITED. The base tab carries that drift and the kickfix keeps its exact grid, so the
 repair causes none of it.</div>
 
+<div class="note warn"><b>Moderation status read live on 6 September, rather than assumed.</b>
+<span class="mono">api/meta/68248/revisions</span> returns 4 revisions. Exactly 1 is held:
+<span class="mono">r8908182</span>, submitted <b>2026-09-05 18:34:22</b>, with
+<span class="mono">isOnModeration: true</span>, <span class="mono">isBlocked: false</span>,
+<span class="mono">reviewed: null</span>. The one comparable precedent is
+<span class="mono">r8769058</span>, submitted 2026-08-30 00:31 and reviewed 2026-09-01 10:21 by
+Darr with conclusion <span class="mono">fair</span>, a turnaround of about 58 hours. Nothing on
+this song is blocked or rejected. A human is holding one diff, and a second upload would replace
+the diff that human is reading.</div>
+
 <div class="note win"><b>The real blocker is one moderator queue, and it is one revision id: r8908182.</b>
 The item was carrying two blockers that a single measurement dissolved. Queue record
 <span class="mono">q-2026-08-31-41c892</span> now states this instead.</div>
