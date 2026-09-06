@@ -33,7 +33,21 @@ drum chart, so it settles tempo and meter and says nothing about the kick lane.
 | Sloots 1975, deposited I-depot The Hague, spring 2017 | 4/4 | **86.4 BPM** |
 | Songsterr s68248 (`carolina-BASE-8769058.gp`) | 4/4, all 102 bars | **79 BPM** |
 
-The two agree on meter. **The tab runs 8.56% slow against Sloots on the opening.**
+The two agree on meter. **The tab runs 8.56% slow against Sloots's MIDI on the opening.**
+
+### Glyph provenance, read at native resolution
+
+The 86.4 BPM is the MIDI's tempo meta event and nothing else. The score was checked directly:
+a 1:1 crop of `carolina-hard-core-ecstasy-1975a.jpg` (875x362 native), taken at full pixel
+resolution and upscaled only for viewing, never downscaled.
+
+What the top system actually carries: a boxed rehearsal number **1**, an **8va**, treble clef,
+a key signature of **one sharp**, and a time signature of **4/4**. The bass staff below repeats
+one sharp and 4/4.
+
+**No metronome mark appears anywhere on the top system.** So the tempo comparison rests on
+Sloots's MIDI realization alone, and it is not a disagreement with a written tempo. One sharp
+is consistent with the C Lydian reading his prose gives for bars 5-8.
 
 ## 3. Chart-to-tab bar mapping
 
