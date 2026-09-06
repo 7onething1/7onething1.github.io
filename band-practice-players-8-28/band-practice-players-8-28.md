@@ -3,6 +3,33 @@
 Every complete take from the 8.28.26 practice tape, one player each. Rebuilt 2026-09-01
 after a detector fault was found and fixed.
 
+## Source, corrected 2026-09-06
+
+Three microphone feeds of the 8.28.26 session arrived from Drive as 24-bit 44.1 kHz
+masters, each 4,966,484,332 bytes and 18745.3735 s. The players are now a blend of all
+three at **zero offset**.
+
+GCC-PHAT at 40-2000 Hz, sampled at three points across the tape (3200 s, 7500 s,
+15000 s), reads every mic within **one sample** of mic1:
+
+| Mic | @3200 | @7500 | @15000 |
+|---|---|---|---|
+| mic2 | +1 | +1 | +0 |
+| mic3 | -1 | +1 | +1 |
+| mic4 | +0 | +1 | +0 |
+
+They were recorded sample-locked on one interface, so they are summed with no trimming
+and averaged so the result cannot clip.
+
+**An earlier build of these players was wrong.** A broadband envelope correlation returned
+offsets of +0.0064 s for mic2 and +0.0026 s for mic3, at peak confidence of only -0.11 to
++0.28. Those were noise peaks, and applying them trimmed 282 and 115 samples off two mics,
+smearing the blend by up to 6.4 ms. The `multimic-stem-fix` skill documents that exact
+failure. Every player here is rebuilt at offset 0.
+
+**A fourth feed is excluded.** mic4 measures 26.9 dB below mic1, so averaging it in would
+add its noise floor and almost no signal. The file is complete and kept.
+
 ## Read this first
 
 The 8.28 session was recorded to a roughly 4 GB WAV, then sent by text. Messages transcoded
@@ -89,7 +116,9 @@ All 27 encodes were probed against their source durations at build time.
 
 ## Paths
 
-- Source: `~/Music/Band-Practice/8.28.26.m4a`
+- Masters: `~/Music/Band-Practice/masters-8-28/` with `ALIGNMENT.md`
+- Blend encodes: `~/Music/Band-Practice/blend-encodes/`
+- Original text-message copy: `~/Music/Band-Practice/8.28.26.m4a`
 - Songs, all 27: `~/Music/Band-Practice/songs-clean-8-28-v2/`
 - Songs, the 18 new ones only: `~/Music/Band-Practice/songs-8-28-NEW/`
 - Songs, the 9 already shipped: `~/Music/Band-Practice/songs-8-28-PREVIOUSLY-SHIPPED/`
