@@ -61,6 +61,19 @@ My steer repeated the chat's own diagnosis that Drumnet bar 14 held two merged b
 
 It ended its report with a permission question about a timed watch. The word "babysit" already authorized the watching. It printed a NEXT line reading "confirm the steer landed" and did not confirm it. That is the same shape as the behaviour it was sent to police.
 
+
+## The babysitter tested a blocked call and reopened it
+
+The chat marked `q-2026-09-05-12fca2` as "source exhausted, do not retry this PDF", because the Atkinson chart is a 180 ppi JPEG whose two-digit meter numerator will not resolve at any enlargement. The raster layer is genuinely closed. One web search settled the underlying question.
+
+Arthur Barrow, Zappa's bassist and rehearsal director, documents the arrangement: the choruses stay in 4/4 and the verses move to odd times, **19/16 and 21/16**. Zappa described the rhythm section running 21/16 against a guitar part in 11/4. Colaiuta describes 19/16 as a 4/4 feel with three sixteenths added at the end, cut in one live take with no splices. The outro repeats 19/16.
+
+The tab r8852151 writes **21/16** at bars 42 to 45, and the chart reading was taken as **24/16** at Verse 2. The documented set is 19/16, 21/16 and 4/4. Twenty-four appears in none of it.
+
+Alfred Music and Drumeo each publish a Keep It Greasey drum transcription through drumsetsheetmusic.com. Neither sits on the disk inventory. Both were recorded as available routes, and nothing was purchased.
+
+Sources: <https://www.donlope.net/fz/notes/Joe's_Garage.html> and <https://yujidrums.hatenablog.com/entry/2018/11/17/222047>
+
 ## Safety
 
 Nothing was deleted, nothing was uploaded, and no revision was withdrawn.
