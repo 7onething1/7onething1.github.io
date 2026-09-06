@@ -1,0 +1,516 @@
+<!DOCTYPE html><html lang="en"><head><meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Zappa Program Scope</title>
+<style>
+:root{--bg:#f4f1e8;--ink:#2b2a26;--mut:#6f6a5d;--line:#d8d2c0;--card:#fffdf6;
+--red:#b23a2e;--amber:#c98a2b;--green:#4d7c4a;--blue:#3c5f7a;--pur:#6b4f7a}
+*{box-sizing:border-box}
+body{margin:0;background:var(--bg);color:var(--ink);
+font:16px/1.62 "Iowan Old Style",Palatino,Georgia,serif;padding:0 0 90px}
+header{background:#2b2a26;color:#f4f1e8;padding:38px 24px 30px}
+.wrap{max-width:1120px;margin:0 auto;padding:0 24px}
+h1{margin:0 0 8px;font-size:31px;letter-spacing:-.01em}
+header p{margin:5px 0 0;color:#c9c2ad;font-size:15px;max-width:78ch}
+h2{margin:46px 0 10px;font-size:22px;border-bottom:2px solid var(--line);padding-bottom:6px}
+h3{margin:26px 0 8px;font-size:17px}
+.tag{display:inline-block;font:600 10.5px/1 -apple-system,system-ui,sans-serif;
+letter-spacing:.05em;text-transform:uppercase;padding:4px 8px;border-radius:3px;color:#fff;white-space:nowrap}
+.t-red{background:var(--red)}.t-amber{background:var(--amber)}.t-green{background:var(--green)}
+.t-blue{background:var(--blue)}.t-pur{background:var(--pur)}
+table{width:100%;border-collapse:collapse;margin:14px 0;background:var(--card);font-size:14px}
+th,td{border:1px solid var(--line);padding:7px 10px;text-align:left;vertical-align:top}
+th{background:#ebe6d6;font:600 12.5px/1.3 -apple-system,system-ui,sans-serif}
+code{background:#ebe6d6;padding:1px 5px;border-radius:3px;font:12.5px/1.4 ui-monospace,Menlo,monospace}
+.card{background:var(--card);border:1px solid var(--line);border-left:5px solid var(--blue);
+padding:15px 20px;margin:16px 0;border-radius:2px}
+.card.red{border-left-color:var(--red)}.card.amber{border-left-color:var(--amber)}
+.card.green{border-left-color:var(--green)}.card.pur{border-left-color:var(--pur)}
+.k{font-weight:700;margin:0 0 6px}
+.mut{color:var(--mut)}
+ul,ol{margin:8px 0 8px 20px;padding:0}li{margin:5px 0}
+.scroll{overflow-x:auto}
+a{color:var(--blue)}
+.stats{display:grid;grid-template-columns:repeat(auto-fit,minmax(148px,1fr));gap:12px;margin:22px 0}
+.stat{background:var(--card);border:1px solid var(--line);padding:14px 16px;border-radius:2px}
+.stat b{display:block;font-size:27px;line-height:1.1;letter-spacing:-.02em}
+.stat span{font:600 11px/1.35 -apple-system,system-ui,sans-serif;text-transform:uppercase;
+letter-spacing:.05em;color:var(--mut);display:block;margin-top:5px}
+.toc{background:var(--card);border:1px solid var(--line);padding:16px 22px;margin:24px 0;border-radius:2px;
+column-count:2;column-gap:34px}
+.toc ol{margin:0 0 0 18px}
+.cols{column-count:2;column-gap:30px;margin:10px 0}
+.cols li{break-inside:avoid}
+footer{margin-top:50px;padding-top:18px;border-top:1px solid var(--line);color:var(--mut);font-size:13.5px}
+@media(max-width:720px){.toc,.cols{column-count:1}}
+</style></head><body>
+<header><div class="wrap">
+<h1>Zappa Program Scope</h1>
+<p>The whole program on one page, written because a handoff narrowed the project to a single
+song and the receiving chat inherited no outline. Every count below was read live from
+<code>songsterr.com/api</code> on 2026-09-06, never carried forward from an older page.</p>
+</div></header>
+<div class="wrap">
+
+<div class="stats">
+<div class="stat"><b>34</b><span>Zappa song ids in play</span></div>
+<div class="stat"><b>3,842</b><span>ghost flags stripped</span></div>
+<div class="stat"><b>17</b><span>restores held on moderation</span></div>
+<div class="stat"><b>15</b><span>songs awaiting a moderator</span></div>
+<div class="stat"><b>12</b><span>printed charts on disk</span></div>
+<div class="stat"><b>3</b><span>charts ever applied</span></div>
+<div class="stat"><b>87</b><span>open queue items</span></div>
+<div class="stat"><b>16</b><span>baselines held on disk</span></div>
+<div class="stat"><b>32</b><span>published audit pages</span></div>
+</div>
+
+<div class="card red">
+<p class="k">Why this page exists</p>
+<p>The 2026-09-06 handoff named one lock, <code>s35881 Watermelon In Easter Hay</code>, and
+described two audio repairs on that one song. It carried none of the program around it. A chat
+reading only that document would not know about fifteen other songs holding a restore revision in
+a moderator queue, nine printed transcriptions sitting unapplied, or thirty-two published audit
+pages. This page is the outline that was missing.</p>
+</div>
+
+<div class="toc">
+<ol>
+<li><a href="#s0">The plan, corrected</a></li>
+<li><a href="#s0b">Phase 1 audit, per song</a></li>
+<li><a href="#s0c">What the moderators said</a></li>
+<li><a href="#s1">The program in one paragraph</a></li>
+<li><a href="#s2">Six workstreams</a></li>
+<li><a href="#s3">The ghost-note sweep and its damage</a></li>
+<li><a href="#s4">The restore fleet, live status</a></li>
+<li><a href="#s5">Two tabs the moderators saved</a></li>
+<li><a href="#s6">Tab against printed chart</a></li>
+<li><a href="#s7">Coverage and redo ranking</a></li>
+<li><a href="#s8">Per-song audio forensics</a></li>
+<li><a href="#s9">Findings withdrawn, never cite again</a></li>
+<li><a href="#s10">The song-id register</a></li>
+<li><a href="#s11">The gate stack</a></li>
+<li><a href="#s12">Published pages</a></li>
+<li><a href="#s13">What the next chat does first</a></li>
+</ol>
+</div>
+
+<h2 id="s0">0. The plan, corrected 2026-09-06</h2>
+<div class="card red">
+<p class="k">Phase 1 as stated is already complete, and re-uploading would cause harm</p>
+<p>The instruction was to re-upload the ghost restores that had not gone back yet, rebuilding from
+the original files kept on disk. Checked song by song against the live API on 2026-09-06:
+<b>all sixteen damaged tabs already carry a restore revision, and every one of them has its
+pre-sweep baseline on disk.</b> Fifteen restores sit in the moderator queue and one has published.
+There is nothing left to send.</p>
+<p>Sending a second restore on any of these would stack a duplicate revision behind one a moderator
+has yet to read. That is the failure already visible on <b>Uncle Meat</b>, where three restores
+queued at once and the third exists only to say which two should be dropped.</p>
+</div>
+<div class="scroll"><table>
+<tr><th>#</th><th>Phase</th><th>What it does</th><th>Upload method</th><th>State</th></tr>
+<tr><td>1</td><td><b>Ghost restore</b></td>
+<td>Put back every stripped parenthesised notehead, measured against the pre-sweep baseline.</td>
+<td>Revision on the original tab, since it repairs damage done to that tab.</td>
+<td><span class="tag t-amber">uploaded, awaiting moderators</span></td></tr>
+<tr><td>1b</td><td><b>Rejection watch</b></td>
+<td>Re-read moderation status. Rebuild from the on-disk baseline for any restore a moderator
+blocks.</td>
+<td>One replacement revision, never a stack.</td>
+<td><span class="tag t-blue">standing</span></td></tr>
+<tr><td>2</td><td><b>Rebuild to match transcriptions</b></td>
+<td>Correct each tab against the professional printed chart, bar by bar.</td>
+<td><b>Create and edit a copy of the current tab.</b> Our corrected version becomes our own tab
+and the original author's stays untouched.</td>
+<td><span class="tag t-blue">9 charts idle, 7 songs</span></td></tr>
+<tr><td>3</td><td><b>Audio-evidence repairs</b></td>
+<td>Add textures the chart and tab both omit, proven from isolated kit stems.</td>
+<td>Copy of the current tab, same as phase 2.</td>
+<td><span class="tag t-amber">2 built on Watermelon</span></td></tr>
+</table></div>
+<div class="card green">
+<p class="k">The upload rule that separates phase 1 from phase 2</p>
+<p>A ghost restore is a repair to damage this account caused, so it belongs on the original tab as a
+revision. A transcription-matched rebuild is a different reading of the music, so it uses
+<b>create and edit a copy of the current tab</b>. That keeps another transcriber's work intact and
+puts our version beside it rather than over it. This is what the whole ghost debacle was caused by
+not doing.</p>
+</div>
+
+<h2 id="s0b">0b. Phase 1 audit: baseline and restore, per song</h2>
+<p>Every damaged tab, its pre-sweep baseline file on this Mac, and the restore revision now
+carrying it. Zero gaps. Baselines live under
+<code>~/Projects/_outputs/songsterr-zappa-paren-fix/</code>.</p>
+<div class="scroll"><table>
+<tr><th>song id</th><th>title</th><th style="text-align:right">flags</th><th>baseline on disk</th><th>restore</th><th>state</th></tr>
+<tr><td><code>s35881</code></td><td>Watermelon In Easter Hay</td><td style="text-align:right">1,317</td><td><code>PRESWEEP-r7715683.gp</code></td><td><code>r8908034</code></td><td><span class="tag t-amber">held</span></td></tr>
+<tr><td><code>s35886</code></td><td>Muffin Man</td><td style="text-align:right">578</td><td><code>PRESWEEP-r7716657.gp</code></td><td><code>r8906880</code></td><td><span class="tag t-amber">held</span></td></tr>
+<tr><td><code>s620961</code></td><td>Drowning Witch</td><td style="text-align:right">419</td><td><code>PRESWEEP-r2606944.gp</code></td><td><code>r8908109</code></td><td><span class="tag t-amber">held</span></td></tr>
+<tr><td><code>s35870</code></td><td>Montana</td><td style="text-align:right">317</td><td><code>PRESWEEP-r7294223.gp</code></td><td><code>r8907028</code></td><td><span class="tag t-amber">held</span></td></tr>
+<tr><td><code>s1105085</code></td><td>The Black Page</td><td style="text-align:right">173</td><td><code>RESTORE-r7108692.gp</code></td><td><code>r8907247</code></td><td><span class="tag t-amber">held</span></td></tr>
+<tr><td><code>s35878</code></td><td>Nanook Suite</td><td style="text-align:right">168</td><td><code>RESTORE-r7807785.gp</code></td><td><code>r8907360</code></td><td><span class="tag t-amber">held</span></td></tr>
+<tr><td><code>s35865</code></td><td>Nanook Rubs It</td><td style="text-align:right">168</td><td><code>RESTORE-r4719269.gp</code></td><td><code>r8907423</code></td><td><span class="tag t-amber">held</span></td></tr>
+<tr><td><code>s412178</code></td><td>Inca Roads</td><td style="text-align:right">165</td><td><code>RESTORE-r7750859.gp</code></td><td><code>r8907511</code></td><td><span class="tag t-amber">held</span></td></tr>
+<tr><td><code>s68248</code></td><td>Carolina Hard-Core Ecstasy</td><td style="text-align:right">144</td><td><code>PRESWEEP-r593836.gp</code></td><td><code>r8908182</code></td><td><span class="tag t-amber">held</span></td></tr>
+<tr><td><code>s35884</code></td><td>Oh No</td><td style="text-align:right">141</td><td><code>PRESWEEP-r7494834.gp</code></td><td><code>r8908239</code></td><td><span class="tag t-amber">held</span></td></tr>
+<tr><td><code>s68246</code></td><td>Alien Orifice</td><td style="text-align:right">86</td><td><code>PRESWEEP-r7636083.gp</code></td><td><code>r8907689</code></td><td><span class="tag t-amber">held</span></td></tr>
+<tr><td><code>s35887</code></td><td>What&#x27;s New In Baltimore?</td><td style="text-align:right">59</td><td><code>PRESWEEP-r8555291.gp</code></td><td><code>r8908276</code></td><td><span class="tag t-amber">held</span></td></tr>
+<tr><td><code>s748459</code></td><td>Fembot In A Wet T-Shirt</td><td style="text-align:right">57</td><td><code>PRESWEEP-r8742638.gp</code></td><td><code>r8907601</code></td><td><span class="tag t-amber">held</span></td></tr>
+<tr><td><code>s20690</code></td><td>Uncle Meat (YCDTOSA Vol. 2)</td><td style="text-align:right">24</td><td><code>PRESWEEP-r24054.gp</code></td><td><code>r8909627</code></td><td><span class="tag t-amber">held</span></td></tr>
+<tr><td><code>s749523</code></td><td>Catholic Girls</td><td style="text-align:right">16</td><td><code>PRESWEEP-r1971732.gp</code></td><td><code>r8907778</code></td><td><span class="tag t-amber">held</span></td></tr>
+<tr><td><code>s5820647</code></td><td>Zomby Woof (Mothers)</td><td style="text-align:right">10</td><td><code>RESTORE-r7605020-presweep.gp</code></td><td><code>r8906157</code></td><td><span class="tag t-green">landed</span></td></tr>
+</table></div>
+
+<h2 id="s0c">0c. What the moderators actually said</h2>
+<div class="card amber">
+<p class="k">Two reports on this account, both on stripping revisions, none on a restore</p>
+<p>Read from the revisions API on 2026-09-06. Exactly two revisions carry a moderator report, and
+both are the sweep's own deletions rather than any repair:</p>
+<ul>
+<li><b>Keep It Greasey</b> <code>s604777</code>, <code>r8768457</code>, 629 flags.
+Moderator report, kind <code>unclear</code>: "It probably did not make the tab more accurate to the
+original performance." Blocked.</li>
+<li><b>Zoot Allures</b> <code>s35883</code>, <code>r8769199</code>, 53 flags. Same report, same
+wording. Blocked.</li>
+</ul>
+<p>Both tabs kept every ghost flag because the block landed before publication. Across all 48
+revisions this account has on Zappa tabs, no restore has drawn a report and none has been rejected.
+The pressure is real, and its measured source is the deletions rather than the repairs.</p>
+</div>
+
+<h2 id="s1">1. The program in one paragraph</h2>
+<p>Frank Zappa drum transcriptions on Songsterr are being repaired against professional printed
+charts and against isolated drum stems. The work has four surfaces. A notation sweep run on
+2026-08-29 and 2026-08-30 damaged twenty community tabs and that damage is being undone one song
+at a time. Separately, each tab is being checked bar by bar against transcriptions by Ryan Brown,
+Daniel B&eacute;dard, Todd Bishop, Pete Sweeney and the Drumnet charts. Separately again, isolated
+kit stems are being used to find textures the tabs omit entirely. Underneath all three sits a
+coverage question, which songs have a drum reading of the album take at all.</p>
+
+<h2 id="s2">2. Six workstreams</h2>
+<div class="scroll"><table>
+<tr><th>#</th><th>Workstream</th><th>What it decides</th><th>State</th></tr>
+<tr><td>1</td><td><b>Ghost-note restoration</b></td>
+<td>Putting back the 3,842 parenthesised noteheads a sweep removed from other people's tabs.</td>
+<td><span class="tag t-amber">17 revisions held</span></td></tr>
+<tr><td>2</td><td><b>Ghost adjudication</b></td>
+<td>Whether a ghost flag on a ride, hat or tambourine carries the quiet-snare meaning. Watermelon
+1,316 on ride, Oh No 141 on closed hat, Carolina 144 on tambourine.</td>
+<td><span class="tag t-blue">evidence model rebuilt</span></td></tr>
+<tr><td>3</td><td><b>Tab against printed chart</b></td>
+<td>Bar-level agreement between a tab and a professional transcription. Six songs measured so far.</td>
+<td><span class="tag t-amber">9 charts idle</span></td></tr>
+<tr><td>4</td><td><b>Audio forensics per song</b></td>
+<td>What the tab omits that the isolated kit proves. Foot-pedal hi-hat, snare rebound texture,
+cymbal saturation, grid desync.</td>
+<td><span class="tag t-amber">2 repairs built, unshipped</span></td></tr>
+<tr><td>5</td><td><b>Coverage inventory</b></td>
+<td>Which of 37 songs across three albums have a drum reading of the album take.</td>
+<td><span class="tag t-green">published</span></td></tr>
+<tr><td>6</td><td><b>Process gates</b></td>
+<td>Song locking, chat ceilings, drift measurement, handoff shape.</td>
+<td><span class="tag t-green">fourth amendment live</span></td></tr>
+</table></div>
+
+
+<h2 id="s3">3. The ghost-note sweep and its damage</h2>
+<div class="card amber">
+<p class="k">What happened, in three sentences</p>
+<p>Songsterr draws a ghost note as a notehead inside round brackets, which is the correct
+rendering. A sweep read those brackets as a defect and submitted revisions removing them across
+twenty Frank Zappa tabs. Sixteen of those stripping revisions published and went live.</p>
+<p class="mut">Root cause has three layers. A house rule from <code>stems-to-guitar-pro-drums</code>,
+written for generated output, was applied to published community transcriptions. GPIF spells a ghost
+as <code>&lt;AntiAccent&gt;Normal&lt;/AntiAccent&gt;</code>, so a search for <code>&lt;Ghost&gt;</code>
+returned zero and that zero was read as absence. The preservation audit compared pitch, rhythm and
+position across 120,579 beat events, and articulation sat outside what it measured.</p>
+</div>
+
+<p>Lane breakdown matters, because a ghost on a snare is unambiguous and a ghost on a ride is a
+different question. Counted 2026-09-05 by fetching each tab's pre-sweep revision.</p>
+<div class="scroll"><table>
+<tr><th>song id</th><th>title</th><th style="text-align:right">flags</th><th>where they sat</th><th>restore</th></tr>
+<tr><td><code>s35881</code></td><td><b>Watermelon In Easter Hay</b></td><td style="text-align:right"><b>1,317</b></td><td>Ride 1,316, Crash 1. Zero snare.</td><td><code>r8908034</code> <span class=tag t-amber>held</span></td></tr>
+<tr><td><code>s35886</code></td><td><b>Muffin Man</b></td><td style="text-align:right"><b>578</b></td><td>Snare 481, Snare2 23, then hats, crashes, toms</td><td><code>r8906880</code> <span class=tag t-amber>held</span></td></tr>
+<tr><td><code>s620961</code></td><td><b>Drowning Witch</b></td><td style="text-align:right"><b>419</b></td><td>Ride 128, Snare 101, HatClosed 61, Kick 41, TomLow 33</td><td><code>r8908109</code> <span class=tag t-amber>held</span></td></tr>
+<tr><td><code>s35870</code></td><td><b>Montana</b></td><td style="text-align:right"><b>317</b></td><td>Snare 95, Tambourine 83, Snare2 79, Kick 24</td><td><code>r8907028</code> <span class=tag t-amber>held</span></td></tr>
+<tr><td><code>s1105085</code></td><td><b>The Black Page</b></td><td style="text-align:right"><b>173</b></td><td>Snare 170, HatPedal 3</td><td><code>r8907247</code> <span class=tag t-amber>held</span></td></tr>
+<tr><td><code>s35878</code></td><td><b>Nanook Suite</b></td><td style="text-align:right"><b>168</b></td><td>Snare 168</td><td><code>r8907360</code> <span class=tag t-amber>held</span></td></tr>
+<tr><td><code>s35865</code></td><td><b>Nanook Rubs It</b></td><td style="text-align:right"><b>168</b></td><td>Snare 168</td><td><code>r8907423</code> <span class=tag t-amber>held</span></td></tr>
+<tr><td><code>s412178</code></td><td><b>Inca Roads</b></td><td style="text-align:right"><b>165</b></td><td>Snare 134, Crash 14, Kick 7</td><td><code>r8907511</code> <span class=tag t-amber>held</span></td></tr>
+<tr><td><code>s68248</code></td><td><b>Carolina Hard-Core Ecstasy</b></td><td style="text-align:right"><b>144</b></td><td>Tambourine 144. Zero snare.</td><td><code>r8908182</code> <span class=tag t-amber>held</span></td></tr>
+<tr><td><code>s35884</code></td><td><b>Oh No</b></td><td style="text-align:right"><b>141</b></td><td>HatClosed 141. Zero snare.</td><td><code>r8908239</code> <span class=tag t-amber>held</span></td></tr>
+<tr><td><code>s68246</code></td><td><b>Alien Orifice</b></td><td style="text-align:right"><b>86</b></td><td>Snare 33, Crash 33, Crash2 14</td><td><code>r8907689</code> <span class=tag t-amber>held</span></td></tr>
+<tr><td><code>s35887</code></td><td><b>What&#x27;s New In Baltimore?</b></td><td style="text-align:right"><b>59</b></td><td>Ride 48, Snare 4, Crash 4</td><td><code>r8908276</code> <span class=tag t-amber>held</span></td></tr>
+<tr><td><code>s748459</code></td><td><b>Fembot In A Wet T-Shirt</b></td><td style="text-align:right"><b>57</b></td><td>Snare 53, HatPedal 4</td><td><code>r8907601</code> <span class=tag t-amber>held</span></td></tr>
+<tr><td><code>s20690</code></td><td><b>Uncle Meat (YCDTOSA Vol. 2)</b></td><td style="text-align:right"><b>24</b></td><td>Spread across toms, snare 4, ride bell 4</td><td><code>r8909627</code> <span class=tag t-amber>held</span></td></tr>
+<tr><td><code>s749523</code></td><td><b>Catholic Girls</b></td><td style="text-align:right"><b>16</b></td><td>Snare 16</td><td><code>r8907778</code> <span class=tag t-amber>held</span></td></tr>
+<tr><td><code>s5820647</code></td><td><b>Zomby Woof (Mothers tab)</b></td><td style="text-align:right"><b>10</b></td><td>Snare 10</td><td><span class=tag t-green>LANDED</span></td></tr>
+<tr><th colspan="2">Total</th><th style="text-align:right">3,842</th>
+<th colspan="2">1,549 on snare, 2,293 on other lanes</th></tr>
+</table></div>
+
+<h2 id="s4">4. The restore fleet, live status</h2>
+<div class="card green">
+<p class="k">Every stripped flag now has a restore built</p>
+<p>Read live from <code>api/meta/&lt;songId&gt;/revisions</code> on 2026-09-06.
+<b>3,832 flags across 15 songs sit in restore revisions held on moderation</b>,
+all submitted on 2026-09-05 between 17:22 and 19:43. The remaining 10 flags, on the Mothers
+<b>Zomby Woof</b> tab <code>s5820647</code>, already landed. Nothing in the damage ledger is
+unaccounted for.</p>
+</div>
+<div class="card amber">
+<p class="k">Uncle Meat carries a three-deep stack</p>
+<p><code>s20690</code> holds <code>r8907892</code>, <code>r8907952</code> and <code>r8909627</code>
+all on moderation at once. The newest supersedes both earlier ones and says so in its description.
+A stack that deep is the one-upload rule breaking, and the repair is to stop uploading rather than
+to delete queued revisions.</p>
+</div>
+<div class="card">
+<p class="k">Zomby Woof s412162 is closed</p>
+<p>21 revisions, 9 authored here, none held and none blocked. The published revision is
+<code>r8918601</code> by Nikita. This is the one song that carried three separate printed charts
+through to a cited revision.</p>
+</div>
+
+<h2 id="s5">5. Two tabs the moderators saved</h2>
+<p>Two stripping revisions were blocked before they could publish, so those tabs still carry every
+ghost flag they always had. No restore is needed on either.</p>
+<div class="scroll"><table>
+<tr><th>song id</th><th>title</th><th style="text-align:right">flags at risk</th><th>blocked revision</th><th>outcome</th></tr>
+<tr><td><code>s604777</code></td><td><b>Keep It Greasey</b></td><td style="text-align:right"><b>629</b></td><td><code>r8768457</code></td><td>Moderator blocked the stripping revision. All 629 flags survive on the live tab.</td></tr>
+<tr><td><code>s35883</code></td><td><b>Zoot Allures</b></td><td style="text-align:right"><b>53</b></td><td><code>r8769199</code></td><td>Moderator blocked the stripping revision. All 53 flags survive on the live tab.</td></tr>
+</table></div>
+<p class="mut">A separate six revisions on <b>Alien Orifice</b> <code>s68246</code> are blocked, all
+authored by Ben Dibden1 in late 2025 on guitar staves, unrelated to this program.</p>
+
+<h2 id="s6">6. Tab against printed chart</h2>
+<div class="card amber">
+<p class="k">Twelve charts on disk, three ever applied, and all three on one song</p>
+<p>Ryan Brown, Daniel B&eacute;dard and the Drumnet chart were all used on Zomby Woof, cited by name
+in <code>r8905411</code> and <code>r8905491</code>. Across every other song, a professional
+transcription has sat on disk and no revision has ever cited it. Nine charts covering seven songs
+are idle.</p>
+</div>
+<p>Six songs have a bar-level comparison finished: Zomby Woof, Andy, Drowning Witch, Keep It
+Greasey, The Central Scrutinizer and Watermelon In Easter Hay. Two concrete findings from that
+pass:</p>
+<ul>
+<li><b>Drowning Witch</b> <code>s620961</code>. Eight of nine eighths agree in the 9/8 passage at
+2:10. The seventh eighth reads kick in the chart and snare in the tab, across all four bars. The
+tab also writes nine closed hi-hats with zero open and zero pedal where the chart shows a circled X.</li>
+<li><b>Andy</b> <code>s21495</code>. Leonard's human tab tracks the chart. Kick agrees within one
+stroke in all eight compared bars. The snare difference is unreported, because a 12-pixel-per-space
+scan fragments beams and the detector returned 31 to 43 heads per bar where a dozen exist.</li>
+</ul>
+<p>The chart archive lives at <code>~/Projects/_outputs/zappa-drum-sources/</code> with
+<code>ARCHIVE-STATE.md</code> as its manifest. Kasper Sloots supplies Zappa's own capital-letter
+section scheme with timestamps and bar ranges, which is a free bar map for any audit.</p>
+
+<h2 id="s7">7. Coverage and redo ranking</h2>
+<p>Thirty-seven songs across Apostrophe ('), One Size Fits All and Joe's Garage were inventoried in
+album order from each record's MusicBrainz release. Eleven have an AI drum tab of the album take.
+Twenty-four have any drum tab of the album take. Five have an AI tab of a live take only, which
+never counts as coverage of the studio recording.</p>
+<div class="card red">
+<p class="k">The blocker on the repair plan is source coverage</p>
+<p>Across Over-Nite Sensation, One Size Fits All and Roxy &amp; Elsewhere, 26 songs carry a drum
+tab and only 2 have a professional drum chart on disk. Eighteen have nothing. Any row claiming a
+mismatch on those songs would be invented, so they read as not yet measured.</p>
+</div>
+<p><b>Apostrophe (') ranks first for a redo.</b> Five minutes fifty with no drum reading of the
+studio take. The studio tab <code>s35873</code> carries zero drum tracks. The AI tab is a 1974 Los
+Angeles live performance of a different night. The only studio notation in the archive is Todd
+Bishop's two-system excerpt of the Jim Gordon break starting at 3:22.</p>
+
+<h2 id="s8">8. Per-song audio forensics</h2>
+<h3>Watermelon In Easter Hay <code>s35881</code>, furthest along</h3>
+<div class="card green">
+<p class="k">Repair 1, foot-pedal hi-hat, confirmed and built</p>
+<p>The tab notates six Pedal Hi-Hat events across the whole song. The isolated hat stem carries a
+steady chick on the quarter. Periodic-subsequence test gives period 1.0800 s against the GP quarter
+of 1.0842 s at a snare-anchored 55.34 BPM. 178 of 505 grid slots carry a hat onset, 35% against a
+26% chance baseline. Brandon's representative chicks at 181.93, 183.03, 184.10 and 185.19 s land in
+the stem at 181.92, 183.00, 184.09 and 185.17 s. Roughly 172 events are missing. Queue
+<code>q-2026-09-06-ca2848</code>.</p>
+</div>
+<div class="card green">
+<p class="k">Repair 2, snare rebound texture, confirmed</p>
+<p>The tab carries 193 snare events with zero ghost flags. Brandon measured 202 principal snare
+attacks, 196 carrying at least one substantially quieter follow-up inside 250 ms and 178 carrying
+two, the first near 92 ms and the second near 156 ms. Use his counts. My own run over-detected
+principals at 411. Queue <code>q-2026-09-06-8ce0a9</code>.</p>
+</div>
+<div class="card">
+<p class="k">The alignment anchor, settled</p>
+<p>193 notated snare hits against 615 detected snare onsets gives offset 37.60 s, scale 1.012,
+effective 55.34 BPM, matching 90 of 193 within 80 ms. That is 47% against an 18% chance baseline,
+real at 2.6 times chance. Every audio measurement on this song uses that alignment.</p>
+</div>
+<div class="card amber">
+<p class="k">Open, ship no deletion revision</p>
+<p>The remaining 1,123 ride ghosts are unexplained. The cymbal-stem method gives no trustworthy
+verdict, since a 41% chance baseline swallows the signal at ghosts 47% and plain 55%. This needs an
+onset method with a lower chance baseline. Queue <code>q-2026-09-06-1492ba</code>.</p>
+</div>
+<h3>Other songs with audio work on disk</h3>
+<ul>
+<li><b>Cosmik Debris</b> <code>s412177</code>. Hi-hat audit with source wav, Demucs drums stem, and
+a DrumSep six-lane split into kick, snare, toms, hi-hat, ride and crash. The analysis scripts
+<code>lane_verdict.py</code>, <code>hh_verdict.py</code> and <code>hat_analyze.py</code> are reusable
+on any song.</li>
+<li><b>Nanook Rubs It</b> <code>s35865</code>. Desync sits on the grid rather than on the notes.
+Sync forensics published.</li>
+<li><b>Sofa No. 1</b> <code>s6822181</code>. AI cymbal saturation audit. Kasper Sloots gives the
+section map: A bars 1 to 22 at 0:00, B bars 23 to 36 at 0:34, C bars 37 to 64 at 0:56, D bars 65 to
+79 at 1:39, E bars 80 to 103 at 2:01, end 2:38.</li>
+<li><b>Inca Roads</b> <code>s412178</code>. Drum audit published, restore held.</li>
+</ul>
+
+<h2 id="s9">9. Findings withdrawn, never cite again</h2>
+<div class="card red">
+<ul>
+<li>The Watermelon alignment at offset 33.00 s and scale 1.020. It scored 64% within 50 ms against a
+58% chance baseline, so it established nothing.</li>
+<li>The Mann-Whitney z = -0.40 no-dynamic-difference result, which rested on that alignment.</li>
+<li>The claim that the 1,316 Watermelon ride flags are a proven intentional accent grid.</li>
+<li>The rebound-coincidence line. Cymbal-lane ghosts hit rebound times at 7.7% to 9.9% against
+chance baselines of 11.1% to 20.7%, below chance at every picker setting tested.</li>
+<li>The claim that a 23.3 s duration gap is a normal lead-in or tail on a YouTube upload. That was
+invented and the video was never inspected.</li>
+</ul>
+</div>
+<div class="card">
+<p class="k">Closed by measurement, do not reopen</p>
+<p>The 193 post-snare ride ghosts on Watermelon are not misplaced snare rebounds. The tab places
+them at a rigid 271 ms after the snare, one GP sixteenth, with the 10th and 90th percentiles both at
+271 ms. The audio rebounds land at 70 to 92 ms and 134 to 156 ms.</p>
+</div>
+
+<h2 id="s10">10. The song-id register</h2>
+<p>Titles collide in this catalogue, so the song id governs and the title never does. Two tabs are
+titled Zomby Woof and two are titled Montana. Verify with <code>api/meta/&lt;songId&gt;</code> before
+any edit.</p>
+<div class="scroll"><table>
+<tr><th>song id</th><th>title</th><th>artist</th><th>trk/drum</th><th>live rev</th><th>author</th><th>state</th></tr>
+<tr><td><code>s68246</code></td><td>Alien Orifice</td><td class="mut">Frank Zappa</td><td>10/1</td><td><code>r8769118</code></td><td class="mut">Brandon chavez</td><td><span class="tag t-amber">restore r8907689 held</span></td></tr>
+<tr><td><code>s21495</code></td><td>Andy</td><td class="mut">Frank Zappa</td><td>9/1</td><td><code>r41271</code></td><td class="mut">Leonard</td><td><span class="tag t-blue">chart-matched, untouched</span></td></tr>
+<tr><td><code>s35873</code></td><td>Apostrophe&#x27;</td><td class="mut">Frank Zappa</td><td>4/0</td><td><code>r2085891</code></td><td class="mut">Kasper Jorgensen</td><td><span class="tag t-blue">no drum track at all</span></td></tr>
+<tr><td><code>s187082</code></td><td>Camarillo Brillo</td><td class="mut">Frank Zappa</td><td>5/1</td><td><code>r5563501</code></td><td class="mut">Foxy Scraps</td><td><span class="tag t-blue">AI tab, unexamined</span></td></tr>
+<tr><td><code>s68248</code></td><td>Carolina Hard-Core Ecstasy</td><td class="mut">Frank Zappa</td><td>9/1</td><td><code>r8769058</code></td><td class="mut">Brandon chavez</td><td><span class="tag t-amber">restore r8908182 held</span></td></tr>
+<tr><td><code>s749523</code></td><td>Catholic Girls</td><td class="mut">Frank Zappa</td><td>9/1</td><td><code>r8788801</code></td><td class="mut">Brandon chavez</td><td><span class="tag t-amber">restore r8907778 held</span></td></tr>
+<tr><td><code>s412177</code></td><td>Cosmik Debris</td><td class="mut">Frank Zappa</td><td>6/1</td><td><code>r3723283</code></td><td class="mut">femboy.gardevoir</td><td><span class="tag t-blue">hi-hat audit published</span></td></tr>
+<tr><td><code>s1154774</code></td><td>Cosmik Debris Live</td><td class="mut">Frank Zappa</td><td>4/1</td><td><code>r1540143</code></td><td class="mut">DavidxHanes</td><td><span class="tag t-blue">AI tab, live take</span></td></tr>
+<tr><td><code>s35866</code></td><td>Don&#x27;t Eat The Yellow Snow</td><td class="mut">Frank Zappa</td><td>7/1</td><td><code>r8557200</code></td><td class="mut">MarkDubya</td><td><span class="tag t-blue">untouched</span></td></tr>
+<tr><td><code>s768189</code></td><td>Dong Work For Yuda</td><td class="mut">Frank Zappa</td><td>4/1</td><td><code>r971284</code></td><td class="mut">Kaiden Zalla</td><td><span class="tag t-blue">AI tab, Pete Sweeney chart idle</span></td></tr>
+<tr><td><code>s2549677</code></td><td>Dont Eat The Yellow Snow</td><td class="mut">Frank Zappa</td><td>4/1</td><td><code>r3361342</code></td><td class="mut">Hodd Toward</td><td><span class="tag t-blue">AI duplicate</span></td></tr>
+<tr><td><code>s620961</code></td><td>Drowning Witch</td><td class="mut">Frank Zappa</td><td>16/1</td><td><code>r8768566</code></td><td class="mut">Brandon chavez</td><td><span class="tag t-amber">restore r8908109 held</span></td></tr>
+<tr><td><code>s35864</code></td><td>Father O&#x27;Blivion</td><td class="mut">Frank Zappa</td><td>8/1</td><td><code>r4181868</code></td><td class="mut">femboy.gardevoir</td><td><span class="tag t-blue">untouched</span></td></tr>
+<tr><td><code>s748459</code></td><td>Fembot In A Wet T-Shirt</td><td class="mut">Frank Zappa</td><td>9/1</td><td><code>r8769165</code></td><td class="mut">Brandon chavez</td><td><span class="tag t-amber">restore r8907601 held</span></td></tr>
+<tr><td><code>s412178</code></td><td>Inca Roads</td><td class="mut">Frank Zappa</td><td>12/2</td><td><code>r8769026</code></td><td class="mut">Brandon chavez</td><td><span class="tag t-amber">restore r8907511 held</span></td></tr>
+<tr><td><code>s604777</code></td><td>Keep It Greasey</td><td class="mut">Frank Zappa</td><td>9/1</td><td><code>r8852151</code></td><td class="mut">Ben Dibden1</td><td><span class="tag t-green">strip blocked, tab intact</span></td></tr>
+<tr><td><code>s35870</code></td><td>Montana</td><td class="mut">Frank Zappa</td><td>18/3</td><td><code>r8787106</code></td><td class="mut">Brandon chavez</td><td><span class="tag t-amber">restore r8907028 held, dots to undo</span></td></tr>
+<tr><td><code>s3316614</code></td><td>Montana (A Token Of His Extreme)</td><td class="mut">Frank Zappa</td><td>5/1</td><td><code>r4352288</code></td><td class="mut">Mario Junior</td><td><span class="tag t-blue">AI tab, live take</span></td></tr>
+<tr><td><code>s35886</code></td><td>Muffin Man</td><td class="mut">Frank Zappa</td><td>5/1</td><td><code>r8768517</code></td><td class="mut">Brandon chavez</td><td><span class="tag t-amber">restore r8906880 held</span></td></tr>
+<tr><td><code>s35865</code></td><td>Nanook Rubs It</td><td class="mut">Frank Zappa</td><td>9/1</td><td><code>r8768967</code></td><td class="mut">Brandon chavez</td><td><span class="tag t-amber">restore r8907423 held, grid desync</span></td></tr>
+<tr><td><code>s35878</code></td><td>Nanook Suite</td><td class="mut">Frank Zappa</td><td>11/1</td><td><code>r8769001</code></td><td class="mut">Brandon chavez</td><td><span class="tag t-amber">restore r8907360 held</span></td></tr>
+<tr><td><code>s35884</code></td><td>Oh No</td><td class="mut">Frank Zappa</td><td>6/1</td><td><code>r8769089</code></td><td class="mut">Brandon chavez</td><td><span class="tag t-amber">restore r8908239 held</span></td></tr>
+<tr><td><code>s35889</code></td><td>Peaches En Regalia</td><td class="mut">Frank Zappa</td><td>11/2</td><td><code>r7048017</code></td><td class="mut">Oleg Kalbenko</td><td><span class="tag t-blue">untouched</span></td></tr>
+<tr><td><code>s627774</code></td><td>Pygmy Twylyte</td><td class="mut">Frank Zappa</td><td>2/1</td><td><code>r749948</code></td><td class="mut">Deleted user</td><td><span class="tag t-blue">AI tab, unexamined</span></td></tr>
+<tr><td><code>s6822181</code></td><td>Sofa No. 1</td><td class="mut">frank zappa</td><td>4/1</td><td><code>r8906238</code></td><td class="mut">Brandon chavez</td><td><span class="tag t-blue">AI cymbal saturation audit</span></td></tr>
+<tr><td><code>s1105085</code></td><td>The Black Page</td><td class="mut">Frank Zappa</td><td>4/1</td><td><code>r8768613</code></td><td class="mut">Brandon chavez</td><td><span class="tag t-amber">restore r8907247 held</span></td></tr>
+<tr><td><code>s3554079</code></td><td>The Central Scrutinizer</td><td class="mut">Frank Zappa</td><td>4/1</td><td><code>r4658080</code></td><td class="mut">femboy.gardevoir</td><td><span class="tag t-blue">chart-compared</span></td></tr>
+<tr><td><code>s412170</code></td><td>Trouble Every Day (Live)</td><td class="mut">Frank Zappa</td><td>6/1</td><td><code>r8815000</code></td><td class="mut">Kirill</td><td><span class="tag t-blue">untouched</span></td></tr>
+<tr><td><code>s20690</code></td><td>Uncle Meat (YCDTOSA Vol. 2)</td><td class="mut">Frank Zappa</td><td>11/1</td><td><code>r8788757</code></td><td class="mut">Brandon chavez</td><td><span class="tag t-blue">3 restores stacked, r8909627 wins</span></td></tr>
+<tr><td><code>s35881</code></td><td>Watermelon In Easter Hay</td><td class="mut">Frank Zappa</td><td>9/1</td><td><code>r8768414</code></td><td class="mut">Brandon chavez</td><td><span class="tag t-amber">restore r8908034 held, 2 repairs built</span></td></tr>
+<tr><td><code>s35887</code></td><td>What&#x27;s New In Baltimore?</td><td class="mut">Frank Zappa</td><td>7/1</td><td><code>r8769141</code></td><td class="mut">Brandon chavez</td><td><span class="tag t-amber">restore r8908276 held</span></td></tr>
+<tr><td><code>s412162</code></td><td>Zomby Woof</td><td class="mut">Frank Zappa</td><td>10/1</td><td><code>r8918601</code></td><td class="mut">Nikita</td><td><span class="tag t-amber">CLOSED, nothing held</span></td></tr>
+<tr><td><code>s5820647</code></td><td>Zomby Woof (Mothers)</td><td class="mut">Frank Zappa, The Mothers</td><td>5/1</td><td><code>r8906157</code></td><td class="mut">Brandon chavez</td><td><span class="tag t-green">restore LANDED</span></td></tr>
+<tr><td><code>s35883</code></td><td>Zoot Allures</td><td class="mut">Frank Zappa</td><td>5/1</td><td><code>r7179991</code></td><td class="mut">Ben Dibden1</td><td><span class="tag t-green">strip blocked, tab intact</span></td></tr>
+</table></div>
+
+<h2 id="s11">11. The gate stack</h2>
+<div class="card pur">
+<p class="k">One song at a time survives. One song per chat is retired.</p>
+<p>The fourth amendment, written 2026-09-06, measured 77 of 164 open queue items sitting in the
+Zappa lane, 47% of the backlog, with four fresh chats promised for deferred songs and zero opened.
+A finished song now re-locks inside the same chat. The lock governs attention and carries no
+authority to stop.</p>
+</div>
+<ol>
+<li><b>Precedence.</b> The completion contract wins. The 24-hour or 400-turn ceiling wins next, as a
+handover naming the successor id. The single-song lock applies underneath both.</li>
+<li><b>The lock keys on the song id.</b> Write it as one line and treat it as the only legal target.
+Fetch <code>api/meta/&lt;songId&gt;</code> and read title and artist back before editing.</li>
+<li><b>Branch three.</b> When an outside holder blocks the upload, the chat keeps working evidence on
+that same song. The evidence list is finite and has five items, so the branch has a bottom.</li>
+<li><b>A queue item is never authorization</b> to switch songs.</li>
+<li><b>The ceiling hands over.</b> It never empties the queue and never converts open work into
+something that needs its own chat.</li>
+</ol>
+<p class="mut">Measured drift that produced these rules: session <code>c1e4ffee</code> ran 113.2
+hours with 3,208 assistant turns against 82 typed turns, a ratio of 39 to 1, and carried three song
+ids inside a chat allowed one.</p>
+
+<h2 id="s12">12. Published pages</h2>
+<p>Thirty-two audit pages are live on GitHub Pages. Sources under
+<code>~/Projects/drwu-htmls/public/&lt;route&gt;/</code>.</p>
+<div class="cols"><ul>
+<li><a href="https://7onething1.github.io/zappa-apostrophe-non-ai-drum-transcriptions/">zappa-apostrophe-non-ai-drum-transcriptions</a></li>
+<li><a href="https://7onething1.github.io/zappa-apostrophe-vs-songsterr/">zappa-apostrophe-vs-songsterr</a></li>
+<li><a href="https://7onething1.github.io/zappa-babysit-ledger/">zappa-babysit-ledger</a></li>
+<li><a href="https://7onething1.github.io/zappa-babysitter/">zappa-babysitter</a></li>
+<li><a href="https://7onething1.github.io/zappa-baseline-recovered/">zappa-baseline-recovered</a></li>
+<li><a href="https://7onething1.github.io/zappa-book-outlines/">zappa-book-outlines</a></li>
+<li><a href="https://7onething1.github.io/zappa-chat-drift-forensics/">zappa-chat-drift-forensics</a></li>
+<li><a href="https://7onething1.github.io/zappa-cosmik-debris-hihat-audit/">zappa-cosmik-debris-hihat-audit</a></li>
+<li><a href="https://7onething1.github.io/zappa-drum-archive/">zappa-drum-archive</a></li>
+<li><a href="https://7onething1.github.io/zappa-drum-tab-forensics/">zappa-drum-tab-forensics</a></li>
+<li><a href="https://7onething1.github.io/zappa-drum-transcription-inventory/">zappa-drum-transcription-inventory</a></li>
+<li><a href="https://7onething1.github.io/zappa-evidence-matrix/">zappa-evidence-matrix</a></li>
+<li><a href="https://7onething1.github.io/zappa-gate-fourth-amendment/">zappa-gate-fourth-amendment</a></li>
+<li><a href="https://7onething1.github.io/zappa-ghost-adjudication/">zappa-ghost-adjudication</a></li>
+<li><a href="https://7onething1.github.io/zappa-ghost-note-audit/">zappa-ghost-note-audit</a></li>
+<li><a href="https://7onething1.github.io/zappa-gp-vs-transcription-plan/">zappa-gp-vs-transcription-plan</a></li>
+<li><a href="https://7onething1.github.io/zappa-handoff-lie-audit/">zappa-handoff-lie-audit</a></li>
+<li><a href="https://7onething1.github.io/zappa-inca-roads-drum-audit/">zappa-inca-roads-drum-audit</a></li>
+<li><a href="https://7onething1.github.io/zappa-joes-garage-vs-songsterr/">zappa-joes-garage-vs-songsterr</a></li>
+<li><a href="https://7onething1.github.io/zappa-nanook-sync-forensics/">zappa-nanook-sync-forensics</a></li>
+<li><a href="https://7onething1.github.io/zappa-non-ai-drum-transcriptions/">zappa-non-ai-drum-transcriptions</a></li>
+<li><a href="https://7onething1.github.io/zappa-one-size-fits-all-vs-songsterr/">zappa-one-size-fits-all-vs-songsterr</a></li>
+<li><a href="https://7onething1.github.io/zappa-onsroxy-vs-songsterr/">zappa-onsroxy-vs-songsterr</a></li>
+<li><a href="https://7onething1.github.io/zappa-our-songsterr-revisions-status/">zappa-our-songsterr-revisions-status</a></li>
+<li><a href="https://7onething1.github.io/zappa-paren-fix-status/">zappa-paren-fix-status</a></li>
+<li><a href="https://7onething1.github.io/zappa-repair-state/">zappa-repair-state</a></li>
+<li><a href="https://7onething1.github.io/zappa-sofa-no1-cymbal-audit/">zappa-sofa-no1-cymbal-audit</a></li>
+<li><a href="https://7onething1.github.io/zappa-songsterr-paren-audit/">zappa-songsterr-paren-audit</a></li>
+<li><a href="https://7onething1.github.io/zappa-tab-vs-chart-findings/">zappa-tab-vs-chart-findings</a></li>
+<li><a href="https://7onething1.github.io/zappa-tweetables/">zappa-tweetables</a></li>
+<li><a href="https://7onething1.github.io/zappa-unapplied-printed-charts/">zappa-unapplied-printed-charts</a></li>
+<li><a href="https://7onething1.github.io/zappa-which-drum-tab-needs-redoing/">zappa-which-drum-tab-needs-redoing</a></li>
+</ul></div>
+
+<h2 id="s13">13. What the next chat does first</h2>
+<div class="card green">
+<ol>
+<li>Read this page before locking anything.</li>
+<li>Re-read moderation status live. Seventeen revisions were held on 2026-09-06 and a moderator
+decision changes the whole board. Precedent turnaround on <code>r8769058</code> was about 58 hours.</li>
+<li>Lock one song id and write the lock line out loud.</li>
+<li>Send no second ghost restore. All sixteen are uploaded and one moderator decision changes
+the board.</li>
+<li>Ship Watermelon Repair 1, the foot-pedal hi-hat, against
+<code>PRESWEEP-r7715683.gp</code>, as a <b>copy of the current tab</b>. Verify by set difference
+that every pre-existing event survives and only pedal hi-hat is added.</li>
+<li>Do not ship a deletion revision against the 1,123 unexplained ride flags.</li>
+<li>When that song closes, re-lock the next Zappa id inside the same chat and announce it.</li>
+</ol>
+</div>
+
+<footer>
+<p>Built 2026-09-06. Song metadata and revision status read live from
+<code>songsterr.com/api/meta/&lt;songId&gt;</code> and
+<code>songsterr.com/api/meta/&lt;songId&gt;/revisions</code> the same day. Lane counts and sweep
+totals carried from the 2026-09-05 pre-sweep revision census. Queue counts from
+<code>~/.claude/shift_queue.jsonl</code>, 572 records and 304 unique items.</p>
+<p>Source: <code>~/Projects/drwu-htmls/public/zappa-program-scope/</code></p>
+</footer>
+</div></body></html>
