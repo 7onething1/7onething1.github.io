@@ -1,6 +1,6 @@
 # Printed charts we own and never applied
 
-Twelve charts on disk. Three used. Nine idle. 2026-09-06.
+Twelve printed charts sit on disk here, three of them have been applied to a tab, and nine have never been used at all. Measured 2026-09-06.
 
 **Every applied chart is on one song.** Ryan Brown, Daniel Bedard and Drumnet were all used
 on Zomby Woof, cited by name in revisions r8905411 and r8905491. Across every other song in
