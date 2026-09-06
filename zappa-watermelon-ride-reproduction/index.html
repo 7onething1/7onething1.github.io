@@ -103,6 +103,7 @@ one labelling decision rather than 1,316 per-stroke judgements.</p>
 <li><a href="#s11">Spectral identity of disputed positions</a></li>
 <li><a href="#s11b">Positive control</a></li>
 <li><a href="#s11c">The decay-prediction test</a></li>
+<li><a href="#s11g">The discrepancy is the null</a></li>
 <li><a href="#s11d">The eye overrules the detector</a></li>
 <li><a href="#s11e">Published notation authority</a></li>
 <li><a href="#s11f">Ghost against staccato</a></li>
@@ -417,6 +418,47 @@ rather than of a new strike. Plain strike 8,219 Hz, ghost slot 8,486 Hz, control
 <p>In the envelope domain the notated ghost slot carries only <b>marginally</b> more excess over
 the predicted tail than an off-grid control does, at two-sided p = 0.093. That is <b>weak and
 not significant</b>. It does not demonstrate added strokes, and it does not exclude them.</p>
+</div>
+
+<h2 id="s11g">11g. The discrepancy is the NULL, and its cause is measured</h2>
+<h3>Anchors: 123 reachable by local-window refinement, and DTW failed</h3>
+<p>DTW was tried first. Over a sparse impulse reference the cost is near zero wherever both
+signals are quiet, so the warp slides: unconstrained it disagreed with the validated map by a
+<b>median of 7.7 s</b>, and inside a &plusmn;4 s Sakoe-Chiba band still by <b>2.1 s</b>. The map
+was right and the method was wrong.</p>
+<p><b>Local-window onset refinement works.</b> Keeping the validated map and resetting each
+notated snare inside a &plusmn;120 to 150 ms window reaches <b>123 anchors</b> from 97. All 122
+local slopes fall inside 0.918 to 1.103, median residual against the global line is -9 ms, and
+it agrees with the 97-anchor map at a median difference of <b>0.0 ms</b>.</p>
+<h3>Better alignment moves observed and null together</h3>
+<div class="scroll"><table>
+<tr><th>alignment</th><th>anchors</th><th>ghost observed</th><th>plain observed</th><th>null</th><th>ratio</th></tr>
+<tr><td>97 peak-picked</td><td>97</td><td>61.2%</td><td>65.9%</td><td>62.3%</td><td><b>0.98&times;</b></td></tr>
+<tr><td>123 window-refined</td><td>123</td><td>61.9%</td><td>67.2%</td><td>63.3%</td><td><b>0.98&times;</b></td></tr>
+<tr><td>reported</td><td>137</td><td>71.3%</td><td>75.3%</td><td>49.0%</td><td>1.45&times;</td></tr>
+</table></div>
+<p>Raising anchor density lifted the observed rate 0.7 points and the null 1.0 point.
+<b>Alignment quality cannot produce the reported ratio, because it moves both terms.</b></p>
+<h3>A grid-breaking displacement reproduces the depressed null</h3>
+<p>The score alternates 4/4 bars of 4,286 ms and 5/4 bars of 5,357 ms, and the ride sits on a
+268 ms sixteenth grid. A displacement preserving <b>position within the bar</b> keeps
+destinations on that grid. A displacement measured in <b>time</b> cannot, since no fixed
+interval is a whole number of bars in both meters.</p>
+<div class="scroll"><table>
+<tr><th>displacement procedure</th><th>destinations</th><th>null</th><th>ratio</th></tr>
+<tr><td>by bar index, position-in-bar preserved</td><td><b>on grid</b></td><td>63.3%</td><td><b>0.98&times;</b></td></tr>
+<tr><td>by k &times; 4 quarter notes</td><td>off grid in 5/4</td><td>59.5%</td><td>1.04&times;</td></tr>
+<tr><td><b>by k &times; mean bar duration in time</b></td><td><b>off grid</b></td><td><b>52.0%</b></td><td><b>1.19&times;</b></td></tr>
+<tr><td>reported</td><td>unstated</td><td>49.0%</td><td>1.45&times;</td></tr>
+</table></div>
+<div class="card green">
+<p class="k">Off-grid destinations depress the null and inflate the ratio</p>
+<p>In the right direction and close to the right size. The measured cause is section 11c: flux
+at an off-grid point runs <b>3.11&times; lower</b> than at a notated grid slot, so a null landing
+between grid positions samples quieter audio.</p>
+<p><b>What this accounts for.</b> The null gap is largely explained, 63.3 to 52.0 against a
+reported 49.0. <b>What it does not.</b> The observed-rate gap, 61.9 against a reported 71.3,
+with alignment now ruled out as the cause.</p>
 </div>
 
 <h2 id="s11d">11d. The eye overrules the detector</h2>

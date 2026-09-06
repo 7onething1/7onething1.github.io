@@ -246,6 +246,60 @@ part, with known lane-assignment limitations.
 4. Pedal hi-hat, roughly 172 events, against 6 notated.
 5. Snare rebound texture, against 193 snare events carrying zero flags.
 
+## 9a. THE DISCREPANCY IS THE NULL, and its likely cause is measured
+
+Resumed 2026-09-06. Two questions were open: why 97 anchors against a reported 137, and where
+the observed and null gaps come from. Both moved.
+
+### Anchors: 123 reachable by local-window refinement
+
+DTW was tried first and it failed. Over a sparse impulse reference the cost is near zero
+wherever both signals are quiet, so the warp slides: unconstrained it disagreed with the
+validated map by a **median of 7.7 s**, and inside a +/-4 s Sakoe-Chiba band still by **2.1 s**.
+The map was right and the method was wrong.
+
+**Local-window onset refinement works.** Keeping the validated map and resetting each notated
+snare inside a +/-120 to 150 ms search window reaches **123 anchors** from 97. All 122 local
+slopes fall inside 0.918 to 1.103, median residual against the global line is -9 ms, and the
+map agrees with the 97-anchor version at a median difference of **0.0 ms** with 81.3 percent
+inside 45 ms. Withheld validation at 123 anchors: n = 40, median 20.5 ms, max 145.1 ms.
+Files: `tools/align_refine.py`, `out/anchors_refined.csv`, `data/alignment_refined.json`.
+The failed attempt is kept at `tools/align_dtw.py` and `out/anchors_dtw.csv`.
+
+### Better alignment moves observed and null together, so the ratio holds
+
+| alignment | anchors | ghost observed | plain observed | null | ratio |
+|---|---|---|---|---|---|
+| 97 peak-picked | 97 | 61.2% | 65.9% | 62.3% | **0.98x** |
+| 123 window-refined | 123 | 61.9% | 67.2% | 63.3% | **0.98x** |
+| reported | 137 | 71.3% | 75.3% | 49.0% | 1.45x |
+
+Raising anchor density lifted the observed rate by 0.7 points and the null by 1.0 point.
+**Alignment quality cannot produce the reported ratio, because it moves both terms.**
+
+### The null is the anomaly, and a grid-breaking displacement reproduces it
+
+The score alternates 4/4 bars of 4,286 ms and 5/4 bars of 5,357 ms, and the ride sits on a
+268 ms sixteenth grid. A displacement that preserves **position within the bar** keeps
+destinations on that grid. A displacement measured in **time** cannot, since no fixed interval
+is a whole number of bars in both meters.
+
+| displacement procedure | destinations | null | ratio |
+|---|---|---|---|
+| by bar index, position-in-bar preserved | **on grid** | 63.3% | **0.98x** |
+| by k x 4 quarter notes | off grid in 5/4 | 59.5% | 1.04x |
+| **by k x mean bar duration in time** | **off grid** | **52.0%** | **1.19x** |
+| reported | unstated | 49.0% | 1.45x |
+
+**Off-grid destinations depress the null and inflate the ratio, in the right direction and
+close to the right size.** The measured cause is section 11c: flux at an off-grid point runs
+3.11 times lower than at a notated grid slot, so a null that lands between grid positions is
+sampling quieter audio.
+
+**What this accounts for and what it does not.** The null gap is largely explained: 63.3 to
+52.0 against a reported 49.0. The observed-rate gap is not: 61.9 against a reported 71.3, with
+alignment ruled out as the cause. Files: `tools/null_grid_test.py`, `out/null_grid_test.csv`.
+
 ## 9b. THE EYE OVERRULES THE DETECTOR, and the chart corroborates the alignment
 
 Read 2026-09-06 from `~/Projects/_outputs/zappa-drum-sources/06-drumnet/Watermelon-In-Easter-Hay_p1.jpg`
