@@ -40,44 +40,17 @@ exact notation the sweep read as a defect.
 Verse 1 agrees on three sources: chart 19/16 at 0:35, tab's first 19/16 at bar 22, 37.1 s,
 161 of 248 bars in 19/16.
 
-Verse 2 does not. The chart writes **24/16** at 1:16; the tab has **zero 24/16 bars** and uses
-**21/16** for bars 42 to 45. The 9/16 then 4/4 that follows appears in both, fixing the
-location, so the block differs by 12 sixteenths, three whole beats. No audio on disk.
+**Verse 2 agrees too, and my earlier reading was wrong.** I reported the chart writing
+**24/16** against the tab's 21/16 and called it a twelve-sixteenth gap. I had read the
+signature off an 880 px downscaled overview. Cropped at native resolution and enlarged nine
+times, Verse 1 reads **19/16** and Verse 2 reads **21/16**, and both match the tab.
 
-**Inventory correction:** the third source is not "Pete Sweeney". It is a Modern Drummer
-collection holding All Blues (Jeff Wald), Dong Work For Yuda (Chris Brady) and a **complete
-Keep It Greasy transcription by Marc Atkinson, October 2000**.
+Independently confirmed: Arthur Barrow describes choruses in 4/4 with verses in 19/16 and
+21/16. **24/16 appears in no source. The tab needs no change on this song.**
 
-**That chart cannot settle the meter, and the limit is the scan.** `pdfimages -list` shows
-every page as a single **180 ppi JPEG**, so rendering higher only upsamples. Two systems on
-page 7 start with an `x/16` signature; at native resolution enlarged 14x both denominators
-read 16 and **neither numerator resolves**. Do not retry this PDF. It does confirm the passage
-is counted in sixteenths, which both other sources agree on.
-
-### The biggest single-bar gap: 12 notes against 2
-
-Drumnet's bar 14 and the tab's bar 15 are **both 2/4** between the same neighbours. Drumnet
-has **12** noteheads, two beamed groups of six, all on one staff position, drawn as downward
-triangles. The tab has **2**: snare with pedal hi-hat on beat one, then nothing.
-
-Correction to my own earlier reading: I called that segment two merged bars because it
-measured 386 px per beat against a 208 median. It is one dense bar. The earlier row claiming
-the tab ran 10 events long in Drumnet bar 13 is withdrawn too, because the watermark crosses
-that system and the detector returned 7 heads where the eye gives about 19 against the tab's 17.
-
-## The Central Scrutinizer s3554079, hi-hat at half density
-
-Chart: Todd Bishop's groove-of-the-day, one bar, and it **prints its own lane labels**
-(hihat, high/mid tom, snare, bass), so no lane inference is needed. Staff measured at
-y 76, 87, 98, 109, 119.
-
-**Chart 16 hi-hat strokes, tab 8.** Chart heads at x 170, 190, 213, 235, 257, 279, 301, 323,
-344, 378, 402, 424, 444, 466, 489, evenly spaced at ~22 px. The tab's groove bars read
-`hi-hat 8, kick 6, snare 1` with durations `8 16 16 16 16 8 8 16 16 8 8`, and across 92 bars
-it averages **8.2 hi-hat per bar**. Vinnie plays sixteenths, the tab writes eighths.
-
-The chart also marks accents plus **o** and **+** on the hi-hat line. The tab uses the open
-lane 17 times in 92 bars and never uses the pedal lane.
+Two mistakes, one cause: reading a signature off a downscaled image, then blocking the item
+as "source exhausted" without searching. Now gates G33 and G38 in
+`~/.claude/skills/_shared/no_stop_gate.py`.
 
 ## What separates the two kinds of tab
 

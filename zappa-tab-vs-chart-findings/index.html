@@ -138,59 +138,30 @@ for a ghost note, printed by DRUM Magazine, and it is what the sweep read as a d
 is <b>bar 22 at 37.1 s</b>, and 19/16 covers <b>161 of the tab's 248 bars</b>. Both lesson
 pages are also 19/16. Nothing to fix.</p>
 
-<h3>Verse 2 disagrees, and the location is certain</h3>
-<div class="scroll"><table>
-<tr><th>tab bar</th><th>meter</th><th>starts</th><th>events</th></tr>
-<tr><td>41</td><td>4/4</td><td>76.0 s</td><td>2</td></tr>
-<tr><td>42</td><td><b>21/16</b></td><td>77.8 s</td><td>26</td></tr>
-<tr><td>43</td><td><b>21/16</b></td><td>80.2 s</td><td>26</td></tr>
-<tr><td>44</td><td><b>21/16</b></td><td>82.6 s</td><td>24</td></tr>
-<tr><td>45</td><td><b>21/16</b></td><td>85.1 s</td><td>23</td></tr>
-<tr><td>46</td><td>9/16</td><td>87.5 s</td><td>9</td></tr>
-<tr><td>47</td><td>4/4</td><td>88.6 s</td><td>2</td></tr>
-</table></div>
-<p>The chart is headed <b>Verse 2 @ 1:16</b> and writes <b>24/16</b>, then 9/16, then 4/4. The
-tab has <b>zero bars of 24/16</b>. <b>The 9/16 followed by 4/4 appears in both</b>, which fixes
-the location beyond doubt, so the bars before that anchor differ by three sixteenths each. The
-tab holds 93 sixteenths across the block where the chart holds 105: one of the two has the
-passage three whole beats shorter. No audio for this song is on disk, so the record cannot
-arbitrate.</p>
-
-<div class="card amber"><p class="k">A correction to the source inventory.</p>
-<p>The inventory names this song's third source "Pete Sweeney". The file is a <b>Modern
-Drummer</b> collection carrying three transcriptions by three people: All Blues by Jeff Wald
-(April 1992), Dong Work For Yuda by Chris Brady, and <b>Keep It Greasy by Marc Atkinson,
-October 2000</b>. The Keep It Greasy chart runs several dense pages and is <b>complete, not an
-excerpt</b>. It is the richest printed source for this song.</p></div>
-
-<div class="card red"><p class="k">The Atkinson chart cannot settle the meter, and the limit is the scan.</p>
-<p><code>pdfimages -list</code> reports every page of that PDF as a single <b>180 ppi JPEG</b>,
-1534 by 1985 pixels, so rendering at 300 or 400 dpi only upsamples the same pixels. Two
-systems on page 7 begin with an <code>x/16</code> signature. At native resolution,
-autocontrasted and enlarged fourteen times, <b>both denominators read 16 clearly and neither
-numerator resolves</b>: two digits each with the staff lines running through them, and 19, 21
-and 24 are not separable at that density.</p>
-<p><b>Do not spend another pass on this PDF.</b> Settling it needs a cleaner scan of Modern
-Drummer October 2000, or the record, and no audio for this song is on disk. What the chart
-does confirm is that the passage is counted in sixteenths, which the tab and the Groove
-Analysis page both agree on.</p></div>
-
-<div class="card red"><p class="k">The biggest single-bar gap on the song: 12 notes against 2.</p>
-<p>Drumnet's bar 14 and the tab's bar 15 are <b>both 2/4</b> and sit between the same
-neighbours, so the position is not in doubt.</p>
-<table><tr><th></th><th>Drumnet bar 14</th><th>tab bar 15</th></tr>
-<tr><td>noteheads</td><td><b>12</b></td><td><b>2</b></td></tr>
-<tr><td>shape</td><td>two beamed groups of six, sextuplets, all on one staff position</td><td>one beat only: snare with pedal hi-hat, then nothing</td></tr></table>
-<p>Counted at 2.4x. The heads are drawn as <b>downward triangles</b>, a glyph this page uses
-nowhere else, distinct from its X heads and filled ovals. The instrument is not named here,
-because the glyph alone does not establish it. <b>The tab writes a two note gesture where the
-chart writes a twelve note fill.</b></p>
-<p class="mut">A correction to my own earlier reading: I had called this segment two merged
-bars because it measured 386 px per beat against a 208 median. Reading system 6 at 1.5x shows
-two bars and a courtesy 5/4 at the system end. The bar is wide because it is dense. The
-earlier row claiming the tab ran 10 events long in Drumnet bar 13 is also withdrawn: the
-watermark crosses that system and the detector returned 7 heads where the eye gives about 19,
-against the tab's 17.</p></div>
+<h3>Verse 2 agrees too. My earlier reading was wrong.</h3>
+<div class="card red"><p class="k">CORRECTION, 2026-09-06. I published a disagreement that does not exist.</p>
+<p>I reported the chart writing <b>24/16</b> at Verse 2 against the tab's 21/16, and called it
+a gap of twelve sixteenths. <b>That was my error.</b> I read the signature off an 880 px
+downscaled overview of the page rather than cropping the glyph.</p>
+<p>Cropped from the Verse 2 system at native resolution, autocontrasted and enlarged nine
+times, both signatures read plainly:</p>
+<table><tr><th></th><th>Groove Analysis</th><th>tab r8852151</th></tr>
+<tr><td>Verse 1</td><td><b>19/16</b></td><td>19/16</td></tr>
+<tr><td>Verse 2</td><td><b>21/16</b></td><td>21/16</td></tr></table>
+<p><b>Both agree. The tab needs no change on this song.</b></p>
+<p>Independently confirmed: Arthur Barrow, Zappa's bassist and rehearsal director, describes
+the choruses staying in 4/4 with the verses going to <b>19/16 and 21/16</b>. Published
+accounts put the first verse, bridge sections and guitar solo in 19/16 and the second verse in
+21/16. <b>24/16 appears in none of it.</b></p>
+<p class="mut">Two mistakes with one cause: reading a time signature off a downscaled image,
+then blocking the queue item as "source exhausted" without searching. A single web search
+settled what the 180 ppi raster could not. Both are now gates, G33 and G38, in
+<code>~/.claude/skills/_shared/no_stop_gate.py</code>.</p>
+<p class="mut">Sources:
+<a href="https://www.donlope.net/fz/notes/Joe's_Garage.html">donlope.net Joe's Garage notes</a>,
+<a href="https://drummagazine.com/lesson-vinnie-colaiuta-on-frank-zappas-keep-it-greasy/">DRUM! Magazine</a>,
+<a href="https://www.talkingbass.net/keep-it-greasy-zappa-bass-breakdown/">Talking Bass</a>.</p>
+</div>
 
 <h2>5. The Central Scrutinizer s3554079 <span class="tag t-red">hi-hat written at half density</span></h2>
 <p>Chart: Todd Bishop's groove-of-the-day post, one bar, 531 by 142 pixels. Tab: revision
