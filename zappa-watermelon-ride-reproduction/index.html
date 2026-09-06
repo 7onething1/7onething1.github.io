@@ -1,0 +1,359 @@
+<!DOCTYPE html><html lang="en"><head><meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Watermelon Ride-Ghost Reproduction</title>
+<style>
+:root{--bg:#f4f1e8;--ink:#2b2a26;--mut:#6f6a5d;--line:#d8d2c0;--card:#fffdf6;
+--red:#b23a2e;--amber:#c98a2b;--green:#4d7c4a;--blue:#3c5f7a;--pur:#6b4f7a}
+*{box-sizing:border-box}
+body{margin:0;background:var(--bg);color:var(--ink);
+font:16px/1.62 "Iowan Old Style",Palatino,Georgia,serif;padding:0 0 90px}
+header{background:#2b2a26;color:#f4f1e8;padding:38px 24px 30px}
+.wrap{max-width:1120px;margin:0 auto;padding:0 24px}
+h1{margin:0 0 8px;font-size:31px;letter-spacing:-.01em}
+header p{margin:5px 0 0;color:#c9c2ad;font-size:15px;max-width:82ch}
+h2{margin:46px 0 10px;font-size:22px;border-bottom:2px solid var(--line);padding-bottom:6px}
+h3{margin:26px 0 8px;font-size:17px}
+.tag{display:inline-block;font:600 10.5px/1 -apple-system,system-ui,sans-serif;
+letter-spacing:.05em;text-transform:uppercase;padding:4px 8px;border-radius:3px;color:#fff;white-space:nowrap}
+.t-red{background:var(--red)}.t-amber{background:var(--amber)}.t-green{background:var(--green)}
+.t-blue{background:var(--blue)}.t-pur{background:var(--pur)}
+table{width:100%;border-collapse:collapse;margin:14px 0;background:var(--card);font-size:14px}
+th,td{border:1px solid var(--line);padding:7px 10px;text-align:left;vertical-align:top}
+th{background:#ebe6d6;font:600 12.5px/1.3 -apple-system,system-ui,sans-serif}
+code{background:#ebe6d6;padding:1px 5px;border-radius:3px;font:12.5px/1.4 ui-monospace,Menlo,monospace}
+.hash{font:11px/1.4 ui-monospace,Menlo,monospace;word-break:break-all}
+.card{background:var(--card);border:1px solid var(--line);border-left:5px solid var(--blue);
+padding:15px 20px;margin:16px 0;border-radius:2px}
+.card.red{border-left-color:var(--red)}.card.amber{border-left-color:var(--amber)}
+.card.green{border-left-color:var(--green)}.card.pur{border-left-color:var(--pur)}
+.k{font-weight:700;margin:0 0 6px}
+.mut{color:var(--mut)}
+ul,ol{margin:8px 0 8px 20px;padding:0}li{margin:5px 0}
+.scroll{overflow-x:auto}
+a{color:var(--blue)}
+.stats{display:grid;grid-template-columns:repeat(auto-fit,minmax(148px,1fr));gap:12px;margin:22px 0}
+.stat{background:var(--card);border:1px solid var(--line);padding:14px 16px;border-radius:2px}
+.stat b{display:block;font-size:27px;line-height:1.1;letter-spacing:-.02em}
+.stat span{font:600 11px/1.35 -apple-system,system-ui,sans-serif;text-transform:uppercase;
+letter-spacing:.05em;color:var(--mut);display:block;margin-top:5px}
+.toc{background:var(--card);border:1px solid var(--line);padding:16px 22px;margin:24px 0;border-radius:2px;
+column-count:2;column-gap:34px}
+.toc ol{margin:0 0 0 18px}
+footer{margin-top:50px;padding-top:18px;border-top:1px solid var(--line);color:var(--mut);font-size:13.5px}
+.hl{background:#f6edcd;padding:0 3px}
+@media(max-width:720px){.toc{column-count:1}}
+</style></head><body>
+<header><div class="wrap">
+<h1>Watermelon In Easter Hay: ride-ghost reproduction</h1>
+<p>Songsterr <code>s35881</code>, drum track "Vinnie Colaiuta", tab <code>PRESWEEP-r7715683.gp</code>.
+An earlier pass reported that ghost-marked ride positions matched a cymbal-attack criterion
+1.45 times as often as a randomised baseline. This page rebuilds that measurement from the
+hashed inputs with a saved script set, and reports what survives.</p>
+</div></header>
+<div class="wrap">
+
+<div class="stats">
+<div class="stat"><b>1,724</b><span>ride occurrences</span></div>
+<div class="stat"><b>2</b><span>ride note definitions</span></div>
+<div class="stat"><b>1</b><span>AntiAccent element behind 1,316 ghosts</span></div>
+<div class="stat"><b>99.9%</b><span>ghost predicted by metric position</span></div>
+<div class="stat"><b>0.95-0.99&times;</b><span>reproduced ratio</span></div>
+<div class="stat"><b>20</b><span>threshold/band settings tested</span></div>
+<div class="stat"><b>3</b><span>scramble procedures tested</span></div>
+<div class="stat"><b>5,469</b><span>held-out alignment tests</span></div>
+</div>
+
+<div class="card red">
+<p class="k">The short version</p>
+<p><span class="tag t-green">REPRODUCED</span> The tab counts, the alignment constants and the
+published threshold <code>4.41</code> all regenerate exactly.</p>
+<p><span class="tag t-red">NOT REPRODUCED</span> The 1.45&times; coincidence result. Across 20
+threshold and band settings and 3 randomisation procedures, the ratio never leaves
+<span class="hl">0.95&times; to 1.05&times;</span>.</p>
+<p><span class="tag t-pur">RESTATED</span> The 1,316 ghost notations come from
+<span class="hl">one AntiAccent element on one shared note definition</span>, so the file records
+one labelling decision rather than 1,316 per-stroke judgements.</p>
+</div>
+
+<div class="toc"><ol>
+<li><a href="#s1">The definition census</a></li>
+<li><a href="#s2">The sweep mechanism</a></li>
+<li><a href="#s3">Ghost census reconciled</a></li>
+<li><a href="#s4">1,724 against 596</a></li>
+<li><a href="#s5">Detector specification</a></li>
+<li><a href="#s6">Where 4.41 came from</a></li>
+<li><a href="#s7">Alignment, locked</a></li>
+<li><a href="#s8">The threshold sweep</a></li>
+<li><a href="#s9">Three scramble procedures</a></li>
+<li><a href="#s10">Shared excursions</a></li>
+<li><a href="#s11">Positive control and misses</a></li>
+<li><a href="#s12">Withdrawn and historical</a></li>
+<li><a href="#s13">Inputs and scripts</a></li>
+</ol></div>
+
+<h2 id="s1">1. The definition census</h2>
+<p>GPIF deduplicates <code>&lt;Note&gt;</code> definitions, so a ghost flag lives on a definition
+and one element can produce many notated occurrences. Reading the definition table directly:</p>
+<div class="scroll"><table>
+<tr><th>definition</th><th>occurrences</th><th>AntiAccent</th><th>distinct Beat defs</th><th>bars</th></tr>
+<tr><td><code>id 431</code></td><td><b>1,316</b></td><td><code>Normal</code></td><td>9</td><td>1 to 102</td></tr>
+<tr><td><code>id 432</code></td><td><b>408</b></td><td>absent</td><td>9</td><td>1 to 104</td></tr>
+</table></div>
+<div class="card green">
+<p class="k">id 432 is the property-identical plain counterpart</p>
+<p>Every stored property matches id 431 apart from the AntiAccent element: InstrumentArticulation
+15, Midi 51, Fret 51, String 5, ConcertPitch and TransposedPitch C-1, and beat Dynamic
+<code>F</code> on 100 percent of occurrences in both. Definition identity introduces no
+confounding property.</p>
+</div>
+<h3>The confound that does survive is metric position</h3>
+<div class="scroll"><table>
+<tr><th>position in the beat</th><th>id 432 (plain)</th><th>id 431 (ghost)</th></tr>
+<tr><td>on the quarter-note beat</td><td><b>407</b></td><td><b>2</b></td></tr>
+<tr><td>offbeat sixteenth, slot 1</td><td>0</td><td>405</td></tr>
+<tr><td>offbeat sixteenth, slot 2</td><td>1</td><td>456</td></tr>
+<tr><td>offbeat sixteenth, slot 3</td><td>0</td><td>453</td></tr>
+</table></div>
+<p>Ride plain on the beat, ride ghosted on the three offbeat sixteenths. Two events out of 1,724
+break the rule. Only 2 ghosted ride notes sit on a beat, so a metric-position control is
+impossible in this tab.</p>
+
+<h2 id="s2">2. The sweep mechanism, established structurally</h2>
+<div class="scroll"><table>
+<tr><th></th><th>ride definitions</th><th>ride occurrences</th><th>drum ghost occurrences</th></tr>
+<tr><td>pre-sweep <code>r7715683</code></td><td><b>2</b> (431 ghost, 432 plain)</td><td>1,724</td><td>1,317</td></tr>
+<tr><td>post-sweep <code>r8768414</code></td><td><b>1</b> (id 418, no flag)</td><td>1,724</td><td>0</td></tr>
+</table></div>
+<div class="card amber">
+<p class="k">Definition 431 did not survive with its flag stripped</p>
+<p>It does not exist in the post-sweep file at all. The two ride definitions were merged into a
+single <code>id 418</code> carrying all 1,724 occurrences and 18 Beat definitions against 9 and 9
+before. The note table was renumbered wholesale, which is the signature of an export and import
+round trip rather than an attribute edit. The one extra Crash high ghost came from
+<code>id 428</code>.</p>
+<p><b>Restoration consequence.</b> Writing AntiAccent onto id 418 would ghost all 1,724
+occurrences, including the 408 that were never ghosted. Copy-on-write is mandatory: the repair
+splits id 418 back into two definitions by occurrence position, and the ledger records definition
+changes and expanded occurrence changes separately.</p>
+</div>
+
+<h2 id="s3">3. Ghost census, reconciled by track and scope</h2>
+<p>Three figures circulate. All three are correct at different scopes.</p>
+<div class="scroll"><table>
+<tr><th>scope</th><th>pre-sweep</th><th>post-sweep live</th></tr>
+<tr><td><b>whole file, all 9 tracks</b></td><td><b>1,333</b></td><td><b>16</b></td></tr>
+<tr><td>track 0 "Frank Zappa", guitar</td><td>16</td><td>16</td></tr>
+<tr><td><b>track 8 "Vinnie Colaiuta", drums</b></td><td><b>1,317</b></td><td>0</td></tr>
+<tr><td>track 8, Ride (middle) only</td><td><b>1,316</b></td><td>0</td></tr>
+<tr><td>track 8, Crash high only</td><td>1</td><td>0</td></tr>
+<tr><td>tracks 1 to 7</td><td>0</td><td>0</td></tr>
+</table></div>
+<p>1,333 = 1,317 + 16. The sweep removed the drum-track flags and left the guitar flags untouched.</p>
+
+<h2 id="s4">4. The 1,724 against 596 question, closed</h2>
+<div class="scroll"><table>
+<tr><th></th><th><code>PRESWEEP-r7715683.gp</code></th><th>AI transcription</th></tr>
+<tr><td>tracks</td><td>9, drum track 8 "Vinnie Colaiuta"</td><td>3, drum track 1 "Drums"</td></tr>
+<tr><td>bars</td><td>105</td><td>279</td></tr>
+<tr><td>meters</td><td>53&times; 4/4, 52&times; 5/4</td><td>230&times; 4/4, 48&times; 2/4, 1&times; 6/4</td></tr>
+<tr><td>tempo</td><td>56 BPM, one automation</td><td>135 then 110 BPM</td></tr>
+<tr><td>total quarter notes</td><td>472</td><td>1,022</td></tr>
+<tr><td>notation span</td><td>3.75 to 500.36 s</td><td>40.89 to 545.71 s</td></tr>
+<tr><td>Ride (middle)</td><td><b>1,724</b></td><td><b>596</b></td></tr>
+<tr><td>snare lane</td><td>Electric Snare MIDI 40, 193</td><td>Snare MIDI 38, 11</td></tr>
+<tr><td>Hi-Hat closed</td><td>0</td><td>125</td></tr>
+<tr><td>Pedal Hi-Hat</td><td>6</td><td>0</td></tr>
+<tr><td>Kick</td><td>107</td><td>475</td></tr>
+</table></div>
+<p>The snare lane changes MIDI number and drops from 193 to 11. Closed hat goes from 0 to 125.
+Kick rises from 107 to 475. The bar grid more than doubles. Removing AntiAccent preserves note
+instances and cannot do any of that. <b>Two independent transcriptions of two different
+renderings.</b> Deletion, rebar and flag stripping are all excluded.</p>
+
+<h2 id="s5">5. Detector specification, stated completely</h2>
+<div class="scroll"><table>
+<tr><th>element</th><th>definition</th></tr>
+<tr><td>audio</td><td>one channel, arithmetic mean of the two stem channels, float in [-1, 1]</td></tr>
+<tr><td>window</td><td><code>np.hanning(1024)</code>, applied unnormalised</td></tr>
+<tr><td>hop</td><td>256 samples at 44,100 Hz = 5.805 ms</td></tr>
+<tr><td>magnitude</td><td><code>abs(rfft(frame * window))</code>, no scaling by NFFT or window sum</td></tr>
+<tr><td>flux</td><td>frame difference, negatives set to zero, then <b>summed</b> (L1) over band bins</td></tr>
+<tr><td>frame 0</td><td>previous frame taken as zeros, so <code>flux[0] = 0</code></td></tr>
+<tr><td>threshold</td><td>a percentile of the strictly positive flux values</td></tr>
+<tr><td><b>match</b></td><td><b>presence: any single frame inside &plusmn;45 ms whose flux exceeds the threshold</b></td></tr>
+</table></div>
+<p>The match rule is presence, and it is neither a local maximum nor a separately identified
+onset. Consecutive frames from one excursion can support a match, and one broad excursion can
+serve more than one window. The correct description of a positive is "matched the flux criterion".</p>
+
+<h2 id="s6">6. Where 4.41 came from</h2>
+<p>17 processing variants were tested against the 3.51&times; gap: channel aggregation, integer
+against float scaling, three window normalisations, four magnitude scalings, L1 against L2
+aggregation, percentile population, resampling and five frequency bands. One variant lands on the
+published number.</p>
+<div class="card green">
+<p class="k">A 2000 to 5000 Hz band gives 4.389</p>
+<p>In that band <code>4.41</code> sits at the <b>80.1st percentile</b> of positive flux, agreeing
+with the written rule. In the documented 2000 to 12000 Hz band the same 4.41 sits at the
+<b>41.9th percentile</b>. The published threshold is real and the band printed beside it is wrong.</p>
+</div>
+
+<h2 id="s7">7. Alignment, locked and exposed</h2>
+<p>The scoring clock is <b>piecewise-linear through the accepted snare anchors</b>. The global
+line seeds anchor matching and supplies the pruning residual. No ride event is scored against the
+global line.</p>
+<div class="scroll"><table>
+<tr><th>quantity</th><th>this reconstruction</th><th>published</th></tr>
+<tr><td>offset</td><td>37.590 s</td><td>37.60 s</td></tr>
+<tr><td>scale</td><td>1.0122</td><td>1.012</td></tr>
+<tr><td>effective tempo</td><td>55.33 BPM</td><td>55.34 BPM</td></tr>
+<tr><td>snare onsets detected</td><td>616 (1.13/s)</td><td>615 (1.13/s)</td></tr>
+<tr><td>anchors</td><td><b>97</b></td><td><b>137</b> (not reproducible)</td></tr>
+</table></div>
+<h3>Alignment error against anchor gap, 5,469 held-out tests</h3>
+<p>"Anchor gap" means distance to the nearer bracketing anchor. Withholding every third anchor
+from a dense set never creates a large gap, so error at 10 to 20 s needs deliberate thinning.</p>
+<div class="scroll"><table>
+<tr><th>anchor gap</th><th>n</th><th>median</th><th>90th pct</th><th>max</th><th>over 45 ms</th></tr>
+<tr><td>2 to 5 s</td><td>1,592</td><td>22.7 ms</td><td>52.0 ms</td><td>113.5 ms</td><td>15.6%</td></tr>
+<tr><td>5 to 10 s</td><td>1,582</td><td>27.6 ms</td><td>60.7 ms</td><td>101.6 ms</td><td>25.5%</td></tr>
+<tr><td>10 to 20 s</td><td>1,337</td><td>29.8 ms</td><td>75.5 ms</td><td>132.6 ms</td><td>31.0%</td></tr>
+<tr><td>20 to 40 s</td><td>740</td><td>27.0 ms</td><td>70.9 ms</td><td>152.0 ms</td><td>27.7%</td></tr>
+<tr><td>over 40 s</td><td>218</td><td>40.5 ms</td><td>87.1 ms</td><td>150.2 ms</td><td>45.9%</td></tr>
+</table></div>
+<p>Degradation is gradual. <b>No band keeps its 90th percentile inside the 45 ms detector
+half-window</b>, so alignment error contributes misses everywhere. The distance filter stays
+exploratory and a 10 s cutoff does not establish reliable performance across the region it keeps.</p>
+
+<h2 id="s8">8. The threshold sweep</h2>
+<p>20 threshold and band combinations from the 42nd to the 97th percentile. One shared pool of
+200 draws is reused across the curve, so movement along it is detector movement.</p>
+<div class="scroll"><table>
+<tr><th>band (Hz)</th><th>threshold</th><th>percentile</th><th>ghost observed</th><th>ghost null</th><th>ratio</th></tr>
+<tr><td>2000-12000</td><td>4.410 <span class="mut">published</span></td><td>41.9</td><td>80.7%</td><td>82.0%</td><td><b>0.98&times;</b></td></tr>
+<tr><td>2000-12000</td><td>15.487 <span class="mut">its own 80th</span></td><td>80.0</td><td>53.6%</td><td>55.0%</td><td><b>0.97&times;</b></td></tr>
+<tr><td>2000-5000</td><td>4.410 <span class="mut">published</span></td><td>80.1</td><td>48.2%</td><td>48.5%</td><td><b>0.99&times;</b></td></tr>
+<tr><td>2000-5000</td><td>4.389 <span class="mut">its own 80th</span></td><td>80.0</td><td>48.3%</td><td>48.7%</td><td><b>0.99&times;</b></td></tr>
+</table></div>
+<p>The ghost ratio stays inside 0.97 to 1.05 at every one of the 20 settings. Recovering 4.41 in
+its consistent band does not raise it, so the threshold discrepancy is not the source of the
+1.45&times;. Full curve in <code>out/threshold_sweep.csv</code>.</p>
+
+<h2 id="s9">9. Three scramble procedures</h2>
+<p>The original 20-draw table applies <b>one</b> bar displacement per draw. The later procedure
+samples a displacement <b>per note</b>. Both were run, plus a collision-free per-note variant.</p>
+<div class="scroll"><table>
+<tr><th>procedure</th><th>eligible</th><th>null mean</th><th>sd</th><th>95% interval</th><th>ratio ghost</th></tr>
+<tr><td>RIGID, one shift per draw</td><td>69.8%</td><td>55.1%</td><td>5.70</td><td>47.6-63.7%</td><td><b>0.97&times;</b></td></tr>
+<tr><td>PER-NOTE</td><td>100.0%</td><td>55.0%</td><td>1.28</td><td>52.4-57.7%</td><td><b>0.97&times;</b></td></tr>
+<tr><td>PER-NOTE collision-free</td><td>99.6%</td><td>54.8%</td><td>0.31</td><td>54.2-55.4%</td><td><b>0.98&times;</b></td></tr>
+</table></div>
+<p>Band 2000 to 12000 Hz at its 80th percentile. The mean is stable across procedures and the
+spread is not, which is the dependence structure showing itself.</p>
+<div class="card amber">
+<p class="k">Two defects in the per-note procedure, and what the interval means</p>
+<p><b>Collisions.</b> Two notes can land in the same bar at the same position, sharing one
+timestamp and one verdict. <b>35.8 percent of scrambled notes collide</b>, stacks up to 7 deep,
+leaving about 1,100 effective positions. A rigid translation cannot collide.</p>
+<p><b>Meter eligibility.</b> A position at or beyond 4.0 quarter notes exists only in 5/4 bars.
+<b>200 of 1,724 ride notes (11.6 percent)</b> sit there and are ineligible for every 4/4
+destination. Across all 106 legal shifts, 64.2 percent of (note, shift) pairs land on an existing
+position.</p>
+<p><b>The 95 percent interval</b> is the 2.5th to 97.5th percentile of the null hit rate across
+randomisation draws. It describes variability under the randomisation only, and it carries no
+uncertainty from alignment, detector validity, extraction quality or recording identity.</p>
+</div>
+
+<h2 id="s10">10. Shared excursions</h2>
+<p>At the 2000 to 12000 Hz 80th percentile there are 2,559 supra-threshold excursions, median
+duration 12 ms, 90th percentile 52 ms, max 1,741 ms. One sixteenth is 271 ms, so an excursion
+longer than 181 ms can serve two consecutive ride windows. 143 excursions (5.6 percent) are that
+long.</p>
+<div class="scroll"><table>
+<tr><th>set</th><th>hits sharing an excursion, observed</th><th>same, scrambled</th></tr>
+<tr><td>ghost</td><td><b>24.7%</b></td><td><b>71.0%</b></td></tr>
+<tr><td>plain</td><td><b>11.3%</b></td><td><b>64.8%</b></td></tr>
+</table></div>
+<p>The naive hit rate is blind to this. Distinct excursions per note runs 0.432 observed against
+0.293 scrambled, a ratio of 1.47&times;, which reflects the scramble's clustering rather than an
+acoustic property of the notated positions.</p>
+
+<h2 id="s11">11. Positive control, and the miss taxonomy</h2>
+<p>An offset sweep from -300 to +300 ms, with the snare as a positive control.</p>
+<div class="scroll"><table>
+<tr><th>set</th><th>peak</th><th>floor</th><th>shape</th></tr>
+<tr><td>notated snare against the snare stem</td><td>65.3% at -40 ms</td><td>15.0%</td><td>sharp, centred near zero</td></tr>
+<tr><td>plain ride against the cymbals stem</td><td>62.5% at -20 ms</td><td>24.0%</td><td>localised near zero</td></tr>
+<tr><td>ghost ride against the cymbals stem</td><td>56.2% at -20 ms</td><td>35.3% at -180 ms</td><td>periodic at about 271 ms</td></tr>
+</table></div>
+<p>The control rises more than fourfold and peaks where it should, so the method can detect a real
+signal. Plain ride positions show a real localised peak. Ghost ride positions rise again at plus
+and minus 271 ms, one sixteenth at the measured tempo, so their curve tracks the density of the
+sixteenth grid.</p>
+<h3>Miss taxonomy</h3>
+<p>One sixteenth measures 271.1 ms and half a sixteenth measures 135.6 ms. Beyond half a sixteenth
+the nearest attack belongs to a neighbouring grid slot.</p>
+<div class="scroll"><table>
+<tr><th>cause</th><th>ghost, 611 misses</th><th>plain, 161 misses</th></tr>
+<tr><td>timing error, 45 to 136 ms</td><td>269 (44.0%)</td><td>94 (58.4%)</td></tr>
+<tr><td>neighbouring slot, 136 to 271 ms</td><td>263 (43.0%)</td><td>47 (29.2%)</td></tr>
+<tr><td>no attack within one sixteenth</td><td>79 (12.9%)</td><td>20 (12.4%)</td></tr>
+<tr><td>median distance to nearest attack</td><td>166 ms</td><td>113 ms</td></tr>
+</table></div>
+<p><b>Correction.</b> 135.2 ms is half a sixteenth at this tempo rather than a whole one. A shift
+of that size lands a note maximally far from every grid position, so the original shifted null
+tested the worst case instead of a random one.</p>
+
+<h2 id="s12">12. Withdrawn, and historical</h2>
+<div class="scroll"><table>
+<tr><th>claim</th><th>source</th><th>why it falls</th></tr>
+<tr><td>1.70&times;, null 42.0%</td><td>superseded first pass</td><td>fallback contamination, 17.2% of destinations reverted</td></tr>
+<tr><td><b>1.45&times;, null 49.3%</b></td><td>evidence package s3</td><td>not reproducible at any of 20 settings or under any of 3 procedures; every result lands at 0.95&times; to 0.99&times;</td></tr>
+<tr><td>filtered 1.55&times; at 10 s</td><td>evidence package s4</td><td>filtered reruns give 1.00&times; to 1.05&times;</td></tr>
+<tr><td>on-beat 297 ghost, 93 plain</td><td>evidence package s5</td><td>the tab holds <b>2</b> on-beat ghost notes</td></tr>
+<tr><td>sign test 5 of 6 on-beat sections</td><td>evidence package s6</td><td>rests on that impossible partition</td></tr>
+<tr><td>sign test 12 of 12 sections</td><td>evidence package s6</td><td>recomputed as <b>9 of 12</b>, one-sided p = 0.073, two-sided p = 0.146</td></tr>
+<tr><td>slot table, 257 plain on the beat</td><td>ghost audit s2</td><td>notation gives 407 plain and 2 ghost</td></tr>
+<tr><td>band 2000-12000 Hz beside 4.41</td><td>evidence package s0</td><td>inconsistent; 4.41 is the 80th percentile of 2000 to 5000 Hz</td></tr>
+<tr><td>"1,316 separate editorial judgments"</td><td>carried in the brief</td><td>one AntiAccent element on definition 431</td></tr>
+</table></div>
+<h3>Historical, and not reproducible</h3>
+<p>Kept separate because no script on disk regenerates them: <b>137 anchors</b> split 91 fit and
+46 withheld, where the reconstruction reaches 97 and saturates near 116 even at a 250 ms
+acceptance window; <b>band medians 18.1, 16.9 and 70.4 ms</b>, where 1,337 thinning tests give
+29.8 ms for the 10 to 20 s band; <b>max withheld error 107.7 ms across 46 anchors</b>, where the
+reconstruction gives 32 withheld points with a 55.6 ms max; and <b>1,626 scored with 98 outside
+the span</b>, where all 1,724 map inside 59.33 to 506.08 stem seconds.</p>
+
+<h2 id="s13">13. Inputs and scripts</h2>
+<div class="scroll"><table>
+<tr><th>role</th><th>bytes</th><th>sha256</th></tr>
+<tr><td><code>PRESWEEP-r7715683.gp</code></td><td>51,234</td><td class="hash">687445e3371131fd87070055eb01b43984684d2b02140d0c060510799043a016</td></tr>
+<tr><td><code>r8768414-LIVE-EXPORT.gp</code></td><td>51,028</td><td class="hash">5a8de7ebb7577ec8deb6db4397e302614b1df397f2c69e308202a882788abde4</td></tr>
+<tr><td><code>RESTORED-s35881.gp</code></td><td>74,935</td><td class="hash">89ebaa33cf652320a0da36b7fd3827c6abda842f31d5ce25834ac03e52018ef1</td></tr>
+<tr><td>cymbals stem <code>.wav</code></td><td>96,185,118</td><td class="hash">84fd9fd648630c0d65945f7abe6e24994562ddf8d88960ad7dbc90722bade21b</td></tr>
+<tr><td>snare stem <code>.wav</code></td><td>96,185,118</td><td class="hash">d07d4cf6a91f1a30f0411bfe74df3d8bf52d4372a3f3378d09cd2aab99425062</td></tr>
+<tr><td>AI transcription <code>.gp</code></td><td>36,190</td><td class="hash">b5a69749c67fbcb5fa49bc78f94b9b0710a1db0efc0f92b0ae662bc3adf42b88</td></tr>
+</table></div>
+<p>Earlier drafts printed 48 of the 64 hex characters. These are the complete digests. Scripts
+live at <code>~/Projects/_outputs/zappa-watermelon-ride-analysis/tools/</code>:
+<code>gpif_events.py</code>, <code>definition_census.py</code>, <code>onsets.py</code>,
+<code>align.py</code>, <code>anchor_sensitivity.py</code>, <code>threshold_sweep.py</code>,
+<code>scramble_variants.py</code>, <code>excursion_taxonomy.py</code>,
+<code>corrected_null.py</code>, <code>final_measures.py</code>.</p>
+
+<h2>What this supports</h2>
+<div class="card pur">
+<p>Under the detector, alignment and null procedures documented above, <b>positions occupied by
+occurrences of AntiAccent-marked definition 431 matched the flux criterion at 0.95&times; to
+0.99&times; the rate of randomised eligible positions.</b> No configuration reaches 1.45&times;.</p>
+<p>The ghost flag is predicted by metric position at 99.9 percent, and its 1,316 occurrences
+inherit one AntiAccent element, so the file establishes neither independent per-stroke
+adjudication nor a dynamics contrast separable from the beat.</p>
+<p>No deletion revision follows. Ben Dibden1's notation remains a transcriber's reading of the
+record, and nothing measured here overturns it.</p>
+</div>
+
+<footer>Built 2026-09-06 from <code>~/Projects/_outputs/zappa-watermelon-ride-analysis/</code>.
+Locked song <code>s35881</code>. Sibling notes in <code>index.md</code>.</footer>
+</div></body></html>
