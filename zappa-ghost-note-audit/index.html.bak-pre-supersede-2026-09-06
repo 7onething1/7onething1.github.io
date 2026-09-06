@@ -52,17 +52,6 @@ footer{margin-top:60px;padding-top:20px;border-top:1px solid var(--line);color:v
 <p class="sub">A sweep across Frank Zappa drum tabs on Songsterr read genuine ghost notes as a notation defect and stripped them. This is the verified record of what was changed, what moderators caught, and what is still live.</p>
 <p class="stamp">Audited 2026-08-30, moderation status re-read 2026-09-05 &middot; every revision below checked against <code>api/meta/&lt;songId&gt;/revisions</code></p>
 
-<div class="box r" id="superseded2026" style="border-left-width:8px;background:rgba(168,52,31,.07);padding:18px 20px;margin:22px 0">
-<h3 style="margin-top:0">Read this before acting on anything below. Status notice, 2026-09-06.</h3>
-<p><b>This page holds the forensic history of the sweep. The operational record now lives elsewhere.</b> Current status for every song, revision and queue item lives at <a href="https://7onething1.github.io/zappa-program-scope/"><b>Zappa Program Scope</b></a>, which carries the 2026-09-06 account-wide sweep of all 328 Zappa tabs and the seventeenth damaged song. Three conclusions on this page were overturned by later work.</p>
-<ul>
-<li><b>Watermelon In Easter Hay is not settled.</b> The verdict below calls all 1,317 ride and crash flags genuine on placement evidence. That inference was withdrawn on 2026-09-06 after an audio test returned a 41% chance baseline against ghosts at 47% and plain at 55%, which is too close to decide. <b>1,123 ride ghosts are unexplained</b> and no deletion revision may be shipped against them. Queue <code>q-2026-09-06-1492ba</code>.</li>
-<li><b>Trouble Every Day (Live) <code>s412170</code> was never safe.</b> This page records it as superseded by Kirill's <code>r8815000</code> with no action required. The account-wide sweep found Kirill restored <b>3 of 9 ghosts</b>, leaving 6 missing, and left <b>6 beat velocity changes</b> that govern 784 of 807 slots through the running dynamic. A verified repair went up as <b>r8932027</b> on 2026-09-06 and sits on moderation.</li>
-<li><b>The 16-song damage ledger was incomplete.</b> It was built from songs that already had a repair in flight, so it could not see Trouble. The board is <b>17 affected songs</b>.</li>
-</ul>
-<p style="margin-bottom:0">The root cause analysis, the field-name failures and the accent bitfield work below all still stand. The song-by-song status does not.</p>
-</div>
-
 <p class="tocn"><a href="#what">1. What happened</a><a href="#live">2. Live now</a><a href="#blocked">3. Rejected</a><a href="#super">4. Superseded</a><a href="#clean">5. Never submitted</a><a href="#why">6. Root cause</a><a href="#lanes">7. Which lane</a><a href="#charts">7. Checked against the charts</a><a href="#evidence">8. Evidence</a><a href="#next">9. Status and what is left</a></p>
 
 <div class="grid">
@@ -112,7 +101,7 @@ footer{margin-top:60px;padding-top:20px;border-top:1px solid var(--line);color:v
 <div class="tw"><table>
 <tr><th></th><th>Song ID</th><th>Title</th><th>Ghosts</th><th>Our revision</th><th>Outcome</th><th>Public now</th></tr>
 <tr><td class='num'>1</td><td class='sid'>s412162</td><td class='ttl'>Zomby Woof</td><td class='gh'>32</td><td class='rev'>r8766102</td><td class='st'>reviewed fair, never became public</td><td class='rev'>r8814965</td></tr>
-<tr><td class='num'>2</td><td class='sid'>s412170</td><td class='ttl'>Trouble Every Day (Live)</td><td class='gh'>9</td><td class='rev'>r8766285</td><td class='st'><b style='color:var(--red)'>WRONG, corrected 2026-09-06.</b> Kirill restored 3 of 9. 6 ghosts and 6 velocity changes stayed. Repaired as <code>r8932027</code>, on moderation.</td><td class='rev'>r8815000</td></tr>
+<tr><td class='num'>2</td><td class='sid'>s412170</td><td class='ttl'>Trouble Every Day (Live)</td><td class='gh'>9</td><td class='rev'>r8766285</td><td class='st'>reviewed fair, never became public</td><td class='rev'>r8815000</td></tr>
 </table></div>
 
 <h2 id="clean"><span class="dot" style="background:var(--blu)"></span>Flagged, never submitted: 4 tabs, 19 ghost notes</h2>
@@ -160,7 +149,7 @@ footer{margin-top:60px;padding-top:20px;border-top:1px solid var(--line);color:v
 <tr><td class='num'>15</td><td class='sid'>s749523</td><td class='ttl'>Catholic Girls</td><td class='gh'>16</td><td class='gh' style='color:var(--red)'>16</td><td class='st'>snare 16</td><td class='st'>Kevin Sheppard</td></tr>
 <tr><td class='num'>16</td><td class='sid'>s5820647</td><td class='ttl'>Frank Zappa, The Mothers of Invention - Zomby Woof</td><td class='gh'>10</td><td class='gh' style='color:var(--red)'>10</td><td class='st'>snare 10</td><td class='st'>CoolDude</td></tr>
 </table></div>
-<div class="box r"><p><strong>The largest single entry is the weakest case for restoration.</strong> Watermelon In Easter Hay's 1,317 are <strong>1,316 ride and 1 crash, with no snare at all</strong>. The stripping revision claimed exactly that, and the claim holds. Carolina Hard-Core Ecstasy's 144 are all tambourine and Oh No's 141 are all closed hat. Restoration should run snare first, where the meaning is not in question.</p><p><b style='color:var(--red)'>Superseded 2026-09-06:</b> the ride reading was withdrawn after audio testing. See the status notice at the top.</p></div>
+<div class="box r"><p><strong>The largest single entry is the weakest case for restoration.</strong> Watermelon In Easter Hay's 1,317 are <strong>1,316 ride and 1 crash, with no snare at all</strong>. The stripping revision claimed exactly that, and the claim holds. Carolina Hard-Core Ecstasy's 144 are all tambourine and Oh No's 141 are all closed hat. Restoration should run snare first, where the meaning is not in question.</p></div>
 <div class="box r"><p><strong>Montana already carries the wrong repair.</strong> Ben Dibden1's r7294223 held 317 ghost flags. My r8764165 wiped them, and my r8787106, live today, converted all 317 into staccato dots. That is the substitution measured wrong on the same day: a dot is a duration mark and a ghost is a dynamic. Montana needs the ghost flag back and the dot removed, and 174 of its 317 are on snare.</p></div>
 
 <h2 id="charts"><span class="dot" style="background:var(--amb)"></span>Checked against the printed charts</h2>
@@ -253,7 +242,7 @@ footer{margin-top:60px;padding-top:20px;border-top:1px solid var(--line);color:v
 <li><strong>Sixteen live tabs need a restoring revision</strong>, one tab per pass, each verified against the pre-sweep revision rather than against the stripped one.</li>
 <li><strong>Restore every attribute the sweep touched, not the ghost flag alone.</strong> The sweep wrote a staccato dot and set velocity to 31 as it cleared each ghost, so a restoring pass has to put back the ghost flag, remove the substituted dot, and return the velocity, all measured against the pre-sweep baseline.</li>
 <li><strong>Keep other people's later edits.</strong> Several of these tabs have had legitimate revisions since. A restoring pass rebases onto the current public revision and changes only the articulation fields.</li>
-<li><strong>Watermelon In Easter Hay is the largest single loss</strong> at 1,317 flags on the Vinnie Colaiuta staff, and its revision claimed they were ride and crash rather than ghosts, so that reading needs checking against the audio before anything is restored. <b style='color:var(--red)'>Done 2026-09-06, and it came back inconclusive. 1,123 ride ghosts are unexplained.</b></li>
+<li><strong>Watermelon In Easter Hay is the largest single loss</strong> at 1,317 flags on the Vinnie Colaiuta staff, and its revision claimed they were ride and crash rather than ghosts, so that reading needs checking against the audio before anything is restored.</li>
 <li><strong>Verify the revision that actually becomes public</strong>, per tab, after moderation. A submission is not a repair.</li>
 <li><strong>Keep It Greasey and Zoot Allures need nothing.</strong> Both stripping revisions were rejected and are blocked.</li>
 </ul>
@@ -278,7 +267,7 @@ footer{margin-top:60px;padding-top:20px;border-top:1px solid var(--line);color:v
 <tr><td class='num'>1</td><td class='sid'><a href='https://www.songsterr.com/a/wsa/x-tab-s604777' target='_blank' rel='noopener'>s604777</a></td><td class='ttl'>Keep It Greasey</td><td class='gh'>629</td><td class='rev'>r8852151</td><td class='st'>r8768457 blocked by moderator</td></tr>
 <tr><td class='num'>2</td><td class='sid'><a href='https://www.songsterr.com/a/wsa/x-tab-s35883' target='_blank' rel='noopener'>s35883</a></td><td class='ttl'>Zoot Allures</td><td class='gh'>53</td><td class='rev'>r7179991</td><td class='st'>r8769199 blocked by moderator</td></tr>
 <tr><td class='num'>3</td><td class='sid'><a href='https://www.songsterr.com/a/wsa/x-tab-s412162' target='_blank' rel='noopener'>s412162</a></td><td class='ttl'>Zomby Woof</td><td class='gh'>32</td><td class='rev'>r8814965</td><td class='st'>repaired r8904052; live rev is Kirill&#x27;s</td></tr>
-<tr><td class='num'>4</td><td class='sid'><a href='https://www.songsterr.com/a/wsa/x-tab-s412170' target='_blank' rel='noopener'>s412170</a></td><td class='ttl'>Trouble Every Day (Live)</td><td class='gh'>9</td><td class='rev'>r8815000</td><td class='st'><b style='color:var(--red)'>WRONG, corrected 2026-09-06.</b> Kirill restored only 3 of 9 ghosts. Repaired as <code>r8932027</code>, on moderation.</td></tr>
+<tr><td class='num'>4</td><td class='sid'><a href='https://www.songsterr.com/a/wsa/x-tab-s412170' target='_blank' rel='noopener'>s412170</a></td><td class='ttl'>Trouble Every Day (Live)</td><td class='gh'>9</td><td class='rev'>r8815000</td><td class='st'>superseded by Kirill r8815000</td></tr>
 </tbody></table></div>
 
 <h3>Still damaged and live</h3>
@@ -303,8 +292,6 @@ footer{margin-top:60px;padding-top:20px;border-top:1px solid var(--line);color:v
 </tbody></table></div>
 
 <h2 id="watermelon"><span class="dot" style="background:var(--red)"></span>Watermelon In Easter Hay, verdict</h2>
-<div class="box r" style="border-left-width:8px"><h3 style="margin-top:0">WITHDRAWN 2026-09-06. Do not cite this verdict.</h3>
-<p>The placement argument below is real and it is not sufficient. An audio test on the isolated cymbal stem returned a <b>41% chance baseline</b>, with ghosted rides at 47% and plain rides at 55%. That spread does not clear chance, so the claim that the 1,316 ride flags are proven intentional was withdrawn. <b>1,123 ride ghosts remain unexplained.</b> A lower-chance-baseline onset method is required before any verdict. <b>Ship no deletion revision against them.</b> Current adjudication: <a href="https://7onething1.github.io/zappa-program-scope/">Program Scope</a>, queue <code>q-2026-09-06-1492ba</code>.</p></div>
 <p class="lede">This was the one tab held back by a caveat. Its stripping revision claimed the 1,317 marks were ride and crash at forte, so not ghost notes. Both halves of that reasoning fail against the data.</p>
 
 <div class="two">
@@ -464,20 +451,12 @@ footer{margin-top:60px;padding-top:20px;border-top:1px solid var(--line);color:v
 <tbody>
 <tr><td class='rev'>1</td><td class='st'>staccato</td><td class='ttl'>staccato dot</td><td class='st'>measured, bars 300/302/304</td></tr>
 <tr><td class='rev'>4</td><td class='st'>accentuated 2</td><td class='ttl'>marcato ^</td><td class='st'><strong>measured, glyph seen at bar 3</strong></td></tr>
-<tr><td class='rev'>8</td><td class='st'>accentuated 1</td><td class='ttl'>accent &gt;</td><td class='st'><b>closed 2026-09-06, reference implementation</b></td></tr>
+<tr><td class='rev'>8</td><td class='st'>accentuated 1</td><td class='ttl'>accent &gt;</td><td class='st'>inferred, see below</td></tr>
 <tr><td class='rev'>9</td><td class='st'>accentuated 1 + staccato</td><td class='ttl'>accent plus dot</td><td class='st'>8 | 1</td></tr>
 </tbody></table></div>
 <p><strong>The correspondence is measured in both directions.</strong> On Drowning Witch's drum staff, GPIF <code>Accent=4</code> renders twice, at bars 3 and 101, and the served JSON carries exactly two <code>accentuated: 2</code> notes at bars 3 and 101. <code>Accent=8</code> renders seven times at bars 128 and 173, and the JSON carries exactly seven <code>accentuated: 1</code> notes at bars 128 and 173. Counts and bars agree both ways.</p>
 <p><strong>The glyph pins one end.</strong> Rendering bar 3 at 6x shows a caret above the accented tom, an inverted V with a clean apex. That is a marcato, so <code>Accent=4</code> is the heavy accent and <code>accentuated: 2</code> is marcato.</p>
-<p><strong>CLOSED 2026-09-06 from the reference implementation, no longer an inference.</strong> alphaTab is the open-source library that reads and writes the GP7 <code>.gp</code> container, and its GPIF code states the mapping outright in three independent places.</p>
-<div class="box g"><h3>Three routes, one answer</h3>
-<table><thead><tr><th>Route</th><th>File</th><th>What it says</th></tr></thead><tbody>
-<tr><td class='ttl'>Reader</td><td class='st'><code>src/importer/GpifParser.ts</code></td><td class='st'><code>accentFlags &amp; 0x04</code> sets <code>AccentuationType.Heavy</code>; <code>&amp; 0x08</code> sets <code>AccentuationType.Normal</code>; <code>&amp; 0x01</code> sets staccato; <code>&amp; 0x10</code> sets Tenuto</td></tr>
-<tr><td class='ttl'>Writer</td><td class='st'><code>src/exporter/GpifWriter.ts</code></td><td class='st'><code>Normal</code> emits <code>0x08</code>, <code>Heavy</code> emits <code>0x04</code>, <code>Tenuto</code> emits <code>0x10</code>. The round trip closes.</td></tr>
-<tr><td class='ttl'>Glyph</td><td class='st'><code>rendering/glyphs/AccentuationGlyph.ts</code></td><td class='st'><code>Normal</code> draws <code>ArticAccentAbove</code>, the accent wedge. <code>Heavy</code> draws <code>ArticMarcatoAbove</code>, the caret.</td></tr>
-</tbody></table>
-<p style="margin-bottom:0">So <code>&lt;Accent&gt;4&lt;/Accent&gt;</code> is <b>Heavy, drawn as a marcato caret</b>, and <code>&lt;Accent&gt;8&lt;/Accent&gt;</code> is <b>Normal, drawn as an accent wedge</b>. That is the same table the measurement produced, now backed by the code that implements the format. alphaTab's own rendered notation legend shows the three markings in order: staccato dots, then carets, then wedges.</p></div>
-<p>The bar-128 render was the weaker route and it is no longer needed. Songsterr's notation is virtualised and would not render at that scroll depth. The spec route reaches the same conclusion without a browser.</p>
+<p><strong>The other end is inference, and it is stated as inference.</strong> Guitar Pro carries exactly two accent flags, <code>accentuatedNote</code> and <code>heavyAccentuatedNote</code>, and <code>accentuated</code> carries exactly two values. With 4 pinned to marcato by the glyph, 8 follows as the plain accent. The glyph at bar 128 would close it outright; Songsterr's notation is virtualised and would not render at that scroll depth here.</p>
 <p><strong>So writing <code>&lt;Accent&gt;8&lt;/Accent&gt;</code> gives an accent, and <code>4</code> gives a marcato.</strong> An earlier version of this page had those two swapped. Acting on it would have printed marcatos where accents belong, on someone else's transcription, which is the parentheses mistake in a new costume.</p></div>
 
 <div class="box a"><p><strong>This is the sixth instance of the same root cause, and it happened inside the work documenting that root cause.</strong> Absence in a sample is not absence from a schema. Inventorying one file and generalising is the same move as grepping <code>&lt;Ghost&gt;</code> once. The rule needs its scaled-up form: sweep many files before declaring a field does not exist, and a checker must enumerate what is present rather than a list of what you expect.</p></div>

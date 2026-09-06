@@ -3,29 +3,6 @@
 Audited 2026-08-30. Moderation status re-read 2026-09-05 against
 `api/meta/<songId>/revisions`, fields `isBlocked`, `isOnModeration` and `reviewed`.
 
-## STATUS NOTICE, 2026-09-06. Read before acting on anything below.
-
-**This page holds the forensic history of the sweep. The operational record now lives elsewhere.**
-Current status for every song, revision and queue item lives at
-https://7onething1.github.io/zappa-program-scope/ , which carries the 2026-09-06 account-wide
-sweep of all 328 Zappa tabs and the seventeenth damaged song. Three conclusions here were
-overturned by later work.
-
-- **Watermelon In Easter Hay is not settled.** The verdict below calls all 1,317 ride and crash
-  flags genuine on placement evidence. That inference was withdrawn on 2026-09-06 after an audio
-  test returned a 41% chance baseline against ghosts at 47% and plain at 55%. **1,123 ride ghosts
-  are unexplained** and no deletion revision may be shipped against them. Queue
-  `q-2026-09-06-1492ba`.
-- **Trouble Every Day (Live) `s412170` was never safe.** This page records it as superseded by
-  Kirill's `r8815000` with no action required. The sweep found Kirill restored **3 of 9 ghosts**,
-  leaving 6 missing, and left **6 beat velocity changes** governing 784 of 807 slots through the
-  running dynamic. A verified repair went up as **r8932027** on 2026-09-06, on moderation.
-- **The 16-song damage ledger was incomplete.** It was built from songs that already had a repair
-  in flight, so it could not see Trouble. The board is **17 affected songs**.
-
-The root cause analysis, the field-name failures and the accent bitfield work below all still
-stand. The song-by-song status does not.
-
 ## What happened
 
 Songsterr draws a ghost note as a notehead inside round brackets. That is the platform's
@@ -339,7 +316,7 @@ the bit meanings from an assumed spec and had 4 and 8 SWAPPED. Corrected from me
 |---|---|---|---|
 | 1 | staccato | staccato dot | measured, bars 300/302/304 |
 | 4 | accentuated 2 | marcato ^ | **measured, glyph seen at bar 3** |
-| 8 | accentuated 1 | accent > | closed 2026-09-06, alphaTab GpifParser/GpifWriter/AccentuationGlyph |
+| 8 | accentuated 1 | accent > | inferred |
 | 9 | accentuated 1 + staccato | accent plus dot | 8\|1 |
 
 Correspondence measured both ways on Drowning Witch's drum staff: `Accent=4` renders twice
