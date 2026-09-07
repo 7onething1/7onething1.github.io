@@ -1,0 +1,269 @@
+<!DOCTYPE html><html lang="en"><head><meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Watermelon s35881 Ship State</title>
+<style>
+:root{--bg:#f4f1e8;--ink:#2b2a26;--mut:#6f6a5d;--line:#d8d2c0;--card:#fffdf6;
+--red:#b23a2e;--amber:#c98a2b;--green:#4d7c4a;--blue:#3c5f7a;--pur:#6b4f7a}
+*{box-sizing:border-box}
+body{margin:0;background:var(--bg);color:var(--ink);
+font:16px/1.62 "Iowan Old Style",Palatino,Georgia,serif;padding:0 0 90px}
+header{background:#2b2a26;color:#f4f1e8;padding:38px 24px 30px}
+.wrap{max-width:1120px;margin:0 auto;padding:0 24px}
+h1{margin:0 0 8px;font-size:31px;letter-spacing:-.01em}
+header p{margin:5px 0 0;color:#c9c2ad;font-size:15px;max-width:82ch}
+h2{margin:46px 0 10px;font-size:22px;border-bottom:2px solid var(--line);padding-bottom:6px}
+h3{margin:26px 0 8px;font-size:17px}
+.tag{display:inline-block;font:600 10.5px/1 -apple-system,system-ui,sans-serif;
+letter-spacing:.05em;text-transform:uppercase;padding:4px 8px;border-radius:3px;color:#fff;white-space:nowrap}
+.t-red{background:var(--red)}.t-amber{background:var(--amber)}.t-green{background:var(--green)}
+.t-blue{background:var(--blue)}.t-pur{background:var(--pur)}
+table{width:100%;border-collapse:collapse;margin:14px 0;background:var(--card);font-size:14px}
+th,td{border:1px solid var(--line);padding:7px 10px;text-align:left;vertical-align:top}
+th{background:#ebe6d6;font:600 12.5px/1.3 -apple-system,system-ui,sans-serif}
+code{background:#ebe6d6;padding:1px 5px;border-radius:3px;font:12.5px/1.4 ui-monospace,Menlo,monospace}
+.hash{font:11px/1.4 ui-monospace,Menlo,monospace;word-break:break-all}
+.card{background:var(--card);border:1px solid var(--line);border-left:5px solid var(--blue);
+padding:15px 20px;margin:16px 0;border-radius:2px}
+.card.red{border-left-color:var(--red)}.card.amber{border-left-color:var(--amber)}
+.card.green{border-left-color:var(--green)}.card.pur{border-left-color:var(--pur)}
+.k{font-weight:700;margin:0 0 6px}
+.mut{color:var(--mut)}
+ul,ol{margin:8px 0 8px 20px;padding:0}li{margin:5px 0}
+.scroll{overflow-x:auto}
+a{color:var(--blue)}
+.stats{display:grid;grid-template-columns:repeat(auto-fit,minmax(148px,1fr));gap:12px;margin:22px 0}
+.stat{background:var(--card);border:1px solid var(--line);padding:14px 16px;border-radius:2px}
+.stat b{display:block;font-size:27px;line-height:1.1;letter-spacing:-.02em}
+.stat span{font:600 11px/1.35 -apple-system,system-ui,sans-serif;text-transform:uppercase;
+letter-spacing:.05em;color:var(--mut);display:block;margin-top:5px}
+.toc{background:var(--card);border:1px solid var(--line);padding:16px 22px;margin:24px 0;border-radius:2px;
+column-count:2;column-gap:34px}
+.toc ol{margin:0 0 0 18px}
+footer{margin-top:50px;padding-top:18px;border-top:1px solid var(--line);color:var(--mut);font-size:13.5px}
+.hl{background:#f6edcd;padding:0 3px}
+@media(max-width:720px){.toc{column-count:1}}
+</style></head><body>
+</style></head><body>
+<header><div class="wrap">
+<h1>Watermelon In Easter Hay: what actually ships</h1>
+<p>Songsterr <code>s35881</code>. The exhaustive handoff of 2026-09-07 named a ship file and
+contained three internal contradictions about which one it was. This page settles the ship
+target, records a restore defect that every previous verification missed, and reports the queue
+state for this song.</p>
+<p style="margin-top:10px;color:#e6c98a"><b>Correction, 2026-09-07.</b> The ship target is
+<code>RESTORED-s35881-TEXTSAFE-v2.gp</code>. The earlier target
+<code>RESTORED-s35881-TEXTSAFE.gp</code> restored the E7Msus2 chord definition and never
+restored the beat that displays it, so bar 3 printed no chord symbol.</p>
+</div></header>
+<div class="wrap">
+
+<div class="stats">
+<div class="stat"><b>8</b><span>restore candidates on disk</span></div>
+<div class="stat"><b>1</b><span>shippable</span></div>
+<div class="stat"><b>4 / 4</b><span>chord symbols matched to source</span></div>
+<div class="stat"><b>137</b><span>CDATA blocks, equal to source</span></div>
+<div class="stat"><b>4,856</b><span>note instances, all 9 tracks, delta 0</span></div>
+<div class="stat"><b>1,317</b><span>AntiAccent restored</span></div>
+<div class="stat"><b>0</b><span>ghosts missing or spurious</span></div>
+<div class="stat"><b>9 / 8 / 1</b><span>queue closed / blocked / open</span></div>
+</div>
+
+<div class="card red">
+<p class="k">The short version</p>
+<p><span class="tag t-red">DEFECT FOUND</span> GPIF stores a chord in two places: an
+<code>&lt;Item&gt;</code> that defines the diagram and a <code>&lt;Chord&gt;</code> reference on
+the beat that displays it. The restore tool put back the Item alone. Its check asked whether the
+string <code>E7Msus2</code> appeared in the file, which passed on an orphan.</p>
+<p><span class="tag t-green">FIXED AND VERIFIED</span>
+<code>RESTORED-s35881-TEXTSAFE-v2.gp</code> restores the beat reference copy-on-write and now
+matches the pre-sweep source on every measured field.</p>
+<p><span class="tag t-amber">CORRECTED</span> The NAMEDROP diagnosis was wrong about deletion.
+ElementTree strips the CDATA wrapper and leaves the name text intact. TEXTSAFE remains the right
+lane for a different reason.</p>
+<p><span class="tag t-blue">CLEARED</span> 124 bars differ from the pre-sweep source across six
+tracks. Every one is a 5/4 rest bar that Songsterr filled correctly. Nobody should restore them.</p>
+</div>
+
+<div class="toc"><ol>
+<li><a href="#ship">The ship file, and the seven that do not ship</a></li>
+<li><a href="#chord">The defect: a chord has two halves</a></li>
+<li><a href="#shared">The trap: Beat id 2 is shared by seven bars</a></li>
+<li><a href="#namedrop">The NAMEDROP correction</a></li>
+<li><a href="#rests">The 124 rest cells, cleared</a></li>
+<li><a href="#verify">Verification against the pre-sweep source</a></li>
+<li><a href="#queue">Queue state for this song</a></li>
+<li><a href="#owed">What is owed, and by whom</a></li>
+</ol></div>
+
+<h2 id="ship">1. The ship file, and the seven that do not ship</h2>
+<p>Eight restore candidates sit in
+<code>~/Projects/_outputs/songsterr-zappa-paren-fix/s35881-Watermelon/</code>. The handoff's own
+inventory listed six of them and named the wrong one.</p>
+<div class="scroll"><table>
+<tr><th>file</th><th>bytes</th><th>CDATA</th><th>chord symbol on bar 3</th><th>verdict</th></tr>
+<tr><td><code>PRESWEEP-r7715683.gp</code></td><td>51,234</td><td>137</td><td>yes</td><td>the saved original, reference only</td></tr>
+<tr><td><code>r8768414-LIVE-EXPORT.gp</code></td><td>51,028</td><td>136</td><td>no</td><td>the damaged live tab</td></tr>
+<tr><td><code>RESTORED-s35881.gp</code></td><td>74,935</td><td>0</td><td>no</td><td>reserialized</td></tr>
+<tr><td><code>RESTORED-s35881-v2.gp</code></td><td>74,935</td><td>0</td><td>no</td><td>reserialized</td></tr>
+<tr><td><code>RESTORED-s35881-v3-with-chord.gp</code></td><td>74,981</td><td>0</td><td>no</td><td>reserialized</td></tr>
+<tr><td><code>RESTORED-s35881-MINIMAL.gp</code></td><td>51,485</td><td>0</td><td>no</td><td>reserialized</td></tr>
+<tr><td><code>RESTORED-s35881-FINAL.gp</code></td><td>51,506</td><td>0</td><td>no</td><td>reserialized</td></tr>
+<tr><td><code>RESTORED-s35881-TEXTSAFE.gp</code></td><td>51,438</td><td>136</td><td><b>no</b></td><td>orphaned chord Item</td></tr>
+<tr style="background:#eef5ec"><td><b><code>RESTORED-s35881-TEXTSAFE-v2.gp</code></b></td><td><b>51,451</b></td><td><b>137</b></td><td><b>yes</b></td><td><b>ship this</b></td></tr>
+</table></div>
+<p class="hash">sha256 <b>87020f8c4243a7441db8187b4d7356b300e62b4d013787343de5ea4a0cfe27fd</b></p>
+
+<h2 id="chord">2. The defect: a chord has two halves</h2>
+<p>The paren sweep <code>r8768414</code> dropped both halves of one chord. It removed the
+<code>&lt;Item name="E7Msus2"&gt;</code> from the diagram collection on the Frank Zappa staff, and
+it removed the <code>&lt;Chord&gt;</code> reference from the beat at bar 3 that printed the
+symbol. <code>build_restore_textsafe.py</code> restored the first half.</p>
+<div class="card amber">
+<p class="k">Why every check passed on a broken file</p>
+<ul>
+<li>The builder verified <code>'E7Msus2' in text</code>, which an orphaned definition satisfies.</li>
+<li>The builder printed the list of chord <code>Items</code>, which never says whether a beat
+references one.</li>
+<li>The lane-aware set difference keys on <code>(bar, voice, position, midi)</code>. A chord
+symbol carries no notes, so the diff is structurally unable to see it.</li>
+</ul>
+<p>This is the standing rule <code>feedback_gate_must_read_the_field_the_human_reads</code>,
+second confirmed instance. A reader acts on the symbol printed above bar 3. No check read that.</p>
+</div>
+<div class="scroll"><table>
+<tr><th>beat-level chord symbol</th><th>PRESWEEP</th><th>TEXTSAFE</th><th>TEXTSAFE-v2</th></tr>
+<tr><td>track 0, bar 2, ref <code>0</code> (Amaj7)</td><td>yes</td><td>yes</td><td>yes</td></tr>
+<tr style="background:#fbeeec"><td>track 0, bar 3, ref <code>1</code> (E7Msus2)</td><td>yes</td><td><b>MISSING</b></td><td><b>yes</b></td></tr>
+<tr><td>track 1, bar 93, ref <code>0</code></td><td>yes</td><td>yes</td><td>yes</td></tr>
+<tr><td>track 1, bar 96, ref <code>1</code></td><td>yes</td><td>yes</td><td>yes</td></tr>
+</table></div>
+
+<h2 id="shared">3. The trap: Beat id 2 is shared by seven bars</h2>
+<p>GPIF deduplicates beat definitions. <code>Beat id 2</code> in the restore is referenced by
+seven voices covering track 0, bars 3 through 9. Adding a <code>&lt;Chord&gt;</code> to that
+definition prints E7Msus2 above all seven bars.</p>
+<p>The repair clones the definition into <code>Beat id 910</code>, adds the chord reference to
+the clone, and repoints the bar 3 voice alone. Verified afterward: the symbol appears on bar 3
+and on no bar from 4 to 9. Tool:
+<code>tools/restore_bar3_chord_ref.py</code>.</p>
+
+<h2 id="namedrop">4. The NAMEDROP correction</h2>
+<p>The handoff states that ElementTree "deletes all 28 authored <code>&lt;Name&gt;</code> entries
+including Frank Zappa and Vinnie Colaiuta". Measured on the file itself, that is not what
+happens.</p>
+<div class="scroll"><table>
+<tr><th>file</th><th>bar 8 track name, as stored</th></tr>
+<tr><td><code>PRESWEEP</code></td><td><code>&lt;Name&gt; &lt;![CDATA[Vinnie Colaiuta]]&gt; &lt;/Name&gt;</code></td></tr>
+<tr><td><code>RESTORED-s35881-FINAL</code></td><td><code>&lt;Name&gt; Vinnie Colaiuta &lt;/Name&gt;</code></td></tr>
+</table></div>
+<p>The wrapper is stripped and the text survives. <code>FINAL</code> carries all 28 track names
+and "Frank Zappa" as ordinary character data. The "named tracks 0" column came from a checker
+that counted <code>&lt;Name&gt;&lt;![CDATA[</code> and found none.</p>
+<div class="card green">
+<p class="k">TEXTSAFE is still the right lane</p>
+<p>A reserialized file rewrites 1,038,175 bytes of XML and reformats whitespace throughout. An
+upload that alters one drum track should not carry a million bytes of incidental change. String
+surgery keeps the diff to what was intended.</p>
+</div>
+
+<h2 id="rests">5. The 124 rest cells, cleared</h2>
+<p>The handoff audits the restore against the live export, so it never asked whether the sweep
+touched tracks other than track 8. It did. 124 <code>(track, bar)</code> cells differ from the
+pre-sweep source across tracks 0, 1, 3, 4, 6 and 7.</p>
+<p>Every one of them is a bar carrying zero notes on both sides, where the source holds one
+Whole rest and the export holds a Whole plus a Quarter. <b>Those bars are 5/4.</b> Four beats
+plus one beat fills the bar. The source under-filled it by a beat and Songsterr normalized it
+correctly.</p>
+<div class="stats">
+<div class="stat"><b>124</b><span>differing cells</span></div>
+<div class="stat"><b>0</b><span>with a note-count difference</span></div>
+<div class="stat"><b>1</b><span>with a chord difference, bar 3</span></div>
+<div class="stat"><b>52</b><span>bars in 5/4 out of 105</span></div>
+</div>
+
+<h2 id="verify">6. Verification against the pre-sweep source</h2>
+<p>Transcript saved at
+<code>~/Projects/_outputs/zappa-watermelon-ride-analysis/out/VERIFY-TEXTSAFE-v2-2026-09-07.txt</code>.</p>
+<div class="scroll"><table>
+<tr><th>check</th><th>PRESWEEP</th><th>TEXTSAFE-v2</th><th></th></tr>
+<tr><td>beat-level chord symbols</td><td>4</td><td>4, identical locations</td><td><span class="tag t-green">MATCH</span></td></tr>
+<tr><td>CDATA blocks</td><td>137</td><td>137</td><td><span class="tag t-green">MATCH</span></td></tr>
+<tr><td>CDATA <code>&lt;Name&gt;</code> entries</td><td>28</td><td>28</td><td><span class="tag t-green">MATCH</span></td></tr>
+<tr><td>chord Items</td><td>Amaj7, E7Msus2, E, A</td><td>Amaj7, E7Msus2, E, A</td><td><span class="tag t-green">MATCH</span></td></tr>
+<tr><td>note instances, 9 tracks</td><td>4,856</td><td>4,856, identical per track</td><td><span class="tag t-green">MATCH</span></td></tr>
+<tr><td>AntiAccent on drums</td><td>&mdash;</td><td>1,317 of 2,091</td><td><span class="tag t-green">RESTORED</span></td></tr>
+<tr><td>Staccato on drums</td><td>&mdash;</td><td>0</td><td><span class="tag t-green">CLEAN</span></td></tr>
+<tr><td>ghost missing / spurious</td><td>&mdash;</td><td>0 / 0</td><td><span class="tag t-green">CLEAN</span></td></tr>
+<tr><td>positions added / removed</td><td>&mdash;</td><td>0 / 0</td><td><span class="tag t-green">CLEAN</span></td></tr>
+<tr><td>lanes with a wrong ghost count</td><td>&mdash;</td><td>0</td><td><span class="tag t-green">CLEAN</span></td></tr>
+<tr><td>zip integrity, XML parse</td><td>&mdash;</td><td>12 entries, parses clean</td><td><span class="tag t-green">CLEAN</span></td></tr>
+</table></div>
+
+<h2 id="queue">7. Queue state for this song</h2>
+<p>Record at
+<code>~/Projects/_outputs/zappa-watermelon-ride-analysis/out/QUEUE-CLOSURE-s35881-2026-09-07.md</code>.
+Each close names its own proof. No item was closed on another item's evidence.</p>
+<h3>Closed, nine</h3>
+<div class="scroll"><table>
+<tr><th>item</th><th>proof</th></tr>
+<tr><td><code>q-2026-09-05-4a279c</code></td><td>Bar 3 E7Msus2 restored, chord map 4 of 4, symbol on bar 3 alone</td></tr>
+<tr><td><code>q-2026-09-06-0623d7</code></td><td>Chord patch complete, Item plus referencing beat, CDATA 137</td></tr>
+<tr><td><code>q-2026-09-06-e36f49</code></td><td>Ride definition cloned, 1,316 repointed, AntiAccent 1,317, drift 0</td></tr>
+<tr><td><code>q-2026-09-05-0244ef</code></td><td>Superseded, <code>v2.gp</code> carries 0 CDATA against 137</td></tr>
+<tr><td><code>q-2026-09-07-6aac90</code></td><td>Superseded, it names <code>FINAL.gp</code></td></tr>
+<tr><td><code>q-2026-09-07-c069ac</code></td><td>Diagnosis corrected, shippable file delivered</td></tr>
+<tr><td><code>q-2026-09-06-8ce0a9</code></td><td>Brandon's decision, snare rebounds add nothing</td></tr>
+<tr><td><code>q-2026-09-06-1492ba</code></td><td>Audio branch closed, 2.1 point margin cannot identify a recording</td></tr>
+<tr><td><code>q-2026-09-05-2f7aec</code></td><td>Verdict settled, upload re-queued as its own item</td></tr>
+</table></div>
+<h3>Blocked, eight, each with the condition that unblocks it</h3>
+<div class="scroll"><table>
+<tr><th>item</th><th>blocked on</th></tr>
+<tr><td><code>q-2026-09-06-c45c11</code></td><td>Drumnet scan at 5.0 px per staff space against a 15 px floor</td></tr>
+<tr><td><code>q-2026-09-06-05c938</code></td><td>Same scan, accent and pedal glyphs not separable</td></tr>
+<tr><td><code>q-2026-09-06-5f862c</code></td><td>Bar 54 tuplet, same scan</td></tr>
+<tr><td><code>q-2026-09-06-ca2848</code></td><td>Alignment. 178 of 505 slots is 1.35x against a 26% baseline, under the 1.5x floor</td></tr>
+<tr><td><code>q-2026-09-06-7ce9bd</code></td><td>Same. The 1.0800 s period does not place the events</td></tr>
+<tr><td><code>q-2026-09-06-690441</code></td><td>The &minus;52.7 ms lead is fitted on the landmarks it improves</td></tr>
+<tr><td><code>q-2026-09-06-9bd893</code></td><td>Gate N9 needs 8+ landmarks and a stated selection rule</td></tr>
+<tr><td><code>q-2026-09-06-58f691</code></td><td>Copy lane, free of moderation, blocked by the same chart</td></tr>
+</table></div>
+<p><b>Left open deliberately.</b> <code>q-2026-09-05-019e5b</code>,
+<code>q-2026-09-05-ca54b4</code> and <code>q-2026-09-05-a3a71c</code> span several songs. Nothing
+here closes them.</p>
+
+<h2 id="owed">8. What is owed, and by whom</h2>
+<div class="card pur">
+<p class="k">Owed by Brandon, one decision</p>
+<p>Revision <code>r8908034</code> sits on moderation for this song, so a second upload stacks on
+it. The choice is to let <code>r8908034</code> clear and then upload
+<code>RESTORED-s35881-TEXTSAFE-v2.gp</code>, or to withdraw <code>r8908034</code> and upload the
+corrected file now. Uploading is outward-facing and waits on his word. Queue item
+<code>q-2026-09-07-a74a94</code>.</p>
+</div>
+<div class="card blue">
+<p class="k">Owed by a scan, everything chart-based</p>
+<p>Five Drumnet pages at print DPI unblock the lane counts, the accent census, bar 54 and the
+copy lane in one move. No file on this Mac supplies it.</p>
+</div>
+<div class="card">
+<p class="k">Owed by another session, the alignment</p>
+<p>Pedal hi-hat placement unblocks with the onset-based DP alignment
+<code>q-2026-09-06-57b3e8</code>. A chart rescan does not settle it.</p>
+</div>
+
+<h2>Related routes</h2>
+<ul>
+<li><a href="https://7onething1.github.io/zappa-watermelon-ride-reproduction/">Ride-ghost reproduction</a>, the detector rebuild</li>
+<li><a href="https://7onething1.github.io/zappa-watermelon-stem-rerun/">Isolated-stem rerun</a>, why the audio branch closed</li>
+<li><a href="https://7onething1.github.io/zappa-program-scope/">Zappa program scope</a>, the 34-id front door</li>
+</ul>
+
+<footer>
+<p>Built 2026-09-07 on MacBookPro from
+<code>~/Projects/_outputs/songsterr-zappa-paren-fix/s35881-Watermelon/</code> and
+<code>~/Projects/_outputs/zappa-watermelon-ride-analysis/</code>. Every number on this page was
+measured on the files named beside it. Source handoff:
+<code>SVG/[ZAPPA-s35881-EXHAUSTIVE-2026-09-07] handoff.md</code>.</p>
+</footer>
+</div></body></html>
