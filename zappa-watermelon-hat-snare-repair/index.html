@@ -64,6 +64,7 @@ footer{margin-top:56px;padding-top:16px;border-top:2px solid var(--rule);font-si
 <li><a href="#lanes">All four lanes</a></li>
 <li><a href="#bleed">Ride bleed control</a></li>
 <li><a href="#aud">The audition list</a></li>
+<li><a href="#acc">Accent or ghost</a></li>
 <li><a href="#stop">Stopping condition</a></li>
 <li><a href="#live">Published state</a></li>
 </ol></nav>
@@ -216,9 +217,42 @@ discrete peak, and <b>55 of them sit ABOVE 3x contrast</b>. Full per-note table 
 stem seconds, contrast, prominence and both decay figures in
 <code>out/AUDITION-hat-notes.csv</code>.</p></div>
 
+
+<h2 id="acc"><span class="dot" style="background:var(--plum)"></span>Accent plus normal, or normal plus ghost?</h2>
+<p>The 0.327 ratio measured each follower against its own cluster leader, so it only ever said
+the leader is louder. It is blind to which of the two carries the marking. Settling it needs a
+reference population built independently of the cluster structure, and the tab supplies one:
+all 193 notated snare events carry ghost false, staccato false, dynamic F and the same lane,
+with <b>zero accents anywhere on the snare</b>.</p>
+<div class="card warn"><h3>The answer flipped on my choice of reference class</h3>
+<table><thead><tr><th>reference class for ORDINARY</th><th class="n">leaders</th><th class="n">followers</th><th class="n">separation</th></tr></thead><tbody>
+<tr><td>onsets matched one-to-one to notation, n=98</td><td class="n">+2.9 dB</td><td class="n">&minus;7.7 dB</td><td class="n">10.6 dB</td></tr>
+<tr><td>written positions above a histogram trough, n=186</td><td class="n">+11.2 dB</td><td class="n">+0.6 dB</td><td class="n">10.7 dB</td></tr>
+<tr style="background:var(--code)"><td><b>written positions with a discrete attack transient, n=99</b></td><td class="n"><b>+1.5 dB</b></td><td class="n"><b>&minus;9.2 dB</b></td><td class="n"><b>10.7 dB</b></td></tr>
+</tbody></table>
+<p><b>The separation is 10.7 dB in all three.</b> Only the zero point moved. The middle row put
+roughly 48 near-silent written positions inside ORDINARY, dragging the reference down about
+10 dB and producing a false accent reading. The third row settles membership on an objective
+criterion: a real quiet stroke has an attack transient, noise floor does not.</p></div>
+<table><thead><tr><th>population</th><th class="n">dB vs ordinary</th><th class="n">percentile in ordinary</th></tr></thead><tbody>
+<tr><td>cluster leaders</td><td class="n">+1.5</td><td class="n">64.7</td></tr>
+<tr><td>cluster followers</td><td class="n">&minus;9.2</td><td class="n">36.6</td></tr>
+</tbody></table>
+<div class="card good"><h3>Verdict</h3>
+<p>A written accent normally runs 6 to 10 dB over ordinary. The leaders are <b>1.5 dB</b> over,
+so the <b class="fail">accent reading is refused</b>. The followers are 9.2 dB under, short of
+the 15 to 25 dB a textbook ghost implies, so the <b class="pass">ghost reading is supported
+and not proven</b>. What the audio carries is an ordinary leader and a distinctly softer
+follower, and the parenthesis is the standard way to write a quiet unaccented stroke.</p></div>
+<div class="card"><h3>A finding that fell out of the reference work</h3>
+<p><b>94 of the 193 written snare positions carry no attack transient at all</b>, only noise
+floor. That agrees with the lane table's 95 unsupported written events, reached by a different
+route. Roughly half the snare notation on this tab has no audio under it.</p></div>
+
 <h2 id="stop"><span class="dot" style="background:var(--sage)"></span>Stopping condition</h2>
 <table><thead><tr><th>lane</th><th>state</th><th>what closes it</th></tr></thead><tbody>
 <tr><td>snare, kick, toms</td><td class="pass">CLOSED</td><td>all three clear 1.5x in both directions</td></tr>
+<tr><td>snare accent-vs-ghost</td><td class="pass">SETTLED</td><td>accent refused at +1.5 dB, ghost supported at &minus;9.2 dB</td></tr>
 <tr><td>hi-hat</td><td>OPEN</td><td>audition the 71 UNSUPPORTED notes against the isolated hat stem, keep or pull each</td></tr>
 <tr><td>cymbal</td><td>OUT OF REACH</td><td>1,074 onsets against 1,778 written caps direction A at 0.60; observed 0.204. This method cannot adjudicate a continuously played ride at 16th density</td></tr>
 </tbody></table>

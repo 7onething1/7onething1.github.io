@@ -162,12 +162,56 @@ discrete peak, and 55 of them sit ABOVE 3x contrast, so contrast alone was the w
 Full per-note table with bar, beat, stem seconds, contrast, prominence and both decay
 figures: `out/AUDITION-hat-notes.csv`.
 
+
+## Accent plus normal, or normal plus ghost?
+
+The 0.327 ratio measured each follower against its own cluster leader, so it only ever said
+the leader is louder. It is blind to which of the two carries the marking. Settling it needs a
+reference population of ordinary strokes built independently of the cluster structure.
+
+The tab supplies one. All 193 notated snare events carry ghost false, staccato false, dynamic
+F and the same lane, with zero accents anywhere on the snare. The transcriber wrote every one
+as an ordinary hit.
+
+### The answer flipped on my choice of reference class, which is the interesting part
+
+| reference class for ORDINARY | leaders | followers | separation |
+|---|---|---|---|
+| onsets matched one-to-one to notation, n=98 | +2.9 dB | -7.7 dB | 10.6 dB |
+| written positions above a histogram trough, n=186 | +11.2 dB | +0.6 dB | 10.7 dB |
+| **written positions with a discrete attack transient, n=99** | **+1.5 dB** | **-9.2 dB** | **10.7 dB** |
+
+**The separation is 10.7 dB in all three.** Only the zero point moved. So the whole question is
+where ordinary sits, and the middle row put roughly 48 near-silent written positions inside
+ORDINARY, which dragged the reference down about 10 dB and produced a false accent reading.
+
+The third row settles membership on an objective criterion rather than a threshold picked by
+eye: a real quiet stroke still has an attack transient, and noise floor does not.
+
+### What that gives
+
+- leaders sit at **+1.5 dB**, the 64.7th percentile of ordinary strokes
+- followers sit at **-9.2 dB**, the 36.6th percentile
+
+A written accent normally runs 6 to 10 dB over ordinary. The leaders are 1.5 dB over, so the
+**accent reading is refused**. The followers are 9.2 dB under, short of the 15 to 25 dB a
+textbook ghost implies, so the ghost reading is supported and not proven. What the audio
+carries is an ordinary leader and a distinctly softer follower, and the parenthesis is the
+standard way to write a quiet unaccented stroke.
+
+### A finding that fell out of the reference work
+
+94 of the 193 written snare positions carry **no attack transient at all**, only noise floor.
+That agrees with the lane table's 95 unsupported written events, reached by a different route.
+Roughly half the snare notation on this tab has no audio under it.
+
 ## Stopping condition
 
 1. snare, kick and toms: CLOSED. All three clear 1.5x in both directions.
-2. hi-hat: closes when the 71 UNSUPPORTED notes are auditioned against the isolated hat stem
+2. snare accent-vs-ghost: accent refused at +1.5 dB, ghost supported at -9.2 dB.
+3. hi-hat: closes when the 71 UNSUPPORTED notes are auditioned against the isolated hat stem
    and each is kept or pulled.
-3. cymbal: 1,416 written events carry no audio support at 1.15x. The detector finds 1,074
+4. cymbal: 1,416 written events carry no audio support at 1.15x. The detector finds 1,074
    onsets against 1,778 written, so a perfect transcription could not score above 0.60 in
    direction A. The observed 0.204 sits well under that ceiling, and this method cannot
    adjudicate a continuously played ride at 16th density. That lane needs a different
