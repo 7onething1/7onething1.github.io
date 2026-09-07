@@ -1,0 +1,163 @@
+<!doctype html>
+<html lang="en"><head><meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Zappa handoff close, 2026-09-07</title>
+<style>
+:root{
+  --cream:#f6f0e2; --ink:#1a1a1a; --rule:#d8cfb8;
+  --c1:#DD8D29; --c2:#E2D200; --c3:#46ACC8; --c4:#E58601; --c5:#B40F20;
+  color-scheme:light;
+}
+*{box-sizing:border-box}
+body{background:var(--cream);color:var(--ink);margin:0;padding:2rem 1.2rem 4rem;
+  font:16px/1.55 -apple-system,BlinkMacSystemFont,Inter,"Segoe UI",sans-serif}
+.wrap{max-width:1020px;margin:0 auto}
+h1{font-size:2rem;margin:0 0 .3rem;letter-spacing:-.02em}
+.sub{color:#5a5346;margin:0 0 1.6rem;font-size:.95rem}
+h2{font-size:1.28rem;margin:0 0 .6rem;letter-spacing:-.01em}
+h3{font-size:1rem;margin:1.1rem 0 .4rem;text-transform:uppercase;letter-spacing:.06em;color:#5a5346}
+a{color:#1a5c72}
+.toc{background:#fffaf0;border:1px solid var(--rule);border-radius:12px;padding:1rem 1.2rem;margin:0 0 1.8rem}
+.toc ol{margin:.4rem 0 0;padding-left:1.3rem}
+.toc li{margin:.25rem 0}
+.card{border-radius:14px;padding:1.15rem 1.3rem;margin:0 0 1.15rem;border:1px solid var(--rule);
+  background:#fffaf0;border-left:10px solid var(--c1)}
+.c1{border-left-color:var(--c1)} .c2{border-left-color:var(--c2)}
+.c3{border-left-color:var(--c3)} .c4{border-left-color:var(--c4)} .c5{border-left-color:var(--c5)}
+.pill{display:inline-block;font-size:.68rem;font-weight:700;letter-spacing:.08em;
+  padding:.22rem .6rem;border-radius:999px;color:#1a1a1a;text-transform:uppercase;vertical-align:.16em;margin-left:.5rem}
+.p-done{background:var(--c3)} .p-part{background:var(--c2)} .p-open{background:var(--c4)}
+.p-block{background:var(--c5);color:#fff} .p-brandon{background:var(--c1)}
+table{border-collapse:collapse;width:100%;margin:.7rem 0;font-size:.9rem;display:block;overflow-x:auto}
+th,td{border:1px solid var(--rule);padding:.45rem .6rem;text-align:left;vertical-align:top}
+th{background:#efe6d0;font-weight:700}
+code{background:#efe6d0;padding:.1rem .34rem;border-radius:5px;font-size:.85em;
+  font-family:ui-monospace,SFMono-Regular,Menlo,monospace;word-break:break-word}
+pre{background:#2a2620;color:#f2ecdd;padding:.85rem 1rem;border-radius:10px;overflow-x:auto;font-size:.82rem}
+.kv{font-weight:700}
+footer{margin-top:2.4rem;padding-top:1rem;border-top:1px solid var(--rule);color:#5a5346;font-size:.85rem}
+ul{margin:.45rem 0;padding-left:1.25rem} li{margin:.22rem 0}
+.small{font-size:.85rem;color:#5a5346}
+</style></head><body><div class="wrap">
+
+<h1>Zappa handoff, closed out</h1>
+<p class="sub">Successor to <code>[ZAPPA-PAREN-FIX-AUDIT-RECOUNTED-2026-09-06]</code>. Measured 2026-09-07 on MacBookPro. Every figure below came from a live API read or a census of a file on disk.</p>
+
+<div class="toc">
+  <strong>Contents</strong>
+  <ol>
+    <li><a href="#s0">Brandon's one action, still open</a></li>
+    <li><a href="#s1">Regression fixtures: 0 PASS to 2 PASS</a></li>
+    <li><a href="#s2">Dynamics: 17 restorable, 3 not</a></li>
+    <li><a href="#s3">The 269/270 residue is a lane relabelling</a></li>
+    <li><a href="#s4">Two deferrals re-adjudicated</a></li>
+    <li><a href="#s5">Files and reproduction</a></li>
+  </ol>
+</div>
+
+<div class="card c1" id="s0">
+<h2>1. Brandon's one action<span class="pill p-brandon">Brandon only</span></h2>
+<p><strong>Press Submit revision on Zomby Woof s412162.</strong> Read live at the top of this session and again while working: <code>latestRevisionId</code> is still <strong>r8918601 by Nikita</strong> across 21 revisions, so nothing has been submitted.</p>
+<p>The editor tab still holds rev8. Queried directly this session:</p>
+<pre>undo: ENABLED   redo: disabled   submit: ENABLED   importFiles: 0</pre>
+<p>Publishing over another contributor's tab is his act, never mine. <code>isNextRevisionPremoderated</code> is true, so it queues for a moderator. The description to paste sits in <code>REV8-BUILD-PROOF-2026-09-06.md</code>. Queued as <code>q-2026-09-07-8d19fd</code>.</p>
+</div>
+
+<div class="card c3" id="s1">
+<h2>2. Regression fixtures<span class="pill p-part">2 of 4 rebuilt</span></h2>
+<p><code>regressions.py</code> read <strong>0 PASS 0 FAIL 4 MISSING</strong> because every fixture pointed at <code>~/Projects/_outputs/appleseed-allparts</code>, a tree authored on Jacks-iMac that never crossed the iCloud <code>sfg/</code> channel. It now reads <strong>2 PASS 0 FAIL 2 MISSING</strong>.</p>
+<table>
+<tr><th>Fixture</th><th>Verdict</th><th>Measurement</th></tr>
+<tr><td>blind-mans-arrow</td><td><strong>PASS</strong></td><td>capos <code>[0, 0]</code>, the rejected capo 7 is absent</td></tr>
+<tr><td>secret</td><td><strong>PASS</strong></td><td>236 notes shared across the two guitar staves at exact onset</td></tr>
+<tr><td>a-tree-for-trials</td><td>MISSING</td><td>needs a depanning source and result pair that was never published</td></tr>
+<tr><td>kilgore-trout</td><td>MISSING</td><td>needs solver intermediates iter4 and iter5, unpublished</td></tr>
+</table>
+<h3>How the two were rebuilt</h3>
+<p>Both need only a <em>published</em> artifact, so both were re-exported from the live Songsterr editor and archived with hashes. The two that stay MISSING need unpublished files that exist nowhere but the iMac, and substituting the local <code>iter48</code> / <code>chain49</code> pair would prove something else.</p>
+<p><strong>MISSING still counts as failure and the suite still exits 1.</strong> A fixture that cannot run must never look like a pass.</p>
+<h3>A bug found while wiring it</h3>
+<p><code>cross_staff_shared</code> called <code>is_guitar(cl(tr.findtext("Name")))</code>, the legacy bare-name path. That is the substring test which returned False for every staff on the Zappa tabs and made the gate report on nothing. It now passes the Track element so it resolves <code>InstrumentSet/Type</code> first.</p>
+</div>
+
+<div class="card c2" id="s2">
+<h2>3. Dynamics<span class="pill p-done">measured</span></h2>
+<p><code>Dynamic</code> is a <strong>beat-level</strong> element in GPIF, so writing the author's value onto a beat writes it onto every note that beat carries. <strong>20 aligned beats</strong> differ from the author, all of them author <strong>FF</strong> against live <strong>PP</strong>.</p>
+<table>
+<tr><th>Verdict</th><th>Beats</th><th>Where</th></tr>
+<tr><td><strong>RESTORE</strong>, every note author-backed</td><td><strong>17</strong></td><td>bar 5 (5), bar 14 (3), bar 16 (5), bars 41-44 (1 each)</td></tr>
+<tr><td><strong>EXCLUDE</strong>, carries a note the author never wrote</td><td><strong>3</strong></td><td>bar 14 at onsets 1/16, 3/16, 7/16</td></tr>
+</table>
+<p>The three disqualifying notes are two Acoustic Snares on string 3 lane 38 and one Bass Drum on string 0 lane 36. Restoring FF there would hand an expression mark to notes their author never wrote.</p>
+<p><strong>The verdict is stable under either lane key.</strong> The tab respells kick 35 as 36 at 161 identical slots, so the test was run strict and again with 35 treated as equal to 36. Both runs return the same 17 and the same 3.</p>
+<p class="small">This corrects the rev8 proof's "5 of the 20 targets" and "only 15 of 20 would have landed". The measured split is 17 and 3.</p>
+</div>
+
+<div class="card c4" id="s3">
+<h2>4. The 269/270 residue<span class="pill p-done">explained</span></h2>
+<p>269 author instances and 270 live instances failed to match. In 55 of the 60 affected bars the two leftovers are <em>exactly equal in size</em>, which is the shape of a relabelling. Pairing each unmatched author instance with a live instance at the same <code>(bar, voice, onset, string)</code> explains <strong>249 of 269</strong>.</p>
+<table>
+<tr><th>Lane change</th><th>Count</th><th>Reading</th></tr>
+<tr><td>35 &rarr; 36</td><td><strong>161</strong></td><td>Acoustic Bass Drum to Bass Drum 1. Two GM spellings of one drum, so the sound holds.</td></tr>
+<tr><td>45 &rarr; 43</td><td><strong>86</strong></td><td>Low Tom to High Floor Tom. <strong>Two different drums.</strong></td></tr>
+<tr><td>42 &rarr; 44</td><td>1</td><td>Closed Hi-Hat to Pedal Hi-Hat, another sound and another technique.</td></tr>
+<tr><td>92 &rarr; 36</td><td>1</td><td>Lane 92 sits outside General MIDI percussion.</td></tr>
+</table>
+<p>Bars 10 and 31 were dumped beat by beat. Every onset, every duration and every beat count is identical between the two files. <strong>The only thing that moved is the number on the note.</strong></p>
+<p>The 86 low-tom instances are the live consequence of the wiped Low Tom lane already on record. rev7 was built to restore it and never landed, and Nikita's revert did not put it back.</p>
+<h3>Genuinely unpaired: 20 author, 21 live</h3>
+<table>
+<tr><th>Bar</th><th>Author-only</th><th>Live-only</th></tr>
+<tr><td>2</td><td>0</td><td>3 Pedal Hi-Hat</td></tr>
+<tr><td>14</td><td>0</td><td>7 (Crash 1, 2 Snare, 4 Bass Drum)</td></tr>
+<tr><td>17</td><td>17</td><td>14</td></tr>
+<tr><td>18</td><td>3 Closed Hi-Hat</td><td>1 Pedal Hi-Hat</td></tr>
+</table>
+<p><strong>Bar 17 is where the content actually changed.</strong> The author wrote 12 closed hi-hats there plus kicks, a snare and a pedal hat. The live tab carries a crash, eight Low Tom hits, a Low-Mid Tom and a kick. That is a rewritten bar.</p>
+<p class="small">The 2026-09-06 handoff named these bars 1, 13, 16 and 17, which is the 0-based spelling of 2, 14, 17 and 18. The figures are identical and only the index base moved.</p>
+</div>
+
+<div class="card c5" id="s4">
+<h2>5. Two deferrals re-adjudicated</h2>
+<p>One-song-per-pass was retired, so <code>q-2026-09-06-dd33ca</code> asked for both to be re-decided on their own merits. Neither had been deferred on that rule.</p>
+<h3>Watermelon s35881 restore, DONE and now verified live</h3>
+<p><code>latestRevisionId</code> for s35881 is <strong>r8908034</strong>, the restore revision. It cleared moderation and published. Counted the live CDN part JSON at build hash <code>v0-3-2-m9L2o7e_DgqwSJF_</code>:</p>
+<pre>part 8 (Vinnie Colaiuta): 2091 notes, 1317 ghosts
+  lane 51 Ride    1316
+  lane 49 Crash      1</pre>
+<p>That is the exact count the item specified. Its knock-on effect: <code>q-2026-09-06-ca2848</code>, the pedal hi-hat repair, was blocked on "r8908034 is still on moderation" and is <strong>now reopened</strong>.</p>
+<h3>Central Scrutinizer s3554079 lanes, still blocked with the route now closed</h3>
+<p>The blocker is scan resolution, and the named fix was to find a larger scan. Fetched the blogger <code>/s1600/</code> full-size variants of both chart images from the 2013-09-14 post. They are <strong>byte-identical</strong> to the archived copies: 27,496 bytes at 531&times;142 and 22,015 bytes at 420&times;139.</p>
+<p><code>s1600</code> is a maximum rather than an upscale, so <strong>Todd Bishop never published a larger scan.</strong> At 531px the staff spacing is about 5px against a 15px floor. Unblocking now needs another source rather than a bigger copy of this one.</p>
+</div>
+
+<div class="card c3" id="s5">
+<h2>6. Files and reproduction</h2>
+<table>
+<tr><th>What</th><th>Path</th></tr>
+<tr><td>Phase 2 record</td><td><code>~/Projects/_outputs/songsterr-zappa-paren-fix/s412162/PHASE2-DYNAMICS-AND-RESIDUE-2026-09-07.md</code></td></tr>
+<tr><td>Phase 2 data</td><td><code>~/Projects/_outputs/songsterr-zappa-paren-fix/s412162/PHASE2-ANALYSIS-2026-09-07.json</code></td></tr>
+<tr><td>Analysis tool</td><td><code>~/Projects/_outputs/songsterr-zappa-paren-fix/tools/phase2_analysis.py</code></td></tr>
+<tr><td>Shared census</td><td><code>~/Projects/_outputs/songsterr-zappa-paren-fix/tools/gpif_census.py</code></td></tr>
+<tr><td>Fixture archive</td><td><code>~/Projects/_outputs/appleseed-allparts/_live_export_2026-09-07/</code></td></tr>
+<tr><td>Fixture provenance</td><td><code>~/Projects/_outputs/appleseed-allparts/_live_export_2026-09-07/PROVENANCE.md</code></td></tr>
+<tr><td>Suite backup</td><td><code>~/.claude/skills/impossible-guitar-parts/regressions.py.bak-pre-livefixtures-2026-09-07</code></td></tr>
+</table>
+<pre>cd ~/Projects/_outputs/songsterr-zappa-paren-fix
+/usr/bin/python3 tools/phase2_analysis.py --json s412162/PHASE2-ANALYSIS-2026-09-07.json
+
+cd ~/.claude/skills/impossible-guitar-parts && python3 regressions.py</pre>
+<h3>Queue state written this session</h3>
+<ul>
+<li><code>q-2026-09-06-017ae6</code> done, fixtures rebuilt as far as this Mac allows</li>
+<li><code>q-2026-09-07-b8a5a0</code> new, the iMac half of the fixture rebuild</li>
+<li><code>q-2026-09-07-a189ff</code> new, the rev9 dynamics build, held until rev8 resolves</li>
+<li><code>q-2026-09-06-ca2848</code> reopened, Watermelon pedal hi-hat is actionable</li>
+<li><code>q-2026-09-06-cc10f7</code> re-blocked with the closed route recorded</li>
+</ul>
+</div>
+
+<footer>
+Palette: Fantastic Mr. Fox (Wes Anderson). Sources: Songsterr <code>api/meta</code> and CloudFront part JSON read live 2026-09-07; GPIF censuses of local <code>.gp</code> files; <code>regressions.py</code> output. Bars are 1-based throughout.
+</footer>
+</div></body></html>
