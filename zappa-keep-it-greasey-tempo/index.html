@@ -100,8 +100,9 @@ exactly this reason.</p>
 <li><a href="#second">13. Blocker 3, second separator</a></li>
 <li><a href="#untuned">14. Drift simulation, untuned</a></li>
 <li><a href="#latency">15. Instrument-specific latency</a></li>
-<li><a href="#open">16. What stays open</a></li>
-<li><a href="#prov">17. Provenance</a></li>
+<li><a href="#scan">16. The 13 px scan, classified</a></li>
+<li><a href="#open">17. What stays open</a></li>
+<li><a href="#prov">18. Provenance</a></li>
 </ol>
 </div>
 
@@ -736,7 +737,53 @@ range and a 2.554 s leave-one-out range. It bears only on the 157 ms and 31 ms m
 observations, and those were already stated as not established.</p>
 </div>
 
-<h2 id="open">16. What stays open</h2>
+<h2 id="scan">16. The 13 px Atkinson scan, now classified</h2>
+
+<p>The record called this scan <b>unclassified rather than unreadable</b>, and said classifying it
+needs a measured error rate for telling a bracketed notehead from an ordinary one using that same
+scan. Pages 6 to 9 extracted at native 180 ppi.</p>
+
+<div class="scroll"><table>
+<tr><th>Page</th><th>Staff spacing</th><th>Notehead candidates</th></tr>
+<tr><td>6</td><td class="n">14.50 px</td><td class="n">977</td></tr>
+<tr><td>7</td><td class="n"><b>13.00 px</b></td><td class="n">1394</td></tr>
+<tr><td>8</td><td class="n"><b>13.00 px</b></td><td class="n">1045</td></tr>
+<tr><td>9</td><td class="n">21.93 px</td><td class="n">674</td></tr>
+</table></div>
+
+<p>391 <b>real ordinary noteheads</b> were taken from the scan itself, copied, given a synthetic
+bracket at the <b>2.3 px stroke width</b> the record measured, and the scan's own paper noise re-added
+at the measured sd of 0.0176. A best-threshold classifier was then scored on real-ordinary against
+synthetic-bracketed.</p>
+
+<div class="stats">
+<div class="stat"><b>0.582</b><span>AUC, chance is 0.500</span></div>
+<div class="stat"><b>34.1%</b><span>balanced error at the best threshold</span></div>
+<div class="stat"><b>65.9%</b><span>accuracy at the best threshold</span></div>
+</div>
+
+<div class="card red">
+<p class="k"><span class="tag t-red">classified</span> &nbsp; The scan cannot support parenthesis mapping</p>
+<p>One head in three would be mislabelled <b>even with the bracket known to be present and the noise
+known exactly</b>. Against 629 flags that is roughly 200 errors, which is not a usable instrument.</p>
+</div>
+
+<div class="card amber">
+<p class="k"><span class="tag t-amber">two limits on that number</span></p>
+<p><b>The feature is contaminated.</b> In dense drum notation the strips beside a notehead also carry
+stems, beams and neighbouring heads. Median side ink across 4,090 candidates is 0.334 with p90 at
+0.913, which is adjacent notation. So 34.1% is the error rate of one measured feature and a smarter
+feature might do better on the same pixels.</p>
+<p><b>No labelled positive was found.</b> The side-ink distribution is bimodal and dense notation
+explains that on its own, so this scan supplies <b>no confirmed example of a bracket</b>. That is why
+the synthetic route was used at all.</p>
+</div>
+
+<p>What would change it: a publisher-resolution copy of the Modern Drummer <i>Rock Charts</i> pages,
+still open as <code>q-2026-09-06-e64c44</code>. At the 18 to 19 px of the DRUM Odd Meter Lesson pages
+brackets read by eye.</p>
+
+<h2 id="open">17. What stays open</h2>
 
 <ul>
 <li><b>An external anchor.</b> Section 12 leaves the offsets spanning 4.290 s with five of six sources
@@ -749,8 +796,7 @@ about which artifact the publishers were listening to.</li>
 <li><b>The publication date</b> of Marc Atkinson's Modern Drummer <i>Rock Charts</i> transcription,
 1997 per Paiste's profile against an October 2000 page footer in a third-party scan.</li>
 <li><b>A publisher-resolution copy</b> of that complete chart, the only complete-song printed source.</li>
-<li><b>Classifying the 13 px Atkinson scan</b> by a measured error rate on known bracketed against
-known ordinary noteheads from that same scan.</li>
+
 </ul>
 
 <div class="card blue">
@@ -760,7 +806,7 @@ describes a passage. <b>It maps no recorded stroke to any notated event</b>, and
 to touch r8852151.</p>
 </div>
 
-<h2 id="prov">17. Provenance</h2>
+<h2 id="prov">18. Provenance</h2>
 
 <h3>Audio</h3>
 <div class="scroll"><table>

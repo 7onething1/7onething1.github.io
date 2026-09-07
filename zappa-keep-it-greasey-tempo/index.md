@@ -498,7 +498,33 @@ recovers the truth to 0.125 BPM.** That validates withdrawing 137.46 and reporti
 depends on density: kit reads 3.42 ms sparse against 5.5 ms dense. **What it changes: nothing that was
 concluded**, since a few milliseconds is negligible against a 4.290 s cross-family range.
 
-## 16. What stays open## 13. Blocker 3, tested with a second separator
+## 16. The 13 px Atkinson scan, now classified
+
+Pages 6 to 9 extracted at native 180 ppi. Staff spacing: page 6 at 14.50 px, **pages 7 and 8 at
+13.00 px**, page 9 at 21.93 px. The 13 px figure in the record is confirmed.
+
+391 **real ordinary noteheads** from the scan itself were copied, given a synthetic bracket at the
+**2.3 px stroke width** the record measured, and the scan's own paper noise re-added at sd 0.0176.
+
+| | |
+|---|---|
+| AUC | **0.582**, chance 0.500 |
+| **Balanced error at the best threshold** | **34.1%** |
+| Accuracy | 65.9% |
+
+**CLASSIFIED: the scan cannot support parenthesis mapping.** One head in three would be mislabelled
+even with the bracket known present and the noise known exactly. Against 629 flags that is roughly 200
+errors.
+
+**Two limits.** The side-ink feature is contaminated by stems, beams and neighbouring heads in dense
+drum notation (median 0.334, p90 0.913 across 4,090 candidates), so 34.1% is one feature's error rate.
+And **no labelled positive was found**: the bimodal side-ink is explained by dense notation alone, so
+this scan supplies no confirmed bracket example, which is why the synthetic route was used.
+
+What would change it: a publisher-resolution copy of the Rock Charts pages, still open as
+`q-2026-09-06-e64c44`.
+
+## 17. What stays open## 13. Blocker 3, tested with a second separator
 
 The same mixture, 180 to 300 s, separated again with **demucs 4.0.1 htdemucs**. Every detection in the
 original snare stem was checked for a corroborating onset in that independent drums stem. **The item
@@ -573,7 +599,33 @@ recovers the truth to 0.125 BPM.** That validates withdrawing 137.46 and reporti
 depends on density: kit reads 3.42 ms sparse against 5.5 ms dense. **What it changes: nothing that was
 concluded**, since a few milliseconds is negligible against a 4.290 s cross-family range.
 
-## 16. What stays open
+## 16. The 13 px Atkinson scan, now classified
+
+Pages 6 to 9 extracted at native 180 ppi. Staff spacing: page 6 at 14.50 px, **pages 7 and 8 at
+13.00 px**, page 9 at 21.93 px. The 13 px figure in the record is confirmed.
+
+391 **real ordinary noteheads** from the scan itself were copied, given a synthetic bracket at the
+**2.3 px stroke width** the record measured, and the scan's own paper noise re-added at sd 0.0176.
+
+| | |
+|---|---|
+| AUC | **0.582**, chance 0.500 |
+| **Balanced error at the best threshold** | **34.1%** |
+| Accuracy | 65.9% |
+
+**CLASSIFIED: the scan cannot support parenthesis mapping.** One head in three would be mislabelled
+even with the bracket known present and the noise known exactly. Against 629 flags that is roughly 200
+errors.
+
+**Two limits.** The side-ink feature is contaminated by stems, beams and neighbouring heads in dense
+drum notation (median 0.334, p90 0.913 across 4,090 candidates), so 34.1% is one feature's error rate.
+And **no labelled positive was found**: the bimodal side-ink is explained by dense notation alone, so
+this scan supplies no confirmed bracket example, which is why the synthetic route was used.
+
+What would change it: a publisher-resolution copy of the Rock Charts pages, still open as
+`q-2026-09-06-e64c44`.
+
+## 17. What stays open
 
 - **An external anchor.** Section 12 leaves the offsets spanning 4.290 s with five of six sources
   failing a scan-aware null. Closing it needs several distinctive lead or vocal landmarks rather than
@@ -586,14 +638,13 @@ concluded**, since a few milliseconds is negligible against a 4.290 s cross-fami
 - **The publication date** of Marc Atkinson's Modern Drummer *Rock Charts* transcription, 1997 per
   Paiste's profile against an October 2000 page footer in a third-party scan.
 - **A publisher-resolution copy** of that complete chart, the only complete-song printed source.
-- **Classifying the 13 px Atkinson scan** by a measured error rate on known bracketed against known
-  ordinary noteheads from that same scan.
+
 
 **What this page does not claim.** No individual Songsterr ghost flag receives audio support from
 anything here. The tempo result describes a passage. It maps no recorded stroke to any notated
 event, and it is not a reason to touch r8852151.
 
-## 17. Provenance
+## 18. Provenance
 
 ### Audio
 
