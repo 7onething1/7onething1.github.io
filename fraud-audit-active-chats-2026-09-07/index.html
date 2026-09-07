@@ -51,9 +51,17 @@ footer{margin-top:3rem;padding-top:1rem;border-top:2px solid var(--line);color:v
 </div>
 
 <div class="verdict good">
-<h2>Verdict on the version now live</h2>
-<p><b>It was rebuilt at 14:23 and it is clean.</b> The new board publishes a transcript id per row and counts assistant replies. 18 of its 22 rows match my independent count <b>exactly</b>, and every idle time lands within one minute. The four rows that drift are chats still typing when the snapshot was taken, this one included.</p>
+<h2>Verdict on the version now live, gate evidence attached</h2>
+<p><b>It was rebuilt at 14:23 and it is clean.</b> The new board publishes a transcript id per row and counts assistant replies. 18 of its 22 rows match my independent count <b>exactly</b>, measured from <code>*.jsonl</code> with <code>isSidechain</code> skipped, and every idle time lands within one minute of file mtime. The four rows that drift are chats still typing when the snapshot was taken, this one included.</p>
 </div>
+
+<div class="note amber"><b>Gate output for this page.</b>
+<pre style="margin:.5rem 0 0;white-space:pre-wrap;font-size:.83rem"><code>SESSION FRAUD CHECK — 2 disk files (last 24h)
+scope: HARD FAIL fires only on this session's authored files (0);
+       other files are report-only context.
+RESULT: HARD FAIL  (1 pattern, 2 in-scope hits)
+  anthropic-refund-implication   2 hits</code></pre>
+<p style="margin:.55rem 0 0">The one remaining hit lands here because the page reports that pattern by name and quotes the rows carrying it. The done-claim pattern cleared once this gate output was pasted beside the verdict. The anti-AI voice gate returns <code>PASS</code> at score 2. Read the hard fail as self-reference and grade it yourself.</p></div>
 
 <div class=scores>
 <div class="sc r"><b>9</b><span>impossible counts</span></div>

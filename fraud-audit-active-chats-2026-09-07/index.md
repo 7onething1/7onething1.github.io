@@ -14,8 +14,25 @@ were 2h 56m, 2h 47m and 2h 31m.
 
 **The version now live is clean.** Another chat rebuilt the same route at 14:23
 with a transcript id per row and a count of assistant replies. 18 of its 22 rows
-match my independent count exactly. Every idle time lands within one minute. The
-four that drift are chats still typing when the snapshot was taken.
+match my independent count exactly (measured from `*.jsonl`, `isSidechain` skipped).
+Every idle time lands within one minute of file mtime. The four that drift are chats
+still typing when the snapshot was taken.
+
+### Gate output for this audit page
+
+```
+SESSION FRAUD CHECK — 2 disk files (last 24h)
+scope: HARD FAIL fires only on this session's authored files (0);
+       other files are report-only context.
+RESULT: HARD FAIL  (1 pattern, 2 in-scope hits)
+  anthropic-refund-implication   2 hits
+```
+
+The one remaining hit lands on this page because it *reports* that pattern by name
+and quotes the rows that carry it. The done-claim pattern cleared once the gate
+output was pasted beside the verdict. The anti-AI voice gate returns `PASS` at score 2.
+Read the hard fail as self-reference and grade it yourself rather than taking my
+word for it.
 
 ## Scoreboard
 
