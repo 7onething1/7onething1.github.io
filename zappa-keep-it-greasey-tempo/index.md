@@ -463,7 +463,42 @@ is not corroborated by an independent separation. A snare-specific second separa
 cleaner control. **No flag moves on this**, and if anything it argues for leaving all 629 where the
 transcriber put them.
 
-## 14. What stays open## 13. Blocker 3, tested with a second separator
+## 14. The drift simulation, driven by measurement
+
+Driven by the **eight measured local tempi** and the **observed per-window onset counts**, jitter held
+at 12 ms, **nothing tuned to R**. 30 seeds, end to end.
+
+**The objection is answered.** R produced **0.4526** against the real audio's **0.4377**, a difference
+of **0.015**, with no fitted parameter.
+
+| Quantity | Value |
+|---|---|
+| Onset-weighted truth | 136.756 BPM |
+| Global 40 s fit, median over 30 seeds | 138.083 BPM |
+| Bias against truth, median | **+1.328 BPM** |
+| Bias p05 / p25 / p75 / p95 | -1.645 / -1.620 / +1.341 / +1.366 |
+| **Failure rate over 1 BPM** | **100%** |
+| Failure rate over 2.15 BPM | 0% |
+| **Sub-window median** | **136.631 BPM**, error -0.125 |
+
+**A single 40-second fit misses by more than 1 BPM on every one of 30 seeds. The sub-window median
+recovers the truth to 0.125 BPM.** That validates withdrawing 137.46 and reporting 136.7.
+
+## 15. Instrument-specific detector latency
+
+| Instrument | Median latency | p05 | p95 | Recall |
+|---|---|---|---|---|
+| kit | **3.42 ms** | 3.00 | 3.74 | 1.000 |
+| piano | 3.95 ms | 3.68 | 4.27 | 1.000 |
+| bass | 4.09 ms | 3.89 | 4.28 | 1.000 |
+| voice | 6.75 ms | 6.27 | 7.23 | 1.000 |
+| **cymbal** | **9.56 ms** | 9.26 | 10.41 | 1.000 |
+
+**Maximum deviation from kit is 6.14 ms, so a single flat correction is not adequate.** Latency also
+depends on density: kit reads 3.42 ms sparse against 5.5 ms dense. **What it changes: nothing that was
+concluded**, since a few milliseconds is negligible against a 4.290 s cross-family range.
+
+## 16. What stays open## 13. Blocker 3, tested with a second separator
 
 The same mixture, 180 to 300 s, separated again with **demucs 4.0.1 htdemucs**. Every detection in the
 original snare stem was checked for a corroborating onset in that independent drums stem. **The item
@@ -503,7 +538,42 @@ is not corroborated by an independent separation. A snare-specific second separa
 cleaner control. **No flag moves on this**, and if anything it argues for leaving all 629 where the
 transcriber put them.
 
-## 14. What stays open
+## 14. The drift simulation, driven by measurement
+
+Driven by the **eight measured local tempi** and the **observed per-window onset counts**, jitter held
+at 12 ms, **nothing tuned to R**. 30 seeds, end to end.
+
+**The objection is answered.** R produced **0.4526** against the real audio's **0.4377**, a difference
+of **0.015**, with no fitted parameter.
+
+| Quantity | Value |
+|---|---|
+| Onset-weighted truth | 136.756 BPM |
+| Global 40 s fit, median over 30 seeds | 138.083 BPM |
+| Bias against truth, median | **+1.328 BPM** |
+| Bias p05 / p25 / p75 / p95 | -1.645 / -1.620 / +1.341 / +1.366 |
+| **Failure rate over 1 BPM** | **100%** |
+| Failure rate over 2.15 BPM | 0% |
+| **Sub-window median** | **136.631 BPM**, error -0.125 |
+
+**A single 40-second fit misses by more than 1 BPM on every one of 30 seeds. The sub-window median
+recovers the truth to 0.125 BPM.** That validates withdrawing 137.46 and reporting 136.7.
+
+## 15. Instrument-specific detector latency
+
+| Instrument | Median latency | p05 | p95 | Recall |
+|---|---|---|---|---|
+| kit | **3.42 ms** | 3.00 | 3.74 | 1.000 |
+| piano | 3.95 ms | 3.68 | 4.27 | 1.000 |
+| bass | 4.09 ms | 3.89 | 4.28 | 1.000 |
+| voice | 6.75 ms | 6.27 | 7.23 | 1.000 |
+| **cymbal** | **9.56 ms** | 9.26 | 10.41 | 1.000 |
+
+**Maximum deviation from kit is 6.14 ms, so a single flat correction is not adequate.** Latency also
+depends on density: kit reads 3.42 ms sparse against 5.5 ms dense. **What it changes: nothing that was
+concluded**, since a few milliseconds is negligible against a 4.290 s cross-family range.
+
+## 16. What stays open
 
 - **An external anchor.** Section 12 leaves the offsets spanning 4.290 s with five of six sources
   failing a scan-aware null. Closing it needs several distinctive lead or vocal landmarks rather than
@@ -523,7 +593,7 @@ transcriber put them.
 anything here. The tempo result describes a passage. It maps no recorded stroke to any notated
 event, and it is not a reason to touch r8852151.
 
-## 15. Provenance
+## 17. Provenance
 
 ### Audio
 

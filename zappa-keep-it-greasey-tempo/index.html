@@ -98,8 +98,10 @@ exactly this reason.</p>
 <li><a href="#blockers">11. The three blockers, before and after</a></li>
 <li><a href="#anchor">12. The anchor, unmeasured</a></li>
 <li><a href="#second">13. Blocker 3, second separator</a></li>
-<li><a href="#open">14. What stays open</a></li>
-<li><a href="#prov">15. Provenance</a></li>
+<li><a href="#untuned">14. Drift simulation, untuned</a></li>
+<li><a href="#latency">15. Instrument-specific latency</a></li>
+<li><a href="#open">16. What stays open</a></li>
+<li><a href="#prov">17. Provenance</a></li>
 </ol>
 </div>
 
@@ -677,7 +679,64 @@ partly on artifact. A snare-specific second separation remains the cleaner contr
 <p><b>No flag moves on this.</b> If anything it argues for leaving all 629 where the transcriber put
 them, since the audio evidence on both sides is now weaker than a reading made by eye and by ear.</p>
 
-<h2 id="open">14. What stays open</h2>
+<h2 id="untuned">14. The drift simulation, driven by measurement</h2>
+
+<p>The review's objection was that the 24 ms jitter condition in section 6 was <b>selected to match
+observed R</b>, making it a sensitivity calibration, and that a linear ramp reproducing one summary
+statistic shows compatibility rather than causation. This run is driven by the <b>eight measured local
+tempi</b> and the <b>observed per-window onset counts</b>, jitter held at an ordinary 12 ms, with
+<b>nothing tuned to R</b>. 30 seeds, end to end.</p>
+
+<div class="card green">
+<p class="k"><span class="tag t-green">the objection is answered</span></p>
+<p>R produced <b>0.4526</b> against the real audio's <b>0.4377</b>, a difference of <b>0.015</b>, with
+no fitted parameter. The low concentration follows from the measured tempo sequence and the measured
+onset density on its own.</p>
+</div>
+
+<div class="scroll"><table>
+<tr><th>Quantity</th><th>Value</th></tr>
+<tr><td>Onset-weighted truth</td><td class="n">136.756 BPM</td></tr>
+<tr><td>Global 40 s fit, median over 30 seeds</td><td class="n">138.083 BPM</td></tr>
+<tr><td>Bias against truth, median</td><td class="n"><b>+1.328 BPM</b></td></tr>
+<tr><td>Bias p05 / p25 / p75 / p95</td><td class="n">-1.645 / -1.620 / +1.341 / +1.366</td></tr>
+<tr><td><b>Failure rate over 1 BPM</b></td><td class="n"><b>100%</b></td></tr>
+<tr><td>Failure rate over 2.15 BPM, the observed spread</td><td class="n">0%</td></tr>
+<tr style="background:#f6edcd"><td><b>Sub-window median</b></td><td class="n"><b>136.631 BPM</b>, error -0.125</td></tr>
+</table></div>
+
+<p><b>A single 40-second fit misses by more than 1 BPM on every one of 30 seeds and lands in one of two
+basins. The sub-window median recovers the truth to 0.125 BPM.</b> That validates the choice already
+made on this page: 137.46 was withdrawn and 136.7 from the sub-window curve reported instead. The
+simulated sub-window-minus-global gap is -1.452 BPM and the real audio's is -0.80, same sign and
+order.</p>
+
+<h2 id="latency">15. Instrument-specific detector latency</h2>
+
+<p>The +5.5 ms lateness subtracted in section 12 came from modelled kit transients. The review asked
+whether bass, piano and cymbal attacks carry their own. They do.</p>
+
+<div class="scroll"><table>
+<tr><th>Instrument</th><th>Median latency</th><th>p05</th><th>p95</th><th>Recall</th></tr>
+<tr><td>kit</td><td class="n"><b>3.42 ms</b></td><td class="n">3.00</td><td class="n">3.74</td><td class="n">1.000</td></tr>
+<tr><td>piano</td><td class="n">3.95 ms</td><td class="n">3.68</td><td class="n">4.27</td><td class="n">1.000</td></tr>
+<tr><td>bass</td><td class="n">4.09 ms</td><td class="n">3.89</td><td class="n">4.28</td><td class="n">1.000</td></tr>
+<tr><td>voice</td><td class="n">6.75 ms</td><td class="n">6.27</td><td class="n">7.23</td><td class="n">1.000</td></tr>
+<tr style="background:#f6edcd"><td><b>cymbal</b></td><td class="n"><b>9.56 ms</b></td><td class="n">9.26</td><td class="n">10.41</td><td class="n">1.000</td></tr>
+</table></div>
+
+<p><b>Maximum deviation from kit is 6.14 ms, so a single flat correction is not adequate.</b> Latency
+also depends on density: kit reads 3.42 ms on sparse isolated hits against 5.5 ms in the dense
+end-to-end run, so the flat value used sits between them.</p>
+
+<div class="card green">
+<p class="k"><span class="tag t-green">what it changes</span></p>
+<p><b>Nothing that was concluded.</b> A few milliseconds is negligible against a 4.290 s cross-family
+range and a 2.554 s leave-one-out range. It bears only on the 157 ms and 31 ms marker-level
+observations, and those were already stated as not established.</p>
+</div>
+
+<h2 id="open">16. What stays open</h2>
 
 <ul>
 <li><b>An external anchor.</b> Section 12 leaves the offsets spanning 4.290 s with five of six sources
@@ -701,7 +760,7 @@ describes a passage. <b>It maps no recorded stroke to any notated event</b>, and
 to touch r8852151.</p>
 </div>
 
-<h2 id="prov">15. Provenance</h2>
+<h2 id="prov">17. Provenance</h2>
 
 <h3>Audio</h3>
 <div class="scroll"><table>
