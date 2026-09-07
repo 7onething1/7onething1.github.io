@@ -1,6 +1,6 @@
 # Who wrote the fake numbers, and the gate that stops it
 
-2026-09-07, MacBookPro. Authorship traced through tool-call timestamps.
+Built 2026-09-07 15:05 CDT on MacBookPro. Authorship traced through tool-call timestamps.
 
 Live: https://7onething1.github.io/fraud-source-and-fix-2026-09-07/
 
@@ -87,6 +87,10 @@ python3 ~/.claude/skills/claim-provenance/verify_claims.py <file.md>
 
 C6 exists because a stale reference time produced 20 false hard fails on a board
 that was correct. A gate that cries wolf gets switched off.
+
+Fenced code blocks are excluded before any check runs, since a fence is an
+illustration rather than a claim. This page tripped its own C1 and C4 on the
+examples it quotes, which is what earned the rule.
 
 Required row format, since a count with no id cannot be re-derived:
 

@@ -134,6 +134,7 @@ footer{margin-top:3rem;padding-top:1rem;border-top:2px solid var(--line);color:v
 <p><b>G52 number-without-measurement</b>, hard, session scope. It fires when a session deploys a page of per-entity numbers whose cited sources it had not read at deploy time. The skill checks the artifact. The gate checks the order of operations, because a correct number can still be a lucky guess.</p>
 <div class="note amber"><b>It false-fired on me twice before it was right.</b> First it matched the word <code>overflow.sh</code> inside an <code>AskUserQuestion</code> preview I had written, and counted my own hypothetical as a real deploy. Deploy detection is now restricted to Bash commands. Second, a loose source pattern let any incidental file read count as measurement. It now requires the specific ids the page cites.</div>
 
+<div class="note green"><b>The tool failed this page first.</b> C1 flagged the invented id quoted above and C4 flagged the row-format example, both correctly, because a documentation page quotes the very things it warns about. Fenced code blocks are now excluded before any check runs. This page passes clean.</div>
 <h2 id=proof>7. Test results</h2>
 <pre><code>$ python3 run_gates.py --self-test
   G52 [no source id on any row] fires  OK
