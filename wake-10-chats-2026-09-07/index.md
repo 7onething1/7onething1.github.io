@@ -75,3 +75,19 @@ $ launchctl list | grep com.drwu.icloud-remote-inbox
 ```
 
 Built 2026-09-07 on MacBookPro. Ten sessions read from their own transcripts under `~/.claude/projects/-Users-brandonchavez/`, mapped through `~/Library/Application Support/Claude/claude-code-sessions/`. Wake state confirmed by re-reading the session list after the sends, never assumed from the send result.
+
+## 6. Five minutes later
+
+**Half of them had already finished and stopped.** At 11:16 CDT, five minutes after the sends, every one of the ten carried a `lastActivityAt` stamped inside the previous ninety seconds, so all ten genuinely woke and worked. Five had completed their turn and returned to `isRunning: false`.
+
+| Still working at +5 min | Finished and stopped at +5 min |
+|---|---|
+| Authorized execution verification | Demucs guitar/drums isolation |
+| KEEP-IT-GREASEY s604777 | Notation evidence gate N9 N10 |
+| 3-phase ghost note restore | Active chats quitting early |
+| Completion controller and state skills | MacBook Claude Code ntfy hook |
+| Zappa ride ghost analysis watermelon | Zappa context loss, trouble first |
+
+**The split is not random, and it tracks task size.** The five still working carry live-API polls, seven queued research ids, and a blocked render that needs a new route. The five that stopped carry verification and correction tasks that finish in one turn. A stopped chat here means a completed turn, since each of the five has activity seconds old.
+
+**This is the ceiling finding reproduced inside five minutes.** The babysitter chat measured the same shape on a forty-minute window yesterday. A nudge buys one turn of work, and the length of that turn is set by the task rather than by the nudge.

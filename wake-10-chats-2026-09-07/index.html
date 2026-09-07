@@ -69,10 +69,10 @@ li{margin:5px 0}
 
 <div class="stats">
   <div class="stat"><div class="n">10</div><div class="l">Chats resumed</div></div>
-  <div class="stat"><div class="n">10</div><div class="l">Confirmed running</div></div>
+  <div class="stat"><div class="n">10</div><div class="l">Woke and worked</div></div>
   <div class="stat"><div class="n">14.8h</div><div class="l">Shortest idle</div></div>
   <div class="stat"><div class="n">19.1h</div><div class="l">Longest idle</div></div>
-  <div class="stat"><div class="n">0</div><div class="l">Died inside a gate</div></div>
+  <div class="stat"><div class="n">5</div><div class="l">Still up at +5 min</div></div>
 </div>
 
 <div class="toc">
@@ -82,6 +82,7 @@ li{margin:5px 0}
     <li><a href="#pattern">The overnight pattern</a></li>
     <li><a href="#roster">The ten, with resume targets</a></li>
     <li><a href="#cross">Cross-session findings</a></li>
+    <li><a href="#five">Five minutes later</a></li>
     <li><a href="#proof">Proof block</a></li>
   </ol>
 </div>
@@ -112,67 +113,67 @@ li{margin:5px 0}
 <h2 id="roster">3. The ten, with resume targets</h2>
 <div class="tblwrap">
 <table>
-<thead><tr><th>Chat</th><th>Idle</th><th>State it stopped in</th><th>Resume target sent</th><th>Wake</th></tr></thead>
+<thead><tr><th>Chat</th><th>Idle</th><th>State it stopped in</th><th>Resume target sent</th><th>Woke</th></tr></thead>
 <tbody>
 <tr>
   <td><b>Demucs guitar/drums isolation</b></td><td class="idle">14.8 h</td>
   <td>Delivered 12 of 12 on the 8-28 drumkit, 11 takes, 66 lanes, page live.</td>
   <td>Confirm the Drive upload finished, and land the proposed <code>run_gates.py</code> fix that excludes slash-command bodies from <code>last_ask</code>.</td>
-  <td><span class="pill">RUNNING</span></td>
+  <td><span class="pill">WOKE</span></td>
 </tr>
 <tr>
   <td><b>Active chats quitting early</b></td><td class="idle">16.3 h</td>
   <td>Concluded that four woken chats all slept again inside forty minutes.</td>
   <td>Land the duplicate-nudge check in <code>babysit_daemon.sh</code>, and identify which sessions the classifier denies <code>settings.json</code> edits from. Given the ten-chat overnight sample as corroboration.</td>
-  <td><span class="pill">RUNNING</span></td>
+  <td><span class="pill">WOKE</span></td>
 </tr>
 <tr>
   <td><b>Completion controller and state skills</b></td><td class="idle">16.6 h</td>
   <td>8 of 8 modules and 17 of 17 repairs closed, handoff written, three items parked.</td>
   <td>Re-poll <code>r8908034</code> moderation against the live API before treating the 16-hour-old parked state as current.</td>
-  <td><span class="pill">RUNNING</span></td>
+  <td><span class="pill">WOKE</span></td>
 </tr>
 <tr>
   <td><b>MacBook Claude Code ntfy hook</b></td><td class="idle">16.7 h</td>
   <td>Four findings written to a named file, queue item closed.</td>
   <td>Prove the hook is wired, not merely written: confirm the Stop entry in <code>settings.json</code>, fire one real notification, and name which of the two topic files is live.</td>
-  <td><span class="pill">RUNNING</span></td>
+  <td><span class="pill">WOKE</span></td>
 </tr>
 <tr>
   <td><b>Authorized execution verification</b></td><td class="idle">17.0 h</td>
   <td>rev8 verified twice: 1575 instances, 42 marks, 32 of 32 author-backed, 0 of 10 live-only touched. Nothing submitted.</td>
   <td>Re-read the live API on <code>s412162</code>, then run the documented two-step, where Import loads the editor and the revision exists only after Submit carries a description.</td>
-  <td><span class="pill">RUNNING</span></td>
+  <td><span class="pill">WOKE</span></td>
 </tr>
 <tr>
   <td><b>KEEP-IT-GREASEY s604777</b></td><td class="idle">17.0 h</td>
   <td>Page live and verified, <code>r8852151</code> untouched at 0 of 629 positions moved.</td>
   <td>Work the seven open ids in order: <code>a42f3c</code>, <code>e2ef84</code>, <code>c4fa5c</code>, <code>1a8d69</code>, <code>20757f</code>, <code>e64c44</code>, <code>170964</code>.</td>
-  <td><span class="pill">RUNNING</span></td>
+  <td><span class="pill">WOKE</span></td>
 </tr>
 <tr>
   <td><b>Zappa ride ghost analysis watermelon</b></td><td class="idle">17.0 h</td>
   <td>s35881 verdict UNDETERMINED after the FMP 6.1.2 repair. Ghost 365 of 1316 at 27.7% against a 24.2% baseline.</td>
   <td>File the G28 gate defect, coordinating with the Demucs chat, which hit the same selector from another direction.</td>
-  <td><span class="pill">RUNNING</span></td>
+  <td><span class="pill">WOKE</span></td>
 </tr>
 <tr>
   <td><b>Notation evidence gate N9 N10</b></td><td class="idle">17.0 h</td>
   <td>Standing claim that <code>icloud_watcher.py</code> sits on no local disk.</td>
   <td>Correct that claim. The file exists, is installed, and is running. Full evidence in section 4.</td>
-  <td><span class="pill">RUNNING</span></td>
+  <td><span class="pill">WOKE</span></td>
 </tr>
 <tr>
   <td><b>Zappa context loss, trouble first</b></td><td class="idle">18.1 h</td>
   <td>s68248 Carolina Hard-Core Ecstasy. <code>NAMEFIX</code> file prepared on the stripped <code>r8769058</code>, with a staleness risk flagged by the chat itself.</td>
   <td>Check <code>r8908182</code> against the live API. If it published, the prepared base is superseded and the file needs rebuilding before any submit.</td>
-  <td><span class="pill">RUNNING</span></td>
+  <td><span class="pill">WOKE</span></td>
 </tr>
 <tr>
   <td><b>3-phase ghost note restore</b></td><td class="idle">19.1 h</td>
   <td>9 of 9 closed with four routes at 200. One item genuinely blocked.</td>
   <td>Reach the bar-128 accent render by another route, since the browser pane never paints at that scroll depth. Three candidates supplied.</td>
-  <td><span class="pill">RUNNING</span></td>
+  <td><span class="pill">WOKE</span></td>
 </tr>
 </tbody>
 </table>
@@ -203,7 +204,46 @@ li{margin:5px 0}
   The phone inbox held two items, both watcher self-tests written during the install verification at 18:12:07 and 18:13:30 on 2026-09-06. Neither carries an action. Both are the positive control proving the local ingest path works, which is the same evidence used to correct the claim above.
 </div>
 
-<h2 id="proof">5. Proof block</h2>
+
+<h2 id="five">5. Five minutes later</h2>
+
+<div class="finding red">
+  <b>Half of them had already finished and stopped.</b> At 11:16 CDT, five minutes after the sends, every one of the ten carried a <code>lastActivityAt</code> stamped inside the previous ninety seconds, so all ten genuinely woke and worked. Five had completed their turn and returned to <code>isRunning: false</code>.
+</div>
+
+<div class="tblwrap">
+<table>
+<thead><tr><th>Still working at +5 min</th><th>Finished and stopped at +5 min</th></tr></thead>
+<tbody>
+<tr>
+  <td>
+    Authorized execution verification<br>
+    KEEP-IT-GREASEY s604777<br>
+    3-phase ghost note restore<br>
+    Completion controller and state skills<br>
+    Zappa ride ghost analysis watermelon
+  </td>
+  <td>
+    Demucs guitar/drums isolation<br>
+    Notation evidence gate N9 N10<br>
+    Active chats quitting early<br>
+    MacBook Claude Code ntfy hook<br>
+    Zappa context loss, trouble first
+  </td>
+</tr>
+</tbody>
+</table>
+</div>
+
+<div class="finding warn">
+  <b>The split is not random, and it tracks task size.</b> The five still working carry live-API polls, seven queued research ids, and a blocked render that needs a new route. The five that stopped carry verification and correction tasks that finish in one turn. A stopped chat here means a completed turn, since each of the five has activity seconds old.
+</div>
+
+<div class="finding good">
+  <b>This is the ceiling finding reproduced inside five minutes.</b> The babysitter chat measured the same shape on a forty-minute window yesterday. A nudge buys one turn of work, and the length of that turn is set by the task rather than by the nudge.
+</div>
+
+<h2 id="proof">6. Proof block</h2>
 <div class="proof">
 <span class="k">$ send_message × 10</span>
   <span class="ok">Message sent</span> → Demucs guitar/drums isolation
@@ -222,6 +262,11 @@ li{margin:5px 0}
 
 <span class="k">$ launchctl list | grep com.drwu.icloud-remote-inbox</span>
   1117   0   com.drwu.icloud-remote-inbox      <span class="ok">running, exit 0</span>
+
+<span class="k">$ list_sessions  (again at 11:16 CDT, +5 min)</span>
+  all 10 lastActivityAt within 90s   <span class="ok">every chat woke and worked</span>
+  isRunning true  = 5   still working
+  isRunning false = 5   turn completed
 </div>
 
 <footer>
