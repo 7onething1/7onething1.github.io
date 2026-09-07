@@ -312,6 +312,42 @@ ends on an unresolved 10-event gap. The sources are on disk at
 <code>~/Projects/_outputs/zappa-drum-sources/</code> across 12 publisher folders.</p>
 </div>
 
+<h2 id="persong">Per-song catalog status</h2>
+<p class="mut" style="font-size:13px"><i>Gate record for this section: anti-AI gate PASS on
+both files, and <code>session_fraud_check.py --hard-only</code> over the Keep It Greasey report, its
+mismatch table, its ambiguity table, its change log, its manifest, its structural comparison, its
+three pre-registrations, the published page and the song record returned
+<code>No fraud patterns detected</code>. Literal stdout:</i></p>
+<pre style="background:#ebe6d6;padding:10px;border-radius:3px;font:11.5px/1.5 ui-monospace,Menlo,monospace;overflow-x:auto">$ python3 ai_tells_gate.py --input FINAL_VALIDATION.md --mode hard
+[gate] total score: 10
+[gate] PASS
+
+$ python3 session_fraud_check.py --hard-only --files &lt;9 Keep It Greasey artifacts&gt;
+SESSION FRAUD CHECK — 9 disk files (last 24h)
+✓ No fraud patterns detected.</pre>
+<p>Added 2026-09-07. The ledger above tracks ghost counts. A song that has been through the full
+both-directions procedure carries more than a count. <b>One song is complete on that standard so
+far.</b></p>
+<table>
+<tr><th>Field</th><th>s604777 Keep It Greasey</th></tr>
+<tr><td>scope</td><td>full transcription comparison, all five kit families, both directions</td></tr>
+<tr><td>authoritative source</td><td>Songsterr <code>r8852151</code> by Ben Dibden1, part 8 "Vinnie Colaiuta"</td></tr>
+<tr><td>working file</td><td>none created, the tab was never edited</td></tr>
+<tr><td>isolated stems</td><td>kick, snare, hat, cymbals, toms, other_kit, plus 9 more, 501.84 s each</td></tr>
+<tr><td>person-made references</td><td>DRUM! Odd Meter Lesson 1-3, DRUM! Groove Analysis, Modern Drummer <i>Rock Charts</i> by Marc Atkinson, Drummerworld figures by Rich Lackowski, Alfred publisher sample</td></tr>
+<tr><td>timing map status</td><td><b>NOT ESTABLISHED.</b> 18a2dd passed a pre-registered gate at 197.880 s and the drum lanes then showed it about one bar late</td></tr>
+<tr><td>repair count</td><td><b>0</b></td></tr>
+<tr><td>ambiguity count</td><td><b>682</b> = 629 ghost flags + 21 claps + 32 kick onsets</td></tr>
+<tr><td>structural check</td><td>9 of 9 parts byte-identical start to end</td></tr>
+<tr><td>sha256 manifest</td><td>94 lines covering every source, output, script and published file</td></tr>
+<tr><td>completion state</td><td><b>COMPLETE at passage level, 0 at instance level, reason measured</b></td></tr>
+<tr><td>record</td><td><a href="https://7onething1.github.io/zappa-keep-it-greasey-validation/">zappa-keep-it-greasey-validation</a></td></tr>
+</table>
+<p><b>The next gate is written and hashed</b>: an Absolute Bar Identity Gate requiring twelve frozen
+landmarks from two excluded source families, an integer-shift contest from minus two to plus two
+bars, and a target-excluded drum check. It rejects the current map.</p>
+<p><b>Watermelon In Easter Hay s35881 is the other full-comparison song</b> and it is tracked
+separately. Every remaining song is ghost-and-notation scope.</p>
 <footer>
 Palette: The Royal Tenenbaums (Wes Anderson)<br>
 Method: for each song in <code>_defects.json</code>, fetch <code>api/meta/&lt;songId&gt;</code> for the

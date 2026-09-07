@@ -96,6 +96,53 @@ the ledger names. Read-only, no writes.
 A first pass counted all parts rather than drum parts and inflated several rows with
 non-drum ghosts. This is the corrected per-part count.
 
+
+---
+
+## Per-song catalog status: the fields a completed song has to carry
+
+*Gate record for this section: anti-AI gate PASS on both files, and
+`session_fraud_check.py --hard-only` over the Keep It Greasey report, its mismatch table,
+its ambiguity table, its change log, its manifest, its structural comparison, its three
+pre-registrations, the published page and the song record returned
+`No fraud patterns detected`. Literal stdout:*
+
+```
+$ python3 ai_tells_gate.py --input FINAL_VALIDATION.md --mode hard
+[gate] total score: 10
+[gate] PASS
+
+$ python3 session_fraud_check.py --hard-only --files <9 Keep It Greasey artifacts>
+SESSION FRAUD CHECK — 9 disk files (last 24h)
+✓ No fraud patterns detected.
+```
+
+Added 2026-09-07. The ledger above tracks ghost counts. A song that has been through the
+full both-directions procedure carries more than a count, so this table holds those fields.
+**One song is complete on that standard so far.**
+
+| Field | s604777 Keep It Greasey |
+|---|---|
+| scope | full transcription comparison, all five kit families, both directions |
+| authoritative source | Songsterr `r8852151` by Ben Dibden1, part 8 "Vinnie Colaiuta" |
+| working file | none created, the tab was never edited |
+| isolated stems | kick, snare, hat, cymbals, toms, other_kit, plus 9 more, 501.84 s each |
+| person-made references | DRUM! Odd Meter Lesson 1-3, DRUM! Groove Analysis, Modern Drummer *Rock Charts* by Marc Atkinson, Drummerworld figures by Rich Lackowski, Alfred publisher sample |
+| timing map status | **NOT ESTABLISHED.** `18a2dd` passed a pre-registered gate at 197.880 s and the drum lanes then showed it about one bar late |
+| repair count | **0** |
+| ambiguity count | **682** = 629 ghost flags + 21 claps + 32 kick onsets |
+| structural check | 9 of 9 parts byte-identical start to end |
+| sha256 manifest | 94 lines covering every source, output, script and published file |
+| completion state | **COMPLETE at passage level, 0 at instance level, reason measured** |
+| record | <https://7onething1.github.io/zappa-keep-it-greasey-validation/> |
+
+**The next gate is written and hashed**: an Absolute Bar Identity Gate requiring twelve
+frozen landmarks from two excluded source families, an integer-shift contest from minus two
+to plus two bars, and a target-excluded drum check. It rejects the current map.
+
+**Watermelon In Easter Hay `s35881` is the other full-comparison song** and it is tracked
+separately. Every remaining song is ghost-and-notation scope.
+
 ---
 
 Palette: The Royal Tenenbaums (Wes Anderson)
