@@ -255,6 +255,43 @@ The kick detector runs at 30-180 Hz and this record has Arthur Barrow on fretles
 
 Not bass bleed. The author's kicks lock to the bass at 1.96x, which is what a kick part does.
 
+
+## Readability without deleting evidence
+
+A global 16th quantisation made the page readable and merged 44 evidence-backed events on the
+way, which changes the performance rather than its display. Replaced with a per-bar adaptive
+grid: each bar takes the COARSEST resolution that loses nothing.
+
+| per-bar grid | bars |
+|---|---|
+| 16th | 55 |
+| 32nd | 29 |
+| 64th | 9 |
+
+| approach | events kept of 831 | rest beats | ties |
+|---|---|---|---|
+| original build, 64th throughout | 831 | 574 | 0 |
+| tie chains | 831 | 105 | many, rendered as slurs across the bar |
+| global 16th | 787 | 86 | 0 |
+| **per-bar adaptive** | **831** | **120** | **0** |
+
+The tie version was rendered with alphaTab and thrown away: slurs arcing across a bar read
+worse than the rests they replaced. Look at a notation change before shipping it.
+
+### The builder now refuses to lose an event
+
+Voice 0 already had a set-difference-zero check protecting the author's material. The added
+material now has the same protection, and it runs before the file is written.
+
+    ACCEPTANCE GATE, evidence-backed events must survive notation
+       hat    planned  286  placed  286   OK
+       ghost  planned  147  placed  147   OK
+       kick   planned  398  placed  398   OK
+       PASS, nothing merged away
+
+Published state read back from the CDN: kick 398/398, pedal hi-hat 286/286, snare ghosts
+147/147, ride accents 409/409, cymbal parentheses 0/0.
+
 ## Stopping condition
 
 1. snare, kick and toms: CLOSED. All three clear 1.5x in both directions.

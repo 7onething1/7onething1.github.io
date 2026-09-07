@@ -66,6 +66,7 @@ footer{margin-top:56px;padding-top:16px;border-top:2px solid var(--rule);font-si
 <li><a href="#aud">The audition list</a></li>
 <li><a href="#acc">Accent or ghost</a></li>
 <li><a href="#kick">The kick, a failed search</a></li>
+<li><a href="#lossless">Readability without deleting evidence</a></li>
 <li><a href="#stop">Stopping condition</a></li>
 <li><a href="#live">Published state</a></li>
 </ol></nav>
@@ -282,6 +283,28 @@ instead of 7.</p></div>
 <tr><td>the author's own written kicks vs the same bass onsets</td><td class="n">1.96x</td></tr>
 </tbody></table>
 <p>Not bass bleed. The author's kicks lock to the bass at 1.96x, which is what a kick part does.</p>
+
+<h2 id="lossless"><span class="dot" style="background:var(--teal)"></span>Readability without deleting evidence</h2>
+<p>A global 16th quantisation made the page readable and merged 44 evidence-backed events on
+the way, which changes the performance rather than its display. Replaced with a per-bar
+adaptive grid: each bar takes the coarsest resolution that loses nothing.</p>
+<table><thead><tr><th>approach</th><th class="n">events kept of 831</th><th class="n">rest beats</th><th class="n">ties</th></tr></thead><tbody>
+<tr><td>original build, 64th throughout</td><td class="n">831</td><td class="n">574</td><td class="n">0</td></tr>
+<tr><td>tie chains</td><td class="n">831</td><td class="n">105</td><td class="n fail">slurs across the bar</td></tr>
+<tr><td>global 16th</td><td class="n fail">787</td><td class="n">86</td><td class="n">0</td></tr>
+<tr style="background:var(--code)"><td><b>per-bar adaptive</b></td><td class="n pass"><b>831</b></td><td class="n"><b>120</b></td><td class="n"><b>0</b></td></tr>
+</tbody></table>
+<p>Per-bar grid: 16th on 55 bars, 32nd on 29, 64th on 9. The tie version was rendered with
+alphaTab and thrown away, because slurs arcing across a bar read worse than the rests they
+replaced. Look at a notation change before shipping it.</p>
+<div class="card good"><h3>The builder now refuses to lose an event</h3>
+<pre>ACCEPTANCE GATE, evidence-backed events must survive notation
+   hat    planned  286  placed  286   OK
+   ghost  planned  147  placed  147   OK
+   kick   planned  398  placed  398   OK
+   PASS, nothing merged away</pre>
+<p>Voice 0 already had a set-difference-zero check protecting the author's material. The added
+material now has the same protection, and it runs before the file is written.</p></div>
 
 <h2 id="stop"><span class="dot" style="background:var(--sage)"></span>Stopping condition</h2>
 <table><thead><tr><th>lane</th><th>state</th><th>what closes it</th></tr></thead><tbody>
