@@ -13,7 +13,7 @@ queued revisions on one song, so held revisions run higher than held songs.
 ## 0. The plan, corrected 2026-09-06
 
 **CORRECTED 2026-09-06.** Phase 1 was reported complete. An account-wide sweep then found a
-seventeenth affected song with no restore at all, `s412170` Trouble Every Day (Live). See section
+seventeenth affected song with no restore at all, `s412170` [Trouble Every Day (Live)](https://www.songsterr.com/a/wsa/frank-zappa-trouble-every-day-live-tab-s412170). See section
 0e. For the sixteen the ledger covered, all already carry a restore revision, and every one has its pre-sweep baseline on disk. Fifteen
 restores sit in the moderator queue and one has published. Sending a second restore would stack a
 duplicate behind one a moderator has yet to read, which is the failure already visible on Uncle
@@ -37,31 +37,31 @@ Zero gaps. Baselines under `~/Projects/_outputs/songsterr-zappa-paren-fix/`.
 
 | song id | title | flags | baseline on disk | restore | state |
 |---|---|---:|---|---|---|
-| s35881 | Watermelon In Easter Hay | 1,317 | PRESWEEP-r7715683.gp | r8908034 | held |
-| s35886 | Muffin Man | 578 | PRESWEEP-r7716657.gp | r8906880 | held |
-| s620961 | Drowning Witch | 419 | PRESWEEP-r2606944.gp | r8908109 | held |
-| s35870 | Montana | 317 | PRESWEEP-r7294223.gp | r8907028 | held |
-| s1105085 | The Black Page | 173 | RESTORE-r7108692.gp | r8907247 | held |
-| s35878 | Nanook Suite | 168 | RESTORE-r7807785.gp | r8907360 | held |
-| s35865 | Nanook Rubs It | 168 | RESTORE-r4719269.gp | r8907423 | held |
-| s412178 | Inca Roads | 165 | RESTORE-r7750859.gp | r8907511 | held |
-| s68248 | Carolina Hard-Core Ecstasy | 144 | PRESWEEP-r593836.gp | r8908182 | held |
-| s35884 | Oh No | 141 | PRESWEEP-r7494834.gp | r8908239 | held |
-| s68246 | Alien Orifice | 86 | PRESWEEP-r7636083.gp | r8907689 | held |
-| s35887 | What's New In Baltimore? | 59 | PRESWEEP-r8555291.gp | r8908276 | held |
-| s748459 | Fembot In A Wet T-Shirt | 57 | PRESWEEP-r8742638.gp | r8907601 | held |
-| s20690 | Uncle Meat (YCDTOSA Vol. 2) | 24 | PRESWEEP-r24054.gp | r8909627 | held |
-| s749523 | Catholic Girls | 16 | PRESWEEP-r1971732.gp | r8907778 | held |
-| s5820647 | Zomby Woof (Mothers) | 10 | RESTORE-r7605020-presweep.gp | r8906157 | landed |
+| s35881 | [Watermelon In Easter Hay](https://www.songsterr.com/a/wsa/frank-zappa-watermelon-in-easter-hay-tab-s35881) | 1,317 | PRESWEEP-r7715683.gp | r8908034 | held |
+| s35886 | [Muffin Man](https://www.songsterr.com/a/wsa/frank-zappa-muffin-man-tab-s35886) | 578 | PRESWEEP-r7716657.gp | r8906880 | held |
+| s620961 | [Drowning Witch](https://www.songsterr.com/a/wsa/frank-zappa-drowning-witch-tab-s620961) | 419 | PRESWEEP-r2606944.gp | r8908109 | held |
+| s35870 | [Montana](https://www.songsterr.com/a/wsa/frank-zappa-montana-tab-s35870) | 317 | PRESWEEP-r7294223.gp | r8907028 | held |
+| s1105085 | [The Black Page](https://www.songsterr.com/a/wsa/frank-zappa-the-black-page-tab-s1105085) | 173 | RESTORE-r7108692.gp | r8907247 | held |
+| s35878 | [Nanook Suite](https://www.songsterr.com/a/wsa/frank-zappa-nanook-suite-tab-s35878) | 168 | RESTORE-r7807785.gp | r8907360 | held |
+| s35865 | [Nanook Rubs It](https://www.songsterr.com/a/wsa/frank-zappa-nanook-rubs-it-tab-s35865) | 168 | RESTORE-r4719269.gp | r8907423 | held |
+| s412178 | [Inca Roads](https://www.songsterr.com/a/wsa/frank-zappa-inca-roads-tab-s412178) | 165 | RESTORE-r7750859.gp | r8907511 | held |
+| s68248 | [Carolina Hard-Core Ecstasy](https://www.songsterr.com/a/wsa/frank-zappa-carolina-hard-core-ecstasy-tab-s68248) | 144 | PRESWEEP-r593836.gp | r8908182 | held |
+| s35884 | [Oh No](https://www.songsterr.com/a/wsa/frank-zappa-oh-no-tab-s35884) | 141 | PRESWEEP-r7494834.gp | r8908239 | held |
+| s68246 | [Alien Orifice](https://www.songsterr.com/a/wsa/frank-zappa-alien-orifice-tab-s68246) | 86 | PRESWEEP-r7636083.gp | r8907689 | held |
+| s35887 | [What's New In Baltimore?](https://www.songsterr.com/a/wsa/frank-zappa-whats-new-in-baltimore-tab-s35887) | 59 | PRESWEEP-r8555291.gp | r8908276 | held |
+| s748459 | [Fembot In A Wet T-Shirt](https://www.songsterr.com/a/wsa/frank-zappa-fembot-in-a-wet-t-shirt-tab-s748459) | 57 | PRESWEEP-r8742638.gp | r8907601 | held |
+| s20690 | [Uncle Meat (YCDTOSA Vol. 2)](https://www.songsterr.com/a/wsa/frank-zappa-uncle-meat-ycdtosa-vol-2-tab-s20690) | 24 | PRESWEEP-r24054.gp | r8909627 | held |
+| s749523 | [Catholic Girls](https://www.songsterr.com/a/wsa/frank-zappa-catholic-girls-tab-s749523) | 16 | PRESWEEP-r1971732.gp | r8907778 | held |
+| s5820647 | [Zomby Woof](https://www.songsterr.com/a/wsa/frank-zappa-the-mothers-of-invention-zomby-woof-tab-s5820647) (Mothers) | 10 | RESTORE-r7605020-presweep.gp | r8906157 | landed |
 
 ## 0c. What the moderators actually said
 
 Exactly two revisions on this account carry a moderator report, and both are the sweep's own
 deletions rather than any repair.
 
-- Keep It Greasey s604777, r8768457, 629 flags. Report kind `unclear`: "It probably did not make
+- [Keep It Greasey](https://www.songsterr.com/a/wsa/frank-zappa-keep-it-greasey-tab-s604777) s604777, r8768457, 629 flags. Report kind `unclear`: "It probably did not make
   the tab more accurate to the original performance." Blocked.
-- Zoot Allures s35883, r8769199, 53 flags. Same report, same wording. Blocked.
+- [Zoot Allures](https://www.songsterr.com/a/wsa/frank-zappa-zoot-allures-tab-s35883) s35883, r8769199, 53 flags. Same report, same wording. Blocked.
 
 Both tabs kept every ghost flag because the block landed before publication. Across all 48
 revisions this account holds on Zappa tabs, no restore has drawn a report and none has been
@@ -81,22 +81,22 @@ Corrected 2026-09-06.
 
 | song id | title | baseline | after strip | restore file | removed | verdict |
 |---|---|---:|---:|---:|---:|---|
-| s35881 | Watermelon In Easter Hay | 1,333 | 16 | 1,333 | 1,317 | confirmed |
-| s35886 | Muffin Man | 613 | 35 | 613 | 578 | confirmed |
-| s620961 | Drowning Witch | 496 | 77 | 496 | 419 | confirmed |
-| s35870 | Montana | 574 | 257 | 574 | 317 | confirmed |
-| s1105085 | The Black Page | 173 | none on disk | 173 | 173 | restore matches baseline |
-| s35878 | Nanook Suite | 171 | none on disk | 171 | 168 | restore matches baseline |
-| s35865 | Nanook Rubs It | 168 | none on disk | 168 | 168 | restore matches baseline |
-| s412178 | Inca Roads | 174 | none on disk | 174 | 165 | confirmed vs live JSON |
-| s68248 | Carolina Hard-Core Ecstasy | 144 | 0 | 144 | 144 | confirmed |
-| s35884 | Oh No | 141 | 0 | 141 | 141 | confirmed |
-| s68246 | Alien Orifice | 97 | 11 | 97 | 86 | confirmed |
-| s35887 | What's New In Baltimore? | 59 | 0 | 59 | 59 | confirmed |
-| s748459 | Fembot In A Wet T-Shirt | 59 | 2 | 59 | 57 | confirmed |
-| s20690 | Uncle Meat (YCDTOSA Vol. 2) | 84 | 60 | 84 | 24 | confirmed |
-| s749523 | Catholic Girls | 16 | 0 | 16 | 16 | confirmed |
-| s5820647 | Zomby Woof (Mothers) | 10 | 0 | 10 | 10 | confirmed |
+| s35881 | [Watermelon In Easter Hay](https://www.songsterr.com/a/wsa/frank-zappa-watermelon-in-easter-hay-tab-s35881) | 1,333 | 16 | 1,333 | 1,317 | confirmed |
+| s35886 | [Muffin Man](https://www.songsterr.com/a/wsa/frank-zappa-muffin-man-tab-s35886) | 613 | 35 | 613 | 578 | confirmed |
+| s620961 | [Drowning Witch](https://www.songsterr.com/a/wsa/frank-zappa-drowning-witch-tab-s620961) | 496 | 77 | 496 | 419 | confirmed |
+| s35870 | [Montana](https://www.songsterr.com/a/wsa/frank-zappa-montana-tab-s35870) | 574 | 257 | 574 | 317 | confirmed |
+| s1105085 | [The Black Page](https://www.songsterr.com/a/wsa/frank-zappa-the-black-page-tab-s1105085) | 173 | none on disk | 173 | 173 | restore matches baseline |
+| s35878 | [Nanook Suite](https://www.songsterr.com/a/wsa/frank-zappa-nanook-suite-tab-s35878) | 171 | none on disk | 171 | 168 | restore matches baseline |
+| s35865 | [Nanook Rubs It](https://www.songsterr.com/a/wsa/frank-zappa-nanook-rubs-it-tab-s35865) | 168 | none on disk | 168 | 168 | restore matches baseline |
+| s412178 | [Inca Roads](https://www.songsterr.com/a/wsa/frank-zappa-inca-roads-tab-s412178) | 174 | none on disk | 174 | 165 | confirmed vs live JSON |
+| s68248 | [Carolina Hard-Core Ecstasy](https://www.songsterr.com/a/wsa/frank-zappa-carolina-hard-core-ecstasy-tab-s68248) | 144 | 0 | 144 | 144 | confirmed |
+| s35884 | [Oh No](https://www.songsterr.com/a/wsa/frank-zappa-oh-no-tab-s35884) | 141 | 0 | 141 | 141 | confirmed |
+| s68246 | [Alien Orifice](https://www.songsterr.com/a/wsa/frank-zappa-alien-orifice-tab-s68246) | 97 | 11 | 97 | 86 | confirmed |
+| s35887 | [What's New In Baltimore?](https://www.songsterr.com/a/wsa/frank-zappa-whats-new-in-baltimore-tab-s35887) | 59 | 0 | 59 | 59 | confirmed |
+| s748459 | [Fembot In A Wet T-Shirt](https://www.songsterr.com/a/wsa/frank-zappa-fembot-in-a-wet-t-shirt-tab-s748459) | 59 | 2 | 59 | 57 | confirmed |
+| s20690 | [Uncle Meat (YCDTOSA Vol. 2)](https://www.songsterr.com/a/wsa/frank-zappa-uncle-meat-ycdtosa-vol-2-tab-s20690) | 84 | 60 | 84 | 24 | confirmed |
+| s749523 | [Catholic Girls](https://www.songsterr.com/a/wsa/frank-zappa-catholic-girls-tab-s749523) | 16 | 0 | 16 | 16 | confirmed |
+| s5820647 | [Zomby Woof](https://www.songsterr.com/a/wsa/frank-zappa-the-mothers-of-invention-zomby-woof-tab-s5820647) (Mothers) | 10 | 0 | 10 | 10 | confirmed |
 
 - **Every restore file equals its own baseline exactly**, on all sixteen songs.
 - **Twelve songs keep a post-strip export on disk and all twelve confirm the damage number**
@@ -119,11 +119,11 @@ authored by this account returned **19 songs and 45 revisions**, and one had nev
 
 | song | revision | what it did | state |
 |---|---|---|---|
-| `s412170` Trouble Every Day (Live) | `r8766285` | removed 9 ghosts, altered 11 velocities | damage live, restore built and held |
-| `s604777` Keep It Greasey | `r8768457` | would have removed 629 | blocked, tab intact |
-| `s35883` Zoot Allures | `r8769199` | would have removed 53 | blocked, tab intact |
+| `s412170` [Trouble Every Day (Live)](https://www.songsterr.com/a/wsa/frank-zappa-trouble-every-day-live-tab-s412170) | `r8766285` | removed 9 ghosts, altered 11 velocities | damage live, restore built and held |
+| `s604777` [Keep It Greasey](https://www.songsterr.com/a/wsa/frank-zappa-keep-it-greasey-tab-s604777) | `r8768457` | would have removed 629 | blocked, tab intact |
+| `s35883` [Zoot Allures](https://www.songsterr.com/a/wsa/frank-zappa-zoot-allures-tab-s35883) | `r8769199` | would have removed 53 | blocked, tab intact |
 
-**Authorship is not damage.** Zomby Woof `s412162` holds 9 of our revisions and none is an
+**Authorship is not damage.** [Zomby Woof](https://www.songsterr.com/a/wsa/frank-zappa-zomby-woof-tab-s412162) `s412162` holds 9 of our revisions and none is an
 unrepaired strip. Each revision was classified by censusing ghosts against the revision preceding it.
 
 **Two open limits.** 22 tabs return an empty revision history and stay unresolved after a retry, all
