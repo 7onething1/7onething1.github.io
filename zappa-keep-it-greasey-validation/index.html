@@ -1,0 +1,321 @@
+<!DOCTYPE html><html lang="en"><head><meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Keep It Greasey: the drum staff, validated in both directions</title>
+<style>
+:root{--bg:#f4f1e8;--ink:#2b2a26;--mut:#6f6a5d;--line:#d8d2c0;--card:#fffdf6;
+--red:#b23a2e;--amber:#c98a2b;--green:#4d7c4a;--blue:#3c5f7a;--pur:#6b4f7a}
+*{box-sizing:border-box}
+body{margin:0;background:var(--bg);color:var(--ink);
+font:16px/1.62 "Iowan Old Style",Palatino,Georgia,serif;padding:0 0 90px}
+header{background:#2b2a26;color:#f4f1e8;padding:38px 24px 30px}
+.wrap{max-width:1120px;margin:0 auto;padding:0 24px}
+h1{margin:0 0 8px;font-size:31px;letter-spacing:-.01em}
+header p{margin:5px 0 0;color:#c9c2ad;font-size:15px;max-width:82ch}
+h2{margin:46px 0 10px;font-size:22px;border-bottom:2px solid var(--line);padding-bottom:6px}
+h3{margin:26px 0 8px;font-size:17px}
+.tag{display:inline-block;font:600 10.5px/1 -apple-system,system-ui,sans-serif;
+letter-spacing:.05em;text-transform:uppercase;padding:4px 8px;border-radius:3px;color:#fff;white-space:nowrap}
+.t-red{background:var(--red)}.t-amber{background:var(--amber)}.t-green{background:var(--green)}
+.t-blue{background:var(--blue)}.t-pur{background:var(--pur)}
+table{width:100%;border-collapse:collapse;margin:14px 0;background:var(--card);font-size:14px}
+th,td{border:1px solid var(--line);padding:7px 10px;text-align:left;vertical-align:top}
+th{background:#ebe6d6;font:600 12.5px/1.3 -apple-system,system-ui,sans-serif}
+td.n{font:13px/1.4 ui-monospace,Menlo,monospace;text-align:right;white-space:nowrap}
+code{background:#ebe6d6;padding:1px 5px;border-radius:3px;font:12.5px/1.4 ui-monospace,Menlo,monospace}
+.hash{font:11px/1.4 ui-monospace,Menlo,monospace;word-break:break-all}
+.card{background:var(--card);border:1px solid var(--line);border-left:5px solid var(--blue);
+padding:15px 20px;margin:16px 0;border-radius:2px}
+.card.red{border-left-color:var(--red)}.card.amber{border-left-color:var(--amber)}
+.card.green{border-left-color:var(--green)}.card.pur{border-left-color:var(--pur)}
+.k{font-weight:700;margin:0 0 6px}
+.mut{color:var(--mut)}
+ul,ol{margin:8px 0 8px 20px;padding:0}li{margin:5px 0}
+.scroll{overflow-x:auto}
+a{color:var(--blue)}
+.stats{display:grid;grid-template-columns:repeat(auto-fit,minmax(148px,1fr));gap:12px;margin:22px 0}
+.stat{background:var(--card);border:1px solid var(--line);padding:14px 16px;border-radius:2px}
+.stat b{display:block;font-size:27px;line-height:1.1;letter-spacing:-.02em}
+.stat span{font:600 11px/1.35 -apple-system,system-ui,sans-serif;text-transform:uppercase;
+letter-spacing:.05em;color:var(--mut);display:block;margin-top:5px}
+.toc{background:var(--card);border:1px solid var(--line);padding:16px 22px;margin:24px 0;border-radius:2px;
+column-count:2;column-gap:34px}
+.toc ol{margin:0 0 0 18px}
+footer{margin-top:50px;padding-top:18px;border-top:1px solid var(--line);color:var(--mut);font-size:13.5px}
+.hl{background:#f6edcd;padding:0 3px}
+.win{display:grid;grid-template-columns:repeat(8,1fr);gap:6px;margin:16px 0}
+.win div{background:var(--card);border:1px solid var(--line);padding:8px 6px;text-align:center;border-radius:2px}
+.win b{display:block;font:600 15px/1.2 ui-monospace,Menlo,monospace}
+.win span{font:600 10px/1.3 -apple-system,system-ui,sans-serif;color:var(--mut);display:block;margin-top:4px}
+@media(max-width:720px){.toc{column-count:1}.win{grid-template-columns:repeat(4,1fr)}}
+</style></head><body>
+<header><div class="wrap">
+<h1>Keep It Greasey: the tempo, measured</h1>
+</style></head><body>
+<header><div class="wrap">
+<h1>Keep It Greasey: the drum staff, validated in both directions</h1>
+<p>Frank Zappa, <i>Joe's Garage</i>, 1979. Songsterr <b>s604777</b>, live tab <b>r8852151</b> by Ben Dibden1,
+part 8 "Vinnie Colaiuta", <b>248 bars, 4,948 drum events, 629 ghost flags</b>. Re-pulled and re-verified
+at the start of this pass and again at the end.</p>
+<p>Six independent procedures now place bar 102's downbeat between <b>197.88 and 198.20 s</b>, beside the
+printed 3:18 marker. One of them passed a gate written down before it ran. The five drum lanes then
+tested that map from outside, and <b class="hl">all of them prefer a window slid one bar later</b>.</p>
+<p class="mut" style="margin-top:14px">Session of 2026-09-07. Nothing here has been uploaded to Songsterr.
+The tab is unchanged: 4,948 notes, 629 ghost, <b>0 of 629 positions moved</b>.</p>
+</div></header>
+
+<div class="wrap">
+
+<div class="stats">
+<div class="stat"><b>4,948</b><span>drum events inventoried</span></div>
+<div class="stat"><b>9,757</b><span>stem onsets detected</span></div>
+<div class="stat"><b>5 of 5</b><span>lanes tested both directions</span></div>
+<div class="stat"><b>0</b><span>events resolved instance level</span></div>
+<div class="stat"><b>0 of 248</b><span>bars surviving their own check</span></div>
+<div class="stat"><b>682</b><span>unresolved events listed one by one</span></div>
+<div class="stat"><b>0</b><span>repairs applied</span></div>
+<div class="stat"><b>4</b><span>bugs found in my own work</span></div>
+</div>
+
+<div class="toc"><b>Contents</b>
+<ol>
+<li><a href="#inventory">The inventory, and the 22 events the old census missed</a></li>
+<li><a href="#lanes">Both directions, every lane</a></li>
+<li><a href="#valley">Is the surplus a real stroke or residue</a></li>
+<li><a href="#coherence">What the notation says about itself</a></li>
+<li><a href="#anchor">The anchor, four procedures</a></li>
+<li><a href="#why">Why a passing gate still places no note</a></li>
+<li><a href="#findings">The four findings</a></li>
+<li><a href="#bugs">Bugs found in my own work</a></li>
+<li><a href="#completion">Completion</a></li>
+</ol></div>
+
+<h2 id="inventory">1. The inventory, and the 22 events the old census missed</h2>
+<p>Every drum event in the live tab now has a stable id, a bar, a position in sixteenths, a
+subdivision, a score time, a lane, a staff line, ghost and accent flags, a voice, a duration and a
+count of simultaneous events. After three parser corrections <b>all 248 bars balance exactly against
+their own time signature</b>.</p>
+<div class="scroll"><table>
+<tr><th>Lane</th><th class="n">Events</th><th class="n">Ghost</th><th class="n">Accent</th><th>Family</th></tr>
+<tr><td>snare, GM 38</td><td class="n">1,423</td><td class="n">629</td><td class="n">0</td><td>snare</td></tr>
+<tr><td>kick, GM 35</td><td class="n">1,311</td><td class="n">0</td><td class="n">0</td><td>kick</td></tr>
+<tr><td>closed hat, GM 42</td><td class="n">533</td><td class="n">0</td><td class="n">0</td><td>hat</td></tr>
+<tr><td>open hat, GM 46</td><td class="n">428</td><td class="n">0</td><td class="n">0</td><td>hat</td></tr>
+<tr><td>ride bell, GM 53</td><td class="n">282</td><td class="n">0</td><td class="n">0</td><td>cymbal</td></tr>
+<tr><td>pedal hat, GM 44</td><td class="n">195</td><td class="n">0</td><td class="n">0</td><td>hat</td></tr>
+<tr><td>crash, GM 49</td><td class="n">173</td><td class="n">0</td><td class="n">0</td><td>cymbal</td></tr>
+<tr><td>low-mid tom, GM 47</td><td class="n">170</td><td class="n">0</td><td class="n">29</td><td>tom</td></tr>
+<tr><td>floor tom, GM 43</td><td class="n">112</td><td class="n">0</td><td class="n">0</td><td>tom</td></tr>
+<tr><td>hi-mid tom, GM 48</td><td class="n">109</td><td class="n">0</td><td class="n">20</td><td>tom</td></tr>
+<tr><td>ride, GM 51</td><td class="n">87</td><td class="n">0</td><td class="n">0</td><td>cymbal</td></tr>
+<tr><td>low tom, GM 45</td><td class="n">85</td><td class="n">0</td><td class="n">11</td><td>tom</td></tr>
+<tr><td class="hl"><b>hand clap, GM 39</b></td><td class="n"><b>21</b></td><td class="n">0</td><td class="n">0</td><td>on the snare line</td></tr>
+<tr><td>low floor tom, GM 41</td><td class="n">14</td><td class="n">0</td><td class="n">0</td><td>tom</td></tr>
+<tr><td>hi tom, GM 50</td><td class="n">3</td><td class="n">0</td><td class="n">0</td><td>tom</td></tr>
+<tr><td>splash, GM 55</td><td class="n">1</td><td class="n">0</td><td class="n">0</td><td>cymbal</td></tr>
+<tr><td class="hl"><b>high timbale, GM 65</b></td><td class="n"><b>1</b></td><td class="n">0</td><td class="n">0</td><td>on the kick line</td></tr>
+</table></div>
+<div class="card amber"><p class="k">The project record listed fifteen lanes and 4,926 events.</p>
+<p>It omitted <b>GM 39 and GM 65</b>, which is 22 events. Both are on this page as findings.</p></div>
+
+<h2 id="lanes">2. Both directions, every lane</h2>
+<p>Direction one asks whether each notated lane has audio that can hold it. Direction two asks whether
+each stem carries reliable events the score omits. The audio count is a detector setting rather than a
+fact, so it is swept instead of quoted once.</p>
+<div class="scroll"><table>
+<tr><th>Lane</th><th class="n">Notated</th><th class="n">δ 0.01</th><th class="n">δ 0.03</th><th class="n">δ 0.05</th><th class="n">δ 0.08</th><th class="n">δ 0.12</th><th>Where the notated count falls</th></tr>
+<tr><td>kick</td><td class="n"><b>1,311</b></td><td class="n">1,374</td><td class="n">1,343</td><td class="n">1,340</td><td class="n">1,335</td><td class="n">1,324</td><td>below every setting, by 13 to 63</td></tr>
+<tr><td>snare</td><td class="n"><b>1,423</b></td><td class="n">1,952</td><td class="n">1,624</td><td class="n">1,426</td><td class="n">1,179</td><td class="n">926</td><td>within <b>3 events</b> at δ 0.05</td></tr>
+<tr><td>hat</td><td class="n"><b>1,156</b></td><td class="n">2,146</td><td class="n">1,699</td><td class="n">1,282</td><td class="n">1,102</td><td class="n">974</td><td>between δ 0.05 and δ 0.08</td></tr>
+<tr><td>cymbal</td><td class="n"><b>543</b></td><td class="n">1,780</td><td class="n">1,134</td><td class="n">684</td><td class="n">541</td><td class="n">411</td><td>within <b>2 events</b> at δ 0.08</td></tr>
+<tr><td>tom</td><td class="n"><b>493</b></td><td class="n">1,616</td><td class="n">1,317</td><td class="n">1,154</td><td class="n">892</td><td class="n">633</td><td>between δ 0.08 and δ 0.12</td></tr>
+</table></div>
+<p>For every lane there is a setting where the two counts nearly meet. A threshold can be tuned to any
+target, so that alone settles nothing. The next section is the part that cannot be tuned.</p>
+
+<h2 id="valley">3. Is the surplus a real stroke or residue</h2>
+<p>Take the loudest N detections, N being the notated count, and ask two questions about the rest.</p>
+<h3>Test A, the histogram</h3>
+<p>A stem carrying two real dynamic populations is bimodal. Residue is one mode with a quiet tail.</p>
+<div class="scroll"><table>
+<tr><th>Lane</th><th class="n">Onsets</th><th class="n">Valley</th><th class="n">Dip</th><th>Reading</th></tr>
+<tr><td>kick</td><td class="n">1,343</td><td class="n">none</td><td class="n">&mdash;</td><td>one population, no quiet class</td></tr>
+<tr><td>snare</td><td class="n">1,624</td><td class="n"><b>-18.63 dB</b></td><td class="n">0.302</td><td><span class="tag t-green">two populations</span></td></tr>
+<tr><td>hat</td><td class="n">1,482</td><td class="n">-28.74 dB</td><td class="n">0.009</td><td>one mode with a quiet tail</td></tr>
+<tr><td>cymbal</td><td class="n">875</td><td class="n">-40.17 dB</td><td class="n">0.041</td><td>one mode with a quiet tail</td></tr>
+<tr><td>tom</td><td class="n">1,154</td><td class="n">-35.49 dB</td><td class="n">0.446</td><td><span class="tag t-green">two populations</span></td></tr>
+</table></div>
+<div class="card green"><p class="k">The snare valley reproduces an earlier result from a fresh run.</p>
+<p>The 2026-09-06 arbitration found the valley at <b>-19 dB</b> with a different picker. This run,
+independent of it, puts it at <b>-18.63 dB</b>.</p></div>
+<h3>Test B, the grid</h3>
+<p>Do the events land on a sixteenth at the measured 136.7 BPM? The phase-uniform baseline is
+<b>0.4557</b> at 25 ms tolerance. A jitter null lands at 0.433 to 0.491, so two independent baselines
+agree.</p>
+<div class="scroll"><table>
+<tr><th>Lane</th><th class="n">Notated-count set</th><th class="n">Surplus set</th><th>Verdict on the surplus</th></tr>
+<tr><td>kick</td><td class="n">1.889x</td><td class="n"><b>1.646x</b></td><td><span class="tag t-green">clears 1.5x</span> candidate missing notation</td></tr>
+<tr><td>snare</td><td class="n">1.887x</td><td class="n"><b>1.501x</b></td><td><span class="tag t-amber">at the line</span> the quiet population</td></tr>
+<tr><td>hat</td><td class="n">1.694x</td><td class="n">1.369x</td><td><span class="tag t-red">below</span> reads as residue</td></tr>
+<tr><td>cymbal</td><td class="n">1.782x</td><td class="n">1.223x</td><td><span class="tag t-red">below</span> reads as residue</td></tr>
+<tr><td>tom</td><td class="n">1.289x</td><td class="n"><b>1.706x</b></td><td><span class="tag t-red">inverted</span> the stem is contaminated</td></tr>
+</table></div>
+<div class="card red"><p class="k">The tom row is upside down.</p>
+<p>Its loudest 493 detections are <b>less</b> grid-locked than its quiet 661. That is what a
+contaminated stem looks like, and it is why no tom claim appears anywhere on this page.</p></div>
+
+<h2 id="coherence">4. What the notation says about itself</h2>
+<p>The file stores loudness twice, as a ghost bracket and as a sticky beat dynamic. Resolving the
+dynamics in notated order needs no audio at all.</p>
+<div class="scroll"><table>
+<tr><th></th><th class="n">ppp</th><th class="n">pp</th><th class="n">p</th><th class="n">mp</th><th class="n">mf</th><th class="n">f</th><th class="n">ff</th><th class="n">fff</th></tr>
+<tr><td><b>629 flagged</b></td><td class="n">12</td><td class="n">94</td><td class="n">376</td><td class="n">33</td><td class="n">114</td><td class="n">0</td><td class="n">0</td><td class="n">0</td></tr>
+<tr><td><b>794 unflagged</b></td><td class="n">0</td><td class="n">0</td><td class="n">3</td><td class="n">10</td><td class="n">754</td><td class="n">18</td><td class="n">4</td><td class="n">5</td></tr>
+</table></div>
+<p>Mean dynamic rank <b>2.227</b> against <b>4.031</b>, a gap of 1.804 ladder steps. Mann-Whitney
+<b>z = -30.58</b>, effect <b>A = 0.0907</b>.</p>
+<p>Within-bar spacings: the flagged set sits 1 or 2 sixteenths apart on <b>62.89%</b> of its gaps, the
+unflagged set on 35.88%. Permuting the ghost label among snare events inside each bar, 2,000 draws,
+gives a null mean of 0.5391. Observed is <b>1.167x</b> the null with <b>0 of 2,000 draws</b> reaching
+it. The ratio is modest and the separation is certain.</p>
+<div class="card green"><p class="k">Two constructions agree without ever meeting.</p>
+<p>The 2026-09-06 stem arbitration found the quiet snare population at <b>1 and 2 sixteenths</b> and the
+loud at 3 and 5, from audio alone. The notation says the same thing from its own side, with no
+alignment between the two.</p></div>
+
+<h2 id="anchor">5. The anchor, four procedures</h2>
+<h3>Whole-song kick-sequence DTW, criteria fixed before the run</h3>
+<div class="scroll"><table>
+<tr><th>Criterion</th><th>Declared</th><th>Observed</th><th></th></tr>
+<tr><td>coverage</td><td>85% within 50 ms</td><td class="n">88.5%</td><td><span class="tag t-green">pass</span></td></tr>
+<tr><td>slope</td><td>0.98 to 1.02</td><td class="n">0.9938 to 1.0257</td><td><span class="tag t-red">fail</span></td></tr>
+<tr><td>stability</td><td>6 of 8 blocks within 100 ms</td><td class="n">1 of 8</td><td><span class="tag t-amber">invalid test</span></td></tr>
+<tr><td>held-out cymbal</td><td>1.5x over chance</td><td class="n"><b>2.80x</b></td><td><span class="tag t-green">pass</span></td></tr>
+</table></div>
+<p>The stability criterion was <b>invalid as written</b>. Fixed-endpoint DTW forces the remaining score
+across the same audio when an interior block is removed, which is why it reported 60 to 87 second
+disagreements. It is reported as a failure rather than quietly redesigned.</p>
+<h3>Split-half independent fits</h3>
+<p>Two maps fitted on overlapping halves disagree by <b>11.6 s</b> across their 60 s overlap, with a
+range of only 441 ms. One fit has slipped by a near-constant lag. At 2.7 kick onsets per second that
+lag is about 31 events, close to the 32-event surplus.</p>
+<h3>18a2dd, the slope-gated chroma DTW</h3>
+<p>The earlier chroma DTW failed, and every disagreeing run also had a broken warp slope. That filter
+was chosen after seeing the results, so it was selection. This run declared it first, then ran three
+band radii against three windows, nine cells of nine runs each.</p>
+<div class="scroll"><table>
+<tr><th>Criterion</th><th>Declared</th><th>Observed</th><th></th></tr>
+<tr><td>within-cell stability</td><td>7 of 9 cells under 100 ms</td><td class="n"><b>9 of 9</b>, ranges 0 to 23.2 ms</td><td><span class="tag t-green">pass</span></td></tr>
+<tr><td>across-cell agreement</td><td>medians span under 100 ms</td><td class="n"><b>0.4 ms</b></td><td><span class="tag t-green">pass</span></td></tr>
+<tr><td>not a band artifact</td><td>under 0.60 of its own band</td><td class="n">max 0.427</td><td><span class="tag t-green">pass</span></td></tr>
+<tr><td>survivorship</td><td>4 of 9 runs kept per cell</td><td class="n">4 or 5</td><td><span class="tag t-green">pass</span></td></tr>
+</table></div>
+<div class="card green"><p class="k">All four pass. Bar 102's downbeat maps to 197.880 s.</p>
+<p>This is the first anchor procedure on this song to clear a gate declared in advance.</p></div>
+<h3>04ae20, the three parts that were skipped</h3>
+<div class="scroll"><table>
+<tr><th>Part</th><th>Stem</th><th class="n">Landmarks</th><th>Model</th><th class="n">Held out</th><th class="n">Chance</th><th class="n">Over</th></tr>
+<tr><td>Frank Zappa solo</td><td>lead</td><td class="n">17</td><td>constant</td><td class="n">0.875</td><td class="n">0.429</td><td class="n"><b>2.04x</b></td></tr>
+<tr><td>Ike and Denny harmonies</td><td>backing_vocals</td><td class="n">20</td><td>constant</td><td class="n">0.900</td><td class="n">0.960</td><td class="n">0.94x</td></tr>
+<tr><td>Warren Cuccurullo part 1</td><td>rhythm</td><td class="n">6</td><td>constant</td><td class="n">0.000</td><td class="n">0.411</td><td class="n">0.00x</td></tr>
+<tr><td>Arthur Barrow, control</td><td>bass</td><td class="n">183</td><td>affine</td><td class="n">0.495</td><td class="n">0.307</td><td class="n">1.61x</td></tr>
+<tr><td>Ike Willis, control</td><td>vocals</td><td class="n">27</td><td>affine</td><td class="n">0.615</td><td class="n">0.688</td><td class="n">0.89x</td></tr>
+</table></div>
+<p>The lead part clears, which gives the second passing external source the earlier run said it lacked.
+The two then disagree: lead puts bar 102 at <b>198.197 s</b> and bass at <b>200.870 s</b>. The
+harmonies row is <b>unevaluable</b>, since a chance rate of 0.960 leaves no room for a result.</p>
+<h3>02a84f, the calibrated null</h3>
+<p>The 1.5x rule compares an observed rate to an analytic baseline and says nothing about what the
+fitting procedure manufactures on its own. Each draw destroys the correspondence, then reruns the whole
+procedure including the train and test split.</p>
+<div class="scroll"><table>
+<tr><th>Source</th><th class="n">Observed</th><th class="n">IOI-shuffle p95</th><th class="n">Reverse p95</th><th class="n">Null max</th><th class="n">p</th></tr>
+<tr><td>Frank Zappa solo</td><td class="n">1.750x</td><td class="n">1.458</td><td class="n">1.458</td><td class="n">2.041</td><td class="n"><b>0.0283</b></td></tr>
+<tr><td>Arthur Barrow bass</td><td class="n">1.826x</td><td class="n">1.325</td><td class="n">0.537</td><td class="n">1.540</td><td class="n"><b>0.0000</b></td></tr>
+<tr><td>Ike Willis vocals</td><td class="n">1.231x</td><td class="n">1.119</td><td class="n">1.231</td><td class="n">1.454</td><td class="n">0.0533</td></tr>
+<tr><td>Peter Wolf wurlitzer</td><td class="n">0.459x</td><td class="n">2.294</td><td class="n"><b>3.670</b></td><td class="n">4.588</td><td class="n">0.9200</td></tr>
+<tr><td>Warren Cuccurullo part 7</td><td class="n">0.992x</td><td class="n">0.975</td><td class="n">0.631</td><td class="n">1.172</td><td class="n">0.0250</td></tr>
+</table></div>
+<div class="card red"><p class="k">The 1.5x rule is not calibrated.</p>
+<p>On the piano source the offset scan manufactures <b>3.670x</b> from scrambled data. Part 7's small p
+sits beside an observed ratio of 0.992, which is the baseline itself, so that p carries no alignment
+signal.</p></div>
+
+<h2 id="why">6. Why a passing gate still places no note</h2>
+<p>All four of 18a2dd's criteria measure whether the retained runs agree with each other. None of them
+measures whether the runs are right.</p>
+<p>Extending the same procedure across the song exposes it. Evaluating the identical slope gate at each
+window's centre instead of at bar 102 drops two windows to <b>0 of 9</b> retained and leaves one window
+keeping seven runs that span <b>2,066 ms</b>. The gate is location-dependent.</p>
+<p>Holding it to its own survivorship floor across a 110 s window leaves <b>14.0 s of usable map</b>,
+which is 2.8% of the song, in two stretches: 193.50 to 197.00 s and 254.25 to 264.75 s. Six bars fall
+inside. The five contiguous ones were then scored under a window slid by minus one, zero and plus one
+bar, every shift measured on the same three interior bars so that no shift wins by dropping one.</p>
+<div class="scroll"><table>
+<tr><th>Lane</th><th class="n">shift -1</th><th class="n">shift 0</th><th class="n">shift +1</th><th>Best</th></tr>
+<tr><td>kick</td><td class="n">4</td><td class="n">3</td><td class="n"><b>2</b></td><td>+1</td></tr>
+<tr><td>snare</td><td class="n">20</td><td class="n">17</td><td class="n"><b>4</b></td><td>+1</td></tr>
+<tr><td>hat</td><td class="n">19</td><td class="n">25</td><td class="n"><b>11</b></td><td>+1</td></tr>
+<tr><td>cymbal</td><td class="n">13</td><td class="n"><b>14</b></td><td class="n">14</td><td>-1, flat</td></tr>
+<tr><td>tom</td><td class="n">23</td><td class="n">20</td><td class="n"><b>4</b></td><td>+1</td></tr>
+</table></div>
+<div class="card red"><p class="k">The drum lanes never entered this map, so they are an outside check.</p>
+<p>Four of five prefer a window one bar later, and snare and tom improve by a factor above four. The
+sample is <b>3 bars</b>, which makes this indicative rather than settled. It is enough to stop any
+instance-level claim.</p></div>
+
+<h2 id="findings">7. The four findings</h2>
+<div class="card red"><p class="k">KIG-M001, bar 231, position 7 sixteenths: GM 65 on the kick staff line</p>
+<p>One event in 4,948. It sits inside a repeating hat-plus-kick figure whose other string-4 events are
+all GM 35. The numbers 35 and 65 differ by one character. This needs no audio and no anchor, and it is
+the one candidate ready to apply.</p></div>
+<div class="card amber"><p class="k">KIG-M002, 21 GM 39 hand claps drawn at the snare position</p>
+<p>Bars 22 to 32, 42 to 44, 65 and 82. All sit on staff line 1.5, so they draw as snare and sound as a
+clap. GM 37 side stick appears nowhere in the file, so GM 39 is this tab's only alternative snare-line
+articulation. The placement is certain and the intent is not recoverable.</p></div>
+<div class="card amber"><p class="k">KIG-M003, 114 ghost flags whose resolved dynamic is mf</p>
+<p>Bars 104 to 105, 107 to 111, 119 to 122, 124 to 127, 130 to 142, 145 to 147, 186 to 187, 201, 227
+and 231. The mark mf is the unflagged population's own, carried by 754 of its 794. The two encodings
+disagree and no evidence on disk says which is meant.</p></div>
+<div class="card blue"><p class="k">KIG-M004, 32 kick onsets with no notation</p>
+<p>They sit 7.66 dB below the notated set's median, the smallest gap of any lane, and land on the grid
+at 1.646x baseline. That roughly 32 kick events are unnotated is supported. Which ones is not, because
+the anchor does not convert an audio time to a bar.</p></div>
+
+<h2 id="bugs">8. Bugs found in my own work</h2>
+<ul>
+<li><b>Dot and tuplet double-count.</b> Songsterr's duration array already carries both, so applying
+them again pushed <b>88 of 248 bars</b> past their own signature. After the fix all 248 balance.</li>
+<li><b>A null that could not fail.</b> The first grid test rotated onset times circularly, which
+preserves every inter-onset interval and returns the data. It scored <b>1.001x</b> on every set
+including the loud ones.</li>
+<li><b>A leave-one-out that could not work.</b> Fixed-endpoint DTW cannot hold out an interior block.</li>
+<li><b>A shift test biased by its own edges.</b> Scoring shift +1 over one fewer bar lowered its total
+mechanically. Rescored on the interior bars only.</li>
+</ul>
+
+<h2 id="completion">9. Completion</h2>
+<div class="scroll"><table>
+<tr><th>Measure</th><th class="n">Result</th></tr>
+<tr><td>lanes with an isolated stem</td><td class="n">5 of 5 kit families</td></tr>
+<tr><td>lanes tested in both directions at passage level</td><td class="n"><b>5 of 5</b></td></tr>
+<tr><td>events covered by passage-level adjudication</td><td class="n"><b>4,926 of 4,948</b></td></tr>
+<tr><td>events resolved at instance level</td><td class="n"><b>0</b></td></tr>
+<tr><td>bars with a surviving two-direction result</td><td class="n"><b>0 of 248</b></td></tr>
+<tr><td>reliable audio events found with no notation</td><td class="n"><b>32 kick</b></td></tr>
+<tr><td>repairs applied</td><td class="n"><b>0</b></td></tr>
+<tr><td>unresolved events listed one by one</td><td class="n"><b>682</b></td></tr>
+<tr><td>final revision</td><td class="n"><b>8852151, unchanged</b></td></tr>
+</table></div>
+<div class="card"><p class="k">Why zero repairs is the correct number here.</p>
+<p>Two findings are unresolvable at instance level without an anchor. Two sit on another author's
+published tab, and the standing rule is that a revision never goes onto an original: open it, create a
+copy to edit, rename the copy with <code>Brandon edit</code>, and revise that. Publishing is an outward
+action and it waits on Brandon's word.</p></div>
+
+<footer>
+<p>Session of 2026-09-07 on MacBookPro. Fifteen stems at 501.84 s each, live part JSON for all nine
+parts at revision 8852151, and 57 sha256 lines covering every source and every output.</p>
+<p>Companion page: <a href="../zappa-keep-it-greasey-tempo/">the tempo, measured</a>.
+Full record: <a href="index.md">index.md</a>.</p>
+</footer>
+</div></body></html>
