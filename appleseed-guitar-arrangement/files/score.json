@@ -30,15 +30,15 @@
    {
     "name": "Overdriven Guitar",
     "beats": 849,
-    "notes": 1183,
-    "skip_beats": 49,
+    "notes": 1158,
+    "skip_beats": 24,
     "wide_beats": 0,
-    "bad_beats": 49
+    "bad_beats": 24
    },
    {
     "name": "Guitar 3 (arranged)",
-    "beats": 200,
-    "notes": 217,
+    "beats": 225,
+    "notes": 242,
     "skip_beats": 0,
     "wide_beats": 0,
     "bad_beats": 0
@@ -76,15 +76,15 @@
    {
     "name": "Distortion Guitar",
     "beats": 576,
-    "notes": 699,
-    "skip_beats": 9,
+    "notes": 691,
+    "skip_beats": 1,
     "wide_beats": 0,
-    "bad_beats": 9
+    "bad_beats": 1
    },
    {
     "name": "Guitar 3 (arranged)",
-    "beats": 80,
-    "notes": 81,
+    "beats": 88,
+    "notes": 89,
     "skip_beats": 0,
     "wide_beats": 0,
     "bad_beats": 0
@@ -122,15 +122,15 @@
    {
     "name": "Overdriven Guitar",
     "beats": 686,
-    "notes": 948,
-    "skip_beats": 41,
+    "notes": 932,
+    "skip_beats": 25,
     "wide_beats": 0,
-    "bad_beats": 42
+    "bad_beats": 26
    },
    {
     "name": "Guitar 3 (arranged)",
-    "beats": 202,
-    "notes": 252,
+    "beats": 218,
+    "notes": 268,
     "skip_beats": 0,
     "wide_beats": 0,
     "bad_beats": 0
@@ -168,15 +168,15 @@
    {
     "name": "Acoustic Guitar (steel)",
     "beats": 167,
-    "notes": 180,
-    "skip_beats": 3,
+    "notes": 179,
+    "skip_beats": 2,
     "wide_beats": 0,
-    "bad_beats": 3
+    "bad_beats": 2
    },
    {
     "name": "Guitar 3 (arranged)",
-    "beats": 42,
-    "notes": 49,
+    "beats": 43,
+    "notes": 50,
     "skip_beats": 0,
     "wide_beats": 0,
     "bad_beats": 0

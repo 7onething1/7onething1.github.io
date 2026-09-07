@@ -45,11 +45,11 @@ instant, and it carries between 42 and 202 beats per song.
 
 | song | guitars after | rule-breaking beats before | after | share fixed |
 |---|---|---|---|---|
-| Secret | 3 | 264 | 50 | 214 of 264 |
-| Kilgore Trout | 3 | 90 | 9 | 81 of 90 |
-| Blind Man's Arrow | 3 | 294 | 47 | 247 of 294 |
-| A Tree For Trials | 3 | 52 | 3 | 49 of 52 |
-| **total** | | **700** | **109** | **591 of 700** |
+| Secret | 3 | 264 | 25 | 239 of 264 |
+| Kilgore Trout | 3 | 90 | 1 | 89 of 90 |
+| Blind Man's Arrow | 3 | 294 | 31 | 263 of 294 |
+| A Tree For Trials | 3 | 52 | 2 | 50 of 52 |
+| **total** | | **700** | **59** | **641 of 700** |
 
 Guitar 3 finished clean on all four songs: zero skips, zero spans past five
 frets, zero unplayable beats.
@@ -61,13 +61,35 @@ GATE PASS for every file. No pitch left the music, no pitch appeared that the
 source never had, and every note in a beat that was already healthy kept its
 original string and fret.
 
+## Subdividing Guitar 3, the second route
+
+An earlier build stopped at 109 remaining beats, and 87 of those failed for one
+reason: Guitar 3 borrows its bar skeleton from an original staff, so it had no
+beat at that onset to receive anything. The restaffing chain that would normally
+solve this (`table_to_midi.py` and the retime tool) is not on this Mac, verified
+by direct search.
+
+The other route needs no such tool. Every Guitar 3 beat that carries no shed
+notes is a rest, and cutting a rest into shorter rests changes nothing that
+sounds. So the missing onset is created by splitting the rest that contains it,
+and the shed notes land there. A beat that is sounding is never cut.
+
+That took the remaining count from 109 to 59.
+
 ## What is still open
 
-109 beats still attack across an unused string. 87 of them are blocked for one
-reason: Guitar 3 borrows its bar skeleton from an original staff, so it has no
-beat at those onsets to receive anything. Fixing them means subdividing Guitar
-3's rhythm, which is the restaffing operation the skill says belongs in the MIDI
-retime chain rather than in a surgical edit.
+59 beats still attack across an unused string, out of 4961 beats across the
+twelve staves.
+
+| reason | count |
+|---|---|
+| the rest containing the onset would not divide into plain note values | 33 |
+| no removal leaves both halves playable | 19 |
+| Guitar 3 already holds a full hand at that instant | 7 |
+
+The first group wants tuplet-aware subdivision, which is the rhythm red zone
+where a wrong rational beat position corrupts the bar. That one stays parked
+until it can be done against the retime chain.
 
 ## Comparison against independent transcriptions
 
