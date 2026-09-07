@@ -117,6 +117,10 @@ decision queued as `q-2026-09-07-a74a94`. Record:
 
 ## Owed
 
-- **Brandon**: one upload decision. The moderation blocker is gone. The live tab is missing seven credits our revision removed, and TEXTSAFE-v2 restores them plus the bar 3 chord.
+- **Brandon**: one upload decision. The path is the COPY lane, corrected 2026-09-07. We never
+  submit a revision to an original tab, our own damage included. Open `s35881`, click "Create a
+  copy to edit", rename the copy with "Brandon edit" on the end, import
+  `RESTORED-s35881-TEXTSAFE-v2.gp`, and submit the revision on that copy. The original tab and
+  `r8908034` stay untouched.
 - **A scan**: five Drumnet pages at print DPI unblock every chart-based item at once.
 - **Another session**: the onset-based DP alignment `q-2026-09-06-57b3e8` unblocks pedal hi-hat.
