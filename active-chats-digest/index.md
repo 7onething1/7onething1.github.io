@@ -1,12 +1,12 @@
 # Active chats digest
 
-Built 2026-09-07 16:18 CDT. 24 chats read from transcripts.
+Built 2026-09-07 17:22 CDT. 25 chats read from transcripts.
 
 ## Headline
 
-All 24 chats ended on a gate block, 0 on a message from Brandon.
+All 25 chats ended on a gate block, 0 on a message from Brandon.
 5 need a Brandon action. 8 are past the 400-turn ceiling.
-Totals: 8,331 assistant replies, 68 MB of transcript.
+Totals: 8,264 assistant replies, 59 MB of transcript.
 
 ## Do yourself
 
@@ -18,7 +18,7 @@ Totals: 8,331 assistant replies, 68 MB of transcript.
 
 ## Every chat
 
-### Zappa ride ghost analysis watermelon  (4.1 hours quiet, 718 replies)
+### Zappa ride ghost analysis watermelon  (5.2 hours quiet, 718 replies)
 **Goal.** Put the quiet ride cymbal marks back on Watermelon In Easter Hay.
 
 - Every repaired file on disk deletes all 28 musician names.
@@ -28,7 +28,7 @@ Totals: 8,331 assistant replies, 68 MB of transcript.
 
 **Finish today.** Upload RESTORED-s35881-TEXTSAFE-v2.gp to a copy tab named Brandon edit. The v1 file carries 136 wrappers and is one short, so v2 is the ship candidate.
 
-### Zappa chats audit update  (3.0 hours quiet, 151 replies)
+### Zappa chats audit update  (4.1 hours quiet, 151 replies)
 **Goal.** Sweep all the Zappa chats and check what got shipped.
 
 - It read 40 chats and pulled 75 findings into one list.
@@ -38,7 +38,7 @@ Totals: 8,331 assistant replies, 68 MB of transcript.
 
 **Finish today.** Rank this first of everything on the board. Re-upload the 6 damaged tabs from files that keep the names, then hold the 7 queued restores, since approving them publishes the same defect on 53 more credits.
 
-### MacBook Claude Code ntfy hook  (5.1 hours quiet, 121 replies)
+### MacBook Claude Code ntfy hook  (6.1 hours quiet, 121 replies)
 **Goal.** Send phone alerts when a Claude task finishes.
 
 - It measured how long the alert server keeps a message.
@@ -48,7 +48,7 @@ Totals: 8,331 assistant replies, 68 MB of transcript.
 
 **Finish today.** Subscribe the phone to ntfy topic brandon-claude-9k3xq2. Until then every alert dies after 12 hours.
 
-### [NOTATION-EVIDENCE-GATE-N9-N10-WATERMELON-NO-REPAIR-2026-09-06]  (5.0 hours quiet, 248 replies)
+### [NOTATION-EVIDENCE-GATE-N9-N10-WATERMELON-NO-REPAIR-2026-09-06]  (6.1 hours quiet, 248 replies)
 **Goal.** Keep the phone-to-Mac message channel alive across both Macs.
 
 - The phone inbox caught two messages during 8 minutes of watching.
@@ -58,7 +58,7 @@ Totals: 8,331 assistant replies, 68 MB of transcript.
 
 **Finish today.** Add the key to the Dr Wu iMac authorized_keys file. That turns every future cross-Mac pull into one line.
 
-### Demucs guitar/drums isolation  (3.4 hours quiet, 999 replies)
+### Demucs guitar/drums isolation  (4.5 hours quiet, 999 replies)
 **Goal.** Split band practice recordings into separate drum and instrument tracks.
 
 - Eleven takes became 66 separate drum tracks.
@@ -68,7 +68,7 @@ Totals: 8,331 assistant replies, 68 MB of transcript.
 
 **Finish today.** Run touch ~/.claude/fifty_gates.allow so the chat can stop. The work itself is finished and verified.
 
-### Zappa paren fix audit  (3.0 hours quiet, 262 replies)
+### Zappa paren fix audit  (4.0 hours quiet, 262 replies)
 **Goal.** Close out an older to-do list about repairing a Zappa drum tab.
 
 - It worked from a to-do list an earlier chat had written.
@@ -78,17 +78,7 @@ Totals: 8,331 assistant replies, 68 MB of transcript.
 
 **Finish today.** Press Submit revision on Zomby Woof s412162. The chat read the tab twice and confirmed nothing has been submitted. Only you can press it.
 
-### Chat single song handoff K i G  (23.5 hours quiet, 490 replies)
-**Goal.** Relay the Keep It Greasey findings to ChatGPT and hold the handoff.
-
-- The message reached ChatGPT and the thread got created.
-- The second-brain verdict agrees the tab stays unverified.
-- The handoff doc got refreshed at 460 turns.
-- Nothing has moved in this chat for 21 hours.
-
-**Finish today.** It is over both the age ceiling and the turn ceiling. Close it.
-
-### Active chats quitting early  (3.4 hours quiet, 861 replies)
+### Active chats quitting early  (4.5 hours quiet, 861 replies)
 **Goal.** Watch the other chats and poke them when they stall.
 
 - It found 8 chats sitting still and sent 6 wake-up messages.
@@ -98,7 +88,7 @@ Totals: 8,331 assistant replies, 68 MB of transcript.
 
 **Finish today.** This chat is at 857 assistant turns against a 400 ceiling. Write the handoff and close it.
 
-### Zappa chat context loss all , trouble first  (5.1 hours quiet, 505 replies)
+### Zappa chat context loss all , trouble first  (6.1 hours quiet, 505 replies)
 **Goal.** Fix the blank track names on Carolina Hard-Core Ecstasy.
 
 - Three track names are blank where Bass, Drums and Trombone belong.
@@ -108,17 +98,7 @@ Totals: 8,331 assistant replies, 68 MB of transcript.
 
 **Finish today.** Poll the moderation queue once. Nothing else on this song can move today.
 
-### Authorized execution verification general zomb montana  (5.0 hours quiet, 595 replies)
-**Goal.** Check whether the Zomby Woof revision is built and ready.
-
-- It corrected a note it had written yesterday.
-- Two songs are blocked because another chat owns them.
-- The blocker files show the reason was never a song-count rule.
-- It moved that finding out of the to-do list into a proof file.
-
-**Finish today.** Hand the two songs to the chat that owns them, then close.
-
-### Completion controller and state skills  (5.0 hours quiet, 407 replies)
+### Completion controller and state skills  (6.1 hours quiet, 407 replies)
 **Goal.** Build the gate system that decides when a chat is allowed to stop.
 
 - Gate G35 counted every helper message forever with no way to clear.
@@ -128,7 +108,17 @@ Totals: 8,331 assistant replies, 68 MB of transcript.
 
 **Finish today.** Pin a regression test on the G35 fix, write the handoff, close.
 
-### Resume recent chats on wake  (4.9 hours quiet, 93 replies)
+### Authorized execution verification general zomb montana  (6.0 hours quiet, 595 replies)
+**Goal.** Check whether the Zomby Woof revision is built and ready.
+
+- It corrected a note it had written yesterday.
+- Two songs are blocked because another chat owns them.
+- The blocker files show the reason was never a song-count rule.
+- It moved that finding out of the to-do list into a proof file.
+
+**Finish today.** Hand the two songs to the chat that owns them, then close.
+
+### Resume recent chats on wake  (6.0 hours quiet, 93 replies)
 **Goal.** Make chats pick their work back up after the Mac wakes.
 
 - It reported the work queue empty twice and both were wrong.
@@ -138,7 +128,7 @@ Totals: 8,331 assistant replies, 68 MB of transcript.
 
 **Finish today.** Build the wake-resume hook that was actually asked for. The queue lesson is already recorded.
 
-### Active chat: 3-phase ghost note restore huge plan  (3.4 hours quiet, 231 replies)
+### Active chat: 3-phase ghost note restore huge plan  (4.5 hours quiet, 231 replies)
 **Goal.** Find every Zappa song where the quiet drum marks got wiped out.
 
 - Around 30 songs were believed to be damaged.
@@ -148,17 +138,7 @@ Totals: 8,331 assistant replies, 68 MB of transcript.
 
 **Finish today.** Rank the 15 published tabs by damage and start the restore list.
 
-### Notation evidence gate  (2.1 hours quiet, 22 replies)
-**Goal.** Not summarised by hand yet. Last input on record: help https://drwu-htmls.vercel.app/notation-evidence-gate
-
-- I'll start by pulling up the page you linked and figuring out what "help" means for it. **Goal:** understand what's on `/notation-evidence-gate` and.
-- Confirmed the page is real and healthy at http 200, but I found four concrete problems. Let me do the one repair that's safe regardless of what you.
-- Page is **live and healthy at http 200**, and the content itself is strong. Four things are wrong around it. ## 🔴 Found **Local source was missing.
-- No prose turn recorded for this slot.
-
-**Finish today.** New since the last hand pass. Open the chat and give it a read.
-
-### Active chats review  (1.4 hours quiet, 257 replies)
+### Active chats review  (2.5 hours quiet, 257 replies)
 **Goal.** Not summarised by hand yet. Last input on record: Stop hook feedback: [python3 ~/.claude/hooks/no_stop_gate_hook.py]: no_stop_gate BLOCK: the draft reply failed one or more of the 50 gates. no_stop_gate: 50 gates, 1 failed, 1 not applicable
 
 - pytest's own default is `tmp_path_retention_policy = all`, keeping the last 3 temp dirs. Leaving fixtures on disk is the upstream convention, not a.
@@ -168,7 +148,7 @@ Totals: 8,331 assistant replies, 68 MB of transcript.
 
 **Finish today.** New since the last hand pass. Open the chat and give it a read.
 
-### Active chats summary and recommendations  (1.2 hours quiet, 207 replies)
+### Active chats summary and recommendations  (2.3 hours quiet, 207 replies)
 **Goal.** Not summarised by hand yet. Last input on record: Stop hook feedback: [python3 ~/.claude/hooks/no_stop_gate_hook.py]: no_stop_gate BLOCK: the draft reply failed one or more of the 50 gates. no_stop_gate: 50 gates, 3 failed, 1 not applicable
 
 - Paused everything else. Watermelon got the full pass. ## 🔴 The headline finding **https://7onething1.github.io/zappa-watermelon-cymbal-two-way/** 🔴.
@@ -178,17 +158,47 @@ Totals: 8,331 assistant replies, 68 MB of transcript.
 
 **Finish today.** New since the last hand pass. Open the chat and give it a read.
 
-### Final watermelon  (1 minutes quiet, 392 replies)
-**Goal.** Not summarised by hand yet. Last input on record: Stop hook feedback: [python3 ~/.claude/hooks/no_stop_gate_hook.py]: no_stop_gate BLOCK: the draft reply failed one or more of the 50 gates. no_stop_gate: 50 gates, 1 failed, 1 not applicable
+### Final Greasy  (32 minutes quiet, 160 replies)
+**Goal.** Not summarised by hand yet. Last input on record: keep it gresay chat, look at it, finish it here; You are repairing the remaining Frank Zappa Guitar Pro drum transcriptions one song at a time. For these songs, treat the default scope as gh
 
-- Running the same two-way check on kick, snare and toms, scored the same way so all four lanes compare.
-- All four lanes, scored identically. The kick/snare/tom check lands, and it also measures what the 147 ghosts did.
-- Kick, snare and tom check done, plus the two items from that review. **https://7onething1.github.io/zappa-watermelon-hat-snare-repair/** 🟢 **All four.
-- Kick, snare and tom check done, plus the two items from that review. **https://7onething1.github.io/zappa-watermelon-hat-snare-repair/** 🟢 **All four.
+- My own diagnostic is biased: the +1 shift drops a bar from the sum, which mechanically lowers its total. Fixing to score all shifts on the same bars.
+- Phase 3. Building the mismatch table, ambiguity table, and change log.
+- Both gates pass. Deploying to GitHub Pages.
+- Live and verified. Closing the queue items and appending to the song record.
 
 **Finish today.** New since the last hand pass. Open the chat and give it a read.
 
-### Appleseed cast chat  (1.9 hours quiet, 230 replies)
+### Notation evidence gate  (32 minutes quiet, 22 replies)
+**Goal.** Not summarised by hand yet. Last input on record: [Request interrupted by user for tool use]
+
+- I'll start by pulling up the page you linked and figuring out what "help" means for it. **Goal:** understand what's on `/notation-evidence-gate` and.
+- Confirmed the page is real and healthy at http 200, but I found four concrete problems. Let me do the one repair that's safe regardless of what you.
+- Page is **live and healthy at http 200**, and the content itself is strong. Four things are wrong around it. ## 🔴 Found **Local source was missing.
+- No prose turn recorded for this slot.
+
+**Finish today.** New since the last hand pass. Open the chat and give it a read.
+
+### Twitch playback issue  (7 minutes quiet, 57 replies)
+**Goal.** Not summarised by hand yet. Last input on record: Stop hook feedback: chat_color_gate BLOCK: this is a substantive reply but it is not color-coded. Brandon's standing rule (feedback_brandon_format): color-code your sections with colored bul
+
+- Delivery chain checks out from this Mac: channel live, no geoblock, no sub-lock, usher returns **200** with every quality up to 1080p60 source. So the.
+- Chrome plays it fine (readyState 4, clock advancing), so the stream and this Mac are both healthy. It's Firefox-specific. Narrowing the Firefox cause.
+- What I found Your Twitch tab is in **Firefox**, on `twitch.tv/ashlizzlle`. Chrome only has Songsterr and ChatGPT tabs. **The stream itself is fine.**.
+- 🟢 What I found Your Twitch tab is in **Firefox**, on `twitch.tv/ashlizzlle`. Chrome only has Songsterr and ChatGPT tabs. - 🟢 **The stream itself is.
+
+**Finish today.** New since the last hand pass. Open the chat and give it a read.
+
+### Final watermelon  (0 minutes quiet, 487 replies)
+**Goal.** Not summarised by hand yet. Last input on record: remove the rests, no one told you to put those in
+
+- The kicks are on the tab. **https://www.songsterr.com/a/wsa/frank-zappa-watermelon-in-easter-hay-brandon-edit-drum-tab-s6857183** — revision.
+- Turn ceiling hit at 480 with no handoff. Writing one.
+- The kicks are on the tab, and the session now has a handoff..
+- Fair. I added them because GPIF requires a voice's beats to fill the bar, not because anyone asked. Let me measure how many can move into voice 0,.
+
+**Finish today.** New since the last hand pass. Open the chat and give it a read.
+
+### Appleseed cast chat  (0 minutes quiet, 341 replies)
 **Goal.** Split guitar parts that one hand cannot reach into two guitar tracks.
 
 - A tab had 700 spots where one hand had to grab impossible shapes.
@@ -198,7 +208,7 @@ Totals: 8,331 assistant replies, 68 MB of transcript.
 
 **Finish today.** Check whether the 59 leftovers are real problems, then write the handoff.
 
-### Ableton 11 APC 20 sets  (4.7 hours quiet, 247 replies)
+### Ableton 11 APC 20 sets  (5.7 hours quiet, 247 replies)
 **Goal.** Work out how to get Ableton sets shaped for an APC20 controller.
 
 - Buying them is a dead end because the one seller took the page down.
@@ -208,7 +218,7 @@ Totals: 8,331 assistant replies, 68 MB of transcript.
 
 **Finish today.** All 3 asks are covered with evidence. Close the chat.
 
-### [KEEP-IT-GREASEY-s604777-INSTANCE-TEST-NEGATIVE-2026-09-06] handoff  (4.5 hours quiet, 441 replies)
+### [KEEP-IT-GREASEY-s604777-INSTANCE-TEST-NEGATIVE-2026-09-06] handoff  (5.6 hours quiet, 441 replies)
 **Goal.** Test whether one Zappa tab's drum marks are real, and relay the answer to ChatGPT.
 
 - The relay to ChatGPT finally sent after four tries.
@@ -218,7 +228,7 @@ Totals: 8,331 assistant replies, 68 MB of transcript.
 
 **Finish today.** The test came back negative and the relay landed. Close with a handoff.
 
-### Volume to 45%  (3.5 hours quiet, 57 replies)
+### Volume to 45%  (4.6 hours quiet, 57 replies)
 **Goal.** Turn off the volume limit on this Mac.
 
 - The volume was capped at 45 out of 100.
@@ -228,7 +238,7 @@ Totals: 8,331 assistant replies, 68 MB of transcript.
 
 **Finish today.** The job is done and verified. Close the chat.
 
-### SVG handoff documentation  (3.4 hours quiet, 242 replies)
+### SVG handoff documentation  (4.4 hours quiet, 242 replies)
 **Goal.** Fix the rule for editing tabs so originals never get damaged.
 
 - The old rule let it edit an original tab in some cases.
@@ -238,7 +248,7 @@ Totals: 8,331 assistant replies, 68 MB of transcript.
 
 **Finish today.** Run the s35881 copy and submit under the new rule, then close.
 
-### Songs lickable text to Songsterr  (2.5 hours quiet, 193 replies)
+### Songs lickable text to Songsterr  (3.5 hours quiet, 193 replies)
 **Goal.** Make every Zappa song name on the program page open its own guitar tab.
 
 - The page lists 34 Zappa songs and their tabs.
