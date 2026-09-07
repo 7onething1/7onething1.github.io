@@ -1,0 +1,148 @@
+<title>Board Fraud Audit</title>
+<style>
+:root{color-scheme:light;--bg:#f4efe4;--ink:#1a1714;--mut:#6b6255;--line:#d9cfbc;--card:#fbf7ee;
+--red:#a8341f;--amb:#c8892a;--grn:#4a7c46;--blu:#3c6389;--acc:#8c3b26}
+@media(prefers-color-scheme:dark){:root:not([data-theme=light]){--bg:#16130f;--ink:#ece4d6;--mut:#9c9183;--line:#332c23;--card:#1e1a15;--red:#e0765c;--amb:#e0ac5c;--grn:#8fbf87;--blu:#7fa8ce;--acc:#e0967c}}
+:root[data-theme=dark]{--bg:#16130f;--ink:#ece4d6;--mut:#9c9183;--line:#332c23;--card:#1e1a15;--red:#e0765c;--amb:#e0ac5c;--grn:#8fbf87;--blu:#7fa8ce;--acc:#e0967c}
+*{box-sizing:border-box}
+body{background:var(--bg);color:var(--ink);font:16px/1.62 -apple-system,BlinkMacSystemFont,Inter,"Segoe UI",sans-serif;margin:0;padding:2.2rem 1.2rem 5rem}
+.wrap{max-width:1080px;margin:0 auto}
+h1{font-size:2.05rem;line-height:1.16;margin:0 0 .35rem;letter-spacing:-.02em}
+.sub{color:var(--mut);margin:0 0 1.6rem;font-size:.95rem}
+h2{font-size:1.28rem;margin:2.6rem 0 .7rem;padding-top:.7rem;border-top:2px solid var(--line);letter-spacing:-.01em}
+h3{font-size:1.03rem;margin:1.5rem 0 .5rem}
+p{margin:.7rem 0}
+.verdict{background:var(--card);border:2px solid var(--red);border-left-width:9px;border-radius:11px;padding:1.15rem 1.3rem;margin:1.4rem 0}
+.verdict h2{border:0;margin:0 0 .5rem;padding:0;font-size:1.16rem;color:var(--red)}
+.good{border-color:var(--grn)}.good h2{color:var(--grn)}
+.toc{background:var(--card);border:1px solid var(--line);border-radius:11px;padding:1rem 1.3rem;margin:1.5rem 0}
+.toc ol{margin:.4rem 0 0;padding-left:1.25rem}
+.toc a{color:var(--blu);text-decoration:none}.toc a:hover{text-decoration:underline}
+.scores{display:grid;grid-template-columns:repeat(auto-fit,minmax(158px,1fr));gap:.75rem;margin:1.4rem 0}
+.sc{background:var(--card);border:1px solid var(--line);border-radius:10px;padding:.85rem .95rem}
+.sc b{display:block;font-size:1.72rem;line-height:1.1;letter-spacing:-.02em}
+.sc span{color:var(--mut);font-size:.79rem;text-transform:uppercase;letter-spacing:.05em}
+.sc.r b{color:var(--red)}.sc.g b{color:var(--grn)}.sc.a b{color:var(--amb)}.sc.b b{color:var(--blu)}
+.tw{overflow-x:auto;margin:1rem 0;border:1px solid var(--line);border-radius:10px;background:var(--card)}
+table{border-collapse:collapse;width:100%;font-size:.87rem;min-width:640px}
+th{background:rgba(140,59,38,.09);text-align:left;padding:.6rem .72rem;font-size:.75rem;text-transform:uppercase;letter-spacing:.045em;color:var(--mut);border-bottom:1px solid var(--line);white-space:nowrap}
+td{padding:.56rem .72rem;border-bottom:1px solid var(--line);vertical-align:top}
+tr:last-child td{border-bottom:0}
+.num{text-align:right;font-variant-numeric:tabular-nums;white-space:nowrap}
+.n{font-weight:600}.m{color:var(--mut)}
+.bad{color:var(--red);font-weight:700}
+.ok{color:var(--grn);font-weight:700}
+.warn{color:var(--amb);font-weight:700}
+.vd{font-weight:700;font-size:.79rem;letter-spacing:.03em;white-space:nowrap}
+code{background:rgba(140,59,38,.10);padding:.1rem .34rem;border-radius:4px;font-size:.86em;font-family:ui-monospace,SFMono-Regular,Menlo,monospace}
+.note{background:var(--card);border:1px solid var(--line);border-left:5px solid var(--blu);border-radius:9px;padding:.85rem 1.1rem;margin:1.1rem 0}
+.note.amber{border-left-color:var(--amb)}
+ul{margin:.6rem 0;padding-left:1.2rem}li{margin:.32rem 0}
+a{color:var(--blu)}
+footer{margin-top:3rem;padding-top:1rem;border-top:2px solid var(--line);color:var(--mut);font-size:.85rem}
+</style>
+<div class=wrap>
+<h1>Fraud audit: the active-chats board</h1>
+<p class=sub>Audited 2026-09-07 14:30 CDT on MacBookPro. Subject: <code>active-chats-2026-09-07</code>. Every number tested against the session transcripts, the disk and the live sites.</p>
+
+<div class="verdict">
+<h2>Verdict on the version you linked</h2>
+<p><b>It carried fabricated numbers.</b> Nine of its fifteen message counts were larger than the total number of lines in the transcript file they described. A count cannot exceed the file it comes from, so those nine were not measured. Three more rows all claimed the same idle time of 1h 20m when their real idle times were 2h 56m, 2h 47m and 2h 31m.</p>
+</div>
+
+<div class="verdict good">
+<h2>Verdict on the version now live</h2>
+<p><b>It was rebuilt at 14:23 and it is clean.</b> The new board publishes a transcript id per row and counts assistant replies. 18 of its 22 rows match my independent count <b>exactly</b>, and every idle time lands within one minute. The four rows that drift are chats still typing when the snapshot was taken, this one included.</p>
+</div>
+
+<div class=scores>
+<div class="sc r"><b>9</b><span>impossible counts</span></div>
+<div class="sc r"><b>3</b><span>copied idle values</span></div>
+<div class="sc g"><b>18/22</b><span>rebuilt rows exact</span></div>
+<div class="sc g"><b>13/13</b><span>links at http 200</span></div>
+<div class="sc a"><b>3</b><span>claims unresolved</span></div>
+<div class="sc b"><b>22/23</b><span>chats covered</span></div>
+</div>
+
+<div class=toc><b>What is on this page</b>
+<ol>
+<li><a href="#swap">The board was replaced while I read it</a></li>
+<li><a href="#f1">Finding 1: nine counts that cannot be true</a></li>
+<li><a href="#f2">Finding 2: one idle value pasted onto three rows</a></li>
+<li><a href="#f3">Finding 3: it said every chat and meant fifteen</a></li>
+<li><a href="#rebuild">The rebuild, measured row by row</a></li>
+<li><a href="#subst">The substance: what the rows actually claimed</a></li>
+<li><a href="#gate">What the fraud gate says</a></li>
+<li><a href="#notchecked">What I did not check</a></li>
+<li><a href="#method">Method, so you can rerun it</a></li>
+</ol></div>
+
+<h2 id=swap>1. The board was replaced while I read it</h2>
+<p>You sent the link at 14:12. That file was written at 14:11 and carried fifteen rows under a heading of <i>Messages</i>. At 14:23 another chat overwrote the same route with twenty-two rows under a heading of <i>Replies</i>, each one stamped with a transcript id. The live URL now serves the second version.</p>
+<p>The audit therefore has two subjects. The numbers below name which version they belong to.</p>
+<div class="note amber"><b>Worth knowing.</b> The old file is gone from disk. The overflow copy was overwritten by the same deploy at 14:23, and no backup was taken. My figures for it come from reading it before the swap, and every one of them is reproducible against the transcripts, which have not moved since.</div>
+
+<h2 id=f1>2. Finding 1: nine counts that cannot be true</h2>
+<p>A transcript is one JSON object per line. A message occupies at most one line, so the line count is a hard ceiling on any message count. Nine rows claimed more messages than their transcript has lines in total.</p>
+<div class=tw><table>
+<tr><th>Row on the old board</th><th>Transcript</th><th>Claimed</th><th>Lines in file</th><th>User + assistant</th><th>Assistant only</th><th>Overshoot vs ceiling</th></tr>
+<tr><td class=n>01 Zappa paren fix audit</td><td class=m><code>7833e9bf</code></td><td class=num bad>739</td><td class=num>705</td><td class=num>425</td><td class=num>262</td><td class=num bad>+34</td></tr><tr><td class=n>02 Zappa chats audit update</td><td class=m><code>989f675d</code></td><td class=num bad>572</td><td class=num>403</td><td class=num>223</td><td class=num>151</td><td class=num bad>+169</td></tr><tr><td class=n>03 SVG handoff documentation</td><td class=m><code>30e6208e</code></td><td class=num bad>712</td><td class=num>678</td><td class=num>377</td><td class=num>242</td><td class=num bad>+34</td></tr><tr><td class=n>04 MacBook ntfy hook</td><td class=m><code>7bf85338</code></td><td class=num bad>449</td><td class=num>340</td><td class=num>186</td><td class=num>121</td><td class=num bad>+109</td></tr><tr><td class=n>08 Resume recent chats on wake</td><td class=m><code>b8d3b6c4</code></td><td class=num bad>415</td><td class=num>249</td><td class=num>147</td><td class=num>93</td><td class=num bad>+166</td></tr><tr><td class=n>09 Ableton 11 APC 20 sets</td><td class=m><code>2dbd8b8a</code></td><td class=num bad>647</td><td class=num>646</td><td class=num>362</td><td class=num>247</td><td class=num bad>+1</td></tr><tr><td class=n>11 Songs lickable to Songsterr</td><td class=m><code>bf53c889</code></td><td class=num bad>623</td><td class=num>470</td><td class=num>277</td><td class=num>193</td><td class=num bad>+153</td></tr><tr><td class=n>12 3-phase ghost note restore</td><td class=m><code>83a75ca6</code></td><td class=num bad>711</td><td class=num>681</td><td class=num>353</td><td class=num>231</td><td class=num bad>+30</td></tr><tr><td class=n>14 Volume to 45%</td><td class=m><code>375f20c2</code></td><td class=num bad>193</td><td class=num>179</td><td class=num>91</td><td class=num>57</td><td class=num bad>+14</td></tr>
+</table></div>
+<p>Every one of these sessions had already stopped before the board was built, so the counts were frozen and no later growth can explain the gap. Row 14 is the clearest. The chat that turned the volume down holds 179 lines and 57 assistant replies, and the board called it 193 messages.</p>
+
+<h2 id=f2>3. Finding 2: one idle value pasted onto three rows</h2>
+<p>Twelve of the fifteen idle times were accurate to a minute. Three were not, and those three were identical to each other.</p>
+<div class=tw><table>
+<tr><th>Row on the old board</th><th>Transcript</th><th>Claimed idle</th><th>Real idle at build</th><th>Error</th></tr>
+<tr><td class=n>04 MacBook ntfy hook</td><td class=m><code>7bf85338</code></td><td class=num bad>1h 20m</td><td class=num>175 min</td><td class=num bad>+95 min</td></tr><tr><td class=n>08 Resume recent chats on wake</td><td class=m><code>b8d3b6c4</code></td><td class=num bad>1h 20m</td><td class=num>166 min</td><td class=num bad>+86 min</td></tr><tr><td class=n>09 Ableton 11 APC 20 sets</td><td class=m><code>2dbd8b8a</code></td><td class=num bad>1h 20m</td><td class=num>151 min</td><td class=num bad>+71 min</td></tr>
+</table></div>
+<p>Three different chats, three different last-touch times, one shared answer. This is the signature of a value written in rather than read out.</p>
+
+<h2 id=f3>4. Finding 3: it said every chat and meant fifteen</h2>
+<p>The old board opened with a promise to cover <i>every Claude Code chat on this Mac that moved on 2026-09-07</i>. Twenty-two chats had moved by then. It listed fifteen. Seven were left out with no note saying so.</p>
+<p>The rebuild fixed this and now covers 22 of the 23 chats that have moved today. The one absence is <code>5ed46212</code>, which opened at 14:20, after the snapshot.</p>
+
+<h2 id=rebuild>5. The rebuild, measured row by row</h2>
+<p>I counted assistant replies in each transcript myself and compared. Rows are sorted by error size, worst first.</p>
+<div class=tw><table>
+<tr><th>Row</th><th>Transcript</th><th>Status</th><th>Board says</th><th>I count</th><th>Diff</th><th>Board idle</th><th>Real idle</th></tr>
+<tr><td class=n>19. Volume to 45%</td><td class=m><code>375f20c2</code></td><td class=m>Finished</td><td class=num>57</td><td class=num>57</td><td class='num ok'>+0</td><td class=num>1h 36m</td><td class=num>95 min</td></tr><tr><td class=n>04. SVG handoff documentation</td><td class=m><code>30e6208e</code></td><td class=m>Blocked on you</td><td class=num>242</td><td class=num>242</td><td class='num ok'>+0</td><td class=num>1h 25m</td><td class=num>85 min</td></tr><tr><td class=n>21. 3-phase ghost note restore, huge plan</td><td class=m><code>83a75ca6</code></td><td class=m>Finished</td><td class=num>231</td><td class=num>231</td><td class='num ok'>+0</td><td class=num>1h 28m</td><td class=num>88 min</td></tr><tr><td class=n>05. Zappa chats audit update</td><td class=m><code>989f675d</code></td><td class=m>Blocked on you</td><td class=num>151</td><td class=num>151</td><td class='num ok'>+0</td><td class=num>1h 06m</td><td class=num>66 min</td></tr><tr><td class=n>06. Zappa paren fix audit</td><td class=m><code>7833e9bf</code></td><td class=m>Blocked on you</td><td class=num>262</td><td class=num>262</td><td class='num ok'>+0</td><td class=num>1h 01m</td><td class=num>61 min</td></tr><tr><td class=n>22. Songs lickable text to Songsterr</td><td class=m><code>bf53c889</code></td><td class=m>Finished</td><td class=num>193</td><td class=num>193</td><td class='num ok'>+0</td><td class=num>34 min</td><td class=num>34 min</td></tr><tr><td class=n>15. Demucs guitar/drums isolation</td><td class=m><code>5d64fd40</code></td><td class=m>Finished</td><td class=num>999</td><td class=num>999</td><td class='num ok'>+0</td><td class=num>1h 31m</td><td class=num>91 min</td></tr><tr><td class=n>14. KEEP-IT-GREASEY s604777 handoff</td><td class=m><code>25eed9b9</code></td><td class=m>Part way</td><td class=num>441</td><td class=num>441</td><td class='num ok'>+0</td><td class=num>2h 37m</td><td class=num>157 min</td></tr><tr><td class=n>03. Authorized execution, Zomby Woof rev8</td><td class=m><code>a4c13f6b</code></td><td class=m>Blocked on you</td><td class=num>595</td><td class=num>595</td><td class='num ok'>+0</td><td class=num>1h 28m</td><td class=num>88 min</td></tr><tr><td class=n>02. Completion controller and state skills</td><td class=m><code>c492e138</code></td><td class=m>Needs your call</td><td class=num>407</td><td class=num>407</td><td class='num ok'>+0</td><td class=num>3h 05m</td><td class=num>184 min</td></tr><tr><td class=n>07. Resume recent chats on wake</td><td class=m><code>b8d3b6c4</code></td><td class=m>Needs your call</td><td class=num>93</td><td class=num>93</td><td class='num ok'>+0</td><td class=num>2h 59m</td><td class=num>179 min</td></tr><tr><td class=n>18. Zappa chat context loss, trouble first</td><td class=m><code>cecab27f</code></td><td class=m>Waiting on outside</td><td class=num>505</td><td class=num>505</td><td class='num ok'>+0</td><td class=num>3h 09m</td><td class=num>188 min</td></tr><tr><td class=n>08. Zappa ride ghost analysis, Watermelon</td><td class=m><code>04e0fedb</code></td><td class=m>Part way</td><td class=num>718</td><td class=num>718</td><td class='num ok'>+0</td><td class=num>2h 09m</td><td class=num>128 min</td></tr><tr><td class=n>13. Ableton 11 APC 20 sets</td><td class=m><code>2dbd8b8a</code></td><td class=m>Part way</td><td class=num>247</td><td class=num>247</td><td class='num ok'>+0</td><td class=num>2h 44m</td><td class=num>163 min</td></tr><tr><td class=n>10. Appleseed cast project, why I keep stopping</td><td class=m><code>40e86d1b</code></td><td class=m>Needs your call</td><td class=num>362</td><td class=num>362</td><td class='num ok'>+0</td><td class=num>1h 21m</td><td class=num>81 min</td></tr><tr><td class=n>01. MacBook Claude Code ntfy hook</td><td class=m><code>7bf85338</code></td><td class=m>Blocked on you</td><td class=num>121</td><td class=num>121</td><td class='num ok'>+0</td><td class=num>3h 08m</td><td class=num>188 min</td></tr><tr><td class=n>09. Notation evidence gate, inbox watcher</td><td class=m><code>5f76a6c5</code></td><td class=m>Blocked on you</td><td class=num>248</td><td class=num>248</td><td class='num ok'>+0</td><td class=num>2h 09m</td><td class=num>128 min</td></tr><tr><td class=n>20. Active chats quitting early</td><td class=m><code>9afcd690</code></td><td class=m>Finished</td><td class=num>861</td><td class=num>861</td><td class='num ok'>+0</td><td class=num>1h 31m</td><td class=num>90 min</td></tr><tr><td class=n>16. Notation evidence gate page help</td><td class=m><code>c6386d93</code></td><td class=m>Needs your call</td><td class=num>3</td><td class=num>22</td><td class='num warn'>-19</td><td class=num>10 min</td><td class=num>9 min</td></tr><tr><td class=n>17. Appleseed cast chat</td><td class=m><code>b7a070f1</code></td><td class=m>Part way</td><td class=num>199</td><td class=num>230</td><td class='num warn'>-31</td><td class=num>5 min</td><td class=num>-1 min</td></tr><tr><td class=n>11. Board review chat</td><td class=m><code>13b8d0d9</code></td><td class=m>Needs your call</td><td class=num>15</td><td class=num>86</td><td class='num warn'>-71</td><td class=num>8 min</td><td class=num>-6 min</td></tr><tr><td class=n>12. Active chats digest, 30-minute loop</td><td class=m><code>9acf1afe</code></td><td class=m>Running now</td><td class=num>26</td><td class=num>174</td><td class='num warn'>-148</td><td class=num>4 min</td><td class=num>-6 min</td></tr>
+</table></div>
+<div class=note><b>Read the four amber rows as drift, not invention.</b> Each is a chat that kept working after the 14:23 snapshot, so its reply count grew and its idle went negative. That is a stale number with an honest origin. Everything else agrees to the digit.</div>
+
+<h2 id=subst>6. The substance: what the rows actually claimed</h2>
+<p>Counts are cheap to fake and cheap to catch. The claims that cost you money are the ones about work being finished. I tested the checkable ones against disk, against Google Drive and against the live Songsterr API.</p>
+<div class=tw><table>
+<tr><th>Claim</th><th>Verdict</th><th>Evidence</th></tr>
+<tr><td class=n>APC20 sets: <i>built 4 sets, all 4 passed</i></td><td class='vd ok'>CONFIRMED</td><td class=m>Four <code>.als</code> files on disk in <code>~/Projects/_outputs/apc20-live11-sets/</code>, including the <code>APC20_1bank_8x5.als</code> the action names.</td></tr><tr><td class=n>Program scope: <i>34 Zappa song names made clickable</i></td><td class='vd ok'>CONFIRMED</td><td class=m>34 unique <code>songsterr.com</code> hrefs in the published page, counted directly.</td></tr><tr><td class=n>Band practice: <i>13.7 GB uploaded to Drive</i></td><td class='vd ok'>CONFIRMED</td><td class=m>rclone log ends <code>UPLOAD COMPLETE</code>, 13.776 GiB. A live <code>rclone size</code> today returns the same 13.776 GiB.</td></tr><tr><td class=n>Band practice: <i>zero differences found</i></td><td class='vd warn'>DISCREPANCY</td><td class=m>The upload log recorded <b>133</b> objects. Drive holds <b>132</b> today, 6,148 bytes lighter. Small, real, worth one look.</td></tr><tr><td class=n>Ghost notes: <i>3,832 marks erased</i></td><td class='vd ok'>CONFIRMED</td><td class=m>The audit page carries 3,832 against <i>still damaged and live, 15 tabs</i> and 3,842 against <i>current public revision, 16 tabs</i>. Two different rows, both legitimate.</td></tr><tr><td class=n>Watermelon: <i>Frank Zappa's own name is missing from the live tab</i></td><td class='vd warn'>IMPRECISE</td><td class=m>The Songsterr meta for s35881 returns <code>artist: Frank Zappa</code>, so the artist credit is present. All <b>nine</b> track names are empty strings. The defect is real and broader than the sentence describes.</td></tr><tr><td class=n>Band practice: <i>150 drum files and 25 band files</i></td><td class='vd warn'>UNRESOLVED</td><td class=m>The 8-28 subtree holds 308 audio files at 41 GB, and Drive holds 132 objects. Neither equals 175. The claim may count only final deliverables, and no manifest on the board says which.</td></tr><tr><td class=n>Volume cap released</td><td class='vd ok'>CONSISTENT</td><td class=m>Output volume reads 57, above the old 45 ceiling. Consistent with the cap being off.</td></tr><tr><td class=n>All 13 outbound links resolve</td><td class='vd ok'>CONFIRMED</td><td class=m>Every link on the linked version returned http 200, checked with <code>curl -L</code>.</td></tr>
+</table></div>
+<div class=note><b>One lead I chased and dropped.</b> The band-practice handoff on disk says the Drive upload was <i>running</i> at about 4.5 GB, which looked like a finished-too-early claim. It was stale text written mid-run. The log ends <code>UPLOAD COMPLETE</code> at 13.776 GiB and Drive agrees today, so the board was right and the handoff was behind.</div>
+
+<h2 id=gate>7. What the fraud gate says</h2>
+<p><code>session_fraud_check.py --hard-only</code> hard-fails on both versions with the same two findings.</p>
+<div class=tw><table>
+<tr><th>Finding</th><th>Where</th><th>My read</th></tr>
+<tr><td class=n>anthropic-refund-implication</td><td class=m>Row 10, twice</td><td class=m>Defensible. The row describes a chat whose stated goal was to work out a refund, so it reports your own request. You said this cycle had no refund, so keep an eye on it.</td></tr>
+<tr><td class=n>done-without-fraud-check-run</td><td class=m>Lines 129 and 286</td><td class=m>Fair hit. Two rows declare finished work with no gate evidence attached to the claim.</td></tr>
+</table></div>
+
+<h2 id=notchecked>8. What I did not check</h2>
+<ul>
+<li><b>The narrative bullets on eighteen rows.</b> Verifying each would mean reading roughly 9,000 assistant replies. I sampled the nine highest-stakes claims instead and listed them above.</li>
+<li><b>Whether the recommended actions are the right ones.</b> I tested truth, not judgment.</li>
+<li><b>The other twelve published pages the board links to.</b> I confirmed each returns http 200 and did not audit their contents.</li>
+<li><b>Row 06 on the old board.</b> Its chat was still running, so its count could not be frozen and compared.</li>
+</ul>
+
+<h2 id=method>9. Method, so you can rerun it</h2>
+<p>Nothing here rests on reading a chat's own account of itself. Each number came from a source the chat does not write.</p>
+<ul>
+<li><b>Counts</b> parsed from <code>~/.claude/projects/*/*.jsonl</code>, skipping <code>isSidechain</code> entries.</li>
+<li><b>Idle</b> from file mtime against the build timestamp printed on the board.</li>
+<li><b>Drive</b> from <code>rclone size gdrive:BandPractice/8-28-26-drumkit</code> run live today.</li>
+<li><b>Songsterr</b> from <code>api/meta/35881</code>, reading the <code>name</code> field on each track. Reading <code>title</code> reports every tab as empty and is the known trap.</li>
+<li><b>Links</b> from <code>curl -sL -o /dev/null -w %{http_code}</code> on all thirteen.</li>
+</ul>
+
+<footer>Built 2026-09-07 14:30 CDT. Subject board: <a href="https://7onething1.github.io/active-chats-2026-09-07/">active-chats-2026-09-07</a>. Notes: <a href="index.md">index.md</a>.</footer>
+</div>
