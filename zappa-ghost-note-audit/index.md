@@ -340,6 +340,14 @@ the bit meanings from an assumed spec and had 4 and 8 SWAPPED. Corrected from me
 | 1 | staccato | staccato dot | measured, bars 300/302/304 |
 | 4 | accentuated 2 | marcato ^ | **measured, glyph seen at bar 3** |
 | 8 | accentuated 1 | accent > | closed 2026-09-06, alphaTab GpifParser/GpifWriter/AccentuationGlyph |
+
+**Bar-128 render closed visually, 2026-09-07.** The Songsterr viewer is virtualised and never
+painted at that scroll depth, so the file on disk was rendered directly with alphaTab 1.6.0 in
+headless Chrome, one bar per page, drums track 15 only, and cropped at native resolution.
+Bar 128 draws a horizontal wedge with its apex to the right, `ArticAccentAbove`. Bar 101 draws an
+inverted V with a clean apex, `ArticMarcatoAbove`, a second marcato sighting independent of bar 3.
+Figure: accent-glyph-proof.png . The mapping now holds on four routes: reader, writer, glyph enum,
+and a picture of the real file.
 | 9 | accentuated 1 + staccato | accent plus dot | 8\|1 |
 
 Correspondence measured both ways on Drowning Witch's drum staff: `Accent=4` renders twice
