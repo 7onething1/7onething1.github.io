@@ -231,13 +231,13 @@ mean kick peak 0.378 against 0.054 on phase 2, a seven to one margin.
 Thresholds were chosen per lane by maximising phase lock to the metronome grid. Lock R runs 0
 for a uniform scatter and toward 1 for events sitting on the grid.
 
-| Lane | Events | Strong | Weak | Per bar | Lock R |
-|---|---|---|---|---|---|
+| Lane | Events | Strong | Weak | Per bar | Lock R | Note |
+|---|---|---|---|---|---|---|
 | kick | 350 | 157 | 193 | 4.55 | 0.402 |
 | snare | 82 | 37 | 45 | 1.06 | 0.837 |
 | toms | 117 | 53 | 64 | 1.52 | 0.182 |
 | hat | 240 | 108 | 132 | 3.12 | 0.391 |
-| cymbals | 120 | 56 | 64 | 1.56 | 0.081 |
+| cymbals | 120 | 56 | 64 | 1.56 | 0.081 | **WITHDRAWN, fails its null** |
 | other_kit | 98 | 44 | 54 | 1.27 | 0.301 |
 
 **Two detector failures worth recording.** The first pass returned zero kick and zero tom
@@ -267,3 +267,28 @@ both files. The Songsterr session is signed in with 44 transcription credits ava
 
 Files: `gp/DONOR-s642618.gp` and `gp/SLIME-Brandon-edit-tempo-185032.gp` under
 `~/Projects/_outputs/zappa-slime-transcription/`.
+
+
+### The chance baseline, and the lane it kills
+
+Null: each lane's event count held fixed, events scattered uniformly at random across the same
+span under the same refractory spacing, lock measured again, 400 draws per lane.
+
+| Lane | Events | Observed R | Null mean | Null p95 | z | p | Verdict |
+|---|---|---|---|---|---|---|---|
+| kick | 350 | 0.404 | 0.048 | 0.090 | 14.2 | 0.0000 | real, far outside chance |
+| snare | 82 | 0.837 | 0.098 | 0.182 | 14.4 | 0.0000 | real, far outside chance |
+| toms | 117 | 0.182 | 0.080 | 0.152 | 2.4 | 0.0200 | real |
+| hat | 240 | 0.391 | 0.058 | 0.111 | 11.4 | 0.0000 | real, far outside chance |
+| cymbals | 120 | 0.082 | 0.080 | 0.159 | 0.0 | 0.4250 | **fails** |
+| other_kit | 98 | 0.301 | 0.092 | 0.184 | 4.3 | 0.0000 | real, far outside chance |
+
+**The cymbal count does not ship.** Observed lock 0.082 against a null mean of 0.080, z of 0.0,
+p of 0.425. Those 120 events are placed no better than random scatter, so the count is withdrawn
+as evidence. This is the failure the brief predicted for sustained cymbals, where the decay of
+one stroke buries the attack of the next. That lane needs slot scoring against the written
+subdivision.
+
+The `reference-class` gate passes all six checks on this lane once a null is quoted, because it
+verifies a baseline was stated rather than that the result beats it. The measurement overrides
+the gate.

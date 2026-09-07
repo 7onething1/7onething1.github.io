@@ -413,9 +413,39 @@ ghost candidate.</p>
 <tr><td>snare</td><td class="n">82</td><td class="n">37</td><td class="n">45</td><td class="n">1.06</td><td class="n">0.837</td><td>Lock is very high, count is low. The threshold caught only the loudest strokes, so the ghost tier is still to build.</td></tr>
 <tr><td>toms</td><td class="n">117</td><td class="n">53</td><td class="n">64</td><td class="n">1.52</td><td class="n">0.182</td><td>Weak lock is expected, since fills do not sit on a repeating grid.</td></tr>
 <tr><td>hat</td><td class="n">240</td><td class="n">108</td><td class="n">132</td><td class="n">3.12</td><td class="n">0.391</td><td>Trusted for the steady passages.</td></tr>
-<tr><td>cymbals</td><td class="n">120</td><td class="n">56</td><td class="n">64</td><td class="n">1.56</td><td class="n">0.081</td><td>Lowest lock of any lane. Sustained decay hides onsets, which is why this lane needs slot scoring.</td></tr>
+<tr style="background:#79402E1a"><td>cymbals</td><td class="n">120</td><td class="n">56</td><td class="n">64</td><td class="n">1.56</td><td class="n">0.081</td><td><strong>Withdrawn.</strong> Fails its own chance baseline at p=0.425. See below.</td></tr>
 <tr><td>other_kit</td><td class="n">98</td><td class="n">44</td><td class="n">54</td><td class="n">1.27</td><td class="n">0.301</td><td>Treat as residue until a listen confirms otherwise.</td></tr>
 </tbody></table>
+
+
+<h3>The chance baseline, and the lane it kills</h3>
+<p>A lock figure means nothing until something says what it would read if no music were there.
+The null holds each lane's event count fixed, scatters those events uniformly at random across
+the same span under the same refractory spacing, and measures lock again. Four hundred draws
+per lane.</p>
+<table><thead><tr><th>Lane</th><th class="n">Events</th><th class="n">Observed R</th>
+<th class="n">Null mean</th><th class="n">Null p95</th><th class="n">z</th><th class="n">p</th>
+<th>Verdict</th></tr></thead><tbody>
+<tr><td>kick</td><td class="n">350</td><td class="n">0.404</td><td class="n">0.048</td><td class="n">0.090</td><td class="n">14.2</td><td class="n">0.0000</td><td>real, far outside chance</td></tr>
+<tr><td>snare</td><td class="n">82</td><td class="n">0.837</td><td class="n">0.098</td><td class="n">0.182</td><td class="n">14.4</td><td class="n">0.0000</td><td>real, far outside chance</td></tr>
+<tr><td>toms</td><td class="n">117</td><td class="n">0.182</td><td class="n">0.080</td><td class="n">0.152</td><td class="n">2.4</td><td class="n">0.0200</td><td>real</td></tr>
+<tr><td>hat</td><td class="n">240</td><td class="n">0.391</td><td class="n">0.058</td><td class="n">0.111</td><td class="n">11.4</td><td class="n">0.0000</td><td>real, far outside chance</td></tr>
+<tr><td>cymbals</td><td class="n">120</td><td class="n">0.082</td><td class="n">0.080</td><td class="n">0.159</td><td class="n">0.0</td><td class="n">0.4250</td><td><strong>fails</strong></td></tr>
+<tr><td>other_kit</td><td class="n">98</td><td class="n">0.301</td><td class="n">0.092</td><td class="n">0.184</td><td class="n">4.3</td><td class="n">0.0000</td><td>real, far outside chance</td></tr>
+</tbody></table>
+
+<div class="callout warn">
+<h4>The cymbal count does not ship</h4>
+<p>Cymbals read an observed lock of <strong>0.082</strong> against a null mean of
+<strong>0.080</strong>. That is z of 0.0 and p of 0.425, so those 120 events are placed no
+better than random scatter. The count is withdrawn as evidence. This is the exact failure the
+brief predicted for sustained cymbals, where the decay of one stroke buries the attack of the
+next, and it is why that lane needs slot scoring against the written subdivision rather than a
+transient count.</p>
+<p>The <span class="mono">reference-class</span> gate passes all six checks on this lane once a
+null is quoted, because it verifies that a baseline was stated rather than that the result beats
+it. The measurement above overrides the gate. Worth teaching the gate to read the verdict.</p>
+</div>
 
 <div class="callout warn">
 <h4>Two detector failures worth recording, because both looked like facts</h4>
@@ -469,6 +499,8 @@ available, so the upload path is open.</p>
 <tr><td>Tab to audio bar offset is minus three</td><td>Two anchors: 80 tab bars against 77 audio bars, and the solo at tab bar 59 against audio bar 56</td><td>confirmed</td></tr>
 <tr><td>s642618 holds 229 favorites, the highest</td><td><span class="mono">favoritesCount</span> on api/meta for all four ids</td><td>confirmed</td></tr>
 <tr><td>Rebuilt copy changes only the tempo</td><td>Structural diff: 267 notes, 866 beats, 80 master bars, 5 tracks in both files</td><td>confirmed</td></tr>
+<tr><td>Cymbal onset count is not evidence</td><td>400 draw null at fixed n: observed lock 0.082 against null mean 0.080, z 0.0, p 0.425</td><td>withdrawn</td></tr>
+<tr><td>Kick, snare, hat onsets beat chance</td><td>Same null: z 14.2, 14.4 and 11.4, all p below 0.0001</td><td>confirmed</td></tr>
 <tr><td>Songsterr session is signed in</td><td>credits endpoint returns 200 with 44 available transcriptions</td><td>confirmed</td></tr>
 <tr><td>No Guitar Pro file for this song on disk</td><td>ripgrep file listing over Projects filtered to Guitar Pro extensions, 60 hits, none for this song</td><td>confirmed</td></tr>
 <tr><td>All four tabs belong to other authors</td><td>Songsterr <span class="mono">api/meta</span> author field, read 2026-09-07</td><td>confirmed</td></tr>
