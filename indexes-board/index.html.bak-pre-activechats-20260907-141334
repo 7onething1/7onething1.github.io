@@ -208,13 +208,7 @@ border-radius:3px;flex:none}
     </div>
   </section>
   <section id="chats--sessions---work" data-cat>
-    <h2 style="border-color:#7fa7c9">Chats, Sessions &amp; Work<span class="ct">18</span></h2>
-      <div class="card" data-s="active chats 2026-09-07 finish today every claude code chat that moved today summed up plain with one named action each active-chats-2026-09-07">
-        <div class="h"><a href="/active-chats-2026-09-07">Active Chats, 2026-09-07</a><span class="b live">live</span></div>
-        <div class="w">Every chat on this Mac that moved on 2026-09-07, read to the bottom, summed up plain, with idle clocks and one named finish-today action each.</div>
-        <div class="m">15 chats</div>
-        <div class="p">/Users/brandonchavez/Projects/drwu-htmls/public/active-chats-2026-09-07</div>
-      </div>
+    <h2 style="border-color:#7fa7c9">Chats, Sessions &amp; Work<span class="ct">17</span></h2>
     <div class="grid">
       <div class="card" data-s="all chats board complete index of all claude code chat sessions (newest to oldest) with enrichment metadata, topic filtering, and transcript links all-chats">
         <div class="h"><a href="/all-chats">All Chats Board</a><span class="b live">live</span></div>
