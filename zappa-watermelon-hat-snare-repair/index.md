@@ -292,6 +292,43 @@ material now has the same protection, and it runs before the file is written.
 Published state read back from the CDN: kick 398/398, pedal hi-hat 286/286, snare ghosts
 147/147, ride accents 409/409, cymbal parentheses 0/0.
 
+
+## The toms, and a change of posture
+
+Brandon, hard gate: he runs Moises Pro and the stems are good, so stop opening every lane with
+a bleed hypothesis. A separation check confirms and reports; it does not block the work.
+
+The tom numbers back him completely.
+
+| check | result | reading |
+|---|---|---|
+| candidates vs the isolated kick stem | 0.27x of chance | below chance, they AVOID the kick |
+| candidates vs the isolated snare stem | 0.52x of chance | below chance |
+| candidates vs the notated kick | 0.29x of chance | below chance |
+| the author's own 6 toms vs the kick stem | 0.00x | his toms never coincide either |
+| median decay | 348 ms | a drum that rings |
+
+Below-chance coincidence is the signature of good separation: the lanes avoid each other
+rather than echo each other.
+
+### Which tom, read off the fundamentals
+
+Each candidate's fundamental was measured in the tom range. The histogram has two modes with
+nothing between them, which is a two-tom kit cleanly split rather than a smear:
+
+    near  86 Hz   210 onsets
+    (a wide empty band, zero counts)
+    near 129 Hz   426 onsets
+    above          26 onsets
+
+Those two modes map onto the tom lanes the tab already defines. 599 placed: 415 high, 184 low.
+
+### The tab's tom part, before and after
+
+| | author | added |
+|---|---|---|
+| tom events | 6 | 599 |
+
 ## Stopping condition
 
 1. snare, kick and toms: CLOSED. All three clear 1.5x in both directions.

@@ -67,6 +67,7 @@ footer{margin-top:56px;padding-top:16px;border-top:2px solid var(--rule);font-si
 <li><a href="#acc">Accent or ghost</a></li>
 <li><a href="#kick">The kick, a failed search</a></li>
 <li><a href="#lossless">Readability without deleting evidence</a></li>
+<li><a href="#toms">The toms</a></li>
 <li><a href="#stop">Stopping condition</a></li>
 <li><a href="#live">Published state</a></li>
 </ol></nav>
@@ -78,6 +79,7 @@ like a strong result.</p>
 
 <h2 id="what"><span class="dot" style="background:var(--sage)"></span>What went on the tab</h2>
 <div class="grid">
+<div class="stat"><span class="v">599</span><span class="l">toms</span></div>
 <div class="stat"><span class="v">398</span><span class="l">kick</span></div>
 <div class="stat"><span class="v">286</span><span class="l">pedal hi-hat</span></div>
 <div class="stat"><span class="v">147</span><span class="l">rebound ghosts</span></div>
@@ -305,6 +307,28 @@ replaced. Look at a notation change before shipping it.</p>
    PASS, nothing merged away</pre>
 <p>Voice 0 already had a set-difference-zero check protecting the author's material. The added
 material now has the same protection, and it runs before the file is written.</p></div>
+
+<h2 id="toms"><span class="dot" style="background:var(--mustard)"></span>The toms, and a change of posture</h2>
+<div class="card good"><h3>Hard gate from Brandon</h3>
+<p>He runs Moises Pro and the stems are good, so stop opening every lane with a bleed
+hypothesis. A separation check confirms and reports. It does not block the work.</p></div>
+<table><thead><tr><th>check</th><th class="n">result</th><th>reading</th></tr></thead><tbody>
+<tr><td>candidates vs the isolated kick stem</td><td class="n pass">0.27x</td><td>below chance, they AVOID the kick</td></tr>
+<tr><td>candidates vs the isolated snare stem</td><td class="n pass">0.52x</td><td>below chance</td></tr>
+<tr><td>candidates vs the notated kick</td><td class="n pass">0.29x</td><td>below chance</td></tr>
+<tr><td>the author's own 6 toms vs the kick stem</td><td class="n">0.00x</td><td>his toms never coincide either</td></tr>
+<tr><td>median decay</td><td class="n">348 ms</td><td>a drum that rings</td></tr>
+</tbody></table>
+<p>Below-chance coincidence is the signature of good separation: the lanes avoid each other
+rather than echo each other.</p>
+<h3>Which tom, read off the fundamentals</h3>
+<pre>near  86 Hz   210 onsets
+(a wide empty band, zero counts)
+near 129 Hz   426 onsets
+above          26 onsets</pre>
+<p>Two modes with nothing between them, which is a two-tom kit cleanly split rather than a
+smear. They map onto the tom lanes the tab already defines. <b>599 placed: 415 high, 184
+low</b>, against the author's 6.</p>
 
 <h2 id="stop"><span class="dot" style="background:var(--sage)"></span>Stopping condition</h2>
 <table><thead><tr><th>lane</th><th>state</th><th>what closes it</th></tr></thead><tbody>
