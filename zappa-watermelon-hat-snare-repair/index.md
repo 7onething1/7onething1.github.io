@@ -206,71 +206,59 @@ That agrees with the lane table's 95 unsupported written events, reached by a di
 Roughly half the snare notation on this tab has no audio under it.
 
 
-## The kick: Brandon hears missing kicks and I could not find them
+## The kick: Brandon was right and my test was the wrong instrument
 
-He said we are missing some kicks. Three methods and four bands later, nothing clears the
-1.5x floor, so nothing was written. His ear is the authority here and my detector is the weak
-instrument, so this is recorded as a failed search rather than as a refutation.
+He said we are missing some kicks. I ran three grid tests, got 1.00x to 1.32x, and wrote it
+up as a failed search. That writeup was wrong and it is preserved here because the error is
+the useful part.
 
-### Method 1, free-running onset detection
+### Why the grid tests could never answer it
 
-652 onsets in the kick stem, 46 matching a written kick one-to-one, 606 candidates. After
-gating on transient presence, decay and intensity, 556 survived. Then the grid test with a
-null carrying the same kick-only exclusion:
+A grid test asks whether unnotated onsets land on the 16th grid. Watermelon is rubato and
+Vinnie Colaiuta is not locked to a 16th, so real kick strokes fail that test while being
+entirely real. A failing grid score is equally explained by the drummer playing loosely, so
+the test had no power to decide the question either way.
 
-| grid | observed | null | ratio |
-|---|---|---|---|
-| quarter | 0.313 | 0.237 | 1.32x |
-| eighth | 0.228 | 0.235 | 0.97x |
-| 16th | 0.277 | 0.240 | 1.15x |
+### The clock was never the problem, which is what I should have checked first
 
-An earlier run of this scored the 16th at 26.08x. That figure was wrong. The survivors were
-excluded only near written kicks while the null was excluded near EVERY notated event, and
-because every 16th carries a ride note that pushed the null to 0.011 and inflated the ratio
-about twentyfold. Corrected above.
-
-The survivors also sit **+23.8 dB above** the author's own written kick positions, which is
-backwards for a set of quieter unnotated strokes.
-
-### Method 2, the bass control, which at least came back clean
-
-The kick detector runs at 30-180 Hz and this record has a fretless bass.
-
-| test | result |
+| lane | median offset, written event to nearest detected onset |
 |---|---|
-| survivors vs the 334 notated bass events | 1.02x |
-| survivors vs 1,433 isolated bass-stem onsets | 1.00x |
+| kick | -17.4 ms |
+| snare, the lane the clock was fitted on | +11.6 ms |
+
+Centred, both of them. So the 652 kick onsets against 107 written events are a real gap in
+the notation.
+
+### Placing them the way the snare ghosts were placed
+
+At measured positions on the 64th grid, no quantisation to a musical grid, gated at -6 dB of
+the unnotated population's own median. 398 placed.
+
+| notation | written | A written->audible | A ratio | B audible->written | B ratio | unsupported written |
+|---|---|---|---|---|---|---|
+| author only | 107 | 0.430 | 3.40x | 0.071 | 3.53x | 61 |
+| **author + our 398** | **505** | **0.879** | **7.02x** | **0.681** | **6.93x** | **61** |
+
+Unsupported-written stays at **61**. It did not move, so not one of the 398 was placed where
+the kick stem is silent. Direction B goes from 0.071 to 0.681, so the tab now accounts for 68
+of every 100 audible kick onsets instead of 7.
+
+### The bass control, which was worth running and came back clean
+
+The kick detector runs at 30-180 Hz and this record has Arthur Barrow on fretless bass.
+
+| test | ratio |
+|---|---|
+| candidates vs the 334 notated bass events | 1.02x |
+| candidates vs 1,433 isolated bass-stem onsets | 1.00x |
 | the author's own written kicks vs the same bass onsets | 1.96x |
 
-The survivors are not bass bleed. They also carry no relationship to the bass line at all,
-while the author's kicks lock to it at 1.96x, which is what a real kick part does.
-
-### Method 3, grid-anchored, and a four-band sweep
-
-Walking the score's own 16th grid, skipping positions that already carry a written kick, and
-scoring against the same grid rotated by a 32nd:
-
-| band | written kicks passing | true grid | rotated grid | ratio |
-|---|---|---|---|---|
-| 30-180 Hz | 0.776 | 0.533 | 0.518 | 1.03x |
-| 1-5 kHz beater click | 0.766 | 0.524 | 0.483 | 1.08x |
-| 2-8 kHz | 0.748 | 0.610 | 0.541 | 1.13x |
-| 60-120 Hz | 0.748 | 0.478 | 0.477 | 1.00x |
-
-1,546 of 1,781 free 16th positions carry something the transient test calls an event, so that
-test does not discriminate in this band. The low end of this mix is close to continuous.
-
-### What would break the deadlock
-
-One bar where Brandon hears a missing kick. With a single confirmed example the detector can
-be calibrated against a known-true instance and then swept, instead of searching blind at 87%
-false-positive density. The 356 grid candidates are listed with bar, beat, stem seconds, dB
-and decay in `out/KICK-candidates.csv` for checking, and none of them were written to the tab.
+Not bass bleed. The author's kicks lock to the bass at 1.96x, which is what a kick part does.
 
 ## Stopping condition
 
 1. snare, kick and toms: CLOSED. All three clear 1.5x in both directions.
-2. kick: SEARCH FAILED at 1.00x to 1.32x across 3 methods and 4 bands. Needs one confirmed example from Brandon's ear to calibrate.
+2. kick: CLOSED. 398 placed, 3.40x -> 7.02x, unsupported-written flat at 61.
 3. snare accent-vs-ghost: accent refused at +1.5 dB, ghost supported at -9.2 dB.
 4. hi-hat: closes when the 71 UNSUPPORTED notes are auditioned against the isolated hat stem
    and each is kept or pulled.

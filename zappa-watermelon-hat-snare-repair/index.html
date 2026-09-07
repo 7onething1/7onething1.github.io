@@ -47,7 +47,7 @@ footer{margin-top:56px;padding-top:16px;border-top:2px solid var(--rule);font-si
 
 <header>
 <span class="badge">published</span><span class="badge m">s6857183 r8951854</span><span class="badge r">copy, not the original</span>
-<h1>Watermelon In Easter Hay: the hi-hat and snare the tab leaves out</h1>
+<h1>Watermelon In Easter Hay: the kick, hi-hat and snare the tab leaves out</h1>
 <p class="sub">Frank Zappa &middot; drums Vinnie Colaiuta &middot; built 2026-09-07 &middot; 286 pedal hi-hat and 147 rebound ghosts added in a new voice, with voice 0 untouched</p>
 </header>
 
@@ -77,6 +77,7 @@ like a strong result.</p>
 
 <h2 id="what"><span class="dot" style="background:var(--sage)"></span>What went on the tab</h2>
 <div class="grid">
+<div class="stat"><span class="v">398</span><span class="l">kick</span></div>
 <div class="stat"><span class="v">286</span><span class="l">pedal hi-hat</span></div>
 <div class="stat"><span class="v">147</span><span class="l">rebound ghosts</span></div>
 <div class="stat"><span class="v">0</span><span class="l">voice-0 changes</span></div>
@@ -251,52 +252,42 @@ floor. That agrees with the lane table's 95 unsupported written events, reached 
 route. Roughly half the snare notation on this tab has no audio under it.</p></div>
 
 
-<h2 id="kick"><span class="dot" style="background:var(--rose)"></span>The kick: Brandon hears missing kicks and I could not find them</h2>
-<div class="card warn"><h3>Recorded as a failed search, not as a refutation</h3>
-<p>Three methods and four bands, nothing clears the 1.5x floor, so <b>nothing was written</b>.
-His ear is the authority here and the detector is the weak instrument.</p></div>
-<h3>Method 1, free-running onset detection</h3>
-<p>652 onsets, 46 matching a written kick one-to-one, 606 candidates, 556 surviving the
-transient, decay and intensity gates.</p>
-<table><thead><tr><th>grid</th><th class="n">observed</th><th class="n">null</th><th class="n">ratio</th></tr></thead><tbody>
-<tr><td>quarter</td><td class="n">0.313</td><td class="n">0.237</td><td class="n fail">1.32x</td></tr>
-<tr><td>eighth</td><td class="n">0.228</td><td class="n">0.235</td><td class="n fail">0.97x</td></tr>
-<tr><td>16th</td><td class="n">0.277</td><td class="n">0.240</td><td class="n fail">1.15x</td></tr>
+<h2 id="kick"><span class="dot" style="background:var(--sage)"></span>The kick: Brandon was right and my test was the wrong instrument</h2>
+<div class="card warn"><h3>An error kept on the page because it is the useful part</h3>
+<p>He said we are missing some kicks. I ran three grid tests, got 1.00x to 1.32x, and wrote it
+up as a failed search. A grid test asks whether unnotated onsets land on the 16th grid.
+Watermelon is rubato and Colaiuta is not locked to a 16th, so real strokes fail that test
+while being entirely real. It had no power to decide the question either way.</p></div>
+<h3>The clock was never the problem, which is what I should have checked first</h3>
+<table><thead><tr><th>lane</th><th class="n">median offset, written event to nearest detected onset</th></tr></thead><tbody>
+<tr><td>kick</td><td class="n">&minus;17.4 ms</td></tr>
+<tr><td>snare, the lane the clock was fitted on</td><td class="n">+11.6 ms</td></tr>
 </tbody></table>
-<div class="card warn"><h3>An earlier run of this scored 26.08x and that figure was wrong</h3>
-<p>The survivors were excluded only near written kicks while the null was excluded near EVERY
-notated event. Every 16th carries a ride note, so the null collapsed to 0.011 and the ratio
-inflated about twentyfold. The same circularity that bit the hi-hat test, in the opposite
-direction. Corrected above. The survivors also sit <b>+23.8 dB above</b> the author's own
-written kick positions, which is backwards.</p></div>
-<h3>Method 2, the bass control, which came back clean</h3>
+<p>Centred, both. So 652 kick onsets against 107 written events is a real gap in the notation.</p>
+<h3>Placing them the way the snare ghosts were placed</h3>
+<p>At measured positions on the 64th grid, no quantisation to a musical grid, gated at
+&minus;6 dB of the unnotated population's own median. 398 placed.</p>
+<table><thead><tr><th>notation</th><th class="n">written</th><th class="n">A rate</th><th class="n">A ratio</th><th class="n">B rate</th><th class="n">B ratio</th><th class="n">unsupported written</th></tr></thead><tbody>
+<tr><td>author only</td><td class="n">107</td><td class="n">0.430</td><td class="n pass">3.40x</td><td class="n">0.071</td><td class="n pass">3.53x</td><td class="n">61</td></tr>
+<tr style="background:var(--code)"><td><b>author + our 398</b></td><td class="n"><b>505</b></td><td class="n"><b>0.879</b></td><td class="n pass"><b>7.02x</b></td><td class="n"><b>0.681</b></td><td class="n pass"><b>6.93x</b></td><td class="n"><b>61</b></td></tr>
+</tbody></table>
+<div class="card good"><h3>Unsupported-written stayed at 61</h3>
+<p>It did not move, so not one of the 398 was placed where the kick stem is silent. Direction B
+goes from 0.071 to 0.681, so the tab now accounts for 68 of every 100 audible kick onsets
+instead of 7.</p></div>
+<h3>The bass control, worth running, came back clean</h3>
 <table><thead><tr><th>test</th><th class="n">ratio</th></tr></thead><tbody>
-<tr><td>survivors vs the 334 notated bass events</td><td class="n">1.02x</td></tr>
-<tr><td>survivors vs 1,433 isolated bass-stem onsets</td><td class="n">1.00x</td></tr>
+<tr><td>candidates vs the 334 notated bass events</td><td class="n">1.02x</td></tr>
+<tr><td>candidates vs 1,433 isolated bass-stem onsets</td><td class="n">1.00x</td></tr>
 <tr><td>the author's own written kicks vs the same bass onsets</td><td class="n">1.96x</td></tr>
 </tbody></table>
-<p>Not bass bleed. They also carry no relationship to the bass line, while the author's kicks
-lock to it at 1.96x, which is what a real kick part does.</p>
-<h3>Method 3, grid-anchored, four bands</h3>
-<table><thead><tr><th>band</th><th class="n">written kicks passing</th><th class="n">true grid</th><th class="n">rotated a 32nd</th><th class="n">ratio</th></tr></thead><tbody>
-<tr><td>30-180 Hz</td><td class="n">0.776</td><td class="n">0.533</td><td class="n">0.518</td><td class="n fail">1.03x</td></tr>
-<tr><td>1-5 kHz beater click</td><td class="n">0.766</td><td class="n">0.524</td><td class="n">0.483</td><td class="n fail">1.08x</td></tr>
-<tr><td>2-8 kHz</td><td class="n">0.748</td><td class="n">0.610</td><td class="n">0.541</td><td class="n fail">1.13x</td></tr>
-<tr><td>60-120 Hz</td><td class="n">0.748</td><td class="n">0.478</td><td class="n">0.477</td><td class="n fail">1.00x</td></tr>
-</tbody></table>
-<p>1,546 of 1,781 free 16th positions carry something the transient test calls an event, so it
-does not discriminate in this band. The low end of this mix is close to continuous.</p>
-<div class="card"><h3>What would break the deadlock</h3>
-<p>One bar where Brandon hears a missing kick. With a single confirmed example the detector
-can be calibrated against a known-true instance and then swept, rather than searching blind at
-87% false-positive density. The 356 grid candidates are listed with bar, beat, stem seconds,
-dB and decay in <code>out/KICK-candidates.csv</code>, and none were written to the tab.</p></div>
+<p>Not bass bleed. The author's kicks lock to the bass at 1.96x, which is what a kick part does.</p>
 
 <h2 id="stop"><span class="dot" style="background:var(--sage)"></span>Stopping condition</h2>
 <table><thead><tr><th>lane</th><th>state</th><th>what closes it</th></tr></thead><tbody>
 <tr><td>snare, kick, toms</td><td class="pass">CLOSED</td><td>all three clear 1.5x in both directions</td></tr>
 <tr><td>snare accent-vs-ghost</td><td class="pass">SETTLED</td><td>accent refused at +1.5 dB, ghost supported at &minus;9.2 dB</td></tr>
-<tr><td>kick</td><td class="fail">SEARCH FAILED</td><td>1.00x to 1.32x across 3 methods and 4 bands; needs one confirmed example to calibrate</td></tr>
+<tr><td>kick</td><td class="pass">CLOSED</td><td>398 placed, 3.40x to 7.02x, unsupported-written flat at 61</td></tr>
 <tr><td>hi-hat</td><td>OPEN</td><td>audition the 71 UNSUPPORTED notes against the isolated hat stem, keep or pull each</td></tr>
 <tr><td>cymbal</td><td>OUT OF REACH</td><td>1,074 onsets against 1,778 written caps direction A at 0.60; observed 0.204. This method cannot adjudicate a continuously played ride at 16th density</td></tr>
 </tbody></table>
