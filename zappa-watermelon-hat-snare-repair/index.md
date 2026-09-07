@@ -323,6 +323,32 @@ content there is not what a transcriber hears as a tom, so no threshold on it ca
 Drumnet's hand chart of this same Joe's Garage take, read at native resolution, shows ride
 with snare and kick underneath and toms only as short runs at phrase ends. Toms stay out.
 
+## What the hand transcription corroborates, and what it cannot
+
+Asked whether I had taken everything from the chart, the answer was no. I had used it as a
+yes/no on toms and stopped. Reading it properly changes nothing on the tab and confirms three
+of the four changes.
+
+| what the chart shows | bearing on this repair |
+|---|---|
+| ride as continuous 16th X noteheads on the top line | matches the tab, and supports one accent per quarter |
+| kick written FAR denser than the tab's 107 | the 398 additions, 505 in total, sit in the right range |
+| a SECOND row of X noteheads lower in the staff, which the tab has none of | corroborates a hi-hat voice the tab omits |
+| no tom noteheads in the sampled systems | agrees with the revert |
+
+### The limit, measured rather than assumed
+
+Drumnet serves this chart at 595 by 842, which is the source's own resolution; no larger
+version exists to fetch. Staff spacing is 5 pixels. The notehead reader in
+`/songsterr-drum-repair` returns **63 filled heads for a two-bar system that visually holds a
+handful**, because at that spacing an erosion cannot separate a notehead from a beam junction.
+Automated extraction fails here, so the chart supports the direction of each change and cannot
+supply exact counts.
+
+The lane of that second X row is the one thing left open. Under the drumset standard a hand
+hi-hat sits above the top line and a pedal hi-hat in the first space below the staff, and this
+scan cannot resolve which of those the transcriber wrote.
+
 ## Final state
 
 | lane | on the tab | source |
