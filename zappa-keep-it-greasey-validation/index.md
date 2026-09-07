@@ -8,8 +8,9 @@ re-verified at the start of this pass and again at the end. **Untouched.**
 
 Six independent procedures now place bar 102's downbeat between **197.88 and 198.20 s**,
 beside the printed 3:18 marker. One of them, `18a2dd`, passed a gate written down before
-it ran. The drum lanes then tested that map from outside, and **all five prefer a window
-slid one bar later**, which disqualifies it for placing any individual note.
+it ran. The drum lanes then tested that map from outside. **Snare, hat and tom are clearly
+better under a window slid one bar later, kick leans the same way by one unit, and cymbal
+is flat.** That disqualifies the map for placing any individual note.
 
 **Repairs applied: 0.** The reason is recorded per finding in `CHANGELOG.json` and it is
 policy plus evidence, never omission.
@@ -195,10 +196,18 @@ interior bars so no shift wins by dropping one:
 | cymbal | 13 | **14** | 14 |
 | tom | 23 | 20 | **4** |
 
-Four of five lanes fit better one bar later, and snare and tom improve by a factor above
-four. The drum lanes never entered this map, so they are an external check, and they say
-it is about one bar late here. **n is 3 bars**, which makes this indicative and not
-settled. It is enough to stop any instance-level claim.
+**Three lanes clear a margin of 2 or better in favour of the later window: snare 17 to 4,
+tom 20 to 4, hat 25 to 11.** Kick leans the same way by a single unit, 3 to 2, which is
+inside the noise of three bars. **Cymbal is flat**, 13, 14 and 14, so it votes for nothing.
+The drum lanes never entered this map, so they are an external check, and three of them say
+it is about one bar late here. **n is 3 bars**, which makes this indicative and not settled.
+It is enough to stop any instance-level claim.
+
+**CORRECTED 2026-09-07.** This section first read "four of five lanes fit better one bar
+later" and the summary above it read "all five". Both came from a line in
+`tools/bar_shift_diagnostic.py` that counted ANY non-zero best shift as an improvement,
+which swept in cymbal's flat 13, 14, 14 because its minimum sits at -1 by one unit. The
+script now reports the clear lanes, the flat lanes and the rest separately.
 
 ## Reliable events found that the score omits
 
