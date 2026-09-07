@@ -1,0 +1,5 @@
+{
+  "track_names": ["Kick","Snare","Hats","Bass","Gtr L","Gtr R","Keys","Vox"],
+  "scene_names": ["Intro","Verse","Chorus","Bridge","Outro"],
+  "track_colors": [28, 14, 12, 21, 30, 30, 17, 3]
+}
