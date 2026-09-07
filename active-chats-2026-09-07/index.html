@@ -52,13 +52,34 @@ nav.toc a::before{content:counter(t,decimal-leading-zero);font:11px ui-monospace
 .links{display:flex;flex-wrap:wrap;gap:9px}
 .lnk{font-size:.82rem;color:var(--mid);text-decoration:none;border:1px solid var(--line);border-radius:6px;padding:4px 10px;background:#fff}
 .lnk:hover{color:var(--accent);border-color:var(--accent)}
+.aud{background:var(--card);border:2px solid #3E7FA8;border-radius:12px;padding:22px 26px;margin:0 0 26px}
+.aud h2{margin:0 0 6px;font-size:1.3rem;color:#2E6083}
+.aud ul{margin:0 0 12px;padding-left:22px}.aud li{margin-bottom:9px;font-size:.97rem}
+.aud a{color:#2E6083}
+.tag{display:inline-block;font:10px ui-monospace,Menlo,monospace;letter-spacing:.08em;
+ padding:2px 6px;border-radius:4px;margin-right:7px;text-transform:uppercase}
+.tag.meas{background:#3E7FA8;color:#FBF8F0}
+.tag.rcmd{background:#B8862B;color:#FBF8F0}
+.ev{font-size:.86rem;color:var(--mid);background:rgba(62,127,168,.09);
+ border-left:3px solid #3E7FA8;padding:9px 13px;border-radius:0 7px 7px 0;margin:0 0 13px}
+.ev a{color:#2E6083}
 footer{margin-top:44px;padding-top:20px;border-top:3px double var(--line);color:var(--mid);font-size:.83rem}
 @media (max-width:620px){h1{font-size:1.9rem}.cbody{padding:16px 15px}.chead{flex-direction:column}}
 </style></head><body><div class="wrap">
 <header class="top"><h1>Active chats, and how to finish them today</h1>
-<p class="sub">Every Claude Code chat on this Mac that moved on 2026-09-07, read to the bottom, summed up plain, with one named action each.</p>
-<p class="stamp">Built 2026-09-07 14:23 CDT &middot; 22 chats &middot; 6,976 assistant replies read &middot; idle clocks tick live in your browser</p></header>
-<div class="legend"><div class="lg"><span class="tdot" style="background:#C1503A"></span><b>6</b> Blocked on you<em>One physical action from Brandon</em></div><div class="lg"><span class="tdot" style="background:#B8862B"></span><b>5</b> Needs your call<em>A choice is waiting</em></div><div class="lg"><span class="tdot" style="background:#5B7B6F"></span><b>4</b> Part way<em>Real work still runnable</em></div><div class="lg"><span class="tdot" style="background:#7A6A94"></span><b>1</b> Waiting on outside<em>Nobody here can move it</em></div><div class="lg"><span class="tdot" style="background:#3E7FA8"></span><b>1</b> Running now<em>Moving without you</em></div><div class="lg"><span class="tdot" style="background:#4A7A57"></span><b>5</b> Finished<em>Close it out</em></div></div>
+<p class="sub">Every Claude Code chat on this Mac whose transcript was written between <b>00:00 and 2026-09-07 14:39 CDT on 2026-09-07</b>, read to the bottom, summed up plain, with one named action each.</p>
+<p class="sub">Scope is exactly that window. 23 transcripts fall in it. This board covers <b>22 of 23</b>, omitting only <code>5ed46212</code>, the session that built the board.</p>
+<p class="stamp">Built 2026-09-07 14:39 CDT &middot; 22 chats &middot; 6,976 assistant replies read &middot; idle clocks tick live in your browser</p></header>
+<div class="legend"><div class="lg"><span class="tdot" style="background:#C1503A"></span><b>6</b> Blocked on you<em>One physical action from Brandon</em></div><div class="lg"><span class="tdot" style="background:#B8862B"></span><b>5</b> Needs your call<em>A choice is waiting</em></div><div class="lg"><span class="tdot" style="background:#5B7B6F"></span><b>5</b> Part way<em>Real work still runnable</em></div><div class="lg"><span class="tdot" style="background:#7A6A94"></span><b>1</b> Waiting on outside<em>Nobody here can move it</em></div><div class="lg"><span class="tdot" style="background:#3E7FA8"></span><b>1</b> Running now<em>Moving without you</em></div><div class="lg"><span class="tdot" style="background:#4A7A57"></span><b>4</b> Finished<em>Close it out</em></div></div>
+<section class="aud"><h2>This board was audited</h2>
+<p class="lead">A separate chat fraud-audited an earlier version of this route at 14:30 CDT and published its findings.</p>
+<ul>
+<li><b>The first version carried fabricated counts.</b> Nine of its fifteen message counts exceeded the line count of the transcript file they described. Three rows shared one copied idle value where the real figures were 2h 56m, 2h 47m and 2h 31m. It promised every chat and listed fifteen of twenty-two.</li>
+<li><b>This version was tested and holds.</b> 18 of 22 rows match the auditor's independent count exactly, measured from the <code>.jsonl</code> files with <code>isSidechain</code> skipped. Every idle time lands within one minute of file mtime. The four that drift were still typing at snapshot.</li>
+<li><b>Four factual corrections from that audit are applied above,</b> covering the Watermelon credit wording, the Drive object discrepancy, the Appleseed 59 and the Zomby Woof artifact mismatch.</li>
+<li><b>What it did not test:</b> the narrative bullets on 18 rows, whether the recommended actions are the right ones, and the contents of the twelve other pages this board links to.</li>
+</ul>
+<p class="lead"><a href="https://7onething1.github.io/fraud-audit-active-chats-2026-09-07/" target="_blank" rel="noopener">Read the full audit</a></p></section>
 
 <section class="conf"><h2>Read this one first: two chats disagree</h2>
 <p class="lead">One chat proved a thing today that makes another chat's pending action unsafe. Acting on either one alone republishes the bug.</p>
@@ -79,18 +100,19 @@ footer{margin-top:44px;padding-top:20px;border-top:3px double var(--line);color:
 <li><b>Close the five finished chats.</b> Rows 18 through 22 are done and proven, and three of them are past the length ceiling.</li>
 </ol></section>
 
-<nav class="toc"><h2>All 22, ranked by what they need from you</h2><ol><li><a href="#c1"><span class="tdot" style="background:#C1503A"></span><span class="ttitle">MacBook Claude Code ntfy hook</span><span class="tidle idle" data-last="2026-09-07T16:15:00Z">3h 08m</span></a></li><li><a href="#c2"><span class="tdot" style="background:#B8862B"></span><span class="ttitle">Completion controller and state skills</span><span class="tidle idle" data-last="2026-09-07T16:18:00Z">3h 05m</span></a></li><li><a href="#c3"><span class="tdot" style="background:#C1503A"></span><span class="ttitle">Authorized execution, Zomby Woof rev8</span><span class="tidle idle" data-last="2026-09-07T17:55:00Z">1h 28m</span></a></li><li><a href="#c4"><span class="tdot" style="background:#C1503A"></span><span class="ttitle">SVG handoff documentation</span><span class="tidle idle" data-last="2026-09-07T17:58:00Z">1h 25m</span></a></li><li><a href="#c5"><span class="tdot" style="background:#C1503A"></span><span class="ttitle">Zappa chats audit update</span><span class="tidle idle" data-last="2026-09-07T18:17:00Z">1h 06m</span></a></li><li><a href="#c6"><span class="tdot" style="background:#C1503A"></span><span class="ttitle">Zappa paren fix audit</span><span class="tidle idle" data-last="2026-09-07T18:22:00Z">1h 01m</span></a></li><li><a href="#c7"><span class="tdot" style="background:#B8862B"></span><span class="ttitle">Resume recent chats on wake</span><span class="tidle idle" data-last="2026-09-07T16:24:00Z">2h 59m</span></a></li><li><a href="#c8"><span class="tdot" style="background:#5B7B6F"></span><span class="ttitle">Zappa ride ghost analysis, Watermelon</span><span class="tidle idle" data-last="2026-09-07T17:14:00Z">2h 09m</span></a></li><li><a href="#c9"><span class="tdot" style="background:#C1503A"></span><span class="ttitle">Notation evidence gate, inbox watcher</span><span class="tidle idle" data-last="2026-09-07T17:14:00Z">2h 09m</span></a></li><li><a href="#c10"><span class="tdot" style="background:#B8862B"></span><span class="ttitle">Appleseed cast project, why I keep stopping</span><span class="tidle idle" data-last="2026-09-07T18:02:00Z">1h 21m</span></a></li><li><a href="#c11"><span class="tdot" style="background:#B8862B"></span><span class="ttitle">Board review chat</span><span class="tidle idle" data-last="2026-09-07T19:15:00Z">8 min</span></a></li><li><a href="#c12"><span class="tdot" style="background:#3E7FA8"></span><span class="ttitle">Active chats digest, 30-minute loop</span><span class="tidle idle" data-last="2026-09-07T19:19:00Z">4 min</span></a></li><li><a href="#c13"><span class="tdot" style="background:#5B7B6F"></span><span class="ttitle">Ableton 11 APC 20 sets</span><span class="tidle idle" data-last="2026-09-07T16:39:00Z">2h 44m</span></a></li><li><a href="#c14"><span class="tdot" style="background:#5B7B6F"></span><span class="ttitle">KEEP-IT-GREASEY s604777 handoff</span><span class="tidle idle" data-last="2026-09-07T16:46:00Z">2h 37m</span></a></li><li><a href="#c15"><span class="tdot" style="background:#4A7A57"></span><span class="ttitle">Demucs guitar/drums isolation</span><span class="tidle idle" data-last="2026-09-07T17:52:00Z">1h 31m</span></a></li><li><a href="#c16"><span class="tdot" style="background:#B8862B"></span><span class="ttitle">Notation evidence gate page help</span><span class="tidle idle" data-last="2026-09-07T19:13:00Z">10 min</span></a></li><li><a href="#c17"><span class="tdot" style="background:#5B7B6F"></span><span class="ttitle">Appleseed cast chat</span><span class="tidle idle" data-last="2026-09-07T19:18:00Z">5 min</span></a></li><li><a href="#c18"><span class="tdot" style="background:#7A6A94"></span><span class="ttitle">Zappa chat context loss, trouble first</span><span class="tidle idle" data-last="2026-09-07T16:14:00Z">3h 09m</span></a></li><li><a href="#c19"><span class="tdot" style="background:#4A7A57"></span><span class="ttitle">Volume to 45%</span><span class="tidle idle" data-last="2026-09-07T17:47:00Z">1h 36m</span></a></li><li><a href="#c20"><span class="tdot" style="background:#4A7A57"></span><span class="ttitle">Active chats quitting early</span><span class="tidle idle" data-last="2026-09-07T17:52:00Z">1h 31m</span></a></li><li><a href="#c21"><span class="tdot" style="background:#4A7A57"></span><span class="ttitle">3-phase ghost note restore, huge plan</span><span class="tidle idle" data-last="2026-09-07T17:55:00Z">1h 28m</span></a></li><li><a href="#c22"><span class="tdot" style="background:#4A7A57"></span><span class="ttitle">Songs lickable text to Songsterr</span><span class="tidle idle" data-last="2026-09-07T18:49:00Z">34 min</span></a></li></ol></nav>
+<nav class="toc"><h2>All 22, ranked by what they need from you</h2><ol><li><a href="#c1"><span class="tdot" style="background:#C1503A"></span><span class="ttitle">MacBook Claude Code ntfy hook</span><span class="tidle idle" data-last="2026-09-07T16:15:00Z">3h 24m</span></a></li><li><a href="#c2"><span class="tdot" style="background:#B8862B"></span><span class="ttitle">Completion controller and state skills</span><span class="tidle idle" data-last="2026-09-07T16:18:00Z">3h 21m</span></a></li><li><a href="#c3"><span class="tdot" style="background:#C1503A"></span><span class="ttitle">Authorized execution, Zomby Woof rev8</span><span class="tidle idle" data-last="2026-09-07T17:55:00Z">1h 44m</span></a></li><li><a href="#c4"><span class="tdot" style="background:#C1503A"></span><span class="ttitle">SVG handoff documentation</span><span class="tidle idle" data-last="2026-09-07T17:58:00Z">1h 41m</span></a></li><li><a href="#c5"><span class="tdot" style="background:#C1503A"></span><span class="ttitle">Zappa chats audit update</span><span class="tidle idle" data-last="2026-09-07T18:17:00Z">1h 22m</span></a></li><li><a href="#c6"><span class="tdot" style="background:#C1503A"></span><span class="ttitle">Zappa paren fix audit</span><span class="tidle idle" data-last="2026-09-07T18:22:00Z">1h 17m</span></a></li><li><a href="#c7"><span class="tdot" style="background:#B8862B"></span><span class="ttitle">Resume recent chats on wake</span><span class="tidle idle" data-last="2026-09-07T16:24:00Z">3h 15m</span></a></li><li><a href="#c8"><span class="tdot" style="background:#5B7B6F"></span><span class="ttitle">Zappa ride ghost analysis, Watermelon</span><span class="tidle idle" data-last="2026-09-07T17:14:00Z">2h 25m</span></a></li><li><a href="#c9"><span class="tdot" style="background:#C1503A"></span><span class="ttitle">Notation evidence gate, inbox watcher</span><span class="tidle idle" data-last="2026-09-07T17:14:00Z">2h 25m</span></a></li><li><a href="#c10"><span class="tdot" style="background:#5B7B6F"></span><span class="ttitle">Demucs guitar/drums isolation</span><span class="tidle idle" data-last="2026-09-07T17:52:00Z">1h 47m</span></a></li><li><a href="#c11"><span class="tdot" style="background:#B8862B"></span><span class="ttitle">Appleseed cast project, why I keep stopping</span><span class="tidle idle" data-last="2026-09-07T18:02:00Z">1h 37m</span></a></li><li><a href="#c12"><span class="tdot" style="background:#B8862B"></span><span class="ttitle">Board review chat</span><span class="tidle idle" data-last="2026-09-07T19:15:00Z">24 min</span></a></li><li><a href="#c13"><span class="tdot" style="background:#3E7FA8"></span><span class="ttitle">Active chats digest, 30-minute loop</span><span class="tidle idle" data-last="2026-09-07T19:19:00Z">20 min</span></a></li><li><a href="#c14"><span class="tdot" style="background:#5B7B6F"></span><span class="ttitle">Ableton 11 APC 20 sets</span><span class="tidle idle" data-last="2026-09-07T16:39:00Z">3h 00m</span></a></li><li><a href="#c15"><span class="tdot" style="background:#5B7B6F"></span><span class="ttitle">KEEP-IT-GREASEY s604777 handoff</span><span class="tidle idle" data-last="2026-09-07T16:46:00Z">2h 53m</span></a></li><li><a href="#c16"><span class="tdot" style="background:#B8862B"></span><span class="ttitle">Notation evidence gate page help</span><span class="tidle idle" data-last="2026-09-07T19:13:00Z">26 min</span></a></li><li><a href="#c17"><span class="tdot" style="background:#5B7B6F"></span><span class="ttitle">Appleseed cast chat</span><span class="tidle idle" data-last="2026-09-07T19:18:00Z">21 min</span></a></li><li><a href="#c18"><span class="tdot" style="background:#7A6A94"></span><span class="ttitle">Zappa chat context loss, trouble first</span><span class="tidle idle" data-last="2026-09-07T16:14:00Z">3h 25m</span></a></li><li><a href="#c19"><span class="tdot" style="background:#4A7A57"></span><span class="ttitle">Volume to 45%</span><span class="tidle idle" data-last="2026-09-07T17:47:00Z">1h 52m</span></a></li><li><a href="#c20"><span class="tdot" style="background:#4A7A57"></span><span class="ttitle">Active chats quitting early</span><span class="tidle idle" data-last="2026-09-07T17:52:00Z">1h 47m</span></a></li><li><a href="#c21"><span class="tdot" style="background:#4A7A57"></span><span class="ttitle">3-phase ghost note restore, huge plan</span><span class="tidle idle" data-last="2026-09-07T17:55:00Z">1h 44m</span></a></li><li><a href="#c22"><span class="tdot" style="background:#4A7A57"></span><span class="ttitle">Songs lickable text to Songsterr</span><span class="tidle idle" data-last="2026-09-07T18:49:00Z">50 min</span></a></li></ol></nav>
 
 <article class="card" id="c1">
   <div class="stripe" style="background:#C1503A"></div>
   <div class="cbody">
     <header class="chead"><div><span class="num">01</span><h3>MacBook Claude Code ntfy hook</h3></div>
     <span class="pill" style="background:#C1503A">Blocked on you</span></header>
-    <div class="meta"><span class="m"><b class="idle" data-last="2026-09-07T16:15:00Z">3h 08m</b> since last action</span>
+    <div class="meta"><span class="m"><b class="idle" data-last="2026-09-07T16:15:00Z">3h 24m</b> since last action</span>
       <span class="m">121 replies</span><span class="m mono">7bf85338</span></div>
     <p class="goal"><b>What it is chasing.</b> Get a phone notification every time a chat on this Mac finishes working.</p>
-    <div class="kid"><h4>The last of it, said plain</h4><ul><li>It set up phone alerts for when a chat finishes a job.</li><li>The alerts are already firing on their own and they work.</li><li>Your phone is not subscribed, so each alert gets thrown away after about 12 hours.</li><li>It cannot subscribe your phone for you, and only you can do that part.</li></ul></div>
-    <div class="rec" style="border-color:#C1503A"><h4>Finish it today</h4><p>Cheapest win on the board. Two minutes of tapping turns every other chat&#x27;s finish into something you actually see.</p>
+    
+    <div class="kid"><h4><span class="tag meas">Measured</span> read from the transcript</h4><ul><li>It set up phone alerts for when a chat finishes a job.</li><li>The alerts are already firing on their own and they work.</li><li>Your phone is not subscribed, so each alert gets thrown away after about 12 hours.</li><li>It cannot subscribe your phone for you, and only you can do that part.</li></ul></div>
+    <div class="rec" style="border-color:#C1503A"><h4><span class="tag rcmd">Recommended</span> my judgment, not a measurement</h4><p>Cheapest win on the board. Two minutes of tapping turns every other chat&#x27;s finish into something you actually see.</p>
       <p class="do"><span class="doarrow">&#9656;</span> <b>Open the ntfy app, press +, paste claude-macbook-c059e7e8d9716cd22f631ac0, keep the default server.</b> <span class="eff">2 min</span></p></div>
     <div class="links"><a class="lnk" href="https://ntfy.sh/claude-macbook-c059e7e8d9716cd22f631ac0" target="_blank" rel="noopener">Topic page</a></div>
   </div></article>
@@ -99,11 +121,12 @@ footer{margin-top:44px;padding-top:20px;border-top:3px double var(--line);color:
   <div class="cbody">
     <header class="chead"><div><span class="num">02</span><h3>Completion controller and state skills</h3></div>
     <span class="pill" style="background:#B8862B">Needs your call</span></header>
-    <div class="meta"><span class="m"><b class="idle" data-last="2026-09-07T16:18:00Z">3h 05m</b> since last action</span>
+    <div class="meta"><span class="m"><b class="idle" data-last="2026-09-07T16:18:00Z">3h 21m</b> since last action</span>
       <span class="m">407 replies</span><span class="m mono">c492e138</span></div>
     <p class="goal"><b>What it is chasing.</b> Build the gate system that stops chats from claiming done on unfinished work.</p>
-    <div class="kid"><h4>The last of it, said plain</h4><ul><li>This chat writes the rules that stop other chats from quitting too early.</li><li>One rule got stuck in a loop, so this chat could never stop at all, ever.</li><li>It fixed the rule so the loop clears once proof lands in a file.</li><li>The chat is two days old, and its own rules say a chat that old should close.</li></ul></div>
-    <div class="rec" style="border-color:#B8862B"><h4>Finish it today</h4><p>Careful here. The chord patch it wants to send is one of the files row 12 proved will wipe 28 musician names.</p>
+    
+    <div class="kid"><h4><span class="tag meas">Measured</span> read from the transcript</h4><ul><li>This chat writes the rules that stop other chats from quitting too early.</li><li>One rule got stuck in a loop, so this chat could never stop at all, ever.</li><li>It fixed the rule so the loop clears once proof lands in a file.</li><li>The chat is two days old, and its own rules say a chat that old should close.</li></ul></div>
+    <div class="rec" style="border-color:#B8862B"><h4><span class="tag rcmd">Recommended</span> my judgment, not a measurement</h4><p>Careful here. The chord patch it wants to send is one of the files row 12 proved will wipe 28 musician names.</p>
       <p class="do"><span class="doarrow">&#9656;</span> <b>Say SHELVE on the chord patch, wait for a TEXTSAFE rebuild, then close the chat.</b> <span class="eff">say it, then 5 min</span></p></div>
     <div class="links"></div>
   </div></article>
@@ -112,12 +135,13 @@ footer{margin-top:44px;padding-top:20px;border-top:3px double var(--line);color:
   <div class="cbody">
     <header class="chead"><div><span class="num">03</span><h3>Authorized execution, Zomby Woof rev8</h3></div>
     <span class="pill" style="background:#C1503A">Blocked on you</span></header>
-    <div class="meta"><span class="m"><b class="idle" data-last="2026-09-07T17:55:00Z">1h 28m</b> since last action</span>
+    <div class="meta"><span class="m"><b class="idle" data-last="2026-09-07T17:55:00Z">1h 44m</b> since last action</span>
       <span class="m">595 replies</span><span class="m mono">a4c13f6b</span></div>
     <p class="goal"><b>What it is chasing.</b> Build and verify the Zomby Woof rev8 file that restores the author&#x27;s 32 ghost positions, then get it submitted.</p>
-    <div class="kid"><h4>The last of it, said plain</h4><ul><li>It rebuilt the Zomby Woof tab and checked it three separate ways.</li><li>All 32 of the author&#x27;s original marks came back and none of the live ones got touched.</li><li>It caught itself filing two conclusions in the to-do list where only real work belongs.</li><li>The chat is 186 hours old and its own rules say it cannot close itself.</li></ul></div>
-    <div class="rec" style="border-color:#C1503A"><h4>Finish it today</h4><p>Same submit as row 03, from the other side. This chat is nearly eight days old at 595 replies, which is far past any sane ceiling.</p>
-      <p class="do"><span class="doarrow">&#9656;</span> <b>Press the submit control on the open Zomby Woof editor, then run /clear on this chat.</b> <span class="eff">3 min</span></p></div>
+    
+    <div class="kid"><h4><span class="tag meas">Measured</span> read from the transcript</h4><ul><li>It rebuilt the Zomby Woof tab and checked it three separate ways.</li><li>All 32 of the author&#x27;s original marks came back and none of the live ones got touched.</li><li>It caught itself filing two conclusions in the to-do list where only real work belongs.</li><li>The chat is 186 hours old and its own rules say it cannot close itself.</li></ul></div>
+    <div class="rec" style="border-color:#C1503A"><h4><span class="tag rcmd">Recommended</span> my judgment, not a measurement</h4><p>Names a rev8 build with 32 restored positions. Row 06 names 17 dynamics on the same song. One of these is the submission artifact and the handoff has to say which.</p>
+      <p class="do"><span class="doarrow">&#9656;</span> <b>Publish the filename and sha256 of the artifact to submit, match it against row 06, then submit and /clear.</b> <span class="eff">10 min</span></p></div>
     <div class="links"></div>
   </div></article>
 <article class="card" id="c4">
@@ -125,11 +149,12 @@ footer{margin-top:44px;padding-top:20px;border-top:3px double var(--line);color:
   <div class="cbody">
     <header class="chead"><div><span class="num">04</span><h3>SVG handoff documentation</h3></div>
     <span class="pill" style="background:#C1503A">Blocked on you</span></header>
-    <div class="meta"><span class="m"><b class="idle" data-last="2026-09-07T17:58:00Z">1h 25m</b> since last action</span>
+    <div class="meta"><span class="m"><b class="idle" data-last="2026-09-07T17:58:00Z">1h 41m</b> since last action</span>
       <span class="m">242 replies</span><span class="m mono">30e6208e</span></div>
     <p class="goal"><b>What it is chasing.</b> Verify the Watermelon s35881 restore file note by note, and rewrite the house rule so we always copy a tab instead of revising the original.</p>
-    <div class="kid"><h4>The last of it, said plain</h4><ul><li>It compared a repaired drum file against the original, note by note.</li><li>Nothing was added and nothing was lost, the two lists matched exactly.</li><li>It rewrote the house rule so we always copy a tab and never edit somebody else&#x27;s.</li><li>Now it waits on you to make that copy and send it in.</li></ul></div>
-    <div class="rec" style="border-color:#C1503A"><h4>Finish it today</h4><p>Same shape as Zomby Woof. Both diff directions came back empty, so the only remaining risk is leaving it unsent.</p>
+    
+    <div class="kid"><h4><span class="tag meas">Measured</span> read from the transcript</h4><ul><li>It compared a repaired drum file against the original, note by note.</li><li>Nothing was added and nothing was lost, the two lists matched exactly.</li><li>It rewrote the house rule so we always copy a tab and never edit somebody else&#x27;s.</li><li>Now it waits on you to make that copy and send it in.</li></ul></div>
+    <div class="rec" style="border-color:#C1503A"><h4><span class="tag rcmd">Recommended</span> my judgment, not a measurement</h4><p>Same shape as Zomby Woof. Both diff directions came back empty, so the only remaining risk is leaving it unsent.</p>
       <p class="do"><span class="doarrow">&#9656;</span> <b>Open s35881, make a copy, rename it Watermelon In Easter Hay Brandon edit, import RESTORED-s35881-TEXTSAFE-v2.gp, submit.</b> <span class="eff">5 min</span></p></div>
     <div class="links"><a class="lnk" href="https://7onething1.github.io/zappa-watermelon-ship-state/" target="_blank" rel="noopener">Ship-state page</a></div>
   </div></article>
@@ -138,11 +163,12 @@ footer{margin-top:44px;padding-top:20px;border-top:3px double var(--line);color:
   <div class="cbody">
     <header class="chead"><div><span class="num">05</span><h3>Zappa chats audit update</h3></div>
     <span class="pill" style="background:#C1503A">Blocked on you</span></header>
-    <div class="meta"><span class="m"><b class="idle" data-last="2026-09-07T18:17:00Z">1h 06m</b> since last action</span>
+    <div class="meta"><span class="m"><b class="idle" data-last="2026-09-07T18:17:00Z">1h 22m</b> since last action</span>
       <span class="m">151 replies</span><span class="m mono">989f675d</span></div>
     <p class="goal"><b>What it is chasing.</b> Sweep all nineteen Zappa chats and update the ghost-note audit page with what the repair actually did.</p>
-    <div class="kid"><h4>The last of it, said plain</h4><ul><li>It read back through 19 old Zappa chats to work out what happened.</li><li>It found a brand new problem: musicians&#x27; names got wiped off six public song pages.</li><li>Frank Zappa&#x27;s own name is missing from the Watermelon tab on the live site right now.</li><li>Seven more tabs are lined up to publish the same bug, so sitting still makes it worse.</li></ul></div>
-    <div class="rec" style="border-color:#C1503A"><h4>Finish it today</h4><p>This is the most damaging open item on the whole board. 28 credits are wrong in public and 53 more are queued behind them.</p>
+    <p class="ev"><b>Independently checked:</b> IMPRECISE, now corrected here. api/meta returns artist Frank Zappa, and all 9 track-name fields are empty strings. <a href="https://7onething1.github.io/fraud-audit-active-chats-2026-09-07/" target="_blank" rel="noopener">audit</a></p>
+    <div class="kid"><h4><span class="tag meas">Measured</span> read from the transcript</h4><ul><li>It read back through 19 old Zappa chats to work out what happened.</li><li>It found a brand new problem: musicians&#x27; names got wiped off six public song pages.</li><li>On the Watermelon tab the artist still reads Frank Zappa, and all 9 track-name fields are empty strings.</li><li>Seven more tabs are lined up to publish the same bug, so sitting still makes it worse.</li></ul></div>
+    <div class="rec" style="border-color:#C1503A"><h4><span class="tag rcmd">Recommended</span> my judgment, not a measurement</h4><p>This is the most damaging open item on the whole board. 28 credits are wrong in public and 53 more are queued behind them.</p>
       <p class="do"><span class="doarrow">&#9656;</span> <b>Say yes to q-2026-09-07-ed23a4 so Muffin Man and Drowning Witch get their names back, then pull the 7 held restores so they never publish blank.</b> <span class="eff">say yes, then ~30 min</span></p></div>
     <div class="links"><a class="lnk" href="https://7onething1.github.io/zappa-ghost-note-audit/" target="_blank" rel="noopener">Live page</a></div>
   </div></article>
@@ -151,12 +177,13 @@ footer{margin-top:44px;padding-top:20px;border-top:3px double var(--line);color:
   <div class="cbody">
     <header class="chead"><div><span class="num">06</span><h3>Zappa paren fix audit</h3></div>
     <span class="pill" style="background:#C1503A">Blocked on you</span></header>
-    <div class="meta"><span class="m"><b class="idle" data-last="2026-09-07T18:22:00Z">1h 01m</b> since last action</span>
+    <div class="meta"><span class="m"><b class="idle" data-last="2026-09-07T18:22:00Z">1h 17m</b> since last action</span>
       <span class="m">262 replies</span><span class="m mono">7833e9bf</span></div>
     <p class="goal"><b>What it is chasing.</b> Close the Zomby Woof s412162 handoff: put back the loud and quiet marks, explain the 269-note residue, repair the regression fixtures.</p>
-    <div class="kid"><h4>The last of it, said plain</h4><ul><li>It checked a Zappa drum tab called Zomby Woof for missing loud and quiet marks.</li><li>It found 17 it can safely put back and 3 it should leave alone.</li><li>The 269 notes people thought had vanished were never gone, they got renamed to another drum.</li><li>Now it waits on you to press Submit on the website, because it will not press that button for you.</li></ul></div>
-    <div class="rec" style="border-color:#C1503A"><h4>Finish it today</h4><p>This is one button press. The file is built, checked, and sitting in an open editor tab with Submit enabled.</p>
-      <p class="do"><span class="doarrow">&#9656;</span> <b>Press Submit revision on Zomby Woof s412162.</b> <span class="eff">2 min</span></p></div>
+    
+    <div class="kid"><h4><span class="tag meas">Measured</span> read from the transcript</h4><ul><li>It checked a Zappa drum tab called Zomby Woof for missing loud and quiet marks.</li><li>It found 17 it can safely put back and 3 it should leave alone.</li><li>The 269 notes people thought had vanished were never gone, they got renamed to another drum.</li><li>Now it waits on you to press Submit on the website, because it will not press that button for you.</li></ul></div>
+    <div class="rec" style="border-color:#C1503A"><h4><span class="tag rcmd">Recommended</span> my judgment, not a measurement</h4><p>Two chats claim this submit from opposite sides and their numbers disagree: 17 dynamics plus 3 exclusions here, 32 restored author positions in row 03. Prove one filename and one hash first.</p>
+      <p class="do"><span class="doarrow">&#9656;</span> <b>Reconcile this chat and row 03 to one GP file and one sha256, then press Submit on s412162.</b> <span class="eff">10 min</span></p></div>
     <div class="links"><a class="lnk" href="https://7onething1.github.io/zappa-handoff-close-2026-09-07/" target="_blank" rel="noopener">Live page</a></div>
   </div></article>
 <article class="card" id="c7">
@@ -164,11 +191,12 @@ footer{margin-top:44px;padding-top:20px;border-top:3px double var(--line);color:
   <div class="cbody">
     <header class="chead"><div><span class="num">07</span><h3>Resume recent chats on wake</h3></div>
     <span class="pill" style="background:#B8862B">Needs your call</span></header>
-    <div class="meta"><span class="m"><b class="idle" data-last="2026-09-07T16:24:00Z">2h 59m</b> since last action</span>
+    <div class="meta"><span class="m"><b class="idle" data-last="2026-09-07T16:24:00Z">3h 15m</b> since last action</span>
       <span class="m">93 replies</span><span class="m mono">b8d3b6c4</span></div>
     <p class="goal"><b>What it is chasing.</b> Wake ten recent chats at once, then work out why the stop gate blocked one of them.</p>
-    <div class="kid"><h4>The last of it, said plain</h4><ul><li>It woke up ten sleeping chats in one go.</li><li>One chat got blocked for something a completely separate chat had written.</li><li>The cause is that all chats share one to-do file, and the rule only understands one chat at a time.</li><li>It wrote out three ways to fix it and wants you to pick one.</li></ul></div>
-    <div class="rec" style="border-color:#B8862B"><h4>Finish it today</h4><p>Pick the sessionId stamp. That option alone fixes the whole class, and the other two paper over the timing.</p>
+    
+    <div class="kid"><h4><span class="tag meas">Measured</span> read from the transcript</h4><ul><li>It woke up ten sleeping chats in one go.</li><li>One chat got blocked for something a completely separate chat had written.</li><li>The cause is that all chats share one to-do file, and the rule only understands one chat at a time.</li><li>It wrote out three ways to fix it and wants you to pick one.</li></ul></div>
+    <div class="rec" style="border-color:#B8862B"><h4><span class="tag rcmd">Recommended</span> my judgment, not a measurement</h4><p>Pick the sessionId stamp. That option alone fixes the whole class, and the other two paper over the timing.</p>
       <p class="do"><span class="doarrow">&#9656;</span> <b>Say: stamp the authoring sessionId on each queue row.</b> <span class="eff">say it, then ~20 min</span></p></div>
     <div class="links"><a class="lnk" href="https://7onething1.github.io/wake-10-chats-2026-09-07/" target="_blank" rel="noopener">Live page</a></div>
   </div></article>
@@ -177,11 +205,12 @@ footer{margin-top:44px;padding-top:20px;border-top:3px double var(--line);color:
   <div class="cbody">
     <header class="chead"><div><span class="num">08</span><h3>Zappa ride ghost analysis, Watermelon</h3></div>
     <span class="pill" style="background:#5B7B6F">Part way</span></header>
-    <div class="meta"><span class="m"><b class="idle" data-last="2026-09-07T17:14:00Z">2h 09m</b> since last action</span>
+    <div class="meta"><span class="m"><b class="idle" data-last="2026-09-07T17:14:00Z">2h 25m</b> since last action</span>
       <span class="m">718 replies</span><span class="m mono">04e0fedb</span></div>
     <p class="goal"><b>What it is chasing.</b> Finish the Watermelon In Easter Hay drum restore and settle the ride, snare and hi-hat questions with evidence.</p>
-    <div class="kid"><h4>The last of it, said plain</h4><ul><li>It found that every repair file built earlier quietly deletes 28 musician names.</li><li>The cause is the tool used to save them, which drops a special wrapper around the names.</li><li>It rebuilt one good file by hand-editing the text instead, keeping all 136 name blocks.</li><li>It refused to add snare notes it could not prove, and wrote down why.</li></ul></div>
-    <div class="rec" style="border-color:#5B7B6F"><h4>Finish it today</h4><p>This chat holds the finding that makes several other chats&#x27; pending files unsafe. Read the conflicts box at the top of this page, then send anything on Watermelon.</p>
+    <p class="ev"><b>Independently checked:</b> NOT TESTED by the audit. The CDATA finding comes from that chat&#x27;s own measurement. <a href="https://7onething1.github.io/fraud-audit-active-chats-2026-09-07/" target="_blank" rel="noopener">audit</a></p>
+    <div class="kid"><h4><span class="tag meas">Measured</span> read from the transcript</h4><ul><li>It found that every repair file built earlier quietly deletes 28 musician names.</li><li>The cause is the tool used to save them, which drops a special wrapper around the names.</li><li>It rebuilt one good file by hand-editing the text instead, keeping all 136 name blocks.</li><li>It refused to add snare notes it could not prove, and wrote down why.</li></ul></div>
+    <div class="rec" style="border-color:#5B7B6F"><h4><span class="tag rcmd">Recommended</span> my judgment, not a measurement</h4><p>This chat holds the finding that makes several other chats&#x27; pending files unsafe. Read the conflicts box at the top of this page, then send anything on Watermelon.</p>
       <p class="do"><span class="doarrow">&#9656;</span> <b>Confirm the TEXTSAFE file is the only one anybody may upload, then close the older restore files out.</b> <span class="eff">5 min</span></p></div>
     <div class="links"></div>
   </div></article>
@@ -190,102 +219,110 @@ footer{margin-top:44px;padding-top:20px;border-top:3px double var(--line);color:
   <div class="cbody">
     <header class="chead"><div><span class="num">09</span><h3>Notation evidence gate, inbox watcher</h3></div>
     <span class="pill" style="background:#C1503A">Blocked on you</span></header>
-    <div class="meta"><span class="m"><b class="idle" data-last="2026-09-07T17:14:00Z">2h 09m</b> since last action</span>
+    <div class="meta"><span class="m"><b class="idle" data-last="2026-09-07T17:14:00Z">2h 25m</b> since last action</span>
       <span class="m">248 replies</span><span class="m mono">5f76a6c5</span></div>
     <p class="goal"><b>What it is chasing.</b> Keep the phone-to-Mac inbox watcher alive and open a direct link to the other Mac.</p>
-    <div class="kid"><h4>The last of it, said plain</h4><ul><li>It watched the inbox for eight minutes and caught both test messages.</li><li>The page and its notes are live on the web and both return a healthy code.</li><li>It installed the watcher on the other Mac and it is running there too.</li><li>The direct link between the two Macs is locked, and only you can unlock it.</li></ul></div>
-    <div class="rec" style="border-color:#C1503A"><h4>Finish it today</h4><p>One line pasted on the other Mac makes every future cross-Mac pull a single command. The key text is written out ready to copy.</p>
+    
+    <div class="kid"><h4><span class="tag meas">Measured</span> read from the transcript</h4><ul><li>It watched the inbox for eight minutes and caught both test messages.</li><li>The page and its notes are live on the web and both return a healthy code.</li><li>It installed the watcher on the other Mac and it is running there too.</li><li>The direct link between the two Macs is locked, and only you can unlock it.</li></ul></div>
+    <div class="rec" style="border-color:#C1503A"><h4><span class="tag rcmd">Recommended</span> my judgment, not a measurement</h4><p>One line pasted on the other Mac makes every future cross-Mac pull a single command. The key text is written out ready to copy.</p>
       <p class="do"><span class="doarrow">&#9656;</span> <b>On the Dr Wu iMac, append the ed25519 key line to ~/.ssh/authorized_keys.</b> <span class="eff">2 min on the other Mac</span></p></div>
     <div class="links"><a class="lnk" href="https://7onething1.github.io/zappa-watermelon-stem-rerun/" target="_blank" rel="noopener">Live page</a></div>
   </div></article>
 <article class="card" id="c10">
-  <div class="stripe" style="background:#B8862B"></div>
+  <div class="stripe" style="background:#5B7B6F"></div>
   <div class="cbody">
-    <header class="chead"><div><span class="num">10</span><h3>Appleseed cast project, why I keep stopping</h3></div>
-    <span class="pill" style="background:#B8862B">Needs your call</span></header>
-    <div class="meta"><span class="m"><b class="idle" data-last="2026-09-07T18:02:00Z">1h 21m</b> since last action</span>
-      <span class="m">362 replies</span><span class="m mono">40e86d1b</span></div>
-    <p class="goal"><b>What it is chasing.</b> Answer two questions: why chats keep stopping early, and what refund is available for the tokens burned by the restarts.</p>
-    <div class="kid"><h4>The last of it, said plain</h4><ul><li>It counted six stops and zero times a chat restarted itself.</li><li>The cause is mechanical: your settings file wires 12 stop hooks and the one that would have caught this is wired zero times.</li><li>It cannot issue you a refund, so it wrote down the exact numbers to attach to a support request.</li><li>Five leftover jobs all need a hard drive or a folder only you can hand over.</li></ul></div>
-    <div class="rec" style="border-color:#B8862B"><h4>Finish it today</h4><p>The whole finding turns on one line in settings.json. Arming a stop hook affects every future chat on this Mac, so the chat correctly refused to edit it alone.</p>
-      <p class="do"><span class="doarrow">&#9656;</span> <b>Decide q-2026-08-30-74344c: arm stop_gate.py in settings.json, or leave it off on purpose.</b> <span class="eff">say it, then 5 min</span></p></div>
-    <div class="links"><a class="lnk" href="https://7onething1.github.io/why-i-keep-stopping/" target="_blank" rel="noopener">Live page</a></div>
+    <header class="chead"><div><span class="num">10</span><h3>Demucs guitar/drums isolation</h3></div>
+    <span class="pill" style="background:#5B7B6F">Part way</span></header>
+    <div class="meta"><span class="m"><b class="idle" data-last="2026-09-07T17:52:00Z">1h 47m</b> since last action</span>
+      <span class="m">999 replies</span><span class="m mono">5d64fd40</span></div>
+    <p class="goal"><b>What it is chasing.</b> Split the 8-28 band practice recording into separate drum-kit lanes and band stems, then get them onto Drive.</p>
+    <p class="ev"><b>Independently checked:</b> DISCREPANCY. 13.776 GiB confirmed by live rclone size, and the log recorded 133 objects against 132 on Drive, 6,148 bytes lighter. The 150 drum plus 25 band count is UNRESOLVED against 308 audio files on disk. <a href="https://7onething1.github.io/fraud-audit-active-chats-2026-09-07/" target="_blank" rel="noopener">audit</a></p>
+    <div class="kid"><h4><span class="tag meas">Measured</span> read from the transcript</h4><ul><li>It took the band practice recording from August 28th and pulled it apart.</li><li>It made 150 drum files and 25 band files, about 38 gigabytes in all.</li><li>It checked every file for clicks and silence, and they all came back clean.</li><li>It uploaded 13.776 GiB to Drive, and the object counts do not line up: 133 logged against 132 on Drive.</li></ul></div>
+    <div class="rec" style="border-color:#5B7B6F"><h4><span class="tag rcmd">Recommended</span> my judgment, not a measurement</h4><p>An independent audit found the Drive copy 6,148 bytes lighter with one fewer object, and the 150 drum plus 25 band claim unresolved against 308 audio files on disk. Reconcile the manifests first.</p>
+      <p class="do"><span class="doarrow">&#9656;</span> <b>Reconcile the 133 logged against 132 on Drive and the 150+25 file claim, then close.</b> <span class="eff">~20 min</span></p></div>
+    <div class="links"><a class="lnk" href="https://7onething1.github.io/band-practice-8-28-drumkit/" target="_blank" rel="noopener">Live page</a></div>
   </div></article>
 <article class="card" id="c11">
   <div class="stripe" style="background:#B8862B"></div>
   <div class="cbody">
-    <header class="chead"><div><span class="num">11</span><h3>Board review chat</h3></div>
+    <header class="chead"><div><span class="num">11</span><h3>Appleseed cast project, why I keep stopping</h3></div>
     <span class="pill" style="background:#B8862B">Needs your call</span></header>
-    <div class="meta"><span class="m"><b class="idle" data-last="2026-09-07T19:15:00Z">8 min</b> since last action</span>
+    <div class="meta"><span class="m"><b class="idle" data-last="2026-09-07T18:02:00Z">1h 37m</b> since last action</span>
+      <span class="m">362 replies</span><span class="m mono">40e86d1b</span></div>
+    <p class="goal"><b>What it is chasing.</b> Answer two questions: why chats keep stopping early, and what refund is available for the tokens burned by the restarts.</p>
+    
+    <div class="kid"><h4><span class="tag meas">Measured</span> read from the transcript</h4><ul><li>It counted six stops and zero times a chat restarted itself.</li><li>The cause is mechanical: your settings file wires 12 stop hooks and the one that would have caught this is wired zero times.</li><li>It cannot issue you a refund, so it wrote down the exact numbers to attach to a support request.</li><li>Five leftover jobs all need a hard drive or a folder only you can hand over.</li></ul></div>
+    <div class="rec" style="border-color:#B8862B"><h4><span class="tag rcmd">Recommended</span> my judgment, not a measurement</h4><p>The whole finding turns on one line in settings.json. Arming a stop hook affects every future chat on this Mac, so the chat correctly refused to edit it alone.</p>
+      <p class="do"><span class="doarrow">&#9656;</span> <b>Decide q-2026-08-30-74344c: arm stop_gate.py in settings.json, or leave it off on purpose.</b> <span class="eff">say it, then 5 min</span></p></div>
+    <div class="links"><a class="lnk" href="https://7onething1.github.io/why-i-keep-stopping/" target="_blank" rel="noopener">Live page</a></div>
+  </div></article>
+<article class="card" id="c12">
+  <div class="stripe" style="background:#B8862B"></div>
+  <div class="cbody">
+    <header class="chead"><div><span class="num">12</span><h3>Board review chat</h3></div>
+    <span class="pill" style="background:#B8862B">Needs your call</span></header>
+    <div class="meta"><span class="m"><b class="idle" data-last="2026-09-07T19:15:00Z">24 min</b> since last action</span>
       <span class="m">15 replies</span><span class="m mono">13b8d0d9</span></div>
     <p class="goal"><b>What it is chasing.</b> Act on this board rather than only reading it.</p>
-    <div class="kid"><h4>The last of it, said plain</h4><ul><li>You pasted this board&#x27;s link into a fresh chat with nothing else attached.</li><li>It checked all 13 outbound links and every one worked.</li><li>It laid out a three-phase plan to clear the blocked rows for you.</li><li>It stopped and asked what you actually wanted, rather than guessing.</li></ul></div>
-    <div class="rec" style="border-color:#B8862B"><h4>Finish it today</h4><p>It is right to ask. Reading the board and clearing the board are separate jobs, and guessing between them would waste a full pass.</p>
+    
+    <div class="kid"><h4><span class="tag meas">Measured</span> read from the transcript</h4><ul><li>You pasted this board&#x27;s link into a fresh chat with nothing else attached.</li><li>It checked all 13 outbound links and every one worked.</li><li>It laid out a three-phase plan to clear the blocked rows for you.</li><li>It stopped and asked what you actually wanted, rather than guessing.</li></ul></div>
+    <div class="rec" style="border-color:#B8862B"><h4><span class="tag rcmd">Recommended</span> my judgment, not a measurement</h4><p>It is right to ask. Reading the board and clearing the board are separate jobs, and guessing between them would waste a full pass.</p>
       <p class="do"><span class="doarrow">&#9656;</span> <b>Tell it: prepare each blocked row down to one press, then republish.</b> <span class="eff">say it</span></p></div>
     <div class="links"><a class="lnk" href="https://7onething1.github.io/active-chats-2026-09-07/" target="_blank" rel="noopener">This board</a></div>
   </div></article>
-<article class="card" id="c12">
+<article class="card" id="c13">
   <div class="stripe" style="background:#3E7FA8"></div>
   <div class="cbody">
-    <header class="chead"><div><span class="num">12</span><h3>Active chats digest, 30-minute loop</h3></div>
+    <header class="chead"><div><span class="num">13</span><h3>Active chats digest, 30-minute loop</h3></div>
     <span class="pill" style="background:#3E7FA8">Running now</span></header>
-    <div class="meta"><span class="m"><b class="idle" data-last="2026-09-07T19:19:00Z">4 min</b> since last action</span>
+    <div class="meta"><span class="m"><b class="idle" data-last="2026-09-07T19:19:00Z">20 min</b> since last action</span>
       <span class="m">26 replies</span><span class="m mono">9acf1afe</span></div>
     <p class="goal"><b>What it is chasing.</b> Rebuild an active-chats digest every 30 minutes on a launchd timer and relay it to ChatGPT.</p>
-    <div class="kid"><h4>The last of it, said plain</h4><ul><li>This chat rebuilds a chat summary every half hour, on a timer.</li><li>Its timer fired, finished cleanly, and put a fresh page online.</li><li>It reads 27 chats where this board reads 22, so its net is wider.</li><li>It is running right now and needs nothing from you.</li></ul></div>
-    <div class="rec" style="border-color:#3E7FA8"><h4>Finish it today</h4><p>Two pages now answer nearly the same question. Keeping both costs tokens every 30 minutes forever.</p>
+    
+    <div class="kid"><h4><span class="tag meas">Measured</span> read from the transcript</h4><ul><li>This chat rebuilds a chat summary every half hour, on a timer.</li><li>Its timer fired, finished cleanly, and put a fresh page online.</li><li>It reads 27 chats where this board reads 22, so its net is wider.</li><li>It is running right now and needs nothing from you.</li></ul></div>
+    <div class="rec" style="border-color:#3E7FA8"><h4><span class="tag rcmd">Recommended</span> my judgment, not a measurement</h4><p>Two pages now answer nearly the same question. Keeping both costs tokens every 30 minutes forever.</p>
       <p class="do"><span class="doarrow">&#9656;</span> <b>Pick one to keep. This board carries the finish-today actions, so kill the loop or point it at this route.</b> <span class="eff">2 min</span></p></div>
     <div class="links"><a class="lnk" href="https://7onething1.github.io/active-chats-digest/" target="_blank" rel="noopener">Sibling digest</a></div>
-  </div></article>
-<article class="card" id="c13">
-  <div class="stripe" style="background:#5B7B6F"></div>
-  <div class="cbody">
-    <header class="chead"><div><span class="num">13</span><h3>Ableton 11 APC 20 sets</h3></div>
-    <span class="pill" style="background:#5B7B6F">Part way</span></header>
-    <div class="meta"><span class="m"><b class="idle" data-last="2026-09-07T16:39:00Z">2h 44m</b> since last action</span>
-      <span class="m">247 replies</span><span class="m mono">2dbd8b8a</span></div>
-    <p class="goal"><b>What it is chasing.</b> Get Ableton Live 11 sets shaped to the APC20 grid, and decide whether to build them or buy them.</p>
-    <div class="kid"><h4>The last of it, said plain</h4><ul><li>You wanted Ableton files shaped 8 tracks across by 5 scenes down for your APC20.</li><li>Nobody sells those, so it wrote a tool that reshapes your own files instead.</li><li>It built 4 sets and all 4 passed every check.</li><li>Heads up: your Nostalgia_Homage file crashes Ableton on its own, and that is not the tool&#x27;s doing.</li></ul></div>
-    <div class="rec" style="border-color:#5B7B6F"><h4>Finish it today</h4><p>The tool works and the sets are on disk. What is missing is you opening one and saying whether the grid feels right under your hands.</p>
-      <p class="do"><span class="doarrow">&#9656;</span> <b>Open APC20_1bank_8x5.als in Live 11, play it on the APC20, then run the generator on a real song of yours.</b> <span class="eff">15 min</span></p></div>
-    <div class="links"><a class="lnk" href="https://7onething1.github.io/apc20-live11-sets/" target="_blank" rel="noopener">Live page</a></div>
   </div></article>
 <article class="card" id="c14">
   <div class="stripe" style="background:#5B7B6F"></div>
   <div class="cbody">
-    <header class="chead"><div><span class="num">14</span><h3>KEEP-IT-GREASEY s604777 handoff</h3></div>
+    <header class="chead"><div><span class="num">14</span><h3>Ableton 11 APC 20 sets</h3></div>
     <span class="pill" style="background:#5B7B6F">Part way</span></header>
-    <div class="meta"><span class="m"><b class="idle" data-last="2026-09-07T16:46:00Z">2h 37m</b> since last action</span>
-      <span class="m">441 replies</span><span class="m mono">25eed9b9</span></div>
-    <p class="goal"><b>What it is chasing.</b> Measure the Keep It Greasey tempo against the printed chart, and relay every finished update to ChatGPT.</p>
-    <div class="kid"><h4>The last of it, said plain</h4><ul><li>It studied how fast a Zappa song plays against what the printed sheet music says.</li><li>It finished 10 jobs on its list and left 5 open.</li><li>Three of those 5 are number crunching it can do by itself.</li><li>The other 2 need a magazine page nobody owns, so they are stuck on you.</li></ul></div>
-    <div class="rec" style="border-color:#5B7B6F"><h4>Finish it today</h4><p>Run the three compute items today. Kill or park the two that need material nobody has, since they will otherwise sit there forever.</p>
-      <p class="do"><span class="doarrow">&#9656;</span> <b>Tell it: finish 18a2dd, 04ae20 and 02a84f, then close 20757f and e64c44 as unobtainable.</b> <span class="eff">say it, then ~45 min</span></p></div>
-    <div class="links"><a class="lnk" href="https://7onething1.github.io/zappa-keep-it-greasey-tempo/" target="_blank" rel="noopener">Live page</a></div>
+    <div class="meta"><span class="m"><b class="idle" data-last="2026-09-07T16:39:00Z">3h 00m</b> since last action</span>
+      <span class="m">247 replies</span><span class="m mono">2dbd8b8a</span></div>
+    <p class="goal"><b>What it is chasing.</b> Get Ableton Live 11 sets shaped to the APC20 grid, and decide whether to build them or buy them.</p>
+    <p class="ev"><b>Independently checked:</b> CONFIRMED. 4 .als files present in ~/Projects/_outputs/apc20-live11-sets/. <a href="https://7onething1.github.io/fraud-audit-active-chats-2026-09-07/" target="_blank" rel="noopener">audit</a></p>
+    <div class="kid"><h4><span class="tag meas">Measured</span> read from the transcript</h4><ul><li>You wanted Ableton files shaped 8 tracks across by 5 scenes down for your APC20.</li><li>Nobody sells those, so it wrote a tool that reshapes your own files instead.</li><li>It built 4 sets and all 4 passed every check.</li><li>Heads up: your Nostalgia_Homage file crashes Ableton on its own, and that is not the tool&#x27;s doing.</li></ul></div>
+    <div class="rec" style="border-color:#5B7B6F"><h4><span class="tag rcmd">Recommended</span> my judgment, not a measurement</h4><p>The tool works and the sets are on disk. What is missing is you opening one and saying whether the grid feels right under your hands.</p>
+      <p class="do"><span class="doarrow">&#9656;</span> <b>Open APC20_1bank_8x5.als in Live 11, play it on the APC20, then run the generator on a real song of yours.</b> <span class="eff">15 min</span></p></div>
+    <div class="links"><a class="lnk" href="https://7onething1.github.io/apc20-live11-sets/" target="_blank" rel="noopener">Live page</a></div>
   </div></article>
 <article class="card" id="c15">
-  <div class="stripe" style="background:#4A7A57"></div>
+  <div class="stripe" style="background:#5B7B6F"></div>
   <div class="cbody">
-    <header class="chead"><div><span class="num">15</span><h3>Demucs guitar/drums isolation</h3></div>
-    <span class="pill" style="background:#4A7A57">Finished</span></header>
-    <div class="meta"><span class="m"><b class="idle" data-last="2026-09-07T17:52:00Z">1h 31m</b> since last action</span>
-      <span class="m">999 replies</span><span class="m mono">5d64fd40</span></div>
-    <p class="goal"><b>What it is chasing.</b> Split the 8-28 band practice recording into separate drum-kit lanes and band stems, then get them onto Drive.</p>
-    <div class="kid"><h4>The last of it, said plain</h4><ul><li>It took the band practice recording from August 28th and pulled it apart.</li><li>It made 150 drum files and 25 band files, about 38 gigabytes in all.</li><li>It checked every file for clicks and silence, and they all came back clean.</li><li>It uploaded 13.7 gigabytes to Google Drive with zero differences found.</li></ul></div>
-    <div class="rec" style="border-color:#4A7A57"><h4>Finish it today</h4><p>Twelve of twelve done and proven on disk, on Drive and on the live page. At 999 replies it is far past the length ceiling.</p>
-      <p class="do"><span class="doarrow">&#9656;</span> <b>Run /chat-end, then /clear.</b> <span class="eff">1 min</span></p></div>
-    <div class="links"><a class="lnk" href="https://7onething1.github.io/band-practice-8-28-drumkit/" target="_blank" rel="noopener">Live page</a></div>
+    <header class="chead"><div><span class="num">15</span><h3>KEEP-IT-GREASEY s604777 handoff</h3></div>
+    <span class="pill" style="background:#5B7B6F">Part way</span></header>
+    <div class="meta"><span class="m"><b class="idle" data-last="2026-09-07T16:46:00Z">2h 53m</b> since last action</span>
+      <span class="m">441 replies</span><span class="m mono">25eed9b9</span></div>
+    <p class="goal"><b>What it is chasing.</b> Measure the Keep It Greasey tempo against the printed chart, and relay every finished update to ChatGPT.</p>
+    
+    <div class="kid"><h4><span class="tag meas">Measured</span> read from the transcript</h4><ul><li>It studied how fast a Zappa song plays against what the printed sheet music says.</li><li>It finished 10 jobs on its list and left 5 open.</li><li>Three of those 5 are number crunching it can do by itself.</li><li>The other 2 need a magazine page nobody owns, so they are stuck on you.</li></ul></div>
+    <div class="rec" style="border-color:#5B7B6F"><h4><span class="tag rcmd">Recommended</span> my judgment, not a measurement</h4><p>Run the three compute items today. Kill or park the two that need material nobody has, since they will otherwise sit there forever.</p>
+      <p class="do"><span class="doarrow">&#9656;</span> <b>Tell it: finish 18a2dd, 04ae20 and 02a84f, then close 20757f and e64c44 as unobtainable.</b> <span class="eff">say it, then ~45 min</span></p></div>
+    <div class="links"><a class="lnk" href="https://7onething1.github.io/zappa-keep-it-greasey-tempo/" target="_blank" rel="noopener">Live page</a></div>
   </div></article>
 <article class="card" id="c16">
   <div class="stripe" style="background:#B8862B"></div>
   <div class="cbody">
     <header class="chead"><div><span class="num">16</span><h3>Notation evidence gate page help</h3></div>
     <span class="pill" style="background:#B8862B">Needs your call</span></header>
-    <div class="meta"><span class="m"><b class="idle" data-last="2026-09-07T19:13:00Z">10 min</b> since last action</span>
+    <div class="meta"><span class="m"><b class="idle" data-last="2026-09-07T19:13:00Z">26 min</b> since last action</span>
       <span class="m">3 replies</span><span class="m mono">c6386d93</span></div>
     <p class="goal"><b>What it is chasing.</b> Work out what is wrong with the notation-evidence-gate page and fix it.</p>
-    <div class="kid"><h4>The last of it, said plain</h4><ul><li>That page existed only on the web, with no copy anywhere on this Mac.</li><li>One bad deploy would have wiped it out permanently, so it pulled a copy down and saved it.</li><li>The page is missing from your main index, so nothing links to it.</li><li>It also has no notes file and zero links inside it, which your own ship rule requires.</li></ul></div>
-    <div class="rec" style="border-color:#B8862B"><h4>Finish it today</h4><p>The recovery half was worth doing on its own. What stays open is small and mechanical.</p>
+    
+    <div class="kid"><h4><span class="tag meas">Measured</span> read from the transcript</h4><ul><li>That page existed only on the web, with no copy anywhere on this Mac.</li><li>One bad deploy would have wiped it out permanently, so it pulled a copy down and saved it.</li><li>The page is missing from your main index, so nothing links to it.</li><li>It also has no notes file and zero links inside it, which your own ship rule requires.</li></ul></div>
+    <div class="rec" style="border-color:#B8862B"><h4><span class="tag rcmd">Recommended</span> my judgment, not a measurement</h4><p>The recovery half was worth doing on its own. What stays open is small and mechanical.</p>
       <p class="do"><span class="doarrow">&#9656;</span> <b>Tell it: add the card to indexes-board, write the sibling .md, add links out, redeploy.</b> <span class="eff">say it, then ~15 min</span></p></div>
     <div class="links"><a class="lnk" href="https://drwu-htmls.vercel.app/notation-evidence-gate" target="_blank" rel="noopener">Live page</a></div>
   </div></article>
@@ -294,12 +331,13 @@ footer{margin-top:44px;padding-top:20px;border-top:3px double var(--line);color:
   <div class="cbody">
     <header class="chead"><div><span class="num">17</span><h3>Appleseed cast chat</h3></div>
     <span class="pill" style="background:#5B7B6F">Part way</span></header>
-    <div class="meta"><span class="m"><b class="idle" data-last="2026-09-07T19:18:00Z">5 min</b> since last action</span>
+    <div class="meta"><span class="m"><b class="idle" data-last="2026-09-07T19:18:00Z">21 min</b> since last action</span>
       <span class="m">199 replies</span><span class="m mono">b7a070f1</span></div>
     <p class="goal"><b>What it is chasing.</b> Rearrange four Appleseed Cast guitar tabs so a real pair of hands can play them, by moving the overflow onto a third guitar staff.</p>
-    <div class="kid"><h4>The last of it, said plain</h4><ul><li>Four guitar songs had chord shapes no human hand could reach.</li><li>It added a third pretend guitarist so the notes get shared between two players.</li><li>It fixed 641 of the 700 bad spots and lost zero notes doing it.</li><li>The last 59 need a timing tool this Mac does not have, so they sit parked.</li></ul></div>
-    <div class="rec" style="border-color:#5B7B6F"><h4>Finish it today</h4><p>59 bad beats out of 4,961 works out at 1.2 percent. Ship the four files today with the gap written down, and stop paying for the last mile.</p>
-      <p class="do"><span class="doarrow">&#9656;</span> <b>Declare the 59 a documented limit, or write the tuplet subdivision helper.</b> <span class="eff">10 min to ship as-is</span></p></div>
+    
+    <div class="kid"><h4><span class="tag meas">Measured</span> read from the transcript</h4><ul><li>Four guitar songs had chord shapes no human hand could reach.</li><li>It added a third pretend guitarist so the notes get shared between two players.</li><li>It fixed 641 of the 700 bad spots and lost zero notes doing it.</li><li>The last 59 need a timing tool this Mac does not have, so they sit parked.</li></ul></div>
+    <div class="rec" style="border-color:#5B7B6F"><h4><span class="tag rcmd">Recommended</span> my judgment, not a measurement</h4><p>59 bad beats out of 4,961 works out at 1.2 percent. Test whether the timing helper resolves them without moving a pitch or a position, and ship only when that answer is known.</p>
+      <p class="do"><span class="doarrow">&#9656;</span> <b>Test the tuplet subdivision helper against the 33 rest-decomposition beats, then decide ship or fix.</b> <span class="eff">~30 min</span></p></div>
     <div class="links"><a class="lnk" href="https://7onething1.github.io/appleseed-guitar-arrangement/" target="_blank" rel="noopener">Live page</a></div>
   </div></article>
 <article class="card" id="c18">
@@ -307,11 +345,12 @@ footer{margin-top:44px;padding-top:20px;border-top:3px double var(--line);color:
   <div class="cbody">
     <header class="chead"><div><span class="num">18</span><h3>Zappa chat context loss, trouble first</h3></div>
     <span class="pill" style="background:#7A6A94">Waiting on outside</span></header>
-    <div class="meta"><span class="m"><b class="idle" data-last="2026-09-07T16:14:00Z">3h 09m</b> since last action</span>
+    <div class="meta"><span class="m"><b class="idle" data-last="2026-09-07T16:14:00Z">3h 25m</b> since last action</span>
       <span class="m">505 replies</span><span class="m mono">cecab27f</span></div>
     <p class="goal"><b>What it is chasing.</b> Put the three missing musician names back on Carolina Hard-Core Ecstasy s68248.</p>
-    <div class="kid"><h4>The last of it, said plain</h4><ul><li>A Zappa song page lost three musicians&#x27; names: bass, drums and trombone.</li><li>The fix is already sent in and sitting with the website&#x27;s reviewers.</li><li>It has waited 41 hours, and the same song took 58 last time, so it is not late yet.</li><li>It uploaded nothing new this turn, it only checked and reported back.</li></ul></div>
-    <div class="rec" style="border-color:#7A6A94"><h4>Finish it today</h4><p>There is nothing to do and nothing to decide. Waiting on a stranger&#x27;s moderation queue is not your work.</p>
+    <p class="ev"><b>Independently checked:</b> NOT TESTED. Moderation state was not independently re-fetched by the audit. <a href="https://7onething1.github.io/fraud-audit-active-chats-2026-09-07/" target="_blank" rel="noopener">audit</a></p>
+    <div class="kid"><h4><span class="tag meas">Measured</span> read from the transcript</h4><ul><li>A Zappa song page lost three musicians&#x27; names: bass, drums and trombone.</li><li>The fix is already sent in and sitting with the website&#x27;s reviewers.</li><li>It has waited 41 hours, and the same song took 58 last time, so it is not late yet.</li><li>It uploaded nothing new this turn, it only checked and reported back.</li></ul></div>
+    <div class="rec" style="border-color:#7A6A94"><h4><span class="tag rcmd">Recommended</span> my judgment, not a measurement</h4><p>There is nothing to do and nothing to decide. Waiting on a stranger&#x27;s moderation queue is not your work.</p>
       <p class="do"><span class="doarrow">&#9656;</span> <b>Close the chat and check the tab tomorrow.</b> <span class="eff">1 min</span></p></div>
     <div class="links"><a class="lnk" href="https://www.songsterr.com/a/wa/song?id=68248" target="_blank" rel="noopener">Songsterr tab</a></div>
   </div></article>
@@ -320,11 +359,12 @@ footer{margin-top:44px;padding-top:20px;border-top:3px double var(--line);color:
   <div class="cbody">
     <header class="chead"><div><span class="num">19</span><h3>Volume to 45%</h3></div>
     <span class="pill" style="background:#4A7A57">Finished</span></header>
-    <div class="meta"><span class="m"><b class="idle" data-last="2026-09-07T17:47:00Z">1h 36m</b> since last action</span>
+    <div class="meta"><span class="m"><b class="idle" data-last="2026-09-07T17:47:00Z">1h 52m</b> since last action</span>
       <span class="m">57 replies</span><span class="m mono">375f20c2</span></div>
     <p class="goal"><b>What it is chasing.</b> Take the ceiling off the Mac volume so the keys reach full.</p>
-    <div class="kid"><h4>The last of it, said plain</h4><ul><li>Your Mac had a rule that stopped the volume at 45 out of 100.</li><li>That rule is off now and your volume keys go all the way to 100.</li><li>Two timers that would switch it back on at midnight were retired, and nothing was deleted.</li><li>The microphone pin stays on, which is what keeps your headphones in good stereo.</li></ul></div>
-    <div class="rec" style="border-color:#4A7A57"><h4>Finish it today</h4><p>Finished and proven with volcap status. Nothing to add here.</p>
+    <p class="ev"><b>Independently checked:</b> CONSISTENT. Output volume reads 57, above the retired 45 ceiling. <a href="https://7onething1.github.io/fraud-audit-active-chats-2026-09-07/" target="_blank" rel="noopener">audit</a></p>
+    <div class="kid"><h4><span class="tag meas">Measured</span> read from the transcript</h4><ul><li>Your Mac had a rule that stopped the volume at 45 out of 100.</li><li>That rule is off now and your volume keys go all the way to 100.</li><li>Two timers that would switch it back on at midnight were retired, and nothing was deleted.</li><li>The microphone pin stays on, which is what keeps your headphones in good stereo.</li></ul></div>
+    <div class="rec" style="border-color:#4A7A57"><h4><span class="tag rcmd">Recommended</span> my judgment, not a measurement</h4><p>Finished and proven with volcap status. Nothing to add here.</p>
       <p class="do"><span class="doarrow">&#9656;</span> <b>Run /chat-end.</b> <span class="eff">1 min</span></p></div>
     <div class="links"></div>
   </div></article>
@@ -333,11 +373,12 @@ footer{margin-top:44px;padding-top:20px;border-top:3px double var(--line);color:
   <div class="cbody">
     <header class="chead"><div><span class="num">20</span><h3>Active chats quitting early</h3></div>
     <span class="pill" style="background:#4A7A57">Finished</span></header>
-    <div class="meta"><span class="m"><b class="idle" data-last="2026-09-07T17:52:00Z">1h 31m</b> since last action</span>
+    <div class="meta"><span class="m"><b class="idle" data-last="2026-09-07T17:52:00Z">1h 47m</b> since last action</span>
       <span class="m">861 replies</span><span class="m mono">9afcd690</span></div>
     <p class="goal"><b>What it is chasing.</b> Run a babysitter that notices when other chats stall and pokes them back to work.</p>
-    <div class="kid"><h4>The last of it, said plain</h4><ul><li>This is the babysitter chat that pokes the other chats when they fall asleep.</li><li>It woke 7 of 10 chats back up today, taking the stalled count from 8 down to 3.</li><li>Three would not wake, so it has to wait 90 minutes and try again.</li><li>It keeps a written list of every poke it has ever sent.</li></ul></div>
-    <div class="rec" style="border-color:#4A7A57"><h4>Finish it today</h4><p>This board does the babysitter&#x27;s job in one page, and the chat sits at 861 replies. It has earned retirement.</p>
+    <p class="ev"><b>Independently checked:</b> NOT TESTED. The audit sampled nine high-stakes claims and left the narrative bullets on 18 rows unread. <a href="https://7onething1.github.io/fraud-audit-active-chats-2026-09-07/" target="_blank" rel="noopener">audit</a></p>
+    <div class="kid"><h4><span class="tag meas">Measured</span> read from the transcript</h4><ul><li>This is the babysitter chat that pokes the other chats when they fall asleep.</li><li>It woke 7 of 10 chats back up today, taking the stalled count from 8 down to 3.</li><li>Three would not wake, so it has to wait 90 minutes and try again.</li><li>It keeps a written list of every poke it has ever sent.</li></ul></div>
+    <div class="rec" style="border-color:#4A7A57"><h4><span class="tag rcmd">Recommended</span> my judgment, not a measurement</h4><p>This board does the babysitter&#x27;s job in one page, and the chat sits at 861 replies. It has earned retirement.</p>
       <p class="do"><span class="doarrow">&#9656;</span> <b>Close it and read this board instead.</b> <span class="eff">1 min</span></p></div>
     <div class="links"></div>
   </div></article>
@@ -346,11 +387,12 @@ footer{margin-top:44px;padding-top:20px;border-top:3px double var(--line);color:
   <div class="cbody">
     <header class="chead"><div><span class="num">21</span><h3>3-phase ghost note restore, huge plan</h3></div>
     <span class="pill" style="background:#4A7A57">Finished</span></header>
-    <div class="meta"><span class="m"><b class="idle" data-last="2026-09-07T17:55:00Z">1h 28m</b> since last action</span>
+    <div class="meta"><span class="m"><b class="idle" data-last="2026-09-07T17:55:00Z">1h 44m</b> since last action</span>
       <span class="m">231 replies</span><span class="m mono">83a75ca6</span></div>
     <p class="goal"><b>What it is chasing.</b> Recover the full record of the ghost-note debacle and produce a verified list of every song that got wrongly corrected.</p>
-    <div class="kid"><h4>The last of it, said plain</h4><ul><li>It worked out what broke on the Zappa drum tabs: 3,832 quiet-note marks got erased.</li><li>It checked all 105 tabs and found 20 were touched and 15 went public.</li><li>It settled an argument about a music symbol by taking an actual picture of the sheet music.</li><li>Two leftover jobs are parked with ID numbers so neither one gets lost.</li></ul></div>
-    <div class="rec" style="border-color:#4A7A57"><h4>Finish it today</h4><p>All five items closed and the handoff is written. This one is finished.</p>
+    <p class="ev"><b>Independently checked:</b> CONFIRMED. 3,832 marks across 15 still-damaged live tabs, 3,842 on the current public revision across 16. <a href="https://7onething1.github.io/fraud-audit-active-chats-2026-09-07/" target="_blank" rel="noopener">audit</a></p>
+    <div class="kid"><h4><span class="tag meas">Measured</span> read from the transcript</h4><ul><li>It worked out what broke on the Zappa drum tabs: 3,832 quiet-note marks got erased.</li><li>It checked all 105 tabs and found 20 were touched and 15 went public.</li><li>It settled an argument about a music symbol by taking an actual picture of the sheet music.</li><li>Two leftover jobs are parked with ID numbers so neither one gets lost.</li></ul></div>
+    <div class="rec" style="border-color:#4A7A57"><h4><span class="tag rcmd">Recommended</span> my judgment, not a measurement</h4><p>All five items closed and the handoff is written. This one is finished.</p>
       <p class="do"><span class="doarrow">&#9656;</span> <b>Run /chat-end in that chat.</b> <span class="eff">1 min</span></p></div>
     <div class="links"><a class="lnk" href="https://7onething1.github.io/zappa-ghost-note-audit/#accents" target="_blank" rel="noopener">Audit page</a></div>
   </div></article>
@@ -359,11 +401,12 @@ footer{margin-top:44px;padding-top:20px;border-top:3px double var(--line);color:
   <div class="cbody">
     <header class="chead"><div><span class="num">22</span><h3>Songs lickable text to Songsterr</h3></div>
     <span class="pill" style="background:#4A7A57">Finished</span></header>
-    <div class="meta"><span class="m"><b class="idle" data-last="2026-09-07T18:49:00Z">34 min</b> since last action</span>
+    <div class="meta"><span class="m"><b class="idle" data-last="2026-09-07T18:49:00Z">50 min</b> since last action</span>
       <span class="m">193 replies</span><span class="m mono">bf53c889</span></div>
     <p class="goal"><b>What it is chasing.</b> Turn every Zappa song name on the program-scope page into a working click-through link to its Songsterr tab.</p>
-    <div class="kid"><h4>The last of it, said plain</h4><ul><li>It made all 34 Zappa song names on a web page into buttons you can click.</li><li>It tested all 238 links first, and every single one of them worked.</li><li>It caught three of its own mistakes, like counting a table header row as a song.</li><li>Five names stay plain on purpose, because those songs have no page to open.</li></ul></div>
-    <div class="rec" style="border-color:#4A7A57"><h4>Finish it today</h4><p>Nothing is left on this one. Close it and free the slot.</p>
+    <p class="ev"><b>Independently checked:</b> CONFIRMED. 34 unique Songsterr hrefs counted on the published page. <a href="https://7onething1.github.io/fraud-audit-active-chats-2026-09-07/" target="_blank" rel="noopener">audit</a></p>
+    <div class="kid"><h4><span class="tag meas">Measured</span> read from the transcript</h4><ul><li>It made all 34 Zappa song names on a web page into buttons you can click.</li><li>It tested all 238 links first, and every single one of them worked.</li><li>It caught three of its own mistakes, like counting a table header row as a song.</li><li>Five names stay plain on purpose, because those songs have no page to open.</li></ul></div>
+    <div class="rec" style="border-color:#4A7A57"><h4><span class="tag rcmd">Recommended</span> my judgment, not a measurement</h4><p>Nothing is left on this one. Close it and free the slot.</p>
       <p class="do"><span class="doarrow">&#9656;</span> <b>Run /chat-end in that chat.</b> <span class="eff">1 min</span></p></div>
     <div class="links"><a class="lnk" href="https://7onething1.github.io/zappa-program-scope/" target="_blank" rel="noopener">Live page</a></div>
   </div></article>
