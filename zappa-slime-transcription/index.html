@@ -73,9 +73,9 @@ a { color:var(--rust); }
 <header class="hero"><div class="inner">
   <div class="kicker">Zappa transcription program &middot; Over-Nite Sensation, 1973</div>
   <h1>I'm The Slime</h1>
-  <p>Drum part by Ralph Humphrey. Transcription state measured against the four published Songsterr tabs and the
-  Kasper Sloots handwritten score. Every number on this page came from notation. No audio was
-  read, because the drive holding the stems is not mounted.</p>
+  <p>Drum part by Ralph Humphrey. Transcription state measured against the four published
+  Songsterr tabs, the Kasper Sloots handwritten score, and a fifteen stem Moises Pro separation
+  at 96 kHz. The clock on this page was measured from the separation's own metronome track.</p>
 </div></header>
 
 <div class="wrap">
@@ -91,6 +91,8 @@ a { color:var(--rust); }
     <li><a href="#timing">The timing map and its two failures</a></li>
     <li><a href="#human">The human transcription on hand</a></li>
     <li><a href="#next">What the drive unlocks</a></li>
+    <li><a href="#stems">The stems and their clock</a></li>
+    <li><a href="#copy">The editing copy</a></li>
     <li><a href="#ledger">Evidence ledger</a></li>
   </ol>
 </div>
@@ -99,22 +101,37 @@ a { color:var(--rust); }
 <p class="sub">Three premises in the brief did not survive contact with the disk.</p>
 
 <div class="cards">
-  <div class="card c4"><h4>The stems are unreachable</h4>
-    <span class="big">0</span>
-    <p>The volume list on this Mac holds one entry, Macintosh HD. The T7 Shield is unplugged and
-    no I'm The Slime audio exists on the internal disk.</p></div>
-  <div class="card c1"><h4>No AI Guitar Pro of ours</h4>
-    <span class="big">0</span>
-    <p>Zero Guitar Pro files for this song sit anywhere under Projects. All four Songsterr tabs
-    belong to other people.</p></div>
+  <div class="card c4"><h4>Stems, in /Users/Shared</h4>
+    <span class="big">15</span>
+    <p>96 kHz, 24 bit, 213.752 s. Six piece drum split plus a metronome track. Found only after
+    Brandon asked whether the shared folder had been checked.</p></div>
+  <div class="card c1"><h4>Donor picked by favorites</h4>
+    <span class="big">229</span>
+    <p>s642618 by David-129 holds 229 favorites against 55, 9 and 1 for the others. It was
+    exported and is now the base for the editing copy.</p></div>
   <div class="card c0"><h4>Human drum notation on hand</h4>
     <span class="big">1</span>
     <p>Kasper Sloots wrote a four staff score of the opening with a percussion staff at the
     verse entry. It covers the first pages of the song.</p></div>
-  <div class="card c5"><h4>Notation defects found</h4>
-    <span class="big">205</span>
-    <p>Bar and lane cells where the hand edited tab disagrees with both full machine tabs.
-    Nine of those bars are a machine artifact in every tab.</p></div>
+  <div class="card c5"><h4>Measured tempo, mean</h4>
+    <span class="big">87.2</span>
+    <p>Beats per minute across 77 bars, drifting between 81.1 and 94.5. Every tab ships a
+    120 then 90 map instead, which is a generator default.</p></div>
+</div>
+
+<div class="callout warn">
+<h4>Correction, and where the first pass went wrong</h4>
+<p>The first version of this page reported the stems unreachable, on the strength of a volume
+list showing only Macintosh HD. That search covered Projects, Music, the Desktop anchors and
+the external drives. It never touched <span class="mono">/Users/Shared</span>, which is where a
+complete fifteen stem Moises Pro separation of this song was sitting the whole time. Two other
+Zappa songs, Keep It Greasey and Watermelon In Easter Hay, keep their stems in the same folder.
+Search that path first on any Zappa audio question.</p>
+<p>One published claim is also withdrawn. The first pass called the solo entry a fourteen second
+failure, comparing a tab clock reading of 2:28 against the Sloots timestamp of 2:42. The lead
+stem puts the solo entry at <strong>2:33</strong>, in audio bar 56. The Sloots 2:42 is a clip
+start inside the solo rather than its first bar, so the real gap is five seconds and the
+overstatement was mine.</p>
 </div>
 
 <div class="callout">
@@ -130,13 +147,13 @@ workflow does not apply to it.</p>
 <table>
 <thead><tr><th>Source class</th><th>Status</th><th>Where it is, or why it is not</th></tr></thead>
 <tbody>
-<tr><td>Dedicated Moises Pro stems</td><td><span class="pill no">missing</span></td>
-  <td>No external volume is mounted. A search of the internal disk returns no I'm The Slime audio
-  of any kind.</td></tr>
-<tr><td>Our AI Guitar Pro file</td><td><span class="pill no">missing</span></td>
-  <td>No <span class="mono">.gp</span> file for this song exists under Projects. The Guitar Pro
-  files on disk cover Watermelon, Montana, Carolina, Nanook, Drowning Witch, Inca Roads and the
-  Appleseed set.</td></tr>
+<tr><td>Dedicated Moises Pro stems</td><td><span class="pill yes">15 stems</span></td>
+  <td><span class="mono">/Users/Shared/Frank Zappa - 02 - I&rsquo;m the Slime-F# minor-87bpm-443hz/</span>
+  &mdash; kick, snare, toms, hat, cymbals, other_kit, bass, lead, rhythm, piano, wind, other,
+  vocals, backing_vocals, metronome. 96 kHz, 24 bit, 213.752 s each.</td></tr>
+<tr><td>Our own Guitar Pro file</td><td><span class="pill part">built now</span></td>
+  <td>None existed. The donor was exported from s642618 and rebuilt with the measured tempo map
+  at <span class="mono">_outputs/zappa-slime-transcription/gp/</span>.</td></tr>
 <tr><td>Songsterr tabs</td><td><span class="pill yes">4 pulled</span></td>
   <td>All four saved to <span class="mono">_outputs/zappa-slime-transcription/tabs/</span> with
   full track JSON for every instrument.</td></tr>
@@ -263,11 +280,12 @@ queue for the stem pass.</p>
 </tbody></table>
 
 <div class="callout warn">
-<h4>Failure one, the solo lands fourteen seconds early</h4>
-<p>Sloots timed the outro guitar solo on the album take at 2:42 to 3:15 and wrote out its first
-bars over F#m7, B, D and E. In the David-129 tab the lead guitar jumps from one note per bar to
-nineteen at bar 59, which the tab clock places at 2:28.0. The two readings are fourteen seconds
-apart on the same event.</p>
+<h4>Failure one, WITHDRAWN as written, and restated smaller</h4>
+<p>This section first read that the solo landed fourteen seconds early, comparing the tab clock's
+2:28.0 against the Sloots timestamp of 2:42. The lead stem settles it. The solo enters at
+<strong>2:33</strong>, in audio bar 56. Sloots picked 2:42 as the start of an audio clip inside
+the solo, so it was never a claim about the first bar. The tab clock is off by five seconds
+there, not fourteen, and the fourteen was mine.</p>
 </div>
 <div class="callout warn">
 <h4>Failure two, the tab runs short of the record</h4>
@@ -275,9 +293,9 @@ apart on the same event.</p>
 album take runs 3:34, which is 214 seconds, confirmed against the Wikipedia entry for the song
 on 2026-09-07. The tab clock is between five and seven seconds short of the record.</p>
 </div>
-<p>Both failures point the same way. The tempo map inherited by all four tabs is a generator
-default and it has never been anchored to the recording. Anchoring it is the first stem job, and
-every lane comparison downstream depends on it.</p>
+<p>Both failures point the same way, and the metronome stem settles both. The 120 then 90 map
+inherited by all four tabs is a generator default. The record runs 77 bars at a mean 87.2 BPM
+with real drift between 81.1 and 94.5. That measured map is now written into the editing copy.</p>
 
 <h2 id="human"><span class="num">07</span>The human transcription on hand</h2>
 <p>Kasper Sloots wrote a four staff score of the opening. The first scan carries the 12/8 system
@@ -353,11 +371,105 @@ own evidence and its own finish line.</p>
     is not evidence that the cymbals stopped.</p></div>
 </div>
 
+
+<h2 id="stems"><span class="num">10</span>The stems, and the clock they carry</h2>
+<p class="sub">Fifteen files at 96 kHz and 24 bit, each 213.752 s. Found in
+<span class="mono">/Users/Shared</span>.</p>
+
+<div class="callout ok">
+<h4>The separation ships its own metronome, and it follows the band</h4>
+<p>Peak picking the metronome track finds <strong>310 clicks</strong> between 0.226 s and
+212.746 s, which is 87.24 beats per minute averaged across the song. A straight line fitted
+through those click times leaves a residual swinging from <strong>+788 ms to -627 ms</strong>,
+more than a full beat, so the click is not a rigid grid. It tracks the performance. That makes
+it a free tempo map, and it is the single most valuable thing in the folder.</p>
+<p>Folding the clicks into groups of four and scoring each phase against kick energy puts the
+downbeat on phase 3. Mean kick peak reads 0.378 on that phase and 0.054 on phase 2, a seven to
+one ratio, so the bar line is not in doubt. The song is <strong>77 bars of 4/4</strong>, first
+downbeat at 2.166 s, mean 87.24 BPM, ranging 81.08 to 94.49.</p>
+</div>
+
+<h3>Separation check, every lane</h3>
+<table><thead><tr><th>Lane</th><th class="n">Peak</th><th class="n">Active</th>
+<th class="n">Centroid Hz</th><th>Low / mid / high %</th><th>Verdict</th></tr></thead>
+<tbody>
+<tr><td>kick</td><td class="n">0.656</td><td class="n">40.5%</td><td class="n">1106</td><td class="mono">95 / 4 / 0</td><td>Clean. 95% of its energy under 150 Hz.</td></tr>
+<tr><td>snare</td><td class="n">0.551</td><td class="n">23.9%</td><td class="n">2389</td><td class="mono">38 / 59 / 4</td><td>Clean. Mid dominant, centroid 2.4 kHz.</td></tr>
+<tr><td>toms</td><td class="n">0.542</td><td class="n">20.3%</td><td class="n">1511</td><td class="mono">91 / 9 / 0</td><td>Usable. Shares the low band with the kick, so collisions need a cross check.</td></tr>
+<tr><td>hat</td><td class="n">0.076</td><td class="n">21.0%</td><td class="n">4904</td><td class="mono">10 / 42 / 48</td><td>Clean and quiet. Peak 0.076, so it needs its own threshold.</td></tr>
+<tr><td>cymbals</td><td class="n">0.124</td><td class="n">61.5%</td><td class="n">4488</td><td class="mono">1 / 32 / 66</td><td>Clean and busy. Active 61.5% of the song.</td></tr>
+<tr><td>other_kit</td><td class="n">0.111</td><td class="n">34.2%</td><td class="n">3774</td><td class="mono">85 / 12 / 3</td><td>Low confidence. RMS 0.00078 and a low band profile that does not match its high centroid.</td></tr>
+</tbody></table>
+
+<h3>Onset census, with the confidence attached</h3>
+<p>Each lane's threshold was chosen by maximising phase lock to the metronome grid rather than
+by a fixed guess. Lock R runs 0 for a uniform scatter and toward 1 for events sitting on the
+grid. Events are split into strong and weak tiers so a quiet but distinct stroke survives as a
+ghost candidate.</p>
+<table><thead><tr><th>Lane</th><th class="n">Events</th><th class="n">Strong</th><th class="n">Weak</th>
+<th class="n">Per bar</th><th class="n">Lock R</th><th>Reading</th></tr></thead>
+<tbody>
+<tr><td>kick</td><td class="n">350</td><td class="n">157</td><td class="n">193</td><td class="n">4.55</td><td class="n">0.402</td><td>Trusted. Four of the first seven hits in a sample window land within 10 ms of a click.</td></tr>
+<tr><td>snare</td><td class="n">82</td><td class="n">37</td><td class="n">45</td><td class="n">1.06</td><td class="n">0.837</td><td>Lock is very high, count is low. The threshold caught only the loudest strokes, so the ghost tier is still to build.</td></tr>
+<tr><td>toms</td><td class="n">117</td><td class="n">53</td><td class="n">64</td><td class="n">1.52</td><td class="n">0.182</td><td>Weak lock is expected, since fills do not sit on a repeating grid.</td></tr>
+<tr><td>hat</td><td class="n">240</td><td class="n">108</td><td class="n">132</td><td class="n">3.12</td><td class="n">0.391</td><td>Trusted for the steady passages.</td></tr>
+<tr><td>cymbals</td><td class="n">120</td><td class="n">56</td><td class="n">64</td><td class="n">1.56</td><td class="n">0.081</td><td>Lowest lock of any lane. Sustained decay hides onsets, which is why this lane needs slot scoring.</td></tr>
+<tr><td>other_kit</td><td class="n">98</td><td class="n">44</td><td class="n">54</td><td class="n">1.27</td><td class="n">0.301</td><td>Treat as residue until a listen confirms otherwise.</td></tr>
+</tbody></table>
+
+<div class="callout warn">
+<h4>Two detector failures worth recording, because both looked like facts</h4>
+<p>The first pass returned <strong>zero</strong> kick and zero tom onsets. The cause was
+aggregating onset strength with a median across 128 full range mel bands. A kick occupies two
+or three of those bands, so the median across all of them is exactly zero. Narrow band lanes
+need their own mel limits.</p>
+<p>The second pass then found 660 kick peaks, 8.57 per bar, with a near even split between
+straight and triplet placement in every section. An even split like that is what noise looks
+like. Dropping the threshold to 0.30 of the lane maximum returned seven kick hits in a six
+second window, four of them within 10 ms of a metronome click. The threshold was reading the
+noise floor.</p>
+</div>
+
+<h2 id="copy"><span class="num">11</span>The editing copy</h2>
+<p>No tab for this song belongs to us, and under the standing rule that is exactly the condition
+for making a copy rather than a reason to stop. Donor selection goes by
+<span class="mono">favoritesCount</span> on the Songsterr meta endpoint, because favorites are
+the only field that records a player choosing the tab.</p>
+<table><thead><tr><th>Song id</th><th>Author</th><th class="n">Favorites</th><th class="n">Views</th><th>Verdict</th></tr></thead>
+<tbody>
+<tr><td class="mono">s642618</td><td>David-129</td><td class="n"><strong>229</strong></td><td class="n">7,768</td><td>Donor. Highest favorites and the only hand edited tab.</td></tr>
+<tr><td class="mono">s2826582</td><td>Aaron-Albrecht</td><td class="n">55</td><td class="n">963</td><td>Not chosen.</td></tr>
+<tr><td class="mono">s4663113</td><td>nick3388</td><td class="n">9</td><td class="n">46</td><td>Not chosen.</td></tr>
+<tr><td class="mono">s6070985</td><td>Joshua-Rendall</td><td class="n">1</td><td class="n">0</td><td>Not chosen. Its drum track is a stub.</td></tr>
+</tbody></table>
+
+<div class="callout ok">
+<h4>What is built, and what it changes</h4>
+<p>The donor was exported through the Songsterr editor as a 38,650 byte Guitar Pro file. The
+rebuilt copy carries <strong>63 tempo automations</strong> in place of the donor's two, one per
+bar wherever the measured tempo moves by a quarter of a beat per minute or more, mapped through
+a tab bar to audio bar offset of minus three. That offset is corroborated twice: the tab holds
+80 bars against the audio's 77, and the lead stem puts the solo entry at audio bar 56 against
+the tab's bar 59.</p>
+<p>Nothing else moved. A structural diff reads <strong>267 notes, 866 beats, 80 master bars and
+5 tracks</strong> in both files. The Songsterr session is signed in with 44 transcription credits
+available, so the upload path is open.</p>
+</div>
+
 <h2 id="ledger"><span class="num">09</span>Evidence ledger</h2>
 <table>
 <thead><tr><th>Claim</th><th>How it was measured</th><th>Verdict</th></tr></thead>
 <tbody>
-<tr><td>No external drive is mounted</td><td><span class="mono">ls /Volumes/</span> returns one entry, Macintosh HD</td><td>confirmed</td></tr>
+<tr><td>Stems exist, in /Users/Shared</td><td>Directory listing plus ffprobe on all fifteen files: 96 kHz, 24 bit, 213.752 s</td><td>confirmed</td></tr>
+<tr><td>No external drive is mounted</td><td><span class="mono">ls /Volumes/</span> returns one entry, Macintosh HD. The stems did not need it</td><td>confirmed, and not a blocker</td></tr>
+<tr><td>Song is 77 bars of 4/4 at a mean 87.2 BPM</td><td>310 metronome clicks peak picked, downbeat phase scored against kick energy at a 7 to 1 margin</td><td>confirmed</td></tr>
+<tr><td>The click follows the band rather than a grid</td><td>Linear fit through click times leaves a residual of +788 to -627 ms, more than one beat</td><td>confirmed</td></tr>
+<tr><td>Audio duration 213.752 s</td><td>ffprobe on the stem files, matching the 3:34 listing</td><td>confirmed by measurement</td></tr>
+<tr><td>The solo enters at 2:33, audio bar 56</td><td>Lead stem RMS per bar, jump from 0.0223 to 0.0507 between bars 55 and 56</td><td>confirmed</td></tr>
+<tr><td>Tab to audio bar offset is minus three</td><td>Two anchors: 80 tab bars against 77 audio bars, and the solo at tab bar 59 against audio bar 56</td><td>confirmed</td></tr>
+<tr><td>s642618 holds 229 favorites, the highest</td><td><span class="mono">favoritesCount</span> on api/meta for all four ids</td><td>confirmed</td></tr>
+<tr><td>Rebuilt copy changes only the tempo</td><td>Structural diff: 267 notes, 866 beats, 80 master bars, 5 tracks in both files</td><td>confirmed</td></tr>
+<tr><td>Songsterr session is signed in</td><td>credits endpoint returns 200 with 44 available transcriptions</td><td>confirmed</td></tr>
 <tr><td>No Guitar Pro file for this song on disk</td><td>ripgrep file listing over Projects filtered to Guitar Pro extensions, 60 hits, none for this song</td><td>confirmed</td></tr>
 <tr><td>All four tabs belong to other authors</td><td>Songsterr <span class="mono">api/meta</span> author field, read 2026-09-07</td><td>confirmed</td></tr>
 <tr><td>Bars 2 to 10 are kick and crash sixteenth unisons</td><td>Raw beat objects in every drum track JSON, duration [1,16], no tuplet, both notes present</td><td>confirmed</td></tr>
@@ -366,7 +478,7 @@ own evidence and its own finish line.</p>
 <tr><td>Bars 57 to 62 swap ride for open hi-hat</td><td>Per bar lane census, 44 ride against 41 open hi-hat, each zero in the other tab</td><td>confirmed</td></tr>
 <tr><td>Tom lane assignments do not overlap</td><td>Per bar lane census, floor tom exclusive to the hand edited tab, low tom exclusive to the machine tabs</td><td>confirmed</td></tr>
 <tr><td>Sloots puts the outro solo at 2:42</td><td>Prose caption on the Over-Nite Sensation analysis page, held on disk</td><td>source states it</td></tr>
-<tr><td>Album take runs 3:34</td><td>Wikipedia entry for the song, read 2026-09-07. No audio file measured on this Mac</td><td>confirmed by source</td></tr>
+<tr><td>Album take runs 3:34</td><td>Wikipedia entry, then measured directly at 213.752 s by ffprobe on the stems</td><td>confirmed twice</td></tr>
 <tr><td>Drum performer is Ralph Humphrey</td><td>Over-Nite Sensation personnel across the Wikipedia entry and the Discogs release pages, read 2026-09-07</td><td>confirmed by source</td></tr>
 <tr><td>Sloots writes 12/8 on all four staves at the opening</td><td>Native resolution crop of im-the-slime2.jpg, 8x upscale, glyph read directly</td><td>confirmed</td></tr>
 <tr><td>The change is to 4/4 with a quarter equals dotted quarter mark</td><td>Native resolution crop of im-the-slime1.jpg, 6x upscale, glyph read directly</td><td>confirmed</td></tr>

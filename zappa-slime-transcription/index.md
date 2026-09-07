@@ -3,8 +3,21 @@
 Frank Zappa, Over-Nite Sensation, 1973. Drum part by Ralph Humphrey. Measured 2026-09-07 on Brandons-MacBook-Pro.
 Live page: https://7onething1.github.io/zappa-slime-transcription/
 
-Every number below came from notation. No audio was read this session, because the drive
-holding the stems is not mounted.
+Numbers below come from three sources: the four published Songsterr tabs, the Kasper Sloots
+handwritten score, and a fifteen stem Moises Pro separation at 96 kHz found in `/Users/Shared`.
+
+## Correction, and where the first pass went wrong
+
+The first version of this page reported the stems unreachable, on the strength of a volume list
+showing only Macintosh HD. That search covered Projects, Music, the Desktop anchors and the
+external drives. It never touched `/Users/Shared`, which held a complete fifteen stem separation
+of this song the whole time. Keep It Greasey and Watermelon In Easter Hay keep their stems in
+the same folder. Search that path first on any Zappa audio question.
+
+One published claim is withdrawn. The first pass called the solo entry a fourteen second failure,
+comparing a tab clock reading of 2:28 against the Sloots timestamp of 2:42. The lead stem puts
+the solo entry at 2:33, in audio bar 56. Sloots picked 2:42 as a clip start inside the solo, so
+it was never a claim about the first bar. The gap is five seconds and the overstatement was mine.
 
 ## The verdict
 
@@ -12,8 +25,8 @@ Three premises in the assignment did not survive contact with the disk.
 
 | Premise | Reality |
 |---|---|
-| Good dedicated Moises Pro stems on the drive | `ls /Volumes/` returns one entry, Macintosh HD. No I'm The Slime audio exists on the internal disk. |
-| The existing AI Guitar Pro we did | No Guitar Pro file for this song exists under Projects. All four Songsterr tabs belong to other people. |
+| Good dedicated Moises Pro stems | TRUE, in `/Users/Shared/Frank Zappa - 02 - I'm the Slime-F# minor-87bpm-443hz/`. Fifteen files, 96 kHz, 24 bit, 213.752 s, six piece drum split plus a metronome track. |
+| The existing AI Guitar Pro we did | None existed. All four Songsterr tabs belong to other authors, so the donor was picked by favorites and exported. |
 | Our human transcriptions on hand | One partial score by Kasper Sloots, covering the opening. It is the only human drum notation for this song on this Mac. |
 
 I'm The Slime is not among the 34 song ids on the Zappa program scope page. It holds no
@@ -31,8 +44,9 @@ Read from `api/meta` on 2026-09-07.
 | s2826582 | I'm The Slime (Mothers Of Invention) | Aaron-Albrecht | AI | 2025-11-06 | 963 | 81 | 1,510 |
 | s6070985 | I'm The Slime (The Mothers) | Joshua-Rendall | AI | 2026-07-16 | 0 | 81 | 306 |
 
-None of these is ours, so none of them can take a revision. Any work starts with
-Create a copy to edit on whichever tab becomes the donor.
+None of these is ours, so none can take a revision. That is the condition for making a copy,
+never a reason to stop. Donor selection goes by `favoritesCount`, because favorites are the only
+field that records a player choosing the tab. **s642618 wins at 229 against 55, 9 and 1.**
 
 ## Bars 1 to 10 are not a drum part
 
@@ -103,13 +117,13 @@ bar 11 drops to 90, 4/4 throughout, no further change.
 | 62 | 90 | 2:36.00 | Last bar of the ride against open hi-hat passage |
 | 81 | 90 | 3:26.67 | End of the longest tab |
 
-**Failure one.** Sloots timed the outro guitar solo on the album take at 2:42 to 3:15. The
-tab clock puts the lead guitar density jump at 2:28.0. The two readings sit fourteen seconds
-apart on the same event.
+**Failure one, restated smaller.** The solo enters at 2:33, audio bar 56, measured off the lead
+stem. The tab clock's 2:28.0 is five seconds early. The earlier fourteen second figure came from
+treating Sloots' 2:42 clip start as the solo's first bar, and it is withdrawn.
 
 **Failure two.** Eighty one bars fill 209.3 seconds and eighty bars fill 206.7 seconds. The
-album take runs 3:34, which is 214 seconds, confirmed against the Wikipedia entry for the song
-on 2026-09-07. The tab clock is five to seven seconds short of the record.
+album take measures 213.752 s by ffprobe on the stems. The tab clock is five to seven seconds
+short of the record.
 
 Both failures point the same way. The tempo map is a generator default that was never
 anchored to the recording. Anchoring it is the first stem job.
@@ -184,3 +198,72 @@ and tempo claim conflicts with Sloots on the opening. That page carries no trans
 - `analysis/timing_map_from_tabs.json` holds the bar to seconds map.
 
 Palette: Isle of Dogs (Wes Anderson). Six colours, all six used.
+
+
+## The stems, and the clock they carry
+
+`/Users/Shared/Frank Zappa - 02 - I'm the Slime-F# minor-87bpm-443hz/` holds fifteen files at
+96 kHz, 24 bit, 213.752 s each: kick, snare, toms, hat, cymbals, other_kit, bass, lead, rhythm,
+piano, wind, other, vocals, backing_vocals, metronome.
+
+**The metronome track follows the band.** Peak picking finds 310 clicks between 0.226 s and
+212.746 s, averaging 87.24 BPM. A straight line through those click times leaves a residual
+swinging +788 ms to -627 ms, more than a full beat, so the click is not a rigid grid. Folding
+the clicks in fours and scoring each phase against kick energy puts the downbeat on phase 3,
+mean kick peak 0.378 against 0.054 on phase 2, a seven to one margin.
+
+**The song is 77 bars of 4/4**, first downbeat at 2.166 s, mean 87.24 BPM, ranging 81.08 to
+94.49. Bar 77 is partial, holding 3 clicks rather than 4, and it inherits bar 76's tempo.
+
+### Separation check
+
+| Lane | Peak | Active | Centroid Hz | Low/mid/high % | Verdict |
+|---|---|---|---|---|---|
+| kick | 0.656 | 40.5% | 1106 | 95 / 4 / 0 | Clean |
+| snare | 0.551 | 23.9% | 2389 | 38 / 59 / 4 | Clean |
+| toms | 0.542 | 20.3% | 1511 | 91 / 9 / 0 | Usable, shares the low band with the kick |
+| hat | 0.076 | 21.0% | 4904 | 10 / 42 / 48 | Clean and quiet |
+| cymbals | 0.124 | 61.5% | 4488 | 1 / 32 / 66 | Clean and busy |
+| other_kit | 0.111 | 34.2% | 3774 | 86 / 12 / 3 | Low confidence, RMS 0.00078 |
+
+### Onset census
+
+Thresholds were chosen per lane by maximising phase lock to the metronome grid. Lock R runs 0
+for a uniform scatter and toward 1 for events sitting on the grid.
+
+| Lane | Events | Strong | Weak | Per bar | Lock R |
+|---|---|---|---|---|---|
+| kick | 350 | 157 | 193 | 4.55 | 0.402 |
+| snare | 82 | 37 | 45 | 1.06 | 0.837 |
+| toms | 117 | 53 | 64 | 1.52 | 0.182 |
+| hat | 240 | 108 | 132 | 3.12 | 0.391 |
+| cymbals | 120 | 56 | 64 | 1.56 | 0.081 |
+| other_kit | 98 | 44 | 54 | 1.27 | 0.301 |
+
+**Two detector failures worth recording.** The first pass returned zero kick and zero tom
+onsets, because onset strength was aggregated with a median across 128 full range mel bands and
+a kick occupies two or three of them. The second pass then found 660 kick peaks with a near even
+straight-versus-triplet split in every section, which is what noise looks like. At 0.30 of the
+lane maximum a six second window returns seven kick hits, four within 10 ms of a metronome
+click. The threshold had been reading the noise floor.
+
+## The editing copy
+
+| Song id | Author | Favorites | Views | Verdict |
+|---|---|---|---|---|
+| s642618 | David-129 | **229** | 7,768 | Donor, highest favorites and the only hand edited tab |
+| s2826582 | Aaron-Albrecht | 55 | 963 | Not chosen |
+| s4663113 | nick3388 | 9 | 46 | Not chosen |
+| s6070985 | Joshua-Rendall | 1 | 0 | Not chosen, its drum track is a stub |
+
+The donor was exported through the Songsterr editor as a 38,650 byte Guitar Pro file. The
+rebuilt copy carries 63 tempo automations in place of the donor's two, one per bar wherever the
+measured tempo moves by a quarter of a beat per minute or more, mapped through a tab bar to
+audio bar offset of minus three. That offset is corroborated twice: 80 tab bars against 77 audio
+bars, and the lead stem putting the solo entry at audio bar 56 against the tab's bar 59.
+
+Nothing else moved. A structural diff reads 267 notes, 866 beats, 80 master bars and 5 tracks in
+both files. The Songsterr session is signed in with 44 transcription credits available.
+
+Files: `gp/DONOR-s642618.gp` and `gp/SLIME-Brandon-edit-tempo-185032.gp` under
+`~/Projects/_outputs/zappa-slime-transcription/`.
