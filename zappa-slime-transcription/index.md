@@ -1,6 +1,6 @@
 # I'm The Slime, drum transcription state
 
-Frank Zappa, Over-Nite Sensation, 1973. Measured 2026-09-07 on Brandons-MacBook-Pro.
+Frank Zappa, Over-Nite Sensation, 1973. Drum part by Ralph Humphrey. Measured 2026-09-07 on Brandons-MacBook-Pro.
 Live page: https://7onething1.github.io/zappa-slime-transcription/
 
 Every number below came from notation. No audio was read this session, because the drive
@@ -108,9 +108,8 @@ tab clock puts the lead guitar density jump at 2:28.0. The two readings sit four
 apart on the same event.
 
 **Failure two.** Eighty one bars fill 209.3 seconds and eighty bars fill 206.7 seconds. The
-album take is listed at 3:34, which is 214 seconds. The tab clock is five to seven seconds
-short. That figure carries a caveat, because the 3:34 came from a catalogue listing and not
-from a file measured on this Mac.
+album take runs 3:34, which is 214 seconds, confirmed against the Wikipedia entry for the song
+on 2026-09-07. The tab clock is five to seven seconds short of the record.
 
 Both failures point the same way. The tempo map is a generator default that was never
 anchored to the recording. Anchoring it is the first stem job.
@@ -126,6 +125,13 @@ Kasper Sloots wrote a four staff score of the opening, held at
 - `im-the-slime3.jpg` carries the outro guitar solo over F#m7, B, D and E, eight bars, drawn
   from the Over-Nite Sensation guitar book.
 
+Three readings were taken off native resolution crops rather than off the page overview, saved
+under `evidence/crops/`. All four staves carry 12/8 at the opening under a three sharp key
+signature, read at 8x. The change is to 4/4 on all four staves under a quarter equals dotted
+quarter equivalence mark, read at 6x. The percussion entry writes X noteheads at two distinct
+staff heights with accent marks below several of them, so Sloots notated two cymbal voices
+rather than one undifferentiated hat line.
+
 Paul Pappas transcribed the song in full for Hal Leonard in 2011. That book is copyrighted
 and is not on this Mac.
 
@@ -136,17 +142,17 @@ and tempo claim conflicts with Sloots on the opening. That page carries no trans
 
 ## Six jobs blocked on the T7 Shield
 
-1. Anchor the clock. Find the outro solo entry in the audio and reconcile it against bar 59
+1. [`q-2026-09-07-82ca4f`] Anchor the clock. Find the outro solo entry in the audio and reconcile it against bar 59
    and against the Sloots 2:42 mark. Rebuild the tempo map, then start the lane work.
-2. Rewrite bars 1 to 10. Take the kick and the crash from their own stems across the opening
+2. [`q-2026-09-07-72bc18`] Rewrite bars 1 to 10. Take the kick and the crash from their own stems across the opening
    twenty seconds and replace the sixteen note unison.
-3. Settle bars 57 to 62. Read the ride and hi-hat stems separately and score expected
+3. [`q-2026-09-07-dadc48`] Settle bars 57 to 62. Read the ride and hi-hat stems separately and score expected
    rhythmic slots rather than counting transients.
-4. Assign the toms. Cluster the tom stem by pitch and map the clusters onto floor, low and
+4. [`q-2026-09-07-628127`] Assign the toms. Cluster the tom stem by pitch and map the clusters onto floor, low and
    mid using the fills as whole figures. Bar 21 is the first test.
-5. Sweep both directions. Work the 205 flagged cells, finding written notes with no stem
+5. [`q-2026-09-07-b2681e`] Sweep both directions. Work the 205 flagged cells, finding written notes with no stem
    support and stem events with nothing written.
-6. Check the dropouts. Wherever kick, snare and tom fall silent, read each cymbal stem on its
+6. [`q-2026-09-07-b8c4e7`] Check the dropouts. Wherever kick, snare and tom fall silent, read each cymbal stem on its
    own. A quiet kit is not evidence that the cymbals stopped.
 
 ## Evidence ledger
@@ -162,8 +168,11 @@ and tempo claim conflicts with Sloots on the opening. That page carries no trans
 | Bars 57 to 62 swap ride for open hi-hat | Per bar lane census, 44 ride against 41 open hi-hat | confirmed |
 | Tom lane assignments do not overlap | Per bar lane census, floor tom and low tom are mutually exclusive between the sources | confirmed |
 | Sloots puts the outro solo at 2:42 | Prose caption on the Over-Nite Sensation analysis page held on disk | source states it |
-| Album take runs 3:34 | Catalogue listing recalled, no audio file measured | unverified |
-| Drum performer on the take | Not established this session | open |
+| Album take runs 3:34 | Wikipedia entry for the song, read 2026-09-07. No audio file measured on this Mac | confirmed by source |
+| Drum performer is Ralph Humphrey | Over-Nite Sensation personnel across the Wikipedia entry and the Discogs release pages, read 2026-09-07 | confirmed by source |
+| Sloots writes 12/8 on all four staves at the opening | Native resolution crop of im-the-slime2.jpg, 8x upscale, glyph read directly | confirmed |
+| The change is to 4/4 with a quarter equals dotted quarter mark | Native resolution crop of im-the-slime1.jpg, 6x upscale, glyph read directly | confirmed |
+| Sloots writes X noteheads at two staff heights | Native resolution crop of the percussion staff, 8x upscale | confirmed |
 
 ## Working files
 
