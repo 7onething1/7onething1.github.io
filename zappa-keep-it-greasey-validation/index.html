@@ -56,8 +56,10 @@ footer{margin-top:50px;padding-top:18px;border-top:1px solid var(--line);color:v
 <p>Frank Zappa, <i>Joe's Garage</i>, 1979. Songsterr <b>s604777</b>, live tab <b>r8852151</b> by Ben Dibden1,
 part 8 "Vinnie Colaiuta", <b>248 bars, 4,948 drum events, 629 ghost flags</b>. Re-pulled and re-verified
 at the start of this pass and again at the end.</p>
-<p>Six independent procedures now place bar 102's downbeat between <b>197.88 and 198.20 s</b>, beside the
-printed 3:18 marker. One of them passed a gate written down before it ran. The five drum lanes then
+<p>Eight procedures now place bar 102's downbeat, seven of them between <b>197.88 and 198.20 s</b>,
+beside the printed 3:18 marker. <b>They are not independent</b>: all eight read the same score and the
+same recording, and six read the same fifteen-stem separation, so their agreement is partly shared
+method. Only the printed marker is free of the stems. One of them passed a gate written down before it ran. The five drum lanes then
 tested that map from outside. <b class="hl">Snare, hat and tom are clearly better under a window slid
 one bar later, kick leans the same way by one unit, and cymbal is flat.</b></p>
 <p class="mut" style="margin-top:14px">Session of 2026-09-07. Nothing here has been uploaded to Songsterr.
@@ -70,7 +72,7 @@ The tab is unchanged: 4,948 notes, 629 ghost, <b>0 of 629 positions moved</b>.</
 <div class="stat"><b>4,948</b><span>drum events inventoried</span></div>
 <div class="stat"><b>9,757</b><span>stem onsets detected</span></div>
 <div class="stat"><b>5 of 5</b><span>lanes tested both directions</span></div>
-<div class="stat"><b>0</b><span>events resolved instance level</span></div>
+<div class="stat"><b>0</b><span>resolved through audio alignment</span></div>
 <div class="stat"><b>0 of 248</b><span>bars surviving their own check</span></div>
 <div class="stat"><b>682</b><span>unresolved events listed one by one</span></div>
 <div class="stat"><b>0</b><span>repairs applied</span></div>
@@ -88,6 +90,7 @@ The tab is unchanged: 4,948 notes, 629 ghost, <b>0 of 629 positions moved</b>.</
 <li><a href="#findings">The four findings</a></li>
 <li><a href="#bugs">Bugs found in my own work</a></li>
 <li><a href="#completion">Completion</a></li>
+<li><a href="#nextgate">The gate the next attempt has to pass</a></li>
 </ol></div>
 
 <h2 id="inventory">1. The inventory, and the 22 events the old census missed</h2>
@@ -176,8 +179,10 @@ dynamics in notated order needs no audio at all.</p>
 <b>z = -30.58</b>, effect <b>A = 0.0907</b>.</p>
 <p>Within-bar spacings: the flagged set sits 1 or 2 sixteenths apart on <b>62.89%</b> of its gaps, the
 unflagged set on 35.88%. Permuting the ghost label among snare events inside each bar, 2,000 draws,
-gives a null mean of 0.5391. Observed is <b>1.167x</b> the null with <b>0 of 2,000 draws</b> reaching
-it. The ratio is modest and the separation is certain.</p>
+gives a null mean of 0.5391. Observed is <b>1.167x</b> the null with <b>0 exceedances of 2,000
+draws</b>, which is <b>p = 0.00050</b> under the same finite-sample estimator. The ratio is modest, so
+the right reading is <b>strong evidence under this within-bar permutation model</b> rather than
+certainty.</p>
 <div class="card green"><p class="k">Two constructions agree without ever meeting.</p>
 <p>The 2026-09-06 stem arbitration found the quiet snare population at <b>1 and 2 sixteenths</b> and the
 loud at 3 and 5, from audio alone. The notation says the same thing from its own side, with no
@@ -231,12 +236,15 @@ fitting procedure manufactures on its own. Each draw destroys the correspondence
 procedure including the train and test split.</p>
 <div class="scroll"><table>
 <tr><th>Source</th><th class="n">Observed</th><th class="n">IOI-shuffle p95</th><th class="n">Reverse p95</th><th class="n">Null max</th><th class="n">p</th></tr>
-<tr><td>Frank Zappa solo</td><td class="n">1.750x</td><td class="n">1.458</td><td class="n">1.458</td><td class="n">2.041</td><td class="n"><b>0.0283</b></td></tr>
-<tr><td>Arthur Barrow bass</td><td class="n">1.826x</td><td class="n">1.325</td><td class="n">0.537</td><td class="n">1.540</td><td class="n"><b>0.0000</b></td></tr>
-<tr><td>Ike Willis vocals</td><td class="n">1.231x</td><td class="n">1.119</td><td class="n">1.231</td><td class="n">1.454</td><td class="n">0.0533</td></tr>
-<tr><td>Peter Wolf wurlitzer</td><td class="n">0.459x</td><td class="n">2.294</td><td class="n"><b>3.670</b></td><td class="n">4.588</td><td class="n">0.9200</td></tr>
-<tr><td>Warren Cuccurullo part 7</td><td class="n">0.992x</td><td class="n">0.975</td><td class="n">0.631</td><td class="n">1.172</td><td class="n">0.0250</td></tr>
+<tr><td>Frank Zappa solo</td><td class="n">1.750x</td><td class="n">1.458</td><td class="n">1.458</td><td class="n">2.041</td><td class="n"><b>0.0300</b></td></tr>
+<tr><td>Arthur Barrow bass</td><td class="n">1.826x</td><td class="n">1.325</td><td class="n">0.537</td><td class="n">1.540</td><td class="n"><b>0.0017</b></td></tr>
+<tr><td>Ike Willis vocals</td><td class="n">1.231x</td><td class="n">1.119</td><td class="n">1.231</td><td class="n">1.454</td><td class="n">0.0549</td></tr>
+<tr><td>Peter Wolf wurlitzer</td><td class="n">0.459x</td><td class="n">2.294</td><td class="n"><b>3.670</b></td><td class="n">4.588</td><td class="n">0.9201</td></tr>
+<tr><td>Warren Cuccurullo part 7</td><td class="n">0.992x</td><td class="n">0.975</td><td class="n">0.631</td><td class="n">1.172</td><td class="n">0.0266</td></tr>
 </table></div>
+<p class="mut" style="font-size:13px">Every p is the finite-sample estimator
+<b>(r + 1) / (n + 1)</b> over 600 draws. A permutation p of exactly zero is not a possible
+value, so bass with <b>0 exceedances of 600</b> reads 0.0017 rather than 0.</p>
 <div class="card red"><p class="k">The 1.5x rule is not calibrated.</p>
 <p>On the piano source the offset scan manufactures <b>3.670x</b> from scrambled data. Part 7's small p
 sits beside an observed ratio of 0.992, which is the baseline itself, so that p carries no alignment
@@ -306,11 +314,12 @@ mechanically. Rescored on the interior bars only.</li>
 <tr><td>lanes with an isolated stem</td><td class="n">5 of 5 kit families</td></tr>
 <tr><td>lanes tested in both directions at passage level</td><td class="n"><b>5 of 5</b></td></tr>
 <tr><td>events covered by passage-level adjudication</td><td class="n"><b>4,926 of 4,948</b></td></tr>
-<tr><td>events resolved at instance level</td><td class="n"><b>0</b></td></tr>
+<tr><td>events resolved through audio alignment</td><td class="n"><b>0</b></td></tr>
+<tr><td>score-internal exact repair candidates</td><td class="n"><b>1</b>, KIG-M001</td></tr>
 <tr><td>bars with a surviving two-direction result</td><td class="n"><b>0 of 248</b></td></tr>
 <tr><td>reliable audio events found with no notation</td><td class="n"><b>32 kick</b></td></tr>
 <tr><td>repairs applied</td><td class="n"><b>0</b></td></tr>
-<tr><td>unresolved events listed one by one</td><td class="n"><b>682</b></td></tr>
+<tr><td>unresolved events listed one by one</td><td class="n"><b>682</b> = 629 + 21 + 32</td></tr>
 <tr><td>final revision</td><td class="n"><b>8852151, unchanged</b></td></tr>
 </table></div>
 <div class="card"><p class="k">Why zero repairs is the correct number here.</p>
@@ -318,6 +327,38 @@ mechanically. Rescored on the interior bars only.</li>
 published tab, and the standing rule is that a revision never goes onto an original: open it, create a
 copy to edit, rename the copy with <code>Brandon edit</code>, and revise that. Publishing is an outward
 action and it waits on Brandon's word.</p></div>
+
+<h2 id="nextgate">10. The gate the next attempt has to pass</h2>
+<p><code>18a2dd</code> passed four criteria fixed in advance and was still a bar out, because all four
+asked whether the retained runs agreed with each other. The next pre-registration needs a criterion
+that measures absolute identity instead, and it is written and hashed already:
+<code>PREREGISTRATION_absolute_bar_identity.md</code>, sha256
+<code>da96a659&hellip;05d71847</code>.</p>
+<h3>Frozen landmarks, before any fitting</h3>
+<p>At least <b>twelve landmarks</b> from <b>two source families</b>, both excluded completely from the
+fitting, at least six per family, covering before, inside and after the passage. Every row records
+score bar, subdivision, audio timestamp, annotation uncertainty, source family, and the evidence that
+its phrase is unique within two neighbouring bars. Fewer than that returns <b>UNEVALUABLE</b>, never a
+negative.</p>
+<h3>The integer-shift contest</h3>
+<p>Score the fitted map against shifts of minus two through plus two bars on identical landmarks and
+identical assignment rules. Zero shift passes only when it uniquely minimises error inside each
+family, its median absolute residual is under <b>75 ms</b>, its ninetieth percentile is under
+<b>150 ms</b>, the nearest competing shift is at least <b>250 ms worse</b>, and at least
+<b>eleven of twelve</b> landmarks prefer it.</p>
+<h3>The target-excluded drum check</h3>
+<p>Kick, hat and cymbal only, since snare carries the disputed flags and the tom stem is contaminated.
+Twelve consecutive interior bars, identical events under every shift, and zero shift must win
+separately for every retained lane and for their pooled cost, with a block bootstrap interval
+favouring it. <b>Any source family choosing another bar returns FAIL.</b></p>
+<div class="card red"><p class="k">This gate rejects the current map.</p>
+<p>Lead and bass, the only two external sources that survive the calibrated null, disagree by
+<b>2.673 s</b>, so the external-family requirement fails outright. Kick, snare, hat and tom all lean
+towards plus one bar and cymbal is flat. The 197.880 s map has internal stability with no verified
+absolute identity.</p></div>
+<p>A pass would validate only the span between the first and last frozen landmark. Every individual
+flag needs anchors bracketing its own score location, so a whole-song result needs the gate run again
+over every flagged region.</p>
 
 <footer>
 <p>Session of 2026-09-07 on MacBookPro. Fifteen stems at 501.84 s each, live part JSON for all nine

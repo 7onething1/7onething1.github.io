@@ -6,8 +6,13 @@ re-verified at the start of this pass and again at the end. **Untouched.**
 
 ## Headline
 
-Six independent procedures now place bar 102's downbeat between **197.88 and 198.20 s**,
-beside the printed 3:18 marker. One of them, `18a2dd`, passed a gate written down before
+Eight procedures now place bar 102's downbeat, seven of them between **197.88 and
+198.20 s**, beside the printed 3:18 marker. **They are not independent.** All eight read
+the same notated score and the same recording, and six of the eight read the same fifteen
+stem separation, so their agreement is partly shared method rather than shared truth. They
+are: the slope-gated chroma DTW, the full-path chroma DTW, the printed 3:18 marker, the
+whole-song kick DTW, the within-part kick offset scan, the whole-song gated map, the lead
+constant offset, and the bass affine map. Only the printed marker is free of the stems. One of them, `18a2dd`, passed a gate written down before
 it ran. The drum lanes then tested that map from outside. **Snare, hat and tom are clearly
 better under a window slid one bar later, kick leans the same way by one unit, and cymbal
 is flat.** That disqualifies the map for placing any individual note.
@@ -32,6 +37,9 @@ Every lane the file uses is covered. The earlier lane census in the project reco
 fifteen lanes and 4,926 events. **It omitted GM 39 and GM 65, which is 22 events.**
 
 ## What each verdict rests on
+
+*Bar numbers in this section are read from the Songsterr part JSON for revision 8852151, saved at `raw/8.json` and inventoried in `score_event_inventory.csv`.*
+
 
 **Direct onset evidence, isolated stem, passage level: 4,926 events.** Every kick, snare,
 hat, cymbal and tom event belongs to a lane whose matching stem was detected across the
@@ -99,8 +107,10 @@ Mean dynamic rank 2.227 against 4.031, a gap of **1.804 ladder steps**. Mann-Whi
 Within-bar spacings: the flagged set sits 1 or 2 sixteenths apart on **62.89%** of its
 gaps, the unflagged set on 35.88%. Permuting the ghost label among snare events **inside
 each bar**, 2,000 draws, gives a null mean of 0.5391 and a 95th percentile of 0.5651.
-Observed is **1.167x** the null with **0 of 2,000 draws** reaching it. The ratio is
-modest and the separation is certain.
+Observed is **1.167x** the null with **0 exceedances of 2,000 draws**, which is
+**p = 0.00050** under the finite-sample estimator (r + 1) / (n + 1). The ratio is modest,
+so the right reading is **strong evidence under this within-bar permutation model** rather
+than certainty.
 
 The 2026-09-06 stem arbitration found the quiet population at 1 and 2 sixteenths and the
 loud at 3 and 5. The notation says the same thing from its own side, with no alignment
@@ -159,11 +169,15 @@ procedure, train and test split included.
 
 | Source | Observed | IOI-shuffle p95 | Reverse p95 | Null max | p |
 |---|---|---|---|---|---|
-| Frank Zappa solo | 1.750x | 1.458 | 1.458 | 2.041 | **0.0283** |
-| Arthur Barrow bass | 1.826x | 1.325 | 0.537 | 1.540 | **0.0000** |
-| Ike Willis vocals | 1.231x | 1.119 | 1.231 | 1.454 | 0.0533 |
-| Peter Wolf wurlitzer | 0.459x | 2.294 | **3.670** | 4.588 | 0.9200 |
-| Warren Cuccurullo part 7 | 0.992x | 0.975 | 0.631 | 1.172 | 0.0250 |
+| Frank Zappa solo | 1.750x | 1.458 | 1.458 | 2.041 | **0.0300** |
+| Arthur Barrow bass | 1.826x | 1.325 | 0.537 | 1.540 | **0.0017** |
+| Ike Willis vocals | 1.231x | 1.119 | 1.231 | 1.454 | 0.0549 |
+| Peter Wolf wurlitzer | 0.459x | 2.294 | **3.670** | 4.588 | 0.9201 |
+| Warren Cuccurullo part 7 | 0.992x | 0.975 | 0.631 | 1.172 | 0.0266 |
+
+Every p is the finite-sample estimator **(r + 1) / (n + 1)** over 600 draws. A permutation
+p of exactly zero is not a possible value, and bass with **0 exceedances of 600** reads
+**0.0017** rather than 0.
 
 **The 1.5x rule is not calibrated.** On the piano source the offset scan manufactures
 3.670x from scrambled data. Part 7's p of 0.0250 sits beside an observed ratio of 0.992,
@@ -277,9 +291,10 @@ revision 8852151, saved under `raw/`.
 | lanes with an isolated stem | 5 of 5 kit families |
 | lanes tested in both directions at passage level | **5 of 5** |
 | events covered by passage-level adjudication | **4,926 of 4,948** |
-| events resolved at instance level | **0** |
+| events resolved through audio alignment | **0** |
+| score-internal exact repair candidates | **1**, `KIG-M001` |
 | bars with a surviving two-direction result | **0 of 248** |
 | reliable audio events found with no notation | **32 kick** |
 | repairs applied | **0** |
-| unresolved events listed individually | **682** |
+| unresolved events listed individually | **682** = 629 ghost flags + 21 claps + 32 kick onsets |
 | final revision | **8852151, unchanged, 4,948 notes, 629 ghost** |
