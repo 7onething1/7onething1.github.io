@@ -1,0 +1,123 @@
+<!doctype html><html lang="en"><head><meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Watermelon Cymbal Two-Way</title><style>
+:root{--cream:#F4EFE2;--card:#FBF8F0;--ink:#2B2622;--mid:#6B6156;--line:#DED3BE;--red:#C1503A;--grn:#4A7A57;--blu:#3E7FA8}
+*{box-sizing:border-box}
+body{margin:0;background:var(--cream);color:var(--ink);font:16px/1.6 "Iowan Old Style","Palatino Linotype",Palatino,Georgia,serif}
+.wrap{max-width:1000px;margin:0 auto;padding:34px 20px 90px}
+h1{font-size:2.4rem;margin:0 0 8px;letter-spacing:-.02em;line-height:1.12}
+.sub{color:var(--mid);margin:0 0 4px}
+.stamp{font:12px ui-monospace,Menlo,monospace;color:var(--mid);margin-top:10px}
+header.top{border-bottom:3px double var(--line);padding-bottom:20px;margin-bottom:26px}
+h2{font-size:1.45rem;margin:34px 0 10px;padding-bottom:7px;border-bottom:2px solid var(--line)}
+h3{font-size:1.1rem;margin:22px 0 8px}
+.box{background:var(--card);border:2px solid var(--red);border-radius:12px;padding:20px 24px;margin:0 0 24px}
+.box.blue{border-color:var(--blu)} .box.green{border-color:var(--grn)}
+.box h2{margin:0 0 8px;border:0;padding:0;font-size:1.3rem;color:var(--red)}
+.box.blue h2{color:#2E6083} .box.green h2{color:#35603F}
+.box ul{margin:0;padding-left:22px} .box li{margin-bottom:8px}
+table{width:100%;border-collapse:collapse;font-size:.9rem;background:var(--card);
+ border:1px solid var(--line);border-radius:9px;overflow:hidden;margin:12px 0 18px}
+th{background:rgba(222,211,190,.5);text-align:left;padding:9px 11px;font-size:.78rem;
+ letter-spacing:.06em;text-transform:uppercase;color:var(--mid);font-weight:600}
+td{padding:8px 11px;border-top:1px solid var(--line);font-variant-numeric:tabular-nums}
+tr.subject td{background:rgba(193,80,58,.07);font-weight:600}
+.good{color:var(--grn);font-weight:700} .bad{color:var(--red);font-weight:700}
+.scroll{overflow-x:auto}
+code{font:.86em ui-monospace,Menlo,monospace;background:rgba(222,211,190,.5);padding:1px 5px;border-radius:4px}
+pre{background:var(--card);border:1px solid var(--line);border-radius:9px;padding:14px 16px;
+ overflow-x:auto;font:12.5px/1.6 ui-monospace,Menlo,monospace}
+.tag{display:inline-block;font:10px ui-monospace,Menlo,monospace;letter-spacing:.08em;padding:2px 7px;
+ border-radius:4px;margin-right:8px;text-transform:uppercase;color:#FBF8F0}
+.tag.m{background:var(--blu)} .tag.r{background:#B8862B}
+footer{margin-top:44px;padding-top:20px;border-top:3px double var(--line);color:var(--mid);font-size:.84rem}
+</style></head><body><div class="wrap">
+<header class="top">
+<h1>Watermelon In Easter Hay: the cymbal notation does not track the cymbal stem</h1>
+<p class="sub">A two-direction audio check of tab <code>s35881</code>, run against a circular-shift null, three positive controls and a five-stem negative control.</p>
+<p class="stamp">Built 2026-09-07 15:00 CDT &middot; anchor clock: 97 snare anchors, piecewise linear, span 59.3s to 506.1s &middot; tolerance 45 ms</p></header>
+
+<div class="box"><h2>The finding</h2>
+<ul>
+<li><b>1,778 notated cymbal events sit inside the scored span, and they match the cymbal stem at 1.14x chance forward and 1.27x chance backward.</b> Both sit under the 1.5x floor this project uses for a real effect.</li>
+<li><b>The same method scores snare notation against the snare stem at 5.74x and 5.28x.</b> Kick reaches 3.00x, toms 3.67x. The method finds correspondence where correspondence exists.</li>
+<li><b>The notated cymbal lane matches the SNARE stem better than its own.</b> 2.14x against snare, 1.14x against cymbals. That is the shape of events written onto the backbeat grid rather than transcribed from audible cymbal strokes.</li>
+<li><b>This is not a ceiling artifact.</b> The dense notated set lifts the null, and there is still headroom to 6.0x forward and 3.1x backward. The lane reached 1.14x and 1.27x.</li>
+</ul></div>
+
+<div class="box green"><h2>What it does NOT license</h2>
+<ul>
+<li><b>It does not justify leaving the ghost marks stripped.</b> The 1,317 anti-accent flags are the original author's own notation. Stripping another contributor's marks was wrong on provenance grounds, and that stays true whether or not the lane tracks the audio.</li>
+<li><b>It is a fact about the tab's transcription quality, not a licence to edit.</b> No cymbal event was added, removed or moved on the strength of this measurement.</li>
+<li><b>The upload still repairs real damage.</b> The live tab currently shows all 9 track names as empty strings, and the verified file carries all 137 CDATA blocks.</li>
+</ul></div>
+
+<h2>Direction A and B across five detection thresholds</h2>
+<p><span class="tag m">Measured</span> Direction A asks whether every written cymbal event has audible support. Direction B asks whether every clearly audible cymbal onset has notation. Null is 200 circular shifts of the whole notated set inside the scored span.</p>
+<div class="scroll"><table><thead><tr><th>flux pct</th><th>onsets found</th><th>density</th>
+<th>A written&rarr;audible</th><th>A null</th><th>A ratio</th>
+<th>B audible&rarr;written</th><th>B null</th><th>B ratio</th></tr></thead><tbody><tr><td>80</td><td>2,478</td><td>5.55/s</td><td>0.476</td><td>0.444</td><td class='bad'>1.07x</td><td>0.382</td><td>0.318</td><td class='bad'>1.20x</td></tr><tr><td>90</td><td>1,533</td><td>3.43/s</td><td>0.311</td><td>0.282</td><td class='bad'>1.10x</td><td>0.391</td><td>0.321</td><td class='bad'>1.22x</td></tr><tr><td>95</td><td>929</td><td>2.08/s</td><td>0.193</td><td>0.174</td><td class='bad'>1.11x</td><td>0.402</td><td>0.322</td><td class='bad'>1.25x</td></tr><tr><td>97.5</td><td>576</td><td>1.29/s</td><td>0.132</td><td>0.109</td><td class='bad'>1.21x</td><td>0.422</td><td>0.321</td><td class='bad'>1.32x</td></tr><tr><td>99</td><td>307</td><td>0.69/s</td><td>0.070</td><td>0.062</td><td class='bad'>1.13x</td><td>0.414</td><td>0.321</td><td class='bad'>1.29x</td></tr></tbody></table></div>
+<p>Every cell in both ratio columns falls below 1.5x. The answer does not depend on where the detection threshold is set.</p>
+
+<h2>Positive controls: does the method work at all</h2>
+<p><span class="tag m">Measured</span> Same clock, same tolerance, same null, each notation lane against its own stem at the 95th percentile.</p>
+<div class="scroll"><table><thead><tr><th>notation lane</th><th>stem</th><th>notated</th><th>onsets</th><th>A ratio</th><th>B ratio</th></tr></thead><tbody><tr class=''><td>snare  (midi 38,40)</td><td>snare</td><td>193</td><td>466</td><td class='good'>5.90x</td><td class='good'>5.23x</td></tr><tr class=''><td>kick   (midi 35,36)</td><td>kick</td><td>107</td><td>652</td><td class='good'>3.00x</td><td class='good'>3.28x</td></tr><tr class=''><td>toms   (midi 41-50)</td><td>toms</td><td>6</td><td>569</td><td class='good'>3.67x</td><td class='good'>3.45x</td></tr><tr class='subject'><td>cymbal (midi 49,51)</td><td>cymbals</td><td>1,778</td><td>929</td><td class='bad'>1.16x</td><td class='bad'>1.26x</td></tr></tbody></table></div>
+<p><b>Kick is the load-bearing control.</b> Its anchors are not the snare anchors that built the clock, its band is 30 to 180 Hz rather than 2 to 12 kHz, and it still reaches 3.00x. The clock is sound and the method discriminates.</p>
+
+<h2>Negative control: each lane against stems it should not match</h2>
+<p><span class="tag m">Measured</span> If the cymbal lane scored no better against cymbals than against bass, it is at chance. It does not, and the row that stands out is not the one expected.</p>
+<div class="scroll"><table><thead><tr><th>notation lane</th><th>vs stem</th><th>A ratio</th><th>B ratio</th><th></th></tr></thead><tbody><tr class='subject'><td>cymbal</td><td>cymbals</td><td class='bad'>1.14x</td><td class='bad'>1.27x</td><td>its own stem</td></tr><tr class=''><td>cymbal</td><td>snare</td><td class='good'>2.14x</td><td class='bad'>1.07x</td><td></td></tr><tr class=''><td>cymbal</td><td>kick</td><td class='bad'>1.12x</td><td class='bad'>1.26x</td><td></td></tr><tr class=''><td>cymbal</td><td>bass</td><td class='bad'>0.87x</td><td class='bad'>0.98x</td><td></td></tr><tr class=''><td>cymbal</td><td>piano</td><td class='bad'>1.03x</td><td class='bad'>1.08x</td><td></td></tr><tr class=''><td>snare</td><td>cymbals</td><td class='good'>2.32x</td><td class='good'>2.32x</td><td></td></tr><tr class='subject'><td>snare</td><td>snare</td><td class='good'>5.74x</td><td class='good'>5.28x</td><td>its own stem</td></tr><tr class=''><td>snare</td><td>kick</td><td class='bad'>0.32x</td><td class='bad'>0.37x</td><td></td></tr><tr class=''><td>snare</td><td>bass</td><td class='bad'>1.28x</td><td class='bad'>1.31x</td><td></td></tr><tr class=''><td>snare</td><td>piano</td><td class='bad'>1.08x</td><td class='bad'>1.16x</td><td></td></tr></tbody></table></div>
+<p><b>Snare notation behaves correctly:</b> 5.74x on its own stem, 2.32x on cymbals through bleed, 0.32x against kick because snare and kick alternate. <b>Cymbal notation does not:</b> its best score, 2.14x, lands on the snare stem.</p>
+
+<h2>The submission artifact, settled from the files</h2>
+<p><span class="tag m">Measured</span> Chord elements and CDATA blocks counted in each candidate's <code>score.gpif</code>.</p>
+<div class="scroll"><table><thead><tr><th>file</th><th>CDATA</th><th>Chord elements</th><th>verdict</th></tr></thead><tbody>
+<tr><td>PRESWEEP-r7715683.gp <em>(saved original)</em></td><td>137</td><td>8</td><td>the reference</td></tr>
+<tr class="subject"><td>RESTORED-s35881-TEXTSAFE-v2.gp</td><td class="good">137</td><td class="good">8</td><td><b>exact parity with the original, ship this</b></td></tr>
+<tr><td>RESTORED-s35881-TEXTSAFE.gp</td><td class="bad">136</td><td class="bad">7</td><td>one CDATA and one chord short</td></tr>
+<tr><td>r8768414-LIVE-EXPORT.gp <em>(the live tab)</em></td><td>136</td><td class="bad">6</td><td>two chords lost on the live tab</td></tr>
+<tr><td>RESTORED-s35881-v3-with-chord.gp</td><td class="bad">0</td><td class="bad">7</td><td>quarantined, wipes all 9 names</td></tr>
+</tbody></table></div>
+
+<h3>The chord question, answered</h3>
+<p>The chord did not vanish through a new transcription decision. The saved original carries <b>8</b> chord elements and the live tab carries <b>6</b>, so two were lost on the tab. <b>TEXTSAFE-v2 already restores both</b>, and its chord-definition ids and beat-level chord references show an <b>empty symmetric difference</b> against the saved original. The separate chord patch is redundant and poisoned: 7 chords rather than 8, and zero CDATA.</p>
+
+<h3>What the upload changes, against the live tab</h3>
+<pre>positions added        0
+positions removed      0
+dynamic marks added    0
+dynamic marks removed  0
+dynamics changed       0
+anti-accent added      1,317
+note events    4,855 -> 4,855</pre>
+<p>The upload does exactly one thing. It restores the author's 1,317 ghost flags and repairs the 9 empty track names as a consequence of preserving CDATA. Nothing moves.</p>
+
+<div class="box blue"><h2>The one remaining step</h2>
+<ul>
+<li><b>File:</b> <code>RESTORED-s35881-TEXTSAFE-v2.gp</code></li>
+<li><b>sha256:</b> <code>87020f8c4243a7441db8187b4d7356b300e62b4d013787343de5ea4a0cfe27fd</code></li>
+<li><b>Live tab read this session:</b> artist <code>Frank Zappa</code>, latest revision <code>8908034</code>, all 9 track names empty strings.</li>
+<li><b>The press.</b> Songsterr exposes no server-side submit, and publishing over another contributor's tab is Brandon's act. Create a copy to edit, rename it <code>Watermelon In Easter Hay Brandon edit</code>, import the file above, submit there.</li>
+</ul></div>
+
+<h2>Method</h2>
+<pre>onset function   spectral flux, 1024-pt Hann, 256 hop, 44.1 kHz
+                 cymbals/snare 2-12 kHz, kick 30-180 Hz, toms 80 Hz-3 kHz
+peak picking     local maxima above the Nth flux percentile, 60 ms min separation
+clock            piecewise linear through 97 accepted snare anchors (np.interp)
+                 scoring restricted to the anchor span, 59.33 s to 506.08 s
+tolerance        45 ms half-window
+null             200 circular shifts of the entire notated set inside the span
+tools            tools/cymbal_two_way.py, tools/lane_control.py, tools/cross_stem.py
+data             data/cymbal_two_way.json, data/lane_control.json, data/cross_stem.json</pre>
+
+<h3>What this did not test</h3>
+<ul>
+<li>Whether Demucs separation leaks snare energy into the cymbal stem strongly enough to explain the 2.14x snare result. The bleed direction was checked and snare-vs-cymbals scores 2.32x, so bleed is present and real.</li>
+<li>Individual cymbal events. Every figure here is a rate over the whole span, and no single stroke was adjudicated.</li>
+<li>Hi-hat lanes, held out of the cymbal class deliberately.</li>
+</ul>
+
+<footer><p><span class="tag r">Recommended</span> is used nowhere on this page. Every number above is measured, and the scripts and JSON that produced them are named in the method block.</p>
+<p>Source: <code>~/Projects/drwu-htmls/public/zappa-watermelon-cymbal-two-way/</code> &middot; evidence: <code>~/Projects/_outputs/zappa-watermelon-ride-analysis/</code></p></footer>
+</div></body></html>
