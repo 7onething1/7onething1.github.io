@@ -107,6 +107,8 @@ between them.
 
 ## The anchor, four procedures run this pass
 
+*Bar numbers in this section are read from the Songsterr part JSON for revision 8852151, saved at `raw/8.json` and inventoried in `score_event_inventory.csv`.*
+
 **Whole-song kick-sequence DTW.** Criteria fixed in `PREREGISTRATION_kick_dtw.md` before
 the run. Coverage 88.5% within 50 ms PASS. Slope 0.9938 to 1.0257 against a declared
 0.98 to 1.02 FAIL. Held-out cymbal 52.6% against 18.8% chance, **2.80x**, PASS. The
@@ -168,6 +170,8 @@ which is the baseline itself, so a small p there carries no alignment signal.
 
 ## Why the passing gate still does not place a note
 
+*Bar numbers in this section are read from the Songsterr part JSON for revision 8852151, saved at `raw/8.json` and inventoried in `score_event_inventory.csv`.*
+
 `18a2dd`'s four criteria all measure whether the retained DTW runs agree with each other.
 None of them measures whether the runs are right. Extending the same procedure across the
 song exposes the problem: evaluating the identical slope gate at each window's centre
@@ -223,6 +227,8 @@ with `Brandon edit`, and revise the copy. That is an outward publish action and 
 on his say-so. `KIG-M001` is the one candidate ready to apply the moment he says go.
 
 ## Sources used
+
+*Page 64 is read from the Alfred publisher sample `content.alfred.com/catpages/00-31503.pdf`, md5 `116b3ee7df76b9d11a1c3d4d18781d12`. The Modern Drummer pages are read from the local `.pdf` scan, md5 `ffedb9639f376cc54409b3f57926d488`.*
 
 **Audio.** Fifteen stems at the shared stem folder for this song,
 each 501.84 s, and the mixture mp3 beside them. Six kit stems were detected: kick, snare,
