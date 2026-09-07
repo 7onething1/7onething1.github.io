@@ -1,7 +1,7 @@
 <!doctype html>
 <html lang="en"><head><meta charset="utf-8">
 <meta name="viewport" content="width=device-width,initial-scale=1">
-<title>Active chats digest 2026-09-07 14:18 CDT</title>
+<title>Active chats digest 2026-09-07 14:26 CDT</title>
 <style>
 :root{color-scheme:light;
  --paper:#FFFBF2; --card:#F7EFE0; --card2:#EFE6D4; --ink:#2E2A26; --dim:#7A6E60;
@@ -50,26 +50,49 @@ code{background:#EFE7D3;padding:.1em .38em;border-radius:4px;font-size:.87em;fon
 
 <h1>Active chats digest</h1>
 <p class="sub">Every Claude Code chat on this Mac that moved in the last 24 hours, summed up plain.</p>
-<p class="sub">Built 2026-09-07 14:18 CDT &middot; 27 chats read straight from their transcripts.</p>
+<p class="sub">Built 2026-09-07 14:26 CDT &middot; 27 chats read straight from their transcripts.</p>
 <div class="cadence">Rebuilds every 30 minutes</div>
 
 <div class="head">
-<h2>The one thing worth knowing</h2>
-<p><b>All 27 of these chats are talking to themselves.</b> The last message going in to
-every single one came from a gate on this Mac, never from you. Zero of 27 ended on a
-human sentence.</p>
-<p>They are spending their turns arguing with their own rule checkers about wording. Meanwhile
-5 jobs sit waiting on something only you can press.</p>
+<h2>1. Damage on live public pages, right now</h2>
+<p><b>28 musician credits are missing from 6 public Songsterr tabs</b>, Frank Zappa and Vinnie
+Colaiuta among them. A Python writer drops the wrappers that hold those names every time it
+saves a file. One build on disk survives with its wrappers intact,
+<code>RESTORED-s35881-TEXTSAFE.gp</code>.</p>
+<p><b>Every other repaired file would do the damage again on the next upload.</b> Pause
+submissions through that writer until a round trip is proven to keep the credits.</p>
 </div>
+
+<div class="head" style="background:#F7EEDA;border-color:#D9A521">
+<h2 style="color:#8a5a12">2. What the machines said to each other</h2>
+<p><b>27 of 27 chats took a gate message as their most recent input.</b>
+Zero took a sentence from you.</p>
+<p><b>1,735 replies of 13,186 landed after your last typed word</b>, which is
+13.2 percent of everything these chats said today. <b>86 of those were answers
+to a gate.</b> The rest is work the chats chose on their own.</p>
+<p>Some gates fire over and over at one chat: <b>G33</b> hit <b>4 times</b> in Zappa paren fix audit, <b>G36</b> hit <b>4 times</b> in Zappa chat context loss all , trou, <b>G28</b> hit <b>4 times</b> in [KEEP-IT-GREASEY-s604777-INSTANCE-, <b>G28</b> hit <b>3 times</b> in Chat single song handoff K i G, <b>G19</b> hit <b>3 times</b> in Volume to 45%</p>
+</div>
+
+<div class="head" style="background:#E3EAF1;border-color:#6E8CA8">
+<h2 style="color:#3f5a75">3. The control system can hand you a false all-clear</h2>
+<p><b>One chat reported its work queue empty twice, and both were wrong.</b> It ran a command
+that does not exist and sent the error to the bit bucket, so a failure read as a clean queue.
+The real queue held <b>187 waiting items and 33 blocked ones</b>.</p>
+<p>Scheduling and stop decisions read that same state, so it is worth a fix before more chats
+get woken.</p>
+</div>
+
 
 <div class="stats">
  <div class="stat"><b>27</b><span>chats active</span></div>
  <div class="stat"><b>27</b><span>ended on a gate</span></div>
  <div class="stat"><b>5</b><span>waiting on you</span></div>
- <div class="stat"><b>21</b><span>idle over 1 hour</span></div>
+ <div class="stat"><b>22</b><span>idle over 1 hour</span></div>
  <div class="stat"><b>11</b><span>past 400 turns</span></div>
- <div class="stat"><b>13,070</b><span>total replies</span></div>
- <div class="stat"><b>130 MB</b><span>transcript on disk</span></div>
+ <div class="stat"><b>1,735</b><span>replies after your last word</span></div>
+ <div class="stat"><b>86</b><span>gate messages in that span</span></div>
+ <div class="stat"><b>13,186</b><span>total replies</span></div>
+ <div class="stat"><b>131 MB</b><span>transcript on disk</span></div>
 </div>
 
 <div class="you"><h2>Do these yourself, nothing else unblocks them</h2><ol>
@@ -79,39 +102,52 @@ human sentence.</p>
 <li><b>Zappa paren fix audit.</b> Press Submit revision on Zomby Woof s412162. The chat read the tab twice and confirmed nothing has been submitted. Only you can press it.</li>
 <li><b>Appleseed cast project.</b> Wire stop_gate.py into settings.json. That is the mechanical fix for the quitting-early complaint.</li>
 </ol></div>
+<h2 class="sec">What ChatGPT said about this page</h2>
+<section class="chat" style="--bd:#40726F;--bg:#DFEBE9">
+<h3>Second-brain review <span class="pill">1m 16s of work</span></h3>
+<p class="meta">Sent 2026-09-07 through the signed-in Chrome bridge. It fetched the live page itself and read a newer refresh than the message described.</p>
+<ul>
+<li><b>Lead with the public damage.</b> The 6 damaged tabs outrank the gate finding, since that writer can damage another file on the next revision.</li>
+<li><b>The old headline overreached.</b> Saying the chats argue about wording went past the measurement. It asked for a number, so the count above is now measured per chat.</li>
+<li><b>A serious finding sat too low.</b> The false empty-queue report deserves its own warning, because scheduling reads that same state.</li>
+<li><b>Keep both refresh speeds.</b> The board moved during the conversation, which is the argument for the 30 minute mechanical pass. Written summaries need judgment and should stay on a slower clock.</li>
+<li><b>Work order.</b> Stop the writer, do the four small human actions, repair the control system, close the giant chats, then return to the music.</li>
+</ul>
+<div class="fin"><b>Applied here.</b> The three blocks at the top of this page follow its ordering, and the per-chat line now carries replies-since-your-last-word plus repeat gate ids.</div>
+</section>
 <div class="toc"><h2>Every chat, worst first</h2><ol>
-<li><a href="#c-04e0fedb">Zappa ride ghost analysis watermelon</a> <span style="color:var(--dim)">2.1 hours</span></li>
-<li><a href="#c-989f675d">Zappa chats audit update</a> <span style="color:var(--dim)">1.0 hours</span></li>
-<li><a href="#c-7bf85338">MacBook Claude Code ntfy hook</a> <span style="color:var(--dim)">3.0 hours</span></li>
-<li><a href="#c-5f76a6c5">[NOTATION-EVIDENCE-GATE-N9-N10-WATERMELON-NO-REPAIR-2026-0</a> <span style="color:var(--dim)">3.0 hours</span></li>
-<li><a href="#c-5d64fd40">Demucs guitar/drums isolation</a> <span style="color:var(--dim)">1.4 hours</span></li>
-<li><a href="#c-7833e9bf">Zappa paren fix audit</a> <span style="color:var(--dim)">56 minutes</span></li>
+<li><a href="#c-04e0fedb">Zappa ride ghost analysis watermelon</a> <span style="color:var(--dim)">2.2 hours</span></li>
+<li><a href="#c-989f675d">Zappa chats audit update</a> <span style="color:var(--dim)">1.1 hours</span></li>
+<li><a href="#c-7bf85338">MacBook Claude Code ntfy hook</a> <span style="color:var(--dim)">3.2 hours</span></li>
+<li><a href="#c-5f76a6c5">[NOTATION-EVIDENCE-GATE-N9-N10-WATERMELON-NO-REPAIR-2026-0</a> <span style="color:var(--dim)">3.1 hours</span></li>
+<li><a href="#c-5d64fd40">Demucs guitar/drums isolation</a> <span style="color:var(--dim)">1.6 hours</span></li>
+<li><a href="#c-7833e9bf">Zappa paren fix audit</a> <span style="color:var(--dim)">1.1 hours</span></li>
 <li><a href="#c-c1e4ffee">Original Zappa II</a> <span style="color:var(--dim)">1.1 days</span></li>
-<li><a href="#c-6489be1d">Chat single-song focus limitation</a> <span style="color:var(--dim)">22.6 hours</span></li>
-<li><a href="#c-b577abd4">Large text message chat</a> <span style="color:var(--dim)">22.3 hours</span></li>
-<li><a href="#c-3c94bb64">Chat single song handoff K i G</a> <span style="color:var(--dim)">21.5 hours</span></li>
-<li><a href="#c-9afcd690">Active chats quitting early</a> <span style="color:var(--dim)">1.4 hours</span></li>
-<li><a href="#c-cecab27f">Zappa chat context loss all , trouble first</a> <span style="color:var(--dim)">3.1 hours</span></li>
-<li><a href="#c-a4c13f6b">Authorized execution verification general zomb montana</a> <span style="color:var(--dim)">3.0 hours</span></li>
-<li><a href="#c-c492e138">Completion controller and state skills</a> <span style="color:var(--dim)">3.0 hours</span></li>
-<li><a href="#c-b8d3b6c4">Resume recent chats on wake</a> <span style="color:var(--dim)">2.9 hours</span></li>
-<li><a href="#c-83a75ca6">Active chat: 3-phase ghost note restore huge plan</a> <span style="color:var(--dim)">1.4 hours</span></li>
-<li><a href="#c-5ed46212">Active chats summary and recommendations</a> <span style="color:var(--dim)">5 minutes</span></li>
-<li><a href="#c-c6386d93">Notation evidence gate</a> <span style="color:var(--dim)">4 minutes</span></li>
-<li><a href="#c-13b8d0d9">Active chats review</a> <span style="color:var(--dim)">2 minutes</span></li>
-<li><a href="#c-b7a070f1">Appleseed cast chat</a> <span style="color:var(--dim)">1 minutes</span></li>
-<li><a href="#c-2dbd8b8a">Ableton 11 APC 20 sets</a> <span style="color:var(--dim)">2.6 hours</span></li>
-<li><a href="#c-25eed9b9">[KEEP-IT-GREASEY-s604777-INSTANCE-TEST-NEGATIVE-2026-09-06</a> <span style="color:var(--dim)">2.5 hours</span></li>
-<li><a href="#c-375f20c2">Volume to 45%</a> <span style="color:var(--dim)">1.5 hours</span></li>
-<li><a href="#c-30e6208e">SVG handoff documentation</a> <span style="color:var(--dim)">1.3 hours</span></li>
-<li><a href="#c-bf53c889">Songs lickable text to Songsterr</a> <span style="color:var(--dim)">29 minutes</span></li>
+<li><a href="#c-6489be1d">Chat single-song focus limitation</a> <span style="color:var(--dim)">22.8 hours</span></li>
+<li><a href="#c-b577abd4">Large text message chat</a> <span style="color:var(--dim)">22.4 hours</span></li>
+<li><a href="#c-3c94bb64">Chat single song handoff K i G</a> <span style="color:var(--dim)">21.6 hours</span></li>
+<li><a href="#c-9afcd690">Active chats quitting early</a> <span style="color:var(--dim)">1.6 hours</span></li>
+<li><a href="#c-cecab27f">Zappa chat context loss all , trouble first</a> <span style="color:var(--dim)">3.2 hours</span></li>
+<li><a href="#c-a4c13f6b">Authorized execution verification general zomb montana</a> <span style="color:var(--dim)">3.1 hours</span></li>
+<li><a href="#c-c492e138">Completion controller and state skills</a> <span style="color:var(--dim)">3.1 hours</span></li>
+<li><a href="#c-b8d3b6c4">Resume recent chats on wake</a> <span style="color:var(--dim)">3.0 hours</span></li>
+<li><a href="#c-83a75ca6">Active chat: 3-phase ghost note restore huge plan</a> <span style="color:var(--dim)">1.5 hours</span></li>
+<li><a href="#c-c6386d93">Notation evidence gate</a> <span style="color:var(--dim)">13 minutes</span></li>
+<li><a href="#c-5ed46212">Active chats summary and recommendations</a> <span style="color:var(--dim)">1 minutes</span></li>
+<li><a href="#c-13b8d0d9">Active chats review</a> <span style="color:var(--dim)">0 minutes</span></li>
+<li><a href="#c-b7a070f1">Appleseed cast chat</a> <span style="color:var(--dim)">2 minutes</span></li>
+<li><a href="#c-2dbd8b8a">Ableton 11 APC 20 sets</a> <span style="color:var(--dim)">2.8 hours</span></li>
+<li><a href="#c-25eed9b9">[KEEP-IT-GREASEY-s604777-INSTANCE-TEST-NEGATIVE-2026-09-06</a> <span style="color:var(--dim)">2.7 hours</span></li>
+<li><a href="#c-375f20c2">Volume to 45%</a> <span style="color:var(--dim)">1.6 hours</span></li>
+<li><a href="#c-30e6208e">SVG handoff documentation</a> <span style="color:var(--dim)">1.5 hours</span></li>
+<li><a href="#c-bf53c889">Songs lickable text to Songsterr</a> <span style="color:var(--dim)">37 minutes</span></li>
 <li><a href="#c-40e86d1b">Appleseed cast project</a> <span style="color:var(--dim)">8.6 days</span></li>
 <li><a href="#c-2c1b0013">Original Zappa</a> <span style="color:var(--dim)">1.5 days</span></li>
 </ol></div>
 <h2 class="sec" style="border-color:#8C4A3F">Damage on a live page</h2>
 <section class="chat" id="c-04e0fedb" style="--bd:#8C4A3F;--bg:#F6E3DF">
-<h3>Zappa ride ghost analysis watermelon <span class="pill">2.1 hours quiet</span></h3>
-<p class="meta">04e0fedb &middot; 718 replies &middot; 10.66 MB &middot; last moved 17:12 UTC</p>
+<h3>Zappa ride ghost analysis watermelon <span class="pill">2.2 hours quiet</span></h3>
+<p class="meta">04e0fedb &middot; 718 replies &middot; <b>21 since your last word</b> &middot; 3 gate msgs &middot; 10.66 MB</p>
 <div class="goal"><b>What it is trying to do.</b> Put the quiet ride cymbal marks back on Watermelon In Easter Hay.</div>
 <ul>
 <li>Every repaired file on disk deletes all 28 musician names.</li>
@@ -122,8 +158,8 @@ human sentence.</p>
 <div class="fin"><b>To finish it today.</b> Upload TEXTSAFE to a copy tab named Brandon edit. Every other build on disk is unshippable.</div>
 </section>
 <section class="chat" id="c-989f675d" style="--bd:#8C4A3F;--bg:#F6E3DF">
-<h3>Zappa chats audit update <span class="pill">1.0 hours quiet</span></h3>
-<p class="meta">989f675d &middot; 151 replies &middot; 1.09 MB &middot; last moved 18:17 UTC</p>
+<h3>Zappa chats audit update <span class="pill">1.1 hours quiet</span></h3>
+<p class="meta">989f675d &middot; 151 replies &middot; <b>151 since your last word</b> &middot; 4 gate msgs &middot; repeat G37x2 &middot; 1.09 MB</p>
 <div class="goal"><b>What it is trying to do.</b> Sweep all the Zappa chats and check what got shipped.</div>
 <ul>
 <li>It read 40 chats and pulled 75 findings into one list.</li>
@@ -135,8 +171,8 @@ human sentence.</p>
 </section>
 <h2 class="sec" style="border-color:#D9A521">Waiting on you</h2>
 <section class="chat" id="c-7bf85338" style="--bd:#D9A521;--bg:#F7EEDA">
-<h3>MacBook Claude Code ntfy hook <span class="pill">3.0 hours quiet</span></h3>
-<p class="meta">7bf85338 &middot; 121 replies &middot; 0.92 MB &middot; last moved 16:15 UTC</p>
+<h3>MacBook Claude Code ntfy hook <span class="pill">3.2 hours quiet</span></h3>
+<p class="meta">7bf85338 &middot; 121 replies &middot; <b>34 since your last word</b> &middot; 3 gate msgs &middot; 0.92 MB</p>
 <div class="goal"><b>What it is trying to do.</b> Send phone alerts when a Claude task finishes.</div>
 <ul>
 <li>It measured how long the alert server keeps a message.</li>
@@ -147,8 +183,8 @@ human sentence.</p>
 <div class="fin"><b>To finish it today.</b> Subscribe the phone to ntfy topic brandon-claude-9k3xq2. Until then every alert dies after 12 hours.</div>
 </section>
 <section class="chat" id="c-5f76a6c5" style="--bd:#D9A521;--bg:#F7EEDA">
-<h3>[NOTATION-EVIDENCE-GATE-N9-N10-WATERMELON-NO-REPAIR-2026-09-06] <span class="pill">3.0 hours quiet</span></h3>
-<p class="meta">5f76a6c5 &middot; 248 replies &middot; 1.4 MB &middot; last moved 16:17 UTC</p>
+<h3>[NOTATION-EVIDENCE-GATE-N9-N10-WATERMELON-NO-REPAIR-2026-09-06] <span class="pill">3.1 hours quiet</span></h3>
+<p class="meta">5f76a6c5 &middot; 248 replies &middot; <b>32 since your last word</b> &middot; 4 gate msgs &middot; 1.4 MB</p>
 <div class="goal"><b>What it is trying to do.</b> Keep the phone-to-Mac message channel alive across both Macs.</div>
 <ul>
 <li>The phone inbox caught two messages during 8 minutes of watching.</li>
@@ -159,8 +195,8 @@ human sentence.</p>
 <div class="fin"><b>To finish it today.</b> Add the key to the Dr Wu iMac authorized_keys file. That turns every future cross-Mac pull into one line.</div>
 </section>
 <section class="chat" id="c-5d64fd40" style="--bd:#D9A521;--bg:#F7EEDA">
-<h3>Demucs guitar/drums isolation <span class="pill">1.4 hours quiet</span></h3>
-<p class="meta">5d64fd40 &middot; 999 replies &middot; 4.43 MB &middot; last moved 17:52 UTC</p>
+<h3>Demucs guitar/drums isolation <span class="pill">1.6 hours quiet</span></h3>
+<p class="meta">5d64fd40 &middot; 999 replies &middot; <b>8 since your last word</b> &middot; 3 gate msgs &middot; 4.43 MB</p>
 <div class="goal"><b>What it is trying to do.</b> Split band practice recordings into separate drum and instrument tracks.</div>
 <ul>
 <li>Eleven takes became 66 separate drum tracks.</li>
@@ -171,8 +207,8 @@ human sentence.</p>
 <div class="fin"><b>To finish it today.</b> Run touch ~/.claude/fifty_gates.allow so the chat can stop. The work itself is finished and verified.</div>
 </section>
 <section class="chat" id="c-7833e9bf" style="--bd:#D9A521;--bg:#F7EEDA">
-<h3>Zappa paren fix audit <span class="pill">56 minutes quiet</span></h3>
-<p class="meta">7833e9bf &middot; 262 replies &middot; 1.27 MB &middot; last moved 18:22 UTC</p>
+<h3>Zappa paren fix audit <span class="pill">1.1 hours quiet</span></h3>
+<p class="meta">7833e9bf &middot; 262 replies &middot; <b>262 since your last word</b> &middot; 5 gate msgs &middot; repeat G33x4 &middot; 1.27 MB</p>
 <div class="goal"><b>What it is trying to do.</b> Close out an older to-do list about repairing a Zappa drum tab.</div>
 <ul>
 <li>It worked from a to-do list an earlier chat had written.</li>
@@ -185,7 +221,7 @@ human sentence.</p>
 <h2 class="sec" style="border-color:#C97B72">Past the age or turn ceiling</h2>
 <section class="chat" id="c-c1e4ffee" style="--bd:#C97B72;--bg:#F7E7E4">
 <h3>Original Zappa II <span class="pill">1.1 days quiet</span></h3>
-<p class="meta">c1e4ffee &middot; 3521 replies &middot; 52.39 MB &middot; last moved 16:18 UTC</p>
+<p class="meta">c1e4ffee &middot; 3521 replies &middot; <b>19 since your last word</b> &middot; 1 gate msgs &middot; 52.39 MB</p>
 <div class="goal"><b>What it is trying to do.</b> Compare Zappa tabs against published drum charts.</div>
 <ul>
 <li>Six songs are compared and the sixth is the worst damaged.</li>
@@ -196,8 +232,8 @@ human sentence.</p>
 <div class="fin"><b>To finish it today.</b> 3,517 assistant turns and 52 MB with no handoff. No chat on disk is bigger. Write the handoff and close it first.</div>
 </section>
 <section class="chat" id="c-6489be1d" style="--bd:#C97B72;--bg:#F7E7E4">
-<h3>Chat single-song focus limitation <span class="pill">22.6 hours quiet</span></h3>
-<p class="meta">6489be1d &middot; 786 replies &middot; 10.78 MB &middot; last moved 20:40 UTC</p>
+<h3>Chat single-song focus limitation <span class="pill">22.8 hours quiet</span></h3>
+<p class="meta">6489be1d &middot; 786 replies &middot; <b>17 since your last word</b> &middot; 3 gate msgs &middot; 10.78 MB</p>
 <div class="goal"><b>What it is trying to do.</b> Settle whether the Watermelon ride ghost marks are real.</div>
 <ul>
 <li>One shared note definition produces 1,316 of the 1,333 marks.</li>
@@ -208,8 +244,8 @@ human sentence.</p>
 <div class="fin"><b>To finish it today.</b> Move this finding into the Watermelon chat where it belongs, then close.</div>
 </section>
 <section class="chat" id="c-b577abd4" style="--bd:#C97B72;--bg:#F7E7E4">
-<h3>Large text message chat <span class="pill">22.3 hours quiet</span></h3>
-<p class="meta">b577abd4 &middot; 892 replies &middot; 3.98 MB &middot; last moved 21:02 UTC</p>
+<h3>Large text message chat <span class="pill">22.4 hours quiet</span></h3>
+<p class="meta">b577abd4 &middot; 892 replies &middot; <b>50 since your last word</b> &middot; 6 gate msgs &middot; repeat G19x2, G20x2, G28x2, G49x2 &middot; 3.98 MB</p>
 <div class="goal"><b>What it is trying to do.</b> Rebuild the 8.28 band practice from four microphone masters.</div>
 <ul>
 <li>The handoff file had the wrong shape of name.</li>
@@ -220,8 +256,8 @@ human sentence.</p>
 <div class="fin"><b>To finish it today.</b> Close the last two gates and archive. The audio work already shipped elsewhere.</div>
 </section>
 <section class="chat" id="c-3c94bb64" style="--bd:#C97B72;--bg:#F7E7E4">
-<h3>Chat single song handoff K i G <span class="pill">21.5 hours quiet</span></h3>
-<p class="meta">3c94bb64 &middot; 490 replies &middot; 11.94 MB &middot; last moved 21:50 UTC</p>
+<h3>Chat single song handoff K i G <span class="pill">21.6 hours quiet</span></h3>
+<p class="meta">3c94bb64 &middot; 490 replies &middot; <b>70 since your last word</b> &middot; 5 gate msgs &middot; repeat G28x3 &middot; 11.94 MB</p>
 <div class="goal"><b>What it is trying to do.</b> Relay the Keep It Greasey findings to ChatGPT and hold the handoff.</div>
 <ul>
 <li>The message reached ChatGPT and the thread got created.</li>
@@ -232,8 +268,8 @@ human sentence.</p>
 <div class="fin"><b>To finish it today.</b> It is over both the age ceiling and the turn ceiling. Close it.</div>
 </section>
 <section class="chat" id="c-9afcd690" style="--bd:#C97B72;--bg:#F7E7E4">
-<h3>Active chats quitting early <span class="pill">1.4 hours quiet</span></h3>
-<p class="meta">9afcd690 &middot; 861 replies &middot; 4.27 MB &middot; last moved 17:52 UTC</p>
+<h3>Active chats quitting early <span class="pill">1.6 hours quiet</span></h3>
+<p class="meta">9afcd690 &middot; 861 replies &middot; <b>17 since your last word</b> &middot; 2 gate msgs &middot; 4.27 MB</p>
 <div class="goal"><b>What it is trying to do.</b> Watch the other chats and poke them when they stall.</div>
 <ul>
 <li>It found 8 chats sitting still and sent 6 wake-up messages.</li>
@@ -245,8 +281,8 @@ human sentence.</p>
 </section>
 <h2 class="sec" style="border-color:#6E8CA8">Waiting on someone outside</h2>
 <section class="chat" id="c-cecab27f" style="--bd:#6E8CA8;--bg:#E3EAF1">
-<h3>Zappa chat context loss all , trouble first <span class="pill">3.1 hours quiet</span></h3>
-<p class="meta">cecab27f &middot; 505 replies &middot; 2.62 MB &middot; last moved 16:14 UTC</p>
+<h3>Zappa chat context loss all , trouble first <span class="pill">3.2 hours quiet</span></h3>
+<p class="meta">cecab27f &middot; 505 replies &middot; <b>21 since your last word</b> &middot; 7 gate msgs &middot; repeat G36x4, G18x2 &middot; 2.62 MB</p>
 <div class="goal"><b>What it is trying to do.</b> Fix the blank track names on Carolina Hard-Core Ecstasy.</div>
 <ul>
 <li>Three track names are blank where Bass, Drums and Trombone belong.</li>
@@ -258,8 +294,8 @@ human sentence.</p>
 </section>
 <h2 class="sec" style="border-color:#40726F">Mid-job, real work left</h2>
 <section class="chat" id="c-a4c13f6b" style="--bd:#40726F;--bg:#DFEBE9">
-<h3>Authorized execution verification general zomb montana <span class="pill">3.0 hours quiet</span></h3>
-<p class="meta">a4c13f6b &middot; 595 replies &middot; 4.76 MB &middot; last moved 16:19 UTC</p>
+<h3>Authorized execution verification general zomb montana <span class="pill">3.1 hours quiet</span></h3>
+<p class="meta">a4c13f6b &middot; 595 replies &middot; <b>74 since your last word</b> &middot; 6 gate msgs &middot; repeat G35x2, G01x2, G26x2 &middot; 4.76 MB</p>
 <div class="goal"><b>What it is trying to do.</b> Check whether the Zomby Woof revision is built and ready.</div>
 <ul>
 <li>It corrected a note it had written yesterday.</li>
@@ -270,8 +306,8 @@ human sentence.</p>
 <div class="fin"><b>To finish it today.</b> Hand the two songs to the chat that owns them, then close.</div>
 </section>
 <section class="chat" id="c-c492e138" style="--bd:#40726F;--bg:#DFEBE9">
-<h3>Completion controller and state skills <span class="pill">3.0 hours quiet</span></h3>
-<p class="meta">c492e138 &middot; 407 replies &middot; 2.99 MB &middot; last moved 16:18 UTC</p>
+<h3>Completion controller and state skills <span class="pill">3.1 hours quiet</span></h3>
+<p class="meta">c492e138 &middot; 407 replies &middot; <b>35 since your last word</b> &middot; 2 gate msgs &middot; repeat G35x2 &middot; 2.99 MB</p>
 <div class="goal"><b>What it is trying to do.</b> Build the gate system that decides when a chat is allowed to stop.</div>
 <ul>
 <li>Gate G35 counted every helper message forever with no way to clear.</li>
@@ -282,8 +318,8 @@ human sentence.</p>
 <div class="fin"><b>To finish it today.</b> Pin a regression test on the G35 fix, write the handoff, close.</div>
 </section>
 <section class="chat" id="c-b8d3b6c4" style="--bd:#40726F;--bg:#DFEBE9">
-<h3>Resume recent chats on wake <span class="pill">2.9 hours quiet</span></h3>
-<p class="meta">b8d3b6c4 &middot; 93 replies &middot; 0.57 MB &middot; last moved 16:24 UTC</p>
+<h3>Resume recent chats on wake <span class="pill">3.0 hours quiet</span></h3>
+<p class="meta">b8d3b6c4 &middot; 93 replies &middot; <b>93 since your last word</b> &middot; 2 gate msgs &middot; 0.57 MB</p>
 <div class="goal"><b>What it is trying to do.</b> Make chats pick their work back up after the Mac wakes.</div>
 <ul>
 <li>It reported the work queue empty twice and both were wrong.</li>
@@ -294,8 +330,8 @@ human sentence.</p>
 <div class="fin"><b>To finish it today.</b> Build the wake-resume hook that was actually asked for. The queue lesson is already recorded.</div>
 </section>
 <section class="chat" id="c-83a75ca6" style="--bd:#40726F;--bg:#DFEBE9">
-<h3>Active chat: 3-phase ghost note restore huge plan <span class="pill">1.4 hours quiet</span></h3>
-<p class="meta">83a75ca6 &middot; 231 replies &middot; 2.12 MB &middot; last moved 17:55 UTC</p>
+<h3>Active chat: 3-phase ghost note restore huge plan <span class="pill">1.5 hours quiet</span></h3>
+<p class="meta">83a75ca6 &middot; 231 replies &middot; <b>27 since your last word</b> &middot; 5 gate msgs &middot; 2.12 MB</p>
 <div class="goal"><b>What it is trying to do.</b> Find every Zappa song where the quiet drum marks got wiped out.</div>
 <ul>
 <li>Around 30 songs were believed to be damaged.</li>
@@ -305,21 +341,9 @@ human sentence.</p>
 </ul>
 <div class="fin"><b>To finish it today.</b> Rank the 15 published tabs by damage and start the restore list.</div>
 </section>
-<section class="chat" id="c-5ed46212" style="--bd:#40726F;--bg:#DFEBE9">
-<h3>Active chats summary and recommendations <span class="pill">5 minutes quiet</span></h3>
-<p class="meta">5ed46212 &middot; 62 replies &middot; 0.43 MB &middot; last moved 19:13 UTC</p>
-<div class="goal"><b>What it is trying to do.</b> <span class="pill" style="--bd:#7A6E60;--bg:#EDE7DC">auto</span> Not summarised by hand yet. Last input on record: go thru active chats and sum up last 4 paragraphs sent i bullet points a ten year old could understand. state how long since last acion and what the chat is trying to accomplish and make rec</div>
-<ul>
-<li>Goal:** read every chat that moved today, boil each one down to kid-simple bullets, report idle time, name what it is chasing, and give a finish-today.</li>
-<li>All 15 read. Building the board now.</li>
-<li>No prose turn recorded for this slot.</li>
-<li>No prose turn recorded for this slot.</li>
-</ul>
-<div class="fin"><b>To finish it today.</b> New since the last hand pass. Open the chat and give it a read.</div>
-</section>
 <section class="chat" id="c-c6386d93" style="--bd:#40726F;--bg:#DFEBE9">
-<h3>Notation evidence gate <span class="pill">4 minutes quiet</span></h3>
-<p class="meta">c6386d93 &middot; 22 replies &middot; 0.19 MB &middot; last moved 19:13 UTC</p>
+<h3>Notation evidence gate <span class="pill">13 minutes quiet</span></h3>
+<p class="meta">c6386d93 &middot; 22 replies &middot; <b>22 since your last word</b> &middot; 0 gate msgs &middot; 0.19 MB</p>
 <div class="goal"><b>What it is trying to do.</b> <span class="pill" style="--bd:#7A6E60;--bg:#EDE7DC">auto</span> Not summarised by hand yet. Last input on record: help https://drwu-htmls.vercel.app/notation-evidence-gate</div>
 <ul>
 <li>I&#x27;ll start by pulling up the page you linked and figuring out what &quot;help&quot; means for it. **Goal:** understand what&#x27;s on `/notation-evidence-gate` and.</li>
@@ -329,22 +353,34 @@ human sentence.</p>
 </ul>
 <div class="fin"><b>To finish it today.</b> New since the last hand pass. Open the chat and give it a read.</div>
 </section>
+<section class="chat" id="c-5ed46212" style="--bd:#40726F;--bg:#DFEBE9">
+<h3>Active chats summary and recommendations <span class="pill">1 minutes quiet</span></h3>
+<p class="meta">5ed46212 &middot; 93 replies &middot; <b>93 since your last word</b> &middot; 0 gate msgs &middot; 0.62 MB</p>
+<div class="goal"><b>What it is trying to do.</b> <span class="pill" style="--bd:#7A6E60;--bg:#EDE7DC">auto</span> Not summarised by hand yet. Last input on record: go thru active chats and sum up last 4 paragraphs sent i bullet points a ten year old could understand. state how long since last acion and what the chat is trying to accomplish and make rec</div>
+<ul>
+<li>All 15 read. Building the board now.</li>
+<li>The sibling session&#x27;s digest covers chats my source list did not surface. Extending coverage rather than shipping a partial board.</li>
+<li>Coverage was short by seven. The on-disk store shows **22 chats moved today**, and one carries a finding that contradicts another chat&#x27;s pending.</li>
+<li>🟢 22 active chats, read and boiled down **https://7onething1.github.io/active-chats-2026-09-07/** ## 🔴 Read this first: two chats disagree **One chat.</li>
+</ul>
+<div class="fin"><b>To finish it today.</b> New since the last hand pass. Open the chat and give it a read.</div>
+</section>
 <section class="chat" id="c-13b8d0d9" style="--bd:#40726F;--bg:#DFEBE9">
-<h3>Active chats review <span class="pill">2 minutes quiet</span></h3>
-<p class="meta">13b8d0d9 &middot; 15 replies &middot; 0.15 MB &middot; last moved 19:15 UTC</p>
+<h3>Active chats review <span class="pill">0 minutes quiet</span></h3>
+<p class="meta">13b8d0d9 &middot; 69 replies &middot; <b>69 since your last word</b> &middot; 0 gate msgs &middot; 0.4 MB</p>
 <div class="goal"><b>What it is trying to do.</b> <span class="pill" style="--bd:#7A6E60;--bg:#EDE7DC">auto</span> Not summarised by hand yet. Last input on record: https://7onething1.github.io/active-chats-2026-09-07/</div>
 <ul>
-<li>I&#x27;ll start by reading the URL you sent and figuring out what&#x27;s there.</li>
-<li>The page is live at 200. Let me see what it contains.</li>
-<li>Board read. Fifteen chats, five statuses. Before I pick a lane, let me verify the board&#x27;s own links still resolve.</li>
-<li>All thirteen links on the board return 200. The page itself is live and the sibling `.md` is in place. **Goal:** act on the active-chats board rather.</li>
+<li>The file changed under me. Another session is actively rewriting this board. Let me snapshot it and re-measure against the new labels.</li>
+<li>The board was rewritten at 14:23 with transcript IDs, &quot;Replies&quot; instead of &quot;Messages&quot;, and 22 rows. That version is auditable. Let me test every number.</li>
+<li>Eighteen of 22 rows match exactly. The four that drift are the sessions still running at build time, including this one. That is expected, not fraud..</li>
+<li>The live page is now the 14:23 rebuild. Let me run the gate on the new version and check its coverage.</li>
 </ul>
 <div class="fin"><b>To finish it today.</b> New since the last hand pass. Open the chat and give it a read.</div>
 </section>
 <h2 class="sec" style="border-color:#7C8B4F">Almost finished</h2>
 <section class="chat" id="c-b7a070f1" style="--bd:#7C8B4F;--bg:#E9EDDC">
-<h3>Appleseed cast chat <span class="pill">1 minutes quiet</span></h3>
-<p class="meta">b7a070f1 &middot; 199 replies &middot; 1.22 MB &middot; last moved 19:18 UTC</p>
+<h3>Appleseed cast chat <span class="pill">2 minutes quiet</span></h3>
+<p class="meta">b7a070f1 &middot; 230 replies &middot; <b>50 since your last word</b> &middot; 2 gate msgs &middot; 1.33 MB</p>
 <div class="goal"><b>What it is trying to do.</b> Split guitar parts that one hand cannot reach into two guitar tracks.</div>
 <ul>
 <li>A tab had 700 spots where one hand had to grab impossible shapes.</li>
@@ -356,8 +392,8 @@ human sentence.</p>
 </section>
 <h2 class="sec" style="border-color:#3D6B47">Finished, close it</h2>
 <section class="chat" id="c-2dbd8b8a" style="--bd:#3D6B47;--bg:#E4EDE6">
-<h3>Ableton 11 APC 20 sets <span class="pill">2.6 hours quiet</span></h3>
-<p class="meta">2dbd8b8a &middot; 247 replies &middot; 1.49 MB &middot; last moved 16:39 UTC</p>
+<h3>Ableton 11 APC 20 sets <span class="pill">2.8 hours quiet</span></h3>
+<p class="meta">2dbd8b8a &middot; 247 replies &middot; <b>247 since your last word</b> &middot; 4 gate msgs &middot; 1.49 MB</p>
 <div class="goal"><b>What it is trying to do.</b> Work out how to get Ableton sets shaped for an APC20 controller.</div>
 <ul>
 <li>Buying them is a dead end because the one seller took the page down.</li>
@@ -368,8 +404,8 @@ human sentence.</p>
 <div class="fin"><b>To finish it today.</b> All 3 asks are covered with evidence. Close the chat.</div>
 </section>
 <section class="chat" id="c-25eed9b9" style="--bd:#3D6B47;--bg:#E4EDE6">
-<h3>[KEEP-IT-GREASEY-s604777-INSTANCE-TEST-NEGATIVE-2026-09-06] handoff <span class="pill">2.5 hours quiet</span></h3>
-<p class="meta">25eed9b9 &middot; 441 replies &middot; 2.39 MB &middot; last moved 16:46 UTC</p>
+<h3>[KEEP-IT-GREASEY-s604777-INSTANCE-TEST-NEGATIVE-2026-09-06] handoff <span class="pill">2.7 hours quiet</span></h3>
+<p class="meta">25eed9b9 &middot; 441 replies &middot; <b>134 since your last word</b> &middot; 6 gate msgs &middot; repeat G28x4 &middot; 2.39 MB</p>
 <div class="goal"><b>What it is trying to do.</b> Test whether one Zappa tab&#x27;s drum marks are real, and relay the answer to ChatGPT.</div>
 <ul>
 <li>The relay to ChatGPT finally sent after four tries.</li>
@@ -380,8 +416,8 @@ human sentence.</p>
 <div class="fin"><b>To finish it today.</b> The test came back negative and the relay landed. Close with a handoff.</div>
 </section>
 <section class="chat" id="c-375f20c2" style="--bd:#3D6B47;--bg:#E4EDE6">
-<h3>Volume to 45% <span class="pill">1.5 hours quiet</span></h3>
-<p class="meta">375f20c2 &middot; 57 replies &middot; 0.31 MB &middot; last moved 17:47 UTC</p>
+<h3>Volume to 45% <span class="pill">1.6 hours quiet</span></h3>
+<p class="meta">375f20c2 &middot; 57 replies &middot; <b>36 since your last word</b> &middot; 4 gate msgs &middot; repeat G19x3 &middot; 0.31 MB</p>
 <div class="goal"><b>What it is trying to do.</b> Turn off the volume limit on this Mac.</div>
 <ul>
 <li>The volume was capped at 45 out of 100.</li>
@@ -392,8 +428,8 @@ human sentence.</p>
 <div class="fin"><b>To finish it today.</b> The job is done and verified. Close the chat.</div>
 </section>
 <section class="chat" id="c-30e6208e" style="--bd:#3D6B47;--bg:#E4EDE6">
-<h3>SVG handoff documentation <span class="pill">1.3 hours quiet</span></h3>
-<p class="meta">30e6208e &middot; 242 replies &middot; 1.41 MB &middot; last moved 17:58 UTC</p>
+<h3>SVG handoff documentation <span class="pill">1.5 hours quiet</span></h3>
+<p class="meta">30e6208e &middot; 242 replies &middot; <b>31 since your last word</b> &middot; 2 gate msgs &middot; 1.41 MB</p>
 <div class="goal"><b>What it is trying to do.</b> Fix the rule for editing tabs so originals never get damaged.</div>
 <ul>
 <li>The old rule let it edit an original tab in some cases.</li>
@@ -404,8 +440,8 @@ human sentence.</p>
 <div class="fin"><b>To finish it today.</b> Run the s35881 copy and submit under the new rule, then close.</div>
 </section>
 <section class="chat" id="c-bf53c889" style="--bd:#3D6B47;--bg:#E4EDE6">
-<h3>Songs lickable text to Songsterr <span class="pill">29 minutes quiet</span></h3>
-<p class="meta">bf53c889 &middot; 193 replies &middot; 2.78 MB &middot; last moved 18:49 UTC</p>
+<h3>Songs lickable text to Songsterr <span class="pill">37 minutes quiet</span></h3>
+<p class="meta">bf53c889 &middot; 193 replies &middot; <b>28 since your last word</b> &middot; 3 gate msgs &middot; 2.78 MB</p>
 <div class="goal"><b>What it is trying to do.</b> Make every Zappa song name on the program page open its own guitar tab.</div>
 <ul>
 <li>The page lists 34 Zappa songs and their tabs.</li>
@@ -418,7 +454,7 @@ human sentence.</p>
 <h2 class="sec" style="border-color:#7A6E60">Days old, archive</h2>
 <section class="chat" id="c-40e86d1b" style="--bd:#7A6E60;--bg:#EDE7DC">
 <h3>Appleseed cast project <span class="pill">8.6 days quiet</span></h3>
-<p class="meta">40e86d1b &middot; 362 replies &middot; 1.7 MB &middot; last moved 05:10 UTC</p>
+<p class="meta">40e86d1b &middot; 362 replies &middot; <b>42 since your last word</b> &middot; 1 gate msgs &middot; 1.7 MB</p>
 <div class="goal"><b>What it is trying to do.</b> Find out why chats stop early, and answer a refund question.</div>
 <ul>
 <li>Your settings wire 12 stop hooks into every chat.</li>
@@ -430,7 +466,7 @@ human sentence.</p>
 </section>
 <section class="chat" id="c-2c1b0013" style="--bd:#7A6E60;--bg:#EDE7DC">
 <h3>Original Zappa <span class="pill">1.5 days quiet</span></h3>
-<p class="meta">2c1b0013 &middot; 350 replies &middot; 1.93 MB &middot; last moved 06:47 UTC</p>
+<p class="meta">2c1b0013 &middot; 350 replies &middot; <b>52 since your last word</b> &middot; 3 gate msgs &middot; 1.93 MB</p>
 <div class="goal"><b>What it is trying to do.</b> Build the 50-gate system out of failures that happened here.</div>
 <ul>
 <li>It reported an upload blocked after two tools refused it.</li>
@@ -442,7 +478,7 @@ human sentence.</p>
 </section>
 
 <footer>
-Read directly from <code>~/.claude/projects/*/*.jsonl</code> at 2026-09-07 14:18 CDT.
+Read directly from <code>~/.claude/projects/*/*.jsonl</code> at 2026-09-07 14:26 CDT.
 Idle time is measured from each transcript's last timestamped turn.
 Turn counts and file sizes are counted, never estimated.
 </footer>
