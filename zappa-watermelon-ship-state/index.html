@@ -90,6 +90,7 @@ tracks. Every one is a 5/4 rest bar that Songsterr filled correctly. Nobody shou
 </div>
 
 <div class="toc"><ol>
+<li><a href="#upload">The upload path and its preflight</a></li>
 <li><a href="#compare">Full transcription comparison</a></li>
 <li><a href="#live">The live tab lost seven credits</a></li>
 <li><a href="#ship">The ship file, and the seven that do not ship</a></li>
@@ -103,6 +104,54 @@ tracks. Every one is a 5/4 rest bar that Songsterr filled correctly. Nobody shou
 </ol></div>
 
 
+
+
+<h2 id="upload">B. The upload path, and what its preflight says</h2>
+<div class="card red">
+<p class="k">HARD GATE, corrected by Brandon 2026-09-07: we never revise an original tab</p>
+<ol>
+<li>Open the <b>original tab</b>, <code>s35881</code>.</li>
+<li>Click <b>"Create a copy to edit"</b>.</li>
+<li><b>Rename the copy with "Brandon edit" on the end.</b></li>
+<li>Import <code>RESTORED-s35881-TEXTSAFE-v2.gp</code> and submit the revision <b>on that copy</b>.</li>
+</ol>
+<p>This holds for repairing damage this account caused. The earlier two-lane rule, which sent a
+restore to a revision on the original tab, is retired. The original and <code>r8908034</code>
+are not touched.</p>
+</div>
+<h3>Preflight, run through <code>/songsterr-upload</code></h3>
+<p>Two runs, because the copy starts from the live revision rather than from the pre-sweep export.</p>
+<div class="scroll"><table>
+<tr><th>run</th><th>reference given</th><th>verdict</th><th>what it means</th></tr>
+<tr><td>A</td><td><code>--ai-export r8768414-LIVE-EXPORT.gp</code></td><td>REFUSED, NAMEDROP</td><td>fires on the 7 names in <code>r8768414</code>. The copy is made from <code>r8908034</code>, which holds <b>zero</b> names, so there is nothing there to lose.</td></tr>
+<tr><td>B</td><td><code>--live-tracks 9</code></td><td>REFUSED, GRID</td><td>count-only mode cannot detect grid inheritance. Run A saw it and printed <b>GRID-INHERITED</b>, the tab itself is 7.25% off and this import keeps its exact grid.</td></tr>
+</table></div>
+<p><b>Neither fault is caused by the file.</b> Measured directly: master bars 105 against 105
+identical, tempo automations 1 against 1 identical, MasterBars sha
+<code>457cf4db697a0341</code> on both sides. The grid our import carries is the grid the tab
+already has.</p>
+<p>The 7.25% ruler is also unverified. It measures the tab against a Moises stem of 545.3 s, and
+the handoff already records that alignment cannot identify which recording this tab transcribes,
+scoring the presumed source at 86 of 193 against 82 of 193 for a take the tab never transcribes.</p>
+
+<div class="card green">
+<p class="k">The preflight NAMEDROP rule is too absolute, and four measurements say so</p>
+<p>The skill states that the uploaded file cannot prevent name loss. Same tab, same
+<code>createdVia: GP</code> import path:</p>
+<div class="scroll"><table>
+<tr><th>revision</th><th>source file</th><th>names present</th></tr>
+<tr><td>s35881 <code>r8768414</code></td><td>136 CDATA blocks</td><td><b>7 of 9</b></td></tr>
+<tr><td>s35881 <code>r8908034</code></td><td>ElementTree, 0 CDATA</td><td><b>0 of 9</b></td></tr>
+<tr><td>s5820647 <code>r8906157</code></td><td>ElementTree, 0 CDATA</td><td>0 of 5</td></tr>
+<tr><td>s5820647 <code>r8932311</code></td><td>CDATA-carrying</td><td>5 of 5</td></tr>
+</table></div>
+<p>CDATA presence in the uploaded file is the variable. The Zomby Woof conclusion compared a
+<code>Tracks</code> section <b>after parsing</b>, which is byte-identical whether or not the
+source carried CDATA wrappers, so it could not see the thing that mattered.
+<code>RESTORED-s35881-TEXTSAFE-v2.gp</code> carries <b>137</b>, one more than the sweep and equal
+to the author's file. Filed for Brandon's decision rather than changed, since it is a gate and
+song work is queued.</p>
+</div>
 
 <h2 id="compare">A. Full transcription comparison, Watermelon In Easter Hay</h2>
 <p>Four witnesses exist for this song's drum part on this Mac. One is machine-readable data, one

@@ -3,6 +3,37 @@
 Songsterr `s35881`. Built 2026-09-07 from the exhaustive handoff, which named a ship file and
 carried three internal contradictions about which one it was.
 
+## The upload path
+
+HARD GATE, corrected by Brandon 2026-09-07. We never submit a revision to an original tab, our
+own damage included.
+
+1. Open the original tab `s35881`.
+2. Click "Create a copy to edit".
+3. Rename the copy with **"Brandon edit"** on the end.
+4. Import `RESTORED-s35881-TEXTSAFE-v2.gp` and submit the revision on that copy.
+
+### Preflight through /songsterr-upload
+
+| run | reference | verdict | meaning |
+|---|---|---|---|
+| A | `--ai-export r8768414-LIVE-EXPORT.gp` | REFUSED, NAMEDROP | fires on r8768414's 7 names; the copy starts from r8908034, which holds zero |
+| B | `--live-tracks 9` | REFUSED, GRID | count-only mode cannot see inheritance; run A printed GRID-INHERITED |
+
+Neither fault is caused by the file. Master bars 105 vs 105 identical, tempo automations 1 vs 1
+identical, MasterBars sha `457cf4db697a0341` on both sides.
+
+### The NAMEDROP rule is too absolute
+
+| revision | source | names present |
+|---|---|---|
+| s35881 `r8768414` | 136 CDATA | 7 of 9 |
+| s35881 `r8908034` | ElementTree, 0 CDATA | 0 of 9 |
+| s5820647 `r8906157` | ElementTree, 0 CDATA | 0 of 5 |
+| s5820647 `r8932311` | CDATA-carrying | 5 of 5 |
+
+CDATA presence in the uploaded file is the variable. TEXTSAFE-v2 carries 137.
+
 ## Full transcription comparison
 
 Four witnesses exist on this Mac. Two are machine-readable, two are printed below the 15 px
