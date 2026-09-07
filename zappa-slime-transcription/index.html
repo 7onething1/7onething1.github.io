@@ -1,0 +1,358 @@
+<!DOCTYPE html>
+<html lang="en"><head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>I'm The Slime, drum transcription state</title>
+<style>
+:root {
+  --plum:#9986A5; --mustard:#CCBA72; --pale:#D9D0D3; --stone:#8D8680; --rust:#79402E; --tan:#B6854D;
+  --ink:#241f1c; --cream:#F6F1E7; --line:#cfc4b4;
+}
+* { box-sizing:border-box; }
+body { margin:0; background:var(--cream); color:var(--ink);
+  font:16px/1.62 "Iowan Old Style","Palatino Linotype",Palatino,Georgia,serif; }
+.wrap { max-width:1100px; margin:0 auto; padding:0 22px 90px; }
+header.hero { background:linear-gradient(160deg,var(--plum) 0%,var(--rust) 100%); color:var(--cream);
+  padding:52px 22px 44px; margin-bottom:34px; border-bottom:7px solid var(--mustard); }
+header.hero .inner { max-width:1100px; margin:0 auto; }
+header.hero .kicker { font:600 12px/1 ui-monospace,SFMono-Regular,Menlo,monospace; letter-spacing:.22em;
+  text-transform:uppercase; color:var(--mustard); margin-bottom:14px; }
+header.hero h1 { margin:0 0 12px; font-size:clamp(30px,5vw,50px); line-height:1.08; letter-spacing:-.015em; }
+header.hero p { margin:0; max-width:70ch; font-size:18px; opacity:.95; }
+h2 { font-size:27px; margin:52px 0 6px; letter-spacing:-.01em; }
+h2 .num { font:700 13px/1 ui-monospace,Menlo,monospace; color:var(--rust);
+  border:2px solid var(--rust); border-radius:4px; padding:4px 7px; margin-right:11px; vertical-align:3px; }
+h3 { font-size:19px; margin:30px 0 8px; }
+p { max-width:78ch; }
+.sub { color:#6a6058; font-size:14.5px; margin-top:0; }
+table { width:100%; border-collapse:collapse; margin:18px 0 8px; font-size:14.5px; background:#fff;
+  border:1px solid var(--line); }
+th,td { padding:9px 11px; text-align:left; border-bottom:1px solid #e7ded1; vertical-align:top; }
+th { background:var(--stone); color:var(--cream); font:600 12px/1.3 ui-monospace,Menlo,monospace;
+  letter-spacing:.07em; text-transform:uppercase; }
+tbody tr:nth-child(even) { background:#faf6ee; }
+td.n { font:600 14px/1.3 ui-monospace,Menlo,monospace; text-align:right; }
+.mono { font:13.5px/1.5 ui-monospace,SFMono-Regular,Menlo,monospace; }
+.cards { display:grid; grid-template-columns:repeat(auto-fit,minmax(248px,1fr)); gap:15px; margin:22px 0; }
+.card { border-radius:9px; padding:17px 18px; color:#1d1815; border:1px solid rgba(0,0,0,.14); }
+.card h4 { margin:0 0 7px; font-size:16px; }
+.card p { margin:0; font-size:14px; line-height:1.55; }
+.card .big { font:700 30px/1 ui-monospace,Menlo,monospace; display:block; margin:5px 0 8px; }
+.c0 { background:#9986A533; border-left:6px solid #9986A5; }
+.c1 { background:#CCBA7240; border-left:6px solid #CCBA72; }
+.c2 { background:#D9D0D366; border-left:6px solid #D9D0D3; }
+.c3 { background:#8D868033; border-left:6px solid #8D8680; }
+.c4 { background:#79402E26; border-left:6px solid #79402E; }
+.c5 { background:#B6854D33; border-left:6px solid #B6854D; }
+.callout { border-left:7px solid var(--rust); background:#fff; padding:17px 20px; margin:22px 0;
+  border-radius:0 8px 8px 0; border-top:1px solid var(--line); border-right:1px solid var(--line);
+  border-bottom:1px solid var(--line); }
+.callout.warn { border-left-color:var(--mustard); }
+.callout.ok { border-left-color:var(--plum); }
+.callout h4 { margin:0 0 7px; font-size:16.5px; }
+.callout p:last-child { margin-bottom:0; }
+.pill { display:inline-block; font:600 11px/1 ui-monospace,Menlo,monospace; letter-spacing:.06em;
+  text-transform:uppercase; padding:5px 9px; border-radius:20px; margin-right:5px; }
+.pill.no { background:#79402E; color:var(--cream); }
+.pill.yes { background:#9986A5; color:var(--cream); }
+.pill.part { background:#CCBA72; color:#332a12; }
+.bar { height:15px; border-radius:3px; display:block; }
+.toc { background:#fff; border:1px solid var(--line); border-radius:9px; padding:17px 22px; margin:26px 0 6px; }
+.toc ol { margin:8px 0 0; padding-left:20px; columns:2; column-gap:34px; }
+.toc li { margin:4px 0; break-inside:avoid; }
+.toc a { color:var(--rust); text-decoration:none; }
+.toc a:hover { text-decoration:underline; }
+figure { margin:22px 0; background:#fff; border:1px solid var(--line); border-radius:9px; padding:14px; }
+figure img { width:100%; height:auto; display:block; border-radius:5px; }
+figcaption { font-size:13.5px; color:#6a6058; margin-top:9px; }
+footer { margin-top:64px; padding-top:22px; border-top:3px solid var(--mustard); font-size:13.5px; color:#6a6058; }
+a { color:var(--rust); }
+@media (max-width:640px) { .toc ol { columns:1; } table { font-size:13px; } }
+</style></head><body>
+
+<header class="hero"><div class="inner">
+  <div class="kicker">Zappa transcription program &middot; Over-Nite Sensation, 1973</div>
+  <h1>I'm The Slime</h1>
+  <p>Drum transcription state, measured against the four published Songsterr tabs and the
+  Kasper Sloots handwritten score. Every number on this page came from notation. No audio was
+  read, because the drive holding the stems is not mounted.</p>
+</div></header>
+
+<div class="wrap">
+
+<div class="toc">
+  <strong>On this page</strong>
+  <ol>
+    <li><a href="#verdict">The verdict</a></li>
+    <li><a href="#inventory">What is on hand, what is missing</a></li>
+    <li><a href="#tabs">The four tabs and who wrote them</a></li>
+    <li><a href="#opening">Bars 1 to 10 are not a drum part</a></li>
+    <li><a href="#disagree">Where the transcriptions disagree</a></li>
+    <li><a href="#timing">The timing map and its two failures</a></li>
+    <li><a href="#human">The human transcription on hand</a></li>
+    <li><a href="#next">What the drive unlocks</a></li>
+    <li><a href="#ledger">Evidence ledger</a></li>
+  </ol>
+</div>
+
+<h2 id="verdict"><span class="num">01</span>The verdict</h2>
+<p class="sub">Three premises in the brief did not survive contact with the disk.</p>
+
+<div class="cards">
+  <div class="card c4"><h4>The stems are unreachable</h4>
+    <span class="big">0</span>
+    <p>The volume list on this Mac holds one entry, Macintosh HD. The T7 Shield is unplugged and
+    no I'm The Slime audio exists on the internal disk.</p></div>
+  <div class="card c1"><h4>No AI Guitar Pro of ours</h4>
+    <span class="big">0</span>
+    <p>Zero Guitar Pro files for this song sit anywhere under Projects. All four Songsterr tabs
+    belong to other people.</p></div>
+  <div class="card c0"><h4>Human drum notation on hand</h4>
+    <span class="big">1</span>
+    <p>Kasper Sloots wrote a four staff score of the opening with a percussion staff at the
+    verse entry. It covers the first pages of the song.</p></div>
+  <div class="card c5"><h4>Notation defects found</h4>
+    <span class="big">205</span>
+    <p>Bar and lane cells where the hand edited tab disagrees with both full machine tabs.
+    Nine of those bars are a machine artifact in every tab.</p></div>
+</div>
+
+<div class="callout">
+<h4>What this changes about the assignment</h4>
+<p>The brief treats I'm The Slime as a ghost note repair with good stems, our own Guitar Pro,
+and human transcriptions in hand. The song is not in the 34 id program register, holds no
+pre-sweep baseline on disk, and has no restore in the moderation queue. It was never touched by
+the ghost sweep. This is a new transcription from a blank start, and the ghost note repair
+workflow does not apply to it.</p>
+</div>
+
+<h2 id="inventory"><span class="num">02</span>What is on hand, what is missing</h2>
+<table>
+<thead><tr><th>Source class</th><th>Status</th><th>Where it is, or why it is not</th></tr></thead>
+<tbody>
+<tr><td>Dedicated Moises Pro stems</td><td><span class="pill no">missing</span></td>
+  <td>No external volume is mounted. A search of the internal disk returns no I'm The Slime audio
+  of any kind.</td></tr>
+<tr><td>Our AI Guitar Pro file</td><td><span class="pill no">missing</span></td>
+  <td>No <span class="mono">.gp</span> file for this song exists under Projects. The Guitar Pro
+  files on disk cover Watermelon, Montana, Carolina, Nanook, Drowning Witch, Inca Roads and the
+  Appleseed set.</td></tr>
+<tr><td>Songsterr tabs</td><td><span class="pill yes">4 pulled</span></td>
+  <td>All four saved to <span class="mono">_outputs/zappa-slime-transcription/tabs/</span> with
+  full track JSON for every instrument.</td></tr>
+<tr><td>Kasper Sloots score</td><td><span class="pill part">opening only</span></td>
+  <td>Three scans plus prose at
+  <span class="mono">_outputs/zappa-drum-sources/08-analysis/zappa-analysis/</span>. Percussion
+  staff visible at the meter change.</td></tr>
+<tr><td>Paul Pappas, Hal Leonard 2011</td><td><span class="pill no">not held</span></td>
+  <td>Sloots records that Pappas transcribed the song in full for the Hal Leonard guitar
+  songbook series. That book is copyrighted and is not on this Mac.</td></tr>
+<tr><td>Our Over-Nite Sensation band book</td><td><span class="pill part">not evidence</span></td>
+  <td><span class="mono">drwu-overflow/bandbooks-library/zappa-overnite.pdf</span>, pages 9 to 12.
+  Its section map lists round timestamps at thirty second spacing, which is template filler. Its
+  key and tempo claim conflicts with Sloots on the opening.</td></tr>
+<tr><td>Program register entry</td><td><span class="pill no">absent</span></td>
+  <td>I'm The Slime is not among the 34 song ids on the Zappa program scope page.</td></tr>
+</tbody></table>
+
+<h2 id="tabs"><span class="num">03</span>The four tabs and who wrote them</h2>
+<p class="sub">Authorship was read from the Songsterr meta endpoint on 2026-09-07.</p>
+<table>
+<thead><tr><th>Song id</th><th>Title</th><th>Author</th><th>Made via</th><th>Created</th>
+<th class="n">Views</th><th class="n">Bars</th><th class="n">Drum notes</th></tr></thead>
+<tbody>
+<tr><td class="mono"><a href="https://www.songsterr.com/a/wsa/frank-zappa-im-the-slime-tab-s642618">s642618</a></td><td>I&#x27;m The Slime<br><span class="sub mono">Frank Zappa</span></td><td>David-129</td><td>Editor</td><td class="mono">2026-08-02</td><td class="n">7,768</td><td class="n">80</td><td class="n">1354</td></tr>
+<tr><td class="mono"><a href="https://www.songsterr.com/a/wsa/frank-zappa-im-the-slime-1-tab-s4663113">s4663113</a></td><td>I&#x27;m The Slime 1<br><span class="sub mono">Frank Zappa</span></td><td>nick3388</td><td>AI</td><td class="mono">2026-04-04</td><td class="n">46</td><td class="n">81</td><td class="n">1532</td></tr>
+<tr><td class="mono"><a href="https://www.songsterr.com/a/wsa/frank-zappa-the-mothers-of-invention-im-the-slime-tab-s2826582">s2826582</a></td><td>I&#x27;m The Slime<br><span class="sub mono">Frank Zappa, The Mothers Of Invention</span></td><td>Aaron-Albrecht</td><td>AI</td><td class="mono">2025-11-06</td><td class="n">963</td><td class="n">81</td><td class="n">1510</td></tr>
+<tr><td class="mono"><a href="https://www.songsterr.com/a/wsa/frank-zappa-the-mothers-im-the-slime-tab-s6070985">s6070985</a></td><td>I&#x27;m The Slime<br><span class="sub mono">Frank Zappa, The Mothers</span></td><td>Joshua-Rendall</td><td>AI</td><td class="mono">2026-07-16</td><td class="n">0</td><td class="n">81</td><td class="n">306</td></tr>
+</tbody></table>
+
+<div class="callout warn">
+<h4>None of these is ours, so none of them can take a revision</h4>
+<p>The standing rule is that we revise our own tabs only, and that any rebuild goes into a copy
+we own rather than into somebody else's file. Three of the four carry the AI generated flag set
+by their own authors. The fourth was built in the editor by David-129 and has 7,768 views. Work
+on this song starts with Create a copy to edit, on whichever tab we choose as the donor.</p>
+</div>
+
+<h2 id="opening"><span class="num">04</span>Bars 1 to 10 are not a drum part</h2>
+<p>Every one of the four tabs writes the opening the same way. Bar 2 through bar 10 hold sixteen
+sixteenth notes per bar, each one a kick and a crash struck together, with no tuplet and no rest.
+The tempo automation puts those bars at 120 beats per minute. That is eight kick strokes and
+eight crash strokes every second, held for nine straight bars.</p>
+
+<div class="callout">
+<h4>The raw beat, copied out of the tab JSON</h4>
+<p class="mono">duration [1,16] &nbsp; tuplet none &nbsp; rest none &nbsp; notes [(36 kick, 3.5), (49 crash, -1)]</p>
+<p>That line repeats sixteen times inside bar 2, and again inside bars 3, 4, 5, 7, 8, 9 and 10.
+The pattern is a rhythm doubling of the opening guitar riff written onto the drum staff. No
+drummer plays it and no listener hears it on the record.</p>
+</div>
+
+<p>David-129 thinned the crash to four strikes per bar across bars 6 to 9 and added a single
+snare on beat three of each. The sixteen note kick line survives untouched in all four tabs.
+The repair for this passage is a rewrite from the audio, and no ghost note pass reaches it.</p>
+
+<h3>Sloots reads the same passage in 12/8</h3>
+<p>The Sloots prose says the song uses 12/8 and 4/4 as meters, with four groups of three
+becoming four groups of two at the change. Every tab is in 4/4 from bar 1 with no signature
+change anywhere. Sloots notes that Paul Pappas made the same choice in the Hal Leonard book,
+writing 4/4 with triplets throughout. Writing 4/4 is a defensible notation of the passage. Writing
+straight sixteenths on a kick and crash unison is a separate problem.</p>
+
+<h2 id="disagree"><span class="num">05</span>Where the transcriptions disagree</h2>
+<p class="sub">Onsets per lane across the whole song, counted from each tab's own drum track.</p>
+<table>
+<thead><tr><th>Lane</th><th class="n">David-129</th><th class="n">nick3388</th>
+<th class="n">Aaron-Albrecht</th><th class="n">Joshua-Rendall</th><th>Spread</th></tr></thead>
+<tbody>
+<tr><td>Kick</td><td class="n">406</td><td class="n">450</td><td class="n">441</td><td class="n">145</td><td><span class="bar" style="width:100%;background:#9986A5"></span></td></tr>
+<tr><td>Snare</td><td class="n">274</td><td class="n">346</td><td class="n">340</td><td class="n">5</td><td><span class="bar" style="width:76%;background:#CCBA72"></span></td></tr>
+<tr><td>Hi-hat closed</td><td class="n">144</td><td class="n">187</td><td class="n">231</td><td class="n">0</td><td><span class="bar" style="width:51%;background:#D9D0D3"></span></td></tr>
+<tr><td>Hi-hat open</td><td class="n">8</td><td class="n">51</td><td class="n">50</td><td class="n">0</td><td><span class="bar" style="width:11%;background:#8D8680"></span></td></tr>
+<tr><td>Floor tom</td><td class="n">33</td><td class="n">0</td><td class="n">0</td><td class="n">0</td><td><span class="bar" style="width:7%;background:#79402E"></span></td></tr>
+<tr><td>Low tom</td><td class="n">0</td><td class="n">19</td><td class="n">21</td><td class="n">0</td><td><span class="bar" style="width:4%;background:#B6854D"></span></td></tr>
+<tr><td>Mid tom</td><td class="n">112</td><td class="n">61</td><td class="n">61</td><td class="n">0</td><td><span class="bar" style="width:24%;background:#9986A5"></span></td></tr>
+<tr><td>Ride</td><td class="n">218</td><td class="n">188</td><td class="n">154</td><td class="n">0</td><td><span class="bar" style="width:48%;background:#CCBA72"></span></td></tr>
+<tr><td>Crash</td><td class="n">157</td><td class="n">228</td><td class="n">210</td><td class="n">85</td><td><span class="bar" style="width:50%;background:#D9D0D3"></span></td></tr>
+</tbody></table>
+
+<h3>The tom lanes never agree</h3>
+<p>David-129 puts fills on a floor tom and a mid tom, and writes nothing on the low tom.
+Both machine tabs write a low tom and a mid tom, and write nothing on the floor tom. The bar
+lists barely overlap.</p>
+<table>
+<thead><tr><th>Lane</th><th>David-129 writes it in these bars</th><th>nick3388 writes it in these bars</th></tr></thead>
+<tbody>
+<tr><td>Floor tom</td><td class="mono">14, 22, 52, 54, 74, 76, 80</td><td class="mono">none</td></tr>
+<tr><td>Low tom</td><td class="mono">none</td><td class="mono">18, 20, 39, 43, 55, 75, 77, 80</td></tr>
+<tr><td>Mid tom</td><td class="mono">14, 16, 17, 18, 19, 20, 21, 22, 38, 42, 46, 47, 48, 49, 50, 52, 53, 54, 66, 74, 76, 79</td>
+<td class="mono">15, 17, 18, 19, 20, 39, 43, 47, 51, 53, 54, 55, 75, 77, 80</td></tr>
+</tbody></table>
+<p>Bar 21 is the sharpest case. David-129 writes twenty mid tom strokes there and all three
+machine tabs write none. A dedicated tom stem settles that bar in one look, and nothing short of
+a tom stem settles it at all.</p>
+
+<h3>One passage, two different cymbals</h3>
+<div class="callout ok">
+<h4>Bars 57 to 62 read as ride in one tab and open hi-hat in the other</h4>
+<p>David-129 writes 44 ride strokes across those six bars and no open hi-hat. nick3388 writes 41
+open hi-hat strokes across the same six bars and no ride. The rhythm matches closely and the
+instrument does not. Under the tab clock those bars run from 2:22.7 to 2:38.7. A separated cymbal
+stem decides this, and the count based tests cannot, because a ride played in continuous
+subdivisions hides its own onsets under the decay of the preceding stroke.</p>
+</div>
+
+<p>Across the whole song there are <strong>205</strong> bar and lane cells where
+the hand edited tab differs from a figure both machine tabs agree on. Those cells are the review
+queue for the stem pass.</p>
+
+<h2 id="timing"><span class="num">06</span>The timing map and its two failures</h2>
+<p>All four tabs carry an identical tempo automation. Bar 1 sits at 120 beats per minute and bar
+11 drops to 90, with 4/4 throughout and no further change. That map produces the clock below.</p>
+<table>
+<thead><tr><th class="n">Bar</th><th class="n">BPM</th><th>Starts at</th><th>What sits there</th></tr></thead>
+<tbody>
+<tr><td class="n">1</td><td class="n">120</td><td class="mono">0:00.00</td><td>Guitar intro, kick and crash saturation begins</td></tr>
+<tr><td class="n">11</td><td class="n">90</td><td class="mono">0:20.00</td><td>Tempo drop, rhythm guitar riff enters</td></tr>
+<tr><td class="n">21</td><td class="n">90</td><td class="mono">0:46.67</td><td>Tom fill disagreement, twenty strokes against zero</td></tr>
+<tr><td class="n">50</td><td class="n">90</td><td class="mono">2:04.00</td><td>Vocal track density rises for the first time</td></tr>
+<tr><td class="n">59</td><td class="n">90</td><td class="mono">2:28.00</td><td>Lead guitar density jumps from 1 to 19, the outro solo</td></tr>
+<tr><td class="n">62</td><td class="n">90</td><td class="mono">2:36.00</td><td>Last bar of the ride against open hi-hat passage</td></tr>
+<tr><td class="n">81</td><td class="n">90</td><td class="mono">3:26.67</td><td>End of the longest tab</td></tr>
+</tbody></table>
+
+<div class="callout warn">
+<h4>Failure one, the solo lands fourteen seconds early</h4>
+<p>Sloots timed the outro guitar solo on the album take at 2:42 to 3:15 and wrote out its first
+bars over F#m7, B, D and E. In the David-129 tab the lead guitar jumps from one note per bar to
+nineteen at bar 59, which the tab clock places at 2:28.0. The two readings are fourteen seconds
+apart on the same event.</p>
+</div>
+<div class="callout warn">
+<h4>Failure two, the tab runs short of the record</h4>
+<p>Eighty one bars under this map fill 209.3 seconds, and eighty bars fill 206.7 seconds. The
+album take is listed at 3:34, which is 214 seconds. The tab clock is between five and seven
+seconds short. That figure carries a caveat, because the 3:34 came from a catalogue listing and
+not from a file measured on this Mac.</p>
+</div>
+<p>Both failures point the same way. The tempo map inherited by all four tabs is a generator
+default and it has never been anchored to the recording. Anchoring it is the first stem job, and
+every lane comparison downstream depends on it.</p>
+
+<h2 id="human"><span class="num">07</span>The human transcription on hand</h2>
+<p>Kasper Sloots wrote a four staff score of the opening. The first scan carries the 12/8 system
+with the melodic riff, a bass clef inner voice, and a bass guitar staff marked 8va bassa. The
+second scan carries the meter change, and its third staff turns into a percussion staff with X
+noteheads under the words I am gross. That staff is the only human drum notation for this song
+on this Mac.</p>
+
+<figure>
+  <img src="im-the-slime2.jpg" alt="Handwritten four staff score, opening system in 12/8">
+  <figcaption>Sloots, opening system. Twelve eight, three sharps, four staves, repeat to bar 2.
+  Source: <span class="mono">_outputs/zappa-drum-sources/08-analysis/zappa-analysis/im-the-slime2.jpg</span></figcaption>
+</figure>
+<figure>
+  <img src="im-the-slime1.jpg" alt="Handwritten score at the meter change with a percussion staff">
+  <figcaption>Sloots, the meter change. The quarter equals dotted quarter mark sits above the
+  4/4 bar, and the third staff of the lower system carries X noteheads at the verse entry.
+  Source: <span class="mono">im-the-slime1.jpg</span></figcaption>
+</figure>
+<figure>
+  <img src="im-the-slime3.jpg" alt="Outro guitar solo transcription over F sharp minor seven, B, D and E">
+  <figcaption>Sloots, outro guitar solo, drawn from the Over-Nite Sensation guitar book. Eight
+  bars over F#m7, B, D and E. This is the anchor that puts the solo at 2:42 on the record.
+  Source: <span class="mono">im-the-slime3.jpg</span></figcaption>
+</figure>
+
+<h2 id="next"><span class="num">08</span>What the drive unlocks</h2>
+<p>Six jobs are blocked on one action, which is plugging in the T7 Shield. Each one names its
+own evidence and its own finish line.</p>
+<div class="cards">
+  <div class="card c0"><h4>1. Anchor the clock</h4>
+    <p>Find the outro solo entry in the audio and reconcile it against bar 59 and against the
+    Sloots 2:42 mark. Rebuild the tempo map from that anchor before any lane work starts.</p></div>
+  <div class="card c1"><h4>2. Rewrite bars 1 to 10</h4>
+    <p>Take the kick and the crash from their own stems across the opening twenty seconds. Replace
+    the sixteen note unison with what the drummer played.</p></div>
+  <div class="card c5"><h4>3. Settle bars 57 to 62</h4>
+    <p>Read the ride and hi-hat stems separately over those six bars. Score the expected rhythmic
+    slots rather than counting transients, because the decay hides them.</p></div>
+  <div class="card c4"><h4>4. Assign the toms</h4>
+    <p>Cluster the tom stem by pitch, then map the clusters onto floor, low and mid using the fills
+    as whole figures. Bar 21 is the first test.</p></div>
+  <div class="card c3"><h4>5. Sweep both directions</h4>
+    <p>Work the 205 flagged cells. Find written notes with no stem support, and find stem events
+    with nothing written, in every lane.</p></div>
+  <div class="card c2"><h4>6. Check the dropouts</h4>
+    <p>Wherever kick, snare and tom all fall silent, read each cymbal stem on its own. A quiet kit
+    is not evidence that the cymbals stopped.</p></div>
+</div>
+
+<h2 id="ledger"><span class="num">09</span>Evidence ledger</h2>
+<table>
+<thead><tr><th>Claim</th><th>How it was measured</th><th>Verdict</th></tr></thead>
+<tbody>
+<tr><td>No external drive is mounted</td><td><span class="mono">ls /Volumes/</span> returns one entry, Macintosh HD</td><td>confirmed</td></tr>
+<tr><td>No Guitar Pro file for this song on disk</td><td>ripgrep file listing over Projects filtered to Guitar Pro extensions, 60 hits, none for this song</td><td>confirmed</td></tr>
+<tr><td>All four tabs belong to other authors</td><td>Songsterr <span class="mono">api/meta</span> author field, read 2026-09-07</td><td>confirmed</td></tr>
+<tr><td>Bars 2 to 10 are kick and crash sixteenth unisons</td><td>Raw beat objects in every drum track JSON, duration [1,16], no tuplet, both notes present</td><td>confirmed</td></tr>
+<tr><td>Every tab is 4/4 from bar 1</td><td>Signature array scan across all 81 measures of all four drum tracks</td><td>confirmed</td></tr>
+<tr><td>Identical tempo automation in all four</td><td><span class="mono">automations.tempo</span> reads 120 at measure 0 and 90 at measure 10 in every file</td><td>confirmed</td></tr>
+<tr><td>Bars 57 to 62 swap ride for open hi-hat</td><td>Per bar lane census, 44 ride against 41 open hi-hat, each zero in the other tab</td><td>confirmed</td></tr>
+<tr><td>Tom lane assignments do not overlap</td><td>Per bar lane census, floor tom exclusive to the hand edited tab, low tom exclusive to the machine tabs</td><td>confirmed</td></tr>
+<tr><td>Sloots puts the outro solo at 2:42</td><td>Prose caption on the Over-Nite Sensation analysis page, held on disk</td><td>source states it</td></tr>
+<tr><td>Album take runs 3:34</td><td>Catalogue listing recalled, no audio file measured</td><td>unverified</td></tr>
+<tr><td>Drum performer on the take</td><td>Not established this session</td><td>open</td></tr>
+</tbody></table>
+
+<footer>
+<p><strong>Palette:</strong> Isle of Dogs (Wes Anderson). Six colours, all six used.</p>
+<p><strong>Built:</strong> 2026-09-07 on Brandons-MacBook-Pro. Working files at
+<span class="mono">~/Projects/_outputs/zappa-slime-transcription/</span>. Tab JSON, the comparison
+script and the timing map all sit beside this page's source.</p>
+<p><strong>Sources read:</strong> Songsterr api/meta and the CloudFront track endpoint for songs
+642618, 4663113, 2826582 and 6070985. Kasper Sloots, Over-Nite Sensation analysis pages and three
+score scans. Our own Over-Nite Sensation band book, pages 9 to 12, marked as not evidence.</p>
+</footer>
+</div></body></html>
