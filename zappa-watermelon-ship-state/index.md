@@ -3,6 +3,31 @@
 Songsterr `s35881`. Built 2026-09-07 from the exhaustive handoff, which named a ship file and
 carried three internal contradictions about which one it was.
 
+## Status change, 2026-09-07 afternoon
+
+`r8908034` cleared moderation at 14:49 UTC and is the LIVE published revision. It emptied all
+nine track names, removing seven authored musician credits from the public tab: Frank Zappa,
+Warren Cuccurullo, Arthur Barrow, Ed Mann, Warren Cuccurullo, Wurlitzer (Peter Wolf), Vinnie
+Colaiuta.
+
+| revision | empty names | note |
+|---|---|---|
+| `r7715683` Ben Dibden1 | 2 of 9 | the author's, all seven credits present |
+| `r8768414` our paren sweep | 2 of 9 | our own .gp upload, 136 CDATA, names preserved |
+| `r8908034` our restore, LIVE | **9 of 9** | **every name empty** |
+
+The repair mechanism is proven here: a CDATA-carrying `.gp` upload of ours already kept the
+names on this exact song. TEXTSAFE-v2 carries 137 CDATA blocks. The same repair on `s5820647`
+went live as `r8932311` and restored its names.
+
+## Wider sweep, 16 songs
+
+Only two songs carry live credit loss: **s35881** (7 credits, our `r8908034`) and **s68248**
+Carolina Hard-Core Ecstasy (3 credits, our `r8769058`, logged on 2026-09-06 and never repaired).
+Eight of our live revisions show no reduction. Five songs now have a moderator's revision live
+instead of ours: s35886, s620961, s35870, s35887, s749523. Nine revisions remain on moderation
+across seven songs. Table: `out/NAMEDROP-LIVE-SWEEP-2026-09-07.md`
+
 ## Ship target
 
 `RESTORED-s35881-TEXTSAFE-v2.gp`, 51,451 bytes,
@@ -65,6 +90,6 @@ decision queued as `q-2026-09-07-a74a94`. Record:
 
 ## Owed
 
-- **Brandon**: one upload decision. `r8908034` is on moderation, so a second upload stacks.
+- **Brandon**: one upload decision. The moderation blocker is gone. The live tab is missing seven credits our revision removed, and TEXTSAFE-v2 restores them plus the bar 3 chord.
 - **A scan**: five Drumnet pages at print DPI unblock every chart-based item at once.
 - **Another session**: the onset-based DP alignment `q-2026-09-06-57b3e8` unblocks pedal hi-hat.

@@ -50,6 +50,10 @@ footer{margin-top:50px;padding-top:18px;border-top:1px solid var(--line);color:v
 contained three internal contradictions about which one it was. This page settles the ship
 target, records a restore defect that every previous verification missed, and reports the queue
 state for this song.</p>
+<p style="margin-top:10px;color:#f0a89c"><b>Status change, 2026-09-07 afternoon.</b>
+<code>r8908034</code> cleared moderation at 14:49 UTC and is <b>live now</b>. It emptied
+<b>seven authored musician credits</b> on the public tab. The upload is no longer an
+improvement waiting on a queue; it repairs live damage we caused.</p>
 <p style="margin-top:10px;color:#e6c98a"><b>Correction, 2026-09-07.</b> The ship target is
 <code>RESTORED-s35881-TEXTSAFE-v2.gp</code>. The earlier target
 <code>RESTORED-s35881-TEXTSAFE.gp</code> restored the E7Msus2 chord definition and never
@@ -65,6 +69,7 @@ restored the beat that displays it, so bar 3 printed no chord symbol.</p>
 <div class="stat"><b>4,856</b><span>note instances, all 9 tracks, delta 0</span></div>
 <div class="stat"><b>1,317</b><span>AntiAccent restored</span></div>
 <div class="stat"><b>0</b><span>ghosts missing or spurious</span></div>
+<div class="stat"><b>7</b><span>credits emptied on the live tab</span></div>
 <div class="stat"><b>9 / 8 / 1</b><span>queue closed / blocked / open</span></div>
 </div>
 
@@ -85,6 +90,7 @@ tracks. Every one is a 5/4 rest bar that Songsterr filled correctly. Nobody shou
 </div>
 
 <div class="toc"><ol>
+<li><a href="#live">The live tab lost seven credits</a></li>
 <li><a href="#ship">The ship file, and the seven that do not ship</a></li>
 <li><a href="#chord">The defect: a chord has two halves</a></li>
 <li><a href="#shared">The trap: Beat id 2 is shared by seven bars</a></li>
@@ -94,6 +100,47 @@ tracks. Every one is a 5/4 rest bar that Songsterr filled correctly. Nobody shou
 <li><a href="#queue">Queue state for this song</a></li>
 <li><a href="#owed">What is owed, and by whom</a></li>
 </ol></div>
+
+
+<h2 id="live">0. The live tab lost seven credits, and we did it</h2>
+<p>The handoff records <code>r8908034</code> as held on moderation, which was already stale when
+it was written. Songsterr reviewed it "fair" on 2026-09-07 at 14:49 UTC and it is the published
+revision now. Read uncredentialed from
+<code>api/meta/35881</code> and <code>api/meta/35881/revisions</code>.</p>
+<div class="scroll"><table>
+<tr><th>revision</th><th>empty names</th><th>track names on the public tab</th></tr>
+<tr><td><code>r7715683</code> Ben Dibden1, the author</td><td>2 of 9</td><td>Frank Zappa, Warren Cuccurullo, Arthur Barrow, Ed Mann, Warren Cuccurullo, Wurlitzer (Peter Wolf), Vinnie Colaiuta</td></tr>
+<tr><td><code>r8768414</code> our paren sweep</td><td>2 of 9</td><td>identical, all seven preserved</td></tr>
+<tr style="background:#fbeeec"><td><b><code>r8908034</code> our restore, LIVE NOW</b></td><td><b>9 of 9</b></td><td><b>every name empty</b></td></tr>
+</table></div>
+<div class="card red">
+<p class="k">The repair mechanism is proven on this song</p>
+<p><code>r8768414</code> is our own <code>.gp</code> upload, <code>createdVia: "GP"</code>. It
+carried 136 CDATA blocks and its live names are clean and complete.
+<code>r8908034</code> carried none and emptied all nine.
+<code>RESTORED-s35881-TEXTSAFE-v2.gp</code> carries 137, one more than the sweep and equal to
+the author's file.</p>
+<p>The same repair on <code>s5820647</code> went live as <code>r8932311</code> and brought its
+five names back. Those came back padded, stored as
+<code>"\n        Lead Guitar\n      "</code>, because that build carried the names as plain
+text with surrounding whitespace. A CDATA-carrying file avoids that shape, which is what
+<code>r8768414</code> already demonstrates here.</p>
+</div>
+
+<h3>The wider sweep: two songs, not eleven</h3>
+<p>All 15 songs holding a ghost restore, plus <code>s5820647</code>, read uncredentialed on
+2026-09-07. Only two carry live credit loss.</p>
+<div class="scroll"><table>
+<tr><th>song</th><th>live rev</th><th>author of live</th><th>names empty</th><th>verdict</th></tr>
+<tr style="background:#fbeeec"><td>s35881 Watermelon In Easter Hay</td><td><code>r8908034</code></td><td>Brandon chavez</td><td><b>9 / 9</b></td><td><b>LOST 7 credits</b></td></tr>
+<tr style="background:#fbeeec"><td>s68248 Carolina Hard-Core Ecstasy</td><td><code>r8769058</code></td><td>Brandon chavez</td><td><b>3 / 9</b></td><td><b>LOST 3 credits</b>, logged 2026-09-06 and never repaired</td></tr>
+<tr><td>s5820647</td><td><code>r8932311</code></td><td>Brandon chavez</td><td>0 / 5</td><td>repaired</td></tr>
+<tr><td>s1105085, s35878, s35865, s412178, s35884, s68246, s748459, s20690</td><td colspan="2">ours, eight songs</td><td>varies</td><td>count not reduced</td></tr>
+<tr><td>s35886, s620961, s35870, s35887, s749523</td><td colspan="2">Evgeny or Kirill</td><td>varies</td><td>a moderator's revision is live, not ours</td></tr>
+</table></div>
+<p>Nine revisions remain on moderation across seven songs, with <code>s20690</code> holding
+three. Full table:
+<code>~/Projects/_outputs/zappa-watermelon-ride-analysis/out/NAMEDROP-LIVE-SWEEP-2026-09-07.md</code></p>
 
 <h2 id="ship">1. The ship file, and the seven that do not ship</h2>
 <p>Eight restore candidates sit in
@@ -235,11 +282,11 @@ here closes them.</p>
 <h2 id="owed">8. What is owed, and by whom</h2>
 <div class="card pur">
 <p class="k">Owed by Brandon, one decision</p>
-<p>Revision <code>r8908034</code> sits on moderation for this song, so a second upload stacks on
-it. The choice is to let <code>r8908034</code> clear and then upload
-<code>RESTORED-s35881-TEXTSAFE-v2.gp</code>, or to withdraw <code>r8908034</code> and upload the
-corrected file now. Uploading is outward-facing and waits on his word. Queue item
-<code>q-2026-09-07-a74a94</code>.</p>
+<p><b>The moderation blocker is gone.</b> <code>r8908034</code> cleared at 14:49 UTC and is
+live, so nothing stacks. What remains is that the live tab is missing seven musician credits
+that our revision removed, and <code>RESTORED-s35881-TEXTSAFE-v2.gp</code> puts them back along
+with the bar 3 chord. Uploading is outward-facing and waits on his word. Queue items
+<code>q-2026-09-07-a74a94</code> and the live-namedrop item filed the same day.</p>
 </div>
 <div class="card blue">
 <p class="k">Owed by a scan, everything chart-based</p>
