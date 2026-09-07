@@ -1,12 +1,12 @@
 # Active chats digest
 
-Built 2026-09-07 14:17 CDT. 26 chats read from transcripts.
+Built 2026-09-07 14:18 CDT. 27 chats read from transcripts.
 
 ## Headline
 
-All 26 chats ended on a gate block, 0 on a message from Brandon.
+All 27 chats ended on a gate block, 0 on a message from Brandon.
 5 need a Brandon action. 11 are past the 400-turn ceiling.
-Totals: 13,002 assistant replies, 130 MB of transcript.
+Totals: 13,070 assistant replies, 130 MB of transcript.
 
 ## Do yourself
 
@@ -68,7 +68,7 @@ Totals: 13,002 assistant replies, 130 MB of transcript.
 
 **Finish today.** Run touch ~/.claude/fifty_gates.allow so the chat can stop. The work itself is finished and verified.
 
-### Zappa paren fix audit  (55 minutes quiet, 262 replies)
+### Zappa paren fix audit  (56 minutes quiet, 262 replies)
 **Goal.** Close out an older to-do list about repairing a Zappa drum tab.
 
 - It worked from a to-do list an earlier chat had written.
@@ -98,7 +98,7 @@ Totals: 13,002 assistant replies, 130 MB of transcript.
 
 **Finish today.** Move this finding into the Watermelon chat where it belongs, then close.
 
-### Large text message chat  (22.2 hours quiet, 892 replies)
+### Large text message chat  (22.3 hours quiet, 892 replies)
 **Goal.** Rebuild the 8.28 band practice from four microphone masters.
 
 - The handoff file had the wrong shape of name.
@@ -108,7 +108,7 @@ Totals: 13,002 assistant replies, 130 MB of transcript.
 
 **Finish today.** Close the last two gates and archive. The audio work already shipped elsewhere.
 
-### Chat single song handoff K i G  (21.4 hours quiet, 490 replies)
+### Chat single song handoff K i G  (21.5 hours quiet, 490 replies)
 **Goal.** Relay the Keep It Greasey findings to ChatGPT and hold the handoff.
 
 - The message reached ChatGPT and the thread got created.
@@ -128,7 +128,7 @@ Totals: 13,002 assistant replies, 130 MB of transcript.
 
 **Finish today.** This chat is at 857 assistant turns against a 400 ceiling. Write the handoff and close it.
 
-### Zappa chat context loss all , trouble first  (3.0 hours quiet, 505 replies)
+### Zappa chat context loss all , trouble first  (3.1 hours quiet, 505 replies)
 **Goal.** Fix the blank track names on Carolina Hard-Core Ecstasy.
 
 - Three track names are blank where Bass, Drums and Trombone belong.
@@ -178,6 +178,16 @@ Totals: 13,002 assistant replies, 130 MB of transcript.
 
 **Finish today.** Rank the 15 published tabs by damage and start the restore list.
 
+### Active chats summary and recommendations  (5 minutes quiet, 62 replies)
+**Goal.** Not summarised by hand yet. Last input on record: go thru active chats and sum up last 4 paragraphs sent i bullet points a ten year old could understand. state how long since last acion and what the chat is trying to accomplish and make rec
+
+- Goal:** read every chat that moved today, boil each one down to kid-simple bullets, report idle time, name what it is chasing, and give a finish-today.
+- All 15 read. Building the board now.
+- No prose turn recorded for this slot.
+- No prose turn recorded for this slot.
+
+**Finish today.** New since the last hand pass. Open the chat and give it a read.
+
 ### Notation evidence gate  (4 minutes quiet, 22 replies)
 **Goal.** Not summarised by hand yet. Last input on record: help https://drwu-htmls.vercel.app/notation-evidence-gate
 
@@ -188,7 +198,7 @@ Totals: 13,002 assistant replies, 130 MB of transcript.
 
 **Finish today.** New since the last hand pass. Open the chat and give it a read.
 
-### Active chats review  (1 minutes quiet, 15 replies)
+### Active chats review  (2 minutes quiet, 15 replies)
 **Goal.** Not summarised by hand yet. Last input on record: https://7onething1.github.io/active-chats-2026-09-07/
 
 - I'll start by reading the URL you sent and figuring out what's there.
@@ -198,7 +208,7 @@ Totals: 13,002 assistant replies, 130 MB of transcript.
 
 **Finish today.** New since the last hand pass. Open the chat and give it a read.
 
-### Appleseed cast chat  (0 minutes quiet, 193 replies)
+### Appleseed cast chat  (1 minutes quiet, 199 replies)
 **Goal.** Split guitar parts that one hand cannot reach into two guitar tracks.
 
 - A tab had 700 spots where one hand had to grab impossible shapes.
@@ -248,7 +258,7 @@ Totals: 13,002 assistant replies, 130 MB of transcript.
 
 **Finish today.** Run the s35881 copy and submit under the new rule, then close.
 
-### Songs lickable text to Songsterr  (28 minutes quiet, 193 replies)
+### Songs lickable text to Songsterr  (29 minutes quiet, 193 replies)
 **Goal.** Make every Zappa song name on the program page open its own guitar tab.
 
 - The page lists 34 Zappa songs and their tabs.
