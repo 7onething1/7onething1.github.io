@@ -79,9 +79,9 @@ like a strong result.</p>
 
 <h2 id="what"><span class="dot" style="background:var(--sage)"></span>What went on the tab</h2>
 <div class="grid">
-<div class="stat"><span class="v">599</span><span class="l">toms</span></div>
+
 <div class="stat"><span class="v">398</span><span class="l">kick</span></div>
-<div class="stat"><span class="v">286</span><span class="l">pedal hi-hat</span></div>
+<div class="stat"><span class="v">215</span><span class="l">pedal hi-hat</span></div>
 <div class="stat"><span class="v">147</span><span class="l">rebound ghosts</span></div>
 <div class="stat"><span class="v">0</span><span class="l">voice-0 changes</span></div>
 <div class="stat"><span class="v">9 / 9</span><span class="l">track names kept</span></div>
@@ -308,27 +308,22 @@ replaced. Look at a notation change before shipping it.</p>
 <p>Voice 0 already had a set-difference-zero check protecting the author's material. The added
 material now has the same protection, and it runs before the file is written.</p></div>
 
-<h2 id="toms"><span class="dot" style="background:var(--mustard)"></span>The toms, and a change of posture</h2>
-<div class="card good"><h3>Hard gate from Brandon</h3>
-<p>He runs Moises Pro and the stems are good, so stop opening every lane with a bleed
-hypothesis. A separation check confirms and reports. It does not block the work.</p></div>
-<table><thead><tr><th>check</th><th class="n">result</th><th>reading</th></tr></thead><tbody>
-<tr><td>candidates vs the isolated kick stem</td><td class="n pass">0.27x</td><td>below chance, they AVOID the kick</td></tr>
-<tr><td>candidates vs the isolated snare stem</td><td class="n pass">0.52x</td><td>below chance</td></tr>
-<tr><td>candidates vs the notated kick</td><td class="n pass">0.29x</td><td>below chance</td></tr>
-<tr><td>the author's own 6 toms vs the kick stem</td><td class="n">0.00x</td><td>his toms never coincide either</td></tr>
-<tr><td>median decay</td><td class="n">348 ms</td><td>a drum that rings</td></tr>
+<h2 id="toms"><span class="dot" style="background:var(--rose)"></span>The toms were wrong and are gone</h2>
+<div class="card warn"><h3>599 toms where the author wrote 6</h3>
+<p>Roughly six per bar on a slow ballad. Brandon called it fraud and he was right.</p>
+<p><b>The fault was the gate, not the stem.</b> Kick and snare were scored against the author's
+own written events. The tom lane had 6, too few for that, so intensity was scored against the
+<b>candidate population's own median</b>. A self-referential reference cannot reject a
+population that is mostly artifact, and 650 of 662 candidates passed.</p></div>
+<table><thead><tr><th>reference class tried</th><th>result</th></tr></thead><tbody>
+<tr><td>candidates' own median</td><td class="fail">650 of 662 pass, 5.7 per bar</td></tr>
+<tr><td>toms-stem level at the author's snare strokes</td><td class="fail">that level is 0.3, so 662 of 662 pass</td></tr>
+<tr><td>the author's own 6 written toms</td><td class="fail">candidates median 44.2 against his 24.8</td></tr>
 </tbody></table>
-<p>Below-chance coincidence is the signature of good separation: the lanes avoid each other
-rather than echo each other.</p>
-<h3>Which tom, read off the fundamentals</h3>
-<pre>near  86 Hz   210 onsets
-(a wide empty band, zero counts)
-near 129 Hz   426 onsets
-above          26 onsets</pre>
-<p>Two modes with nothing between them, which is a two-tom kit cleanly split rather than a
-smear. They map onto the tom lanes the tab already defines. <b>599 placed: 415 high, 184
-low</b>, against the author's 6.</p>
+<p>The last row is the answer. The detected candidates are LOUDER than the strokes the
+transcriber actually called toms, and two of his six read 0.0 and 7.5 in that stem. Drumnet's
+hand chart of this take, read at native resolution, shows ride with snare and kick underneath
+and toms only as short runs at phrase ends. <b>Toms stay out.</b></p>
 
 <h2 id="stop"><span class="dot" style="background:var(--sage)"></span>Stopping condition</h2>
 <table><thead><tr><th>lane</th><th>state</th><th>what closes it</th></tr></thead><tbody>

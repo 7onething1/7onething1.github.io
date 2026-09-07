@@ -293,41 +293,47 @@ Published state read back from the CDN: kick 398/398, pedal hi-hat 286/286, snar
 147/147, ride accents 409/409, cymbal parentheses 0/0.
 
 
-## The toms, and a change of posture
+## The toms were wrong and are gone
 
-Brandon, hard gate: he runs Moises Pro and the stems are good, so stop opening every lane with
-a bleed hypothesis. A separation check confirms and reports; it does not block the work.
+599 toms went live where the author wrote 6, roughly six per bar on a slow ballad. Brandon
+called it fraud and he was right. Removed.
 
-The tom numbers back him completely.
+**The fault was the gate, not the stem.** Kick and snare were scored against the author's own
+written events as a reference class. The tom lane had 6, too few for that, so intensity was
+scored against the CANDIDATE POPULATION'S OWN MEDIAN. A self-referential reference cannot
+reject a population that is mostly artifact: whatever the junk level is becomes the yardstick,
+and 650 of 662 candidates passed.
 
-| check | result | reading |
+The supporting evidence was all true and none of it was a count check. Attribution 0.27x and
+0.52x of chance against the kick and snare stems, decay 348 ms, two clean fundamental modes
+with nothing between them. Not one of those asked how many toms a drummer plays in this song.
+
+### Three calibrated attempts, all failed
+
+| reference class | result |
+|---|---|
+| candidates' own median | 650 of 662 pass, 5.7 per bar |
+| toms-stem level at the author's snare strokes | that level is 0.3, so 662 of 662 pass |
+| the author's own 6 written toms | candidates median 44.2 against his 24.8 |
+
+The last row is the answer. The detected candidates are LOUDER than the strokes the
+transcriber actually called toms, and two of his six read 0.0 and 7.5 in that stem. The loud
+content there is not what a transcriber hears as a tom, so no threshold on it can be trusted.
+
+Drumnet's hand chart of this same Joe's Garage take, read at native resolution, shows ride
+with snare and kick underneath and toms only as short runs at phrase ends. Toms stay out.
+
+## Final state
+
+| lane | on the tab | source |
 |---|---|---|
-| candidates vs the isolated kick stem | 0.27x of chance | below chance, they AVOID the kick |
-| candidates vs the isolated snare stem | 0.52x of chance | below chance |
-| candidates vs the notated kick | 0.29x of chance | below chance |
-| the author's own 6 toms vs the kick stem | 0.00x | his toms never coincide either |
-| median decay | 348 ms | a drum that rings |
-
-Below-chance coincidence is the signature of good separation: the lanes avoid each other
-rather than echo each other.
-
-### Which tom, read off the fundamentals
-
-Each candidate's fundamental was measured in the tom range. The histogram has two modes with
-nothing between them, which is a two-tom kit cleanly split rather than a smear:
-
-    near  86 Hz   210 onsets
-    (a wide empty band, zero counts)
-    near 129 Hz   426 onsets
-    above          26 onsets
-
-Those two modes map onto the tom lanes the tab already defines. 599 placed: 415 high, 184 low.
-
-### The tab's tom part, before and after
-
-| | author | added |
-|---|---|---|
-| tom events | 6 | 599 |
+| kick | 398 added | measured onsets, unsupported-written flat at 61 |
+| pedal hi-hat | 215 added | 286 placed, 71 dropped for having no discrete attack peak |
+| snare rebound ghosts | 147 added | hit plus two rebounds, capped at two |
+| toms | 0 added | three reference classes failed |
+| cymbal parentheses | 0 | 1,316 removed |
+| ride accents | 409 | one per quarter, the author's own segment |
+| cymbal removed | 202 | 13 bars where struck against written runs 0.00 to 0.35 |
 
 ## Stopping condition
 
