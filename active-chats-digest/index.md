@@ -1,12 +1,12 @@
 # Active chats digest
 
-Built 2026-09-07 14:26 CDT. 27 chats read from transcripts.
+Built 2026-09-07 14:30 CDT. 27 chats read from transcripts.
 
 ## Headline
 
 All 27 chats ended on a gate block, 0 on a message from Brandon.
 5 need a Brandon action. 11 are past the 400-turn ceiling.
-Totals: 13,186 assistant replies, 131 MB of transcript.
+Totals: 13,217 assistant replies, 131 MB of transcript.
 
 ## Do yourself
 
@@ -18,7 +18,7 @@ Totals: 13,186 assistant replies, 131 MB of transcript.
 
 ## Every chat
 
-### Zappa ride ghost analysis watermelon  (2.2 hours quiet, 718 replies)
+### Zappa ride ghost analysis watermelon  (2.3 hours quiet, 718 replies)
 **Goal.** Put the quiet ride cymbal marks back on Watermelon In Easter Hay.
 
 - Every repaired file on disk deletes all 28 musician names.
@@ -28,7 +28,7 @@ Totals: 13,186 assistant replies, 131 MB of transcript.
 
 **Finish today.** Upload TEXTSAFE to a copy tab named Brandon edit. Every other build on disk is unshippable.
 
-### Zappa chats audit update  (1.1 hours quiet, 151 replies)
+### Zappa chats audit update  (1.2 hours quiet, 151 replies)
 **Goal.** Sweep all the Zappa chats and check what got shipped.
 
 - It read 40 chats and pulled 75 findings into one list.
@@ -48,7 +48,7 @@ Totals: 13,186 assistant replies, 131 MB of transcript.
 
 **Finish today.** Subscribe the phone to ntfy topic brandon-claude-9k3xq2. Until then every alert dies after 12 hours.
 
-### [NOTATION-EVIDENCE-GATE-N9-N10-WATERMELON-NO-REPAIR-2026-09-06]  (3.1 hours quiet, 248 replies)
+### [NOTATION-EVIDENCE-GATE-N9-N10-WATERMELON-NO-REPAIR-2026-09-06]  (3.2 hours quiet, 248 replies)
 **Goal.** Keep the phone-to-Mac message channel alive across both Macs.
 
 - The phone inbox caught two messages during 8 minutes of watching.
@@ -98,7 +98,7 @@ Totals: 13,186 assistant replies, 131 MB of transcript.
 
 **Finish today.** Move this finding into the Watermelon chat where it belongs, then close.
 
-### Large text message chat  (22.4 hours quiet, 892 replies)
+### Large text message chat  (22.5 hours quiet, 892 replies)
 **Goal.** Rebuild the 8.28 band practice from four microphone masters.
 
 - The handoff file had the wrong shape of name.
@@ -128,7 +128,7 @@ Totals: 13,186 assistant replies, 131 MB of transcript.
 
 **Finish today.** This chat is at 857 assistant turns against a 400 ceiling. Write the handoff and close it.
 
-### Zappa chat context loss all , trouble first  (3.2 hours quiet, 505 replies)
+### Zappa chat context loss all , trouble first  (3.3 hours quiet, 505 replies)
 **Goal.** Fix the blank track names on Carolina Hard-Core Ecstasy.
 
 - Three track names are blank where Bass, Drums and Trombone belong.
@@ -138,17 +138,7 @@ Totals: 13,186 assistant replies, 131 MB of transcript.
 
 **Finish today.** Poll the moderation queue once. Nothing else on this song can move today.
 
-### Authorized execution verification general zomb montana  (3.1 hours quiet, 595 replies)
-**Goal.** Check whether the Zomby Woof revision is built and ready.
-
-- It corrected a note it had written yesterday.
-- Two songs are blocked because another chat owns them.
-- The blocker files show the reason was never a song-count rule.
-- It moved that finding out of the to-do list into a proof file.
-
-**Finish today.** Hand the two songs to the chat that owns them, then close.
-
-### Completion controller and state skills  (3.1 hours quiet, 407 replies)
+### Completion controller and state skills  (3.2 hours quiet, 407 replies)
 **Goal.** Build the gate system that decides when a chat is allowed to stop.
 
 - Gate G35 counted every helper message forever with no way to clear.
@@ -158,7 +148,17 @@ Totals: 13,186 assistant replies, 131 MB of transcript.
 
 **Finish today.** Pin a regression test on the G35 fix, write the handoff, close.
 
-### Resume recent chats on wake  (3.0 hours quiet, 93 replies)
+### Authorized execution verification general zomb montana  (3.2 hours quiet, 595 replies)
+**Goal.** Check whether the Zomby Woof revision is built and ready.
+
+- It corrected a note it had written yesterday.
+- Two songs are blocked because another chat owns them.
+- The blocker files show the reason was never a song-count rule.
+- It moved that finding out of the to-do list into a proof file.
+
+**Finish today.** Hand the two songs to the chat that owns them, then close.
+
+### Resume recent chats on wake  (3.1 hours quiet, 93 replies)
 **Goal.** Make chats pick their work back up after the Mac wakes.
 
 - It reported the work queue empty twice and both were wrong.
@@ -168,7 +168,7 @@ Totals: 13,186 assistant replies, 131 MB of transcript.
 
 **Finish today.** Build the wake-resume hook that was actually asked for. The queue lesson is already recorded.
 
-### Active chat: 3-phase ghost note restore huge plan  (1.5 hours quiet, 231 replies)
+### Active chat: 3-phase ghost note restore huge plan  (1.6 hours quiet, 231 replies)
 **Goal.** Find every Zappa song where the quiet drum marks got wiped out.
 
 - Around 30 songs were believed to be damaged.
@@ -178,7 +178,7 @@ Totals: 13,186 assistant replies, 131 MB of transcript.
 
 **Finish today.** Rank the 15 published tabs by damage and start the restore list.
 
-### Notation evidence gate  (13 minutes quiet, 22 replies)
+### Notation evidence gate  (16 minutes quiet, 22 replies)
 **Goal.** Not summarised by hand yet. Last input on record: help https://drwu-htmls.vercel.app/notation-evidence-gate
 
 - I'll start by pulling up the page you linked and figuring out what "help" means for it. **Goal:** understand what's on `/notation-evidence-gate` and.
@@ -188,27 +188,27 @@ Totals: 13,186 assistant replies, 131 MB of transcript.
 
 **Finish today.** New since the last hand pass. Open the chat and give it a read.
 
-### Active chats summary and recommendations  (1 minutes quiet, 93 replies)
-**Goal.** Not summarised by hand yet. Last input on record: go thru active chats and sum up last 4 paragraphs sent i bullet points a ten year old could understand. state how long since last acion and what the chat is trying to accomplish and make rec
+### Active chats summary and recommendations  (2 minutes quiet, 98 replies)
+**Goal.** Not summarised by hand yet. Last input on record: ask me for each chat what to do use the ranked
 
-- All 15 read. Building the board now.
 - The sibling session's digest covers chats my source list did not surface. Extending coverage rather than shipping a partial board.
 - Coverage was short by seven. The on-disk store shows **22 chats moved today**, and one carries a finding that contradicts another chat's pending.
 - 🟢 22 active chats, read and boiled down **https://7onething1.github.io/active-chats-2026-09-07/** ## 🔴 Read this first: two chats disagree **One chat.
+- Going down the ranked list, four at a time.
 
 **Finish today.** New since the last hand pass. Open the chat and give it a read.
 
-### Active chats review  (0 minutes quiet, 69 replies)
+### Active chats review  (1 minutes quiet, 95 replies)
 **Goal.** Not summarised by hand yet. Last input on record: https://7onething1.github.io/active-chats-2026-09-07/
 
-- The file changed under me. Another session is actively rewriting this board. Let me snapshot it and re-measure against the new labels.
-- The board was rewritten at 14:23 with transcript IDs, "Replies" instead of "Messages", and 22 rows. That version is auditable. Let me test every number.
-- Eighteen of 22 rows match exactly. The four that drift are the sessions still running at build time, including this one. That is expected, not fraud..
-- The live page is now the 14:23 rebuild. Let me run the gate on the new version and check its coverage.
+- The row regex missed. Let me inspect the actual structure.
+- Blank line between heading and status. Fixing the regex.
+- 18 of 22 exact. Now the sibling notes file, then deploy.
+- Now the voice gate, then deploy.
 
 **Finish today.** New since the last hand pass. Open the chat and give it a read.
 
-### Appleseed cast chat  (2 minutes quiet, 230 replies)
+### Appleseed cast chat  (6 minutes quiet, 230 replies)
 **Goal.** Split guitar parts that one hand cannot reach into two guitar tracks.
 
 - A tab had 700 spots where one hand had to grab impossible shapes.
@@ -238,7 +238,7 @@ Totals: 13,186 assistant replies, 131 MB of transcript.
 
 **Finish today.** The test came back negative and the relay landed. Close with a handoff.
 
-### Volume to 45%  (1.6 hours quiet, 57 replies)
+### Volume to 45%  (1.7 hours quiet, 57 replies)
 **Goal.** Turn off the volume limit on this Mac.
 
 - The volume was capped at 45 out of 100.
@@ -258,7 +258,7 @@ Totals: 13,186 assistant replies, 131 MB of transcript.
 
 **Finish today.** Run the s35881 copy and submit under the new rule, then close.
 
-### Songs lickable text to Songsterr  (37 minutes quiet, 193 replies)
+### Songs lickable text to Songsterr  (41 minutes quiet, 193 replies)
 **Goal.** Make every Zappa song name on the program page open its own guitar tab.
 
 - The page lists 34 Zappa songs and their tabs.
