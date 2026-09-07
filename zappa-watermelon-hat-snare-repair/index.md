@@ -107,6 +107,72 @@ carved out by name and left alone.
 All 9 track names survived the import. Both files carry 137 CDATA blocks, which is the
 variable that decides it.
 
+
+## All four lanes, scored identically
+
+Two-way, one-to-one matching on the mir_eval.onset convention so a single loud onset cannot
+absorb many written events. Every rate carries its circular-shift chance figure. The floor is
+1.5x.
+
+| lane | written | onsets | A written->audible | A chance | A ratio | B audible->written | B ratio | unsupported written | unnotated audible |
+|---|---|---|---|---|---|---|---|---|---|
+| kick | 107 | 652 | 0.430 | 0.127 | 3.40x | 0.071 | 3.53x | 61 | 606 |
+| snare, author only | 193 | 637 | 0.508 | 0.091 | 5.61x | 0.154 | 4.36x | 95 | 539 |
+| **snare + our 147 ghosts** | 340 | 637 | **0.721** | 0.092 | **7.80x** | **0.385** | **6.39x** | **95** | **392** |
+| toms | 6 | 665 | 0.500 | 0.101 | 4.96x | 0.005 | 4.03x | 3 | 662 |
+| cymbal | 1778 | 1074 | 0.204 | 0.177 | 1.15x | 0.337 | 1.06x | 1416 | 712 |
+
+Read the snare rows together. Adding the 147 rebound ghosts moved direction A from 5.61x to
+7.80x and direction B from 4.36x to 6.39x, while unsupported-written stayed at 95. It did not
+rise, so not one of the 147 was placed where the stem has no onset. Unnotated audible fell
+from 539 to 392, which is those 147 onsets now carrying notation.
+
+Kick, snare and toms all clear the floor in both directions. The cymbal lane does not, and it
+is the only lane that does not.
+
+## Ride bleed, the control that could have killed the hi-hat repair
+
+The notated ride is a dead-even 16th pattern: 866 events on eighths, 858 on the 16ths between
+them, 0 anywhere else. Inside the 46 passing bars it is exactly 391 and 391.
+
+| position, all carrying a NOTATED RIDE STRIKE | n | median hat-stem peak |
+|---|---|---|
+| ride on an eighth | 391 | 0.1193 |
+| ride on the 16th between eighths | 391 | 0.0062 |
+
+**19.3x.** Equal ride strikes on both sides, and the hat stem answers only on one. Ride bleed
+cannot produce that asymmetry. The decay reading agrees: at the 286 placed slots the hat stem
+decays in 46.4 ms and the cymbal stem in 348.3 ms, a 7.5x separation, which is a discrete
+closed-hat event rather than a ride strike.
+
+## The audition list, not a deletion list
+
+Each placed pedal hi-hat gets three independent readings instead of one ratio: is there a
+DISCRETE local peak rather than raised energy, does it decay like a hat, and does the cymbal
+stem carry its own event at that instant.
+
+| verdict | all 286 | of the 46 under 3x contrast |
+|---|---|---|
+| SUPPORTED | 207, 72.4% | 26 |
+| AMBIGUOUS | 8, 2.8% | 4 |
+| UNSUPPORTED | 71, 24.8% | 16 |
+
+Nothing was deleted on this reading. The 71 UNSUPPORTED notes carry raised energy with no
+discrete peak, and 55 of them sit ABOVE 3x contrast, so contrast alone was the wrong sort.
+Full per-note table with bar, beat, stem seconds, contrast, prominence and both decay
+figures: `out/AUDITION-hat-notes.csv`.
+
+## Stopping condition
+
+1. snare, kick and toms: CLOSED. All three clear 1.5x in both directions.
+2. hi-hat: closes when the 71 UNSUPPORTED notes are auditioned against the isolated hat stem
+   and each is kept or pulled.
+3. cymbal: 1,416 written events carry no audio support at 1.15x. The detector finds 1,074
+   onsets against 1,778 written, so a perfect transcription could not score above 0.60 in
+   direction A. The observed 0.204 sits well under that ceiling, and this method cannot
+   adjudicate a continuously played ride at 16th density. That lane needs a different
+   instrument, not another run of this one.
+
 ## Method
 
 Spectral flux, 1024-pt Hann, 256 hop, 44.1 kHz. Hat 8-16 kHz for per-slot work and

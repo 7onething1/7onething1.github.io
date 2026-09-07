@@ -61,6 +61,10 @@ footer{margin-top:56px;padding-top:16px;border-top:2px solid var(--rule);font-si
 <li><a href="#eye">The eye overruled the count</a></li>
 <li><a href="#sym">Symbols and their authority</a></li>
 <li><a href="#safe">What was not touched</a></li>
+<li><a href="#lanes">All four lanes</a></li>
+<li><a href="#bleed">Ride bleed control</a></li>
+<li><a href="#aud">The audition list</a></li>
+<li><a href="#stop">Stopping condition</a></li>
 <li><a href="#live">Published state</a></li>
 </ol></nav>
 
@@ -164,6 +168,60 @@ staccato-flagged  |A\B| = 0   |B\A| = 0</pre>
 <p>Bar 104 voice 0 falls one quarter short of its 5/4 signature. That is present in the
 transcriber's own file, in the pre-sweep original and in the live export alike, so it was
 carved out by name and left exactly as written.</p>
+
+
+<h2 id="lanes"><span class="dot" style="background:var(--teal)"></span>All four lanes, scored identically</h2>
+<p>Two-way, one-to-one matching on the <code>mir_eval.onset</code> convention, so a single loud
+onset cannot absorb many written events. Every rate carries its circular-shift chance figure.
+Floor is 1.5x.</p>
+<table><thead><tr><th>lane</th><th class="n">written</th><th class="n">onsets</th><th class="n">A rate</th><th class="n">A chance</th><th class="n">A ratio</th><th class="n">B rate</th><th class="n">B ratio</th><th class="n">unsup. written</th><th class="n">unnotated audible</th></tr></thead><tbody>
+<tr><td>kick</td><td class="n">107</td><td class="n">652</td><td class="n">0.430</td><td class="n">0.127</td><td class="n pass">3.40x</td><td class="n">0.071</td><td class="n pass">3.53x</td><td class="n">61</td><td class="n">606</td></tr>
+<tr><td>snare, author only</td><td class="n">193</td><td class="n">637</td><td class="n">0.508</td><td class="n">0.091</td><td class="n pass">5.61x</td><td class="n">0.154</td><td class="n pass">4.36x</td><td class="n">95</td><td class="n">539</td></tr>
+<tr style="background:var(--code)"><td><b>snare + our 147 ghosts</b></td><td class="n">340</td><td class="n">637</td><td class="n"><b>0.721</b></td><td class="n">0.092</td><td class="n pass"><b>7.80x</b></td><td class="n"><b>0.385</b></td><td class="n pass"><b>6.39x</b></td><td class="n"><b>95</b></td><td class="n"><b>392</b></td></tr>
+<tr><td>toms</td><td class="n">6</td><td class="n">665</td><td class="n">0.500</td><td class="n">0.101</td><td class="n pass">4.96x</td><td class="n">0.005</td><td class="n pass">4.03x</td><td class="n">3</td><td class="n">662</td></tr>
+<tr><td>cymbal</td><td class="n">1778</td><td class="n">1074</td><td class="n">0.204</td><td class="n">0.177</td><td class="n fail">1.15x</td><td class="n">0.337</td><td class="n fail">1.06x</td><td class="n">1416</td><td class="n">712</td></tr>
+</tbody></table>
+<div class="card good"><h3>Read the two snare rows together</h3>
+<p>Adding the 147 rebound ghosts moved direction A from 5.61x to 7.80x and direction B from
+4.36x to 6.39x, while <b>unsupported-written stayed at 95</b>. It did not rise, so not one of
+the 147 was placed where the stem has no onset. Unnotated audible fell from 539 to 392, which
+is those 147 onsets now carrying notation.</p></div>
+<p>Kick, snare and toms clear the floor in both directions. The cymbal lane is the only one
+that does not.</p>
+
+<h2 id="bleed"><span class="dot" style="background:var(--rose)"></span>Ride bleed, the control that could have killed this</h2>
+<p>The notated ride is a dead-even 16th pattern: 866 events on eighths, 858 on the 16ths
+between them, 0 anywhere else. Inside the 46 passing bars it is exactly 391 and 391.</p>
+<table><thead><tr><th>position, both carrying a NOTATED RIDE STRIKE</th><th class="n">n</th><th class="n">median hat-stem peak</th></tr></thead><tbody>
+<tr><td>ride on an eighth</td><td class="n">391</td><td class="n">0.1193</td></tr>
+<tr><td>ride on the 16th between eighths</td><td class="n">391</td><td class="n">0.0062</td></tr>
+<tr style="background:var(--code)"><td><b>ratio</b></td><td class="n">&mdash;</td><td class="n pass"><b>19.3x</b></td></tr>
+</tbody></table>
+<p>Equal ride strikes on both sides, and the hat stem answers only on one. Ride bleed cannot
+produce that asymmetry. Decay agrees: at the 286 placed slots the hat stem decays in
+<b>46.4 ms</b> and the cymbal stem in <b>348.3 ms</b>, a 7.5x separation.</p>
+
+<h2 id="aud"><span class="dot" style="background:var(--mustard)"></span>The audition list, not a deletion list</h2>
+<p>Each placed pedal hi-hat gets three independent readings rather than one ratio: a DISCRETE
+local peak rather than raised energy, a hat-like decay, and whether the cymbal stem carries
+its own event at that instant.</p>
+<table><thead><tr><th>verdict</th><th class="n">all 286</th><th class="n">of the 46 under 3x contrast</th></tr></thead><tbody>
+<tr><td class="pass">SUPPORTED</td><td class="n">207, 72.4%</td><td class="n">26</td></tr>
+<tr><td>AMBIGUOUS</td><td class="n">8, 2.8%</td><td class="n">4</td></tr>
+<tr><td class="fail">UNSUPPORTED</td><td class="n">71, 24.8%</td><td class="n">16</td></tr>
+</tbody></table>
+<div class="card warn"><h3>Contrast was the wrong sort key</h3>
+<p>Nothing was deleted on this reading. The 71 UNSUPPORTED notes carry raised energy with no
+discrete peak, and <b>55 of them sit ABOVE 3x contrast</b>. Full per-note table with bar, beat,
+stem seconds, contrast, prominence and both decay figures in
+<code>out/AUDITION-hat-notes.csv</code>.</p></div>
+
+<h2 id="stop"><span class="dot" style="background:var(--sage)"></span>Stopping condition</h2>
+<table><thead><tr><th>lane</th><th>state</th><th>what closes it</th></tr></thead><tbody>
+<tr><td>snare, kick, toms</td><td class="pass">CLOSED</td><td>all three clear 1.5x in both directions</td></tr>
+<tr><td>hi-hat</td><td>OPEN</td><td>audition the 71 UNSUPPORTED notes against the isolated hat stem, keep or pull each</td></tr>
+<tr><td>cymbal</td><td>OUT OF REACH</td><td>1,074 onsets against 1,778 written caps direction A at 0.60; observed 0.204. This method cannot adjudicate a continuously played ride at 16th density</td></tr>
+</tbody></table>
 
 <h2 id="live"><span class="dot" style="background:var(--mustard)"></span>Published state, read from the CDN</h2>
 <pre>part name 'Vinnie Colaiuta'   105 measures   85 with 2 voices, 20 with 1
