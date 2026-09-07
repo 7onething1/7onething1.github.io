@@ -1,12 +1,12 @@
 # Watermelon In Easter Hay: the hi-hat and snare the tab leaves out
 
-Built 2026-09-07. Songsterr copy s6857183 r8951709, published.
+Built 2026-09-07. Songsterr copy s6857183 r8951854, published.
 Live page: https://7onething1.github.io/zappa-watermelon-hat-snare-repair/
 Live tab: https://www.songsterr.com/a/wsa/frank-zappa-watermelon-in-easter-hay-brandon-edit-drum-tab-s6857183
 
 ## What went on the tab
 
-286 pedal hi-hat and 267 snare rebound ghosts, in a NEW voice. Voice 0 was not touched.
+286 pedal hi-hat and 147 snare rebound ghosts, in a NEW voice. Voice 0 was not touched.
 
 ## The hat stem is an instrument, not ride residue
 
@@ -66,6 +66,18 @@ The gap spread rules out detector re-triggering, which would sit at a fixed mult
 the 5.8 ms analysis hop. Cluster leaders match the tab's notated snare at 36.9%,
 followers at 15.3%, so the followers are the strokes the tab omits.
 
+## The eye overruled the count
+
+The first build wrote EVERY follower onset, 267 of them, which is what the measurement
+literally says. Rendering bars 12, 31 and 45 through alphaTab headless and looking at them
+showed a size-12 cluster smearing into a six-note run of parenthesised heads along the snare
+line. That does not read as hit-rebound-rebound, which is the figure Brandon named. The
+second build keeps the two loudest followers per cluster, giving 147, and the same bars now
+render as one ghost either side of the hit.
+
+The count was not wrong. It was answering a different question from the one the notation has
+to answer.
+
 ## Symbols, per the drumset standard rather than a general dictionary
 
 - pedal hi-hat: articulation 6, staff line 9, the first space BELOW the staff, X
@@ -90,7 +102,7 @@ carved out by name and left alone.
     part name 'Vinnie Colaiuta'   105 measures   85 with 2 voices, 20 with 1
     voice 0   ride 1724  snare 193  kick 107  crash 53  pedal hat 6  toms 6  other 2
               ghost-flagged 1317
-    voice 1   pedal hi-hat 286     snare 267, all 267 ghost-flagged
+    voice 1   pedal hi-hat 286     snare 147, all 147 ghost-flagged
 
 All 9 track names survived the import. Both files carry 137 CDATA blocks, which is the
 variable that decides it.

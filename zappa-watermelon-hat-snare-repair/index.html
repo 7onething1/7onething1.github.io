@@ -46,9 +46,9 @@ footer{margin-top:56px;padding-top:16px;border-top:2px solid var(--rule);font-si
 </style></head><body><div class="wrap">
 
 <header>
-<span class="badge">published</span><span class="badge m">s6857183 r8951709</span><span class="badge r">copy, not the original</span>
+<span class="badge">published</span><span class="badge m">s6857183 r8951854</span><span class="badge r">copy, not the original</span>
 <h1>Watermelon In Easter Hay: the hi-hat and snare the tab leaves out</h1>
-<p class="sub">Frank Zappa &middot; drums Vinnie Colaiuta &middot; built 2026-09-07 &middot; 286 pedal hi-hat and 267 rebound ghosts added in a new voice, with voice 0 untouched</p>
+<p class="sub">Frank Zappa &middot; drums Vinnie Colaiuta &middot; built 2026-09-07 &middot; 286 pedal hi-hat and 147 rebound ghosts added in a new voice, with voice 0 untouched</p>
 </header>
 
 <nav><b>Contents</b><ol>
@@ -58,6 +58,7 @@ footer{margin-top:56px;padding-top:16px;border-top:2px solid var(--rule);font-si
 <li><a href="#circ">A circular test, caught</a></li>
 <li><a href="#res">Why this is a bar-level repair</a></li>
 <li><a href="#reb">Hit, rebound, rebound</a></li>
+<li><a href="#eye">The eye overruled the count</a></li>
 <li><a href="#sym">Symbols and their authority</a></li>
 <li><a href="#safe">What was not touched</a></li>
 <li><a href="#live">Published state</a></li>
@@ -71,7 +72,7 @@ like a strong result.</p>
 <h2 id="what"><span class="dot" style="background:var(--sage)"></span>What went on the tab</h2>
 <div class="grid">
 <div class="stat"><span class="v">286</span><span class="l">pedal hi-hat</span></div>
-<div class="stat"><span class="v">267</span><span class="l">rebound ghosts</span></div>
+<div class="stat"><span class="v">147</span><span class="l">rebound ghosts</span></div>
 <div class="stat"><span class="v">0</span><span class="l">voice-0 changes</span></div>
 <div class="stat"><span class="v">9 / 9</span><span class="l">track names kept</span></div>
 </div>
@@ -138,6 +139,16 @@ rather than pretending to a finer one.</p>
 fixed multiple of the 5.8 ms analysis hop. Leaders are the strokes the tab already notates.
 Followers are the ones it omits.</p>
 
+<h2 id="eye"><span class="dot" style="background:var(--mustard)"></span>The eye overruled the count</h2>
+<div class="card warn"><h3>267 became 147, and the notation got better</h3>
+<p>The first build wrote every follower onset, which is what the measurement literally says.
+Rendering bars 12, 31 and 45 through alphaTab headless and <b>looking at them</b> showed a
+size-12 cluster smearing into a six-note run of parenthesised heads along the snare line.
+That does not read as hit-rebound-rebound. The second build keeps the two loudest followers
+per cluster, and the same bars now render as one ghost either side of the hit.</p>
+<p>The count was not wrong. It was answering a different question from the one the notation
+has to answer.</p></div>
+
 <h2 id="sym"><span class="dot" style="background:var(--teal)"></span>Symbols and their authority</h2>
 <table><thead><tr><th>symbol</th><th>encoding</th><th>governed by</th></tr></thead><tbody>
 <tr><td>pedal hi-hat</td><td>articulation 6, staff line 9, the first space BELOW the staff, X notehead, closed by default</td><td>Weinberg, <i>Guidelines for Drumset Notation</i>, 1994</td></tr>
@@ -158,7 +169,7 @@ carved out by name and left exactly as written.</p>
 <pre>part name 'Vinnie Colaiuta'   105 measures   85 with 2 voices, 20 with 1
 voice 0   ride 1724  snare 193  kick 107  crash 53  pedal hat 6  toms 6  other 2
           ghost-flagged 1317
-voice 1   pedal hi-hat 286     snare 267, all 267 ghost-flagged</pre>
+voice 1   pedal hi-hat 286     snare 147, all 147 ghost-flagged</pre>
 <p>All nine track names survived the import. Both the source and the upload carry 137 CDATA
 blocks, and that is the variable which decides whether names travel.</p>
 <p><a class="link" href="https://www.songsterr.com/a/wsa/frank-zappa-watermelon-in-easter-hay-brandon-edit-drum-tab-s6857183">Open the tab on Songsterr</a></p>
