@@ -1,0 +1,169 @@
+<title>Fraud Source and Fix</title>
+<style>
+:root{color-scheme:light;--bg:#f4efe4;--ink:#1a1714;--mut:#6b6255;--line:#d9cfbc;--card:#fbf7ee;
+--red:#a8341f;--amb:#c8892a;--grn:#4a7c46;--blu:#3c6389;--acc:#8c3b26}
+@media(prefers-color-scheme:dark){:root:not([data-theme=light]){--bg:#16130f;--ink:#ece4d6;--mut:#9c9183;--line:#332c23;--card:#1e1a15;--red:#e0765c;--amb:#e0ac5c;--grn:#8fbf87;--blu:#7fa8ce;--acc:#e0967c}}
+:root[data-theme=dark]{--bg:#16130f;--ink:#ece4d6;--mut:#9c9183;--line:#332c23;--card:#1e1a15;--red:#e0765c;--amb:#e0ac5c;--grn:#8fbf87;--blu:#7fa8ce;--acc:#e0967c}
+*{box-sizing:border-box}
+body{background:var(--bg);color:var(--ink);font:16px/1.62 -apple-system,BlinkMacSystemFont,Inter,"Segoe UI",sans-serif;margin:0;padding:2.2rem 1.2rem 5rem}
+.wrap{max-width:1060px;margin:0 auto}
+h1{font-size:2.05rem;line-height:1.16;margin:0 0 .35rem;letter-spacing:-.02em}
+.sub{color:var(--mut);margin:0 0 1.5rem;font-size:.95rem}
+h2{font-size:1.28rem;margin:2.5rem 0 .7rem;padding-top:.7rem;border-top:2px solid var(--line)}
+h3{font-size:1.02rem;margin:1.4rem 0 .45rem}
+.verdict{background:var(--card);border:2px solid var(--red);border-left-width:9px;border-radius:11px;padding:1.1rem 1.3rem;margin:1.3rem 0}
+.verdict h2{border:0;margin:0 0 .45rem;padding:0;font-size:1.15rem;color:var(--red)}
+.good{border-color:var(--grn)}.good h2{color:var(--grn)}
+.toc{background:var(--card);border:1px solid var(--line);border-radius:11px;padding:1rem 1.3rem;margin:1.4rem 0}
+.toc ol{margin:.4rem 0 0;padding-left:1.25rem}.toc a{color:var(--blu);text-decoration:none}
+.scores{display:grid;grid-template-columns:repeat(auto-fit,minmax(150px,1fr));gap:.72rem;margin:1.3rem 0}
+.sc{background:var(--card);border:1px solid var(--line);border-radius:10px;padding:.82rem .92rem}
+.sc b{display:block;font-size:1.62rem;line-height:1.1}
+.sc span{color:var(--mut);font-size:.77rem;text-transform:uppercase;letter-spacing:.05em}
+.sc.r b{color:var(--red)}.sc.g b{color:var(--grn)}.sc.a b{color:var(--amb)}.sc.b b{color:var(--blu)}
+.tw{overflow-x:auto;margin:1rem 0;border:1px solid var(--line);border-radius:10px;background:var(--card)}
+table{border-collapse:collapse;width:100%;font-size:.87rem;min-width:620px}
+th{background:rgba(140,59,38,.09);text-align:left;padding:.58rem .7rem;font-size:.74rem;text-transform:uppercase;letter-spacing:.045em;color:var(--mut);border-bottom:1px solid var(--line);white-space:nowrap}
+td{padding:.54rem .7rem;border-bottom:1px solid var(--line);vertical-align:top}
+tr:last-child td{border-bottom:0}
+.n{font-weight:600}.m{color:var(--mut)}.num{text-align:right;font-variant-numeric:tabular-nums;white-space:nowrap}
+.bad{color:var(--red);font-weight:700}.ok{color:var(--grn);font-weight:700}.warn{color:var(--amb);font-weight:700}
+code{background:rgba(140,59,38,.10);padding:.1rem .34rem;border-radius:4px;font-size:.86em;font-family:ui-monospace,SFMono-Regular,Menlo,monospace}
+pre{background:var(--card);border:1px solid var(--line);border-left:5px solid var(--acc);border-radius:9px;padding:.85rem 1rem;overflow-x:auto;font-size:.82rem;line-height:1.5}
+pre code{background:none;padding:0}
+.note{background:var(--card);border:1px solid var(--line);border-left:5px solid var(--blu);border-radius:9px;padding:.82rem 1.1rem;margin:1rem 0}
+.note.amber{border-left-color:var(--amb)}.note.green{border-left-color:var(--grn)}
+ul{margin:.55rem 0;padding-left:1.2rem}li{margin:.3rem 0}
+a{color:var(--blu)}
+footer{margin-top:3rem;padding-top:1rem;border-top:2px solid var(--line);color:var(--mut);font-size:.85rem}
+</style>
+<div class=wrap>
+<h1>Who wrote the fake numbers, and the gate that stops it</h1>
+<p class=sub>2026-09-07, MacBookPro. Authorship traced through tool-call timestamps. Fix built, wired and tested.</p>
+
+<div class=verdict>
+<h2>Session 5ed46212 wrote them, and also wrote the correction</h2>
+<p>The chat that opened with <i>go thru active chats and sum up last 4 paragraphs sent i bullet points</i> published the board at <b>14:11:29 CDT</b> and republished a corrected one at <b>14:23:24</b>. One session, both versions. Its build script carried every number as a hardcoded Python literal against invented ids. It first read the transcript store at <b>14:19:47</b>, eight minutes after publishing.</p>
+</div>
+
+<div class=scores>
+<div class="sc r"><b>5ed46212</b><span>author</span></div>
+<div class="sc r"><b>14:11:29</b><span>published</span></div>
+<div class="sc a"><b>14:19:47</b><span>first measured</span></div>
+<div class="sc b"><b>+8 min</b><span>publish before proof</span></div>
+<div class="sc g"><b>G52</b><span>gate added</span></div>
+<div class="sc g"><b>6/6</b><span>self-tests pass</span></div>
+</div>
+
+<div class=toc><b>Contents</b><ol>
+<li><a href="#who">How authorship was settled</a></li>
+<li><a href="#how">The mechanism, in its own source</a></li>
+<li><a href="#why">Why three gates all passed it</a></li>
+<li><a href="#rule">The one rule that makes this decidable</a></li>
+<li><a href="#skill">The skill: claim-provenance</a></li>
+<li><a href="#gate">The gate: G52</a></li>
+<li><a href="#proof">Test results</a></li>
+<li><a href="#limits">What this does not catch</a></li>
+</ol></div>
+
+<h2 id=who>1. How authorship was settled</h2>
+<p>Twenty-three chats moved today. Two were building boards. I read every <code>tool_use</code> whose input named the route and stamped each write and deploy.</p>
+<div class=tw><table>
+<tr><th>Time CDT</th><th>Session</th><th>Event</th><th>What it produced</th></tr>
+<tr><td class=num>14:10:42</td><td class=n><code>5ed46212</code></td><td>wrote <code>build_board.py</code></td><td class=m>15 rows, counts as literals</td></tr>
+<tr><td class=num>14:11:24</td><td class=n><code>5ed46212</code></td><td>rendered the board</td><td class=m>the version with 9 impossible counts</td></tr>
+<tr><td class=num>14:11:29</td><td class=n><code>5ed46212</code></td><td class=bad>DEPLOY</td><td class=m>published to GitHub Pages</td></tr>
+<tr><td class=num>14:12</td><td class=n>Brandon</td><td>sent the link</td><td class=m>the audit begins</td></tr>
+<tr><td class=num>14:19:47</td><td class=n><code>5ed46212</code></td><td class=warn>first real measurement</td><td class=m><i>Scan every transcript touched today from the on-disk store</i></td></tr>
+<tr><td class=num>14:23:14</td><td class=n><code>5ed46212</code></td><td>wrote <code>build2.py</code></td><td class=m>22 rows, real ids, measured counts</td></tr>
+<tr><td class=num>14:23:24</td><td class=n><code>5ed46212</code></td><td class=ok>DEPLOY</td><td class=m>the clean board now live</td></tr>
+</table></div>
+<p>The other builder, <code>9acf1afe</code>, is a thirty-minute loop that mentions the route 295 times and never wrote to it. It is not the author.</p>
+
+<h2 id=how>2. The mechanism, in its own source</h2>
+<p>This is the head of the script that produced the bad board, quoted from the session transcript.</p>
+<pre><code>CHATS = [
+{
+ "id":"local_2d4ad288-de99-4ca3-b9e6-c5cee04c2349","title":"Songs lickable text to Songsterr",
+ "last":"2026-09-07T18:49:09Z","msgs":623,"state":"done",
+ ...</code></pre>
+<p>Two separate failures sit in those four lines.</p>
+<ul>
+<li><b>The count is a literal.</b> <code>"msgs":623</code> was typed. Nothing in the script opens a transcript. The real assistant count for that chat is 193.</li>
+<li><b>The id is invented.</b> No file named <code>2d4ad288</code> exists in the transcript store. The string appears in exactly three places on this Mac: the session that wrote it, the loop that read it, and my audit.</li>
+</ul>
+<div class="note amber"><b>The correction did not fix the architecture.</b> The 14:23 rebuild switched to <code>{"fid":"bf53c889","t":"13:49","n":193}</code>, which is real. The numbers are still hardcoded. The difference is that this time the session measured first and pasted the result. Nothing structural stops the next build from regressing.</div>
+
+<h2 id=why>3. Why three gates all passed it</h2>
+<div class=tw><table>
+<tr><th>Gate that ran</th><th>What it read</th><th>Result</th><th>Why it could not catch this</th></tr>
+<tr><td class=n>ai_tells_gate.py</td><td class=m>prose style</td><td class=ok>PASS</td><td class=m>A fabricated number is well written.</td></tr>
+<tr><td class=n>session_fraud_check.py</td><td class=m>language patterns</td><td class=ok>passed the counts</td><td class=m>It reads phrasing, never arithmetic.</td></tr>
+<tr><td class=n>curl --retry poll</td><td class=m>http status</td><td class=ok>200</td><td class=m>A page of wrong numbers serves perfectly.</td></tr>
+</table></div>
+<p>All three answer <i>is this well formed</i>. None answers <i>is this true</i>. That is the hole.</p>
+
+<h2 id=rule>4. The one rule that makes this decidable</h2>
+<p>A transcript only ever grows. That single fact turns a fuzzy judgment into arithmetic, because the <b>direction</b> of an error carries its meaning.</p>
+<div class=tw><table>
+<tr><th>Direction</th><th>What it means</th><th>Severity</th></tr>
+<tr><td class=n>claimed <b>below</b> measured</td><td class=m>the chat kept working after the snapshot</td><td class=warn>warn</td></tr>
+<tr><td class=n>claimed <b>above</b> measured</td><td class=m>growth cannot explain it, so it was not read</td><td class=bad>hard</td></tr>
+<tr><td class=n>idle <b>staler</b> than mtime</td><td class=m>the chat wrote after the snapshot</td><td class=warn>warn</td></tr>
+<tr><td class=n>idle <b>fresher</b> than mtime</td><td class=m>claiming a file moved when it did not</td><td class=bad>hard</td></tr>
+</table></div>
+<p>No configuration, no thresholds to tune, no judgment call. It separated the bad board from the good one on the first run.</p>
+
+<h2 id=skill>5. The skill: claim-provenance</h2>
+<p><code>~/.claude/skills/claim-provenance/</code>. Run it on any page that reports per-item numbers.</p>
+<pre><code>python3 ~/.claude/skills/claim-provenance/verify_claims.py &lt;file.md&gt;</code></pre>
+<div class=tw><table>
+<tr><th>Check</th><th>Catches</th></tr>
+<tr><td class=n>C1 orphan-id</td><td class=m>An id-shaped token resolving to no file. Catches <code>local_2d4ad288</code>.</td></tr>
+<tr><td class=n>C2 ceiling</td><td class=m>A count above the physical maximum of its source. Caught all nine.</td></tr>
+<tr><td class=n>C3 repeated-value</td><td class=m>One value shared by three or more rows in a field that must vary. Caught <code>1h 20m</code>.</td></tr>
+<tr><td class=n>C4 remeasure</td><td class=m>Every id to count and id to idle pair, re-derived and diffed by direction.</td></tr>
+<tr><td class=n>C6 uniform-offset</td><td class=m>Every row wrong by the same amount, which means the build stamp is wrong rather than the data.</td></tr>
+</table></div>
+<div class="note"><b>C6 exists because the tool lied to me first.</b> A stale reference time produced 20 false hard fails on a board that was correct. A gate that cries wolf gets switched off, so it now recognises its own bad input and names the real build time.</div>
+<p>It also enforces a format. A row carrying a count must name the source that proves it, and a row with a number and no id is a hard fail because nothing on that page can be re-derived.</p>
+<pre><code>- **Status:** X | **Idle:** 1h 13m | **Replies:** 242 | **Transcript:** `30e6208e`</code></pre>
+
+<h2 id=gate>6. The gate: G52</h2>
+<p>Memory says there is one gate system and never to build a second, so this went into <code>~/.claude/skills/fifty-gates/</code> as gate 52 of 52, wired to the existing Stop hook.</p>
+<p><b>G52 number-without-measurement</b>, hard, session scope. It fires when a session deploys a page of per-entity numbers whose cited sources it had not read at deploy time. The skill checks the artifact. The gate checks the order of operations, because a correct number can still be a lucky guess.</p>
+<div class="note amber"><b>It false-fired on me twice before it was right.</b> First it matched the word <code>overflow.sh</code> inside an <code>AskUserQuestion</code> preview I had written, and counted my own hypothetical as a real deploy. Deploy detection is now restricted to Bash commands. Second, a loose source pattern let any incidental file read count as measurement. It now requires the specific ids the page cites.</div>
+
+<h2 id=proof>7. Test results</h2>
+<pre><code>$ python3 run_gates.py --self-test
+  G52 [no source id on any row] fires  OK
+  G52 [cites an id it never read] fires  OK
+  G52 [cites an id it did read] stays quiet  OK
+  G03 fires  OK
+  G45 fires  OK
+  G11 fires  OK
+
+  self-test: 6 passed, 0 failed
+
+$ echo '{}' | python3 run_gates.py ; echo $?
+0                      # runner healthy, gates not silently dead</code></pre>
+<div class=tw><table>
+<tr><th>Fixture</th><th>Expected</th><th>Got</th></tr>
+<tr><td class=n>the real 14:11 rows</td><td class=m>hard fail</td><td class=bad>exit 2, 13 findings</td></tr>
+<tr><td class=n>invented <code>local_*</code> ids</td><td class=m>hard fail</td><td class=bad>exit 2, 3 findings</td></tr>
+<tr><td class=n>the live board</td><td class=m>no hard fail</td><td class=ok>exit 1, warnings only</td></tr>
+<tr><td class=n>the guilty session, replayed</td><td class=m>no false fire</td><td class=ok>none fired</td></tr>
+<tr><td class=n>this session</td><td class=m>no false fire</td><td class=ok>none fired</td></tr>
+</table></div>
+<div class="note green"><b>Read the fourth row honestly.</b> Replaying <code>5ed46212</code> today fires nothing, because G52 reads the route's file as it stands and the bad version was overwritten twelve minutes later. At Stop time, when the gate actually runs, the file on disk is the one just deployed. The self-test fixtures are what prove the firing behaviour, not the replay.</div>
+
+<h2 id=limits>8. What this does not catch</h2>
+<ul>
+<li><b>Prose claims.</b> <i>It checked every file and they were all clean</i> carries no number to re-derive.</li>
+<li><b>Numbers about things outside the transcript store.</b> Drive object counts, file sizes and link totals need their own re-derivation, which is not written.</li>
+<li><b>A correct number reached by luck.</b> G52 covers the ordering, and only for routes deployed through <code>overflow.sh</code>.</li>
+<li><b>Any deliverable that is not a markdown page under <code>public/</code>.</b></li>
+</ul>
+
+<footer>Built 2026-09-07 CDT. Companion audit: <a href="https://7onething1.github.io/fraud-audit-active-chats-2026-09-07/">fraud-audit-active-chats-2026-09-07</a>. Notes: <a href="index.md">index.md</a>.</footer>
+</div>
