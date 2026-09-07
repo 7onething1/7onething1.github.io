@@ -67,7 +67,7 @@ Songsterr. No ghost flag has been moved, added or removed.</p>
 <div class="stat"><b>0.0167</b><span>R at 134, below its own null</span></div>
 <div class="stat"><b>1,170 / 1,170</b><span>metronome intervals on a 20 ms lattice</span></div>
 <div class="stat"><b>0.04</b><span>BPM error at matched difficulty, end to end</span></div>
-<div class="stat"><b>1 of 7</b><span>external sources beating chance on held-out landmarks</span></div>
+<div class="stat"><b>0.48x</b><span>quiet detections vs an independent separation</span></div>
 <div class="stat"><b>629</b><span>ghost flags, all untouched</span></div>
 </div>
 
@@ -97,8 +97,9 @@ exactly this reason.</p>
 <li><a href="#settles">10. What this settles</a></li>
 <li><a href="#blockers">11. The three blockers, before and after</a></li>
 <li><a href="#anchor">12. The anchor, unmeasured</a></li>
-<li><a href="#open">13. What stays open</a></li>
-<li><a href="#prov">14. Provenance</a></li>
+<li><a href="#second">13. Blocker 3, second separator</a></li>
+<li><a href="#open">14. What stays open</a></li>
+<li><a href="#prov">15. Provenance</a></li>
 </ol>
 </div>
 
@@ -567,6 +568,53 @@ across thirteen blocks. The vocal part has 26 and it scores <b>below chance</b> 
 <b>The landmarks the design needs are not present in this passage of the score.</b></p>
 </div>
 
+<h3>Run four: DTW against a score chromagram</h3>
+
+<p><code>q-2026-09-06-a42f3c</code>. It had been queued as blocked on rendering nine parts to audio.
+<b>That was wrong.</b> FMP chapter 3 alignment builds a score chromagram from notated pitches, so no
+synthesis is needed, and part 8 carries no pitch so the alignment cannot see a ghost flag.</p>
+
+<div class="card amber">
+<p class="k"><span class="tag t-amber">attempt one failed the same way as the offset scan</span></p>
+<p>Score chroma against the full mixture, band radius plus or minus 14.4 s, returned measure 102 at
+210.72 s, an offset of <b>+13.87 s, which is 96% of the band radius</b>, and dropping one part moved
+it 21.4 s. A result at the edge of its own search is a search-width report.</p>
+</div>
+
+<p>Attempt two used the <b>sum of the eight pitched stems</b> so drum energy cannot drive the chroma,
+with the band tightened to plus or minus 3.6 s. Measure 102 lands at <b>197.880 s</b>, offset
+<b>+1.025 s</b>, only 28% of the band, path slope 1.0188, and the map drifts smoothly from +1.077 at
+measure 99 to +1.393 at measure 107.</p>
+
+<div class="scroll"><table>
+<tr><th>Dropped part</th><th>Notes in window</th><th>Offset</th><th>Path slope</th><th>Shift vs full</th></tr>
+<tr><td>0 Ike Willis vocals</td><td class="n">67</td><td class="n">+1.025</td><td class="n">1.019</td><td class="n">0 ms</td></tr>
+<tr><td>1 Warren Cuccurullo</td><td class="n">30</td><td class="n">+1.025</td><td class="n">1.019</td><td class="n">0 ms</td></tr>
+<tr><td>2 Frank Zappa solo</td><td class="n">87</td><td class="n"><b>-1.065</b></td><td class="n"><b>0.763</b></td><td class="n"><b>-2,090 ms</b></td></tr>
+<tr><td>3 Warren Cuccurullo</td><td class="n">43</td><td class="n">+1.025</td><td class="n">1.019</td><td class="n">0 ms</td></tr>
+<tr><td>4 Arthur Barrow bass</td><td class="n">363</td><td class="n"><b>-1.321</b></td><td class="n"><b>0.595</b></td><td class="n"><b>-2,345 ms</b></td></tr>
+<tr><td>5 Ike and Denny harmonies</td><td class="n">166</td><td class="n">+1.001</td><td class="n">1.019</td><td class="n">-23 ms</td></tr>
+<tr><td>6 Peter Wolf wurlitzer</td><td class="n">108</td><td class="n">+1.234</td><td class="n"><b>1.419</b></td><td class="n">+209 ms</td></tr>
+<tr><td>7 Warren Cuccurullo</td><td class="n">702</td><td class="n"><b>-1.321</b></td><td class="n"><b>0.540</b></td><td class="n"><b>-2,345 ms</b></td></tr>
+</table></div>
+
+<div class="card red">
+<p class="k"><span class="tag t-red">the pre-specified criterion fails</span></p>
+<p>Leave-one-out range was to be under 100 ms. Observed range is <b>2.554 s</b>, which is 1.21 of one
+19/16 bar. <b>The DTW does not establish the anchor either.</b></p>
+</div>
+
+<div class="card amber">
+<p class="k"><span class="tag t-amber">a hypothesis, explicitly not a result</span></p>
+<p>Every run that disagrees also has a broken path slope: 0.540, 0.595, 0.763 and 1.419 against a
+correct alignment's 1.0. The five runs whose slope stays within 0.02 of 1 all answer between
+<b>+1.001 and +1.025 s</b>, a 24 ms spread. <b>That filter was chosen after seeing the results, so it
+is selection.</b> It is queued as a pre-registered rerun with the gate declared in advance.</p>
+<p>The full-path answer puts measure 102 at 197.880 s and the within-part kick vote put it at
+198.037 s, 157 ms apart, both near the printed 3:18 marker. <b>Three procedures land in the same
+neighbourhood and none passes its own stability test</b>, so the neighbourhood is a hint.</p>
+</div>
+
 <p>Nothing about the tempo measurement changes. That result covers the audio between 198 and 238 s and
 nothing wider. <b>No external evidence on this machine places that window at measures 102 to 104</b>,
 and the external route is now measured rather than merely untried.</p>
@@ -578,7 +626,58 @@ transients only</b>. Bass, piano and cymbal attacks may each carry their own lat
 beside a seconds-wide family spread, and it is not small beside a 31 ms marker claim.</p>
 </div>
 
-<h2 id="open">13. What stays open</h2>
+<h2 id="second">13. Blocker 3, tested with a second separator</h2>
+
+<p>The same mixture, 180 to 300 s, separated again with <b>demucs 4.0.1 htdemucs</b>. Every detection
+in the original snare stem was then checked for a corroborating onset in that independent drums stem.
+<b>The item had been queued as needing a second engine. demucs was already installed, so it was never
+blocked.</b></p>
+
+<div class="card amber">
+<p class="k"><span class="tag t-amber">the two separations sit 50 ms apart</span></p>
+<p>The first run scored <b>below chance for both populations</b>, which is misalignment and not
+evidence. Two methods agree on the lag: onset-envelope cross-correlation gives <b>-49.3 ms</b> at
+peak/mean 32.5, and raw-waveform cross-correlation over 30 s gives <b>-50.11 ms</b>. The original
+15-stem set runs 50 ms ahead of the mixture it came from.</p>
+</div>
+
+<div class="scroll"><table>
+<tr><th>Population</th><th>n</th><th>Corroborated</th><th>Rate</th><th>Against chance 0.2615</th><th>Mean level</th></tr>
+<tr><td><b>Loud</b></td><td class="n">212</td><td class="n">85</td><td class="n">40.1%</td><td class="n"><b>1.53x</b></td><td class="n">-11.54 dBFS</td></tr>
+<tr style="background:#f6edcd"><td><b>Quiet</b></td><td class="n">214</td><td class="n">27</td><td class="n">12.6%</td><td class="n"><b>0.48x</b></td><td class="n">-28.99 dBFS</td></tr>
+<tr><td>Very quiet, -42 to -50 dBFS</td><td class="n">7</td><td class="n"><b>0</b></td><td class="n">0.0%</td><td class="n"><b>0.00x</b></td><td class="mut">the band blocker 3 names</td></tr>
+</table></div>
+
+<p><b>Loud snare detections survive an independent separation at 1.53x chance. Quiet ones do not, at
+0.48x</b>, which is below what random placement would give. Quiet minus loud is -27.5 percentage
+points. In 41 regions totalling 10.25 s where the independent drums stem sits at its noise floor,
+<b>6</b> original-snare detections still fire, 0.585 per second against an overall 3.55.</p>
+
+<h3>Masking control, because whole-kit drums can hide a quiet stroke</h3>
+
+<p>The comparison stem is the whole kit, so a genuine quiet stroke under a loud kick would score as
+uncorroborated. Masking predicts uncorroborated quiet detections sit under <b>louder</b> kit energy.</p>
+
+<div class="scroll"><table>
+<tr><th>Quiet detections</th><th>n</th><th>Independent drums level, median</th><th>p25</th><th>p75</th></tr>
+<tr><td>corroborated</td><td class="n">27</td><td class="n">-43.63 dBFS</td><td class="n">-54.88</td><td class="n">-32.45</td></tr>
+<tr><td>uncorroborated</td><td class="n">187</td><td class="n">-48.73 dBFS</td><td class="n">-59.08</td><td class="n">-38.53</td></tr>
+</table></div>
+
+<div class="card red">
+<p class="k"><span class="tag t-red">masking does not explain it</span></p>
+<p>Uncorroborated quiet detections sit <b>5.10 dB quieter</b>, the opposite of the masking prediction.
+Mann-Whitney z = -1.651, two-sided p = 0.099, so the gap itself is suggestive. <b>What is established
+is that masking's directional prediction fails.</b></p>
+<p><b>This supports blocker 3 as written.</b> The quiet population that fed the p = 0.739
+instance-level test is not corroborated by an independent separation, so that negative may have rested
+partly on artifact. A snare-specific second separation remains the cleaner control.</p>
+</div>
+
+<p><b>No flag moves on this.</b> If anything it argues for leaving all 629 where the transcriber put
+them, since the audio evidence on both sides is now weaker than a reading made by eye and by ear.</p>
+
+<h2 id="open">14. What stays open</h2>
 
 <ul>
 <li><b>An external anchor.</b> Section 12 leaves the offsets spanning 4.290 s with five of six sources
@@ -602,7 +701,7 @@ describes a passage. <b>It maps no recorded stroke to any notated event</b>, and
 to touch r8852151.</p>
 </div>
 
-<h2 id="prov">14. Provenance</h2>
+<h2 id="prov">15. Provenance</h2>
 
 <h3>Audio</h3>
 <div class="scroll"><table>

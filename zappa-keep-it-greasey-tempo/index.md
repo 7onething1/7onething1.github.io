@@ -16,7 +16,7 @@ added or removed.
 | R at 134 in that window | **0.0167**, below its own null of 0.0518 |
 | Metronome intervals on a 20 ms lattice | **1,170 of 1,170** |
 | Estimator error at matched difficulty, end to end | **0.04 BPM** |
-| External sources beating chance on held-out landmarks | **1 of 7** |
+| Quiet detections corroborated by an independent separation | **0.48x chance** |
 | Ghost flags touched | **0 of 629** |
 
 ## 0. Scope limit, read this first
@@ -380,6 +380,41 @@ part carries **17** notated onsets and the harmony part **19**, too few to fit a
 thirteen blocks. The vocal part has 26 and scores **below chance** on held-out events. The landmarks
 the design needs are not present in this passage of the score.
 
+### Run four: DTW against a score chromagram
+
+`q-2026-09-06-a42f3c`. It had been queued as blocked on rendering nine parts to audio. **That was
+wrong.** FMP chapter 3 alignment builds a score chromagram from notated pitches, so no synthesis is
+needed, and part 8 carries no pitch so the alignment cannot see a ghost flag.
+
+**Attempt one failed the same way as the offset scan.** Score chroma against the full mixture, band
+plus or minus 14.4 s, returned measure 102 at 210.72 s, an offset of **+13.87 s, 96% of the band
+radius**, and dropping one part moved it 21.4 s.
+
+Attempt two used the **sum of the eight pitched stems** with the band tightened to plus or minus
+3.6 s. Measure 102 lands at **197.880 s**, offset **+1.025 s**, 28% of the band, path slope 1.0188,
+drifting smoothly from +1.077 at measure 99 to +1.393 at measure 107.
+
+| Dropped part | Notes in window | Offset | Path slope | Shift vs full |
+|---|---|---|---|---|
+| 0 Ike Willis vocals | 67 | +1.025 | 1.019 | 0 ms |
+| 1 Warren Cuccurullo | 30 | +1.025 | 1.019 | 0 ms |
+| 2 Frank Zappa solo | 87 | **-1.065** | **0.763** | **-2,090 ms** |
+| 3 Warren Cuccurullo | 43 | +1.025 | 1.019 | 0 ms |
+| 4 Arthur Barrow bass | 363 | **-1.321** | **0.595** | **-2,345 ms** |
+| 5 Ike and Denny harmonies | 166 | +1.001 | 1.019 | -23 ms |
+| 6 Peter Wolf wurlitzer | 108 | +1.234 | **1.419** | +209 ms |
+| 7 Warren Cuccurullo | 702 | **-1.321** | **0.540** | **-2,345 ms** |
+
+**The pre-specified criterion fails.** Leave-one-out range was to be under 100 ms. Observed range is
+**2.554 s**, 1.21 of one 19/16 bar.
+
+**A hypothesis, explicitly not a result.** Every disagreeing run also has a broken path slope: 0.540,
+0.595, 0.763, 1.419 against 1.0. The five runs with slope within 0.02 of 1 all answer +1.001 to
++1.025 s, a 24 ms spread. **That filter was chosen after seeing results, so it is selection**, and it
+is queued as a pre-registered rerun. The full-path answer puts measure 102 at 197.880 s against the
+kick vote's 198.037 s, 157 ms apart, both near the printed 3:18 marker. **Three procedures land in the
+same neighbourhood and none passes its own stability test.**
+
 Nothing about the tempo measurement changes. That result covers the audio between 198 and 238 s and
 nothing wider. **No external evidence on this machine places that window at measures 102 to 104**, and
 the external route is now measured rather than merely untried.
@@ -388,7 +423,87 @@ the external route is now measured rather than merely untried.
 transients only**. Bass, piano and cymbal attacks may each carry their own latency. That is small beside a seconds-wide
 family spread and not small beside a 31 ms marker claim.
 
-## 13. What stays open## 13. What stays open
+## 13. Blocker 3, tested with a second separator
+
+The same mixture, 180 to 300 s, separated again with **demucs 4.0.1 htdemucs**. Every detection in the
+original snare stem was checked for a corroborating onset in that independent drums stem. **The item
+had been queued as needing a second engine. demucs was already installed, so it was never blocked.**
+
+**The two separations sit 50 ms apart.** The first run scored below chance for both populations, which
+is misalignment and not evidence. Onset-envelope cross-correlation gives **-49.3 ms** at peak/mean
+32.5; raw-waveform cross-correlation over 30 s gives **-50.11 ms**. The original 15-stem set runs 50 ms
+ahead of the mixture it came from.
+
+| Population | n | Corroborated | Rate | Against chance 0.2615 | Mean level |
+|---|---|---|---|---|---|
+| **Loud** | 212 | 85 | 40.1% | **1.53x** | -11.54 dBFS |
+| **Quiet** | 214 | 27 | 12.6% | **0.48x** | -28.99 dBFS |
+| Very quiet, -42 to -50 dBFS | 7 | **0** | 0.0% | **0.00x** | the band blocker 3 names |
+
+**Loud snare detections survive an independent separation at 1.53x chance. Quiet ones do not, at
+0.48x.** Quiet minus loud is -27.5 points. In 41 regions totalling 10.25 s where the independent drums
+stem sits at its noise floor, **6** original-snare detections still fire, 0.585 per second against an
+overall 3.55.
+
+### Masking control
+
+Masking predicts uncorroborated quiet detections sit under **louder** kit energy.
+
+| Quiet detections | n | Independent drums level, median | p25 | p75 |
+|---|---|---|---|---|
+| corroborated | 27 | -43.63 dBFS | -54.88 | -32.45 |
+| uncorroborated | 187 | -48.73 dBFS | -59.08 | -38.53 |
+
+**Uncorroborated quiet detections sit 5.10 dB quieter, the opposite of the masking prediction.**
+Mann-Whitney z = -1.651, two-sided p = 0.099, so the gap itself is suggestive. **What is established is
+that masking's directional prediction fails.**
+
+**This supports blocker 3 as written.** The quiet population that fed the p = 0.739 instance-level test
+is not corroborated by an independent separation. A snare-specific second separation remains the
+cleaner control. **No flag moves on this**, and if anything it argues for leaving all 629 where the
+transcriber put them.
+
+## 14. What stays open## 13. Blocker 3, tested with a second separator
+
+The same mixture, 180 to 300 s, separated again with **demucs 4.0.1 htdemucs**. Every detection in the
+original snare stem was checked for a corroborating onset in that independent drums stem. **The item
+had been queued as needing a second engine. demucs was already installed, so it was never blocked.**
+
+**The two separations sit 50 ms apart.** The first run scored below chance for both populations, which
+is misalignment and not evidence. Onset-envelope cross-correlation gives **-49.3 ms** at peak/mean
+32.5; raw-waveform cross-correlation over 30 s gives **-50.11 ms**. The original 15-stem set runs 50 ms
+ahead of the mixture it came from.
+
+| Population | n | Corroborated | Rate | Against chance 0.2615 | Mean level |
+|---|---|---|---|---|---|
+| **Loud** | 212 | 85 | 40.1% | **1.53x** | -11.54 dBFS |
+| **Quiet** | 214 | 27 | 12.6% | **0.48x** | -28.99 dBFS |
+| Very quiet, -42 to -50 dBFS | 7 | **0** | 0.0% | **0.00x** | the band blocker 3 names |
+
+**Loud snare detections survive an independent separation at 1.53x chance. Quiet ones do not, at
+0.48x.** Quiet minus loud is -27.5 points. In 41 regions totalling 10.25 s where the independent drums
+stem sits at its noise floor, **6** original-snare detections still fire, 0.585 per second against an
+overall 3.55.
+
+### Masking control
+
+Masking predicts uncorroborated quiet detections sit under **louder** kit energy.
+
+| Quiet detections | n | Independent drums level, median | p25 | p75 |
+|---|---|---|---|---|
+| corroborated | 27 | -43.63 dBFS | -54.88 | -32.45 |
+| uncorroborated | 187 | -48.73 dBFS | -59.08 | -38.53 |
+
+**Uncorroborated quiet detections sit 5.10 dB quieter, the opposite of the masking prediction.**
+Mann-Whitney z = -1.651, two-sided p = 0.099, so the gap itself is suggestive. **What is established is
+that masking's directional prediction fails.**
+
+**This supports blocker 3 as written.** The quiet population that fed the p = 0.739 instance-level test
+is not corroborated by an independent separation. A snare-specific second separation remains the
+cleaner control. **No flag moves on this**, and if anything it argues for leaving all 629 where the
+transcriber put them.
+
+## 14. What stays open
 
 - **An external anchor.** Section 12 leaves the offsets spanning 4.290 s with five of six sources
   failing a scan-aware null. Closing it needs several distinctive lead or vocal landmarks rather than
@@ -408,7 +523,7 @@ family spread and not small beside a 31 ms marker claim.
 anything here. The tempo result describes a passage. It maps no recorded stroke to any notated
 event, and it is not a reason to touch r8852151.
 
-## 14. Provenance
+## 15. Provenance
 
 ### Audio
 
