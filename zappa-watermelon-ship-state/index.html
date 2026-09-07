@@ -90,6 +90,7 @@ tracks. Every one is a 5/4 rest bar that Songsterr filled correctly. Nobody shou
 </div>
 
 <div class="toc"><ol>
+<li><a href="#compare">Full transcription comparison</a></li>
 <li><a href="#live">The live tab lost seven credits</a></li>
 <li><a href="#ship">The ship file, and the seven that do not ship</a></li>
 <li><a href="#chord">The defect: a chord has two halves</a></li>
@@ -101,6 +102,53 @@ tracks. Every one is a 5/4 rest bar that Songsterr filled correctly. Nobody shou
 <li><a href="#owed">What is owed, and by whom</a></li>
 </ol></div>
 
+
+
+<h2 id="compare">A. Full transcription comparison, Watermelon In Easter Hay</h2>
+<p>Four witnesses exist for this song's drum part on this Mac. One is machine-readable data, one
+is a second machine-readable transcription, and two are printed pages below the resolution floor.</p>
+<div class="scroll"><table>
+<tr><th>witness</th><th>form</th><th>resolution</th><th>usable for a note-level comparison</th></tr>
+<tr><td>Songsterr <code>s35881 r7715683</code>, Ben Dibden1</td><td>GPIF data, 9 tracks, 104 bars</td><td>native</td><td><span class="tag t-green">YES</span> it is the reference</td></tr>
+<tr><td><code>Unknown Artist-206 Watermelon in Easter Hay-E-112bpm-442hz-09-06-2026(1).gp</code></td><td>GPIF data, 3 tracks, 279 bars</td><td>native</td><td><span class="tag t-amber">LANE ONLY</span> different bar grid</td></tr>
+<tr><td>Drumnet chart by BartoRomeo, 5 pages</td><td>printed drum chart</td><td>595&times;842, A4 at 72 dpi, <b>5.0 px per staff space</b></td><td><span class="tag t-red">NO</span> floor is 15 px</td></tr>
+<tr><td>Kasper Sloots analysis page</td><td>printed excerpt</td><td>785&times;1124, 10 px spacing</td><td><span class="tag t-red">NO</span> under the floor</td></tr>
+</table></div>
+<p>The <code>09-vai</code> folder holds Steve Vai tempo-map images for other pieces and carries
+nothing for this song. <code>07-songsterr</code> holds a catalogue, not notation.</p>
+
+<h3>Lane by lane, the two machine-readable transcriptions</h3>
+<p>The second file is not a revision of <code>s35881</code>. It runs 279 bars against 104, in
+230 bars of 4/4 plus 48 of 2/4 plus one 6/4, against the tab's 53 of 4/4 and 52 of 5/4. So the
+comparison is lane density, and a bar-keyed diff would be meaningless.</p>
+<div class="scroll"><table>
+<tr><th>lane</th><th>midi</th><th>tab, human</th><th>machine</th><th>reading</th></tr>
+<tr><td>Ride (middle)</td><td>51</td><td><b>1,724</b></td><td><b>596</b></td><td>tab 2.9&times; denser</td></tr>
+<tr><td>Electric Snare (hit)</td><td>40</td><td>193</td><td>0</td><td>tab only</td></tr>
+<tr><td>Snare (hit)</td><td>38</td><td>0</td><td>11</td><td>machine only, <b>different snare lane</b></td></tr>
+<tr><td>Kick (hit)</td><td>36</td><td>107</td><td>475</td><td>machine 4.4&times; denser</td></tr>
+<tr><td>Crash high (hit)</td><td>49</td><td>53</td><td>212</td><td>machine 4.0&times; denser</td></tr>
+<tr><td>Hi-Hat (closed)</td><td>42</td><td>0</td><td>125</td><td>machine only</td></tr>
+<tr><td>Pedal Hi-Hat (hit)</td><td>44</td><td>6</td><td>0</td><td>tab only</td></tr>
+<tr><td>Low Tom / High Tom / Crash medium</td><td>45, 48, 57</td><td>4 / 2 / 1</td><td>0 / 0 / 0</td><td>tab only</td></tr>
+<tr><td>China / Ride (bell) / side stick</td><td>52, 53, 37</td><td>0 / 0 / 0</td><td>4 / 2 / 1</td><td>machine only</td></tr>
+<tr><td>Hi-Hat (open)</td><td>46</td><td>1</td><td>2</td><td>comparable</td></tr>
+<tr style="background:#ebe6d6"><td><b>TOTAL</b></td><td></td><td><b>2,091</b></td><td><b>1,428</b></td><td></td></tr>
+</table></div>
+<div class="card amber">
+<p class="k">What the comparison can and cannot settle</p>
+<ul>
+<li><b>The two disagree on the snare lane itself</b>, 193 on MIDI 40 against 11 on MIDI 38, so a
+lane-keyed diff reads both as "only" entries and neither corroborates the other.</li>
+<li><b>The machine transcription is denser on kick and crash and far sparser on ride.</b> A
+process producing 475 kicks where a human read 107 is not a witness that settles ride density.</li>
+<li><b>It cannot support a claim that the sweep removed 1,128 ride notes.</b> The 1,724 against
+596 gap is two processes reading the same audio differently, on different bar grids.</li>
+<li>The one qualitative agreement stands: the Drumnet chart notates a continuous sixteenth
+stream of X noteheads on the hand-cymbal lane, an independent printed witness agreeing with the
+tab's ride density even at unusable resolution.</li>
+</ul>
+</div>
 
 <h2 id="live">0. The live tab lost seven credits, and we did it</h2>
 <p>The handoff records <code>r8908034</code> as held on moderation, which was already stale when

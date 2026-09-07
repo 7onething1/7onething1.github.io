@@ -3,6 +3,33 @@
 Songsterr `s35881`. Built 2026-09-07 from the exhaustive handoff, which named a ship file and
 carried three internal contradictions about which one it was.
 
+## Full transcription comparison
+
+Four witnesses exist on this Mac. Two are machine-readable, two are printed below the 15 px
+staff-space floor.
+
+| witness | resolution | note-level comparison |
+|---|---|---|
+| Songsterr `s35881 r7715683`, Ben Dibden1 | native GPIF, 104 bars | yes, the reference |
+| `Unknown Artist-206 Watermelon in Easter Hay-...-09-06-2026(1).gp` | native GPIF, 279 bars | lane density only |
+| Drumnet, BartoRomeo, 5 pages | 595x842, 5.0 px/staff space | no |
+| Kasper Sloots page | 785x1124, 10 px spacing | no |
+
+| lane | midi | tab | machine | reading |
+|---|---|---|---|---|
+| Ride (middle) | 51 | **1,724** | **596** | tab 2.9x denser |
+| Electric Snare | 40 | 193 | 0 | tab only |
+| Snare | 38 | 0 | 11 | machine only, different snare lane |
+| Kick | 36 | 107 | 475 | machine 4.4x denser |
+| Crash high | 49 | 53 | 212 | machine 4.0x denser |
+| Hi-Hat closed | 42 | 0 | 125 | machine only |
+| Pedal Hi-Hat | 44 | 6 | 0 | tab only |
+| TOTAL | | **2,091** | **1,428** | |
+
+The two disagree on the snare lane itself, so neither corroborates the other. The machine file
+runs 230 bars of 4/4 plus 48 of 2/4 against the tab's 53 of 4/4 and 52 of 5/4, so a bar-keyed
+diff is meaningless. It cannot support a claim that the sweep removed 1,128 ride notes.
+
 ## Status change, 2026-09-07 afternoon
 
 `r8908034` cleared moderation at 14:49 UTC and is the LIVE published revision. It emptied all
