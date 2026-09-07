@@ -284,6 +284,14 @@ revision 8852151, saved under `raw/`.
 - **A shift test biased by its own edges.** Scoring shift +1 over one fewer bar lowered
   its total mechanically. Rescored on the interior bars only.
 
+## A note on the frozen files
+
+`PREREGISTRATION_kick_dtw.md` fails the prose gate on a repeated sentence opener. It is
+left exactly as written, because its sha256
+`2d7aa32cf2c6978f9ec550e1e6871ec50208a85b6c191abf0ce6adcc1bcdaf9a` is the evidence that its
+criteria predate its run. Editing a pre-registration after the fact to improve its prose
+would destroy the only thing it is for. The other two pass as written.
+
 ## Completion
 
 | | |
