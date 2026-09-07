@@ -365,9 +365,10 @@ held-out events**. No part 8 lane enters.
 | part 7 Warren Cuccurullo | rhythm | 270 | 135 | +0.782 | **5.19 s** | 0.333 | 1.38x | 50.8 ms |
 | part 1 Warren Cuccurullo | rhythm | 6 | skipped, too few landmarks | | | | | |
 
-**VERDICT: one source of seven beats 1.5x on held-out landmarks.** Only the bass clears it, at 1.55x
-with a 42.5 ms median held-out residual. **One passing source cannot be cross-checked**, so no
-external anchor is established.
+**VERDICT: one of FOUR evaluated sources beats 1.5x; three more were unevaluable.** Only four sources were evaluated: vocals, bass, piano and rhythm. **Three were skipped under the
+thirteen-block model and are unevaluable rather than negative.** Of the four, only the bass clears it,
+at 1.55x with a 42.5 ms median held-out residual, and one passing source cannot be cross-checked, so
+no external anchor is established.
 
 Two further signs that vote is weak. The bass says **+1.704 s** under the local map and **+0.412 s**
 under the global scan, a **1.29 s swing between two fitting procedures on the same source**. Its local
