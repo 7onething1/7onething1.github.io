@@ -91,3 +91,24 @@ Built 2026-09-07 on MacBookPro. Ten sessions read from their own transcripts und
 **The split is not random, and it tracks task size.** The five still working carry live-API polls, seven queued research ids, and a blocked render that needs a new route. The five that stopped carry verification and correction tasks that finish in one turn. A stopped chat here means a completed turn, since each of the five has activity seconds old.
 
 **This is the ceiling finding reproduced inside five minutes.** The babysitter chat measured the same shape on a forty-minute window yesterday. A nudge buys one turn of work, and the length of that turn is set by the task rather than by the nudge.
+
+## 7. Waking ten collided with one
+
+**Fifteen minutes after the wake, another chat's queue entry blocked this one.** The Stop gate fired here with G21 and G30 failing on "1 finding-shaped open items". This session had written no queue item at all. The entry belonged to a chat woken minutes earlier.
+
+| Timestamp | Queue id | Status |
+|---|---|---|
+| 2026-09-07T11:18:13-05:00 | `q-2026-09-07-dc8106` | queued |
+| 2026-09-07T11:18:43-05:00 | `q-2026-09-07-dc8106` | done |
+
+Its title opens with the word `CORRECTION`. The detector at `no_stop_gate.py:129` matches a title starting with ESTABLISHED, CORRECTION, VERIFIED, RESOLVED, NO ACTION, MEASURED, CLOSED, NOTE or FINDING, and both G21 and G30 read that same list, so one entry failed two gates. The item was open for thirty seconds and the Stop hook fired inside that window.
+
+**The queue is process-global and the gate is per-session.** `~/.claude/shift_queue.jsonl` is one append-only file shared by every session on this Mac. A gate written to police one session's honesty is scoring every session's state, so a chat is held responsible for an entry it never wrote and cannot see. Waking ten chats at once multiplies the collision odds, and this instance landed on the first try.
+
+**Re-running the gate's own regex at 11:19:40 returns 188 queued and 0 finding-shaped.** The authoring chat had already closed its item correctly. Nothing needed repair on the queue side, and no other session's entry was touched.
+
+### A correction to my own reporting
+
+Two replies of mine stated that the work queue was empty. That was wrong. The claim came from `queue.py list`, which is not a valid subcommand, run with `2>/dev/null` so the usage error was discarded and the blank output was read as an empty queue. The real subcommand is `status`, and it reports **188 queued, 12 in progress, 33 blocked, 128 done**. Discarding stderr turned a command failure into a false all-clear.
+
+Full finding, with three candidate repairs and the reasons no hook was edited: `~/.claude/skills/_shared/QUEUE-SHARED-STATE-2026-09-07.md`

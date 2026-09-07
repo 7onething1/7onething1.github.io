@@ -83,6 +83,7 @@ li{margin:5px 0}
     <li><a href="#roster">The ten, with resume targets</a></li>
     <li><a href="#cross">Cross-session findings</a></li>
     <li><a href="#five">Five minutes later</a></li>
+    <li><a href="#collide">Waking ten collided with one</a></li>
     <li><a href="#proof">Proof block</a></li>
   </ol>
 </div>
@@ -243,7 +244,42 @@ li{margin:5px 0}
   <b>This is the ceiling finding reproduced inside five minutes.</b> The babysitter chat measured the same shape on a forty-minute window yesterday. A nudge buys one turn of work, and the length of that turn is set by the task rather than by the nudge.
 </div>
 
-<h2 id="proof">6. Proof block</h2>
+
+<h2 id="collide">6. Waking ten collided with one</h2>
+
+<div class="finding red">
+  <b>Fifteen minutes after the wake, another chat's queue entry blocked this one.</b> The Stop gate fired here with G21 and G30 failing on "1 finding-shaped open items". This session had written no queue item at all. The entry belonged to a chat woken minutes earlier.
+</div>
+
+<h3>The thirty-second window</h3>
+<div class="tblwrap">
+<table>
+<thead><tr><th>Timestamp</th><th>Queue id</th><th>Status</th></tr></thead>
+<tbody>
+<tr><td>2026-09-07T11:18:13-05:00</td><td><code>q-2026-09-07-dc8106</code></td><td>queued</td></tr>
+<tr><td>2026-09-07T11:18:43-05:00</td><td><code>q-2026-09-07-dc8106</code></td><td>done</td></tr>
+</tbody>
+</table>
+</div>
+<p>Its title opens with the word <code>CORRECTION</code>. The gate's detector at <code>no_stop_gate.py:129</code> matches a title starting with ESTABLISHED, CORRECTION, VERIFIED, RESOLVED, NO ACTION, MEASURED, CLOSED, NOTE or FINDING, and both G21 and G30 read that same list, so one entry failed two gates. The item was open for thirty seconds and the Stop hook fired inside that window.</p>
+
+<div class="finding warn">
+  <b>The queue is process-global and the gate is per-session.</b> <code>~/.claude/shift_queue.jsonl</code> is one append-only file shared by every session on this Mac. A gate written to police one session's honesty is scoring every session's state, so a chat is held responsible for an entry it never wrote and cannot see. Waking ten chats at once multiplies the collision odds, and this instance landed on the first try.
+</div>
+
+<div class="finding good">
+  <b>Re-running the gate's own regex at 11:19:40 returns 188 queued and 0 finding-shaped.</b> The authoring chat had already closed its item correctly. Nothing here needed repair on the queue side, and no other session's entry was touched.
+</div>
+
+<h3>A correction to my own reporting</h3>
+<div class="finding red">
+  Two replies of mine stated that the work queue was empty. That was wrong. The claim came from <code>queue.py list</code>, which is not a valid subcommand, run with <code>2&gt;/dev/null</code> so the usage error was discarded and the blank output was read as an empty queue. The real subcommand is <code>status</code>, and it reports <b>188 queued, 12 in progress, 33 blocked, 128 done</b>. Discarding stderr turned a command failure into a false all-clear.
+</div>
+
+<p>Full finding, with the three candidate repairs and the reasons no hook was edited:
+<code>~/.claude/skills/_shared/QUEUE-SHARED-STATE-2026-09-07.md</code></p>
+
+<h2 id="proof">7. Proof block</h2>
 <div class="proof">
 <span class="k">$ send_message × 10</span>
   <span class="ok">Message sent</span> → Demucs guitar/drums isolation
@@ -267,6 +303,17 @@ li{margin:5px 0}
   all 10 lastActivityAt within 90s   <span class="ok">every chat woke and worked</span>
   isRunning true  = 5   still working
   isRunning false = 5   turn completed
+
+<span class="k">$ no_stop_gate_hook.py  (11:19 CDT)</span>
+  <span class="k">BLOCK</span> G21 + G30   1 finding-shaped open item, written by ANOTHER chat
+  q-2026-09-07-dc8106  queued 11:18:13 → done 11:18:43   <span class="ok">30-second window</span>
+
+<span class="k">$ same regex, live file, 11:19:40</span>
+  queued 188   finding-shaped 0   <span class="ok">G21 PASS  G30 PASS</span>
+
+<span class="k">$ queue.py status   (the correct subcommand)</span>
+  queued=188  in_progress=12  blocked=33  done=128
+  <span class="k">earlier "queue empty" claim was FALSE</span>, from queue.py list with stderr discarded
 </div>
 
 <footer>
