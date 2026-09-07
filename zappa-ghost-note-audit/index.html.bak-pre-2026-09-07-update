@@ -50,187 +50,34 @@ footer{margin-top:60px;padding-top:20px;border-top:1px solid var(--line);color:v
 <div class="wrap">
 <h1>The Zappa ghost note debacle</h1>
 <p class="sub">A sweep across Frank Zappa drum tabs on Songsterr read genuine ghost notes as a notation defect and stripped them. This is the verified record of what was changed, what moderators caught, and what is still live.</p>
-<p class="stamp">Audited 2026-08-30 &middot; moderation, track names and revision state re-read uncredentialed 2026-09-07 against <code>api/meta/&lt;songId&gt;</code> and <code>api/meta/&lt;songId&gt;/revisions</code></p>
+<p class="stamp">Audited 2026-08-30, moderation status re-read 2026-09-05 &middot; every revision below checked against <code>api/meta/&lt;songId&gt;/revisions</code></p>
 
 <div class="box r" id="superseded2026" style="border-left-width:8px;background:rgba(168,52,31,.07);padding:18px 20px;margin:22px 0">
-<h3 style="margin-top:0">Read this before acting on anything below. Status notice, 2026-09-07.</h3>
-<p><b>The moderation queue emptied on 2026-09-07 between 14:36 and 17:52 UTC.</b> Ten of the sixteen restores are now the published revision. Six still sit on moderation, and the seventeenth song's repair sits there with them. Keep It Greasey stays blocked. Every state on this page was re-read from <code>api/meta/&lt;songId&gt;/revisions</code> without credentials on 2026-09-07.</p>
+<h3 style="margin-top:0">Read this before acting on anything below. Status notice, 2026-09-06.</h3>
+<p><b>This page holds the forensic history of the sweep. The operational record now lives elsewhere.</b> Current status for every song, revision and queue item lives at <a href="https://7onething1.github.io/zappa-program-scope/"><b>Zappa Program Scope</b></a>, which carries the 2026-09-06 account-wide sweep of all 328 Zappa tabs and the seventeenth damaged song. Three conclusions on this page were overturned by later work.</p>
 <ul>
-<li><b>The restores emptied authored track names.</b> Eight of them published with their names blank, and <b>28 authored credits are missing from live public tabs right now</b>, counted against each tab's own pre-sweep revision. A repair that removes credits is a second kind of damage, and it is documented in full at <a href="#namedrop">section 3</a>.</li>
 <li><b>Watermelon In Easter Hay is not settled.</b> The verdict below calls all 1,317 ride and crash flags genuine on placement evidence. That inference was withdrawn on 2026-09-06 after an audio test returned a 41% chance baseline against ghosts at 47% and plain at 55%, which is too close to decide. <b>1,123 ride ghosts are unexplained</b> and no deletion revision may be shipped against them. Queue <code>q-2026-09-06-1492ba</code>.</li>
-<li><b>Trouble Every Day (Live) <code>s412170</code> was never safe.</b> This page records it as superseded by Kirill's <code>r8815000</code> with no action required. Kirill restored <b>3 of 9 ghosts</b>, leaving 6 missing, and left <b>6 beat velocity changes</b> that govern 784 of 807 slots through the running dynamic. A verified repair went up as <b>r8932027</b> on 2026-09-06 and is still on moderation.</li>
+<li><b>Trouble Every Day (Live) <code>s412170</code> was never safe.</b> This page records it as superseded by Kirill's <code>r8815000</code> with no action required. The account-wide sweep found Kirill restored <b>3 of 9 ghosts</b>, leaving 6 missing, and left <b>6 beat velocity changes</b> that govern 784 of 807 slots through the running dynamic. A verified repair went up as <b>r8932027</b> on 2026-09-06 and sits on moderation.</li>
 <li><b>The 16-song damage ledger was incomplete.</b> It was built from songs that already had a repair in flight, so it could not see Trouble. The board is <b>17 affected songs</b>.</li>
-<li><b>The upload path changed.</b> Brandon retired the carve-out that let our own damage be fixed by a revision on the original tab. Every rebuild now goes on a copy. <a href="#uploadpath">Section 7</a>.</li>
 </ul>
-<p style="margin-bottom:0">The root cause analysis, the field-name failures and the accent bitfield work below all still stand. The operational board is <a href="https://7onething1.github.io/zappa-program-scope/"><b>Zappa Program Scope</b></a>.</p>
+<p style="margin-bottom:0">The root cause analysis, the field-name failures and the accent bitfield work below all still stand. The song-by-song status does not.</p>
 </div>
 
-<p class="tocn"><a href="#wave">1. The moderation wave</a><a href="#namedrop">2. The restore emptied the credits</a><a href="#repairing">3. Repaired behind us</a><a href="#trouble">4. The seventeenth tab</a><a href="#selfdefects">5. Defects the restore introduced</a><a href="#uploadpath">6. The upload path changed</a><a href="#other">7. The work that is not ghosts</a><a href="#seventh">8. The seventh instance</a><a href="#what">9. What happened</a><a href="#live">10. The original ledger</a><a href="#why">11. Root cause</a><a href="#lanes">12. Which lane</a><a href="#charts">13. Charts</a><a href="#accents">14. Accents</a></p>
+<p class="tocn"><a href="#what">1. What happened</a><a href="#live">2. Live now</a><a href="#blocked">3. Rejected</a><a href="#super">4. Superseded</a><a href="#clean">5. Never submitted</a><a href="#why">6. Root cause</a><a href="#lanes">7. Which lane</a><a href="#charts">7. Checked against the charts</a><a href="#evidence">8. Evidence</a><a href="#next">9. Status and what is left</a></p>
 
 <div class="grid">
-<div class="kpi g"><div class="n">10</div><div class="l">restores now published</div></div>
-<div class="kpi a"><div class="n">7</div><div class="l">still on moderation</div></div>
-<div class="kpi r"><div class="n">28</div><div class="l">authored credits lost live</div></div>
-<div class="kpi r"><div class="n">53</div><div class="l">more names at risk</div></div>
-<div class="kpi b"><div class="n">17</div><div class="l">tabs affected in total</div></div>
+<div class="kpi r"><div class="n">16</div><div class="l">tabs damaged and public</div></div>
+<div class="kpi r"><div class="n">3,842</div><div class="l">ghost notes stripped live</div></div>
+<div class="kpi g"><div class="n">682</div><div class="l">caught by moderators</div></div>
+<div class="kpi a"><div class="n">41</div><div class="l">superseded, never public</div></div>
+<div class="kpi b"><div class="n">19</div><div class="l">flagged, never sent</div></div>
 </div>
 
-
-<h2 id="wave"><span class="dot" style="background:var(--grn)"></span>1. The moderation wave, 2026-09-07</h2>
-<p class="lede">Sixteen restores went up on 2026-09-05 and sat unread for two days. Moderators cleared them in a single afternoon. Every row below was read from <code>api/meta/&lt;songId&gt;/revisions</code> uncredentialed on 2026-09-07.</p>
-<div class="tw"><table>
-<tr><th>Song</th><th>Song id</th><th>Our restore</th><th>State</th><th>Published revision now</th><th>Named tracks</th></tr>
-<tr><td class='ttl'>Watermelon In Easter Hay</td><td class='sid'>s35881</td><td class='rev'>r8908034</td><td class='st'>published, reviewed fair by Evgeny 14:49Z</td><td class='rev'>r8908034</td><td class='gh'>0 / 9</td></tr>
-<tr><td class='ttl'>Muffin Man</td><td class='sid'>s35886</td><td class='rev'>r8906880</td><td class='st'>published 14:36Z, then superseded</td><td class='rev'>r8944638</td><td class='gh'>0 / 5</td></tr>
-<tr><td class='ttl'>Drowning Witch</td><td class='sid'>s620961</td><td class='rev'>r8908109</td><td class='st'>published 15:02Z, then superseded</td><td class='rev'>r8945141</td><td class='gh'>0 / 16</td></tr>
-<tr><td class='ttl'>Montana</td><td class='sid'>s35870</td><td class='rev'>r8907028</td><td class='st'>published 15:38Z, then superseded</td><td class='rev'>r8945851</td><td class='gh'>11 / 18</td></tr>
-<tr><td class='ttl'>The Black Page</td><td class='sid'>s1105085</td><td class='rev'>r8907247</td><td class='st'>published, reviewed fair by Kirill 15:39Z</td><td class='rev'>r8907247</td><td class='gh'>2 / 4</td></tr>
-<tr><td class='ttl'>Nanook Suite</td><td class='sid'>s35878</td><td class='rev'>r8907360</td><td class='st'>published, reviewed fair by Kirill 17:51Z</td><td class='rev'>r8907360</td><td class='gh'>8 / 11</td></tr>
-<tr><td class='ttl'>Nanook Rubs It</td><td class='sid'>s35865</td><td class='rev'>r8907423</td><td class='st'>published, reviewed fair by Kirill 17:52Z</td><td class='rev'>r8907423</td><td class='gh'>7 / 9</td></tr>
-<tr><td class='ttl'>What&#x27;s New In Baltimore?</td><td class='sid'>s35887</td><td class='rev'>r8908276</td><td class='st'>published 15:55Z, then superseded</td><td class='rev'>r8946169</td><td class='gh'>6 / 7</td></tr>
-<tr><td class='ttl'>Catholic Girls</td><td class='sid'>s749523</td><td class='rev'>r8907778</td><td class='st'>published 15:45Z, then superseded</td><td class='rev'>r8945977</td><td class='gh'>4 / 9</td></tr>
-<tr><td class='ttl'>Zomby Woof (AI)</td><td class='sid'>s5820647</td><td class='rev'>r8932311</td><td class='st'>published, name repair applied</td><td class='rev'>r8932311</td><td class='gh'>5 / 5</td></tr>
-<tr><td class='ttl'>Inca Roads</td><td class='sid'>s412178</td><td class='rev'>r8907511</td><td class='st'>on moderation</td><td class='rev'>r8769026</td><td class='gh'>12 / 12</td></tr>
-<tr><td class='ttl'>Carolina Hard-Core Ecstasy</td><td class='sid'>s68248</td><td class='rev'>r8908182</td><td class='st'>on moderation</td><td class='rev'>r8769058</td><td class='gh'>6 / 9</td></tr>
-<tr><td class='ttl'>Oh No</td><td class='sid'>s35884</td><td class='rev'>r8908239</td><td class='st'>on moderation</td><td class='rev'>r8769089</td><td class='gh'>4 / 6</td></tr>
-<tr><td class='ttl'>Alien Orifice</td><td class='sid'>s68246</td><td class='rev'>r8907689</td><td class='st'>on moderation</td><td class='rev'>r8769118</td><td class='gh'>8 / 10</td></tr>
-<tr><td class='ttl'>Fembot In A Wet T-Shirt</td><td class='sid'>s748459</td><td class='rev'>r8907601</td><td class='st'>on moderation</td><td class='rev'>r8769165</td><td class='gh'>6 / 9</td></tr>
-<tr><td class='ttl'>Uncle Meat</td><td class='sid'>s20690</td><td class='rev'>r8907952</td><td class='st'>on moderation, 3 of ours queued</td><td class='rev'>r8788757</td><td class='gh'>11 / 11</td></tr>
-<tr><td class='ttl'>Trouble Every Day (Live)</td><td class='sid'>s412170</td><td class='rev'>r8932027</td><td class='st'>on moderation</td><td class='rev'>r8815000</td><td class='gh'>6 / 6</td></tr>
-<tr><td class='ttl'>Keep It Greasey</td><td class='sid'>s604777</td><td class='rev'>r8768457</td><td class='st'>blocked by Kirill527, cannot publish</td><td class='rev'>r8852151</td><td class='gh'>9 / 9</td></tr>
-</table></div>
-<div class="box b"><p style="margin-bottom:0"><b>Uncle Meat carries three of our revisions on moderation at once</b>, <code>r8907892</code>, <code>r8907952</code> and <code>r8909627</code>. Songsterr offers no withdraw control, so the stack stands until a moderator picks one.</p></div>
-
-<h2 id="namedrop"><span class="dot" style="background:var(--red)"></span>2. The restore emptied the credits</h2>
-<p class="lede">The repair for the ghost notes introduced a different loss on the same tabs. Eight restores published with their track names blank, taking authored musician credits off public pages.</p>
-
-<h3>The mechanism</h3>
-<p>GPIF stores a track name inside a <code>&lt;![CDATA[...]]&gt;</code> block. Python's <code>ElementTree</code> drops the CDATA wrapper when it writes the file back out. Songsterr's converter then finds no name and falls back to a generic label, so any restore serialized through ElementTree arrives with its names gone. Files built by direct download or by <code>lxml</code> with <code>XMLParser(strip_cdata=False)</code> keep them.</p>
-<p>Four measurements across two songs isolate the variable:</p>
-<div class="tw"><table>
-<tr><th>Revision</th><th>How it was built</th><th>CDATA blocks</th><th>Names present</th></tr>
-<tr><td class='rev'>s35881 r8768414</td><td>our own .gp upload</td><td class='gh'>136</td><td class='gh'>7 of 9</td></tr>
-<tr><td class='rev'>s35881 r8908034</td><td>ElementTree</td><td class='gh'>0</td><td class='gh'>0 of 9</td></tr>
-<tr><td class='rev'>s5820647 r8906157</td><td>ElementTree</td><td class='gh'>0</td><td class='gh'>0 of 5</td></tr>
-<tr><td class='rev'>s5820647 r8932311</td><td>CDATA-carrying rebuild</td><td class='gh'>present</td><td class='gh'>5 of 5</td></tr>
-</table></div>
-<p>The same upload path served all four, so the build tool is the variable and the platform is not.</p>
-
-<h3>Which restores dropped names, measured revision by revision</h3>
-<div class="tw"><table>
-<tr><th>Song</th><th>Revision before ours</th><th>Named</th><th>Our restore</th><th>Named</th><th>Verdict</th></tr>
-<tr><td class='ttl'>Watermelon In Easter Hay</td><td class='rev'>r8768414</td><td class='gh'>7 / 9</td><td class='rev'>r8908034</td><td class='gh'>0 / 9</td><td class='st'>dropped 7, still live</td></tr>
-<tr><td class='ttl'>Drowning Witch</td><td class='rev'>r8768566</td><td class='gh'>12 / 16</td><td class='rev'>r8908109</td><td class='gh'>0 / 16</td><td class='st'>dropped 12, still live</td></tr>
-<tr><td class='ttl'>Montana</td><td class='rev'>r8787106</td><td class='gh'>18 / 18</td><td class='rev'>r8907028</td><td class='gh'>0 / 18</td><td class='st'>dropped 18, 11 put back</td></tr>
-<tr><td class='ttl'>What&#x27;s New In Baltimore?</td><td class='rev'>r8769141</td><td class='gh'>6 / 7</td><td class='rev'>r8908276</td><td class='gh'>0 / 7</td><td class='st'>dropped 6, all 6 put back</td></tr>
-<tr><td class='ttl'>Catholic Girls</td><td class='rev'>r8788801</td><td class='gh'>5 / 9</td><td class='rev'>r8907778</td><td class='gh'>0 / 9</td><td class='st'>dropped 5, 4 put back</td></tr>
-<tr><td class='ttl'>Muffin Man</td><td class='rev'>r8768517</td><td class='gh'>4 / 5</td><td class='rev'>r8906880</td><td class='gh'>0 / 5</td><td class='st'>dropped 4, still live</td></tr>
-<tr><td class='ttl'>Zomby Woof (AI)</td><td class='rev'>r8766178</td><td class='gh'>3 / 5</td><td class='rev'>r8906157</td><td class='gh'>0 / 5</td><td class='st'>dropped 3, repaired to 5 of 5</td></tr>
-<tr><td class='ttl'>Zomby Woof</td><td class='rev'>r8905411</td><td class='gh'>0 / 10</td><td class='rev'>r8905491</td><td class='gh'>0 / 10</td><td class='st'>dropped, Nikita restored 9</td></tr>
-<tr><td class='ttl'>The Black Page</td><td class='rev'>r8768613</td><td class='gh'>2 / 4</td><td class='rev'>r8907247</td><td class='gh'>2 / 4</td><td class='st'>clean, names preserved</td></tr>
-<tr><td class='ttl'>Nanook Suite</td><td class='rev'>r8769001</td><td class='gh'>8 / 11</td><td class='rev'>r8907360</td><td class='gh'>8 / 11</td><td class='st'>clean, names preserved</td></tr>
-<tr><td class='ttl'>Nanook Rubs It</td><td class='rev'>r8768967</td><td class='gh'>7 / 9</td><td class='rev'>r8907423</td><td class='gh'>7 / 9</td><td class='st'>clean, names preserved</td></tr>
-</table></div>
-<p>The three clean rows were built from direct downloads rather than through ElementTree, which is the same split the CDATA measurement predicts.</p>
-
-<h3>What is missing from public tabs right now</h3>
-<div class="tw"><table>
-<tr><th>Song</th><th>Names lost</th><th>Cause</th><th>What is gone</th></tr>
-<tr><td class='ttl'>Drowning Witch</td><td class='gh'>12</td><td class='st'>our restore r8908109</td><td class='st'>Vocals, Clean Guitar &times;2, E. Piano / Synth II, Synth III / Clavinet left and right, Saxophone, Glockenspiel, Kazoo / Harmonica / Vibraphone, Chimes / Woodblocks / Timpani, Synthesizer left and right</td></tr>
-<tr><td class='ttl'>Watermelon In Easter Hay</td><td class='gh'>7</td><td class='st'>our restore r8908034</td><td class='st'>Frank Zappa, Warren Cuccurullo &times;2, Arthur Barrow, Ed Mann, Wurlitzer (Peter Wolf), Vinnie Colaiuta</td></tr>
-<tr><td class='ttl'>Muffin Man</td><td class='gh'>4</td><td class='st'>our restore r8906880</td><td class='st'>Frank Zappa, Tom Fowler, George Duke, Terry Bozio</td></tr>
-<tr><td class='ttl'>Carolina Hard-Core Ecstasy</td><td class='gh'>3</td><td class='st'>our strip r8769058, 2026-08-30</td><td class='st'>Bass, Drums, Trombone</td></tr>
-<tr><td class='ttl'>Montana</td><td class='gh'>1</td><td class='st'>our restore r8907028, partly repaired</td><td class='st'>Ruth Underwood on track 12, plus 6 placeholder labels</td></tr>
-<tr><td class='ttl'>Catholic Girls</td><td class='gh'>1</td><td class='st'>our restore r8907778, partly repaired</td><td class='st'>Vocals</td></tr>
-</table></div>
-<div class="box r"><p><b>28 authored names are missing across six live tabs.</b> Six further blanks on Montana were placeholder labels reading <code>AI</code>, <code>1</code>, <code>2</code> and <code>3</code>, and they are counted separately because they carry no credit.</p>
-<p style="margin-bottom:0"><b>53 more names sit behind the moderation queue.</b> The seven held restores were built the same way, and the tabs under them carry 12, 6, 4, 8, 6, 11 and 6 named tracks. Approval publishes the same defect on each. Waiting is not a neutral option here.</p></div>
-
-<h3>The fix is proven on two songs</h3>
-<p>Export the live revision, rebuild it with <code>lxml</code> using <code>etree.CDATA</code> under <code>XMLParser(strip_cdata=False)</code>, verify zero note, dynamic and event changes, then submit. <code>r8932311</code> did exactly that on Zomby Woof (AI) and restored 5 of 5 names, which is two better than the 3 the tab carried before the sweep touched it. <code>RESTORED-s35881-TEXTSAFE-v2.gp</code> carries 137 CDATA blocks and is the ship candidate for Watermelon.</p>
-
-<h2 id="repairing"><span class="dot" style="background:var(--blu)"></span>3. Someone is repairing behind us</h2>
-<p class="lede">Within about an hour of each restore clearing, an Editor-built revision appeared on five of the songs. Three of them put names back.</p>
-<div class="tw"><table>
-<tr><th>Song</th><th>Our restore</th><th>Named after ours</th><th>Following revision</th><th>Named after that</th><th>Outcome</th></tr>
-<tr><td class='ttl'>What&#x27;s New In Baltimore?</td><td class='rev'>r8908276</td><td class='gh'>0 / 7</td><td class='rev'>r8946169</td><td class='gh'>6 / 7</td><td class='st'>fully repaired</td></tr>
-<tr><td class='ttl'>Montana</td><td class='rev'>r8907028</td><td class='gh'>0 / 18</td><td class='rev'>r8945851</td><td class='gh'>11 / 18</td><td class='st'>credits back, 1 still missing</td></tr>
-<tr><td class='ttl'>Catholic Girls</td><td class='rev'>r8907778</td><td class='gh'>0 / 9</td><td class='rev'>r8945977</td><td class='gh'>4 / 9</td><td class='st'>4 back, 1 still missing</td></tr>
-<tr><td class='ttl'>Muffin Man</td><td class='rev'>r8906880</td><td class='gh'>0 / 5</td><td class='rev'>r8944638</td><td class='gh'>0 / 5</td><td class='st'>not repaired</td></tr>
-<tr><td class='ttl'>Drowning Witch</td><td class='rev'>r8908109</td><td class='gh'>0 / 16</td><td class='rev'>r8945141</td><td class='gh'>0 / 16</td><td class='st'>not repaired</td></tr>
-<tr><td class='ttl'>Zomby Woof</td><td class='rev'>r8905491</td><td class='gh'>0 / 10</td><td class='rev'>r8918601</td><td class='gh'>9 / 10</td><td class='st'>Nikita reverted our frame</td></tr>
-</table></div>
-<p>Those repairs were made by hand in the Songsterr editor by people who did not cause the loss. Two tabs are still waiting for someone to notice.</p>
-
-<h2 id="trouble"><span class="dot" style="background:var(--amb)"></span>4. Trouble Every Day, the seventeenth tab</h2>
-<p class="lede">This page recorded <code>s412170</code> as superseded and safe. It was neither.</p>
-<p>Our strip <code>r8766285</code> removed 9 ghosts from the Chad Wakerman Percussion staff. Kirill's <code>r8815000</code>, which went live on 2026-09-01, put back 3. Six were still missing, all fret 49 crash at bar 67 beats 4 to 9, and all six notes still existed, so only the ghost flag was needed. Six wrong beat velocities were also still live: bar 1 beats 4, 5 and 6, bar 67 beats 4 and 6, and bar 69 beat 10. Twelve corrections in total.</p>
-<p><code>RESTORED-s412170.gp</code> was built and verified against the live base rather than the author, so Kirill's post-strip edits survive: 6 ghosts flipped false to true, 0 ghosts lost, 0 other note changes anywhere, 0 changes on other tracks, and the effective dynamic matches the author on all 807 slots. It went up as <b><code>r8932027</code></b> on 2026-09-06 and is on moderation.</p>
-<div class="box a"><p style="margin-bottom:0"><b>A separate grid defect on the same tab was inherited, not caused by us.</b> The tab notates 134.0s against its 141.0s synced video, 4.96% off against a 2% tolerance. It is present on Kirill's live revision and on every revision before it. The preflight gate refuses the repair on that basis, and the unmodified live base fails the identical gate with identical numbers. The ghost restore deliberately left the grid untouched, so this needs its own pass over the single 165 BPM automation across 92 bars.</p></div>
-
-<h2 id="selfdefects"><span class="dot" style="background:var(--red)"></span>5. Two defects the restore itself introduced</h2>
-
-<h3>The ride definitions were merged, so a naive flag would ghost everything</h3>
-<p>GPIF stores note properties in shared definitions. On Watermelon the post-sweep <code>r8768414</code> merged ride definition 431, the ghosted one, and definition 432, the plain one, into a single id 418 covering all 1,724 occurrences. Writing <code>&lt;AntiAccent&gt;</code> onto 418 would have ghosted all 1,724, including the 408 that were never ghosted. The repair has to split 418 by occurrence position against the pre-sweep revision, copy-on-write, and log definition-level and occurrence-level changes separately.</p>
-
-<h3>A chord symbol has two halves and only one came back</h3>
-<p>GPIF stores a chord in two places, an <code>&lt;Item&gt;</code> defining the diagram and a <code>&lt;Chord&gt;</code> reference on the beat that displays it. The paren sweep dropped both halves of E7Msus2 at bar 3. The first restore put the Item back alone, so the definition sat orphaned and no bar printed the symbol.</p>
-<p>Three checks passed on that broken file:</p>
-<ul>
-<li><code>&#x27;E7Msus2&#x27; in text</code>, which an orphan satisfies</li>
-<li>the printed list of chord Items, which never says whether a beat references one</li>
-<li>the lane-aware set difference, which keys on <code>(bar, voice, position, midi)</code> and cannot see a symbol carrying no notes</li>
-</ul>
-<p>Beat id 2 is shared by seven voices covering track 0 bars 3 to 9, so the repair clones it copy-on-write and repoints the bar 3 voice alone. This is the same shape as the ghost loss itself: three checks agreed, and none of them measured the thing that was gone.</p>
-
-<h2 id="uploadpath"><span class="dot" style="background:var(--grn)"></span>6. The upload path changed</h2>
-<div class="box g"><p><b>Hard gate set by Brandon on 2026-09-07. We do not submit revisions to an original tab, and undoing our own damage is included.</b></p>
-<p style="margin-bottom:0">Open the original, click <b>Create a copy to edit</b>, rename the copy with <b>Brandon edit</b> on the end, import the corrected file there, and submit the revision on the copy. The earlier carve-out that allowed a revision on the original when the damage was ours is retired.</p></div>
-<p>For Watermelon that makes the action concrete: open <code>s35881</code>, create a copy, rename it to <b>Watermelon In Easter Hay Brandon edit</b>, import <code>RESTORED-s35881-TEXTSAFE-v2.gp</code>, and submit on the copy. The original tab and <code>r8908034</code> stay untouched.</p>
-<h3>The preflight NAMEDROP rule is too absolute</h3>
-<p>The rule in <code>preflight_import.py</code> states that the uploaded file cannot prevent a name loss, on the grounds that one upload's Tracks section was byte-identical to Songsterr's own export and the names still went. The four measurements in <a href="#namedrop">section 2</a> refute it. A Tracks section compared after parsing is byte-identical whether or not the source carried CDATA, because the parser has already discarded the wrapper. The comparison could not see the variable it needed to see.</p>
-<p>Zomby Woof preflight also refuses on GRID for a build that is provably timing-neutral, so two of the gate's refusals now have documented false-positive conditions.</p>
-
-<h2 id="other"><span class="dot" style="background:var(--blu)"></span>7. The work that is not about ghosts</h2>
-<p class="lede">The ghost sweep is one thread. These ran alongside it and are recorded here so the board is complete.</p>
-
-<h3>Watermelon In Easter Hay, two repairs waiting on the queue</h3>
-<p><b>The foot-pedal hi-hat is missing.</b> The isolated hat stem gives a periodic subsequence at 1.0800 s, equal to the GP quarter at the snare-anchored tempo of 1.0842 s, with 178 of 505 grid slots carrying a hat onset at 35% against a 26% chance baseline. Brandon's representative chicks at 181.93, 183.03, 184.10 and 185.19 appear in the detection at 181.92, 183.00, 184.09 and 185.17. The tab notates six Pedal Hi-Hat events, so roughly 172 are missing.</p>
-<p><b>The snare rebound ghosts are missing.</b> The tab carries 193 snare events with zero ghost flags. Brandon measured 202 principal snare attacks, of which 196 carry a substantially quieter follow-up within 250 ms and 178 carry two, the first at a median near 92 ms and the second near 156 ms. An independent run agreed on the lags at 70 ms and 134 ms and over-detected principals at 411 against 202, so his counts govern. These belong on the snare lane, not on Ride (middle), and whether the rebounds are stick bounce or room is not settled by a separated stem.</p>
-<p><b>Bar 54 is the only tuplet bar in the tab</b>, a 1/6 quarter-note duration inside 5/4, and its quintuplet fill needs checking against the Drumnet chart before anything is written.</p>
-
-<h3>The ride question, where it actually stands</h3>
-<p>Settled: the 193 post-snare Ride (middle) ghosts are not misplaced snare rebounds. The tab places them at a rigid 271 ms after the snare, one GP sixteenth, with the 10th and 90th percentiles both at 271 ms, while the measured rebounds land at 70 to 92 ms and 134 to 156 ms.</p>
-<p>Unsettled: the other 1,123 ride ghosts. The cymbals stem gives a 41% chance baseline that swallows the signal, ghosts sit at 47% and plain at 55%, and the neither-detected rate is 50.3% for ghosts against 46.8% for plain. Those are close enough that the detector is missing real strokes. A second machine-readable transcription cannot arbitrate either, because it runs 230 bars of 4/4 plus 48 of 2/4 against the tab's 53 of 4/4 and 52 of 5/4, which makes a bar-keyed diff meaningless. No deletion revision may ship against these.</p>
-
-<h3>Carolina Hard-Core Ecstasy, two findings separate from the ghosts</h3>
-<p><b>About 16.5 bars are unnotated.</b> The tab totals 313.45s across 102 bars, with tempo automations of 79 BPM from bar 0, 71 at bar 98, 66 at bar 100 and 45 at bar 101, against a 360.0s record. The shortfall of 46.55s is 12.93%. Filling 360s at the tab's own 79 BPM needs 118.5 bars against the 102 present. Raising the tempo to Sloots's 86.4 widens the gap by 30.12s, so this is missing material and not a tempo error.</p>
-<p><b>The opening is written straight where a professional transcription writes triplets.</b> Sloots marks triplet brackets in both staves of the opening. The tab carries 23 tuplet events in the whole 102-bar file, 6 in Drums at bar 42 and 17 in Trombone at bar 68, and bars 1 to 8 hold 505 events across all nine tracks with zero tuplets. Aligning his boxed rehearsal numbers to tab bars assumes a shared downbeat origin, so that has to be landmark-anchored against the recording before any rhythm changes.</p>
-
-<h3>Keep It Greasey, the tempo and anchor work</h3>
-<p>Printed sources give quarter = 134. A local sixteenth-grid sweep over the 3:18 to 3:58 solo window peaks at 143.5 with 71.1% against a 45.4% chance floor, with 135.0 at 69.7%. The grid lock is established and the exact tempo is not, so 134 must not be quoted as confirmed by audio.</p>
-<p>Tempo-map drift is small and measured at 11 ms per bar, 0.55%. Where measure 102 begins in the audio is the binding limit, with anchor uncertainty at 1,928 ms, which is 0.91 of a 19/16 bar, across three independent families: drums at +1.176s, bass at +0.410s and keys at -0.752s.</p>
-<p>Two corrections came from a second reader. The denominator was wrong: four sources were evaluated and three sparse parts were skipped, and counting the skipped three as failures turned missing estimates into negative observations. The second-separator result also needs a masking control, because the comparison stem is whole-kit drums, so a genuine quiet stroke masked by a louder kit event in the same 30 ms window scores as uncorroborated and is indistinguishable from an artifact.</p>
-
-<h3>Nine printed charts are still unapplied</h3>
-<p>Across seven songs, ranked and archived: Dong Work for Yuda <code>s768189</code> (Sweeney), Apostrophe&#x27; <code>s35873</code> (Bishop on Jim Gordon), Watermelon <code>s35881</code> (Drumnet), Central Scrutinizer <code>s3554079</code> (Bishop), Don&#x27;t Eat the Yellow Snow <code>s35866</code> (Bishop), Andy <code>s21495</code> (Ryan Brown), and Keep It Greasey <code>s604777</code> with three sources for verification only. Apostrophe&#x27; holds four tracks all on instrumentId 29, so a drum staff has to be added before a drum chart can be applied at all.</p>
-
-<h2 id="seventh"><span class="dot" style="background:var(--red)"></span>8. The seventh instance, committed while writing this update</h2>
-<p class="lede">This page documents six occasions where a check enumerated what it expected and read absence as evidence. Building this update produced a seventh.</p>
-<p>To measure the name loss I read <code>api/meta/&lt;songId&gt;</code> and counted tracks whose <code>title</code> was empty. Every one of twenty tabs returned 100% empty, including Apostrophe&#x27;, which this work has never touched, and Keep It Greasey, whose strip was blocked before it could publish.</p>
-<p>A result that says every tab on the platform lost every name is a result about the instrument. The track object has no <code>title</code> key at all. The field is <code>name</code>. The real schema is <code>difficulty, hash, instrument, instrumentId, isEmpty, isVocalTrack, name, tuning, views</code>.</p>
-<div class="two">
-<div class="pane wrong"><h4>What the wrong field reported</h4><p>179 names lost across 20 tabs, including tabs never edited by this work.</p></div>
-<div class="pane right"><h4>What the right field reports</h4><p>28 authored names lost across 6 tabs, each one traced to a specific revision.</p></div>
-</div>
-<p>The tell was the control. Apostrophe&#x27; and Keep It Greasey were in the sweep as untouched comparisons, and both scored identical to the damaged tabs. Had the query covered only the tabs under suspicion, the number would have looked plausible and would have been published.</p>
-<p>This is the same failure as grepping <code>&lt;Ghost&gt;</code> in GPIF, as reading a missing <code>fret</code> as a rest, as reading a missing <code>dynamic</code> key as an absent marking, and as the hardcoded allowlist in <code>noteloss_audit.py</code>. Assume a field name, find nothing, and report nothing as a finding.</p>
-
-<h2 id="what"><span class="dot" style="background:var(--red)"></span>9. What happened</h2>
+<h2 id="what"><span class="dot" style="background:var(--red)"></span>What happened</h2>
 <p class="lede">Songsterr draws a ghost note as a notehead inside round brackets. That is the platform's own ghost notation and it carries real musical information, the quiet stroke a drummer plays between the loud ones. A sweep run on 2026-08-29 and 2026-08-30 read those brackets as a defect and removed them across twenty Zappa tabs.</p>
 <div class="box r"><p><strong>Sixteen of those revisions are the current public revision today.</strong> 3,842 ghost note flags are missing from tabs the public reads right now. Two more were rejected by Songsterr moderators before they could publish, and two were overtaken by other people's later revisions.</p></div>
 
-<h2 id="live"><span class="dot" style="background:var(--red)"></span>10. The original ledger: 16 tabs, 3,842 ghost notes</h2>
+<h2 id="live"><span class="dot" style="background:var(--red)"></span>Live now: 16 tabs, 3,842 ghost notes</h2>
 <p class="lede">Each revision below was confirmed as the current public revision by reading <code>api/meta/&lt;songId&gt;</code> on 2026-09-05.</p>
 <div class="tw"><table>
 <tr><th></th><th>Song ID</th><th>Title</th><th>Ghosts</th><th>Our revision</th><th>State</th></tr>
