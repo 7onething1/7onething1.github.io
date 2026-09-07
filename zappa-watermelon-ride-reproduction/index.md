@@ -3,6 +3,55 @@
 **LOCKED: `s35881`**, drum track 8 "Vinnie Colaiuta", tab `PRESWEEP-r7715683.gp`.
 Written 2026-09-06 from a saved script set in `tools/`. Detector reconciled this pass.
 
+## 0. THE MATCHED-CONTROL ATTACK TEST, 2026-09-07, and it is the first positive result
+
+Every earlier measurement compared ghost positions against OTHER GRID positions, and the
+scramble preserves position within the bar, so it always landed on the same sixteenth lattice.
+That design could never ask whether the lattice itself carries strokes. This one does.
+
+**Design.** From each on-beat plain ride at t0 with a clean log-linear decay fitted over
+t0+30 ms to t0+250 ms, score the three NOTATED offbeat slots at t0 + 271.1, 542.2 and 813.3 ms
+against OFF-LATTICE controls at t0 + 135.6, 406.7 and 677.8 ms, halfway between them, where the
+score notates nothing. One detector scores both and **it never receives ghost status**: sparse
+log-compressed subband novelty, k=8, 1,322 peaks at 2.42 per second, 30 ms tolerance. Controls
+are matched to slots by nearest predicted decay level, median absolute log-level gap 0.0085,
+so decay depth is held fixed.
+
+| set | matched | rotation-null recall | gain | z | verdict |
+|---|---|---|---|---|---|
+| **notated offbeat slots** | **31.2%** | 14.4% +/- 4.2% | **+16.8 pts** | **4.02** | UNDETERMINED |
+| **decay-matched off-lattice** | **4.6%** | 14.6% +/- 4.2% | **-10.0 pts** | **-2.40** | UNDETERMINED |
+
+**The asymmetry is the finding.** Notated positions sit 16.8 points ABOVE their rotation null
+while decay-matched off-lattice points sit 10.0 points BELOW theirs, a 26.8-point separation
+between two sets scored by one detector under one null model. For the controls, 99.8 percent of
+null draws matched as well or better.
+
+Across 563 decay-matched pairs: notated 171 of 563 = 30.4 percent, control 31 of 563 = 5.5
+percent, difference 24.9 points, paired permutation over the label with 5,000 draws one-sided
+p = 0.0002.
+
+| slot | decay age | notated | control | ratio |
+|---|---|---|---|---|
+| 1 | 271 ms | 26.1% | 5.8% | 4.50x |
+| 2 | 542 ms | 34.9% | 6.2% | 5.63x |
+| 3 | 813 ms | 30.5% | 4.3% | 7.09x |
+
+The ratio does not fall as the preceding strike decays, which is the opposite of what residual
+decay predicts. Five of eleven sections favour the notated position at Benjamini-Hochberg
+q < 0.05, strongest section 3 at 55.1 percent against 4.3 percent with 35 of 35 discordant
+pairs favouring the notated position.
+
+**The gate still returns UNDETERMINED**, because z = 4.02 is under the 5.0 confirm floor, and
+under this gate UNDETERMINED is never evidence against a tab. Collapse diagnostics are clean:
+1.00 attacks per used onset, busiest onset 1 of 681, residual bias +5.4 ms, median absolute
+residual 16.8 ms, density CV 0.37 against a 0.6 bar so the global null is admissible.
+
+**What it supports and what it does not.** It supports the presence of an ATTACK at the notated
+offbeat positions that decay-matched off-lattice points do not carry. It does not identify the
+striking instrument, so it is evidence of an event rather than of a Ride (middle) stroke.
+
+
 ## Inputs, full SHA-256
 
 | role | bytes | sha256 |

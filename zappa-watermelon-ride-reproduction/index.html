@@ -90,7 +90,7 @@ one labelling decision rather than 1,316 per-stroke judgements.</p>
 </div>
 
 <div class="toc"><ol>
-<li><a href="#s1">The definition census</a></li>
+<li><a href="#s0">The matched-control attack test</a></li>\n<li><a href="#s1">The definition census</a></li>
 <li><a href="#s2">The sweep mechanism</a></li>
 <li><a href="#s3">Ghost census reconciled</a></li>
 <li><a href="#s4">1,724 against 596</a></li>
@@ -110,6 +110,51 @@ one labelling decision rather than 1,316 per-stroke judgements.</p>
 <li><a href="#s12">Withdrawn and historical</a></li>
 <li><a href="#s13">Inputs and scripts</a></li>
 </ol></div>
+
+<h2 id="s0">0. The matched-control attack test, and it is the first positive result</h2>
+<div class="card green">
+<p class="k">Every earlier test compared ghost positions against OTHER GRID positions</p>
+<p>The scramble preserves position within the bar, so it always landed on the same sixteenth
+lattice. That design could never ask whether the lattice itself carries strokes. This one does.</p>
+</div>
+<p><b>Design.</b> From each on-beat plain ride at t0 with a log-linear decay fitted over t0+30 ms
+to t0+250 ms, score the three <b>notated</b> offbeat slots at t0 + 271.1, 542.2 and 813.3 ms
+against <b>off-lattice</b> controls at t0 + 135.6, 406.7 and 677.8 ms, halfway between them,
+where the score notates nothing. One detector scores both and <b>it never receives ghost
+status</b>: sparse log-compressed subband novelty, k=8, 1,322 peaks at 2.42/s, 30 ms tolerance.
+Controls are matched to slots by nearest predicted decay level, median absolute log-level gap
+0.0085, so decay depth is held fixed.</p>
+<div class="scroll"><table>
+<tr><th>set</th><th>matched</th><th>rotation-null recall</th><th>gain</th><th>z</th><th>verdict</th></tr>
+<tr><td><b>notated offbeat slots</b></td><td><b>31.2%</b></td><td>14.4% &plusmn; 4.2%</td><td><b>+16.8 pts</b></td><td><b>4.02</b></td><td>UNDETERMINED</td></tr>
+<tr><td><b>decay-matched off-lattice</b></td><td><b>4.6%</b></td><td>14.6% &plusmn; 4.2%</td><td><b>-10.0 pts</b></td><td><b>-2.40</b></td><td>UNDETERMINED</td></tr>
+</table></div>
+<p><b>The asymmetry is the finding.</b> Notated positions sit 16.8 points above their rotation
+null while decay-matched off-lattice points sit 10.0 points below theirs, a 26.8-point
+separation between two sets scored by one detector under one null model. For the controls,
+99.8 percent of null draws matched as well or better.</p>
+<p>Across 563 decay-matched pairs: notated <b>171 of 563 = 30.4%</b>, control <b>31 of 563 =
+5.5%</b>, difference 24.9 points, paired permutation over the label with 5,000 draws one-sided
+<b>p = 0.0002</b>.</p>
+<div class="scroll"><table>
+<tr><th>slot</th><th>decay age</th><th>notated</th><th>control</th><th>ratio</th></tr>
+<tr><td>1</td><td>271 ms</td><td>26.1%</td><td>5.8%</td><td>4.50&times;</td></tr>
+<tr><td>2</td><td>542 ms</td><td>34.9%</td><td>6.2%</td><td>5.63&times;</td></tr>
+<tr><td>3</td><td>813 ms</td><td>30.5%</td><td>4.3%</td><td><b>7.09&times;</b></td></tr>
+</table></div>
+<p><b>The ratio does not fall as the preceding strike decays</b>, which is the opposite of what
+residual decay predicts. Five of eleven sections favour the notated position at
+Benjamini-Hochberg q &lt; 0.05, strongest section 3 at 55.1% against 4.3% with 35 of 35
+discordant pairs favouring the notated position.</p>
+<div class="card pur">
+<p class="k">The gate still returns UNDETERMINED, and that is not a negative</p>
+<p>z = 4.02 sits under the 5.0 confirm floor, and under this gate UNDETERMINED is never evidence
+against a tab. Collapse diagnostics are clean: 1.00 attacks per used onset, busiest onset 1 of
+681, residual bias +5.4 ms, median absolute residual 16.8 ms, density CV 0.37 against a 0.6 bar.</p>
+<p><b>Supported:</b> an attack is present at the notated offbeat positions that decay-matched
+off-lattice points do not carry. <b>Not supported:</b> the identity of the striking instrument.
+This is evidence of an event, not of a Ride (middle) stroke.</p>
+</div>
 
 <h2 id="s1">1. The definition census</h2>
 <p>GPIF deduplicates <code>&lt;Note&gt;</code> definitions, so a ghost flag lives on a definition
