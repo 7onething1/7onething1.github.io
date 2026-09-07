@@ -1,0 +1,186 @@
+{
+ "s6388915-Secret.gp": {
+  "before": [
+   {
+    "name": "Distortion Guitar",
+    "beats": 653,
+    "notes": 910,
+    "skip_beats": 65,
+    "wide_beats": 0,
+    "bad_beats": 65
+   },
+   {
+    "name": "Overdriven Guitar",
+    "beats": 849,
+    "notes": 1336,
+    "skip_beats": 199,
+    "wide_beats": 0,
+    "bad_beats": 199
+   }
+  ],
+  "after": [
+   {
+    "name": "Distortion Guitar",
+    "beats": 653,
+    "notes": 846,
+    "skip_beats": 1,
+    "wide_beats": 0,
+    "bad_beats": 1
+   },
+   {
+    "name": "Overdriven Guitar",
+    "beats": 849,
+    "notes": 1183,
+    "skip_beats": 49,
+    "wide_beats": 0,
+    "bad_beats": 49
+   },
+   {
+    "name": "Guitar 3 (arranged)",
+    "beats": 200,
+    "notes": 217,
+    "skip_beats": 0,
+    "wide_beats": 0,
+    "bad_beats": 0
+   }
+  ]
+ },
+ "s6389251-Kilgore-Trout.gp": {
+  "before": [
+   {
+    "name": "Distortion Guitar",
+    "beats": 565,
+    "notes": 694,
+    "skip_beats": 45,
+    "wide_beats": 0,
+    "bad_beats": 45
+   },
+   {
+    "name": "Distortion Guitar",
+    "beats": 576,
+    "notes": 735,
+    "skip_beats": 45,
+    "wide_beats": 0,
+    "bad_beats": 45
+   }
+  ],
+  "after": [
+   {
+    "name": "Distortion Guitar",
+    "beats": 565,
+    "notes": 649,
+    "skip_beats": 0,
+    "wide_beats": 0,
+    "bad_beats": 0
+   },
+   {
+    "name": "Distortion Guitar",
+    "beats": 576,
+    "notes": 699,
+    "skip_beats": 9,
+    "wide_beats": 0,
+    "bad_beats": 9
+   },
+   {
+    "name": "Guitar 3 (arranged)",
+    "beats": 80,
+    "notes": 81,
+    "skip_beats": 0,
+    "wide_beats": 0,
+    "bad_beats": 0
+   }
+  ]
+ },
+ "s6389274-Blind-Mans-Arrow.gp": {
+  "before": [
+   {
+    "name": "Distortion Guitar",
+    "beats": 716,
+    "notes": 1055,
+    "skip_beats": 142,
+    "wide_beats": 0,
+    "bad_beats": 142
+   },
+   {
+    "name": "Overdriven Guitar",
+    "beats": 686,
+    "notes": 1059,
+    "skip_beats": 151,
+    "wide_beats": 0,
+    "bad_beats": 152
+   }
+  ],
+  "after": [
+   {
+    "name": "Distortion Guitar",
+    "beats": 716,
+    "notes": 914,
+    "skip_beats": 5,
+    "wide_beats": 0,
+    "bad_beats": 5
+   },
+   {
+    "name": "Overdriven Guitar",
+    "beats": 686,
+    "notes": 948,
+    "skip_beats": 41,
+    "wide_beats": 0,
+    "bad_beats": 42
+   },
+   {
+    "name": "Guitar 3 (arranged)",
+    "beats": 202,
+    "notes": 252,
+    "skip_beats": 0,
+    "wide_beats": 0,
+    "bad_beats": 0
+   }
+  ]
+ },
+ "s6389335-A-Tree-For-Trials.gp": {
+  "before": [
+   {
+    "name": "Acoustic Guitar (steel)",
+    "beats": 175,
+    "notes": 212,
+    "skip_beats": 24,
+    "wide_beats": 0,
+    "bad_beats": 24
+   },
+   {
+    "name": "Acoustic Guitar (steel)",
+    "beats": 167,
+    "notes": 205,
+    "skip_beats": 28,
+    "wide_beats": 0,
+    "bad_beats": 28
+   }
+  ],
+  "after": [
+   {
+    "name": "Acoustic Guitar (steel)",
+    "beats": 175,
+    "notes": 188,
+    "skip_beats": 0,
+    "wide_beats": 0,
+    "bad_beats": 0
+   },
+   {
+    "name": "Acoustic Guitar (steel)",
+    "beats": 167,
+    "notes": 180,
+    "skip_beats": 3,
+    "wide_beats": 0,
+    "bad_beats": 3
+   },
+   {
+    "name": "Guitar 3 (arranged)",
+    "beats": 42,
+    "notes": 49,
+    "skip_beats": 0,
+    "wide_beats": 0,
+    "bad_beats": 0
+   }
+  ]
+ }
+}

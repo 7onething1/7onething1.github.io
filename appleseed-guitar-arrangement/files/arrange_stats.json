@@ -1,0 +1,46 @@
+{
+ "s6388915-Secret.gp": {
+  "beats": 1502,
+  "already_ok": 1238,
+  "split": 258,
+  "unfixed": 6,
+  "g3_notes_placed": 217,
+  "strip_removed": 217,
+  "g3_notes_refused": 1,
+  "overflow_queued": 218,
+  "overflow_donor_conflict": 43
+ },
+ "s6389251-Kilgore-Trout.gp": {
+  "beats": 1141,
+  "split": 90,
+  "already_ok": 1051,
+  "g3_notes_placed": 81,
+  "strip_removed": 81,
+  "g3_notes_refused": 0,
+  "overflow_queued": 81,
+  "overflow_donor_conflict": 9
+ },
+ "s6389274-Blind-Mans-Arrow.gp": {
+  "beats": 1402,
+  "split": 280,
+  "already_ok": 1108,
+  "unfixed": 13,
+  "notes_revoiced": 2,
+  "revoiced": 1,
+  "g3_notes_placed": 252,
+  "strip_removed": 252,
+  "g3_notes_refused": 6,
+  "overflow_queued": 258,
+  "overflow_donor_conflict": 28
+ },
+ "s6389335-A-Tree-For-Trials.gp": {
+  "beats": 342,
+  "already_ok": 290,
+  "split": 52,
+  "g3_notes_placed": 49,
+  "strip_removed": 49,
+  "g3_notes_refused": 0,
+  "overflow_queued": 49,
+  "overflow_donor_conflict": 3
+ }
+}

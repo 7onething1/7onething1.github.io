@@ -1,0 +1,186 @@
+<!doctype html>
+<html lang="en"><head><meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Appleseed Cast — four tabs arranged for three guitars</title>
+<style>
+:root{
+  --cream:#f6f0e2; --paper:#fffaf0; --ink:#1f1c18; --muted:#6b6252; --rule:#ddd2b8;
+  --c1:#DD8D29; --c2:#E2D200; --c3:#46ACC8; --c4:#E58601; --c5:#B40F20; --c6:#899DA4;
+  color-scheme:light;
+}
+*{box-sizing:border-box}
+body{background:var(--cream);color:var(--ink);margin:0;
+  font:16px/1.62 "Iowan Old Style","Palatino Linotype",Palatino,Georgia,serif;}
+.wrap{max-width:themax;max-width:940px;margin:0 auto;padding:2.2rem 1.15rem 5rem}
+h1{font-size:2.05rem;line-height:1.16;margin:.2rem 0 .35rem;letter-spacing:-.01em}
+h2{font-size:1.3rem;margin:2.6rem 0 .7rem;padding-bottom:.3rem;border-bottom:2px solid var(--rule)}
+h3{font-size:1.06rem;margin:1.7rem 0 .45rem}
+.sub{color:var(--muted);font-size:.97rem;margin:0 0 1.5rem}
+.toc{background:var(--paper);border:1px solid var(--rule);border-left:6px solid var(--c3);
+  border-radius:5px;padding:.9rem 1.1rem;margin:1.4rem 0 2rem}
+.toc h4{margin:.1rem 0 .5rem;font-size:.83rem;letter-spacing:.11em;text-transform:uppercase;color:var(--muted)}
+.toc ol{margin:0;padding-left:1.15rem}
+.toc a{color:var(--ink);text-decoration:none;border-bottom:1px solid var(--rule)}
+.toc a:hover{border-color:var(--c5)}
+.band{border-left:6px solid var(--c1);background:var(--paper);border:1px solid var(--rule);
+  border-left-width:6px;border-radius:5px;padding:.85rem 1.05rem;margin:1.05rem 0}
+.band.g{border-left-color:#5c8a4a}.band.r{border-left-color:var(--c5)}
+.band.y{border-left-color:var(--c4)}.band.b{border-left-color:var(--c3)}
+.tw{overflow-x:auto;margin:1.05rem 0;-webkit-overflow-scrolling:touch}
+table{border-collapse:collapse;width:100%;font-size:.9rem;background:var(--paper)}
+th,td{border:1px solid var(--rule);padding:.42rem .6rem;text-align:left;vertical-align:top}
+th{background:#efe7d3;font-weight:600;font-size:.8rem;letter-spacing:.03em}
+td.n,th.n{text-align:right;font-variant-numeric:tabular-nums}
+code,kbd{font-family:ui-monospace,SFMono-Regular,Menlo,monospace;font-size:.855em;
+  background:#efe7d3;padding:.08em .34em;border-radius:3px}
+pre{background:#2b2822;color:#f2ead8;padding:.8rem 1rem;border-radius:5px;overflow-x:auto;font-size:.83rem;line-height:1.5}
+pre code{background:none;color:inherit;padding:0}
+.pass{color:#3f6b32;font-weight:700}.fail{color:var(--c5);font-weight:700}
+.big{display:flex;flex-wrap:wrap;gap:.7rem;margin:1.2rem 0}
+.stat{flex:1 1 168px;background:var(--paper);border:1px solid var(--rule);border-top:4px solid var(--c3);
+  border-radius:5px;padding:.7rem .85rem}
+.stat b{display:block;font-size:1.62rem;line-height:1.15;font-variant-numeric:tabular-nums}
+.stat span{font-size:.78rem;color:var(--muted);text-transform:uppercase;letter-spacing:.06em}
+.stat.a{border-top-color:var(--c5)}.stat.b2{border-top-color:#5c8a4a}.stat.c{border-top-color:var(--c1)}
+.files a{display:inline-block;background:var(--paper);border:1px solid var(--rule);border-radius:4px;
+  padding:.38rem .68rem;margin:.22rem .3rem .22rem 0;text-decoration:none;color:var(--ink);font-size:.87rem}
+.files a:hover{border-color:var(--c5)}
+footer{margin-top:3rem;padding-top:1rem;border-top:2px solid var(--rule);color:var(--muted);font-size:.85rem}
+a{color:#1c5c72}
+</style></head><body><div class="wrap">
+
+<h1>Four Appleseed Cast tabs, arranged for three guitars</h1>
+<p class="sub">Built 2026-09-07 on MacBookPro from the live Songsterr exports pulled the same day by the chat titled <em>Zappa paren fix audit</em>. Every number below comes from a run of the gate, not from an estimate.</p>
+
+<div class="toc"><h4>Contents</h4><ol>
+<li><a href="#ask">What was asked</a></li>
+<li><a href="#src">What the source files looked like</a></li>
+<li><a href="#how">How the arrangement works</a></li>
+<li><a href="#res">Result, per song</a></li>
+<li><a href="#gate">The two tier-1 gates</a></li>
+<li><a href="#open">What is still open</a></li>
+<li><a href="#cmp">Comparison with independent transcriptions</a></li>
+<li><a href="#files">The files</a></li>
+</ol></div>
+
+<div class="big">
+  <div class="stat a"><b>700</b><span>rule-breaking beats before</span></div>
+  <div class="stat b2"><b>109</b><span>rule-breaking beats after</span></div>
+  <div class="stat c"><b>591</b><span>beats fixed</span></div>
+  <div class="stat"><b>0</b><span>pitches lost or invented</span></div>
+</div>
+
+<h2 id="ask">1. What was asked</h2>
+<div class="band b">Take the single guitar part in each tab, arrange it across <b>two or three guitars</b>, keep every hand inside <b>five frets</b>, and allow a string skip only when the shape is an <b>octave</b>. Compare the result against other transcriptions online where any exist.</div>
+
+<h2 id="src">2. What the source files looked like</h2>
+<p>Every one of the four tabs already carried two guitar staves. <b>Not one beat on any staff exceeded five frets</b>, so the five-fret rule was satisfied on arrival. The other rule was broken 700 times: that many beats attacked two or more strings with an unused string sitting between them, and none of those were octave shapes.</p>
+<div class="tw"><table>
+<tr><th>song</th><th class="n">staves</th><th class="n">beats</th><th class="n">beats with a string skip</th><th class="n">beats past five frets</th></tr>
+<tr><td>Secret <code>s6388915</code></td><td class="n">2</td><td class="n">1502</td><td class="n">264</td><td class="n">0</td></tr>
+<tr><td>Kilgore Trout <code>s6389251</code></td><td class="n">2</td><td class="n">1141</td><td class="n">90</td><td class="n">0</td></tr>
+<tr><td>Blind Man's Arrow <code>s6389274</code></td><td class="n">2</td><td class="n">1402</td><td class="n">294</td><td class="n">0</td></tr>
+<tr><td>A Tree For Trials <code>s6389335</code></td><td class="n">2</td><td class="n">342</td><td class="n">52</td><td class="n">0</td></tr>
+</table></div>
+
+<h2 id="how">3. How the arrangement works</h2>
+<p>A skip means the pick crossed a string it never struck. <b>Two guitarists collapsed onto one staff produce exactly that shape</b>, so the repair gives the notes back to a second pair of hands rather than re-fingering the beat.</p>
+<div class="band">Each failing beat is tested for the smallest set of notes whose removal leaves the rest <b>playable exactly where the source wrote them</b>. Those notes move to a third guitar staff. Nothing else is touched, so a healthy beat keeps the string and the fret the transcription gave it.</div>
+<p>Three guitars was the ceiling, and three was never needed for any single beat: the solver reported <b>zero beats requiring a third hand</b> and <b>zero beats with no legal shape at all</b>. Guitar 3 exists to receive what two hands cannot hold at one instant, and it carries between 42 and 202 beats per song.</p>
+
+<h2 id="res">4. Result, per song</h2>
+<div class="tw"><table>
+<tr><th>song</th><th class="n">guitars after</th><th class="n">breaking a rule before</th><th class="n">after</th><th>share fixed</th></tr>
+<tr><td>Secret</td><td class="n">3</td><td class="n">264</td><td class="n">50</td><td>214 of 264</td></tr>
+<tr><td>Kilgore Trout</td><td class="n">3</td><td class="n">90</td><td class="n">9</td><td>81 of 90</td></tr>
+<tr><td>Blind Man's Arrow</td><td class="n">3</td><td class="n">294</td><td class="n">47</td><td>247 of 294</td></tr>
+<tr><td>A Tree For Trials</td><td class="n">3</td><td class="n">52</td><td class="n">3</td><td>49 of 52</td></tr>
+<tr><td><b>total</b></td><td class="n"></td><td class="n"><b>700</b></td><td class="n"><b>109</b></td><td><b>591 of 700</b></td></tr>
+</table></div>
+<div class="band g"><b>Guitar 3 finished clean on all four songs.</b> Zero skips, zero spans past five frets, zero unplayable beats on the added staff in every file.</div>
+
+<h3>Per staff, after the arrangement</h3>
+<div class="tw"><table>
+<tr><th>song</th><th>staff</th><th class="n">beats</th><th class="n">notes</th><th class="n">skip beats</th><th class="n">span &gt; 5</th></tr>
+<tr><td rowspan="3">Secret</td><td>Distortion Guitar</td><td class="n">653</td><td class="n">846</td><td class="n">1</td><td class="n">0</td></tr>
+<tr><td>Overdriven Guitar</td><td class="n">849</td><td class="n">1183</td><td class="n">49</td><td class="n">0</td></tr>
+<tr><td>Guitar 3 (arranged)</td><td class="n">200</td><td class="n">217</td><td class="n">0</td><td class="n">0</td></tr>
+<tr><td rowspan="3">Kilgore Trout</td><td>Distortion Guitar</td><td class="n">565</td><td class="n">649</td><td class="n">0</td><td class="n">0</td></tr>
+<tr><td>Distortion Guitar</td><td class="n">576</td><td class="n">699</td><td class="n">9</td><td class="n">0</td></tr>
+<tr><td>Guitar 3 (arranged)</td><td class="n">80</td><td class="n">81</td><td class="n">0</td><td class="n">0</td></tr>
+<tr><td rowspan="3">Blind Man's Arrow</td><td>Distortion Guitar</td><td class="n">716</td><td class="n">914</td><td class="n">5</td><td class="n">0</td></tr>
+<tr><td>Overdriven Guitar</td><td class="n">686</td><td class="n">948</td><td class="n">41</td><td class="n">0</td></tr>
+<tr><td>Guitar 3 (arranged)</td><td class="n">202</td><td class="n">252</td><td class="n">0</td><td class="n">0</td></tr>
+<tr><td rowspan="3">A Tree For Trials</td><td>Acoustic Guitar (steel)</td><td class="n">175</td><td class="n">188</td><td class="n">0</td><td class="n">0</td></tr>
+<tr><td>Acoustic Guitar (steel)</td><td class="n">167</td><td class="n">180</td><td class="n">3</td><td class="n">0</td></tr>
+<tr><td>Guitar 3 (arranged)</td><td class="n">42</td><td class="n">49</td><td class="n">0</td><td class="n">0</td></tr>
+</table></div>
+
+<h2 id="gate">5. The two tier-1 gates</h2>
+<p><code>impossible_gate.py --source BEFORE AFTER</code> was run on every file. Both mandatory gates pass on all four.</p>
+<div class="tw"><table>
+<tr><th>song</th><th>pitch gate</th><th>position gate</th><th class="n">pitches gone</th><th class="n">pitches invented</th></tr>
+<tr><td>Secret</td><td class="pass">PASS</td><td class="pass">PASS</td><td class="n">0</td><td class="n">0</td></tr>
+<tr><td>Kilgore Trout</td><td class="pass">PASS</td><td class="pass">PASS</td><td class="n">0</td><td class="n">0</td></tr>
+<tr><td>Blind Man's Arrow</td><td class="pass">PASS</td><td class="pass">PASS</td><td class="n">0</td><td class="n">0</td></tr>
+<tr><td>A Tree For Trials</td><td class="pass">PASS</td><td class="pass">PASS</td><td class="n">0</td><td class="n">0</td></tr>
+</table></div>
+<div class="band g">The position gate reads: every note in a beat that was already healthy kept the string and fret the source gave it. That is the check that catches a blanket refret quietly rewriting a performance while every other number looks fine.</div>
+<h3>Two traps the build hit and cleared</h3>
+<div class="band r"><b>GPIF Notes are shared definitions.</b> One <code>&lt;Note id&gt;</code> is referenced by many beats, so editing it in place rewrote every beat pointing at it. The first run moved 130 of 205 notes on one staff while only 36 edits had been issued. Copy-on-write brought that to 23.</div>
+<div class="band r"><b>Beats are shared too.</b> A beat reused at two onsets lost its note in both places when one of them shed it, which showed up as 55 notes placed on Guitar 3 and never removed from the origin. Beat-level copy-on-write took the orphan count to 0 on all four files.</div>
+
+<h2 id="open">6. What is still open</h2>
+<p>109 beats still attack across an unused string. <b>87 of them are blocked for a single reason</b>: Guitar 3 borrows its bar skeleton from an original staff, so it has no beat at those onsets to receive anything. A second shed pass measured this directly.</p>
+<div class="tw"><table>
+<tr><th>song</th><th class="n">still failing</th><th class="n">no Guitar 3 beat at that onset</th><th class="n">no legal shed</th><th class="n">Guitar 3 already full</th></tr>
+<tr><td>Secret</td><td class="n">50</td><td class="n">46</td><td class="n">3</td><td class="n">1</td></tr>
+<tr><td>Kilgore Trout</td><td class="n">9</td><td class="n">9</td><td class="n">0</td><td class="n">0</td></tr>
+<tr><td>Blind Man's Arrow</td><td class="n">47</td><td class="n">29</td><td class="n">12</td><td class="n">6</td></tr>
+<tr><td>A Tree For Trials</td><td class="n">3</td><td class="n">3</td><td class="n">0</td><td class="n">0</td></tr>
+</table></div>
+<p>Clearing those means subdividing Guitar 3's rhythm, which is the whole-part restaffing operation that belongs in the MIDI retime chain rather than in a surgical edit. The tools for it live on the other Mac.</p>
+
+<h2 id="cmp">7. Comparison with independent transcriptions</h2>
+<p>Songsterr holds exactly one transcription of each of these four songs and all four are ours, so Songsterr offers nothing to compare against. Ultimate Guitar carries three independent guitar transcriptions.</p>
+<div class="tw"><table>
+<tr><th>source</th><th>song</th><th>declared tuning</th><th>capo</th><th class="n">widest span measured</th><th class="n">columns past five frets</th></tr>
+<tr><td>UG 578874</td><td>A Tree For Trials</td><td>D A D G B E</td><td>none</td><td class="n">0</td><td class="n">0</td></tr>
+<tr><td>UG 208140</td><td>Blind Man's Arrow</td><td>none declared</td><td>none</td><td class="n">3</td><td class="n">0</td></tr>
+<tr><td>UG 977078</td><td>Blind Man's Arrow</td><td>none declared</td><td>6</td><td class="n">22</td><td class="n">4</td></tr>
+</table></div>
+<div class="band g"><b>Our A Tree For Trials tuning is independently confirmed.</b> Our file declares pitches 38 45 50 55 59 64, which is D A D G B E. The Ultimate Guitar transcription declares the same tuning in words.</div>
+<div class="band y"><b>No independent transcription supports capo 7 on Blind Man's Arrow.</b> One declares no capo, one declares capo 6, and our file declares capo 0. The rejected capo 7 that the skill keeps as its standing proof of an ergonomically attractive and musically wrong answer stays rejected.</div>
+<p>The human transcribers stayed inside five frets across the material that parsed cleanly, and they wrote string skips of their own. That matches the reading this arrangement takes: a skip is ordinary in a tab, and it often marks a second player.</p>
+<div class="band"><b>No tab content is reproduced here.</b> The comparison reads tuning, capo, fret spans and skip counts out of the pages, then discards the notation.</div>
+
+<h2 id="files">8. The files</h2>
+<p>Four arranged Guitar Pro files. They open in Guitar Pro, TuxGuitar, or any GP7 reader.</p>
+<p class="files">
+<a href="files/s6388915-Secret-ARRANGED.gp">Secret — arranged.gp</a>
+<a href="files/s6389251-Kilgore-Trout-ARRANGED.gp">Kilgore Trout — arranged.gp</a>
+<a href="files/s6389274-Blind-Mans-Arrow-ARRANGED.gp">Blind Man's Arrow — arranged.gp</a>
+<a href="files/s6389335-A-Tree-For-Trials-ARRANGED.gp">A Tree For Trials — arranged.gp</a>
+<a href="files/score.json">score.json</a>
+<a href="files/arrange_stats.json">arrange_stats.json</a>
+<a href="index.md">index.md</a>
+</p>
+
+<h3>Reproduce it</h3>
+<pre><code>python3 ~/Projects/_outputs/appleseed-allparts/arrange-2026-09-07/tools/arrange.py
+python3 ~/Projects/_outputs/appleseed-allparts/arrange-2026-09-07/tools/refine.py
+python3 ~/Projects/_outputs/appleseed-allparts/arrange-2026-09-07/tools/score.py
+python3 ~/.claude/skills/impossible-guitar-parts/impossible_gate.py \
+  --source _live_export_2026-09-07/s6389274-Blind-Mans-Arrow.gp \
+  arrange-2026-09-07/arranged/s6389274-Blind-Mans-Arrow-ARRANGED.gp</code></pre>
+
+<footer>
+<b>Sources.</b> Live tab exports <code>~/Projects/_outputs/appleseed-allparts/_live_export_2026-09-07/</code> ·
+arranger and scorer <code>~/Projects/_outputs/appleseed-allparts/arrange-2026-09-07/tools/</code> ·
+gate <code>~/.claude/skills/impossible-guitar-parts/impossible_gate.py</code> ·
+comparison pages <a href="https://tabs.ultimate-guitar.com/tab/the-appleseed-cast/a-tree-for-trials-tabs-578874">UG 578874</a>,
+<a href="https://tabs.ultimate-guitar.com/tab/the-appleseed-cast/blind-mans-arrow-tabs-208140">UG 208140</a>,
+<a href="https://tabs.ultimate-guitar.com/tab/the-appleseed-cast/blind-mans-arrow-tabs-977078">UG 977078</a>.
+Built 2026-09-07.
+</footer>
+</div></body></html>
