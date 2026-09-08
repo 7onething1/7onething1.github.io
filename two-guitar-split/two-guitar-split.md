@@ -117,6 +117,24 @@ NOT settled: which channel (the two channels' chroma are near-identical, 0.9139
 vs 0.8957 and 0.9047 vs 0.9313), timing (recall 24.4%, pre-warp median 104.8 ms),
 and duration/ties (none written).
 
+## Timing
+
+| Build | Median residual | p90 | Paired | Notation span | Drift R2 |
+|---|---|---|---|---|---|
+| This artifact, 16th grid | 118.9 ms | 289.0 ms | 244/461 | 123.2 s | 0.002 |
+| 32nd grid, REJECTED | 112.3 ms | 289.0 ms | 374/675 | 123.3 s | 0.012 |
+| Human Songsterr tab | 95.1 ms | 262.1 ms | 100/197 | 116.6 s | 0.001 |
+
+Scatter, not drift: slope +0.0002 s/s, R2 0.002, and a 5% tempo search buys 6 ms.
+
+The 32nd grid moved timing only 118.9 -> 112.3 ms and cost 17 rapid-shift
+violations plus one severe jump, so it is rejected and kept beside the artifact.
+
+Only 131 onsets are detectable across 129 s of this stem, so the reference is
+sparse and sets a floor. The human tab of this song sits at 95.1 ms on the same
+measure; this artifact is 17 ms above it and tracks the record's length better,
+4.65% short against 9.87%.
+
 ## Provenance
 
 Zero note ids and zero beat ids inherited from the Songsterr AI tab. 25 of 529

@@ -220,6 +220,37 @@ AI tab. Of 529 and 633 written events, 25 and 13 happen to coincide with the AI
 tab on bar, position, fret, string and pitch, which is 4.7% and 2.1%, and they
 share no elements. <b>No note content is inherited.</b></p>
 
+<h2>Timing, measured against the human tab</h2>
+<p>Timing was the open question, so it was diagnosed rather than restated. Every
+written attack was paired with the nearest onset in the stem, and the residual
+regressed against position to separate a wrong tempo from a coarse grid.</p>
+
+<div class="tw"><table>
+<thead><tr><th>Build</th><th>Median residual</th><th>p90</th><th>Paired</th><th>Notation span</th><th>Drift R&sup2;</th></tr></thead>
+<tbody>
+<tr class="sep"><td class="song">This artifact, 16th grid</td><td class="num">118.9 ms</td><td class="num">289.0 ms</td><td class="num">244 / 461</td><td class="num">123.2 s</td><td class="num">0.002</td></tr>
+<tr><td class="song">32nd grid, REJECTED</td><td class="num">112.3 ms</td><td class="num">289.0 ms</td><td class="num">374 / 675</td><td class="num">123.3 s</td><td class="num">0.012</td></tr>
+<tr><td class="song"><b>Human Songsterr tab, same song</b></td><td class="num"><b>95.1 ms</b></td><td class="num">262.1 ms</td><td class="num">100 / 197</td><td class="num">116.6 s</td><td class="num">0.001</td></tr>
+</tbody></table></div>
+
+<p><b>It is scatter, not drift.</b> The slope is +0.0002 s per second at
+R&sup2;&nbsp;0.002, and a full 5% tempo search buys 6&nbsp;ms. So the tempo is right
+and no re-tempo can fix this.</p>
+
+<div class="call"><b>My grid hypothesis was wrong.</b> At 70&nbsp;bpm a 16th slot is
+214&nbsp;ms and the residual was half of one, which is the quantisation signature.
+Re-writing at a 32nd grid moved it only 118.9 to 112.3&nbsp;ms, and it cost 17
+rapid-shift violations plus one severe jump where the 16th build had zero. That is
+6.6&nbsp;ms bought with a playability regression, so the 32nd build is rejected and
+kept beside the artifact rather than deleted.</p></div>
+
+<div class="call ok"><b>The human tab sets the floor at 95.1&nbsp;ms.</b> Only 131
+onsets are detectable across 129&nbsp;s of this stem, roughly one a second, so the
+reference itself is sparse and no tab can score tightly against it. A published,
+playable, human-made tab of this song sits at 95.1&nbsp;ms on the identical
+measure. This artifact is <b>17&nbsp;ms above that floor</b>, and it tracks the
+record's length better: 4.65% short against the human tab's 9.87%.</div>
+
 <h2>Standing rule</h2>
 <p><b>Two guitars, never four.</b> A third staff is never the answer, and the
 split is decided by who played the note, never by panning or by stem loudness.</p>
