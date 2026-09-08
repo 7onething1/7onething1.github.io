@@ -30,7 +30,10 @@ Region by region the metronome wins everywhere, with its largest margin at bars 
 
 ## What is still wrong in the shipped file
 
-1. **Coda hole, bars 98 to 104**, recording 8:25 to 8:58. The tab writes 8 attacks (three in bar 98, two in 99, one each in 100, 101 and 103, none in 102 or 104). The stems carry 81 attacks. The lead guitar control is zero in six of the seven bars and two in the seventh. Only bar 105 belongs empty. An earlier pass this session, on the weaker onset clock, read this as bars 98 to 103 with 56 attacks and called bar 104 empty. Bar 104 carries five kick and four tom onsets.
+1. **Coda hole, bars 98 to 104**, recording 8:25 to 8:58. The tab writes 8 attacks (three in bar 98, two in 99, one each in 100, 101 and 103, none in 102 or 104). Eye-gated stem reading, after rendering the waveforms and reading them: kick [6,7,4,6,6,5,5] = 39, toms [11,5,4,6,6,7,8] = 47, so **86 eye-confirmed kick and tom attacks**. Bars 101 to 103 carry 36 of them with the guitar at zero, which makes that stretch bleed-proof. Only bar 105 belongs empty.
+
+   Three withdrawals, forced by looking. The earlier figure of **81 stem attacks is withdrawn**: it came from a spectral-flux detector at the 95th percentile and bundled 12 snare marks fired on a flat trace plus cymbal marks on a decaying wash. The claim that **guitar control is zero in six of the seven bars is withdrawn**: the guitar plays in bars 98, 99, 100 and 104. **Snare and cymbal content in the coda is withdrawn entirely.** Pictures: `coda-flux-pass.png` and `coda-eye-gated.png`. Figures: `eye_gated.json`.
+
 2. **Sixteen three-hand instants** across bars 29, 41, 45, 49, 52, 53, 54, 55, 56, 57, 85 and 89. Fifteen of the sixteen ask for a snare or tom, a hi-mid tom and the ride on one instant. Inherited from r8968524.
 3. **The tempo map itself**, one automation at 56.000 bpm. It concealed and confused the other two defects rather than producing them: the sixteen collisions were written into r8968524, and the missing coda notation is absent from the GP on its own terms.
 
@@ -44,8 +47,8 @@ Scope set by Brandon 2026-09-08, a closed list. 1) Write the metronome map into 
 
 ## Corrections applied 2026-09-08
 
-Brandon caught two errors in the first publication of this page. The coda tab count read seven and the data holds eight, corrected above. The tempo map was described as producing the other two defects, and it concealed them, corrected above.
+Brandon caught two errors in the first publication of this page. The coda tab count read seven and the data holds eight, corrected above. The tempo map was described as producing the other two defects, and it concealed them, corrected above. A third correction came from a stop gate demanding the eye outrank the detector, which withdrew the 81-attack figure, the snare and cymbal coda content, and the zero-guitar control.
 
 ## The process lesson
 
-When an alignment gate fails, repair the clock first, then write detectors. A detector cannot out-measure a broken time base, and 103 of them could not. The winning clock had been sitting in the stem folder for two days. Inventory what the separation already handed you, then build only what is missing.
+When an alignment gate fails, repair the clock first, then write detectors. Render every detector count and read it with your own eyes first, then publish it: the flux pass put twelve snare marks on a flat trace and would have shipped as fact. A detector cannot out-measure a broken time base, and 103 of them could not. The winning clock had been sitting in the stem folder for two days. Inventory what the separation already handed you, then build only what is missing.

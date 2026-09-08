@@ -69,6 +69,7 @@ a{color:#0d6f88;font-weight:600}
  <div style="font-weight:800;letter-spacing:.05em;text-transform:uppercase;font-size:.74rem;margin-bottom:.3rem">Two corrections from Brandon, 2026-09-08, applied</div>
  <p style="margin:.2rem 0"><b>One.</b> This page said bars 98 to 104 hold seven written drum notes. Its own <a href="coda.json">coda.json</a> holds eight: three in bar 98, two in 99, one each in 100, 101 and 103, none in 102 or 104. The figure now reads eight tab attacks against eighty-one stem attacks. The 81 reconciles unchanged and bar 105 stays correctly empty.</p>
  <p style="margin:.5rem 0 0"><b>Two.</b> This page said the flat tempo map produced the other two defects. It concealed and confused them. Defect three below now says so.</p>
+ <p style="margin:.5rem 0 0"><b>Three, found by reading the waveforms.</b> The coda figure of 81 stem attacks came from a detector nobody had looked at. Rendering it withdrew the snare and cymbal content and the zero-guitar control. The eye-defended figure is 86 kick and tom attacks, with a bleed-proof core of 36 in bars 101 to 103 where the guitar is silent.</p>
 </div>
 <p class="sub">Subject: Songsterr s6857183 r8970744, Watermelon In Easter Hay, Vinnie Colaiuta. Measured 2026-09-08 from the shipped .gp and the Moises stem set.</p>
 
@@ -134,23 +135,45 @@ a{color:#0d6f88;font-weight:600}
 <p class="sub">Independent census of RECONCILED-s6857183-Brandon-edit.gp: 2,770 drum notes, voice 0 at 1,889 and voice 1 at 881, on the Vinnie Colaiuta track.</p>
 
 <h3>Defect one: the last thirty-three seconds of drumming is missing</h3>
-<p>On the metronome clock, tab bars 98 to 104 land at 8:25 to 8:58 in the recording. The drummer plays through all seven of them. The tab writes eight attacks.</p>
+<p>Tab bars 98 to 104 land at 8:25 to 8:58 on the metronome clock. The tab writes <b>eight attacks</b> across all seven bars, being three in bar 98, two in 99, one each in 100, 101 and 103, and none in 102 or 104.</p>
+
+<div class="callout red">
+ <h3>Read by eye, and only then allowed to stand</h3>
+ <p>The first version of this section reported <b>81 stem attacks</b> from a spectral-flux detector at the 95th percentile. That number was never looked at. Rendering the waveforms and reading them overturned three parts of it, so the detector defers and the figures below are the eye-gated ones. A mark counts only where the envelope rises above 10 percent of that stem's own peak in the window.</p>
+</div>
+
 <div class="scroll"><table>
-<tr><th>tab bar</th><th>recording window</th><th class="num">tab k / s / t / ride</th><th class="num">stem kick</th><th class="num">stem tom</th><th class="num">stem cymbal</th><th class="num">guitar control</th><th>verdict</th></tr>
-<tr class="good"><td>96</td><td>495.8 - 499.9</td><td class="num">9 / 3 / 0 / 14</td><td class="num">9</td><td class="num">0</td><td class="num">9</td><td class="num">14</td><td>written</td></tr>
-<tr class="good"><td>97</td><td>499.9 - 505.1</td><td class="num">1 / 2 / 0 / 20</td><td class="num">8</td><td class="num">9</td><td class="num">20</td><td class="num">6</td><td>written</td></tr>
-<tr class="bad"><td>98</td><td>505.1 - 509.3</td><td class="num">1 / 2 / 0 / 0</td><td class="num">6</td><td class="num">5</td><td class="num">8</td><td class="num">2</td><td>stem plays, tab silent</td></tr>
-<tr class="bad"><td>99</td><td>509.3 - 514.6</td><td class="num">1 / 1 / 0 / 0</td><td class="num">8</td><td class="num">2</td><td class="num">0</td><td class="num">0</td><td>stem plays, tab silent</td></tr>
-<tr class="bad"><td>100</td><td>514.6 - 519.0</td><td class="num">1 / 0 / 0 / 0</td><td class="num">4</td><td class="num">3</td><td class="num">0</td><td class="num">0</td><td>stem plays, tab silent</td></tr>
-<tr class="bad"><td>101</td><td>519.0 - 524.2</td><td class="num">1 / 0 / 0 / 0</td><td class="num">6</td><td class="num">5</td><td class="num">0</td><td class="num">0</td><td>stem plays, tab silent</td></tr>
-<tr class="bad"><td>102</td><td>524.2 - 528.5</td><td class="num">0 / 0 / 0 / 0</td><td class="num">6</td><td class="num">5</td><td class="num">0</td><td class="num">0</td><td>stem plays, tab silent</td></tr>
-<tr class="bad"><td>103</td><td>528.5 - 533.9</td><td class="num">1 / 0 / 0 / 0</td><td class="num">5</td><td class="num">5</td><td class="num">0</td><td class="num">0</td><td>stem plays, tab silent</td></tr>
-<tr class="bad"><td>104</td><td>533.9 - 538.2</td><td class="num">0 / 0 / 0 / 0</td><td class="num">5</td><td class="num">4</td><td class="num">0</td><td class="num">0</td><td>stem plays, tab silent</td></tr>
-<tr class="good"><td>105</td><td>538.2 - 542.5</td><td class="num">0 / 0 / 0 / 0</td><td class="num">0</td><td class="num">0</td><td class="num">0</td><td class="num">0</td><td>correctly empty</td></tr>
+<tr><th>lane</th><th class="num">b98</th><th class="num">b99</th><th class="num">b100</th><th class="num">b101</th><th class="num">b102</th><th class="num">b103</th><th class="num">b104</th><th class="num">total</th><th>what the eye shows</th></tr>
+<tr class="good"><td><b>kick</b></td><td class="num">6</td><td class="num">7</td><td class="num">4</td><td class="num">6</td><td class="num">6</td><td class="num">5</td><td class="num">5</td><td class="num"><b>39</b></td><td>every mark sits on a discrete visible transient</td></tr>
+<tr class="good"><td><b>toms</b></td><td class="num">11</td><td class="num">5</td><td class="num">4</td><td class="num">6</td><td class="num">6</td><td class="num">7</td><td class="num">8</td><td class="num"><b>47</b></td><td>clear strokes with decay tails in all seven bars</td></tr>
+<tr class="bad"><td>snare</td><td class="num">2</td><td class="num">1</td><td class="num">0</td><td class="num">0</td><td class="num">0</td><td class="num">0</td><td class="num">0</td><td class="num">3</td><td>flat trace from bar 100 on. The flux pass put 12 marks here, on nothing.</td></tr>
+<tr class="bad"><td>cymbals</td><td class="num">23</td><td class="num">2</td><td class="num">3</td><td class="num">2</td><td class="num">0</td><td class="num">2</td><td class="num">0</td><td class="num">32</td><td>bar 98 is one crash wash. After it the trace is decay, with no fresh strikes the eye can call.</td></tr>
+<tr><td>lead guitar (control)</td><td class="num">38</td><td class="num">2</td><td class="num">7</td><td class="num">0</td><td class="num">0</td><td class="num">0</td><td class="num">7</td><td class="num">54</td><td>plainly present in bars 98, 99, 100 and 104</td></tr>
 </table></div>
-<p><b>Eight tab attacks against eighty-one detected stem attacks in bars 98 to 104.</b> The tab total breaks down as three in bar 98, two in 99, one each in 100, 101 and 103, and none in 102 or 104. The lead guitar stem carries zero onsets in six of those seven bars and two in the seventh, so bleed does not explain them. Only bar 105 belongs empty.</p>
+
+<div class="grid g3">
+ <div class="card t1"><div class="k a">86</div><div class="lab">eye-confirmed kick and tom attacks</div><div class="fine">bars 98 to 104, against 8 written</div></div>
+ <div class="card t3"><div class="k y">36</div><div class="lab">in the guitar-free bars alone</div><div class="fine">bars 101 to 103, 17 kick and 19 tom, guitar at zero</div></div>
+ <div class="card t5"><div class="k f">8</div><div class="lab">attacks the tab writes</div><div class="fine">across all seven bars</div></div>
+</div>
+
+<p><b>The bleed-proof core.</b> Bars 101, 102 and 103 carry <b>zero</b> guitar marks and <b>36</b> kick and tom attacks between them. Nothing there can be explained by lead bleed. The drummer is playing and the tab is silent.</p>
+
+<h4 style="margin:1.4rem 0 .3rem">The two passes, side by side</h4>
+<p class="sub">Black lines are bar boundaries from metromap.json. Red lines are the marks each pass produced.</p>
+<p><b>Flux percentile pass, the one that produced 81.</b> Look at the snare row after bar 99 and at the cymbal row after bar 100.</p>
+<img src="coda-flux-pass.png" alt="Waveforms of kick, toms, snare, cymbals and lead guitar across bars 96 to 105, marked by the spectral-flux detector" style="width:100%;border:1px solid var(--line);border-radius:9px;margin:.5rem 0">
+<p><b>Eye-gated pass, the one this page now reports.</b> Marks appear only where the waveform does.</p>
+<img src="coda-eye-gated.png" alt="The same five waveforms marked only where the envelope exceeds ten percent of that stem peak" style="width:100%;border:1px solid var(--line);border-radius:9px;margin:.5rem 0">
+
 <div class="callout gold">
- <p><b>Correction inside this session.</b> An earlier pass on this page put the hole at bars 98 to 103 with 56 attacks and called bar 104 correctly empty. That reading came off the weaker onset-derived clock. Bar 104 carries five kick and four tom onsets. The table above is the metronome-clock reading and it supersedes the first.</p>
+ <h3>Three claims the eye withdrew</h3>
+ <ul>
+  <li><b>"81 stem attacks" is withdrawn.</b> It bundled 12 snare onsets fired on a flat trace and cymbal marks on a decaying wash. The figure this page now carries is <b>86 eye-confirmed kick and tom attacks</b>.</li>
+  <li><b>"Guitar control is zero in six of the seven bars" is withdrawn.</b> The guitar plays in bars 98, 99, 100 and 104. The guitar falls silent in bars 101 to 103, which is where the bleed-proof core sits.</li>
+  <li><b>Snare and cymbal content in the coda is withdrawn entirely.</b> The eye supports kick and toms, and nothing else.</li>
+ </ul>
+ <p>The conclusion is unchanged and firmer. Bars 98 to 104 hold a drummer playing kick and toms continuously, and the tab holds eight attacks.</p>
 </div>
 
 <h3>Defect two: sixteen instants that need three hands</h3>
@@ -198,12 +221,12 @@ a{color:#0d6f88;font-weight:600}
  <div class="card t1"><div class="k a">105</div><div class="lab">bars mapped</div><div class="fine">no frozen bars</div></div>
  <div class="card t3"><div class="k y">0.684</div><div class="lab">kick + snare match</div><div class="fine">0.274 on the flat clock</div></div>
  <div class="card t4"><div class="k g">3.49&times;</div><div class="lab">discrimination</div><div class="fine">floor is 1.5&times;</div></div>
- <div class="card t2"><div class="k s">81</div><div class="lab">attacks now locatable</div><div class="fine">in bars 98 to 104</div></div>
+ <div class="card t2"><div class="k s">86</div><div class="lab">attacks now locatable</div><div class="fine">kick and toms, bars 98 to 104</div></div>
 </div>
 
 <h3>What becomes answerable once the map is written into the file</h3>
 <ul>
- <li><b>The coda.</b> Bars 98 to 104 can be transcribed against 81 located attacks with a guitar control at zero.</li>
+ <li><b>The coda.</b> Bars 98 to 104 can be transcribed against 86 eye-confirmed kick and tom attacks, with bars 101 to 103 carrying 36 of them against a silent guitar.</li>
  <li><b>The ride.</b> Per-event adjudication was blocked at 1.46&times;. Ride strokes are eighths, and eighths were what the drift smeared.</li>
  <li><b>The three-hand instants.</b> With events placed correctly, choosing among the three lanes becomes a measurement.</li>
  <li><b>The 202 absent ride notes.</b> That verdict rested on relative bar energy, so it deserves a re-read on the corrected clock while the map is fresh.</li>
@@ -213,6 +236,7 @@ a{color:#0d6f88;font-weight:600}
 <div class="callout red">
  <p>Four separate gates returned a number under the promotion floor. Alignment came back UNUSABLE and was written down as a finding. The project treated a failing gate as a fact about the music. The grid was the thing at fault.</p>
  <p><b>The rule this earns:</b> when an alignment gate fails, repair the clock first, then write detectors. A detector cannot out-measure a broken time base, and 103 of them could not.</p>
+ <p><b>The third rule, earned by looking.</b> A detector count gets rendered and read first, then published. The flux pass put twelve snare marks on a flat trace and would have shipped as fact.</p>
  <p><b>The second rule, earned mid-session.</b> The winning clock was sitting in the same folder as the stems for two days. Inventory what the separation already handed you, then build only what is missing.</p>
 </div>
 

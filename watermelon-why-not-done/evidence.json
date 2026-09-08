@@ -101,8 +101,8 @@
    "recording": "8:25 to 8:58",
    "measured_on": "metronome-anchored clock",
    "tab_notes": 8,
-   "stem_attacks": 81,
-   "guitar_bleed_control": "0 in bars 99 to 104, 2 in bar 98",
+   "stem_attacks": 86,
+   "guitar_bleed_control": "WITHDRAWN. Previously stated as zero in six of seven bars. The eye shows the guitar playing in bars 98, 99, 100 and 104, and silent in 101 to 103.",
    "superseded": "An earlier pass this session, on the weaker onset-derived clock, read this as bars 98 to 103 and 56 attacks, and called bar 104 correctly empty. Bar 104 carries 5 kick and 4 tom onsets. Only bar 105 is correctly empty.",
    "tab_notes_by_bar": {
     "98": 3,
@@ -113,7 +113,71 @@
     "103": 1,
     "104": 0
    },
-   "corrected": "First publication said 7 tab notes. coda.json holds 8. Caught by Brandon 2026-09-08 and verified against the live coda.json."
+   "corrected": "First publication said 7 tab notes. coda.json holds 8. Caught by Brandon 2026-09-08 and verified against the live coda.json.",
+   "stem_attacks_withdrawn": {
+    "value": 81,
+    "reason": "spectral-flux detector at the 95th percentile, never rendered or read. It bundled 12 snare onsets fired on a flat trace and cymbal marks on a decaying wash."
+   },
+   "eye_gated": {
+    "method": "envelope above 10 percent of that stem's own peak in the window, 100 ms separation, rendered to PNG and read",
+    "kick_per_bar": [
+     6,
+     7,
+     4,
+     6,
+     6,
+     5,
+     5
+    ],
+    "kick_total": 39,
+    "toms_per_bar": [
+     11,
+     5,
+     4,
+     6,
+     6,
+     7,
+     8
+    ],
+    "toms_total": 47,
+    "kick_plus_toms": 86,
+    "snare_per_bar": [
+     2,
+     1,
+     0,
+     0,
+     0,
+     0,
+     0
+    ],
+    "cymbals_per_bar": [
+     23,
+     2,
+     3,
+     2,
+     0,
+     2,
+     0
+    ],
+    "guitar_per_bar": [
+     38,
+     2,
+     7,
+     0,
+     0,
+     0,
+     7
+    ],
+    "guitar_total": 54,
+    "bleed_proof_bars": "101 to 103",
+    "bleed_proof_attacks": 36,
+    "bleed_proof_guitar": 0
+   },
+   "stem_attacks_definition": "eye-confirmed kick and tom attacks only; snare and cymbal coda content withdrawn",
+   "images": [
+    "coda-flux-pass.png",
+    "coda-eye-gated.png"
+   ]
   },
   {
    "id": "three-hand",
@@ -271,5 +335,6 @@
    "queue": "q-2026-09-08-85d746"
   }
  ],
- "finite_remaining_work_scope": "Set by Brandon 2026-09-08. Closed list. No further detector unless one of these five edits produces contradictory evidence."
+ "finite_remaining_work_scope": "Set by Brandon 2026-09-08. Closed list. No further detector unless one of these five edits produces contradictory evidence.",
+ "eye_over_detector": "Stop gate G49 (a detector result that disagrees with the eye defers to the eye) forced a render-and-read pass on 2026-09-08. It withdrew three published claims and left the conclusion firmer."
 }
