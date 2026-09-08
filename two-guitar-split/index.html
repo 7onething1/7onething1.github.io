@@ -171,6 +171,55 @@ this song from a wrong recording cannot judge this one either. What can be said
 is narrow and true: on every one of the four numbers this artifact matches or
 beats the human tab of the same song.</div>
 
+<h2>Pitch evidence that alignment cannot break</h2>
+<p>Every alignment-based pitch measure on this catalogue fails its own control,
+because a tab whose attacks sit 105&nbsp;ms off cannot be scored note against note.
+Pitch-CLASS content needs no alignment at all. What a staff plays across the whole
+song either matches what that channel plays across the whole song, or it does not.
+Reported as cosine similarity between the staff's pitch-class histogram and the
+channel's mean chroma.</p>
+
+<div class="tw"><table>
+<thead><tr><th>Scored against</th><th>Gtr 1 cosine</th><th>Gtr 2 cosine</th></tr></thead>
+<tbody>
+<tr class="sep"><td class="song">its OWN channel</td><td class="num">0.9139</td><td class="num">0.9047</td></tr>
+<tr><td class="song">WRONG: Kilgore Trout (same album, same tuning)</td><td class="num">0.6514</td><td class="num">0.6491</td></tr>
+<tr><td class="song">WRONG: The Mars Volta, Octahedron</td><td class="num">0.6904</td><td class="num">0.6549</td></tr>
+<tr><td class="song">WRONG: Simple Forms</td><td class="num">0.5615</td><td class="num">0.6197</td></tr>
+<tr><td class="song">WRONG: Branches on the Arrow Peak</td><td class="num">0.4525</td><td class="num">0.4608</td></tr>
+<tr class="sep"><td class="song"><b>SEPARATION over best wrong stem</b></td><td class="num"><b>+0.2235</b></td><td class="num"><b>+0.2498</b></td></tr>
+</tbody></table></div>
+
+<h3>The same measure on the human Songsterr tab of this song</h3>
+<div class="tw"><table>
+<thead><tr><th>Number</th><th>This artifact</th><th>Human tab</th></tr></thead>
+<tbody>
+<tr><td class="song">Gtr1 cosine to its own channel</td><td class="num">0.9139</td><td class="num">0.6703</td></tr>
+<tr><td class="song">Gtr2 cosine to its own channel</td><td class="num">0.9047</td><td class="num">0.8009</td></tr>
+<tr><td class="song">Gtr1 separation over best wrong stem</td><td class="num">+0.2235</td><td class="num">+0.2130</td></tr>
+<tr><td class="song">Gtr2 separation over best wrong stem</td><td class="num">+0.2498</td><td class="num">+0.0416</td></tr>
+</tbody></table></div>
+
+<div class="call ok"><b>Pitch content is confirmed, and it beats the human tab.</b>
+The measure has power, because it separates on the human tab too. Both staves
+match this recording at 0.90 and above while every wrong stem sits between 0.45
+and 0.69, and that holds against a same-band, same-album, same-tuning control.
+The human tab of the same song reaches 0.67 and 0.80.</div>
+
+<div class="call"><b>What it still does not settle: which channel.</b> The two
+channels have nearly identical pitch-class content, 0.9139 against 0.8957 on one
+staff and 0.9047 against 0.9313 on the other. The two guitarists play the same
+harmony and differ in their attacks, so a chroma measure cannot assign a staff to
+a side. Timing is likewise not established: attack recall 24.4%, pre-warp median
+104.8&nbsp;ms. No ties or note lengths are written, so duration agreement has
+nothing to compare.</div>
+
+<h3>Provenance</h3>
+<p>Zero note ids and zero beat ids in either guitar staff exist in the Songsterr
+AI tab. Of 529 and 633 written events, 25 and 13 happen to coincide with the AI
+tab on bar, position, fret, string and pitch, which is 4.7% and 2.1%, and they
+share no elements. <b>No note content is inherited.</b></p>
+
 <h2>Standing rule</h2>
 <p><b>Two guitars, never four.</b> A third staff is never the answer, and the
 split is decided by who played the note, never by panning or by stem loudness.</p>

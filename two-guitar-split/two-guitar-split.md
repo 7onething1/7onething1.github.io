@@ -88,6 +88,41 @@ controls as badly or worse, and on one staff its shifted control beat its real
 channel, so the measure has no power on this song. This artifact matches or beats
 the human tab on all four numbers.
 
+## Pitch evidence, timing-free
+
+Cosine similarity, staff pitch-class histogram against channel mean chroma.
+
+| Scored against | Gtr 1 | Gtr 2 |
+|---|---|---|
+| its OWN channel | 0.9139 | 0.9047 |
+| WRONG: Kilgore Trout (same album, same tuning) | 0.6514 | 0.6491 |
+| WRONG: Mars Volta, Octahedron | 0.6904 | 0.6549 |
+| WRONG: Simple Forms | 0.5615 | 0.6197 |
+| WRONG: Branches on the Arrow Peak | 0.4525 | 0.4608 |
+| SEPARATION over best wrong stem | +0.2235 | +0.2498 |
+
+Same measure on the human Songsterr tab of this song:
+
+| Number | This artifact | Human tab |
+|---|---|---|
+| Gtr1 cosine to own channel | 0.9139 | 0.6703 |
+| Gtr2 cosine to own channel | 0.9047 | 0.8009 |
+| Gtr1 separation over best wrong | +0.2235 | +0.2130 |
+| Gtr2 separation over best wrong | +0.2498 | +0.0416 |
+
+PITCH CONTENT CONFIRMED and better than the human tab. The measure has power
+because it separates on the human tab too.
+
+NOT settled: which channel (the two channels' chroma are near-identical, 0.9139
+vs 0.8957 and 0.9047 vs 0.9313), timing (recall 24.4%, pre-warp median 104.8 ms),
+and duration/ties (none written).
+
+## Provenance
+
+Zero note ids and zero beat ids inherited from the Songsterr AI tab. 25 of 529
+and 13 of 633 events coincide on bar/position/fret/string/pitch, 4.7% and 2.1%,
+sharing no elements. No note content is inherited.
+
 ## Sources
 
 - `~/Projects/_outputs/impossible-guitar-parts/kilgore-role-separation-2026-09-07/channel_separability_report.csv`
