@@ -1,0 +1,16 @@
+{
+ "alignment": "UNUSABLE",
+ "align_detail": {
+  "verdict": "UNUSABLE",
+  "matched": 115.0,
+  "rate": 0.3362573099415205
+ },
+ "wrong_recording_rate": null,
+ "positions_tested": 63,
+ "positions_with_onset": 42,
+ "by_drum": {
+  "48": 2,
+  "36": 6,
+  "40": 34
+ }
+}

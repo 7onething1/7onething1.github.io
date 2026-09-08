@@ -157,7 +157,9 @@ footer{margin-top:4rem;padding-top:1.3rem;border-top:2px solid var(--line);
 <tr><td class="mono">RESTORED-TEXTSAFE-v2</td><td>ghost restore</td><td>107</td><td>193</td><td>6</td><td>6</td><td>2</td><td>parent only</td></tr>
 </tbody>
 </table></div>
-<p><strong>v13 flattens the kit.</strong> 187 of its 191 toms sit on one drum, midi 48, against six distinct toms on the live staff. Its bar 25 replaces the descending fill with four identical pitches. <strong>The chart build never carried the kit rewrite at all</strong>, so uploading it would have taken the kick from 504 back to 107.</p>
+<p><strong>v13 disagrees with itself about which drum is playing.</strong> That file stores drum identity twice, as a <span class="mono">Midi</span> property and as an <span class="mono">InstrumentArticulation</span> index into the track's own kit table, and the two disagree on <strong>173 notes</strong>. Read one way its 191 toms are 45&times;4 and 48&times;187. Read the other way they are 41&times;62, 45&times;4, 47&times;111 and 48&times;14. The live head and the shipped file both return <strong>zero</strong> such disagreements, so this is v13's defect and not a reading artifact.</p>
+<p class="note">Corrected 2026-09-08. An earlier version of this page reported the single-lane figure as if it were the whole story. It was one of the two stored fields. A peer session reading the articulation index got the other, and the file is what is inconsistent. The articulation is the field the notation renders, so its numbers are the ones to quote.</p>
+<p><strong>The chart build never carried the kit rewrite at all</strong>, so uploading it would have taken the kick from 504 back to 107.</p>
 
 <h2 class="p">The ride, settled on the stem</h2>
 <p>202 ride notes present in the original are absent from the live tab. Brandon's reading was that the original transcription wrote a continuous ride through bars where Colaiuta actually paused. The cymbal stem agrees with him.</p>
@@ -208,6 +210,50 @@ footer{margin-top:4rem;padding-top:1.3rem;border-top:2px solid var(--line);
 <h2 class="g">The set difference, not a count</h2>
 <p>Both sides read from Songsterr's CDN. The change is a pure subtraction: <strong>63 positions present in r8968524 and absent from r8970744, and zero positions present in r8970744 and absent from r8968524</strong>. Every removed position sits in voice 1.</p>
 <p>The full list is published beside this page as <a href="setdiff.json">setdiff.json</a>, keyed by bar, voice, position in quarters and drum. The bars it touches are 6, 7, 8, 10, 11, 12, 13, 16, 17, 22, 23, 24, 26, 27, 28, 30, 31, 32, 35, 36, 38, 39, 42, 44, 45, 47, 54, 55, 56, 58, 59, 60, 62, 63, 64, 78, 80, 84, 85, 90, 92 and 97.</p>
+
+<h2 class="g">The same gates, run against the real stems</h2>
+<p>The transcription-repair machinery had passed its synthesized fixtures without ever meeting a real stem. Here it is, run against the actual 15-stem Watermelon set and the exact shipped artifact <span class="mono">sha256 bc5ce3de02153f39</span>.</p>
+<div class="scroll"><table>
+<thead><tr><th>Gate</th><th>Result</th><th>Detail</th></tr></thead>
+<tbody>
+<tr><td>Regression, scope track 8</td><td class="ok">PASS</td><td>2,765 out-of-scope instances byte-identical, meters unchanged, bar count unchanged, track names unchanged, 63 in-scope changes</td></tr>
+<tr><td>Alignment, snare stem</td><td class="bad">UNUSABLE</td><td>115 of 342 matched at 50 ms. The gate refuses on a stated structural ground: the notated snare series is near-periodic, so a rotation of it is nearly itself and the null has no power. It routes to a landmark test, which was run separately and returned 2 of 4 at p 0.20</td></tr>
+<tr><td>Removed positions vs their own stem</td><td class="mid">42 of 63</td><td>An onset within 70 ms in the matching stem, median distance 35.0 ms. By drum: 34 snare, 6 kick, 2 tom</td></tr>
+<tr><td>Two hands, max 2</td><td class="bad">16 instants over</td><td>Identical in the baseline and the shipped file, so inherited and neither caused nor fixed here</td></tr>
+</tbody>
+</table></div>
+<div class="card hero t">
+<h3 style="margin-top:0">What that ceiling actually means</h3>
+<p>The promotion gate is built to bless edits that rest on <strong>stem timing</strong>, and it requires a CONFIRMED alignment before any stem evidence may support an edit. This alignment is not CONFIRMED, so that gate would refuse, and it should.</p>
+<p style="margin-bottom:0">The 63 removals do not rest on stem timing. They rest on <strong>provenance</strong>: the author's own revision r7715683 writes exactly one plain stroke at all 63 positions, unanimously, which is a document fact that needs no clock. The stem result above is corroboration for two thirds of them and it is not the basis. Nothing here is promoted as stem-validated.</p>
+</div>
+
+<h3>Sixteen instants still ask for three hands</h3>
+<p>Present in the live tab before this edit and after it, unchanged. Each is a tom written under an untouched ride ostinato with the snare on the same instant.</p>
+<div class="scroll"><table>
+<thead><tr><th>Bar</th><th>Position</th><th>Three hand lanes</th></tr></thead>
+<tbody>
+<tr><td>29, 45, 49</td><td>beat 3</td><td>snare, hi mid tom, ride</td></tr>
+<tr><td>41, 85, 89</td><td>beat 3 / beat 1</td><td>snare, high floor tom, ride</td></tr>
+<tr><td>52, 53, 54, 56, 57</td><td>beats 1 and 3</td><td>snare, hi mid tom, ride</td></tr>
+<tr><td>55</td><td>beat 1</td><td>low tom, hi mid tom, ride</td></tr>
+</tbody>
+</table></div>
+<p class="note">Resolving these means dropping one of the three lanes, and the ride lane cannot be adjudicated per event at 1.46x. Recorded rather than guessed.</p>
+
+<h2 class="p">Counts reconciled under one scope</h2>
+<p>Most of the apparent disagreement between sessions is scope rather than substance. Every figure below is a Guitar Pro note INSTANCE on track 8, never a raw stem detection.</p>
+<div class="scroll"><table>
+<thead><tr><th>Figure</th><th>Value</th><th>Scope it belongs to</th></tr></thead>
+<tbody>
+<tr><td>Snare, plain only</td><td>193</td><td>Author r7715683, and unchanged through every revision</td></tr>
+<tr><td>Snare, all instances</td><td>342</td><td>r8968524, 193 plain plus 149 restored ghosts</td></tr>
+<tr><td>Snare, all instances</td><td>293</td><td>r8970744, after 49 duplicate ghosts came out</td></tr>
+<tr><td>Distinct snare POSITIONS</td><td>293</td><td>Identical in r8968524 and r8970744, since only duplicates were removed</td></tr>
+<tr><td>Chart snare heads</td><td>not reportable</td><td>5.0 px per staff space, below the 15 px floor</td></tr>
+</tbody>
+</table></div>
+<p>The 342 against 293 gap is entirely the 49 stacked positions. Counting instances and counting positions answers two different questions, and naming which one is in play removes the disagreement.</p>
 
 <h2 class="t">Proof</h2>
 <div class="card hero y">

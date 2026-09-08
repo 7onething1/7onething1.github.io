@@ -46,7 +46,40 @@ The earlier pass found 49 and stopped at the snare. Sweeping every drum found 12
 | CHART-TOMS | RESTORED | 107 | 193 | 6 | 185 | 4 | rejected |
 | RESTORED-TEXTSAFE-v2 | ghost restore | 107 | 193 | 6 | 6 | 2 | parent only |
 
-v13 flattens the kit, with 187 of its 191 toms on one drum. The chart build never carried the kit rewrite, so it would have taken the kick from 504 back to 107.
+v13 disagrees with itself about which drum is playing. It stores identity twice, as a `Midi` property and as an `InstrumentArticulation` index, and the two disagree on **173 notes**. Read one way its 191 toms are 45x4 and 48x187; read the other way, 41x62, 45x4, 47x111, 48x14. The live head and the shipped file both return zero such disagreements. (Corrected 2026-09-08: an earlier version quoted the single-lane figure as the whole story. The articulation is the field the notation renders, so its numbers are the ones to quote.)
+
+The chart build never carried the kit rewrite, so it would have taken the kick from 504 back to 107.
+
+## The same gates, run against the real stems
+
+Shipped artifact `sha256 bc5ce3de02153f39`.
+
+| Gate | Result | Detail |
+|---|---|---|
+| Regression, scope track 8 | PASS | 2,765 out-of-scope instances byte-identical, meters, bar count and track names unchanged, 63 in-scope changes |
+| Alignment, snare stem | UNUSABLE | 115 of 342 at 50 ms. The notated snare series is near-periodic, so the rotation null has no power. Routes to a landmark test, run separately at 2 of 4, p 0.20 |
+| Removed positions vs their own stem | 42 of 63 | onset within 70 ms, median 35.0 ms; 34 snare, 6 kick, 2 tom |
+| Two hands, max 2 | 16 instants over | identical in baseline and shipped, so inherited |
+
+The promotion gate blesses edits resting on stem timing and needs a CONFIRMED alignment first. This alignment is not CONFIRMED, so that gate would refuse. The 63 removals rest on provenance instead: r7715683 writes one plain stroke at all 63, which is a document fact needing no clock. Nothing here is promoted as stem-validated.
+
+## Sixteen instants still ask for three hands
+
+Present before this edit and after it. Bars 29, 41, 45, 49, 52, 53, 54, 55, 56, 57, 85, 89 at beats 1 and 3, each a tom under an untouched ride with the snare on the same instant. Resolving them means dropping one of three lanes, and the ride cannot be adjudicated per event at 1.46x.
+
+## Counts reconciled under one scope
+
+Every figure is a Guitar Pro note instance on track 8, never a raw stem detection.
+
+| Figure | Value | Scope |
+|---|---|---|
+| Snare, plain only | 193 | author r7715683, unchanged throughout |
+| Snare, all instances | 342 | r8968524, 193 plain plus 149 restored ghosts |
+| Snare, all instances | 293 | r8970744, after 49 duplicate ghosts came out |
+| Distinct snare positions | 293 | identical in both revisions |
+| Chart snare heads | not reportable | 5.0 px per staff space, below the 15 px floor |
+
+The 342 against 293 gap is entirely the 49 stacked positions.
 
 ## The ride, settled on the stem
 

@@ -1,0 +1,256 @@
+[
+ {
+  "bar": 29,
+  "pos": "3",
+  "hand_lanes": [
+   40,
+   48,
+   51
+  ],
+  "names": [
+   "snare2",
+   "tom hi mid",
+   "ride"
+  ],
+  "feet": []
+ },
+ {
+  "bar": 41,
+  "pos": "3",
+  "hand_lanes": [
+   40,
+   43,
+   51
+  ],
+  "names": [
+   "snare2",
+   "tom high floor",
+   "ride"
+  ],
+  "feet": [
+   44
+  ]
+ },
+ {
+  "bar": 45,
+  "pos": "3",
+  "hand_lanes": [
+   40,
+   48,
+   51
+  ],
+  "names": [
+   "snare2",
+   "tom hi mid",
+   "ride"
+  ],
+  "feet": [
+   44
+  ]
+ },
+ {
+  "bar": 49,
+  "pos": "3",
+  "hand_lanes": [
+   40,
+   48,
+   51
+  ],
+  "names": [
+   "snare2",
+   "tom hi mid",
+   "ride"
+  ],
+  "feet": [
+   44
+  ]
+ },
+ {
+  "bar": 52,
+  "pos": "1",
+  "hand_lanes": [
+   40,
+   48,
+   51
+  ],
+  "names": [
+   "snare2",
+   "tom hi mid",
+   "ride"
+  ],
+  "feet": []
+ },
+ {
+  "bar": 52,
+  "pos": "3",
+  "hand_lanes": [
+   40,
+   48,
+   51
+  ],
+  "names": [
+   "snare2",
+   "tom hi mid",
+   "ride"
+  ],
+  "feet": []
+ },
+ {
+  "bar": 53,
+  "pos": "1",
+  "hand_lanes": [
+   40,
+   48,
+   51
+  ],
+  "names": [
+   "snare2",
+   "tom hi mid",
+   "ride"
+  ],
+  "feet": []
+ },
+ {
+  "bar": 54,
+  "pos": "1",
+  "hand_lanes": [
+   40,
+   48,
+   51
+  ],
+  "names": [
+   "snare2",
+   "tom hi mid",
+   "ride"
+  ],
+  "feet": []
+ },
+ {
+  "bar": 54,
+  "pos": "3",
+  "hand_lanes": [
+   40,
+   48,
+   51
+  ],
+  "names": [
+   "snare2",
+   "tom hi mid",
+   "ride"
+  ],
+  "feet": []
+ },
+ {
+  "bar": 55,
+  "pos": "1",
+  "hand_lanes": [
+   45,
+   48,
+   51
+  ],
+  "names": [
+   "tom low",
+   "tom hi mid",
+   "ride"
+  ],
+  "feet": []
+ },
+ {
+  "bar": 56,
+  "pos": "1",
+  "hand_lanes": [
+   40,
+   48,
+   51
+  ],
+  "names": [
+   "snare2",
+   "tom hi mid",
+   "ride"
+  ],
+  "feet": []
+ },
+ {
+  "bar": 56,
+  "pos": "3",
+  "hand_lanes": [
+   40,
+   48,
+   51
+  ],
+  "names": [
+   "snare2",
+   "tom hi mid",
+   "ride"
+  ],
+  "feet": [
+   44
+  ]
+ },
+ {
+  "bar": 57,
+  "pos": "1",
+  "hand_lanes": [
+   40,
+   48,
+   51
+  ],
+  "names": [
+   "snare2",
+   "tom hi mid",
+   "ride"
+  ],
+  "feet": [
+   44
+  ]
+ },
+ {
+  "bar": 57,
+  "pos": "3",
+  "hand_lanes": [
+   40,
+   48,
+   51
+  ],
+  "names": [
+   "snare2",
+   "tom hi mid",
+   "ride"
+  ],
+  "feet": [
+   44
+  ]
+ },
+ {
+  "bar": 85,
+  "pos": "1",
+  "hand_lanes": [
+   40,
+   43,
+   51
+  ],
+  "names": [
+   "snare2",
+   "tom high floor",
+   "ride"
+  ],
+  "feet": []
+ },
+ {
+  "bar": 89,
+  "pos": "1",
+  "hand_lanes": [
+   40,
+   43,
+   51
+  ],
+  "names": [
+   "snare2",
+   "tom high floor",
+   "ride"
+  ],
+  "feet": [
+   44
+  ]
+ }
+]
