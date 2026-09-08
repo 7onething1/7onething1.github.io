@@ -1,3 +1,18 @@
+> **CORRECTED 2026-09-07.** This page said 17 songs were still stripped. Live reads say
+> otherwise. `ghost_sweep.json` was frozen at the revisions published on 2026-09-05, so every
+> restore landing after that was invisible to it. Watermelon In Easter Hay is the clearest case:
+> the file recorded 0 ghosts at revision 8768414, and a live read of revision 8908034 counts
+> 1,333, being 1,317 on the drum part and 16 on the clean guitar.
+>
+> Of 24 rows, 20 carried a wrong count, a wrong revision or a wrong verdict. Twenty one songs now
+> read RESTORED. Three are PARTIAL and none is fully stripped: Inca Roads s412178 at 9 of 165,
+> Zomby Woof s412162 at 10 of 32, Trouble Every Day (Live) s412170 at 3 of 9.
+>
+> One data defect in the file itself: Montana s35870 appears on two rows, expecting 212 and 105.
+> Both read 574 live. That duplicate is why a 24 row file describes 23 songs.
+>
+> Stale copy preserved at `ghost_sweep.json.bak-stale-2026-09-07`.
+
 # Zappa Repair State
 
 Two questions Brandon asked, answered from Songsterr's own served data, measured live
@@ -33,23 +48,23 @@ audit on disk.
 
 | song | title | part | was | now | gap | verdict |
 |---|---|---|---|---|---|---|
-| 35881 | Watermelon In Easter Hay | Vinnie Colaiuta | 1317 | 0 | 1317 | STILL STRIPPED |
-| 35886 | Muffin Man | Terry Bozio | 578 | 0 | 578 | STILL STRIPPED |
-| 620961 | Drowning Witch | Drums | 419 | 0 | 419 | STILL STRIPPED |
-| 35870 | Montana | 1 Ralph Humphrey | 212 | 0 | 212 | STILL STRIPPED |
-| 1105085 | The Black Page | Drums | 173 | 0 | 173 | STILL STRIPPED |
-| 35865 | Nanook Rubs It | Drums | 168 | 0 | 168 | STILL STRIPPED |
-| 35878 | Nanook Suite | Drums | 168 | 0 | 168 | STILL STRIPPED |
-| 412178 | Inca Roads | Chester Thompson | 165 | 0 | 165 | STILL STRIPPED |
-| 68248 | Carolina Hard-Core Ecstasy | Drums | 144 | 0 | 144 | STILL STRIPPED |
-| 35884 | Oh No | Drums | 141 | 0 | 141 | STILL STRIPPED |
-| 35870 | Montana | Percussion | 105 | 0 | 105 | STILL STRIPPED |
-| 68246 | Alien Orifice | Chad Wackerman | 86 | 0 | 86 | STILL STRIPPED |
-| 35887 | What's New In Baltimore? | Chad Wackerman | 59 | 0 | 59 | STILL STRIPPED |
-| 748459 | Fembot In A Wet T-Shirt | Vinnie Colaiuta | 57 | 0 | 57 | STILL STRIPPED |
-| 412162 | Zomby Woof | Ralph Humphrey | 32 | 0 | 32 | STILL STRIPPED |
-| 20690 | Uncle Meat (YCDTOSA Vol. 2) | Percussions | 24 | 0 | 24 | STILL STRIPPED |
-| 749523 | Catholic Girls | Drums | 16 | 0 | 16 | STILL STRIPPED |
+| 35881 | Watermelon In Easter Hay | Vinnie Colaiuta | 1317 | 0 | 1317 | see the correction note above |
+| 35886 | Muffin Man | Terry Bozio | 578 | 0 | 578 | see the correction note above |
+| 620961 | Drowning Witch | Drums | 419 | 0 | 419 | see the correction note above |
+| 35870 | Montana | 1 Ralph Humphrey | 212 | 0 | 212 | see the correction note above |
+| 1105085 | The Black Page | Drums | 173 | 0 | 173 | see the correction note above |
+| 35865 | Nanook Rubs It | Drums | 168 | 0 | 168 | see the correction note above |
+| 35878 | Nanook Suite | Drums | 168 | 0 | 168 | see the correction note above |
+| 412178 | Inca Roads | Chester Thompson | 165 | 0 | 165 | see the correction note above |
+| 68248 | Carolina Hard-Core Ecstasy | Drums | 144 | 0 | 144 | see the correction note above |
+| 35884 | Oh No | Drums | 141 | 0 | 141 | see the correction note above |
+| 35870 | Montana | Percussion | 105 | 0 | 105 | see the correction note above |
+| 68246 | Alien Orifice | Chad Wackerman | 86 | 0 | 86 | see the correction note above |
+| 35887 | What's New In Baltimore? | Chad Wackerman | 59 | 0 | 59 | see the correction note above |
+| 748459 | Fembot In A Wet T-Shirt | Vinnie Colaiuta | 57 | 0 | 57 | see the correction note above |
+| 412162 | Zomby Woof | Ralph Humphrey | 32 | 0 | 32 | see the correction note above |
+| 20690 | Uncle Meat (YCDTOSA Vol. 2) | Percussions | 24 | 0 | 24 | see the correction note above |
+| 749523 | Catholic Girls | Drums | 16 | 0 | 16 | see the correction note above |
 | 412170 | Trouble Every Day (Live) | Chad Wakerman - Percussion | 9 | 3 | 6 | PARTIAL |
 | 21495 | Andy | Drums | 1 | 1 |  | RESTORED |
 | 35875 | Packard Goose | Drums | 3 | 3 |  | RESTORED |

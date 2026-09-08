@@ -4,45 +4,91 @@
   "title": "Uncle Meat (YCDTOSA Vol. 2)",
   "part": "Percussions",
   "was": 24,
-  "now": 0,
-  "liveRev": 8788757,
-  "verdict": "STILL STRIPPED"
+  "now": 84,
+  "liveRev": 8909627,
+  "verdict": "RESTORED",
+  "ghosts_by_part": {
+   "3": 30,
+   "5": 30,
+   "10": 24
+  },
+  "measured_at": "2026-09-07",
+  "measured_by": "live api read, this session"
  },
  {
   "songId": "21495",
   "title": "Andy",
   "part": "Drums",
   "was": 1,
-  "now": 1,
+  "now": 5,
   "liveRev": 41271,
-  "verdict": "RESTORED"
+  "verdict": "RESTORED",
+  "ghosts_by_part": {
+   "7": 4,
+   "8": 1
+  },
+  "measured_at": "2026-09-07",
+  "measured_by": "live api read, this session"
  },
  {
   "songId": "35865",
   "title": "Nanook Rubs It",
   "part": "Drums",
   "was": 168,
-  "now": 0,
-  "liveRev": 8768967,
-  "verdict": "STILL STRIPPED"
+  "now": 168,
+  "liveRev": 8907423,
+  "verdict": "RESTORED",
+  "ghosts_by_part": {
+   "8": 168
+  },
+  "measured_at": "2026-09-07",
+  "measured_by": "live api read, this session"
  },
  {
   "songId": "35870",
   "title": "Montana",
   "part": "1 Ralph Humphrey",
   "was": 212,
-  "now": 0,
-  "liveRev": 8787106,
-  "verdict": "STILL STRIPPED"
+  "now": 574,
+  "liveRev": 8945851,
+  "verdict": "RESTORED",
+  "ghosts_by_part": {
+   "0": 24,
+   "1": 62,
+   "2": 16,
+   "3": 112,
+   "5": 6,
+   "10": 23,
+   "13": 7,
+   "14": 7,
+   "15": 212,
+   "17": 105
+  },
+  "measured_at": "2026-09-07",
+  "measured_by": "live api read, this session"
  },
  {
   "songId": "35870",
   "title": "Montana",
   "part": "Percussion",
   "was": 105,
-  "now": 0,
-  "liveRev": 8787106,
-  "verdict": "STILL STRIPPED"
+  "now": 574,
+  "liveRev": 8945851,
+  "verdict": "RESTORED",
+  "ghosts_by_part": {
+   "0": 24,
+   "1": 62,
+   "2": 16,
+   "3": 112,
+   "5": 6,
+   "10": 23,
+   "13": 7,
+   "14": 7,
+   "15": 212,
+   "17": 105
+  },
+  "measured_at": "2026-09-07",
+  "measured_by": "live api read, this session"
  },
  {
   "songId": "35875",
@@ -51,26 +97,42 @@
   "was": 3,
   "now": 3,
   "liveRev": 1794391,
-  "verdict": "RESTORED"
+  "verdict": "RESTORED",
+  "ghosts_by_part": {
+   "6": 3
+  },
+  "measured_at": "2026-09-07",
+  "measured_by": "live api read, this session"
  },
  {
   "songId": "35878",
   "title": "Nanook Suite",
   "part": "Drums",
   "was": 168,
-  "now": 0,
-  "liveRev": 8769001,
-  "verdict": "STILL STRIPPED"
+  "now": 171,
+  "liveRev": 8907360,
+  "verdict": "RESTORED",
+  "ghosts_by_part": {
+   "9": 3,
+   "10": 168
+  },
+  "measured_at": "2026-09-07",
+  "measured_by": "live api read, this session"
  },
  {
   "songId": "35881",
   "title": "Watermelon In Easter Hay",
   "part": "Vinnie Colaiuta",
   "was": 1317,
-  "now": 1317,
+  "now": 1333,
   "liveRev": 8908034,
   "verdict": "RESTORED",
-  "verifiedBy": "independent CDN read 2026-09-07: 35881/8908034 part 8, 2091 notes, 1317 ghosts, 105 bars, lane 51=1724, lane 49=53"
+  "ghosts_by_part": {
+   "0": 16,
+   "8": 1317
+  },
+  "measured_at": "2026-09-07",
+  "measured_by": "live api read, this session"
  },
  {
   "songId": "35883",
@@ -79,79 +141,132 @@
   "was": 53,
   "now": 53,
   "liveRev": 7179991,
-  "verdict": "RESTORED"
+  "verdict": "RESTORED",
+  "ghosts_by_part": {
+   "4": 53
+  },
+  "measured_at": "2026-09-07",
+  "measured_by": "live api read, this session"
  },
  {
   "songId": "35884",
   "title": "Oh No",
   "part": "Drums",
   "was": 141,
-  "now": 0,
-  "liveRev": 8769089,
-  "verdict": "STILL STRIPPED"
+  "now": 141,
+  "liveRev": 8908239,
+  "verdict": "RESTORED",
+  "ghosts_by_part": {
+   "5": 141
+  },
+  "measured_at": "2026-09-07",
+  "measured_by": "live api read, this session"
  },
  {
   "songId": "35886",
   "title": "Muffin Man",
   "part": "Terry Bozio",
   "was": 578,
-  "now": 0,
-  "liveRev": 8768517,
-  "verdict": "STILL STRIPPED"
+  "now": 613,
+  "liveRev": 8944638,
+  "verdict": "RESTORED",
+  "ghosts_by_part": {
+   "0": 27,
+   "1": 8,
+   "4": 578
+  },
+  "measured_at": "2026-09-07",
+  "measured_by": "live api read, this session"
  },
  {
   "songId": "35887",
   "title": "What's New In Baltimore?",
   "part": "Chad Wackerman",
   "was": 59,
-  "now": 0,
-  "liveRev": 8769141,
-  "verdict": "STILL STRIPPED"
+  "now": 59,
+  "liveRev": 8946169,
+  "verdict": "RESTORED",
+  "ghosts_by_part": {
+   "6": 59
+  },
+  "measured_at": "2026-09-07",
+  "measured_by": "live api read, this session"
  },
  {
   "songId": "35889",
   "title": "Peaches En Regalia",
   "part": "Drums",
   "was": 14,
-  "now": 14,
+  "now": 15,
   "liveRev": 7048017,
-  "verdict": "RESTORED"
+  "verdict": "RESTORED",
+  "ghosts_by_part": {
+   "0": 1,
+   "9": 14
+  },
+  "measured_at": "2026-09-07",
+  "measured_by": "live api read, this session"
  },
  {
   "songId": "59089",
   "title": "Black Napkins",
   "part": "Terry Bozio",
   "was": 1,
-  "now": 1,
+  "now": 25,
   "liveRev": 5408436,
-  "verdict": "RESTORED"
+  "verdict": "RESTORED",
+  "ghosts_by_part": {
+   "0": 24,
+   "4": 1
+  },
+  "measured_at": "2026-09-07",
+  "measured_by": "live api read, this session"
  },
  {
   "songId": "68246",
   "title": "Alien Orifice",
   "part": "Chad Wackerman",
   "was": 86,
-  "now": 0,
-  "liveRev": 8769118,
-  "verdict": "STILL STRIPPED"
+  "now": 97,
+  "liveRev": 8950172,
+  "verdict": "RESTORED",
+  "ghosts_by_part": {
+   "0": 1,
+   "1": 6,
+   "4": 2,
+   "6": 2,
+   "9": 86
+  },
+  "measured_at": "2026-09-07",
+  "measured_by": "live api read, this session"
  },
  {
   "songId": "68248",
   "title": "Carolina Hard-Core Ecstasy",
   "part": "Drums",
   "was": 144,
-  "now": 0,
-  "liveRev": 8769058,
-  "verdict": "STILL STRIPPED"
+  "now": 144,
+  "liveRev": 8908182,
+  "verdict": "RESTORED",
+  "ghosts_by_part": {
+   "4": 144
+  },
+  "measured_at": "2026-09-07",
+  "measured_by": "live api read, this session"
  },
  {
   "songId": "412162",
   "title": "Zomby Woof",
   "part": "Ralph Humphrey",
   "was": 32,
-  "now": 0,
-  "liveRev": 8814965,
-  "verdict": "STILL STRIPPED"
+  "now": 10,
+  "liveRev": 8918601,
+  "verdict": "PARTIAL",
+  "ghosts_by_part": {
+   "9": 10
+  },
+  "measured_at": "2026-09-07",
+  "measured_by": "live api read, this session"
  },
  {
   "songId": "412170",
@@ -160,16 +275,27 @@
   "was": 9,
   "now": 3,
   "liveRev": 8815000,
-  "verdict": "PARTIAL"
+  "verdict": "PARTIAL",
+  "ghosts_by_part": {
+   "4": 3
+  },
+  "measured_at": "2026-09-07",
+  "measured_by": "live api read, this session"
  },
  {
   "songId": "412178",
   "title": "Inca Roads",
   "part": "Chester Thompson",
   "was": 165,
-  "now": 0,
+  "now": 9,
   "liveRev": 8769026,
-  "verdict": "STILL STRIPPED"
+  "verdict": "PARTIAL",
+  "ghosts_by_part": {
+   "0": 6,
+   "9": 3
+  },
+  "measured_at": "2026-09-07",
+  "measured_by": "live api read, this session"
  },
  {
   "songId": "604777",
@@ -178,42 +304,77 @@
   "was": 629,
   "now": 629,
   "liveRev": 8852151,
-  "verdict": "RESTORED"
+  "verdict": "RESTORED",
+  "ghosts_by_part": {
+   "8": 629
+  },
+  "measured_at": "2026-09-07",
+  "measured_by": "live api read, this session"
  },
  {
   "songId": "620961",
   "title": "Drowning Witch",
   "part": "Drums",
   "was": 419,
-  "now": 0,
-  "liveRev": 8768566,
-  "verdict": "STILL STRIPPED"
+  "now": 496,
+  "liveRev": 8945141,
+  "verdict": "RESTORED",
+  "ghosts_by_part": {
+   "1": 27,
+   "2": 3,
+   "3": 1,
+   "4": 15,
+   "5": 1,
+   "7": 2,
+   "9": 3,
+   "12": 21,
+   "14": 4,
+   "15": 419
+  },
+  "measured_at": "2026-09-07",
+  "measured_by": "live api read, this session"
  },
  {
   "songId": "748459",
   "title": "Fembot In A Wet T-Shirt",
   "part": "Vinnie Colaiuta",
   "was": 57,
-  "now": 0,
-  "liveRev": 8769165,
-  "verdict": "STILL STRIPPED"
+  "now": 59,
+  "liveRev": 8948805,
+  "verdict": "RESTORED",
+  "ghosts_by_part": {
+   "0": 2,
+   "8": 57
+  },
+  "measured_at": "2026-09-07",
+  "measured_by": "live api read, this session"
  },
  {
   "songId": "749523",
   "title": "Catholic Girls",
   "part": "Drums",
   "was": 16,
-  "now": 0,
-  "liveRev": 8788801,
-  "verdict": "STILL STRIPPED"
+  "now": 16,
+  "liveRev": 8945977,
+  "verdict": "RESTORED",
+  "ghosts_by_part": {
+   "1": 16
+  },
+  "measured_at": "2026-09-07",
+  "measured_by": "live api read, this session"
  },
  {
   "songId": "1105085",
   "title": "The Black Page",
   "part": "Drums",
   "was": 173,
-  "now": 0,
-  "liveRev": 8768613,
-  "verdict": "STILL STRIPPED"
+  "now": 173,
+  "liveRev": 8907247,
+  "verdict": "RESTORED",
+  "ghosts_by_part": {
+   "3": 173
+  },
+  "measured_at": "2026-09-07",
+  "measured_by": "live api read, this session"
  }
 ]

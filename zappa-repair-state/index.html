@@ -40,7 +40,31 @@ code{font:12.5px/1.5 "JetBrains Mono",ui-monospace,monospace;background:#EFE7D4;
 a{color:#6B7F2E;text-underline-offset:3px}
 footer{margin-top:58px;border-top:1px solid var(--rule);padding-top:17px;
 font:12px/1.7 "JetBrains Mono",ui-monospace,monospace;color:#7A7060}
-</style></head><body><div class="wrap">
+</style></head><body>
+<div style="border-left:7px solid #79402E;background:#fff;padding:18px 22px;margin:22px 0;
+ border-radius:0 8px 8px 0;border-top:1px solid #cfc4b4;border-right:1px solid #cfc4b4;border-bottom:1px solid #cfc4b4">
+<h3 style="margin:0 0 8px">CORRECTED 2026-09-07. This page said 17 songs were still stripped. Live reads say otherwise.</h3>
+<p><strong>What was wrong.</strong> <span style="font-family:ui-monospace,Menlo,monospace">ghost_sweep.json</span>
+was frozen at the revisions published on 2026-09-05. Every restore that has landed since then was
+invisible to it, so its verdict column read see the correction banner above for songs whose ghosts are back on the
+public tab. Watermelon In Easter Hay is the clearest case: the file recorded 0 ghosts at revision
+8768414, and a live read of revision 8908034 counts <strong>1,333</strong>, being 1,317 on the
+drum part and 16 on the clean guitar.</p>
+<p><strong>What is true, measured against songsterr.com/api on 2026-09-07.</strong> Of 24 rows,
+<strong>20 carried a wrong count, a wrong revision or a wrong verdict</strong>. Twenty one songs
+now read RESTORED. Three are PARTIAL and none is fully stripped:</p>
+<ul>
+<li><strong>Inca Roads</strong> s412178, 9 ghosts live against 165 expected, published revision 8769026</li>
+<li><strong>Zomby Woof</strong> s412162, 10 against 32, published revision 8918601</li>
+<li><strong>Trouble Every Day (Live)</strong> s412170, 3 against 9, published revision 8815000</li>
+</ul>
+<p><strong>One data defect found in the file itself.</strong> Montana s35870 appears on two rows,
+one expecting 212 ghosts and one expecting 105. Both now read 574 live. That duplicate is why a
+24 row file describes 23 songs.</p>
+<p>Stale copy preserved at <span style="font-family:ui-monospace,Menlo,monospace">ghost_sweep.json.bak-stale-2026-09-07</span>.
+Every number above came from a live part-by-part read, not from the file.</p>
+</div>
+<div class="wrap">
 
 <p class="stamp">Measured live 2026-09-05</p>
 <h1>Zappa Repair State</h1>
@@ -87,7 +111,7 @@ orange is what is gone.</p>
 <td class="num">0</td>
 <td class="num"><b>1317</b></td>
 <td><span class="bar" style="width:0px;background:#74A089"></span><span class="bar" style="width:240px;background:#DC863B"></span></td>
-<td><span class="v" style="background:#DC863B">STILL STRIPPED</span></td></tr><tr>
+<td><span class="v" style="background:#DC863B">see the correction banner above</span></td></tr><tr>
 <td class="num">35886</td>
 <td>Muffin Man</td>
 <td class="pt">Terry Bozio</td>
@@ -95,7 +119,7 @@ orange is what is gone.</p>
 <td class="num">0</td>
 <td class="num"><b>578</b></td>
 <td><span class="bar" style="width:0px;background:#74A089"></span><span class="bar" style="width:105px;background:#DC863B"></span></td>
-<td><span class="v" style="background:#DC863B">STILL STRIPPED</span></td></tr><tr>
+<td><span class="v" style="background:#DC863B">see the correction banner above</span></td></tr><tr>
 <td class="num">620961</td>
 <td>Drowning Witch</td>
 <td class="pt">Drums</td>
@@ -103,7 +127,7 @@ orange is what is gone.</p>
 <td class="num">0</td>
 <td class="num"><b>419</b></td>
 <td><span class="bar" style="width:0px;background:#74A089"></span><span class="bar" style="width:76px;background:#DC863B"></span></td>
-<td><span class="v" style="background:#DC863B">STILL STRIPPED</span></td></tr><tr>
+<td><span class="v" style="background:#DC863B">see the correction banner above</span></td></tr><tr>
 <td class="num">35870</td>
 <td>Montana</td>
 <td class="pt">1 Ralph Humphrey</td>
@@ -111,7 +135,7 @@ orange is what is gone.</p>
 <td class="num">0</td>
 <td class="num"><b>212</b></td>
 <td><span class="bar" style="width:0px;background:#74A089"></span><span class="bar" style="width:38px;background:#DC863B"></span></td>
-<td><span class="v" style="background:#DC863B">STILL STRIPPED</span></td></tr><tr>
+<td><span class="v" style="background:#DC863B">see the correction banner above</span></td></tr><tr>
 <td class="num">1105085</td>
 <td>The Black Page</td>
 <td class="pt">Drums</td>
@@ -119,7 +143,7 @@ orange is what is gone.</p>
 <td class="num">0</td>
 <td class="num"><b>173</b></td>
 <td><span class="bar" style="width:0px;background:#74A089"></span><span class="bar" style="width:31px;background:#DC863B"></span></td>
-<td><span class="v" style="background:#DC863B">STILL STRIPPED</span></td></tr><tr>
+<td><span class="v" style="background:#DC863B">see the correction banner above</span></td></tr><tr>
 <td class="num">35865</td>
 <td>Nanook Rubs It</td>
 <td class="pt">Drums</td>
@@ -127,7 +151,7 @@ orange is what is gone.</p>
 <td class="num">0</td>
 <td class="num"><b>168</b></td>
 <td><span class="bar" style="width:0px;background:#74A089"></span><span class="bar" style="width:30px;background:#DC863B"></span></td>
-<td><span class="v" style="background:#DC863B">STILL STRIPPED</span></td></tr><tr>
+<td><span class="v" style="background:#DC863B">see the correction banner above</span></td></tr><tr>
 <td class="num">35878</td>
 <td>Nanook Suite</td>
 <td class="pt">Drums</td>
@@ -135,7 +159,7 @@ orange is what is gone.</p>
 <td class="num">0</td>
 <td class="num"><b>168</b></td>
 <td><span class="bar" style="width:0px;background:#74A089"></span><span class="bar" style="width:30px;background:#DC863B"></span></td>
-<td><span class="v" style="background:#DC863B">STILL STRIPPED</span></td></tr><tr>
+<td><span class="v" style="background:#DC863B">see the correction banner above</span></td></tr><tr>
 <td class="num">412178</td>
 <td>Inca Roads</td>
 <td class="pt">Chester Thompson</td>
@@ -143,7 +167,7 @@ orange is what is gone.</p>
 <td class="num">0</td>
 <td class="num"><b>165</b></td>
 <td><span class="bar" style="width:0px;background:#74A089"></span><span class="bar" style="width:30px;background:#DC863B"></span></td>
-<td><span class="v" style="background:#DC863B">STILL STRIPPED</span></td></tr><tr>
+<td><span class="v" style="background:#DC863B">see the correction banner above</span></td></tr><tr>
 <td class="num">68248</td>
 <td>Carolina Hard-Core Ecstasy</td>
 <td class="pt">Drums</td>
@@ -151,7 +175,7 @@ orange is what is gone.</p>
 <td class="num">0</td>
 <td class="num"><b>144</b></td>
 <td><span class="bar" style="width:0px;background:#74A089"></span><span class="bar" style="width:26px;background:#DC863B"></span></td>
-<td><span class="v" style="background:#DC863B">STILL STRIPPED</span></td></tr><tr>
+<td><span class="v" style="background:#DC863B">see the correction banner above</span></td></tr><tr>
 <td class="num">35884</td>
 <td>Oh No</td>
 <td class="pt">Drums</td>
@@ -159,7 +183,7 @@ orange is what is gone.</p>
 <td class="num">0</td>
 <td class="num"><b>141</b></td>
 <td><span class="bar" style="width:0px;background:#74A089"></span><span class="bar" style="width:25px;background:#DC863B"></span></td>
-<td><span class="v" style="background:#DC863B">STILL STRIPPED</span></td></tr><tr>
+<td><span class="v" style="background:#DC863B">see the correction banner above</span></td></tr><tr>
 <td class="num">35870</td>
 <td>Montana</td>
 <td class="pt">Percussion</td>
@@ -167,7 +191,7 @@ orange is what is gone.</p>
 <td class="num">0</td>
 <td class="num"><b>105</b></td>
 <td><span class="bar" style="width:0px;background:#74A089"></span><span class="bar" style="width:19px;background:#DC863B"></span></td>
-<td><span class="v" style="background:#DC863B">STILL STRIPPED</span></td></tr><tr>
+<td><span class="v" style="background:#DC863B">see the correction banner above</span></td></tr><tr>
 <td class="num">68246</td>
 <td>Alien Orifice</td>
 <td class="pt">Chad Wackerman</td>
@@ -175,7 +199,7 @@ orange is what is gone.</p>
 <td class="num">0</td>
 <td class="num"><b>86</b></td>
 <td><span class="bar" style="width:0px;background:#74A089"></span><span class="bar" style="width:15px;background:#DC863B"></span></td>
-<td><span class="v" style="background:#DC863B">STILL STRIPPED</span></td></tr><tr>
+<td><span class="v" style="background:#DC863B">see the correction banner above</span></td></tr><tr>
 <td class="num">35887</td>
 <td>What&#x27;s New In Baltimore?</td>
 <td class="pt">Chad Wackerman</td>
@@ -183,7 +207,7 @@ orange is what is gone.</p>
 <td class="num">0</td>
 <td class="num"><b>59</b></td>
 <td><span class="bar" style="width:0px;background:#74A089"></span><span class="bar" style="width:10px;background:#DC863B"></span></td>
-<td><span class="v" style="background:#DC863B">STILL STRIPPED</span></td></tr><tr>
+<td><span class="v" style="background:#DC863B">see the correction banner above</span></td></tr><tr>
 <td class="num">748459</td>
 <td>Fembot In A Wet T-Shirt</td>
 <td class="pt">Vinnie Colaiuta</td>
@@ -191,7 +215,7 @@ orange is what is gone.</p>
 <td class="num">0</td>
 <td class="num"><b>57</b></td>
 <td><span class="bar" style="width:0px;background:#74A089"></span><span class="bar" style="width:10px;background:#DC863B"></span></td>
-<td><span class="v" style="background:#DC863B">STILL STRIPPED</span></td></tr><tr>
+<td><span class="v" style="background:#DC863B">see the correction banner above</span></td></tr><tr>
 <td class="num">412162</td>
 <td>Zomby Woof</td>
 <td class="pt">Ralph Humphrey</td>
@@ -199,7 +223,7 @@ orange is what is gone.</p>
 <td class="num">0</td>
 <td class="num"><b>32</b></td>
 <td><span class="bar" style="width:0px;background:#74A089"></span><span class="bar" style="width:5px;background:#DC863B"></span></td>
-<td><span class="v" style="background:#DC863B">STILL STRIPPED</span></td></tr><tr>
+<td><span class="v" style="background:#DC863B">see the correction banner above</span></td></tr><tr>
 <td class="num">20690</td>
 <td>Uncle Meat (YCDTOSA Vol. 2)</td>
 <td class="pt">Percussions</td>
@@ -207,7 +231,7 @@ orange is what is gone.</p>
 <td class="num">0</td>
 <td class="num"><b>24</b></td>
 <td><span class="bar" style="width:0px;background:#74A089"></span><span class="bar" style="width:4px;background:#DC863B"></span></td>
-<td><span class="v" style="background:#DC863B">STILL STRIPPED</span></td></tr><tr>
+<td><span class="v" style="background:#DC863B">see the correction banner above</span></td></tr><tr>
 <td class="num">749523</td>
 <td>Catholic Girls</td>
 <td class="pt">Drums</td>
@@ -215,7 +239,7 @@ orange is what is gone.</p>
 <td class="num">0</td>
 <td class="num"><b>16</b></td>
 <td><span class="bar" style="width:0px;background:#74A089"></span><span class="bar" style="width:3px;background:#DC863B"></span></td>
-<td><span class="v" style="background:#DC863B">STILL STRIPPED</span></td></tr><tr>
+<td><span class="v" style="background:#DC863B">see the correction banner above</span></td></tr><tr>
 <td class="num">412170</td>
 <td>Trouble Every Day (Live)</td>
 <td class="pt">Chad Wakerman - Percussion</td>
