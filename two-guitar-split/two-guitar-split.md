@@ -42,6 +42,25 @@ python3 ~/.claude/skills/two-guitar-split/split_stem_channels.py \
 Then transcribe each channel on its own and write the two results onto two
 guitar staves. Two guitars, never four.
 
+## First song through the whole chain
+
+The Immortal Soul of Mundo Cani, margin 70.8.
+
+| Stage | Left / Gtr 1 | Right / Gtr 2 |
+|---|---|---|
+| Transcribed notes | 610 | 691 |
+| Attacks unique to that channel | 358 | 446 |
+| Written to staff | 529 | 633 |
+| Playability gate | REVIEW, 0 hard failures | REVIEW, 0 hard failures |
+| Drums / Vocals preserved | 352 | 22 |
+
+Pitch-class agreement where the two channels coincide is 52.0% against a 25.4%
+shifted control, margin +26.6.
+
+Not established: pitch accuracy (this is detector output), note lengths and ties
+(16th grid only), the last 5 seconds (notation 123.4 s against audio 128.4 s).
+Nothing uploaded.
+
 ## Sources
 
 - `~/Projects/_outputs/impossible-guitar-parts/kilgore-role-separation-2026-09-07/channel_separability_report.csv`
