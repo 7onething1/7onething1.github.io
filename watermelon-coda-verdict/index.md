@@ -111,3 +111,65 @@ Two further items carry agreement from both sessions and neither is applied. GP 
 four heads that are x noteheads on the page, which the skip rule removes, and the stem
 supports only two of six at 5 percent. GP bar 93 holds two heads the stem supports at both 5
 percent and 0.2 percent, and those look solid.
+
+## Three gates the first version never ran
+
+### 1. Transfer gate: REFUSED
+
+Ledger built from the actual artifact diff, RESTORED-s35881-TEXTSAFE-v2.gp against
+CHART-TOMS-s35881-Brandon-edit.gp, scope = drum track index 8. Diff is 179 added tom
+instances (46 on midi 43, 98 on midi 48, 35 on midi 50), matching the chart read exactly.
+
+| Check | Result |
+|---|---|
+| artifact hash matches file tested | PASS 9737d4ef629ca775 |
+| both artifacts materialized | PASS |
+| no edit still PROPOSED | PASS |
+| every applied edit reached VALIDATED | FAIL, 179 applied, 0 validated |
+| at least one VALIDATED edit exists | FAIL, 0 validated |
+| alignment CONFIRMED ahead of stem timing use | FAIL, UNRESOLVED past GP bar 97 |
+| a playability result was supplied | FAIL, none supplied |
+| regression: nothing outside scope moved | PASS, 2765 identical, 179 in scope |
+
+REFUSED, no promotion available. The artifact is not LOCAL_VALIDATED. Regression itself is
+clean: zero unrelated changes.
+
+### 2. Bar 25 local calibration: a -87.1 ms clock bias
+
+Brandon hand-wrote 8 tom notes in GP bar 25. Matched one to one (mir_eval convention).
+
+| threshold | stem attacks | matched of 8 | busiest window |
+|---|---|---|---|
+| 5.0% of peak | 15 | 7 | 1 |
+| 2.0% | 25 | 8 | 1 |
+| 1.0% | 32 | 8 | 1 |
+| 0.5% | 34 | 8 | 1 |
+
+All 8 signed residuals negative: -119.6, -97.5, -58.0, -76.6, -112.6, -49.9, -56.9, -98.7 ms.
+Median -87.1 ms, std 25.3 ms. Median exceeds twice the spread, so this is a CONSTANT CLOCK
+OFFSET. One sixteenth is 267.9 ms. Raw residual is 0.325 of a sixteenth; after removing the
+bias the scatter is 25.3 ms, which is 0.094 of a sixteenth. The figure sits on the ordinary
+sixteenth grid, and the competing sub-sixteenth counts of 41, 44, 49 and 51 are consistent
+with an uncorrected bias. None supports minting thirty-seconds.
+
+### 3. Cymbal one to one: licenses no removal
+
+Fresh attacks via tr_audio.cymbal_events. Whole file: 1663 candidates, 908 NEW_ATTACK,
+442 UNRESOLVED, against 1778 written cymbal events.
+
+| GP bar | written | fresh | matched | reading |
+|---|---|---|---|---|
+| 5 | 20 | 5 | 4 | 16 unmatched |
+| 14 | 15 | 8 | 7 | 8 unmatched |
+| 25 | 20 | 7 | 5 | 15 unmatched |
+| 85 | 20 | 9 | 6 | 14 unmatched |
+| 93 | 20 | 12 | 4 | 16 unmatched |
+| 95 | 20 | 13 | 9 | 11 unmatched |
+| 97 | 20 | 1 | 0 | 20 unmatched |
+| 99, 100, 101, 103 | 75 | 0 | 0 | all unmatched |
+
+Global recall is 908 against 1778, about half the notation across the whole song, and each
+per-bar shortfall reproduces that global rate. Removal needs a usable source to fail
+affirmatively after alignment and leakage gates pass. Alignment is UNRESOLVED past GP bar 97
+and 442 candidates are UNRESOLVED. Every unmatched written cymbal stays UNRESOLVED and stays
+in the file.

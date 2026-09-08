@@ -68,6 +68,8 @@ footer{color:var(--muted);font-size:13px;text-align:center;margin-top:40px}
     <span class="tag">no verdict <b>9</b></span>
     <span class="tag">moot <b>10</b></span>
     <span class="tag">kit stops at <b>538.9 s</b></span>
+    <span class="tag">transfer gate <b>REFUSED</b></span>
+    <span class="tag">bar 25 clock bias <b>-87.1 ms</b></span>
   </div>
 </header>
 
@@ -165,6 +167,65 @@ footer{color:var(--muted);font-size:13px;text-align:center;margin-top:40px}
 <h2>One correction to the record</h2>
 <p>The notation clock for this tab runs at <b>quarter equals 56</b>. The tempo automation stores 56 against a half-note unit, and reading that as a quarter-note value doubles the tempo. Bar 93 is a 4/4 bar spanning 447.857 to 452.143 seconds in notation time, which is 1.0714 seconds per quarter and confirms 56 directly.</p>
 <p>At 56 the 105 bars occupy 8 minutes 26 seconds, which fits a track running 9 minutes 5 seconds. At 112 they would occupy 4 minutes 13 seconds, which does not. One sixteenth note is <b>267.9 milliseconds</b>, and any earlier figure of 133.9 is the doubled reading.</p>
+</section>
+
+
+<section>
+<h2>Three gates the first version of this page never ran</h2>
+<p>The first build tested 29 chart tom heads and stopped there. It did not put the repaired artifact through the transfer gate, it used a global tempo rule rather than local calibration, and it never matched cymbals one to one. All three ran on 2026-09-08 and all three returned something.</p>
+
+<h3>1. The transfer gate REFUSES the repaired artifact</h3>
+<p>Ledger built from the actual artifact diff, <span class="mono">RESTORED-s35881-TEXTSAFE-v2.gp</span> against <span class="mono">CHART-TOMS-s35881-Brandon-edit.gp</span>, scope set to drum track index 8. The diff is <b>179 added tom instances</b>, matching the chart read exactly at 46 on midi 43, 98 on midi 48, 35 on midi 50.</p>
+<div class="scroll">
+<table>
+<tr><th>Check</th><th>Result</th></tr>
+<tr><td>artifact hash matches the file tested</td><td><b>PASS</b> 9737d4ef629ca775</td></tr>
+<tr><td>both artifacts are materialized files</td><td><b>PASS</b></td></tr>
+<tr><td>no edit is still PROPOSED</td><td><b>PASS</b></td></tr>
+<tr><td>every applied edit reached VALIDATED</td><td><b>FAIL</b> 179 applied, 0 validated</td></tr>
+<tr><td>at least one VALIDATED edit exists</td><td><b>FAIL</b> 0 validated</td></tr>
+<tr><td>alignment CONFIRMED ahead of any stem timing use</td><td><b>FAIL</b> UNRESOLVED past GP bar 97</td></tr>
+<tr><td>a playability result was supplied</td><td><b>FAIL</b> none supplied</td></tr>
+<tr><td>regression: nothing outside scope moved, something inside did</td><td><b>PASS</b> 2765 out-of-scope instances identical, 179 in scope</td></tr>
+</table>
+</div>
+<div class="warn"><b>Verdict: REFUSED, no promotion available.</b> The artifact is not LOCAL_VALIDATED. The 179 toms were placed from the printed chart with no onset detector, so they carry chart evidence and no stem evidence, and the gate is correct to hold them.</div>
+<div class="proof"><b>Regression is clean.</b> 2765 out-of-scope note instances are identical on both sides, meters and bar count and track names unchanged, and the only in-scope change is the 179 additions. Zero unrelated regression changes.</div>
+
+<h3>2. Bar 25 as local calibration, and it finds a clock bias</h3>
+<p>Brandon hand-wrote <b>8 tom notes</b> in GP bar 25. Matched one to one against the tom stem under the mir_eval convention, so one transient cannot validate several written notes.</p>
+<div class="scroll">
+<table>
+<tr><th>threshold</th><th class="num">stem attacks</th><th class="num">matched of 8</th><th class="num">busiest window</th></tr>
+<tr><td>5.0 percent of peak</td><td class="num">15</td><td class="num">7</td><td class="num">1</td></tr>
+<tr><td>2.0 percent</td><td class="num">25</td><td class="num"><b>8</b></td><td class="num">1</td></tr>
+<tr><td>1.0 percent</td><td class="num">32</td><td class="num"><b>8</b></td><td class="num">1</td></tr>
+<tr><td>0.5 percent</td><td class="num">34</td><td class="num"><b>8</b></td><td class="num">1</td></tr>
+</table>
+</div>
+<p>All eight signed residuals are <b>negative</b>: -119.6, -97.5, -58.0, -76.6, -112.6, -49.9, -56.9, -98.7 ms. Median <b>-87.1 ms</b> with a standard deviation of <b>25.3 ms</b>. The median is more than twice the spread, so this is a <b>constant clock offset</b> rather than performance scatter. The stem attacks arrive 87 ms ahead of where the alignment map puts them.</p>
+<div class="proof">
+<b>What that settles.</b> One sixteenth here is 267.9 ms. The raw median residual is 0.325 of a sixteenth, which looks like evidence for finer subdivisions. Removing the 87 ms bias leaves <b>25.3 ms of scatter, which is 0.094 of a sixteenth</b>. The figure sits on the ordinary sixteenth grid. The competing sub-sixteenth tom counts of 41, 44, 49 and 51 are consistent with an uncorrected clock bias, and none of them supports minting thirty-seconds.
+</div>
+
+<h3>3. Cymbal one to one, and it licenses no removal</h3>
+<p>Fresh attacks read from the cymbal stem with <span class="mono">tr_audio.cymbal_events</span>, which separates a new stroke from a decaying resonant bed. Over the whole file: <b>1663 candidates, 908 NEW_ATTACK, 442 UNRESOLVED</b>, against <b>1778 written cymbal events</b>.</p>
+<div class="scroll">
+<table>
+<tr><th class="num">GP bar</th><th class="num">written</th><th class="num">fresh attacks</th><th class="num">matched 1:1</th><th>reading</th></tr>
+<tr><td class="num">5</td><td class="num">20</td><td class="num">5</td><td class="num">4</td><td>16 unmatched</td></tr>
+<tr><td class="num">14</td><td class="num">15</td><td class="num">8</td><td class="num">7</td><td>8 unmatched</td></tr>
+<tr><td class="num">25</td><td class="num">20</td><td class="num">7</td><td class="num">5</td><td>15 unmatched</td></tr>
+<tr><td class="num">85</td><td class="num">20</td><td class="num">9</td><td class="num">6</td><td>14 unmatched</td></tr>
+<tr><td class="num">93</td><td class="num">20</td><td class="num">12</td><td class="num">4</td><td>16 unmatched</td></tr>
+<tr><td class="num">95</td><td class="num">20</td><td class="num">13</td><td class="num">9</td><td>11 unmatched</td></tr>
+<tr><td class="num">97</td><td class="num">20</td><td class="num">1</td><td class="num">0</td><td>20 unmatched</td></tr>
+<tr><td class="num">99, 100, 101, 103</td><td class="num">75</td><td class="num">0</td><td class="num">0</td><td>all unmatched</td></tr>
+</table>
+</div>
+<div class="warn">
+<b>None of this authorizes deleting a cymbal.</b> Global recall is 908 fresh attacks against 1778 written events, so the detector accounts for about half the notation across the whole song, and a per-bar shortfall reproduces that global rate. The skill permits removal only when a usable cymbal source affirmatively fails after alignment and leakage gates pass. The alignment gate is UNRESOLVED past GP bar 97, and 442 candidates are UNRESOLVED. Every unmatched written cymbal here stays <b>UNRESOLVED</b> and stays in the file.
+</div>
 </section>
 
 <section>
