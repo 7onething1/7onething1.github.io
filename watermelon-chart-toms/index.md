@@ -46,7 +46,7 @@ On the top line, where the decision has to be made:
 - watermark letters and noise: ink 131 to 158 (18, skipped)
 - **nothing at all between 159 and 185**
 - filled tom heads: ink 186 to 220 (35 on the top line, 179 across all three tom lanes, kept)
-- controls: snare 154 heads median 220, kick 410 heads median 201
+- controls: snare 154 chart heads median 220, kick 410 chart heads median 201
 
 Across all three tom lanes the cut skips 64 x-like marks, 33 watermark fragments and 4 in the
 160 to 180 band.
@@ -79,10 +79,16 @@ sixty-fourth grid (1/12 of a sixteenth away, about 1 px).
 
 ## Known limits
 
+Both comparisons run over **the chart's own 96 bars only**, GP display 10 through 105. The
+tab's headline totals of 193 snare and 107 kick cover 105 bars, and the nine the chart never
+transcribes hold 16 snare and 8 kick. All 6 of the tab's toms fall inside the chart's span,
+so the 6-to-179 comparison needs no restriction.
+
 - The scan is 595x842 and a notehead is 4 to 5 px. The reader finds 154 snare heads against
-  the tab's 193, so it misses some in the busiest bars. Every miss is a tom still absent,
-  never a tom invented.
-- The chart writes 410 kicks against the tab's 107. Measured in passing, not acted on.
+  the tab's 177 over the same bars, so it misses some in the busiest bars. Every miss is a
+  tom still absent, never a tom invented.
+- The chart writes 410 kicks against the tab's 99 over the same bars. Measured in passing,
+  not acted on.
 - A rescan at 12+ px per notehead would settle both.
 
 ## Tools
