@@ -1,0 +1,397 @@
+<!doctype html>
+<html lang="en"><head><meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Zappa Drum Transcription Toolkit</title>
+<style>
+:root{
+  color-scheme:light;
+  --olive:#9A8822; --peach:#F5CDB4; --rose:#F8AFA8; --sand:#FDDDA0;
+  --sage:#74A089; --slate:#899DA4; --ember:#DC863B;
+  --cream:#F6F0E2; --card:#FBF7EC; --ink:#1F1B14; --mut:#6B6252; --line:#E2D9C2;
+}
+*{box-sizing:border-box}
+body{background:var(--cream);color:var(--ink);margin:0;padding:0;
+ font-family:-apple-system,BlinkMacSystemFont,Inter,"Segoe UI",sans-serif;line-height:1.55;}
+main{max-width:1080px;margin:0 auto;padding:2.2rem 1.2rem 4rem}
+header.top{border-bottom:3px solid var(--olive);padding-bottom:1.1rem;margin-bottom:1.6rem}
+h1{font-size:2.05rem;margin:0 0 .35rem;letter-spacing:-.5px}
+.sub{color:var(--mut);font-size:1rem;margin:0}
+.stamp{display:inline-block;background:var(--sand);border:1px solid var(--olive);
+ border-radius:999px;padding:.2rem .7rem;font-size:.78rem;font-weight:700;color:#5c5210;margin-top:.6rem}
+h2{font-size:1.32rem;margin:2.4rem 0 .5rem;padding-left:.65rem;border-left:6px solid var(--ember)}
+h2.s2{border-left-color:var(--sage)} h2.s3{border-left-color:var(--slate)}
+h2.s4{border-left-color:var(--rose)} h2.s5{border-left-color:var(--olive)}
+h3{font-size:1.02rem;margin:1.5rem 0 .4rem;color:#3d3628}
+p{margin:.55rem 0}
+.lede{background:var(--card);border:1px solid var(--line);border-left:6px solid var(--olive);
+ border-radius:10px;padding:.9rem 1.05rem;margin:1rem 0 0}
+table{width:100%;border-collapse:collapse;margin:.8rem 0 1.1rem;font-size:.88rem;
+ background:var(--card);border:1px solid var(--line);border-radius:10px;overflow:hidden}
+th{background:#EFE7D3;text-align:left;padding:.5rem .6rem;font-size:.79rem;
+ text-transform:uppercase;letter-spacing:.4px;color:#5c5342;border-bottom:2px solid var(--line)}
+td{padding:.5rem .6rem;border-bottom:1px solid #EDE5D1;vertical-align:top}
+tr:last-child td{border-bottom:none}
+code{background:#EFE7D3;padding:.1em .38em;border-radius:4px;font-size:.86em;
+ font-family:ui-monospace,SFMono-Regular,Menlo,monospace}
+a{color:#8A5A12;font-weight:600;text-decoration:none}
+a:hover{text-decoration:underline}
+.grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(255px,1fr));gap:.8rem;margin:1rem 0}
+.card{background:var(--card);border:1px solid var(--line);border-radius:11px;padding:.85rem .95rem}
+.card h4{margin:0 0 .3rem;font-size:.97rem}
+.card .why{font-size:.85rem;color:var(--mut);margin:.25rem 0 .4rem}
+.card .trig{font-size:.79rem;color:#4d463a;background:#EFE7D3;border-radius:6px;padding:.3rem .45rem;display:block}
+.c1{border-top:5px solid var(--ember)} .c2{border-top:5px solid var(--sage)}
+.c3{border-top:5px solid var(--slate)} .c4{border-top:5px solid var(--rose)}
+.c5{border-top:5px solid var(--olive)} .c6{border-top:5px solid var(--peach)}
+.c7{border-top:5px solid var(--sand)}
+.stage{display:inline-block;font-size:.72rem;font-weight:800;letter-spacing:.5px;
+ text-transform:uppercase;padding:.13rem .5rem;border-radius:5px;margin-bottom:.35rem}
+.st1{background:var(--ember);color:#fff} .st2{background:var(--sage);color:#fff}
+.st3{background:var(--slate);color:#fff} .st4{background:var(--rose);color:#5c2b26}
+.st5{background:var(--olive);color:#fff} .st6{background:var(--peach);color:#6b4230}
+.st7{background:var(--sand);color:#5c5210}
+.kpi{display:grid;grid-template-columns:repeat(auto-fit,minmax(148px,1fr));gap:.65rem;margin:1rem 0}
+.k{background:var(--card);border:1px solid var(--line);border-radius:10px;padding:.7rem .8rem;text-align:center}
+.k b{display:block;font-size:1.5rem;line-height:1.15;margin-bottom:.15rem}
+.k span{font-size:.76rem;color:var(--mut);text-transform:uppercase;letter-spacing:.35px}
+.k1 b{color:var(--ember)} .k2 b{color:var(--sage)} .k3 b{color:var(--slate)}
+.k4 b{color:#B8746A} .k5 b{color:var(--olive)} .k6 b{color:#B9762A}
+.warn{background:#FDF1E6;border:1px solid var(--ember);border-left:6px solid var(--ember);
+ border-radius:10px;padding:.85rem 1rem;margin:1rem 0}
+.good{background:#EDF4F0;border:1px solid var(--sage);border-left:6px solid var(--sage);
+ border-radius:10px;padding:.85rem 1rem;margin:1rem 0}
+.note{background:#EEF2F4;border:1px solid var(--slate);border-left:6px solid var(--slate);
+ border-radius:10px;padding:.85rem 1rem;margin:1rem 0}
+ul{margin:.5rem 0 .8rem;padding-left:1.2rem}
+li{margin:.28rem 0}
+.path{font-family:ui-monospace,SFMono-Regular,Menlo,monospace;font-size:.8rem;
+ background:#EFE7D3;padding:.28rem .45rem;border-radius:5px;display:inline-block;margin:.12rem 0;word-break:break-all}
+footer{margin-top:3rem;border-top:2px solid var(--line);padding-top:1rem;
+ font-size:.83rem;color:var(--mut)}
+.tocwrap{background:var(--card);border:1px solid var(--line);border-radius:11px;padding:.8rem 1rem;margin:1.3rem 0}
+.tocwrap ol{margin:.3rem 0 0;padding-left:1.2rem}
+.badge{font-size:.72rem;font-weight:800;padding:.12rem .45rem;border-radius:4px;margin-left:.35rem}
+.b-open{background:var(--rose);color:#5c2b26}
+.b-done{background:var(--sage);color:#fff}
+.b-hold{background:var(--sand);color:#5c5210}
+</style></head><body><main>
+
+<header class="top">
+<h1>Zappa Drum Transcription Toolkit</h1>
+<p class="sub">The skills on this Mac that read a drum part, and everything already on disk about Frank Zappa's drum transcriptions, with <b>Keep It Greasey</b> pulled out in full.</p>
+<span class="stamp">Built 2026-09-08 &middot; song locked: Keep It Greasey, s604777</span>
+</header>
+
+<div class="lede">
+<b>The short answer on skills.</b> Seven of them carry the drum-transcription job end to end, and they run in a fixed order: separate the kit, read the stems, notate, grade the numbers, check the notation standard, then publish. Three more sit beside that line as graders and gates.
+<br><br>
+<b>The short answer on Keep It Greasey.</b> A large amount of work is already done. The stems are separated into fifteen parts and sitting in <code>/Users/Shared</code>, three printed human transcriptions are on disk, the tempo has been measured against the recording, and a full validation pass ran on 2026-09-07 with <b>zero repairs applied</b>. Four specific defects are named and waiting.
+</div>
+
+<div class="tocwrap">
+<b>On this page</b>
+<ol>
+<li><a href="#stack">The seven-stage skill stack</a></li>
+<li><a href="#support">Graders and gates that sit beside it</a></li>
+<li><a href="#program">The Zappa drum program, current state</a></li>
+<li><a href="#kig">Keep It Greasey, the full dossier</a></li>
+<li><a href="#bundle">The bundle, collected on disk</a></li>
+<li><a href="#open">What is still open on this song</a></li>
+<li><a href="#run">The order to run them in</a></li>
+</ol>
+</div>
+
+<h2 id="stack">1. The seven-stage skill stack</h2>
+<p>Each of these is a real skill with its own <code>SKILL.md</code> and scripts under <span class="path">~/.claude/skills/</span>. Invoke by name with the Skill tool rather than running the scripts by path.</p>
+
+<div class="grid">
+
+<div class="card c1">
+<span class="stage st1">Stage 1 &middot; separate</span>
+<h4>/composite-stem-alignment</h4>
+<p class="why">Builds one clean multitrack from several microphone captures of the same performance after each has been separated. Settles which mic owns which lane and applies one transform per mic.</p>
+<code class="trig">"align the mics", "the offsets disagree", "which mic for the bass"</code>
+</div>
+
+<div class="card c1">
+<span class="stage st1">Stage 1 &middot; separate</span>
+<h4>/multimic-stem-fix</h4>
+<p class="why">Repairs a stem set where separation left phase cancellation or bleed between kit lanes. Runs before any onset detection, since a contaminated tom stem produces tom claims that are separator residue.</p>
+<code class="trig">"the stems are bleeding", "kick and bass are cancelling"</code>
+</div>
+
+<div class="card c2">
+<span class="stage st2">Stage 2 &middot; read</span>
+<h4>/perfect-stem-read</h4>
+<p class="why"><b>The governing document.</b> Enforces the order stem event, instrument identity, score timing, Guitar Pro lane last, so lane binning happens only at final encoding. Carries the recording-identity gate and the wrong-recording alignment controls.</p>
+<code class="trig">"read the stems into notation", "which drum is that"</code>
+</div>
+
+<div class="card c2">
+<span class="stage st2">Stage 2 &middot; read</span>
+<h4>/drum-dynamics-from-audio</h4>
+<p class="why">Fixes the velocity and articulation layer of a score that already has the right notes. This is the skill that turns quiet snare strokes into ghost notes by measuring the recording rather than by guessing.</p>
+<code class="trig">"the dynamics are flat", "turn the quiet snares into ghost notes"</code>
+</div>
+
+<div class="card c3">
+<span class="stage st3">Stage 3 &middot; notate</span>
+<h4>/stems-to-guitar-pro-drums</h4>
+<p class="why">Turns drum stems into a Guitar Pro drum file ready for the Songsterr editor, recovering flams and ghost notes that a full-mix pass drops. This is the build step for a new tab.</p>
+<code class="trig">"make a better drum tab from the stems", "turn the drum stem into Guitar Pro"</code>
+</div>
+
+<div class="card c3">
+<span class="stage st3">Stage 3 &middot; notate</span>
+<h4>/audio-stems-to-midi</h4>
+<p class="why">The cheaper first pass. Demucs plus crepe plus basic-pitch plus a librosa onset fallback for drums, with a theory JSON per song. Good for a rough map of where events sit.</p>
+<code class="trig">"convert these stems to MIDI", "transcribe the stems"</code>
+</div>
+
+<div class="card c4">
+<span class="stage st4">Stage 4 &middot; repair</span>
+<h4>/transcription-repair</h4>
+<p class="why">Treats the best human transcription as the musical model and the stems as evidence testing single claims inside it. Carries the recording-identity gate, the alignment gate with wrong-recording controls, grid snapping, a two-hands playability check, and an append-only edit ledger.</p>
+<code class="trig">"fix this drum tab against the stems", "the toms are in the wrong place"</code>
+</div>
+
+<div class="card c4">
+<span class="stage st4">Stage 4 &middot; repair</span>
+<h4>/songsterr-drum-repair</h4>
+<p class="why">Restores a drum staff on a community tab without damaging the rest of it. Written after the ghost sweep. Knows why accents come out as staccato and how to undo a bad revision.</p>
+<code class="trig">"restore the ghost notes", "my revision broke someone's tab"</code>
+</div>
+
+<div class="card c5">
+<span class="stage st5">Stage 5 &middot; standard</span>
+<h4>/notation-evidence-gate</h4>
+<p class="why">Settles a notation-symbol dispute against the document that governs the symbol. Resolves ghost strokes, pedal hi-hat placement and X noteheads to the Weinberg drumset standard, then refuses any claim with no stated null model.</p>
+<code class="trig">"what does this ghost flag mean", "did we prove that", "check the baseline"</code>
+</div>
+
+<div class="card c6">
+<span class="stage st6">Stage 6 &middot; grade</span>
+<h4>/reference-class</h4>
+<p class="why">Decides whether a number earned the right to ship. Six checks against a threshold cut from the population it filters, a density no musician would play, a filter that rejects nothing, and a missing chance baseline.</p>
+<code class="trig">"is this number real", "the counts look high", "what is the null here"</code>
+</div>
+
+<div class="card c7">
+<span class="stage st7">Stage 7 &middot; publish</span>
+<h4>/songsterr-upload</h4>
+<p class="why">Puts a corrected Guitar Pro file onto Songsterr as a private tab synced to the real recording. Checks before import whether the file will lose tracks.</p>
+<code class="trig">"upload this tab to Songsterr", "will this import lose tracks"</code>
+</div>
+
+<div class="card c7">
+<span class="stage st7">Stage 7 &middot; publish</span>
+<h4>/songsterr-tab-guide</h4>
+<p class="why">Builds a data-driven tab-guide page for a band's albums. This is the skill that produced the Zappa drum-transcription inventory covering three albums.</p>
+<code class="trig">"which of Zappa's songs have no Songsterr tab", "are these tabs AI or hand-written"</code>
+</div>
+
+</div>
+
+<h2 class="s2" id="support">2. Graders and gates that sit beside the line</h2>
+<table>
+<thead><tr><th>Skill</th><th>What it settles</th><th>When to reach for it</th></tr></thead>
+<tbody>
+<tr><td><code>/midi-drum-analysis</code></td><td>Reference library and analysis toolkit for MIDI drum tracks, including the rhythmic-event vocabulary the other skills borrow.</td><td>Before naming a fill or a groove type.</td></tr>
+<tr><td><code>/five-stem-song-analyst</code></td><td>Reads a five-stem song for what each part sets up and where the payoff lands.</td><td>Musical context ahead of a transcription pass.</td></tr>
+<tr><td><code>/stem-analyzer</code></td><td>Per-file measurement of a separated stem.</td><td>Checking whether a stem is clean enough to trust.</td></tr>
+<tr><td><code>/midi-to-tab</code></td><td>Converts a MIDI file to readable ASCII and .docx tablature.</td><td>Getting a printable page out of a finished MIDI.</td></tr>
+<tr><td><code>/album-tab-citation</code></td><td>Indexed library of twenty published tab books, Zappa included.</td><td>Finding a printed transcription to test a claim against.</td></tr>
+<tr><td><code>/impossible-guitar-parts</code></td><td>Grades a staff against what a human hand can do, and finds two players written onto one staff.</td><td>The pitched staves on the same file.</td></tr>
+<tr><td><code>/fraud-firewall</code></td><td>Runs the gate stack and returns one verdict before any done-claim.</td><td>Before any upload.</td></tr>
+</tbody>
+</table>
+
+<div class="note">
+<b>Two rules govern all of them.</b> The first is that a pitch in one stem does not prove that instrument played it, so identity comes before lane binning. The second is that a Demucs drums stem has to be split into kick, snare, toms, hat and cymbals before any judgement about a drum tab, because a full-kit stem cannot answer a per-lane question.
+</div>
+
+<h2 class="s3" id="program">3. The Zappa drum program, current state</h2>
+<p>This is not a fresh field. A repair program has been running since late August, and it has its own front door at <a href="https://7onething1.github.io/zappa-program-scope/">zappa-program-scope</a>.</p>
+
+<div class="kpi">
+<div class="k k1"><b>34</b><span>Zappa song ids in play</span></div>
+<div class="k k2"><b>3,842</b><span>ghost flags stripped by the sweep</span></div>
+<div class="k k3"><b>17</b><span>restore revisions held on moderation</span></div>
+<div class="k k4"><b>12</b><span>printed charts on disk</span></div>
+<div class="k k5"><b>32</b><span>published audit pages</span></div>
+<div class="k k6"><b>16</b><span>tabs where the strip is still live</span></div>
+</div>
+
+<h3>The damage that started it</h3>
+<p>A sweep on 2026-08-29 and 30 read Songsterr's parenthesised noteheads as an error and submitted revisions removing them across twenty Zappa tabs. Sixteen of those strips are the current published revision. <b>Norman Weinberg's 1994 <i>Guidelines for Drumset Notation</i>, page 20, plate Ex. 11, prescribes exactly that notehead for a ghost stroke</b>, and its wording covers cymbals as well as drums, which settles the ride-lane question too.</p>
+
+<h3>Where the ghosts actually sat</h3>
+<p>Of the 3,842 removed flags, 1,549 are snare and 2,293 sit on cymbals, hats, kick, toms and tambourine. The largest single entry, Watermelon In Easter Hay at 1,317, carries no snare ghost at all.</p>
+
+<h3>The source archive</h3>
+<p>Hand transcriptions by professional transcribers live under <span class="path">~/Projects/_outputs/zappa-drum-sources/</span> with <code>ARCHIVE-STATE.md</code> as the manifest. Seven folders: DRUM Magazine notation PNGs, the Cruise Ship Drummer charts, the Pete Sweeney Vinnie Colaiuta PDF, the Drumnet.ru charts, the Kasper Sloots per-album analysis with its section-letter bar maps, two academic theses, and the Rondo Hatton Report editions.</p>
+
+<h2 class="s4" id="kig">4. Keep It Greasey, the full dossier</h2>
+<p><i>Joe's Garage</i>, 1979. Drums by <b>Vinnie Colaiuta</b>.</p>
+
+<h3>4.1 The three Songsterr tabs</h3>
+<table>
+<thead><tr><th>Song id</th><th>Title</th><th>Author</th><th>Tracks</th><th>Drums?</th><th>Read</th></tr></thead>
+<tbody>
+<tr><td><a href="https://www.songsterr.com/a/wsa/frank-zappa-keep-it-greasey-tab-s604777"><code>s604777</code></a></td>
+<td><b>Keep It Greasey</b></td><td>Ben Dibden1</td><td>9, all named by player</td>
+<td><b>Yes.</b> Part 8, "Vinnie Colaiuta"</td>
+<td>The one that matters. Human, 248 bars, 4,948 drum events, 629 ghost flags, live revision <code>r8852151</code>. Length runs 8:18 against the album's 8:22, a delta of 0.7 percent.</td></tr>
+<tr><td><a href="https://www.songsterr.com/a/wsa/frank-zappa-keep-it-greasy-tab-s2832032"><code>s2832032</code></a></td>
+<td>Keep It Greasy</td><td>unnamed</td><td>3, all unnamed</td><td>Yes, generic</td>
+<td>AI transcription, 65 percent short of the album take. Not the album performance.</td></tr>
+<tr><td><a href="https://www.songsterr.com/a/wsa/frank-zappa-keep-it-greasey-live-1980-tab-s754950"><code>s754950</code></a></td>
+<td>Keep It Greasey (Live 1980)</td><td>unnamed</td><td>1</td><td>No, bass only</td>
+<td>Different performance, no drum staff.</td></tr>
+</tbody>
+</table>
+
+<div class="good">
+<b>The nine parts of s604777 read as a real session credit list:</b> Ike Willis vocals, Warren Cuccurullo acoustic, Frank Zappa solo, Warren Cuccurullo overdriven, Arthur Barrow slap bass, Ike and Denny harmonies, Peter Wolf Wurlitzer, Warren Cuccurullo sitar, and <b>Vinnie Colaiuta drums</b>. Every stem in the separated set has a matching named part.
+</div>
+
+<h3>4.2 The audio on disk</h3>
+<p>Fifteen separated stems, 44.1 kHz stereo, each 501.84 seconds, at:</p>
+<p><span class="path">/Users/Shared/202 Keep It Greasey-D minor-142bpm-442hz/</span></p>
+<p>The kit is already split into six lanes: <b>kick, snare, hat, cymbals, toms, other_kit</b>. The rest are backing_vocals, bass, lead, other, piano, rhythm, vocals, wind, and a metronome stem. The mixture sits beside them as a 320 kbps mp3.</p>
+
+<div class="warn">
+<b>The metronome stem is not a recording.</b> It was measured on 2026-09-06 and found to be a beat tracker's output rendered to a wav: 1,171 bit-identical copies of one click over digital silence, every peak exactly 0.0 dBFS, and 55 distinct 300 ms window hashes each appearing exactly 1,171 times. Its 1,170 intervals all land on a 20 ms lattice, so it can only report tempo in quantized steps. The folder name's <code>142bpm</code> is the same estimator talking, and it is one estimate rather than two.
+</div>
+
+<h3>4.3 The printed human transcriptions</h3>
+<table>
+<thead><tr><th>Source</th><th>Transcriber</th><th>Covers</th><th>On disk</th><th>Usable?</th></tr></thead>
+<tbody>
+<tr><td>DRUM! Magazine, Groove Analysis</td><td>Ryan Brown</td><td>Verse 1 at 0:35 and Verse 2 at 1:16</td><td><code>02-drummagazine/Keep-It-Greasey.png</code>, 1166&times;1130</td><td><b>Yes.</b> Fully legible at read size.</td></tr>
+<tr><td>DRUM! Odd Meter Lesson 4</td><td>DRUM! Magazine</td><td>The 19/16 verse groove, three pages</td><td><code>Odd-Meter-Lesson-4-Keep-It-Greasy-1..3.png</code></td><td><b>Yes.</b> Page 1 draws the ghosts in brackets.</td></tr>
+<tr><td>Pete Sweeney, Vinnie transcriptions</td><td>Pete Sweeney</td><td>Dong Work For Yuda and Keep It Greasy</td><td><code>03-petesweeney/Vinnietranscriptions.pdf</code>, 9 pages, 6.09 MB</td><td>Image scan, no text layer. Needs rendering to read.</td></tr>
+<tr><td><i>On the Beaten Path: Progressive Rock</i>, Alfred, page 64</td><td>Rich Lackowski</td><td>The passage at 3:18</td><td>Publisher sample PDF, md5 <code>116b3ee7&hellip;</code></td><td>Yes at 600 dpi. Prints 19/16, quarter = 134.</td></tr>
+<tr><td>Modern Drummer <i>Rock Charts</i></td><td>Marc Atkinson</td><td><b>The complete song</b></td><td>180 ppi third-party scan</td><td><b>No.</b> Classified unusable at AUC 0.582 on a 13 px phone scan.</td></tr>
+</tbody>
+</table>
+
+<h3>4.4 What the DRUM! chart states, read directly off the image</h3>
+<div class="good">
+<b>Verse 1 at 0:35, quarter = 134, meter 19/16</b>, running four systems before a 4/4 bar.<br>
+<b>Verse 2 at 1:16, meter 21/16</b>, moving through a <b>9/16</b> bar into <b>4/4</b>.<br>
+The Odd Meter Lesson page draws the same 19/16 groove with <b>parenthesised noteheads on the snare line</b>, which is a second published transcriber writing ghost strokes into this exact song.
+</div>
+
+<h3>4.5 The tempo, measured against the recording</h3>
+<table>
+<thead><tr><th>Quantity</th><th>Value</th></tr></thead>
+<tbody>
+<tr><td>Measured quarter at the 3:18 passage</td><td><b>136.7 BPM</b>, drifting 135.7 to 137.9</td></tr>
+<tr><td>Printed by two publishers</td><td>134</td></tr>
+<tr><td>R at 134 inside that window</td><td>0.0167, below its own null of 0.0518</td></tr>
+<tr><td>Estimator error at matched difficulty</td><td>0.04 BPM end to end</td></tr>
+<tr><td>Speed-shift control</td><td>Audio sits 8 to 18 cents sharp of A440, about 1 percent. The 134 to 142 gap is 6 percent, so speed does not explain it.</td></tr>
+</tbody>
+</table>
+
+<h3>4.6 The validation pass of 2026-09-07</h3>
+<p>Every lane was tested in both directions at passage level. Two tests that need no alignment carried the result: a bimodal peak-dB histogram for a quiet population, and a sixteenth-grid lock against a phase-uniform baseline.</p>
+<table>
+<thead><tr><th>Lane</th><th>Notated</th><th>Valley</th><th>Grid, notated set</th><th>Grid, surplus</th><th>Reading</th></tr></thead>
+<tbody>
+<tr><td>kick</td><td>1,311</td><td>none</td><td>1.889&times;</td><td><b>1.646&times;</b></td><td>One population. The 32 surplus onsets are real and unnotated.</td></tr>
+<tr><td>snare</td><td>1,423</td><td><b>-18.63 dB</b></td><td>1.887&times;</td><td><b>1.501&times;</b></td><td>Two dynamic populations, which is what a ghost layer looks like.</td></tr>
+<tr><td>hat</td><td>1,156</td><td>-28.74 dB</td><td>1.694&times;</td><td>1.369&times;</td><td>One mode with a quiet tail. Surplus reads as separator residue.</td></tr>
+<tr><td>cymbals</td><td>543</td><td>-40.17 dB</td><td>1.782&times;</td><td>1.223&times;</td><td>Same. Surplus does not clear the bar.</td></tr>
+<tr><td>toms</td><td>493</td><td>-35.49 dB</td><td>1.289&times;</td><td>1.706&times;</td><td><b>Inverted.</b> Loud detections are less grid-locked than quiet ones, which is a contaminated stem. No tom claim was made.</td></tr>
+</tbody>
+</table>
+
+<div class="note">
+<b>The score agrees with itself from its own side.</b> Resolving the two ways the file stores loudness gives the 629 flagged events a mean dynamic rank of 2.227 against 4.031 for the 794 unflagged, a gap of 1.804 ladder steps, Mann-Whitney z = -30.58. The flagged set sits one or two sixteenths apart on 62.89 percent of its within-bar gaps against 35.88 percent for the unflagged, with zero exceedances in 2,000 within-bar permutations. That is the notation and the audio arriving at the same picture with no alignment between them.
+</div>
+
+<div class="warn">
+<b>The alignment never closed, and that is the honest ceiling.</b> Eight procedures place bar 102's downbeat between 197.88 and 198.20 seconds, and they are not independent, since six read the same fifteen-stem separation. The drum lanes then tested that map from outside: snare improves 17 to 4, tom 20 to 4 and hat 25 to 11 under a window slid one bar later, kick leans the same way, cymbal is flat. So <b>0 of 248 bars carry a surviving two-direction result</b>, and no single notated event was matched to a single detected onset. Repairs applied: <b>zero</b>.
+</div>
+
+
+<h2 class="s2" id="bundle">5. The bundle, collected on disk 2026-09-08</h2>
+<p>Every transcription of this song now sits in one labelled folder, named by transcriber and by what each file actually contains.</p>
+<p><span class="path">~/Projects/_outputs/zappa-keep-it-greasey-transcriptions/</span></p>
+
+<h3>5.1 The Guitar Pro files, exported live from Songsterr</h3>
+<table>
+<thead><tr><th>File</th><th>Tracks</th><th>Bars</th><th>Drum events</th><th>Ghost flags</th></tr></thead>
+<tbody>
+<tr><td><code>s604777_&hellip;_ALBUM-TAKE_BenDibden1_r8852151_9trk_248bars_DRUMS-4948notes-629ghosts.gp</code></td><td>9, each named by player</td><td>248</td><td><b>4,948</b></td><td><b>629</b></td></tr>
+<tr><td><code>s604777_&hellip;_PRESWEEP-BASELINE_2025-07-15_pre-ghost-strip.gp</code></td><td>9</td><td>248</td><td>baseline held before the sweep</td><td>&mdash;</td></tr>
+<tr><td><code>s2832032_&hellip;_AI-TAB_65pct-SHORT_3trk_123bars_DRUMS-1863notes-0ghosts.gp</code></td><td>3, unnamed</td><td>123</td><td>1,863</td><td>0</td></tr>
+<tr><td><code>s754950_&hellip;_LIVE-1980_BASS-ONLY_1trk_121bars_406notes_NO-DRUMS.gp</code></td><td>1</td><td>121</td><td>0</td><td>0</td></tr>
+</tbody>
+</table>
+
+<div class="good">
+<b>A cross-check that passed.</b> Walking the export from MasterBar to Bar to Voice to Beat to Note reference gives the Vinnie Colaiuta track exactly <b>4,948 events and 629 ghost flags</b>, matching the figures published from the CloudFront part JSON. Two independent reads of the same revision agree, so the export carries the ghost layer intact.
+</div>
+
+<div class="warn">
+<b>Two GPIF counting traps, both hit and both fixed during this pass.</b> First, <code>Notes</code> are shared definitions, so counting <code>&lt;Note&gt;</code> elements returns 680 on a file carrying 14,444 events. Second, a ghost is a direct <code>&lt;AntiAccent&gt;Normal&lt;/AntiAccent&gt;</code> child of <code>Note</code>, never a <code>&lt;Property name="AntiAccent"&gt;</code>. Reading it as a Property returned zero ghosts on a file holding 629 of them, which is the same shape of error that let the original sweep proceed.
+</div>
+
+<h3>5.2 The printed charts, rendered and labelled</h3>
+<p>The Pete Sweeney PDF was rendered at 200 dpi for all nine pages and again at <b>400 dpi for the Keep It Greasy pages</b>. Noteheads, X-heads and grace notes read clearly at that size.</p>
+<table>
+<thead><tr><th>Pages</th><th>Song</th><th>Transcriber</th><th>Publication</th></tr></thead>
+<tbody>
+<tr><td>1 to 2</td><td>All Blues</td><td>Jeff Wald</td><td><i>Drum Soloist</i>. Vinnie, not Zappa.</td></tr>
+<tr><td>3 to 5</td><td>Dong Work For Yuda</td><td>Chris Brady</td><td>Modern Drummer <i>Rock Charts</i>. Also <i>Joe's Garage</i>.</td></tr>
+<tr><td><b>6 to 9</b></td><td><b>Keep It Greasy</b></td><td><b>Marc Atkinson</b></td><td>Modern Drummer <i>Rock Charts</i>. The complete song.</td></tr>
+</tbody>
+</table>
+
+<div class="note">
+<b>Correction to the source manifest.</b> <code>zappa-drum-sources/ARCHIVE-STATE.md</code> records this PDF as holding two charts, Dong Work For Yuda and Keep It Greasy. It holds <b>three</b>, and All Blues is the one it misses. The Marc Atkinson attribution used in the earlier validation work is now confirmed from the printed page itself, where it appears under the title on page 6.
+</div>
+
+<h3>5.3 The Songsterr part JSON</h3>
+<p>All nine parts of <code>s604777</code> at revision <code>r8852151</code>, pulled from CloudFront on 2026-09-08. The drum staff is <code>part8_DRUMS_VinnieColaiuta.json</code> at 317 KB. The meta payload carries a control character, so it needs <code>json.load(..., strict=False)</code>.</p>
+
+<h2 class="s5" id="open">6. What is still open on this song</h2>
+<table>
+<thead><tr><th>Id</th><th>Finding</th><th>Evidence needed</th><th>State</th></tr></thead>
+<tbody>
+<tr><td><code>KIG-M001</code></td><td>GM 65 written on the kick staff line at bar 231, position 7 sixteenths. One event in 4,948, inside a repeating figure whose other string-4 events are all GM 35.</td><td>None. This is score-internal and exact.</td><td><span class="badge b-hold">ready, waits on Brandon</span></td></tr>
+<tr><td><code>KIG-M002</code></td><td>21 GM 39 hand claps drawn at the snare position across bars 22 to 32, 42 to 44, 65 and 82.</td><td>Placement is certain. Intent is not recoverable.</td><td><span class="badge b-open">unresolved</span></td></tr>
+<tr><td><code>KIG-M003</code></td><td>114 ghost flags whose resolved dynamic is mf, which is the unflagged population's own mark. The two encodings disagree.</td><td>Nothing on hand says which is meant.</td><td><span class="badge b-open">unresolved</span></td></tr>
+<tr><td><code>KIG-M004</code></td><td>32 kick onsets the score omits. They sit 7.66 dB below the notated median and land on the sixteenth grid at 1.646&times; baseline.</td><td>Bar positions unknown. Listed by audio time only.</td><td><span class="badge b-open">unresolved</span></td></tr>
+<tr><td><code>q-2026-08-31-227358</code></td><td>Kick lane convention. House convention is GM lane 36, used alone by 13 of 20 songs. <b>Keep It Greasey uses lane 35 alone</b>, along with Catholic Girls and Fembot.</td><td>Decide whether to normalize or leave it.</td><td><span class="badge b-open">in progress</span></td></tr>
+</tbody>
+</table>
+
+<div class="warn">
+<b>The publish route is constrained.</b> The tab is another author's work, r8852151 by Ben Dibden1. Brandon's standing gate is that a revision never goes onto an original: open the original, create a copy, rename it "Brandon edit", and revise the copy. That is an outward publish action and it waits on his say-so.
+</div>
+
+<h2 class="s5" id="run">7. The order to run them in</h2>
+<ol>
+<li><b>Nothing needs separating.</b> The fifteen stems exist and the kit is already in six lanes. Skip stages 1 and 2 of the acquisition work.</li>
+<li><b>Read the Marc Atkinson chart.</b> It is now rendered at 400 dpi across four pages and it is the only complete-song printed source. Bar-by-bar it is the strongest test available for the notated drum part.</li>
+<li><b>Run <code>/perfect-stem-read</code></b> on the six kit stems, holding the identity-before-lane order.</li>
+<li><b>Run <code>/notation-evidence-gate</code></b> on any symbol dispute the read produces, ahead of writing a claim down.</li>
+<li><b>Run <code>/reference-class</code></b> on every count before it enters a deliverable.</li>
+<li><b>Apply <code>KIG-M001</code> only</b>, on a copy, once Brandon says go. The other three findings have no evidence that closes them.</li>
+</ol>
+
+<footer>
+Palette: The Royal Tenenbaums (Wes Anderson).<br>
+Sources: <a href="https://7onething1.github.io/zappa-program-scope/">zappa-program-scope</a>,
+<a href="https://7onething1.github.io/zappa-keep-it-greasey-validation/">zappa-keep-it-greasey-validation</a>,
+<a href="https://7onething1.github.io/zappa-keep-it-greasey-tempo/">zappa-keep-it-greasey-tempo</a>,
+<a href="https://7onething1.github.io/zappa-ghost-note-audit/">zappa-ghost-note-audit</a>,
+<a href="https://7onething1.github.io/zappa-drum-transcription-inventory/">zappa-drum-transcription-inventory</a>.
+Songsterr figures read live from <code>songsterr.com/api/meta</code> on 2026-09-08. Notation figures read directly off the DRUM! Magazine images on disk.
+</footer>
+
+</main></body></html>
