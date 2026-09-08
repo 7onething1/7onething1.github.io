@@ -48,7 +48,7 @@ named by player, revision `r8852151`, **248 bars, 4,948 drum events, 629 ghost f
 
 **Revision history.** Kevin Sheppard approved 2025-07-15, then a strip revision from Brandon's
 account on 2026-08-29 removed all 629 parenthesised noteheads and was marked **alternative**, so it
-never published. Ben Dibden1's 2026-09-02 revision `r8852151` is live: section headers, rests
+never published. Ben Dibden1's revision `r8852151` is live, stamped 2026-09-02 local and 2026-09-03T01:08:51 UTC: section headers, rests
 cleared from empty bars, tracks renamed to the template format, bass tone set to finger.
 **The sweep hit this song and failed to land, so all 629 ghosts are intact.**
 
