@@ -35,8 +35,10 @@ Beside them: `/midi-drum-analysis`, `/five-stem-song-analyst`, `/stem-analyzer`,
 | Printed charts on disk | 12 |
 | Published audit pages | 32 |
 
-Weinberg's 1994 *Guidelines for Drumset Notation*, page 20, plate Ex. 11, prescribes the
+Weinberg's 1994 *Guidelines for Drumset Notation*, **page 20, plate Ex. 11**, prescribes the
 parenthesised notehead the sweep read as an error, and its wording covers cymbals too.
+Read 2026-09-06 by rendering the image-only scan at 400 dpi, since `pdftotext` returns 12 bytes:
+`normanweinberg.com/uploads/8/1/6/4/81640608/940506pn_guildines_for_drumset.pdf`.
 
 ## Keep It Greasey
 
