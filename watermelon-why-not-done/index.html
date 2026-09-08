@@ -318,7 +318,17 @@ a{color:#0d6f88;font-weight:600}
  <h3>A near-miss worth publishing</h3>
  <p>The first attempt removed the notes by editing the shared beats in place. GPIF deduplicates: <code>Beat</code> id 899 is referenced by <b>176 voices</b> and carries <code>Note</code> id 419, so that edit deleted <b>179 note instances across 79 bars</b> that were never targeted. The tell was in the plan itself, which printed one note id thirteen times and one beat id twelve times. The damaged file was quarantined rather than deleted, and the rerun cloned the beat once per voice. Recorded as F4 in <a href="FINDINGS.md">FINDINGS.md</a>.</p>
 </div>
-<p class="fine"><b>Bar 55 beat 2 remains and is blocked, not skipped.</b> It writes tom low, tom hi mid and ride together. The toms stem carries a real stroke, and one toms stem cannot say which tom. Per-tom identity is closed at a named layer: pitch medians of 90.7 to 95.6 Hz overlap and the best pan pair reaches 0.73&times; against the 1.5&times; floor. Queued as <code>q-2026-09-08-b08085</code>. Figures in <a href="hands_write.json">hands_write.json</a> and <a href="three_hand.json">three_hand.json</a>.</p>
+<div class="callout gold">
+ <h3>Bar 55: which layer is closed, checked by search rather than assumed</h3>
+ <p>It writes tom low, tom hi mid and ride together. <b>The tom lane is real</b>, since the toms stem carries a full stroke there. Only the question of <i>which</i> tom is unresolvable, and a web search on 2026-09-08 narrowed that to two specific layers rather than a blanket wall.</p>
+ <ul>
+  <li><b>Closed to measurement.</b> The Moises toms stem is one channel carrying every tom. Both discriminators fail on it: pitch medians of 90.7 to 95.6 Hz overlap across the kit, and the best pan pair reaches 0.73&times; against the 1.5&times; floor.</li>
+  <li><b>Closed to acquisition.</b> No official isolated drum track or multitrack exists for Joe's Garage. A search of the release listings returns none, and only the Zappa Family Trust or VAULTernative would hold one.</li>
+  <li><b>Open, and out of policy.</b> <a href="https://www.zappa-analysis.com/watermelon-in-easter-hay-1979.htm">zappa-analysis.com</a> states the Zappa Guitar Book <b>includes the drum part in detail</b> for this 1979 studio recording, and <a href="https://drumsetsheetmusic.com/products/watermelon-in-easter-hay-frank-zappa-collection-of-drum-transcriptions-drum-sheet-music-alfred-music-obpprd">Alfred Music</a> sells a Watermelon drum transcription. Both are printed charts, and the standing rule here is that stems outrank printed charts and their acquisition does not get queued.</li>
+  <li><b>Not applicable.</b> The 1978 NYC Colaiuta footage is a different performance, so it cannot vote on this passage.</li>
+ </ul>
+ <p>Queued as <code>q-2026-09-08-b08085</code>. Figures in <a href="hands_write.json">hands_write.json</a> and <a href="three_hand.json">three_hand.json</a>.</p>
+</div>
 
 <h2><span class="n" style="background:var(--gold)">11</span>The finite work that remains</h2>
 <p>Brandon set the scope on 2026-09-08, and it is a closed list rather than an open research programme. Steps one, two and three are complete. No further detector gets written unless one of these five edits produces contradictory evidence.</p>

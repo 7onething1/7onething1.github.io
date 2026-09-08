@@ -92,7 +92,7 @@ reference-class PASS on all six: 16 against 16 is 1.0x, 1.3 removals per bar, 16
 
 A near-miss is recorded as F4 in `FINDINGS.md`. The first attempt edited shared beats in place and deleted 179 instances across 79 untargeted bars, since `Beat` id 899 is referenced by 176 voices. Quarantined, then redone with per-voice beat clones.
 
-Bar 55 beat 2 remains and is blocked, not skipped. It writes tom low, tom hi mid and ride together, and one toms stem cannot say which tom. Queued as `q-2026-09-08-b08085`.
+Bar 55 beat 2 remains. The tom lane is real, since the toms stem carries a full stroke there. Only which tom is unresolvable, and a web search on 2026-09-08 narrowed that to named layers rather than a blanket wall. **Closed to measurement:** the Moises toms stem is one channel carrying every tom, pitch medians 90.7-95.6 Hz overlap, best pan pair 0.73x against the 1.5x floor. **Closed to acquisition:** no official isolated drum track or multitrack exists for Joe's Garage, and only the Zappa Family Trust or VAULTernative would hold one. **Open and out of policy:** zappa-analysis.com states the Zappa Guitar Book includes the drum part in detail for this 1979 recording, and Alfred Music sells a Watermelon drum transcription; both are printed charts, and stems outrank printed charts here. **Not applicable:** the 1978 NYC Colaiuta footage is a different performance. Queued as `q-2026-09-08-b08085`.
 
 ## The finite work that remains
 
