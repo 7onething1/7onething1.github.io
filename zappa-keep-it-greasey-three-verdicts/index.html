@@ -1,0 +1,246 @@
+<!doctype html>
+<html lang="en"><head><meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Keep It Greasey: Three Verdicts</title>
+<style>
+:root{
+  color-scheme:light;
+  --olive:#9A8822; --peach:#F5CDB4; --rose:#F8AFA8; --sand:#FDDDA0;
+  --sage:#74A089; --slate:#899DA4; --ember:#DC863B;
+  --cream:#F6F0E2; --card:#FBF7EC; --ink:#1F1B14; --mut:#6B6252; --line:#E2D9C2;
+}
+*{box-sizing:border-box}
+body{background:var(--cream);color:var(--ink);margin:0;padding:0;
+ font-family:-apple-system,BlinkMacSystemFont,Inter,"Segoe UI",sans-serif;line-height:1.55;}
+main{max-width:1080px;margin:0 auto;padding:2.2rem 1.2rem 4rem}
+header.top{border-bottom:3px solid var(--olive);padding-bottom:1.1rem;margin-bottom:1.6rem}
+h1{font-size:2.05rem;margin:0 0 .35rem;letter-spacing:-.5px}
+.sub{color:var(--mut);font-size:1rem;margin:0}
+.stamp{display:inline-block;background:var(--sand);border:1px solid var(--olive);
+ border-radius:999px;padding:.2rem .7rem;font-size:.78rem;font-weight:700;color:#5c5210;margin-top:.6rem}
+h2{font-size:1.32rem;margin:2.4rem 0 .5rem;padding-left:.65rem;border-left:6px solid var(--ember)}
+h2.s2{border-left-color:var(--sage)} h2.s3{border-left-color:var(--slate)}
+h2.s4{border-left-color:var(--rose)} h2.s5{border-left-color:var(--olive)}
+h3{font-size:1.02rem;margin:1.5rem 0 .4rem;color:#3d3628}
+p{margin:.55rem 0}
+.lede{background:var(--card);border:1px solid var(--line);border-left:6px solid var(--olive);
+ border-radius:10px;padding:.9rem 1.05rem;margin:1rem 0 0}
+table{width:100%;border-collapse:collapse;margin:.8rem 0 1.1rem;font-size:.88rem;
+ background:var(--card);border:1px solid var(--line);border-radius:10px;overflow:hidden}
+th{background:#EFE7D3;text-align:left;padding:.5rem .6rem;font-size:.79rem;
+ text-transform:uppercase;letter-spacing:.4px;color:#5c5342;border-bottom:2px solid var(--line)}
+td{padding:.5rem .6rem;border-bottom:1px solid #EDE5D1;vertical-align:top}
+tr:last-child td{border-bottom:none}
+code{background:#EFE7D3;padding:.1em .38em;border-radius:4px;font-size:.86em;
+ font-family:ui-monospace,SFMono-Regular,Menlo,monospace}
+a{color:#8A5A12;font-weight:600;text-decoration:none}
+a:hover{text-decoration:underline}
+.grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(255px,1fr));gap:.8rem;margin:1rem 0}
+.card{background:var(--card);border:1px solid var(--line);border-radius:11px;padding:.85rem .95rem}
+.card h4{margin:0 0 .3rem;font-size:.97rem}
+.card .why{font-size:.85rem;color:var(--mut);margin:.25rem 0 .4rem}
+.card .trig{font-size:.79rem;color:#4d463a;background:#EFE7D3;border-radius:6px;padding:.3rem .45rem;display:block}
+.c1{border-top:5px solid var(--ember)} .c2{border-top:5px solid var(--sage)}
+.c3{border-top:5px solid var(--slate)} .c4{border-top:5px solid var(--rose)}
+.c5{border-top:5px solid var(--olive)} .c6{border-top:5px solid var(--peach)}
+.c7{border-top:5px solid var(--sand)}
+.stage{display:inline-block;font-size:.72rem;font-weight:800;letter-spacing:.5px;
+ text-transform:uppercase;padding:.13rem .5rem;border-radius:5px;margin-bottom:.35rem}
+.st1{background:var(--ember);color:#fff} .st2{background:var(--sage);color:#fff}
+.st3{background:var(--slate);color:#fff} .st4{background:var(--rose);color:#5c2b26}
+.st5{background:var(--olive);color:#fff} .st6{background:var(--peach);color:#6b4230}
+.st7{background:var(--sand);color:#5c5210}
+.kpi{display:grid;grid-template-columns:repeat(auto-fit,minmax(148px,1fr));gap:.65rem;margin:1rem 0}
+.k{background:var(--card);border:1px solid var(--line);border-radius:10px;padding:.7rem .8rem;text-align:center}
+.k b{display:block;font-size:1.5rem;line-height:1.15;margin-bottom:.15rem}
+.k span{font-size:.76rem;color:var(--mut);text-transform:uppercase;letter-spacing:.35px}
+.k1 b{color:var(--ember)} .k2 b{color:var(--sage)} .k3 b{color:var(--slate)}
+.k4 b{color:#B8746A} .k5 b{color:var(--olive)} .k6 b{color:#B9762A}
+.warn{background:#FDF1E6;border:1px solid var(--ember);border-left:6px solid var(--ember);
+ border-radius:10px;padding:.85rem 1rem;margin:1rem 0}
+.good{background:#EDF4F0;border:1px solid var(--sage);border-left:6px solid var(--sage);
+ border-radius:10px;padding:.85rem 1rem;margin:1rem 0}
+.note{background:#EEF2F4;border:1px solid var(--slate);border-left:6px solid var(--slate);
+ border-radius:10px;padding:.85rem 1rem;margin:1rem 0}
+ul{margin:.5rem 0 .8rem;padding-left:1.2rem}
+li{margin:.28rem 0}
+.path{font-family:ui-monospace,SFMono-Regular,Menlo,monospace;font-size:.8rem;
+ background:#EFE7D3;padding:.28rem .45rem;border-radius:5px;display:inline-block;margin:.12rem 0;word-break:break-all}
+footer{margin-top:3rem;border-top:2px solid var(--line);padding-top:1rem;
+ font-size:.83rem;color:var(--mut)}
+.tocwrap{background:var(--card);border:1px solid var(--line);border-radius:11px;padding:.8rem 1rem;margin:1.3rem 0}
+.tocwrap ol{margin:.3rem 0 0;padding-left:1.2rem}
+.badge{font-size:.72rem;font-weight:800;padding:.12rem .45rem;border-radius:4px;margin-left:.35rem}
+.b-open{background:var(--rose);color:#5c2b26}
+.b-done{background:var(--sage);color:#fff}
+.b-hold{background:var(--sand);color:#5c5210}
+</style></head><body><main>
+
+<header class="top">
+<h1>Keep It Greasey: three verdicts</h1>
+<p class="sub">The three open defects on Frank Zappa's <b>Keep It Greasey</b>, drums by Vinnie Colaiuta, taken to a verdict against stated null models. Two close. One stays open and now says exactly how far short it falls.</p>
+<span class="stamp">2026-09-08 &middot; s604777 / copy s6862054 at r8972975 &middot; repairs applied: 0</span>
+</header>
+
+<div class="lede">
+<b>Nothing was changed on either tab.</b> Two of the three items closed because the evidence said no repair was warranted, and the third closed nothing because its anchor missed a threshold written down before the run. Every count on this page is a direct read of a stored field or a measurement with its own chance baseline beside it.
+</div>
+
+<div class="kpi">
+<div class="k k1"><b>0.019x</b><span>ghost-mf ratio vs chance</span></div>
+<div class="k k2"><b>0</b><span>pixels changed by M002</span></div>
+<div class="k k3"><b>5,467</b><span>pixels changed by the control</span></div>
+<div class="k k4"><b>4.11</b><span>anchor z, needed 5.0</span></div>
+<div class="k k5"><b>629</b><span>ghost flags, all intact</span></div>
+<div class="k k6"><b>0</b><span>repairs applied</span></div>
+</div>
+
+<div class="tocwrap">
+<b>On this page</b>
+<ol>
+<li><a href="#repro">The reproduction check that came first</a></li>
+<li><a href="#m003">KIG-M003, the premise that did not survive</a></li>
+<li><a href="#m002">KIG-M002, a change nobody could see</a></li>
+<li><a href="#m004">KIG-M004, still open, and by how much</a></li>
+<li><a href="#files">Files and reproduction</a></li>
+</ol>
+</div>
+
+<h2 id="repro">1. The reproduction check that came first</h2>
+<p>An independent walk of the published Guitar Pro file returns every published figure from a separate route, so the file on disk is the file that was measured.</p>
+<table>
+<tr><th>Measure</th><th>Published bundle</th><th>This walk</th></tr>
+<tr><td>drum note instances</td><td>4,948</td><td><b>4,948</b></td></tr>
+<tr><td>ghost flags, all on MIDI 38</td><td>629</td><td><b>629</b></td></tr>
+<tr><td>resolved dynamics on those ghosts</td><td>ppp 12 / pp 94 / p 376 / mp 33 / mf 114</td><td><b>identical</b></td></tr>
+<tr><td>GM 39 hand-clap events</td><td>21</td><td><b>21</b></td></tr>
+<tr><td>kicks after KIG-M001</td><td>1,312</td><td><b>1,312</b></td></tr>
+</table>
+
+<h2 class="s2" id="m003">2. KIG-M003, the premise that did not survive</h2>
+<p>The open item said 114 of the 629 ghost flags resolve to a dynamic of <code>mf</code>, that the two encodings disagree, and that nothing on hand decides which the transcriber meant. The first half of that is a reading error.</p>
+
+<h3>The 114 came from a resolved field, never an authored one</h3>
+<table>
+<tr><th>Field</th><th>Where it lives</th><th>Beats carrying a value</th></tr>
+<tr><td>Songsterr <code>velocity</code></td><td>on a beat, sticky and sparse</td><td><b>989 of 3,756</b></td></tr>
+<tr><td>GPIF <code>&lt;Dynamic&gt;</code></td><td>on a beat, written by the exporter</td><td><b>3,756 of 3,756</b></td></tr>
+</table>
+<p>The Guitar Pro exporter resolves the sticky Songsterr value onto every beat, so reading the export hands each ghost a dynamic whether or not the transcriber wrote one there. Splitting the 114 by whether a mark was actually authored at that beat:</p>
+<table>
+<tr><th>The 114 "mf ghosts"</th><th>Count</th></tr>
+<tr><td>authored <code>velocity: "mf"</code> on that beat</td><td><b>3</b></td></tr>
+<tr><td>inherited mf from an earlier, unflagged beat</td><td><b>111</b></td></tr>
+</table>
+
+<h3>The control, and the null</h3>
+<p>Across the whole staff the transcriber authored 363 dynamics at ghosted notes. Every distribution below is a direct field count.</p>
+<table>
+<tr><th>Authored dynamic at a ghosted beat</th><th>ppp</th><th>pp</th><th>p</th><th>mp</th><th>mf</th><th>f</th><th>ff</th><th>fff</th></tr>
+<tr><td>count</td><td>6</td><td>69</td><td>262</td><td>23</td><td><b>3</b></td><td>0</td><td>0</td><td>0</td></tr>
+</table>
+<table>
+<tr><th>Gate N3, the chance baseline</th><th>Value</th></tr>
+<tr><td>base rate of mf among the 989 authored dynamics, staff-wide</td><td><b>44.3%</b></td></tr>
+<tr><td>observed at ghosted notes</td><td><b>3 / 363 = 0.83%</b></td></tr>
+<tr><td>ratio, observed over chance</td><td><b>0.019x</b></td></tr>
+<tr><td>expected under independence</td><td><b>160.8</b>, observed <b>3</b></td></tr>
+<tr><td>binomial, two-sided</td><td><b>p = 3.0e-86</b></td></tr>
+</table>
+<div class="good">
+<b>The two encodings do not disagree.</b> They agree to an extreme degree. The apparent conflict was an artifact of reading a resolved field as an authored one, and 111 of the 114 carry a mark the transcriber never wrote at that beat.
+</div>
+
+<h3>What the notation standard adds</h3>
+<p>Norman Weinberg's PAS drumset guidelines settle the symbol: a drumset ghost is a <b>notehead change</b>, never a point on a dynamic ladder. Guitar Pro naming the flag <code>AntiAccent</code> invites the ladder reading and the ladder reading is wrong. A ghost notehead inside an mf passage is well-formed notation, so the remaining 3 are not a defect either.</p>
+
+<h3>The transcriber's own words, in the file</h3>
+<p>Bar 22 beat 0 carries a text annotation:</p>
+<div class="note">
+<i>"There is no kick on beat one of the first bar and a couple others. Variations of ghost notes among the snare and hi-hat at the end of each bar"</i>
+</div>
+<p>The person who wrote the flags was tracking them bar by bar in this exact section.</p>
+<div class="good"><b>Verdict: no change.</b> <code>Note 659</code> is never edited, so the copy-on-write that guarded 515 out-of-plan instances never has to run. The three authored-mf ghosts sit at bars <b>119, 124 and 227</b> and are recorded rather than repaired.</div>
+
+<h2 class="s3" id="m002">3. KIG-M002, a change nobody could see</h2>
+<p>Twenty-one events on GM 39, Hand Clap, drawn at the snare staff position. The open item called the placement certain and the intent unrecoverable.</p>
+
+<h3>One, the figure is deliberate</h3>
+<table>
+<tr><th>Bars</th><th>Section marker</th><th>Signature</th><th>Claps</th><th>Metrical slot</th></tr>
+<tr><td>22-32</td><td><b>Verse 1</b></td><td>19/16</td><td>one per bar, 11</td><td>16th <b>13-14 of 19</b> in ten of eleven bars</td></tr>
+<tr><td>42-44</td><td><b>Verse 2</b></td><td>21/16</td><td>2-3 per bar, 8</td><td>16ths <b>7, 17, 19 of 21</b>, repeated</td></tr>
+<tr><td>65, 82</td><td>&mdash;</td><td>4/4</td><td>1 each</td><td>16th 11 of 16</td></tr>
+</table>
+<p>The snare never thins inside those bars, running 4 to 8 events per bar throughout, so the claps are an added layer rather than a substitution. A stray GM number does not land on the same subdivision of eleven consecutive bars.</p>
+
+<h3>Two, the change is invisible to every reader</h3>
+<table>
+<tr><th>Articulation</th><th>Name</th><th>Staff line</th><th>Noteheads</th></tr>
+<tr><td>0</td><td>Snare (hit)</td><td><b>3</b></td><td>noteheadBlack noteheadHalf noteheadWhole</td></tr>
+<tr><td><b>84</b></td><td><b>Hand Clap (hit)</b></td><td><b>3</b></td><td><b>noteheadBlack noteheadHalf noteheadWhole</b></td></tr>
+<tr><td>34</td><td>Snare (side stick)</td><td>3</td><td>noteheadXBlack, a distinguishable option that was not used</td></tr>
+</table>
+<p>Songsterr agrees from its own side: all 21 claps and all 1,423 snares sit on <code>string: 1.5</code>, and its note schema has no notehead field. That is two field reads, so the question then went to the eye with a control.</p>
+<table>
+<tr><th>Bar 22 rendered from</th><th>Differing pixels against the published bar</th></tr>
+<tr><td>a copy with the clap rewritten as <b>GM 38 snare</b></td><td><b>0</b></td></tr>
+<tr><td>a copy with the clap rewritten as <b>GM 49 crash</b>, positive control</td><td><b>5,467</b>, bbox x 1399-1575, y 420-725</td></tr>
+</table>
+<p>The two source files differ by sha256 and the two render pages differ by sha256, and the control fires at the clap's own position in the bar, so the pipeline sees edits. Rewriting the clap as a snare produces a <b>byte-identical PNG</b>.</p>
+<div class="grid">
+<div class="card c1"><span class="stage st1">Published, GM 39</span><img src="img/bar22-published.png" alt="Bar 22 as published" style="width:100%;border-radius:7px"></div>
+<div class="card c3"><span class="stage st3">Control, GM 49 crash</span><img src="img/bar22-control-crash.png" alt="Bar 22 with the clap rewritten as a crash" style="width:100%;border-radius:7px"></div>
+</div>
+
+<h3>Three, no independent printed witness notates a clap</h3>
+<p>Marc Atkinson's <i>Rock Charts</i> transcription is the only complete-song printed chart on hand. Its music key lists tom-toms, snare, bass drum, hi-hat by hand and by foot, ride, crash and additional toms, with <b>no clap, cowbell or auxiliary lane at all</b>.</p>
+<div class="card c4" style="max-width:560px"><img src="img/atkinson-key.png" alt="Marc Atkinson's music key" style="width:100%;border-radius:7px"></div>
+<div class="warn">
+<b>Gate N7 applies here and is respected.</b> A chart that does not notate a texture did not transcribe it, and that is never evidence the record lacks it. The correct reading is narrower: the clap has <b>no independent printed corroboration</b>, and it has no printed refutation either.
+</div>
+<div class="good"><b>Verdict: no change.</b> The figure is deliberate, the edit would alter nothing a reader can see, and the burden sits on the revision that changes an existing mark. Nothing here meets it.</div>
+
+<h2 class="s4" id="m004">4. KIG-M004, still open, and by how much</h2>
+<p>Thirty-two kick onsets the score omits, listed by audio time only. Placing them needs an anchor, so one was fitted on <b>kick and hi-hat only</b> across bars 22 to 32, with snare and clap held out because the claps are the target and the snare shares their staff row and their stem.</p>
+<table>
+<tr><th>Measure</th><th>Value</th></tr>
+<tr><td>winner</td><td>bar 22 downbeat at <b>35.980 s</b>, scale <b>0.984</b></td></tr>
+<tr><td>one-to-one match, <code>mir_eval.onset</code>, 50 ms</td><td><b>121 / 172 = 70.3%</b>, against a rotation-null baseline of <b>32.6%</b></td></tr>
+<tr><td>busiest single detected onset</td><td><b>1</b></td></tr>
+<tr><td>rotation null, 2,000 draws</td><td>mean <b>56.0</b>, sd 14.28, 0 exceedances</td></tr>
+<tr><td>z against the rotation null</td><td><b>4.55</b></td></tr>
+</table>
+<table>
+<tr><th>#</th><th>Declared before the run</th><th>Result</th></tr>
+<tr><td>1</td><td>unique maximum, no tie inside 1 match</td><td><b>PASS</b>, 0 competing cells</td></tr>
+<tr><td>2</td><td>match rate at least 2.0x the surface median</td><td><b>PASS</b>, 2.01x</td></tr>
+<tr><td>3</td><td><b>z at least 5.0</b></td><td><b>FAIL, z = 4.11</b></td></tr>
+<tr><td>4</td><td>busiest single onset absorbs at most 3</td><td><b>PASS</b>, 1</td></tr>
+<tr><td>5</td><td>scale inside 0.94 to 1.06, off the boundary</td><td><b>PASS</b>, 0.984</td></tr>
+</table>
+<div class="warn">
+<b>Verdict: UNEVALUABLE.</b> The threshold was fixed in a hashed pre-registration and the run missed it. It does not get moved afterward. <code>verdict_gate.py</code>, the numeric engine shipped with the notation gate, returns <b>UNDETERMINED</b> on the same numbers independently. Under the pre-registration's own rule the clap timbre test never ran.
+</div>
+<h3>The one thing worth carrying forward</h3>
+<p>The fitted 35.980 s sits within about a second of <b>DRUM! Magazine's printed "Verse 1 at 0:35"</b>, a source that never entered the fit and shares no method with it. The score's own constant-tempo timeline says 38.217 s and drifts to 517.9 s against 501.8 s of real audio, so the notated tempo map is the thing that is off.</p>
+<p>That agreement is recorded as <b>one candidate landmark</b>. The absolute bar identity gate requires <b>twelve across two source families, six each</b>, so no bar position is claimed from it. The obvious second family, sung-lyric onsets from the isolated vocals stem, is unavailable: the score's <code>newLyrics</code> field holds five entries and every text value is empty, so the lyrics would have to be entered by hand first.</p>
+
+<h2 class="s5" id="files">5. Files and reproduction</h2>
+<p>Onsets were detected on <b>isolated stems</b>, never the mix, at 44.1 kHz over 501.84 s, hop 256, log-compressed spectral novelty per FMP 6.1.2. The kick count reproduces the earlier surplus finding independently, 1,332 detected against 1,312 notated.</p>
+<table>
+<tr><th>Lane</th><th>Onsets</th><th>Median peak</th></tr>
+<tr><td>kick</td><td>1,332</td><td>-14.98 dB</td></tr>
+<tr><td>snare</td><td>1,103</td><td>-13.00 dB</td></tr>
+<tr><td>hat</td><td>1,047</td><td>-17.51 dB</td></tr>
+<tr><td>cymbals</td><td>450</td><td>-18.91 dB</td></tr>
+<tr><td>toms</td><td>556</td><td>-20.32 dB</td></tr>
+</table>
+<p><span class="path">~/Projects/_outputs/zappa-keep-it-greasey-transcriptions/04-clap-test/</span> holds the pre-registration, its sha256, the results, every script and every evidence image.</p>
+<p>Live tab: <a href="https://www.songsterr.com/a/wsa/misc-covers-keep-it-greasey-by-frank-zappa-brandon-edit-drum-tab-s6862054">Keep It Greasey, Brandon edit, s6862054</a> &middot; source revision r8972975, unchanged by this pass.</p>
+
+<footer>
+Built 2026-09-08 on MacBookPro. No threshold on this page was fitted on the window it judges. Notation evidence gate: PASS, 0 hard, 0 warn. Anti-AI voice gate: PASS.
+</footer>
+
+</main></body></html>
