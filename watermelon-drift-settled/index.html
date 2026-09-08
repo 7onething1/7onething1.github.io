@@ -129,6 +129,18 @@ a{color:#0d6f88;font-weight:600}
  <div class="card t5"><div class="k f">4.6 s</div><div class="lab">lag flooring added</div></div>
 </div>
 <p>Flooring every bar makes every bar a little slow, and the error accumulates in one direction. The notated length grew from 506.68 s to 511.28 s, and the match that should have reached 0.782 came out at <b>0.492</b>. The revision was honest work and its own description overstated what landed.</p>
+<h3>Read by eye, and no outlier drives it</h3>
+<p>This started as a number comparison, so it was rendered and read. The served step function sits at or below the sent value at all 105 bars and never above. Per bar, every difference lands in [0, 1) and <b>every one is positive</b>. Rounding to nearest would put about half of them negative.</p>
+<div class="scroll"><table>
+<tr><th>Check</th><th class="num">Result</th></tr>
+<tr><td>Differences inside [0, 1)</td><td class="num">105 of 105</td></tr>
+<tr class="bad"><td>Negative differences, which rounding would produce</td><td class="num">0</td></tr>
+<tr><td>Bars already integer, matching floor trivially</td><td class="num">0</td></tr>
+<tr><td>Outliers above 1.0 bpm</td><td class="num">none</td></tr>
+<tr><td>Mean difference</td><td class="num">0.500</td></tr>
+<tr class="good"><td>Control: r8973454 sent minus served</td><td class="num">0.0000 every bar</td></tr>
+</table></div>
+<p>A mean of 0.500 is what uniform truncation predicts for a discarded fractional part, and the accumulated lag is a monotonic staircase with no step down, ending at <b>+4.61 s</b>. The population carries no outlier to discount, so unlike the bar-1 claims elsewhere on this page this one rests on all 105 values at once.</p>
 <div class="callout gold">
  <h3>The fix that survives flooring</h3>
  <p>Integers are all the platform keeps, so the integers were chosen by error diffusion. At each bar the integer picked is the one that lands the <b>next</b> barline closest to the fitted metronome time, and whatever error remains carries forward into the next choice. Bar durations then alternate between neighbouring values and average out to the right tempo.</p>

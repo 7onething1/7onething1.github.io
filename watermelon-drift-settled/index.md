@@ -47,6 +47,19 @@ Dropping bar 1 moves peak-to-peak by 0.09 s. **The headline stands unchanged.** 
 
 `r8973389` wrote 53.57 to 58.37 bpm with two decimals. The published data reads integers, matching `floor()` on **105 of 105** bars and `round()` on **46**. Flooring makes every bar slow in one direction, added 4.6 s of cumulative lag, and held the match at 0.492.
 
+**Read by eye, and no outlier drives it.** The served step function sits at or below the sent value at all 105 bars, never above. Every per-bar difference lands in [0, 1) and **every one is positive**; rounding would put about half negative.
+
+| Check | Result |
+|---|---|
+| Differences inside [0, 1) | 105 of 105 |
+| Negative differences, which rounding would produce | **0** |
+| Bars already integer, matching floor trivially | 0 |
+| Outliers above 1.0 bpm | none |
+| Mean difference | 0.500 |
+| Control: r8973454 sent minus served | **0.0000 every bar** |
+
+A mean of 0.500 is what uniform truncation predicts, and the accumulated lag is a monotonic staircase ending at **+4.61 s**. No outlier drives this claim.
+
 The fix uses integers chosen by error diffusion: each bar's integer lands the next barline closest to the fitted metronome time, and the residual carries forward. Worst barline error **0.049 s**, against **4.57 s** for per-bar rounding.
 
 ## 4. What shipped
