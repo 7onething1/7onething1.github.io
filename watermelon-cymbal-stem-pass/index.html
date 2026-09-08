@@ -351,6 +351,41 @@ its ghost rule, its bar range and its reader pass, the gap between chart and tab
 about what the drummer played. One chart image supports four different head counts on this machine alone,
 which is a reason to distrust the reader in dense passages and to re-read from the stem.</p>
 
+<h2 class="t">Applying the Perfect Stem Read spec, which found one more defect</h2>
+<p>The governing spec arrived after this pass and is now installed as
+<span class="mono">/perfect-stem-read</span>. It requires a snare count to declare its revision, measure
+range, voices, ghost policy, grace policy, tie and duplicate handling, event definition and reader version
+before the number supports any claim. Declaring those fields surfaced something the earlier reconciliation
+missed.</p>
+<div class="scroll"><table>
+<thead><tr><th>Field</th><th>PRESWEEP r7715683</th><th>BASELINE r8968524</th></tr></thead>
+<tbody>
+<tr><td>Artifact SHA-256, first 16</td><td class="mono">687445e3371131fd</td><td class="mono">4376b4a39dd1a466</td></tr>
+<tr><td>Track</td><td>8, Vinnie Colaiuta</td><td>8, Vinnie Colaiuta</td></tr>
+<tr><td>Measure range</td><td>all 105 bars</td><td>all 105 bars</td></tr>
+<tr style="background:color-mix(in srgb,var(--gold) 30%,transparent)">
+<td><strong>Voices</strong></td><td><strong>[0]</strong></td><td><strong>[0, 1]</strong></td></tr>
+<tr><td>Event definition</td><td colspan="2">note instance, never a Note definition id</td></tr>
+<tr><td>MIDI counted</td><td>40</td><td>40</td></tr>
+<tr><td>Total instances</td><td>193</td><td>342</td></tr>
+<tr><td>Plain / ghost</td><td>193 / 0</td><td>193 / 149</td></tr>
+<tr><td>Grace notes</td><td>0</td><td>0</td></tr>
+<tr style="background:color-mix(in srgb,var(--gold) 30%,transparent)">
+<td><strong>Distinct sixteenth positions</strong></td><td>193</td><td><strong>293</strong></td></tr>
+<tr style="background:color-mix(in srgb,var(--gold) 30%,transparent)">
+<td><strong>Positions carrying two notes</strong></td><td>0</td><td><strong>49</strong></td></tr>
+</tbody></table></div>
+<div class="card hero y">
+<p><strong>The 342 occupy 293 positions, and all 49 doubled positions share one pattern.</strong> Every one
+is a plain snare in voice 0 stacked with a ghost snare in voice 1 at the identical bar and sixteenth slot.
+The pattern is unanimous across all 49, with no other combination appearing.</p>
+<p style="margin-bottom:0">A drummer cannot strike one snare loudly and quietly at the same instant. These
+are 49 notation collisions the ghost restore introduced, and they are a separate defect from anything the
+cymbal pass measured. Written into <span class="mono">data/snare_duplicates.json</span> and
+<span class="mono">data/snare_scope_full.json</span>. No edit is proposed here, since the restore's
+provenance decides this rather than audio.</p>
+</div>
+
 <h2 class="g">The queue this produces</h2>
 <ol>
 <li><strong>101 cymbal strokes</strong> with timestamps and verdicts, opened individually, never removed in bulk.</li>

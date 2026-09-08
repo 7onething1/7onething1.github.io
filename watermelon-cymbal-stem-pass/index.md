@@ -60,3 +60,29 @@ on this disk. Neither side holds the same quantity across the two comparisons.
 No note was added, moved or removed. Nothing was uploaded to Songsterr.
 
 Source: ~/Projects/_outputs/zappa-watermelon-cymbal-stem-pass/
+
+## Applying the Perfect Stem Read spec (installed as /perfect-stem-read)
+
+Declaring the scope fields the spec requires surfaced a defect the earlier reconciliation missed.
+
+| Field | PRESWEEP r7715683 | BASELINE r8968524 |
+|---|---|---|
+| SHA-256 (16) | 687445e3371131fd | 4376b4a39dd1a466 |
+| Voices | [0] | [0, 1] |
+| Total snare instances | 193 | 342 |
+| Plain / ghost | 193 / 0 | 193 / 149 |
+| Grace notes | 0 | 0 |
+| Distinct 16th positions | 193 | 293 |
+| Positions carrying two notes | 0 | 49 |
+
+All 49 doubled positions are a plain snare in voice 0 stacked with a ghost snare in voice 1 at the
+identical bar and sixteenth slot. The pattern is unanimous. A drummer cannot strike one snare loudly
+and quietly at the same instant, so these are 49 notation collisions the ghost restore introduced.
+Resolved on provenance rather than audio. No edit proposed.
+
+## Gaps in this pass, measured against the spec
+
+- No wrong-recording control was run on the alignment. The clock was inherited (97 snare anchors) and
+  proved identical across both GP files, and a deliberately incorrect recording was never tested.
+- The leakage gate ran as a single bleed control (toms with no notated cymbal, 9.2 percent, below the
+  13.3 percent floor). Template similarity and silent-passage detection rates were not measured.
