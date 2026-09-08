@@ -103,6 +103,17 @@ replacement on the raw GPIF, so all 149 CDATA blocks survived.
 Verified uncredentialed from CloudFront, http 200: fret 65 count 0 (was 1), kick 1,312 (was 1,311),
 ghosts 629 unchanged, 248 measures, 4,974 events, **all 9 track names intact**.
 
+## The shared-element trap, measured 2026-09-08
+
+The chain from bar to note on the KIG-M001 target was **1 bar to 1 voice to 1 beat to 1 note**, so
+rewriting the note in place could reach nothing else. The same file's worst sharing is one beat
+referenced by **739 voices** and one note by **144 beats**, so the trap is real here and simply did
+not touch this edit. Element ids do not survive a Songsterr round trip: the re-export moved Beats
+1,527 to 1,556 and Notes 680 to 679 with no content change. Compare content tuples, never ids.
+
+**No count in this pass came from a fitted threshold.** Every figure is a direct field read, and the
+detector figures from 2026-09-06 and 09-07 are cited as those sessions' work.
+
 ## The bundle, collected 2026-09-08
 
 `~/Projects/_outputs/zappa-keep-it-greasey-transcriptions/` holds all three Guitar Pro

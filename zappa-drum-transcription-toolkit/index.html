@@ -417,7 +417,23 @@ The Odd Meter Lesson page draws the same 19/16 groove with <b>parenthesised note
 </tbody>
 </table>
 
-<h3>6.3 Verified after publish, uncredentialed</h3>
+<h3>6.3 The GPIF shared-element trap, measured rather than assumed</h3>
+<p>A peer session working Watermelon deleted 179 note instances across 79 bars it never targeted, because it edited a shared <code>Beat</code> in place. That trap is real in this file too, and it did not reach this edit.</p>
+<table>
+<thead><tr><th>Link in the chain</th><th>Sharing on the KIG-M001 target</th><th>Worst sharing in the same file</th></tr></thead>
+<tbody>
+<tr><td><code>Bar</code> to <code>Voice 2214</code></td><td>1 bar</td><td>&mdash;</td></tr>
+<tr><td><code>Voice 2214</code> to <code>Beat 1503</code></td><td><b>1 voice</b></td><td>one beat referenced by <b>739 voices</b></td></tr>
+<tr><td><code>Beat 1503</code> to <code>Note 679</code></td><td><b>1 beat</b></td><td>one note referenced by <b>144 beats</b></td></tr>
+</tbody>
+</table>
+<div class="note">
+<b>The chain from bar to note was 1 to 1 to 1</b>, so rewriting <code>Note 679</code> in place could reach nothing else. The whole-track diff confirmed it from the other direction, and so did the post-publish read.
+<br><br>
+<b>Element ids do not survive a Songsterr round trip.</b> The published re-export renumbers with no content change: Beats went 1,527 to 1,556 and Notes 680 to 679, because the exporter re-deduplicates. Compare content tuples, never ids.
+</div>
+
+<h3>6.4 Verified after publish, uncredentialed</h3>
 <p>Read straight from CloudFront at <code>6862054/8972975/v0-3-2-VZtKXkSzlkLljDFV/8.json</code>, http 200, with no session cookie.</p>
 <table>
 <thead><tr><th>Measure</th><th>Before</th><th>After</th></tr></thead>
@@ -431,6 +447,19 @@ The Odd Meter Lesson page draws the same 19/16 groove with <b>parenthesised note
 </tbody>
 </table>
 <p><b>All nine custom names survived the importer</b>, which confirms the CDATA finding against the older blanket NAMEDROP rule. The published tab keeps its eight source videos and <code>hasPlayer: true</code>, so the audio sync came through the import.</p>
+
+<h3>6.5 Threshold provenance</h3>
+<p>No figure produced in this pass came from a fitted threshold, so the author-calibration failure mode does not apply to any count above.</p>
+<table>
+<thead><tr><th>Figure</th><th>Where it is read from</th></tr></thead>
+<tbody>
+<tr><td>4,948 drum events, 629 ghost flags</td><td><code>&lt;AntiAccent&gt;</code> children and beat-to-note references in the GPIF</td></tr>
+<tr><td>All 629 on MIDI 38, 152 of 248 bars</td><td>the <code>Midi</code> property on each referenced note</td></tr>
+<tr><td>1,311 to 1,312 kicks, fret 65 one to zero</td><td>Songsterr part JSON <code>fret</code> field</td></tr>
+<tr><td>19/16, 21/16, 9/16, 4/4, quarter 134</td><td>native-resolution image crops at 4x and 6x</td></tr>
+</tbody>
+</table>
+<p>The detector figures in section 4.7 belong to the 2026-09-06 and 09-07 sessions and are cited as theirs. Nothing was refitted here.</p>
 
 <h2 class="s5" id="open">7. What is still open on this song</h2>
 <table>
