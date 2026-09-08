@@ -86,6 +86,8 @@ Found in passing, not caused here: bar 105 voice 0 holds 4.0 quarters inside a 5
 
 The stems separate the lanes cleanly. At thirteen instants the snare stem reads **0.0000 to 0.0041** while the toms carry a full stroke. At bars 85 and 89 the reverse holds, snare at 0.5355 and 0.5126 against toms at 0.0000 and 0.0025. A 125x separation. Null fire rate over 400 random instants: snare 4 percent, toms 4 percent.
 
+Every one of the fifteen removals was read by eye, not sampled (`all15-removals.png`). Fifteen of fifteen confirmed: nine panels are dead flat at 0.0000, and the other six carry a faint ripple or a small blip to the left of the line and nothing on it, bar 41 at 0.0007, bar 52 at 0.0016, bar 54 at 0.0041, bar 56 at 0.0007, bar 57 at 0.0003, bar 89 at 0.0025. No panel shows a struck note where the transcription wrote one.
+
 The ride was left alone on purpose. Its threshold fits the author at MAE 7.03 notes per bar with a 28 percent null fire rate, against 1.27 and 4 percent for the snare, and the render shows it rejecting a real stroke at bar 55. All 1,522 ride notes stand.
 
 reference-class PASS on all six: 16 against 16 is 1.0x, 1.3 removals per bar, 16 of 48 lane-instances, nulls stated, threshold from the author. Set difference 15 removed and 0 added, only the 11 planned bars. Alignment rose 0.697 to **0.708** with the guitar control at 0.181, discrimination 3.91x.

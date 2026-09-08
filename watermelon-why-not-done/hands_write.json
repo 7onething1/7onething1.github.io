@@ -68,5 +68,21 @@
    "discrimination_x": 3.83
   }
  },
- "copy_on_write_near_miss": "the first attempt edited shared beats in place and deleted 179 instances across 79 untargeted bars; beat 899 is referenced by 176 voices. Quarantined, redone with per-voice beat clones."
+ "copy_on_write_near_miss": "the first attempt edited shared beats in place and deleted 179 instances across 79 untargeted bars; beat 899 is referenced by 176 voices. Quarantined, redone with per-voice beat clones.",
+ "eye_check": {
+  "panels": 15,
+  "confirmed": 15,
+  "method": "stem of the removed lane, 0.7 s centred on the written instant, one panel per removal",
+  "flat_at_zero": 9,
+  "faint_but_nothing_on_the_line": {
+   "41": 0.0007,
+   "52": 0.0016,
+   "54": 0.0041,
+   "56": 0.0007,
+   "57": 0.0003,
+   "89": 0.0025
+  },
+  "image": "all15-removals.png",
+  "note": "the earlier five-panel figure was a sample; this is the complete set"
+ }
 }
