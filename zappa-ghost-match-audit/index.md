@@ -38,6 +38,18 @@ The test is presence, not identity. A song passes when some part carries exactly
 
 Three earlier yardsticks were wrong. Summing all parts scored Watermelon 1,333 against 1,317. Taking the largest part scored Black Napkins 24 against 1, picking a guitar staff. Montana's 317 was 212 and 105 summed.
 
+## The set difference
+
+| Song | Restore rev | Live rev | In restore, absent live | Live only | Where |
+|---|---|---|---|---|---|
+| s412178 Inca Roads | r8907511 pending | r8769026 | **165** | 0 | part 11, 42 bars, bar 0-314 |
+| s412170 Trouble Every Day | r8932027 pending | r8815000 | **6** | 0 | part 4, bar 66 only, fret 49 |
+| s412162 Zomby Woof | r8905491 | r8918601 | 2 | 4 | part 9, bar 8, fret 38 |
+
+**Zomby Woof is withdrawn from the short list.** The 32 came from the stale ghost_sweep.json. Our restore carries 8 positions, live carries 10, four of which ours lacks.
+
+Both pending restores read isOnModeration true, so the in-place route is closed by the queue, not by rejection. A copy-tab upload is a working second route that waits on Brandon.
+
 ## The three short
 
 - **s412178 Inca Roads**: restore r8907511 not live, published is still the stripping r8769026, 165 flags absent

@@ -62,6 +62,22 @@ footer{margin-top:34px;color:var(--dim);font-size:12.5px;border-top:1px solid va
 <tr><td><a href="https://www.songsterr.com/a/wa/song?id=35883">s35883</a></td><td>Zoot Allures</td><td><code>53</code></td><td><code>0,0,0,0,53</code></td><td class="ok"><strong>match</strong></td><td></td></tr>
 </table></div>
 
+<h2>The set difference, not a count</h2>
+<div class="card">
+<p>A restore claim has to name which flags are absent, so each pending restore revision was fetched and diffed against the published one, position by position on <code>(part, bar, voice, beat, fret)</code>.</p>
+</div>
+<div class="card scroll"><table>
+<tr><th>Song</th><th>Restore rev</th><th>Live rev</th><th>In restore, absent live</th><th>Live only</th><th>Where</th></tr>
+<tr><td>s412178 Inca Roads</td><td><code>r8907511</code> pending</td><td><code>r8769026</code></td><td class="bad"><strong>165</strong></td><td>0</td><td>part 11, 42 distinct bars, bar 0 to 314</td></tr>
+<tr><td>s412170 Trouble Every Day</td><td><code>r8932027</code> pending</td><td><code>r8815000</code></td><td class="bad"><strong>6</strong></td><td>0</td><td>part 4, bar 66 only, all fret 49</td></tr>
+<tr><td>s412162 Zomby Woof</td><td><code>r8905491</code></td><td><code>r8918601</code></td><td class="warn"><strong>2</strong></td><td>4</td><td>part 9, bar 8, fret 38</td></tr>
+</table></div>
+<div class="card">
+<p class="note"><strong>Zomby Woof is withdrawn from the short list.</strong> The 32 quoted for it came from the stale <code>ghost_sweep.json</code>. Our own restore revision <code>r8905491</code> carries 8 ghost positions, and the live moderator revision carries 10, four of which ours does not have. It is not measurably short, and no revision should be opened on it.</p>
+<p><strong>Trouble Every Day is smaller than the counts implied.</strong> The shortfall is 6 crash-cymbal flags inside a single bar, bar 66, not a staff-wide strip.</p>
+<p><strong>Both pending restores read <code>isOnModeration: true</code> live</strong>, so the in-place revision route is closed by the queue rather than by a rejection. A copy-tab upload is a second route that exists and works, and it publishes a new tab, so it waits on Brandon rather than on me.</p>
+</div>
+
 <h2>What the number means, and what it does not</h2>
 <div class="card">
 <p><strong>The test is presence, not identity.</strong> A song passes when some part carries exactly the expected ghost count. Live track names come back as empty strings from the API, so the drum staff cannot be named, only inferred. A part matching by coincidence is possible and unlikely at these values, and it is the honest limit of this measurement.</p>
