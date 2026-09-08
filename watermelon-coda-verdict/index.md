@@ -10,11 +10,13 @@ The chart read produced 179 tom noteheads and handed 29 of them over for testing
 session returned verdicts on 20 and marked the remaining 9 UNTESTABLE, because the alignment
 anchors stop at notation second 462.9 and the clock drifts 165 to 773 milliseconds past it.
 
-Four of those nine are now refuted, on a measurement that needs no clock at all. The other
-five stay without a verdict, and the reason is measured rather than assumed.
-
-**The drum kit stops playing at 538.9 seconds.** GP bars 103 and 104 both sit entirely after
-that instant, so the four chart tom heads written into them have no audio to be in.
+**The drum kit stops playing at 538.9 seconds**, and that measurement stands. A first pass read
+that as refuting the four chart tom heads in GP bars 103 and 104, on a constant-tempo
+extrapolation placing both bars after 539.7 s. Looking at the printed page withdrew that
+verdict. The chart's final system carries a FERMATA and a two-step drop to mp then pp, so the
+performance does not hold constant tempo through the ending and those windows cannot be
+trusted. All four heads are printed as filled ovals on the G line, confirmed at 8x. They return
+to no verdict, joining the five in bars 99 to 101.
 
 ## Every one of the 29 events
 
@@ -24,9 +26,9 @@ that instant, so the four chart tom heads written into them have no audio to be 
 | GP bar 95 | 4 | REFUTED | 0 of 4 at every threshold down to 0.2 percent of peak, where the detector finds 2,049 onsets. |
 | GP bar 97 | 6 | 4 WEAK | Four supported at 0.2 percent, two of those also at 5 percent. Ship labelled weak. |
 | GP bars 99, 100, 101 | 5 | NO VERDICT | Bar presence fails its control at 1.15x. Clock drift exceeds one sixteenth. |
-| GP bars 103, 104 | 4 | REFUTED, new | Both fall after the kit stops at 538.9 s. Peak tom energy at the noise floor. |
+| GP bars 103, 104 | 4 | NO VERDICT | All four confirmed by eye as filled ovals at 8x. Constant-tempo placement invalidated by the closing fermata. |
 
-Ten moot, eight refuted, two firm, four weak, five without a verdict. All 29 accounted for.
+Ten moot, four refuted, two firm, four weak, nine without a verdict. All 29 accounted for.
 
 ## Where the kit stops
 
@@ -41,8 +43,13 @@ Peak band energy per second, straight off each stem, no threshold and no alignme
 | 543 | 0.00002 | 0.016 | 0.000 | 0.21 | 0.015 | silence |
 
 On the clock fitted to the last eight anchors, slope 1.01266, GP bar 103 spans stem 539.72 to
-544.06 and GP bar 104 spans 544.06 to 545.27. Both begin after the kick and toms have gone.
-Bar 105 extrapolates to 549.5 s against a file ending at 545.27 s.
+544.06 and GP bar 104 spans 544.06 to 545.27, and bar 105 extrapolates to 549.5 s against a
+file ending at 545.27 s. That slope assumes constant tempo. The printed page shows a FERMATA
+over the closing bar plus a drop to mp then pp, so the ending is held by an unknown amount.
+The kit stopping at 538.9 s is measured and stands. Which notated bars sit under 539 to 545 s
+is not settled.
+
+Eye check images: sys46_chartbars93-94_x8.png and sys47_chartbars95-96_x8.png in this folder.
 
 ## Why bars 99, 100 and 101 have no verdict
 
