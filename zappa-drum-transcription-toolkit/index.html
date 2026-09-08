@@ -448,7 +448,36 @@ The Odd Meter Lesson page draws the same 19/16 groove with <b>parenthesised note
 </table>
 <p><b>All nine custom names survived the importer</b>, which confirms the CDATA finding against the older blanket NAMEDROP rule. The published tab keeps its eight source videos and <code>hasPlayer: true</code>, so the audio sync came through the import.</p>
 
-<h3>6.5 Threshold provenance</h3>
+<h3>6.5 The eye check, because a field read is still a detector</h3>
+<p>The row was settled from stored fields first. That is a detector result, so it was put to the eye: bar 231 of both files rendered with alphaTab headless at scale 4.0, then diffed pixel by pixel.</p>
+<table>
+<thead><tr><th>Version</th><th>Where the notehead sits</th></tr></thead>
+<tbody>
+<tr><td>BEFORE, fret 65 Timbale high</td><td>in the space <b>below</b> the bottom staff line</td></tr>
+<tr><td>AFTER, fret 35 Kick</td><td><b>on</b> the bottom staff line, with every other kick in the bar</td></tr>
+</tbody>
+</table>
+<div class="good">
+<b>The eye agrees with the fields, so nothing was overruled.</b> The pixel diff isolates a notehead-sized change 42 px wide at x 1122 to 1163, spanning y 513 to 565, which straddles the bottom line at y 532. Everything else that differs sits at y 587 to 704, below the staff, and is beam re-layout.
+</div>
+
+<h3>6.6 Ghost and dynamic are two different elements</h3>
+<p>A ghost-versus-dynamic comparison only means something when the two sides are different fields. Counted in the published file:</p>
+<table>
+<thead><tr><th>Mark</th><th>Where it lives</th><th>Elements in the file</th></tr></thead>
+<tbody>
+<tr><td>ghost</td><td><code>&lt;AntiAccent&gt;</code> child of <code>&lt;Note&gt;</code></td><td><b>1</b> shared definition, referenced by 629 instances</td></tr>
+<tr><td>dynamic</td><td><code>&lt;Dynamic&gt;</code> child of <code>&lt;Beat&gt;</code></td><td>1,556</td></tr>
+<tr><td>staccato</td><td><code>&lt;Staccato/&gt;</code> child of <code>&lt;Note&gt;</code></td><td><b>0</b></td></tr>
+</tbody>
+</table>
+<div class="note">
+<b>There is no staccato anywhere in this file</b>, so the ghost-turned-into-staccato substitution that damaged Montana <code>s35870</code> has no counterpart here.
+<br><br>
+<b>Scope note that reconciles two published numbers.</b> The 2026-09-07 validation page reports 794 unflagged against these 629. That figure is snare-lane only, and 629 plus 794 is 1,423, exactly the MIDI 38 count. Counting every lane gives 4,319 unflagged. Both are right at their own scope.
+</div>
+
+<h3>6.7 Threshold provenance</h3>
 <p>No figure produced in this pass came from a fitted threshold, so the author-calibration failure mode does not apply to any count above.</p>
 <table>
 <thead><tr><th>Figure</th><th>Where it is read from</th></tr></thead>

@@ -114,6 +114,19 @@ not touch this edit. Element ids do not survive a Songsterr round trip: the re-e
 **No count in this pass came from a fitted threshold.** Every figure is a direct field read, and the
 detector figures from 2026-09-06 and 09-07 are cited as those sessions' work.
 
+## The eye check on KIG-M001
+
+Bar 231 rendered from both files with alphaTab headless at scale 4.0 and diffed pixel by pixel.
+**BEFORE the notehead sits in the space below the bottom staff line; AFTER it sits on the bottom
+line**, with every other kick in the bar. The diff isolates a 42 px notehead-sized change at
+x 1122-1163 spanning y 513-565, straddling the bottom line at y 532. Everything else that differs
+is beam re-layout below the staff. The eye agrees with the fields, so nothing was overruled.
+
+Ghost and dynamic are **different elements**: ghost is `<AntiAccent>` on the Note, dynamic is
+`<Dynamic>` on the Beat, and this file carries **zero** `<Staccato/>`, so the Montana substitution
+failure has no counterpart here. The 09-07 page's 794 unflagged is snare-lane only (629 + 794 =
+1,423 = the MIDI 38 count); all lanes gives 4,319.
+
 ## The bundle, collected 2026-09-08
 
 `~/Projects/_outputs/zappa-keep-it-greasey-transcriptions/` holds all three Guitar Pro
