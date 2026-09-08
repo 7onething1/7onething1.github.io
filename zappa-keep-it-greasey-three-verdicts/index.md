@@ -303,3 +303,53 @@ Two further honest limits:
 **Net movement on M004:** the bar identity at bar 22 now has two-family corroboration and wins its
 shift contest, where before it had neither. Placing the 32 events needs a **piecewise map with
 landmarks bracketing each one**, and that is the next unit of work.
+
+---
+
+## ADDENDUM 2: the clap timbre test was run, under a fresh hashed pre-registration
+
+`PREREGISTRATION_clap_verse1_v2.md`, sha256
+`383fe83e7df0eab48f679220087d10e958c5149ad118e2def46b044d4525f0b7`, written before any timbre was
+measured. **v1 stays failed and none of its thresholds were moved.** v2 rests on the two-family anchor at offset 35.980 s, scale 0.984, tolerance 60 ms, one-to-one match 121/172 = 70.3% against a 32.6% rotation-null baseline, an anchor that did not exist when v1 was written. It declares the same timbre thresholds v1 declared.
+
+### The declared test returned UNEVALUABLE
+
+Entry rule, fixed in advance: an instant enters only if a detected snare-stem onset lies within
+60 ms of it.
+
+| Population | Notated | Entered | Dropped |
+|---|---|---|---|
+| target, the 11 GM 39 claps | 11 | **0** | **11** |
+| control, the 58 same-bar GM 38 snares | 58 | 33 | 25 |
+
+**Zero of eleven entered, so neither the centroid nor the low-band comparison could run.** Under
+the pre-registration this is **UNEVALUABLE**, and under Gate N7 it is a statement about this
+detector's reach and never proof the record lacks claps.
+
+### The post-hoc observation, and the control that killed it
+
+**Not pre-registered, and reported because it looked like a finding.** At the same anchor (offset 35.980 s, scale 0.984, tolerance 60 ms, one-to-one match 121/172 = 70.3% against a 32.6% rotation-null baseline) the 11 clap instants scored 0 in the snare stem while the same-bar notated snares scored 33 of 58 = 56.9%, and a binomial against that rate gives p = 9.5e-05.
+
+**That baseline was wrong and circular.** It compares beats carrying no notated snare against
+beats that do. The correct control is beats in the same eleven bars that carry a kick and **no**
+notated snare.
+
+| Group, bars 22-32, snare stem, 60 ms | n | Hits | Rate |
+|---|---|---|---|
+| clap, no snare on the beat | 11 | 0 | **0.0%** |
+| **kick-only, no snare on the beat** | 69 | 8 | **11.6%** |
+| snare on the beat | 58 | 33 | 56.9% |
+
+Clap against kick-only: **Fisher exact p = 0.5906**, binomial p = 0.6281. **The dropout is fully
+explained by the beat carrying no notated snare, and it says nothing about claps.** The
+observation is withdrawn.
+
+For completeness, 9 of the 11 clap instants do carry an onset in at least one of the seven stems,
+so the anchor is not wrong at those instants. Twelve of the 21 claps stack with a notated kick,
+which accounts for the hits in the kick, cymbal and other lanes.
+
+### What this changes
+
+**Nothing.** M002's verdict was never resting on audio. It rests on the figure being deliberate,
+on GM 39 and GM 38 rendering byte-identically, and on the burden sitting with the change. The
+audio adds **no corroboration in either direction**, which is now measured rather than assumed.

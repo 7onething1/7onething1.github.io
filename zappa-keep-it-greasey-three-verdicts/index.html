@@ -103,6 +103,7 @@ footer{margin-top:3rem;border-top:2px solid var(--line);padding-top:1rem;
 <li><a href="#m002">KIG-M002, a change nobody could see</a></li>
 <li><a href="#m004">KIG-M004, still open, and by how much</a></li>
 <li><a href="#second">A second landmark family, and what it moved</a></li>
+<li><a href="#timbre">The clap timbre test, and the control that killed it</a></li>
 <li><a href="#files">Files and reproduction</a></li>
 </ol>
 </div>
@@ -264,6 +265,28 @@ footer{margin-top:3rem;border-top:2px solid var(--line);padding-top:1rem;
 <div class="warn">Under Gate N4 anything below 1.5x is the null, so that row is carried as a <b>refutation of the extrapolation</b> and as nothing else. It is not a count of surplus kicks and no repair may be built from it. The 32 surplus onsets sit across the full 501.8 s while the validated span is eleven bars, so <b>they cannot be placed from this anchor</b>. That is why M004 stays open.</div>
 <div class="note"><b>Two limits kept in view.</b> The clap-test criterion 3 still fails at z = 4.11 against a declared 5.0 on family A alone, and a two-family agreement does not retroactively pass a threshold that was written down and missed, so the clap timbre test still never ran. And no <code>ABSOLUTE_ANCHORS.csv</code> was hashed, so the twelve-landmark gate is <b>not</b> claimed as passed.</div>
 <p><b>Net movement:</b> bar identity at bar 22 now has two-family corroboration and wins its shift contest, where before it had neither. Placing the 32 events needs a <b>piecewise map with landmarks bracketing each one</b>.</p>
+
+<h2 class="s4" id="timbre">4c. The clap timbre test was run, and its own control killed the interesting part</h2>
+<p>Pre-registration v2, sha256 <code>383fe83e...25f0b7</code>, written before any timbre was measured. <b>v1 stays failed and none of its thresholds were moved.</b> v2 rests on the two-family anchor that did not exist when v1 was written, and declares the same timbre thresholds v1 declared.</p>
+<h3>The declared test returned UNEVALUABLE</h3>
+<p>Entry rule fixed in advance: an instant enters only if a detected snare-stem onset lies within 60 ms of it.</p>
+<table>
+<tr><th>Population</th><th>Notated</th><th>Entered</th><th>Dropped</th></tr>
+<tr><td>target, the 11 GM 39 claps</td><td>11</td><td><b>0</b></td><td><b>11</b></td></tr>
+<tr><td>control, the 58 same-bar GM 38 snares</td><td>58</td><td>33</td><td>25</td></tr>
+</table>
+<p><b>Zero of eleven entered</b>, so neither the centroid nor the low-band comparison could run.</p>
+<h3>The post-hoc observation, and the control that withdrew it</h3>
+<p>Not pre-registered, and reported here because it looked like a finding. The 11 clap instants scored 0 in the snare stem while the same-bar notated snares scored 33 of 58 = 56.9%, giving a binomial p = 9.5e-05. <b>That baseline was circular</b>, comparing beats with no notated snare against beats that have one.</p>
+<table>
+<tr><th>Group, bars 22-32, snare stem, 60 ms</th><th>n</th><th>Hits</th><th>Rate</th></tr>
+<tr><td>clap, no snare on the beat</td><td>11</td><td>0</td><td><b>0.0%</b></td></tr>
+<tr><td><b>kick-only, no snare on the beat</b></td><td>69</td><td>8</td><td><b>11.6%</b></td></tr>
+<tr><td>snare on the beat</td><td>58</td><td>33</td><td>56.9%</td></tr>
+</table>
+<div class="warn">Clap against kick-only: <b>Fisher exact p = 0.5906</b>, binomial p = 0.6281. The dropout is fully explained by the beat carrying no notated snare, and it says nothing about claps. <b>The observation is withdrawn.</b></div>
+<p>For completeness, 9 of the 11 clap instants do carry an onset in at least one of the seven stems, so the anchor is not wrong at those instants. Twelve of the 21 claps stack with a notated kick, which accounts for the hits in the kick, cymbal and other lanes.</p>
+<div class="good"><b>What this changes: nothing.</b> M002's verdict never rested on audio. It rests on the figure being deliberate, on GM 39 and GM 38 rendering byte-identically, and on the burden sitting with the change. The audio adds <b>no corroboration in either direction</b>, which is now measured rather than assumed.</div>
 
 <h2 class="s5" id="files">5. Files and reproduction</h2>
 <p>Onsets were detected on <b>isolated stems</b>, never the mix, at 44.1 kHz over 501.84 s, hop 256, log-compressed spectral novelty per FMP 6.1.2. The kick count reproduces the earlier surplus finding independently, 1,332 detected against 1,312 notated.</p>
