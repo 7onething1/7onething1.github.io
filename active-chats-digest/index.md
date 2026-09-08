@@ -1,12 +1,12 @@
 # Active chats digest
 
-Built 2026-09-08 13:56 CDT. 30 chats read from transcripts.
+Built 2026-09-08 14:27 CDT. 31 chats read from transcripts.
 
 ## Headline
 
-All 30 chats ended on a gate block, 0 on a message from Brandon.
-3 need a Brandon action. 9 are past the 400-turn ceiling.
-Totals: 10,696 assistant replies, 113 MB of transcript.
+All 31 chats ended on a gate block, 0 on a message from Brandon.
+3 need a Brandon action. 10 are past the 400-turn ceiling.
+Totals: 11,326 assistant replies, 119 MB of transcript.
 
 ## Do yourself
 
@@ -36,7 +36,7 @@ Totals: 10,696 assistant replies, 113 MB of transcript.
 
 **Finish today.** Subscribe the phone to ntfy topic brandon-claude-9k3xq2. Until then every alert dies after 12 hours.
 
-### Demucs guitar/drums isolation  (1.0 days quiet, 999 replies)
+### Demucs guitar/drums isolation  (1.1 days quiet, 999 replies)
 **Goal.** Split band practice recordings into separate drum and instrument tracks.
 
 - Eleven takes became 66 separate drum tracks.
@@ -56,7 +56,7 @@ Totals: 10,696 assistant replies, 113 MB of transcript.
 
 **Finish today.** Press Submit revision on Zomby Woof s412162. The chat read the tab twice and confirmed nothing has been submitted. Only you can press it.
 
-### Active chats quitting early  (1.0 days quiet, 861 replies)
+### Active chats quitting early  (1.1 days quiet, 861 replies)
 **Goal.** Watch the other chats and poke them when they stall.
 
 - It found 8 chats sitting still and sent 6 wake-up messages.
@@ -96,7 +96,7 @@ Totals: 10,696 assistant replies, 113 MB of transcript.
 
 **Finish today.** Build the wake-resume hook that was actually asked for. The queue lesson is already recorded.
 
-### Active chat: 3-phase ghost note restore huge plan  (1.0 days quiet, 231 replies)
+### Active chat: 3-phase ghost note restore huge plan  (1.1 days quiet, 231 replies)
 **Goal.** Find every Zappa song where the quiet drum marks got wiped out.
 
 - Around 30 songs were believed to be damaged.
@@ -106,7 +106,7 @@ Totals: 10,696 assistant replies, 113 MB of transcript.
 
 **Finish today.** Rank the 15 published tabs by damage and start the restore list.
 
-### Active chats review  (23.0 hours quiet, 257 replies)
+### Active chats review  (23.5 hours quiet, 257 replies)
 **Goal.** Not summarised by hand yet. Last input on record: Stop hook feedback: [python3 ~/.claude/hooks/no_stop_gate_hook.py]: no_stop_gate BLOCK: the draft reply failed one or more of the 50 gates. no_stop_gate: 50 gates, 1 failed, 1 not applicable
 
 - pytest's own default is `tmp_path_retention_policy = all`, keeping the last 3 temp dirs. Leaving fixtures on disk is the upstream convention, not a.
@@ -116,7 +116,7 @@ Totals: 10,696 assistant replies, 113 MB of transcript.
 
 **Finish today.** New since the last hand pass. Open the chat and give it a read.
 
-### Active chats summary and recommendations  (22.9 hours quiet, 207 replies)
+### Active chats summary and recommendations  (23.4 hours quiet, 207 replies)
 **Goal.** Not summarised by hand yet. Last input on record: Stop hook feedback: [python3 ~/.claude/hooks/no_stop_gate_hook.py]: no_stop_gate BLOCK: the draft reply failed one or more of the 50 gates. no_stop_gate: 50 gates, 3 failed, 1 not applicable
 
 - Paused everything else. Watermelon got the full pass. ## 🔴 The headline finding **https://7onething1.github.io/zappa-watermelon-cymbal-two-way/** 🔴.
@@ -126,7 +126,7 @@ Totals: 10,696 assistant replies, 113 MB of transcript.
 
 **Finish today.** New since the last hand pass. Open the chat and give it a read.
 
-### Notation evidence gate  (21.1 hours quiet, 22 replies)
+### Notation evidence gate  (21.6 hours quiet, 22 replies)
 **Goal.** Not summarised by hand yet. Last input on record: [Request interrupted by user for tool use]
 
 - I'll start by pulling up the page you linked and figuring out what "help" means for it. **Goal:** understand what's on `/notation-evidence-gate` and.
@@ -136,7 +136,7 @@ Totals: 10,696 assistant replies, 113 MB of transcript.
 
 **Finish today.** New since the last hand pass. Open the chat and give it a read.
 
-### Final Greasy  (14.1 hours quiet, 430 replies)
+### Final Greasy  (14.6 hours quiet, 430 replies)
 **Goal.** Not summarised by hand yet. Last input on record: Stop hook feedback: [python3 ~/.claude/hooks/no_stop_gate_hook.py]: no_stop_gate BLOCK: the draft reply failed one or more of the 50 gates. no_stop_gate: 50 gates, 1 failed, 1 not applicable
 
 - 🟢 **Handoff is current.** `[KEEP-IT-GREASEY-s604777-BOTH-DIRECTIONS-DONE-2026-09-07] handoff.md`, 8,715 bytes, gate PASS, fraud check clean. It now.
@@ -146,7 +146,7 @@ Totals: 10,696 assistant replies, 113 MB of transcript.
 
 **Finish today.** New since the last hand pass. Open the chat and give it a read.
 
-### Twitch playback issue  (14.1 hours quiet, 103 replies)
+### Twitch playback issue  (14.6 hours quiet, 103 replies)
 **Goal.** Not summarised by hand yet. Last input on record: Stop hook feedback: [python3 ~/.claude/hooks/no_stop_gate_hook.py]: no_stop_gate BLOCK: the draft reply failed one or more of the 50 gates. no_stop_gate: 50 gates, 1 failed, 1 not applicable
 
 - The replication **overturns my own run B**. Look at the tab handles: VDH opened a second tab on install, and my first run was measuring a backgrounded.
@@ -156,7 +156,7 @@ Totals: 10,696 assistant replies, 113 MB of transcript.
 
 **Finish today.** New since the last hand pass. Open the chat and give it a read.
 
-### Fraud prevention skills and gates  (14.0 hours quiet, 230 replies)
+### Fraud prevention skills and gates  (14.5 hours quiet, 230 replies)
 **Goal.** Not summarised by hand yet. Last input on record: Stop hook feedback: [python3 /Users/brandonchavez/.claude/skills/fifty-gates/run_gates.py]: fifty-gates BLOCK: 1 hard gate(s) of 63 fired. G62 alarm-narrower-than-detector: reports zero aler
 
 - Two blocks, both legitimate. Taking them in order, and fixing the work rather than the wording. **G62 fired on my own reply** — I quoted `new_alerts=0`.
@@ -166,7 +166,7 @@ Totals: 10,696 assistant replies, 113 MB of transcript.
 
 **Finish today.** New since the last hand pass. Open the chat and give it a read.
 
-### Zappa AI transcription update SLIME  (14.0 hours quiet, 429 replies)
+### Zappa AI transcription update SLIME  (14.5 hours quiet, 429 replies)
 **Goal.** Not summarised by hand yet. Last input on record: Stop hook feedback: [python3 ~/.claude/hooks/no_stop_gate_hook.py]: no_stop_gate BLOCK: the draft reply failed one or more of the 50 gates. no_stop_gate: 50 gates, 1 failed, 1 not applicable
 
 - fifty-gates judges the reply already sent, not my draft. Both ids are in this one, and the handoff that cleared G20 is written. 🔴 **The peer was right.
@@ -176,7 +176,7 @@ Totals: 10,696 assistant replies, 113 MB of transcript.
 
 **Finish today.** New since the last hand pass. Open the chat and give it a read.
 
-### Chat babysitting behavior  (13.6 hours quiet, 368 replies)
+### Chat babysitting behavior  (14.1 hours quiet, 368 replies)
 **Goal.** Not summarised by hand yet. Last input on record: Another Claude session sent a message: <cross-session-message from="local_940b13a4-37e1-4479-9e34-28aa467fb2b2" name="Final watermelon"> Verified record_waivers myself and it does exactly wh
 
 - Their harness trap is the sharpest thing in this exchange, and it applies to my own test: I exercised `record_waivers` directly rather than through the.
@@ -186,7 +186,7 @@ Totals: 10,696 assistant replies, 113 MB of transcript.
 
 **Finish today.** New since the last hand pass. Open the chat and give it a read.
 
-### Unused shortcut icons removal  (2.6 hours quiet, 50 replies)
+### Unused shortcut icons removal  (3.1 hours quiet, 50 replies)
 **Goal.** Not summarised by hand yet. Last input on record: [Request interrupted by user]
 
 - Goal:** thin the macOS Dock (bottom of the screen, 37 app icons) down to what you actually use. **Phase 1 — measure.** Read `com.apple.dock.plist`,.
@@ -196,7 +196,7 @@ Totals: 10,696 assistant replies, 113 MB of transcript.
 
 **Finish today.** New since the last hand pass. Open the chat and give it a read.
 
-### Finder search bug  (59 minutes quiet, 277 replies)
+### Finder search bug  (1.5 hours quiet, 277 replies)
 **Goal.** Not summarised by hand yet. Last input on record: okay delete exact dups, keep all four mics
 
 - Free space is now **32 GiB at 97%**, and inodes recovered from 108M to 340M. Only 0.4 GB of recent large writes exist (an Untapped updater), so no.
@@ -206,57 +206,67 @@ Totals: 10,696 assistant replies, 113 MB of transcript.
 
 **Finish today.** New since the last hand pass. Open the chat and give it a read.
 
-### Transcription repair system research  (1 minutes quiet, 79 replies)
-**Goal.** Not summarised by hand yet. Last input on record: # Deep Research Assignment: Build the Most Reliable Human-Transcription-Plus-Stem Repair System You are researching and designing a production-grade skill for repairing existing music transc
+### Transcription repair system research  (17 minutes quiet, 154 replies)
+**Goal.** Not summarised by hand yet. Last input on record: Stop hook feedback: [python3 ~/.claude/hooks/no_stop_gate_hook.py]: no_stop_gate BLOCK: the draft reply failed one or more of the 50 gates. no_stop_gate: 50 gates, 1 failed, 1 not applicable
 
-- Now the landmark test the alignment gate keeps routing to. It has to exist, with all six fields Gate N9 requires.
-- All twenty audio checks pass. Now the score side: grid snapping, the two-hands gate, and the recurring-pattern sweeps.
-- Now the gate: provenance, states, the edit ledger, promotion rules, and the ten adversarial fixtures from the brief.
-- Your research report landed mid-build. It converges with what I have and adds specifics worth folding in immediately: the GP8 percussion vocabulary,.
-
-**Finish today.** New since the last hand pass. Open the chat and give it a read.
-
-### Tom locations in watermelon GP  (0 minutes quiet, 365 replies)
-**Goal.** Not summarised by hand yet. Last input on record: give that session my 19 coda toms and the bar 25 run, first read the transcription repair chat
-
-- The gate keeps firing after I removed that figure from my reply, so it is reading something other than my text. Let me check what G56 actually scans.
-- G56 is matching an addition verb before a count. It is reading my own published sentence "that session placed 164 toms". Let me reword it at the source.
-- Considered. That revision is not mine, and it changes the picture. ### 🔴 Correcting my own reply first 🔴 **I was wrong to state the other session's tom.
-- Reading the sibling session first, as you asked.
+- Both gates addressed: color-coded sections added, and the pixel-geometry digit phrasing dropped since I read no digit off any image in this session. 🟢.
+- G33 fires on `\d+/1?[0-9]` patterns like `10/10` and `20/20` in my table, reading them as possible time signatures. Testing a draft against the actual.
+- My own explanation of the gate contained the pattern. Dropping it.
+- 🟢 **Live and verified** - **https://7onething1.github.io/transcription-repair-skill/ returns HTTP 200**, and `index.md` returns 200 alongside it..
 
 **Finish today.** New since the last hand pass. Open the chat and give it a read.
 
-### Final watermelon  (0 minutes quiet, 1919 replies)
-**Goal.** Not summarised by hand yet. Last input on record: first read the transcription repair chat
+### Tom locations in watermelon GP  (12 minutes quiet, 462 replies)
+**Goal.** Not summarised by hand yet. Last input on record: Stop hook feedback: [python3 ~/.claude/hooks/no_stop_gate_hook.py]: no_stop_gate BLOCK: the draft reply failed one or more of the 50 gates. no_stop_gate: 50 gates, 1 failed, 1 not applicable
 
-- The 193 reconciles exactly. Let me finalize.
-- 🔴 **Using the stems beats lane binning, and the lane is worse than redundant**. Five lane-assigned drums came back with stem-pitch medians 94.6, 94.0,.
-- Found it: "Transcription repair system research". Let me read it.
-- A full toolchain exists at `~/.claude/skills/transcription-repair/`, built by that session today. Let me read what it actually encodes.
-
-**Finish today.** New since the last hand pass. Open the chat and give it a read.
-
-### Why  (0 minutes quiet, 154 replies)
-**Goal.** Not summarised by hand yet. Last input on record: fix the other 20 bars the same way, first read the transcription repair chat
-
-- Live and verified. The gate pushed me somewhere useful. ## Answer to "why" That screenshot was **your own editor diff sitting on top of my upload**. It.
-- Checklist for this turn** 1. **Read the transcription repair chat first** (explicit ordering in your ask). 2. **Fix the other 20 bars the same way** —.
-- 52 human turns. Two of them change what "the same way" means, so let me read their context before touching anything.
-- The repair chat changes the method materially. Three things it settles that my plan had wrong.
+- The gate passed clean. One thing I did rather than leave as a flag: 🟩 **The Bozzio error is now caught in memory**, because `/perfect-stem-read` is.
+- The handoff is stale — it predates the skill verification. Updating it, then citing it.
+- The gate passed clean, and I did one thing rather than leave it as a flag. 🟩 **The Bozzio error is caught in memory**, since `/perfect-stem-read` is.
+- The gate is right — I referred to a correction without saying what was wrong. **What I claimed:** that the revised skill had transposed two numbers,.
 
 **Finish today.** New since the last hand pass. Open the chat and give it a read.
 
-### Watermelon chat and cymbal stem pass  (0 minutes quiet, 176 replies)
-**Goal.** Not summarised by hand yet. Last input on record: [Image: original 2196x1422, displayed at 2000x1295. Multiply coordinates by 1.10 to map to original image.]
+### Watermelon chat and cymbal stem pass  (5 minutes quiet, 271 replies)
+**Goal.** Not summarised by hand yet. Last input on record: Stop hook feedback: [python3 ~/.claude/hooks/no_stop_gate_hook.py]: no_stop_gate BLOCK: the draft reply failed one or more of the 50 gates. no_stop_gate: 50 gates, 1 failed, 1 not applicable
 
-- Stopping the bar-57 look to do that first.
-- That skill is being written right now (files at 13:47 through 13:55, including a `tr_audio.py.bak-pre-cymbal-repair`). Let me find that session.
-- Found it, and something more urgent: **three** sessions are live on Watermelon right now. Let me read the transcription-repair one.
-- Read. Now the eye check G49 demanded, on the crop I already cut.
+- G27 is right: I queued nine items and did the work on none of them. Let me take the biggest one instead of announcing it. Checking what I can use as a.
+- `202 Keep It Greasey` is on disk in the same Moises format. That is a proper wrong-recording control: same separator, same artist, different.
+- The control works, and it strengthens the result. Publishing.
+- Ran the biggest queued item instead of leaving it queued. It changed the conclusion. ### 🟩 The wrong-recording control, and it validates the clock 🟩.
 
 **Finish today.** New since the last hand pass. Open the chat and give it a read.
 
-### Appleseed cast chat  (16.4 hours quiet, 722 replies)
+### Why  (1 minutes quiet, 264 replies)
+**Goal.** Not summarised by hand yet. Last input on record: Stop hook feedback: [python3 /Users/brandonchavez/.claude/skills/fifty-gates/run_gates.py]: fifty-gates BLOCK: 1 hard gate(s) of 63 fired. G50 unqueued-remainder: this reply names unfinished
+
+- v13 verified independently: **hands ok=True, 0 over-hand instants**, ride 1501 (24 fewer than v11), kick 505, snare 340, pedal 245. One number does not.
+- v13 confirmed on every number I could check. Two things in their report need correcting, one of them material.
+- The 20 bars are fixed.** The sibling built v13 and I re-ran the gates on it myself instead of taking the report. ## 🟢 Confirmed on v13
+- The 20 bars are fixed.** I re-ran the gates on v13 myself instead of taking the report. ## 🟢 Confirmed on v13
+
+**Finish today.** New since the last hand pass. Open the chat and give it a read.
+
+### Tom locations in watermelon GP handoff  (0 minutes quiet, 58 replies)
+**Goal.** Not summarised by hand yet. Last input on record: resume Tom locations in watermelon GP handoff
+
+- Confirmed the gap precisely: `np.interp` clamps past the last anchor, so every notation time after 462.9 s maps to the same stem instant. The stem runs.
+- The ride does not run continuous sixteenths in the recording's Coda — onset density collapses from 5.9/s to 1.2/s, then to zero in the last 10 seconds..
+- There is tom-band and kick-band signal running all the way to 541 s, past every anchor. But energy alone cannot say a tom played it — the standing gate.
+- Correcting one of my own numbers before it propagates: the notation clock runs at **quarter = 56**, not 112. Bar 93 (4/4) spans 447.857→452.143 s,.
+
+**Finish today.** New since the last hand pass. Open the chat and give it a read.
+
+### Final watermelon  (0 minutes quiet, 2114 replies)
+**Goal.** Not summarised by hand yet. Last input on record: Another Claude session sent a message: <cross-session-message from="local_d511b5c9-bab4-484a-8091-6b769009ad51" name="Why"> Re-ran your gates on v13 myself rather than take the report. Most 
+
+- Correction 2 is material and I under-reported. Let me measure the full delta myself and attribute every change.
+- Their correction is exactly right, and the attribution is clean: **all four changed bars are halves of the three systems whose staff top I fixed.** Let.
+- Ledger accepted all 20: **6 REJECTED, 14 PROPOSED**. Now the propagation they asked for.
+- Their diagnosis of the pattern is right, and one detail is off for my pipeline: `chart_read.py` imports only `blobs`, so none of the four is in the v13.
+
+**Finish today.** New since the last hand pass. Open the chat and give it a read.
+
+### Appleseed cast chat  (16.9 hours quiet, 722 replies)
 **Goal.** Split guitar parts that one hand cannot reach into two guitar tracks.
 
 - A tab had 700 spots where one hand had to grab impossible shapes.
@@ -286,7 +296,7 @@ Totals: 10,696 assistant replies, 113 MB of transcript.
 
 **Finish today.** The test came back negative and the relay landed. Close with a handoff.
 
-### SVG handoff documentation  (1.0 days quiet, 242 replies)
+### SVG handoff documentation  (1.1 days quiet, 242 replies)
 **Goal.** Fix the rule for editing tabs so originals never get damaged.
 
 - The old rule let it edit an original tab in some cases.
@@ -306,7 +316,7 @@ Totals: 10,696 assistant replies, 113 MB of transcript.
 
 **Finish today.** Nothing is left to build here. Write the handoff and close the chat.
 
-### Volume to 45%  (14.1 hours quiet, 155 replies)
+### Volume to 45%  (14.6 hours quiet, 155 replies)
 **Goal.** Turn off the volume limit on this Mac.
 
 - The volume was capped at 45 out of 100.
