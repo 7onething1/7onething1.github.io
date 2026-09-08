@@ -67,6 +67,19 @@ The promotion gate blesses edits resting on stem timing and needs a CONFIRMED al
 
 Present before this edit and after it. Bars 29, 41, 45, 49, 52, 53, 54, 55, 56, 57, 85, 89 at beats 1 and 3, each a tom under an untouched ride with the snare on the same instant. Resolving them means dropping one of three lanes, and the ride cannot be adjudicated per event at 1.46x.
 
+## Per-head tom identity: both routes run, both closed
+
+| Route | Measurement | Floor | Verdict |
+|---|---|---|---|
+| Pitch, f0 of the attack | five lane-assigned drums return medians 90.7 to 95.6 Hz | separable clusters | CLOSED |
+| Pan, inter-channel level | best pair 0.73x; medians order sensibly (48 +0.34, 43 +0.08, 50 -0.27) and IQRs of 0.70 to 0.85 swamp it | 1.5x | CLOSED |
+
+Source separation blends the toms in both dimensions. It preserves that a tom was struck and when, never which one.
+
+Source layer, checked rather than assumed: the stem source is 44.1 kHz 16-bit with 2.56% of energy above 20 kHz, so it is full-bandwidth and not lossy-derived, and a 96 or 192 kHz master adds nothing drums live in. Commercially sold stems for this album are re-recorded by session musicians. The original studio multitrack would settle it and is not publicly released.
+
+Per-head identity is closed at a named layer rather than pending.
+
 ## Counts reconciled under one scope
 
 Every figure is a Guitar Pro note instance on track 8, never a raw stem detection.
