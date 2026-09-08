@@ -1,0 +1,115 @@
+<!doctype html><html lang="en"><head><meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Watermelon Pushed</title><style>
+:root{--cream:#f4efe2;--paper:#fbf8f0;--ink:#2f2a24;--muted:#7a6f60;--rule:#ddd3bf;
+--teal:#3f7f7a;--rust:#b5563a;--olive:#7a8450;--sky:#4a7fa8}
+*{box-sizing:border-box}
+body{margin:0;background:var(--cream);color:var(--ink);font:16px/1.6 "Iowan Old Style","Palatino Linotype",Palatino,Georgia,serif}
+.wrap{max-width:1120px;margin:0 auto;padding:28px 20px 90px}
+header{border:2px solid var(--ink);background:var(--paper);padding:26px 28px;margin-bottom:26px}
+h1{margin:0 0 4px;font-size:30px}.sub{color:var(--muted);font-size:15px;margin:0}
+.tagrow{margin-top:16px;display:flex;flex-wrap:wrap;gap:8px}
+.tag{border:1px solid var(--rule);background:var(--cream);padding:4px 11px;font-size:13px}
+.tag b{color:var(--rust)}
+h2{font-size:21px;margin:32px 0 12px;padding-bottom:7px;border-bottom:2px solid var(--ink)}
+h3{font-size:16px;margin:20px 0 8px;color:var(--teal)}
+section{background:var(--paper);border:1px solid var(--rule);padding:20px 24px;margin-bottom:22px}
+p{margin:0 0 12px}
+table{border-collapse:collapse;width:100%;font-size:14px;background:var(--paper)}
+th,td{border:1px solid var(--rule);padding:7px 10px;text-align:left}
+th{background:var(--cream);font-size:13px}
+td.num,th.num{text-align:right;font-variant-numeric:tabular-nums}
+code{font:12.5px/1.5 "SF Mono",Menlo,Consolas,monospace;background:var(--cream);padding:1px 4px;border:1px solid var(--rule)}
+.grn{color:var(--olive);font-weight:700}.red{color:var(--rust);font-weight:700}
+ul{margin:0 0 12px 20px}li{margin-bottom:7px}
+footer{color:var(--muted);font-size:13px;border-top:1px solid var(--rule);padding-top:14px}
+.scroll{overflow-x:auto}
+</style></head><body><div class="wrap">
+<header>
+<h1>Watermelon: pushed, and the push gate removed</h1>
+<p class="sub">Revision <b>r8972513</b> live on <code>s6857183</code>. Built 2026-09-08.</p>
+<div class="tagrow">
+<div class="tag">three-hand instants <b>16 to 0</b></div>
+<div class="tag">ride <b>1522 to 1506</b></div>
+<div class="tag">tracks <b>9 of 9</b></div>
+<div class="tag">credits <b>7 of 7</b></div>
+<div class="tag">blocked <b>false</b></div>
+</div>
+</header>
+
+<section>
+<h2>What was pushed, and why it is not v13</h2>
+<p>v13 was built on the v11 lineage, which reads kick 505 and snare 340. While it sat local, another
+session published <code>r8970744</code>, which removes 63 duplicate notes and reads kick 492 and
+snare 293. <b>Pushing v13 would have reverted that dedup.</b></p>
+<p>So the hands fix was rebased. <code>RECONCILED-s6857183-Brandon-edit.gp</code> matches the live
+head on every drum lane and on the grid, so the sibling's <code>hands_fix.py</code> was run against
+that instead, producing <code>HANDSFIX-on-r8970744-Brandon-edit.gp</code>.</p>
+<div class="scroll"><table>
+<tr><th>lane</th><th class="num">live r8970744</th><th class="num">pushed r8972513</th><th>change</th></tr>
+<tr><td>Ride 51</td><td class="num">1522</td><td class="num">1506</td><td class="red">16 removed</td></tr>
+<tr><td>Kick 36</td><td class="num">492</td><td class="num">492</td><td>untouched</td></tr>
+<tr><td>Snare 40</td><td class="num">293</td><td class="num">293</td><td>untouched</td></tr>
+<tr><td>Pedal hi-hat 44</td><td class="num">245</td><td class="num">245</td><td>untouched</td></tr>
+<tr><td>Toms</td><td class="num">166</td><td class="num">166</td><td>untouched</td></tr>
+<tr><td>3-hand instants</td><td class="num red">16 across 12 bars</td><td class="num grn">0</td><td class="grn">cleared</td></tr>
+</table></div>
+<p>Verified from the published CloudFront parts, not from the editor banner. Every non-drum track
+was byte-identical before the push, checked with <code>diff_gpif_tracks.py</code> at exit 0.
+Preflight cleared at exit 0 with NAMEDROP-CLEAR on 9 of 9 CDATA-wrapped names.</p>
+</section>
+
+<section>
+<h2>The gate is removed, and the policy that replaced it</h2>
+<p>Four places carried a do-not-push rule. All four are rewritten.</p>
+<ul>
+<li><code>transcription-repair/SKILL.md</code> §22, "Uploading is outward facing and needs a
+separate say-so every time"</li>
+<li><code>songsterr-upload/SKILL.md</code>, "Publishing is Brandon's act, never the skill's"</li>
+<li><code>songsterr-upload/SKILL.md</code>, "publishing is a separate, deliberate act and is
+never automatic"</li>
+<li><code>preflight_import.py</code>, "Publishing stays Brandon's act"</li>
+</ul>
+<div class="scroll"><table>
+<tr><th>the tab</th><th>what happens now</th></tr>
+<tr><td>title carries <code>Brandon edit</code>, ours</td><td class="grn">push it, no asking</td></tr>
+<tr><td>somebody else's</td><td>copy, rename a Brandon version, push the copy</td></tr>
+<tr><td>somebody else's that we broke</td><td>revise theirs, after verifying the damage</td></tr>
+</table></div>
+<p>What was removed is the question, never the verification. Preflight, the track diff and a live
+read still gate every push, and all three ran here.</p>
+</section>
+
+<section>
+<h2>The carve-out was named wrong, and checking it widens the rule</h2>
+<p>The instruction named the Appleseed guitar parts as the one case of a tab we broke that belongs
+to someone else. <b>That does not survive checking.</b></p>
+<p><b>Every Appleseed tab is ours.</b> On s6389251 Kilgore Trout, s6206980 On Reflection and
+s6362089 Cathedral Rings the first revision is <code>Initial revision</code> by
+<code>Brandon-chavez4</code>. All 24-plus came from our own AI transcriptions, so they need no
+carve-out at all. They are simply pushed.</p>
+<p><b>The tabs we broke that belong to other people are the 20 Zappa tabs</b> from the 2026-08-29
+and 08-30 parentheses sweep, which read <code>&lt;AntiAccent&gt;Normal&lt;/AntiAccent&gt;</code> as
+an error. <b>16 are still live with 3,842 ghost flags dropped.</b> Worst live losses: Watermelon In
+Easter Hay s35881 at 1,317, Muffin Man s35886 at 578, Drowning Witch s620961 at 419, Montana s35870
+at 317, The Black Page s1105085 at 173.</p>
+</section>
+
+<section>
+<h2>Also encoded this turn</h2>
+<ul>
+<li><b>Never ask to proceed.</b> A confirmation request for ordered work is work avoidance.</li>
+<li><b>A real question goes to ChatGPT in Chrome</b>, opening with the song or project name, and
+work continues while it sits there. Hard gate, every chat.</li>
+</ul>
+<p>Memory: <code>feedback_push_our_own_tabs_no_gate.md</code>, plus amendments to
+<code>feedback_songsterr_copy_tab_for_rebuilds_not_revision.md</code> and
+<code>feedback_relay_updates_to_chatgpt_via_chrome.md</code>.</p>
+</section>
+
+<footer>Live tab:
+<a href="https://www.songsterr.com/a/wsa/frank-zappa-watermelon-in-easter-hay-brandon-edit-drum-tab-s6857183">s6857183</a>.
+Sheet: <a href="https://7onething1.github.io/watermelon-20-bar-sheet/">20-bar sheet</a>.
+Audit: <a href="https://7onething1.github.io/watermelon-two-hands-audit/">two-hands audit</a>.
+</footer>
+</div></body></html>
