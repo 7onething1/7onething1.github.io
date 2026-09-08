@@ -1,0 +1,357 @@
+<!doctype html>
+<html lang="en"><head><meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Watermelon Cymbal Stem Pass</title>
+<style>
+:root{
+  --green:#446455; --gold:#FDD262; --pale:#D3DDDC; --tan:#C7B19C;
+  --green-d:#2e4539; --green-l:#6d8a7a; --gold-d:#c9a63f; --gold-l:#fff0b8;
+  --tan-d:#9d7f63; --pale-d:#a8b8b7;
+  --bg:#f7f3e8; --card:#fffdf6; --ink:#1c2320; --mut:#5d6b64; --line:#ddd6c4;
+  color-scheme:light;
+}
+:root:not([data-theme="light"]){}
+@media (prefers-color-scheme:dark){:root:not([data-theme="light"]){
+  --bg:#151a17; --card:#1d2521; --ink:#eef2ec; --mut:#a3b0a8; --line:#33403a;
+  --gold-l:#5a4d24; --green-l:#8fae9d; --pale:#3a4a48;
+}}
+:root[data-theme="dark"]{
+  --bg:#151a17; --card:#1d2521; --ink:#eef2ec; --mut:#a3b0a8; --line:#33403a;
+  --gold-l:#5a4d24; --green-l:#8fae9d; --pale:#3a4a48;
+}
+*{box-sizing:border-box}
+body{background:var(--bg);color:var(--ink);margin:0;line-height:1.62;
+ font-family:-apple-system,BlinkMacSystemFont,"Inter","Segoe UI",sans-serif;
+ font-size:16px;padding:0 1.1rem 5rem}
+.wrap{max-width:1080px;margin:0 auto}
+header{padding:3.2rem 0 1.6rem;border-bottom:4px solid var(--green)}
+h1{font-size:clamp(1.8rem,4.4vw,2.9rem);line-height:1.12;margin:0 0 .5rem;letter-spacing:-.022em}
+.sub{color:var(--mut);font-size:1.03rem;margin:0}
+.tagrow{display:flex;flex-wrap:wrap;gap:.45rem;margin-top:1.1rem}
+.tag{font-size:.76rem;font-weight:700;letter-spacing:.06em;text-transform:uppercase;
+ padding:.3rem .62rem;border-radius:3px;border:1px solid var(--line)}
+.t-g{background:var(--green);color:#fff;border-color:var(--green)}
+.t-y{background:var(--gold);color:#3a2f00;border-color:var(--gold-d)}
+.t-p{background:var(--pale);color:var(--green-d);border-color:var(--pale-d)}
+.t-t{background:var(--tan);color:#3a2a18;border-color:var(--tan-d)}
+h2{font-size:1.42rem;margin:3.2rem 0 .3rem;letter-spacing:-.014em;
+ padding-left:.7rem;border-left:6px solid var(--gold)}
+h2.g{border-left-color:var(--green)} h2.t{border-left-color:var(--tan)}
+h2.p{border-left-color:var(--pale-d)}
+h3{font-size:1.06rem;margin:1.9rem 0 .35rem;color:var(--green-l)}
+p{margin:.7rem 0}
+.lede{font-size:1.09rem}
+.card{background:var(--card);border:1px solid var(--line);border-radius:8px;
+ padding:1.15rem 1.3rem;margin:1.1rem 0}
+.hero{border-left:8px solid var(--green);background:linear-gradient(100deg,var(--card),var(--pale) 260%)}
+.hero.y{border-left-color:var(--gold)} .hero.t{border-left-color:var(--tan)}
+.grid{display:grid;gap:.85rem;grid-template-columns:repeat(auto-fit,minmax(215px,1fr));margin:1.1rem 0}
+.stat{background:var(--card);border:1px solid var(--line);border-top:5px solid var(--green);
+ border-radius:7px;padding:.95rem 1rem}
+.stat:nth-child(2){border-top-color:var(--gold)}
+.stat:nth-child(3){border-top-color:var(--tan)}
+.stat:nth-child(4){border-top-color:var(--pale-d)}
+.stat:nth-child(5){border-top-color:var(--green-l)}
+.stat:nth-child(6){border-top-color:var(--gold-d)}
+.num{font-size:1.85rem;font-weight:750;letter-spacing:-.03em;line-height:1.1;
+ font-variant-numeric:tabular-nums}
+.lbl{font-size:.79rem;color:var(--mut);text-transform:uppercase;letter-spacing:.055em;
+ font-weight:650;margin-top:.28rem}
+.note{font-size:.85rem;color:var(--mut);margin-top:.4rem}
+.scroll{overflow-x:auto;-webkit-overflow-scrolling:touch;margin:1rem 0;
+ border:1px solid var(--line);border-radius:7px;background:var(--card)}
+table{border-collapse:collapse;width:100%;font-size:.9rem;min-width:560px}
+th{background:var(--green);color:#fff;text-align:left;padding:.6rem .7rem;font-weight:650;
+ white-space:nowrap;font-size:.82rem;letter-spacing:.03em}
+td{padding:.5rem .7rem;border-top:1px solid var(--line);font-variant-numeric:tabular-nums}
+tbody tr:nth-child(even){background:color-mix(in srgb,var(--pale) 34%,transparent)}
+.mono{font-family:ui-monospace,"SF Mono",Menlo,monospace;font-size:.86em}
+.ok{color:#1f6b45;font-weight:700} .bad{color:#a33b28;font-weight:700}
+.mid{color:var(--tan-d);font-weight:700}
+:root:not([data-theme="light"]) .ok{color:#7fd3a4}
+:root:not([data-theme="light"]) .bad{color:#f0937d}
+@media (prefers-color-scheme:dark){:root:not([data-theme="light"]) .ok{color:#7fd3a4}}
+.pill{display:inline-block;padding:.12rem .5rem;border-radius:99px;font-size:.76rem;
+ font-weight:700;letter-spacing:.02em}
+.p-c{background:#d8ecdf;color:#1f6b45} .p-a{background:#f6ddd6;color:#a33b28}
+.p-m{background:var(--gold-l);color:#6b5410}
+blockquote{margin:1.1rem 0;padding:.75rem 1.1rem;border-left:5px solid var(--tan);
+ background:color-mix(in srgb,var(--tan) 17%,transparent);border-radius:0 6px 6px 0;
+ font-style:italic;color:var(--ink)}
+ul,ol{margin:.6rem 0;padding-left:1.3rem} li{margin:.34rem 0}
+code{background:color-mix(in srgb,var(--pale) 55%,transparent);padding:.1rem .34rem;
+ border-radius:3px;font-family:ui-monospace,"SF Mono",Menlo,monospace;font-size:.87em}
+footer{margin-top:4rem;padding-top:1.3rem;border-top:2px solid var(--line);
+ color:var(--mut);font-size:.87rem}
+.bar{height:19px;border-radius:3px;background:var(--green);display:inline-block;
+ vertical-align:middle;min-width:2px}
+.barw{background:color-mix(in srgb,var(--pale) 60%,transparent);border-radius:3px;
+ display:block;width:100%;max-width:230px}
+</style></head><body><div class="wrap">
+
+<header>
+<h1>The cymbal stem answers, and it does not say what the hand count said</h1>
+<p class="sub">Watermelon In Easter Hay. Songsterr copy <span class="mono">s6857183</span>, head revision
+<span class="mono">r8968524</span>. Event-by-event audio check of the 101 colliding cymbal strokes,
+run 2026-09-08 against the isolated cymbal stem.</p>
+<div class="tagrow">
+<span class="tag t-g">101 strokes scored</span>
+<span class="tag t-y">bleed control passed</span>
+<span class="tag t-p">4 pre-registered controls</span>
+<span class="tag t-t">no note removed</span>
+</div>
+</header>
+
+<div class="card hero">
+<p class="lede"><strong>The short version.</strong> The 101 cymbal strokes flagged for colliding with a
+tom confirm against the cymbal stem at 19.8 percent. Every other cymbal note in the tab confirms at
+19.3 percent. The collision criterion selected nothing. The real finding sits one level up: the whole
+1,573-note cymbal lane runs at 1.46 times chance on its own stem, in a session where snare scores 6.89,
+kick 5.21 and toms 7.71 through identical machinery.</p>
+<p>A second result cuts against the repair list. All 49 sub-sixteenth tom positions sit a median of
+15.4 ms from a tom-stem onset and 81.8 ms from the sixteenth grid, measured in bars where the clock is
+independently accurate to about 16 ms. Snapping them to sixteenths would move 49 notes away from the audio.</p>
+</div>
+
+<h2 class="g">The governing hierarchy</h2>
+<blockquote>Stem event first, instrument identity second, score timing third, Guitar Pro lane last.</blockquote>
+<p>Every number below follows that order. No verdict on this page uses a hand-availability argument, and
+no verdict uses a chart lane to decide which drum was struck. The protocol was written to disk and hashed
+with none of the 101 yet scored, so the thresholds could not be tuned to the answer.</p>
+<p class="note">Pre-registration SHA-256 <span class="mono">3c785296 7a669198 06a81dde 02212e50 76ad0737 98d74dbd 7ba43f12 51e63557</span></p>
+
+<h2>First, the clock had to be earned</h2>
+<p>The alignment in hand was fitted on the original tab. This pass runs on the copy tab carrying your ear
+edits, so reusing that clock needed proof rather than an assumption. Both files hold 105 bars, 472 quarter
+notes, one tempo automation at 56 bpm, zero meter disagreements, and a maximum bar-start difference of
+<strong>0.0000 ms</strong>. The clock is the same object in both files.</p>
+<p>The map itself is anchored on 97 <strong>snare</strong> matches. Cymbals play no part in building it,
+which is what keeps this pass from grading the cymbal lane against a ruler the cymbal lane helped carve.
+Scoring is restricted to the anchor span, 59.33 s to 506.08 s, which is 82 percent of the song. Anything
+outside is marked not scored and never counted as absent.</p>
+
+<h2 class="p">The machinery works, proven on three other lanes</h2>
+<p>Same detector, same clock, same tolerance, same one-to-one matching for every row. Chance is measured
+by drawing 20,000 random timestamps inside the span and running them through the identical procedure.</p>
+<div class="scroll"><table>
+<thead><tr><th>Notated lane</th><th>Scored against</th><th>Notes</th><th>Stem onsets</th>
+<th>Confirm</th><th>Chance</th><th>Ratio</th><th>Reading</th></tr></thead>
+<tbody>
+<tr><td>Tom</td><td>toms stem</td><td>168</td><td>867</td><td>0.702</td><td>0.091</td>
+<td class="ok">7.71&times;</td><td>positive control, strong</td></tr>
+<tr><td>Snare</td><td>snare stem</td><td>342</td><td>659</td><td>0.477</td><td>0.069</td>
+<td class="ok">6.89&times;</td><td>positive control, strong</td></tr>
+<tr><td>Kick</td><td>kick stem</td><td>504</td><td>860</td><td>0.448</td><td>0.086</td>
+<td class="ok">5.21&times;</td><td>positive control, independent band</td></tr>
+<tr><td>Snare</td><td>cymbals stem</td><td>342</td><td>1286</td><td>0.272</td><td>0.133</td>
+<td class="mid">2.05&times;</td><td>cross-lane leakage, expected</td></tr>
+<tr style="background:color-mix(in srgb,var(--gold) 30%,transparent)">
+<td><strong>Cymbal</strong></td><td><strong>cymbals stem</strong></td><td>1573</td><td>1286</td>
+<td><strong>0.193</strong></td><td>0.133</td><td class="bad">1.46&times;</td>
+<td><strong>its own stem, barely above chance</strong></td></tr>
+<tr><td>Cymbal</td><td>snare stem</td><td>1573</td><td>659</td><td>0.091</td><td>0.069</td>
+<td class="mid">1.31&times;</td><td>near null</td></tr>
+<tr><td>Cymbal</td><td>bass stem</td><td>1573</td><td>2216</td><td>0.203</td><td>0.219</td>
+<td>0.93&times;</td><td>negative control, correctly null</td></tr>
+</tbody></table></div>
+<p>Three lanes clear five times chance on their own stems. The cymbal lane sits at 1.46 on its own stem
+and 0.93 on an unrelated one. This replicates the earlier two-way page through a stricter method, since
+one-to-one matching stops a single loud crash from confirming a run of written notes.</p>
+
+<h3>It is not an alignment artifact</h3>
+<p>If the clock were smearing cymbal hits, widening the window would recover them. It does not. The ratio
+peaks at the pre-registered 25 ms and decays in both directions, which is the shape of a lane that has no
+signal to find rather than a lane that is merely mistimed.</p>
+<div class="scroll"><table>
+<thead><tr><th>Tolerance</th><th>Confirm</th><th>Chance</th><th>Ratio</th><th></th></tr></thead>
+<tbody>
+<tr><td>10 ms</td><td>0.065</td><td>0.058</td><td>1.13&times;</td><td><span class="barw"><span class="bar" style="width:23%"></span></span></td></tr>
+<tr><td>15 ms</td><td>0.121</td><td>0.086</td><td>1.40&times;</td><td><span class="barw"><span class="bar" style="width:79%"></span></span></td></tr>
+<tr style="background:color-mix(in srgb,var(--gold) 26%,transparent)"><td><strong>25 ms</strong></td><td>0.193</td><td>0.133</td><td><strong>1.46&times;</strong></td><td><span class="barw"><span class="bar" style="width:100%;background:var(--gold-d)"></span></span></td></tr>
+<tr><td>40 ms</td><td>0.260</td><td>0.183</td><td>1.42&times;</td><td><span class="barw"><span class="bar" style="width:88%"></span></span></td></tr>
+<tr><td>60 ms</td><td>0.311</td><td>0.238</td><td>1.31&times;</td><td><span class="barw"><span class="bar" style="width:65%"></span></span></td></tr>
+<tr><td>80 ms</td><td>0.353</td><td>0.298</td><td>1.18&times;</td><td><span class="barw"><span class="bar" style="width:40%"></span></span></td></tr>
+<tr><td>120 ms</td><td>0.441</td><td>0.417</td><td>1.06&times;</td><td><span class="barw"><span class="bar" style="width:14%"></span></span></td></tr>
+</tbody></table></div>
+
+<h2 class="t">The bleed control, which decides whether any of this counts</h2>
+<p>The 101 are tom-coincident by construction. If a tom transient leaks into the cymbal stem, every one of
+them confirms for the wrong reason and the pass is worthless. So the control measures notated tom onsets
+that carry <em>no</em> notated cymbal within the tolerance, scored against the cymbal stem by the same
+procedure.</p>
+<div class="grid">
+<div class="stat"><div class="num">65</div><div class="lbl">toms with no cymbal written</div></div>
+<div class="stat"><div class="num">9.2%</div><div class="lbl">confirm rate</div></div>
+<div class="stat"><div class="num">0.69&times;</div><div class="lbl">versus chance, below it</div></div>
+<div class="stat"><div class="num">2.15&times;</div><div class="lbl">separation from the 101</div></div>
+</div>
+<p>A lone tom hit produces a cymbal-stem confirmation less often than a random timestamp does. The
+separation is clean and the source separator earned its keep. The pass is measuring cymbals.</p>
+
+<h2>The 101, and why they turned out not to be a group</h2>
+<div class="grid">
+<div class="stat"><div class="num">101</div><div class="lbl">colliding strokes, exact match</div></div>
+<div class="stat"><div class="num ok">20</div><div class="lbl">confirmed</div></div>
+<div class="stat"><div class="num bad">80</div><div class="lbl">absent</div></div>
+<div class="stat"><div class="num mid">1</div><div class="lbl">ambiguous</div></div>
+</div>
+<p>Reproduction first. Applying the audit's own rule to the baseline file returns 24 measures and 106
+colliding slots. Dropping the three measures whose cymbal voice does not fill the bar removes exactly 5
+slots and leaves <strong>21 measures and 101 collisions</strong>, with the sub-sixteenth tom count landing
+on 41 independently. The set is the same set.</p>
+<div class="card hero y">
+<p><strong>The comparison that decides it.</strong> The 101 confirm at 19.8 percent. The other 1,472 cymbal
+notes confirm at 19.3 percent. A difference of half a percentage point on 101 events is nothing. Colliding
+with a tom does not predict whether the cymbal stem carries the stroke, so the collision list was never a
+list of suspect notes. The list sampled an evenly weak lane.</p>
+</div>
+
+<h3>Index 56, display bar 57, the one you flagged first</h3>
+<p>Eleven toms with eleven coincident cymbal strokes, checked one event against one audio event.</p>
+<div class="scroll"><table>
+<thead><tr><th>Slot</th><th>Cymbal written</th><th>Stem time</th><th>Verdict</th><th>Tom at that slot</th></tr></thead>
+<tbody>
+<tr><td>4</td><td>Ride (middle)</td><td class="mono">310.825</td><td><span class="pill p-a">ABSENT</span></td><td>High Tom (48)</td></tr>
+<tr><td>8</td><td>Ride (middle)</td><td class="mono">311.908</td><td><span class="pill p-a">ABSENT</span></td><td>High Tom (48)</td></tr>
+<tr><td>9</td><td>Ride (middle)</td><td class="mono">312.179</td><td><span class="pill p-c">CONFIRMED</span></td><td>High Tom (48)</td></tr>
+<tr><td>10</td><td>Ride (middle)</td><td class="mono">312.450</td><td><span class="pill p-a">ABSENT</span></td><td>High Tom (48)</td></tr>
+<tr><td>11</td><td>Ride (middle)</td><td class="mono">312.721</td><td><span class="pill p-c">CONFIRMED</span></td><td>High Tom (48)</td></tr>
+<tr><td>12</td><td>Ride (middle)</td><td class="mono">312.992</td><td><span class="pill p-a">ABSENT</span></td><td>High Tom (48)</td></tr>
+<tr><td>13</td><td>Ride (middle)</td><td class="mono">313.263</td><td><span class="pill p-a">ABSENT</span></td><td>High Tom (48)</td></tr>
+<tr><td>14</td><td>Ride (middle)</td><td class="mono">313.534</td><td><span class="pill p-a">ABSENT</span></td><td>High Tom (48)</td></tr>
+<tr><td>15</td><td>Ride (middle)</td><td class="mono">313.805</td><td><span class="pill p-a">ABSENT</span></td><td>High Tom (48)</td></tr>
+<tr><td>16</td><td>Ride (middle)</td><td class="mono">314.076</td><td><span class="pill p-c">CONFIRMED</span></td><td>High Tom (48)</td></tr>
+<tr><td>19</td><td>Ride (middle)</td><td class="mono">314.889</td><td><span class="pill p-a">ABSENT</span></td><td>Very Low Tom (43)</td></tr>
+</tbody></table></div>
+<p>Three of eleven confirm, which is 27 percent against a 13.3 percent floor on a sample of eleven. That is
+one or two events above chance and it settles nothing on its own. The bar is worth opening for the tom
+reason below, and the cymbal verdicts here stay in the queue.</p>
+
+<h2 class="g">Why these are candidates and not commands</h2>
+<p>With confirmation at 19.3 percent against a 13.3 percent floor, roughly a third of any single
+CONFIRMED is signal and the rest is coincidence. That is enough to characterise a lane of 1,573 notes and
+it is not enough to license deleting one note. Per-event cymbal verdicts on this song are investigation
+queue entries. The same machinery on toms, snare and kick clears five times chance, so per-event verdicts
+there would carry real weight.</p>
+<div class="card">
+<p><strong>What the page therefore refuses to do.</strong> No cymbal note is removed. No cymbal note is
+added. The 101 verdicts are published as a queue with their timestamps so any one of them can be opened
+against the audio. The earlier framing said a hand has to leave the cymbal, and that argument is retired
+here because the cymbal stem can answer the question directly and did.</p>
+</div>
+
+<h2 class="t">The sub-sixteenth toms, which the audio defends</h2>
+<p>The repair list proposed pulling 41 fractional tom positions onto the sixteenth grid. The tom stem
+scores 7.71 times chance, so it has the standing to arbitrate. All 49 fractional tom notes in the file
+were scored.</p>
+<div class="grid">
+<div class="stat"><div class="num">49 / 49</div><div class="lbl">closer to the written fractional position</div></div>
+<div class="stat"><div class="num">0 / 49</div><div class="lbl">closer to the sixteenth grid</div></div>
+<div class="stat"><div class="num">15.4 ms</div><div class="lbl">median distance to fractional</div></div>
+<div class="stat"><div class="num">81.8 ms</div><div class="lbl">median distance to grid</div></div>
+</div>
+<h3>Closing the circularity</h3>
+<p>Those fractional positions were generated from raw stem onsets, so matching them back to stem onsets
+proves provenance and cannot by itself prove the drummer played off the grid. The control that breaks it
+is the tom notes written <em>on</em> the grid, which were never derived that way.</p>
+<div class="scroll"><table>
+<thead><tr><th>Population</th><th>n</th><th>Median distance to nearest tom onset</th><th>Within 25 ms</th></tr></thead>
+<tbody>
+<tr><td>Tom notes written ON the sixteenth grid</td><td>119</td><td>16.4 ms</td><td>65%</td></tr>
+<tr><td>Tom notes written OFF the grid</td><td>49</td><td>15.4 ms</td><td>84%</td></tr>
+<tr><td>Snare in the 17 bars holding off-grid toms</td><td>61</td><td>16.9 ms</td><td>64%</td></tr>
+<tr><td>Snare in every other bar</td><td>281</td><td>11.6 ms</td><td>63%</td></tr>
+</tbody></table></div>
+<p>The clock lands within about 16 ms in exactly the bars under suspicion, measured two independent ways.
+The grid sits a median 68.1 ms from the fractional position, which is four times the clock's own error.
+Snapping those 49 notes to sixteenths would move each one roughly four clock-errors away from the onset
+the tom stem records. The regrid is contraindicated and the item belongs in the queue as a per-fill
+question about tuplets and odd meters.</p>
+
+<h2 class="p">Relative tom height, measured ahead of any MIDI name</h2>
+<p>Post-transient resonance peak between 60 and 400 Hz on the isolated tom stem, 20 ms after the attack
+over a 120 ms window. FFT bin resolution is 5.38 Hz, so differences under about two bins carry no weight.
+Ordering is the claim. Absolute drum identity is not.</p>
+
+<h3>Display bar 25 confirms the ear edit</h3>
+<div class="scroll"><table>
+<thead><tr><th>Slot</th><th>Written</th><th>MIDI</th><th>Resonance peak</th><th>Centroid</th><th>RMS</th></tr></thead>
+<tbody>
+<tr><td>12</td><td>High Tom</td><td>48</td><td><strong>129.2 Hz</strong></td><td>153.1</td><td>0.0166</td></tr>
+<tr><td>13</td><td>High Tom</td><td>48</td><td>129.2 Hz</td><td>158.4</td><td>0.0143</td></tr>
+<tr><td>14</td><td>High Tom</td><td>48</td><td>129.2 Hz</td><td>161.0</td><td>0.0167</td></tr>
+<tr><td>15</td><td>Mid Tom</td><td>47</td><td>96.9 Hz</td><td>144.2</td><td>0.0127</td></tr>
+<tr><td>16</td><td>Mid Tom</td><td>47</td><td>102.3 Hz</td><td>150.3</td><td>0.0148</td></tr>
+<tr><td>17</td><td>Mid Tom</td><td>47</td><td>86.1 Hz</td><td>122.1</td><td>0.0146</td></tr>
+<tr><td>18</td><td>Mid Tom</td><td>47</td><td>86.1 Hz</td><td>132.7</td><td>0.0129</td></tr>
+<tr><td>19</td><td>Low Floor Tom</td><td>41</td><td><strong>80.7 Hz</strong></td><td>127.0</td><td>0.0116</td></tr>
+</tbody></table></div>
+<div class="card hero">
+<p><strong>19 of 19 pairwise orderings agree.</strong> The written descent matches the measured descent at
+every comparison, running 129.2 Hz down to 80.7 Hz. Your predicted figures were 129 to 133 Hz for the first
+event and 85 to 102 Hz for the second group, and the stem returns 129.2 and 86.1 to 102.3. The hand
+correction holds on audio evidence, with the direction certain and the exact drum names still open.</p>
+</div>
+
+<h3>Display bar 57 contradicts its own notation</h3>
+<div class="scroll"><table>
+<thead><tr><th>Slot</th><th>Written</th><th>MIDI</th><th>Resonance peak</th><th>RMS</th><th>Reading</th></tr></thead>
+<tbody>
+<tr><td>4</td><td>High Tom</td><td>48</td><td>91.5 Hz</td><td>0.0180</td><td>one drum</td></tr>
+<tr><td>8</td><td>High Tom</td><td>48</td><td>86.1 Hz</td><td>0.0166</td><td>one drum</td></tr>
+<tr><td>9</td><td>High Tom</td><td>48</td><td>91.5 Hz</td><td>0.0182</td><td>one drum</td></tr>
+<tr><td>10</td><td>High Tom</td><td>48</td><td>91.5 Hz</td><td>0.0163</td><td>one drum</td></tr>
+<tr><td>11</td><td>High Tom</td><td>48</td><td>86.1 Hz</td><td>0.0126</td><td>decaying</td></tr>
+<tr><td>12</td><td>High Tom</td><td>48</td><td>86.1 Hz</td><td>0.0089</td><td>decaying</td></tr>
+<tr><td>13</td><td>High Tom</td><td>48</td><td>86.1 Hz</td><td>0.0079</td><td>decaying</td></tr>
+<tr><td>14</td><td>High Tom</td><td>48</td><td>86.1 Hz</td><td>0.0070</td><td>decaying</td></tr>
+<tr><td>15</td><td>High Tom</td><td>48</td><td>86.1 Hz</td><td>0.0073</td><td>decaying</td></tr>
+<tr><td>16</td><td>High Tom</td><td>48</td><td>86.1 Hz</td><td>0.0067</td><td>decaying</td></tr>
+<tr style="background:color-mix(in srgb,var(--gold) 30%,transparent)">
+<td>19</td><td>Very Low Tom</td><td>43</td><td><strong>113.0 Hz</strong></td><td>0.0174</td>
+<td><strong>higher, and a fresh stroke</strong></td></tr>
+</tbody></table></div>
+<p><strong>0 of 10 pairwise orderings agree.</strong> The ten strokes written as High Tom hold a flat
+resonance near 86 to 91 Hz with a clean decay from 0.0180 to 0.0067, which reads as one drum struck
+repeatedly through a decrescendo. The final stroke, written as the lowest drum in the kit, measures
+113.0 Hz, five bins above the others, and its RMS jumps back to 0.0174. The direction of that fill is
+written backwards. The relative claim is safe and the exact drum names stay open, exactly as the
+hierarchy asks.</p>
+
+<h2>The snare discrepancy, reconciled</h2>
+<p>Two runs reported 154 chart heads against 193 tab snares, and 124 chart heads against 340 tab events.
+Both are correct and they count different things on both sides.</p>
+<div class="scroll"><table>
+<thead><tr><th>Side</th><th>Number</th><th>What it actually counts</th></tr></thead>
+<tbody>
+<tr><td>Tab</td><td><strong>193</strong></td><td>Plain, non-ghost snare instances. Identical in both revisions.</td></tr>
+<tr><td>Tab</td><td><strong>342</strong></td><td>All snare instances in r8968524, which is 193 plain plus 149 restored ghosts. The quoted 340 sits two off this.</td></tr>
+<tr><td>Tab</td><td>193</td><td>Total in the pre-sweep original, which carries zero ghosts, so the two definitions collapse there.</td></tr>
+<tr><td>Chart</td><td><strong>154</strong></td><td>Snare-lane heads from the erosion reader with the ink cut at 180 or above.</td></tr>
+<tr><td>Chart</td><td>83 / 136 / 137</td><td>Three earlier reader passes held on this disk, same page images.</td></tr>
+<tr><td>Chart</td><td><strong>124</strong></td><td>A parallel session's reader pass. Not present on this disk, so it cannot be re-derived here.</td></tr>
+</tbody></table></div>
+<p>Neither side holds the same quantity across the two comparisons. Until a comparison names its revision,
+its ghost rule, its bar range and its reader pass, the gap between chart and tab carries no information
+about what the drummer played. One chart image supports four different head counts on this machine alone,
+which is a reason to distrust the reader in dense passages and to re-read from the stem.</p>
+
+<h2 class="g">The queue this produces</h2>
+<ol>
+<li><strong>101 cymbal strokes</strong> with timestamps and verdicts, opened individually, never removed in bulk.</li>
+<li><strong>Display bar 57</strong> tom direction, which measures backwards and is the strongest single lead on the page.</li>
+<li><strong>49 fractional tom positions</strong> examined per fill for tuplets and odd meters, with the regrid withdrawn.</li>
+<li><strong>The whole cymbal lane</strong>, 1,573 notes at 1.46 times chance, which is the actual defect rather than the 101.</li>
+<li><strong>The chart reader</strong>, four head counts from one image, re-read from the stem ahead of grading anything.</li>
+</ol>
+
+<footer>
+<p>Built 2026-09-08. Detector frozen to the published two-way page: 1024-point Hann, 256 hop, 44.1 kHz,
+positive spectral flux, 95th-percentile local peaks, 30 ms refractory, one-to-one matching at 25 ms.
+Clock is the 97-anchor snare-matched piecewise map, span 59.33 to 506.08 s. Chance measured on 20,000
+random draws. Stems are the 15-lane separation at <span class="mono">/Users/Shared/206 Watermelon in
+Easter Hay-E major-112bpm-442hz/</span>.</p>
+<p>No note was added, moved or removed on the strength of anything on this page.</p>
+<p>Palette: <strong>Hotel Chevalier</strong> (Wes Anderson, 2007).</p>
+</footer>
+</div></body></html>
