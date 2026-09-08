@@ -288,6 +288,49 @@ edited on the strength of the withdrawn claim.</p>
 file decodes 26 seconds short. <strong>Read the Mirror row in the tables above as the least reliable in the
 set</strong>, and treat its 1,146 floor-tom notes as unexplained rather than as evidence of a moved lane.</p>
 
+<h2 class="g">Three songs from the newer Moises Pro separation</h2>
+<p>Brandon pointed at a second folder holding The Alligator, Endless Summer and Lazarus separated by a later
+Moises build. These ship seven stems apiece with the kit unsplit, so lanes here come from bands inside the
+one <span class="mono">drums</span> file rather than from separate stems. Bands were tightened for that:
+kick 30-180 Hz, snare 180 Hz-1 kHz below the cymbal region, cymbal 6-16 kHz above the snare crack. That is a
+new configuration and not the frozen five-stem spec.</p>
+<div class="scroll"><table><thead><tr><th>song</th><th>id</th><th>lane</th><th>written</th><th>confirm</th>
+<th>chance</th><th>ratio</th><th>wrong</th><th>separation</th><th>verdict</th></tr></thead>
+<tbody><tr><td>The Alligator</td><td class="mono">s5083283</td><td><strong>kick</strong></td><td>358</td><td>16.8%</td><td>16.7%</td><td class="mid">1.00x</td><td>0.80x</td><td class="mid">1.25x</td><td><span class="pill p-m">weak</span></td></tr><tr><td>The Alligator</td><td class="mono">s5083283</td><td><strong>snare</strong></td><td>263</td><td>18.3%</td><td>18.9%</td><td class="bad">0.96x</td><td>0.94x</td><td class="bad">1.02x</td><td><span class="pill p-a">FAILS</span></td></tr><tr><td>The Alligator</td><td class="mono">s5083283</td><td><strong>cymbal</strong></td><td>187</td><td>10.7%</td><td>15.8%</td><td class="bad">0.68x</td><td>0.99x</td><td class="bad">0.68x</td><td><span class="pill p-a">FAILS</span></td></tr><tr><td>Endless Summer</td><td class="mono">s5083970</td><td><strong>kick</strong></td><td>291</td><td>14.8%</td><td>24.3%</td><td class="bad">0.61x</td><td>0.66x</td><td class="bad">0.92x</td><td><span class="pill p-a">FAILS</span></td></tr><tr><td>Endless Summer</td><td class="mono">s5083970</td><td><strong>snare</strong></td><td>232</td><td>10.3%</td><td>20.8%</td><td class="bad">0.50x</td><td>0.63x</td><td class="bad">0.79x</td><td><span class="pill p-a">FAILS</span></td></tr><tr><td>Endless Summer</td><td class="mono">s5083970</td><td><strong>cymbal</strong></td><td>145</td><td>11.0%</td><td>22.2%</td><td class="bad">0.50x</td><td>0.85x</td><td class="bad">0.58x</td><td><span class="pill p-a">FAILS</span></td></tr><tr><td>Lazarus</td><td class="mono">s5476396</td><td><strong>kick</strong></td><td>728</td><td>67.3%</td><td>27.0%</td><td class="ok">2.49x</td><td>0.98x</td><td class="ok">2.54x</td><td><span class="pill p-c">SEPARATES</span></td></tr><tr><td>Lazarus</td><td class="mono">s5476396</td><td><strong>snare</strong></td><td>542</td><td>67.2%</td><td>21.9%</td><td class="ok">3.07x</td><td>0.79x</td><td class="ok">3.91x</td><td><span class="pill p-c">SEPARATES</span></td></tr><tr><td>Lazarus</td><td class="mono">s5476396</td><td><strong>cymbal</strong></td><td>455</td><td>49.2%</td><td>25.4%</td><td class="ok">1.94x</td><td>1.05x</td><td class="ok">1.84x</td><td><span class="pill p-c">SEPARATES</span></td></tr></tbody></table></div>
+<p><strong>Lazarus is a clean tab.</strong> Its clock locks at 67.3 percent where the wrong recording reaches
+15.7, and all three lanes separate. The other two never got a working clock, and the reason is visible
+before any audio is touched.</p>
+<h3>Two of the three tabs do not span their own recording</h3>
+<div class="scroll"><table><thead><tr><th>song</th><th>bars</th><th>declared tempo</th><th>notation spans</th>
+<th>drums stem</th><th>ratio</th><th>reading</th></tr></thead><tbody><tr><td>The Alligator</td><td>86</td><td>120 bpm</td><td>172.5 s</td><td>216.1 s</td><td class="bad">0.798x</td><td>would need ~96 bpm</td></tr><tr><td>Endless Summer</td><td>192</td><td>140 bpm</td><td>324.9 s</td><td>246.4 s</td><td class="bad">1.318x</td><td>would need ~185 bpm</td></tr><tr><td>Lazarus</td><td>207</td><td>180 bpm</td><td>276.0 s</td><td>281.0 s</td><td class="ok">0.982x</td><td>agrees</td></tr></tbody></table></div>
+<p>Lazarus agrees within two percent. The Alligator's notation runs short by a fifth and Endless Summer's runs
+long by a third, so on those two the written tempo and the recording disagree before a single note is
+compared. <strong>Nothing below the clock can be judged while that holds.</strong></p>
+<h3>Two attempts to fix it by search, both rejected</h3>
+<p>A global tempo search looked like the obvious repair and it is not usable here. Maximising raw coverage
+picked a scale that <strong>destroyed the one song that had been working</strong>, dropping Lazarus from a
+67.3 percent kick fit to 26.1 and turning three separating lanes into three failures. The cause is that a
+denser packing raises coincidence for free, so the objective rewards compression rather than truth.</p>
+<p>Correcting the objective for chance did not rescue it. On Lazarus, whose declared 180 bpm is confirmed by
+its own length agreement, the corrected search still chose 112.5 bpm, and its best score on any of the three
+songs was 1.31 times chance, under the 1.5 floor this page uses everywhere else.
+<strong>A mixed drums stem is too dense to resolve tempo this way</strong>, with a third to a half of random
+times landing within 60 ms of some onset. The numbers in the table above use each tab's own declared tempo,
+which is the only value with independent support.</p>
+<h3>The metronome stem, tested as a clock</h3>
+<p>Moises ships a metronome track, and Brandon asked whether the Zappa songs needed one. They already have
+one. Tested against the clock this page actually uses, on kick coverage:</p>
+<div class="scroll"><table><thead><tr><th>song</th><th>metronome grid</th><th>global linear fit</th>
+<th>24-anchor kick fit</th><th>winner</th></tr></thead><tbody>
+<tr><td>Keep It Greasey</td><td class="ok">31.1%</td><td>25.2%</td><td>29.4%</td><td>metronome</td></tr>
+<tr><td>I&rsquo;m the Slime</td><td>35.7%</td><td>26.3%</td><td class="ok">57.1%</td><td>anchor fit</td></tr>
+</tbody></table></div>
+<p>The metronome wins on the one song whose clock was weakest, by 1.7 points, and loses badly on the song
+whose score already carries 63 tempo automations. Seeding the anchor fit with the metronome grid and
+refining made Keep It Greasey worse still, at 20.6 percent, so that combination was dropped.
+<strong>No verdict on this page changes either way</strong>, since Greasey's lanes separate at 3.71 to 7.97
+times and a 1.7 point clock gain does not move them.</p>
+
 <footer>
 <p>Built 2026-09-08 on MacBookPro. Every number on this page is generated at build time from
 <span class="mono">data/anchor_match.json</span>, <span class="mono">data/hat.json</span>,

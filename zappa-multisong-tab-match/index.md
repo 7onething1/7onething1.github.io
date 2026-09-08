@@ -171,3 +171,50 @@ distributes energy as the other five do. Centroid was the wrong statistic. No no
 Level and density, not identity. Quietest and sparsest snare on the album, a clock reaching 23.0%
 against 92.3% on Not Too Much, and a cymbals file 26 s short. Its 1,146 floor-tom notes stay unexplained.
 
+
+## Three songs from the newer Moises Pro separation
+
+Seven stems each, kit unsplit, so lanes come from bands inside the one drums file:
+kick 30-180 Hz, snare 180 Hz-1 kHz, cymbal 6-16 kHz. New configuration, not the frozen five-stem spec.
+
+| song | id | lane | written | confirm | chance | ratio | wrong | separation | verdict |
+|---|---|---|---|---|---|---|---|---|---|
+| The Alligator | s5083283 | kick | 358 | 16.8% | 16.7% | 1.00x | 0.80x | 1.25x | weak |
+| The Alligator | s5083283 | snare | 263 | 18.3% | 18.9% | 0.96x | 0.94x | 1.02x | FAILS |
+| The Alligator | s5083283 | cymbal | 187 | 10.7% | 15.8% | 0.68x | 0.99x | 0.68x | FAILS |
+| Endless Summer | s5083970 | kick | 291 | 14.8% | 24.3% | 0.61x | 0.66x | 0.92x | FAILS |
+| Endless Summer | s5083970 | snare | 232 | 10.3% | 20.8% | 0.50x | 0.63x | 0.79x | FAILS |
+| Endless Summer | s5083970 | cymbal | 145 | 11.0% | 22.2% | 0.50x | 0.85x | 0.58x | FAILS |
+| Lazarus | s5476396 | kick | 728 | 67.3% | 27.0% | 2.49x | 0.98x | 2.54x | SEPARATES |
+| Lazarus | s5476396 | snare | 542 | 67.2% | 21.9% | 3.07x | 0.79x | 3.91x | SEPARATES |
+| Lazarus | s5476396 | cymbal | 455 | 49.2% | 25.4% | 1.94x | 1.05x | 1.84x | SEPARATES |
+
+Lazarus locks at 67.3% against 15.7% on the wrong recording; all three lanes separate.
+
+### Two tabs do not span their own recording
+
+| song | bars | declared | notation | drums stem | ratio | reading |
+|---|---|---|---|---|---|---|
+| The Alligator | 86 | 120 bpm | 172.5 s | 216.1 s | 0.798x | would need ~96 bpm |
+| Endless Summer | 192 | 140 bpm | 324.9 s | 246.4 s | 1.318x | would need ~185 bpm |
+| Lazarus | 207 | 180 bpm | 276.0 s | 281.0 s | 0.982x | agrees |
+
+### Two tempo searches, both rejected
+
+Raw-coverage search dropped Lazarus from a 67.3% kick fit to 26.1% and turned 3 separating lanes
+into 3 failures, because denser packing raises coincidence for free. Chance-correcting did not
+rescue it: on Lazarus, whose 180 bpm is confirmed by its own length agreement, it still chose
+112.5 bpm, and its best score across the three songs was 1.31x, under the 1.5 floor. A mixed drums
+stem is too dense, with a third to a half of random times inside 60 ms of some onset. The table
+above uses each tab's declared tempo.
+
+### Metronome stem as a clock
+
+| song | metronome grid | global linear | 24-anchor kick fit | winner |
+|---|---|---|---|---|
+| Keep It Greasey | 31.1% | 25.2% | 29.4% | metronome |
+| I'm the Slime | 35.7% | 26.3% | 57.1% | anchor fit |
+
+Metronome wins on the weakest clock by 1.7 points. Seeding the anchor fit with it made Greasey
+worse at 20.6%, so that was dropped. No verdict changes either way.
+
