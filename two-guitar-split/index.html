@@ -304,6 +304,38 @@ that belong to neither staff here. Its corpus holds no Appleseed material, so
 that line has never measured any tab on this record. Channel ownership stays
 unestablished, and it is the tool that is missing, not the evidence.</div>
 
+<h2>Chord contiguity and pseudo-fingerpicking, answered with the audio</h2>
+<p>The validator raises two findings that ask a question rather than assert a
+fault. <code>INTERIOR_GAP</code> is the chord-contiguity check and says "N
+attacked notes with M unexplained interior string(s); needs positive audio
+evidence". <code>OWNERSHIP_SUSPECT</code> is the pseudo-fingerpicking check and
+says "outer-string pseudo-chord across strings A and B; test whether one note
+belongs to the other guitar". Both were tested at their own instant against the
+two channels, with the same lookup at +5&nbsp;s as the control.</p>
+
+<div class="tw"><table>
+<thead><tr><th>Finding</th><th>Count</th><th>Both channels fire</th><th>+5 s control</th><th>Gain</th></tr></thead>
+<tbody>
+<tr class="sep"><td class="song">INTERIOR_GAP (chord contiguity)</td><td class="num">49</td><td class="num">13 (26.5%)</td><td class="num">5 (10.2%)</td><td class="num"><b>+16.3</b></td></tr>
+<tr class="mono"><td class="song">OWNERSHIP_SUSPECT (pseudo-chord)</td><td class="num">11</td><td class="num">0 (0.0%)</td><td class="num">2 (18.2%)</td><td class="num"><b>&minus;18.2</b></td></tr>
+</tbody></table></div>
+
+<div class="call ok"><b>No cross-guitar reassignment is warranted, and the audio
+says so.</b> Not one of the 11 outer-string pseudo-chords has both channels
+firing, and the control scores higher, so those shapes are one player's octaves
+rather than two players written on one staff. The 13 interior gaps that do show
+both channels beat their control by 16.3 points, and that only means the other
+guitarist was also playing at that instant.</div>
+
+<div class="call"><b>These two checks were built for a different file than this
+one.</b> They exist to catch two guitarists written onto a single staff. Here each
+staff IS one channel by construction, so a gap inside Gtr&nbsp;1 is the left
+channel's own transcription, never a note belonging to Gtr&nbsp;2. The remaining
+explanation for those gaps is the detector hearing partials, not a split player.
+<b>The measure is inconclusive on 31 of the 60 findings</b>, because the onset
+reference carries only 131 events across 129&nbsp;s and no attack is detectable at
+those instants.</div>
+
 <h2>Standing rule</h2>
 <p><b>Two guitars, never four.</b> A third staff is never the answer, and the
 split is decided by who played the note, never by panning or by stem loudness.</p>

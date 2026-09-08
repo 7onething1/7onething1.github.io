@@ -177,6 +177,24 @@ JSON names the file it scored: `10 Trapped in Wonderland.gp`, a Shiner song, wit
 152/689 notes belonging to neither staff. Its corpus holds no Appleseed material.
 Channel ownership stays unestablished because the tool is missing, not the evidence.
 
+## Chord contiguity and pseudo-fingerpicking
+
+INTERIOR_GAP is the contiguity check, OWNERSHIP_SUSPECT the pseudo-chord check.
+Each finding tested at its own instant against both channels, control at +5 s.
+
+| Finding | Count | Both channels | +5 s control | Gain |
+|---|---|---|---|---|
+| INTERIOR_GAP (chord contiguity) | 49 | 13 (26.5%) | 5 (10.2%) | +16.3 |
+| OWNERSHIP_SUSPECT (pseudo-chord) | 11 | 0 (0.0%) | 2 (18.2%) | -18.2 |
+
+No cross-guitar reassignment is warranted: zero of 11 pseudo-chords have both
+channels firing and the control scores higher, so they are one player's octaves.
+
+These checks were built to catch two guitarists on ONE staff. Here each staff is
+one channel by construction, so a gap inside Gtr 1 is the left channel's own
+transcription. Inconclusive on 31 of 60 findings, because the onset reference
+carries only 131 events across 129 s.
+
 ## Provenance
 
 Zero note ids and zero beat ids inherited from the Songsterr AI tab. 25 of 529
