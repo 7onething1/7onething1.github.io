@@ -38,3 +38,21 @@ surrounding energy. Against 4000 random same-width windows from the same stem, t
 percentile is 26.45 and p = 0.061. The stem does not independently
 attribute the instrument at this bar. The count of ten filled heads is established on the native
 crop. The +9 offset stays confirmed at song level, p = 0.0104, which is a different claim.
+
+## SUPERSEDED 2026-09-08 — the repair list is now an investigation queue
+
+The cymbal stem was asked directly, event by event. Hand availability cannot settle whether a
+cymbal sounded, so that framing is retired.
+
+- The 101 colliding strokes confirm at 19.8 percent. The other 1,472 cymbal notes confirm at
+  19.3 percent. The collision criterion selected nothing.
+- The whole 1,573-note cymbal lane runs at 1.46 times chance on its own stem. Snare 6.89,
+  kick 5.21, toms 7.71 through identical machinery.
+- Bleed control passed at 9.2 percent, below the 13.3 percent chance floor.
+- The sub-sixteenth regrid is contraindicated. All 49 fractional tom positions sit a median
+  15.4 ms from a tom-stem onset and 81.8 ms from the grid.
+- Display bar 25 confirmed at 19 of 19. Display bar 57 contradicted at 0 of 10.
+- Snare figures need scope: 193 is plain-only, 342 is all instances in r8968524 including the
+  149 restored ghosts. The chart side has four reader passes on this disk giving 83/136/137/154.
+
+Full method and per-event verdicts: https://7onething1.github.io/watermelon-cymbal-stem-pass/
