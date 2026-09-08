@@ -61,6 +61,11 @@ verified here against the code before being encoded.
   turns, so its key freezes exactly when silence makes it worth re-alerting. One
   chat alerted once at 8.9 days idle and never again. That is G63.
 
+That session also shipped https://7onething1.github.io/babysitter-watchdog/,
+seven detectors firing on absence rather than on findings. Its `--selftest` was
+run here: 11 of 11 detectors behaved correctly. `D7_MUTED` is G62's sibling. D7
+watches the running daemon, G62 watches what a reply claims.
+
 ## Three new skills
 
 - `/fraud-firewall`, one command, one verdict. Composes 63 gates, 54 fraud

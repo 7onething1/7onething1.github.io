@@ -193,6 +193,15 @@ G63.</p>
 have the first defect, and any change-detection key built only from counters can
 have the second.</p>
 
+<p>That session also shipped a watchdog at
+<a href="https://7onething1.github.io/babysitter-watchdog/">babysitter-watchdog</a>,
+seven detectors that fire on absence rather than on findings. Its
+<code>--selftest</code> was run here and reported 11 of 11 detectors behaving
+correctly. Its <code>D7_MUTED</code> is the sibling of G62: D7 fires after 24
+daemon cycles that found chats and raised nothing, so it watches the running
+daemon, and G62 watches what a reply claims. The same defect is covered from
+both ends.</p>
+
 <h2 id="measured">What the gates measure</h2>
 <p>A gate that has never fired on the incident it was written for is decoration.
 Every one of these was replayed against the real transcript, truncated at the
