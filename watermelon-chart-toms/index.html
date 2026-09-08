@@ -258,6 +258,34 @@ footer{color:var(--muted);font-size:13px;text-align:center;margin-top:40px}
 <p>The toms went into <b>voice slot 1</b>, which was empty on all 105 drum bars. Nothing was displaced, and deleting that voice returns the file to its exact starting state.</p>
 </section>
 
+<section>
+<h2>A second reading of the same chart, uploaded in parallel</h2>
+<p>While this build was running, <b>another session read the same Drumnet pages and published its result</b> to the copy tab <span class="mono">s6857183</span>, "Watermelon In Easter Hay Brandon edit". Revision <span class="mono">8968036</span> landed at 17:17 UTC and <span class="mono">8968524</span> at 17:43. Its own note says the chart supplied the tom count and the drum, and Moises stems supplied the timing, writing 164 toms and withholding 34 where the stem did not carry the chart's count.</p>
+
+<h3>What the two agree on</h3>
+<div class="proof">
+<b>The bar alignment is confirmed by a third route.</b> The live tab's section markers sit at exactly the bar indices this build used, Bridge 1 at index 25 and Solo at 41. Sweeping a bar shift across the two tom sets peaks at zero, 59 matches, against 6 and 7 at plus or minus one.
+<br><br>
+<b>32 of the 48 tom-carrying bars hold identical per-drum counts</b> in both reads, and the G lane totals 46 in each. Two pipelines that share nothing but the printed page landed on the same answer across two thirds of the music.
+</div>
+
+<h3>Where they differ, and what the page shows</h3>
+<div class="scroll">
+<table>
+<thead><tr><th class="num">GP bar</th><th class="num">This build</th><th class="num">Live tab</th><th>What the chart shows at 9&times;</th></tr></thead>
+<tbody>
+<tr><td class="num">25</td><td class="num">10</td><td class="num">3</td><td>a run of ten filled ovals fills the second half of chart bar 16, eight on the D and two a position higher</td></tr>
+<tr><td class="num">15</td><td class="num">3</td><td class="num">6</td><td>three solid ovals in chart bar 6, one on the top line and two on the D, none on the G</td></tr>
+<tr><td class="num">95, 97, 99, 100, 101, 103, 104</td><td class="num">19</td><td class="num">0</td><td>the Coda, marked <i>p</i>, <i>pp</i> and "cymbal on dome", is where a stem gate is least able to hear a soft tom</td></tr>
+<tr><td class="num">14, 93</td><td class="num">0</td><td class="num">6</td><td>not yet inspected</td></tr>
+</tbody>
+</table>
+</div>
+<div class="warn">
+<b>The two builds are not the same size of change.</b> This one adds toms and nothing else, over the chart's 96 bars, with voice 0 byte-identical. The live revision rewrote the whole kit across all 105 bars: kick 107 to 504, snare 193 to 342, pedal hi-hat 6 to 245, ride 1724 to 1522. Only the tom lanes were compared here, so nothing on this page judges the rest of that revision.
+</div>
+</section>
+
 <footer>Built 2026-09-08 on MacBookPro. Source chart: drumnet.ru, BartoRomeo, <i>Watermelon In A Easter Hay</i>, 5 pages.</footer>
 </div>
 

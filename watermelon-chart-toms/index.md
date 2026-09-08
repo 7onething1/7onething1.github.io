@@ -96,3 +96,29 @@ so the 6-to-179 comparison needs no restriction.
 All under `~/Projects/_outputs/zappa-watermelon-hat-snare-repair/tools/`:
 `systems_median.py`, `barlines_full.py`, `chart_heads_full.py`, `chart_grid.py`,
 `tom_plan_chart.py`, `build_chart_toms.py`.
+
+## A second reading of the same chart, uploaded in parallel
+
+While this build ran, another session read the same Drumnet pages and published to the copy
+tab `s6857183` "Watermelon In Easter Hay Brandon edit": revision `8968036` at 17:17 UTC and
+`8968524` at 17:43. Its note says the chart supplied the tom count and drum while Moises stems
+supplied the timing, writing 164 toms and withholding 34.
+
+**Agreement.** The live tab's section markers sit at exactly the bar indices this build used
+(Bridge 1 at index 25, Solo at 41). A bar-shift sweep peaks at zero (59 matches) against 6 and
+7 at plus or minus one. **32 of 48 tom-carrying bars hold identical per-drum counts**, and the
+G lane totals 46 in both.
+
+**Divergence, tom lanes only:**
+
+| GP bar | This build | Live tab | What the chart shows at 9x |
+|---|---|---|---|
+| 25 | 10 | 3 | a run of ten filled ovals in chart bar 16, eight on D and two higher |
+| 15 | 3 | 6 | three solid ovals in chart bar 6, one top-line and two on D, none on G |
+| 95, 97, 99, 100, 101, 103, 104 | 19 | 0 | the Coda, marked p / pp / "cymbal on dome" |
+| 14, 93 | 0 | 6 | not yet inspected |
+
+**Scope differs.** This build adds toms only over the chart's 96 bars with voice 0
+byte-identical. The live revision rewrote the kit across all 105 bars: kick 107 to 504, snare
+193 to 342, pedal hi-hat 6 to 245, ride 1724 to 1522. Only the tom lanes were compared, so
+nothing here judges the rest of that revision.
