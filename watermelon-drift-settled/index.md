@@ -28,6 +28,21 @@ The tab carried one tempo automation at 56.000 bpm across all 105 bars. Scoring 
 
 Peak-to-peak barline error went from **4.25 s** to **0.090 s**. The old error is a curve, ahead early and 1.65 s behind by bar 65, so no single sync offset removes it.
 
+
+### The 4.25 s headline, re-read by eye
+
+The worst flat-grid error also sits at bar 1, and two bar-1 claims on this page were withdrawn, so this one was checked the same way.
+
+**Bar 1 is not detached here.** Across bars 1 to 15 the flat error reads 2.60, 2.51, 2.31, 2.15, 2.01, monotonic with no step, and the whole curve is a smooth S through zero near bar 33 to its low at bar 65.
+
+| Population | Worst error | Peak-to-peak | RMS |
+|---|---|---|---|
+| flat 56.000, all 105 bars | 2.60 s at bar 1 | 4.25 s | 1.16 s |
+| flat 56.000, bar 1 dropped | 2.51 s at bar 2 | 4.16 s | 1.14 s |
+| **live r8973454, all bars** | **0.05 s at bar 56** | **0.09 s** | **0.03 s** |
+
+Dropping bar 1 moves peak-to-peak by 0.09 s. **The headline stands unchanged.** The same bar was genuinely detached in the sync-point measurement and is ordinary here, so an eye check belongs to each claim rather than being inherited.
+
 ## 3. Songsterr floors the tempo
 
 `r8973389` wrote 53.57 to 58.37 bpm with two decimals. The published data reads integers, matching `floor()` on **105 of 105** bars and `round()` on **46**. Flooring makes every bar slow in one direction, added 4.6 s of cumulative lag, and held the match at 0.492.

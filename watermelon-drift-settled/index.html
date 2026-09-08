@@ -109,6 +109,18 @@ a{color:#0d6f88;font-weight:600}
 </div>
 <p>Each curve is the barline error against the performance after the player picks its best single sync offset. The red curve runs ahead early, falls about 1.65 s behind by bar 65, and swings forward again through the guitar climax. That shape is what Brandon heard. It is a curve rather than a constant lag, so no single offset can remove it.</p>
 
+<div class="callout gold">
+ <h3>The 4.25 s headline, re-read by eye</h3>
+ <p>The worst flat-grid error also sits at bar 1, and two bar-1 claims on this page were withdrawn, so this one was checked the same way before being kept.</p>
+ <p><b>Bar 1 is not detached here.</b> Across bars 1 to 15 the flat error reads 2.60, 2.51, 2.31, 2.15, 2.01, monotonic with no step, and the whole 105-bar curve is a smooth S through zero near bar 33 to its low at bar 65.</p>
+ <div class="scroll"><table>
+ <tr><th>Population</th><th class="num">Worst error</th><th class="num">Peak-to-peak</th><th class="num">RMS</th></tr>
+ <tr><td>flat 56.000, all 105 bars</td><td class="num">2.60 s at bar 1</td><td class="num">4.25 s</td><td class="num">1.16 s</td></tr>
+ <tr><td>flat 56.000, bar 1 dropped</td><td class="num">2.51 s at bar 2</td><td class="num">4.16 s</td><td class="num">1.14 s</td></tr>
+ <tr class="good"><td>live r8973454, all 105 bars</td><td class="num">0.05 s at bar 56</td><td class="num">0.09 s</td><td class="num">0.03 s</td></tr>
+ </table></div>
+ <p style="margin-bottom:0">Dropping bar 1 moves peak-to-peak by 0.09 s. <b>The headline stands unchanged.</b> The same bar was genuinely detached in the sync-point measurement and is ordinary here, so an eye check belongs to each claim rather than being inherited from one.</p>
+</div>
 <h2><span class="n" style="background:var(--gold)">3</span>Songsterr floors the tempo, and it cost the first fix</h2>
 <p>The first revision, <code>r8973389</code>, wrote 105 automations spanning 53.57 to 58.37 bpm with two decimals. Reading the published data back showed integers. The rounding is not to nearest.</p>
 <div class="grid g3">
