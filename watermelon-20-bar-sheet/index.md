@@ -21,3 +21,18 @@ Correction: the skill's redzone returns [54], tuplets only. The earlier claim th
 are red zone was wrong. 19 of 20 are repairable.
 
 Live: https://7onething1.github.io/watermelon-20-bar-sheet/
+
+## Resolved by v13, verified independently
+
+Sibling session built out/EXPERIMENT-v13-hands-Brandon-edit.gp. Re-checked here:
+hands_gate ok True, 0 three-hand instants (v11 was False, 23 across 19 bars), ride 1525 -> 1501,
+kick/snare/pedal unchanged at 505/340/245.
+
+Two corrections to its report. Its "GP bar 14" is display numbering and equals index 13, which
+goes 6 toms to 0. And 14 toms were ADDED that the report did not mention: index 13 6->0,
+index 14 0->5, index 58 0->2, index 80 0->7, total 183 -> 191.
+
+The staff-scan bug it asked me to propagate cannot exist in the skill, which does no staff-row
+finding at all. It does exist in four scripts of the sibling's own toolchain that use a global ink
+fraction and ordered rows: systems.py, staves.py, chart_lanes.py, barlines.py. chart_lanes.py
+assigns the lane, so it is the one to check first.

@@ -145,6 +145,46 @@ fixed by hand.</p>
 </table></div>
 </section>
 
+
+<section>
+<h2>Resolved: v13, built by the sibling session, verified here</h2>
+<p>The chat titled <b>Final watermelon</b> built
+<code>out/EXPERIMENT-v13-hands-Brandon-edit.gp</code>. I re-ran the gates on it myself rather
+than take the report.</p>
+<table>
+<tr><th>measure</th><th class="num">v11</th><th class="num">v13</th><th>verdict</th></tr>
+<tr><td>hands_gate ok</td><td class="num">False</td><td class="num grn">True</td><td>confirmed</td></tr>
+<tr><td>three-hand instants</td><td class="num">23 over 19 bars</td><td class="num grn">0</td><td>confirmed</td></tr>
+<tr><td>ride (midi 51)</td><td class="num">1525</td><td class="num">1501</td><td>24 removed, confirmed</td></tr>
+<tr><td>kick / snare / pedal</td><td class="num">505 / 340 / 245</td><td class="num">505 / 340 / 245</td><td>untouched, confirmed</td></tr>
+<tr><td>toms</td><td class="num">183</td><td class="num red">191</td><td>8 MORE, not reported</td></tr>
+</table>
+<h3>Two corrections to the sibling's report</h3>
+<p><b>1. The numbering.</b> Its "6 false toms in GP bar 14, now zero" is display-bar numbering.
+In the index numbering this page uses, that is <b>index 13</b>, which goes 6 to 0. Index 14 moves
+the other way, 0 to 5. Both statements are true and they describe different measures.</p>
+<p><b>2. Fourteen toms were ADDED and the report named only removals.</b> Measured v11 to v13:
+index 13 goes 6 to 0, index 14 goes 0 to 5, index 58 goes 0 to 2, index 80 goes 0 to 7. The
+removal was reported. The 14 additions across three measures were not, and each needs its own
+evidence row before promotion.</p>
+</section>
+
+<section>
+<h2>The staff-scan bug does not exist in the skill</h2>
+<p>The sibling asked whether <code>tr_score</code> or any staff-geometry code in the skill shares
+its <code>chart_read.refine()</code> failure, where the first staff row above a global ink
+fraction was taken as the top and every lane in that system then read two lanes low.</p>
+<p><b>It cannot.</b> The skill performs no staff-row finding of any kind.
+<code>staff_geometry_guard</code> is its only staff function and it takes a px-per-space number as
+an argument and judges whether that number is too coarse to resolve a lane. No image is read.</p>
+<p><b>The bug class does live in the sibling's own toolchain</b>, in four scripts that take a
+global ink fraction and then walk rows in order: <code>systems.py</code> and
+<code>staves.py</code> at <code>ink &gt; 0.40*W</code> and <code>0.45*W</code>, plus
+<code>chart_lanes.py</code> and <code>barlines.py</code>. <b><code>chart_lanes.py</code> is the
+one to check first</b>, because it assigns the lane. The current pair,
+<code>systems_median.py</code> and <code>barlines_full.py</code>, use row medians and are clean.</p>
+</section>
+
 <section>
 <h2>What still needs a human</h2>
 <ul>
