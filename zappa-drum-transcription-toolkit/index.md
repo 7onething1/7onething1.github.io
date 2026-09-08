@@ -46,6 +46,16 @@ Three Songsterr tabs. `s604777` is the one that matters: human, by Ben Dibden1, 
 named by player, revision `r8852151`, **248 bars, 4,948 drum events, 629 ghost flags**,
 8:18 against the album's 8:22.
 
+**Revision history.** Kevin Sheppard approved 2025-07-15, then a strip revision from Brandon's
+account on 2026-08-29 removed all 629 parenthesised noteheads and was marked **alternative**, so it
+never published. Ben Dibden1's 2026-09-02 revision `r8852151` is live: section headers, rests
+cleared from empty bars, tracks renamed to the template format, bass tone set to finger.
+**The sweep hit this song and failed to land, so all 629 ghosts are intact.**
+
+**Ghost layer, verified twice.** The live export carries 629 flags, **every one on MIDI 38,
+acoustic snare**, across 152 of 248 bars from bar 2 to bar 238, with beat dynamics ppp 12, pp 94,
+p 376, mp 33, mf 114. That reproduces the validation page's table by a different route.
+
 **Audio.** Fifteen stems at `/Users/Shared/202 Keep It Greasey-D minor-142bpm-442hz/`, kit
 already split six ways. The metronome stem is synthetic, a beat tracker rendered to a wav.
 
