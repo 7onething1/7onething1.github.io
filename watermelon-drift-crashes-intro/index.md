@@ -64,6 +64,20 @@ The drums lose nothing. Every drum stem is silent before bar 1, peaking at 0.0 t
 
 The missing intro and the opening drift are one problem wearing two names. Songsterr stretches its first five sync points across the hole.
 
+### Correction, forced by reading the outlier instead of trusting the number
+
+An earlier version said the drums enter at 36.870 s and that the head holds unwritten music. Both came from summary statistics I had not looked at. Rendering the window withdraws them.
+
+**The drums enter on bar 2, not bar 1.** Kick first crosses 10 percent of its in-song peak at 41.21 s and cymbals at 41.24 s. Bar 2 starts at 41.25 s, so both are that downbeat landing 40 ms inside bar 1's window. Trim 0.30 s off the end of bar 1 and the kick reading falls from 48.62 percent to 0.04 percent. Bar 1 is silent.
+
+**The head is not a guitar intro.** The `other` stem's 45.1 percent is one transient at 17.71 s. Across the whole 36.87 s the stem sits above 5 percent of its in-song peak for 0.12 seconds in total.
+
+**What survives is sharper.** Bar 1 and Songsterr's 24.37 s both sit in silence, so the 12.50 s figure has no audible consequence at bar 1 itself. It matters because it drags the bars that do carry content: bar 2 by 7.73 s, bar 3 by 4.50 s, bar 4 by 2.36 s, bar 5 by 1.02 s.
+
+**One written note loses its support.** Bar 1 carries a written crash. Cymbal energy inside bar 1, trimmed clear of the bar-2 downbeat, reads 8.27 percent against the 33 percent floor. The lane statistics of 2.83x chance and 1.59x brightness vouch for the lane and not for that note.
+
+![stem energy across the head and tail](eye-sync-outliers.png)
+
 ## 4. The missing crashes
 
 The drum staff holds 51 crash notes in 105 bars, placed on bar 1, then every even bar from 4 through 96, plus bar 55. That is a rule rather than a transcription. Nothing appears after bar 96, so the coda carries no crash. One Crash 2 exists in the whole tab, and the drum staff holds no china, no splash and no ride bell.
