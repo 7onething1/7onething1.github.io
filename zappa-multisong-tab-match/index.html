@@ -1,0 +1,209 @@
+<style>
+:root{
+  --green:#446455; --gold:#FDD262; --pale:#D3DDDC; --tan:#C7B19C;
+  --green-d:#2e4539; --green-l:#6d8a7a; --gold-d:#c9a63f; --gold-l:#fff0b8;
+  --tan-d:#9d7f63; --pale-d:#a8b8b7;
+  --bg:#f7f3e8; --card:#fffdf6; --ink:#1c2320; --mut:#5d6b64; --line:#ddd6c4;
+  color-scheme:light;
+}
+:root:not([data-theme="light"]){}
+@media (prefers-color-scheme:dark){:root:not([data-theme="light"]){
+  --bg:#151a17; --card:#1d2521; --ink:#eef2ec; --mut:#a3b0a8; --line:#33403a;
+  --gold-l:#5a4d24; --green-l:#8fae9d; --pale:#3a4a48;
+}}
+:root[data-theme="dark"]{
+  --bg:#151a17; --card:#1d2521; --ink:#eef2ec; --mut:#a3b0a8; --line:#33403a;
+  --gold-l:#5a4d24; --green-l:#8fae9d; --pale:#3a4a48;
+}
+*{box-sizing:border-box}
+body{background:var(--bg);color:var(--ink);margin:0;line-height:1.62;
+ font-family:-apple-system,BlinkMacSystemFont,"Inter","Segoe UI",sans-serif;
+ font-size:16px;padding:0 1.1rem 5rem}
+.wrap{max-width:1080px;margin:0 auto}
+header{padding:3.2rem 0 1.6rem;border-bottom:4px solid var(--green)}
+h1{font-size:clamp(1.8rem,4.4vw,2.9rem);line-height:1.12;margin:0 0 .5rem;letter-spacing:-.022em}
+.sub{color:var(--mut);font-size:1.03rem;margin:0}
+.tagrow{display:flex;flex-wrap:wrap;gap:.45rem;margin-top:1.1rem}
+.tag{font-size:.76rem;font-weight:700;letter-spacing:.06em;text-transform:uppercase;
+ padding:.3rem .62rem;border-radius:3px;border:1px solid var(--line)}
+.t-g{background:var(--green);color:#fff;border-color:var(--green)}
+.t-y{background:var(--gold);color:#3a2f00;border-color:var(--gold-d)}
+.t-p{background:var(--pale);color:var(--green-d);border-color:var(--pale-d)}
+.t-t{background:var(--tan);color:#3a2a18;border-color:var(--tan-d)}
+h2{font-size:1.42rem;margin:3.2rem 0 .3rem;letter-spacing:-.014em;
+ padding-left:.7rem;border-left:6px solid var(--gold)}
+h2.g{border-left-color:var(--green)} h2.t{border-left-color:var(--tan)}
+h2.p{border-left-color:var(--pale-d)}
+h3{font-size:1.06rem;margin:1.9rem 0 .35rem;color:var(--green-l)}
+p{margin:.7rem 0}
+.lede{font-size:1.09rem}
+.card{background:var(--card);border:1px solid var(--line);border-radius:8px;
+ padding:1.15rem 1.3rem;margin:1.1rem 0}
+.hero{border-left:8px solid var(--green);background:linear-gradient(100deg,var(--card),var(--pale) 260%)}
+.hero.y{border-left-color:var(--gold)} .hero.t{border-left-color:var(--tan)}
+.grid{display:grid;gap:.85rem;grid-template-columns:repeat(auto-fit,minmax(215px,1fr));margin:1.1rem 0}
+.stat{background:var(--card);border:1px solid var(--line);border-top:5px solid var(--green);
+ border-radius:7px;padding:.95rem 1rem}
+.stat:nth-child(2){border-top-color:var(--gold)}
+.stat:nth-child(3){border-top-color:var(--tan)}
+.stat:nth-child(4){border-top-color:var(--pale-d)}
+.stat:nth-child(5){border-top-color:var(--green-l)}
+.stat:nth-child(6){border-top-color:var(--gold-d)}
+.num{font-size:1.85rem;font-weight:750;letter-spacing:-.03em;line-height:1.1;
+ font-variant-numeric:tabular-nums}
+.lbl{font-size:.79rem;color:var(--mut);text-transform:uppercase;letter-spacing:.055em;
+ font-weight:650;margin-top:.28rem}
+.note{font-size:.85rem;color:var(--mut);margin-top:.4rem}
+.scroll{overflow-x:auto;-webkit-overflow-scrolling:touch;margin:1rem 0;
+ border:1px solid var(--line);border-radius:7px;background:var(--card)}
+table{border-collapse:collapse;width:100%;font-size:.9rem;min-width:560px}
+th{background:var(--green);color:#fff;text-align:left;padding:.6rem .7rem;font-weight:650;
+ white-space:nowrap;font-size:.82rem;letter-spacing:.03em}
+td{padding:.5rem .7rem;border-top:1px solid var(--line);font-variant-numeric:tabular-nums}
+tbody tr:nth-child(even){background:color-mix(in srgb,var(--pale) 34%,transparent)}
+.mono{font-family:ui-monospace,"SF Mono",Menlo,monospace;font-size:.86em}
+.ok{color:#1f6b45;font-weight:700} .bad{color:#a33b28;font-weight:700}
+.mid{color:var(--tan-d);font-weight:700}
+:root:not([data-theme="light"]) .ok{color:#7fd3a4}
+:root:not([data-theme="light"]) .bad{color:#f0937d}
+@media (prefers-color-scheme:dark){:root:not([data-theme="light"]) .ok{color:#7fd3a4}}
+.pill{display:inline-block;padding:.12rem .5rem;border-radius:99px;font-size:.76rem;
+ font-weight:700;letter-spacing:.02em}
+.p-c{background:#d8ecdf;color:#1f6b45} .p-a{background:#f6ddd6;color:#a33b28}
+.p-m{background:var(--gold-l);color:#6b5410}
+blockquote{margin:1.1rem 0;padding:.75rem 1.1rem;border-left:5px solid var(--tan);
+ background:color-mix(in srgb,var(--tan) 17%,transparent);border-radius:0 6px 6px 0;
+ font-style:italic;color:var(--ink)}
+ul,ol{margin:.6rem 0;padding-left:1.3rem} li{margin:.34rem 0}
+code{background:color-mix(in srgb,var(--pale) 55%,transparent);padding:.1rem .34rem;
+ border-radius:3px;font-family:ui-monospace,"SF Mono",Menlo,monospace;font-size:.87em}
+footer{margin-top:4rem;padding-top:1.3rem;border-top:2px solid var(--line);
+ color:var(--mut);font-size:.87rem}
+.bar{height:19px;border-radius:3px;background:var(--green);display:inline-block;
+ vertical-align:middle;min-width:2px}
+.barw{background:color-mix(in srgb,var(--pale) 60%,transparent);border-radius:3px;
+ display:block;width:100%;max-width:230px}
+</style></head><body><div class="wrap">
+<header>
+<h1>Two more tabs put against their own recordings, and both of them hold</h1>
+<p class="sub">Keep It Greasey and I&rsquo;m the Slime, scored note by note against isolated Moises stems on
+2026-09-08. Same frozen detector as the Watermelon pass: 1024-point Hann, 256 hop, band-limited positive
+spectral flux, 95th-percentile local peaks, 30 ms refractory, 25 ms one-to-one tolerance.</p>
+<div class="tagrow">
+<span class="tag t-g">10 lane verdicts</span>
+<span class="tag t-y">10 of 10 separate</span>
+<span class="tag t-p">clock fitted on kick only</span>
+<span class="tag t-t">wrong recording given equal freedom</span>
+</div>
+</header>
+
+<div class="card hero">
+<p class="lede"><strong>The short version.</strong> Nobody listened to anything. Both tabs were expanded into
+note instances, both recordings were split into kick, snare, hat, tom and cymbal stems, and a clock was
+fitted on the kick lane alone. Every other lane was then scored on a ruler it never helped carve. All ten
+lane verdicts separate from a wrong recording that received the same fitting freedom.</p>
+<p>The result that matters for the open Watermelon question: <strong>cymbals are confirmable by this
+machinery.</strong> Keep It Greasey separates its cymbal lane at 7.97 times and I&rsquo;m the Slime at 1.87
+times, so the Watermelon cymbal lane sitting at 1.45 is a fact about that tab rather than a limit of the
+detector.</p>
+</div>
+
+<h2>Why playback was never part of this</h2>
+<p>The question that started the session was whether letting audio play out of the Mac would let the tab be
+graded by ear. It would not. Sound leaving the speakers arrives in the room. The measurement below reads
+waveforms as arrays and score files as XML, and it produces a number for every written note. That is the
+form the answer takes.</p>
+<p>Watching a tab play back is worse than useless for this, because the playhead reports where the tab
+believes it sits. A reading taken from the tab and checked against a clock also taken from the tab will
+agree with itself and settle nothing about the record.</p>
+
+<h2 class="t">How a lane earns a verdict</h2>
+<ol>
+<li><strong>Expand the score into note instances.</strong> GPIF deduplicates note and beat definitions, so
+one definition can appear at many positions. Everything here counts instances.</li>
+<li><strong>Fit the clock on kick alone.</strong> 24 windowed anchors, monotone in time, local offset chosen
+to maximise kick agreement.</li>
+<li><strong>Score the other four lanes on that clock.</strong> They had no say in building it.</li>
+<li><strong>Put a chance floor under every number.</strong> 20,000 uniform random times through the same
+matcher, so a dense stem cannot buy a high score with coincidence.</li>
+<li><strong>Refit the whole thing on the wrong recording.</strong> Same anchors, same freedom. A fit that
+survives a different song is not measuring that song.</li>
+</ol>
+
+<h2 class="g">Keep It Greasey</h2>
+<p class="sub">Drum track <span class="mono">Drums (Vinnie Colaiuta)</span>. 248 bars, 4,948 note instances in the score, 4,947 of them in the five scored lanes. Stem length 501.84 s. Songsterr id <span class="mono">s604777</span>.</p>
+<div class="grid">
+<div class="stat"><div class="num">5/5</div><div class="lbl">lanes that separate</div></div>
+<div class="stat"><div class="num">29.4%</div><div class="lbl">kick coverage, right recording</div></div>
+<div class="stat"><div class="num">5.2%</div><div class="lbl">kick coverage, wrong recording</div></div>
+<div class="stat"><div class="num">24</div><div class="lbl">clock anchors, kick only</div></div>
+</div>
+<div class="scroll"><table><thead><tr><th>lane</th><th>written</th><th>stem onsets</th><th>confirm</th><th>chance</th><th>ratio</th><th>wrong rec.</th><th>separation</th><th>verdict</th><th>fit input</th></tr></thead><tbody>
+<tr><td><strong>kick</strong></td><td>1,311</td><td>1,250</td><td>29.4%</td><td>13.2%</td><td class="ok">2.22x</td><td>0.60x</td><td class="ok">3.71x</td><td><span class="pill p-c">SEPARATES</span></td><td class="note">clock fitted here</td></tr>
+<tr><td><strong>snare</strong></td><td>1,444</td><td>953</td><td>21.5%</td><td>9.2%</td><td class="ok">2.34x</td><td>0.51x</td><td class="ok">4.62x</td><td><span class="pill p-c">SEPARATES</span></td><td class="note">held out</td></tr>
+<tr><td><strong>hat</strong></td><td>1,156</td><td>960</td><td>25.2%</td><td>9.6%</td><td class="ok">2.62x</td><td>1.42x</td><td class="ok">1.85x</td><td><span class="pill p-c">SEPARATES</span></td><td class="note">held out</td></tr>
+<tr><td><strong>tom</strong></td><td>493</td><td>1,206</td><td>51.9%</td><td>12.0%</td><td class="ok">4.33x</td><td>1.11x</td><td class="ok">3.89x</td><td><span class="pill p-c">SEPARATES</span></td><td class="note">held out</td></tr>
+<tr><td><strong>cymbal</strong></td><td>543</td><td>850</td><td>24.9%</td><td>7.9%</td><td class="ok">3.14x</td><td>0.39x</td><td class="ok">7.97x</td><td><span class="pill p-c">SEPARATES</span></td><td class="note">held out</td></tr>
+</tbody></table></div>
+<p class="note">Wrong-recording control for this song is <strong>I'm the Slime</strong>, separated by the same Moises separator, and it was given the identical 24-anchor fitting freedom rather than a fixed clock.</p>
+
+<h2 class="g">I'm the Slime</h2>
+<p class="sub">Drum track <span class="mono">Drums</span>. 80 bars, 1,280 note instances in the score, 1,280 of them in the five scored lanes. Stem length 213.75 s. Songsterr id <span class="mono">s642618 (Brandon edit)</span>.</p>
+<div class="grid">
+<div class="stat"><div class="num">5/5</div><div class="lbl">lanes that separate</div></div>
+<div class="stat"><div class="num">57.1%</div><div class="lbl">kick coverage, right recording</div></div>
+<div class="stat"><div class="num">10.8%</div><div class="lbl">kick coverage, wrong recording</div></div>
+<div class="stat"><div class="num">24</div><div class="lbl">clock anchors, kick only</div></div>
+</div>
+<div class="scroll"><table><thead><tr><th>lane</th><th>written</th><th>stem onsets</th><th>confirm</th><th>chance</th><th>ratio</th><th>wrong rec.</th><th>separation</th><th>verdict</th><th>fit input</th></tr></thead><tbody>
+<tr><td><strong>kick</strong></td><td>361</td><td>545</td><td>57.1%</td><td>12.3%</td><td class="ok">4.64x</td><td>1.12x</td><td class="ok">4.14x</td><td><span class="pill p-c">SEPARATES</span></td><td class="note">clock fitted here</td></tr>
+<tr><td><strong>snare</strong></td><td>255</td><td>517</td><td>65.5%</td><td>11.2%</td><td class="ok">5.87x</td><td>1.03x</td><td class="ok">5.70x</td><td><span class="pill p-c">SEPARATES</span></td><td class="note">held out</td></tr>
+<tr><td><strong>hat</strong></td><td>144</td><td>512</td><td>66.7%</td><td>10.4%</td><td class="ok">6.38x</td><td>1.16x</td><td class="ok">5.51x</td><td><span class="pill p-c">SEPARATES</span></td><td class="note">held out</td></tr>
+<tr><td><strong>tom</strong></td><td>145</td><td>660</td><td>57.9%</td><td>12.8%</td><td class="ok">4.52x</td><td>0.85x</td><td class="ok">5.30x</td><td><span class="pill p-c">SEPARATES</span></td><td class="note">held out</td></tr>
+<tr><td><strong>cymbal</strong></td><td>375</td><td>750</td><td>48.0%</td><td>15.5%</td><td class="ok">3.10x</td><td>1.66x</td><td class="ok">1.87x</td><td><span class="pill p-c">SEPARATES</span></td><td class="note">held out</td></tr>
+</tbody></table></div>
+<p class="note">Wrong-recording control for this song is <strong>Keep It Greasey</strong>, separated by the same Moises separator, and it was given the identical 24-anchor fitting freedom rather than a fixed clock.</p>
+
+<h2 class="p">All three songs side by side</h2>
+<p>Watermelon numbers come from the earlier pass on this machine, which used a hand-fitted snare-anchored
+alignment rather than the 24-anchor kick fit used here. Same detector and same bands, different clock
+provenance, so read the column as a companion measurement.</p>
+<div class="scroll"><table><thead><tr>
+<th>song</th><th>kick</th><th>snare</th><th>hat</th><th>tom</th><th>cymbal</th><th>lanes clear</th>
+</tr></thead><tbody><tr><td><strong>Keep It Greasey</strong></td><td class="ok">3.71x</td><td class="ok">4.62x</td><td class="ok">1.85x</td><td class="ok">3.89x</td><td class="ok">7.97x</td><td>5/5</td></tr><tr><td><strong>I'm the Slime</strong></td><td class="ok">4.14x</td><td class="ok">5.70x</td><td class="ok">5.51x</td><td class="ok">5.30x</td><td class="ok">1.87x</td><td>5/5</td></tr><tr><td><strong>Watermelon In Easter Hay</strong></td><td class="ok">7.49x</td><td class="ok">8.86x</td><td class="note">not scored</td><td class="ok">5.67x</td><td class="mid">1.45x</td><td>3/4</td></tr></tbody></table></div>
+<p class="note">Watermelon&rsquo;s wrong-recording control was Keep It Greasey, which is the reason that song
+already had stems on this machine and is now scored in its own right.</p>
+
+<h2>What the low confirm rates on Keep It Greasey do and do not mean</h2>
+<p>Greasey separates on all five lanes, and its absolute confirm rates stay low: kick at
+29.4 percent and snare at 21.5 percent.
+Separation earns the clock. The remaining written notes have no stem onset inside 25 ms, and two causes are
+live. The song runs <strong>161 bars of 19/16 out of 248</strong>, with 19 tempo automations, so a windowed
+clock is following real rubato. The detector also carries a 30 ms refractory, which merges two hits played
+closer than that into a single onset, and Colaiuta plays a great deal faster than 33 strokes a second in
+places. Neither cause is settled here, and neither licenses an edit to the tab.</p>
+<p>I&rsquo;m the Slime behaves differently for a readable reason. Its score carries
+<strong>63 tempo automations across 80 bars</strong>, so the notation clock is already fitted almost bar by
+bar, and the anchor fit had little left to do.</p>
+
+<h2 class="t">What is not covered</h2>
+<ul>
+<li><strong>Shiner BelieveYouMe has six songs with a full split kit and no tab on this machine.</strong>
+Asleep in the Trunk, So Far So, My Mirror Hates Me, Not Too Much, Broken Satellites and Jackie all carry
+kick, snare, hihat, toms and cymbals. Stems without a score cannot be scored.</li>
+<li><strong>No note was added, moved or deleted.</strong> This pass measures and reports. Any repair runs
+through the copy-tab rule rather than a revision to an original.</li>
+<li><strong>Ride and crash are not separated.</strong> Both fall in the cymbal lane, the way the Watermelon
+pass defined it.</li>
+</ul>
+
+<footer>
+<p>Built 2026-09-08 on MacBookPro. Detector frozen to the Watermelon cymbal pass. Every number on this page
+is generated from <span class="mono">data/anchor_match.json</span> and <span class="mono">data/hat.json</span>
+at build time, so nothing here was typed by hand.</p>
+<p>Sources: <span class="mono">~/Projects/_outputs/zappa-multisong-match/</span> &middot;
+stems in <span class="mono">/Users/Shared/</span> &middot;
+scores in <span class="mono">~/Projects/_outputs/songsterr-zappa-paren-fix/</span> and
+<span class="mono">~/Projects/_outputs/zappa-slime-transcription/</span></p>
+</footer>
+</div></body></html>
