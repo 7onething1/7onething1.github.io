@@ -195,6 +195,25 @@ svg{display:block;max-width:100%;height:auto}
 <p>After correcting the bar base, <b>12 of 185 strokes match HANDS and 11 of 185 match the live head</b>. A 6 percent join is not a basis for reassigning 150 notes. Settling it means re-extracting f0 at the written note positions rather than at the proposal's, which is a fresh measurement pass on the toms stem.</p>
 </div>
 
+<h2><span class="n" style="background:var(--flare)">8</span>A peer correction, verified, and it found a hole in our own safety rule</h2>
+<p>The Keep It Greasey session sent a units trap it hit on its own file. I tested it against this one rather than adopting it, and it lands.</p>
+<div class="callout red">
+<h3>A note's beat-references and its instances are different units</h3>
+<div class="scroll"><table>
+<tr><th>note</th><th class="num">rows in the plan</th><th class="num">beat-references</th><th class="num">instances file-wide</th><th>verdict</th></tr>
+<tr class="bad"><td>419</td><td class="num">13</td><td class="num">13</td><td class="num"><b>193</b></td><td>shared</td></tr>
+<tr class="bad"><td>425</td><td class="num">2</td><td class="num">23</td><td class="num"><b>46</b></td><td>shared</td></tr>
+</table></div>
+<p>Comparing 13 rows against 13 beat-references reads note 419 as exclusive. It is not. <b>Both notes in the 15-row plan are shared definitions</b>, where the ledger named only one.</p>
+<p><b>The hole.</b> Our rule says a plan whose rows repeat one id is editing a shared definition. Note 419 repeats thirteen times, so the rule catches it. <b>Note 425 appears twice and carries 46 instances</b>, so the rule misses it. Repetition inside a plan is a symptom of sharing rather than a test for it.</p>
+<p><b>The corrected pre-flight.</b> Compare each plan note's row count against its instance count across the whole file, both in the same unit, and check the instance total against a figure known independently. Here that figure is 2,784 drum instances.</p>
+</div>
+<div class="callout gold">
+<h3>And the ledger's own damage figure was off</h3>
+<p>Re-censusing the quarantined file at instance level against its parent: the damaged edit lost <b>179 instances</b>, which the ledger records correctly, spanning <b>90 distinct bars rather than 79</b>. The 15 intended removals sit inside that 179, so the pure collateral is <b>164 instances across 85 bars</b>, split 177 snare and 2 high floor tom. The kept file removes exactly 15 with 0 added.</p>
+<p><b>Beat 899 is on the drum staff</b>, confirmed: all 176 referencing voices belong to track 8. The peer withdrew a comparison against a Keep It Greasey beat at 739 voices, since that one sits on a guitar track. That comparison never appeared in this ledger, so nothing there needed changing.</p>
+</div>
+
 <h2><span class="n" style="background:var(--muted)">7</span>What is true right now</h2>
 <div class="grid g3">
  <div class="card t1"><h3 style="margin-top:0">Fixed</h3><ul>

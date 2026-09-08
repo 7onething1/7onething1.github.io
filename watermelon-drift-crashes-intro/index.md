@@ -81,6 +81,25 @@ The 185 measured tom strokes separate into **three pitch clusters at 80.5, 94.0 
 
 **What stopped a verdict.** Deciding which lane scheme the clusters back needs each stroke joined to the note written at that instant. `tom_f0.json` is a proposal grid rather than a read of the written file: rows carry their own `midi` and a `brandon` flag, bars are zero-based against the files' one-based, and positions sit on a different subdivision. After correcting the bar base, **12 of 185 strokes match HANDS and 11 of 185 match the live head**. A 6 percent join cannot reassign 150 notes. Settling it needs f0 re-extracted at the written note positions.
 
+## A peer correction, verified, and it found a hole in our own safety rule
+
+The Keep It Greasey session sent a units trap from its own file. Tested here rather than adopted.
+
+| note | rows in the plan | beat-references | instances file-wide | verdict |
+|---|---|---|---|---|
+| 419 | 13 | 13 | **193** | shared |
+| 425 | 2 | 23 | **46** | shared |
+
+Comparing 13 rows against 13 beat-references reads note 419 as exclusive. It is not. Both notes in the 15-row plan are shared definitions, where the ledger named only one.
+
+**The hole.** Our rule says a plan whose rows repeat one id is editing a shared definition. Note 419 repeats thirteen times so the rule catches it. Note 425 appears twice and carries 46 instances, so the rule misses it. Repetition inside a plan is a symptom of sharing rather than a test for it.
+
+**The corrected pre-flight.** Compare each plan note's row count against its instance count across the whole file, both in the same unit, and check the instance total against an independently known figure. Here that is 2,784 drum instances.
+
+**The ledger's damage figure was off.** Re-censusing the quarantined file against its parent: 179 instances lost, which the ledger has right, spanning **90 distinct bars rather than 79**. The 15 intended removals sit inside that 179, so pure collateral is **164 instances across 85 bars**, split 177 snare and 2 high floor tom. The kept file removes exactly 15 with 0 added.
+
+**Beat 899 is on the drum staff**, all 176 referencing voices on track 8. The peer withdrew a comparison against a Keep It Greasey beat at 739 voices, which sits on a guitar track. That comparison never appeared in this ledger, so nothing needed changing there.
+
 ## Queue
 
 - `q-2026-09-08-6f84a3` intro gap, **withdrawn**, master mismatch
