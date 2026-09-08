@@ -96,21 +96,42 @@ that walks down four drums cannot come out of that map.</p>
 
 
 <section>
-<h2>The count was right, read off a native crop</h2>
+<h2>The crop, and what it does not prove</h2>
 <p>Chart bar 16 is the measure that becomes tab index 24. This is a native-resolution crop of
 page 1, system 7, second bar, x 272 to 552 and y 722 to 788 of the 595x842 scan, magnified 8x
 with no downscale anywhere in the path. <b>Ten filled oval noteheads</b> follow the run of X
-heads.</p>
-<p><b>The instruments are named from staff position plus the tab's own instrument table, never
-from the notehead shape.</b> Reading <code>InstrumentSet</code> out of the GP file gives
-StaffLine 0 Ride (midi 51, 53), StaffLine 1 Tom Very High (50), StaffLine 2 Tom High (48),
-StaffLine 4 Tom Medium (47), StaffLine 5 Very Low Floor Tom (41), StaffLine 6 Tom Very Low (43),
-StaffLine 3 Electric Snare (40), StaffLine 7 and 8 kick. The filled heads in this crop sit on the
-tom StaffLines. The X heads sit on StaffLine 0.</p>
-<figure><img src="chartbar16_8x.png" alt="Chart bar 16 at 8x, ten filled noteheads on the tom staff lines">
-<figcaption>Drumnet transcription, page 1 system 7 bar 2, native crop at 8x. Ten filled heads on
-the tom StaffLines, matching the ten events planned for tab index 24. The error was in where they
-were placed in time.</figcaption></figure>
+heads, matching the ten events the plan wrote for this measure.</p>
+<figure><img src="chartbar16_8x.png" alt="Chart bar 16 at 8x, ten filled noteheads">
+<figcaption>Drumnet transcription, page 1 system 7 bar 2, native crop at 8x.</figcaption></figure>
+<h3>The instrument is NOT established here</h3>
+<p>A notehead shape plus a staff position plus the tab's own <code>InstrumentSet</code> is one
+witness, notation. The independent witness would be the isolated stem. It was tested and it
+fails.</p>
+<p>Over the fill window 117.857 to 119.732 s, the toms stem sits at
+<b>16.94x</b> the energy of the surrounding context. Against a null of
+4000 random windows of the same 1.875 s width drawn from the same stem
+across the whole 545 s, the median ratio is 0.69, the 95th
+percentile is <b>26.45</b> and the maximum is 271.
+<b>p = 0.061</b>, so 6.1 percent of random windows match or beat it.
+That does not clear a 5 percent bar. The tom stem is mostly silence with sparse bursts, so a
+window that lands on any burst looks this strong.</p>
+<p><b>Conclusion:</b> the count of ten heads is established on the native crop. Naming those ten
+strokes as toms rests on notation alone at this bar. The +9 chart-to-tab offset remains confirmed
+at the SONG level, rank 1 of 96 rotations, p = 0.0104. A per-bar instrument attribution is a
+different claim and it is not carried by that result.</p>
+<h3>What the stems do show in that window</h3>
+<div class="scroll"><table>
+<tr><th>stem</th><th class="num">onsets in fill</th><th class="num">RMS in fill</th>
+<th class="num">RMS outside</th><th class="num">ratio</th></tr>
+<tr><td>toms</td><td class='num'>3</td><td class='num'>0.01225</td><td class='num'>0.00055</td><td class='num'>22.09</td></tr><tr><td>cymbals</td><td class='num'>1</td><td class='num'>0.00420</td><td class='num'>0.00509</td><td class='num'>0.83</td></tr><tr><td>snare</td><td class='num'>1</td><td class='num'>0.00585</td><td class='num'>0.01095</td><td class='num'>0.53</td></tr><tr><td>kick</td><td class='num'>1</td><td class='num'>0.00547</td><td class='num'>0.00821</td><td class='num'>0.67</td></tr><tr><td>hat</td><td class='num'>1</td><td class='num'>0.00085</td><td class='num'>0.00079</td><td class='num'>1.08</td></tr>
+</table></div>
+<p>Every other drum stem drops inside the window, cymbals to
+0.83, snare to
+0.53, kick to
+0.67. The cymbal figure is the one that
+bears on this audit: the cymbal is quieter through the fill, and my upload wrote twenty unbroken
+sixteenths across it. That ratio carries no null test of its own and is reported as an
+observation.</p>
 </section>
 
 <section>

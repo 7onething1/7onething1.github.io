@@ -20,7 +20,7 @@ Nothing was uploaded. A corrected build needs a fresh export of r8968524.
 
 Live: https://7onething1.github.io/watermelon-two-hands-audit/
 
-## Instrument attribution
+## Instrument attribution (fails its null)
 
 Instruments are named from staff position plus the tab's own InstrumentSet, never from the
 notehead glyph. StaffLine 0 Ride (51, 53), 1 Tom Very High (50), 2 Tom High (48), 4 Tom Medium
@@ -32,3 +32,9 @@ The onset positions quoted for tab index 24 (11.23 to 18.63 sixteenths, strength
 were read from data/tom_plan.json before a parallel session overwrote that file at 12:56 on
 2026-09-08. The current file holds 8 events at exact sixteenths with strength 0.0, which is the
 hand fix written back. tom_plan2.json followed at 13:02.
+
+The isolated toms stem over the index-24 fill window sits at 16.94x the
+surrounding energy. Against 4000 random same-width windows from the same stem, the 95th
+percentile is 26.45 and p = 0.061. The stem does not independently
+attribute the instrument at this bar. The count of ten filled heads is established on the native
+crop. The +9 offset stays confirmed at song level, p = 0.0104, which is a different claim.

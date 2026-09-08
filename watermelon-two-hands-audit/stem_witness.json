@@ -1,0 +1,44 @@
+{
+ "toms": {
+  "onsets_in_fill": [
+   118.827,
+   119.372,
+   119.639
+  ],
+  "onsets_total": 3,
+  "rms_in_fill": 0.01225312426686287,
+  "rms_outside": 0.00055469706421718
+ },
+ "cymbals": {
+  "onsets_in_fill": [
+   118.838
+  ],
+  "onsets_total": 6,
+  "rms_in_fill": 0.004201234318315983,
+  "rms_outside": 0.005088848061859608
+ },
+ "snare": {
+  "onsets_in_fill": [
+   117.759
+  ],
+  "onsets_total": 4,
+  "rms_in_fill": 0.005853583104908466,
+  "rms_outside": 0.01095055602490902
+ },
+ "kick": {
+  "onsets_in_fill": [
+   118.548
+  ],
+  "onsets_total": 7,
+  "rms_in_fill": 0.005467269103974104,
+  "rms_outside": 0.008212133310735226
+ },
+ "hat": {
+  "onsets_in_fill": [
+   118.281
+  ],
+  "onsets_total": 4,
+  "rms_in_fill": 0.0008490316104143858,
+  "rms_outside": 0.0007867737440392375
+ }
+}
