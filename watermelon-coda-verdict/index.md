@@ -180,7 +180,8 @@ Chart bar 89 (GP 98) carries the Coda mark with "(Gong)" beside it. Chart bars 9
 (GP 100 to 101) carry the passage text "(cymbal on dome)" at p above the staff. Both systems
 show a dense continuous run of noteheads on the top line, including a circled class that is
 logged as distinct and left unnamed. Which noteheads that passage text governs is not
-established here. Noteheads are plainly printed across all of those bars.
+established here. Noteheads are plainly printed across all of those bars, and the tab writes 75
+cymbal events there under its own articulation names.
 
 The detector ran with instrument="ride" calibration. A dome stroke at p produces a much
 lower-novelty transient than a bowed ride, so a ride-tuned novelty floor classifies it
@@ -190,7 +191,7 @@ stands. Images: sys44_chartbars89-90_x8.png and sys45_chartbars91-92_x8.png.
 
 ### Correction on glyph naming, and a faulty check of my own
 
-An earlier draft called the circled noteheads "dome strokes" from their shape. That names an
+An earlier draft named a notehead class after an instrument, on its shape alone. That names an
 instrument from a glyph, which this project forbids. The glyph shapes are recorded as a distinct
 notehead class and left unnamed. The chart separately carries passage text above the staff,
 which is the transcriber's section marking rather than a label on any particular notehead, and
