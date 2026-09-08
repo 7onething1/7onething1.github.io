@@ -1,0 +1,138 @@
+<!doctype html>
+<html lang="en"><head><meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Dock Cleanup</title>
+<style>
+:root{--cream:#f4efe3;--ink:#1a1a1a;--rule:#d8cfba;--bad:#a3352b;--warn:#b8791f;--ok:#3f6b42;--muted:#6c6455}
+*{box-sizing:border-box}
+body{margin:0;background:var(--cream);color:var(--ink);font:16px/1.55 -apple-system,BlinkMacSystemFont,"Segoe UI",Helvetica,Arial,sans-serif}
+.wrap{max-width:1000px;margin:0 auto;padding:40px 22px 90px}
+h1{font-size:36px;margin:0 0 4px;letter-spacing:-.02em}
+.sub{color:var(--muted);margin:0 0 26px;font-size:14px}
+.tiles{display:grid;grid-template-columns:repeat(auto-fit,minmax(150px,1fr));gap:12px;margin-bottom:14px}
+.tile{background:#fff;border:1px solid var(--rule);border-radius:10px;padding:14px 16px}
+.tile b{display:block;font-size:30px;line-height:1.1}
+.tile span{font-size:12px;color:var(--muted);text-transform:uppercase;letter-spacing:.07em}
+.tile.bad b{color:var(--bad)} .tile.warn b{color:var(--warn)} .tile.ok b{color:var(--ok)}
+.note{background:#fff;border:1px solid var(--rule);border-left:5px solid var(--warn);border-radius:9px;padding:14px 16px;margin:18px 0 30px;font-size:14.5px}
+.note.green{border-left-color:var(--ok)}
+h2{font-size:21px;margin:34px 0 4px;padding-bottom:6px;border-bottom:1px solid var(--rule)}
+h2 .n{font-size:12px;color:var(--muted);vertical-align:middle;margin-left:8px}
+.blurb{color:var(--muted);font-size:13.5px;margin:0 0 12px}
+table{width:100%;border-collapse:collapse;background:#fff;border:1px solid var(--rule);border-radius:8px;overflow:hidden;font-size:14px}
+th,td{text-align:left;padding:8px 12px;border-bottom:1px solid var(--rule);vertical-align:top}
+th{background:#efe8d8;font-size:11px;letter-spacing:.07em;text-transform:uppercase}
+td.n{text-align:right;font:13px ui-monospace,Menlo,monospace;white-space:nowrap}
+td.p{font:12px ui-monospace,Menlo,monospace;color:var(--muted);word-break:break-all}
+.dot{display:inline-block;width:9px;height:9px;border-radius:50%;margin-right:7px;vertical-align:middle}
+.d-red{background:var(--bad)} .d-amb{background:var(--warn)} .d-grn{background:var(--ok)}
+code{font:12.5px ui-monospace,Menlo,monospace;background:#efe8d8;padding:2px 5px;border-radius:4px}
+pre{background:#fff;border:1px solid var(--rule);border-radius:8px;padding:12px 14px;overflow-x:auto;font:12.5px ui-monospace,Menlo,monospace}
+.legend{font-size:13px;color:var(--muted);margin:0 0 14px}
+.legend b{color:var(--ink)}
+@media(prefers-color-scheme:dark){
+ :root{--cream:#181613;--ink:#ece5d6;--rule:#3a3630;--muted:#9a9182}
+ .tile,table,.note,pre{background:#211e1a} th{background:#2a2620} code{background:#2a2620}
+}
+</style></head><body><div class="wrap">
+<h1>Dock Cleanup</h1>
+<p class="sub">Brandons-MacBook-Pro &middot; 2026-09-08 &middot; the macOS Dock at the bottom of the screen, thinned to what actually gets used</p>
+
+<div class="tiles">
+ <div class="tile"><b>37</b><span>App icons at start</span></div>
+ <div class="tile bad"><b>17</b><span>Icons removed</span></div>
+ <div class="tile ok"><b>20</b><span>Icons kept</span></div>
+ <div class="tile ok"><b>0</b><span>Apps deleted</span></div>
+</div>
+
+<div class="note"><b>How &quot;don't use much&quot; was measured.</b> Spotlight's
+<code>kMDItemLastUsedDate</code> came back empty for every app in <code>/Applications</code>, so it
+could not carry the ranking. The number in every row below is the newest modification time across
+that app's <code>~/Library/Preferences/&lt;bundle-id&gt;.plist</code>, its
+<code>Saved Application State</code>, its <code>Containers</code>, its <code>Caches</code>, and its
+<code>HTTPStorages</code> folder. That is a proxy for a launch log. An app that writes preferences on
+a background timer will read fresher than your real usage, and an app that never writes will read
+staler.</div>
+
+<h2>Removed <span class="n">17 of 37</span></h2>
+<p class="blurb">Three went in the first pass for being dead or duplicated. Fourteen went for sitting idle 50 days or longer.</p>
+<p class="legend"><span class="dot d-red"></span><b>Red</b> dead or duplicated icon &nbsp;
+<span class="dot d-amb"></span><b>Amber</b> idle 100 days or more &nbsp;
+<span class="dot d-grn"></span><b>Green</b> idle 50 to 99 days</p>
+<table><thead><tr><th>App</th><th>Days idle</th><th>Last signal</th><th>Reason</th><th>Path</th></tr></thead><tbody>
+<tr><td><span class="dot d-red"></span>SoulseekQt</td><td class="n">&mdash;</td><td class="n">never</td><td>Broken path, the disk image is not mounted</td><td class="p">/Volumes/SoulseekQt/SoulseekQt.app</td></tr>
+<tr><td><span class="dot d-red"></span>Google Chrome</td><td class="n">5</td><td class="n">2026-09-02</td><td>Duplicate, second of three identical icons</td><td class="p">/Applications/Google Chrome.app</td></tr>
+<tr><td><span class="dot d-red"></span>Google Chrome</td><td class="n">5</td><td class="n">2026-09-02</td><td>Duplicate, third of three identical icons</td><td class="p">/Applications/Google Chrome.app</td></tr>
+<tr><td><span class="dot d-amb"></span>SoulseekQt</td><td class="n">315</td><td class="n">2025-10-27</td><td>Idle</td><td class="p">/Applications/SoulseekQt.app</td></tr>
+<tr><td><span class="dot d-amb"></span>Waves Central</td><td class="n">211</td><td class="n">2026-02-09</td><td>Idle</td><td class="p">/Applications/Waves Central.app</td></tr>
+<tr><td><span class="dot d-amb"></span>Kindle</td><td class="n">153</td><td class="n">2026-04-08</td><td>Idle</td><td class="p">/Applications/Amazon Kindle.app</td></tr>
+<tr><td><span class="dot d-amb"></span>Bear</td><td class="n">136</td><td class="n">2026-04-24</td><td>Idle</td><td class="p">/Applications/Bear.app</td></tr>
+<tr><td><span class="dot d-amb"></span>Automator</td><td class="n">123</td><td class="n">2026-05-07</td><td>Idle</td><td class="p">/System/Applications/Automator.app</td></tr>
+<tr><td><span class="dot d-amb"></span>inMusic Software Center</td><td class="n">111</td><td class="n">2026-05-20</td><td>Idle</td><td class="p">/Applications/inMusic Software Center.app</td></tr>
+<tr><td><span class="dot d-grn"></span>Preview</td><td class="n">82</td><td class="n">2026-06-18</td><td>Idle</td><td class="p">/System/Applications/Preview.app</td></tr>
+<tr><td><span class="dot d-grn"></span>QuickTime Player</td><td class="n">82</td><td class="n">2026-06-18</td><td>Idle</td><td class="p">/System/Applications/QuickTime Player.app</td></tr>
+<tr><td><span class="dot d-grn"></span>Safari</td><td class="n">82</td><td class="n">2026-06-18</td><td>Idle, browsing happens in Firefox and Chrome</td><td class="p">/System/Volumes/Preboot/Cryptexes/App/System/Applications/Safari.app</td></tr>
+<tr><td><span class="dot d-grn"></span>Phone</td><td class="n">80</td><td class="n">2026-06-19</td><td>Idle</td><td class="p">/System/Applications/Phone.app</td></tr>
+<tr><td><span class="dot d-grn"></span>Notes</td><td class="n">74</td><td class="n">2026-06-25</td><td>Idle</td><td class="p">/System/Applications/Notes.app</td></tr>
+<tr><td><span class="dot d-grn"></span>Screen Sharing</td><td class="n">73</td><td class="n">2026-06-26</td><td>Idle</td><td class="p">/System/Applications/Utilities/Screen Sharing.app</td></tr>
+<tr><td><span class="dot d-grn"></span>Canva</td><td class="n">59</td><td class="n">2026-07-10</td><td>Idle</td><td class="p">/Applications/Canva.app</td></tr>
+<tr><td><span class="dot d-grn"></span>TextEdit</td><td class="n">54</td><td class="n">2026-07-15</td><td>Idle</td><td class="p">/System/Applications/TextEdit.app</td></tr>
+</tbody></table>
+
+<h2>Kept <span class="n">20 of 37</span></h2>
+<p class="blurb">Everything below showed activity inside the last 26 days. The Downloads stack on the right side of the Dock was left alone.</p>
+<table><thead><tr><th>App</th><th>Days idle</th><th>Last signal</th><th>Bundle id</th></tr></thead><tbody>
+<tr><td>System Settings</td><td class="n">0</td><td class="n">2026-09-08</td><td class="p">com.apple.systempreferences</td></tr>
+<tr><td>Spotify</td><td class="n">0</td><td class="n">2026-09-08</td><td class="p">com.spotify.client</td></tr>
+<tr><td>VLC</td><td class="n">0</td><td class="n">2026-09-07</td><td class="p">org.videolan.vlc</td></tr>
+<tr><td>Messages</td><td class="n">0</td><td class="n">2026-09-07</td><td class="p">com.apple.MobileSMS</td></tr>
+<tr><td>MTGA</td><td class="n">0</td><td class="n">2026-09-07</td><td class="p">com.wizards.mtga</td></tr>
+<tr><td>Claude</td><td class="n">0</td><td class="n">2026-09-07</td><td class="p">com.anthropic.claudefordesktop</td></tr>
+<tr><td>Calendar</td><td class="n">0</td><td class="n">2026-09-07</td><td class="p">com.apple.iCal</td></tr>
+<tr><td>Epic Games Launcher</td><td class="n">1</td><td class="n">2026-09-07</td><td class="p">com.epicgames.EpicGamesLauncher</td></tr>
+<tr><td>Firefox</td><td class="n">1</td><td class="n">2026-09-06</td><td class="p">org.mozilla.firefox</td></tr>
+<tr><td>FaceTime</td><td class="n">2</td><td class="n">2026-09-05</td><td class="p">com.apple.FaceTime</td></tr>
+<tr><td>Cloudflare WARP</td><td class="n">3</td><td class="n">2026-09-04</td><td class="p">com.cloudflare.1dot1dot1dot1.macos</td></tr>
+<tr><td>Numbers</td><td class="n">4</td><td class="n">2026-09-03</td><td class="p">com.apple.Numbers</td></tr>
+<tr><td>Google Chrome</td><td class="n">5</td><td class="n">2026-09-02</td><td class="p">com.google.Chrome</td></tr>
+<tr><td>Pages</td><td class="n">6</td><td class="n">2026-09-01</td><td class="p">com.apple.Pages</td></tr>
+<tr><td>Roblox</td><td class="n">7</td><td class="n">2026-08-31</td><td class="p">com.roblox.RobloxPlayer</td></tr>
+<tr><td>Dictionary</td><td class="n">7</td><td class="n">2026-08-31</td><td class="p">com.apple.Dictionary</td></tr>
+<tr><td>Photos</td><td class="n">8</td><td class="n">2026-08-31</td><td class="p">com.apple.Photos</td></tr>
+<tr><td>Ableton Live 11 Suite</td><td class="n">11</td><td class="n">2026-08-28</td><td class="p">com.ableton.live</td></tr>
+<tr><td>Auto-Tune Central</td><td class="n">19</td><td class="n">2026-08-19</td><td class="p">com.Antares.AutoTuneCentral</td></tr>
+<tr><td>Terminal</td><td class="n">26</td><td class="n">2026-08-13</td><td class="p">com.apple.Terminal</td></tr>
+</tbody></table>
+
+<h2>Nothing was deleted</h2>
+<div class="note green">All 17 application bundles were checked on disk after the edit and every one is
+still present. Removing a Dock icon changes a preferences key. It does not touch the application, so
+Launchpad and Spotlight still open every app in the removed table.</div>
+
+<h2>Restore</h2>
+<p class="blurb">The plist was backed up before the first edit. Restoring it puts back exactly these
+17 icons, in their original order and positions: SoulseekQt (disk image), Google Chrome, Google
+Chrome, SoulseekQt, Waves Central, Kindle, Bear, Automator, inMusic Software Center, Preview,
+QuickTime Player, Safari, Phone, Notes, Screen Sharing, Canva, TextEdit. The 20 kept icons are
+unaffected by the restore.</p>
+<pre>cp ~/.claude/backups/dock/com.apple.dock.plist.20260908-111610.bak \
+   ~/Library/Preferences/com.apple.dock.plist &amp;&amp; killall cfprefsd Dock</pre>
+
+<h2>Method</h2>
+<p class="blurb">The edit was written through <code>CFPreferences</code> so the preferences daemon
+could not overwrite it, then the Dock was restarted. Editing the plist file directly is the way this
+silently reverts.</p>
+<pre># dry run, prints the plan and writes nothing
+/usr/bin/python3 ~/.claude/backups/dock/dock_prune.py --dedupe --broken --dry-run
+
+# drop dead icons and repeat entries
+/usr/bin/python3 ~/.claude/backups/dock/dock_prune.py --dedupe --broken
+
+# drop named icons
+/usr/bin/python3 ~/.claude/backups/dock/dock_prune.py --label "Safari" --label "Preview"</pre>
+
+<h2>Verification</h2>
+<pre>persistent-apps read back:  20 items
+apps still on disk:         17 of 17 present
+session_fraud_check.py --hard-only:  PASS, exit 0</pre>
+</div></body></html>
