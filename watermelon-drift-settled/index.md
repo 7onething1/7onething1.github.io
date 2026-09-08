@@ -71,24 +71,47 @@ AUC 0.894 means a random written crash beats a random ride stroke 89 times in 10
 
 **Nothing was added.** Queued as `q-2026-09-08-f370c3`. It could not be done now because both available features stop short: decay separates at AUC 0.606, and peak energy confirms known crashes while returning an impossible density. Unblocking needs a lane outside this stem set, meaning `other_kit`, an inter-channel pan test, or a cleaner separation, held to 2.5x over a guitar control *and* a density inside the author's own range.
 
-## 6. The video sync points: one bar is wrong, and the route exists
+## 6. The video sync points, and a defect claim I withdrew
 
-**Two corrections to my own first pass.** I measured each video's points by anchoring on `point[0]` and reported 0.94 s worst, 0.80 s rms. **Bar 1 is itself the outlier**, so anchoring there smeared its error across all 105 residuals. And I called the points "not reachable by upload" without looking for a second route; a stop gate refused that, correctly.
+**Withdrawn: "bar 1 is 0.818 s early".** I measured it two ways and both said 0.81 s. A stop gate demanded an outlier in a width check be re-read by eye first. Rendering the 8:42 master killed the claim: **neither candidate lands on a musical event.**
 
-| Metric, primary video XACocSRTFJY | Anchored at point[0] | Body-anchored |
+| Landmark in the 8:42 master | Time |
+|---|---|
+| First 5% crossing, 180-1200 Hz | 0.511 s |
+| First 5% crossing, 3-10 kHz | 4.493 s |
+| **First 5% crossing, 40-160 Hz, band entry** | **17.845 s** |
+| Video's bar-1 sync point | 12.710 s |
+| Extrapolated bar 1 | 13.528 s |
+
+The tab's bar 1 sits in a sparse solo-guitar passage and the band enters about five bars later. My "two independent confirmations" both rested on the same 36.870 s metromap anchor, so they were one measurement stated twice.
+
+The anchor itself does check out independently: the first drum onset in the 9:05 stems is 41.204 s, mapping to 17.862 s in the 8:42 timeline against 17.845 s read off this master, **agreeing to 17 ms**.
+
+**What survives.** My first residuals were also inflated by anchoring at `point[0]`, which is the one bar that disagrees.
+
+| Primary video XACocSRTFJY | Anchored at point[0] | Body-anchored |
 |---|---|---|
-| Worst absolute error | 0.94 s | 0.81 s, only at bar 1 |
-| Root mean square | 0.80 s | **0.09 s** |
-| Median error after bar 6 | not computed | **0.028 s** |
+| Worst absolute error | 0.94 s | 0.81 s, at bar 1 |
+| RMS | 0.80 s | **0.09 s** |
+| Median after bar 6 | not computed | **0.028 s** |
 | Bars off by more than 1 s | not computed | **0 of 105** |
 
-Confirmed a second way: tab bar 1 sits at 36.870 s in the 9:05 master, so **13.528 s** in the 8:42 edit. The primary's bar-1 point reads **12.710 s**, which is **0.818 s early**, matching the -0.81 s residual. That video carries 105 points where all eleven others carry 106.
+The points track the performance to about 30 ms through the body. For video-synced playback `r8973454` therefore changes little across the body; it fixes Songsterr's own MIDI playback and within-bar interpolation.
 
-**What this means for the tempo fix:** for video-synced playback the per-measure points already carry timing to about 30 ms, so `r8973454` changes little across the body. It fixes Songsterr's own MIDI playback and within-bar interpolation. The remaining audible mismatch against video is the opening bar.
+**The route exists.** Across the five page bundles, 2,693,991 characters: `videoSync` 31 times, `video/sync` twice, `POST /api/video-points/process`, event `video/syncPointsPublished`, and the editor command **`commands/editor:pointsReplace`**. Two browser bridges are live on this Mac. **No `pointsReplace` was fired**, for evidence rather than access: after the eye check there is no verified replacement value.
 
-**The route, found rather than assumed.** Across the five page bundles, 2,693,991 characters: `videoSync` 31 times, `video/sync` twice, `POST /api/video-points/process` taking `{autoSyncRequestId}`, event `video/syncPointsPublished` carrying `{songId, revisionId}`, and the editor command **`commands/editor:pointsReplace`**. `OPTIONS` on the read endpoint is 404 and `GET` is 200, so the write path is the editor command, the same class of route that made the Guitar Pro import work.
+## 6b. A peer session's four claims, re-derived
 
-Not fired here, because replacing published sync data is outward-facing and wants a verified point set first, and only one point needs correcting. Queued as `q-2026-09-08-52e2f0`.
+Session `b1d3-427a-96a4-355bdf049d0a` sent measurements. Each was re-derived rather than accepted.
+
+| Peer claim | My measurement | Verdict |
+|---|---|---|
+| Tab bar-1-to-bar-105 span 501.4 s | 501.36 s fitted, 501.35 s live | CONFIRMED |
+| `BASE-r8972739-live-head` Crash1 50, Crash2 1, 2,834 notes, upload matches | identical across base, TEMPOFIX, TEMPOFIX-INT | CONFIRMED exactly |
+| 51 written crashes beat a circular-shift null at 2.83x | 4.87x, 0 of 300 rotations reach it, p = 0.000 | same direction, larger |
+| HANDS and live disagree on ~150 tom notes | HANDS 41:1 43:44 47:4 48:81 50:30 vs live 41:62 43:0 47:111 48:14 50:0 | CONFIRMED lane for lane |
+
+Their 6-12 kHz ratio of 1.59x reads 3.09x here on the same band. Different magnitude, same direction, so **the written crashes rest on two independent nulls**. Their bar-by-bar sync residual could not be reproduced, since it compares a `metromap.json` not on disk in this session.
 
 ## 7. Reinstated with evidence
 

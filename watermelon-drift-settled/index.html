@@ -158,27 +158,49 @@ a{color:#0d6f88;font-weight:600}
 <p><b>Nothing was added.</b> Writing either set would repeat the pass that put 599 toms into this ballad on 2026-09-07. The blocker is the separation: the lead guitar stem, which contains no cymbals at all, still fires 82 and 89 times under these floors, so the Moises cymbal stem carries guitar bleed at crash amplitude.</p>
 <p>Queued as <code>q-2026-09-08-f370c3</code>. It could not be done in this session because both available features stop short: decay separates at AUC 0.606, and peak energy separates well enough to confirm known crashes while returning a density no human plays. Unblocking needs a lane that is not in this stem set, meaning the <code>other_kit</code> stem, an inter-channel pan test, or a cleaner separation, held to 2.5x over a guitar control <em>and</em> a per-bar density inside the author's own range.</p>
 
-<h2><span class="n" style="background:var(--sun)">6</span>The video sync points: one bar is wrong, and the route to fix it exists</h2>
+<h2><span class="n" style="background:var(--sun)">6</span>The video sync points, and a defect claim I withdrew</h2>
 <div class="callout red">
- <h3>Two corrections to my own first pass</h3>
- <p><b>One.</b> I first measured each video's sync points by anchoring on <code>point[0]</code> and reported the primary at 0.94 s worst, 0.80 s rms. <b>Bar 1 is itself the outlier</b>, so anchoring there smeared its error across all 105 residuals. Re-anchored on the body median, bars 10 to 100, the picture inverts.</p>
- <p style="margin-bottom:0"><b>Two.</b> I called these points "not reachable by upload" without looking for a second route. A stop gate refused that, correctly. The route exists and is named below.</p>
+ <h3>Withdrawn: "bar 1 is 0.818 s early"</h3>
+ <p>I measured the sync points two ways and both said bar 1 sat 0.81 s off. A stop gate then demanded that an outlier in a width check be re-read by eye before being called a defect. Rendering the 8:42 master killed the claim.</p>
+ <p style="margin-bottom:0"><b>Neither candidate lands on a musical event.</b> The tab's bar 1 sits in a sparse solo-guitar passage and the band enters about five bars later. My "two independent confirmations" both rested on the same 36.870 s metromap anchor, so they were one measurement stated twice.</p>
 </div>
 <div class="scroll"><table>
-<tr><th>Metric, primary video XACocSRTFJY</th><th class="num">Anchored at point[0]</th><th class="num">Body-anchored</th></tr>
-<tr><td>Worst absolute error</td><td class="num">0.94 s</td><td class="num">0.81 s, only at bar 1</td></tr>
-<tr><td>Root mean square error</td><td class="num">0.80 s</td><td class="num"><b>0.09 s</b></td></tr>
+<tr><th>Landmark in the 8:42 master</th><th class="num">Time</th></tr>
+<tr><td>First 5% crossing, 180-1200 Hz</td><td class="num">0.511 s</td></tr>
+<tr><td>First 5% crossing, 3-10 kHz</td><td class="num">4.493 s</td></tr>
+<tr class="good"><td><b>First 5% crossing, 40-160 Hz, the band entry</b></td><td class="num"><b>17.845 s</b></td></tr>
+<tr><td>Video's bar-1 sync point</td><td class="num">12.710 s</td></tr>
+<tr><td>Extrapolated bar 1</td><td class="num">13.528 s</td></tr>
+</table></div>
+<p>Across 12.0 to 14.6 s the traces carry no downbeat sharp enough to adjudicate 0.818 s. The anchor itself does check out independently: the first drum onset in the 9:05 stems is 41.204 s, which maps to 17.862 s in the 8:42 timeline against 17.845 s read directly off this master, <b>agreeing to 17 ms</b>.</p>
+<h3>What does survive</h3>
+<p>My first residual figures were also wrong for a second reason. Anchoring each video's points at <code>point[0]</code> put the anchor on the one bar that disagrees, smearing its error across all 105 residuals.</p>
+<div class="scroll"><table>
+<tr><th>Primary video XACocSRTFJY</th><th class="num">Anchored at point[0]</th><th class="num">Body-anchored</th></tr>
+<tr><td>Worst absolute error</td><td class="num">0.94 s</td><td class="num">0.81 s, at bar 1</td></tr>
+<tr><td>Root mean square</td><td class="num">0.80 s</td><td class="num"><b>0.09 s</b></td></tr>
 <tr class="good"><td>Median error after bar 6</td><td class="num">not computed</td><td class="num"><b>0.028 s</b></td></tr>
 <tr class="good"><td>Bars off by more than 1 s</td><td class="num">not computed</td><td class="num"><b>0 of 105</b></td></tr>
 </table></div>
-<p>Confirmed a second way. Tab bar 1 sits at 36.870 s in the 9:05 master, so <b>13.528 s</b> in the 8:42 edit after the measured 23.3417 s head cut. The primary's own bar-1 point reads <b>12.710 s</b>, which is <b>0.818 s early</b> and matches the &minus;0.81 s body-anchored residual. That video also carries 105 points where all eleven others carry 106, so the final barline has no end anchor.</p>
+<p>So the per-measure points already track the performance to about 30 ms through the body. That video does carry 105 points where all eleven others carry 106, so the final barline has no end anchor.</p>
 <div class="callout aqua">
  <h3>What this means for the tempo fix</h3>
- <p style="margin-bottom:0">For <b>video-synced</b> playback the per-measure points already carry the timing to about 30 ms, so <code>r8973454</code> changes little across the body. It fixes Songsterr's own MIDI playback and the within-bar interpolation. The audible mismatch that remains against video is concentrated in the opening bar. A peer session working the same tab reached this shape independently, reporting the error at the opening rather than spread through the song.</p>
+ <p style="margin-bottom:0">For <b>video-synced</b> playback the sync points carry the timing, so <code>r8973454</code> changes little across the body. It fixes Songsterr's own MIDI playback and the within-bar interpolation. A peer session reached the same shape independently, placing the residual error at the opening rather than through the song.</p>
 </div>
-<h3>The route, found rather than assumed</h3>
-<p>Scanning the five page bundles, 2,693,991 characters: <code>videoSync</code> appears 31 times, <code>video/sync</code> twice, and the code carries <code>POST /api/video-points/process</code> taking <code>{autoSyncRequestId}</code>, an event <code>video/syncPointsPublished</code> carrying <code>{songId, revisionId}</code>, and the editor command <b><code>commands/editor:pointsReplace</code></b>. <code>OPTIONS</code> on the read endpoint answers 404 and <code>GET</code> answers 200, so the write path is the editor command rather than a REST verb on that URL, which is the same class of route that made the Guitar Pro import work.</p>
-<p>Not fired here. Replacing published sync data is an outward-facing change and wants a verified point set built first, and only one point needs correcting. Queued as <code>q-2026-09-08-52e2f0</code> with the route and the target value recorded.</p>
+<h3>The route exists, and nothing here is blocked by access</h3>
+<p>Scanning the five page bundles, 2,693,991 characters: <code>videoSync</code> appears 31 times, <code>video/sync</code> twice, plus <code>POST /api/video-points/process</code> taking <code>{autoSyncRequestId}</code>, an event <code>video/syncPointsPublished</code>, and the editor command <b><code>commands/editor:pointsReplace</code></b>. <code>OPTIONS</code> on the read endpoint answers 404 and <code>GET</code> answers 200, so the write path is the editor command, the same class of route that carried the Guitar Pro import. Two browser bridges are live on this Mac.</p>
+<p><b>No <code>pointsReplace</code> was fired.</b> The reason is evidence rather than access: after the eye check there is no verified replacement value for bar 1, and writing an unverified number into published sync data is worse than leaving it.</p>
+
+<h2><span class="n" style="background:var(--sky)">6b</span>A peer session's four claims, re-derived</h2>
+<p>Session <code>b1d3-427a-96a4-355bdf049d0a</code> sent measurements on this tab. Each was re-derived here rather than accepted.</p>
+<div class="scroll"><table>
+<tr><th>Peer claim</th><th>My measurement</th><th>Verdict</th></tr>
+<tr class="good"><td>Tab bar-1-to-bar-105 span is 501.4 s</td><td class="num">501.36 s fitted, 501.35 s live</td><td>CONFIRMED</td></tr>
+<tr class="good"><td><code>BASE-r8972739-live-head</code> holds Crash1 50, Crash2 1, 2,834 notes, and the upload matches</td><td>identical across base, TEMPOFIX and TEMPOFIX-INT</td><td>CONFIRMED exactly</td></tr>
+<tr><td>The 51 written crashes beat a circular-shift null at 2.83x</td><td class="num">4.87x, 0 of 300 rotations reach it, p = 0.000</td><td>same direction, larger</td></tr>
+<tr class="good"><td>HANDS and the live head disagree on about 150 tom notes</td><td>HANDS 41:1 43:44 47:4 48:81 50:30 against live 41:62 43:0 47:111 48:14 50:0</td><td>CONFIRMED lane for lane</td></tr>
+</table></div>
+<p>Their 6-12 kHz brightness ratio of 1.59x reads 3.09x here on the same band. We differ on magnitude and agree on direction, so <b>the written crashes now rest on two independent nulls</b>. Their bar-by-bar sync residual could not be reproduced, since it compares a <code>metromap.json</code> that is not on disk in this session. The upload adopted the live head's tom assignment, which is correct for an edit built on the live head.</p>
 
 <h2><span class="n" style="background:var(--aqua)">7</span>Reinstated, with evidence this time</h2>
 <p>An earlier session recorded a 23.3 second duration gap and explained it with an invented lead-in, and the explanation was withdrawn for being invented. The gap is now measured at 23.34 s with a 3.9 ms standard deviation, and Brandon's own sources name the Central Scrutinizer intro as its content. The finding returns on measurement rather than on the story that first accompanied it.</p>
