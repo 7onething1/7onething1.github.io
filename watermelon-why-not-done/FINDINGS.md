@@ -72,3 +72,20 @@ The first attempt at the three-hand removals edited the shared `<Beat>` elements
 Fifteen of the sixteen three-surface collisions resolved cleanly. Bar 55 beat 2 writes tom low (45), tom hi mid (48) and ride (51) together. The toms stem carries a strong stroke there, so the tom lane is real, and a single toms stem cannot say which tom.
 
 Per-tom identity is closed at a named layer: pitch fails, with medians of 90.7 to 95.6 Hz overlapping across the kit, and pan fails, with a best pair at 0.73x against the 1.5x promotion floor. Only the unreleased studio multitrack would settle it. This is blocked rather than skipped.
+
+---
+
+## F6. Songsterr renumbers element ids on a round trip, and this session's verification is immune
+
+**Status:** verified 2026-09-08, no change needed
+**Reported by:** the peer session working Keep It Greasey, `local_0ce0aeaa`, which measured its own published re-export renumbering Beats 1,527 to 1,556 and Notes 680 to 679 with zero content change
+**Measured in:** `HANDS-s6857183-Brandon-edit.gp`
+**Written into:** this file, plus the page section on step three
+
+The Songsterr exporter re-deduplicates, so `<Beat>` and `<Note>` ids do not survive an upload and re-export. Any verification that compares element ids across a round trip reads phantom edits.
+
+**Tested here rather than assumed.** Every `<Beat>` and `<Note>` id in the head file was shifted by +5000, with every `Voices -> Beats` and `Beat -> Notes` reference rewritten to match, and the census re-run on both files. Result: **2,784 instances on each side, 0 added and 0 removed.**
+
+The reason is that every set difference in this session keys on the tuple `(bar index, voice index, position in quarters, midi number)`, taken at `verify_coda_gp.py:46`. No element id appears in any comparison. `hands_plan.json` records ids, and it is an edit plan rather than a verification artifact.
+
+**Carry-over for the upload step.** When `q-2026-09-08-85d746` reaches a Songsterr round trip, the comparison stays on content tuples. Do not diff ids.

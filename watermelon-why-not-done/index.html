@@ -330,6 +330,12 @@ a{color:#0d6f88;font-weight:600}
  <p>Queued as <code>q-2026-09-08-b08085</code>. Figures in <a href="hands_write.json">hands_write.json</a> and <a href="three_hand.json">three_hand.json</a>.</p>
 </div>
 
+<div class="callout aqua">
+ <h3>A peer warning, tested rather than adopted</h3>
+ <p>The session working Keep It Greasey reported that Songsterr renumbers element ids on a round trip: its own published re-export moved Beats 1,527 to 1,556 and Notes 680 to 679 with zero content change, because the exporter re-deduplicates. Verification that diffs ids across a round trip would read phantom edits.</p>
+ <p><b>Checked here by breaking it on purpose.</b> Every Beat and Note id in the head file was shifted by +5000, with every reference rewritten to match, and the census re-run on both. Result: <b>2,784 instances on each side, 0 added and 0 removed</b>. Every set difference in this session keys on the tuple (bar index, voice index, position in quarters, midi number), so no element id enters any comparison. Recorded as F6 in <a href="FINDINGS.md">FINDINGS.md</a>, and it carries into the upload step.</p>
+</div>
+
 <h2><span class="n" style="background:var(--gold)">11</span>The finite work that remains</h2>
 <p>Brandon set the scope on 2026-09-08, and it is a closed list rather than an open research programme. Steps one, two and three are complete. No further detector gets written unless one of these five edits produces contradictory evidence.</p>
 <div class="scroll"><table>
