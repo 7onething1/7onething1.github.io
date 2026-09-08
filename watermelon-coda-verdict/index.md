@@ -211,3 +211,17 @@ Within-document control on the stored scale: the 35 top-line heads run 185.6 to 
 control is darker at 219.8. X noteheads sit at 104 to 127. The top-line heads carry a filled
 notehead's ink profile, and their identity as a specific drum stays UNRESOLVED per the
 staff-geometry guard.
+
+### The one REFUSE was checked against the page too
+
+GP 95 is the only bar marked REFUSE, on a position-matched stem test returning 0 of 4 at every
+threshold down to 0.2 percent of peak. Looking at chart bar 86 at 8x, filled noteheads are
+plainly printed in that bar, so the transcriber did write them.
+
+The two statements do not contradict each other and the eye governs the engraving. The stem
+test can say no matching attack is present in the tom stem at those positions. It cannot say
+the chart is empty there. REFUSE means do not write these into the tab, and it does not mean
+the heads are absent from the page. The scan is 5.0 px per staff space, so the staff-geometry
+guard returns UNRESOLVED and nothing here names a drum.
+
+Image: sys42_chartbars85-86_x8.png in this folder.
