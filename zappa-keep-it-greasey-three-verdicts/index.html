@@ -104,6 +104,7 @@ footer{margin-top:3rem;border-top:2px solid var(--line);padding-top:1rem;
 <li><a href="#m004">KIG-M004, still open, and by how much</a></li>
 <li><a href="#second">A second landmark family, and what it moved</a></li>
 <li><a href="#timbre">The clap timbre test, and the control that killed it</a></li>
+<li><a href="#piecewise">The piecewise map, and why it was withdrawn</a></li>
 <li><a href="#files">Files and reproduction</a></li>
 </ol>
 </div>
@@ -287,6 +288,29 @@ footer{margin-top:3rem;border-top:2px solid var(--line);padding-top:1rem;
 <div class="warn">Clap against kick-only: <b>Fisher exact p = 0.5906</b>, binomial p = 0.6281. The dropout is fully explained by the beat carrying no notated snare, and it says nothing about claps. <b>The observation is withdrawn.</b></div>
 <p>For completeness, 9 of the 11 clap instants do carry an onset in at least one of the seven stems, so the anchor is not wrong at those instants. Twelve of the 21 claps stack with a notated kick, which accounts for the hits in the kick, cymbal and other lanes.</p>
 <div class="good"><b>What this changes: nothing.</b> M002's verdict never rested on audio. It rests on the figure being deliberate, on GM 39 and GM 38 rendering byte-identically, and on the burden sitting with the change. The audio adds <b>no corroboration in either direction</b>, which is now measured rather than assumed.</div>
+
+<h2 class="s3" id="piecewise">4d. The piecewise map was built, and it failed its own external check</h2>
+<p>Pre-registration sha256 <code>2e328671...3e80f10</code>, hashed in advance of any window fit. This was the step M004 was waiting on, so it was run rather than queued.</p>
+<p>Sixty windows, 8 score bars wide stepping 4, each fitted independently on kick and hat only, offset searched across the whole 501.84 s, scale 0.93 to 1.07, one-to-one at 50 ms. <b>Fifteen windows passed</b> the four declared criteria and placed <b>64 surplus kick onsets</b> across <b>48.3%</b> of the recording.</p>
+<h3>Then the control ran</h3>
+<p>The same two-family logic that made the bar-22 anchor credible, applied per window at that window's own offset and scale, tolerance 60 ms: does the isolated vocals stem corroborate it?</p>
+<table>
+<tr><th>Passing window</th><th>Drum offset</th><th>Vocal family's own best</th><th>Disagreement</th></tr>
+<tr><td>bars 10-17</td><td>38.345 s</td><td>84.500 s</td><td><b>+46.155 s</b></td></tr>
+<tr><td>bars 38-45</td><td>69.325 s</td><td>4.500 s</td><td><b>-64.825 s</b></td></tr>
+<tr><td>bars 42-49</td><td>77.230 s</td><td>77.440 s</td><td>+0.210 s</td></tr>
+</table>
+<p><b>One of three testable windows corroborates.</b> The other twelve sit in the instrumental solo and carry too few vocal attacks to test, so they are UNEVALUABLE rather than passing.</p>
+<div class="warn"><b>A second failure needs no control at all.</b> The window for bars 210-217 fitted to offset 41.980 s, scale 1.038, match ratio 2.17x its own rotation null. Bars 210 to 217 cannot begin 42 seconds into a 501.84 s recording. <b>Criterion 4, monotonicity, was implemented against the full list of fitted windows rather than the passing subset</b>, so a neighbour that had already failed still satisfied the check. That is a defect in this run's code.</div>
+<div class="warn"><b>The 64 placements are withdrawn.</b> They rest on windows a second family refutes in two of three testable cases, and on at least one physically impossible lock.</div>
+<h3>The lesson, which is the useful output</h3>
+<p><b>An 8-bar window carries too little information to lock uniquely across 501.84 s of a dense, repetitive drum part.</b> Spurious locks cleared the declared 2.0x rotation-null threshold, so 2.0x was too loose at this window size. Raising it alone is not the fix, since refitting a declared threshold on the same data is the error these gates exist to stop.</p>
+<ol>
+<li><b>A window must be corroborated by a second family to place anything.</b> Only 3 of 15 were testable, so the vocal part cannot reach the solo section and a third family is needed there.</li>
+<li><b>Monotonicity must be enforced against passing neighbours</b>, and the code must assert a window's offset lies in a plausible band for its bar range. Bar 210 at 42 s should have been rejected ahead of any statistic.</li>
+<li><b>The search should be local.</b> A free full-song search per window invites the spurious lock that produced +46 s and -65 s.</li>
+</ol>
+<div class="note"><b>M004 stays open.</b> It is no longer waiting on an idea. It waits on a corroboration family reaching the solo section and on a constrained search. No repair, no revision and no placement is carried forward.</div>
 
 <h2 class="s5" id="files">5. Files and reproduction</h2>
 <p>Onsets were detected on <b>isolated stems</b>, never the mix, at 44.1 kHz over 501.84 s, hop 256, log-compressed spectral novelty per FMP 6.1.2. The kick count reproduces the earlier surplus finding independently, 1,332 detected against 1,312 notated.</p>

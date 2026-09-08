@@ -5,14 +5,13 @@ Live: https://7onething1.github.io/zappa-keep-it-greasey-three-verdicts/
 
 Song `s604777`, copy `s6862054` at `r8972975`, part 8 "Vinnie Colaiuta".
 Pre-registration `PREREGISTRATION_clap_verse1.md`, sha256
-`75e1ff71ce266ae0c064f03f7a6de47cbfcda4565fbacbba2ede862701a84fb8`, written before any audio
-was read.
+`75e1ff71ce266ae0c064f03f7a6de47cbfcda4565fbacbba2ede862701a84fb8`, written with no audio yet read.
 
 **Repairs applied: 0.** Every reason below is evidence, never omission.
 
 ---
 
-## Reproduction check before anything else
+## Reproduction check, run first
 
 An independent walk of the published GPIF returns **4,948 note instances, 629 ghost flags all
 on MIDI 38, dynamics ppp 12 / pp 94 / p 376 / mp 33 / mf 114, 21 events on MIDI 39, 1,312
@@ -179,8 +178,7 @@ Two free parameters searched over the whole 501.84 s: offset 35.980 s, scale 0.9
 
 `verdict_gate.py`, the skill's own numeric engine, returns **UNDETERMINED** independently.
 
-**Verdict: UNEVALUABLE.** The threshold was written down before the run and it was missed. It
-is not moved after the fact.
+**Verdict: UNEVALUABLE.** The threshold was fixed in advance of the run and it was missed, so it stays where it was.
 
 ### What is worth carrying forward
 
@@ -198,8 +196,7 @@ families, six each**. One is not that gate, and no bar position is claimed from 
 Eleven more landmarks, from two families that stay out of the fit. The obvious second family is
 sung-lyric onsets from the isolated vocals stem, and it is **unavailable from this score**: the
 `newLyrics` field carries five entries and every `text` value is the empty string, so there are
-no score-side lyric positions to anchor against. That family needs the lyrics entered by hand
-before it can be used.
+no score-side lyric positions to anchor against. That family needs the lyrics entered by hand to become usable.
 
 ---
 
@@ -282,8 +279,7 @@ clear both, inside the fitted span.**
 | predicted score end | 508.0 s against 501.84 s of real audio, drift +6.1 s |
 
 Under Gate N4 anything under 1.5x is the null, so **this row is carried as a refutation of the
-extrapolation and as nothing else**. It says the eleven-bar fit does not reach the rest of the
-song. It is not a count of surplus kicks and no repair may be built from it.
+extrapolation and as nothing else**. That row says the eleven-bar fit does not reach the rest of the song, and it names no count of surplus kicks, so no repair may be built from it.
 
 The pre-registration's own scope rule already said this: a pass validates only the span between
 the first and last landmark, and **every individual flag needs anchors bracketing its own score
@@ -301,7 +297,7 @@ Two further honest limits:
    **not** claimed as passed.
 
 **Net movement on M004:** the bar identity at bar 22 now has two-family corroboration and wins its
-shift contest, where before it had neither. Placing the 32 events needs a **piecewise map with
+shift contest, where it previously had neither. Placing the 32 events needs a **piecewise map with
 landmarks bracketing each one**, and that is the next unit of work.
 
 ---
@@ -309,8 +305,7 @@ landmarks bracketing each one**, and that is the next unit of work.
 ## ADDENDUM 2: the clap timbre test was run, under a fresh hashed pre-registration
 
 `PREREGISTRATION_clap_verse1_v2.md`, sha256
-`383fe83e7df0eab48f679220087d10e958c5149ad118e2def46b044d4525f0b7`, written before any timbre was
-measured. **v1 stays failed and none of its thresholds were moved.** v2 rests on the two-family anchor at offset 35.980 s, scale 0.984, tolerance 60 ms, one-to-one match 121/172 = 70.3% against a 32.6% rotation-null baseline, an anchor that did not exist when v1 was written. It declares the same timbre thresholds v1 declared.
+`383fe83e7df0eab48f679220087d10e958c5149ad118e2def46b044d4525f0b7`, written with no timbre yet measured. **v1 stays failed and none of its thresholds were moved.** v2 rests on the two-family anchor at offset 35.980 s, scale 0.984, tolerance 60 ms, one-to-one match 121/172 = 70.3% against a 32.6% rotation-null baseline, an anchor that did not exist when v1 was written. It declares the same timbre thresholds v1 declared.
 
 ### The declared test returned UNEVALUABLE
 
@@ -353,3 +348,65 @@ which accounts for the hits in the kick, cymbal and other lanes.
 **Nothing.** M002's verdict was never resting on audio. It rests on the figure being deliberate,
 on GM 39 and GM 38 rendering byte-identically, and on the burden sitting with the change. The
 audio adds **no corroboration in either direction**, which is now measured rather than assumed.
+
+---
+
+## ADDENDUM 3: the piecewise map was built, and it failed its own external check
+
+`PREREGISTRATION_piecewise_map.md`, sha256
+`2e328671eaee535f85b980d6b949e2e92c0c0c3ccfcba65f9649ab0ea3e80f10`, hashed in advance of any window fit. This is the step KIG-M004 was waiting on, so it was run rather than queued.
+
+### What was built
+
+Sixty windows, 8 score bars wide stepping 4, bars 2 to 248. Each fitted independently on kick and
+hat only, offset searched across the whole 501.84 s, scale 0.93 to 1.07, one-to-one at 50 ms.
+**Fifteen windows passed** the four declared criteria and placed **64 surplus kick onsets** across
+**48.3%** of the recording.
+
+### Then the control ran, and the 64 do not survive it
+
+The same two-family logic that made the bar-22 anchor credible was applied **per window** at each window's own fitted offset and scale, tolerance 60 ms, one-to-one, asking whether the isolated vocals stem corroborates that window's drum-fitted offset.
+
+| Passing window | Drum offset | Vocal family's own best | Disagreement |
+|---|---|---|---|
+| bars 10-17 | 38.345 s | 84.500 s | **+46.155 s** |
+| bars 38-45 | 69.325 s | 4.500 s | **-64.825 s** |
+| bars 42-49 | 77.230 s | 77.440 s | +0.210 s |
+
+**One of three testable windows corroborates.** The other twelve passing windows sit in the
+instrumental solo and carry too few vocal attacks to test, so they are **UNEVALUABLE**, never
+passing.
+
+**A second failure is visible without any control at all.** The window for bars 210-217 fitted to offset 41.980 s, scale 1.038, tolerance 50 ms, one-to-one match ratio 2.17x its own rotation null. Bars 210 to 217 cannot begin 42 seconds into a 501.84 s recording.
+**Criterion 4, monotonicity, was implemented against the full list of fitted windows rather than
+against the passing subset, so a neighbour that had already failed still satisfied the check.**
+That is a defect in this run's code, not in the recording.
+
+### Verdict
+
+**The 64 placements are withdrawn.** They rest on windows that a second family refutes in two of
+three testable cases and that contain at least one physically impossible lock.
+
+### The lesson, which is the useful output
+
+**An 8-bar window carries too little information to lock uniquely across 501.84 s of a dense,
+repetitive drum part.** Spurious locks cleared the declared 2.0x rotation-null threshold, so
+**2.0x was too loose for a window this small**. Raising it alone is not the fix, because the
+threshold was declared in advance and refitting it on the same data is exactly the error this
+project's gates exist to stop.
+
+What the evidence actually supports:
+
+1. **A window must be corroborated by a second family to place anything.** Only 3 of 15
+   were even testable, so the vocal part cannot carry the solo section and a third family is
+   needed there.
+2. **Monotonicity must be enforced against passing neighbours**, and the code must assert that a
+   window's offset lies inside a plausible band for its bar range. Bar 210 at 42 s should have
+   been rejected ahead of any statistic.
+3. **The search should be local, not global.** A free full-song search per window invites the
+   spurious lock. Constraining each window to a band around its neighbours removes the failure
+   mode that produced +46 s and -65 s.
+
+**KIG-M004 stays open.** It is no longer waiting on an idea, it is waiting on a corroboration
+family that reaches the solo section and on a constrained search. No repair, no revision, and no
+placement is carried forward from this run.
