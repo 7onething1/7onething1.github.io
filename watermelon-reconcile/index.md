@@ -1,3 +1,5 @@
+> **SUPERSEDED 2026-09-08.** Four verdicts here were measured on a flat 56.000 bpm grid that drifts up to 6.29 s from the recording: alignment UNUSABLE 0.336, coda 1.15x, ride 1.46x, tom pan 0.73x. A metronome-anchored clock reaches 0.684 kick+snare match against a 0.196 guitar control and locates 81 drum attacks in bars 98-104 that this tab leaves silent. See https://7onething1.github.io/watermelon-why-not-done/
+
 # Watermelon In Easter Hay, reconciled and shipped
 
 Four parallel sessions had four answers for one drum staff. This is the decision list and the single revision that went live.
