@@ -214,6 +214,25 @@ svg{display:block;max-width:100%;height:auto}
 <p><b>Beat 899 is on the drum staff</b>, confirmed: all 176 referencing voices belong to track 8. The peer withdrew a comparison against a Keep It Greasey beat at 739 voices, since that one sits on a guitar track. That comparison never appeared in this ledger, so nothing there needed changing.</p>
 </div>
 
+<h2><span class="n" style="background:var(--aqua)">9</span>A second peer correction, checked, and this one clears the work</h2>
+<p>The Songsterr-editor session reported a hands gate keyed on midi pitch reading three hands where the staff reads two, because midi 39 Hand Clap is drawn on the snare line. I tested whether the same trap bites here.</p>
+<div class="callout aqua">
+<h3>The mechanism exists in this file and never fires</h3>
+<p>The drum track's <code>InstrumentSet</code> defines 95 articulations, each with an explicit <code>StaffLine</code>. Two pairs share a line: <b>midi 39 Hand Clap and midi 40 Electric Snare both on line 3</b>, the peer's exact case, and <b>midi 41 Low Floor Tom and midi 45 Low Tom both on line 5</b>. Neither pair is ever written at the same instant, so no false positive arose.</p>
+<p>Re-running the three-surface test with feet excluded, midi 36 on line 7 and midi 44 on line 9, and keying on staff line rather than pitch:</p>
+<div class="scroll"><table>
+<tr><th>file</th><th class="num">by PITCH</th><th class="num">by STAFF LINE</th></tr>
+<tr><td>CODA, before the removals</td><td class="num">16</td><td class="num"><b>16</b></td></tr>
+<tr class="good"><td>HANDS, after</td><td class="num">1</td><td class="num"><b>1</b></td></tr>
+<tr class="good"><td>live head r8972739</td><td class="num">0</td><td class="num"><b>0</b></td></tr>
+</table></div>
+<p><b>The two keys agree exactly.</b> The 15 removals stand and none was a false positive. Bar 55 survives both keys, since midi 45, 48 and 51 sit on lines 5, 2 and 0.</p>
+</div>
+<div class="callout gold">
+<h3>The observation this turned up</h3>
+<p>The live head reads <b>zero</b> three-surface instants by either key while the local lineage reads sixteen. Most of the sixteen are midi 40, 48 and 51 on lines 3, 2 and 0. <b>The collisions are a property of the local tom lane assignment of 43, 48 and 50 rather than of the performance.</b> That means the two lineages differ in playability and not only in lane naming, which raises the stakes on the tom split at <code>q-2026-09-08-629fc2</code>.</p>
+</div>
+
 <h2><span class="n" style="background:var(--muted)">7</span>What is true right now</h2>
 <div class="grid g3">
  <div class="card t1"><h3 style="margin-top:0">Fixed</h3><ul>

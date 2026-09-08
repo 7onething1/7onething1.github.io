@@ -100,6 +100,24 @@ Comparing 13 rows against 13 beat-references reads note 419 as exclusive. It is 
 
 **Beat 899 is on the drum staff**, all 176 referencing voices on track 8. The peer withdrew a comparison against a Keep It Greasey beat at 739 voices, which sits on a guitar track. That comparison never appeared in this ledger, so nothing needed changing there.
 
+## A second peer correction, checked, and it clears the work
+
+A pitch-keyed hands gate can read three hands where the staff reads two, because midi 39 Hand Clap is drawn on the snare line. Tested here.
+
+**The mechanism exists in this file and never fires.** The drum track's `InstrumentSet` defines 95 articulations each with a `StaffLine`. Two pairs share a line: midi 39 Hand Clap and midi 40 Electric Snare on line 3, the peer's exact case, and midi 41 Low Floor Tom and midi 45 Low Tom on line 5. Neither pair is ever written at the same instant.
+
+Re-running the three-surface test with feet excluded, midi 36 on line 7 and midi 44 on line 9:
+
+| file | by PITCH | by STAFF LINE |
+|---|---|---|
+| CODA, before the removals | 16 | **16** |
+| HANDS, after | 1 | **1** |
+| live head r8972739 | 0 | **0** |
+
+The two keys agree exactly. The 15 removals stand and none was a false positive. Bar 55 survives both keys, since midi 45, 48 and 51 sit on lines 5, 2 and 0.
+
+**The observation this turned up.** The live head reads zero three-surface instants by either key while the local lineage reads sixteen, most of them midi 40, 48 and 51 on lines 3, 2 and 0. The collisions are a property of the local tom lane assignment of 43, 48 and 50 rather than of the performance, so the two lineages differ in playability and not only in lane naming. That raises the stakes on `q-2026-09-08-629fc2`.
+
 ## Queue
 
 - `q-2026-09-08-6f84a3` intro gap, **withdrawn**, master mismatch
