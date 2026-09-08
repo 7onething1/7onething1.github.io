@@ -1,0 +1,87 @@
+<title>Babysitter Watchdog</title>
+<style>
+:root{--bg:#f4ece0;--card:#fffaf2;--ink:#2f2a25;--dim:#7b6f62;--rule:#e0d3c0;
+--red:#b0413e;--amber:#d99a2b;--green:#5f7a4f;--blue:#4a6d8c;--plum:#7c5c78;}
+@media (prefers-color-scheme:dark){:root:not([data-theme="light"]){--bg:#211d1a;--card:#2b2621;--ink:#f0e7da;--dim:#a99b8a;--rule:#3d362f;}}
+:root[data-theme="dark"]{--bg:#211d1a;--card:#2b2621;--ink:#f0e7da;--dim:#a99b8a;--rule:#3d362f;}
+*{box-sizing:border-box}
+body{background:var(--bg);color:var(--ink);font:15px/1.62 -apple-system,BlinkMacSystemFont,"Helvetica Neue",Arial,sans-serif;margin:0;padding:26px 18px 60px}
+.wrap{max-width:940px;margin:0 auto}
+h1{font-size:27px;letter-spacing:-.4px;margin:0 0 4px}
+.sub{color:var(--dim);margin:0 0 26px;font-size:14px}
+h2{font-size:17px;margin:34px 0 12px;padding-bottom:7px;border-bottom:2px solid var(--rule)}
+.card{background:var(--card);border:1px solid var(--rule);border-radius:9px;padding:16px 18px;margin:0 0 14px}
+.hb{display:flex;gap:12px;flex-wrap:wrap}
+.hb .card{flex:1 1 200px;margin:0}
+.big{font-size:30px;font-weight:600;letter-spacing:-1px}
+.lbl{color:var(--dim);font-size:12px;text-transform:uppercase;letter-spacing:.7px}
+.ok{color:var(--green)}.bad{color:var(--red)}.warn{color:var(--amber)}
+table{width:100%;border-collapse:collapse;font-size:14px}
+th,td{text-align:left;padding:8px 10px;border-bottom:1px solid var(--rule);vertical-align:top}
+th{color:var(--dim);font-size:12px;text-transform:uppercase;letter-spacing:.6px;font-weight:600}
+code{background:var(--bg);border:1px solid var(--rule);border-radius:4px;padding:1px 5px;font-size:12.5px}
+.tag{display:inline-block;font-size:11px;font-weight:700;padding:2px 7px;border-radius:20px;color:#fffaf2}
+.t1{background:var(--blue)}.t2{background:var(--plum)}
+.scroll{overflow-x:auto}
+.note{border-left:4px solid var(--amber);padding-left:14px;color:var(--dim);font-size:14px}
+footer{margin-top:38px;color:var(--dim);font-size:12.5px;border-top:1px solid var(--rule);padding-top:14px}
+</style>
+<div class="wrap">
+<h1>Babysitter Watchdog</h1>
+<p class="sub">What runs when the babysitter falls asleep. Built 2026-09-07 21:18 from its own 918-run log.</p>
+
+<h2>Live heartbeats</h2>
+<div class="hb">
+  <div class="card"><div class="lbl">babysitter</div><div class="big ok">0.6 min</div><div class="lbl">5 min interval</div></div>
+  <div class="card"><div class="lbl">watchdog</div><div class="big ok">0.2 min</div><div class="lbl">15 min interval</div></div>
+  <div class="card"><div class="lbl">alarms standing</div><div class="big ok">none</div><div class="lbl">last watchdog pass</div></div>
+  <div class="card"><div class="lbl">muted streak</div><div class="big ok">0</div><div class="lbl">fires at 24</div></div>
+</div>
+
+<h2>The problem, measured on its own log</h2>
+<div class="card scroll"><table>
+<tr><th>Finding</th><th>Number</th><th>What it means</th></tr>
+<tr><td>Cycles that found chats and raised nothing</td><td><strong class="bad">107 of 156 (68 percent)</strong></td><td>The alarm carried a subset of what the detector found</td></tr>
+<tr><td>Sweeps that crashed outright</td><td><strong class="bad">1</strong></td><td>A NameError on 09-06 produced one log line and no notification</td></tr>
+<tr><td>Largest silent gap</td><td><strong class="warn">454 min</strong></td><td>Overnight machine sleep, which looks exactly like a dead daemon</td></tr>
+<tr><td>A chat parked 8.9 days</td><td><strong class="bad">1 alert, ever</strong></td><td>Idle time was absent from the dedup key, so a quiet chat nagged once</td></tr>
+</table></div>
+<p class="note">A chat that goes quiet and the babysitter going quiet produce the same signature. Neither one raises anything, and both look like calm.</p>
+
+<h2>Fix 1 <span class="tag t1">idle ladder</span></h2>
+<div class="card">
+<p>The dedup key was <code>uuid : rules : turns/500</code>. A dead chat's turn count never grows, so its key froze the moment it stopped working. The key now carries an idle step, crossing at <code>1h 4h 12h 1d 3d 7d</code>, so a parked chat returns to the alarm on a widening schedule instead of once.</p>
+<p><strong>Result on the first sweep after the change: 28 chats re-armed</strong>, including one at 20.3 days idle that had been frozen out of the alarm entirely.</p>
+</div>
+
+<h2>Fix 2 <span class="tag t2">seven detectors on silence</span></h2>
+<div class="card scroll"><table>
+<tr><th>ID</th><th>Fires when</th><th>The failure it catches</th></tr>
+<tr><td><code>D1_STALLED</code></td><td>no stamped log line for 13 min on a 5 min job</td><td>the daemon stopped and nothing said so</td></tr>
+<tr><td><code>D2_EXITFAIL</code></td><td>launchd reports a non-zero last exit code</td><td>the script died on its own terms</td></tr>
+<tr><td><code>D3_SWEEPFAIL</code></td><td>SWEEP-FAILED appears in lines newer than the last check</td><td>the 09-06 NameError, which told nobody</td></tr>
+<tr><td><code>D4_CRASH</code></td><td>Traceback, NameError or SyntaxError in fresh lines</td><td>a python fault inside a run that still exits 0</td></tr>
+<tr><td><code>D5_PAGESTALE</code></td><td>live board stamp older than 35 min</td><td>local build fresh, GitHub Pages build silently failed</td></tr>
+<tr><td><code>D6_PUSHLOST</code></td><td>a push logged inside the poll window with no matching ntfy message</td><td>curl swallowed by || true while the log says pushed</td></tr>
+<tr><td><code>D7_MUTED</code></td><td>24 straight cycles that found chats and raised nothing</td><td>the exact bug that started this, caught generically</td></tr>
+</table></div>
+<div class="card">
+<p><strong>Machine sleep is suppressed by comparison.</strong> The watchdog records its own last run. When the babysitter's gap and the watchdog's gap match within 3 minutes, both clocks paused together, so the Mac slept and nothing is broken. A gap on the babysitter alone still alarms.</p>
+<p><strong>Who watches the watchdog.</strong> Each one asserts the other. The babysitter pushes <code>WATCHDOG DOWN</code> when the watchdog heartbeat passes 45 minutes, and the watchdog pushes on any of the seven above. Two independent launchd jobs on different intervals, so one dying is caught by the other, and both dying at once shows as two stale heartbeats at the top of this page.</p>
+</div>
+
+<h2>Proof</h2>
+<div class="card scroll"><table>
+<tr><th>Check</th><th>Evidence</th></tr>
+<tr><td>Detector selftest</td><td><strong class="ok">11 of 11</strong> behaved correctly, including two negative cases</td></tr>
+<tr><td>Idle ladder live</td><td><code>new_alerts=28</code>, <code>pushed 28</code> at 21:18:21</td></tr>
+<tr><td>Watchdog under launchd</td><td><code>com.drwu.babysit-watchdog</code>, 900s, pushed 2 real alarms on its first pass</td></tr>
+<tr><td>Both push topics</td><td><strong class="ok">2 of 2</strong> confirmed by ntfy poll</td></tr>
+<tr><td>Second watchdog pass</td><td>zero alarms, muted streak back to 0</td></tr>
+</table></div>
+
+<footer>
+Generated 2026-09-07 21:18 from <code>babysit_daemon.log</code> (2026-09-04 17:50 to 2026-09-07 21:18), <code>babysit_alerts.jsonl</code> (122 rows) and <code>watchdog_state.json</code>. Every number here is read from those files, none typed by hand.<br>
+Sources: <code>~/.claude/skills/babysit-chats/babysit_watchdog.py</code>, <code>alert_emit.py</code>, <code>babysit_daemon.sh</code>
+</footer>
+</div>
