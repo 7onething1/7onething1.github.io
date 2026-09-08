@@ -23,8 +23,11 @@ No verdict here uses hand availability. No verdict uses a chart lane to name a d
 - All 49 sub-sixteenth tom positions sit a median 15.4 ms from a tom-stem onset and 81.8 ms
   from the sixteenth grid. The regrid is contraindicated.
 - Display bar 25 confirms the ear edit at 19 of 19 pairwise orderings, 129.2 Hz down to 80.7 Hz.
-- Display bar 57 contradicts its own notation at 0 of 10. Ten strokes near 86 to 91 Hz with a
-  clean decay, then a final stroke at 113.0 Hz written as the lowest drum in the kit.
+- Display bar 57: the direction claim is WITHDRAWN on the engraving. The chart draws the final
+  event as a two-note chord under a roll, upper notehead level with the run and a second clearly
+  below, so a single-F0 read of 113.0 Hz is a chord-plus-buzz artifact. The chart agrees with the
+  written Very Low Tom. What survives is the ten-stroke run at one drum, flat near 86 to 91 Hz
+  with a clean decay, drawn as ten filled ovals at one staff height.
 
 ## Controls, all pre-registered before scoring
 
