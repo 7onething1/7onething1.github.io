@@ -1,0 +1,20 @@
+{
+ "holdout_n": 433,
+ "baseline": {
+  "recall": 0.2632794457274827,
+  "chance": 0.2199,
+  "ratio": 1.1972689664733183
+ },
+ "best": {
+  "name": "SFBED mu=1 w=2 pct=97.5",
+  "recall": 0.19861431870669746,
+  "chance": 0.12375,
+  "ratio": 1.6049641915692725
+ },
+ "improvement": 1.340520999468368,
+ "target": 3.0,
+ "target_met": false,
+ "median_written_ioi_ms": 271.21103808747193,
+ "sixteenth_ms": 267.85714285714283,
+ "frac_intervals_one_sixteenth": 0.9300254452926209
+}

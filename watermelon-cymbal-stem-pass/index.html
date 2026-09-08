@@ -495,12 +495,58 @@ is nearly continuous. The detector fires at <strong>0.98/s</strong> inside them 
 <strong>2.96/s</strong> elsewhere, a ratio of 0.33. Notation and stem agree at that coarse level, and the
 sample is four passages, so it carries little weight on its own.</p>
 
+<h2 class="p">Building a better detector, and proving why it hits a ceiling</h2>
+<p>The recall failure above could be a tuning failure, so it was worth attacking directly. Five onset
+functions were tried on the cymbal stem: plain spectral flux, SuperFlux (flux against a
+frequency-max-filtered lagged frame, which suppresses a ringing decay), adaptive bed subtraction,
+complex-domain deviation and its rectified form. Phase-aware methods were included because a fresh stick
+attack breaks phase continuity even while the cymbal keeps ringing. Parameters were tuned on 432
+odd-indexed exemplars and reported on the 433 even-indexed <strong>holdout</strong>.</p>
+<div class="scroll"><table>
+<thead><tr><th>Detector</th><th>Holdout recall</th><th>Chance</th><th>Ratio</th></tr></thead>
+<tbody>
+<tr><td>Baseline, plain flux 4-16 kHz</td><td>0.263</td><td>0.220</td><td>1.20&times;</td></tr>
+<tr style="background:color-mix(in srgb,var(--gold) 26%,transparent)">
+<td><strong>SuperFlux on a bed-subtracted spectrum</strong></td><td>0.199</td><td>0.124</td><td><strong>1.60&times;</strong></td></tr>
+<tr><td colspan="4">Complex-domain deviation topped out at 1.72&times; on tune, SuperFlux alone at 1.65&times;, bed-residual energy at 0.80&times;.</td></tr>
+</tbody></table></div>
+<p><strong>A real 1.34&times; improvement on held-out data, and the 3&times; target is not met.</strong>
+Five independent onset functions across five frequency bands and every threshold all land between
+1.2&times; and 1.7&times;. That flatness is the result, since a tuning problem does not resist five
+different methods equally.</p>
+<h3>The offset sweep says the lane is unidentifiable, and the snare says the clock is fine</h3>
+<div class="scroll"><table>
+<thead><tr><th>Global shift</th><th>Cymbal ratio</th><th>Snare ratio (control)</th></tr></thead>
+<tbody>
+<tr><td>&minus;100 ms</td><td>0.73&times;</td><td>3.07&times;</td></tr>
+<tr><td>&minus;50 ms</td><td>0.99&times;</td><td>4.85&times;</td></tr>
+<tr style="background:color-mix(in srgb,var(--pale) 55%,transparent)">
+<td><strong>0 ms</strong></td><td>1.64&times;</td><td class="ok"><strong>6.89&times;</strong></td></tr>
+<tr><td>+50 ms</td><td>0.73&times;</td><td>4.59&times;</td></tr>
+<tr><td>+100 ms</td><td>0.81&times;</td><td>3.26&times;</td></tr>
+<tr><td>+275 ms</td><td class="mid">2.20&times; (its best)</td><td>&mdash;</td></tr>
+</tbody></table></div>
+<div class="card hero" style="border-left-color:#446455">
+<p><strong>The snare peaks cleanly at zero and falls off symmetrically.</strong> That is what a correct
+alignment looks like, and it confirms the clock once more.</p>
+<p><strong>The cymbal lane has no peak at zero.</strong> Its best bump sits at +275 ms, which is
+<strong>1.03 sixteenth notes</strong> at this tempo, with bumps of similar height at &minus;250 and +300.
+<strong>93.0 percent of written cymbal intervals fall within 10 percent of one sixteenth</strong>, median
+271.2 ms against a 267.9 ms sixteenth.</p>
+<p style="margin-bottom:0"><strong>A lane written on nearly every sixteenth matches itself one sixteenth
+over, so signal and null have the same shape and no offset is identifiable.</strong> Onset matching cannot
+validate a continuous sixteenth-note ride. That is a property of the method against this material, never a
+verdict on the notation, and it is why the snare works at 6.89&times; while the cymbal cannot be scored at
+all. Written into <span class="mono">data/ridebed_final.json</span> and
+<span class="mono">data/ridebed3.json</span>.</p>
+</div>
+
 <h2 class="g">The queue this produces</h2>
 <ol>
 <li><strong>101 cymbal strokes</strong> with timestamps and verdicts, opened individually, never removed in bulk.</li>
 <li><strong>Display bar 57</strong> is UNRESOLVED. The measurement failed on bin-lock and the chart sits below the 15 px notehead floor. It waits on a scan at roughly three times this resolution.</li>
 <li><strong>49 fractional tom positions</strong> examined per fill for tuplets and odd meters, with the regrid withdrawn.</li>
-<li><strong>A cymbal detector that can see this ride bed.</strong> The current one reaches 1.12 times chance on the cleanest cymbals in the song, so the lane cannot be judged until that is fixed.</li>
+<li><strong>A beat-level or periodicity test for the ride</strong>, since per-event onset matching is provably unidentifiable on a continuous sixteenth lane. Ask whether each beat carries ride activity, or compare the ride's own periodicity against the stem's, rather than matching stroke to stroke.</li>
 <li><strong>The chart reader</strong>, four head counts from one image, re-read from the stem ahead of grading anything.</li>
 </ol>
 

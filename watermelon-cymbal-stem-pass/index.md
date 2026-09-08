@@ -159,3 +159,38 @@ Detector rate through notation-silent passages: 0.98/s inside 4 stretches totall
 2.96/s elsewhere, ratio 0.33. Small sample, little weight on its own.
 
 Data: leakage_gate.json, leakage_gate2.json, leakage_gate3.json, leakage_gate4.json
+
+## Detector work (q-2026-09-08-d680cf) and why it hits a ceiling
+
+Five onset functions on the cymbal stem: plain flux, SuperFlux, adaptive bed subtraction,
+complex-domain deviation, rectified complex-domain. Tuned on 432 odd-indexed exemplars, reported on
+the 433 even-indexed holdout.
+
+| Detector | Holdout recall | Chance | Ratio |
+|---|---|---|---|
+| Baseline, plain flux 4-16 kHz | 0.263 | 0.220 | 1.20x |
+| SuperFlux on a bed-subtracted spectrum | 0.199 | 0.124 | 1.60x |
+
+A real 1.34x improvement on held-out data. The 3x target is NOT met. Five independent methods across
+five bands and every threshold all land between 1.2x and 1.7x.
+
+### The offset sweep proves the lane is unidentifiable
+
+| Global shift | Cymbal ratio | Snare ratio (control) |
+|---|---|---|
+| -100 ms | 0.73x | 3.07x |
+| -50 ms | 0.99x | 4.85x |
+| 0 ms | 1.64x | 6.89x |
+| +50 ms | 0.73x | 4.59x |
+| +100 ms | 0.81x | 3.26x |
+| +275 ms | 2.20x (its best) | - |
+
+The snare peaks cleanly at zero and falls off symmetrically, confirming the clock again. The cymbal
+lane has no peak at zero, and its best bump sits at +275 ms, which is 1.03 sixteenth notes at this
+tempo. 93.0 percent of written cymbal intervals fall within 10 percent of one sixteenth (median
+271.2 ms against a 267.9 ms sixteenth).
+
+A lane written on nearly every sixteenth matches itself one sixteenth over, so signal and null have
+the same shape and no offset is identifiable. Onset matching cannot validate a continuous
+sixteenth-note ride. That is a property of the method against this material, never a verdict on the
+notation. Data: ridebed_final.json, ridebed3.json, ridebed_tune.json, ridebed2_tune.json

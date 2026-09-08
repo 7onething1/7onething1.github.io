@@ -52,6 +52,10 @@ never published. Ben Dibden1's 2026-09-02 revision `r8852151` is live: section h
 cleared from empty bars, tracks renamed to the template format, bass tone set to finger.
 **The sweep hit this song and failed to land, so all 629 ghosts are intact.**
 
+**That strip's revision note is stale.** It describes what `r8768457` would have done, never the
+current state. A signed-in read on 2026-09-08 gives `s604777` 38 revisions, latest `r8852151`,
+`isOnModeration: false`, and the copy `s6862054` exactly one revision. Nothing newer exists.
+
 **Ghost layer, verified twice.** The live export carries 629 flags, **every one on MIDI 38,
 acoustic snare**, across 152 of 248 bars from bar 2 to bar 238, with beat dynamics ppp 12, pp 94,
 p 376, mp 33, mf 114. That reproduces the validation page's table by a different route.
