@@ -30,9 +30,11 @@ Region by region the metronome wins everywhere, with its largest margin at bars 
 
 ## What is still wrong in the shipped file
 
-1. **Coda hole, bars 98 to 104**, recording 8:25 to 8:58. The tab writes 8 attacks (three in bar 98, two in 99, one each in 100, 101 and 103, none in 102 or 104). Eye-gated stem reading, after rendering the waveforms and reading them: kick [6,7,4,6,6,5,5] = 39, toms [11,5,4,6,6,7,8] = 47, so **86 eye-confirmed kick and tom attacks**. Bars 101 to 103 carry 36 of them with the guitar at zero, which makes that stretch bleed-proof. Only bar 105 belongs empty.
+1. **Coda kick hole, bars 98 to 104**, recording 8:25 to 8:58. The tab writes **5 kick notes**. The recording carries **35**, per bar [7,4,5,3,5,6,5]. Magnitude 7.0x. Density 5.0 kicks per bar against the author's own median of 5.0 and p90 of 7 in bars 1 to 97. Reference-class verdict **PASS on all six checks**. Nulls: the identical 19% rule returns 10 on the lead guitar stem and 0 in the silent tail at 540.5-545.2 s.
 
-   Three withdrawals, forced by looking. The earlier figure of **81 stem attacks is withdrawn**: it came from a spectral-flux detector at the 95th percentile and bundled 12 snare marks fired on a flat trace plus cymbal marks on a decaying wash. The claim that **guitar control is zero in six of the seven bars is withdrawn**: the guitar plays in bars 98, 99, 100 and 104. **Snare and cymbal content in the coda is withdrawn entirely.** Pictures: `coda-flux-pass.png` and `coda-eye-gated.png`. Figures: `eye_gated.json`.
+   **The toms are withdrawn entirely: 0 survive.** The coda tom stem peaks at 20.5% of its bars 1-97 peak while the author-calibrated threshold sits at 33%, so the coda holds tom resonance and bleed rather than struck toms. The kick peaks at 91.4% of its own reference level.
+
+   Three figures retired on the way here. **81** came from an unrendered spectral-flux detector. **86** replaced it and was also wrong, since its 10% threshold was cut from the coda window itself, the same mechanism that put 599 toms into a Zappa ballad on 2026-09-07. **39** became **35** once the 100 ms refractory stopped resetting at each bar line. Pictures: `coda-author-calibrated.png`, `coda-flux-pass.png`, `coda-eye-gated.png`. Figures: `final_coda.json`, `refclass.json`. Script: `final_kick.py`.
 
 2. **Sixteen three-hand instants** across bars 29, 41, 45, 49, 52, 53, 54, 55, 56, 57, 85 and 89. Fifteen of the sixteen ask for a snare or tom, a hi-mid tom and the ride on one instant. Inherited from r8968524.
 3. **The tempo map itself**, one automation at 56.000 bpm. It concealed and confused the other two defects rather than producing them: the sixteen collisions were written into r8968524, and the missing coda notation is absent from the GP on its own terms.
@@ -60,11 +62,11 @@ The earlier "6.29 s of drift" figure is corrected. It came from forcing a straig
 
 ## The finite work that remains
 
-Scope set by Brandon 2026-09-08, a closed list. 1) **DONE 2026-09-08.** Metronome map written into TEMPOMAP-s6857183-Brandon-edit.gp, acceptance test PASS at 0.685 and 0.189 (`q-2026-09-08-cddb5a`). 2) Transcribe bars 98 to 104 against that clock (`577c81`). 3) Resolve the sixteen three-surface collisions (`baae9d`). 4) Recheck the 202 disputed ride notes (`c9d5f7`). 5) One final stem-matched playability audit (`85d746`). No further detector unless one of these five produces contradictory evidence.
+Scope set by Brandon 2026-09-08, a closed list. 1) **DONE 2026-09-08.** Metronome map written into TEMPOMAP-s6857183-Brandon-edit.gp, acceptance test PASS at 0.685 and 0.189 (`q-2026-09-08-cddb5a`). 2) Transcribe bars 98 to 104 against the 35 author-calibrated kick attacks (`577c81`). 3) Resolve the sixteen three-surface collisions (`baae9d`). 4) Recheck the 202 disputed ride notes (`c9d5f7`). 5) One final stem-matched playability audit (`85d746`). No further detector unless one of these five produces contradictory evidence.
 
 ## Corrections applied 2026-09-08
 
-Brandon caught two errors in the first publication of this page. The coda tab count read seven and the data holds eight, corrected above. The tempo map was described as producing the other two defects, and it concealed them, corrected above. A third correction came from a stop gate demanding the eye outrank the detector, which withdrew the 81-attack figure, the snare and cymbal coda content, and the zero-guitar control.
+Brandon caught two errors in the first publication of this page. The coda tab count read seven and the data holds eight, corrected above. The coda stem count went 81, then 86, then 39, and settles at 35 kick with 0 toms after a reference-class pass. The tempo map was described as producing the other two defects, and it concealed them, corrected above. A third correction came from a stop gate demanding the eye outrank the detector, which withdrew the 81-attack figure, the snare and cymbal coda content, and the zero-guitar control.
 
 ## The process lesson
 

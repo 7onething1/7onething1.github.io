@@ -96,12 +96,12 @@
  },
  "still_wrong_in_the_shipped_gp": [
   {
-   "id": "coda-hole",
+   "id": "coda-kick-hole",
    "bars": "98 to 104",
    "recording": "8:25 to 8:58",
    "measured_on": "metronome-anchored clock",
    "tab_notes": 8,
-   "stem_attacks": 86,
+   "stem_attacks": 35,
    "guitar_bleed_control": "WITHDRAWN. Previously stated as zero in six of seven bars. The eye shows the guitar playing in bars 98, 99, 100 and 104, and silent in 101 to 103.",
    "superseded": "An earlier pass this session, on the weaker onset-derived clock, read this as bars 98 to 103 and 56 attacks, and called bar 104 correctly empty. Bar 104 carries 5 kick and 4 tom onsets. Only bar 105 is correctly empty.",
    "tab_notes_by_bar": {
@@ -173,10 +173,41 @@
     "bleed_proof_attacks": 36,
     "bleed_proof_guitar": 0
    },
-   "stem_attacks_definition": "eye-confirmed kick and tom attacks only; snare and cymbal coda content withdrawn",
+   "stem_attacks_definition": "author-calibrated kick attacks only; toms, snare and cymbal coda content all withdrawn",
    "images": [
     "coda-flux-pass.png",
     "coda-eye-gated.png"
+   ],
+   "kick_per_bar": [
+    7,
+    4,
+    5,
+    3,
+    5,
+    6,
+    5
+   ],
+   "tab_kick_written": 5,
+   "magnitude_x": 7.0,
+   "toms": {
+    "surviving": 0,
+    "withdrawn": 47,
+    "why": "coda tom stem peaks at 20.5% of its bars 1-97 peak; the author-calibrated threshold sits at 33%"
+   },
+   "kick_level": "coda kick peaks at 91.4% of its bars 1-97 peak",
+   "retired_figures": [
+    {
+     "value": 81,
+     "why": "spectral-flux detector at the 95th percentile, never rendered"
+    },
+    {
+     "value": 86,
+     "why": "eye-gated, but the 10% threshold was cut from the coda window itself (R1 self-referential)"
+    },
+    {
+     "value": 39,
+     "why": "per-bar refractory reset double-counted strokes straddling a bar line"
+    }
    ]
   },
   {
@@ -336,5 +367,17 @@
   }
  ],
  "finite_remaining_work_scope": "Set by Brandon 2026-09-08. Closed list. No further detector unless one of these five edits produces contradictory evidence.",
- "eye_over_detector": "Stop gate G49 (a detector result that disagrees with the eye defers to the eye) forced a render-and-read pass on 2026-09-08. It withdrew three published claims and left the conclusion firmer."
+ "eye_over_detector": "Stop gate G49 (a detector result that disagrees with the eye defers to the eye) forced a render-and-read pass on 2026-09-08. It withdrew three published claims and left the conclusion firmer.",
+ "reference_class": {
+  "skill": "/reference-class",
+  "calibration": "threshold fitted on 96 author-written bars, MAE 0.90 notes/bar, bias -0.02",
+  "R1": "PASS, threshold from the author",
+  "R2": "PASS, 35 against 5 is 7.0x",
+  "R3": "PASS, 5.0 kicks/bar vs author median 5",
+  "R4": "PASS, 35 of 20333 local maxima, 0.2%",
+  "R5": "PASS, guitar stem 10, silent tail 0",
+  "R6": "PASS, final_kick.py",
+  "verdict": "PASS on all six for kick; STOP on all six for the withdrawn 47 toms",
+  "third_null": "circular shift of 137 s returns 37 vs 35, ratio 1.05x. That null asks whether the window is unusual for this song, which the claim never required."
+ }
 }

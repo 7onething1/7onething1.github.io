@@ -1,0 +1,17 @@
+{
+ "kick_per_bar": [
+  7,
+  4,
+  5,
+  3,
+  5,
+  6,
+  5
+ ],
+ "kick_total": 35,
+ "toms_total": 0,
+ "tab_kick_written": 5,
+ "magnitude_x": 7.0,
+ "kick_frac": 0.18999999999999997,
+ "toms_frac": 0.32999999999999996
+}

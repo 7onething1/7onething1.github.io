@@ -69,7 +69,7 @@ a{color:#0d6f88;font-weight:600}
  <div style="font-weight:800;letter-spacing:.05em;text-transform:uppercase;font-size:.74rem;margin-bottom:.3rem">Two corrections from Brandon, 2026-09-08, applied</div>
  <p style="margin:.2rem 0"><b>One.</b> This page said bars 98 to 104 hold seven written drum notes. Its own <a href="coda.json">coda.json</a> holds eight: three in bar 98, two in 99, one each in 100, 101 and 103, none in 102 or 104. The figure now reads eight tab attacks against eighty-one stem attacks. The 81 reconciles unchanged and bar 105 stays correctly empty.</p>
  <p style="margin:.5rem 0 0"><b>Two.</b> This page said the flat tempo map produced the other two defects. It concealed and confused them. Defect three below now says so.</p>
- <p style="margin:.5rem 0 0"><b>Three, found by reading the waveforms.</b> The coda figure of 81 stem attacks came from a detector nobody had looked at. Rendering it withdrew the snare and cymbal content and the zero-guitar control. The eye-defended figure is 86 kick and tom attacks, with a bleed-proof core of 36 in bars 101 to 103 where the guitar is silent.</p>
+ <p style="margin:.5rem 0 0"><b>Three, and then four, on the coda count.</b> The figure of 81 stem attacks came from a detector nobody had rendered. Reading it withdrew the snare and cymbal content and the zero-guitar control, leaving 86. A reference-class pass then withdrew 86 as well, since its threshold was cut from the coda window itself. The surviving figure, calibrated against the author's own bars 1 to 97, is <b>35 kick attacks and zero toms</b>.</p>
 </div>
 <p class="sub">Subject: Songsterr s6857183 r8970744, Watermelon In Easter Hay, Vinnie Colaiuta. Measured 2026-09-08 from the shipped .gp and the Moises stem set.</p>
 
@@ -134,47 +134,43 @@ a{color:#0d6f88;font-weight:600}
 <h2><span class="n" style="background:var(--sun)">4</span>What is still actually wrong in the shipped file</h2>
 <p class="sub">Independent census of RECONCILED-s6857183-Brandon-edit.gp: 2,770 drum notes, voice 0 at 1,889 and voice 1 at 881, on the Vinnie Colaiuta track.</p>
 
-<h3>Defect one: the last thirty-three seconds of drumming is missing</h3>
-<p>Tab bars 98 to 104 land at 8:25 to 8:58 on the metronome clock. The tab writes <b>eight attacks</b> across all seven bars, being three in bar 98, two in 99, one each in 100, 101 and 103, and none in 102 or 104.</p>
+<h3>Defect one: the coda kick is missing</h3>
+<p>Tab bars 98 to 104 land at 8:25 to 8:58 on the metronome clock. The tab writes <b>five kick notes</b> across all seven bars. The recording carries <b>35</b>.</p>
 
 <div class="callout red">
- <h3>Read by eye, and only then allowed to stand</h3>
- <p>The first version of this section reported <b>81 stem attacks</b> from a spectral-flux detector at the 95th percentile. That number was never looked at. Rendering the waveforms and reading them overturned three parts of it, so the detector defers and the figures below are the eye-gated ones. A mark counts only where the envelope rises above 10 percent of that stem's own peak in the window.</p>
+ <h3>Two figures this section has already retired</h3>
+ <p><b>81 stem attacks</b> came from a spectral-flux detector nobody had rendered. <b>86 eye-confirmed attacks</b> replaced it and was still wrong, because its 10 percent threshold was cut from the coda window itself. A yardstick cut from the population it filters cannot reject that population, which is the exact mechanism that put 599 toms into a Zappa ballad on 2026-09-07. The figures below are calibrated against the author's own writing in bars 1 to 97.</p>
 </div>
 
+<div class="grid g4">
+ <div class="card t1"><div class="k a">35</div><div class="lab">kick attacks measured</div><div class="fine">bars 98 to 104, author-calibrated</div></div>
+ <div class="card t5"><div class="k f">5</div><div class="lab">kick notes the tab writes</div><div class="fine">across the same seven bars</div></div>
+ <div class="card t3"><div class="k y">5.0</div><div class="lab">kicks per bar in the coda</div><div class="fine">the author's own median is 5.0</div></div>
+ <div class="card t2"><div class="k s">0</div><div class="lab">toms that survive calibration</div><div class="fine">47 were published, all withdrawn</div></div>
+</div>
+
+<h3>Why the 47 toms died</h3>
+<p>The tom stem in bars 98 to 104 peaks at <b>20.5 percent</b> of the peak it reaches in bars 1 to 97. The threshold that reproduces the author's own tom writing sits at <b>33 percent</b>. Every coda tom event is below the line the author's own hand defines, so the coda holds tom resonance and bleed rather than struck toms. The kick tells the opposite story: it peaks at <b>91.4 percent</b> of its bars 1 to 97 level, which is a drummer playing at full strength.</p>
+<img src="coda-author-calibrated.png" alt="Kick and tom waveforms for bars 96 to 105 with a dashed author-calibrated threshold. Every kick transient rises above its line. Every coda tom sits below its line." style="width:100%;border:1px solid var(--line);border-radius:9px;margin:.5rem 0">
+
+<h3>The six reference-class checks, on the surviving number</h3>
 <div class="scroll"><table>
-<tr><th>lane</th><th class="num">b98</th><th class="num">b99</th><th class="num">b100</th><th class="num">b101</th><th class="num">b102</th><th class="num">b103</th><th class="num">b104</th><th class="num">total</th><th>what the eye shows</th></tr>
-<tr class="good"><td><b>kick</b></td><td class="num">6</td><td class="num">7</td><td class="num">4</td><td class="num">6</td><td class="num">6</td><td class="num">5</td><td class="num">5</td><td class="num"><b>39</b></td><td>every mark sits on a discrete visible transient</td></tr>
-<tr class="good"><td><b>toms</b></td><td class="num">11</td><td class="num">5</td><td class="num">4</td><td class="num">6</td><td class="num">6</td><td class="num">7</td><td class="num">8</td><td class="num"><b>47</b></td><td>clear strokes with decay tails in all seven bars</td></tr>
-<tr class="bad"><td>snare</td><td class="num">2</td><td class="num">1</td><td class="num">0</td><td class="num">0</td><td class="num">0</td><td class="num">0</td><td class="num">0</td><td class="num">3</td><td>flat trace from bar 100 on. The flux pass put 12 marks here, on nothing.</td></tr>
-<tr class="bad"><td>cymbals</td><td class="num">23</td><td class="num">2</td><td class="num">3</td><td class="num">2</td><td class="num">0</td><td class="num">2</td><td class="num">0</td><td class="num">32</td><td>bar 98 is one crash wash. After it the trace is decay, with no fresh strikes the eye can call.</td></tr>
-<tr><td>lead guitar (control)</td><td class="num">38</td><td class="num">2</td><td class="num">7</td><td class="num">0</td><td class="num">0</td><td class="num">0</td><td class="num">7</td><td class="num">54</td><td>plainly present in bars 98, 99, 100 and 104</td></tr>
+<tr><th>check</th><th>result</th></tr>
+<tr class="good"><td>R1 self-referential</td><td>threshold calibrated against the author, fitted on 96 of his own bars, mean absolute error 0.90 notes per bar, bias &minus;0.02</td></tr>
+<tr class="good"><td>R2 magnitude</td><td>35 against 5 is 7.0&times;, under the 10&times; refusal</td></tr>
+<tr class="good"><td>R3 density</td><td>5.0 kicks per bar, against the author's median of 5 and p90 of 7</td></tr>
+<tr class="good"><td>R4 pass rate</td><td>35 of 20,333 local maxima survive, 0.2 percent, so the filter bites</td></tr>
+<tr class="good"><td>R5 null model</td><td>the identical 19 percent rule returns <b>10</b> on the lead guitar stem and <b>0</b> in the silent tail at 540.5 to 545.2 s</td></tr>
+<tr class="good"><td>R6 regenerable</td><td><code>final_kick.py</code>, figures in <a href="final_coda.json">final_coda.json</a> and <a href="refclass.json">refclass.json</a></td></tr>
 </table></div>
-
-<div class="grid g3">
- <div class="card t1"><div class="k a">86</div><div class="lab">eye-confirmed kick and tom attacks</div><div class="fine">bars 98 to 104, against 8 written</div></div>
- <div class="card t3"><div class="k y">36</div><div class="lab">in the guitar-free bars alone</div><div class="fine">bars 101 to 103, 17 kick and 19 tom, guitar at zero</div></div>
- <div class="card t5"><div class="k f">8</div><div class="lab">attacks the tab writes</div><div class="fine">across all seven bars</div></div>
-</div>
-
-<p><b>The bleed-proof core.</b> Bars 101, 102 and 103 carry <b>zero</b> guitar marks and <b>36</b> kick and tom attacks between them. Nothing there can be explained by lead bleed. The drummer is playing and the tab is silent.</p>
-
-<h4 style="margin:1.4rem 0 .3rem">The two passes, side by side</h4>
-<p class="sub">Black lines are bar boundaries from metromap.json. Red lines are the marks each pass produced.</p>
-<p><b>Flux percentile pass, the one that produced 81.</b> Look at the snare row after bar 99 and at the cymbal row after bar 100.</p>
-<img src="coda-flux-pass.png" alt="Waveforms of kick, toms, snare, cymbals and lead guitar across bars 96 to 105, marked by the spectral-flux detector" style="width:100%;border:1px solid var(--line);border-radius:9px;margin:.5rem 0">
-<p><b>Eye-gated pass, the one this page now reports.</b> Marks appear only where the waveform does.</p>
-<img src="coda-eye-gated.png" alt="The same five waveforms marked only where the envelope exceeds ten percent of that stem peak" style="width:100%;border:1px solid var(--line);border-radius:9px;margin:.5rem 0">
+<p><b>Verdict: PASS on all six.</b> Run through the same tool, the withdrawn tom figure returns <b>STOP on all six</b>.</p>
 
 <div class="callout gold">
- <h3>Three claims the eye withdrew</h3>
- <ul>
-  <li><b>"81 stem attacks" is withdrawn.</b> It bundled 12 snare onsets fired on a flat trace and cymbal marks on a decaying wash. The figure this page now carries is <b>86 eye-confirmed kick and tom attacks</b>.</li>
-  <li><b>"Guitar control is zero in six of the seven bars" is withdrawn.</b> The guitar plays in bars 98, 99, 100 and 104. The guitar falls silent in bars 101 to 103, which is where the bleed-proof core sits.</li>
-  <li><b>Snare and cymbal content in the coda is withdrawn entirely.</b> The eye supports kick and toms, and nothing else.</li>
- </ul>
- <p>The conclusion is unchanged and firmer. Bars 98 to 104 hold a drummer playing kick and toms continuously, and the tab holds eight attacks.</p>
+ <h3>A third null, and what it actually means</h3>
+ <p>Circularly shifting the kick envelope by 137 s and re-measuring the same window returns <b>37</b> against the observed 35, a ratio of 1.05. That null asks whether this window is unusual for this song's kick track, and the answer is no. The claim never needed the coda to be exceptional. It needed the drummer to still be playing, and matching the song's own kick density is what that looks like. The two nulls that test the claim are the wrong-stem control at 10 and the silent tail at 0.</p>
 </div>
+
+<p class="fine">One more count came down in this pass. The figure of 39 kick attacks became <b>35</b> once the 100 ms refractory stopped resetting at every bar line, which had been double-counting strokes that straddle one.</p>
 
 <h3>Defect two: sixteen instants that need three hands</h3>
 <p>Twelve bars ask a drummer to strike a snare or a tom, a hi-mid tom, and the ride, all on one instant. Fifteen of the sixteen have that exact shape.</p>
@@ -221,12 +217,12 @@ a{color:#0d6f88;font-weight:600}
  <div class="card t1"><div class="k a">105</div><div class="lab">bars mapped</div><div class="fine">no frozen bars</div></div>
  <div class="card t3"><div class="k y">0.684</div><div class="lab">kick + snare match</div><div class="fine">0.274 on the flat clock</div></div>
  <div class="card t4"><div class="k g">3.49&times;</div><div class="lab">discrimination</div><div class="fine">floor is 1.5&times;</div></div>
- <div class="card t2"><div class="k s">86</div><div class="lab">attacks now locatable</div><div class="fine">kick and toms, bars 98 to 104</div></div>
+ <div class="card t2"><div class="k s">35</div><div class="lab">attacks now locatable</div><div class="fine">kick only, bars 98 to 104</div></div>
 </div>
 
 <h3>What becomes answerable once the map is written into the file</h3>
 <ul>
- <li><b>The coda.</b> Bars 98 to 104 can be transcribed against 86 eye-confirmed kick and tom attacks, with bars 101 to 103 carrying 36 of them against a silent guitar.</li>
+ <li><b>The coda.</b> Bars 98 to 104 can be transcribed against 35 author-calibrated kick attacks. No toms.</li>
  <li><b>The ride.</b> Per-event adjudication was blocked at 1.46&times;. Ride strokes are eighths, and eighths were what the drift smeared.</li>
  <li><b>The three-hand instants.</b> With events placed correctly, choosing among the three lanes becomes a measurement.</li>
  <li><b>The 202 absent ride notes.</b> That verdict rested on relative bar energy, so it deserves a re-read on the corrected clock while the map is fresh.</li>
