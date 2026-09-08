@@ -300,23 +300,34 @@ new configuration and not the frozen five-stem spec.</p>
 <p><strong>Lazarus is a clean tab.</strong> Its clock locks at 67.3 percent where the wrong recording reaches
 15.7, and all three lanes separate. The other two never got a working clock, and the reason is visible
 before any audio is touched.</p>
-<h3>Two of the three tabs do not span their own recording</h3>
-<div class="scroll"><table><thead><tr><th>song</th><th>bars</th><th>declared tempo</th><th>notation spans</th>
-<th>drums stem</th><th>ratio</th><th>reading</th></tr></thead><tbody><tr><td>The Alligator</td><td>86</td><td>120 bpm</td><td>172.5 s</td><td>216.1 s</td><td class="bad">0.798x</td><td>would need ~96 bpm</td></tr><tr><td>Endless Summer</td><td>192</td><td>140 bpm</td><td>324.9 s</td><td>246.4 s</td><td class="bad">1.318x</td><td>would need ~185 bpm</td></tr><tr><td>Lazarus</td><td>207</td><td>180 bpm</td><td>276.0 s</td><td>281.0 s</td><td class="ok">0.982x</td><td>agrees</td></tr></tbody></table></div>
-<p>Lazarus agrees within two percent. The Alligator's notation runs short by a fifth and Endless Summer's runs
-long by a third, so on those two the written tempo and the recording disagree before a single note is
-compared. <strong>Nothing below the clock can be judged while that holds.</strong></p>
-<h3>Two attempts to fix it by search, both rejected</h3>
-<p>A global tempo search looked like the obvious repair and it is not usable here. Maximising raw coverage
-picked a scale that <strong>destroyed the one song that had been working</strong>, dropping Lazarus from a
-67.3 percent kick fit to 26.1 and turning three separating lanes into three failures. The cause is that a
-denser packing raises coincidence for free, so the objective rewards compression rather than truth.</p>
-<p>Correcting the objective for chance did not rescue it. On Lazarus, whose declared 180 bpm is confirmed by
-its own length agreement, the corrected search still chose 112.5 bpm, and its best score on any of the three
-songs was 1.31 times chance, under the 1.5 floor this page uses everywhere else.
-<strong>A mixed drums stem is too dense to resolve tempo this way</strong>, with a third to a half of random
-times landing within 60 ms of some onset. The numbers in the table above use each tab's own declared tempo,
-which is the only value with independent support.</p>
+<h3>Two of the three tabs do not span their own recording, and the cause is not tempo</h3>
+<p>The Alligator's notation runs to 0.798 times its recording and Endless Summer's to 1.318 times.
+<strong>An earlier version of this page read that as a wrong declared tempo. That reading is withdrawn.</strong>
+A duration ratio can equally come from omitted sections, written repeats, repeats expanded differently,
+an alternate recording, a count-in, a fade, a cut, or a repeat-handling bug in the timing parser, and a
+ratio alone cannot tell those apart.</p>
+<p>The metronome stem settles it, because it is an independent musical source rather than a number fitted
+against the same events being tested:</p>
+<div class="scroll"><table><thead><tr><th>song</th><th>declared in the tab</th><th>metronome says</th>
+<th>what this page claimed</th><th>notation spans</th><th>drums stem</th><th>ratio</th></tr></thead>
+<tbody><tr><td>The Alligator</td><td>120 bpm</td><td class="ok">120.2 bpm</td><td class="bad">95.8 bpm</td><td>172.5 s</td><td>216.1 s</td><td>0.798x</td></tr><tr><td>Endless Summer</td><td>140 bpm</td><td class="ok">143.6 bpm</td><td class="bad">184.5 bpm</td><td>324.9 s</td><td>246.4 s</td><td>1.318x</td></tr><tr><td>Lazarus</td><td>180 bpm</td><td class="ok">178.2 bpm</td><td class="bad">176.8 bpm</td><td>276.0 s</td><td>281.0 s</td><td>0.982x</td></tr></tbody></table></div>
+<p><strong>The metronome agrees with every declared tempo and rejects both claimed values.</strong> The
+parser is not the cause either: the Songsterr measure objects on all three songs carry only
+<span class="mono">rest</span>, <span class="mono">signature</span> and <span class="mono">voices</span>,
+with no repeat or jump markers to mishandle. What remains is a coverage difference, with Endless Summer's
+score running longer than its recording and The Alligator's running shorter. Deciding which needs section
+landmarks matched against the audio, and that test has not been run.</p>
+
+<h3 class="g">The clock rule this run settled</h3>
+<div class="card hero"><ol>
+<li><strong>Use the Moises metronome stem first wherever one exists.</strong> It comes from outside the
+events being scored, so it cannot be tuned against them.</li>
+<li><strong>Then the score's own tempo automation</strong>, where the score demonstrably follows the
+recording, as Lazarus does at a 0.982 length ratio and I&rsquo;m the Slime does with 63 automations.</li>
+<li><strong>Fitted anchors only when neither source explains the recording.</strong></li>
+<li><strong>Never optimise tempo from a mixed drum stem.</strong> This run showed why, twice.</li>
+</ol></div>
+
 <h3>The metronome stem, tested as a clock</h3>
 <p>Moises ships a metronome track, and Brandon asked whether the Zappa songs needed one. They already have
 one. Tested against the clock this page actually uses, on kick coverage:</p>
