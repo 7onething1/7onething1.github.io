@@ -253,7 +253,15 @@ a tom stem settles it at all.</p>
 
 <h3>One passage, two different cymbals</h3>
 <div class="callout ok">
-<h4>Bars 57 to 62 read as ride in one tab and open hi-hat in the other</h4>
+<h4>Bars 57 to 62, SETTLED. It is the ride, and David-129 was right.</h4>
+<p>Over those bars, audio bars 54 to 59 at 147.55 to 164.11 seconds, the hi-hat stem reads an RMS
+of <strong>0.000178</strong> against 0.002291 in a mid verse control window. That is 0.08 of its
+own normal level, which is silence. The cymbal stem over the same bars reads
+<strong>0.010191 against 0.000078</strong>, which is 131 times its control. Per bar the hat runs
+0.00006 to 0.00040 while the cymbals run 0.00345 to 0.01517. The author's 218 ride notes stand
+and nothing was changed.</p>
+<hr style="border:0;border-top:1px solid #e0d5c4;margin:14px 0">
+<p><em>The dispute as it stood before that measurement:</em></p>
 <p>David-129 writes 44 ride strokes across those six bars and no open hi-hat. nick3388 writes 41
 open hi-hat strokes across the same six bars and no ride. The rhythm matches closely and the
 instrument does not. Under the tab clock those bars run from 2:22.7 to 2:38.7. A separated cymbal
@@ -584,6 +592,8 @@ one drum inside a single sixteenth there, which a sixteenth grid cannot hold: ta
 <tr><td>Tab to audio bar offset is minus three</td><td>Two anchors: 80 tab bars against 77 audio bars, and the solo at tab bar 59 against audio bar 56</td><td>confirmed</td></tr>
 <tr><td>s642618 holds 229 favorites, the highest</td><td><span class="mono">favoritesCount</span> on api/meta for all four ids</td><td>confirmed</td></tr>
 <tr><td>Rebuilt copy changes only the tempo</td><td>Structural diff: 267 notes, 866 beats, 80 master bars, 5 tracks in both files</td><td>confirmed</td></tr>
+<tr><td>Bars 57-62 are ride, not open hi-hat</td><td>Hat stem RMS 0.000178 against a 0.002291 control (0.08x). Cymbal stem 0.010191 against 0.000078 (131x)</td><td>confirmed, author was right</td></tr>
+<tr><td>refclass R5 accepted a null that was not beaten</td><td>Patched to parse p and z from the null string and STOP at p>=0.05. Three regression cases verified</td><td>fixed</td></tr>
 <tr><td>Verse and outro are 4/4 sixteenths</td><td>16-slot vs 12-slot grids, each against its own uniform null. Verse kick z 9.36 against -1.35; snare 8.29 against 7.25; hat 5.78 against -0.16</td><td>confirmed</td></tr>
 <tr><td>Hi-hat plays eighth notes</td><td>On-slot energy 1.658x off-slot, p=0.000249. Quarters and eighths at 3x the sixteenth level</td><td>confirmed</td></tr>
 <tr><td>The dense opening kick is not guitar bleed</td><td>Coincidence with guitar onsets 23.3% against a 20.2% chance baseline, z 0.8</td><td>confirmed, not bleed</td></tr>

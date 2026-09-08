@@ -365,3 +365,24 @@ written, because the author placed two strokes of one drum inside a single sixte
 tab bars 42, 46, 50, 52, 54, 74 and 76.
 
 File: `~/Projects/_outputs/zappa-slime-transcription/gp/SLIME-Brandon-edit-FINAL-212526.gp`
+
+
+## Bars 57 to 62, settled. It is the ride.
+
+Over tab bars 57 to 62, audio bars 54 to 59 at 147.55 to 164.11 seconds, the hi-hat stem reads an
+RMS of 0.000178 against 0.002291 in a mid verse control window. That is 0.08 of its own normal
+level, which is silence. The cymbal stem over the same bars reads 0.010191 against 0.000078,
+which is 131 times its control. Per bar the hat runs 0.00006 to 0.00040 while the cymbals run
+0.00345 to 0.01517.
+
+David-129 wrote ride there and he was right. The two AI tabs wrote open hi-hat and they were
+wrong. His 218 ride notes stand and nothing was changed.
+
+## The gate that let a bad number through, fixed
+
+`reference-class` passed the cymbal lane at p 0.425 because its R5 check verified that a null had
+been quoted rather than that the result beat it. R5 now parses the null string for a p-value or a
+z and stops when p is at or above 0.05, or when the absolute z is under 2. Three regression cases
+were run: the cymbal case at p 0.425 now stops where it previously passed, the kick case at
+p 0.0001 still passes, and a missing null still stops. Backup at
+`refclass.py.bak-pre-null-verdict-2026-09-07`.
