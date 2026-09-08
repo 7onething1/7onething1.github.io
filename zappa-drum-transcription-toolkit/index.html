@@ -96,6 +96,7 @@ footer{margin-top:3rem;border-top:2px solid var(--line);padding-top:1rem;
 <li><a href="#program">The Zappa drum program, current state</a></li>
 <li><a href="#kig">Keep It Greasey, the full dossier</a></li>
 <li><a href="#bundle">The bundle, collected on disk</a></li>
+<li><a href="#applied">KIG-M001, applied and published</a></li>
 <li><a href="#open">What is still open on this song</a></li>
 <li><a href="#run">The order to run them in</a></li>
 </ol>
@@ -384,11 +385,58 @@ The Odd Meter Lesson page draws the same 19/16 groove with <b>parenthesised note
 <h3>5.3 The Songsterr part JSON</h3>
 <p>All nine parts of <code>s604777</code> at revision <code>r8852151</code>, pulled from CloudFront on 2026-09-08. The drum staff is <code>part8_DRUMS_VinnieColaiuta.json</code> at 317 KB. The meta payload carries a control character, so it needs <code>json.load(..., strict=False)</code>.</p>
 
-<h2 class="s5" id="open">6. What is still open on this song</h2>
+<h2 class="s2" id="applied">6. KIG-M001, applied and published 2026-09-08</h2>
+
+<div class="good">
+<b>The repair is live on the copy tab.</b> <code>s6862054</code> now sits at revision <b><code>r8972975</code></b>, createdVia <code>GP</code>, <code>tracksCount 9</code>, <code>isOnModeration: false</code>, published 2026-09-08. <b>The original <code>s604777</code> was never touched</b> and still sits at <code>r8852151</code> by Ben Dibden1.
+</div>
+
+<h3>6.1 What changed, and what it was</h3>
+<p>Bar 231, beat index 7, one sixteenth at <code>mf</code>. Songsterr's own part JSON is the field that renders, and it read <code>{"fret": 65, "string": 4}</code>. String 4 on that staff carries <b>1,311 kicks and nothing else</b>, so a fret 65 there is an encoding slip rather than an instrument.</p>
+<table>
+<thead><tr><th>Field</th><th>Before</th><th>After</th></tr></thead>
+<tbody>
+<tr><td>Songsterr note</td><td><code>{"fret": 65, "string": 4}</code></td><td><code>{"fret": 35, "string": 4}</code></td></tr>
+<tr><td>GPIF articulation</td><td>41, Timbale high, staff line 9</td><td>7, Kick (hit), staff line 8</td></tr>
+<tr><td>GPIF Midi / Fret / String</td><td>65 / 65 / 1</td><td>35 / 35 / 0</td></tr>
+</tbody>
+</table>
+
+<div class="note">
+<b>The GPIF export disagreed with Songsterr about where the note sat</b>, and that is why the earlier record and the export read differently. Songsterr put it on string 4, the kick row. The GP export put it on GPIF String 1, the low-tom row, because the exporter had to bind an out-of-kit fret to some articulation and picked the one whose output MIDI is 65. The rendered field wins, so the repair is Kick.
+</div>
+
+<h3>6.2 The gates that ran before the push</h3>
+<table>
+<thead><tr><th>Gate</th><th>Result</th></tr></thead>
+<tbody>
+<tr><td><code>gpif/diff_gpif_tracks.py</code> with the target track named</td><td><b>exit 0.</b> Only Vinnie Colaiuta changed. The other eight tracks are byte-identical.</td></tr>
+<tr><td><code>preflight_import.py</code></td><td><b>PASS.</b> 9 tracks, no part loss, grid 1.30% inside the 2% tolerance, drum notation clean, stamped.</td></tr>
+<tr><td>NAMEDROP</td><td><b>CLEAR.</b> 9 of 9 track names CDATA-wrapped, which is the state measured to survive the importer.</td></tr>
+<tr><td>Edit method</td><td>Surgical text replacement on the raw GPIF, never a reserialize, so all <b>149 CDATA blocks</b> survived.</td></tr>
+</tbody>
+</table>
+
+<h3>6.3 Verified after publish, uncredentialed</h3>
+<p>Read straight from CloudFront at <code>6862054/8972975/v0-3-2-VZtKXkSzlkLljDFV/8.json</code>, http 200, with no session cookie.</p>
+<table>
+<thead><tr><th>Measure</th><th>Before</th><th>After</th></tr></thead>
+<tbody>
+<tr><td>fret 65 events</td><td>1</td><td><b>0</b></td></tr>
+<tr><td>kick, fret 35</td><td>1,311</td><td><b>1,312</b></td></tr>
+<tr><td>ghost flags</td><td>629</td><td><b>629</b></td></tr>
+<tr><td>measures</td><td>248</td><td>248</td></tr>
+<tr><td>note events</td><td>4,974</td><td>4,974</td></tr>
+<tr><td>track names</td><td>9 named</td><td><b>9 named</b></td></tr>
+</tbody>
+</table>
+<p><b>All nine custom names survived the importer</b>, which confirms the CDATA finding against the older blanket NAMEDROP rule. The published tab keeps its eight source videos and <code>hasPlayer: true</code>, so the audio sync came through the import.</p>
+
+<h2 class="s5" id="open">7. What is still open on this song</h2>
 <table>
 <thead><tr><th>Id</th><th>Finding</th><th>Evidence needed</th><th>State</th></tr></thead>
 <tbody>
-<tr><td><code>KIG-M001</code></td><td>GM 65 written on the kick staff line at bar 231, position 7 sixteenths. One event in 4,948, inside a repeating figure whose other string-4 events are all GM 35.</td><td>None. This is score-internal and exact.</td><td><span class="badge b-hold">ready, copy tab staged at s6862054</span></td></tr>
+<tr><td><code>KIG-M001</code></td><td>GM 65 written on the kick staff line at bar 231, position 7 sixteenths. One event in 4,948, inside a repeating figure whose other string-4 events are all GM 35.</td><td>None. This is score-internal and exact.</td><td><span class="badge b-done">APPLIED, published as r8972975</span></td></tr>
 <tr><td><code>KIG-M002</code></td><td>21 GM 39 hand claps drawn at the snare position across bars 22 to 32, 42 to 44, 65 and 82.</td><td>Placement is certain. Intent is not recoverable.</td><td><span class="badge b-open">unresolved</span></td></tr>
 <tr><td><code>KIG-M003</code></td><td>114 ghost flags whose resolved dynamic is mf, which is the unflagged population's own mark. The two encodings disagree.</td><td>Nothing on hand says which is meant.</td><td><span class="badge b-open">unresolved</span></td></tr>
 <tr><td><code>KIG-M004</code></td><td>32 kick onsets the score omits. They sit 7.66 dB below the notated median and land on the sixteenth grid at 1.646&times; baseline.</td><td>Bar positions unknown. Listed by audio time only.</td><td><span class="badge b-open">unresolved</span></td></tr>
@@ -400,14 +448,14 @@ The Odd Meter Lesson page draws the same 19/16 groove with <b>parenthesised note
 <b>The publish route is open, and it runs through the copy.</b> The live tab is another author's work, r8852151 by Ben Dibden1, so the standing gate forbids a revision onto it. That gate is already satisfied: <code>s6862054</code> is an unmodified copy titled "Brandon edit", verified this pass to match the original in every figure. Any repair goes there.
 </div>
 
-<h2 class="s5" id="run">7. The order to run them in</h2>
+<h2 class="s5" id="run">8. The order to run them in</h2>
 <ol>
 <li><b>Nothing needs separating.</b> The fifteen stems exist and the kit is already in six lanes. Skip stages 1 and 2 of the acquisition work.</li>
 <li><b>Read the Marc Atkinson chart.</b> It is now rendered at 400 dpi across four pages and it is the only complete-song printed source. Bar-by-bar it is the strongest test available for the notated drum part.</li>
 <li><b>Run <code>/perfect-stem-read</code></b> on the six kit stems, holding the identity-before-lane order.</li>
 <li><b>Run <code>/notation-evidence-gate</code></b> on any symbol dispute the read produces, ahead of writing a claim down.</li>
 <li><b>Run <code>/reference-class</code></b> on every count before it enters a deliverable.</li>
-<li><b>Apply <code>KIG-M001</code> only</b>, onto <code>s6862054</code>, which is the staged copy. The other three findings have no evidence that closes them.</li>
+<li><b><code>KIG-M001</code> is done</b>, published on <code>s6862054</code> as <code>r8972975</code>. The other three findings have no evidence that closes them.</li>
 </ol>
 
 <footer>

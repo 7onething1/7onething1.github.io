@@ -87,6 +87,21 @@ one revision `r8958071` created via `Copy`, with no edit submitted. Its export m
 exactly: 248 bars, 9 tracks, 14,444 events, 629 ghosts, drum track 4,948 and 629. The public API
 returns nulls for it, so read it from the signed-in browser.
 
+## KIG-M001 applied and published, 2026-09-08
+
+Copy tab `s6862054` now sits at **`r8972975`**, createdVia GP, tracksCount 9, isOnModeration false.
+The original `s604777` was never touched.
+
+Bar 231 beat 7 went from `{"fret": 65, "string": 4}` to `{"fret": 35, "string": 4}`. String 4 on
+that staff carries 1,311 kicks and nothing else, so fret 65 there was an encoding slip.
+
+Gates: `diff_gpif_tracks.py` exit 0 with only Vinnie Colaiuta changed, `preflight_import.py` PASS,
+grid 1.30% inside tolerance, NAMEDROP-CLEAR on 9 of 9 CDATA names. The edit was a surgical text
+replacement on the raw GPIF, so all 149 CDATA blocks survived.
+
+Verified uncredentialed from CloudFront, http 200: fret 65 count 0 (was 1), kick 1,312 (was 1,311),
+ghosts 629 unchanged, 248 measures, 4,974 events, **all 9 track names intact**.
+
 ## The bundle, collected 2026-09-08
 
 `~/Projects/_outputs/zappa-keep-it-greasey-transcriptions/` holds all three Guitar Pro
