@@ -64,7 +64,7 @@ a{color:#0d6f88;font-weight:600}
 
 <span class="stamp">Root cause found</span>
 <h1>Why the Watermelon GP is not done and not perfect</h1>
-<p class="deck">Nine days, 55 sessions, 26,339 assistant turns and 9.59 billion tokens went into one drum tab. Every stem measurement in that span ran against a clock that was wrong by up to 6.3 seconds. Here is the measurement, the proof, and the clock that removes the blocker.</p>
+<p class="deck">Nine days, 55 sessions, 26,339 assistant turns and 9.59 billion tokens went into one drum tab. Every stem measurement in that span ran against a clock that was wrong by as much as 4.26 seconds. Here is the measurement, the proof, and the clock that removes the blocker.</p>
 <div class="callout gold" style="margin:.6rem 0 1.2rem">
  <div style="font-weight:800;letter-spacing:.05em;text-transform:uppercase;font-size:.74rem;margin-bottom:.3rem">Two corrections from Brandon, 2026-09-08, applied</div>
  <p style="margin:.2rem 0"><b>One.</b> This page said bars 98 to 104 hold seven written drum notes. Its own <a href="coda.json">coda.json</a> holds eight: three in bar 98, two in 99, one each in 100, 101 and 103, none in 102 or 104. The figure now reads eight tab attacks against eighty-one stem attacks. The 81 reconciles unchanged and bar 105 stays correctly empty.</p>
@@ -91,13 +91,13 @@ a{color:#0d6f88;font-weight:600}
 <h2><span class="n" style="background:var(--aqua)">2</span>The root cause, in one line</h2>
 <div class="callout red">
  <h3>The tab is written at a flat 56.000 bpm for a live take that averages about 55.3.</h3>
- <p>One tempo automation covers all 105 bars. The performance moves. By the last bar the written grid sits <b>6.29 seconds ahead of the recording</b>, which is close to six beats, or a bar and a half of music. Every stem-versus-tab comparison across nine days was asking whether a drum hit landed at a place the drummer had already left.</p>
+ <p>One tempo automation covers all 105 bars. The performance moves. By the last bar the written grid runs ahead of the recording by as much as <b>4.26 seconds at bar 65</b>, which is close to four beats. The divergence is not a straight line: it grows to bar 65, then partly recovers as the performance pushes past 56 through the climax. Every stem-versus-tab comparison across nine days was asking whether a drum hit landed at a place the drummer had already left.</p>
 </div>
 
 <div class="grid g3">
  <div class="card t1"><div class="k a">105</div><div class="lab">bars in the tab</div><div class="fine">53 in 4/4, 52 in 5/4, one tempo marking</div></div>
  <div class="card t3"><div class="k y">505.7 s</div><div class="lab">tab length at 56 bpm</div><div class="fine">the recording runs 545.3 s</div></div>
- <div class="card t5"><div class="k f">6.29 s</div><div class="lab">accumulated drift</div><div class="fine">offset(bar) = 0.0604 &times; bar + 37.50 s</div></div>
+ <div class="card t5"><div class="k f">4.26 s</div><div class="lab">peak bar-start error, at bar 65</div><div class="fine">measured on the metronome grid, not a straight-line fit</div></div>
 </div>
 
 <h3>The offset climbs bar by bar, which is the fingerprint of a tempo error</h3>
@@ -240,11 +240,41 @@ a{color:#0d6f88;font-weight:600}
  <p><b>The second rule, earned mid-session.</b> The winning clock was sitting in the same folder as the stems for two days. Inventory what the separation already handed you, then build only what is missing.</p>
 </div>
 
-<h2><span class="n" style="background:var(--gold)">8</span>The finite work that remains</h2>
-<p>Brandon set the scope on 2026-09-08, and it is a closed list rather than an open research programme. No further detector gets written unless one of these five edits produces contradictory evidence.</p>
+<h2><span class="n" style="background:var(--aqua)">8</span>Step one is done: the map is in the file</h2>
+<p>Written 2026-09-08 into a copy, never into the original. <b>TEMPOMAP-s6857183-Brandon-edit.gp</b>, sha256 <code>099a59c4f2ef7ad26ca41540b46673e01127a1440ab573eccb57f95986238045</code>, built from RECONCILED whose sha256 <code>bc5ce3de...8548f</code> is unchanged on disk.</p>
+<div class="grid g4">
+ <div class="card t1"><div class="k a">105</div><div class="lab">tempo automations</div><div class="fine">the file held one, at 56.000</div></div>
+ <div class="card t3"><div class="k y">6.4 ms</div><div class="lab">worst bar-start error</div><div class="fine">the old file peaked at 4.26 s</div></div>
+ <div class="card t4"><div class="k g">0.685</div><div class="lab">kick and snare match</div><div class="fine">the gate wanted 0.684</div></div>
+ <div class="card t2"><div class="k s">0 / 0</div><div class="lab">notes added / removed</div><div class="fine">2,770 on both sides of the write</div></div>
+</div>
+
+<h3>The acceptance test written into the queue item, run against the file itself</h3>
+<p class="sub">Each file drives the alignment from its own tempo map plus one global sync offset. No external map is supplied.</p>
+<div class="scroll"><table>
+<tr><th>file</th><th class="num">sync offset</th><th class="num">kick + snare match</th><th class="num">guitar control</th><th class="num">discrimination</th><th>gate</th></tr>
+<tr class="bad"><td>RECONCILED, one flat 56.000</td><td class="num">39.79 s</td><td class="num">0.276</td><td class="num">0.177</td><td class="num">1.56&times;</td><td>fails both</td></tr>
+<tr class="good"><td><b>TEMPOMAP, 105 automations</b></td><td class="num">36.89 s</td><td class="num"><b>0.685</b></td><td class="num">0.189</td><td class="num"><b>3.64&times;</b></td><td><b>PASS on both</b></td></tr>
+</table></div>
+<p>The gate on <code>q-2026-09-08-cddb5a</code> asked for a match at or above 0.684 with the guitar control at or under 0.20. The file returns <b>0.685 and 0.189</b>. Its best sync offset of 36.89 s lands within 20 ms of the 36.87 s bar-one anchor the metronome grid gave, which is an independent confirmation that the map went in correctly.</p>
+
+<h3>The curve, rendered and read</h3>
+<img src="tempo-curve.png" alt="Top panel, per-bar tempo from 53.57 to 58.37 bpm against the old flat 56 line. Bottom panel, bar-start error where the old file drifts to minus 4.26 seconds at bar 65 and the new file sits on zero." style="width:100%;border:1px solid var(--line);border-radius:9px;margin:.5rem 0">
+<div class="callout aqua">
+ <h3>What the eye takes from the curve</h3>
+ <ul>
+  <li><b>The broad shape is musical.</b> The take opens near 54, holds around 55 to 56 through bar 60, pushes to 57 and 58.4 across bars 65 to 100 where the guitar climax sits, then relaxes to 55 and 56 at bars 101 to 105.</li>
+  <li><b>The bar-to-bar wobble of about one bpm is quantization</b>, coming from the metronome's 20 ms interval steps. That wobble is quantization rather than rubato, and it costs nothing, since the bar boundaries still land within 6.4 ms.</li>
+  <li><b>The old drift was never a straight line.</b> It grows to 4.26 s at bar 65 and recovers to about 1 s by bar 101, because the performance pushes past 56 in the stretch the flat file had been outrunning. My earlier figure of 6.29 s came from forcing a straight line onto that curve, and it is corrected here.</li>
+ </ul>
+</div>
+<p class="fine">Two decimals were kept in every tempo value. Rounding them to integers costs <b>723 ms</b> of worst-case bar-start error against <b>6.4 ms</b>, which would reintroduce the class of fault this step exists to remove. Figures in <a href="tempo_map.json">tempo_map.json</a>.</p>
+
+<h2><span class="n" style="background:var(--gold)">9</span>The finite work that remains</h2>
+<p>Brandon set the scope on 2026-09-08, and it is a closed list rather than an open research programme. Step one is complete. No further detector gets written unless one of these five edits produces contradictory evidence.</p>
 <div class="scroll"><table>
 <tr><th class="num">#</th><th>step</th><th>queue id</th></tr>
-<tr><td class="num">1</td><td>Write the metronome map into the working GP</td><td><code>q-2026-09-08-cddb5a</code></td></tr>
+<tr class="good"><td class="num">1</td><td><b>DONE 2026-09-08.</b> Metronome map written into TEMPOMAP-s6857183-Brandon-edit.gp, acceptance test PASS at 0.685 and 0.189</td><td><code>q-2026-09-08-cddb5a</code></td></tr>
 <tr><td class="num">2</td><td>Transcribe bars 98 to 104 against that clock</td><td><code>q-2026-09-08-577c81</code></td></tr>
 <tr><td class="num">3</td><td>Resolve the sixteen three-surface collisions</td><td><code>q-2026-09-08-baae9d</code></td></tr>
 <tr><td class="num">4</td><td>Recheck the 202 disputed ride notes</td><td><code>q-2026-09-08-c9d5f7</code></td></tr>
@@ -258,7 +288,7 @@ a{color:#0d6f88;font-weight:600}
 <div class="callout gold">
  <p><b>One distinction this page must keep straight.</b> The transcripts carry 40 occurrences of an UNUSABLE verdict across 10 files, and most of them come from a <b>density</b> gate rejecting a baseline above the 35 percent ceiling, quoted at <code>04e0fedb:1210</code> and <code>04e0fedb:1296</code>. The <b>alignment</b> gate is a separate instrument, and its UNUSABLE at 0.336 is recorded in <a href="https://7onething1.github.io/watermelon-reconcile/real_gates.json">real_gates.json</a>. The clock repair on this page addresses the alignment gate. The density findings stand on their own and were not re-tested here.</p>
 </div>
-<p>Numbers on this page come from <a href="evidence.json">evidence.json</a>, <a href="metromap.json">metromap.json</a>, <a href="tempomap.json">tempomap.json</a> and <a href="coda.json">coda.json</a>. Token and turn counts were summed from the usage blocks of 120 session transcripts. Every match rate carries a wrong-stem control run on the identical detector.</p>
+<p>Numbers on this page come from <a href="evidence.json">evidence.json</a>, <a href="tempo_map.json">tempo_map.json</a>, <a href="metromap.json">metromap.json</a>, <a href="tempomap.json">tempomap.json</a> and <a href="coda.json">coda.json</a>. Token and turn counts were summed from the usage blocks of 120 session transcripts. Every match rate carries a wrong-stem control run on the identical detector.</p>
  <p>Palette: The Life Aquatic (Wes Anderson).</p>
 </footer>
 </main></body></html>

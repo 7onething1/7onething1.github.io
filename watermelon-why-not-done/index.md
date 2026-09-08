@@ -8,7 +8,7 @@ Nine days, 56 sessions, 26,293 assistant turns, 9.57 billion tokens on one drum 
 
 ## The root cause
 
-The tab is written at a flat 56.000 bpm for a live take that averages about 55.3. One tempo automation covers all 105 bars. By the final bar the written grid sits 6.29 seconds ahead of the recording, close to six beats. Every stem-versus-tab comparison across nine days asked whether a hit landed where the drummer had already left.
+The tab is written at a flat 56.000 bpm for a live take that averages about 55.3. One tempo automation covers all 105 bars. The written grid runs ahead of the recording by as much as 4.26 seconds at bar 65, close to four beats. The divergence is a curve rather than a line: it grows to bar 65, then partly recovers as the performance pushes past 56. Every stem-versus-tab comparison across nine days asked whether a hit landed where the drummer had already left.
 
 Proof, same tab and same detector, only the clock changing:
 
@@ -41,9 +41,26 @@ Region by region the metronome wins everywhere, with its largest margin at bars 
 
 `metromap.json` anchors tab bar 1 to click index 51 at t = 36.87 s and interpolates every bar boundary through the click grid, reaching bar 105 at 538.23 s. `tempomap.json` is the onset-derived map, kept as an independent second witness.
 
+## Step one is done: the map is in the file
+
+Written 2026-09-08 into a copy, never the original. `TEMPOMAP-s6857183-Brandon-edit.gp`, sha256 `099a59c4f2ef7ad26ca41540b46673e01127a1440ab573eccb57f95986238045`, built from RECONCILED whose sha256 `bc5ce3de...8548f` is unchanged on disk. The file held **one** tempo automation at 56.000 and now holds **105**, spanning 53.57 to 58.37 bpm.
+
+Acceptance test from `q-2026-09-08-cddb5a`, each file driving alignment from its own tempo map plus one global sync offset:
+
+| file | sync offset | kick + snare match | guitar control | discrimination | gate |
+|---|---|---|---|---|---|
+| RECONCILED, one flat 56.000 | 39.79 s | 0.276 | 0.177 | 1.56x | fails both |
+| **TEMPOMAP, 105 automations** | 36.89 s | **0.685** | 0.189 | **3.64x** | **PASS on both** |
+
+Content integrity: 2,770 notes on both sides, set difference 0 added and 0 removed, 105 masterbars. Worst bar-start error against the metronome grid is **6.4 ms**, where the old file peaked at **4.26 s**. The best sync offset of 36.89 s lands within 20 ms of the 36.87 s bar-one anchor, an independent confirmation.
+
+Curve rendered and read (`tempo-curve.png`). The broad shape is musical: opens near 54, holds 55 to 56 through bar 60, pushes to 57 and 58.4 across bars 65 to 100 where the guitar climax sits, relaxes to 55 and 56 at bars 101 to 105. The bar-to-bar wobble of about one bpm is the metronome's 20 ms interval quantization rather than rubato. Two decimals were kept: integer rounding costs 723 ms of worst-case bar-start error against 6.4 ms. Figures in `tempo_map.json`.
+
+The earlier "6.29 s of drift" figure is corrected. It came from forcing a straight line onto a curve, using the weaker onset-derived map.
+
 ## The finite work that remains
 
-Scope set by Brandon 2026-09-08, a closed list. 1) Write the metronome map into the working GP (`q-2026-09-08-cddb5a`). 2) Transcribe bars 98 to 104 against that clock (`577c81`). 3) Resolve the sixteen three-surface collisions (`baae9d`). 4) Recheck the 202 disputed ride notes (`c9d5f7`). 5) One final stem-matched playability audit (`85d746`). No further detector unless one of these five produces contradictory evidence.
+Scope set by Brandon 2026-09-08, a closed list. 1) **DONE 2026-09-08.** Metronome map written into TEMPOMAP-s6857183-Brandon-edit.gp, acceptance test PASS at 0.685 and 0.189 (`q-2026-09-08-cddb5a`). 2) Transcribe bars 98 to 104 against that clock (`577c81`). 3) Resolve the sixteen three-surface collisions (`baae9d`). 4) Recheck the 202 disputed ride notes (`c9d5f7`). 5) One final stem-matched playability audit (`85d746`). No further detector unless one of these five produces contradictory evidence.
 
 ## Corrections applied 2026-09-08
 

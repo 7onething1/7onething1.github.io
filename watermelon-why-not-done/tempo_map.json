@@ -1,0 +1,579 @@
+{
+ "written_into": "TEMPOMAP-s6857183-Brandon-edit.gp",
+ "path": "~/Projects/_outputs/zappa-watermelon-hat-snare-repair/out/TEMPOMAP-s6857183-Brandon-edit.gp",
+ "sha256": "099a59c4f2ef7ad26ca41540b46673e01127a1440ab573eccb57f95986238045",
+ "built_from": "RECONCILED-s6857183-Brandon-edit.gp",
+ "source_sha256": "bc5ce3de02153f39485d2e4324c0c45f4cc7237f779adfc3c3b3e1dd76b8548f",
+ "source_unchanged": true,
+ "automations": 105,
+ "was": 1,
+ "was_value": 56.0,
+ "precision": "two decimals; integer rounding costs 723 ms of bar-start error against 6.4 ms",
+ "range_bpm": [
+  53.57,
+  58.37
+ ],
+ "mean_bpm": 55.89,
+ "bar_start_error_ms": {
+  "max": 6.4,
+  "mean": 3.6
+ },
+ "old_file_bar_start_error_s": {
+  "max": 4.26,
+  "at_bar": 65,
+  "shape": "non-monotonic; diverges to bar 65 then partly recovers as the performance pushes past 56"
+ },
+ "content_integrity": {
+  "notes_before": 2770,
+  "notes_after": 2770,
+  "added": 0,
+  "removed": 0,
+  "masterbars": 105
+ },
+ "acceptance_test": {
+  "gate": "kick+snare match >= 0.684 AND guitar control <= 0.20",
+  "driven_by": "each file's own tempo map plus one global sync offset",
+  "old_flat_file": {
+   "match": 0.276,
+   "sync_offset_s": 39.79,
+   "guitar_control": 0.177,
+   "discrimination_x": 1.56
+  },
+  "new_tempomap_file": {
+   "match": 0.685,
+   "sync_offset_s": 36.89,
+   "guitar_control": 0.189,
+   "discrimination_x": 3.64
+  },
+  "improvement_x": 2.48,
+  "verdict": "PASS"
+ },
+ "eye_read": "tempo_curve rendered and read. Broad shape is real: low start near 54, hold near 55-56 through bar 60, a push to 57-58.4 across bars 65-100, relaxing near 55-56 at bars 101-105. The bar-to-bar wobble of about +/-1 bpm is the metronome's 20 ms interval quantization showing through, not rubato at that granularity.",
+ "per_bar": [
+  {
+   "bar": 1,
+   "time_sig": "4/4",
+   "bpm": 54.79
+  },
+  {
+   "bar": 2,
+   "time_sig": "4/4",
+   "bpm": 53.57
+  },
+  {
+   "bar": 3,
+   "time_sig": "5/4",
+   "bpm": 54.35
+  },
+  {
+   "bar": 4,
+   "time_sig": "4/4",
+   "bpm": 54.3
+  },
+  {
+   "bar": 5,
+   "time_sig": "5/4",
+   "bpm": 54.55
+  },
+  {
+   "bar": 6,
+   "time_sig": "4/4",
+   "bpm": 54.05
+  },
+  {
+   "bar": 7,
+   "time_sig": "5/4",
+   "bpm": 54.74
+  },
+  {
+   "bar": 8,
+   "time_sig": "4/4",
+   "bpm": 55.05
+  },
+  {
+   "bar": 9,
+   "time_sig": "5/4",
+   "bpm": 55.15
+  },
+  {
+   "bar": 10,
+   "time_sig": "4/4",
+   "bpm": 55.3
+  },
+  {
+   "bar": 11,
+   "time_sig": "5/4",
+   "bpm": 55.56
+  },
+  {
+   "bar": 12,
+   "time_sig": "4/4",
+   "bpm": 55.3
+  },
+  {
+   "bar": 13,
+   "time_sig": "5/4",
+   "bpm": 55.15
+  },
+  {
+   "bar": 14,
+   "time_sig": "4/4",
+   "bpm": 55.3
+  },
+  {
+   "bar": 15,
+   "time_sig": "5/4",
+   "bpm": 55.35
+  },
+  {
+   "bar": 16,
+   "time_sig": "4/4",
+   "bpm": 55.05
+  },
+  {
+   "bar": 17,
+   "time_sig": "5/4",
+   "bpm": 55.76
+  },
+  {
+   "bar": 18,
+   "time_sig": "4/4",
+   "bpm": 55.3
+  },
+  {
+   "bar": 19,
+   "time_sig": "5/4",
+   "bpm": 54.95
+  },
+  {
+   "bar": 20,
+   "time_sig": "4/4",
+   "bpm": 54.79
+  },
+  {
+   "bar": 21,
+   "time_sig": "5/4",
+   "bpm": 55.15
+  },
+  {
+   "bar": 22,
+   "time_sig": "4/4",
+   "bpm": 55.56
+  },
+  {
+   "bar": 23,
+   "time_sig": "5/4",
+   "bpm": 55.15
+  },
+  {
+   "bar": 24,
+   "time_sig": "4/4",
+   "bpm": 55.3
+  },
+  {
+   "bar": 25,
+   "time_sig": "5/4",
+   "bpm": 56.39
+  },
+  {
+   "bar": 26,
+   "time_sig": "4/4",
+   "bpm": 55.05
+  },
+  {
+   "bar": 27,
+   "time_sig": "5/4",
+   "bpm": 54.55
+  },
+  {
+   "bar": 28,
+   "time_sig": "4/4",
+   "bpm": 54.79
+  },
+  {
+   "bar": 29,
+   "time_sig": "5/4",
+   "bpm": 55.56
+  },
+  {
+   "bar": 30,
+   "time_sig": "4/4",
+   "bpm": 54.55
+  },
+  {
+   "bar": 31,
+   "time_sig": "5/4",
+   "bpm": 55.56
+  },
+  {
+   "bar": 32,
+   "time_sig": "4/4",
+   "bpm": 55.56
+  },
+  {
+   "bar": 33,
+   "time_sig": "5/4",
+   "bpm": 56.18
+  },
+  {
+   "bar": 34,
+   "time_sig": "4/4",
+   "bpm": 55.05
+  },
+  {
+   "bar": 35,
+   "time_sig": "5/4",
+   "bpm": 55.15
+  },
+  {
+   "bar": 36,
+   "time_sig": "4/4",
+   "bpm": 54.55
+  },
+  {
+   "bar": 37,
+   "time_sig": "5/4",
+   "bpm": 55.15
+  },
+  {
+   "bar": 38,
+   "time_sig": "4/4",
+   "bpm": 54.55
+  },
+  {
+   "bar": 39,
+   "time_sig": "5/4",
+   "bpm": 55.97
+  },
+  {
+   "bar": 40,
+   "time_sig": "4/4",
+   "bpm": 55.56
+  },
+  {
+   "bar": 41,
+   "time_sig": "5/4",
+   "bpm": 55.97
+  },
+  {
+   "bar": 42,
+   "time_sig": "4/4",
+   "bpm": 54.55
+  },
+  {
+   "bar": 43,
+   "time_sig": "5/4",
+   "bpm": 55.76
+  },
+  {
+   "bar": 44,
+   "time_sig": "4/4",
+   "bpm": 55.81
+  },
+  {
+   "bar": 45,
+   "time_sig": "5/4",
+   "bpm": 55.97
+  },
+  {
+   "bar": 46,
+   "time_sig": "4/4",
+   "bpm": 54.55
+  },
+  {
+   "bar": 47,
+   "time_sig": "5/4",
+   "bpm": 55.76
+  },
+  {
+   "bar": 48,
+   "time_sig": "4/4",
+   "bpm": 54.79
+  },
+  {
+   "bar": 49,
+   "time_sig": "5/4",
+   "bpm": 55.97
+  },
+  {
+   "bar": 50,
+   "time_sig": "4/4",
+   "bpm": 55.81
+  },
+  {
+   "bar": 51,
+   "time_sig": "5/4",
+   "bpm": 54.95
+  },
+  {
+   "bar": 52,
+   "time_sig": "4/4",
+   "bpm": 54.55
+  },
+  {
+   "bar": 53,
+   "time_sig": "5/4",
+   "bpm": 54.74
+  },
+  {
+   "bar": 54,
+   "time_sig": "4/4",
+   "bpm": 55.3
+  },
+  {
+   "bar": 55,
+   "time_sig": "5/4",
+   "bpm": 55.56
+  },
+  {
+   "bar": 56,
+   "time_sig": "4/4",
+   "bpm": 56.07
+  },
+  {
+   "bar": 57,
+   "time_sig": "5/4",
+   "bpm": 56.18
+  },
+  {
+   "bar": 58,
+   "time_sig": "4/4",
+   "bpm": 54.79
+  },
+  {
+   "bar": 59,
+   "time_sig": "5/4",
+   "bpm": 55.97
+  },
+  {
+   "bar": 60,
+   "time_sig": "4/4",
+   "bpm": 55.81
+  },
+  {
+   "bar": 61,
+   "time_sig": "5/4",
+   "bpm": 56.18
+  },
+  {
+   "bar": 62,
+   "time_sig": "4/4",
+   "bpm": 55.05
+  },
+  {
+   "bar": 63,
+   "time_sig": "5/4",
+   "bpm": 55.15
+  },
+  {
+   "bar": 64,
+   "time_sig": "4/4",
+   "bpm": 55.05
+  },
+  {
+   "bar": 65,
+   "time_sig": "5/4",
+   "bpm": 56.82
+  },
+  {
+   "bar": 66,
+   "time_sig": "4/4",
+   "bpm": 56.6
+  },
+  {
+   "bar": 67,
+   "time_sig": "5/4",
+   "bpm": 56.6
+  },
+  {
+   "bar": 68,
+   "time_sig": "4/4",
+   "bpm": 57.14
+  },
+  {
+   "bar": 69,
+   "time_sig": "5/4",
+   "bpm": 55.97
+  },
+  {
+   "bar": 70,
+   "time_sig": "4/4",
+   "bpm": 55.81
+  },
+  {
+   "bar": 71,
+   "time_sig": "5/4",
+   "bpm": 55.76
+  },
+  {
+   "bar": 72,
+   "time_sig": "4/4",
+   "bpm": 56.6
+  },
+  {
+   "bar": 73,
+   "time_sig": "5/4",
+   "bpm": 56.82
+  },
+  {
+   "bar": 74,
+   "time_sig": "4/4",
+   "bpm": 56.6
+  },
+  {
+   "bar": 75,
+   "time_sig": "5/4",
+   "bpm": 57.03
+  },
+  {
+   "bar": 76,
+   "time_sig": "4/4",
+   "bpm": 56.87
+  },
+  {
+   "bar": 77,
+   "time_sig": "5/4",
+   "bpm": 57.69
+  },
+  {
+   "bar": 78,
+   "time_sig": "4/4",
+   "bpm": 57.97
+  },
+  {
+   "bar": 79,
+   "time_sig": "5/4",
+   "bpm": 57.03
+  },
+  {
+   "bar": 80,
+   "time_sig": "4/4",
+   "bpm": 57.14
+  },
+  {
+   "bar": 81,
+   "time_sig": "5/4",
+   "bpm": 58.37
+  },
+  {
+   "bar": 82,
+   "time_sig": "4/4",
+   "bpm": 56.87
+  },
+  {
+   "bar": 83,
+   "time_sig": "5/4",
+   "bpm": 57.03
+  },
+  {
+   "bar": 84,
+   "time_sig": "4/4",
+   "bpm": 56.87
+  },
+  {
+   "bar": 85,
+   "time_sig": "5/4",
+   "bpm": 57.92
+  },
+  {
+   "bar": 86,
+   "time_sig": "4/4",
+   "bpm": 57.14
+  },
+  {
+   "bar": 87,
+   "time_sig": "5/4",
+   "bpm": 57.92
+  },
+  {
+   "bar": 88,
+   "time_sig": "4/4",
+   "bpm": 56.6
+  },
+  {
+   "bar": 89,
+   "time_sig": "5/4",
+   "bpm": 56.82
+  },
+  {
+   "bar": 90,
+   "time_sig": "4/4",
+   "bpm": 57.14
+  },
+  {
+   "bar": 91,
+   "time_sig": "5/4",
+   "bpm": 57.69
+  },
+  {
+   "bar": 92,
+   "time_sig": "4/4",
+   "bpm": 57.69
+  },
+  {
+   "bar": 93,
+   "time_sig": "5/4",
+   "bpm": 58.14
+  },
+  {
+   "bar": 94,
+   "time_sig": "4/4",
+   "bpm": 57.69
+  },
+  {
+   "bar": 95,
+   "time_sig": "5/4",
+   "bpm": 57.47
+  },
+  {
+   "bar": 96,
+   "time_sig": "4/4",
+   "bpm": 57.69
+  },
+  {
+   "bar": 97,
+   "time_sig": "5/4",
+   "bpm": 58.37
+  },
+  {
+   "bar": 98,
+   "time_sig": "4/4",
+   "bpm": 56.34
+  },
+  {
+   "bar": 99,
+   "time_sig": "5/4",
+   "bpm": 56.39
+  },
+  {
+   "bar": 100,
+   "time_sig": "4/4",
+   "bpm": 55.05
+  },
+  {
+   "bar": 101,
+   "time_sig": "5/4",
+   "bpm": 57.25
+  },
+  {
+   "bar": 102,
+   "time_sig": "4/4",
+   "bpm": 56.07
+  },
+  {
+   "bar": 103,
+   "time_sig": "5/4",
+   "bpm": 55.35
+  },
+  {
+   "bar": 104,
+   "time_sig": "4/4",
+   "bpm": 55.81
+  },
+  {
+   "bar": 105,
+   "time_sig": "5/4",
+   "bpm": 56.39
+  }
+ ]
+}
