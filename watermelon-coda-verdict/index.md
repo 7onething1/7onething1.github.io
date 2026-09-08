@@ -185,3 +185,26 @@ lower-novelty transient than a bowed ride, so a ride-tuned novelty floor classif
 DECAY_ONLY. The zero-fresh-attack result in GP bars 99 to 103 is a detector mis-calibration
 and it is not evidence of absence. Deferring to the eye, every written cymbal in the Coda
 stands. Images: sys44_chartbars89-90_x8.png and sys45_chartbars91-92_x8.png.
+
+### Correction on glyph naming, and a faulty check of my own
+
+An earlier draft called the circled noteheads "dome strokes" from their shape. That names an
+instrument from a glyph, which this project forbids. What stands is what the chart PRINTS:
+chart bar 89 is headed Coda with "(Gong)", and chart bars 91 to 92 are headed
+"(cymbal on dome)" at p. Those are the transcriber's words. The glyph shapes are recorded as a
+distinct notehead class and left unnamed.
+
+A circled notehead carries more ink than a plain x. It could cross the cut separating toms from
+the ride on the top line. Re-measuring found no top-line head above 180.
+
+That appeared to overturn the 35 top-line toms. The stored ink5 is INVERTED grayscale where
+high means dark, so the cut at 180 means raw 75 or darker. My re-measurement read raw
+grayscale, where a filled head sits at 35 to 69 and can never exceed 180.
+
+The chart read is correct. My check was the faulty one.
+
+Within-document control on the stored scale: the 35 top-line heads run 185.6 to 219.9, median
+201.6. The kick control, a known filled notehead, runs 185.8 to 219.4, median 200.8. The snare
+control is darker at 219.8. X noteheads sit at 104 to 127. The top-line heads carry a filled
+notehead's ink profile, and their identity as a specific drum stays UNRESOLVED per the
+staff-geometry guard.
