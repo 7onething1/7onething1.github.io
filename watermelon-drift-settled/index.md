@@ -97,6 +97,8 @@ AUC 0.894 means a random written crash beats a random ride stroke 89 times in 10
 
 310 additions is **2.95 crashes per bar**, six times the author's 0.49, for nine minutes. No drummer plays that. The floor sits at 1.73x the ride median, so about a tenth of the 1,501 ride strokes clear it alone.
 
+**The 310, read by eye.** Density was the arithmetic reason; the render gives the cause. **148 of them, 48%, sit within 70 ms of a stroke the tab already notates as ride.** They are not missing notes, they are existing notes the detector cannot tell apart from a crash. The written crashes sit on visibly larger events, and the guitar stem visibly crosses the 0.157 floor around bars 78-80.
+
 **Nothing was added.** Queued as `q-2026-09-08-f370c3`. It could not be done now because both available features stop short: decay separates at AUC 0.606, and peak energy confirms known crashes while returning an impossible density. Unblocking needs a lane outside this stem set, meaning `other_kit`, an inter-channel pan test, or a cleaner separation, held to 2.5x over a guitar control *and* a density inside the author's own range.
 
 ## 6. The video sync points, and a defect claim I withdrew

@@ -179,6 +179,14 @@ a{color:#0d6f88;font-weight:600}
 <tr class="bad"><td>Peak energy, author-calibrated floor</td><td class="num">310</td><td class="num">89</td><td class="num">3.48x</td><td>passes the null, fails on density</td></tr>
 </table></div>
 <p>The second detector clears its control comfortably and still cannot ship. 310 additions across 105 bars is <b>2.95 crashes per bar</b>, six times the author's own 0.49, sustained for nine minutes. No drummer plays that. The floor sits at only 1.73x the ride median, so roughly a tenth of the 1,501 ride strokes clear it by themselves.</p>
+<h3>The 310, read by eye</h3>
+<p>Density was the arithmetic reason. Rendering the 310 marks against the tab's own ride notation gives the cause. <b>148 of them, 48%, sit within 70 ms of a stroke the tab already notates as ride.</b> They are not missing notes. They are existing notes the detector cannot tell apart from a crash, and the rest land on the same rise-and-decay sawtooth. The written crashes sit on visibly larger events, which is the 0.894 AUC seen rather than computed, and the guitar stem visibly crosses the 0.157 floor around bars 78 to 80.</p>
+<div class="scroll"><table>
+<tr><th>Reading</th><th class="num">Value</th></tr>
+<tr class="bad"><td>Candidates coinciding with a written ride stroke</td><td class="num">148 of 310, 48%</td></tr>
+<tr><td>Density if all 310 were written</td><td class="num">2.95 per bar against 0.49</td></tr>
+<tr><td>Guitar excursions above the floor</td><td class="num">visible, bars 78-80</td></tr>
+</table></div>
 <p><b>Nothing was added.</b> Writing either set would repeat the pass that put 599 toms into this ballad on 2026-09-07. The blocker is the separation: the lead guitar stem, which contains no cymbals at all, still fires 82 and 89 times under these floors, so the Moises cymbal stem carries guitar bleed at crash amplitude.</p>
 <p>Queued as <code>q-2026-09-08-f370c3</code>. It could not be done in this session because both available features stop short: decay separates at AUC 0.606, and peak energy separates well enough to confirm known crashes while returning a density no human plays. Unblocking needs a lane that is not in this stem set, meaning the <code>other_kit</code> stem, an inter-channel pan test, or a cleaner separation, held to 2.5x over a guitar control <em>and</em> a per-bar density inside the author's own range.</p>
 
