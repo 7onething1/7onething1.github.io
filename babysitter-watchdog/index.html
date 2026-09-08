@@ -32,9 +32,9 @@ footer{margin-top:38px;color:var(--dim);font-size:12.5px;border-top:1px solid va
 
 <h2>Live heartbeats</h2>
 <div class="hb">
-  <div class="card"><div class="lbl">babysitter</div><div class="big ok">0.6 min</div><div class="lbl">5 min interval</div></div>
-  <div class="card"><div class="lbl">watchdog</div><div class="big ok">0.2 min</div><div class="lbl">15 min interval</div></div>
-  <div class="card"><div class="lbl">alarms standing</div><div class="big ok">none</div><div class="lbl">last watchdog pass</div></div>
+  <div class="card"><div class="lbl">babysitter</div><div class="big" id="hb-baby">--</div><div class="lbl">5 min interval</div></div>
+  <div class="card"><div class="lbl">watchdog</div><div class="big" id="hb-watch">--</div><div class="lbl">15 min interval</div></div>
+  <div class="card"><div class="lbl">this page</div><div class="big" id="hb-page">--</div><div class="lbl">rebuilt each sweep</div></div>
   <div class="card"><div class="lbl">muted streak</div><div class="big ok">0</div><div class="lbl">fires at 24</div></div>
 </div>
 
@@ -85,3 +85,25 @@ Generated 2026-09-07 21:18 from <code>babysit_daemon.log</code> (2026-09-04 17:5
 Sources: <code>~/.claude/skills/babysit-chats/babysit_watchdog.py</code>, <code>alert_emit.py</code>, <code>babysit_daemon.sh</code>
 </footer>
 </div>
+
+<script>
+// Ages are computed WHEN YOU LOOK, never baked in at build time. A liveness panel
+// that prints a build-time delta shows a healthy heartbeat on a dead machine,
+// which is the exact failure this page documents.
+var HB = {"baby": "2026-09-07T21:20:20.691895-05:00", "watch": "2026-09-07T21:18:44.352507-05:00", "built": "2026-09-07T21:23:53.091475-05:00"};
+function fmt(iso, warn, dead){
+  if(!iso) return ['MISSING','bad'];
+  var m = (Date.now() - new Date(iso).getTime())/60000;
+  var s = m < 90 ? m.toFixed(1)+' min' : (m/60).toFixed(1)+' hr';
+  return [s, m > dead ? 'bad' : (m > warn ? 'warn' : 'ok')];
+}
+function paint(){
+  var rows = [['hb-baby',HB.baby,13,30],['hb-watch',HB.watch,40,90],['hb-page',HB.built,45,180]];
+  rows.forEach(function(r){
+    var el = document.getElementById(r[0]); if(!el) return;
+    var v = fmt(r[1], r[2], r[3]);
+    el.textContent = v[0]; el.className = 'big ' + v[1];
+  });
+}
+paint(); setInterval(paint, 30000);
+</script>
