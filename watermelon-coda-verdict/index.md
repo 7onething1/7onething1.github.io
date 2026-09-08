@@ -4,6 +4,22 @@ Frank Zappa, Joe's Garage Act III. Songsterr s35881, drum track, Vinnie Colaiuta
 Twenty-nine tom events were handed from the chart read to the stem session on 2026-09-08.
 This page gives every one of them a status. Nothing was uploaded.
 
+
+## RESOLUTION CEILING, limiting every chart reading here
+
+The Drumnet scan is 5.0 px per staff space. Per-head drum identity needs 6 px and a notehead
+COUNT needs 15 px. Magnifying to 8x adds no information. NO notehead observation from these
+images is reportable as a finding, presence included, so every notehead statement drawn from
+them is withdrawn.
+
+What the scan DOES support is the non-notehead layer: rehearsal marks, printed bar numbers,
+time signatures, dynamics, passage text and the fermata. Those are symbols and words rather
+than heads on a lane. The withdrawal of the "refuted by silence" verdict for GP 103 and 104
+rests on the fermata and the dynamic markings, so it survives this ceiling intact.
+
+Verdicts rest on the stem measurements and their controls. The chart supplies the bar grid and
+the passage markings, and it carries no head count here.
+
 ## The question this page closes
 
 The chart read produced 179 tom noteheads and handed 29 of them over for testing. The stem
