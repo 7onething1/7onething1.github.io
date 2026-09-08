@@ -1,0 +1,81 @@
+<title>Zappa Ghost Match Audit</title>
+<style>
+:root{--bg:#f4ece0;--card:#fffaf2;--ink:#2f2a25;--dim:#7b6f62;--rule:#e0d3c0;
+--red:#b0413e;--amber:#d99a2b;--green:#5f7a4f;}
+@media (prefers-color-scheme:dark){:root:not([data-theme="light"]){--bg:#211d1a;--card:#2b2621;--ink:#f0e7da;--dim:#a99b8a;--rule:#3d362f;}}
+:root[data-theme="dark"]{--bg:#211d1a;--card:#2b2621;--ink:#f0e7da;--dim:#a99b8a;--rule:#3d362f;}
+*{box-sizing:border-box}
+body{background:var(--bg);color:var(--ink);font:15px/1.62 -apple-system,BlinkMacSystemFont,"Helvetica Neue",Arial,sans-serif;margin:0;padding:26px 18px 60px}
+.wrap{max-width:1000px;margin:0 auto}
+h1{font-size:27px;letter-spacing:-.4px;margin:0 0 4px}
+.sub{color:var(--dim);margin:0 0 24px;font-size:14px}
+h2{font-size:17px;margin:32px 0 12px;padding-bottom:7px;border-bottom:2px solid var(--rule)}
+.card{background:var(--card);border:1px solid var(--rule);border-radius:9px;padding:16px 18px;margin:0 0 14px}
+.kpi{display:flex;gap:12px;flex-wrap:wrap;margin-bottom:8px}
+.kpi .card{flex:1 1 170px;margin:0}
+.big{font-size:31px;font-weight:600;letter-spacing:-1px}
+.lbl{color:var(--dim);font-size:12px;text-transform:uppercase;letter-spacing:.7px}
+.ok{color:var(--green)}.bad{color:var(--red)}.warn{color:var(--amber)}
+table{width:100%;border-collapse:collapse;font-size:13.5px}
+th,td{text-align:left;padding:7px 9px;border-bottom:1px solid var(--rule);vertical-align:top}
+th{color:var(--dim);font-size:11.5px;text-transform:uppercase;letter-spacing:.6px}
+code{background:var(--bg);border:1px solid var(--rule);border-radius:4px;padding:1px 5px;font-size:12px}
+.scroll{overflow-x:auto}
+.note{border-left:4px solid var(--amber);padding-left:14px;color:var(--dim);font-size:14px}
+footer{margin-top:34px;color:var(--dim);font-size:12.5px;border-top:1px solid var(--rule);padding-top:14px}
+</style>
+<div class="wrap">
+<h1>Zappa Ghost Match Audit</h1>
+<p class="sub">Do the published tabs carry the ghost flags the restores were meant to put back. Read live from the Songsterr API on 2026-09-07 23:38, every part of every song.</p>
+
+<div class="kpi">
+ <div class="card"><div class="lbl">songs measured</div><div class="big">23</div><div class="lbl">of 34 ids in the program</div></div>
+ <div class="card"><div class="lbl">expected counts present</div><div class="big ok">20</div><div class="lbl">every expected part found</div></div>
+ <div class="card"><div class="lbl">measurably short</div><div class="big bad">3</div><div class="lbl">queued, not closed</div></div>
+</div>
+
+<h2>Every song, expected against live</h2>
+<div class="card scroll"><table>
+<tr><th>ID</th><th>Title</th><th>Expected</th><th>Live ghosts, per part</th><th>Result</th><th>Why, and the queue id</th></tr>
+<tr><td><a href="https://www.songsterr.com/a/wa/song?id=68246">s68246</a></td><td>Alien Orifice</td><td><code>86</code></td><td><code>1,6,0,0,2,0,2,0,0,86</code></td><td class="ok"><strong>match</strong></td><td></td></tr>
+<tr><td><a href="https://www.songsterr.com/a/wa/song?id=21495">s21495</a></td><td>Andy</td><td><code>1</code></td><td><code>0,0,0,0,0,0,0,4,1</code></td><td class="ok"><strong>match</strong></td><td></td></tr>
+<tr><td><a href="https://www.songsterr.com/a/wa/song?id=59089">s59089</a></td><td>Black Napkins</td><td><code>1</code></td><td><code>24,0,0,0,1</code></td><td class="ok"><strong>match</strong></td><td></td></tr>
+<tr><td><a href="https://www.songsterr.com/a/wa/song?id=68248">s68248</a></td><td>Carolina Hard-Core Ecstasy</td><td><code>144</code></td><td><code>0,0,0,0,144,0,0,0,0</code></td><td class="ok"><strong>match</strong></td><td></td></tr>
+<tr><td><a href="https://www.songsterr.com/a/wa/song?id=749523">s749523</a></td><td>Catholic Girls</td><td><code>16</code></td><td><code>0,16,0,0,0,0,0,0,0</code></td><td class="ok"><strong>match</strong></td><td></td></tr>
+<tr><td><a href="https://www.songsterr.com/a/wa/song?id=620961">s620961</a></td><td>Drowning Witch</td><td><code>419</code></td><td><code>0,27,3,1,15,1,0,2,0,3,0,0,21,0,4,419</code></td><td class="ok"><strong>match</strong></td><td></td></tr>
+<tr><td><a href="https://www.songsterr.com/a/wa/song?id=748459">s748459</a></td><td>Fembot In A Wet T-Shirt</td><td><code>57</code></td><td><code>2,0,0,0,0,0,0,0,57</code></td><td class="ok"><strong>match</strong></td><td></td></tr>
+<tr><td><a href="https://www.songsterr.com/a/wa/song?id=412178">s412178</a></td><td>Inca Roads</td><td><code>165</code></td><td><code>6,0,0,0,0,0,0,0,0,3,0,0</code></td><td class="bad"><strong>SHORT</strong></td><td>restore r8907511 submitted 09-05 is not live; live is still the stripping r8769026 <code>q-2026-09-07-790fb8</code></td></tr>
+<tr><td><a href="https://www.songsterr.com/a/wa/song?id=604777">s604777</a></td><td>Keep It Greasey</td><td><code>629</code></td><td><code>0,0,0,0,0,0,0,0,629</code></td><td class="ok"><strong>match</strong></td><td></td></tr>
+<tr><td><a href="https://www.songsterr.com/a/wa/song?id=35870">s35870</a></td><td>Montana</td><td><code>212,105</code></td><td><code>24,62,16,112,0,6,0,0,0,0,23,0,0,7,7,212,0,105</code></td><td class="ok"><strong>match</strong></td><td></td></tr>
+<tr><td><a href="https://www.songsterr.com/a/wa/song?id=35886">s35886</a></td><td>Muffin Man</td><td><code>578</code></td><td><code>27,8,0,0,578</code></td><td class="ok"><strong>match</strong></td><td></td></tr>
+<tr><td><a href="https://www.songsterr.com/a/wa/song?id=35865">s35865</a></td><td>Nanook Rubs It</td><td><code>168</code></td><td><code>0,0,0,0,0,0,0,0,168</code></td><td class="ok"><strong>match</strong></td><td></td></tr>
+<tr><td><a href="https://www.songsterr.com/a/wa/song?id=35878">s35878</a></td><td>Nanook Suite</td><td><code>168</code></td><td><code>0,0,0,0,0,0,0,0,0,3,168</code></td><td class="ok"><strong>match</strong></td><td></td></tr>
+<tr><td><a href="https://www.songsterr.com/a/wa/song?id=35884">s35884</a></td><td>Oh No</td><td><code>141</code></td><td><code>0,0,0,0,0,141</code></td><td class="ok"><strong>match</strong></td><td></td></tr>
+<tr><td><a href="https://www.songsterr.com/a/wa/song?id=35875">s35875</a></td><td>Packard Goose</td><td><code>3</code></td><td><code>0,0,0,0,0,0,3,0</code></td><td class="ok"><strong>match</strong></td><td></td></tr>
+<tr><td><a href="https://www.songsterr.com/a/wa/song?id=35889">s35889</a></td><td>Peaches En Regalia</td><td><code>14</code></td><td><code>1,0,0,0,0,0,0,0,0,14,0</code></td><td class="ok"><strong>match</strong></td><td></td></tr>
+<tr><td><a href="https://www.songsterr.com/a/wa/song?id=1105085">s1105085</a></td><td>The Black Page</td><td><code>173</code></td><td><code>0,0,0,173</code></td><td class="ok"><strong>match</strong></td><td></td></tr>
+<tr><td><a href="https://www.songsterr.com/a/wa/song?id=412170">s412170</a></td><td>Trouble Every Day (Live)</td><td><code>9</code></td><td><code>0,0,0,0,3,0</code></td><td class="bad"><strong>SHORT</strong></td><td>restore r8932027 submitted 09-06 is not live; live r8815000 is moderator Kirill's <code>q-2026-09-07-4e796f</code></td></tr>
+<tr><td><a href="https://www.songsterr.com/a/wa/song?id=20690">s20690</a></td><td>Uncle Meat (YCDTOSA Vol. 2)</td><td><code>24</code></td><td><code>0,0,0,30,0,30,0,0,0,0,24</code></td><td class="ok"><strong>match</strong></td><td></td></tr>
+<tr><td><a href="https://www.songsterr.com/a/wa/song?id=35881">s35881</a></td><td>Watermelon In Easter Hay</td><td><code>1317</code></td><td><code>16,0,0,0,0,0,0,0,1317</code></td><td class="ok"><strong>match</strong></td><td></td></tr>
+<tr><td><a href="https://www.songsterr.com/a/wa/song?id=35887">s35887</a></td><td>What's New In Baltimore?</td><td><code>59</code></td><td><code>0,0,0,0,0,0,59</code></td><td class="ok"><strong>match</strong></td><td></td></tr>
+<tr><td><a href="https://www.songsterr.com/a/wa/song?id=412162">s412162</a></td><td>Zomby Woof</td><td><code>32</code></td><td><code>0,0,0,0,0,0,0,0,0,10</code></td><td class="bad"><strong>SHORT</strong></td><td>moderator Nikita's r8918601 is live, reverted all but the drum notation <code>q-2026-09-07-abbb9a</code></td></tr>
+<tr><td><a href="https://www.songsterr.com/a/wa/song?id=35883">s35883</a></td><td>Zoot Allures</td><td><code>53</code></td><td><code>0,0,0,0,53</code></td><td class="ok"><strong>match</strong></td><td></td></tr>
+</table></div>
+
+<h2>What the number means, and what it does not</h2>
+<div class="card">
+<p><strong>The test is presence, not identity.</strong> A song passes when some part carries exactly the expected ghost count. Live track names come back as empty strings from the API, so the drum staff cannot be named, only inferred. A part matching by coincidence is possible and unlikely at these values, and it is the honest limit of this measurement.</p>
+<p class="note">Three yardsticks were wrong before this one. Summing ghosts across all parts scored Watermelon 1,333 against an expectation of 1,317 and called it short, when the extra 16 sit on other staves and always did. Taking the largest part scored Black Napkins 24 against an expectation of 1, picking a guitar staff over the drum staff. Montana's 317 was two parts, 212 and 105, summed into one number. Each of those would have reported a healthy tab as damaged.</p>
+</div>
+
+<h2>The three that do not match</h2>
+<div class="card">
+<p><strong>s412178 Inca Roads.</strong> The restore r8907511 went in on 09-05 and is not live. The published revision is still <code>r8769026</code>, my own stripping edit, and no part carries the 165 flags.</p>
+<p><strong>s412170 Trouble Every Day (Live).</strong> The restore r8932027 went in on 09-06 and is not live. The published revision <code>r8815000</code> belongs to moderator Kirill and carries 3 of the 9.</p>
+<p><strong>s412162 Zomby Woof.</strong> A moderator published <code>r8918601</code> on 09-06 that reverted all changes except the drum notation. It carries 10 of the 32. This one is a moderator decision rather than a queue delay.</p>
+</div>
+
+<footer>
+Read live from <code>songsterr.com/api/meta</code> plus the CloudFront part JSON, 208 part fetches across 23 songs, on 2026-09-07 23:38. Expectations come from <code>zappa-repair-state/ghost_sweep.json</code>, whose own stored verdict column was stale and is not used here.
+</footer>
+</div>
