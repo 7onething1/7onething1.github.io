@@ -158,15 +158,27 @@ a{color:#0d6f88;font-weight:600}
 <p><b>Nothing was added.</b> Writing either set would repeat the pass that put 599 toms into this ballad on 2026-09-07. The blocker is the separation: the lead guitar stem, which contains no cymbals at all, still fires 82 and 89 times under these floors, so the Moises cymbal stem carries guitar bleed at crash amplitude.</p>
 <p>Queued as <code>q-2026-09-08-f370c3</code>. It could not be done in this session because both available features stop short: decay separates at AUC 0.606, and peak energy separates well enough to confirm known crashes while returning a density no human plays. Unblocking needs a lane that is not in this stem set, meaning the <code>other_kit</code> stem, an inter-channel pan test, or a cleaner separation, held to 2.5x over a guitar control <em>and</em> a per-bar density inside the author's own range.</p>
 
-<h2><span class="n" style="background:var(--sun)">6</span>One drift source is left, and it is not in the file</h2>
-<p>Songsterr syncs this tab to twelve videos, each carrying its own per-measure timestamps. The primary target, the one the player picks by default, is short one point.</p>
+<h2><span class="n" style="background:var(--sun)">6</span>The video sync points: one bar is wrong, and the route to fix it exists</h2>
+<div class="callout red">
+ <h3>Two corrections to my own first pass</h3>
+ <p><b>One.</b> I first measured each video's sync points by anchoring on <code>point[0]</code> and reported the primary at 0.94 s worst, 0.80 s rms. <b>Bar 1 is itself the outlier</b>, so anchoring there smeared its error across all 105 residuals. Re-anchored on the body median, bars 10 to 100, the picture inverts.</p>
+ <p style="margin-bottom:0"><b>Two.</b> I called these points "not reachable by upload" without looking for a second route. A stop gate refused that, correctly. The route exists and is named below.</p>
+</div>
 <div class="scroll"><table>
-<tr><th>Video</th><th>Feature</th><th class="num">Sync points</th><th class="num">Shape error vs the fitted grid</th></tr>
-<tr class="bad"><td>XACocSRTFJY, Frank Zappa - Topic</td><td>primary</td><td class="num">105</td><td class="num">0.94 s</td></tr>
-<tr><td>Fn9ZuGquwpQ, H9dE-EcH58A, _3cu8sDa90Y</td><td>alternative</td><td class="num">106</td><td class="num">0.80 s</td></tr>
-<tr><td>The other eight, including an 8-bit cover and three backing tracks</td><td>alternative, backing, solo</td><td class="num">106</td><td class="num">12.97 s</td></tr>
+<tr><th>Metric, primary video XACocSRTFJY</th><th class="num">Anchored at point[0]</th><th class="num">Body-anchored</th></tr>
+<tr><td>Worst absolute error</td><td class="num">0.94 s</td><td class="num">0.81 s, only at bar 1</td></tr>
+<tr><td>Root mean square error</td><td class="num">0.80 s</td><td class="num"><b>0.09 s</b></td></tr>
+<tr class="good"><td>Median error after bar 6</td><td class="num">not computed</td><td class="num"><b>0.028 s</b></td></tr>
+<tr class="good"><td>Bars off by more than 1 s</td><td class="num">not computed</td><td class="num"><b>0 of 105</b></td></tr>
 </table></div>
-<p>105 measures need 106 boundaries. The primary has 105, so the final barline carries no end anchor. This lives in Songsterr's sync data rather than in the Guitar Pro file, so no upload reaches it and it needs the video-sync interface. Queued as <code>q-2026-09-08-3a0c92</code>. The eight far-off videos are genuinely different audio, so their numbers are correct for what they are.</p>
+<p>Confirmed a second way. Tab bar 1 sits at 36.870 s in the 9:05 master, so <b>13.528 s</b> in the 8:42 edit after the measured 23.3417 s head cut. The primary's own bar-1 point reads <b>12.710 s</b>, which is <b>0.818 s early</b> and matches the &minus;0.81 s body-anchored residual. That video also carries 105 points where all eleven others carry 106, so the final barline has no end anchor.</p>
+<div class="callout aqua">
+ <h3>What this means for the tempo fix</h3>
+ <p style="margin-bottom:0">For <b>video-synced</b> playback the per-measure points already carry the timing to about 30 ms, so <code>r8973454</code> changes little across the body. It fixes Songsterr's own MIDI playback and the within-bar interpolation. The audible mismatch that remains against video is concentrated in the opening bar. A peer session working the same tab reached this shape independently, reporting the error at the opening rather than spread through the song.</p>
+</div>
+<h3>The route, found rather than assumed</h3>
+<p>Scanning the five page bundles, 2,693,991 characters: <code>videoSync</code> appears 31 times, <code>video/sync</code> twice, and the code carries <code>POST /api/video-points/process</code> taking <code>{autoSyncRequestId}</code>, an event <code>video/syncPointsPublished</code> carrying <code>{songId, revisionId}</code>, and the editor command <b><code>commands/editor:pointsReplace</code></b>. <code>OPTIONS</code> on the read endpoint answers 404 and <code>GET</code> answers 200, so the write path is the editor command rather than a REST verb on that URL, which is the same class of route that made the Guitar Pro import work.</p>
+<p>Not fired here. Replacing published sync data is an outward-facing change and wants a verified point set built first, and only one point needs correcting. Queued as <code>q-2026-09-08-52e2f0</code> with the route and the target value recorded.</p>
 
 <h2><span class="n" style="background:var(--aqua)">7</span>Reinstated, with evidence this time</h2>
 <p>An earlier session recorded a 23.3 second duration gap and explained it with an invented lead-in, and the explanation was withdrawn for being invented. The gap is now measured at 23.34 s with a 3.9 ms standard deviation, and Brandon's own sources name the Central Scrutinizer intro as its content. The finding returns on measurement rather than on the story that first accompanied it.</p>

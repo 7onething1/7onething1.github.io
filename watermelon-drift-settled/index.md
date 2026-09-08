@@ -71,15 +71,24 @@ AUC 0.894 means a random written crash beats a random ride stroke 89 times in 10
 
 **Nothing was added.** Queued as `q-2026-09-08-f370c3`. It could not be done now because both available features stop short: decay separates at AUC 0.606, and peak energy confirms known crashes while returning an impossible density. Unblocking needs a lane outside this stem set, meaning `other_kit`, an inter-channel pan test, or a cleaner separation, held to 2.5x over a guitar control *and* a density inside the author's own range.
 
-## 6. One drift source remains, outside the file
+## 6. The video sync points: one bar is wrong, and the route exists
 
-| Video | Feature | Sync points | Shape error |
-|---|---|---|---|
-| XACocSRTFJY | primary | 105 | 0.94 s |
-| Fn9ZuGquwpQ, H9dE-EcH58A, _3cu8sDa90Y | alternative | 106 | 0.80 s |
-| The other eight | alternative, backing, solo | 106 | 12.97 s |
+**Two corrections to my own first pass.** I measured each video's points by anchoring on `point[0]` and reported 0.94 s worst, 0.80 s rms. **Bar 1 is itself the outlier**, so anchoring there smeared its error across all 105 residuals. And I called the points "not reachable by upload" without looking for a second route; a stop gate refused that, correctly.
 
-105 measures need 106 boundaries. The primary has 105, so the last barline has no end anchor. Songsterr holds this in its sync data rather than in the file, so no upload reaches it. Queued as `q-2026-09-08-3a0c92`. The eight far-off videos are different audio, including an 8-bit cover, so their numbers are correct for what they are.
+| Metric, primary video XACocSRTFJY | Anchored at point[0] | Body-anchored |
+|---|---|---|
+| Worst absolute error | 0.94 s | 0.81 s, only at bar 1 |
+| Root mean square | 0.80 s | **0.09 s** |
+| Median error after bar 6 | not computed | **0.028 s** |
+| Bars off by more than 1 s | not computed | **0 of 105** |
+
+Confirmed a second way: tab bar 1 sits at 36.870 s in the 9:05 master, so **13.528 s** in the 8:42 edit. The primary's bar-1 point reads **12.710 s**, which is **0.818 s early**, matching the -0.81 s residual. That video carries 105 points where all eleven others carry 106.
+
+**What this means for the tempo fix:** for video-synced playback the per-measure points already carry timing to about 30 ms, so `r8973454` changes little across the body. It fixes Songsterr's own MIDI playback and within-bar interpolation. The remaining audible mismatch against video is the opening bar.
+
+**The route, found rather than assumed.** Across the five page bundles, 2,693,991 characters: `videoSync` 31 times, `video/sync` twice, `POST /api/video-points/process` taking `{autoSyncRequestId}`, event `video/syncPointsPublished` carrying `{songId, revisionId}`, and the editor command **`commands/editor:pointsReplace`**. `OPTIONS` on the read endpoint is 404 and `GET` is 200, so the write path is the editor command, the same class of route that made the Guitar Pro import work.
+
+Not fired here, because replacing published sync data is outward-facing and wants a verified point set first, and only one point needs correcting. Queued as `q-2026-09-08-52e2f0`.
 
 ## 7. Reinstated with evidence
 
