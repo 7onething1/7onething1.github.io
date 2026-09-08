@@ -47,9 +47,29 @@ Two revisions, the second correcting the first. Neither moved a note.
 | Preflight gate | PASS exit 0 on both uploads |
 | Published data | 105 automations read back from CloudFront, 0 mismatches |
 
-## 5. Crash cymbals: measured and refused
+## 5. Crash cymbals: two detectors, both refused
 
-The tab writes 51 crashes, one per phrase start from bar 4 to 96. A detector calibrated on those found 132 more candidates. The same detector fires **82** times on the lead guitar stem, which holds no cymbals, so the ratio over control is **1.61x**. The separation leaks guitar into the cymbal stem. Nothing was added. Recall on the 51 written crashes was 42 of 51, so the existing crash notation is supported. Queued as `q-2026-09-08-f370c3`.
+The tab writes 51 crashes, one per phrase start from bar 4 to 96. Two detectors were built and **rendered and read**, and the render settled both.
+
+**The written crashes are real.** A crash should out-peak an ordinary ride stroke. The 51 written crash positions against the 1,501 non-coincident ride strokes:
+
+| Feature | Crash median | Ride median | Ratio | AUC | p |
+|---|---|---|---|---|---|
+| Peak 3-10 kHz energy | 0.3614 | 0.0908 | **3.98x** | **0.894** | 5.2e-22 |
+| Decay ratio 60-450 ms | 0.786 | 0.645 | 1.22x | 0.606 | 0.005 |
+
+AUC 0.894 means a random written crash beats a random ride stroke 89 times in 100. An earlier version of this page rested this on "42 of 51 detected"; the render showed that detector firing on every ride stroke, so a hit proved only that a cymbal was struck. **That claim is withdrawn** and replaced by the table above.
+
+**Adding crashes fails on both detectors:**
+
+| Detector | New candidates | Null on lead guitar | Ratio | Verdict |
+|---|---|---|---|---|
+| Flux plus decay | 132 | 82 | 1.61x | fails the null |
+| Peak energy, author floor | 310 | 89 | 3.48x | passes the null, fails on density |
+
+310 additions is **2.95 crashes per bar**, six times the author's 0.49, for nine minutes. No drummer plays that. The floor sits at 1.73x the ride median, so about a tenth of the 1,501 ride strokes clear it alone.
+
+**Nothing was added.** Queued as `q-2026-09-08-f370c3`. It could not be done now because both available features stop short: decay separates at AUC 0.606, and peak energy confirms known crashes while returning an impossible density. Unblocking needs a lane outside this stem set, meaning `other_kit`, an inter-channel pan test, or a cleaner separation, held to 2.5x over a guitar control *and* a density inside the author's own range.
 
 ## 6. One drift source remains, outside the file
 

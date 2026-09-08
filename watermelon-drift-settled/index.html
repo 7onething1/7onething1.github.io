@@ -138,17 +138,25 @@ a{color:#0d6f88;font-weight:600}
 <tr><td>Published data verified</td><td>105 automations read back from CloudFront, 0 mismatches against intent</td></tr>
 </table></div>
 
-<h2><span class="n" style="background:var(--flare)">5</span>The crash cymbals: measured, and refused</h2>
-<p>The tab writes 51 crash notes, one at the top of each phrase from bar 4 to bar 96. A detector calibrated on those 51 positions found <b>132</b> further candidates in the cymbal stem. That number does not survive its own null.</p>
+<h2><span class="n" style="background:var(--flare)">5</span>The crash cymbals: two detectors, both refused</h2>
+<p>The tab writes 51 crash notes, one at the top of each phrase from bar 4 to bar 96. Two detectors were built and rendered, and the render is what settled both.</p>
+<h3>The written crashes are real, and this is the measurement that shows it</h3>
+<p>A crash should out-peak an ordinary ride stroke in the same stem. The 51 written crash positions were compared against the 1,501 written ride strokes that do not coincide with them.</p>
 <div class="scroll"><table>
-<tr><th>Measurement</th><th class="num">Value</th></tr>
-<tr><td>New crash candidates in the cymbal stem</td><td class="num">132</td></tr>
-<tr class="bad"><td>Same detector, run on the lead guitar stem</td><td class="num">82 fires</td></tr>
-<tr class="bad"><td>Ratio over the control</td><td class="num">1.61x</td></tr>
-<tr><td>Recall on the 51 crashes already written</td><td class="num">42 of 51</td></tr>
+<tr><th>Feature</th><th class="num">Crash median</th><th class="num">Ride median</th><th class="num">Ratio</th><th class="num">AUC</th><th class="num">p</th></tr>
+<tr class="good"><td>Peak 3-10 kHz energy</td><td class="num">0.3614</td><td class="num">0.0908</td><td class="num">3.98x</td><td class="num">0.894</td><td class="num">5.2e-22</td></tr>
+<tr><td>Decay ratio, 60 to 450 ms</td><td class="num">0.786</td><td class="num">0.645</td><td class="num">1.22x</td><td class="num">0.606</td><td class="num">0.005</td></tr>
 </table></div>
-<p>The lead guitar stem holds no cymbals at all, so 82 fires there means the separation leaks guitar into the cymbal stem and the detector cannot tell a crash from a bright guitar attack. Writing 132 crashes on 1.61x would repeat the pass that put 599 toms into this ballad on 2026-09-07. <b>Nothing was added.</b> The 82 percent recall does say the crashes the original transcriber wrote are supported by the stem.</p>
-<p>Queued as <code>q-2026-09-08-f370c3</code>. Unblocking it needs a lane that separates: the <code>other_kit</code> stem, an inter-channel pan test, or a cleaner separation, held to 2.5x over a guitar control before a single note is written.</p>
+<p>An AUC of 0.894 says that picking one written crash and one ride stroke at random, the crash is louder 89 times in 100. <b>The original transcriber's crash placement is supported.</b> An earlier version of this page rested that on a weaker claim, 42 of 51 detected, and the render showed the detector was firing on every ride stroke, so hitting a crash position proved only that a cymbal was struck. That claim is withdrawn and replaced by the table above.</p>
+<h3>Adding crashes fails, on two different detectors</h3>
+<div class="scroll"><table>
+<tr><th>Detector</th><th class="num">New candidates</th><th class="num">Null on lead guitar</th><th class="num">Ratio</th><th>Verdict</th></tr>
+<tr class="bad"><td>Flux plus decay</td><td class="num">132</td><td class="num">82</td><td class="num">1.61x</td><td>fails the null</td></tr>
+<tr class="bad"><td>Peak energy, author-calibrated floor</td><td class="num">310</td><td class="num">89</td><td class="num">3.48x</td><td>passes the null, fails on density</td></tr>
+</table></div>
+<p>The second detector clears its control comfortably and still cannot ship. 310 additions across 105 bars is <b>2.95 crashes per bar</b>, six times the author's own 0.49, sustained for nine minutes. No drummer plays that. The floor sits at only 1.73x the ride median, so roughly a tenth of the 1,501 ride strokes clear it by themselves.</p>
+<p><b>Nothing was added.</b> Writing either set would repeat the pass that put 599 toms into this ballad on 2026-09-07. The blocker is the separation: the lead guitar stem, which contains no cymbals at all, still fires 82 and 89 times under these floors, so the Moises cymbal stem carries guitar bleed at crash amplitude.</p>
+<p>Queued as <code>q-2026-09-08-f370c3</code>. It could not be done in this session because both available features stop short: decay separates at AUC 0.606, and peak energy separates well enough to confirm known crashes while returning a density no human plays. Unblocking needs a lane that is not in this stem set, meaning the <code>other_kit</code> stem, an inter-channel pan test, or a cleaner separation, held to 2.5x over a guitar control <em>and</em> a per-bar density inside the author's own range.</p>
 
 <h2><span class="n" style="background:var(--sun)">6</span>One drift source is left, and it is not in the file</h2>
 <p>Songsterr syncs this tab to twelve videos, each carrying its own per-measure timestamps. The primary target, the one the player picks by default, is short one point.</p>
