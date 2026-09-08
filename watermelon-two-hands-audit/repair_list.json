@@ -1,0 +1,910 @@
+[
+ {
+  "index": 13,
+  "display": 14,
+  "meter": "4/4",
+  "total16": 16,
+  "cym_hits": 15,
+  "cym_rests": 0,
+  "tom_count": 4,
+  "tom_slots": [
+   4.25,
+   4.75,
+   5.0,
+   5.5
+  ],
+  "tom_drums": [
+   "HighFloorTom"
+  ],
+  "collisions": [
+   4.0,
+   5.0,
+   6.0
+  ],
+  "sub16": [
+   [
+    4.25,
+    0.5,
+    [
+     "HighFloorTom"
+    ]
+   ],
+   [
+    4.75,
+    0.25,
+    [
+     "HighFloorTom"
+    ]
+   ],
+   [
+    5.0,
+    0.5,
+    [
+     "HighFloorTom"
+    ]
+   ]
+  ],
+  "fix": "open 3 cymbal 16ths at [4.0, 5.0, 6.0]"
+ },
+ {
+  "index": 14,
+  "display": 15,
+  "meter": "5/4",
+  "total16": 20,
+  "cym_hits": 20,
+  "cym_rests": 0,
+  "tom_count": 6,
+  "tom_slots": [
+   15.75,
+   16.5,
+   16.75,
+   17.75,
+   18.75,
+   19.0
+  ],
+  "tom_drums": [
+   "HighFloorTom",
+   "HighTom"
+  ],
+  "collisions": [
+   16.0,
+   17.0,
+   18.0,
+   19.0
+  ],
+  "sub16": [
+   [
+    15.75,
+    0.25,
+    [
+     "HighFloorTom"
+    ]
+   ],
+   [
+    16.5,
+    0.25,
+    [
+     "HighFloorTom"
+    ]
+   ],
+   [
+    18.75,
+    0.25,
+    [
+     "HighTom"
+    ]
+   ],
+   [
+    19.0,
+    0.75,
+    [
+     "HighTom"
+    ]
+   ]
+  ],
+  "fix": "open 4 cymbal 16ths at [16.0, 17.0, 18.0, 19.0]"
+ },
+ {
+  "index": 20,
+  "display": 21,
+  "meter": "5/4",
+  "total16": 20,
+  "cym_hits": 20,
+  "cym_rests": 0,
+  "tom_count": 4,
+  "tom_slots": [
+   16.0,
+   18.0,
+   18.75,
+   19.25
+  ],
+  "tom_drums": [
+   "HiMidTom",
+   "HighTom"
+  ],
+  "collisions": [
+   16.0,
+   18.0,
+   19.0
+  ],
+  "sub16": [
+   [
+    18.0,
+    0.75,
+    [
+     "HiMidTom"
+    ]
+   ],
+   [
+    18.75,
+    0.5,
+    [
+     "HiMidTom"
+    ]
+   ],
+   [
+    19.25,
+    0.75,
+    [
+     "HiMidTom"
+    ]
+   ]
+  ],
+  "fix": "open 3 cymbal 16ths at [16.0, 18.0, 19.0]"
+ },
+ {
+  "index": 26,
+  "display": 27,
+  "meter": "5/4",
+  "total16": 20,
+  "cym_hits": 20,
+  "cym_rests": 0,
+  "tom_count": 3,
+  "tom_slots": [
+   16.0,
+   17.0,
+   18.0
+  ],
+  "tom_drums": [
+   "HiMidTom",
+   "HighTom"
+  ],
+  "collisions": [
+   16.0,
+   17.0,
+   18.0
+  ],
+  "sub16": [],
+  "fix": "open 3 cymbal 16ths at [16.0, 17.0, 18.0]"
+ },
+ {
+  "index": 28,
+  "display": 29,
+  "meter": "5/4",
+  "total16": 20,
+  "cym_hits": 20,
+  "cym_rests": 0,
+  "tom_count": 6,
+  "tom_slots": [
+   12.0,
+   14.0,
+   16.0,
+   18.0,
+   18.75,
+   19.25
+  ],
+  "tom_drums": [
+   "HiMidTom",
+   "HighFloorTom"
+  ],
+  "collisions": [
+   12.0,
+   14.0,
+   16.0,
+   18.0,
+   19.0
+  ],
+  "sub16": [
+   [
+    18.0,
+    0.75,
+    [
+     "HighFloorTom"
+    ]
+   ],
+   [
+    18.75,
+    0.5,
+    [
+     "HighFloorTom"
+    ]
+   ],
+   [
+    19.25,
+    0.75,
+    [
+     "HighFloorTom"
+    ]
+   ]
+  ],
+  "fix": "open 5 cymbal 16ths at [12.0, 14.0, 16.0, 18.0, 19.0]"
+ },
+ {
+  "index": 32,
+  "display": 33,
+  "meter": "5/4",
+  "total16": 20,
+  "cym_hits": 20,
+  "cym_rests": 0,
+  "tom_count": 5,
+  "tom_slots": [
+   16.0,
+   16.25,
+   17.0,
+   17.5,
+   18.0
+  ],
+  "tom_drums": [
+   "HiMidTom"
+  ],
+  "collisions": [
+   16.0,
+   17.0,
+   18.0
+  ],
+  "sub16": [
+   [
+    16.0,
+    0.25,
+    [
+     "HiMidTom"
+    ]
+   ],
+   [
+    16.25,
+    0.75,
+    [
+     "HiMidTom"
+    ]
+   ],
+   [
+    17.0,
+    0.5,
+    [
+     "HiMidTom"
+    ]
+   ],
+   [
+    17.5,
+    0.5,
+    [
+     "HiMidTom"
+    ]
+   ]
+  ],
+  "fix": "open 3 cymbal 16ths at [16.0, 17.0, 18.0]"
+ },
+ {
+  "index": 40,
+  "display": 41,
+  "meter": "5/4",
+  "total16": 20,
+  "cym_hits": 20,
+  "cym_rests": 0,
+  "tom_count": 6,
+  "tom_slots": [
+   12.0,
+   13.0,
+   14.0,
+   16.0,
+   17.0,
+   18.0
+  ],
+  "tom_drums": [
+   "HighFloorTom"
+  ],
+  "collisions": [
+   12.0,
+   13.0,
+   14.0,
+   16.0,
+   17.0,
+   18.0
+  ],
+  "sub16": [],
+  "fix": "open 6 cymbal 16ths at [12.0, 13.0, 14.0, 16.0, 17.0, 18.0]"
+ },
+ {
+  "index": 42,
+  "display": 43,
+  "meter": "5/4",
+  "total16": 20,
+  "cym_hits": 20,
+  "cym_rests": 0,
+  "tom_count": 5,
+  "tom_slots": [
+   16.0,
+   16.75,
+   17.25,
+   18.0,
+   19.25
+  ],
+  "tom_drums": [
+   "HiMidTom"
+  ],
+  "collisions": [
+   16.0,
+   17.0,
+   18.0,
+   19.0
+  ],
+  "sub16": [
+   [
+    16.0,
+    0.75,
+    [
+     "HiMidTom"
+    ]
+   ],
+   [
+    16.75,
+    0.5,
+    [
+     "HiMidTom"
+    ]
+   ],
+   [
+    17.25,
+    0.75,
+    [
+     "HiMidTom"
+    ]
+   ],
+   [
+    19.25,
+    0.75,
+    [
+     "HiMidTom"
+    ]
+   ]
+  ],
+  "fix": "open 4 cymbal 16ths at [16.0, 17.0, 18.0, 19.0]"
+ },
+ {
+  "index": 44,
+  "display": 45,
+  "meter": "5/4",
+  "total16": 20,
+  "cym_hits": 20,
+  "cym_rests": 0,
+  "tom_count": 6,
+  "tom_slots": [
+   6.0,
+   9.0,
+   12.0,
+   13.0,
+   14.0,
+   16.0
+  ],
+  "tom_drums": [
+   "HiMidTom",
+   "HighTom"
+  ],
+  "collisions": [
+   6.0,
+   9.0,
+   12.0,
+   13.0,
+   14.0,
+   16.0
+  ],
+  "sub16": [],
+  "fix": "open 6 cymbal 16ths at [6.0, 9.0, 12.0, 13.0, 14.0, 16.0]"
+ },
+ {
+  "index": 48,
+  "display": 49,
+  "meter": "5/4",
+  "total16": 20,
+  "cym_hits": 20,
+  "cym_rests": 0,
+  "tom_count": 6,
+  "tom_slots": [
+   10.0,
+   12.0,
+   16.0,
+   17.0,
+   18.0,
+   19.0
+  ],
+  "tom_drums": [
+   "HiMidTom",
+   "HighTom"
+  ],
+  "collisions": [
+   10.0,
+   12.0,
+   16.0,
+   17.0,
+   18.0,
+   19.0
+  ],
+  "sub16": [],
+  "fix": "open 6 cymbal 16ths at [10.0, 12.0, 16.0, 17.0, 18.0, 19.0]"
+ },
+ {
+  "index": 54,
+  "display": 55,
+  "meter": "5/4",
+  "total16": 20,
+  "cym_hits": 20,
+  "cym_rests": 0,
+  "tom_count": 7,
+  "tom_slots": [
+   4.0,
+   13.0,
+   14.0,
+   16.0,
+   17.0,
+   18.0,
+   19.0
+  ],
+  "tom_drums": [
+   "HiMidTom",
+   "HighTom"
+  ],
+  "collisions": [
+   4.0,
+   13.0,
+   14.0,
+   16.0,
+   17.0,
+   18.0,
+   18.67,
+   19.33
+  ],
+  "sub16": [],
+  "fix": "open 8 cymbal 16ths at [4.0, 13.0, 14.0, 16.0, 17.0, 18.0, 18.67, 19.33]"
+ },
+ {
+  "index": 56,
+  "display": 57,
+  "meter": "5/4",
+  "total16": 20,
+  "cym_hits": 20,
+  "cym_rests": 0,
+  "tom_count": 11,
+  "tom_slots": [
+   4.0,
+   8.0,
+   9.0,
+   10.0,
+   11.0,
+   12.0,
+   13.0,
+   14.0,
+   15.0,
+   16.0,
+   19.0
+  ],
+  "tom_drums": [
+   "HiMidTom",
+   "HighFloorTom"
+  ],
+  "collisions": [
+   4.0,
+   8.0,
+   9.0,
+   10.0,
+   11.0,
+   12.0,
+   13.0,
+   14.0,
+   15.0,
+   16.0,
+   19.0
+  ],
+  "sub16": [],
+  "fix": "open 11 cymbal 16ths at [4.0, 8.0, 9.0, 10.0, 11.0, 12.0, 13.0, 14.0, 15.0, 16.0, 19.0]"
+ },
+ {
+  "index": 60,
+  "display": 61,
+  "meter": "5/4",
+  "total16": 20,
+  "cym_hits": 20,
+  "cym_rests": 0,
+  "tom_count": 6,
+  "tom_slots": [
+   10.75,
+   11.25,
+   14.25,
+   15.25,
+   17.25,
+   18.25
+  ],
+  "tom_drums": [
+   "HiMidTom",
+   "HighTom"
+  ],
+  "collisions": [
+   11.0,
+   14.0,
+   15.0,
+   17.0,
+   18.0
+  ],
+  "sub16": [
+   [
+    10.75,
+    0.5,
+    [
+     "HiMidTom"
+    ]
+   ]
+  ],
+  "fix": "open 5 cymbal 16ths at [11.0, 14.0, 15.0, 17.0, 18.0]"
+ },
+ {
+  "index": 62,
+  "display": 63,
+  "meter": "5/4",
+  "total16": 20,
+  "cym_hits": 20,
+  "cym_rests": 0,
+  "tom_count": 3,
+  "tom_slots": [
+   15.0,
+   17.0,
+   18.0
+  ],
+  "tom_drums": [
+   "HiMidTom",
+   "HighTom"
+  ],
+  "collisions": [
+   15.0,
+   17.0,
+   18.0
+  ],
+  "sub16": [],
+  "fix": "open 3 cymbal 16ths at [15.0, 17.0, 18.0]"
+ },
+ {
+  "index": 64,
+  "display": 65,
+  "meter": "5/4",
+  "total16": 20,
+  "cym_hits": 20,
+  "cym_rests": 0,
+  "tom_count": 6,
+  "tom_slots": [
+   11.25,
+   14.0,
+   14.5,
+   15.25,
+   16.5,
+   17.0
+  ],
+  "tom_drums": [
+   "HiMidTom",
+   "HighFloorTom",
+   "HighTom"
+  ],
+  "collisions": [
+   11.0,
+   14.0,
+   15.0,
+   16.0,
+   17.0
+  ],
+  "sub16": [
+   [
+    11.25,
+    0.25,
+    [
+     "HighTom"
+    ]
+   ],
+   [
+    14.0,
+    0.5,
+    [
+     "HiMidTom"
+    ]
+   ],
+   [
+    14.5,
+    0.75,
+    [
+     "HighFloorTom"
+    ]
+   ],
+   [
+    16.5,
+    0.5,
+    [
+     "HighFloorTom"
+    ]
+   ],
+   [
+    17.0,
+    0.75,
+    [
+     "HighFloorTom"
+    ]
+   ]
+  ],
+  "fix": "open 5 cymbal 16ths at [11.0, 14.0, 15.0, 16.0, 17.0]"
+ },
+ {
+  "index": 72,
+  "display": 73,
+  "meter": "5/4",
+  "total16": 20,
+  "cym_hits": 20,
+  "cym_rests": 0,
+  "tom_count": 3,
+  "tom_slots": [
+   8.0,
+   9.0,
+   10.0
+  ],
+  "tom_drums": [
+   "HighFloorTom"
+  ],
+  "collisions": [
+   8.0,
+   9.0,
+   10.0
+  ],
+  "sub16": [],
+  "fix": "open 3 cymbal 16ths at [8.0, 9.0, 10.0]"
+ },
+ {
+  "index": 78,
+  "display": 79,
+  "meter": "5/4",
+  "total16": 20,
+  "cym_hits": 20,
+  "cym_rests": 0,
+  "tom_count": 3,
+  "tom_slots": [
+   10.0,
+   10.5,
+   11.5
+  ],
+  "tom_drums": [
+   "HighFloorTom"
+  ],
+  "collisions": [
+   10.0,
+   12.0
+  ],
+  "sub16": [
+   [
+    10.0,
+    0.5,
+    [
+     "HighFloorTom"
+    ]
+   ],
+   [
+    11.5,
+    0.5,
+    [
+     "HighFloorTom"
+    ]
+   ]
+  ],
+  "fix": "open 2 cymbal 16ths at [10.0, 12.0]"
+ },
+ {
+  "index": 80,
+  "display": 81,
+  "meter": "5/4",
+  "total16": 20,
+  "cym_hits": 20,
+  "cym_rests": 0,
+  "tom_count": 6,
+  "tom_slots": [
+   3.0,
+   3.5,
+   7.0,
+   8.0,
+   9.0,
+   10.0
+  ],
+  "tom_drums": [
+   "HighFloorTom"
+  ],
+  "collisions": [
+   3.0,
+   4.0,
+   7.0,
+   8.0,
+   9.0,
+   10.0
+  ],
+  "sub16": [
+   [
+    3.0,
+    0.5,
+    [
+     "HighFloorTom"
+    ]
+   ]
+  ],
+  "fix": "open 6 cymbal 16ths at [3.0, 4.0, 7.0, 8.0, 9.0, 10.0]"
+ },
+ {
+  "index": 82,
+  "display": 83,
+  "meter": "5/4",
+  "total16": 20,
+  "cym_hits": 20,
+  "cym_rests": 0,
+  "tom_count": 8,
+  "tom_slots": [
+   3.0,
+   3.75,
+   5.5,
+   6.0,
+   6.25,
+   6.75,
+   7.25,
+   7.75
+  ],
+  "tom_drums": [
+   "HiMidTom",
+   "HighTom"
+  ],
+  "collisions": [
+   3.0,
+   4.0,
+   6.0,
+   7.0,
+   8.0
+  ],
+  "sub16": [
+   [
+    3.0,
+    0.75,
+    [
+     "HiMidTom"
+    ]
+   ],
+   [
+    3.75,
+    0.25,
+    [
+     "HiMidTom"
+    ]
+   ],
+   [
+    5.5,
+    0.5,
+    [
+     "HiMidTom"
+    ]
+   ],
+   [
+    6.0,
+    0.25,
+    [
+     "HighTom"
+    ]
+   ],
+   [
+    6.25,
+    0.5,
+    [
+     "HighTom"
+    ]
+   ],
+   [
+    6.75,
+    0.5,
+    [
+     "HighTom"
+    ]
+   ],
+   [
+    7.25,
+    0.5,
+    [
+     "HighTom"
+    ]
+   ],
+   [
+    7.75,
+    0.25,
+    [
+     "HighTom"
+    ]
+   ]
+  ],
+  "fix": "open 5 cymbal 16ths at [3.0, 4.0, 6.0, 7.0, 8.0]"
+ },
+ {
+  "index": 84,
+  "display": 85,
+  "meter": "5/4",
+  "total16": 20,
+  "cym_hits": 20,
+  "cym_rests": 0,
+  "tom_count": 6,
+  "tom_slots": [
+   1.0,
+   2.0,
+   4.0,
+   6.0,
+   7.0,
+   8.0
+  ],
+  "tom_drums": [
+   "HiMidTom",
+   "HighFloorTom"
+  ],
+  "collisions": [
+   1.0,
+   2.0,
+   4.0,
+   6.0,
+   7.0,
+   8.0
+  ],
+  "sub16": [],
+  "fix": "open 6 cymbal 16ths at [1.0, 2.0, 4.0, 6.0, 7.0, 8.0]"
+ },
+ {
+  "index": 88,
+  "display": 89,
+  "meter": "5/4",
+  "total16": 20,
+  "cym_hits": 20,
+  "cym_rests": 0,
+  "tom_count": 6,
+  "tom_slots": [
+   2.0,
+   3.0,
+   3.5,
+   4.0,
+   4.5,
+   18.5
+  ],
+  "tom_drums": [
+   "HighFloorTom"
+  ],
+  "collisions": [
+   2.0,
+   3.0,
+   4.0,
+   18.0
+  ],
+  "sub16": [
+   [
+    3.0,
+    0.5,
+    [
+     "HighFloorTom"
+    ]
+   ],
+   [
+    3.5,
+    0.5,
+    [
+     "HighFloorTom"
+    ]
+   ],
+   [
+    4.0,
+    0.5,
+    [
+     "HighFloorTom"
+    ]
+   ]
+  ],
+  "fix": "open 4 cymbal 16ths at [2.0, 3.0, 4.0, 18.0]"
+ }
+]

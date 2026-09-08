@@ -1,0 +1,190 @@
+<!doctype html>
+<html lang="en"><head><meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Watermelon Two-Hands Audit</title><style>
+:root{--cream:#f4efe2;--paper:#fbf8f0;--ink:#2f2a24;--muted:#7a6f60;--rule:#ddd3bf;
+ --mustard:#d9a441;--teal:#3f7f7a;--rust:#b5563a;--plum:#6b4a72;--olive:#7a8450;--sky:#4a7fa8}
+*{box-sizing:border-box}
+body{margin:0;background:var(--cream);color:var(--ink);
+ font:16px/1.6 "Iowan Old Style","Palatino Linotype",Palatino,Georgia,serif}
+.wrap{max-width:1180px;margin:0 auto;padding:28px 20px 90px}
+header{border:2px solid var(--ink);background:var(--paper);padding:26px 28px;margin-bottom:26px}
+h1{margin:0 0 4px;font-size:31px}
+.sub{color:var(--muted);font-size:15px;margin:0}
+.tagrow{margin-top:16px;display:flex;flex-wrap:wrap;gap:8px}
+.tag{border:1px solid var(--rule);background:var(--cream);padding:4px 11px;font-size:13px}
+.tag b{color:var(--rust)}
+h2{font-size:21px;margin:34px 0 12px;padding-bottom:7px;border-bottom:2px solid var(--ink)}
+h3{font-size:16px;margin:22px 0 8px;color:var(--teal)}
+section{background:var(--paper);border:1px solid var(--rule);padding:20px 24px;margin-bottom:22px}
+p{margin:0 0 12px}
+table{border-collapse:collapse;width:100%;font-size:14px;background:var(--paper)}
+th,td{border:1px solid var(--rule);padding:7px 10px;text-align:left;vertical-align:top}
+th{background:var(--cream);font-weight:700;font-size:13px}
+td.num,th.num{text-align:right;font-variant-numeric:tabular-nums}
+code,.mono{font:13px/1.5 "SF Mono",Menlo,Consolas,monospace;background:var(--cream);
+ padding:1px 5px;border:1px solid var(--rule)}
+.scroll{overflow-x:auto}
+.big{font-size:34px;font-weight:700;color:var(--rust);font-variant-numeric:tabular-nums}
+.kpi{display:flex;flex-wrap:wrap;gap:14px;margin:6px 0 4px}
+.kpi div{border:1px solid var(--rule);background:var(--cream);padding:12px 18px;min-width:150px}
+.kpi span{display:block;font-size:13px;color:var(--muted)}
+.red{color:var(--rust)} .grn{color:var(--olive)}
+ul{margin:0 0 12px 20px;padding:0} li{margin-bottom:7px}
+footer{color:var(--muted);font-size:13px;border-top:1px solid var(--rule);padding-top:14px}
+</style></head><body><div class="wrap">
+<header>
+<h1>Watermelon In Easter Hay: the two-hands audit</h1>
+<p class="sub">Why the uploaded drum part needed a hand fix, measured against the live tab.
+Songsterr copy <b>s6857183</b>, head revision <b>r8968524</b>. Built 2026-09-08.</p>
+<div class="tagrow">
+<div class="tag">measures scanned <b>105</b></div>
+<div class="tag">cymbal-collision measures <b>21</b></div>
+<div class="tag">colliding cymbal strokes <b>101</b></div>
+<div class="tag">sub-16th tom beats <b>41</b></div>
+</div>
+</header>
+
+<section>
+<h2>What the diff screenshot actually was</h2>
+<p>The preview page was Brandon's own editor change sitting on top of my upload
+<code>r8968036</code>. It published one minute later as <code>r8968524</code>, described
+<b>"Fixed tom fills and rolls"</b>, at 17:43:08Z on 2026-09-08.</p>
+<p>Diffing the two drum payloads measure by measure, exactly
+<b>2 measures differ: index 24 and 26</b>. Songsterr's
+diff view labels systems by measure INDEX, so those print as 24 and 26
+in the screenshot and display as bars 25 and 27 in the tab.
+The measure between them is byte-identical, matching the un-highlighted middle system.</p>
+</section>
+
+<section>
+<h2>What Brandon changed by hand</h2>
+<ul>
+<li><b>Index 24, drum voice.</b> A 32nd-note flurry with High Tom and Hi-Mid Tom stacked on one
+instant became plain sixteenths walking down Hi-Mid, Low-Mid, Low Floor.</li>
+<li><b>Index 24, cymbal voice.</b> Twenty unbroken ride sixteenths became an eighth, a sixteenth
+rest, and a Low-Mid Tom written into that voice.</li>
+<li><b>Index 26, cymbal voice.</b> Three snare strokes added at sixteenths 14, 15 and 16, two of
+them ghosts. The drum voice was left alone.</li>
+</ul>
+</section>
+
+<section>
+<h2>Why my upload had it wrong</h2>
+<h3>1. Tom positions came from stem onsets and were never snapped to the chart's sixteenth</h3>
+<p>The printed Drumnet chart engraves at a sixteenth. My plan carried raw onset positions.
+In index 24 the ten planned onsets sat at 11.23, 11.55, 11.94, 12.85, 13.78, 14.74, 15.73,
+16.01, 16.45 and 18.63 sixteenths. Two pairs are closer than a third of a sixteenth, so the
+notation writer subdivided to 32nds and stacked two toms on one instant.</p>
+<p>Across the 40 tom-carrying measures, <b>30 hold a placement more than 0.20 of a sixteenth off
+grid</b> and <b>14 hold two toms closer than three quarters of a sixteenth</b>.</p>
+<h3>2. The cymbal voice was never re-marked against the fill</h3>
+<p>The chart pass wrote into the drum voice only, so the cymbal voice kept running.
+<b>21 measures of the live head have a cymbal voice with zero rests while three or more
+toms play underneath.</b> The worst is index 56 with 11 toms and
+11 cymbal strokes landing on the same sixteenths.</p>
+<h3>3. The missing snares are the chart reader's recorded blind spot</h3>
+<p>That read found 154 snare heads against the tab's 193, and the limit is already written into
+<code>reference_watermelon_drumnet_chart_read.md</code>. Busy measures lose heads.</p>
+<h3>4. Low-Mid Tom and Low Floor Tom were never available to the pipeline</h3>
+<p>The chart carries three tom lanes, mapping to High Tom, Hi-Mid Tom and High Floor Tom. A fill
+that walks down four drums cannot come out of that map.</p>
+</section>
+
+<section>
+<h2>The repair list, 21 measures</h2>
+<p>Every row is measured from the live <code>r8968524</code> payload. "Collisions" counts cymbal
+strokes sitting on a sixteenth a tom already occupies, which is where a hand has to leave the
+cymbal.</p>
+<div class="scroll"><table>
+<tr><th class="num">index</th><th class="num">display bar</th><th>meter</th><th class="num">toms</th>
+<th class="num">cymbal hits</th><th class="num">collisions</th><th class="num">sub-16th</th>
+<th>colliding 16ths</th><th>drums used</th></tr>
+<tr><td class='num'>13</td><td class='num'>14</td><td>4/4</td><td class='num'>4</td><td class='num'>15</td><td class='num red'>3</td><td class='num'>3</td><td class='mono'>4.0, 5.0, 6.0</td><td>HighFloorTom</td></tr>
+<tr><td class='num'>14</td><td class='num'>15</td><td>5/4</td><td class='num'>6</td><td class='num'>20</td><td class='num red'>4</td><td class='num'>4</td><td class='mono'>16.0, 17.0, 18.0, 19.0</td><td>HighFloorTom, HighTom</td></tr>
+<tr><td class='num'>20</td><td class='num'>21</td><td>5/4</td><td class='num'>4</td><td class='num'>20</td><td class='num red'>3</td><td class='num'>3</td><td class='mono'>16.0, 18.0, 19.0</td><td>HiMidTom, HighTom</td></tr>
+<tr><td class='num'>26</td><td class='num'>27</td><td>5/4</td><td class='num'>3</td><td class='num'>20</td><td class='num red'>3</td><td class='num'>0</td><td class='mono'>16.0, 17.0, 18.0</td><td>HiMidTom, HighTom</td></tr>
+<tr><td class='num'>28</td><td class='num'>29</td><td>5/4</td><td class='num'>6</td><td class='num'>20</td><td class='num red'>5</td><td class='num'>3</td><td class='mono'>12.0, 14.0, 16.0, 18.0, 19.0</td><td>HiMidTom, HighFloorTom</td></tr>
+<tr><td class='num'>32</td><td class='num'>33</td><td>5/4</td><td class='num'>5</td><td class='num'>20</td><td class='num red'>3</td><td class='num'>4</td><td class='mono'>16.0, 17.0, 18.0</td><td>HiMidTom</td></tr>
+<tr><td class='num'>40</td><td class='num'>41</td><td>5/4</td><td class='num'>6</td><td class='num'>20</td><td class='num red'>6</td><td class='num'>0</td><td class='mono'>12.0, 13.0, 14.0, 16.0, 17.0, 18.0</td><td>HighFloorTom</td></tr>
+<tr><td class='num'>42</td><td class='num'>43</td><td>5/4</td><td class='num'>5</td><td class='num'>20</td><td class='num red'>4</td><td class='num'>4</td><td class='mono'>16.0, 17.0, 18.0, 19.0</td><td>HiMidTom</td></tr>
+<tr><td class='num'>44</td><td class='num'>45</td><td>5/4</td><td class='num'>6</td><td class='num'>20</td><td class='num red'>6</td><td class='num'>0</td><td class='mono'>6.0, 9.0, 12.0, 13.0, 14.0, 16.0</td><td>HiMidTom, HighTom</td></tr>
+<tr><td class='num'>48</td><td class='num'>49</td><td>5/4</td><td class='num'>6</td><td class='num'>20</td><td class='num red'>6</td><td class='num'>0</td><td class='mono'>10.0, 12.0, 16.0, 17.0, 18.0, 19.0</td><td>HiMidTom, HighTom</td></tr>
+<tr><td class='num'>54</td><td class='num'>55</td><td>5/4</td><td class='num'>7</td><td class='num'>20</td><td class='num red'>8</td><td class='num'>0</td><td class='mono'>4.0, 13.0, 14.0, 16.0, 17.0, 18.0, 18.67, 19.33</td><td>HiMidTom, HighTom</td></tr>
+<tr><td class='num'>56</td><td class='num'>57</td><td>5/4</td><td class='num'>11</td><td class='num'>20</td><td class='num red'>11</td><td class='num'>0</td><td class='mono'>4.0, 8.0, 9.0, 10.0, 11.0, 12.0, 13.0, 14.0, 15.0, 16.0, 19.0</td><td>HiMidTom, HighFloorTom</td></tr>
+<tr><td class='num'>60</td><td class='num'>61</td><td>5/4</td><td class='num'>6</td><td class='num'>20</td><td class='num red'>5</td><td class='num'>1</td><td class='mono'>11.0, 14.0, 15.0, 17.0, 18.0</td><td>HiMidTom, HighTom</td></tr>
+<tr><td class='num'>62</td><td class='num'>63</td><td>5/4</td><td class='num'>3</td><td class='num'>20</td><td class='num red'>3</td><td class='num'>0</td><td class='mono'>15.0, 17.0, 18.0</td><td>HiMidTom, HighTom</td></tr>
+<tr><td class='num'>64</td><td class='num'>65</td><td>5/4</td><td class='num'>6</td><td class='num'>20</td><td class='num red'>5</td><td class='num'>5</td><td class='mono'>11.0, 14.0, 15.0, 16.0, 17.0</td><td>HiMidTom, HighFloorTom, HighTom</td></tr>
+<tr><td class='num'>72</td><td class='num'>73</td><td>5/4</td><td class='num'>3</td><td class='num'>20</td><td class='num red'>3</td><td class='num'>0</td><td class='mono'>8.0, 9.0, 10.0</td><td>HighFloorTom</td></tr>
+<tr><td class='num'>78</td><td class='num'>79</td><td>5/4</td><td class='num'>3</td><td class='num'>20</td><td class='num red'>2</td><td class='num'>2</td><td class='mono'>10.0, 12.0</td><td>HighFloorTom</td></tr>
+<tr><td class='num'>80</td><td class='num'>81</td><td>5/4</td><td class='num'>6</td><td class='num'>20</td><td class='num red'>6</td><td class='num'>1</td><td class='mono'>3.0, 4.0, 7.0, 8.0, 9.0, 10.0</td><td>HighFloorTom</td></tr>
+<tr><td class='num'>82</td><td class='num'>83</td><td>5/4</td><td class='num'>8</td><td class='num'>20</td><td class='num red'>5</td><td class='num'>8</td><td class='mono'>3.0, 4.0, 6.0, 7.0, 8.0</td><td>HiMidTom, HighTom</td></tr>
+<tr><td class='num'>84</td><td class='num'>85</td><td>5/4</td><td class='num'>6</td><td class='num'>20</td><td class='num red'>6</td><td class='num'>0</td><td class='mono'>1.0, 2.0, 4.0, 6.0, 7.0, 8.0</td><td>HiMidTom, HighFloorTom</td></tr>
+<tr><td class='num'>88</td><td class='num'>89</td><td>5/4</td><td class='num'>6</td><td class='num'>20</td><td class='num red'>4</td><td class='num'>3</td><td class='mono'>2.0, 3.0, 4.0, 18.0</td><td>HighFloorTom</td></tr>
+</table></div>
+</section>
+
+<section>
+<h2>Sub-sixteenth tom beats, 41 of them</h2>
+<p>Position and length are in sixteenths inside the measure, zero-based from the downbeat.</p>
+<div class="scroll"><table>
+<tr><th class="num">index</th><th class="num">display bar</th><th class="num">position</th>
+<th class="num">length</th><th>drums</th></tr>
+<tr><td class='num'>13</td><td class='num'>14</td><td class='num'>4.25</td><td class='num'>0.5</td><td>HighFloorTom</td></tr>
+<tr><td class='num'>13</td><td class='num'>14</td><td class='num'>4.75</td><td class='num'>0.25</td><td>HighFloorTom</td></tr>
+<tr><td class='num'>13</td><td class='num'>14</td><td class='num'>5.0</td><td class='num'>0.5</td><td>HighFloorTom</td></tr>
+<tr><td class='num'>14</td><td class='num'>15</td><td class='num'>15.75</td><td class='num'>0.25</td><td>HighFloorTom</td></tr>
+<tr><td class='num'>14</td><td class='num'>15</td><td class='num'>16.5</td><td class='num'>0.25</td><td>HighFloorTom</td></tr>
+<tr><td class='num'>14</td><td class='num'>15</td><td class='num'>18.75</td><td class='num'>0.25</td><td>HighTom</td></tr>
+<tr><td class='num'>14</td><td class='num'>15</td><td class='num'>19.0</td><td class='num'>0.75</td><td>HighTom</td></tr>
+<tr><td class='num'>20</td><td class='num'>21</td><td class='num'>18.0</td><td class='num'>0.75</td><td>HiMidTom</td></tr>
+<tr><td class='num'>20</td><td class='num'>21</td><td class='num'>18.75</td><td class='num'>0.5</td><td>HiMidTom</td></tr>
+<tr><td class='num'>20</td><td class='num'>21</td><td class='num'>19.25</td><td class='num'>0.75</td><td>HiMidTom</td></tr>
+<tr><td class='num'>28</td><td class='num'>29</td><td class='num'>18.0</td><td class='num'>0.75</td><td>HighFloorTom</td></tr>
+<tr><td class='num'>28</td><td class='num'>29</td><td class='num'>18.75</td><td class='num'>0.5</td><td>HighFloorTom</td></tr>
+<tr><td class='num'>28</td><td class='num'>29</td><td class='num'>19.25</td><td class='num'>0.75</td><td>HighFloorTom</td></tr>
+<tr><td class='num'>32</td><td class='num'>33</td><td class='num'>16.0</td><td class='num'>0.25</td><td>HiMidTom</td></tr>
+<tr><td class='num'>32</td><td class='num'>33</td><td class='num'>16.25</td><td class='num'>0.75</td><td>HiMidTom</td></tr>
+<tr><td class='num'>32</td><td class='num'>33</td><td class='num'>17.0</td><td class='num'>0.5</td><td>HiMidTom</td></tr>
+<tr><td class='num'>32</td><td class='num'>33</td><td class='num'>17.5</td><td class='num'>0.5</td><td>HiMidTom</td></tr>
+<tr><td class='num'>42</td><td class='num'>43</td><td class='num'>16.0</td><td class='num'>0.75</td><td>HiMidTom</td></tr>
+<tr><td class='num'>42</td><td class='num'>43</td><td class='num'>16.75</td><td class='num'>0.5</td><td>HiMidTom</td></tr>
+<tr><td class='num'>42</td><td class='num'>43</td><td class='num'>17.25</td><td class='num'>0.75</td><td>HiMidTom</td></tr>
+<tr><td class='num'>42</td><td class='num'>43</td><td class='num'>19.25</td><td class='num'>0.75</td><td>HiMidTom</td></tr>
+<tr><td class='num'>60</td><td class='num'>61</td><td class='num'>10.75</td><td class='num'>0.5</td><td>HiMidTom</td></tr>
+<tr><td class='num'>64</td><td class='num'>65</td><td class='num'>11.25</td><td class='num'>0.25</td><td>HighTom</td></tr>
+<tr><td class='num'>64</td><td class='num'>65</td><td class='num'>14.0</td><td class='num'>0.5</td><td>HiMidTom</td></tr>
+<tr><td class='num'>64</td><td class='num'>65</td><td class='num'>14.5</td><td class='num'>0.75</td><td>HighFloorTom</td></tr>
+<tr><td class='num'>64</td><td class='num'>65</td><td class='num'>16.5</td><td class='num'>0.5</td><td>HighFloorTom</td></tr>
+<tr><td class='num'>64</td><td class='num'>65</td><td class='num'>17.0</td><td class='num'>0.75</td><td>HighFloorTom</td></tr>
+<tr><td class='num'>78</td><td class='num'>79</td><td class='num'>10.0</td><td class='num'>0.5</td><td>HighFloorTom</td></tr>
+<tr><td class='num'>78</td><td class='num'>79</td><td class='num'>11.5</td><td class='num'>0.5</td><td>HighFloorTom</td></tr>
+<tr><td class='num'>80</td><td class='num'>81</td><td class='num'>3.0</td><td class='num'>0.5</td><td>HighFloorTom</td></tr>
+<tr><td class='num'>82</td><td class='num'>83</td><td class='num'>3.0</td><td class='num'>0.75</td><td>HiMidTom</td></tr>
+<tr><td class='num'>82</td><td class='num'>83</td><td class='num'>3.75</td><td class='num'>0.25</td><td>HiMidTom</td></tr>
+<tr><td class='num'>82</td><td class='num'>83</td><td class='num'>5.5</td><td class='num'>0.5</td><td>HiMidTom</td></tr>
+<tr><td class='num'>82</td><td class='num'>83</td><td class='num'>6.0</td><td class='num'>0.25</td><td>HighTom</td></tr>
+<tr><td class='num'>82</td><td class='num'>83</td><td class='num'>6.25</td><td class='num'>0.5</td><td>HighTom</td></tr>
+<tr><td class='num'>82</td><td class='num'>83</td><td class='num'>6.75</td><td class='num'>0.5</td><td>HighTom</td></tr>
+<tr><td class='num'>82</td><td class='num'>83</td><td class='num'>7.25</td><td class='num'>0.5</td><td>HighTom</td></tr>
+<tr><td class='num'>82</td><td class='num'>83</td><td class='num'>7.75</td><td class='num'>0.25</td><td>HighTom</td></tr>
+<tr><td class='num'>88</td><td class='num'>89</td><td class='num'>3.0</td><td class='num'>0.5</td><td>HighFloorTom</td></tr>
+<tr><td class='num'>88</td><td class='num'>89</td><td class='num'>3.5</td><td class='num'>0.5</td><td>HighFloorTom</td></tr>
+<tr><td class='num'>88</td><td class='num'>89</td><td class='num'>4.0</td><td class='num'>0.5</td><td>HighFloorTom</td></tr>
+</table></div>
+</section>
+
+<section>
+<h2>What is not done, and the blocker</h2>
+<p>No corrected file was written and nothing was uploaded. Brandon is hand-editing the live tab
+right now, and <code>r8968524</code> is his work. A machine pass over the whole part would
+overwrite it. The local <code>upload_ready/watermelon-v9.gp</code> is one revision behind the
+live head, so a corrected build needs a fresh export of <code>r8968524</code> first.</p>
+</section>
+
+<footer>
+Data: <a href="repair_list.json">repair_list.json</a>.
+Source payloads pulled from CloudFront for revisions r8968036 and r8968524.
+Every number on this page is re-derived by the build script, none typed by hand.
+</footer>
+</div></body></html>
