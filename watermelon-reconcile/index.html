@@ -266,6 +266,7 @@ footer{margin-top:4rem;padding-top:1.3rem;border-top:2px solid var(--line);
 </table></div>
 <p class="note">Verified here: searching the Properties list for InstrumentArticulation finds it on <strong>0 of 15</strong> reachable notes, which is exactly the silent zero.</p>
 <div class="card">
+<p style="margin:0 0 .6rem"><strong>The rule: a dual-field checker must test for DISAGREEMENT between the fields, never for a sentinel value.</strong> The missing-value case and the disagreeing-value case do not overlap in these files, so a sentinel test cannot see this defect at all.</p>
 <p style="margin:0"><strong>A checker keyed on <span class="mono">Midi == -1</span> would pass this file.</strong> <span class="mono">tr_ledger.py:189</span> warns that reading only the Property returns &minus;1 for every drum note. Measured here, <strong>0 of 15</strong> notes read &minus;1 in v13 and 0 of 14 in the chart build; their Midi properties carry real values that agree with the articulation everywhere except those two definitions. The missing-value case and the disagreeing-value case are separate failure modes.</p>
 </div>
 

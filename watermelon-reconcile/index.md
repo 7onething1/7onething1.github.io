@@ -85,7 +85,7 @@ Present before this edit and after it. Bars 29, 41, 45, 49, 52, 53, 54, 55, 56, 
 | Looking for `<Property name="InstrumentArticulation">` | 0 disagreements | it is a DIRECT CHILD of `<Note>`; found on 0 of 15 reachable notes |
 | Applying one track's kit table to every track | ~416 in every file | note elements are shared across tracks |
 
-A checker keyed on `Midi == -1` would pass this file: 0 of 15 notes read -1 in v13 and 0 of 14 in the chart build. The missing-value case and the disagreeing-value case are separate failure modes.
+**The rule: a dual-field checker must test for DISAGREEMENT between the fields, never for a sentinel value.** The two cases do not overlap here, so a sentinel test cannot see this defect. A checker keyed on `Midi == -1` would pass this file: 0 of 15 notes read -1 in v13 and 0 of 14 in the chart build. The missing-value case and the disagreeing-value case are separate failure modes.
 
 ## Per-head tom identity: both routes run, both closed
 
