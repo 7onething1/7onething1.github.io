@@ -11,6 +11,18 @@
 > One data defect in the file itself: Montana s35870 appears on two rows, expecting 212 and 105.
 > Both read 574 live. That duplicate is why a 24 row file describes 23 songs.
 >
+> **Montana's duplicate row is settled.** A ghost note is spelled `AntiAccent` in Guitar Pro XML
+> and is counted as usages through the Beats to Notes id list, since one note object is shared
+> across many beats. Known answer control: the Watermelon restore on disk reads 1,332 against
+> 1,333 live, one apart. A trap worth recording: the files at the top of `s35881-Watermelon/`
+> read only 25, because the restore carrying 1,332 sits one level down in
+> `_UNSHIPPABLE-CDATA-STRIPPED/`, quarantined for stripped CDATA. Point a counter at the parent
+> and it undercounts fifty-three fold with no error.
+>
+> Montana's pre-sweep baseline `PRESWEEP-r7294223.gp` carries 181 ghost usages across 59 note
+> objects. The two rows claimed 212 and 105 and neither is right. The row now reads 181 with its
+> source named, and the duplicate is dropped, so 23 rows describe 23 songs.
+>
 > Stale copy preserved at `ghost_sweep.json.bak-stale-2026-09-07`.
 
 # Zappa Repair State

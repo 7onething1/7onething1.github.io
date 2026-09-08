@@ -64,6 +64,27 @@ one expecting 212 ghosts and one expecting 105. Both now read 574 live. That dup
 <p>Stale copy preserved at <span style="font-family:ui-monospace,Menlo,monospace">ghost_sweep.json.bak-stale-2026-09-07</span>.
 Every number above came from a live part-by-part read, not from the file.</p>
 </div>
+<div style="border-left:7px solid #B6854D;background:#fff;padding:16px 20px;margin:16px 0;
+ border-radius:0 8px 8px 0;border-top:1px solid #cfc4b4;border-right:1px solid #cfc4b4;border-bottom:1px solid #cfc4b4">
+<h4 style="margin:0 0 8px">Montana's duplicate row is settled, and the counter that settled it was validated first</h4>
+<p><strong>The counter.</strong> A ghost note is spelled <span style="font-family:ui-monospace,Menlo,monospace">AntiAccent</span>
+in Guitar Pro's XML, and it is counted as usages through the Beats to Notes id list rather than as
+distinct note objects, because one note object is shared across many beats. Known answer control:
+the Watermelon restore on disk reads <strong>1,332</strong> against <strong>1,333</strong> live,
+one apart.</p>
+<p><strong>A trap that cost a wrong reading first time.</strong> The files sitting at the top of
+<span style="font-family:ui-monospace,Menlo,monospace">s35881-Watermelon/</span> read only 25.
+The restore that carries 1,332 lives one level down in
+<span style="font-family:ui-monospace,Menlo,monospace">_UNSHIPPABLE-CDATA-STRIPPED/</span>,
+quarantined because ElementTree stripped its CDATA. Point a counter at the parent folder and it
+reports a fifty-three fold undercount with no error.</p>
+<p><strong>Montana.</strong> The pre-sweep baseline
+<span style="font-family:ui-monospace,Menlo,monospace">PRESWEEP-r7294223.gp</span> carries
+<strong>181</strong> ghost usages across 59 note objects. The file's two rows claimed 212 and 105
+and neither is right. The row now reads 181 with its source named, and the duplicate is dropped,
+so the file describes 23 songs on 23 rows.</p>
+</div>
+
 <div class="wrap">
 
 <p class="stamp">Measured live 2026-09-05</p>

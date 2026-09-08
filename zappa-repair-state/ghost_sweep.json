@@ -48,7 +48,7 @@
   "songId": "35870",
   "title": "Montana",
   "part": "1 Ralph Humphrey",
-  "was": 212,
+  "was": 181,
   "now": 574,
   "liveRev": 8945851,
   "verdict": "RESTORED",
@@ -65,30 +65,15 @@
    "17": 105
   },
   "measured_at": "2026-09-07",
-  "measured_by": "live api read, this session"
- },
- {
-  "songId": "35870",
-  "title": "Montana",
-  "part": "Percussion",
-  "was": 105,
-  "now": 574,
-  "liveRev": 8945851,
-  "verdict": "RESTORED",
-  "ghosts_by_part": {
-   "0": 24,
-   "1": 62,
-   "2": 16,
-   "3": 112,
-   "5": 6,
-   "10": 23,
-   "13": 7,
-   "14": 7,
-   "15": 212,
-   "17": 105
-  },
-  "measured_at": "2026-09-07",
-  "measured_by": "live api read, this session"
+  "measured_by": "live api read, this session",
+  "was_source": "PRESWEEP-r7294223.gp, counted 2026-09-07 as AntiAccent usages via Beats->Notes",
+  "was_superseded": {
+   "old_rows": [
+    212,
+    105
+   ],
+   "why": "neither matched the on-disk pre-sweep baseline"
+  }
  },
  {
   "songId": "35875",
