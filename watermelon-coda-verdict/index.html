@@ -226,6 +226,30 @@ footer{color:var(--muted);font-size:13px;text-align:center;margin-top:40px}
 <div class="warn">
 <b>None of this authorizes deleting a cymbal.</b> Global recall is 908 fresh attacks against 1778 written events, so the detector accounts for about half the notation across the whole song, and a per-bar shortfall reproduces that global rate. The skill permits removal only when a usable cymbal source affirmatively fails after alignment and leakage gates pass. The alignment gate is UNRESOLVED past GP bar 97, and 442 candidates are UNRESOLVED. Every unmatched written cymbal here stays <b>UNRESOLVED</b> and stays in the file.
 </div>
+<div class="proof">
+<b>The eye overrules the cymbal detector, and the chart says why.</b> Looking at the printed
+page for these bars: chart bar 89 (GP 98) carries the <b>Coda</b> mark and <b>(Gong)</b>, and
+chart bars 91 to 92 (GP 100 to 101) are marked <b>(cymbal on dome)</b> at <b>p</b>. Both
+systems show a dense continuous run of x noteheads on the top line, with many circled-x heads
+for the dome strokes. The cymbals are plainly printed and plainly played.
+<br><br>
+The detector ran with <span class="mono">instrument="ride"</span> calibration. A dome stroke at
+p produces a much lower-novelty transient than a bowed ride, so a ride-tuned novelty floor
+classifies it DECAY_ONLY. <b>The zero-fresh-attack result in GP bars 99 to 103 is a detector
+mis-calibration, and it is not evidence of absence.</b> Deferring to the eye, every written
+cymbal in the Coda stands.
+</div>
+<figure>
+  <div class="cap">chart bars 89-90 = GP 98-99, the Coda mark and (Gong)</div>
+  <img src="sys44_chartbars89-90_x8.png" alt="chart bars 89 to 90 at 8x">
+  <figcaption>The top line runs continuous x noteheads across both bars. Two circled-x heads mark dome strokes.</figcaption>
+</figure>
+<figure>
+  <div class="cap">chart bars 91-92 = GP 100-101, marked (cymbal on dome) at p</div>
+  <img src="sys45_chartbars91-92_x8.png" alt="chart bars 91 to 92 at 8x">
+  <figcaption>Dense ride line with many circled-x dome heads. The detector found zero fresh attacks across these two bars.</figcaption>
+</figure>
+
 </section>
 
 <section>

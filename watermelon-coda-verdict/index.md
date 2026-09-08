@@ -173,3 +173,15 @@ per-bar shortfall reproduces that global rate. Removal needs a usable source to 
 affirmatively after alignment and leakage gates pass. Alignment is UNRESOLVED past GP bar 97
 and 442 candidates are UNRESOLVED. Every unmatched written cymbal stays UNRESOLVED and stays
 in the file.
+
+### The eye overrules the cymbal detector
+
+Chart bar 89 (GP 98) carries the Coda mark and "(Gong)". Chart bars 91 to 92 (GP 100 to 101)
+are marked "(cymbal on dome)" at p. Both systems show a dense continuous run of x noteheads
+on the top line with many circled-x heads for dome strokes. The cymbals are plainly printed.
+
+The detector ran with instrument="ride" calibration. A dome stroke at p produces a much
+lower-novelty transient than a bowed ride, so a ride-tuned novelty floor classifies it
+DECAY_ONLY. The zero-fresh-attack result in GP bars 99 to 103 is a detector mis-calibration
+and it is not evidence of absence. Deferring to the eye, every written cymbal in the Coda
+stands. Images: sys44_chartbars89-90_x8.png and sys45_chartbars91-92_x8.png.
