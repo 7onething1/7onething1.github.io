@@ -1,0 +1,119 @@
+<!DOCTYPE html>
+<html lang="en"><head><meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Two Guitar Split &mdash; what can be fixed</title>
+<style>
+:root{--cream:#F4EBD9;--ink:#1B1B1A;--rust:#B04A3A;--mustard:#D8A31A;
+--sage:#7A8C6A;--dusty:#5B7C99;--paper:#FBF6EA;--line:#D8C9AE;}
+*{box-sizing:border-box}
+body{margin:0;background:var(--cream);color:var(--ink);
+font:16px/1.6 "Iowan Old Style","Palatino Linotype",Palatino,Georgia,serif}
+.wrap{max-width:1080px;margin:0 auto;padding:34px 22px 80px}
+h1{font-size:31px;margin:0 0 4px;letter-spacing:-.3px}
+.sub{color:#6A6259;margin:0 0 26px;font-size:15px}
+h2{font-size:20px;margin:38px 0 10px;padding-bottom:6px;border-bottom:2px solid var(--line)}
+p{margin:10px 0}
+.cards{display:flex;flex-wrap:wrap;gap:12px;margin:18px 0 6px}
+.card{flex:1 1 150px;background:var(--paper);border:1px solid var(--line);
+border-radius:8px;padding:14px 16px}
+.card .n{font-size:30px;font-weight:700;line-height:1.1}
+.card .l{font-size:12px;letter-spacing:.09em;text-transform:uppercase;color:#6A6259}
+.card.sep .n{color:var(--sage)} .card.mono .n{color:var(--rust)}
+.card.uni .n{color:var(--mustard)} .card.unus .n{color:var(--dusty)}
+.tw{overflow-x:auto;border:1px solid var(--line);border-radius:8px;background:var(--paper)}
+table{border-collapse:collapse;width:100%;font-size:14px}
+th{text-align:left;padding:9px 11px;background:#EFE4CE;border-bottom:2px solid var(--line);
+font-size:11px;letter-spacing:.08em;text-transform:uppercase;white-space:nowrap}
+td{padding:8px 11px;border-bottom:1px solid #E8DCC4;vertical-align:top}
+tr:last-child td{border-bottom:none}
+.num{text-align:right;font-variant-numeric:tabular-nums;white-space:nowrap}
+.bad{color:var(--rust);font-weight:600}
+.song{font-weight:600}
+.alb{color:#6A6259;font-size:13px;white-space:nowrap}
+.note{color:#6A6259;font-size:13px}
+.pill{display:inline-block;padding:2px 9px;border-radius:11px;font-size:11px;
+font-weight:700;letter-spacing:.06em;color:#fff}
+.pill.sep{background:var(--sage)} .pill.mono{background:var(--rust)}
+.pill.uni{background:var(--mustard);color:#2A2205} .pill.unus{background:var(--dusty)}
+tr.mono td,tr.uni td,tr.unus td{background:#F7EFE0}
+.call{border-left:4px solid var(--rust);background:var(--paper);padding:13px 17px;
+margin:16px 0;border-radius:0 8px 8px 0}
+.call.ok{border-left-color:var(--sage)}
+pre{background:#F1E7D3;border:1px solid var(--line);border-radius:8px;
+padding:13px 15px;overflow-x:auto;font:13px/1.55 ui-monospace,Menlo,monospace;margin:12px 0}
+code{font:13px ui-monospace,Menlo,monospace;background:#F1E7D3;padding:1px 5px;border-radius:4px}
+footer{margin-top:44px;padding-top:16px;border-top:1px solid var(--line);
+font-size:13px;color:#6A6259}
+b{font-weight:700}
+</style></head><body><div class="wrap">
+
+<h1>Two guitar split</h1>
+<p class="sub">Which songs carry a recoverable second guitarist, measured from the
+stereo guitar stem. 26 songs, 2026-09-08.</p>
+
+<div class="cards">
+<div class="card sep"><div class="n">20</div><div class="l">Separable</div></div>
+<div class="card mono"><div class="n">3</div><div class="l">Mono</div></div>
+<div class="card uni"><div class="n">2</div><div class="l">Unison</div></div>
+<div class="card unus"><div class="n">1</div><div class="l">Unusable</div></div>
+</div>
+
+<h2>What the number means</h2>
+<p><b>Margin is the whole verdict.</b> It is the share of one channel's attacks
+that land on an attack in the other channel, minus the identical test with that
+channel pushed +5 seconds. A raw coverage percentage with no control is what
+produced the earlier &ldquo;not separable&rdquo; reading on a song that separates
+at 79.6.</p>
+
+<div class="call"><b>Six of these cannot be fixed by any method or any purchase.</b>
+Three are mono, with the two channels correlating 0.85 to 0.90, so the second
+part is not in the file. Two are unison, both channels playing the same attacks.
+One fails its own control. No separator, paid or free, recovers what was never
+recorded apart.</div>
+
+<h2>The corpus</h2>
+<div class="tw"><table>
+<thead><tr><th>Song</th><th>Album</th><th>Verdict</th><th>Margin</th>
+<th>Control %</th><th>L/R corr</th><th>Solo attacks</th><th>Reading</th></tr></thead>
+<tbody><tr class="sep"><td class="song">05-With-Twilight-as-My-Guide</td><td class="alb">Octahedron</td><td><span class="pill sep">SEPARABLE</span></td><td class="num">85.4</td><td class="num">3.3</td><td class="num">0.0559</td><td class="num">79</td><td class="note">79 attacks played by only one channel</td></tr><tr class="sep"><td class="song">02-Since-We’ve-Been-Wrong</td><td class="alb">Octahedron</td><td><span class="pill sep">SEPARABLE</span></td><td class="num">84.8</td><td class="num">4.7</td><td class="num">0.4528</td><td class="num">58</td><td class="note">58 attacks played by only one channel</td></tr><tr class="sep"><td class="song">02 Fishing the Sky</td><td class="alb">Mare Vitalis</td><td><span class="pill sep">SEPARABLE</span></td><td class="num">82.8</td><td class="num">6.4</td><td class="num">0.0337</td><td class="num">269</td><td class="note">269 attacks played by only one channel</td></tr><tr class="sep"><td class="song">09 Kilgore Trout</td><td class="alb">Mare Vitalis</td><td><span class="pill sep">SEPARABLE</span></td><td class="num">79.6</td><td class="num">12.1</td><td class="num">0.0054</td><td class="num">316</td><td class="note">316 attacks played by only one channel</td></tr><tr class="sep"><td class="song">08. North Star Ordination</td><td class="alb">Illumination Ritual</td><td><span class="pill sep">SEPARABLE</span></td><td class="num">76.1</td><td class="num">12.6</td><td class="num">0.7199</td><td class="num">136</td><td class="note">136 attacks played by only one channel</td></tr><tr class="sep"><td class="song">02. Great Lake Derelict</td><td class="alb">Illumination Ritual</td><td><span class="pill sep">SEPARABLE</span></td><td class="num">75.4</td><td class="num">14.0</td><td class="num">0.7936</td><td class="num">79</td><td class="note">79 attacks played by only one channel</td></tr><tr class="sep"><td class="song">01 The Immortal Soul of Mundo Cani</td><td class="alb">Mare Vitalis</td><td><span class="pill sep">SEPARABLE</span></td><td class="num">70.8</td><td class="num">2.1</td><td class="num">0.0124</td><td class="num">102</td><td class="note">102 attacks played by only one channel</td></tr><tr class="sep"><td class="song">06 Secret</td><td class="alb">Mare Vitalis</td><td><span class="pill sep">SEPARABLE</span></td><td class="num">61.1</td><td class="num">20.9</td><td class="num">0.1441</td><td class="num">129</td><td class="note">129 attacks played by only one channel</td></tr><tr class="sep"><td class="song">07. Barrier Islands (Do We Remain)</td><td class="alb">Illumination Ritual</td><td><span class="pill sep">SEPARABLE</span></td><td class="num">60.9</td><td class="num">5.0</td><td class="num">0.543</td><td class="num">105</td><td class="note">105 attacks played by only one channel</td></tr><tr class="sep"><td class="song">07 ...And Nothing Less</td><td class="alb">Mare Vitalis</td><td><span class="pill sep">SEPARABLE</span></td><td class="num">60.4</td><td class="num">18.3</td><td class="num">-0.0228</td><td class="num">181</td><td class="note">181 attacks played by only one channel</td></tr><tr class="sep"><td class="song">08 Poseidon</td><td class="alb">Mare Vitalis</td><td><span class="pill sep">SEPARABLE</span></td><td class="num">58.5</td><td class="num">27.9</td><td class="num">0.5089</td><td class="num">79</td><td class="note">79 attacks played by only one channel</td></tr><tr class="sep"><td class="song">03 Forever Longing the Golden Sunsets</td><td class="alb">Mare Vitalis</td><td><span class="pill sep">SEPARABLE</span></td><td class="num">54.5</td><td class="num">25.5</td><td class="num">0.0563</td><td class="num">119</td><td class="note">119 attacks played by only one channel</td></tr><tr class="sep"><td class="song">06-Cotopaxi</td><td class="alb">Octahedron</td><td><span class="pill sep">SEPARABLE</span></td><td class="num">49.2</td><td class="num">21.8</td><td class="num">-0.0898</td><td class="num">229</td><td class="note">229 attacks played by only one channel</td></tr><tr class="sep"><td class="song">10 Storms</td><td class="alb">Mare Vitalis</td><td><span class="pill sep">SEPARABLE</span></td><td class="num">48.7</td><td class="num">25.2</td><td class="num">0.2355</td><td class="num">197</td><td class="note">197 attacks played by only one channel</td></tr><tr class="sep"><td class="song">04 Mare Mortis</td><td class="alb">Mare Vitalis</td><td><span class="pill sep">SEPARABLE</span></td><td class="num">46.6</td><td class="num">36.1</td><td class="num">0.1491</td><td class="num">273</td><td class="note">273 attacks played by only one channel</td></tr><tr class="sep"><td class="song">05 Santa Maria</td><td class="alb">Mare Vitalis</td><td><span class="pill sep">SEPARABLE</span></td><td class="num">45.9</td><td class="num">41.2</td><td class="num">0.1303</td><td class="num">88</td><td class="note">88 attacks played by only one channel</td></tr><tr class="sep"><td class="song">09-Luciforms</td><td class="alb">Octahedron</td><td><span class="pill sep">SEPARABLE</span></td><td class="num">43.9</td><td class="num">17.2</td><td class="num">-0.078</td><td class="num">69</td><td class="note">69 attacks played by only one channel</td></tr><tr class="sep"><td class="song">07-Desperate-Graves</td><td class="alb">Octahedron</td><td><span class="pill sep">SEPARABLE</span></td><td class="num">39.0</td><td class="num">20.3</td><td class="num">0.172</td><td class="num">195</td><td class="note">195 attacks played by only one channel</td></tr><tr class="sep"><td class="song">03-Teflon</td><td class="alb">Octahedron</td><td><span class="pill sep">SEPARABLE</span></td><td class="num">36.8</td><td class="num">31.3</td><td class="num">-0.0014</td><td class="num">228</td><td class="note">228 attacks played by only one channel</td></tr><tr class="sep"><td class="song">04-Halo-of-Nembutals</td><td class="alb">Octahedron</td><td><span class="pill sep">SEPARABLE</span></td><td class="num">36.3</td><td class="num">31.7</td><td class="num">0.1865</td><td class="num">124</td><td class="note">124 attacks played by only one channel</td></tr><tr class="uni"><td class="song">08-Copernicus</td><td class="alb">Octahedron</td><td><span class="pill uni">UNISON</span></td><td class="num">84.3</td><td class="num">9.0</td><td class="num">0.6708</td><td class="num">-</td><td class="note">both channels play the same attacks; no second part to lift</td></tr><tr class="uni"><td class="song">01-Credits</td><td class="alb">Octahedron</td><td><span class="pill uni">UNISON</span></td><td class="num">54.4</td><td class="num">30.0</td><td class="num">0.8052</td><td class="num">-</td><td class="note">both channels play the same attacks; no second part to lift</td></tr><tr class="unus"><td class="song">03. Simple Forms</td><td class="alb">Illumination Ritual</td><td><span class="pill unus">UNUSABLE</span></td><td class="num">22.2</td><td class="num">68.1</td><td class="num">0.6115</td><td class="num">-</td><td class="note">margin 22.2 is too small; the control nearly matches</td></tr><tr class="mono"><td class="song">01. Adriatic to Black Sea</td><td class="alb">Illumination Ritual</td><td><span class="pill mono">MONO</span></td><td class="num">81.0</td><td class="num">5.5</td><td class="num">0.8514</td><td class="num">-</td><td class="note">L and R correlate 0.8514, effectively one channel</td></tr><tr class="mono"><td class="song">06. Branches on the Arrow Peak Revelation</td><td class="alb">Illumination Ritual</td><td><span class="pill mono">MONO</span></td><td class="num">70.6</td><td class="num">23.9</td><td class="num">0.9023</td><td class="num">-</td><td class="note">L and R correlate 0.9023, effectively one channel</td></tr><tr class="mono"><td class="song">05. 30 Degrees 3 Am</td><td class="alb">Illumination Ritual</td><td><span class="pill mono">MONO</span></td><td class="num">68.1</td><td class="num">27.0</td><td class="num">0.8956</td><td class="num">-</td><td class="note">L and R correlate 0.8956, effectively one channel</td></tr></tbody></table></div>
+
+<h2>Why the existing tabs cannot be split note by note</h2>
+<p>The obvious move is to take the tab we already have and hand each written note
+to whichever channel played it. That was tried and it does not survive its own
+control. Every position on Kilgore Trout's 449-position rhythm staff was scored,
+with the offset searched over &plusmn;3 seconds at 10 ms steps:</p>
+
+<div class="tw"><table>
+<thead><tr><th>Window (ms)</th><th>Best offset (s)</th><th>Matched %</th>
+<th>Shifted control %</th><th>Margin</th></tr></thead>
+<tbody><tr><td class="num">30</td><td class="num">-2.26</td><td class="num">29.6</td><td class="num">22.7</td><td class="num bad">6.9</td></tr><tr><td class="num">50</td><td class="num">-2.28</td><td class="num">43.9</td><td class="num">36.1</td><td class="num bad">7.8</td></tr><tr><td class="num">80</td><td class="num">-2.89</td><td class="num">61.0</td><td class="num">57.5</td><td class="num bad">3.5</td></tr><tr><td class="num">120</td><td class="num">-2.39</td><td class="num">75.9</td><td class="num">71.0</td><td class="num bad">4.9</td></tr><tr><td class="num">200</td><td class="num">-2.25</td><td class="num">90.0</td><td class="num">86.6</td><td class="num bad">3.4</td></tr></tbody></table></div>
+
+<p><b>Loosening the window raises the real score and the control together.</b> A
+90% match at 200 ms is density, not alignment. There is no tolerance at which
+this tab's attack times can say who played what, so the tool refuses instead of
+writing a confident two-staff file out of noise.</p>
+
+<div class="call ok"><b>The route that works is to split the audio, not the tab.</b>
+Both channels share one clock, which is exactly what the tab lacks. Write L and R
+as separate mono files, transcribe each on its own, then put the two results on
+two staves. Two transcriptions of two channels are two guitar parts by
+construction, with no ownership call left to get wrong.</div>
+
+<pre>python3 ~/.claude/skills/two-guitar-split/split_stem_channels.py \
+    --stem "&lt;song&gt;/guitar.mp3" --out-dir &lt;work&gt;/split</pre>
+
+<p>The gate runs first and refuses anything that is not <span class="pill sep">SEPARABLE</span>.
+Verified both ways: Kilgore Trout writes its two channels, Adriatic to Black Sea
+is refused as mono.</p>
+
+<h2>Standing rule</h2>
+<p><b>Two guitars, never four.</b> A third staff is never the answer, and the
+split is decided by who played the note, never by panning or by stem loudness.</p>
+
+<footer>
+Source data: <code>channel_separability_report.csv</code> &mdash;
+<code>~/Projects/_outputs/impossible-guitar-parts/kilgore-role-separation-2026-09-07/</code><br>
+Gate: <code>~/.claude/skills/impossible-guitar-parts/channel_asymmetry_check.py</code> &middot;
+Skill: <code>/two-guitar-split</code>
+</footer>
+</div></body></html>
