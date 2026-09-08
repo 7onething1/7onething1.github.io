@@ -542,12 +542,66 @@ all. Written into <span class="mono">data/ridebed_final.json</span> and
 <span class="mono">data/ridebed3.json</span>.</p>
 </div>
 
+<h2 class="t">The approach that does work, and what it found</h2>
+<p>Per-event matching is unidentifiable on this lane, so the question changed. Ask whether the ride's
+<strong>periodicity</strong> matches the stem, over 6-second windows stepped by 2 seconds, with the same
+Keep It Greasey wrong recording as control.</p>
+<div class="scroll"><table>
+<thead><tr><th>Recording</th><th>Median lag / notated spacing</th><th>Windows within 15% of 1.0</th><th>Median autocorrelation</th></tr></thead>
+<tbody>
+<tr><td>Watermelon (right)</td><td class="ok"><strong>1.971</strong></td><td>36 of 216</td><td>0.217</td></tr>
+<tr><td>Keep It Greasey (control)</td><td>0.814</td><td>15 of 216</td><td>0.252</td></tr>
+</tbody></table></div>
+<p>The stem's dominant pulse sits at almost exactly <strong>twice</strong> the notated ride spacing, which
+is 271.0 ms, so the envelope pulses at the eighth while the tab writes sixteenths. Separation against the
+wrong recording is 2.40&times;.</p>
+
+<h3>The obvious explanation fails its own test</h3>
+<p>If the drummer played eighths and the tab wrote sixteenths, the off-eighth notes would be inventions.
+Splitting purely on score position, with no reference to audio, refutes that.</p>
+<div class="scroll"><table>
+<thead><tr><th>Position</th><th>n</th><th>Confirmed</th><th>Recall</th><th>Ratio</th></tr></thead>
+<tbody>
+<tr><td>On the eighth</td><td>785</td><td>211</td><td>211/785 = 0.269</td><td>2.17&times;</td></tr>
+<tr><td>Off-eighth sixteenth</td><td>736</td><td>151</td><td>151/736 = 0.205</td><td>1.66&times;</td></tr>
+</tbody></table></div>
+<p>Only <strong>1.31&times;</strong> apart, Fisher p = 0.0021. Real and far too small for fabrication. The
+off-eighth sixteenths carry genuine support at 1.66&times;, so the drummer played the sixteenths.</p>
+
+<h3>What it actually is: an accent grid, and the original author wrote it down</h3>
+<p>A sixteenth ride with every other stroke accented pulses at the eighth in an envelope and still puts a
+real attack on every sixteenth. Both results then agree. The pre-sweep tab
+<span class="mono">r7715683</span> encodes exactly that, marking 1,317 of its 1,778 ride notes with
+AntiAccent. Splitting on that flag alone, with no reference to audio:</p>
+<div class="scroll"><table>
+<thead><tr><th>Author's marking</th><th>n</th><th>Confirmed</th><th>Recall</th><th>Ratio</th></tr></thead>
+<tbody>
+<tr><td><strong>PLAIN, the author's accents</strong></td><td>416</td><td>122</td><td>122/416 = 0.293</td><td class="ok"><strong>2.37&times;</strong></td></tr>
+<tr><td>GHOSTED, the author's weak strokes</td><td>1185</td><td>240</td><td>240/1185 = 0.203</td><td>1.64&times;</td></tr>
+</tbody></table></div>
+<div class="card hero y">
+<p><strong>1.45&times; apart, Fisher p = 0.00012.</strong> The notes the transcriber marked as accented are
+measurably louder in the isolated cymbal stem than the ones marked weak, on a split made from a notation
+flag with the audio never consulted.</p>
+<p><strong>Three independent splits, all significant, all in the same direction:</strong> envelope
+periodicity at 1.971, score position at 1.31&times; (p = 0.0021), author's flag at 1.45&times;
+(p = 0.00012). The modest effect sizes are what a detector with 14.9 percent recall can deliver, since
+poor recall caps how far any split can separate.</p>
+<p style="margin-bottom:0"><strong>The consequence for the tab.</strong> Those 1,317 ride ghost flags
+encode an accent structure the audio independently supports, and the current copy tab
+<span class="mono">r8968524</span> carries <strong>zero</strong> cymbal ghosts against the pre-sweep
+tab's 1,317. The accent grid has been lost from the working file. This is a provenance repair with audio
+backing, and it is the strongest actionable result on this page. Data:
+<span class="mono">beat_periodicity.json</span>, <span class="mono">eighths_test.json</span>,
+<span class="mono">accent_grid.json</span>, <span class="mono">g44_flag_parity.json</span>.</p>
+</div>
+
 <h2 class="g">The queue this produces</h2>
 <ol>
 <li><strong>101 cymbal strokes</strong> with timestamps and verdicts, opened individually, never removed in bulk.</li>
 <li><strong>Display bar 57</strong> is UNRESOLVED. The measurement failed on bin-lock and the chart sits below the 15 px notehead floor. It waits on a scan at roughly three times this resolution.</li>
 <li><strong>49 fractional tom positions</strong> examined per fill for tuplets and odd meters, with the regrid withdrawn.</li>
-<li><strong>A beat-level or periodicity test for the ride</strong>, since per-event onset matching is provably unidentifiable on a continuous sixteenth lane. Ask whether each beat carries ride activity, or compare the ride's own periodicity against the stem's, rather than matching stroke to stroke.</li>
+<li><strong>Restore the 1,317 ride ghost flags</strong> to the copy tab. The accent grid they encode is confirmed by the stem at p = 0.00012 and the working file carries zero cymbal ghosts.</li>
 <li><strong>The chart reader</strong>, four head counts from one image, re-read from the stem ahead of grading anything.</li>
 </ol>
 

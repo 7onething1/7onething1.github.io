@@ -1,0 +1,21 @@
+{
+ "chance": 0.12375,
+ "detector_onsets": 1103,
+ "populations": {
+  "ON the eighth": {
+   "n": 785,
+   "confirmed": 211,
+   "recall": 0.26878980891719745,
+   "ratio": 2.172038859936949
+  },
+  "OFF-eighth sixteenth": {
+   "n": 736,
+   "confirmed": 151,
+   "recall": 0.20516304347826086,
+   "ratio": 1.6578831796223101
+  }
+ },
+ "on_over_off": 1.310127810351373,
+ "fisher_odds": 1.4241294967348916,
+ "fisher_p": 0.00213854163843841
+}

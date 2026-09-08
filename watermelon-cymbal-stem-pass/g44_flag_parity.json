@@ -1,0 +1,44 @@
+{
+ "PRESWEEP r7715683|snare": {
+  "total": 193,
+  "antiaccent": 0,
+  "staccato": 0,
+  "both": 0,
+  "neither": 193
+ },
+ "PRESWEEP r7715683|cymbal": {
+  "total": 1778,
+  "antiaccent": 1317,
+  "staccato": 0,
+  "both": 0,
+  "neither": 461
+ },
+ "PRESWEEP r7715683|tom": {
+  "total": 6,
+  "antiaccent": 0,
+  "staccato": 0,
+  "both": 0,
+  "neither": 6
+ },
+ "BASELINE r8968524|snare": {
+  "total": 342,
+  "antiaccent": 149,
+  "staccato": 0,
+  "both": 0,
+  "neither": 193
+ },
+ "BASELINE r8968524|cymbal": {
+  "total": 1573,
+  "antiaccent": 0,
+  "staccato": 0,
+  "both": 0,
+  "neither": 1573
+ },
+ "BASELINE r8968524|tom": {
+  "total": 168,
+  "antiaccent": 0,
+  "staccato": 0,
+  "both": 0,
+  "neither": 168
+ }
+}

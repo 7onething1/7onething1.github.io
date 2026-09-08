@@ -194,3 +194,47 @@ A lane written on nearly every sixteenth matches itself one sixteenth over, so s
 the same shape and no offset is identifiable. Onset matching cannot validate a continuous
 sixteenth-note ride. That is a property of the method against this material, never a verdict on the
 notation. Data: ridebed_final.json, ridebed3.json, ridebed_tune.json, ridebed2_tune.json
+
+## The approach that works (q-2026-09-08-b3fcab): periodicity, then the accent grid
+
+Ride periodicity over 6 s windows stepped 2 s, control = Keep It Greasey.
+
+| Recording | Median lag / notated spacing | Windows within 15% of 1.0 | Median AC |
+|---|---|---|---|
+| Watermelon (right) | 1.971 | 36 of 216 | 0.217 |
+| Keep It Greasey (control) | 0.814 | 15 of 216 | 0.252 |
+
+The stem pulses at almost exactly twice the notated ride spacing of 271.0 ms, so the envelope pulses
+at the eighth while the tab writes sixteenths. Separation 2.40x.
+
+### The obvious explanation fails its own test
+
+| Position | n | Confirmed | Recall | Ratio |
+|---|---|---|---|---|
+| On the eighth | 785 | 211 | 211/785 = 0.269 | 2.17x |
+| Off-eighth sixteenth | 736 | 151 | 151/736 = 0.205 | 1.66x |
+
+Only 1.31x apart, Fisher p = 0.0021. The off-eighth sixteenths carry genuine support at 1.66x, so the
+drummer played the sixteenths and the tab did not invent them.
+
+### It is an accent grid, and the original author wrote it down
+
+A sixteenth ride with every other stroke accented pulses at the eighth and still puts a real attack on
+every sixteenth. The pre-sweep tab r7715683 marks 1,317 of its 1,778 ride notes with AntiAccent.
+Splitting on that flag alone, audio never consulted:
+
+| Author's marking | n | Confirmed | Recall | Ratio |
+|---|---|---|---|---|
+| PLAIN, the author's accents | 416 | 122 | 122/416 = 0.293 | 2.37x |
+| GHOSTED, the author's weak strokes | 1185 | 240 | 240/1185 = 0.203 | 1.64x |
+
+1.45x apart, Fisher p = 0.00012. Three independent splits, all significant, all the same direction:
+envelope periodicity 1.971, score position 1.31x (p = 0.0021), author's flag 1.45x (p = 0.00012).
+
+CONSEQUENCE: the copy tab r8968524 carries ZERO cymbal ghosts against the pre-sweep tab's 1,317. The
+accent grid the audio supports has been lost from the working file.
+
+Flag parity (G44): staccato is zero on every lane in both revisions, so the 193-vs-342 snare comparison
+counts AntiAccent on both sides and is flag-symmetric.
+
+Data: beat_periodicity.json, eighths_test.json, accent_grid.json, g44_flag_parity.json

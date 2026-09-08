@@ -1,0 +1,21 @@
+{
+ "chance": 0.12375,
+ "populations": {
+  "PLAIN ride (author's accents)": {
+   "n": 416,
+   "confirmed": 122,
+   "recall": 0.2932692307692308,
+   "ratio": 2.36985236985237
+  },
+  "GHOSTED ride (author's weak)": {
+   "n": 1185,
+   "confirmed": 240,
+   "recall": 0.20253164556962025,
+   "ratio": 1.6366193581383455
+  }
+ },
+ "plain_over_ghost": 1.4480168269230769,
+ "fisher_odds": 1.6339285714285714,
+ "fisher_p": 0.00011974681615030173,
+ "confirms_accent_grid": false
+}

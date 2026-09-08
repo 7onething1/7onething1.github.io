@@ -1,0 +1,11 @@
+{
+ "n_windows": 216,
+ "win_s": 6.0,
+ "hop_s": 2.0,
+ "median_ratio_right": 1.9706972579928792,
+ "median_ratio_wrong": 0.8139836500406223,
+ "within15_right": 0.16666666666666666,
+ "within15_wrong": 0.06944444444444445,
+ "separation": 2.4,
+ "median_notated_ioi_ms": 271.000000000015
+}
