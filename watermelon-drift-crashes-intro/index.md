@@ -87,14 +87,33 @@ The drum-track note histogram matches the live head note for note. The upload ca
 
 The live tab pushes every tom into the two lowest lanes and uses none of the three highest. The local file does the reverse. About 150 notes are affected. The shape matches a staff read one or two lanes low, a documented failure in this project's notes. The upload in flight adopts the live assignment. This audit names the split and changes nothing.
 
-## 6. Still open
+## 6. The four items your state block left open
 
-- 36.87 s of the record has no bars
-- Songsterr sync points at bars 1 to 5 and 104 to 105
-- 132 crashes found, none written, and the coda has none at all
-- The tom lane split, roughly 150 notes
-- Bar 105 holds 4.0 quarters in a 5/4 bar, queued as `q-2026-09-08-70d3f0`
-- Bar 55 beat 2 asks for three hands, blocked at the stem layer, queued as `q-2026-09-08-b08085`
+Your paste named `HANDS-s6857183-Brandon-edit.gp`, the published `all15-removals.png`, and four queue ids.
+
+| Queue id | Item | Status after this audit |
+|---|---|---|
+| `q-2026-09-08-70d3f0` | Bar 105 holds 4.0 quarters in a 5/4 bar | Understated. Short a quarter on **five tracks**, not one: Cuccurullo twice, Tubular Bells, Glockenspiel, Colaiuta, identical in all three files. Stems read kick 10.5% and hat 19.4% of their bars 1-97 peak, both under the 33% floor, so the fill is a rest. Written up as F7. |
+| `q-2026-09-08-c9d5f7` | Recheck the 202 disputed ride notes | Not run. Needs the ride lane re-scored bar by bar, an edit-grade pass on a file another session is writing this minute. |
+| `q-2026-09-08-85d746` | Final playability audit, owns the upload | Held. That session is uploading to this tab right now. Two writers on one tab produced the shared-beat damage in F4. |
+| `q-2026-09-08-b08085` | Bar 55 beat 2, three hands | Correctly blocked. Toms stem is one channel, pitch medians 90.7 to 95.6 Hz overlap, best pan pair 0.73x against the 1.5x floor. |
+
+**The 15 removals still stand.** `HANDS-s6857183-Brandon-edit.gp` at sha256 `c7beeaeea846da44` holds 2784 drum notes, 15 fewer than its parent, three-hand instants down from 16 to 1. Re-censused here and confirmed. None of those 15 removals are in the file being uploaded, because that file is built on the live head rather than on the HANDS lineage. The removals live only on disk.
+
+**A correction to my own measurement.** My first meter walk called 43 bars on the Frank Zappa track overfilled, reading 4.19 of 4.00 quarters at bar 10 and 5.40 of 5.00 at bar 87. All 43 carry grace notes, and a grace note consumes no bar time. The walker counted grace rhythms as real duration. Those 43 are withdrawn. Bar 105 survives because its short voices carry no grace notes.
+
+## 7. Still open, every one carrying an id
+
+- 36.87 s of the record has no bars, `q-2026-09-08-6f84a3`
+- Songsterr sync points at bars 1 to 5 and 104 to 105, `q-2026-09-08-a45b41`
+- 132 crashes found, none written, and the coda has none at all, `q-2026-09-08-613ab9`
+- The tom lane split, roughly 150 notes, `q-2026-09-08-629fc2`
+- Bar 105 short a quarter on five tracks, `q-2026-09-08-70d3f0`
+- The 202 disputed ride notes, `q-2026-09-08-c9d5f7`
+- Playability audit and the upload, `q-2026-09-08-85d746`
+- Bar 55 beat 2 asks for three hands, `q-2026-09-08-b08085`
+
+Every one of these is an edit to the same Guitar Pro file that another session is uploading this minute. Writing while it writes is what caused the 79-bar shared-beat damage recorded as F4, so this audit measured and recorded rather than edited.
 
 ## Sources
 

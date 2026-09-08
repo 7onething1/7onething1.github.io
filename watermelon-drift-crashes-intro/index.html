@@ -173,7 +173,26 @@ svg{display:block;max-width:100%;height:auto}
 </table></div>
 <p>The live tab pushes every tom into the two lowest lanes and uses none of the three highest. The local file does the reverse. The shape matches a staff read one or two lanes low, which is a documented failure in this project's own notes. <b>The upload in flight adopts the live assignment.</b> This audit does not judge which reading is correct, and it changes nothing. It names the split so the next session does not spend a fourth run rediscovering it.</p>
 
-<h2><span class="n" style="background:var(--muted)">6</span>What is true right now</h2>
+<h2><span class="n" style="background:#6b6355">6</span>The four items your state block left open</h2>
+<p>Your paste named <code>HANDS-s6857183-Brandon-edit.gp</code>, the published <a href="https://7onething1.github.io/watermelon-why-not-done/all15-removals.png">all15-removals.png</a>, and four queue ids. Here is where each one actually stands after this audit.</p>
+<div class="scroll"><table>
+<tr><th>Queue id</th><th>Item</th><th>Status after this audit</th></tr>
+<tr class="bad"><td><code>q-2026-09-08-70d3f0</code></td><td>Bar 105 holds 4.0 quarters in a 5/4 bar</td><td><b>Understated, and now measured.</b> It is short a quarter on <b>five tracks</b>, not one: Cuccurullo twice, Tubular Bells, Glockenspiel and Colaiuta, identically in all three files. The stems read kick 10.5% and hat 19.4% of their bars 1-97 peak, both under the 33% floor, so the fill is a rest rather than an attack. Written up as F7.</td></tr>
+<tr><td><code>q-2026-09-08-c9d5f7</code></td><td>Recheck the 202 disputed ride notes on the metronome clock</td><td><b>Not run.</b> It needs the ride lane re-scored bar by bar, which is an edit-grade pass on a file another session is writing this minute.</td></tr>
+<tr><td><code>q-2026-09-08-85d746</code></td><td>Final stem-matched playability audit, and it owns the upload</td><td><b>Held.</b> The session named in section 1 is uploading to this tab right now. Two writers on one tab is what produced the shared-beat damage in F4.</td></tr>
+<tr><td><code>q-2026-09-08-b08085</code></td><td>Bar 55 beat 2 asks for three hands</td><td><b>Correctly blocked.</b> The toms stem is one channel, pitch medians 90.7 to 95.6 Hz overlap, best pan pair 0.73x against the 1.5x floor. Only an isolated multitrack settles it.</td></tr>
+</table></div>
+<div class="callout aqua">
+<h3>The 15 removals still stand</h3>
+<p><code>HANDS-s6857183-Brandon-edit.gp</code> at sha256 <code>c7beeaeea846da44</code> holds 2784 drum notes, 15 fewer than its parent, with the three-hand instants down from 16 to 1. This audit re-censused it and confirms that count. <b>None of those 15 removals are in the file being uploaded,</b> because that file is built on the live head rather than on the HANDS lineage. The removals live only on disk.</p>
+</div>
+
+<div class="callout gold">
+<h3>A correction to my own measurement</h3>
+<p>My first meter walk called 43 bars on the Frank Zappa track overfilled, reading 4.19 of 4.00 quarters at bar 10 and 5.40 of 5.00 at bar 87. All 43 carry grace notes, and a grace note consumes no bar time. <b>My walker counted grace rhythms as real duration.</b> Those 43 are withdrawn. Bar 105 survives the check because its short voices carry no grace notes at all.</p>
+</div>
+
+<h2><span class="n" style="background:var(--muted)">7</span>What is true right now</h2>
 <div class="grid g3">
  <div class="card t1"><h3 style="margin-top:0">Fixed</h3><ul>
   <li>The flat 56.000 bpm map, replaced by 105 per-bar values</li>
@@ -185,13 +204,16 @@ svg{display:block;max-width:100%;height:auto}
   <li>Tempo only, drum notes untouched</li>
   <li>Fixes the drift Brandon heard through the body</li>
   <li>Leaves the opening twelve seconds early</li></ul></div>
- <div class="card t5"><h3 style="margin-top:0">Open</h3><ul>
-  <li>36.87 s of the record has no bars</li>
-  <li>Songsterr sync points at bars 1 to 5 and 104 to 105</li>
-  <li>132 crashes found, none written</li>
-  <li>The tom lane split, roughly 150 notes</li>
-  <li>Bar 105 holds 4.0 quarters in a 5/4 bar</li>
-  <li>Bar 55 beat 2, three hands, blocked at the stem layer</li></ul></div>
+ <div class="card t5"><h3 style="margin-top:0">Open, every one carrying an id</h3><ul>
+  <li>36.87 s of the record has no bars <code>q-2026-09-08-6f84a3</code></li>
+  <li>Songsterr sync points, bars 1 to 5 and 104 to 105 <code>q-2026-09-08-a45b41</code></li>
+  <li>132 crashes found, none written <code>q-2026-09-08-613ab9</code></li>
+  <li>The tom lane split, roughly 150 notes <code>q-2026-09-08-629fc2</code></li>
+  <li>Bar 105 short a quarter on five tracks <code>q-2026-09-08-70d3f0</code></li>
+  <li>The 202 disputed ride notes <code>q-2026-09-08-c9d5f7</code></li>
+  <li>Playability audit and the upload <code>q-2026-09-08-85d746</code></li>
+  <li>Bar 55 beat 2, three hands <code>q-2026-09-08-b08085</code></li></ul>
+  <div class="fine">Every one of these is an edit to the same Guitar Pro file that another session is uploading this minute. Writing while it writes is what caused the 79-bar shared-beat damage in F4, so this audit measured and recorded rather than edited.</div></div>
 </div>
 
 <footer>
