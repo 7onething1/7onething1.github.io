@@ -13,8 +13,8 @@ notehead gets skipped**.
 
 | | |
 |---|---|
-| Toms in the tab at the start | 6 across 105 bars |
-| Toms added from the chart | **179** |
+| Toms in the tab at the start | 6, all six inside the 96 bars the chart transcribes |
+| Toms added from the chart | **179**, over those same 96 bars |
 | Toms now | 185 |
 | Bars touched | 46 of 105 |
 | Voice 0 | untouched, every ride, kick, snare and crash count identical |
