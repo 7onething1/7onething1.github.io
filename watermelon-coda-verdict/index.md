@@ -176,9 +176,11 @@ in the file.
 
 ### The eye overrules the cymbal detector
 
-Chart bar 89 (GP 98) carries the Coda mark and "(Gong)". Chart bars 91 to 92 (GP 100 to 101)
-are marked "(cymbal on dome)" at p. Both systems show a dense continuous run of x noteheads
-on the top line with many circled-x heads for dome strokes. The cymbals are plainly printed.
+Chart bar 89 (GP 98) carries the Coda mark with "(Gong)" beside it. Chart bars 91 to 92
+(GP 100 to 101) carry the passage text "(cymbal on dome)" at p above the staff. Both systems
+show a dense continuous run of noteheads on the top line, including a circled class that is
+logged as distinct and left unnamed. Which noteheads that passage text governs is not
+established here. Noteheads are plainly printed across all of those bars.
 
 The detector ran with instrument="ride" calibration. A dome stroke at p produces a much
 lower-novelty transient than a bowed ride, so a ride-tuned novelty floor classifies it
@@ -189,10 +191,10 @@ stands. Images: sys44_chartbars89-90_x8.png and sys45_chartbars91-92_x8.png.
 ### Correction on glyph naming, and a faulty check of my own
 
 An earlier draft called the circled noteheads "dome strokes" from their shape. That names an
-instrument from a glyph, which this project forbids. What stands is what the chart PRINTS:
-chart bar 89 is headed Coda with "(Gong)", and chart bars 91 to 92 are headed
-"(cymbal on dome)" at p. Those are the transcriber's words. The glyph shapes are recorded as a
-distinct notehead class and left unnamed.
+instrument from a glyph, which this project forbids. The glyph shapes are recorded as a distinct
+notehead class and left unnamed. The chart separately carries passage text above the staff,
+which is the transcriber's section marking rather than a label on any particular notehead, and
+which noteheads it governs is not established here.
 
 A circled notehead carries more ink than a plain x. It could cross the cut separating toms from
 the ride on the top line. Re-measuring found no top-line head above 180.
