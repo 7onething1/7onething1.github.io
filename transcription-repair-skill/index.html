@@ -1,0 +1,280 @@
+<!doctype html>
+<html lang="en"><head><meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>transcription-repair — the skill that refuses</title>
+<style>
+:root{
+  color-scheme:light;
+  --cream:#f6f0e2; --paper:#fffaf0; --ink:#1f1c18; --mute:#6b6257;
+  --rust:#b4452e; --mustard:#d9a441; --sage:#7d8f69; --teal:#3f6f74;
+  --plum:#7a4a63; --line:#ddd2b8; --code:#2b2721;
+}
+*{box-sizing:border-box}
+body{background:var(--cream);color:var(--ink);margin:0;
+  font:16px/1.62 -apple-system,BlinkMacSystemFont,"Inter","Segoe UI",sans-serif;
+  padding:0 1.2rem 5rem}
+.wrap{max-width:960px;margin:0 auto}
+header{padding:3.4rem 0 1.6rem;border-bottom:3px double var(--line)}
+h1{font-size:2.5rem;line-height:1.08;margin:0 0 .4rem;letter-spacing:-.02em}
+h1 .sub{display:block;font-size:1rem;font-weight:500;color:var(--rust);
+  letter-spacing:.14em;text-transform:uppercase;margin-bottom:.7rem}
+.lede{font-size:1.16rem;color:var(--mute);max-width:62ch;margin:.9rem 0 0}
+h2{font-size:1.42rem;margin:2.9rem 0 .5rem;padding-left:.7rem;
+  border-left:6px solid var(--mustard);letter-spacing:-.01em}
+h2.r{border-color:var(--rust)} h2.s{border-color:var(--sage)}
+h2.t{border-color:var(--teal)} h2.p{border-color:var(--plum)}
+h3{font-size:1.06rem;margin:1.7rem 0 .3rem;color:var(--teal)}
+p{max-width:76ch}
+a{color:var(--teal)}
+code,kbd{font-family:ui-monospace,SFMono-Regular,Menlo,monospace;font-size:.875em;
+  background:#eee6d2;padding:.1em .34em;border-radius:3px}
+pre{background:var(--code);color:#f2ead9;padding:1rem 1.1rem;border-radius:6px;
+  overflow-x:auto;font-size:.8rem;line-height:1.5;border:1px solid #100e0b}
+pre code{background:none;padding:0;color:inherit;font-size:1em}
+table{border-collapse:collapse;width:100%;margin:1rem 0;font-size:.92rem;
+  background:var(--paper);border:1px solid var(--line)}
+th,td{text-align:left;padding:.5rem .68rem;border-bottom:1px solid var(--line);
+  vertical-align:top}
+th{background:#efe6cf;font-weight:650;font-size:.83rem;letter-spacing:.03em;
+  text-transform:uppercase;color:#4a4237}
+tbody tr:last-child td{border-bottom:none}
+td.n{white-space:nowrap;font-variant-numeric:tabular-nums}
+.scroll{overflow-x:auto;-webkit-overflow-scrolling:touch}
+.grid{display:grid;gap:1rem;grid-template-columns:repeat(auto-fit,minmax(228px,1fr));margin:1.3rem 0}
+.card{background:var(--paper);border:1px solid var(--line);border-top:4px solid var(--sage);
+  border-radius:5px;padding:.95rem 1.05rem}
+.card.r{border-top-color:var(--rust)} .card.m{border-top-color:var(--mustard)}
+.card.t{border-top-color:var(--teal)} .card.p{border-top-color:var(--plum)}
+.card h4{margin:0 0 .3rem;font-size:.78rem;letter-spacing:.09em;text-transform:uppercase;
+  color:var(--mute)}
+.card .big{font-size:1.9rem;font-weight:700;letter-spacing:-.02em;line-height:1.1}
+.card .note{font-size:.85rem;color:var(--mute);margin-top:.3rem}
+.pill{display:inline-block;font-size:.7rem;letter-spacing:.07em;text-transform:uppercase;
+  padding:.16em .5em;border-radius:3px;font-weight:650;white-space:nowrap}
+.ok{background:#e0e8d6;color:#41582f} .no{background:#f2ded8;color:#8e3320}
+.hm{background:#f5e8cd;color:#7d5a12}
+blockquote{margin:1.2rem 0;padding:.8rem 1.1rem;background:var(--paper);
+  border-left:5px solid var(--rust);font-size:.98rem;color:#3d372f}
+blockquote p{margin:.25rem 0}
+.foot{margin-top:3.4rem;padding-top:1.2rem;border-top:3px double var(--line);
+  font-size:.85rem;color:var(--mute)}
+ol.flow{counter-reset:g;list-style:none;padding:0;margin:1.2rem 0}
+ol.flow li{counter-increment:g;background:var(--paper);border:1px solid var(--line);
+  border-radius:5px;padding:.7rem .9rem .7rem 3.1rem;position:relative;margin-bottom:.5rem}
+ol.flow li::before{content:counter(g);position:absolute;left:.85rem;top:.62rem;
+  width:1.6rem;height:1.6rem;border-radius:50%;background:var(--teal);color:var(--cream);
+  font-size:.82rem;font-weight:700;display:grid;place-items:center}
+ol.flow b{color:var(--ink)}
+.tag{font-size:.74rem;color:var(--mute);letter-spacing:.05em}
+@media (max-width:640px){h1{font-size:1.9rem}body{font-size:15px}}
+</style>
+</head><body><div class="wrap">
+
+<header>
+<h1><span class="sub">Claude Code skill · built 2026-09-08</span>
+transcription-repair</h1>
+<p class="lede">Repair an existing music transcription by treating the best human
+transcription as the musical model and isolated stems as evidence that tests individual
+claims inside it. Every rule below has a shipped failure behind it.</p>
+</header>
+
+<div class="grid">
+  <div class="card t"><h4>Executable assertions</h4><div class="big">76</div>
+    <div class="note">4 suites, all passing, numpy and scipy only</div></div>
+  <div class="card r"><h4>Adversarial fixtures</h4><div class="big">15</div>
+    <div class="note">each one a repair that actually shipped wrong</div></div>
+  <div class="card m"><h4>Promotion conditions</h4><div class="big">9</div>
+    <div class="note">every one named separately on refusal</div></div>
+  <div class="card p"><h4>Evidence states</h4><div class="big">7</div>
+    <div class="note">with a legal-transition table that blocks shortcuts</div></div>
+</div>
+
+<h2 class="r">The principle</h2>
+<p><b>Start from the human transcription. Use stems to test claims inside it.</b> A human
+transcription establishes the grid, the meter, the rhythmic spelling, the instrument
+vocabulary and the phrase structure. Audio decides whether the written events happened.
+When the two disagree, investigate that specific disagreement.</p>
+
+<blockquote>
+<p><b>The failure this replaces.</b> A repair placed 164 toms using a printed chart for the
+count and stem onsets for the timing. Ten toms in one measure landed at 11.23, 11.55, 11.94,
+12.85, 13.78, 14.74, 15.73, 16.01, 16.45 and 18.63 sixteenths. Two pairs sat under a third
+of a sixteenth apart, so the writer subdivided to 32nds and stacked High Tom on Hi-Mid Tom.
+Across 40 tom measures, <b>30 held a placement over 0.20 of a sixteenth off grid</b>. It was
+rewritten by hand as plain descending sixteenths 26 minutes later.</p>
+</blockquote>
+
+<h2 class="t">The pipeline, in order</h2>
+<ol class="flow">
+<li><b>Asset inventory.</b> Refuses a missing file, an empty file and an iCloud placeholder.
+A placeholder reads as empty and returns a clean, confident, wrong answer.</li>
+<li><b>Key census.</b> <code>tr_ledger.py keys</code> prints every element and property name
+with counts. A missing key is evidence only after this runs. Searching <code>&lt;Ghost&gt;</code>
+and finding zero started the sweep that stripped 3,842 ghosted noteheads off sixteen live
+tabs. The element is <code>&lt;AntiAccent&gt;</code>.</li>
+<li><b>Recording identity.</b> Seven checks, each needing evidence: duration, arrangement,
+opening, closing, three distributed landmarks, known edits, master. An unanswered check is a
+refusal.</li>
+<li><b>The musical clock.</b> Rational quarter-note coordinates, integrating the complete
+tempo function including progressive automations. Reading only the first tempo builds a clock
+right for one bar and wrong for the rest.</li>
+<li><b>Alignment gate.</b> One-to-one matching against four controls. No <code>CONFIRMED</code>,
+no stem timing authorizes an edit.</li>
+<li><b>Stem reading.</b> The stem label <em>is</em> the instrument identity. Per-onset tom
+classification, cymbal attack against decay, leakage tests.</li>
+<li><b>Grid snapping.</b> Onsets map through the clock into the chart's own subdivision
+vocabulary. A new subdivision needs affirmative evidence.</li>
+<li><b>Two hands, two feet.</b> Run on the voice you did <em>not</em> edit.</li>
+<li><b>Edit ledger and promotion.</b> Nine conditions. Passing yields
+<code>LOCAL_VALIDATED</code>, which is not a submitted revision.</li>
+</ol>
+
+<h2 class="s">Alignment: the three ways a match rate lies</h2>
+<div class="scroll"><table>
+<thead><tr><th>Trap</th><th>What it looked like</th><th>What it was</th><th>The refusal</th></tr></thead>
+<tbody>
+<tr><td><b>No null at all</b></td><td class="n">45.5% match</td>
+<td class="n">43.4% against the same audio reversed, 35.5% random</td>
+<td>the tab carried the idiom and density of the music and almost none of its events</td></tr>
+<tr><td><b>Dense detector</b></td><td class="n">64.0% match</td><td class="n">58% chance baseline</td>
+<td>above a 35% null the gate demands 25 points, not 5</td></tr>
+<tr><td><b>Periodic annotation</b></td><td class="n">100% match, z looks fine</td>
+<td class="n">rotation null 94%</td>
+<td>a rotation of a metronome is nearly the metronome. <code>UNUSABLE</code>, route to landmarks</td></tr>
+</tbody></table></div>
+
+<p>The landmark route is what actually carries a repetitive part. It requires a stated
+selection rule, at least 8 landmarks, 50% coverage, chance occupancy computed from the real
+detected set, a rotation null, a binomial p value, <b>and the list of landmarks that
+failed</b>. A selection rule chosen after seeing what matched is refused, because the
+landmarks would then have been chosen because they matched.</p>
+
+<h2 class="p">The 15 adversarial fixtures</h2>
+<p>The suite tests whether an answer was <em>earned</em>. Producing an answer from
+deliberately inadequate evidence fails even when the code runs clean.</p>
+<div class="scroll"><table>
+<thead><tr><th>#</th><th>Fixture</th><th>Required behaviour</th><th>Result</th></tr></thead>
+<tbody>
+<tr><td class="n">1</td><td>tom onsets carried as raw seconds</td><td>refuse, name the off-grid count</td><td><span class="pill ok">3/7 off grid</span></td></tr>
+<tr><td class="n">2</td><td>two toms 3&nbsp;Hz apart</td><td><code>UNRESOLVED</code> for every event</td><td><span class="pill ok">calib distance 0.68</span></td></tr>
+<tr><td class="n">3</td><td>a 6-second crash decay</td><td>one attack</td><td><span class="pill ok">1 of 3 candidates</span></td></tr>
+<tr><td class="n">4</td><td>pedal chicks missing in three bars</td><td>find all three</td><td><span class="pill ok">bars 2, 5, 9</span></td></tr>
+<tr><td class="n">5</td><td>a ghost figure in 6 of 10 bars</td><td>sweep the other four as <code>PROPOSED</code></td><td><span class="pill ok">bars 6–9</span></td></tr>
+<tr><td class="n">6</td><td>wrong recording, same tempo and density</td><td>refuse</td><td><span class="pill ok">36% vs 23% null</span></td></tr>
+<tr><td class="n">7</td><td>three tempo changes</td><td>read all three</td><td><span class="pill ok">84–132 bpm</span></td></tr>
+<tr><td class="n">8</td><td>a track named Drums, all notes off the GM map</td><td>not a drum staff</td><td><span class="pill ok">100% off map</span></td></tr>
+<tr><td class="n">9</td><td>a 4.2&nbsp;px staff space</td><td><code>UNRESOLVED</code> without calibration</td><td><span class="pill ok">refused</span></td></tr>
+<tr><td class="n">10</td><td>an edit touching an unrelated track</td><td>regression fails</td><td><span class="pill ok">midi 43 → 45 caught</span></td></tr>
+<tr><td class="n">11</td><td>a bar where only the ride plays</td><td>protected from a silence sweep</td><td><span class="pill ok">bar 1 protected</span></td></tr>
+<tr><td class="n">12</td><td>a 50&nbsp;ms refractory at 170&nbsp;bpm on 32nds</td><td>refuse the detector setting</td><td><span class="pill ok">1/32 = 44.1 ms</span></td></tr>
+<tr><td class="n">13</td><td>a validation record for an older hash</td><td>not current</td><td><span class="pill ok">hash mismatch</span></td></tr>
+<tr><td class="n">14</td><td>an unanswered recording-identity check</td><td>refuse the whole map</td><td><span class="pill ok">6 unanswered</span></td></tr>
+<tr><td class="n">15</td><td>a cymbal proposal</td><td>less machine credit than a kick</td><td><span class="pill ok">F1 0.481 vs 0.931</span></td></tr>
+</tbody></table></div>
+
+<h3>Plus eight evidence-quality refusals</h3>
+<p>An edit with no evidence fields cannot enter the ledger. A <code>PROPOSED</code> edit
+cannot jump to <code>VALIDATED</code>. Promotion is refused on a failed regression, on a
+non-<code>CONFIRMED</code> alignment, and on a stale hash. Two tabs agreeing at 99.5% count
+as one source. An unmeasured source pair is reported rather than assumed independent. An
+iCloud placeholder is refused as an asset.</p>
+
+<h2 class="t">Evidence authority is scoped to the question</h2>
+<p>One ranking that answers every question is the wrong shape.</p>
+<div class="scroll"><table>
+<thead><tr><th>Question</th><th>Who decides</th></tr></thead>
+<tbody>
+<tr><td>Meter, barring, phrase structure</td><td>publisher or academic score, then specialist chart</td></tr>
+<tr><td>Written subdivision and rhythmic spelling</td><td>human transcription, then validated timing</td></tr>
+<tr><td><b>Does this stroke exist in the take</b></td><td><b>isolated stem</b>, then full mix, then the score</td></tr>
+<tr><td><b>Which drum sounded</b></td><td><b>isolated stem</b>, then score, then chart</td></tr>
+<tr><td>How loud relative to its neighbours</td><td>isolated stem, then score</td></tr>
+<tr><td>Which articulation is intended</td><td>score, then chart, then stem</td></tr>
+<tr><td>What a notation symbol means</td><td>the notation standard, via <code>/notation-evidence-gate</code></td></tr>
+</tbody></table></div>
+<p>So an isolated snare stem outranks a human transcription on whether one particular strike
+exists. A professional score outranks raw onset timing on whether a late strike belongs on
+the written sixteenth.</p>
+
+<h3>Machine evidence is weighted per drum class</h3>
+<p>Benchmark F1 at a 50&nbsp;ms one-to-one protocol on MDB Drums. Treating separation quality
+as one number lets a cymbal proposal inherit a kick's credibility.</p>
+<div class="scroll"><table>
+<thead><tr><th>Class</th><th>F1</th><th>Tier</th></tr></thead>
+<tbody>
+<tr><td>kick</td><td class="n">0.931</td><td><span class="pill ok">strong</span></td></tr>
+<tr><td>snare</td><td class="n">0.760</td><td><span class="pill hm">usable</span></td></tr>
+<tr><td>hi-hat</td><td class="n">0.650</td><td><span class="pill no">weak</span></td></tr>
+<tr><td>toms</td><td class="n">—</td><td><span class="pill no">weak, commonly one combined stem</span></td></tr>
+<tr><td>cymbal</td><td class="n">0.481</td><td><span class="pill no">weak, dense broadband</span></td></tr>
+</tbody></table></div>
+
+<h2 class="s">Three design changes the self-test forced</h2>
+<p>Each of these failed on the first run, and each failure changed the design rather than the
+expectation.</p>
+<div class="grid">
+<div class="card r"><h4>1 · Periodicity</h4>
+<p style="margin:.2rem 0 0;font-size:.92rem">A metronomic fixture could not be
+<code>CONFIRMED</code> by a rotation null, and it should not be. Periodicity is now measured
+off the annotation's own intervals and routed to landmarks unconditionally.</p></div>
+<div class="card m"><h4>2 · Decay constant</h4>
+<p style="margin:.2rem 0 0;font-size:.92rem">A hardcoded 0.6&nbsp;s decay against a
+1.4&nbsp;s ring predicted a fall the cymbal never takes, and noise scored as five attacks
+where four existed. The constant is now measured on the recording.</p></div>
+<div class="card t"><h4>3 · Separability</h4>
+<p style="margin:.2rem 0 0;font-size:.92rem">Two toms 2&nbsp;Hz apart were labelled
+confidently because within-class spread was tiny. Every call is now gated on whether the
+<em>calibration itself</em> separates, with a measurement floor per feature.</p></div>
+</div>
+
+<h2 class="p">Running it</h2>
+<pre><code>T=~/.claude/skills/transcription-repair
+
+python3 $T/tr_ledger.py keys FILE            # key census. Run FIRST of all
+python3 $T/tr_ledger.py diff A B             # note-INSTANCE diff, 7 conflict classes
+python3 $T/tr_ledger.py regress ORIG EDIT --scope-track 3
+
+python3 $T/tr_audio.py  onsets STEM.wav --instrument snare --out on.txt
+python3 $T/tr_audio.py  align  --notated n.txt --detected on.txt --duration 372.4
+python3 $T/tr_audio.py  cymbal RIDE.wav      # NEW_ATTACK / DECAY_ONLY / UNRESOLVED
+python3 $T/tr_audio.py  toms   TOMS.wav --calib calib.json
+python3 $T/tr_audio.py  leak   --target TOM.wav --others SNARE.wav --at 91.44
+
+python3 $T/tr_score.py  grid   L.json        # the chart's own subdivision vocabulary
+python3 $T/tr_score.py  hands  L.json        # two hands, two feet, ornament guards
+python3 $T/tr_score.py  ghosts L.json --lane 38
+python3 $T/tr_score.py  pedal  L.json
+
+python3 $T/tr_gate.py   tempo  SCORE.gp      # EVERY tempo event
+python3 $T/tr_gate.py   track  SCORE.gp      # is this staff actually drums
+python3 $T/tr_gate.py   promote --ledger E.jsonl --original A.gp --edited B.gp \
+                                --scope-track 3
+
+$T/run_selftests.sh                          # all 4 suites, exit 0 required</code></pre>
+
+<h2 class="r">Completion</h2>
+<p><b>Completion is a saved, scoped artifact at an exact hash</b> whose relevant track passed
+the whole validation suite, with an edit ledger explaining every changed instance.
+Successful script execution is not completion, since exit&nbsp;0 proves only that a tool ran.</p>
+<p>A finished repair reads bar by bar. Another musician can reconstruct why every changed
+event changed. Uncertain events stay visibly unresolved. <b>Expect fewer edits than an
+unconstrained audio-to-MIDI pass would make.</b> Existing expert work survives unless
+specific evidence justifies changing it, which is the design target rather than a shortfall
+against it.</p>
+
+<div class="foot">
+<p><b>Skill:</b> <code>~/.claude/skills/transcription-repair/</code> ·
+2,947 lines of Python, 593 lines of SKILL.md, 404 lines of reference ·
+<code>SKILL.md</code>, <code>tr_ledger.py</code>, <code>tr_audio.py</code>,
+<code>tr_score.py</code>, <code>tr_gate.py</code>, <code>run_selftests.sh</code>,
+<code>reference/research-dossier.md</code>, <code>reference/gp-percussion.md</code></p>
+<p><b>Composes with:</b> <code>/notation-evidence-gate</code> ·
+<code>/songsterr-drum-repair</code> · <code>/songsterr-upload</code> ·
+<code>/stems-to-guitar-pro-drums</code> · <code>/impossible-guitar-parts</code> ·
+<code>/composite-stem-alignment</code></p>
+<p class="tag">Numbers on this page are measured. Benchmark F1 figures are cited from
+published drum-transcription evaluation and carried as priors on machine evidence only.
+Provenance is marked per fact in <code>reference/research-dossier.md</code>.</p>
+</div>
+
+</div></body></html>
