@@ -1,0 +1,274 @@
+[
+ {
+  "bar": 90,
+  "t0": 467.7,
+  "t1": 471.9,
+  "tab": {
+   "kick": 8,
+   "snare": 3,
+   "tom": 0,
+   "ride": 14
+  },
+  "kick": 9,
+  "snare": 5,
+  "tom": 8,
+  "cym": 12,
+  "guitar": 12,
+  "verdict": "written"
+ },
+ {
+  "bar": 91,
+  "t0": 471.9,
+  "t1": 477.1,
+  "tab": {
+   "kick": 11,
+   "snare": 4,
+   "tom": 0,
+   "ride": 20
+  },
+  "kick": 21,
+  "snare": 5,
+  "tom": 15,
+  "cym": 13,
+  "guitar": 3,
+  "verdict": "written"
+ },
+ {
+  "bar": 92,
+  "t0": 477.1,
+  "t1": 481.2,
+  "tab": {
+   "kick": 3,
+   "snare": 2,
+   "tom": 0,
+   "ride": 14
+  },
+  "kick": 8,
+  "snare": 7,
+  "tom": 10,
+  "cym": 11,
+  "guitar": 11,
+  "verdict": "written"
+ },
+ {
+  "bar": 93,
+  "t0": 481.2,
+  "t1": 486.4,
+  "tab": {
+   "kick": 6,
+   "snare": 4,
+   "tom": 2,
+   "ride": 20
+  },
+  "kick": 5,
+  "snare": 4,
+  "tom": 6,
+  "cym": 20,
+  "guitar": 12,
+  "verdict": "written"
+ },
+ {
+  "bar": 94,
+  "t0": 486.4,
+  "t1": 490.5,
+  "tab": {
+   "kick": 3,
+   "snare": 3,
+   "tom": 0,
+   "ride": 14
+  },
+  "kick": 6,
+  "snare": 3,
+  "tom": 5,
+  "cym": 14,
+  "guitar": 9,
+  "verdict": "written"
+ },
+ {
+  "bar": 95,
+  "t0": 490.5,
+  "t1": 495.8,
+  "tab": {
+   "kick": 10,
+   "snare": 4,
+   "tom": 0,
+   "ride": 20
+  },
+  "kick": 3,
+  "snare": 7,
+  "tom": 9,
+  "cym": 11,
+  "guitar": 11,
+  "verdict": "written"
+ },
+ {
+  "bar": 96,
+  "t0": 495.8,
+  "t1": 499.9,
+  "tab": {
+   "kick": 9,
+   "snare": 3,
+   "tom": 0,
+   "ride": 14
+  },
+  "kick": 9,
+  "snare": 4,
+  "tom": 0,
+  "cym": 9,
+  "guitar": 14,
+  "verdict": "written"
+ },
+ {
+  "bar": 97,
+  "t0": 499.9,
+  "t1": 505.1,
+  "tab": {
+   "kick": 1,
+   "snare": 2,
+   "tom": 0,
+   "ride": 20
+  },
+  "kick": 8,
+  "snare": 2,
+  "tom": 9,
+  "cym": 20,
+  "guitar": 6,
+  "verdict": "written"
+ },
+ {
+  "bar": 98,
+  "t0": 505.1,
+  "t1": 509.3,
+  "tab": {
+   "kick": 1,
+   "snare": 2,
+   "tom": 0,
+   "ride": 0
+  },
+  "kick": 6,
+  "snare": 3,
+  "tom": 5,
+  "cym": 8,
+  "guitar": 2,
+  "verdict": "STEM PLAYS, TAB SILENT"
+ },
+ {
+  "bar": 99,
+  "t0": 509.3,
+  "t1": 514.6,
+  "tab": {
+   "kick": 1,
+   "snare": 1,
+   "tom": 0,
+   "ride": 0
+  },
+  "kick": 8,
+  "snare": 1,
+  "tom": 2,
+  "cym": 0,
+  "guitar": 0,
+  "verdict": "STEM PLAYS, TAB SILENT"
+ },
+ {
+  "bar": 100,
+  "t0": 514.6,
+  "t1": 519.0,
+  "tab": {
+   "kick": 1,
+   "snare": 0,
+   "tom": 0,
+   "ride": 0
+  },
+  "kick": 4,
+  "snare": 0,
+  "tom": 3,
+  "cym": 0,
+  "guitar": 0,
+  "verdict": "STEM PLAYS, TAB SILENT"
+ },
+ {
+  "bar": 101,
+  "t0": 519.0,
+  "t1": 524.2,
+  "tab": {
+   "kick": 1,
+   "snare": 0,
+   "tom": 0,
+   "ride": 0
+  },
+  "kick": 6,
+  "snare": 0,
+  "tom": 5,
+  "cym": 0,
+  "guitar": 0,
+  "verdict": "STEM PLAYS, TAB SILENT"
+ },
+ {
+  "bar": 102,
+  "t0": 524.2,
+  "t1": 528.5,
+  "tab": {
+   "kick": 0,
+   "snare": 0,
+   "tom": 0,
+   "ride": 0
+  },
+  "kick": 6,
+  "snare": 0,
+  "tom": 5,
+  "cym": 0,
+  "guitar": 0,
+  "verdict": "STEM PLAYS, TAB SILENT"
+ },
+ {
+  "bar": 103,
+  "t0": 528.5,
+  "t1": 533.9,
+  "tab": {
+   "kick": 1,
+   "snare": 0,
+   "tom": 0,
+   "ride": 0
+  },
+  "kick": 5,
+  "snare": 0,
+  "tom": 5,
+  "cym": 0,
+  "guitar": 0,
+  "verdict": "STEM PLAYS, TAB SILENT"
+ },
+ {
+  "bar": 104,
+  "t0": 533.9,
+  "t1": 538.2,
+  "tab": {
+   "kick": 0,
+   "snare": 0,
+   "tom": 0,
+   "ride": 0
+  },
+  "kick": 5,
+  "snare": 0,
+  "tom": 4,
+  "cym": 0,
+  "guitar": 0,
+  "verdict": "STEM PLAYS, TAB SILENT"
+ },
+ {
+  "bar": 105,
+  "t0": 538.2,
+  "t1": 542.5,
+  "tab": {
+   "kick": 0,
+   "snare": 0,
+   "tom": 0,
+   "ride": 0
+  },
+  "kick": 0,
+  "snare": 0,
+  "tom": 0,
+  "cym": 0,
+  "guitar": 0,
+  "verdict": "correctly empty"
+ }
+]

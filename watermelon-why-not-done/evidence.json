@@ -1,0 +1,234 @@
+{
+ "generated": "2026-09-08",
+ "subject": "Watermelon In Easter Hay drum tab, Songsterr s6857183 r8970744",
+ "shipped_file": "~/Projects/_outputs/zappa-watermelon-hat-snare-repair/out/RECONCILED-s6857183-Brandon-edit.gp",
+ "shipped_sha256": "bc5ce3de02153f39485d2e4324c0c45f4cc7237f779adfc3c3b3e1dd76b8548f",
+ "cost": {
+  "date_span": "2026-08-31 to 2026-09-08",
+  "project_sessions": 120,
+  "watermelon_sessions": 56,
+  "watermelon_transcript_mb": 289.4,
+  "share_of_project_transcript_pct": 78,
+  "assistant_turns": 26293,
+  "output_tokens": 31280000,
+  "cache_write_tokens": 144550000,
+  "cache_read_tokens": 9392710000,
+  "total_tokens": 9568590000,
+  "cache_read_to_output_ratio": 300,
+  "sessions_over_1000_turns": 3,
+  "sessions_over_500_turns": 14,
+  "longest_session_turns": 3521,
+  "longest_session_span": "2026-09-01 04:59 to 2026-09-06 16:18",
+  "analysis_scripts": 103,
+  "build_gp_scripts": 13,
+  "verify_gp_scripts": 14,
+  "published_routes": 48,
+  "spectrogram_cache_gb": 3.8
+ },
+ "root_cause": {
+  "claim": "The tab carries one tempo automation at 56.000 bpm for a live take that averages about 55.30 bpm.",
+  "tab_bars": 105,
+  "time_signatures": {
+   "4/4": 53,
+   "5/4": 52
+  },
+  "tempo_automations": 1,
+  "tab_bpm": 56.0,
+  "tab_duration_s": 505.7,
+  "recording_duration_s": 545.3,
+  "drums_enter_s": 41,
+  "drift_fit": {
+   "slope_s_per_bar": 0.0604,
+   "intercept_s": 37.5,
+   "total_drift_s": 6.29,
+   "residual_std_s": 0.211,
+   "windows_accepted": 16,
+   "windows_tested": 20
+  },
+  "implied_performance_bpm": 55.303,
+  "tab_fast_by_pct": 1.26,
+  "accepted_offsets_s": [
+   38.04,
+   38.16,
+   38.44,
+   38.84,
+   39.21,
+   39.48,
+   39.93,
+   40.11,
+   41.53,
+   41.78,
+   42.09,
+   42.49,
+   42.76,
+   42.9,
+   42.98
+  ]
+ },
+ "the_test": {
+  "detector": "1024-pt Hann, 256 hop, 44.1 kHz, positive spectral flux in band, 97th pct peaks, 120 ms refractory, 50 ms match tolerance",
+  "kick": {
+   "fixed_offset_rate": 0.152,
+   "drift_map_rate": 0.396,
+   "improvement_x": 2.6,
+   "guitar_control_rate": 0.134,
+   "discrimination_x": 2.95
+  },
+  "snare": {
+   "fixed_offset_rate": 0.157,
+   "drift_map_rate": 0.358,
+   "improvement_x": 2.28,
+   "guitar_control_rate": 0.113,
+   "discrimination_x": 3.18
+  },
+  "promotion_floor_x": 1.5
+ },
+ "blocked_verdicts_all_measured_on_the_broken_clock": {
+  "alignment_gate": {
+   "verdict": "UNUSABLE",
+   "rate": 0.336
+  },
+  "coda_discrimination_x": 1.15,
+  "ride_per_event_x": 1.46,
+  "tom_pan_best_pair_x": 0.73
+ },
+ "still_wrong_in_the_shipped_gp": [
+  {
+   "id": "coda-hole",
+   "bars": "98 to 104",
+   "recording": "8:25 to 8:58",
+   "measured_on": "metronome-anchored clock",
+   "tab_notes": 7,
+   "stem_attacks": 81,
+   "guitar_bleed_control": "0 in bars 99 to 104, 2 in bar 98",
+   "superseded": "An earlier pass this session, on the weaker onset-derived clock, read this as bars 98 to 103 and 56 attacks, and called bar 104 correctly empty. Bar 104 carries 5 kick and 4 tom onsets. Only bar 105 is correctly empty."
+  },
+  {
+   "id": "three-hand",
+   "count": 16,
+   "bars": [
+    29,
+    41,
+    45,
+    49,
+    52,
+    53,
+    54,
+    55,
+    56,
+    57,
+    85,
+    89
+   ],
+   "shape": "snare or tom, plus tom hi mid, plus ride, on one instant",
+   "note": "Two hands cannot strike three surfaces at once. Fifteen of sixteen pair a ride with a snare and a tom."
+  },
+  {
+   "id": "tempo-map",
+   "count": 1,
+   "note": "One automation at 56.000 bpm across a live performance that drifts."
+  }
+ ],
+ "gp_census_independent": {
+  "drum_track": "Vinnie Colaiuta (track id 8)",
+  "total_drum_notes": 2770,
+  "voice_0": 1889,
+  "voice_1": 881,
+  "by_midi_lane": {
+   "51 ride": 1522,
+   "36 kick": 492,
+   "40 snare": 293,
+   "44 pedal hat": 245,
+   "48 tom hi mid": 81,
+   "49 crash": 50,
+   "43 tom high floor": 46,
+   "50 tom high": 30,
+   "47 tom low mid": 4,
+   "45 tom low": 4,
+   "41 tom low floor": 1,
+   "57 crash 2": 1,
+   "46 open hat": 1
+  }
+ },
+ "the_fix": {
+  "artifact": "tempomap.json",
+  "method": "per-bar offset search on kick plus snare onsets, monotone by construction, 5 ms steps, 50 ms match tolerance, guitar stem as wrong-stem control",
+  "bars": 105,
+  "offset_first_s": 38.0,
+  "offset_last_s": 42.14,
+  "total_drift_s": 4.14,
+  "kick_snare_match_per_bar_map": 0.5210191082802548,
+  "kick_snare_match_best_fixed_offset": 0.27388535031847133,
+  "improvement_x": 1.9,
+  "guitar_control": 0.15796178343949044,
+  "discrimination_x": 3.3
+ },
+ "metronome_stem": {
+  "question": "Do we need metronome tracks for the Zappa work?",
+  "answer": "No new ones. Moises already exported one, and it beats every other clock tested.",
+  "path": "/Users/Shared/206 Watermelon in Easter Hay-E major-112bpm-442hz/206 Watermelon in Easter Hay-metronome-E major-112bpm-442hz.wav",
+  "clicks_detected": 997,
+  "span_s": [
+   0.75,
+   544.07
+  ],
+  "median_ioi_s": 0.54,
+  "median_bpm": 111.11,
+  "half_time_bpm": 55.56,
+  "ioi_quantization_ms": 20,
+  "first_verdict_withdrawn": "I called the 20 ms interval quantization too coarse to be a ruler. That was wrong. Absolute click positions track the take even when the intervals are rounded, and the head-to-head below settles it.",
+  "corrected_by": "Brandon, mid-session: metronome wins on exactly the song where the onset clock was weakest."
+ },
+ "three_clocks_head_to_head": {
+  "metric": "kick plus snare onset match rate, 785 tab events, 50 ms tolerance, identical detector",
+  "flat_56bpm_best_fixed_offset": 0.274,
+  "onset_derived_per_bar_map": 0.521,
+  "metronome_anchored_map": 0.684,
+  "metronome_guitar_control": 0.196,
+  "metronome_discrimination_x": 3.49,
+  "metronome_anchor_click_index": 51,
+  "metronome_bar1_s": 36.87,
+  "metronome_bar105_start_s": 538.23,
+  "onset_map_frozen_bars": 50,
+  "onset_map_frozen_of": 105,
+  "why_onset_map_is_blind": "It aligns using tab events. Bars 101 to 105 carry two tab kick or snare events between them, so it had nothing to align with in the exact region under investigation. The metronome carries 74 clicks after t=505 s and needs no tab notes at all.",
+  "by_region": [
+   {
+    "bars": "1-30",
+    "n": 189,
+    "onset_map": 0.704,
+    "metronome": 0.894
+   },
+   {
+    "bars": "31-60",
+    "n": 239,
+    "onset_map": 0.573,
+    "metronome": 0.791
+   },
+   {
+    "bars": "61-90",
+    "n": 284,
+    "onset_map": 0.366,
+    "metronome": 0.489
+   },
+   {
+    "bars": "85-97",
+    "n": 118,
+    "onset_map": 0.441,
+    "metronome": 0.508
+   },
+   {
+    "bars": "90-105",
+    "n": 84,
+    "onset_map": 0.488,
+    "metronome": 0.571
+   },
+   {
+    "bars": "95-105",
+    "n": 37,
+    "onset_map": 0.351,
+    "metronome": 0.514
+   }
+  ]
+ }
+}

@@ -1,0 +1,43 @@
+# Why the Watermelon GP is not done and not perfect
+
+Measured 2026-09-08 on MacBookPro. Subject: Songsterr s6857183 r8970744, Watermelon In Easter Hay, Vinnie Colaiuta drum staff.
+
+## What it cost
+
+Nine days, 56 sessions, 26,293 assistant turns, 9.57 billion tokens on one drum tab. That is 78 percent of the whole project's transcript volume. Output was 31.3M tokens against 9.39B cache reads, a ratio of 300 to 1, so the budget went to re-reading context rather than producing work. One session ran 3,521 turns across five days without a clear. The folder holds 103 analysis scripts, 13 of them named build_gp and 14 named verify_gp, plus 48 published pages and 3.8 GB of spectrogram cache.
+
+## The root cause
+
+The tab is written at a flat 56.000 bpm for a live take that averages about 55.3. One tempo automation covers all 105 bars. By the final bar the written grid sits 6.29 seconds ahead of the recording, close to six beats. Every stem-versus-tab comparison across nine days asked whether a hit landed where the drummer had already left.
+
+Proof, same tab and same detector, only the clock changing:
+
+| clock | kick + snare match | vs flat | guitar control | discrimination | coverage |
+|---|---|---|---|---|---|
+| flat 56.000 bpm, best single offset | 0.274 | baseline | 0.207 | 0.68x globally | all 105 bars, all wrong |
+| onset-derived per-bar map | 0.521 | 1.90x | 0.158 | 3.30x | frozen on 50 of 105 bars |
+| **metronome-anchored map** | **0.684** | **2.50x** | 0.196 | **3.49x** | all 105 bars |
+
+This retro-explains all four blocked verdicts. Alignment UNUSABLE at 0.336, coda discrimination 1.15x, ride per-event 1.46x, tom pan best pair 0.73x. Each was recorded as a fact about the music. Each was a fact about the grid.
+
+## Do we need metronome tracks? No, one already wins
+
+Moises exported a metronome stem with the drums. It holds 997 clicks from 0.750 s to 544.070 s, median interval 0.540 s, giving 111.11 bpm or 55.56 in half time, which corroborates the 55.3 from the drum onsets by a separate route.
+
+My first reading called it a poor ruler because its intervals are quantized to 20 ms steps. Brandon pushed back mid-session: the metronome wins on exactly the song where the onset clock was weakest. He was right. Absolute click positions track the take even when the intervals are rounded. The onset map aligns using notes already in the tab, and bars 101 to 105 hold two kick or snare events between them, so it froze there. The coda was invisible to the instrument built to inspect the coda.
+
+Region by region the metronome wins everywhere, with its largest margin at bars 95 to 105, which is the coda: 0.514 against 0.351.
+
+## What is still wrong in the shipped file
+
+1. **Coda hole, bars 98 to 104**, recording 8:25 to 8:58. The tab writes seven notes. The stems carry 81 attacks. The lead guitar control is zero in six of the seven bars and two in the seventh. Only bar 105 belongs empty. An earlier pass this session, on the weaker onset clock, read this as bars 98 to 103 with 56 attacks and called bar 104 empty. Bar 104 carries five kick and four tom onsets.
+2. **Sixteen three-hand instants** across bars 29, 41, 45, 49, 52, 53, 54, 55, 56, 57, 85 and 89. Fifteen of the sixteen ask for a snare or tom, a hi-mid tom and the ride on one instant. Inherited from r8968524.
+3. **The tempo map itself**, one automation at 56.000 bpm.
+
+## The fix
+
+`metromap.json` anchors tab bar 1 to click index 51 at t = 36.87 s and interpolates every bar boundary through the click grid, reaching bar 105 at 538.23 s. `tempomap.json` is the onset-derived map, kept as an independent second witness.
+
+## The process lesson
+
+When an alignment gate fails, repair the clock first, then write detectors. A detector cannot out-measure a broken time base, and 103 of them could not. The winning clock had been sitting in the stem folder for two days. Inventory what the separation already handed you, then build only what is missing.

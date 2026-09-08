@@ -1,0 +1,219 @@
+<!doctype html>
+<html lang="en"><head><meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Why the Watermelon GP is not done</title>
+<style>
+:root{
+ --aqua:#3B9AB2; --sky:#78B7C5; --sun:#EBCC2A; --gold:#E1AF00; --flare:#F21A00;
+ --cream:#f6f0e2; --card:#fbf7ec; --ink:#1c1a16; --muted:#6b6355; --line:#ddd2b8;
+ color-scheme:light;
+}
+*{box-sizing:border-box}
+body{margin:0;background:var(--cream);color:var(--ink);
+ font:16px/1.62 -apple-system,BlinkMacSystemFont,Inter,"Segoe UI",sans-serif;padding:2.2rem 1.1rem 4rem}
+main{max-width:1080px;margin:0 auto}
+h1{font-size:2.05rem;line-height:1.16;margin:0 0 .35rem;letter-spacing:-.02em}
+.deck{color:var(--muted);font-size:1.03rem;margin:0 0 .5rem;max-width:70ch}
+.stamp{display:inline-block;background:var(--flare);color:#fff;font-weight:700;font-size:.74rem;
+ letter-spacing:.09em;text-transform:uppercase;padding:.28rem .6rem;border-radius:4px;margin-bottom:.9rem}
+h2{font-size:1.28rem;margin:2.6rem 0 .2rem;letter-spacing:-.01em}
+h2 .n{display:inline-block;width:1.55rem;height:1.55rem;line-height:1.55rem;text-align:center;
+ border-radius:5px;color:#fff;font-size:.86rem;margin-right:.5rem;vertical-align:2px}
+h3{font-size:1rem;margin:1.5rem 0 .35rem}
+p{margin:.55rem 0;max-width:74ch}
+.sub{color:var(--muted);font-size:.9rem;margin:.1rem 0 1rem}
+b,strong{font-weight:700}
+.grid{display:grid;gap:.75rem;margin:1rem 0}
+.g4{grid-template-columns:repeat(auto-fit,minmax(178px,1fr))}
+.g3{grid-template-columns:repeat(auto-fit,minmax(250px,1fr))}
+.g2{grid-template-columns:repeat(auto-fit,minmax(330px,1fr))}
+.card{background:var(--card);border:1px solid var(--line);border-radius:11px;padding:.9rem 1rem}
+.card.t1{border-left:6px solid var(--aqua)}
+.card.t2{border-left:6px solid var(--sky)}
+.card.t3{border-left:6px solid var(--sun)}
+.card.t4{border-left:6px solid var(--gold)}
+.card.t5{border-left:6px solid var(--flare)}
+.k{font-size:1.9rem;font-weight:800;line-height:1.08;letter-spacing:-.02em}
+.k.a{color:var(--aqua)}.k.s{color:#4a91a2}.k.y{color:#9a8412}.k.g{color:#a97f00}.k.f{color:var(--flare)}
+.lab{font-size:.74rem;text-transform:uppercase;letter-spacing:.07em;color:var(--muted);margin-top:.2rem}
+.fine{font-size:.83rem;color:var(--muted);margin-top:.45rem}
+table{border-collapse:collapse;width:100%;font-size:.88rem;margin:.7rem 0;background:var(--card)}
+th,td{border:1px solid var(--line);padding:.42rem .6rem;text-align:left}
+th{background:#efe7d3;font-weight:700;font-size:.8rem;text-transform:uppercase;letter-spacing:.04em}
+td.num{text-align:right;font-variant-numeric:tabular-nums}
+tr.bad td{background:#fdeae7}
+tr.good td{background:#e9f4f7}
+.scroll{overflow-x:auto;-webkit-overflow-scrolling:touch}
+code{background:#efe7d3;padding:.09em .38em;border-radius:4px;font-size:.86em;word-break:break-all}
+.callout{border-radius:11px;padding:1rem 1.15rem;margin:1.1rem 0;border:1px solid var(--line)}
+.callout.red{background:#fdeae7;border-left:6px solid var(--flare)}
+.callout.aqua{background:#e9f4f7;border-left:6px solid var(--aqua)}
+.callout.gold{background:#fbf1d4;border-left:6px solid var(--gold)}
+.callout h3{margin-top:0}
+ul{margin:.5rem 0 .5rem 1.1rem;padding:0}li{margin:.3rem 0;max-width:74ch}
+.bars{display:flex;align-items:flex-end;gap:2px;height:120px;margin:.8rem 0;padding:.6rem;
+ background:var(--card);border:1px solid var(--line);border-radius:9px;overflow-x:auto}
+.bars i{display:block;width:9px;flex:0 0 9px;border-radius:2px 2px 0 0}
+.legend{font-size:.8rem;color:var(--muted);display:flex;gap:1rem;flex-wrap:wrap;margin:.2rem 0 1rem}
+.legend span{display:inline-flex;align-items:center;gap:.35rem}
+.legend i{width:11px;height:11px;border-radius:2px;display:inline-block}
+.drift{background:var(--card);border:1px solid var(--line);border-radius:9px;padding:.8rem;margin:.8rem 0}
+footer{margin-top:3.2rem;border-top:1px solid var(--line);padding-top:1rem;font-size:.82rem;color:var(--muted)}
+a{color:#0d6f88;font-weight:600}
+</style></head><body><main>
+
+<span class="stamp">Root cause found</span>
+<h1>Why the Watermelon GP is not done and not perfect</h1>
+<p class="deck">Nine days, 56 sessions, 26,293 assistant turns and 9.57 billion tokens went into one drum tab. Every stem measurement in that span ran against a clock that was wrong by up to 6.3 seconds. Here is the measurement, the proof, and the clock that removes the blocker.</p>
+<p class="sub">Subject: Songsterr s6857183 r8970744, Watermelon In Easter Hay, Vinnie Colaiuta. Measured 2026-09-08 from the shipped .gp and the Moises stem set.</p>
+
+<h2><span class="n" style="background:var(--flare)">1</span>What it cost</h2>
+<div class="grid g4">
+ <div class="card t5"><div class="k f">9.57B</div><div class="lab">tokens on one tab</div><div class="fine">31.3M output, 144.6M cache write, 9.39B cache read</div></div>
+ <div class="card t4"><div class="k g">26,293</div><div class="lab">assistant turns</div><div class="fine">across 56 sessions, Aug 31 to Sep 8</div></div>
+ <div class="card t3"><div class="k y">78%</div><div class="lab">of the whole project</div><div class="fine">289.4 MB of 372.6 MB of transcript</div></div>
+ <div class="card t1"><div class="k a">300 : 1</div><div class="lab">cache read per output token</div><div class="fine">the budget went to re-reading its own context</div></div>
+</div>
+<div class="grid g4">
+ <div class="card t2"><div class="k s">103</div><div class="lab">analysis scripts</div><div class="fine">13 named build_gp, 14 named verify_gp</div></div>
+ <div class="card t2"><div class="k s">48</div><div class="lab">published pages</div><div class="fine">GitHub Pages routes on this one topic</div></div>
+ <div class="card t2"><div class="k s">3,521</div><div class="lab">turns in one session</div><div class="fine">Sep 1 to Sep 6, five days without a clear</div></div>
+ <div class="card t2"><div class="k s">3.8 GB</div><div class="lab">spectrogram cache</div><div class="fine">recomputed shapes of the same six stems</div></div>
+</div>
+<p>The duplicate filenames tell the story on their own. <code>hat_grid.py</code> and <code>hat_grid2.py</code>. <code>lane_identify</code> at one, two and three. <code>tom_plan</code>, <code>snare_verdict</code>, <code>silent_passages</code>, <code>coda_transient</code> and <code>run_transfer_gate</code> each written twice. Every time a gate came back under its floor, the response was a fresh detector. The clock those detectors all read was never repaired.</p>
+
+<h2><span class="n" style="background:var(--aqua)">2</span>The root cause, in one line</h2>
+<div class="callout red">
+ <h3>The tab is written at a flat 56.000 bpm for a live take that averages about 55.3.</h3>
+ <p>One tempo automation covers all 105 bars. The performance moves. By the last bar the written grid sits <b>6.29 seconds ahead of the recording</b>, which is close to six beats, or a bar and a half of music. Every stem-versus-tab comparison across nine days was asking whether a drum hit landed at a place the drummer had already left.</p>
+</div>
+
+<div class="grid g3">
+ <div class="card t1"><div class="k a">105</div><div class="lab">bars in the tab</div><div class="fine">53 in 4/4, 52 in 5/4, one tempo marking</div></div>
+ <div class="card t3"><div class="k y">505.7 s</div><div class="lab">tab length at 56 bpm</div><div class="fine">the recording runs 545.3 s</div></div>
+ <div class="card t5"><div class="k f">6.29 s</div><div class="lab">accumulated drift</div><div class="fine">offset(bar) = 0.0604 &times; bar + 37.50 s</div></div>
+</div>
+
+<h3>The offset climbs bar by bar, which is the fingerprint of a tempo error</h3>
+<p class="sub">Each window was free to choose its own offset. A tab that matched its take would return the same number every time.</p>
+<div class="drift scroll">
+<table>
+<tr><th>bars</th><th class="num">1-5</th><th class="num">6-10</th><th class="num">11-15</th><th class="num">16-20</th><th class="num">21-25</th><th class="num">26-30</th><th class="num">31-35</th><th class="num">36-40</th><th class="num">41-45</th><th class="num">66-70</th><th class="num">71-75</th><th class="num">76-80</th><th class="num">81-85</th><th class="num">86-90</th><th class="num">91-95</th><th class="num">96-100</th></tr>
+<tr><th>best offset (s)</th><td class="num">38.04</td><td class="num">38.04</td><td class="num">38.16</td><td class="num">38.44</td><td class="num">38.84</td><td class="num">39.21</td><td class="num">39.48</td><td class="num">39.93</td><td class="num">40.11</td><td class="num">41.53</td><td class="num">41.78</td><td class="num">42.09</td><td class="num">42.49</td><td class="num">42.76</td><td class="num">42.90</td><td class="num">42.98</td></tr>
+</table>
+</div>
+<p class="fine">Sixteen of twenty windows passed their wrong-stem control and were accepted. The accepted offsets fit a straight line with a residual standard deviation of 0.211 s, so the drift is steady rather than jittery.</p>
+
+<h2><span class="n" style="background:var(--gold)">3</span>The test that proves it</h2>
+<p>Same tab. Same stems. Same detector, frozen to the published spec of 1024-point Hann, 256 hop, 44.1 kHz, positive spectral flux in band. The only thing that changes is the clock.</p>
+<div class="scroll"><table>
+<tr><th>lane</th><th class="num">events</th><th class="num">one fixed offset<br><span style="font-weight:400;text-transform:none">what every prior pass used</span></th><th class="num">with the drift map</th><th class="num">improvement</th><th class="num">guitar wrong-stem control</th><th class="num">discrimination</th></tr>
+<tr class="bad"><td>kick</td><td class="num">492</td><td class="num">0.152</td><td class="num">0.396</td><td class="num">2.60&times;</td><td class="num">0.134</td><td class="num">2.95&times;</td></tr>
+<tr class="bad"><td>snare</td><td class="num">293</td><td class="num">0.157</td><td class="num">0.358</td><td class="num">2.28&times;</td><td class="num">0.113</td><td class="num">3.18&times;</td></tr>
+<tr class="good"><td>kick + snare, per-bar map</td><td class="num">785</td><td class="num">0.274</td><td class="num">0.521</td><td class="num">1.90&times;</td><td class="num">0.158</td><td class="num">3.30&times;</td></tr>
+</table></div>
+<p>The promotion floor on this project is 1.5&times; over chance. On the flat clock, kick sat at 0.152 and the same tab notes matched the <b>lead guitar stem better than the kick stem</b>, giving a discrimination of 0.68&times;. On the corrected clock the discrimination reaches 2.95&times;, 3.18&times; and 3.30&times;. Every one of those clears the floor with room.</p>
+
+<div class="callout gold">
+ <h3>This retro-explains all four blocked verdicts</h3>
+ <p>Each of these was recorded as a property of the evidence. Each was a property of the clock.</p>
+ <ul>
+  <li><b>Alignment gate, UNUSABLE at 0.336.</b> A flat grid drifting six seconds cannot match a live take.</li>
+  <li><b>Coda discrimination 1.15&times;.</b> Bar 98 was being read five seconds away from where it plays.</li>
+  <li><b>Ride per-event 1.46&times;.</b> Ride strokes fall on eighths, and a six-second error is many eighths.</li>
+  <li><b>Tom pan best pair 0.73&times;.</b> Pan was sampled in windows placed by the same broken clock.</li>
+ </ul>
+</div>
+
+<h2><span class="n" style="background:var(--sun)">4</span>What is still actually wrong in the shipped file</h2>
+<p class="sub">Independent census of RECONCILED-s6857183-Brandon-edit.gp: 2,770 drum notes, voice 0 at 1,889 and voice 1 at 881, on the Vinnie Colaiuta track.</p>
+
+<h3>Defect one: the last thirty-three seconds of drumming is missing</h3>
+<p>On the metronome clock, tab bars 98 to 104 land at 8:25 to 8:58 in the recording. The drummer plays through all seven of them. The tab writes seven notes.</p>
+<div class="scroll"><table>
+<tr><th>tab bar</th><th>recording window</th><th class="num">tab k / s / t / ride</th><th class="num">stem kick</th><th class="num">stem tom</th><th class="num">stem cymbal</th><th class="num">guitar control</th><th>verdict</th></tr>
+<tr class="good"><td>96</td><td>495.8 - 499.9</td><td class="num">9 / 3 / 0 / 14</td><td class="num">9</td><td class="num">0</td><td class="num">9</td><td class="num">14</td><td>written</td></tr>
+<tr class="good"><td>97</td><td>499.9 - 505.1</td><td class="num">1 / 2 / 0 / 20</td><td class="num">8</td><td class="num">9</td><td class="num">20</td><td class="num">6</td><td>written</td></tr>
+<tr class="bad"><td>98</td><td>505.1 - 509.3</td><td class="num">1 / 2 / 0 / 0</td><td class="num">6</td><td class="num">5</td><td class="num">8</td><td class="num">2</td><td>stem plays, tab silent</td></tr>
+<tr class="bad"><td>99</td><td>509.3 - 514.6</td><td class="num">1 / 1 / 0 / 0</td><td class="num">8</td><td class="num">2</td><td class="num">0</td><td class="num">0</td><td>stem plays, tab silent</td></tr>
+<tr class="bad"><td>100</td><td>514.6 - 519.0</td><td class="num">1 / 0 / 0 / 0</td><td class="num">4</td><td class="num">3</td><td class="num">0</td><td class="num">0</td><td>stem plays, tab silent</td></tr>
+<tr class="bad"><td>101</td><td>519.0 - 524.2</td><td class="num">1 / 0 / 0 / 0</td><td class="num">6</td><td class="num">5</td><td class="num">0</td><td class="num">0</td><td>stem plays, tab silent</td></tr>
+<tr class="bad"><td>102</td><td>524.2 - 528.5</td><td class="num">0 / 0 / 0 / 0</td><td class="num">6</td><td class="num">5</td><td class="num">0</td><td class="num">0</td><td>stem plays, tab silent</td></tr>
+<tr class="bad"><td>103</td><td>528.5 - 533.9</td><td class="num">1 / 0 / 0 / 0</td><td class="num">5</td><td class="num">5</td><td class="num">0</td><td class="num">0</td><td>stem plays, tab silent</td></tr>
+<tr class="bad"><td>104</td><td>533.9 - 538.2</td><td class="num">0 / 0 / 0 / 0</td><td class="num">5</td><td class="num">4</td><td class="num">0</td><td class="num">0</td><td>stem plays, tab silent</td></tr>
+<tr class="good"><td>105</td><td>538.2 - 542.5</td><td class="num">0 / 0 / 0 / 0</td><td class="num">0</td><td class="num">0</td><td class="num">0</td><td class="num">0</td><td>correctly empty</td></tr>
+</table></div>
+<p><b>Eighty-one drum attacks live in bars 98 to 104.</b> The lead guitar stem carries zero onsets in six of those seven bars and two in the seventh, so bleed does not explain them. Only bar 105 belongs empty.</p>
+<div class="callout gold">
+ <p><b>Correction inside this session.</b> An earlier pass on this page put the hole at bars 98 to 103 with 56 attacks and called bar 104 correctly empty. That reading came off the weaker onset-derived clock. Bar 104 carries five kick and four tom onsets. The table above is the metronome-clock reading and it supersedes the first.</p>
+</div>
+
+<h3>Defect two: sixteen instants that need three hands</h3>
+<p>Twelve bars ask a drummer to strike a snare or a tom, a hi-mid tom, and the ride, all on one instant. Fifteen of the sixteen have that exact shape.</p>
+<div class="scroll"><table>
+<tr><th>bar</th><td class="num">29</td><td class="num">41</td><td class="num">45</td><td class="num">49</td><td class="num">52</td><td class="num">52</td><td class="num">53</td><td class="num">54</td><td class="num">54</td><td class="num">55</td><td class="num">56</td><td class="num">56</td><td class="num">57</td><td class="num">57</td><td class="num">85</td><td class="num">89</td></tr>
+<tr><th>beat</th><td class="num">4</td><td class="num">4</td><td class="num">4</td><td class="num">4</td><td class="num">2</td><td class="num">4</td><td class="num">2</td><td class="num">2</td><td class="num">4</td><td class="num">2</td><td class="num">2</td><td class="num">4</td><td class="num">2</td><td class="num">4</td><td class="num">2</td><td class="num">2</td></tr>
+</table></div>
+<p class="fine">These were inherited from revision r8968524. They were neither caused nor fixed by the 63-note reconcile that shipped.</p>
+
+<h3>Defect three: the tempo map itself</h3>
+<p>One automation at 56.000 bpm is the defect that produced the other two and blocked every verdict listed above.</p>
+
+<h2><span class="n" style="background:var(--sky)">5</span>Do we need metronome tracks? No, because one already wins</h2>
+<p>Moises exported a metronome stem alongside the drums, at <code>206 Watermelon in Easter Hay-metronome-E major-112bpm-442hz.wav</code>. It holds 997 clicks from 0.750 s to 544.070 s, with a median interval of 0.540 s, giving 111.11 bpm or <b>55.56 in half time</b>. That corroborates the 55.3 derived from the drum onsets by a completely separate route.</p>
+<div class="callout red">
+ <h3>A verdict I published here and then withdrew</h3>
+ <p>My first reading called the click a poor ruler, because its intervals are quantized to 20 ms steps and that resolves tempo only to about 2 bpm. Brandon pushed back mid-session: the metronome wins on exactly the song where the onset clock was weakest. He was right, and the reason the first verdict was wrong is that <b>absolute click positions track the take even when the intervals are rounded</b>. Rounding an interval does not accumulate the way I assumed.</p>
+</div>
+
+<h3>Three clocks, one detector, 785 kick and snare events</h3>
+<div class="scroll"><table>
+<tr><th>clock</th><th class="num">match rate</th><th class="num">vs flat clock</th><th class="num">guitar control</th><th class="num">discrimination</th><th>coverage</th></tr>
+<tr class="bad"><td>flat 56.000 bpm, best single offset</td><td class="num">0.274</td><td class="num">baseline</td><td class="num">0.207</td><td class="num">0.68&times; at global scale</td><td>all 105 bars, all wrong</td></tr>
+<tr><td>onset-derived per-bar map</td><td class="num">0.521</td><td class="num">1.90&times;</td><td class="num">0.158</td><td class="num">3.30&times;</td><td>frozen on 50 of 105 bars</td></tr>
+<tr class="good"><td><b>metronome-anchored map</b></td><td class="num"><b>0.684</b></td><td class="num"><b>2.50&times;</b></td><td class="num">0.196</td><td class="num"><b>3.49&times;</b></td><td>all 105 bars, no tab notes needed</td></tr>
+</table></div>
+
+<h3>Why the onset map went blind in the one place it mattered</h3>
+<p>It aligns using notes that are already in the tab. Bars 101 to 105 hold <b>two</b> kick or snare events between them, so there was nothing there to align against, and the offset simply froze at its bar-100 value. The coda was invisible to the instrument built to inspect the coda. The metronome carries 74 clicks after t=505 s and depends on the tab for nothing.</p>
+<div class="scroll"><table>
+<tr><th>bars</th><th class="num">events</th><th class="num">onset map</th><th class="num">metronome</th><th class="num">gap</th></tr>
+<tr><td>1 - 30</td><td class="num">189</td><td class="num">0.704</td><td class="num">0.894</td><td class="num">1.27&times;</td></tr>
+<tr><td>31 - 60</td><td class="num">239</td><td class="num">0.573</td><td class="num">0.791</td><td class="num">1.38&times;</td></tr>
+<tr><td>61 - 90</td><td class="num">284</td><td class="num">0.366</td><td class="num">0.489</td><td class="num">1.34&times;</td></tr>
+<tr><td>85 - 97</td><td class="num">118</td><td class="num">0.441</td><td class="num">0.508</td><td class="num">1.15&times;</td></tr>
+<tr><td>90 - 105</td><td class="num">84</td><td class="num">0.488</td><td class="num">0.571</td><td class="num">1.17&times;</td></tr>
+<tr class="good"><td>95 - 105</td><td class="num">37</td><td class="num">0.351</td><td class="num">0.514</td><td class="num">1.46&times;</td></tr>
+</table></div>
+<p class="fine">The metronome wins every region. Its largest margin falls in bars 95 to 105, which is the coda, which is the part nine days of work could not decide.</p>
+
+<h2><span class="n" style="background:var(--aqua)">6</span>The fix, already built</h2>
+<p>Two map files ship beside this page. <a href="metromap.json">metromap.json</a> is the one to use: it anchors tab bar 1 to click index 51 at t = 36.87 s and interpolates every bar boundary through the click grid, reaching bar 105 at t = 538.23 s. <a href="tempomap.json">tempomap.json</a> is the onset-derived map, kept as the independent second witness.</p>
+<div class="grid g4">
+ <div class="card t1"><div class="k a">105</div><div class="lab">bars mapped</div><div class="fine">no frozen bars</div></div>
+ <div class="card t3"><div class="k y">0.684</div><div class="lab">kick + snare match</div><div class="fine">0.274 on the flat clock</div></div>
+ <div class="card t4"><div class="k g">3.49&times;</div><div class="lab">discrimination</div><div class="fine">floor is 1.5&times;</div></div>
+ <div class="card t2"><div class="k s">81</div><div class="lab">attacks now locatable</div><div class="fine">in bars 98 to 104</div></div>
+</div>
+
+<h3>What becomes answerable once the map is written into the file</h3>
+<ul>
+ <li><b>The coda.</b> Bars 98 to 104 can be transcribed against 81 located attacks with a guitar control at zero.</li>
+ <li><b>The ride.</b> Per-event adjudication was blocked at 1.46&times;. Ride strokes are eighths, and eighths were what the drift smeared.</li>
+ <li><b>The three-hand instants.</b> With events placed correctly, choosing among the three lanes becomes a measurement.</li>
+ <li><b>The 202 absent ride notes.</b> That verdict rested on relative bar energy, so it deserves a re-read on the corrected clock while the map is fresh.</li>
+</ul>
+
+<h2><span class="n" style="background:var(--flare)">7</span>The process lesson</h2>
+<div class="callout red">
+ <p>Four separate gates returned a number under the promotion floor. Alignment came back UNUSABLE and was written down as a finding. The project treated a failing gate as a fact about the music. The grid was the thing at fault.</p>
+ <p><b>The rule this earns:</b> when an alignment gate fails, repair the clock first, then write detectors. A detector cannot out-measure a broken time base, and 103 of them could not.</p>
+ <p><b>The second rule, earned mid-session.</b> The winning clock was sitting in the same folder as the stems for two days. Inventory what the separation already handed you, then build only what is missing.</p>
+</div>
+
+<footer>
+ <p>Measured 2026-09-08 on MacBookPro from <code>~/Projects/_outputs/zappa-watermelon-hat-snare-repair/out/RECONCILED-s6857183-Brandon-edit.gp</code>, sha256 <code>bc5ce3de02153f39485d2e4324c0c45f4cc7237f779adfc3c3b3e1dd76b8548f</code>, against the Moises stem set at <code>/Users/Shared/206 Watermelon in Easter Hay-E major-112bpm-442hz/</code>.</p>
+ <p>Numbers on this page come from <a href="evidence.json">evidence.json</a>, <a href="metromap.json">metromap.json</a>, <a href="tempomap.json">tempomap.json</a> and <a href="coda.json">coda.json</a>. Token and turn counts were summed from the usage blocks of 120 session transcripts. Every match rate carries a wrong-stem control run on the identical detector.</p>
+ <p>Palette: The Life Aquatic (Wes Anderson).</p>
+</footer>
+</main></body></html>
