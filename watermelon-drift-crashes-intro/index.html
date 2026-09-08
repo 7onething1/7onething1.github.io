@@ -182,6 +182,19 @@ svg{display:block;max-width:100%;height:auto}
 <p>My first meter walk called 43 bars on the Frank Zappa track overfilled, reading 4.19 of 4.00 quarters at bar 10 and 5.40 of 5.00 at bar 87. All 43 carry grace notes, and a grace note consumes no bar time. <b>My walker counted grace rhythms as real duration.</b> Those 43 are withdrawn. Bar 105 survives the check because its short voices carry no grace notes at all.</p>
 </div>
 
+<h2><span class="n" style="background:var(--sky)">6</span>The tom split: I tried to settle it and got half way</h2>
+<div class="callout gold">
+<h3>Per-tom identity is not closed after all</h3>
+<p>The standing record says per-tom identity is closed because pitch medians of 90.7 to 95.6 Hz overlap across the kit. That was measured on one bar. Across the whole tab it does not hold.</p>
+<p>The 185 measured tom strokes in <code>tom_f0.json</code> separate into <b>three pitch clusters at 80.5, 94.0 and 119.6 Hz</b>. Centre separations are 13.5 and 25.7 Hz against within-cluster spreads of 7.1, 3.1 and 12.6 Hz, giving <b>separation-to-spread ratios of 1.90x and 2.04x</b>. Both clear the 1.5x floor this project promotes on. Variance explained rises from 64.1 percent at two clusters to <b>77.0 percent at three</b>.</p>
+<p><b>So the toms are separable, and the blocker recorded for bar 55 does not generalise to the tab.</b></p>
+</div>
+<div class="callout red">
+<h3>What stopped me short of a verdict</h3>
+<p>Deciding which lane scheme the clusters back needs each measured stroke joined to the note written at that instant. The join fails. <code>tom_f0.json</code> is a <b>proposal grid</b> rather than a read of the written file: its rows already carry their own <code>midi</code> and a <code>brandon</code> flag, its bars are zero-based against the files' one-based, and its positions sit on a different subdivision. Sample rows read bar 24 at 3.00, 3.25 and 3.50 quarters while the files hold bar 11 at 4.50 and 4.75, and bar 14 at 1.0625.</p>
+<p>After correcting the bar base, <b>12 of 185 strokes match HANDS and 11 of 185 match the live head</b>. A 6 percent join is not a basis for reassigning 150 notes. Settling it means re-extracting f0 at the written note positions rather than at the proposal's, which is a fresh measurement pass on the toms stem.</p>
+</div>
+
 <h2><span class="n" style="background:var(--muted)">7</span>What is true right now</h2>
 <div class="grid g3">
  <div class="card t1"><h3 style="margin-top:0">Fixed</h3><ul>
@@ -198,7 +211,7 @@ svg{display:block;max-width:100%;height:auto}
   <li><s>36.87 s of the record has no bars</s> withdrawn, master mismatch <code>q-2026-09-08-6f84a3</code></li>
   <li><s>Songsterr sync points wrong at the ends</s> withdrawn, wrong video <code>q-2026-09-08-a45b41</code></li>
   <li>132 crashes found, none written <code>q-2026-09-08-613ab9</code></li>
-  <li>The tom lane split, roughly 150 notes <code>q-2026-09-08-629fc2</code></li>
+  <li>Tom lane split: toms ARE separable at 1.9x and 2.04x, the join to the written notes is what fails <code>q-2026-09-08-629fc2</code></li>
   <li>Bar 105 short a quarter on five tracks <code>q-2026-09-08-70d3f0</code></li>
   <li>The 202 disputed ride notes <code>q-2026-09-08-c9d5f7</code></li>
   <li>Playability audit and the upload <code>q-2026-09-08-85d746</code></li>

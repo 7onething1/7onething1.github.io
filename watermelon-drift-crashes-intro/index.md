@@ -73,12 +73,20 @@ Bar 105 is short exactly one quarter on **five tracks**, not one: Cuccurullo twi
 
 Tom lanes, roughly 150 notes apart: local HANDS reads 41:1 43:44 47:4 48:81 50:30, live r8972739 reads 41:62 43:0 47:111 48:14 50:0. The live tab uses only the two lowest lanes. The upload adopts the live reading.
 
+## The tom split: settled half way
+
+The standing record says per-tom identity is closed because pitch medians of 90.7 to 95.6 Hz overlap. That was measured on one bar and it does not hold across the tab.
+
+The 185 measured tom strokes separate into **three pitch clusters at 80.5, 94.0 and 119.6 Hz**. Centre separations 13.5 and 25.7 Hz against within-cluster spreads of 7.1, 3.1 and 12.6 Hz, so **separation-to-spread ratios of 1.90x and 2.04x**, both clearing the 1.5x floor. Variance explained rises from 64.1 percent at two clusters to 77.0 percent at three. The toms are separable.
+
+**What stopped a verdict.** Deciding which lane scheme the clusters back needs each stroke joined to the note written at that instant. `tom_f0.json` is a proposal grid rather than a read of the written file: rows carry their own `midi` and a `brandon` flag, bars are zero-based against the files' one-based, and positions sit on a different subdivision. After correcting the bar base, **12 of 185 strokes match HANDS and 11 of 185 match the live head**. A 6 percent join cannot reassign 150 notes. Settling it needs f0 re-extracted at the written note positions.
+
 ## Queue
 
 - `q-2026-09-08-6f84a3` intro gap, **withdrawn**, master mismatch
 - `q-2026-09-08-a45b41` sync points, **withdrawn**, wrong video entry
 - `q-2026-09-08-613ab9` 132 crashes unwritten, open
-- `q-2026-09-08-629fc2` tom lane split, open
+- `q-2026-09-08-629fc2` tom lane split. Toms ARE separable at 1.90x and 2.04x, correcting the standing closed-layer claim. Blocked on the join: `tom_f0.json` is a proposal grid and only 12 of 185 strokes align with the written notes
 - `q-2026-09-08-70d3f0` bar 105, measured here, write held
 - `q-2026-09-08-c9d5f7` 202 disputed ride notes, open
 - `q-2026-09-08-85d746` playability audit and upload, held by the sibling session
