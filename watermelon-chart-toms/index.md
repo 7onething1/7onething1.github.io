@@ -101,8 +101,9 @@ All under `~/Projects/_outputs/zappa-watermelon-hat-snare-repair/tools/`:
 
 While this build ran, another session read the same Drumnet pages and published to the copy
 tab `s6857183` "Watermelon In Easter Hay Brandon edit": revision `8968036` at 17:17 UTC and
-`8968524` at 17:43. Its note says the chart supplied the tom count and drum while Moises stems
-supplied the timing, writing 164 toms and withholding 34.
+`8968524` at 17:43. Quoting that revision's own note, not this build: the chart supplied the tom count and drum,
+Moises stems supplied the timing, **that session placed 164 toms** and withheld 34. **This build
+placed 179**, which is the number every figure here refers to.
 
 **Agreement.** The live tab's section markers sit at exactly the bar indices this build used
 (Bridge 1 at index 25, Solo at 41). A bar-shift sweep peaks at zero (59 matches) against 6 and
