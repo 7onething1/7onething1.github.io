@@ -251,6 +251,59 @@ playable, human-made tab of this song sits at 95.1&nbsp;ms on the identical
 measure. This artifact is <b>17&nbsp;ms above that floor</b>, and it tracks the
 record's length better: 4.65% short against the human tab's 9.87%.</div>
 
+<h2>Ties and note lengths, and the axis they unlocked</h2>
+<p>The first build wrote every note as one 16th slot, so it asserted no duration
+at all and duration agreement had nothing to compare. The writer now carries the
+audio-derived length of each note and ties it across the note values needed to
+express it. The result is the promoted artifact,
+<code>s6285808-TWOGTR-WITH-TIES.gp</code>, hash
+<code>a5a4847130f540f9cf54ac782f79b826</code>.</p>
+
+<div class="tw"><table>
+<thead><tr><th>Measure</th><th>No ties</th><th>With ties</th></tr></thead>
+<tbody>
+<tr><td class="song">Ties written</td><td class="num">0</td><td class="num">84</td></tr>
+<tr><td class="song">Attacks</td><td class="num">1162</td><td class="num">1162</td></tr>
+<tr><td class="song">DTW map gain</td><td class="num">+18.6</td><td class="num">+21.2</td></tr>
+<tr><td class="song">Attack recall</td><td class="num">24.4%</td><td class="num">30.8%</td></tr>
+<tr><td class="song">Attack precision</td><td class="num">91.7% (122/133)</td><td class="num">98.5% (131/133)</td></tr>
+<tr><td class="song">Chroma separation, Gtr1 / Gtr2</td><td class="num">+0.2235 / +0.2498</td><td class="num">+0.2311 / +0.2536</td></tr>
+<tr class="sep"><td class="song"><b>Duration error vs shuffled control</b></td><td class="num">76 vs 76 ms, <b>gain +0</b></td><td class="num">73 vs 117 and 68 vs 88 ms, <b>gain +44 / +20</b></td></tr>
+<tr><td class="song">Notes within 25% of the source length</td><td class="num">35.3% / 38.0%</td><td class="num">43.5% / 46.8%</td></tr>
+<tr><td class="song">Hard failures</td><td class="num">0</td><td class="num">0</td></tr>
+</tbody></table></div>
+
+<div class="call ok"><b>The duration control validates itself.</b> On the no-ties
+build every note claims the same length, and the measure correctly reports a gain
+of exactly zero over its shuffled control. On the ties build the same measure
+reports +44&nbsp;ms and +20&nbsp;ms, so each note is matching its own source
+length rather than the duration distribution merely being similar.</div>
+
+<h2>Every axis the validator scores</h2>
+<div class="tw"><table>
+<thead><tr><th>Axis</th><th>Gtr 1</th><th>Gtr 2</th></tr></thead>
+<tbody>
+<tr><td class="song">Capo, and capo vs Midi mismatch</td><td class="num">0 / 0</td><td class="num">0 / 0</td></tr>
+<tr><td class="song">Ties written</td><td class="num">56</td><td class="num">28</td></tr>
+<tr><td class="song">Tie collision / inconsistent / unmatched / gap / dropped</td><td class="num">0 / 0 / 0 / 0 / 0</td><td class="num">0 / 0 / 0 / 0 / 0</td></tr>
+<tr><td class="song">Same-string collisions</td><td class="num">0</td><td class="num">0</td></tr>
+<tr><td class="song">Worst hand span</td><td class="num">4</td><td class="num">4</td></tr>
+<tr><td class="song">Rapid fret position changes</td><td class="num">0</td><td class="num">0</td></tr>
+<tr><td class="song">Open strings, and share</td><td class="num">141 (24.1%)</td><td class="num">194 (29.3%)</td></tr>
+<tr><td class="song">Interior string gaps, hand-skip share</td><td class="num">46 (27.4%)</td><td class="num">51 (30.9%)</td></tr>
+<tr><td class="song">Octave shapes, recurring vs isolated</td><td class="num">17: 13 / 4</td><td class="num">22: 22 / 0</td></tr>
+<tr><td class="song">Repeated voicing inconsistency</td><td class="num">0</td><td class="num">0</td></tr>
+<tr class="sep"><td class="song"><b>Hard failures</b></td><td class="num"><b>0</b></td><td class="num"><b>0</b></td></tr>
+</tbody></table></div>
+
+<div class="call"><b>The canonical ownership line is scoring a different band.</b>
+<code>audio_accuracy_audit.py</code> reports OWNERSHIP REFUSED at +0.2651 against
++0.2766, and its own JSON names the file it scored:
+<code>10 Trapped in Wonderland.gp</code>, a Shiner song, with 152 and 689 notes
+that belong to neither staff here. Its corpus holds no Appleseed material, so
+that line has never measured any tab on this record. Channel ownership stays
+unestablished, and it is the tool that is missing, not the evidence.</div>
+
 <h2>Standing rule</h2>
 <p><b>Two guitars, never four.</b> A third staff is never the answer, and the
 split is decided by who played the note, never by panning or by stem loudness.</p>

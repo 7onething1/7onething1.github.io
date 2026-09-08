@@ -135,6 +135,48 @@ sparse and sets a floor. The human tab of this song sits at 95.1 ms on the same
 measure; this artifact is 17 ms above it and tracks the record's length better,
 4.65% short against 9.87%.
 
+## Ties, note lengths, and duration agreement
+
+Promoted artifact: `s6285808-TWOGTR-WITH-TIES.gp`, hash a5a4847130f540f9cf54ac782f79b826
+
+| Measure | No ties | With ties |
+|---|---|---|
+| Ties written | 0 | 84 |
+| Attacks | 1162 | 1162 |
+| DTW map gain | +18.6 | +21.2 |
+| Attack recall | 24.4% | 30.8% |
+| Attack precision | 91.7% (122/133) | 98.5% (131/133) |
+| Chroma separation Gtr1/Gtr2 | +0.2235 / +0.2498 | +0.2311 / +0.2536 |
+| Duration error vs shuffled control | 76 vs 76 ms, gain +0 | 73 vs 117 and 68 vs 88 ms, gain +44 / +20 |
+| Within 25% of source length | 35.3% / 38.0% | 43.5% / 46.8% |
+| Hard failures | 0 | 0 |
+
+The duration control validates itself: on the no-ties build every note claims the
+same length and the gain is exactly zero.
+
+## Every axis the validator scores
+
+| Axis | Gtr 1 | Gtr 2 |
+|---|---|---|
+| Capo / capo-Midi mismatch | 0 / 0 | 0 / 0 |
+| Ties | 56 | 28 |
+| Tie collision/inconsistent/unmatched/gap/dropped | 0 all | 0 all |
+| Same-string collisions | 0 | 0 |
+| Worst hand span | 4 | 4 |
+| Rapid fret position changes | 0 | 0 |
+| Open strings (share) | 141 (24.1%) | 194 (29.3%) |
+| Interior string gaps (hand-skip share) | 46 (27.4%) | 51 (30.9%) |
+| Octave shapes recurring/isolated | 13 / 4 | 22 / 0 |
+| Repeated voicing inconsistency | 0 | 0 |
+| Hard failures | 0 | 0 |
+
+## Ownership: the tool scores another band
+
+audio_accuracy_audit.py reports OWNERSHIP REFUSED at +0.2651 vs +0.2766, and its
+JSON names the file it scored: `10 Trapped in Wonderland.gp`, a Shiner song, with
+152/689 notes belonging to neither staff. Its corpus holds no Appleseed material.
+Channel ownership stays unestablished because the tool is missing, not the evidence.
+
 ## Provenance
 
 Zero note ids and zero beat ids inherited from the Songsterr AI tab. 25 of 529
