@@ -205,6 +205,10 @@ footer{margin-top:4rem;padding-top:1.3rem;border-top:2px solid var(--line);
 <p style="margin-bottom:0">The first build went through ElementTree and came out with zero CDATA wrappers. That is the exact state measured to blank every track name on import: <span class="mono">RESTORED-s35881.gp</span> carried 0 CDATA and lost 9 of 9 names on the original tab. The build was redone as text surgery on the raw GPIF so all 137 wrappers survive untouched.</p>
 </div>
 
+<h2 class="g">The set difference, not a count</h2>
+<p>Both sides read from Songsterr's CDN. The change is a pure subtraction: <strong>63 positions present in r8968524 and absent from r8970744, and zero positions present in r8970744 and absent from r8968524</strong>. Every removed position sits in voice 1.</p>
+<p>The full list is published beside this page as <a href="setdiff.json">setdiff.json</a>, keyed by bar, voice, position in quarters and drum. The bars it touches are 6, 7, 8, 10, 11, 12, 13, 16, 17, 22, 23, 24, 26, 27, 28, 30, 31, 32, 35, 36, 38, 39, 42, 44, 45, 47, 54, 55, 56, 58, 59, 60, 62, 63, 64, 78, 80, 84, 85, 90, 92 and 97.</p>
+
 <h2 class="t">Proof</h2>
 <div class="card hero y">
 <p style="margin:.2rem 0"><strong>Tab</strong> <span class="mono">https://www.songsterr.com/a/wsa/frank-zappa-watermelon-in-easter-hay-brandon-edit-drum-tab-s6857183</span></p>
