@@ -116,3 +116,27 @@ Kick fit 41.9% vs 2.2% on Asleep In The Trunk.
 14 of 30 Shiner stem FLACs carry an unset total-samples header and decode short. Originals untouched;
 analysis ran on ffmpeg-decoded copies in `data/shiner_wav/`.
 
+
+## Instrument identity: notation vs stem (Keep It Greasey)
+
+A notehead shape does not name a drum. Bars 42 and 148 differ as MIDI 42 Hi-Hat (closed) vs
+MIDI 46 Hi-Hat (open), per the score data, and the hat stem agrees independently.
+
+| midi | articulation | notes | best stem | ratio | runner-up | ratio | verdict |
+|---|---|---|---|---|---|---|---|
+| 35 | Kick (hit) | 1,311 | kick | 2.22x | hat | 1.41x | CONFIRMED |
+| 38 | Snare (hit) | 1,423 | snare | 2.37x | cymbals | 0.91x | CONFIRMED |
+| 42 | Hi-Hat (closed) | 533 | hat | 2.79x | kick | 1.73x | CONFIRMED |
+| 43 | Very Low Tom (hit) | 112 | toms | 5.88x | hat | 0.09x | CONFIRMED |
+| 44 | Pedal Hi-Hat (hit) | 195 | hat | 1.49x | snare | 1.28x | UNCONFIRMED |
+| 45 | Low Tom (hit) | 85 | toms | 4.90x | snare | 1.41x | CONFIRMED |
+| 46 | Hi-Hat (open) | 428 | hat | 2.97x | snare | 0.94x | CONFIRMED |
+| 47 | Mid Tom (hit) | 170 | toms | 3.92x | cymbals | 1.86x | CONFIRMED |
+| 48 | High Tom (hit) | 109 | toms | 3.21x | cymbals | 2.89x | CONFIRMED |
+| 49 | Crash high (hit) | 173 | cymbals | 4.01x | kick | 2.01x | CONFIRMED |
+| 51 | Ride (middle) | 87 | cymbals | 3.77x | kick | 2.17x | CONFIRMED |
+| 53 | Ride (bell) | 282 | cymbals | 2.42x | toms | 1.36x | CONFIRMED |
+
+11 of 12 articulations name their own stem. The exception is MIDI 44 Pedal Hi-Hat, 195 notes,
+best 1.49x on the hat stem, under the 1.5 floor. No stem in the kit confirms it.
+

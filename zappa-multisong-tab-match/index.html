@@ -212,6 +212,21 @@ machinery</strong>, so the Watermelon result is a fact about that tab. One cavea
 hand-fitted snare-anchored clock and everything here used an automatic kick fit. Same detector and bands,
 different clock provenance.</p>
 
+<h2 class="t">What the notation says an instrument is, and what the stem says</h2>
+<p>A notehead shape does not name a drum. Reading bars 42 and 148 by eye I called the difference between
+their plain X and circled-X heads a cymbal articulation, and that was wrong on both counts. The score data
+says bar 42 is <strong>MIDI 42, Hi-Hat (closed)</strong> and bar 148 is <strong>MIDI 46, Hi-Hat (open)</strong>,
+and the hat stem agrees with the score independently. Every articulation in Keep It Greasey with at least
+25 instances, scored against all five stems:</p>
+<div class="scroll"><table><thead><tr><th>midi</th><th>articulation in the score</th><th>notes</th>
+<th>best stem</th><th>ratio</th><th>runner-up</th><th>ratio</th><th>verdict</th></tr></thead><tbody><tr><td class="mono">35</td><td>Kick (hit)</td><td>1,311</td><td><strong>kick</strong></td><td class="ok">2.22x</td><td>hat</td><td>1.41x</td><td><span class="pill p-c">CONFIRMED</span></td></tr><tr><td class="mono">38</td><td>Snare (hit)</td><td>1,423</td><td><strong>snare</strong></td><td class="ok">2.37x</td><td>cymbals</td><td>0.91x</td><td><span class="pill p-c">CONFIRMED</span></td></tr><tr><td class="mono">42</td><td>Hi-Hat (closed)</td><td>533</td><td><strong>hat</strong></td><td class="ok">2.79x</td><td>kick</td><td>1.73x</td><td><span class="pill p-c">CONFIRMED</span></td></tr><tr><td class="mono">43</td><td>Very Low Tom (hit)</td><td>112</td><td><strong>toms</strong></td><td class="ok">5.88x</td><td>hat</td><td>0.09x</td><td><span class="pill p-c">CONFIRMED</span></td></tr><tr><td class="mono">44</td><td>Pedal Hi-Hat (hit)</td><td>195</td><td><strong>hat</strong></td><td class="bad">1.49x</td><td>snare</td><td>1.28x</td><td><span class="pill p-a">UNCONFIRMED</span></td></tr><tr><td class="mono">45</td><td>Low Tom (hit)</td><td>85</td><td><strong>toms</strong></td><td class="ok">4.90x</td><td>snare</td><td>1.41x</td><td><span class="pill p-c">CONFIRMED</span></td></tr><tr><td class="mono">46</td><td>Hi-Hat (open)</td><td>428</td><td><strong>hat</strong></td><td class="ok">2.97x</td><td>snare</td><td>0.94x</td><td><span class="pill p-c">CONFIRMED</span></td></tr><tr><td class="mono">47</td><td>Mid Tom (hit)</td><td>170</td><td><strong>toms</strong></td><td class="ok">3.92x</td><td>cymbals</td><td>1.86x</td><td><span class="pill p-c">CONFIRMED</span></td></tr><tr><td class="mono">48</td><td>High Tom (hit)</td><td>109</td><td><strong>toms</strong></td><td class="ok">3.21x</td><td>cymbals</td><td>2.89x</td><td><span class="pill p-c">CONFIRMED</span></td></tr><tr><td class="mono">49</td><td>Crash high (hit)</td><td>173</td><td><strong>cymbals</strong></td><td class="ok">4.01x</td><td>kick</td><td>2.01x</td><td><span class="pill p-c">CONFIRMED</span></td></tr><tr><td class="mono">51</td><td>Ride (middle)</td><td>87</td><td><strong>cymbals</strong></td><td class="ok">3.77x</td><td>kick</td><td>2.17x</td><td><span class="pill p-c">CONFIRMED</span></td></tr><tr><td class="mono">53</td><td>Ride (bell)</td><td>282</td><td><strong>cymbals</strong></td><td class="ok">2.42x</td><td>toms</td><td>1.36x</td><td><span class="pill p-c">CONFIRMED</span></td></tr></tbody></table></div>
+<p><strong>Eleven of the twelve articulations name their own stem as the best match</strong>, several by a
+wide margin: Very Low Tom reaches 5.88 times chance on the tom stem against 0.09 on its runner-up. That is
+the tab's instrument assignment being confirmed by audio rather than assumed from a lane.</p>
+<p><strong>The exception is MIDI 44, Pedal Hi-Hat, at 195 notes.</strong> Its best stem is the hat at 1.49
+times chance, under the 1.5 floor, with the snare close behind at 1.28. No stem in the kit confirms it. The
+21 notes written as Hand Clap were below the 25-instance minimum and carry no verdict.</p>
+
 <footer>
 <p>Built 2026-09-08 on MacBookPro. Every number on this page is generated at build time from
 <span class="mono">data/anchor_match.json</span>, <span class="mono">data/hat.json</span>,
