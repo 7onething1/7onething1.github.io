@@ -287,21 +287,48 @@ footer{color:var(--muted);font-size:13px;text-align:center;margin-top:40px}
 </section>
 
 <section>
-<h2>Figures of record, for anything that wants to cite this read</h2>
-<p>A revised governing skill now hard-codes numbers drawn from this Watermelon evidence. These are the values this session actually measured, each re-derived from the saved data rather than retyped. <b>Four of them are easy to transpose</b>, so they are set out side by side.</p>
+<h2>Scope record for the counts, as the governing skill asks for</h2>
+<p>The revised <span class="mono">perfect_stem_read_skill_WATERMELON_REVISED.md</span> verifies on this Mac: SHA256 <span class="mono">94276444&hellip;84e1b1</span>, 287 lines, 7,767 words, all three exact. Its line 155 requires every published comparison count to carry an explicit scope record, and its line 273 names the Watermelon snare figures specifically. This is that record.</p>
+
+<div class="warn">
+<b>I first read its "101 cymbals" and "41 fractional tom positions" as measured claims and suspected a transposition. That was wrong.</b> Both appear at line 211 as examples of claims the skill forbids, and 101 matches r8968524's tom-and-cymbal coincidence count exactly. The document is warning against converting queue sizes into repairs, which is the correct rule.
+</div>
+
+<h3>The snare pair, reconciled</h3>
 <div class="scroll">
 <table>
-<thead><tr><th>Quantity</th><th class="num">This read</th><th class="num">r8968036</th><th class="num">r8968524</th><th>How it was measured</th></tr></thead>
+<thead><tr><th>Field</th><th>Value</th></tr></thead>
 <tbody>
-<tr><td>Toms written</td><td class="num"><b>179</b></td><td class="num">170</td><td class="num">168</td><td>filled heads on chart lanes 0, 2, 6</td></tr>
-<tr><td>Sub-sixteenth tom positions</td><td class="num"><b>44</b></td><td class="num">51</td><td class="num">49</td><td>35 thirty-seconds plus 9 sixteenth-triplets here; anything with a denominator above 1 in the live payloads</td></tr>
-<tr><td>Measures where a tom shares a position with a written cymbal</td><td class="num"><b>41</b></td><td class="num">34</td><td class="num">34</td><td>131 such events here, all on the ride; 102 and 101 events there</td></tr>
-<tr><td>Tom lanes the chart uses</td><td class="num"><b>3</b></td><td class="num">3</td><td class="num">3</td><td>lanes 0, 2 and 6, with 1 and 5 empty in the filled-head histogram</td></tr>
+<tr><td>Chart artifact</td><td>Drumnet.ru, Watermelon In A Easter Hay, BartoRomeo, 5 pages, 595&times;842 px</td></tr>
+<tr><td>Tab artifact</td><td><span class="mono">RESTORED-s35881-TEXTSAFE-v2.gp</span>, from s35881 revision 8908034</td></tr>
+<tr><td>Measure range</td><td>the chart's own 96 bars, GP display 10 through 105</td></tr>
+<tr><td>Tracks and voices</td><td>track 8 only, voice 0 only</td></tr>
+<tr><td>Event definition</td><td>chart side, visible filled noteheads on lane 3; tab side, Guitar Pro note objects with midi 40</td></tr>
+<tr><td>Ghost and grace policy</td><td>ghosts counted, no grace strokes present on the snare lane</td></tr>
+<tr><td>Reader version</td><td><span class="mono">chart_heads_full.py</span> with the ink cut at 180, systems from <span class="mono">systems_median.py</span></td></tr>
+<tr><td><b>Reconciled pair</b></td><td><b>154 chart heads against 177 tab snares</b></td></tr>
+<tr><td>Why 193 differs</td><td>193 counts all 105 tab bars; the nine the chart never transcribes hold 16 snare</td></tr>
+<tr><td>Where 340 comes from</td><td>r8968036's snare total over all 105 bars; r8968524 holds 342</td></tr>
 </tbody>
 </table>
 </div>
-<div class="warn">
-<b>The snare pair 154 / 193 is superseded and should not be cited.</b> The 193 counts all 105 tab bars while the chart transcribes 96 of them. Like for like over the chart's own span the tab holds <b>177</b>, so the pair is <b>154 / 177</b>. The nine bars outside the chart hold 16 snare. Separately, 340 is r8968036's snare total and 342 is r8968524's; both count all 105 bars.
+
+<h3>Two figures worth a second look</h3>
+<div class="scroll">
+<table>
+<thead><tr><th>Item</th><th>Document</th><th>Measured here</th><th>Measured on the live payloads</th></tr></thead>
+<tbody>
+<tr><td>Sub-sixteenth tom positions</td><td class="num">41</td><td class="num">44</td><td class="num">51 in r8968036, 49 in r8968524</td></tr>
+<tr><td>Drummer named at line 271</td><td>Bozzio</td><td colspan="2"><b>Vinnie Colaiuta.</b> The Guitar Pro file names track 8 "Vinnie Colaiuta", and Joe's Garage is his date. Bozzio played the earlier Zappa records.</td></tr>
+</tbody>
+</table>
+</div>
+<p>Events and distinct positions come out equal in all three reads, so the 41 gap is not an events-against-positions difference.</p>
+
+<h3>Where the document corrects this read, and it is right</h3>
+<p>Line 271 calls the three-tom ceiling a <b>reader-representation defect</b>, and line 105 says a chart showing three visible tom lanes cannot cap the audio reader at three physical drums. That lands: every one of the 179 events here was assigned to just three MIDI values because the chart draws three lanes, and the kit exposes six. Line 271 also says the chart's lane names cannot be recycled into a stem classifier as independent evidence, which is the same circularity the staff guard flagged.</p>
+<div class="proof">
+<b>Bar 25 agrees with the document's calibration from the other direction.</b> Line 263 states the hand-verified ten-note figure belongs to the ordinary sixteenth grid. Read off the engraving with no audio, this build placed those ten at 9.5, 10, 11, 12, 13, 14, 15, 16, 17 and 18 sixteenths, so nine sit exactly on the grid and one sits a thirty-second early.
 </div>
 </section>
 
