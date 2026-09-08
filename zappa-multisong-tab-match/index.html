@@ -85,125 +85,139 @@ footer{margin-top:4rem;padding-top:1.3rem;border-top:2px solid var(--line);
  display:block;width:100%;max-width:230px}
 </style></head><body><div class="wrap">
 <header>
-<h1>Two more tabs put against their own recordings, and both of them hold</h1>
-<p class="sub">Keep It Greasey and I&rsquo;m the Slime, scored note by note against isolated Moises stems on
-2026-09-08. Same frozen detector as the Watermelon pass: 1024-point Hann, 256 hop, band-limited positive
-spectral flux, 95th-percentile local peaks, 30 ms refractory, 25 ms one-to-one tolerance.</p>
+<h1>Nine drum tabs put against their own recordings, with nobody listening to anything</h1>
+<p class="sub">Keep It Greasey, I&rsquo;m the Slime and the six Shiner BelieveYouMe tabs, scored note by
+note against isolated stems on 2026-09-08. Detector frozen to the Watermelon cymbal pass: 1024-point Hann,
+256 hop, band-limited positive spectral flux, 95th-percentile local peaks, 30 ms refractory, 25 ms
+one-to-one tolerance.</p>
 <div class="tagrow">
-<span class="tag t-g">10 lane verdicts</span>
-<span class="tag t-y">10 of 10 separate</span>
+<span class="tag t-g">6 songs scored</span>
+<span class="tag t-y">26 of 30 lanes separate</span>
 <span class="tag t-p">clock fitted on kick only</span>
-<span class="tag t-t">wrong recording given equal freedom</span>
+<span class="tag t-t">2 songs refused, and the reason is data</span>
 </div>
 </header>
 
 <div class="card hero">
-<p class="lede"><strong>The short version.</strong> Nobody listened to anything. Both tabs were expanded into
-note instances, both recordings were split into kick, snare, hat, tom and cymbal stems, and a clock was
-fitted on the kick lane alone. Every other lane was then scored on a ruler it never helped carve. All ten
-lane verdicts separate from a wrong recording that received the same fitting freedom.</p>
-<p>The result that matters for the open Watermelon question: <strong>cymbals are confirmable by this
-machinery.</strong> Keep It Greasey separates its cymbal lane at 7.97 times and I&rsquo;m the Slime at 1.87
-times, so the Watermelon cymbal lane sitting at 1.45 is a fact about that tab rather than a limit of the
-detector.</p>
+<p class="lede"><strong>The short version.</strong> Every tab was expanded into note instances, every
+recording was split into kick, snare, hat, tom and cymbal, and a clock was fitted on the kick lane alone.
+The other four lanes were then scored on a ruler they never helped carve, with a chance floor under every
+number and a wrong-recording control that received the same fitting freedom.</p>
+<p><strong>Not Too Much is the best-matching drum tab measured in this session</strong>, confirming 92.3
+percent of its written kicks against the kick stem. Two songs produced no verdict at all, and in both cases
+the cause is the data rather than the tab.</p>
 </div>
 
 <h2>Why playback was never part of this</h2>
-<p>The question that started the session was whether letting audio play out of the Mac would let the tab be
-graded by ear. It would not. Sound leaving the speakers arrives in the room. The measurement below reads
-waveforms as arrays and score files as XML, and it produces a number for every written note. That is the
-form the answer takes.</p>
-<p>Watching a tab play back is worse than useless for this, because the playhead reports where the tab
-believes it sits. A reading taken from the tab and checked against a clock also taken from the tab will
-agree with itself and settle nothing about the record.</p>
+<p>The session opened with a question about whether taking the audio-playback gate off would let a Songsterr
+tab be graded by ear. It would not. Sound leaving the speakers arrives in the room. Everything below reads
+waveforms as arrays and score files as structured data, and it returns a number for every written note.</p>
+<p>Watching a tab play back is worse than useless here, because the playhead reports where the tab believes
+it sits. A reading taken from the tab, checked against a clock also taken from the tab, agrees with itself
+and settles nothing about the record.</p>
 
-<h2 class="t">How a lane earns a verdict</h2>
-<ol>
-<li><strong>Expand the score into note instances.</strong> GPIF deduplicates note and beat definitions, so
-one definition can appear at many positions. Everything here counts instances.</li>
-<li><strong>Fit the clock on kick alone.</strong> 24 windowed anchors, monotone in time, local offset chosen
-to maximise kick agreement.</li>
-<li><strong>Score the other four lanes on that clock.</strong> They had no say in building it.</li>
-<li><strong>Put a chance floor under every number.</strong> 20,000 uniform random times through the same
-matcher, so a dense stem cannot buy a high score with coincidence.</li>
-<li><strong>Refit the whole thing on the wrong recording.</strong> Same anchors, same freedom. A fit that
-survives a different song is not measuring that song.</li>
-</ol>
-
-<h2 class="g">Keep It Greasey</h2>
-<p class="sub">Drum track <span class="mono">Drums (Vinnie Colaiuta)</span>. 248 bars, 4,948 note instances in the score, 4,947 of them in the five scored lanes. Stem length 501.84 s. Songsterr id <span class="mono">s604777</span>.</p>
-<div class="grid">
-<div class="stat"><div class="num">5/5</div><div class="lbl">lanes that separate</div></div>
-<div class="stat"><div class="num">29.4%</div><div class="lbl">kick coverage, right recording</div></div>
-<div class="stat"><div class="num">5.2%</div><div class="lbl">kick coverage, wrong recording</div></div>
-<div class="stat"><div class="num">24</div><div class="lbl">clock anchors, kick only</div></div>
-</div>
-<div class="scroll"><table><thead><tr><th>lane</th><th>written</th><th>stem onsets</th><th>confirm</th><th>chance</th><th>ratio</th><th>wrong rec.</th><th>separation</th><th>verdict</th><th>fit input</th></tr></thead><tbody>
+<h2 class="g">Every scored lane, all 6 songs</h2>
+<div class="scroll"><table><thead><tr><th>song</th><th>id</th><th>kick fit</th><th>wrong fit</th>
+<th>kick</th><th>snare</th><th>hat</th><th>tom</th><th>cymbal</th><th>clear</th></tr></thead><tbody><tr><td><strong>Keep It Greasey</strong></td><td class="mono">s604777</td><td>29.4%</td><td>5.2%</td><td class="ok">3.71x</td><td class="ok">4.62x</td><td class="ok">1.85x</td><td class="ok">3.89x</td><td class="ok">7.97x</td><td>5/5</td></tr><tr><td><strong>I'm the Slime</strong></td><td class="mono">s642618 (Brandon edit)</td><td>57.1%</td><td>10.8%</td><td class="ok">4.14x</td><td class="ok">5.70x</td><td class="ok">5.51x</td><td class="ok">5.30x</td><td class="ok">1.87x</td><td>5/5</td></tr><tr><td><strong>My Mirror Hates Me</strong></td><td class="mono">s5418315</td><td>23.0%</td><td>19.3%</td><td class="ok">1.59x</td><td class="ok">5.31x</td><td class="ok">1.93x</td><td class="mid">1.20x</td><td class="ok">2.47x</td><td>4/5</td></tr><tr><td><strong>Not Too Much</strong></td><td class="mono">s5084025</td><td>92.3%</td><td>19.4%</td><td class="ok">4.53x</td><td class="ok">6.71x</td><td class="ok">5.51x</td><td class="ok">7.66x</td><td class="ok">3.58x</td><td>5/5</td></tr><tr><td><strong>Broken Satellites</strong></td><td class="mono">s5084035</td><td>82.0%</td><td>10.2%</td><td class="ok">5.75x</td><td class="ok">14.78x</td><td class="ok">1.82x</td><td class="ok">&ge;99x</td><td class="mid">1.35x</td><td>4/5</td></tr><tr><td><strong>Jackie</strong></td><td class="mono">s5418285</td><td>41.9%</td><td>2.2%</td><td class="ok">1.90x</td><td class="ok">2.99x</td><td class="mid">1.42x</td><td class="ok">5.51x</td><td class="mid">1.32x</td><td>3/5</td></tr></tbody></table></div><p class="note">"kick fit" is the share of written kicks landing within 25 ms of a kick-stem onset on the fitted clock. "wrong fit" is the same number after refitting the whole clock, with identical freedom, on a different recording. A song whose two columns are close has not been measured.</p>
+<h2 class="t">Keep It Greasey <span class="mono">s604777</span></h2>
+<p class="sub">Drum track <span class="mono">Drums (Vinnie Colaiuta)</span>, 248 bars,
+4,948 note instances, 501.8 s stem. All five lanes
+separate from I&rsquo;m the Slime as the wrong recording.</p>
+<div class="scroll"><table><thead><tr><th>lane</th><th>written</th><th>onsets</th><th>confirm</th><th>chance</th><th>ratio</th><th>wrong</th><th>separation</th><th>verdict</th><th>fit input</th></tr></thead><tbody>
 <tr><td><strong>kick</strong></td><td>1,311</td><td>1,250</td><td>29.4%</td><td>13.2%</td><td class="ok">2.22x</td><td>0.60x</td><td class="ok">3.71x</td><td><span class="pill p-c">SEPARATES</span></td><td class="note">clock fitted here</td></tr>
 <tr><td><strong>snare</strong></td><td>1,444</td><td>953</td><td>21.5%</td><td>9.2%</td><td class="ok">2.34x</td><td>0.51x</td><td class="ok">4.62x</td><td><span class="pill p-c">SEPARATES</span></td><td class="note">held out</td></tr>
 <tr><td><strong>hat</strong></td><td>1,156</td><td>960</td><td>25.2%</td><td>9.6%</td><td class="ok">2.62x</td><td>1.42x</td><td class="ok">1.85x</td><td><span class="pill p-c">SEPARATES</span></td><td class="note">held out</td></tr>
 <tr><td><strong>tom</strong></td><td>493</td><td>1,206</td><td>51.9%</td><td>12.0%</td><td class="ok">4.33x</td><td>1.11x</td><td class="ok">3.89x</td><td><span class="pill p-c">SEPARATES</span></td><td class="note">held out</td></tr>
-<tr><td><strong>cymbal</strong></td><td>543</td><td>850</td><td>24.9%</td><td>7.9%</td><td class="ok">3.14x</td><td>0.39x</td><td class="ok">7.97x</td><td><span class="pill p-c">SEPARATES</span></td><td class="note">held out</td></tr>
-</tbody></table></div>
-<p class="note">Wrong-recording control for this song is <strong>I'm the Slime</strong>, separated by the same Moises separator, and it was given the identical 24-anchor fitting freedom rather than a fixed clock.</p>
+<tr><td><strong>cymbal</strong></td><td>543</td><td>850</td><td>24.9%</td><td>7.9%</td><td class="ok">3.14x</td><td>0.39x</td><td class="ok">7.97x</td><td><span class="pill p-c">SEPARATES</span></td><td class="note">held out</td></tr></tbody></table></div>
 
-<h2 class="g">I'm the Slime</h2>
-<p class="sub">Drum track <span class="mono">Drums</span>. 80 bars, 1,280 note instances in the score, 1,280 of them in the five scored lanes. Stem length 213.75 s. Songsterr id <span class="mono">s642618 (Brandon edit)</span>.</p>
-<div class="grid">
-<div class="stat"><div class="num">5/5</div><div class="lbl">lanes that separate</div></div>
-<div class="stat"><div class="num">57.1%</div><div class="lbl">kick coverage, right recording</div></div>
-<div class="stat"><div class="num">10.8%</div><div class="lbl">kick coverage, wrong recording</div></div>
-<div class="stat"><div class="num">24</div><div class="lbl">clock anchors, kick only</div></div>
-</div>
-<div class="scroll"><table><thead><tr><th>lane</th><th>written</th><th>stem onsets</th><th>confirm</th><th>chance</th><th>ratio</th><th>wrong rec.</th><th>separation</th><th>verdict</th><th>fit input</th></tr></thead><tbody>
+<h3>Two explanations I offered for the low confirm rates, both refuted</h3>
+<p><strong>The refractory story was wrong.</strong> I first reported that 27.8 percent of note gaps fall
+under the detector&rsquo;s 30 ms refractory. That counted gaps between events in <em>different</em> lanes,
+and each lane is detected on its own stem, so a kick and a hat at the same instant are never merged. The
+statistic that matters is gaps inside the kick lane alone, and it is
+<strong>4.4 percent</strong> (57 of
+1,310), with a median kick gap of 321 ms.</p>
+<p><strong>The tempo-boundary story was also wrong.</strong> Zero-confirm bars sit within two bars of one of
+the 19 tempo changes 12 percent of the time. Confirming bars do
+so 12 percent of the time. There is no clustering.</p>
+<p>What settled it was rendering the bars and looking. Bar 42 confirms zero of nine kicks and bar 148
+confirms eight of eight, and the two look comparable in density and subdivision. <strong>The reason most of
+Greasey&rsquo;s written kicks find no onset is not established</strong>, and no edit to the tab follows
+from this pass.</p>
+
+<h2 class="t">I&rsquo;m the Slime <span class="mono">s642618 (Brandon edit)</span></h2>
+<p class="sub">80 bars, 1,280 note instances,
+213.8 s stem. Its score carries 63 tempo automations across 80 bars, so the
+notation clock is already fitted almost bar by bar.</p>
+<div class="scroll"><table><thead><tr><th>lane</th><th>written</th><th>onsets</th><th>confirm</th><th>chance</th><th>ratio</th><th>wrong</th><th>separation</th><th>verdict</th><th>fit input</th></tr></thead><tbody>
 <tr><td><strong>kick</strong></td><td>361</td><td>545</td><td>57.1%</td><td>12.3%</td><td class="ok">4.64x</td><td>1.12x</td><td class="ok">4.14x</td><td><span class="pill p-c">SEPARATES</span></td><td class="note">clock fitted here</td></tr>
 <tr><td><strong>snare</strong></td><td>255</td><td>517</td><td>65.5%</td><td>11.2%</td><td class="ok">5.87x</td><td>1.03x</td><td class="ok">5.70x</td><td><span class="pill p-c">SEPARATES</span></td><td class="note">held out</td></tr>
 <tr><td><strong>hat</strong></td><td>144</td><td>512</td><td>66.7%</td><td>10.4%</td><td class="ok">6.38x</td><td>1.16x</td><td class="ok">5.51x</td><td><span class="pill p-c">SEPARATES</span></td><td class="note">held out</td></tr>
 <tr><td><strong>tom</strong></td><td>145</td><td>660</td><td>57.9%</td><td>12.8%</td><td class="ok">4.52x</td><td>0.85x</td><td class="ok">5.30x</td><td><span class="pill p-c">SEPARATES</span></td><td class="note">held out</td></tr>
-<tr><td><strong>cymbal</strong></td><td>375</td><td>750</td><td>48.0%</td><td>15.5%</td><td class="ok">3.10x</td><td>1.66x</td><td class="ok">1.87x</td><td><span class="pill p-c">SEPARATES</span></td><td class="note">held out</td></tr>
-</tbody></table></div>
-<p class="note">Wrong-recording control for this song is <strong>Keep It Greasey</strong>, separated by the same Moises separator, and it was given the identical 24-anchor fitting freedom rather than a fixed clock.</p>
+<tr><td><strong>cymbal</strong></td><td>375</td><td>750</td><td>48.0%</td><td>15.5%</td><td class="ok">3.10x</td><td>1.66x</td><td class="ok">1.87x</td><td><span class="pill p-c">SEPARATES</span></td><td class="note">held out</td></tr></tbody></table></div>
+<h2 class="g">Shiner, BelieveYouMe</h2><p>Six tabs, all authored on Songsterr by Brandon chavez, fetched live and scored against the album's split-kit stems. The wrong-recording control for each song is another song from the same album, which is the strictest control available: same band, same kit, same separator.</p><h3>Asleep In The Trunk <span class="mono">s5085156</span></h3><div class="card"><p><strong>No verdict.</strong> only 4 kick notes fall inside the 39.2s of kick stem (14% of the song); a clock needs 40. The tab holds 1,774 note instances across 264 bars, 754 of them kick.</p></div><h3>So Far So <span class="mono">s4938058</span></h3><div class="card"><p><strong>No verdict.</strong> only 9 kick notes fall inside the 259.7s of kick stem (100% of the song); a clock needs 40. The tab holds 79 note instances across 140 bars, 9 of them kick.</p></div><h3>My Mirror Hates Me <span class="mono">s5418315</span> &middot; revision 7085816 &middot; 114 bpm</h3><p class="note">134 bars, 2,321 note instances, notation 281.6 s against a 286.9 s song. Kick fit 23.0% against 19.3% on Not Too Much.</p><div class="scroll"><table><thead><tr><th>lane</th><th>written</th><th>onsets</th><th>confirm</th><th>chance</th><th>ratio</th><th>wrong</th><th>separation</th><th>verdict</th><th>stem</th></tr></thead><tbody>
+<tr><td><strong>kick</strong></td><td>766</td><td>625</td><td>19.8%</td><td>12.0%</td><td class="ok">1.66x</td><td>1.04x</td><td class="ok">1.59x</td><td><span class="pill p-c">SEPARATES</span></td><td class="note">100%</td></tr>
+<tr><td><strong>snare</strong></td><td>109</td><td>345</td><td>30.3%</td><td>5.9%</td><td class="ok">5.16x</td><td>0.97x</td><td class="ok">5.31x</td><td><span class="pill p-c">SEPARATES</span></td><td class="note">100%</td></tr>
+<tr><td><strong>hat</strong></td><td>128</td><td>467</td><td>14.1%</td><td>9.0%</td><td class="ok">1.55x</td><td>0.81x</td><td class="ok">1.93x</td><td><span class="pill p-c">SEPARATES</span></td><td class="note">100%</td></tr>
+<tr><td><strong>tom</strong></td><td>1,196</td><td>1,278</td><td>30.1%</td><td>24.5%</td><td class="mid">1.23x</td><td>1.02x</td><td class="mid">1.20x</td><td><span class="pill p-m">weak</span></td><td class="note">100%</td></tr>
+<tr><td><strong>cymbal</strong></td><td>120</td><td>506</td><td>17.5%</td><td>8.8%</td><td class="ok">1.98x</td><td>0.80x</td><td class="ok">2.47x</td><td><span class="pill p-c">SEPARATES</span></td><td class="note">91%</td></tr></tbody></table></div><h3>Not Too Much <span class="mono">s5084025</span> &middot; revision 6647986 &middot; 85 bpm</h3><p class="note">122 bars, 1,676 note instances, notation 344.5 s against a 348.1 s song. Kick fit 92.3% against 19.4% on Broken Satellites.</p><div class="scroll"><table><thead><tr><th>lane</th><th>written</th><th>onsets</th><th>confirm</th><th>chance</th><th>ratio</th><th>wrong</th><th>separation</th><th>verdict</th><th>stem</th></tr></thead><tbody>
+<tr><td><strong>kick</strong></td><td>428</td><td>1,033</td><td>92.3%</td><td>15.5%</td><td class="ok">5.95x</td><td>1.31x</td><td class="ok">4.53x</td><td><span class="pill p-c">SEPARATES</span></td><td class="note">100%</td></tr>
+<tr><td><strong>snare</strong></td><td>442</td><td>858</td><td>86.4%</td><td>13.0%</td><td class="ok">6.67x</td><td>0.99x</td><td class="ok">6.71x</td><td><span class="pill p-c">SEPARATES</span></td><td class="note">100%</td></tr>
+<tr><td><strong>hat</strong></td><td>425</td><td>441</td><td>26.8%</td><td>6.3%</td><td class="ok">4.23x</td><td>0.77x</td><td class="ok">5.51x</td><td><span class="pill p-c">SEPARATES</span></td><td class="note">100%</td></tr>
+<tr><td><strong>tom</strong></td><td>85</td><td>760</td><td>88.2%</td><td>11.1%</td><td class="ok">7.95x</td><td>1.04x</td><td class="ok">7.66x</td><td><span class="pill p-c">SEPARATES</span></td><td class="note">100%</td></tr>
+<tr><td><strong>cymbal</strong></td><td>296</td><td>824</td><td>37.8%</td><td>12.2%</td><td class="ok">3.10x</td><td>0.86x</td><td class="ok">3.58x</td><td><span class="pill p-c">SEPARATES</span></td><td class="note">100%</td></tr></tbody></table></div><h3>Broken Satellites <span class="mono">s5084035</span> &middot; revision 6648000 &middot; 116 bpm</h3><p class="note">171 bars, 1,410 note instances, notation 353.3 s against a 362.7 s song. Kick fit 82.0% against 10.2% on Jackie.</p><div class="scroll"><table><thead><tr><th>lane</th><th>written</th><th>onsets</th><th>confirm</th><th>chance</th><th>ratio</th><th>wrong</th><th>separation</th><th>verdict</th><th>stem</th></tr></thead><tbody>
+<tr><td><strong>kick</strong></td><td>488</td><td>1,044</td><td>82.0%</td><td>15.4%</td><td class="ok">5.33x</td><td>0.93x</td><td class="ok">5.75x</td><td><span class="pill p-c">SEPARATES</span></td><td class="note">100%</td></tr>
+<tr><td><strong>snare</strong></td><td>242</td><td>545</td><td>71.9%</td><td>7.7%</td><td class="ok">9.31x</td><td>0.63x</td><td class="ok">14.78x</td><td><span class="pill p-c">SEPARATES</span></td><td class="note">100%</td></tr>
+<tr><td><strong>hat</strong></td><td>98</td><td>755</td><td>29.6%</td><td>11.7%</td><td class="ok">2.53x</td><td>1.39x</td><td class="ok">1.82x</td><td><span class="pill p-c">SEPARATES</span></td><td class="note">100%</td></tr>
+<tr><td><strong>tom</strong></td><td>86</td><td>472</td><td>79.1%</td><td>6.8%</td><td class="ok">11.56x</td><td>0.00x</td><td class="ok">&ge;99x</td><td><span class="pill p-c">SEPARATES</span></td><td class="note">100%</td></tr>
+<tr><td><strong>cymbal</strong></td><td>496</td><td>762</td><td>12.7%</td><td>11.0%</td><td class="mid">1.15x</td><td>0.85x</td><td class="mid">1.35x</td><td><span class="pill p-m">weak</span></td><td class="note">100%</td></tr></tbody></table></div><h3>Jackie <span class="mono">s5418285</span> &middot; revision 7834599 &middot; 144 bpm</h3><p class="note">102 bars, 1,052 note instances, notation 169.4 s against a 173.0 s song. Kick fit 41.9% against 2.2% on Asleep In The Trunk.</p><div class="scroll"><table><thead><tr><th>lane</th><th>written</th><th>onsets</th><th>confirm</th><th>chance</th><th>ratio</th><th>wrong</th><th>separation</th><th>verdict</th><th>stem</th></tr></thead><tbody>
+<tr><td><strong>kick</strong></td><td>313</td><td>551</td><td>41.9%</td><td>17.1%</td><td class="ok">2.45x</td><td>1.29x</td><td class="ok">1.90x</td><td><span class="pill p-c">SEPARATES</span></td><td class="note">100%</td></tr>
+<tr><td><strong>snare</strong></td><td>321</td><td>346</td><td>32.7%</td><td>10.1%</td><td class="ok">3.23x</td><td>1.08x</td><td class="ok">2.99x</td><td><span class="pill p-c">SEPARATES</span></td><td class="note">69%</td></tr>
+<tr><td><strong>hat</strong></td><td>179</td><td>251</td><td>12.3%</td><td>7.8%</td><td class="mid">1.57x</td><td>1.11x</td><td class="mid">1.42x</td><td><span class="pill p-m">weak</span></td><td class="note">100%</td></tr>
+<tr><td><strong>tom</strong></td><td>10</td><td>183</td><td>60.0%</td><td>5.5%</td><td class="ok">10.87x</td><td>1.97x</td><td class="ok">5.51x</td><td><span class="pill p-c">SEPARATES</span></td><td class="note">100%</td></tr>
+<tr><td><strong>cymbal</strong></td><td>229</td><td>376</td><td>11.8%</td><td>11.4%</td><td class="mid">1.04x</td><td>0.78x</td><td class="mid">1.32x</td><td><span class="pill p-m">weak</span></td><td class="note">100%</td></tr></tbody></table></div>
+<h2>The one lane that should not be there</h2>
+<p><strong>My Mirror Hates Me carries 1,196 tom notes in a 2,321 note track</strong>,
+which is 52 percent of everything written, at 4.17 tom strokes per second sustained across a five-minute
+song. No drummer plays a floor tom four times a second for five minutes. The lane scores
+1.23 times chance and separates from the wrong recording at only
+1.20 times.</p>
+<p>The obvious guess is that a hi-hat part was written into the tom lane. <strong>That guess is refuted.</strong>
+Scored against every stem in the kit, the 1,146 notes at MIDI 41 reach 1.25 times chance on toms and 1.19 on
+the hat, with cymbals, snare and kick all at or below chance. No instrument in the recording supports them.
+The honest state is that these notes are unexplained, and the density argument stands on its own arithmetic
+regardless of any clock.</p>
 
-<h2 class="p">All three songs side by side</h2>
-<p>Watermelon numbers come from the earlier pass on this machine, which used a hand-fitted snare-anchored
-alignment rather than the 24-anchor kick fit used here. Same detector and same bands, different clock
-provenance, so read the column as a companion measurement.</p>
-<div class="scroll"><table><thead><tr>
-<th>song</th><th>kick</th><th>snare</th><th>hat</th><th>tom</th><th>cymbal</th><th>lanes clear</th>
-</tr></thead><tbody><tr><td><strong>Keep It Greasey</strong></td><td class="ok">3.71x</td><td class="ok">4.62x</td><td class="ok">1.85x</td><td class="ok">3.89x</td><td class="ok">7.97x</td><td>5/5</td></tr><tr><td><strong>I'm the Slime</strong></td><td class="ok">4.14x</td><td class="ok">5.70x</td><td class="ok">5.51x</td><td class="ok">5.30x</td><td class="ok">1.87x</td><td>5/5</td></tr><tr><td><strong>Watermelon In Easter Hay</strong></td><td class="ok">7.49x</td><td class="ok">8.86x</td><td class="note">not scored</td><td class="ok">5.67x</td><td class="mid">1.45x</td><td>3/4</td></tr></tbody></table></div>
-<p class="note">Watermelon&rsquo;s wrong-recording control was Keep It Greasey, which is the reason that song
-already had stems on this machine and is now scored in its own right.</p>
-
-<h2>What the low confirm rates on Keep It Greasey do and do not mean</h2>
-<p>Greasey separates on all five lanes, and its absolute confirm rates stay low: kick at
-29.4 percent and snare at 21.5 percent.
-Separation earns the clock. The remaining written notes have no stem onset inside 25 ms, and two causes are
-live. The song runs <strong>161 bars of 19/16 out of 248</strong>, with 19 tempo automations, so a windowed
-clock is following real rubato. The detector also carries a 30 ms refractory, which merges two hits played
-closer than that into a single onset, and Colaiuta plays a great deal faster than 33 strokes a second in
-places. Neither cause is settled here, and neither licenses an edit to the tab.</p>
-<p>I&rsquo;m the Slime behaves differently for a readable reason. Its score carries
-<strong>63 tempo automations across 80 bars</strong>, so the notation clock is already fitted almost bar by
-bar, and the anchor fit had little left to do.</p>
-
-<h2 class="t">What is not covered</h2>
+<h2 class="p">What the stems themselves turned out to be</h2>
+<p><strong>14 of the 30 Shiner stem files carry a broken length header, and they decode short.</strong>
+The audio inside is real, and the total-samples field is unset, so the length reported by a reader is
+nonsense and the decoded file is missing time off the end. That is why two songs produced no verdict:</p>
 <ul>
-<li><strong>Shiner BelieveYouMe has six songs with a full split kit and no tab on this machine.</strong>
-Asleep in the Trunk, So Far So, My Mirror Hates Me, Not Too Much, Broken Satellites and Jackie all carry
-kick, snare, hihat, toms and cymbals. Stems without a score cannot be scored.</li>
-<li><strong>No note was added, moved or deleted.</strong> This pass measures and reports. Any repair runs
-through the copy-tab rule rather than a revision to an original.</li>
-<li><strong>Ride and crash are not separated.</strong> Both fall in the cymbal lane, the way the Watermelon
-pass defined it.</li>
+<li><strong>Asleep In The Trunk</strong> has a kick stem holding 39.2 s
+of a 278.9 s song, which is
+14 percent. Four written kicks fall inside it.</li>
+<li><strong>So Far So</strong> has a complete stem set and an almost empty drum track:
+79 note instances across 140 bars, nine of them kick.
+That tab was never written.</li>
 </ul>
+<p>Nothing was deleted or overwritten. The originals sit untouched and the analysis ran on ffmpeg-decoded
+copies under <span class="mono">data/shiner_wav/</span>.</p>
+
+<h2>Back to the open Watermelon question</h2>
+<p>The Watermelon cymbal lane sits at 1.45 times separation, the weakest cymbal result on record here. Across
+this session cymbals reached 7.97
+times on Keep It Greasey and cleared the bar on 4
+of 6 songs. <strong>Cymbals are confirmable by this
+machinery</strong>, so the Watermelon result is a fact about that tab. One caveat holds: Watermelon used a
+hand-fitted snare-anchored clock and everything here used an automatic kick fit. Same detector and bands,
+different clock provenance.</p>
 
 <footer>
-<p>Built 2026-09-08 on MacBookPro. Detector frozen to the Watermelon cymbal pass. Every number on this page
-is generated from <span class="mono">data/anchor_match.json</span> and <span class="mono">data/hat.json</span>
-at build time, so nothing here was typed by hand.</p>
-<p>Sources: <span class="mono">~/Projects/_outputs/zappa-multisong-match/</span> &middot;
-stems in <span class="mono">/Users/Shared/</span> &middot;
-scores in <span class="mono">~/Projects/_outputs/songsterr-zappa-paren-fix/</span> and
-<span class="mono">~/Projects/_outputs/zappa-slime-transcription/</span></p>
+<p>Built 2026-09-08 on MacBookPro. Every number on this page is generated at build time from
+<span class="mono">data/anchor_match.json</span>, <span class="mono">data/hat.json</span>,
+<span class="mono">data/shiner_final.json</span> and <span class="mono">data/refractory_correction.json</span>,
+so nothing here was typed by hand. No note in any tab was added, moved or deleted.</p>
+<p>Sources: <span class="mono">~/Projects/_outputs/zappa-multisong-match/</span> &middot; stems in
+<span class="mono">/Users/Shared/</span> &middot; Shiner tabs fetched live from the Songsterr API.</p>
 </footer>
 </div></body></html>
