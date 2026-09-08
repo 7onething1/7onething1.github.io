@@ -224,6 +224,26 @@ Zero note ids and zero beat ids inherited from the Songsterr AI tab. 25 of 529
 and 13 of 633 events coincide on bar/position/fret/string/pitch, 4.7% and 2.1%,
 sharing no elements. No note content is inherited.
 
+## Song 2: Secret, s6388915
+
+Artifact `s6388915-TWOGTR-WITH-TIES.gp`, hash 26a826fe6f686139.
+
+| Axis | Gtr 1 | Gtr 2 | Human tab |
+|---|---|---|---|
+| Separability margin | 61.1 | | |
+| Transcribed / written | 2052 / 1884 | 2998 / 2494 | |
+| Timing median residual | 106.8 ms | | 117.2 ms |
+| Notation span vs record | 1.39% short | | |
+| Pitch chroma separation | +0.0438 | +0.0550 | +0.0553 / +0.0725 |
+| Ownership gap | +38.1 | +45.4 | |
+| Exclusive to own channel | 847 (45.3%) | 1229 (49.9%) | |
+| Duration gain | +5 ms | +9 ms | |
+| Hard failures | 0 | 0 | |
+
+Beats the human tab on timing. Low pitch separation is the SONG, not the build:
+Great Lake Derelict sits at 0.82 chroma similarity and swallows the margin, and
+the human tab scores the same. Gtr 1's 45% hand-skip is the real concern.
+
 ## Sources
 
 - `~/Projects/_outputs/impossible-guitar-parts/kilgore-role-separation-2026-09-07/channel_separability_report.csv`

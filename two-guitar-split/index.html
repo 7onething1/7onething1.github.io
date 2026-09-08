@@ -369,6 +369,36 @@ quantises to a 16th grid, caps polyphony at four voices, and this test uses a
 60&nbsp;ms window. That shortfall is the writer's, and it is the same quantisation
 that leaves 37 to 38% of notes matching neither channel inside the window.</div>
 
+<h2>Song 2: Secret, s6388915</h2>
+<p>Same chain, no changes. Artifact <code>s6388915-TWOGTR-WITH-TIES.gp</code>,
+hash <code>26a826fe6f686139</code>. 95 bars, standard E, 75&nbsp;bpm, 274&nbsp;s.</p>
+
+<div class="tw"><table>
+<thead><tr><th>Axis</th><th>Gtr 1</th><th>Gtr 2</th><th>Human tab, same song</th></tr></thead>
+<tbody>
+<tr><td class="song">Separability margin</td><td class="num" colspan="2">61.1</td><td class="note">129 attacks on one channel only</td></tr>
+<tr><td class="song">Transcribed / written</td><td class="num">2052 / 1884</td><td class="num">2998 / 2494</td><td class="note">0 unvoiceable</td></tr>
+<tr class="sep"><td class="song"><b>Timing, median residual</b></td><td class="num" colspan="2"><b>106.8 ms</b></td><td class="num"><b>117.2 ms</b></td></tr>
+<tr><td class="song">Notation span vs record</td><td class="num" colspan="2">1.39% short</td><td class="note">Mundo Cani was 4.73%</td></tr>
+<tr><td class="song">Pitch, chroma separation</td><td class="num">+0.0438</td><td class="num">+0.0550</td><td class="num">+0.0553 / +0.0725</td></tr>
+<tr class="sep"><td class="song"><b>Ownership gap</b></td><td class="num"><b>+38.1</b></td><td class="num"><b>+45.4</b></td><td class="note">Mundo Cani +29.1 / +32.2</td></tr>
+<tr><td class="song">Notes exclusive to their own channel</td><td class="num">847 (45.3%)</td><td class="num">1229 (49.9%)</td><td class="note">Mundo Cani 37.1% / 39.3%</td></tr>
+<tr><td class="song">Duration gain over shuffled control</td><td class="num">+5 ms</td><td class="num">+9 ms</td><td class="note">within 25%: 57.3% / 51.3%</td></tr>
+<tr class="sep"><td class="song"><b>Hard failures</b></td><td class="num"><b>0</b></td><td class="num"><b>0</b></td><td class="note">hand-skip 45% and 19%</td></tr>
+</tbody></table></div>
+
+<div class="call ok"><b>On Secret the build beats the human tab on timing</b>,
+106.8&nbsp;ms against 117.2, and it tracks the record's length to within 1.39%.
+Ownership is stronger than on Mundo Cani too: half the notes on Gtr&nbsp;2 exist in
+one guitarist's channel and not the other.</div>
+
+<div class="call"><b>Its pitch separation is low, and the control says that is the
+song rather than the build.</b> +0.0438 and +0.0550 against the human tab's
++0.0553 and +0.0725, because Great Lake Derelict sits at 0.82 chroma similarity to
+this song and swallows the margin. Running the human tab is what keeps a low number
+from being read as a defect. <b>Gtr&nbsp;1's 45% hand-skip is the real concern
+here</b>, against 19% on Gtr&nbsp;2 and 27% on Mundo Cani.</div>
+
 <h2>Standing rule</h2>
 <p><b>Two guitars, never four.</b> A third staff is never the answer, and the
 split is decided by who played the note, never by panning or by stem loudness.</p>
