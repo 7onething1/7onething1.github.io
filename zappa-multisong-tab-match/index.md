@@ -140,3 +140,34 @@ MIDI 46 Hi-Hat (open), per the score data, and the hat stem agrees independently
 11 of 12 articulations name their own stem. The exception is MIDI 44 Pedal Hi-Hat, 195 notes,
 best 1.49x on the hat stem, under the 1.5 floor. No stem in the kit confirms it.
 
+
+## Why the Shiner snare stems do not sound like snares
+
+Brandon listened and said the My Mirror Hates Me snare is not a snare sound. Correct, and it covers
+the whole album. Percent of each file's total energy, by band:
+
+| source | 60-120 Hz | 150-250 Hz shell | 250 Hz-1 kHz | 1-4 kHz crack | 4-16 kHz |
+|---|---|---|---|---|---|
+| Zappa Watermelon (Moises) | 1.21% | 30.47% | 3.28% | 12.66% | 11.42% |
+| Zappa Keep It Greasey (Moises) | 1.74% | 26.64% | 2.63% | 4.53% | 9.31% |
+| Zappa I'm the Slime (Moises) | 0.23% | 56.67% | 29.39% | 10.10% | 0.59% |
+| Shiner mirror | 0.02% | 77.34% | 14.25% | 2.65% | 5.18% |
+| Shiner nottoomuch | 0.11% | 76.20% | 17.58% | 1.41% | 3.44% |
+| Shiner jackie | 0.06% | 74.07% | 18.43% | 3.26% | 3.75% |
+| Shiner satellites | 0.08% | 67.61% | 23.64% | 3.22% | 4.83% |
+
+Zappa snares from this separator hold 4.5-12.7% in the 1-4 kHz crack band. Every Shiner snare holds
+1.4-3.3%, while packing 67-77% into the 150-250 Hz shell against 27-57% on the Zappa files. A snare
+with shell and no crack reads as a muffled thud. Album-wide separation problem, not one bad file.
+
+### Withdrawn claim
+
+An earlier pass argued the separator moved Mirror's snare into its toms stem, resting on a 4,885 Hz
+centroid and a tom stem at 2.28x album median level. The band table refutes it: Mirror's snare
+distributes energy as the other five do. Centroid was the wrong statistic. No note was edited on it.
+
+### Genuinely specific to Mirror
+
+Level and density, not identity. Quietest and sparsest snare on the album, a clock reaching 23.0%
+against 92.3% on Not Too Much, and a cymbals file 26 s short. Its 1,146 floor-tom notes stay unexplained.
+
