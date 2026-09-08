@@ -60,9 +60,29 @@ Curve rendered and read (`tempo-curve.png`). The broad shape is musical: opens n
 
 The earlier "6.29 s of drift" figure is corrected. It came from forcing a straight line onto a curve, using the weaker onset-derived map.
 
+## Step two is done: the coda kick is in the file
+
+`CODA-s6857183-Brandon-edit.gp`, sha256 `97ea1b3b42c83837...`, built from TEMPOMAP whose sha256 `099a59c4f2ef7ad2...` is unchanged. **29 kick notes added, 0 removed**, all MIDI 36, all inside bars 98 to 104. Note instances 2,770 to 2,799. Twenty-nine new Note elements created rather than reused, since GPIF Note elements are shared across tracks.
+
+| bar | meter | kick on the sixteenth grid | added |
+|---|---|---|---|
+| 98 | 4/4 | 1  2a  3  3a  4  4a | 5 |
+| 99 | 5/4 | 1  3  3a  5  5a | 4 |
+| 100 | 4/4 | 1  2a  3  3a | 3 |
+| 101 | 5/4 | 1  1a  3 | 2 |
+| 102 | 4/4 | 1  1a  2a  3  3a  4a | 6 |
+| 103 | 5/4 | 1  3  4a  5  5a | 4 |
+| 104 | 4/4 | 1  2a  3  4e  4a | 5 |
+
+Four checks. The author agrees 5 for 5: every kick already written in those bars sits on beat 1, and the measurement independently found a kick on beat 1 in each. The grid beats chance by 2.64x, mean residual 25.3 ms against 66.7 ms for 300 scrambles, z = 6.5. The alignment improved, match 0.685 to **0.697** and guitar control 0.189 to **0.182**, discrimination 3.83x. Set difference is 29 added and 0 removed, and every bar still fills its meter.
+
+The 32nd grid was rejected: 18.6 ms against the 16th grid's 18.7 ms, and a tenth of a millisecond does not buy a subdivision.
+
+Found in passing, not caused here: bar 105 voice 0 holds 4.0 quarters inside a 5/4 bar, short in RECONCILED and TEMPOMAP as well.
+
 ## The finite work that remains
 
-Scope set by Brandon 2026-09-08, a closed list. 1) **DONE 2026-09-08.** Metronome map written into TEMPOMAP-s6857183-Brandon-edit.gp, acceptance test PASS at 0.685 and 0.189 (`q-2026-09-08-cddb5a`). 2) Transcribe bars 98 to 104 against the 35 author-calibrated kick attacks (`577c81`). 3) Resolve the sixteen three-surface collisions (`baae9d`). 4) Recheck the 202 disputed ride notes (`c9d5f7`). 5) One final stem-matched playability audit (`85d746`). No further detector unless one of these five produces contradictory evidence.
+Scope set by Brandon 2026-09-08, a closed list. 1) **DONE 2026-09-08.** Metronome map written into TEMPOMAP-s6857183-Brandon-edit.gp, acceptance test PASS at 0.685 and 0.189 (`q-2026-09-08-cddb5a`). 2) **DONE 2026-09-08.** 29 kick notes written on the sixteenth grid into CODA-s6857183-Brandon-edit.gp (`577c81`). 3) Resolve the sixteen three-surface collisions (`baae9d`). 4) Recheck the 202 disputed ride notes (`c9d5f7`). 5) One final stem-matched playability audit (`85d746`). No further detector unless one of these five produces contradictory evidence.
 
 ## Corrections applied 2026-09-08
 

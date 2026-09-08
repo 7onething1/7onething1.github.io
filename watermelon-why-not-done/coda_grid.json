@@ -1,0 +1,135 @@
+{
+ "grid": "16th",
+ "div_per_quarter": 4,
+ "mean_residual_ms": 25.3,
+ "null_mean_ms": 66.7,
+ "tighter_than_chance_x": 2.64,
+ "z": 6.5,
+ "rejected_32nd": "18.6 ms against 18.7 ms; a 0.1 ms gain does not justify the subdivision",
+ "bars": {
+  "98": {
+   "time_sig": "4/4",
+   "sixteenth_slots": [
+    0,
+    7,
+    8,
+    11,
+    12,
+    15
+   ],
+   "beats": [
+    1.0,
+    2.75,
+    3.0,
+    3.75,
+    4.0,
+    4.75
+   ],
+   "count": 6
+  },
+  "99": {
+   "time_sig": "5/4",
+   "sixteenth_slots": [
+    0,
+    8,
+    11,
+    16,
+    19
+   ],
+   "beats": [
+    1.0,
+    3.0,
+    3.75,
+    5.0,
+    5.75
+   ],
+   "count": 5
+  },
+  "100": {
+   "time_sig": "4/4",
+   "sixteenth_slots": [
+    0,
+    7,
+    8,
+    11
+   ],
+   "beats": [
+    1.0,
+    2.75,
+    3.0,
+    3.75
+   ],
+   "count": 4
+  },
+  "101": {
+   "time_sig": "5/4",
+   "sixteenth_slots": [
+    0,
+    3,
+    8
+   ],
+   "beats": [
+    1.0,
+    1.75,
+    3.0
+   ],
+   "count": 3
+  },
+  "102": {
+   "time_sig": "4/4",
+   "sixteenth_slots": [
+    0,
+    3,
+    7,
+    8,
+    11,
+    15
+   ],
+   "beats": [
+    1.0,
+    1.75,
+    2.75,
+    3.0,
+    3.75,
+    4.75
+   ],
+   "count": 6
+  },
+  "103": {
+   "time_sig": "5/4",
+   "sixteenth_slots": [
+    0,
+    8,
+    15,
+    16,
+    19
+   ],
+   "beats": [
+    1.0,
+    3.0,
+    4.75,
+    5.0,
+    5.75
+   ],
+   "count": 5
+  },
+  "104": {
+   "time_sig": "4/4",
+   "sixteenth_slots": [
+    0,
+    7,
+    8,
+    13,
+    15
+   ],
+   "beats": [
+    1.0,
+    2.75,
+    3.0,
+    4.25,
+    4.75
+   ],
+   "count": 5
+  }
+ }
+}

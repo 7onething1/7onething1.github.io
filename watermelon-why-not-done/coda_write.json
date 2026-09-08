@@ -1,0 +1,178 @@
+{
+ "file": "CODA-s6857183-Brandon-edit.gp",
+ "sha256": "97ea1b3b42c8383791b292328dbfea59c240fc39e71442fcef401c9d97367281",
+ "built_from": "TEMPOMAP-s6857183-Brandon-edit.gp",
+ "parent_sha256": "099a59c4f2ef7ad26ca41540b46673e01127a1440ab573eccb57f95986238045",
+ "parent_unchanged": true,
+ "kick_added": 29,
+ "added_by_bar": {
+  "98": 5,
+  "99": 4,
+  "100": 3,
+  "101": 2,
+  "102": 6,
+  "103": 4,
+  "104": 5
+ },
+ "note_instances": {
+  "before": 2770,
+  "after": 2799,
+  "added": 29,
+  "removed": 0,
+  "all_midi": 36
+ },
+ "note_elements": {
+  "before": 433,
+  "after": 462,
+  "note": "29 NEW Note elements created; none reused, since GPIF Note elements are shared across tracks"
+ },
+ "grid": {
+  "chosen": "16th",
+  "div_per_quarter": 4,
+  "mean_residual_ms": 25.3,
+  "null_scramble_ms": 66.7,
+  "tighter_than_chance_x": 2.64,
+  "z": 6.5,
+  "rejected": "32nd, at 18.6 ms against the 16th grid's 18.7 ms. A 0.1 ms gain does not buy a subdivision."
+ },
+ "author_agreement": "all 5 kick notes already written in bars 98-104 sit on beat 1, and the measurement independently found a kick at beat 1 in each of those bars. 5 of 5.",
+ "alignment_after": {
+  "offset_s": 36.89,
+  "match": 0.697,
+  "guitar_control": 0.182,
+  "discrimination_x": 3.83,
+  "before": {
+   "match": 0.685,
+   "guitar_control": 0.189,
+   "discrimination_x": 3.64
+  },
+  "reading": "adding the 29 notes raised the match and lowered the guitar control, which is independent confirmation they are real"
+ },
+ "pre_existing_defect": "bar 105 voice 0 holds 4.0 quarters inside a 5/4 bar. Present in RECONCILED and TEMPOMAP as well, so neither edit caused it.",
+ "bars": {
+  "98": {
+   "time_sig": "4/4",
+   "sixteenth_slots": [
+    0,
+    7,
+    8,
+    11,
+    12,
+    15
+   ],
+   "beats": [
+    1.0,
+    2.75,
+    3.0,
+    3.75,
+    4.0,
+    4.75
+   ],
+   "count": 6
+  },
+  "99": {
+   "time_sig": "5/4",
+   "sixteenth_slots": [
+    0,
+    8,
+    11,
+    16,
+    19
+   ],
+   "beats": [
+    1.0,
+    3.0,
+    3.75,
+    5.0,
+    5.75
+   ],
+   "count": 5
+  },
+  "100": {
+   "time_sig": "4/4",
+   "sixteenth_slots": [
+    0,
+    7,
+    8,
+    11
+   ],
+   "beats": [
+    1.0,
+    2.75,
+    3.0,
+    3.75
+   ],
+   "count": 4
+  },
+  "101": {
+   "time_sig": "5/4",
+   "sixteenth_slots": [
+    0,
+    3,
+    8
+   ],
+   "beats": [
+    1.0,
+    1.75,
+    3.0
+   ],
+   "count": 3
+  },
+  "102": {
+   "time_sig": "4/4",
+   "sixteenth_slots": [
+    0,
+    3,
+    7,
+    8,
+    11,
+    15
+   ],
+   "beats": [
+    1.0,
+    1.75,
+    2.75,
+    3.0,
+    3.75,
+    4.75
+   ],
+   "count": 6
+  },
+  "103": {
+   "time_sig": "5/4",
+   "sixteenth_slots": [
+    0,
+    8,
+    15,
+    16,
+    19
+   ],
+   "beats": [
+    1.0,
+    3.0,
+    4.75,
+    5.0,
+    5.75
+   ],
+   "count": 5
+  },
+  "104": {
+   "time_sig": "4/4",
+   "sixteenth_slots": [
+    0,
+    7,
+    8,
+    13,
+    15
+   ],
+   "beats": [
+    1.0,
+    2.75,
+    3.0,
+    4.25,
+    4.75
+   ],
+   "count": 5
+  }
+ }
+}

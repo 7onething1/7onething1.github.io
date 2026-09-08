@@ -266,8 +266,42 @@ a{color:#0d6f88;font-weight:600}
 </div>
 <p class="fine">Two decimals were kept in every tempo value. Rounding them to integers costs <b>723 ms</b> of worst-case bar-start error against <b>6.4 ms</b>, which would reintroduce the class of fault this step exists to remove. Figures in <a href="tempo_map.json">tempo_map.json</a>.</p>
 
-<h2><span class="n" style="background:var(--gold)">9</span>The finite work that remains</h2>
-<p>Brandon set the scope on 2026-09-08, and it is a closed list rather than an open research programme. Step one is complete. No further detector gets written unless one of these five edits produces contradictory evidence.</p>
+<h2><span class="n" style="background:var(--sun)">9</span>Step two is done: the coda kick is in the file</h2>
+<p><b>CODA-s6857183-Brandon-edit.gp</b>, sha256 <code>97ea1b3b42c83837...</code>, built from TEMPOMAP whose sha256 <code>099a59c4f2ef7ad2...</code> is unchanged on disk. <b>29 kick notes added, 0 removed</b>, every one MIDI 36, every one inside bars 98 to 104.</p>
+<div class="grid g4">
+ <div class="card t1"><div class="k a">+29</div><div class="lab">kick notes written</div><div class="fine">5 were already there and correct</div></div>
+ <div class="card t3"><div class="k y">16th</div><div class="lab">grid chosen</div><div class="fine">2.64&times; tighter than chance, z = 6.5</div></div>
+ <div class="card t4"><div class="k g">0.697</div><div class="lab">match after the write</div><div class="fine">it stood at 0.685 last pass</div></div>
+ <div class="card t2"><div class="k s">0</div><div class="lab">notes removed</div><div class="fine">2,770 to 2,799 instances</div></div>
+</div>
+
+<h3>The rhythm, bar by bar</h3>
+<div class="scroll"><table>
+<tr><th>bar</th><th>meter</th><th>kick, on the sixteenth grid</th><th class="num">added</th></tr>
+<tr><td>98</td><td>4/4</td><td>1 &nbsp; 2a &nbsp; 3 &nbsp; 3a &nbsp; 4 &nbsp; 4a</td><td class="num">5</td></tr>
+<tr><td>99</td><td>5/4</td><td>1 &nbsp; 3 &nbsp; 3a &nbsp; 5 &nbsp; 5a</td><td class="num">4</td></tr>
+<tr><td>100</td><td>4/4</td><td>1 &nbsp; 2a &nbsp; 3 &nbsp; 3a</td><td class="num">3</td></tr>
+<tr><td>101</td><td>5/4</td><td>1 &nbsp; 1a &nbsp; 3</td><td class="num">2</td></tr>
+<tr><td>102</td><td>4/4</td><td>1 &nbsp; 1a &nbsp; 2a &nbsp; 3 &nbsp; 3a &nbsp; 4a</td><td class="num">6</td></tr>
+<tr><td>103</td><td>5/4</td><td>1 &nbsp; 3 &nbsp; 4a &nbsp; 5 &nbsp; 5a</td><td class="num">4</td></tr>
+<tr><td>104</td><td>4/4</td><td>1 &nbsp; 2a &nbsp; 3 &nbsp; 4e &nbsp; 4a</td><td class="num">5</td></tr>
+</table></div>
+<p>The four 4/4 bars share a figure, <b>1, 2a, 3, 3a</b>, which is an ostinato rather than a scatter of detections. That shape was never imposed. It fell out of snapping the measured onsets to the meter.</p>
+
+<div class="callout aqua">
+ <h3>Four checks on the write</h3>
+ <ul>
+  <li><b>The author agrees, 5 for 5.</b> Every kick already written in bars 98 to 104 sits on beat 1, and the measurement independently found a kick on beat 1 in each of those bars. The 29 additions are the ones he left out.</li>
+  <li><b>The grid beats chance by 2.64&times;.</b> Mean residual 25.3 ms against 66.7 ms for 300 scrambles of the same count in the same window, z = 6.5.</li>
+  <li><b>The alignment improved.</b> Match went 0.685 to <b>0.697</b> and the guitar control fell 0.189 to <b>0.182</b>, so discrimination rose to 3.83&times;. Adding notes that were not there would have pushed both the other way.</li>
+  <li><b>Nothing else moved.</b> Set difference is 29 added and 0 removed, all MIDI 36, all inside bars 98 to 104. Every bar still fills its meter exactly.</li>
+ </ul>
+</div>
+<p class="fine">A subdivision was rejected on purpose. The 32nd grid scored 18.6 ms against the 16th grid's 18.7 ms, and a tenth of a millisecond does not buy a subdivision. Twenty-nine new Note elements were created rather than reused, since GPIF Note elements are shared across tracks. Figures in <a href="coda_write.json">coda_write.json</a> and <a href="coda_grid.json">coda_grid.json</a>.</p>
+<p class="fine"><b>A defect found in passing, not caused here.</b> Bar 105 voice 0 holds 4.0 quarters inside a 5/4 bar. That bar runs short in RECONCILED and in TEMPOMAP too, so neither edit produced it.</p>
+
+<h2><span class="n" style="background:var(--gold)">10</span>The finite work that remains</h2>
+<p>Brandon set the scope on 2026-09-08, and it is a closed list rather than an open research programme. Steps one and two are complete. No further detector gets written unless one of these five edits produces contradictory evidence.</p>
 <div class="scroll"><table>
 <tr><th class="num">#</th><th>step</th><th>queue id</th></tr>
 <tr class="good"><td class="num">1</td><td><b>DONE 2026-09-08.</b> Metronome map written into TEMPOMAP-s6857183-Brandon-edit.gp, acceptance test PASS at 0.685 and 0.189</td><td><code>q-2026-09-08-cddb5a</code></td></tr>
