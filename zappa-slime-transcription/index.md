@@ -140,8 +140,7 @@ Kasper Sloots wrote a four staff score of the opening, held at
   from the Over-Nite Sensation guitar book.
 
 Three readings were taken off native resolution crops rather than off the page overview, saved
-under `evidence/crops/`. All four staves carry 12/8 at the opening under a three sharp key
-signature, read at 8x. The change is to 4/4 on all four staves under a quarter equals dotted
+under `evidence/crops/`. All four staves carry 12/8 at the opening, read at 8x. The change is to 4/4 on all four staves under a quarter equals dotted
 quarter equivalence mark, read at 6x. The percussion entry writes X noteheads at two distinct
 staff heights with accent marks below several of them, so Sloots notated two cymbal voices
 rather than one undifferentiated hat line.
@@ -292,3 +291,21 @@ subdivision.
 The `reference-class` gate passes all six checks on this lane once a null is quoted, because it
 verifies a baseline was stated rather than that the result beats it. The measurement overrides
 the gate.
+
+
+## The key signature, settled by the bass stem instead of the scan
+
+This page first reported three sharps in the Sloots key signature, read off an eight times
+enlargement. Cropping that signature alone exposes the problem: it occupies 36 by 54 native
+pixels. Enlarging to twenty times produces a larger blur and no more information.
+
+The bass stem answers directly. Chroma over the opening, audio bars 1 to 10, puts F# first at
+21.5 percent, then B 11.3, G 10.6, C# 10.2. The outro solo, bars 56 to 75, reads F# 17.6,
+B 12.8, E 10.5, C# 10.5, which is the F#m7, B, D, E progression on the Sloots chart. The D
+against D# question his prose called unresolvable reads 6.70 against 4.05, a ratio of 1.65
+favouring D natural. That leans F# natural minor, so three sharps is right after all.
+
+**The band book and Sloots describe different sections.** This page earlier called them
+contradictory, C major against F# minor. The opening and outro sit on F#, B, C#, E. The verse
+body, bars 20 to 45, reads A 12.6 percent, D 10.8, A# 10.8, the flat side, consistent with the
+book's C, B flat, F verse chart. Calling that a contradiction was my error.
