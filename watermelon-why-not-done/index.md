@@ -80,9 +80,23 @@ The 32nd grid was rejected: 18.6 ms against the 16th grid's 18.7 ms, and a tenth
 
 Found in passing, not caused here: bar 105 voice 0 holds 4.0 quarters inside a 5/4 bar, short in RECONCILED and TEMPOMAP as well.
 
+## Step three is done: fifteen of sixteen collisions resolved
+
+`HANDS-s6857183-Brandon-edit.gp`, sha256 `c7beeaeea846da44...`, built from CODA whose sha256 `97ea1b3b42c83837...` is unchanged. **15 notes removed, 0 added**: thirteen snare (midi 40) and two tom high floor (midi 43). **No ride note was touched.** Instances 2,799 to 2,784. Three-hand instants 16 to **1**.
+
+The stems separate the lanes cleanly. At thirteen instants the snare stem reads **0.0000 to 0.0041** while the toms carry a full stroke. At bars 85 and 89 the reverse holds, snare at 0.5355 and 0.5126 against toms at 0.0000 and 0.0025. A 125x separation. Null fire rate over 400 random instants: snare 4 percent, toms 4 percent.
+
+The ride was left alone on purpose. Its threshold fits the author at MAE 7.03 notes per bar with a 28 percent null fire rate, against 1.27 and 4 percent for the snare, and the render shows it rejecting a real stroke at bar 55. All 1,522 ride notes stand.
+
+reference-class PASS on all six: 16 against 16 is 1.0x, 1.3 removals per bar, 16 of 48 lane-instances, nulls stated, threshold from the author. Set difference 15 removed and 0 added, only the 11 planned bars. Alignment rose 0.697 to **0.708** with the guitar control at 0.181, discrimination 3.91x.
+
+A near-miss is recorded as F4 in `FINDINGS.md`. The first attempt edited shared beats in place and deleted 179 instances across 79 untargeted bars, since `Beat` id 899 is referenced by 176 voices. Quarantined, then redone with per-voice beat clones.
+
+Bar 55 beat 2 remains and is blocked, not skipped. It writes tom low, tom hi mid and ride together, and one toms stem cannot say which tom. Queued as `q-2026-09-08-b08085`.
+
 ## The finite work that remains
 
-Scope set by Brandon 2026-09-08, a closed list. 1) **DONE 2026-09-08.** Metronome map written into TEMPOMAP-s6857183-Brandon-edit.gp, acceptance test PASS at 0.685 and 0.189 (`q-2026-09-08-cddb5a`). 2) **DONE 2026-09-08.** 29 kick notes written on the sixteenth grid into CODA-s6857183-Brandon-edit.gp (`577c81`). 3) Resolve the sixteen three-surface collisions (`baae9d`). 4) Recheck the 202 disputed ride notes (`c9d5f7`). 5) One final stem-matched playability audit (`85d746`). No further detector unless one of these five produces contradictory evidence.
+Scope set by Brandon 2026-09-08, a closed list. 1) **DONE 2026-09-08.** Metronome map written into TEMPOMAP-s6857183-Brandon-edit.gp, acceptance test PASS at 0.685 and 0.189 (`q-2026-09-08-cddb5a`). 2) **DONE 2026-09-08.** 29 kick notes written on the sixteenth grid into CODA-s6857183-Brandon-edit.gp (`577c81`). 3) **DONE 2026-09-08.** 15 of 16 resolved into HANDS-s6857183-Brandon-edit.gp, bar 55 blocked under `q-2026-09-08-b08085` (`baae9d`). 4) Recheck the 202 disputed ride notes (`c9d5f7`). 5) One final stem-matched playability audit (`85d746`). No further detector unless one of these five produces contradictory evidence.
 
 ## Corrections applied 2026-09-08
 

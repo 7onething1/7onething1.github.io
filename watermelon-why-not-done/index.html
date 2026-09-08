@@ -300,13 +300,33 @@ a{color:#0d6f88;font-weight:600}
 <p class="fine">A subdivision was rejected on purpose. The 32nd grid scored 18.6 ms against the 16th grid's 18.7 ms, and a tenth of a millisecond does not buy a subdivision. Twenty-nine new Note elements were created rather than reused, since GPIF Note elements are shared across tracks. Figures in <a href="coda_write.json">coda_write.json</a> and <a href="coda_grid.json">coda_grid.json</a>.</p>
 <p class="fine"><b>A defect found in passing, not caused here.</b> Bar 105 voice 0 holds 4.0 quarters inside a 5/4 bar. That bar runs short in RECONCILED and in TEMPOMAP too, so neither edit produced it.</p>
 
-<h2><span class="n" style="background:var(--gold)">10</span>The finite work that remains</h2>
-<p>Brandon set the scope on 2026-09-08, and it is a closed list rather than an open research programme. Steps one and two are complete. No further detector gets written unless one of these five edits produces contradictory evidence.</p>
+<h2><span class="n" style="background:var(--flare)">10</span>Step three is done: fifteen of sixteen collisions resolved</h2>
+<p><b>HANDS-s6857183-Brandon-edit.gp</b>, sha256 <code>c7beeaeea846da44...</code>, built from CODA whose sha256 <code>97ea1b3b42c83837...</code> is unchanged. <b>15 notes removed, 0 added</b>: thirteen snare and two tom high floor. <b>No ride note was touched.</b></p>
+<div class="grid g4">
+ <div class="card t5"><div class="k f">16 &rarr; 1</div><div class="lab">three-hand instants</div><div class="fine">only bar 55 survives</div></div>
+ <div class="card t1"><div class="k a">125&times;</div><div class="lab">separation on the snare call</div><div class="fine">0.0000 to 0.0041 against 0.5355</div></div>
+ <div class="card t3"><div class="k y">0.708</div><div class="lab">match after the edit</div><div class="fine">it stood at 0.697 last pass</div></div>
+ <div class="card t2"><div class="k s">0</div><div class="lab">bars touched outside the plan</div><div class="fine">11 planned, 11 touched</div></div>
+</div>
+<p>The stems separate the lanes cleanly. At thirteen instants the snare stem reads <b>0.0000 to 0.0041</b> while the toms stem carries a full stroke. At bars 85 and 89 the reverse holds, with the snare at 0.5355 and 0.5126 and the toms at 0.0000 and 0.0025. The transcription had written both lanes at every one of them.</p>
+<img src="three-hand.png" alt="Five three-hand instants across the snare, toms and ride stems. At bars 29, 52 and 55 the snare trace is flat while the toms fire. At bars 85 and 89 the reverse." style="width:100%;border:1px solid var(--line);border-radius:9px;margin:.5rem 0">
+<div class="callout gold">
+ <h3>The ride was left alone on purpose</h3>
+ <p>Its threshold fits the author at a mean absolute error of <b>7.03</b> notes per bar with a <b>28 percent</b> null fire rate, against 1.27 and 4 percent for the snare. The render shows it rejecting a real stroke at bar 55. A lane that unreliable does not get to delete notes, so all 1,522 ride notes stand.</p>
+</div>
+<div class="callout red">
+ <h3>A near-miss worth publishing</h3>
+ <p>The first attempt removed the notes by editing the shared beats in place. GPIF deduplicates: <code>Beat</code> id 899 is referenced by <b>176 voices</b> and carries <code>Note</code> id 419, so that edit deleted <b>179 note instances across 79 bars</b> that were never targeted. The tell was in the plan itself, which printed one note id thirteen times and one beat id twelve times. The damaged file was quarantined rather than deleted, and the rerun cloned the beat once per voice. Recorded as F4 in <a href="FINDINGS.md">FINDINGS.md</a>.</p>
+</div>
+<p class="fine"><b>Bar 55 beat 2 remains and is blocked, not skipped.</b> It writes tom low, tom hi mid and ride together. The toms stem carries a real stroke, and one toms stem cannot say which tom. Per-tom identity is closed at a named layer: pitch medians of 90.7 to 95.6 Hz overlap and the best pan pair reaches 0.73&times; against the 1.5&times; floor. Queued as <code>q-2026-09-08-b08085</code>. Figures in <a href="hands_write.json">hands_write.json</a> and <a href="three_hand.json">three_hand.json</a>.</p>
+
+<h2><span class="n" style="background:var(--gold)">11</span>The finite work that remains</h2>
+<p>Brandon set the scope on 2026-09-08, and it is a closed list rather than an open research programme. Steps one, two and three are complete. No further detector gets written unless one of these five edits produces contradictory evidence.</p>
 <div class="scroll"><table>
 <tr><th class="num">#</th><th>step</th><th>queue id</th></tr>
 <tr class="good"><td class="num">1</td><td><b>DONE 2026-09-08.</b> Metronome map written into TEMPOMAP-s6857183-Brandon-edit.gp, acceptance test PASS at 0.685 and 0.189</td><td><code>q-2026-09-08-cddb5a</code></td></tr>
 <tr><td class="num">2</td><td>Transcribe bars 98 to 104 against that clock</td><td><code>q-2026-09-08-577c81</code></td></tr>
-<tr><td class="num">3</td><td>Resolve the sixteen three-surface collisions</td><td><code>q-2026-09-08-baae9d</code></td></tr>
+<tr class="good"><td class="num">3</td><td><b>DONE 2026-09-08.</b> 15 of 16 resolved into HANDS-s6857183-Brandon-edit.gp; bar 55 blocked under <code>q-2026-09-08-b08085</code></td><td><code>q-2026-09-08-baae9d</code></td></tr>
 <tr><td class="num">4</td><td>Recheck the 202 disputed ride notes</td><td><code>q-2026-09-08-c9d5f7</code></td></tr>
 <tr><td class="num">5</td><td>One final stem-matched playability audit</td><td><code>q-2026-09-08-85d746</code></td></tr>
 </table></div>

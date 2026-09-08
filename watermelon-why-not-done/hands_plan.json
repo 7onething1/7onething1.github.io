@@ -1,0 +1,137 @@
+[
+ {
+  "bar": 29,
+  "beat": 4.0,
+  "lane": "snare",
+  "note_id": "419",
+  "shared_beat": "899",
+  "new_beat": "1304",
+  "stem_level": 0.0
+ },
+ {
+  "bar": 41,
+  "beat": 4.0,
+  "lane": "snare",
+  "note_id": "419",
+  "shared_beat": "899",
+  "new_beat": "1305",
+  "stem_level": 0.0007
+ },
+ {
+  "bar": 45,
+  "beat": 4.0,
+  "lane": "snare",
+  "note_id": "419",
+  "shared_beat": "899",
+  "new_beat": "1306",
+  "stem_level": 0.0
+ },
+ {
+  "bar": 49,
+  "beat": 4.0,
+  "lane": "snare",
+  "note_id": "419",
+  "shared_beat": "899",
+  "new_beat": "1307",
+  "stem_level": 0.0
+ },
+ {
+  "bar": 52,
+  "beat": 2.0,
+  "lane": "snare",
+  "note_id": "419",
+  "shared_beat": "899",
+  "new_beat": "1308",
+  "stem_level": 0.0016
+ },
+ {
+  "bar": 52,
+  "beat": 4.0,
+  "lane": "snare",
+  "note_id": "419",
+  "shared_beat": "899",
+  "new_beat": "1309",
+  "stem_level": 0.0
+ },
+ {
+  "bar": 53,
+  "beat": 2.0,
+  "lane": "snare",
+  "note_id": "419",
+  "shared_beat": "1054",
+  "new_beat": "1310",
+  "stem_level": 0.0
+ },
+ {
+  "bar": 54,
+  "beat": 2.0,
+  "lane": "snare",
+  "note_id": "419",
+  "shared_beat": "899",
+  "new_beat": "1311",
+  "stem_level": 0.0041
+ },
+ {
+  "bar": 54,
+  "beat": 4.0,
+  "lane": "snare",
+  "note_id": "419",
+  "shared_beat": "899",
+  "new_beat": "1312",
+  "stem_level": 0.0
+ },
+ {
+  "bar": 56,
+  "beat": 2.0,
+  "lane": "snare",
+  "note_id": "419",
+  "shared_beat": "899",
+  "new_beat": "1313",
+  "stem_level": 0.0007
+ },
+ {
+  "bar": 56,
+  "beat": 4.0,
+  "lane": "snare",
+  "note_id": "419",
+  "shared_beat": "899",
+  "new_beat": "1314",
+  "stem_level": 0.0
+ },
+ {
+  "bar": 57,
+  "beat": 2.0,
+  "lane": "snare",
+  "note_id": "419",
+  "shared_beat": "899",
+  "new_beat": "1315",
+  "stem_level": 0.0003
+ },
+ {
+  "bar": 57,
+  "beat": 4.0,
+  "lane": "snare",
+  "note_id": "419",
+  "shared_beat": "899",
+  "new_beat": "1316",
+  "stem_level": 0.0
+ },
+ {
+  "bar": 85,
+  "beat": 2.0,
+  "lane": "toms",
+  "note_id": "425",
+  "shared_beat": "1124",
+  "new_beat": "1317",
+  "stem_level": 0.0
+ },
+ {
+  "bar": 89,
+  "beat": 2.0,
+  "lane": "toms",
+  "note_id": "425",
+  "shared_beat": "1134",
+  "new_beat": "1318",
+  "stem_level": 0.0025
+ }
+]

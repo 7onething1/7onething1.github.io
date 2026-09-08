@@ -1,0 +1,72 @@
+{
+ "file": "HANDS-s6857183-Brandon-edit.gp",
+ "sha256": "c7beeaeea846da44e7f094543c6eca45464c107570145530b21e52ee23eba57c",
+ "built_from": "CODA-s6857183-Brandon-edit.gp",
+ "parent_sha256": "97ea1b3b42c8383791b292328dbfea59c240fc39e71442fcef401c9d97367281",
+ "removed": 15,
+ "added": 0,
+ "by_drum": {
+  "40 snare": 13,
+  "43 tom high floor": 2
+ },
+ "ride_notes_touched": 0,
+ "ride_left_alone_because": "the ride threshold fits the author at MAE 7.03 with a 28% null fire rate, and the render shows it rejecting a real stroke at bar 55",
+ "instances": {
+  "before": 2799,
+  "after": 2784
+ },
+ "bars_touched": [
+  29,
+  41,
+  45,
+  49,
+  52,
+  53,
+  54,
+  56,
+  57,
+  85,
+  89
+ ],
+ "bars_touched_outside_plan": [],
+ "three_hand_instants": {
+  "before": 16,
+  "after": 1,
+  "remaining": "bar 55 beat 2, lanes 45+48+51, blocked under q-2026-09-08-b08085"
+ },
+ "separation": "snare stem reads 0.0000 to 0.0041 at the 13 refuted instants against 0.5355 and 0.5126 where it is real, 125x",
+ "null_fire_rate": {
+  "snare": 0.04,
+  "toms": 0.04,
+  "ride": 0.28
+ },
+ "calibration": {
+  "snare": {
+   "frac": 0.175,
+   "mae": 1.27,
+   "bars": 95
+  },
+  "toms": {
+   "frac": 0.2,
+   "mae": 0.82,
+   "bars": 40
+  },
+  "ride": {
+   "frac": 0.095,
+   "mae": 7.03,
+   "bars": 93
+  }
+ },
+ "reference_class": "PASS on all six: 16 against 16 is 1.0x, 1.3 removals per bar, 16 of 48 lane-instances, nulls stated, threshold from the author, script three_hand_measure.py",
+ "alignment_after": {
+  "match": 0.708,
+  "guitar_control": 0.181,
+  "discrimination_x": 3.91,
+  "before": {
+   "match": 0.697,
+   "guitar_control": 0.182,
+   "discrimination_x": 3.83
+  }
+ },
+ "copy_on_write_near_miss": "the first attempt edited shared beats in place and deleted 179 instances across 79 untargeted bars; beat 899 is referenced by 176 voices. Quarantined, redone with per-voice beat clones."
+}

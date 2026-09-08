@@ -1,0 +1,944 @@
+{
+ "calibration": {
+  "snare": {
+   "frac": 0.17500000000000002,
+   "mae": 1.2736842105263158,
+   "bias": -1.2105263157894737,
+   "bars": 95
+  },
+  "toms": {
+   "frac": 0.2,
+   "mae": 0.825,
+   "bias": -0.225,
+   "bars": 40
+  },
+  "ride": {
+   "frac": 0.095,
+   "mae": 7.032258064516129,
+   "bias": -2.21505376344086,
+   "bars": 93
+  }
+ },
+ "null_fire_rate": {
+  "snare": 0.045,
+  "toms": 0.045,
+  "ride": 0.275
+ },
+ "instants": [
+  {
+   "bar": 29,
+   "pos_quarters": 3.0,
+   "beat": 4.0,
+   "time_s": 176.43,
+   "lanes": [
+    {
+     "midi": 51,
+     "name": "ride",
+     "note_id": "420",
+     "voice": 0,
+     "beat_id": "899"
+    },
+    {
+     "midi": 40,
+     "name": "snare",
+     "note_id": "419",
+     "voice": 0,
+     "beat_id": "899"
+    },
+    {
+     "midi": 48,
+     "name": "tom hi mid",
+     "note_id": "424",
+     "voice": 1,
+     "beat_id": "1010"
+    }
+   ],
+   "feet": [],
+   "measured": {
+    "snare": {
+     "level": 0.0,
+     "threshold": 0.175,
+     "supported": false
+    },
+    "toms": {
+     "level": 0.6644,
+     "threshold": 0.2,
+     "supported": true
+    },
+    "ride": {
+     "level": 0.108,
+     "threshold": 0.095,
+     "supported": true
+    }
+   },
+   "written_lanes": [
+    "snare",
+    "toms",
+    "ride"
+   ],
+   "drop": [
+    "snare"
+   ],
+   "verdict": "DROP snare"
+  },
+  {
+   "bar": 41,
+   "pos_quarters": 3.0,
+   "beat": 4.0,
+   "time_s": 234.986,
+   "lanes": [
+    {
+     "midi": 51,
+     "name": "ride",
+     "note_id": "420",
+     "voice": 0,
+     "beat_id": "899"
+    },
+    {
+     "midi": 40,
+     "name": "snare",
+     "note_id": "419",
+     "voice": 0,
+     "beat_id": "899"
+    },
+    {
+     "midi": 43,
+     "name": "tom high floor",
+     "note_id": "425",
+     "voice": 1,
+     "beat_id": "1039"
+    }
+   ],
+   "feet": [
+    "pedal hat"
+   ],
+   "measured": {
+    "snare": {
+     "level": 0.0007,
+     "threshold": 0.175,
+     "supported": false
+    },
+    "toms": {
+     "level": 0.4096,
+     "threshold": 0.2,
+     "supported": true
+    },
+    "ride": {
+     "level": 0.0544,
+     "threshold": 0.095,
+     "supported": false
+    }
+   },
+   "written_lanes": [
+    "snare",
+    "toms",
+    "ride"
+   ],
+   "drop": [
+    "snare",
+    "ride"
+   ],
+   "verdict": "DROP snare+ride"
+  },
+  {
+   "bar": 45,
+   "pos_quarters": 3.0,
+   "beat": 4.0,
+   "time_s": 254.426,
+   "lanes": [
+    {
+     "midi": 51,
+     "name": "ride",
+     "note_id": "420",
+     "voice": 0,
+     "beat_id": "899"
+    },
+    {
+     "midi": 40,
+     "name": "snare",
+     "note_id": "419",
+     "voice": 0,
+     "beat_id": "899"
+    },
+    {
+     "midi": 48,
+     "name": "tom hi mid",
+     "note_id": "424",
+     "voice": 1,
+     "beat_id": "991"
+    }
+   ],
+   "feet": [
+    "pedal hat"
+   ],
+   "measured": {
+    "snare": {
+     "level": 0.0,
+     "threshold": 0.175,
+     "supported": false
+    },
+    "toms": {
+     "level": 0.2496,
+     "threshold": 0.2,
+     "supported": true
+    },
+    "ride": {
+     "level": 0.0099,
+     "threshold": 0.095,
+     "supported": false
+    }
+   },
+   "written_lanes": [
+    "snare",
+    "toms",
+    "ride"
+   ],
+   "drop": [
+    "snare",
+    "ride"
+   ],
+   "verdict": "DROP snare+ride"
+  },
+  {
+   "bar": 49,
+   "pos_quarters": 3.0,
+   "beat": 4.0,
+   "time_s": 273.946,
+   "lanes": [
+    {
+     "midi": 51,
+     "name": "ride",
+     "note_id": "420",
+     "voice": 0,
+     "beat_id": "899"
+    },
+    {
+     "midi": 40,
+     "name": "snare",
+     "note_id": "419",
+     "voice": 0,
+     "beat_id": "899"
+    },
+    {
+     "midi": 48,
+     "name": "tom hi mid",
+     "note_id": "424",
+     "voice": 1,
+     "beat_id": "1049"
+    }
+   ],
+   "feet": [
+    "pedal hat"
+   ],
+   "measured": {
+    "snare": {
+     "level": 0.0,
+     "threshold": 0.175,
+     "supported": false
+    },
+    "toms": {
+     "level": 0.332,
+     "threshold": 0.2,
+     "supported": true
+    },
+    "ride": {
+     "level": 0.1017,
+     "threshold": 0.095,
+     "supported": true
+    }
+   },
+   "written_lanes": [
+    "snare",
+    "toms",
+    "ride"
+   ],
+   "drop": [
+    "snare"
+   ],
+   "verdict": "DROP snare"
+  },
+  {
+   "bar": 52,
+   "pos_quarters": 1.0,
+   "beat": 2.0,
+   "time_s": 286.95,
+   "lanes": [
+    {
+     "midi": 51,
+     "name": "ride",
+     "note_id": "420",
+     "voice": 0,
+     "beat_id": "899"
+    },
+    {
+     "midi": 40,
+     "name": "snare",
+     "note_id": "419",
+     "voice": 0,
+     "beat_id": "899"
+    },
+    {
+     "midi": 48,
+     "name": "tom hi mid",
+     "note_id": "424",
+     "voice": 1,
+     "beat_id": "1052"
+    }
+   ],
+   "feet": [],
+   "measured": {
+    "snare": {
+     "level": 0.0016,
+     "threshold": 0.175,
+     "supported": false
+    },
+    "toms": {
+     "level": 0.4964,
+     "threshold": 0.2,
+     "supported": true
+    },
+    "ride": {
+     "level": 0.2224,
+     "threshold": 0.095,
+     "supported": true
+    }
+   },
+   "written_lanes": [
+    "snare",
+    "toms",
+    "ride"
+   ],
+   "drop": [
+    "snare"
+   ],
+   "verdict": "DROP snare"
+  },
+  {
+   "bar": 52,
+   "pos_quarters": 3.0,
+   "beat": 4.0,
+   "time_s": 289.15,
+   "lanes": [
+    {
+     "midi": 51,
+     "name": "ride",
+     "note_id": "420",
+     "voice": 0,
+     "beat_id": "899"
+    },
+    {
+     "midi": 40,
+     "name": "snare",
+     "note_id": "419",
+     "voice": 0,
+     "beat_id": "899"
+    },
+    {
+     "midi": 48,
+     "name": "tom hi mid",
+     "note_id": "424",
+     "voice": 1,
+     "beat_id": "1052"
+    }
+   ],
+   "feet": [],
+   "measured": {
+    "snare": {
+     "level": 0.0,
+     "threshold": 0.175,
+     "supported": false
+    },
+    "toms": {
+     "level": 0.4,
+     "threshold": 0.2,
+     "supported": true
+    },
+    "ride": {
+     "level": 0.1614,
+     "threshold": 0.095,
+     "supported": true
+    }
+   },
+   "written_lanes": [
+    "snare",
+    "toms",
+    "ride"
+   ],
+   "drop": [
+    "snare"
+   ],
+   "verdict": "DROP snare"
+  },
+  {
+   "bar": 53,
+   "pos_quarters": 1.0,
+   "beat": 2.0,
+   "time_s": 291.346,
+   "lanes": [
+    {
+     "midi": 51,
+     "name": "ride",
+     "note_id": "420",
+     "voice": 0,
+     "beat_id": "1054"
+    },
+    {
+     "midi": 40,
+     "name": "snare",
+     "note_id": "419",
+     "voice": 0,
+     "beat_id": "1054"
+    },
+    {
+     "midi": 48,
+     "name": "tom hi mid",
+     "note_id": "424",
+     "voice": 1,
+     "beat_id": "1010"
+    }
+   ],
+   "feet": [],
+   "measured": {
+    "snare": {
+     "level": 0.0,
+     "threshold": 0.175,
+     "supported": false
+    },
+    "toms": {
+     "level": 0.4009,
+     "threshold": 0.2,
+     "supported": true
+    },
+    "ride": {
+     "level": 0.078,
+     "threshold": 0.095,
+     "supported": false
+    }
+   },
+   "written_lanes": [
+    "snare",
+    "toms",
+    "ride"
+   ],
+   "drop": [
+    "snare",
+    "ride"
+   ],
+   "verdict": "DROP snare+ride"
+  },
+  {
+   "bar": 54,
+   "pos_quarters": 1.0,
+   "beat": 2.0,
+   "time_s": 296.815,
+   "lanes": [
+    {
+     "midi": 51,
+     "name": "ride",
+     "note_id": "420",
+     "voice": 0,
+     "beat_id": "899"
+    },
+    {
+     "midi": 40,
+     "name": "snare",
+     "note_id": "419",
+     "voice": 0,
+     "beat_id": "899"
+    },
+    {
+     "midi": 48,
+     "name": "tom hi mid",
+     "note_id": "424",
+     "voice": 1,
+     "beat_id": "1052"
+    }
+   ],
+   "feet": [],
+   "measured": {
+    "snare": {
+     "level": 0.0041,
+     "threshold": 0.175,
+     "supported": false
+    },
+    "toms": {
+     "level": 0.4536,
+     "threshold": 0.2,
+     "supported": true
+    },
+    "ride": {
+     "level": 0.0585,
+     "threshold": 0.095,
+     "supported": false
+    }
+   },
+   "written_lanes": [
+    "snare",
+    "toms",
+    "ride"
+   ],
+   "drop": [
+    "snare",
+    "ride"
+   ],
+   "verdict": "DROP snare+ride"
+  },
+  {
+   "bar": 54,
+   "pos_quarters": 3.0,
+   "beat": 4.0,
+   "time_s": 298.985,
+   "lanes": [
+    {
+     "midi": 51,
+     "name": "ride",
+     "note_id": "420",
+     "voice": 0,
+     "beat_id": "899"
+    },
+    {
+     "midi": 40,
+     "name": "snare",
+     "note_id": "419",
+     "voice": 0,
+     "beat_id": "899"
+    },
+    {
+     "midi": 48,
+     "name": "tom hi mid",
+     "note_id": "424",
+     "voice": 1,
+     "beat_id": "969"
+    }
+   ],
+   "feet": [],
+   "measured": {
+    "snare": {
+     "level": 0.0,
+     "threshold": 0.175,
+     "supported": false
+    },
+    "toms": {
+     "level": 0.3965,
+     "threshold": 0.2,
+     "supported": true
+    },
+    "ride": {
+     "level": 0.1346,
+     "threshold": 0.095,
+     "supported": true
+    }
+   },
+   "written_lanes": [
+    "snare",
+    "toms",
+    "ride"
+   ],
+   "drop": [
+    "snare"
+   ],
+   "verdict": "DROP snare"
+  },
+  {
+   "bar": 55,
+   "pos_quarters": 1.0,
+   "beat": 2.0,
+   "time_s": 301.15,
+   "lanes": [
+    {
+     "midi": 51,
+     "name": "ride",
+     "note_id": "420",
+     "voice": 0,
+     "beat_id": "1056"
+    },
+    {
+     "midi": 45,
+     "name": "tom low",
+     "note_id": "429",
+     "voice": 0,
+     "beat_id": "1056"
+    },
+    {
+     "midi": 48,
+     "name": "tom hi mid",
+     "note_id": "424",
+     "voice": 1,
+     "beat_id": "1052"
+    }
+   ],
+   "feet": [],
+   "measured": {
+    "snare": {
+     "level": 0.0,
+     "threshold": 0.175,
+     "supported": false
+    },
+    "toms": {
+     "level": 0.4799,
+     "threshold": 0.2,
+     "supported": true
+    },
+    "ride": {
+     "level": 0.052,
+     "threshold": 0.095,
+     "supported": false
+    }
+   },
+   "written_lanes": [
+    "toms",
+    "ride"
+   ],
+   "drop": [
+    "ride"
+   ],
+   "verdict": "DROP ride"
+  },
+  {
+   "bar": 56,
+   "pos_quarters": 1.0,
+   "beat": 2.0,
+   "time_s": 306.54,
+   "lanes": [
+    {
+     "midi": 51,
+     "name": "ride",
+     "note_id": "420",
+     "voice": 0,
+     "beat_id": "899"
+    },
+    {
+     "midi": 40,
+     "name": "snare",
+     "note_id": "419",
+     "voice": 0,
+     "beat_id": "899"
+    },
+    {
+     "midi": 48,
+     "name": "tom hi mid",
+     "note_id": "424",
+     "voice": 1,
+     "beat_id": "1052"
+    }
+   ],
+   "feet": [],
+   "measured": {
+    "snare": {
+     "level": 0.0007,
+     "threshold": 0.175,
+     "supported": false
+    },
+    "toms": {
+     "level": 0.4113,
+     "threshold": 0.2,
+     "supported": true
+    },
+    "ride": {
+     "level": 0.1401,
+     "threshold": 0.095,
+     "supported": true
+    }
+   },
+   "written_lanes": [
+    "snare",
+    "toms",
+    "ride"
+   ],
+   "drop": [
+    "snare"
+   ],
+   "verdict": "DROP snare"
+  },
+  {
+   "bar": 56,
+   "pos_quarters": 3.0,
+   "beat": 4.0,
+   "time_s": 308.68,
+   "lanes": [
+    {
+     "midi": 51,
+     "name": "ride",
+     "note_id": "420",
+     "voice": 0,
+     "beat_id": "899"
+    },
+    {
+     "midi": 40,
+     "name": "snare",
+     "note_id": "419",
+     "voice": 0,
+     "beat_id": "899"
+    },
+    {
+     "midi": 48,
+     "name": "tom hi mid",
+     "note_id": "424",
+     "voice": 1,
+     "beat_id": "1049"
+    }
+   ],
+   "feet": [
+    "pedal hat"
+   ],
+   "measured": {
+    "snare": {
+     "level": 0.0,
+     "threshold": 0.175,
+     "supported": false
+    },
+    "toms": {
+     "level": 0.555,
+     "threshold": 0.2,
+     "supported": true
+    },
+    "ride": {
+     "level": 0.1046,
+     "threshold": 0.095,
+     "supported": true
+    }
+   },
+   "written_lanes": [
+    "snare",
+    "toms",
+    "ride"
+   ],
+   "drop": [
+    "snare"
+   ],
+   "verdict": "DROP snare"
+  },
+  {
+   "bar": 57,
+   "pos_quarters": 1.0,
+   "beat": 2.0,
+   "time_s": 310.818,
+   "lanes": [
+    {
+     "midi": 51,
+     "name": "ride",
+     "note_id": "420",
+     "voice": 0,
+     "beat_id": "899"
+    },
+    {
+     "midi": 40,
+     "name": "snare",
+     "note_id": "419",
+     "voice": 0,
+     "beat_id": "899"
+    },
+    {
+     "midi": 48,
+     "name": "tom hi mid",
+     "note_id": "424",
+     "voice": 1,
+     "beat_id": "1049"
+    }
+   ],
+   "feet": [
+    "pedal hat"
+   ],
+   "measured": {
+    "snare": {
+     "level": 0.0003,
+     "threshold": 0.175,
+     "supported": false
+    },
+    "toms": {
+     "level": 0.424,
+     "threshold": 0.2,
+     "supported": true
+    },
+    "ride": {
+     "level": 0.0596,
+     "threshold": 0.095,
+     "supported": false
+    }
+   },
+   "written_lanes": [
+    "snare",
+    "toms",
+    "ride"
+   ],
+   "drop": [
+    "snare",
+    "ride"
+   ],
+   "verdict": "DROP snare+ride"
+  },
+  {
+   "bar": 57,
+   "pos_quarters": 3.0,
+   "beat": 4.0,
+   "time_s": 312.954,
+   "lanes": [
+    {
+     "midi": 51,
+     "name": "ride",
+     "note_id": "420",
+     "voice": 0,
+     "beat_id": "899"
+    },
+    {
+     "midi": 40,
+     "name": "snare",
+     "note_id": "419",
+     "voice": 0,
+     "beat_id": "899"
+    },
+    {
+     "midi": 48,
+     "name": "tom hi mid",
+     "note_id": "424",
+     "voice": 1,
+     "beat_id": "991"
+    }
+   ],
+   "feet": [
+    "pedal hat"
+   ],
+   "measured": {
+    "snare": {
+     "level": 0.0,
+     "threshold": 0.175,
+     "supported": false
+    },
+    "toms": {
+     "level": 0.4572,
+     "threshold": 0.2,
+     "supported": true
+    },
+    "ride": {
+     "level": 0.0871,
+     "threshold": 0.095,
+     "supported": false
+    }
+   },
+   "written_lanes": [
+    "snare",
+    "toms",
+    "ride"
+   ],
+   "drop": [
+    "snare",
+    "ride"
+   ],
+   "verdict": "DROP snare+ride"
+  },
+  {
+   "bar": 85,
+   "pos_quarters": 1.0,
+   "beat": 2.0,
+   "time_s": 444.606,
+   "lanes": [
+    {
+     "midi": 51,
+     "name": "ride",
+     "note_id": "420",
+     "voice": 0,
+     "beat_id": "899"
+    },
+    {
+     "midi": 40,
+     "name": "snare",
+     "note_id": "419",
+     "voice": 0,
+     "beat_id": "899"
+    },
+    {
+     "midi": 43,
+     "name": "tom high floor",
+     "note_id": "425",
+     "voice": 1,
+     "beat_id": "1124"
+    }
+   ],
+   "feet": [],
+   "measured": {
+    "snare": {
+     "level": 0.5355,
+     "threshold": 0.175,
+     "supported": true
+    },
+    "toms": {
+     "level": 0.0,
+     "threshold": 0.2,
+     "supported": false
+    },
+    "ride": {
+     "level": 0.4426,
+     "threshold": 0.095,
+     "supported": true
+    }
+   },
+   "written_lanes": [
+    "snare",
+    "toms",
+    "ride"
+   ],
+   "drop": [
+    "toms"
+   ],
+   "verdict": "DROP toms"
+  },
+  {
+   "bar": 89,
+   "pos_quarters": 1.0,
+   "beat": 2.0,
+   "time_s": 463.426,
+   "lanes": [
+    {
+     "midi": 51,
+     "name": "ride",
+     "note_id": "420",
+     "voice": 0,
+     "beat_id": "899"
+    },
+    {
+     "midi": 40,
+     "name": "snare",
+     "note_id": "419",
+     "voice": 0,
+     "beat_id": "899"
+    },
+    {
+     "midi": 43,
+     "name": "tom high floor",
+     "note_id": "425",
+     "voice": 1,
+     "beat_id": "1134"
+    }
+   ],
+   "feet": [
+    "pedal hat"
+   ],
+   "measured": {
+    "snare": {
+     "level": 0.5126,
+     "threshold": 0.175,
+     "supported": true
+    },
+    "toms": {
+     "level": 0.0025,
+     "threshold": 0.2,
+     "supported": false
+    },
+    "ride": {
+     "level": 0.2422,
+     "threshold": 0.095,
+     "supported": true
+    }
+   },
+   "written_lanes": [
+    "snare",
+    "toms",
+    "ride"
+   ],
+   "drop": [
+    "toms"
+   ],
+   "verdict": "DROP toms"
+  }
+ ]
+}
