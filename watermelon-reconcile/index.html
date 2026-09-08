@@ -1,0 +1,220 @@
+<!doctype html>
+<html lang="en"><head><meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Watermelon Reconcile</title>
+<style>
+:root{
+  --green:#446455; --gold:#FDD262; --pale:#D3DDDC; --tan:#C7B19C;
+  --green-d:#2e4539; --green-l:#6d8a7a; --gold-d:#c9a63f; --gold-l:#fff0b8;
+  --tan-d:#9d7f63; --pale-d:#a8b8b7;
+  --bg:#f7f3e8; --card:#fffdf6; --ink:#1c2320; --mut:#5d6b64; --line:#ddd6c4;
+  color-scheme:light;
+}
+:root:not([data-theme="light"]){}
+@media (prefers-color-scheme:dark){:root:not([data-theme="light"]){
+  --bg:#151a17; --card:#1d2521; --ink:#eef2ec; --mut:#a3b0a8; --line:#33403a;
+  --gold-l:#5a4d24; --green-l:#8fae9d; --pale:#3a4a48;
+}}
+:root[data-theme="dark"]{
+  --bg:#151a17; --card:#1d2521; --ink:#eef2ec; --mut:#a3b0a8; --line:#33403a;
+  --gold-l:#5a4d24; --green-l:#8fae9d; --pale:#3a4a48;
+}
+*{box-sizing:border-box}
+body{background:var(--bg);color:var(--ink);margin:0;line-height:1.62;
+ font-family:-apple-system,BlinkMacSystemFont,"Inter","Segoe UI",sans-serif;
+ font-size:16px;padding:0 1.1rem 5rem}
+.wrap{max-width:1080px;margin:0 auto}
+header{padding:3.2rem 0 1.6rem;border-bottom:4px solid var(--green)}
+h1{font-size:clamp(1.8rem,4.4vw,2.9rem);line-height:1.12;margin:0 0 .5rem;letter-spacing:-.022em}
+.sub{color:var(--mut);font-size:1.03rem;margin:0}
+.tagrow{display:flex;flex-wrap:wrap;gap:.45rem;margin-top:1.1rem}
+.tag{font-size:.76rem;font-weight:700;letter-spacing:.06em;text-transform:uppercase;
+ padding:.3rem .62rem;border-radius:3px;border:1px solid var(--line)}
+.t-g{background:var(--green);color:#fff;border-color:var(--green)}
+.t-y{background:var(--gold);color:#3a2f00;border-color:var(--gold-d)}
+.t-p{background:var(--pale);color:var(--green-d);border-color:var(--pale-d)}
+.t-t{background:var(--tan);color:#3a2a18;border-color:var(--tan-d)}
+h2{font-size:1.42rem;margin:3.2rem 0 .3rem;letter-spacing:-.014em;
+ padding-left:.7rem;border-left:6px solid var(--gold)}
+h2.g{border-left-color:var(--green)} h2.t{border-left-color:var(--tan)}
+h2.p{border-left-color:var(--pale-d)}
+h3{font-size:1.06rem;margin:1.9rem 0 .35rem;color:var(--green-l)}
+p{margin:.7rem 0}
+.lede{font-size:1.09rem}
+.card{background:var(--card);border:1px solid var(--line);border-radius:8px;
+ padding:1.15rem 1.3rem;margin:1.1rem 0}
+.hero{border-left:8px solid var(--green);background:linear-gradient(100deg,var(--card),var(--pale) 260%)}
+.hero.y{border-left-color:var(--gold)} .hero.t{border-left-color:var(--tan)}
+.grid{display:grid;gap:.85rem;grid-template-columns:repeat(auto-fit,minmax(215px,1fr));margin:1.1rem 0}
+.stat{background:var(--card);border:1px solid var(--line);border-top:5px solid var(--green);
+ border-radius:7px;padding:.95rem 1rem}
+.stat:nth-child(2){border-top-color:var(--gold)}
+.stat:nth-child(3){border-top-color:var(--tan)}
+.stat:nth-child(4){border-top-color:var(--pale-d)}
+.stat:nth-child(5){border-top-color:var(--green-l)}
+.stat:nth-child(6){border-top-color:var(--gold-d)}
+.num{font-size:1.85rem;font-weight:750;letter-spacing:-.03em;line-height:1.1;
+ font-variant-numeric:tabular-nums}
+.lbl{font-size:.79rem;color:var(--mut);text-transform:uppercase;letter-spacing:.055em;
+ font-weight:650;margin-top:.28rem}
+.note{font-size:.85rem;color:var(--mut);margin-top:.4rem}
+.scroll{overflow-x:auto;-webkit-overflow-scrolling:touch;margin:1rem 0;
+ border:1px solid var(--line);border-radius:7px;background:var(--card)}
+table{border-collapse:collapse;width:100%;font-size:.9rem;min-width:560px}
+th{background:var(--green);color:#fff;text-align:left;padding:.6rem .7rem;font-weight:650;
+ white-space:nowrap;font-size:.82rem;letter-spacing:.03em}
+td{padding:.5rem .7rem;border-top:1px solid var(--line);font-variant-numeric:tabular-nums}
+tbody tr:nth-child(even){background:color-mix(in srgb,var(--pale) 34%,transparent)}
+.mono{font-family:ui-monospace,"SF Mono",Menlo,monospace;font-size:.86em}
+.ok{color:#1f6b45;font-weight:700} .bad{color:#a33b28;font-weight:700}
+.mid{color:var(--tan-d);font-weight:700}
+:root:not([data-theme="light"]) .ok{color:#7fd3a4}
+:root:not([data-theme="light"]) .bad{color:#f0937d}
+@media (prefers-color-scheme:dark){:root:not([data-theme="light"]) .ok{color:#7fd3a4}}
+.pill{display:inline-block;padding:.12rem .5rem;border-radius:99px;font-size:.76rem;
+ font-weight:700;letter-spacing:.02em}
+.p-c{background:#d8ecdf;color:#1f6b45} .p-a{background:#f6ddd6;color:#a33b28}
+.p-m{background:var(--gold-l);color:#6b5410}
+blockquote{margin:1.1rem 0;padding:.75rem 1.1rem;border-left:5px solid var(--tan);
+ background:color-mix(in srgb,var(--tan) 17%,transparent);border-radius:0 6px 6px 0;
+ font-style:italic;color:var(--ink)}
+ul,ol{margin:.6rem 0;padding-left:1.3rem} li{margin:.34rem 0}
+code{background:color-mix(in srgb,var(--pale) 55%,transparent);padding:.1rem .34rem;
+ border-radius:3px;font-family:ui-monospace,"SF Mono",Menlo,monospace;font-size:.87em}
+footer{margin-top:4rem;padding-top:1.3rem;border-top:2px solid var(--line);
+ color:var(--mut);font-size:.87rem}
+.bar{height:19px;border-radius:3px;background:var(--green);display:inline-block;
+ vertical-align:middle;min-width:2px}
+.barw{background:color-mix(in srgb,var(--pale) 60%,transparent);border-radius:3px;
+ display:block;width:100%;max-width:230px}
+</style></head><body><div class="wrap">
+<header>
+<h1>Watermelon In Easter Hay, reconciled and shipped</h1>
+<p class="sub">Four parallel sessions had four answers for one drum staff. This is the decision list, the measurement behind each one, and the single revision that went live.</p>
+<div class="tagrow">
+<span class="tag t-g">r8970744 LIVE</span>
+<span class="tag t-y">63 defects removed</span>
+<span class="tag t-p">s6857183 copy tab</span>
+<span class="tag t-t">2026-09-08</span>
+</div>
+</header>
+
+<div class="card hero">
+<p class="lede"><strong>What shipped.</strong> Sixty-three notes asked one drum to sound twice at the same instant. Every one of them sat in voice 1 on top of a voice-0 note that the original transcriber wrote as a single plain stroke. They came out. Nothing else on the staff moved.</p>
+<p class="note">Songsterr <span class="mono">s6857183</span> revision <span class="mono">r8970744</span>, published, data hash <span class="mono">v0-3-2-kXpvKWZs5NRnBy84</span>. Verified by reading the published JSON back off Songsterr's own CDN.</p>
+</div>
+
+<div class="grid">
+<div class="stat"><div class="num">63 &rarr; 0</div><div class="lbl">Same-instant same-drum stacks</div></div>
+<div class="stat"><div class="num">2,833 &rarr; 2,770</div><div class="lbl">Drum staff notes</div></div>
+<div class="stat"><div class="num">1,889</div><div class="lbl">Voice 0, identical before and after</div></div>
+<div class="stat"><div class="num">42</div><div class="lbl">Bars touched</div></div>
+<div class="stat"><div class="num">9 of 9</div><div class="lbl">Track names kept</div></div>
+<div class="stat"><div class="num">13</div><div class="lbl">Build gates passed</div></div>
+</div>
+
+<h2 class="g">The eight decisions</h2>
+<p>Each row is settled. A later chat should read this rather than re-derive any of it.</p>
+<div class="scroll"><table>
+<thead><tr><th>Question</th><th>Decision</th><th>What settled it</th></tr></thead>
+<tbody>
+<tr><td>Which build ships</td><td><span class="pill p-c">LIVE HEAD, repaired in place</span></td><td>The v10 to v13 chain and the chart-only build both read from <span class="mono">RESTORED-s35881-TEXTSAFE-v2.gp</span>, so shipping either wipes the kit rewrite and the hand-written bar 25 fill</td></tr>
+<tr><td>The 63 double-strikes</td><td><span class="pill p-c">REMOVED</span></td><td>At all 63 positions the author's r7715683 carries exactly one plain stroke. Unanimous, and it needs no audio</td></tr>
+<tr><td>Ride ghost notation</td><td><span class="pill p-c">LEFT AS SET</span></td><td>Brandon's own edit, accent on beat 1 with 2, 3 and 4 plain. Never a defect</td></tr>
+<tr><td>202 absent ride notes</td><td><span class="pill p-c">LEFT ABSENT</span></td><td>Cymbal stem says the drummer paused. Bars 17, 51, 53 and 87 read 0.30x to 0.50x of the 88 bars that kept their ride</td></tr>
+<tr><td>Coda toms, bars 95 to 104</td><td><span class="pill p-m">WITHHELD</span></td><td>Bar-level tom presence separates chart-tom bars from chart-empty bars by only 1.15x, under the 1.5x floor</td></tr>
+<tr><td>Bar 25 fill</td><td><span class="pill p-c">LEFT AT 8</span></td><td>The tom stem supports 8 to 9 at every threshold. The hand edit already stands</td></tr>
+<tr><td>Bar 93, 2 toms</td><td><span class="pill p-c">KEPT</span></td><td>Both supported at 5% and again at 0.2% of stem peak</td></tr>
+<tr><td>Cymbal lane, 1,573 events</td><td><span class="pill p-m">NO PER-EVENT ACTION</span></td><td>Whole lane confirms at 1.46x against a 1.33 chance floor, so a single event cannot be promoted</td></tr>
+</tbody>
+</table></div>
+
+<h2>The defect nobody had finished counting</h2>
+<p>A snare cannot be struck loudly and quietly at one instant. A kick cannot be struck twice at one instant either. The live staff carried sixty-three positions that asked for exactly that, each one a voice-1 note landing on the identical bar, position and drum as a voice-0 note.</p>
+<p>The earlier pass found forty-nine of them and stopped at the snare. Sweeping every drum instead of one found twelve more on the kick and two on the high mid tom.</p>
+<div class="scroll"><table>
+<thead><tr><th>Drum</th><th>Known before</th><th>Found by the full sweep</th><th>Removed</th></tr></thead>
+<tbody>
+<tr><td>Snare</td><td>49</td><td>49</td><td class="ok">49</td></tr>
+<tr><td>Kick</td><td>0</td><td>12</td><td class="ok">12</td></tr>
+<tr><td>High mid tom</td><td>0</td><td>2</td><td class="ok">2</td></tr>
+<tr><td><strong>Total</strong></td><td><strong>49</strong></td><td><strong>63</strong></td><td class="ok"><strong>63</strong></td></tr>
+</tbody>
+</table></div>
+
+<h3>The provenance test</h3>
+<p>The question is whether the doubled note belongs to the original transcriber or arrived in our own later editing. Revision r7715683 answers it directly. That file holds 2,091 drum notes, every one in voice 0, across 193 distinct snare positions with zero stacked. At all sixty-three of the disputed positions it writes one plain stroke and nothing else.</p>
+<div class="card"><p style="margin:0"><strong>Unanimous, 63 of 63.</strong> No position had a ghost there. No position had two notes there. The duplicate is ours in every single case, so removing it restores the author's staff rather than editing it.</p></div>
+
+<h2 class="t">The lineage that would have caused damage</h2>
+<p>Two finished builds were sitting on disk waiting to be uploaded. Measuring them against the live head is what stopped them.</p>
+<div class="scroll"><table>
+<thead><tr><th>Build</th><th>Parent</th><th>Kick</th><th>Snare</th><th>Pedal hat</th><th>Toms</th><th>Distinct tom drums</th><th>Verdict</th></tr></thead>
+<tbody>
+<tr><td class="mono">LIVE r8968524</td><td>the tab itself</td><td>504</td><td>342</td><td>245</td><td>168</td><td class="ok">6</td><td><span class="pill p-c">SHIP THIS</span></td></tr>
+<tr><td class="mono">EXPERIMENT-v13</td><td>RESTORED</td><td>504</td><td>342</td><td>245</td><td>191</td><td class="bad">2</td><td><span class="pill p-a">REJECTED</span></td></tr>
+<tr><td class="mono">CHART-TOMS</td><td>RESTORED</td><td class="bad">107</td><td class="bad">193</td><td class="bad">6</td><td>185</td><td>4</td><td><span class="pill p-a">REJECTED</span></td></tr>
+<tr><td class="mono">RESTORED-TEXTSAFE-v2</td><td>ghost restore</td><td>107</td><td>193</td><td>6</td><td>6</td><td>2</td><td>parent only</td></tr>
+</tbody>
+</table></div>
+<p><strong>v13 flattens the kit.</strong> 187 of its 191 toms sit on one drum, midi 48, against six distinct toms on the live staff. Its bar 25 replaces the descending fill with four identical pitches. <strong>The chart build never carried the kit rewrite at all</strong>, so uploading it would have taken the kick from 504 back to 107.</p>
+
+<h2 class="p">The ride, settled on the stem</h2>
+<p>202 ride notes present in the original are absent from the live tab. Brandon's reading was that the original transcription wrote a continuous ride through bars where Colaiuta actually paused. The cymbal stem agrees with him.</p>
+<p>The null is the 88 bars that kept their ride, median band energy 49.2. Four of the removal bars fall inside the alignment anchors and can be tested.</p>
+<div class="scroll"><table>
+<thead><tr><th>Bar</th><th>Author wrote</th><th>Live holds</th><th>Cymbal energy</th><th>Against the null</th><th>Verdict</th></tr></thead>
+<tbody>
+<tr><td>87</td><td>20</td><td>0</td><td>14.6</td><td class="ok">0.30x</td><td>pause confirmed</td></tr>
+<tr><td>53</td><td>20</td><td>3</td><td>20.2</td><td class="ok">0.41x</td><td>pause confirmed</td></tr>
+<tr><td>51</td><td>20</td><td>0</td><td>23.0</td><td class="ok">0.47x</td><td>pause confirmed</td></tr>
+<tr><td>17</td><td>20</td><td>0</td><td>24.6</td><td class="ok">0.50x</td><td>pause confirmed</td></tr>
+<tr><td>2, 4, 98 to 105</td><td>&mdash;</td><td>&mdash;</td><td>&mdash;</td><td class="mid">outside anchors</td><td>no verdict, left alone</td></tr>
+</tbody>
+</table></div>
+<p class="note">The anchor span runs from stem 59.3 s to 506.1 s, so bars before it and the coda after it cannot be tested on this clock. They were left exactly as they stand.</p>
+
+<h2 class="g">Why the coda stays empty</h2>
+<p>The printed chart writes 19 tom heads across bars 95 to 104. They are still not in the tab, and the reason is a measurement rather than a preference.</p>
+<div class="scroll"><table>
+<thead><tr><th>Threshold</th><th>Chart-tom bars</th><th>Chart-empty control bars</th><th>Ratio</th><th>Floor</th></tr></thead>
+<tbody>
+<tr><td>5% of global tom peak</td><td>3.00</td><td>2.60</td><td class="bad">1.15x</td><td>1.5x</td></tr>
+<tr><td>2%</td><td>5.40</td><td>5.00</td><td class="bad">1.08x</td><td>1.5x</td></tr>
+<tr><td>1%</td><td>9.00</td><td>8.20</td><td class="bad">1.10x</td><td>1.5x</td></tr>
+</tbody>
+</table></div>
+<p>The bars the chart marks empty score the same as the bars it fills. A detector that cannot tell those apart cannot license adding a note, so the heads stay out until a rescan or a coda-local clock exists.</p>
+
+<h2>Gates the build had to clear</h2>
+<div class="scroll"><table>
+<thead><tr><th>Gate</th><th>Result</th></tr></thead>
+<tbody>
+<tr><td>Drum staff loses exactly 63</td><td class="ok">PASS 2,833 to 2,770</td></tr>
+<tr><td>Voice 0 completely untouched</td><td class="ok">PASS 1,889 both sides</td></tr>
+<tr><td>Other eight tracks identical</td><td class="ok">PASS 2,765 positions</td></tr>
+<tr><td>Only kick, snare and high mid tom change</td><td class="ok">PASS -12, -49, -2</td></tr>
+<tr><td>Every bar keeps its duration</td><td class="ok">PASS 1,038 voice bars</td></tr>
+<tr><td>Zero same-drum same-instant stacks remain</td><td class="ok">PASS 0 left</td></tr>
+<tr><td>CDATA wrappers preserved</td><td class="ok">PASS 137 of 137</td></tr>
+<tr><td>Nine track names survive</td><td class="ok">PASS NAMEDROP-CLEAR</td></tr>
+</tbody>
+</table></div>
+<div class="card">
+<h3 style="margin-top:0">The CDATA gate earned its place</h3>
+<p style="margin-bottom:0">The first build went through ElementTree and came out with zero CDATA wrappers. That is the exact state measured to blank every track name on import: <span class="mono">RESTORED-s35881.gp</span> carried 0 CDATA and lost 9 of 9 names on the original tab. The build was redone as text surgery on the raw GPIF so all 137 wrappers survive untouched.</p>
+</div>
+
+<h2 class="t">Proof</h2>
+<div class="card hero y">
+<p style="margin:.2rem 0"><strong>Tab</strong> <span class="mono">https://www.songsterr.com/a/wsa/frank-zappa-watermelon-in-easter-hay-brandon-edit-drum-tab-s6857183</span></p>
+<p style="margin:.2rem 0"><strong>Revision</strong> <span class="mono">r8970744</span>, published true, on moderation false</p>
+<p style="margin:.2rem 0"><strong>Read back from the CDN</strong> 2,770 drum notes, 63 positions gone, 0 stacks, voice 0 identical at 1,889</p>
+<p style="margin:.2rem 0"><strong>Other tracks</strong> 1061, 55, 334, 64, 360, 459, 324, 108, all unchanged</p>
+</div>
+
+<footer>
+<p>Built 2026-09-08. Source <span class="mono">~/Projects/_outputs/zappa-watermelon-hat-snare-repair/out/RECONCILED-s6857183-Brandon-edit.gp</span></p>
+<p>Related pages: watermelon-chart-toms, watermelon-coda-verdict, watermelon-cymbal-stem-pass, zappa-program-scope.</p>
+</footer>
+</div></body></html>
