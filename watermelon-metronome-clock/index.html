@@ -147,6 +147,31 @@ be tuned against them. Fall back to the score&rsquo;s own tempo automation where
 follows the recording, and to fitted anchors only when neither explains the audio. Never optimise tempo from
 a mixed drum stem.</p></div>
 
+<h2 class="p">The 101-collision comparison, rerun on the new clock</h2>
+<p>The earlier page selected 101 cymbal strokes that collide with a notated tom and asked whether they
+behave differently from the rest of the lane. That comparison was built on the old clock, so it had to be
+rerun before anything could be said about it. Everything except the clock is identical: same detector, same
+25 ms tolerance, same CONFIRMED / AMBIGUOUS / ABSENT classifier, same selection with bars 10, 13 and 52
+excluded, and it still resolves to <strong>101 slots holding 101 note instances</strong>.</p>
+<div class="scroll"><table><thead><tr><th>group</th><th>confirmed</th><th>rate</th><th>vs chance</th>
+</tr></thead><tbody>
+<tr><td>the 101 colliding strokes</td><td>37 of 101</td>
+<td>36.6%</td><td>2.83&times;</td></tr>
+<tr><td>every other cymbal note</td><td>594 of 1472</td>
+<td>40.4%</td><td>3.12&times;</td></tr>
+</tbody></table></div>
+<p><strong>The original conclusion survives.</strong> The collision criterion still selects nothing. Both
+rates roughly doubled when the clock improved, from 19.8 and 19.3 percent to
+36.6 and 40.4, and the gap between them stayed noise. It is
+-3.7 percentage points at <strong>z = -0.74</strong>, well inside the
+|z| &ge; 2 a real difference would need. The sign even flipped, from the 101 sitting marginally above the
+rest to marginally below, which is what a null looks like.</p>
+<p class="note">The original page asserted this from a bare half-point gap with no test attached. It happened
+to be right, and it is right for a stated reason now. Chance on this clock is
+12.9 percent against the 13.3 the old pass used. The lane total here reads
+631 of 1,573 rather than the 632 on the rescore table, a one-note difference from
+scoring across the cymbal-only span instead of the all-events span.</p>
+
 <footer>
 <p>Built 2026-09-08 on MacBookPro. Every number generated at build time from
 <span class="mono">data/clock_compare.json</span> and <span class="mono">data/rescore.json</span>.

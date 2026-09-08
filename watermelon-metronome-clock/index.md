@@ -23,3 +23,18 @@
 
 Cymbal lane overturned: 1,573 notes go from 1.45x separation to 3.00x. Tom dropped from 70.2% to 60.1% confirm and still separates.
 
+
+## The 101-collision comparison, rerun on the metronome clock
+
+Everything except the clock identical: same detector, 25 ms tolerance, same classifier, bars 10/13/52
+excluded. Still resolves to 101 slots holding 101 instances.
+
+| group | confirmed | rate | vs chance |
+|---|---|---|---|
+| the 101 colliding strokes | 37 of 101 | 36.6% | 2.83x |
+| every other cymbal note | 594 of 1472 | 40.4% | 3.12x |
+
+The original conclusion survives: the collision criterion selects nothing. Both rates roughly doubled
+(19.8% and 19.3% before), and the gap stayed noise at -3.7 points, z = -0.74.
+The sign flipped, which is what a null looks like. Chance on this clock is 12.9%
+against the 13.3% the old pass used.
