@@ -116,20 +116,21 @@ footer{color:var(--muted);font-size:13px;text-align:center;margin-top:40px}
 <section>
 <h2>Skip anything with an x on it</h2>
 <p>The top line carries two instruments at once: the ride, drawn with <b>x noteheads</b>, and a tom, drawn with <b>filled ovals</b>. Reading the top line naively would import the whole ride part as toms.</p>
-<p>The two separate on ink. Measuring the mean darkness of a five by five pixel box centred on each head, an x leaves its four edge midpoints on white paper and a filled oval does not:</p>
+<p>The two separate on ink. Measuring the mean darkness of a five by five pixel box centred on each head, an x leaves its four edge midpoints on white paper and a filled oval does not. On the top line, where the decision actually has to be made, the two populations do not touch:</p>
 <div class="scroll">
 <table>
 <thead><tr><th>Population</th><th class="num">Count</th><th class="num">Ink, mean of a 5&times;5 box</th><th>Reading</th></tr></thead>
 <tbody>
-<tr><td>x noteheads on the top line</td><td class="num">73</td><td class="num">100 to 125</td><td>ride, skipped</td></tr>
-<tr><td>watermark letters and scan noise</td><td class="num">~35</td><td class="num">130 to 160</td><td>not notation, skipped</td></tr>
-<tr><td><b>nothing at all</b></td><td class="num">0</td><td class="num"><b>160 to 180</b></td><td>the empty gap that makes the cut safe</td></tr>
-<tr><td>filled tom heads</td><td class="num">179</td><td class="num">186 to 220</td><td>kept</td></tr>
+<tr><td>x noteheads, top line</td><td class="num">57</td><td class="num">104 to 127</td><td>ride, skipped</td></tr>
+<tr><td>watermark letters and noise, top line</td><td class="num">18</td><td class="num">131 to 158</td><td>not notation, skipped</td></tr>
+<tr><td><b>nothing at all, top line</b></td><td class="num">0</td><td class="num"><b>159 to 185</b></td><td>the empty gap that makes the cut safe</td></tr>
+<tr><td>filled tom heads, all three lanes</td><td class="num">179</td><td class="num">186 to 220</td><td>kept</td></tr>
 <tr><td>snare, a filled control</td><td class="num">154</td><td class="num">median 220</td><td>control</td></tr>
-<tr><td>kick, a filled control</td><td class="num">409</td><td class="num">median 201</td><td>control</td></tr>
+<tr><td>kick, a filled control</td><td class="num">410</td><td class="num">median 201</td><td>control</td></tr>
 </tbody>
 </table>
 </div>
+<p>Across all three tom lanes the same cut skips <b>64 x-like marks, 33 watermark fragments and 4 more in the 160 to 180 band</b>, and keeps 179.</p>
 <div class="proof">
 <b>All 179 kept heads were then looked at, not sampled.</b> Every one was cropped at 16&times; and inspected on a contact sheet. Every tile is a solid oval. Not one x survived the cut.
 </div>
@@ -232,7 +233,7 @@ footer{color:var(--muted);font-size:13px;text-align:center;margin-top:40px}
 <h3>What is still uncertain</h3>
 <ul>
 <li>The scan is 595 by 842 pixels and a notehead is 4 to 5 pixels across, so the snare reads <b>154 heads against the tab's 193</b>. The reader misses some heads in the busiest bars. Every miss is a tom the tab still lacks, never a tom invented.</li>
-<li>The chart writes <b>409 kicks against the tab's 107</b>. That gap was measured in passing and is not touched by this build, which adds toms and nothing else.</li>
+<li>The chart writes <b>410 kicks against the tab's 107</b>. That gap was measured in passing and is not touched by this build, which adds toms and nothing else.</li>
 <li>A rescan at 12 or more pixels per notehead would settle both. Every method above already works and would simply get more of the page.</li>
 </ul>
 </section>

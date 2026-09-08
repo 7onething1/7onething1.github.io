@@ -40,11 +40,16 @@ takes the highest tom slot the kit does have. Pitch order survives, 50 above 48 
 The top line carries the ride as x noteheads and a tom as filled ovals. They separate on ink,
 measured as the mean darkness of a 5x5 box on the head:
 
-- x noteheads: 100 to 125 (73 of them, skipped)
-- watermark letters and noise: 130 to 160 (skipped)
-- **nothing at all between 160 and 180**
-- filled tom heads: 186 to 220 (179 kept)
-- controls: snare median 220, kick median 201
+On the top line, where the decision has to be made:
+
+- x noteheads: ink 104 to 127 (57 of them, skipped)
+- watermark letters and noise: ink 131 to 158 (18, skipped)
+- **nothing at all between 159 and 185**
+- filled tom heads: ink 186 to 220 (35 on the top line, 179 across all three tom lanes, kept)
+- controls: snare 154 heads median 220, kick 410 heads median 201
+
+Across all three tom lanes the cut skips 64 x-like marks, 33 watermark fragments and 4 in the
+160 to 180 band.
 
 All 179 kept heads were then looked at on a 16x contact sheet. Every tile is a solid oval.
 
@@ -77,7 +82,7 @@ sixty-fourth grid (1/12 of a sixteenth away, about 1 px).
 - The scan is 595x842 and a notehead is 4 to 5 px. The reader finds 154 snare heads against
   the tab's 193, so it misses some in the busiest bars. Every miss is a tom still absent,
   never a tom invented.
-- The chart writes 409 kicks against the tab's 107. Measured in passing, not acted on.
+- The chart writes 410 kicks against the tab's 107. Measured in passing, not acted on.
 - A rescan at 12+ px per notehead would settle both.
 
 ## Tools
