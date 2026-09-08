@@ -96,7 +96,18 @@ The anchor itself does check out independently: the first drum onset in the 9:05
 | Median after bar 6 | not computed | **0.028 s** |
 | Bars off by more than 1 s | not computed | **0 of 105** |
 
-The points track the performance to about 30 ms through the body. For video-synced playback `r8973454` therefore changes little across the body; it fixes Songsterr's own MIDI playback and within-bar interpolation.
+The points track the performance to about 30 ms through the body.
+
+**The 105-point count, read by eye rather than inferred.** That video carries 105 points where eleven others carry 106. Rendered as inter-point intervals against the tab's bar durations, a missing interior point would show as one interval about two bars long. **No doubled interval exists in either video.**
+
+| | Intervals | Median error | Last interval | Matches |
+|---|---|---|---|---|
+| primary, 105 points | 104 | 0.049 s | 4.370 s | bar 104 at 4.286 s |
+| alt, 106 points | 105 | 0.065 s | 5.320 s | bar 105 at 5.357 s |
+
+Nothing is missing from the interior; only the terminal boundary. Bar 105's end is extrapolated from the tab's own tempo, which `r8973454` now makes accurate, so calling it a defect overstated it.
+
+**What the eye added.** Interval 1 runs long in **both** videos, **+0.79 s primary and +0.82 s alt**, while every later residual hugs zero. Two independently synced videos placing bar 1 the same way relative to bar 2 points at the tab's notated bar-1 length rather than one video's sync being wrong. That strengthens the withdrawal above. For video-synced playback `r8973454` therefore changes little across the body; it fixes Songsterr's own MIDI playback and within-bar interpolation.
 
 **The route exists.** Across the five page bundles, 2,693,991 characters: `videoSync` 31 times, `video/sync` twice, `POST /api/video-points/process`, event `video/syncPointsPublished`, and the editor command **`commands/editor:pointsReplace`**. Two browser bridges are live on this Mac. **No `pointsReplace` was fired**, for evidence rather than access: after the eye check there is no verified replacement value.
 

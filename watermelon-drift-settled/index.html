@@ -182,7 +182,19 @@ a{color:#0d6f88;font-weight:600}
 <tr class="good"><td>Median error after bar 6</td><td class="num">not computed</td><td class="num"><b>0.028 s</b></td></tr>
 <tr class="good"><td>Bars off by more than 1 s</td><td class="num">not computed</td><td class="num"><b>0 of 105</b></td></tr>
 </table></div>
-<p>So the per-measure points already track the performance to about 30 ms through the body. That video does carry 105 points where all eleven others carry 106, so the final barline has no end anchor.</p>
+<p>So the per-measure points already track the performance to about 30 ms through the body.</p>
+<h3>The 105-point count, read by eye rather than inferred</h3>
+<p>That video carries 105 points where all eleven others carry 106. Rendered as inter-point intervals against the tab's own bar durations, a missing interior point would show as one interval about two bars long. <b>No doubled interval exists in either video.</b> Both trace the same 4/4-to-5/4 zigzag, 4.3 s alternating with 5.4 s, the whole way.</p>
+<div class="scroll"><table>
+<tr><th></th><th class="num">Intervals</th><th class="num">Median error vs bar durations</th><th class="num">Last interval</th><th>Matches</th></tr>
+<tr><td>primary, 105 points</td><td class="num">104</td><td class="num">0.049 s</td><td class="num">4.370 s</td><td>bar 104 at 4.286 s</td></tr>
+<tr><td>alt, 106 points</td><td class="num">105</td><td class="num">0.065 s</td><td class="num">5.320 s</td><td>bar 105 at 5.357 s</td></tr>
+</table></div>
+<p>The primary's points are bar starts 1 through 105 with no terminal boundary, and nothing is missing from the interior. Bar 105's end is extrapolated from the tab's own tempo, which <code>r8973454</code> now makes accurate, so calling it a defect overstated it.</p>
+<div class="callout gold">
+ <h3>What the eye added that the arithmetic missed</h3>
+ <p style="margin-bottom:0">Interval 1 runs long in <b>both</b> videos by nearly the same amount, <b>+0.79 s on the primary and +0.82 s on the alt</b>, while every later residual hugs zero. Two independently synced videos placing bar 1 the same way relative to bar 2 points at the tab's notated bar-1 length rather than at one video's sync being wrong. That strengthens the withdrawal above: 12.710 s is likely what both syncers intended.</p>
+</div>
 <div class="callout aqua">
  <h3>What this means for the tempo fix</h3>
  <p style="margin-bottom:0">For <b>video-synced</b> playback the sync points carry the timing, so <code>r8973454</code> changes little across the body. It fixes Songsterr's own MIDI playback and the within-bar interpolation. A peer session reached the same shape independently, placing the residual error at the opening rather than through the song.</p>
