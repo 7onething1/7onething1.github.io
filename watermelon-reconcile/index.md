@@ -46,7 +46,7 @@ The earlier pass found 49 and stopped at the snare. Sweeping every drum found 12
 | CHART-TOMS | RESTORED | 107 | 193 | 6 | 185 | 4 | rejected |
 | RESTORED-TEXTSAFE-v2 | ghost restore | 107 | 193 | 6 | 6 | 2 | parent only |
 
-v13 disagrees with itself about which drum is playing. It stores identity twice, as a `Midi` property and as an `InstrumentArticulation` index, and the two disagree on **173 notes**. Read one way its 191 toms are 45x4 and 48x187; read the other way, 41x62, 45x4, 47x111, 48x14. The live head and the shipped file both return zero such disagreements. (Corrected 2026-09-08: an earlier version quoted the single-lane figure as the whole story. The articulation is the field the notation renders, so its numbers are the ones to quote.)
+v13 disagrees with itself about which drum is playing. It stores identity twice, as a `Midi` property and as an `InstrumentArticulation` index, and the two disagree. Stated in both scopes, since GPIF deduplicates note definitions: **2 note ELEMENTS** disagree, referenced from **173 note INSTANCES**. Read one way its 191 toms are 45x4 and 48x187; read the other way, 41x62, 45x4, 47x111, 48x14. The two readings reconcile exactly, 62 + 111 + 14 = 187. The live head and the shipped file each return zero disagreeing elements. On a percussion staff the `Midi` property carries a pitched value and the kit index lives in `InstrumentArticulation`, stated in `tr_ledger.py:189`. (Corrected 2026-09-08: an earlier version quoted the single-lane figure as the whole story. The articulation is the field the notation renders, so its numbers are the ones to quote.)
 
 The chart build never carried the kit rewrite, so it would have taken the kick from 504 back to 107.
 
