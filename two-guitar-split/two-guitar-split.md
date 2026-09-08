@@ -61,6 +61,33 @@ Not established: pitch accuracy (this is detector output), note lengths and ties
 (16th grid only), the last 5 seconds (notation 123.4 s against audio 128.4 s).
 Nothing uploaded.
 
+## Audio accuracy audit
+
+| Measure | Result | Reading |
+|---|---|---|
+| DTW map | 26.7% vs 8.1% random, gain +18.6 | ACCEPTED |
+| Attack recall | 24.4% (284 of 1162) | low |
+| Attack precision | 91.7% (122 of 133 onsets) | 8.7 attacks per onset, so density |
+| Timing pre-warp | median 104.8 ms, p90 220.6 ms | post-warp 0.0 ms is circular |
+| Pitch agreement | 50.9% vs 47.0% control | no discriminating power |
+| Ownership, canonical tool | +0.2651 vs +0.2766 | INVALID, that tool's corpus is Shiner |
+
+### Channel ownership against a human tab of the same song
+
+Chance-normalised; the +5 s shift control lands at -0.1 and +0.3, which is zero.
+
+| Number | This artifact | Human Songsterr tab |
+|---|---|---|
+| Gtr1 separation over best wrong stem | +0.4 | +0.4 |
+| Gtr2 separation over best wrong stem | -3.2 | -16.3 |
+| Gtr1 own minus other channel | -2.8 | -5.4 |
+| Gtr2 own minus other channel | +2.0 | -1.2 |
+
+VERDICT: audio accuracy UNDETERMINED, not refuted. The human tab fails the same
+controls as badly or worse, and on one staff its shifted control beat its real
+channel, so the measure has no power on this song. This artifact matches or beats
+the human tab on all four numbers.
+
 ## Sources
 
 - `~/Projects/_outputs/impossible-guitar-parts/kilgore-role-separation-2026-09-07/channel_separability_report.csv`

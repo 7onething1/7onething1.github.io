@@ -133,6 +133,44 @@ rhythmically blunt. The notation runs 123.4 s against the recording's 128.4 s, s
 late notes clamp into the last bar. Hand-skip sits at 27% and 31%, against 9% on
 the hand-repaired Kilgore staff. Nothing has been uploaded.</div>
 
+<h2>The audio accuracy audit, and what it can actually judge</h2>
+<p>Playability is the second question. The first is whether the notes are right,
+so the artifact went through <code>audio_accuracy_audit.py</code> and through a
+per-staff channel-ownership measure with wrong-song stems as controls.</p>
+
+<div class="tw"><table>
+<thead><tr><th>Measure</th><th>Result</th><th>Reading</th></tr></thead>
+<tbody>
+<tr><td class="song">DTW map</td><td class="num">26.7% vs 8.1% random, gain +18.6</td><td class="note">map ACCEPTED</td></tr>
+<tr><td class="song">Attack recall</td><td class="num">24.4% (284 of 1162)</td><td class="note">low</td></tr>
+<tr><td class="song">Attack precision</td><td class="num">91.7% (122 of 133 onsets)</td><td class="note">1162 attacks against 133 onsets is 8.7 to 1, so this is density</td></tr>
+<tr><td class="song">Timing, pre-warp</td><td class="num">median 104.8 ms, p90 220.6 ms</td><td class="note">post-warp median is 0.0 ms and circular</td></tr>
+<tr class="unus"><td class="song">Pitch agreement</td><td class="num">50.9% vs 47.0% control</td><td class="note">NO DISCRIMINATING POWER, the control nearly matches</td></tr>
+<tr class="mono"><td class="song">Ownership, canonical tool</td><td class="num">+0.2651 vs +0.2766</td><td class="note">INVALID: that tool's corpus is Shiner's The Ship, so these are another song's numbers</td></tr>
+</tbody></table></div>
+
+<h3>Channel ownership, measured directly, against a human tab of the same song</h3>
+<p>Chance-normalised, because the wrong-stem controls differ wildly in onset
+density (1012 against this song's 96). The normalisation is validated by the
++5&nbsp;s shift control landing at &minus;0.1 and +0.3 gain, which is zero.</p>
+
+<div class="tw"><table>
+<thead><tr><th>Number</th><th>This artifact</th><th>Human Songsterr tab, same song</th></tr></thead>
+<tbody>
+<tr><td class="song">Gtr1 separation over best wrong stem</td><td class="num">+0.4</td><td class="num">+0.4</td></tr>
+<tr><td class="song">Gtr2 separation over best wrong stem</td><td class="num">&minus;3.2</td><td class="num">&minus;16.3</td></tr>
+<tr><td class="song">Gtr1 own channel minus other channel</td><td class="num">&minus;2.8</td><td class="num">&minus;5.4</td></tr>
+<tr><td class="song">Gtr2 own channel minus other channel</td><td class="num">+2.0</td><td class="num">&minus;1.2</td></tr>
+</tbody></table></div>
+
+<div class="call"><b>The measure has no power on this song, so the audio verdict is
+UNDETERMINED rather than refuted.</b> The human tab fails the same controls as
+badly or worse, and on one staff its +5&nbsp;s shifted control scored +12.0 while
+its real channel scored &minus;1.1. An instrument that cannot tell a human tab of
+this song from a wrong recording cannot judge this one either. What can be said
+is narrow and true: on every one of the four numbers this artifact matches or
+beats the human tab of the same song.</div>
+
 <h2>Standing rule</h2>
 <p><b>Two guitars, never four.</b> A third staff is never the answer, and the
 split is decided by who played the note, never by panning or by stem loudness.</p>
