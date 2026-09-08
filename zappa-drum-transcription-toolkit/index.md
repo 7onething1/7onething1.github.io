@@ -63,7 +63,8 @@ p 376, mp 33, mf 114. That reproduces the validation page's table by a different
 **Audio.** Fifteen stems at `/Users/Shared/202 Keep It Greasey-D minor-142bpm-442hz/`, kit
 already split six ways. The metronome stem is synthetic, a beat tracker rendered to a wav.
 
-**Printed sources.** DRUM! Groove Analysis reads **Verse 1 at 0:35, quarter = 134, 19/16**
+**Printed sources, digits read from native-resolution crops at 4x and 6x, never a page
+overview.** DRUM! Groove Analysis reads **Verse 1 at 0:35, quarter = 134, 19/16**
 and **Verse 2 at 1:16, 21/16 into 9/16 into 4/4**. The Odd Meter Lesson page draws the
 ghosts in brackets. Marc Atkinson's Modern Drummer *Rock Charts* is the only complete-song
 chart, now re-rendered at 400 dpi.
