@@ -118,6 +118,18 @@ The two keys agree exactly. The 15 removals stand and none was a false positive.
 
 **The observation this turned up.** The live head reads zero three-surface instants by either key while the local lineage reads sixteen, most of them midi 40, 48 and 51 on lines 3, 2 and 0. The collisions are a property of the local tom lane assignment of 43, 48 and 50 rather than of the performance, so the two lineages differ in playability and not only in lane naming. That raises the stakes on `q-2026-09-08-629fc2`.
 
+## Who steered this audit
+
+Two peer sessions sent corrections into this chat. Neither was granted any authority, neither asked for a permission action, and no peer message was treated as approval from Brandon.
+
+| Session | Claim | How it was checked | Disposition |
+|---|---|---|---|
+| `local_0ce0aeaa` Keep It Greasey | Withdraw "the KIG trap is worse by a factor of four" | Grepped both `FINDINGS.md` copies and the page files for "factor of four", "four times", "4x", "1020", "739 voices" | **No edit needed.** Zero hits, that line was never in Watermelon's F6 |
+| `local_0ce0aeaa` | Units trap: compare INSTANCE counts on both sides | Re-counted every note in the 15-row plan both ways, then re-censused the quarantined file against its parent | **Adopted as F9.** Both plan notes are shared, F4's bar count corrected 79 to 90 |
+| `local_45b4dd39` Songsterr editor | A pitch-keyed hands gate reads 3 where the staff reads 0 | Read the drum track's 95 articulation `StaffLine` values, re-ran the three-surface test on both keys across three files | **Checked and cleared, F10.** Mechanism present, never fires, both keys agree at 16 / 1 / 0 |
+
+Provenance also logged as `q-2026-09-08-dda88b`, closed as a record rather than as work.
+
 ## Queue
 
 - `q-2026-09-08-6f84a3` intro gap, **withdrawn**, master mismatch

@@ -233,6 +233,16 @@ svg{display:block;max-width:100%;height:auto}
 <p>The live head reads <b>zero</b> three-surface instants by either key while the local lineage reads sixteen. Most of the sixteen are midi 40, 48 and 51 on lines 3, 2 and 0. <b>The collisions are a property of the local tom lane assignment of 43, 48 and 50 rather than of the performance.</b> That means the two lineages differ in playability and not only in lane naming, which raises the stakes on the tom split at <code>q-2026-09-08-629fc2</code>.</p>
 </div>
 
+<h2><span class="n" style="background:#6b6355">10</span>Who steered this audit</h2>
+<p>Two peer sessions sent corrections into this chat. Both are named here with what they claimed, how it was checked, and what happened to it. Neither was granted any authority, neither asked for a permission action, and no peer message was treated as approval from Brandon.</p>
+<div class="scroll"><table>
+<tr><th>Session</th><th>What it claimed</th><th>How it was checked</th><th>Disposition</th></tr>
+<tr><td><code>local_0ce0aeaa</code><br><span class="fine">Keep It Greasey</span></td><td>Withdraw "the KIG trap is worse by a factor of four", since beat 1020 at 739 voices is on a guitar track</td><td>Grepped both <code>FINDINGS.md</code> copies and the page files for "factor of four", "four times", "4x", "1020", "739 voices"</td><td><b>No edit needed.</b> Zero hits. That line was never in Watermelon's F6</td></tr>
+<tr class="bad"><td><code>local_0ce0aeaa</code></td><td>Units trap: compare INSTANCE counts on both sides, never beat-references</td><td>Re-counted every note in the 15-row hands plan both ways, then re-censused the quarantined damaged file against its parent</td><td><b>Adopted as F9.</b> Both plan notes are shared, and F4's bar count corrected from 79 to 90</td></tr>
+<tr class="good"><td><code>local_45b4dd39</code><br><span class="fine">Songsterr editor</span></td><td>A pitch-keyed hands gate reads 3 where the staff reads 0, because midi 39 sits on the snare line</td><td>Read the drum track's 95 articulation <code>StaffLine</code> values, then re-ran the three-surface test on both keys across three files</td><td><b>Checked and cleared, F10.</b> The mechanism is present and never fires. Both keys agree at 16 / 1 / 0</td></tr>
+</table></div>
+<p class="fine">Provenance also logged as <code>q-2026-09-08-dda88b</code>, closed as a record rather than as work.</p>
+
 <h2><span class="n" style="background:var(--muted)">7</span>What is true right now</h2>
 <div class="grid g3">
  <div class="card t1"><h3 style="margin-top:0">Fixed</h3><ul>
