@@ -23,9 +23,9 @@ Babysitter tally: 15 CEILING_BREACH, 5 CEILING_HANDOFF_UNVERIFIED, 4 SCOPE_DRIFT
 A gate that scans prose can be satisfied by rewriting prose. The nine gates below
 read counts, ratios, tool names, queue ids and reply similarity.
 
-## Nine new gates
+## Eleven new gates
 
-Added to `~/.claude/skills/fifty-gates/`, now 61 gates in one enforcement pass.
+Added to `~/.claude/skills/fifty-gates/`, now 63 gates in one enforcement pass.
 
 | Id | Name | Sev | Refuses |
 |---|---|---|---|
@@ -38,15 +38,28 @@ Added to `~/.claude/skills/fifty-gates/`, now 61 gates in one enforcement pass.
 | G59 | unregenerable-number | warn | A ratio with nothing that reproduces it |
 | G60 | absent-locally-called-absent | hard | A local miss read as the source not existing |
 | G61 | revised-instead-of-copied | hard | A Songsterr revision with no copy step |
+| G62 | alarm-narrower-than-detector | hard | Zero alerts beside a nonzero finding count |
+| G63 | change-key-without-time | warn | A dedup key with no time component |
 
 ## What the gates measure
 
-    self-test                            14 of 14 pass
+    self-test                            16 of 16 pass
     599-tom ship replayed (23:02)        G53 fires, G54 fires
     rewrite loop replayed (23:13)        G55 fires
     the confession turn   (23:26)        silent, correctly
     two control sessions                 silent
-    false positives across 37 live       ZERO
+    false positives across 38 live       ZERO
+
+## Two more, found by a second session
+
+A session working on the chat babysitter reported two detector defects. Both were
+verified here against the code before being encoded.
+
+- The alert path filtered on 7 rule names. The sweep emits 14 distinct rule types. Its own note: "39 of 57 live findings could never alert and the log read
+  new_alerts=0 for hours". That is G62.
+- The dedup key was `uuid:rules:floor(turns/500)`. A quiet chat stops accruing
+  turns, so its key freezes exactly when silence makes it worth re-alerting. One
+  chat alerted once at 8.9 days idle and never again. That is G63.
 
 ## Three new skills
 
@@ -77,7 +90,7 @@ Added to `~/.claude/skills/fifty-gates/`, now 61 gates in one enforcement pass.
 
 ## Files
 
-    ~/.claude/skills/fifty-gates/gates_def.py           G53-G61
+    ~/.claude/skills/fifty-gates/gates_def.py           G53-G63
     ~/.claude/skills/fifty-gates/run_gates.py           checks + self-tests
     ~/.claude/skills/fraud-firewall/firewall.py         umbrella
     ~/.claude/skills/fraud-firewall/OPENING-PROMPTS.md  4 prompts
