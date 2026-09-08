@@ -86,3 +86,20 @@ Resolved on provenance rather than audio. No edit proposed.
   proved identical across both GP files, and a deliberately incorrect recording was never tested.
 - The leakage gate ran as a single bleed control (toms with no notated cymbal, 9.2 percent, below the
   13.3 percent floor). Template similarity and silent-passage detection rates were not measured.
+
+## Wrong-recording control (closes the first spec gap)
+
+Watermelon's notated events, through the Watermelon clock, scored against Keep It Greasey, a different
+Zappa performance run through the same Moises separator.
+
+| Lane | n | Right recording | Wrong recording | Separation |
+|---|---|---|---|---|
+| Tom | 168 | 7.71x | 1.36x | 5.67x |
+| Snare | 342 | 6.89x | 0.78x | 8.86x |
+| Kick | 504 | 5.21x | 0.70x | 7.49x |
+| Cymbal | 1573 | 1.46x | 1.00x | 1.45x |
+
+Three lanes collapse against the wrong performance, so the clock is specific to this recording. The
+cymbal lane returns exactly 1.00x on the wrong recording and 1.46x on its own, so some cymbal notation
+is genuinely supported. The 1.45x separation sits under the 1.5x floor, so the lane characterises well
+and cannot promote an individual edit. Data: data/wrong_recording.json
