@@ -64,13 +64,13 @@ a{color:#0d6f88;font-weight:600}
 
 <span class="stamp">Root cause found</span>
 <h1>Why the Watermelon GP is not done and not perfect</h1>
-<p class="deck">Nine days, 56 sessions, 26,293 assistant turns and 9.57 billion tokens went into one drum tab. Every stem measurement in that span ran against a clock that was wrong by up to 6.3 seconds. Here is the measurement, the proof, and the clock that removes the blocker.</p>
+<p class="deck">Nine days, 55 sessions, 26,339 assistant turns and 9.59 billion tokens went into one drum tab. Every stem measurement in that span ran against a clock that was wrong by up to 6.3 seconds. Here is the measurement, the proof, and the clock that removes the blocker.</p>
 <p class="sub">Subject: Songsterr s6857183 r8970744, Watermelon In Easter Hay, Vinnie Colaiuta. Measured 2026-09-08 from the shipped .gp and the Moises stem set.</p>
 
 <h2><span class="n" style="background:var(--flare)">1</span>What it cost</h2>
 <div class="grid g4">
- <div class="card t5"><div class="k f">9.57B</div><div class="lab">tokens on one tab</div><div class="fine">31.3M output, 144.6M cache write, 9.39B cache read</div></div>
- <div class="card t4"><div class="k g">26,293</div><div class="lab">assistant turns</div><div class="fine">across 56 sessions, Aug 31 to Sep 8</div></div>
+ <div class="card t5"><div class="k f">9.59B</div><div class="lab">tokens on one tab</div><div class="fine">31,400,847 output, 144,485,079 cache write, 9,417,850,850 cache read</div></div>
+ <div class="card t4"><div class="k g">26,339</div><div class="lab">assistant turns</div><div class="fine">across 55 sessions, Aug 31 to Sep 8</div></div>
  <div class="card t3"><div class="k y">78%</div><div class="lab">of the whole project</div><div class="fine">289.4 MB of 372.6 MB of transcript</div></div>
  <div class="card t1"><div class="k a">300 : 1</div><div class="lab">cache read per output token</div><div class="fine">the budget went to re-reading its own context</div></div>
 </div>
@@ -213,7 +213,12 @@ a{color:#0d6f88;font-weight:600}
 
 <footer>
  <p>Measured 2026-09-08 on MacBookPro from <code>~/Projects/_outputs/zappa-watermelon-hat-snare-repair/out/RECONCILED-s6857183-Brandon-edit.gp</code>, sha256 <code>bc5ce3de02153f39485d2e4324c0c45f4cc7237f779adfc3c3b3e1dd76b8548f</code>, against the Moises stem set at <code>/Users/Shared/206 Watermelon in Easter Hay-E major-112bpm-442hz/</code>.</p>
- <p>Numbers on this page come from <a href="evidence.json">evidence.json</a>, <a href="metromap.json">metromap.json</a>, <a href="tempomap.json">tempomap.json</a> and <a href="coda.json">coda.json</a>. Token and turn counts were summed from the usage blocks of 120 session transcripts. Every match rate carries a wrong-stem control run on the identical detector.</p>
+ <h3>Provenance of the cost figures</h3>
+<p>Every count above was summed from the <code>usage</code> block of each assistant message across the 120 <code>.jsonl</code> files in <code>~/.claude/projects/-Users-brandonchavez/</code>. This audit's own session, <code>a13ba186</code>, is excluded from all of them so the tally does not count itself. A representative usage object sits at <code>04e0fedb-076f-43e2-be22-d2f629ec230c.jsonl:56</code> and reads <code>"cache_read_input_tokens": 100575, "output_tokens": 637</code>.</p>
+<div class="callout gold">
+ <p><b>One distinction this page must keep straight.</b> The transcripts carry 40 occurrences of an UNUSABLE verdict across 10 files, and most of them come from a <b>density</b> gate rejecting a baseline above the 35 percent ceiling, quoted at <code>04e0fedb:1210</code> and <code>04e0fedb:1296</code>. The <b>alignment</b> gate is a separate instrument, and its UNUSABLE at 0.336 is recorded in <a href="https://7onething1.github.io/watermelon-reconcile/real_gates.json">real_gates.json</a>. The clock repair on this page addresses the alignment gate. The density findings stand on their own and were not re-tested here.</p>
+</div>
+<p>Numbers on this page come from <a href="evidence.json">evidence.json</a>, <a href="metromap.json">metromap.json</a>, <a href="tempomap.json">tempomap.json</a> and <a href="coda.json">coda.json</a>. Token and turn counts were summed from the usage blocks of 120 session transcripts. Every match rate carries a wrong-stem control run on the identical detector.</p>
  <p>Palette: The Life Aquatic (Wes Anderson).</p>
 </footer>
 </main></body></html>

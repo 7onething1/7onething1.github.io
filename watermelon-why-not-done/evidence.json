@@ -6,14 +6,14 @@
  "cost": {
   "date_span": "2026-08-31 to 2026-09-08",
   "project_sessions": 120,
-  "watermelon_sessions": 56,
+  "watermelon_sessions": 55,
   "watermelon_transcript_mb": 289.4,
   "share_of_project_transcript_pct": 78,
-  "assistant_turns": 26293,
-  "output_tokens": 31280000,
-  "cache_write_tokens": 144550000,
-  "cache_read_tokens": 9392710000,
-  "total_tokens": 9568590000,
+  "assistant_turns": 26339,
+  "output_tokens": 31400847,
+  "cache_write_tokens": 144485079,
+  "cache_read_tokens": 9417850850,
+  "total_tokens": 9593790124,
   "cache_read_to_output_ratio": 300,
   "sessions_over_1000_turns": 3,
   "sessions_over_500_turns": 14,
@@ -23,7 +23,9 @@
   "build_gp_scripts": 13,
   "verify_gp_scripts": 14,
   "published_routes": 48,
-  "spectrogram_cache_gb": 3.8
+  "spectrogram_cache_gb": 3.8,
+  "self_excluded_session": "a13ba186 (this audit) removed from every count",
+  "provenance": "summed from the usage block of each assistant message across 120 .jsonl files in ~/.claude/projects/-Users-brandonchavez/; sample object at 04e0fedb-076f-43e2-be22-d2f629ec230c.jsonl:56"
  },
  "root_cause": {
   "claim": "The tab carries one tempo automation at 56.000 bpm for a live take that averages about 55.30 bpm.",
@@ -230,5 +232,6 @@
     "metronome": 0.514
    }
   ]
- }
+ },
+ "scope_note": "40 UNUSABLE occurrences across 10 transcripts are mostly a DENSITY gate (baseline above the 35% ceiling), quoted at 04e0fedb:1210 and 04e0fedb:1296. The alignment gate is separate; its UNUSABLE at 0.336 is in watermelon-reconcile/real_gates.json. This page repairs the alignment clock and does not re-test the density findings."
 }
