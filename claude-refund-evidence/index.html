@@ -131,7 +131,30 @@ and <i>Chat babysitting behavior</i>. Substantial capacity went into building su
 rather than into the song.</p>
 </div>
 
-<h2>6. Message to send Anthropic support</h2>
+<h2>6. The mechanical cause</h2>
+<div class="box bad">
+<h3 style="margin-top:0">Tool calls were never batched</h3>
+<p>Across the arc, <b>1 of 18,448 tool-using messages carried more than one tool call</b>. That is
+<b>0.005%</b> against a documented target above 40%. Every serialized call re-reads the entire
+conversation context before it runs. In a 3,521-turn session that context is paid for on every
+single step, which is what produced 1.87 billion tokens from one drum chart.</p>
+<p style="margin-bottom:0">This is a measurable execution pattern rather than an inherently hard task.
+The same work batched at the documented target would have cost a fraction of it.</p>
+</div>
+<div class="box bad">
+<h3 style="margin-top:0">Eight simultaneous chats on one song</h3>
+<p style="margin:0">Peak concurrency reached <b>8 live sessions working Watermelon at 14:00</b> on
+2026-09-08. My own standing configuration specifies one active session at a time. Eight parallel
+chats each carrying the same song's full context multiplied the reload cost by eight.</p>
+</div>
+<div class="box warn">
+<h3 style="margin-top:0">Attribution, stated accurately</h3>
+<p style="margin:0">Every turn in this arc ran on <code>claude-opus-5</code>. Across all 122 transcripts
+there were 39,764 Opus 5 turns, 172 Sonnet 5, and <b>zero Fable</b>. I want the request judged on the
+correct facts, so I am not attributing this to a model I did not run.</p>
+</div>
+
+<h2>7. Message to send Anthropic support</h2>
 <div class="box ok">
 <p style="margin-top:0">Copy the block below into a support request. It states the facts and makes one clear ask.</p>
 </div>
@@ -178,6 +201,22 @@ WHY THIS IS NOT ORDINARY DIFFICULTY
 4. A local turn-ceiling check recorded 1,842 assistant turns in one
    session with no handoff, and the session kept running.
 
+THE MECHANICAL CAUSE
+Across the whole arc, 1 of 18,448 tool-using messages carried more than
+one tool call. That is 0.005 percent batching against a documented target
+above 40 percent. Every serialized tool call re-reads the full context
+before running, so a 3,521-turn session pays for its entire context on
+every step. Peak concurrency was 8 simultaneous chats on the same song,
+each carrying that same context.
+
+This is why I am asking for a refund rather than accepting it as a hard
+task. The consumption traces to an execution pattern, not to the
+difficulty of transcribing one drum part.
+
+For accuracy: every turn ran on claude-opus-5. Zero Fable, 172 Sonnet 5
+turns across all 122 transcripts. I am not attributing this to a model I
+did not run.
+
 WHAT I AM ASKING FOR
 1. A refund of my Claude Max subscription for this period.
 2. A human reviewer, not an automated reply.
@@ -193,7 +232,7 @@ I can supply the raw JSONL transcripts on request.
 Brandon Chavez
 </pre>
 
-<h2>7. How to reach a human</h2>
+<h2>8. How to reach a human</h2>
 <div class="box ok">
 <ul style="margin-top:0">
 <li><b>Primary route.</b> Go to <code>support.claude.com</code>, sign in with

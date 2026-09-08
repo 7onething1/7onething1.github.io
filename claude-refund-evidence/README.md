@@ -59,3 +59,13 @@ block from the live page. Ask explicitly for a human reviewer. Do not delete the
 while the request is open.
 
 Live page: https://7onething1.github.io/claude-refund-evidence/
+
+## The mechanical cause (added 2026-09-08)
+
+- **Zero batching.** 1 of 18,448 tool-using messages carried more than one tool call. 0.005% against a
+  documented target above 40%. Every serialized call re-reads the full context, so a 3,521-turn session
+  pays for its whole context on every step.
+- **Eight-way fan-out.** Peak concurrency was 8 live sessions on Watermelon at 14:00 on 2026-09-08,
+  against a standing one-session-at-a-time configuration.
+- **Attribution.** Every turn ran `claude-opus-5`. Across all 122 transcripts: 39,764 Opus 5, 172
+  Sonnet 5, zero Fable. Source: `reference_watermelon_arc_was_all_opus5_not_fable`.
