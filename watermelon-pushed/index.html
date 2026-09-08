@@ -107,6 +107,30 @@ work continues while it sits there. Hard gate, every chat.</li>
 <code>feedback_relay_updates_to_chatgpt_via_chrome.md</code>.</p>
 </section>
 
+
+<section>
+<h2>Staff-scan propagation, finished</h2>
+<p>The two-lanes-low bug took the FIRST staff row above a global ink fraction, so a system whose
+top line printed lighter lost that line and every lane read two lanes low. The corrected rule
+picks the top maximising the WEAKEST of the five rows, with a 0.25 floor.</p>
+<div class="scroll"><table>
+<tr><th>script</th><th>state</th><th>in the live path</th></tr>
+<tr><td><code>chart_read.py</code> refine()</td><td class="grn">fixed by the sibling</td><td>yes</td></tr>
+<tr><td><code>chart_lanes.py</code> staff_lines()</td><td class="grn">fixed by the sibling</td><td>yes</td></tr>
+<tr><td><code>systems.py</code> staves()</td><td class="grn">fixed this pass</td><td>no</td></tr>
+<tr><td><code>staves.py</code> systems()</td><td class="grn">fixed this pass</td><td>no</td></tr>
+<tr><td><code>barlines.py</code> staff_lines()</td><td class="grn">fixed this pass</td><td>no</td></tr>
+<tr><td><code>systems_median.py</code>, <code>barlines_full.py</code></td><td>already clean, row medians</td><td>yes</td></tr>
+</table></div>
+<p><b>No regression, and no improvement either.</b> On the five Drumnet pages
+<code>staves.py</code> returns 5, 5, 6, 6, 4 systems both before and after the patch, so the
+behaviour is unchanged on this chart. The patch closes the two-lanes-low trap should any of the
+three ever be called again.</p>
+<p><b>They still undercount and they stay superseded.</b> The three find 26 systems where the
+chart has 48. <code>systems_median.py</code> finds all 48, gaps 8 / 11 / 11 / 11 / 7, and it is
+the finder to use.</p>
+</section>
+
 <footer>Live tab:
 <a href="https://www.songsterr.com/a/wsa/frank-zappa-watermelon-in-easter-hay-brandon-edit-drum-tab-s6857183">s6857183</a>.
 Sheet: <a href="https://7onething1.github.io/watermelon-20-bar-sheet/">20-bar sheet</a>.

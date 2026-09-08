@@ -18,3 +18,18 @@ Brandon-chavez4 on s6389251, s6206980, s6362089), so it needs no carve-out. The 
 that belong to others are the 20 Zappa tabs, 16 still live with 3,842 ghost flags dropped.
 
 Live: https://7onething1.github.io/watermelon-pushed/
+
+## Staff-scan propagation, finished
+
+Corrected rule: pick the staff top maximising the WEAKEST of the five rows, 0.25 floor, instead
+of the first row above a global ink fraction.
+
+- chart_read.py refine() and chart_lanes.py staff_lines(): already fixed by the sibling, both in
+  the live path.
+- systems.py staves(), staves.py systems(), barlines.py staff_lines(): fixed this pass. None is
+  in the live path. Backups at *.bak-pre-staffrefine-2026-09-08.
+- systems_median.py and barlines_full.py: already clean, row medians.
+
+No regression and no improvement: staves.py returns 5, 5, 6, 6, 4 systems before and after. The
+three still find 26 systems where the chart has 48, so they stay superseded. systems_median.py
+finds all 48.
