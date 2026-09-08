@@ -177,7 +177,7 @@ footer{margin-top:4rem;padding-top:1.3rem;border-top:2px solid var(--line);
 <p class="note">The anchor span runs from stem 59.3 s to 506.1 s, so bars before it and the coda after it cannot be tested on this clock. They were left exactly as they stand.</p>
 
 <h2 class="g">Why the coda stays empty</h2>
-<p>The printed chart writes 19 tom heads across bars 95 to 104. They are still not in the tab, and the reason is a measurement rather than a preference.</p>
+<p>The printed chart marks tom heads as PRESENT in bars 95 to 104. No count appears here and none should, since that scan is 5.0 px per staff space and a notehead count needs 15. Nothing was written into the tab there, and the reason is a measurement rather than a preference.</p>
 <div class="scroll"><table>
 <thead><tr><th>Threshold</th><th>Chart-tom bars</th><th>Chart-empty control bars</th><th>Ratio</th><th>Floor</th></tr></thead>
 <tbody>
@@ -187,6 +187,20 @@ footer{margin-top:4rem;padding-top:1.3rem;border-top:2px solid var(--line);
 </tbody>
 </table></div>
 <p>The bars the chart marks empty score the same as the bars it fills. A detector that cannot tell those apart cannot license adding a note, so the heads stay out until a rescan or a coda-local clock exists.</p>
+
+<h2 class="t">The resolution ceiling, applied to every chart reading here</h2>
+<p>One scan underlies every chart observation in this lineage, at <strong>5.0 px per staff space</strong>. Per-head identity needs 6 and a notehead count needs 15, and magnifying to 8x or 16x adds nothing, because the information is not in the pixels.</p>
+<div class="scroll"><table>
+<thead><tr><th>A chart reading may say</th><th>It may never say</th></tr></thead>
+<tbody>
+<tr><td>Heads are PRESENT at a POSITION</td><td class="bad">How many heads</td></tr>
+<tr><td>The engraving prints filled ovals rather than x noteheads</td><td class="bad">Which drum they name</td></tr>
+</tbody>
+</table></div>
+<p>Two observations were withdrawn on these grounds rather than defended. A stacked-notehead reading at chart bar 20 is gone entirely. The chart bar 86 check survives only as <em>filled noteheads are present there</em>, never as four of them and never on a named drum.</p>
+<div class="card">
+<p style="margin:0"><strong>The three-hands finding does not depend on any of it.</strong> That the 16 instants are identical in the baseline and the shipped file is a comparison between two Guitar Pro files, so it needs no chart reading and survives the ceiling untouched.</p>
+</div>
 
 <h2>Gates the build had to clear</h2>
 <div class="scroll"><table>

@@ -127,6 +127,16 @@ Null is the 88 bars that kept their ride, median band energy 49.2.
 
 Bars 2, 4 and 98 to 105 fall outside the anchor span, so they carry no verdict and were left alone.
 
+## The resolution ceiling, applied to every chart reading here
+
+The scan underlying every chart observation in this lineage is 5.0 px per staff space. Per-head identity needs 6, a notehead count needs 15, and magnifying adds nothing.
+
+A chart reading may say heads are PRESENT at a POSITION, and that the engraving prints filled ovals rather than x noteheads. It may never say how many, and never which drum.
+
+Two observations were withdrawn rather than defended: a stacked-notehead reading at chart bar 20 is gone, and the chart bar 86 check survives only as "filled noteheads are present", never as four and never on a named drum.
+
+The three-hands finding does not depend on any of this. That the 16 instants are identical in baseline and shipped is a comparison between two Guitar Pro files.
+
 ## Gates
 
 Drum staff -63, voice 0 untouched, other eight tracks identical across 2,765 positions, only kick and snare and high mid tom changed, all 1,038 voice bars keep their duration, zero stacks remain, 137 of 137 CDATA wrappers preserved, NAMEDROP-CLEAR.
