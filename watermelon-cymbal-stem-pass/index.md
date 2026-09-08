@@ -1,5 +1,19 @@
 # Watermelon In Easter Hay: the cymbal stem pass
 
+> **SUPERSEDED 2026-09-08, later the same day.** The cymbal-lane conclusion below was measured on the
+> wrong clock. Rebuilt on the Moises metronome stem, same detector, same stem, same 1,573 notes:
+> confirm 19.3% -> 40.2%, ratio 1.46x -> 3.17x, separation 1.45x -> 3.00x. Verdict flips weak -> SEPARATES.
+>
+> What was wrong: this page anchored its clock on 97 snare matches. On the held-out kick lane that
+> alignment recovers 226 of 504 kicks (44.8%, span 59.3-506.1 s); the metronome clock recovers 286 of 504
+> (56.7%, span 41.3-528.5 s), winning by 60 kicks while covering 41 more seconds.
+>
+> NOT overturned: the tom result moved the other way (70.2% -> 60.1% confirm, still separating at 4.51x),
+> and the 101-collision comparison has NOT been rerun on the new clock, so its verdict is untested.
+>
+> Full rebuild: https://7onething1.github.io/watermelon-metronome-clock/
+
+
 Event-by-event audio check of the 101 colliding cymbal strokes. Songsterr copy s6857183,
 head revision r8968524. Built 2026-09-08.
 Live: https://7onething1.github.io/watermelon-cymbal-stem-pass/

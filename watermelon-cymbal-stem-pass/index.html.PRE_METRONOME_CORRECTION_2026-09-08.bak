@@ -102,31 +102,12 @@ run 2026-09-08 against the isolated cymbal stem.</p>
 </div>
 </header>
 
-<div class="card hero y" style="border-left-width:10px">
-<p class="lede" style="margin-top:0"><strong>SUPERSEDED 2026-09-08, later the same day.</strong>
-Everything below about the cymbal lane being unsupported was measured on the wrong clock. Rebuilding
-the alignment on the Moises metronome stem, with this same detector, this same stem and these same
-1,573 notes, moves the cymbal lane from <strong>19.3 percent confirm to 40.2 percent</strong>, from
-<strong>1.46 to 3.17 times chance</strong>, and from <strong>1.45 to 3.00 times separation</strong>.
-The verdict flips from <em>weak</em> to <strong>SEPARATES</strong>, and all five lanes now clear.
-The notes were always there. The ruler was wrong.</p>
-<p><strong>What was wrong, precisely.</strong> This page anchored its clock on 97 snare matches. Tested
-on the kick lane, which neither clock was fitted on, that alignment recovers 226 of 504 kicks, or 44.8
-percent, across 59.3 to 506.1 seconds. The metronome clock recovers <strong>286 of 504</strong>, or 56.7
-percent, across 41.3 to 528.5 seconds. It wins by 60 kicks while covering 41 more seconds of the song,
-so it is not buying accuracy with a shorter span. A cymbal lane is the densest and least periodic thing
-on the kit, which is why a clock error punished it hardest and left snare, kick and tom looking fine.</p>
-<p style="margin-bottom:0"><strong>Two things this does NOT overturn.</strong> The tom result stands and
-in fact moved the other way, 70.2 down to 60.1 percent confirm while still separating at 4.51 times, and
-that is stated here rather than buried. And the 101-collision comparison below has <strong>not</strong>
-been rerun on the new clock, so treat its verdict as untested rather than as confirmed.
-Full rebuild: <a href="https://7onething1.github.io/watermelon-metronome-clock/">watermelon-metronome-clock</a>.</p>
-</div>
-
 <div class="card hero">
 <p class="lede"><strong>The short version.</strong> The 101 cymbal strokes flagged for colliding with a
 tom confirm against the cymbal stem at 19.8 percent. Every other cymbal note in the tab confirms at
-19.3 percent. The collision criterion selected nothing. The claim that followed, that the whole 1,573-note cymbal lane runs at only 1.46 times chance on its own stem, is <strong>withdrawn</strong>: on the metronome clock the same notes reach 3.17 times. The lane scores in that session were snare 6.89, kick 5.21 and toms 7.71 through identical machinery, and the cymbal gap against them was the clock, not the notation.</p>
+19.3 percent. The collision criterion selected nothing. The real finding sits one level up: the whole
+1,573-note cymbal lane runs at 1.46 times chance on its own stem, in a session where snare scores 6.89,
+kick 5.21 and toms 7.71 through identical machinery.</p>
 <p><strong>Corrected 2026-09-08 by the leakage gate.</strong> The sentence above about the lane
 running at 1.46 times chance is a statement about the DETECTOR, never about the notation. On the 865
 cleanest cymbals in the song, those with no other drum within 50 ms, this detector recovers only
@@ -172,14 +153,13 @@ by drawing 20,000 random timestamps inside the span and running them through the
 <td class="mid">2.05&times;</td><td>cross-lane leakage, expected</td></tr>
 <tr style="background:color-mix(in srgb,var(--gold) 30%,transparent)">
 <td><strong>Cymbal</strong></td><td><strong>cymbals stem</strong></td><td>1573</td><td>1286</td>
-<td><strong>0.193</strong></td><td>0.133</td><td class="bad">1.46&times; <span class="note">(superseded: 3.17&times;)</span></td>
+<td><strong>0.193</strong></td><td>0.133</td><td class="bad">1.46&times;</td>
 <td><strong>its own stem, barely above chance</strong></td></tr>
 <tr><td>Cymbal</td><td>snare stem</td><td>1573</td><td>659</td><td>0.091</td><td>0.069</td>
 <td class="mid">1.31&times;</td><td>near null</td></tr>
 <tr><td>Cymbal</td><td>bass stem</td><td>1573</td><td>2216</td><td>0.203</td><td>0.219</td>
 <td>0.93&times;</td><td>negative control, correctly null</td></tr>
 </tbody></table></div>
-<p class="note"><strong>Superseded:</strong> the cymbal figure in this paragraph is 3.17 on the metronome clock.</p>
 <p>Three lanes clear five times chance on their own stems. The cymbal lane sits at 1.46 on its own stem
 and 0.93 on an unrelated one. This replicates the earlier two-way page through a stricter method, since
 one-to-one matching stops a single loud crash from confirming a run of written notes.</p>
@@ -214,13 +194,12 @@ through the same Moises separator, 501.84 s against 545.27 s.</p>
 <tr><td>Kick</td><td>504</td><td class="ok">5.21&times;</td><td>0.70&times;</td><td>7.49&times;</td><td class="ok">separates</td></tr>
 <tr style="background:color-mix(in srgb,var(--gold) 30%,transparent)">
 <td><strong>Cymbal</strong></td><td>1573</td><td><strong>1.46&times;</strong></td><td><strong>1.00&times;</strong></td>
-<td><strong>1.45&times;</strong> <span class="note">superseded: 3.00&times;</span></td><td class="mid"><strong>weak</strong><br><span class="note">now SEPARATES</span></td></tr>
+<td><strong>1.45&times;</strong></td><td class="mid"><strong>weak</strong></td></tr>
 </tbody></table></div>
 <div class="card hero">
 <p><strong>The clock is doing real work.</strong> Three lanes collapse to 1.36, 0.78 and 0.70 against the
 wrong performance, from 7.71, 6.89 and 5.21 against the right one. An alignment that matched anything
 rhythmic would not behave that way, so the map is specific to this recording.</p>
-<p><strong>Superseded.</strong> The paragraph that follows reasons from the 1.45&times; separation, which the metronome clock replaces with 3.00&times;. Its conclusion that the lane cannot promote an individual edit no longer follows from the number it cites.</p>
 <p style="margin-bottom:0"><strong>This sharpens the cymbal reading rather than killing it.</strong> The
 wrong recording returns the cymbal lane at exactly 1.00&times;, a clean null, and its own recording returns
 1.46&times;. Some cymbal notation is genuinely supported by this stem. The separation of 1.45&times; sits
