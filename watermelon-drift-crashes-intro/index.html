@@ -1,0 +1,246 @@
+<!doctype html>
+<html lang="en"><head><meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Watermelon: drift, crashes, intro</title>
+<style>
+:root{
+ --aqua:#3B9AB2; --sky:#78B7C5; --sun:#EBCC2A; --gold:#E1AF00; --flare:#F21A00;
+ --cream:#f6f0e2; --card:#fbf7ec; --ink:#1c1a16; --muted:#6b6355; --line:#ddd2b8;
+ color-scheme:light;
+}
+*{box-sizing:border-box}
+body{margin:0;background:var(--cream);color:var(--ink);
+ font:16px/1.62 -apple-system,BlinkMacSystemFont,Inter,"Segoe UI",sans-serif;padding:2.2rem 1.1rem 4rem}
+main{max-width:1080px;margin:0 auto}
+h1{font-size:2.05rem;line-height:1.16;margin:0 0 .35rem;letter-spacing:-.02em}
+.deck{color:var(--muted);font-size:1.03rem;margin:0 0 .5rem;max-width:72ch}
+.stamp{display:inline-block;background:var(--flare);color:#fff;font-weight:700;font-size:.74rem;
+ letter-spacing:.09em;text-transform:uppercase;padding:.28rem .6rem;border-radius:4px;margin-bottom:.9rem}
+h2{font-size:1.28rem;margin:2.6rem 0 .2rem;letter-spacing:-.01em}
+h2 .n{display:inline-block;width:1.55rem;height:1.55rem;line-height:1.55rem;text-align:center;
+ border-radius:5px;color:#fff;font-size:.86rem;margin-right:.5rem;vertical-align:2px}
+h3{font-size:1rem;margin:1.5rem 0 .35rem}
+p{margin:.55rem 0;max-width:74ch}
+.sub{color:var(--muted);font-size:.9rem;margin:.1rem 0 1rem}
+.grid{display:grid;gap:.75rem;margin:1rem 0}
+.g4{grid-template-columns:repeat(auto-fit,minmax(178px,1fr))}
+.g3{grid-template-columns:repeat(auto-fit,minmax(250px,1fr))}
+.card{background:var(--card);border:1px solid var(--line);border-radius:11px;padding:.9rem 1rem}
+.card.t1{border-left:6px solid var(--aqua)}
+.card.t3{border-left:6px solid var(--sun)}
+.card.t4{border-left:6px solid var(--gold)}
+.card.t5{border-left:6px solid var(--flare)}
+.k{font-size:1.9rem;font-weight:800;line-height:1.08;letter-spacing:-.02em}
+.k.a{color:var(--aqua)}.k.y{color:#9a8412}.k.g{color:#a97f00}.k.f{color:var(--flare)}
+.lab{font-size:.74rem;text-transform:uppercase;letter-spacing:.07em;color:var(--muted);margin-top:.2rem}
+.fine{font-size:.83rem;color:var(--muted);margin-top:.45rem}
+table{border-collapse:collapse;width:100%;font-size:.88rem;margin:.7rem 0;background:var(--card)}
+th,td{border:1px solid var(--line);padding:.42rem .6rem;text-align:left;vertical-align:top}
+th{background:#efe7d3;font-weight:700;font-size:.8rem;text-transform:uppercase;letter-spacing:.04em}
+td.num{text-align:right;font-variant-numeric:tabular-nums}
+tr.bad td{background:#fdeae7}
+tr.good td{background:#e9f4f7}
+.scroll{overflow-x:auto;-webkit-overflow-scrolling:touch}
+code{background:#efe7d3;padding:.09em .38em;border-radius:4px;font-size:.86em;word-break:break-all}
+.callout{border-radius:11px;padding:1rem 1.15rem;margin:1.1rem 0;border:1px solid var(--line)}
+.callout.red{background:#fdeae7;border-left:6px solid var(--flare)}
+.callout.aqua{background:#e9f4f7;border-left:6px solid var(--aqua)}
+.callout.gold{background:#fbf1d4;border-left:6px solid var(--gold)}
+.callout h3{margin-top:0}
+ul{margin:.5rem 0 .5rem 1.1rem;padding:0}li{margin:.3rem 0;max-width:74ch}
+.chart{background:var(--card);border:1px solid var(--line);border-radius:9px;padding:.75rem;margin:.8rem 0}
+.legend{font-size:.8rem;color:var(--muted);display:flex;gap:1.1rem;flex-wrap:wrap;margin:.35rem 0 .2rem}
+.legend span{display:inline-flex;align-items:center;gap:.35rem}
+.legend i{width:11px;height:11px;border-radius:2px;display:inline-block}
+footer{margin-top:3.2rem;border-top:1px solid var(--line);padding-top:1rem;font-size:.82rem;color:var(--muted)}
+a{color:#0d6f88;font-weight:600}
+svg{display:block;max-width:100%;height:auto}
+</style></head><body><main>
+
+<span class="stamp">Read-only audit, nothing edited</span>
+<h1>Watermelon: the drift, the missing crashes, the missing intro</h1>
+<p class="deck">Eleven Watermelon sessions are open at once. Brandon asked what each of them says about three complaints his ear made. Every number below was re-derived here from the stems, the shipped file and Songsterr's own sync map, and no tab or Guitar Pro file was touched.</p>
+<p class="sub">Subject: Songsterr <code>s6857183</code>, revision <code>r8972739</code>, Watermelon In Easter Hay, Vinnie Colaiuta. Measured 2026-09-08 against the Moises stem set and <code>metromap.json</code>.</p>
+
+<div class="grid g4">
+ <div class="card t5"><div class="k f">36.87 s</div><div class="lab">of the recording has no bars</div><div class="fine">The tab clock starts at 0.000 s. The drums enter at 36.870 s.</div></div>
+ <div class="card t4"><div class="k g">-12.50 s</div><div class="lab">Songsterr sync error at bar 1</div><div class="fine">Correct to 30 ms from bar 6 onward.</div></div>
+ <div class="card t3"><div class="k y">132</div><div class="lab">crashes found, none shipped</div><div class="fine">Against a null of 82, so 1.61x chance.</div></div>
+ <div class="card t1"><div class="k a">0.006 s</div><div class="lab">worst tempo residual, fixed</div><div class="fine">Was 4.26 s under the flat 56.000 bpm map.</div></div>
+</div>
+
+<h2><span class="n" style="background:var(--aqua)">1</span>The eleven open chats</h2>
+<p>Each row is a live session file on this Mac, ranked by how much Watermelon it holds. Three of them are running right now.</p>
+<div class="scroll"><table>
+<tr><th>Session</th><th>Its opening ask</th><th class="num">Turns</th><th>Last write</th><th>Covers</th></tr>
+<tr><td><code>5d61ff43</code></td><td>Hi-hat pedal hits from the stem, snare match, cymbal types, hit-rebound-rebound ghosts</td><td class="num">6778</td><td>17:05</td><td>Hats, snare, ghosts</td></tr>
+<tr class="bad"><td><code>c6454a97</code></td><td>Finish watermelon chat here, appears to be some drift as the song goes on, doesn't match the youtube audio</td><td class="num">490</td><td>17:44 running</td><td><b>Drift, crashes, sync</b></td></tr>
+<tr><td><code>a13ba186</code></td><td>Figure out why the gp is not yet done and perfect after millions of tokens</td><td class="num">1122</td><td>17:41</td><td>The clock, the coda</td></tr>
+<tr><td><code>fa6067bd</code></td><td>Why</td><td class="num">1552</td><td>17:33</td><td>Upload route</td></tr>
+<tr><td><code>51599dec</code></td><td>Resume the watermelon chat here, there's 3 and they are giant fraud time wasters, get me a human to refund</td><td class="num">432</td><td>17:33 running</td><td>Cost accounting</td></tr>
+<tr><td><code>9eba7baf</code></td><td>Could you look at songsterr tab and as its playing the audio determine what matches</td><td class="num">1537</td><td>17:14</td><td>Playback matching</td></tr>
+<tr class="good"><td><code>febeaae6</code></td><td>Pick up final watermelon chat here, start cymbal stem pass</td><td class="num">978</td><td>17:05</td><td><b>Cymbals</b></td></tr>
+<tr><td><code>e3bdde95</code></td><td>Look at active watermelon chats start to finish and see where it could have helped</td><td class="num">297</td><td>17:05</td><td>Model comparison</td></tr>
+<tr><td><code>fe22e363</code></td><td>Look at the watermelon chats and transcription repair and make decisions and reconcile and upload the finished</td><td class="num">1277</td><td>15:54</td><td>Reconcile</td></tr>
+<tr><td><code>73dc03a2</code></td><td>Resume Tom locations in watermelon GP handoff</td><td class="num">1237</td><td>15:50</td><td>Toms</td></tr>
+<tr><td><code>bfac0d81</code></td><td>Get the tom locations added to the watermelon GP, they are not notes of the staff</td><td class="num">1434</td><td>14:20</td><td>Toms</td></tr>
+</table></div>
+<div class="callout aqua">
+<h3>What the reading found</h3>
+<p>Only one of the eleven has looked at the intro, and that session found the problem two minutes before this audit started. Two have touched crashes. <b>Nine of the eleven never mention either.</b> The tom question absorbed three whole sessions and produced two incompatible answers, which is section five.</p>
+</div>
+
+<h2><span class="n" style="background:var(--flare)">2</span>Drift, and it is two different faults</h2>
+<p>Brandon heard the tab pull away from the recording as the song went on. That reading was right, and the cause has been fixed. A second timing fault sits underneath it and is still live.</p>
+
+<h3>Fault one, inside the Guitar Pro file. Fixed.</h3>
+<p>The tab carried a single tempo automation at a flat 56.000 bpm for a performance that moves. Peak bar-start error reached <b>4.26 s at bar 65</b>, which grows through the song exactly as an ear would report it. Session <code>a13ba186</code> built a 105-value per-bar map from the metronome stem. I verified the result independently: remove one constant offset of 36.87 s and the worst residual across all 105 bars falls to <b>0.006 s at bar 43</b>. The tab span of 501.4 s equals the recording's bar-1-to-bar-105 span of 501.4 s to the millisecond.</p>
+
+<h3>Fault two, inside Songsterr's own sync map. Open.</h3>
+<p>Songsterr stores a per-measure sync clock separate from the file. I pulled the live one for revision 8972739 and compared all 106 points against the true bar starts.</p>
+<div class="chart">
+ <div class="legend"><span><i style="background:var(--flare)"></i>tab fires early</span><span><i style="background:var(--aqua)"></i>tab fires late</span><span><i style="background:var(--line)"></i>inside 200 ms</span></div>
+ <svg id="sync" viewBox="0 0 1040 200" role="img" aria-label="Songsterr sync error per bar"></svg>
+ <div class="fine">Each bar is one measure. Height is the signed error in seconds against the metronome-anchored clock.</div>
+</div>
+<div class="scroll"><table>
+<tr><th>Bar</th><th class="num">Sync error</th><th>Reading</th></tr>
+<tr class="bad"><td>1</td><td class="num">-12.50 s</td><td>The tab starts twelve and a half seconds before the drums enter</td></tr>
+<tr class="bad"><td>2</td><td class="num">-7.73 s</td><td>Still far ahead of the recording</td></tr>
+<tr class="bad"><td>3</td><td class="num">-4.50 s</td><td>Closing</td></tr>
+<tr class="bad"><td>4</td><td class="num">-2.36 s</td><td>Closing</td></tr>
+<tr class="bad"><td>5</td><td class="num">-1.02 s</td><td>Almost there</td></tr>
+<tr class="good"><td>6 to 103</td><td class="num">0.030 s</td><td>Median absolute error. This span is correct</td></tr>
+<tr class="bad"><td>104</td><td class="num">-1.05 s</td><td>Drops out again at the coda</td></tr>
+<tr class="bad"><td>105</td><td class="num">-1.84 s</td><td>Final bar</td></tr>
+</table></div>
+<div class="callout red">
+<h3>The correction this makes to the working theory</h3>
+<p>Seven of 105 bars miss by more than a second, and every one of them sits at the very front or the very end. <b>The middle of the song is already synced to thirty milliseconds.</b> Uploading the tempo map fixes the shape of the file's timeline. It does not move these sync points, so the opening will still fire twelve seconds early after the upload lands.</p>
+</div>
+
+<h2><span class="n" style="background:var(--gold)">3</span>The missing intro</h2>
+<p>The recording runs 545.3 s. The tab covers 501.4 s of it. Bar 1 of the tab sits at 0.000 s on its own clock and the recording's bar 1 lands at 36.870 s, so <b>the first 36.87 seconds of the song has no bars at all</b>, which is 6.8 percent of the record.</p>
+<p>The drums lose nothing to that gap. I measured every drum stem across the window before bar 1 and each one is silent.</p>
+<div class="scroll"><table>
+<tr><th>Stem</th><th class="num">Peak before bar 1</th><th class="num">As a share of its in-song peak</th><th>Reading</th></tr>
+<tr class="good"><td>cymbals</td><td class="num">0.2</td><td class="num">0.0%</td><td>silent</td></tr>
+<tr class="good"><td>kick</td><td class="num">0.6</td><td class="num">0.1%</td><td>silent</td></tr>
+<tr class="good"><td>snare</td><td class="num">0.2</td><td class="num">0.0%</td><td>silent</td></tr>
+<tr class="good"><td>hat</td><td class="num">0.2</td><td class="num">0.1%</td><td>silent</td></tr>
+<tr class="good"><td>toms</td><td class="num">0.1</td><td class="num">0.0%</td><td>silent</td></tr>
+<tr class="good"><td>lead guitar</td><td class="num">0.1</td><td class="num">0.0%</td><td>silent</td></tr>
+<tr class="good"><td>bass</td><td class="num">0.3</td><td class="num">0.1%</td><td>silent</td></tr>
+<tr class="bad"><td>other</td><td class="num">368.7</td><td class="num">45.1%</td><td><b>music is playing here</b></td></tr>
+</table></div>
+<div class="callout gold">
+<h3>What lives in the gap</h3>
+<p>One stem is loud across those 36.87 seconds and it is the <code>other</code> bucket, running at 45.1 percent of its own in-song peak. Moises routes the opening material there. No track in the tab carries a single note of it, and tracks 0, 1, 3, 4, 6 and 7 hold nothing at all through bar 8. The drum transcription is complete for what the drummer played. <b>The tab is missing the front of the song, and Songsterr papers over the hole by stretching its first five sync points across it.</b> That stretch is fault two above, so the missing intro and the opening drift are one problem wearing two names.</p>
+</div>
+
+<h2><span class="n" style="background:var(--sun)">4</span>The missing crashes</h2>
+<p>The drum staff holds <b>51 crash notes</b> in 105 bars. Their placement is the finding.</p>
+<div class="chart">
+ <div class="legend"><span><i style="background:var(--gold)"></i>crash written in the tab</span><span><i style="background:var(--flare)"></i>crash found in the stem, not written</span></div>
+ <svg id="crash" viewBox="0 0 1040 170" role="img" aria-label="Written crashes against crashes found in the stem"></svg>
+ <div class="fine">One column per bar, 1 to 105. Upper row is what the tab writes. Lower row is what the cymbal stem pass found.</div>
+</div>
+<p>Written crashes sit on bar 1, then <b>every even bar from 4 through 96</b>, plus bar 55. That is a rule rather than a transcription. Nothing at all appears after bar 96, so the whole coda carries no crash. One single Crash 2 exists in the entire tab, and the drum staff holds no china, no splash and no ride bell anywhere.</p>
+<p>The 51 that are written are real. I tested them against the cymbal stem and they land at <b>2.83x a circular-shift null</b> at 50 ms, and their 6 to 12 kHz peak runs <b>1.59x brighter</b> than the ride instants, which clears the 1.5x floor this project promotes on. The crash work ahead is additive.</p>
+<div class="callout red">
+<h3>The pass ran, and its result is not in the upload</h3>
+<p>Session <code>c6454a97</code> ran a crash detector at 17:43 and wrote <code>crash_find.json</code>: <b>132 new crash candidates across 74 bars</b>, bar 2 through bar 98, against a circular-shift null of 82, so 1.61x chance. Thirty-seven of those bars have no written crash at all.</p>
+<p>I censused the drum track of the file that session is uploading and compared it to the live head:</p>
+<div class="scroll"><table>
+<tr><th>File</th><th class="num">Drum notes</th><th class="num">Crash 1</th><th class="num">Crash 2</th><th class="num">Tempo automations</th></tr>
+<tr><td><code>BASE-r8972739-live-head.gp</code></td><td class="num">2834</td><td class="num">50</td><td class="num">1</td><td class="num">1</td></tr>
+<tr class="bad"><td><code>TEMPOFIX-on-r8972739-Brandon-edit.gp</code></td><td class="num">2834</td><td class="num">50</td><td class="num">1</td><td class="num">105</td></tr>
+</table></div>
+<p>The entire drum-track note histogram matches the live head, note for note. <b>The upload carries tempo and nothing else.</b> That is a clean single-variable change and it is the right way to ship a timing fix. The 132 crashes remain unshipped, and the coda still has none.</p>
+</div>
+
+<h2><span class="n" style="background:var(--sky)">5</span>The lineage split nobody has called</h2>
+<p>Two Watermelon lineages exist on disk and they disagree about which drum a tom stroke belongs to. About 150 notes are affected.</p>
+<div class="scroll"><table>
+<tr><th>Lane</th><th class="num">Local HANDS</th><th class="num">Live r8972739</th><th>Reading</th></tr>
+<tr><td>41 low floor tom</td><td class="num">1</td><td class="num">62</td><td>live reads far lower</td></tr>
+<tr><td>43 high floor tom</td><td class="num">44</td><td class="num">0</td><td>absent from the live tab</td></tr>
+<tr><td>47 low mid tom</td><td class="num">4</td><td class="num">111</td><td>live reads far lower</td></tr>
+<tr><td>48 hi mid tom</td><td class="num">81</td><td class="num">14</td><td>absent from the live tab</td></tr>
+<tr><td>50 high tom</td><td class="num">30</td><td class="num">0</td><td>absent from the live tab</td></tr>
+<tr class="good"><td>36 kick</td><td class="num">521</td><td class="num">505</td><td>close</td></tr>
+<tr class="good"><td>51 ride</td><td class="num">1522</td><td class="num">1501</td><td>close</td></tr>
+</table></div>
+<p>The live tab pushes every tom into the two lowest lanes and uses none of the three highest. The local file does the reverse. The shape matches a staff read one or two lanes low, which is a documented failure in this project's own notes. <b>The upload in flight adopts the live assignment.</b> This audit does not judge which reading is correct, and it changes nothing. It names the split so the next session does not spend a fourth run rediscovering it.</p>
+
+<h2><span class="n" style="background:var(--muted)">6</span>What is true right now</h2>
+<div class="grid g3">
+ <div class="card t1"><h3 style="margin-top:0">Fixed</h3><ul>
+  <li>The flat 56.000 bpm map, replaced by 105 per-bar values</li>
+  <li>Worst bar-start residual 0.006 s, down from 4.26 s</li>
+  <li>15 of 16 three-hand collisions resolved</li>
+  <li>The shared-beat write that damaged 79 bars, caught and reverted</li></ul></div>
+ <div class="card t4"><h3 style="margin-top:0">In flight</h3><ul>
+  <li><code>TEMPOFIX-on-r8972739</code> uploading to s6857183</li>
+  <li>Tempo only, drum notes untouched</li>
+  <li>Fixes the drift Brandon heard through the body</li>
+  <li>Leaves the opening twelve seconds early</li></ul></div>
+ <div class="card t5"><h3 style="margin-top:0">Open</h3><ul>
+  <li>36.87 s of the record has no bars</li>
+  <li>Songsterr sync points at bars 1 to 5 and 104 to 105</li>
+  <li>132 crashes found, none written</li>
+  <li>The tom lane split, roughly 150 notes</li>
+  <li>Bar 105 holds 4.0 quarters in a 5/4 bar</li>
+  <li>Bar 55 beat 2, three hands, blocked at the stem layer</li></ul></div>
+</div>
+
+<footer>
+<p>Measured 2026-09-08 by a read-only session. Sources: <code>metromap.json</code> (session a13ba186), <code>vp.json</code> and <code>crash_find.json</code> (session c6454a97), the Moises stem set at <code>/Users/Shared/206 Watermelon in Easter Hay-E major-112bpm-442hz/</code>, and direct GPIF census of five Guitar Pro files. Detector spec frozen to the project standard: 1024-point Hann, 256 hop, 44.1 kHz, positive spectral flux in a named band, circular-shift null at 200 draws. Raw figures in <a href="data.json">data.json</a>. No Guitar Pro file and no Songsterr tab was modified by this audit.</p>
+</footer>
+</main>
+<script>
+fetch('data.json').then(r=>r.json()).then(D=>{
+  const W=1040;
+  // sync chart
+  (function(){
+    const e=D.sync_err, n=e.length, mid=100, sc=6.2, w=W/n;
+    let s='';
+    s+=`<line x1="0" y1="${mid}" x2="${W}" y2="${mid}" stroke="#ddd2b8" stroke-width="1"/>`;
+    e.forEach((v,i)=>{
+      const clipped=Math.max(-13,Math.min(13,v));
+      const h=Math.abs(clipped)*sc, y=clipped<0?mid-h:mid;
+      const c=Math.abs(v)<=0.2?'#ddd2b8':(v<0?'#F21A00':'#3B9AB2');
+      s+=`<rect x="${(i*w).toFixed(2)}" y="${y.toFixed(2)}" width="${Math.max(w-0.6,1).toFixed(2)}" height="${Math.max(h,1).toFixed(2)}" fill="${c}"><title>bar ${i+1}: ${v>0?'+':''}${v.toFixed(2)} s</title></rect>`;
+    });
+    [[-12,'12 s early'],[-6,'6 s early'],[0,'in sync']].forEach(([v,lb])=>{
+      const y=v<0?mid-Math.abs(v)*sc:mid;
+      s+=`<text x="4" y="${(y-3).toFixed(1)}" font-size="10" fill="#6b6355">${lb}</text>`;
+    });
+    s+=`<text x="${W-4}" y="${mid+16}" font-size="10" fill="#6b6355" text-anchor="end">bar 105</text>`;
+    document.getElementById('sync').innerHTML=s;
+  })();
+  // crash chart
+  (function(){
+    const N=105, w=W/N, wr=new Set(D.crash_written_bars), fd=D.crash_found_per_bar;
+    let s='';
+    s+=`<text x="2" y="14" font-size="11" fill="#6b6355">written in the tab</text>`;
+    for(let b=1;b<=N;b++){
+      const x=(b-1)*w;
+      if(wr.has(b)) s+=`<rect x="${x.toFixed(2)}" y="22" width="${Math.max(w-0.8,1).toFixed(2)}" height="34" fill="#E1AF00"><title>bar ${b}: crash written</title></rect>`;
+      else s+=`<rect x="${x.toFixed(2)}" y="38" width="${Math.max(w-0.8,1).toFixed(2)}" height="2" fill="#ddd2b8"/>`;
+    }
+    s+=`<text x="2" y="82" font-size="11" fill="#6b6355">found in the cymbal stem, not written</text>`;
+    for(let b=1;b<=N;b++){
+      const x=(b-1)*w, k=fd[b]||0;
+      if(k>0){ const h=14+k*7;
+        s+=`<rect x="${x.toFixed(2)}" y="${(150-h).toFixed(2)}" width="${Math.max(w-0.8,1).toFixed(2)}" height="${h}" fill="#F21A00"><title>bar ${b}: ${k} found</title></rect>`;
+      } else s+=`<rect x="${x.toFixed(2)}" y="148" width="${Math.max(w-0.8,1).toFixed(2)}" height="2" fill="#ddd2b8"/>`;
+    }
+    s+=`<line x1="${(96*w).toFixed(2)}" y1="18" x2="${(96*w).toFixed(2)}" y2="160" stroke="#1c1a16" stroke-width="1" stroke-dasharray="3 3"/>`;
+    s+=`<text x="${(96*w+4).toFixed(2)}" y="166" font-size="10" fill="#1c1a16">bar 96, last written crash</text>`;
+    s+=`<text x="2" y="166" font-size="10" fill="#6b6355">bar 1</text>`;
+    document.getElementById('crash').innerHTML=s;
+  })();
+});
+</script>
+</body></html>
