@@ -1,0 +1,171 @@
+<!doctype html>
+<html lang="en"><head><meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Watermelon drift settled</title>
+<style>
+:root{
+ --aqua:#3B9AB2; --sky:#78B7C5; --sun:#EBCC2A; --gold:#E1AF00; --flare:#F21A00;
+ --cream:#f6f0e2; --card:#fbf7ec; --ink:#1c1a16; --muted:#6b6355; --line:#ddd2b8;
+ color-scheme:light;
+}
+*{box-sizing:border-box}
+body{margin:0;background:var(--cream);color:var(--ink);
+ font:16px/1.62 -apple-system,BlinkMacSystemFont,Inter,"Segoe UI",sans-serif;padding:2.2rem 1.1rem 4rem}
+main{max-width:1080px;margin:0 auto}
+h1{font-size:2.05rem;line-height:1.16;margin:0 0 .35rem;letter-spacing:-.02em}
+.deck{color:var(--muted);font-size:1.03rem;margin:0 0 .5rem;max-width:70ch}
+.stamp{display:inline-block;background:var(--aqua);color:#fff;font-weight:700;font-size:.74rem;
+ letter-spacing:.09em;text-transform:uppercase;padding:.28rem .6rem;border-radius:4px;margin-bottom:.9rem}
+h2{font-size:1.28rem;margin:2.6rem 0 .2rem;letter-spacing:-.01em}
+h2 .n{display:inline-block;width:1.55rem;height:1.55rem;line-height:1.55rem;text-align:center;
+ border-radius:5px;color:#fff;font-size:.86rem;margin-right:.5rem;vertical-align:2px}
+h3{font-size:1rem;margin:1.5rem 0 .35rem}
+p{margin:.55rem 0;max-width:74ch}
+.sub{color:var(--muted);font-size:.9rem;margin:.1rem 0 1rem}
+.grid{display:grid;gap:.75rem;margin:1rem 0}
+.g4{grid-template-columns:repeat(auto-fit,minmax(178px,1fr))}
+.g3{grid-template-columns:repeat(auto-fit,minmax(250px,1fr))}
+.card{background:var(--card);border:1px solid var(--line);border-radius:11px;padding:.9rem 1rem}
+.card.t1{border-left:6px solid var(--aqua)}
+.card.t2{border-left:6px solid var(--sky)}
+.card.t3{border-left:6px solid var(--sun)}
+.card.t4{border-left:6px solid var(--gold)}
+.card.t5{border-left:6px solid var(--flare)}
+.k{font-size:1.9rem;font-weight:800;line-height:1.08;letter-spacing:-.02em}
+.k.a{color:var(--aqua)}.k.y{color:#9a8412}.k.g{color:#a97f00}.k.f{color:var(--flare)}
+.lab{font-size:.74rem;text-transform:uppercase;letter-spacing:.07em;color:var(--muted);margin-top:.2rem}
+.fine{font-size:.83rem;color:var(--muted);margin-top:.45rem}
+table{border-collapse:collapse;width:100%;font-size:.88rem;margin:.7rem 0;background:var(--card)}
+th,td{border:1px solid var(--line);padding:.42rem .6rem;text-align:left}
+th{background:#efe7d3;font-weight:700;font-size:.8rem;text-transform:uppercase;letter-spacing:.04em}
+td.num{text-align:right;font-variant-numeric:tabular-nums}
+tr.bad td{background:#fdeae7}
+tr.good td{background:#e9f4f7}
+.scroll{overflow-x:auto;-webkit-overflow-scrolling:touch}
+code{background:#efe7d3;padding:.09em .38em;border-radius:4px;font-size:.86em;word-break:break-all}
+.callout{border-radius:11px;padding:1rem 1.15rem;margin:1.1rem 0;border:1px solid var(--line)}
+.callout.red{background:#fdeae7;border-left:6px solid var(--flare)}
+.callout.aqua{background:#e9f4f7;border-left:6px solid var(--aqua)}
+.callout.gold{background:#fbf1d4;border-left:6px solid var(--gold)}
+.callout h3{margin-top:0}
+ul{margin:.5rem 0 .5rem 1.1rem;padding:0}li{margin:.3rem 0;max-width:74ch}
+.legend{font-size:.8rem;color:var(--muted);display:flex;gap:1.2rem;flex-wrap:wrap;margin:.45rem 0 1rem}
+.legend span{display:inline-flex;align-items:center;gap:.35rem}
+.legend i{width:16px;height:3px;border-radius:2px;display:inline-block}
+.bars{display:flex;align-items:flex-end;gap:1px;height:90px;margin:.6rem 0;padding:.6rem;
+ background:var(--card);border:1px solid var(--line);border-radius:9px;overflow-x:auto}
+.bars i{display:block;width:7px;flex:0 0 7px;border-radius:2px 2px 0 0}
+footer{margin-top:3.2rem;border-top:1px solid var(--line);padding-top:1rem;font-size:.82rem;color:var(--muted)}
+a{color:#0d6f88;font-weight:600}
+</style></head><body><main>
+
+<span class="stamp">Fixed and live</span>
+<h1>Watermelon In Easter Hay: the drift, settled</h1>
+<p class="deck">Brandon heard the tab pull away from the audio as the song went on and suspected the YouTube was a different version. The recording turned out to be the same performance. The drift was the tab's own tempo map, and a second defect inside Songsterr's storage swallowed the first attempt at fixing it.</p>
+<p class="sub">Songsterr <code>s6857183</code>, Vinnie Colaiuta drum staff. Measured 2026-09-08 on MacBookPro against the Moises stem set and a fresh YouTube pull.</p>
+
+<div class="grid g4">
+ <div class="card t1"><div class="k a">23.34 s</div><div class="lab">YouTube head cut</div><div class="fine">constant across 16 probes, stdev 3.9 ms</div></div>
+ <div class="card t5"><div class="k f">4.25 s</div><div class="lab">old peak-to-peak drift</div><div class="fine">flat 56.000 bpm across all 105 bars</div></div>
+ <div class="card t3"><div class="k y">105 / 105</div><div class="lab">bpm values Songsterr floors</div><div class="fine">only 46 of 105 match round()</div></div>
+ <div class="card t2"><div class="k a">0.090 s</div><div class="lab">drift now live</div><div class="fine">revision r8973454</div></div>
+</div>
+
+<h2><span class="n" style="background:var(--aqua)">1</span>The YouTube is the same performance</h2>
+<p>The hypothesis was worth testing and it does not survive measurement. Onset envelopes from the fresh YouTube pull were cross-correlated against the Moises source mix in seventeen twenty-second probes spread across the whole song. Sixteen of the seventeen lock onto one offset.</p>
+<div class="scroll"><table>
+<tr><th>File</th><th class="num">Duration</th><th>Reads as</th><th>Release</th></tr>
+<tr><td>Moises source mix</td><td class="num">545.27 s</td><td>9:05</td><td>Joe's Garage, with the Central Scrutinizer megaphone intro</td></tr>
+<tr><td>YouTube pull</td><td class="num">522.44 s</td><td>8:42</td><td>Plays the Music of Frank Zappa, intro snipped</td></tr>
+</table></div>
+<p>The measured offset is <b>&minus;23.34 s</b>, with a standard deviation of <b>3.9 milliseconds</b> over a 450-second span. A speed difference of even one part in ten thousand would show up as 45 ms of walk across that span. Nothing walks. The two files carry one performance with a different head trim, and the 8:42 figure matches the cited runtime exactly.</p>
+<div class="callout aqua">
+ <h3>Why this matters more than it sounds</h3>
+ <p style="margin-bottom:0">Nine days of stem measurement were made against the 9:05 master while the tab is synced to the 8:42 edit. Had the two been different takes, every one of those measurements would be void. They are the same audio, so the stem evidence stands, and the only correction needed is a constant on the time origin.</p>
+</div>
+
+<h2><span class="n" style="background:var(--flare)">2</span>The drift was the tab's tempo map</h2>
+<p>The tab carried <b>one</b> tempo automation, 56.000 bpm, covering all 105 bars. The take does not hold still. Placing the tab's own kick and snare notes on that grid and scoring them against the isolated stems gives the picture below. The lead guitar stem is the control, since a grid that is merely finding loud moments will score about as well on it.</p>
+<div class="scroll"><table>
+<tr><th>Grid</th><th class="num">Kick + snare match</th><th class="num">Guitar control</th><th class="num">Discrimination</th></tr>
+<tr class="bad"><td>Flat 56.000 bpm, the old tab</td><td class="num">0.445</td><td class="num">0.283</td><td class="num">1.57x</td></tr>
+<tr><td>r8973389 as Songsterr actually served it</td><td class="num">0.492</td><td class="num">0.285</td><td class="num">1.73x</td></tr>
+<tr class="good"><td>r8973454, live now</td><td class="num">0.776</td><td class="num">0.317</td><td class="num">2.45x</td></tr>
+<tr><td>Two-decimal ideal, unreachable on this platform</td><td class="num">0.782</td><td class="num">0.317</td><td class="num">2.47x</td></tr>
+</table></div>
+
+<h3>What the drift looked like</h3>
+<svg viewBox="0 0 1000 260" width="100%" style="background:var(--card);border:1px solid var(--line);border-radius:9px">
+<line x1="34" y1="214.0" x2="966" y2="214.0" stroke="#e6dcc4"/><text x="4" y="217.0" font-size="10" fill="#6b6355">-2 s</text><line x1="34" y1="172.0" x2="966" y2="172.0" stroke="#e6dcc4"/><text x="4" y="175.0" font-size="10" fill="#6b6355">-1 s</text><line x1="34" y1="88.0" x2="966" y2="88.0" stroke="#e6dcc4"/><text x="4" y="91.0" font-size="10" fill="#6b6355">+1 s</text><line x1="34" y1="46.0" x2="966" y2="46.0" stroke="#e6dcc4"/><text x="4" y="49.0" font-size="10" fill="#6b6355">+2 s</text>
+<line x1="34" y1="130.0" x2="966" y2="130.0" stroke="#1c1a16" stroke-width="1.2"/>
+<line x1="34.0" y1="28" x2="34.0" y2="230" stroke="#ddd2b8"/><text x="34.0" y="244" font-size="10" fill="#6b6355" text-anchor="middle">1</text><line x1="204.3" y1="28" x2="204.3" y2="230" stroke="#ddd2b8"/><text x="204.3" y="244" font-size="10" fill="#6b6355" text-anchor="middle">20</text><line x1="383.5" y1="28" x2="383.5" y2="230" stroke="#ddd2b8"/><text x="383.5" y="244" font-size="10" fill="#6b6355" text-anchor="middle">40</text><line x1="562.7" y1="28" x2="562.7" y2="230" stroke="#ddd2b8"/><text x="562.7" y="244" font-size="10" fill="#6b6355" text-anchor="middle">60</text><line x1="742.0" y1="28" x2="742.0" y2="230" stroke="#ddd2b8"/><text x="742.0" y="244" font-size="10" fill="#6b6355" text-anchor="middle">80</text><line x1="966.0" y1="28" x2="966.0" y2="230" stroke="#ddd2b8"/><text x="966.0" y="244" font-size="10" fill="#6b6355" text-anchor="middle">105</text>
+<path d="M34.0,20.6 L43.0,24.6 L51.9,32.8 L60.9,39.6 L69.8,45.2 L78.8,51.2 L87.8,57.7 L96.7,62.9 L105.7,66.0 L114.7,69.4 L123.6,71.7 L132.6,73.5 L141.5,75.8 L150.5,79.3 L159.5,81.5 L168.4,84.2 L177.4,87.3 L186.3,88.3 L195.3,90.5 L204.3,94.8 L213.2,98.8 L222.2,102.3 L231.2,103.7 L240.1,107.2 L249.1,109.5 L258.0,107.9 L267.0,111.0 L276.0,117.0 L284.9,120.9 L293.9,122.7 L302.8,127.5 L311.8,129.3 L320.8,130.7 L329.7,130.0 L338.7,133.1 L347.7,136.6 L356.6,141.3 L365.6,144.8 L374.5,149.6 L383.5,149.7 L392.5,151.2 L401.4,151.3 L410.4,156.1 L419.3,157.0 L428.3,157.6 L437.3,157.8 L446.2,162.6 L455.2,163.5 L464.2,167.5 L473.1,167.6 L482.1,168.2 L491.0,172.5 L500.0,177.3 L509.0,182.5 L517.9,184.8 L526.9,186.5 L535.8,186.3 L544.8,185.6 L553.8,189.6 L562.7,189.7 L571.7,190.3 L580.7,189.6 L589.6,192.7 L598.6,196.1 L607.5,199.3 L616.5,196.0 L625.5,194.1 L634.4,191.7 L643.4,188.1 L652.3,188.3 L661.3,188.9 L670.3,189.8 L679.2,187.9 L688.2,184.7 L697.2,182.8 L706.1,178.7 L715.1,175.9 L724.0,169.4 L733.0,163.3 L742.0,159.2 L750.9,155.6 L759.9,146.5 L768.8,143.7 L777.8,139.7 L786.8,136.9 L795.7,129.4 L804.7,125.8 L813.7,118.4 L822.6,116.5 L831.6,113.2 L840.5,109.6 L849.5,103.0 L858.5,97.8 L867.4,89.5 L876.4,84.2 L885.3,78.5 L894.3,73.2 L903.3,64.1 L912.2,63.0 L921.2,61.4 L930.2,64.5 L939.1,59.6 L948.1,59.4 L957.0,62.0 L966.0,62.6" fill="none" stroke="#F21A00" stroke-width="2.4"/>
+<path d="M34.0,130.1 L43.0,130.8 L51.9,128.8 L60.9,131.5 L69.8,130.5 L78.8,128.2 L87.8,131.3 L96.7,128.2 L105.7,131.3 L114.7,130.7 L123.6,129.7 L132.6,131.5 L141.5,130.5 L150.5,129.9 L159.5,128.9 L168.4,131.5 L177.4,131.3 L186.3,128.2 L195.3,130.5 L204.3,130.7 L213.2,131.4 L222.2,130.8 L231.2,128.9 L240.1,128.3 L249.1,130.6 L258.0,129.0 L267.0,128.9 L276.0,130.8 L284.9,131.5 L293.9,129.2 L302.8,130.7 L311.8,128.4 L320.8,129.8 L329.7,129.1 L338.7,128.9 L347.7,128.3 L356.6,129.8 L365.6,129.2 L374.5,130.7 L383.5,130.8 L392.5,128.9 L401.4,129.1 L410.4,130.6 L419.3,131.6 L428.3,128.9 L437.3,129.0 L446.2,130.5 L455.2,131.5 L464.2,128.8 L473.1,128.9 L482.1,129.5 L491.0,129.7 L500.0,131.3 L509.0,128.1 L517.9,130.4 L526.9,128.1 L535.8,131.0 L544.8,130.3 L553.8,131.0 L562.7,131.1 L571.7,131.7 L580.7,131.0 L589.6,130.8 L598.6,130.2 L607.5,130.0 L616.5,130.8 L625.5,128.8 L634.4,130.4 L643.4,130.0 L652.3,130.1 L661.3,130.7 L670.3,131.7 L679.2,129.7 L688.2,130.5 L697.2,128.5 L706.1,128.4 L715.1,128.8 L724.0,130.0 L733.0,130.1 L742.0,130.0 L750.9,129.5 L759.9,131.8 L768.8,129.1 L777.8,129.0 L786.8,129.4 L795.7,129.7 L804.7,129.2 L813.7,129.5 L822.6,130.8 L831.6,131.5 L840.5,131.1 L849.5,128.4 L858.5,129.4 L867.4,128.8 L876.4,129.7 L885.3,131.8 L894.3,129.7 L903.3,128.3 L912.2,130.3 L921.2,128.8 L930.2,128.6 L939.1,131.5 L948.1,131.3 L957.0,129.8 L966.0,130.4" fill="none" stroke="#3B9AB2" stroke-width="2.4"/>
+<text x="966" y="252" font-size="11" fill="#6b6355" text-anchor="end">bar number</text>
+</svg>
+<div class="legend">
+ <span><i style="background:#F21A00"></i> flat 56.000 bpm, the tab before this session</span>
+ <span><i style="background:#3B9AB2"></i> r8973454, live now</span>
+</div>
+<p>Each curve is the barline error against the performance after the player picks its best single sync offset. The red curve runs ahead early, falls about 1.65 s behind by bar 65, and swings forward again through the guitar climax. That shape is what Brandon heard. It is a curve rather than a constant lag, so no single offset can remove it.</p>
+
+<h2><span class="n" style="background:var(--gold)">3</span>Songsterr floors the tempo, and it cost the first fix</h2>
+<p>The first revision, <code>r8973389</code>, wrote 105 automations spanning 53.57 to 58.37 bpm with two decimals. Reading the published data back showed integers. The rounding is not to nearest.</p>
+<div class="grid g3">
+ <div class="card t4"><div class="k g">105 / 105</div><div class="lab">match floor()</div></div>
+ <div class="card t3"><div class="k y">46 / 105</div><div class="lab">match round()</div></div>
+ <div class="card t5"><div class="k f">4.6 s</div><div class="lab">lag flooring added</div></div>
+</div>
+<p>Flooring every bar makes every bar a little slow, and the error accumulates in one direction. The notated length grew from 506.68 s to 511.28 s, and the match that should have reached 0.782 came out at <b>0.492</b>. The revision was honest work and its own description overstated what landed.</p>
+<div class="callout gold">
+ <h3>The fix that survives flooring</h3>
+ <p>Integers are all the platform keeps, so the integers were chosen by error diffusion. At each bar the integer picked is the one that lands the <b>next</b> barline closest to the fitted metronome time, and whatever error remains carries forward into the next choice. Bar durations then alternate between neighbouring values and average out to the right tempo.</p>
+ <p style="margin-bottom:0">Worst barline error against the fitted grid: <b>0.049 s</b> for error diffusion, against <b>4.57 s</b> for choosing each bar's integer on its own.</p>
+</div>
+<h3>The published tempo curve, 105 bars</h3>
+<div class="bars"><i style="height:43%;background:#3B9AB2" title="bar 1, 55 bpm"></i><i style="height:14%;background:#3B9AB2" title="bar 2, 53 bpm"></i><i style="height:43%;background:#3B9AB2" title="bar 3, 55 bpm"></i><i style="height:29%;background:#3B9AB2" title="bar 4, 54 bpm"></i><i style="height:29%;background:#3B9AB2" title="bar 5, 54 bpm"></i><i style="height:43%;background:#3B9AB2" title="bar 6, 55 bpm"></i><i style="height:29%;background:#3B9AB2" title="bar 7, 54 bpm"></i><i style="height:57%;background:#EBCC2A" title="bar 8, 56 bpm"></i><i style="height:43%;background:#3B9AB2" title="bar 9, 55 bpm"></i><i style="height:43%;background:#3B9AB2" title="bar 10, 55 bpm"></i><i style="height:57%;background:#EBCC2A" title="bar 11, 56 bpm"></i><i style="height:43%;background:#3B9AB2" title="bar 12, 55 bpm"></i><i style="height:43%;background:#3B9AB2" title="bar 13, 55 bpm"></i><i style="height:43%;background:#3B9AB2" title="bar 14, 55 bpm"></i><i style="height:57%;background:#EBCC2A" title="bar 15, 56 bpm"></i><i style="height:43%;background:#3B9AB2" title="bar 16, 55 bpm"></i><i style="height:43%;background:#3B9AB2" title="bar 17, 55 bpm"></i><i style="height:57%;background:#EBCC2A" title="bar 18, 56 bpm"></i><i style="height:43%;background:#3B9AB2" title="bar 19, 55 bpm"></i><i style="height:43%;background:#3B9AB2" title="bar 20, 55 bpm"></i><i style="height:43%;background:#3B9AB2" title="bar 21, 55 bpm"></i><i style="height:43%;background:#3B9AB2" title="bar 22, 55 bpm"></i><i style="height:43%;background:#3B9AB2" title="bar 23, 55 bpm"></i><i style="height:57%;background:#EBCC2A" title="bar 24, 56 bpm"></i><i style="height:57%;background:#EBCC2A" title="bar 25, 56 bpm"></i><i style="height:43%;background:#3B9AB2" title="bar 26, 55 bpm"></i><i style="height:43%;background:#3B9AB2" title="bar 27, 55 bpm"></i><i style="height:43%;background:#3B9AB2" title="bar 28, 55 bpm"></i><i style="height:43%;background:#3B9AB2" title="bar 29, 55 bpm"></i><i style="height:43%;background:#3B9AB2" title="bar 30, 55 bpm"></i><i style="height:43%;background:#3B9AB2" title="bar 31, 55 bpm"></i><i style="height:57%;background:#EBCC2A" title="bar 32, 56 bpm"></i><i style="height:57%;background:#EBCC2A" title="bar 33, 56 bpm"></i><i style="height:43%;background:#3B9AB2" title="bar 34, 55 bpm"></i><i style="height:43%;background:#3B9AB2" title="bar 35, 55 bpm"></i><i style="height:43%;background:#3B9AB2" title="bar 36, 55 bpm"></i><i style="height:43%;background:#3B9AB2" title="bar 37, 55 bpm"></i><i style="height:43%;background:#3B9AB2" title="bar 38, 55 bpm"></i><i style="height:57%;background:#EBCC2A" title="bar 39, 56 bpm"></i><i style="height:43%;background:#3B9AB2" title="bar 40, 55 bpm"></i><i style="height:57%;background:#EBCC2A" title="bar 41, 56 bpm"></i><i style="height:43%;background:#3B9AB2" title="bar 42, 55 bpm"></i><i style="height:57%;background:#EBCC2A" title="bar 43, 56 bpm"></i><i style="height:43%;background:#3B9AB2" title="bar 44, 55 bpm"></i><i style="height:57%;background:#EBCC2A" title="bar 45, 56 bpm"></i><i style="height:43%;background:#3B9AB2" title="bar 46, 55 bpm"></i><i style="height:57%;background:#EBCC2A" title="bar 47, 56 bpm"></i><i style="height:29%;background:#3B9AB2" title="bar 48, 54 bpm"></i><i style="height:57%;background:#EBCC2A" title="bar 49, 56 bpm"></i><i style="height:57%;background:#EBCC2A" title="bar 50, 56 bpm"></i><i style="height:43%;background:#3B9AB2" title="bar 51, 55 bpm"></i><i style="height:43%;background:#3B9AB2" title="bar 52, 55 bpm"></i><i style="height:29%;background:#3B9AB2" title="bar 53, 54 bpm"></i><i style="height:57%;background:#EBCC2A" title="bar 54, 56 bpm"></i><i style="height:43%;background:#3B9AB2" title="bar 55, 55 bpm"></i><i style="height:71%;background:#EBCC2A" title="bar 56, 57 bpm"></i><i style="height:57%;background:#EBCC2A" title="bar 57, 56 bpm"></i><i style="height:43%;background:#3B9AB2" title="bar 58, 55 bpm"></i><i style="height:57%;background:#EBCC2A" title="bar 59, 56 bpm"></i><i style="height:57%;background:#EBCC2A" title="bar 60, 56 bpm"></i><i style="height:57%;background:#EBCC2A" title="bar 61, 56 bpm"></i><i style="height:43%;background:#3B9AB2" title="bar 62, 55 bpm"></i><i style="height:43%;background:#3B9AB2" title="bar 63, 55 bpm"></i><i style="height:43%;background:#3B9AB2" title="bar 64, 55 bpm"></i><i style="height:71%;background:#EBCC2A" title="bar 65, 57 bpm"></i><i style="height:57%;background:#EBCC2A" title="bar 66, 56 bpm"></i><i style="height:71%;background:#EBCC2A" title="bar 67, 57 bpm"></i><i style="height:71%;background:#EBCC2A" title="bar 68, 57 bpm"></i><i style="height:57%;background:#EBCC2A" title="bar 69, 56 bpm"></i><i style="height:57%;background:#EBCC2A" title="bar 70, 56 bpm"></i><i style="height:57%;background:#EBCC2A" title="bar 71, 56 bpm"></i><i style="height:57%;background:#EBCC2A" title="bar 72, 56 bpm"></i><i style="height:71%;background:#EBCC2A" title="bar 73, 57 bpm"></i><i style="height:57%;background:#EBCC2A" title="bar 74, 56 bpm"></i><i style="height:71%;background:#EBCC2A" title="bar 75, 57 bpm"></i><i style="height:71%;background:#EBCC2A" title="bar 76, 57 bpm"></i><i style="height:86%;background:#E1AF00" title="bar 77, 58 bpm"></i><i style="height:86%;background:#E1AF00" title="bar 78, 58 bpm"></i><i style="height:71%;background:#EBCC2A" title="bar 79, 57 bpm"></i><i style="height:71%;background:#EBCC2A" title="bar 80, 57 bpm"></i><i style="height:100%;background:#E1AF00" title="bar 81, 59 bpm"></i><i style="height:57%;background:#EBCC2A" title="bar 82, 56 bpm"></i><i style="height:71%;background:#EBCC2A" title="bar 83, 57 bpm"></i><i style="height:71%;background:#EBCC2A" title="bar 84, 57 bpm"></i><i style="height:86%;background:#E1AF00" title="bar 85, 58 bpm"></i><i style="height:71%;background:#EBCC2A" title="bar 86, 57 bpm"></i><i style="height:86%;background:#E1AF00" title="bar 87, 58 bpm"></i><i style="height:71%;background:#EBCC2A" title="bar 88, 57 bpm"></i><i style="height:71%;background:#EBCC2A" title="bar 89, 57 bpm"></i><i style="height:71%;background:#EBCC2A" title="bar 90, 57 bpm"></i><i style="height:71%;background:#EBCC2A" title="bar 91, 57 bpm"></i><i style="height:86%;background:#E1AF00" title="bar 92, 58 bpm"></i><i style="height:86%;background:#E1AF00" title="bar 93, 58 bpm"></i><i style="height:86%;background:#E1AF00" title="bar 94, 58 bpm"></i><i style="height:86%;background:#E1AF00" title="bar 95, 58 bpm"></i><i style="height:71%;background:#EBCC2A" title="bar 96, 57 bpm"></i><i style="height:86%;background:#E1AF00" title="bar 97, 58 bpm"></i><i style="height:71%;background:#EBCC2A" title="bar 98, 57 bpm"></i><i style="height:57%;background:#EBCC2A" title="bar 99, 56 bpm"></i><i style="height:43%;background:#3B9AB2" title="bar 100, 55 bpm"></i><i style="height:86%;background:#E1AF00" title="bar 101, 58 bpm"></i><i style="height:57%;background:#EBCC2A" title="bar 102, 56 bpm"></i><i style="height:43%;background:#3B9AB2" title="bar 103, 55 bpm"></i><i style="height:57%;background:#EBCC2A" title="bar 104, 56 bpm"></i><i style="height:57%;background:#EBCC2A" title="bar 105, 56 bpm"></i></div>
+<p class="fine">53 to 59 bpm. The shape opens near 54, holds the middle 50s through the first half, pushes into the high 50s across the guitar climax, and relaxes at the close.</p>
+
+<h2><span class="n" style="background:var(--sky)">4</span>What shipped, and what it did not touch</h2>
+<p>Two revisions went up, the second correcting the first. Neither moved a single note.</p>
+<div class="scroll"><table>
+<tr><th>Check</th><th>Result</th></tr>
+<tr><td>Drum staff note instances</td><td>2,834 before and after, lane for lane identical</td></tr>
+<tr><td>All nine parts</td><td>1061 / 55 / 334 / 64 / 360 / 459 / 324 / 108 / 2834, byte-identical</td></tr>
+<tr><td>Track names</td><td>9 of 9 kept, 137 CDATA wrappers preserved</td></tr>
+<tr><td>Bars and meters</td><td>105 bars, 53 in 4/4 and 52 in 5/4, unchanged</td></tr>
+<tr><td>Preflight gate</td><td>PASS, exit 0, on both uploads</td></tr>
+<tr><td>Published data verified</td><td>105 automations read back from CloudFront, 0 mismatches against intent</td></tr>
+</table></div>
+
+<h2><span class="n" style="background:var(--flare)">5</span>The crash cymbals: measured, and refused</h2>
+<p>The tab writes 51 crash notes, one at the top of each phrase from bar 4 to bar 96. A detector calibrated on those 51 positions found <b>132</b> further candidates in the cymbal stem. That number does not survive its own null.</p>
+<div class="scroll"><table>
+<tr><th>Measurement</th><th class="num">Value</th></tr>
+<tr><td>New crash candidates in the cymbal stem</td><td class="num">132</td></tr>
+<tr class="bad"><td>Same detector, run on the lead guitar stem</td><td class="num">82 fires</td></tr>
+<tr class="bad"><td>Ratio over the control</td><td class="num">1.61x</td></tr>
+<tr><td>Recall on the 51 crashes already written</td><td class="num">42 of 51</td></tr>
+</table></div>
+<p>The lead guitar stem holds no cymbals at all, so 82 fires there means the separation leaks guitar into the cymbal stem and the detector cannot tell a crash from a bright guitar attack. Writing 132 crashes on 1.61x would repeat the pass that put 599 toms into this ballad on 2026-09-07. <b>Nothing was added.</b> The 82 percent recall does say the crashes the original transcriber wrote are supported by the stem.</p>
+<p>Queued as <code>q-2026-09-08-f370c3</code>. Unblocking it needs a lane that separates: the <code>other_kit</code> stem, an inter-channel pan test, or a cleaner separation, held to 2.5x over a guitar control before a single note is written.</p>
+
+<h2><span class="n" style="background:var(--sun)">6</span>One drift source is left, and it is not in the file</h2>
+<p>Songsterr syncs this tab to twelve videos, each carrying its own per-measure timestamps. The primary target, the one the player picks by default, is short one point.</p>
+<div class="scroll"><table>
+<tr><th>Video</th><th>Feature</th><th class="num">Sync points</th><th class="num">Shape error vs the fitted grid</th></tr>
+<tr class="bad"><td>XACocSRTFJY, Frank Zappa - Topic</td><td>primary</td><td class="num">105</td><td class="num">0.94 s</td></tr>
+<tr><td>Fn9ZuGquwpQ, H9dE-EcH58A, _3cu8sDa90Y</td><td>alternative</td><td class="num">106</td><td class="num">0.80 s</td></tr>
+<tr><td>The other eight, including an 8-bit cover and three backing tracks</td><td>alternative, backing, solo</td><td class="num">106</td><td class="num">12.97 s</td></tr>
+</table></div>
+<p>105 measures need 106 boundaries. The primary has 105, so the final barline carries no end anchor. This lives in Songsterr's sync data rather than in the Guitar Pro file, so no upload reaches it and it needs the video-sync interface. Queued as <code>q-2026-09-08-3a0c92</code>. The eight far-off videos are genuinely different audio, so their numbers are correct for what they are.</p>
+
+<h2><span class="n" style="background:var(--aqua)">7</span>Reinstated, with evidence this time</h2>
+<p>An earlier session recorded a 23.3 second duration gap and explained it with an invented lead-in, and the explanation was withdrawn for being invented. The gap is now measured at 23.34 s with a 3.9 ms standard deviation, and Brandon's own sources name the Central Scrutinizer intro as its content. The finding returns on measurement rather than on the story that first accompanied it.</p>
+
+<footer>
+Songsterr <a href="https://www.songsterr.com/a/wsa/frank-zappa-watermelon-in-easter-hay-brandon-edit-drum-tab-s6857183">s6857183 Brandon edit</a>, revisions r8973389 then r8973454, published 2026-09-08.<br>
+Source files in <code>~/Projects/_outputs/zappa-watermelon-hat-snare-repair/out/</code>: <code>TEMPOFIX-on-r8972739-Brandon-edit.gp</code> and <code>TEMPOFIX-INT-on-r8973389-Brandon-edit.gp</code>.<br>
+Prior page: <a href="https://7onething1.github.io/watermelon-why-not-done/">why the Watermelon GP is not done</a>. Program scope: <a href="https://7onething1.github.io/zappa-program-scope/">Zappa program scope</a>.
+</footer>
+</main></body></html>
