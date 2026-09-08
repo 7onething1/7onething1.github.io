@@ -219,3 +219,87 @@ log-compressed spectral novelty per FMP 6.1.2.
 
 The kick count reproduces the 2026-09-07 surplus finding independently: 1,332 detected against
 1,312 notated. **No threshold in this pass was fitted on the candidate window.**
+
+---
+
+## ADDENDUM, same session: a second landmark family, and what it moved
+
+The first pass called the vocals landmark family unavailable because the score's `newLyrics`
+field is empty. **That was a wrong reading of one closed path.** Lyric text was never what the
+family needed. The Ike Willis vocal part carries **458 notated attacks across 79 bars**, with
+full bar positions, and the vocals stem is isolated.
+
+A web search confirms the song is a sung Ike Willis lead on *Joe's Garage*, so a vocal line
+exists to anchor against. The score-side positions were on disk the whole time.
+
+### Two families, fitted separately, sharing no stem and no notated part
+
+| Family | Fitted on | Stem | Bar 22 downbeat | Scale |
+|---|---|---|---|---|
+| A | kick + hat, bars 22-32, 172 attacks | kick, hat | **35.980 s** | 0.984 |
+| B | Ike Willis vocal part, 437 attacks | **vocals** | **36.136 s** | 0.978 |
+
+**They disagree by 156 ms.** A 19/16 bar here runs about 2.09 s, so both land on the same bar.
+DRUM! Magazine's printed marker says 0:35. The 2026-09-07 gate failed its primary
+external-family requirement because lead and bass disagreed by **2.673 s**; this pair does not.
+
+### The integer-shift contest
+
+Each family scored at shifts of minus two through plus two bars, using that family's own events,
+its own stem and one-to-one matching. Step sizes are read from the score's own bar downbeats.
+
+| Shift | Family A, kick+hat | Family B, vocals |
+|---|---|---|
+| -2 bars | 67/172 (39.0%) | 132/437 (30.2%) |
+| -1 bar | 88/172 (51.2%) | 118/437 (27.0%) |
+| **0** | **121/172 (70.3%)** | **163/437 (37.3%)** |
+| +1 bar | 79/172 (45.9%) | 130/437 (29.7%) |
+| +2 bars | 73/172 (42.4%) | 139/437 (31.8%) |
+
+**Zero shift wins separately in both families**, by **+33** and **+24** matches over the nearest
+competitor. That is the condition the earlier pass failed, where kick, snare, hat and tom all
+leaned to plus one bar.
+
+### Residuals
+
+| Family | Matched | Median absolute residual | 90th percentile |
+|---|---|---|---|
+| A, kick+hat | 121 | **17.6 ms** | **42.3 ms** |
+| B, vocals | 163 | **28.8 ms** | **52.1 ms** |
+
+The absolute bar identity gate asks for median under 75 ms and p90 under 150 ms. **Both families
+clear both, inside the fitted span.**
+
+### What still blocks KIG-M004, precisely
+
+**The anchor is local and it does not extrapolate.** Carried across the whole recording it collapses to chance:
+
+| Whole-song extrapolation | Value |
+|---|---|
+| offset, scale, tolerance | 35.980 s, 0.984, 60 ms |
+| one-to-one kick match, against a 32.6% rotation-null baseline | 512 / 1,311 = 39.1%, ratio **1.20x, which is chance** |
+| `verdict_gate.py --counts` on those numbers | **UNDETERMINED**, under the 2.0x counts-mode floor |
+| predicted score end | 508.0 s against 501.84 s of real audio, drift +6.1 s |
+
+Under Gate N4 anything under 1.5x is the null, so **this row is carried as a refutation of the
+extrapolation and as nothing else**. It says the eleven-bar fit does not reach the rest of the
+song. It is not a count of surplus kicks and no repair may be built from it.
+
+The pre-registration's own scope rule already said this: a pass validates only the span between
+the first and last landmark, and **every individual flag needs anchors bracketing its own score
+location**. The 32 surplus kick onsets are listed by audio time across the full 501.8 s, and the
+validated span is eleven bars. **They cannot be placed from this anchor**, which is why the item
+stays open rather than being closed on a number that looks confident.
+
+Two further honest limits:
+
+1. **The clap-test criterion 3 still fails.** z = 4.11 against a declared 5.0 on family A alone.
+   The two-family agreement is a different and stronger test, and it does not retroactively pass
+   a threshold that was written down and missed. **The clap timbre test still did not run.**
+2. **The twelve-landmark frozen set was never built.** What ran is the integer-shift contest and
+   the target-excluded check. No `ABSOLUTE_ANCHORS.csv` was hashed, so the full gate is
+   **not** claimed as passed.
+
+**Net movement on M004:** the bar identity at bar 22 now has two-family corroboration and wins its
+shift contest, where before it had neither. Placing the 32 events needs a **piecewise map with
+landmarks bracketing each one**, and that is the next unit of work.
