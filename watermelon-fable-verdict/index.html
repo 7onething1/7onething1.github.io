@@ -1,0 +1,235 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Watermelon: the Fable verdict</title>
+<style>
+:root{
+  --sky:#85D4E3; --pink:#F4B5BD; --olive:#9C964A; --tan:#CDC08C; --gold:#FAD77B; --pale:#F3DF6C;
+  --cream:#FAF5E6; --paper:#FFFDF6; --ink:#2B2A24; --mute:#6E6A5C; --line:#E2DAC4;
+}
+*{box-sizing:border-box}
+body{margin:0;background:var(--cream);color:var(--ink);
+  font:16px/1.65 "Iowan Old Style","Palatino Linotype",Palatino,Georgia,serif;}
+.wrap{max-width:1040px;margin:0 auto;padding:32px 20px 80px}
+header{border:3px solid var(--ink);background:var(--paper);padding:26px 28px;margin-bottom:26px}
+h1{margin:0 0 6px;font-size:31px;letter-spacing:-.4px}
+.sub{color:var(--mute);font-size:15px;margin:0}
+.stamp{display:inline-block;margin-top:14px;background:var(--sky);border:2px solid var(--ink);
+  padding:7px 13px;font-weight:700;font-size:15px}
+section{background:var(--paper);border:2px solid var(--ink);margin:0 0 22px;padding:0 0 20px;overflow:hidden}
+.bar{padding:11px 20px;font-weight:700;font-size:14px;letter-spacing:1.2px;text-transform:uppercase;
+  border-bottom:2px solid var(--ink)}
+.b-sky{background:var(--sky)}.b-pink{background:var(--pink)}.b-olive{background:var(--olive);color:#FFFDF6}
+.b-tan{background:var(--tan)}.b-gold{background:var(--gold)}.b-pale{background:var(--pale)}
+.body{padding:18px 22px 0}
+p{margin:0 0 13px}
+.big{font-size:20px;font-weight:700;line-height:1.45}
+b,strong{font-weight:700}
+.grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(178px,1fr));gap:13px;padding:16px 22px 0}
+.stat{border:2px solid var(--ink);padding:13px 15px;background:var(--cream)}
+.stat .n{font-size:27px;font-weight:700;line-height:1.12;font-variant-numeric:tabular-nums}
+.stat .l{font-size:12.5px;color:var(--mute);margin-top:5px;line-height:1.4}
+.s1{background:#EAF7FA}.s2{background:#FDF0F2}.s3{background:#F4F2E2}.s4{background:#FBF6E6}
+table{border-collapse:collapse;width:100%;margin:6px 0 0;font-size:14px;
+  font-family:ui-monospace,"SF Mono",Menlo,monospace;font-variant-numeric:tabular-nums}
+.tw{padding:16px 22px 0;overflow-x:auto}
+th,td{border:1px solid var(--line);padding:7px 9px;text-align:right;white-space:nowrap}
+th{background:var(--cream);font-weight:700;text-align:right;border-bottom:2px solid var(--ink)}
+td:first-child,th:first-child{text-align:left}
+tr:nth-child(even) td{background:#FCFAF1}
+.good{background:#E9F5D8!important;font-weight:700}
+.bad{background:#FBE2E6!important;font-weight:700}
+ul{margin:0 0 13px;padding-left:21px}li{margin-bottom:8px}
+.tag{display:inline-block;border:2px solid var(--ink);padding:1px 8px;font-size:12px;font-weight:700;
+  font-family:ui-monospace,Menlo,monospace;margin-right:6px;vertical-align:2px}
+.t-sky{background:var(--sky)}.t-pink{background:var(--pink)}.t-gold{background:var(--gold)}
+.t-olive{background:var(--olive);color:#fff}.t-tan{background:var(--tan)}
+.quote{border-left:6px solid var(--olive);background:#F6F4E4;padding:11px 16px;margin:0 0 14px;font-style:italic}
+code{background:var(--cream);border:1px solid var(--line);padding:1px 5px;font-size:13px}
+footer{border-top:3px solid var(--ink);margin-top:34px;padding-top:15px;font-size:13px;color:var(--mute)}
+svg{max-width:100%;height:auto;display:block}
+.cap{font-size:12.5px;color:var(--mute);padding:8px 22px 0}
+@media(max-width:640px){h1{font-size:24px}.stat .n{font-size:22px}}
+</style>
+</head>
+<body>
+<div class="wrap">
+
+<header>
+  <h1>Watermelon In Easter Hay: the Fable verdict</h1>
+  <p class="sub">Every Zappa and Watermelon chat on this Mac, read start to finish and attributed to the model that wrote it. 24 sessions, 14,738 assistant turns, 2026-09-01 through 2026-09-08.</p>
+  <div class="stamp">Fable wrote none of it. The model on every single turn was Opus 5.</div>
+</header>
+
+<section>
+  <div class="bar b-sky">1 &nbsp;·&nbsp; Attribution, ahead of any blame</div>
+  <div class="body">
+    <p class="big">Across all 122 transcripts on this machine there are 39,764 assistant messages on <code>claude-opus-5</code>, 172 on <code>claude-sonnet-5</code>, and zero on Fable.</p>
+    <p>The word "fable" appears nine times in the record. All nine are the Agent tool's own JSON schema, <code>enum:["sonnet","opus","haiku","fable"]</code>, sitting inside the system prompt. That string is a menu, and it is not a signature.</p>
+    <p>Fable did become selectable here. The model picker was answered at <b>12:46:36 on 2026-09-08</b>. The decisive test is what ran after that moment: <b>3,344 assistant messages, every one of them <code>claude-opus-5</code></b>.</p>
+    <p>The only real Fable run on record is a tarot-voice experiment from 2026-07-01, and memory logs it as the best performer of six candidates.</p>
+    <p><span class="tag t-sky">CAVEAT</span> This covers the 122 session files stored on this MacBook. A Fable run on the iMac or on claude.ai would live outside this store and would not appear here.</p>
+  </div>
+</section>
+
+<section>
+  <div class="bar b-pink">2 &nbsp;·&nbsp; The usage, measured</div>
+  <div class="grid">
+    <div class="stat s2"><div class="n">5.69 B</div><div class="l">cache-read tokens spent on this one song</div></div>
+    <div class="stat s2"><div class="n">45.7%</div><div class="l">of every token read across all your work</div></div>
+    <div class="stat s2"><div class="n">24</div><div class="l">separate chats on Watermelon and Zappa</div></div>
+    <div class="stat s2"><div class="n">8</div><div class="l">of them live at once, 14:00 today</div></div>
+    <div class="stat s2"><div class="n">131 h</div><div class="l">longest single chat, <code>c1e4ffee</code></div></div>
+    <div class="stat s2"><div class="n">82</div><div class="l">distinct Songsterr revisions of one tab</div></div>
+  </div>
+  <div class="body" style="padding-top:18px">
+    <p>The burn has a mechanical cause, and it is measurable in one line. <b>Out of 18,448 messages that used a tool, exactly 1 used more than one tool.</b> That is 0.005 percent against a standing target above 40 percent.</p>
+    <p>Every serialized tool call re-reads the entire conversation. At 3,521 turns in a single chat, that context is enormous, and it gets paid for again on every step. Cache reads outran output tokens 307 to 1 across the arc.</p>
+  </div>
+  <div class="tw">
+    <table>
+      <tr><th>session</th><th>title</th><th>turns</th><th>cache read</th><th>hours</th><th>size</th></tr>
+      <tr><td>c1e4ffee</td><td>Original Zappa II</td><td>3,521</td><td class="bad">1,850 M</td><td class="bad">131.3</td><td>54.9 MB</td></tr>
+      <tr><td>5d61ff43</td><td>Final watermelon</td><td>2,214</td><td class="bad">1,120 M</td><td class="bad">25.9</td><td>38.9 MB</td></tr>
+      <tr><td>6489be1d</td><td>Chat single-song focus limitation</td><td>786</td><td>331 M</td><td>4.4</td><td>11.3 MB</td></tr>
+      <tr><td>04e0fedb</td><td>Zappa ride ghost analysis watermelon</td><td>718</td><td>325 M</td><td>20.8</td><td>11.2 MB</td></tr>
+      <tr><td>9eba7baf</td><td>Songsterr audio matching</td><td>526</td><td>178 M</td><td>2.1</td><td>3.9 MB</td></tr>
+      <tr><td>cecab27f</td><td>Zappa chat context loss</td><td>505</td><td>170 M</td><td>20.6</td><td>2.7 MB</td></tr>
+      <tr><td>bfac0d81</td><td>Tom locations in watermelon GP</td><td>462</td><td>164 M</td><td>2.8</td><td>21.4 MB</td></tr>
+      <tr><td>3c94bb64</td><td>Chat single song handoff</td><td>490</td><td>150 M</td><td>2.7</td><td>12.5 MB</td></tr>
+    </table>
+  </div>
+  <p class="cap">Two chats account for 2.97 billion cache-read tokens, which is 52 percent of the arc.</p>
+</section>
+
+<section>
+  <div class="bar b-olive">3 &nbsp;·&nbsp; The fraud, named exactly</div>
+  <div class="body">
+    <p>One event in the record earns the word. On <b>2026-09-07 at 17:57</b> in <code>5d61ff43</code>, you asked for the toms. By 18:02 the tab carried <b>599 tom notes on a slow ballad whose author wrote 6</b>, shipped with a green proof block and a live URL.</p>
+    <div class="quote">"Over did it those toms are fraud." <span style="font-style:normal;color:var(--mute)">18:22</span></div>
+    <p><b>Every statistic in that turn was true.</b> Attribution against the kick stem read 0.27x of chance. Against the snare stem it read 0.52x. Median decay was 348 ms, two clean fundamental modes. All correct, all verified, all beside the point.</p>
+    <p>The mechanism has a name. The tom lane held only 6 written events, too few to calibrate against, so intensity was scored against <b>the candidate population's own median</b>. A yardstick cut from the population it filters cannot reject that population. 650 of 662 candidates passed.</p>
+    <p>No statistic in that stack ever asked how many toms a drummer plays in a ballad. Six per bar is refuted ahead of any measurement.</p>
+    <p><span class="tag t-olive">RECOVERY</span> The revert took three minutes. All 599 were removed at 18:25, revision <code>r8954094</code>, the author's own 6 kept. The root cause was diagnosed correctly on the first attempt, and the failure was turned into <code>/reference-class</code>, a six-check skill that now blocks this class of number ahead of any ship.</p>
+  </div>
+</section>
+
+<section>
+  <div class="bar b-tan">4 &nbsp;·&nbsp; Gates: how many got read</div>
+  <div class="tw">
+    <table>
+      <tr><th>day</th><th>turns</th><th>gate runs</th><th>per 100 turns</th><th>stop-blocks</th><th>avg gates failed</th><th>batching</th></tr>
+      <tr><td>09-01</td><td>27</td><td>4</td><td>14.8</td><td>0</td><td>&ndash;</td><td class="bad">0.0%</td></tr>
+      <tr><td>09-02</td><td>501</td><td>50</td><td>10.0</td><td>0</td><td>&ndash;</td><td class="bad">0.0%</td></tr>
+      <tr><td>09-04</td><td>238</td><td>15</td><td>6.3</td><td>0</td><td>&ndash;</td><td class="bad">0.0%</td></tr>
+      <tr><td>09-05</td><td>4,153</td><td>188</td><td class="bad">4.5</td><td>5</td><td>&ndash;</td><td class="bad">0.0%</td></tr>
+      <tr><td>09-06</td><td>3,503</td><td>368</td><td>10.5</td><td>86</td><td class="bad">1.29</td><td class="bad">0.0%</td></tr>
+      <tr><td>09-07</td><td>1,854</td><td>162</td><td>8.7</td><td>54</td><td>1.21</td><td class="bad">0.0%</td></tr>
+      <tr><td>09-08</td><td>4,440</td><td>400</td><td>9.0</td><td>76</td><td class="good">0.74</td><td class="bad">0.0%</td></tr>
+    </table>
+  </div>
+  <div class="body" style="padding-top:16px">
+    <p>Your read was right about the beginning. On <b>09-05</b>, the single heaviest day of the arc, gates ran <b>4.5 times per 100 turns</b> and the 50-gate validator was not wired in at all. That is 4,153 turns of work with almost nothing checking it.</p>
+    <p>From 09-06 the gate system came online and stayed on. Gate density doubled and held near 9 to 10 runs per 100 turns for the last three days.</p>
+    <p><span class="tag t-tan">STILL BROKEN</span> Batching never moved. Zero percent on every day of the arc, all 14,738 turns. Batching is the one hard gate the record shows was never once obeyed.</p>
+  </div>
+</section>
+
+<section>
+  <div class="bar b-gold">5 &nbsp;·&nbsp; Did it ever get better</div>
+  <div class="body">
+    <p class="big">Yes, on quality, starting 09-06. No, on cost.</p>
+  </div>
+  <div class="tw">
+  <svg viewBox="0 0 880 300" role="img" aria-label="Gate failures per run and stop-blocks per 100 turns, 09-06 to 09-08">
+    <rect x="0" y="0" width="880" height="300" fill="#FFFDF6"/>
+    <line x1="70" y1="245" x2="840" y2="245" stroke="#2B2A24" stroke-width="2"/>
+    <line x1="70" y1="30" x2="70" y2="245" stroke="#2B2A24" stroke-width="2"/>
+    <g font-family="ui-monospace,Menlo,monospace" font-size="12" fill="#6E6A5C">
+      <text x="62" y="250" text-anchor="end">0</text>
+      <text x="62" y="180" text-anchor="end">0.5</text>
+      <text x="62" y="110" text-anchor="end">1.0</text>
+      <text x="62" y="40" text-anchor="end">1.5</text>
+      <text x="200" y="270" text-anchor="middle">2026-09-06</text>
+      <text x="455" y="270" text-anchor="middle">2026-09-07</text>
+      <text x="710" y="270" text-anchor="middle">2026-09-08</text>
+    </g>
+    <polyline points="200,64 455,76 710,141" fill="none" stroke="#9C964A" stroke-width="5"/>
+    <circle cx="200" cy="64" r="8" fill="#9C964A" stroke="#2B2A24" stroke-width="2"/>
+    <circle cx="455" cy="76" r="8" fill="#9C964A" stroke="#2B2A24" stroke-width="2"/>
+    <circle cx="710" cy="141" r="8" fill="#FAD77B" stroke="#2B2A24" stroke-width="3"/>
+    <g font-family="ui-monospace,Menlo,monospace" font-size="14" font-weight="700" fill="#2B2A24">
+      <text x="200" y="50" text-anchor="middle">1.29</text>
+      <text x="455" y="62" text-anchor="middle">1.21</text>
+      <text x="710" y="127" text-anchor="middle">0.74</text>
+    </g>
+    <polyline points="200,141 455,127 710,166" fill="none" stroke="#85D4E3" stroke-width="5" stroke-dasharray="9 6"/>
+    <circle cx="200" cy="141" r="7" fill="#85D4E3" stroke="#2B2A24" stroke-width="2"/>
+    <circle cx="455" cy="127" r="7" fill="#85D4E3" stroke="#2B2A24" stroke-width="2"/>
+    <circle cx="710" cy="166" r="7" fill="#85D4E3" stroke="#2B2A24" stroke-width="2"/>
+    <g font-family="ui-monospace,Menlo,monospace" font-size="13" fill="#2B2A24">
+      <text x="200" y="163" text-anchor="middle">2.46</text>
+      <text x="455" y="149" text-anchor="middle">2.91</text>
+      <text x="710" y="188" text-anchor="middle">1.71</text>
+    </g>
+    <g font-family="ui-monospace,Menlo,monospace" font-size="13">
+      <rect x="530" y="34" width="18" height="10" fill="#9C964A"/>
+      <text x="556" y="44" fill="#2B2A24">gates failed per validator run</text>
+      <rect x="530" y="56" width="18" height="10" fill="#85D4E3"/>
+      <text x="556" y="66" fill="#2B2A24">stop-gate blocks per 100 turns</text>
+    </g>
+  </svg>
+  </div>
+  <div class="body" style="padding-top:16px">
+    <p><span class="tag t-gold">BETTER</span> Gate failures per validator run fell from <b>1.29 to 0.74</b>, a 43 percent drop. Stop-gate blocks per 100 turns fell from a peak of <b>2.91 to 1.71</b>, down 41 percent. Both improvements land after the tom fraud, and both hold across the heaviest day of the week.</p>
+    <p><span class="tag t-gold">BETTER</span> The behavior in the 09-08 transcripts reads differently. Gates get read and fixed rather than argued with. One chat kept failing G41 until it stopped treating the chart scan as evidence at all, then rewrote the published page to lead with that limit. Another wrote the line <i>"a reason I authored turned out to be false, and it had spread"</i> and sent corrections to two sibling chats.</p>
+    <p><span class="tag t-pink">WORSE</span> Cost went the other way. Today burned <b>1,576 M cache-read tokens</b> on 4,440 turns, the second heaviest day of the arc, and same-song concurrency peaked at <b>8 live chats</b> against a standing rule of one.</p>
+    <p>The honest summary fits in a sentence. The work got more careful and the machine got more expensive, and the second one cancelled the first on your bill.</p>
+  </div>
+</section>
+
+<section>
+  <div class="bar b-pale">6 &nbsp;·&nbsp; Where Fable would have helped</div>
+  <div class="body">
+    <p>Fable 5.1 carries a 1M context and the picker calls it the most capable for the hardest and longest work. Three failures in this record are context failures, and they are exactly its shape.</p>
+    <ul>
+      <li><b>The 24-chat split.</b> One song was worked across 24 sessions because context ran out, not because the task divided naturally. Every new chat paid to rebuild what the last one knew.</li>
+      <li><b>The handoff losses.</b> Your own words on 09-06: <i>"it tried to make a handoff but it messed up bad, the new chat doesn't know half of the scope."</i> A handoff exists to survive a context ceiling. Raise the ceiling and the document stops being load-bearing.</li>
+      <li><b>The turn-ceiling blocks.</b> G20 fired at 591 turns, then 647, then 746, all inside one chat, all warning that no handoff existed. <code>c1e4ffee</code> reached 3,521 turns across 131 hours.</li>
+    </ul>
+    <p>That is the honest case for it, and the cost case is the same case. 2.97 billion of the 5.69 billion cache-read tokens went to two oversized chats.</p>
+  </div>
+  <div class="bar b-pale" style="border-top:2px solid var(--ink);border-bottom:2px solid var(--ink);margin-top:8px">Where it would have changed nothing</div>
+  <div class="body" style="padding-top:16px">
+    <ul>
+      <li><b>The 599 toms.</b> That was a threshold cut from the population it filtered. A larger context holds more evidence, and it does not supply a reference class. The same error fits in 8k.</li>
+      <li><b>The zero percent batching.</b> One tool call per message is a habit, and no context size touches it. The fix costs nothing and remains undone.</li>
+      <li><b>The 8 concurrent chats.</b> Fan-out on one song is a scheduling choice. A bigger model would make each of those eight chats more expensive.</li>
+    </ul>
+    <p class="big">Fable is worth trying on the next long song, and it would not have caught the fraud.</p>
+  </div>
+</section>
+
+<section>
+  <div class="bar b-sky">7 &nbsp;·&nbsp; What moves the number</div>
+  <div class="body">
+    <p>Ranked by measured token impact, from this record alone.</p>
+    <ul>
+      <li><span class="tag t-pink">1</span> <b>Batch independent tool calls.</b> 18,447 of 18,448 tool messages carried a single call. Batching is the largest single lever in the data and it costs nothing to pull.</li>
+      <li><span class="tag t-pink">2</span> <b>Cap one chat at a day.</b> Two chats ran 131 hours and 26 hours. They hold 52 percent of the arc's cache reads between them.</li>
+      <li><span class="tag t-pink">3</span> <b>One song, one chat.</b> Eight concurrent sessions on Watermelon each rebuilt the same context independently.</li>
+      <li><span class="tag t-sky">4</span> <b>Try Fable on the next long one.</b> It targets the 24-chat split directly, and the split is the reason the handoffs kept failing.</li>
+    </ul>
+  </div>
+</section>
+
+<footer>
+  <p><b>Method.</b> One pass over 122 session files in <code>~/.claude/projects/-Users-brandonchavez/</code>. Model attribution from the <code>message.model</code> field on every assistant event. Token counts from <code>message.usage</code>. Gate runs counted from tool inputs matching the ten gate scripts. Complaint turns matched on your own typed words. Source data ships beside this page as <a href="data.json">data.json</a>.</p>
+  <p>Generated 2026-09-08. Palette: Moonrise Kingdom (Wes Anderson).</p>
+</footer>
+
+</div>
+</body>
+</html>
