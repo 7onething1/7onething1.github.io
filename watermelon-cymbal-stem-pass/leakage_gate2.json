@@ -1,0 +1,18 @@
+{
+ "overlap_cym_tom": 0.4611864406779661,
+ "overlap_101_tom": 0.5880181238462828,
+ "overlap_101_cym": 0.47772277227722765,
+ "p_cym_gt_tom": 2.295411166532959e-14,
+ "p_101_gt_tom": 0.08444884112437173,
+ "p_101_lt_cym": 4.441746984325106e-13,
+ "cym_p10": -0.005117833614349365,
+ "tom_p90": 0.010524046421051026,
+ "of101_above_tom_p90": 20,
+ "of101_below_cym_p10": 48,
+ "of101_inside_overlap": 33,
+ "silent_passages": 4,
+ "silent_seconds": 19.38091811539428,
+ "onsets_in_silent": 19,
+ "rate_silent": 0.9803457135969366,
+ "rate_active": 2.9646372176935687
+}

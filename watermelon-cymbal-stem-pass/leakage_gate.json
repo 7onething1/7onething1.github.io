@@ -1,0 +1,33 @@
+{
+ "iso_counts": {
+  "cymbal": 865,
+  "tom": 59,
+  "snare": 56
+ },
+ "populations": {
+  "ISOLATED CYMBAL (target)": {
+   "n": 400,
+   "margin_p25": 0.0006318092346191406,
+   "margin_med": 0.007788956165313721,
+   "margin_p75": 0.013663485646247864,
+   "cym_energy_med": 168.0983123779297,
+   "tom_energy_med": 0.17355754971504211
+  },
+  "ISOLATED TOM (bleed signature)": {
+   "n": 59,
+   "margin_p25": -0.014646410942077637,
+   "margin_med": -0.007083714008331299,
+   "margin_p75": 0.002100706100463867,
+   "cym_energy_med": 87.64126586914062,
+   "tom_energy_med": 182.66226196289062
+  },
+  "THE 101 (tom-coincident cymbals)": {
+   "n": 101,
+   "margin_p25": -0.011513829231262207,
+   "margin_med": -0.0037804841995239258,
+   "margin_p75": 0.008823633193969727,
+   "cym_energy_med": 148.1917724609375,
+   "tom_energy_med": 154.40914916992188
+  }
+ }
+}

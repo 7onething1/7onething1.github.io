@@ -1,0 +1,63 @@
+{
+ "control_recording": "Keep It Greasey (Zappa), same Moises separator, 501.84 s",
+ "tolerance_s": 0.025,
+ "pct": 95,
+ "rows": [
+  {
+   "lane": "cymbal",
+   "n": 1573,
+   "right_confirm": 0.19326128417037508,
+   "right_chance": 0.1328,
+   "right_ratio": 1.455280754294993,
+   "wrong_confirm": 0.08582326764144946,
+   "wrong_chance": 0.0858,
+   "wrong_ratio": 1.000271184632278,
+   "separation": 1.4548862115127175,
+   "verdict": "weak",
+   "wrong_onsets": 824,
+   "right_onsets": 1286
+  },
+  {
+   "lane": "snare",
+   "n": 342,
+   "right_confirm": 0.4766081871345029,
+   "right_chance": 0.0692,
+   "right_ratio": 6.8874015481864586,
+   "wrong_confirm": 0.07017543859649122,
+   "wrong_chance": 0.09025,
+   "wrong_ratio": 0.7775671866647227,
+   "separation": 8.857628853564549,
+   "verdict": "SEPARATES",
+   "wrong_onsets": 859,
+   "right_onsets": 659
+  },
+  {
+   "lane": "kick",
+   "n": 504,
+   "right_confirm": 0.44841269841269843,
+   "right_chance": 0.08615,
+   "right_ratio": 5.205022616514201,
+   "wrong_confirm": 0.09126984126984126,
+   "wrong_chance": 0.13125,
+   "wrong_ratio": 0.6953892668178382,
+   "separation": 7.4850488278785745,
+   "verdict": "SEPARATES",
+   "wrong_onsets": 1160,
+   "right_onsets": 860
+  },
+  {
+   "lane": "tom",
+   "n": 168,
+   "right_confirm": 0.7023809523809523,
+   "right_chance": 0.0911,
+   "right_ratio": 7.709999477288171,
+   "wrong_confirm": 0.16071428571428573,
+   "wrong_chance": 0.11815,
+   "wrong_ratio": 1.360256332748927,
+   "separation": 5.668048949058828,
+   "verdict": "SEPARATES",
+   "wrong_onsets": 1134,
+   "right_onsets": 867
+  }
+ ]
+}

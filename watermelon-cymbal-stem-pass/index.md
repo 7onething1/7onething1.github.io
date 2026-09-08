@@ -103,3 +103,45 @@ Three lanes collapse against the wrong performance, so the clock is specific to 
 cymbal lane returns exactly 1.00x on the wrong recording and 1.46x on its own, so some cymbal notation
 is genuinely supported. The 1.45x separation sits under the 1.5x floor, so the lane characterises well
 and cannot promote an individual edit. Data: data/wrong_recording.json
+
+## Leakage gate (closes q-2026-09-08-39914f) and the number that reframes the page
+
+Templates built from this recording only. An isolated event has no other drum notated within 50 ms:
+865 isolated cymbals, 59 isolated toms. Margin = similarity to the cymbal template minus similarity
+to the tom-bleed template.
+
+| Population | n | Margin median | Cymbal-stem energy | Tom-stem energy |
+|---|---|---|---|---|
+| Isolated cymbal (target) | 400 | +0.0078 | 168.1 | 0.2 |
+| Isolated tom (bleed signature) | 59 | -0.0071 | 87.6 | 182.7 |
+| The 101 | 101 | -0.0038 | 148.2 | 154.4 |
+
+A tom alone puts 87.6 of energy into the cymbal stem against 168.1 for a real isolated cymbal, so this
+separation leaks about half a cymbal's worth of energy on every tom hit.
+
+### The two routes corroborate
+
+| Subset of the 101 | n | Margin median | Reads as |
+|---|---|---|---|
+| Onset CONFIRMED | 20 | +0.0131 | cymbal, above the isolated-cymbal median |
+| Onset ABSENT | 80 | -0.0058 | near the tom-bleed median |
+
+Mann-Whitney CONFIRMED > ABSENT, p = 0.0001. Two independent measurements agree, so the 20 confirmed
+strokes are real cymbal.
+
+### Detector recall, the important number
+
+On the 865 cleanest cymbals, those with no other drum within 50 ms, the detector confirms only
+14.9 percent against a 13.3 percent floor. That is 1.12x, essentially chance, and an 85 percent miss
+rate on known-good events. Isolated cymbals therefore score WORSE than the tom-coincident 101 (1.49x)
+and worse than the lane as a whole (1.46x).
+
+CORRECTION: the earlier claim that "the whole 1,573-note cymbal lane is the defect at 1.46x" is a
+statement about the DETECTOR, never about the notation. Nothing about whether the cymbal notation is
+correct follows from it. ABSENT carries no information and never licenses a removal, since 85 percent
+of known-good cymbals come back ABSENT. Every one of the 101 stays.
+
+Detector rate through notation-silent passages: 0.98/s inside 4 stretches totalling 19.4 s, against
+2.96/s elsewhere, ratio 0.33. Small sample, little weight on its own.
+
+Data: leakage_gate.json, leakage_gate2.json, leakage_gate3.json, leakage_gate4.json

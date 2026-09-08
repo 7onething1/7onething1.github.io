@@ -108,6 +108,12 @@ tom confirm against the cymbal stem at 19.8 percent. Every other cymbal note in 
 19.3 percent. The collision criterion selected nothing. The real finding sits one level up: the whole
 1,573-note cymbal lane runs at 1.46 times chance on its own stem, in a session where snare scores 6.89,
 kick 5.21 and toms 7.71 through identical machinery.</p>
+<p><strong>Corrected 2026-09-08 by the leakage gate.</strong> The sentence above about the lane
+running at 1.46 times chance is a statement about the DETECTOR, never about the notation. On the 865
+cleanest cymbals in the song, those with no other drum within 50 ms, this detector recovers only
+<strong>14.9 percent against a 13.3 percent floor, which is 1.12 times</strong>. It cannot see this
+instrument in this recording. Nothing about whether the cymbal notation is correct follows from the
+1.46 figure, and no cymbal note can be removed on it.</p>
 <p>A second result cuts against the repair list. All 49 sub-sixteenth tom positions sit a median of
 15.4 ms from a tom-stem onset and 81.8 ms from the sixteenth grid, measured in bars where the clock is
 independently accurate to about 16 ms. Snapping them to sixteenths would move 49 notes away from the audio.</p>
@@ -413,12 +419,67 @@ cymbal pass measured. Written into <span class="mono">data/snare_duplicates.json
 provenance decides this rather than audio.</p>
 </div>
 
+<h2 class="t">The leakage gate, and the number that reframes the whole page</h2>
+<p>The spec requires more than one bleed control: target and competing transient energy, target and
+competing template similarity, and the detector's firing rate through known target-silent passages, all
+calibrated from confirmed events inside this recording. Running it changed what the cymbal figures mean.</p>
+
+<h3>Templates built from this recording only</h3>
+<p>An isolated event is one with no other drum notated within 50 ms. That gives 865 isolated cymbals and
+59 isolated toms. The cymbal template is what the cymbal stem looks like on an isolated cymbal. The bleed
+template is what the same stem looks like when a tom sounds and no cymbal is written. The margin below is
+similarity to the cymbal template minus similarity to the bleed template.</p>
+<div class="scroll"><table>
+<thead><tr><th>Population</th><th>n</th><th>Margin median</th><th>Cymbal-stem energy</th><th>Tom-stem energy</th></tr></thead>
+<tbody>
+<tr><td>Isolated cymbal (target)</td><td>400</td><td class="ok">+0.0078</td><td>168.1</td><td>0.2</td></tr>
+<tr><td>Isolated tom (bleed signature)</td><td>59</td><td class="bad">&minus;0.0071</td><td>87.6</td><td>182.7</td></tr>
+<tr><td>The 101, all together</td><td>101</td><td>&minus;0.0038</td><td>148.2</td><td>154.4</td></tr>
+</tbody></table></div>
+<p><strong>A tom alone puts 87.6 of energy into the cymbal stem</strong> against 168.1 for a real isolated
+cymbal, so this separation leaks roughly half a cymbal's worth of energy on every tom hit. That is why the
+gate was necessary.</p>
+
+<h3>The two routes corroborate each other</h3>
+<div class="scroll"><table>
+<thead><tr><th>Subset of the 101</th><th>n</th><th>Margin p25</th><th>Median</th><th>p75</th><th>Reads as</th></tr></thead>
+<tbody>
+<tr><td>Onset CONFIRMED</td><td>20</td><td>&minus;0.0051</td><td class="ok"><strong>+0.0131</strong></td><td>+0.0148</td><td>cymbal, above the isolated-cymbal median</td></tr>
+<tr><td>Onset ABSENT</td><td>80</td><td>&minus;0.0125</td><td class="bad">&minus;0.0058</td><td>+0.0008</td><td>near the tom-bleed median</td></tr>
+</tbody></table></div>
+<p>Mann-Whitney, CONFIRMED above ABSENT, <strong>p = 0.0001</strong>. Onset detection and spectral shape
+are independent measurements and they agree. The 20 confirmed strokes are real cymbal, supported twice.</p>
+
+<h3>The recall number, which is the important one</h3>
+<div class="grid">
+<div class="stat"><div class="num">865</div><div class="lbl">cymbals with no other drum within 50 ms</div></div>
+<div class="stat"><div class="num bad">14.9%</div><div class="lbl">of those the detector confirms</div></div>
+<div class="stat"><div class="num bad">1.12&times;</div><div class="lbl">versus the 13.3% chance floor</div></div>
+<div class="stat"><div class="num">85%</div><div class="lbl">miss rate on known-good cymbals</div></div>
+</div>
+<div class="card hero" style="border-left-color:#b5563a">
+<p><strong>The cleanest cymbals score WORSE than the tom-coincident ones.</strong> Isolated cymbals reach
+1.12&times;, the whole lane 1.46&times;, the 101 1.49&times;. A detector that finds genuine cymbals barely
+above chance in the easiest possible conditions is not measuring the notation. It is failing to see a ride
+pattern inside its own resonant bed, which is the exact difficulty the spec names for broadband cymbal
+textures.</p>
+<p style="margin-bottom:0"><strong>So ABSENT carries no information and never licenses a removal.</strong>
+Eighty-five percent of cymbals that are known good by isolation come back ABSENT. Applying that verdict as
+a repair instruction would delete most of a correctly notated lane. Every one of the 101 stays.</p>
+</div>
+
+<h3>Detector rate through notation-silent passages</h3>
+<p>Only four stretches run 1.5 s or longer with no notated cymbal, totalling 19.4 s, because the notation
+is nearly continuous. The detector fires at <strong>0.98/s</strong> inside them against
+<strong>2.96/s</strong> elsewhere, a ratio of 0.33. Notation and stem agree at that coarse level, and the
+sample is four passages, so it carries little weight on its own.</p>
+
 <h2 class="g">The queue this produces</h2>
 <ol>
 <li><strong>101 cymbal strokes</strong> with timestamps and verdicts, opened individually, never removed in bulk.</li>
 <li><strong>Display bar 57</strong> is UNRESOLVED. The measurement failed on bin-lock and the chart sits below the 15 px notehead floor. It waits on a scan at roughly three times this resolution.</li>
 <li><strong>49 fractional tom positions</strong> examined per fill for tuplets and odd meters, with the regrid withdrawn.</li>
-<li><strong>The whole cymbal lane</strong>, 1,573 notes at 1.46 times chance, which is the actual defect rather than the 101.</li>
+<li><strong>A cymbal detector that can see this ride bed.</strong> The current one reaches 1.12 times chance on the cleanest cymbals in the song, so the lane cannot be judged until that is fixed.</li>
 <li><strong>The chart reader</strong>, four head counts from one image, re-read from the stem ahead of grading anything.</li>
 </ol>
 

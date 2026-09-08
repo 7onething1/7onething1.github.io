@@ -1,0 +1,12 @@
+{
+ "confirmed_n": 20,
+ "absent_n": 80,
+ "confirmed_median": 0.013129323720932007,
+ "absent_median": -0.005784422159194946,
+ "p_confirmed_gt_absent": 6.176923579219463e-05,
+ "iso_cym_median": 0.007788956165313721,
+ "iso_tom_median": -0.007083714008331299,
+ "verdict_SUPERSEDED": "UNRESOLVED for all 101: the shape route cannot separate them from pure tom bleed (p=0.0844) and the two routes do not corroborate each other.",
+ "verdict": "The two routes DO corroborate (p=0.0001): the 20 onset-CONFIRMED events carry a median template margin of +0.0131, above the isolated-cymbal median of +0.0078, while the 80 onset-ABSENT events sit at -0.0058, near the tom-bleed median of -0.0071. The CONFIRMED subset is supported by two independent measurements. ABSENT remains uninformative because detector recall on isolated cymbals is only 14.9% (see leakage_gate4.json).",
+ "note": "The superseded string was written into the script before the result was seen and was wrong on both clauses. Kept here rather than deleted."
+}

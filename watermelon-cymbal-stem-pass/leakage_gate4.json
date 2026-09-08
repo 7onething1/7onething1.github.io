@@ -1,0 +1,9 @@
+{
+ "n_isolated_cymbals": 865,
+ "confirmed_isolated": 129,
+ "recall_isolated": 0.14913294797687862,
+ "chance": 0.1328,
+ "recall_ratio": 1.1229890660909534,
+ "lane_confirm": 0.19326128417037508,
+ "conclusion": "ABSENT cannot license removal: the detector misses 85% of cymbals that have no other drum within 50 ms."
+}
