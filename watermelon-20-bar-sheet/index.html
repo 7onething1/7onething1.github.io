@@ -1,0 +1,165 @@
+<!doctype html><html lang="en"><head><meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Watermelon 20-Bar Sheet</title><style>
+:root{--cream:#f4efe2;--paper:#fbf8f0;--ink:#2f2a24;--muted:#7a6f60;--rule:#ddd3bf;
+ --mustard:#d9a441;--teal:#3f7f7a;--rust:#b5563a;--plum:#6b4a72;--olive:#7a8450;--sky:#4a7fa8}
+*{box-sizing:border-box}
+body{margin:0;background:var(--cream);color:var(--ink);font:16px/1.6 "Iowan Old Style","Palatino Linotype",Palatino,Georgia,serif}
+.wrap{max-width:1220px;margin:0 auto;padding:28px 20px 90px}
+header{border:2px solid var(--ink);background:var(--paper);padding:26px 28px;margin-bottom:26px}
+h1{margin:0 0 4px;font-size:30px}.sub{color:var(--muted);font-size:15px;margin:0}
+.tagrow{margin-top:16px;display:flex;flex-wrap:wrap;gap:8px}
+.tag{border:1px solid var(--rule);background:var(--cream);padding:4px 11px;font-size:13px}
+.tag b{color:var(--rust)}
+h2{font-size:21px;margin:34px 0 12px;padding-bottom:7px;border-bottom:2px solid var(--ink)}
+h3{font-size:16px;margin:20px 0 8px;color:var(--teal)}
+section{background:var(--paper);border:1px solid var(--rule);padding:20px 24px;margin-bottom:22px}
+p{margin:0 0 12px}
+table{border-collapse:collapse;width:100%;font-size:14px;background:var(--paper)}
+th,td{border:1px solid var(--rule);padding:6px 9px;text-align:left;vertical-align:top}
+th{background:var(--cream);font-weight:700;font-size:12.5px}
+td.num,th.num{text-align:right;font-variant-numeric:tabular-nums}
+code,.mono{font:12.5px/1.5 "SF Mono",Menlo,Consolas,monospace;background:var(--cream);padding:1px 4px;border:1px solid var(--rule)}
+.scroll{overflow-x:auto}
+.red{color:var(--rust);font-weight:700}.grn{color:var(--olive);font-weight:700}
+ul{margin:0 0 12px 20px;padding:0}li{margin-bottom:7px}
+.rz{background:#f6e7e2}
+footer{color:var(--muted);font-size:13px;border-top:1px solid var(--rule);padding-top:14px}
+</style></head><body><div class="wrap">
+<header>
+<h1>Watermelon: the other 20 bars, decision sheet</h1>
+<p class="sub">Every measure that needs the index-24 treatment, measured off the live head
+<b>r8968524</b> with the <code>/transcription-repair</code> skill. Built 2026-09-08.</p>
+<div class="tagrow">
+<div class="tag">measures <b>20</b></div>
+<div class="tag">toms involved <b>113</b></div>
+<div class="tag">cymbal collisions <b>95</b></div>
+<div class="tag">sub-16th tom beats <b>41</b></div>
+<div class="tag">skill hands verdict <b>False</b></div>
+<div class="tag">red zone <b>[54]</b></div>
+</div>
+</header>
+
+<section>
+<h2>What this is, and what it is not</h2>
+<p>Five sessions were running on this song at once. The chat titled <b>Final watermelon</b> was
+three minutes ahead on the file build, so this session did <b>not</b> build a competing
+<code>.gp</code> and did <b>not</b> write to <code>s6857183</code>. This page is the measurement,
+so the decision can be made by ear the way index 24 was.</p>
+<p>Every number is read from the live drums payload of <code>r8968524</code>, or from the
+skill's own gates run on candidate <code>v11</code>. Nothing here is an edit.</p>
+</section>
+
+<section>
+<h2>A reader bug in the skill, found and fixed</h2>
+<p><code>tr_ledger.py</code> resolved percussion only through <code>Property name="Element"</code>.
+GP7 and GP8 carry the kit index in <b><code>&lt;InstrumentArticulation&gt;</code></b> instead, so
+every drum note read as midi -1 and <code>tr_gate.py track</code> called this a
+<b>100 percent off-GM-map, not a drum staff</b>. A second fault sat behind it: these notes also
+carry <code>Property name="Midi"</code> holding the pitched value, which shadowed the articulation
+even once the index was found.</p>
+<p>Both are patched. The gate now reads <b>drum staff</b> with lanes 36, 40, 41, 44, 45, 46, 47,
+48, 49, 51, 57, and the census returns ride 1525, kick 505, snare 340, pedal hi-hat 245, which
+matches the live tab. All skill self-tests still exit 0. Backup at
+<code>tr_ledger.py.bak-pre-instrumentarticulation-2026-09-08</code>.</p>
+<p>One cosmetic issue left alone: <code>tr_score.py</code> line 546 truncates its JSON dump at
+8000 characters, so the CLI emits unparseable JSON on a long result. Call
+<code>hands_gate()</code> directly instead.</p>
+</section>
+
+<section>
+<h2>Red zone, corrected</h2>
+<p>An earlier note from this session claimed 20 of these measures were red zone because they are
+5/4. The skill's own <code>redzone</code> disagrees: it returns
+<b>red_zone_bars [54]</b>, tuplets only, with no odd-meter or meter-change bars. So
+<b>19 of the 20 are repairable</b> and index 54 is the one that needs its rational positions from
+a written source.</p>
+<p>The file's own subdivision vocabulary is
+1, 2, 4, 8, 16, 32, 64, finest 64, with 32nds
+appearing 90 times and 64ths 40.
+A 32nd is therefore legal here, and the 41 sub-16th tom beats below still need affirmative
+evidence rather than a leftover from an unsnapped onset.</p>
+</section>
+
+<section>
+<h2>The 20 measures</h2>
+<p>Index is 0-based into the drums part, the same numbering Songsterr's diff view prints.
+Chart bar is index minus 8. Collisions are cymbal strokes sitting on a sixteenth a tom already
+occupies. "3 hands" is the skill's own <code>hands_gate</code> count on candidate v11.</p>
+<div class="scroll"><table>
+<tr><th class="num">index</th><th class="num">chart</th><th>meter</th><th class="num">toms</th>
+<th>drums used</th><th class="num">cym</th><th class="num">cym rests</th>
+<th class="num">collisions</th><th>colliding 16ths</th><th class="num">sub-16th</th>
+<th class="num">3 hands</th></tr>
+<tr><td class='num'>13</td><td class='num'>5</td><td>4/4</td><td class='num'>4</td><td>HighFloor</td><td class='num'>15</td><td class='num'>0</td><td class='num red'>3</td><td class='mono'>4.0, 5.0, 6.0</td><td class='num'>3</td><td class='num'>1</td></tr>
+<tr><td class='num'>14</td><td class='num'>6</td><td>5/4</td><td class='num'>6</td><td>HighFloor, High</td><td class='num'>20</td><td class='num'>0</td><td class='num red'>4</td><td class='mono'>16.0, 17.0, 18.0, 19.0</td><td class='num'>4</td><td class='num'>0</td></tr>
+<tr><td class='num'>20</td><td class='num'>12</td><td>5/4</td><td class='num'>4</td><td>HiMid, High</td><td class='num'>20</td><td class='num'>0</td><td class='num red'>3</td><td class='mono'>16.0, 18.0, 19.0</td><td class='num'>3</td><td class='num'>0</td></tr>
+<tr><td class='num'>28</td><td class='num'>20</td><td>5/4</td><td class='num'>6</td><td>HighFloor, HiMid</td><td class='num'>20</td><td class='num'>0</td><td class='num red'>5</td><td class='mono'>12.0, 14.0, 16.0, 18.0, 19.0</td><td class='num'>3</td><td class='num'>1</td></tr>
+<tr><td class='num'>32</td><td class='num'>24</td><td>5/4</td><td class='num'>5</td><td>HiMid</td><td class='num'>20</td><td class='num'>0</td><td class='num red'>3</td><td class='mono'>16.0, 17.0, 18.0</td><td class='num'>4</td><td class='num'>0</td></tr>
+<tr><td class='num'>40</td><td class='num'>32</td><td>5/4</td><td class='num'>6</td><td>HighFloor</td><td class='num'>20</td><td class='num'>0</td><td class='num red'>6</td><td class='mono'>12.0, 13.0, 14.0, 16.0, 17.0, 18.0</td><td class='num'>0</td><td class='num'>1</td></tr>
+<tr><td class='num'>42</td><td class='num'>34</td><td>5/4</td><td class='num'>5</td><td>HiMid</td><td class='num'>20</td><td class='num'>0</td><td class='num red'>4</td><td class='mono'>16.0, 17.0, 18.0, 19.0</td><td class='num'>4</td><td class='num'>0</td></tr>
+<tr><td class='num'>44</td><td class='num'>36</td><td>5/4</td><td class='num'>6</td><td>HiMid, High</td><td class='num'>20</td><td class='num'>0</td><td class='num red'>6</td><td class='mono'>6.0, 9.0, 12.0, 13.0, 14.0, 16.0</td><td class='num'>0</td><td class='num'>1</td></tr>
+<tr><td class='num'>48</td><td class='num'>40</td><td>5/4</td><td class='num'>6</td><td>HiMid, High</td><td class='num'>20</td><td class='num'>0</td><td class='num red'>6</td><td class='mono'>10.0, 12.0, 16.0, 17.0, 18.0, 19.0</td><td class='num'>0</td><td class='num'>1</td></tr>
+<tr class="rz"><td class='num'>54</td><td class='num'>46</td><td>5/4</td><td class='num'>7</td><td>HiMid, High</td><td class='num'>17</td><td class='num'>0</td><td class='num red'>5</td><td class='mono'>4.0, 13.0, 14.0, 16.0, 17.0</td><td class='num'>0</td><td class='num'>1</td></tr>
+<tr><td class='num'>56</td><td class='num'>48</td><td>5/4</td><td class='num'>11</td><td>HighFloor, HiMid</td><td class='num'>20</td><td class='num'>0</td><td class='num red'>11</td><td class='mono'>4.0, 8.0, 9.0, 10.0, 11.0, 12.0, 13.0, 14.0, 15.0, 16.0, 19.0</td><td class='num'>0</td><td class='num'>2</td></tr>
+<tr><td class='num'>60</td><td class='num'>52</td><td>5/4</td><td class='num'>6</td><td>HiMid, High</td><td class='num'>20</td><td class='num'>0</td><td class='num red'>5</td><td class='mono'>11.0, 14.0, 15.0, 17.0, 18.0</td><td class='num'>1</td><td class='num'>1</td></tr>
+<tr><td class='num'>62</td><td class='num'>54</td><td>5/4</td><td class='num'>3</td><td>HiMid, High</td><td class='num'>20</td><td class='num'>0</td><td class='num red'>3</td><td class='mono'>15.0, 17.0, 18.0</td><td class='num'>0</td><td class='num'>0</td></tr>
+<tr><td class='num'>64</td><td class='num'>56</td><td>5/4</td><td class='num'>6</td><td>HighFloor, HiMid, High</td><td class='num'>20</td><td class='num'>0</td><td class='num red'>5</td><td class='mono'>11.0, 14.0, 15.0, 16.0, 17.0</td><td class='num'>5</td><td class='num'>0</td></tr>
+<tr><td class='num'>72</td><td class='num'>64</td><td>5/4</td><td class='num'>3</td><td>HighFloor</td><td class='num'>20</td><td class='num'>0</td><td class='num red'>3</td><td class='mono'>8.0, 9.0, 10.0</td><td class='num'>0</td><td class='num'>0</td></tr>
+<tr><td class='num'>78</td><td class='num'>70</td><td>5/4</td><td class='num'>3</td><td>HighFloor</td><td class='num'>20</td><td class='num'>0</td><td class='num red'>2</td><td class='mono'>10.0, 12.0</td><td class='num'>2</td><td class='num'>1</td></tr>
+<tr><td class='num'>80</td><td class='num'>72</td><td>5/4</td><td class='num'>6</td><td>HighFloor</td><td class='num'>20</td><td class='num'>0</td><td class='num red'>6</td><td class='mono'>3.0, 4.0, 7.0, 8.0, 9.0, 10.0</td><td class='num'>1</td><td class='num'>0</td></tr>
+<tr><td class='num'>82</td><td class='num'>74</td><td>5/4</td><td class='num'>8</td><td>HiMid, High</td><td class='num'>20</td><td class='num'>0</td><td class='num red'>5</td><td class='mono'>3.0, 4.0, 6.0, 7.0, 8.0</td><td class='num'>8</td><td class='num'>1</td></tr>
+<tr><td class='num'>84</td><td class='num'>76</td><td>5/4</td><td class='num'>6</td><td>HighFloor, HiMid</td><td class='num'>20</td><td class='num'>0</td><td class='num red'>6</td><td class='mono'>1.0, 2.0, 4.0, 6.0, 7.0, 8.0</td><td class='num'>0</td><td class='num'>1</td></tr>
+<tr><td class='num'>88</td><td class='num'>80</td><td>5/4</td><td class='num'>6</td><td>HighFloor</td><td class='num'>20</td><td class='num'>0</td><td class='num red'>4</td><td class='mono'>2.0, 3.0, 4.0, 18.0</td><td class='num'>3</td><td class='num'>1</td></tr>
+</table></div>
+<p><b>Totals: 95 colliding cymbal strokes, 41 sub-16th tom beats, 113 toms.</b>
+Every measure carries <b>zero</b> cymbal rests, which is the fault index 24 had before it was
+fixed by hand.</p>
+</section>
+
+<section>
+<h2>Per measure, the exact positions</h2>
+<p>Positions are sixteenths from the downbeat, zero-based.</p>
+<div class="scroll"><table>
+<tr><th class="num">index</th><th>toms at</th><th>collisions at</th><th>sub-16th beats</th></tr>
+<tr><td class='num'>13</td><td class='mono'>4.25:HighFloor 4.75:HighFloor 5.0:HighFloor 5.5:HighFloor</td><td class='mono'>4.0, 5.0, 6.0</td><td class='mono'>4.25(len 0.5) 4.75(len 0.25) 5.0(len 0.5)</td></tr>
+<tr><td class='num'>14</td><td class='mono'>15.75:HighFloor 16.5:HighFloor 16.75:HighFloor 17.75:High 18.75:High 19.0:High</td><td class='mono'>16.0, 17.0, 18.0, 19.0</td><td class='mono'>15.75(len 0.25) 16.5(len 0.25) 18.75(len 0.25) 19.0(len 0.75)</td></tr>
+<tr><td class='num'>20</td><td class='mono'>16.0:High 18.0:HiMid 18.75:HiMid 19.25:HiMid</td><td class='mono'>16.0, 18.0, 19.0</td><td class='mono'>18.0(len 0.75) 18.75(len 0.5) 19.25(len 0.75)</td></tr>
+<tr><td class='num'>28</td><td class='mono'>12.0:HiMid 14.0:HiMid 16.0:HiMid 18.0:HighFloor 18.75:HighFloor 19.25:HighFloor</td><td class='mono'>12.0, 14.0, 16.0, 18.0, 19.0</td><td class='mono'>18.0(len 0.75) 18.75(len 0.5) 19.25(len 0.75)</td></tr>
+<tr><td class='num'>32</td><td class='mono'>16.0:HiMid 16.25:HiMid 17.0:HiMid 17.5:HiMid 18.0:HiMid</td><td class='mono'>16.0, 17.0, 18.0</td><td class='mono'>16.0(len 0.25) 16.25(len 0.75) 17.0(len 0.5) 17.5(len 0.5)</td></tr>
+<tr><td class='num'>40</td><td class='mono'>12.0:HighFloor 13.0:HighFloor 14.0:HighFloor 16.0:HighFloor 17.0:HighFloor 18.0:HighFloor</td><td class='mono'>12.0, 13.0, 14.0, 16.0, 17.0, 18.0</td><td class='mono'>none</td></tr>
+<tr><td class='num'>42</td><td class='mono'>16.0:HiMid 16.75:HiMid 17.25:HiMid 18.0:HiMid 19.25:HiMid</td><td class='mono'>16.0, 17.0, 18.0, 19.0</td><td class='mono'>16.0(len 0.75) 16.75(len 0.5) 17.25(len 0.75) 19.25(len 0.75)</td></tr>
+<tr><td class='num'>44</td><td class='mono'>6.0:HiMid 9.0:High 12.0:HiMid 13.0:HiMid 14.0:HiMid 16.0:HiMid</td><td class='mono'>6.0, 9.0, 12.0, 13.0, 14.0, 16.0</td><td class='mono'>none</td></tr>
+<tr><td class='num'>48</td><td class='mono'>10.0:High 12.0:HiMid 16.0:HiMid 17.0:HiMid 18.0:HiMid 19.0:HiMid</td><td class='mono'>10.0, 12.0, 16.0, 17.0, 18.0, 19.0</td><td class='mono'>none</td></tr>
+<tr><td class='num'>54</td><td class='mono'>4.0:HiMid 13.0:HiMid 14.0:HiMid 16.0:High 17.0:High 18.0:High 19.0:High</td><td class='mono'>4.0, 13.0, 14.0, 16.0, 17.0</td><td class='mono'>none</td></tr>
+<tr><td class='num'>56</td><td class='mono'>4.0:HiMid 8.0:HiMid 9.0:HiMid 10.0:HiMid 11.0:HiMid 12.0:HiMid 13.0:HiMid 14.0:HiMid 15.0:HiMid 16.0:HiMid 19.0:HighFloor</td><td class='mono'>4.0, 8.0, 9.0, 10.0, 11.0, 12.0, 13.0, 14.0, 15.0, 16.0, 19.0</td><td class='mono'>none</td></tr>
+<tr><td class='num'>60</td><td class='mono'>10.75:HiMid 11.25:HiMid 14.25:High 15.25:High 17.25:High 18.25:High</td><td class='mono'>11.0, 14.0, 15.0, 17.0, 18.0</td><td class='mono'>10.75(len 0.5)</td></tr>
+<tr><td class='num'>62</td><td class='mono'>15.0:High 17.0:HiMid 18.0:HiMid</td><td class='mono'>15.0, 17.0, 18.0</td><td class='mono'>none</td></tr>
+<tr><td class='num'>64</td><td class='mono'>11.25:High 14.0:HiMid 14.5:HighFloor 15.25:HighFloor 16.5:HighFloor 17.0:HighFloor</td><td class='mono'>11.0, 14.0, 15.0, 16.0, 17.0</td><td class='mono'>11.25(len 0.25) 14.0(len 0.5) 14.5(len 0.75) 16.5(len 0.5) 17.0(len 0.75)</td></tr>
+<tr><td class='num'>72</td><td class='mono'>8.0:HighFloor 9.0:HighFloor 10.0:HighFloor</td><td class='mono'>8.0, 9.0, 10.0</td><td class='mono'>none</td></tr>
+<tr><td class='num'>78</td><td class='mono'>10.0:HighFloor 10.5:HighFloor 11.5:HighFloor</td><td class='mono'>10.0, 12.0</td><td class='mono'>10.0(len 0.5) 11.5(len 0.5)</td></tr>
+<tr><td class='num'>80</td><td class='mono'>3.0:HighFloor 3.5:HighFloor 7.0:HighFloor 8.0:HighFloor 9.0:HighFloor 10.0:HighFloor</td><td class='mono'>3.0, 4.0, 7.0, 8.0, 9.0, 10.0</td><td class='mono'>3.0(len 0.5)</td></tr>
+<tr><td class='num'>82</td><td class='mono'>3.0:HiMid 3.75:HiMid 5.5:HiMid 6.0:High 6.25:High 6.75:High 7.25:High 7.75:High</td><td class='mono'>3.0, 4.0, 6.0, 7.0, 8.0</td><td class='mono'>3.0(len 0.75) 3.75(len 0.25) 5.5(len 0.5) 6.0(len 0.25) 6.25(len 0.5) 6.75(len 0.5) 7.25(len 0.5) 7.75(len 0.25)</td></tr>
+<tr><td class='num'>84</td><td class='mono'>1.0:HiMid 2.0:HighFloor 4.0:HighFloor 6.0:HighFloor 7.0:HighFloor 8.0:HighFloor</td><td class='mono'>1.0, 2.0, 4.0, 6.0, 7.0, 8.0</td><td class='mono'>none</td></tr>
+<tr><td class='num'>88</td><td class='mono'>2.0:HighFloor 3.0:HighFloor 3.5:HighFloor 4.0:HighFloor 4.5:HighFloor 18.5:HighFloor</td><td class='mono'>2.0, 3.0, 4.0, 18.0</td><td class='mono'>3.0(len 0.5) 3.5(len 0.5) 4.0(len 0.5)</td></tr>
+</table></div>
+</section>
+
+<section>
+<h2>What still needs a human</h2>
+<ul>
+<li><b>Which drum, per stroke.</b> The toms stem does not attribute at bar level, p = 0.061 on
+the index-24 window, and the skill's calibrated classifier returns UNRESOLVED for 74.6 percent of
+onsets. The chart flattens fills onto fewer drums than were played, which is why index 24 came out
+as a descending High, Mid, Low Floor by ear and not off the page.</li>
+<li><b>Where the cymbal stops.</b> 95 strokes sit on a sixteenth a tom occupies. Index 24 was
+resolved by opening the cymbal and moving one tom into that voice.</li>
+<li><b>Index 54</b> is the one red-zone measure and needs rational positions from a written
+source.</li>
+</ul>
+</section>
+
+<footer>Data: <a href="decision_sheet.json">decision_sheet.json</a>.
+Companion: <a href="https://7onething1.github.io/watermelon-two-hands-audit/">two-hands audit</a>.
+Every number re-derived by the build script, none typed by hand.</footer>
+</div></body></html>
