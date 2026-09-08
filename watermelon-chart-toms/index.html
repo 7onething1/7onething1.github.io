@@ -1,0 +1,274 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Watermelon Chart Toms</title>
+<style>
+:root{
+  --cream:#f4efe2; --paper:#fbf8f0; --ink:#2f2a24; --muted:#7a6f60;
+  --rule:#ddd3bf; --mustard:#d9a441; --teal:#3f7f7a; --rust:#b5563a;
+  --plum:#6b4a72; --olive:#7a8450; --sky:#4a7fa8;
+}
+*{box-sizing:border-box}
+body{margin:0;background:var(--cream);color:var(--ink);
+     font:16px/1.6 "Iowan Old Style","Palatino Linotype",Palatino,Georgia,serif}
+.wrap{max-width:1180px;margin:0 auto;padding:28px 20px 90px}
+header{border:2px solid var(--ink);background:var(--paper);padding:26px 28px;margin-bottom:26px}
+h1{margin:0 0 4px;font-size:31px;letter-spacing:.2px}
+.sub{color:var(--muted);font-size:15px;margin:0}
+.tagrow{margin-top:16px;display:flex;flex-wrap:wrap;gap:8px}
+.tag{border:1px solid var(--rule);background:var(--cream);padding:4px 11px;font-size:13px;border-radius:2px}
+.tag b{color:var(--rust)}
+h2{font-size:21px;margin:34px 0 12px;padding-bottom:7px;border-bottom:2px solid var(--ink)}
+h3{font-size:16px;margin:22px 0 8px;color:var(--teal)}
+section{background:var(--paper);border:1px solid var(--rule);padding:20px 24px;margin-bottom:22px}
+p{margin:0 0 12px}
+b{font-weight:700}
+table{border-collapse:collapse;width:100%;font-size:14px;background:var(--paper)}
+th,td{border:1px solid var(--rule);padding:7px 10px;text-align:left;vertical-align:top}
+th{background:var(--cream);font-weight:700;font-size:13px}
+td.num,th.num{text-align:right;font-variant-numeric:tabular-nums}
+code,.mono{font:13px/1.5 "SF Mono",Menlo,Consolas,monospace;background:var(--cream);
+     padding:1px 5px;border:1px solid var(--rule);border-radius:2px}
+.scroll{overflow-x:auto;-webkit-overflow-scrolling:touch}
+.swatch{display:inline-block;width:11px;height:11px;border:1px solid var(--ink);
+     vertical-align:-1px;margin-right:6px}
+.sF{background:var(--rust)} .sD{background:var(--sky)} .sG{background:var(--olive)}
+figure{margin:0 0 22px;border:1px solid var(--rule);background:var(--paper)}
+figure img{display:block;width:100%;height:auto;background:#fff}
+figcaption{font-size:13px;color:var(--muted);padding:7px 12px;border-top:1px solid var(--rule);
+     background:var(--cream)}
+.cap{font-size:12px;letter-spacing:.6px;text-transform:uppercase;color:var(--muted);
+     padding:6px 12px;border-bottom:1px solid var(--rule);background:var(--cream);font-weight:700}
+.grid2{display:grid;grid-template-columns:repeat(auto-fit,minmax(430px,1fr));gap:18px}
+.kv{display:grid;grid-template-columns:210px 1fr;gap:6px 16px;font-size:14px}
+.kv div:nth-child(odd){color:var(--muted)}
+ul{margin:0 0 12px;padding-left:20px} li{margin-bottom:7px}
+.proof{border-left:5px solid var(--olive);background:#f2f4e8;padding:14px 18px;margin:14px 0;font-size:14px}
+.warn{border-left:5px solid var(--mustard);background:#fbf3e2;padding:14px 18px;margin:14px 0;font-size:14px}
+.staffdiag{font:14px/1.9 "SF Mono",Menlo,monospace;background:var(--cream);
+     border:1px solid var(--rule);padding:14px 18px;white-space:pre;overflow-x:auto}
+.pill{display:inline-block;padding:1px 8px;border-radius:10px;font-size:12px;
+     border:1px solid var(--ink);background:var(--cream)}
+footer{color:var(--muted);font-size:13px;text-align:center;margin-top:40px}
+@media (max-width:640px){ .kv{grid-template-columns:1fr} h1{font-size:24px} }
+</style>
+</head>
+<body>
+<div class="wrap">
+
+<header>
+  <h1>Watermelon In Easter Hay, the chart's toms written into the tab</h1>
+  <p class="sub">Frank Zappa, <i>Joe's Garage Act III</i>. Songsterr <span class="mono">s35881</span>, drum track, Vinnie Colaiuta. Source is the Drumnet.ru drumset chart by BartoRomeo. Built 2026-09-08.</p>
+  <div class="tagrow">
+    <span class="tag">toms at the start <b>6</b></span>
+    <span class="tag">toms after <b>185</b></span>
+    <span class="tag">added from the chart <b>179</b></span>
+    <span class="tag">bars touched <b>46</b> of 105</span>
+    <span class="tag">voice 0 changed <b>not at all</b></span>
+  </div>
+</header>
+
+<section>
+<h2>What was asked, and what the file now holds</h2>
+<p>The ask was to <b>add the chart's tom locations to the Watermelon GP file</b>, with the legend given directly: the toms are the G, the D, and the F above the F, and anything carrying an x notehead gets skipped.</p>
+<p>The tab carried <b>six tom notes across 105 bars</b> at the start of this pass, four Low Tom and two High Tom. The chart carries <b>179 filled tom noteheads</b> that the tab never received. All 179 are now in the file, at the bar and beat the transcriber drew them.</p>
+<div class="proof">
+<b>Every added note was read off the printed chart.</b> No onset detector was run and no audio was scored. A build on 2026-09-07 wrote 599 toms from an audio detector and was rejected as fraud, since its intensity gate scored candidates against the candidates' own median.
+</div>
+</section>
+
+<section>
+<h2>The legend, and how the staff maps to the kit</h2>
+<p>The chart is a five-line drumset staff. Numbering the positions from the top line down, 0 for the top line and 8 for the bottom, the note letters read in the treble names a drummer uses: <b>E on the bottom line, F, G, A, B, C, D, E, F on the top line</b>.</p>
+
+<div class="staffdiag">
+ lane 0   ─────  F  top line     <span class="swatch sF"></span>TOM, the F above the F   +  the ride, written with x noteheads
+ lane 1          E               (GP High Floor Tom lives here, midi 50)
+ lane 2   ─────  D               <span class="swatch sD"></span>TOM
+ lane 3          C               SNARE
+ lane 4   ─────  B               (middle line)
+ lane 5          A
+ lane 6   ─────  G               <span class="swatch sG"></span>TOM
+ lane 7          F
+ lane 8   ─────  E  bottom line   KICK
+</div>
+
+<p>The Guitar Pro file already agrees with that reading. Its own drum kit definition stores a <span class="mono">StaffLine</span> for every articulation, and the numbers are the same scale: Snare sits at 3, Ride at 0, High Tom at 2 and Very Low Tom at 6. So two of the three tom positions carry straight across with no interpretation at all.</p>
+
+<div class="scroll">
+<table>
+<thead><tr><th>Chart position</th><th>Lane</th><th>Filled heads</th><th>GP articulation</th><th class="num">MIDI</th><th class="num">StaffLine</th><th>Fit</th></tr></thead>
+<tbody>
+<tr><td><span class="swatch sF"></span>the F above the F, top line</td><td class="num">0</td><td class="num">35</td><td>High Floor Tom (hit)</td><td class="num">50</td><td class="num">1</td><td>one position lower</td></tr>
+<tr><td><span class="swatch sD"></span>the D, fourth line</td><td class="num">2</td><td class="num">98</td><td>High Tom (hit)</td><td class="num">48</td><td class="num">2</td><td>exact</td></tr>
+<tr><td><span class="swatch sG"></span>the G, second line</td><td class="num">6</td><td class="num">46</td><td>Very Low Tom (hit)</td><td class="num">43</td><td class="num">6</td><td>exact</td></tr>
+</tbody>
+</table>
+</div>
+
+<div class="warn">
+<b>One position had to move, and here is why.</b> The kit in this file puts the Ride on StaffLine 0, the top line, and carries no tom articulation there. The chart's top-line tom therefore takes the highest tom slot the kit does have, StaffLine 1, which sits one position lower on the page. Pitch order survives, 50 above 48 above 43, and so does the reading of high, mid and floor. Adding a tom articulation at StaffLine 0 would mean editing the InstrumentSet, which is a larger change than this ask, so it was left alone.
+</div>
+</section>
+
+<section>
+<h2>Skip anything with an x on it</h2>
+<p>The top line carries two instruments at once: the ride, drawn with <b>x noteheads</b>, and a tom, drawn with <b>filled ovals</b>. Reading the top line naively would import the whole ride part as toms.</p>
+<p>The two separate on ink. Measuring the mean darkness of a five by five pixel box centred on each head, an x leaves its four edge midpoints on white paper and a filled oval does not:</p>
+<div class="scroll">
+<table>
+<thead><tr><th>Population</th><th class="num">Count</th><th class="num">Ink, mean of a 5&times;5 box</th><th>Reading</th></tr></thead>
+<tbody>
+<tr><td>x noteheads on the top line</td><td class="num">73</td><td class="num">100 to 125</td><td>ride, skipped</td></tr>
+<tr><td>watermark letters and scan noise</td><td class="num">~35</td><td class="num">130 to 160</td><td>not notation, skipped</td></tr>
+<tr><td><b>nothing at all</b></td><td class="num">0</td><td class="num"><b>160 to 180</b></td><td>the empty gap that makes the cut safe</td></tr>
+<tr><td>filled tom heads</td><td class="num">179</td><td class="num">186 to 220</td><td>kept</td></tr>
+<tr><td>snare, a filled control</td><td class="num">154</td><td class="num">median 220</td><td>control</td></tr>
+<tr><td>kick, a filled control</td><td class="num">409</td><td class="num">median 201</td><td>control</td></tr>
+</tbody>
+</table>
+</div>
+<div class="proof">
+<b>All 179 kept heads were then looked at, not sampled.</b> Every one was cropped at 16&times; and inspected on a contact sheet. Every tile is a solid oval. Not one x survived the cut.
+</div>
+</section>
+
+<section>
+<h2>Which bar each tom belongs to</h2>
+<p>The chart runs 96 bars and the tab runs 105, so the two had to be tied together first, since a wrong offset writes every note into a wrong bar. <b>Chart display bar n is GP display bar n plus 9.</b></p>
+<p>That offset is not a guess. The chart carries nine rehearsal marks and the tab carries eleven named sections, and every one of the chart's nine lands on a named section at the same offset, including a solo that runs exactly 24 bars in both:</p>
+<div class="scroll">
+<table>
+<thead><tr><th class="num">Chart bar</th><th>Chart mark</th><th class="num">GP bar</th><th>GP section</th><th class="num">Offset</th></tr></thead>
+<tbody>
+<tr><td class="num">1</td><td>A</td><td class="num">10</td><td>Head 1</td><td class="num">+9</td></tr>
+<tr><td class="num">17</td><td>B</td><td class="num">26</td><td>Bridge 1</td><td class="num">+9</td></tr>
+<tr><td class="num">25</td><td>A</td><td class="num">34</td><td>Head 3</td><td class="num">+9</td></tr>
+<tr><td class="num">33</td><td>Solo I</td><td class="num">42</td><td>Solo</td><td class="num">+9</td></tr>
+<tr><td class="num">57</td><td>A</td><td class="num">66</td><td>Head 4</td><td class="num">+9</td></tr>
+<tr><td class="num">65</td><td>A</td><td class="num">74</td><td>Head 5</td><td class="num">+9</td></tr>
+<tr><td class="num">73</td><td>B</td><td class="num">82</td><td>Bridge 2</td><td class="num">+9</td></tr>
+<tr><td class="num">81</td><td>A</td><td class="num">90</td><td>Head 6</td><td class="num">+9</td></tr>
+<tr><td class="num">89</td><td>Coda</td><td class="num">98</td><td>Outro</td><td class="num">+9</td></tr>
+</tbody>
+</table>
+</div>
+<p>Two more facts agree with it. <b>The 96 chart bars fill GP display bars 10 through 105 exactly</b>, with none left over at either end. And the meters line up throughout, since the chart alternates 4/4 and 5/4 and so does the tab from its second bar onward.</p>
+</section>
+
+<section>
+<h2>Where in the bar</h2>
+<p>Inside one bar this engraving is close to linear in time. On page 1 system 1 the filled heads sit at 79.3, 128.3, 164.8, 176.8, 225.9 and onward, whose smallest gap is 11.9 pixels and whose other gaps are 24.4, 36.4 and 48.8. That is <b>one sixteenth note per 12.2 pixels</b>, and sixteen of them land on the bar's own closing barline.</p>
+<p>So each bar was fitted with a single free parameter, the x of its downbeat, with the sixteenth width forced to <span class="mono">(x_end &minus; x0) / nsub</span>. Across all 96 bars the fitted width came out at a median of 12.22 pixels, from 11.43 to 13.46.</p>
+<div class="scroll">
+<table>
+<thead><tr><th>Measure</th><th class="num">Value</th><th>Meaning</th></tr></thead>
+<tbody>
+<tr><td>Bars fitted</td><td class="num">96 of 96</td><td>no bar dropped</td></tr>
+<tr><td>Median position error</td><td class="num">0.10 of a sixteenth</td><td>about 1.2 pixels, the centroid noise floor</td></tr>
+<tr><td>90th percentile</td><td class="num">0.21</td><td></td></tr>
+<tr><td>Worst single note</td><td class="num">0.28</td><td>inside a sixty-fourth</td></tr>
+<tr><td>Written as sixteenths</td><td class="num">135</td><td></td></tr>
+<tr><td>Written as thirty-seconds</td><td class="num">35</td><td></td></tr>
+<tr><td>Sitting on a sixteenth triplet</td><td class="num">9</td><td>placed on a sixty-fourth grid, 1/12 of a sixteenth away</td></tr>
+</tbody>
+</table>
+</div>
+<div class="warn">
+<b>The nine triplets are the one honest compromise.</b> They are real thirds and the build writes them on a sixty-fourth grid rather than minting tuplet groups, which puts each about one pixel from where it was drawn. That is smaller than the read's own median error, and every one is listed by bar in the build log.
+</div>
+</section>
+
+<section>
+<h2>Bar by bar, the chart against the tab</h2>
+<p>Three pictures per bar: the printed chart, the tab as it stood, and the tab carrying the chart's toms. <b>The added voice draws in grey</b>, so everything black is untouched original.</p>
+
+<div class="grid2">
+<figure>
+  <div class="cap">Chart bar 16</div><img src="img/chart_b25.png" alt="Drumnet chart, bar 16">
+  <div class="cap">GP bar 25, as it stood</div><img src="img/old_b25.png" alt="tab bar 25 as it stood">
+  <div class="cap">GP bar 25, with the toms</div><img src="img/new_b25.png" alt="tab bar 25 with toms">
+  <figcaption>Eight on the D and two on the top-line F, a fill across beats 3 to 5 of the 5/4.</figcaption>
+</figure>
+<figure>
+  <div class="cap">Chart bar 20</div><img src="img/chart_b29.png" alt="Drumnet chart, bar 20">
+  <div class="cap">GP bar 29, as it stood</div><img src="img/old_b29.png" alt="tab bar 29 as it stood">
+  <div class="cap">GP bar 29, with the toms</div><img src="img/new_b29.png" alt="tab bar 29 with toms">
+  <figcaption>Four on the D, then three on the G, the fill walking down the kit.</figcaption>
+</figure>
+<figure>
+  <div class="cap">Chart bar 48</div><img src="img/chart_b57.png" alt="Drumnet chart, bar 48">
+  <div class="cap">GP bar 57, as it stood</div><img src="img/old_b57.png" alt="tab bar 57 as it stood">
+  <div class="cap">GP bar 57, with the toms</div><img src="img/new_b57.png" alt="tab bar 57 with toms">
+  <figcaption>The densest bar on the chart. Ten on the D in a row, then one on the G.</figcaption>
+</figure>
+<figure>
+  <div class="cap">Chart bar 74</div><img src="img/chart_b83.png" alt="Drumnet chart, bar 74">
+  <div class="cap">GP bar 83, as it stood</div><img src="img/old_b83.png" alt="tab bar 83 as it stood">
+  <div class="cap">GP bar 83, with the toms</div><img src="img/new_b83.png" alt="tab bar 83 with toms">
+  <figcaption>Three on the D into five on the top-line F, the fill climbing instead.</figcaption>
+</figure>
+</div>
+</section>
+
+<section>
+<h2>All 179, by bar</h2>
+<p>Positions are counted in sixteenth notes from the downbeat, so 0 is beat 1 and 4 is beat 2. A 4/4 bar runs 0 to 15 and a 5/4 bar runs 0 to 19.</p>
+<div class="scroll"><table id="tbl">
+<thead><tr><th class="num">GP bar</th><th class="num">Chart bar</th><th class="num">Toms</th>
+<th><span class="swatch sF"></span>F above the F</th><th><span class="swatch sD"></span>D</th><th><span class="swatch sG"></span>G</th></tr></thead>
+<tbody></tbody></table></div>
+</section>
+
+<section>
+<h2>How the reading was made, and where each method stopped</h2>
+<h3>Finding every system on the page</h3>
+<p>Two earlier detectors under-counted and both failed the same way. A staff line spans about 97 percent of the staff width, so counting pixels darker than a fixed threshold looks safe. That rule fails here, since this scan darkens unevenly down the page, and on page 1 the line at row 280 sits at grey 112 while the line at row 353 sits at 176. A threshold of 150 sees the first and misses the second, which lost two systems on page 1 and three on page 5.</p>
+<p>The <b>row median</b> does not care what the grey happens to be, because the line covers more than half the row. Under that rule the page yields <b>48 systems with perfectly regular gaps</b>, 8 then 11, 11, 11 and 7, which is 96 bars at two per system, and every printed bar number on all five pages agrees.</p>
+<h3>Finding the barlines</h3>
+<p>Full staff height of ink alone returns 9 to 28 candidates per system where 3 exist, because a stem running from a low notehead up to its beam covers the staff too. What separates them is the poke-out: a barline stops at the staff and a stem continues into its beam. One system on page 4 has a beam passing over its middle double bar, so there the test relaxes to nothing below the staff, and the middle bar is then chosen by the 16 to 20 sixteenth proportion the two bars must share.</p>
+<h3>What is still uncertain</h3>
+<ul>
+<li>The scan is 595 by 842 pixels and a notehead is 4 to 5 pixels across, so the snare reads <b>154 heads against the tab's 193</b>. The reader misses some heads in the busiest bars. Every miss is a tom the tab still lacks, never a tom invented.</li>
+<li>The chart writes <b>409 kicks against the tab's 107</b>. That gap was measured in passing and is not touched by this build, which adds toms and nothing else.</li>
+<li>A rescan at 12 or more pixels per notehead would settle both. Every method above already works and would simply get more of the page.</li>
+</ul>
+</section>
+
+<section>
+<h2>Verification</h2>
+<div class="proof">
+<div class="kv">
+<div>Note instances, original</div><div><b>2091</b></div>
+<div>Note instances, rebuilt</div><div><b>2270</b>, which is 2091 plus 179</div>
+<div>Ride, snare, kick, crash, hats</div><div>identical counts on both sides, voice 0 was never opened</div>
+<div>Toms now</div><div>High Floor Tom 35, High Tom 100, Low Tom 4, Very Low Tom 46</div>
+<div>Bar-length anomalies</div><div>47 in the source, <b>47 in the output</b>, none of them new and none in a bar this build touched</div>
+<div>Voices</div><div>945 to 991, which is 46 new ones, one per touched bar</div>
+<div>CDATA blocks</div><div>137 to 137, so track names survive a Songsterr import</div>
+<div>Other zip entries</div><div>byte-identical to the source</div>
+<div>Rhythms minted</div><div>none, every value the build needed was already in the file</div>
+</div>
+</div>
+<p>The toms went into <b>voice slot 1</b>, which was empty on all 105 drum bars. Nothing was displaced, and deleting that voice returns the file to its exact starting state.</p>
+</section>
+
+<footer>Built 2026-09-08 on MacBookPro. Source chart: drumnet.ru, BartoRomeo, <i>Watermelon In A Easter Hay</i>, 5 pages.</footer>
+</div>
+
+<script>
+fetch('toms.json').then(r=>r.json()).then(rows=>{
+  const tb=document.querySelector('#tbl tbody');
+  const f=a=>a.length? a.map(v=>Number.isInteger(v)?v:v.toFixed(2).replace(/0$/,'')).join(', ') : '·';
+  rows.forEach(r=>{
+    const tr=document.createElement('tr');
+    tr.innerHTML='<td class="num">'+r.gp+'</td><td class="num">'+r.chart+'</td>'+
+      '<td class="num"><b>'+r.n+'</b></td><td>'+f(r.F)+'</td><td>'+f(r.D)+'</td><td>'+f(r.G)+'</td>';
+    tb.appendChild(tr);
+  });
+});
+</script>
+</body>
+</html>
