@@ -90,3 +90,14 @@ the measurement window.
 
 **The added ask:** full per-model, per-day token usage for the entire subscription period, since only
 Anthropic holds the months this machine cannot see.
+
+### Fable session, full detail (do not overstate this)
+
+`local_4f239900` / cliSessionId `232d0630-0207-482d-90f4-be9b8a24be20`, cwd `/Users/drwu`,
+`claude-fable-5`, `effort: xhigh`, `ultracode: true`, `permissionMode: auto`, 38 MCP tools enabled,
+2026-06-10 13:36 to 14:59 (1h23m), **`completedTurns: 1`**.
+
+**One completed turn does not account for billions of tokens.** Leading a refund request with a Fable
+theory would be refuted by Anthropic's own logs and would take the real claim down with it. The correct
+posture is to report the session, state that it is one turn, and ask for the usage data covering
+2026-05-05 to 2026-08-09 which this machine cannot see.

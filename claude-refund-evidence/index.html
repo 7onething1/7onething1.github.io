@@ -159,8 +159,12 @@ data I can read.</p>
 <p style="margin-bottom:0"><b>One of those sessions ran Fable.</b> Session
 <code>local_4f239900</code>, 2026-06-10, titled "Work product inventory with progress", model
 <code>claude-fable-5</code>, <b><code>effort: xhigh</code></b> and <b><code>ultracode: true</code></b>.
-That setting combination fans out parallel agents at maximum effort. Its transcript predates my local
-store, so I cannot measure what it consumed. Anthropic can.</p>
+That setting combination fans out parallel agents at maximum effort, and the session ran
+1 hour 23 minutes. Its transcript does not exist on this machine, so I cannot measure what it consumed.</p>
+<p style="margin-bottom:0"><b>The session records <code>completedTurns: 1</code>.</b> I am stating that
+plainly because it cuts against a Fable explanation for my bill. One turn, even one that fanned out
+subagents for 83 minutes, does not account for billions of tokens. <b>I am not claiming Fable caused
+this.</b> I am asking for the usage data covering the months my own files cannot reach.</p>
 </div>
 
 <div class="box bad">
@@ -242,9 +246,12 @@ back to 2026-05-05 and lists 394 sessions, so roughly three months of my
 usage has no token data I can read on my own machine.
 
 One of those earlier sessions ran Fable: session local_4f239900 on
-2026-06-10, model claude-fable-5, with effort "xhigh" and ultracode set
-to true. That combination fans out parallel agents at maximum effort. I
-cannot measure what it consumed. You can.
+2026-06-10, model claude-fable-5, effort "xhigh", ultracode true, running
+1 hour 23 minutes. That session records completedTurns: 1.
+
+I am flagging it for completeness and I am NOT claiming it caused my
+usage problem. One completed turn does not account for billions of
+tokens. I want the data rather than a theory.
 
 Separately, my local client config contains the key
 "tengu_usage_overage_included_models": ["Fable", "Fable 5", "Fable 5.1"].
