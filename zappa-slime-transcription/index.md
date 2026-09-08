@@ -330,3 +330,38 @@ Against their own baselines the opening reads bass 0.0615 against 0.0622 chance,
 against 0.0622, and lead 0.0636 against 0.0622. Only the kick beats chance, and modestly. This
 audio test cannot decide the opening meter. The 12/8 reading rests on the Sloots glyph and his
 prose, and nothing in the stems contradicts it.
+
+
+## The drum part, rebuilt from the stems
+
+Kick, snare and closed hi-hat come from their own stems. Every other lane is the author's,
+carried through untouched.
+
+**Three lanes passed.** Tested on a sixteenth grid against a twelve slot grid, each with its own
+null so the denser grid earned no free advantage. Verse kick reads z 9.36 on sixteenths against
+minus 1.35 on twelfths. Verse snare reads 8.29 against 7.25. Hi-hat energy sits 1.658 times
+higher on slot than between slots, Mann-Whitney p 0.000249, with quarter and eighth positions at
+three times the sixteenth level, which is a straight eighth note pattern.
+
+**Three lanes refused.** Toms read p 0.337 on the on-slot test. Cymbals read p 0.112, with energy
+above floor in 70 percent of all sixteenth slots and a chi-square of 0.2 against uniform, which is
+continuous wash rather than placeable strokes. The opening leans twelve eight at z 1.84 against
+1.12, a margin too small to act on. All three were left as David-129 wrote them.
+
+| Lane | Donor | Rebuilt | Delta | Source |
+|---|---|---|---|---|
+| Kick | 406 | 361 | -45 | stem |
+| Snare | 274 | 255 | -19 | stem, 34 ghosts on unoccupied slots |
+| Closed hi-hat | 144 | 136 | -8 | stem |
+| Open hi-hat | 8 | 8 | 0 | author, protected |
+| Floor tom | 33 | 33 | 0 | author, protected |
+| Mid tom | 112 | 112 | 0 | author, protected |
+| Crash | 157 | 157 | 0 | author, protected |
+| Ride | 218 | 218 | 0 | author, protected |
+
+**Author lanes altered: zero.** 80 master bars and 5 tracks in both files, 63 tempo automations
+against the donor's two. Forty nine bars rebuilt on a sixteenth grid. Seven bars left exactly as
+written, because the author placed two strokes of one drum inside a single sixteenth there:
+tab bars 42, 46, 50, 52, 54, 74 and 76.
+
+File: `~/Projects/_outputs/zappa-slime-transcription/gp/SLIME-Brandon-edit-FINAL-212526.gp`

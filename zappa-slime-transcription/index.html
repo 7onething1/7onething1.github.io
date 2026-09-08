@@ -93,6 +93,7 @@ a { color:var(--rust); }
     <li><a href="#next">What the drive unlocks</a></li>
     <li><a href="#stems">The stems and their clock</a></li>
     <li><a href="#copy">The editing copy</a></li>
+    <li><a href="#built">The rebuilt drum part</a></li>
     <li><a href="#ledger">Evidence ledger</a></li>
   </ol>
 </div>
@@ -531,6 +532,45 @@ the tab's bar 59.</p>
 available, so the upload path is open.</p>
 </div>
 
+
+<h2 id="built"><span class="num">12</span>The drum part, rebuilt from the stems</h2>
+<p class="sub">Kick, snare and closed hi-hat come from their own stems. Every other lane is the
+author's, carried through untouched.</p>
+
+<div class="callout ok">
+<h4>What the evidence allowed, and what it refused</h4>
+<p>Three lanes passed. Kick, snare and closed hi-hat each beat their own chance baseline in the
+verse and the outro, tested on a sixteenth grid against a twelve slot grid with a separate null
+for each so the denser grid earned no free advantage. Verse kick reads <strong>z 9.36</strong> on
+sixteenths against minus 1.35 on twelfths. Verse snare reads 8.29 against 7.25. Hi-hat energy
+sits <strong>1.658 times higher</strong> on slot than between slots, Mann-Whitney p 0.000249, and
+its quarter and eighth positions run three times the level of its sixteenths, which is a straight
+eighth note pattern.</p>
+<p>Three lanes refused. Toms read p 0.337 on the on-slot test. Cymbals read p 0.112, with
+energy above floor in 70 percent of all sixteenth slots and a chi-square of 0.2 against uniform,
+which is continuous wash rather than placeable strokes. The opening, audio bars 1 to 7, leans
+twelve eight at z 1.84 against 1.12, a margin too small to act on. All three were left exactly as
+David-129 wrote them.</p>
+</div>
+
+<h3>Structural diff against the donor</h3>
+<table><thead><tr><th>Lane</th><th class="n">Donor</th><th class="n">Rebuilt</th><th class="n">Delta</th><th>Source</th></tr></thead><tbody>
+<tr><td>Kick</td><td class="n">406</td><td class="n">361</td><td class="n">-45</td><td>stem</td></tr>
+<tr><td>Snare</td><td class="n">274</td><td class="n">255</td><td class="n">-19</td><td>stem, 34 of them ghosts on unoccupied slots</td></tr>
+<tr><td>Closed hi-hat</td><td class="n">144</td><td class="n">136</td><td class="n">-8</td><td>stem</td></tr>
+<tr><td>Open hi-hat</td><td class="n">8</td><td class="n">8</td><td class="n">0</td><td><strong>author, protected</strong></td></tr>
+<tr><td>Floor tom</td><td class="n">33</td><td class="n">33</td><td class="n">0</td><td><strong>author, protected</strong></td></tr>
+<tr><td>Mid tom</td><td class="n">112</td><td class="n">112</td><td class="n">0</td><td><strong>author, protected</strong></td></tr>
+<tr><td>Crash</td><td class="n">157</td><td class="n">157</td><td class="n">0</td><td><strong>author, protected</strong></td></tr>
+<tr><td>Ride</td><td class="n">218</td><td class="n">218</td><td class="n">0</td><td><strong>author, protected</strong></td></tr>
+</tbody></table>
+<p><strong>Author lanes altered: zero.</strong> 80 master bars and 5 tracks in both files. 63
+tempo automations replace the donor's two. Forty nine bars were rebuilt on a sixteenth grid, and
+seven bars were <strong>left exactly as written</strong> because the author placed two strokes of
+one drum inside a single sixteenth there, which a sixteenth grid cannot hold: tab bars 42, 46, 50,
+52, 54, 74 and 76.</p>
+<p class="mono">File: _outputs/zappa-slime-transcription/gp/SLIME-Brandon-edit-FINAL-212526.gp</p>
+
 <h2 id="ledger"><span class="num">09</span>Evidence ledger</h2>
 <table>
 <thead><tr><th>Claim</th><th>How it was measured</th><th>Verdict</th></tr></thead>
@@ -544,6 +584,11 @@ available, so the upload path is open.</p>
 <tr><td>Tab to audio bar offset is minus three</td><td>Two anchors: 80 tab bars against 77 audio bars, and the solo at tab bar 59 against audio bar 56</td><td>confirmed</td></tr>
 <tr><td>s642618 holds 229 favorites, the highest</td><td><span class="mono">favoritesCount</span> on api/meta for all four ids</td><td>confirmed</td></tr>
 <tr><td>Rebuilt copy changes only the tempo</td><td>Structural diff: 267 notes, 866 beats, 80 master bars, 5 tracks in both files</td><td>confirmed</td></tr>
+<tr><td>Verse and outro are 4/4 sixteenths</td><td>16-slot vs 12-slot grids, each against its own uniform null. Verse kick z 9.36 against -1.35; snare 8.29 against 7.25; hat 5.78 against -0.16</td><td>confirmed</td></tr>
+<tr><td>Hi-hat plays eighth notes</td><td>On-slot energy 1.658x off-slot, p=0.000249. Quarters and eighths at 3x the sixteenth level</td><td>confirmed</td></tr>
+<tr><td>The dense opening kick is not guitar bleed</td><td>Coincidence with guitar onsets 23.3% against a 20.2% chance baseline, z 0.8</td><td>confirmed, not bleed</td></tr>
+<tr><td>Toms cannot be placed from the stem</td><td>On-slot against off-slot energy p=0.337</td><td>refused, author kept</td></tr>
+<tr><td>Author lanes unaltered in the rebuild</td><td>Structural diff: open hat 8, floor tom 33, mid tom 112, crash 157, ride 218, identical in both files</td><td>confirmed</td></tr>
 <tr><td>Cymbal onset count is not evidence</td><td>400 draw null at fixed n: observed lock 0.082 against null mean 0.080, z 0.0, p 0.425</td><td>withdrawn</td></tr>
 <tr><td>Kick, snare, hat onsets beat chance</td><td>Same null: z 14.2, 14.4 and 11.4, all p below 0.0001</td><td>confirmed</td></tr>
 <tr><td>Songsterr session is signed in</td><td>credits endpoint returns 200 with 44 available transcriptions</td><td>confirmed</td></tr>
