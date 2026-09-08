@@ -309,3 +309,24 @@ favouring D natural. That leans F# natural minor, so three sharps is right after
 contradictory, C major against F# minor. The opening and outro sit on F#, B, C#, E. The verse
 body, bars 20 to 45, reads A 12.6 percent, D 10.8, A# 10.8, the flat side, consistent with the
 book's C, B flat, F verse chart. Calling that a contradiction was my error.
+
+
+## The meter glyph holds. The audio test that was supposed to confirm it does not.
+
+Cropping the opening time signature alone gives 28 by 50 native pixels, and the stacked 1, 2 and
+8 are legible at that size. The 12/8 reading stands. The key signature beside it failed the same
+test at 36 by 54, because three overlapping handwritten sharps need far more resolution than two
+printed digits.
+
+**What this page said before.** A straight versus triplet section reported roughly even splits
+across every passage and lane, and read that as proof the detector was finding noise.
+
+**What is true.** The even split was built into the test. A straight grid offers four slots per
+beat and a triplet grid three, so the denser grid always sits closer to any set of points.
+Against uniform random phases, mean deviation runs 0.0622 on the straight grid and 0.0835 on the
+triplet grid by construction. Comparing the raw numbers was never a fair contest.
+
+Against their own baselines the opening reads bass 0.0615 against 0.0622 chance, kick 0.0507
+against 0.0622, and lead 0.0636 against 0.0622. Only the kick beats chance, and modestly. This
+audio test cannot decide the opening meter. The 12/8 reading rests on the Sloots glyph and his
+prose, and nothing in the stems contradicts it.

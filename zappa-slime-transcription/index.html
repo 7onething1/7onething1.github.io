@@ -348,6 +348,29 @@ notated two cymbal voices rather than one undifferentiated hat line.</p>
 </figure>
 
 
+
+<h3>The meter glyph holds. The audio test that was supposed to confirm it does not.</h3>
+<p>Cropping the opening time signature on its own gives <strong>28 by 50 native pixels</strong>,
+and at that size the stacked 1, 2 and 8 are legible. The 12/8 reading stands. The key signature
+beside it failed the same test at 36 by 54, because three overlapping handwritten sharps need
+far more resolution than two printed digits.</p>
+
+<div class="callout warn">
+<h4>A test on this page was invalid, and it is withdrawn</h4>
+<p><strong>What this page said before.</strong> A section headed straight versus triplet reported
+roughly even splits across every passage and every lane, and read that as proof the detector was
+finding noise.</p>
+<p><strong>What is true.</strong> The even split was built into the test. A straight grid offers
+four slots per beat and a triplet grid offers three, so the denser grid always sits closer to any
+set of points. Measured against uniform random phases, mean deviation runs
+<strong>0.0622 on the straight grid against 0.0835 on the triplet grid</strong> by construction.
+Comparing the two raw numbers was never a fair contest.</p>
+<p><strong>Against their own baselines,</strong> the opening reads bass 0.0615 against a 0.0622
+chance, kick 0.0507 against 0.0622, and lead 0.0636 against 0.0622. Only the kick beats chance,
+and modestly. This audio test <strong>cannot decide the opening meter</strong>. The 12/8 reading
+rests on the Sloots glyph and his prose, and nothing in the stems contradicts it.</p>
+</div>
+
 <h3>The key signature, settled by the bass stem instead of the scan</h3>
 <p>This page first reported three sharps in the Sloots key signature, read off an eight times
 enlargement. Cropping that signature on its own exposes the problem: it occupies
@@ -534,6 +557,9 @@ available, so the upload path is open.</p>
 <tr><td>Sloots puts the outro solo at 2:42</td><td>Prose caption on the Over-Nite Sensation analysis page, held on disk</td><td>source states it</td></tr>
 <tr><td>Album take runs 3:34</td><td>Wikipedia entry, then measured directly at 213.752 s by ffprobe on the stems</td><td>confirmed twice</td></tr>
 <tr><td>Drum performer is Ralph Humphrey</td><td>Over-Nite Sensation personnel across the Wikipedia entry and the Discogs release pages, read 2026-09-07</td><td>confirmed by source</td></tr>
+<tr><td>Opening time signature reads 12/8</td><td>Native crop of the glyph alone, 28 by 50 pixels, legible at 14x</td><td>confirmed</td></tr>
+<tr><td>Straight-versus-triplet section table</td><td>The two grids have different slot density, so their deviations are not comparable. Chance reads 0.0622 against 0.0835</td><td>withdrawn, test invalid</td></tr>
+<tr><td>Audio settles the opening meter</td><td>Bass 0.0615 and lead 0.0636 against a 0.0622 chance. Only kick beats chance</td><td>it does not</td></tr>
 <tr><td>Opening and outro sit on F# minor</td><td>Bass stem chroma: F# leads at 21.5% and 17.6%; D natural beats D# 6.70 to 4.05</td><td>confirmed</td></tr>
 <tr><td>Key signature sharp count read off the scan</td><td>The signature occupies 36 by 54 native pixels. Too few to count</td><td>withdrawn, replaced by the stem reading</td></tr>
 <tr><td>Verse body is flat side, matching our band book</td><td>Bass stem chroma bars 20-45: A 12.6%, D 10.8%, A# 10.8%</td><td>confirmed</td></tr>
