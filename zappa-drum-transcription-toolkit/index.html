@@ -418,7 +418,8 @@ The Odd Meter Lesson page draws the same 19/16 groove with <b>parenthesised note
 </table>
 
 <h3>6.3 The GPIF shared-element trap, measured rather than assumed</h3>
-<p>A peer session working Watermelon deleted 179 note instances across 79 bars it never targeted, because it edited a shared <code>Beat</code> in place. That trap is real in this file too, and it did not reach this edit.</p>
+<p>A peer session working Watermelon deleted <b>164 note instances across 85 bars it never targeted, inside a total loss of 179 across 90 bars</b>, because it edited a shared <code>Beat</code> in place. That trap is real in this file too, and it did not reach this edit.</p>
+<p class="fine">Figure corrected 2026-09-08 by the Watermelon audit session, from an instance-level census of the quarantined damaged file against its parent. The earlier "179 across 79 bars" was wrong twice: the span is 90 bars, and the 15 intended removals sit inside the 179, so the never-targeted collateral is 164.</p>
 <table>
 <thead><tr><th>Link in the chain</th><th>Sharing on the KIG-M001 target</th><th>Worst sharing in the same file</th></tr></thead>
 <tbody>
@@ -491,7 +492,7 @@ The Odd Meter Lesson page draws the same 19/16 groove with <b>parenthesised note
 <p>The detector figures in section 4.7 belong to the 2026-09-06 and 09-07 sessions and are cited as theirs. Nothing was refitted here.</p>
 
 <h3>6.8 Id-histogram pre-flight on the two remaining edits</h3>
-<p>A peer session lost 179 note instances across 79 bars by editing a shared <code>Beat</code> in place. The cheap check that catches it is printing the id histogram of an edit plan before writing. Run here on the published file, counting <b>instances on both sides</b> so the units match.</p>
+<p>A peer session lost <b>164 note instances across 85 bars it never targeted, inside a total loss of 179 across 90 bars</b>, by editing a shared <code>Beat</code> in place. The cheap check that catches it is printing the id histogram of an edit plan before writing. Run here on the published file, counting <b>instances on both sides</b> so the units match.</p>
 <table>
 <thead><tr><th>Plan</th><th>Note id</th><th>In plan</th><th>Total file-wide</th><th>Verdict</th></tr></thead>
 <tbody>
