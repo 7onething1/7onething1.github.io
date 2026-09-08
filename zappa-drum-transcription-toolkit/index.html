@@ -490,6 +490,24 @@ The Odd Meter Lesson page draws the same 19/16 groove with <b>parenthesised note
 </table>
 <p>The detector figures in section 4.7 belong to the 2026-09-06 and 09-07 sessions and are cited as theirs. Nothing was refitted here.</p>
 
+<h3>6.8 Id-histogram pre-flight on the two remaining edits</h3>
+<p>A peer session lost 179 note instances across 79 bars by editing a shared <code>Beat</code> in place. The cheap check that catches it is printing the id histogram of an edit plan before writing. Run here on the published file, counting <b>instances on both sides</b> so the units match.</p>
+<table>
+<thead><tr><th>Plan</th><th>Note id</th><th>In plan</th><th>Total file-wide</th><th>Verdict</th></tr></thead>
+<tbody>
+<tr><td>KIG-M002, 21 hand claps (GM 39)</td><td>667</td><td>21</td><td><b>21</b></td><td><b>Exclusive.</b> An in-place edit is safe.</td></tr>
+<tr><td>KIG-M003, 114 ghost flags at mf</td><td>659</td><td>114</td><td><b>629</b></td><td><b>Shared</b>, 515 instances outside the plan. Copy-on-write mandatory.</td></tr>
+</tbody>
+</table>
+<div class="warn">
+<b>Note 659 is the shared snare-ghost definition</b>, carrying every one of the 629 ghosts on the Vinnie Colaiuta staff. Editing it in place to resolve 114 would silently change all 629.
+<br><br>
+<b>A units error this check caught in its own first pass.</b> The first run compared a plan's instance count against the note's <i>beat-reference</i> count, 21 against 5 and 114 against 37, and labelled both exclusive. Those are different units. Counting instances on both sides flips M003 to shared. Compare like with like, or the histogram lies in the safe direction.
+</div>
+<div class="note">
+<b>The worst-shared beat in the file is not on the drum staff.</b> Beat 1020 is referenced by 739 voices and belongs to <b>Warren Cuccurullo</b>, a guitar track, so no drum edit can reach it.
+</div>
+
 <h2 class="s5" id="open">7. What is still open on this song</h2>
 <table>
 <thead><tr><th>Id</th><th>Finding</th><th>Evidence needed</th><th>State</th></tr></thead>

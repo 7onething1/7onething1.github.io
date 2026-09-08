@@ -127,6 +127,20 @@ Ghost and dynamic are **different elements**: ghost is `<AntiAccent>` on the Not
 failure has no counterpart here. The 09-07 page's 794 unflagged is snare-lane only (629 + 794 =
 1,423 = the MIDI 38 count); all lanes gives 4,319.
 
+## Id-histogram pre-flight on the two remaining edits
+
+| Plan | Note id | In plan | Total file-wide | Verdict |
+|---|---|---|---|---|
+| KIG-M002, 21 hand claps | 667 | 21 | **21** | **Exclusive**, in-place edit safe |
+| KIG-M003, 114 ghost flags at mf | 659 | 114 | **629** | **Shared**, 515 outside the plan, copy-on-write mandatory |
+
+Note 659 is the shared snare-ghost definition carrying all 629 ghosts. The first pass of this check
+compared instances against *beat-references*, 21 vs 5 and 114 vs 37, and wrongly called both
+exclusive. Counting instances on both sides flips M003 to shared.
+
+The worst-shared beat in the file, id 1020 at 739 voices, belongs to **Warren Cuccurullo**, a guitar
+track, so no drum edit can reach it.
+
 ## The bundle, collected 2026-09-08
 
 `~/Projects/_outputs/zappa-keep-it-greasey-transcriptions/` holds all three Guitar Pro
