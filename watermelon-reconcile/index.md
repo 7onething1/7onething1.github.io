@@ -67,6 +67,26 @@ The promotion gate blesses edits resting on stem timing and needs a CONFIRMED al
 
 Present before this edit and after it. Bars 29, 41, 45, 49, 52, 53, 54, 55, 56, 57, 85, 89 at beats 1 and 3, each a tom under an untouched ride with the snare on the same instant. Resolving them means dropping one of three lanes, and the ride cannot be adjudicated per event at 1.46x.
 
+## The two bad note definitions, named
+
+| Note element | Midi property claims | Articulation renders | Referenced from |
+|---|---|---|---|
+| 439 | 48, hi mid tom | 47, low mid tom | 111 instances |
+| 441 | 48, hi mid tom | 41, low floor tom | 62 instances |
+
+111 + 62 = 173, and 62 + 111 + 14 = 187. CHART-TOMS is the control at 14 elements and zero disagreements.
+
+### Four ways to read this file and get a clean wrong number
+
+| Mistake | Returns | Why it looks fine |
+|---|---|---|
+| Counting note ELEMENTS as notes | 445 against an expected 191 | GPIF deduplicates |
+| Joining on a reader with no note id | "2834 disagree" | every row compares against None |
+| Looking for `<Property name="InstrumentArticulation">` | 0 disagreements | it is a DIRECT CHILD of `<Note>`; found on 0 of 15 reachable notes |
+| Applying one track's kit table to every track | ~416 in every file | note elements are shared across tracks |
+
+A checker keyed on `Midi == -1` would pass this file: 0 of 15 notes read -1 in v13 and 0 of 14 in the chart build. The missing-value case and the disagreeing-value case are separate failure modes.
+
 ## Per-head tom identity: both routes run, both closed
 
 | Route | Measurement | Floor | Verdict |

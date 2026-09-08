@@ -241,6 +241,34 @@ footer{margin-top:4rem;padding-top:1.3rem;border-top:2px solid var(--line);
 </table></div>
 <p class="note">Resolving these means dropping one of the three lanes, and the ride lane cannot be adjudicated per event at 1.46x. Recorded rather than guessed.</p>
 
+<h2 class="g">The two bad note definitions, named</h2>
+<p>Counting the defect is weaker than naming it. Two note elements on track 8 of v13 claim one drum in their <span class="mono">Midi</span> property while their articulation renders another. Reproduced independently by two sessions from the same file.</p>
+<div class="scroll"><table>
+<thead><tr><th>Note element</th><th>Midi property claims</th><th>Articulation renders</th><th>Referenced from</th></tr></thead>
+<tbody>
+<tr><td class="mono">439</td><td>48, hi mid tom</td><td class="bad">47, low mid tom</td><td>111 instances</td></tr>
+<tr><td class="mono">441</td><td>48, hi mid tom</td><td class="bad">41, low floor tom</td><td>62 instances</td></tr>
+<tr><td colspan="3"><strong>Two definitions</strong></td><td class="bad"><strong>173 instances</strong></td></tr>
+</tbody>
+</table></div>
+<p>The arithmetic closes both ways: 111 + 62 = 173, and 62 + 111 + 14 = 187, which is the whole hi-mid-tom count the Midi property reports. <span class="mono">CHART-TOMS</span> is the control at 14 elements and <strong>zero</strong> disagreements, both fields reading 43&times;46, 45&times;4, 48&times;100, 50&times;35 identically.</p>
+
+<h3>Four ways to read this file and get a clean wrong number</h3>
+<p>Between two sessions, every one of these ran without erroring and returned a confident figure.</p>
+<div class="scroll"><table>
+<thead><tr><th>Mistake</th><th>What it returns</th><th>Why it looks fine</th></tr></thead>
+<tbody>
+<tr><td>Counting note ELEMENTS as notes</td><td>445 against an expected 191</td><td>GPIF deduplicates; elements are definitions, not events</td></tr>
+<tr><td>Joining on a reader that exposes no note id</td><td>"2834 disagree"</td><td>every row compares against None and None never matches</td></tr>
+<tr><td>Looking for <span class="mono">&lt;Property name="InstrumentArticulation"&gt;</span></td><td><strong>0 disagreements</strong></td><td>it is a DIRECT CHILD of <span class="mono">&lt;Note&gt;</span>. The Properties list holds only ConcertPitch, Fret, String, TransposedPitch, Midi and the bend fields, so the search finds nothing on every note and reports a silent zero</td></tr>
+<tr><td>Applying one track's kit table to every track</td><td>~416 disagreements in every file</td><td>note elements are shared across tracks, so a drum kit table gets applied to guitar pitches</td></tr>
+</tbody>
+</table></div>
+<p class="note">Verified here: searching the Properties list for InstrumentArticulation finds it on <strong>0 of 15</strong> reachable notes, which is exactly the silent zero.</p>
+<div class="card">
+<p style="margin:0"><strong>A checker keyed on <span class="mono">Midi == -1</span> would pass this file.</strong> <span class="mono">tr_ledger.py:189</span> warns that reading only the Property returns &minus;1 for every drum note. Measured here, <strong>0 of 15</strong> notes read &minus;1 in v13 and 0 of 14 in the chart build; their Midi properties carry real values that agree with the articulation everywhere except those two definitions. The missing-value case and the disagreeing-value case are separate failure modes.</p>
+</div>
+
 <h2 class="t">Per-head tom identity: both routes run, both closed</h2>
 <p>Naming which physical tom was struck stayed open all session. Two independent routes existed and neither had been run to a verdict. Both are now measured on the isolated tom stem, and both fail.</p>
 <div class="scroll"><table>
