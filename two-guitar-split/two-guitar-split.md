@@ -195,6 +195,29 @@ one channel by construction, so a gap inside Gtr 1 is the left channel's own
 transcription. Inconclusive on 31 of 60 findings, because the onset reference
 carries only 131 events across 129 s.
 
+## Channel ownership per note
+
+Every attacked note matched by pitch and onset against BOTH channel
+transcriptions, within 60 ms.
+
+| Staff | Notes | Own channel | Other channel | Gap | +5 s control |
+|---|---|---|---|---|---|
+| Gtr 1 (from LEFT) | 529 | 62.6% | 33.5% | +29.1 | 11.2% |
+| Gtr 2 (from RIGHT) | 633 | 61.8% | 29.5% | +32.2 | 12.0% |
+
+| Staff | Exclusive to own channel | In both channels | Matched neither |
+|---|---|---|---|
+| Gtr 1 | 196 (37.1%) | 135 (25.5%) | 198 (37.4%) |
+| Gtr 2 | 249 (39.3%) | 142 (22.4%) | 242 (38.2%) |
+
+Ownership is ESTABLISHED for the 37-39% exclusive notes: they exist in one
+guitarist's channel and not the other. For the 22-25% in both, ownership is
+genuinely ambiguous because both players struck them.
+
+The own-channel percentage is WRITER FIDELITY, not proof: each staff was written
+from its channel, so it is partly tautological, and it reads 62% rather than 100%
+because of 16th-grid quantisation, a 4-voice polyphony cap, and the 60 ms window.
+
 ## Provenance
 
 Zero note ids and zero beat ids inherited from the Songsterr AI tab. 25 of 529
