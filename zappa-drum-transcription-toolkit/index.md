@@ -66,6 +66,13 @@ result and **zero repairs were applied**.
 claps at the snare position, `KIG-M003` 114 ghost flags resolving to mf, `KIG-M004` 32
 unnotated kick onsets.
 
+## The copy tab is already staged
+
+`s6862054` "Keep It Greasey by Frank Zappa Brandon edit", artist string **Misc Covers**, carries
+one revision `r8958071` created via `Copy`, with no edit submitted. Its export matches `s604777`
+exactly: 248 bars, 9 tracks, 14,444 events, 629 ghosts, drum track 4,948 and 629. The public API
+returns nulls for it, so read it from the signed-in browser.
+
 ## The bundle, collected 2026-09-08
 
 `~/Projects/_outputs/zappa-keep-it-greasey-transcriptions/` holds all three Guitar Pro

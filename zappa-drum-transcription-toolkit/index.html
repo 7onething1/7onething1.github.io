@@ -329,11 +329,18 @@ The Odd Meter Lesson page draws the same 19/16 groove with <b>parenthesised note
 <tr><td><code>s604777_&hellip;_PRESWEEP-BASELINE_2025-07-15_pre-ghost-strip.gp</code></td><td>9</td><td>248</td><td>baseline held before the sweep</td><td>&mdash;</td></tr>
 <tr><td><code>s2832032_&hellip;_AI-TAB_65pct-SHORT_3trk_123bars_DRUMS-1863notes-0ghosts.gp</code></td><td>3, unnamed</td><td>123</td><td>1,863</td><td>0</td></tr>
 <tr><td><code>s754950_&hellip;_LIVE-1980_BASS-ONLY_1trk_121bars_406notes_NO-DRUMS.gp</code></td><td>1</td><td>121</td><td>0</td><td>0</td></tr>
+<tr><td><code>s6862054_&hellip;_BRANDON-EDIT-COPY_r8958071_UNMODIFIED_9trk_248bars_DRUMS-4948notes-629ghosts.gp</code></td><td>9, named by player</td><td>248</td><td><b>4,948</b></td><td><b>629</b></td></tr>
 </tbody>
 </table>
 
 <div class="good">
 <b>A cross-check that passed.</b> Walking the export from MasterBar to Bar to Voice to Beat to Note reference gives the Vinnie Colaiuta track exactly <b>4,948 events and 629 ghost flags</b>, matching the figures published from the CloudFront part JSON. Two independent reads of the same revision agree, so the export carries the ghost layer intact.
+</div>
+
+<div class="good">
+<b>The copy tab is already staged.</b> <code>s6862054</code>, titled "Keep It Greasey by Frank Zappa Brandon edit" and filed under the artist string <b>Misc Covers</b>, carries exactly <b>one revision, <code>r8958071</code>, created via <code>Copy</code></b>, with no edit submitted to it. Exporting it gives 248 bars, 9 tracks, 14,444 note events and 629 ghost flags, drum track at 4,948 and 629, matching <code>s604777</code> in every figure. The copy route the standing gate requires exists and is clean, so <code>KIG-M001</code> has somewhere to land that never touches Ben Dibden1's original.
+<br><br>
+<b>The public API cannot see it.</b> <code>songsterr.com/api/meta/6862054</code> returns nulls without credentials, so it has to be read from the signed-in browser.
 </div>
 
 <div class="warn">
@@ -362,7 +369,7 @@ The Odd Meter Lesson page draws the same 19/16 groove with <b>parenthesised note
 <table>
 <thead><tr><th>Id</th><th>Finding</th><th>Evidence needed</th><th>State</th></tr></thead>
 <tbody>
-<tr><td><code>KIG-M001</code></td><td>GM 65 written on the kick staff line at bar 231, position 7 sixteenths. One event in 4,948, inside a repeating figure whose other string-4 events are all GM 35.</td><td>None. This is score-internal and exact.</td><td><span class="badge b-hold">ready, waits on Brandon</span></td></tr>
+<tr><td><code>KIG-M001</code></td><td>GM 65 written on the kick staff line at bar 231, position 7 sixteenths. One event in 4,948, inside a repeating figure whose other string-4 events are all GM 35.</td><td>None. This is score-internal and exact.</td><td><span class="badge b-hold">ready, copy tab staged at s6862054</span></td></tr>
 <tr><td><code>KIG-M002</code></td><td>21 GM 39 hand claps drawn at the snare position across bars 22 to 32, 42 to 44, 65 and 82.</td><td>Placement is certain. Intent is not recoverable.</td><td><span class="badge b-open">unresolved</span></td></tr>
 <tr><td><code>KIG-M003</code></td><td>114 ghost flags whose resolved dynamic is mf, which is the unflagged population's own mark. The two encodings disagree.</td><td>Nothing on hand says which is meant.</td><td><span class="badge b-open">unresolved</span></td></tr>
 <tr><td><code>KIG-M004</code></td><td>32 kick onsets the score omits. They sit 7.66 dB below the notated median and land on the sixteenth grid at 1.646&times; baseline.</td><td>Bar positions unknown. Listed by audio time only.</td><td><span class="badge b-open">unresolved</span></td></tr>
@@ -371,7 +378,7 @@ The Odd Meter Lesson page draws the same 19/16 groove with <b>parenthesised note
 </table>
 
 <div class="warn">
-<b>The publish route is constrained.</b> The tab is another author's work, r8852151 by Ben Dibden1. Brandon's standing gate is that a revision never goes onto an original: open the original, create a copy, rename it "Brandon edit", and revise the copy. That is an outward publish action and it waits on his say-so.
+<b>The publish route is open, and it runs through the copy.</b> The live tab is another author's work, r8852151 by Ben Dibden1, so the standing gate forbids a revision onto it. That gate is already satisfied: <code>s6862054</code> is an unmodified copy titled "Brandon edit", verified this pass to match the original in every figure. Any repair goes there.
 </div>
 
 <h2 class="s5" id="run">7. The order to run them in</h2>
@@ -381,7 +388,7 @@ The Odd Meter Lesson page draws the same 19/16 groove with <b>parenthesised note
 <li><b>Run <code>/perfect-stem-read</code></b> on the six kit stems, holding the identity-before-lane order.</li>
 <li><b>Run <code>/notation-evidence-gate</code></b> on any symbol dispute the read produces, ahead of writing a claim down.</li>
 <li><b>Run <code>/reference-class</code></b> on every count before it enters a deliverable.</li>
-<li><b>Apply <code>KIG-M001</code> only</b>, on a copy, once Brandon says go. The other three findings have no evidence that closes them.</li>
+<li><b>Apply <code>KIG-M001</code> only</b>, onto <code>s6862054</code>, which is the staged copy. The other three findings have no evidence that closes them.</li>
 </ol>
 
 <footer>
