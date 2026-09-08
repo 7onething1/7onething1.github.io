@@ -23,11 +23,12 @@ No verdict here uses hand availability. No verdict uses a chart lane to name a d
 - All 49 sub-sixteenth tom positions sit a median 15.4 ms from a tom-stem onset and 81.8 ms
   from the sixteenth grid. The regrid is contraindicated.
 - Display bar 25 confirms the ear edit at 19 of 19 pairwise orderings, 129.2 Hz down to 80.7 Hz.
-- Display bar 57: the direction claim is WITHDRAWN on the engraving. The chart draws the final
-  event as a two-note chord under a roll, upper notehead level with the run and a second clearly
-  below, so a single-F0 read of 113.0 Hz is a chord-plus-buzz artifact. The chart agrees with the
-  written Very Low Tom. What survives is the ten-stroke run at one drum, flat near 86 to 91 Hz
-  with a clean decay, drawn as ten filled ovals at one staff height.
+- Display bar 57 is UNRESOLVED and neither side of it is a finding. The measurement is withdrawn
+  on its own terms: six consecutive strokes reading an identical 86.1 Hz at 5.38 Hz bin resolution
+  is a tracker lock, so a single-F0 read cannot support a direction claim. The chart cannot settle
+  it either, because this scan is 5.0 px per staff space against a 15 px notehead floor
+  (q-2026-09-06-c45c11). What survives is the ten-stroke rms decay 0.0180 -> 0.0067, a loudness
+  contour that does not depend on the failed F0. Waits on a ~3x rescan.
 
 ## Controls, all pre-registered before scoring
 
