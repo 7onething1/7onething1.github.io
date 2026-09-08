@@ -63,7 +63,7 @@ verified here against the code before being encoded.
 
 ## Three new skills
 
-- `/fraud-firewall`, one command, one verdict. Composes 61 gates, 46 fraud
+- `/fraud-firewall`, one command, one verdict. Composes 63 gates, 54 fraud
   patterns, completion-control, say-it-plain and reference-class. A component
   that fails to execute blocks the verdict.
 - `/reference-class`, six checks on any number before it ships. Returns 6 of 6
