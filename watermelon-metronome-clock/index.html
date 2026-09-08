@@ -1,0 +1,156 @@
+<style>
+:root{
+  --green:#446455; --gold:#FDD262; --pale:#D3DDDC; --tan:#C7B19C;
+  --green-d:#2e4539; --green-l:#6d8a7a; --gold-d:#c9a63f; --gold-l:#fff0b8;
+  --tan-d:#9d7f63; --pale-d:#a8b8b7;
+  --bg:#f7f3e8; --card:#fffdf6; --ink:#1c2320; --mut:#5d6b64; --line:#ddd6c4;
+  color-scheme:light;
+}
+:root:not([data-theme="light"]){}
+@media (prefers-color-scheme:dark){:root:not([data-theme="light"]){
+  --bg:#151a17; --card:#1d2521; --ink:#eef2ec; --mut:#a3b0a8; --line:#33403a;
+  --gold-l:#5a4d24; --green-l:#8fae9d; --pale:#3a4a48;
+}}
+:root[data-theme="dark"]{
+  --bg:#151a17; --card:#1d2521; --ink:#eef2ec; --mut:#a3b0a8; --line:#33403a;
+  --gold-l:#5a4d24; --green-l:#8fae9d; --pale:#3a4a48;
+}
+*{box-sizing:border-box}
+body{background:var(--bg);color:var(--ink);margin:0;line-height:1.62;
+ font-family:-apple-system,BlinkMacSystemFont,"Inter","Segoe UI",sans-serif;
+ font-size:16px;padding:0 1.1rem 5rem}
+.wrap{max-width:1080px;margin:0 auto}
+header{padding:3.2rem 0 1.6rem;border-bottom:4px solid var(--green)}
+h1{font-size:clamp(1.8rem,4.4vw,2.9rem);line-height:1.12;margin:0 0 .5rem;letter-spacing:-.022em}
+.sub{color:var(--mut);font-size:1.03rem;margin:0}
+.tagrow{display:flex;flex-wrap:wrap;gap:.45rem;margin-top:1.1rem}
+.tag{font-size:.76rem;font-weight:700;letter-spacing:.06em;text-transform:uppercase;
+ padding:.3rem .62rem;border-radius:3px;border:1px solid var(--line)}
+.t-g{background:var(--green);color:#fff;border-color:var(--green)}
+.t-y{background:var(--gold);color:#3a2f00;border-color:var(--gold-d)}
+.t-p{background:var(--pale);color:var(--green-d);border-color:var(--pale-d)}
+.t-t{background:var(--tan);color:#3a2a18;border-color:var(--tan-d)}
+h2{font-size:1.42rem;margin:3.2rem 0 .3rem;letter-spacing:-.014em;
+ padding-left:.7rem;border-left:6px solid var(--gold)}
+h2.g{border-left-color:var(--green)} h2.t{border-left-color:var(--tan)}
+h2.p{border-left-color:var(--pale-d)}
+h3{font-size:1.06rem;margin:1.9rem 0 .35rem;color:var(--green-l)}
+p{margin:.7rem 0}
+.lede{font-size:1.09rem}
+.card{background:var(--card);border:1px solid var(--line);border-radius:8px;
+ padding:1.15rem 1.3rem;margin:1.1rem 0}
+.hero{border-left:8px solid var(--green);background:linear-gradient(100deg,var(--card),var(--pale) 260%)}
+.hero.y{border-left-color:var(--gold)} .hero.t{border-left-color:var(--tan)}
+.grid{display:grid;gap:.85rem;grid-template-columns:repeat(auto-fit,minmax(215px,1fr));margin:1.1rem 0}
+.stat{background:var(--card);border:1px solid var(--line);border-top:5px solid var(--green);
+ border-radius:7px;padding:.95rem 1rem}
+.stat:nth-child(2){border-top-color:var(--gold)}
+.stat:nth-child(3){border-top-color:var(--tan)}
+.stat:nth-child(4){border-top-color:var(--pale-d)}
+.stat:nth-child(5){border-top-color:var(--green-l)}
+.stat:nth-child(6){border-top-color:var(--gold-d)}
+.num{font-size:1.85rem;font-weight:750;letter-spacing:-.03em;line-height:1.1;
+ font-variant-numeric:tabular-nums}
+.lbl{font-size:.79rem;color:var(--mut);text-transform:uppercase;letter-spacing:.055em;
+ font-weight:650;margin-top:.28rem}
+.note{font-size:.85rem;color:var(--mut);margin-top:.4rem}
+.scroll{overflow-x:auto;-webkit-overflow-scrolling:touch;margin:1rem 0;
+ border:1px solid var(--line);border-radius:7px;background:var(--card)}
+table{border-collapse:collapse;width:100%;font-size:.9rem;min-width:560px}
+th{background:var(--green);color:#fff;text-align:left;padding:.6rem .7rem;font-weight:650;
+ white-space:nowrap;font-size:.82rem;letter-spacing:.03em}
+td{padding:.5rem .7rem;border-top:1px solid var(--line);font-variant-numeric:tabular-nums}
+tbody tr:nth-child(even){background:color-mix(in srgb,var(--pale) 34%,transparent)}
+.mono{font-family:ui-monospace,"SF Mono",Menlo,monospace;font-size:.86em}
+.ok{color:#1f6b45;font-weight:700} .bad{color:#a33b28;font-weight:700}
+.mid{color:var(--tan-d);font-weight:700}
+:root:not([data-theme="light"]) .ok{color:#7fd3a4}
+:root:not([data-theme="light"]) .bad{color:#f0937d}
+@media (prefers-color-scheme:dark){:root:not([data-theme="light"]) .ok{color:#7fd3a4}}
+.pill{display:inline-block;padding:.12rem .5rem;border-radius:99px;font-size:.76rem;
+ font-weight:700;letter-spacing:.02em}
+.p-c{background:#d8ecdf;color:#1f6b45} .p-a{background:#f6ddd6;color:#a33b28}
+.p-m{background:var(--gold-l);color:#6b5410}
+blockquote{margin:1.1rem 0;padding:.75rem 1.1rem;border-left:5px solid var(--tan);
+ background:color-mix(in srgb,var(--tan) 17%,transparent);border-radius:0 6px 6px 0;
+ font-style:italic;color:var(--ink)}
+ul,ol{margin:.6rem 0;padding-left:1.3rem} li{margin:.34rem 0}
+code{background:color-mix(in srgb,var(--pale) 55%,transparent);padding:.1rem .34rem;
+ border-radius:3px;font-family:ui-monospace,"SF Mono",Menlo,monospace;font-size:.87em}
+footer{margin-top:4rem;padding-top:1.3rem;border-top:2px solid var(--line);
+ color:var(--mut);font-size:.87rem}
+.bar{height:19px;border-radius:3px;background:var(--green);display:inline-block;
+ vertical-align:middle;min-width:2px}
+.barw{background:color-mix(in srgb,var(--pale) 60%,transparent);border-radius:3px;
+ display:block;width:100%;max-width:230px}
+</style></head><body><div class="wrap">
+<header>
+<h1>The Watermelon cymbal lane was a broken clock, and the metronome stem proves it</h1>
+<p class="sub">Watermelon In Easter Hay rebuilt on the Moises metronome stem, 2026-09-08. Detector unchanged
+from the cymbal pass: 1024-point Hann, 256 hop, band-limited positive spectral flux, 95th-percentile local
+peaks, 30 ms refractory, 25 ms one-to-one tolerance. Only the clock changed.</p>
+<div class="tagrow">
+<span class="tag t-g">5 of 5 lanes separate</span>
+<span class="tag t-y">cymbal 1.45x to 3.00x</span>
+<span class="tag t-p">clock tested on a held-out lane</span>
+<span class="tag t-t">no note edited</span>
+</div>
+</header>
+
+<div class="card hero">
+<p class="lede"><strong>The headline finding of the earlier pass is overturned.</strong> That pass reported
+the 1,573-note cymbal lane running at 1.46 times chance and separating from a wrong recording at only 1.45,
+the single failing lane across nine songs. On the metronome clock the same 1,573 notes, scored by the same
+detector against the same stem, reach 3.17 times chance and separate at
+3.00. <strong>The notes were always there. The ruler was wrong.</strong></p>
+</div>
+
+<h2 class="g">The clock, and how it earned the job</h2>
+<p>Moises ships a metronome track alongside the stems. On Watermelon it holds <strong>997 clicks
+at a 539.9 ms median spacing</strong>, which is an eighth note at the score&rsquo;s own 56 bpm, so two clicks
+to the quarter. The only unknown was which click is score quarter zero, and that offset was fitted on the
+<strong>snare</strong> lane, landing at click 51.</p>
+<p>Fitting on snare leaves <strong>kick</strong> free as a test lane, which is exactly how the shipped
+alignment was built, so the two clocks can be compared on ground neither of them saw:</p>
+<div class="scroll"><table><thead><tr><th>clock</th><th>kick notes confirmed</th><th>coverage</th>
+<th>scored span</th></tr></thead><tbody>
+<tr><td>shipped snare-anchored alignment</td><td>226 of 504</td>
+<td>44.8%</td><td>59.3-506.1 s</td></tr>
+<tr><td><strong>metronome clock</strong></td><td class="ok">286 of 504</td>
+<td class="ok">56.7%</td>
+<td>41.3-528.5 s</td></tr>
+</tbody></table></div>
+<p>The metronome wins by 60 kicks on the held-out lane <em>and</em> covers 41 more seconds of the song, so
+it is not trading span for accuracy. That is what licensed the rebuild.</p>
+
+<h2>Every lane, rescored</h2>
+<div class="scroll"><table><thead><tr><th>lane</th><th>written</th><th>onsets</th><th>confirm</th>
+<th>chance</th><th>ratio</th><th>wrong rec.</th><th>separation</th><th>verdict</th>
+<th>separation before</th></tr></thead><tbody><tr><td><strong>kick</strong></td><td>504</td><td>909</td><td>56.7%</td><td>8.6%</td><td class="ok">6.56x</td><td>0.94x</td><td class="ok">6.95x</td><td><span class="pill p-c">SEPARATES</span></td><td class="">7.49x</td></tr><tr><td><strong>snare</strong></td><td>342</td><td>691</td><td>56.4%</td><td>6.9%</td><td class="ok">8.20x</td><td>0.77x</td><td class="ok">10.67x</td><td><span class="pill p-c">SEPARATES</span></td><td class="">8.86x</td></tr><tr><td><strong>hat</strong></td><td>246</td><td>549</td><td>51.6%</td><td>5.2%</td><td class="ok">9.86x</td><td>0.87x</td><td class="ok">11.36x</td><td><span class="pill p-c">SEPARATES</span></td><td class="">not scored</td></tr><tr><td><strong>tom</strong></td><td>168</td><td>930</td><td>60.1%</td><td>8.7%</td><td class="ok">6.94x</td><td>1.54x</td><td class="ok">4.51x</td><td><span class="pill p-c">SEPARATES</span></td><td class="">5.67x</td></tr><tr><td><strong>cymbal</strong></td><td>1,573</td><td>1,323</td><td>40.2%</td><td>12.7%</td><td class="ok">3.17x</td><td>1.06x</td><td class="ok">3.00x</td><td><span class="pill p-c">SEPARATES</span></td><td class="bad">1.45x</td></tr></tbody></table></div>
+<p class="note">Wrong-recording control is Keep It Greasey through the same Moises separator, unchanged from
+the earlier pass. The hat lane carries a verdict for the first time; the old cymbal convention excluded
+MIDI 42, 44 and 46 entirely.</p>
+
+<h2 class="t">What moved and what did not</h2>
+<ul>
+<li><strong>Cymbal is the whole story.</strong> Confirm went from 19.3 to 40.2 percent on
+1,573 notes, and separation from 1.45 to 3.00. A lane called unsupported is supported.</li>
+<li><strong>Kick and snare improved.</strong> Kick confirm 44.8 to 56.7 percent, snare 47.7 to 56.4.</li>
+<li><strong>Tom went the other way</strong>, 70.2 down to 60.1 percent confirm, while still separating at
+4.51. A better clock overall can still be worse in one place, and that is worth saying rather than hiding.</li>
+<li><strong>No note was added, moved or deleted.</strong> This pass changed a ruler and nothing else.</li>
+</ul>
+
+<div class="card hero y"><p><strong>The standing rule this settles.</strong> Use the Moises metronome stem as
+the first clock source wherever one exists, because it comes from outside the events being scored and cannot
+be tuned against them. Fall back to the score&rsquo;s own tempo automation where the score demonstrably
+follows the recording, and to fitted anchors only when neither explains the audio. Never optimise tempo from
+a mixed drum stem.</p></div>
+
+<footer>
+<p>Built 2026-09-08 on MacBookPro. Every number generated at build time from
+<span class="mono">data/clock_compare.json</span> and <span class="mono">data/rescore.json</span>.
+Supersedes the cymbal verdict at <span class="mono">/watermelon-cymbal-stem-pass</span>.</p>
+<p>Source: <span class="mono">~/Projects/_outputs/zappa-watermelon-metronome-clock/</span></p>
+</footer>
+</div></body></html>
