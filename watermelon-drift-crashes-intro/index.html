@@ -119,6 +119,12 @@ svg{display:block;max-width:100%;height:auto}
 <p>Seven of 105 bars miss by more than a second, and every one of them sits at the very front or the very end. <b>The middle of the song is already synced to thirty milliseconds.</b> Uploading the tempo map fixes the shape of the file's timeline. It does not move these sync points, so the opening will still fire twelve seconds early after the upload lands.</p>
 </div>
 
+<div class="callout aqua">
+<h3>Robustness check, because the two clocks could have been different masters</h3>
+<p>Songsterr's per-measure clock belongs to its own master rather than to these stems, so a raw subtraction can invent an error that is really a length mismatch. The sibling session measured a <b>23.342 s offset</b> between the lossless 522.436 s master and the Moises render, at a standard deviation of 2.9 ms over 16 anchors, which is exactly the kind of gap that would fake this result.</p>
+<p>Two fits settle it. A <b>constant-offset fit lands at 0.030 s with a median residual of 0.010 s</b> across all 105 bars. A scale-plus-offset fit does worse, at a median residual of 0.349 s, because the bar 1 outlier drags the slope. The better model is the one with no rescale, so <b>Songsterr's video and this stem set share a time base</b> and the bar 1 to 5 and 104 to 105 deviations are real.</p>
+</div>
+
 <h2><span class="n" style="background:var(--gold)">3</span>The missing intro</h2>
 <p>The recording runs 545.3 s. The tab covers 501.4 s of it. Bar 1 of the tab sits at 0.000 s on its own clock and the recording's bar 1 lands at 36.870 s, so <b>the first 36.87 seconds of the song has no bars at all</b>, which is 6.8 percent of the record.</p>
 <p>The drums lose nothing to that gap. I measured every drum stem across the window before bar 1 and each one is silent.</p>

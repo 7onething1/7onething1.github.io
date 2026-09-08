@@ -50,6 +50,12 @@ One of the eleven has looked at the intro, and it found the problem two minutes 
 
 Seven of 105 bars miss by more than a second and all seven sit at the front or the end. The middle is already synced to thirty milliseconds. Uploading the tempo map fixes the file's timeline shape. It does not move these sync points.
 
+### Robustness check, because the two clocks could have been different masters
+
+Songsterr's per-measure clock belongs to its own master rather than to these stems, so a raw subtraction can invent an error that is really a length mismatch. The sibling session measured a 23.342 s offset between the lossless 522.436 s master and the Moises render, standard deviation 2.9 ms over 16 anchors, which is exactly the gap that would fake this result.
+
+Two fits settle it. A constant-offset fit lands at 0.030 s with a median residual of 0.010 s across all 105 bars. A scale-plus-offset fit does worse at a median residual of 0.349 s, because the bar 1 outlier drags the slope. The better model carries no rescale, so Songsterr's video and this stem set share a time base and the bar 1 to 5 and 104 to 105 deviations are real.
+
 ## 3. The missing intro
 
 The recording runs 545.3 s. The tab covers 501.4 s. Bar 1 of the tab sits at 0.000 s on its own clock and the recording's bar 1 lands at 36.870 s, so the first 36.87 seconds has no bars, which is 6.8 percent of the record.
