@@ -19,3 +19,16 @@ Tom were outside the chart's three-lane map.
 Nothing was uploaded. A corrected build needs a fresh export of r8968524.
 
 Live: https://7onething1.github.io/watermelon-two-hands-audit/
+
+## Instrument attribution
+
+Instruments are named from staff position plus the tab's own InstrumentSet, never from the
+notehead glyph. StaffLine 0 Ride (51, 53), 1 Tom Very High (50), 2 Tom High (48), 4 Tom Medium
+(47), 5 Very Low Floor Tom (41), 6 Tom Very Low (43), 3 Electric Snare (40), 7 and 8 kick.
+
+## Data provenance note
+
+The onset positions quoted for tab index 24 (11.23 to 18.63 sixteenths, strengths 11.3 to 54.2)
+were read from data/tom_plan.json before a parallel session overwrote that file at 12:56 on
+2026-09-08. The current file holds 8 events at exact sixteenths with strength 0.0, which is the
+hand fix written back. tom_plan2.json followed at 13:02.
