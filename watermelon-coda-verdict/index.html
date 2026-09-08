@@ -185,11 +185,11 @@ footer{color:var(--muted);font-size:13px;text-align:center;margin-top:40px}
 <tr><td>every applied edit reached VALIDATED</td><td><b>FAIL</b> 179 applied, 0 validated</td></tr>
 <tr><td>at least one VALIDATED edit exists</td><td><b>FAIL</b> 0 validated</td></tr>
 <tr><td>alignment CONFIRMED ahead of any stem timing use</td><td><b>FAIL</b> UNRESOLVED past GP bar 97</td></tr>
-<tr><td>a playability result was supplied</td><td><b>FAIL</b> none supplied</td></tr>
+<tr><td>every voice passes the two-hands check</td><td><b>PASS</b> max simultaneity 3, histogram 1653 / 307 / 1</td></tr>
 <tr><td>regression: nothing outside scope moved, something inside did</td><td><b>PASS</b> 2765 out-of-scope instances identical, 179 in scope</td></tr>
 </table>
 </div>
-<div class="warn"><b>Verdict: REFUSED, no promotion available.</b> The artifact is not LOCAL_VALIDATED. The 179 toms were placed from the printed chart with no onset detector, so they carry chart evidence and no stem evidence, and the gate is correct to hold them.</div>
+<div class="warn"><b>Verdict: REFUSED, no promotion available.</b> Five checks pass and three fail. The playability check was run separately with <span class="mono">drum_reality_gate.py</span> and returned PASS, max simultaneity 3 voices across 2270 events. The three remaining failures reduce to one cause: <b>150 of the 179 heads have never been tested against the stems</b>, so no edit can reach VALIDATED. Only 29 went through, being the bar 25 run and the 19 Coda heads.</div>
 <div class="proof"><b>Regression is clean.</b> 2765 out-of-scope note instances are identical on both sides, meters and bar count and track names unchanged, and the only in-scope change is the 179 additions. Zero unrelated regression changes.</div>
 
 <h3>2. Bar 25 as local calibration, and it finds a clock bias</h3>
