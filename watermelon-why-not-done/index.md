@@ -30,13 +30,21 @@ Region by region the metronome wins everywhere, with its largest margin at bars 
 
 ## What is still wrong in the shipped file
 
-1. **Coda hole, bars 98 to 104**, recording 8:25 to 8:58. The tab writes seven notes. The stems carry 81 attacks. The lead guitar control is zero in six of the seven bars and two in the seventh. Only bar 105 belongs empty. An earlier pass this session, on the weaker onset clock, read this as bars 98 to 103 with 56 attacks and called bar 104 empty. Bar 104 carries five kick and four tom onsets.
+1. **Coda hole, bars 98 to 104**, recording 8:25 to 8:58. The tab writes 8 attacks (three in bar 98, two in 99, one each in 100, 101 and 103, none in 102 or 104). The stems carry 81 attacks. The lead guitar control is zero in six of the seven bars and two in the seventh. Only bar 105 belongs empty. An earlier pass this session, on the weaker onset clock, read this as bars 98 to 103 with 56 attacks and called bar 104 empty. Bar 104 carries five kick and four tom onsets.
 2. **Sixteen three-hand instants** across bars 29, 41, 45, 49, 52, 53, 54, 55, 56, 57, 85 and 89. Fifteen of the sixteen ask for a snare or tom, a hi-mid tom and the ride on one instant. Inherited from r8968524.
-3. **The tempo map itself**, one automation at 56.000 bpm.
+3. **The tempo map itself**, one automation at 56.000 bpm. It concealed and confused the other two defects rather than producing them: the sixteen collisions were written into r8968524, and the missing coda notation is absent from the GP on its own terms.
 
 ## The fix
 
 `metromap.json` anchors tab bar 1 to click index 51 at t = 36.87 s and interpolates every bar boundary through the click grid, reaching bar 105 at 538.23 s. `tempomap.json` is the onset-derived map, kept as an independent second witness.
+
+## The finite work that remains
+
+Scope set by Brandon 2026-09-08, a closed list. 1) Write the metronome map into the working GP (`q-2026-09-08-cddb5a`). 2) Transcribe bars 98 to 104 against that clock (`577c81`). 3) Resolve the sixteen three-surface collisions (`baae9d`). 4) Recheck the 202 disputed ride notes (`c9d5f7`). 5) One final stem-matched playability audit (`85d746`). No further detector unless one of these five produces contradictory evidence.
+
+## Corrections applied 2026-09-08
+
+Brandon caught two errors in the first publication of this page. The coda tab count read seven and the data holds eight, corrected above. The tempo map was described as producing the other two defects, and it concealed them, corrected above.
 
 ## The process lesson
 

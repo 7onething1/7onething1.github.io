@@ -100,10 +100,20 @@
    "bars": "98 to 104",
    "recording": "8:25 to 8:58",
    "measured_on": "metronome-anchored clock",
-   "tab_notes": 7,
+   "tab_notes": 8,
    "stem_attacks": 81,
    "guitar_bleed_control": "0 in bars 99 to 104, 2 in bar 98",
-   "superseded": "An earlier pass this session, on the weaker onset-derived clock, read this as bars 98 to 103 and 56 attacks, and called bar 104 correctly empty. Bar 104 carries 5 kick and 4 tom onsets. Only bar 105 is correctly empty."
+   "superseded": "An earlier pass this session, on the weaker onset-derived clock, read this as bars 98 to 103 and 56 attacks, and called bar 104 correctly empty. Bar 104 carries 5 kick and 4 tom onsets. Only bar 105 is correctly empty.",
+   "tab_notes_by_bar": {
+    "98": 3,
+    "99": 2,
+    "100": 1,
+    "101": 1,
+    "102": 0,
+    "103": 1,
+    "104": 0
+   },
+   "corrected": "First publication said 7 tab notes. coda.json holds 8. Caught by Brandon 2026-09-08 and verified against the live coda.json."
   },
   {
    "id": "three-hand",
@@ -128,7 +138,7 @@
   {
    "id": "tempo-map",
    "count": 1,
-   "note": "One automation at 56.000 bpm across a live performance that drifts."
+   "note": "One automation at 56.000 bpm across a live performance that drifts. It CONCEALED and CONFUSED the other two defects rather than producing them: the 16 three-surface collisions were written into revision r8968524, and the missing coda notation is absent from the GP on its own terms."
   }
  ],
  "gp_census_independent": {
@@ -233,5 +243,33 @@
    }
   ]
  },
- "scope_note": "40 UNUSABLE occurrences across 10 transcripts are mostly a DENSITY gate (baseline above the 35% ceiling), quoted at 04e0fedb:1210 and 04e0fedb:1296. The alignment gate is separate; its UNUSABLE at 0.336 is in watermelon-reconcile/real_gates.json. This page repairs the alignment clock and does not re-test the density findings."
+ "scope_note": "40 UNUSABLE occurrences across 10 transcripts are mostly a DENSITY gate (baseline above the 35% ceiling), quoted at 04e0fedb:1210 and 04e0fedb:1296. The alignment gate is separate; its UNUSABLE at 0.336 is in watermelon-reconcile/real_gates.json. This page repairs the alignment clock and does not re-test the density findings.",
+ "finite_remaining_work": [
+  {
+   "n": 1,
+   "step": "Write the metronome map into the working GP",
+   "queue": "q-2026-09-08-cddb5a"
+  },
+  {
+   "n": 2,
+   "step": "Transcribe bars 98 to 104 against that clock",
+   "queue": "q-2026-09-08-577c81"
+  },
+  {
+   "n": 3,
+   "step": "Resolve the sixteen three-surface collisions",
+   "queue": "q-2026-09-08-baae9d"
+  },
+  {
+   "n": 4,
+   "step": "Recheck the 202 disputed ride notes",
+   "queue": "q-2026-09-08-c9d5f7"
+  },
+  {
+   "n": 5,
+   "step": "One final stem-matched playability audit",
+   "queue": "q-2026-09-08-85d746"
+  }
+ ],
+ "finite_remaining_work_scope": "Set by Brandon 2026-09-08. Closed list. No further detector unless one of these five edits produces contradictory evidence."
 }

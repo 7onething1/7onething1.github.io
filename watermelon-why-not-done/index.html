@@ -65,6 +65,11 @@ a{color:#0d6f88;font-weight:600}
 <span class="stamp">Root cause found</span>
 <h1>Why the Watermelon GP is not done and not perfect</h1>
 <p class="deck">Nine days, 55 sessions, 26,339 assistant turns and 9.59 billion tokens went into one drum tab. Every stem measurement in that span ran against a clock that was wrong by up to 6.3 seconds. Here is the measurement, the proof, and the clock that removes the blocker.</p>
+<div class="callout gold" style="margin:.6rem 0 1.2rem">
+ <div style="font-weight:800;letter-spacing:.05em;text-transform:uppercase;font-size:.74rem;margin-bottom:.3rem">Two corrections from Brandon, 2026-09-08, applied</div>
+ <p style="margin:.2rem 0"><b>One.</b> This page said bars 98 to 104 hold seven written drum notes. Its own <a href="coda.json">coda.json</a> holds eight: three in bar 98, two in 99, one each in 100, 101 and 103, none in 102 or 104. The figure now reads eight tab attacks against eighty-one stem attacks. The 81 reconciles unchanged and bar 105 stays correctly empty.</p>
+ <p style="margin:.5rem 0 0"><b>Two.</b> This page said the flat tempo map produced the other two defects. It concealed and confused them. Defect three below now says so.</p>
+</div>
 <p class="sub">Subject: Songsterr s6857183 r8970744, Watermelon In Easter Hay, Vinnie Colaiuta. Measured 2026-09-08 from the shipped .gp and the Moises stem set.</p>
 
 <h2><span class="n" style="background:var(--flare)">1</span>What it cost</h2>
@@ -129,7 +134,7 @@ a{color:#0d6f88;font-weight:600}
 <p class="sub">Independent census of RECONCILED-s6857183-Brandon-edit.gp: 2,770 drum notes, voice 0 at 1,889 and voice 1 at 881, on the Vinnie Colaiuta track.</p>
 
 <h3>Defect one: the last thirty-three seconds of drumming is missing</h3>
-<p>On the metronome clock, tab bars 98 to 104 land at 8:25 to 8:58 in the recording. The drummer plays through all seven of them. The tab writes seven notes.</p>
+<p>On the metronome clock, tab bars 98 to 104 land at 8:25 to 8:58 in the recording. The drummer plays through all seven of them. The tab writes eight attacks.</p>
 <div class="scroll"><table>
 <tr><th>tab bar</th><th>recording window</th><th class="num">tab k / s / t / ride</th><th class="num">stem kick</th><th class="num">stem tom</th><th class="num">stem cymbal</th><th class="num">guitar control</th><th>verdict</th></tr>
 <tr class="good"><td>96</td><td>495.8 - 499.9</td><td class="num">9 / 3 / 0 / 14</td><td class="num">9</td><td class="num">0</td><td class="num">9</td><td class="num">14</td><td>written</td></tr>
@@ -143,7 +148,7 @@ a{color:#0d6f88;font-weight:600}
 <tr class="bad"><td>104</td><td>533.9 - 538.2</td><td class="num">0 / 0 / 0 / 0</td><td class="num">5</td><td class="num">4</td><td class="num">0</td><td class="num">0</td><td>stem plays, tab silent</td></tr>
 <tr class="good"><td>105</td><td>538.2 - 542.5</td><td class="num">0 / 0 / 0 / 0</td><td class="num">0</td><td class="num">0</td><td class="num">0</td><td class="num">0</td><td>correctly empty</td></tr>
 </table></div>
-<p><b>Eighty-one drum attacks live in bars 98 to 104.</b> The lead guitar stem carries zero onsets in six of those seven bars and two in the seventh, so bleed does not explain them. Only bar 105 belongs empty.</p>
+<p><b>Eight tab attacks against eighty-one detected stem attacks in bars 98 to 104.</b> The tab total breaks down as three in bar 98, two in 99, one each in 100, 101 and 103, and none in 102 or 104. The lead guitar stem carries zero onsets in six of those seven bars and two in the seventh, so bleed does not explain them. Only bar 105 belongs empty.</p>
 <div class="callout gold">
  <p><b>Correction inside this session.</b> An earlier pass on this page put the hole at bars 98 to 103 with 56 attacks and called bar 104 correctly empty. That reading came off the weaker onset-derived clock. Bar 104 carries five kick and four tom onsets. The table above is the metronome-clock reading and it supersedes the first.</p>
 </div>
@@ -157,7 +162,7 @@ a{color:#0d6f88;font-weight:600}
 <p class="fine">These were inherited from revision r8968524. They were neither caused nor fixed by the 63-note reconcile that shipped.</p>
 
 <h3>Defect three: the tempo map itself</h3>
-<p>One automation at 56.000 bpm is the defect that produced the other two and blocked every verdict listed above.</p>
+<p>One automation at 56.000 bpm covers a performance that moves. It <b>concealed and confused</b> the other two defects rather than producing them. The sixteen three-surface collisions were written into revision r8968524 and arrived by inheritance. The missing coda notation is absent from the GP on its own terms, and a correct clock would have made both visible far sooner.</p>
 
 <h2><span class="n" style="background:var(--sky)">5</span>Do we need metronome tracks? No, because one already wins</h2>
 <p>Moises exported a metronome stem alongside the drums, at <code>206 Watermelon in Easter Hay-metronome-E major-112bpm-442hz.wav</code>. It holds 997 clicks from 0.750 s to 544.070 s, with a median interval of 0.540 s, giving 111.11 bpm or <b>55.56 in half time</b>. That corroborates the 55.3 derived from the drum onsets by a completely separate route.</p>
@@ -210,6 +215,17 @@ a{color:#0d6f88;font-weight:600}
  <p><b>The rule this earns:</b> when an alignment gate fails, repair the clock first, then write detectors. A detector cannot out-measure a broken time base, and 103 of them could not.</p>
  <p><b>The second rule, earned mid-session.</b> The winning clock was sitting in the same folder as the stems for two days. Inventory what the separation already handed you, then build only what is missing.</p>
 </div>
+
+<h2><span class="n" style="background:var(--gold)">8</span>The finite work that remains</h2>
+<p>Brandon set the scope on 2026-09-08, and it is a closed list rather than an open research programme. No further detector gets written unless one of these five edits produces contradictory evidence.</p>
+<div class="scroll"><table>
+<tr><th class="num">#</th><th>step</th><th>queue id</th></tr>
+<tr><td class="num">1</td><td>Write the metronome map into the working GP</td><td><code>q-2026-09-08-cddb5a</code></td></tr>
+<tr><td class="num">2</td><td>Transcribe bars 98 to 104 against that clock</td><td><code>q-2026-09-08-577c81</code></td></tr>
+<tr><td class="num">3</td><td>Resolve the sixteen three-surface collisions</td><td><code>q-2026-09-08-baae9d</code></td></tr>
+<tr><td class="num">4</td><td>Recheck the 202 disputed ride notes</td><td><code>q-2026-09-08-c9d5f7</code></td></tr>
+<tr><td class="num">5</td><td>One final stem-matched playability audit</td><td><code>q-2026-09-08-85d746</code></td></tr>
+</table></div>
 
 <footer>
  <p>Measured 2026-09-08 on MacBookPro from <code>~/Projects/_outputs/zappa-watermelon-hat-snare-repair/out/RECONCILED-s6857183-Brandon-edit.gp</code>, sha256 <code>bc5ce3de02153f39485d2e4324c0c45f4cc7237f779adfc3c3b3e1dd76b8548f</code>, against the Moises stem set at <code>/Users/Shared/206 Watermelon in Easter Hay-E major-112bpm-442hz/</code>.</p>
