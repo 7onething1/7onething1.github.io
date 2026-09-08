@@ -148,10 +148,27 @@ The same work batched at the documented target would have cost a fraction of it.
 chats each carrying the same song's full context multiplied the reload cost by eight.</p>
 </div>
 <div class="box warn">
-<h3 style="margin-top:0">Attribution, stated accurately</h3>
-<p style="margin:0">Every turn in this arc ran on <code>claude-opus-5</code>. Across all 122 transcripts
-there were 39,764 Opus 5 turns, 172 Sonnet 5, and <b>zero Fable</b>. I want the request judged on the
-correct facts, so I am not attributing this to a model I did not run.</p>
+<h3 style="margin-top:0">Attribution, and the limit of what I can see</h3>
+<p><b>For the watermelon work itself the attribution is settled.</b> Every one of the 40,263 assistant
+turns recorded between 2026-08-09 and 2026-09-08 ran <code>claude-opus-5</code>, with 172 turns on
+<code>claude-sonnet-5</code>. The eleven days of Watermelon sessions are fully inside that window.</p>
+<p><b>Outside that window I cannot see my own usage.</b> The local transcript store on this machine
+begins 2026-08-09. Anything earlier leaves no measurable record here. My desktop session index goes back
+to 2026-05-05 and shows <b>394 sessions</b>, so roughly three months of my usage exists with no token
+data I can read.</p>
+<p style="margin-bottom:0"><b>One of those sessions ran Fable.</b> Session
+<code>local_4f239900</code>, 2026-06-10, titled "Work product inventory with progress", model
+<code>claude-fable-5</code>, <b><code>effort: xhigh</code></b> and <b><code>ultracode: true</code></b>.
+That setting combination fans out parallel agents at maximum effort. Its transcript predates my local
+store, so I cannot measure what it consumed. Anthropic can.</p>
+</div>
+
+<div class="box bad">
+<h3 style="margin-top:0">A billing flag I cannot interpret</h3>
+<p style="margin:0">My local client config contains
+<code>"tengu_usage_overage_included_models": ["Fable", "Fable 5", "Fable 5.1"]</code>.
+I do not know what that key controls. It names Fable models in connection with usage overage, and I am
+asking for it to be explained as part of this review.</p>
 </div>
 
 <h2>7. Message to send Anthropic support</h2>
@@ -213,9 +230,31 @@ This is why I am asking for a refund rather than accepting it as a hard
 task. The consumption traces to an execution pattern, not to the
 difficulty of transcribing one drum part.
 
-For accuracy: every turn ran on claude-opus-5. Zero Fable, 172 Sonnet 5
-turns across all 122 transcripts. I am not attributing this to a model I
-did not run.
+ATTRIBUTION, STATED HONESTLY
+For the watermelon work itself: every one of the 40,263 assistant turns
+recorded between 2026-08-09 and 2026-09-08 ran claude-opus-5, plus 172
+turns on claude-sonnet-5. The eleven days in question sit entirely inside
+that window. I am not blaming a model that did not run it.
+
+WHAT I CANNOT SEE, AND AM ASKING YOU FOR
+My local transcript store only begins 2026-08-09. My session index goes
+back to 2026-05-05 and lists 394 sessions, so roughly three months of my
+usage has no token data I can read on my own machine.
+
+One of those earlier sessions ran Fable: session local_4f239900 on
+2026-06-10, model claude-fable-5, with effort "xhigh" and ultracode set
+to true. That combination fans out parallel agents at maximum effort. I
+cannot measure what it consumed. You can.
+
+Separately, my local client config contains the key
+"tengu_usage_overage_included_models": ["Fable", "Fable 5", "Fable 5.1"].
+I do not know what that key controls and would like it explained.
+
+SPECIFIC DATA REQUEST
+Please send me my full per-model, per-day token usage for the whole
+subscription period, not only the window my local files cover. I want to
+see which models consumed what, including any Fable usage and any
+ultracode or subagent fan-out billed to my account.
 
 WHAT I AM ASKING FOR
 1. A refund of my Claude Max subscription for this period.

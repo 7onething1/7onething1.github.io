@@ -69,3 +69,24 @@ Live page: https://7onething1.github.io/claude-refund-evidence/
   against a standing one-session-at-a-time configuration.
 - **Attribution.** Every turn ran `claude-opus-5`. Across all 122 transcripts: 39,764 Opus 5, 172
   Sonnet 5, zero Fable. Source: `reference_watermelon_arc_was_all_opus5_not_fable`.
+
+## Attribution correction (2026-09-08, after Brandon disputed it)
+
+An earlier version of this page claimed "zero Fable" outright. That was overstated, and the reason is
+the measurement window.
+
+- **The local transcript store begins 2026-08-09.** Oldest `.jsonl` on disk is dated Aug 9. Every token
+  figure on this page covers 2026-08-09 to 2026-09-08 only.
+- **The desktop session index goes back to 2026-05-05** and holds **394 sessions**. Roughly three months
+  of usage exists with no readable token data on this machine.
+- **Watermelon attribution is still settled.** 40,263 assistant turns on `claude-opus-5` plus 172 on
+  `claude-sonnet-5` in the covered window. The Aug 29 to Sep 8 work sits entirely inside it.
+- **Fable did run here, once.** Desktop session `local_4f239900`, 2026-06-10, `claude-fable-5`,
+  `effort: xhigh`, `ultracode: true`, title "Work product inventory with progress", cwd `/Users/drwu`.
+  Its transcript predates the local store, so its consumption is unmeasurable locally.
+- **Billing flag.** Local client config contains
+  `"tengu_usage_overage_included_models": ["Fable", "Fable 5", "Fable 5.1"]`. Purpose unknown, asked
+  about in the support request.
+
+**The added ask:** full per-model, per-day token usage for the entire subscription period, since only
+Anthropic holds the months this machine cannot see.
