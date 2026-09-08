@@ -1,140 +1,89 @@
-# Watermelon: the drift, the missing crashes, the missing intro
+# Watermelon: drift, crashes, intro, and two headlines I withdrew
 
-Read-only audit, 2026-09-08. Subject: Songsterr `s6857183`, revision `r8972739`, Watermelon In Easter Hay, Vinnie Colaiuta. No Guitar Pro file and no Songsterr tab was modified.
+Read-only audit, 2026-09-08. Songsterr `s6857183`, revision `r8972739`, Watermelon In Easter Hay, Vinnie Colaiuta. No Guitar Pro file and no Songsterr tab was modified.
 
-Live page: https://7onething1.github.io/watermelon-drift-crashes-intro/
+Live: https://7onething1.github.io/watermelon-drift-crashes-intro/
 
-## The four headline numbers
+Brandon asked what the open Watermelon chats say about three complaints: drift, missing crashes, a missing intro. Two of the three turned out to be my own measurement errors. The wrong numbers stay on this page next to what killed them.
 
-| Figure | Meaning |
+## What stands and what fell
+
+| Claim | Verdict |
 |---|---|
-| 36.87 s | of the recording has no bars in the tab |
-| -12.50 s | Songsterr sync error at bar 1, correct to 30 ms from bar 6 |
-| 132 | crash candidates found, none of them shipped |
-| 0.006 s | worst tempo residual after the fix, down from 4.26 s |
+| The .gp carried a flat 56.000 bpm map, peak error 4.26 s at bar 65 | **Stands.** Fixed to 0.006 s worst residual |
+| Crash lane is stamped on every even bar, nothing after bar 96 | **Stands** |
+| 132 crashes found and not shipped | **Stands** |
+| Bar 105 short a quarter on five tracks | **Stands** |
+| Tom lane split, roughly 150 notes | **Stands** |
+| Drums enter on bar 2, and bar 1's written crash is unsupported | **Stands** |
+| Songsterr fires 12.50 s early at bar 1 | **Withdrawn** |
+| Bars 104 and 105 drift, 7 of 105 bars off by over a second | **Withdrawn** |
+| The tab is missing a 36.87 s intro, 6.8 percent of the record | **Withdrawn** |
+| 43 bars on the Zappa track overfill their meter | **Withdrawn** |
 
-## 1. The eleven open chats
+## Withdrawal 1: the sync error
 
-| Session | Opening ask | Turns | Last write | Covers |
-|---|---|---|---|---|
-| `5d61ff43` | Hi-hat pedal hits from the stem, snare match, cymbal types, ghosts | 6778 | 17:05 | Hats, snare, ghosts |
-| `c6454a97` | Finish watermelon chat here, appears to be some drift as the song goes on | 490 | 17:44 running | Drift, crashes, sync |
-| `a13ba186` | Figure out why the gp is not yet done and perfect | 1122 | 17:41 | The clock, the coda |
-| `fa6067bd` | Why | 1552 | 17:33 | Upload route |
-| `51599dec` | Resume the watermelon chat here, get me a human to refund | 432 | 17:33 running | Cost accounting |
-| `9eba7baf` | Look at songsterr tab as its playing and determine what matches | 1537 | 17:14 | Playback matching |
-| `febeaae6` | Pick up final watermelon chat here, start cymbal stem pass | 978 | 17:05 | Cymbals |
-| `e3bdde95` | Look at active watermelon chats start to finish | 297 | 17:05 | Model comparison |
-| `fe22e363` | Make decisions and reconcile and upload the finished | 1277 | 15:54 | Reconcile |
-| `73dc03a2` | Resume Tom locations in watermelon GP handoff | 1237 | 15:50 | Toms |
-| `bfac0d81` | Get the tom locations added to the watermelon GP | 1434 | 14:20 | Toms |
+I published −12.50 s at bar 1 and seven bars off by more than a second.
 
-One of the eleven has looked at the intro, and it found the problem two minutes before this audit started. Two have touched crashes. Nine never mention either. The tom question absorbed three sessions and produced two incompatible answers.
+**Cause, traced.** Songsterr returns **twelve** video-sync entries for this tab. The primary is the entry whose `feature` field is null. I loaded the list and took `[0]`, which is `VZS-QuMBZdk`, one of **seven alternative uploads** whose first sync points spread across **28.02 s**, from 21.42 to 49.44. Each YouTube upload carries its own lead-in, so measuring one against my stem clock produces a large head difference by construction.
 
-## 2. Drift is two separate faults
+**The primary, `XACocSRTFJY`, measured properly:**
 
-**Fault one, inside the Guitar Pro file. Fixed.** The tab carried a single tempo automation at a flat 56.000 bpm for a performance that moves. Peak bar-start error reached 4.26 s at bar 65, growing through the song exactly as an ear reports it. Session `a13ba186` built a 105-value per-bar map from the metronome stem. Verified here: remove one constant offset of 36.87 s and the worst residual across all 105 bars falls to 0.006 s at bar 43. Tab span 501.4 s equals the recording's bar-1-to-bar-105 span of 501.4 s.
-
-**Fault two, inside Songsterr's own sync map. Open.**
-
-| Bar | Sync error | Reading |
+| Measure | Alternative I wrongly used | Primary |
 |---|---|---|
-| 1 | -12.50 s | starts twelve and a half seconds before the drums enter |
-| 2 | -7.73 s | still far ahead |
-| 3 | -4.50 s | closing |
-| 4 | -2.36 s | closing |
-| 5 | -1.02 s | almost there |
-| 6 to 103 | 0.030 s median | this span is correct |
-| 104 | -1.05 s | drops out at the coda |
-| 105 | -1.84 s | final bar |
+| median absolute error | 0.010 s | 0.030 s |
+| worst bar | 12.530 s at bar 1 | 0.800 s at bar 1 |
+| bars off by over 1.00 s | 7 of 105 | **0 of 105** |
+| bar 104 / bar 105 | −1.05 / −1.84 s | **−0.030 / +0.040 s** |
 
-Seven of 105 bars miss by more than a second and all seven sit at the front or the end. The middle is already synced to thirty milliseconds. Uploading the tempo map fixes the file's timeline shape. It does not move these sync points.
+The 0.800 s at bar 1 matches the 0.818 s the sibling session measured independently, and that session rendered the 8:42 master, read the bar by eye, and withdrew it. **The Songsterr sync is clean.**
 
-### Robustness check, because the two clocks could have been different masters
+## Withdrawal 2: the missing intro
 
-Songsterr's per-measure clock belongs to its own master rather than to these stems, so a raw subtraction can invent an error that is really a length mismatch. The sibling session measured a 23.342 s offset between the lossless 522.436 s master and the Moises render, standard deviation 2.9 ms over 16 anchors, which is exactly the gap that would fake this result.
+**The masters differ and that is the whole gap.** Songsterr syncs to the 8:42 edit at 522.436 s. The stems are the 9:05 Joe's Garage master at 545.267 s. Same performance, 23.34 s cut from the head. The primary video's offset measured here is −23.360 s, agreeing to 18 ms. The tab is not missing a head. The stems carry one the tab's master does not have.
 
-Two fits settle it. A constant-offset fit lands at 0.030 s with a median residual of 0.010 s across all 105 bars. A scale-plus-offset fit does worse at a median residual of 0.349 s, because the bar 1 outlier drags the slope. The better model carries no rescale, so Songsterr's video and this stem set share a time base and the bar 1 to 5 and 104 to 105 deviations are real.
+The head is near-silence regardless. The `other` stem's 45.1 percent is one transient at 17.71 s, and across the whole 36.87 s it sits above 5 percent of its in-song peak for **0.12 seconds in total**.
 
-## 3. The missing intro
+**What survives.** The drums enter on bar 2. Kick first crosses 10 percent at 41.21 s and cymbals at 41.24 s, and bar 2 starts at 41.25 s, so both are that downbeat landing 40 ms inside bar 1's window. Trim 0.30 s off bar 1's end and the kick reading falls from 48.62 percent to **0.04 percent**. Bar 1 is silent, and the tab writes a crash into it measuring **8.27 percent** against the 33 percent floor.
 
-The recording runs 545.3 s. The tab covers 501.4 s. Bar 1 of the tab sits at 0.000 s on its own clock and the recording's bar 1 lands at 36.870 s, so the first 36.87 seconds has no bars, which is 6.8 percent of the record.
+## Withdrawal 3: the 43 overfilled bars
 
-The drums lose nothing. Every drum stem is silent before bar 1, peaking at 0.0 to 0.1 percent of its in-song peak. The lead guitar, bass and piano stems are silent too. One stem is loud across that window, the `other` bucket at 45.1 percent of its own in-song peak, which is where Moises routes the opening material. No track in the tab carries a note of it, and tracks 0, 1, 3, 4, 6 and 7 hold nothing through bar 8.
+My meter walk read 4.19 of 4.00 quarters at bar 10 and 5.40 of 5.00 at bar 87 on the Zappa track. All 43 flagged bars carry `<GraceNotes>` beats, and a grace note consumes no bar time. The walker counted grace rhythms as real duration.
 
-The missing intro and the opening drift are one problem wearing two names. Songsterr stretches its first five sync points across the hole.
+## Drift, the part that was real
 
-### Correction, forced by reading the outlier instead of trusting the number
+The tab held one tempo automation at a flat 56.000 bpm for a performance that moves, peaking at **4.26 s of error at bar 65**. Session `a13ba186` built a 105-value per-bar map from the metronome stem. Verified here: after removing a constant offset the worst residual across all 105 bars is **0.006 s at bar 43**, and the tab span of 501.4 s equals the recording's bar-1-to-bar-105 span to the millisecond.
 
-An earlier version said the drums enter at 36.870 s and that the head holds unwritten music. Both came from summary statistics I had not looked at. Rendering the window withdraws them.
+## Missing crashes, which stands
 
-**The drums enter on bar 2, not bar 1.** Kick first crosses 10 percent of its in-song peak at 41.21 s and cymbals at 41.24 s. Bar 2 starts at 41.25 s, so both are that downbeat landing 40 ms inside bar 1's window. Trim 0.30 s off the end of bar 1 and the kick reading falls from 48.62 percent to 0.04 percent. Bar 1 is silent.
+The drum staff holds 51 crash notes on bar 1, then every even bar from 4 through 96, plus bar 55. Nothing after bar 96, so the coda carries none. One Crash 2 in the whole tab, and no china, splash or ride bell.
 
-**The head is not a guitar intro.** The `other` stem's 45.1 percent is one transient at 17.71 s. Across the whole 36.87 s the stem sits above 5 percent of its in-song peak for 0.12 seconds in total.
-
-**What survives is sharper.** Bar 1 and Songsterr's 24.37 s both sit in silence, so the 12.50 s figure has no audible consequence at bar 1 itself. It matters because it drags the bars that do carry content: bar 2 by 7.73 s, bar 3 by 4.50 s, bar 4 by 2.36 s, bar 5 by 1.02 s.
-
-**One written note loses its support.** Bar 1 carries a written crash. Cymbal energy inside bar 1, trimmed clear of the bar-2 downbeat, reads 8.27 percent against the 33 percent floor. The lane statistics of 2.83x chance and 1.59x brightness vouch for the lane and not for that note.
-
-![stem energy across the head and tail](eye-sync-outliers.png)
-
-## 4. The missing crashes
-
-The drum staff holds 51 crash notes in 105 bars, placed on bar 1, then every even bar from 4 through 96, plus bar 55. That is a rule rather than a transcription. Nothing appears after bar 96, so the coda carries no crash. One Crash 2 exists in the whole tab, and the drum staff holds no china, no splash and no ride bell.
-
-The 51 written crashes are real: 2.83x a circular-shift null at 50 ms, and 1.59x brighter than the ride instants in the 6 to 12 kHz band, clearing the 1.5x promotion floor. The crash work ahead is additive.
-
-Session `c6454a97` ran a crash detector at 17:43 and wrote `crash_find.json`: 132 candidates across 74 bars, bar 2 through bar 98, against a null of 82, so 1.61x chance. Thirty-seven of those bars have no written crash.
+Session `c6454a97` wrote `crash_find.json`: **132 candidates across 74 bars**, bar 2 through 98, against a null of 82, so 1.61x chance.
 
 | File | Drum notes | Crash 1 | Crash 2 | Tempo automations |
 |---|---|---|---|---|
 | `BASE-r8972739-live-head.gp` | 2834 | 50 | 1 | 1 |
 | `TEMPOFIX-on-r8972739-Brandon-edit.gp` | 2834 | 50 | 1 | 105 |
 
-The drum-track note histogram matches the live head note for note. The upload carries tempo and nothing else, which is the right way to ship a timing fix. The 132 crashes remain unshipped.
+Identical drum histograms. The upload carries tempo and nothing else.
 
-## 5. The lineage split nobody has called
+## Bar 105 and the tom split, both standing
 
-| Lane | Local HANDS | Live r8972739 |
-|---|---|---|
-| 41 low floor tom | 1 | 62 |
-| 43 high floor tom | 44 | 0 |
-| 47 low mid tom | 4 | 111 |
-| 48 hi mid tom | 81 | 14 |
-| 50 high tom | 30 | 0 |
-| 36 kick | 521 | 505 |
-| 51 ride | 1522 | 1501 |
+Bar 105 is short exactly one quarter on **five tracks**, not one: Cuccurullo twice, Tubular Bells, Glockenspiel, Colaiuta. Stems read kick 10.5 percent and hat 19.4 percent of their bars 1-97 peak, under the 33 percent floor, so the fill is a rest. Recorded as F7.
 
-The live tab pushes every tom into the two lowest lanes and uses none of the three highest. The local file does the reverse. About 150 notes are affected. The shape matches a staff read one or two lanes low, a documented failure in this project's notes. The upload in flight adopts the live assignment. This audit names the split and changes nothing.
+Tom lanes, roughly 150 notes apart: local HANDS reads 41:1 43:44 47:4 48:81 50:30, live r8972739 reads 41:62 43:0 47:111 48:14 50:0. The live tab uses only the two lowest lanes. The upload adopts the live reading.
 
-## 6. The four items your state block left open
+## Queue
 
-Your paste named `HANDS-s6857183-Brandon-edit.gp`, the published `all15-removals.png`, and four queue ids.
-
-| Queue id | Item | Status after this audit |
-|---|---|---|
-| `q-2026-09-08-70d3f0` | Bar 105 holds 4.0 quarters in a 5/4 bar | Understated. Short a quarter on **five tracks**, not one: Cuccurullo twice, Tubular Bells, Glockenspiel, Colaiuta, identical in all three files. Stems read kick 10.5% and hat 19.4% of their bars 1-97 peak, both under the 33% floor, so the fill is a rest. Written up as F7. |
-| `q-2026-09-08-c9d5f7` | Recheck the 202 disputed ride notes | Not run. Needs the ride lane re-scored bar by bar, an edit-grade pass on a file another session is writing this minute. |
-| `q-2026-09-08-85d746` | Final playability audit, owns the upload | Held. That session is uploading to this tab right now. Two writers on one tab produced the shared-beat damage in F4. |
-| `q-2026-09-08-b08085` | Bar 55 beat 2, three hands | Correctly blocked. Toms stem is one channel, pitch medians 90.7 to 95.6 Hz overlap, best pan pair 0.73x against the 1.5x floor. |
-
-**The 15 removals still stand.** `HANDS-s6857183-Brandon-edit.gp` at sha256 `c7beeaeea846da44` holds 2784 drum notes, 15 fewer than its parent, three-hand instants down from 16 to 1. Re-censused here and confirmed. None of those 15 removals are in the file being uploaded, because that file is built on the live head rather than on the HANDS lineage. The removals live only on disk.
-
-**A correction to my own measurement.** My first meter walk called 43 bars on the Frank Zappa track overfilled, reading 4.19 of 4.00 quarters at bar 10 and 5.40 of 5.00 at bar 87. All 43 carry grace notes, and a grace note consumes no bar time. The walker counted grace rhythms as real duration. Those 43 are withdrawn. Bar 105 survives because its short voices carry no grace notes.
-
-## 7. Still open, every one carrying an id
-
-- 36.87 s of the record has no bars, `q-2026-09-08-6f84a3`
-- Songsterr sync points at bars 1 to 5 and 104 to 105, `q-2026-09-08-a45b41`
-- 132 crashes found, none written, and the coda has none at all, `q-2026-09-08-613ab9`
-- The tom lane split, roughly 150 notes, `q-2026-09-08-629fc2`
-- Bar 105 short a quarter on five tracks, `q-2026-09-08-70d3f0`
-- The 202 disputed ride notes, `q-2026-09-08-c9d5f7`
-- Playability audit and the upload, `q-2026-09-08-85d746`
-- Bar 55 beat 2 asks for three hands, `q-2026-09-08-b08085`
-
-Every one of these is an edit to the same Guitar Pro file that another session is uploading this minute. Writing while it writes is what caused the 79-bar shared-beat damage recorded as F4, so this audit measured and recorded rather than edited.
+- `q-2026-09-08-6f84a3` intro gap, **withdrawn**, master mismatch
+- `q-2026-09-08-a45b41` sync points, **withdrawn**, wrong video entry
+- `q-2026-09-08-613ab9` 132 crashes unwritten, open
+- `q-2026-09-08-629fc2` tom lane split, open
+- `q-2026-09-08-70d3f0` bar 105, measured here, write held
+- `q-2026-09-08-c9d5f7` 202 disputed ride notes, open
+- `q-2026-09-08-85d746` playability audit and upload, held by the sibling session
+- `q-2026-09-08-b08085` bar 55 beat 2, blocked at a named layer: the Moises toms stem is one channel, pitch medians 90.7 to 95.6 Hz overlap, best pan pair 0.73x against the 1.5x floor, and no isolated drum release exists for Joe's Garage
 
 ## Sources
 
-`metromap.json` from session a13ba186. `vp.json` and `crash_find.json` from session c6454a97. The Moises stem set at `/Users/Shared/206 Watermelon in Easter Hay-E major-112bpm-442hz/`. Direct GPIF census of five Guitar Pro files. Detector spec frozen to the project standard: 1024-point Hann, 256 hop, 44.1 kHz, positive spectral flux in a named band, circular-shift null at 200 draws. Raw figures in `data.json`.
+`metromap.json` (session a13ba186). `/Users/brandonchavez/vp.json`, `crash_find.json`, `offset_lossless.json` (session c6454a97). The Moises stem set at `/Users/Shared/206 Watermelon in Easter Hay-E major-112bpm-442hz/`. Direct GPIF census of five Guitar Pro files. Detector spec frozen to the project standard: 1024-point Hann, 256 hop, 44.1 kHz, positive spectral flux in a named band, circular-shift null at 200 draws. Raw figures in `data.json`.

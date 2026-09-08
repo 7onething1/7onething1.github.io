@@ -57,16 +57,16 @@ a{color:#0d6f88;font-weight:600}
 svg{display:block;max-width:100%;height:auto}
 </style></head><body><main>
 
-<span class="stamp">Read-only audit, nothing edited</span>
+<span class="stamp">Two headlines withdrawn</span>
 <h1>Watermelon: the drift, the missing crashes, the missing intro</h1>
-<p class="deck">Eleven Watermelon sessions are open at once. Brandon asked what each of them says about three complaints his ear made. Every number below was re-derived here from the stems, the shipped file and Songsterr's own sync map, and no tab or Guitar Pro file was touched.</p>
+<p class="deck">Eleven Watermelon sessions are open at once. Brandon asked what each says about three complaints his ear made: drift, missing crashes, a missing intro. Two of the three turned out to be my own measurement errors, and this page keeps the wrong numbers next to what killed them. No tab and no Guitar Pro file was touched.</p>
 <p class="sub">Subject: Songsterr <code>s6857183</code>, revision <code>r8972739</code>, Watermelon In Easter Hay, Vinnie Colaiuta. Measured 2026-09-08 against the Moises stem set and <code>metromap.json</code>.</p>
 
 <div class="grid g4">
- <div class="card t5"><div class="k f">36.87 s</div><div class="lab">of the recording has no bars</div><div class="fine">The tab clock starts at 0.000 s. The drums enter at 36.870 s.</div></div>
- <div class="card t4"><div class="k g">-12.50 s</div><div class="lab">Songsterr sync error at bar 1</div><div class="fine">Correct to 30 ms from bar 6 onward.</div></div>
+ <div class="card t5"><div class="k f">2 of 5</div><div class="lab">of my own headlines withdrawn</div><div class="fine">I read the wrong video sync set. The gates caught it.</div></div>
+ <div class="card t1"><div class="k a">0.030 s</div><div class="lab">real Songsterr sync error</div><div class="fine">Median across 105 bars on the primary video. Zero bars miss by a second.</div></div>
  <div class="card t3"><div class="k y">132</div><div class="lab">crashes found, none shipped</div><div class="fine">Against a null of 82, so 1.61x chance.</div></div>
- <div class="card t1"><div class="k a">0.006 s</div><div class="lab">worst tempo residual, fixed</div><div class="fine">Was 4.26 s under the flat 56.000 bpm map.</div></div>
+ <div class="card t4"><div class="k g">0.006 s</div><div class="lab">worst tempo residual, fixed</div><div class="fine">Was 4.26 s under the flat 56.000 bpm map.</div></div>
 </div>
 
 <h2><span class="n" style="background:var(--aqua)">1</span>The eleven open chats</h2>
@@ -96,62 +96,36 @@ svg{display:block;max-width:100%;height:auto}
 <h3>Fault one, inside the Guitar Pro file. Fixed.</h3>
 <p>The tab carried a single tempo automation at a flat 56.000 bpm for a performance that moves. Peak bar-start error reached <b>4.26 s at bar 65</b>, which grows through the song exactly as an ear would report it. Session <code>a13ba186</code> built a 105-value per-bar map from the metronome stem. I verified the result independently: remove one constant offset of 36.87 s and the worst residual across all 105 bars falls to <b>0.006 s at bar 43</b>. The tab span of 501.4 s equals the recording's bar-1-to-bar-105 span of 501.4 s to the millisecond.</p>
 
-<h3>Fault two, inside Songsterr's own sync map. Open.</h3>
-<p>Songsterr stores a per-measure sync clock separate from the file. I pulled the live one for revision 8972739 and compared all 106 points against the true bar starts.</p>
+<h3>Fault two, which I claimed and then had to withdraw.</h3>
+<div class="callout red">
+<h3>Withdrawn: "Songsterr fires 12.50 s early at bar 1"</h3>
+<p>This page published that figure, plus a claim that bars 104 and 105 drift and that seven of 105 bars miss by more than a second. <b>All of it is withdrawn.</b> A gate demanded that two disagreeing methods be reconciled, and reconciling them killed my number.</p>
+<p><b>The cause, traced rather than muted.</b> Songsterr returns <b>twelve</b> video-sync entries for this tab. The primary is the one whose <code>feature</code> field is null. I loaded the list and took <code>[0]</code>, which is <code>VZS-QuMBZdk</code>, one of <b>seven alternative uploads</b>. Their first sync points spread across <b>28.02 s</b>, from 21.42 to 49.44, because each YouTube upload carries its own lead-in. Measuring one of those against my stem clock produces a large head difference by construction, and it says nothing about the tab.</p>
+<p><b>The primary video, measured properly.</b> <code>XACocSRTFJY</code>, 105 points, constant offset −23.360 s, which is the 8:42 versus 9:05 master gap the sibling session had already pinned at 23.342 s.</p>
+<div class="scroll"><table>
+<tr><th>Measure</th><th class="num">Alternative I wrongly used</th><th class="num">Primary, the real one</th></tr>
+<tr><td>median absolute error</td><td class="num">0.010 s</td><td class="num">0.030 s</td></tr>
+<tr class="bad"><td>worst bar</td><td class="num">12.530 s at bar 1</td><td class="num">0.800 s at bar 1</td></tr>
+<tr class="good"><td>bars off by over 1.00 s</td><td class="num">7 of 105</td><td class="num"><b>0 of 105</b></td></tr>
+<tr class="good"><td>bar 104 / bar 105</td><td class="num">−1.05 / −1.84 s</td><td class="num"><b>−0.030 / +0.040 s</b></td></tr>
+</table></div>
+<p><b>And the one residual left is already dead.</b> Bar 1 reads 0.800 s on the primary, which matches the 0.818 s the sibling session measured independently. That session then rendered the 8:42 master, read the bar by eye, and withdrew it as unsupportable. <b>The Songsterr sync is clean.</b></p>
+</div>
 <div class="chart">
- <div class="legend"><span><i style="background:var(--flare)"></i>tab fires early</span><span><i style="background:var(--aqua)"></i>tab fires late</span><span><i style="background:var(--line)"></i>inside 200 ms</span></div>
- <svg id="sync" viewBox="0 0 1040 200" role="img" aria-label="Songsterr sync error per bar"></svg>
- <div class="fine">Each bar is one measure. Height is the signed error in seconds against the metronome-anchored clock.</div>
+ <div class="legend"><span><i style="background:var(--flare)"></i>early</span><span><i style="background:var(--aqua)"></i>late</span><span><i style="background:var(--line)"></i>inside 200 ms</span></div>
+ <svg id="sync" viewBox="0 0 1040 200" role="img" aria-label="Songsterr sync error per bar on the primary video"></svg>
+ <div class="fine">Primary video <code>XACocSRTFJY</code>, one column per measure, signed error in seconds after removing the constant master offset. Bar 1 is the only visible column.</div>
 </div>
-<div class="scroll"><table>
-<tr><th>Bar</th><th class="num">Sync error</th><th>Reading</th></tr>
-<tr class="bad"><td>1</td><td class="num">-12.50 s</td><td>The tab starts twelve and a half seconds before the drums enter</td></tr>
-<tr class="bad"><td>2</td><td class="num">-7.73 s</td><td>Still far ahead of the recording</td></tr>
-<tr class="bad"><td>3</td><td class="num">-4.50 s</td><td>Closing</td></tr>
-<tr class="bad"><td>4</td><td class="num">-2.36 s</td><td>Closing</td></tr>
-<tr class="bad"><td>5</td><td class="num">-1.02 s</td><td>Almost there</td></tr>
-<tr class="good"><td>6 to 103</td><td class="num">0.030 s</td><td>Median absolute error. This span is correct</td></tr>
-<tr class="bad"><td>104</td><td class="num">-1.05 s</td><td>Drops out again at the coda</td></tr>
-<tr class="bad"><td>105</td><td class="num">-1.84 s</td><td>Final bar</td></tr>
-</table></div>
+
+<h2><span class="n" style="background:var(--gold)">3</span>The missing intro, also withdrawn</h2>
 <div class="callout red">
-<h3>The correction this makes to the working theory</h3>
-<p>Seven of 105 bars miss by more than a second, and every one of them sits at the very front or the very end. <b>The middle of the song is already synced to thirty milliseconds.</b> Uploading the tempo map fixes the shape of the file's timeline. It does not move these sync points, so the opening will still fire twelve seconds early after the upload lands.</p>
-</div>
-
-<div class="callout aqua">
-<h3>Robustness check, because the two clocks could have been different masters</h3>
-<p>Songsterr's per-measure clock belongs to its own master rather than to these stems, so a raw subtraction can invent an error that is really a length mismatch. The sibling session measured a <b>23.342 s offset</b> between the lossless 522.436 s master and the Moises render, at a standard deviation of 2.9 ms over 16 anchors, which is exactly the kind of gap that would fake this result.</p>
-<p>Two fits settle it. A <b>constant-offset fit lands at 0.030 s with a median residual of 0.010 s</b> across all 105 bars. A scale-plus-offset fit does worse, at a median residual of 0.349 s, because the bar 1 outlier drags the slope. The better model is the one with no rescale, so <b>Songsterr's video and this stem set share a time base</b> and the bar 1 to 5 and 104 to 105 deviations are real.</p>
-</div>
-
-<h2><span class="n" style="background:var(--gold)">3</span>The missing intro</h2>
-<p>The recording runs 545.3 s. The tab covers 501.4 s of it. Bar 1 of the tab sits at 0.000 s on its own clock and the recording's bar 1 lands at 36.870 s, so <b>the first 36.87 seconds of the song has no bars at all</b>, which is 6.8 percent of the record.</p>
-<p>The drums lose nothing to that gap. I measured every drum stem across the window before bar 1 and each one is silent.</p>
-<div class="scroll"><table>
-<tr><th>Stem</th><th class="num">Peak before bar 1</th><th class="num">As a share of its in-song peak</th><th>Reading</th></tr>
-<tr class="good"><td>cymbals</td><td class="num">0.2</td><td class="num">0.0%</td><td>silent</td></tr>
-<tr class="good"><td>kick</td><td class="num">0.6</td><td class="num">0.1%</td><td>silent</td></tr>
-<tr class="good"><td>snare</td><td class="num">0.2</td><td class="num">0.0%</td><td>silent</td></tr>
-<tr class="good"><td>hat</td><td class="num">0.2</td><td class="num">0.1%</td><td>silent</td></tr>
-<tr class="good"><td>toms</td><td class="num">0.1</td><td class="num">0.0%</td><td>silent</td></tr>
-<tr class="good"><td>lead guitar</td><td class="num">0.1</td><td class="num">0.0%</td><td>silent</td></tr>
-<tr class="good"><td>bass</td><td class="num">0.3</td><td class="num">0.1%</td><td>silent</td></tr>
-<tr class="bad"><td>other</td><td class="num">368.7</td><td class="num">45.1%</td><td><b>music is playing here</b></td></tr>
-</table></div>
-<div class="callout gold">
-<h3>What lives in the gap</h3>
-<p>One stem is loud across those 36.87 seconds and it is the <code>other</code> bucket, running at 45.1 percent of its own in-song peak. Moises routes the opening material there. No track in the tab carries a single note of it, and tracks 0, 1, 3, 4, 6 and 7 hold nothing at all through bar 8. The drum transcription is complete for what the drummer played. <b>The tab is missing the front of the song, and Songsterr papers over the hole by stretching its first five sync points across it.</b> That stretch is fault two above, so the missing intro and the opening drift are one problem wearing two names.</p>
-</div>
-
-<div class="callout red">
-<h3>Correction, forced by reading the outlier instead of trusting the number</h3>
-<p>An earlier version of this page said the drums enter at 36.870 s and that the 36.87 s head holds unwritten music. Both statements came from summary statistics that I had not looked at. Rendering the window and reading it withdraws them.</p>
-<p><b>The drums enter on bar 2, not bar 1.</b> Kick first crosses 10 percent of its in-song peak at 41.21 s and cymbals at 41.24 s. Bar 2 starts at 41.25 s, so both are that downbeat landing 40 ms inside bar 1's window. Trim 0.30 s off the end of bar 1 and the kick reading falls from 48.62 percent to <b>0.04 percent</b>. Bar 1 is silent.</p>
-<p><b>The head is not a guitar intro.</b> The <code>other</code> stem's 45.1 percent is one transient at 17.71 s. Across the whole 36.87 s the stem sits above 5 percent of its in-song peak for <b>0.12 seconds in total</b>. The head is near-silence carrying a few isolated clicks, so the tab is not missing a body of music.</p>
-<p><b>What survives, and it is sharper.</b> Bar 1 and Songsterr's 24.37 s both sit in silence, so the 12.50 s figure has no audible consequence at bar 1 itself. It matters because it drags the bars that do carry content: <b>bar 2 by 7.73 s, bar 3 by 4.50 s, bar 4 by 2.36 s, bar 5 by 1.02 s</b>. Those are the seconds an ear hears.</p>
-<p><b>And one written note loses its support.</b> Bar 1 carries a written crash. Cymbal energy inside bar 1, trimmed clear of the bar-2 downbeat, reads <b>8.27 percent</b> against the 33 percent floor this project promotes on. The lane-level statistics of 2.83x chance and 1.59x brightness vouch for the crash lane as a whole and they do not vouch for that individual note.</p>
+<h3>There is no missing intro</h3>
+<p>This page said the tab has no bars for the first 36.87 s of the record, that 6.8 percent of the song is unwritten, and that real music sits in that gap. <b>Withdrawn on all three counts.</b></p>
+<p><b>The masters differ, and that explains the gap entirely.</b> Songsterr syncs to the 8:42 edit at 522.436 s. The stems are the 9:05 Joe's Garage master at 545.267 s. Same performance, <b>23.34 s cut from the head</b>. The primary video's offset measured here is −23.360 s, which agrees to 18 ms. The tab is not missing a head. The stems simply carry one that the tab's own master does not have.</p>
+<p><b>The head is near-silence anyway.</b> Reading the render below: the <code>other</code> stem's 45.1 percent is one transient at 17.71 s, and across the whole 36.87 s that stem sits above 5 percent of its in-song peak for <b>0.12 seconds in total</b>. There was never a body of unwritten music there.</p>
+<p><b>What survives from this section.</b> The drums enter on bar 2 rather than bar 1. Kick first crosses 10 percent at 41.21 s and cymbals at 41.24 s, and bar 2 starts at 41.25 s, so both are that downbeat landing 40 ms inside bar 1's window. Trim 0.30 s off bar 1's end and the kick reading falls from 48.62 percent to <b>0.04 percent</b>. Bar 1 is silent, and the tab writes a crash into it that measures <b>8.27 percent</b> against the 33 percent floor.</p>
 <p><img src="eye-sync-outliers.png" alt="Stem energy across the head and the tail with the tab and Songsterr bar lines drawn" style="width:100%;border:1px solid var(--line);border-radius:8px;margin-top:.6rem"></p>
+<p class="fine">The red dashed line in that render is labelled from the alternative video and is therefore the withdrawn figure. The black lines, the stem traces and the bar-1 reading are unaffected.</p>
 </div>
 
 <h2><span class="n" style="background:var(--sun)">4</span>The missing crashes</h2>
@@ -219,10 +193,10 @@ svg{display:block;max-width:100%;height:auto}
   <li><code>TEMPOFIX-on-r8972739</code> uploading to s6857183</li>
   <li>Tempo only, drum notes untouched</li>
   <li>Fixes the drift Brandon heard through the body</li>
-  <li>Leaves the opening twelve seconds early</li></ul></div>
- <div class="card t5"><h3 style="margin-top:0">Open, every one carrying an id</h3><ul>
-  <li>36.87 s of the record has no bars <code>q-2026-09-08-6f84a3</code></li>
-  <li>Songsterr sync points, bars 1 to 5 and 104 to 105 <code>q-2026-09-08-a45b41</code></li>
+  <li>The sync it ships against is already clean</li></ul></div>
+ <div class="card t5"><h3 style="margin-top:0">Open and withdrawn, every one with an id</h3><ul>
+  <li><s>36.87 s of the record has no bars</s> withdrawn, master mismatch <code>q-2026-09-08-6f84a3</code></li>
+  <li><s>Songsterr sync points wrong at the ends</s> withdrawn, wrong video <code>q-2026-09-08-a45b41</code></li>
   <li>132 crashes found, none written <code>q-2026-09-08-613ab9</code></li>
   <li>The tom lane split, roughly 150 notes <code>q-2026-09-08-629fc2</code></li>
   <li>Bar 105 short a quarter on five tracks <code>q-2026-09-08-70d3f0</code></li>
