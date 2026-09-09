@@ -125,6 +125,7 @@ footer{margin-top:3rem;border-top:2px solid var(--line);padding-top:1rem;
 <li><a href="#undercount">The 329 undercount, measured</a></li>
 <li><a href="#msdtwfull">The song-wide pass: bar level holds, note level fails</a></li>
 <li><a href="#subband">The subband representation: helps, not enough</a></li>
+<li><a href="#worse">A bug fixed, and the fix made it worse</a></li>
 <li><a href="#files">Files and reproduction</a></li>
 </ol>
 </div>
@@ -809,6 +810,29 @@ footer{margin-top:3rem;border-top:2px solid var(--line);padding-top:1rem;
 <p>Gain <b>+17.1 points</b>, <b>z = 11.35</b>. <code>verdict_gate.py</code>: <b>UNDETERMINED</b>, under its 2.0x floor.</p>
 <div class="warn"><b>Surplus, with correct one-to-one matching: 814 detections unclaimed against an arithmetic ceiling of 62</b> (1,373 detected minus 1,311 notated). Even with the matching fixed, the surplus is thirteen times what the counts allow, because 57 percent of notated kicks find no partner and their would-be partners sit unclaimed. <b>No onset placed. No repair built. KIG-M004 stays open.</b></div>
 <div class="good"><b>The lever was tried and its size is now known.</b> A better onset representation moves the ratio by 0.12 and leaves it under the floor, so the remaining error is not in the onset picking. Two routes found by search and not yet tried: <b>harmonic-percussive decomposition before onset detection</b>, and <b>group delay combined with spectral flux</b>, reported in the literature as a large gain over plain Fourier onset detection.</div>
+
+<h2 class="s1" id="worse">18. I found a bug in my own map, fixed it, and the fix made the result worse</h2>
+<div class="warn"><b>The bug:</b> <code>msdtw_songwide.py</code> computes a banded fine refinement and then <b>never uses it</b>. Line 62 interpolates the <b>coarse</b> 200 ms path. <b>The refinement ran and its output was discarded</b>, so every figure in the two sections above came from a 200 ms grid, which is also why the median residual sat at 27.6 ms.</div>
+<p><b><code>msdtw_v3.py</code> carries no repair and claims no landmark evidence.</b> Its parameters: 20 ms grid, plus or minus 1.0 s band, 2,646,390 cells, backtracking enabled, offset recovered, no scale parameter, 60 ms tolerance.</p>
+<table>
+<tr><th></th><th>v2, coarse 200 ms only</th><th>v3, refined at 20 ms</th></tr>
+<tr><td>bar 22 error</td><td><b>37 ms</b></td><td><b>380 ms</b></td></tr>
+<tr><td>median residual at 60 ms</td><td>27.6 ms</td><td><b>19.5 ms</b></td></tr>
+<tr><td>kick one-to-one at 60 ms</td><td><b>42.6%</b></td><td><b>31.4%</b></td></tr>
+<tr><td>rotation null</td><td>25.5%</td><td>25.7%</td></tr>
+<tr><td><b>ratio</b></td><td><b>1.67x</b></td><td><b>1.22x</b></td></tr>
+<tr><td>monotonic</td><td>yes</td><td>yes</td></tr>
+</table>
+<div class="warn"><b>The residual improved and the match rate collapsed.</b> Each matched event is placed more accurately, and 11 percentage points fewer events match at all.</div>
+<h3>Why, and the finding in it</h3>
+<div class="good"><b>The coarse map's smoothness was doing useful work.</b> At a 20 ms grid inside a 1.0 s band the path is free to follow local envelope noise, and a jagged path that tracks noise is locally precise and globally worse. <b>The 200 ms grid was acting as a regulariser</b>, and removing it removed the regularisation. <b>So the accidental bug produced the better map, and correcting it degraded the result.</b> The tidy version of this story would be "found a bug, fixed it, numbers improved"; the numbers say otherwise.</div>
+<h3>Where KIG-M004 stands, with both levers measured</h3>
+<table>
+<tr><th>Lever tried</th><th>Effect on the ratio</th></tr>
+<tr><td>better onset representation, FMP 6.1.2 subband against pooled envelope</td><td><b>1.55x to 1.67x</b>, plus 0.12</td></tr>
+<tr><td>finer path resolution, 20 ms refined against 200 ms coarse</td><td><b>1.67x to 1.22x</b>, minus 0.45</td></tr>
+</table>
+<div class="note"><b>Best map remains v2:</b> coarse 200 ms over FMP subband onsets, <b>1.67x</b>, bar 22 at 37 ms, monotonic across 248 bars. Still under the 2.0x floor, <code>verdict_gate.py</code> still UNDETERMINED. <b>The remaining error is in neither the onset picking nor the path resolution</b> — both were tried and measured, and one went backwards. <b>No onset placed, no repair built, M004 open</b>, with the next candidate being the path-shape constraint itself: a smoothness penalty or step-size restriction that keeps fine resolution without letting the path chase noise.</div>
 
 <h2 class="s5" id="files">5. Files and reproduction</h2>
 <p>Onsets were detected on <b>isolated stems</b>, never the mix, at 44.1 kHz over 501.84 s, hop 256, log-compressed spectral novelty per FMP 6.1.2. The kick count reproduces the earlier surplus finding independently, 1,332 detected against 1,312 notated.</p>

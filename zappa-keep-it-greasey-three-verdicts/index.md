@@ -1617,3 +1617,59 @@ found by search and not yet tried: **harmonic-percussive decomposition before on
 Fourier onset detection.
 
 Scripts archived beside this file: `novelty_onsets.py`, `novelty_sweep.py`, `msdtw_v2.py`, each run at offset recovered, no scale parameter, 60 ms tolerance and the match rates tabulated above against their own rotation-null baselines.
+
+---
+
+## ADDENDUM 27: I found a bug in my own map, fixed it, and the fix made the result worse
+
+### The bug
+
+`msdtw_songwide.py` computes a banded fine refinement and then **never uses it**. Line 62 reads
+`def s2a(t): return float(np.interp(t, coarse[:,0], coarse[:,1]))`, interpolating the **coarse**
+200 ms path. **The refinement loop ran and its output was discarded.** Every figure in Addenda 25
+and 26 therefore came from a 200 ms grid, which is also why the median residual sat at 27.6 ms.
+
+### The fix, and what it did
+
+**`msdtw_v3.py` carries no repair and claims no landmark evidence.** Its parameters: 20 ms grid, plus or minus 1.0 s band, 2,646,390 cells, backtracking enabled, offset recovered, no scale parameter, 60 ms tolerance. Its outcome sits in the table below.
+
+| | v2, coarse 200 ms only | **v3, refined at 20 ms** |
+|---|---|---|
+| bar 22 error | **37 ms** | **380 ms** |
+| median residual at 60 ms | 27.6 ms | **19.5 ms** |
+| kick one-to-one at 60 ms | **42.6%** | **31.4%** |
+| rotation null | 25.5% | 25.7% |
+| **ratio** | **1.67x** | **1.22x** |
+| monotonic | yes | yes |
+
+**The residual improved and the match rate collapsed.** Each matched event is placed more
+accurately, and 11 percentage points fewer events match at all.
+
+### Why, and the finding in it
+
+**The coarse map's smoothness was doing useful work.** At a 20 ms grid inside a 1.0 s band the path
+is free to follow local envelope noise, and a jagged path that tracks noise is locally precise and
+globally worse. **The 200 ms grid was acting as a regulariser**, and removing it removed the
+regularisation.
+
+**So the accidental bug produced the better map, and correcting it degraded the result.** That is
+worth saying plainly, because the tidy version of this story would have been "found a bug, fixed it,
+numbers improved" and the numbers say otherwise.
+
+### Where KIG-M004 actually stands, with both levers measured
+
+| Lever tried | Effect on the ratio |
+|---|---|
+| better onset representation, FMP 6.1.2 subband against pooled envelope | **1.55x to 1.67x**, plus 0.12 |
+| finer path resolution, 20 ms refined against 200 ms coarse | **1.67x to 1.22x**, minus 0.45 |
+
+**Best map remains v2:** coarse 200 ms over FMP subband onsets, **1.67x**, bar 22 at 37 ms,
+monotonic across 248 bars. **Still under the 2.0x floor**, and `verdict_gate.py` still returns
+**UNDETERMINED**.
+
+**The remaining error is in neither the onset picking nor the path resolution.** Both were tried
+and measured, and one of them went backwards. **No onset is placed. No repair is built. M004 stays
+open**, with the next candidate being the path-shape constraint itself: a smoothness penalty or a
+step-size restriction that keeps fine resolution without letting the path chase noise.
+
+Script archived beside this file as `msdtw_v3.py`, run at offset recovered, no scale parameter, 60 ms tolerance and the match rates tabulated above against their own rotation-null baselines.
