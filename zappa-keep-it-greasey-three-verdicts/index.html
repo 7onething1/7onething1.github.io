@@ -127,6 +127,7 @@ footer{margin-top:3rem;border-top:2px solid var(--line);padding-top:1rem;
 <li><a href="#subband">The subband representation: helps, not enough</a></li>
 <li><a href="#worse">A bug fixed, and the fix made it worse</a></li>
 <li><a href="#eye">The diagnosis put to the eye</a></li>
+<li><a href="#pathshape">The path-shape lever, two ways</a></li>
 <li><a href="#files">Files and reproduction</a></li>
 </ol>
 </div>
@@ -848,6 +849,23 @@ footer{margin-top:3rem;border-top:2px solid var(--line);padding-top:1rem;
 <div class="good"><b>At full-path scale the two look alike</b>, both a near-straight diagonal from 0 to 500 s. <b>The slope plot separates them completely.</b> v2 oscillates modestly around 1.0; <b>v3 spikes repeatedly to 3.0 and drops to 0 across the whole song</b>, a path alternately sprinting and stalling against the audio.</div>
 <div class="note"><b>The eye agrees with the detector</b>, so nothing is overruled. The slope standard deviation doubles from 0.291 to 0.596, and <b>37 percent of the refined path is horizontal</b> against 23 percent of the coarse one. <b>A path that spends more than a third of its length stalled is not tracking tempo, it is tracking noise.</b></div>
 <p><b>This is the first eye check run on any map in this lineage</b>, and it was run because a gate asked whether the detector had been put to the eye. <b>It had not.</b></p>
+
+<h2 class="s3" id="pathshape">20. The path-shape lever, tried two ways, separates two different problems</h2>
+<p>Two constraints added to the fine banded DTW: a <b>step-size restriction</b> capping consecutive same-direction runs, and a <b>wider envelope bump</b> at fine resolution, on the hypothesis that a 20 ms grid leaves the onset envelope too sparse for the cost to discriminate.</p>
+<table>
+<tr><th>Variant</th><th>bar 22 error</th><th>kick one-to-one at 60 ms</th><th>null</th><th>ratio</th><th>flat steps</th></tr>
+<tr><td><b>v2 coarse 200 ms</b></td><td><b>37 ms</b></td><td><b>559 of 1,311 = 42.6%</b></td><td>25.5%</td><td><b>1.67x</b></td><td>741 of 3,251 = 22.8%</td></tr>
+<tr><td>v3 fine 20 ms, unrestricted</td><td>380 ms</td><td>412 of 1,311 = 31.4%</td><td>25.7%</td><td>1.22x</td><td>10,267 of 27,835 = 36.9%</td></tr>
+<tr><td>v4 fine 20 ms, MAXRUN 3</td><td>297 ms</td><td>426 of 1,311 = 32.5%</td><td>25.7%</td><td>1.27x</td><td>8,891 of 26,471 = 33.6%</td></tr>
+<tr><td>v5 fine 20 ms, MAXRUN 3, 120 ms bumps</td><td><b>57 ms</b></td><td>427 of 1,311 = 32.6%</td><td>25.7%</td><td>1.27x</td><td>8,956 of 26,536 = 33.8%</td></tr>
+</table>
+<h3>The two problems come apart</h3>
+<div class="good"><b>Global placement is fixable and was fixed.</b> The bar-22 error went 380 ms to 297 ms to <b>57 ms</b> as the constraints tightened. The wider envelope did that on its own.</div>
+<div class="warn"><b>Note-level matching did not move at all.</b> Every fine variant sits at <b>1.22x to 1.27x</b> while the coarse map sits at <b>1.67x</b>, and neither the step restriction nor the wider bump shifted it by more than 0.05. <b>Four map variants and three levers leave the match rate capped.</b></div>
+<h3>What that points at, and it is not the map</h3>
+<p><b>A 200 ms grid beating a 20 ms grid on note matching is not a resolution story.</b> The remaining hypothesis is that <b>the cap is in the score rather than the alignment</b>: the notation is quantised and the performance is not, so a 60 ms window against quantised positions may simply be too tight for the 61 percent that miss. That would make the miss rate a property of the transcription, not of the map.</p>
+<div class="note"><b>It is testable and was not tested here:</b> check whether the unmatched notated kicks cluster at particular metrical positions, which is what swung or pushed placement would look like. <b>No claim is made either way.</b></div>
+<div class="note"><b>Best map remains v2</b>, coarse 200 ms over FMP subband onsets, <b>1.67x</b>, bar 22 at 37 ms, monotonic across 248 bars, <code>verdict_gate.py</code> UNDETERMINED under its 2.0x floor. <b>No onset placed. No repair built. KIG-M004 open.</b></div>
 
 <h2 class="s5" id="files">5. Files and reproduction</h2>
 <p>Onsets were detected on <b>isolated stems</b>, never the mix, at 44.1 kHz over 501.84 s, hop 256, log-compressed spectral novelty per FMP 6.1.2. The kick count reproduces the earlier surplus finding independently, 1,332 detected against 1,312 notated.</p>

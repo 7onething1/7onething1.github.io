@@ -1702,3 +1702,48 @@ Evidence image `EVIDENCE_warping_path_v2_vs_v3.png` plots both maps, each at off
 
 **This is the first eye check run on any map in this lineage**, and it was run because a gate asked
 whether the detector had been put to the eye. **It had not.**
+
+---
+
+## ADDENDUM 29: the path-shape lever tried two ways, and it separates two different problems
+
+`q-2026-09-09-45db85` taken rather than queued. Two constraints added to the fine banded DTW:
+a **step-size restriction** capping consecutive same-direction runs, and a **wider envelope bump**
+at fine resolution, on the hypothesis that a 20 ms grid leaves the onset envelope too sparse for the
+cost to discriminate.
+
+| Variant | bar 22 error | kick one-to-one at 60 ms | null | ratio | flat steps |
+|---|---|---|---|---|---|
+| **v2 coarse 200 ms** | **37 ms** | **559 of 1,311 = 42.6%** | 25.5% | **1.67x** | 741 of 3,251 = 22.8% |
+| v3 fine 20 ms, unrestricted | 380 ms | 412 of 1,311 = 31.4% | 25.7% | 1.22x | 10,267 of 27,835 = 36.9% |
+| v4 fine 20 ms, MAXRUN 3 | 297 ms | 426 of 1,311 = 32.5% | 25.7% | 1.27x | 8,891 of 26,471 = 33.6% |
+| v5 fine 20 ms, MAXRUN 3, 120 ms bumps | **57 ms** | 427 of 1,311 = 32.6% | 25.7% | 1.27x | 8,956 of 26,536 = 33.8% |
+
+### The two problems come apart
+
+**Global placement is fixable and was fixed.** The bar-22 error went 380 ms to 297 ms to **57 ms**
+as the constraints tightened. The wider envelope did that on its own.
+
+**Note-level matching did not move at all.** Every fine variant sits at **1.22x to 1.27x** while the
+coarse map sits at **1.67x**, and neither the step restriction nor the wider bump shifted it by more
+than 0.05. **Four map variants and three levers leave the match rate capped.**
+
+### What that points at, and it is not the map
+
+**A 200 ms grid beating a 20 ms grid on note matching is not a resolution story.** The remaining
+hypothesis is that **the cap is in the score rather than the alignment**: the notation is quantised
+and the performance is not, so a 60 ms window against quantised positions may simply be too tight
+for the 61 percent that miss. **That would make the miss rate a property of the transcription, not
+of the map.**
+
+**It is testable and was not tested here:** check whether the unmatched notated kicks cluster at
+particular metrical positions, which is what swung or pushed placement would look like. **No claim
+is made either way.**
+
+### Standing result
+
+**Best map remains v2**, coarse 200 ms over FMP subband onsets, **1.67x**, bar 22 at 37 ms,
+monotonic across 248 bars, `verdict_gate.py` **UNDETERMINED** under its 2.0x floor.
+**No onset placed. No repair built. KIG-M004 open.**
+
+Both scripts are archived beside this file, each run at offset recovered, no scale parameter, 60 ms tolerance and a 32.5 to 32.6 percent one-to-one match rate against a 25.7 percent rotation-null baseline, which is 1.27x and carries no repair.
