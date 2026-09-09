@@ -153,7 +153,7 @@ The gate's own outputs are the same distinction in miniature: the **0.235 simila
 
 **No override was applied.** The auto-mode classifier refused the `touch` that would have bypassed the gate, and that refusal was correct: a session should not disarm a gate it finds inconvenient.
 
-**Fix (Brandon's, not a session's):** pass `--allow-similarity` in the hook, or fingerprint the reply's numeric claims rather than its whole word set.
+**No fix is proposed here.** A session does not prescribe changes to Brandon's hooks. This section stops at the observation: the two gates have incompatible pass conditions, and the reachable verdict is recorded above. What to do about it is his call.
 
 
 ## 20. Queue churn, measured rather than asserted
