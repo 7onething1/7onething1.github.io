@@ -130,6 +130,7 @@ footer{margin-top:3rem;border-top:2px solid var(--line);padding-top:1rem;
 <li><a href="#pathshape">The path-shape lever, two ways</a></li>
 <li><a href="#decompose">Quantisation refuted, misses decomposed</a></li>
 <li><a href="#silent">The missed positions are near-silent</a></li>
+<li><a href="#corrected">The map was fitted with the thing it was measuring</a></li>
 <li><a href="#files">Files and reproduction</a></li>
 </ol>
 </div>
@@ -768,7 +769,7 @@ footer{margin-top:3rem;border-top:2px solid var(--line);padding-top:1rem;
 
 <h2 class="s1" id="msdtwfull">16. The song-wide pass ran. The map holds at bar level and fails at note level.</h2>
 <p>Pre-registered and hashed with nothing yet computed, sha256 <code>47adf4eb...533b90a</code>. <b>This is the step KIG-M004 had been waiting on.</b> Parameters, stated once for every row: offset recovered rather than supplied, <b>scale is not a parameter</b> since the path warps freely, tolerance 60 ms at note level, one-to-one match rate 510/1,311 = 38.9% against a 25.1% rotation-null baseline.</p>
-<p>Coarse pass at a 200 ms hop, 2,595 score frames against 2,510 audio frames, 6.5 million cells, path length 3,247, projected to a 50 ms grid and refined inside a <b>plus or minus 2.0 s band</b> — the constraint region the piecewise run lacked.</p>
+<p>Coarse pass at a 200 ms hop, 2,595 score frames against 2,510 audio frames, 6.5 million cells, path length 3,247, projected to a 50 ms grid and refined inside a <b>plus or minus 2.0 s band</b>, the constraint region the piecewise run lacked.</p>
 <table>
 <tr><th>Declared check</th><th>Result</th></tr>
 <tr><td>bar 22 within 2.095 s of 35.980 s</td><td><b>PASS at 36.017 s, 37 ms out</b></td></tr>
@@ -836,7 +837,7 @@ footer{margin-top:3rem;border-top:2px solid var(--line);padding-top:1rem;
 <tr><td>better onset representation, FMP 6.1.2 subband against pooled envelope</td><td><b>1.55x to 1.67x</b>, plus 0.12</td></tr>
 <tr><td>finer path resolution, 20 ms refined against 200 ms coarse</td><td><b>1.67x to 1.22x</b>, minus 0.45</td></tr>
 </table>
-<div class="note"><b>Best map remains v2:</b> coarse 200 ms over FMP subband onsets, <b>1.67x</b>, bar 22 at 37 ms, monotonic across 248 bars. Still under the 2.0x floor, <code>verdict_gate.py</code> still UNDETERMINED. <b>The remaining error is in neither the onset picking nor the path resolution</b> — both were tried and measured, and one went backwards. <b>No onset placed, no repair built, M004 open</b>, with the next candidate being the path-shape constraint itself: a smoothness penalty or step-size restriction that keeps fine resolution without letting the path chase noise.</div>
+<div class="note"><b>Best map remains v2:</b> coarse 200 ms over FMP subband onsets, <b>1.67x</b>, bar 22 at 37 ms, monotonic across 248 bars. Still under the 2.0x floor, <code>verdict_gate.py</code> still UNDETERMINED. <b>The remaining error is in neither the onset picking nor the path resolution</b>, since both were tried and measured, and one went backwards. <b>No onset placed, no repair built, M004 open</b>, with the next candidate being the path-shape constraint itself: a smoothness penalty or step-size restriction that keeps fine resolution without letting the path chase noise.</div>
 
 <h2 class="s2" id="eye">19. The "chases noise" diagnosis put to the eye, and the eye agrees</h2>
 <div class="warn">Section 18 explained the refined map's collapse by saying the path chases local envelope noise. <b>That was inferred from statistics and never looked at.</b> Both warping paths were plotted, at offset recovered, no scale parameter, 60 ms tolerance, and the match rates tabulated above against their own rotation-null baselines.</div>
@@ -892,6 +893,7 @@ footer{margin-top:3rem;border-top:2px solid var(--line);padding-top:1rem;
 <div class="warn"><b>Three levers measured and one hypothesis refuted.</b> Onset representation <b>+0.12</b>, path resolution <b>-0.45</b>, path-shape constraints <b>+0.05</b>, quantisation <b>not the cause</b>. <b>The bulk of the miss rate is detection-limited</b>: the isolated kick stem does not present a detectable transient at roughly 57 percent of notated kick positions under any setting tried. <b>No onset placed. No repair built. KIG-M004 open</b>, with the honest reading now being that the remaining error sits in the stem-to-notation correspondence rather than in the alignment.</div>
 
 <h2 class="s1" id="silent">22. The missed positions are near-silent in the isolated kick stem</h2>
+<div class="warn"><b>CORRECTED 2026-09-09 by section 23 below.</b> Every figure in this section was measured under a score-to-audio map that had kick onsets in its own input. Under a map built from hats alone the gap is <b>33.86 dB</b> and the missed positions sit <b>at</b> chance instead of below it. Read the two sections together.</div>
 <p>For every notated kick, the isolated kick stem's peak level was measured in a window spanning 20 ms ahead of its mapped position to 60 ms after, and the matched and missed populations compared.</p>
 <table>
 <tr><th>Population</th><th>n</th><th>Median peak</th><th>Mean</th><th>sd</th></tr>
@@ -917,6 +919,61 @@ footer{margin-top:3rem;border-top:2px solid var(--line);padding-top:1rem;
 <tr><td>the separator did not route it there</td><td>the kicks are real and masked, and the kick stem is the wrong evidence for them</td></tr>
 </table>
 <div class="note"><b>Distinguishing them needs the full mix</b>, not the stem, and that is a different measurement from anything run in this session. <b>No onset placed. No repair built. KIG-M004 open</b>, and its blocker is now the correspondence between the notation and the stem it is matched against. The anchor, the onset picker, the path shape and quantisation were each tested and each cleared.</div>
+
+
+<h2 class="s1" id="corrected">23. The map was fitted with the thing it was measuring</h2>
+<p>Section 22 left two readings open and named the full mix as the measurement that would separate them. A kick the separator failed to route into the kick stem would still leave low-frequency energy in the mix, so the mix can tell a silent performance apart from a silent stem.</p>
+
+<h3>The bandpass had to be repaired first</h3>
+<div class="warn"><b>The first full-mix run returned -180.00 dB for both populations</b>, which is the numerical floor of <code>20*log10(1e-9)</code>. That value is what the code prints when the filter output is zero everywhere. A 4th-order Butterworth in transfer-function form at <code>Wn = 30/22050 = 0.00136</code> is numerically unstable at that corner. Rebuilt with second-order sections over audio decimated to 8 kHz, the same 30-180 Hz band returns a mix RMS of <b>-31.2 dB</b> and a kick-stem RMS of <b>-29.5 dB</b>. <b>Nothing from the broken run was recorded and no conclusion was drawn from it.</b></div>
+
+<h3>The full mix, under the same map section 22 used</h3>
+<table>
+<tr><th>Signal</th><th>Group</th><th>Observed</th><th>Rotation null median</th><th>z</th><th>Rotations at or above</th></tr>
+<tr><td>mix 30-180 Hz</td><td>matched, 559</td><td>-24.93 dB</td><td>-28.15</td><td><b>+4.39</b></td><td>0.5%</td></tr>
+<tr><td>mix 30-180 Hz</td><td>missed, 752</td><td>-29.78 dB</td><td>-28.23</td><td><b>-1.99</b></td><td>98.0%</td></tr>
+<tr><td>kick stem</td><td>matched, 559</td><td>-15.96 dB</td><td>-46.43</td><td><b>+12.76</b></td><td>0.0%</td></tr>
+<tr><td>kick stem</td><td>missed, 752</td><td>-58.18 dB</td><td>-46.72</td><td><b>-3.42</b></td><td>100.0%</td></tr>
+</table>
+<p>Two hundred circular rotations per cell, seed 20260909. Read on its own this says the 752 missed positions are quieter than a random instant in the song, in the full mix as well as in the stem, which would have settled the question.</p>
+
+<h3>The confound that reading carries</h3>
+<div class="warn"><b>The map was built from notated kick and hat events against detected kick and hat onsets.</b> Kick onsets were part of the input that decided where the kicks land. DTW pulls what it can onto detected onsets and pushes the remainder into the gaps between them, and those gaps are low-energy by construction. <b>Below-chance energy at the leftover positions is exactly what that artifact produces on its own</b>, with no claim about the performance attached.</div>
+
+<h3>The independent map</h3>
+<p>The same machinery built from <b>hats alone</b>, 1,156 notated hat events against 942 detected hat onsets, gives the 1,311 notated kicks a placement that never saw a kick onset. Under it, <b>450</b> of the 1,311 notated kicks match a detected kick onset within 60 ms.</p>
+<table>
+<tr><th>Signal</th><th>Group</th><th>n</th><th>Observed</th><th>Null median</th><th>z</th><th>Rotations at or above</th></tr>
+<tr><td>mix 30-180 Hz</td><td>all notated kicks</td><td>1311</td><td>-27.33 dB</td><td>-28.22</td><td>+1.25</td><td>10.5%</td></tr>
+<tr><td>mix 30-180 Hz</td><td>matched</td><td>450</td><td>-24.67 dB</td><td>-28.17</td><td><b>+6.22</b></td><td>0.0%</td></tr>
+<tr><td>mix 30-180 Hz</td><td>missed</td><td>861</td><td>-28.27 dB</td><td>-28.29</td><td><b>+0.01</b></td><td>48.5%</td></tr>
+<tr><td>kick stem</td><td>all notated kicks</td><td>1311</td><td>-35.19 dB</td><td>-46.66</td><td>+3.86</td><td>0.5%</td></tr>
+<tr><td>kick stem</td><td>matched</td><td>450</td><td>-16.20 dB</td><td>-46.94</td><td><b>+14.24</b></td><td>0.0%</td></tr>
+<tr><td>kick stem</td><td>missed</td><td>861</td><td>-50.06 dB</td><td>-46.16</td><td><b>-0.96</b></td><td>82.5%</td></tr>
+</table>
+<div class="note"><b>The matched group holds as a positive control in both signals.</b> The missed group sits at chance in both. <b>The below-chance result in the table above it was a property of the map.</b></div>
+
+<h3>What this corrects in section 22</h3>
+<table>
+<tr><th>Section 22 as published</th><th>Under the independent map</th></tr>
+<tr><td>missed median <b>-57.59 dB</b> against matched <b>-15.58 dB</b></td><td><b>-50.06 dB</b> against <b>-16.20 dB</b></td></tr>
+<tr><td>a <b>42 dB</b> gap</td><td>a <b>33.86 dB</b> gap</td></tr>
+<tr><td>missed positions <b>below</b> the stem's chance level, z = -3.42</td><td><b>at</b> chance, z = -0.96, 82.5% of rotations above</td></tr>
+<tr><td>752 missed positions</td><td>861 missed positions</td></tr>
+</table>
+<p>Read the direction of that correction carefully. Section 22 reported the missed positions as quieter than chance, which reads as evidence that nothing was played there. The independent map returns them to chance, which is a null result and carries no verdict about the record either way.</p>
+
+<h3>The number that closes KIG-M004</h3>
+<table>
+<tr><th>Map</th><th>Matched</th><th>Rate</th><th>Rotation null</th><th>Ratio</th><th>z</th><th>verdict_gate</th></tr>
+<tr><td>kick and hat informed</td><td>559 of 1311</td><td>42.6%</td><td>25.5%</td><td><b>1.67x</b></td><td>11.35</td><td>UNDETERMINED</td></tr>
+<tr><td>hat-only independent</td><td>450 of 1311</td><td>34.3%</td><td>25.3%</td><td><b>1.36x</b></td><td>7.15</td><td>UNDETERMINED</td></tr>
+</table>
+<p>Three hundred rotations of the mapped notated positions against the fixed detector output, one-to-one matching on the <code>mir_eval.onset</code> convention, 60 ms tolerance. Both runs of <code>verdict_gate.py --counts</code> return <b>UNDETERMINED</b> against its 2.0x counts-mode floor, at <code>p = 1.55e-41</code> and <code>p = 2.19e-13</code>.</p>
+<div class="warn"><b>The 1.67x figure that this entire lineage rested on came from a map with kick onsets in its own input.</b> Removing that circularity drops the alignment to <b>1.36x</b>, which is under the 1.5x floor Gate N4 enforces and far under the 2.0x floor the numeric gate enforces. <b>Five levers were tuned against a limit that the alignment never had the strength to measure.</b></div>
+
+<h3>Standing result</h3>
+<div class="good"><b>KIG-M004 is closed as UNDETERMINED. No onset was placed, no bar was named, and no repair is authorized.</b> This method does not establish a score-to-audio correspondence strong enough to locate a kick in a bar, and every downstream figure that assumed one inherits that limit. A null result here is never evidence that the record lacks a kick, and it is never evidence that the transcription is wrong.</div>
 
 <h2 class="s5" id="files">5. Files and reproduction</h2>
 <p>Onsets were detected on <b>isolated stems</b>, never the mix, at 44.1 kHz over 501.84 s, hop 256, log-compressed spectral novelty per FMP 6.1.2. The kick count reproduces the earlier surplus finding independently, 1,332 detected against 1,312 notated.</p>
