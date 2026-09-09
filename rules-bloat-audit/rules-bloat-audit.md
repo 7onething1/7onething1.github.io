@@ -1,3 +1,8 @@
+# CONTROLLING RESULT
+The recommendation to archive ~140 skills for ~20.4k token-equivalents is **REJECTED**. The dependency exemption pass measured **18 skills, 11,314 chars, 12.6% of skill-description context, ~2,828 token-equivalents** (§21). Every other "~140" below is historical material kept so the correction stays legible. The **165 of 182** figure stands as a transcript observation of zero observed invocations, and alone it does not support the archival conclusion.
+
+---
+
 # Rules Bloat Audit — 2026-09-09
 
 Measured from `~/.claude/`, three CLAUDE.md files, 900 memory notes, and 134 transcripts (20,895 tool calls). No sampling.
@@ -33,7 +38,7 @@ Measured from `~/.claude/`, three CLAUDE.md files, 900 memory notes, and 134 tra
 - Core behavioral gates (grounding, never-delete, stem attribution, live-URL verify, batching).
 
 ## Ranked proposal
-1. Archive ~140 never-invoked skills → ~20,000 tok/turn, 15 min
+1. ~~Archive ~140 never-invoked skills → ~20,000 tok/turn~~ **REJECTED, see §21. Real figure: 18 skills, ~2,828 token-equiv.**
 2. Cap SKILL.md descriptions at 200 chars → ~4,000 tok/turn
 3. Cut MEMORY.md under 20 KB so it stops truncating
 4. Fix 7 most-cited dead paths, starting `~/MAP.md`
@@ -74,13 +79,13 @@ The whole merged CLAUDE_LIBRARY_LOCATIONS section (~6,577 bytes) describes a fil
 | reddit-shift-stories | stub | Move to archive |
 | voice-input | advice valid, not a skill | Convert to memory note |
 
-Disabling all 9 saved **7,761 chars/turn (~1,940 tok)**. Working proof the same treatment on ~140 live never-invoked skills recovers ~10x that.
+Disabling all 9 saved **7,761 chars/turn (~1,940 tok)**. Working proof the mechanism works. It does NOT scale 10x: §21 measured the live set at 18 skills, ~2,828 token-equiv that.
 
 ## 11. KEEP / MERGE / MOVE / ARCHIVE
 - **KEEP verbatim:** never-delete; provenance and claim grounding; destructive-edits-need-instruction (plus: no queue item may propose editing Brandon's hooks).
 - **MERGE, no content lost:** "evidence outranks surrogate measurement" is currently 7 notes / ~16.8 KB (stems-outrank-printed-charts, one-professional-transcription-outranks-the-ai-tab, stem-detection-must-attribute-the-instrument, a-check-that-agrees-is-not-a-check-that-closes, evidence-direction-confirming-vs-refuting, two-methods-disagree-find-your-own-bug-first, score-a-transcription-against-its-own-null). One authoritative formulation + 6 pointers.
 - **MOVE to where they are used:** song-specific discoveries → song handoffs. Failed-technique records (envelope thresholding, multiband flux, dome/bell) → transcription-repair skill.
-- **ARCHIVE:** music-library map (100% dead); kid mode (51 notes); ~140 never-invoked skill folders.
+- **ARCHIVE:** music-library map (100% dead); kid mode (51 notes); ~~~140~~ **18** skill folders (§21).
 - **REWRITE:** the 163 Vercel notes that outvote the live GitHub Pages policy 12:1.
 
 ## 12. Provenance correction

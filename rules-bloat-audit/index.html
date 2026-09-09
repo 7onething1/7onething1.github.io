@@ -80,6 +80,16 @@ footer{margin-top:56px;padding-top:18px;border-top:2px solid var(--ink);color:va
   The gates that actually fire are a small, healthy core worth keeping.
 </div>
 
+<div class="note" style="border-color:var(--rust);background:rgba(193,85,58,.13)">
+  <b>CONTROLLING RESULT, read this first.</b> The original recommendation to archive about 140 skills for
+  a recovery near 20.4k token-equivalents is <b>REJECTED</b>. The dependency exemption pass measured the
+  real set at <b>18 skills, 11,314 description characters, 12.6 percent of the skill-description context,
+  about 2,828 token-equivalents</b>. Section 21 carries the working. Every appearance of "~140" elsewhere on
+  this page is historical material kept so the correction is legible, never a live recommendation.
+  <b>The 165-of-182 figure stands</b> as a transcript observation of zero observed invocations, and it no
+  longer supports the archival conclusion by itself.
+</div>
+
 <h2><span class="n">01</span>Where the context actually goes</h2>
 <p class="lede">Measured by parsing the real files, not estimated.</p>
 <div class="scroll">
@@ -121,7 +131,7 @@ Never invoked: 165 of 182 skills</div>
 <tr><td><b>Used once</b><br>jam-stem-rebuild, ableton-rig-doctor, missed-songs-audit, file-getter, impossible-guitar-parts, skill-creator, artifact-design</td><td>7</td><td>1 invocation each</td><td><span class="tag keep">Keep, trim description to 1 line</span></td></tr>
 <tr><td><b>No usable description</b><br>album-book-craft, band-cycle, mashup-maker, midi-analyze, stem-analyzer, orchestration, speech-synth and 28 more</td><td>35<br><small>20 of them have <b>no YAML frontmatter at all</b></small></td><td>they appear in the skills list as a bare name with nothing after it, so description matching cannot reach them<br><code>skills/mashup-maker/SKILL.md:1</code> starts <code># mashup-maker</code></td><td><span class="tag cut">Archive or write frontmatter</span></td></tr>
 <tr><td><b>Fat descriptions on unused skills</b><br>impossible-guitar-parts (1559 ch), rock-analysis-canon (1422), chavez-radiohead-failure-craft (1399), notation-evidence-gate (1273), real-song-finder (1239)</td><td>5</td><td>~6,900 chars per turn from five entries</td><td><span class="tag merge">Cap at 200 chars</span></td></tr>
-<tr><td><b>Never invoked, never described in a live task</b></td><td>~140</td><td>0 invocations across all transcripts</td><td><span class="tag cut">Move to skills-archive/</span></td></tr>
+<tr><td><b>Never invoked, never described in a live task</b></td><td><s>~140</s> <b>18</b></td><td>0 invocations across all transcripts. <b>SUPERSEDED by section 21:</b> the exemption pass cut this to 18</td><td><span class="tag fix">See section 21</span></td></tr>
 <tr><td><b>Broken dirs</b><br>chiron-intuition-format, delete</td><td>2</td><td>no SKILL.md, no reference anywhere</td><td><span class="tag cut">Move to archive</span></td></tr>
 <tr><td><b>Library dirs, correctly have no SKILL.md</b><br>_shared, fifty-gates, babysit-chats, system-pulse</td><td>4</td><td>support code, not skills</td><td><span class="tag keep">Keep as is</span></td></tr>
 </table>
@@ -304,7 +314,7 @@ verified directly:
 </div>
 <div class="card m">
   <p><b>Disabling all 9 saved 7,761 chars per turn, about 1,940 tokens.</b> That is the working proof
-  that the same treatment applied to the ~140 never-invoked live skills recovers roughly ten times as much.
+  that the same mechanism works. <b>It does NOT scale to ten times as much:</b> section 21 measured the live set at 18 skills and about 2,828 token-equivalents.
   The mechanism already exists and has been run once.</p>
 </div>
 
@@ -322,7 +332,7 @@ verified directly:
 <tr><td>Music-library location map</td><td><span class="tag cut">ARCHIVE, 100% dead</span></td><td>Section 09. Nothing it names exists</td></tr>
 <tr><td>Kid mode, 51 notes</td><td><span class="tag cut">ARCHIVE</span></td><td>Retired 2026-07-13</td></tr>
 <tr><td>Vercel-first deployment, 163 notes</td><td><span class="tag fix">REWRITE the top 10</span></td><td>Outvotes the live policy twelve to one</td></tr>
-<tr><td>~140 never-invoked skill descriptions</td><td><span class="tag cut">ARCHIVE the folders</span></td><td>~20,000 tokens per turn, reversible</td></tr>
+<tr><td><s>~140</s> <b>18</b> skill descriptions with zero observed invocations</td><td><span class="tag cut">ARCHIVE the folders</span></td><td><s>~20,000 tokens per turn</s> <b>REJECTED.</b> Section 21 measures ~2,828 token-equivalents, reversible</td></tr>
 </table>
 </div>
 <div class="note">
