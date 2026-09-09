@@ -29,7 +29,7 @@ Measured from `~/.claude/`, three CLAUDE.md files, 900 memory notes, and 134 tra
 - Only 2 of 900 notes are orphaned from both indexes. Indexing discipline is sound.
 
 ## Hooks
-- 39 wired: Stop 16, PreToolUse 10, UserPromptSubmit 6, SessionStart 3, PostToolUse 3, Notification 1.
+- ~~39 wired: Stop 16, PreToolUse 10, UserPromptSubmit 6~~ **STALE. Re-measured 2026-09-09: 42 wired — Stop 17, PreToolUse 11, UserPromptSubmit 7**, SessionStart 3, PostToolUse 3, Notification 1. Brandon wired `no_gratuitous_page_gate.py` (PreToolUse) and `goal_loop_gate.py` (UserPromptSubmit) the same day; both verified on disk by mtime and dated backups. **Neither is a bloat candidate.** Treat this as a dated census, not a standing fact.
 - `block_desktop_writes.py` wired TWICE in PreToolUse.
 - 15 hook scripts on disk unwired.
 

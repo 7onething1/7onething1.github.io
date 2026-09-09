@@ -185,15 +185,15 @@ most-cited dead paths:
   Any retrieval that samples memory rather than reading the index lands on the wrong host.</p>
 </div>
 
-<h2><span class="n">04</span>Hooks: 39 wired, 16 on every stop</h2>
+<h2><span class="n">04</span>Hooks: 42 wired, 17 on every stop</h2>
 <p class="lede">Parsed from settings.json and compared against the hooks directory.</p>
 
 <div class="scroll">
 <table>
 <tr><th>Event</th><th>Hooks</th><th>Fires</th><th>Proposal</th></tr>
-<tr><td><b>Stop</b></td><td>16</td><td>every time you finish a turn</td><td><span class="tag merge">Collapse into one runner</span></td></tr>
-<tr><td><b>PreToolUse</b></td><td>10</td><td>every tool call, 20,895 so far</td><td><span class="tag fix">Dedupe, see below</span></td></tr>
-<tr><td>UserPromptSubmit</td><td>6</td><td>every prompt</td><td><span class="tag merge">Merge the 3 nudges</span></td></tr>
+<tr><td><b>Stop</b></td><td><s>16</s> <b>17</b></td><td>every time you finish a turn</td><td><span class="tag merge">Collapse into one runner</span></td></tr>
+<tr><td><b>PreToolUse</b></td><td><s>10</s> <b>11</b></td><td>every tool call, 20,895 so far</td><td><span class="tag fix">Dedupe, see below</span></td></tr>
+<tr><td>UserPromptSubmit</td><td><s>6</s> <b>7</b></td><td>every prompt</td><td><span class="tag merge">Merge the 3 nudges</span></td></tr>
 <tr><td>SessionStart</td><td>3</td><td>once</td><td><span class="tag keep">Keep</span></td></tr>
 <tr><td>PostToolUse</td><td>3</td><td>every write</td><td><span class="tag keep">Keep</span></td></tr>
 <tr><td>Notification</td><td>1</td><td>ntfy push</td><td><span class="tag keep">Keep</span></td></tr>
@@ -214,6 +214,17 @@ Unwired on disk:  kid_mode_gate, model_fit_gate, ultracode_default,
   no_idle_stop_gate, produce_dont_just_report_gate, quit_gate_wrapper,
   pre_ship_voice_check, fresh_eyes_verify, wire_produce_gate, adg_old,
   fraud_eval_prompt, trim_memory_index, statusline, 2 test files</div>
+</div>
+
+<div class="note" style="border-color:var(--plum);background:rgba(122,78,98,.12)">
+  <b>This census went stale 20 minutes after it published.</b> It was taken at 42 wired hooks only after
+  a re-measure; the original audit read 39. On 2026-09-09 Brandon wired two new hooks,
+  <code>no_gratuitous_page_gate.py</code> (6,493 bytes, PreToolUse) and <code>goal_loop_gate.py</code>
+  (12,277 bytes, UserPromptSubmit), verified on disk here by mtime and by their dated backups.
+  <b>Neither is a bloat candidate.</b> They are live intent, dated, with backups.
+  <b>Treat this table as a dated census rather than a standing fact</b>, and re-measure before acting on it.
+  That is the general hazard of auditing a living rule system: the audit begins decaying the moment it ships,
+  and this one decayed inside half an hour.
 </div>
 
 <h2><span class="n">05</span>What is genuinely healthy</h2>
