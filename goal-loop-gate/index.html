@@ -1,0 +1,208 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Goal Loop Gate</title>
+<style>
+  :root{
+    --fox-orange:#DD8D29; --fox-yellow:#E2D200; --fox-blue:#46ACC8;
+    --fox-amber:#E58601;  --fox-red:#B40F20;
+    --cream:#FBF6E9; --ink:#2E2A24; --rule:#D9CDB4;
+  }
+  *{box-sizing:border-box}
+  body{margin:0;background:var(--cream);color:var(--ink);
+       font:16px/1.62 "Iowan Old Style","Palatino Linotype",Georgia,serif;}
+  .wrap{max-width:1080px;margin:0 auto;padding:38px 22px 70px}
+  header{border-bottom:5px solid var(--fox-red);padding-bottom:18px;margin-bottom:26px}
+  h1{margin:0 0 6px;font-size:2.5rem;letter-spacing:-.5px}
+  .sub{font-size:1.03rem;color:#6B6053;margin:0}
+  .quote{background:#fff;border-left:9px solid var(--fox-yellow);
+         padding:15px 20px;margin:22px 0;font-style:italic;font-size:1.06rem;
+         box-shadow:0 1px 0 var(--rule)}
+  .grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(292px,1fr));gap:17px;margin:26px 0}
+  .card{background:#fff;border-radius:11px;padding:19px 21px;border-top:8px solid var(--rule);
+        box-shadow:0 2px 5px rgba(46,42,36,.09)}
+  .card h3{margin:0 0 9px;font-size:1.16rem}
+  .card p{margin:0 0 9px;font-size:.95rem}
+  .c1{border-top-color:var(--fox-orange)} .c2{border-top-color:var(--fox-blue)}
+  .c3{border-top-color:var(--fox-red)}    .c4{border-top-color:var(--fox-amber)}
+  .c5{border-top-color:var(--fox-yellow)}
+  .tag{display:inline-block;font-size:.7rem;letter-spacing:.09em;text-transform:uppercase;
+       padding:3px 9px;border-radius:20px;color:#fff;font-family:ui-sans-serif,system-ui;margin-bottom:9px}
+  .t1{background:var(--fox-orange)} .t2{background:var(--fox-blue)}
+  .t3{background:var(--fox-red)} .t4{background:var(--fox-amber)}
+  .t5{background:#9A8E20}
+  h2{margin:40px 0 13px;font-size:1.62rem;border-bottom:3px solid var(--fox-blue);
+     padding-bottom:6px;display:inline-block}
+  table{width:100%;border-collapse:collapse;background:#fff;margin:12px 0 6px;font-size:.9rem;
+        box-shadow:0 2px 5px rgba(46,42,36,.09)}
+  th{background:var(--fox-blue);color:#fff;text-align:left;padding:10px 12px;
+     font-family:ui-sans-serif,system-ui;font-size:.78rem;letter-spacing:.06em;text-transform:uppercase}
+  td{padding:10px 12px;border-top:1px solid var(--rule);vertical-align:top}
+  tr:nth-child(even) td{background:#FDFBF3}
+  code,pre{font-family:"SF Mono",Menlo,Consolas,monospace}
+  code{background:#F3EAD6;padding:1px 6px;border-radius:4px;font-size:.86em}
+  pre{background:#2E2A24;color:#F3EAD6;padding:15px 17px;border-radius:9px;overflow-x:auto;
+      font-size:.815rem;line-height:1.55;border-left:7px solid var(--fox-orange)}
+  pre b{color:var(--fox-yellow);font-weight:600}
+  pre .ok{color:#7FD18B} pre .no{color:#F08A7E}
+  .steps{counter-reset:s;list-style:none;padding:0;margin:14px 0}
+  .steps li{counter-increment:s;background:#fff;margin:0 0 9px;padding:13px 17px 13px 52px;
+            position:relative;border-radius:9px;border-left:6px solid var(--fox-amber);
+            box-shadow:0 1px 3px rgba(46,42,36,.08);font-size:.95rem}
+  .steps li::before{content:counter(s);position:absolute;left:15px;top:12px;width:24px;height:24px;
+            background:var(--fox-amber);color:#fff;border-radius:50%;display:grid;place-items:center;
+            font-family:ui-sans-serif,system-ui;font-size:.8rem;font-weight:700}
+  .bug{background:#FFF3F1;border:2px solid var(--fox-red);border-radius:11px;padding:17px 21px;margin:20px 0}
+  .bug h3{margin:0 0 8px;color:var(--fox-red)}
+  footer{margin-top:52px;padding-top:17px;border-top:3px solid var(--rule);
+         font-size:.85rem;color:#6B6053}
+  .pill{display:inline-block;background:var(--fox-yellow);color:#4A4207;padding:2px 10px;
+        border-radius:20px;font-size:.76rem;font-family:ui-sans-serif,system-ui;margin-left:7px}
+</style>
+</head>
+<body>
+<div class="wrap">
+
+<header>
+  <h1>Goal Loop Gate</h1>
+  <p class="sub">Three hard gates wired into Claude Code on this Mac, 9 September 2026.
+     Every ask becomes a goal, every question is deduplicated across live chats, every
+     finding is checked with ChatGPT the same day.</p>
+</header>
+
+<div class="quote">
+  &ldquo;every chat hard gate treat my asks as /goal and /loop until done, stop stopping.
+  hard gate that is work avoidance if you have a question ask chat gpt claude chrome,
+  making sure another chat is not already asking it.&rdquo;
+  <br><br>
+  &ldquo;anytime a chat is reporting findings, make it check with chat today hard gate.&rdquo;
+  <br><span style="font-style:normal;font-size:.86rem;color:#6B6053">Brandon, 2026-09-09</span>
+</div>
+
+<h2>What was broken</h2>
+<p><code>completion_stop_hook.py</code> is the one gate on this Mac that decides stopping from
+project state rather than from the wording of a reply. It abstains whenever no task contract
+is open. Nothing opened a contract on an ordinary ask, so the strongest gate sat idle through
+every turn and the weaker prose gates carried the whole load. The fix opens the contract from
+the ask itself.</p>
+
+<div class="grid">
+  <div class="card c1">
+    <span class="tag t1">Gate 1</span>
+    <h3>Every ask is a goal</h3>
+    <p><code>goal_loop_gate.py</code> runs on <code>UserPromptSubmit</code> and writes a
+    contract from the verbatim prompt. Nobody types <code>/goal</code>.</p>
+    <p>The enumerated sub-asks become required outcomes, and the Stop gate refuses while
+    any one of them is open.</p>
+  </div>
+  <div class="card c2">
+    <span class="tag t2">Gate 2</span>
+    <h3>Deduplicate the question</h3>
+    <p><code>question_dedup.py</code> reads a shared ledger and the tails of sibling
+    transcripts before any question goes to ChatGPT.</p>
+    <p>Five sessions were live when this was built. Without the check he reads one
+    question five times.</p>
+  </div>
+  <div class="card c3">
+    <span class="tag t3">Gate 3</span>
+    <h3>Check findings today</h3>
+    <p><code>findings_chatgpt_gate.py</code> blocks a findings-shaped reply when no
+    ChatGPT check was recorded today by this session.</p>
+    <p>Work narration passes untouched. A claim about what is true does not.</p>
+  </div>
+  <div class="card c4">
+    <span class="tag t4">Per session</span>
+    <h3>Contracts stopped colliding</h3>
+    <p>The package default is one shared contract file for the whole Mac. Auto-opening
+    there would have each live session overwriting the others.</p>
+    <p>Contracts now live at <code>no_quit_state/contracts/&lt;session8&gt;.json</code>,
+    with the shared file kept as the fallback.</p>
+  </div>
+  <div class="card c5">
+    <span class="tag t5">Pivot</span>
+    <h3>A new ask supersedes</h3>
+    <p>A prompt sharing under 0.15 content words with the open instruction closes the old
+    contract as superseded and opens a fresh one.</p>
+    <p>History is preserved in <code>scope_contract_history.jsonl</code>. Nothing is deleted.</p>
+  </div>
+</div>
+
+<h2>The machinery</h2>
+<table>
+  <tr><th>Piece</th><th>Path</th><th>Hook point</th></tr>
+  <tr><td>Goal opener</td><td><code>~/.claude/hooks/goal_loop_gate.py</code></td><td>UserPromptSubmit</td></tr>
+  <tr><td>Question dedup + ledger</td><td><code>~/.claude/skills/_shared/question_dedup.py</code></td><td>called by hand and by the findings gate</td></tr>
+  <tr><td>Findings check</td><td><code>~/.claude/hooks/findings_chatgpt_gate.py</code></td><td>Stop, ahead of completion_stop_hook</td></tr>
+  <tr><td>Per-session contracts</td><td><code>~/.claude/no_quit_state/contracts/</code></td><td>read by completion_stop_hook</td></tr>
+  <tr><td>Shared ledger</td><td><code>~/.claude/no_quit_state/chatgpt_question_ledger.jsonl</code></td><td>questions and findings checks</td></tr>
+</table>
+
+<h2>Proof the chain has teeth</h2>
+<p>Four behaviours were exercised against a throwaway session before anything shipped.</p>
+
+<ol class="steps">
+  <li><b>A contract with open outcomes refuses the stop</b>, naming each one.</li>
+  <li><b>A required outcome marked met on evidence that does not verify still refuses</b>,
+      so a fake completion buys nothing.</li>
+  <li><b>One session cannot edit another session's contract.</b> The ownership guard
+      refused the attempt.</li>
+  <li><b>A paraphrased question from a sibling session is caught</b> at 0.64 similarity,
+      and a session never matches its own questions.</li>
+</ol>
+
+<pre><b>$ completion_stop_hook.py  &lt;- reply claiming "all done"</b>
+completion_controller BLOCK: the requested scope is not complete.
+  contract sc-6a5c847f11  stop_rule: if Claude stops, the requested scope must be complete
+  <span class="no">REFUSED: 3 in-scope item(s) remain actionable</span>
+  <span class="no">REFUSED: 2 required outcome(s) still open: R1, R2</span>
+
+<b>$ scope_controller.py meet R1 --evidence ev_test_r1   &lt;- fake evidence</b>
+  <span class="no">REFUSED: 2 required outcome(s) closed on evidence that does not verify:
+          grade every bass loop in the export fold -> UNSUPPORTED</span>
+
+<b>$ scope_controller.py meet R1   &lt;- from a session that does not own it</b>
+  <span class="no">REFUSED: contract sc-6a5c847f11 belongs to session testfake,
+          this caller is 'e6534be4'. Open your own contract.</span>
+
+<b>$ question_dedup.py check "Before I upload revision 7, should the snare-lane
+    ghost notes on Watermelon In Easter Hay get restored?"</b>
+VERDICT: <span class="no">DUPLICATE</span>  (a sibling session is already asking this)
+  session e6534be4  window 240m  candidates scanned 52
+  MATCH 0.64  session 034bbadd  [ledger]
+  do NOT send. Read the sibling's answer.
+
+<b>$ findings_chatgpt_gate.py  &lt;- findings reply, no check today</b>
+findings_chatgpt_gate <span class="no">BLOCK</span>: this reply reports findings and no ChatGPT
+  check was recorded today for this session.
+  markers matched: i found, found that, root cause, verdict, audit, discrepanc
+
+<b>$ findings_chatgpt_gate.py  &lt;- pure work narration</b>
+  <span class="ok">exit 0   (passes untouched)</span></pre>
+
+<div class="bug">
+  <h3>A latent bug this exposed</h3>
+  <p><code>queue_state.py</code> compared the contract's offset-aware timestamp against
+  naive queue timestamps and raised <code>TypeError</code>. The caller reported that as
+  &ldquo;completion state could not be evaluated&rdquo; and fail-closed. Every turn would
+  have blocked for the wrong reason once contracts opened automatically. Both sides now
+  normalise through <code>_aware()</code>. The pre-fix file is kept as
+  <code>queue_state.py.PRE_TZFIX_2026-09-09.bak</code>.</p>
+</div>
+
+<h2>Live rollout</h2>
+<p>The hook is global, so every session on this Mac picked it up on its next prompt.
+Five sibling sessions were writing transcripts within the same three minutes, and
+per-session contracts appeared for four of them without any further action.</p>
+
+<footer>
+  Palette: <b>Fantastic Mr. Fox</b> <span class="pill">Wes Anderson rotation</span><br>
+  Built 2026-09-09. Memory: <code>feedback_treat_every_ask_as_goal_and_loop</code>,
+  <code>feedback_check_findings_with_chatgpt_today</code>,
+  <code>reference_goal_loop_gate_and_question_dedup</code>.
+</footer>
+
+</div>
+</body>
+</html>
