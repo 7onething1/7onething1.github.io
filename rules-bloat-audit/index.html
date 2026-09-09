@@ -263,6 +263,93 @@ run_gates.py:369     g = next(x for x in GATES if x["id"] == gid)
   and the never-delete rule governs all of them, so every action listed is a move into an archive folder.</p>
 </div>
 
+<h2><span class="n">09</span>The sharpest single cut: a dead music-library map</h2>
+<p class="lede">Every path in <code>~/.claude/CLAUDE.md</code> resolved against the real filesystem.</p>
+<div class="card">
+  <h3>68 percent of the always-loaded file points at nothing</h3>
+  <p>The merged CLAUDE_LIBRARY_LOCATIONS section is <b>entirely dead</b>. <code>~/Music/Loops</code>
+  does not exist at all, and neither does <code>~/Music/mashup_dashboard</code>, which the file calls
+  the canonical dashboard. That is roughly 6,577 bytes of precise, confident, wrong direction loaded into every session.</p>
+  <div class="ev">~/.claude/CLAUDE.md cites 69 paths (loaded EVERY session)
+  alive: 22        DEAD: 47  (68%)
+  2 of the 47 are &lt;route&gt; templates, so 45 are genuinely dead
+
+verified directly:
+  ~/Music/Loops              MISSING ENTIRELY
+  ~/Music/mashup_dashboard/  gone, with all 11 named scripts
+  ~/Music/Mashups/TOP_30/    gone
+  /Volumes/T7 Shield         not mounted (drive, recoverable)</div>
+  <p style="margin-top:10px">The T7 Shield paths are a separate case. That drive is unplugged rather than lost,
+  so those rules become true again when it mounts. The <code>~/Music</code> tree has no such excuse.</p>
+</div>
+
+<h2><span class="n">10</span>Archived skills worth bringing back</h2>
+<p class="lede">9 skills sit in <code>~/.claude/skills_disabled/</code>, all switched off 2026-08-12.</p>
+<div class="scroll">
+<table>
+<tr><th>Skill</th><th>Why it was disabled</th><th>Does its data still exist</th><th>Verdict now</th></tr>
+<tr><td><b>stem-frequency-map</b><br><small>frequency-maps stems, QAs a reconstruction against the faithful original</small></td><td>never invoked, zero references</td><td>Yes. scripts, evals, references, assets all present</td><td><span class="tag keep">RE-ENABLE</span><br><small>It is the surrogate-versus-direct discipline in executable form, and that is the live problem</small></td></tr>
+<tr><td><b>ableton-pack-quality</b><br><small>grades WAVs against a measured 1,339-file reference canon</small></td><td>never invoked, zero references</td><td>Reference canon path not resolvable from the SKILL.md</td><td><span class="tag watch">Re-enable when a pack ships</span></td></tr>
+<tr><td>eyephim-oracle</td><td>never invoked</td><td>tarot is the one revenue lane, this is a different reader from Kate</td><td><span class="tag watch">Hold, enable per reader</span></td></tr>
+<tr><td>music-theory-corpus-check</td><td>never invoked, memory pointer only</td><td><b>No.</b> <code>~/Desktop/yt-adam-neely-research</code> is gone</td><td><span class="tag cut">Keep off, source is gone</span></td></tr>
+<tr><td>rhythmic-displacement-melody-grid</td><td>never invoked, no chain reference</td><td>MIDI generation lane is dormant</td><td><span class="tag cut">Keep off</span></td></tr>
+<tr><td>question-response-audit</td><td>never invoked</td><td>UPS/Origami client work not active</td><td><span class="tag cut">Keep off</span></td></tr>
+<tr><td>frozen-board-scroller</td><td>kid mode retired, no live caller</td><td>caller gone by policy</td><td><span class="tag cut">Move to archive</span></td></tr>
+<tr><td>reddit-shift-stories</td><td>stub description, 24 chars saved</td><td>stub only</td><td><span class="tag cut">Move to archive</span></td></tr>
+<tr><td>voice-input</td><td>a how-to doc, never an executable skill</td><td>advice still valid</td><td><span class="tag merge">Convert to a memory note</span></td></tr>
+</table>
+</div>
+<div class="card m">
+  <p><b>Disabling all 9 saved 7,761 chars per turn, about 1,940 tokens.</b> That is the working proof
+  that the same treatment applied to the ~140 never-invoked live skills recovers roughly ten times as much.
+  The mechanism already exists and has been run once.</p>
+</div>
+
+<h2><span class="n">11</span>KEEP &middot; MERGE &middot; MOVE &middot; ARCHIVE</h2>
+<p class="lede">Rule clusters sorted by what should happen to them, safeguards first.</p>
+<div class="scroll">
+<table>
+<tr><th>Cluster</th><th>Verdict</th><th>Reasoning</th></tr>
+<tr><td><b>Evidence outranks surrogate measurement</b><br><small>7 notes state versions of this: stems-outrank-printed-charts, one-professional-transcription-outranks-the-ai-tab, stem-detection-must-attribute-the-instrument, a-check-that-agrees-is-not-a-check-that-closes, evidence-direction-confirming-vs-refuting, two-methods-disagree-find-your-own-bug-first, score-a-transcription-against-its-own-null</small></td><td><span class="tag merge">MERGE to one, KEEP the content</span></td><td>The most load-bearing principle in the system, currently spread across 7 files totalling ~16.8 KB. One authoritative formulation, six pointers. <b>No content is lost in the merge.</b></td></tr>
+<tr><td><b>Never delete, quarantine instead</b></td><td><span class="tag keep">KEEP verbatim</span></td><td>Governs every other cut in this document</td></tr>
+<tr><td><b>Provenance and claim grounding</b></td><td><span class="tag keep">KEEP verbatim</span></td><td>Caught the error in section 12 of this very audit</td></tr>
+<tr><td><b>Destructive edits need explicit instruction</b><br><small>plus: no queue item may propose editing Brandon's hooks</small></td><td><span class="tag keep">KEEP verbatim</span></td><td>Fired correctly against this session twice</td></tr>
+<tr><td>Song-specific discoveries<br><small>Watermelon, Zappa ghost lanes, Nanook, Hejira, Montana</small></td><td><span class="tag watch">MOVE into the song handoffs</span></td><td>Technical history belongs beside its song, never in permanent global context</td></tr>
+<tr><td>Failed-technique records<br><small>envelope thresholding, multiband flux, dome/bell profile</small></td><td><span class="tag watch">MOVE into transcription-repair</span></td><td>Useful precisely where the next attempt would be made</td></tr>
+<tr><td>Music-library location map</td><td><span class="tag cut">ARCHIVE, 100% dead</span></td><td>Section 09. Nothing it names exists</td></tr>
+<tr><td>Kid mode, 51 notes</td><td><span class="tag cut">ARCHIVE</span></td><td>Retired 2026-07-13</td></tr>
+<tr><td>Vercel-first deployment, 163 notes</td><td><span class="tag fix">REWRITE the top 10</span></td><td>Outvotes the live policy twelve to one</td></tr>
+<tr><td>~140 never-invoked skill descriptions</td><td><span class="tag cut">ARCHIVE the folders</span></td><td>~20,000 tokens per turn, reversible</td></tr>
+</table>
+</div>
+<div class="note">
+  <b>Nothing in the KEEP or MERGE rows loses content.</b> The merge collapses seven statements of one
+  principle into one authoritative statement plus six pointers. The archive rows move folders, and the
+  never-delete rule governs all of them.
+</div>
+
+<h2><span class="n">12</span>A provenance correction on the case for the safeguard</h2>
+<div class="card p">
+  <h3>The principle is confirmed. One figure attached to it is not.</h3>
+  <p>The envelope-thresholding withdrawal <b>is real and on the record</b> in session <code>55ae6cf2</code>,
+  which recorded toms at 3,325 whole-song, 16.38 per bar against the tab's 0.56, kick 38 against 23,
+  snare 11 against 8 to 9, and concluded that multiband flux failed the same way.
+  Two independent formulations failed on the same lane.</p>
+  <p>The specific pairing of <b>108 tom detections against 29 hand-counted strikes</b> traces to exactly one
+  file, which is this session's own transcript, where it arrived inside a relayed message.
+  I could not source it to any prior measured session. <b>The rule stands on the 3,325 figure, which I verified.</b>
+  The 108-versus-29 figure is carried as someone else's claim rather than as a measurement.</p>
+  <div class="ev">grep '108 tom detections' *.jsonl
+  -> 47e763e6-...jsonl   (this session only)
+
+grep -l 'toms 671' *.jsonl
+  -> 55ae6cf2-...jsonl   (a real prior session)
+
+recorded there: "Whole-song 3,325, which would be 16.38 per bar
+against the tab's 0.56. Plainly wrong. Kick: 38 against 23.
+Snare: 11 against 8-9."</div>
+</div>
+
 <h2><span class="n">08</span>Parked in the queue, not left as a question</h2>
 <div class="card t">
   <p>Two cuts are queued with <b>a stated reason each for not doing them in this session</b>. A third
