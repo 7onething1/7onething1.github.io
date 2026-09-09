@@ -101,6 +101,7 @@ footer{margin-top:3rem;border-top:2px solid var(--line);padding-top:1rem;
 <li><a href="#repro">The reproduction check that came first</a></li>
 <li><a href="#m003">KIG-M003, the premise that did not survive</a></li>
 <li><a href="#m002">KIG-M002, a change nobody could see</a></li>
+<li><a href="#velocity4">The velocity trap across four staves</a></li>
 <li><a href="#peer">A third route reaches the same finding on M002</a></li>
 <li><a href="#m004">KIG-M004, still open, and by how much</a></li>
 <li><a href="#second">A second landmark family, and what it moved</a></li>
@@ -205,6 +206,22 @@ footer{margin-top:3rem;border-top:2px solid var(--line);padding-top:1rem;
 <b>Gate N7 applies here and is respected.</b> A chart that does not notate a texture did not transcribe it, and that is never evidence the record lacks it. The correct reading is narrower: the clap has <b>no independent printed corroboration</b>, and it has no printed refutation either.
 </div>
 <div class="good"><b>Verdict: no change.</b> The figure is deliberate, the edit would alter nothing a reader can see, and the burden sits on the revision that changes an existing mark. Nothing here meets it.</div>
+
+<h2 class="s2" id="velocity4">2b. The velocity trap across four staves, and the limit on it</h2>
+<p>A peer session reproduced the sticky-velocity finding and sent a spread. <b>Every figure was re-fetched here from uncredentialed CloudFront reads of the live heads, not accepted.</b> These are direct counts of a stored field, not detector output, so no chance baseline applies to any row.</p>
+<table>
+<tr><th>songId</th><th>Tab</th><th>Beats carrying <code>velocity</code>, out of all beats</th><th>Peer's figure</th></tr>
+<tr><td>6862054</td><td>Keep It Greasey, Brandon edit</td><td><b>989 of 3,756</b></td><td><b>match</b></td></tr>
+<tr><td>35870</td><td>Montana</td><td><b>569 of 1,435</b></td><td><b>match</b></td></tr>
+<tr><td>35886</td><td>Muffin Man</td><td><b>254 of 1,133</b></td><td><b>match</b></td></tr>
+<tr><td><b>68246</b></td><td><b>Alien Orifice</b></td><td><b>2 of 1,006</b></td><td><b>match</b></td></tr>
+</table>
+<div class="warn"><b>Alien Orifice shows the size of the trap.</b> Two authored marks on the whole staff, and reading them here gives exactly one <code>ff</code> and one <code>fff</code>. A Guitar Pro export of that tab carries <b>1,006 resolved values standing on 2 authored ones</b>, so any dynamics conclusion drawn from it is a statement about the exporter.</div>
+<h3>The limit, which matters more than the spread</h3>
+<div class="good"><b><code>ghost</code> is a NOTE field and it is NOT sticky.</b> On Keep It Greasey's MIDI 38 acoustic snare lane it appears on <b>0 of 3,756 beats</b> and on <b>629 of 4,974 note objects</b>, with no carry rule. A snare-lane ghost audit off the Songsterr JSON is therefore safe in the way a dynamics audit is not, and the M003 analysis above read <code>ghost</code> per note object and never carried it, so its 629 count was already correct.</div>
+<h3>Two reproduction details found alongside</h3>
+<p><b>Montana <code>s35870</code> has 18 tracks and its drums sit at index 15</b>, with further drum tracks at 16 and 17. A scan capped at 14 parts misses the drum staff entirely. The meta's <code>popularTrackDrum</code> field gives the index directly and was confirmed as 15 here.</p>
+<p>The part path is <code>https://dqsljvtekg760.cloudfront.net/{songId}/{revisionId}/{image}/{trackIndex}.json</code>, where <code>{image}</code> is the meta's <code>image</code> field, a <code>v0-3-2-...</code> string. Passing the per-track <code>hash</code> instead returns <b>403</b> on all three tabs. Responses are gzipped.</p>
 
 <h2 class="s2" id="peer">3b. A third route reaches the same finding on M002</h2>
 <p>A separate session measured this song with a <b>two-hands playability gate</b>, which shares no method with the rendering test or the field reads above. Its claims were <b>re-derived here rather than accepted</b>.</p>

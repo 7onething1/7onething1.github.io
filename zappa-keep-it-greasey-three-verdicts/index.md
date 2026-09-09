@@ -530,3 +530,44 @@ The next attempt should use **windows large enough for every family to lock with
 on the order of 30 to 40 bars rather than 8, accepting coarser bracketing in exchange for a
 cross-check that can actually decide. Nothing in this addendum places any onset, and no
 placement, repair or revision is carried forward.
+
+---
+
+## ADDENDUM 6: the velocity trap measured across four staves, and the limit on it
+
+The peer session reproduced the sticky-velocity finding and sent a spread. **Every figure was
+re-fetched here from uncredentialed CloudFront reads of the live heads, not accepted.**
+
+**These are direct counts of a stored field, not detector output**, so no chance baseline applies
+to any row: each number is how many beat objects carry the `velocity` key.
+
+| songId | Tab | Beats carrying `velocity`, out of all beats | Peer's figure |
+|---|---|---|---|
+| 6862054 | Keep It Greasey, Brandon edit | **989 of 3,756** | **match** |
+| 35870 | Montana | **569 of 1,435** | **match** |
+| 35886 | Muffin Man | **254 of 1,133** | **match** |
+| **68246** | **Alien Orifice** | **2 of 1,006** | **match** |
+
+**Alien Orifice shows the size of the trap.** Two authored marks on the whole staff, and reading
+them here gives exactly one `ff` and one `fff`. A GP export of that tab carries **1,006 resolved
+values standing on 2 authored ones**.
+
+### The limit, which matters more than the spread
+
+**`ghost` is a NOTE field and it is NOT sticky.** This is a statement about the JSON schema, not about what the mark means: every one of these 629 sits on the **MIDI 38 acoustic snare lane** of the Vinnie Colaiuta staff, and under Weinberg the mark's meaning stays scoped to that lane. Counted on Keep It Greasey's MIDI 38 acoustic snare lane, `ghost` appears on **0 of 3,756 beats** and on **629 of 4,974 note objects**, with no carry rule, so absence on that lane means not ghosted.
+
+**A snare-lane ghost audit off the Songsterr JSON is therefore safe in the way a dynamics audit is not.** The
+KIG-M003 analysis in section 2 read `ghost` per note object and never carried it, so its 629 count
+was already correct, and the sticky caution must not be extended to it.
+
+### A scan-cap trap found alongside it
+
+**Montana `s35870` has 18 tracks and its drums sit at index 15**, with further drum tracks at 16
+and 17. A scan capped at 14 parts misses the drum staff entirely. The meta's `popularTrackDrum`
+field gives the index directly and was confirmed as 15 here.
+
+### The CloudFront path, for reproduction
+
+`https://dqsljvtekg760.cloudfront.net/{songId}/{revisionId}/{image}/{trackIndex}.json`, where
+`{image}` is the meta's `image` field, a `v0-3-2-...` string. Passing the per-track `hash` instead
+returns **403** on all three tabs. Responses are gzipped.
