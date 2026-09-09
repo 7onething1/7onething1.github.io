@@ -195,3 +195,33 @@ external review. The omission claim was withdrawn after a detector-calibration c
 cymbal adjudication verdict was reversed after the null was rebuilt to preserve beat phase.
 
 Evidence under `~/Projects/_outputs/zappa-camarillo-brillo/`.
+
+## 10. The nine read directly, and why they stay candidates
+
+Band energy 3 to 8 kHz in the Cymbals stem, a 110 ms window at the written instant against the 250 ms
+before it, plus the same window on the Hi-Hat stem, plus a spectrogram of each at native resolution.
+Beat positions are 0-based offsets inside the bar.
+
+| Bar | Beat | Rank | Cymbal before | Cymbal at | Rise | Hi-hat at | Read |
+|---|---|---|---|---|---|---|---|
+| 43 | 1.5 | 0.061 | -86.8 dB | -86.6 dB | +0.2 dB | -16.9 dB | no fresh attack |
+| 12 | 0.0 | 0.098 | -86.0 dB | -86.9 dB | -0.9 dB | -21.4 dB | no fresh attack |
+| 72 | 0.0 | 0.256 | -78.9 dB | -81.0 dB | -2.1 dB | -32.2 dB | no fresh attack |
+| 69 | 2.0 | 0.284 | -80.1 dB | -79.7 dB | +0.4 dB | -36.2 dB | no fresh attack |
+| 74 | 0.0 | 0.329 | -80.0 dB | -79.5 dB | +0.6 dB | -25.6 dB | no fresh attack |
+| 11 | 2.5 | 0.343 | -84.2 dB | -81.6 dB | +2.7 dB | -77.9 dB | weak rise |
+| 77 | 1.5 | 0.347 | -82.5 dB | -80.8 dB | +1.7 dB | -9.8 dB | weak rise |
+| 35 | 2.0 | 0.421 | -82.7 dB | -80.6 dB | +2.1 dB | -40.0 dB | weak rise |
+| 11 | 2.0 | 0.442 | -86.1 dB | -85.9 dB | +0.2 dB | -24.7 dB | no fresh attack |
+
+Bar 72 has a real crash about 0.30 s after its written position and bar 43 about 0.45 s after, well
+outside an alignment residual whose median is -1.2 ms.
+
+**These are candidates and not verdicts.** Both measurements come from the same separated stem, so
+the confirmation is not independent of the ranking. The independent route was attempted by summing
+all 14 stems back into the full mix and failed its own control: across 8 source and band combinations
+the best separation between well-supported crashes and the nine was +0.078 against a declared bar of
+0.20, and three ran backwards. A test whose positive control fails proves nothing either way.
+
+Nothing is edited. The next pass has to answer whether the separator routes crash energy into the
+Hi-Hat output, which is the one explanation that would overturn all nine at once.

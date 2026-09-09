@@ -339,21 +339,90 @@ excerpt and a full-kit excerpt, 0.45 s before the written instant and 0.75 s aft
 produced 354 files, named by bar and beat so a re-ranking never needs a re-cut. Queue at
 <code>~/Projects/_outputs/zappa-camarillo-brillo/cymbal_pass/INVESTIGATION_QUEUE.md</code>.</p>
 
-<h2>9. Settled, open, next</h2>
+<h2>9. The nine, read directly, and the independence problem that keeps them candidates</h2>
+<p>Handing a queue to someone else is not a verdict, so the nine went through a direct read.
+Two measurements and one look. Band energy from 3 to 8 kHz in the Cymbals stem across a 110 ms window
+at the written instant against the 250 ms before it, the same window on the Hi-Hat stem as the
+competing explanation, and a spectrogram of every one at native resolution with the written instant
+marked. Beat positions below are <strong>0-based offsets inside the bar</strong>, so 0.0 is the
+downbeat and 1.5 is the second eighth of beat two.</p>
+<div class="scroll">
+<table>
+<tr><th>Bar</th><th>Beat</th><th>Rank</th><th>Cymbal before</th><th>Cymbal at</th><th>Rise</th><th>Hi-hat at</th><th>Read</th></tr>
+<tr><td class="num">43</td><td class="num">1.5</td><td class="num">0.061</td><td class="num">-86.8 dB</td><td class="num">-86.6 dB</td><td class="num">+0.2 dB</td><td class="num">-16.9 dB</td><td><span class="tag fail">no fresh attack</span></td></tr>
+<tr><td class="num">12</td><td class="num">0.0</td><td class="num">0.098</td><td class="num">-86.0 dB</td><td class="num">-86.9 dB</td><td class="num">-0.9 dB</td><td class="num">-21.4 dB</td><td><span class="tag fail">no fresh attack</span></td></tr>
+<tr><td class="num">72</td><td class="num">0.0</td><td class="num">0.256</td><td class="num">-78.9 dB</td><td class="num">-81.0 dB</td><td class="num">-2.1 dB</td><td class="num">-32.2 dB</td><td><span class="tag fail">no fresh attack</span></td></tr>
+<tr><td class="num">69</td><td class="num">2.0</td><td class="num">0.284</td><td class="num">-80.1 dB</td><td class="num">-79.7 dB</td><td class="num">+0.4 dB</td><td class="num">-36.2 dB</td><td><span class="tag fail">no fresh attack</span></td></tr>
+<tr><td class="num">74</td><td class="num">0.0</td><td class="num">0.329</td><td class="num">-80.0 dB</td><td class="num">-79.5 dB</td><td class="num">+0.6 dB</td><td class="num">-25.6 dB</td><td><span class="tag fail">no fresh attack</span></td></tr>
+<tr><td class="num">11</td><td class="num">2.5</td><td class="num">0.343</td><td class="num">-84.2 dB</td><td class="num">-81.6 dB</td><td class="num">+2.7 dB</td><td class="num">-77.9 dB</td><td><span class="tag unres">weak rise</span></td></tr>
+<tr><td class="num">77</td><td class="num">1.5</td><td class="num">0.347</td><td class="num">-82.5 dB</td><td class="num">-80.8 dB</td><td class="num">+1.7 dB</td><td class="num">-9.8 dB</td><td><span class="tag unres">weak rise</span></td></tr>
+<tr><td class="num">35</td><td class="num">2.0</td><td class="num">0.421</td><td class="num">-82.7 dB</td><td class="num">-80.6 dB</td><td class="num">+2.1 dB</td><td class="num">-40.0 dB</td><td><span class="tag unres">weak rise</span></td></tr>
+<tr><td class="num">11</td><td class="num">2.0</td><td class="num">0.442</td><td class="num">-86.1 dB</td><td class="num">-85.9 dB</td><td class="num">+0.2 dB</td><td class="num">-24.7 dB</td><td><span class="tag fail">no fresh attack</span></td></tr>
+</table>
+</div>
+<div class="card warn">
+<p><strong>The Cymbals stem sits between -79 and -87 dB at all nine written instants, while the
+Hi-Hat stem sits between -10 and -36 dB at seven of them.</strong> That is a 50 to 70 dB gap in
+favour of the hi-hat. The spectrograms agree with the numbers: at the marked instant the cymbal panel
+is flat noise floor in every one of the nine, and the full-kit panel shows clear drum activity, so
+the drummer is playing there and a crash is not what he is playing.</p>
+</div>
+<div class="card hold">
+<p><strong>Two of the nine are displacement rather than fabrication.</strong> Bar 72 has a real crash
+starting about 0.30 s after its written position, and bar 43 has one about 0.45 s after. Against an
+alignment residual with a median of -1.2 ms and 67 percent of landmarks inside 50 ms, an offset of
+300 to 450 ms is far outside the map's error and reads as a crash written in the wrong place rather
+than a crash invented. Those two are edit candidates of a different kind.</p>
+</div>
+<div class="card warn">
+<p><strong>These nine are candidates and not verdicts, because both measurements come from the same
+separated stem.</strong> Review named the flaw precisely: the events were ranked with one cymbal
+feature family and then judged again with another feature from the same Cymbals output, so the second
+test is not independent evidence. Two HF energy measures on one separator output agree with each
+other by construction.</p>
+</div>
+<p><strong>The independent route was attempted and it failed its own control.</strong> The 14 stems
+were summed back into the full mix so the separator plays no part, and the crash-band transient was
+measured there. The test must first detect the crashes that ARE well supported, and it does not:</p>
+<div class="scroll">
+<table>
+<tr><th>Source</th><th>Band</th><th>Well-supported crashes</th><th>The nine suspects</th><th>Separation</th></tr>
+<tr><td>Full mix</td><td class="num">10-18 kHz</td><td class="num">0.461</td><td class="num">0.383</td><td class="num">+0.078</td></tr>
+<tr><td>Full mix</td><td class="num">3-20 kHz</td><td class="num">0.465</td><td class="num">0.422</td><td class="num">+0.043</td></tr>
+<tr><td>Full mix</td><td class="num">5-12 kHz</td><td class="num">0.401</td><td class="num">0.447</td><td class="num">-0.046</td></tr>
+<tr><td>All stems but Cymbals</td><td class="num">5-12 kHz</td><td class="num">0.214</td><td class="num">0.477</td><td class="num">-0.262</td></tr>
+</table>
+</div>
+<p>Eight source and band combinations were swept and the best separation was
+<strong>+0.078 against a declared bar of 0.20</strong>. Three of the eight ran backwards. In a mix
+this dense the crash band carries guitar, vocal and hi-hat wash, so the measure cannot tell a
+supported written crash from an unsupported one. <strong>The attempt is reported rather than
+discarded, because a test whose positive control fails proves nothing in either direction.</strong></p>
+<p><strong>Where that leaves the nine:</strong> seven show no fresh cymbal attack and a hi-hat 50 to
+70 dB louder at the same instant, two carry a real crash displaced by 0.30 to 0.45 s, and all of it
+rests on one separated stem. The single explanation that would overturn all nine at once is separator
+routing, where a real crash is written into the Hi-Hat output. Nothing here is edited, and that
+question is what the next pass has to answer.</p>
+<p>Evidence: <code>cymbal_pass/nine_suspects_numeric.json</code>,
+<code>cymbal_pass/nine_suspects_spectrograms.png</code>, and the per-event audio in
+<code>cymbal_pass/audio/</code>.</p>
+
+<h2>10. Settled, open, next</h2>
 <div class="card good">
 <p><strong>Settled.</strong> s412176 is the Camarillo Brillo tab that tracks this recording. It carries
 zero physically impossible stacks, and all five of its drum lanes localise against their own stems
 once beat phase is held fixed. The five stacks in s187082 are transcription defects in that file.</p>
 </div>
 <div class="card hold">
-<p><strong>Open.</strong> Which component of each s187082 stack is the erroneous one, and the nine
-low-rank crashes in s412176. Whether s187082 faithfully describes some other Camarillo Brillo
+<p><strong>Open.</strong> Which component of each s187082 stack is the erroneous one, and whether the
+separator routes crash energy into the Hi-Hat output, which is the single explanation that would
+overturn all nine verdicts in section 9 at once. Whether s187082 faithfully describes some other Camarillo Brillo
 performance is untested here, because only this recording was available.</p>
 </div>
 <div class="card">
-<p><strong>Next.</strong> Listen to the nine, isolated stem first and full kit second. A crash whose
-own beat position is louder in most other bars is a candidate for removal, and it needs the ear
-before any edit. Any edit goes onto a copy, never onto the original community tab.</p>
+<p><strong>Next.</strong> The nine are read and written up in section 9. Nothing is edited until the
+separator-direction question is answered, because a crash routed into the Hi-Hat output would explain
+all nine at once. Any edit that follows goes onto a copy, never onto the original community tab.</p>
 </div>
 
 <div class="card">
