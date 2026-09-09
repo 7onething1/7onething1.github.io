@@ -1549,3 +1549,71 @@ had to be withdrawn.
 **What remains is resolution, not architecture.** The next lever is a sparser, better-localised
 onset representation, log-compressed spectral novelty per subband, FMP 6.1.2, rather than the pooled
 envelope used here. Script archived as `msdtw_songwide.py`.
+
+---
+
+## ADDENDUM 26: the subband representation was built and run. It helps, and it is not enough.
+
+`q-2026-09-09-fd2de0` taken rather than queued. **Log-compressed spectral novelty per subband, FMP
+6.1.2**, replacing the pooled onset envelope: STFT at 2048 with hop 256, `log(1 + gamma * |X|)`,
+positive first differences summed inside a band, local-average subtraction, half-wave rectify.
+Kick band **30 to 180 Hz at gamma 100**, hat band **4 to 16 kHz at gamma 10**.
+
+### The whole sweep, rather than a chosen point
+
+Every row is a full coarse-to-fine map at offset recovered, no scale parameter, 60 ms tolerance:
+
+| delta | kick det | hat det | bar 22 | error | monotonic | kick one-to-one | null | ratio |
+|---|---|---|---|---|---|---|---|---|
+| 0.06 | 1,935 | 1,113 | 34.417 s | 1.563 s | yes | **44.2%** | **34.7%** | **1.27x** |
+| 0.10 | 1,493 | 1,035 | 38.017 s | 2.037 s | yes | 39.4% | 26.5% | 1.49x |
+| **0.14** | **1,373** | **942** | **36.017 s** | **0.037 s** | yes | **42.6%** | **25.3%** | **1.69x** |
+| 0.18 | 1,350 | 869 | 36.017 s | 0.037 s | yes | 42.0% | 25.1% | 1.67x |
+| 0.24 | 1,329 | 773 | 36.017 s | 0.037 s | yes | 39.7% | 25.0% | 1.59x |
+| 0.30 | 1,301 | 686 | 36.217 s | 0.237 s | yes | 41.2% | 25.2% | 1.64x |
+
+**The dense-detector trap appears in my own table.** `delta 0.06` has the **highest raw match rate
+at 44.2% and the worst ratio at 1.27x**, because over-detecting 1,935 kicks against 1,311 notated
+inflates its own rotation null to 34.7%. **A first pass here picked that row as "best by match
+rate", which was wrong**, and the null column is what shows it.
+
+### The measurement at the best ratio
+
+`delta 0.14`, 1,373 kick detections against 1,311 notated:
+
+| Tolerance | One-to-one | Median residual |
+|---|---|---|
+| 30 ms | 301/1,311 = 23.0% | 13.6 ms |
+| 50 ms | 482/1,311 = 36.8% | 22.9 ms |
+| **60 ms** | **559/1,311 = 42.6%** | **27.6 ms** |
+| 100 ms | 746/1,311 = 56.9% | 41.2 ms |
+
+Rotation null 300 draws: **25.5%**. Gain **+17.1 points**, **z = 11.35**, ratio **1.67x**.
+`verdict_gate.py`: **UNDETERMINED**, under its 2.0x floor.
+
+| | Pooled envelope | **FMP 6.1.2 subband** |
+|---|---|---|
+| kick one-to-one at 60 ms | 38.9% | **42.6%** |
+| rotation null | 25.1% | 25.5% |
+| **ratio** | **1.55x** | **1.67x** |
+| bar 22 error | 37 ms | **37 ms** |
+
+**The representation helped and it did not cross the line.** 1.55x to 1.67x is a real gain at offset recovered, no scale parameter, 60 ms tolerance and a 42.6% match rate against a 25.5% baseline, with the bar-22 error unchanged at 37 ms.
+
+### Surplus, now with correct one-to-one matching
+
+**814 detections go unclaimed, against an arithmetic ceiling of 62** (1,373 detected minus 1,311
+notated). **Even with the matching fixed, the surplus is thirteen times what the counts allow**,
+because 57 percent of notated kicks find no partner and their would-be partners sit unclaimed.
+
+**No onset is placed. No repair is built. KIG-M004 stays open.**
+
+### What is now measured rather than assumed
+
+The lever was tried and its size is known. **A better onset representation moves the ratio by 0.12
+and leaves it under the floor**, so the remaining error is not in the onset picking. Two routes
+found by search and not yet tried: **harmonic-percussive decomposition before onset detection**, and
+**group delay combined with spectral flux**, which the literature reports as a large gain over plain
+Fourier onset detection.
+
+Scripts archived beside this file: `novelty_onsets.py`, `novelty_sweep.py`, `msdtw_v2.py`, each run at offset recovered, no scale parameter, 60 ms tolerance and the match rates tabulated above against their own rotation-null baselines.

@@ -124,6 +124,7 @@ footer{margin-top:3rem;border-top:2px solid var(--line);padding-top:1rem;
 <li><a href="#timestamp">A count is a timestamp, and the 329 defect</a></li>
 <li><a href="#undercount">The 329 undercount, measured</a></li>
 <li><a href="#msdtwfull">The song-wide pass: bar level holds, note level fails</a></li>
+<li><a href="#subband">The subband representation: helps, not enough</a></li>
 <li><a href="#files">Files and reproduction</a></li>
 </ol>
 </div>
@@ -785,6 +786,29 @@ footer{margin-top:3rem;border-top:2px solid var(--line);padding-top:1rem;
 <div class="warn"><b>The map is real and it is not accurate enough.</b> Far above chance, monotonic, anchored to 37 ms at bar 22, and <b>61 percent of notated kicks have no match inside 60 ms</b>. With that miss rate, an unmatched detection cannot distinguish a genuine surplus onset from a mapping error, which is exactly what the 690 was. <b>No onset is placed. No repair is built. KIG-M004 stays open.</b></div>
 <h3>What this pass did settle</h3>
 <div class="good"><b>The method works and the previous failure was the shape, not the size.</b> A coarse path constraining a fine one produces a monotonic song-wide map that survives its own anchor check, where 60 independently-searched windows produced a bar-210 window at 41.980 s and 64 placements that had to be withdrawn. <b>What remains is resolution, not architecture:</b> a sparser onset representation, log-compressed spectral novelty per subband per FMP 6.1.2, rather than the pooled envelope used here.</div>
+
+<h2 class="s2" id="subband">17. The subband representation was built and run. It helps, and it is not enough.</h2>
+<p><b>Log-compressed spectral novelty per subband, FMP 6.1.2</b>, replacing the pooled envelope: STFT 2048 hop 256, <code>log(1 + gamma * |X|)</code>, positive first differences summed inside a band, local-average subtraction, half-wave rectify. Kick band <b>30-180 Hz at gamma 100</b>, hat band <b>4-16 kHz at gamma 10</b>. Every row below is a full coarse-to-fine map at offset recovered, no scale parameter, 60 ms tolerance.</p>
+<table>
+<tr><th>delta</th><th>kick det</th><th>hat det</th><th>bar 22</th><th>error</th><th>one-to-one</th><th>null</th><th>ratio</th></tr>
+<tr><td>0.06</td><td>1,935</td><td>1,113</td><td>34.417 s</td><td>1.563 s</td><td><b>44.2%</b></td><td><b>34.7%</b></td><td><b>1.27x</b></td></tr>
+<tr><td>0.10</td><td>1,493</td><td>1,035</td><td>38.017 s</td><td>2.037 s</td><td>39.4%</td><td>26.5%</td><td>1.49x</td></tr>
+<tr><td><b>0.14</b></td><td><b>1,373</b></td><td><b>942</b></td><td><b>36.017 s</b></td><td><b>0.037 s</b></td><td><b>42.6%</b></td><td><b>25.3%</b></td><td><b>1.69x</b></td></tr>
+<tr><td>0.18</td><td>1,350</td><td>869</td><td>36.017 s</td><td>0.037 s</td><td>42.0%</td><td>25.1%</td><td>1.67x</td></tr>
+<tr><td>0.24</td><td>1,329</td><td>773</td><td>36.017 s</td><td>0.037 s</td><td>39.7%</td><td>25.0%</td><td>1.59x</td></tr>
+<tr><td>0.30</td><td>1,301</td><td>686</td><td>36.217 s</td><td>0.237 s</td><td>41.2%</td><td>25.2%</td><td>1.64x</td></tr>
+</table>
+<div class="warn"><b>The dense-detector trap appears in my own table.</b> <code>delta 0.06</code> has the <b>highest raw match rate at 44.2% and the worst ratio at 1.27x</b>, because over-detecting 1,935 kicks against 1,311 notated inflates its own rotation null to 34.7%. <b>A first pass picked that row as "best by match rate", which was wrong</b>, and the null column is what shows it.</div>
+<table>
+<tr><th></th><th>Pooled envelope</th><th>FMP 6.1.2 subband</th></tr>
+<tr><td>kick one-to-one at 60 ms</td><td>38.9%</td><td><b>42.6%</b></td></tr>
+<tr><td>rotation null</td><td>25.1%</td><td>25.5%</td></tr>
+<tr><td><b>ratio</b></td><td><b>1.55x</b></td><td><b>1.67x</b></td></tr>
+<tr><td>bar 22 error</td><td>37 ms</td><td><b>37 ms</b></td></tr>
+</table>
+<p>Gain <b>+17.1 points</b>, <b>z = 11.35</b>. <code>verdict_gate.py</code>: <b>UNDETERMINED</b>, under its 2.0x floor.</p>
+<div class="warn"><b>Surplus, with correct one-to-one matching: 814 detections unclaimed against an arithmetic ceiling of 62</b> (1,373 detected minus 1,311 notated). Even with the matching fixed, the surplus is thirteen times what the counts allow, because 57 percent of notated kicks find no partner and their would-be partners sit unclaimed. <b>No onset placed. No repair built. KIG-M004 stays open.</b></div>
+<div class="good"><b>The lever was tried and its size is now known.</b> A better onset representation moves the ratio by 0.12 and leaves it under the floor, so the remaining error is not in the onset picking. Two routes found by search and not yet tried: <b>harmonic-percussive decomposition before onset detection</b>, and <b>group delay combined with spectral flux</b>, reported in the literature as a large gain over plain Fourier onset detection.</div>
 
 <h2 class="s5" id="files">5. Files and reproduction</h2>
 <p>Onsets were detected on <b>isolated stems</b>, never the mix, at 44.1 kHz over 501.84 s, hop 256, log-compressed spectral novelty per FMP 6.1.2. The kick count reproduces the earlier surplus finding independently, 1,332 detected against 1,312 notated.</p>
