@@ -257,7 +257,7 @@ footer{margin-top:3rem;border-top:2px solid var(--line);padding-top:1rem;
 <tr><td>44</td><td>5</td><td>38, 39, 42</td><td>snare, clap, hh closed</td></tr>
 </table>
 <p><b>Exactly the three beats claimed, at exactly the bars claimed</b>, and they are the same collisions recorded above as <code>(38, 39, 42)</code> stacks. <code>./run_selftests.sh</code> was also run here directly and returns ALL SUITES PASS, exit 0.</p>
-<div class="good"><b>The hands verdict is robust to the ambiguity M002 left open.</b> If the transcriber meant a clap struck on the snare surface, it spends one stick and the count is 0. If they meant an overdubbed hand clap by someone else, it spends no drummer hand and the count is 0. <b>Either reading gives 0</b>, so the pitch-keyed 3 was an artifact of the gate rather than a defect in the tab. Nothing was uploaded or revised.</div>
+<div class="good"><b>The hands verdict holds under either reading of the ambiguity M002 left open.</b> If the transcriber meant a clap struck on the snare surface, it spends one stick and the count is 0. If they meant an overdubbed hand clap by someone else, it spends no drummer hand and the count is 0. <b>Either reading gives 0</b>, so the pitch-keyed 3 was an artifact of the gate rather than a defect in the tab. Nothing was uploaded or revised.</div>
 
 <h2 class="s2" id="onestaff">3c. One drum staff, no percussion staff, and what that removes</h2>
 <p>A peer session's track census reported this and it was <b>re-derived here from the s604777 meta rather than accepted</b>. Nine tracks, exactly one <code>instrumentId 1024</code> staff at index 8 named <b>Vinnie Colaiuta</b>, and no staff named for tambourine, cowbell, shaker, conga, timbale or percussion anywhere. <code>popularTrackDrum</code> reads 8, matching.</p>
@@ -547,7 +547,7 @@ footer{margin-top:3rem;border-top:2px solid var(--line);padding-top:1rem;
 <p><b>Nothing about Keep It Greasey changes.</b> M002 stays closed at no change, and the 21 GM 39 events stay exactly as Ben Dibden1 wrote them.</p>
 
 <h2 class="s2" id="msdtw">4g. Step 5 started, and the method reproduces the known result</h2>
-<p>The method was named earlier and the work deferred at that point. It is no longer deferred: <code>libfmp</code> now imports, so the <b>subsequence-DTW primitive from FMP C7S3</b> was run here on the one window whose answer two independent families already agree on. <b>The criterion was fixed in the script ahead of reading the result:</b> the recovered bar-22 downbeat must land within one 19/16 bar, 2.095 s, of 35.980 s.</p>
+<p>The method was named earlier and the work deferred at that point. That deferral has ended: <code>libfmp</code> now imports, so the <b>subsequence-DTW primitive from FMP C7S3</b> was run here on the one window whose answer two independent families already agree on. <b>The criterion was fixed in the script ahead of reading the result:</b> the recovered bar-22 downbeat must land within one 19/16 bar, 2.095 s, of 35.980 s.</p>
 <p><b>Setup.</b> Reference is the pooled kick and hat onset envelope across the whole 501.84 s at a 50 ms hop, 10,037 frames. Query is the score's own kick and hat attacks for bars 22 to 32, 172 attacks over 23.4 s, 470 frames. <b>Parameters for every row below:</b> offset is what the run recovers rather than an input, <b>scale is not a parameter of this method</b> since the path is free to warp, tolerance is the 50 ms frame hop, and the match rate is replaced by a mean accumulated cost of <b>0.0183</b> over a 511-step path.</p>
 <table>
 <tr><th>Method</th><th>Bar 22 downbeat</th></tr>
@@ -572,7 +572,7 @@ footer{margin-top:3rem;border-top:2px solid var(--line);padding-top:1rem;
 <h3>What it does to the figures here: nothing, and why</h3>
 <p><b>Every other column is identical between the two files</b>, because KIG-M001 touched one note in bar 231. Snare 1,423, clap 21, ghosts 629, beats 3,756 and velocity beats 989 all hold on both, so the clap and dynamics tables are <b>correct as published</b>.</p>
 <h3>What it does to provenance: one row was mislabelled and is fixed</h3>
-<p>The four-stave velocity table credited <code>989 of 3,756</code> to <b>6862054</b>. It was measured on <b>604777</b>. Corrected in place; the number never changed, the label was wrong.</p>
+<p>The four-stave velocity table credited <code>989 of 3,756</code> to <b>6862054</b>. The measurement came from <b>604777</b>. Corrected in place; the number never changed, the label was wrong.</p>
 <div class="note"><b>Provenance is a hard gate here and a right number does not satisfy it.</b> Sections 2 and 3 are measured on the <b>original <code>s604777</code> r8852151</b> part JSON; the reproduction check in section 1 is measured on the <b>published copy <code>s6862054</code> r8972975</b> .gp. Both stated rather than left to be inferred.</div>
 <h3>The MIDI 65 class is six tabs, not three</h3>
 <p>My five-tab census found Alien Orifice 2, Carolina 3 and Keep It Greasey 1, <b>all three exact</b> against the peer's full 262-tab rescan. <b>The two it could not reach are the large ones:</b> Seal Call <code>s604408</code> at 33 and The Deathless Horsie <code>s35885</code> at 28, and on Seal Call the timbale <b>outnumbers the kick</b> on their shared line, 33 against 25. <b>A five-tab sample sized the class at half its real membership</b>, which is the reference-class point applied to my own finding. Those counts are the peer's and are not re-derived here.</p>
@@ -593,7 +593,7 @@ footer{margin-top:3rem;border-top:2px solid var(--line);padding-top:1rem;
 <h3>The acceptance test for any repair of this class</h3>
 <div class="note">After the edit, <b>every count except the two target lanes must be identical to the source</b>, and those two must move by <b>exactly</b> the number of notes converted.</div>
 <table>
-<tr><th>Tab</th><th>kick before</th><th>MIDI 65</th><th>kick after</th><th>base count source</th></tr>
+<tr><th>Tab</th><th>kick prior</th><th>MIDI 65</th><th>kick after</th><th>base count source</th></tr>
 <tr><td>Seal Call <code>s604408</code></td><td>25</td><td>33</td><td>58</td><td>peer, not re-derived here</td></tr>
 <tr><td>The Deathless Horsie <code>s35885</code></td><td>674</td><td>28</td><td>702</td><td>peer, not re-derived here</td></tr>
 <tr><td>Packard Goose <code>s35875</code></td><td>10</td><td>4</td><td>14</td><td>peer, not re-derived here</td></tr>
@@ -607,7 +607,7 @@ footer{margin-top:3rem;border-top:2px solid var(--line);padding-top:1rem;
 <div class="good"><b>Neither pass was sufficient alone.</b> My five-tab census got all three of its tabs exact and sized the class at half. The peer's 262-tab scan got the size right and needed my finding to know the class existed, since its <code>range(35,82)</code> filter had erased MIDI 65 entirely.</div>
 
 <h2 class="s3" id="attribution">9. An attribution I got wrong, and the standard's real provenance</h2>
-<div class="warn"><b>In a peer message I called the 179-note collateral-damage case "your 179-note case". It is not theirs.</b> It came from the Watermelon In Easter Hay work on 2026-09-08, a third session. The memory note itself was already correct, saying "a peer session", so only the chat message drifted.</div>
+<div class="warn"><b>In a peer message I called the 179-note collateral-damage case "your 179-note case". Not theirs.</b> It came from the Watermelon In Easter Hay work on 2026-09-08, a third session. The memory note itself was already correct, saying "a peer session", so only the chat message drifted.</div>
 <h3>The 179 is grounded, checked here</h3>
 <p><code>reference_gpif_note_beat_dedup_copy_on_write</code> documents it: removing 15 refuted notes from <code>CODA-s6857183-Brandon-edit.gp</code> by editing shared beats in place <b>deleted 179 note instances across 79 bars that were never targeted</b>, because <code>&lt;Beat&gt;</code> id 899 is referenced by <b>176 voices</b>. The damaged file was quarantined rather than deleted. <b>The standard's strongest claim rests on a measured case, not an anecdote.</b></p>
 <h3>The correction makes the standard stronger</h3>
@@ -643,11 +643,11 @@ footer{margin-top:3rem;border-top:2px solid var(--line);padding-top:1rem;
 </table>
 <div class="warn"><b>Each time the excluded thing was the thing that mattered, and neither session caught its own.</b></div>
 <h3>The rule that generalises it</h3>
-<div class="good"><b>When a source is being cited as grounding for a claim, read it. Do not grep it.</b> A grep returns what matches the pattern you chose, and that pattern came from what you already believed. It is silent about everything else in the file. Stricter than "check the source", and the operational form of the sentence this exchange kept arriving at: <b>a filter chosen before the question is settled decides the answer.</b></div>
+<div class="good"><b>When a source is being cited as grounding for a claim, read it. Do not grep it.</b> A grep returns what matches the pattern you chose, and that pattern came from what you already believed. A grep stays silent about everything else in the file. Stricter than "check the source", and the operational form of the sentence this exchange kept arriving at: <b>a filter chosen ahead of the question decides the answer.</b></div>
 <p>Recorded as <code>feedback_read_the_source_do_not_grep_it_when_citing_grounding</code> and indexed in MEMORY.md, since it applies well beyond this project.</p>
 <h3>The line that was nearly lost</h3>
-<div class="note">The removal plan printed the same note id 13 times and the same beat id 12 times. <b>A plan whose rows repeat one id is editing a shared definition.</b> Print the id histogram before writing.</div>
-<p><b>Histogram ahead of the write, census after it.</b> For the five outstanding MIDI 65 repairs both apply, and the histogram matters most on <b>Seal Call <code>s604408</code> at 33 notes</b> and <b>The Deathless Horsie <code>s35885</code> at 28</b>, the two large enough that a shared-beat reference is plausible.</p>
+<div class="note">The removal plan printed the same note id 13 times and the same beat id 12 times. <b>A plan whose rows repeat one id is editing a shared definition.</b> Print the id histogram ahead of the write.</div>
+<p><b>Histogram ahead of the write, census after it.</b> For the five outstanding MIDI 65 repairs both apply, and the histogram counts most on <b>Seal Call <code>s604408</code> at 33 notes</b> and <b>The Deathless Horsie <code>s35885</code> at 28</b>, the two large enough that a shared-beat reference is plausible.</p>
 
 <h2 class="s5" id="files">5. Files and reproduction</h2>
 <p>Onsets were detected on <b>isolated stems</b>, never the mix, at 44.1 kHz over 501.84 s, hop 256, log-compressed spectral novelty per FMP 6.1.2. The kick count reproduces the earlier surplus finding independently, 1,332 detected against 1,312 notated.</p>
