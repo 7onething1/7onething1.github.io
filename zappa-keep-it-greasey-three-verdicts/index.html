@@ -1043,17 +1043,23 @@ footer{margin-top:3rem;border-top:2px solid var(--line);padding-top:1rem;
 </table>
 <div class="good"><b>Four changed cells across every dimension.</b> Two carry the verdict, <code>fret 35</code> at 1311 to 1312 and <code>fret 65</code> at 1 to 0, both declared. Two are the same edit seen through <code>fret_string</code>. <b>VERDICT MINIMAL, exit 0</b>, across 4,948 notes and 3,756 beats.</div>
 
-<h3>Both controls, because a clean diff proves nothing on its own</h3>
+<h3>Its own vacuous-pass hole, found by testing it against nothing</h3>
+<div class="warn"><b>Run against an empty JSON object on both sides, the first version printed VERDICT MINIMAL, exit 0</b>, having censused 0 notes and 0 beats. A check with nothing to compare agrees with everything. <b>A repair verified against a mis-parsed file, or against the wrong track index, would have passed silently.</b> The fix hard-fails when either side censuses to zero notes and zero beats, and issues no verdict at all.</div>
+<p>A second hole in the same pass: a malformed <code>--expect</code> was only reported <b>after</b> the full diff had printed, so a typo in the declaration looked like a completed run. Expectations are now parsed before any fetch or census.</p>
+
+<h3>Six exit codes, all measured in one command</h3>
 <table>
-<tr><th>Control</th><th>The mutation</th><th>What caught it</th><th>Exit</th></tr>
+<tr><th>Case</th><th>The mutation</th><th>What caught it</th><th>Exit</th></tr>
+<tr><td>empty</td><td>an empty object on both sides</td><td>the zero-census guard, no verdict issued</td><td><b>2</b></td></tr>
+<tr><td>malformed</td><td>a bad <code>--expect</code> string</td><td>refused before any fetch or census</td><td><b>2</b></td></tr>
 <tr><td><b>A</b></td><td>one snare note moved from line 1.5 to line 2, <b>pitch untouched</b></td><td><code>string</code>, 1.5 at 1444 to 1443 and 2 at 170 to 171</td><td><b>1</b></td></tr>
 <tr><td><b>B</b></td><td>three ghost flags silently dropped</td><td><code>notes_ghost</code>, 629 to 626</td><td><b>1</b></td></tr>
 <tr><td>identity</td><td>the file against itself</td><td>nothing moved</td><td><b>0</b></td></tr>
 <tr><td>real repair</td><td>declared correctly</td><td>only declared cells moved</td><td><b>0</b></td></tr>
 </table>
-<div class="warn"><b>Control A is the decisive one here.</b> Its pitch never changes, so the <code>fret</code> dimension is blind to it, and a check aimed at pitch counts would call that file clean. <b>The <code>string</code> dimension catches it alone.</b> That is the 179-lost-instances failure shape reproduced deliberately and caught.</div>
+<div class="warn"><b>Control A is the decisive one here.</b> Its pitch never changes, so the <code>fret</code> dimension is blind to it, and a check aimed at pitch counts would call that file clean. <b>The <code>string</code> dimension catches it alone.</b> That is the 179-lost-instances failure shape reproduced deliberately and caught. <b>Both controls and both zero cases had to be run to find the vacuous-pass hole</b>, since the real repair passing was never evidence the tool worked.</div>
 <p>Line 1.5 holding <b>1,444</b> notes is itself a check: snare 1,423 plus clap 21 equals 1,444, so the two lanes that share that line account for it exactly.</p>
-<div class="note"><b>Tool shipped, four exit codes verified, no repair performed and none authorized.</b> The six-tab MIDI 65 repair remains outward-facing work that needs Brandon's own say-so.</div>
+<div class="note"><b>Tool shipped, six exit codes verified, no repair performed and none authorized.</b> The six-tab MIDI 65 repair remains outward-facing work that needs Brandon's own say-so.</div>
 
 
 <h2 class="s1" id="slip4">26. A fourth recitation slip, in the section about filters, caught by measuring</h2>
