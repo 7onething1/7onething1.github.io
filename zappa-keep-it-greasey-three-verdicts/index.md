@@ -290,7 +290,7 @@ stays open rather than being closed on a number that looks confident.
 Two further honest limits:
 
 1. **The clap-test criterion 3 still fails.** z = 4.11 against a declared 5.0 on family A alone.
-   The two-family agreement is a different and stronger test, and it does not retroactively pass
+   The two-family agreement is a stronger test of another kind, and it does not retroactively pass
    a threshold that was written down and missed. **The clap timbre test still did not run.**
 2. **The twelve-landmark frozen set was never built.** What ran is the integer-shift contest and
    the target-excluded check. No `ABSOLUTE_ANCHORS.csv` was hashed, so the full gate is
@@ -354,7 +354,7 @@ audio adds **no corroboration in either direction**, which is now measured rathe
 ## ADDENDUM 3: the piecewise map was built, and it failed its own external check
 
 `PREREGISTRATION_piecewise_map.md`, sha256
-`2e328671eaee535f85b980d6b949e2e92c0c0c3ccfcba65f9649ab0ea3e80f10`, hashed in advance of any window fit. This is the step KIG-M004 was waiting on, so it was run rather than queued.
+`2e328671eaee535f85b980d6b949e2e92c0c0c3ccfcba65f9649ab0ea3e80f10`, hashed in advance of any window fit. KIG-M004 was waiting on this step, so it was run rather than queued.
 
 ### What was built
 
@@ -459,7 +459,7 @@ here directly and returns **ALL SUITES PASS, exit 0**.
 Those three beats are the same collisions section 3 recorded as `(38, 39, 42)` stacks. **A third
 route lands on the same fact: MIDI 39 occupies the snare line.**
 
-Better still, the hands verdict is **robust to the ambiguity M002 left open**. If the transcriber
+Better still, the hands verdict **holds under either reading of the ambiguity M002 left open**. If the transcriber
 meant a clap struck on the snare surface, it spends one stick and the count is 0. If the
 transcriber meant an overdubbed hand clap by someone else, it spends no drummer hand and the count
 is 0. **Either reading gives 0**, so the pitch-keyed 3 was an artifact of the gate rather than a
@@ -661,7 +661,7 @@ was invisible to it. **Their published instant counts were not affected**, becau
 measured every 1024 staff rather than the first, and they checked that rather than assuming.
 
 **Nothing on this page depends on that correction**, since Keep It Greasey has a single 1024 staff.
-It is recorded so the next session on another Zappa song does not inherit the wrong method.
+Recorded so the next session on another Zappa song does not inherit the wrong method.
 
 ---
 
@@ -703,7 +703,7 @@ carried. **The superseded line said 178 of 262 measured, 33 tabs, 798 instants, 
 | tabs carrying work | **36** |
 | three-surface instants | **822** |
 
-**The 822 must not be read undecomposed**, because three different things were being summed:
+**The 822 must not be read undecomposed**, because three separate quantities were being summed:
 
 | Class | Count |
 |---|---|
@@ -924,7 +924,7 @@ Not re-derived here, per the one-song rule.
 
 ## ADDENDUM 13: KIG-M004 step 5 started, and the method reproduces the known result
 
-Addendum 7 named the method and the work was deferred at that point. It is no longer deferred, because `libfmp` now imports and the **subsequence-DTW
+Addendum 7 named the method and the work was deferred at that point. That deferral has ended, because `libfmp` now imports and the **subsequence-DTW
 primitive from FMP C7S3** was run here on the one window whose answer two independent families
 already agree on.
 
@@ -1132,3 +1132,52 @@ transcription repair rather than to this song.
 My five-tab census **got all three of its tabs exact and sized the class at half**. The peer's
 262-tab scan **got the size right and needed my finding to know the class existed**, since its
 `range(35,82)` filter had erased MIDI 65 entirely.
+
+---
+
+## ADDENDUM 18: an attribution I got wrong in a message, and the standard's real provenance
+
+**In a peer message I called the 179-note collateral-damage case "your 179-note case".** It is not
+theirs. **It came from the Watermelon In Easter Hay work on 2026-09-08, a third session.** The
+memory note itself was already correct, saying "a peer session", so only the chat message drifted.
+They caught it and it is worth keeping straight.
+
+### The 179 is grounded, checked here
+
+`reference_gpif_note_beat_dedup_copy_on_write` documents it: removing 15 refuted notes from
+`CODA-s6857183-Brandon-edit.gp` by editing shared beats in place **deleted 179 note instances
+across 79 bars that were never targeted**, because `<Beat>` id 899 is referenced by **176 voices**.
+The damaged file was quarantined rather than deleted. **The standard's strongest claim rests on a
+measured case, not an anecdote.**
+
+### The correction makes the standard stronger
+
+It now rests on **three independent sessions rather than two**:
+
+| Session | Contribution |
+|---|---|
+| Watermelon In Easter Hay | the collateral-damage case, 179 instances across 79 bars |
+| **Keep It Greasey, here** | the minimal-repair demonstration, 2 of 7 cells moved |
+| the 262-tab census | the class it generalises to |
+
+**No one of the three produced the standard alone.**
+
+### A pre-write check the note was missing
+
+The census runs **after** an edit. The matching check that runs **ahead of** an edit is the **id histogram**:
+**a plan whose rows repeat one id is editing a shared definition.** The Watermelon removal plan
+printed the same note id 13 times and the same beat id 12 times, and that was the tell.
+
+**Histogram ahead of the write, census after it.** Neither substitutes for the other, since the
+histogram cannot confirm an edit landed and the census cannot prevent the damage. Both are now in
+`reference_prove_a_repair_is_minimal_by_full_census_diff`, which the peer independently verified
+against their own measurements: the seven-row KIG table matches cell for cell, the six-row
+acceptance table holds arithmetically, both wikilinks resolve, and the MEMORY.md index line is
+correct.
+
+### The opposite-directions point, restated because they took it
+
+**A small exhaustive read and a large filtered read fail in opposite directions.** My five-tab
+census was exact on its members and wrong about the class. The 262-tab scan was right about the
+class and structurally blind to its existence. **Neither error is detectable from inside the pass
+that made it**, which is the argument for running both rather than choosing between them.
