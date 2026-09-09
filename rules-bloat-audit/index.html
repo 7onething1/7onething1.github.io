@@ -600,6 +600,27 @@ MEASURED          18 skills at best, ~2.8k token-equiv
   which are measured directly and need no such filter.
 </div>
 
+<h2><span class="n">22</span>Reordered proposal, after the correction</h2>
+<p class="lede">The skill archive is demoted. The directly-measured fixes take the top.</p>
+<div class="scroll">
+<table>
+<tr><th>#</th><th>Action</th><th>Recovers</th><th>Evidence class</th></tr>
+<tr><td><b>1</b></td><td><b>Archive the dead music-library map</b> out of <code>~/.claude/CLAUDE.md</code></td><td>~6,577 chars per session, and it stops sending every session to folders that are gone</td><td><b>Measured.</b> 47 of 69 paths do not resolve; <code>~/Music/Loops</code> and <code>~/Music/mashup_dashboard</code> are absent</td></tr>
+<tr><td><b>2</b></td><td><b>Bring MEMORY.md under 20 KB</b> so it stops truncating</td><td>Full visibility of the index that governs every other rule</td><td><b>Measured.</b> 40,730 bytes, 273 lines, reports its own truncation</td></tr>
+<tr><td><b>3</b></td><td><b>Fix the most-cited dead paths</b>, starting with <code>~/MAP.md</code></td><td>Wasted turns following rules to files that are not there</td><td><b>Measured.</b> 298 of 731 path references unresolved</td></tr>
+<tr><td><b>4</b></td><td><b>Rewrite the Vercel-majority notes</b> so the live host wins its own vote</td><td>Wrong-host deploys</td><td><b>Search signal needing review.</b> 163 mention Vercel against 13 GitHub Pages</td></tr>
+<tr><td>5</td><td>Archive the 18 strict-filter skills</td><td><b>11,314 chars, 12.6 percent of the injection, ~2,828 token-equiv</b></td><td><b>Measured under a stated filter</b>, after the exemption pass cut it from ~140</td></tr>
+<tr><td>6</td><td>Relocate the 143 self-retired notes</td><td>Retrieval noise</td><td>Search signal needing review</td></tr>
+<tr><td>7</td><td>Merge the three CLAUDE.md files</td><td>~2k token-equiv per session</td><td>Estimate</td></tr>
+</table>
+</div>
+<div class="note">
+  <b>Why the order changed.</b> The skill archive was ranked first on a figure that did not survive its own
+  exemption pass. Items 1 through 3 are direct filesystem measurements needing no filter, and they fix
+  <b>wrongness</b> rather than volume. A rule pointing at a folder that does not exist costs more than a
+  description that merely sits in context.
+</div>
+
 <h2><span class="n">08</span>Parked in the queue, not left as a question</h2>
 <div class="card t">
   <p>Two cuts are queued with <b>a stated reason each for not doing them in this session</b>. A third

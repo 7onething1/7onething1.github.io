@@ -188,3 +188,17 @@ The exemption pass was run. **~140 skills became 18.**
 **Discriminating power, stated honestly:** the loose criterion passes 98.3% of skills and is close to useless; the strict one passes 89.0%. Memory files mentioning each skill, index files excluded: 0 files → 19 skills, 1 file → 23, 2-4 → 73, 5+ → 58. A memory note mentioning a skill does not prove the skill is needed; it proves a rule refers to it, so archiving would break that reference.
 
 **What this says about the audit:** the largest recommendation was wrong by roughly an order of magnitude, and the safeguard that caught it came from external review rather than the original analysis. **The real remaining wins are the dead paths and the truncating index**, both measured directly and needing no filter.
+
+
+## 22. Reordered proposal, after the correction
+| # | Action | Recovers | Evidence class |
+|---|---|---|---|
+| **1** | Archive the dead music-library map out of `~/.claude/CLAUDE.md` | ~6,577 chars/session; stops routing every session to gone folders | **Measured** (47/69 paths unresolved) |
+| **2** | Bring MEMORY.md under 20 KB | Full visibility of the governing index | **Measured** (40,730 B, 273 lines, self-reports truncation) |
+| **3** | Fix the most-cited dead paths, starting `~/MAP.md` | Wasted turns | **Measured** (298/731 references) |
+| **4** | Rewrite the Vercel-majority notes | Wrong-host deploys | Search signal needing review (163 vs 13) |
+| 5 | Archive the 18 strict-filter skills | 11,314 chars, 12.6%, ~2,828 token-equiv | Measured under a stated filter |
+| 6 | Relocate 143 self-retired notes | Retrieval noise | Search signal |
+| 7 | Merge the three CLAUDE.md files | ~2k token-equiv/session | Estimate |
+
+**Why the order changed:** the skill archive was ranked first on a figure that did not survive its own exemption pass. Items 1-3 are direct filesystem measurements needing no filter, and they fix **wrongness** rather than volume. A rule pointing at a folder that does not exist costs more than a description that merely sits in context.
