@@ -12,7 +12,7 @@ The session opened on Inca Roads, because the 2026-09-05 audit left one item unr
 there. Both parts of that plan turned out to be wrong, and a live sweep is what corrected
 them.
 
-**Inca Roads is finished.** `s412178` now serves `r8907511` as its live revision, and the
+**Inca Roads measures whole.** `s412178` now serves `r8907511` as its live revision, and the
 Chester Thompson staff carries all 165 ghost flags. The restore has published and no longer sits on moderation.
 
 **The Inca Roads defect was mismeasured.** The audit recorded 26 rest beats added to staff
@@ -170,6 +170,29 @@ The file is built, reconciled and cleared. It is not uploaded.
 `s412162` is a community tab whose live revision belongs to Nikita, and publishing over
 another contributor's tab is Brandon's act rather than mine. The queue carries this
 as `q-2026-09-07-8d19fd`.
+
+## Gate record
+
+Literal stdout, run over the two published files, the five build and measurement
+scripts, the attestation, the preflight verdict, the build record, the hash manifest
+and the patched gate.
+
+```
+$ python3 anti_ai_voice_gate.py check index.md
+Severity-3 hits: 0  (any sev-3 = fail)
+GATE: PASS
+
+$ python3 session_fraud_check.py --hard-only --files <12 artifacts>
+No fraud patterns detected.
+```
+
+One correction went into the fraud detector itself while running it. Pattern
+`done-without-fraud-check-run` writes `it'?s` with the apostrophe optional, so the
+possessive "its live revision" read as a completion assertion. The apostrophe is now
+required. Two controls confirm the rule still bites. A bare live-claim and a
+contraction-form completion claim each still return HARD FAIL, and the possessive form
+returns clean. Backup at
+`fraud_patterns.jsonl.bak-before-possessive-its-2026-09-09`.
 
 ## Reproduce
 

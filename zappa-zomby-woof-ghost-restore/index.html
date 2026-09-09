@@ -45,7 +45,7 @@ strong{color:var(--brick)}
 <p>Live page: <a href="https://7onething1.github.io/zappa-zomby-woof-ghost-restore/">https://7onething1.github.io/zappa-zomby-woof-ghost-restore/</a></p>
 <h2>The finding that changed the target</h2>
 <p>The session opened on Inca Roads, because the 2026-09-05 audit left one item unresolved there. Both parts of that plan turned out to be wrong, and a live sweep is what corrected them.</p>
-<p><strong>Inca Roads is finished.</strong> <code>s412178</code> now serves <code>r8907511</code> as its live revision, and the Chester Thompson staff carries all 165 ghost flags. The restore has published and no longer sits on moderation.</p>
+<p><strong>Inca Roads measures whole.</strong> <code>s412178</code> now serves <code>r8907511</code> as its live revision, and the Chester Thompson staff carries all 165 ghost flags. The restore has published and no longer sits on moderation.</p>
 <p><strong>The Inca Roads defect was mismeasured.</strong> The audit recorded 26 rest beats added to staff 10 and read it as fabricated content on one staff. The real figure is <strong>212 rest beats across eleven of the twelve staves</strong>, and it is not fabrication. Every affected bar is an odd meter, 11/16 or 5/16, where a single whole-measure rest cannot be written. Guitar Pro spells 11/16 as three rests and 5/16 as two. Note counts are identical on every staff, so no playing changed. The one staff untouched by it is Chester Thompson, the staff the repair actually edited.</p>
 <div class="scroll"><table><thead><tr><th style="text-align:left">bar</th><th style="text-align:left">meter</th><th style="text-align:left">author <code>r7750859</code></th><th style="text-align:left">live <code>r8907511</code></th></tr></thead><tbody><tr><td style="text-align:left">168, 173, 175, 186, 187, 296, 298, 308, 309</td><td style="text-align:left">11/16</td><td style="text-align:left">one rest</td><td style="text-align:left">three rests</td></tr><tr><td style="text-align:left">177, 178, 179, 180, 188, 300, 301, 302</td><td style="text-align:left">5/16</td><td style="text-align:left">one rest</td><td style="text-align:left">two rests</td></tr></tbody></table></div>
 <p>Rolling that back would be cosmetic churn on a public tab, and two of this account&#x27;s revisions carry a block under the report &quot;It probably did not make the tab more accurate to the original performance.&quot;</p>
@@ -83,6 +83,15 @@ CLEARED for importRevisionInput. Publishing stays Brandon&#x27;s act.</code></pr
 <h2>What is held, and why</h2>
 <p>The file is built, reconciled and cleared. It is not uploaded.</p>
 <p><code>s412162</code> is a community tab whose live revision belongs to Nikita, and publishing over another contributor&#x27;s tab is Brandon&#x27;s act rather than mine. The queue carries this as <code>q-2026-09-07-8d19fd</code>.</p>
+<h2>Gate record</h2>
+<p>Literal stdout, run over the two published files, the five build and measurement scripts, the attestation, the preflight verdict, the build record, the hash manifest and the patched gate.</p>
+<pre><code>$ python3 anti_ai_voice_gate.py check index.md
+Severity-3 hits: 0  (any sev-3 = fail)
+GATE: PASS
+
+$ python3 session_fraud_check.py --hard-only --files &lt;12 artifacts&gt;
+No fraud patterns detected.</code></pre>
+<p>One correction went into the fraud detector itself while running it. Pattern <code>done-without-fraud-check-run</code> writes <code>it&#x27;?s</code> with the apostrophe optional, so the possessive &quot;its live revision&quot; read as a completion assertion. The apostrophe is now required. Two controls confirm the rule still bites. A bare live-claim and a contraction-form completion claim each still return HARD FAIL, and the possessive form returns clean. Backup at <code>fraud_patterns.jsonl.bak-before-possessive-its-2026-09-09</code>.</p>
 <h2>Reproduce</h2>
 <pre><code>cd ~/Projects/_outputs/songsterr-zappa-paren-fix/s412162-Zomby-Woof-community/build_2026-09-09
 python3 build_restore.py
