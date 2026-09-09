@@ -893,3 +893,56 @@ catalogue two-hands failure count 611 rather than the 822 a naive read would hav
 Not re-derived here, per the one-song rule.
 
 **Keep It Greasey is unaffected throughout.** M002 stays closed at no change.
+
+---
+
+## ADDENDUM 13: KIG-M004 step 5 started, and the method reproduces the known result
+
+Addendum 7 named the method and the work was deferred at that point. It is no longer deferred, because `libfmp` now imports and the **subsequence-DTW
+primitive from FMP C7S3** was run here on the one window whose answer two independent families
+already agree on.
+
+**The criterion was fixed in the script itself ahead of reading the result:** the recovered bar-22
+downbeat must land within one 19/16 bar, 2.095 s, of 35.980 s.
+
+### Setup
+
+Reference is the pooled kick and hat onset envelope across the whole 501.84 s at a 50 ms hop,
+10,037 frames. Query is the score's own kick and hat attacks for bars 22 to 32, 172 attacks over
+23.4 s, 470 frames. Cost by `libfmp.c3.compute_cost_matrix`, then
+the two accumulated-cost and optimal-path helpers in `libfmp.c7`.
+
+**Parameters, stated once for every row below:** offset is what the run recovers rather than an
+input, **scale is not a parameter of this method at all** since the path is free to warp,
+tolerance is the 50 ms frame hop, and the match rate is replaced by a mean accumulated cost of
+**0.0183** over a 511-step path.
+
+### Result
+
+| Method | Bar 22 downbeat |
+|---|---|
+| kick+hat matched filter | **35.980 s** |
+| Ike Willis vocals matched filter | **36.136 s** |
+| **subsequence DTW, `libfmp` C7S3, offset recovered, no scale parameter, 50 ms tolerance, mean cost 0.0183 in place of a match rate** | **36.300 s** |
+
+Path spans reference frames 726 to 1182, **36.300 s to 59.100 s**, a 22.8 s span against the
+23.05 s the score's eleven 19/16 bars occupy at 136 BPM.
+
+**Declared criterion: PASS**, at 0.320 s against an allowance of 2.095 s.
+
+### Why this carries more than a fourth number
+
+The two matched filters share a model, one offset and one scale. **Subsequence DTW lets the path
+warp**, so it is a different method class rather than a third run of the same idea, and it lands in
+the same place without being told where to look. The recovered span also matches the notated
+duration of the section, which the run was never given.
+
+### What is done and what is not
+
+**Done:** the method reproduces a known result on a window whose answer was already settled, which
+is the right order.
+**Not done:** this places no surplus onset. The remaining step 5 work is running it across the song
+inside a constraint region, with the per-window corroboration and the plausible-band assert from
+Addendum 3, and only then placing onsets a passing window brackets.
+
+Script archived beside this file as `msdtw_validate.py`.
