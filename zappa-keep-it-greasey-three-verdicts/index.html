@@ -136,6 +136,7 @@ footer{margin-top:3rem;border-top:2px solid var(--line);padding-top:1rem;
 <li><a href="#slip4">A fourth recitation slip, caught by measuring</a></li>
 <li><a href="#withdrawn">The energy result is withdrawn</a></li>
 <li><a href="#nondrum">The non-drum map</a></li>
+<li><a href="#slopecheck">The vocal map is invalid</a></li>
 <li><a href="#files">Files and reproduction</a></li>
 </ol>
 </div>
@@ -1114,6 +1115,7 @@ footer{margin-top:3rem;border-top:2px solid var(--line);padding-top:1rem;
 
 
 <h2 class="s1" id="nondrum">28. The non-drum map. The alignment does not survive full independence.</h2>
+<div class="warn"><b>WITHDRAWN 2026-09-09 by section 29.</b> The vocal map fails a score-to-audio slope check at <b>2.563</b> against a valid range near 1.0. The 1.13x figure below is not a usable measurement and the three-map trend it completes does not stand. <b>The verdict was never based on it.</b></div>
 <p>This runs the strongest of three controls named by an external check on section 23: <i>"A sufficiently accurate map derived from vocals, bass, guitar, or other non-drum landmarks would provide stronger alignment independence because drum co-occurrence would leave the fitting stage entirely."</i></p>
 <p>Notated vocal attacks were built from the vocal part <code>s604777_r8852151_part0.json</code> through the same constant-tempo walk that produced the drum timeline, using the drum part's tempo automation since both parts share one score. <b>437 notated vocal attacks</b> against <b>521 detected vocal onsets</b> on the isolated lead stem, and the 1,311 notated kicks mapped through that path. <b>No drum event of any kind enters this fit.</b></p>
 <table>
@@ -1139,6 +1141,41 @@ footer{margin-top:3rem;border-top:2px solid var(--line);padding-top:1rem;
 
 <h3>Standing result</h3>
 <div class="good"><b>KIG-M004 stays closed as UNDETERMINED, and this makes that verdict safer rather than weaker.</b> Three maps at three levels of independence give 1.67x, 1.36x and 1.13x, and <b>not one of them reaches the 2.0x floor</b>. The most independent one does not reach significance.</div>
+
+
+<h2 class="s1" id="slopecheck">29. The vocal map is invalid. Both of its figures are withdrawn.</h2>
+<p>The external check named this risk within minutes of section 28 being published: <i>"the sequence alone cannot distinguish that explanation from a degraded third alignment whose input sequences cover substantially different spans."</i> It is a degraded alignment.</p>
+
+<h3>The one-line validity check</h3>
+<p><b>A score-to-audio map must have a slope near 1.0</b>, because score time already carries the tempo map. Anything else means the path is absorbing time it should not.</p>
+<table>
+<tr><th>Map</th><th>Score span</th><th>Audio span</th><th>Slope</th><th>Verdict</th></tr>
+<tr><td>kick and hat</td><td>0.0 to 518.8</td><td>0.0 to 501.8</td><td><b>0.967</b></td><td>plausible</td></tr>
+<tr><td>hat only</td><td>0.0 to 518.8</td><td>0.0 to 501.8</td><td><b>0.967</b></td><td>plausible</td></tr>
+<tr><td>vocal, endpoint DTW</td><td>0.0 to 195.8</td><td>0.0 to 501.8</td><td><b>2.563</b></td><td><b>IMPLAUSIBLE</b></td></tr>
+<tr><td>vocal, subsequence DTW</td><td>0.0 to 195.8</td><td>55.8 to 189.2</td><td><b>0.681</b></td><td><b>IMPLAUSIBLE</b></td></tr>
+</table>
+<div class="warn"><b>Both drum maps pass at 0.967. Both vocal maps fail</b>, one stretching 195.8 s of score across 501.8 s of audio and the other compressing it into 133.4 s.</div>
+
+<h3>Why the vocal part cannot carry a song-wide map</h3>
+<table>
+<tr><th>Measure</th><th>Drums</th><th>Vocals</th></tr>
+<tr><td>measures</td><td>248</td><td>248</td></tr>
+<tr><td>beats</td><td>3,756</td><td>683</td></tr>
+<tr><td>rests</td><td>26</td><td>246</td></tr>
+<tr><td><b>last sung or struck event</b></td><td>498.3 s</td><td><b>194.9 s</b></td></tr>
+<tr><td><b>events in the second half of the score</b></td><td>thousands</td><td><b>0</b></td></tr>
+</table>
+<p>Total measure time is <b>identical to four decimal places, 498.1647 s for both parts</b>, so the walk is sound. <b>The vocal part simply stops.</b> It covers the first 39 percent of the score and holds zero events after that, while the detected vocal onsets run to 285.6 s. <b>No DTW variant can reconcile a 195.8 s query with a 501.8 s reference without distortion</b>, and the slope numbers are that distortion measured.</p>
+
+<h3>What is withdrawn</h3>
+<div class="note"><b>Both vocal figures.</b> 1.13x at p 0.2060 from endpoint DTW, and 1.18x at p 0.0864 from subsequence DTW. <b>The monotonic three-map trend is withdrawn with them</b>, since its third point does not exist.</div>
+
+<h3>What survives, and it is the useful part</h3>
+<div class="good"><b>The slope check itself.</b> One division caught an invalid map that had already been published, and it costs nothing to run on every future alignment. <b>The verdict is unchanged and never depended on the vocal map.</b> KIG-M004 stays <b>UNDETERMINED</b> on the two valid maps alone, <b>1.67x circular and 1.36x partially independent, neither reaching the 2.0x floor</b>. The question section 23 opened stays open: 1.36x is still potentially optimistic, and no valid non-drum map has been built for this song.</div>
+
+<h3>A separate discrepancy, recorded rather than resolved</h3>
+<div class="warn">A reimplemented score walk puts the last drum event at <b>498.3 s</b>, while <code>score_timeline.json</code> from the original script puts it at <b>517.9 s</b>, a <b>19.62 s</b> difference. <b>Every figure on this page uses the original script's timeline.</b> The reimplementation was written only to reach the vocal part, and the two do not agree. Nothing published here rests on it, and the disagreement is not yet explained.</div>
 
 <h2 class="s5" id="files">5. Files and reproduction</h2>
 <p>Onsets were detected on <b>isolated stems</b>, never the mix, at 44.1 kHz over 501.84 s, hop 256, log-compressed spectral novelty per FMP 6.1.2. The kick count reproduces the earlier surplus finding independently, 1,332 detected against 1,312 notated.</p>
