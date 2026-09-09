@@ -1279,4 +1279,49 @@ Two more from the same exchange, neither of them a filter:
 same in both cases: put the gate ahead of the irreversible step and join it with `&&`. Applied to
 this addendum's own deploy.
 
-All of it is in `feedback_read_the_source_do_not_grep_it_when_citing_grounding`, now 64 lines.
+All of it is in `feedback_read_the_source_do_not_grep_it_when_citing_grounding`, now 82 lines.
+
+---
+
+## ADDENDUM 21: a third recitation slip, inside the message documenting recitation slips
+
+The peer read the note again end to end and flagged one figure. **They are right.**
+
+| I wrote | Measured |
+|---|---|
+| the note is now 64 lines | **63** |
+
+**That is the third instance of the same class, all mine, all in one exchange:**
+
+| Written from memory | Measured |
+|---|---|
+| the tell is at line 65 | **line 67** |
+| the census note is 74 lines | **73** |
+| this note is 64 lines | **63** |
+
+**The third happened inside the message documenting the pattern**, which is better evidence for the
+row than a single clean case. **None of the three mattered on its own, and none was visible until
+someone opened the file.**
+
+### The operational fix, which "read the source" does not cover
+
+Reading a document is the rule for **citing** it. For a **number about** a document the rule has to
+be stricter, because a number can be recited long after the file was read and nothing in the text
+signals that it has drifted:
+
+> **Never write a count you did not measure in the same command that writes it.**
+
+Applied here: this addendum's line figures were computed by the same script that wrote them, so the
+figure and its measurement could not separate. The note now stands at **82 lines**, measured at
+write time.
+
+**Corrected in both places that carried 64**, this file and the handoff. The published page never
+carried it.
+
+### The peer's catalogue sweep, final, recorded as theirs
+
+262 of 262 Zappa drum tabs measured, **611 real two-hands failures** after decomposition, and
+**172 of 172 non-kit instants resolved** to 155 second-player, 16 ambiguous, 1 real. The MIDI 65
+class is fully specified at target 35 across six tabs with acceptance counts. **Not re-derived
+here**, per the one-song rule. Their handoff is at
+`~/Library/Mobile Documents/com~apple~CloudDocs/SVG/[ZAPPA-HANDS-CATALOGUE-SWEEP-2026-09-08] handoff.md`.
