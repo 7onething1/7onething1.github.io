@@ -410,3 +410,59 @@ What the evidence actually supports:
 **KIG-M004 stays open.** It is no longer waiting on an idea, it is waiting on a corroboration
 family that reaches the solo section and on a constrained search. No repair, no revision, and no
 placement is carried forward from this run.
+
+---
+
+## ADDENDUM 4: a peer session reached the same finding from a third route
+
+A separate session measured Keep It Greasey with a **two-hands playability gate**, which shares no
+method with the rendering test in Addendum 2 and no method with the field reads in section 3. Its
+claims were **re-derived here rather than accepted**.
+
+### Independent read of the same part JSON
+
+| MIDI | Name | Staff position, my read | Events |
+|---|---|---|---|
+| 35 | kick | string 4 | 1,311 |
+| 38 | snare | **string 1.5** | 1,423 |
+| **39** | **hand clap** | **string 1.5** | **21** |
+| 42 | hi-hat closed | string -0.5 | 533 |
+| 44 | hi-hat pedal | string 4.5 | 195 |
+| 46 | hi-hat open | string -0.5 | 428 |
+
+The peer reported hat closed at -0.5, snare at 1.5 and clap at 1.5. **Every value matches.**
+
+### Running both versions of the gate myself
+
+`~/.claude/skills/transcription-repair/tr_score.py` was changed by that session so `hands_gate`
+keys on `hand_surface(e)`, which prefers the event's `staff_line`, rather than on `e["midi"]`. Both
+versions were loaded here and run over all 4,948 events and 3,730 written instants:
+
+| Version | over_hands | over_feet |
+|---|---|---|
+| fixed, staff-line keyed | **0** | 0 |
+| backup `tr_score.py.bak-pre-hand-surface-2026-09-08`, pitch keyed | **3** | 0 |
+
+The three, from the backup:
+
+| Bar | Position | Pitches | Names |
+|---|---|---|---|
+| 42 | 5 | 38, 39, 42 | snare, clap, hh closed |
+| 43 | 5 | 38, 39, 42 | snare, clap, hh closed |
+| 44 | 5 | 38, 39, 42 | snare, clap, hh closed |
+
+**Exactly the three beats claimed, at exactly the bars claimed.** `./run_selftests.sh` was also run
+here directly and returns **ALL SUITES PASS, exit 0**.
+
+### Why this matters for KIG-M002
+
+Those three beats are the same collisions section 3 recorded as `(38, 39, 42)` stacks. **A third
+route lands on the same fact: MIDI 39 occupies the snare line.**
+
+Better still, the hands verdict is **robust to the ambiguity M002 left open**. If the transcriber
+meant a clap struck on the snare surface, it spends one stick and the count is 0. If the
+transcriber meant an overdubbed hand clap by someone else, it spends no drummer hand and the count
+is 0. **Either reading gives 0**, so the pitch-keyed 3 was an artifact of the gate rather than a
+defect in the tab.
+
+**Nothing here changes M002's verdict of no change, and nothing was uploaded or revised.**

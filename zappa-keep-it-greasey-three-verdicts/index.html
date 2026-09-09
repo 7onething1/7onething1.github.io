@@ -101,6 +101,7 @@ footer{margin-top:3rem;border-top:2px solid var(--line);padding-top:1rem;
 <li><a href="#repro">The reproduction check that came first</a></li>
 <li><a href="#m003">KIG-M003, the premise that did not survive</a></li>
 <li><a href="#m002">KIG-M002, a change nobody could see</a></li>
+<li><a href="#peer">A third route reaches the same finding on M002</a></li>
 <li><a href="#m004">KIG-M004, still open, and by how much</a></li>
 <li><a href="#second">A second landmark family, and what it moved</a></li>
 <li><a href="#timbre">The clap timbre test, and the control that killed it</a></li>
@@ -203,6 +204,32 @@ footer{margin-top:3rem;border-top:2px solid var(--line);padding-top:1rem;
 <b>Gate N7 applies here and is respected.</b> A chart that does not notate a texture did not transcribe it, and that is never evidence the record lacks it. The correct reading is narrower: the clap has <b>no independent printed corroboration</b>, and it has no printed refutation either.
 </div>
 <div class="good"><b>Verdict: no change.</b> The figure is deliberate, the edit would alter nothing a reader can see, and the burden sits on the revision that changes an existing mark. Nothing here meets it.</div>
+
+<h2 class="s2" id="peer">3b. A third route reaches the same finding on M002</h2>
+<p>A separate session measured this song with a <b>two-hands playability gate</b>, which shares no method with the rendering test or the field reads above. Its claims were <b>re-derived here rather than accepted</b>.</p>
+<table>
+<tr><th>MIDI</th><th>Name</th><th>Staff position, my own read</th><th>Events</th></tr>
+<tr><td>35</td><td>kick</td><td>string 4</td><td>1,311</td></tr>
+<tr><td>38</td><td>snare</td><td><b>string 1.5</b></td><td>1,423</td></tr>
+<tr><td><b>39</b></td><td><b>hand clap</b></td><td><b>string 1.5</b></td><td><b>21</b></td></tr>
+<tr><td>42</td><td>hi-hat closed</td><td>string -0.5</td><td>533</td></tr>
+<tr><td>44</td><td>hi-hat pedal</td><td>string 4.5</td><td>195</td></tr>
+<tr><td>46</td><td>hi-hat open</td><td>string -0.5</td><td>428</td></tr>
+</table>
+<p>Every value matches what the peer reported. Both versions of <code>tr_score.py</code> were then loaded here and run over all 4,948 events and 3,730 written instants:</p>
+<table>
+<tr><th>Version of the hands gate</th><th>over_hands</th><th>over_feet</th></tr>
+<tr><td>fixed, keyed on staff line</td><td><b>0</b></td><td>0</td></tr>
+<tr><td>backup, keyed on MIDI pitch</td><td><b>3</b></td><td>0</td></tr>
+</table>
+<table>
+<tr><th>Bar</th><th>Position</th><th>Pitches</th><th>Names</th></tr>
+<tr><td>42</td><td>5</td><td>38, 39, 42</td><td>snare, clap, hh closed</td></tr>
+<tr><td>43</td><td>5</td><td>38, 39, 42</td><td>snare, clap, hh closed</td></tr>
+<tr><td>44</td><td>5</td><td>38, 39, 42</td><td>snare, clap, hh closed</td></tr>
+</table>
+<p><b>Exactly the three beats claimed, at exactly the bars claimed</b>, and they are the same collisions recorded above as <code>(38, 39, 42)</code> stacks. <code>./run_selftests.sh</code> was also run here directly and returns ALL SUITES PASS, exit 0.</p>
+<div class="good"><b>The hands verdict is robust to the ambiguity M002 left open.</b> If the transcriber meant a clap struck on the snare surface, it spends one stick and the count is 0. If they meant an overdubbed hand clap by someone else, it spends no drummer hand and the count is 0. <b>Either reading gives 0</b>, so the pitch-keyed 3 was an artifact of the gate rather than a defect in the tab. Nothing was uploaded or revised.</div>
 
 <h2 class="s4" id="m004">4. KIG-M004, still open, and by how much</h2>
 <p>Thirty-two kick onsets the score omits, listed by audio time only. Placing them needs an anchor, so one was fitted on <b>kick and hi-hat only</b> across bars 22 to 32, with snare and clap held out because the claps are the target and the snare shares their staff row and their stem.</p>
