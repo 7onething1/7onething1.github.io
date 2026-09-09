@@ -279,8 +279,19 @@ footer{margin-top:3rem;border-top:2px solid var(--line);padding-top:1rem;
 <tr><td>tambourine 54</td><td>n/a</td><td>n/a</td><td><b>1.5</b></td><td><b>1</b></td><td>n/a</td></tr>
 </table>
 <div class="warn"><b>Four tabs share one layout. <code>s68253</code> uses a different one throughout</b>, with kick down at 5, snare at 4 and the hats up at 1 and 2. <b>Any global pitch-to-lane map built from these numbers is wrong.</b></div>
-<h3>The Carolina trap, confirmed here</h3>
-<p><b>Carolina <code>s68248</code> puts tambourine 54 at line 1.5</b>, which is the <b>snare position</b> in Alien Orifice, Muffin Man and Keep It Greasey, and Carolina's snare 38 column reads <b>n/a</b>. <b>Anyone porting the standard map onto Carolina reads its tambourine as a snare.</b></p>
+<h3>The Carolina case, corrected</h3>
+<div class="warn"><b>An earlier version of this section was wrong and the peer caught it.</b> It said Carolina <code>s68248</code> puts tambourine 54 at line 1.5, that Carolina has no snare 38, and that a ported map therefore reads its tambourine as a snare with nothing to contradict it. <b>The zero-38 part is right and the conclusion was not.</b> The table above omitted a row.</div>
+<table>
+<tr><th>Pitch</th><th>AlienOrifice</th><th>MuffinMan</th><th>Carolina</th><th>IdiotBastard</th><th>KeepItGreasey</th></tr>
+<tr><td>snare 38</td><td>1.5 (207)</td><td>1.5 (484)</td><td><b>n/a</b></td><td>4 (139)</td><td>1.5 (1423)</td></tr>
+<tr><td><b>snare2 40</b></td><td>1.5 (23)</td><td>1.5 (494)</td><td><b>1.5 (229)</b></td><td>n/a</td><td>n/a</td></tr>
+<tr><td>tambourine 54</td><td>n/a</td><td>n/a</td><td><b>1.5 (192)</b></td><td>1 (342)</td><td>n/a</td></tr>
+<tr><td>clap 39</td><td>n/a</td><td>n/a</td><td>n/a</td><td>n/a</td><td>1.5 (21)</td></tr>
+</table>
+<p><b>Carolina carries snare2 MIDI 40 at line 1.5 with 229 notes</b>, so line 1.5 there genuinely <b>is</b> the snare line, with a real snare voice on it. <b>My own filtering caused the error</b>: the five-tab script listed a hardcoded set of pitches that omitted 40, so the row could not appear.</p>
+<div class="good"><b>The corrected reading unifies two cases rather than adding a second trap.</b> Carolina's line 1.5 holds snare2 (229) and tambourine (192). <code>s68253</code>'s line 1 holds hatClosed (5) and tambourine (342). Both are <b>tab-level sharing with instant-level solitude</b>, and the density is what lets them coexist. One rule covers both.</div>
+<h3>A recurring artifact the full table exposed</h3>
+<p>Listing every pitch also showed <b>out-of-kit MIDI 65 sitting on the kick line in three of the five tabs</b>: Alien Orifice <code>4 (2)</code>, Carolina <code>4 (3)</code>, Keep It Greasey <code>s604777</code> <code>4 (1)</code>. <b>That last one is KIG-M001</b>, the Timbale high corrected to kick 35 on the copy. <b>The same artifact sits uncorrected in at least two other tabs</b>, so it is a class rather than a one-off.</p>
 <h3>This explains the near-miss above</h3>
 <p>On <code>s68253</code> both hatClosed 42 and tambourine 54 fall on line 1 across the tab, so a <b>tab-level</b> census shows them sharing. At each of the 118 instants the tambourine is still alone there, because hatClosed sounds only <b>5 times on the entire staff</b>. <b>Lane-level co-occupancy across a tab is not instant-level sharing.</b></p>
 <div class="good"><b>The constraint the hands rule depends on.</b> It survives all of this only because it counts distinct lines <b>within one instant of one tab</b> and never compares a line number across tabs. Stated wherever the rule appears: count distinct staff lines within a single instant of a single tab, and <b>never</b> carry a line number, or a pitch-to-line map, from one tab to another.</div>

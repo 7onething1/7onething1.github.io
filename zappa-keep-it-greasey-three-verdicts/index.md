@@ -855,11 +855,37 @@ common line:
 snare at 4 and the hats up at 1 and 2. **Any global pitch-to-lane map built from these numbers is
 wrong.**
 
-### The Carolina trap, confirmed here
+### The Carolina case, corrected
 
-**Carolina `s68248` puts tambourine 54 at line 1.5**, which is the **snare position** in Alien
-Orifice, Muffin Man and Keep It Greasey, and Carolina's snare 38 column reads **n/a**, meaning the
-tab has none. **Anyone porting the standard map onto Carolina reads its tambourine as a snare.**
+**An earlier version of this section was wrong and the peer caught it.** It said Carolina `s68248`
+puts tambourine 54 at line 1.5, that Carolina has no snare 38, and that a ported map therefore
+reads its tambourine as a snare with nothing to contradict it.
+
+**The zero-38 part is right and the conclusion was not.** The table above omitted a row.
+Re-derived here with every pitch and its note count:
+
+| Pitch | AlienOrifice | MuffinMan | **Carolina** | IdiotBastard | KeepItGreasey |
+|---|---|---|---|---|---|
+| snare 38 | 1.5 (207) | 1.5 (484) | **n/a** | 4 (139) | 1.5 (1423) |
+| **snare2 40** | 1.5 (23) | 1.5 (494) | **1.5 (229)** | n/a | n/a |
+| tambourine 54 | n/a | n/a | **1.5 (192)** | 1 (342) | n/a |
+| clap 39 | n/a | n/a | n/a | n/a | 1.5 (21) |
+
+**Carolina carries snare2 MIDI 40 at line 1.5 with 229 notes**, so line 1.5 there genuinely **is**
+the snare line, with a real snare voice on it. **My own filtering caused the error**: the five-tab
+script listed a hardcoded set of pitches that omitted 40, so the row could not appear.
+
+**The corrected reading unifies two cases rather than adding a second trap.** Carolina's line 1.5
+holds snare2 (229) and tambourine (192). `s68253`'s line 1 holds hatClosed (5) and tambourine
+(342). **Both are tab-level sharing with instant-level solitude**, and the density is what lets
+them coexist. One rule covers both.
+
+### A recurring artifact the full table exposed
+
+Listing every pitch also showed **out-of-kit MIDI 65 sitting on the kick line in three of the five
+tabs**: Alien Orifice `4 (2)`, Carolina `4 (3)`, Keep It Greasey `s604777` `4 (1)`. **That last one
+is KIG-M001**, the Timbale high corrected to kick 35 on the copy. **The same artifact sits
+uncorrected in at least two other tabs**, so it is a class rather than a one-off.
 
 ### This explains the near-miss in Addendum 11
 
