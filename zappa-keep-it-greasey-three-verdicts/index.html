@@ -116,6 +116,7 @@ footer{margin-top:3rem;border-top:2px solid var(--line);padding-top:1rem;
 <li><a href="#msdtw">Step 5 started: MsDTW reproduces the known result</a></li>
 <li><a href="#provenance">A provenance error, and KIG-M001 verified</a></li>
 <li><a href="#minimal">A provably minimal repair, and its acceptance test</a></li>
+<li><a href="#attribution">An attribution corrected, and the standard provenance</a></li>
 <li><a href="#files">Files and reproduction</a></li>
 </ol>
 </div>
@@ -603,6 +604,24 @@ footer{margin-top:3rem;border-top:2px solid var(--line);padding-top:1rem;
 <h3>Why a full census catches what a targeted check cannot</h3>
 <p><b>A check aimed at the edited note cannot see collateral damage.</b> A peer session earlier lost 179 note instances across 79 bars by editing a shared GPIF <code>Beat</code> in place, and the edit looked correct at the target. <b>A full census would have shown a count moving that nobody intended.</b></p>
 <div class="good"><b>Neither pass was sufficient alone.</b> My five-tab census got all three of its tabs exact and sized the class at half. The peer's 262-tab scan got the size right and needed my finding to know the class existed, since its <code>range(35,82)</code> filter had erased MIDI 65 entirely.</div>
+
+<h2 class="s3" id="attribution">9. An attribution I got wrong, and the standard's real provenance</h2>
+<div class="warn"><b>In a peer message I called the 179-note collateral-damage case "your 179-note case". It is not theirs.</b> It came from the Watermelon In Easter Hay work on 2026-09-08, a third session. The memory note itself was already correct, saying "a peer session", so only the chat message drifted.</div>
+<h3>The 179 is grounded, checked here</h3>
+<p><code>reference_gpif_note_beat_dedup_copy_on_write</code> documents it: removing 15 refuted notes from <code>CODA-s6857183-Brandon-edit.gp</code> by editing shared beats in place <b>deleted 179 note instances across 79 bars that were never targeted</b>, because <code>&lt;Beat&gt;</code> id 899 is referenced by <b>176 voices</b>. The damaged file was quarantined rather than deleted. <b>The standard's strongest claim rests on a measured case, not an anecdote.</b></p>
+<h3>The correction makes the standard stronger</h3>
+<table>
+<tr><th>Session</th><th>Contribution</th></tr>
+<tr><td>Watermelon In Easter Hay</td><td>the collateral-damage case, 179 instances across 79 bars</td></tr>
+<tr><td><b>Keep It Greasey, here</b></td><td>the minimal-repair demonstration, 2 of 7 cells moved</td></tr>
+<tr><td>the 262-tab census</td><td>the class it generalises to</td></tr>
+</table>
+<div class="good"><b>No one of the three produced the standard alone</b>, which is better provenance than either session claiming it.</div>
+<h3>A pre-write check the note was missing</h3>
+<p>The census runs <b>after</b> an edit. The matching check that runs <b>ahead of</b> an edit is the <b>id histogram</b>: a plan whose rows repeat one id is editing a shared definition. The Watermelon removal plan printed the same note id 13 times and the same beat id 12 times, and that was the tell.</p>
+<div class="note"><b>Histogram ahead of the write, census after it.</b> Neither substitutes for the other, since the histogram cannot confirm an edit landed and the census cannot prevent the damage.</div>
+<p>The peer independently verified the note against their own measurements: the seven-row KIG table matches cell for cell, the six-row acceptance table holds arithmetically, both wikilinks resolve, and the MEMORY.md index line is correct.</p>
+<div class="good"><b>A small exhaustive read and a large filtered read fail in opposite directions.</b> My five-tab census was exact on its members and wrong about the class. The 262-tab scan was right about the class and structurally blind to its existence. <b>Neither error is detectable from inside the pass that made it</b>, which is the argument for running both rather than choosing.</div>
 
 <h2 class="s5" id="files">5. Files and reproduction</h2>
 <p>Onsets were detected on <b>isolated stems</b>, never the mix, at 44.1 kHz over 501.84 s, hop 256, log-compressed spectral novelty per FMP 6.1.2. The kick count reproduces the earlier surplus finding independently, 1,332 detected against 1,312 notated.</p>
