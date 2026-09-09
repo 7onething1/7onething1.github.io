@@ -123,6 +123,32 @@ a{color:#0d6f88;font-weight:600}
 <p>That is the useful correction. <b>An evidence gate on audio stops a workflow from asserting music it cannot hear. It does not stop a workflow from misreading its own inputs</b>, and today every failure was the second kind.</p>
 </div>
 
+<h2><span class="n" style="background:var(--flare)">7</span>The wrapper, which is the half that stops things</h2>
+<p>The brief asked for a wrapper that <b>prevents the Guitar Pro editing command from executing</b> unless every proposed change passes first. My first pass built only the measurement and reported it as done. A gate caught that as drift, correctly. <code>tr_edit_lock.py</code> is the missing half, and 17 of its own selftests pass.</p>
+<div class="callout aqua">
+<h3>What makes it a lock rather than a report</h3>
+<p><code>run_locked()</code> owns the subprocess call. A caller cannot obtain the command and run it separately, because <b>the command is never returned</b>. It executes inside the lock or it does not execute. A selftest proves this by pointing the command at a marker file and confirming the file is absent after a refusal.</p>
+</div>
+<div class="scroll"><table>
+<tr><th>Operation</th><th>Requires</th><th>Reasoning</th></tr>
+<tr><td>ADD</td><td>SUPPORTED</td><td>write a note only where the stem has an attack</td></tr>
+<tr><td>REMOVE</td><td>CONTRADICTED</td><td>delete a note only where the stem is silent</td></tr>
+<tr><td>MOVE</td><td>CONTRADICTED at origin <b>and</b> SUPPORTED at destination</td><td>a move is a remove plus an add, so it needs both ends adjudicated</td></tr>
+<tr><td>RELABEL</td><td>SUPPORTED <b>and</b> a lane the stem can separate</td><td>renaming which drum a note is needs a witness that can tell them apart</td></tr>
+</table></div>
+<p><b>UNRESOLVED and NO_STEM permit nothing.</b> Four refusals sit underneath: L1 a change with no verdict, L2 a verdict whose source sha256 no longer matches the file on disk, L3 a verdict that does not permit its operation, L4 an empty plan passing as a clean run.</p>
+
+<h2><span class="n" style="background:var(--sun)">8</span>Run against the real edits of this session</h2>
+<div class="grid g4">
+ <div class="card t1"><div class="k a">15 of 15</div><div class="lab">real removals permitted</div><div class="fine">13 snare and 2 high floor tom, every one CONTRADICTED by its stem.</div></div>
+ <div class="card t5"><div class="k f">REFUSED</div><div class="lab">bar 55 tom relabel</div><div class="fine">The toms stem is one channel, so the lane cannot be renamed.</div></div>
+</div>
+<div class="callout gold">
+<p>The 15-note removal plan that this session actually applied was reconstructed from the difference between the parent file and the head, then handed to the lock with real verdicts measured from the five stems. <b>The lock opened on all fifteen.</b> Every one reads CONTRADICTED, meaning the stem is silent where the note was written, which is the only verdict that permits a removal.</p>
+<p>The same lock <b>refuses the bar 55 tom relabel</b> that has been blocked all day, and it refuses it for the stated reason rather than by a rule someone remembered: the toms stem is one channel carrying every tom, so <code>separates_siblings</code> is false and RELABEL cannot execute against it.</p>
+<p>So the lock permits the edit that was right and refuses the edit that was never settled. Neither outcome was hand-tuned, and both fall out of the verdict table above.</p>
+</div>
+
 <footer>
 <p>Module: <code>~/.claude/skills/transcription-repair/tr_verify.py</code>. Governing prose it enforces: <code>~/.claude/skills/perfect-stem-read/SKILL.md</code>. Prior-art decision logged as adapt to <code>~/.claude/truth/prior_art_checks.jsonl</code>. Run <code>python3 tr_verify.py selftest</code> for the 24 checks. Nothing in this work modified a Guitar Pro file or a Songsterr tab.</p>
 </footer>

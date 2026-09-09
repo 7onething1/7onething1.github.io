@@ -74,8 +74,32 @@ Brandon's claim was that this architecture would have blocked a substantial clas
 
 That is the useful correction. An evidence gate on audio stops a workflow from asserting music it cannot hear. It does not stop a workflow from misreading its own inputs, and today every failure was the second kind.
 
+## The wrapper, the half that stops things
+
+The brief asked for a wrapper that prevents the Guitar Pro editing command from executing unless every proposed change passes first. My first pass built only the measurement and reported it as done. A gate caught that as drift, correctly. `tr_edit_lock.py` is the missing half, 17 selftests passing.
+
+`run_locked()` owns the subprocess call. A caller cannot obtain the command and run it separately, because the command is never returned. A selftest proves this by pointing the command at a marker file and confirming the file is absent after a refusal.
+
+| Operation | Requires | Reasoning |
+|---|---|---|
+| ADD | SUPPORTED | write a note only where the stem has an attack |
+| REMOVE | CONTRADICTED | delete a note only where the stem is silent |
+| MOVE | CONTRADICTED at origin and SUPPORTED at destination | a move is a remove plus an add |
+| RELABEL | SUPPORTED and a lane the stem can separate | renaming a drum needs a witness that can tell them apart |
+
+UNRESOLVED and NO_STEM permit nothing. Four refusals underneath: L1 a change with no verdict, L2 a verdict whose source sha256 no longer matches the file on disk, L3 a verdict that does not permit its operation, L4 an empty plan passing as a clean run.
+
+## Run against the real edits of this session
+
+The 15-note removal plan this session applied was reconstructed from the difference between the parent file and the head, then handed to the lock with verdicts measured from the five stems. **The lock opened on all fifteen**, 13 snare and 2 high floor tom, every one CONTRADICTED by its stem.
+
+The same lock **refuses the bar 55 tom relabel**, for the stated reason rather than a remembered rule: the toms stem is one channel, so `separates_siblings` is false and RELABEL cannot execute.
+
+It permits the edit that was right and refuses the edit that was never settled. Neither outcome was hand-tuned.
+
 ## Files
 
 - `~/.claude/skills/transcription-repair/tr_verify.py`
+- `~/.claude/skills/transcription-repair/tr_edit_lock.py`
 - `~/.claude/skills/perfect-stem-read/SKILL.md`, the governing prose this enforces
 - Prior-art decision logged to `~/.claude/truth/prior_art_checks.jsonl` as adapt
