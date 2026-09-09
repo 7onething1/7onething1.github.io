@@ -238,15 +238,15 @@ run_gates.py:369     g = next(x for x in GATES if x["id"] == gid)
 <div class="scroll">
 <table>
 <tr><th>#</th><th>Action</th><th>Recovers</th><th>Risk</th><th>Effort</th></tr>
-<tr><td>1</td><td><b>Archive ~140 never-invoked skills</b> to <code>skills-archive/</code></td><td>~20,000 tok / turn</td><td>Low, reversible by moving folders back</td><td>15 min</td></tr>
+<tr><td>1</td><td><b>Archive ~140 never-invoked skills</b> to <code>skills-archive/</code><br><small>after a dependency exemption pass, plus an archive manifest</small></td><td>~20,000 tok / turn</td><td>Low, reversible. Exempt any skill referenced by a live gate, hook, memory rule, workflow or retained skill</td><td>15 min</td></tr>
 <tr><td>2</td><td><b>Cap every SKILL.md description at 200 chars</b></td><td>~4,000 tok / turn</td><td>Low, triggering improves when descriptions sharpen</td><td>1 hr</td></tr>
-<tr><td>3</td><td><b>Cut MEMORY.md to under 20 KB</b> so it stops truncating</td><td>Full index visibility</td><td>None, POINTERS.md keeps the detail</td><td>45 min</td></tr>
+<tr><td>3</td><td><b>Cut MEMORY.md to under 20 KB</b> so it stops truncating</td><td>Full index visibility</td><td><b>Low, if mechanically verified.</b> Preserve every rule identifier, destination pointer, precedence relation and topic keyword, then diff old against new on those fields</td><td>45 min</td></tr>
 <tr><td>4</td><td><b>Fix the 7 most-cited dead paths</b>, starting with <code>~/MAP.md</code></td><td>Wasted turns</td><td>None</td><td>30 min</td></tr>
 <tr><td>5</td><td><b>Rewrite the Vercel majority</b> so the live host wins the vote</td><td>Wrong-host deploys</td><td>None</td><td>30 min</td></tr>
 <tr><td>6</td><td><b>Relocate 143 self-declared-retired notes</b> to MEMORY_ARCHIVE</td><td>Retrieval noise</td><td>None, archive stays greppable</td><td>20 min</td></tr>
 <tr><td>7</td><td><b>Merge 3 CLAUDE.md files into one</b></td><td>~2,000 tok / session</td><td>Low</td><td>30 min</td></tr>
 <tr><td>8</td><td><b>Duplicate block_desktop_writes hook</b> at <code>settings.json:259</code><br><small><b>REPORT ONLY.</b> Hooks and settings.json originate with Brandon. No session may queue or make this change.</small></td><td>20,895 duplicate process starts</td><td>Yours to decide</td><td>Your call</td></tr>
-<tr><td>9</td><td><b>Collapse 16 Stop hooks into one runner</b></td><td>Turn latency</td><td>Medium, needs care to keep every check</td><td>2 hr</td></tr>
+<tr><td>9</td><td><b>Collapse 16 Stop hooks into one runner</b><br><small><b>Do not bundle this with the cleanup.</b> Separate hooks isolate failures, ordering, exit behavior and environment assumptions</small></td><td>Turn latency</td><td>Medium. Needs its own behavioral equivalence test</td><td>Own project</td></tr>
 <tr><td>10</td><td><b>Relocate 249 .bak files</b> to an archive folder outside <code>.claude</code></td><td>10 MB, folder clarity</td><td>None</td><td>10 min</td></tr>
 </table>
 </div>
@@ -385,6 +385,29 @@ scope_controller.py show           : sc-4eb06177bc   (theirs, 2026-09-06)</div>
   <div class="ev">local:  ls ~/Desktop/yt-adam-neely-research -> No such file or directory
 web:    channel active, publishing, 1M+ subscribers
 verdict changed: "keep off, source gone" -> "re-enable after re-pull"</div>
+</div>
+
+<h2><span class="n">15</span>External review, and six refinements adopted</h2>
+<p class="lede">Findings sent to ChatGPT after a CLEAR dedup check. It read this live page and pushed back on the merge.</p>
+<div class="card s">
+  <h3>Verdict: none of the three principal cuts is fundamentally wrong</h3>
+  <p>The substantive challenge was to <b>what "merge" means</b> for the transcription safeguards, and it was right.</p>
+</div>
+<div class="scroll">
+<table>
+<tr><th>#</th><th>Refinement</th><th>Why it matters</th></tr>
+<tr><td>1</td><td><b>The merge keeps seven labeled subsections</b>, never one generic sentence</td><td>The 7 notes govern 7 different problems: source hierarchy (stems over charts), a second hierarchy for a different evidence class (professional over AI tab), attribution requirement, verification independence, evidence directionality, self-debugging order, and evaluation-bias null choice</td></tr>
+<tr><td>2</td><td><b>Each pointer stub states its own rule in one sentence</b> plus the master path</td><td>A stub reading only "see master" breaks semantic retrieval. A search for "instrument attribution" must still land on attribution language</td></tr>
+<tr><td>3</td><td><b>Dependency exemption pass before archiving any skill</b>, plus an archive manifest</td><td>Zero invocations can also mean rare safety machinery or a bad description. Exempt anything a live gate, hook, memory rule, workflow or retained skill references</td></tr>
+<tr><td>4</td><td><b>MEMORY.md risk is low-if-verified, not none</b></td><td>The index governs precedence, redirects and path ownership. Preserve every identifier, pointer, precedence relation and keyword, then diff on those fields</td></tr>
+<tr><td>5</td><td><b>T7 Shield paths get offline status</b>, never a dead-path label</td><td>Treating an unmounted drive as deletion is the same mistake G60 caught in section 14</td></tr>
+<tr><td>6</td><td><b>The 16-Stop-hook consolidation leaves this cleanup</b></td><td>Separate hooks isolate failures, ordering, exit behavior and environment assumptions. It earns its own behavioral equivalence test</td></tr>
+</table>
+</div>
+<div class="note">
+  It also caught a <b>live documentation bug</b>: the sibling markdown still carried the superseded
+  "keep off, source is gone" verdict for music-theory-corpus-check after section 14 corrected it.
+  That is the stale-authority problem this audit exists to reduce, reproduced inside the audit. Fixed.
 </div>
 
 <h2><span class="n">08</span>Parked in the queue, not left as a question</h2>

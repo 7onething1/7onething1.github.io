@@ -67,7 +67,7 @@ The whole merged CLAUDE_LIBRARY_LOCATIONS section (~6,577 bytes) describes a fil
 | **stem-frequency-map** | Yes, scripts+evals+refs+assets | **RE-ENABLE.** Surrogate-vs-direct QA in executable form, which is the live problem |
 | ableton-pack-quality | canon path unresolvable | Re-enable when a pack ships |
 | eyephim-oracle | tarot is the revenue lane, different reader from Kate | Hold, enable per reader |
-| music-theory-corpus-check | **No**, Adam Neely corpus gone | Keep off |
+| music-theory-corpus-check | Local copy gone, **upstream source alive and verified** | Disabled pending corpus reconstruction, then re-enable after a corpus integrity check |
 | rhythmic-displacement-melody-grid | MIDI lane dormant | Keep off |
 | question-response-audit | client work inactive | Keep off |
 | frozen-board-scroller | kid mode retired | Move to archive |
@@ -87,3 +87,20 @@ Disabling all 9 saved **7,761 chars/turn (~1,940 tok)**. Working proof the same 
 The envelope-thresholding withdrawal is **real and on record** in session `55ae6cf2`: toms 3,325 whole-song = 16.38/bar against the tab's 0.56; kick 38 vs 23; snare 11 vs 8-9. Multiband flux failed the same way. Two independent formulations failed on the same lane.
 
 The specific "**108 tom detections vs 29 hand-counted**" pairing traces to exactly ONE file: this session's own transcript (`47e763e6`), where it arrived inside a relayed message. Not sourced to any prior measured session. **The rule stands on the verified 3,325 figure.** The 108-vs-29 figure is carried as someone else's claim, not as a measurement.
+
+
+## 13. Contract-ownership defect (found while closing this audit)
+`scope_controller.py meet` refused my own records: the shared contract resolves to `sc-4eb06177bc` owned by session `c492e138` (2026-09-06); mine is `sc-9661c3064f`. Blocker `b-759d191281`, adjudicated GENUINE. Independently filed by another session as `q-2026-09-09-1073c5`. No workaround applied.
+
+## 14. Correction forced by gate G60
+Ruling `music-theory-corpus-check` permanently off because its folder is missing read a local miss as the source not existing. Web check: the source channel is active. Corrected verdict: **disabled pending corpus reconstruction, re-enable after verifying the rebuilt corpus.** Same distinction applies to `/Volumes/T7 Shield` paths, which are an **unmounted removable volume, not dead paths**.
+
+## 15. External review (ChatGPT, 2026-09-09) — six refinements adopted
+Sent to https://chatgpt.com/c/6aa18af3-ff98-83e8-857c-475b6defbbe3 after a CLEAR dedup check. It read the live page. Verdict: none of the three principal cuts is fundamentally wrong. Six changes adopted:
+
+1. **The merge keeps seven labeled subsections**, not one generic sentence. The 7 notes govern 7 different problems: source hierarchy (stems vs charts), a second source hierarchy for a different evidence class (professional vs AI tab), attribution requirement, verification independence, evidence directionality, self-debugging order, and evaluation-bias null choice.
+2. **Each pointer stub states its own rule in one sentence** plus the master path. A stub saying only "see master" breaks semantic retrieval: a search for "instrument attribution" must still land on attribution language.
+3. **Archive the ~140 skills only after a dependency exemption pass.** Zero invocations can also mean rare safety machinery or a bad description. Exempt any skill referenced by a live gate, hook, authoritative memory rule, current workflow, or a retained skill. Keep an archive manifest (name, one-sentence purpose, archive path, dependency status) so dormant machinery stays discoverable.
+4. **MEMORY.md risk is "low if mechanically verified", not "none".** Preserve every active rule identifier, destination pointer, explicit precedence relation, and topic keyword; diff old against new on those fields before adopting.
+5. **T7 Shield paths carry offline/removable-volume status**, never a dead-path classification. Treating temporary absence as deletion is the same mistake G60 caught.
+6. **Do NOT bundle the 16-Stop-hook consolidation into this cleanup.** Separate hooks isolate failures, ordering, exit behavior and environment assumptions. It needs its own behavioral equivalence test. Removing the duplicate `block_desktop_writes.py` registration is conceptually far safer, and stays a report for Brandon rather than an autonomous edit.
