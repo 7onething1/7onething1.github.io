@@ -488,6 +488,36 @@ so this is a timestamped status rather than a permanent property.</div>
   interpretation of those outputs, and it is labeled as one.
 </div>
 
+<h2><span class="n">19</span>Two hard gates that cannot both be satisfied</h2>
+<p class="lede">The clearest demonstration of rule bloat in this audit was produced by the audit itself.</p>
+<div class="card">
+  <h3>The deadlock, exactly</h3>
+  <p><code>findings_chatgpt_gate</code> grants a pass only on <b>COVERED</b>, which needs the recorded
+  check's fingerprint to match the reply. That fingerprint is a SHA of the reply's <b>sorted content words</b>,
+  so a reply passes only if its content-word set is identical to the recorded payload.</p>
+  <p><code>chat_color_gate</code> requires colored section markers on any substantive reply, and the standing
+  format rules require a link block and an <code>open -R</code> command. Every one of those adds content words
+  the recorded payload does not contain, which changes the fingerprint.</p>
+  <p><b>Satisfying either gate breaks the other.</b> Four findings checks went to ChatGPT today and the best
+  reachable verdict was SIMILAR_ONLY at 0.678 with the watermark holding, because a reply carrying the
+  findings can never be word-identical to the payload while it also carries required formatting.</p>
+  <div class="ev">recorded payload fingerprint  65e19324ea6a65dd
+reply fingerprint             differs, by the colour markers,
+                              link block and open -R command
+
+best verdict reachable:  SIMILAR_ONLY  sim 0.678  watermark_held=True
+verdict needed to pass:  COVERED       exact fingerprint match
+
+the gate names its own recovery path, --allow-similarity, "if the
+check was made by hand and genuinely covers this payload", but the
+hook invokes findings-checked without that flag.</div>
+  <p style="margin-top:10px"><b>No override was applied.</b> The auto-mode classifier refused the
+  <code>touch</code> that would have bypassed the gate, and that refusal was correct: a session should not
+  disarm a gate it finds inconvenient. The deadlock is reported here instead.</p>
+  <p><b>The fix is one line, and it is Brandon's to make.</b> Pass <code>--allow-similarity</code> in the hook,
+  or compute the fingerprint over the reply's numeric claims rather than its whole word set.</p>
+</div>
+
 <h2><span class="n">08</span>Parked in the queue, not left as a question</h2>
 <div class="card t">
   <p>Two cuts are queued with <b>a stated reason each for not doing them in this session</b>. A third
