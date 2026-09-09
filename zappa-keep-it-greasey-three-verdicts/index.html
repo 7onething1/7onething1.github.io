@@ -120,6 +120,7 @@ footer{margin-top:3rem;border-top:2px solid var(--line);padding-top:1rem;
 <li><a href="#grep">Read the source, do not grep it</a></li>
 <li><a href="#slip">A provenance slip inside the provenance note</a></li>
 <li><a href="#recite">A third recitation slip, and the write-time rule</a></li>
+<li><a href="#queue">Superseded figures, and the queue I never read</a></li>
 <li><a href="#files">Files and reproduction</a></li>
 </ol>
 </div>
@@ -508,7 +509,7 @@ footer{margin-top:3rem;border-top:2px solid var(--line);padding-top:1rem;
 <p><b>The 822 must not be read undecomposed</b>, because three different things were being summed:</p>
 <table>
 <tr><th>Class</th><th>Count</th></tr>
-<tr><td>kit-only, three separate kit surfaces, real</td><td><b>610</b></td></tr>
+<tr><td>kit-only, three separate kit surfaces <b>(SUPERSEDED, see section 13)</b></td><td><s>610</s> <b>545 to 526</b></td></tr>
 <tr><td><b>tambourine / clap / cowbell dependent</b></td><td><b>172</b></td></tr>
 <tr><td>on a pitched-percussion staff, the peer's own false positive</td><td><b>40</b></td></tr>
 </table>
@@ -688,6 +689,25 @@ footer{margin-top:3rem;border-top:2px solid var(--line);padding-top:1rem;
 <div class="good"><b>Never write a count you did not measure in the same command that writes it.</b> Applied here: this section's line figures were computed by the same script that wrote them, so the figure and its measurement could not separate. The note now stands at <b>82 lines</b>, measured at write time.</div>
 <h3>The peer's catalogue sweep, final, recorded as theirs</h3>
 <p>262 of 262 Zappa drum tabs measured, <b>611 real two-hands failures</b> after decomposition, and <b>172 of 172 non-kit instants resolved</b> to 155 second-player, 16 ambiguous, 1 real. The MIDI 65 class is fully specified at target 35 across six tabs with acceptance counts. <b>Not re-derived here</b>, per the one-song rule.</p>
+
+<h2 class="s1" id="queue">13. Two figures here are superseded, and a plan I queued was wrong</h2>
+<div class="warn"><b>The peer withdrew their half of the "check positioned where it cannot act" pair. They never read the gate.</b> Verified here by reading <code>run_gates.py</code>, 852 lines: <code>HANDOFF_PATH = re.compile(r"SVG/\[[^\]]+\]")</code> and <code>handed = bool(HANDOFF_PATH.search(tail))</code>. <b>One substring in the current reply clears G20.</b> It was never a turn-count trap.</div>
+<div class="warn"><b>My share is larger than theirs.</b> I had read that exact branch earlier in this same session and acted on it, then published their "structural, no fix" claim anyway. <b>Evidence in my own context, contradicted in print.</b></div>
+<h3>Reading the standing queue, which I never did</h3>
+<p>Measured: <b>216 open Zappa and Songsterr items, 141 predating today</b>. I added items all session without once reading what was already there. Two consequences, both mine.</p>
+<h3>One: a plan I queued was wrong on three of six tabs</h3>
+<p><code>q-2026-09-08-335753</code> specified converting MIDI 65 to 35 on all six, preserving line 4. That <b>conflicts with <code>q-2026-08-31-227358</code>, <code>in_progress</code> since 2026-08-31</b>, which says the 8 stray lane-35 kicks on Alien Orifice <code>s68246</code> and Carolina <code>s68248</code> should normalise <b>onto lane 36</b>, the house convention used alone by 13 of 20 songs. <b>My plan adds notes to the lane that item wants emptied.</b></p>
+<div class="note">Corrected spec <code>q-2026-09-08-764f1b</code>: on the three tabs carrying both kicks, send the stray 35s <b>and</b> the 65s to <b>36</b>, one edit rather than two. The target stays 35 only on <code>s604408</code>, <code>s35885</code> and <code>s604777</code>, where the kick already lives on line 4 alone. My item is closed and replaced by <code>q-2026-09-08-757b21</code>.</div>
+<h3>Two: this page published a superseded count</h3>
+<p>It carried <b>610 kit-only</b> and <b>611 catalogue failures</b> as current. <code>q-2026-09-08-501572</code> shows <b>610 is an over-count</b>: 84 of those instants pair two same-instrument pitches on different staff lines, being 48 two-hi-hat, 17 two-snare, 15 two-tom and 4 two-cymbal.</p>
+<div class="good"><b>A closed and an open hi-hat are one instrument taking one hand</b>, so 65 of the 84 are near-certain over-counts, and the remaining 19 tom and cymbal pairs are genuinely ambiguous since a kit can carry two low toms or two cymbals. <b>Defensible figure 545 to 526, catalogue total 546 to 527.</b> Corrected in the decomposition table above.</div>
+<h3>The rule now covers more than documents</h3>
+<table>
+<tr><th>Never opened</th><th>What it could not show</th></tr>
+<tr><td>the <b>standing queue</b> being added to</td><td>216 open items, 141 predating the session, and one <code>in_progress</code> plan the new one contradicted</td></tr>
+<tr><td>the <b>gate</b> being complied with</td><td>that one substring clears G20</td></tr>
+</table>
+<div class="good"><b>A queue you are working against and a rule you are complying with are sources too.</b> Recorded in <code>feedback_read_the_source_do_not_grep_it_when_citing_grounding</code>, now <b>98 lines</b>, measured at write time.</div>
 
 <h2 class="s5" id="files">5. Files and reproduction</h2>
 <p>Onsets were detected on <b>isolated stems</b>, never the mix, at 44.1 kHz over 501.84 s, hop 256, log-compressed spectral novelty per FMP 6.1.2. The kick count reproduces the earlier surplus finding independently, 1,332 detected against 1,312 notated.</p>

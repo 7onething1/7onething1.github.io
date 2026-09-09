@@ -1325,3 +1325,58 @@ carried it.
 class is fully specified at target 35 across six tabs with acceptance counts. **Not re-derived
 here**, per the one-song rule. Their handoff is at
 `~/Library/Mobile Documents/com~apple~CloudDocs/SVG/[ZAPPA-HANDS-CATALOGUE-SWEEP-2026-09-08] handoff.md`.
+
+---
+
+## ADDENDUM 22: two figures I published are superseded, and a plan I queued was wrong
+
+The peer withdrew their half of the "check positioned where it cannot act" pair. **They never read
+the gate.** Verified here by reading `~/.claude/skills/fifty-gates/run_gates.py`, 852 lines:
+
+```
+HANDOFF_PATH = re.compile(r"SVG/\[[^\]]+\]")
+handed = bool(HANDOFF_PATH.search(tail))
+...
+elif not handed:
+    if over_turns:
+        fire("G20", ...)
+```
+
+**One substring in the current reply clears G20.** It was never a turn-count trap.
+
+**My share of this is larger than theirs.** I had read that exact branch earlier in this same
+session and acted on it, then published their "structural, no fix" claim anyway. **Evidence in my
+own context, contradicted in print.**
+
+### Reading the standing queue, which I never did
+
+Measured: **216 open Zappa and Songsterr items, 141 predating today.** I added items all session
+without once reading what was already there. Two consequences, both mine:
+
+**One, a plan I queued was wrong on three of six tabs.** `q-2026-09-08-335753` specified converting
+MIDI 65 to 35 on all six, preserving line 4. That **conflicts with `q-2026-08-31-227358`,
+`in_progress` since 2026-08-31**, which says the 8 stray lane-35 kicks on Alien Orifice `s68246`
+and Carolina `s68248` should normalise **onto lane 36**, the house convention used alone by 13 of
+20 songs. **My plan adds notes to the lane that item wants emptied.** Corrected spec is
+`q-2026-09-08-764f1b`: on the three tabs carrying both kicks send the stray 35s **and** the 65s to
+**36**, one edit rather than two; the target stays 35 only on `s604408`, `s35885` and `s604777`,
+where the kick already lives on line 4 alone. My item is closed and replaced by
+`q-2026-09-08-757b21`.
+
+**Two, this page published a superseded count.** It carries **610 kit-only** and **611 catalogue
+failures** as current. `q-2026-09-08-501572` shows **610 is an over-count**: 84 of those instants
+pair two same-instrument pitches on different staff lines, being 48 two-hi-hat, 17 two-snare, 15
+two-tom and 4 two-cymbal. **A closed and an open hi-hat are one instrument taking one hand**, so 65
+of the 84 are near-certain over-counts and the remaining 19 tom and cymbal pairs are genuinely
+ambiguous. **Defensible figure 545 to 526, catalogue total 546 to 527.**
+
+### The rule now covers more than documents
+
+| Never opened | What it could not show |
+|---|---|
+| the **standing queue** being added to | 216 open items, 141 predating the session, and one `in_progress` plan the new one contradicted |
+| the **gate** being complied with | that one substring clears G20 |
+
+**A queue you are working against and a rule you are complying with are sources too.** Recorded in
+`feedback_read_the_source_do_not_grep_it_when_citing_grounding`, now **98 lines**, measured at
+write time.
