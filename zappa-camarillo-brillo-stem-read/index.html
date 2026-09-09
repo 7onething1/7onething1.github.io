@@ -1,0 +1,243 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Camarillo Brillo Stem Read</title>
+<style>
+:root{
+  --cream:#f4ece0; --paper:#fbf6ee; --ink:#2e2a26; --muted:#6d6459;
+  --mustard:#d8a24a; --rust:#b4553a; --olive:#7d8b56; --teal:#4a7c7e;
+  --plum:#7a5670; --rule:#ded1bd;
+}
+*{box-sizing:border-box}
+body{margin:0;background:var(--cream);color:var(--ink);
+  font:16px/1.62 "Iowan Old Style","Palatino Linotype",Palatino,Georgia,serif;}
+.wrap{max-width:1080px;margin:0 auto;padding:34px 22px 90px}
+header{border:2px solid var(--ink);background:var(--paper);padding:26px 28px;margin-bottom:30px}
+h1{margin:0 0 6px;font-size:31px;letter-spacing:.3px}
+.sub{color:var(--muted);font-size:15px}
+.lock{margin-top:16px;padding:11px 14px;background:#efe3cf;border-left:6px solid var(--mustard);
+  font-family:ui-monospace,SFMono-Regular,Menlo,monospace;font-size:12.5px;line-height:1.75}
+h2{margin:40px 0 12px;font-size:21px;padding-bottom:7px;border-bottom:2px solid var(--rule)}
+h3{margin:26px 0 8px;font-size:16.5px;color:var(--rust)}
+p{margin:11px 0}
+table{border-collapse:collapse;width:100%;margin:14px 0;background:var(--paper);font-size:14.5px}
+th,td{border:1px solid var(--rule);padding:8px 11px;text-align:left;vertical-align:top}
+th{background:#eadfc9;font-size:13px;letter-spacing:.4px;text-transform:uppercase}
+td.num{font-family:ui-monospace,SFMono-Regular,Menlo,monospace;font-size:13px}
+.tag{display:inline-block;padding:2px 9px;border-radius:3px;font-size:11.5px;
+  letter-spacing:.6px;text-transform:uppercase;font-family:ui-monospace,Menlo,monospace}
+.pass{background:#e2ecd8;color:#3f5c2a;border:1px solid var(--olive)}
+.fail{background:#f2ddd6;color:#8d3d25;border:1px solid var(--rust)}
+.unres{background:#efe6d2;color:#7a5b1f;border:1px solid var(--mustard)}
+.card{background:var(--paper);border:1px solid var(--rule);border-left:6px solid var(--teal);
+  padding:15px 19px;margin:16px 0}
+.card.warn{border-left-color:var(--rust)}
+.card.good{border-left-color:var(--olive)}
+.card.hold{border-left-color:var(--mustard)}
+.big{font-size:26px;font-family:ui-monospace,Menlo,monospace;color:var(--rust)}
+code{background:#ece1cd;padding:1px 5px;border-radius:3px;font-size:13px}
+.scroll{overflow-x:auto}
+footer{margin-top:54px;padding-top:16px;border-top:2px solid var(--rule);
+  color:var(--muted);font-size:13px}
+a{color:var(--teal)}
+ul{margin:10px 0 10px 20px}li{margin:5px 0}
+</style>
+</head>
+<body>
+<div class="wrap">
+
+<header>
+  <h1>Camarillo Brillo, read against the stems</h1>
+  <div class="sub">Frank Zappa, <em>Over-Nite Sensation</em>, 1973. Drum staff audit, 2026-09-09.</div>
+  <div class="lock">
+LOCKED    s187082  "Camarillo Brillo"  head r5563501, aiGenerated=true, 151 bars
+OUTCOME   s187082 does not describe this recording; the matching tab is s412176
+RE-AIMED  s412176  "Camarillo Brillo"  r6172310, aiGenerated=false, 122 bars
+          drum staff credited "Ralph Humphrey (Drums)", the Over-Nite Sensation drummer
+AUDIO     14 stems, 238.144 s, 44.1 kHz stereo, supplied by Brandon
+  </div>
+</header>
+
+<div class="card warn">
+  <p><strong>The repair premise was wrong, and the audio is what showed it.</strong>
+  The queued job asked for a two-hands repair at five instants in s187082, bars 37 through 41,
+  where a ride, a snare and a low tom are written on one eighth. Those five instants are real
+  inside that file. The file itself has no correspondence to this performance, so removing a
+  surface there would have polished a tab that describes something else.</p>
+</div>
+
+<h2>1. What the five instants are</h2>
+<p>Parsed straight from <code>s187082 r5563501</code> part index 3, the drum staff.
+Every one sits on beat four and carries the same three hand surfaces.</p>
+<div class="scroll">
+<table>
+<tr><th>Bar (1-based)</th><th>Position</th><th>Frets</th><th>Surfaces</th><th>Hands needed</th></tr>
+<tr><td class="num">37</td><td class="num">3/4 = beat 4</td><td class="num">38, 45, 51</td><td>snare, low tom, ride</td><td class="num">3</td></tr>
+<tr><td class="num">38</td><td class="num">3/4 = beat 4</td><td class="num">38, 45, 51</td><td>snare, low tom, ride</td><td class="num">3</td></tr>
+<tr><td class="num">39</td><td class="num">3/4 = beat 4</td><td class="num">38, 45, 51</td><td>snare, low tom, ride</td><td class="num">3</td></tr>
+<tr><td class="num">40</td><td class="num">3/4 = beat 4</td><td class="num">38, 45, 51</td><td>snare, low tom, ride</td><td class="num">3</td></tr>
+<tr><td class="num">41</td><td class="num">3/4 = beat 4</td><td class="num">38, 45, 51</td><td>snare, low tom, ride</td><td class="num">3</td></tr>
+</table>
+</div>
+<p>The count matches the queue item exactly, and the surfaces match. That part of the earlier
+sweep was accurate.</p>
+
+<h2>2. The assets, hashed before anything was measured</h2>
+<p>Fourteen stems, one folder, every file a distinct SHA256 and a decodable duration.
+No cloud placeholder, no truncated proxy, no repeated file standing in for a missing lane.</p>
+<div class="scroll">
+<table>
+<tr><th>Property</th><th>Value</th></tr>
+<tr><td>Files</td><td class="num">14 wav</td></tr>
+<tr><td>Duration, every file</td><td class="num">238.1439 s</td></tr>
+<tr><td>Sample rate / channels</td><td class="num">44100 Hz / 2</td></tr>
+<tr><td>Distinct SHA256</td><td class="num">14 of 14</td></tr>
+<tr><td>Kit lanes</td><td>Kick, Snare, Toms, Hi-Hat, Cymbals, other_kit</td></tr>
+<tr><td>Other lanes</td><td>Bass, Vocals, Background Vocals, Piano, Lead Guitars, Rhythm Guitars, Winds, Other</td></tr>
+<tr><td>Provenance</td><td><span class="tag unres">generated separation</span> not a genuine isolated multitrack</td></tr>
+</table>
+</div>
+
+<h2>3. The recording identity gate</h2>
+<p>Before any timing-dependent claim, the score and the audio have to be the same performance.
+Three numbers disagreed straight away.</p>
+<div class="scroll">
+<table>
+<tr><th>Source</th><th>Claim</th><th>Implied length</th></tr>
+<tr><td>s187082 own tempo map</td><td class="num">151 bars, 600.5 quarters, 132 bpm</td><td class="num">272.95 s</td></tr>
+<tr><td>Songsterr sync clock for s187082</td><td class="num">151 measure points, 1.84 s per bar</td><td class="num">~277 s</td></tr>
+<tr><td>Brandon's stems</td><td class="num">measured tempogram peak 120.19 bpm</td><td class="num">238.14 s</td></tr>
+</table>
+</div>
+<p>At the measured tempo this recording holds about <strong>119 bars of 4/4</strong>.
+The tab claims 150. A bar count cannot be stretched by a quarter and stay the same performance.</p>
+
+<h3>Alignment, tested four ways with a positive control</h3>
+<p>A method that fails on everything proves nothing, so the same scorer was handed a train of
+onsets detected from the stems themselves. It had to pass before any failure verdict counted.</p>
+<div class="scroll">
+<table>
+<tr><th>Test</th><th>Real</th><th>Shift null, max</th><th>z</th><th>Verdict</th></tr>
+<tr><td>Positive control, stem-derived kick onsets</td><td class="num">0.4412</td><td class="num">0.1957</td><td class="num">+23.79</td><td><span class="tag pass">pass</span></td></tr>
+<tr><td>Positive control, stem-derived snare onsets</td><td class="num">0.2024</td><td class="num">0.1217</td><td class="num">+12.03</td><td><span class="tag pass">pass</span></td></tr>
+<tr><td>s187082, Songsterr clock as is</td><td class="num">0.1178</td><td class="num">0.1365</td><td class="num">-0.62</td><td><span class="tag fail">fail</span></td></tr>
+<tr><td>s187082, Songsterr clock rescaled</td><td class="num">0.1295</td><td class="num">0.1355</td><td class="num">+1.40</td><td><span class="tag fail">fail</span></td></tr>
+<tr><td>s187082, free affine fit</td><td class="num">0.1404</td><td class="num">0.1387</td><td class="num">+3.08</td><td><span class="tag fail">fail on class swap</span></td></tr>
+</table>
+</div>
+<p>The pipeline detects a true alignment at <strong>z above twenty-three</strong>. It cannot find
+one for s187082 at any tempo, under Songsterr's own sync, or under a free affine search.</p>
+
+<h3>The second method agreed, and it was blunt about it</h3>
+<p>Dynamic time warping between the tab's rendered lanes and the stems' lanes, cost per step,
+lower is better.</p>
+<div class="scroll">
+<table>
+<tr><th>Audio</th><th>DTW cost per step</th><th>Reading</th></tr>
+<tr><td>Real stems, 132 bpm</td><td class="num">0.17919</td><td>the baseline</td></tr>
+<tr><td>Same stems played backwards</td><td class="num">0.17374</td><td><span class="tag fail">better than forwards</span></td></tr>
+<tr><td>Same stems shifted 97 s</td><td class="num">0.17789</td><td><span class="tag fail">better than forwards</span></td></tr>
+<tr><td>Lane-shuffled stems</td><td class="num">0.18267</td><td>barely worse</td></tr>
+</table>
+</div>
+<p>The tab fits the record played backwards better than it fits the record played forwards.
+Warp slope deviation ran to 2.5 where a real map sits near zero.</p>
+
+<h2>4. The tab that does match</h2>
+<p>A song-name search surfaced a second Camarillo Brillo. Its tracks carry real personnel:
+<em>Ralph Humphrey (Drums)</em>, <em>Electric Bass (Tom Fowler)</em>, both correct for
+Over-Nite Sensation. The tab carries <code>aiGenerated: false</code> and runs 122 bars at
+120 bpm stepping to 122 bpm at bar 10, which predicts 240.33 s against 238.14 s of audio.</p>
+
+<p>Both tabs then went through one identical test. Each was mapped by its own tempo clock plus an
+affine rate, then given a per-four-bar drift correction bounded at a quarter second, which is
+half a beat and cannot slide the fit onto a neighbouring beat. Score is mean onset support across
+kick, hat and snare.</p>
+<div class="scroll">
+<table>
+<tr><th>Tab</th><th>Bars</th><th>AI</th><th>Real score</th><th>Reversed</th><th>Gap</th><th>Shifted 97 s</th><th>Gap</th><th>Verdict</th></tr>
+<tr><td><strong>s412176</strong> Ralph Humphrey</td><td class="num">122</td><td class="num">no</td><td class="num">0.5888</td><td class="num">0.4969</td><td class="num"><strong>+0.0918</strong></td><td class="num">0.4557</td><td class="num"><strong>+0.1330</strong></td><td><span class="tag pass">matches</span></td></tr>
+<tr><td><strong>s187082</strong> untitled staff</td><td class="num">151</td><td class="num">yes</td><td class="num">0.3011</td><td class="num">0.3003</td><td class="num">+0.0008</td><td class="num">0.2958</td><td class="num">+0.0053</td><td><span class="tag fail">no match</span></td></tr>
+</table>
+</div>
+<div class="card good">
+  <p>The separation between the two is <span class="big">115&times;</span> on the reversed-audio
+  gap. <strong>s412176 tracks this performance and s187082 does not.</strong> The drift curve for
+  s412176 also behaves like a musician rather than like noise, wandering to minus a quarter second
+  through bars 12 to 32 and returning to zero across bars 40 to 64.</p>
+</div>
+
+<h2>5. Verdict on the five instants</h2>
+<div class="card hold">
+  <p><span class="tag unres">unresolved</span>
+  <strong>No surface gets removed from s187082 on this evidence.</strong>
+  Bars 37 through 41 cannot be placed anywhere in this audio, so there is no timestamp at which to
+  ask the cymbal stem whether a fresh ride attack occurred. The revised skill is explicit that a
+  collision is an investigation queue and never a removal command, and that a question the audio
+  cannot settle stays unresolved rather than becoming an edit.</p>
+</div>
+<p>The more useful finding sits one level up. The same census run on s412176 returned
+<strong>zero three-surface instants across 1,769 note events</strong>. The impossible stacks are a
+property of the AI tab, not a property of the performance.</p>
+<div class="scroll">
+<table>
+<tr><th>Measure</th><th>s187082 (AI)</th><th>s412176 (human)</th></tr>
+<tr><td>Bars</td><td class="num">151</td><td class="num">122</td></tr>
+<tr><td>Drum note events</td><td class="num">2296</td><td class="num">1769</td></tr>
+<tr><td>Distinct drum voices</td><td class="num">8</td><td class="num">9</td></tr>
+<tr><td>Pedal hi-hat lane</td><td class="num">absent</td><td class="num">13 events</td></tr>
+<tr><td>Ride</td><td class="num">75</td><td class="num">147</td></tr>
+<tr><td>Toms</td><td class="num">68</td><td class="num">391</td></tr>
+<tr><td>Three-surface instants</td><td class="num">5</td><td class="num"><strong>0</strong></td></tr>
+</table>
+</div>
+
+<h2>6. How good the matching tab actually is</h2>
+<p>Every written note in s412176 was mapped through the validated piecewise clock and asked its own
+stem for support. The chance rate is 0.05 by construction, so enrichment is the number that matters.</p>
+<div class="scroll">
+<table>
+<tr><th>Lane</th><th>Written notes</th><th>Mean support</th><th>Shift null</th><th>z</th><th>Supported</th><th>Enrichment</th><th>Reading</th></tr>
+<tr><td>Snare</td><td class="num">335</td><td class="num">0.1653</td><td class="num">0.0623</td><td class="num">+6.77</td><td class="num">20.3%</td><td class="num">4.1&times;</td><td><span class="tag pass">confirmed</span></td></tr>
+<tr><td>Kick</td><td class="num">439</td><td class="num">0.2777</td><td class="num">0.1572</td><td class="num">+6.59</td><td class="num">13.9%</td><td class="num">2.8&times;</td><td><span class="tag pass">confirmed</span></td></tr>
+<tr><td>Hi-hat</td><td class="num">398</td><td class="num">0.2421</td><td class="num">0.1223</td><td class="num">+4.02</td><td class="num">13.1%</td><td class="num">2.6&times;</td><td><span class="tag pass">confirmed</span></td></tr>
+<tr><td>Toms</td><td class="num">388</td><td class="num">0.1694</td><td class="num">0.1041</td><td class="num">+3.51</td><td class="num">10.6%</td><td class="num">2.1&times;</td><td><span class="tag pass">confirmed</span></td></tr>
+<tr><td>Cymbals</td><td class="num">182</td><td class="num">0.1844</td><td class="num">0.0896</td><td class="num">+1.95</td><td class="num">6.6%</td><td class="num">1.3&times;</td><td><span class="tag unres">below the bar</span></td></tr>
+</table>
+</div>
+<p>Four lanes clear the reference-class threshold. The cymbal lane sits at 1.3&times;, under the
+1.5&times; floor, so <strong>the 182 written cymbal events in s412176 remain unsettled by this stem
+pack</strong>. Broadband cymbal texture is the known weak class for source separation, and this
+measurement behaves the way that literature predicts.</p>
+
+<h2>7. Settled, open, next</h2>
+<div class="card good">
+<p><strong>Settled.</strong> The five instants are an artifact of a non-matching AI tab.
+s412176 is the Camarillo Brillo tab that tracks this recording, it carries zero playability
+violations, and its kick, snare, hat and tom lanes are confirmed against the stems.</p>
+</div>
+<div class="card hold">
+<p><strong>Open.</strong> The 182 cymbal events in s412176 sit at 1.3&times; enrichment and need a
+per-event fresh-attack test with a leakage gate before any of them can be called right or wrong.
+Whether s187082 faithfully describes some other Camarillo Brillo performance is untested here,
+because only this recording was available.</p>
+</div>
+<div class="card">
+<p><strong>Next.</strong> Run the per-event cymbal pass on s412176 across all 182 events, using
+one-to-one attack matching against the Cymbals stem with the Hi-Hat stem as the competing
+explanation. Any edit that follows goes onto a copy, never onto the original community tab.</p>
+</div>
+
+<footer>
+Built 2026-09-09 on MacBookPro. Audio supplied by Brandon at
+<code>/Users/Shared/Frank Zappa - 01 - Camarillo Brillo-Db minor-121bpm-444hz/</code>.
+Method follows <code>perfect_stem_read_skill_WATERMELON_REVISED.md</code>.
+Evidence files under <code>~/Projects/_outputs/zappa-camarillo-brillo/</code>.
+Tabs read live from <code>songsterr.com/api</code> and the CloudFront part JSON.
+</footer>
+
+</div>
+</body>
+</html>
