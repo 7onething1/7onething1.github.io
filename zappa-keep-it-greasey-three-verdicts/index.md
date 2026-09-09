@@ -1747,3 +1747,57 @@ monotonic across 248 bars, `verdict_gate.py` **UNDETERMINED** under its 2.0x flo
 **No onset placed. No repair built. KIG-M004 open.**
 
 Both scripts are archived beside this file, each run at offset recovered, no scale parameter, 60 ms tolerance and a 32.5 to 32.6 percent one-to-one match rate against a 25.7 percent rotation-null baseline, which is 1.27x and carries no repair.
+
+---
+
+## ADDENDUM 30: the quantisation hypothesis is refuted, and the misses decompose
+
+Addendum 29 raised one hypothesis for the capped match rate: **quantised notation against an
+unquantised performance**, which would show as misses clustering off the beat. **Tested, and it is
+wrong.**
+
+### Misses do not cluster by metrical position
+
+| Position | Matched | Rate |
+|---|---|---|
+| **on the quarter**, sixteenth mod 4 equals 0 | 193 of 452 | **42.7%** |
+| **off the quarter** | 366 of 859 | **42.6%** |
+
+**Fisher exact p = 1.0.** Per-sixteenth rates run 32.1% to 53.0% with no pattern, and the downbeat
+at 46.2% is not notably better than its neighbours. **Swung or pushed placement is not the
+explanation.**
+
+### The misses decompose, mostly detection and partly map
+
+Per-bar match rate across the 197 bars carrying at least 4 notated kicks: **mean 0.435, sd 0.273**.
+If every bar shared one rate of 0.426, **binomial noise alone predicts sd 0.201**.
+
+| | Value |
+|---|---|
+| observed per-bar sd | **0.273** |
+| expected from binomial noise alone | **0.201** |
+| **ratio** | **1.36x** |
+
+**1.0x would mean misses are uniform across bars and the limit is detection. Much greater than 1.0x
+would mean they cluster and the limit is the map.** At **1.36x** the answer is **mostly detection,
+with a modest clustered component.**
+
+### One localised map failure, and it has an address
+
+**20 bars of 197 match nothing at all**, and the largest of them are contiguous: **bars 204, 205,
+206, 208 and 218**, each with 6 to 8 notated kicks and none matched. Twelve bars match everything.
+
+**That region is a concrete target** rather than a diffuse problem: the map is locally wrong
+somewhere around bars 204 to 218, and fixing it there would not move the global cap much, since
+20 all-miss bars carry roughly 130 of the 752 misses.
+
+### What this leaves
+
+**Three levers measured and one hypothesis refuted.** Onset representation moved the ratio +0.12,
+path resolution moved it -0.45, path-shape constraints moved it +0.05, and quantisation is not the
+cause. **The bulk of the miss rate is detection-limited**, meaning the isolated kick stem does not
+present a detectable transient at roughly 57 percent of notated kick positions under any setting
+tried.
+
+**No onset placed. No repair built. KIG-M004 open**, with the honest reading now being that the
+remaining error is in the stem-to-notation correspondence rather than in the alignment.

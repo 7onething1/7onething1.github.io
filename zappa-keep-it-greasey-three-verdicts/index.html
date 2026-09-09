@@ -128,6 +128,7 @@ footer{margin-top:3rem;border-top:2px solid var(--line);padding-top:1rem;
 <li><a href="#worse">A bug fixed, and the fix made it worse</a></li>
 <li><a href="#eye">The diagnosis put to the eye</a></li>
 <li><a href="#pathshape">The path-shape lever, two ways</a></li>
+<li><a href="#decompose">Quantisation refuted, misses decomposed</a></li>
 <li><a href="#files">Files and reproduction</a></li>
 </ol>
 </div>
@@ -866,6 +867,28 @@ footer{margin-top:3rem;border-top:2px solid var(--line);padding-top:1rem;
 <p><b>A 200 ms grid beating a 20 ms grid on note matching is not a resolution story.</b> The remaining hypothesis is that <b>the cap is in the score rather than the alignment</b>: the notation is quantised and the performance is not, so a 60 ms window against quantised positions may simply be too tight for the 61 percent that miss. That would make the miss rate a property of the transcription, not of the map.</p>
 <div class="note"><b>It is testable and was not tested here:</b> check whether the unmatched notated kicks cluster at particular metrical positions, which is what swung or pushed placement would look like. <b>No claim is made either way.</b></div>
 <div class="note"><b>Best map remains v2</b>, coarse 200 ms over FMP subband onsets, <b>1.67x</b>, bar 22 at 37 ms, monotonic across 248 bars, <code>verdict_gate.py</code> UNDETERMINED under its 2.0x floor. <b>No onset placed. No repair built. KIG-M004 open.</b></div>
+
+<h2 class="s4" id="decompose">21. The quantisation hypothesis is refuted, and the misses decompose</h2>
+<p>Section 20 raised one hypothesis for the capped match rate: <b>quantised notation against an unquantised performance</b>, which would show as misses clustering off the beat. <b>Tested, and it is wrong.</b></p>
+<table>
+<tr><th>Position</th><th>Matched</th><th>Rate</th></tr>
+<tr><td><b>on the quarter</b>, sixteenth mod 4 equals 0</td><td>193 of 452</td><td><b>42.7%</b></td></tr>
+<tr><td><b>off the quarter</b></td><td>366 of 859</td><td><b>42.6%</b></td></tr>
+</table>
+<div class="warn"><b>Fisher exact p = 1.0.</b> Per-sixteenth rates run 32.1% to 53.0% with no pattern, and the downbeat at 46.2% is not notably better than its neighbours. <b>Swung or pushed placement is not the explanation.</b></div>
+<h3>The misses decompose: mostly detection, partly map</h3>
+<table>
+<tr><th></th><th>Value</th></tr>
+<tr><td>observed per-bar match-rate sd, 197 bars with 4+ kicks</td><td><b>0.273</b></td></tr>
+<tr><td>expected from binomial noise alone at p = 0.426</td><td><b>0.201</b></td></tr>
+<tr><td><b>ratio</b></td><td><b>1.36x</b></td></tr>
+</table>
+<div class="good"><b>1.0x would mean misses are uniform across bars and the limit is detection. Far above 1.0x would mean they cluster and the limit is the map.</b> At <b>1.36x</b> the answer is <b>mostly detection, with a modest clustered component</b>.</div>
+<h3>One localised map failure, and it has an address</h3>
+<p><b>20 bars of 197 match nothing at all</b>, and the largest are contiguous: <b>bars 204, 205, 206, 208 and 218</b>, each with 6 to 8 notated kicks and none matched. Twelve bars match everything.</p>
+<div class="note"><b>That region is a concrete target</b> rather than a diffuse problem. Fixing it would not move the global cap much, since 20 all-miss bars carry roughly 130 of the 752 misses.</div>
+<h3>What this leaves</h3>
+<div class="warn"><b>Three levers measured and one hypothesis refuted.</b> Onset representation <b>+0.12</b>, path resolution <b>-0.45</b>, path-shape constraints <b>+0.05</b>, quantisation <b>not the cause</b>. <b>The bulk of the miss rate is detection-limited</b>: the isolated kick stem does not present a detectable transient at roughly 57 percent of notated kick positions under any setting tried. <b>No onset placed. No repair built. KIG-M004 open</b>, with the honest reading now being that the remaining error sits in the stem-to-notation correspondence rather than in the alignment.</div>
 
 <h2 class="s5" id="files">5. Files and reproduction</h2>
 <p>Onsets were detected on <b>isolated stems</b>, never the mix, at 44.1 kHz over 501.84 s, hop 256, log-compressed spectral novelty per FMP 6.1.2. The kick count reproduces the earlier surplus finding independently, 1,332 detected against 1,312 notated.</p>
