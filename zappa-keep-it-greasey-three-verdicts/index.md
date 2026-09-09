@@ -603,13 +603,20 @@ Not larger windows. **A coarse-to-fine multiscale path with a constraint region*
 bounded by the level above rather than searching the whole recording independently. Window size
 stops being the free parameter that decides the result.
 
-### One honest availability note
+### Two setup facts, corrected after trying
 
 The FMP source text is catalogued in this project at `/Volumes/Black/complete/Springer/`, and that
 volume is **not mounted on this machine right now**, so the chapter was not read here. The method
-names, their authors and their venues come from the search, and `libfmp` is **not installed in the
-`notation-gate` venv** either. Both are one mount and one `pip install` away, and neither blocks
-the next attempt from being specified correctly.
+names, their authors and their venues come from the search.
+
+**`libfmp` is still not installed, and it is not the one-line install this section first claimed.**
+Three attempts were made into `~/.venvs/notation-gate`. `pip` reports exit 0 while the log ends
+partway through a **20.1 MB `music21` download**, and `import libfmp` still fails afterwards. It
+pulls `matplotlib`, `ipython` and `music21` behind it. Logged at `/tmp/libfmp_install.log`.
+
+**Neither gap blocks the next attempt from being specified correctly**, and neither blocks
+implementing MsDTW, which needs only `numpy` and `scipy`. The FMP notebooks are also readable on
+the web at the links in this section.
 
 **Nothing in this addendum changes any verdict.** M002 and M003 stay closed, M004 stays open, and
 no placement, repair or revision is carried forward.

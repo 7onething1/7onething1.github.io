@@ -397,7 +397,10 @@ footer{margin-top:3rem;border-top:2px solid var(--line);padding-top:1rem;
 <li><b>Music synchronization with chroma features</b>, FMP C3. The chapter the whole task belongs to.</li>
 </ul>
 <div class="note"><b>The corrected next step: not larger windows.</b> A coarse-to-fine multiscale path with a constraint region, so each level is bounded by the level above rather than searching the whole recording independently. Window size stops being the free parameter that decides the result.</div>
-<p><b>One honest availability note.</b> The FMP source text is catalogued in this project at <code>/Volumes/Black/complete/Springer/</code> and that volume is not mounted on this machine right now, so the chapter was not read here; <code>libfmp</code> is not installed in the <code>notation-gate</code> venv either. Both are one mount and one install away, and neither blocks the next attempt from being specified correctly.</p>
+<h3>Two setup facts, corrected after trying</h3>
+<p>The FMP source text is catalogued in this project at <code>/Volumes/Black/complete/Springer/</code> and that volume is <b>not mounted on this machine right now</b>, so the chapter was not read here. The method names, authors and venues come from the search.</p>
+<div class="warn"><b><code>libfmp</code> is still not installed, and it is not the one-line install this page first claimed.</b> Three attempts were made into <code>~/.venvs/notation-gate</code>. <code>pip</code> reports exit 0 while the log ends partway through a <b>20.1 MB <code>music21</code> download</b>, and <code>import libfmp</code> still fails afterwards. It pulls <code>matplotlib</code>, <code>ipython</code> and <code>music21</code> behind it.</div>
+<p><b>Neither gap blocks the next attempt.</b> MsDTW needs only <code>numpy</code> and <code>scipy</code>, and the FMP notebooks are readable on the web at the links above.</p>
 
 <h2 class="s5" id="files">5. Files and reproduction</h2>
 <p>Onsets were detected on <b>isolated stems</b>, never the mix, at 44.1 kHz over 501.84 s, hop 256, log-compressed spectral novelty per FMP 6.1.2. The kick count reproduces the earlier surplus finding independently, 1,332 detected against 1,312 notated.</p>
