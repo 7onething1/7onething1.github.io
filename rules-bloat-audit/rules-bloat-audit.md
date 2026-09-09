@@ -104,3 +104,15 @@ Sent to https://chatgpt.com/c/6aa18af3-ff98-83e8-857c-475b6defbbe3 after a CLEAR
 4. **MEMORY.md risk is "low if mechanically verified", not "none".** Preserve every active rule identifier, destination pointer, explicit precedence relation, and topic keyword; diff old against new on those fields before adopting.
 5. **T7 Shield paths carry offline/removable-volume status**, never a dead-path classification. Treating temporary absence as deletion is the same mistake G60 caught.
 6. **Do NOT bundle the 16-Stop-hook consolidation into this cleanup.** Separate hooks isolate failures, ordering, exit behavior and environment assumptions. It needs its own behavioral equivalence test. Removing the duplicate `block_desktop_writes.py` registration is conceptually far safer, and stays a report for Brandon rather than an autonomous edit.
+
+## 16. Blocker doctrine (earned by getting it wrong first)
+Review caught me using **mention frequency as proof of ownership**. It is not: a session can mention an item while auditing, discussing, or declining it, so reference counts would let any session manufacture permission to skip work.
+
+**A sibling-ownership blocker requires five things:** exact item id, identified owner session, affirmative ownership evidence, the owner's most recent substantive action, and an **expiring lease**. Substantive work renews the lease; mentioning the identifier renews nothing. A session may never name itself owner.
+
+Re-recorded on state change:
+- `q-2026-09-09-1150a3` owner `034bbadd` (0 min, 2 Write + 2 Edit, 32 refs); second `55ae6cf2` (16 min, 4 Write + 4 Edit). `c6454a97` **rejected as owner**: 90 refs but 53 min idle, 2 Write + 2 Edit.
+- `q-2026-09-09-3493e2` owner `20083369` (0 min, 4 Write + 4 Edit, 159 refs). This session has 0 KIG writes.
+- Lease expires 2026-09-09T13:16:01-0500 unless renewed. All GENUINE, blocks_item=True, **justifies_stop=False**.
+
+The blocks-item-without-justifying-stop split is the safety property: a genuine collision removes one item and leaves unrelated work available, so a conflict never becomes permission to stop.

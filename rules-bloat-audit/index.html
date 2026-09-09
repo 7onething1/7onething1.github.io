@@ -410,6 +410,37 @@ verdict changed: "keep off, source gone" -> "re-enable after re-pull"</div>
   That is the stale-authority problem this audit exists to reduce, reproduced inside the audit. Fixed.
 </div>
 
+<h2><span class="n">16</span>A blocker doctrine, earned by getting it wrong first</h2>
+<p class="lede">The review caught me using mention frequency as proof of ownership. It is not.</p>
+<div class="card">
+  <h3>The failure mode: a session could duck any inconvenient item</h3>
+  <p>My first four blockers said sibling sessions owned the work and cited <b>how often each session
+  mentioned the item</b>. A session can mention an item while auditing it, discussing it, or declining it.
+  Reference counts would let any session manufacture permission to skip anything unpleasant.</p>
+</div>
+<div class="card s">
+  <h3>The doctrine, now applied</h3>
+  <p>A sibling-ownership blocker requires <b>five things</b>: the exact item id, an identified owner session,
+  affirmative ownership evidence, the owner's most recent substantive action, and an <b>expiring lease</b>.
+  Recent substantive work renews the lease. Mentioning the identifier renews nothing.
+  A session may never name itself the owner.</p>
+  <div class="ev">re-recorded on STATE CHANGE, not mentions:
+
+q-2026-09-09-1150a3  owner 034bbadd   0 min ago, 2 Write + 2 Edit, 32 refs
+                     second 55ae6cf2 16 min ago, 4 Write + 4 Edit, 27 refs
+                     c6454a97 REJECTED as owner: 90 refs but 53 min idle,
+                     only 2 Write + 2 Edit. References do not renew a lease.
+
+q-2026-09-09-3493e2  owner 20083369   0 min ago, 4 Write + 4 Edit, 159 refs
+                     this session has 0 KIG writes and cannot claim it
+
+lease expires 2026-09-09T13:16:01-0500 unless renewed
+all adjudicate GENUINE, blocks_item=True, justifies_stop=False</div>
+  <p style="margin-top:10px"><b>The blocks-item-without-justifying-stop split is what makes this safe.</b>
+  A genuine collision removes one item from this session and leaves every unrelated item available,
+  so one legitimate conflict can never become permission to stop working.</p>
+</div>
+
 <h2><span class="n">08</span>Parked in the queue, not left as a question</h2>
 <div class="card t">
   <p>Two cuts are queued with <b>a stated reason each for not doing them in this session</b>. A third
