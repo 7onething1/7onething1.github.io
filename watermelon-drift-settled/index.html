@@ -261,6 +261,21 @@ a{color:#0d6f88;font-weight:600}
 </table></div>
 <p>The sixteen three-surface instants that stood in <code>r8968524</code> are gone. The gate's grouping logic was itself rewritten on 2026-09-09 to union staff line with instrument identity, after a 262-tab measurement, so this PASS is against the stricter test.</p>
 <h3>The ride-pause verdict does not survive</h3>
+<div class="callout red">
+ <h3>Correction, 2026-09-09: the coda half of this section is withdrawn</h3>
+ <p>The table below said bars 99 to 105 are flat and the tab is right there, and it refused an onset detector for disagreeing. <b>The render was the faulty instrument, not the detector.</b> It drew four panels on shared y-axes, so bars peaking near 0.05 were plotted against bars peaking near 0.9 and collapsed onto the baseline.</p>
+ <div class="scroll"><table>
+ <tr><th>Bar</th><th class="num">Peak 3-10 kHz</th><th>At native scale, one panel per bar</th></tr>
+ <tr class="good"><td>17 disputed, tab writes 0</td><td class="num">0.1708</td><td>12 to 14 discrete attacks, matching its control</td></tr>
+ <tr><td>16 control, tab writes 20</td><td class="num">0.2310</td><td>10 to 12 attacks after the opening crash</td></tr>
+ <tr class="good"><td>51 disputed, tab writes 0</td><td class="num">0.1681</td><td>about 12 discrete attacks</td></tr>
+ <tr class="bad"><td>99 coda, tab writes 0</td><td class="num">0.0526</td><td><b>10 to 12 discrete attacks. NOT flat.</b></td></tr>
+ <tr class="bad"><td>100 coda, tab writes 0</td><td class="num">0.0504</td><td><b>discrete attacks, same shape. NOT flat.</b></td></tr>
+ </table></div>
+ <p><b>Bars 17 and 51 hold</b>, since at native scale they carry their controls' stroke pattern. <b>The coda claim falls</b>: those bars carry structured attacks at about a third of bar 17's amplitude, and whether they are ride, resonance or bleed is unresolved. The detector is reinstated as unrefuted; its calibration is still too poor to write notes from.</p>
+ <p style="margin-bottom:0"><b>The rule this teaches:</b> a shared y-axis is an overview. Comparing bars whose amplitudes differ by more than about 5x needs one panel per bar with independent scales, or the quiet one reads as silence.</p>
+</div>
+
 <p>One of fourteen quiet bars changes verdict on arithmetic alone, bar 17 moving 0.40x to 0.63x. The render overturned more than that.</p>
 <div class="scroll"><table>
 <tr><th>Bar</th><th class="num">Tab writes</th><th>What the render shows</th></tr>

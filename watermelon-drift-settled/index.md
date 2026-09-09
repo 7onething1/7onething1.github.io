@@ -166,6 +166,9 @@ Three queue items the tempo fix unblocked, run through the `/transcription-repai
 
 **Playability: PASS on the live head.** 1,767 instants, 0 needing more than two hands, 0 more than two feet, 0 unplayable ornaments. The sixteen three-surface instants from `r8968524` are gone. The gate's grouping was rewritten 2026-09-09 to union staff line with instrument identity after a 262-tab measurement, so this passes the stricter test.
 
+
+> **Correction, 2026-09-09.** The coda half of this section is withdrawn. It said bars 99-105 are flat and refused an onset detector for disagreeing. **The render was the faulty instrument.** Four panels on shared y-axes put bars peaking near 0.05 against bars peaking near 0.9. Re-rendered one bar per panel at native scale: bar 99 peaks 0.0526 and bar 100 peaks 0.0504, each carrying 10-12 discrete attacks. **Not flat.** Bars 17 and 51 hold at 0.1708 and 0.1681 against a control of 0.2310. The detector is reinstated as unrefuted, though still too poorly calibrated to write notes from. A shared y-axis is an overview; bars differing by more than about 5x need independent scales.
+
 **The ride-pause verdict does not survive.** Bar 17 moves 0.40x to 0.63x on arithmetic. The render overturned more:
 
 | Bar | Tab writes | Render shows |
