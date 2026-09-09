@@ -291,7 +291,7 @@ verified directly:
 <tr><td><b>stem-frequency-map</b><br><small>frequency-maps stems, QAs a reconstruction against the faithful original</small></td><td>never invoked, zero references</td><td>Yes. scripts, evals, references, assets all present</td><td><span class="tag keep">RE-ENABLE</span><br><small>It is the surrogate-versus-direct discipline in executable form, and that is the live problem</small></td></tr>
 <tr><td><b>ableton-pack-quality</b><br><small>grades WAVs against a measured 1,339-file reference canon</small></td><td>never invoked, zero references</td><td>Reference canon path not resolvable from the SKILL.md</td><td><span class="tag watch">Re-enable when a pack ships</span></td></tr>
 <tr><td>eyephim-oracle</td><td>never invoked</td><td>tarot is the one revenue lane, this is a different reader from Kate</td><td><span class="tag watch">Hold, enable per reader</span></td></tr>
-<tr><td>music-theory-corpus-check</td><td>never invoked, memory pointer only</td><td><b>No.</b> <code>~/Desktop/yt-adam-neely-research</code> is gone</td><td><span class="tag cut">Keep off, source is gone</span></td></tr>
+<tr><td>music-theory-corpus-check</td><td>never invoked, memory pointer only</td><td><b>Local copy gone, upstream source alive.</b> <code>~/Desktop/yt-adam-neely-research</code> does not exist on disk. The channel it was built from is active and publishing, so the corpus is re-pullable</td><td><span class="tag fix">Re-enable after a corpus re-pull via /yt-transcripts</span></td></tr>
 <tr><td>rhythmic-displacement-melody-grid</td><td>never invoked, no chain reference</td><td>MIDI generation lane is dormant</td><td><span class="tag cut">Keep off</span></td></tr>
 <tr><td>question-response-audit</td><td>never invoked</td><td>UPS/Origami client work not active</td><td><span class="tag cut">Keep off</span></td></tr>
 <tr><td>frozen-board-scroller</td><td>kid mode retired, no live caller</td><td>caller gone by policy</td><td><span class="tag cut">Move to archive</span></td></tr>
@@ -370,6 +370,21 @@ contracts/47e763e6.json contract_id: sc-9661c3064f  (mine)
 scope_controller.py show           : sc-4eb06177bc   (theirs, 2026-09-06)</div>
   <p style="margin-top:10px">No workaround was applied. Editing another session's contract is exactly what the
   refusal exists to stop. The four sub-asks are evidenced in sections 10, 11 and 12 instead.</p>
+</div>
+
+<h2><span class="n">14</span>A correction this audit's own gates forced</h2>
+<div class="card p">
+  <h3>A missing folder is not a missing source</h3>
+  <p>I first ruled <code>music-theory-corpus-check</code> permanently off because its corpus folder
+  does not exist on disk. Gate G60 caught that as <b>reading a local miss as the source not existing</b>,
+  and it was right. A web check shows the channel the corpus was built from is active and publishing.</p>
+  <p>The corrected verdict is <b>re-enable after re-pulling the corpus</b>, which the <code>/yt-transcripts</code>
+  skill already does. That moves the skill from the archive column into the recoverable column.
+  The same distinction applies to every <code>/Volumes/T7 Shield</code> path in this document,
+  which are unmounted rather than lost.</p>
+  <div class="ev">local:  ls ~/Desktop/yt-adam-neely-research -> No such file or directory
+web:    channel active, publishing, 1M+ subscribers
+verdict changed: "keep off, source gone" -> "re-enable after re-pull"</div>
 </div>
 
 <h2><span class="n">08</span>Parked in the queue, not left as a question</h2>
