@@ -121,7 +121,7 @@ Never invoked: 165 of 182 skills</div>
 <tr><td><b>No usable description</b><br>album-book-craft, band-cycle, mashup-maker, midi-analyze, stem-analyzer, orchestration, speech-synth and 28 more</td><td>35<br><small>20 of them have <b>no YAML frontmatter at all</b></small></td><td>they appear in the skills list as a bare name with nothing after it, so description matching cannot reach them<br><code>skills/mashup-maker/SKILL.md:1</code> starts <code># mashup-maker</code></td><td><span class="tag cut">Archive or write frontmatter</span></td></tr>
 <tr><td><b>Fat descriptions on unused skills</b><br>impossible-guitar-parts (1559 ch), rock-analysis-canon (1422), chavez-radiohead-failure-craft (1399), notation-evidence-gate (1273), real-song-finder (1239)</td><td>5</td><td>~6,900 chars per turn from five entries</td><td><span class="tag merge">Cap at 200 chars</span></td></tr>
 <tr><td><b>Never invoked, never described in a live task</b></td><td>~140</td><td>0 invocations across all transcripts</td><td><span class="tag cut">Move to skills-archive/</span></td></tr>
-<tr><td><b>Broken dirs</b><br>chiron-intuition-format, delete</td><td>2</td><td>no SKILL.md, no reference anywhere</td><td><span class="tag cut">Retire</span></td></tr>
+<tr><td><b>Broken dirs</b><br>chiron-intuition-format, delete</td><td>2</td><td>no SKILL.md, no reference anywhere</td><td><span class="tag cut">Move to archive</span></td></tr>
 <tr><td><b>Library dirs, correctly have no SKILL.md</b><br>_shared, fifty-gates, babysit-chats, system-pulse</td><td>4</td><td>support code, not skills</td><td><span class="tag keep">Keep as is</span></td></tr>
 </table>
 </div>
@@ -159,7 +159,7 @@ most-cited dead paths:
 <tr><td>Notes untouched 90+ days</td><td><b>351</b></td><td>39% of the store predates current policy</td><td><span class="tag watch">Date-stamp review</span></td></tr>
 <tr><td>Notes no other note links</td><td><b>210</b></td><td>isolated, one-incident captures</td><td><span class="tag merge">Fold into topic notes</span></td></tr>
 <tr><td>Notes with retire / supersede / banned language</td><td><b>143</b></td><td>they record their own obsolescence</td><td><span class="tag cut">Move to archive</span></td></tr>
-<tr><td>Notes still mentioning kid mode</td><td><b>51</b></td><td>retired 2026-07-13, still in the corpus</td><td><span class="tag cut">Strip the references</span></td></tr>
+<tr><td>Notes still mentioning kid mode</td><td><b>51</b></td><td>retired 2026-07-13, still in the corpus</td><td><span class="tag cut">Archive the stale notes</span></td></tr>
 <tr><td>Notes saying Vercel</td><td><b>163</b></td><td>policy is GitHub Pages for new pages</td><td><span class="tag fix">Rewrite the top 10</span></td></tr>
 <tr><td>Notes saying GitHub Pages</td><td>13</td><td>the current policy is the minority voice</td><td><span class="tag fix">Promote in MEMORY.md</span></td></tr>
 <tr><td>Duplicate topic clusters</td><td>10 drwu_htmls, 8 anti_ai, 6 kid_mode, 4 never_ask, 4 cross_mac</td><td>same rule written many times</td><td><span class="tag merge">One note per topic</span></td></tr>
@@ -243,11 +243,11 @@ run_gates.py:369     g = next(x for x in GATES if x["id"] == gid)
 <tr><td>3</td><td><b>Cut MEMORY.md to under 20 KB</b> so it stops truncating</td><td>Full index visibility</td><td>None, POINTERS.md keeps the detail</td><td>45 min</td></tr>
 <tr><td>4</td><td><b>Fix the 7 most-cited dead paths</b>, starting with <code>~/MAP.md</code></td><td>Wasted turns</td><td>None</td><td>30 min</td></tr>
 <tr><td>5</td><td><b>Rewrite the Vercel majority</b> so the live host wins the vote</td><td>Wrong-host deploys</td><td>None</td><td>30 min</td></tr>
-<tr><td>6</td><td><b>Move 143 self-declared-retired notes</b> to MEMORY_ARCHIVE</td><td>Retrieval noise</td><td>None, archive stays greppable</td><td>20 min</td></tr>
+<tr><td>6</td><td><b>Relocate 143 self-declared-retired notes</b> to MEMORY_ARCHIVE</td><td>Retrieval noise</td><td>None, archive stays greppable</td><td>20 min</td></tr>
 <tr><td>7</td><td><b>Merge 3 CLAUDE.md files into one</b></td><td>~2,000 tok / session</td><td>Low</td><td>30 min</td></tr>
-<tr><td>8</td><td><b>Delete the duplicate block_desktop_writes hook</b></td><td>20,895 wasted process starts</td><td>None</td><td>2 min</td></tr>
+<tr><td>8</td><td><b>Duplicate block_desktop_writes hook</b> at <code>settings.json:259</code><br><small><b>REPORT ONLY.</b> Hooks and settings.json originate with Brandon. No session may queue or make this change.</small></td><td>20,895 duplicate process starts</td><td>Yours to decide</td><td>Your call</td></tr>
 <tr><td>9</td><td><b>Collapse 16 Stop hooks into one runner</b></td><td>Turn latency</td><td>Medium, needs care to keep every check</td><td>2 hr</td></tr>
-<tr><td>10</td><td><b>Move 249 .bak files</b> out of <code>.claude</code></td><td>10 MB, folder clarity</td><td>None</td><td>10 min</td></tr>
+<tr><td>10</td><td><b>Relocate 249 .bak files</b> to an archive folder outside <code>.claude</code></td><td>10 MB, folder clarity</td><td>None</td><td>10 min</td></tr>
 </table>
 </div>
 
@@ -265,11 +265,23 @@ run_gates.py:369     g = next(x for x in GATES if x["id"] == gid)
 
 <h2><span class="n">08</span>Parked in the queue, not left as a question</h2>
 <div class="card t">
-  <p>The three highest-payoff cuts are <b>queued rather than announced</b>, because the ask was a proposal
-  and archiving 140 skills is a move you should weigh. Nothing waits on a reply to stay findable.</p>
+  <p>Two cuts are queued with <b>a stated reason each for not doing them in this session</b>. A third
+  was withdrawn as never valid.</p>
   <div class="ev">q-2026-09-09-e488fb  cut #1  archive ~140 never-invoked skills
-q-2026-09-09-ae8b84  cut #3  cut MEMORY.md under 20 KB
-q-2026-09-09-1f0192  cut #8  remove duplicate hook at settings.json:259</div>
+   NOT DONE NOW: the ask was a proposal. Relocating 140 skill folders
+   changes what every future session can reach, which is a scope
+   decision that belongs to Brandon, not to the session that found it.
+
+q-2026-09-09-ae8b84  cut #3  bring MEMORY.md under 20 KB
+   NOT DONE NOW: rewriting the index means choosing which of 273 rule
+   lines stop being loaded. That is an editorial judgment on his own
+   standing rules and it needs his hand on it.
+
+q-2026-09-09-1f0192  cut #8  WITHDRAWN, never a valid queue item
+   G23 refuses any queue item proposing an edit to Brandon's hooks
+   or settings.json. Same refusal already on record at q-2026-09-08-0ff4a1.
+   The duplication at settings.json:259 stands as a REPORT ONLY.
+   Withdrawal recorded at q-2026-09-09-5df8b4.</div>
 </div>
 
 <footer>
