@@ -466,3 +466,67 @@ is 0. **Either reading gives 0**, so the pitch-keyed 3 was an artifact of the ga
 defect in the tab.
 
 **Nothing here changes M002's verdict of no change, and nothing was uploaded or revised.**
+
+---
+
+## ADDENDUM 5: the third family exists, and finding it moved the blocker somewhere else
+
+Addendum 3 named the next step as **find a corroboration family reaching the instrumental solo**,
+since the vocal part stops at bar 101. That search was run rather than queued.
+
+### Two families reach the solo, and both have isolated stems already on disk
+
+| Notated part | Total bars | Bars inside 100-240 | Stem |
+|---|---|---|---|
+| **Arthur Barrow, bass** | 222 | **139 of 141** | `bass` |
+| **Warren Cuccurullo, part 7** | 164 | **139 of 141** | `rhythm` |
+| Frank Zappa, solo | 21 | 21 | `lead` |
+| Ike Willis, vocals | 79 | 2 | `vocals` |
+
+**The "no family reaches the solo" blocker is dissolved.** Two candidates cover it, and a third
+covers the solo passage itself.
+
+### The bass cross-check, and why it is not carried as a refutation
+
+Running the bass family against the 15 previously-passing windows made **all 15 testable**, where the vocal family could test only 3. Each window's bass fit reused that window's own scale, matched one-to-one at 60 ms tolerance with match rates of 53 to 88 of 66 to 96 attacks, and every one of the 15 disagreed with its window's drum offset by between 3.985 s and 405.500 s.
+
+**That looks decisive and it is not, so it is not reported as one.** The window at bars 42-49 is
+the single window the **vocal** family corroborated, at +0.210 s. The bass family puts the same
+window +160.330 s away. **Two corroboration families contradict each other on a window that a
+third family fitted**, so the disagreement locates a problem in the checking method rather than in
+any one window.
+
+### The measurement that explains it
+
+The bass fits, each at its window's own scale and a 60 ms tolerance, were scored against their own offset surfaces, sampling 8 of the 15 windows, with the peak match count and the surface median shown side by side:
+
+| Window | Bass attacks | Peak | Surface median | Ratio |
+|---|---|---|---|---|
+| 10-17 | 86 | 72 | 44.0 | **1.64x** |
+| 38-45 | 69 | 55 | 35.0 | **1.57x** |
+| 42-49 | 66 | 53 | 34.0 | **1.56x** |
+| 102-109 | 96 | 83 | 50.0 | **1.66x** |
+| 150-157 | 96 | 86 | 47.0 | **1.83x** |
+| 166-173 | 96 | 87 | 46.0 | **1.89x** |
+| 170-177 | 96 | 88 | 46.0 | **1.91x** |
+| 174-181 | 96 | 87 | 47.0 | **1.85x** |
+
+All eight clear the 1.5x floor, and **all eight clear it narrowly**, against a surface median
+sitting near **51%**. Gate N4's own warning covers this: above a 35% null a small excess goes
+significant while meaning little. Compare the whole-part vocal fit at **7.65x** and the bars 22-32
+drum fit at **2.01x**.
+
+A second contributor: the score notates **2,424 bass attacks** while the bass stem yields
+**1,825 onsets**, so **599 notated attacks can never match** and a perfect map still caps near
+75%. That flattens the peak toward the noise floor.
+
+### What actually blocks KIG-M004 now
+
+**Not family availability. Window size.** At 8 bars, the fitted family, the vocal check and the
+bass check are all marginal, so the cross-check cannot adjudicate the fit. The failure is the
+same one Addendum 3 named, and it reaches the **validators** as well as the fit.
+
+The next attempt should use **windows large enough for every family to lock with a real margin**,
+on the order of 30 to 40 bars rather than 8, accepting coarser bracketing in exchange for a
+cross-check that can actually decide. Nothing in this addendum places any onset, and no
+placement, repair or revision is carried forward.

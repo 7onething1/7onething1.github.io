@@ -106,6 +106,7 @@ footer{margin-top:3rem;border-top:2px solid var(--line);padding-top:1rem;
 <li><a href="#second">A second landmark family, and what it moved</a></li>
 <li><a href="#timbre">The clap timbre test, and the control that killed it</a></li>
 <li><a href="#piecewise">The piecewise map, and why it was withdrawn</a></li>
+<li><a href="#thirdfamily">The third family, and where the blocker moved</a></li>
 <li><a href="#files">Files and reproduction</a></li>
 </ol>
 </div>
@@ -338,6 +339,33 @@ footer{margin-top:3rem;border-top:2px solid var(--line);padding-top:1rem;
 <li><b>The search should be local.</b> A free full-song search per window invites the spurious lock that produced +46 s and -65 s.</li>
 </ol>
 <div class="note"><b>M004 stays open.</b> It is no longer waiting on an idea. It waits on a corroboration family reaching the solo section and on a constrained search. No repair, no revision and no placement is carried forward.</div>
+
+<h2 class="s3" id="thirdfamily">4e. The third family exists, and finding it moved the blocker</h2>
+<p>The previous section named the next step as <b>find a corroboration family reaching the instrumental solo</b>, since the vocal part stops at bar 101. That search was run rather than queued.</p>
+<table>
+<tr><th>Notated part</th><th>Total bars</th><th>Bars inside 100-240</th><th>Stem</th></tr>
+<tr><td><b>Arthur Barrow, bass</b></td><td>222</td><td><b>139 of 141</b></td><td><code>bass</code></td></tr>
+<tr><td><b>Warren Cuccurullo, part 7</b></td><td>164</td><td><b>139 of 141</b></td><td><code>rhythm</code></td></tr>
+<tr><td>Frank Zappa, solo</td><td>21</td><td>21</td><td><code>lead</code></td></tr>
+<tr><td>Ike Willis, vocals</td><td>79</td><td>2</td><td><code>vocals</code></td></tr>
+</table>
+<p><b>The "no family reaches the solo" blocker is dissolved.</b> Two candidates cover it, and a third covers the solo passage itself.</p>
+<h3>The bass cross-check, and why it is not carried as a refutation</h3>
+<p>The bass family made <b>all 15</b> previously-passing windows testable, where the vocal family could test only 3. Every one of the 15 disagreed with its window's drum offset, by between 3.985 s and 405.500 s.</p>
+<div class="warn"><b>That looks decisive and it is not, so it is not reported as one.</b> The window at bars 42-49 is the single window the <b>vocal</b> family corroborated, at +0.210 s. The bass family puts the same window +160.330 s away. Two corroboration families contradict each other on a window a third family fitted, which locates the problem in the checking method rather than in any one window.</div>
+<table>
+<tr><th>Window</th><th>Bass attacks</th><th>Peak</th><th>Surface median</th><th>Ratio</th></tr>
+<tr><td>10-17</td><td>86</td><td>72</td><td>44.0</td><td><b>1.64x</b></td></tr>
+<tr><td>38-45</td><td>69</td><td>55</td><td>35.0</td><td><b>1.57x</b></td></tr>
+<tr><td>42-49</td><td>66</td><td>53</td><td>34.0</td><td><b>1.56x</b></td></tr>
+<tr><td>102-109</td><td>96</td><td>83</td><td>50.0</td><td><b>1.66x</b></td></tr>
+<tr><td>150-157</td><td>96</td><td>86</td><td>47.0</td><td><b>1.83x</b></td></tr>
+<tr><td>166-173</td><td>96</td><td>87</td><td>46.0</td><td><b>1.89x</b></td></tr>
+<tr><td>170-177</td><td>96</td><td>88</td><td>46.0</td><td><b>1.91x</b></td></tr>
+<tr><td>174-181</td><td>96</td><td>87</td><td>47.0</td><td><b>1.85x</b></td></tr>
+</table>
+<p>All eight clear the 1.5x floor, and <b>all eight clear it narrowly</b>, against a surface median near <b>51%</b>. Gate N4's own warning covers this: above a 35% null a small excess goes significant while meaning little. Compare the whole-part vocal fit at <b>7.65x</b> and the bars 22-32 drum fit at <b>2.01x</b>. A second contributor: the score notates <b>2,424</b> bass attacks while the bass stem yields <b>1,825</b> onsets, so 599 can never match and a perfect map still caps near 75%.</p>
+<div class="note"><b>What actually blocks M004 now: not family availability, window size.</b> At 8 bars the fitted family, the vocal check and the bass check are all marginal, so the cross-check cannot adjudicate the fit. The next attempt should use windows large enough for every family to lock with a real margin, on the order of <b>30 to 40 bars rather than 8</b>, accepting coarser bracketing in exchange for a cross-check that can decide. Nothing here places any onset.</div>
 
 <h2 class="s5" id="files">5. Files and reproduction</h2>
 <p>Onsets were detected on <b>isolated stems</b>, never the mix, at 44.1 kHz over 501.84 s, hop 256, log-compressed spectral novelty per FMP 6.1.2. The kick count reproduces the earlier surplus finding independently, 1,332 detected against 1,312 notated.</p>
