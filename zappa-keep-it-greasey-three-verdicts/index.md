@@ -1073,3 +1073,62 @@ the peer's full 262-tab rescan. **The two it could not reach are the large ones*
 the kick** on their shared line, 33 against 25. **A five-tab sample sized the class at half its
 real membership**, which is the reference-class point applied to my own finding. Those counts are
 the peer's and are not re-derived here.
+
+---
+
+## ADDENDUM 17: the KIG-M001 repair is provably minimal, and that yields an acceptance test
+
+Both sessions censused the two files independently and agree on every cell.
+
+| Measure | `s604777` original r8852151 | `s6862054` copy r8972975 |
+|---|---|---|
+| beats | 3,756 | 3,756 |
+| beats with `velocity` | 989 | 989 |
+| snare 38 | 1,423 | 1,423 |
+| clap 39 | 21 | 21 |
+| ghost-flagged notes | 629 | 629 |
+| **kick 35** | **1,311** | **1,312** |
+| **MIDI 65** | **1** | **0** |
+
+**Two cells of seven moved, and they are the same single edit.** One Timbale high became one kick,
+with nothing else touched across 4,948 events and 248 bars.
+
+**That settles the provenance question in both directions.** The `989 of 3,756` figure holds on
+both files, so it was right measured on the original and right measured on the copy. **Neither
+session could have known the two files agreed without checking**, which is why the relabelling in
+Addendum 16 was correct regardless.
+
+### The acceptance test for any repair of this class
+
+> After the edit, **every count except the two target lanes must be identical to the source**, and
+> those two must move by **exactly** the number of notes converted.
+
+Worked out ahead of the five remaining MIDI 65 repairs, every row `kick_before + n65 = kick_after`,
+all six arithmetically consistent:
+
+| Tab | kick before | MIDI 65 | kick after | base count source |
+|---|---|---|---|---|
+| Seal Call `s604408` | 25 | 33 | 58 | peer, not re-derived here |
+| The Deathless Horsie `s35885` | 674 | 28 | 702 | peer, not re-derived here |
+| Packard Goose `s35875` | 10 | 4 | 14 | peer, not re-derived here |
+| Carolina `s68248` | 8 | 3 | 11 | **matches my own census** |
+| Alien Orifice `s68246` | 8 | 2 | 10 | **matches my own census** |
+| Keep It Greasey `s604777` | 1,311 | 1 | 1,312 | **matches, and already demonstrated** |
+
+**Three of the six base counts were confirmed by my independent five-tab census.** The other three
+are the peer's and are not re-derived here, per the one-song rule.
+
+### Why a full census catches what a targeted check cannot
+
+**A check aimed at the edited note cannot see collateral damage.** A peer session earlier lost 179
+note instances across 79 bars by editing a shared GPIF `Beat` in place, and the edit itself looked
+correct at the target. **A full census would have shown a count moving that nobody intended.**
+
+Recorded as `reference_prove_a_repair_is_minimal_by_full_census_diff`, since it applies to any
+transcription repair rather than to this song.
+
+### Neither pass was sufficient alone
+
+My five-tab census **got all three of its tabs exact and sized the class at half**. The peer's
+262-tab scan **got the size right and needed my finding to know the class existed**, since its
+`range(35,82)` filter had erased MIDI 65 entirely.
