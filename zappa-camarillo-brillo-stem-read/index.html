@@ -142,8 +142,14 @@ lower is better.</p>
 <tr><td>Lane-shuffled stems</td><td class="num">0.18267</td><td>barely worse</td></tr>
 </table>
 </div>
-<p>The tab fits the record played backwards better than it fits the record played forwards.
-Warp slope deviation ran to 2.5 where a real map sits near zero.</p>
+<p>Warp slope deviation ran to 2.5 where a real map sits near zero.
+<strong>One precision note on the reversal control</strong>, raised by an external review of this page:
+reversing raw waveform audio and then extracting onset features is not a fair symmetry test, because
+spectral flux measures positive frame-to-frame increase and reversal turns attacks into decay shapes.
+The control here reverses <strong>the already-extracted forward feature sequence</strong>, which is
+the defensible form. The identity conclusion also stands without any DTW: the release credits
+Ralph Humphrey and Tom Fowler at a listed 3:59, your stems are 238.14 s, and the s187082 clock
+describes a 277 s object.</p>
 
 <h2>4. The tab that does match</h2>
 <p>A song-name search surfaced a second Camarillo Brillo. Its tracks carry real personnel:
@@ -181,8 +187,13 @@ kick, hat and snare.</p>
   cannot settle stays unresolved rather than becoming an edit.</p>
 </div>
 <p>The more useful finding sits one level up. The same census run on s412176 returned
-<strong>zero three-surface instants across 1,769 note events</strong>. The impossible stacks are a
-property of the AI tab, not a property of the performance.</p>
+<strong>zero three-surface instants across 1,769 note events</strong>. State the conclusion at the
+width the evidence supports: <strong>the five stacks are transcription defects in s187082 because
+they require impossible simultaneous stick assignments, and which component of each stack is the
+erroneous one still needs stem-level verification.</strong> A real ride plus snare could sit under an
+added tom, or a real snare plus tom under an added ride. Zero collisions in s412176 shows that its
+arrangement avoids the impossibility, and it does not by itself prove every component of those five
+stacks is absent from Humphrey's playing.</p>
 <div class="scroll">
 <table>
 <tr><th>Measure</th><th>s187082 (AI)</th><th>s412176 (human)</th></tr>
@@ -222,101 +233,134 @@ section 7. The 182 in the table above is the subset that maps inside the recordi
 past the end of the audio, which is the tab's 240.33 s prediction overrunning a 238.14 s file. Broadband cymbal texture is the known weak class for source separation, and this
 measurement behaves the way that literature predicts.</p>
 
-<h2>7. The per-event cymbal pass</h2>
+<h2>7. The per-event pass, and the null that was wrong</h2>
 <p>The lane statistic in section 6 was never going to settle a single note, so all
 <strong>193 written cymbal events</strong> went through an event-level pass. Timestamps were tightened
 first: 546 kick and snare landmarks gave a sliding local correction that pulled the median residual
 from <code>-36.0 ms</code> to <code>-1.2 ms</code>, with 67 percent of landmarks inside 50 ms.</p>
 
 <div class="card warn">
-<p><strong>The per-event verdict is threshold-dominated, so none of it gets promoted.</strong>
-Built against a null drawn from quiet gaps the pass returned 28.5 percent supported. Built against a
-null drawn from the eighth-note grid it returned 9.3 percent supported. Same events, same audio, same
-detector. A number that moves that far on null construction alone is not a verdict, and both nulls
-are contaminated: the gap null samples silence, and the grid null samples positions where the ride is
+<p><strong>The first per-event verdict was threshold-dominated and none of it was promoted.</strong>
+Against a null drawn from quiet gaps the pass returned 55 of 193 supported. Against a null drawn from
+the eighth-note grid it returned 18 of 193. Same events, same audio, same detector. Both nulls are
+contaminated: the gap null samples silence, and the grid null samples positions where the ride is
 audibly playing without being written.</p>
 </div>
 
-<h3>What survives without a threshold</h3>
+<h3>Two claims an external review knocked down, and the reruns</h3>
+<p>This page was sent out for adversarial review before it was trusted. Two objections were correct,
+both were runnable, and both were run.</p>
+
+<div class="card warn">
+<p><strong>Objection one: raw detector counts cannot carry an omission claim.</strong>
+An earlier draft said the stem shows more cymbal attacks than the tab writes at every threshold, so
+the disagreement is omission. That reaches past the evidence, because an uncalibrated detector
+oversegments. The control settles it: run the identical sweep on lanes already trusted.</p>
+</div>
 <div class="scroll">
 <table>
-<tr><th>Detector delta</th><th>Attacks found in the stem</th><th>Written</th><th>Matched 1:1</th><th>Audio without notation</th><th>Written without support</th></tr>
-<tr><td class="num">0.010</td><td class="num">856</td><td class="num">182</td><td class="num">120</td><td class="num">736</td><td class="num">62</td></tr>
-<tr><td class="num">0.020</td><td class="num">673</td><td class="num">182</td><td class="num">103</td><td class="num">570</td><td class="num">79</td></tr>
-<tr><td class="num">0.030</td><td class="num">555</td><td class="num">182</td><td class="num">90</td><td class="num">465</td><td class="num">92</td></tr>
-<tr><td class="num">0.050</td><td class="num">409</td><td class="num">182</td><td class="num">74</td><td class="num">335</td><td class="num">108</td></tr>
-<tr><td class="num">0.080</td><td class="num">302</td><td class="num">182</td><td class="num">64</td><td class="num">238</td><td class="num">118</td></tr>
-<tr><td class="num">0.120</td><td class="num">229</td><td class="num">182</td><td class="num">54</td><td class="num">175</td><td class="num">128</td></tr>
+<tr><th>Lane</th><th>Written</th><th>Detected at delta 0.010</th><th>Ratio</th><th>Detected at delta 0.120</th><th>Ratio</th></tr>
+<tr><td>Kick</td><td class="num">439</td><td class="num">778</td><td class="num">1.8&times;</td><td class="num">458</td><td class="num">1.0&times;</td></tr>
+<tr><td>Snare</td><td class="num">335</td><td class="num">538</td><td class="num">1.6&times;</td><td class="num">327</td><td class="num">1.0&times;</td></tr>
+<tr><td>Toms</td><td class="num">388</td><td class="num">1158</td><td class="num">3.0&times;</td><td class="num">451</td><td class="num">1.2&times;</td></tr>
+<tr><td>Hi-hat</td><td class="num">398</td><td class="num">1679</td><td class="num">4.2&times;</td><td class="num">965</td><td class="num">2.4&times;</td></tr>
+<tr><td>Cymbals</td><td class="num">182</td><td class="num">856</td><td class="num">4.7&times;</td><td class="num">229</td><td class="num">1.3&times;</td></tr>
 </table>
 </div>
-<p>At every setting the stem carries more cymbal attacks than the tab writes, and the excess never
-falls below 175. <strong>The direction of the disagreement is omission rather than fabrication</strong>,
-and that direction does not depend on where the threshold is placed.</p>
+<p>The detector overcounts on every lane including kick and snare, and the cymbal ratio collapses to
+1.3&times; at the strict setting exactly as kick collapses to 1.0&times;.
+<strong>The omission claim is withdrawn.</strong> What can be said is narrower: across every tested
+threshold, detected cymbal attacks outnumber written cymbal events, which is consistent with
+substantial omission, and detector oversegmentation prevents converting that count difference into
+confirmed missing notes.</p>
 
-<h3>Local contrast, and what it says about every lane</h3>
-<p>Second test with no free parameter. For each written note, compare its own stem's novelty at that
-instant against the other seven eighth positions inside the same bar. A random position in the same
-bar is the null, so tempo, density and section loudness all cancel.</p>
+<div class="card warn">
+<p><strong>Objection two, and it reversed a published conclusion: the within-bar null is biased.</strong>
+Drum positions inside a bar are not exchangeable, because beat phase drives the probability of every
+surface. The second eighth is not a neutral substitute for the downbeat. Worse for a cymbal lane
+specifically, if the tab omits genuine events then the seven supposedly negative positions can hold
+real unwritten cymbal attacks, which inflates the null and punishes a tab for being incomplete.</p>
+</div>
+<p>The repair holds beat phase fixed. Each written note is now scored against
+<strong>the same eighth position in every other bar</strong> that carries no written note of that lane
+there. A downbeat crash is compared with other downbeats and never with its own bar's offbeats.</p>
 <div class="scroll">
 <table>
-<tr><th>Lane</th><th>Notes</th><th>Mean within-bar rank</th><th>Null</th><th>Null p99</th><th>z</th><th>Event-level verdict</th></tr>
-<tr><td>Snare</td><td class="num">335</td><td class="num">0.550</td><td class="num">0.437</td><td class="num">0.471</td><td class="num">+7.39</td><td><span class="tag pass">stem can adjudicate</span></td></tr>
-<tr><td>Kick</td><td class="num">439</td><td class="num">0.517</td><td class="num">0.436</td><td class="num">0.470</td><td class="num">+5.71</td><td><span class="tag pass">stem can adjudicate</span></td></tr>
-<tr><td>Toms</td><td class="num">388</td><td class="num">0.466</td><td class="num">0.435</td><td class="num">0.466</td><td class="num">+2.16</td><td><span class="tag unres">cannot, at the p99 bar</span></td></tr>
-<tr><td>Cymbals</td><td class="num">182</td><td class="num">0.445</td><td class="num">0.437</td><td class="num">0.488</td><td class="num">+0.38</td><td><span class="tag fail">cannot adjudicate</span></td></tr>
-<tr><td>Hi-hat</td><td class="num">398</td><td class="num">0.442</td><td class="num">0.439</td><td class="num">0.472</td><td class="num">+0.24</td><td><span class="tag fail">cannot adjudicate</span></td></tr>
+<tr><th>Lane</th><th>Notes</th><th>Same-bar null z</th><th>Same-bar verdict</th><th>Phase-preserving z</th><th>Mean rank</th><th>Corrected verdict</th></tr>
+<tr><td>Hi-hat</td><td class="num">395</td><td class="num">+0.24</td><td><span class="tag fail">fail</span></td><td class="num"><strong>+13.76</strong></td><td class="num">0.688</td><td><span class="tag pass">pass</span></td></tr>
+<tr><td>Cymbals</td><td class="num">180</td><td class="num">+0.38</td><td><span class="tag fail">fail</span></td><td class="num"><strong>+13.40</strong></td><td class="num">0.784</td><td><span class="tag pass">pass</span></td></tr>
+<tr><td>Snare</td><td class="num">255</td><td class="num">+7.39</td><td><span class="tag pass">pass</span></td><td class="num">+10.79</td><td class="num">0.690</td><td><span class="tag pass">pass</span></td></tr>
+<tr><td>Kick</td><td class="num">418</td><td class="num">+5.71</td><td><span class="tag pass">pass</span></td><td class="num">+7.10</td><td class="num">0.592</td><td><span class="tag pass">pass</span></td></tr>
+<tr><td>Toms</td><td class="num">244</td><td class="num">+2.16</td><td><span class="tag fail">fail</span></td><td class="num">+6.56</td><td class="num">0.617</td><td><span class="tag pass">pass</span></td></tr>
 </table>
 </div>
 <div class="card good">
-<p><strong>Snare and kick pass at z above five, so the test itself works.</strong> Cymbals, hi-hat and
-toms fail it. Written cymbal positions are statistically indistinguishable from randomly chosen
-positions in the same bar, and half of them sit in the bottom half of their own bar's novelty.</p>
+<p><strong>All five lanes pass once beat phase is held fixed, and the cymbal lane scores second
+highest of the five.</strong> Written cymbals sit at the 78th percentile of their own beat position
+elsewhere in the song. The earlier conclusion that this stem pack cannot adjudicate cymbal notes was
+an artifact of the biased null, and it is withdrawn.</p>
 </div>
-<div class="card warn">
-<p><strong>This is the measurement that separates a lane claim from a note claim.</strong>
-Section 6 found significant aggregate correspondence on four lanes. At event level only two of those
-four survive. The same stem pack that can settle an individual snare stroke cannot settle an
-individual ride stroke, and no aggregate enrichment figure would have exposed that.</p>
-</div>
+<p>The principle from section 6 survives all of this intact and is worth keeping separate from the
+result. A lane-level enrichment measures association across many observations and never certifies an
+individual annotation. The name for the pattern is an aggregate versus event-level evaluation
+discrepancy, and MIR reports frame-level and event-level metrics separately for exactly this reason.
+The lesson is that an aggregate pass and an event-level pass are different tests, and here the
+event-level test needed two attempts before its null was sound.</p>
 
-<h2>8. The investigation queue, built to be listened to</h2>
-<p>The statistic points and the ear decides, so every in-range cymbal event was cut to audio.
-178 events produced 356 files, an isolated Cymbals excerpt and a full-kit excerpt each, windowed
-0.45 s before the written instant and 0.75 s after. They are ranked worst first by within-bar novelty
-rank, so the most suspicious writing sits at the top.</p>
+<h2>8. The investigation queue, rebuilt on the corrected test</h2>
+<p>Because the lane now localises well, a low rank is a genuine outlier rather than a limit of the
+measurement. That turns a vague list of 182 unsettled events into a short list worth hearing.</p>
 <div class="scroll">
 <table>
-<tr><th>Rank</th><th>Bar</th><th>Beat</th><th>Written</th><th>Time</th><th>Novelty</th><th>Bar median</th></tr>
-<tr><td class="num">1</td><td class="num">72</td><td class="num">1</td><td>crash</td><td class="num">140.702 s</td><td class="num">0.01</td><td class="num">2.50</td></tr>
-<tr><td class="num">3</td><td class="num">88</td><td class="num">1</td><td>crash</td><td class="num">172.392 s</td><td class="num">0.03</td><td class="num">6.54</td></tr>
-<tr><td class="num">4</td><td class="num">94</td><td class="num">1</td><td>crash</td><td class="num">184.311 s</td><td class="num">0.03</td><td class="num">11.79</td></tr>
-<tr><td class="num">6</td><td class="num">82</td><td class="num">1</td><td>crash</td><td class="num">160.640 s</td><td class="num">0.09</td><td class="num">15.14</td></tr>
-<tr><td class="num">9</td><td class="num">98</td><td class="num">1</td><td>crash</td><td class="num">192.393 s</td><td class="num">0.13</td><td class="num">32.69</td></tr>
+<tr><th>State</th><th>Count</th><th>Meaning</th></tr>
+<tr><td>Well supported, rank at or above 0.80</td><td class="num">91</td><td>sits in the top fifth of its own beat position</td></tr>
+<tr><td>Middle, rank 0.50 to 0.80</td><td class="num">81</td><td>ordinary for that beat position</td></tr>
+<tr><td><strong>Low rank, below 0.50</strong></td><td class="num"><strong>9</strong></td><td>quieter than half the same-position cells, all of them crashes</td></tr>
+<tr><td>Past the end of the recording</td><td class="num">11</td><td>the tab's 240.33 s overrunning a 238.14 s file</td></tr>
+<tr><td>Off the eighth grid</td><td class="num">1</td><td>no comparable pool</td></tr>
 </table>
 </div>
-<p>Nine of the fifteen worst are a crash written on beat one of a bar between 69 and 102, which is a
-recognisable machine habit rather than a drummer's choice. That pattern is a lead worth hearing,
-never a licence to delete. Queue and audio sit at
-<code>~/Projects/_outputs/zappa-camarillo-brillo/cymbal_pass/</code>.</p>
+<div class="scroll">
+<table>
+<tr><th>Bar</th><th>Beat</th><th>Written</th><th>Time</th><th>Novelty</th><th>Pool median</th><th>Rank</th></tr>
+<tr><td class="num">43</td><td class="num">1.5</td><td>crash</td><td class="num">84.309 s</td><td class="num">0.01</td><td class="num">0.02</td><td class="num">0.061</td></tr>
+<tr><td class="num">12</td><td class="num">1.0</td><td>crash</td><td class="num">22.205 s</td><td class="num">0.01</td><td class="num">0.02</td><td class="num">0.098</td></tr>
+<tr><td class="num">72</td><td class="num">1.0</td><td>crash</td><td class="num">140.702 s</td><td class="num">0.01</td><td class="num">0.02</td><td class="num">0.256</td></tr>
+<tr><td class="num">69</td><td class="num">3.0</td><td>crash</td><td class="num">135.721 s</td><td class="num">0.01</td><td class="num">0.03</td><td class="num">0.284</td></tr>
+<tr><td class="num">74</td><td class="num">1.0</td><td>crash</td><td class="num">144.776 s</td><td class="num">0.02</td><td class="num">0.02</td><td class="num">0.329</td></tr>
+<tr><td class="num">11</td><td class="num">3.5</td><td>crash</td><td class="num">21.488 s</td><td class="num">0.02</td><td class="num">0.03</td><td class="num">0.343</td></tr>
+<tr><td class="num">77</td><td class="num">2.5</td><td>crash</td><td class="num">151.480 s</td><td class="num">0.02</td><td class="num">0.02</td><td class="num">0.347</td></tr>
+<tr><td class="num">35</td><td class="num">3.0</td><td>crash</td><td class="num">68.621 s</td><td class="num">0.02</td><td class="num">0.03</td><td class="num">0.421</td></tr>
+<tr><td class="num">11</td><td class="num">3.0</td><td>crash</td><td class="num">21.238 s</td><td class="num">0.02</td><td class="num">0.03</td><td class="num">0.442</td></tr>
+</table>
+</div>
+<p><strong>All nine are crashes and none is a ride.</strong> Each was cut to audio, an isolated Cymbals
+excerpt and a full-kit excerpt, 0.45 s before the written instant and 0.75 s after. 177 events
+produced 354 files, named by bar and beat so a re-ranking never needs a re-cut. Queue at
+<code>~/Projects/_outputs/zappa-camarillo-brillo/cymbal_pass/INVESTIGATION_QUEUE.md</code>.</p>
 
 <h2>9. Settled, open, next</h2>
 <div class="card good">
-<p><strong>Settled.</strong> The five instants are an artifact of a non-matching AI tab.
-s412176 is the Camarillo Brillo tab that tracks this recording, and it carries zero playability
-violations. Its kick and snare lanes hold up at event level, at z of +5.71 and +7.39 against a
-matched within-bar null.</p>
+<p><strong>Settled.</strong> s412176 is the Camarillo Brillo tab that tracks this recording. It carries
+zero physically impossible stacks, and all five of its drum lanes localise against their own stems
+once beat phase is held fixed. The five stacks in s187082 are transcription defects in that file.</p>
 </div>
 <div class="card hold">
-<p><strong>Open.</strong> The 193 cymbal events stay unsettled, and the pass established why rather
-than guessing. This separated Cymbals stem has no event-level discriminating power on this recording,
-proven by a test that snare and kick both pass. The hi-hat and tom lanes inherit the same limit.
-Whether s187082 faithfully describes some other Camarillo Brillo performance is untested here,
-because only this recording was available.</p>
+<p><strong>Open.</strong> Which component of each s187082 stack is the erroneous one, and the nine
+low-rank crashes in s412176. Whether s187082 faithfully describes some other Camarillo Brillo
+performance is untested here, because only this recording was available.</p>
 </div>
 <div class="card">
-<p><strong>Next.</strong> Listen through the ranked queue, starting with the nine crashes written on
-beat one between bars 69 and 102. The statistic has done what it can do here, so the remaining
-judgement is auditory. Any edit that follows goes onto a copy, never onto the original community tab.</p>
+<p><strong>Next.</strong> Listen to the nine, isolated stem first and full kit second. A crash whose
+own beat position is louder in most other bars is a candidate for removal, and it needs the ear
+before any edit. Any edit goes onto a copy, never onto the original community tab.</p>
+</div>
+
+<div class="card">
+<p><strong>Audit trail.</strong> Sections 7 and 8 exist because two claims in the first published
+version failed external review. The omission claim was withdrawn after a detector-calibration control,
+and the cymbal adjudication verdict was reversed after the null was rebuilt to preserve beat phase.
+Both reruns are on disk beside the originals.</p>
 </div>
 
 <footer>
