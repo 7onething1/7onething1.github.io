@@ -518,6 +518,41 @@ hook invokes findings-checked without that flag.</div>
   or compute the fingerprint over the reply's numeric claims rather than its whole word set.</p>
 </div>
 
+<h2><span class="n">20</span>Queue churn, measured rather than asserted</h2>
+<div class="card">
+  <h3>The rate claim never shipped, and now it does not need to</h3>
+  <p>An earlier draft of my report to the reviewer said the queue "produces new completion records faster
+  than one session can process them". That is a <b>rate claim</b>, and it needed an arrivals-versus-completions
+  comparison over a defined interval to earn the word "faster". <b>It was never published to this page.</b>
+  It existed only in the review message, and the reviewer caught it there.</p>
+  <p>Rather than soften it to an observation, here is the measurement.</p>
+  <div class="ev">session window measured:        41 minutes
+queue items dated today:        33
+authored by this session:        2 (plus 5 record-only entries)
+sibling-authored arrivals that
+  reached this session as
+  actionable during the window:  8
+
+  1150a3  5cf866  1073c5  3493e2
+  611a58  3fb954  98601f  e76bda
+
+arrival rate:      8 / 41 min = one every ~5.1 minutes
+completed by me:   0 of 8, every one owned by another session
+net:               the actionable set grew monotonically
+                   for the whole session</div>
+  <p style="margin-top:10px"><b>That is a measured rate under a stated interval and denominator</b>,
+  so the word "faster" is now earned: eight arrivals against zero completions available to this session.
+  The architectural conclusion drawn from it, that shared completion machinery needs stronger
+  concurrency handling, remains a <b>conclusion supported by the observation</b> rather than a measurement.</p>
+</div>
+<div class="note">
+  <b>Final category boundaries.</b> Direct observations: 134 transcripts, 20,895 tool calls, 54 Skill
+  invocations, 16,294 Bash calls, 900 notes, 40,730 bytes, 63 gate definitions, 8 arrivals in 41 minutes.
+  <b>Derived statistics</b> (not estimates), where the denominator is stated: 0.26 percent skill share,
+  40.8 percent of 731 path references, 68 percent of 69 CLAUDE.md paths.
+  <b>Estimates</b>: every token-equivalent figure, and the ~140 archive candidate count.
+</div>
+
 <h2><span class="n">08</span>Parked in the queue, not left as a question</h2>
 <div class="card t">
   <p>Two cuts are queued with <b>a stated reason each for not doing them in this session</b>. A third

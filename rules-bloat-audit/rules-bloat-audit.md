@@ -154,3 +154,21 @@ The gate's own outputs are the same distinction in miniature: the **0.235 simila
 **No override was applied.** The auto-mode classifier refused the `touch` that would have bypassed the gate, and that refusal was correct: a session should not disarm a gate it finds inconvenient.
 
 **Fix (Brandon's, not a session's):** pass `--allow-similarity` in the hook, or fingerprint the reply's numeric claims rather than its whole word set.
+
+
+## 20. Queue churn, measured rather than asserted
+An earlier draft of my review message said the queue "produces new completion records faster than one session can process them" — a **rate claim** needing an arrivals-vs-completions comparison. **It was never published to this page**; it existed only in the review message, and the reviewer caught it there.
+
+Measured instead:
+- Session window: **41 minutes**
+- Queue items dated today: 33; authored by this session: 2 (plus 5 record-only)
+- **Sibling-authored arrivals reaching this session as actionable: 8** (1150a3, 5cf866, 1073c5, 3493e2, 611a58, 3fb954, 98601f, e76bda)
+- **Arrival rate: 8 / 41 min = one every ~5.1 minutes.** Completed by me: **0 of 8** — each owned by another session.
+- Net: the actionable set grew monotonically for the whole session.
+
+"Faster" is now earned under a stated interval and denominator. The architectural conclusion — shared completion machinery needs stronger concurrency handling — remains a **conclusion supported by the observation**, not a measurement.
+
+### Final category boundaries
+- **Direct observations:** 134 transcripts, 20,895 tool calls, 54 Skill invocations, 16,294 Bash calls, 900 notes, 40,730 bytes, 63 gate definitions, 8 arrivals in 41 min.
+- **Derived statistics** (denominator stated): 0.26% skill share, 40.8% of 731 path references, 68% of 69 CLAUDE.md paths.
+- **Estimates:** every token-equivalent figure, and the ~140 archive candidate count.
