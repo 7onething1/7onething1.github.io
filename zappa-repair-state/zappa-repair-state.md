@@ -1,9 +1,3 @@
-> **SUPERSEDED 2026-09-09.** A live census of all twenty affected tabs reads 19 of 20 whole.
-> Every table below that says PARTIAL or missing is stale. The one tab still carrying the
-> sweep's damage is Zomby Woof community `s412162`, whose Ralph Humphrey staff holds 10 ghost
-> flags against the author's 32, and none of the 10 sits in an author slot. Current numbers and
-> the built repair: <https://7onething1.github.io/zappa-zomby-woof-ghost-restore/>
-
 > **CORRECTED 2026-09-07.** This page said 17 songs were still stripped. Live reads say
 > otherwise. `ghost_sweep.json` was frozen at the revisions published on 2026-09-05, so every
 > restore landing after that was invisible to it. Watermelon In Easter Hay is the clearest case:
