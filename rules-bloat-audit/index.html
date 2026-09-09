@@ -118,7 +118,7 @@ Never invoked: 165 of 182 skills</div>
 <tr><th>Group</th><th>Count</th><th>Evidence</th><th>Proposal</th></tr>
 <tr><td><b>Proven core</b><br>loop, ship, chat-end, fraud-firewall, songsterr-upload, notation-evidence-gate, reference-class, transcription-repair, real-song-finder, update-config</td><td>10</td><td>invoked repeatedly, tied to live work</td><td><span class="tag keep">Keep, full description</span></td></tr>
 <tr><td><b>Used once</b><br>jam-stem-rebuild, ableton-rig-doctor, missed-songs-audit, file-getter, impossible-guitar-parts, skill-creator, artifact-design</td><td>7</td><td>1 invocation each</td><td><span class="tag keep">Keep, trim description to 1 line</span></td></tr>
-<tr><td><b>No usable description</b><br>album-book-craft, band-cycle, mashup-maker, midi-analyze, stem-analyzer, orchestration, speech-synth and 28 more</td><td>35</td><td>cannot trigger by description match</td><td><span class="tag cut">Archive or write a description</span></td></tr>
+<tr><td><b>No usable description</b><br>album-book-craft, band-cycle, mashup-maker, midi-analyze, stem-analyzer, orchestration, speech-synth and 28 more</td><td>35<br><small>20 of them have <b>no YAML frontmatter at all</b></small></td><td>they appear in the skills list as a bare name with nothing after it, so description matching cannot reach them<br><code>skills/mashup-maker/SKILL.md:1</code> starts <code># mashup-maker</code></td><td><span class="tag cut">Archive or write frontmatter</span></td></tr>
 <tr><td><b>Fat descriptions on unused skills</b><br>impossible-guitar-parts (1559 ch), rock-analysis-canon (1422), chavez-radiohead-failure-craft (1399), notation-evidence-gate (1273), real-song-finder (1239)</td><td>5</td><td>~6,900 chars per turn from five entries</td><td><span class="tag merge">Cap at 200 chars</span></td></tr>
 <tr><td><b>Never invoked, never described in a live task</b></td><td>~140</td><td>0 invocations across all transcripts</td><td><span class="tag cut">Move to skills-archive/</span></td></tr>
 <tr><td><b>Broken dirs</b><br>chiron-intuition-format, delete</td><td>2</td><td>no SKILL.md, no reference anywhere</td><td><span class="tag cut">Retire</span></td></tr>
@@ -145,7 +145,7 @@ Never invoked: 165 of 182 skills</div>
 
 most-cited dead paths:
   9x  ~/Projects/drwu-htmls/scripts/deploy_htmls_lean.py
-  5x  ~/MAP.md                      ← the "map front door" rule points here
+  5x  ~/MAP.md   ← ls: No such file or directory (verified)
   5x  ~/Projects/stem-map/stem-map.md
   5x  ~/.claude/shift_queue.json
   5x  ~/.claude/claude-sync/sync.sh  ← banned tool, still cited 5x
@@ -196,7 +196,9 @@ most-cited dead paths:
   and <code>ultracode_default.py</code>. Two were deliberately unwired and documented. The rest are ambiguous,
   and an unwired gate reads as a live gate to anyone scanning the folder.</p>
   <p><b>16 Stop hooks is a serial chain</b> on every single turn end. Each one is a Python interpreter start.</p>
-  <div class="ev">PreToolUse duplicate:  block_desktop_writes.py  (positions 3 and 9)
+  <div class="ev">PreToolUse duplicate:  block_desktop_writes.py
+  settings.json:259   matcher Bash
+  settings.json:276   matcher Write|Edit|NotebookEdit
 Unwired on disk:  kid_mode_gate, model_fit_gate, ultracode_default,
   no_idle_stop_gate, produce_dont_just_report_gate, quit_gate_wrapper,
   pre_ship_voice_check, fresh_eyes_verify, wire_produce_gate, adg_old,
@@ -213,7 +215,8 @@ Unwired on disk:  kid_mode_gate, model_fit_gate, ultracode_default,
   never appear by name in the runner, which looks like a gap until you read the loop.
   No cut recommended. The folder name understates it by 13.</p>
   <div class="ev">gates defined in gates_def.py: 63
-run_gates.py iterates the def table generically: True
+run_gates.py:790     for g in GATES:
+run_gates.py:369     g = next(x for x in GATES if x["id"] == gid)
 → all 63 execute; the 27 unnamed ones have no special-case branch</div>
 </div>
 
@@ -258,6 +261,15 @@ run_gates.py iterates the def table generically: True
   <p>No files were moved, archived, edited or deleted in producing this audit.
   Every number above came from reading. <b>The cuts are a proposal waiting on your word,</b>
   and the never-delete rule governs all of them, so every action listed is a move into an archive folder.</p>
+</div>
+
+<h2><span class="n">08</span>Parked in the queue, not left as a question</h2>
+<div class="card t">
+  <p>The three highest-payoff cuts are <b>queued rather than announced</b>, because the ask was a proposal
+  and archiving 140 skills is a move you should weigh. Nothing waits on a reply to stay findable.</p>
+  <div class="ev">q-2026-09-09-e488fb  cut #1  archive ~140 never-invoked skills
+q-2026-09-09-ae8b84  cut #3  cut MEMORY.md under 20 KB
+q-2026-09-09-1f0192  cut #8  remove duplicate hook at settings.json:259</div>
 </div>
 
 <footer>
