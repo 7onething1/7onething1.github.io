@@ -132,6 +132,7 @@ footer{margin-top:3rem;border-top:2px solid var(--line);padding-top:1rem;
 <li><a href="#silent">The missed positions are near-silent</a></li>
 <li><a href="#corrected">The map was fitted with the thing it was measuring</a></li>
 <li><a href="#censusguard">The census filter, measured</a></li>
+<li><a href="#acceptance">The acceptance test, controlled both ways</a></li>
 <li><a href="#files">Files and reproduction</a></li>
 </ol>
 </div>
@@ -989,7 +990,7 @@ footer{margin-top:3rem;border-top:2px solid var(--line);padding-top:1rem;
 
 
 <h2 class="s1" id="censusguard">24. The census filter, measured against the staff it was filtering</h2>
-<p>Section 14 recorded a hardcoded pitch list as a defect and left the reusable guard unbuilt. It is built now, at <code>~/.claude/skills/_shared/census_guard.py</code>, and its self-test replays the real failure against the real part file rather than a synthetic fixture.</p>
+<p>Section 14 recorded a hardcoded pitch list as a defect and left the reusable guard unbuilt. The guard is built now, at <code>~/.claude/skills/_shared/census_guard.py</code>, and its self-test replays the real failure against the real part file rather than a synthetic fixture.</p>
 
 <h3>What the literal cost, measured</h3>
 <p>The Keep It Greasey drum staff holds <b>4,948 notes across 17 distinct pitches</b>. The literal <code>{35, 36, 38, 42, 46, 49, 51, 54}</code> declares eight keys, six of which are present.</p>
@@ -1021,6 +1022,37 @@ footer{margin-top:3rem;border-top:2px solid var(--line);padding-top:1rem;
 <p>Run across the 18 archived scripts in the working folder, <code>--audit</code> flags <b>12 literal key sets in 11 files</b>, and every one of them is the same expression:</p>
 <table><tr><td><code>r["fret"] in (35, 42, 44, 46)</code></td></tr></table>
 <div class="warn"><b>That is kick plus hats, the exact literal section 23 proved makes the map circular</b>, found independently by reading the source rather than by measuring the result. A literal is legitimate as a <b>spec</b> and wrong as an <b>enumeration</b>, and this one was never questioned as either.</div>
+
+
+<h2 class="s1" id="acceptance">25. The acceptance test, built and controlled in both directions</h2>
+<p>Section 8 established that a repair is provably minimal only by full census diff, and left the reusable test unbuilt. The test is built now at <code>~/.claude/skills/_shared/repair_census_diff.py</code>, composed on top of the census guard from section 24 so its enumeration is exhaustive by construction.</p>
+<p>It censuses <b>8 scalar dimensions</b> (measures, beats, notes, beats carrying velocity, rests, ghosts, dead notes, ties) and <b>5 keyed dimensions</b> (fret, string, fret_string, velocity, duration), then reports every cell that moved. A repair declares its targets as <code>--expect fret:35:+1</code>, and anything else that moved is collateral.</p>
+
+<h3>The real repair, s604777 r8852151 against s6862054 r8972975</h3>
+<table>
+<tr><th>Dimension</th><th>Before</th><th>After</th></tr>
+<tr><td>measures</td><td>248</td><td>248</td></tr>
+<tr><td>beats</td><td>3,756</td><td>3,756</td></tr>
+<tr><td>notes</td><td>4,948</td><td>4,948</td></tr>
+<tr><td>beats carrying velocity</td><td>989</td><td>989</td></tr>
+<tr><td>rests</td><td>26</td><td>26</td></tr>
+<tr><td>ghost notes</td><td>629</td><td>629</td></tr>
+<tr><td>dead notes</td><td>0</td><td>0</td></tr>
+<tr><td>tied notes</td><td>0</td><td>0</td></tr>
+</table>
+<div class="good"><b>Four changed cells across every dimension.</b> Two carry the verdict, <code>fret 35</code> at 1311 to 1312 and <code>fret 65</code> at 1 to 0, both declared. Two are the same edit seen through <code>fret_string</code>. <b>VERDICT MINIMAL, exit 0</b>, across 4,948 notes and 3,756 beats.</div>
+
+<h3>Both controls, because a clean diff proves nothing on its own</h3>
+<table>
+<tr><th>Control</th><th>The mutation</th><th>What caught it</th><th>Exit</th></tr>
+<tr><td><b>A</b></td><td>one snare note moved from line 1.5 to line 2, <b>pitch untouched</b></td><td><code>string</code>, 1.5 at 1444 to 1443 and 2 at 170 to 171</td><td><b>1</b></td></tr>
+<tr><td><b>B</b></td><td>three ghost flags silently dropped</td><td><code>notes_ghost</code>, 629 to 626</td><td><b>1</b></td></tr>
+<tr><td>identity</td><td>the file against itself</td><td>nothing moved</td><td><b>0</b></td></tr>
+<tr><td>real repair</td><td>declared correctly</td><td>only declared cells moved</td><td><b>0</b></td></tr>
+</table>
+<div class="warn"><b>Control A is the decisive one here.</b> Its pitch never changes, so the <code>fret</code> dimension is blind to it, and a check aimed at pitch counts would call that file clean. <b>The <code>string</code> dimension catches it alone.</b> That is the 179-lost-instances failure shape reproduced deliberately and caught.</div>
+<p>Line 1.5 holding <b>1,444</b> notes is itself a check: snare 1,423 plus clap 21 equals 1,444, so the two lanes that share that line account for it exactly.</p>
+<div class="note"><b>Tool shipped, four exit codes verified, no repair performed and none authorized.</b> The six-tab MIDI 65 repair remains outward-facing work that needs Brandon's own say-so.</div>
 
 <h2 class="s5" id="files">5. Files and reproduction</h2>
 <p>Onsets were detected on <b>isolated stems</b>, never the mix, at 44.1 kHz over 501.84 s, hop 256, log-compressed spectral novelty per FMP 6.1.2. The kick count reproduces the earlier surplus finding independently, 1,332 detected against 1,312 notated.</p>
