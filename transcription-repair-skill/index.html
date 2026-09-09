@@ -5,7 +5,7 @@
 <style>
 :root{
   color-scheme:light;
-  --cream:#f6f0e2; --paper:#fffaf0; --ink:#1f1c18; --mute:#6b6257;
+  --cream:#f6f0e2; --paper:#fffaf0; --ink:#111111; --mute:#6b6257;
   --rust:#b4452e; --mustard:#d9a441; --sage:#7d8f69; --teal:#3f6f74;
   --plum:#7a4a63; --line:#ddd2b8; --code:#2b2721;
 }
@@ -79,9 +79,9 @@ claims inside it. Every rule below has a shipped failure behind it.</p>
 </header>
 
 <div class="grid">
-  <div class="card t"><h4>Executable assertions</h4><div class="big">76</div>
-    <div class="note">4 suites, all passing, numpy and scipy only</div></div>
-  <div class="card r"><h4>Adversarial fixtures</h4><div class="big">15</div>
+  <div class="card t"><h4>Executable assertions</h4><div class="big">101</div>
+    <div class="note">6 suites, all passing, numpy and scipy only</div></div>
+  <div class="card r"><h4>Adversarial fixtures</h4><div class="big">21</div>
     <div class="note">each one a repair that actually shipped wrong</div></div>
   <div class="card m"><h4>Promotion conditions</h4><div class="big">9</div>
     <div class="note">every one named separately on refusal</div></div>
@@ -209,6 +209,41 @@ as one number lets a cymbal proposal inherit a kick's credibility.</p>
 <tr><td>cymbal</td><td class="n">0.481</td><td><span class="pill no">weak, dense broadband</span></td></tr>
 </tbody></table></div>
 
+<h2 class="r">Real audio found a defect the fixtures could not</h2>
+<blockquote>
+<p>On GP bars 99 to 103 of a coda marked <em>p / pp</em> and "cymbal on dome",
+<code>cymbal_events(instrument="ride")</code> returned <b>zero fresh attacks against 75
+written events</b>. Nothing in the return value said the detector had failed, so the zero
+read as an absence and very nearly became a deletion.</p>
+</blockquote>
+<p>Two repairs were tried on a reproduction fixture of twelve quiet dome pings under a loud
+crash bed. <b>Both failed, and the failure is the finding.</b></p>
+<div class="scroll"><table>
+<thead><tr><th>Route</th><th>Best operating point</th><th>Verdict</th></tr></thead>
+<tbody>
+<tr><td>novelty threshold sweep, 3 bands x 5 deltas x 2 refractory settings</td>
+<td class="n">recall 0.92 at precision 0.11, or precision 0.60 at recall 0.25</td>
+<td><span class="pill no">unusable</span></td></tr>
+<tr><td>spectral template matched to hand-labelled strokes from the same stem</td>
+<td class="n">held-out gains +0.003 to +0.015 against random instants &minus;0.027 to +0.015, fully overlapping</td>
+<td><span class="pill no">unusable</span></td></tr>
+</tbody></table></div>
+<p><b>A quiet dome ping far under a loud resonant bed is not recoverable from that stem.</b>
+Three refusals shipped in place of a tuned number.</p>
+<div class="grid">
+<div class="card r"><h4>promotable: False</h4>
+<p style="margin:.2rem 0 0;font-size:.92rem">The <code>bell</code> profile returns
+<code>CANDIDATE_ONLY</code>. No downstream step may read one of its hits as an attack.</p></div>
+<div class="card m"><h4>detector_reality_check</h4>
+<p style="margin:.2rem 0 0;font-size:.92rem">Under 15 percent of what the notation writes
+across 8 or more events returns <code>DETECTOR_FAILURE</code>. The silent zero becomes a
+loud refusal, and the eye wins.</p></div>
+<div class="card t"><h4>cymbal_separability</h4>
+<p style="margin:.2rem 0 0;font-size:.92rem">Holds out half the labelled strokes against
+random instants clear of every label. <code>NOT_SEPARABLE</code> means stop sweeping and
+get a better-isolated stem.</p></div>
+</div>
+
 <h2 class="s">Three design changes the self-test forced</h2>
 <p>Each of these failed on the first run, and each failure changed the design rather than the
 expectation.</p>
@@ -264,9 +299,9 @@ against it.</p>
 
 <div class="foot">
 <p><b>Skill:</b> <code>~/.claude/skills/transcription-repair/</code> ·
-2,947 lines of Python, 593 lines of SKILL.md, 404 lines of reference ·
+4,344 lines of Python, 692 lines of SKILL.md, 404 lines of reference ·
 <code>SKILL.md</code>, <code>tr_ledger.py</code>, <code>tr_audio.py</code>,
-<code>tr_score.py</code>, <code>tr_gate.py</code>, <code>run_selftests.sh</code>,
+<code>tr_score.py</code>, <code>tr_gate.py</code>, <code>tr_verify.py</code>, <code>tr_edit_lock.py</code>, <code>run_selftests.sh</code>,
 <code>reference/research-dossier.md</code>, <code>reference/gp-percussion.md</code></p>
 <p><b>Composes with:</b> <code>/notation-evidence-gate</code> ·
 <code>/songsterr-drum-repair</code> · <code>/songsterr-upload</code> ·

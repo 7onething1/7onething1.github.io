@@ -9,7 +9,7 @@ Skill: `~/.claude/skills/transcription-repair/`
 
 ## What it is
 
-76 executable assertions across four suites, 15 adversarial fixtures, 9 promotion
+101 executable assertions across four suites, 15 adversarial fixtures, 9 promotion
 conditions, 7 evidence states. Built 2026-09-08. numpy and scipy only, so every suite runs
 in the system python with no audio files on disk.
 
@@ -20,6 +20,7 @@ in the system python with no audio files on disk.
 | `tr_audio.py` | 986 | onsets, alignment gate, landmarks, cymbal attacks, tom identity, leakage |
 | `tr_score.py` | 560 | musical clock, grid snapping, two-hands gate, pattern sweeps, red zone |
 | `tr_gate.py` | 709 | provenance, recording identity, states, edit ledger, promotion |
+| `tr_verify.py` + `tr_edit_lock.py` | 910 | notation-first ordering and the mutation lock (sibling session) |
 | `reference/research-dossier.md` | 253 | the research, provenance marked per fact |
 | `reference/gp-percussion.md` | 151 | measured Guitar Pro and Songsterr encoding facts |
 
