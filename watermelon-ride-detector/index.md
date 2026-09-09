@@ -163,6 +163,8 @@ about twenty energy events per bar. It is not relaxed here, it is recorded as ne
 
 ## Bar 105: the eye overrules the detector
 
+Bar numbers and written counts here are read from the .gp score `TEMPOFIX-INT-on-r8973389-Brandon-edit.gp` track 8, Songsterr s6857183 revision r8973454, 1-indexed as the tab displays.
+
 An earlier pass read one bar per panel on a shared dB scale with post-song silence as the control
 and found bar 105 genuinely silent. The detector returns **32** there, its highest count anywhere.
 **Bar 105 is silent.** That 32 is a false-positive count in a bar known to be empty.
