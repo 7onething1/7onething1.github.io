@@ -768,6 +768,7 @@ footer{margin-top:3rem;border-top:2px solid var(--line);padding-top:1rem;
 <p><code>q-2026-09-08-2f523c</code> had two halves. <b>The reproducible half is done and is above.</b> The half that remains needs a <b>signed-in browser read</b>, since <code>s6627570</code> returns <code>ERR_UNPUBLISHED</code> to anonymous requests and sits under <code>artistId</code> 67452 "Unknown Artist", outside even the 406. <b>Unpublished and misfiled tabs cannot be counted from an uncredentialed session at all.</b></p>
 
 <h2 class="s1" id="msdtwfull">16. The song-wide pass ran. The map holds at bar level and fails at note level.</h2>
+<div class="warn"><b>RIDES ON THE FITTED MAP, see section 23.</b> Every ratio in this section is measured through a score-to-audio map built from notated kick <b>and</b> hat events against detected kick <b>and</b> hat onsets, so kick onsets helped decide where the kicks land. Rebuilt from hats alone the alignment is <b>1.36x</b>, under the 1.5x Gate N4 floor. <b>The lever this section measures is real; the baseline it is measured against is not independent.</b></div>
 <p>Pre-registered and hashed with nothing yet computed, sha256 <code>47adf4eb...533b90a</code>. <b>This is the step KIG-M004 had been waiting on.</b> Parameters, stated once for every row: offset recovered rather than supplied, <b>scale is not a parameter</b> since the path warps freely, tolerance 60 ms at note level, one-to-one match rate 510/1,311 = 38.9% against a 25.1% rotation-null baseline.</p>
 <p>Coarse pass at a 200 ms hop, 2,595 score frames against 2,510 audio frames, 6.5 million cells, path length 3,247, projected to a 50 ms grid and refined inside a <b>plus or minus 2.0 s band</b>, the constraint region the piecewise run lacked.</p>
 <table>
@@ -794,6 +795,7 @@ footer{margin-top:3rem;border-top:2px solid var(--line);padding-top:1rem;
 <div class="good"><b>The method works and the previous failure was the shape, not the size.</b> A coarse path constraining a fine one produces a monotonic song-wide map that survives its own anchor check, where 60 independently-searched windows produced a bar-210 window at 41.980 s and 64 placements that had to be withdrawn. <b>What remains is resolution, not architecture:</b> a sparser onset representation, log-compressed spectral novelty per subband per FMP 6.1.2, rather than the pooled envelope used here.</div>
 
 <h2 class="s2" id="subband">17. The subband representation was built and run. It helps, and it is not enough.</h2>
+<div class="warn"><b>RIDES ON THE FITTED MAP, see section 23.</b> Every ratio in this section is measured through a score-to-audio map built from notated kick <b>and</b> hat events against detected kick <b>and</b> hat onsets, so kick onsets helped decide where the kicks land. Rebuilt from hats alone the alignment is <b>1.36x</b>, under the 1.5x Gate N4 floor. <b>The lever this section measures is real; the baseline it is measured against is not independent.</b></div>
 <p><b>Log-compressed spectral novelty per subband, FMP 6.1.2</b>, replacing the pooled envelope: STFT 2048 hop 256, <code>log(1 + gamma * |X|)</code>, positive first differences summed inside a band, local-average subtraction, half-wave rectify. Kick band <b>30-180 Hz at gamma 100</b>, hat band <b>4-16 kHz at gamma 10</b>. Every row below is a full coarse-to-fine map at offset recovered, no scale parameter, 60 ms tolerance.</p>
 <table>
 <tr><th>delta</th><th>kick det</th><th>hat det</th><th>bar 22</th><th>error</th><th>one-to-one</th><th>null</th><th>ratio</th></tr>
@@ -817,6 +819,7 @@ footer{margin-top:3rem;border-top:2px solid var(--line);padding-top:1rem;
 <div class="good"><b>The lever was tried and its size is now known.</b> A better onset representation moves the ratio by 0.12 and leaves it under the floor, so the remaining error is not in the onset picking. Two routes found by search and not yet tried: <b>harmonic-percussive decomposition before onset detection</b>, and <b>group delay combined with spectral flux</b>, reported in the literature as a large gain over plain Fourier onset detection.</div>
 
 <h2 class="s1" id="worse">18. I found a bug in my own map, fixed it, and the fix made the result worse</h2>
+<div class="warn"><b>RIDES ON THE FITTED MAP, see section 23.</b> Every ratio in this section is measured through a score-to-audio map built from notated kick <b>and</b> hat events against detected kick <b>and</b> hat onsets, so kick onsets helped decide where the kicks land. Rebuilt from hats alone the alignment is <b>1.36x</b>, under the 1.5x Gate N4 floor. <b>The lever this section measures is real; the baseline it is measured against is not independent.</b></div>
 <div class="warn"><b>The bug:</b> <code>msdtw_songwide.py</code> computes a banded fine refinement and then <b>never uses it</b>. Line 62 interpolates the <b>coarse</b> 200 ms path. <b>The refinement ran and its output was discarded</b>, so every figure in the two sections above came from a 200 ms grid, which is also why the median residual sat at 27.6 ms.</div>
 <p><b><code>msdtw_v3.py</code> carries no repair and claims no landmark evidence.</b> Its parameters: 20 ms grid, plus or minus 1.0 s band, 2,646,390 cells, backtracking enabled, offset recovered, no scale parameter, 60 ms tolerance.</p>
 <table>
@@ -840,6 +843,7 @@ footer{margin-top:3rem;border-top:2px solid var(--line);padding-top:1rem;
 <div class="note"><b>Best map remains v2:</b> coarse 200 ms over FMP subband onsets, <b>1.67x</b>, bar 22 at 37 ms, monotonic across 248 bars. Still under the 2.0x floor, <code>verdict_gate.py</code> still UNDETERMINED. <b>The remaining error is in neither the onset picking nor the path resolution</b>, since both were tried and measured, and one went backwards. <b>No onset placed, no repair built, M004 open</b>, with the next candidate being the path-shape constraint itself: a smoothness penalty or step-size restriction that keeps fine resolution without letting the path chase noise.</div>
 
 <h2 class="s2" id="eye">19. The "chases noise" diagnosis put to the eye, and the eye agrees</h2>
+<div class="warn"><b>RIDES ON THE FITTED MAP, see section 23.</b> Every ratio in this section is measured through a score-to-audio map built from notated kick <b>and</b> hat events against detected kick <b>and</b> hat onsets, so kick onsets helped decide where the kicks land. Rebuilt from hats alone the alignment is <b>1.36x</b>, under the 1.5x Gate N4 floor. <b>The lever this section measures is real; the baseline it is measured against is not independent.</b></div>
 <div class="warn">Section 18 explained the refined map's collapse by saying the path chases local envelope noise. <b>That was inferred from statistics and never looked at.</b> Both warping paths were plotted, at offset recovered, no scale parameter, 60 ms tolerance, and the match rates tabulated above against their own rotation-null baselines.</div>
 <table>
 <tr><th>Measure</th><th>v2 coarse 200 ms</th><th>v3 refined 20 ms</th></tr>
@@ -854,6 +858,7 @@ footer{margin-top:3rem;border-top:2px solid var(--line);padding-top:1rem;
 <p><b>This is the first eye check run on any map in this lineage</b>, and it was run because a gate asked whether the detector had been put to the eye. <b>It had not.</b></p>
 
 <h2 class="s3" id="pathshape">20. The path-shape lever, tried two ways, separates two different problems</h2>
+<div class="warn"><b>RIDES ON THE FITTED MAP, see section 23.</b> Every ratio in this section is measured through a score-to-audio map built from notated kick <b>and</b> hat events against detected kick <b>and</b> hat onsets, so kick onsets helped decide where the kicks land. Rebuilt from hats alone the alignment is <b>1.36x</b>, under the 1.5x Gate N4 floor. <b>The lever this section measures is real; the baseline it is measured against is not independent.</b></div>
 <p>Two constraints added to the fine banded DTW: a <b>step-size restriction</b> capping consecutive same-direction runs, and a <b>wider envelope bump</b> at fine resolution, on the hypothesis that a 20 ms grid leaves the onset envelope too sparse for the cost to discriminate.</p>
 <table>
 <tr><th>Variant</th><th>bar 22 error</th><th>kick one-to-one at 60 ms</th><th>null</th><th>ratio</th><th>flat steps</th></tr>
@@ -871,6 +876,7 @@ footer{margin-top:3rem;border-top:2px solid var(--line);padding-top:1rem;
 <div class="note"><b>Best map remains v2</b>, coarse 200 ms over FMP subband onsets, <b>1.67x</b>, bar 22 at 37 ms, monotonic across 248 bars, <code>verdict_gate.py</code> UNDETERMINED under its 2.0x floor. <b>No onset placed. No repair built. KIG-M004 open.</b></div>
 
 <h2 class="s4" id="decompose">21. The quantisation hypothesis is refuted, and the misses decompose</h2>
+<div class="warn"><b>RIDES ON THE FITTED MAP, see section 23.</b> Every ratio in this section is measured through a score-to-audio map built from notated kick <b>and</b> hat events against detected kick <b>and</b> hat onsets, so kick onsets helped decide where the kicks land. Rebuilt from hats alone the alignment is <b>1.36x</b>, under the 1.5x Gate N4 floor. <b>The lever this section measures is real; the baseline it is measured against is not independent.</b></div>
 <p>Section 20 raised one hypothesis for the capped match rate: <b>quantised notation against an unquantised performance</b>, which would show as misses clustering off the beat. <b>Tested, and it is wrong.</b></p>
 <table>
 <tr><th>Position</th><th>Matched</th><th>Rate</th></tr>
@@ -971,6 +977,11 @@ footer{margin-top:3rem;border-top:2px solid var(--line);padding-top:1rem;
 </table>
 <p>Three hundred rotations of the mapped notated positions against the fixed detector output, one-to-one matching on the <code>mir_eval.onset</code> convention, 60 ms tolerance. Both runs of <code>verdict_gate.py --counts</code> return <b>UNDETERMINED</b> against its 2.0x counts-mode floor, at <code>p = 1.55e-41</code> and <code>p = 2.19e-13</code>.</p>
 <div class="warn"><b>The 1.67x figure that this entire lineage rested on came from a map with kick onsets in its own input.</b> Removing that circularity drops the alignment to <b>1.36x</b>, which is under the 1.5x floor Gate N4 enforces and far under the 2.0x floor the numeric gate enforces. <b>Five levers were tuned against a limit that the alignment never had the strength to measure.</b></div>
+
+<h3>Exactly which sections inherit the limit, and which do not</h3>
+<p>The claim that downstream figures inherit this limit was checked against this page rather than asserted. <b>Six sections above carry a ratio measured through the fitted map</b>, sections 16 through 21, and each now opens with a banner naming this one. Section 22 is corrected in the table above.</p>
+<div class="note"><b>Each lever those sections measure is still real.</b> A lever that moved the ratio from 1.55x to 1.67x moved it. The baseline all seven are measured against is what fails to be independent, so none of the seven can carry an absolute claim about the alignment's strength.</div>
+<div class="good"><b>KIG-M002 and KIG-M003 are untouched by this.</b> M002 was settled by a pixel diff of two rendered bars with a positive control, and M003 was settled by counting authored dynamics in the part file. Neither uses a score-to-audio map at any step, so neither inherits anything from section 23.</div>
 
 <h3>Standing result</h3>
 <div class="good"><b>KIG-M004 is closed as UNDETERMINED. No onset was placed, no bar was named, and no repair is authorized.</b> This method does not establish a score-to-audio correspondence strong enough to locate a kick in a bar, and every downstream figure that assumed one inherits that limit. A null result here is never evidence that the record lacks a kick, and it is never evidence that the transcription is wrong.</div>
