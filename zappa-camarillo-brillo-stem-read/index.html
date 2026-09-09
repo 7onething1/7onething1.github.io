@@ -429,6 +429,39 @@ fabrication, and displacement is not vulnerable to the routing objection in the 
 <code>independence_attempt.json</code>, <code>nine_suspects_spectrograms.png</code>, and the
 per-event audio in <code>cymbal_pass/audio/</code>.</p>
 
+<h3>All thirteen low-rank crashes now read, and the outlier re-read by eye</h3>
+<p>The class-separated pass found 13 crashes below the midpoint of their own beat position. Nine were
+read first. The remaining four went through the same three measurements plus a spectrogram.</p>
+<div class="scroll">
+<table>
+<tr><th>Bar</th><th>Beat</th><th>Rank</th><th>Hi-hat minus cymbal</th><th>Read by eye</th><th>Verdict</th></tr>
+<tr><td class="num">88</td><td class="num">0.0</td><td class="num">0.475</td><td class="num">+57.6 dB</td><td>crash sits about 0.20 s EARLY, decay only at the written instant</td><td><span class="tag unres">displaced</span></td></tr>
+<tr><td class="num">94</td><td class="num">0.0</td><td class="num">0.485</td><td class="num">+62.7 dB</td><td>flat at the instant, crash about 0.31 s late</td><td><span class="tag unres">displaced</span></td></tr>
+<tr><td class="num">3</td><td class="num">1.5</td><td class="num">0.470</td><td class="num">+30.0 dB</td><td>a faint smear only, nothing with a crash's shape</td><td><span class="tag fail">unsupported</span></td></tr>
+<tr><td class="num">47</td><td class="num">1.5</td><td class="num">0.427</td><td class="num">+3.3 dB</td><td>cymbal panel flat, and the hi-hat is quiet too</td><td><span class="tag unres">between the groups</span></td></tr>
+</table>
+</div>
+<p>Bar 47 is the only one of the thirteen that lands between the two reference groups, since the
+threshold set by the routing test is at or below -5.8 dB for a supported crash and at or above
++13.6 dB for the nine. Its +3.3 dB belongs to neither, so it stays unresolved rather than being
+pushed into the verdict that suits the pattern.</p>
+<div class="card good">
+<p><strong>Four of the thirteen are displacement rather than fabrication</strong>, bars 43 and 72 late
+by 0.30 to 0.45 s, bar 88 early by about 0.20 s, and bar 94 late by about 0.31 s. A drummer's crash
+exists in each case and the tab writes it in the wrong place, which is a different repair from
+deleting a note.</p>
+</div>
+<div class="card">
+<p><strong>The +64.9 dB value that broke the guarded-rise test was re-read at native resolution
+before it kept the label outlier, and it is not one.</strong> Bar 10 beat 0.0 carries a full
+broadband crash beginning at 0.32 s with the written instant at 0.35 s sitting directly on its attack.
+It is the cleanest true positive in the whole control set. What the re-read actually shows is the
+reverse of the first reading: the four controls returning a negative rise are the unusual ones,
+because their crash energy begins before the measurement window or arrives as sustained wash. The
+guarded-rise test still fails, and it fails because the control group is heterogeneous rather than
+because one value is spurious.</p>
+</div>
+
 <h2>10. Settled, open, next</h2>
 <div class="card good">
 <p><strong>Settled.</strong> s412176 is the Camarillo Brillo tab that tracks this recording. It carries
@@ -436,16 +469,16 @@ zero physically impossible stacks, and all five of its drum lanes localise again
 once beat phase is held fixed. The five stacks in s187082 are transcription defects in that file.</p>
 </div>
 <div class="card hold">
-<p><strong>Open.</strong> Which component of each s187082 stack is the erroneous one, which needs
-s187082's own reference recording since it does not align to this one at all. Also the four low-rank
-crashes beyond the nine already read. Whether s187082 faithfully describes some other Camarillo Brillo
+<p><strong>Open.</strong> One item. Which component of each s187082 stack is the erroneous one,
+which needs s187082's own reference recording, since it does not align to this one at all. Queued as
+q-2026-09-09-13372c. Whether s187082 faithfully describes some other Camarillo Brillo
 performance is untested here, because only this recording was available.</p>
 </div>
 <div class="card">
-<p><strong>Next.</strong> Separator routing is settled and the nine stand. The remaining crash work
-is the other four of the thirteen low-rank crashes, which have not been read individually yet. The
-ride lane needs nothing: 135 written rides and not one below the midpoint of its own beat position.
-Any edit goes onto a copy, never onto the original community tab.</p>
+<p><strong>Next.</strong> All thirteen low-rank crashes are read and routing is settled, so the
+cymbal lane on this tab is finished as far as this stem pack can take it. The ride lane needs nothing:
+135 written rides and not one below the midpoint of its own beat position. Any edit goes onto a copy,
+never onto the original community tab.</p>
 </div>
 
 <div class="card">
