@@ -131,6 +131,7 @@ footer{margin-top:3rem;border-top:2px solid var(--line);padding-top:1rem;
 <li><a href="#decompose">Quantisation refuted, misses decomposed</a></li>
 <li><a href="#silent">The missed positions are near-silent</a></li>
 <li><a href="#corrected">The map was fitted with the thing it was measuring</a></li>
+<li><a href="#censusguard">The census filter, measured</a></li>
 <li><a href="#files">Files and reproduction</a></li>
 </ol>
 </div>
@@ -985,6 +986,41 @@ footer{margin-top:3rem;border-top:2px solid var(--line);padding-top:1rem;
 
 <h3>Standing result</h3>
 <div class="good"><b>KIG-M004 is closed as UNDETERMINED. No onset was placed, no bar was named, and no repair is authorized.</b> This method does not establish a score-to-audio correspondence strong enough to locate a kick in a bar, and every downstream figure that assumed one inherits that limit. A null result here is never evidence that the record lacks a kick, and it is never evidence that the transcription is wrong.</div>
+
+
+<h2 class="s1" id="censusguard">24. The census filter, measured against the staff it was filtering</h2>
+<p>Section 14 recorded a hardcoded pitch list as a defect and left the reusable guard unbuilt. It is built now, at <code>~/.claude/skills/_shared/census_guard.py</code>, and its self-test replays the real failure against the real part file rather than a synthetic fixture.</p>
+
+<h3>What the literal cost, measured</h3>
+<p>The Keep It Greasey drum staff holds <b>4,948 notes across 17 distinct pitches</b>. The literal <code>{35, 36, 38, 42, 46, 49, 51, 54}</code> declares eight keys, six of which are present.</p>
+<table>
+<tr><th>Measure</th><th>Count</th></tr>
+<tr><td>pitches on the staff</td><td><b>17</b></td></tr>
+<tr><td>pitches the literal could show</td><td><b>6</b></td></tr>
+<tr><td>pitches hidden</td><td><b>11</b></td></tr>
+<tr><td>notes hidden</td><td><b>993 of 4,948, 20.1% of the staff</b></td></tr>
+<tr><td>declared and absent from the data</td><td>36 and 54</td></tr>
+</table>
+<p>Hidden pitches with their note counts: 39(21), 41(14), 43(112), 44(195), 45(85), 47(170), 48(109), 50(3), 53(282), 55(1), 65(1).</p>
+<div class="warn"><b>Two of the eleven hidden pitches are this song's own open defects.</b> Midi 39 is KIG-M002, the 21 hand claps. Midi 65 is KIG-M001. <b>A census filtered by what you already suspect cannot show you the thing you are looking for.</b></div>
+
+<h3>The exhaustive enumeration</h3>
+<p>Every note's own <code>string</code> field read, never a pitch-to-line lookup.</p>
+<table>
+<tr><th>Pitch</th><th>Line (notes)</th><th>Pitch</th><th>Line (notes)</th><th>Pitch</th><th>Line (notes)</th></tr>
+<tr><td>35</td><td>4 (1311)</td><td>45</td><td>2.5 (85)</td><td>50</td><td>0.5 (3)</td></tr>
+<tr><td>38</td><td>1.5 (1423)</td><td>46</td><td>-0.5 (428)</td><td>51</td><td>0 (87)</td></tr>
+<tr><td><b>39</b></td><td><b>1.5 (21)</b></td><td>47</td><td>2 (170)</td><td>53</td><td>0 (282)</td></tr>
+<tr><td>41</td><td>3 (14)</td><td>48</td><td>1 (109)</td><td>55</td><td>-1 (1)</td></tr>
+<tr><td>42</td><td>-0.5 (533)</td><td>49</td><td>-1 (173)</td><td><b>65</b></td><td><b>4 (1)</b></td></tr>
+<tr><td>43</td><td>3 (112)</td><td>44</td><td>4.5 (195)</td><td></td><td></td></tr>
+</table>
+<div class="good"><b>Every cell the old table did show is correct.</b> 35, 38, 39, 42, 46, 49 and 51 all match what the five-tab table published. <b>The defect was silence.</b> 36 and 40 are genuinely absent from this song, so those <code>n/a</code> cells were right. <b>No pitch on this staff occupies two lines</b>, which is a fact about this tab rather than a general one.</div>
+
+<h3>The audit reaches section 23 from the source side</h3>
+<p>Run across the 18 archived scripts in the working folder, <code>--audit</code> flags <b>12 literal key sets in 11 files</b>, and every one of them is the same expression:</p>
+<table><tr><td><code>r["fret"] in (35, 42, 44, 46)</code></td></tr></table>
+<div class="warn"><b>That is kick plus hats, the exact literal section 23 proved makes the map circular</b>, found independently by reading the source rather than by measuring the result. A literal is legitimate as a <b>spec</b> and wrong as an <b>enumeration</b>, and this one was never questioned as either.</div>
 
 <h2 class="s5" id="files">5. Files and reproduction</h2>
 <p>Onsets were detected on <b>isolated stems</b>, never the mix, at 44.1 kHz over 501.84 s, hop 256, log-compressed spectral novelty per FMP 6.1.2. The kick count reproduces the earlier surplus finding independently, 1,332 detected against 1,312 notated.</p>
