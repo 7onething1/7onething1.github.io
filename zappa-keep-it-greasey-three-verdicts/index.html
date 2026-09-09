@@ -123,6 +123,7 @@ footer{margin-top:3rem;border-top:2px solid var(--line);padding-top:1rem;
 <li><a href="#queue">Superseded figures, and the queue I never read</a></li>
 <li><a href="#timestamp">A count is a timestamp, and the 329 defect</a></li>
 <li><a href="#undercount">The 329 undercount, measured</a></li>
+<li><a href="#msdtwfull">The song-wide pass: bar level holds, note level fails</a></li>
 <li><a href="#files">Files and reproduction</a></li>
 </ol>
 </div>
@@ -758,6 +759,32 @@ footer{margin-top:3rem;border-top:2px solid var(--line);padding-top:1rem;
 <div class="good"><b>Caught by reading the output rather than by any gate.</b> Eighth instance in this exchange, and the first where the fix was simply looking at what came back before quoting the total.</div>
 <h3>What stays queued</h3>
 <p><code>q-2026-09-08-2f523c</code> had two halves. <b>The reproducible half is done and is above.</b> The half that remains needs a <b>signed-in browser read</b>, since <code>s6627570</code> returns <code>ERR_UNPUBLISHED</code> to anonymous requests and sits under <code>artistId</code> 67452 "Unknown Artist", outside even the 406. <b>Unpublished and misfiled tabs cannot be counted from an uncredentialed session at all.</b></p>
+
+<h2 class="s1" id="msdtwfull">16. The song-wide pass ran. The map holds at bar level and fails at note level.</h2>
+<p>Pre-registered and hashed with nothing yet computed, sha256 <code>47adf4eb...533b90a</code>. <b>This is the step KIG-M004 had been waiting on.</b> Parameters, stated once for every row: offset recovered rather than supplied, <b>scale is not a parameter</b> since the path warps freely, tolerance 60 ms at note level, one-to-one match rate 510/1,311 = 38.9% against a 25.1% rotation-null baseline.</p>
+<p>Coarse pass at a 200 ms hop, 2,595 score frames against 2,510 audio frames, 6.5 million cells, path length 3,247, projected to a 50 ms grid and refined inside a <b>plus or minus 2.0 s band</b> — the constraint region the piecewise run lacked.</p>
+<table>
+<tr><th>Declared check</th><th>Result</th></tr>
+<tr><td>bar 22 within 2.095 s of 35.980 s</td><td><b>PASS at 36.017 s, 37 ms out</b></td></tr>
+<tr><td>monotonic across all bars</td><td><b>PASS, 248 of 248</b></td></tr>
+<tr><td>every bar inside 0 to 501.84 s</td><td><b>PASS</b></td></tr>
+</table>
+<div class="good"><b>37 ms is an order of magnitude tighter than the 320 ms of the single-window run</b>, and the map is monotonic across the whole song, which no earlier attempt achieved.</div>
+<h3>Then the placement step returned an impossible number</h3>
+<div class="warn"><b>The first placement run reported 690 surplus kick onsets. Only 21 more kicks are detected than notated</b>, 1,332 against 1,311. <b>690 unmatched detections would require 690 notated kicks to be missing from the audio, 53 percent of the score.</b> The criterion was wrong and the fault is mine: it asked whether a detection sat farther than 60 ms from every notated kick, which is not one-to-one matching.</div>
+<h3>The real measurement, one-to-one on the mir_eval convention</h3>
+<table>
+<tr><th>Tolerance</th><th>Kick one-to-one</th><th>Median absolute residual</th></tr>
+<tr><td>30 ms</td><td>299/1,311 = 22.8%</td><td>14.5 ms</td></tr>
+<tr><td>50 ms</td><td>460/1,311 = 35.1%</td><td>24.0 ms</td></tr>
+<tr><td><b>60 ms</b></td><td><b>510/1,311 = 38.9%</b></td><td><b>26.4 ms</b></td></tr>
+<tr><td>100 ms</td><td>712/1,311 = 54.3%</td><td>39.2 ms</td></tr>
+<tr><td>200 ms</td><td>852/1,311 = 65.0%</td><td>57.3 ms</td></tr>
+</table>
+<p>Rotation null at 60 ms, 300 draws: mean <b>25.1%</b>. Observed <b>38.9%</b>, gain <b>+13.8 points</b>, <b>z = 9.13</b>. <code>verdict_gate.py</code> returns <b>UNDETERMINED</b>, at 1.55x against a 2.0x floor.</p>
+<div class="warn"><b>The map is real and it is not accurate enough.</b> Far above chance, monotonic, anchored to 37 ms at bar 22, and <b>61 percent of notated kicks have no match inside 60 ms</b>. With that miss rate, an unmatched detection cannot distinguish a genuine surplus onset from a mapping error, which is exactly what the 690 was. <b>No onset is placed. No repair is built. KIG-M004 stays open.</b></div>
+<h3>What this pass did settle</h3>
+<div class="good"><b>The method works and the previous failure was the shape, not the size.</b> A coarse path constraining a fine one produces a monotonic song-wide map that survives its own anchor check, where 60 independently-searched windows produced a bar-210 window at 41.980 s and 64 placements that had to be withdrawn. <b>What remains is resolution, not architecture:</b> a sparser onset representation, log-compressed spectral novelty per subband per FMP 6.1.2, rather than the pooled envelope used here.</div>
 
 <h2 class="s5" id="files">5. Files and reproduction</h2>
 <p>Onsets were detected on <b>isolated stems</b>, never the mix, at 44.1 kHz over 501.84 s, hop 256, log-compressed spectral novelty per FMP 6.1.2. The kick count reproduces the earlier surplus finding independently, 1,332 detected against 1,312 notated.</p>

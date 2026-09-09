@@ -1488,3 +1488,64 @@ total.
 remains needs a **signed-in browser read**, since `s6627570` returns `ERR_UNPUBLISHED` to anonymous
 requests and sits under `artistId` 67452 "Unknown Artist", outside even the 406. **Unpublished and
 misfiled tabs cannot be counted from an uncredentialed session at all.**
+
+---
+
+## ADDENDUM 25: the song-wide pass ran, and its map holds at bar level while failing at note level
+
+Pre-registered and hashed with nothing yet computed: `PREREGISTRATION_msdtw_songwide.md`, sha256 `47adf4ebe893ca2865510aa4915fb10e4872d2a69bec51cfc0d8eb5be533b90a`, covering a run whose offset is recovered rather than supplied, whose scale is not a parameter, whose tolerance is 60 ms and whose one-to-one match rate came out at 38.9% against a 25.1% baseline. **This is the step KIG-M004 had been waiting on since Addendum 7.**
+
+### The map
+
+**Parameters, stated once for every row below:** offset is recovered rather than supplied, **scale is not a parameter** since the path warps freely, tolerance is 60 ms at the note level, and the one-to-one match rate is 510/1,311 = 38.9% against a 25.1% rotation-null baseline. Coarse pass at a 200 ms hop, 2,595 score frames against 2,510 audio frames, 6.5 million cells, path length 3,247, projected to a 50 ms grid and refined inside a plus or minus 2.0 s band.
+
+| Declared check | Result |
+|---|---|
+| bar 22 within 2.095 s of 35.980 s | **PASS at 36.017 s, 37 ms out** |
+| monotonic across all bars | **PASS**, 248 of 248 |
+| every bar inside 0 to 501.84 s | **PASS** |
+
+**37 ms is an order of magnitude tighter than the 320 ms of the single-window run**, at the same recovered offset, no scale parameter, 60 ms tolerance and 38.9% match rate against a 25.1% baseline, and the map is monotonic across the whole song, which no earlier attempt achieved.
+
+### Then the placement step returned an impossible number
+
+The first placement run reported **690 surplus kick onsets**. **Only 21 more kicks are detected than
+notated**, 1,332 against 1,311. **690 unmatched detections would require 690 notated kicks to be
+missing from the audio, 53 percent of the score.**
+
+**The criterion was wrong, and the fault is mine.** It asked "is this detection farther than 60 ms
+from every notated kick", which is not one-to-one matching. Under a loose map many notated kicks
+crowd one region, so a detection reads as unmatched while other notated kicks pile up elsewhere.
+
+### The real measurement, one-to-one on the `mir_eval.onset` convention
+
+| Tolerance | Kick one-to-one | Median absolute residual |
+|---|---|---|
+| 30 ms | 299/1,311 = 22.8% | 14.5 ms |
+| 50 ms | 460/1,311 = 35.1% | 24.0 ms |
+| **60 ms** | **510/1,311 = 38.9%** | **26.4 ms** |
+| 100 ms | 712/1,311 = 54.3% | 39.2 ms |
+| 200 ms | 852/1,311 = 65.0% | 57.3 ms |
+
+Rotation null at 60 ms, 300 draws: mean **25.1%**, sd 19.78 events. Observed **38.9%**, gain
+**+13.8 points**, **z = 9.13**.
+
+**`verdict_gate.py` returns UNDETERMINED**, at 1.55x against a 2.0x counts-mode floor.
+
+### The verdict
+
+**The map is real and it is not accurate enough.** At a recovered offset, no scale parameter, 60 ms tolerance and a 38.9% one-to-one match rate against a 25.1% baseline, it is far above chance, monotonic, and anchored to 37 ms at bar 22, while **61 percent of notated kicks have no match inside 60 ms**. With that miss rate, "an unmatched detection" cannot distinguish a genuine surplus onset
+from a mapping error, which is exactly what the 690 was.
+
+**No onset is placed. No repair is built. KIG-M004 stays open.**
+
+### What this pass did settle
+
+**The method works and the previous failure was the shape, not the size.** A coarse path
+constraining a fine one produces a monotonic song-wide map that survives its own anchor check,
+where 60 independently-searched windows produced a bar-210 window at 41.980 s and 64 placements that
+had to be withdrawn.
+
+**What remains is resolution, not architecture.** The next lever is a sparser, better-localised
+onset representation, log-compressed spectral novelty per subband, FMP 6.1.2, rather than the pooled
+envelope used here. Script archived as `msdtw_songwide.py`.
