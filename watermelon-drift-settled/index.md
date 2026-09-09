@@ -159,3 +159,23 @@ Their 6-12 kHz ratio of 1.59x reads 3.09x here on the same band. Different magni
 An earlier session recorded a 23.3 second duration gap, explained it with an invented lead-in, and withdrew the explanation. The gap is now measured at 23.34 s with a 3.9 ms standard deviation, and the Central Scrutinizer intro is named by Brandon's sources as its content.
 
 Source files: `~/Projects/_outputs/zappa-watermelon-hat-snare-repair/out/TEMPOFIX-on-r8972739-Brandon-edit.gp` and `TEMPOFIX-INT-on-r8973389-Brandon-edit.gp`.
+
+## 8. Follow-on audit, 2026-09-09
+
+Three queue items the tempo fix unblocked, run through the `/transcription-repair` modules.
+
+**Playability: PASS on the live head.** 1,767 instants, 0 needing more than two hands, 0 more than two feet, 0 unplayable ornaments. The sixteen three-surface instants from `r8968524` are gone. The gate's grouping was rewritten 2026-09-09 to union staff line with instrument identity after a 262-tab measurement, so this passes the stricter test.
+
+**The ride-pause verdict does not survive.** Bar 17 moves 0.40x to 0.63x on arithmetic. The render overturned more:
+
+| Bar | Tab writes | Render shows |
+|---|---|---|
+| 17 | 0 ride | steady stroke train at neighbour amplitude, **playing** |
+| 51 | 0 ride | visible ongoing strokes, **playing** |
+| 53 | 2 ride | plays first half, flat in the second |
+| 87 | 0 ride | plays first half, silence extends into bar 88 |
+| 99-105 | 0 ride | genuinely flat, **tab is right** |
+
+**A detector of mine was refuted by the eye and is not published.** An onset counter returned 10, 11 and 8 strokes in flat coda bars 99, 101, 103; its threshold pinned to the bottom of its range with 4.19 notes/bar mean error. No per-bar ride counts ship. The bars 17 and 51 repair is queued behind a detector the eye does not refute.
+
+**Bar 105, and a parser bug of mine.** A first pass reported 48 voices short of their meter. **43 were my bug**: grace beats carry a rhythm and no bar time. Separation is total, 43 of 43 flagged bars contain grace beats against 0 of 62 filled bars. The real finding is bar 105 short by one quarter in **five** voices, not one. Four voices fill the 5/4, so the meter is right, and the same shortfall sits in the pre-project export. **Left as it stands.**

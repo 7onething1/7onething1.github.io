@@ -249,6 +249,32 @@ a{color:#0d6f88;font-weight:600}
 <h2><span class="n" style="background:var(--aqua)">7</span>Reinstated, with evidence this time</h2>
 <p>An earlier session recorded a 23.3 second duration gap and explained it with an invented lead-in, and the explanation was withdrawn for being invented. The gap is now measured at 23.34 s with a 3.9 ms standard deviation, and Brandon's own sources name the Central Scrutinizer intro as its content. The finding returns on measurement rather than on the story that first accompanied it.</p>
 
+<h2><span class="n" style="background:var(--sky)">8</span>Follow-on audit, 2026-09-09</h2>
+<p>Three queue items that the tempo fix unblocked, worked through the <code>/transcription-repair</code> modules rather than hand-rolled.</p>
+<h3>Playability: PASS on the live head</h3>
+<div class="scroll"><table>
+<tr><th>Check</th><th class="num">Result</th></tr>
+<tr class="good"><td>Instants examined</td><td class="num">1,767</td></tr>
+<tr class="good"><td>Needing more than two hands</td><td class="num">0</td></tr>
+<tr class="good"><td>Needing more than two feet</td><td class="num">0</td></tr>
+<tr class="good"><td>Unplayable ornaments</td><td class="num">0</td></tr>
+</table></div>
+<p>The sixteen three-surface instants that stood in <code>r8968524</code> are gone. The gate's grouping logic was itself rewritten on 2026-09-09 to union staff line with instrument identity, after a 262-tab measurement, so this PASS is against the stricter test.</p>
+<h3>The ride-pause verdict does not survive</h3>
+<p>One of fourteen quiet bars changes verdict on arithmetic alone, bar 17 moving 0.40x to 0.63x. The render overturned more than that.</p>
+<div class="scroll"><table>
+<tr><th>Bar</th><th class="num">Tab writes</th><th>What the render shows</th></tr>
+<tr class="bad"><td>17</td><td class="num">0 ride</td><td>a steady stroke train at neighbour amplitude, the ride is playing</td></tr>
+<tr class="bad"><td>51</td><td class="num">0 ride</td><td>visible ongoing strokes, the ride is playing</td></tr>
+<tr><td>53</td><td class="num">2 ride</td><td>plays through the first half, flat in the second</td></tr>
+<tr><td>87</td><td class="num">0 ride</td><td>plays through the first half, silence extends into bar 88</td></tr>
+<tr class="good"><td>99-105</td><td class="num">0 ride</td><td>genuinely flat, the tab is right</td></tr>
+</table></div>
+<p><b>A detector of mine was refuted by the eye and is not published.</b> An onset counter calibrated on the 43 full-ride bars returned 10, 11 and 8 strokes in coda bars 99, 101 and 103, which the render shows flat. Its threshold pinned to the bottom of its search range with a mean error of 4.19 notes per bar, so it was reading ripple. No per-bar ride counts ship from this pass, and the repair that bars 17 and 51 imply is queued behind a detector the eye does not refute.</p>
+<h3>Bar 105, and a parser bug of mine</h3>
+<p>A first pass reported 48 voices not filling their meter. <b>43 of those were my own bug</b>: grace beats carry a rhythm and no bar time, and my sum counted them. Separation is total, 43 of 43 flagged bars contain grace beats against 0 of 62 filled bars.</p>
+<p>The real finding is that bar 105 is short by one quarter in <b>five</b> voices, not one, confirming a concurrent session's correction. Four voices fill the 5/4 correctly, so the meter is right. The same shortfall sits in the export that predates every edit here, making it the original transcriber's notation. <b>Left as it stands</b>, since padding five voices across four non-drum tracks buys nothing on a final bar carrying no drum content.</p>
+
 <footer>
 Songsterr <a href="https://www.songsterr.com/a/wsa/frank-zappa-watermelon-in-easter-hay-brandon-edit-drum-tab-s6857183">s6857183 Brandon edit</a>, revisions r8973389 then r8973454, published 2026-09-08.<br>
 Source files in <code>~/Projects/_outputs/zappa-watermelon-hat-snare-repair/out/</code>: <code>TEMPOFIX-on-r8972739-Brandon-edit.gp</code> and <code>TEMPOFIX-INT-on-r8973389-Brandon-edit.gp</code>.<br>
