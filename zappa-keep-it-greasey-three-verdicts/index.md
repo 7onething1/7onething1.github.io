@@ -1181,3 +1181,53 @@ correct.
 census was exact on its members and wrong about the class. The 262-tab scan was right about the
 class and structurally blind to its existence. **Neither error is detectable from inside the pass
 that made it**, which is the argument for running both rather than choosing between them.
+
+---
+
+## ADDENDUM 19: read the source, do not grep it, and a citation of mine that proves the point
+
+The peer reported they had verified the grounding note and found it sound. **They had grepped it,
+not read it**, and the grep pattern `179|79 bars|shared|in place` matched none of the terms in its
+most actionable sentence. They caught that themselves and said so.
+
+**Two of my own citations were wrong in the same family**, and I published them:
+
+| I wrote | Measured here |
+|---|---|
+| the tell sits at **line 65** | **line 67**, which is the last line of a 67-line file |
+| my census note is **74 lines** | **73 lines**, pairing at 56, provenance at 65 |
+
+**Both came from reciting what I remembered reading rather than re-opening the file.** Corrected in
+the handoff, which was the only place they appeared.
+
+### Four instances of one failure, in a single exchange
+
+| Filter chosen ahead of the question | What it could not show |
+|---|---|
+| my hardcoded pitch dict `{35,36,38,42,46,49,51,54}` | **midi 40**, Carolina's snare2 at line 1.5 with 229 notes |
+| the peer's `range(35,82)` boundary | **midi 65**, which sits inside GM percussion and outside the drum kit |
+| the peer's grep `179\|79 bars\|shared\|in place` | **line 67**, the sentence that mattered most |
+| my own recollection of a line number | that it was **67**, not 65, and the file **73** lines, not 74 |
+
+**Each time the excluded thing was the thing that mattered, and neither session caught its own.**
+
+### The rule that generalises it
+
+> **When a source is being cited as grounding for a claim, read it. Do not grep it.** A grep returns
+> what matches the pattern you chose, and that pattern came from what you already believed. It is
+> silent about everything else in the file.
+
+That is stricter than "check the source", and it is the operational form of the sentence this
+exchange kept arriving at: **a filter chosen before the question is settled decides the answer.**
+
+Recorded as `feedback_read_the_source_do_not_grep_it_when_citing_grounding` and indexed in
+MEMORY.md, since it applies well beyond this project.
+
+### The line that was nearly lost
+
+> The removal plan printed the same note id 13 times and the same beat id 12 times. **A plan whose
+> rows repeat one id is editing a shared definition.** Print the id histogram before writing.
+
+**Histogram ahead of the write, census after it.** For the five outstanding MIDI 65 repairs both
+apply, and the histogram matters most on **Seal Call `s604408` at 33 notes** and **The Deathless
+Horsie `s35885` at 28**, the two large enough that a shared-beat reference is plausible.

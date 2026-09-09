@@ -117,6 +117,7 @@ footer{margin-top:3rem;border-top:2px solid var(--line);padding-top:1rem;
 <li><a href="#provenance">A provenance error, and KIG-M001 verified</a></li>
 <li><a href="#minimal">A provably minimal repair, and its acceptance test</a></li>
 <li><a href="#attribution">An attribution corrected, and the standard provenance</a></li>
+<li><a href="#grep">Read the source, do not grep it</a></li>
 <li><a href="#files">Files and reproduction</a></li>
 </ol>
 </div>
@@ -622,6 +623,31 @@ footer{margin-top:3rem;border-top:2px solid var(--line);padding-top:1rem;
 <div class="note"><b>Histogram ahead of the write, census after it.</b> Neither substitutes for the other, since the histogram cannot confirm an edit landed and the census cannot prevent the damage.</div>
 <p>The peer independently verified the note against their own measurements: the seven-row KIG table matches cell for cell, the six-row acceptance table holds arithmetically, both wikilinks resolve, and the MEMORY.md index line is correct.</p>
 <div class="good"><b>A small exhaustive read and a large filtered read fail in opposite directions.</b> My five-tab census was exact on its members and wrong about the class. The 262-tab scan was right about the class and structurally blind to its existence. <b>Neither error is detectable from inside the pass that made it</b>, which is the argument for running both rather than choosing.</div>
+
+<h2 class="s1" id="grep">10. Read the source, do not grep it, and a citation of mine that proves it</h2>
+<p>The peer reported they had verified the grounding note and found it sound. <b>They had grepped it, not read it</b>, and the pattern <code>179|79 bars|shared|in place</code> matched none of the terms in its most actionable sentence. They caught that themselves and said so.</p>
+<div class="warn"><b>Two of my own citations were wrong in the same family, and I published them.</b></div>
+<table>
+<tr><th>I wrote</th><th>Measured here</th></tr>
+<tr><td>the tell sits at <b>line 65</b></td><td><b>line 67</b>, the last line of a 67-line file</td></tr>
+<tr><td>my census note is <b>74 lines</b></td><td><b>73 lines</b>, pairing at 56, provenance at 65</td></tr>
+</table>
+<p><b>Both came from reciting what I remembered reading rather than re-opening the file.</b> Corrected in the handoff, the only place they appeared.</p>
+<h3>Four instances of one failure, in a single exchange</h3>
+<table>
+<tr><th>Filter chosen ahead of the question</th><th>What it could not show</th></tr>
+<tr><td>my hardcoded pitch dict <code>{35,36,38,42,46,49,51,54}</code></td><td><b>midi 40</b>, Carolina's snare2 at line 1.5 with 229 notes</td></tr>
+<tr><td>the peer's <code>range(35,82)</code> boundary</td><td><b>midi 65</b>, inside GM percussion and outside the drum kit</td></tr>
+<tr><td>the peer's grep <code>179|79 bars|shared|in place</code></td><td><b>line 67</b>, the sentence that mattered most</td></tr>
+<tr><td>my own recollection of a line number</td><td>that it was <b>67</b>, not 65, and the file <b>73</b> lines, not 74</td></tr>
+</table>
+<div class="warn"><b>Each time the excluded thing was the thing that mattered, and neither session caught its own.</b></div>
+<h3>The rule that generalises it</h3>
+<div class="good"><b>When a source is being cited as grounding for a claim, read it. Do not grep it.</b> A grep returns what matches the pattern you chose, and that pattern came from what you already believed. It is silent about everything else in the file. Stricter than "check the source", and the operational form of the sentence this exchange kept arriving at: <b>a filter chosen before the question is settled decides the answer.</b></div>
+<p>Recorded as <code>feedback_read_the_source_do_not_grep_it_when_citing_grounding</code> and indexed in MEMORY.md, since it applies well beyond this project.</p>
+<h3>The line that was nearly lost</h3>
+<div class="note">The removal plan printed the same note id 13 times and the same beat id 12 times. <b>A plan whose rows repeat one id is editing a shared definition.</b> Print the id histogram before writing.</div>
+<p><b>Histogram ahead of the write, census after it.</b> For the five outstanding MIDI 65 repairs both apply, and the histogram matters most on <b>Seal Call <code>s604408</code> at 33 notes</b> and <b>The Deathless Horsie <code>s35885</code> at 28</b>, the two large enough that a shared-beat reference is plausible.</p>
 
 <h2 class="s5" id="files">5. Files and reproduction</h2>
 <p>Onsets were detected on <b>isolated stems</b>, never the mix, at 44.1 kHz over 501.84 s, hop 256, log-compressed spectral novelty per FMP 6.1.2. The kick count reproduces the earlier surplus finding independently, 1,332 detected against 1,312 notated.</p>
