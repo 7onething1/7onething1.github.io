@@ -1,5 +1,7 @@
 # Mistake Ledger, 2026-09-07 to 2026-09-09
 
+Scope: every Claude Code session transcript under `~/.claude/projects/` with traffic in the window, being 21 `.jsonl` files. It does not claim to cover conversations held anywhere else.
+
 Built from Brandon's ask on 2026-09-09 14:51: "make all the chats from past two days archived or not into obsidian as a second brain and skills so you stop making the same mistakes over and over and over and over."
 
 ## The finding
@@ -38,6 +40,21 @@ A search of all 766 memory files returned zero hits for `approved method`, `alre
 - **Skill** `/mistake-ledger` at `~/.claude/skills/mistake-ledger/`, with `check-method` and `check-artifact` verified against the real failure
 - **Memory**, three files indexed into `MEMORY.md` and `POINTERS.md`
 
-## Open item
+## Enforcement coverage
 
-On 2026-09-08 21:03 Brandon asked what he could buy for better guitar stemming. No answer appears in any of the 21 sessions.
+Ten failure classes documented, two with before-action enforcement (`check-method`, `check-artifact`), one partial (`two-guitar-split`). The other seven have reference material only.
+
+## The dropped question, answered 2026-09-09
+
+What to buy for better guitar stemming. The problem is separating guitarist 1 from guitarist 2, both electric, in the same register, 3.9 cents apart, with no hard panning.
+
+| Option | Cost | Splits two guitars? | Scriptable |
+|---|---|---|---|
+| **Moises Premium, Lead & Rhythm** | $3.99/mo | Yes, by role | app/web only |
+| Music.AI API `Guitar Parts` | pay as you go, Pro $25/mo | listed as rhythm vs solo | yes, REST |
+| RipX DAW PRO | $149 promo / £198 | guitar as one stem | desktop |
+| AudioShake Indie | from $20/mo | electric vs acoustic only | yes |
+
+Recommendation: buy one month of Moises Premium and run three known Appleseed songs through the Lead & Rhythm model, scored with `channel_asymmetry_check.py`. Four dollars settles whether a role-based model tracks these two players before anything larger gets bought.
+
+Verified: the Music.AI key authenticates and the account holds one workflow, `untitled-workflow-39e99a9`, so no guitar workflow exists yet. Not verified: whether `Guitar Parts` appears in that dashboard, since music.ai/dash showed a login wall.

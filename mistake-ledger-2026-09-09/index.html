@@ -56,7 +56,7 @@ footer{margin-top:50px;border-top:2px solid var(--ink);padding-top:14px;font-siz
 
 <header>
 <h1>Mistake Ledger</h1>
-<p class="sub">Every chat from 2026-09-07 00:00 to 2026-09-09 14:51, archived or not, read from the raw transcripts and turned into a second brain.</p>
+<p class="sub">Every Claude Code session transcript under <code>~/.claude/projects/</code> carrying traffic from 2026-09-07 00:00 to 2026-09-09 14:51, archived or not, read raw and turned into a second brain. That is 21 <code>.jsonl</code> files. It does not claim to cover conversations held anywhere else.</p>
 <p class="ask">&ldquo;make all the chats from past two days archived or not into obsidian as a second brain and skills so you stop making the same mistakes over and over and over and over&rdquo;<br>
 <span style="font-style:normal;font-size:13px;color:#5a5148">Brandon, 2026-09-09 14:51</span></p>
 </header>
@@ -218,6 +218,22 @@ footer{margin-top:50px;border-top:2px solid var(--ink);padding-top:14px;font-siz
 <li>Indexed into <code>MEMORY.md</code> and <code>POINTERS.md</code></li></ul></div>
 </div>
 
+<h2>How much of this is actually enforced</h2>
+<p style="font-size:14px;color:#5a5148">Ten failure classes are documented. Two of them now have before-action enforcement. The other eight have durable reference material and nothing that intercepts the action, which is a real gap rather than a finished system.</p>
+<div class="scroll"><table>
+<tr><th>Failure class</th><th>Before-action enforcement</th></tr>
+<tr><td>01 method drift</td><td class="pass">YES, <code>check-method</code></td></tr>
+<tr><td>02 duplicate artifact</td><td class="pass">YES, <code>check-artifact</code></td></tr>
+<tr><td>03 stopping short</td><td>no, stop-time only</td></tr>
+<tr><td>04 offloading decisions</td><td>no</td></tr>
+<tr><td>05 wrong machine</td><td>no</td></tr>
+<tr><td>06 prompt promises</td><td>no</td></tr>
+<tr><td>07 unfinished file measured</td><td>no</td></tr>
+<tr><td>08 bad split shipped</td><td>partial, <code>two-guitar-split</code> separability gate</td></tr>
+<tr><td>09 false blocker</td><td>no</td></tr>
+<tr><td>10 concurrent sessions</td><td>no, warning only</td></tr>
+</table></div>
+
 <h2>The gate, run against the real failure</h2>
 <div class="scroll"><table>
 <tr><th>Test</th><th>Expected</th><th>Result</th></tr>
@@ -228,9 +244,24 @@ footer{margin-top:50px;border-top:2px solid var(--ink);padding-top:14px;font-siz
 <tr><td><code>record-method --approved-by brandon</code> with no quote</td><td>REFUSED</td><td class="pass">exit 2</td></tr>
 </table></div>
 
+<h2>The dropped question, answered</h2>
+<p style="font-size:14px;color:#5a5148">On 2026-09-08 at 21:03 Brandon asked what he could <strong>buy</strong> for better guitar stemming. No answer appeared in any of the 21 sessions. Answered 2026-09-09. The problem is not extracting guitar from a mix, which is solved. It is separating <strong>guitarist 1 from guitarist 2</strong> when both play electric in the same register, 3.9 cents apart in tuning, and are not hard panned.</p>
+<div class="scroll"><table>
+<tr><th>Option</th><th>Cost</th><th>Splits two guitars?</th><th>Scriptable</th><th>Verdict</th></tr>
+<tr class="hot"><td><strong>Moises Premium</strong>, Lead &amp; Rhythm model</td><td>$3.99/mo, $35.88/yr</td><td>Yes, by ROLE, lead vs rhythm, 6 tracks total</td><td>App and web only</td><td><strong>Buy this first, as a $4 test</strong></td></tr>
+<tr><td>Music.AI API, <code>Guitar Parts</code> module</td><td>pay as you go; Pro $25/mo incl. $25 credit</td><td>Listed as &ldquo;isolate rhythm and solo guitar parts&rdquo;</td><td>Yes, REST</td><td>Same company, same model, scriptable</td></tr>
+<tr><td>RipX DAW PRO</td><td>$149 one time (promo), &pound;198 list</td><td>Guitar as one stem, no lead/rhythm split found</td><td>Desktop DAW</td><td>Buy for note-level pitch repair, not for the split</td></tr>
+<tr><td>AudioShake Indie</td><td>from $20/mo</td><td>Electric vs acoustic only, no lead/rhythm evidence</td><td>Yes, API</td><td>Wrong axis for this problem</td></tr>
+</table></div>
 <div class="open">
-<h4 style="margin:0 0 8px">One thing you asked for that nobody worked</h4>
-<p style="margin:0">On 2026-09-08 at 21:03 you asked what you could <strong>buy</strong> for better guitar stemming. No answer to that appears in any of the 21 sessions. It is recorded here rather than quietly dropped.</p>
+<h4 style="margin:0 0 8px">The $4 test that decides the rest</h4>
+<p style="margin:0 0 8px">Every option above splits by a role or timbre label. Brandon&rsquo;s own measurement says his two players differ by <strong>tuning</strong>, at 439 Hz against 440, and sit in the same register with 19 to 56 percent of notes present in both channels. Nothing found here promises to track that.</p>
+<p style="margin:0">So buy one month of Moises Premium, run three Appleseed songs whose answer is already known, and score the output with the existing <code>channel_asymmetry_check.py</code>. Four dollars settles whether a role-based model tracks these two players, before anything larger gets bought.</p>
+</div>
+<div class="open" style="border-color:var(--red);background:#FBEDE9">
+<h4 style="margin:0 0 8px">Verified by me, and what was not</h4>
+<p style="margin:0 0 8px"><strong>Verified.</strong> The Music.AI key on this Mac authenticates and the account holds exactly one workflow, <code>untitled-workflow-39e99a9</code>, so no guitar workflow exists yet. Moises published the Lead &amp; Rhythm model in April 2024 for Premium and Pro. Prices as listed above.</p>
+<p style="margin:0"><strong>Not verified.</strong> Whether <code>Guitar Parts</code> appears in this account&rsquo;s workflow builder, since <code>music.ai/dash</code> showed a login wall and entering credentials is off limits. And whether any of these separate <em>these two guitarists</em>, which is exactly what the $4 test is for.</p>
 </div>
 
 <footer>
