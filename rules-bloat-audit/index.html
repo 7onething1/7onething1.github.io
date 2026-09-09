@@ -350,6 +350,28 @@ against the tab's 0.56. Plainly wrong. Kick: 38 against 23.
 Snare: 11 against 8-9."</div>
 </div>
 
+<h2><span class="n">13</span>A live example, produced by this audit</h2>
+<div class="card p">
+  <h3>The completion contract is held by a session from three days ago</h3>
+  <p>Registering this audit's four sub-asks as required outcomes succeeded, and then
+  recording them as met was <b>refused, correctly</b>, because the shared contract file resolves to
+  contract <code>sc-4eb06177bc</code> opened by session <code>c492e138</code> on 2026-09-06.
+  My own contract is <code>sc-9661c3064f</code>. The outcomes landed on a stranger's contract
+  and cannot be closed from here.</p>
+  <p>Your memory already names this defect at <code>reference_completion_control_session_scoped_state</code>,
+  which says shared state needs an owner. <b>This is what rule bloat costs in practice.</b> The refusal
+  protected another session's record, and the completion tracking for this work was lost.</p>
+  <div class="ev">scope_controller.py add-required  -> R29 R30 R31 R32  (accepted)
+scope_controller.py meet R29      -> REFUSED: contract sc-4eb06177bc
+                                     belongs to session c492e138,
+                                     this caller is 47e763e6
+
+contracts/47e763e6.json contract_id: sc-9661c3064f  (mine)
+scope_controller.py show           : sc-4eb06177bc   (theirs, 2026-09-06)</div>
+  <p style="margin-top:10px">No workaround was applied. Editing another session's contract is exactly what the
+  refusal exists to stop. The four sub-asks are evidenced in sections 10, 11 and 12 instead.</p>
+</div>
+
 <h2><span class="n">08</span>Parked in the queue, not left as a question</h2>
 <div class="card t">
   <p>Two cuts are queued with <b>a stated reason each for not doing them in this session</b>. A third
