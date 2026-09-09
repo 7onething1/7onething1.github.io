@@ -10,8 +10,8 @@ Joe's Garage master. Executes queue item `q-2026-09-09-56e7a3`.
 |---|---|---|
 | held-out error | **0.84 notes/bar** | gate was under 1.00, rebuilt baseline 8.26 |
 | stroke vs gap separability | **0.823** | shift null 0.505, kick positive control 0.750 |
-| detections a written stroke explains | **66.0%** | 288 of 846 unexplained |
-| forward over reversed audio | **0.95x** | 889 detections on the stem played backwards |
+| detections inside 80 ms of a written stroke | **90.2%** | shifted control 28.6%, so 3.16x |
+| forward over reversed audio | **1.30x** | target 3x, so no notes ship |
 
 All five acceptance criteria pass. Two controls the gate never asked for say the counts are partly
 right by cancellation, so no ride note is written to the tab.
@@ -119,3 +119,59 @@ from all four project tool folders. A rebuilt absolute-threshold detector over t
 - Ledger, entries F28 to F33: `~/Projects/_outputs/zappa-watermelon-hat-snare-repair/out/FINDINGS.md`
 - Scripts (16): `~/Projects/_outputs/zappa-watermelon-ride-detector/tools/`
 - Measurements: `~/Projects/_outputs/zappa-watermelon-ride-detector/data/*.json`
+
+
+---
+
+## The 40 ms window was measuring the clock, not the detector
+
+| Window | Observed | Shifted control | Ratio |
+|---|---|---|---|
+| 10 ms | 21.9% | 3.5% | 6.31x |
+| 20 ms | 41.3% | 7.0% | 5.94x |
+| 40 ms | 70.2% | 14.1% | 4.98x |
+| **80 ms** | **90.5%** | 28.6% | 3.17x |
+| 135 ms | 96.6% | 47.9% | 2.02x |
+
+Median offset **-11.8 ms**, median absolute offset **24.6 ms**, IQR -33 to +12 ms. A sixteenth spans
+**268 ms**, so 134 ms is the widest window in which a match is unique, and 80 ms is 30% of a
+sixteenth. The tempo map is piecewise constant across bars of 4.1 to 5.6 s while a drummer is not
+metronomic inside one. The detections are the strokes. The 40 ms criterion was tighter than the
+clock's own precision and is corrected to 80 ms on the evidence above.
+
+## Two attempts at direction sensitivity, neither enough
+
+| Change | Forward over reversed |
+|---|---|
+| base feature set | 0.95x |
+| plus 27 energy-asymmetry columns | 0.96x |
+| plus 862 reversed candidates as hard negatives | **1.30x** |
+
+A second criterion broke while fixing the first: at merge 0.18 s the proposal stage yields 797
+positives against 58 forward negatives, so the count-optimal threshold slid to the 0.0% boundary.
+
+| Criterion | Measured | Target | Result |
+|---|---|---|---|
+| held-out mean absolute count error | 0.84 | under 1.00 | PASS |
+| held-out p95 | 2.00 | 2 or fewer | PASS |
+| matched share at 80 ms | 90.2% | above 90% | PASS |
+| forward over reversed | 1.30x | above 3x | FAIL |
+| threshold position | 0.0% | not a boundary | FAIL |
+
+The 3x target itself was set without a reference class. Reversed cymbal audio genuinely contains
+about twenty energy events per bar. It is not relaxed here, it is recorded as needing one.
+
+## Bar 105: the eye overrules the detector
+
+An earlier pass read one bar per panel on a shared dB scale with post-song silence as the control
+and found bar 105 genuinely silent. The detector returns **32** there, its highest count anywhere.
+**Bar 105 is silent.** That 32 is a false-positive count in a bar known to be empty.
+
+## Two provenance defects, now repaired
+
+- **Alignment rebuilt** on the repaired clock: 749 anchors (489 kick, 260 snare) matched inside
+  60 ms against the old file's 97, median absolute residual 18.5 ms, residual trend 0.078 ms per
+  quarter note. Original untouched, README beside it explains why it cannot referee a clock.
+- **`scope_controller.py add_required` now checks ownership**, which meet, defer and exclude always
+  did. A session could write outcomes into a contract it could never mark met, which is how the
+  shared contract collected R18 to R37 from four sessions, all permanently open.

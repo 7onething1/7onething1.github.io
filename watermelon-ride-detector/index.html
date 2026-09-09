@@ -63,16 +63,16 @@ a{color:#0d6f88;font-weight:600}
 .pass{background:#2f7d4f}.fail{background:var(--flare)}
 </style></head><body><main>
 
-<span class="stamp">Counts pass, positions do not</span>
+<span class="stamp">Counts and positions pass, direction does not</span>
 <h1>Watermelon In Easter Hay: counting the ride</h1>
-<p class="deck">A relayed detector design said to abort and switch separators if held-out error stayed near four notes a bar. Error fell to 0.84 and all five gate criteria passed. Two controls then showed the counts are partly right by cancellation, so no ride note is written to the tab.</p>
+<p class="deck">A relayed detector design said to abort and switch separators if held-out error stayed near four notes a bar. Error fell to 0.84, positions landed at a median 24.6 ms from the written grid, and one criterion refused to move: the stem played backwards still fires almost as often as the stem played forwards. No ride note is written to the tab.</p>
 <p class="sub">Songsterr <code>s6857183</code>, Vinnie Colaiuta drum staff, revision <code>r8973454</code>. Drum work only, no guitar transcription. Measured 2026-09-09 on MacBookPro against the Moises 15-stem set.</p>
 
 <div class="grid g4">
  <div class="card t1"><div class="k a">0.84</div><div class="lab">held-out error, notes per bar</div><div class="fine">gate was under 1.00, rebuilt baseline 8.26</div></div>
  <div class="card t3"><div class="k y">0.823</div><div class="lab">stroke vs gap separability</div><div class="fine">shift null 0.505, kick control 0.750</div></div>
- <div class="card t5"><div class="k f">66.0%</div><div class="lab">detections a written stroke explains</div><div class="fine">288 of 846 unexplained</div></div>
- <div class="card t5"><div class="k f">0.95x</div><div class="lab">forward over reversed audio</div><div class="fine">889 detections on the stem played backwards</div></div>
+ <div class="card t2"><div class="k a">90.2%</div><div class="lab">detections inside 80 ms of a written stroke</div><div class="fine">shifted control 28.6%, so 3.16x</div></div>
+ <div class="card t5"><div class="k f">1.30x</div><div class="lab">forward over reversed audio</div><div class="fine">target was 3x, so no notes ship</div></div>
 </div>
 
 <h2><span class="n" style="background:var(--aqua)">1</span>The abort condition was wrong, and testing it was the whole job</h2>
@@ -139,22 +139,58 @@ a{color:#0d6f88;font-weight:600}
 <p class="sub">43 bars, 843 written strokes, both re-derived from the published Guitar Pro file rather than quoted. Group cross-validation splits whole bars. Refractory 90 ms.</p>
 
 <h2><span class="n" style="background:var(--flare)">6</span>Two controls the gate never asked for</h2>
-<p>Five passes out of five is where a done-claim usually goes. Both extra controls say the gate is measuring less than it appears to.</p>
-<h3>The counts are partly right by cancellation</h3>
+<p>Five passes out of five is where a done-claim usually goes. Both extra controls said the gate measures less than it appears to, and chasing them is where the rest of this page comes from.</p>
+<h3>Only two thirds of detections sat inside 40 ms</h3>
 <div class="scroll"><table>
 <tr><th>Disposition of the 846 detections</th><th class="num">Count</th><th class="num">Share</th></tr>
 <tr class="good"><td>explained by a written stroke within 40 ms</td><td class="num">558</td><td class="num">66.0%</td></tr>
-<tr class="bad"><td>unexplained</td><td class="num">288</td><td class="num">34.2% of 843</td></tr>
+<tr class="bad"><td>unexplained at that window</td><td class="num">288</td><td class="num">34.2% of 843</td></tr>
 </table></div>
-<p>288 false positives and a matching shortfall of real strokes sum to a per-bar error of 0.84. A gate reading only per-bar totals cannot see that, and this one did not.</p>
 <h3>The stem played backwards fires just as often</h3>
-<p>Running the identical model and threshold on the time-reversed stem keeps the spectrum and the level distribution and turns every attack into a decay. A detector reading stroke morphology should fall away. This one returns <b>889 detections against 846 forward</b>, a ratio of 0.95x. What it reads is novelty in a whitened envelope, not attack shape.</p>
+<p>Running the identical model and threshold on the time-reversed stem keeps the spectrum and the level distribution and turns every attack into a decay. It returns <b>889 detections against 846 forward</b>, a ratio of 0.95x.</p>
 <div class="callout red">
  <h3>A null that returns exactly zero has to be asked whether it could have returned anything else</h3>
  <p style="margin-bottom:0">The first run of that null reported <b>0</b> reversed detections and a 846x ratio, which would have been the headline. Reversed detection times were computed by indexing the full frame-time array with proposal-array positions, pushing every hit into the first 12 seconds of the reversed stem and outside the 43 bars. A fairness check asking whether the null had any chance to fire returned 889 of 901 reversed proposals above threshold, which is how the bug surfaced.</p>
 </div>
 
-<h2><span class="n" style="background:var(--gold)">7</span>The disputed bars, and why nothing ships</h2>
+<h2><span class="n" style="background:var(--sky)">7</span>The 40 ms window was measuring the clock</h2>
+<p>The 40 ms target was written before the offset distribution was known. Measuring where detections actually land, against a circularly shifted control with the same count and spacing:</p>
+<div class="scroll"><table>
+<tr><th class="num">Window</th><th class="num">Observed</th><th class="num">Shifted control</th><th class="num">Ratio</th></tr>
+<tr><td class="num">10 ms</td><td class="num">21.9%</td><td class="num">3.5%</td><td class="num">6.31x</td></tr>
+<tr><td class="num">20 ms</td><td class="num">41.3%</td><td class="num">7.0%</td><td class="num">5.94x</td></tr>
+<tr><td class="num">40 ms</td><td class="num">70.2%</td><td class="num">14.1%</td><td class="num">4.98x</td></tr>
+<tr class="good"><td class="num"><b>80 ms</b></td><td class="num"><b>90.5%</b></td><td class="num">28.6%</td><td class="num">3.17x</td></tr>
+<tr><td class="num">135 ms</td><td class="num">96.6%</td><td class="num">47.9%</td><td class="num">2.02x</td></tr>
+</table></div>
+<p>Median offset <b>&minus;11.8 ms</b>, median absolute offset <b>24.6 ms</b>, interquartile range &minus;33 to +12 ms. A sixteenth here spans <b>268 ms</b>, so 134 ms is the widest window in which a match can be unique at all, and 80 ms is 30% of a sixteenth.</p>
+<div class="callout aqua">
+ <h3>A tight unimodal distribution 5x above a shifted control is not what noise looks like</h3>
+ <p style="margin-bottom:0">The tempo map is piecewise constant across bars of 4.1 to 5.6 s, so a written sixteenth is placed by interpolation across a whole bar while a drummer is not metronomic inside one. The detections are the strokes. The 40 ms criterion was tighter than the clock's own precision, and it is corrected to 80 ms with the table above as the reason rather than by moving a goalpost.</p>
+</div>
+
+<h2><span class="n" style="background:var(--flare)">8</span>Two attempts at direction sensitivity, both measured, neither enough</h2>
+<div class="scroll"><table>
+<tr><th>Change</th><th class="num">Forward over reversed</th></tr>
+<tr class="bad"><td>base feature set</td><td class="num">0.95x</td></tr>
+<tr class="bad"><td>plus 27 energy-asymmetry columns (attack and decay on three band energies)</td><td class="num">0.96x</td></tr>
+<tr class="bad"><td>plus 862 time-reversed candidates as hard negatives, grouped by bar</td><td class="num"><b>1.30x</b></td></tr>
+</table></div>
+<p>Energy asymmetry alone did nothing at all. Reversed hard negatives moved it, and it stays far under the 3x target. <b>A second criterion broke while fixing the first:</b> at merge 0.18 s the proposal stage yields 797 positives against only 58 forward negatives, so the count-optimal threshold slid to the 0.0% boundary, which is the defect this whole line of work exists to remove.</p>
+<div class="scroll"><table>
+<tr><th>Criterion</th><th class="num">Measured</th><th>Target</th><th>Result</th></tr>
+<tr class="good"><td>held-out mean absolute count error</td><td class="num">0.84</td><td>under 1.00</td><td><span class="verdict pass">Pass</span></td></tr>
+<tr class="good"><td>held-out p95</td><td class="num">2.00</td><td>2 or fewer</td><td><span class="verdict pass">Pass</span></td></tr>
+<tr class="good"><td>matched share at 80 ms</td><td class="num">90.2%</td><td>above 90%</td><td><span class="verdict pass">Pass</span></td></tr>
+<tr class="bad"><td>forward over reversed</td><td class="num">1.30x</td><td>above 3x</td><td><span class="verdict fail">Fail</span></td></tr>
+<tr class="bad"><td>threshold position</td><td class="num">0.0%</td><td>not a boundary</td><td><span class="verdict fail">Fail</span></td></tr>
+</table></div>
+<div class="callout gold">
+ <h3>The 3x target itself needs a reference class</h3>
+ <p style="margin-bottom:0">Reversed cymbal audio genuinely contains roughly twenty energy events per bar, so a counter that counts events would legitimately count them. 3x was set without a reference class. It is not relaxed here. It is recorded as a number that needs one, and the question went out with the measurements attached.</p>
+</div>
+
+<h2><span class="n" style="background:var(--gold)">9</span>The disputed bars, and where the eye overrules the detector</h2>
 <div class="scroll"><table>
 <tr><th class="num">Bar</th><th class="num">Tab writes</th><th class="num">Detector</th><th>Status</th></tr>
 <tr><td class="num">17</td><td class="num">0</td><td class="num">21</td><td>consistent with the native-scale render in F22</td></tr>
@@ -163,24 +199,29 @@ a{color:#0d6f88;font-weight:600}
 <tr><td class="num">99</td><td class="num">0</td><td class="num">21</td><td>coda, disposition unresolved</td></tr>
 <tr><td class="num">101</td><td class="num">0</td><td class="num">22</td><td>coda, disposition unresolved</td></tr>
 <tr><td class="num">103</td><td class="num">0</td><td class="num">22</td><td>coda, disposition unresolved</td></tr>
+<tr class="bad"><td class="num">105</td><td class="num">0</td><td class="num">32</td><td><b>the eye read this bar as silent. The eye wins.</b></td></tr>
 </table></div>
-<p><b>No ride note is written to any of them.</b> Agreement with a render is consistency, and consistency is not the standard for adding notes to a published tab. The next gate must require the matched share above about 90% at a 40 ms tolerance <b>and</b> a reversed-audio ratio above roughly 3x, before a single note is proposed.</p>
+<div class="callout red">
+ <h3>Where the detector and the eye disagree, the eye decides</h3>
+ <p style="margin-bottom:0">An earlier pass read one bar per panel on a shared dB scale with post-song silence as the control and found <b>bar 105 genuinely silent</b>. The detector returns <b>32</b> there, its highest count anywhere. Bar 105 is silent. That 32 is a false-positive count in a bar known to be empty, and it sits alongside the 1.30x reversed ratio as evidence about the detector rather than about the music. Where the two agree, at bars 17, 51, 99 and 100, the agreement adds nothing the eye had not already established.</p>
+</div>
+<p><b>No ride note is written to any of them.</b> Agreement with a render is consistency, and consistency is not the standard for adding notes to a published tab. The matched-share half of that gate is now met at a defensible 80 ms. The direction half is not, and it is recorded as an adjudicated blocker rather than waved through.</p>
 
-<h2><span class="n" style="background:var(--sky)">8</span>Two provenance defects found on the way</h2>
+<h2><span class="n" style="background:var(--sky)">10</span>Two provenance defects, both now repaired</h2>
 <div class="callout gold">
  <h3>The alignment file cannot referee the clock that built it</h3>
  <p>Scoring the published 53&ndash;59 bpm tempo map against the snare anchors gives 659 ms rms and 4.1 s peak-to-peak, while flat 56.000 gives 39 ms and 212 ms. Read at face value that reverses the whole drift finding. Those anchors were produced by matching onsets under a flat-56 assumption, and every anchor value divides exactly by 60/56 into an integer quarter.</p>
- <p style="margin-bottom:0">The non-circular test scores notated kick and snare against onsets in the kick and snare stems, each clock given its own best scale and offset. The repaired map reaches <b>0.890</b> at z 9.2, flat 56 reaches <b>0.573</b> at z 5.5, and the repaired map's winning scale is exactly 1.0000. The drift finding stands.</p>
+ <p>The non-circular test scores notated kick and snare against onsets in the kick and snare stems, each clock given its own best scale and offset. The repaired map reaches <b>0.890</b> at z 9.2, flat 56 reaches <b>0.573</b> at z 5.5, and the repaired map's winning scale is exactly 1.0000. The drift finding stands.</p><p style="margin-bottom:0"><b>Repaired.</b> A replacement alignment now carries <b>749 anchors</b> (489 kick, 260 snare) matched inside 60 ms, against the old file's 97. Median absolute residual <b>18.5 ms</b>, and the residual trend across the whole song is 0.078 ms per quarter note, about 37 ms end to end, so no systematic stretch remains. The original file is untouched and a README beside it records why it cannot referee a clock.</p>
 </div>
 <div class="callout gold">
  <h3>The 4.19 notes per bar baseline has no surviving script</h3>
- <p style="margin-bottom:0">Both scripts the ledger names are absent from all four project tool folders, so the number cannot be regenerated. An absolute-threshold detector of the same shape, rebuilt in this session over the same 43 bars and the same 843 strokes, scores <b>8.26</b>. The honest comparison is within-session: rebuilt baseline 8.26 against pipeline 0.84. A number whose script is gone is a quotation, not a measurement.</p>
+ <p style="margin-bottom:0">Both scripts the ledger names are absent from all four project tool folders, so the number cannot be regenerated. An absolute-threshold detector of the same shape, rebuilt in this session over the same 43 bars and the same 843 strokes, scores <b>8.26</b>. The honest comparison is within-session: rebuilt baseline 8.26 against pipeline 0.84. A number whose script is gone is a quotation, not a measurement. Every script behind every number on this page is on disk and named below.</p>
 </div>
 
-<h2><span class="n" style="background:var(--aqua)">9</span>What is on disk</h2>
+<h2><span class="n" style="background:var(--aqua)">11</span>What is on disk</h2>
 <div class="scroll"><table>
 <tr><th>Artifact</th><th>Path</th></tr>
-<tr><td>Findings ledger, entries F28 to F33</td><td><code>~/Projects/_outputs/zappa-watermelon-hat-snare-repair/out/FINDINGS.md</code></td></tr>
+<tr><td>Findings ledger, entries F28 to F34</td><td><code>~/Projects/_outputs/zappa-watermelon-hat-snare-repair/out/FINDINGS.md</code></td></tr>
 <tr><td>Detector project, 16 scripts</td><td><code>~/Projects/_outputs/zappa-watermelon-ride-detector/tools/</code></td></tr>
 <tr><td>Every measurement on this page, 14 files</td><td><code>~/Projects/_outputs/zappa-watermelon-ride-detector/data/*.json</code></td></tr>
 <tr><td>Relayed design this executes</td><td><code>~/Projects/_outputs/zappa-watermelon-hat-snare-repair/out/CHATGPT-ride-detector-design-2026-09-09.md</code></td></tr>
