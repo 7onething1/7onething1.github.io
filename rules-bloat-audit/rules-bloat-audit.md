@@ -3,8 +3,8 @@
 Measured from `~/.claude/`, three CLAUDE.md files, 900 memory notes, and 134 transcripts (20,895 tool calls). No sampling.
 
 ## Headline
-- Fixed rule context per turn: **~41,416 tokens**
-- Of that, **~20,379 tokens buy nothing** (descriptions of skills never invoked)
+- Fixed rule context per turn: **165,667 measured chars, ~41.4k token-equivalents** (4-chars-per-token approximation)
+- Of that, **81,519 measured chars (~20.4k token-equivalents)** belong to skills with **zero observed invocations**
 - Skill tool invocations: **54 of 20,895 tool calls = 0.26%**
 - **165 of 182 skills never invoked once**
 - **298 of 731 cited file paths are dead (41%)**
@@ -116,3 +116,19 @@ Re-recorded on state change:
 - Lease expires 2026-09-09T13:16:01-0500 unless renewed. All GENUINE, blocks_item=True, **justifies_stop=False**.
 
 The blocks-item-without-justifying-stop split is the safety property: a genuine collision removes one item and leaves unrelated work available, so a conflict never becomes permission to stop.
+
+
+## 17. Precision pass — measurement vs estimate vs search signal
+Five labels changed after a second review round:
+
+| Claim | Now reads |
+|---|---|
+| Skill cost | **81,519 measured characters** belong to skills with zero observed invocations = **~20.4k token-equivalents** (char count measured, token conversion heuristic) |
+| Value | **"zero observed invocations across 134 transcripts"**, never "buy nothing" — zero invocations cannot establish zero conceivable value |
+| 143 / 51 / 163 | **string-match findings needing review**, not proven-obsolete rules. Not every Vercel note is an active deployment instruction |
+| fifty-gates | **"all 63 are included in the generic execution path"** — code-path evidence, not a runtime trace of each gate body |
+| Blockers | **"at final adjudication, returned GENUINE"** — verdict is derived on read, leases are temporal |
+
+**Limitation in my own ownership evidence:** the Write/Edit counts behind the lease doctrine are **session-wide, not item-scoped**. Four Edits somewhere in a session does not prove those edits concerned the blocked item. They establish the owner was substantively active rather than idle; ownership is reached by combining that with item-specific reference concentration. The stronger form ties each write to the item's own files, which this audit did not do.
+
+**Categories kept distinct.** Measurements: dead-path counts, memory size, transcript counts, invocation counts, Bash count, missing music trees, MEMORY.md size. Recommendations derived from them: skill resurrection calls, archival proposal, MEMORY.md reduction, ownership doctrine.

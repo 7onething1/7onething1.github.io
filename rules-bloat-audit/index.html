@@ -64,8 +64,8 @@ footer{margin-top:56px;padding-top:18px;border-top:2px solid var(--ink);color:va
 </header>
 
 <div class="kpis">
-  <div class="kpi r"><b>~41,400</b><span>tokens of fixed rules</span></div>
-  <div class="kpi r"><b>~20,400</b><span>of those buy nothing</span></div>
+  <div class="kpi r"><b>~41.4k</b><span>token-equiv of fixed rules</span></div>
+  <div class="kpi r"><b>~20.4k</b><span>token-equiv, zero observed invocations</span></div>
   <div class="kpi m"><b>0.26%</b><span>tool calls that were skills</span></div>
   <div class="kpi p"><b>165</b><span>skills never once invoked</span></div>
   <div class="kpi"><b>41%</b><span>memory paths are dead</span></div>
@@ -88,7 +88,7 @@ footer{margin-top:56px;padding-top:18px;border-top:2px solid var(--ink);color:va
 <tr><td>MEMORY.md index</td><td>40,730</td><td>~10,182</td><td>every session</td><td><span class="tag fix">Fix truncation</span></td></tr>
 <tr><td>CLAUDE.md (3 files merged)</td><td>35,019</td><td>~8,754</td><td>every session</td><td><span class="tag merge">Merge to one</span></td></tr>
 <tr><td><b>Total fixed rule load</b></td><td><b>165,667</b></td><td><b>~41,416</b></td><td></td><td></td></tr>
-<tr><td>Share from never-invoked skills</td><td>81,519</td><td><b>~20,379</b></td><td>every turn</td><td><span class="tag cut">Dead weight</span></td></tr>
+<tr><td>Share from skills with zero observed invocations</td><td><b>81,519 measured</b></td><td>~20.4k <small>token-equiv, at the 4-chars-per-token approximation</small></td><td>every turn</td><td><span class="tag cut">Dead weight</span></td></tr>
 </table>
 </div>
 
@@ -211,13 +211,15 @@ Unwired on disk:  kid_mode_gate, model_fit_gate, ultracode_default,
 <div class="card s">
   <h3>fifty-gates is well built</h3>
   <p>63 gates defined, and the runner iterates the definition table generically,
-  so <b>all 63 actually execute</b>. I checked this specifically because 27 gate IDs
+  so <b>all 63 are included in the generic execution path</b>. I checked this specifically because 27 gate IDs
   never appear by name in the runner, which looks like a gap until you read the loop.
   No cut recommended. The folder name understates it by 13.</p>
   <div class="ev">gates defined in gates_def.py: 63
 run_gates.py:790     for g in GATES:
 run_gates.py:369     g = next(x for x in GATES if x["id"] == gid)
-→ all 63 execute; the 27 unnamed ones have no special-case branch</div>
+-> all 63 are TRAVERSED by the generic runner; the 27 unnamed ones
+   have no special-case branch. This is a code-path finding, not a
+   runtime trace of every gate body succeeding.</div>
 </div>
 
 <div class="card s">
@@ -435,10 +437,39 @@ q-2026-09-09-3493e2  owner 20083369   0 min ago, 4 Write + 4 Edit, 159 refs
                      this session has 0 KIG writes and cannot claim it
 
 lease expires 2026-09-09T13:16:01-0500 unless renewed
-all adjudicate GENUINE, blocks_item=True, justifies_stop=False</div>
+AT FINAL ADJUDICATION all returned GENUINE, blocks_item=True,
+justifies_stop=False. The verdict is derived on read, never stored,
+so this is a timestamped status rather than a permanent property.</div>
   <p style="margin-top:10px"><b>The blocks-item-without-justifying-stop split is what makes this safe.</b>
   A genuine collision removes one item from this session and leaves every unrelated item available,
   so one legitimate conflict can never become permission to stop working.</p>
+</div>
+
+<h2><span class="n">17</span>Precision pass: measurement, estimate, or search signal</h2>
+<p class="lede">A second review round separated what was counted from what was inferred. Five labels changed.</p>
+<div class="scroll">
+<table>
+<tr><th>Claim</th><th>Was</th><th>Now</th><th>Why</th></tr>
+<tr><td>Skill description cost</td><td>"~20,379 tokens buy nothing"</td><td><b>"81,519 measured characters belong to skills with zero observed invocations, about 20.4k token-equivalents"</b></td><td>The characters are measured. The token conversion is a 4-chars-per-token approximation, and four significant digits made it look tokenizer-derived</td></tr>
+<tr><td>Value of unused skills</td><td>"buy nothing"</td><td><b>"zero observed invocations across 134 transcripts"</b></td><td>Zero invocations cannot establish zero conceivable value. Descriptions may affect routing or serve an unobserved future task</td></tr>
+<tr><td>143 / 51 / 163 note counts</td><td>read as obsolete rules</td><td><b>"143 live notes contain retire, supersede or banned language and need review"</b></td><td>These are string-match findings, which are search signals rather than semantic verdicts. Not every one of the 163 Vercel notes is an active deployment instruction</td></tr>
+<tr><td>fifty-gates</td><td>"all 63 execute"</td><td><b>"all 63 are included in the generic execution path"</b></td><td>Code-path evidence, not a runtime trace of each gate body succeeding. The conclusion that the expected 27-gate hole does not exist still stands</td></tr>
+<tr><td>Blocker verdicts</td><td>"are GENUINE"</td><td><b>"at final adjudication, returned GENUINE"</b></td><td>The verdict is derived on read rather than stored, and the leases are deliberately temporal, so the status should read as timestamped</td></tr>
+</table>
+</div>
+<div class="card">
+  <h3>A limitation in my own ownership evidence</h3>
+  <p>The Write and Edit counts behind the lease doctrine are <b>session-wide, not item-scoped</b>.
+  Four Edits somewhere in a session does not by itself prove those edits concerned the blocked item.
+  What the counts do establish is that the owner session was substantively active rather than idle,
+  and that claim is combined with item-specific reference concentration to reach ownership.
+  <b>The stronger form would tie each write to the item's own files</b>, which this audit did not do.</p>
+</div>
+<div class="note">
+  <b>Grammatical categories, kept distinct.</b> Dead-path counts, memory size, transcript counts,
+  invocation counts, the Bash count, the missing music trees and the MEMORY.md size are <b>measurements</b>.
+  The skill resurrection calls, the archival proposal, the MEMORY.md reduction and the ownership doctrine
+  are <b>recommendations derived from those measurements</b>.
 </div>
 
 <h2><span class="n">08</span>Parked in the queue, not left as a question</h2>
