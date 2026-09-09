@@ -68,7 +68,7 @@ footer{margin-top:56px;padding-top:18px;border-top:2px solid var(--ink);color:va
   <div class="kpi r"><b>~20.4k</b><span>token-equiv, zero observed invocations</span></div>
   <div class="kpi m"><b>0.26%</b><span>tool calls that were skills</span></div>
   <div class="kpi p"><b>165</b><span>skills never once invoked</span></div>
-  <div class="kpi"><b>41%</b><span>memory paths are dead</span></div>
+  <div class="kpi"><b>298/731</b><span>path REFERENCES unresolved (40.8%)</span></div>
   <div class="kpi s"><b>900</b><span>memory notes, 2.9 MB</span></div>
 </div>
 
@@ -129,9 +129,9 @@ Never invoked: 165 of 182 skills</div>
 
 <div class="card m">
   <h3>The cheapest win available</h3>
-  <p>Move the ~140 never-invoked skills into <code>~/.claude/skills-archive/</code>.
+  <p>Move the never-invoked skills into <code>~/.claude/skills-archive/</code>.
   Nothing gets deleted, and every one comes back by moving the folder home.
-  Recovers roughly <b>20,000 tokens of context on every single turn</b>,
+  Recovers <b>up to about 20.4k token-equivalents per turn before dependency exemptions</b>,
   which is the difference between reading MEMORY.md fully and reading part of it.</p>
 </div>
 
@@ -139,7 +139,7 @@ Never invoked: 165 of 182 skills</div>
 <p class="lede">Every <code>~/...</code> path in every note was resolved against the real filesystem.</p>
 
 <div class="card">
-  <h3>298 of 731 cited paths do not exist</h3>
+  <h3>298 of 731 path REFERENCES do not resolve, about 40.8 percent</h3>
   <p>Rules that name a script are rules that <b>send you to a file that is not there</b>.
   The failure is silent, so the rule reads as authoritative right up to the moment it wastes a turn.</p>
   <div class="ev">path refs checked: 731    alive: 358    DEAD: 298
@@ -241,7 +241,7 @@ run_gates.py:369     g = next(x for x in GATES if x["id"] == gid)
 <div class="scroll">
 <table>
 <tr><th>#</th><th>Action</th><th>Recovers</th><th>Risk</th><th>Effort</th></tr>
-<tr><td>1</td><td><b>Archive ~140 never-invoked skills</b> to <code>skills-archive/</code><br><small>after a dependency exemption pass, plus an archive manifest</small></td><td>~20,000 tok / turn</td><td>Low, reversible. Exempt any skill referenced by a live gate, hook, memory rule, workflow or retained skill</td><td>15 min</td></tr>
+<tr><td>1</td><td><b>Archive the never-invoked skills</b> to <code>skills-archive/</code><br><small><b>165 measured</b> at zero observed invocations. <b>~140 is a candidate estimate</b> pending the dependency exemption pass</small></td><td><b>Up to ~20.4k token-equiv</b> before exemptions. Actual reduction is set by the exemption pass</td><td>Low, reversible. Exempt any skill referenced by a live gate, hook, memory rule, workflow or retained skill</td><td>15 min</td></tr>
 <tr><td>2</td><td><b>Cap every SKILL.md description at 200 chars</b></td><td>~4,000 tok / turn</td><td>Low, triggering improves when descriptions sharpen</td><td>1 hr</td></tr>
 <tr><td>3</td><td><b>Cut MEMORY.md to under 20 KB</b> so it stops truncating</td><td>Full index visibility</td><td><b>Low, if mechanically verified.</b> Preserve every rule identifier, destination pointer, precedence relation and topic keyword, then diff old against new on those fields</td><td>45 min</td></tr>
 <tr><td>4</td><td><b>Fix the 7 most-cited dead paths</b>, starting with <code>~/MAP.md</code></td><td>Wasted turns</td><td>None</td><td>30 min</td></tr>
@@ -255,7 +255,7 @@ run_gates.py:369     g = next(x for x in GATES if x["id"] == gid)
 </div>
 
 <div class="note">
-  <b>Doing only items 1, 3 and 8 recovers about 20,000 tokens per turn and makes your own index readable,
+  <b>Doing only items 1, 3 and 8 recovers up to about 20.4k token-equivalents per turn, before dependency exemptions, and makes your own index readable,
   in under an hour and a half, with nothing deleted.</b> That is the whole recommendation if you want one line of it.
 </div>
 
@@ -471,6 +471,21 @@ so this is a timestamped status rather than a permanent property.</div>
   invocation counts, the Bash count, the missing music trees and the MEMORY.md size are <b>measurements</b>.
   The skill resurrection calls, the archival proposal, the MEMORY.md reduction and the ownership doctrine
   are <b>recommendations derived from those measurements</b>.
+</div>
+
+<h2><span class="n">18</span>Three quantities kept in the estimate column</h2>
+<div class="scroll">
+<table>
+<tr><th>Quantity</th><th>Status</th><th>Correct wording</th></tr>
+<tr><td>Recovery from archiving skills</td><td><b>Estimate.</b> The 81,519 characters are measured; the token conversion is approximate AND the dependency exemption pass will leave some of them loaded</td><td>"Up to about 20.4k token-equivalents before dependency exemptions, with the actual reduction determined after the exemption pass"</td></tr>
+<tr><td>The skill count to archive</td><td><b>165 is measured</b> at zero observed invocations. <b>~140 is a candidate estimate</b> depending on the exemption filter</td><td>Report 165 as the measured population and ~140 as the current candidate set, never the two interchangeably</td></tr>
+<tr><td>Dead memory paths</td><td><b>Rounded measured ratio</b>, not an estimate: 298 of 731 is 40.8 percent</td><td>"298 of 731 path REFERENCES did not resolve". The denominator is path references, not distinct filesystem destinations, since repeated citations inflate the impression</td></tr>
+</table>
+</div>
+<div class="note">
+  The gate's own outputs are the same distinction in miniature. <b>The 0.235 similarity score and the
+  58-to-73 evidence watermark are direct gate outputs.</b> "The gate worked correctly" is an
+  interpretation of those outputs, and it is labeled as one.
 </div>
 
 <h2><span class="n">08</span>Parked in the queue, not left as a question</h2>

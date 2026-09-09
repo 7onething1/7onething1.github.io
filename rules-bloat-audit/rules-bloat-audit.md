@@ -7,7 +7,7 @@ Measured from `~/.claude/`, three CLAUDE.md files, 900 memory notes, and 134 tra
 - Of that, **81,519 measured chars (~20.4k token-equivalents)** belong to skills with **zero observed invocations**
 - Skill tool invocations: **54 of 20,895 tool calls = 0.26%**
 - **165 of 182 skills never invoked once**
-- **298 of 731 cited file paths are dead (41%)**
+- **298 of 731 path REFERENCES did not resolve (40.8%)** — denominator is path references, not distinct destinations
 
 ## Measured
 | Source | Chars | Tokens | Loaded |
@@ -132,3 +132,13 @@ Five labels changed after a second review round:
 **Limitation in my own ownership evidence:** the Write/Edit counts behind the lease doctrine are **session-wide, not item-scoped**. Four Edits somewhere in a session does not prove those edits concerned the blocked item. They establish the owner was substantively active rather than idle; ownership is reached by combining that with item-specific reference concentration. The stronger form ties each write to the item's own files, which this audit did not do.
 
 **Categories kept distinct.** Measurements: dead-path counts, memory size, transcript counts, invocation counts, Bash count, missing music trees, MEMORY.md size. Recommendations derived from them: skill resurrection calls, archival proposal, MEMORY.md reduction, ownership doctrine.
+
+
+## 18. Three quantities kept in the estimate column
+| Quantity | Status | Correct wording |
+|---|---|---|
+| Recovery from archiving skills | **Estimate.** Chars measured; token conversion approximate AND the exemption pass leaves some loaded | "Up to ~20.4k token-equivalents **before dependency exemptions**, actual reduction set by the exemption pass" |
+| Skills to archive | **165 measured** (zero observed invocations); **~140 is a candidate estimate** after the exemption filter | Report both, never interchangeably |
+| Dead memory paths | **Rounded measured ratio**, not an estimate: 298/731 = 40.8% | "298 of 731 path **references** did not resolve" — denominator is references, not distinct destinations |
+
+The gate's own outputs are the same distinction in miniature: the **0.235 similarity score** and the **58→73 evidence watermark** are direct gate outputs; "the gate worked correctly" is a labeled interpretation of them.
