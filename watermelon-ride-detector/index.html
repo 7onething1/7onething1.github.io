@@ -1,0 +1,194 @@
+<!doctype html>
+<html lang="en"><head><meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Watermelon ride detector</title>
+<style>
+:root{
+ --aqua:#3B9AB2; --sky:#78B7C5; --sun:#EBCC2A; --gold:#E1AF00; --flare:#F21A00;
+ --cream:#f6f0e2; --card:#fbf7ec; --ink:#1c1a16; --muted:#6b6355; --line:#ddd2b8;
+ color-scheme:light;
+}
+*{box-sizing:border-box}
+body{margin:0;background:var(--cream);color:var(--ink);
+ font:16px/1.62 -apple-system,BlinkMacSystemFont,Inter,"Segoe UI",sans-serif;padding:2.2rem 1.1rem 4rem}
+main{max-width:1080px;margin:0 auto}
+h1{font-size:2.05rem;line-height:1.16;margin:0 0 .35rem;letter-spacing:-.02em}
+.deck{color:var(--muted);font-size:1.03rem;margin:0 0 .5rem;max-width:70ch}
+.stamp{display:inline-block;background:var(--gold);color:#fff;font-weight:700;font-size:.74rem;
+ letter-spacing:.09em;text-transform:uppercase;padding:.28rem .6rem;border-radius:4px;margin-bottom:.9rem}
+h2{font-size:1.28rem;margin:2.6rem 0 .2rem;letter-spacing:-.01em}
+h2 .n{display:inline-block;width:1.55rem;height:1.55rem;line-height:1.55rem;text-align:center;
+ border-radius:5px;color:#fff;font-size:.86rem;margin-right:.5rem;vertical-align:2px}
+h3{font-size:1rem;margin:1.5rem 0 .35rem}
+p{margin:.55rem 0;max-width:74ch}
+.sub{color:var(--muted);font-size:.9rem;margin:.1rem 0 1rem}
+.grid{display:grid;gap:.75rem;margin:1rem 0}
+.g4{grid-template-columns:repeat(auto-fit,minmax(178px,1fr))}
+.card{background:var(--card);border:1px solid var(--line);border-radius:11px;padding:.9rem 1rem}
+.card.t1{border-left:6px solid var(--aqua)}
+.card.t2{border-left:6px solid var(--sky)}
+.card.t3{border-left:6px solid var(--sun)}
+.card.t4{border-left:6px solid var(--gold)}
+.card.t5{border-left:6px solid var(--flare)}
+.k{font-size:1.9rem;font-weight:800;line-height:1.08;letter-spacing:-.02em}
+.k.a{color:var(--aqua)}.k.y{color:#9a8412}.k.g{color:#a97f00}.k.f{color:var(--flare)}
+.lab{font-size:.74rem;text-transform:uppercase;letter-spacing:.07em;color:var(--muted);margin-top:.2rem}
+.fine{font-size:.83rem;color:var(--muted);margin-top:.45rem}
+table{border-collapse:collapse;width:100%;font-size:.88rem;margin:.7rem 0;background:var(--card)}
+th,td{border:1px solid var(--line);padding:.42rem .6rem;text-align:left}
+th{background:#efe7d3;font-weight:700;font-size:.8rem;text-transform:uppercase;letter-spacing:.04em}
+td.num{text-align:right;font-variant-numeric:tabular-nums}
+tr.bad td{background:#fdeae7}
+tr.good td{background:#e9f4f7}
+tr.pick td{background:#fbf1d4;font-weight:600}
+.scroll{overflow-x:auto;-webkit-overflow-scrolling:touch}
+code{background:#efe7d3;padding:.09em .38em;border-radius:4px;font-size:.86em;word-break:break-all}
+.callout{border-radius:11px;padding:1rem 1.15rem;margin:1.1rem 0;border:1px solid var(--line)}
+.callout.red{background:#fdeae7;border-left:6px solid var(--flare)}
+.callout.aqua{background:#e9f4f7;border-left:6px solid var(--aqua)}
+.callout.gold{background:#fbf1d4;border-left:6px solid var(--gold)}
+.callout h3{margin-top:0}
+ul{margin:.5rem 0 .5rem 1.1rem;padding:0}li{margin:.3rem 0;max-width:74ch}
+ol{margin:.5rem 0 .5rem 1.25rem;padding:0}
+.pipe{display:grid;gap:.5rem;grid-template-columns:repeat(auto-fit,minmax(212px,1fr));margin:1rem 0}
+.step{background:var(--card);border:1px solid var(--line);border-radius:10px;padding:.7rem .85rem;font-size:.86rem}
+.step b{display:block;font-size:.72rem;text-transform:uppercase;letter-spacing:.07em;color:var(--muted);margin-bottom:.2rem}
+.step.kept{border-left:5px solid var(--aqua)}
+.step.dropped{border-left:5px solid var(--flare);opacity:.9}
+.step.fixed{border-left:5px solid var(--gold)}
+footer{margin-top:3.2rem;border-top:1px solid var(--line);padding-top:1rem;font-size:.82rem;color:var(--muted)}
+a{color:#0d6f88;font-weight:600}
+.verdict{font-size:.75rem;font-weight:800;letter-spacing:.06em;text-transform:uppercase;
+ padding:.15rem .45rem;border-radius:4px;color:#fff}
+.pass{background:#2f7d4f}.fail{background:var(--flare)}
+</style></head><body><main>
+
+<span class="stamp">Counts pass, positions do not</span>
+<h1>Watermelon In Easter Hay: counting the ride</h1>
+<p class="deck">A relayed detector design said to abort and switch separators if held-out error stayed near four notes a bar. Error fell to 0.84 and all five gate criteria passed. Two controls then showed the counts are partly right by cancellation, so no ride note is written to the tab.</p>
+<p class="sub">Songsterr <code>s6857183</code>, Vinnie Colaiuta drum staff, revision <code>r8973454</code>. Drum work only, no guitar transcription. Measured 2026-09-09 on MacBookPro against the Moises 15-stem set.</p>
+
+<div class="grid g4">
+ <div class="card t1"><div class="k a">0.84</div><div class="lab">held-out error, notes per bar</div><div class="fine">gate was under 1.00, rebuilt baseline 8.26</div></div>
+ <div class="card t3"><div class="k y">0.823</div><div class="lab">stroke vs gap separability</div><div class="fine">shift null 0.505, kick control 0.750</div></div>
+ <div class="card t5"><div class="k f">66.0%</div><div class="lab">detections a written stroke explains</div><div class="fine">288 of 846 unexplained</div></div>
+ <div class="card t5"><div class="k f">0.95x</div><div class="lab">forward over reversed audio</div><div class="fine">889 detections on the stem played backwards</div></div>
+</div>
+
+<h2><span class="n" style="background:var(--aqua)">1</span>The abort condition was wrong, and testing it was the whole job</h2>
+<p>The queued design carried an instruction to give up: if held-out error stayed near four notes a bar, Moises separation is the limit and the answer is a different separator. That instruction needed its own measurement, because a counting failure and an evidence failure look identical from outside.</p>
+<p>The test asks one question no detector can beat. Inside the 43 bars that carry a full ride, can any envelope tell a written stroke position from the <b>midpoint between two written stroke positions</b>? Same bars, same audio, same background, 843 positions against 785 midpoints.</p>
+<div class="scroll"><table>
+<tr><th>Envelope</th><th class="num">AUC</th><th class="num">Shift null</th><th class="num">z</th></tr>
+<tr class="good"><td>SuperFlux 2&ndash;16 kHz, percussive component</td><td class="num">0.823</td><td class="num">0.505 &plusmn; 0.050</td><td class="num">6.4</td></tr>
+<tr><td>SuperFlux 8&ndash;11 kHz, percussive</td><td class="num">0.814</td><td class="num">0.502 &plusmn; 0.039</td><td class="num">8.0</td></tr>
+<tr><td>plain flux 3&ndash;10 kHz, raw stem</td><td class="num">0.806</td><td class="num">0.500 &plusmn; 0.053</td><td class="num">5.8</td></tr>
+<tr><td>SuperFlux 5&ndash;8 kHz, percussive</td><td class="num">0.786</td><td class="num">0.499 &plusmn; 0.035</td><td class="num">8.3</td></tr>
+<tr class="good"><td><b>Positive control:</b> kick stem, written kicks vs empty grid points</td><td class="num">0.750</td><td class="num">&mdash;</td><td class="num">&mdash;</td></tr>
+</table></div>
+<div class="callout aqua">
+ <h3>The cymbal stem beats the kick stem on its own instrument</h3>
+ <p style="margin-bottom:0">Separating ride strokes from the gaps between them scores 0.823. Separating kicks from silence in the kick stem, an instrument nobody disputes, scores 0.750. Moises separation is not the limiting evidence here, and following the abort condition would have thrown away a working signal.</p>
+</div>
+
+<h2><span class="n" style="background:var(--flare)">2</span>Stage one of the design is inert on this stem</h2>
+<p>The design named guitar leakage regression the largest expected gain, since the lead stem measures the contaminating source directly. Fitting a per-bin model on 12,520 frames of trusted audio at least 120 ms from any notated cymbal, and never inside a disputed bar:</p>
+<div class="scroll"><table>
+<tr><th>Quantity</th><th class="num">Measured</th><th>Consequence</th></tr>
+<tr class="bad"><td>mean complex coherence, lead into cymbals, 2&ndash;16 kHz</td><td class="num">0.061</td><td>complex subtraction impossible</td></tr>
+<tr class="bad"><td>mean magnitude correlation</td><td class="num">0.070</td><td>magnitude suppression has nothing to suppress</td></tr>
+<tr class="bad"><td>cymbal energy explained by the lead</td><td class="num">0.8%</td><td>the stage is dropped</td></tr>
+</table></div>
+<p>The premise was reasonable, because the bleed is real. A lead-guitar attack far from any notated cymbal raises cymbal-stem flux in 3&ndash;10 kHz to <b>1.75x</b> the random-frame median at z 5.4. A notated ride stroke reaches <b>2.48x</b>. Guitar bleed therefore arrives at <b>70.7%</b> of the amplitude of a real ride stroke.</p>
+<p>The design's own fallback was taken instead. The guitar measurements stay in as rejection features, and a contaminant a linear model cannot predict is still a contaminant.</p>
+
+<h2><span class="n" style="background:var(--gold)">3</span>Eight stages, one dropped, one rebuilt</h2>
+<div class="pipe">
+ <div class="step dropped"><b>1 &middot; dropped</b>Guitar leakage regression. 0.8% of energy explained, so nothing to cancel. Guitar kept as rejection features.</div>
+ <div class="step kept"><b>2 &middot; kept</b>HPSS on the cymbal stem, median filters 31 frames by 17 bins, percussive mask.</div>
+ <div class="step kept"><b>3 &middot; kept</b>SuperFlux onset function on the percussive residual, frequency max-filter width 3, lag 2.</div>
+ <div class="step fixed"><b>4 &middot; rebuilt</b>Multiband proposals, 2&ndash;5 / 5&ndash;8 / 8&ndash;11 / 11&ndash;16 kHz, whitened against a 0.5 s running background. Merge widened from 60 ms to 160 ms.</div>
+ <div class="step kept"><b>5 &middot; kept</b>23 per-candidate features: band flux, flatness, entropy, bandwidth, centroid, high-band ratio, percussive share, rise and decay, plus three cross-stem guitar features.</div>
+ <div class="step kept"><b>6 &middot; kept</b>Regularized logistic regression, group cross-validation by whole bar, never a random stroke split.</div>
+ <div class="step kept"><b>7 &middot; kept</b>Learned ride template, median 16-band patch from &minus;40 to +120 ms, scored against both a trusted-attack and a rejected-attack template, rebuilt inside every fold.</div>
+ <div class="step kept"><b>8 &middot; kept</b>Counting last, 90 ms refractory, no snapping to the written grid.</div>
+</div>
+
+<h2><span class="n" style="background:var(--sun)">4</span>The defect was my proposal geometry, not the stem</h2>
+<p>The first rebuild returned 3.35 notes a bar and a candidate-level held-out AUC of <b>0.594</b>, near chance, which read as confirmation of the abort condition. Separability had already ruled that out, so the fault was mine.</p>
+<p>Proposals were merged at 60 ms and then labelled against written strokes at a 90 ms tolerance. A sixteenth at 53&ndash;59 bpm is about <b>270 ms</b>. Proposals landed every 82 ms, so neighbouring candidates were interchangeable and the labels were close to arbitrary. Sweeping both, with the tolerance constrained under half the merge:</p>
+<div class="scroll"><table>
+<tr><th class="num">Merge</th><th class="num">Tol</th><th class="num">Proposals</th><th class="num">AUC</th><th class="num">MAE</th><th class="num">median</th><th class="num">p95</th><th>Threshold position</th></tr>
+<tr><td class="num">0.10 s</td><td class="num">40 ms</td><td class="num">1657</td><td class="num">0.625</td><td class="num">2.58</td><td class="num">1.0</td><td class="num">7.90</td><td>68.2%</td></tr>
+<tr><td class="num">0.13 s</td><td class="num">40 ms</td><td class="num">1191</td><td class="num">0.571</td><td class="num">2.63</td><td class="num">3.0</td><td class="num">5.90</td><td>64.4%</td></tr>
+<tr class="pick"><td class="num">0.16 s</td><td class="num">40 ms</td><td class="num">901</td><td class="num">0.748</td><td class="num">0.84</td><td class="num">1.0</td><td class="num">2.00</td><td>29.4%, chosen</td></tr>
+<tr><td class="num">0.19 s</td><td class="num">40 ms</td><td class="num">846</td><td class="num">0.793</td><td class="num">0.84</td><td class="num">1.0</td><td class="num">2.00</td><td>0.0%, pinned</td></tr>
+<tr><td class="num">0.22 s</td><td class="num">40 ms</td><td class="num">827</td><td class="num">0.785</td><td class="num">1.09</td><td class="num">1.0</td><td class="num">3.00</td><td>0.0%, pinned</td></tr>
+</table></div>
+<p>0.16 s is taken over 0.19 s at equal error, because 0.19 puts the threshold back on a boundary. Boundary pinning is the exact defect this pass exists to remove.</p>
+
+<h2><span class="n" style="background:var(--aqua)">5</span>The acceptance gate, all five criteria</h2>
+<div class="scroll"><table>
+<tr><th>Criterion</th><th class="num">Measured</th><th>Target</th><th>Result</th></tr>
+<tr class="good"><td>held-out mean absolute count error</td><td class="num">0.84 notes/bar</td><td>under 1.00</td><td><span class="verdict pass">Pass</span></td></tr>
+<tr class="good"><td>held-out median absolute error</td><td class="num">1.0</td><td>at or near 0</td><td><span class="verdict pass">Pass</span></td></tr>
+<tr class="good"><td>held-out 95th percentile</td><td class="num">2.00</td><td>2 or fewer</td><td><span class="verdict pass">Pass</span></td></tr>
+<tr class="good"><td>lead-guitar control false count</td><td class="num">32 of 843, 3.8%</td><td>under 5%</td><td><span class="verdict pass">Pass</span></td></tr>
+<tr class="good"><td>threshold position in its searched range</td><td class="num">29.4%</td><td>never at a boundary</td><td><span class="verdict pass">Pass</span></td></tr>
+</table></div>
+<p class="sub">43 bars, 843 written strokes, both re-derived from the published Guitar Pro file rather than quoted. Group cross-validation splits whole bars. Refractory 90 ms.</p>
+
+<h2><span class="n" style="background:var(--flare)">6</span>Two controls the gate never asked for</h2>
+<p>Five passes out of five is where a done-claim usually goes. Both extra controls say the gate is measuring less than it appears to.</p>
+<h3>The counts are partly right by cancellation</h3>
+<div class="scroll"><table>
+<tr><th>Disposition of the 846 detections</th><th class="num">Count</th><th class="num">Share</th></tr>
+<tr class="good"><td>explained by a written stroke within 40 ms</td><td class="num">558</td><td class="num">66.0%</td></tr>
+<tr class="bad"><td>unexplained</td><td class="num">288</td><td class="num">34.2% of 843</td></tr>
+</table></div>
+<p>288 false positives and a matching shortfall of real strokes sum to a per-bar error of 0.84. A gate reading only per-bar totals cannot see that, and this one did not.</p>
+<h3>The stem played backwards fires just as often</h3>
+<p>Running the identical model and threshold on the time-reversed stem keeps the spectrum and the level distribution and turns every attack into a decay. A detector reading stroke morphology should fall away. This one returns <b>889 detections against 846 forward</b>, a ratio of 0.95x. What it reads is novelty in a whitened envelope, not attack shape.</p>
+<div class="callout red">
+ <h3>A null that returns exactly zero has to be asked whether it could have returned anything else</h3>
+ <p style="margin-bottom:0">The first run of that null reported <b>0</b> reversed detections and a 846x ratio, which would have been the headline. Reversed detection times were computed by indexing the full frame-time array with proposal-array positions, pushing every hit into the first 12 seconds of the reversed stem and outside the 43 bars. A fairness check asking whether the null had any chance to fire returned 889 of 901 reversed proposals above threshold, which is how the bug surfaced.</p>
+</div>
+
+<h2><span class="n" style="background:var(--gold)">7</span>The disputed bars, and why nothing ships</h2>
+<div class="scroll"><table>
+<tr><th class="num">Bar</th><th class="num">Tab writes</th><th class="num">Detector</th><th>Status</th></tr>
+<tr><td class="num">17</td><td class="num">0</td><td class="num">21</td><td>consistent with the native-scale render in F22</td></tr>
+<tr><td class="num">51</td><td class="num">0</td><td class="num">20</td><td>consistent with the native-scale render in F22</td></tr>
+<tr><td class="num">87</td><td class="num">0</td><td class="num">22</td><td>half-bar pause per the earlier read</td></tr>
+<tr><td class="num">99</td><td class="num">0</td><td class="num">21</td><td>coda, disposition unresolved</td></tr>
+<tr><td class="num">101</td><td class="num">0</td><td class="num">22</td><td>coda, disposition unresolved</td></tr>
+<tr><td class="num">103</td><td class="num">0</td><td class="num">22</td><td>coda, disposition unresolved</td></tr>
+</table></div>
+<p><b>No ride note is written to any of them.</b> Agreement with a render is consistency, and consistency is not the standard for adding notes to a published tab. The next gate must require the matched share above about 90% at a 40 ms tolerance <b>and</b> a reversed-audio ratio above roughly 3x, before a single note is proposed.</p>
+
+<h2><span class="n" style="background:var(--sky)">8</span>Two provenance defects found on the way</h2>
+<div class="callout gold">
+ <h3>The alignment file cannot referee the clock that built it</h3>
+ <p>Scoring the published 53&ndash;59 bpm tempo map against the snare anchors gives 659 ms rms and 4.1 s peak-to-peak, while flat 56.000 gives 39 ms and 212 ms. Read at face value that reverses the whole drift finding. Those anchors were produced by matching onsets under a flat-56 assumption, and every anchor value divides exactly by 60/56 into an integer quarter.</p>
+ <p style="margin-bottom:0">The non-circular test scores notated kick and snare against onsets in the kick and snare stems, each clock given its own best scale and offset. The repaired map reaches <b>0.890</b> at z 9.2, flat 56 reaches <b>0.573</b> at z 5.5, and the repaired map's winning scale is exactly 1.0000. The drift finding stands.</p>
+</div>
+<div class="callout gold">
+ <h3>The 4.19 notes per bar baseline has no surviving script</h3>
+ <p style="margin-bottom:0">Both scripts the ledger names are absent from all four project tool folders, so the number cannot be regenerated. An absolute-threshold detector of the same shape, rebuilt in this session over the same 43 bars and the same 843 strokes, scores <b>8.26</b>. The honest comparison is within-session: rebuilt baseline 8.26 against pipeline 0.84. A number whose script is gone is a quotation, not a measurement.</p>
+</div>
+
+<h2><span class="n" style="background:var(--aqua)">9</span>What is on disk</h2>
+<div class="scroll"><table>
+<tr><th>Artifact</th><th>Path</th></tr>
+<tr><td>Findings ledger, entries F28 to F33</td><td><code>~/Projects/_outputs/zappa-watermelon-hat-snare-repair/out/FINDINGS.md</code></td></tr>
+<tr><td>Detector project, 11 scripts</td><td><code>~/Projects/_outputs/zappa-watermelon-ride-detector/tools/</code></td></tr>
+<tr><td>Every measurement on this page</td><td><code>~/Projects/_outputs/zappa-watermelon-ride-detector/data/*.json</code></td></tr>
+<tr><td>Relayed design this executes</td><td><code>~/Projects/_outputs/zappa-watermelon-hat-snare-repair/out/CHATGPT-ride-detector-design-2026-09-09.md</code></td></tr>
+</table></div>
+
+<footer>
+Watermelon In Easter Hay, Songsterr <code>s6857183</code> revision <code>r8973454</code>, Vinnie Colaiuta drum staff.
+Executes queue item <code>q-2026-09-09-56e7a3</code>. Measured 2026-09-09 on MacBookPro, Python 3.11, scikit-learn 1.8.0, librosa 0.11.0.
+Stems: Moises 15-stem separation of the 9:05 Joe's Garage master. Drum staff only.
+</footer>
+</main></body></html>
