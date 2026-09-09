@@ -457,7 +457,26 @@ footer{margin-top:3rem;border-top:2px solid var(--line);padding-top:1rem;
 <div class="note"><b>This page has already met that class of trap twice.</b> KIG-M001 was a <code>fret 65</code> Timbale high sitting on a lane carrying 1,311 kicks and nothing else. KIG-M002 is a GM 39 hand clap drawn on the snare line. In all three cases <b>a GM number or an instrument id does not mean what a reader assumes</b>, and the fix is the same each time: read the field the human acts on, which is the staff line, never the pitch.</div>
 <h3>What the 172 does to KIG-M002</h3>
 <p>The clap question looked local when it was 21 events in one song. The finished sweep puts <b>172 of the 822 instants on the tambourine, clap and cowbell question</b>, and <b>The Idiot Bastard Son <code>s68253</code> carries 118 instants of which zero are kit-only</b>, with 112 of the 118 being hatOpen plus snare plus tambourine.</p>
-<div class="good"><b>So the reasoning settled here is the reasoning that decides those 172.</b> Stated once more in general form, because it now has to travel: a non-kit surface drawn on a kit lane costs <b>one</b> stick if the drummer strikes it and <b>no</b> drummer hand if another player overdubs it. Both readings give the same hands count, so the ambiguity does not have to be resolved to decide playability. What must not happen is counting the pitch as a third surface.</div>
+<div class="warn"><b>The first version of this rule was overreach and is corrected below.</b> It read "a non-kit surface <b>drawn on</b> a kit lane costs one stick or no drummer hand, so the ambiguity does not have to be resolved." That generalised from this song's structure to cases whose structure differs, and it covers <b>zero</b> of the 172.</div>
+
+<h3>Why Keep It Greasey's case works, and the 172 do not</h3>
+<p>At KIG bars 42-44 the GM 39 clap sits on <b>string 1.5, the same line as the snare</b>, with a snare sounding at the same instant. Two surfaces either way, so removing the clap changes nothing. Measured here on the largest affected tab, The Idiot Bastard Son <code>s68253</code>, revision 704236, drum staff index 3, 817 events, uncredentialed CloudFront read:</p>
+<table>
+<tr><th>Measure</th><th>Result</th></tr>
+<tr><td>three-line instants containing MIDI 54 tambourine</td><td><b>118</b> (peer said 118)</td></tr>
+<tr><td>of those, MIDI 54 <b>alone</b> on its line at that instant</td><td><b>118</b></td></tr>
+<tr><td>of those, MIDI 54 sharing its line</td><td><b>0</b></td></tr>
+<tr><td>instants that <b>fall to two hand lines</b> once the tambourine is removed</td><td><b>118 of 118</b></td></tr>
+</table>
+<p>A sample instant reads <code>(54, line 1), (46, line 2), (38, line 4)</code> — tambourine, open hat and snare on three separate lines.</p>
+<table>
+<tr><th>Reading</th><th>Surfaces at that instant</th><th>Verdict</th></tr>
+<tr><td>the drummer strikes the tambourine</td><td><b>three</b> separate lines</td><td><b>real failure</b></td></tr>
+<tr><td>another player overdubs it</td><td><b>two</b> drummer lines</td><td><b>not a failure</b></td></tr>
+</table>
+<div class="warn"><b>The two readings diverge on every one of them.</b> Attribution has to be resolved for these, and 118 of the 172 are one entire tab. The first version of the rule would have licensed treating 172 live questions as settled.</div>
+<div class="good"><b>The corrected rule, with its boundary.</b> A non-kit surface <b>sharing</b> a kit lane costs one stick or no drummer hand, and both readings give the same count, so playability is decided without resolving attribution. A non-kit surface on its <b>own</b> lane does not have that property: the two readings differ by one hand, and attribution must be resolved before the instant can be called playable or not.</div>
+<p><b>The lane position varies per tab</b>, at 0, 1, 1.5 and 5 across the five affected songs, which is itself evidence the transcribers gave the tambourine a deliberate separate lane rather than folding it onto a kit surface.</p>
 <p><b>Nothing about Keep It Greasey changes.</b> M002 stays closed at no change, and the 21 GM 39 events stay exactly as Ben Dibden1 wrote them.</p>
 
 <h2 class="s5" id="files">5. Files and reproduction</h2>

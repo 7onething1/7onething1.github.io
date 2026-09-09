@@ -758,10 +758,76 @@ hatOpen plus snare plus tambourine.
 **So the reasoning settled here for Keep It Greasey is the reasoning that decides those 172.** It
 is stated once more, in the general form, because it now has to travel:
 
-> A non-kit surface drawn on a kit lane costs **one** stick if the drummer strikes it and **no**
-> drummer hand if another player overdubs it. **Both readings give the same hands count**, so the
-> ambiguity does not have to be resolved to decide playability. What must not happen is counting
-> the pitch as a third surface.
+> A non-kit surface **sharing** a kit lane costs **one** stick if the drummer strikes it and **no**
+> drummer hand if another player overdubs it. **Both readings give the same hands count**, so
+> playability is decided without resolving attribution. A non-kit surface on its **own** lane does
+> **not** have that property: the two readings differ by one hand, and **attribution must be
+> resolved** before that instant can be called playable. What must not happen in either case is
+> counting the pitch as a third surface.
+
+**The sharing condition is load-bearing and the first version of this rule omitted it.** See
+Addendum 11.
 
 **Nothing about Keep It Greasey changes.** M002 stays closed at no change, and the 21 GM 39 events
 stay exactly as Ben Dibden1 wrote them.
+
+---
+
+## ADDENDUM 11: the general rule was overreach, and the correction is measured
+
+Addendum 10 published this: *"A non-kit surface **drawn on** a kit lane costs one stick if the
+drummer strikes it and no drummer hand if another player overdubs it. Both readings give the same
+hands count, so the ambiguity does not have to be resolved."*
+
+**That generalised from this song's structure to cases whose structure is different, and it covers
+zero of the 172 it was written for.** The peer caught it and the shape was **re-derived here** on
+the largest affected tab.
+
+### Why Keep It Greasey's case works
+
+At KIG bars 42, 43 and 44 the GM 39 clap sits on **string 1.5, the same line as the snare**, and a
+snare sounds at the same instant. The surfaces are the snare line and the hat line, two either
+way. **Removing the clap changes nothing**, so both readings give the same count and attribution
+never has to be settled.
+
+### Why the 172 do not
+
+Measured here on The Idiot Bastard Son `s68253`, revision 704236, drum staff index 3, 817 events,
+by an uncredentialed CloudFront read:
+
+| Measure | Result |
+|---|---|
+| three-line instants containing MIDI 54 tambourine | **118** (peer said 118) |
+| of those, MIDI 54 **alone** on its line at that instant | **118** |
+| of those, MIDI 54 sharing its line | **0** |
+| instants that **fall to two hand lines** once the tambourine is removed | **118 of 118** |
+
+A sample instant reads `(54, line 1), (46, line 2), (38, line 4)`, which is tambourine, open hat
+and snare on three separate lines.
+
+**So the two readings diverge on every one of them:**
+
+| Reading | Surfaces at that instant | Verdict |
+|---|---|---|
+| the drummer strikes the tambourine | **three** separate lines | **real failure** |
+| another player overdubs it | **two** drummer lines | **not a failure** |
+
+**Attribution has to be resolved for these, and 118 of the 172 are one entire tab.** The first
+version of the rule would have licensed treating 172 live questions as settled.
+
+### The corrected rule, with its boundary
+
+> A non-kit surface **sharing** a kit lane costs one stick or no drummer hand, and both readings
+> give the same count, so playability is decided without resolving attribution. A non-kit surface
+> on its **own** lane does not have that property: the two readings differ by one hand, and
+> attribution must be resolved before the instant can be called playable or not.
+
+**The lane position varies per tab**, at 0, 1, 1.5 and 5 across the five affected songs, which is
+itself evidence the transcribers gave the tambourine a deliberate separate lane rather than folding
+it onto a kit surface.
+
+### What this changes about Keep It Greasey
+
+**Nothing.** KIG's clap shares the snare line, which is the branch where both readings agree. M002
+stays closed at no change. What changed is the scope of the rule this page exports, which was
+written too wide and is now bounded by a measurement.
