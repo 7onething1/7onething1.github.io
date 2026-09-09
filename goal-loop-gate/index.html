@@ -223,6 +223,23 @@ to itself. The review returned four corrections and each one is implemented here
   <code>queue_state.py.PRE_TZFIX_2026-09-09.bak</code>.</p>
 </div>
 
+<div class="bug">
+  <h3>The gate turned on itself within the hour</h3>
+  <p>A background-task completion notice reached <code>goal_loop_gate.py</code> through the
+  same stdin channel as a typed turn. It scored 0.00 content overlap against the open
+  instruction, the pivot rule read that as a change of subject, and it closed a contract
+  carrying ten required outcomes and opened an empty one named after the notification text.
+  The gate built to prevent premature stopping discarded the record of what completion meant.</p>
+  <p>A <code>MACHINE_TEXT</code> guard now makes notifications, system reminders, command
+  stdout and hook output open nothing and supersede nothing. The same shape as the standing
+  rule that a peer session's message is never Brandon's consent: arriving on the user's
+  channel does not make something the user.</p>
+  <p>Recovery worked because nothing is deleted. <code>scope_contract_history.jsonl</code>
+  keeps a snapshot on every save, so the contract was rebuilt from its richest snapshot with
+  <code>closed_at</code> cleared and a <code>restore_reason</code> recorded. Eleven outcomes
+  now carry evidence ids.</p>
+</div>
+
 <h2>Live rollout</h2>
 <p>The hook is global, so every session on this Mac picked it up on its next prompt.
 Five sibling sessions were writing transcripts within the same three minutes, and

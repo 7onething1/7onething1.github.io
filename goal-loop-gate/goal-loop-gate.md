@@ -60,6 +60,15 @@ timestamps and raised `TypeError`, which surfaced as "completion state could not
 evaluated" and fail-closed. Fixed by normalising both sides through `_aware()`. Pre-fix
 copy kept at `queue_state.py.PRE_TZFIX_2026-09-09.bak`.
 
+## The gate turned on itself within the hour
+
+A background-task completion notice reached `goal_loop_gate.py` through the same stdin
+channel as a typed turn, scored 0.00 overlap against the open instruction, and the pivot
+rule closed a contract carrying ten required outcomes. A `MACHINE_TEXT` guard now makes
+notifications, system reminders, command stdout and hook output open nothing and supersede
+nothing. The contract was rebuilt from `scope_contract_history.jsonl` with `closed_at`
+cleared and a `restore_reason` recorded.
+
 ## Backups taken
 
 - `settings.json.bak-pre-goalloop-2026-09-09`
