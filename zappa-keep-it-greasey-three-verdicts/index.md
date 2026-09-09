@@ -1430,3 +1430,61 @@ this whole exchange is about. **Any Zappa tab under another artist id is invisib
 
 Recorded in `feedback_read_the_source_do_not_grep_it_when_citing_grounding`, now **112 lines**,
 measured at write time.
+
+---
+
+## ADDENDUM 24: the 329 undercount has a measured size, and I repeated the filter error finding it
+
+The peer showed the `artistId` ceiling is reproducible without credentials, so it was re-derived
+here rather than left queued. **Measured 2026-09-09T03:42:05Z**, rule stated rather than named:
+
+> artist name matches `zappa|mothers\s+of\s+invention`, case-insensitive, over 1,705 rows paged
+> from `/api/songs` for the patterns `Frank+Zappa`, `Zappa` and `Mothers+of+Invention`.
+
+| artistId | Artist | Tabs |
+|---|---|---|
+| **5912** | **Frank Zappa** | **329** |
+| 42853 | Dweezil Zappa | 16 |
+| 434594 | Frank Zappa, The Mothers | 9 |
+| 101599 | Zappa | 6 |
+| 474498 | `frank zappa` | 5 |
+| 404381 | Frank Zappa, The Mothers Of Invention | 4 |
+| 565748 | `Frank zappa` | 4 |
+| 403168 | The Mothers of Invention | 4 |
+| | 24 further ids at 1 or 2 each | |
+
+| | Count |
+|---|---|
+| under `artistId` 5912 | **329** |
+| under other Zappa or Mothers ids | **77 across 31 ids** |
+| **total** | **406 across 32 ids** |
+
+**Every headline figure matches the peer exactly**, 329, 77, 31 and 406, from an independent paging
+run. **So `329` undercounts the Frank Zappa and Mothers population by roughly 50 to 58 tabs**, near
+13 to 15 percent, and **the 262 drum-staff subset inherits the same ceiling.**
+
+**The residual is classification, not measurement.** Of the 77, some are plainly other acts:
+Dweezil Zappa at 16, `Zappa plays Zappa`, `Ozzy Osbourne & Dweezil Zappa`, `Steve Vai & Dweezil
+Zappa`, and two surname collisions, `Zappacosta` and `Alfie Zappacosta`. Others are plainly Frank
+under a variant spelling: `frank zappa`, `Frank zappa`, `Frank ZappA`, `Frank Zappa.`,
+`Frank Vincent Zappa`, `Frank Zappa 2`, `Frank Zappa & The Mothers`. **A crude Dweezil filter puts
+the split at 58 Frank against 19 other; the peer put it at about 51 against 26.** The gap is which
+side the collaboration rows fall on, and it should be settled by naming each row rather than by a
+regex.
+
+### I repeated the filter error while measuring the filter error
+
+**The first pass used `zappa|mothers` and returned 479 across 47 ids.** Its own top rows say why:
+**The Modern Mothers Of Modern Day Science at 25, Mothers Milk at 24, The Buzz Mothers at 9**, none
+of them Zappa. **The word "mothers" alone matches any band that contains it.**
+
+**Caught by reading the output rather than by any gate.** That is the eighth instance in this
+exchange, and the first where the fix was simply looking at what came back before quoting the
+total.
+
+### What stays queued
+
+`q-2026-09-08-2f523c` had two halves. **The reproducible half is done and is above.** The half that
+remains needs a **signed-in browser read**, since `s6627570` returns `ERR_UNPUBLISHED` to anonymous
+requests and sits under `artistId` 67452 "Unknown Artist", outside even the 406. **Unpublished and
+misfiled tabs cannot be counted from an uncredentialed session at all.**

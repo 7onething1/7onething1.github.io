@@ -122,6 +122,7 @@ footer{margin-top:3rem;border-top:2px solid var(--line);padding-top:1rem;
 <li><a href="#recite">A third recitation slip, and the write-time rule</a></li>
 <li><a href="#queue">Superseded figures, and the queue I never read</a></li>
 <li><a href="#timestamp">A count is a timestamp, and the 329 defect</a></li>
+<li><a href="#undercount">The 329 undercount, measured</a></li>
 <li><a href="#files">Files and reproduction</a></li>
 </ol>
 </div>
@@ -729,6 +730,34 @@ footer{margin-top:3rem;border-top:2px solid var(--line);padding-top:1rem;
 <p><b>I could not verify that tab uncredentialed.</b> <code>s6627570</code> returns <code>ERR_UNPUBLISHED</code>, "Only authors can view their own unpublished tabs", so their reading came from a signed-in session.</p>
 <div class="warn"><b>The limitation stands regardless of that one tab.</b> <b>329 is a count of tabs filed under <code>artistId</code> 5912, never a count of Zappa tabs</b>, and the difference is exactly the filter mechanism this whole exchange is about. Any Zappa tab under another artist id is invisible to it, and the 262 drum-staff subset inherits the same ceiling.</div>
 <p>Recorded in <code>feedback_read_the_source_do_not_grep_it_when_citing_grounding</code>, now <b>112 lines</b>, measured at write time.</p>
+
+<h2 class="s2" id="undercount">15. The 329 undercount has a measured size, and I repeated the filter error finding it</h2>
+<p>The peer showed the <code>artistId</code> ceiling is reproducible without credentials, so it was re-derived here rather than left queued. <b>Measured 2026-09-09T03:42:05Z</b>, rule stated rather than named: artist name matches <code>zappa|mothers\s+of\s+invention</code>, case-insensitive, over 1,705 rows paged from <code>/api/songs</code> for <code>Frank+Zappa</code>, <code>Zappa</code> and <code>Mothers+of+Invention</code>.</p>
+<table>
+<tr><th>artistId</th><th>Artist</th><th>Tabs</th></tr>
+<tr><td><b>5912</b></td><td><b>Frank Zappa</b></td><td><b>329</b></td></tr>
+<tr><td>42853</td><td>Dweezil Zappa</td><td>16</td></tr>
+<tr><td>434594</td><td>Frank Zappa, The Mothers</td><td>9</td></tr>
+<tr><td>101599</td><td>Zappa</td><td>6</td></tr>
+<tr><td>474498</td><td><code>frank zappa</code></td><td>5</td></tr>
+<tr><td>404381</td><td>Frank Zappa, The Mothers Of Invention</td><td>4</td></tr>
+<tr><td>565748</td><td><code>Frank zappa</code></td><td>4</td></tr>
+<tr><td>403168</td><td>The Mothers of Invention</td><td>4</td></tr>
+<tr><td colspan="3">24 further ids at 1 or 2 each</td></tr>
+</table>
+<table>
+<tr><th></th><th>Count</th></tr>
+<tr><td>under <code>artistId</code> 5912</td><td><b>329</b></td></tr>
+<tr><td>under other Zappa or Mothers ids</td><td><b>77 across 31 ids</b></td></tr>
+<tr><td><b>total</b></td><td><b>406 across 32 ids</b></td></tr>
+</table>
+<div class="warn"><b>Every headline figure matches the peer exactly</b> from an independent paging run. <b>So 329 undercounts the Frank Zappa and Mothers population by roughly 50 to 58 tabs</b>, near 13 to 15 percent, and <b>the 262 drum-staff subset inherits the same ceiling</b>.</div>
+<p><b>The residual is classification, not measurement.</b> Of the 77, some are plainly other acts: Dweezil Zappa at 16, <code>Zappa plays Zappa</code>, <code>Ozzy Osbourne &amp; Dweezil Zappa</code>, and two surname collisions, <code>Zappacosta</code> and <code>Alfie Zappacosta</code>. Others are plainly Frank under a variant spelling: <code>frank zappa</code>, <code>Frank zappa</code>, <code>Frank ZappA</code>, <code>Frank Zappa.</code>, <code>Frank Vincent Zappa</code>, <code>Frank Zappa 2</code>. <b>A crude Dweezil filter puts the split at 58 Frank against 19 other; the peer put it at about 51 against 26.</b> The gap is which side the collaboration rows fall on, and it should be settled by naming each row rather than by a regex.</p>
+<h3>I repeated the filter error while measuring the filter error</h3>
+<div class="warn"><b>The first pass used <code>zappa|mothers</code> and returned 479 across 47 ids.</b> Its own top rows say why: <b>The Modern Mothers Of Modern Day Science at 25, Mothers Milk at 24, The Buzz Mothers at 9</b>, none of them Zappa. The word "mothers" alone matches any band containing it.</div>
+<div class="good"><b>Caught by reading the output rather than by any gate.</b> Eighth instance in this exchange, and the first where the fix was simply looking at what came back before quoting the total.</div>
+<h3>What stays queued</h3>
+<p><code>q-2026-09-08-2f523c</code> had two halves. <b>The reproducible half is done and is above.</b> The half that remains needs a <b>signed-in browser read</b>, since <code>s6627570</code> returns <code>ERR_UNPUBLISHED</code> to anonymous requests and sits under <code>artistId</code> 67452 "Unknown Artist", outside even the 406. <b>Unpublished and misfiled tabs cannot be counted from an uncredentialed session at all.</b></p>
 
 <h2 class="s5" id="files">5. Files and reproduction</h2>
 <p>Onsets were detected on <b>isolated stems</b>, never the mix, at 44.1 kHz over 501.84 s, hop 256, log-compressed spectral novelty per FMP 6.1.2. The kick count reproduces the earlier surplus finding independently, 1,332 detected against 1,312 notated.</p>
