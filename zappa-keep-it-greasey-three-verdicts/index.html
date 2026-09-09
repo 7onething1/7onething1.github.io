@@ -429,8 +429,36 @@ footer{margin-top:3rem;border-top:2px solid var(--line);padding-top:1rem;
 <div class="good"><b>Nothing.</b> Every figure on this page is a direct measurement of one tab, never an inference from a sample, so the size of the surrounding list cannot move it.</div>
 <h3>What it does change</h3>
 <p><b>It changes what a clean result would mean if anyone generalised from the program.</b> The 38 ids are not a random draw from 262. A tab enters that list because someone had a reason to look at it, so the set is selected, and a low defect count across selected tabs licenses nothing about the other 230.</p>
-<p>The peer's in-flight sweep already shows the direction: <b>178 of 262 measured, 33 tabs carrying work, 798 three-surface instants</b>, against the 6 tabs and 32 instants the 38-id list produced. Worst so far are <b>Flakes <code>s35897</code> at 300 across two staves</b>, <b>Brown Shoes Don't Make It <code>s35869</code> at 67</b>, <b>Filthy Habits <code>s68237</code> at 24</b> and <b>King Kong Itself <code>s35863</code> at 21</b>, none of which were on the list.</p>
-<div class="warn"><b>Those four figures are the peer's and are not re-derived here</b>, since this chat covers Keep It Greasey only. They are recorded as theirs, and the scope decision is Brandon's. <b>Keep It Greasey being clean stays a real result about Keep It Greasey.</b></div>
+<div class="warn"><b>Superseded, and replaced below.</b> This page first carried the peer's in-flight line: 178 of 262 measured, 33 tabs, 798 instants, with Flakes at 300. Their sweep has since finished and two of those figures changed.</div>
+<table>
+<tr><th>Final sweep</th><th>Count</th></tr>
+<tr><td>tabs measured</td><td><b>262 of 262</b>, 0 failures</td></tr>
+<tr><td>tabs carrying work</td><td><b>36</b></td></tr>
+<tr><td>three-surface instants</td><td><b>822</b></td></tr>
+</table>
+<p><b>The 822 must not be read undecomposed</b>, because three different things were being summed:</p>
+<table>
+<tr><th>Class</th><th>Count</th></tr>
+<tr><td>kit-only, three separate kit surfaces, real</td><td><b>610</b></td></tr>
+<tr><td><b>tambourine / clap / cowbell dependent</b></td><td><b>172</b></td></tr>
+<tr><td>on a pitched-percussion staff, the peer's own false positive</td><td><b>40</b></td></tr>
+</table>
+<p><b>Corrected kit-only ranking:</b> Flakes <code>s35897</code> <b>270</b>, Tryin' to Grow a Chin <code>s68245</code> 78, Brown Shoes Don't Make It <code>s35869</code> <b>54</b>, Filthy Habits <code>s68237</code> 24, King Kong Itself <code>s35863</code> 21, Let's Move To Cleveland <code>s68238</code> 18, Sinister Footwear II <code>s21874</code> 16, Mother People <code>s60347</code> 16, Carolina <code>s68248</code> 15, Dog Breath Variations <code>s68247</code> 9.</p>
+<div class="warn"><b>Every count in this section is the peer's and is not re-derived here</b>, since this chat covers Keep It Greasey only. The scope decision is Brandon's. <b>Keep It Greasey being clean stays a real result about Keep It Greasey.</b></div>
+
+<h3>Two structural claims I did re-derive, because this page republishes them</h3>
+<table>
+<tr><th>Claim</th><th>My read of the meta</th></tr>
+<tr><td>Flakes <code>s35897</code> has <b>two</b> <code>instrumentId 1024</code> staves</td><td><b>CONFIRMED</b>: index 6 named <b>"Percussion Organ"</b>, index 8 named "Drums", both non-empty, <code>popularTrackDrum</code> 8</td></tr>
+<tr><td>The Idiot Bastard Son <code>s68253</code> has a drum staff</td><td><b>CONFIRMED</b>: one 1024 staff at index 3, <code>popularTrackDrum</code> 3</td></tr>
+</table>
+<h3>The pitched-percussion artifact is the same class as KIG-M001</h3>
+<p>A staff <b>named "Percussion Organ" carrying <code>instrumentId 1024</code></b> holds melodic pitches while wearing the drum instrument id, and the sweep counted its events as drum-kit failures until the peer caught it. That is <b>40 of the 822</b>.</p>
+<div class="note"><b>This page has already met that class of trap twice.</b> KIG-M001 was a <code>fret 65</code> Timbale high sitting on a lane carrying 1,311 kicks and nothing else. KIG-M002 is a GM 39 hand clap drawn on the snare line. In all three cases <b>a GM number or an instrument id does not mean what a reader assumes</b>, and the fix is the same each time: read the field the human acts on, which is the staff line, never the pitch.</div>
+<h3>What the 172 does to KIG-M002</h3>
+<p>The clap question looked local when it was 21 events in one song. The finished sweep puts <b>172 of the 822 instants on the tambourine, clap and cowbell question</b>, and <b>The Idiot Bastard Son <code>s68253</code> carries 118 instants of which zero are kit-only</b>, with 112 of the 118 being hatOpen plus snare plus tambourine.</p>
+<div class="good"><b>So the reasoning settled here is the reasoning that decides those 172.</b> Stated once more in general form, because it now has to travel: a non-kit surface drawn on a kit lane costs <b>one</b> stick if the drummer strikes it and <b>no</b> drummer hand if another player overdubs it. Both readings give the same hands count, so the ambiguity does not have to be resolved to decide playability. What must not happen is counting the pitch as a third surface.</div>
+<p><b>Nothing about Keep It Greasey changes.</b> M002 stays closed at no change, and the 21 GM 39 events stay exactly as Ben Dibden1 wrote them.</p>
 
 <h2 class="s5" id="files">5. Files and reproduction</h2>
 <p>Onsets were detected on <b>isolated stems</b>, never the mix, at 44.1 kHz over 501.84 s, hop 256, log-compressed spectral novelty per FMP 6.1.2. The kick count reproduces the earlier surplus finding independently, 1,332 detected against 1,312 notated.</p>

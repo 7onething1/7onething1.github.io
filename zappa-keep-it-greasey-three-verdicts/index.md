@@ -693,14 +693,75 @@ from a sample, so the size of the surrounding list cannot move it.
 **It changes what a clean result would mean if anyone generalised from the program.** The 38 ids
 are not a random draw from 262. A tab enters that list because someone had a reason to look at it,
 so the set is selected, and a low defect count across selected tabs licenses nothing about the
-other 230. The peer's in-flight sweep already shows the direction: **178 of 262 measured, 33 tabs
-carrying work, 798 three-surface instants**, against the 6 tabs and 32 instants the 38-id list
-produced, with the worst offenders **Flakes `s35897` at 300 across two staves**, **Brown Shoes
-Don't Make It `s35869` at 67**, **Filthy Habits `s68237` at 24** and **King Kong Itself `s35863`
-at 21**, none of which were on the list.
+other 230. The peer's sweep has since **finished**, and it replaces the in-flight figures this page first
+carried. **The superseded line said 178 of 262 measured, 33 tabs, 798 instants, with Flakes at
+300.** The final result:
 
-**Those four figures are the peer's and are not re-derived here**, since this chat covers Keep It
-Greasey only. They are recorded as theirs, and the scope decision is Brandon's, queued on their
-side as `q-2026-09-08-00e3ad`.
+| Final sweep | Count |
+|---|---|
+| tabs measured | **262 of 262**, 0 failures |
+| tabs carrying work | **36** |
+| three-surface instants | **822** |
+
+**The 822 must not be read undecomposed**, because three different things were being summed:
+
+| Class | Count |
+|---|---|
+| kit-only, three separate kit surfaces, real | **610** |
+| **tambourine / clap / cowbell dependent** | **172** |
+| on a pitched-percussion staff, the peer's own false positive | **40** |
+
+**Corrected kit-only ranking:** Flakes `s35897` **270**, Tryin' to Grow a Chin `s68245` 78, Brown
+Shoes Don't Make It `s35869` **54**, Filthy Habits `s68237` 24, King Kong Itself `s35863` 21,
+Let's Move To Cleveland `s68238` 18, Sinister Footwear II `s21874` 16, Mother People `s60347` 16,
+Carolina `s68248` 15, Dog Breath Variations `s68247` 9.
+
+**Every count in this section is the peer's and is not re-derived here**, since this chat covers
+Keep It Greasey only. The scope decision is Brandon's, queued on their side as
+`q-2026-09-08-00e3ad`.
 
 **Keep It Greasey being clean stays a real result about Keep It Greasey.**
+
+---
+
+## ADDENDUM 10: the finished sweep makes the clap ruling load-bearing
+
+Two structural claims from the peer's final sweep were **re-derived here from the meta**, because
+this page republishes them.
+
+| Claim | My read |
+|---|---|
+| Flakes `s35897` has **two** `instrumentId 1024` staves | **CONFIRMED**: index 6 named **"Percussion Organ"**, index 8 named "Drums", both non-empty, `popularTrackDrum` 8 |
+| The Idiot Bastard Son `s68253` has a drum staff | **CONFIRMED**: one 1024 staff at index 3, `popularTrackDrum` 3 |
+
+**The instant counts themselves are the peer's and were not re-derived**, per the one-song rule.
+
+### The pitched-percussion artifact is the same class as KIG-M001
+
+A staff **named "Percussion Organ" carrying `instrumentId 1024`** holds melodic pitches while
+wearing the drum instrument id, and the sweep counted its events as drum-kit failures until the
+peer caught it. That is **40 of the 822**.
+
+**This page has already met that class of trap twice.** KIG-M001 was a `fret 65` Timbale high
+sitting on a lane that carries 1,311 kicks and nothing else. KIG-M002 is a GM 39 hand clap drawn on
+the snare line. In all three cases **a GM number or an instrument id does not mean what a reader
+assumes**, and the fix is the same each time: read the field the human acts on, which is the staff
+line, never the pitch.
+
+### What the 172 does to KIG-M002
+
+The clap question looked local when it was 21 events in one song. The finished sweep puts
+**172 of the 822 instants on the tambourine, clap and cowbell question**, and **The Idiot Bastard
+Son `s68253` carries 118 instants of which zero are kit-only**, with 112 of the 118 being
+hatOpen plus snare plus tambourine.
+
+**So the reasoning settled here for Keep It Greasey is the reasoning that decides those 172.** It
+is stated once more, in the general form, because it now has to travel:
+
+> A non-kit surface drawn on a kit lane costs **one** stick if the drummer strikes it and **no**
+> drummer hand if another player overdubs it. **Both readings give the same hands count**, so the
+> ambiguity does not have to be resolved to decide playability. What must not happen is counting
+> the pitch as a third surface.
+
+**Nothing about Keep It Greasey changes.** M002 stays closed at no change, and the 21 GM 39 events
+stay exactly as Ben Dibden1 wrote them.
