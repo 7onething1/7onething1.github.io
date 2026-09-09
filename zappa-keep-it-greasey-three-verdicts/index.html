@@ -126,6 +126,7 @@ footer{margin-top:3rem;border-top:2px solid var(--line);padding-top:1rem;
 <li><a href="#msdtwfull">The song-wide pass: bar level holds, note level fails</a></li>
 <li><a href="#subband">The subband representation: helps, not enough</a></li>
 <li><a href="#worse">A bug fixed, and the fix made it worse</a></li>
+<li><a href="#eye">The diagnosis put to the eye</a></li>
 <li><a href="#files">Files and reproduction</a></li>
 </ol>
 </div>
@@ -833,6 +834,20 @@ footer{margin-top:3rem;border-top:2px solid var(--line);padding-top:1rem;
 <tr><td>finer path resolution, 20 ms refined against 200 ms coarse</td><td><b>1.67x to 1.22x</b>, minus 0.45</td></tr>
 </table>
 <div class="note"><b>Best map remains v2:</b> coarse 200 ms over FMP subband onsets, <b>1.67x</b>, bar 22 at 37 ms, monotonic across 248 bars. Still under the 2.0x floor, <code>verdict_gate.py</code> still UNDETERMINED. <b>The remaining error is in neither the onset picking nor the path resolution</b> — both were tried and measured, and one went backwards. <b>No onset placed, no repair built, M004 open</b>, with the next candidate being the path-shape constraint itself: a smoothness penalty or step-size restriction that keeps fine resolution without letting the path chase noise.</div>
+
+<h2 class="s2" id="eye">19. The "chases noise" diagnosis put to the eye, and the eye agrees</h2>
+<div class="warn">Section 18 explained the refined map's collapse by saying the path chases local envelope noise. <b>That was inferred from statistics and never looked at.</b> Both warping paths were plotted, at offset recovered, no scale parameter, 60 ms tolerance, and the match rates tabulated above against their own rotation-null baselines.</div>
+<table>
+<tr><th>Measure</th><th>v2 coarse 200 ms</th><th>v3 refined 20 ms</th></tr>
+<tr><td>path points</td><td>3,251</td><td>27,835</td></tr>
+<tr><td><b>local slope, standard deviation</b></td><td><b>0.291</b></td><td><b>0.596</b></td></tr>
+<tr><td>flat steps, audio advancing while the score stands still</td><td><b>741 of 3,251 = 22.8%</b></td><td><b>10,267 of 27,835 = 36.9%</b></td></tr>
+<tr><td>backward steps</td><td>0</td><td>0</td></tr>
+</table>
+<div class="card c1" style="max-width:100%"><img src="img/path-compare.png" alt="v2 and v3 warping paths with their local slopes" style="width:100%;border-radius:7px"></div>
+<div class="good"><b>At full-path scale the two look alike</b>, both a near-straight diagonal from 0 to 500 s. <b>The slope plot separates them completely.</b> v2 oscillates modestly around 1.0; <b>v3 spikes repeatedly to 3.0 and drops to 0 across the whole song</b>, a path alternately sprinting and stalling against the audio.</div>
+<div class="note"><b>The eye agrees with the detector</b>, so nothing is overruled. The slope standard deviation doubles from 0.291 to 0.596, and <b>37 percent of the refined path is horizontal</b> against 23 percent of the coarse one. <b>A path that spends more than a third of its length stalled is not tracking tempo, it is tracking noise.</b></div>
+<p><b>This is the first eye check run on any map in this lineage</b>, and it was run because a gate asked whether the detector had been put to the eye. <b>It had not.</b></p>
 
 <h2 class="s5" id="files">5. Files and reproduction</h2>
 <p>Onsets were detected on <b>isolated stems</b>, never the mix, at 44.1 kHz over 501.84 s, hop 256, log-compressed spectral novelty per FMP 6.1.2. The kick count reproduces the earlier surplus finding independently, 1,332 detected against 1,312 notated.</p>

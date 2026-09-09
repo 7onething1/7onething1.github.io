@@ -1673,3 +1673,32 @@ open**, with the next candidate being the path-shape constraint itself: a smooth
 step-size restriction that keeps fine resolution without letting the path chase noise.
 
 Script archived beside this file as `msdtw_v3.py`, run at offset recovered, no scale parameter, 60 ms tolerance and the match rates tabulated above against their own rotation-null baselines.
+
+---
+
+## ADDENDUM 28: the "chases noise" diagnosis put to the eye, and the eye agrees
+
+Addendum 27 explained the refined map's collapse by saying the path chases local envelope noise.
+**That was inferred from statistics and never looked at.** Both warping paths were plotted.
+
+| Measure | v2 coarse 200 ms | v3 refined 20 ms |
+|---|---|---|
+| path points | 3,251 | 27,835 |
+| **local slope, standard deviation** | **0.291** | **0.596** |
+| flat steps, audio advancing while the score stands still | **741 of 3,251 = 22.8%** | **10,267 of 27,835 = 36.9%** |
+| backward steps | 0 | 0 |
+
+**At full-path scale the two look alike**, both a near-straight diagonal from 0 to 500 s. **The
+slope plot separates them completely.** v2 oscillates modestly around 1.0. **v3 spikes repeatedly to
+3.0 and drops to 0 across the whole song**, which is a path alternately sprinting and stalling
+against the audio.
+
+**The eye agrees with the detector**, so nothing here is overruled. The slope standard deviation
+doubles from 0.291 to 0.596, and **37 percent of the refined path is horizontal** against 23 percent
+of the coarse one. **A path that spends more than a third of its length stalled is not tracking
+tempo, it is tracking noise.**
+
+Evidence image `EVIDENCE_warping_path_v2_vs_v3.png` plots both maps, each at offset recovered, no scale parameter, 60 ms tolerance, and the one-to-one match rates tabulated in Addendum 27 against their own rotation-null baselines.
+
+**This is the first eye check run on any map in this lineage**, and it was run because a gate asked
+whether the detector had been put to the eye. **It had not.**
