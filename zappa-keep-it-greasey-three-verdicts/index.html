@@ -105,6 +105,7 @@ footer{margin-top:3rem;border-top:2px solid var(--line);padding-top:1rem;
 <li><a href="#peer">A third route reaches the same finding on M002</a></li>
 <li><a href="#onestaff">One drum staff, no percussion staff</a></li>
 <li><a href="#pertab">Staff-line numbers are per-tab</a></li>
+<li><a href="#units">A units error, and pitch-to-line inside one tab</a></li>
 <li><a href="#m004">KIG-M004, still open, and by how much</a></li>
 <li><a href="#second">A second landmark family, and what it moved</a></li>
 <li><a href="#timbre">The clap timbre test, and the control that killed it</a></li>
@@ -298,6 +299,32 @@ footer{margin-top:3rem;border-top:2px solid var(--line);padding-top:1rem;
 <div class="warn"><b>What this page had been doing.</b> It records Keep It Greasey's snare and clap at <code>string: 1.5</code> and its hats at <code>-0.5</code>. Those values are correct <b>for this tab</b> and must not be ported. The memory note behind them has been amended to carry the same warning, since as written it could have been read as a stable map.</div>
 <h3>The peer's resolution of the 172, recorded as theirs</h3>
 <p>Their per-instant run-length test resolved the wider set: of the 172 non-kit instants, <b>155 are a second player, 16 are ambiguous four-bar runs on Call Any Vegetable <code>s68241</code>, and exactly 1 is a likely real drummer flag</b>, an isolated single tambourine bar in Brown Shoes <code>s35869</code>. <b>True catalogue two-hands failure count 611 rather than the 822 a naive read would have shipped.</b> Not re-derived here, per the one-song rule.</p>
+
+<h2 class="s1" id="units">3e. My correction of the peer's cell was itself a units error</h2>
+<div class="warn"><b>The change was wrong.</b> This page reported that the peer's table had snare 38 on <code>s68253</code> as <code>4 (133)</code> and that my read gave <code>4 (139)</code>, so I changed it.</div>
+<table>
+<tr><th>Reading</th><th>Value</th></tr>
+<tr><td>snare 38 <b>on line 4</b></td><td><b>133</b></td></tr>
+<tr><td>snare 38 <b>across the staff</b></td><td><b>139</b>, being 133 on line 4 plus 6 on line 2</td></tr>
+<tr><td>kick 35, all on line 5</td><td>133</td></tr>
+</table>
+<p><b>Their 133 was per-line and my 139 was per-pitch. Both correct, counting different things.</b> The table's other cells confirm the convention: hatOpen 46 reads <code>2 (171)</code> while its staff total is 177. <b>The cell is per-line, so 133 was right and I broke the convention by imposing my own units.</b> Reverted, and the note now states its cell format explicitly.</p>
+<div class="note"><b>This is the units failure the notation evidence gate already names</b>, the one that flipped KIG-M003's id histogram from EXCLUSIVE to SHARED when instance counts were compared against beat-reference counts. It fired again here on a two-digit number.</div>
+<h3>A pitch-to-line map is wrong inside a single tab</h3>
+<p>The unfiltered census exposed something stronger than the per-tab rule above. <b>Six of <code>s68253</code>'s eleven pitches occupy two lines each:</b></p>
+<table>
+<tr><th>Pitch</th><th>Lines it uses</th></tr>
+<tr><td>snare 38</td><td>4 (133) and 2 (6)</td></tr>
+<tr><td>hatOpen 46</td><td>2 (171) and 1 (6)</td></tr>
+<tr><td>tambourine 54</td><td>1 (337) and 0 (5)</td></tr>
+<tr><td>tom 41</td><td>3 (2) and 4 (1)</td></tr>
+<tr><td>tom 43</td><td>3 (5) and 1 (1)</td></tr>
+<tr><td>crash2 57</td><td>1 (2) and 0 (1)</td></tr>
+</table>
+<div class="good"><b>Pitch-to-line is not a function even within one staff.</b> The rule tightens to: read each note's own <code>string</code> field, and <b>never look a line up from a pitch in any scope</b>.</div>
+<h3>The same error shape hit both sessions in one exchange</h3>
+<p><b>My hardcoded pitch dict could not show midi 40. The peer's <code>range(35,82)</code> boundary could not show midi 65</b>, because High Timbale sits inside GM percussion while sitting outside the standard drum kit, which is the whole point of that finding.</p>
+<div class="warn"><b>A filter chosen ahead of the question decides the answer.</b> Two independent instances inside one exchange, each caught by the other session rather than by the one that made it.</div>
 
 <h2 class="s4" id="m004">4. KIG-M004, still open, and by how much</h2>
 <p>Thirty-two kick onsets the score omits, listed by audio time only. Placing them needs an anchor, so one was fitted on <b>kick and hi-hat only</b> across bars 22 to 32, with snare and clap held out because the claps are the target and the snare shares their staff row and their stem.</p>

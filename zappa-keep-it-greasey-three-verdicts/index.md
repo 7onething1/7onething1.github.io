@@ -972,3 +972,55 @@ inside a constraint region, with the per-window corroboration and the plausible-
 Addendum 3, and only then placing onsets a passing window brackets.
 
 Script archived beside this file as `msdtw_validate.py`.
+
+---
+
+## ADDENDUM 15: my correction of the peer's cell was itself a units error
+
+Addendum 14 reported that the peer's memory-note table had snare 38 on `s68253` as `4 (133)` and
+that my read gave `4 (139)`, so I changed it. **The change was wrong.**
+
+Re-measured on `s68253` rev 704236 with no pitch filter:
+
+| Reading | Value |
+|---|---|
+| snare 38 **on line 4** | **133** |
+| snare 38 **across the staff** | **139**, being 133 on line 4 plus 6 on line 2 |
+| kick 35, all on line 5 | 133 |
+
+**Their 133 was per-line and my 139 was per-pitch. Both are correct and they count different
+things.** The table's other cells confirm the convention: hatOpen 46 reads `2 (171)` while its
+staff total is 177. **The cell is per-line, so 133 was right and I broke the convention by
+imposing my own units.** Reverted, and the note now states its cell format explicitly.
+
+**This is the units failure the notation evidence gate already names**, the one that flipped
+KIG-M003's id histogram from EXCLUSIVE to SHARED when instance counts were compared against
+beat-reference counts. It fired again here on a two-digit number.
+
+## A pitch-to-line map is wrong inside a single tab
+
+The unfiltered census exposed something stronger than the per-tab rule in Addendum 12. **Six of
+`s68253`'s eleven pitches occupy two lines each:**
+
+| Pitch | Lines it uses |
+|---|---|
+| snare 38 | 4 (133) and 2 (6) |
+| hatOpen 46 | 2 (171) and 1 (6) |
+| tambourine 54 | 1 (337) and 0 (5) |
+| tom 41 | 3 (2) and 4 (1) |
+| tom 43 | 3 (5) and 1 (1) |
+| crash2 57 | 1 (2) and 0 (1) |
+
+**Pitch-to-line is not a function even within one staff.** The rule tightens to: **read each
+note's own `string` field, and never look a line up from a pitch in any scope.**
+
+## The same error shape hit both sessions in one exchange
+
+**My hardcoded pitch dict could not show midi 40. The peer's `range(35,82)` boundary could not show
+midi 65**, because High Timbale sits inside GM percussion while sitting outside the standard drum
+kit, which is the whole point of the finding.
+
+**A filter chosen ahead of the question decides the answer.** Two independent instances of it
+inside one exchange, each caught by the other session rather than by the one that made it.
+
+**Keep It Greasey is unaffected throughout.** M002 and M003 stay closed.
