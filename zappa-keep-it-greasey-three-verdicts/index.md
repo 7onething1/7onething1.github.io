@@ -1218,7 +1218,7 @@ the handoff, which was the only place they appeared.
 > silent about everything else in the file.
 
 That is stricter than "check the source", and it is the operational form of the sentence this
-exchange kept arriving at: **a filter chosen before the question is settled decides the answer.**
+exchange kept arriving at: **a filter chosen ahead of the question decides the answer.**
 
 Recorded as `feedback_read_the_source_do_not_grep_it_when_citing_grounding` and indexed in
 MEMORY.md, since it applies well beyond this project.
@@ -1229,7 +1229,7 @@ MEMORY.md, since it applies well beyond this project.
 > rows repeat one id is editing a shared definition.** Print the id histogram before writing.
 
 **Histogram ahead of the write, census after it.** For the five outstanding MIDI 65 repairs both
-apply, and the histogram matters most on **Seal Call `s604408` at 33 notes** and **The Deathless
+apply, and the histogram counts most on **Seal Call `s604408` at 33 notes** and **The Deathless
 Horsie `s35885` at 28**, the two large enough that a shared-beat reference is plausible.
 
 ---
@@ -1612,7 +1612,7 @@ because 57 percent of notated kicks find no partner and their would-be partners 
 
 The lever was tried and its size is known. **A better onset representation moves the ratio by 0.12
 and leaves it under the floor**, so the remaining error is not in the onset picking. Two routes
-found by search and not yet tried: **harmonic-percussive decomposition before onset detection**, and
+found by search and not yet tried: **harmonic-percussive decomposition ahead of onset detection**, and
 **group delay combined with spectral flux**, which the literature reports as a large gain over plain
 Fourier onset detection.
 
@@ -1801,3 +1801,55 @@ tried.
 
 **No onset placed. No repair built. KIG-M004 open**, with the honest reading now being that the
 remaining error is in the stem-to-notation correspondence rather than in the alignment.
+
+---
+
+## ADDENDUM 31: the missed positions are near-silent in the isolated kick stem
+
+`q-2026-09-09-a74beb` taken rather than queued. For every notated kick, the isolated kick stem's
+peak level was measured in a window spanning 20 ms ahead of its mapped position to 60 ms after, and the
+matched and missed populations compared.
+
+| Population | n | Median peak | Mean | sd |
+|---|---|---|---|---|
+| **matched** | 559 | **-15.58 dB** | -18.41 | 9.73 |
+| **missed** | 752 | **-57.59 dB** | -51.99 | 20.03 |
+
+**A 42 dB gap in medians.** Mann-Whitney two-sided **p = 2.4e-150**, effect **A = 0.9212**, where
+0.5 would mean the two populations are indistinguishable.
+
+| Threshold | Missed below it | Matched below it |
+|---|---|---|
+| -40 dB | **548 of 752 = 72.9%** | 39 of 559 = 7.0% |
+| -35 dB | 569 of 752 = 75.7% | 47 of 559 = 8.4% |
+| -30 dB | 607 of 752 = 80.7% | 53 of 559 = 9.5% |
+| -25 dB | 626 of 752 = 83.2% | 63 of 559 = 11.3% |
+
+The stem's median sample level is **-67.4 dB**, so a missed position at **-57.59 dB sits about 10 dB
+above the noise floor of the file.**
+
+### What this settles
+
+**The 42.6 percent cap has a simpler cause.** At offset recovered, no scale parameter, 60 ms tolerance and a 42.6 percent one-to-one match rate against a 25.5 percent rotation-null baseline, roughly **57 percent of notated kick positions carry essentially nothing in the isolated kick stem**, and no map can match an event to silence. Four map variants and three levers were spent on a limit that does not live in the map,
+which is worth stating plainly.
+
+### What it does NOT settle, and the gate that says so
+
+**A quiet Demucs stem does not prove the record has no kick there.** Separation can fail to route a
+masked kick into the kick stem, and
+[[feedback_stem_detection_must_attribute_the_instrument]] is explicit that a level read on one stem
+never establishes what the instrument did. **Two readings remain open and this measurement does not
+choose between them:**
+
+| Reading | What it would mean |
+|---|---|
+| the drummer did not play there | the transcription writes 752 kicks the performance does not contain |
+| the separator did not route it there | the kicks are real and masked, and the kick stem is the wrong evidence for them |
+
+**Distinguishing them needs the full mix**, not the stem, and that is a different measurement from
+anything run in this session.
+
+### Standing result
+
+**No onset placed. No repair built. KIG-M004 open**, and its blocker has moved for the last time in
+this session: **the correspondence between the notation and the stem it is matched against.** The anchor, the onset picker, the path shape and quantisation were each tested and each cleared.

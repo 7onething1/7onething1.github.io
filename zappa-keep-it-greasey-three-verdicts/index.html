@@ -129,6 +129,7 @@ footer{margin-top:3rem;border-top:2px solid var(--line);padding-top:1rem;
 <li><a href="#eye">The diagnosis put to the eye</a></li>
 <li><a href="#pathshape">The path-shape lever, two ways</a></li>
 <li><a href="#decompose">Quantisation refuted, misses decomposed</a></li>
+<li><a href="#silent">The missed positions are near-silent</a></li>
 <li><a href="#files">Files and reproduction</a></li>
 </ol>
 </div>
@@ -889,6 +890,33 @@ footer{margin-top:3rem;border-top:2px solid var(--line);padding-top:1rem;
 <div class="note"><b>That region is a concrete target</b> rather than a diffuse problem. Fixing it would not move the global cap much, since 20 all-miss bars carry roughly 130 of the 752 misses.</div>
 <h3>What this leaves</h3>
 <div class="warn"><b>Three levers measured and one hypothesis refuted.</b> Onset representation <b>+0.12</b>, path resolution <b>-0.45</b>, path-shape constraints <b>+0.05</b>, quantisation <b>not the cause</b>. <b>The bulk of the miss rate is detection-limited</b>: the isolated kick stem does not present a detectable transient at roughly 57 percent of notated kick positions under any setting tried. <b>No onset placed. No repair built. KIG-M004 open</b>, with the honest reading now being that the remaining error sits in the stem-to-notation correspondence rather than in the alignment.</div>
+
+<h2 class="s1" id="silent">22. The missed positions are near-silent in the isolated kick stem</h2>
+<p>For every notated kick, the isolated kick stem's peak level was measured in a window spanning 20 ms ahead of its mapped position to 60 ms after, and the matched and missed populations compared.</p>
+<table>
+<tr><th>Population</th><th>n</th><th>Median peak</th><th>Mean</th><th>sd</th></tr>
+<tr><td><b>matched</b></td><td>559</td><td><b>-15.58 dB</b></td><td>-18.41</td><td>9.73</td></tr>
+<tr><td><b>missed</b></td><td>752</td><td><b>-57.59 dB</b></td><td>-51.99</td><td>20.03</td></tr>
+</table>
+<div class="good"><b>A 42 dB gap in medians.</b> Mann-Whitney two-sided <b>p = 2.4e-150</b>, effect <b>A = 0.9212</b>, where 0.5 would mean the two populations are indistinguishable.</div>
+<table>
+<tr><th>Threshold</th><th>Missed below it</th><th>Matched below it</th></tr>
+<tr><td>-40 dB</td><td><b>548 of 752 = 72.9%</b></td><td>39 of 559 = 7.0%</td></tr>
+<tr><td>-35 dB</td><td>569 of 752 = 75.7%</td><td>47 of 559 = 8.4%</td></tr>
+<tr><td>-30 dB</td><td>607 of 752 = 80.7%</td><td>53 of 559 = 9.5%</td></tr>
+<tr><td>-25 dB</td><td>626 of 752 = 83.2%</td><td>63 of 559 = 11.3%</td></tr>
+</table>
+<p>The stem's median sample level is <b>-67.4 dB</b>, so a missed position at <b>-57.59 dB sits about 10 dB above the noise floor of the file</b>.</p>
+<h3>What this settles</h3>
+<div class="good"><b>The 42.6 percent cap has a simpler cause.</b> Roughly <b>57 percent of notated kick positions carry essentially nothing in the isolated kick stem</b>, and no map can match an event to silence. <b>Four map variants and three levers were spent on a limit that does not live in the map</b>, which is worth stating plainly.</div>
+<h3>What it does NOT settle, and the gate that says so</h3>
+<div class="warn"><b>A quiet Demucs stem does not prove the record has no kick there.</b> Separation can fail to route a masked kick into the kick stem, and the standing rule is explicit that a level read on one stem never establishes what the instrument did. <b>Two readings remain open and this measurement does not choose between them.</b></div>
+<table>
+<tr><th>Reading</th><th>What it would mean</th></tr>
+<tr><td>the drummer did not play there</td><td>the transcription writes 752 kicks the performance does not contain</td></tr>
+<tr><td>the separator did not route it there</td><td>the kicks are real and masked, and the kick stem is the wrong evidence for them</td></tr>
+</table>
+<div class="note"><b>Distinguishing them needs the full mix</b>, not the stem, and that is a different measurement from anything run in this session. <b>No onset placed. No repair built. KIG-M004 open</b>, and its blocker is now the correspondence between the notation and the stem it is matched against. The anchor, the onset picker, the path shape and quantisation were each tested and each cleared.</div>
 
 <h2 class="s5" id="files">5. Files and reproduction</h2>
 <p>Onsets were detected on <b>isolated stems</b>, never the mix, at 44.1 kHz over 501.84 s, hop 256, log-compressed spectral novelty per FMP 6.1.2. The kick count reproduces the earlier surplus finding independently, 1,332 detected against 1,312 notated.</p>
