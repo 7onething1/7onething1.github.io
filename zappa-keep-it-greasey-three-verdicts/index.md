@@ -571,3 +571,45 @@ field gives the index directly and was confirmed as 15 here.
 `https://dqsljvtekg760.cloudfront.net/{songId}/{revisionId}/{image}/{trackIndex}.json`, where
 `{image}` is the meta's `image` field, a `v0-3-2-...` string. Passing the per-track `hash` instead
 returns **403** on all three tabs. Responses are gzipped.
+
+---
+
+## ADDENDUM 7: the window-size fix in Addendum 5 is superseded by a named method
+
+Addendum 5 concluded that the next attempt should use 30 to 40 bar windows instead of 8. **That was
+an ad-hoc patch, and a search found the method this problem already has.** It is failure mode three
+in the notation evidence gate's own preamble, hand-rolling where a named method exists, and this
+pass committed it.
+
+### What was actually built here, and why it was the wrong shape
+
+Sixty windows, each fitted by an **independent free search across the whole 501.84 s**. Nothing
+tied one window's answer to its neighbour except a monotonicity check applied afterwards, which is
+how a window covering bars 210-217 came back at 41.980 s. Widening the windows would reduce that
+failure without removing its cause.
+
+### The named methods
+
+**None of the four below was run in this pass**, so for every one of them the offset, scale, tolerance and match rate are all not applicable here.
+
+- **Multiscale DTW (MsDTW)**, Müller, Mattes and Kurth, ISMIR 2006, works coarse-to-fine by projecting a low-resolution result onto the next level and refining it inside a bounded region, which is the neighbour bound this run lacked; offset, scale, tolerance and match rate are all not applicable because it was not run here.
+- **Path-constrained partial synchronization**, Müller and Appelt, ICASSP 2008, is built for the case where only parts of two sequences correspond, which is this case since the drum staff runs 248 bars while any one family covers a subset; offset, scale, tolerance and match rate are all not applicable because it was not run here.
+- **Subsequence DTW and common subsequence matching**, FMP C7S3, matches a short query against any subsequence of a reference, the right primitive for one region without a whole-song map; offset, scale, tolerance and match rate are all not applicable because it was not run here.
+- **Music synchronization with chroma features**, FMP C3, is the chapter the whole task belongs to; offset, scale, tolerance and match rate are all not applicable because it was not run here.
+
+### The corrected next step
+
+Not larger windows. **A coarse-to-fine multiscale path with a constraint region**, so each level is
+bounded by the level above rather than searching the whole recording independently. Window size
+stops being the free parameter that decides the result.
+
+### One honest availability note
+
+The FMP source text is catalogued in this project at `/Volumes/Black/complete/Springer/`, and that
+volume is **not mounted on this machine right now**, so the chapter was not read here. The method
+names, their authors and their venues come from the search, and `libfmp` is **not installed in the
+`notation-gate` venv** either. Both are one mount and one `pip install` away, and neither blocks
+the next attempt from being specified correctly.
+
+**Nothing in this addendum changes any verdict.** M002 and M003 stay closed, M004 stays open, and
+no placement, repair or revision is carried forward.

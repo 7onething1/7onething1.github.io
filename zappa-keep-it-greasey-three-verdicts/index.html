@@ -108,6 +108,7 @@ footer{margin-top:3rem;border-top:2px solid var(--line);padding-top:1rem;
 <li><a href="#timbre">The clap timbre test, and the control that killed it</a></li>
 <li><a href="#piecewise">The piecewise map, and why it was withdrawn</a></li>
 <li><a href="#thirdfamily">The third family, and where the blocker moved</a></li>
+<li><a href="#method">The named method that supersedes my window-size fix</a></li>
 <li><a href="#files">Files and reproduction</a></li>
 </ol>
 </div>
@@ -383,6 +384,20 @@ footer{margin-top:3rem;border-top:2px solid var(--line);padding-top:1rem;
 </table>
 <p>All eight clear the 1.5x floor, and <b>all eight clear it narrowly</b>, against a surface median near <b>51%</b>. Gate N4's own warning covers this: above a 35% null a small excess goes significant while meaning little. Compare the whole-part vocal fit at <b>7.65x</b> and the bars 22-32 drum fit at <b>2.01x</b>. A second contributor: the score notates <b>2,424</b> bass attacks while the bass stem yields <b>1,825</b> onsets, so 599 can never match and a perfect map still caps near 75%.</p>
 <div class="note"><b>What actually blocks M004 now: not family availability, window size.</b> At 8 bars the fitted family, the vocal check and the bass check are all marginal, so the cross-check cannot adjudicate the fit. The next attempt should use windows large enough for every family to lock with a real margin, on the order of <b>30 to 40 bars rather than 8</b>, accepting coarser bracketing in exchange for a cross-check that can decide. Nothing here places any onset.</div>
+
+<h2 class="s1" id="method">4f. The window-size fix is superseded by a named method</h2>
+<div class="warn"><b>A correction to the section above.</b> It concluded the next attempt should use 30 to 40 bar windows instead of 8. That was an ad-hoc patch, and a search found the method this problem already has. Hand-rolling where a named method exists is <b>failure mode three in the notation evidence gate's own preamble</b>, and this pass committed it.</div>
+<p><b>What was built here was the wrong shape.</b> Sixty windows, each fitted by an independent free search across the whole 501.84 s, with nothing tying one window's answer to its neighbour except a monotonicity check applied afterwards. That is how a window covering bars 210-217 came back at 41.980 s. Widening the windows would have reduced that failure without removing its cause.</p>
+<h3>The named methods</h3>
+<p><b>None of the four was run in this pass</b>, so for every one of them the offset, scale, tolerance and match rate are all not applicable here.</p>
+<ul>
+<li><b>Multiscale DTW (MsDTW)</b>, Müller, Mattes and Kurth, ISMIR 2006. Coarse-to-fine: a low-resolution result is projected onto the next level and refined inside a bounded region, which supplies exactly the neighbour bound this run lacked.</li>
+<li><b>Path-constrained partial synchronization</b>, Müller and Appelt, ICASSP 2008. Built for the case where only parts of two sequences correspond, which is this case, since the drum staff runs 248 bars while any one family covers a subset.</li>
+<li><b>Subsequence DTW and common subsequence matching</b>, FMP C7S3. Matches a short query against any subsequence of a reference, the right primitive for one region without a whole-song map.</li>
+<li><b>Music synchronization with chroma features</b>, FMP C3. The chapter the whole task belongs to.</li>
+</ul>
+<div class="note"><b>The corrected next step: not larger windows.</b> A coarse-to-fine multiscale path with a constraint region, so each level is bounded by the level above rather than searching the whole recording independently. Window size stops being the free parameter that decides the result.</div>
+<p><b>One honest availability note.</b> The FMP source text is catalogued in this project at <code>/Volumes/Black/complete/Springer/</code> and that volume is not mounted on this machine right now, so the chapter was not read here; <code>libfmp</code> is not installed in the <code>notation-gate</code> venv either. Both are one mount and one install away, and neither blocks the next attempt from being specified correctly.</p>
 
 <h2 class="s5" id="files">5. Files and reproduction</h2>
 <p>Onsets were detected on <b>isolated stems</b>, never the mix, at 44.1 kHz over 501.84 s, hop 256, log-compressed spectral novelty per FMP 6.1.2. The kick count reproduces the earlier surplus finding independently, 1,332 detected against 1,312 notated.</p>
