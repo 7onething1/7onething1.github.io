@@ -26,13 +26,32 @@ through every turn.
 State lives in `~/.claude/no_quit_state/contracts/<session8>.json` and
 `~/.claude/no_quit_state/chatgpt_question_ledger.jsonl`.
 
-## Proof the chain has teeth
+## Behaviours exercised
+
+Seven behaviours were exercised against throwaway sessions and fixtures. This records
+what was tried. It is not comprehensive validation, since a full confusion set of
+known-duplicate and known-different question pairs has not been run, so the thresholds
+stay provisional.
 
 1. A contract with open outcomes refuses the stop and names each one.
 2. An outcome marked met on evidence that does not verify still refuses.
 3. One session cannot edit another session's contract.
-4. A paraphrased sibling question is caught at 0.64 similarity.
-5. A findings reply with no same-day ChatGPT check is blocked, and work narration passes.
+4. A paraphrased sibling question is caught at 0.62 to 0.64 similarity.
+5. A question with the same vocabulary naming a different song and tab id clears.
+6. An identical findings payload moves COVERED to STALE when the evidence count steps 73 to 74.
+7. A 314-character report written only in numbers is caught, and work narration passes.
+
+## What the ChatGPT check changed
+
+These findings went to ChatGPT before the page shipped, which applies the third gate to
+itself. Four corrections came back and all four are implemented.
+
+| Correction | What changed |
+|---|---|
+| Word overlap is the wrong authority for findings coverage | Coverage is transactional: check id, payload fingerprint, evidence watermark. Similarity survives behind `--allow-similarity` only. |
+| Any new measurement after a check should invalidate it | The watermark records evidence count and newest mtime; new evidence reads STALE. |
+| A duplicate needs a shared subject anchor | A duplicate must share a file, song, id, url, route or proper name when both sides carry any. |
+| The 500-character and two-marker rule was weaker than the stated guarantee | Floor dropped to 220 characters and numeric claims count as their own evidence of a report. |
 
 ## A latent bug this exposed
 

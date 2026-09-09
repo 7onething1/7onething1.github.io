@@ -139,8 +139,11 @@ the ask itself.</p>
   <tr><td>Shared ledger</td><td><code>~/.claude/no_quit_state/chatgpt_question_ledger.jsonl</code></td><td>questions and findings checks</td></tr>
 </table>
 
-<h2>Proof the chain has teeth</h2>
-<p>Four behaviours were exercised against a throwaway session before anything shipped.</p>
+<h2>Behaviours exercised</h2>
+<p>Seven behaviours were exercised against throwaway sessions and fixtures. This is a
+record of what was tried, and it is not a claim of comprehensive validation: a full
+confusion set of known-duplicate and known-different question pairs has not been run, so
+the thresholds below are provisional.</p>
 
 <ol class="steps">
   <li><b>A contract with open outcomes refuses the stop</b>, naming each one.</li>
@@ -148,8 +151,16 @@ the ask itself.</p>
       so a fake completion buys nothing.</li>
   <li><b>One session cannot edit another session's contract.</b> The ownership guard
       refused the attempt.</li>
-  <li><b>A paraphrased question from a sibling session is caught</b> at 0.64 similarity,
-      and a session never matches its own questions.</li>
+  <li><b>A paraphrased question from a sibling session is caught</b> at 0.62 to 0.64
+      similarity, and a session never matches its own questions.</li>
+  <li><b>A question sharing the vocabulary but naming a different subject is cleared.</b>
+      Same words, different song and tab id, verdict CLEAR. This was the dangerous
+      false-positive case, and it is now covered by the anchor rule.</li>
+  <li><b>An identical findings payload goes stale when new evidence lands.</b> Same
+      fingerprint, similarity 1.0, and the verdict moves COVERED to STALE as the evidence
+      count steps 73 to 74.</li>
+  <li><b>A 314-character report written only in numbers is caught</b>, which the first
+      cut let through on its 500-character floor.</li>
 </ol>
 
 <pre><b>$ completion_stop_hook.py  &lt;- reply claiming "all done"</b>
@@ -180,6 +191,27 @@ findings_chatgpt_gate <span class="no">BLOCK</span>: this reply reports findings
 
 <b>$ findings_chatgpt_gate.py  &lt;- pure work narration</b>
   <span class="ok">exit 0   (passes untouched)</span></pre>
+
+<h2>What the ChatGPT check changed</h2>
+<p>These findings went to ChatGPT before this page shipped, which is the third gate applied
+to itself. The review returned four corrections and each one is implemented here.</p>
+<table>
+  <tr><th>Correction</th><th>What changed</th></tr>
+  <tr><td>Word overlap is the wrong authority for findings coverage. Recurring words such as
+      gate, session, contract and hook let a broad early check bless later findings.</td>
+      <td>Coverage is transactional: a check id bound to a fingerprint of the payload, plus
+      an evidence watermark. Similarity survives only behind
+      <code>--allow-similarity</code> for a check made by hand.</td></tr>
+  <tr><td>Any new measurement after a check should invalidate it.</td>
+      <td>The watermark records the evidence count and newest mtime at check time. New
+      evidence moves it, and coverage reads STALE.</td></tr>
+  <tr><td>A duplicate needs a shared subject anchor, not just a score.</td>
+      <td>A duplicate must share a file, song, id, url, route or proper name when both
+      questions carry any. Same words on a different song now clears.</td></tr>
+  <tr><td>The 500-character and two-marker rule was weaker than the stated guarantee.</td>
+      <td>The floor dropped to 220 characters, and numeric claims count as their own
+      evidence of a report. Marker matching is a detector heuristic now.</td></tr>
+</table>
 
 <div class="bug">
   <h3>A latent bug this exposed</h3>
