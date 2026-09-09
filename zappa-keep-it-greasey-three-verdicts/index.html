@@ -104,6 +104,7 @@ footer{margin-top:3rem;border-top:2px solid var(--line);padding-top:1rem;
 <li><a href="#velocity4">The velocity trap across four staves</a></li>
 <li><a href="#peer">A third route reaches the same finding on M002</a></li>
 <li><a href="#onestaff">One drum staff, no percussion staff</a></li>
+<li><a href="#pertab">Staff-line numbers are per-tab</a></li>
 <li><a href="#m004">KIG-M004, still open, and by how much</a></li>
 <li><a href="#second">A second landmark family, and what it moved</a></li>
 <li><a href="#timbre">The clap timbre test, and the control that killed it</a></li>
@@ -262,6 +263,29 @@ footer{margin-top:3rem;border-top:2px solid var(--line);padding-top:1rem;
 </table>
 <p><b>The verdict on KIG-M002 is unchanged: no change to the tab.</b></p>
 <p><b>The peer's own correction, recorded because it bears on other songs.</b> That session had told the record that Peaches En Regalia <code>s35889</code> has no separate percussion track. It has a staff <b>named <code>tambourine</code> at index 10</b>. Their census had searched for percussion among staves whose <code>instrumentId</code> was <b>not</b> 1024, so a percussion staff carrying 1024 was invisible to it. Their published instant counts were not affected, because those already measured every 1024 staff rather than the first, and they checked rather than assumed. Nothing on this page depends on it, since Keep It Greasey has a single 1024 staff.</p>
+
+<h2 class="s1" id="pertab">3d. Staff-line numbers are PER-TAB, and this page had been treating them as stable</h2>
+<p>The peer reported that a line value means something only inside one tab. <b>Built independently here</b> from the drum staff of five tabs, uncredentialed CloudFront reads, taking each pitch's most common line:</p>
+<table>
+<tr><th>Pitch</th><th>Alien Orifice 68246</th><th>Muffin Man 35886</th><th>Carolina 68248</th><th>Idiot Bastard 68253</th><th>Keep It Greasey</th></tr>
+<tr><td>kick 35</td><td>4</td><td>n/a</td><td>4</td><td><b>5</b></td><td>4</td></tr>
+<tr><td>kick 36</td><td>3.5</td><td>3.5</td><td>3.5</td><td>n/a</td><td>n/a</td></tr>
+<tr><td>snare 38</td><td>1.5</td><td>1.5</td><td><b>n/a</b></td><td><b>4</b></td><td>1.5</td></tr>
+<tr><td>hatClosed 42</td><td>-0.5</td><td>-0.5</td><td>-0.5</td><td><b>1</b></td><td>-0.5</td></tr>
+<tr><td>hatOpen 46</td><td>-0.5</td><td>-0.5</td><td>-0.5</td><td><b>2</b></td><td>-0.5</td></tr>
+<tr><td>crash 49</td><td>-1</td><td>-1</td><td>-1</td><td>n/a</td><td>-1</td></tr>
+<tr><td>ride 51</td><td>0</td><td>0</td><td>n/a</td><td>n/a</td><td>0</td></tr>
+<tr><td>tambourine 54</td><td>n/a</td><td>n/a</td><td><b>1.5</b></td><td><b>1</b></td><td>n/a</td></tr>
+</table>
+<div class="warn"><b>Four tabs share one layout. <code>s68253</code> uses a different one throughout</b>, with kick down at 5, snare at 4 and the hats up at 1 and 2. <b>Any global pitch-to-lane map built from these numbers is wrong.</b></div>
+<h3>The Carolina trap, confirmed here</h3>
+<p><b>Carolina <code>s68248</code> puts tambourine 54 at line 1.5</b>, which is the <b>snare position</b> in Alien Orifice, Muffin Man and Keep It Greasey, and Carolina's snare 38 column reads <b>n/a</b>. <b>Anyone porting the standard map onto Carolina reads its tambourine as a snare.</b></p>
+<h3>This explains the near-miss above</h3>
+<p>On <code>s68253</code> both hatClosed 42 and tambourine 54 fall on line 1 across the tab, so a <b>tab-level</b> census shows them sharing. At each of the 118 instants the tambourine is still alone there, because hatClosed sounds only <b>5 times on the entire staff</b>. <b>Lane-level co-occupancy across a tab is not instant-level sharing.</b></p>
+<div class="good"><b>The constraint the hands rule depends on.</b> It survives all of this only because it counts distinct lines <b>within one instant of one tab</b> and never compares a line number across tabs. Stated wherever the rule appears: count distinct staff lines within a single instant of a single tab, and <b>never</b> carry a line number, or a pitch-to-line map, from one tab to another.</div>
+<div class="warn"><b>What this page had been doing.</b> It records Keep It Greasey's snare and clap at <code>string: 1.5</code> and its hats at <code>-0.5</code>. Those values are correct <b>for this tab</b> and must not be ported. The memory note behind them has been amended to carry the same warning, since as written it could have been read as a stable map.</div>
+<h3>The peer's resolution of the 172, recorded as theirs</h3>
+<p>Their per-instant run-length test resolved the wider set: of the 172 non-kit instants, <b>155 are a second player, 16 are ambiguous four-bar runs on Call Any Vegetable <code>s68241</code>, and exactly 1 is a likely real drummer flag</b>, an isolated single tambourine bar in Brown Shoes <code>s35869</code>. <b>True catalogue two-hands failure count 611 rather than the 822 a naive read would have shipped.</b> Not re-derived here, per the one-song rule.</p>
 
 <h2 class="s4" id="m004">4. KIG-M004, still open, and by how much</h2>
 <p>Thirty-two kick onsets the score omits, listed by audio time only. Placing them needs an anchor, so one was fitted on <b>kick and hi-hat only</b> across bars 22 to 32, with snare and clap held out because the claps are the target and the snare shares their staff row and their stem.</p>

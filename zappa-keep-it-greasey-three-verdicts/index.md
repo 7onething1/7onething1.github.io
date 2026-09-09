@@ -831,3 +831,65 @@ it onto a kit surface.
 **Nothing.** KIG's clap shares the snare line, which is the branch where both readings agree. M002
 stays closed at no change. What changed is the scope of the rule this page exports, which was
 written too wide and is now bounded by a measurement.
+
+---
+
+## ADDENDUM 12: staff-line numbers are PER-TAB, and this page had been treating them as stable
+
+The peer reported that a line value means something only inside one tab. **Built independently
+here** from the drum staff of five tabs, uncredentialed CloudFront reads, taking each pitch's most
+common line:
+
+| Pitch | Alien Orifice 68246 | Muffin Man 35886 | Carolina 68248 | **Idiot Bastard 68253** | Keep It Greasey 604777 |
+|---|---|---|---|---|---|
+| kick 35 | 4 | n/a | 4 | **5** | 4 |
+| kick 36 | 3.5 | 3.5 | 3.5 | n/a | n/a |
+| snare 38 | 1.5 | 1.5 | n/a | **4** | 1.5 |
+| hatClosed 42 | -0.5 | -0.5 | -0.5 | **1** | -0.5 |
+| hatOpen 46 | -0.5 | -0.5 | -0.5 | **2** | -0.5 |
+| crash 49 | -1 | -1 | -1 | n/a | -1 |
+| ride 51 | 0 | 0 | n/a | n/a | 0 |
+| tambourine 54 | n/a | n/a | **1.5** | **1** | n/a |
+
+**Four tabs share one layout. `s68253` uses a different one throughout**, with kick down at 5,
+snare at 4 and the hats up at 1 and 2. **Any global pitch-to-lane map built from these numbers is
+wrong.**
+
+### The Carolina trap, confirmed here
+
+**Carolina `s68248` puts tambourine 54 at line 1.5**, which is the **snare position** in Alien
+Orifice, Muffin Man and Keep It Greasey, and Carolina's snare 38 column reads **n/a**, meaning the
+tab has none. **Anyone porting the standard map onto Carolina reads its tambourine as a snare.**
+
+### This explains the near-miss in Addendum 11
+
+On `s68253` both hatClosed 42 and tambourine 54 fall on line 1 across the tab, so a **tab-level**
+census shows them sharing. At each of the 118 instants the tambourine is still alone there, because
+hatClosed sounds only **5 times on the entire staff**. **Lane-level co-occupancy across a tab is
+not instant-level sharing.**
+
+### The constraint the hands rule depends on
+
+The rule survives all of this **only because it counts distinct lines within one instant of one
+tab, and never compares a line number across tabs.** That constraint is load-bearing in the same
+way the sharing condition is, so it is now stated wherever the rule appears:
+
+> Count distinct staff lines **within a single instant of a single tab**. **Never** carry a line
+> number, or a pitch-to-line map, from one tab to another.
+
+### What this page had been doing
+
+This page records Keep It Greasey's snare and clap at `string: 1.5` and its hats at `-0.5`. **Those
+values are correct for this tab and must not be ported.** The memory note
+`reference_gm39_clap_and_gm38_snare_render_identically` has been amended to carry the same warning,
+since as written it could have been read as a stable map.
+
+### The peer's resolution of the 172, recorded as theirs
+
+Their per-instant run-length test resolved the wider set: of the 172 non-kit instants, **155 are a
+second player, 16 are ambiguous four-bar runs on Call Any Vegetable `s68241`, and exactly 1 is a
+likely real drummer flag**, an isolated single tambourine bar in Brown Shoes `s35869`. **True
+catalogue two-hands failure count 611 rather than the 822 a naive read would have shipped.**
+Not re-derived here, per the one-song rule.
+
+**Keep It Greasey is unaffected throughout.** M002 stays closed at no change.
