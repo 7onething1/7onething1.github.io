@@ -340,14 +340,15 @@ produced 354 files, named by bar and beat so a re-ranking never needs a re-cut. 
 <code>~/Projects/_outputs/zappa-camarillo-brillo/cymbal_pass/INVESTIGATION_QUEUE.md</code>.</p>
 
 <h2>9. Three rounds of review, and what survived all three</h2>
-<p>This page went out for adversarial review twice. Six objections came back, every one was runnable,
+<p>This page went out for adversarial review twice. Seven objections came back, every one was runnable,
 every one was run, and four of them changed a published claim. The table is the audit trail.</p>
 <div class="scroll">
 <table>
 <tr><th>Objection</th><th>What was run</th><th>Result</th></tr>
 <tr><td>Detector counts cannot prove omission</td><td>identical sweep on kick and snare</td><td><span class="tag fail">claim withdrawn</span> detector overcounts kick 1.8&times;, snare 1.6&times;</td></tr>
 <tr><td>Same-bar null is not exchangeable</td><td>rebuilt to hold beat phase fixed</td><td><span class="tag fail">verdict reversed</span> 3 of 5 lanes flipped to pass</td></tr>
-<tr><td>Confirmation is not independent of the ranking</td><td>full mix from all 14 stems, 8 band and source combinations</td><td><span class="tag unres">unanswered</span> best separation +0.078 against a 0.20 bar</td></tr>
+<tr><td>Confirmation is not independent of the ranking</td><td>full mix from all 14 stems, 8 band and source combinations</td><td><span class="tag fail">that attempt failed</span> best separation +0.078 against a 0.20 bar</td></tr>
+<tr><td>Separator may route crashes into the Hi-Hat stem</td><td>ground-truth crashes and rides measured for where their energy lands</td><td><span class="tag pass">refuted</span> 70.7 dB median gap, p = 0.00009, no overlap</td></tr>
 <tr><td>The all-crash pattern needs its denominator</td><td>exact hypergeometric on 46 crashes in 181</td><td><span class="tag pass">survives</span> p = 2.3 &times; 10<sup>-6</sup></td></tr>
 <tr><td>Crash and ride are different classes</td><td>rank rerun with class-separated nulls</td><td><span class="tag pass">sharpened</span> and it split the two cleanly</td></tr>
 <tr><td>The dB windows have a timing trap</td><td>guard band, then a median and a rank test</td><td><span class="tag fail">claim withdrawn</span> p = 0.70, the mean was one outlier</td></tr>
@@ -391,13 +392,34 @@ median of -28.8 dB against -41.1 dB at well-supported crash instants, a gap of 1
 value carries, at p = 0.016. The consistent story across the nine is a crash written where the hi-hat
 is what is playing.</p>
 </div>
-<div class="card hold">
-<p><strong>The independence question is still open and it is the reason nothing is edited.</strong>
-Every measurement above reads the same separated output family. The one explanation that would
-overturn all of it at once is separator routing, where a real crash is written into the Hi-Hat stem,
-which would make the surviving hi-hat evidence the crash itself. The full-mix test built to settle
-that failed its own positive control across eight configurations, so it settles nothing in either
-direction.</p>
+<h3>The routing objection, settled</h3>
+<p>One explanation could overturn every crash finding at once: if the separator writes real crash
+energy into the Hi-Hat output, then the surviving hi-hat evidence IS the crash. The full-mix attempt
+failed its control, so the question needed a different instrument. This one works, and it is simple.
+Take the crashes this tab writes that the stem strongly supports, treat them as ground truth, and ask
+where their energy actually landed.</p>
+<div class="scroll">
+<table>
+<tr><th>Group</th><th>n</th><th>Hi-hat minus cymbal, median</th><th>Range</th><th>Reading</th></tr>
+<tr><td>Ground-truth crashes, rank at or above 0.90</td><td class="num">7</td><td class="num"><strong>-18.8 dB</strong></td><td class="num">-44.0 to -5.8</td><td><span class="tag pass">lands in Cymbals</span></td></tr>
+<tr><td>Reference rides, rank at or above 0.90</td><td class="num">20</td><td class="num">-18.9 dB</td><td class="num">&nbsp;</td><td><span class="tag pass">lands in Cymbals</span></td></tr>
+<tr><td>The nine low-rank crashes</td><td class="num">9</td><td class="num"><strong>+51.8 dB</strong></td><td class="num">+13.6 to +66.7</td><td><span class="tag fail">nothing in Cymbals</span></td></tr>
+</table>
+</div>
+<div class="card good">
+<p><strong>The routing objection is refuted, and the two groups do not overlap at all.</strong>
+The worst ground-truth crash still sits 5.8 dB inside the Cymbals stem and the mildest of the nine
+sits 13.6 dB outside it. Median gap <strong>70.7 dB</strong>, Mann-Whitney
+<strong>p = 0.00009</strong>. When this recording contains a crash, this separator puts it in the
+Cymbals output every time, including at the twenty reference rides. At the nine, the Cymbals stem
+holds 14 to 67 dB less energy than the hi-hat, which is not what routing looks like.</p>
+</div>
+<div class="card">
+<p>That closes the last open gate on this lane. <strong>The nine stand as written crashes the
+recording does not support</strong>, on a test whose positive control passes and whose competing
+explanation was measured rather than assumed. The caution that remains is sample size, since ground
+truth here is seven crashes, and the twenty rides behaving identically at -18.9 dB is what carries it
+past that.</p>
 </div>
 <p><strong>Two of the nine are a different case.</strong> Bar 72 carries a real crash about 0.30 s
 after its written position and bar 43 about 0.45 s after, against an alignment residual whose median
@@ -414,15 +436,16 @@ zero physically impossible stacks, and all five of its drum lanes localise again
 once beat phase is held fixed. The five stacks in s187082 are transcription defects in that file.</p>
 </div>
 <div class="card hold">
-<p><strong>Open.</strong> Which component of each s187082 stack is the erroneous one, the 13
-low-rank crashes in s412176, and whether the separator routes crash energy into the Hi-Hat output,
-which is the single explanation that would overturn section 9 at once. Whether s187082 faithfully describes some other Camarillo Brillo
+<p><strong>Open.</strong> Which component of each s187082 stack is the erroneous one, which needs
+s187082's own reference recording since it does not align to this one at all. Also the four low-rank
+crashes beyond the nine already read. Whether s187082 faithfully describes some other Camarillo Brillo
 performance is untested here, because only this recording was available.</p>
 </div>
 <div class="card">
-<p><strong>Next.</strong> Settle separator routing, because it gates every crash verdict. The ride
-lane needs nothing: 135 written rides and not one below the midpoint of its own beat position. Any
-edit that follows goes onto a copy, never onto the original community tab.</p>
+<p><strong>Next.</strong> Separator routing is settled and the nine stand. The remaining crash work
+is the other four of the thirteen low-rank crashes, which have not been read individually yet. The
+ride lane needs nothing: 135 written rides and not one below the midpoint of its own beat position.
+Any edit goes onto a copy, never onto the original community tab.</p>
 </div>
 
 <div class="card">
