@@ -1,0 +1,129 @@
+<!doctype html>
+<html lang="en"><head><meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Notation-first evidence gate</title>
+<style>
+:root{--aqua:#3B9AB2;--sky:#78B7C5;--sun:#EBCC2A;--gold:#E1AF00;--flare:#F21A00;
+--cream:#f6f0e2;--card:#fbf7ec;--ink:#1c1a16;--muted:#6b6355;--line:#ddd2b8;color-scheme:light}
+*{box-sizing:border-box}
+body{margin:0;background:var(--cream);color:var(--ink);
+font:16px/1.62 -apple-system,BlinkMacSystemFont,Inter,"Segoe UI",sans-serif;padding:2.2rem 1.1rem 4rem}
+main{max-width:1040px;margin:0 auto}
+h1{font-size:2.05rem;line-height:1.16;margin:0 0 .35rem;letter-spacing:-.02em}
+.deck{color:var(--muted);font-size:1.03rem;margin:0 0 .6rem;max-width:72ch}
+.stamp{display:inline-block;background:var(--flare);color:#fff;font-weight:700;font-size:.74rem;
+letter-spacing:.09em;text-transform:uppercase;padding:.28rem .6rem;border-radius:4px;margin-bottom:.9rem}
+h2{font-size:1.28rem;margin:2.6rem 0 .2rem;letter-spacing:-.01em}
+h2 .n{display:inline-block;width:1.55rem;height:1.55rem;line-height:1.55rem;text-align:center;
+border-radius:5px;color:#fff;font-size:.86rem;margin-right:.5rem;vertical-align:2px}
+h3{font-size:1rem;margin:1.4rem 0 .35rem}
+p{margin:.55rem 0;max-width:74ch}
+.sub{color:var(--muted);font-size:.9rem;margin:.1rem 0 1rem}
+.grid{display:grid;gap:.75rem;margin:1rem 0}
+.g4{grid-template-columns:repeat(auto-fit,minmax(178px,1fr))}
+.card{background:var(--card);border:1px solid var(--line);border-radius:11px;padding:.9rem 1rem}
+.card.t1{border-left:6px solid var(--aqua)}.card.t3{border-left:6px solid var(--sun)}
+.card.t4{border-left:6px solid var(--gold)}.card.t5{border-left:6px solid var(--flare)}
+.k{font-size:1.9rem;font-weight:800;line-height:1.08;letter-spacing:-.02em}
+.k.a{color:var(--aqua)}.k.y{color:#9a8412}.k.g{color:#a97f00}.k.f{color:var(--flare)}
+.lab{font-size:.74rem;text-transform:uppercase;letter-spacing:.07em;color:var(--muted);margin-top:.2rem}
+.fine{font-size:.83rem;color:var(--muted);margin-top:.45rem}
+table{border-collapse:collapse;width:100%;font-size:.88rem;margin:.7rem 0;background:var(--card)}
+th,td{border:1px solid var(--line);padding:.42rem .6rem;text-align:left;vertical-align:top}
+th{background:#efe7d3;font-weight:700;font-size:.8rem;text-transform:uppercase;letter-spacing:.04em}
+td.num{text-align:right;font-variant-numeric:tabular-nums}
+tr.bad td{background:#fdeae7}tr.good td{background:#e9f4f7}
+.scroll{overflow-x:auto;-webkit-overflow-scrolling:touch}
+code{background:#efe7d3;padding:.09em .38em;border-radius:4px;font-size:.86em;word-break:break-all}
+.callout{border-radius:11px;padding:1rem 1.15rem;margin:1.1rem 0;border:1px solid var(--line)}
+.callout.red{background:#fdeae7;border-left:6px solid var(--flare)}
+.callout.aqua{background:#e9f4f7;border-left:6px solid var(--aqua)}
+.callout.gold{background:#fbf1d4;border-left:6px solid var(--gold)}
+.callout h3{margin-top:0}
+ul{margin:.5rem 0 .5rem 1.1rem;padding:0}li{margin:.3rem 0;max-width:74ch}
+.bar{display:flex;height:34px;border-radius:7px;overflow:hidden;border:1px solid var(--line);margin:.7rem 0}
+.bar span{display:flex;align-items:center;justify-content:center;color:#fff;font-size:.8rem;font-weight:700}
+footer{margin-top:3.2rem;border-top:1px solid var(--line);padding-top:1rem;font-size:.82rem;color:var(--muted)}
+a{color:#0d6f88;font-weight:600}
+</style></head><body><main>
+
+<span class="stamp">Built, run, and it found three bugs in itself</span>
+<h1>The notation-first evidence gate</h1>
+<p class="deck">A rule that cannot fail is a suggestion. This is <code>/perfect-stem-read</code> turned into code that returns a non-zero exit status: notation generates the claims, isolated stems verify them, mixed audio never assigns identity, and a disagreement stays a disagreement.</p>
+<p class="sub">Built 2026-09-08 as <code>~/.claude/skills/transcription-repair/tr_verify.py</code>. 24 selftests pass. 2,784 real notation claims adjudicated against five isolated stems in 38.7 s.</p>
+
+<div class="grid g4">
+ <div class="card t1"><div class="k a">24</div><div class="lab">selftests, all passing</div><div class="fine">Eight rules, each with a red case and a green case.</div></div>
+ <div class="card t5"><div class="k f">3</div><div class="lab">bugs it found in itself</div><div class="fine">Only by running against real audio.</div></div>
+ <div class="card t3"><div class="k y">2,784</div><div class="lab">real claims adjudicated</div><div class="fine">54.4% supported, 20.8% contradicted, 24.9% unresolved.</div></div>
+ <div class="card t4"><div class="k g">0</div><div class="lab">resolved by inference</div><div class="fine">Structural, because no resolver exists.</div></div>
+</div>
+
+<h2><span class="n" style="background:var(--aqua)">1</span>The architecture already existed, in prose</h2>
+<div class="callout aqua">
+<p><code>/perfect-stem-read</code> on this Mac already states every point of the brief. Line 291 gives the order, line 151 forbids feeding a chart-derived lane label back into the stem classifier, line 17 says preserve the disagreement.</p>
+<p><b>It is 291 lines and it returns no exit status.</b> That is the whole gap, and it is the gap named in the brief itself: written rules were insufficient because the workflow could ignore them. So this module is that document's enforcement arm rather than a new design. It imports <code>tr_ledger</code> for notation and <code>tr_audio</code> for measurement, and adds no reader and no detector of its own.</p>
+</div>
+
+<h2><span class="n" style="background:var(--gold)">2</span>Eight rules, every one executable</h2>
+<div class="scroll"><table>
+<tr><th>Rule</th><th>What it refuses</th><th>Its selftest</th></tr>
+<tr><td><b>R1</b></td><td>A claim with no notation origin. There is deliberately no <code>from_audio()</code> constructor</td><td>an audio-origin claim returns UNRESOLVED</td></tr>
+<tr><td><b>R2</b></td><td>Mixed audio assigning identity for a lane an isolated stem covers. <code>assign_identity()</code> raises, and no flag softens it</td><td>raises for lane 38 when a snare stem exists</td></tr>
+<tr><td><b>R3</b></td><td>Any resolver at all. Four verdicts, and nothing collapses UNRESOLVED</td><td><code>resolved_by_inference</code> is structurally 0</td></tr>
+<tr><td><b>R4</b></td><td>A verdict without provenance: stem path, sha256, time, dB, nearest onset</td><td>decided verdicts all carry a source hash</td></tr>
+<tr class="good"><td><b>R5</b></td><td>An unqualified index into a multi-entry source</td><td>refuses <code>[0]</code> of 12 sync entries</td></tr>
+<tr class="good"><td><b>R6</b></td><td>A bar-fill walker unproved on grace notes and tuplets</td><td>a walker counting grace rhythms fails</td></tr>
+<tr class="good"><td><b>R7</b></td><td>An empty claim set passing as a clean run</td><td>zero verdicts is a hard failure</td></tr>
+<tr class="good"><td><b>R8</b></td><td>Position units guessed rather than stated</td><td>beat 3 of 4/4 lands at the bar midpoint</td></tr>
+</table></div>
+<p>R5 through R8 are not in the brief. Each exists because it caught a real error, and three of those errors were inside this module.</p>
+
+<h2><span class="n" style="background:var(--flare)">3</span>Running it found three bugs in itself</h2>
+<div class="callout red">
+<p>The first real-data run returned <b>0 claims and reported a clean pass</b>. The second returned <b>399 of 521 kicks CONTRADICTED</b>, which no drum tab could survive.</p>
+<div class="scroll"><table>
+<tr><th>Bug</th><th>Symptom</th><th>Cause</th></tr>
+<tr class="bad"><td>track filter</td><td>0 claims, and a clean pass</td><td><code>--track</code> passed a string; <code>tr_ledger</code> compares ids numerically</td></tr>
+<tr class="bad"><td>bar index base</td><td>every claim off by one bar</td><td><code>tr_ledger</code> emits 0-based bars; the driver assumed 1-based</td></tr>
+<tr class="bad"><td>position units</td><td>399 false CONTRADICTED</td><td><code>NOTE_VALUE</code> is denominated in <b>whole notes</b>, Quarter = 1/4. The driver divided by quarters-per-bar, a 4x error</td></tr>
+</table></div>
+<p>The units bug is the same shape a peer session reported this morning about instance counts against beat-reference counts. <b>A histogram tells the truth only when both sides carry the same unit.</b></p>
+<p><b>Prose could not have found any of the three.</b> They surfaced because the module ran against real audio and produced a number implausible enough to check. That is the strongest argument for the executable form, and it arrived by accident.</p>
+</div>
+
+<h2><span class="n" style="background:var(--sun)">4</span>The real run</h2>
+<p>2,784 notation claims from <code>HANDS-s6857183-Brandon-edit.gp</code> against the five Moises stems, on the metronome-anchored clock.</p>
+<div class="bar">
+ <span style="width:54.4%;background:var(--aqua)">SUPPORTED 1,514</span>
+ <span style="width:20.8%;background:var(--flare)">CONTRADICTED 578</span>
+ <span style="width:24.9%;background:var(--gold)">UNRESOLVED 692</span>
+</div>
+<p class="fine">NO_STEM 0. Every written lane had an isolated witness available.</p>
+<div class="callout gold">
+<h3>Every tom lane abstains on identity</h3>
+<p>Lanes 41, 45 and 47 return UNRESOLVED with no SUPPORTED at all, and 48 and 50 carry only CONTRADICTED and UNRESOLVED. That is R2 and the separability note doing their job: the toms stem is one channel, so it places a stroke in time and cannot say which drum was struck. The bar 55 collision behaves the same way, which is the correct answer rather than a failure.</p>
+</div>
+
+<h2><span class="n" style="background:var(--sky)">5</span>It corrects one of my own published claims</h2>
+<div class="callout red">
+<p>My audit page said bar 1's written crash <b>loses its support</b>, reading 8.27 percent cymbal energy against a 33 percent floor.</p>
+<p><b>The gate disagrees.</b> With units correct the crash sits at <b>40.703 s</b>, and the ride-profile detector finds an onset <b>27 ms away</b>, so it reads SUPPORTED. My earlier figure was a band-magnitude share across a trimmed window, which measures loudness rather than attack presence. Onset proximity is the more direct test of whether something was struck, so the crash stands and my withdrawal of it is itself withdrawn.</p>
+</div>
+
+<h2><span class="n" style="background:var(--muted)">6</span>What it would and would not have caught today</h2>
+<div class="scroll"><table>
+<tr><th>Today's error</th><th>Caught by</th><th>Verdict</th></tr>
+<tr class="good"><td>12.50 s sync error, from indexing 12 video entries with <code>[0]</code></td><td>R5</td><td>caught, and R5 is not in the brief</td></tr>
+<tr class="bad"><td>Missing intro, from an 8:42 versus 9:05 master mismatch</td><td><code>tr_gate.recording_identity</code>, which already existed</td><td>not caught by R1 to R4</td></tr>
+<tr class="good"><td>43 overfilled bars, from counting grace-note rhythms</td><td>R6</td><td>caught, and R6 is not in the brief</td></tr>
+</table></div>
+<div class="callout aqua">
+<p><b>The brief's four rules caught none of today's three</b>, because none was an unsupported musical claim. All three were bugs in reading data. The brief does cover the historical Watermelon class: the coda counts of 81, 86 and 47 toms, the ghost sweeps, and every instance of a pitch in one stem being read as proof that instrument played it.</p>
+<p>That is the useful correction. <b>An evidence gate on audio stops a workflow from asserting music it cannot hear. It does not stop a workflow from misreading its own inputs</b>, and today every failure was the second kind.</p>
+</div>
+
+<footer>
+<p>Module: <code>~/.claude/skills/transcription-repair/tr_verify.py</code>. Governing prose it enforces: <code>~/.claude/skills/perfect-stem-read/SKILL.md</code>. Prior-art decision logged as adapt to <code>~/.claude/truth/prior_art_checks.jsonl</code>. Run <code>python3 tr_verify.py selftest</code> for the 24 checks. Nothing in this work modified a Guitar Pro file or a Songsterr tab.</p>
+</footer>
+</main></body></html>
