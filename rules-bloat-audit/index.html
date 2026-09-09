@@ -1,0 +1,271 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Rules Bloat Audit</title>
+<style>
+:root{
+  --cream:#F4EDDF; --paper:#FBF6EA; --ink:#2E2A24; --muted:#6E6558;
+  --rust:#C1553A; --mustard:#D9A441; --sage:#7C8C6A; --teal:#3E6B70;
+  --plum:#7A4E62; --line:#DCCFB4; --shadow:rgba(46,42,36,.10);
+}
+*{box-sizing:border-box}
+body{margin:0;background:var(--cream);color:var(--ink);
+  font:16px/1.65 "Iowan Old Style","Palatino Linotype",Palatino,Georgia,serif;}
+.wrap{max-width:1080px;margin:0 auto;padding:36px 22px 90px}
+header{border:2px solid var(--ink);background:var(--paper);padding:30px 28px;margin-bottom:34px;
+  box-shadow:8px 8px 0 var(--shadow)}
+h1{margin:0 0 6px;font-size:2.05rem;letter-spacing:.4px}
+.sub{color:var(--muted);font-size:1.02rem;margin:0}
+.stamp{display:inline-block;margin-top:14px;background:var(--rust);color:var(--paper);
+  padding:5px 13px;font-size:.75rem;letter-spacing:1.6px;text-transform:uppercase}
+.kpis{display:grid;grid-template-columns:repeat(auto-fit,minmax(168px,1fr));gap:14px;margin:26px 0 38px}
+.kpi{background:var(--paper);border:1.5px solid var(--line);padding:16px 15px;border-left:6px solid var(--teal)}
+.kpi.r{border-left-color:var(--rust)} .kpi.m{border-left-color:var(--mustard)}
+.kpi.s{border-left-color:var(--sage)} .kpi.p{border-left-color:var(--plum)}
+.kpi b{display:block;font-size:1.72rem;line-height:1.15}
+.kpi span{font-size:.78rem;color:var(--muted);text-transform:uppercase;letter-spacing:.7px}
+h2{font-size:1.32rem;margin:44px 0 8px;padding-bottom:7px;border-bottom:2px solid var(--ink)}
+h2 .n{color:var(--rust);margin-right:9px}
+.lede{color:var(--muted);margin:0 0 18px;font-size:.97rem}
+table{width:100%;border-collapse:collapse;background:var(--paper);border:1.5px solid var(--line);font-size:.9rem}
+th{background:var(--ink);color:var(--paper);text-align:left;padding:9px 11px;font-size:.74rem;
+  letter-spacing:1.1px;text-transform:uppercase;font-weight:600}
+td{padding:9px 11px;border-top:1px solid var(--line);vertical-align:top}
+tr:nth-child(even) td{background:rgba(220,207,180,.19)}
+.tag{display:inline-block;padding:2px 8px;font-size:.7rem;letter-spacing:.7px;
+  text-transform:uppercase;color:var(--paper);white-space:nowrap}
+.cut{background:var(--rust)} .merge{background:var(--mustard);color:var(--ink)}
+.keep{background:var(--sage)} .fix{background:var(--teal)} .watch{background:var(--plum)}
+.card{background:var(--paper);border:1.5px solid var(--line);border-left:6px solid var(--rust);
+  padding:17px 19px;margin:15px 0}
+.card.t{border-left-color:var(--teal)} .card.s{border-left-color:var(--sage)}
+.card.m{border-left-color:var(--mustard)} .card.p{border-left-color:var(--plum)}
+.card h3{margin:0 0 7px;font-size:1.06rem}
+.card p{margin:0 0 8px}
+.ev{font:12.5px/1.55 ui-monospace,SFMono-Regular,Menlo,monospace;background:rgba(46,42,36,.055);
+  border-left:3px solid var(--line);padding:8px 11px;margin:9px 0 0;color:var(--muted);white-space:pre-wrap}
+code{font:13px ui-monospace,Menlo,monospace;background:rgba(46,42,36,.07);padding:1.5px 5px}
+ol.steps{padding-left:20px} ol.steps li{margin:9px 0}
+.note{background:rgba(217,164,65,.15);border:1.5px solid var(--mustard);padding:14px 17px;margin:20px 0;font-size:.93rem}
+footer{margin-top:56px;padding-top:18px;border-top:2px solid var(--ink);color:var(--muted);font-size:.85rem}
+.scroll{overflow-x:auto}
+@media(max-width:640px){h1{font-size:1.6rem}.wrap{padding:20px 13px 60px}}
+</style>
+</head>
+<body>
+<div class="wrap">
+
+<header>
+  <h1>Rules Bloat Audit</h1>
+  <p class="sub">Every gate, hook, skill and memory note measured against whether it has ever done anything.</p>
+  <div class="stamp">Measured 2026-09-09 &nbsp;·&nbsp; 134 transcripts &nbsp;·&nbsp; 20,895 tool calls</div>
+</header>
+
+<div class="kpis">
+  <div class="kpi r"><b>~41,400</b><span>tokens of fixed rules</span></div>
+  <div class="kpi r"><b>~20,400</b><span>of those buy nothing</span></div>
+  <div class="kpi m"><b>0.26%</b><span>tool calls that were skills</span></div>
+  <div class="kpi p"><b>165</b><span>skills never once invoked</span></div>
+  <div class="kpi"><b>41%</b><span>memory paths are dead</span></div>
+  <div class="kpi s"><b>900</b><span>memory notes, 2.9 MB</span></div>
+</div>
+
+<div class="note">
+  <b>The one-line finding.</b> The rule system is not too strict. It is too wide.
+  Roughly half the fixed context you carry into every turn describes machinery that
+  has never run, and 41 percent of the file paths those rules cite do not exist on this Mac.
+  The gates that actually fire are a small, healthy core worth keeping.
+</div>
+
+<h2><span class="n">01</span>Where the context actually goes</h2>
+<p class="lede">Measured by parsing the real files, not estimated.</p>
+<div class="scroll">
+<table>
+<tr><th>Source</th><th>Chars</th><th>Approx tokens</th><th>Loaded</th><th>Verdict</th></tr>
+<tr><td><b>Skill descriptions</b> (173 SKILL.md)</td><td>89,918</td><td>~22,479</td><td>every turn</td><td><span class="tag cut">Cut hard</span></td></tr>
+<tr><td>MEMORY.md index</td><td>40,730</td><td>~10,182</td><td>every session</td><td><span class="tag fix">Fix truncation</span></td></tr>
+<tr><td>CLAUDE.md (3 files merged)</td><td>35,019</td><td>~8,754</td><td>every session</td><td><span class="tag merge">Merge to one</span></td></tr>
+<tr><td><b>Total fixed rule load</b></td><td><b>165,667</b></td><td><b>~41,416</b></td><td></td><td></td></tr>
+<tr><td>Share from never-invoked skills</td><td>81,519</td><td><b>~20,379</b></td><td>every turn</td><td><span class="tag cut">Dead weight</span></td></tr>
+</table>
+</div>
+
+<div class="card">
+  <h3>MEMORY.md is too big to fully load, and it says so itself</h3>
+  <p>The index that governs every other rule <b>gets truncated before you read it</b>.
+  A rule you cannot see is a rule that does not exist. This is the most consequential single defect in the system.</p>
+  <div class="ev">WARNING: MEMORY.md is 273 lines and 39.5KB. Only part of it was loaded.
+  → measured: 40,730 bytes on disk</div>
+</div>
+
+<h2><span class="n">02</span>Skills: 182 built, 17 ever used</h2>
+<p class="lede">Counted from real <code>Skill</code> tool invocations across 134 transcript files.</p>
+
+<div class="card">
+  <h3>54 skill invocations against 20,895 tool calls</h3>
+  <p>Bash carried the work at 16,294 calls. The skill layer carried <b>one quarter of one percent</b>.
+  Your own CLAUDE.md already caught this once and it has not moved since.</p>
+  <div class="ev">Skill invocations: 54          distinct skills invoked: 17
+Most used: loop(16) songsterr-upload(7) notation-evidence-gate(4)
+           ship(3) update-config(3) chat-end(3) fraud-firewall(3)
+Never invoked: 165 of 182 skills</div>
+</div>
+
+<div class="scroll">
+<table>
+<tr><th>Group</th><th>Count</th><th>Evidence</th><th>Proposal</th></tr>
+<tr><td><b>Proven core</b><br>loop, ship, chat-end, fraud-firewall, songsterr-upload, notation-evidence-gate, reference-class, transcription-repair, real-song-finder, update-config</td><td>10</td><td>invoked repeatedly, tied to live work</td><td><span class="tag keep">Keep, full description</span></td></tr>
+<tr><td><b>Used once</b><br>jam-stem-rebuild, ableton-rig-doctor, missed-songs-audit, file-getter, impossible-guitar-parts, skill-creator, artifact-design</td><td>7</td><td>1 invocation each</td><td><span class="tag keep">Keep, trim description to 1 line</span></td></tr>
+<tr><td><b>No usable description</b><br>album-book-craft, band-cycle, mashup-maker, midi-analyze, stem-analyzer, orchestration, speech-synth and 28 more</td><td>35</td><td>cannot trigger by description match</td><td><span class="tag cut">Archive or write a description</span></td></tr>
+<tr><td><b>Fat descriptions on unused skills</b><br>impossible-guitar-parts (1559 ch), rock-analysis-canon (1422), chavez-radiohead-failure-craft (1399), notation-evidence-gate (1273), real-song-finder (1239)</td><td>5</td><td>~6,900 chars per turn from five entries</td><td><span class="tag merge">Cap at 200 chars</span></td></tr>
+<tr><td><b>Never invoked, never described in a live task</b></td><td>~140</td><td>0 invocations across all transcripts</td><td><span class="tag cut">Move to skills-archive/</span></td></tr>
+<tr><td><b>Broken dirs</b><br>chiron-intuition-format, delete</td><td>2</td><td>no SKILL.md, no reference anywhere</td><td><span class="tag cut">Retire</span></td></tr>
+<tr><td><b>Library dirs, correctly have no SKILL.md</b><br>_shared, fifty-gates, babysit-chats, system-pulse</td><td>4</td><td>support code, not skills</td><td><span class="tag keep">Keep as is</span></td></tr>
+</table>
+</div>
+
+<div class="card m">
+  <h3>The cheapest win available</h3>
+  <p>Move the ~140 never-invoked skills into <code>~/.claude/skills-archive/</code>.
+  Nothing gets deleted, and every one comes back by moving the folder home.
+  Recovers roughly <b>20,000 tokens of context on every single turn</b>,
+  which is the difference between reading MEMORY.md fully and reading part of it.</p>
+</div>
+
+<h2><span class="n">03</span>Memory: 900 notes, 41 percent citing dead paths</h2>
+<p class="lede">Every <code>~/...</code> path in every note was resolved against the real filesystem.</p>
+
+<div class="card">
+  <h3>298 of 731 cited paths do not exist</h3>
+  <p>Rules that name a script are rules that <b>send you to a file that is not there</b>.
+  The failure is silent, so the rule reads as authoritative right up to the moment it wastes a turn.</p>
+  <div class="ev">path refs checked: 731    alive: 358    DEAD: 298
+
+most-cited dead paths:
+  9x  ~/Projects/drwu-htmls/scripts/deploy_htmls_lean.py
+  5x  ~/MAP.md                      ← the "map front door" rule points here
+  5x  ~/Projects/stem-map/stem-map.md
+  5x  ~/.claude/shift_queue.json
+  5x  ~/.claude/claude-sync/sync.sh  ← banned tool, still cited 5x
+  4x  ~/.claude/truth/voice_rules.json
+  2x  ~/.claude/skills/session-fraud-check/fraud_patterns.json</div>
+</div>
+
+<div class="scroll">
+<table>
+<tr><th>Signal</th><th>Count</th><th>Meaning</th><th>Proposal</th></tr>
+<tr><td>Notes untouched 90+ days</td><td><b>351</b></td><td>39% of the store predates current policy</td><td><span class="tag watch">Date-stamp review</span></td></tr>
+<tr><td>Notes no other note links</td><td><b>210</b></td><td>isolated, one-incident captures</td><td><span class="tag merge">Fold into topic notes</span></td></tr>
+<tr><td>Notes with retire / supersede / banned language</td><td><b>143</b></td><td>they record their own obsolescence</td><td><span class="tag cut">Move to archive</span></td></tr>
+<tr><td>Notes still mentioning kid mode</td><td><b>51</b></td><td>retired 2026-07-13, still in the corpus</td><td><span class="tag cut">Strip the references</span></td></tr>
+<tr><td>Notes saying Vercel</td><td><b>163</b></td><td>policy is GitHub Pages for new pages</td><td><span class="tag fix">Rewrite the top 10</span></td></tr>
+<tr><td>Notes saying GitHub Pages</td><td>13</td><td>the current policy is the minority voice</td><td><span class="tag fix">Promote in MEMORY.md</span></td></tr>
+<tr><td>Duplicate topic clusters</td><td>10 drwu_htmls, 8 anti_ai, 6 kid_mode, 4 never_ask, 4 cross_mac</td><td>same rule written many times</td><td><span class="tag merge">One note per topic</span></td></tr>
+<tr><td>POINTERS.md</td><td>209 KB</td><td>grep target, correctly not loaded</td><td><span class="tag keep">Keep</span></td></tr>
+</table>
+</div>
+
+<div class="card p">
+  <h3>The Vercel finding is the one to act on first</h3>
+  <p>163 notes point at Vercel and 13 point at GitHub Pages, while the standing policy
+  says new pages go to GitHub Pages. <b>The retired instruction outnumbers the live one twelve to one.</b>
+  Any retrieval that samples memory rather than reading the index lands on the wrong host.</p>
+</div>
+
+<h2><span class="n">04</span>Hooks: 39 wired, 16 on every stop</h2>
+<p class="lede">Parsed from settings.json and compared against the hooks directory.</p>
+
+<div class="scroll">
+<table>
+<tr><th>Event</th><th>Hooks</th><th>Fires</th><th>Proposal</th></tr>
+<tr><td><b>Stop</b></td><td>16</td><td>every time you finish a turn</td><td><span class="tag merge">Collapse into one runner</span></td></tr>
+<tr><td><b>PreToolUse</b></td><td>10</td><td>every tool call, 20,895 so far</td><td><span class="tag fix">Dedupe, see below</span></td></tr>
+<tr><td>UserPromptSubmit</td><td>6</td><td>every prompt</td><td><span class="tag merge">Merge the 3 nudges</span></td></tr>
+<tr><td>SessionStart</td><td>3</td><td>once</td><td><span class="tag keep">Keep</span></td></tr>
+<tr><td>PostToolUse</td><td>3</td><td>every write</td><td><span class="tag keep">Keep</span></td></tr>
+<tr><td>Notification</td><td>1</td><td>ntfy push</td><td><span class="tag keep">Keep</span></td></tr>
+</table>
+</div>
+
+<div class="card t">
+  <h3>Three concrete hook defects</h3>
+  <p><b>block_desktop_writes.py is wired twice</b> in PreToolUse. It runs on every tool call, twice, for no added protection.</p>
+  <p><b>15 hook scripts sit on disk unwired</b>, including <code>kid_mode_gate.py</code>, <code>model_fit_gate.py</code>
+  and <code>ultracode_default.py</code>. Two were deliberately unwired and documented. The rest are ambiguous,
+  and an unwired gate reads as a live gate to anyone scanning the folder.</p>
+  <p><b>16 Stop hooks is a serial chain</b> on every single turn end. Each one is a Python interpreter start.</p>
+  <div class="ev">PreToolUse duplicate:  block_desktop_writes.py  (positions 3 and 9)
+Unwired on disk:  kid_mode_gate, model_fit_gate, ultracode_default,
+  no_idle_stop_gate, produce_dont_just_report_gate, quit_gate_wrapper,
+  pre_ship_voice_check, fresh_eyes_verify, wire_produce_gate, adg_old,
+  fraud_eval_prompt, trim_memory_index, statusline, 2 test files</div>
+</div>
+
+<h2><span class="n">05</span>What is genuinely healthy</h2>
+<p class="lede">Cuts are only credible if the audit also says what to leave alone.</p>
+
+<div class="card s">
+  <h3>fifty-gates is well built</h3>
+  <p>63 gates defined, and the runner iterates the definition table generically,
+  so <b>all 63 actually execute</b>. I checked this specifically because 27 gate IDs
+  never appear by name in the runner, which looks like a gap until you read the loop.
+  No cut recommended. The folder name understates it by 13.</p>
+  <div class="ev">gates defined in gates_def.py: 63
+run_gates.py iterates the def table generically: True
+→ all 63 execute; the 27 unnamed ones have no special-case branch</div>
+</div>
+
+<div class="card s">
+  <h3>The core behavioral gates earn their keep</h3>
+  <p>The rules about grounding claims, never deleting, attributing stems, verifying live URLs
+  and batching tool calls are the ones that show up repeatedly in the transcripts as real corrections.
+  <b>Keep every one of them.</b> The bloat is in the long tail of single-incident captures around them.</p>
+</div>
+
+<div class="card s">
+  <h3>Memory hygiene is better than it looks</h3>
+  <p>Only 2 notes of 900 are orphaned from both indexes. The indexing discipline holds.
+  The problem is volume and staleness rather than structure.</p>
+</div>
+
+<h2><span class="n">06</span>The proposal, ranked by payoff</h2>
+
+<div class="scroll">
+<table>
+<tr><th>#</th><th>Action</th><th>Recovers</th><th>Risk</th><th>Effort</th></tr>
+<tr><td>1</td><td><b>Archive ~140 never-invoked skills</b> to <code>skills-archive/</code></td><td>~20,000 tok / turn</td><td>Low, reversible by moving folders back</td><td>15 min</td></tr>
+<tr><td>2</td><td><b>Cap every SKILL.md description at 200 chars</b></td><td>~4,000 tok / turn</td><td>Low, triggering improves when descriptions sharpen</td><td>1 hr</td></tr>
+<tr><td>3</td><td><b>Cut MEMORY.md to under 20 KB</b> so it stops truncating</td><td>Full index visibility</td><td>None, POINTERS.md keeps the detail</td><td>45 min</td></tr>
+<tr><td>4</td><td><b>Fix the 7 most-cited dead paths</b>, starting with <code>~/MAP.md</code></td><td>Wasted turns</td><td>None</td><td>30 min</td></tr>
+<tr><td>5</td><td><b>Rewrite the Vercel majority</b> so the live host wins the vote</td><td>Wrong-host deploys</td><td>None</td><td>30 min</td></tr>
+<tr><td>6</td><td><b>Move 143 self-declared-retired notes</b> to MEMORY_ARCHIVE</td><td>Retrieval noise</td><td>None, archive stays greppable</td><td>20 min</td></tr>
+<tr><td>7</td><td><b>Merge 3 CLAUDE.md files into one</b></td><td>~2,000 tok / session</td><td>Low</td><td>30 min</td></tr>
+<tr><td>8</td><td><b>Delete the duplicate block_desktop_writes hook</b></td><td>20,895 wasted process starts</td><td>None</td><td>2 min</td></tr>
+<tr><td>9</td><td><b>Collapse 16 Stop hooks into one runner</b></td><td>Turn latency</td><td>Medium, needs care to keep every check</td><td>2 hr</td></tr>
+<tr><td>10</td><td><b>Move 249 .bak files</b> out of <code>.claude</code></td><td>10 MB, folder clarity</td><td>None</td><td>10 min</td></tr>
+</table>
+</div>
+
+<div class="note">
+  <b>Doing only items 1, 3 and 8 recovers about 20,000 tokens per turn and makes your own index readable,
+  in under an hour and a half, with nothing deleted.</b> That is the whole recommendation if you want one line of it.
+</div>
+
+<h2><span class="n">07</span>What I did not touch</h2>
+<div class="card">
+  <p>No files were moved, archived, edited or deleted in producing this audit.
+  Every number above came from reading. <b>The cuts are a proposal waiting on your word,</b>
+  and the never-delete rule governs all of them, so every action listed is a move into an archive folder.</p>
+</div>
+
+<footer>
+  Built 2026-09-09 from direct measurement of <code>~/.claude/</code>, <code>~/CLAUDE.md</code>,
+  <code>~/.claude/CLAUDE.md</code>, the 900-note memory store, and 134 session transcripts totalling 20,895 tool calls.
+  Method: filesystem parse plus JSONL transcript scan. No sampling.
+</footer>
+
+</div>
+</body>
+</html>
