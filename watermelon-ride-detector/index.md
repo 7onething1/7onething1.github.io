@@ -117,5 +117,5 @@ from all four project tool folders. A rebuilt absolute-threshold detector over t
 ## On disk
 
 - Ledger, entries F28 to F33: `~/Projects/_outputs/zappa-watermelon-hat-snare-repair/out/FINDINGS.md`
-- Scripts: `~/Projects/_outputs/zappa-watermelon-ride-detector/tools/`
+- Scripts (16): `~/Projects/_outputs/zappa-watermelon-ride-detector/tools/`
 - Measurements: `~/Projects/_outputs/zappa-watermelon-ride-detector/data/*.json`
