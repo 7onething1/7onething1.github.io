@@ -55,7 +55,9 @@ bar 10, predicting 240.33 s against 238.14 s of audio.
 | s412176 | 122 | no | 0.5888 | 0.4969 | **+0.0918** | 0.4557 | **+0.1330** |
 | s187082 | 151 | yes | 0.3011 | 0.3003 | +0.0008 | 0.2958 | +0.0053 |
 
-The separation is 115x on the reversed-audio gap.
+s412176 beats its own reversed control by 0.0918 and s187082 differs from its reversed control by
+0.0008. The raw gaps carry the finding, so no ratio is taken between them; a near-zero denominator
+would manufacture a large number without adding evidence.
 
 ## 5. Verdict on the five instants
 
@@ -86,20 +88,82 @@ impossible stacks belong to the AI tab, not to the performance.
 | Toms | 388 | 0.1694 | 0.1041 | +3.51 | 10.6% | 2.1x |
 | Cymbals | 182 | 0.1844 | 0.0896 | +1.95 | 6.6% | 1.3x |
 
-Four lanes clear the reference-class threshold. The cymbal lane sits under the 1.5x floor, so its
-182 events stay unsettled by this stem pack.
+Four lanes clear the reference-class threshold at the lane level. Read that precisely: these
+numbers show significant aggregate correspondence between the written lane and its separated stem,
+and individual questionable events remain subject to direct stem verification. A lane statistic
+cannot certify a single note. Only 20.3 percent of written snares and between 10.6 and 13.9 percent
+of the other written events meet the support criterion.
 
-## 7. Settled, open, next
+The cymbal lane sits under the 1.5x floor, so all 193 written cymbal events were carried into a
+per-event pass. The 182 in the table is the subset that maps inside the recording; the other 11 fall
+past the end of the audio.
 
-**Settled.** The five instants are an artifact of a non-matching AI tab. s412176 tracks this
-recording, carries zero playability violations, and its kick, snare, hat and tom lanes are
-confirmed.
+## 7. The per-event cymbal pass
 
-**Open.** The 182 cymbal events in s412176 need a per-event fresh-attack test with a leakage gate.
-Whether s187082 describes some other Camarillo Brillo performance is untested, because only this
-recording was available.
+All 193 written cymbal events went through an event-level pass. Timestamps were tightened first: 546
+kick and snare landmarks gave a sliding local correction that pulled the median residual from -36.0 ms
+to -1.2 ms, with 67 percent of landmarks inside 50 ms.
 
-**Next.** Run the per-event cymbal pass on s412176 across all 182 events, one-to-one against the
-Cymbals stem with the Hi-Hat stem as the competing explanation. Any edit goes onto a copy.
+The per-event verdict is threshold-dominated, so none of it gets promoted. A null drawn from quiet
+gaps returned 28.5 percent supported. A null drawn from the eighth-note grid returned 9.3 percent
+supported. Same events, same audio, same detector. Both nulls are contaminated, one by silence and one
+by unwritten ride playing.
+
+### What survives without a threshold
+
+| Detector delta | Attacks in stem | Written | Matched 1:1 | Audio without notation | Written without support |
+|---|---|---|---|---|---|
+| 0.010 | 856 | 182 | 120 | 736 | 62 |
+| 0.020 | 673 | 182 | 103 | 570 | 79 |
+| 0.030 | 555 | 182 | 90 | 465 | 92 |
+| 0.050 | 409 | 182 | 74 | 335 | 108 |
+| 0.080 | 302 | 182 | 64 | 238 | 118 |
+| 0.120 | 229 | 182 | 54 | 175 | 128 |
+
+At every setting the stem carries more cymbal attacks than the tab writes. The direction is omission
+rather than fabrication, and it does not depend on the threshold.
+
+### Local contrast, every lane
+
+For each written note, compare its own stem's novelty against the other seven eighth positions in the
+same bar. A random position in the same bar is the null, so tempo, density and section loudness cancel.
+
+| Lane | Notes | Mean within-bar rank | Null | Null p99 | z | Event-level verdict |
+|---|---|---|---|---|---|---|
+| Snare | 335 | 0.550 | 0.437 | 0.471 | +7.39 | stem can adjudicate |
+| Kick | 439 | 0.517 | 0.436 | 0.470 | +5.71 | stem can adjudicate |
+| Toms | 388 | 0.466 | 0.435 | 0.466 | +2.16 | cannot, at the p99 bar |
+| Cymbals | 182 | 0.445 | 0.437 | 0.488 | +0.38 | cannot adjudicate |
+| Hi-hat | 398 | 0.442 | 0.439 | 0.472 | +0.24 | cannot adjudicate |
+
+Snare and kick pass at z above five, so the test works. Section 6 found significant aggregate
+correspondence on four lanes. At event level only two of those four survive. The same stem pack that
+can settle an individual snare stroke cannot settle an individual ride stroke.
+
+## 8. The investigation queue
+
+Every in-range cymbal event was cut to audio. 178 events produced 356 files, an isolated Cymbals
+excerpt and a full-kit excerpt each, windowed 0.45 s before the written instant and 0.75 s after,
+ranked worst first by within-bar novelty rank.
+
+Nine of the fifteen worst are a crash written on beat one of a bar between 69 and 102, which is a
+recognisable machine habit rather than a drummer's choice. That pattern is a lead worth hearing,
+never a licence to delete.
+
+Queue and audio: `~/Projects/_outputs/zappa-camarillo-brillo/cymbal_pass/`
+
+## 9. Settled, open, next
+
+**Settled.** The five instants are an artifact of a non-matching AI tab. s412176 tracks this recording
+and carries zero playability violations. Its kick and snare lanes hold up at event level, at z of
++5.71 and +7.39 against a matched within-bar null.
+
+**Open.** The 193 cymbal events stay unsettled, and the pass established why rather than guessing.
+This separated Cymbals stem has no event-level discriminating power on this recording, proven by a
+test that snare and kick both pass. Hi-hat and toms inherit the same limit. Whether s187082 describes
+some other Camarillo Brillo performance is untested, because only this recording was available.
+
+**Next.** Listen through the ranked queue, starting with the nine crashes written on beat one between
+bars 69 and 102. The statistic has done what it can do here. Any edit goes onto a copy.
 
 Evidence under `~/Projects/_outputs/zappa-camarillo-brillo/`.

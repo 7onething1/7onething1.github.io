@@ -163,8 +163,10 @@ kick, hat and snare.</p>
 </table>
 </div>
 <div class="card good">
-  <p>The separation between the two is <span class="big">115&times;</span> on the reversed-audio
-  gap. <strong>s412176 tracks this performance and s187082 does not.</strong> The drift curve for
+  <p><strong>s412176 beats its own reversed control by <span class="big">0.0918</span> and
+  s187082 differs from its reversed control by <span class="big">0.0008</span>.</strong>
+  The raw gaps carry the finding on their own, so no ratio is taken between them; a near-zero
+  denominator would manufacture a large number without adding evidence. The drift curve for
   s412176 also behaves like a musician rather than like noise, wandering to minus a quarter second
   through bars 12 to 32 and returning to zero across bars 40 to 64.</p>
 </div>
@@ -200,34 +202,121 @@ stem for support. The chance rate is 0.05 by construction, so enrichment is the 
 <div class="scroll">
 <table>
 <tr><th>Lane</th><th>Written notes</th><th>Mean support</th><th>Shift null</th><th>z</th><th>Supported</th><th>Enrichment</th><th>Reading</th></tr>
-<tr><td>Snare</td><td class="num">335</td><td class="num">0.1653</td><td class="num">0.0623</td><td class="num">+6.77</td><td class="num">20.3%</td><td class="num">4.1&times;</td><td><span class="tag pass">confirmed</span></td></tr>
-<tr><td>Kick</td><td class="num">439</td><td class="num">0.2777</td><td class="num">0.1572</td><td class="num">+6.59</td><td class="num">13.9%</td><td class="num">2.8&times;</td><td><span class="tag pass">confirmed</span></td></tr>
-<tr><td>Hi-hat</td><td class="num">398</td><td class="num">0.2421</td><td class="num">0.1223</td><td class="num">+4.02</td><td class="num">13.1%</td><td class="num">2.6&times;</td><td><span class="tag pass">confirmed</span></td></tr>
-<tr><td>Toms</td><td class="num">388</td><td class="num">0.1694</td><td class="num">0.1041</td><td class="num">+3.51</td><td class="num">10.6%</td><td class="num">2.1&times;</td><td><span class="tag pass">confirmed</span></td></tr>
+<tr><td>Snare</td><td class="num">335</td><td class="num">0.1653</td><td class="num">0.0623</td><td class="num">+6.77</td><td class="num">20.3%</td><td class="num">4.1&times;</td><td><span class="tag pass">aggregate</span></td></tr>
+<tr><td>Kick</td><td class="num">439</td><td class="num">0.2777</td><td class="num">0.1572</td><td class="num">+6.59</td><td class="num">13.9%</td><td class="num">2.8&times;</td><td><span class="tag pass">aggregate</span></td></tr>
+<tr><td>Hi-hat</td><td class="num">398</td><td class="num">0.2421</td><td class="num">0.1223</td><td class="num">+4.02</td><td class="num">13.1%</td><td class="num">2.6&times;</td><td><span class="tag pass">aggregate</span></td></tr>
+<tr><td>Toms</td><td class="num">388</td><td class="num">0.1694</td><td class="num">0.1041</td><td class="num">+3.51</td><td class="num">10.6%</td><td class="num">2.1&times;</td><td><span class="tag pass">aggregate</span></td></tr>
 <tr><td>Cymbals</td><td class="num">182</td><td class="num">0.1844</td><td class="num">0.0896</td><td class="num">+1.95</td><td class="num">6.6%</td><td class="num">1.3&times;</td><td><span class="tag unres">below the bar</span></td></tr>
 </table>
 </div>
-<p>Four lanes clear the reference-class threshold. The cymbal lane sits at 1.3&times;, under the
-1.5&times; floor, so <strong>the 182 written cymbal events in s412176 remain unsettled by this stem
-pack</strong>. Broadband cymbal texture is the known weak class for source separation, and this
+<p>Four lanes clear the reference-class threshold at the lane level. Read that precisely:
+these numbers show <strong>significant aggregate correspondence between the written lane and its
+separated stem, and individual questionable events remain subject to direct stem verification.</strong>
+A lane statistic cannot certify a single note. Only 20.3 percent of written snares and between 10.6
+and 13.9 percent of the other written events meet the support criterion, so the statistic establishes
+identity, guides navigation, and ranks suspicious passages. It does not stand in for hearing the
+attack at the written instant.</p>
+<p>The cymbal lane sits at 1.3&times;, under the 1.5&times; floor, so
+<strong>all 193 written cymbal events were carried into a per-event pass</strong>, reported in
+section 7. The 182 in the table above is the subset that maps inside the recording; the other 11 fall
+past the end of the audio, which is the tab's 240.33 s prediction overrunning a 238.14 s file. Broadband cymbal texture is the known weak class for source separation, and this
 measurement behaves the way that literature predicts.</p>
 
-<h2>7. Settled, open, next</h2>
+<h2>7. The per-event cymbal pass</h2>
+<p>The lane statistic in section 6 was never going to settle a single note, so all
+<strong>193 written cymbal events</strong> went through an event-level pass. Timestamps were tightened
+first: 546 kick and snare landmarks gave a sliding local correction that pulled the median residual
+from <code>-36.0 ms</code> to <code>-1.2 ms</code>, with 67 percent of landmarks inside 50 ms.</p>
+
+<div class="card warn">
+<p><strong>The per-event verdict is threshold-dominated, so none of it gets promoted.</strong>
+Built against a null drawn from quiet gaps the pass returned 28.5 percent supported. Built against a
+null drawn from the eighth-note grid it returned 9.3 percent supported. Same events, same audio, same
+detector. A number that moves that far on null construction alone is not a verdict, and both nulls
+are contaminated: the gap null samples silence, and the grid null samples positions where the ride is
+audibly playing without being written.</p>
+</div>
+
+<h3>What survives without a threshold</h3>
+<div class="scroll">
+<table>
+<tr><th>Detector delta</th><th>Attacks found in the stem</th><th>Written</th><th>Matched 1:1</th><th>Audio without notation</th><th>Written without support</th></tr>
+<tr><td class="num">0.010</td><td class="num">856</td><td class="num">182</td><td class="num">120</td><td class="num">736</td><td class="num">62</td></tr>
+<tr><td class="num">0.020</td><td class="num">673</td><td class="num">182</td><td class="num">103</td><td class="num">570</td><td class="num">79</td></tr>
+<tr><td class="num">0.030</td><td class="num">555</td><td class="num">182</td><td class="num">90</td><td class="num">465</td><td class="num">92</td></tr>
+<tr><td class="num">0.050</td><td class="num">409</td><td class="num">182</td><td class="num">74</td><td class="num">335</td><td class="num">108</td></tr>
+<tr><td class="num">0.080</td><td class="num">302</td><td class="num">182</td><td class="num">64</td><td class="num">238</td><td class="num">118</td></tr>
+<tr><td class="num">0.120</td><td class="num">229</td><td class="num">182</td><td class="num">54</td><td class="num">175</td><td class="num">128</td></tr>
+</table>
+</div>
+<p>At every setting the stem carries more cymbal attacks than the tab writes, and the excess never
+falls below 175. <strong>The direction of the disagreement is omission rather than fabrication</strong>,
+and that direction does not depend on where the threshold is placed.</p>
+
+<h3>Local contrast, and what it says about every lane</h3>
+<p>Second test with no free parameter. For each written note, compare its own stem's novelty at that
+instant against the other seven eighth positions inside the same bar. A random position in the same
+bar is the null, so tempo, density and section loudness all cancel.</p>
+<div class="scroll">
+<table>
+<tr><th>Lane</th><th>Notes</th><th>Mean within-bar rank</th><th>Null</th><th>Null p99</th><th>z</th><th>Event-level verdict</th></tr>
+<tr><td>Snare</td><td class="num">335</td><td class="num">0.550</td><td class="num">0.437</td><td class="num">0.471</td><td class="num">+7.39</td><td><span class="tag pass">stem can adjudicate</span></td></tr>
+<tr><td>Kick</td><td class="num">439</td><td class="num">0.517</td><td class="num">0.436</td><td class="num">0.470</td><td class="num">+5.71</td><td><span class="tag pass">stem can adjudicate</span></td></tr>
+<tr><td>Toms</td><td class="num">388</td><td class="num">0.466</td><td class="num">0.435</td><td class="num">0.466</td><td class="num">+2.16</td><td><span class="tag unres">cannot, at the p99 bar</span></td></tr>
+<tr><td>Cymbals</td><td class="num">182</td><td class="num">0.445</td><td class="num">0.437</td><td class="num">0.488</td><td class="num">+0.38</td><td><span class="tag fail">cannot adjudicate</span></td></tr>
+<tr><td>Hi-hat</td><td class="num">398</td><td class="num">0.442</td><td class="num">0.439</td><td class="num">0.472</td><td class="num">+0.24</td><td><span class="tag fail">cannot adjudicate</span></td></tr>
+</table>
+</div>
+<div class="card good">
+<p><strong>Snare and kick pass at z above five, so the test itself works.</strong> Cymbals, hi-hat and
+toms fail it. Written cymbal positions are statistically indistinguishable from randomly chosen
+positions in the same bar, and half of them sit in the bottom half of their own bar's novelty.</p>
+</div>
+<div class="card warn">
+<p><strong>This is the measurement that separates a lane claim from a note claim.</strong>
+Section 6 found significant aggregate correspondence on four lanes. At event level only two of those
+four survive. The same stem pack that can settle an individual snare stroke cannot settle an
+individual ride stroke, and no aggregate enrichment figure would have exposed that.</p>
+</div>
+
+<h2>8. The investigation queue, built to be listened to</h2>
+<p>The statistic points and the ear decides, so every in-range cymbal event was cut to audio.
+178 events produced 356 files, an isolated Cymbals excerpt and a full-kit excerpt each, windowed
+0.45 s before the written instant and 0.75 s after. They are ranked worst first by within-bar novelty
+rank, so the most suspicious writing sits at the top.</p>
+<div class="scroll">
+<table>
+<tr><th>Rank</th><th>Bar</th><th>Beat</th><th>Written</th><th>Time</th><th>Novelty</th><th>Bar median</th></tr>
+<tr><td class="num">1</td><td class="num">72</td><td class="num">1</td><td>crash</td><td class="num">140.702 s</td><td class="num">0.01</td><td class="num">2.50</td></tr>
+<tr><td class="num">3</td><td class="num">88</td><td class="num">1</td><td>crash</td><td class="num">172.392 s</td><td class="num">0.03</td><td class="num">6.54</td></tr>
+<tr><td class="num">4</td><td class="num">94</td><td class="num">1</td><td>crash</td><td class="num">184.311 s</td><td class="num">0.03</td><td class="num">11.79</td></tr>
+<tr><td class="num">6</td><td class="num">82</td><td class="num">1</td><td>crash</td><td class="num">160.640 s</td><td class="num">0.09</td><td class="num">15.14</td></tr>
+<tr><td class="num">9</td><td class="num">98</td><td class="num">1</td><td>crash</td><td class="num">192.393 s</td><td class="num">0.13</td><td class="num">32.69</td></tr>
+</table>
+</div>
+<p>Nine of the fifteen worst are a crash written on beat one of a bar between 69 and 102, which is a
+recognisable machine habit rather than a drummer's choice. That pattern is a lead worth hearing,
+never a licence to delete. Queue and audio sit at
+<code>~/Projects/_outputs/zappa-camarillo-brillo/cymbal_pass/</code>.</p>
+
+<h2>9. Settled, open, next</h2>
 <div class="card good">
 <p><strong>Settled.</strong> The five instants are an artifact of a non-matching AI tab.
-s412176 is the Camarillo Brillo tab that tracks this recording, it carries zero playability
-violations, and its kick, snare, hat and tom lanes are confirmed against the stems.</p>
+s412176 is the Camarillo Brillo tab that tracks this recording, and it carries zero playability
+violations. Its kick and snare lanes hold up at event level, at z of +5.71 and +7.39 against a
+matched within-bar null.</p>
 </div>
 <div class="card hold">
-<p><strong>Open.</strong> The 182 cymbal events in s412176 sit at 1.3&times; enrichment and need a
-per-event fresh-attack test with a leakage gate before any of them can be called right or wrong.
+<p><strong>Open.</strong> The 193 cymbal events stay unsettled, and the pass established why rather
+than guessing. This separated Cymbals stem has no event-level discriminating power on this recording,
+proven by a test that snare and kick both pass. The hi-hat and tom lanes inherit the same limit.
 Whether s187082 faithfully describes some other Camarillo Brillo performance is untested here,
 because only this recording was available.</p>
 </div>
 <div class="card">
-<p><strong>Next.</strong> Run the per-event cymbal pass on s412176 across all 182 events, using
-one-to-one attack matching against the Cymbals stem with the Hi-Hat stem as the competing
-explanation. Any edit that follows goes onto a copy, never onto the original community tab.</p>
+<p><strong>Next.</strong> Listen through the ranked queue, starting with the nine crashes written on
+beat one between bars 69 and 102. The statistic has done what it can do here, so the remaining
+judgement is auditory. Any edit that follows goes onto a copy, never onto the original community tab.</p>
 </div>
 
 <footer>
