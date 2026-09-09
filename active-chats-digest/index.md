@@ -1,12 +1,12 @@
 # Active chats digest
 
-Built 2026-09-09 17:35 CDT. 17 chats read from transcripts.
+Built 2026-09-09 18:06 CDT. 16 chats read from transcripts.
 
 ## Headline
 
-All 17 chats ended on a gate block, 0 on a message from Brandon.
-0 need a Brandon action. 9 are past the 400-turn ceiling.
-Totals: 10,986 assistant replies, 105 MB of transcript.
+All 16 chats ended on a gate block, 0 on a message from Brandon.
+0 need a Brandon action. 8 are past the 400-turn ceiling.
+Totals: 10,316 assistant replies, 98 MB of transcript.
 
 ## Do yourself
 
@@ -33,27 +33,7 @@ Totals: 10,986 assistant replies, 105 MB of transcript.
 
 **Finish today.** New since the last hand pass. Open the chat and give it a read.
 
-### GP dataset corrections and verification  (23.9 hours quiet, 391 replies)
-**Goal.** Not summarised by hand yet. Last input on record: Stop hook feedback: [python3 /Users/brandonchavez/.claude/skills/fifty-gates/run_gates.py]: fifty-gates BLOCK: 1 hard gate(s) of 63 fired. G28 literal-ask-unaddressed: the named target never
-
-- All 15 confirmed by eye. Not one panel shows a struck note at the written instant.
-- G49's substance was real: I had rendered **5** of the sixteen instants and removed **15** notes. So I looked at every one. ## 🟩 All fifteen removals,.
-- G28 is right: he gave standing instructions and my reply never addressed them. Writing the handoff myself rather than raising it as a question.
-- G28 caught that my last reply never addressed the standing instructions you typed with the step-3 request. Addressing them by action rather than.
-
-**Finish today.** New since the last hand pass. Open the chat and give it a read.
-
-### Zappa drum transcription skills  (23.7 hours quiet, 468 replies)
-**Goal.** Not summarised by hand yet. Last input on record: Stop hook feedback: [python3 /Users/brandonchavez/.claude/skills/fifty-gates/run_gates.py]: fifty-gates BLOCK: 1 hard gate(s) of 63 fired. G28 literal-ask-unaddressed: the named target never
-
-- The pre-flight caught a units error in my own comparison. Redoing it in consistent units.
-- Clean answer in consistent units, and it corrects what I told the peer. Recording it.
-- 🟩 **I ran the peer's pre-flight instead of filing it as advice, and it caught a real error in my own comparison** - 🟩 **KIG-M002, 21 hand claps: Note.
-- 🟩 **On G44, measured fresh this turn on both files: the staccato side is empty** - 🟩 **`<Staccato` count is 0** in the published `s6862054` and in Ben.
-
-**Finish today.** New since the last hand pass. Open the chat and give it a read.
-
-### KIG step 3 state  (19.8 hours quiet, 377 replies)
+### KIG step 3 state  (20.3 hours quiet, 377 replies)
 **Goal.** Not summarised by hand yet. Last input on record: Stop hook feedback: [python3 ~/.claude/hooks/no_stop_gate_hook.py]: no_stop_gate BLOCK: the draft reply failed one or more of the 50 gates. no_stop_gate: 50 gates, 1 failed, 1 not applicable
 
 - The trigger is the phrase "could not", about prose. There is a real remainder underneath it though: two selftesting modules nobody invokes are in the.
@@ -63,7 +43,7 @@ Totals: 10,986 assistant replies, 105 MB of transcript.
 
 **Finish today.** New since the last hand pass. Open the chat and give it a read.
 
-### Transcription repair system research  (8.3 hours quiet, 214 replies)
+### Transcription repair system research  (8.8 hours quiet, 214 replies)
 **Goal.** Not summarised by hand yet. Last input on record: Stop hook feedback: [python3 /Users/brandonchavez/.claude/skills/fifty-gates/run_gates.py]: fifty-gates BLOCK: 1 hard gate(s) of 63 fired. G28 literal-ask-unaddressed: the named target never
 
 - Updating the showcase with the new finding and redeploying.
@@ -73,7 +53,7 @@ Totals: 10,986 assistant replies, 105 MB of transcript.
 
 **Finish today.** New since the last hand pass. Open the chat and give it a read.
 
-### Jill added to prayer networks  (7.4 hours quiet, 135 replies)
+### Jill added to prayer networks  (7.9 hours quiet, 135 replies)
 **Goal.** Not summarised by hand yet. Last input on record: Stop hook feedback: [python3 /Users/brandonchavez/.claude/skills/fifty-gates/run_gates.py]: fifty-gates BLOCK: 1 hard gate(s) of 63 fired. G28 literal-ask-unaddressed: the named target never
 
 - Deploy pushed. Polling for the live 200 and fixing the queue syntax.
@@ -83,7 +63,7 @@ Totals: 10,986 assistant replies, 105 MB of transcript.
 
 **Finish today.** New since the last hand pass. Open the chat and give it a read.
 
-### Watermelon chat audio drift  (6.8 hours quiet, 630 replies)
+### Watermelon chat audio drift  (7.3 hours quiet, 630 replies)
 **Goal.** Not summarised by hand yet. Last input on record: Stop hook feedback: [python3 ~/.claude/hooks/no_stop_gate_hook.py]: no_stop_gate BLOCK: the draft reply failed one or more of the 50 gates. no_stop_gate: 50 gates, 1 failed, 1 not applicable
 
 - Got the full answer. Saving it and folding the design into the queue item.
@@ -93,7 +73,7 @@ Totals: 10,986 assistant replies, 105 MB of transcript.
 
 **Finish today.** New since the last hand pass. Open the chat and give it a read.
 
-### Restore archived item  (6.8 hours quiet, 97 replies)
+### Restore archived item  (7.3 hours quiet, 97 replies)
 **Goal.** Not summarised by hand yet. Last input on record: Stop hook feedback: [python3 /Users/brandonchavez/.claude/skills/fifty-gates/run_gates.py]: fifty-gates BLOCK: 1 hard gate(s) of 63 fired. G28 literal-ask-unaddressed: the named target never
 
 - 🟩 **Phases I ran: (1) date every archive event, (2) read what that session held, (3) restore the record.** 🟩 **What was just archived** - 🟩 **"Zappa.
@@ -103,7 +83,7 @@ Totals: 10,986 assistant replies, 105 MB of transcript.
 
 **Finish today.** New since the last hand pass. Open the chat and give it a read.
 
-### Songsterr editor chat explanation  (6.1 hours quiet, 2367 replies)
+### Songsterr editor chat explanation  (6.6 hours quiet, 2367 replies)
 **Goal.** Not summarised by hand yet. Last input on record: Stop hook feedback: [python3 ~/.claude/hooks/no_stop_gate_hook.py]: no_stop_gate BLOCK: the draft reply failed one or more of the 50 gates. no_stop_gate: 50 gates, 2 failed, 1 not applicable
 
 - The handoff is written and current: `/Users/brandonchavez/Library/Mobile Documents/com~apple~CloudDocs/SVG/[ZAPPA-OVERNITE-DINAH-MOE-HUMM-2026-09-09].
@@ -113,7 +93,7 @@ Totals: 10,986 assistant replies, 105 MB of transcript.
 
 **Finish today.** New since the last hand pass. Open the chat and give it a read.
 
-### Chat hard gate workflow  (4.7 hours quiet, 516 replies)
+### Chat hard gate workflow  (5.2 hours quiet, 516 replies)
 **Goal.** Not summarised by hand yet. Last input on record: Stop hook feedback: [python3 /Users/brandonchavez/.claude/hooks/findings_chatgpt_gate.py]: findings_chatgpt_gate BLOCK: this reply reports findings and it is not covered by a ChatGPT check t
 
 - The intro alone gives 0.99, so the transcript text differs more than I assumed. Reading what was actually captured.
@@ -123,7 +103,7 @@ Totals: 10,986 assistant replies, 105 MB of transcript.
 
 **Finish today.** New since the last hand pass. Open the chat and give it a read.
 
-### Guitar leakage regression pipeline  (4.7 hours quiet, 493 replies)
+### Guitar leakage regression pipeline  (5.2 hours quiet, 493 replies)
 **Goal.** Not summarised by hand yet. Last input on record: Stop hook feedback: [python3 ~/.claude/hooks/no_stop_gate_hook.py]: no_stop_gate BLOCK: the draft reply failed one or more of the 50 gates. no_stop_gate: 50 gates, 2 failed, 1 not applicable
 
 - All four gates pass on a dry run. Sending and recording, then posting that exact text.
@@ -133,7 +113,7 @@ Totals: 10,986 assistant replies, 105 MB of transcript.
 
 **Finish today.** New since the last hand pass. Open the chat and give it a read.
 
-### Gates, rules, and skills bloat review  (4.1 hours quiet, 612 replies)
+### Gates, rules, and skills bloat review  (4.6 hours quiet, 612 replies)
 **Goal.** Not summarised by hand yet. Last input on record: Stop hook feedback: [python3 /Users/brandonchavez/.claude/hooks/findings_chatgpt_gate.py]: findings_chatgpt_gate BLOCK: this reply reports findings and it is not covered by a ChatGPT check t
 
 - Both of your complaints are one number. 🔴 **94.6 percent of page writes are invisible to the gate.** Of 305 writes into `drwu-htmls/public/` today,.
@@ -143,7 +123,7 @@ Totals: 10,986 assistant replies, 105 MB of transcript.
 
 **Finish today.** New since the last hand pass. Open the chat and give it a read.
 
-### Camirillo Brillo startup  (4.1 hours quiet, 608 replies)
+### Camirillo Brillo startup  (4.6 hours quiet, 608 replies)
 **Goal.** Not summarised by hand yet. Last input on record: Stop hook feedback: [python3 /Users/brandonchavez/.claude/skills/fifty-gates/run_gates.py]: fifty-gates BLOCK: 1 hard gate(s) of 63 fired. G20 turn-ceiling-400: 605 assistant turns with no h
 
 - The gate file changed on disk. Rather than keep guessing, I'll run the gate against my draft directly.
@@ -153,7 +133,7 @@ Totals: 10,986 assistant replies, 105 MB of transcript.
 
 **Finish today.** New since the last hand pass. Open the chat and give it a read.
 
-### Gates, rules, and skills bloat review  (3.1 hours quiet, 336 replies)
+### Gates, rules, and skills bloat review  (3.6 hours quiet, 336 replies)
 **Goal.** Not summarised by hand yet. Last input on record: Stop hook feedback: [python3 /Users/brandonchavez/.claude/hooks/completion_stop_hook.py]: completion_controller BLOCK: the requested scope is not complete. contract sc-04047d3928 stop_rule: 
 
 - A new item on a hook defect. Let me verify it myself before deciding.
@@ -163,7 +143,7 @@ Totals: 10,986 assistant replies, 105 MB of transcript.
 
 **Finish today.** New since the last hand pass. Open the chat and give it a read.
 
-### [HANDOFF 2026-09-08] Watermelon s6857183 drift settled, tempo map live  (3.0 hours quiet, 545 replies)
+### [HANDOFF 2026-09-08] Watermelon s6857183 drift settled, tempo map live  (3.5 hours quiet, 545 replies)
 **Goal.** Not summarised by hand yet. Last input on record: Stop hook feedback: [python3 /Users/brandonchavez/.claude/skills/fifty-gates/run_gates.py]: fifty-gates BLOCK: 1 hard gate(s) of 63 fired. G28 literal-ask-unaddressed: the named target never
 
 - Your three-state design for mixed rows, and the per-line validation you want after every rewrite, are both answered and neither needs the full block.
@@ -173,12 +153,22 @@ Totals: 10,986 assistant replies, 105 MB of transcript.
 
 **Finish today.** New since the last hand pass. Open the chat and give it a read.
 
-### [keep-it-greasey-drum-handoff-2026-09-08]  (43 minutes quiet, 2756 replies)
+### [keep-it-greasey-drum-handoff-2026-09-08]  (1.2 hours quiet, 2756 replies)
 **Goal.** Not summarised by hand yet. Last input on record: Stop hook feedback: [python3 /Users/brandonchavez/.claude/hooks/findings_chatgpt_gate.py]: findings_chatgpt_gate BLOCK: this reply reports findings and it is not covered by a ChatGPT check t
 
 - Six of six, verified clean against CloudFront.** Fraud gate PASS.
 - Six of six, verified clean against CloudFront.** Fraud gate PASS.
 - 6 of 6 tabs verified clean against CloudFront.** Fraud gate PASS.
 - 6 of 6 tabs verified clean against CloudFront.** Fraud gate PASS, findings check recorded.
+
+**Finish today.** New since the last hand pass. Open the chat and give it a read.
+
+### Watermelon transcription drum comparison  (0 minutes quiet, 189 replies)
+**Goal.** Not summarised by hand yet. Last input on record: Stop hook feedback: [python3 /Users/brandonchavez/.claude/hooks/completion_stop_hook.py]: completion_controller BLOCK: the requested scope is not complete. contract sc-a7f5ee0c28 stop_rule: 
+
+- The composer has two unrelated files attached from a previous session. Let me look before sending, since that would upload them.
+- No removable attachment chip exists in the composer, which suggests that "Files" card is a separate panel. Let me confirm before sending.
+- The two file entries sit outside the composer and carry no remove button, so they are a separate panel rather than attachments. Sending.
+- Landed. ChatGPT titled it "Separator Failure Analysis" and is answering. Let me record the check and get DrumSep's status.
 
 **Finish today.** New since the last hand pass. Open the chat and give it a read.
