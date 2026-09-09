@@ -51,10 +51,10 @@ What to buy for better guitar stemming. The problem is separating guitarist 1 fr
 | Option | Cost | Splits two guitars? | Scriptable |
 |---|---|---|---|
 | **Moises Premium, Lead & Rhythm** | $3.99/mo | Yes, by role | app/web only |
-| Music.AI API `Guitar Parts` | pay as you go, Pro $25/mo | listed as rhythm vs solo | yes, REST |
+| Music.AI API `Guitar Parts` | pay as you go, Pro $25/mo | yes, outputs `solo_guitars` / `rhythm_guitars` / `other` | yes, REST |
 | RipX DAW PRO | $149 promo / £198 | guitar as one stem | desktop |
 | AudioShake Indie | from $20/mo | electric vs acoustic only | yes |
 
 Recommendation: buy one month of Moises Premium and run three known Appleseed songs through the Lead & Rhythm model, scored with `channel_asymmetry_check.py`. Four dollars settles whether a role-based model tracks these two players before anything larger gets bought.
 
-Verified: the Music.AI key authenticates and the account holds one workflow, `untitled-workflow-39e99a9`, so no guitar workflow exists yet. Not verified: whether `Guitar Parts` appears in that dashboard, since music.ai/dash showed a login wall.
+Verified: the Music.AI key authenticates and the account holds one workflow, `untitled-workflow-39e99a9`, so no guitar workflow exists yet. The `Guitar Parts` module page declares three outputs, `solo_guitars`, `rhythm_guitars` and `other`. Not verified: whether that module appears in this account's builder, since all three browser bridges redirected music.ai/dash to a login page.
