@@ -121,6 +121,7 @@ footer{margin-top:3rem;border-top:2px solid var(--line);padding-top:1rem;
 <li><a href="#slip">A provenance slip inside the provenance note</a></li>
 <li><a href="#recite">A third recitation slip, and the write-time rule</a></li>
 <li><a href="#queue">Superseded figures, and the queue I never read</a></li>
+<li><a href="#timestamp">A count is a timestamp, and the 329 defect</a></li>
 <li><a href="#files">Files and reproduction</a></li>
 </ol>
 </div>
@@ -489,7 +490,7 @@ footer{margin-top:3rem;border-top:2px solid var(--line);padding-top:1rem;
 <p>A peer session tested the completeness of the 38-id scope list the Zappa program works from. <b>The two headline figures were re-derived here by paging <code>/api/songs</code> directly, not accepted.</b></p>
 <table>
 <tr><th>Measure</th><th>This session</th><th>Peer</th></tr>
-<tr><td>Frank Zappa tabs, <code>artistId</code> 5912</td><td><b>329</b></td><td>329</td></tr>
+<tr><td>Tabs filed under <code>artistId</code> 5912 <b>(see section 14: this is not a count of Zappa tabs)</b></td><td><b>329</b></td><td>329</td></tr>
 <tr><td>of those carrying an <code>instrumentId 1024</code> staff</td><td><b>262</b></td><td>262</td></tr>
 <tr><td>ids the program has been sweeping</td><td>38</td><td>38</td></tr>
 <tr><td><b>never measured</b></td><td><b>230</b></td><td>230</td></tr>
@@ -708,6 +709,26 @@ footer{margin-top:3rem;border-top:2px solid var(--line);padding-top:1rem;
 <tr><td>the <b>gate</b> being complied with</td><td>that one substring clears G20</td></tr>
 </table>
 <div class="good"><b>A queue you are working against and a rule you are complying with are sources too.</b> Recorded in <code>feedback_read_the_source_do_not_grep_it_when_citing_grounding</code>, now <b>98 lines</b>, measured at write time.</div>
+
+<h2 class="s3" id="timestamp">14. A count is a timestamp, and my 329 census carries the same filter defect</h2>
+<h3>The queue disagreement resolves, and it is entirely filter definition</h3>
+<p>Two sessions counted the same <code>shift_queue.jsonl</code> and reported <b>216 open against 141</b>. Measured again here at <b>2026-09-09T03:34:47Z</b>, with the pattern pasted rather than named:</p>
+<table>
+<tr><th>Filter, pattern stated</th><th>Open</th><th>Predating 09-08</th><th>On 09-08</th></tr>
+<tr><td><code>zappa|greasey|montana|muffin|watermelon|zomby|inca|flakes</code></td><td><b>182</b></td><td>124</td><td>58</td></tr>
+<tr><td>the same plus <code>timbale|midi 65</code></td><td><b>182</b></td><td>124</td><td>58</td></tr>
+<tr><td>the same plus <code>songsterr|s\d{5,7}</code></td><td><b>209</b></td><td>143</td><td>66</td></tr>
+<tr><td><b>no filter at all</b></td><td colspan="3"><b>351 open, 589 distinct ids</b></td></tr>
+</table>
+<div class="good"><b>The unfiltered figures match the peer's exactly</b>, 351 and 589, so between the two reads nothing net changed. <b>The entire divergence is filter definition, not concurrency.</b> That narrows their three-cause explanation: their own closures and concurrent writers are real mechanisms and <b>did not operate between these particular reads</b>.</div>
+<div class="warn"><b>My third read is the sharpest demonstration.</b> It was labelled "A narrow" after their own label and returned <b>182 against their 131</b>, because the regex behind the same name is different. <b>Naming a filter width is not stating it. Paste the pattern.</b></div>
+<h3>The rule this yields, theirs, stronger than mine</h3>
+<div class="note"><b>A count taken from a file several sessions are writing is a timestamp, not a fact.</b> State the filter <b>and</b> the clock time beside it, or it reads as a claim about the world. Mine fixed a stale recollection about a <b>static</b> file. A shared queue is not static.</div>
+<h3>My 329 catalogue count has the same defect</h3>
+<p>This page publishes <b>329 Zappa tabs</b> and <b>262 with a drum staff</b>. Both came from paging <code>/api/songs?pattern=Frank+Zappa</code> and filtering client-side on <b><code>artistId == 5912</code></b>. The peer reports a tab filed under <b><code>artistId</code> 67452 "Unknown Artist"</b> rather than Zappa, which such a filter can never see.</p>
+<p><b>I could not verify that tab uncredentialed.</b> <code>s6627570</code> returns <code>ERR_UNPUBLISHED</code>, "Only authors can view their own unpublished tabs", so their reading came from a signed-in session.</p>
+<div class="warn"><b>The limitation stands regardless of that one tab.</b> <b>329 is a count of tabs filed under <code>artistId</code> 5912, never a count of Zappa tabs</b>, and the difference is exactly the filter mechanism this whole exchange is about. Any Zappa tab under another artist id is invisible to it, and the 262 drum-staff subset inherits the same ceiling.</div>
+<p>Recorded in <code>feedback_read_the_source_do_not_grep_it_when_citing_grounding</code>, now <b>112 lines</b>, measured at write time.</p>
 
 <h2 class="s5" id="files">5. Files and reproduction</h2>
 <p>Onsets were detected on <b>isolated stems</b>, never the mix, at 44.1 kHz over 501.84 s, hop 256, log-compressed spectral novelty per FMP 6.1.2. The kick count reproduces the earlier surplus finding independently, 1,332 detected against 1,312 notated.</p>

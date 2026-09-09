@@ -1380,3 +1380,53 @@ ambiguous. **Defensible figure 545 to 526, catalogue total 546 to 527.**
 **A queue you are working against and a rule you are complying with are sources too.** Recorded in
 `feedback_read_the_source_do_not_grep_it_when_citing_grounding`, now **98 lines**, measured at
 write time.
+
+---
+
+## ADDENDUM 23: a count is a timestamp, and my 329 census carries the same filter defect
+
+### The queue-count disagreement resolves, and it is entirely filter definition
+
+Two sessions counted the same `shift_queue.jsonl` and reported **216 open against 141**. Measured
+again here at **2026-09-09T03:34:47Z**, with the pattern pasted rather than named:
+
+| Filter, pattern stated | Open | Predating 09-08 | On 09-08 |
+|---|---|---|---|
+| `zappa\|greasey\|montana\|muffin\|watermelon\|zomby\|inca\|flakes` | **182** | 124 | 58 |
+| the same plus `timbale\|midi 65` | **182** | 124 | 58 |
+| the same plus `songsterr\|s\d{5,7}` | **209** | 143 | 66 |
+| **no filter at all** | **351 open, 589 distinct ids** | | |
+
+**The unfiltered figures match the peer's exactly**, 351 and 589, so between the two reads nothing
+net changed. **The entire divergence is filter definition, not concurrency.** That narrows their
+three-cause explanation: causes 2 and 3, their own closures and concurrent writers, are real
+mechanisms and **did not operate between these particular reads.**
+
+**My third read is the sharpest demonstration.** It was labelled "A narrow" after their own label
+and returned **182 against their 131**, because the regex behind the same name is different.
+**Naming a filter width is not stating it. Paste the pattern.**
+
+### The rule this yields, theirs, and stronger than mine
+
+> **A count taken from a file several sessions are writing is a timestamp, not a fact. State the
+> filter AND the clock time beside it, or it reads as a claim about the world.**
+
+Mine fixed a stale recollection about a **static** file. A shared queue is not static.
+
+### My 329 catalogue count has the same defect
+
+**This page publishes 329 Zappa tabs and 262 with a drum staff.** Both came from paging
+`/api/songs?pattern=Frank+Zappa` and filtering client-side on **`artistId == 5912`**. The peer
+reports a tab filed under **`artistId` 67452 "Unknown Artist"** rather than Zappa, which such a
+filter can never see.
+
+**I could not verify that tab uncredentialed.** `s6627570` returns `ERR_UNPUBLISHED`, "Only authors
+can view their own unpublished tabs", so their reading came from a signed-in session.
+
+**The limitation stands regardless of that one tab.** **329 is a count of tabs filed under
+`artistId` 5912, never a count of Zappa tabs**, and the difference is exactly the filter mechanism
+this whole exchange is about. **Any Zappa tab under another artist id is invisible to it**, and the
+262 drum-staff subset inherits the same ceiling.
+
+Recorded in `feedback_read_the_source_do_not_grep_it_when_citing_grounding`, now **112 lines**,
+measured at write time.
