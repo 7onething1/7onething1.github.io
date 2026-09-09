@@ -172,3 +172,19 @@ Measured instead:
 - **Direct observations:** 134 transcripts, 20,895 tool calls, 54 Skill invocations, 16,294 Bash calls, 900 notes, 40,730 bytes, 63 gate definitions, 8 arrivals in 41 min.
 - **Derived statistics** (denominator stated): 0.26% skill share, 40.8% of 731 path references, 68% of 69 CLAUDE.md paths.
 - **Estimates:** every token-equivalent figure, and the ~140 archive candidate count.
+
+
+## 21. The headline recommendation did not survive its own safeguard
+The exemption pass was run. **~140 skills became 18.**
+
+| Filter | Archivable | Chars recovered | Share of injection | Token-equiv |
+|---|---|---|---|---|
+| LOOSE (any reference anywhere) | **3** | 1,578 | 1.8% | ~394 |
+| STRICT (≥1 non-index memory file, invoked removed) | **18** | 11,314 | 12.6% | ~2,828 |
+| *Original claim* | *~140* | *81,519* | *90.7%* | *~20.4k* |
+
+**Off by ~7x on the optimistic reading, ~50x on the conservative one.** Manifest: `~/.claude/skills-archive-manifest.json`.
+
+**Discriminating power, stated honestly:** the loose criterion passes 98.3% of skills and is close to useless; the strict one passes 89.0%. Memory files mentioning each skill, index files excluded: 0 files → 19 skills, 1 file → 23, 2-4 → 73, 5+ → 58. A memory note mentioning a skill does not prove the skill is needed; it proves a rule refers to it, so archiving would break that reference.
+
+**What this says about the audit:** the largest recommendation was wrong by roughly an order of magnitude, and the safeguard that caught it came from external review rather than the original analysis. **The real remaining wins are the dead paths and the truncating index**, both measured directly and needing no filter.

@@ -65,9 +65,9 @@ footer{margin-top:56px;padding-top:18px;border-top:2px solid var(--ink);color:va
 
 <div class="kpis">
   <div class="kpi r"><b>~41.4k</b><span>token-equiv of fixed rules</span></div>
-  <div class="kpi r"><b>~20.4k</b><span>token-equiv, zero observed invocations</span></div>
+  <div class="kpi r"><b>~2.8k</b><span>token-equiv actually recoverable</span></div>
   <div class="kpi m"><b>0.26%</b><span>tool calls that were skills</span></div>
-  <div class="kpi p"><b>165</b><span>skills never once invoked</span></div>
+  <div class="kpi p"><b>18</b><span>archivable after the exemption pass</span></div>
   <div class="kpi"><b>298/731</b><span>path REFERENCES unresolved (40.8%)</span></div>
   <div class="kpi s"><b>900</b><span>memory notes, 2.9 MB</span></div>
 </div>
@@ -552,6 +552,52 @@ net:               the actionable set grew monotonically
   <b>Derived statistics</b> (not estimates), where the denominator is stated: 0.26 percent skill share,
   40.8 percent of 731 path references, 68 percent of 69 CLAUDE.md paths.
   <b>Estimates</b>: every token-equivalent figure, and the ~140 archive candidate count.
+</div>
+
+<h2><span class="n">21</span>The headline recommendation did not survive its own safeguard</h2>
+<p class="lede">The exemption pass the reviewer insisted on was run. It cut the proposal by a factor of seven.</p>
+<div class="card">
+  <h3>~140 skills became 18</h3>
+  <p>The claim was that archiving the never-invoked skills recovers up to about 20.4k token-equivalents.
+  Running the dependency exemption pass first, as required, <b>most of those skills turn out to be referenced
+  somewhere</b>: in a memory note, in config, in a gate, or in another skill's SKILL.md.</p>
+  <div class="ev">total per-turn description injection : 89,918 chars (~22,479 token-equiv)
+
+LOOSE filter, any reference anywhere including index files
+  archivable        3 skills
+  recovered         1,578 chars = 1.8% of the injection, ~394 token-equiv
+
+STRICT filter, at least one NON-INDEX memory file, invoked removed
+  archivable       18 skills
+  recovered        11,314 chars = 12.6% of the injection, ~2,828 token-equiv
+
+ORIGINAL CLAIM   ~140 skills, up to ~20.4k token-equiv (81,519 chars)
+MEASURED          18 skills at best, ~2.8k token-equiv
+                  the proposal was off by about 7x on the
+                  optimistic reading and about 50x on the
+                  conservative one</div>
+  <p style="margin-top:10px"><b>The corrected recommendation:</b> archiving skills is a small win, not the
+  headline one. The 18 candidates are the strict-filter set with every invoked skill removed. The manifest
+  is at <code>~/.claude/skills-archive-manifest.json</code>.</p>
+</div>
+<div class="card m">
+  <h3>The filter's discriminating power, stated honestly</h3>
+  <p>A filter that rejects almost nothing is not a filter. <b>The loose criterion passes 98.3 percent
+  of skills</b> and is close to useless. The strict criterion passes 89.0 percent, which is still high.
+  Both are reported rather than only the flattering one.</p>
+  <div class="ev">memory files mentioning each skill, index files EXCLUDED
+     0 files:  19 skills
+     1 file :  23 skills
+   2-4 files:  73 skills
+    5+ files:  58 skills</div>
+  <p style="margin-top:10px">A memory note mentioning a skill does not prove the skill is needed. It proves
+  a rule refers to it, so archiving it would break that reference. That is why the conservative reading governs here.</p>
+</div>
+<div class="note">
+  <b>What this says about the audit itself.</b> The single largest recommendation was wrong by roughly
+  an order of magnitude, and the thing that caught it was a safeguard added during external review rather
+  than anything in the original analysis. <b>The real remaining wins are the dead paths and the truncating index</b>,
+  which are measured directly and need no such filter.
 </div>
 
 <h2><span class="n">08</span>Parked in the queue, not left as a question</h2>
