@@ -103,6 +103,7 @@ footer{margin-top:3rem;border-top:2px solid var(--line);padding-top:1rem;
 <li><a href="#m002">KIG-M002, a change nobody could see</a></li>
 <li><a href="#velocity4">The velocity trap across four staves</a></li>
 <li><a href="#peer">A third route reaches the same finding on M002</a></li>
+<li><a href="#onestaff">One drum staff, no percussion staff</a></li>
 <li><a href="#m004">KIG-M004, still open, and by how much</a></li>
 <li><a href="#second">A second landmark family, and what it moved</a></li>
 <li><a href="#timbre">The clap timbre test, and the control that killed it</a></li>
@@ -249,6 +250,17 @@ footer{margin-top:3rem;border-top:2px solid var(--line);padding-top:1rem;
 </table>
 <p><b>Exactly the three beats claimed, at exactly the bars claimed</b>, and they are the same collisions recorded above as <code>(38, 39, 42)</code> stacks. <code>./run_selftests.sh</code> was also run here directly and returns ALL SUITES PASS, exit 0.</p>
 <div class="good"><b>The hands verdict is robust to the ambiguity M002 left open.</b> If the transcriber meant a clap struck on the snare surface, it spends one stick and the count is 0. If they meant an overdubbed hand clap by someone else, it spends no drummer hand and the count is 0. <b>Either reading gives 0</b>, so the pitch-keyed 3 was an artifact of the gate rather than a defect in the tab. Nothing was uploaded or revised.</div>
+
+<h2 class="s2" id="onestaff">3c. One drum staff, no percussion staff, and what that removes</h2>
+<p>A peer session's track census reported this and it was <b>re-derived here from the s604777 meta rather than accepted</b>. Nine tracks, exactly one <code>instrumentId 1024</code> staff at index 8 named <b>Vinnie Colaiuta</b>, and no staff named for tambourine, cowbell, shaker, conga, timbale or percussion anywhere. <code>popularTrackDrum</code> reads 8, matching.</p>
+<div class="note"><b>This does not add a third argument on top of the rendering test and the hands gate.</b> It removes the one alternative that could have complicated them: there was nowhere else in this tab for a clap to be written. A transcriber notating an overdubbed clap had no percussion staff available and would have had to put it on Vinnie's staff, which is where it is.</div>
+<table>
+<tr><th>Reading</th><th>Where the clap goes</th><th>Hands cost</th></tr>
+<tr><td>Vinnie strikes it on the snare surface</td><td>his own staff, snare line</td><td><b>0 extra</b></td></tr>
+<tr><td>Someone else overdubs it</td><td>his staff, for want of a percussion staff</td><td><b>0</b>, no drummer hand at all</td></tr>
+</table>
+<p><b>The verdict on KIG-M002 is unchanged: no change to the tab.</b></p>
+<p><b>The peer's own correction, recorded because it bears on other songs.</b> That session had told the record that Peaches En Regalia <code>s35889</code> has no separate percussion track. It has a staff <b>named <code>tambourine</code> at index 10</b>. Their census had searched for percussion among staves whose <code>instrumentId</code> was <b>not</b> 1024, so a percussion staff carrying 1024 was invisible to it. Their published instant counts were not affected, because those already measured every 1024 staff rather than the first, and they checked rather than assumed. Nothing on this page depends on it, since Keep It Greasey has a single 1024 staff.</p>
 
 <h2 class="s4" id="m004">4. KIG-M004, still open, and by how much</h2>
 <p>Thirty-two kick onsets the score omits, listed by audio time only. Placing them needs an anchor, so one was fitted on <b>kick and hi-hat only</b> across bars 22 to 32, with snare and clap held out because the claps are the target and the snare shares their staff row and their stem.</p>

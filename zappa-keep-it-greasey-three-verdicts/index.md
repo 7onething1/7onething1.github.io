@@ -620,3 +620,45 @@ the web at the links in this section.
 
 **Nothing in this addendum changes any verdict.** M002 and M003 stay closed, M004 stays open, and
 no placement, repair or revision is carried forward.
+
+---
+
+## ADDENDUM 8: Keep It Greasey has exactly one drum staff and no percussion staff
+
+A peer session's track census reported this and it was **re-derived here from the s604777 meta
+rather than accepted.**
+
+| idx | instrumentId | Instrument | Name |
+|---|---|---|---|
+| 0-7 | 85, 25, 29, 29, 36, 52, 4, 104 | voice, guitars, bass, choir, piano, sitar | the eight non-drum parts |
+| **8** | **1024** | **Drums** | **Vinnie Colaiuta** |
+
+**Nine tracks, exactly one `instrumentId 1024` staff, and no staff named for tambourine, cowbell,
+shaker, conga, timbale or percussion anywhere.** `popularTrackDrum` reads 8, matching.
+
+### What this does and does not add
+
+It does **not** add a third independent argument on top of the rendering test and the hands gate.
+What it does is remove the one alternative that could have complicated them: **there was nowhere
+else in this tab for a clap to be written.** A transcriber notating an overdubbed clap had no
+percussion staff available and would have had to put it on Vinnie's staff, which is where it is.
+
+So the absence strengthens both readings toward the same answer rather than supplying a new one:
+
+| Reading | Where the clap goes | Hands cost |
+|---|---|---|
+| Vinnie strikes it on the snare surface | his own staff, snare line | **0 extra** |
+| Someone else overdubs it | his staff, for want of a percussion staff | **0**, no drummer hand at all |
+
+**The verdict on KIG-M002 is unchanged: no change to the tab.**
+
+### The peer's own correction, recorded because it bears on other songs
+
+That session had told the record that **Peaches En Regalia `s35889` has no separate percussion
+track**. It has a staff **named `tambourine` at index 10**. Their census had searched for
+percussion among staves whose `instrumentId` was **not** 1024, so a percussion staff carrying 1024
+was invisible to it. **Their published instant counts were not affected**, because those already
+measured every 1024 staff rather than the first, and they checked that rather than assuming.
+
+**Nothing on this page depends on that correction**, since Keep It Greasey has a single 1024 staff.
+It is recorded so the next session on another Zappa song does not inherit the wrong method.
