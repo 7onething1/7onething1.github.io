@@ -137,6 +137,7 @@ footer{margin-top:3rem;border-top:2px solid var(--line);padding-top:1rem;
 <li><a href="#withdrawn">The energy result is withdrawn</a></li>
 <li><a href="#nondrum">The non-drum map</a></li>
 <li><a href="#slopecheck">The vocal map is invalid</a></li>
+<li><a href="#bassmap">The bass map, a valid non-drum alignment</a></li>
 <li><a href="#files">Files and reproduction</a></li>
 </ol>
 </div>
@@ -1183,6 +1184,45 @@ footer{margin-top:3rem;border-top:2px solid var(--line);padding-top:1rem;
 
 <h3>A separate discrepancy, recorded rather than resolved</h3>
 <div class="warn">A reimplemented score walk puts the last drum event at <b>498.3 s</b>, while <code>score_timeline.json</code> from the original script puts it at <b>517.9 s</b>, a <b>19.62 s</b> difference. <b>Every figure on this page uses the original script's timeline.</b> The reimplementation was written only to reach the vocal part, and the two do not agree. Nothing published here rests on it, and the disagreement is not yet explained.</div>
+
+
+<h2 class="s1" id="bassmap">30. The bass map. A valid non-drum alignment, and the score clock explained.</h2>
+<p>This executes the route section 29 left open, and <b>it passes its slope check</b>.</p>
+
+<h3>First, the 19.62 s score-clock discrepancy is explained</h3>
+<p>The original <code>score_timeline.py</code> advances the bar clock with <code>t = max(t, tt)</code>, the longest voice's actual beat sum. A second walk advances by the nominal signature. On this tab those diverge, and the reason is measurable.</p>
+<table>
+<tr><th>Clock</th><th>Total</th></tr>
+<tr><td>nominal signature</td><td><b>498.1647 s</b></td></tr>
+<tr><td>max voice sum</td><td><b>518.4855 s</b></td></tr>
+<tr><td>difference</td><td><b>20.32 s</b></td></tr>
+</table>
+<div class="warn"><b>76 of the 248 bars on the drum staff sum past their own time signature</b>, and their excess totals <b>20.32 s</b>, which is the entire difference. Same defect class as the over-wide bars already recorded on Big Swifty, The Grand Wazoo and Dumb All Over.</div>
+<div class="good"><b>That settles which clock a cross-part map must use.</b> The nominal clock gives every part of this score an identical total, 498.1647 s, so parts stay synchronised. The <code>max(t, tt)</code> clock is per-part and inherits each part's own notation defects, which would desynchronise two parts by construction.</div>
+
+<h3>The bass map</h3>
+<table>
+<tr><th></th><th>Vocal map, withdrawn</th><th>Bass map</th></tr>
+<tr><td>notated attacks</td><td>437</td><td><b>2,422</b></td></tr>
+<tr><td>score span</td><td>9.0 to <b>194.9 s</b></td><td><b>1.1 to 498.1 s</b></td></tr>
+<tr><td>detected onsets</td><td>521, to 285.6 s</td><td><b>1,382, 0.1 to 501.7 s</b></td></tr>
+<tr><td><b>slope</b></td><td><b>2.563 / 0.681 FAIL</b></td><td><b>1.006 PASS</b></td></tr>
+<tr><td>notated kicks inside the span</td><td>360 of 1,311</td><td><b>all 1,311</b></td></tr>
+</table>
+<p>Arthur Barrow's part, <code>s604777_r8852151_part4.json</code>, on the nominal clock, against librosa spectral onsets on the isolated bass stem. <b>No drum event enters this fit.</b></p>
+
+<h3>The result</h3>
+<table>
+<tr><th>Map</th><th>Independence</th><th>Matched</th><th>Rate</th><th>Null</th><th>Ratio</th><th>z</th><th>p</th></tr>
+<tr><td>kick and hat</td><td>none, withdrawn as circular</td><td>559 / 1311</td><td>42.6%</td><td>25.5%</td><td>1.67x</td><td>11.35</td><td>0.0033</td></tr>
+<tr><td>hat only</td><td>partial, drum score retained</td><td>450 / 1311</td><td>34.3%</td><td>25.3%</td><td><b>1.36x</b></td><td>7.15</td><td>0.0033</td></tr>
+<tr><td><b>bass only</b></td><td><b>full, slope-validated</b></td><td><b>339 / 1311</b></td><td><b>25.9%</b></td><td>22.0%</td><td><b>1.17x</b></td><td><b>1.82</b></td><td><b>0.0166</b></td></tr>
+</table>
+<p>300 rotations, one-to-one 60 ms matching, membership regenerated inside every draw.</p>
+<div class="note"><b>Power.</b> At n = 1311 with a null of 22.0% and a rotation sd of 2.1 points, the test detects <b>1.19x or greater</b> at z = 2. A 1.36x effect would sit at 29.9%, <b>z 3.77</b>. A 1.67x effect would sit at 36.7%, <b>z 7.02</b>. <b>The test had ample power to see either and returned 1.17x.</b></div>
+
+<h3>Standing result</h3>
+<div class="good"><b>KIG-M004 stays closed as UNDETERMINED, now on a valid non-drum map.</b> The monotonic decline that section 29 withdrew is real after all, and this time it rests on a slope-validated alignment with full song coverage rather than on a distorted one. <b>1.17x reaches neither the 1.5x Gate N4 floor nor the 2.0x numeric floor.</b> This is still never evidence that the record lacks a kick, and never evidence the transcription is wrong. <b>No repair. No upload.</b></div>
 
 <h2 class="s5" id="files">5. Files and reproduction</h2>
 <p>Onsets were detected on <b>isolated stems</b>, never the mix, at 44.1 kHz over 501.84 s, hop 256, log-compressed spectral novelty per FMP 6.1.2. The kick count reproduces the earlier surplus finding independently, 1,332 detected against 1,312 notated.</p>
