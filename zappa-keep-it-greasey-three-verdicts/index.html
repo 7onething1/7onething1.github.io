@@ -135,6 +135,7 @@ footer{margin-top:3rem;border-top:2px solid var(--line);padding-top:1rem;
 <li><a href="#acceptance">The acceptance test, controlled both ways</a></li>
 <li><a href="#slip4">A fourth recitation slip, caught by measuring</a></li>
 <li><a href="#withdrawn">The energy result is withdrawn</a></li>
+<li><a href="#nondrum">The non-drum map</a></li>
 <li><a href="#files">Files and reproduction</a></li>
 </ol>
 </div>
@@ -1110,6 +1111,34 @@ footer{margin-top:3rem;border-top:2px solid var(--line);padding-top:1rem;
 
 <h3>The rule this replaces</h3>
 <div class="warn">Section 23 proposed <i>"below-chance is a louder alarm than above-chance, a real absence sits at chance."</i> <b>That is wrong.</b> A below-null result establishes anti-association <b>under the declared surrogate model</b> and nothing more. It supports a musical-absence claim only when the surrogate preserves the relevant temporal structure <b>and reproduces every alignment, classification and selection step that produced the tested population</b>. <b>If a population is defined by a selection step, every surrogate must re-run that step.</b></div>
+
+
+<h2 class="s1" id="nondrum">28. The non-drum map. The alignment does not survive full independence.</h2>
+<p>This runs the strongest of three controls named by an external check on section 23: <i>"A sufficiently accurate map derived from vocals, bass, guitar, or other non-drum landmarks would provide stronger alignment independence because drum co-occurrence would leave the fitting stage entirely."</i></p>
+<p>Notated vocal attacks were built from the vocal part <code>s604777_r8852151_part0.json</code> through the same constant-tempo walk that produced the drum timeline, using the drum part's tempo automation since both parts share one score. <b>437 notated vocal attacks</b> against <b>521 detected vocal onsets</b> on the isolated lead stem, and the 1,311 notated kicks mapped through that path. <b>No drum event of any kind enters this fit.</b></p>
+<table>
+<tr><th>Map</th><th>Independence</th><th>Matched</th><th>Rate</th><th>Null</th><th>Ratio</th><th>z</th><th>p</th></tr>
+<tr><td>kick and hat</td><td><b>none</b>, kick onsets in the fit</td><td>559 of 1311</td><td>42.6%</td><td>25.5%</td><td><b>1.67x</b></td><td>11.35</td><td>0.0033</td></tr>
+<tr><td>hat only</td><td>partial, drum score retained</td><td>450 of 1311</td><td>34.3%</td><td>25.3%</td><td><b>1.36x</b></td><td>7.15</td><td>0.0033</td></tr>
+<tr><td><b>vocal only</b></td><td><b>full</b>, no drum event in the fit</td><td><b>97 of 360</b></td><td><b>26.9%</b></td><td>23.9%</td><td><b>1.13x</b></td><td><b>0.83</b></td><td><b>0.2060</b></td></tr>
+</table>
+<div class="warn"><b>The ratio falls monotonically as drum information leaves the fit</b>, and the fully independent map does not clear chance at all. 300 rotations, one-to-one 60 ms matching, membership regenerated inside every draw.</div>
+
+<h3>This is not a power failure</h3>
+<p>At n = 360 with a null of 23.9% and a rotation sd of 3.7 points, the test detects <b>1.31x or greater</b> at z = 2.</p>
+<table>
+<tr><th>Effect</th><th>Where it would have landed</th></tr>
+<tr><td>the circular 1.67x</td><td>39.9%, <b>z 4.33</b></td></tr>
+<tr><td>the hat-only 1.36x</td><td>32.5%, <b>z 2.33</b></td></tr>
+<tr><td>observed</td><td>26.9%, <b>z 0.82</b></td></tr>
+</table>
+<div class="note"><b>The test had the power to see the hat-only figure and it did not see it.</b> That is the direction the external check predicted, that 1.36x is optimistic because the hat-only map still carries score-side kick and hat metrical co-occurrence.</div>
+
+<h3>The limit on this result</h3>
+<div class="warn"><b>Coverage is 360 of 1,311 notated kicks, 27 percent.</b> The notated vocal attacks span 9.0 to 194.9 s while the detected vocal onsets run to 285.6 s, and the song is 501.84 s. This measures the vocal-covered stretch and says nothing directly about the rest. <b>It is one map on one subset, and it is not a refutation of the transcription.</b> A null result is never evidence the record lacks a kick, and never evidence the tab is wrong.</div>
+
+<h3>Standing result</h3>
+<div class="good"><b>KIG-M004 stays closed as UNDETERMINED, and this makes that verdict safer rather than weaker.</b> Three maps at three levels of independence give 1.67x, 1.36x and 1.13x, and <b>not one of them reaches the 2.0x floor</b>. The most independent one does not reach significance.</div>
 
 <h2 class="s5" id="files">5. Files and reproduction</h2>
 <p>Onsets were detected on <b>isolated stems</b>, never the mix, at 44.1 kHz over 501.84 s, hop 256, log-compressed spectral novelty per FMP 6.1.2. The kick count reproduces the earlier surplus finding independently, 1,332 detected against 1,312 notated.</p>
