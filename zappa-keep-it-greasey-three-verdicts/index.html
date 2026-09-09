@@ -1045,13 +1045,13 @@ footer{margin-top:3rem;border-top:2px solid var(--line);padding-top:1rem;
 
 <h3>Its own vacuous-pass hole, found by testing it against nothing</h3>
 <div class="warn"><b>Run against an empty JSON object on both sides, the first version printed VERDICT MINIMAL, exit 0</b>, having censused 0 notes and 0 beats. A check with nothing to compare agrees with everything. <b>A repair verified against a mis-parsed file, or against the wrong track index, would have passed silently.</b> The fix hard-fails when either side censuses to zero notes and zero beats, and issues no verdict at all.</div>
-<p>A second hole in the same pass: a malformed <code>--expect</code> was only reported <b>after</b> the full diff had printed, so a typo in the declaration looked like a completed run. Expectations are now parsed before any fetch or census.</p>
+<p>A second hole in the same pass: a malformed <code>--expect</code> was only reported <b>after</b> the full diff had printed, so a typo in the declaration looked like a completed run. Expectations are now parsed ahead of any fetch or census.</p>
 
 <h3>Six exit codes, all measured in one command</h3>
 <table>
 <tr><th>Case</th><th>The mutation</th><th>What caught it</th><th>Exit</th></tr>
 <tr><td>empty</td><td>an empty object on both sides</td><td>the zero-census guard, no verdict issued</td><td><b>2</b></td></tr>
-<tr><td>malformed</td><td>a bad <code>--expect</code> string</td><td>refused before any fetch or census</td><td><b>2</b></td></tr>
+<tr><td>malformed</td><td>a bad <code>--expect</code> string</td><td>refused ahead of any fetch or census</td><td><b>2</b></td></tr>
 <tr><td><b>A</b></td><td>one snare note moved from line 1.5 to line 2, <b>pitch untouched</b></td><td><code>string</code>, 1.5 at 1444 to 1443 and 2 at 170 to 171</td><td><b>1</b></td></tr>
 <tr><td><b>B</b></td><td>three ghost flags silently dropped</td><td><code>notes_ghost</code>, 629 to 626</td><td><b>1</b></td></tr>
 <tr><td>identity</td><td>the file against itself</td><td>nothing moved</td><td><b>0</b></td></tr>
@@ -1059,6 +1059,11 @@ footer{margin-top:3rem;border-top:2px solid var(--line);padding-top:1rem;
 </table>
 <div class="warn"><b>Control A is the decisive one here.</b> Its pitch never changes, so the <code>fret</code> dimension is blind to it, and a check aimed at pitch counts would call that file clean. <b>The <code>string</code> dimension catches it alone.</b> That is the 179-lost-instances failure shape reproduced deliberately and caught. <b>Both controls and both zero cases had to be run to find the vacuous-pass hole</b>, since the real repair passing was never evidence the tool worked.</div>
 <p>Line 1.5 holding <b>1,444</b> notes is itself a check: snare 1,423 plus clap 21 equals 1,444, so the two lanes that share that line account for it exactly.</p>
+<h3>One of those six exit codes was published without being measured</h3>
+<div class="warn"><b>The table above first shipped with malformed <code>--expect</code> at exit 2.</b> On the final verification sweep it returned <b>1</b>. <code>raise SystemExit("some message")</code> prints the message and exits 1, never 2, and the number in the table came from what the code was meant to do.</div>
+<div class="good"><b>The claim was made true by changing the code, not by softening the claim.</b> The module's own docstring already declared 2 as the usage-error code, so exit 1 was the defect and the published figure named the intended contract. The fix writes the message to stderr and raises <code>SystemExit(2)</code>. <b>All seven exit codes were then re-measured in a single command</b>: <code>census_guard --selftest</code> 0, empty 2, malformed 2, control A 1, control B 1, real repair 0, identity 0.</div>
+<p><b>Third instance of the same class on this page</b>, after the audit file count in section 26 and the count in section 24. <b>A number written from intent reads exactly like a number written from measurement</b>, and only the measurement tells them apart.</p>
+
 <div class="note"><b>Tool shipped, six exit codes verified, no repair performed and none authorized.</b> The six-tab MIDI 65 repair remains outward-facing work that needs Brandon's own say-so.</div>
 
 
