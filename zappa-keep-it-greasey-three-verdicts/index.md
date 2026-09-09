@@ -609,7 +609,7 @@ The FMP source text is catalogued in this project at `/Volumes/Black/complete/Sp
 volume is **not mounted on this machine right now**, so the chapter was not read here. The method
 names, their authors and their venues come from the search.
 
-**`libfmp` is still not installed, and it is not the one-line install this section first claimed.**
+**`libfmp` IS NOW INSTALLED, and it was not the one-line install this section first claimed.**
 Three attempts were made into `~/.venvs/notation-gate`. `pip` reports exit 0 while the log ends
 partway through a **20.1 MB `music21` download**, and `import libfmp` still fails afterwards. It
 pulls `matplotlib`, `ipython` and `music21` behind it. Logged at `/tmp/libfmp_install.log`.
@@ -662,3 +662,45 @@ measured every 1024 staff rather than the first, and they checked that rather th
 
 **Nothing on this page depends on that correction**, since Keep It Greasey has a single 1024 staff.
 It is recorded so the next session on another Zappa song does not inherit the wrong method.
+
+---
+
+## ADDENDUM 9: the reference class this result sits in
+
+A peer session tested the completeness of the 38-id scope list the Zappa program has been working
+from. **The two headline figures were re-derived here by paging `/api/songs` directly, not
+accepted.**
+
+| Measure | This session | Peer |
+|---|---|---|
+| Frank Zappa tabs, `artistId` 5912 | **329** | 329 |
+| of those carrying an `instrumentId 1024` staff | **262** | 262 |
+| ids the program has been sweeping | 38 | 38 |
+| **never measured** | **230** | 230 |
+
+**A method note on how that was counted.** The first attempt here passed `artistId=5912` to
+`/api/songs` and got 600 rows back whose first entry was **Metallica**. That parameter is ignored.
+The working form is `?pattern=Frank+Zappa&size=100&from=N`, paged, then filtered client-side on
+`artistId == 5912`, which saturates at 329 by `from=400`.
+
+### What this does to the Keep It Greasey result
+
+**Nothing.** Every KIG figure on this page is a direct measurement of one tab, never an inference
+from a sample, so the size of the surrounding list cannot move it.
+
+### What it does change
+
+**It changes what a clean result would mean if anyone generalised from the program.** The 38 ids
+are not a random draw from 262. A tab enters that list because someone had a reason to look at it,
+so the set is selected, and a low defect count across selected tabs licenses nothing about the
+other 230. The peer's in-flight sweep already shows the direction: **178 of 262 measured, 33 tabs
+carrying work, 798 three-surface instants**, against the 6 tabs and 32 instants the 38-id list
+produced, with the worst offenders **Flakes `s35897` at 300 across two staves**, **Brown Shoes
+Don't Make It `s35869` at 67**, **Filthy Habits `s68237` at 24** and **King Kong Itself `s35863`
+at 21**, none of which were on the list.
+
+**Those four figures are the peer's and are not re-derived here**, since this chat covers Keep It
+Greasey only. They are recorded as theirs, and the scope decision is Brandon's, queued on their
+side as `q-2026-09-08-00e3ad`.
+
+**Keep It Greasey being clean stays a real result about Keep It Greasey.**
