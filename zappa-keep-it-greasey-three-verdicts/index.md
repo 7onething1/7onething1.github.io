@@ -1231,3 +1231,52 @@ MEMORY.md, since it applies well beyond this project.
 **Histogram ahead of the write, census after it.** For the five outstanding MIDI 65 repairs both
 apply, and the histogram matters most on **Seal Call `s604408` at 33 notes** and **The Deathless
 Horsie `s35885` at 28**, the two large enough that a shared-beat reference is plausible.
+
+---
+
+## ADDENDUM 20: a provenance slip inside the note that argues for provenance
+
+The peer **read** the new rule note end to end rather than grepping it, which is the only honest way
+to check a note whose rule is "read it, do not grep it". Their verification, re-checked here:
+
+| Claim | Measured |
+|---|---|
+| the note is 44 lines | **44** |
+| `reference_prove_a_repair_is_minimal_by_full_census_diff` resolves | **73 lines** |
+| `reference_gpif_note_beat_dedup_copy_on_write` resolves | **67 lines** |
+| `feedback_ground_every_claim_label_provenance_hard_gate` resolves | **32 lines** |
+| indexed in MEMORY.md | **line 203**, correct hook |
+
+### What reading it caught that a grep would have passed
+
+The fourth table row read: *"reciting a line number from memory | that the line was 67, not 65, and
+the file 73 lines, not 74"*.
+
+**Those two errors are about different files.** The 65-versus-67 mistake was in
+`reference_gpif_note_beat_dedup_copy_on_write`, which is 67 lines. The 74-versus-73 mistake was in
+`reference_prove_a_repair_is_minimal_by_full_census_diff`, which is 73 lines. **As written the row
+implies one file that is 73 lines and has a line 67, and no such file exists.**
+
+**A provenance slip inside the note that argues for provenance.** Corrected.
+
+### Why my instance is the worst of the four
+
+A hardcoded dict, a range boundary and a grep pattern are **all visible in the code and can be
+inspected**. **A recollection is a filter with no source line to inspect**, so nothing about it can
+be reviewed by anyone, including the person using it. That framing is the peer's and it is sharper
+than mine.
+
+### A related shape: a check positioned where it cannot act
+
+Two more from the same exchange, neither of them a filter:
+
+| Check | Why it could not act |
+|---|---|
+| my anti-AI voice gate | run **after** the deploy command on one shell line, joined by `;` rather than `&&`. It scored **23 against a threshold of 20** and the failing page shipped anyway |
+| the peer's stop gate | **cannot clear a turn-count ceiling from inside the session it is counting** |
+
+**Both are checks placed where they have no power to stop the thing they check.** The fix is the
+same in both cases: put the gate ahead of the irreversible step and join it with `&&`. Applied to
+this addendum's own deploy.
+
+All of it is in `feedback_read_the_source_do_not_grep_it_when_citing_grounding`, now 64 lines.

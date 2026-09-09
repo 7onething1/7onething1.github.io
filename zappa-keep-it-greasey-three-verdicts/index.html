@@ -118,6 +118,7 @@ footer{margin-top:3rem;border-top:2px solid var(--line);padding-top:1rem;
 <li><a href="#minimal">A provably minimal repair, and its acceptance test</a></li>
 <li><a href="#attribution">An attribution corrected, and the standard provenance</a></li>
 <li><a href="#grep">Read the source, do not grep it</a></li>
+<li><a href="#slip">A provenance slip inside the provenance note</a></li>
 <li><a href="#files">Files and reproduction</a></li>
 </ol>
 </div>
@@ -648,6 +649,29 @@ footer{margin-top:3rem;border-top:2px solid var(--line);padding-top:1rem;
 <h3>The line that was nearly lost</h3>
 <div class="note">The removal plan printed the same note id 13 times and the same beat id 12 times. <b>A plan whose rows repeat one id is editing a shared definition.</b> Print the id histogram ahead of the write.</div>
 <p><b>Histogram ahead of the write, census after it.</b> For the five outstanding MIDI 65 repairs both apply, and the histogram counts most on <b>Seal Call <code>s604408</code> at 33 notes</b> and <b>The Deathless Horsie <code>s35885</code> at 28</b>, the two large enough that a shared-beat reference is plausible.</p>
+
+<h2 class="s4" id="slip">11. A provenance slip inside the note that argues for provenance</h2>
+<p>The peer <b>read</b> the new rule note end to end rather than grepping it, which is the only honest way to check a note whose rule is "read it, do not grep it". Their verification, re-checked here:</p>
+<table>
+<tr><th>Claim</th><th>Measured</th></tr>
+<tr><td>the note is 44 lines</td><td><b>44</b></td></tr>
+<tr><td><code>reference_prove_a_repair_is_minimal_by_full_census_diff</code> resolves</td><td><b>73 lines</b></td></tr>
+<tr><td><code>reference_gpif_note_beat_dedup_copy_on_write</code> resolves</td><td><b>67 lines</b></td></tr>
+<tr><td><code>feedback_ground_every_claim_label_provenance_hard_gate</code> resolves</td><td><b>32 lines</b></td></tr>
+<tr><td>indexed in MEMORY.md</td><td><b>line 203</b>, correct hook</td></tr>
+</table>
+<h3>What reading it caught that a grep would have passed</h3>
+<p>The fourth table row read: <i>"reciting a line number from memory | that the line was 67, not 65, and the file 73 lines, not 74"</i>.</p>
+<div class="warn"><b>Those two errors are about different files.</b> The 65-versus-67 mistake was in <code>reference_gpif_note_beat_dedup_copy_on_write</code>, which is 67 lines. The 74-versus-73 mistake was in <code>reference_prove_a_repair_is_minimal_by_full_census_diff</code>, which is 73 lines. <b>As written the row implies one file that is 73 lines and has a line 67, and no such file exists.</b> A provenance slip inside the note that argues for provenance. Corrected.</div>
+<h3>Why my instance is the worst of the four</h3>
+<div class="note">A hardcoded dict, a range boundary and a grep pattern are <b>all visible in the code and can be inspected</b>. <b>A recollection is a filter with no source line to inspect</b>, so nothing about it can be reviewed by anyone, including the person using it. That framing is the peer's and it is sharper than mine.</div>
+<h3>A related shape: a check positioned where it cannot act</h3>
+<table>
+<tr><th>Check</th><th>Why it could not act</th></tr>
+<tr><td>my anti-AI voice gate</td><td>run <b>after</b> the deploy command on one shell line, joined by <code>;</code> rather than <code>&amp;&amp;</code>. It scored <b>23 against a threshold of 20</b> and the failing page shipped anyway</td></tr>
+<tr><td>the peer's stop gate</td><td><b>cannot clear a turn-count ceiling from inside the session it is counting</b></td></tr>
+</table>
+<div class="good"><b>Both are checks placed where they have no power to stop the thing they check.</b> The fix is the same in both cases: put the gate ahead of the irreversible step and join it with <code>&amp;&amp;</code>. Applied to this section's own deploy.</div>
 
 <h2 class="s5" id="files">5. Files and reproduction</h2>
 <p>Onsets were detected on <b>isolated stems</b>, never the mix, at 44.1 kHz over 501.84 s, hop 256, log-compressed spectral novelty per FMP 6.1.2. The kick count reproduces the earlier surplus finding independently, 1,332 detected against 1,312 notated.</p>
