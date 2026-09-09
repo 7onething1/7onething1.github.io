@@ -83,7 +83,7 @@ footer{margin-top:3rem;border-top:2px solid var(--line);padding-top:1rem;
 </header>
 
 <div class="lede">
-<b>Nothing was changed on either tab.</b> Two of the three items closed because the evidence said no repair was warranted, and the third closed nothing because its anchor missed a threshold written down before the run. Every count on this page is a direct read of a stored field or a measurement with its own chance baseline beside it.
+<b>Nothing was changed on either tab.</b> Two of the three items closed because the evidence said no repair was warranted, and the third closed nothing because its anchor missed a threshold fixed in advance of the run. Every count on this page is a direct read of a stored field or a measurement with its own chance baseline beside it.
 </div>
 
 <div class="kpi">
@@ -220,7 +220,7 @@ footer{margin-top:3rem;border-top:2px solid var(--line);padding-top:1rem;
 <tr><td><b>68246</b></td><td><b>Alien Orifice</b></td><td><b>2 of 1,006</b></td><td><b>match</b></td></tr>
 </table>
 <div class="warn"><b>Alien Orifice shows the size of the trap.</b> Two authored marks on the whole staff, and reading them here gives exactly one <code>ff</code> and one <code>fff</code>. A Guitar Pro export of that tab carries <b>1,006 resolved values standing on 2 authored ones</b>, so any dynamics conclusion drawn from it is a statement about the exporter.</div>
-<h3>The limit, which matters more than the spread</h3>
+<h3>The limit, which carries more weight than the spread</h3>
 <div class="good"><b><code>ghost</code> is a NOTE field and it is NOT sticky.</b> On Keep It Greasey's MIDI 38 acoustic snare lane it appears on <b>0 of 3,756 beats</b> and on <b>629 of 4,974 note objects</b>, with no carry rule. A snare-lane ghost audit off the Songsterr JSON is therefore safe in the way a dynamics audit is not, and the M003 analysis above read <code>ghost</code> per note object and never carried it, so its 629 count was already correct.</div>
 <h3>Two reproduction details found alongside</h3>
 <p><b>Montana <code>s35870</code> has 18 tracks and its drums sit at index 15</b>, with further drum tracks at 16 and 17. A scan capped at 14 parts misses the drum staff entirely. The meta's <code>popularTrackDrum</code> field gives the index directly and was confirmed as 15 here.</p>
@@ -274,7 +274,7 @@ footer{margin-top:3rem;border-top:2px solid var(--line);padding-top:1rem;
 <tr><td>z against the rotation null</td><td><b>4.55</b></td></tr>
 </table>
 <table>
-<tr><th>#</th><th>Declared before the run</th><th>Result</th></tr>
+<tr><th>#</th><th>Declared in advance</th><th>Result</th></tr>
 <tr><td>1</td><td>unique maximum, no tie inside 1 match</td><td><b>PASS</b>, 0 competing cells</td></tr>
 <tr><td>2</td><td>match rate at least 2.0x the surface median</td><td><b>PASS</b>, 2.01x</td></tr>
 <tr><td>3</td><td><b>z at least 5.0</b></td><td><b>FAIL, z = 4.11</b></td></tr>
@@ -322,12 +322,12 @@ footer{margin-top:3rem;border-top:2px solid var(--line);padding-top:1rem;
 <tr><td><code>verdict_gate.py --counts</code></td><td><b>UNDETERMINED</b>, under the 2.0x floor</td></tr>
 <tr><td>predicted score end</td><td>508.0 s against 501.84 s of real audio, drift +6.1 s</td></tr>
 </table>
-<div class="warn">Under Gate N4 anything below 1.5x is the null, so that row is carried as a <b>refutation of the extrapolation</b> and as nothing else. It is not a count of surplus kicks and no repair may be built from it. The 32 surplus onsets sit across the full 501.8 s while the validated span is eleven bars, so <b>they cannot be placed from this anchor</b>. That is why M004 stays open.</div>
+<div class="warn">Under Gate N4 anything below 1.5x is the null, so that row is carried as a <b>refutation of the extrapolation</b> and as nothing else. That row is not a count of surplus kicks, so no repair may be built from it. The 32 surplus onsets sit across the full 501.8 s while the validated span is eleven bars, so <b>they cannot be placed from this anchor</b>. That is why M004 stays open.</div>
 <div class="note"><b>Two limits kept in view.</b> The clap-test criterion 3 still fails at z = 4.11 against a declared 5.0 on family A alone, and a two-family agreement does not retroactively pass a threshold that was written down and missed, so the clap timbre test still never ran. And no <code>ABSOLUTE_ANCHORS.csv</code> was hashed, so the twelve-landmark gate is <b>not</b> claimed as passed.</div>
-<p><b>Net movement:</b> bar identity at bar 22 now has two-family corroboration and wins its shift contest, where before it had neither. Placing the 32 events needs a <b>piecewise map with landmarks bracketing each one</b>.</p>
+<p><b>Net movement:</b> bar identity at bar 22 now has two-family corroboration and wins its shift contest, where it previously had neither. Placing the 32 events needs a <b>piecewise map with landmarks bracketing each one</b>.</p>
 
 <h2 class="s4" id="timbre">4c. The clap timbre test was run, and its own control killed the interesting part</h2>
-<p>Pre-registration v2, sha256 <code>383fe83e...25f0b7</code>, written before any timbre was measured. <b>v1 stays failed and none of its thresholds were moved.</b> v2 rests on the two-family anchor that did not exist when v1 was written, and declares the same timbre thresholds v1 declared.</p>
+<p>Pre-registration v2, sha256 <code>383fe83e...25f0b7</code>, written with no timbre yet measured. <b>v1 stays failed and none of its thresholds were moved.</b> v2 rests on the two-family anchor that did not exist when v1 was written, and declares the same timbre thresholds v1 declared.</p>
 <h3>The declared test returned UNEVALUABLE</h3>
 <p>Entry rule fixed in advance: an instant enters only if a detected snare-stem onset lies within 60 ms of it.</p>
 <table>
@@ -349,7 +349,7 @@ footer{margin-top:3rem;border-top:2px solid var(--line);padding-top:1rem;
 <div class="good"><b>What this changes: nothing.</b> M002's verdict never rested on audio. It rests on the figure being deliberate, on GM 39 and GM 38 rendering byte-identically, and on the burden sitting with the change. The audio adds <b>no corroboration in either direction</b>, which is now measured rather than assumed.</div>
 
 <h2 class="s3" id="piecewise">4d. The piecewise map was built, and it failed its own external check</h2>
-<p>Pre-registration sha256 <code>2e328671...3e80f10</code>, hashed in advance of any window fit. This was the step M004 was waiting on, so it was run rather than queued.</p>
+<p>Pre-registration sha256 <code>2e328671...3e80f10</code>, hashed in advance of any window fit. M004 was waiting on this step, so it was run rather than queued.</p>
 <p>Sixty windows, 8 score bars wide stepping 4, each fitted independently on kick and hat only, offset searched across the whole 501.84 s, scale 0.93 to 1.07, one-to-one at 50 ms. <b>Fifteen windows passed</b> the four declared criteria and placed <b>64 surplus kick onsets</b> across <b>48.3%</b> of the recording.</p>
 <h3>Then the control ran</h3>
 <p>The same two-family logic that made the bar-22 anchor credible, applied per window at that window's own offset and scale, tolerance 60 ms: does the isolated vocals stem corroborate it?</p>
@@ -468,14 +468,14 @@ footer{margin-top:3rem;border-top:2px solid var(--line);padding-top:1rem;
 <tr><td>of those, MIDI 54 sharing its line</td><td><b>0</b></td></tr>
 <tr><td>instants that <b>fall to two hand lines</b> once the tambourine is removed</td><td><b>118 of 118</b></td></tr>
 </table>
-<p>A sample instant reads <code>(54, line 1), (46, line 2), (38, line 4)</code> — tambourine, open hat and snare on three separate lines.</p>
+<p>A sample instant reads <code>(54, line 1), (46, line 2), (38, line 4)</code>, which is tambourine, open hat and snare on three separate lines.</p>
 <table>
 <tr><th>Reading</th><th>Surfaces at that instant</th><th>Verdict</th></tr>
 <tr><td>the drummer strikes the tambourine</td><td><b>three</b> separate lines</td><td><b>real failure</b></td></tr>
 <tr><td>another player overdubs it</td><td><b>two</b> drummer lines</td><td><b>not a failure</b></td></tr>
 </table>
 <div class="warn"><b>The two readings diverge on every one of them.</b> Attribution has to be resolved for these, and 118 of the 172 are one entire tab. The first version of the rule would have licensed treating 172 live questions as settled.</div>
-<div class="good"><b>The corrected rule, with its boundary.</b> A non-kit surface <b>sharing</b> a kit lane costs one stick or no drummer hand, and both readings give the same count, so playability is decided without resolving attribution. A non-kit surface on its <b>own</b> lane does not have that property: the two readings differ by one hand, and attribution must be resolved before the instant can be called playable or not.</div>
+<div class="good"><b>The corrected rule, with its boundary.</b> A non-kit surface <b>sharing</b> a kit lane costs one stick or no drummer hand, and both readings give the same count, so playability is decided without resolving attribution. A non-kit surface on its <b>own</b> lane does not have that property: the two readings differ by one hand, and attribution must be resolved for the instant to be called playable or not.</div>
 <p><b>The lane position varies per tab</b>, at 0, 1, 1.5 and 5 across the five affected songs, which is itself evidence the transcribers gave the tambourine a deliberate separate lane rather than folding it onto a kit surface.</p>
 <p><b>Nothing about Keep It Greasey changes.</b> M002 stays closed at no change, and the 21 GM 39 events stay exactly as Ben Dibden1 wrote them.</p>
 
