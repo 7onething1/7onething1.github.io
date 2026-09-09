@@ -286,6 +286,21 @@ a{color:#0d6f88;font-weight:600}
 <tr class="good"><td>99-105</td><td class="num">0 ride</td><td>genuinely flat, the tab is right</td></tr>
 </table></div>
 <p><b>A detector of mine was refuted by the eye and is not published.</b> An onset counter calibrated on the 43 full-ride bars returned 10, 11 and 8 strokes in coda bars 99, 101 and 103, which the render shows flat. Its threshold pinned to the bottom of its search range with a mean error of 4.19 notes per bar, so it was reading ripple. No per-bar ride counts ship from this pass, and the repair that bars 17 and 51 imply is queued behind a detector the eye does not refute.</p>
+<div class="callout aqua">
+ <h3>Settled by eye, in a second representation, against a silent control</h3>
+ <p>The correction above read as a detector overruling the eye. It was not. Re-checked with spectrograms of single bars, all on one dB scale so brightness is comparable, with a genuinely silent stretch included as the control.</p>
+ <div class="scroll"><table>
+ <tr><th>Panel</th><th class="num">Tab writes</th><th>What the spectrogram shows</th></tr>
+ <tr class="good"><td>bar 17</td><td class="num">0 ride</td><td>12 to 14 broadband striations across 2-11 kHz</td></tr>
+ <tr><td>bar 16, control</td><td class="num">20 ride</td><td>a bright opening event then about 12 striations, <b>the same character as bar 17</b></td></tr>
+ <tr class="bad"><td>bar 99, coda</td><td class="num">0</td><td>about 12 discrete striations, dimmer and unmistakably present</td></tr>
+ <tr class="bad"><td>bar 100, coda</td><td class="num">0</td><td>about 10 discrete striations, same shape</td></tr>
+ <tr class="good"><td>bar 105, coda end</td><td class="num">0</td><td>near black</td></tr>
+ <tr class="good"><td>5 s after the final barline</td><td class="num">n/a</td><td><b>completely black</b></td></tr>
+ </table></div>
+ <p style="margin-bottom:0"><b>The silent control is what makes the coda readable</b>: post-song silence renders black at this scale, so structure in bars 99 and 100 is signal rather than a floor artifact. Nothing here rests on the onset detector. The arbiter in both passes was the eye; the first pass simply read a shared-axis overview, which is not the eye reading the evidence.</p>
+</div>
+
 <h3>Bar 105, and a parser bug of mine</h3>
 <p>A first pass reported 48 voices not filling their meter. <b>43 of those were my own bug</b>: grace beats carry a rhythm and no bar time, and my sum counted them. Separation is total, 43 of 43 flagged bars contain grace beats against 0 of 62 filled bars.</p>
 <p>The real finding is that bar 105 is short by one quarter in <b>five</b> voices, not one, confirming a concurrent session's correction. Four voices fill the 5/4 correctly, so the meter is right. The same shortfall sits in the export that predates every edit here, making it the original transcriber's notation. <b>Left as it stands</b>, since padding five voices across four non-drum tracks buys nothing on a final bar carrying no drum content.</p>
