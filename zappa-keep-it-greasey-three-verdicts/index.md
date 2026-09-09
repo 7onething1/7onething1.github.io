@@ -543,7 +543,7 @@ to any row: each number is how many beat objects carry the `velocity` key.
 
 | songId | Tab | Beats carrying `velocity`, out of all beats | Peer's figure |
 |---|---|---|---|
-| 6862054 | Keep It Greasey, Brandon edit | **989 of 3,756** | **match** |
+| 604777 | Keep It Greasey, **original**, measured here | **989 of 3,756** | **match** |
 | 35870 | Montana | **569 of 1,435** | **match** |
 | 35886 | Muffin Man | **254 of 1,133** | **match** |
 | **68246** | **Alien Orifice** | **2 of 1,006** | **match** |
@@ -1024,3 +1024,52 @@ kit, which is the whole point of the finding.
 inside one exchange, each caught by the other session rather than by the one that made it.
 
 **Keep It Greasey is unaffected throughout.** M002 and M003 stay closed.
+
+---
+
+## ADDENDUM 16: a provenance error of mine, and the KIG-M001 before-and-after verified properly
+
+The peer reported that `s604777` still carries MIDI 65 while the copy `s6862054` does not, with kick
+going 1,311 to 1,312. **My first check of that returned DOES NOT MATCH, and the fault was mine.**
+
+### The bug
+
+`kig_songsterr_rows.json`, the dataset behind the KIG-M002 and KIG-M003 tables in sections 2 and 3,
+was built from **`s604777_r8852151_part8`, the ORIGINAL**. My verification script labelled it as the
+copy, so it compared the original against itself and of course found no change.
+
+### The correct comparison
+
+| Source | kick 35 | MIDI 65 | snare 38 | clap 39 | ghosts | beats |
+|---|---|---|---|---|---|---|
+| `s604777` original r8852151, Songsterr part JSON | **1,311** | **1** | 1,423 | 21 | 629 | 3,756 |
+| `s6862054` copy r8972975, published `.gp` walked | **1,312** | **0** | 1,423 | 21 | 629 | 3,756 |
+
+**1,311 + 1 = 1,312. The peer's claim is confirmed exactly**, and it is the cleanest independent
+check of KIG-M001 in this whole record: the single Timbale high became a kick on the copy, and the
+original still carries it.
+
+### What it does to the figures on this page: nothing, and why
+
+**Every other column is identical between the two files**, because KIG-M001 touched one note in bar
+231. Snare 1,423, clap 21, ghosts 629, beats 3,756, velocity beats 989 all hold on both. So the
+M002 clap tables and the M003 velocity and dynamics tables are **correct as published**.
+
+### What it does to provenance: one row was mislabelled and is fixed
+
+The four-stave velocity table credited `989 of 3,756` to **`6862054`**. It was measured on
+**`604777`**. **Corrected in place.** The number never changed; the label was wrong.
+
+**Provenance is a hard gate in this project and it is not satisfied by the number being right.**
+Sections 2 and 3 of this page are measured on the **original `s604777` r8852151** part JSON, and
+the reproduction check in section 1 is measured on the **published copy `s6862054` r8972975**
+`.gp`. Both are stated here rather than left to be inferred.
+
+### The MIDI 65 class is six tabs, not three
+
+My five-tab census found Alien Orifice 2, Carolina 3 and Keep It Greasey 1, all three exact against
+the peer's full 262-tab rescan. **The two it could not reach are the large ones**, Seal Call
+`s604408` at 33 and The Deathless Horsie `s35885` at 28, and on Seal Call the timbale **outnumbers
+the kick** on their shared line, 33 against 25. **A five-tab sample sized the class at half its
+real membership**, which is the reference-class point applied to my own finding. Those counts are
+the peer's and are not re-derived here.
