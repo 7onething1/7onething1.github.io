@@ -103,7 +103,12 @@ Ordered, next item first. Item 1 is in progress.
     header. They agree with the practice notes written independently of them (Water 9 and 13,
     Thunderclap 2–3, Wisteria 5, 7 and 14), and they re-solve with the hand preset.
 
-The feature backlog is empty. Item 5 is the user's to do. A reasonable next iteration would be
-quality rather than features: a full read of `index.html` hunting correctness bugs now that it has
-grown to a few thousand lines, and a phone-width pass over the panels added since the last one
-(take canvas, tempo strip, ear drill, hand preset).
+The feature backlog is empty. Item 5 is the user's to do.
+
+15. ~~**Phone-width pass** over the panels added since the last one.~~ Done — nothing overflows at
+    390px, the score scales to 340, the take canvas and tempo strip stay inside, and the control bar
+    wraps to four rows. Two interaction bugs fixed on the way: pressing Play during a take left the
+    take recording the synth, and space with a degree button focused both clicked it and replayed.
+16. **A full read of `index.html`** hunting correctness bugs now that it is ~95 KB and a few thousand
+    lines. The eleven suites cover behaviour that was designed on purpose; this is for the paths
+    nobody thought to test.
