@@ -85,6 +85,15 @@ Ordered, next item first. Item 1 is in progress.
 10. ~~**Tempo-curve view** — tempo graphed across a take against the written tempo.~~ Done.
 11. ~~**Save a take** — last eight takes per piece in localStorage, numbers only, with a
     tighter/looser comparison against the previous one.~~ Done.
-12. **A second look at Thunderclap** — it is the one piece whose printed fingering shifts more than a
-    player would; worth hand-checking the DP's output against how a cellist would actually take bars 1
-    and 5.
+12. ~~**A second look at Thunderclap**~~ Done — and the premise was wrong. The solver opens bar 1 in
+    second position on purpose: E4 is out of reach from first position even extended, so sitting up
+    for the first half of the bar makes it one hand move instead of two. What was wrong was the
+    practice note, which claimed the hand lives in first position; it now describes what is printed.
+    The pass did produce one real change to the model — a shift is now charged by how much *time*
+    there is to make it, so the same shift costs more between two fast notes than two slow ones.
+    At the written tempos this changes nothing (all ten fingerings byte-identical), but at 2× and 4×
+    it drops Thunderclap from 5 shifts to 4 and Dragonfly from 6 to 4.
+13. **Fingering variants** — a toggle between the computed fingering and a "stay down where you can"
+    variant for players who would rather extend than shift; same DP, different weights.
+14. **Difficulty markers** — the DP already knows where the hard moves are; mark the bars with the
+    biggest jumps so a player can see what to isolate before playing the piece through.

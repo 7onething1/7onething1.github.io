@@ -461,7 +461,7 @@ const PIECES = [
    "<b>Start slow and mean it.</b> Take it at 60% on the tempo slider until the accents land without a bow-arm jerk, then move in steps of 5.",
    "<b>Marteлé first, spiccato second.</b> Play it on the string with a bitten start and full stop between notes. Only when that is even should you let the bow bounce — spiccato built on an uneven martelé is just noise.",
    "<b>Bar 4 and bar 8</b> are the breath. The long A is not a rest: keep the bow moving and the vibrato going, or the piece deflates right where it should gather.",
-   "<b>Left hand.</b> The hand lives in first position and reaches twice: the E4s are an extended fourth finger, and the F4 at the top of bar 3 is the one real shift — third position, then straight back down."
+   "<b>Left hand.</b> Read the position marks before you play: bar 1 <i>starts</i> in second position so the E4 is a stretch of the fourth finger rather than a jump, then drops to first for the D4 and C4. Staying down and leaping up for that one E4 costs you two hand moves instead of one. The top of bars 2–3 goes to third position for the E4 and the extended F4, and everything else is first."
   ]
 },
 {
@@ -687,21 +687,35 @@ function stateCost(c){
   if(c.finger === 4 && c.o1 >= 5) k += 0.20;
   return k;
 }
-function moveCost(a, b){
-  return Math.abs(a.o1 - b.o1) * 1.2 + (a.str === b.str ? 0 : 0.7);
+/* A shift costs what it costs to make in the time available: between two half
+   notes it is nothing, between two eighths at speed it is the hardest thing in
+   the bar. `gap` is the seconds the player has to move the hand. */
+function moveCost(a, b, gap){
+  // never cheaper than a shift with all the time in the world: time pressure can
+  // only make a shift worse, it never makes an unnecessary one worth taking
+  const urgency = Math.max(1, Math.min(2.6, 0.30 / (gap || 0.30)));
+  return Math.abs(a.o1 - b.o1) * 1.2 * urgency + (a.str === b.str ? 0 : 0.7);
 }
 /* Open strings need no hand at all, so they sit outside the search and
    inherit the position of whatever is around them. */
-function assignFingerings(notes){
+function assignFingerings(notes, sec16){
+  sec16 = sec16 || 0.15;
   const idx = [];
   notes.forEach((n, i) => { if(!n.rest && OPEN.indexOf(n.midi) < 0) idx.push(i); });
+  /* time from each stopped note to the next one, open strings in between included */
+  const gaps = idx.map((i, k) => {
+    if(k === idx.length - 1) return 1;
+    let sixteenths = 0;
+    for(let j = i; j < idx[k + 1]; j++) sixteenths += notes[j].dur;
+    return sixteenths * sec16;
+  });
   if(idx.length){
     let paths = candidates(notes[idx[0]].midi).map(c => ({cost:stateCost(c), seq:[c]}));
     for(let k = 1; k < idx.length; k++){
       paths = candidates(notes[idx[k]].midi).map(c => {
         let best = null;
         paths.forEach(p => {
-          const cost = p.cost + stateCost(c) + moveCost(p.seq[p.seq.length - 1], c);
+          const cost = p.cost + stateCost(c) + moveCost(p.seq[p.seq.length - 1], c, gaps[k - 1]);
           if(!best || cost < best.cost) best = {cost, seq:p.seq.concat([c])};
         });
         return best;
@@ -1310,14 +1324,15 @@ function downloadMidi(p){
    BUILD
 ================================================================*/
 const UNIT_GLYPH = {q:"♩", e:"♪", dq:"♩."};
-function prepare(notes){
+function prepare(notes, sec16){
   notes.forEach((n, i) => { const nx = notes[i + 1]; n.slurNext = !!(nx && nx.slur); });
-  assignFingerings(notes);
+  assignFingerings(notes, sec16);
   return notes;
 }
 PIECES.forEach(p => {
-  p._notes = prepare(parseMusic(p.music, p.meter));
-  if(p.music2) p._notes2 = prepare(parseMusic(p.music2, p.meter));
+  const s16 = 60 / qpmOf(p) / 4;                        // at the written tempo
+  p._notes = prepare(parseMusic(p.music, p.meter), s16);
+  if(p.music2) p._notes2 = prepare(parseMusic(p.music2, p.meter), s16);
 });
 
 const host = el("pieces");
