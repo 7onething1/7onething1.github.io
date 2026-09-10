@@ -35,26 +35,73 @@ python3 transcribe.py STEM.wav --csv onsets.csv
 
 ## Verifying it rather than trusting it
 
-`selftest.py` synthesises a pattern whose every hit position and instrument is
-known, runs the detector, and scores the output:
+Two tests, and the second is the one that matters.
+
+### 1. `selftest.py` — synthetic, checks the pipeline logic
+
+Synthesises a pattern whose every hit position and instrument is known:
 
 ```
-clean : 64/64 onsets, 0 spurious, 1.6 ms mean error, BD/SD/HH all 1.00 precision and recall
-hard  : same, with timing jitter, velocity variation and a ~20 dB worse noise floor
-        -> HH recall 0.97, everything else 1.00; tempo confidence drops 0.92 -> 0.54
+clean (30 dB SNR) : 64/64 onsets, 0 spurious, 1.4 ms mean error
+hard  (15 dB SNR, timing jitter, velocity variation)
+both              : BD 1.00 / SD 1.00 / HH-exposed 1.00 precision and recall
+                    HH-masked recall 0.60 (a hat sharing an onset with a
+                    louder drum; reported separately, does not gate the test)
 ```
 
-**That number is not a real-world accuracy figure.** The test signal is synthetic:
-the three drums occupy clean, separable bands, there is no room, no bleed, no
-cymbal wash, no tuning drift. It proves the pipeline logic is correct, nothing
-more. Accuracy on an actual stem is unknown until it is run on one and the output
-is compared against a tab a human verified.
+**This proves the pipeline logic is correct and nothing else.** An earlier
+version of this file scored 1.00 while the tool scored **0.00** on real
+hi-hats, because the synthetic hat put its energy above 8 kHz and the synthetic
+kick put its energy in 110-350 Hz — neither of which real drums do. Synthetic
+audio you wrote yourself will confirm whatever you already believed.
+
+### 2. `validate_stems.py` — real audio, checks whether it actually works
+
+```bash
+python3 validate_stems.py /path/to/stem_dir [seconds]
+```
+
+Expects a directory of separated stems named `kick.mp3`, `snare.mp3`,
+`hihat.mp3`, `toms.mp3`, `cymbals.mp3`. It sums them into a mix, runs the
+detector on the mix, then uses the individual stems to say what each onset
+really was, and scores the spectral guess against it.
+
+Measured on four sets of separated stems in this repository, 45 s each, F1:
+
+| stems | BD | SD | HH | unclassified |
+|---|---|---|---|---|
+| `jam-rebuild-song10` | 0.64 | 0.83 | 0.53 | 42 of ~130 |
+| `jam-rebuild-song11` | 0.78 | 0.22 | 0.16 | 148 of ~197 |
+| `jam-rebuild-song12` | 0.63 | 0.74 | 0.44 | 76 of ~210 |
+| `believeyoume/asleep-in-the-trunk` | 0.65 | 0.42 | 0.85 | 20 of ~179 |
+
+Mean F1 across all three classes and all four sets: **0.57**.
+
+### What that means
+
+**This is a rough first pass to be corrected by ear. It is not a tab you can
+publish.** Better than half its calls are right on kick and snare; hi-hat swings
+between 0.16 and 0.85 depending on the material. `song11` in particular is close
+to useless — dense cymbal wash leaves no quiet window to measure a floor
+against, and 75% of its onsets come back unclassified.
+
+Two caveats that make even those numbers softer than they look:
+
+- The ground truth is **DrumSep's separation, not a human transcription**. These
+  numbers measure agreement with another model, which has its own errors.
+- The source is **96 kbps mono mp3**, which discards everything above ~13.5 kHz.
+  Lossless WAVs of the same performances should do better. That is untested —
+  the WAVs were not reachable from the machine this ran on.
 
 The `--csv` output has one row per onset with its band energies, so any
-individual call the tool made can be checked against the audio.
+individual call can be checked against the audio rather than taken on trust.
 
 ## Reading the grid error
 
 `grid error` is how far the onsets sit from the quantisation grid. A few ms means
 the tempo is right. If it approaches a quarter of a grid step the tool prints a
 warning: the tempo or subdivision is wrong and the tab should not be used.
+
+Tempo confidence on the jam stems measured 0.14-0.17, which is low. Pass
+`--bpm` when you know the tempo; do not trust the measured one at that
+confidence.

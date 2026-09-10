@@ -14,11 +14,17 @@ BANDS = {
     "lowmid": (110, 350),     # snare/tom body
     "mid":    (350, 2000),    # snare tone
     "hi":     (2000, 8000),   # snare crack, stick attack
-    "vhi":    (8000, 16000),  # hats, cymbals
+    "vhi":    (8000, 14000),  # hats, cymbals (mp3 rolls off ~14 kHz)
 }
 
 N_FFT = 2048
 HOP = 256
+
+# How the "nothing is being hit" level is measured, and how far above it a band
+# must sit to count as a hit. Chosen by sweeping against separated drum stems
+# (see validate_stems.py), not by taste.
+FLOOR_PCT = 75.0
+FLOOR_MULT = 1.5
 
 
 def read_audio(path):
@@ -117,45 +123,89 @@ def band_energies(y, sr, t, pre_ms=12.0, post_ms=45.0):
     return out
 
 
+def noise_floor(y, sr, onset_times, n_probe=200, seed=0):
+    """Per-band energy where nothing is being hit.
+
+    Sampled with the same window as band_energies at times away from any onset,
+    so the numbers are directly comparable. This is what a band looks like when
+    the drum is silent, which is the honest thing to test a hit against -- unlike
+    a percentile of onset energies, which is set by the loudest drum in the kit
+    and therefore always mutes the quietest one.
+    """
+    rng = np.random.default_rng(seed)
+    dur = len(y) / sr
+    onsets = np.asarray(onset_times)
+    probes, tries = [], 0
+    while len(probes) < n_probe and tries < n_probe * 20:
+        tries += 1
+        t = float(rng.uniform(0.05, max(dur - 0.10, 0.06)))
+        if len(onsets) and np.min(np.abs(onsets - t)) < 0.060:
+            continue
+        b = band_energies(y, sr, t)
+        if b is not None:
+            probes.append(b)
+    if not probes:
+        return {k: 0.0 for k in BANDS}
+    return {k: float(np.percentile([b[k] for b in probes], FLOOR_PCT)) for k in BANDS}
+
+
 def band_references(all_bands):
-    """Per-band reference level for one file: the 90th percentile of that
-    band's onset energies. Bands differ in absolute level by orders of
-    magnitude, so each is judged against its own scale, not against the others.
+    """Per-file reference levels. `_total` is the 90th-percentile onset energy,
+    used only as a noise gate; classification itself is scale-free so a ghost
+    note is judged by the same rules as a rimshot.
     """
     refs = {}
     for name in BANDS:
         vals = np.array([b[name] for b in all_bands if b is not None])
         refs[name] = float(np.percentile(vals, 90)) if len(vals) else 0.0
+    totals = np.array([sum(b.values()) for b in all_bands if b is not None])
+    refs["_total"] = float(np.percentile(totals, 90)) if len(totals) else 0.0
     return refs
 
 
 def classify(bands, refs):
-    """Return the instruments present at one onset.
+    """Return the instruments present at one onset, from spectral shape.
 
-    Gates are independent so simultaneous hits register together. Each is a
-    level test against that band's own reference plus a spectral-shape test.
-    An onset matching nothing returns an empty set and is reported as UNKNOWN,
-    never assigned to a drum by guesswork.
+    Thresholds are set from measured drum stems, not from theory. Two
+    quantities do the work:
+
+        high = hi + vhi   energy above 2 kHz (stick attack, snare crack, cymbal)
+        body = low + lowmid   energy below 350 Hz (kick thump, drum shell tone)
+
+    A cymbal or hi-hat is nearly all `high` with almost no `body`. A snare has
+    `high` too, but always carries shell body with it. A kick is `body` alone.
+    That contrast survives MP3 encoding, which discards content above ~14 kHz
+    and so destroys any rule that relies on the very top octave.
+
+    Gates are independent so simultaneous hits register together. An onset
+    matching nothing returns an empty set and is reported as UNKNOWN, never
+    assigned to a drum by guesswork.
     """
+    total = sum(bands.values())
+    ratios = {k: v / total for k, v in bands.items()} if total > 0 else {}
+    if total <= 0:
+        return set(), ratios
+
+    r = ratios
     hits = set()
+    floor = refs.get("_floor", {k: 0.0 for k in BANDS})
 
-    if refs["low"] > 0 and bands["low"] > 0.20 * refs["low"]:
-        if bands["low"] > 0.5 * bands["vhi"]:
-            hits.add("BD")
+    high = bands["hi"] + bands["vhi"]
+    high_floor = floor["hi"] + floor["vhi"]
 
-    if refs["hi"] > 0 and bands["hi"] > 0.20 * refs["hi"]:
-        # a snare's 8-16 kHz energy is comparable to its 2-8 kHz energy;
-        # a cymbal's is several times larger. That shape separates them.
-        if bands["vhi"] < 3.0 * bands["hi"]:
+    # Kick: low-frequency dominant in shape, or low-band energy clearly above
+    # the floor while still carrying real weight down there.
+    if r["low"] > 0.35 or (bands["low"] > FLOOR_MULT * floor["low"] and r["low"] > 0.20):
+        hits.add("BD")
+
+    # Anything above 2 kHz that clears the floor means a cymbal or a snare.
+    if high > FLOOR_MULT * high_floor and high > 0:
+        # A snare drags shell body along with its crack; a cymbal does not.
+        if bands["lowmid"] > 0.08 * high and r["low"] < 0.45:
             hits.add("SD")
-
-    if refs["vhi"] > 0 and bands["vhi"] > 0.015 * refs["vhi"]:
-        if bands["vhi"] > 1.2 * bands["hi"]:
+        else:
             hits.add("HH")
-
-    total = sum(bands.values()) or 1.0
-    ratios = {k: v / total for k, v in bands.items()}
-    return hits, ratios
+    return hits, r
 
 
 def refine_onsets(y, sr, times, back_ms=15.0, fwd_ms=70.0, win_ms=3.0):
@@ -229,6 +279,7 @@ def analyze(path):
     measured = [(t, band_energies(y, sr, t)) for t in times]
     measured = [(t, b) for t, b in measured if b is not None]
     refs = band_references([b for _, b in measured])
+    refs["_floor"] = noise_floor(y, sr, [t for t, _ in measured])
 
     events = []
     for t, bands in measured:
