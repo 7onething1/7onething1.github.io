@@ -204,6 +204,11 @@ transcriptions of the anime's music. Play them, record them, teach them, no perm
     <input type="range" id="vol" min="0" max="1" step="0.02" value="0.5"></div>
   <label class="switch"><input type="checkbox" id="drone"> Open-string drone</label>
   <label class="switch"><input type="checkbox" id="fings" checked> Fingerings</label>
+  <div class="ctl"><label for="fingmode">Hand</label>
+    <select id="fingmode">
+      <option value="printed">Balanced</option>
+      <option value="down">Stay down</option>
+    </select></div>
   <label class="switch"><input type="checkbox" id="loopAll"> Loop</label>
   <label class="switch"><input type="checkbox" id="countin"> Count-in</label>
   <label class="switch"><input type="checkbox" id="click"> Click</label>
@@ -345,7 +350,9 @@ transcriptions of the anime's music. Play them, record them, teach them, no perm
 the letter under that is the string. An <i>italic</i> number means the hand stretches for that note &mdash; a
 forward or backward extension, not a shift. Roman numerals above the staff mark a change of position (I =
 first, II = second, and so on); the small number at the left of each system is the bar number. Slurs are
-bowings: one bow for the whole slur.</p>
+bowings: one bow for the whole slur. The <b>Hand</b> selector in the bar above re-solves every piece:
+<i>Balanced</i> weighs a stretch against a shift the way most players would, <i>Stay down</i> is for
+players who would rather extend than move the hand and buys fewer shifts with more extensions.</p>
 
 <div id="pieces"></div>
 
@@ -680,26 +687,40 @@ function candidates(midi){
   }
   return out;
 }
-function stateCost(c){
-  let k = Math.abs(c.o1 - 2) * 0.45;                  // first position is home
-  if(c.o1 === 1) k += 0.40;                           // half position, rarer still
-  if(c.ext) k += 0.50;                                // a stretch costs less than a shift
-  if(c.finger === 4 && c.o1 >= 5) k += 0.20;
+/* Two ways to finger the same line. "printed" is the balanced reading. "down"
+   is for players who would rather stretch than move the hand: extensions come
+   cheap and shifts dear. Note that home stays *low* here rather than high —
+   insisting on first position is what forces a hand to climb and drop again,
+   which is the opposite of what this mode is for. */
+const WEIGHTS = {
+  printed:{home:0.45, half:0.40, ext:0.50, high4:0.20, shift:1.20},
+  down:   {home:0.30, half:0.40, ext:0.15, high4:0.30, shift:3.20}
+};
+let fingWeights = WEIGHTS.printed;
+
+function stateCost(c, w){
+  w = w || fingWeights;
+  let k = Math.abs(c.o1 - 2) * w.home;                // first position is home
+  if(c.o1 === 1) k += w.half;                         // half position, rarer still
+  if(c.ext) k += w.ext;                               // a stretch, weighed against a shift
+  if(c.finger === 4 && c.o1 >= 5) k += w.high4;
   return k;
 }
 /* A shift costs what it costs to make in the time available: between two half
    notes it is nothing, between two eighths at speed it is the hardest thing in
    the bar. `gap` is the seconds the player has to move the hand. */
-function moveCost(a, b, gap){
+function moveCost(a, b, gap, w){
+  w = w || fingWeights;
   // never cheaper than a shift with all the time in the world: time pressure can
   // only make a shift worse, it never makes an unnecessary one worth taking
   const urgency = Math.max(1, Math.min(2.6, 0.30 / (gap || 0.30)));
-  return Math.abs(a.o1 - b.o1) * 1.2 * urgency + (a.str === b.str ? 0 : 0.7);
+  return Math.abs(a.o1 - b.o1) * w.shift * urgency + (a.str === b.str ? 0 : 0.7);
 }
 /* Open strings need no hand at all, so they sit outside the search and
    inherit the position of whatever is around them. */
-function assignFingerings(notes, sec16){
+function assignFingerings(notes, sec16, w){
   sec16 = sec16 || 0.15;
+  w = w || fingWeights;
   const idx = [];
   notes.forEach((n, i) => { if(!n.rest && OPEN.indexOf(n.midi) < 0) idx.push(i); });
   /* time from each stopped note to the next one, open strings in between included */
@@ -710,12 +731,13 @@ function assignFingerings(notes, sec16){
     return sixteenths * sec16;
   });
   if(idx.length){
-    let paths = candidates(notes[idx[0]].midi).map(c => ({cost:stateCost(c), seq:[c]}));
+    let paths = candidates(notes[idx[0]].midi).map(c => ({cost:stateCost(c, w), seq:[c]}));
     for(let k = 1; k < idx.length; k++){
       paths = candidates(notes[idx[k]].midi).map(c => {
         let best = null;
         paths.forEach(p => {
-          const cost = p.cost + stateCost(c) + moveCost(p.seq[p.seq.length - 1], c, gaps[k - 1]);
+          const cost = p.cost + stateCost(c, w) +
+                       moveCost(p.seq[p.seq.length - 1], c, gaps[k - 1], w);
           if(!best || cost < best.cost) best = {cost, seq:p.seq.concat([c])};
         });
         return best;
@@ -1417,6 +1439,15 @@ el("vol").addEventListener("input", e => { if(master) master.gain.value = parseF
 el("tempo").addEventListener("input", e => { el("tempoVal").textContent = e.target.value + "%"; });
 el("tempo").addEventListener("change", () => { if(now) stopAll(); });
 el("fings").addEventListener("change", e => host.classList.toggle("nofing", !e.target.checked));
+el("fingmode").addEventListener("change", e => {
+  fingWeights = WEIGHTS[e.target.value] || WEIGHTS.printed;
+  PIECES.forEach(p => {
+    const s16 = 60 / qpmOf(p) / 4;
+    assignFingerings(p._notes, s16);
+    if(p._notes2) assignFingerings(p._notes2, s16);
+  });
+  renderAll();
+});
 el("drone").addEventListener("change", () => { if(now) stopAll(); });
 el("tuner").addEventListener("click", e => {
   const m = e.target.dataset.tune;

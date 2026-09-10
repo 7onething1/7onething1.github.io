@@ -55,7 +55,7 @@ files, no libraries.
 | Practice tools | Per-piece bar range (drill bars 9–12 alone), count-in, metronome click on the beat grid of the metre, and a speed trainer that adds 5% per loop pass up to 160%. |
 | Ear drill | Sounds the tonic, holds it, then one degree of the mode; seven modes, taken from the pieces themselves. Scores attempts, locks a correct answer so it cannot be double-counted. |
 | Record | Microphone take over the selected bars after a count-in. A ScriptProcessor keeps a 5 ms loudness envelope; attacks are detected off that and aligned to the written notes by a monotonic DP scored on *intervals* — what it costs to pair two notes is how far the gap you played is from the gap written — so a take that drifts reads as tempo rather than as notes going missing. Reports spread (the player) separately from mean offset (mostly input latency), graphs tempo across the take against the written tempo, and keeps the last eight takes per piece in localStorage (derived numbers only, never audio) to compare against. |
-| Controls | Global tempo (55–130%), volume, drone, fingerings on/off, loop, count-in, click, speed trainer, print all or one piece, and a tuner (four open strings plus A440, sine with a quiet octave and fifth). Escape stops everything. |
+| Controls | Global tempo (55–130%), volume, drone, fingerings on/off, hand preset (balanced or stay-down, which re-solves every piece), loop, count-in, click, speed trainer, print all or one piece, and a tuner (four open strings plus A440, sine with a quiet octave and fifth). Escape stops everything. |
 
 ## Source notes
 
@@ -93,7 +93,10 @@ Ordered, next item first. Item 1 is in progress.
     there is to make it, so the same shift costs more between two fast notes than two slow ones.
     At the written tempos this changes nothing (all ten fingerings byte-identical), but at 2× and 4×
     it drops Thunderclap from 5 shifts to 4 and Dragonfly from 6 to 4.
-13. **Fingering variants** — a toggle between the computed fingering and a "stay down where you can"
-    variant for players who would rather extend than shift; same DP, different weights.
+13. ~~**Fingering variants**~~ Done. Two weight presets over the same solver. The first attempt bundled
+    "keep the hand low" with "do not shift" and got *more* shifts (Thunderclap 5 → 7), because
+    insisting on first position is exactly what forces a hand to climb and drop again; the shipped
+    preset keeps home low and prices shifts dear instead — Dragonfly 6 → 1, Lullaby 6 → 1,
+    Thunderclap 5 → 3, and pieces that never shift stay untouched.
 14. **Difficulty markers** — the DP already knows where the hard moves are; mark the bars with the
     biggest jumps so a player can see what to isolate before playing the piece through.
