@@ -52,9 +52,24 @@ breaks. Because it is an artifact it can be picked up, dropped and stolen.
 **Collection** is a third zone. "Your collection consists of cards you own that didn't
 start the game in your decks," and some cards cast directly out of it during play.
 
+## A source conflict worth knowing
+
+The 2024 Wizards' Den episode "Timeline, Stack and Resolution" calls the system a
+**Timeline**, states that "the last one added to the timeline resolves first," and admits
+"it is not written in the main rule book." The December 2025 rulebook returns **zero hits
+for "timeline"** and uses **Storyline** throughout, with events "resolved in order, one at
+a time." The Sorcery Companion rendering of the same rulebook confirms first placed, first
+resolved. The page carries the rulebook reading and flags the conflict, because a Magic
+player who finds that video gets the ordering confirmed backwards.
+
+Separately, "Storyline" appears exactly **once across all 44 transcripts**, in a teacher
+deferring it to a future part two as an advanced concept. Beginner coverage skips the one
+mechanic a Magic player is most likely to get wrong.
+
 ## Corpus behind the page
 
-Transcripts live at `~/Projects/_outputs/yt-transcripts/sorcery-contested-realm-eval/`.
+44 transcripts, 190,689 words, every manifest row status ok, at
+`~/Projects/_outputs/yt-transcripts/sorcery-contested-realm-eval/`.
 The rulebook text used for grounding is the December 2025 release.
 
 Palette: Isle of Dogs (Wes Anderson, 2018).
