@@ -98,5 +98,12 @@ Ordered, next item first. Item 1 is in progress.
     insisting on first position is exactly what forces a hand to climb and drop again; the shipped
     preset keeps home low and prices shifts dear instead — Dragonfly 6 → 1, Lullaby 6 → 1,
     Thunderclap 5 → 3, and pieces that never shift stay untouched.
-14. **Difficulty markers** — the DP already knows where the hard moves are; mark the bars with the
-    biggest jumps so a player can see what to isolate before playing the piece through.
+14. ~~**Difficulty markers**~~ Done. A move is scored by how far the hand travels times the same time
+    pressure the solver uses; anything at 2 or above gets a ▲ under the note and a line in the piece
+    header. They agree with the practice notes written independently of them (Water 9 and 13,
+    Thunderclap 2–3, Wisteria 5, 7 and 14), and they re-solve with the hand preset.
+
+The feature backlog is empty. Item 5 is the user's to do. A reasonable next iteration would be
+quality rather than features: a full read of `index.html` hunting correctness bugs now that it has
+grown to a few thousand lines, and a phone-width pass over the panels added since the last one
+(take canvas, tempo strip, ear drill, hand preset).

@@ -107,6 +107,11 @@
     margin:6px 0 0;display:flex;flex-wrap:wrap;gap:4px 14px;
   }
   .psub{color:var(--soft);font-size:14.5px;margin:5px 0 0;max-width:76ch}
+  .hard{
+    font-family:ui-monospace,Menlo,monospace;font-size:11.5px;color:var(--accent,var(--water));
+    margin:7px 0 0;letter-spacing:.03em;
+  }
+  .hard:empty{display:none}
   .pbody{padding:6px 8px 4px 12px;overflow-x:auto}
   .score{display:block;width:100%;height:auto}
   .take{padding:2px 18px 6px 20px}
@@ -352,7 +357,10 @@ forward or backward extension, not a shift. Roman numerals above the staff mark 
 first, II = second, and so on); the small number at the left of each system is the bar number. Slurs are
 bowings: one bow for the whole slur. The <b>Hand</b> selector in the bar above re-solves every piece:
 <i>Balanced</i> weighs a stretch against a shift the way most players would, <i>Stay down</i> is for
-players who would rather extend than move the hand and buys fewer shifts with more extensions.</p>
+players who would rather extend than move the hand and buys fewer shifts with more extensions.
+A <b>▲</b> under a note marks a move worth isolating before you play the piece through &mdash; a jump of
+two positions or more, or a single one with no time to make it &mdash; and the piece header lists which
+bars they fall in. Changing the hand preset re-solves the marks along with the fingering.</p>
 
 <div id="pieces"></div>
 
@@ -755,6 +763,30 @@ function assignFingerings(notes, sec16, w){
               o1: ahead !== undefined ? Math.min(carried, notes[ahead].fing.o1) : carried};
   });
 }
+/* The moves worth isolating before playing a piece through: a jump of two or
+   more positions at any speed, or a single-position move with no time to make
+   it. Scored with the same urgency the solver used, so the marks agree with
+   the fingering above them. */
+function markHard(notes, sec16){
+  const idx = [];
+  notes.forEach((n, i) => { n.hard = false; if(!n.rest && n.fing && n.fing.finger !== 0) idx.push(i); });
+  const spots = [];
+  for(let k = 1; k < idx.length; k++){
+    const a = notes[idx[k - 1]].fing, b = notes[idx[k]].fing;
+    const jump = Math.abs(a.o1 - b.o1);
+    if(!jump) continue;
+    let sixteenths = 0;
+    for(let j = idx[k - 1]; j < idx[k]; j++) sixteenths += notes[j].dur;
+    const gap = sixteenths * sec16;
+    const urgency = Math.max(1, Math.min(2.6, 0.30 / (gap || 0.30)));
+    const score = jump * urgency;
+    if(score >= 2){
+      notes[idx[k]].hard = true;
+      spots.push({i:idx[k], bar:notes[idx[k]].bar + 1, score, from:a.o1, to:b.o1});
+    }
+  }
+  return spots;
+}
 const POS_ROMAN = {1:"½", 2:"I", 3:"II", 4:"III", 5:"IV", 6:"V", 7:"VI", 8:"VII", 9:"VIII"};
 </script>
 
@@ -974,6 +1006,10 @@ function engrave(piece, notes, width, idPrefix){
     out += svgEl("text", {class:"fing", x:p.x, y:p.oy + BOTTOM + 41, "font-size":9.5,
                           "text-anchor":"middle", fill:"#5C5344", "letter-spacing":".05em"},
                  STRING_NAME[f.str]);
+    if(p.n.hard)
+      out += svgEl("path", {class:"fing",
+        d:"M" + (p.x - 4) + "," + (p.oy + 26) + " L" + (p.x + 4) + "," + (p.oy + 26) +
+          " L" + p.x + "," + (p.oy + 33) + " Z", fill:piece.accent, opacity:.75});
     if(f.finger !== 0 && f.o1 !== lastPos){
       out += svgEl("text", {class:"fing", x:p.x,
                             y:p.oy + 11, "font-size":11,
@@ -1349,11 +1385,24 @@ const UNIT_GLYPH = {q:"♩", e:"♪", dq:"♩."};
 function prepare(notes, sec16){
   notes.forEach((n, i) => { const nx = notes[i + 1]; n.slurNext = !!(nx && nx.slur); });
   assignFingerings(notes, sec16);
+  markHard(notes, sec16);
   return notes;
+}
+function renderHard(){
+  PIECES.forEach(p => {
+    const box = el("hard-" + p.id);
+    if(!box) return;
+    const bars = [...new Set((p._hard || []).map(h => h.bar))];
+    box.textContent = bars.length
+      ? "▲ hardest moves: bar" + (bars.length > 1 ? "s " : " ") + bars.join(", ") +
+        " — worth isolating before you play it through"
+      : "";
+  });
 }
 PIECES.forEach(p => {
   const s16 = 60 / qpmOf(p) / 4;                        // at the written tempo
   p._notes = prepare(parseMusic(p.music, p.meter), s16);
+  p._hard = markHard(p._notes, s16);
   if(p.music2) p._notes2 = prepare(parseMusic(p.music2, p.meter), s16);
 });
 
@@ -1368,6 +1417,7 @@ host.innerHTML = PIECES.map((p, i) => {
       '<p class="pmeta"><span>' + p.keyName + '</span><span>' + p.meter[0] + '/' + p.meter[1] + '</span>' +
         '<span>' + UNIT_GLYPH[p.unit] + ' = ' + p.bpm + '</span><span>' + bars + ' bars</span>' +
         '<span>' + p.level + '</span><span>' + p.focus + '</span></p>' +
+      '<p class="hard" id="hard-' + p.id + '"></p>' +
     '</div>' +
     '<div class="btns">' +
       '<button class="play" data-play="' + p.id + '">▶ Play</button>' +
@@ -1403,6 +1453,7 @@ function renderAll(){
   });
 }
 renderAll();
+renderHard();
 
 const styleHit = document.createElement("style");
 styleHit.textContent = ".nh.hit{fill:#B4553A !important;stroke:#B4553A !important}";
@@ -1444,9 +1495,11 @@ el("fingmode").addEventListener("change", e => {
   PIECES.forEach(p => {
     const s16 = 60 / qpmOf(p) / 4;
     assignFingerings(p._notes, s16);
-    if(p._notes2) assignFingerings(p._notes2, s16);
+    p._hard = markHard(p._notes, s16);
+    if(p._notes2){ assignFingerings(p._notes2, s16); markHard(p._notes2, s16); }
   });
   renderAll();
+  renderHard();
 });
 el("drone").addEventListener("change", () => { if(now) stopAll(); });
 el("tuner").addEventListener("click", e => {
