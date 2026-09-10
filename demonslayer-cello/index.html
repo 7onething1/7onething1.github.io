@@ -328,8 +328,11 @@ transcriptions of the anime's music. Play them, record them, teach them, no perm
   numbers. The <i>spread</i> is how unevenly the notes landed &mdash; that one is yours, and it is the
   number to practise down. The <i>average offset</i> is mostly the delay in getting sound from your
   strings back through the microphone, so a constant lateness across every note is the equipment, not
-  you. Nothing is uploaded or saved: the audio becomes a loudness curve in the page and disappears when
-  you reload.
+  you. Under those numbers it graphs your tempo across the take against the tempo written, because
+  &ldquo;28 ms of spread&rdquo; and &ldquo;the second half runs away from you&rdquo; are different
+  problems with different fixes. The page keeps the last eight takes per piece so it can tell you
+  whether today is tighter than last time &mdash; those are numbers only, in your own browser. No audio
+  is uploaded or stored: it becomes a loudness curve and disappears when you reload.
 </p>
 <p>
   <b>Three of them are duets.</b> Water Surface Slice, Flame Vow and Wisteria at Dusk carry a second
@@ -1442,52 +1445,94 @@ function noiseFloor(env){
   const sorted = env.map(e => e.rms).sort((a, b) => a - b);
   return sorted[Math.floor(sorted.length * 0.2)] || 0;
 }
-/* Expected times are relative to the first note; onsets are aligned to their
-   own first attack, so the comparison is about spacing rather than when the
-   player happened to come in. */
-function analyseTake(env, expected, tol){
-  tol = tol || 0.25;
+/* Line the attacks up with the notes. Pairing each note with its nearest
+   attack around a single offset falls apart the moment a player drifts, so
+   the alignment is monotonic and scored on intervals: what it costs to match
+   two notes is how far apart the gap you played is from the gap written.
+   Drift then shows up as tempo rather than as notes going missing. */
+function alignMonotonic(onsets, expected, skip){
+  skip = skip || 0.22;
+  const n = expected.length, m = onsets.length, LOOK = 3;
+  const dp = [], from = [];
+  for(let i = 0; i < n; i++){ dp.push(new Array(m).fill(Infinity)); from.push(new Array(m).fill(null)); }
+  for(let i = 0; i < n; i++)
+    for(let k = 0; k < m; k++){
+      let best = i * skip + k * skip, prev = null;      // this pair opens the alignment
+      for(let pi = Math.max(0, i - LOOK); pi < i; pi++)
+        for(let pk = Math.max(0, k - LOOK); pk < k; pk++){
+          if(dp[pi][pk] === Infinity) continue;
+          const cost = dp[pi][pk] +
+            Math.abs((expected[i] - expected[pi]) - (onsets[k] - onsets[pk])) +
+            (i - pi - 1) * skip + (k - pk - 1) * skip;
+          if(cost < best){ best = cost; prev = [pi, pk]; }
+        }
+      dp[i][k] = best; from[i][k] = prev;
+    }
+  let ei = -1, ok = -1, bestEnd = Infinity;
+  for(let i = 0; i < n; i++)
+    for(let k = 0; k < m; k++){
+      const tail = dp[i][k] + (n - 1 - i) * skip + (m - 1 - k) * skip;
+      if(tail < bestEnd){ bestEnd = tail; ei = i; ok = k; }
+    }
+  const pairs = [];
+  while(ei >= 0){ pairs.unshift([ei, ok]); const pr = from[ei][ok]; if(!pr) break; ei = pr[0]; ok = pr[1]; }
+  return pairs;
+}
+function median(v){
+  if(!v.length) return 0;
+  const s = v.slice().sort((a, b) => a - b), h = s.length >> 1;
+  return s.length % 2 ? s[h] : (s[h - 1] + s[h]) / 2;
+}
+function analyseTake(env, expected){
   const onsets = detectOnsets(env, noiseFloor(env));
   if(!onsets.length || !expected.length)
     return {onsets, matched:[], missed:expected.length, extra:onsets.length,
             mean:0, spread:0, worst:null, empty:true};
-  /* One missed or spurious first attack must not shift the whole comparison by a
-     note, so try the plausible alignments and keep the one that explains the most
-     notes (ties going to the tighter fit). */
-  const matchAt = shift => {
-    const matched = [], used = new Set();
-    expected.forEach((e, i) => {
-      let best = -1, bestD = Infinity;
-      onsets.forEach((o, k) => {
-        const d = Math.abs(o - shift - e);
-        if(d < bestD && d <= tol && !used.has(k)){ bestD = d; best = k; }
-      });
-      if(best >= 0){ used.add(best); matched.push({i, dev:onsets[best] - shift - e}); }
-    });
-    const err = matched.reduce((a, m) => a + Math.abs(m.dev), 0);
-    return {shift, matched, used, err};
-  };
-  const cands = new Set();
-  for(let a = 0; a < Math.min(3, onsets.length); a++)
-    for(let b = 0; b < Math.min(3, expected.length); b++) cands.add(onsets[a] - expected[b]);
-  let fit = null;
-  cands.forEach(sh => {
-    const f = matchAt(sh);
-    if(!fit || f.matched.length > fit.matched.length ||
-       (f.matched.length === fit.matched.length && f.err < fit.err)) fit = f;
-  });
-  const shift = fit.shift, matched = fit.matched, used = fit.used;
+  const pairs = alignMonotonic(onsets, expected);
+  const shift = median(pairs.map(([i, k]) => onsets[k] - expected[i]));
+  const matched = pairs.map(([i, k]) => ({i, k, dev:onsets[k] - shift - expected[i]}));
   const devs = matched.map(m => m.dev);
   const mean = devs.reduce((a, b) => a + b, 0) / (devs.length || 1);
   const spread = Math.sqrt(devs.reduce((a, d) => a + (d - mean) * (d - mean), 0) / (devs.length || 1));
   const worst = matched.reduce((a, m) => (!a || Math.abs(m.dev) > Math.abs(a.dev) ? m : a), null);
   return {onsets, matched, missed:expected.length - matched.length,
-          extra:onsets.length - used.size, mean, spread, worst, shift};
+          extra:onsets.length - matched.length, mean, spread, worst, shift};
 }
 
-function drawTake(id, env, expected, an){
+/* Tempo between consecutive matched notes: how the gap the player actually
+   left compares with the gap the music asks for. Short gaps are skipped —
+   a 5 ms error across an eighth note says nothing about tempo. */
+function tempoSeries(an, expected, targetBpm){
+  const pts = [];
+  for(let k = 0; k + 1 < an.matched.length; k++){
+    const a = an.matched[k], b = an.matched[k + 1];
+    const de = expected[b.i] - expected[a.i];
+    if(de < 0.12) continue;
+    const da = an.onsets[b.k] - an.onsets[a.k];
+    if(da <= 0.02) continue;
+    const ratio = Math.max(0.5, Math.min(2, de / da));
+    pts.push({t:(expected[a.i] + expected[b.i]) / 2, bpm:targetBpm * ratio, i:a.i});
+  }
+  return pts;
+}
+function tempoTrend(pts){
+  if(pts.length < 3) return null;
+  const n = pts.length;
+  const mx = pts.reduce((a, p) => a + p.t, 0) / n;
+  const my = pts.reduce((a, p) => a + p.bpm, 0) / n;
+  let num = 0, den = 0;
+  pts.forEach(p => { num += (p.t - mx) * (p.bpm - my); den += (p.t - mx) * (p.t - mx); });
+  const slope = den ? num / den : 0;                    // bpm per second
+  const span = pts[pts.length - 1].t - pts[0].t;
+  return {slope, drift:slope * span, first:my - slope * (mx - pts[0].t),
+          last:my + slope * (pts[pts.length - 1].t - mx)};
+}
+
+function drawTake(id, env, expected, an, tempo, targetBpm){
   const cv = el("canvas-" + id);
-  const w = cv.clientWidth || 600, h = 96, dpr = window.devicePixelRatio || 1;
+  const w = cv.clientWidth || 600, h = (tempo && tempo.length > 1) ? 152 : 96,
+        dpr = window.devicePixelRatio || 1;
+  cv.style.height = h + "px";
   cv.width = w * dpr; cv.height = h * dpr;
   const g = cv.getContext("2d");
   g.setTransform(dpr, 0, 0, dpr, 0, 0);
@@ -1496,7 +1541,8 @@ function drawTake(id, env, expected, an){
   const span = Math.max(env.length ? env[env.length - 1].t : 1,
                         expected.length ? expected[expected.length - 1] + 0.5 : 1);
   const x = t => (t / span) * (w - 8) + 4;
-  const mid = h - 26;
+  const tempoH = (tempo && tempo.length > 1) ? 56 : 0;
+  const mid = h - 26 - tempoH;
 
   g.fillStyle = "#EFE7D3";
   g.fillRect(0, 0, w, h);
@@ -1534,9 +1580,56 @@ function drawTake(id, env, expected, an){
   });
   g.strokeStyle = "#8C8574";
   g.beginPath(); g.moveTo(4, mid + 12); g.lineTo(w - 4, mid + 12); g.stroke();
+
+  if(!tempoH) return;
+
+  // tempo across the take, against the tempo the page is set to
+  const top = h - tempoH + 6, bot = h - 6;
+  const lo = Math.min(targetBpm * 0.82, ...tempo.map(p => p.bpm));
+  const hi = Math.max(targetBpm * 1.18, ...tempo.map(p => p.bpm));
+  const y = v => bot - ((v - lo) / (hi - lo || 1)) * (bot - top);
+
+  g.fillStyle = "#EFE7D3";
+  g.fillRect(0, h - tempoH, w, tempoH);
+  g.strokeStyle = "#C9BFA6";
+  g.setLineDash([3, 3]);
+  g.beginPath(); g.moveTo(4, y(targetBpm)); g.lineTo(w - 4, y(targetBpm)); g.stroke();
+  g.setLineDash([]);
+
+  g.strokeStyle = "#2E6E6B";
+  g.lineWidth = 1.6;
+  g.beginPath();
+  tempo.forEach((pt, i) => (i ? g.lineTo(x(pt.t), y(pt.bpm)) : g.moveTo(x(pt.t), y(pt.bpm))));
+  g.stroke();
+  g.fillStyle = "#2E6E6B";
+  tempo.forEach(pt => { g.beginPath(); g.arc(x(pt.t), y(pt.bpm), 2, 0, 6.3); g.fill(); });
+
+  g.fillStyle = "#5C5344";
+  g.font = "10px ui-monospace, Menlo, monospace";
+  g.fillText(Math.round(targetBpm) + " written", 6, y(targetBpm) - 4);
 }
 
-function takeSummary(id, an, expected){
+const TAKE_KEY = id => "dsc-takes-" + id;
+function loadTakes(id){
+  try{ return JSON.parse(localStorage.getItem(TAKE_KEY(id)) || "[]"); }
+  catch(e){ return []; }
+}
+function saveTake(id, rec){
+  try{
+    const all = loadTakes(id).concat([rec]).slice(-8);
+    localStorage.setItem(TAKE_KEY(id), JSON.stringify(all));
+    return all;
+  }catch(e){ return loadTakes(id); }                    // private mode, quota: just don't keep it
+}
+function ago(ms){
+  const d = (Date.now() - ms) / 1000;
+  if(d < 90) return "just now";
+  if(d < 5400) return Math.round(d / 60) + " min ago";
+  if(d < 129600) return Math.round(d / 3600) + " h ago";
+  return Math.round(d / 86400) + " days ago";
+}
+
+function takeSummary(id, an, expected, tempo, targetBpm, history){
   const ms = v => (v >= 0 ? "+" : "−") + Math.round(Math.abs(v) * 1000) + " ms";
   const say = el("say-" + id);
   if(an.empty){
@@ -1554,6 +1647,24 @@ function takeSummary(id, an, expected){
     "<br>Average offset " + ms(an.mean) + " (" + (late ? "behind" : "ahead of") +
     " the grid); a constant offset is mostly microphone latency, not you." +
     (an.worst ? "<br>Furthest note: " + ms(an.worst.dev) + " at note " + (an.worst.i + 1) + "." : "");
+
+  const tr = tempoTrend(tempo || []);
+  if(tr){
+    const drift = Math.round(tr.drift);
+    const shape = Math.abs(drift) < 2 ? "held steady"
+                : drift > 0 ? "ran " + drift + " faster by the end"
+                : "dropped " + (-drift) + " by the end";
+    say.innerHTML += "<br>Tempo " + shape + " — " + Math.round(tr.first) + " to " +
+                     Math.round(tr.last) + " against " + Math.round(targetBpm) + " written.";
+  }
+  const prev = (history || []).slice(0, -1).pop();
+  if(prev){
+    const d = Math.round((an.spread - prev.spread) * 1000);
+    const verdict = Math.abs(d) < 3 ? "about the same"
+                  : d < 0 ? Math.abs(d) + " ms tighter" : d + " ms looser";
+    say.innerHTML += "<br>Last take (" + ago(prev.at) + "): " +
+                     Math.round(prev.spread * 1000) + " ms spread — today is " + verdict + ".";
+  }
 }
 
 function stopTake(){
@@ -1624,8 +1735,15 @@ async function record(p, btn){
     try{ src.disconnect(); proc.disconnect(); sink.disconnect(); }catch(e){}
     stream.getTracks().forEach(t => t.stop());
     const an = analyseTake(env, expected);
-    drawTake(p.id, env, expected, an);
-    takeSummary(p.id, an, expected);
+    const targetBpm = p.bpm * rate();
+    const tempo = an.empty ? [] : tempoSeries(an, expected, targetBpm);
+    const history = an.empty ? loadTakes(p.id) : saveTake(p.id, {
+      at:Date.now(), spread:an.spread, mean:an.mean,
+      matched:an.matched.length, total:expected.length,
+      bpm:targetBpm, from:segmentOf(p).from, to:segmentOf(p).to
+    });
+    drawTake(p.id, env, expected, an, tempo, targetBpm);
+    takeSummary(p.id, an, expected, tempo, targetBpm, history);
     take = null;
     btn.textContent = "Record"; btn.classList.remove("on");
     return an;
