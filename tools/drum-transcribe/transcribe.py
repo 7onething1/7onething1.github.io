@@ -105,9 +105,15 @@ def main():
           + f", unclassified {unknown}")
     print(f"grid error    : {errs.mean() * 1000:.1f} ms mean, "
           f"{errs.max() * 1000:.1f} ms max")
+    # A good mean hides bad individual placements, so check the worst hit too.
     if errs.mean() > 0.25 * step:
         print("WARNING: onsets do not fit this grid. The tempo or subdivision "
               "is probably wrong; the tab below is not trustworthy.")
+    elif errs.max() > 0.25 * step:
+        n_bad = int((errs > 0.25 * step).sum())
+        print(f"WARNING: {n_bad} of {len(errs)} onsets sit more than a quarter "
+              f"of a grid step ({0.25 * step * 1000:.0f} ms) off the grid, worst "
+              f"{errs.max() * 1000:.0f} ms. Those placements are guesses.")
     print()
     print(render_tab(events, bpm, args.subdiv, offset, step, args.bar_steps))
 

@@ -90,8 +90,29 @@ Two caveats that make even those numbers softer than they look:
 - The ground truth is **DrumSep's separation, not a human transcription**. These
   numbers measure agreement with another model, which has its own errors.
 - The source is **96 kbps mono mp3**, which discards everything above ~13.5 kHz.
-  Lossless WAVs of the same performances should do better. That is untested —
-  the WAVs were not reachable from the machine this ran on.
+
+### Lossless WAVs
+
+Two lossless drum clips (44.1 kHz stereo 16-bit, full bandwidth to ~21.7 kHz)
+were run for comparison:
+
+| file | known BPM (bars / duration) | measured | unclassified |
+|---|---|---|---|
+| `drum_TheAlligator_bars3-6.wav` | 120.0 | 120.19 | 0 of 30 |
+| `drum_ExplosionsInTheSky_bars1-4.wav` | 115.7 | 117.45 | 1 of 17 |
+
+The tempo agreement on the first is independent: 120.0 comes from the file
+name's bar count over the duration, 120.19 from autocorrelation.
+
+**Abstention drops to near zero on lossless input, but that is not accuracy.**
+There is no ground truth for these two clips — no separated stems, no verified
+tab — so nothing here says the BD/SD/HH labels are right. Only the stem table
+above rests on ground truth.
+
+Placement is still unreliable: on the first file 2 of 30 onsets sit more than a
+quarter of a grid step off (worst 57 ms, where a 16th note is 125 ms), and it
+renders 3 bars for a clip known to be 4. The tool now says so rather than
+printing a tidy tab over it.
 
 The `--csv` output has one row per onset with its band energies, so any
 individual call can be checked against the audio rather than taken on trust.

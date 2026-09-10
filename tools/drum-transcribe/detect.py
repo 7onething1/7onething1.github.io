@@ -33,9 +33,15 @@ def read_audio(path):
     if y.shape[0] == 0:
         raise ValueError(f"{path} contains no audio frames")
     y = y.mean(axis=1)
-    peak = np.abs(y).max()
+    peak = float(np.abs(y).max())
     if peak == 0:
         raise ValueError(f"{path} is digital silence")
+    if peak < 0.001:                       # -60 dBFS
+        db = 20.0 * np.log10(peak)
+        raise ValueError(
+            f"{path} peaks at {db:.1f} dBFS, which is a noise floor, not a "
+            f"performance. Normalising it would amplify hiss by "
+            f"{1.0 / peak:.0f}x and analyse that. Check the export.")
     return y / peak, sr
 
 
