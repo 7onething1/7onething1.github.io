@@ -39,7 +39,7 @@ tr:last-child td{border-bottom:0}
 footer{margin-top:44px;padding-top:14px;border-top:1px solid var(--rule);font-size:12px;color:#7a6f5f}
 </style></head><body><div class="wrap">
 <h1>Archived Chats</h1>
-<p class="sub">Pass run 2026-09-10 00:26. 33 chats selected, 28 archived. Sorted by when Brandon last asked something, which is the correct signal. Nothing was deleted; every transcript stays on disk.</p>
+<p class="sub">Pass run 2026-09-10 00:34. 33 chats selected, 28 archived. Sorted by when Brandon last asked something, which is the correct signal. Nothing was deleted; every transcript stays on disk.</p>
 
 <div class="stats">
 <div class="stat"><b>28</b><span>chats archived</span></div>
@@ -49,7 +49,7 @@ footer{margin-top:44px;padding-top:14px;border-top:1px solid var(--rule);font-si
 <div class="stat"><b>19</b><span>chats still active</span></div>
 </div>
 
-<div class="note bad"><strong>The pass used the wrong clock, and 9 chats paid for it.</strong> I ranked by the app's <code>lastActivityAt</code>, which the babysit and digest launchd jobs bump on their own schedule. That field says a chat moved; it does not say Brandon touched it. Reading each transcript for the last genuine user ask, ignoring hook and harness text, gives a different order. 9 chats archived below had a real ask inside the last three hours.</div>
+<div class="note bad"><strong>The pass used the wrong clock, and 9 chats paid for it.</strong> I ranked by the app's <code>lastActivityAt</code>. That field advances on app bookkeeping events that carry no user turn at all. In the stale chat named below, the last five records were <code>artifact-autoreact-ledger</code>, <code>bridge-session</code>, <code>last-prompt</code>, <code>frame-link</code> and <code>artifact-comment-monitor</code>, the newest stamped 2026-09-10T04:58:39. The field says a chat moved. It does not say Brandon touched it. Reading each transcript for the last genuine user ask, ignoring hook and harness text, gives a different order. 9 chats archived below had a real ask inside the last three hours.</div>
 
 <div class="note"><strong>The clearest proof of the defect.</strong> <em>Finder search bug</em> carried an app timestamp of 2026-09-10T03:33, which reads as today. The last genuine ask in its transcript was 35.7 hours before this pass. Ranking on the app clock put it above chats Brandon had actually just used.</div>
 
@@ -296,8 +296,11 @@ You are researching and designing a production-grade skill for repairing existin
 <div class="prod"><strong>Finished product</strong><ul class="arts"><li><a href="https://7onething1.github.io/watermelon-ride-detector/" target="_blank" rel="noopener">https://7onething1.github.io/watermelon-ride-detector/</a></li></ul></div>
 </article></div>
 
+<h2>Why the list will not sit at 15</h2>
+<div class="note"><strong>22 sessions were created in the six hours around this pass</strong>, four of them in the last twenty minutes while chats were being archived. Archiving alone cannot hold a target count against that rate. Two stale chats also refuse the archive call: <em>Watermelon chat refund request</em>, idle 31 hours on an unanswered question widget, and <em>Guitar leakage regression pipeline</em>, idle 12 hours on a queued message.</div>
+
 <h2>Still active: 19 chats</h2>
 <div class="tablewrap"><table><thead><tr><th>Chat</th><th>Your last ask</th><th>Sidebar</th></tr></thead><tbody><tr><td>Chat archive pass (this session)</td><td>0.0h</td><td>unpinned</td></tr><tr><td>YouTube transcript skill</td><td>0.0h</td><td>unpinned</td></tr><tr><td>Zappa AI transcription update SLIME</td><td>0.0h</td><td>unpinned</td></tr><tr><td>Watermelon GP deadline</td><td>0.0h</td><td>unpinned</td></tr><tr><td>Skills cleanup evaluation</td><td>0.1h</td><td>unpinned</td></tr><tr><td>Reharmonization chat location</td><td>0.2h</td><td>unpinned</td></tr><tr><td>Free space deletion map</td><td>0.2h</td><td>unpinned</td></tr><tr><td>Material drift and false completion claims</td><td>0.3h</td><td>unpinned</td></tr><tr><td>Watermelon In Easter Hay drum transcription</td><td>1.1h</td><td>unpinned</td></tr><tr><td>Guitar leakage regression pipeline</td><td>11.6h</td><td>unpinned</td></tr><tr><td>Watermelon chat refund request</td><td>30.9h</td><td>unpinned</td></tr><tr><td>Appleseed cast chat</td><td>51.0h</td><td>unpinned</td></tr><tr><td>Chat lifecycle management system</td><td>no ask on record</td><td>unpinned</td></tr><tr><td>Check dashboard and generate feedback for bands</td><td>no ask on record</td><td>pinned</td></tr><tr><td>CODING ACTIVITY GRAPH</td><td>no ask on record</td><td>pinned</td></tr><tr><td>SONGWRITING BOOK TEMPLATE</td><td>no ask on record</td><td>pinned</td></tr><tr><td>TAROT TRAINING GUIDE</td><td>no ask on record</td><td>pinned</td></tr><tr><td>Connect audit dashboards to Claude login</td><td>no ask on record</td><td>pinned</td></tr><tr><td>TAROT VOICE MODEL</td><td>no ask on record</td><td>pinned</td></tr></tbody></table></div>
 
-<footer>Built 2026-09-10 00:26. Chats came from <code>ccd_session_mgmt.list_sessions</code>, archived state was read back from the app's own session store, and every chat was joined to its transcript by exact title through <code>babysit_state.json</code> with no fuzzy timestamp matching. Hours since the last genuine ask were measured per transcript, counting only user turns that carry no hook or harness marker. File paths were checked against the filesystem at build time.</footer>
+<footer>Built 2026-09-10 00:34. Chats came from <code>ccd_session_mgmt.list_sessions</code>, archived state was read back from the app's own session store, and every chat was joined to its transcript by exact title through <code>babysit_state.json</code> with no fuzzy timestamp matching. Hours since the last genuine ask were measured per transcript, counting only user turns that carry no hook or harness marker. File paths were checked against the filesystem at build time.</footer>
 </div></body></html>
