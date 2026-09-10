@@ -109,6 +109,15 @@ The feature backlog is empty. Item 5 is the user's to do.
     390px, the score scales to 340, the take canvas and tempo strip stay inside, and the control bar
     wraps to four rows. Two interaction bugs fixed on the way: pressing Play during a take left the
     take recording the synth, and space with a degree button focused both clicked it and replayed.
-16. **A full read of `index.html`** hunting correctness bugs now that it is ~95 KB and a few thousand
-    lines. The eleven suites cover behaviour that was designed on purpose; this is for the paths
-    nobody thought to test.
+16. ~~**A full read of `index.html`**~~ Done. The read turned up no live bug — the transport,
+    engraver and take analysis hold up — but two ways for a *future* typo to pass silently, both now
+    loud at runtime rather than caught by luck:
+    - the octave digit was optional, so `D:4` parsed as D3 instead of failing;
+    - a bar whose durations do not add up to its metre slid the rest of the piece along behind it,
+      caught only because one suite happened to check bar fills.
+    Both now log a specific console error, which every existing suite already watches for, so a bad
+    edit to the music data fails the next test run instead of quietly printing a wrong note. All ten
+    pieces load clean under the stricter parser.
+
+The backlog is empty. The only outstanding item is 5, which is the user's: merge PR #5 so the page
+goes live on Pages, then copy the route into `drwu-htmls` for its permanent home.

@@ -645,13 +645,16 @@ function parseMusic(src, meter){
     const toks = barSrc.trim().split(/\s+/).filter(Boolean);
     if(!toks.length) return;
     toks.forEach(tok => {
-      const m = tok.match(/^([A-GR])([#b]?)(\d?):(\d+)([_>.p]*)$/);
-      if(!m){ console.warn("bad token", tok); return; }
-      const [, letter, acc, oct, durS, flags] = m;
+      // the octave digit is required on a pitched note: a typo should be loud,
+      // not a note quietly an octave from where it was meant to be
+      const m = tok.match(/^(?:(R)|([A-G])([#b]?)(\d)):(\d+)([_>.p]*)$/);
+      if(!m){ console.error("unreadable token: " + tok); return; }
+      const [, restTok, letterTok, acc, oct, durS, flags] = m;
+      const rest = !!restTok;
+      const letter = rest ? "R" : letterTok;
       const dur = parseInt(durS, 10);
-      const rest = letter === "R";
       const alter = acc === "#" ? 1 : acc === "b" ? -1 : 0;
-      const octave = parseInt(oct || "3", 10);
+      const octave = rest ? 3 : parseInt(oct, 10);
       out.push({
         rest,
         letter, alter, octave,
@@ -665,9 +668,16 @@ function parseMusic(src, meter){
         bar, beat: fill
       });
       fill += dur;
-      if(fill >= perBar){ bar++; fill = 0; }
+      if(fill >= perBar){
+        // a bar that overshoots means a wrong duration somewhere in it, and the
+        // rest of the piece silently slides along behind it — say so
+        if(fill > perBar)
+          console.error("bar " + (bar + 1) + " runs to " + fill + " sixteenths, not " + perBar);
+        bar++; fill = 0;
+      }
     });
   });
+  if(fill) console.error("last bar is short: " + fill + " of " + perBar + " sixteenths");
   return out;
 }
 
