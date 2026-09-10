@@ -1,0 +1,363 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Sorcery for Magic Players: 50 Rules to Know</title>
+<style>
+:root{
+  --air:#9986A5; --gold:#CCBA72; --paper:#D9D0D3; --stone:#8D8680;
+  --rust:#79402E; --tan:#B6854D;
+  --cream:#F7F3EC; --ink:#2C2621;
+}
+*{box-sizing:border-box}
+body{margin:0;background:var(--cream);color:var(--ink);
+  font:16px/1.6 "Iowan Old Style","Palatino Linotype",Palatino,Georgia,serif;}
+.wrap{max-width:1080px;margin:0 auto;padding:28px 20px 80px}
+header{border-bottom:3px solid var(--rust);padding-bottom:18px;margin-bottom:8px}
+h1{font-size:2.5rem;line-height:1.1;margin:0 0 6px;letter-spacing:-.5px}
+.sub{color:var(--stone);font-size:1.05rem;margin:0}
+.lede{background:#fff;border-left:6px solid var(--gold);padding:16px 20px;margin:24px 0;
+  box-shadow:0 1px 3px rgba(0,0,0,.07)}
+.lede p{margin:0 0 10px} .lede p:last-child{margin:0}
+nav.toc{display:grid;grid-template-columns:repeat(auto-fit,minmax(190px,1fr));gap:10px;margin:26px 0 34px}
+nav.toc a{display:block;padding:12px 14px;border-radius:5px;text-decoration:none;color:#fff;
+  font-weight:700;font-size:.95rem;box-shadow:0 2px 4px rgba(0,0,0,.12)}
+nav.toc a span{display:block;font-weight:400;font-size:.82rem;opacity:.9;margin-top:3px}
+section{margin:0 0 46px;scroll-margin-top:14px}
+h2{font-size:1.6rem;margin:0 0 4px;padding:14px 18px;border-radius:6px 6px 0 0;color:#fff}
+.grouphint{padding:9px 18px;font-size:.92rem;color:#fff;opacity:.95;margin:-4px 0 0;border-radius:0}
+ol{list-style:decimal;margin:0;padding:0 0 0 0;border:1px solid var(--paper);border-top:0}
+ol li{display:list-item;margin-left:56px;padding:15px 18px 15px 6px;
+  border-bottom:1px solid var(--paper);background:#fff}
+ol li::marker{font-size:1.45rem;font-weight:700;color:var(--rust)}
+ol li:nth-child(even){background:#FCFAF6}
+ol li:last-child{border-bottom:0}
+.t{font-weight:700;display:block;margin-bottom:3px;font-size:1.06rem}
+.mtg{display:block;margin-top:7px;font-size:.92rem;color:#5B5049;
+  border-left:3px solid var(--paper);padding-left:11px}
+.mtg b{color:var(--rust)}
+.src{display:inline-block;margin-top:6px;font-size:.78rem;color:var(--stone);font-style:italic}
+table{border-collapse:collapse;width:100%;background:#fff;margin:14px 0;font-size:.95rem}
+th,td{border:1px solid var(--paper);padding:9px 12px;text-align:left}
+th{background:var(--stone);color:#fff;font-weight:700}
+.grid{display:grid;grid-template-columns:repeat(5,1fr);gap:4px;max-width:340px;margin:14px 0}
+.grid div{aspect-ratio:1;background:var(--paper);border-radius:3px;display:flex;
+  align-items:center;justify-content:center;font-size:.7rem;color:var(--stone)}
+footer{border-top:3px solid var(--rust);margin-top:44px;padding-top:18px;
+  font-size:.87rem;color:var(--stone)}
+footer a{color:var(--rust)}
+code{background:#EFE9DF;padding:1px 5px;border-radius:3px;font-size:.88em}
+@media(max-width:640px){h1{font-size:1.9rem}ol li{margin-left:34px;padding:13px 10px 13px 4px}}
+</style>
+</head>
+<body>
+<div class="wrap">
+
+<header>
+<h1>Sorcery for Magic Players</h1>
+<p class="sub">Ten rules apiece, in five groups, ahead of your first game of Sorcery: Contested Realm</p>
+</header>
+
+<div class="lede">
+<p>Every rule below comes from the <b>official December 2025 rulebook</b>, the one rewritten to match the Gothic release. Where a claim comes from somewhere else, the line says so.</p>
+<p>The comparisons assume you already play Magic. That knowledge helps you about half the time, and the other half it actively misleads you. The items marked in rust are the ones that catch Magic players out.</p>
+</div>
+
+<nav class="toc">
+<a href="#g1" style="background:var(--air)">1. The Board and Two Decks<span>Items 1 to 10</span></a>
+<a href="#g2" style="background:var(--gold);color:#3A3226">2. Mana and Threshold<span>Items 11 to 20</span></a>
+<a href="#g3" style="background:var(--rust)">3. Turns and the Storyline<span>Items 21 to 30</span></a>
+<a href="#g4" style="background:var(--tan);color:#3A3226">4. Combat and Killing<span>Items 31 to 40</span></a>
+<a href="#g5" style="background:var(--stone)">5. Deckbuilding and Culture<span>Items 41 to 50</span></a>
+</nav>
+
+<section id="g1">
+<h2 style="background:var(--air)">Group 1. The Board and the Two Decks</h2>
+<p class="grouphint" style="background:var(--air)">The physical setup is the first shock. Sorcery is a board game wearing a card game's clothes.</p>
+<ol>
+<li><div><span class="t">There is a board, and it is five squares by four.</span>
+Twenty squares, all of them empty void at the start. You and your opponent fill them in as you play.
+<span class="mtg"><b>Magic:</b> your permanents sit in an abstract zone with no geography. In Sorcery, where a card sits decides what it can reach, what can reach it, and often whether a spell is legal at all.</span>
+<span class="src">Rulebook, Areas of the Realm, page 12</span></div></li>
+
+<li><div><span class="t">You bring two decks, not one.</span>
+The Atlas holds your sites. The Spellbook holds everything else.
+<span class="mtg"><b>Magic:</b> lands and spells share one 60-card pile, and that pile decides your game. Sorcery splits them so the two resources are independent.</span>
+<span class="src">Rulebook, Building Your Own Decks, page 26</span></div></li>
+
+<li><div><span class="t">Every turn you choose which deck to draw from.</span>
+Step 4 of your start phase is "draw a card from either your spellbook or atlas." You pick.
+<span class="mtg"><b>Magic:</b> mana screw and mana flood are the game's oldest complaints. This single rule deletes both. Short on land, draw the Atlas. Short on action, draw the Spellbook.</span>
+<span class="src">Rulebook, Turn Summary, Start Phase, page 16</span></div></li>
+
+<li><div><span class="t">Your Avatar is a card on the board with life and attack power.</span>
+It has a name, a starting life that doubles as its maximum, and an attack rating.
+<span class="mtg"><b>Magic:</b> you are an abstract life total. In Sorcery you are a physical unit standing somewhere, and it can swing.</span>
+<span class="src">Rulebook, Avatars, page 5</span></div></li>
+
+<li><div><span class="t">Sites are your lands, and you place them on specific squares.</span>
+Playing a site replaces a void square. Sites build into land masses and bodies of water.
+<span class="mtg"><b>Magic:</b> a Forest is a Forest wherever it sits. A Sorcery site is a piece of terrain with a position, and position is a resource.</span>
+<span class="src">Rulebook, Sites, page 12</span></div></li>
+
+<li><div><span class="t">Minions summon onto your own sites, and you choose which one.</span>
+A cast minion appears "atop any of your sites."
+<span class="mtg"><b>Magic:</b> a creature enters the battlefield and that is the whole story. Here, summoning is also a placement decision.</span>
+<span class="src">Rulebook, Casting Minions, page 19</span></div></li>
+
+<li><div><span class="t">Any number of minions can stand on one site.</span>
+The rulebook allows it and warns against it in the same breath, calling it "rarely a good idea to concentrate your forces."
+<span class="mtg"><b>Magic:</b> there is no stacking question at all. Here, a pile of minions on one square is a target for anything that hits a location.</span>
+<span class="src">Rulebook, Casting Minions, page 19</span></div></li>
+
+<li><div><span class="t">The void eats anything that walks into it.</span>
+A minion that ends up in the void is banished, removed from the game, unless it has Voidwalk.
+<span class="mtg"><b>Magic:</b> exile is a card effect you cast. Here it is terrain, and the board starts as nothing else.</span>
+<span class="src">Rulebook, The Void, page 12</span></div></li>
+
+<li><div><span class="t">Sites have a basement.</span>
+Every site has a surface and a subsurface. Under land it is underground. Under water it is underwater.
+<span class="mtg"><b>Magic:</b> the battlefield is flat. Sorcery gives you three usable regions plus the void, each with its own adjacency.</span>
+<span class="src">Rulebook, Surface and Subsurface, page 13</span></div></li>
+
+<li><div><span class="t">Copy limits are four, three, two and one.</span>
+Ordinary allows four, exceptional three, elite two, unique exactly one.
+<span class="mtg"><b>Magic:</b> four of anything that is not basic land. Sorcery bakes deck limits into rarity itself, so a rare card is rare in your deck too.</span>
+<span class="src">Rulebook, Rarity, page 26</span></div></li>
+</ol>
+</section>
+
+<section id="g2">
+<h2 style="background:var(--gold);color:#3A3226">Group 2. Mana and Threshold</h2>
+<p class="grouphint" style="background:var(--gold);color:#3A3226">Two separate resources that look like one thing in Magic.</p>
+<ol start="11">
+<li><div><span class="t">Sites give mana automatically, all of them, every turn.</span>
+At the start of your turn every site you control provides one mana.
+<span class="mtg"><b>Magic:</b> you tap lands one at a time as you spend. Here the pool fills itself and you spend down from it.</span>
+<span class="src">Rulebook, Gaining Mana, page 17</span></div></li>
+
+<li><div><span class="t">Unspent mana disappears at end of turn.</span>
+You gain mana only on your own turn and lose whatever you did not use.
+<span class="mtg"><b>Magic:</b> mana empties at each step and phase. Same principle, and it bites harder here, since you cannot hold mana up for a response.</span>
+<span class="src">Rulebook, Mana, page 17</span></div></li>
+
+<li><div><span class="t">A site pays you the moment it lands.</span>
+"When one of your sites enters the realm, it immediately provides one mana."
+<span class="mtg"><b>Magic:</b> a tapped land does nothing this turn. Every Sorcery site is effectively an untapped land the turn you play it.</span>
+<span class="src">Rulebook, Gaining Mana, page 17</span></div></li>
+
+<li><div><span class="t">Threshold is a second cost, and you never spend it.</span>
+Elemental threshold is a minimum affinity you must already have. Using it costs nothing.
+<span class="mtg"><b>Magic:</b> the closest thing is devotion, and devotion only powers a few cards. In Sorcery, threshold gates most of the card pool.</span>
+<span class="src">Rulebook, Elemental Threshold, page 18</span></div></li>
+
+<li><div><span class="t">Only your own sites count toward threshold.</span>
+The rulebook is explicit: "your opponent's Aqueduct does not grant you affinity."
+<span class="mtg"><b>Magic:</b> there is no equivalent question. Worth stating because the board is shared and it looks like it should count.</span>
+<span class="src">Rulebook, Elemental Threshold, page 18</span></div></li>
+
+<li><div><span class="t">A two-element card is a card of both elements.</span>
+Sir Pelleas needs one Air and two Water, and he counts as an Air spell and a Water spell at once.
+<span class="mtg"><b>Magic:</b> gold cards work the same way for color identity. The familiar part.</span>
+<span class="src">Rulebook, Multiple Element Threshold, page 18</span></div></li>
+
+<li><div><span class="t">Artifacts mostly ignore threshold entirely.</span>
+"All artifacts and most abilities have no threshold at all."
+<span class="mtg"><b>Magic:</b> artifacts are colorless and castable in any deck. The instinct carries over cleanly.</span>
+<span class="src">Rulebook, Elemental Threshold, page 18</span></div></li>
+
+<li><div><span class="t">Losing a site does not claw back the mana it already gave.</span>
+The mana it provided this turn stays in your pool.
+<span class="mtg"><b>Magic:</b> land destruction in response to a tap is a real play pattern. That trick does not exist here.</span>
+<span class="src">Rulebook, Gaining Mana, page 17</span></div></li>
+
+<li><div><span class="t">Stealing a site pays you nothing until next turn.</span>
+A site you take control of during your turn provides no mana until your following turn.
+<span class="mtg"><b>Magic:</b> a stolen untapped land is usable immediately. Different here, and it is a real tempo consideration.</span>
+<span class="src">Rulebook, Gaining Mana, page 17</span></div></li>
+
+<li><div><span class="t">There is a third zone called your Collection, and some cards reach into it mid-game.</span>
+"Your collection consists of cards you own that didn't start the game in your decks." Certain cards let you cast straight out of it.
+<span class="mtg"><b>Magic:</b> your sideboard is sealed until between games. Sorcery makes an outside-the-deck pile part of live play.</span>
+<span class="src">Rulebook, Glossary, page 33. Seen in play in the Game Brain Podcast transcript, 0voIN8W3CrU</span></div></li>
+</ol>
+</section>
+
+<section id="g3">
+<h2 style="background:var(--rust)">Group 3. Turns and the Storyline</h2>
+<p class="grouphint" style="background:var(--rust)">This is the group that breaks Magic instincts hardest. Read it twice.</p>
+<ol start="21">
+<li><div><span class="t">There is no stack. There is a Storyline.</span>
+The word "stack" appears zero times in the official rulebook. The word "instant" appears zero times as well.
+<span class="mtg"><b>Magic:</b> the stack is the spine of the game. Throw the word away and learn the new one.</span>
+<span class="src">Verified by text search of the December 2025 rulebook, 12,646 words</span></div></li>
+
+<li><div><span class="t">The Storyline resolves first placed, first resolved.</span>
+Events "are then resolved in order, one at a time." The event put down earliest goes off earliest.
+<span class="mtg"><b>Magic:</b> the stack is last in, first out. The Storyline runs the other way, so the ordering instinct you built over years of Magic points backwards here.</span>
+<span class="src">Rulebook, The Storyline, page 31. Confirmed against the Sorcery Companion rendering of the same rulebook</span></div></li>
+
+<li><div><span class="t">The non-active player places events first.</span>
+When events compete for the same point, the non-active player places theirs, then the active player places after them.
+<span class="mtg"><b>Magic:</b> APNAP puts the active player's triggers on the stack first, so the non-active player's resolve first. Sorcery reaches the same outcome by the opposite route.</span>
+<span class="src">Rulebook, Triggered Abilities, page 31</span></div></li>
+
+<li><div><span class="t">Older videos call this the Timeline and say the opposite. Trust the rulebook.</span>
+The 2024 Wizards' Den episode "Timeline, Stack and Resolution" calls it a Timeline, says "the last one added to the timeline resolves first," and admits "it is not written in the main rule book." The December 2025 rulebook uses Storyline throughout and never once says Timeline.
+<span class="mtg"><b>Magic:</b> this is the trap. A Magic player who finds that video will have the ordering confirmed backwards by someone who sounds authoritative.</span>
+<span class="src">Transcript zZtFJtj--tY against the December 2025 rulebook, which returns zero hits for "timeline"</span></div></li>
+
+<li><div><span class="t">Triggers cut in line at the current moment.</span>
+A triggered ability inserts a new event right where the story is now, "temporarily interrupting any remaining events."
+<span class="mtg"><b>Magic:</b> triggers go on top of the stack and wait. Here they resolve immediately at the point of the trigger, then the story resumes.</span>
+<span class="src">Rulebook, Triggered Abilities, page 31</span></div></li>
+
+<li><div><span class="t">Your interaction on their turn is Defend and Intercept.</span>
+Defend lets you tap to move in and join a fight. Intercept lets you force combat on an enemy that moved without attacking.
+<span class="mtg"><b>Magic:</b> you hold up counterspells and removal. Here your interaction is positional and it is declared with units already on the board.</span>
+<span class="src">Rulebook, Defend page 24, Intercept page 25</span></div></li>
+
+<li><div><span class="t">Three phases, and that is the whole turn.</span>
+Start, Main, End. No upkeep, no draw step as a separate thing, no combat phase.
+<span class="mtg"><b>Magic:</b> untap, upkeep, draw, main, combat, main, end, cleanup. Sorcery folds combat into the main phase entirely.</span>
+<span class="src">Rulebook, Turn Summary, page 16</span></div></li>
+
+<li><div><span class="t">Attacking happens in your main phase, any time, any order.</span>
+Units act "as many times as you have resources to do so, and in any order you like." Move a minion, cast a spell, move another minion.
+<span class="mtg"><b>Magic:</b> combat is a walled-off phase with steps. Losing that structure is liberating and disorienting at once.</span>
+<span class="src">Rulebook, Main Phase, page 16</span></div></li>
+
+<li><div><span class="t">Minion damage wipes at end of turn. Avatars do not heal.</span>
+Step 2 of the end phase removes all damage from minions. The rulebook adds a note that Avatars work differently.
+<span class="mtg"><b>Magic:</b> creature damage clears at cleanup and players do not heal. Identical instinct, and it transfers.</span>
+<span class="src">Rulebook, End Phase, page 16</span></div></li>
+
+<li><div><span class="t">Summoning sickness blocks tapping, and only tapping.</span>
+A fresh minion "cannot tap, or be tapped, to pay for costs associated with any ability."
+<span class="mtg"><b>Magic:</b> summoning sickness stops attacking and tap abilities. Here it is defined purely as a tapping restriction, which is narrower than it sounds.</span>
+<span class="src">Rulebook, Summoning Sickness, page 19</span></div></li>
+</ol>
+</section>
+
+<section id="g4">
+<h2 style="background:var(--tan);color:#3A3226">Group 4. Combat and Killing</h2>
+<p class="grouphint" style="background:var(--tan);color:#3A3226">One number does two jobs, and killing a player takes two hits.</p>
+<ol start="31">
+<li><div><span class="t">Power is attack and defense at the same time.</span>
+A minion's power rating is what it deals and what it can take.
+<span class="mtg"><b>Magic:</b> power and toughness are separate numbers you learn as a pair. Sorcery collapses them into one, so a 3 is a 3/3.</span>
+<span class="src">Rulebook, Minions, page 7</span></div></li>
+
+<li><div><span class="t">A Lance is a single-use weapon, and your opponent can steal it.</span>
+A minion with Lance arrives carrying a lance artifact token. It grants extra damage and strike first in a fight, then the lance breaks. Lance tokens count as artifacts, so they can be picked up, dropped and stolen.
+<span class="mtg"><b>Magic:</b> equipment sits on the battlefield until something removes it. A lance is spent by the swing that uses it. A few minions also split power into a sword number and a shield number, which is the closest Sorcery gets to power and toughness.</span>
+<span class="src">Rulebook, Glossary, pages 33 and 36</span></div></li>
+
+<li><div><span class="t">Fighting is simultaneous.</span>
+When units clash they strike each other at the same time, each dealing damage equal to power.
+<span class="mtg"><b>Magic:</b> combat damage is also simultaneous. The instinct holds.</span>
+<span class="src">Rulebook, Attacking the Enemy, page 22</span></div></li>
+
+<li><div><span class="t">You must be standing on the same square to attack.</span>
+"You may only attack enemy units or the surface of enemy sites that are at your location."
+<span class="mtg"><b>Magic:</b> any creature can attack any opponent from anywhere. In Sorcery, reach is a movement problem first and a combat problem second.</span>
+<span class="src">Rulebook, Attacking the Enemy, page 22</span></div></li>
+
+<li><div><span class="t">Move and Attack is one action, in that order.</span>
+You tap once. Movement resolves fully, then you declare and resolve the attack.
+<span class="mtg"><b>Magic:</b> declaring attackers is a single simultaneous step. Here it is a sequence, and the order is fixed.</span>
+<span class="src">Rulebook, Move and Attack, page 21</span></div></li>
+
+<li><div><span class="t">Charge is haste.</span>
+"This unit can tap, or be tapped, to pay for costs associated with any ability on the turn it is summoned."
+<span class="mtg"><b>Magic:</b> haste, worded as the exact inverse of the summoning sickness rule.</span>
+<span class="src">Rulebook, Common Keyword Abilities, page 37</span></div></li>
+
+<li><div><span class="t">Lethal is deathtouch.</span>
+"Any strictly positive amount of damage this card deals to a minion is enough to kill."
+<span class="mtg"><b>Magic:</b> deathtouch, one for one. Note it says minion, so it does not shortcut an Avatar.</span>
+<span class="src">Rulebook, Common Keyword Abilities, page 38</span></div></li>
+
+<li><div><span class="t">Striking first is first strike.</span>
+A unit with this keyword lands its blow while the target is still winding up. Several of them go together.
+<span class="mtg"><b>Magic:</b> first strike, including the double-first-strike stacking behaviour.</span>
+<span class="src">Rulebook, Striking First, page 23</span></div></li>
+
+<li><div><span class="t">Hitting an undefended site damages the Avatar and cannot finish them.</span>
+Site attack damage reduces the controlling Avatar's life. Site damage does not count as direct damage, so it cannot deliver the death blow.
+<span class="mtg"><b>Magic:</b> unblocked creatures walk the defender down to zero. Sorcery makes chip damage real and caps what it can accomplish.</span>
+<span class="src">Rulebook, Attacking the Enemy, page 22</span></div></li>
+
+<li><div><span class="t">Killing takes two steps: death's door, then a death blow.</span>
+Zero life puts an Avatar at death's door. Only a further blow ends it.
+<span class="mtg"><b>Magic:</b> zero life is the game. Here it is a warning shot, and your opponent gets a turn to answer it.</span>
+<span class="src">Rulebook, How to Win, page 3</span></div></li>
+</ol>
+</section>
+
+<section id="g5">
+<h2 style="background:var(--stone)">Group 5. Deckbuilding, Keywords and Culture</h2>
+<p class="grouphint" style="background:var(--stone)">What to build, what the words mean, and what the game is like socially.</p>
+<ol start="41">
+<li><div><span class="t">Sixty spells, thirty sites, one Avatar.</span>
+Spellbook at least 60, Atlas at least 30, exactly one Avatar. December 2025 set the spellbook number at 60.
+<span class="mtg"><b>Magic:</b> 60 total with roughly 24 lands. Sorcery asks for 90 cards plus a commander-like Avatar.</span>
+<span class="src">Rulebook, Building Your Own Decks, page 26</span></div></li>
+
+<li><div><span class="t">Your Avatar is free of the deck count.</span>
+It does not count toward either total and is not part of either deck.
+<span class="mtg"><b>Magic:</b> a commander sits outside the 99 the same way. The closest structural analogy in the whole game.</span>
+<span class="src">Rulebook, Rarity, page 26</span></div></li>
+
+<li><div><span class="t">The Golden Rule is a real printed rule.</span>
+"Some text is intentionally informal or necessarily compact. Use common sense and be cool."
+<span class="mtg"><b>Magic:</b> comprehensive rules run past 250 pages and a judge settles disputes. Sorcery hands the ruling to the two of you.</span>
+<span class="src">Rulebook, The Golden Rule, page 5</span></div></li>
+
+<li><div><span class="t">Movement keywords are the real keyword set.</span>
+Airborne, Burrowing, Submerge and Voidwalk each unlock a region. Airborne also allows diagonal steps, and an Airborne unit can only be attacked by another Airborne unit or intercepted by Airborne or Ranged.
+<span class="mtg"><b>Magic:</b> flying is evasion. Airborne is evasion plus a movement grammar, because there is a map to move on.</span>
+<span class="src">Rulebook, Common Keyword Abilities, pages 37 and 38</span></div></li>
+
+<li><div><span class="t">Ward is a false friend, so wipe the Magic meaning from your head.</span>
+"If a warded site or unit would be damaged, destroyed, or targeted by an opponent's spell or special ability, the Ward breaks instead." One unit cannot carry two Wards, and Evil minions cannot be warded at all.
+<span class="mtg"><b>Magic:</b> ward taxes your opponent, who can still do the thing by paying. Sorcery ward is a single-use shield that eats one bad event and disappears.</span>
+<span class="src">Rulebook, Glossary, page 36. Added as a glossary entry in the December 2025 update</span></div></li>
+
+<li><div><span class="t">Stealth is stronger than hexproof and it burns out.</span>
+Stealthy minions cannot be targeted, intercepted, defended against, or hit by projectiles. A stealth token tracks it, and the minion loses it on any interaction with the realm.
+<span class="mtg"><b>Magic:</b> hexproof is permanent and narrower. Stealth is broader and temporary, so it is a window rather than a shield.</span>
+<span class="src">Rulebook, Stealth, page 37</span></div></li>
+
+<li><div><span class="t">Genesis and Deathrite are enter-the-battlefield and dies triggers.</span>
+Genesis fires when the card enters the realm. Deathrite fires when the unit dies, on its way to the cemetery.
+<span class="mtg"><b>Magic:</b> ETB and death triggers, renamed. Cemetery is the graveyard.</span>
+<span class="src">Rulebook, Common Keyword Abilities, pages 37 and 38</span></div></li>
+
+<li><div><span class="t">Disable is a full lockdown, not a tap.</span>
+A disabled minion loses all abilities including Move and Attack, does not strike when fighting, and cannot cast.
+<span class="mtg"><b>Magic:</b> tapping a creature stops attacks. Disable is closer to Pacifism plus losing all abilities at once.</span>
+<span class="src">Rulebook, Disable, page 37</span></div></li>
+
+<li><div><span class="t">The precon box is four decks, and it is the right way in.</span>
+Cardboard Guide puts the four-deck precon at forty to sixty dollars, one deck per element, playable with no deckbuilding.
+<span class="mtg"><b>Magic:</b> a preconstructed Commander deck serves one player. One Sorcery precon box seats four.</span>
+<span class="src">Transcript corpus, Cardboard Guide, sVhKOGEoTBc and _N4L72gkAeM</span></div></li>
+
+<li><div><span class="t">Booster boxes run past two hundred dollars right now.</span>
+Live retailer check on 2026-09-10 found in-stock Gothic boxes at $209.97 and $219.99. Every listing under $180 was sold out.
+<span class="mtg"><b>Magic:</b> a Play Booster box sits well under that. Buy the precon, play a dozen games, then decide.</span>
+<span class="src">ToyWiz and Game Nerdz, both http 200, checked 2026-09-10</span></div></li>
+</ol>
+</section>
+
+<footer>
+<p><b>Sources.</b> Rules are quoted from the official <i>Sorcery: Contested Realm</i> rulebook released December 2025, extracted to 12,646 words of text. Price and availability lines were checked live against retailer pages on 2026-09-10. Community claims are attributed to the specific transcript they came from.</p>
+<p><b>Palette:</b> Isle of Dogs (Wes Anderson, 2018).</p>
+<p>Built 2026-09-10 from a transcript corpus of Sorcery coverage plus the official rulebook.</p>
+</footer>
+
+</div>
+</body>
+</html>

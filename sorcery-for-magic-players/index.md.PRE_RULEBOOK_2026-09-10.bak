@@ -1,0 +1,75 @@
+# Sorcery for Magic Players: 50 Rules to Know
+
+Five groups of ten, written for someone who already plays Magic: The Gathering and is
+picking up Sorcery: Contested Realm.
+
+## Where the rules come from
+
+Every rule is quoted or paraphrased from the **official Sorcery: Contested Realm rulebook
+released December 2025**, the revision rewritten to match the Gothic set. The PDF was
+pulled from the publisher's own link on the How To Play page and extracted to 12,646 words
+of plain text. Price and availability lines were checked live against retailer pages on
+2026-09-10. Community claims name the transcript they came from.
+
+## The five groups
+
+1. **The Board and the Two Decks.** Sorcery is played on a five by four grid of twenty
+   squares. You bring an Atlas of at least 30 sites and a Spellbook of at least 60 spells,
+   and each turn you choose which of the two to draw from.
+2. **Mana and Threshold.** Sites pay mana automatically at the start of your turn.
+   Elemental threshold is a separate requirement that accumulates and is never spent.
+3. **Turns and the Storyline.** There is no stack. The word never appears in the rulebook,
+   and neither does "instant." Sorcery uses a Storyline that resolves front to back, which
+   is the reverse of Magic's stack.
+4. **Combat and Killing.** One power number serves as both attack and defense. Killing an
+   Avatar takes two steps, death's door and then a death blow.
+5. **Deckbuilding, Keywords and Culture.** Rarity sets copy limits at four, three, two and
+   one. The Golden Rule hands rules disputes to the two players at the table.
+
+## The three findings a Magic player will care about most
+
+**No stack.** A text search of the full rulebook returns zero hits for "stack" and zero for
+"instant." The replacement is the Storyline, and it resolves in the order events were
+placed rather than last in, first out.
+
+**Two decks kill mana screw.** Start phase step 4 reads "draw a card from either your
+spellbook or atlas." Short on land you draw the Atlas, short on action you draw the
+Spellbook.
+
+**Zero life is not a loss.** Reducing an Avatar to zero places it at death's door. A
+separate death blow is required to finish it, so your opponent gets a turn to answer.
+
+## Three false friends worth memorising
+
+**Ward** does not mean what it means in Magic. A Sorcery ward is a single-use shield:
+"If a warded site or unit would be damaged, destroyed, or targeted by an opponent's spell
+or special ability, the Ward breaks instead." No tax, no paying through it.
+
+**Lance** is a consumable artifact token, not a permanent keyword. The minion arrives
+carrying it, spends it for extra damage and strike first in one fight, and then the lance
+breaks. Because it is an artifact it can be picked up, dropped and stolen.
+
+**Collection** is a third zone. "Your collection consists of cards you own that didn't
+start the game in your decks," and some cards cast directly out of it during play.
+
+## A source conflict worth knowing
+
+The 2024 Wizards' Den episode "Timeline, Stack and Resolution" calls the system a
+**Timeline**, states that "the last one added to the timeline resolves first," and admits
+"it is not written in the main rule book." The December 2025 rulebook returns **zero hits
+for "timeline"** and uses **Storyline** throughout, with events "resolved in order, one at
+a time." The Sorcery Companion rendering of the same rulebook confirms first placed, first
+resolved. The page carries the rulebook reading and flags the conflict, because a Magic
+player who finds that video gets the ordering confirmed backwards.
+
+Separately, "Storyline" appears exactly **once across all 44 transcripts**, in a teacher
+deferring it to a future part two as an advanced concept. Beginner coverage skips the one
+mechanic a Magic player is most likely to get wrong.
+
+## Corpus behind the page
+
+44 transcripts, 190,689 words, every manifest row status ok, at
+`~/Projects/_outputs/yt-transcripts/sorcery-contested-realm-eval/`.
+The rulebook text used for grounding is the December 2025 release.
+
+Palette: Isle of Dogs (Wes Anderson, 2018).
