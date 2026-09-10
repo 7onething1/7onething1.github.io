@@ -39,6 +39,19 @@ Spellbook.
 **Zero life is not a loss.** Reducing an Avatar to zero places it at death's door. A
 separate death blow is required to finish it, so your opponent gets a turn to answer.
 
+## Three false friends worth memorising
+
+**Ward** does not mean what it means in Magic. A Sorcery ward is a single-use shield:
+"If a warded site or unit would be damaged, destroyed, or targeted by an opponent's spell
+or special ability, the Ward breaks instead." No tax, no paying through it.
+
+**Lance** is a consumable artifact token, not a permanent keyword. The minion arrives
+carrying it, spends it for extra damage and strike first in one fight, and then the lance
+breaks. Because it is an artifact it can be picked up, dropped and stolen.
+
+**Collection** is a third zone. "Your collection consists of cards you own that didn't
+start the game in your decks," and some cards cast directly out of it during play.
+
 ## Corpus behind the page
 
 Transcripts live at `~/Projects/_outputs/yt-transcripts/sorcery-contested-realm-eval/`.
