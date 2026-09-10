@@ -119,5 +119,11 @@ The feature backlog is empty. Item 5 is the user's to do.
     edit to the music data fails the next test run instead of quietly printing a wrong note. All ten
     pieces load clean under the stricter parser.
 
+17. ~~**Check it as Pages will serve it**~~ Done — every check until now had loaded the page from
+    `file://`. Over HTTP it renders identically (10 pieces, 13 staves, 553 noteheads, playback
+    running) and makes exactly one network request, for the page itself. The only console noise was
+    the browser's automatic `/favicon.ico` probe, so the page now carries an inline data-URI favicon
+    drawn with the same F-clef path the scores use — no hosted file, console clean.
+
 The backlog is empty. The only outstanding item is 5, which is the user's: merge PR #5 so the page
 goes live on Pages, then copy the route into `drwu-htmls` for its permanent home.
