@@ -1,0 +1,177 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Song 17 · mixdown player</title>
+<style>
+  :root{
+    --cream:#f4ead5; --paper:#fbf5e6; --ink:#1c1a17; --muted:#6b6355;
+    --rust:#c1502e; --mustard:#d9a441; --sage:#7d8f69; --dusty:#4a6d7c;
+    --line:#d8cbb0;
+  }
+  *{box-sizing:border-box}
+  body{margin:0;background:var(--cream);color:var(--ink);
+       font:16px/1.55 "Futura","Avenir Next",-apple-system,Helvetica,sans-serif}
+  .wrap{max-width:1040px;margin:0 auto;padding:34px 26px 70px}
+  header{border-bottom:3px double var(--ink);padding-bottom:16px;margin-bottom:26px}
+  h1{margin:0;font-size:30px;letter-spacing:.14em;text-transform:uppercase;font-weight:600}
+  .sub{color:var(--muted);font-size:13px;letter-spacing:.09em;margin-top:7px;text-transform:uppercase}
+
+  .card{background:var(--paper);border:1px solid var(--line);border-radius:3px;
+        padding:20px;margin-bottom:20px}
+
+  /* waveform */
+  #wave{width:100%;height:150px;display:block;cursor:pointer;
+        background:var(--paper);border:1px solid var(--line);border-radius:2px}
+
+  /* transport */
+  .bar{display:flex;align-items:center;gap:14px;margin-top:16px;flex-wrap:wrap}
+  button{font:inherit;font-size:14px;letter-spacing:.07em;text-transform:uppercase;
+         background:var(--paper);color:var(--ink);border:1.5px solid var(--ink);
+         border-radius:2px;padding:9px 16px;cursor:pointer;transition:.12s}
+  button:hover{background:var(--ink);color:var(--paper)}
+  button.pri{background:var(--rust);border-color:var(--rust);color:#fff}
+  button.pri:hover{background:var(--ink);border-color:var(--ink)}
+  .time{font-variant-numeric:tabular-nums;font-size:20px;letter-spacing:.05em;min-width:170px}
+  .time small{color:var(--muted);font-size:14px}
+
+
+  table{width:100%;border-collapse:collapse;font-size:14px}
+  td,th{padding:7px 10px;border-bottom:1px solid var(--line);text-align:left}
+  th{font-size:11px;letter-spacing:.1em;text-transform:uppercase;color:var(--muted);font-weight:600}
+  td.n{font-variant-numeric:tabular-nums}
+  .k{display:inline-block;border:1px solid var(--line);border-radius:3px;
+     padding:1px 7px;font-size:12px;background:var(--cream);font-family:ui-monospace,monospace}
+  .marks{display:flex;gap:8px;flex-wrap:wrap;margin-top:12px;min-height:34px}
+  .mk{border:1px solid var(--dusty);color:var(--dusty);background:var(--paper);
+      border-radius:2px;padding:5px 11px;font-size:13px;cursor:pointer;
+      font-variant-numeric:tabular-nums}
+  .mk:hover{background:var(--dusty);color:var(--paper)}
+  .hint{color:var(--muted);font-size:13px;margin-top:6px}
+  h2{font-size:13px;letter-spacing:.12em;text-transform:uppercase;margin:0 0 12px;color:var(--muted)}
+</style>
+</head>
+<body>
+<div class="wrap">
+
+<header>
+  <h1>Song 17 &middot; mixdown</h1>
+  <div class="sub" id="hdr">band practice, 28 August 2026</div>
+</header>
+
+<div class="card">
+  <canvas id="wave"></canvas>
+  <div class="bar">
+    <button class="pri" id="play">Play</button>
+    <div class="time"><span id="cur">0:00</span> <small>/ <span id="dur">0:00</span></small></div>
+    <button data-seek="-10">&minus;10s</button>
+    <button data-seek="10">+10s</button>
+    <button id="mark">Mark</button>
+  </div>
+  <div class="marks" id="marks"></div>
+  <div class="hint">
+    <span class="k">Space</span> play &middot;
+    <span class="k">&larr;</span> <span class="k">&rarr;</span> 5s &middot;
+    <span class="k">M</span> mark &middot;
+    <span class="k">0</span> restart &middot; click the waveform to seek
+  </div>
+</div>
+
+<div class="card">
+  <h2>The file</h2>
+  <table id="meta"><tbody></tbody></table>
+</div>
+
+</div>
+
+<audio id="a" preload="metadata" src="song17-all.mp3"></audio>
+
+<script>
+const a=document.getElementById('a'), cv=document.getElementById('wave'),
+      ctx=cv.getContext('2d');
+let peaks=[], DUR=0, marks=[];
+
+const fmt=s=>{s=Math.max(0,s|0);return (s/60|0)+':'+String(s%60).padStart(2,'0')};
+
+function size(){
+  const r=cv.getBoundingClientRect(), d=window.devicePixelRatio||1;
+  cv.width=r.width*d; cv.height=r.height*d; ctx.setTransform(d,0,0,d,0,0);
+  draw();
+}
+function draw(){
+  const w=cv.clientWidth, h=cv.clientHeight, mid=h/2;
+  ctx.clearRect(0,0,w,h);
+  if(!peaks.length) return;
+  const played = DUR ? (a.currentTime/DUR) : 0;
+  const bw = w/peaks.length;
+  for(let i=0;i<peaks.length;i++){
+    const ph=Math.max(1.2, peaks[i]*(h*0.46));
+    ctx.fillStyle = (i/peaks.length <= played) ? '#c1502e' : '#b9ab8d';
+    ctx.fillRect(i*bw, mid-ph, Math.max(1,bw*0.82), ph*2);
+  }
+  // centre line
+  ctx.fillStyle='#d8cbb0'; ctx.fillRect(0,mid-0.5,w,1);
+  // playhead
+  const x=played*w;
+  ctx.fillStyle='#1c1a17'; ctx.fillRect(x-1,0,2,h);
+  // marks
+  marks.forEach(t=>{ const mx=(t/DUR)*w;
+    ctx.fillStyle='#4a6d7c'; ctx.fillRect(mx-0.5,0,1,h); });
+}
+
+fetch('peaks.json').then(r=>r.json()).then(d=>{
+  peaks=d.peaks; DUR=d.duration;
+  document.getElementById('dur').textContent=fmt(DUR);
+  const rows=[
+    ['source file', d.source],
+    ['duration', (DUR/60).toFixed(2)+' min'],
+    ['sample rate', d.sr+' Hz'],
+    ['channels', d.ch===2?'stereo':d.ch],
+    ['bit depth', d.subtype],
+    ['peak', d.peak_dBFS+' dBFS'],
+    ['RMS', d.rms_dBFS+' dBFS'],
+    ['player audio', 'MP3 192 kbps (the WAV stays the master)']
+  ];
+  document.querySelector('#meta tbody').innerHTML =
+    rows.map(r=>`<tr><th>${r[0]}</th><td class="n">${r[1]}</td></tr>`).join('');
+  document.getElementById('hdr').textContent =
+    `band practice, 28 August 2026 · ${(DUR/60).toFixed(1)} min · peak ${d.peak_dBFS} dBFS`;
+  size();
+}).catch(()=>{ document.getElementById('hdr').textContent='peaks.json missing'; });
+
+document.getElementById('play').onclick=()=>a.paused?a.play():a.pause();
+a.onplay =()=>document.getElementById('play').textContent='Pause';
+a.onpause=()=>document.getElementById('play').textContent='Play';
+a.ontimeupdate=()=>{document.getElementById('cur').textContent=fmt(a.currentTime);draw()};
+
+cv.onclick=e=>{const r=cv.getBoundingClientRect(); a.currentTime=((e.clientX-r.left)/r.width)*DUR;};
+document.querySelectorAll('[data-seek]').forEach(b=>
+  b.onclick=()=>a.currentTime=Math.max(0,a.currentTime+ +b.dataset.seek));
+
+function addMark(){
+  const t=a.currentTime;
+  if(marks.some(m=>Math.abs(m-t)<0.4))return;
+  marks.push(t); marks.sort((x,y)=>x-y); renderMarks(); draw();
+}
+function renderMarks(){
+  document.getElementById('marks').innerHTML =
+    marks.map((t,i)=>`<span class="mk" data-t="${t}">${fmt(t)}</span>`).join('');
+  document.querySelectorAll('.mk').forEach(el=>
+    el.onclick=()=>a.currentTime=+el.dataset.t);
+}
+document.getElementById('mark').onclick=addMark;
+
+addEventListener('keydown',e=>{
+  if(e.target.tagName==='INPUT')return;
+  if(e.code==='Space'){e.preventDefault(); a.paused?a.play():a.pause();}
+  else if(e.key==='ArrowRight') a.currentTime+=5;
+  else if(e.key==='ArrowLeft')  a.currentTime-=5;
+  else if(e.key.toLowerCase()==='m') addMark();
+  else if(e.key==='0') a.currentTime=0;
+});
+addEventListener('resize',size);
+size();
+</script>
+</body>
+</html>
