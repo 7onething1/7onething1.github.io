@@ -1,0 +1,343 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>The Sorcery Player's Guide</title>
+<style>
+:root{
+  --air:#9986A5; --gold:#CCBA72; --paper:#D9D0D3; --stone:#8D8680;
+  --rust:#79402E; --tan:#B6854D; --cream:#F7F3EC; --ink:#2C2621;
+}
+*{box-sizing:border-box}
+body{margin:0;background:var(--cream);color:var(--ink);
+  font:16px/1.6 "Iowan Old Style","Palatino Linotype",Palatino,Georgia,serif;}
+.wrap{max-width:1080px;margin:0 auto;padding:28px 20px 80px}
+header{border-bottom:3px solid var(--rust);padding-bottom:18px;margin-bottom:8px}
+h1{font-size:2.5rem;line-height:1.1;margin:0 0 6px;letter-spacing:-.5px}
+.sub{color:var(--stone);font-size:1.05rem;margin:0}
+.lede{background:#fff;border-left:6px solid var(--gold);padding:16px 20px;margin:24px 0;
+  box-shadow:0 1px 3px rgba(0,0,0,.07)}
+.lede p{margin:0 0 10px} .lede p:last-child{margin:0}
+nav.toc{display:grid;grid-template-columns:repeat(auto-fit,minmax(180px,1fr));gap:10px;margin:26px 0 34px}
+nav.toc a{display:block;padding:12px 14px;border-radius:5px;text-decoration:none;color:#fff;
+  font-weight:700;font-size:.95rem;box-shadow:0 2px 4px rgba(0,0,0,.12)}
+nav.toc a span{display:block;font-weight:400;font-size:.82rem;opacity:.9;margin-top:3px}
+section{margin:0 0 44px;scroll-margin-top:14px}
+h2{font-size:1.55rem;margin:0 0 4px;padding:14px 18px;border-radius:6px 6px 0 0;color:#fff}
+.grouphint{padding:9px 18px;font-size:.92rem;color:#fff;opacity:.95;margin:-4px 0 0}
+.cards{border:1px solid var(--paper);border-top:0;background:#fff}
+.card{padding:16px 20px;border-bottom:1px solid var(--paper)}
+.card:last-child{border-bottom:0}
+.card:nth-child(even){background:#FCFAF6}
+h3{font-size:1.08rem;margin:0 0 7px;color:var(--rust)}
+.card p{margin:0 0 9px}
+.src{display:inline-block;font-size:.78rem;color:var(--stone);font-style:italic;
+  text-decoration:none;border-bottom:1px dotted var(--paper)}
+.src:hover{color:var(--rust)}
+footer{border-top:3px solid var(--rust);margin-top:44px;padding-top:18px;
+  font-size:.87rem;color:var(--stone)}
+footer a{color:var(--rust)}
+code{background:#EFE9DF;padding:1px 5px;border-radius:3px;font-size:.88em}
+@media(max-width:640px){h1{font-size:1.9rem}.card{padding:14px 12px}}
+</style>
+</head>
+<body>
+<div class="wrap">
+
+<header>
+<h1>The Sorcery Player's Guide</h1>
+<p class="sub">How to start, how a turn works, and the mistakes that cost your first dozen games</p>
+</header>
+
+<div class="lede">
+<p>Read across a transcript corpus of <b>46 Sorcery videos, 226,322 words</b>, covering official
+walkthroughs, community rules clinics, recorded games and deckbuilding talks. Every claim on this
+page links to the video it came from.</p>
+<p>This is the practical guide. Two companion pages cover the other angles:
+<a href="../sorcery-for-magic-players/">50 rules with rulebook page citations</a>, and
+<a href="../sorcery-vs-magic-top-40/">the top 40 Magic differences, ranked</a>.</p>
+</div>
+
+<nav class="toc">
+<a href="#start" style="background:#79402E">Before your first game<span>3 entries</span></a>
+<a href="#setup" style="background:#8D6A3F">Setup and the opening hand<span>4 entries</span></a>
+<a href="#board" style="background:#6B7A5A">The board<span>4 entries</span></a>
+<a href="#turn" style="background:#B6854D">The turn and your mana<span>4 entries</span></a>
+<a href="#fight" style="background:#9986A5">Moving and fighting<span>4 entries</span></a>
+<a href="#geometry" style="background:#6B5B78">Spells that use geometry<span>5 entries</span></a>
+<a href="#win" style="background:#79402E">Winning the game<span>2 entries</span></a>
+<a href="#archetypes" style="background:#5B7A6B">Archetypes, and why yours will not transfer<span>4 entries</span></a>
+<a href="#mistakes" style="background:#8D8680">Mistakes new players make<span>6 entries</span></a>
+</nav>
+
+<section id="start">
+<h2 style="background:#79402E">1. Before your first game</h2>
+<p class="grouphint" style="background:#79402E">What to buy, and what that money really gets you.</p>
+<div class="cards">
+<div class="card">
+<h3>The four-deck box is the way in</h3>
+<p>The preconstructed box carries one deck per element and needs no deckbuilding. Cardboard Guide puts it around forty to sixty dollars.</p><p>Gothic booster boxes ran 209 to 220 dollars on a retailer check dated 2026-09-10, with everything under 180 sold out. Nothing about a booster box teaches you the game faster than the precon box does.</p>
+<a class="src" href="https://www.youtube.com/watch?v=sVhKOGEoTBc" target="_blank" rel="noopener">Cardboard Guide &middot; Sorcery TCG| New to Sorcery Contested Realm? Start Here!</a>
+</div>
+<div class="card">
+<h3>You will build two decks, and neither is optional</h3>
+<p>A constructed setup is sixty cards in the Spellbook, thirty sites in the Atlas, a ten card Collection, and exactly one Avatar. The Avatar sits outside both deck counts.</p><p>Games are best of one, so the Collection does a different job from a Magic sideboard.</p>
+<a class="src" href="https://www.youtube.com/watch?v=CHjnsbbM2wE" target="_blank" rel="noopener">GOLDEN EAGLE CARDS &middot; The Ultimate New Player Guide for Getting into Sorcery the Contested Realm! #newplayer</a>
+</div>
+<div class="card">
+<h3>Find the game before you buy the cards</h3>
+<p>Every source in the corpus names the same risk, which is having nobody to play against. A store owner quoted by Collector Arthouse ranked Sorcery last among all trading card games from a retailer&#x27;s point of view.</p><p>Check the official Play Network for a store near you before spending on sealed product.</p>
+<a class="src" href="https://www.youtube.com/watch?v=H36hAhhXRqU" target="_blank" rel="noopener">Collector Arthouse &middot; Is Sorcery: Contested Realm Stagnating? Growth, Distribution &amp; LGS Support</a>
+</div>
+</div>
+</section>
+<section id="setup">
+<h2 style="background:#8D6A3F">2. Setup and the opening hand</h2>
+<p class="grouphint" style="background:#8D6A3F">Six cards, and a mulligan that costs you more than you expect.</p>
+<div class="cards">
+<div class="card">
+<h3>You draw three sites and three spells</h3>
+<p>The opening draw is three from the Atlas and three from the Spellbook, kept separate.</p>
+<a class="src" href="https://www.youtube.com/watch?v=PO1xzIhk_Vg" target="_blank" rel="noopener">The Void &middot; 32 Common Rules Questions In Sorcery Contested Realm TCG</a>
+</div>
+<div class="card">
+<h3>The mulligan is three cards total, not three from each deck</h3>
+<p>You may mulligan up to three cards in any combination across the two hands. Sending back three spells means you keep all three sites.</p><p>Cards you mulligan go to the bottom of their own deck, and you redraw from that same deck.</p>
+<a class="src" href="https://www.youtube.com/watch?v=y86WzqtE37c" target="_blank" rel="noopener">TCG TALK &middot; Sorcery TCG Archetypes 101</a>
+</div>
+<div class="card">
+<h3>Your opening hand is a larger share of your Atlas than of your Spellbook</h3>
+<p>Three of sixty is five percent of the Spellbook. Three of thirty is ten percent of the Atlas. Your site draw is twice as representative as your spell draw.</p><p>TCG TALK estimates you see roughly fifteen to twenty Spellbook cards across a whole game. Build for the cards you will realistically draw.</p>
+<a class="src" href="https://www.youtube.com/watch?v=y86WzqtE37c" target="_blank" rel="noopener">TCG TALK &middot; Sorcery TCG Archetypes 101</a>
+</div>
+<div class="card">
+<h3>The second player gets a look</h3>
+<p>Competitive play lets the second player look at the top card of one deck and choose to keep it there or send it to the bottom.</p>
+<a class="src" href="https://www.youtube.com/watch?v=0voIN8W3CrU" target="_blank" rel="noopener">Game Brain Podcast &middot; How To Play Sorcery: Contested Realm (with Matt and Jordan)</a>
+</div>
+</div>
+</section>
+<section id="board">
+<h2 style="background:#6B7A5A">3. The board</h2>
+<p class="grouphint" style="background:#6B7A5A">Twenty squares, and two range words you must keep separate.</p>
+<div class="cards">
+<div class="card">
+<h3>Adjacent and nearby are different words</h3>
+<p>Adjacent means the square a unit stands on plus the four squares orthogonally touching it.</p><p>Nearby means the full three by three block centred on that unit, so it includes the diagonals. Cards use both words deliberately.</p>
+<a class="src" href="https://www.youtube.com/watch?v=PO1xzIhk_Vg" target="_blank" rel="noopener">The Void &middot; 32 Common Rules Questions In Sorcery Contested Realm TCG</a>
+</div>
+<div class="card">
+<h3>Sites come in land and water</h3>
+<p>A site carrying a water threshold symbol is a water site. Everything else is a land site. Several keywords read off that distinction.</p>
+<a class="src" href="https://www.youtube.com/watch?v=PO1xzIhk_Vg" target="_blank" rel="noopener">The Void &middot; 32 Common Rules Questions In Sorcery Contested Realm TCG</a>
+</div>
+<div class="card">
+<h3>Three layers, and the void</h3>
+<p>Burrowing moves under land sites. Submerge moves under water sites. Voidwalk survives the empty squares.</p><p>A unit sitting in a region it cannot legally occupy dies. The void is a hazard rather than scenery.</p>
+<a class="src" href="https://www.youtube.com/watch?v=PO1xzIhk_Vg" target="_blank" rel="noopener">The Void &middot; 32 Common Rules Questions In Sorcery Contested Realm TCG</a>
+</div>
+<div class="card">
+<h3>Connected sites form bodies of water and terrain</h3>
+<p>Water sites touching each other count as one body of water, and cards read that whole body as a single thing.</p>
+<a class="src" href="https://www.youtube.com/watch?v=124O3PPg2q4" target="_blank" rel="noopener">Questing Beast &middot; Sorcery: The TCG that banned digital art</a>
+</div>
+</div>
+</section>
+<section id="turn">
+<h2 style="background:#B6854D">4. The turn and your mana</h2>
+<p class="grouphint" style="background:#B6854D">Three phases, and a resource that behaves unlike land.</p>
+<div class="cards">
+<div class="card">
+<h3>Start, Main, End</h3>
+<p>There is no combat phase. Attacks happen during your Main phase, in whatever order your untapped units allow.</p>
+<a class="src" href="https://www.youtube.com/watch?v=ONG7JGclej8" target="_blank" rel="noopener">Wizards&#x27; Den &middot; How to play Sorcery TCG (2024) - Episode 01: Overview</a>
+</div>
+<div class="card">
+<h3>Every site pays you, automatically</h3>
+<p>At the start of your turn each site you control provides one mana. You never tap a site for mana.</p><p>A site you play mid-turn provides its mana immediately. Mana left unspent at end of turn is gone.</p>
+<a class="src" href="https://www.youtube.com/watch?v=EGhE-3ov1RY" target="_blank" rel="noopener">Good Time Society &middot; Sorcery: Contested Realm - How to Game with Becca Scott</a>
+</div>
+<div class="card">
+<h3>Threshold is checked, never spent</h3>
+<p>Threshold counts the elemental symbols on sites you control. Meeting the requirement consumes nothing.</p><p>One fire site lets you cast every one-fire-threshold card in your hand on the same turn, budget permitting.</p>
+<a class="src" href="https://www.youtube.com/watch?v=JYsYs6LnLts" target="_blank" rel="noopener">Archives of the Realm &middot; Learn to play Sorcery! 5: Casting sites and spells with mana and threshold</a>
+</div>
+<div class="card">
+<h3>Only your own sites count</h3>
+<p>An opponent&#x27;s site never contributes to your threshold, even when your unit is standing on it.</p>
+<a class="src" href="https://www.youtube.com/watch?v=JYsYs6LnLts" target="_blank" rel="noopener">Archives of the Realm &middot; Learn to play Sorcery! 5: Casting sites and spells with mana and threshold</a>
+</div>
+</div>
+</section>
+<section id="fight">
+<h2 style="background:#9986A5">5. Moving and fighting</h2>
+<p class="grouphint" style="background:#9986A5">Tapping is the currency, and nearly every action spends it.</p>
+<div class="cards">
+<div class="card">
+<h3>Attacking means moving there and tapping</h3>
+<p>A unit taps to attack, and it must reach the target square. Move and Attack is a single action where the movement resolves first.</p>
+<a class="src" href="https://www.youtube.com/watch?v=PO1xzIhk_Vg" target="_blank" rel="noopener">The Void &middot; 32 Common Rules Questions In Sorcery Contested Realm TCG</a>
+</div>
+<div class="card">
+<h3>Defending costs a tap too</h3>
+<p>A defender taps and moves one square to intervene, and it must already be adjacent to the site it defends.</p><p>The defender absorbs the damage in place of the target.</p>
+<a class="src" href="https://www.youtube.com/watch?v=PO1xzIhk_Vg" target="_blank" rel="noopener">The Void &middot; 32 Common Rules Questions In Sorcery Contested Realm TCG</a>
+</div>
+<div class="card">
+<h3>Summoning sickness blocks tapping</h3>
+<p>A minion that arrived this turn cannot tap, which rules out moving, attacking and tap abilities alike. Charge removes the restriction.</p>
+<a class="src" href="https://www.youtube.com/watch?v=RCQ_kC0Nvtk" target="_blank" rel="noopener">Archives of the Realm &middot; How to play Sorcery Contested Realm with UPDATED rules for Gothic!</a>
+</div>
+<div class="card">
+<h3>Lance strikes first, then breaks</h3>
+<p>A lance grants plus one damage and striking first, then it is gone. Two lances give plus two, and both break.</p><p>When both fighters carry a lance, they trade normally and both lances break. Lances are artifacts, so a unit may drop them and another may pick them up, once each per turn.</p>
+<a class="src" href="https://www.youtube.com/watch?v=PO1xzIhk_Vg" target="_blank" rel="noopener">The Void &middot; 32 Common Rules Questions In Sorcery Contested Realm TCG</a>
+</div>
+</div>
+</section>
+<section id="geometry">
+<h2 style="background:#6B5B78">6. Spells that use geometry</h2>
+<p class="grouphint" style="background:#6B5B78">Half the card pool cares where everything is standing.</p>
+<div class="cards">
+<div class="card">
+<h3>Projectiles travel in a line and hit the first legal thing</h3>
+<p>Magic Missiles fires three projectiles one at a time in one direction. Units sitting on the caster&#x27;s own square are ignored.</p><p>Where several units share a square you choose which one each projectile hits, so three damage can be split across them.</p>
+<a class="src" href="https://www.youtube.com/watch?v=PO1xzIhk_Vg" target="_blank" rel="noopener">The Void &middot; 32 Common Rules Questions In Sorcery Contested Realm TCG</a>
+</div>
+<div class="card">
+<h3>Snowball collects what it passes</h3>
+<p>A snowball picks up every unit along its path and stops at the last site. It then deals damage to everything caught equal to how many units it caught.</p>
+<a class="src" href="https://www.youtube.com/watch?v=PO1xzIhk_Vg" target="_blank" rel="noopener">The Void &middot; 32 Common Rules Questions In Sorcery Contested Realm TCG</a>
+</div>
+<div class="card">
+<h3>Whirlwind rotates the board</h3>
+<p>You choose clockwise or counterclockwise, then every unit and artifact moves that way. It reshapes both armies at once.</p>
+<a class="src" href="https://www.youtube.com/watch?v=PO1xzIhk_Vg" target="_blank" rel="noopener">The Void &middot; 32 Common Rules Questions In Sorcery Contested Realm TCG</a>
+</div>
+<div class="card">
+<h3>Auras sit on the intersection of four sites</h3>
+<p>A normal aura is cast where four sites meet and affects all four. Wall of Fire is an exception, cast between two sites where you must control one.</p>
+<a class="src" href="https://www.youtube.com/watch?v=PO1xzIhk_Vg" target="_blank" rel="noopener">The Void &middot; 32 Common Rules Questions In Sorcery Contested Realm TCG</a>
+</div>
+<div class="card">
+<h3>Airborne changes who can touch it</h3>
+<p>Airborne units move and attack to nearby sites, diagonals included, and units without ranged cannot attack them. They can still be defended against, because they have to land to attack.</p>
+<a class="src" href="https://www.youtube.com/watch?v=PO1xzIhk_Vg" target="_blank" rel="noopener">The Void &middot; 32 Common Rules Questions In Sorcery Contested Realm TCG</a>
+</div>
+</div>
+</section>
+<section id="win">
+<h2 style="background:#79402E">7. Winning the game</h2>
+<p class="grouphint" style="background:#79402E">Zero life is the start of the ending.</p>
+<div class="cards">
+<div class="card">
+<h3>Death&#x27;s door comes first</h3>
+<p>An Avatar reduced to zero life is at death&#x27;s door. It cannot gain life again and it is immune to damage for the rest of that turn.</p>
+<a class="src" href="https://www.youtube.com/watch?v=VWDo4it7if8" target="_blank" rel="noopener">Sorcery News Network &middot; How to Play Sorcery: Contested Realm |  Learn To Play In About 20 Minutes!</a>
+</div>
+<div class="card">
+<h3>The death blow has to be direct</h3>
+<p>After death&#x27;s door, damage dealt directly to the Avatar finishes the game. Attacking sites makes the Avatar lose life without dealing it damage, so site attacks can never close.</p><p>Hold a direct-damage card for this. A one damage burn spell wins games that a board full of minions cannot.</p>
+<a class="src" href="https://www.youtube.com/watch?v=Ss-PtdOBHcQ" target="_blank" rel="noopener">Covenant &middot; The Essential Sorcery TCG Tutorial</a>
+</div>
+</div>
+</section>
+<section id="archetypes">
+<h2 style="background:#5B7A6B">8. Archetypes, and why yours will not transfer</h2>
+<p class="grouphint" style="background:#5B7A6B">Aggro, control and combo describe a different game.</p>
+<div class="cards">
+<div class="card">
+<h3>There is no true aggro, only tempo</h3>
+<p>TCG TALK argues the aggro corner does not exist here. Charge, Lance and overstated vanilla bodies buy early tempo instead.</p><p>Bosstroll costs two with an earth threshold and attacks for three, which is the shape to look for.</p>
+<a class="src" href="https://www.youtube.com/watch?v=y86WzqtE37c" target="_blank" rel="noopener">TCG TALK &middot; Sorcery TCG Archetypes 101</a>
+</div>
+<div class="card">
+<h3>Control cannot hold up answers</h3>
+<p>Interaction on the opponent&#x27;s turn is Defend and Intercept and very little else. You cannot counter, bounce or sweep in response.</p><p>The conversation happens through positioning across turns rather than through responses inside one.</p>
+<a class="src" href="https://www.youtube.com/watch?v=y86WzqtE37c" target="_blank" rel="noopener">TCG TALK &middot; Sorcery TCG Archetypes 101</a>
+</div>
+<div class="card">
+<h3>Value trading is the through-line</h3>
+<p>With so little card draw, the reliable plan is making the opponent spend two cards to answer one of yours. Area effects and tokens are the usual tools.</p>
+<a class="src" href="https://www.youtube.com/watch?v=y86WzqtE37c" target="_blank" rel="noopener">TCG TALK &middot; Sorcery TCG Archetypes 101</a>
+</div>
+<div class="card">
+<h3>Strike is how you attack without being hit back</h3>
+<p>Strike effects let an ally hit without the target hitting back. Whirling Blades moves an ally up to two steps and strikes every enemy along the path.</p>
+<a class="src" href="https://www.youtube.com/watch?v=y86WzqtE37c" target="_blank" rel="noopener">TCG TALK &middot; Sorcery TCG Archetypes 101</a>
+</div>
+</div>
+</section>
+<section id="mistakes">
+<h2 style="background:#8D8680">9. Mistakes new players make</h2>
+<p class="grouphint" style="background:#8D8680">Drawn from the rules questions that come up most.</p>
+<div class="cards">
+<div class="card">
+<h3>Reading nearby as adjacent</h3>
+<p>The diagonals belong to nearby only. Misreading this loses attacks you thought were legal and blocks defences you thought you had.</p>
+<a class="src" href="https://www.youtube.com/watch?v=PO1xzIhk_Vg" target="_blank" rel="noopener">The Void &middot; 32 Common Rules Questions In Sorcery Contested Realm TCG</a>
+</div>
+<div class="card">
+<h3>Walking your own units into a shark</h3>
+<p>A creature that fights whatever enters its body of water fights your units too. Check the water before you move through it.</p>
+<a class="src" href="https://www.youtube.com/watch?v=PO1xzIhk_Vg" target="_blank" rel="noopener">The Void &middot; 32 Common Rules Questions In Sorcery Contested Realm TCG</a>
+</div>
+<div class="card">
+<h3>Treating Genesis as optional</h3>
+<p>A Genesis ability triggers whether you want it or not unless the card prints the word may.</p>
+<a class="src" href="https://www.youtube.com/watch?v=PO1xzIhk_Vg" target="_blank" rel="noopener">The Void &middot; 32 Common Rules Questions In Sorcery Contested Realm TCG</a>
+</div>
+<div class="card">
+<h3>Expecting tokens to behave like minions after death</h3>
+<p>A token that would go to the cemetery is removed from the game instead. Plans that recur your dead minions skip tokens.</p>
+<a class="src" href="https://www.youtube.com/watch?v=PO1xzIhk_Vg" target="_blank" rel="noopener">The Void &middot; 32 Common Rules Questions In Sorcery Contested Realm TCG</a>
+</div>
+<div class="card">
+<h3>Reading Ward as the Magic keyword</h3>
+<p>Sorcery Ward absorbs one qualifying opposing interaction and then disappears. It taxes nothing.</p>
+<a class="src" href="https://www.youtube.com/watch?v=Ss-PtdOBHcQ" target="_blank" rel="noopener">Covenant &middot; The Essential Sorcery TCG Tutorial</a>
+</div>
+<div class="card">
+<h3>Piling minions onto one site</h3>
+<p>Any number of minions may share a site, and the rulebook warns against it. One area effect answers the entire pile.</p>
+<a class="src" href="https://www.youtube.com/watch?v=M2nEw-7euDk" target="_blank" rel="noopener">The Winning Agenda &middot; How to Play Sorcery: Contested Realm TCG - Part 1 (The Basics) #sorcerytcg</a>
+</div>
+</div>
+</section>
+
+<section id="sources">
+<h2 style="background:var(--ink)">Where this came from</h2>
+<p class="grouphint" style="background:var(--ink)">And where it stops.</p>
+<div class="cards">
+<div class="card">
+<h3>The corpus</h3>
+<p>46 transcripts, 226,322 words, pulled with the <code>yt-transcripts</code> toolchain and stored
+at <code>~/Projects/_outputs/yt-transcripts/sorcery-contested-realm-eval/</code>.</p>
+<p>Rules claims were checked across separate teaching videos before being written down. Where one
+video contradicted the rulebook walkthroughs, the walkthroughs won.</p>
+</div>
+<div class="card">
+<h3>What a transcript cannot settle</h3>
+<p>Community video is a good teacher and a poor rulebook. For the printed wording on a specific
+interaction, read the official December 2025 rulebook, which the companion rules page cites by page
+number.</p>
+<p>One example of the gap: a popular tutorial says a freshly summoned minion "can't do anything".
+The printed rule is narrower, being that it cannot tap. Moving and attacking both need a tap, so the
+table result matches while the wording does not.</p>
+</div>
+<div class="card">
+<h3>Prices drift</h3>
+<p>The sealed-product figures in section 1 come from a retailer check dated 2026-09-10 and will not
+stay accurate.</p>
+</div>
+</div>
+</section>
+
+<footer>
+<p>Built September 11, 2026 from the Sorcery transcript corpus. Palette: Isle of Dogs, Wes Anderson, 2018.</p>
+</footer>
+
+</div>
+</body>
+</html>
