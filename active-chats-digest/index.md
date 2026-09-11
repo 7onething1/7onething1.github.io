@@ -1,12 +1,12 @@
 # Active chats digest
 
-Built 2026-09-11 15:45 CDT. 22 chats read from transcripts.
+Built 2026-09-11 16:15 CDT. 22 chats read from transcripts.
 
 ## Headline
 
 All 22 chats ended on a gate block, 0 on a message from Brandon.
 0 need a Brandon action. 4 are past the 400-turn ceiling.
-Totals: 6,676 assistant replies, 56 MB of transcript.
+Totals: 6,812 assistant replies, 59 MB of transcript.
 
 ## Do yourself
 
@@ -53,7 +53,7 @@ Totals: 6,676 assistant replies, 56 MB of transcript.
 
 **Finish today.** New since the last hand pass. Open the chat and give it a read.
 
-### Sorcery TCG buy-or-skip eval  (1.5 days quiet, 765 replies)
+### Sorcery TCG buy-or-skip eval  (1.6 days quiet, 765 replies)
 **Goal.** Not summarised by hand yet. Last input on record: Stop hook feedback: [python3 /Users/brandonchavez/.claude/hooks/completion_stop_hook.py]: completion_controller BLOCK: the requested scope is not complete. contract sc-9ae59b0cda stop_rule: 
 
 - Two blockers bound. The third item is different: I hit that exact bug twice this session, so let me record it with my own first-hand evidence.
@@ -113,7 +113,7 @@ Totals: 6,676 assistant replies, 56 MB of transcript.
 
 **Finish today.** New since the last hand pass. Open the chat and give it a read.
 
-### Drum notation beat-tracked metronome  (23.4 hours quiet, 395 replies)
+### Drum notation beat-tracked metronome  (23.9 hours quiet, 395 replies)
 **Goal.** Not summarised by hand yet. Last input on record: Base directory for this skill: /Users/brandonchavez/.claude/skills/no-quit-shift # no-quit-shift — the executable anti-quit gate ## v2 (2026-06-06): proactive keep-alive + auto-deploy on eve
 
 - One left, and it is the same shape: I ran `queue.py add`, `status --mine` and `done` by raw path without loading the skill that says how to read them.
@@ -123,7 +123,7 @@ Totals: 6,676 assistant replies, 56 MB of transcript.
 
 **Finish today.** New since the last hand pass. Open the chat and give it a read.
 
-### Reharmonization chat location and resume  (23.1 hours quiet, 169 replies)
+### Reharmonization chat location and resume  (23.6 hours quiet, 169 replies)
 **Goal.** Not summarised by hand yet. Last input on record: Stop hook feedback: chat_color_gate BLOCK: this is a substantive reply but it is not color-coded. Brandon's standing rule (feedback_brandon_format): color-code your sections with colored bul
 
 - My session queue is empty now. Let me update the handoff and close out.
@@ -133,7 +133,7 @@ Totals: 6,676 assistant replies, 56 MB of transcript.
 
 **Finish today.** New since the last hand pass. Open the chat and give it a read.
 
-### Asleep-In-The-Trunk reharm D mixolydian-b2  (22.9 hours quiet, 133 replies)
+### Asleep-In-The-Trunk reharm D mixolydian-b2  (23.4 hours quiet, 133 replies)
 **Goal.** Not summarised by hand yet. Last input on record: improve using what the other reharm chat learned
 
 - Legitimate catch: the report cites bar numbers without naming the file they were measured from. Adding the provenance block the gate asks for.
@@ -143,7 +143,7 @@ Totals: 6,676 assistant replies, 56 MB of transcript.
 
 **Finish today.** New since the last hand pass. Open the chat and give it a read.
 
-### Revision submission question  (21.2 hours quiet, 111 replies)
+### Revision submission question  (21.7 hours quiet, 111 replies)
 **Goal.** Not summarised by hand yet. Last input on record: also all this drift on zappa, i only assigned the songs with stems on drive, many of those are not that
 
 - You are right. I counted it. ## The seven Zappa "Brandon edit" tabs, and what built each one
@@ -153,7 +153,7 @@ Totals: 6,676 assistant replies, 56 MB of transcript.
 
 **Finish today.** New since the last hand pass. Open the chat and give it a read.
 
-### Sound limit at 40%  (12.3 hours quiet, 49 replies)
+### Sound limit at 40%  (12.8 hours quiet, 49 replies)
 **Goal.** Not summarised by hand yet. Last input on record: Stop hook feedback: [python3 /Users/brandonchavez/.claude/skills/fifty-gates/run_gates.py]: fifty-gates BLOCK: 1 hard gate(s) of 70 fired. G06 permission-instead-of-finishing: ended on "say 
 
 - Goal:** output volume ceiling at 40%, enforced. - **Phase 1** — read live volcap state and the two standing memory notes. - **Phase 2** — run `volcap.
@@ -163,7 +163,7 @@ Totals: 6,676 assistant replies, 56 MB of transcript.
 
 **Finish today.** New since the last hand pass. Open the chat and give it a read.
 
-### Recent 8-28 stem projects  (2.6 hours quiet, 64 replies)
+### Recent 8-28 stem projects  (3.1 hours quiet, 64 replies)
 **Goal.** Not summarised by hand yet. Last input on record: [Request interrupted by user]
 
 - 89 sets on disk. Ranking by recency and grepping every one for the 8-28 stem paths, since that directly answers whether the songs were added.
@@ -173,17 +173,7 @@ Totals: 6,676 assistant replies, 56 MB of transcript.
 
 **Finish today.** New since the last hand pass. Open the chat and give it a read.
 
-### IRIS claims review document updates  (34 minutes quiet, 161 replies)
-**Goal.** Not summarised by hand yet. Last input on record: Stop hook feedback: [python3 /Users/brandonchavez/.claude/skills/fifty-gates/run_gates.py]: fifty-gates BLOCK: 1 hard gate(s) of 70 fired. G06 permission-instead-of-finishing: ended on "say 
-
-- Both gaps are now closed in the file itself, and the original is backed up beside it. ## What changed **IRIS 23622, the RDSNFU task body.** The source.
-- 🟢 **Both gaps are closed in the file itself**, with the original backed up beside it. ## What changed 🟢 **IRIS 23622, the RDSNFU task body.** The.
-- 🟢 **Read all five pages and checked every statement against the ten source articles in `/Users/Shared/updates`.** I changed nothing in the file. ##.
-- 🟢 **Read all five pages and checked every statement against the ten source articles in `/Users/Shared/updates`.** I changed nothing in the file, since.
-
-**Finish today.** New since the last hand pass. Open the chat and give it a read.
-
-### Asleep harmonic analysis windowing  (32 minutes quiet, 502 replies)
+### Asleep harmonic analysis windowing  (1.0 hours quiet, 502 replies)
 **Goal.** Not summarised by hand yet. Last input on record: Stop hook feedback: [python3 /Users/brandonchavez/.claude/skills/fifty-gates/run_gates.py]: fifty-gates BLOCK: 1 hard gate(s) of 70 fired. G69 peer-figure-as-own-measurement: restates 2026, 
 
 - They do different jobs.** 🔵 **Archive** files the chat out of your sidebar. The transcript stays on disk and can be unarchived later. It changes.
@@ -193,7 +183,7 @@ Totals: 6,676 assistant replies, 56 MB of transcript.
 
 **Finish today.** New since the last hand pass. Open the chat and give it a read.
 
-### Chat monitoring and GPT evaluation  (23 minutes quiet, 600 replies)
+### Chat monitoring and GPT evaluation  (53 minutes quiet, 600 replies)
 **Goal.** Not summarised by hand yet. Last input on record: Stop hook feedback: [python3 /Users/brandonchavez/.claude/skills/fifty-gates/run_gates.py]: fifty-gates BLOCK: 2 hard gate(s) of 70 fired. G19 age-ceiling-24h: 26h with no handoff G20 turn-c
 
 - The cron fired and arrived as a turn in this session, which already proves the firing half. Now the delivery half.
@@ -203,7 +193,7 @@ Totals: 6,676 assistant replies, 56 MB of transcript.
 
 **Finish today.** New since the last hand pass. Open the chat and give it a read.
 
-### Sorcery game chat transcripts  (22 minutes quiet, 376 replies)
+### Sorcery game chat transcripts  (52 minutes quiet, 376 replies)
 **Goal.** Not summarised by hand yet. Last input on record: Stop hook feedback: [python3 /Users/brandonchavez/.claude/skills/fifty-gates/run_gates.py]: fifty-gates BLOCK: 1 hard gate(s) of 70 fired. G19 age-ceiling-24h: 37h with no handoff Fix the fi
 
 - The guide is live. **`https://7onething1.github.io/sorcery-player-guide/` returned http 200**, and the live bytes match the local build exactly. ## 🟢.
@@ -213,17 +203,27 @@ Totals: 6,676 assistant replies, 56 MB of transcript.
 
 **Finish today.** New since the last hand pass. Open the chat and give it a read.
 
-### Asleep census engine fixes  (20 minutes quiet, 131 replies)
-**Goal.** Not summarised by hand yet. Last input on record: @"/Users/brandonchavez/Library/Mobile Documents/com~apple~CloudDocs/SVG/[REHARM] Asleep census, engine fixes and the gates stdin hang 2026-09-10.md"
+### IRIS claims review document updates  (14 minutes quiet, 185 replies)
+**Goal.** Not summarised by hand yet. Last input on record: Base directory for this skill: /Users/brandonchavez/.claude/skills/no-quit-shift # no-quit-shift — the executable anti-quit gate ## v2 (2026-06-06): proactive keep-alive + auto-deploy on eve
 
-- Found a real defect in the census, the tool built yesterday to stop false reports. Measuring it before I touch anything.
-- Census now agrees with an independent note-by-note MIDI diff: 19, 35, 31 notes moved. Running the remaining thirteen.
-- No prose turn recorded for this slot.
+- 🟢 **Read all five pages and checked every statement against the ten source articles in `/Users/Shared/updates`.** I changed nothing in the file. ##.
+- 🟢 **Read all five pages and checked every statement against the ten source articles in `/Users/Shared/updates`.** I changed nothing in the file, since.
+- 🟢 **Evaluated v2 against the ten source articles and against every finding from the last pass.** Fifteen of sixteen items landed. One new error.
+- 🟢 **Evaluated v2 with explicit coverage: 78 live-text statements plus 44 statements inside the three page images, checked against all 10 source.
+
+**Finish today.** New since the last hand pass. Open the chat and give it a read.
+
+### Asleep census engine fixes  (14 minutes quiet, 243 replies)
+**Goal.** Not summarised by hand yet. Last input on record: The app was quit while you were working. Please continue from where you left off.
+
+- Four duplicated blocks, and one of them is a finding that contradicts my summary table. Checking that first.
+- My handoff claim that candidate B carries no transposition flag was wrong. Measuring why the flag fires before I correct it.
+- Done. Handoff picked up, worked end to end, and the work turned up three more defects of the same shape the previous session was chasing. 🟢 **Runs 3.
 - No prose turn recorded for this slot.
 
 **Finish today.** New since the last hand pass. Open the chat and give it a read.
 
-### Appleseed cast chat  (23 minutes quiet, 1312 replies)
+### Appleseed cast chat  (53 minutes quiet, 1312 replies)
 **Goal.** Split guitar parts that one hand cannot reach into two guitar tracks.
 
 - A tab had 700 spots where one hand had to grab impossible shapes.
