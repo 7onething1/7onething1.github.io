@@ -1,69 +1,19 @@
 # Active chats digest
 
-Built 2026-09-11 01:41 CDT. 32 chats read from transcripts.
+Built 2026-09-11 02:11 CDT. 26 chats read from transcripts.
 
 ## Headline
 
-All 32 chats ended on a gate block, 0 on a message from Brandon.
-0 need a Brandon action. 9 are past the 400-turn ceiling.
-Totals: 12,056 assistant replies, 86 MB of transcript.
+All 26 chats ended on a gate block, 0 on a message from Brandon.
+0 need a Brandon action. 6 are past the 400-turn ceiling.
+Totals: 9,962 assistant replies, 70 MB of transcript.
 
 ## Do yourself
 
 
 ## Every chat
 
-### Guitar leakage regression pipeline  (1.5 days quiet, 493 replies)
-**Goal.** Not summarised by hand yet. Last input on record: Stop hook feedback: [python3 ~/.claude/hooks/no_stop_gate_hook.py]: no_stop_gate BLOCK: the draft reply failed one or more of the 50 gates. no_stop_gate: 50 gates, 2 failed, 1 not applicable
-
-- All four gates pass on a dry run. Sending and recording, then posting that exact text.
-- Both bridges are timing out on that tab; the renderer looks wedged the way the first conversation did. Waiting rather than hammering it.
-- The tab is responsive again, and it shows 6 user turns where there were 5. The send landed despite the timeout.
-- 🔵 Rule change taken as real, and I checked it rather than trusting the relay. Brandon typed "have the gates stop making websites and start messaging.
-
-**Finish today.** New since the last hand pass. Open the chat and give it a read.
-
-### Watermelon In Easter Hay drum transcription  (1.1 days quiet, 645 replies)
-**Goal.** Not summarised by hand yet. Last input on record: Stop hook feedback: ask_drift_gate BLOCK: Brandon's message pointed at [chatgpt_relay_lock, claude-in-chrome, composer-submit-button, cross-session-message, data-testid] and your reply never
-
-- Already stood down, and it happened before the peer asked. I closed my ChatGPT tab and released the relay lock earlier this session. The lock now reads.
-- Guessing at the verb twice has not worked. Reading the rule.
-- G37 matches on `empt`, and my text says "emptied composer". Swapping that word.
-- All 50 gates pass. 🟢 **Already stood down, before the peer asked.** I closed my `claude-in-chrome` tab and gave up the mutex earlier this session..
-
-**Finish today.** New since the last hand pass. Open the chat and give it a read.
-
-### Skills cleanup evaluation  (1.1 days quiet, 163 replies)
-**Goal.** Not summarised by hand yet. Last input on record: Stop hook feedback: [python3 /Users/brandonchavez/.claude/hooks/completion_stop_hook.py]: completion_controller BLOCK: the requested scope is not complete. contract sc-9b26476e5d stop_rule: 
-
-- Checked what you actually typed in this thread. One instruction: the evaluation. That means the skill archive, the note relocation and the file merge.
-- G26 wants the word, not just the meaning. Reading it directly: the reply needs an explicit `because` / `requires` / `needs` beside any queue reference..
-- Checked the second route: every documented Songsterr upload path runs through Chrome's main world, which your own 2026-09-09 gate blocks. Recording.
-- Your assessment holds Landed: the gate defects, the CLAUDE.md content cleanup, `MAP.md`, the correct rejection of the double-wiring "fix", a safe.
-
-**Finish today.** New since the last hand pass. Open the chat and give it a read.
-
-### Disk cleanup handoff  (1.0 days quiet, 221 replies)
-**Goal.** Not summarised by hand yet. Last input on record: Stop hook feedback: [python3 /Users/brandonchavez/.claude/hooks/completion_stop_hook.py]: completion_controller BLOCK: the requested scope is not complete. contract sc-c64efb3bd9 stop_rule: 
-
-- All three gate suites are green now: `no_stop_gate` 50 gates 0 failed, `fifty-gates` exit 0 with no block, `completion_controller` stop_allowed True,.
-- G50 wants the queue id beside unfinished work, and the controller wants claims that name a subject. Let me draft and test the claim parse before sending.
-- One count claim remains that would parse as refuted. Let me make that claim precise and back it with a record.
-- All four checkers are green: `fifty-gates` exit 0 with no block, `no_stop_gate` 50 gates 0 failed, `completion_controller` stop_allowed True,.
-
-**Finish today.** New since the last hand pass. Open the chat and give it a read.
-
-### Archive older chats and display  (1.0 days quiet, 408 replies)
-**Goal.** Not summarised by hand yet. Last input on record: Stop hook feedback: [python3 /Users/brandonchavez/.claude/skills/fifty-gates/run_gates.py]: fifty-gates BLOCK: 1 hard gate(s) of 70 fired. G20 turn-ceiling-400: 403 assistant turns with no h
-
-- The peer's evidence checks out: contract `b23f8447` is open with R2 and R3 unmet. Its filter is better than mine. Let me send it my measured restore.
-- 🟢 **Archiving stopped, confirmed.** No archive call since that message, and none going forward. What ran was one batch pass from your typed ask, not an.
-- 403 turns with no handoff. Let me write it to iCloud SVG, which is the sanctioned channel.
-- Handoff written and gated. Everything is recorded. 🟢 **Handoff filed**, which clears the 403-turn ceiling. It carries the restore list with session.
-
-**Finish today.** New since the last hand pass. Open the chat and give it a read.
-
-### Usage limit removal  (23.7 hours quiet, 188 replies)
+### Usage limit removal  (1.0 days quiet, 188 replies)
 **Goal.** Not summarised by hand yet. Last input on record: Stop hook feedback: [python3 ~/.claude/hooks/no_stop_gate_hook.py]: no_stop_gate BLOCK: the draft reply failed one or more of the 50 gates. no_stop_gate: 50 gates, 1 failed, 1 not applicable
 
 - Your answer is delivered earlier in this thread and its substance has not changed across twelve drafts. I am stopping the rewrite loop. Two gates block.
@@ -73,17 +23,7 @@ Totals: 12,056 assistant replies, 86 MB of transcript.
 
 **Finish today.** New since the last hand pass. Open the chat and give it a read.
 
-### Watermelon chat refund request  (23.5 hours quiet, 164 replies)
-**Goal.** Not summarised by hand yet. Last input on record: [Request interrupted by user for tool use]
-
-- Astra Max is not in the picker. This account offers **GPT-5.6 Sol** (selected, effort High 3 of 3) and **GPT-5.5**. Sending on the top available model.
-- Active tab shifted, so that check ran on the wrong page. Targeting the ChatGPT tab explicitly.
-- Message did not send. The composer holds 2,149 chars with 0 messages, so the synthetic Enter never reached React. Let me find the real send control.
-- Control_Chrome runs in an isolated world, so React never registered the text and the send button never rendered. `reactKeys` came back empty, which.
-
-**Finish today.** New since the last hand pass. Open the chat and give it a read.
-
-### Chat lifecycle management system  (23.5 hours quiet, 374 replies)
+### Chat lifecycle management system  (24.0 hours quiet, 374 replies)
 **Goal.** Not summarised by hand yet. Last input on record: Stop hook feedback: [python3 ~/.claude/hooks/no_stop_gate_hook.py]: no_stop_gate BLOCK: the draft reply failed one or more of the 50 gates. no_stop_gate: 50 gates, 1 failed, 1 not applicable
 
 - The app restarted, which is exactly the reload the six staged un-archives were waiting on. Checking whether they came back live.
@@ -93,7 +33,7 @@ Totals: 12,056 assistant replies, 86 MB of transcript.
 
 **Finish today.** New since the last hand pass. Open the chat and give it a read.
 
-### Zappa transcription and ledger correction  (23.5 hours quiet, 391 replies)
+### Zappa transcription and ledger correction  (24.0 hours quiet, 391 replies)
 **Goal.** Not summarised by hand yet. Last input on record: The app was quit while you were working. Please continue from where you left off.
 
 - The app restarted. Checking what actually changed on disk before assuming anything.
@@ -103,7 +43,7 @@ Totals: 12,056 assistant replies, 86 MB of transcript.
 
 **Finish today.** New since the last hand pass. Open the chat and give it a read.
 
-### Appleseed cast chat  (23.4 hours quiet, 363 replies)
+### Appleseed cast chat  (23.9 hours quiet, 363 replies)
 **Goal.** Not summarised by hand yet. Last input on record: Stop hook feedback: [python3 /Users/brandonchavez/.claude/hooks/completion_stop_hook.py]: completion_controller BLOCK: the requested scope is not complete. contract sc-dea6651e09 stop_rule: 
 
 - 🟢 **Everything survived the restart.** Verified rather than assumed, since 14 sibling sessions have been writing to the same trees. - **The hook is.
@@ -113,7 +53,7 @@ Totals: 12,056 assistant replies, 86 MB of transcript.
 
 **Finish today.** New since the last hand pass. Open the chat and give it a read.
 
-### Reharmonization chat location  (23.3 hours quiet, 369 replies)
+### Reharmonization chat location  (23.8 hours quiet, 369 replies)
 **Goal.** Not summarised by hand yet. Last input on record: Stop hook feedback: [python3 /Users/brandonchavez/.claude/hooks/completion_stop_hook.py]: completion_controller BLOCK: the requested scope is not complete. contract sc-dea6651e09 stop_rule: 
 
 - Two gates now contradict each other: G10 demands an N-of-N count, and the claim matcher refuses "5 of 5". That's the defect I logged tonight. Working.
@@ -123,7 +63,7 @@ Totals: 12,056 assistant replies, 86 MB of transcript.
 
 **Finish today.** New since the last hand pass. Open the chat and give it a read.
 
-### Selective archive restoration  (23.2 hours quiet, 133 replies)
+### Selective archive restoration  (23.7 hours quiet, 133 replies)
 **Goal.** Not summarised by hand yet. Last input on record: Stop hook feedback: [python3 ~/.claude/hooks/no_stop_gate_hook.py]: no_stop_gate BLOCK: the draft reply failed one or more of the 50 gates. no_stop_gate: 50 gates, 1 failed, 1 not applicable
 
 - 70 gates, none fired. Final version with the color markers, then re-gate.
@@ -133,7 +73,7 @@ Totals: 12,056 assistant replies, 86 MB of transcript.
 
 **Finish today.** New since the last hand pass. Open the chat and give it a read.
 
-### Sorcery TCG buy-or-skip eval  (22.8 hours quiet, 765 replies)
+### Sorcery TCG buy-or-skip eval  (23.3 hours quiet, 765 replies)
 **Goal.** Not summarised by hand yet. Last input on record: Stop hook feedback: [python3 /Users/brandonchavez/.claude/hooks/completion_stop_hook.py]: completion_controller BLOCK: the requested scope is not complete. contract sc-9ae59b0cda stop_rule: 
 
 - Two blockers bound. The third item is different: I hit that exact bug twice this session, so let me record it with my own first-hand evidence.
@@ -143,7 +83,7 @@ Totals: 12,056 assistant replies, 86 MB of transcript.
 
 **Finish today.** New since the last hand pass. Open the chat and give it a read.
 
-### Reharmonization chat Shiner comparison  (22.4 hours quiet, 252 replies)
+### Reharmonization chat Shiner comparison  (22.9 hours quiet, 252 replies)
 **Goal.** Not summarised by hand yet. Last input on record: Stop hook feedback: [python3 /Users/brandonchavez/.claude/hooks/completion_stop_hook.py]: completion_controller BLOCK: the requested scope is not complete. contract sc-7dac65597d stop_rule: 
 
 - `map_pitch` bounds octave choice only by MIDI 0–127, with no idea of the instrument. A C2 targeting G picks G1 (5 semitones) over G2 (7), landing below.
@@ -153,7 +93,7 @@ Totals: 12,056 assistant replies, 86 MB of transcript.
 
 **Finish today.** New since the last hand pass. Open the chat and give it a read.
 
-### Weekly usage limit spike  (22.3 hours quiet, 101 replies)
+### Weekly usage limit spike  (22.8 hours quiet, 101 replies)
 **Goal.** Not summarised by hand yet. Last input on record: Stop hook feedback: [python3 /Users/brandonchavez/.claude/skills/fifty-gates/run_gates.py]: fifty-gates BLOCK: 1 hard gate(s) of 70 fired. G28 literal-ask-unaddressed: the named target never
 
 - Your inference was right, and the code makes it sharper. Confirming the last link.
@@ -163,7 +103,7 @@ Totals: 12,056 assistant replies, 86 MB of transcript.
 
 **Finish today.** New since the last hand pass. Open the chat and give it a read.
 
-### Appleseed cast chat handoff  (22.2 hours quiet, 157 replies)
+### Appleseed cast chat handoff  (22.7 hours quiet, 157 replies)
 **Goal.** Not summarised by hand yet. Last input on record: did you upload to songerster? pretty unplanayble and we hard gated against string skips between frets what were not octaves and made them a 2nd guitar
 
 - The gate changed under me at 03:23. **That voids the three promotion receipts I quoted.** Correcting the handoff now.
@@ -173,7 +113,7 @@ Totals: 12,056 assistant replies, 86 MB of transcript.
 
 **Finish today.** New since the last hand pass. Open the chat and give it a read.
 
-### Sound limit at 40%  (21.7 hours quiet, 23 replies)
+### Sound limit at 40%  (22.2 hours quiet, 23 replies)
 **Goal.** Not summarised by hand yet. Last input on record: Stop hook feedback: [python3 /Users/brandonchavez/.claude/skills/fifty-gates/run_gates.py]: fifty-gates BLOCK: 1 hard gate(s) of 70 fired. G28 literal-ask-unaddressed: the named target never
 
 - Goal:** output volume ceiling at 40%, enforced. - **Phase 1** — read live volcap state and the two standing memory notes. - **Phase 2** — run `volcap.
@@ -183,7 +123,7 @@ Totals: 12,056 assistant replies, 86 MB of transcript.
 
 **Finish today.** New since the last hand pass. Open the chat and give it a read.
 
-### Sorcery game chat transcripts  (12.5 hours quiet, 323 replies)
+### Sorcery game chat transcripts  (13.0 hours quiet, 323 replies)
 **Goal.** Not summarised by hand yet. Last input on record: [Request interrupted by user]
 
 - `stop_allowed: True`. Let me validate the reply draft against the gates before sending.
@@ -193,7 +133,7 @@ Totals: 12,056 assistant replies, 86 MB of transcript.
 
 **Finish today.** New since the last hand pass. Open the chat and give it a read.
 
-### Reharmonization chat location  (12.4 hours quiet, 1700 replies)
+### Reharmonization chat location  (12.9 hours quiet, 1700 replies)
 **Goal.** Not summarised by hand yet. Last input on record: Stop hook feedback: [python3 /Users/brandonchavez/.claude/skills/fifty-gates/run_gates.py]: fifty-gates BLOCK: 1 hard gate(s) of 70 fired. G50 unqueued-remainder: this reply names unfinished
 
 - The gate is not seeing the handoff I wrote. Checking what it actually looks for rather than writing another one.
@@ -203,7 +143,7 @@ Totals: 12,056 assistant replies, 86 MB of transcript.
 
 **Finish today.** New since the last hand pass. Open the chat and give it a read.
 
-### Session ownership and completion safety  (12.2 hours quiet, 193 replies)
+### Session ownership and completion safety  (12.7 hours quiet, 193 replies)
 **Goal.** Not summarised by hand yet. Last input on record: Stop hook feedback: [python3 /Users/brandonchavez/.claude/skills/fifty-gates/run_gates.py]: fifty-gates BLOCK: 1 hard gate(s) of 70 fired. G50 unqueued-remainder: this reply names unfinished
 
 - G50 matched my *description of a past defect*, not actual remainder: "genuine **remaining** work" and "a hard gate the session **could not** clear"..
@@ -213,7 +153,7 @@ Totals: 12,056 assistant replies, 86 MB of transcript.
 
 **Finish today.** New since the last hand pass. Open the chat and give it a read.
 
-### Watermelon/appleseeds to ChatGPT integration  (12.2 hours quiet, 291 replies)
+### Watermelon/appleseeds to ChatGPT integration  (12.7 hours quiet, 291 replies)
 **Goal.** Not summarised by hand yet. Last input on record: Stop hook feedback: chat_color_gate BLOCK: this is a substantive reply but it is not color-coded. Brandon's standing rule (feedback_brandon_format): color-code your sections with colored bul
 
 - Now the more urgent finding. That file's Songsterr scope names the exact three builds I measured this session.
@@ -223,7 +163,7 @@ Totals: 12,056 assistant replies, 86 MB of transcript.
 
 **Finish today.** New since the last hand pass. Open the chat and give it a read.
 
-### Watermelon GP deadline  (12.0 hours quiet, 584 replies)
+### Watermelon GP deadline  (12.5 hours quiet, 584 replies)
 **Goal.** Not summarised by hand yet. Last input on record: Stop hook feedback: [python3 /Users/brandonchavez/.claude/hooks/chat_donelink_gate.py]: No stderr output
 
 - The peer says my open item is stale. They also said not to take their word for it, which is right. Checking myself.
@@ -233,7 +173,7 @@ Totals: 12,056 assistant replies, 86 MB of transcript.
 
 **Finish today.** New since the last hand pass. Open the chat and give it a read.
 
-### Archive recovery mechanism  (12.0 hours quiet, 124 replies)
+### Archive recovery mechanism  (12.5 hours quiet, 124 replies)
 **Goal.** Not summarised by hand yet. Last input on record: Stop hook feedback: [python3 /Users/brandonchavez/.claude/skills/fifty-gates/run_gates.py]: fifty-gates BLOCK: 1 hard gate(s) of 70 fired. G50 unqueued-remainder: this reply names unfinished
 
 - Fair question. My "the sidebar lists archived ones inline" answer covered part of it, and several titles in your second screenshot are in no app record.
@@ -243,7 +183,7 @@ Totals: 12,056 assistant replies, 86 MB of transcript.
 
 **Finish today.** New since the last hand pass. Open the chat and give it a read.
 
-### Appleseed cast chat handoff  (11.8 hours quiet, 258 replies)
+### Appleseed cast chat handoff  (12.3 hours quiet, 258 replies)
 **Goal.** Not summarised by hand yet. Last input on record: Stop hook feedback: [python3 /Users/brandonchavez/.claude/hooks/best_claim_gate.py]: No stderr output
 
 - Clean structure. Building the triage measure, validated against Secret whose numbers I already know from the gate.
@@ -253,7 +193,7 @@ Totals: 12,056 assistant replies, 86 MB of transcript.
 
 **Finish today.** New since the last hand pass. Open the chat and give it a read.
 
-### Drum notation synchronization with stems  (11.4 hours quiet, 282 replies)
+### Drum notation synchronization with stems  (11.9 hours quiet, 282 replies)
 **Goal.** Not summarised by hand yet. Last input on record: Stop hook feedback: [python3 /Users/brandonchavez/.claude/skills/fifty-gates/run_gates.py]: fifty-gates BLOCK: 1 hard gate(s) of 70 fired. G70 detector-count-without-eye-check: ships "84.3%"
 
 - The image settles it, and corrects my own reading. The 14 "excursions" are my 3 ms envelope smoothing being shorter than one cycle of a 50 Hz kick. And.
@@ -263,7 +203,7 @@ Totals: 12,056 assistant replies, 86 MB of transcript.
 
 **Finish today.** New since the last hand pass. Open the chat and give it a read.
 
-### Drum notation beat-tracked metronome  (9.3 hours quiet, 395 replies)
+### Drum notation beat-tracked metronome  (9.8 hours quiet, 395 replies)
 **Goal.** Not summarised by hand yet. Last input on record: Base directory for this skill: /Users/brandonchavez/.claude/skills/no-quit-shift # no-quit-shift — the executable anti-quit gate ## v2 (2026-06-06): proactive keep-alive + auto-deploy on eve
 
 - One left, and it is the same shape: I ran `queue.py add`, `status --mine` and `done` by raw path without loading the skill that says how to read them.
@@ -273,7 +213,7 @@ Totals: 12,056 assistant replies, 86 MB of transcript.
 
 **Finish today.** New since the last hand pass. Open the chat and give it a read.
 
-### Reharmonization chat location and resume  (9.1 hours quiet, 169 replies)
+### Reharmonization chat location and resume  (9.6 hours quiet, 169 replies)
 **Goal.** Not summarised by hand yet. Last input on record: Stop hook feedback: chat_color_gate BLOCK: this is a substantive reply but it is not color-coded. Brandon's standing rule (feedback_brandon_format): color-code your sections with colored bul
 
 - My session queue is empty now. Let me update the handoff and close out.
@@ -283,7 +223,7 @@ Totals: 12,056 assistant replies, 86 MB of transcript.
 
 **Finish today.** New since the last hand pass. Open the chat and give it a read.
 
-### Asleep-In-The-Trunk reharm D mixolydian-b2  (8.8 hours quiet, 133 replies)
+### Asleep-In-The-Trunk reharm D mixolydian-b2  (9.3 hours quiet, 133 replies)
 **Goal.** Not summarised by hand yet. Last input on record: improve using what the other reharm chat learned
 
 - Legitimate catch: the report cites bar numbers without naming the file they were measured from. Adding the provenance block the gate asks for.
@@ -293,7 +233,7 @@ Totals: 12,056 assistant replies, 86 MB of transcript.
 
 **Finish today.** New since the last hand pass. Open the chat and give it a read.
 
-### Asleep harmonic analysis windowing  (8.7 hours quiet, 469 replies)
+### Asleep harmonic analysis windowing  (9.2 hours quiet, 469 replies)
 **Goal.** Not summarised by hand yet. Last input on record: Stop hook feedback: [python3 /Users/brandonchavez/.claude/skills/fifty-gates/run_gates.py]: fifty-gates BLOCK: 1 hard gate(s) of 70 fired. G20 turn-ceiling-400: 464 assistant turns with no h
 
 - The census now surfaces every one of the reviewer's findings automatically. Candidate A flags **BLANKET TRANSPOSITION = True** on its own. Shipping the.
@@ -303,7 +243,7 @@ Totals: 12,056 assistant replies, 86 MB of transcript.
 
 **Finish today.** New since the last hand pass. Open the chat and give it a read.
 
-### Chat monitoring and GPT evaluation  (8.3 hours quiet, 540 replies)
+### Chat monitoring and GPT evaluation  (8.8 hours quiet, 540 replies)
 **Goal.** Not summarised by hand yet. Last input on record: Stop hook feedback: [python3 /Users/brandonchavez/.claude/skills/fifty-gates/run_gates.py]: fifty-gates BLOCK: 1 hard gate(s) of 70 fired. G20 turn-ceiling-400: 536 assistant turns with no h
 
 - 🔴 **The rotation stopped and I did not notice.** Last check ran around 14:47, it is now 17:20, so **two and a half hours with no checks**. The cause is.
@@ -313,7 +253,7 @@ Totals: 12,056 assistant replies, 86 MB of transcript.
 
 **Finish today.** New since the last hand pass. Open the chat and give it a read.
 
-### Revision submission question  (7.1 hours quiet, 111 replies)
+### Revision submission question  (7.6 hours quiet, 111 replies)
 **Goal.** Not summarised by hand yet. Last input on record: also all this drift on zappa, i only assigned the songs with stems on drive, many of those are not that
 
 - You are right. I counted it. ## The seven Zappa "Brandon edit" tabs, and what built each one
@@ -323,7 +263,7 @@ Totals: 12,056 assistant replies, 86 MB of transcript.
 
 **Finish today.** New since the last hand pass. Open the chat and give it a read.
 
-### Appleseed cast chat  (8.4 hours quiet, 1274 replies)
+### Appleseed cast chat  (8.9 hours quiet, 1274 replies)
 **Goal.** Split guitar parts that one hand cannot reach into two guitar tracks.
 
 - A tab had 700 spots where one hand had to grab impossible shapes.
