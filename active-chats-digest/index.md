@@ -1,6 +1,6 @@
 # Active chats digest
 
-Built 2026-09-12 14:28 CDT. 21 chats read from transcripts.
+Built 2026-09-12 14:58 CDT. 21 chats read from transcripts.
 
 ## Headline
 
@@ -73,7 +73,7 @@ Totals: 6,677 assistant replies, 59 MB of transcript.
 
 **Finish today.** New since the last hand pass. Open the chat and give it a read.
 
-### Session ownership and completion safety  (2.0 days quiet, 193 replies)
+### Session ownership and completion safety  (2.1 days quiet, 193 replies)
 **Goal.** Not summarised by hand yet. Last input on record: Stop hook feedback: [python3 /Users/brandonchavez/.claude/skills/fifty-gates/run_gates.py]: fifty-gates BLOCK: 1 hard gate(s) of 70 fired. G50 unqueued-remainder: this reply names unfinished
 
 - G50 matched my *description of a past defect*, not actual remainder: "genuine **remaining** work" and "a hard gate the session **could not** clear"..
@@ -83,7 +83,7 @@ Totals: 6,677 assistant replies, 59 MB of transcript.
 
 **Finish today.** New since the last hand pass. Open the chat and give it a read.
 
-### Archive recovery mechanism  (2.0 days quiet, 124 replies)
+### Archive recovery mechanism  (2.1 days quiet, 124 replies)
 **Goal.** Not summarised by hand yet. Last input on record: Stop hook feedback: [python3 /Users/brandonchavez/.claude/skills/fifty-gates/run_gates.py]: fifty-gates BLOCK: 1 hard gate(s) of 70 fired. G50 unqueued-remainder: this reply names unfinished
 
 - Fair question. My "the sidebar lists archived ones inline" answer covered part of it, and several titles in your second screenshot are in no app record.
@@ -163,7 +163,7 @@ Totals: 6,677 assistant replies, 59 MB of transcript.
 
 **Finish today.** New since the last hand pass. Open the chat and give it a read.
 
-### Asleep harmonic analysis windowing  (23.2 hours quiet, 502 replies)
+### Asleep harmonic analysis windowing  (23.7 hours quiet, 502 replies)
 **Goal.** Not summarised by hand yet. Last input on record: Stop hook feedback: [python3 /Users/brandonchavez/.claude/skills/fifty-gates/run_gates.py]: fifty-gates BLOCK: 1 hard gate(s) of 70 fired. G69 peer-figure-as-own-measurement: restates 2026, 
 
 - They do different jobs.** 🔵 **Archive** files the chat out of your sidebar. The transcript stays on disk and can be unarchived later. It changes.
@@ -173,7 +173,7 @@ Totals: 6,677 assistant replies, 59 MB of transcript.
 
 **Finish today.** New since the last hand pass. Open the chat and give it a read.
 
-### Chat monitoring and GPT evaluation  (23.1 hours quiet, 600 replies)
+### Chat monitoring and GPT evaluation  (23.6 hours quiet, 600 replies)
 **Goal.** Not summarised by hand yet. Last input on record: Stop hook feedback: [python3 /Users/brandonchavez/.claude/skills/fifty-gates/run_gates.py]: fifty-gates BLOCK: 2 hard gate(s) of 70 fired. G19 age-ceiling-24h: 26h with no handoff G20 turn-c
 
 - The cron fired and arrived as a turn in this session, which already proves the firing half. Now the delivery half.
@@ -183,7 +183,7 @@ Totals: 6,677 assistant replies, 59 MB of transcript.
 
 **Finish today.** New since the last hand pass. Open the chat and give it a read.
 
-### Sorcery game chat transcripts  (23.1 hours quiet, 376 replies)
+### Sorcery game chat transcripts  (23.6 hours quiet, 376 replies)
 **Goal.** Not summarised by hand yet. Last input on record: Stop hook feedback: [python3 /Users/brandonchavez/.claude/skills/fifty-gates/run_gates.py]: fifty-gates BLOCK: 1 hard gate(s) of 70 fired. G19 age-ceiling-24h: 37h with no handoff Fix the fi
 
 - The guide is live. **`https://7onething1.github.io/sorcery-player-guide/` returned http 200**, and the live bytes match the local build exactly. ## 🟢.
@@ -193,7 +193,7 @@ Totals: 6,677 assistant replies, 59 MB of transcript.
 
 **Finish today.** New since the last hand pass. Open the chat and give it a read.
 
-### Asleep census engine fixes  (22.4 hours quiet, 243 replies)
+### Asleep census engine fixes  (22.9 hours quiet, 243 replies)
 **Goal.** Not summarised by hand yet. Last input on record: The app was quit while you were working. Please continue from where you left off.
 
 - Four duplicated blocks, and one of them is a finding that contradicts my summary table. Checking that first.
@@ -203,7 +203,7 @@ Totals: 6,677 assistant replies, 59 MB of transcript.
 
 **Finish today.** New since the last hand pass. Open the chat and give it a read.
 
-### IRIS claims review document updates  (22.0 hours quiet, 238 replies)
+### IRIS claims review document updates  (22.5 hours quiet, 238 replies)
 **Goal.** Not summarised by hand yet. Last input on record: @"/Users/Shared/IRIS_Claims_Review_Updates_v2.docx"
 
 - Re-attached with no instruction, right after I listed what is still open and queued against this exact file. Reading that as "apply them," so I am.
@@ -213,7 +213,7 @@ Totals: 6,677 assistant replies, 59 MB of transcript.
 
 **Finish today.** New since the last hand pass. Open the chat and give it a read.
 
-### Appleseed cast chat  (23.1 hours quiet, 1312 replies)
+### Appleseed cast chat  (23.6 hours quiet, 1312 replies)
 **Goal.** Split guitar parts that one hand cannot reach into two guitar tracks.
 
 - A tab had 700 spots where one hand had to grab impossible shapes.
