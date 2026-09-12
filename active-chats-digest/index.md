@@ -1,6 +1,6 @@
 # Active chats digest
 
-Built 2026-09-12 13:57 CDT. 21 chats read from transcripts.
+Built 2026-09-12 14:28 CDT. 21 chats read from transcripts.
 
 ## Headline
 
@@ -53,7 +53,7 @@ Totals: 6,677 assistant replies, 59 MB of transcript.
 
 **Finish today.** New since the last hand pass. Open the chat and give it a read.
 
-### Weekly usage limit spike  (2.4 days quiet, 101 replies)
+### Weekly usage limit spike  (2.5 days quiet, 101 replies)
 **Goal.** Not summarised by hand yet. Last input on record: Stop hook feedback: [python3 /Users/brandonchavez/.claude/skills/fifty-gates/run_gates.py]: fifty-gates BLOCK: 1 hard gate(s) of 70 fired. G28 literal-ask-unaddressed: the named target never
 
 - Your inference was right, and the code makes it sharper. Confirming the last link.
@@ -63,7 +63,7 @@ Totals: 6,677 assistant replies, 59 MB of transcript.
 
 **Finish today.** New since the last hand pass. Open the chat and give it a read.
 
-### Appleseed cast chat handoff  (2.4 days quiet, 157 replies)
+### Appleseed cast chat handoff  (2.5 days quiet, 157 replies)
 **Goal.** Not summarised by hand yet. Last input on record: did you upload to songerster? pretty unplanayble and we hard gated against string skips between frets what were not octaves and made them a 2nd guitar
 
 - The gate changed under me at 03:23. **That voids the three promotion receipts I quoted.** Correcting the handoff now.
@@ -143,7 +143,7 @@ Totals: 6,677 assistant replies, 59 MB of transcript.
 
 **Finish today.** New since the last hand pass. Open the chat and give it a read.
 
-### Sound limit at 40%  (1.4 days quiet, 49 replies)
+### Sound limit at 40%  (1.5 days quiet, 49 replies)
 **Goal.** Not summarised by hand yet. Last input on record: Stop hook feedback: [python3 /Users/brandonchavez/.claude/skills/fifty-gates/run_gates.py]: fifty-gates BLOCK: 1 hard gate(s) of 70 fired. G06 permission-instead-of-finishing: ended on "say 
 
 - Goal:** output volume ceiling at 40%, enforced. - **Phase 1** — read live volcap state and the two standing memory notes. - **Phase 2** — run `volcap.
@@ -153,7 +153,7 @@ Totals: 6,677 assistant replies, 59 MB of transcript.
 
 **Finish today.** New since the last hand pass. Open the chat and give it a read.
 
-### Recent 8-28 stem projects  (1.0 days quiet, 64 replies)
+### Recent 8-28 stem projects  (1.1 days quiet, 64 replies)
 **Goal.** Not summarised by hand yet. Last input on record: [Request interrupted by user]
 
 - 89 sets on disk. Ranking by recency and grepping every one for the 8-28 stem paths, since that directly answers whether the songs were added.
@@ -163,7 +163,7 @@ Totals: 6,677 assistant replies, 59 MB of transcript.
 
 **Finish today.** New since the last hand pass. Open the chat and give it a read.
 
-### Asleep harmonic analysis windowing  (22.7 hours quiet, 502 replies)
+### Asleep harmonic analysis windowing  (23.2 hours quiet, 502 replies)
 **Goal.** Not summarised by hand yet. Last input on record: Stop hook feedback: [python3 /Users/brandonchavez/.claude/skills/fifty-gates/run_gates.py]: fifty-gates BLOCK: 1 hard gate(s) of 70 fired. G69 peer-figure-as-own-measurement: restates 2026, 
 
 - They do different jobs.** 🔵 **Archive** files the chat out of your sidebar. The transcript stays on disk and can be unarchived later. It changes.
@@ -173,7 +173,7 @@ Totals: 6,677 assistant replies, 59 MB of transcript.
 
 **Finish today.** New since the last hand pass. Open the chat and give it a read.
 
-### Chat monitoring and GPT evaluation  (22.6 hours quiet, 600 replies)
+### Chat monitoring and GPT evaluation  (23.1 hours quiet, 600 replies)
 **Goal.** Not summarised by hand yet. Last input on record: Stop hook feedback: [python3 /Users/brandonchavez/.claude/skills/fifty-gates/run_gates.py]: fifty-gates BLOCK: 2 hard gate(s) of 70 fired. G19 age-ceiling-24h: 26h with no handoff G20 turn-c
 
 - The cron fired and arrived as a turn in this session, which already proves the firing half. Now the delivery half.
@@ -183,7 +183,7 @@ Totals: 6,677 assistant replies, 59 MB of transcript.
 
 **Finish today.** New since the last hand pass. Open the chat and give it a read.
 
-### Sorcery game chat transcripts  (22.6 hours quiet, 376 replies)
+### Sorcery game chat transcripts  (23.1 hours quiet, 376 replies)
 **Goal.** Not summarised by hand yet. Last input on record: Stop hook feedback: [python3 /Users/brandonchavez/.claude/skills/fifty-gates/run_gates.py]: fifty-gates BLOCK: 1 hard gate(s) of 70 fired. G19 age-ceiling-24h: 37h with no handoff Fix the fi
 
 - The guide is live. **`https://7onething1.github.io/sorcery-player-guide/` returned http 200**, and the live bytes match the local build exactly. ## 🟢.
@@ -193,7 +193,7 @@ Totals: 6,677 assistant replies, 59 MB of transcript.
 
 **Finish today.** New since the last hand pass. Open the chat and give it a read.
 
-### Asleep census engine fixes  (21.9 hours quiet, 243 replies)
+### Asleep census engine fixes  (22.4 hours quiet, 243 replies)
 **Goal.** Not summarised by hand yet. Last input on record: The app was quit while you were working. Please continue from where you left off.
 
 - Four duplicated blocks, and one of them is a finding that contradicts my summary table. Checking that first.
@@ -203,7 +203,7 @@ Totals: 6,677 assistant replies, 59 MB of transcript.
 
 **Finish today.** New since the last hand pass. Open the chat and give it a read.
 
-### IRIS claims review document updates  (21.5 hours quiet, 238 replies)
+### IRIS claims review document updates  (22.0 hours quiet, 238 replies)
 **Goal.** Not summarised by hand yet. Last input on record: @"/Users/Shared/IRIS_Claims_Review_Updates_v2.docx"
 
 - Re-attached with no instruction, right after I listed what is still open and queued against this exact file. Reading that as "apply them," so I am.
@@ -213,7 +213,7 @@ Totals: 6,677 assistant replies, 59 MB of transcript.
 
 **Finish today.** New since the last hand pass. Open the chat and give it a read.
 
-### Appleseed cast chat  (22.6 hours quiet, 1312 replies)
+### Appleseed cast chat  (23.1 hours quiet, 1312 replies)
 **Goal.** Split guitar parts that one hand cannot reach into two guitar tracks.
 
 - A tab had 700 spots where one hand had to grab impossible shapes.
