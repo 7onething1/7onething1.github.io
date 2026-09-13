@@ -1,6 +1,6 @@
 # Active chats digest
 
-Built 2026-09-13 04:48 CDT. 2 chats read from transcripts.
+Built 2026-09-13 05:18 CDT. 2 chats read from transcripts.
 
 ## Headline
 
@@ -13,7 +13,7 @@ Totals: 90 assistant replies, 2 MB of transcript.
 
 ## Every chat
 
-### Strange claws playlist  (10.2 hours quiet, 24 replies)
+### Strange claws playlist  (10.7 hours quiet, 24 replies)
 **Goal.** Not summarised by hand yet. Last input on record: Base directory for this skill: /Users/brandonchavez/.claude/skills/ask # /ask — unified retrieval across the whole 2nd brain One question goes in. Ranked, source-cited results come back from
 
 - Goal: build the private Strange Claws playlist on your YouTube account with 18 official uploads, placed in the JSON order and checked. **Phase 1.**.
@@ -23,7 +23,7 @@ Totals: 90 assistant replies, 2 MB of transcript.
 
 **Finish today.** New since the last hand pass. Open the chat and give it a read.
 
-### Sound limit at 40%  (53 minutes quiet, 66 replies)
+### Sound limit at 40%  (1.4 hours quiet, 66 replies)
 **Goal.** Not summarised by hand yet. Last input on record: Stop hook feedback: [python3 /Users/brandonchavez/.claude/skills/fifty-gates/run_gates.py]: fifty-gates BLOCK: 1 hard gate(s) of 70 fired. G19 age-ceiling-24h: 72h with no handoff Fix the fi
 
 - 🟢 **40% holds now, and it lifts at 8 am.** It is 03:26, so that is 4 hours 34 minutes from this moment. **Goal:** keep the sound limit at 40% until 8.
