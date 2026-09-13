@@ -1,6 +1,6 @@
 # Magic vs Sorcery: The Top 40 Differences, Ranked
 
-Built 2026-09-10 from 46 Sorcery video transcripts (226,322 words).
+Built 2026-09-11 from 46 Sorcery video transcripts (226,322 words).
 
 ## Rebuilds the game (1-6)
 Six differences that make Sorcery a different game rather than a Magic variant.
