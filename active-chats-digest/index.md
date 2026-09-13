@@ -1,19 +1,19 @@
 # Active chats digest
 
-Built 2026-09-13 15:39 CDT. 2 chats read from transcripts.
+Built 2026-09-13 16:52 CDT. 3 chats read from transcripts.
 
 ## Headline
 
-All 2 chats ended on a gate block, 0 on a message from Brandon.
+All 3 chats ended on a gate block, 0 on a message from Brandon.
 0 need a Brandon action. 0 are past the 400-turn ceiling.
-Totals: 101 assistant replies, 2 MB of transcript.
+Totals: 180 assistant replies, 3 MB of transcript.
 
 ## Do yourself
 
 
 ## Every chat
 
-### Strange claws playlist  (21.1 hours quiet, 24 replies)
+### Strange claws playlist  (22.3 hours quiet, 24 replies)
 **Goal.** Not summarised by hand yet. Last input on record: Base directory for this skill: /Users/brandonchavez/.claude/skills/ask # /ask — unified retrieval across the whole 2nd brain One question goes in. Ranked, source-cited results come back from
 
 - Goal: build the private Strange Claws playlist on your YouTube account with 18 official uploads, placed in the JSON order and checked. **Phase 1.**.
@@ -23,12 +23,22 @@ Totals: 101 assistant replies, 2 MB of transcript.
 
 **Finish today.** New since the last hand pass. Open the chat and give it a read.
 
-### Sound limit at 40%  (43 minutes quiet, 77 replies)
+### Sound limit at 40%  (1.9 hours quiet, 77 replies)
 **Goal.** Not summarised by hand yet. Last input on record: back to normal
 
 - 🟢 **40% holds now, and it lifts at 8 am.** It is 03:26, so that is 4 hours 34 minutes from this moment. **Goal:** keep the sound limit at 40% until 8.
 - 🟢 **The sound limit is 45% now.** Your Powerbeats Fit dropped from 78 to 45. **Goal:** set the sound limit to 45%, right now. - 🔵 **Phase 1:** read the.
 - 🟢 **Your sound limit is 45% now.** Your Powerbeats Fit went from 78 down to 45, and a second check at 03:55:19 still read 45. **Goal:** set your sound.
 - 🟢 **Your sound is back to normal, with no limit.** Your Powerbeats Fit is still at 45 and goes higher when you turn it up. **Goal:** put your sound.
+
+**Finish today.** New since the last hand pass. Open the chat and give it a read.
+
+### SNF DraftKings lineups research  (0 minutes quiet, 79 replies)
+**Goal.** Not summarised by hand yet. Last input on record: research lineups for snf draftkings
+
+- No prose turn recorded for this slot.
+- No prose turn recorded for this slot.
+- No prose turn recorded for this slot.
+- No prose turn recorded for this slot.
 
 **Finish today.** New since the last hand pass. Open the chat and give it a read.
