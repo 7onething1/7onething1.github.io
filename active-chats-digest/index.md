@@ -1,6 +1,6 @@
 # Active chats digest
 
-Built 2026-09-13 02:48 CDT. 1 chats read from transcripts.
+Built 2026-09-13 03:18 CDT. 1 chats read from transcripts.
 
 ## Headline
 
@@ -13,7 +13,7 @@ Totals: 24 assistant replies, 1 MB of transcript.
 
 ## Every chat
 
-### Strange claws playlist  (8.2 hours quiet, 24 replies)
+### Strange claws playlist  (8.7 hours quiet, 24 replies)
 **Goal.** Not summarised by hand yet. Last input on record: Base directory for this skill: /Users/brandonchavez/.claude/skills/ask # /ask — unified retrieval across the whole 2nd brain One question goes in. Ranked, source-cited results come back from
 
 - Goal: build the private Strange Claws playlist on your YouTube account with 18 official uploads, placed in the JSON order and checked. **Phase 1.**.
