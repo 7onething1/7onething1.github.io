@@ -1,6 +1,6 @@
 # Active chats digest
 
-Built 2026-09-14 05:48 CDT. 5 chats read from transcripts.
+Built 2026-09-14 06:18 CDT. 5 chats read from transcripts.
 
 ## Headline
 
@@ -23,7 +23,7 @@ Totals: 1,094 assistant replies, 19 MB of transcript.
 
 **Finish today.** New since the last hand pass. Open the chat and give it a read.
 
-### SNF DraftKings lineups research  (11.5 hours quiet, 261 replies)
+### SNF DraftKings lineups research  (12.0 hours quiet, 261 replies)
 **Goal.** Not summarised by hand yet. Last input on record: do ito
 
 - Running every check now, read-only: 1. **WARP is disconnected.** 2. **Screen Sharing is off.** 3. **DraftKings and GeoComply traffic goes out over.
@@ -33,7 +33,7 @@ Totals: 1,094 assistant replies, 19 MB of transcript.
 
 **Finish today.** New since the last hand pass. Open the chat and give it a read.
 
-### IRIS claims review document updates  (2.1 hours quiet, 240 replies)
+### IRIS claims review document updates  (2.6 hours quiet, 240 replies)
 **Goal.** Not summarised by hand yet. Last input on record: [Request interrupted by user]
 
 - Re-attached with no instruction, right after I listed what is still open and queued against this exact file. Reading that as "apply them," so I am.
@@ -43,7 +43,7 @@ Totals: 1,094 assistant replies, 19 MB of transcript.
 
 **Finish today.** New since the last hand pass. Open the chat and give it a read.
 
-### Sound limit at 40%  (2.0 hours quiet, 113 replies)
+### Sound limit at 40%  (2.5 hours quiet, 113 replies)
 **Goal.** Not summarised by hand yet. Last input on record: Stop hook feedback: [python3 /Users/brandonchavez/.claude/skills/fifty-gates/run_gates.py]: fifty-gates BLOCK: 1 hard gate(s) of 70 fired. G28 literal-ask-unaddressed: the named target never
 
 - 🟢 **Your sound limit is now 65%.** Your Powerbeats Fit is still at 40, and you can turn it up as far as 65. **Goal:** set the sound limit to 65%. - 🔵.
@@ -53,7 +53,7 @@ Totals: 1,094 assistant replies, 19 MB of transcript.
 
 **Finish today.** New since the last hand pass. Open the chat and give it a read.
 
-### Twitch links restoration  (25 minutes quiet, 456 replies)
+### Twitch links restoration  (56 minutes quiet, 456 replies)
 **Goal.** Not summarised by hand yet. Last input on record: Stop hook feedback: [python3 /Users/brandonchavez/.claude/hooks/chat_donelink_gate.py]: No stderr output
 
 - The turn-ceiling gate still sees no handoff, even though the iCloud file exists. I'm reading how G20 detects one.
