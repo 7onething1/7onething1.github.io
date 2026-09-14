@@ -1,0 +1,185 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Band Practice 9-11, What the Measurements Found</title>
+<style>
+:root{
+  --cream:#F4EAD5; --ink:#1A1A1A; --rule:#D9C9A8;
+  --red:#B04A34; --mustard:#D9A441; --teal:#4A7B7C; --dusty:#8C6A5D; --sage:#7D8C6A;
+  --card:#FBF5E6;
+}
+*{box-sizing:border-box}
+body{margin:0;background:var(--cream);color:var(--ink);
+  font-family:"Inter","Helvetica Neue",Helvetica,Arial,sans-serif;line-height:1.55;}
+.wrap{max-width:1000px;margin:0 auto;padding:44px 22px 80px}
+h1{font-family:"Cormorant Garamond",Georgia,serif;font-size:clamp(2.1rem,5vw,3.3rem);
+  font-weight:600;margin:0 0 6px;letter-spacing:-.01em}
+.sub{color:var(--dusty);font-size:.95rem;margin:0 0 8px}
+.verdict{background:var(--red);color:var(--cream);padding:16px 20px;border-radius:3px;
+  margin:26px 0 34px;font-size:1.05rem}
+.verdict b{color:#fff}
+h2{font-family:"Cormorant Garamond",Georgia,serif;font-size:1.75rem;font-weight:600;
+  margin:44px 0 6px;padding-bottom:7px;border-bottom:2px solid var(--rule)}
+h2 .tag{font-family:"JetBrains Mono",ui-monospace,Menlo,monospace;font-size:.62rem;
+  letter-spacing:.13em;text-transform:uppercase;color:var(--cream);
+  padding:3px 8px;border-radius:2px;vertical-align:middle;margin-right:9px}
+.t-crit{background:var(--red)} .t-high{background:var(--mustard);color:#1A1A1A!important}
+.t-med{background:var(--teal)} .t-ok{background:var(--sage)}
+.lede{margin:12px 0 16px}
+table{width:100%;border-collapse:collapse;margin:14px 0;background:var(--card);
+  font-size:.93rem;border:1px solid var(--rule)}
+th{background:var(--rule);text-align:left;padding:8px 12px;font-size:.72rem;
+  letter-spacing:.09em;text-transform:uppercase;font-weight:600}
+td{padding:8px 12px;border-top:1px solid var(--rule);vertical-align:top}
+td.num{font-family:"JetBrains Mono",ui-monospace,Menlo,monospace;text-align:right;white-space:nowrap}
+tr.bad td{background:#F6E2DC}
+.scroll{overflow-x:auto}
+.grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(190px,1fr));gap:12px;margin:18px 0}
+.stat{background:var(--card);border:1px solid var(--rule);border-left:5px solid var(--teal);
+  padding:13px 15px;border-radius:2px}
+.stat.crit{border-left-color:var(--red)}
+.stat .k{font-size:.68rem;letter-spacing:.1em;text-transform:uppercase;color:var(--dusty)}
+.stat .v{font-family:"JetBrains Mono",ui-monospace,Menlo,monospace;
+  font-size:1.5rem;font-weight:600;margin:4px 0 2px}
+.stat .n{font-size:.79rem;color:var(--dusty)}
+ol.fix{padding-left:0;list-style:none;counter-reset:f}
+ol.fix li{counter-increment:f;background:var(--card);border:1px solid var(--rule);
+  padding:15px 18px 15px 58px;position:relative;margin:11px 0;border-radius:2px}
+ol.fix li::before{content:counter(f);position:absolute;left:16px;top:14px;
+  font-family:"Cormorant Garamond",Georgia,serif;font-size:1.9rem;
+  font-weight:600;color:var(--mustard);line-height:1}
+code{font-family:"JetBrains Mono",ui-monospace,Menlo,monospace;font-size:.86em;
+  background:#EFE3C8;padding:1px 5px;border-radius:2px}
+.note{border-left:4px solid var(--mustard);background:var(--card);padding:12px 16px;margin:16px 0}
+footer{margin-top:56px;padding-top:16px;border-top:2px solid var(--rule);
+  font-size:.8rem;color:var(--dusty)}
+tr.good td{background:#E6EDDC}
+.step{display:flex;gap:16px;margin:0;padding:15px 0;border-bottom:1px solid var(--rule)}
+.step:last-child{border-bottom:none}
+.step .no{flex:none;width:40px;height:40px;border-radius:50%;background:var(--teal);
+  color:var(--cream);display:flex;align-items:center;justify-content:center;
+  font-family:"JetBrains Mono",ui-monospace,Menlo,monospace;font-weight:700;font-size:1rem}
+.step.new .no{background:var(--red)}
+.step .bd{flex:1}
+.step .bd h4{margin:2px 0 5px;font-size:1.02rem;font-weight:700}
+.step .bd p{margin:0;font-size:.93rem}
+.steps{background:var(--card);border:1px solid var(--rule);border-radius:3px;padding:4px 20px;margin:18px 0}
+.chain{display:flex;flex-wrap:wrap;gap:10px;align-items:stretch;margin:20px 0}
+.chain .sk{flex:1;min-width:200px;background:var(--card);border:1px solid var(--rule);
+  border-top:5px solid var(--teal);border-radius:3px;padding:14px 16px}
+.chain .sk .n{font-family:"JetBrains Mono",ui-monospace,Menlo,monospace;
+  font-size:.86rem;font-weight:700;color:var(--red);margin-bottom:5px}
+.chain .sk .d{font-size:.86rem;color:var(--ink)}
+.chain .arw{display:flex;align-items:center;color:var(--dusty);font-size:1.5rem;flex:none}
+.gap{background:#FBF0D9;border:1px solid var(--mustard);border-left:6px solid var(--mustard);
+  padding:14px 18px;border-radius:3px;margin:22px 0;font-size:.93rem}
+.warn{background:#F6E2DC;border:1px solid var(--red);border-left:6px solid var(--red);
+  padding:14px 18px;border-radius:3px;margin:22px 0;font-size:.93rem}
+ol.fix{padding-left:22px} ol.fix li{margin:13px 0}
+ol.fix li b{color:var(--red)}
+.mono{font-family:"JetBrains Mono",ui-monospace,Menlo,monospace;font-size:.86rem}
+.ruled{color:var(--dusty)}
+</style>
+</head>
+<body>
+<div class="wrap">
+<h1>Band Practice 9-11, What the Measurements Found</h1>
+<p class="sub">Five tapes &middot; 4 h 05 m &middot; 44100 Hz PCM_24 &middot; measured 2026-09-13 to 09-14 &middot; companion to the <a href="../band-practice-9-11-runbook/">runbook</a></p>
+
+<div class="verdict">
+<b>The session is TWO microphones, not five.</b>
+Two files are bit-identical duplicates, and a third tape is from a different take entirely: it scores higher against an unrelated practice recording than against the mics it was filed with. The real take is 002 and 003, and the song list is 22 performances, not the 29 a three-mic vote produced.
+</div>
+
+<h2><span class="tag t-crit">finding</span>Five files, three distinct, two in the take</h2>
+<div class="grid">
+  <div class="stat"><div class="k">Files handed over</div><div class="v">5</div><div class="n">all 14727 to 14728.5 s</div></div>
+  <div class="stat"><div class="k">Bit-identical pairs</div><div class="v">2</div><div class="n">001 == 004, 003 == 005</div></div>
+  <div class="stat crit"><div class="k">Actually one take</div><div class="v">2</div><div class="n">mics 002 and 003</div></div>
+  <div class="stat crit"><div class="k">Songs, corrected</div><div class="v">22</div><div class="n">from 29 on the bad vote</div></div>
+</div>
+
+<h2><span class="tag t-crit">evidence</span>How mic001 was caught</h2>
+<p class="lede">Cross-correlation of a 1-second envelope over the full four hours, then the same test against the 8-28 practice, a completely different session.</p>
+<div class="scroll">
+<table>
+<tr><th>pair</th><th>best lag</th><th>r</th><th>reading</th></tr>
+<tr class="good"><td><b>002 / 003</b></td><td class="num">0 s</td><td class="num"><b>0.489</b></td><td>peak exactly at zero lag, above every control</td></tr>
+<tr class="bad"><td>001 / 002</td><td class="num">7150 s</td><td class="num">0.376</td><td>below the wrong-recording ceiling</td></tr>
+<tr class="bad"><td>001 / 003</td><td class="num">6400 s</td><td class="num">0.371</td><td>below the wrong-recording ceiling</td></tr>
+<tr class="bad"><td><b>001 / the 8-28 practice</b></td><td class="num">5015 s</td><td class="num"><b>0.394</b></td><td>a different session, and it scores HIGHER</td></tr>
+<tr><td>002 / 8-28</td><td class="num">-70 s</td><td class="num">0.216</td><td>control</td></tr>
+<tr><td>003 / 8-28</td><td class="num">-1390 s</td><td class="num">0.313</td><td>control</td></tr>
+</table>
+</div>
+<p class="lede">A second argument settles it independently. 002 and 003 align at lag 0, so a same-take 001 would have to peak at one common offset against both. Its two peaks sit <b>750 seconds apart</b>, which one take cannot produce.</p>
+<div class="gap"><b>The control that failed.</b> A block-shuffle surrogate passed all three pairs as real. Any two band-practice recordings share long-range song-and-gap structure and beat a shuffle easily. Only scoring against a WRONG RECORDING separated them.</div>
+
+<h2><span class="tag t-high">cost</span>What the contaminated map did</h2>
+<div class="scroll">
+<table>
+<tr><th></th><th>with mic001 (2 of 3 vote)</th><th>the real take (002 AND 003)</th></tr>
+<tr><td>songs</td><td class="num">29</td><td class="num"><b>22</b></td></tr>
+<tr><td>performance time</td><td class="num">97.3 min</td><td class="num"><b>57.3 min</b></td></tr>
+<tr><td>fraction of tape</td><td class="num">39.7%</td><td class="num"><b>23.3%</b></td></tr>
+</table>
+</div>
+<p class="lede">A single 14.10 minute block in the bad map resolves into <b>four separate 3.0 to 4.4 minute songs</b> once the foreign take is removed. Its activity was bridging real gaps and welding distinct performances together.</p>
+
+<h2><span class="tag t-ok">method</span>The song map, and what it actually measures</h2>
+<p class="lede">A volume-drop cull misses drum-driven playing in a near-continuous jam, so the map scores the <b>periodic pulse in the 40 to 110 Hz kick band</b> instead. It carries two controls and exits non-zero if either fails.</p>
+<div class="scroll">
+<table>
+<tr><th>control</th><th>mic 002</th><th>mic 003</th><th>what it proves</th></tr>
+<tr class="good"><td>A, shuffled surrogate</td><td class="num">+0.114</td><td class="num">+0.100</td><td>the score is periodicity, not density</td></tr>
+<tr class="good"><td>B, cymbal 6-12 kHz</td><td class="num">+6.97 dB</td><td class="num">+2.14 dB</td><td>cymbals ring during performance</td></tr>
+</table>
+</div>
+<p class="lede"><b>It is a low-band periodicity detector, and that is not the same as a drum detector.</b> Three of the 22 songs turned out to have no drums at all on either mic: guitar and bass fundamentals share the 40 to 110 Hz band with a kick, and they fired the same measure. Control A proved the periodicity was real. It never proved a kick produced it.</p>
+
+<h2><span class="tag t-high">gates</span>Three controls that were wrong, and how</h2>
+<div class="scroll">
+<table>
+<tr><th>gate</th><th>read</th><th>why it was wrong</th></tr>
+<tr class="bad"><td>Performance is louder than talk</td><td class="num">-1.17 dB</td><td>Gaps measured LOUDER. It encoded the exact assumption the runbook says is false for a continuous jam.</td></tr>
+<tr class="bad"><td>Cymbal FRACTION of total energy</td><td class="num">0.941x</td><td>A fraction is forced down whenever low end rises, which is what a band playing does. It measured spectral tilt.</td></tr>
+<tr class="bad"><td>Lane percussive fraction</td><td class="num">0.853</td><td>A high ratio on a toms lane sitting at <b>-123.1 dBFS</b>, which is silence. A ratio says nothing about level.</td></tr>
+</table>
+</div>
+<p class="lede">All three are the same defect: a ratio graded without a level arm. No threshold was ever lowered to force a pass; each fix changed the measurement.</p>
+
+<h2><span class="tag t-ok">pipeline</span>Measured throughput on this Mac</h2>
+<div class="scroll">
+<table>
+<tr><th>stage</th><th>rate</th><th>result</th></tr>
+<tr><td>Reading tapes off the external drive</td><td class="num">141x realtime</td><td>4 h tape streams in 1.7 min</td></tr>
+<tr><td>Cutting, 22 songs x 2 mics</td><td class="num">minutes</td><td>44 files, 1.96 GB, format matched 44/44</td></tr>
+<tr><td>Demucs htdemucs_6s, CPU</td><td class="num">1.67x realtime</td><td>264 stems, 7.9 GB, 44/44, zero failures</td></tr>
+<tr><td>DrumSep MDX23C, CPU</td><td class="num">5x SLOWER than realtime</td><td>118.3 min of drums, about 9.9 hours</td></tr>
+</table>
+</div>
+<div class="gap"><b>MPS is 3.2x faster and produces wrong output.</b> On an identical file the drums stem correlated <b>0.333</b> with the CPU result at 0.5 dB SNR, and bass 0.769. <code>torch.backends.mps.is_available()</code> returns True on this Intel iMac with a Radeon Pro 570, so availability is not a safety signal. Every run must pass <code>-d cpu</code>.</div>
+
+<h2><span class="tag t-med">open</span>What is still unresolved</h2>
+<div class="scroll">
+<table>
+<tr><th>item</th><th>measurement</th><th>status</th></tr>
+<tr><td>Songs 03, 11, 18</td><td class="num">r -0.165 to -0.284</td><td>The two mics ANTI-correlate. Song18's spectra are similar and it still anti-correlates, which is not explained by mic placement.</td></tr>
+<tr><td>Two guitarists</td><td class="num">max|L-R| = 0.0</td><td>The tapes are dual-mono, so a channel-asymmetry split has zero information. Room-position separation is untested.</td></tr>
+<tr><td>11 cut edges of 44</td><td class="num">4.7 to 11.7 dB</td><td>No qualifying valley inside a 60 s radius. Flagged UNRESOLVED, never forced.</td></tr>
+<tr><td>Songs 04, 07, 09</td><td class="num">drums silent</td><td>No drum signal on either mic. Excluded from DrumSep rather than splitting guitar into a kit.</td></tr>
+</table>
+</div>
+
+<h2>Method</h2>
+<p class="lede">Every figure is observed command output. Nothing here is an estimate. The one estimate this project did produce, a 151 to 284 GB disk requirement computed from format assumptions, was wrong by an order of magnitude: the equivalent prior run on disk measured 33 GB, and Demucs writes 1-channel PCM_24 rather than the float32 stereo that was assumed.</p>
+<p class="lede">Tooling in <code>~/Projects/_outputs/band-practice-9-11/</code>: <code>dup_test.py</code> &middot; <code>kick_pulse_map.py</code> &middot; <code>cross_mic_agreement.py</code> &middot; <code>consensus_songmap_v2.py</code> &middot; <code>cut_songs_v6.py</code> &middot; <code>boundary_audit.py</code> &middot; <code>run_demucs_v6.py</code> &middot; <code>verify_demucs_v6.py</code> &middot; <code>run_drumsep_v6.py</code></p>
+
+<footer>
+Measured on Jacks-iMac, 2026-09-13 to 2026-09-14. Step 6 was still running when this page was written; steps 1 through 5 are complete and verified on the corrected two-mic take.
+</footer>
+</div>
+</body>
+</html>
