@@ -1,12 +1,12 @@
 # Active chats digest
 
-Built 2026-09-14 04:17 CDT. 5 chats read from transcripts.
+Built 2026-09-14 04:48 CDT. 5 chats read from transcripts.
 
 ## Headline
 
 All 5 chats ended on a gate block, 0 on a message from Brandon.
 0 need a Brandon action. 0 are past the 400-turn ceiling.
-Totals: 959 assistant replies, 18 MB of transcript.
+Totals: 1,032 assistant replies, 19 MB of transcript.
 
 ## Do yourself
 
@@ -23,7 +23,7 @@ Totals: 959 assistant replies, 18 MB of transcript.
 
 **Finish today.** New since the last hand pass. Open the chat and give it a read.
 
-### SNF DraftKings lineups research  (10.0 hours quiet, 261 replies)
+### SNF DraftKings lineups research  (10.5 hours quiet, 261 replies)
 **Goal.** Not summarised by hand yet. Last input on record: do ito
 
 - Running every check now, read-only: 1. **WARP is disconnected.** 2. **Screen Sharing is off.** 3. **DraftKings and GeoComply traffic goes out over.
@@ -33,7 +33,7 @@ Totals: 959 assistant replies, 18 MB of transcript.
 
 **Finish today.** New since the last hand pass. Open the chat and give it a read.
 
-### IRIS claims review document updates  (35 minutes quiet, 240 replies)
+### IRIS claims review document updates  (1.1 hours quiet, 240 replies)
 **Goal.** Not summarised by hand yet. Last input on record: [Request interrupted by user]
 
 - Re-attached with no instruction, right after I listed what is still open and queued against this exact file. Reading that as "apply them," so I am.
@@ -43,7 +43,7 @@ Totals: 959 assistant replies, 18 MB of transcript.
 
 **Finish today.** New since the last hand pass. Open the chat and give it a read.
 
-### Sound limit at 40%  (32 minutes quiet, 113 replies)
+### Sound limit at 40%  (1.0 hours quiet, 113 replies)
 **Goal.** Not summarised by hand yet. Last input on record: Stop hook feedback: [python3 /Users/brandonchavez/.claude/skills/fifty-gates/run_gates.py]: fifty-gates BLOCK: 1 hard gate(s) of 70 fired. G28 literal-ask-unaddressed: the named target never
 
 - 🟢 **Your sound limit is now 65%.** Your Powerbeats Fit is still at 40, and you can turn it up as far as 65. **Goal:** set the sound limit to 65%. - 🔵.
@@ -53,12 +53,12 @@ Totals: 959 assistant replies, 18 MB of transcript.
 
 **Finish today.** New since the last hand pass. Open the chat and give it a read.
 
-### Twitch links restoration  (3 minutes quiet, 321 replies)
-**Goal.** Not summarised by hand yet. Last input on record: <task-notification> <task-id>b40posgdw</task-id> <tool-use-id>toolu_01QimKmgiPFpKmwoooj3kXGA</tool-use-id> <output-file>/private/tmp/claude-501/-Users-brandonchavez/3e9db813-98b7-48d4-b877-1
+### Twitch links restoration  (4 minutes quiet, 394 replies)
+**Goal.** Not summarised by hand yet. Last input on record: <task-notification> <task-id>b0hpourik</task-id> <tool-use-id>toolu_01EHu4ZKrZ9rJVdUxVnQQ5pF</tool-use-id> <output-file>/private/tmp/claude-501/-Users-brandonchavez/3e9db813-98b7-48d4-b877-1
 
-- I've updated the state file at `~/Projects/_outputs/yt-transcripts/glostik-streams/STATE.md` with the new date anchors and the rejected mentions. The.
-- Four batches now share the polite queue, about 40 streams total, so this runs in the background for a while. The state file at.
-- The Bug-night pull came back. Bug's log mark lands at 1:57:34 into `X9FPI9iK0w4`, so I'm reading that stream's captions from 1:44 to 2:00, plus the.
-- No new hits yet for the 7 missing songs. - **On file, 5 of 12 songs:** Creep, The Shape I'm In, Shot in the Dark, Bug and the Meatstick jam. Every one.
+- The watcher is running. It reports the moment a new caption hit shows up for The Other One, Symphony of Destruction, Looks Like Rain, Horn or Boogie On.
+- Where things stand: - **7 of the 12 songs have a YouTube performance on file.** Those are Creep, The Shape I'm In, Shot in the Dark, Bug, the Meatstick.
+- The Symphony lead was a false positive, and it's logged in `~/Projects/_outputs/yt-transcripts/glostik-streams/STATE.md`. The watcher is back on for.
+- Eight of the 12 songs now have a YouTube performance. - **Horn** opens set one of "LIVE in your living room!" from November 2022, as a Horn and.
 
 **Finish today.** New since the last hand pass. Open the chat and give it a read.
