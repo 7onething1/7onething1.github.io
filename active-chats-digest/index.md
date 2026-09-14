@@ -1,19 +1,19 @@
 # Active chats digest
 
-Built 2026-09-14 05:18 CDT. 5 chats read from transcripts.
+Built 2026-09-14 05:48 CDT. 5 chats read from transcripts.
 
 ## Headline
 
 All 5 chats ended on a gate block, 0 on a message from Brandon.
 0 need a Brandon action. 1 are past the 400-turn ceiling.
-Totals: 1,090 assistant replies, 19 MB of transcript.
+Totals: 1,094 assistant replies, 19 MB of transcript.
 
 ## Do yourself
 
 
 ## Every chat
 
-### Strange claws playlist  (1.4 days quiet, 24 replies)
+### Strange claws playlist  (1.5 days quiet, 24 replies)
 **Goal.** Not summarised by hand yet. Last input on record: Base directory for this skill: /Users/brandonchavez/.claude/skills/ask # /ask — unified retrieval across the whole 2nd brain One question goes in. Ranked, source-cited results come back from
 
 - Goal: build the private Strange Claws playlist on your YouTube account with 18 official uploads, placed in the JSON order and checked. **Phase 1.**.
@@ -23,7 +23,7 @@ Totals: 1,090 assistant replies, 19 MB of transcript.
 
 **Finish today.** New since the last hand pass. Open the chat and give it a read.
 
-### SNF DraftKings lineups research  (11.0 hours quiet, 261 replies)
+### SNF DraftKings lineups research  (11.5 hours quiet, 261 replies)
 **Goal.** Not summarised by hand yet. Last input on record: do ito
 
 - Running every check now, read-only: 1. **WARP is disconnected.** 2. **Screen Sharing is off.** 3. **DraftKings and GeoComply traffic goes out over.
@@ -33,7 +33,7 @@ Totals: 1,090 assistant replies, 19 MB of transcript.
 
 **Finish today.** New since the last hand pass. Open the chat and give it a read.
 
-### IRIS claims review document updates  (1.6 hours quiet, 240 replies)
+### IRIS claims review document updates  (2.1 hours quiet, 240 replies)
 **Goal.** Not summarised by hand yet. Last input on record: [Request interrupted by user]
 
 - Re-attached with no instruction, right after I listed what is still open and queued against this exact file. Reading that as "apply them," so I am.
@@ -43,7 +43,7 @@ Totals: 1,090 assistant replies, 19 MB of transcript.
 
 **Finish today.** New since the last hand pass. Open the chat and give it a read.
 
-### Sound limit at 40%  (1.5 hours quiet, 113 replies)
+### Sound limit at 40%  (2.0 hours quiet, 113 replies)
 **Goal.** Not summarised by hand yet. Last input on record: Stop hook feedback: [python3 /Users/brandonchavez/.claude/skills/fifty-gates/run_gates.py]: fifty-gates BLOCK: 1 hard gate(s) of 70 fired. G28 literal-ask-unaddressed: the named target never
 
 - 🟢 **Your sound limit is now 65%.** Your Powerbeats Fit is still at 40, and you can turn it up as far as 65. **Goal:** set the sound limit to 65%. - 🔵.
@@ -53,12 +53,12 @@ Totals: 1,090 assistant replies, 19 MB of transcript.
 
 **Finish today.** New since the last hand pass. Open the chat and give it a read.
 
-### Twitch links restoration  (5 minutes quiet, 452 replies)
-**Goal.** Not summarised by hand yet. Last input on record: Stop hook feedback: [python3 /Users/brandonchavez/.claude/skills/fifty-gates/run_gates.py]: fifty-gates BLOCK: 1 hard gate(s) of 70 fired. G20 turn-ceiling-400: 438 assistant turns with no h
+### Twitch links restoration  (25 minutes quiet, 456 replies)
+**Goal.** Not summarised by hand yet. Last input on record: Stop hook feedback: [python3 /Users/brandonchavez/.claude/hooks/chat_donelink_gate.py]: No stderr output
 
-- 🟢 **Found on YouTube: 8 of the 12 songs** - 🟢 **#5 Shot in the Dark** [0:04:15](https://www.youtube.com/watch?v=Kg8mu_43Q5w&t=255s), TRIBUTE TO OZZY,.
-- Ten of the 12 songs now have a YouTube performance. The two new ones are Boogie On Reggae Woman from December 2022 and Symphony of Destruction from.
 - The turn-ceiling gate still sees no handoff, even though the iCloud file exists. I'm reading how G20 detects one.
 - I found **10 of the 12 songs** in Glostik's YouTube streams, which covers 12 of your 14 dead links. The captions at each timestamp show the band.
+- The air-date probes for the Boogie On Reggae Woman and Symphony of Destruction streams have finished, and the results are saved in.
+- The air-date probes for Boogie On Reggae Woman and Symphony of Destruction came back, and the results are saved in.
 
 **Finish today.** New since the last hand pass. Open the chat and give it a read.
