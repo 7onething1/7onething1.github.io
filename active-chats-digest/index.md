@@ -1,6 +1,6 @@
 # Active chats digest
 
-Built 2026-09-14 13:19 CDT. 6 chats read from transcripts.
+Built 2026-09-14 14:55 CDT. 6 chats read from transcripts.
 
 ## Headline
 
@@ -23,7 +23,7 @@ Totals: 1,162 assistant replies, 20 MB of transcript.
 
 **Finish today.** New since the last hand pass. Open the chat and give it a read.
 
-### SNF DraftKings lineups research  (19.1 hours quiet, 261 replies)
+### SNF DraftKings lineups research  (20.6 hours quiet, 261 replies)
 **Goal.** Not summarised by hand yet. Last input on record: do ito
 
 - Running every check now, read-only: 1. **WARP is disconnected.** 2. **Screen Sharing is off.** 3. **DraftKings and GeoComply traffic goes out over.
@@ -33,7 +33,7 @@ Totals: 1,162 assistant replies, 20 MB of transcript.
 
 **Finish today.** New since the last hand pass. Open the chat and give it a read.
 
-### IRIS claims review document updates  (9.6 hours quiet, 240 replies)
+### IRIS claims review document updates  (11.2 hours quiet, 240 replies)
 **Goal.** Not summarised by hand yet. Last input on record: [Request interrupted by user]
 
 - Re-attached with no instruction, right after I listed what is still open and queued against this exact file. Reading that as "apply them," so I am.
@@ -43,7 +43,7 @@ Totals: 1,162 assistant replies, 20 MB of transcript.
 
 **Finish today.** New since the last hand pass. Open the chat and give it a read.
 
-### Twitch links restoration  (8.0 hours quiet, 456 replies)
+### Twitch links restoration  (9.5 hours quiet, 456 replies)
 **Goal.** Not summarised by hand yet. Last input on record: Stop hook feedback: [python3 /Users/brandonchavez/.claude/hooks/chat_donelink_gate.py]: No stderr output
 
 - The turn-ceiling gate still sees no handoff, even though the iCloud file exists. I'm reading how G20 detects one.
@@ -53,7 +53,7 @@ Totals: 1,162 assistant replies, 20 MB of transcript.
 
 **Finish today.** New since the last hand pass. Open the chat and give it a read.
 
-### Sound limit at 40%  (7 minutes quiet, 129 replies)
+### Sound limit at 40%  (1.7 hours quiet, 129 replies)
 **Goal.** Not summarised by hand yet. Last input on record: turn off
 
 - 🟢 **Your sound limit is back to 40%.** Your Powerbeats Fit went from 65 down to 40. **Goal:** set the sound limit to 40% now. - 🔵 **Phase 1:** check.
@@ -63,7 +63,7 @@ Totals: 1,162 assistant replies, 20 MB of transcript.
 
 **Finish today.** New since the last hand pass. Open the chat and give it a read.
 
-### Inbox new docs  (1 minutes quiet, 52 replies)
+### Inbox new docs  (1.6 hours quiet, 52 replies)
 **Goal.** Not summarised by hand yet. Last input on record: Base directory for this skill: /Users/brandonchavez/Library/Application Support/Claude/local-agent-mode-sessions/skills-plugin/e1201aa6-6cf8-4b27-bdc8-0cc9ba38d1c9/a408e2ba-362b-4fa9-b715-2a
 
 - No prose turn recorded for this slot.
