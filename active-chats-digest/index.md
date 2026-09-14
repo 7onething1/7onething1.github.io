@@ -1,12 +1,12 @@
 # Active chats digest
 
-Built 2026-09-14 01:46 CDT. 4 chats read from transcripts.
+Built 2026-09-14 02:16 CDT. 4 chats read from transcripts.
 
 ## Headline
 
 All 4 chats ended on a gate block, 0 on a message from Brandon.
 0 need a Brandon action. 0 are past the 400-turn ceiling.
-Totals: 438 assistant replies, 6 MB of transcript.
+Totals: 510 assistant replies, 6 MB of transcript.
 
 ## Do yourself
 
@@ -23,7 +23,7 @@ Totals: 438 assistant replies, 6 MB of transcript.
 
 **Finish today.** New since the last hand pass. Open the chat and give it a read.
 
-### Sound limit at 40%  (10.8 hours quiet, 77 replies)
+### Sound limit at 40%  (11.3 hours quiet, 77 replies)
 **Goal.** Not summarised by hand yet. Last input on record: back to normal
 
 - 🟢 **40% holds now, and it lifts at 8 am.** It is 03:26, so that is 4 hours 34 minutes from this moment. **Goal:** keep the sound limit at 40% until 8.
@@ -33,7 +33,7 @@ Totals: 438 assistant replies, 6 MB of transcript.
 
 **Finish today.** New since the last hand pass. Open the chat and give it a read.
 
-### SNF DraftKings lineups research  (7.5 hours quiet, 261 replies)
+### SNF DraftKings lineups research  (8.0 hours quiet, 261 replies)
 **Goal.** Not summarised by hand yet. Last input on record: do ito
 
 - Running every check now, read-only: 1. **WARP is disconnected.** 2. **Screen Sharing is off.** 3. **DraftKings and GeoComply traffic goes out over.
@@ -43,10 +43,10 @@ Totals: 438 assistant replies, 6 MB of transcript.
 
 **Finish today.** New since the last hand pass. Open the chat and give it a read.
 
-### Twitch links restoration  (0 minutes quiet, 76 replies)
-**Goal.** Not summarised by hand yet. Last input on record: can you restore the twitchlinks here.https://www.twitch.tv/videos/1282894193?t=5h28m27s
+### Twitch links restoration  (14 minutes quiet, 148 replies)
+**Goal.** Not summarised by hand yet. Last input on record: Base directory for this skill: /Users/brandonchavez/Library/Application Support/Claude/local-agent-mode-sessions/skills-plugin/e1201aa6-6cf8-4b27-bdc8-0cc9ba38d1c9/a408e2ba-362b-4fa9-b715-2a
 
-- Goal:** restore the missing Twitch timestamp links around VOD 1282894193 at 5h28m27s. - **Phase 1.** Find where those links used to live. I'll check.
+- I couldn't restore these links, because **Twitch deleted the video behind all 14 of them for good**. I did work out which song was playing at each.
 - No prose turn recorded for this slot.
 - No prose turn recorded for this slot.
 - No prose turn recorded for this slot.
