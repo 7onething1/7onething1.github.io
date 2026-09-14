@@ -1,12 +1,12 @@
 # Active chats digest
 
-Built 2026-09-14 01:16 CDT. 3 chats read from transcripts.
+Built 2026-09-14 01:46 CDT. 4 chats read from transcripts.
 
 ## Headline
 
-All 3 chats ended on a gate block, 0 on a message from Brandon.
+All 4 chats ended on a gate block, 0 on a message from Brandon.
 0 need a Brandon action. 0 are past the 400-turn ceiling.
-Totals: 362 assistant replies, 4 MB of transcript.
+Totals: 438 assistant replies, 6 MB of transcript.
 
 ## Do yourself
 
@@ -23,7 +23,7 @@ Totals: 362 assistant replies, 4 MB of transcript.
 
 **Finish today.** New since the last hand pass. Open the chat and give it a read.
 
-### Sound limit at 40%  (10.3 hours quiet, 77 replies)
+### Sound limit at 40%  (10.8 hours quiet, 77 replies)
 **Goal.** Not summarised by hand yet. Last input on record: back to normal
 
 - 🟢 **40% holds now, and it lifts at 8 am.** It is 03:26, so that is 4 hours 34 minutes from this moment. **Goal:** keep the sound limit at 40% until 8.
@@ -33,12 +33,22 @@ Totals: 362 assistant replies, 4 MB of transcript.
 
 **Finish today.** New since the last hand pass. Open the chat and give it a read.
 
-### SNF DraftKings lineups research  (7.0 hours quiet, 261 replies)
+### SNF DraftKings lineups research  (7.5 hours quiet, 261 replies)
 **Goal.** Not summarised by hand yet. Last input on record: do ito
 
 - Running every check now, read-only: 1. **WARP is disconnected.** 2. **Screen Sharing is off.** 3. **DraftKings and GeoComply traffic goes out over.
 - I rechecked your MacBook Pro at 7:11 PM ET, and none of the changes show up on it. ### 🔎 What I found - 🟥 **WARP is still connected.** Cloudflare's own.
 - I saved the raw output from the 7:11 PM ET recheck of your MacBook Pro as a file: ⬛.
 - Here's how "do it" splits: - **VPN and Screen Sharing switches:** my safety rules don't let me change these, even when you ask. - **Everything else is.
+
+**Finish today.** New since the last hand pass. Open the chat and give it a read.
+
+### Twitch links restoration  (0 minutes quiet, 76 replies)
+**Goal.** Not summarised by hand yet. Last input on record: can you restore the twitchlinks here.https://www.twitch.tv/videos/1282894193?t=5h28m27s
+
+- Goal:** restore the missing Twitch timestamp links around VOD 1282894193 at 5h28m27s. - **Phase 1.** Find where those links used to live. I'll check.
+- No prose turn recorded for this slot.
+- No prose turn recorded for this slot.
+- No prose turn recorded for this slot.
 
 **Finish today.** New since the last hand pass. Open the chat and give it a read.
