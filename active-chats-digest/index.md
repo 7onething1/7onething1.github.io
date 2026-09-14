@@ -1,6 +1,6 @@
 # Active chats digest
 
-Built 2026-09-14 00:15 CDT. 3 chats read from transcripts.
+Built 2026-09-14 00:45 CDT. 3 chats read from transcripts.
 
 ## Headline
 
@@ -13,7 +13,7 @@ Totals: 362 assistant replies, 4 MB of transcript.
 
 ## Every chat
 
-### Strange claws playlist  (1.2 days quiet, 24 replies)
+### Strange claws playlist  (1.3 days quiet, 24 replies)
 **Goal.** Not summarised by hand yet. Last input on record: Base directory for this skill: /Users/brandonchavez/.claude/skills/ask # /ask — unified retrieval across the whole 2nd brain One question goes in. Ranked, source-cited results come back from
 
 - Goal: build the private Strange Claws playlist on your YouTube account with 18 official uploads, placed in the JSON order and checked. **Phase 1.**.
@@ -23,7 +23,7 @@ Totals: 362 assistant replies, 4 MB of transcript.
 
 **Finish today.** New since the last hand pass. Open the chat and give it a read.
 
-### Sound limit at 40%  (9.3 hours quiet, 77 replies)
+### Sound limit at 40%  (9.8 hours quiet, 77 replies)
 **Goal.** Not summarised by hand yet. Last input on record: back to normal
 
 - 🟢 **40% holds now, and it lifts at 8 am.** It is 03:26, so that is 4 hours 34 minutes from this moment. **Goal:** keep the sound limit at 40% until 8.
@@ -33,7 +33,7 @@ Totals: 362 assistant replies, 4 MB of transcript.
 
 **Finish today.** New since the last hand pass. Open the chat and give it a read.
 
-### SNF DraftKings lineups research  (6.0 hours quiet, 261 replies)
+### SNF DraftKings lineups research  (6.5 hours quiet, 261 replies)
 **Goal.** Not summarised by hand yet. Last input on record: do ito
 
 - Running every check now, read-only: 1. **WARP is disconnected.** 2. **Screen Sharing is off.** 3. **DraftKings and GeoComply traffic goes out over.
