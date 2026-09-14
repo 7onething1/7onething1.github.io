@@ -173,12 +173,37 @@ Two files are bit-identical duplicates, and a third tape is from a different tak
 </table>
 </div>
 
+
+<h2><span class="tag t-ok">shipped</span>The deliverable</h2>
+<p class="lede"><code>/Volumes/Black/band-practice-9-11-DELIVERABLE/</code> &middot; all <b>22 songs</b>, 11 GB, with a README. Written to the external drive because the boot volume reached 98% during this work.</p>
+<div class="grid">
+  <div class="stat"><div class="k">Cuts, both take mics</div><div class="v">44</div><div class="n">1.96 GB, format matched 44/44</div></div>
+  <div class="stat"><div class="k">Demucs stems</div><div class="v">264</div><div class="n">7.9 GB, 44/44, zero failures</div></div>
+  <div class="stat"><div class="k">Mic start spread</div><div class="v">0.000 s</div><div class="n">sample-aligned</div></div>
+  <div class="stat"><div class="k">Recon SNR, median</div><div class="v">19.8 dB</div><div class="n">stems sum back to the mix</div></div>
+</div>
+<p class="lede">Per song: both mics, the lossless cut untouched, six Demucs stems, present drum lanes as mono 24-bit with no gain, and a manifest carrying levels, reconstruction SNR, and flags. <b>An absent lane is not written at all</b>, because a silent file beside real ones invites being treated as a part that was played.</p>
+
+<h2><span class="tag t-crit">gate</span>A fourth ratio caught without a level arm</h2>
+<p class="lede">The DrumSep lane verifier grades three things: the canonical percussive floor, a level arm, and reconstruction. On the first six tracks it found the <b>toms lane ABSENT on 4 of 6</b> while those lanes scored <b>0.901 percussive</b>. On the canonical single-arm gate all four would have read PASS.</p>
+<div class="scroll">
+<table>
+<tr><th>lane</th><th>percussive, median</th><th>absent on</th></tr>
+<tr class="good"><td>snare</td><td class="num">0.968</td><td class="num">0 of 6</td></tr>
+<tr class="good"><td>kick</td><td class="num">0.942</td><td class="num">0 of 6</td></tr>
+<tr class="good"><td>hh</td><td class="num">0.887</td><td class="num">0 of 6</td></tr>
+<tr class="bad"><td>toms</td><td class="num">0.901</td><td class="num"><b>4 of 6</b></td></tr>
+<tr><td>cymbals</td><td class="num">0.439</td><td class="num">1 of 6</td></tr>
+</table>
+</div>
+<p class="lede">Reconstruction across those six tracks ran 28.0 to 33.6 dB, so each lane set is a real decomposition of its own drums stem.</p>
+
 <h2>Method</h2>
 <p class="lede">Every figure is observed command output. Nothing here is an estimate. The one estimate this project did produce, a 151 to 284 GB disk requirement computed from format assumptions, was wrong by an order of magnitude: the equivalent prior run on disk measured 33 GB, and Demucs writes 1-channel PCM_24 rather than the float32 stereo that was assumed.</p>
 <p class="lede">Tooling in <code>~/Projects/_outputs/band-practice-9-11/</code>: <code>dup_test.py</code> &middot; <code>kick_pulse_map.py</code> &middot; <code>cross_mic_agreement.py</code> &middot; <code>consensus_songmap_v2.py</code> &middot; <code>cut_songs_v6.py</code> &middot; <code>boundary_audit.py</code> &middot; <code>run_demucs_v6.py</code> &middot; <code>verify_demucs_v6.py</code> &middot; <code>run_drumsep_v6.py</code></p>
 
 <footer>
-Measured on Jacks-iMac, 2026-09-13 to 2026-09-14. Step 6 was still running when this page was written; steps 1 through 5 are complete and verified on the corrected two-mic take.
+Measured on Jacks-iMac, 2026-09-13 to 2026-09-14. Steps 1 through 5 and 7 are complete and verified on the corrected two-mic take. Step 6 was still running when this page was last updated, at 21 of 37 tracks with zero failures.
 </footer>
 </div>
 </body>
