@@ -1,6 +1,6 @@
 # Active chats digest
 
-Built 2026-09-14 18:20 CDT. 7 chats read from transcripts.
+Built 2026-09-14 18:51 CDT. 7 chats read from transcripts.
 
 ## Headline
 
@@ -23,7 +23,7 @@ Totals: 1,661 assistant replies, 53 MB of transcript.
 
 **Finish today.** New since the last hand pass. Open the chat and give it a read.
 
-### IRIS claims review document updates  (14.6 hours quiet, 240 replies)
+### IRIS claims review document updates  (15.1 hours quiet, 240 replies)
 **Goal.** Not summarised by hand yet. Last input on record: [Request interrupted by user]
 
 - Re-attached with no instruction, right after I listed what is still open and queued against this exact file. Reading that as "apply them," so I am.
@@ -33,7 +33,7 @@ Totals: 1,661 assistant replies, 53 MB of transcript.
 
 **Finish today.** New since the last hand pass. Open the chat and give it a read.
 
-### Twitch links restoration  (13.0 hours quiet, 456 replies)
+### Twitch links restoration  (13.5 hours quiet, 456 replies)
 **Goal.** Not summarised by hand yet. Last input on record: Stop hook feedback: [python3 /Users/brandonchavez/.claude/hooks/chat_donelink_gate.py]: No stderr output
 
 - The turn-ceiling gate still sees no handoff, even though the iCloud file exists. I'm reading how G20 detects one.
@@ -43,7 +43,7 @@ Totals: 1,661 assistant replies, 53 MB of transcript.
 
 **Finish today.** New since the last hand pass. Open the chat and give it a read.
 
-### Sound limit at 40%  (5.1 hours quiet, 129 replies)
+### Sound limit at 40%  (5.6 hours quiet, 129 replies)
 **Goal.** Not summarised by hand yet. Last input on record: turn off
 
 - 🟢 **Your sound limit is back to 40%.** Your Powerbeats Fit went from 65 down to 40. **Goal:** set the sound limit to 40% now. - 🔵 **Phase 1:** check.
@@ -53,7 +53,7 @@ Totals: 1,661 assistant replies, 53 MB of transcript.
 
 **Finish today.** New since the last hand pass. Open the chat and give it a read.
 
-### Community checks scratchpad  (1.0 hours quiet, 19 replies)
+### Community checks scratchpad  (1.5 hours quiet, 19 replies)
 **Goal.** Not summarised by hand yet. Last input on record: open -R /private/tmp/claude-501/-Users-drwu/037b438d-14d8-4da6-b2b0-fd736d118dfc/scratchpad/community_checks.py
 
 - Reveal that script in Finder, after checking it still exists. - **Phase 1:** Check that the file still exists at that path. - **Phase 2:** Run `open.
@@ -63,7 +63,7 @@ Totals: 1,661 assistant replies, 53 MB of transcript.
 
 **Finish today.** New since the last hand pass. Open the chat and give it a read.
 
-### Inbox new docs  (40 minutes quiet, 247 replies)
+### Inbox new docs  (1.2 hours quiet, 247 replies)
 **Goal.** Not summarised by hand yet. Last input on record: take another pass
 
 - Two more gates fired. G10 wants an N-of-N coverage count in the reply. G53 is also correct about the evidence itself: my three count records set.
@@ -73,7 +73,7 @@ Totals: 1,661 assistant replies, 53 MB of transcript.
 
 **Finish today.** New since the last hand pass. Open the chat and give it a read.
 
-### Inbox new docs  (33 minutes quiet, 309 replies)
+### Inbox new docs  (1.1 hours quiet, 309 replies)
 **Goal.** Not summarised by hand yet. Last input on record: Base directory for this skill: /Users/brandonchavez/.claude/skills/session-fraud-check # Session Fraud Check Scans for 54 known fraud patterns Claude exhibits when generating content. Every 
 
 - 🟩 **Both Word files are rebuilt for client-facing use and verified.** The caveats are listed below and kept in the report, and nothing like them.
