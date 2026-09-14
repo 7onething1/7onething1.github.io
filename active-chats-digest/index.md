@@ -1,12 +1,12 @@
 # Active chats digest
 
-Built 2026-09-14 03:17 CDT. 4 chats read from transcripts.
+Built 2026-09-14 03:47 CDT. 5 chats read from transcripts.
 
 ## Headline
 
-All 4 chats ended on a gate block, 0 on a message from Brandon.
+All 5 chats ended on a gate block, 0 on a message from Brandon.
 0 need a Brandon action. 0 are past the 400-turn ceiling.
-Totals: 510 assistant replies, 6 MB of transcript.
+Totals: 884 assistant replies, 18 MB of transcript.
 
 ## Do yourself
 
@@ -23,17 +23,7 @@ Totals: 510 assistant replies, 6 MB of transcript.
 
 **Finish today.** New since the last hand pass. Open the chat and give it a read.
 
-### Sound limit at 40%  (12.3 hours quiet, 77 replies)
-**Goal.** Not summarised by hand yet. Last input on record: back to normal
-
-- 🟢 **40% holds now, and it lifts at 8 am.** It is 03:26, so that is 4 hours 34 minutes from this moment. **Goal:** keep the sound limit at 40% until 8.
-- 🟢 **The sound limit is 45% now.** Your Powerbeats Fit dropped from 78 to 45. **Goal:** set the sound limit to 45%, right now. - 🔵 **Phase 1:** read the.
-- 🟢 **Your sound limit is 45% now.** Your Powerbeats Fit went from 78 down to 45, and a second check at 03:55:19 still read 45. **Goal:** set your sound.
-- 🟢 **Your sound is back to normal, with no limit.** Your Powerbeats Fit is still at 45 and goes higher when you turn it up. **Goal:** put your sound.
-
-**Finish today.** New since the last hand pass. Open the chat and give it a read.
-
-### SNF DraftKings lineups research  (9.0 hours quiet, 261 replies)
+### SNF DraftKings lineups research  (9.5 hours quiet, 261 replies)
 **Goal.** Not summarised by hand yet. Last input on record: do ito
 
 - Running every check now, read-only: 1. **WARP is disconnected.** 2. **Screen Sharing is off.** 3. **DraftKings and GeoComply traffic goes out over.
@@ -43,12 +33,32 @@ Totals: 510 assistant replies, 6 MB of transcript.
 
 **Finish today.** New since the last hand pass. Open the chat and give it a read.
 
-### Twitch links restoration  (2 minutes quiet, 148 replies)
-**Goal.** Not summarised by hand yet. Last input on record: find those songs in their youtube streams instead https://discord.com/channels/363752250591412235/708164394659348482
+### IRIS claims review document updates  (5 minutes quiet, 240 replies)
+**Goal.** Not summarised by hand yet. Last input on record: [Request interrupted by user]
 
-- I couldn't restore these links, because **Twitch deleted the video behind all 14 of them for good**. I did work out which song was playing at each.
-- No prose turn recorded for this slot.
-- No prose turn recorded for this slot.
+- Re-attached with no instruction, right after I listed what is still open and queued against this exact file. Reading that as "apply them," so I am.
+- Aptos is on disk in the Office bundle, so the whole document can carry one typeface. Building the three diagrams in Aptos first.
+- Found something my earlier pass missed: these documents carry **three sections, and the last two are landscape**. My layout model treated.
+- 🟢 **Built v3 with every open item closed: 9 of 9 fixed, verified, and written to a new file.** v2 is untouched on disk. ## What changed - 🔴 **The.
+
+**Finish today.** New since the last hand pass. Open the chat and give it a read.
+
+### Sound limit at 40%  (2 minutes quiet, 113 replies)
+**Goal.** Not summarised by hand yet. Last input on record: Stop hook feedback: [python3 /Users/brandonchavez/.claude/skills/fifty-gates/run_gates.py]: fifty-gates BLOCK: 1 hard gate(s) of 70 fired. G28 literal-ask-unaddressed: the named target never
+
+- 🟢 **Your sound limit is now 65%.** Your Powerbeats Fit is still at 40, and you can turn it up as far as 65. **Goal:** set the sound limit to 65%. - 🔵.
+- Setting the sound limit to 40 now, then checking it held.
+- 🟢 **Your sound limit is back to 40%.** Your Powerbeats Fit went from 65 down to 40. **Goal:** set the sound limit to 40% now. - 🔵 **Phase 1:** check.
+- 🟢 **Your sound limit is 40 percent now.** Your Powerbeats Fit went from 65 down to 40. **Goal:** set the sound limit to 40 percent right away. - 🔵.
+
+**Finish today.** New since the last hand pass. Open the chat and give it a read.
+
+### Twitch links restoration  (1 minutes quiet, 246 replies)
+**Goal.** Not summarised by hand yet. Last input on record: <task-notification> <task-id>byj5o1ts9</task-id> <tool-use-id>toolu_011LBAGR3PbTo4Zg6KikTJBz</tool-use-id> <output-file>/private/tmp/claude-501/-Users-brandonchavez/3e9db813-98b7-48d4-b877-1
+
+- The Ozzy tribute aired **Tuesday, July 22, 2025 at 7:18 PM EDT**, the day Ozzy died, and runs 4h02m. Batch 1 is 3 of 12 streams in. I'm recording that.
+- Two jobs are running through the polite queue: the batch 1 caption scan and the two date probes. The next step waits on their results, and I'll pick up.
+- Probes for positions 392 and 371 are queued behind batch 1. Both finish in the background, and I'll continue when either one reports back.
 - No prose turn recorded for this slot.
 
 **Finish today.** New since the last hand pass. Open the chat and give it a read.
