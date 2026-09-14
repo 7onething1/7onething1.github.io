@@ -1,12 +1,12 @@
 # Active chats digest
 
-Built 2026-09-14 12:49 CDT. 5 chats read from transcripts.
+Built 2026-09-14 13:19 CDT. 6 chats read from transcripts.
 
 ## Headline
 
-All 5 chats ended on a gate block, 0 on a message from Brandon.
+All 6 chats ended on a gate block, 0 on a message from Brandon.
 0 need a Brandon action. 1 are past the 400-turn ceiling.
-Totals: 1,094 assistant replies, 19 MB of transcript.
+Totals: 1,162 assistant replies, 20 MB of transcript.
 
 ## Do yourself
 
@@ -23,7 +23,7 @@ Totals: 1,094 assistant replies, 19 MB of transcript.
 
 **Finish today.** New since the last hand pass. Open the chat and give it a read.
 
-### SNF DraftKings lineups research  (18.6 hours quiet, 261 replies)
+### SNF DraftKings lineups research  (19.1 hours quiet, 261 replies)
 **Goal.** Not summarised by hand yet. Last input on record: do ito
 
 - Running every check now, read-only: 1. **WARP is disconnected.** 2. **Screen Sharing is off.** 3. **DraftKings and GeoComply traffic goes out over.
@@ -33,7 +33,7 @@ Totals: 1,094 assistant replies, 19 MB of transcript.
 
 **Finish today.** New since the last hand pass. Open the chat and give it a read.
 
-### IRIS claims review document updates  (9.1 hours quiet, 240 replies)
+### IRIS claims review document updates  (9.6 hours quiet, 240 replies)
 **Goal.** Not summarised by hand yet. Last input on record: [Request interrupted by user]
 
 - Re-attached with no instruction, right after I listed what is still open and queued against this exact file. Reading that as "apply them," so I am.
@@ -43,22 +43,32 @@ Totals: 1,094 assistant replies, 19 MB of transcript.
 
 **Finish today.** New since the last hand pass. Open the chat and give it a read.
 
-### Sound limit at 40%  (9.1 hours quiet, 113 replies)
-**Goal.** Not summarised by hand yet. Last input on record: Stop hook feedback: [python3 /Users/brandonchavez/.claude/skills/fifty-gates/run_gates.py]: fifty-gates BLOCK: 1 hard gate(s) of 70 fired. G28 literal-ask-unaddressed: the named target never
-
-- 🟢 **Your sound limit is now 65%.** Your Powerbeats Fit is still at 40, and you can turn it up as far as 65. **Goal:** set the sound limit to 65%. - 🔵.
-- Setting the sound limit to 40 now, then checking it held.
-- 🟢 **Your sound limit is back to 40%.** Your Powerbeats Fit went from 65 down to 40. **Goal:** set the sound limit to 40% now. - 🔵 **Phase 1:** check.
-- 🟢 **Your sound limit is 40 percent now.** Your Powerbeats Fit went from 65 down to 40. **Goal:** set the sound limit to 40 percent right away. - 🔵.
-
-**Finish today.** New since the last hand pass. Open the chat and give it a read.
-
-### Twitch links restoration  (7.4 hours quiet, 456 replies)
+### Twitch links restoration  (8.0 hours quiet, 456 replies)
 **Goal.** Not summarised by hand yet. Last input on record: Stop hook feedback: [python3 /Users/brandonchavez/.claude/hooks/chat_donelink_gate.py]: No stderr output
 
 - The turn-ceiling gate still sees no handoff, even though the iCloud file exists. I'm reading how G20 detects one.
 - I found **10 of the 12 songs** in Glostik's YouTube streams, which covers 12 of your 14 dead links. The captions at each timestamp show the band.
 - The air-date probes for the Boogie On Reggae Woman and Symphony of Destruction streams have finished, and the results are saved in.
 - The air-date probes for Boogie On Reggae Woman and Symphony of Destruction came back, and the results are saved in.
+
+**Finish today.** New since the last hand pass. Open the chat and give it a read.
+
+### Sound limit at 40%  (7 minutes quiet, 129 replies)
+**Goal.** Not summarised by hand yet. Last input on record: turn off
+
+- 🟢 **Your sound limit is back to 40%.** Your Powerbeats Fit went from 65 down to 40. **Goal:** set the sound limit to 40% now. - 🔵 **Phase 1:** check.
+- 🟢 **Your sound limit is 40 percent now.** Your Powerbeats Fit went from 65 down to 40. **Goal:** set the sound limit to 40 percent right away. - 🔵.
+- Turning the sound limit off now, then checking it held.
+- 🟢 **Your sound limit is off.** Your MacBook Pro Speakers are at 61, and nothing is turning them down. **Goal:** turn off the sound limit. - 🔵 **Phase.
+
+**Finish today.** New since the last hand pass. Open the chat and give it a read.
+
+### Inbox new docs  (1 minutes quiet, 52 replies)
+**Goal.** Not summarised by hand yet. Last input on record: Base directory for this skill: /Users/brandonchavez/Library/Application Support/Claude/local-agent-mode-sessions/skills-plugin/e1201aa6-6cf8-4b27-bdc8-0cc9ba38d1c9/a408e2ba-362b-4fa9-b715-2a
+
+- No prose turn recorded for this slot.
+- No prose turn recorded for this slot.
+- No prose turn recorded for this slot.
+- No prose turn recorded for this slot.
 
 **Finish today.** New since the last hand pass. Open the chat and give it a read.
