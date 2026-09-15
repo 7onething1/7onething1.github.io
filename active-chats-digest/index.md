@@ -1,19 +1,19 @@
 # Active chats digest
 
-Built 2026-09-15 18:16 CDT. 21 chats read from transcripts.
+Built 2026-09-15 18:46 CDT. 21 chats read from transcripts.
 
 ## Headline
 
 All 21 chats ended on a gate block, 0 on a message from Brandon.
 0 need a Brandon action. 2 are past the 400-turn ceiling.
-Totals: 5,283 assistant replies, 92 MB of transcript.
+Totals: 5,378 assistant replies, 93 MB of transcript.
 
 ## Do yourself
 
 
 ## Every chat
 
-### whats up with my internet  (21.7 hours quiet, 106 replies)
+### whats up with my internet  (22.2 hours quiet, 106 replies)
 **Goal.** Not summarised by hand yet. Last input on record: use my facebook to find local news posting on the outage, i see some. we can comment our theroy to community.
 
 - Fixing three things before I resend: adding the color markers, verifying the sources directly, and checking the two claims I couldn't confirm.
@@ -23,7 +23,7 @@ Totals: 5,283 assistant replies, 92 MB of transcript.
 
 **Finish today.** New since the last hand pass. Open the chat and give it a read.
 
-### Internet chat performance  (21.4 hours quiet, 335 replies)
+### Internet chat performance  (21.9 hours quiet, 335 replies)
 **Goal.** Not summarised by hand yet. Last input on record: <system-reminder> The user started your suggested background task task_49a1066c ("Fix G70 link false match and stuck retry budget") in a separate local session. It is running independently. 
 
 - The loop is going to keep repeating, so I'm checking Brandon's own rules on that override file before I decide anything else.
@@ -33,7 +33,7 @@ Totals: 5,283 assistant replies, 92 MB of transcript.
 
 **Finish today.** New since the last hand pass. Open the chat and give it a read.
 
-### Fix G70 link false match and stuck retry budget  (20.9 hours quiet, 213 replies)
+### Fix G70 link false match and stuck retry budget  (21.4 hours quiet, 213 replies)
 **Goal.** Not summarised by hand yet. Last input on record: Stop hook feedback: fraud-check hard gate: you made a done/ready/shipped claim, so this hook auto-ran session_fraud_check.py --hard-only on the files THIS session authored, and it returned H
 
 - Everything is green on the final files. One claim needs checking before I write it: that the old code is also quiet on the full bef76092 transcript,.
@@ -43,7 +43,7 @@ Totals: 5,283 assistant replies, 92 MB of transcript.
 
 **Finish today.** New since the last hand pass. Open the chat and give it a read.
 
-### Raytown substation outage analysis  (20.8 hours quiet, 58 replies)
+### Raytown substation outage analysis  (21.3 hours quiet, 58 replies)
 **Goal.** Not summarised by hand yet. Last input on record: Stop hook feedback: chat_color_gate BLOCK: this is a substantive reply but it is not color-coded. Brandon's standing rule (feedback_brandon_format): color-code your sections with colored bul
 
 - Goal:** turn the Raytown outage passage into slant-rhymed verse, with double rhymes wherever the words allow them. **Phase 1.** Find and load the slant.
@@ -53,7 +53,7 @@ Totals: 5,283 assistant replies, 92 MB of transcript.
 
 **Finish today.** New since the last hand pass. Open the chat and give it a read.
 
-### Fix fraud-check quote stripping across lines  (17.9 hours quiet, 154 replies)
+### Fix fraud-check quote stripping across lines  (18.4 hours quiet, 154 replies)
 **Goal.** Not summarised by hand yet. Last input on record: Base directory for this skill: /Users/brandonchavez/.claude/skills/completion-control # completion-control Completion authority lives here, not in the fifty gates and not in the reply text. 
 
 - Recording checkable evidence so the completion controller accepts the nine closed outcomes. First I read which check types `adjudicate()` supports.
@@ -63,7 +63,7 @@ Totals: 5,283 assistant replies, 92 MB of transcript.
 
 **Finish today.** New since the last hand pass. Open the chat and give it a read.
 
-### Model selector pinning in Code tab  (15.8 hours quiet, 107 replies)
+### Model selector pinning in Code tab  (16.3 hours quiet, 107 replies)
 **Goal.** Not summarised by hand yet. Last input on record: Stop hook feedback: search_before_blocked_gate BLOCK: this reply declares something unreachable ("...s **"tried in order when the primary model is overloaded or unavailable."** - 🟧 **After t
 
 - 🟥 Verdict: 5 out of 10, and its fix would find nothing - 🟥 **The selector showed Opus 5 all session.** Its session record reads `claude-opus-5`,.
@@ -73,7 +73,7 @@ Totals: 5,283 assistant replies, 92 MB of transcript.
 
 **Finish today.** New since the last hand pass. Open the chat and give it a read.
 
-### Shrink MEMORY.md under its load cap losslessly  (14.2 hours quiet, 88 replies)
+### Shrink MEMORY.md under its load cap losslessly  (14.8 hours quiet, 88 replies)
 **Goal.** Not summarised by hand yet. Last input on record: MEMORY.md at /Users/brandonchavez/.claude/projects/-Users-brandonchavez/memory/MEMORY.md is 46,258 bytes. The loader reads only about the first 24,400 bytes, so every entry past that point n
 
 - Both scripts are written. Next is a dry run: the candidate and the POINTERS.md preview go only to the scratchpad, and then I diff the link sets.
@@ -83,7 +83,7 @@ Totals: 5,283 assistant replies, 92 MB of transcript.
 
 **Finish today.** New since the last hand pass. Open the chat and give it a read.
 
-### Harmony techniques: Layne and Jerry  (14.1 hours quiet, 281 replies)
+### Harmony techniques: Layne and Jerry  (14.6 hours quiet, 281 replies)
 **Goal.** Not summarised by hand yet. Last input on record: make a practice plan for down in a hole harmonies /goal
 
 - 🔵 **Goal met, 3 of 3 checklist items:** your Down in a Hole plan runs 12 sessions of about 25 minutes over three weeks. 🟪 **Week 1 learns Jerry's.
@@ -93,7 +93,7 @@ Totals: 5,283 assistant replies, 92 MB of transcript.
 
 **Finish today.** New since the last hand pass. Open the chat and give it a read.
 
-### Refuse fraud-check verdicts that scanned zero files  (14.0 hours quiet, 150 replies)
+### Refuse fraud-check verdicts that scanned zero files  (14.5 hours quiet, 150 replies)
 **Goal.** Not summarised by hand yet. Last input on record: Stop hook feedback: chat_color_gate BLOCK: this is a substantive reply but it is not color-coded. Brandon's standing rule (feedback_brandon_format): color-code your sections with colored bul
 
 - The controller now returns `stop_allowed: True`, with all 12 outcomes closed on verified records. I'm grabbing line numbers for the key code before.
@@ -103,7 +103,7 @@ Totals: 5,283 assistant replies, 92 MB of transcript.
 
 **Finish today.** New since the last hand pass. Open the chat and give it a read.
 
-### Fix contraction pairing in fifty-gates strip_quoted  (13.7 hours quiet, 214 replies)
+### Fix contraction pairing in fifty-gates strip_quoted  (14.2 hours quiet, 214 replies)
 **Goal.** Not summarised by hand yet. Last input on record: Base directory for this skill: /Users/brandonchavez/.claude/skills/completion-control # completion-control Completion authority lives here, not in the fifty gates and not in the reply text. 
 
 - The skill says the stop decision comes from `completion_controller.py` and `stop_proof.py`, never from reply text. I'll query them for this session.
@@ -113,7 +113,7 @@ Totals: 5,283 assistant replies, 92 MB of transcript.
 
 **Finish today.** New since the last hand pass. Open the chat and give it a read.
 
-### Stop ask_drift_gate scoring skill text as the ask  (13.4 hours quiet, 157 replies)
+### Stop ask_drift_gate scoring skill text as the ask  (14.0 hours quiet, 157 replies)
 **Goal.** Not summarised by hand yet. Last input on record: Stop hook feedback: [python3 /Users/brandonchavez/.claude/skills/fifty-gates/run_gates.py]: fifty-gates BLOCK: 1 hard gate(s) of 70 fired. G28 literal-ask-unaddressed: the named target never
 
 - Two Stop hooks blocked the close. G64 fired because I ran completion-control's scripts by raw path without loading the skill through the Skill tool..
@@ -123,7 +123,7 @@ Totals: 5,283 assistant replies, 92 MB of transcript.
 
 **Finish today.** New since the last hand pass. Open the chat and give it a read.
 
-### Slant rhymes chats  (12.5 hours quiet, 579 replies)
+### Slant rhymes chats  (13.0 hours quiet, 579 replies)
 **Goal.** Not summarised by hand yet. Last input on record: <task-notification> <task-id>b74vj8yu2</task-id> <tool-use-id>toolu_01Ucn6UqEC2eAKLqECEbeHQC</tool-use-id> <output-file>/private/tmp/claude-501/-Users-brandonchavez/adccc717-23f5-4262-80be-5
 
 - 🟩 **8 swaps are now logged.** The main pull still has the four Big Daddy Kane videos to go. This chat picks back up when it finishes.
@@ -133,7 +133,7 @@ Totals: 5,283 assistant replies, 92 MB of transcript.
 
 **Finish today.** New since the last hand pass. Open the chat and give it a read.
 
-### Video timestamps and song names  (11.4 hours quiet, 627 replies)
+### Video timestamps and song names  (11.9 hours quiet, 627 replies)
 **Goal.** Not summarised by hand yet. Last input on record: # /loop — schedule a recurring or self-paced prompt Parse the input below into `[interval] <prompt…>` and schedule it. ## Parsing (in priority order) 1. **Leading token**: if the first white
 
 - Row 3 named, no content-filter stop this time, only clean titles in both files. Marking it named and posting.
@@ -143,7 +143,7 @@ Totals: 5,283 assistant replies, 92 MB of transcript.
 
 **Finish today.** New since the last hand pass. Open the chat and give it a read.
 
-### Inbox new docs  (5.2 hours quiet, 337 replies)
+### Inbox new docs  (5.8 hours quiet, 337 replies)
 **Goal.** Not summarised by hand yet. Last input on record: [Request interrupted by user]
 
 - 🟩 **The second pass is finished, and both docs now carry the verified strengths of both builds.** Each difference was checked against its source before.
@@ -153,7 +153,7 @@ Totals: 5,283 assistant replies, 92 MB of transcript.
 
 **Finish today.** New since the last hand pass. Open the chat and give it a read.
 
-### Inbox new docs  (5.2 hours quiet, 265 replies)
+### Inbox new docs  (5.8 hours quiet, 265 replies)
 **Goal.** Not summarised by hand yet. Last input on record: [Request interrupted by user]
 
 - Taking a second full pass on both client docs, covering four things: 1. **Coverage:** every change marked in `updates.zip` is either reflected in the.
@@ -163,7 +163,7 @@ Totals: 5,283 assistant replies, 92 MB of transcript.
 
 **Finish today.** New since the last hand pass. Open the chat and give it a read.
 
-### Inbox new docs chats  (3.9 hours quiet, 395 replies)
+### Inbox new docs chats  (4.4 hours quiet, 395 replies)
 **Goal.** Not summarised by hand yet. Last input on record: Base directory for this skill: /Users/brandonchavez/.claude/skills/no-quit-shift # no-quit-shift — the executable anti-quit gate ## v2 (2026-06-06): proactive keep-alive + auto-deploy on eve
 
 - 🟥 **Yes, the handoffs failed, in two ways:** - 🟥 **The fork never wrote its handoff back to the iMac.** You asked on Sep 14 at 7:01 PM, and 10.
@@ -173,7 +173,7 @@ Totals: 5,283 assistant replies, 92 MB of transcript.
 
 **Finish today.** New since the last hand pass. Open the chat and give it a read.
 
-### Sound limit skill volume adjustment  (2.3 hours quiet, 193 replies)
+### Sound limit skill volume adjustment  (2.8 hours quiet, 193 replies)
 **Goal.** Not summarised by hand yet. Last input on record: turn it off
 
 - The gate caught one more of the same kind. Earlier I ran the no-quit-shift queue script by path and quoted its "0 items" result without loading that.
@@ -183,7 +183,7 @@ Totals: 5,283 assistant replies, 92 MB of transcript.
 
 **Finish today.** New since the last hand pass. Open the chat and give it a read.
 
-### Shrink MEMORY.md under the loader size cap  (1.2 hours quiet, 327 replies)
+### Shrink MEMORY.md under the loader size cap  (1.7 hours quiet, 327 replies)
 **Goal.** Not summarised by hand yet. Last input on record: Stop hook feedback: chat_color_gate BLOCK: this is a substantive reply but it is not color-coded. Brandon's standing rule (feedback_brandon_format): color-code your sections with colored bul
 
 - G53 was right: until now, no check had shown it could catch a mistake. I broke copies of the files on purpose, and every check caught the break aimed.
@@ -193,7 +193,7 @@ Totals: 5,283 assistant replies, 92 MB of transcript.
 
 **Finish today.** New since the last hand pass. Open the chat and give it a read.
 
-### Video timestamps and song names  (1.1 hours quiet, 283 replies)
+### Video timestamps and song names  (1.6 hours quiet, 283 replies)
 **Goal.** Not summarised by hand yet. Last input on record: Base directory for this skill: /Users/brandonchavez/.claude/skills/no-quit-shift # no-quit-shift — the executable anti-quit gate ## v2 (2026-06-06): proactive keep-alive + auto-deploy on eve
 
 - Stopping the naming work here. This turn silently switched to Sonnet mid-task, right after you said "finish in opus" — the system just told me.
@@ -203,22 +203,22 @@ Totals: 5,283 assistant replies, 92 MB of transcript.
 
 **Finish today.** New since the last hand pass. Open the chat and give it a read.
 
-### Reality fracture cards analysis  (49 minutes quiet, 134 replies)
-**Goal.** Not summarised by hand yet. Last input on record: Base directory for this skill: /Users/brandonchavez/.claude/skills/completion-control # completion-control Completion authority lives here, not in the fifty gates and not in the reply text. 
+### Troy character lineage mapping  (8 minutes quiet, 312 replies)
+**Goal.** Not summarised by hand yet. Last input on record: you have to send the handoff to the other mac
 
-- The stop gate caught a real gap. I ran the checklist controller's script directly without loading its skill, so I never read the rules for interpreting.
-- Quick status: **the answer text stands as posted**. I'm now **filling in real evidence records** so the checklist controller can verify the checklist.
-- All 12 evidence records **came back VERIFIED**, and R1 to R3 now point at them. Last step: the controller decision, plus the voice gate and fraud check.
-- Set snapshot - 🟪 **Reality Fracture (FRA) reaches Arena on September 29** and tabletop on October 2, with prereleases from September 25. **Previews run.
+- The file left `inbox/` and appeared in `processed/`, which happens either when this Mac ingested it or when the other Mac did. The log shows no ingest.
+- Delivery is confirmed by the round trip. This Mac's watcher never logged an ingest and holds no payload for the file, and the file moved itself into.
+- Delivery verified end to end. The archived copy is byte-identical (`b9eedaa3…`), and the bundle's 11 files show no unsynced placeholders. Recording the.
+- The handoff is now on the other Mac, not just sitting in iCloud. ## 🟢 How it went - **The sanctioned channel is `sfg/inbox/`**, watched on both.
 
 **Finish today.** New since the last hand pass. Open the chat and give it a read.
 
-### Troy character lineage mapping  (19 minutes quiet, 280 replies)
-**Goal.** Not summarised by hand yet. Last input on record: Base directory for this skill: /Users/brandonchavez/.claude/skills/ask # /ask — unified retrieval across the whole 2nd brain One question goes in. Ranked, source-cited results come back from
+### Reality fracture cards analysis  (0 minutes quiet, 197 replies)
+**Goal.** Not summarised by hand yet. Last input on record: sanctum lurker? just do satndard. and leak reations
 
-- The unscoped fraud check also passes: `RESULT: PASS (context-only findings)`, exit 0. Per your Firefox rule, I'm opening both updated pages in new tabs.
-- I updated both pages with everything in your five pastes that holds up against the scripts, and logged what didn't as corrections. Both pages load at.
-- No prose turn recorded for this slot.
-- No prose turn recorded for this slot.
+- All 12 records **VERIFIED** and the three items are met. Final gates on the exact text.
+- Two real problems. **The voice gate failed at score 23** (my ledger line claiming 0 is currently false), and three URL checks went stale past the.
+- The gate is flagging the word **"empower" 12 times** as AI-tell vocabulary, which here is the literal mechanic name. I'll keep the name where the card.
+- Gate now **PASSES at score 13** (threshold 20), with remaining hits on the mechanic name. Two of them are in ledger lines I can rephrase, and my ledger.
 
 **Finish today.** New since the last hand pass. Open the chat and give it a read.
